@@ -898,25 +898,25 @@ declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef capt
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @usrc_writeUTrie2Arrays(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #13 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !25
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = icmp eq ptr %7, null
-  %9 = load ptr, ptr %3, align 8, !tbaa !30
+  %9 = load ptr, ptr %3, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !31
+  %11 = load i32, ptr %10, align 8, !tbaa !30
   br i1 %8, label %12, label %16
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %14 = load i32, ptr %13, align 4, !tbaa !32
+  %14 = load i32, ptr %13, align 4, !tbaa !31
   %15 = add nsw i32 %14, %11
   tail call void @usrc_writeArray(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef 16, i32 noundef %15, ptr noundef nonnull @.str.10, ptr noundef %4)
   br label %20
 
 16:                                               ; preds = %5
   tail call void @usrc_writeArray(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef 16, i32 noundef %11, ptr noundef nonnull @.str.10, ptr noundef %4)
-  %17 = load ptr, ptr %6, align 8, !tbaa !25
+  %17 = load ptr, ptr %6, align 8, !tbaa !24
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %19 = load i32, ptr %18, align 4, !tbaa !32
+  %19 = load i32, ptr %18, align 4, !tbaa !31
   tail call void @usrc_writeArray(ptr noundef %0, ptr noundef %2, ptr noundef %17, i32 noundef 32, i32 noundef %19, ptr noundef nonnull @.str.10, ptr noundef %4)
   br label %20
 
@@ -935,13 +935,13 @@ define void @usrc_writeUTrie2Struct(ptr noundef captures(none) %0, ptr noundef r
 
 9:                                                ; preds = %7, %6
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !31
+  %15 = load i32, ptr %14, align 8, !tbaa !30
   %16 = sext i32 %15 to i64
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %3, ptr noundef %3, i64 noundef %16) #24
   br label %20
@@ -952,28 +952,28 @@ define void @usrc_writeUTrie2Struct(ptr noundef captures(none) %0, ptr noundef r
 
 20:                                               ; preds = %18, %13
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %22 = load i32, ptr %21, align 8, !tbaa !31
+  %22 = load i32, ptr %21, align 8, !tbaa !30
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %25 = load i32, ptr %24, align 4, !tbaa !32
+  %25 = load i32, ptr %24, align 4, !tbaa !31
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %28 = load i16, ptr %27, align 8, !tbaa !33
+  %28 = load i16, ptr %27, align 8, !tbaa !32
   %29 = sext i16 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 34
-  %31 = load i16, ptr %30, align 2, !tbaa !34
+  %31 = load i16, ptr %30, align 2, !tbaa !33
   %32 = sext i16 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %34 = load i32, ptr %33, align 4, !tbaa !35
+  %34 = load i32, ptr %33, align 4, !tbaa !34
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %37 = load i32, ptr %36, align 8, !tbaa !36
+  %37 = load i32, ptr %36, align 8, !tbaa !35
   %38 = zext i32 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %40 = load i32, ptr %39, align 4, !tbaa !37
+  %40 = load i32, ptr %39, align 4, !tbaa !36
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %43 = load i32, ptr %42, align 8, !tbaa !38
+  %43 = load i32, ptr %42, align 8, !tbaa !37
   %44 = sext i32 %43 to i64
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef %23, i64 noundef %26, i32 noundef %29, i32 noundef %32, i64 noundef %35, i64 noundef %38, i64 noundef %41, i64 noundef %44) #24
   %.not24 = icmp eq ptr %5, null
@@ -991,12 +991,12 @@ define void @usrc_writeUTrie2Struct(ptr noundef captures(none) %0, ptr noundef r
 define void @usrc_writeUCPTrieArrays(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #13 {
   %7 = icmp eq i32 %5, 1
   %8 = select i1 %7, ptr @.str.14, ptr @.str.10
-  %9 = load ptr, ptr %3, align 8, !tbaa !39
+  %9 = load ptr, ptr %3, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !41
+  %11 = load i32, ptr %10, align 8, !tbaa !40
   tail call void @usrc_writeArray(ptr noundef %0, ptr noundef %1, ptr noundef %9, i32 noundef 16, i32 noundef %11, ptr noundef nonnull %8, ptr noundef %4)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 31
-  %13 = load i8, ptr %12, align 1, !tbaa !42
+  %13 = load i8, ptr %12, align 1, !tbaa !41
   switch i8 %13, label %14 [
     i8 0, label %17
     i8 1, label %.fold.split
@@ -1015,7 +1015,7 @@ define void @usrc_writeUCPTrieArrays(ptr noundef captures(none) %0, ptr noundef 
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !15
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %22 = load i32, ptr %21, align 4, !tbaa !43
+  %22 = load i32, ptr %21, align 4, !tbaa !42
   tail call void @usrc_writeArray(ptr noundef %0, ptr noundef %2, ptr noundef %20, i32 noundef %18, i32 noundef %22, ptr noundef nonnull %8, ptr noundef %4)
   ret void
 }
@@ -1040,31 +1040,31 @@ define void @usrc_writeUCPTrieStruct(ptr noundef captures(none) %0, ptr noundef 
 14:                                               ; preds = %12, %10
   %15 = phi ptr [ @.str.16, %12 ], [ @.str.17, %10 ]
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !41
+  %17 = load i32, ptr %16, align 8, !tbaa !40
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !43
+  %20 = load i32, ptr %19, align 4, !tbaa !42
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %23 = load i32, ptr %22, align 8, !tbaa !44
+  %23 = load i32, ptr %22, align 8, !tbaa !43
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %26 = load i16, ptr %25, align 4, !tbaa !45
+  %26 = load i16, ptr %25, align 4, !tbaa !44
   %27 = zext i16 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %29 = load i8, ptr %28, align 2, !tbaa !46
+  %29 = load i8, ptr %28, align 2, !tbaa !45
   %30 = sext i8 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 31
-  %32 = load i8, ptr %31, align 1, !tbaa !42
+  %32 = load i8, ptr %31, align 1, !tbaa !41
   %33 = sext i8 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 38
-  %35 = load i16, ptr %34, align 2, !tbaa !47
+  %35 = load i16, ptr %34, align 2, !tbaa !46
   %36 = zext i16 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %38 = load i32, ptr %37, align 8, !tbaa !48
+  %38 = load i32, ptr %37, align 8, !tbaa !47
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %41 = load i32, ptr %40, align 4, !tbaa !49
+  %41 = load i32, ptr %40, align 4, !tbaa !48
   %42 = zext i32 %41 to i64
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %15, i64 noundef %18, i64 noundef %21, i64 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33, i32 noundef %36, i64 noundef %39, i64 noundef %42) #24
   %.not22 = icmp eq ptr %5, null
@@ -1085,7 +1085,7 @@ define void @usrc_writeUCPTrie(ptr noundef captures(none) %0, ptr noundef %1, pt
   %7 = alloca [100 x i8], align 16
   %8 = alloca [100 x i8], align 16
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 31
-  %10 = load i8, ptr %9, align 1, !tbaa !42
+  %10 = load i8, ptr %9, align 1, !tbaa !41
   switch i8 %10, label %11 [
     i8 0, label %14
     i8 1, label %.fold.split
@@ -1129,11 +1129,11 @@ define void @usrc_writeUCPTrie(ptr noundef captures(none) %0, ptr noundef %1, pt
 22:                                               ; preds = %19, %16
   %23 = icmp eq i32 %3, 1
   %24 = select i1 %23, ptr @.str.14, ptr @.str.10
-  %25 = load ptr, ptr %2, align 8, !tbaa !39
+  %25 = load ptr, ptr %2, align 8, !tbaa !38
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !41
+  %27 = load i32, ptr %26, align 8, !tbaa !40
   call void @usrc_writeArray(ptr noundef %0, ptr noundef nonnull readonly %5, ptr noundef %25, i32 noundef 16, i32 noundef %27, ptr noundef nonnull %24, ptr noundef nonnull readonly %7)
-  %28 = load i8, ptr %9, align 1, !tbaa !42
+  %28 = load i8, ptr %9, align 1, !tbaa !41
   switch i8 %28, label %29 [
     i8 0, label %usrc_writeUCPTrieArrays.exit
     i8 1, label %.fold.split.i
@@ -1152,7 +1152,7 @@ usrc_writeUCPTrieArrays.exit:                     ; preds = %22, %29, %.fold.spl
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !15
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %36 = load i32, ptr %35, align 4, !tbaa !43
+  %36 = load i32, ptr %35, align 4, !tbaa !42
   call void @usrc_writeArray(ptr noundef %0, ptr noundef nonnull readonly %6, ptr noundef %34, i32 noundef %32, i32 noundef %36, ptr noundef nonnull %24, ptr noundef nonnull readonly %7)
   %switch = icmp eq i32 %3, 0
   br i1 %switch, label %39, label %37
@@ -1176,29 +1176,29 @@ usrc_writeUCPTrieArrays.exit:                     ; preds = %22, %29, %.fold.spl
 
 usrc_writeUCPTrieStruct.exit:                     ; preds = %37, %39
   %45 = phi ptr [ @.str.16, %39 ], [ @.str.17, %37 ]
-  %46 = load i32, ptr %26, align 8, !tbaa !41
+  %46 = load i32, ptr %26, align 8, !tbaa !40
   %47 = sext i32 %46 to i64
-  %48 = load i32, ptr %35, align 4, !tbaa !43
+  %48 = load i32, ptr %35, align 4, !tbaa !42
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %51 = load i32, ptr %50, align 8, !tbaa !44
+  %51 = load i32, ptr %50, align 8, !tbaa !43
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %54 = load i16, ptr %53, align 4, !tbaa !45
+  %54 = load i16, ptr %53, align 4, !tbaa !44
   %55 = zext i16 %54 to i32
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %57 = load i8, ptr %56, align 2, !tbaa !46
+  %57 = load i8, ptr %56, align 2, !tbaa !45
   %58 = sext i8 %57 to i32
-  %59 = load i8, ptr %9, align 1, !tbaa !42
+  %59 = load i8, ptr %9, align 1, !tbaa !41
   %60 = sext i8 %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 38
-  %62 = load i16, ptr %61, align 2, !tbaa !47
+  %62 = load i16, ptr %61, align 2, !tbaa !46
   %63 = zext i16 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %65 = load i32, ptr %64, align 8, !tbaa !48
+  %65 = load i32, ptr %64, align 8, !tbaa !47
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %68 = load i32, ptr %67, align 4, !tbaa !49
+  %68 = load i32, ptr %67, align 4, !tbaa !48
   %69 = zext i32 %68 to i64
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %45, i64 noundef %47, i64 noundef %49, i64 noundef %52, i32 noundef %55, i32 noundef %58, i32 noundef %60, i32 noundef %63, i64 noundef %66, i64 noundef %69) #24
   %71 = call i32 @fputs(ptr noundef nonnull readonly %8, ptr noundef %0)
@@ -1239,7 +1239,7 @@ define void @usrc_writeUnicodeSet(ptr noundef captures(none) %0, ptr noundef non
   br i1 %.not, label %47, label %12
 
 12:                                               ; preds = %11
-  %13 = load i32, ptr %7, align 8, !tbaa !50
+  %13 = load i32, ptr %7, align 8, !tbaa !49
   %.not19 = icmp sgt i32 %13, -1
   br i1 %.not19, label %44, label %14
 
@@ -1294,7 +1294,7 @@ define void @usrc_writeUnicodeSet(ptr noundef captures(none) %0, ptr noundef non
 
 40:                                               ; preds = %33
   %41 = call i64 @fwrite(ptr nonnull @.str.7, i64 2, i64 1, ptr %0)
-  br label %.outer, !llvm.loop !55
+  br label %.outer, !llvm.loop !54
 
 42:                                               ; preds = %33, %19
   %43 = landingpad { ptr, i32 }
@@ -1302,9 +1302,9 @@ define void @usrc_writeUnicodeSet(ptr noundef captures(none) %0, ptr noundef non
   br label %49
 
 44:                                               ; preds = %12
-  %45 = load i32, ptr %8, align 4, !tbaa !56
+  %45 = load i32, ptr %8, align 4, !tbaa !55
   %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.31, i32 noundef %13, i32 noundef %45) #24
-  br label %9, !llvm.loop !55
+  br label %9, !llvm.loop !54
 
 47:                                               ; preds = %11
   %48 = call i64 @fwrite(ptr nonnull @.str.32, i64 2, i64 1, ptr %0)
@@ -1346,7 +1346,7 @@ define void @usrc_writeStringAsASCII(ptr noundef captures(none) %0, ptr noundef 
   %14 = add nsw i32 %.02342, 1
   %15 = sext i32 %.02342 to i64
   %16 = getelementptr inbounds i16, ptr %1, i64 %15
-  %17 = load i16, ptr %16, align 2, !tbaa !57
+  %17 = load i16, ptr %16, align 2, !tbaa !56
   %18 = zext i16 %17 to i32
   %19 = and i32 %18, 64512
   %20 = icmp ne i32 %19, 55296
@@ -1357,7 +1357,7 @@ define void @usrc_writeStringAsASCII(ptr noundef captures(none) %0, ptr noundef 
 21:                                               ; preds = %13
   %22 = sext i32 %14 to i64
   %23 = getelementptr inbounds i16, ptr %1, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !57
+  %24 = load i16, ptr %23, align 2, !tbaa !56
   %25 = zext i16 %24 to i32
   %26 = and i32 %25, 64512
   %27 = icmp eq i32 %26, 56320
@@ -1387,28 +1387,28 @@ define void @usrc_writeStringAsASCII(ptr noundef captures(none) %0, ptr noundef 
 
 38:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #24
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !59
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !58
   store i16 2, ptr %9, align 8, !tbaa !15
   %39 = invoke noundef signext i8 @_ZN6icu_7711ICU_Utility17escapeUnprintableERNS_13UnicodeStringEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %.12538)
           to label %40 unwind label %50
 
 40:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #24
-  store ptr %10, ptr %6, align 8, !tbaa !61
-  store i64 0, ptr %11, align 8, !tbaa !63
+  store ptr %10, ptr %6, align 8, !tbaa !60
+  store i64 0, ptr %11, align 8, !tbaa !62
   store i8 0, ptr %10, align 8, !tbaa !15
   %41 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6icu_7713UnicodeString12toUTF8StringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERT_S9_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %42 unwind label %52
 
 42:                                               ; preds = %40
-  %43 = load ptr, ptr %6, align 8, !tbaa !65
+  %43 = load ptr, ptr %6, align 8, !tbaa !64
   %fputs32 = call i32 @fputs(ptr %43, ptr %0)
-  %44 = load ptr, ptr %6, align 8, !tbaa !65
+  %44 = load ptr, ptr %6, align 8, !tbaa !64
   %45 = icmp eq ptr %44, %10
   br i1 %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %42
-  %46 = load i64, ptr %11, align 8, !tbaa !63
+  %46 = load i64, ptr %11, align 8, !tbaa !62
   %47 = icmp ult i64 %46, 16
   call void @llvm.assume(i1 %47)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1433,12 +1433,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 52:                                               ; preds = %40
   %53 = landingpad { ptr, i32 }
           cleanup
-  %54 = load ptr, ptr %6, align 8, !tbaa !65
+  %54 = load ptr, ptr %6, align 8, !tbaa !64
   %55 = icmp eq ptr %54, %10
   br i1 %55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i34: ; preds = %52
-  %56 = load i64, ptr %11, align 8, !tbaa !63
+  %56 = load i64, ptr %11, align 8, !tbaa !62
   %57 = icmp ult i64 %56, 16
   call void @llvm.assume(i1 %57)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35
@@ -1471,7 +1471,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %_ZN
 63:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %61, %35
   %.239 = phi i32 [ %.240, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.240, %61 ], [ %14, %35 ]
   %64 = icmp slt i32 %.239, %2
-  br i1 %64, label %13, label %._crit_edge, !llvm.loop !66
+  br i1 %64, label %13, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %63, %4
   %fputc29 = call i32 @fputc(i32 34, ptr %0)
@@ -1503,13 +1503,13 @@ define void @usrc_writeUCPMap(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %13 = add nuw nsw i32 %10, 1
   %14 = call i32 @ucpmap_getRange_77(ptr noundef %1, i32 noundef %13, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %5)
   %15 = icmp sgt i32 %14, -1
-  br i1 %15, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !67
+  br i1 %15, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !66
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %16 = phi i32 [ %25, %.lr.ph.split ], [ %8, %.lr.ph ]
   %.016 = phi i32 [ %24, %.lr.ph.split ], [ 0, %.lr.ph ]
   %17 = load i32, ptr %5, align 4, !tbaa !12
-  %18 = load ptr, ptr %2, align 8, !tbaa !59
+  %18 = load ptr, ptr %2, align 8, !tbaa !58
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %17)
@@ -1518,7 +1518,7 @@ define void @usrc_writeUCPMap(ptr noundef captures(none) %0, ptr noundef %1, ptr
   %24 = add nuw nsw i32 %16, 1
   %25 = call i32 @ucpmap_getRange_77(ptr noundef %1, i32 noundef %24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %5)
   %26 = icmp sgt i32 %25, -1
-  br i1 %26, label %.lr.ph.split, label %._crit_edge, !llvm.loop !69
+  br i1 %26, label %.lr.ph.split, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %4
   %27 = call i64 @fwrite(ptr nonnull @.str.32, i64 2, i64 1, ptr %0)
@@ -1597,7 +1597,7 @@ define void @usrc_writeArrayOfMostlyInvChars(ptr noundef captures(none) %0, ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = add nsw i32 %.1, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %30, %9
   %.not43 = icmp eq ptr %4, null
@@ -1627,19 +1627,19 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6icu_77
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = select i1 %6, i32 %10, i32 %8
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %3, align 8, !tbaa !59
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %3, align 8, !tbaa !58
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %1, ptr %12, align 8, !tbaa !71
+  store ptr %1, ptr %12, align 8, !tbaa !70
   %13 = icmp sgt i32 %11, 0
   br i1 %13, label %14, label %_ZN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPS6_i.exit
 
 14:                                               ; preds = %2
   %15 = zext nneg i32 %11 to i64
-  %16 = load ptr, ptr %1, align 8, !tbaa !65
+  %16 = load ptr, ptr %1, align 8, !tbaa !64
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = icmp eq ptr %16, %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !63
+  %20 = load i64, ptr %19, align 8, !tbaa !62
   br i1 %18, label %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
 21:                                               ; preds = %14
@@ -1720,10 +1720,10 @@ define linkonce_odr void @_ZN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6AppendEPKci(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !71
+  %5 = load ptr, ptr %4, align 8, !tbaa !70
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !63
+  %8 = load i64, ptr %7, align 8, !tbaa !62
   %9 = sub i64 4611686018427387903, %8
   %10 = icmp ult i64 %9, %6
   br i1 %10, label %11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
@@ -1817,56 +1817,55 @@ attributes #30 = { noreturn }
 !19 = !{!"short", !7, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"long", !7, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!26, !28, i64 16}
-!26 = !{!"_ZTS6UTrie2", !27, i64 0, !27, i64 8, !28, i64 16, !9, i64 24, !9, i64 28, !19, i64 32, !19, i64 34, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !6, i64 56, !9, i64 64, !7, i64 68, !7, i64 69, !19, i64 70, !29, i64 72}
-!27 = !{!"p1 short", !6, i64 0}
-!28 = !{!"p1 int", !6, i64 0}
-!29 = !{!"p1 _ZTS9UNewTrie2", !6, i64 0}
-!30 = !{!26, !27, i64 0}
-!31 = !{!26, !9, i64 24}
-!32 = !{!26, !9, i64 28}
-!33 = !{!26, !19, i64 32}
-!34 = !{!26, !19, i64 34}
-!35 = !{!26, !9, i64 36}
-!36 = !{!26, !9, i64 40}
-!37 = !{!26, !9, i64 44}
-!38 = !{!26, !9, i64 48}
-!39 = !{!40, !27, i64 0}
-!40 = !{!"_ZTS7UCPTrie", !27, i64 0, !7, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !19, i64 28, !7, i64 30, !7, i64 31, !9, i64 32, !19, i64 36, !19, i64 38, !9, i64 40, !9, i64 44}
-!41 = !{!40, !9, i64 16}
-!42 = !{!40, !7, i64 31}
-!43 = !{!40, !9, i64 20}
-!44 = !{!40, !9, i64 24}
-!45 = !{!40, !19, i64 28}
-!46 = !{!40, !7, i64 30}
-!47 = !{!40, !19, i64 38}
-!48 = !{!40, !9, i64 40}
-!49 = !{!40, !9, i64 44}
-!50 = !{!51, !9, i64 8}
-!51 = !{!"_ZTSN6icu_7718UnicodeSetIteratorE", !52, i64 0, !9, i64 8, !9, i64 12, !53, i64 16, !54, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !9, i64 52, !53, i64 56}
-!52 = !{!"_ZTSN6icu_777UObjectE"}
-!53 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !6, i64 0}
-!54 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !6, i64 0}
-!55 = distinct !{!55, !23, !24}
-!56 = !{!51, !9, i64 12}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"char16_t", !7, i64 0}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"vtable pointer", !8, i64 0}
-!61 = !{!62, !5, i64 0}
-!62 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
-!63 = !{!64, !21, i64 8}
-!64 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !62, i64 0, !21, i64 8, !7, i64 16}
-!65 = !{!64, !5, i64 0}
-!66 = distinct !{!66, !23, !24}
-!67 = distinct !{!67, !23, !24, !68}
-!68 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!69 = distinct !{!69, !23, !24}
-!70 = distinct !{!70, !23, !24}
-!71 = !{!72, !74, i64 8}
-!72 = !{!"_ZTSN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !73, i64 0, !74, i64 8}
-!73 = !{!"_ZTSN6icu_778ByteSinkE"}
-!74 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !6, i64 0}
+!24 = !{!25, !27, i64 16}
+!25 = !{!"_ZTS6UTrie2", !26, i64 0, !26, i64 8, !27, i64 16, !9, i64 24, !9, i64 28, !19, i64 32, !19, i64 34, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !6, i64 56, !9, i64 64, !7, i64 68, !7, i64 69, !19, i64 70, !28, i64 72}
+!26 = !{!"p1 short", !6, i64 0}
+!27 = !{!"p1 int", !6, i64 0}
+!28 = !{!"p1 _ZTS9UNewTrie2", !6, i64 0}
+!29 = !{!25, !26, i64 0}
+!30 = !{!25, !9, i64 24}
+!31 = !{!25, !9, i64 28}
+!32 = !{!25, !19, i64 32}
+!33 = !{!25, !19, i64 34}
+!34 = !{!25, !9, i64 36}
+!35 = !{!25, !9, i64 40}
+!36 = !{!25, !9, i64 44}
+!37 = !{!25, !9, i64 48}
+!38 = !{!39, !26, i64 0}
+!39 = !{!"_ZTS7UCPTrie", !26, i64 0, !7, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !19, i64 28, !7, i64 30, !7, i64 31, !9, i64 32, !19, i64 36, !19, i64 38, !9, i64 40, !9, i64 44}
+!40 = !{!39, !9, i64 16}
+!41 = !{!39, !7, i64 31}
+!42 = !{!39, !9, i64 20}
+!43 = !{!39, !9, i64 24}
+!44 = !{!39, !19, i64 28}
+!45 = !{!39, !7, i64 30}
+!46 = !{!39, !19, i64 38}
+!47 = !{!39, !9, i64 40}
+!48 = !{!39, !9, i64 44}
+!49 = !{!50, !9, i64 8}
+!50 = !{!"_ZTSN6icu_7718UnicodeSetIteratorE", !51, i64 0, !9, i64 8, !9, i64 12, !52, i64 16, !53, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !9, i64 52, !52, i64 56}
+!51 = !{!"_ZTSN6icu_777UObjectE"}
+!52 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !6, i64 0}
+!53 = !{!"p1 _ZTSN6icu_7710UnicodeSetE", !6, i64 0}
+!54 = distinct !{!54, !23}
+!55 = !{!50, !9, i64 12}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"char16_t", !7, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"vtable pointer", !8, i64 0}
+!60 = !{!61, !5, i64 0}
+!61 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !5, i64 0}
+!62 = !{!63, !21, i64 8}
+!63 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !61, i64 0, !21, i64 8, !7, i64 16}
+!64 = !{!63, !5, i64 0}
+!65 = distinct !{!65, !23}
+!66 = distinct !{!66, !23, !67}
+!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!68 = distinct !{!68, !23}
+!69 = distinct !{!69, !23}
+!70 = !{!71, !73, i64 8}
+!71 = !{!"_ZTSN6icu_7714StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !72, i64 0, !73, i64 8}
+!72 = !{!"_ZTSN6icu_778ByteSinkE"}
+!73 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !6, i64 0}

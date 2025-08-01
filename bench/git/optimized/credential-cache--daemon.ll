@@ -303,8 +303,8 @@ check_expirations.exit.i.i:                       ; preds = %107, %._crit_edge.i
 
 108:                                              ; preds = %check_expirations.exit.i.i
   %109 = sub i64 %.3.i.i.i, %74
-  store i32 %52, ptr %8, align 4, !tbaa !45
-  store i16 1, ptr %63, align 4, !tbaa !48
+  store i32 %52, ptr %8, align 4, !tbaa !44
+  store i16 1, ptr %63, align 4, !tbaa !47
   %110 = trunc i64 %109 to i32
   %111 = mul i32 %110, 1000
   %112 = call i32 @poll(ptr noundef nonnull %8, i64 noundef 1, i32 noundef %111) #16
@@ -322,7 +322,7 @@ check_expirations.exit.i.i:                       ; preds = %107, %._crit_edge.i
   unreachable
 
 118:                                              ; preds = %108
-  %119 = load i16, ptr %64, align 2, !tbaa !49
+  %119 = load i16, ptr %64, align 2, !tbaa !48
   %120 = and i16 %119, 1
   %.not19.i.i = icmp eq i16 %120, 0
   br i1 %.not19.i.i, label %serve_cache_loop.exit.i, label %121
@@ -354,7 +354,7 @@ check_expirations.exit.i.i:                       ; preds = %107, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.serve_one_client.action, i64 24, i1 false)
   %133 = call i32 @strbuf_getline_lf(ptr noundef nonnull @read_request.item, ptr noundef %131) #16
-  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @read_request.item, i64 16), align 8, !tbaa !50
+  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @read_request.item, i64 16), align 8, !tbaa !49
   %scevgep.i.i.i.i = getelementptr i8, ptr %134, i64 7
   br label %135
 
@@ -371,7 +371,7 @@ check_expirations.exit.i.i:                       ; preds = %107, %._crit_edge.i
   %139 = load i8, ptr %.07.i.i.i.i.i, align 1, !tbaa !21
   %.06.i.add.i.i.i.i = add nuw nsw i64 %.06.i.idx.i.i.i.i, 1
   %140 = icmp eq i8 %139, %137
-  br i1 %140, label %135, label %skip_prefix.exit.i.i.i.i, !llvm.loop !52
+  br i1 %140, label %135, label %skip_prefix.exit.i.i.i.i, !llvm.loop !51
 
 skip_prefix.exit.i.i.i.i:                         ; preds = %136
   %141 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.35, ptr noundef %134) #16
@@ -381,7 +381,7 @@ skip_prefix.exit.i.i.i.i:                         ; preds = %136
   %143 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep.i.i.i.i) #19
   call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %scevgep.i.i.i.i, i64 noundef %143) #16
   %144 = call i32 @strbuf_getline_lf(ptr noundef nonnull @read_request.item, ptr noundef %131) #16
-  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @read_request.item, i64 16), align 8, !tbaa !50
+  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @read_request.item, i64 16), align 8, !tbaa !49
   %scevgep21.i.i.i.i = getelementptr i8, ptr %145, i64 8
   br label %146
 
@@ -398,7 +398,7 @@ skip_prefix.exit.i.i.i.i:                         ; preds = %136
   %150 = load i8, ptr %.07.i7.i.i.i.i, align 1, !tbaa !21
   %.06.i8.add.i.i.i.i = add nuw nsw i64 %.06.i8.idx.i.i.i.i, 1
   %151 = icmp eq i8 %150, %148
-  br i1 %151, label %146, label %skip_prefix.exit10.i.i.i.i, !llvm.loop !52
+  br i1 %151, label %146, label %skip_prefix.exit10.i.i.i.i, !llvm.loop !51
 
 skip_prefix.exit10.i.i.i.i:                       ; preds = %147
   %152 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef %145) #16
@@ -413,7 +413,7 @@ read_request.exit.i.i.i:                          ; preds = %146
   br i1 %156, label %serve_one_client.exit.i.i, label %157
 
 157:                                              ; preds = %read_request.exit.i.i.i
-  %158 = load ptr, ptr %65, align 8, !tbaa !50
+  %158 = load ptr, ptr %65, align 8, !tbaa !49
   %159 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(4) @.str.18) #19
   %.not.i21.i.i = icmp eq i32 %159, 0
   br i1 %.not.i21.i.i, label %160, label %210
@@ -428,7 +428,7 @@ read_request.exit.i.i.i:                          ; preds = %146
   %164 = load i32, ptr @entries_nr, align 4, !tbaa !4
   %165 = sext i32 %164 to i64
   %166 = icmp slt i64 %indvars.iv.next.i.i.i.i, %165
-  br i1 %166, label %.lr.ph.i.i.i.i, label %serve_one_client.exit.i.i, !llvm.loop !53
+  br i1 %166, label %.lr.ph.i.i.i.i, label %serve_one_client.exit.i.i, !llvm.loop !52
 
 .lr.ph.i.i.i.i:                                   ; preds = %160, %163
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %163 ], [ 0, %160 ]
@@ -451,7 +451,7 @@ lookup_credential.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
   store i8 %175, ptr %173, align 4
   %176 = call i64 @fwrite(ptr nonnull @.str.19, i64 22, i64 1, ptr %132)
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 128
-  %178 = load ptr, ptr %177, align 8, !tbaa !54
+  %178 = load ptr, ptr %177, align 8, !tbaa !53
   %.not38.i.i.i = icmp eq ptr %178, null
   br i1 %.not38.i.i.i, label %181, label %179
 
@@ -461,7 +461,7 @@ lookup_credential.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
 
 181:                                              ; preds = %179, %172
   %182 = getelementptr inbounds nuw i8, ptr %171, i64 136
-  %183 = load ptr, ptr %182, align 8, !tbaa !55
+  %183 = load ptr, ptr %182, align 8, !tbaa !54
   %.not39.i.i.i = icmp eq ptr %183, null
   br i1 %.not39.i.i.i, label %186, label %184
 
@@ -476,7 +476,7 @@ lookup_credential.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
 
 188:                                              ; preds = %186
   %189 = getelementptr inbounds nuw i8, ptr %171, i64 192
-  %190 = load ptr, ptr %189, align 8, !tbaa !56
+  %190 = load ptr, ptr %189, align 8, !tbaa !55
   %.not41.i.i.i = icmp eq ptr %190, null
   br i1 %.not41.i.i.i, label %193, label %191
 
@@ -491,7 +491,7 @@ lookup_credential.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
 
 195:                                              ; preds = %193
   %196 = getelementptr inbounds nuw i8, ptr %171, i64 144
-  %197 = load ptr, ptr %196, align 8, !tbaa !57
+  %197 = load ptr, ptr %196, align 8, !tbaa !56
   %.not43.i.i.i = icmp eq ptr %197, null
   br i1 %.not43.i.i.i, label %200, label %198
 
@@ -501,7 +501,7 @@ lookup_credential.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
 
 200:                                              ; preds = %198, %195, %193
   %201 = getelementptr inbounds nuw i8, ptr %171, i64 184
-  %202 = load i64, ptr %201, align 8, !tbaa !58
+  %202 = load i64, ptr %201, align 8, !tbaa !57
   %.not44.i.i.i = icmp eq i64 %202, -1
   br i1 %.not44.i.i.i, label %205, label %203
 
@@ -511,7 +511,7 @@ lookup_credential.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
 
 205:                                              ; preds = %203, %200
   %206 = getelementptr inbounds nuw i8, ptr %171, i64 176
-  %207 = load ptr, ptr %206, align 8, !tbaa !59
+  %207 = load ptr, ptr %206, align 8, !tbaa !58
   %.not45.i.i.i = icmp eq ptr %207, null
   br i1 %.not45.i.i.i, label %serve_one_client.exit.i.i, label %208
 
@@ -557,7 +557,7 @@ lookup_credential.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
   %225 = load i32, ptr @entries_nr, align 4, !tbaa !4
   %226 = sext i32 %225 to i64
   %227 = icmp slt i64 %indvars.iv.next.i53.i.i.i, %226
-  br i1 %227, label %.lr.ph.i50.i.i.i, label %serve_one_client.exit.i.i, !llvm.loop !60
+  br i1 %227, label %.lr.ph.i50.i.i.i, label %serve_one_client.exit.i.i, !llvm.loop !59
 
 228:                                              ; preds = %214
   %229 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(6) @.str.29) #19
@@ -573,7 +573,7 @@ lookup_credential.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
   br label %serve_one_client.exit.i.i
 
 233:                                              ; preds = %230
-  %234 = load ptr, ptr %66, align 8, !tbaa !61
+  %234 = load ptr, ptr %66, align 8, !tbaa !60
   %235 = icmp ne ptr %234, null
   %236 = load ptr, ptr %67, align 8
   %237 = icmp ne ptr %236, null
@@ -620,7 +620,7 @@ serve_one_client.exit.i.i:                        ; preds = %224, %163, %248, %2
 
 serve_cache_loop.exit.i:                          ; preds = %serve_one_client.exit.i.i, %128, %124, %118, %114
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  br label %72, !llvm.loop !62
+  br label %72, !llvm.loop !61
 
 serve_cache.exit:                                 ; preds = %107, %check_expirations.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
@@ -768,7 +768,7 @@ define internal fastcc void @remove_credential(ptr noundef nonnull %0, i32 nound
   %11 = load i32, ptr @entries_nr, align 4, !tbaa !4
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !60
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %10, %2
   ret void
@@ -930,24 +930,23 @@ attributes #19 = { nounwind willreturn memory(read) }
 !39 = !{!"strvec", !40, i64 0, !12, i64 8, !12, i64 16}
 !40 = !{!"p2 omnipotent char", !11, i64 0}
 !41 = !{!"credential_capability", !5, i64 0, !5, i64 0, !5, i64 0}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = !{!46, !5, i64 0}
-!46 = !{!"pollfd", !5, i64 0, !47, i64 4, !47, i64 6}
-!47 = !{!"short", !6, i64 0}
-!48 = !{!46, !47, i64 4}
-!49 = !{!46, !47, i64 6}
-!50 = !{!51, !10, i64 16}
-!51 = !{!"strbuf", !12, i64 0, !12, i64 8, !10, i64 16}
-!52 = distinct !{!52, !43, !44}
-!53 = distinct !{!53, !43, !44}
-!54 = !{!35, !10, i64 128}
-!55 = !{!35, !10, i64 136}
-!56 = !{!35, !10, i64 192}
-!57 = !{!35, !10, i64 144}
-!58 = !{!35, !12, i64 184}
-!59 = !{!35, !10, i64 176}
-!60 = distinct !{!60, !43, !44}
-!61 = !{!36, !10, i64 128}
-!62 = distinct !{!62, !43, !44}
+!44 = !{!45, !5, i64 0}
+!45 = !{!"pollfd", !5, i64 0, !46, i64 4, !46, i64 6}
+!46 = !{!"short", !6, i64 0}
+!47 = !{!45, !46, i64 4}
+!48 = !{!45, !46, i64 6}
+!49 = !{!50, !10, i64 16}
+!50 = !{!"strbuf", !12, i64 0, !12, i64 8, !10, i64 16}
+!51 = distinct !{!51, !43}
+!52 = distinct !{!52, !43}
+!53 = !{!35, !10, i64 128}
+!54 = !{!35, !10, i64 136}
+!55 = !{!35, !10, i64 192}
+!56 = !{!35, !10, i64 144}
+!57 = !{!35, !12, i64 184}
+!58 = !{!35, !10, i64 176}
+!59 = distinct !{!59, !43}
+!60 = !{!36, !10, i64 128}
+!61 = distinct !{!61, !43}

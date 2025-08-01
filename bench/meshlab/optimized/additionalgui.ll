@@ -461,7 +461,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %15, %_ZN9QtPrivate8
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.013.017, i64 8
   %.not = icmp eq ptr %25, %22
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 26:                                               ; preds = %_ZN7QStringC2ERKS_.exit
   %27 = landingpad { ptr, i32 }
@@ -914,7 +914,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %122 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
   %123 = add nsw i64 %.047.i.i.i.i.i, -1
   %124 = icmp sgt i64 %.047.i.i.i.i.i, 1
-  br i1 %124, label %106, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !7
+  br i1 %124, label %106, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !5
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %121
   %125 = add nsw i64 %.idx5.i.i, %105
@@ -999,7 +999,7 @@ _ZN5QListIP7QActionE9push_backERKS1_.exit:        ; preds = %.thread, %52, %.loo
   %151 = sub nsw i32 %148, %150
   %152 = sext i32 %151 to i64
   %153 = icmp slt i64 %indvars.iv.next, %152
-  br i1 %153, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  br i1 %153, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5QListIP7QActionE9push_backERKS1_.exit
   %.pre107.pre = load ptr, ptr %6, align 8
@@ -1180,7 +1180,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i48: ; preds = %_ZN9QtPrivate8
   %244 = sub nsw i32 %241, %243
   %245 = sext i32 %244 to i64
   %246 = icmp slt i64 %indvars.iv.next103, %245
-  br i1 %246, label %.lr.ph96, label %._crit_edge97, !llvm.loop !10
+  br i1 %246, label %.lr.ph96, label %._crit_edge97, !llvm.loop !8
 
 ._crit_edge97:                                    ; preds = %238, %.preheader
   %247 = load ptr, ptr %1, align 8
@@ -1548,16 +1548,16 @@ define void @_ZN10SearchMenu12clearResultsEv(ptr noundef nonnull align 8 derefer
   %2 = alloca %class.QList, align 8
   %3 = alloca %"class.QtPrivate::QForeachContainer", align 8
   call void @_ZNK7QWidget7actionsEv(ptr dead_on_unwind nonnull writable sret(%class.QList) align 8 %2, ptr noundef nonnull align 8 dereferenceable(48) %0)
-  call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %4 = load ptr, ptr %2, align 8, !noalias !11
-  store ptr %4, ptr %3, align 8, !alias.scope !11
-  %5 = load atomic i32, ptr %4 monotonic, align 4, !noalias !11
+  call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  %4 = load ptr, ptr %2, align 8, !noalias !9
+  store ptr %4, ptr %3, align 8, !alias.scope !9
+  %5 = load atomic i32, ptr %4 monotonic, align 4, !noalias !9
   %6 = add i32 %5, -1
   %or.cond.not.i.i.i.i = icmp ult i32 %6, -2
   br i1 %or.cond.not.i.i.i.i, label %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, label %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
 
 _ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i:   ; preds = %1
-  %7 = atomicrmw add ptr %4, i32 1 seq_cst, align 4, !noalias !11
+  %7 = atomicrmw add ptr %4, i32 1 seq_cst, align 4, !noalias !9
   br label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
 
 _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
@@ -1566,19 +1566,19 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
 
 8:                                                ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %10 = load i32, ptr %9, align 4, !noalias !11
+  %10 = load i32, ptr %9, align 4, !noalias !9
   %11 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %10)
           to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %8
-  %12 = load ptr, ptr %3, align 8, !alias.scope !11
+  %12 = load ptr, ptr %3, align 8, !alias.scope !9
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %.idx3.i.i.i = shl nsw i64 %16, 3
   %17 = getelementptr inbounds i8, ptr %13, i64 %.idx3.i.i.i
-  %18 = load ptr, ptr %2, align 8, !noalias !11
+  %18 = load ptr, ptr %2, align 8, !noalias !9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8
@@ -1602,21 +1602,21 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %1
 
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i, %.noexc, %24, %30
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %32 = load ptr, ptr %3, align 8, !alias.scope !11, !noalias !14
+  call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  %32 = load ptr, ptr %3, align 8, !alias.scope !9, !noalias !12
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %35 = load i32, ptr %34, align 8, !noalias !14
+  %35 = load i32, ptr %34, align 8, !noalias !12
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds ptr, ptr %33, i64 %36
-  store ptr %37, ptr %31, align 8, !alias.scope !17
+  store ptr %37, ptr %31, align 8, !alias.scope !15
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  %40 = load i32, ptr %39, align 4, !noalias !18
+  %40 = load i32, ptr %39, align 4, !noalias !16
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds ptr, ptr %33, i64 %41
-  store ptr %42, ptr %38, align 8, !alias.scope !21
+  store ptr %42, ptr %38, align 8, !alias.scope !19
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %43, align 8
   %.not10 = icmp eq i32 %35, %40
@@ -1719,7 +1719,7 @@ _Z12qobject_castIP13QWidgetActionET_P7QObject.exit: ; preds = %.lr.ph.preheader
   store ptr %68, ptr %31, align 8
   store i32 1, ptr %43, align 8
   %.not = icmp eq ptr %68, %.pre11
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph.preheader, !llvm.loop !22
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph.preheader, !llvm.loop !20
 
 69:                                               ; preds = %65, %58
   %.pn = phi { ptr, i32 } [ %66, %65 ], [ %59, %58 ]
@@ -1898,7 +1898,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK10SearchMenu17nextEn
 
 42:                                               ; preds = %40, %38, %.preheader.split.us
   %.not28.us = icmp eq i32 %31, %2
-  br i1 %.not28.us, label %.loopexit, label %.preheader.split.us, !llvm.loop !23
+  br i1 %.not28.us, label %.loopexit, label %.preheader.split.us, !llvm.loop !21
 
 .preheader.split:                                 ; preds = %.preheader, %61
   %.024 = phi i32 [ %50, %61 ], [ %2, %.preheader ]
@@ -1935,7 +1935,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK10SearchMenu17nextEn
 
 61:                                               ; preds = %.preheader.split, %57, %59
   %.not28 = icmp eq i32 %50, %2
-  br i1 %.not28, label %.loopexit, label %.preheader.split, !llvm.loop !25
+  br i1 %.not28, label %.loopexit, label %.preheader.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %61, %42, %14, %5, %7, %.split.us
   %.0 = phi i32 [ %.us-phi, %.split.us ], [ -1, %7 ], [ -1, %5 ], [ -1, %14 ], [ -1, %42 ], [ -1, %61 ]
@@ -1999,7 +1999,7 @@ define void @_ZN10SearchMenu13keyPressEventEP9QKeyEvent(ptr noundef nonnull alig
 28:                                               ; preds = %26
   %29 = load ptr, ptr %27, align 8
   %30 = icmp eq ptr %29, %11
-  br i1 %30, label %_ZNK5QListIP7QActionE7indexOfERKS1_i.exit, label %26, !llvm.loop !26
+  br i1 %30, label %_ZNK5QListIP7QActionE7indexOfERKS1_i.exit, label %26, !llvm.loop !24
 
 _ZNK5QListIP7QActionE7indexOfERKS1_i.exit:        ; preds = %28
   %31 = ptrtoint ptr %27 to i64
@@ -2881,24 +2881,22 @@ attributes #16 = { noreturn }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !8, !6}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !6}
-!10 = distinct !{!10, !8, !6}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_: argument 0"}
-!13 = distinct !{!13, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZNK5QListIP7QActionE5beginEv: argument 0"}
-!16 = distinct !{!16, !"_ZNK5QListIP7QActionE5beginEv"}
-!17 = !{!15, !12}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZNK5QListIP7QActionE3endEv: argument 0"}
-!20 = distinct !{!20, !"_ZNK5QListIP7QActionE3endEv"}
-!21 = !{!19, !12}
-!22 = distinct !{!22, !8, !6}
-!23 = distinct !{!23, !8, !6, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !8, !6}
-!26 = distinct !{!26, !8, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_: argument 0"}
+!11 = distinct !{!11, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK5QListIP7QActionE5beginEv: argument 0"}
+!14 = distinct !{!14, !"_ZNK5QListIP7QActionE5beginEv"}
+!15 = !{!13, !10}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNK5QListIP7QActionE3endEv: argument 0"}
+!18 = distinct !{!18, !"_ZNK5QListIP7QActionE3endEv"}
+!19 = !{!17, !10}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}

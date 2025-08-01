@@ -644,7 +644,7 @@ for.body24:                                       ; preds = %for.cond21.preheade
   %10 = call double @llvm.fmuladd.f64(double %mul26, double %call42, double %sum.1112)
   %inc = add nuw nsw i64 %j.0113, 1
   %exitcond.not = icmp eq i64 %inc, 5
-  br i1 %exitcond.not, label %for.cond.cleanup23, label %for.body24, !llvm.loop !38
+  br i1 %exitcond.not, label %for.cond.cleanup23, label %for.body24, !llvm.loop !37
 
 if.else:                                          ; preds = %if.end7
   %cmp54 = fcmp oge double %b, 0.000000e+00
@@ -935,7 +935,7 @@ entry:
   %ref.tmp45 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp46 = alloca %"class.std::allocator", align 1
   %ref.tmp49 = alloca %"class.std::__cxx11::basic_string", align 8
-  store double %rho, ptr %this, align 8, !tbaa !39
+  store double %rho, ptr %this, align 8, !tbaa !38
   %cumnorm_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double 0.000000e+00, ptr %cumnorm_, align 8, !tbaa !22
   %sigma_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1338,7 +1338,7 @@ entry:
   %gaussLegendreQuad = alloca %"class.QuantLib::TabulatedGaussLegendre", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %gaussLegendreQuad) #17
   call void @_ZN8QuantLib22TabulatedGaussLegendre5orderEm(ptr noundef nonnull align 8 dereferenceable(32) %gaussLegendreQuad, i64 noundef 20)
-  %0 = load double, ptr %this, align 8, !tbaa !39
+  %0 = load double, ptr %this, align 8, !tbaa !38
   %1 = call double @llvm.fabs.f64(double %0)
   %cmp = fcmp olt double %1, 3.000000e-01
   br i1 %cmp, label %if.end5thread-pre-split, label %if.else
@@ -1350,7 +1350,7 @@ if.else:                                          ; preds = %entry
 if.end5thread-pre-split:                          ; preds = %if.else, %entry
   %.sink = phi i64 [ 6, %entry ], [ 12, %if.else ]
   call void @_ZN8QuantLib22TabulatedGaussLegendre5orderEm(ptr noundef nonnull align 8 dereferenceable(32) %gaussLegendreQuad, i64 noundef %.sink)
-  %.pr = load double, ptr %this, align 8, !tbaa !39
+  %.pr = load double, ptr %this, align 8, !tbaa !38
   %.pre236 = call double @llvm.fabs.f64(double %.pr)
   br label %if.end5
 
@@ -1372,7 +1372,7 @@ if.then12:                                        ; preds = %if.then9
   %3 = call double @llvm.fmuladd.f64(double %x, double %x, double %mul3.i)
   %div.i = fmul double %3, 5.000000e-01
   %w_.i = getelementptr inbounds nuw i8, ptr %gaussLegendreQuad, i64 8
-  %4 = load ptr, ptr %w_.i, align 8, !tbaa !41
+  %4 = load ptr, ptr %w_.i, align 8, !tbaa !40
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %if.then.i, label %do.body25.i
 
@@ -1534,7 +1534,7 @@ ehcleanup23.i:                                    ; preds = %cleanup.action.i, %
 
 do.body25.i:                                      ; preds = %if.then12
   %x_.i = getelementptr inbounds nuw i8, ptr %gaussLegendreQuad, i64 16
-  %26 = load ptr, ptr %x_.i, align 8, !tbaa !43
+  %26 = load ptr, ptr %x_.i, align 8, !tbaa !42
   %cmp26.not.i = icmp eq ptr %26, null
   br i1 %cmp26.not.i, label %if.then27.i, label %do.end64.i
 
@@ -1695,11 +1695,11 @@ ehcleanup61.i:                                    ; preds = %cleanup.action59.i,
   br label %common.resume
 
 do.end64.i:                                       ; preds = %do.body25.i
-  %48 = load i64, ptr %gaussLegendreQuad, align 8, !tbaa !44
+  %48 = load i64, ptr %gaussLegendreQuad, align 8, !tbaa !43
   %and.i = and i64 %48, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   %n_111.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %gaussLegendreQuad, i64 24
-  %.pre.i = load i64, ptr %n_111.phi.trans.insert.i, align 8, !tbaa !45
+  %.pre.i = load i64, ptr %n_111.phi.trans.insert.i, align 8, !tbaa !44
   br i1 %tobool.not.i, label %if.end110.i, label %do.body66.i
 
 do.body66.i:                                      ; preds = %do.end64.i
@@ -1917,7 +1917,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %81 = call double @llvm.fmuladd.f64(double %74, double %call6.i108.i, double %78)
   %inc.i = add nuw i64 %i.0165.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %.pre.i
-  br i1 %exitcond.not.i, label %_ZNK8QuantLib22TabulatedGaussLegendreclINS_12_GLOBAL__N_14eqn3EEEdRKT_.exit, label %for.body.i, !llvm.loop !46
+  br i1 %exitcond.not.i, label %_ZNK8QuantLib22TabulatedGaussLegendreclINS_12_GLOBAL__N_14eqn3EEEdRKT_.exit, label %for.body.i, !llvm.loop !45
 
 common.resume:                                    ; preds = %ehcleanup23.i178, %ehcleanup61.i137, %ehcleanup102.i93, %ehcleanup23.i, %ehcleanup61.i, %ehcleanup102.i
   %common.resume.op = phi { ptr, i32 } [ %.pn20.pn.pn.pn.i, %ehcleanup102.i ], [ %.pn15.pn.pn.pn.i, %ehcleanup61.i ], [ %.pn.pn.pn.pn.i, %ehcleanup23.i ], [ %.pn20.pn.pn.pn.i94, %ehcleanup102.i93 ], [ %.pn15.pn.pn.pn.i138, %ehcleanup61.i137 ], [ %.pn.pn.pn.pn.i179, %ehcleanup23.i178 ]
@@ -2016,7 +2016,7 @@ if.end90:                                         ; preds = %if.then70, %if.end6
   %BVN.4 = phi double [ %83, %if.then70 ], [ %BVN.3, %if.end67 ]
   %div91 = fmul double %call37, 5.000000e-01
   %w_.i60 = getelementptr inbounds nuw i8, ptr %gaussLegendreQuad, i64 8
-  %84 = load ptr, ptr %w_.i60, align 8, !tbaa !41
+  %84 = load ptr, ptr %w_.i60, align 8, !tbaa !40
   %cmp.not.i61 = icmp eq ptr %84, null
   br i1 %cmp.not.i61, label %if.then.i175, label %do.body25.i62
 
@@ -2178,7 +2178,7 @@ ehcleanup23.i178:                                 ; preds = %cleanup.action.i184
 
 do.body25.i62:                                    ; preds = %if.end90
   %x_.i63 = getelementptr inbounds nuw i8, ptr %gaussLegendreQuad, i64 16
-  %106 = load ptr, ptr %x_.i63, align 8, !tbaa !43
+  %106 = load ptr, ptr %x_.i63, align 8, !tbaa !42
   %cmp26.not.i64 = icmp eq ptr %106, null
   br i1 %cmp26.not.i64, label %if.then27.i134, label %do.end64.i65
 
@@ -2339,11 +2339,11 @@ ehcleanup61.i137:                                 ; preds = %cleanup.action59.i1
   br label %common.resume
 
 do.end64.i65:                                     ; preds = %do.body25.i62
-  %128 = load i64, ptr %gaussLegendreQuad, align 8, !tbaa !44
+  %128 = load i64, ptr %gaussLegendreQuad, align 8, !tbaa !43
   %and.i66 = and i64 %128, 1
   %tobool.not.i67 = icmp eq i64 %and.i66, 0
   %n_111.phi.trans.insert.i68 = getelementptr inbounds nuw i8, ptr %gaussLegendreQuad, i64 24
-  %.pre.i69 = load i64, ptr %n_111.phi.trans.insert.i68, align 8, !tbaa !45
+  %.pre.i69 = load i64, ptr %n_111.phi.trans.insert.i68, align 8, !tbaa !44
   br i1 %tobool.not.i67, label %if.end110.i79, label %do.body66.i70
 
 do.body66.i70:                                    ; preds = %do.end64.i65
@@ -2627,7 +2627,7 @@ _ZNK8QuantLib12_GLOBAL__N_14eqn6clEd.exit146.i:   ; preds = %if.then.i130.i, %_Z
   %164 = call double @llvm.fmuladd.f64(double %155, double %retval.0.i129.i, double %160)
   %inc.i88 = add nuw i64 %i.0203.i, 1
   %exitcond.not.i89 = icmp eq i64 %inc.i88, %.pre.i69
-  br i1 %exitcond.not.i89, label %_ZNK8QuantLib22TabulatedGaussLegendreclINS_12_GLOBAL__N_14eqn6EEEdRKT_.exit, label %for.body.i84, !llvm.loop !47
+  br i1 %exitcond.not.i89, label %_ZNK8QuantLib22TabulatedGaussLegendreclINS_12_GLOBAL__N_14eqn6EEEdRKT_.exit, label %for.body.i84, !llvm.loop !46
 
 unreachable.i133:                                 ; preds = %invoke.cont86.i132, %invoke.cont45.i174, %invoke.cont13.i215
   unreachable
@@ -2636,7 +2636,7 @@ _ZNK8QuantLib22TabulatedGaussLegendreclINS_12_GLOBAL__N_14eqn6EEEdRKT_.exit: ; p
   %val.1.lcssa.i82 = phi double [ %val.0.i81, %if.end110.i79 ], [ %164, %_ZNK8QuantLib12_GLOBAL__N_14eqn6clEd.exit146.i ]
   %add94 = fadd double %BVN.4, %val.1.lcssa.i82
   %div95 = fdiv double %add94, 0xC01921FB54442D18
-  %.pre = load double, ptr %this, align 8, !tbaa !39
+  %.pre = load double, ptr %this, align 8, !tbaa !38
   br label %if.end96
 
 if.end96:                                         ; preds = %_ZNK8QuantLib22TabulatedGaussLegendreclINS_12_GLOBAL__N_14eqn6EEEdRKT_.exit, %if.else24
@@ -2793,16 +2793,15 @@ attributes #20 = { noreturn nounwind }
 !32 = !{!33, !33, i64 0}
 !33 = !{!"int", !6, i64 0}
 !34 = !{!5, !5, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !36, !37}
-!39 = !{!40, !5, i64 0}
-!40 = !{!"_ZTSN8QuantLib43BivariateCumulativeNormalDistributionWe04DPE", !5, i64 0, !23, i64 8}
-!41 = !{!42, !12, i64 8}
-!42 = !{!"_ZTSN8QuantLib22TabulatedGaussLegendreE", !13, i64 0, !12, i64 8, !12, i64 16, !13, i64 24}
-!43 = !{!42, !12, i64 16}
-!44 = !{!42, !13, i64 0}
-!45 = !{!42, !13, i64 24}
-!46 = distinct !{!46, !36, !37}
-!47 = distinct !{!47, !36, !37}
+!37 = distinct !{!37, !36}
+!38 = !{!39, !5, i64 0}
+!39 = !{!"_ZTSN8QuantLib43BivariateCumulativeNormalDistributionWe04DPE", !5, i64 0, !23, i64 8}
+!40 = !{!41, !12, i64 8}
+!41 = !{!"_ZTSN8QuantLib22TabulatedGaussLegendreE", !13, i64 0, !12, i64 8, !12, i64 16, !13, i64 24}
+!42 = !{!41, !12, i64 16}
+!43 = !{!41, !13, i64 0}
+!44 = !{!41, !13, i64 24}
+!45 = distinct !{!45, !36}
+!46 = distinct !{!46, !36}

@@ -292,7 +292,7 @@ define dso_local zeroext i1 @hashvalidate(i32 noundef %0) local_unnamed_addr #0 
   %159 = load i32, ptr %26, align 8
   %160 = sext i32 %159 to i64
   %161 = icmp slt i64 %indvars.iv.next157, %160
-  br i1 %161, label %96, label %._crit_edge, !llvm.loop !7
+  br i1 %161, label %96, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %158, %.preheader
   %.4.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %.8, %158 ]
@@ -483,7 +483,7 @@ define dso_local void @hashadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
   %13 = load ptr, ptr %10, align 8
   %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = load i8, ptr %15, align 4, !range !8, !noundef !9
+  %16 = load i8, ptr %15, align 4, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %25
 
@@ -585,9 +585,8 @@ attributes #5 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}

@@ -138,7 +138,7 @@ from_utf8_mac_finish.exit:                        ; preds = %5
   %58 = srem i32 %57, 16
   store i32 %58, ptr %49, align 4, !tbaa !6
   %59 = icmp ult ptr %52, %48
-  br i1 %59, label %50, label %buf_push.exit, !llvm.loop !16
+  br i1 %59, label %50, label %buf_push.exit, !llvm.loop !15
 
 buf_push.exit:                                    ; preds = %50, %from_utf8_mac_finish.exit
   %60 = phi i32 [ %.pre.i.pre, %from_utf8_mac_finish.exit ], [ %58, %50 ]
@@ -186,7 +186,7 @@ buf_push.exit:                                    ; preds = %50, %from_utf8_mac_
   %84 = zext i8 %83 to i64
   %85 = lshr i64 %.015.i.i, 2
   %86 = getelementptr inbounds nuw i32, ptr @utf8_mac_word_array, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !17
+  %87 = load i32, ptr %86, align 4, !tbaa !16
   %88 = zext i32 %87 to i64
   %89 = getelementptr inbounds nuw i8, ptr @utf8_mac_byte_array, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !12
@@ -202,7 +202,7 @@ buf_push.exit:                                    ; preds = %50, %from_utf8_mac_
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  %99 = load i32, ptr %98, align 4, !tbaa !17
+  %99 = load i32, ptr %98, align 4, !tbaa !16
   %100 = lshr i32 %99, 2
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds nuw i32, ptr @utf8_mac_word_array, i64 %101
@@ -212,11 +212,11 @@ buf_push.exit:                                    ; preds = %50, %from_utf8_mac_
   %106 = load i8, ptr %105, align 1, !tbaa !12
   %107 = zext i8 %106 to i64
   %108 = getelementptr inbounds nuw i32, ptr %102, i64 %107
-  %109 = load i32, ptr %108, align 4, !tbaa !17
+  %109 = load i32, ptr %108, align 4, !tbaa !16
   %110 = zext i32 %109 to i64
   %111 = and i64 %110, 3
   %112 = icmp eq i64 %111, 0
-  br i1 %112, label %76, label %get_info.exit.i, !llvm.loop !18
+  br i1 %112, label %76, label %get_info.exit.i
 
 get_info.exit.i:                                  ; preds = %97, %76
   %.1.i.i = phi i64 [ %110, %97 ], [ %.015.i.i, %76 ]
@@ -261,7 +261,7 @@ get_info.exit.thread.i.preheader:                 ; preds = %93, %77, %get_info.
   %130 = srem i32 %129, 16
   store i32 %130, ptr %61, align 4, !tbaa !6
   %131 = icmp ult ptr %124, %.019.sroa.phi.i
-  br i1 %131, label %122, label %buf_apply.exit, !llvm.loop !16
+  br i1 %131, label %122, label %buf_apply.exit, !llvm.loop !15
 
 get_info.exit.thread.i:                           ; preds = %get_info.exit.thread.i.preheader, %134
   %132 = phi i32 [ %142, %134 ], [ %63, %get_info.exit.thread.i.preheader ]
@@ -286,7 +286,7 @@ get_info.exit.thread.i:                           ; preds = %get_info.exit.threa
   %144 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %143
   %145 = load i8, ptr %144, align 1, !tbaa !12
   %146 = icmp slt i8 %145, -64
-  br i1 %146, label %get_info.exit.thread.i, label %buf_apply.exit, !llvm.loop !19
+  br i1 %146, label %get_info.exit.thread.i, label %buf_apply.exit, !llvm.loop !17
 
 buf_apply.exit:                                   ; preds = %122, %get_info.exit.thread.i, %134, %buf_push.exit, %70
   %.0.i = phi i64 [ 0, %70 ], [ 0, %buf_push.exit ], [ %140, %134 ], [ %.0.i.i, %get_info.exit.thread.i ], [ 0, %122 ]
@@ -359,10 +359,8 @@ attributes #5 = { nounwind }
 !10 = !{!"int", !8, i64 0}
 !11 = !{!7, !10, i64 16}
 !12 = !{!8, !8, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = !{!10, !10, i64 0}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !14, !15}
+!15 = distinct !{!15, !14}
+!16 = !{!10, !10, i64 0}
+!17 = distinct !{!17, !14}

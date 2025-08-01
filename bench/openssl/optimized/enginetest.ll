@@ -404,14 +404,14 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
   %128 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull @.str.51, i32 noundef %127) #8
   %129 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i32 noundef 151) #8
   %130 = getelementptr inbounds nuw [512 x ptr], ptr %2, i64 0, i64 %indvars.iv
-  store ptr %129, ptr %130, align 8, !tbaa !7
+  store ptr %129, ptr %130, align 8, !tbaa !6
   %131 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull @.str.52, i32 noundef %127) #8
   %132 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %4, ptr noundef nonnull @.str.14, i32 noundef 153) #8
   %133 = getelementptr inbounds nuw [512 x ptr], ptr %3, i64 0, i64 %indvars.iv
-  store ptr %132, ptr %133, align 8, !tbaa !7
+  store ptr %132, ptr %133, align 8, !tbaa !6
   %134 = call ptr @ENGINE_new() #8
   %135 = getelementptr inbounds nuw [512 x ptr], ptr %1, i64 0, i64 %indvars.iv
-  store ptr %134, ptr %135, align 8, !tbaa !12
+  store ptr %134, ptr %135, align 8, !tbaa !11
   %136 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 154, ptr noundef nonnull @.str.53, ptr noundef %134) #8
   %.not87 = icmp eq i32 %136, 0
   br i1 %.not87, label %.loopexit, label %137
@@ -435,7 +435,7 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
 .preheader91:                                     ; preds = %125, %157
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %157 ], [ 0, %125 ]
   %147 = getelementptr inbounds nuw [512 x ptr], ptr %1, i64 0, i64 %indvars.iv105
-  %148 = load ptr, ptr %147, align 8, !tbaa !12
+  %148 = load ptr, ptr %147, align 8, !tbaa !11
   %149 = call i32 @ENGINE_add(ptr noundef %148) #8
   %150 = icmp ne i32 %149, 0
   %151 = zext i1 %150 to i32
@@ -453,7 +453,7 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
 157:                                              ; preds = %.preheader91
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 512
-  br i1 %exitcond108.not, label %.loopexit92, label %.preheader91, !llvm.loop !14
+  br i1 %exitcond108.not, label %.loopexit92, label %.preheader91, !llvm.loop !13
 
 .loopexit92:                                      ; preds = %157, %153
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 168, ptr noundef nonnull @.str.58) #8
@@ -474,7 +474,7 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
   %165 = call i32 @ENGINE_free(ptr noundef nonnull %159) #8
   %166 = call ptr @ENGINE_get_first() #8
   %.not85 = icmp eq ptr %166, null
-  br i1 %.not85, label %.preheader.preheader, label %.lr.ph, !llvm.loop !15
+  br i1 %.not85, label %.preheader.preheader, label %.lr.ph, !llvm.loop !14
 
 .preheader.preheader:                             ; preds = %164, %.loopexit92
   br label %.preheader
@@ -482,14 +482,14 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.preheader ], [ 0, %.preheader.preheader ]
   %167 = getelementptr inbounds nuw [512 x ptr], ptr %2, i64 0, i64 %indvars.iv109
-  %168 = load ptr, ptr %167, align 8, !tbaa !7
+  %168 = load ptr, ptr %167, align 8, !tbaa !6
   call void @CRYPTO_free(ptr noundef %168, ptr noundef nonnull @.str.14, i32 noundef 175) #8
   %169 = getelementptr inbounds nuw [512 x ptr], ptr %3, i64 0, i64 %indvars.iv109
-  %170 = load ptr, ptr %169, align 8, !tbaa !7
+  %170 = load ptr, ptr %169, align 8, !tbaa !6
   call void @CRYPTO_free(ptr noundef %170, ptr noundef nonnull @.str.14, i32 noundef 176) #8
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next110, 512
-  br i1 %exitcond112.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond112.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %126, %137, %142, %.lr.ph, %.preheader, %113, %119, %103, %98, %93, %88, %83, %78, %67, %73, %61, %56, %0, %7, %12, %17, %20, %25, %30, %33, %38, %43, %46, %51
   %.055 = phi i32 [ 0, %119 ], [ 0, %113 ], [ 0, %103 ], [ 0, %98 ], [ 0, %93 ], [ 0, %88 ], [ 0, %83 ], [ 0, %78 ], [ 0, %73 ], [ 0, %67 ], [ 0, %61 ], [ 0, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %43 ], [ 0, %38 ], [ 0, %33 ], [ 0, %30 ], [ 0, %25 ], [ 0, %20 ], [ 0, %17 ], [ 0, %12 ], [ 0, %7 ], [ 0, %0 ], [ 1, %.preheader ], [ 0, %.lr.ph ], [ 0, %142 ], [ 0, %137 ], [ 0, %126 ]
@@ -505,11 +505,11 @@ define internal range(i32 0, 2) i32 @test_engines() #0 {
 175:                                              ; preds = %.loopexit, %175
   %indvars.iv113 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next114, %175 ]
   %176 = getelementptr inbounds nuw [512 x ptr], ptr %1, i64 0, i64 %indvars.iv113
-  %177 = load ptr, ptr %176, align 8, !tbaa !12
+  %177 = load ptr, ptr %176, align 8, !tbaa !11
   %178 = call i32 @ENGINE_free(ptr noundef %177) #8
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next114, 512
-  br i1 %exitcond116.not, label %179, label %175, !llvm.loop !17
+  br i1 %exitcond116.not, label %179, label %175, !llvm.loop !16
 
 179:                                              ; preds = %175
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #8
@@ -562,7 +562,7 @@ get_test_pkey.exit:                               ; preds = %10, %.sink.split.i
 15:                                               ; preds = %get_test_pkey.exit
   %16 = tail call i32 @EVP_PKEY_get_size(ptr noundef %.0.i) #8
   %17 = sext i32 %16 to i64
-  store i64 %17, ptr %2, align 8, !tbaa !18
+  store i64 %17, ptr %2, align 8, !tbaa !17
   %18 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %17, ptr noundef nonnull @.str.14, i32 noundef 266) #8
   %19 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 266, ptr noundef nonnull @.str.61, ptr noundef %18) #8
   %.not44 = icmp eq i32 %19, 0
@@ -631,7 +631,7 @@ get_test_pkey.exit:                               ; preds = %10, %.sink.split.i
 
 51:                                               ; preds = %48
   %52 = call ptr @EVP_PKEY_meth_new(i32 noundef 6, i32 noundef 0) #8
-  store ptr %52, ptr @test_rsa, align 8, !tbaa !20
+  store ptr %52, ptr @test_rsa, align 8, !tbaa !19
   %53 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 296, ptr noundef nonnull @.str.74, ptr noundef %52) #8
   %.not54 = icmp eq i32 %53, 0
   br i1 %.not54, label %103, label %54
@@ -651,7 +651,7 @@ get_test_pkey.exit:                               ; preds = %10, %.sink.split.i
 
 61:                                               ; preds = %58
   call void @EVP_PKEY_CTX_free(ptr noundef %56) #8
-  %62 = load ptr, ptr @test_rsa, align 8, !tbaa !20
+  %62 = load ptr, ptr @test_rsa, align 8, !tbaa !19
   call void @EVP_PKEY_meth_set_encrypt(ptr noundef %62, ptr noundef null, ptr noundef nonnull @test_encrypt) #8
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 312, ptr noundef nonnull @.str.75) #8
   %63 = call ptr @EVP_PKEY_CTX_new(ptr noundef %.0.i, ptr noundef %33) #8
@@ -941,7 +941,7 @@ define internal fastcc void @display_engine_list() unnamed_addr #0 {
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 37, ptr noundef nonnull @.str.59, i32 noundef %.08, ptr noundef %3, ptr noundef %4) #8
   %5 = tail call ptr @ENGINE_get_next(ptr noundef nonnull %.057) #8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %6 = tail call i32 @ENGINE_free(ptr noundef null) #8
@@ -1007,7 +1007,7 @@ define internal range(i32 0, 2) i32 @test_pkey_meths(ptr readnone captures(none)
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  store ptr @test_pkey_meths.rnid, ptr %2, align 8, !tbaa !23
+  store ptr @test_pkey_meths.rnid, ptr %2, align 8, !tbaa !22
   br label %12
 
 7:                                                ; preds = %4
@@ -1015,12 +1015,12 @@ define internal range(i32 0, 2) i32 @test_pkey_meths(ptr readnone captures(none)
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr @test_rsa, align 8, !tbaa !20
-  store ptr %10, ptr %1, align 8, !tbaa !20
+  %10 = load ptr, ptr @test_rsa, align 8, !tbaa !19
+  store ptr %10, ptr %1, align 8, !tbaa !19
   br label %12
 
 11:                                               ; preds = %7
-  store ptr null, ptr %1, align 8, !tbaa !20
+  store ptr null, ptr %1, align 8, !tbaa !19
   br label %12
 
 12:                                               ; preds = %11, %9, %6
@@ -1104,24 +1104,23 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS9engine_st", !9, i64 0}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long", !10, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS18evp_pkey_method_st", !9, i64 0}
-!22 = distinct !{!22, !5, !6}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 int", !9, i64 0}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS9engine_st", !8, i64 0}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !9, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS18evp_pkey_method_st", !8, i64 0}
+!21 = distinct !{!21, !5}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 int", !8, i64 0}

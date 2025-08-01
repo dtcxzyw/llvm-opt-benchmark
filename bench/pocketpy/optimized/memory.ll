@@ -79,7 +79,7 @@ _ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i: ; preds = %_Z
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i2, i64 noundef 327704) #15
   %.not.i3 = icmp eq ptr %11, %9
-  br i1 %.not.i3, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E0_EEvT_.exit, label %_ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i, !llvm.loop !7
+  br i1 %.not.i3, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E0_EEvT_.exit, label %_ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i, !llvm.loop !6
 
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E0_EEvT_.exit: ; preds = %_ZZN4pkpy10MemoryPoolILi64EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit
   ret void
@@ -99,7 +99,7 @@ _ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i: ; preds = %1,
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i, i64 noundef 294936) #15
   %.not.i = icmp eq ptr %6, %4
-  br i1 %.not.i, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit, label %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i, !llvm.loop !8
+  br i1 %.not.i, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit, label %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i, !llvm.loop !7
 
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit: ; preds = %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE_clES3_.exit.i, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -114,7 +114,7 @@ _ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i: ; preds = %_
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i2, i64 noundef 294936) #15
   %.not.i3 = icmp eq ptr %11, %9
-  br i1 %.not.i3, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E0_EEvT_.exit, label %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i, !llvm.loop !9
+  br i1 %.not.i3, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E0_EEvT_.exit, label %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i, !llvm.loop !8
 
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E0_EEvT_.exit: ; preds = %_ZZN4pkpy10MemoryPoolILi128EED1EvENKUlPNS1_5ArenaEE0_clES3_.exit.i, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_D1EvEUlPS3_E_EEvT_.exit
   ret void
@@ -173,7 +173,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy10MemoryPoolILi64EE5allocEm(ptr noundef
   store ptr %16, ptr %17, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
-  br i1 %exitcond.not.i, label %_ZN4pkpy10MemoryPoolILi64EE5ArenaC2Ev.exit, label %15, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN4pkpy10MemoryPoolILi64EE5ArenaC2Ev.exit, label %15, !llvm.loop !9
 
 _ZN4pkpy10MemoryPoolILi64EE5ArenaC2Ev.exit:       ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -362,7 +362,7 @@ define linkonce_odr noundef ptr @_ZN4pkpy10MemoryPoolILi128EE5allocEm(ptr nounde
   store ptr %16, ptr %17, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2048
-  br i1 %exitcond.not.i, label %_ZN4pkpy10MemoryPoolILi128EE5ArenaC2Ev.exit, label %15, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN4pkpy10MemoryPoolILi128EE5ArenaC2Ev.exit, label %15, !llvm.loop !10
 
 _ZN4pkpy10MemoryPoolILi128EE5ArenaC2Ev.exit:      ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -516,7 +516,7 @@ define void @_ZN4pkpy19pools_shrink_to_fitEv() local_unnamed_addr #3 personality
 
 _ZZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i: ; preds = %9, %.lr.ph.i.i
   %.not.i.i = icmp eq ptr %5, getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL6pool64E, i64 24)
-  br i1 %.not.i.i, label %_ZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEv.exit, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %_ZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEv.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 _ZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEv.exit: ; preds = %_ZZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i, %0
   %15 = load i32, ptr @_ZN4pkpyL7pool128E, align 8
@@ -549,7 +549,7 @@ _ZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEv.exit: ; preds = %_ZZN4pkpy10MemoryP
 
 _ZZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i: ; preds = %23, %.lr.ph.i.i2
   %.not.i.i4 = icmp eq ptr %19, getelementptr inbounds nuw (i8, ptr @_ZN4pkpyL7pool128E, i64 24)
-  br i1 %.not.i.i4, label %_ZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEv.exit, label %.lr.ph.i.i2, !llvm.loop !13
+  br i1 %.not.i.i4, label %_ZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEv.exit, label %.lr.ph.i.i2, !llvm.loop !12
 
 _ZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEv.exit: ; preds = %_ZZN4pkpy10MemoryPoolILi128EE13shrink_to_fitEvENKUlPNS1_5ArenaEE_clES3_.exit.i.i, %_ZN4pkpy10MemoryPoolILi64EE13shrink_to_fitEv.exit
   ret void
@@ -599,7 +599,7 @@ define linkonce_odr void @_ZN4pkpy10MemoryPoolILi64EE4infoB5cxx11Ev(ptr dead_on_
   %19 = add i64 %.015, %18
   %20 = add i64 %.0, 262144
   %.not.i = icmp eq ptr %13, %11
-  br i1 %.not.i, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit, label %.lr.ph.i, !llvm.loop !13
 
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit: ; preds = %.lr.ph.i
   %21 = uitofp i64 %19 to float
@@ -623,7 +623,7 @@ _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx1
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %27, 262144
   %.not.i9 = icmp eq ptr %29, %26
-  br i1 %.not.i9, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E0_EEvT_.exit, label %.lr.ph.i7, !llvm.loop !15
+  br i1 %.not.i9, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E0_EEvT_.exit, label %.lr.ph.i7, !llvm.loop !14
 
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E0_EEvT_.exit: ; preds = %.lr.ph.i7, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit
   %.2 = phi i64 [ %.1, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit ], [ %30, %.lr.ph.i7 ]
@@ -710,7 +710,7 @@ define linkonce_odr void @_ZN4pkpy10MemoryPoolILi128EE4infoB5cxx11Ev(ptr dead_on
   %19 = add i64 %.015, %18
   %20 = add i64 %.0, 262144
   %.not.i = icmp eq ptr %13, %11
-  br i1 %.not.i, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit, label %.lr.ph.i, !llvm.loop !15
 
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit: ; preds = %.lr.ph.i
   %21 = uitofp i64 %19 to float
@@ -734,7 +734,7 @@ _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx
   %29 = load ptr, ptr %28, align 8
   %30 = add i64 %27, 262144
   %.not.i9 = icmp eq ptr %29, %26
-  br i1 %.not.i9, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E0_EEvT_.exit, label %.lr.ph.i7, !llvm.loop !17
+  br i1 %.not.i9, label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E0_EEvT_.exit, label %.lr.ph.i7, !llvm.loop !16
 
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E0_EEvT_.exit: ; preds = %.lr.ph.i7, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit
   %.2 = phi i64 [ %.1, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit ], [ %30, %.lr.ph.i7 ]
@@ -951,17 +951,16 @@ attributes #19 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

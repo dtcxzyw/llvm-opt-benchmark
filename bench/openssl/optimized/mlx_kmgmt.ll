@@ -290,7 +290,7 @@ define internal range(i32 0, 2) i32 @mlx_kem_get_params(ptr noundef readonly cap
   %indvars.iv.i = phi i64 [ 0, %88 ], [ 1, %102 ]
   %105 = load ptr, ptr %8, align 8, !tbaa !14
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
-  %107 = load i32, ptr %106, align 8, !tbaa !43
+  %107 = load i32, ptr %106, align 8, !tbaa !42
   %108 = zext i32 %107 to i64
   %109 = icmp eq i64 %indvars.iv.i, %108
   br i1 %109, label %110, label %120
@@ -328,15 +328,15 @@ define internal range(i32 0, 2) i32 @mlx_kem_get_params(ptr noundef readonly cap
   %.sink.in = phi ptr [ %118, %110 ], [ %130, %120 ]
   %storemerge.in.i = phi ptr [ %119, %110 ], [ %131, %120 ]
   %.037.i.in = phi ptr [ %101, %110 ], [ %96, %120 ]
-  %.037.i = load ptr, ptr %.037.i.in, align 8, !tbaa !44
-  %.sink = load i64, ptr %.sink.in, align 8, !tbaa !45
-  %.sink94 = load ptr, ptr %.sink94.in, align 8, !tbaa !46
-  store ptr %.sink94, ptr %3, align 8, !tbaa !47
-  store i64 %.sink93, ptr %97, align 8, !tbaa !48
-  store i64 %.sink92, ptr %98, align 8, !tbaa !49
-  store i64 %.sink, ptr %99, align 8, !tbaa !50
-  %storemerge.i = load i64, ptr %storemerge.in.i, align 8, !tbaa !45
-  store i64 %storemerge.i, ptr %100, align 8, !tbaa !51
+  %.037.i = load ptr, ptr %.037.i.in, align 8, !tbaa !43
+  %.sink = load i64, ptr %.sink.in, align 8, !tbaa !44
+  %.sink94 = load ptr, ptr %.sink94.in, align 8, !tbaa !45
+  store ptr %.sink94, ptr %3, align 8, !tbaa !46
+  store i64 %.sink93, ptr %97, align 8, !tbaa !47
+  store i64 %.sink92, ptr %98, align 8, !tbaa !48
+  store i64 %.sink, ptr %99, align 8, !tbaa !49
+  %storemerge.i = load i64, ptr %storemerge.in.i, align 8, !tbaa !44
+  store i64 %storemerge.i, ptr %100, align 8, !tbaa !50
   %133 = call i32 @EVP_PKEY_export(ptr noundef %.037.i, i32 noundef %spec.select, ptr noundef nonnull @export_sub_cb, ptr noundef nonnull %3) #6
   %.not.not.i = icmp eq i32 %133, 0
   br i1 %.not.not.i, label %export_sub.exit.thread, label %102
@@ -371,14 +371,14 @@ define internal range(i32 0, 2) i32 @mlx_kem_set_params(ptr noundef %0, ptr noun
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store ptr null, ptr %3, align 8, !tbaa !52
+  store ptr null, ptr %3, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  store i64 0, ptr %4, align 8, !tbaa !45
+  store i64 0, ptr %4, align 8, !tbaa !44
   %5 = icmp eq ptr %1, null
   br i1 %5, label %load_keys.exit, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !53
+  %6 = load ptr, ptr %1, align 8, !tbaa !52
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %load_keys.exit, label %7
 
@@ -419,7 +419,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not21, label %load_keys.exit, label %22
 
 22:                                               ; preds = %18, %16
-  %23 = load i64, ptr %4, align 8, !tbaa !45
+  %23 = load i64, ptr %4, align 8, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -439,7 +439,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br label %load_keys.exit
 
 34:                                               ; preds = %22
-  %35 = load ptr, ptr %3, align 8, !tbaa !52
+  %35 = load ptr, ptr %3, align 8, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not27.i = icmp eq i64 %23, 0
   br label %.split.us.i
@@ -465,7 +465,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not28.us.i, label %.split32.us.i, label %50
 
 50:                                               ; preds = %38, %.split.us.i
-  br i1 %37, label %.split.us.i, label %.split34.us.i, !llvm.loop !54
+  br i1 %37, label %.split.us.i, label %.split34.us.i, !llvm.loop !53
 
 .split34.us.i:                                    ; preds = %50
   store i32 1, ptr %11, align 8, !tbaa !28
@@ -606,7 +606,7 @@ define internal range(i32 0, 2) i32 @mlx_kem_gen_set_params(ptr noundef captures
   br i1 %5, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %4
-  %6 = load ptr, ptr %1, align 8, !tbaa !53
+  %6 = load ptr, ptr %1, align 8, !tbaa !52
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %7
 
@@ -623,12 +623,12 @@ ossl_param_is_empty.exit:                         ; preds = %4
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !56
+  %14 = load ptr, ptr %13, align 8, !tbaa !55
   tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str, i32 noundef 644) #6
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !32
   %17 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 645) #6
-  store ptr %17, ptr %13, align 8, !tbaa !56
+  store ptr %17, ptr %13, align 8, !tbaa !55
   %18 = icmp eq ptr %17, null
   br i1 %18, label %ossl_param_is_empty.exit.thread, label %19
 
@@ -652,18 +652,18 @@ define internal ptr @mlx_kem_gen(ptr noundef captures(address_is_null) %0, ptr r
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !58
+  %7 = load i32, ptr %6, align 8, !tbaa !57
   %8 = and i32 %7, 3
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %45, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !56
-  store ptr null, ptr %11, align 8, !tbaa !56
+  %12 = load ptr, ptr %11, align 8, !tbaa !55
+  store ptr null, ptr %11, align 8, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !59
-  %15 = load ptr, ptr %0, align 8, !tbaa !60
+  %14 = load i32, ptr %13, align 4, !tbaa !58
+  %15 = load ptr, ptr %0, align 8, !tbaa !59
   %16 = tail call i32 @ossl_prov_is_running() #6
   %17 = icmp eq i32 %16, 0
   %18 = zext i32 %14 to i64
@@ -683,7 +683,7 @@ mlx_kem_key_new.exit.thread:                      ; preds = %10, %20
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw [4 x %struct.ecdh_vinfo_st], ptr @hybrid_vtable, i64 0, i64 %18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 44
-  %26 = load i32, ptr %25, align 4, !tbaa !61
+  %26 = load i32, ptr %25, align 4, !tbaa !60
   store ptr %15, ptr %21, align 8, !tbaa !3
   %27 = tail call ptr @ossl_ml_kem_get_vinfo(i32 noundef %26) #6
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -694,16 +694,16 @@ mlx_kem_key_new.exit.thread:                      ; preds = %10, %20
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %30, i8 0, i64 20, i1 false)
   store ptr %12, ptr %31, align 8, !tbaa !15
-  %32 = load i32, ptr %6, align 8, !tbaa !58
+  %32 = load i32, ptr %6, align 8, !tbaa !57
   %33 = and i32 %32, 3
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %45, label %35
 
 35:                                               ; preds = %23
-  %36 = load ptr, ptr %27, align 8, !tbaa !62
+  %36 = load ptr, ptr %27, align 8, !tbaa !61
   %37 = tail call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %15, ptr noundef %12, ptr noundef %36) #6
   store ptr %37, ptr %30, align 8, !tbaa !16
-  %38 = load ptr, ptr %24, align 16, !tbaa !63
+  %38 = load ptr, ptr %24, align 16, !tbaa !62
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !37
   %41 = tail call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef %15, ptr noundef %12, ptr noundef %38, ptr noundef %40) #6
@@ -738,7 +738,7 @@ define internal void @mlx_kem_gen_cleanup(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %4, align 8, !tbaa !55
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 727) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 728) #6
   br label %6
@@ -828,13 +828,13 @@ define internal range(i32 0, 2) i32 @mlx_kem_import(ptr noundef %0, i32 noundef 
 13:                                               ; preds = %3
   %14 = and i32 %1, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  store ptr null, ptr %4, align 8, !tbaa !52
+  store ptr null, ptr %4, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store ptr null, ptr %5, align 8, !tbaa !52
+  store ptr null, ptr %5, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  store i64 0, ptr %6, align 8, !tbaa !45
+  store i64 0, ptr %6, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  store i64 0, ptr %7, align 8, !tbaa !45
+  store i64 0, ptr %7, align 8, !tbaa !44
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i32, ptr %15, align 8, !tbaa !28
   %.not.i = icmp eq i32 %16, 0
@@ -884,7 +884,7 @@ define internal range(i32 0, 2) i32 @mlx_kem_import(ptr noundef %0, i32 noundef 
 
 .thread.i:                                        ; preds = %..thread_crit_edge.i, %36, %35
   %40 = phi i64 [ %.pre.i, %..thread_crit_edge.i ], [ 0, %35 ], [ 0, %36 ]
-  %41 = load i64, ptr %6, align 8, !tbaa !45
+  %41 = load i64, ptr %6, align 8, !tbaa !44
   %42 = icmp eq i64 %41, 0
   %43 = icmp eq i64 %40, 0
   %or.cond.i = select i1 %42, i1 %43, i1 false
@@ -919,8 +919,8 @@ define internal range(i32 0, 2) i32 @mlx_kem_import(ptr noundef %0, i32 noundef 
   br label %mlx_kem_key_fromdata.exit
 
 49:                                               ; preds = %47
-  %50 = load ptr, ptr %4, align 8, !tbaa !52
-  %51 = load ptr, ptr %5, align 8, !tbaa !52
+  %50 = load ptr, ptr %4, align 8, !tbaa !51
+  %51 = load ptr, ptr %5, align 8, !tbaa !51
   %52 = call fastcc i32 @load_keys(ptr noundef nonnull %0, ptr noundef %50, i64 noundef %41, ptr noundef %51, i64 noundef %40)
   br label %mlx_kem_key_fromdata.exit
 
@@ -1042,7 +1042,7 @@ define internal i32 @mlx_kem_export(ptr noundef readonly captures(address_is_nul
   %indvars.iv.i = phi i64 [ 0, %46 ], [ 1, %55 ]
   %58 = load ptr, ptr %20, align 8, !tbaa !14
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %60 = load i32, ptr %59, align 8, !tbaa !43
+  %60 = load i32, ptr %59, align 8, !tbaa !42
   %61 = zext i32 %60 to i64
   %62 = icmp eq i64 %indvars.iv.i, %61
   br i1 %62, label %63, label %73
@@ -1080,15 +1080,15 @@ define internal i32 @mlx_kem_export(ptr noundef readonly captures(address_is_nul
   %.sink.in = phi ptr [ %71, %63 ], [ %83, %73 ]
   %storemerge.in.i = phi ptr [ %72, %63 ], [ %84, %73 ]
   %.037.i.in = phi ptr [ %54, %63 ], [ %49, %73 ]
-  %.037.i = load ptr, ptr %.037.i.in, align 8, !tbaa !44
-  %.sink = load i64, ptr %.sink.in, align 8, !tbaa !45
-  %.sink55 = load ptr, ptr %.sink55.in, align 8, !tbaa !46
-  store ptr %.sink55, ptr %5, align 8, !tbaa !47
-  store i64 %.sink54, ptr %50, align 8, !tbaa !48
-  store i64 %.sink53, ptr %51, align 8, !tbaa !49
-  store i64 %.sink, ptr %52, align 8, !tbaa !50
-  %storemerge.i = load i64, ptr %storemerge.in.i, align 8, !tbaa !45
-  store i64 %storemerge.i, ptr %53, align 8, !tbaa !51
+  %.037.i = load ptr, ptr %.037.i.in, align 8, !tbaa !43
+  %.sink = load i64, ptr %.sink.in, align 8, !tbaa !44
+  %.sink55 = load ptr, ptr %.sink55.in, align 8, !tbaa !45
+  store ptr %.sink55, ptr %5, align 8, !tbaa !46
+  store i64 %.sink54, ptr %50, align 8, !tbaa !47
+  store i64 %.sink53, ptr %51, align 8, !tbaa !48
+  store i64 %.sink, ptr %52, align 8, !tbaa !49
+  %storemerge.i = load i64, ptr %storemerge.in.i, align 8, !tbaa !44
+  store i64 %storemerge.i, ptr %53, align 8, !tbaa !50
   %86 = call i32 @EVP_PKEY_export(ptr noundef %.037.i, i32 noundef %1, ptr noundef nonnull @export_sub_cb, ptr noundef nonnull %5) #6
   %.not.not.i = icmp eq i32 %86, 0
   br i1 %.not.not.i, label %export_sub.exit.thread, label %55
@@ -1363,7 +1363,7 @@ define internal range(i32 0, 2) i32 @export_sub_cb(ptr noundef %0, ptr noundef c
   br i1 %6, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %7 = load ptr, ptr %0, align 8, !tbaa !53
+  %7 = load ptr, ptr %0, align 8, !tbaa !52
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %8
 
@@ -1382,27 +1382,27 @@ ossl_param_is_empty.exit:                         ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   %14 = load ptr, ptr %9, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %16 = load i64, ptr %15, align 8, !tbaa !48
+  %16 = load i64, ptr %15, align 8, !tbaa !47
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 %16
-  store ptr %17, ptr %4, align 8, !tbaa !52
+  store ptr %17, ptr %4, align 8, !tbaa !51
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %19 = load i64, ptr %18, align 8, !tbaa !50
+  %19 = load i64, ptr %18, align 8, !tbaa !49
   %20 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %12, ptr noundef nonnull %4, i64 noundef %19, ptr noundef nonnull %3) #6
   %.not31 = icmp eq i32 %20, 1
   br i1 %.not31, label %21, label %.critedge
 
 21:                                               ; preds = %13
-  %22 = load i64, ptr %3, align 8, !tbaa !45
-  %23 = load i64, ptr %18, align 8, !tbaa !50
+  %22 = load i64, ptr %3, align 8, !tbaa !44
+  %23 = load i64, ptr %18, align 8, !tbaa !49
   %.not32 = icmp eq i64 %22, %23
   br i1 %.not32, label %28, label %24
 
 24:                                               ; preds = %21
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 180, ptr noundef nonnull @__func__.export_sub_cb) #6
-  %25 = load ptr, ptr %1, align 8, !tbaa !47
-  %26 = load i64, ptr %3, align 8, !tbaa !45
-  %27 = load i64, ptr %18, align 8, !tbaa !50
+  %25 = load ptr, ptr %1, align 8, !tbaa !46
+  %26 = load i64, ptr %3, align 8, !tbaa !44
+  %27 = load i64, ptr %18, align 8, !tbaa !49
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef nonnull @.str.14, ptr noundef %25, i64 noundef %26, i64 noundef %27) #6
   br label %.critedge
 
@@ -1429,28 +1429,28 @@ ossl_param_is_empty.exit:                         ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   %38 = load ptr, ptr %33, align 8, !tbaa !36
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %40 = load i64, ptr %39, align 8, !tbaa !49
+  %40 = load i64, ptr %39, align 8, !tbaa !48
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 %40
-  store ptr %41, ptr %5, align 8, !tbaa !52
+  store ptr %41, ptr %5, align 8, !tbaa !51
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %43 = load i64, ptr %42, align 8, !tbaa !51
+  %43 = load i64, ptr %42, align 8, !tbaa !50
   %44 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %36, ptr noundef nonnull %5, i64 noundef %43, ptr noundef nonnull %3) #6
   %.not35 = icmp eq i32 %44, 1
   br i1 %.not35, label %45, label %.critedge38
 
 45:                                               ; preds = %37
-  %46 = load i64, ptr %3, align 8, !tbaa !45
-  %47 = load i64, ptr %42, align 8, !tbaa !51
+  %46 = load i64, ptr %3, align 8, !tbaa !44
+  %47 = load i64, ptr %42, align 8, !tbaa !50
   %.not36 = icmp eq i64 %46, %47
   br i1 %.not36, label %53, label %48
 
 48:                                               ; preds = %45
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 195, ptr noundef nonnull @__func__.export_sub_cb) #6
-  %49 = load ptr, ptr %1, align 8, !tbaa !47
-  %50 = load i64, ptr %3, align 8, !tbaa !45
+  %49 = load ptr, ptr %1, align 8, !tbaa !46
+  %50 = load i64, ptr %3, align 8, !tbaa !44
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %52 = load i64, ptr %51, align 8, !tbaa !50
+  %52 = load i64, ptr %51, align 8, !tbaa !49
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 786691, ptr noundef nonnull @.str.15, ptr noundef %49, i64 noundef %50, i64 noundef %52) #6
   br label %.critedge38
 
@@ -1514,7 +1514,7 @@ define internal fastcc range(i32 0, 2) i32 @load_keys(ptr noundef %0, ptr nounde
   br i1 %.not28.us, label %.split32.us, label %22
 
 22:                                               ; preds = %10, %.split.us
-  br i1 %9, label %.split.us, label %.split34.us, !llvm.loop !54
+  br i1 %9, label %.split.us, label %.split34.us, !llvm.loop !53
 
 .split:                                           ; preds = %5, %35
   %23 = phi i1 [ false, %35 ], [ true, %5 ]
@@ -1534,7 +1534,7 @@ define internal fastcc range(i32 0, 2) i32 @load_keys(ptr noundef %0, ptr nounde
   br i1 %.not29, label %.split32.us, label %35
 
 35:                                               ; preds = %.split
-  br i1 %23, label %.split, label %.split34.us, !llvm.loop !64
+  br i1 %23, label %.split, label %.split34.us, !llvm.loop !63
 
 .split34.us:                                      ; preds = %35, %22
   %36 = phi i32 [ 1, %22 ], [ 2, %35 ]
@@ -1566,7 +1566,7 @@ define internal fastcc range(i32 0, 2) i32 @load_slot(ptr noundef %0, ptr nounde
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load i32, ptr %13, align 8, !tbaa !43
+  %14 = load i32, ptr %13, align 8, !tbaa !42
   %15 = icmp eq i32 %4, %14
   br i1 %15, label %16, label %21
 
@@ -1591,7 +1591,7 @@ define internal fastcc range(i32 0, 2) i32 @load_slot(ptr noundef %0, ptr nounde
   %.031.in = phi i32 [ %6, %16 ], [ %7, %21 ]
   %.030.in = phi ptr [ %18, %16 ], [ %12, %21 ]
   %.029 = phi ptr [ %19, %16 ], [ %24, %21 ]
-  %.030 = load ptr, ptr %.030.in, align 8, !tbaa !46
+  %.030 = load ptr, ptr %.030.in, align 8, !tbaa !45
   %.031 = sext i32 %.031.in to i64
   %.032 = sext i32 %.032.in to i64
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 %.032
@@ -1613,7 +1613,7 @@ define internal fastcc range(i32 0, 2) i32 @load_slot(ptr noundef %0, ptr nounde
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.18, ptr noundef nonnull %.033, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !65
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !64
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
   br label %37
 
@@ -1663,15 +1663,15 @@ define internal fastcc ptr @mlx_kem_gen_init(i32 noundef range(i32 0, 4) %0, ptr
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 %0, ptr %12, align 4, !tbaa !59
-  store ptr %1, ptr %9, align 8, !tbaa !60
+  store i32 %0, ptr %12, align 4, !tbaa !58
+  store ptr %1, ptr %9, align 8, !tbaa !59
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %2, ptr %13, align 8, !tbaa !58
+  store i32 %2, ptr %13, align 8, !tbaa !57
   %14 = icmp eq ptr %3, null
   br i1 %14, label %mlx_kem_gen_set_params.exit.thread, label %ossl_param_is_empty.exit.i
 
 ossl_param_is_empty.exit.i:                       ; preds = %11
-  %15 = load ptr, ptr %3, align 8, !tbaa !53
+  %15 = load ptr, ptr %3, align 8, !tbaa !52
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %mlx_kem_gen_set_params.exit.thread, label %16
 
@@ -1685,7 +1685,7 @@ ossl_param_is_empty.exit.i:                       ; preds = %11
   %20 = load i32, ptr %19, align 8, !tbaa !29
   %.not12.i = icmp eq i32 %20, 4
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !56
+  %22 = load ptr, ptr %21, align 8, !tbaa !55
   br i1 %.not12.i, label %23, label %mlx_kem_gen_cleanup.exit
 
 23:                                               ; preds = %18
@@ -1693,7 +1693,7 @@ ossl_param_is_empty.exit.i:                       ; preds = %11
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !32
   %26 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 645) #6
-  store ptr %26, ptr %21, align 8, !tbaa !56
+  store ptr %26, ptr %21, align 8, !tbaa !55
   %27 = icmp eq ptr %26, null
   br i1 %27, label %mlx_kem_gen_cleanup.exit, label %mlx_kem_gen_set_params.exit.thread
 
@@ -1782,30 +1782,29 @@ attributes #6 = { nounwind }
 !37 = !{!22, !9, i64 8}
 !38 = !{!35, !12, i64 24}
 !39 = !{!35, !12, i64 28}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!22, !12, i64 40}
-!44 = !{!11, !11, i64 0}
-!45 = !{!20, !20, i64 0}
-!46 = !{!9, !9, i64 0}
-!47 = !{!35, !9, i64 0}
-!48 = !{!35, !20, i64 32}
-!49 = !{!35, !20, i64 40}
-!50 = !{!35, !20, i64 48}
-!51 = !{!35, !20, i64 56}
-!52 = !{!6, !6, i64 0}
-!53 = !{!30, !9, i64 0}
-!54 = distinct !{!54, !41, !42, !55}
-!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!56 = !{!57, !9, i64 8}
-!57 = !{!"mlx_kem_gen_ctx_st", !5, i64 0, !9, i64 8, !12, i64 16, !12, i64 20}
-!58 = !{!57, !12, i64 16}
-!59 = !{!57, !12, i64 20}
-!60 = !{!57, !5, i64 0}
-!61 = !{!22, !12, i64 44}
-!62 = !{!19, !9, i64 0}
-!63 = !{!22, !9, i64 0}
-!64 = distinct !{!64, !41, !42}
-!65 = !{i64 0, i64 8, !46, i64 8, i64 4, !66, i64 16, i64 8, !52, i64 24, i64 8, !45, i64 32, i64 8, !45}
-!66 = !{!12, !12, i64 0}
+!42 = !{!22, !12, i64 40}
+!43 = !{!11, !11, i64 0}
+!44 = !{!20, !20, i64 0}
+!45 = !{!9, !9, i64 0}
+!46 = !{!35, !9, i64 0}
+!47 = !{!35, !20, i64 32}
+!48 = !{!35, !20, i64 40}
+!49 = !{!35, !20, i64 48}
+!50 = !{!35, !20, i64 56}
+!51 = !{!6, !6, i64 0}
+!52 = !{!30, !9, i64 0}
+!53 = distinct !{!53, !41, !54}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = !{!56, !9, i64 8}
+!56 = !{!"mlx_kem_gen_ctx_st", !5, i64 0, !9, i64 8, !12, i64 16, !12, i64 20}
+!57 = !{!56, !12, i64 16}
+!58 = !{!56, !12, i64 20}
+!59 = !{!56, !5, i64 0}
+!60 = !{!22, !12, i64 44}
+!61 = !{!19, !9, i64 0}
+!62 = !{!22, !9, i64 0}
+!63 = distinct !{!63, !41}
+!64 = !{i64 0, i64 8, !45, i64 8, i64 4, !65, i64 16, i64 8, !51, i64 24, i64 8, !44, i64 32, i64 8, !44}
+!65 = !{!12, !12, i64 0}

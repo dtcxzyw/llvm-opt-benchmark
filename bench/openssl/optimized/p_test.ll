@@ -88,15 +88,15 @@ define dso_local range(i32 0, 2) i32 @p_test_init(ptr noundef %0, ptr noundef %1
 
 18:                                               ; preds = %15
   %19 = tail call noalias dereferenceable_or_null(25) ptr @strdup(ptr noundef nonnull @.str) #12
-  store ptr %19, ptr %16, align 8, !tbaa !15
+  store ptr %19, ptr %16, align 8, !tbaa !14
   %20 = tail call noalias dereferenceable_or_null(12) ptr @strdup(ptr noundef nonnull @__func__.p_test_init) #12
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %20, ptr %21, align 8, !tbaa !20
+  store ptr %20, ptr %21, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %0, ptr %22, align 8, !tbaa !21
+  store ptr %0, ptr %22, align 8, !tbaa !20
   %23 = tail call ptr @OSSL_LIB_CTX_new_child(ptr noundef %0, ptr noundef %1) #12
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %23, ptr %24, align 8, !tbaa !22
+  store ptr %23, ptr %24, align 8, !tbaa !21
   %25 = icmp eq ptr %23, null
   br i1 %25, label %26, label %27
 
@@ -124,7 +124,7 @@ define dso_local range(i32 0, 2) i32 @p_test_init(ptr noundef %0, ptr noundef %1
 .critedge:                                        ; preds = %27
   tail call void (i32, i32, ptr, i32, ptr, ptr, ...) @p_set_error(i32 poison, i32 noundef 1, ptr noundef %19, i32 noundef 329, ptr noundef %20, ptr poison)
   store ptr %16, ptr %3, align 8, !tbaa !11
-  store ptr @p_test_table, ptr %2, align 8, !tbaa !23
+  store ptr @p_test_table, ptr %2, align 8, !tbaa !22
   br label %30
 
 30:                                               ; preds = %29, %15, %.critedge, %26
@@ -163,12 +163,12 @@ define internal void @p_set_error(i32 %0, i32 noundef range(i32 1, 4) %1, ptr no
 ; Function Attrs: nounwind uwtable
 define internal void @p_teardown(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   tail call void @OSSL_LIB_CTX_free(ptr noundef %3) #12
-  %4 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = load ptr, ptr %0, align 8, !tbaa !14
   tail call void @free(ptr noundef %4) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
   tail call void @free(ptr noundef %6) #12
   tail call void @free(ptr noundef %0) #12
   ret void
@@ -197,14 +197,14 @@ define internal range(i32 0, 2) i32 @p_get_params(ptr noundef readonly captures(
   %3 = alloca [256 x i8], align 16
   %4 = alloca [16 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !21
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %2, %97
   %.072 = phi ptr [ %1, %2 ], [ %98, %97 ]
-  %10 = load ptr, ptr %.072, align 8, !tbaa !25
+  %10 = load ptr, ptr %.072, align 8, !tbaa !24
   %.not56 = icmp eq ptr %10, null
   br i1 %.not56, label %.critedge, label %11
 
@@ -215,16 +215,16 @@ define internal range(i32 0, 2) i32 @p_get_params(ptr noundef readonly captures(
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #12
-  store ptr null, ptr @p_get_params.greeting, align 8, !tbaa !28
-  store ptr null, ptr @p_get_params.provname, align 8, !tbaa !28
-  store ptr null, ptr @p_get_params.opensslv, align 8, !tbaa !28
+  store ptr null, ptr @p_get_params.greeting, align 8, !tbaa !27
+  store ptr null, ptr @p_get_params.provname, align 8, !tbaa !27
+  store ptr null, ptr @p_get_params.opensslv, align 8, !tbaa !27
   %15 = load ptr, ptr @c_get_params, align 8, !tbaa !11
   %16 = call i32 %15(ptr noundef %6, ptr noundef nonnull @p_get_params.counter_request) #12
   %.not65 = icmp eq i32 %16, 0
   br i1 %.not65, label %26, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr @p_get_params.greeting, align 8, !tbaa !28
+  %18 = load ptr, ptr @p_get_params.greeting, align 8, !tbaa !27
   %.not66 = icmp eq ptr %18, null
   br i1 %.not66, label %21, label %19
 
@@ -233,9 +233,9 @@ define internal range(i32 0, 2) i32 @p_get_params(ptr noundef readonly captures(
   br label %27
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @p_get_params.counter_request, i64 16), align 16, !tbaa !29
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @p_get_params.counter_request, i64 16), align 16, !tbaa !28
   %23 = load ptr, ptr %22, align 8, !tbaa !11
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @p_get_params.counter_request, i64 56), align 8, !tbaa !29
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @p_get_params.counter_request, i64 56), align 8, !tbaa !28
   %25 = load ptr, ptr %24, align 8, !tbaa !11
   call void (ptr, i64, ptr, ...) @local_snprintf(ptr noundef %3, i64 poison, ptr noundef nonnull @.str.8, ptr noundef %23, ptr noundef %25)
   br label %27
@@ -248,15 +248,15 @@ define internal range(i32 0, 2) i32 @p_get_params(ptr noundef readonly captures(
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #13
   %29 = add i64 %28, 1
   %30 = getelementptr inbounds nuw i8, ptr %.072, i64 32
-  store i64 %29, ptr %30, align 8, !tbaa !30
+  store i64 %29, ptr %30, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %.072, i64 24
-  %32 = load i64, ptr %31, align 8, !tbaa !31
+  %32 = load i64, ptr %31, align 8, !tbaa !30
   %.not67 = icmp ult i64 %32, %29
   br i1 %.not67, label %37, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %.072, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !29
+  %35 = load ptr, ptr %34, align 8, !tbaa !28
   %36 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %3) #12
   br label %37
 
@@ -271,47 +271,47 @@ define internal range(i32 0, 2) i32 @p_get_params(ptr noundef readonly captures(
   br i1 %40, label %41, label %84
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr %7, align 8, !tbaa !22
+  %42 = load ptr, ptr %7, align 8, !tbaa !21
   %43 = call ptr @EVP_MD_fetch(ptr noundef %42, ptr noundef nonnull @.str.10, ptr noundef null) #12
   %44 = call ptr @EVP_MD_CTX_new() #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
-  %45 = load ptr, ptr %7, align 8, !tbaa !22
+  %45 = load ptr, ptr %7, align 8, !tbaa !21
   %46 = call ptr @OSSL_PROVIDER_load(ptr noundef %45, ptr noundef nonnull @.str.12) #12
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.thread, label %48
 
 48:                                               ; preds = %41
-  %49 = load ptr, ptr %7, align 8, !tbaa !22
+  %49 = load ptr, ptr %7, align 8, !tbaa !21
   %50 = call i32 @OSSL_PROVIDER_available(ptr noundef %49, ptr noundef nonnull @.str.12) #12
   %.not57 = icmp eq i32 %50, 0
   br i1 %.not57, label %.thread, label %53
 
 .thread:                                          ; preds = %41, %48
-  %51 = load ptr, ptr %0, align 8, !tbaa !15
-  %52 = load ptr, ptr %8, align 8, !tbaa !20
+  %51 = load ptr, ptr %0, align 8, !tbaa !14
+  %52 = load ptr, ptr %8, align 8, !tbaa !19
   call void (i32, i32, ptr, i32, ptr, ptr, ...) @p_set_error(i32 poison, i32 noundef 3, ptr noundef %51, i32 noundef 166, ptr noundef %52, ptr poison)
   br label %74
 
 53:                                               ; preds = %48
-  %54 = load ptr, ptr %7, align 8, !tbaa !22
+  %54 = load ptr, ptr %7, align 8, !tbaa !21
   %55 = call i32 @OSSL_PROVIDER_available(ptr noundef %54, ptr noundef nonnull @.str.12) #12
   %.not59 = icmp eq i32 %55, 0
   br i1 %.not59, label %74, label %56
 
 56:                                               ; preds = %53
-  %57 = load ptr, ptr %7, align 8, !tbaa !22
+  %57 = load ptr, ptr %7, align 8, !tbaa !21
   %58 = call i32 @OSSL_PROVIDER_available(ptr noundef %57, ptr noundef nonnull @.str.13) #12
   %.not60 = icmp eq i32 %58, 0
   br i1 %.not60, label %74, label %59
 
 59:                                               ; preds = %56
-  %60 = load ptr, ptr %7, align 8, !tbaa !22
+  %60 = load ptr, ptr %7, align 8, !tbaa !21
   %61 = call i32 @OSSL_PROVIDER_available(ptr noundef %60, ptr noundef nonnull @.str.14) #12
   %.not61 = icmp eq i32 %61, 0
   br i1 %.not61, label %74, label %62
 
 62:                                               ; preds = %59
-  %63 = load ptr, ptr %7, align 8, !tbaa !22
+  %63 = load ptr, ptr %7, align 8, !tbaa !21
   %64 = call i32 @OSSL_PROVIDER_available(ptr noundef %63, ptr noundef nonnull @.str.15) #12
   %65 = icmp ne i32 %64, 0
   %66 = icmp ne ptr %43, null
@@ -343,16 +343,16 @@ define internal range(i32 0, 2) i32 @p_get_params(ptr noundef readonly captures(
   call void @EVP_MD_free(ptr noundef %43) #12
   %75 = call i32 @OSSL_PROVIDER_unload(ptr noundef %46) #12
   %76 = getelementptr inbounds nuw i8, ptr %.072, i64 24
-  %77 = load i64, ptr %76, align 8, !tbaa !31
+  %77 = load i64, ptr %76, align 8, !tbaa !30
   %78 = icmp ugt i64 %77, 3
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %74
   %80 = getelementptr inbounds nuw i8, ptr %.072, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !29
-  store i32 %.051, ptr %81, align 4, !tbaa !32
+  %81 = load ptr, ptr %80, align 8, !tbaa !28
+  store i32 %.051, ptr %81, align 4, !tbaa !31
   %82 = getelementptr inbounds nuw i8, ptr %.072, i64 32
-  store i64 4, ptr %82, align 8, !tbaa !30
+  store i64 4, ptr %82, align 8, !tbaa !29
   br label %83
 
 83:                                               ; preds = %74, %79
@@ -366,26 +366,26 @@ define internal range(i32 0, 2) i32 @p_get_params(ptr noundef readonly captures(
   br i1 %86, label %87, label %97
 
 87:                                               ; preds = %84
-  %88 = load ptr, ptr %7, align 8, !tbaa !22
+  %88 = load ptr, ptr %7, align 8, !tbaa !21
   %89 = call i32 @EVP_set_default_properties(ptr noundef %88, ptr noundef null) #12
   %90 = getelementptr inbounds nuw i8, ptr %.072, i64 24
-  %91 = load i64, ptr %90, align 8, !tbaa !31
+  %91 = load i64, ptr %90, align 8, !tbaa !30
   %92 = icmp ugt i64 %91, 3
   br i1 %92, label %93, label %.critedge
 
 93:                                               ; preds = %87
   %94 = getelementptr inbounds nuw i8, ptr %.072, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !29
-  store i32 %89, ptr %95, align 4, !tbaa !32
+  %95 = load ptr, ptr %94, align 8, !tbaa !28
+  store i32 %89, ptr %95, align 4, !tbaa !31
   %96 = getelementptr inbounds nuw i8, ptr %.072, i64 32
-  store i64 4, ptr %96, align 8, !tbaa !30
+  store i64 4, ptr %96, align 8, !tbaa !29
   br label %97
 
 97:                                               ; preds = %93, %37, %84, %83
   %.5 = phi i32 [ %.1, %37 ], [ %.3, %83 ], [ 1, %84 ], [ 1, %93 ]
   %98 = getelementptr inbounds nuw i8, ptr %.072, i64 40
   %.not = icmp eq i32 %.5, 0
-  br i1 %.not, label %.critedge, label %9, !llvm.loop !33
+  br i1 %.not, label %.critedge, label %9, !llvm.loop !32
 
 .critedge:                                        ; preds = %87, %97, %9
   %.050.lcssa = phi i32 [ 0, %97 ], [ 1, %9 ], [ 0, %87 ]
@@ -399,7 +399,7 @@ define internal noundef nonnull ptr @p_get_reason_strings(ptr readnone captures(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noalias noundef ptr @p_query(ptr readnone captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #7 {
-  store i32 1, ptr %2, align 4, !tbaa !32
+  store i32 1, ptr %2, align 4, !tbaa !31
   ret ptr null
 }
 
@@ -476,25 +476,24 @@ attributes #13 = { nounwind willreturn memory(read) }
 !9 = !{!"any pointer", !7, i64 0}
 !10 = !{!5, !9, i64 8}
 !11 = !{!9, !9, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !17, i64 0}
-!16 = !{!"p_test_ctx", !17, i64 0, !17, i64 8, !18, i64 16, !19, i64 24}
-!17 = !{!"p1 omnipotent char", !9, i64 0}
-!18 = !{!"p1 _ZTS19ossl_core_handle_st", !9, i64 0}
-!19 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
-!20 = !{!16, !17, i64 8}
-!21 = !{!16, !18, i64 16}
-!22 = !{!16, !19, i64 24}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS16ossl_dispatch_st", !9, i64 0}
-!25 = !{!26, !17, i64 0}
-!26 = !{!"ossl_param_st", !17, i64 0, !6, i64 8, !9, i64 16, !27, i64 24, !27, i64 32}
-!27 = !{!"long", !7, i64 0}
-!28 = !{!17, !17, i64 0}
-!29 = !{!26, !9, i64 16}
-!30 = !{!26, !27, i64 32}
-!31 = !{!26, !27, i64 24}
-!32 = !{!6, !6, i64 0}
-!33 = distinct !{!33, !13, !14}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"p_test_ctx", !16, i64 0, !16, i64 8, !17, i64 16, !18, i64 24}
+!16 = !{!"p1 omnipotent char", !9, i64 0}
+!17 = !{!"p1 _ZTS19ossl_core_handle_st", !9, i64 0}
+!18 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
+!19 = !{!15, !16, i64 8}
+!20 = !{!15, !17, i64 16}
+!21 = !{!15, !18, i64 24}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS16ossl_dispatch_st", !9, i64 0}
+!24 = !{!25, !16, i64 0}
+!25 = !{!"ossl_param_st", !16, i64 0, !6, i64 8, !9, i64 16, !26, i64 24, !26, i64 32}
+!26 = !{!"long", !7, i64 0}
+!27 = !{!16, !16, i64 0}
+!28 = !{!25, !9, i64 16}
+!29 = !{!25, !26, i64 32}
+!30 = !{!25, !26, i64 24}
+!31 = !{!6, !6, i64 0}
+!32 = distinct !{!32, !13}

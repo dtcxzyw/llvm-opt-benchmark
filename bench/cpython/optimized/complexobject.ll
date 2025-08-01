@@ -3965,7 +3965,7 @@ define internal ptr @complex___format__(ptr noundef %0, ptr noundef %1) #9 {
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #16
   call void @_PyUnicodeWriter_Init(ptr noundef nonnull %3) #16
   %9 = getelementptr i8, ptr %1, i64 16
-  %.val.i = load i64, ptr %9, align 8, !tbaa !53
+  %.val.i = load i64, ptr %9, align 8, !tbaa !52
   %10 = call i32 @_PyComplex_FormatAdvancedWriter(ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %1, i64 noundef 0, i64 noundef %.val.i) #16
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %13
@@ -4343,7 +4343,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
   %10 = and i32 %9, 8
   %.not = icmp eq i32 %10, 0
   %11 = getelementptr i8, ptr %.047, i64 1
-  br i1 %.not, label %12, label %5, !llvm.loop !56
+  br i1 %.not, label %12, label %5, !llvm.loop !55
 
 12:                                               ; preds = %5
   %.not67 = icmp eq i8 %6, 40
@@ -4358,7 +4358,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = and i32 %16, 8
   %.not58 = icmp eq i32 %17, 0
-  br i1 %.not58, label %.loopexit72, label %.preheader71, !llvm.loop !57
+  br i1 %.not58, label %.loopexit72, label %.preheader71, !llvm.loop !56
 
 .loopexit72:                                      ; preds = %.preheader71, %12
   %.1 = phi ptr [ %.047, %12 ], [ %.2, %.preheader71 ]
@@ -4382,7 +4382,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
   br label %26
 
 26:                                               ; preds = %25, %20, %.loopexit72
-  %27 = load ptr, ptr %4, align 8, !tbaa !58
+  %27 = load ptr, ptr %4, align 8, !tbaa !57
   %.not61 = icmp eq ptr %27, %.1
   br i1 %.not61, label %52, label %28
 
@@ -4416,7 +4416,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
   br label %39
 
 39:                                               ; preds = %38, %33, %30
-  %40 = load ptr, ptr %4, align 8, !tbaa !58
+  %40 = load ptr, ptr %4, align 8, !tbaa !57
   %.not64 = icmp eq ptr %40, %27
   br i1 %.not64, label %41, label %46
 
@@ -4486,7 +4486,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
   %68 = and i32 %67, 8
   %.not65 = icmp eq i32 %68, 0
   %69 = getelementptr i8, ptr %.6, i64 1
-  br i1 %.not65, label %70, label %63, !llvm.loop !59
+  br i1 %.not65, label %70, label %63, !llvm.loop !58
 
 70:                                               ; preds = %63
   br i1 %.not67, label %71, label %.loopexit
@@ -4504,7 +4504,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
   %75 = load i32, ptr %74, align 4, !tbaa !4
   %76 = and i32 %75, 8
   %.not69 = icmp eq i32 %76, 0
-  br i1 %.not69, label %.loopexit, label %.preheader, !llvm.loop !60
+  br i1 %.not69, label %.loopexit, label %.preheader, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.preheader, %70
   %.7 = phi ptr [ %.6, %70 ], [ %.8, %.preheader ]
@@ -4621,14 +4621,13 @@ attributes #16 = { nounwind }
 !47 = !{!48, !11, i64 144}
 !48 = !{!"", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104, !11, i64 112, !11, i64 120, !11, i64 128, !11, i64 136, !11, i64 144, !11, i64 152, !11, i64 160, !11, i64 168, !11, i64 176, !11, i64 184, !11, i64 192, !11, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !11, i64 232, !11, i64 240, !11, i64 248, !11, i64 256, !11, i64 264, !11, i64 272, !11, i64 280}
 !49 = !{!48, !11, i64 264}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!54, !23, i64 16}
-!54 = !{!"", !9, i64 0, !23, i64 16, !23, i64 24, !55, i64 32}
-!55 = !{!"", !29, i64 0, !29, i64 2, !29, i64 2, !29, i64 2, !29, i64 2}
-!56 = distinct !{!56, !51, !52}
-!57 = distinct !{!57, !51, !52}
-!58 = !{!24, !24, i64 0}
-!59 = distinct !{!59, !51, !52}
-!60 = distinct !{!60, !51, !52}
+!52 = !{!53, !23, i64 16}
+!53 = !{!"", !9, i64 0, !23, i64 16, !23, i64 24, !54, i64 32}
+!54 = !{!"", !29, i64 0, !29, i64 2, !29, i64 2, !29, i64 2, !29, i64 2}
+!55 = distinct !{!55, !51}
+!56 = distinct !{!56, !51}
+!57 = !{!24, !24, i64 0}
+!58 = distinct !{!58, !51}
+!59 = distinct !{!59, !51}

@@ -284,7 +284,7 @@ define internal void @_ZL12pipe_consumeP14grpc_wakeup_fd(ptr dead_on_unwind noal
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %10
-  store i64 1, ptr %0, align 8, !tbaa !18, !alias.scope !27
+  store i64 1, ptr %0, align 8, !tbaa !18, !alias.scope !26
   br label %23
 
 13:                                               ; preds = %10
@@ -296,28 +296,28 @@ define internal void @_ZL12pipe_consumeP14grpc_wakeup_fd(ptr dead_on_unwind noal
   ]
 
 16:                                               ; preds = %13
-  store i64 1, ptr %0, align 8, !tbaa !18, !alias.scope !30
+  store i64 1, ptr %0, align 8, !tbaa !18, !alias.scope !29
   br label %23
 
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
   call void @_Z13grpc_os_errorRKN9grpc_core13DebugLocationEiPKc(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %5, ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %15, ptr noundef nonnull @.str.7)
-  call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  %18 = load i64, ptr %5, align 8, !tbaa !18, !noalias !33
+  call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  %18 = load i64, ptr %5, align 8, !tbaa !18, !noalias !32
   %19 = icmp eq i64 %18, 1
   br i1 %19, label %20, label %_ZN4absl12lts_202407226StatusD2Ev.exit, !prof !20
 
 20:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19, !noalias !33
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19, !noalias !32
   invoke void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.5, i32 noundef 75, i64 11, ptr nonnull @.str.6) #20
           to label %.noexc unwind label %21
 
 .noexc:                                           ; preds = %20
-  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24, !noalias !33
+  call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24, !noalias !32
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17
-  store i64 %18, ptr %0, align 8, !tbaa !18, !alias.scope !33
+  store i64 %18, ptr %0, align 8, !tbaa !18, !alias.scope !32
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
   br label %23
 
@@ -352,10 +352,10 @@ define internal void @_ZL11pipe_wakeupP14grpc_wakeup_fd(ptr dead_on_unwind noali
   %9 = tail call ptr @__errno_location() #21
   %10 = load i32, ptr %9, align 4, !tbaa !3
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %5, label %.critedge, !llvm.loop !36
+  br i1 %11, label %5, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %5, %8
-  store i64 1, ptr %0, align 8, !tbaa !18, !alias.scope !37
+  store i64 1, ptr %0, align 8, !tbaa !18, !alias.scope !36
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #19
   ret void
 }
@@ -449,7 +449,7 @@ define internal void @__cxx_global_var_init.1() #5 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8, !tbaa !40
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 16), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8, !tbaa !39
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -607,21 +607,20 @@ attributes #24 = { noreturn nounwind }
 !21 = !{!22, !4, i64 0}
 !22 = !{!"_ZTS14grpc_wakeup_fd", !4, i64 0, !4, i64 4}
 !23 = !{!22, !4, i64 4}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
-!29 = distinct !{!29, !"_ZN4absl12lts_202407228OkStatusEv"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
-!32 = distinct !{!32, !"_ZN4absl12lts_202407228OkStatusEv"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_Z20grpc_assert_never_okN4absl12lts_202407226StatusE: argument 0"}
-!35 = distinct !{!35, !"_Z20grpc_assert_never_okN4absl12lts_202407226StatusE"}
-!36 = distinct !{!36, !25, !26}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
-!39 = distinct !{!39, !"_ZN4absl12lts_202407228OkStatusEv"}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"vtable pointer", !6, i64 0}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
+!28 = distinct !{!28, !"_ZN4absl12lts_202407228OkStatusEv"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
+!31 = distinct !{!31, !"_ZN4absl12lts_202407228OkStatusEv"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_Z20grpc_assert_never_okN4absl12lts_202407226StatusE: argument 0"}
+!34 = distinct !{!34, !"_Z20grpc_assert_never_okN4absl12lts_202407226StatusE"}
+!35 = distinct !{!35, !25}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN4absl12lts_202407228OkStatusEv: argument 0"}
+!38 = distinct !{!38, !"_ZN4absl12lts_202407228OkStatusEv"}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"vtable pointer", !6, i64 0}

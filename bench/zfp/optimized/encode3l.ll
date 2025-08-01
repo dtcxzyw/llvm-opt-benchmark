@@ -56,12 +56,12 @@ define range(i64 0, 4294967296) i64 @zfp_encode_block_int64_3(ptr noundef readon
   store i64 %26, ptr %19, align 8, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %31, label %17, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %31, label %17
 
 31:                                               ; preds = %17
   %indvars.iv.next54.i.i = add nuw nsw i64 %indvars.iv53.i.i, 1
   %exitcond56.not.i.i = icmp eq i64 %indvars.iv.next54.i.i, 4
-  br i1 %exitcond56.not.i.i, label %.preheader39.i.i, label %.preheader41.i.i, !llvm.loop !20
+  br i1 %exitcond56.not.i.i, label %.preheader39.i.i, label %.preheader41.i.i
 
 .preheader39.i.i:                                 ; preds = %31, %46
   %indvars.iv61.i.i = phi i64 [ %indvars.iv.next62.i.i, %46 ], [ 0, %31 ]
@@ -90,12 +90,12 @@ define range(i64 0, 4294967296) i64 @zfp_encode_block_int64_3(ptr noundef readon
   store i64 %41, ptr %34, align 8, !tbaa !4
   %indvars.iv.next58.i.i = add nuw nsw i64 %indvars.iv57.i.i, 1
   %exitcond60.not.i.i = icmp eq i64 %indvars.iv.next58.i.i, 4
-  br i1 %exitcond60.not.i.i, label %46, label %32, !llvm.loop !21
+  br i1 %exitcond60.not.i.i, label %46, label %32
 
 46:                                               ; preds = %32
   %indvars.iv.next62.i.i = add nuw nsw i64 %indvars.iv61.i.i, 1
   %exitcond64.not.i.i = icmp eq i64 %indvars.iv.next62.i.i, 4
-  br i1 %exitcond64.not.i.i, label %.preheader.i.i, label %.preheader39.i.i, !llvm.loop !22
+  br i1 %exitcond64.not.i.i, label %.preheader.i.i, label %.preheader39.i.i
 
 .preheader.i.i:                                   ; preds = %46, %61
   %indvars.iv69.i.i = phi i64 [ %indvars.iv.next70.i.i, %61 ], [ 0, %46 ]
@@ -124,19 +124,19 @@ define range(i64 0, 4294967296) i64 @zfp_encode_block_int64_3(ptr noundef readon
   store i64 %56, ptr %49, align 8, !tbaa !4
   %indvars.iv.next66.i.i = add nuw nsw i64 %indvars.iv65.i.i, 1
   %exitcond68.not.i.i = icmp eq i64 %indvars.iv.next66.i.i, 4
-  br i1 %exitcond68.not.i.i, label %61, label %47, !llvm.loop !23
+  br i1 %exitcond68.not.i.i, label %61, label %47
 
 61:                                               ; preds = %47
   %indvars.iv.next70.i.i = add nuw nsw i64 %indvars.iv69.i.i, 1
   %exitcond72.not.i.i = icmp eq i64 %indvars.iv.next70.i.i, 4
-  br i1 %exitcond72.not.i.i, label %rev_fwd_xform_int64_3.exit.i, label %.preheader.i.i, !llvm.loop !24
+  br i1 %exitcond72.not.i.i, label %rev_fwd_xform_int64_3.exit.i, label %.preheader.i.i
 
 rev_fwd_xform_int64_3.exit.i:                     ; preds = %61, %rev_fwd_xform_int64_3.exit.i
   %.04.i.i = phi ptr [ %69, %rev_fwd_xform_int64_3.exit.i ], [ %4, %61 ]
   %.03.i.i = phi ptr [ %62, %rev_fwd_xform_int64_3.exit.i ], [ @perm_3, %61 ]
   %.0.i.i = phi i32 [ %70, %rev_fwd_xform_int64_3.exit.i ], [ 64, %61 ]
   %62 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 1
-  %63 = load i8, ptr %.03.i.i, align 1, !tbaa !25
+  %63 = load i8, ptr %.03.i.i, align 1, !tbaa !18
   %64 = zext i8 %63 to i64
   %65 = getelementptr inbounds nuw i64, ptr %5, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !4
@@ -146,7 +146,7 @@ rev_fwd_xform_int64_3.exit.i:                     ; preds = %61, %rev_fwd_xform_
   store i64 %68, ptr %.04.i.i, align 8, !tbaa !4
   %70 = add nsw i32 %.0.i.i, -1
   %.not.i.i = icmp eq i32 %70, 0
-  br i1 %.not.i.i, label %fwd_order_int64.exit.i, label %rev_fwd_xform_int64_3.exit.i, !llvm.loop !26
+  br i1 %.not.i.i, label %fwd_order_int64.exit.i, label %rev_fwd_xform_int64_3.exit.i
 
 select.unfold.preheader.i.i:                      ; preds = %fwd_order_int64.exit.i
   %.not1824.i.i = icmp eq i64 %74, 0
@@ -161,7 +161,7 @@ fwd_order_int64.exit.i:                           ; preds = %rev_fwd_xform_int64
   %73 = load i64, ptr %.01621.i.i, align 8, !tbaa !4
   %74 = or i64 %73, %.023.i.i
   %.not.i23.i = icmp eq i32 %71, 0
-  br i1 %.not.i23.i, label %select.unfold.preheader.i.i, label %fwd_order_int64.exit.i, !llvm.loop !27
+  br i1 %.not.i23.i, label %select.unfold.preheader.i.i, label %fwd_order_int64.exit.i
 
 select.unfold.i.i:                                ; preds = %select.unfold.preheader.i.i, %select.unfold.i.i
   %.127.i.i = phi i64 [ %spec.select20.i.i, %select.unfold.i.i ], [ %74, %select.unfold.preheader.i.i ]
@@ -188,26 +188,26 @@ rev_precision_uint64.exit.i:                      ; preds = %rev_precision_uint6
   %.013.lcssa.i.i = phi i32 [ 1, %select.unfold.preheader.i.i ], [ %82, %rev_precision_uint64.exit.loopexit.i ]
   %83 = add i32 %.013.lcssa.i.i, -1
   %84 = zext i32 %83 to i64
-  %85 = load i64, ptr %10, align 8, !tbaa !28
+  %85 = load i64, ptr %10, align 8, !tbaa !19
   %86 = shl i64 %84, %85
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %88 = load i64, ptr %87, align 8, !tbaa !31
+  %88 = load i64, ptr %87, align 8, !tbaa !22
   %89 = add i64 %86, %88
   %90 = add i64 %85, 6
-  store i64 %90, ptr %10, align 8, !tbaa !28
+  store i64 %90, ptr %10, align 8, !tbaa !19
   %91 = icmp ugt i64 %90, 63
   br i1 %91, label %92, label %stream_write_bits.exit.i
 
 92:                                               ; preds = %rev_precision_uint64.exit.i
   %93 = lshr i64 %84, 1
   %94 = add i64 %85, -58
-  store i64 %94, ptr %10, align 8, !tbaa !28
+  store i64 %94, ptr %10, align 8, !tbaa !19
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %96 = load ptr, ptr %95, align 8, !tbaa !32
+  %96 = load ptr, ptr %95, align 8, !tbaa !23
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store ptr %97, ptr %95, align 8, !tbaa !32
+  store ptr %97, ptr %95, align 8, !tbaa !23
   store i64 %89, ptr %96, align 8, !tbaa !4
-  %98 = load i64, ptr %10, align 8, !tbaa !28
+  %98 = load i64, ptr %10, align 8, !tbaa !19
   %99 = sub i64 5, %98
   %100 = lshr i64 %93, %99
   br label %stream_write_bits.exit.i
@@ -218,7 +218,7 @@ stream_write_bits.exit.i:                         ; preds = %92, %rev_precision_
   %notmask.i.i = shl nsw i64 -1, %102
   %103 = xor i64 %notmask.i.i, -1
   %104 = and i64 %101, %103
-  store i64 %104, ptr %87, align 8, !tbaa !31
+  store i64 %104, ptr %87, align 8, !tbaa !22
   %105 = add i32 %13, -6
   %106 = call fastcc i32 @encode_ints_uint64(ptr noundef nonnull %10, i32 noundef %105, i32 noundef %.013.lcssa.i.i, ptr noundef %4)
   %107 = add i32 %106, 6
@@ -228,15 +228,15 @@ stream_write_bits.exit.i:                         ; preds = %92, %rev_precision_
 109:                                              ; preds = %stream_write_bits.exit.i
   %110 = sub nuw i32 %11, %107
   %111 = zext i32 %110 to i64
-  %112 = load i64, ptr %10, align 8, !tbaa !28
+  %112 = load i64, ptr %10, align 8, !tbaa !19
   %113 = add i64 %112, %111
   %114 = icmp ugt i64 %113, 63
   br i1 %114, label %.lr.ph.i.i, label %stream_pad.exit.i
 
 .lr.ph.i.i:                                       ; preds = %109
   %115 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.promoted.i.i = load ptr, ptr %115, align 8, !tbaa !32
-  %.pre.i.i = load i64, ptr %87, align 8, !tbaa !31
+  %.promoted.i.i = load ptr, ptr %115, align 8, !tbaa !23
+  %.pre.i.i = load i64, ptr %87, align 8, !tbaa !22
   br label %116
 
 116:                                              ; preds = %116, %.lr.ph.i.i
@@ -245,18 +245,18 @@ stream_write_bits.exit.i:                         ; preds = %92, %rev_precision_
   %.09.i.i = phi i64 [ %113, %.lr.ph.i.i ], [ %120, %116 ]
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i64 %117, ptr %118, align 8, !tbaa !4
-  store i64 0, ptr %87, align 8, !tbaa !31
+  store i64 0, ptr %87, align 8, !tbaa !22
   %120 = add i64 %.09.i.i, -64
   %121 = icmp ugt i64 %120, 63
-  br i1 %121, label %116, label %._crit_edge.i.i, !llvm.loop !33
+  br i1 %121, label %116, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %116
-  store ptr %119, ptr %115, align 8, !tbaa !32
+  store ptr %119, ptr %115, align 8, !tbaa !23
   br label %stream_pad.exit.i
 
 stream_pad.exit.i:                                ; preds = %._crit_edge.i.i, %109
   %.0.lcssa.i.i = phi i64 [ %120, %._crit_edge.i.i ], [ %113, %109 ]
-  store i64 %.0.lcssa.i.i, ptr %10, align 8, !tbaa !28
+  store i64 %.0.lcssa.i.i, ptr %10, align 8, !tbaa !19
   br label %rev_encode_block_int64_3.exit
 
 rev_encode_block_int64_3.exit:                    ; preds = %stream_write_bits.exit.i, %stream_pad.exit.i
@@ -307,12 +307,12 @@ rev_encode_block_int64_3.exit:                    ; preds = %stream_write_bits.e
   store i64 %138, ptr %gep.i.i17, align 32, !tbaa !4
   %indvars.iv.next.i.i18 = add nuw nsw i64 %indvars.iv.i.i15, 1
   %exitcond.not.i.i19 = icmp eq i64 %indvars.iv.next.i.i18, 4
-  br i1 %exitcond.not.i.i19, label %147, label %123, !llvm.loop !34
+  br i1 %exitcond.not.i.i19, label %147, label %123
 
 147:                                              ; preds = %123
   %indvars.iv.next42.i.i = add nuw nsw i64 %indvars.iv41.i.i, 1
   %exitcond44.not.i.i = icmp eq i64 %indvars.iv.next42.i.i, 4
-  br i1 %exitcond44.not.i.i, label %.preheader27.i.i, label %.preheader29.i.i, !llvm.loop !35
+  br i1 %exitcond44.not.i.i, label %.preheader27.i.i, label %.preheader29.i.i
 
 .preheader27.i.i:                                 ; preds = %147, %172
   %indvars.iv49.i.i = phi i64 [ %indvars.iv.next50.i.i, %172 ], [ 0, %147 ]
@@ -352,12 +352,12 @@ rev_encode_block_int64_3.exit:                    ; preds = %stream_write_bits.e
   store i64 %163, ptr %gep33.i.i, align 8, !tbaa !4
   %indvars.iv.next46.i.i = add nuw nsw i64 %indvars.iv45.i.i, 1
   %exitcond48.not.i.i = icmp eq i64 %indvars.iv.next46.i.i, 4
-  br i1 %exitcond48.not.i.i, label %172, label %148, !llvm.loop !36
+  br i1 %exitcond48.not.i.i, label %172, label %148
 
 172:                                              ; preds = %148
   %indvars.iv.next50.i.i = add nuw nsw i64 %indvars.iv49.i.i, 1
   %exitcond52.not.i.i = icmp eq i64 %indvars.iv.next50.i.i, 4
-  br i1 %exitcond52.not.i.i, label %.preheader.i.i20, label %.preheader27.i.i, !llvm.loop !37
+  br i1 %exitcond52.not.i.i, label %.preheader.i.i20, label %.preheader27.i.i
 
 .preheader.i.i20:                                 ; preds = %172, %197
   %indvars.iv57.i.i21 = phi i64 [ %indvars.iv.next58.i.i25, %197 ], [ 0, %172 ]
@@ -397,19 +397,19 @@ rev_encode_block_int64_3.exit:                    ; preds = %stream_write_bits.e
   store i64 %188, ptr %gep37.i.i, align 8, !tbaa !4
   %indvars.iv.next54.i.i23 = add nuw nsw i64 %indvars.iv53.i.i22, 1
   %exitcond56.not.i.i24 = icmp eq i64 %indvars.iv.next54.i.i23, 4
-  br i1 %exitcond56.not.i.i24, label %197, label %173, !llvm.loop !38
+  br i1 %exitcond56.not.i.i24, label %197, label %173
 
 197:                                              ; preds = %173
   %indvars.iv.next58.i.i25 = add nuw nsw i64 %indvars.iv57.i.i21, 1
   %exitcond60.not.i.i26 = icmp eq i64 %indvars.iv.next58.i.i25, 4
-  br i1 %exitcond60.not.i.i26, label %fwd_xform_int64_3.exit.i, label %.preheader.i.i20, !llvm.loop !39
+  br i1 %exitcond60.not.i.i26, label %fwd_xform_int64_3.exit.i, label %.preheader.i.i20
 
 fwd_xform_int64_3.exit.i:                         ; preds = %197, %fwd_xform_int64_3.exit.i
   %.04.i.i27 = phi ptr [ %205, %fwd_xform_int64_3.exit.i ], [ %3, %197 ]
   %.03.i.i28 = phi ptr [ %198, %fwd_xform_int64_3.exit.i ], [ @perm_3, %197 ]
   %.0.i.i29 = phi i32 [ %206, %fwd_xform_int64_3.exit.i ], [ 64, %197 ]
   %198 = getelementptr inbounds nuw i8, ptr %.03.i.i28, i64 1
-  %199 = load i8, ptr %.03.i.i28, align 1, !tbaa !25
+  %199 = load i8, ptr %.03.i.i28, align 1, !tbaa !18
   %200 = zext i8 %199 to i64
   %201 = getelementptr inbounds nuw i64, ptr %5, i64 %200
   %202 = load i64, ptr %201, align 8, !tbaa !4
@@ -419,7 +419,7 @@ fwd_xform_int64_3.exit.i:                         ; preds = %197, %fwd_xform_int
   store i64 %204, ptr %.04.i.i27, align 8, !tbaa !4
   %206 = add nsw i32 %.0.i.i29, -1
   %.not.i.i30 = icmp eq i32 %206, 0
-  br i1 %.not.i.i30, label %fwd_order_int64.exit.i31, label %fwd_xform_int64_3.exit.i, !llvm.loop !26
+  br i1 %.not.i.i30, label %fwd_order_int64.exit.i31, label %fwd_xform_int64_3.exit.i
 
 fwd_order_int64.exit.i31:                         ; preds = %fwd_xform_int64_3.exit.i
   %207 = call fastcc i32 @encode_ints_uint64(ptr noundef %10, i32 noundef %13, i32 noundef %15, ptr noundef %3)
@@ -429,7 +429,7 @@ fwd_order_int64.exit.i31:                         ; preds = %fwd_xform_int64_3.e
 209:                                              ; preds = %fwd_order_int64.exit.i31
   %210 = sub nuw i32 %11, %207
   %211 = zext i32 %210 to i64
-  %212 = load i64, ptr %10, align 8, !tbaa !28
+  %212 = load i64, ptr %10, align 8, !tbaa !19
   %213 = add i64 %212, %211
   %214 = icmp ugt i64 %213, 63
   br i1 %214, label %.lr.ph.i.i35, label %stream_pad.exit.i33
@@ -437,8 +437,8 @@ fwd_order_int64.exit.i31:                         ; preds = %fwd_xform_int64_3.e
 .lr.ph.i.i35:                                     ; preds = %209
   %215 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %216 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.promoted.i.i36 = load ptr, ptr %216, align 8, !tbaa !32
-  %.pre.i.i37 = load i64, ptr %215, align 8, !tbaa !31
+  %.promoted.i.i36 = load ptr, ptr %216, align 8, !tbaa !23
+  %.pre.i.i37 = load i64, ptr %215, align 8, !tbaa !22
   br label %217
 
 217:                                              ; preds = %217, %.lr.ph.i.i35
@@ -447,18 +447,18 @@ fwd_order_int64.exit.i31:                         ; preds = %fwd_xform_int64_3.e
   %.09.i.i38 = phi i64 [ %213, %.lr.ph.i.i35 ], [ %221, %217 ]
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   store i64 %218, ptr %219, align 8, !tbaa !4
-  store i64 0, ptr %215, align 8, !tbaa !31
+  store i64 0, ptr %215, align 8, !tbaa !22
   %221 = add i64 %.09.i.i38, -64
   %222 = icmp ugt i64 %221, 63
-  br i1 %222, label %217, label %._crit_edge.i.i39, !llvm.loop !33
+  br i1 %222, label %217, label %._crit_edge.i.i39
 
 ._crit_edge.i.i39:                                ; preds = %217
-  store ptr %220, ptr %216, align 8, !tbaa !32
+  store ptr %220, ptr %216, align 8, !tbaa !23
   br label %stream_pad.exit.i33
 
 stream_pad.exit.i33:                              ; preds = %._crit_edge.i.i39, %209
   %.0.lcssa.i.i34 = phi i64 [ %221, %._crit_edge.i.i39 ], [ %213, %209 ]
-  store i64 %.0.lcssa.i.i34, ptr %10, align 8, !tbaa !28
+  store i64 %.0.lcssa.i.i34, ptr %10, align 8, !tbaa !19
   br label %encode_block_int64_3.exit
 
 encode_block_int64_3.exit:                        ; preds = %fwd_order_int64.exit.i31, %stream_pad.exit.i33
@@ -488,16 +488,16 @@ define internal fastcc i32 @encode_ints_uint64(ptr noalias noundef captures(none
   br i1 %.not, label %7, label %71
 
 7:                                                ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.26.i)
-  %.sroa.0.0.copyload.i = load i64, ptr %0, align 8, !tbaa !4, !alias.scope !40, !noalias !43
+  %.sroa.0.0.copyload.i = load i64, ptr %0, align 8, !tbaa !4, !alias.scope !24, !noalias !27
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.14.0.copyload.i = load i64, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !4, !alias.scope !40, !noalias !43
+  %.sroa.14.0.copyload.i = load i64, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !4, !alias.scope !24, !noalias !27
   %.sroa.20.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.20.0.copyload.i = load ptr, ptr %.sroa.20.0..sroa_idx.i, align 8, !tbaa !45, !alias.scope !40, !noalias !43
+  %.sroa.20.0.copyload.i = load ptr, ptr %.sroa.20.0..sroa_idx.i, align 8, !tbaa !29, !alias.scope !24, !noalias !27
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.26.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.26.0..sroa_idx.i, i64 16, i1 false), !tbaa.struct !46, !noalias !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.26.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.26.0..sroa_idx.i, i64 16, i1 false), !tbaa.struct !30, !noalias !27
   %.not114.i = icmp eq i32 %1, 0
   br i1 %.not114.i, label %encode_few_ints_uint64.exit, label %.lr.ph122.preheader.i
 
@@ -521,14 +521,14 @@ define internal fastcc i32 @encode_ints_uint64(ptr noalias noundef captures(none
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader76.i ], [ 0, %.lr.ph122.i ]
   %.078.i = phi i64 [ %16, %.preheader76.i ], [ 0, %.lr.ph122.i ]
   %11 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
-  %12 = load i64, ptr %11, align 8, !tbaa !4, !alias.scope !43, !noalias !40
+  %12 = load i64, ptr %11, align 8, !tbaa !4, !alias.scope !27, !noalias !24
   %13 = lshr i64 %12, %indvars.iv.next135.i
   %14 = and i64 %13, 1
   %15 = shl nuw i64 %14, %indvars.iv.i
   %16 = add i64 %15, %.078.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %17, label %.preheader76.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %17, label %.preheader76.i
 
 17:                                               ; preds = %.preheader76.i
   %18 = tail call i32 @llvm.umin.i32(i32 %.042120.i, i32 %.045119.i)
@@ -545,7 +545,7 @@ define internal fastcc i32 @encode_ints_uint64(ptr noalias noundef captures(none
   %27 = add nsw i64 %20, -1
   %28 = add i64 %23, -64
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.20.0117.i, i64 8
-  store i64 %22, ptr %.sroa.20.0117.i, align 8, !tbaa !4, !noalias !48
+  store i64 %22, ptr %.sroa.20.0117.i, align 8, !tbaa !4, !noalias !31
   %30 = sub i64 %27, %28
   %31 = lshr i64 %26, %30
   br label %stream_write_bits.exit.i
@@ -586,7 +586,7 @@ stream_write_bits.exit.i:                         ; preds = %25, %17
 
 46:                                               ; preds = %.lr.ph102.i
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.20.198.i, i64 8
-  store i64 %43, ptr %.sroa.20.198.i, align 8, !tbaa !4, !noalias !48
+  store i64 %43, ptr %.sroa.20.198.i, align 8, !tbaa !4, !noalias !31
   br label %stream_write_bit.exit.i
 
 stream_write_bit.exit.i:                          ; preds = %46, %.lr.ph102.i
@@ -618,7 +618,7 @@ stream_write_bit.exit.i:                          ; preds = %46, %.lr.ph102.i
 
 57:                                               ; preds = %.lr.ph.i
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.20.381.i, i64 8
-  store i64 %54, ptr %.sroa.20.381.i, align 8, !tbaa !4, !noalias !48
+  store i64 %54, ptr %.sroa.20.381.i, align 8, !tbaa !4, !noalias !31
   br label %stream_write_bit.exit53.i
 
 stream_write_bit.exit53.i:                        ; preds = %57, %.lr.ph.i
@@ -634,7 +634,7 @@ stream_write_bit.exit53.i:                        ; preds = %57, %.lr.ph.i
   %62 = icmp ne i32 %51, 0
   %63 = icmp ult i32 %.24483.i, 62
   %64 = select i1 %62, i1 %63, i1 false
-  br i1 %64, label %.lr.ph.i, label %stream_write_bit.exit53._crit_edge.i, !llvm.loop !49
+  br i1 %64, label %.lr.ph.i, label %stream_write_bit.exit53._crit_edge.i
 
 stream_write_bit.exit53._crit_edge.i:             ; preds = %59, %stream_write_bit.exit53.i, %.preheader.i
   %.244.lcssa.i = phi i32 [ %.143100.i, %.preheader.i ], [ %61, %59 ], [ %.24483.i, %stream_write_bit.exit53.i ]
@@ -648,7 +648,7 @@ stream_write_bit.exit53._crit_edge.i:             ; preds = %59, %stream_write_b
   %67 = icmp ne i32 %.4.i, 0
   %68 = icmp ult i32 %.244.lcssa.i, 63
   %69 = select i1 %67, i1 %68, i1 false
-  br i1 %69, label %.lr.ph102.i, label %stream_write_bit.exit._crit_edge.i, !llvm.loop !50
+  br i1 %69, label %.lr.ph102.i, label %stream_write_bit.exit._crit_edge.i
 
 stream_write_bit.exit._crit_edge.i:               ; preds = %stream_write_bit.exit53._crit_edge.i, %stream_write_bit.exit.i, %stream_write_bits.exit.i
   %.143.lcssa.i = phi i32 [ %.042120.i, %stream_write_bits.exit.i ], [ %66, %stream_write_bit.exit53._crit_edge.i ], [ %.143100.i, %stream_write_bit.exit.i ]
@@ -657,29 +657,29 @@ stream_write_bit.exit._crit_edge.i:               ; preds = %stream_write_bit.ex
   %.sroa.20.2.i = phi ptr [ %.sroa.20.5.i, %stream_write_bits.exit.i ], [ %.sroa.20.4.i, %stream_write_bit.exit53._crit_edge.i ], [ %.sroa.20.6.i, %stream_write_bit.exit.i ]
   %.247.i = phi i32 [ %19, %stream_write_bits.exit.i ], [ %.4.i, %stream_write_bit.exit53._crit_edge.i ], [ %39, %stream_write_bit.exit.i ]
   %.not.i = icmp eq i32 %.247.i, 0
-  br i1 %.not.i, label %encode_few_ints_uint64.exit, label %.lr.ph122.i, !llvm.loop !51
+  br i1 %.not.i, label %encode_few_ints_uint64.exit, label %.lr.ph122.i
 
 encode_few_ints_uint64.exit:                      ; preds = %.lr.ph122.i, %stream_write_bit.exit._crit_edge.i, %7
   %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.0.copyload.i, %7 ], [ %.sroa.0.0115.i, %.lr.ph122.i ], [ %.sroa.0.2.i, %stream_write_bit.exit._crit_edge.i ]
   %.sroa.14.0.lcssa.i = phi i64 [ %.sroa.14.0.copyload.i, %7 ], [ %.sroa.14.0116.i, %.lr.ph122.i ], [ %.sroa.14.2.i, %stream_write_bit.exit._crit_edge.i ]
   %.sroa.20.0.lcssa.i = phi ptr [ %.sroa.20.0.copyload.i, %7 ], [ %.sroa.20.0117.i, %.lr.ph122.i ], [ %.sroa.20.2.i, %stream_write_bit.exit._crit_edge.i ]
   %.045.lcssa.i = phi i32 [ 0, %7 ], [ %.045119.i, %.lr.ph122.i ], [ 0, %stream_write_bit.exit._crit_edge.i ]
-  store i64 %.sroa.0.0.lcssa.i, ptr %0, align 8, !tbaa !4, !alias.scope !40, !noalias !43
-  store i64 %.sroa.14.0.lcssa.i, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !4, !alias.scope !40, !noalias !43
-  store ptr %.sroa.20.0.lcssa.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !tbaa !45, !alias.scope !40, !noalias !43
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.26.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.26.i, i64 16, i1 false), !tbaa.struct !46, !noalias !43
+  store i64 %.sroa.0.0.lcssa.i, ptr %0, align 8, !tbaa !4, !alias.scope !24, !noalias !27
+  store i64 %.sroa.14.0.lcssa.i, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !4, !alias.scope !24, !noalias !27
+  store ptr %.sroa.20.0.lcssa.i, ptr %.sroa.20.0..sroa_idx.i, align 8, !tbaa !29, !alias.scope !24, !noalias !27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.26.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.26.i, i64 16, i1 false), !tbaa.struct !30, !noalias !27
   %70 = sub i32 %1, %.045.lcssa.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.26.i)
   br label %125
 
 71:                                               ; preds = %4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %.sroa.0.0.copyload.i24 = load i64, ptr %0, align 8, !tbaa !4, !alias.scope !52, !noalias !55
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  %.sroa.0.0.copyload.i24 = load i64, ptr %0, align 8, !tbaa !4, !alias.scope !32, !noalias !35
   %.sroa.16.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.16.0.copyload.i = load i64, ptr %.sroa.16.0..sroa_idx.i, align 8, !tbaa !4, !alias.scope !52, !noalias !55
+  %.sroa.16.0.copyload.i = load i64, ptr %.sroa.16.0..sroa_idx.i, align 8, !tbaa !4, !alias.scope !32, !noalias !35
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !45, !alias.scope !52, !noalias !55
+  %.sroa.22.0.copyload.i = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !29, !alias.scope !32, !noalias !35
   %72 = tail call i32 @llvm.usub.sat.i32(i32 64, i32 %2)
   %73 = icmp samesign ult i32 %72, 64
   br i1 %73, label %.preheader74.preheader.i, label %encode_few_ints_prec_uint64.exit
@@ -700,14 +700,14 @@ encode_few_ints_uint64.exit:                      ; preds = %.lr.ph122.i, %strea
   %indvars.iv.i26 = phi i64 [ 0, %.preheader74.i ], [ %indvars.iv.next.i27, %75 ]
   %.076.i = phi i64 [ 0, %.preheader74.i ], [ %81, %75 ]
   %76 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i26
-  %77 = load i64, ptr %76, align 8, !tbaa !4, !alias.scope !55, !noalias !52
+  %77 = load i64, ptr %76, align 8, !tbaa !4, !alias.scope !35, !noalias !32
   %78 = lshr i64 %77, %indvars.iv114.i
   %79 = and i64 %78, 1
   %80 = shl nuw i64 %79, %indvars.iv.i26
   %81 = add i64 %80, %.076.i
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 64
-  br i1 %exitcond.not.i28, label %82, label %75, !llvm.loop !57
+  br i1 %exitcond.not.i28, label %82, label %75
 
 82:                                               ; preds = %75
   %83 = zext i32 %.031108.i to i64
@@ -722,7 +722,7 @@ encode_few_ints_uint64.exit:                      ; preds = %.lr.ph122.i, %strea
   %90 = add nsw i64 %83, -1
   %91 = add i64 %86, -64
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.22.0107.i, i64 8
-  store i64 %85, ptr %.sroa.22.0107.i, align 8, !tbaa !4, !noalias !58
+  store i64 %85, ptr %.sroa.22.0107.i, align 8, !tbaa !4, !noalias !37
   %93 = sub i64 %90, %91
   %94 = lshr i64 %89, %93
   br label %stream_write_bits.exit.i29
@@ -759,7 +759,7 @@ stream_write_bits.exit.i29:                       ; preds = %88, %82
 
 106:                                              ; preds = %.lr.ph96.i
   %107 = getelementptr inbounds nuw i8, ptr %.sroa.22.193.i, i64 8
-  store i64 %103, ptr %.sroa.22.193.i, align 8, !tbaa !4, !noalias !58
+  store i64 %103, ptr %.sroa.22.193.i, align 8, !tbaa !4, !noalias !37
   br label %stream_write_bit.exit.i35
 
 stream_write_bit.exit.i35:                        ; preds = %106, %.lr.ph96.i
@@ -787,7 +787,7 @@ stream_write_bit.exit.i35:                        ; preds = %106, %.lr.ph96.i
 
 113:                                              ; preds = %.lr.ph.i39
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.22.379.i, i64 8
-  store i64 %110, ptr %.sroa.22.379.i, align 8, !tbaa !4, !noalias !58
+  store i64 %110, ptr %.sroa.22.379.i, align 8, !tbaa !4, !noalias !37
   br label %stream_write_bit.exit38.i
 
 stream_write_bit.exit38.i:                        ; preds = %113, %.lr.ph.i39
@@ -801,11 +801,11 @@ stream_write_bit.exit38.i:                        ; preds = %113, %.lr.ph.i39
 
 117:                                              ; preds = %stream_write_bit.exit38.i
   %exitcond113.not.i = icmp eq i32 %.23380.i, 62
-  br i1 %exitcond113.not.i, label %.critedge.i, label %.lr.ph.i39, !llvm.loop !59
+  br i1 %exitcond113.not.i, label %.critedge.i, label %.lr.ph.i39
 
 .critedge2.i:                                     ; preds = %stream_write_bit.exit38.i
   %118 = icmp ult i32 %.23380.i, 63
-  br i1 %118, label %.lr.ph96.i, label %.critedge.i, !llvm.loop !60
+  br i1 %118, label %.lr.ph96.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge2.i, %.preheader.i37, %stream_write_bit.exit.i35, %117, %stream_write_bits.exit.i29
   %.132.lcssa.i = phi i32 [ %.031108.i, %stream_write_bits.exit.i29 ], [ 64, %117 ], [ %.13294.i, %stream_write_bit.exit.i35 ], [ %116, %.critedge2.i ], [ 64, %.preheader.i37 ]
@@ -814,16 +814,16 @@ stream_write_bit.exit38.i:                        ; preds = %113, %.lr.ph.i39
   %.sroa.22.2.i = phi ptr [ %.sroa.22.5.i, %stream_write_bits.exit.i29 ], [ %.sroa.22.7.i, %117 ], [ %.sroa.22.6.i, %stream_write_bit.exit.i35 ], [ %.sroa.22.7.i, %.critedge2.i ], [ %.sroa.22.6.i, %.preheader.i37 ]
   %indvars.iv.next115.i = add nsw i64 %indvars.iv114.i, -1
   %119 = icmp ugt i64 %indvars.iv114.i, %74
-  br i1 %119, label %.preheader74.i, label %encode_few_ints_prec_uint64.exit, !llvm.loop !61
+  br i1 %119, label %.preheader74.i, label %encode_few_ints_prec_uint64.exit
 
 encode_few_ints_prec_uint64.exit:                 ; preds = %.critedge.i, %71
   %.sroa.16.0.lcssa.i = phi i64 [ %.sroa.16.0.copyload.i, %71 ], [ %.sroa.16.2.i, %.critedge.i ]
   %.sroa.0.0.lcssa.i25 = phi i64 [ %.sroa.0.0.copyload.i24, %71 ], [ %.sroa.0.2.i34, %.critedge.i ]
   %.sroa.22.0.lcssa.i = phi ptr [ %.sroa.22.0.copyload.i, %71 ], [ %.sroa.22.2.i, %.critedge.i ]
   %120 = ptrtoint ptr %.sroa.22.0.copyload.i to i64
-  store i64 %.sroa.0.0.lcssa.i25, ptr %0, align 8, !tbaa !4, !alias.scope !52, !noalias !55
-  store i64 %.sroa.16.0.lcssa.i, ptr %.sroa.16.0..sroa_idx.i, align 8, !tbaa !4, !alias.scope !52, !noalias !55
-  store ptr %.sroa.22.0.lcssa.i, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !45, !alias.scope !52, !noalias !55
+  store i64 %.sroa.0.0.lcssa.i25, ptr %0, align 8, !tbaa !4, !alias.scope !32, !noalias !35
+  store i64 %.sroa.16.0.lcssa.i, ptr %.sroa.16.0..sroa_idx.i, align 8, !tbaa !4, !alias.scope !32, !noalias !35
+  store ptr %.sroa.22.0.lcssa.i, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !29, !alias.scope !32, !noalias !35
   %121 = ptrtoint ptr %.sroa.22.0.lcssa.i to i64
   %reass.add.i = sub i64 %121, %120
   %reass.mul.i = shl i64 %reass.add.i, 3
@@ -872,19 +872,19 @@ define range(i64 0, 4294967296) i64 @zfp_encode_block_strided_int64_3(ptr nounde
   %14 = add nuw nsw i32 %.01624.i, 1
   %15 = getelementptr inbounds i64, ptr %.22022.i, i64 %2
   %exitcond.not.i = icmp eq i32 %14, 4
-  br i1 %exitcond.not.i, label %16, label %11, !llvm.loop !62
+  br i1 %exitcond.not.i, label %16, label %11
 
 16:                                               ; preds = %11
   %17 = add nuw nsw i32 %.01527.i, 1
   %18 = getelementptr inbounds i64, ptr %15, i64 %8
   %exitcond33.not.i = icmp eq i32 %17, 4
-  br i1 %exitcond33.not.i, label %19, label %.preheader.i, !llvm.loop !63
+  br i1 %exitcond33.not.i, label %19, label %.preheader.i
 
 19:                                               ; preds = %16
   %20 = add nuw nsw i32 %.030.i, 1
   %21 = getelementptr inbounds i64, ptr %18, i64 %10
   %exitcond34.not.i = icmp eq i32 %20, 4
-  br i1 %exitcond34.not.i, label %gather_int64_3.exit, label %.preheader21.i, !llvm.loop !64
+  br i1 %exitcond34.not.i, label %gather_int64_3.exit, label %.preheader21.i
 
 gather_int64_3.exit:                              ; preds = %19
   %22 = call i64 @zfp_encode_block_int64_3(ptr noundef %0, ptr noundef nonnull %6)
@@ -897,7 +897,11 @@ define range(i64 0, 4294967296) i64 @zfp_encode_partial_block_strided_int64_3(pt
   %9 = alloca [64 x i64], align 256
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #7
   %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader.us.preheader.i, label %.preheader70.lr.ph.i
+  br i1 %.not.i, label %.preheader.us.i.preheader, label %.preheader70.lr.ph.i
+
+.preheader.us.i.preheader:                        ; preds = %8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 256 dereferenceable(512) %9, i8 0, i64 512, i1 false)
+  br label %gather_partial_int64_3.exit
 
 .preheader70.lr.ph.i:                             ; preds = %8
   %.not129.i = icmp eq i64 %3, 0
@@ -920,7 +924,7 @@ define range(i64 0, 4294967296) i64 @zfp_encode_partial_block_strided_int64_3(pt
   %17 = add nuw i64 %.078.us.i, 1
   %18 = getelementptr inbounds i64, ptr %16, i64 %13
   %exitcond140.not.i = icmp eq i64 %17, %4
-  br i1 %exitcond140.not.i, label %.preheader67.i, label %.preheader70.us.i, !llvm.loop !65
+  br i1 %exitcond140.not.i, label %.preheader67.i, label %.preheader70.us.i, !llvm.loop !38
 
 19:                                               ; preds = %..preheader69_crit_edge.us.i, %pad_block_int64.exit60.us.i
   %.14376.us.i = phi i64 [ 0, %..preheader69_crit_edge.us.i ], [ %31, %pad_block_int64.exit60.us.i ]
@@ -966,7 +970,7 @@ define range(i64 0, 4294967296) i64 @zfp_encode_partial_block_strided_int64_3(pt
 pad_block_int64.exit60.us.i:                      ; preds = %28, %19
   %31 = add nuw nsw i64 %.14376.us.i, 1
   %exitcond139.not.i = icmp eq i64 %31, 4
-  br i1 %exitcond139.not.i, label %15, label %19, !llvm.loop !67
+  br i1 %exitcond139.not.i, label %15, label %19
 
 pad_block_int64.exit.us84.i:                      ; preds = %.preheader70.us.i, %pad_block_int64.exit.us84.i
   %.04174.us86.i = phi i64 [ %33, %pad_block_int64.exit.us84.i ], [ 0, %.preheader70.us.i ]
@@ -977,7 +981,7 @@ pad_block_int64.exit.us84.i:                      ; preds = %.preheader70.us.i, 
   %34 = getelementptr inbounds i64, ptr %.14573.us87.i, i64 %11
   %exitcond138.not.i = icmp eq i64 %33, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %32, i8 0, i64 32, i1 false)
-  br i1 %exitcond138.not.i, label %..preheader69_crit_edge.us.i, label %pad_block_int64.exit.us84.i, !llvm.loop !68
+  br i1 %exitcond138.not.i, label %..preheader69_crit_edge.us.i, label %pad_block_int64.exit.us84.i
 
 ..preheader69_crit_edge.us.i:                     ; preds = %pad_block_int64.exit.us.us.i, %pad_block_int64.exit.us84.i
   %35 = phi ptr [ %.14573.us87.i, %pad_block_int64.exit.us84.i ], [ %50, %pad_block_int64.exit.us.us.i ]
@@ -1017,7 +1021,7 @@ pad_block_int64.exit.us.us.i:                     ; preds = %._crit_edge.us.us.i
   %44 = add nuw i64 %.04174.us.us.i, 1
   %45 = getelementptr inbounds i64, ptr %50, i64 %11
   %exitcond137.not.i = icmp eq i64 %44, %3
-  br i1 %exitcond137.not.i, label %..preheader69_crit_edge.us.i, label %.preheader68.us.us.i, !llvm.loop !69
+  br i1 %exitcond137.not.i, label %..preheader69_crit_edge.us.i, label %.preheader68.us.us.i, !llvm.loop !40
 
 46:                                               ; preds = %46, %.preheader68.us.us.i
   %.04272.us.us.i = phi i64 [ 0, %.preheader68.us.us.i ], [ %49, %46 ]
@@ -1028,7 +1032,7 @@ pad_block_int64.exit.us.us.i:                     ; preds = %._crit_edge.us.us.i
   %49 = add nuw i64 %.04272.us.us.i, 1
   %50 = getelementptr inbounds i64, ptr %.24671.us.us.i, i64 %5
   %exitcond.not.i = icmp eq i64 %49, %2
-  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %46, !llvm.loop !70
+  br i1 %exitcond.not.i, label %._crit_edge.us.us.i, label %46
 
 ._crit_edge.us.us.i:                              ; preds = %46
   switch i64 %2, label %pad_block_int64.exit.us.us.i [
@@ -1044,7 +1048,7 @@ pad_block_int64.exit.us.us.i:                     ; preds = %._crit_edge.us.us.i
   %52 = add nuw i64 %.078.i, 1
   %exitcond142.not.i = icmp eq i64 %52, %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %scevgep, i8 0, i64 128, i1 false)
-  br i1 %exitcond142.not.i, label %.preheader67.i, label %.preheader70.i, !llvm.loop !71
+  br i1 %exitcond142.not.i, label %.preheader67.i, label %.preheader70.i
 
 .preheader67.i:                                   ; preds = %15, %.preheader70.i
   switch i64 %4, label %gather_partial_int64_3.exit [
@@ -1052,10 +1056,6 @@ pad_block_int64.exit.us.us.i:                     ; preds = %._crit_edge.us.us.i
     i64 1, label %.preheader.us109.i
     i64 2, label %.preheader.us116.i
   ]
-
-.preheader.us.preheader.i:                        ; preds = %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 256 dereferenceable(512) %9, i8 0, i64 512, i1 false)
-  br label %gather_partial_int64_3.exit
 
 .preheader.us109.i:                               ; preds = %.preheader67.i, %.split.split.us.us.i
   %.1102.us110.i = phi i64 [ %59, %.split.split.us.us.i ], [ 0, %.preheader67.i ]
@@ -1075,12 +1075,12 @@ pad_block_int64.exit.us.us.i:                     ; preds = %._crit_edge.us.us.i
   store i64 %.pre.i65.us.us.i, ptr %57, align 8, !tbaa !4
   %58 = add nuw nsw i64 %.292.us94.us.i, 1
   %exitcond148.not.i = icmp eq i64 %58, 4
-  br i1 %exitcond148.not.i, label %.split.split.us.us.i, label %._crit_edge.i64.us.us.i, !llvm.loop !72
+  br i1 %exitcond148.not.i, label %.split.split.us.us.i, label %._crit_edge.i64.us.us.i, !llvm.loop !41
 
 .split.split.us.us.i:                             ; preds = %._crit_edge.i64.us.us.i
   %59 = add nuw nsw i64 %.1102.us110.i, 1
   %exitcond149.not.i = icmp eq i64 %59, 4
-  br i1 %exitcond149.not.i, label %gather_partial_int64_3.exit, label %.preheader.us109.i, !llvm.loop !73
+  br i1 %exitcond149.not.i, label %gather_partial_int64_3.exit, label %.preheader.us109.i, !llvm.loop !42
 
 .preheader.us116.i:                               ; preds = %.preheader67.i, %.split.split.split.us.us.i
   %.1102.us117.i = phi i64 [ %66, %.split.split.split.us.us.i ], [ 0, %.preheader67.i ]
@@ -1100,12 +1100,12 @@ pad_block_int64.exit.us.us.i:                     ; preds = %._crit_edge.us.us.i
   store i64 %63, ptr %64, align 8, !tbaa !4
   %65 = add nuw nsw i64 %.292.us97.us.i, 1
   %exitcond146.not.i = icmp eq i64 %65, 4
-  br i1 %exitcond146.not.i, label %.split.split.split.us.us.i, label %._crit_edge15.i61.us.us.i, !llvm.loop !74
+  br i1 %exitcond146.not.i, label %.split.split.split.us.us.i, label %._crit_edge15.i61.us.us.i, !llvm.loop !43
 
 .split.split.split.us.us.i:                       ; preds = %._crit_edge15.i61.us.us.i
   %66 = add nuw nsw i64 %.1102.us117.i, 1
   %exitcond147.not.i = icmp eq i64 %66, 4
-  br i1 %exitcond147.not.i, label %gather_partial_int64_3.exit, label %.preheader.us116.i, !llvm.loop !75
+  br i1 %exitcond147.not.i, label %gather_partial_int64_3.exit, label %.preheader.us116.i, !llvm.loop !44
 
 .preheader.us123.i:                               ; preds = %.preheader67.i, %.split.split.split.split.us.us.i
   %.1102.us124.i = phi i64 [ %72, %.split.split.split.split.us.us.i ], [ 0, %.preheader67.i ]
@@ -1121,14 +1121,14 @@ pad_block_int64.exit66.us101.us.i:                ; preds = %pad_block_int64.exi
   store i64 %69, ptr %70, align 8, !tbaa !4
   %71 = add nuw nsw i64 %.292.us100.us.i, 1
   %exitcond144.not.i = icmp eq i64 %71, 4
-  br i1 %exitcond144.not.i, label %.split.split.split.split.us.us.i, label %pad_block_int64.exit66.us101.us.i, !llvm.loop !76
+  br i1 %exitcond144.not.i, label %.split.split.split.split.us.us.i, label %pad_block_int64.exit66.us101.us.i, !llvm.loop !45
 
 .split.split.split.split.us.us.i:                 ; preds = %pad_block_int64.exit66.us101.us.i
   %72 = add nuw nsw i64 %.1102.us124.i, 1
   %exitcond145.not.i = icmp eq i64 %72, 4
-  br i1 %exitcond145.not.i, label %gather_partial_int64_3.exit, label %.preheader.us123.i, !llvm.loop !77
+  br i1 %exitcond145.not.i, label %gather_partial_int64_3.exit, label %.preheader.us123.i, !llvm.loop !46
 
-gather_partial_int64_3.exit:                      ; preds = %.split.split.split.us.us.i, %.split.split.us.us.i, %.split.split.split.split.us.us.i, %.preheader.us.preheader.i, %.preheader67.i
+gather_partial_int64_3.exit:                      ; preds = %.split.split.split.us.us.i, %.split.split.us.us.i, %.split.split.split.split.us.us.i, %.preheader.us.i.preheader, %.preheader67.i
   %73 = call i64 @zfp_encode_block_int64_3(ptr noundef %0, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #7
   ret i64 %73
@@ -1178,63 +1178,32 @@ attributes #7 = { nounwind }
 !15 = !{!9, !10, i64 0}
 !16 = !{!9, !10, i64 4}
 !17 = !{!9, !10, i64 8}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
-!25 = !{!6, !6, i64 0}
-!26 = distinct !{!26, !19}
-!27 = distinct !{!27, !19}
-!28 = !{!29, !5, i64 0}
-!29 = !{!"bitstream", !5, i64 0, !5, i64 8, !30, i64 16, !30, i64 24, !30, i64 32}
-!30 = !{!"p1 long", !12, i64 0}
-!31 = !{!29, !5, i64 8}
-!32 = !{!29, !30, i64 16}
-!33 = distinct !{!33, !19}
-!34 = distinct !{!34, !19}
-!35 = distinct !{!35, !19}
-!36 = distinct !{!36, !19}
-!37 = distinct !{!37, !19}
-!38 = distinct !{!38, !19}
-!39 = distinct !{!39, !19}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"encode_few_ints_uint64: argument 0"}
-!42 = distinct !{!42, !"encode_few_ints_uint64"}
-!43 = !{!44}
-!44 = distinct !{!44, !42, !"encode_few_ints_uint64: argument 1"}
-!45 = !{!30, !30, i64 0}
-!46 = !{i64 0, i64 8, !45, i64 8, i64 8, !45}
-!47 = distinct !{!47, !19}
-!48 = !{!41, !44}
-!49 = distinct !{!49, !19}
-!50 = distinct !{!50, !19}
-!51 = distinct !{!51, !19}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"encode_few_ints_prec_uint64: argument 0"}
-!54 = distinct !{!54, !"encode_few_ints_prec_uint64"}
-!55 = !{!56}
-!56 = distinct !{!56, !54, !"encode_few_ints_prec_uint64: argument 1"}
-!57 = distinct !{!57, !19}
-!58 = !{!53, !56}
-!59 = distinct !{!59, !19}
-!60 = distinct !{!60, !19}
-!61 = distinct !{!61, !19}
-!62 = distinct !{!62, !19}
-!63 = distinct !{!63, !19}
-!64 = distinct !{!64, !19}
-!65 = distinct !{!65, !19, !66}
-!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!67 = distinct !{!67, !19}
-!68 = distinct !{!68, !19}
-!69 = distinct !{!69, !19, !66}
-!70 = distinct !{!70, !19}
-!71 = distinct !{!71, !19}
-!72 = distinct !{!72, !19, !66}
-!73 = distinct !{!73, !19, !66}
-!74 = distinct !{!74, !19, !66}
-!75 = distinct !{!75, !19, !66}
-!76 = distinct !{!76, !19, !66}
-!77 = distinct !{!77, !19, !66}
+!18 = !{!6, !6, i64 0}
+!19 = !{!20, !5, i64 0}
+!20 = !{!"bitstream", !5, i64 0, !5, i64 8, !21, i64 16, !21, i64 24, !21, i64 32}
+!21 = !{!"p1 long", !12, i64 0}
+!22 = !{!20, !5, i64 8}
+!23 = !{!20, !21, i64 16}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"encode_few_ints_uint64: argument 0"}
+!26 = distinct !{!26, !"encode_few_ints_uint64"}
+!27 = !{!28}
+!28 = distinct !{!28, !26, !"encode_few_ints_uint64: argument 1"}
+!29 = !{!21, !21, i64 0}
+!30 = !{i64 0, i64 8, !29, i64 8, i64 8, !29}
+!31 = !{!25, !28}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"encode_few_ints_prec_uint64: argument 0"}
+!34 = distinct !{!34, !"encode_few_ints_prec_uint64"}
+!35 = !{!36}
+!36 = distinct !{!36, !34, !"encode_few_ints_prec_uint64: argument 1"}
+!37 = !{!33, !36}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = distinct !{!40, !39}
+!41 = distinct !{!41, !39}
+!42 = distinct !{!42, !39}
+!43 = distinct !{!43, !39}
+!44 = distinct !{!44, !39}
+!45 = distinct !{!45, !39}
+!46 = distinct !{!46, !39}

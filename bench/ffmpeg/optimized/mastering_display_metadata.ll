@@ -79,7 +79,7 @@ get_defaults.exit:                                ; preds = %.preheader.i
   br i1 %.not8, label %11, label %10
 
 10:                                               ; preds = %get_defaults.exit
-  store i64 88, ptr %0, align 8, !tbaa !11
+  store i64 88, ptr %0, align 8, !tbaa !10
   br label %11
 
 11:                                               ; preds = %get_defaults.exit, %10, %1
@@ -96,9 +96,9 @@ define ptr @av_mastering_display_metadata_create_side_data(ptr noundef %0) local
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %5, i8 0, i64 88, i1 false)
-  %6 = load ptr, ptr %4, align 8, !tbaa !13
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i, %3
@@ -127,7 +127,7 @@ get_defaults.exit:                                ; preds = %.preheader.i
   store i64 %13, ptr %11, align 4
   store i64 %13, ptr %10, align 4
   store i64 %13, ptr %9, align 4
-  %14 = load ptr, ptr %4, align 8, !tbaa !13
+  %14 = load ptr, ptr %4, align 8, !tbaa !12
   br label %15
 
 15:                                               ; preds = %1, %get_defaults.exit
@@ -147,7 +147,7 @@ define noalias ptr @av_content_light_metadata_alloc(ptr noundef writeonly captur
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  store i64 8, ptr %0, align 8, !tbaa !11
+  store i64 8, ptr %0, align 8, !tbaa !10
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -162,9 +162,9 @@ define ptr @av_content_light_metadata_create_side_data(ptr noundef %0) local_unn
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !13
+  %5 = load ptr, ptr %4, align 8, !tbaa !12
   store i64 0, ptr %5, align 1
-  %6 = load ptr, ptr %4, align 8, !tbaa !13
+  %6 = load ptr, ptr %4, align 8, !tbaa !12
   br label %7
 
 7:                                                ; preds = %1, %3
@@ -187,14 +187,13 @@ attributes #3 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"long", !6, i64 0}
-!13 = !{!14, !15, i64 8}
-!14 = !{!"AVFrameSideData", !5, i64 0, !15, i64 8, !12, i64 16, !17, i64 24, !18, i64 32}
-!15 = !{!"p1 omnipotent char", !16, i64 0}
-!16 = !{!"any pointer", !6, i64 0}
-!17 = !{!"p1 _ZTS12AVDictionary", !16, i64 0}
-!18 = !{!"p1 _ZTS11AVBufferRef", !16, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !6, i64 0}
+!12 = !{!13, !14, i64 8}
+!13 = !{!"AVFrameSideData", !5, i64 0, !14, i64 8, !11, i64 16, !16, i64 24, !17, i64 32}
+!14 = !{!"p1 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !6, i64 0}
+!16 = !{!"p1 _ZTS12AVDictionary", !15, i64 0}
+!17 = !{!"p1 _ZTS11AVBufferRef", !15, i64 0}

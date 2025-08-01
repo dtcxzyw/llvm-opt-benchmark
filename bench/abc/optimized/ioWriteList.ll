@@ -96,7 +96,7 @@ define void @Io_WriteList(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 39:                                               ; preds = %.lr.ph57
   %40 = getelementptr i8, ptr %37, i64 28
-  %.val47 = load i32, ptr %40, align 4, !tbaa !38
+  %.val47 = load i32, ptr %40, align 4, !tbaa !37
   %.not50 = icmp eq i32 %.val47, 2
   br i1 %.not50, label %41, label %.critedge
 
@@ -112,12 +112,12 @@ define void @Io_WriteList(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %.val43 = load i32, ptr %43, align 4, !tbaa !30
   %44 = sext i32 %.val43 to i64
   %45 = icmp slt i64 %indvars.iv.next65, %44
-  br i1 %45, label %.lr.ph57, label %.critedge2, !llvm.loop !39
+  br i1 %45, label %.lr.ph57, label %.critedge2, !llvm.loop !38
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.not = icmp eq i32 %2, 0
   %46 = getelementptr i8, ptr %0, i64 48
-  %.val4858 = load ptr, ptr %46, align 8, !tbaa !40
+  %.val4858 = load ptr, ptr %46, align 8, !tbaa !39
   %47 = getelementptr i8, ptr %.val4858, i64 4
   %.val48.val59 = load i32, ptr %47, align 4, !tbaa !30
   %48 = icmp sgt i32 %.val48.val59, 0
@@ -143,12 +143,12 @@ define void @Io_WriteList(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %fputc29.i = tail call i32 @fputc(i32 46, ptr nonnull %4)
   %fputc30.i = tail call i32 @fputc(i32 10, ptr nonnull %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.val33.i = load ptr, ptr %46, align 8, !tbaa !40
+  %.val33.i = load ptr, ptr %46, align 8, !tbaa !39
   %57 = getelementptr i8, ptr %.val33.i, i64 4
   %.val33.val.i = load i32, ptr %57, align 4, !tbaa !30
   %58 = sext i32 %.val33.val.i to i64
   %59 = icmp slt i64 %indvars.iv.next.i, %58
-  br i1 %59, label %.lr.ph.i, label %.critedge.i, !llvm.loop !41
+  br i1 %59, label %.lr.ph.i, label %.critedge.i, !llvm.loop !40
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %49
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.20) #4
@@ -190,7 +190,7 @@ define void @Io_WriteList(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %75 = sext i32 %.val31.val.i to i64
   %76 = icmp slt i64 %indvars.iv.next46.i, %75
-  br i1 %76, label %.lr.ph43.i, label %Io_WriteListHost.exit, !llvm.loop !42
+  br i1 %76, label %.lr.ph43.i, label %Io_WriteListHost.exit, !llvm.loop !41
 
 Io_WriteListHost.exit:                            ; preds = %74, %.critedge.i
   %fputc.i = tail call i32 @fputc(i32 46, ptr nonnull %4)
@@ -206,12 +206,12 @@ Io_WriteListHost.exit:                            ; preds = %74, %.critedge.i
   %79 = load ptr, ptr %78, align 8, !tbaa !34
   tail call fastcc void @Io_WriteListEdge(ptr noundef %4, ptr noundef %79)
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %.val48 = load ptr, ptr %46, align 8, !tbaa !40
+  %.val48 = load ptr, ptr %46, align 8, !tbaa !39
   %80 = getelementptr i8, ptr %.val48, i64 4
   %.val48.val = load i32, ptr %80, align 4, !tbaa !30
   %81 = sext i32 %.val48.val to i64
   %82 = icmp slt i64 %indvars.iv.next68, %81
-  br i1 %82, label %.lr.ph62, label %.critedge4, !llvm.loop !43
+  br i1 %82, label %.lr.ph62, label %.critedge4, !llvm.loop !42
 
 .critedge4:                                       ; preds = %.lr.ph62, %.preheader, %Io_WriteListHost.exit
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %4)
@@ -247,14 +247,14 @@ define internal fastcc void @Io_WriteListEdge(ptr noundef nonnull captures(none)
 
 8:                                                ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.val20 = load ptr, ptr %1, align 8, !tbaa !44
-  %.val21 = load ptr, ptr %7, align 8, !tbaa !45
+  %.val20 = load ptr, ptr %1, align 8, !tbaa !43
+  %.val21 = load ptr, ptr %7, align 8, !tbaa !44
   %9 = getelementptr i8, ptr %.val20, i64 32
   %.val20.val = load ptr, ptr %9, align 8, !tbaa !32
   %10 = getelementptr i8, ptr %.val20.val, i64 8
   %.val20.val.val = load ptr, ptr %10, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i32, ptr %.val21, i64 %indvars.iv
-  %12 = load i32, ptr %11, align 4, !tbaa !46
+  %12 = load i32, ptr %11, align 4, !tbaa !45
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds ptr, ptr %.val20.val.val, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !34
@@ -280,7 +280,7 @@ define internal fastcc void @Io_WriteListEdge(ptr noundef nonnull captures(none)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = sext i32 %.val19 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %8, label %.critedge, !llvm.loop !47
+  br i1 %27, label %8, label %.critedge, !llvm.loop !46
 
 .critedge:                                        ; preds = %25, %2
   %fputc = tail call i32 @fputc(i32 46, ptr nonnull %0)
@@ -316,7 +316,7 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
 
 .critedge.preheader:                              ; preds = %.lr.ph, %8
   %16 = getelementptr i8, ptr %0, i64 48
-  %.val145170 = load ptr, ptr %16, align 8, !tbaa !40
+  %.val145170 = load ptr, ptr %16, align 8, !tbaa !39
   %17 = getelementptr i8, ptr %.val145170, i64 4
   %.val145.val171 = load i32, ptr %17, align 4, !tbaa !30
   %18 = icmp sgt i32 %.val145.val171, 0
@@ -330,7 +330,7 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   %20 = getelementptr inbounds nuw ptr, ptr %.val141.val, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !34
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load i32, ptr %22, align 8, !tbaa !48
+  %23 = load i32, ptr %22, align 8, !tbaa !47
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, i32 noundef %23) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val139 = load ptr, ptr %13, align 8, !tbaa !29
@@ -338,11 +338,11 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   %.val139.val = load i32, ptr %25, align 4, !tbaa !30
   %26 = sext i32 %.val139.val to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %.critedge.preheader, !llvm.loop !49
+  br i1 %27, label %.lr.ph, label %.critedge.preheader, !llvm.loop !48
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %29 = load ptr, ptr %28, align 8, !tbaa !50
+  %29 = load ptr, ptr %28, align 8, !tbaa !49
   %30 = getelementptr i8, ptr %29, i64 4
   %.val137175 = load i32, ptr %30, align 4, !tbaa !30
   %31 = icmp sgt i32 %.val137175, 0
@@ -356,15 +356,15 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   %33 = getelementptr inbounds nuw ptr, ptr %.val146.val, i64 %indvars.iv203
   %34 = load ptr, ptr %33, align 8, !tbaa !34
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !48
+  %36 = load i32, ptr %35, align 8, !tbaa !47
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.8, i32 noundef %36) #4
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
-  %.val145 = load ptr, ptr %16, align 8, !tbaa !40
+  %.val145 = load ptr, ptr %16, align 8, !tbaa !39
   %38 = getelementptr i8, ptr %.val145, i64 4
   %.val145.val = load i32, ptr %38, align 4, !tbaa !30
   %39 = sext i32 %.val145.val to i64
   %40 = icmp slt i64 %indvars.iv.next204, %39
-  br i1 %40, label %.critedge, label %.critedge2.preheader, !llvm.loop !51
+  br i1 %40, label %.critedge, label %.critedge2.preheader, !llvm.loop !50
 
 .critedge4.preheader:                             ; preds = %.critedge2, %.critedge2.preheader
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -388,21 +388,21 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %.not163, label %51, label %.critedge2
 
 51:                                               ; preds = %.lr.ph177
-  %.val151 = load ptr, ptr %48, align 8, !tbaa !44
+  %.val151 = load ptr, ptr %48, align 8, !tbaa !43
   %52 = getelementptr i8, ptr %48, i64 32
-  %.val152 = load ptr, ptr %52, align 8, !tbaa !52
+  %.val152 = load ptr, ptr %52, align 8, !tbaa !51
   %53 = getelementptr i8, ptr %.val151, i64 32
   %.val151.val = load ptr, ptr %53, align 8, !tbaa !32
-  %.val152.val = load i32, ptr %.val152, align 4, !tbaa !46
+  %.val152.val = load i32, ptr %.val152, align 4, !tbaa !45
   %54 = getelementptr i8, ptr %.val151.val, i64 8
   %.val151.val.val = load ptr, ptr %54, align 8, !tbaa !33
   %55 = sext i32 %.val152.val to i64
   %56 = getelementptr inbounds ptr, ptr %.val151.val.val, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !34
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %59 = load i32, ptr %58, align 8, !tbaa !48
+  %59 = load i32, ptr %58, align 8, !tbaa !47
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.9, i32 noundef %59) #4
-  %.pre = load ptr, ptr %28, align 8, !tbaa !50
+  %.pre = load ptr, ptr %28, align 8, !tbaa !49
   br label %.critedge2
 
 .critedge2:                                       ; preds = %51, %.lr.ph177
@@ -412,7 +412,7 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   %.val137 = load i32, ptr %62, align 4, !tbaa !30
   %63 = sext i32 %.val137 to i64
   %64 = icmp slt i64 %indvars.iv.next207, %63
-  br i1 %64, label %.lr.ph177, label %.critedge4.preheader, !llvm.loop !53
+  br i1 %64, label %.lr.ph177, label %.critedge4.preheader, !llvm.loop !52
 
 .critedge6.preheader:                             ; preds = %.critedge4, %.critedge4.preheader
   %.val138184 = load ptr, ptr %13, align 8, !tbaa !29
@@ -440,9 +440,9 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %77 = load i32, ptr %76, align 8, !tbaa !48
+  %77 = load i32, ptr %76, align 8, !tbaa !47
   %78 = getelementptr i8, ptr %70, i64 28
-  %.val144 = load i32, ptr %78, align 4, !tbaa !38
+  %.val144 = load i32, ptr %78, align 4, !tbaa !37
   %79 = add nsw i32 %.val144, 3
   %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, i32 noundef %77, i32 noundef %79) #4
   %.pre230 = load ptr, ptr %41, align 8, !tbaa !32
@@ -455,10 +455,10 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   %.val136 = load i32, ptr %82, align 4, !tbaa !30
   %83 = sext i32 %.val136 to i64
   %84 = icmp slt i64 %indvars.iv.next210, %83
-  br i1 %84, label %.lr.ph180, label %.critedge6.preheader, !llvm.loop !54
+  br i1 %84, label %.lr.ph180, label %.critedge6.preheader, !llvm.loop !53
 
 .critedge8.preheader:                             ; preds = %.critedge10, %.critedge6.preheader
-  %85 = load ptr, ptr %28, align 8, !tbaa !50
+  %85 = load ptr, ptr %28, align 8, !tbaa !49
   %86 = getelementptr i8, ptr %85, i64 4
   %.val135192 = load i32, ptr %86, align 4, !tbaa !30
   %87 = icmp sgt i32 %.val135192, 0
@@ -472,7 +472,7 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   %89 = getelementptr inbounds nuw ptr, ptr %.val140.val, i64 %indvars.iv215
   %90 = load ptr, ptr %89, align 8, !tbaa !34
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %92 = load i32, ptr %91, align 8, !tbaa !48
+  %92 = load i32, ptr %91, align 8, !tbaa !47
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, i32 noundef %92, i32 noundef %92) #4
   %94 = getelementptr i8, ptr %90, i64 44
   %.val127181 = load i32, ptr %94, align 4, !tbaa !26
@@ -485,19 +485,19 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
 
 97:                                               ; preds = %.lr.ph183, %97
   %indvars.iv212 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next213, %97 ]
-  %.val128 = load ptr, ptr %90, align 8, !tbaa !44
-  %.val129 = load ptr, ptr %96, align 8, !tbaa !45
+  %.val128 = load ptr, ptr %90, align 8, !tbaa !43
+  %.val129 = load ptr, ptr %96, align 8, !tbaa !44
   %98 = getelementptr i8, ptr %.val128, i64 32
   %.val128.val = load ptr, ptr %98, align 8, !tbaa !32
   %99 = getelementptr i8, ptr %.val128.val, i64 8
   %.val128.val.val = load ptr, ptr %99, align 8, !tbaa !33
   %100 = getelementptr inbounds nuw i32, ptr %.val129, i64 %indvars.iv212
-  %101 = load i32, ptr %100, align 4, !tbaa !46
+  %101 = load i32, ptr %100, align 4, !tbaa !45
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds ptr, ptr %.val128.val.val, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !34
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  %106 = load i32, ptr %105, align 8, !tbaa !48
+  %106 = load i32, ptr %105, align 8, !tbaa !47
   %107 = tail call i32 @Abc_ObjFanoutFaninNum(ptr noundef %104, ptr noundef nonnull %90) #4
   %108 = add nsw i32 %107, 1
   %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, i32 noundef %106, i32 noundef %108) #4
@@ -505,7 +505,7 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   %.val127 = load i32, ptr %94, align 4, !tbaa !26
   %110 = sext i32 %.val127 to i64
   %111 = icmp slt i64 %indvars.iv.next213, %110
-  br i1 %111, label %97, label %.critedge10, !llvm.loop !55
+  br i1 %111, label %97, label %.critedge10, !llvm.loop !54
 
 .critedge10:                                      ; preds = %97, %.lr.ph188
   %fputc123 = tail call i32 @fputc(i32 10, ptr nonnull %3)
@@ -515,7 +515,7 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   %.val138.val = load i32, ptr %112, align 4, !tbaa !30
   %113 = sext i32 %.val138.val to i64
   %114 = icmp slt i64 %indvars.iv.next216, %113
-  br i1 %114, label %.lr.ph188, label %.critedge8.preheader, !llvm.loop !56
+  br i1 %114, label %.lr.ph188, label %.critedge8.preheader, !llvm.loop !55
 
 .critedge12.preheader:                            ; preds = %.critedge8, %.critedge8.preheader
   %115 = load ptr, ptr %41, align 8, !tbaa !32
@@ -538,26 +538,26 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %.not161, label %124, label %.critedge8
 
 124:                                              ; preds = %.lr.ph194
-  %.val153 = load ptr, ptr %121, align 8, !tbaa !44
+  %.val153 = load ptr, ptr %121, align 8, !tbaa !43
   %125 = getelementptr i8, ptr %121, i64 32
-  %.val154 = load ptr, ptr %125, align 8, !tbaa !52
+  %.val154 = load ptr, ptr %125, align 8, !tbaa !51
   %126 = getelementptr i8, ptr %.val153, i64 32
   %.val153.val = load ptr, ptr %126, align 8, !tbaa !32
-  %.val154.val = load i32, ptr %.val154, align 4, !tbaa !46
+  %.val154.val = load i32, ptr %.val154, align 4, !tbaa !45
   %127 = getelementptr i8, ptr %.val153.val, i64 8
   %.val153.val.val = load ptr, ptr %127, align 8, !tbaa !33
   %128 = sext i32 %.val154.val to i64
   %129 = getelementptr inbounds ptr, ptr %.val153.val.val, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !34
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  %132 = load i32, ptr %131, align 8, !tbaa !48
+  %132 = load i32, ptr %131, align 8, !tbaa !47
   %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, i32 noundef %132, i32 noundef %132) #4
-  %.val159 = load ptr, ptr %121, align 8, !tbaa !44
+  %.val159 = load ptr, ptr %121, align 8, !tbaa !43
   %134 = getelementptr i8, ptr %121, i64 48
-  %.val160 = load ptr, ptr %134, align 8, !tbaa !45
+  %.val160 = load ptr, ptr %134, align 8, !tbaa !44
   %135 = getelementptr i8, ptr %.val159, i64 32
   %.val159.val = load ptr, ptr %135, align 8, !tbaa !32
-  %.val160.val = load i32, ptr %.val160, align 4, !tbaa !46
+  %.val160.val = load i32, ptr %.val160, align 4, !tbaa !45
   %136 = getelementptr i8, ptr %.val159.val, i64 8
   %.val159.val.val = load ptr, ptr %136, align 8, !tbaa !33
   %137 = sext i32 %.val160.val to i64
@@ -574,19 +574,19 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
 
 143:                                              ; preds = %.lr.ph191, %143
   %indvars.iv218 = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next219, %143 ]
-  %.val130 = load ptr, ptr %139, align 8, !tbaa !44
-  %.val131 = load ptr, ptr %142, align 8, !tbaa !45
+  %.val130 = load ptr, ptr %139, align 8, !tbaa !43
+  %.val131 = load ptr, ptr %142, align 8, !tbaa !44
   %144 = getelementptr i8, ptr %.val130, i64 32
   %.val130.val = load ptr, ptr %144, align 8, !tbaa !32
   %145 = getelementptr i8, ptr %.val130.val, i64 8
   %.val130.val.val = load ptr, ptr %145, align 8, !tbaa !33
   %146 = getelementptr inbounds nuw i32, ptr %.val131, i64 %indvars.iv218
-  %147 = load i32, ptr %146, align 4, !tbaa !46
+  %147 = load i32, ptr %146, align 4, !tbaa !45
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds ptr, ptr %.val130.val.val, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !34
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
-  %152 = load i32, ptr %151, align 8, !tbaa !48
+  %152 = load i32, ptr %151, align 8, !tbaa !47
   %153 = tail call i32 @Abc_ObjFanoutFaninNum(ptr noundef %150, ptr noundef nonnull %139) #4
   %154 = add nsw i32 %153, 1
   %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, i32 noundef %152, i32 noundef %154) #4
@@ -594,11 +594,11 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   %.val126 = load i32, ptr %140, align 4, !tbaa !26
   %156 = sext i32 %.val126 to i64
   %157 = icmp slt i64 %indvars.iv.next219, %156
-  br i1 %157, label %143, label %.critedge14, !llvm.loop !57
+  br i1 %157, label %143, label %.critedge14, !llvm.loop !56
 
 .critedge14:                                      ; preds = %143, %124
   %fputc122 = tail call i32 @fputc(i32 10, ptr nonnull %3)
-  %.pre231 = load ptr, ptr %28, align 8, !tbaa !50
+  %.pre231 = load ptr, ptr %28, align 8, !tbaa !49
   br label %.critedge8
 
 .critedge8:                                       ; preds = %.critedge14, %.lr.ph194
@@ -608,7 +608,7 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   %.val135 = load i32, ptr %159, align 4, !tbaa !30
   %160 = sext i32 %.val135 to i64
   %161 = icmp slt i64 %indvars.iv.next222, %160
-  br i1 %161, label %.lr.ph194, label %.critedge12.preheader, !llvm.loop !58
+  br i1 %161, label %.lr.ph194, label %.critedge12.preheader, !llvm.loop !57
 
 .lr.ph200:                                        ; preds = %.critedge12.preheader, %.critedge12
   %162 = phi ptr [ %192, %.critedge12 ], [ %115, %.critedge12.preheader ]
@@ -629,7 +629,7 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
 
 170:                                              ; preds = %167
   %171 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  %172 = load i32, ptr %171, align 8, !tbaa !48
+  %172 = load i32, ptr %171, align 8, !tbaa !47
   %173 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, i32 noundef %172, i32 noundef %172) #4
   %174 = getelementptr i8, ptr %165, i64 44
   %.val195 = load i32, ptr %174, align 4, !tbaa !26
@@ -642,19 +642,19 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
 
 177:                                              ; preds = %.lr.ph197, %177
   %indvars.iv224 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next225, %177 ]
-  %.val132 = load ptr, ptr %165, align 8, !tbaa !44
-  %.val133 = load ptr, ptr %176, align 8, !tbaa !45
+  %.val132 = load ptr, ptr %165, align 8, !tbaa !43
+  %.val133 = load ptr, ptr %176, align 8, !tbaa !44
   %178 = getelementptr i8, ptr %.val132, i64 32
   %.val132.val = load ptr, ptr %178, align 8, !tbaa !32
   %179 = getelementptr i8, ptr %.val132.val, i64 8
   %.val132.val.val = load ptr, ptr %179, align 8, !tbaa !33
   %180 = getelementptr inbounds nuw i32, ptr %.val133, i64 %indvars.iv224
-  %181 = load i32, ptr %180, align 4, !tbaa !46
+  %181 = load i32, ptr %180, align 4, !tbaa !45
   %182 = sext i32 %181 to i64
   %183 = getelementptr inbounds ptr, ptr %.val132.val.val, i64 %182
   %184 = load ptr, ptr %183, align 8, !tbaa !34
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
-  %186 = load i32, ptr %185, align 8, !tbaa !48
+  %186 = load i32, ptr %185, align 8, !tbaa !47
   %187 = tail call i32 @Abc_ObjFanoutFaninNum(ptr noundef %184, ptr noundef nonnull %165) #4
   %188 = add nsw i32 %187, 1
   %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, i32 noundef %186, i32 noundef %188) #4
@@ -662,7 +662,7 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   %.val = load i32, ptr %174, align 4, !tbaa !26
   %190 = sext i32 %.val to i64
   %191 = icmp slt i64 %indvars.iv.next225, %190
-  br i1 %191, label %177, label %.critedge18, !llvm.loop !59
+  br i1 %191, label %177, label %.critedge18, !llvm.loop !58
 
 .critedge18:                                      ; preds = %177, %170
   %fputc120 = tail call i32 @fputc(i32 10, ptr nonnull %3)
@@ -676,7 +676,7 @@ define void @Io_WriteCellNet(ptr noundef readonly captures(none) %0, ptr noundef
   %.val134 = load i32, ptr %193, align 4, !tbaa !30
   %194 = sext i32 %.val134 to i64
   %195 = icmp slt i64 %indvars.iv.next228, %194
-  br i1 %195, label %.lr.ph200, label %.critedge16, !llvm.loop !60
+  br i1 %195, label %.lr.ph200, label %.critedge16, !llvm.loop !59
 
 .critedge16:                                      ; preds = %.critedge12, %.critedge12.preheader
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %3)
@@ -737,29 +737,28 @@ attributes #4 = { nounwind }
 !32 = !{!9, !13, i64 32}
 !33 = !{!31, !5, i64 8}
 !34 = !{!5, !5, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!27, !10, i64 28}
-!39 = distinct !{!39, !36, !37}
-!40 = !{!9, !13, i64 48}
-!41 = distinct !{!41, !36, !37}
-!42 = distinct !{!42, !36, !37}
-!43 = distinct !{!43, !36, !37}
-!44 = !{!27, !14, i64 0}
-!45 = !{!27, !18, i64 48}
-!46 = !{!10, !10, i64 0}
-!47 = distinct !{!47, !36, !37}
-!48 = !{!27, !10, i64 16}
-!49 = distinct !{!49, !36, !37}
-!50 = !{!9, !13, i64 80}
-!51 = distinct !{!51, !36, !37}
-!52 = !{!27, !18, i64 32}
-!53 = distinct !{!53, !36, !37}
-!54 = distinct !{!54, !36, !37}
-!55 = distinct !{!55, !36, !37}
-!56 = distinct !{!56, !36, !37}
-!57 = distinct !{!57, !36, !37}
-!58 = distinct !{!58, !36, !37}
-!59 = distinct !{!59, !36, !37}
-!60 = distinct !{!60, !36, !37}
+!37 = !{!27, !10, i64 28}
+!38 = distinct !{!38, !36}
+!39 = !{!9, !13, i64 48}
+!40 = distinct !{!40, !36}
+!41 = distinct !{!41, !36}
+!42 = distinct !{!42, !36}
+!43 = !{!27, !14, i64 0}
+!44 = !{!27, !18, i64 48}
+!45 = !{!10, !10, i64 0}
+!46 = distinct !{!46, !36}
+!47 = !{!27, !10, i64 16}
+!48 = distinct !{!48, !36}
+!49 = !{!9, !13, i64 80}
+!50 = distinct !{!50, !36}
+!51 = !{!27, !18, i64 32}
+!52 = distinct !{!52, !36}
+!53 = distinct !{!53, !36}
+!54 = distinct !{!54, !36}
+!55 = distinct !{!55, !36}
+!56 = distinct !{!56, !36}
+!57 = distinct !{!57, !36}
+!58 = distinct !{!58, !36}
+!59 = distinct !{!59, !36}

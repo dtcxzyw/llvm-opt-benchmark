@@ -256,7 +256,7 @@ sane_iscase.exit422.thread.us570:                 ; preds = %87, %.lr.ph553.spli
   %97 = icmp ne i8 %96, 47
   %98 = or i1 %70, %97
   %or.cond363.us572 = and i1 %.not348.us571, %98
-  br i1 %or.cond363.us572, label %.lr.ph553.split.us579, label %.critedge.us, !llvm.loop !10
+  br i1 %or.cond363.us572, label %.lr.ph553.split.us579, label %.critedge.us, !llvm.loop !9
 
 .critedge.us:                                     ; preds = %94, %109, %.lr.ph563.split.us
   %.5256.lcssa.us = phi ptr [ %.3254562.us, %.lr.ph563.split.us ], [ %110, %109 ], [ %95, %94 ]
@@ -282,7 +282,7 @@ sane_iscase.exit422.thread.us570:                 ; preds = %87, %.lr.ph553.spli
   %104 = getelementptr inbounds nuw i8, ptr %.5256.lcssa.us661, i64 1
   %105 = load i8, ptr %104, align 1, !tbaa !4
   %106 = icmp eq i8 %105, 0
-  br i1 %106, label %.thread490, label %.lr.ph563.split.us, !llvm.loop !11
+  br i1 %106, label %.thread490, label %.lr.ph563.split.us, !llvm.loop !10
 
 .lr.ph553.us:                                     ; preds = %.lr.ph563.split.us
   br i1 %.not315, label %sane_iscase.exit422.thread.us.us, label %.lr.ph553.split.us579
@@ -300,7 +300,7 @@ sane_iscase.exit422.thread.us.us:                 ; preds = %.lr.ph553.us, %109
   %112 = icmp ne i8 %111, 47
   %113 = or i1 %70, %112
   %or.cond363.us.us = and i1 %.not348.us.us, %113
-  br i1 %or.cond363.us.us, label %sane_iscase.exit422.thread.us.us, label %.critedge.us, !llvm.loop !13
+  br i1 %or.cond363.us.us, label %sane_iscase.exit422.thread.us.us, label %.critedge.us, !llvm.loop !12
 
 .lr.ph563.split:                                  ; preds = %.lr.ph563
   br i1 %78, label %.lr.ph563.split.split.us, label %.lr.ph563.split.split.split.us
@@ -320,7 +320,7 @@ sane_iscase.exit422.thread.us.us:                 ; preds = %.lr.ph553.us, %109
   %118 = getelementptr inbounds nuw i8, ptr %.3254562.us583, i64 1
   %119 = load i8, ptr %118, align 1, !tbaa !4
   %120 = icmp eq i8 %119, 0
-  br i1 %120, label %.thread490, label %.lr.ph563.split.split.us, !llvm.loop !14
+  br i1 %120, label %.thread490, label %.lr.ph563.split.split.us, !llvm.loop !13
 
 .lr.ph563.split.split.split.us:                   ; preds = %.lr.ph563.split, %122
   %.3254562.us596 = phi ptr [ %123, %122 ], [ %.0251548, %.lr.ph563.split ]
@@ -334,7 +334,7 @@ sane_iscase.exit422.thread.us.us:                 ; preds = %.lr.ph553.us, %109
   %123 = getelementptr inbounds nuw i8, ptr %.3254562.us596, i64 1
   %124 = load i8, ptr %123, align 1, !tbaa !4
   %125 = icmp eq i8 %124, 0
-  br i1 %125, label %.thread490, label %.lr.ph563.split.split.split.us, !llvm.loop !15
+  br i1 %125, label %.thread490, label %.lr.ph563.split.split.split.us, !llvm.loop !14
 
 126:                                              ; preds = %.thread451.thread640
   %127 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0251548, i32 noundef 47) #2
@@ -474,7 +474,7 @@ sane_iscase.exit422.thread.us.us:                 ; preds = %.lr.ph553.us, %109
 
 182:                                              ; preds = %180
   %183 = getelementptr inbounds nuw i8, ptr %.8250, i64 1
-  br label %180, !llvm.loop !16
+  br label %180, !llvm.loop !15
 
 184:                                              ; preds = %180
   %185 = ptrtoint ptr %.8250 to i64
@@ -710,7 +710,7 @@ sane_iscase.exit429.thread:                       ; preds = %166, %242, %sane_is
   %280 = getelementptr inbounds nuw i8, ptr %.10, i64 1
   %281 = load i8, ptr %280, align 1, !tbaa !4
   %.not342 = icmp eq i8 %281, 93
-  br i1 %.not342, label %282, label %150, !llvm.loop !17
+  br i1 %.not342, label %282, label %150, !llvm.loop !16
 
 282:                                              ; preds = %sane_iscase.exit429.thread
   %283 = icmp eq i32 %.6271, %134
@@ -726,7 +726,7 @@ select.unfold486:                                 ; preds = %282, %34, %126, %35
   %286 = getelementptr inbounds nuw i8, ptr %.1243, i64 1
   %287 = load i8, ptr %286, align 1, !tbaa !4
   %.not = icmp eq i8 %287, 0
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %select.unfold486, %3
   %.0251.lcssa = phi ptr [ %1, %3 ], [ %285, %select.unfold486 ]
@@ -759,15 +759,14 @@ attributes #2 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !9, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !8, !9, !12}
-!14 = distinct !{!14, !9, !12}
-!15 = distinct !{!15, !9, !12}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !8, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}

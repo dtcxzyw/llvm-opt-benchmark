@@ -1341,7 +1341,7 @@ define internal fastcc void @CreateLockFile(ptr noundef %0, i1 noundef zeroext %
   %113 = load i32, ptr @pg_file_create_mode, align 4
   %114 = call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 194, i32 noundef %113) #22
   %115 = icmp sgt i32 %114, -1
-  br i1 %115, label %._crit_edge, label %20, !llvm.loop !9
+  br i1 %115, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %111, %15
   %.lcssa112 = phi i32 [ %17, %15 ], [ %114, %111 ]
@@ -1560,7 +1560,7 @@ define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) loca
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %32 = add nuw nsw i32 %.03750, 1
   %exitcond.not = icmp eq i32 %32, %0
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.thread:                               ; preds = %30
   %33 = ptrtoint ptr %31 to i64
@@ -1598,7 +1598,7 @@ define dso_local void @AddToDataDirLockFile(i32 noundef %0, ptr noundef %1) loca
   %43 = add nuw nsw i32 %.13857, 1
   %.034.ptr = getelementptr inbounds i8, ptr %4, i64 %.1.idx
   %exitcond66.not = icmp eq i32 %43, %0
-  br i1 %exitcond66.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !11
+  br i1 %exitcond66.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !9
 
 ._crit_edge62:                                    ; preds = %42, %._crit_edge.thread, %._crit_edge
   %.035.lcssa70 = phi ptr [ %.035.lcssa, %._crit_edge ], [ %31, %._crit_edge.thread ], [ %.035.lcssa, %42 ]
@@ -2089,9 +2089,7 @@ attributes #25 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

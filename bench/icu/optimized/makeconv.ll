@@ -1213,7 +1213,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   br i1 %.not138.i, label %335, label %334
 
 334:                                              ; preds = %._crit_edge.i
-  store i8 1, ptr %107, align 2, !tbaa !69
+  store i8 1, ptr %107, align 2, !tbaa !68
   br label %335
 
 335:                                              ; preds = %334, %._crit_edge.i
@@ -1222,7 +1222,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   br i1 %.not139.i, label %.thread169.i, label %337
 
 337:                                              ; preds = %335
-  store i8 1, ptr %108, align 1, !tbaa !70
+  store i8 1, ptr %108, align 1, !tbaa !69
   br label %.thread169.i
 
 .thread169.i:                                     ; preds = %337, %335, %312
@@ -1307,9 +1307,9 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   %.1128158.i = phi ptr [ %389, %388 ], [ %369, %.noexc126 ]
   %375 = getelementptr inbounds nuw i8, ptr %.1128158.i, i64 4
   %376 = getelementptr inbounds nuw i8, ptr %.1128158.i, i64 9
-  %377 = load i8, ptr %376, align 1, !tbaa !71
+  %377 = load i8, ptr %376, align 1, !tbaa !70
   %378 = sext i8 %377 to i32
-  %379 = load i32, ptr %.1128158.i, align 4, !tbaa !72
+  %379 = load i32, ptr %.1128158.i, align 4, !tbaa !71
   %380 = getelementptr inbounds nuw i8, ptr %.1128158.i, i64 10
   %381 = load i8, ptr %380, align 2, !tbaa !64
   %382 = invoke signext i8 @MBCSOkForBaseFromUnicode(ptr noundef %366, ptr noundef nonnull %375, i32 noundef %378, i32 noundef %379, i8 noundef signext %381)
@@ -1324,7 +1324,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   %385 = or i8 %384, 16
   store i8 %385, ptr %380, align 2, !tbaa !64
   %386 = getelementptr inbounds nuw i8, ptr %.1128158.i, i64 11
-  store i8 1, ptr %386, align 1, !tbaa !73
+  store i8 1, ptr %386, align 1, !tbaa !72
   %387 = add nsw i32 %.0159.i, 1
   br label %388
 
@@ -1332,7 +1332,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
   %.1.i = phi i32 [ %.0159.i, %.noexc127 ], [ %387, %383 ]
   %389 = getelementptr inbounds nuw i8, ptr %.1128158.i, i64 12
   %390 = icmp ult ptr %389, %373
-  br i1 %390, label %.lr.ph161.i, label %._crit_edge162.i, !llvm.loop !74
+  br i1 %390, label %.lr.ph161.i, label %._crit_edge162.i, !llvm.loop !73
 
 ._crit_edge162.i:                                 ; preds = %388
   %391 = icmp eq i32 %.1.i, 0
@@ -1513,7 +1513,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 468:                                              ; preds = %.noexc135
   %469 = load ptr, ptr %95, align 8, !tbaa !41
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 24
-  %471 = load ptr, ptr %470, align 8, !tbaa !75
+  %471 = load ptr, ptr %470, align 8, !tbaa !74
   %472 = invoke noundef i32 %471(ptr noundef nonnull %469, ptr noundef nonnull %93, ptr noundef %456, i32 noundef %.1.i132)
           to label %.noexc136 unwind label %434
 
@@ -1528,7 +1528,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit108: ; preds = 
 475:                                              ; preds = %474
   %476 = load ptr, ptr %99, align 8, !tbaa !56
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 24
-  %478 = load ptr, ptr %477, align 8, !tbaa !75
+  %478 = load ptr, ptr %477, align 8, !tbaa !74
   %479 = invoke noundef i32 %478(ptr noundef nonnull %476, ptr noundef nonnull %93, ptr noundef %456, i32 noundef %453)
           to label %.noexc137 unwind label %434
 
@@ -1606,7 +1606,7 @@ _ZL18writeConverterDataP8ConvDataPKcS2_P10UErrorCode.exit: ; preds = %488, %486,
   br i1 %.not.i, label %517, label %515
 
 515:                                              ; preds = %.thread
-  %516 = load ptr, ptr %514, align 8, !tbaa !76
+  %516 = load ptr, ptr %514, align 8, !tbaa !75
   invoke void %516(ptr noundef nonnull %514)
           to label %.noexc139 unwind label %.loopexit.split-lp
 
@@ -1620,7 +1620,7 @@ _ZL18writeConverterDataP8ConvDataPKcS2_P10UErrorCode.exit: ; preds = %488, %486,
   br i1 %.not13.i, label %521, label %519
 
 519:                                              ; preds = %517
-  %520 = load ptr, ptr %518, align 8, !tbaa !76
+  %520 = load ptr, ptr %518, align 8, !tbaa !75
   invoke void %520(ptr noundef nonnull %518)
           to label %.noexc140 unwind label %.loopexit.split-lp
 
@@ -1643,7 +1643,7 @@ _ZL18writeConverterDataP8ConvDataPKcS2_P10UErrorCode.exit: ; preds = %488, %486,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #19
   %524 = add nsw i32 %111, -1
   %.not86 = icmp eq i32 %524, 0
-  br i1 %.not86, label %._crit_edge, label %110, !llvm.loop !77
+  br i1 %.not86, label %._crit_edge, label %110, !llvm.loop !76
 
 525:                                              ; preds = %.loopexit, %.loopexit.split-lp, %137, %149, %434, %135
   %.pn.pn.pn = phi { ptr, i32 } [ %136, %135 ], [ %150, %149 ], [ %138, %137 ], [ %435, %434 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1752,7 +1752,7 @@ define internal fastcc void @_ZL15cleanupConvDataP8ConvData(ptr noundef nonnull 
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %3, align 8, !tbaa !76
+  %5 = load ptr, ptr %3, align 8, !tbaa !75
   tail call void %5(ptr noundef nonnull %3)
   store ptr null, ptr %2, align 8, !tbaa !41
   br label %6
@@ -1764,7 +1764,7 @@ define internal fastcc void @_ZL15cleanupConvDataP8ConvData(ptr noundef nonnull 
   br i1 %.not13, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %8, align 8, !tbaa !76
+  %10 = load ptr, ptr %8, align 8, !tbaa !75
   tail call void %10(ptr noundef nonnull %8)
   store ptr null, ptr %7, align 8, !tbaa !56
   br label %11
@@ -1825,7 +1825,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL8readFileP8ConvData
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  store i8 0, ptr %22, align 4, !tbaa !78
+  store i8 0, ptr %22, align 4, !tbaa !77
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i8 0, ptr %23, align 4, !tbaa !44
   %24 = call ptr @T_FileStream_readLine(ptr noundef nonnull %15, ptr noundef nonnull %4, i32 noundef 1024)
@@ -1977,24 +1977,24 @@ _ZL27getPlatformAndCCSIDFromNamePKcPaPi.exit.i:   ; preds = %56, %49
 .backedge.i:                                      ; preds = %.critedge75.i, %73, %.critedge.i, %_ZL27getPlatformAndCCSIDFromNamePKcPaPi.exit.i, %37, %29
   %89 = call ptr @T_FileStream_readLine(ptr noundef nonnull %15, ptr noundef nonnull %4, i32 noundef 1024)
   %.not65.i = icmp eq ptr %89, null
-  br i1 %.not65.i, label %._crit_edge.i, label %29, !llvm.loop !79
+  br i1 %.not65.i, label %._crit_edge.i, label %29, !llvm.loop !78
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %32, %21
   %90 = load ptr, ptr %0, align 8, !tbaa !40
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 132120
-  %92 = load i32, ptr %91, align 8, !tbaa !80
+  %92 = load i32, ptr %91, align 8, !tbaa !79
   %93 = trunc i32 %92 to i8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 391
   store i8 %93, ptr %94, align 1, !tbaa !61
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 132116
-  %96 = load i32, ptr %95, align 4, !tbaa !81
+  %96 = load i32, ptr %95, align 4, !tbaa !80
   %97 = trunc i32 %96 to i8
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 390
   store i8 %97, ptr %98, align 2, !tbaa !59
   %99 = getelementptr inbounds nuw i8, ptr %90, i64 132128
-  %100 = load i8, ptr %99, align 8, !tbaa !82
+  %100 = load i8, ptr %99, align 8, !tbaa !81
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 389
-  store i8 %100, ptr %101, align 1, !tbaa !83
+  store i8 %100, ptr %101, align 1, !tbaa !82
   %102 = icmp eq i8 %100, -1
   br i1 %102, label %103, label %106
 
@@ -2013,7 +2013,7 @@ _ZL27getPlatformAndCCSIDFromNamePKcPaPi.exit.i:   ; preds = %56, %49
 110:                                              ; preds = %106
   %111 = sext i8 %100 to i64
   %112 = getelementptr inbounds [34 x ptr], ptr @ucnv_converterStaticData, i64 0, i64 %111
-  %113 = load ptr, ptr %112, align 8, !tbaa !84
+  %113 = load ptr, ptr %112, align 8, !tbaa !83
   %.not70.i = icmp eq ptr %113, null
   br i1 %.not70.i, label %158, label %114
 
@@ -2030,25 +2030,25 @@ _ZL27getPlatformAndCCSIDFromNamePKcPaPi.exit.i:   ; preds = %56, %49
 
 121:                                              ; preds = %118, %114
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %123 = load i32, ptr %122, align 4, !tbaa !85
+  %123 = load i32, ptr %122, align 4, !tbaa !84
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %128
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds nuw i8, ptr %113, i64 64
-  %127 = load i32, ptr %126, align 4, !tbaa !85
-  store i32 %127, ptr %122, align 4, !tbaa !85
+  %127 = load i32, ptr %126, align 4, !tbaa !84
+  store i32 %127, ptr %122, align 4, !tbaa !84
   br label %128
 
 128:                                              ; preds = %125, %121
-  %129 = load i8, ptr %22, align 4, !tbaa !78
+  %129 = load i8, ptr %22, align 4, !tbaa !77
   %130 = icmp eq i8 %129, 0
   br i1 %130, label %131, label %134
 
 131:                                              ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %113, i64 68
-  %133 = load i8, ptr %132, align 4, !tbaa !78
-  store i8 %133, ptr %22, align 4, !tbaa !78
+  %133 = load i8, ptr %132, align 4, !tbaa !77
+  store i8 %133, ptr %22, align 4, !tbaa !77
   br label %134
 
 134:                                              ; preds = %131, %128
@@ -2096,15 +2096,15 @@ _ZL27getPlatformAndCCSIDFromNamePKcPaPi.exit.i:   ; preds = %56, %49
 158:                                              ; preds = %154, %150, %147, %110, %106
   %159 = phi i8 [ %97, %110 ], [ %141, %150 ], [ %141, %154 ], [ %141, %147 ], [ %97, %106 ]
   %160 = getelementptr inbounds nuw i8, ptr %90, i64 132129
-  %161 = load i8, ptr %160, align 1, !tbaa !86
+  %161 = load i8, ptr %160, align 1, !tbaa !85
   %162 = icmp slt i8 %161, 0
   br i1 %162, label %163, label %167
 
 163:                                              ; preds = %158
-  %164 = load i32, ptr %91, align 8, !tbaa !80
+  %164 = load i32, ptr %91, align 8, !tbaa !79
   %165 = trunc i32 %164 to i8
   %166 = add i8 %165, -1
-  store i8 %166, ptr %160, align 1, !tbaa !86
+  store i8 %166, ptr %160, align 1, !tbaa !85
   br label %167
 
 167:                                              ; preds = %163, %158
@@ -2118,7 +2118,7 @@ _ZL27getPlatformAndCCSIDFromNamePKcPaPi.exit.i:   ; preds = %56, %49
   br i1 %171, label %174, label %172
 
 172:                                              ; preds = %170
-  %173 = load i8, ptr %101, align 1, !tbaa !83
+  %173 = load i8, ptr %101, align 1, !tbaa !82
   switch i8 %173, label %174 [
     i8 2, label %_ZL10readHeaderP8ConvDataP11_FileStreamP10UErrorCode.exit
     i8 9, label %_ZL10readHeaderP8ConvDataP11_FileStreamP10UErrorCode.exit
@@ -2193,7 +2193,7 @@ _ZL10readHeaderP8ConvDataP11_FileStreamP10UErrorCode.exit: ; preds = %167, %172,
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %194 = icmp ult ptr %10, %192
-  br i1 %194, label %.lr.ph, label %.critedge, !llvm.loop !87
+  br i1 %194, label %.lr.ph, label %.critedge, !llvm.loop !86
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %.lr.ph51
   %.040.lcssa = phi ptr [ %strchr, %.lr.ph51 ], [ %.04047, %.lr.ph ], [ %192, %.critedge2 ]
@@ -2210,7 +2210,7 @@ _ZL10readHeaderP8ConvDataP11_FileStreamP10UErrorCode.exit: ; preds = %167, %172,
 200:                                              ; preds = %197, %.critedge
   %201 = call ptr @T_FileStream_readLine(ptr noundef nonnull %15, ptr noundef nonnull %10, i32 noundef 1024)
   %.not45 = icmp eq ptr %201, null
-  br i1 %.not45, label %.loopexit, label %.lr.ph51, !llvm.loop !88
+  br i1 %.not45, label %.loopexit, label %.lr.ph51, !llvm.loop !87
 
 202:                                              ; preds = %197
   %lhsv = load i64, ptr %10, align 16
@@ -2395,26 +2395,25 @@ attributes #24 = { nounwind willreturn memory(read) }
 !63 = !{!51, !52, i64 0}
 !64 = !{!65, !8, i64 10}
 !65 = !{!"_ZTS9UCMapping", !10, i64 0, !8, i64 4, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11}
-!66 = distinct !{!66, !67, !68}
+!66 = distinct !{!66, !67}
 !67 = !{!"llvm.loop.mustprogress"}
-!68 = !{!"llvm.loop.estimated_trip_count"}
-!69 = !{!37, !8, i64 78}
-!70 = !{!37, !8, i64 77}
-!71 = !{!65, !8, i64 9}
-!72 = !{!65, !10, i64 0}
-!73 = !{!65, !8, i64 11}
-!74 = distinct !{!74, !67, !68}
-!75 = !{!43, !7, i64 24}
-!76 = !{!43, !7, i64 0}
-!77 = distinct !{!77, !67, !68}
-!78 = !{!37, !8, i64 68}
-!79 = distinct !{!79, !67, !68}
-!80 = !{!47, !10, i64 132120}
-!81 = !{!47, !10, i64 132116}
-!82 = !{!47, !8, i64 132128}
-!83 = !{!37, !8, i64 69}
-!84 = !{!30, !30, i64 0}
-!85 = !{!37, !10, i64 64}
-!86 = !{!47, !8, i64 132129}
-!87 = distinct !{!87, !67, !68}
-!88 = distinct !{!88, !67, !68}
+!68 = !{!37, !8, i64 78}
+!69 = !{!37, !8, i64 77}
+!70 = !{!65, !8, i64 9}
+!71 = !{!65, !10, i64 0}
+!72 = !{!65, !8, i64 11}
+!73 = distinct !{!73, !67}
+!74 = !{!43, !7, i64 24}
+!75 = !{!43, !7, i64 0}
+!76 = distinct !{!76, !67}
+!77 = !{!37, !8, i64 68}
+!78 = distinct !{!78, !67}
+!79 = !{!47, !10, i64 132120}
+!80 = !{!47, !10, i64 132116}
+!81 = !{!47, !8, i64 132128}
+!82 = !{!37, !8, i64 69}
+!83 = !{!30, !30, i64 0}
+!84 = !{!37, !10, i64 64}
+!85 = !{!47, !8, i64 132129}
+!86 = distinct !{!86, !67}
+!87 = distinct !{!87, !67}

@@ -131,7 +131,7 @@ define dso_local range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, pt
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %28 = tail call ptr @xstrchr(ptr noundef nonnull %27, i32 noundef 10) #8
   %.not46 = icmp eq ptr %28, null
-  br i1 %.not46, label %.loopexit.loopexit, label %.lr.ph73, !llvm.loop !12
+  br i1 %.not46, label %.loopexit.loopexit, label %.lr.ph73, !llvm.loop !11
 
 29:                                               ; preds = %._crit_edge
   %30 = zext nneg i32 %15 to i64
@@ -152,7 +152,7 @@ define dso_local range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, pt
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %38 = call ptr @xstrchr(ptr noundef nonnull %37, i32 noundef 10) #8
   %.not44 = icmp eq ptr %38, null
-  br i1 %.not44, label %.loopexit.loopexit75, label %.lr.ph67, !llvm.loop !13
+  br i1 %.not44, label %.loopexit.loopexit75, label %.lr.ph67, !llvm.loop !12
 
 .loopexit.loopexit:                               ; preds = %.lr.ph73
   %39 = trunc nuw i64 %indvars.iv.next80 to i32
@@ -232,7 +232,7 @@ define internal fastcc i64 @_read_cg_file(ptr noundef %0, ptr noundef nonnull wr
   %17 = tail call ptr @__errno_location() #9
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %10, label %20, !llvm.loop !14
+  br i1 %19, label %10, label %20, !llvm.loop !13
 
 20:                                               ; preds = %16
   %21 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, ptr noundef %0) #8
@@ -246,7 +246,7 @@ define internal fastcc i64 @_read_cg_file(ptr noundef %0, ptr noundef nonnull wr
   %26 = add nuw i64 %25, 4092
   %27 = call ptr @slurm_xrecalloc(ptr noundef nonnull %3, i64 noundef 1, i64 noundef %26, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 168, ptr noundef nonnull @__func__._read_cg_file) #8
   %28 = add nuw nsw i32 %.024.ph, 1
-  br label %.outer, !llvm.loop !14
+  br label %.outer, !llvm.loop !13
 
 .loopexit:                                        ; preds = %10, %20
   %29 = phi i64 [ %23, %20 ], [ %.0.ph, %10 ]
@@ -416,12 +416,12 @@ define dso_local i32 @common_file_write_uints(ptr noundef %0, ptr noundef readon
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %54, %51
-  br label %.lr.ph.split, !llvm.loop !15
+  br label %.lr.ph.split, !llvm.loop !14
 
 ._crit_edge.split.us:                             ; preds = %.split.us, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %._crit_edge.split.us, %10
   %58 = tail call i32 @close(i32 noundef %6) #8
@@ -521,7 +521,7 @@ define dso_local range(i32 -1, 1) i32 @common_file_write_content(ptr noundef %0,
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %23, %20
-  br label %.lr.ph.split, !llvm.loop !17
+  br label %.lr.ph.split, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.backedge, %.lr.ph.lr.ph
   %.023.ph46 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %18, %.lr.ph.split.backedge ]
@@ -976,7 +976,7 @@ sub_0.i:                                          ; preds = %.lr.ph.i
 37:                                               ; preds = %.tail.i, %.tail16.i, %.lr.ph.i
   %38 = call ptr @readdir(ptr noundef nonnull %17) #8
   %.not12.i = icmp eq ptr %38, null
-  br i1 %.not12.i, label %_is_empty_dir.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not12.i, label %_is_empty_dir.exit, label %.lr.ph.i, !llvm.loop !17
 
 _is_empty_dir.exit:                               ; preds = %37, %.preheader.i
   %39 = call i32 @closedir(ptr noundef nonnull %17)
@@ -1035,7 +1035,7 @@ _is_empty_dir.exit.thread:                        ; preds = %15, %_is_empty_dir.
   %65 = load ptr, ptr %5, align 8
   %66 = call i32 @rmdir(ptr noundef %65) #8
   %67 = icmp slt i32 %66, 0
-  br i1 %67, label %12, label %.critedge.thread63, !llvm.loop !19
+  br i1 %67, label %12, label %.critedge.thread63, !llvm.loop !18
 
 68:                                               ; preds = %60
   %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -1438,7 +1438,7 @@ define dso_local noundef zeroext i1 @common_cgroup_wait_pid_moved(ptr noundef re
 12:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !19
 
 13:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
@@ -1451,7 +1451,7 @@ define dso_local noundef zeroext i1 @common_cgroup_wait_pid_moved(ptr noundef re
   %18 = call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef 100) #8
   call void @slurm_xfree(ptr noundef nonnull %4) #8
   %exitcond33.not = icmp eq i32 %7, 10
-  br i1 %exitcond33.not, label %25, label %6, !llvm.loop !21
+  br i1 %exitcond33.not, label %25, label %6, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %6, %12
   call void @slurm_xfree(ptr noundef nonnull %4) #8
@@ -1520,17 +1520,16 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}

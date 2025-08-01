@@ -458,7 +458,7 @@ define internal void @timer_close_cb(ptr noundef %0) #1 {
   %.0.in = getelementptr inbounds nuw i8, ptr %.018, i64 792
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, %2
-  br i1 %.not, label %16, label %.preheader, !llvm.loop !4
+  br i1 %.not, label %16, label %.preheader
 
 16:                                               ; preds = %.preheader
   %.0.in.le = getelementptr inbounds nuw i8, ptr %.018, i64 792
@@ -625,5 +625,3 @@ attributes #9 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}

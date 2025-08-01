@@ -319,7 +319,7 @@ define void @ff_apply_motion_4x4(ptr noundef readonly captures(none) %0, i32 nou
 block_copy.exit.i:                                ; preds = %55
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %apply_motion_generic.exit, label %32, !llvm.loop !26
+  br i1 %exitcond.not.i, label %apply_motion_generic.exit, label %32, !llvm.loop !25
 
 apply_motion_generic.exit:                        ; preds = %block_copy.exit.i, %._crit_edge.i, %29
   ret void
@@ -416,7 +416,7 @@ define void @ff_apply_motion_8x8(ptr noundef readonly captures(none) %0, i32 nou
 block_copy.exit.i:                                ; preds = %55
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %apply_motion_generic.exit, label %32, !llvm.loop !26
+  br i1 %exitcond.not.i, label %apply_motion_generic.exit, label %32, !llvm.loop !25
 
 apply_motion_generic.exit:                        ; preds = %block_copy.exit.i, %._crit_edge.i, %29
   ret void
@@ -454,7 +454,6 @@ attributes #3 = { nounwind }
 !20 = !{!5, !11, i64 36}
 !21 = !{!5, !7, i64 8}
 !22 = !{!5, !10, i64 16}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = distinct !{!26, !24, !25}
+!25 = distinct !{!25, !24}

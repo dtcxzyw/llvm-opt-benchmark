@@ -1457,12 +1457,12 @@ dissect_sjle_time_usecs.exit:                     ; preds = %47, %54
   %161 = getelementptr %struct._journal_field_hf_map, ptr %159, i64 %160, i32 1
   %162 = load ptr, ptr %161, align 8
   %.not146 = icmp eq ptr %162, null
-  br i1 %.not146, label %.loopexit, label %108, !llvm.loop !10
+  br i1 %.not146, label %.loopexit, label %108, !llvm.loop !9
 
 .loopexit:                                        ; preds = %157, %.preheader, %91, %103, %19
   %.1 = load i32, ptr %7, align 4
   %163 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.1)
-  br i1 %163, label %19, label %._crit_edge159, !llvm.loop !11
+  br i1 %163, label %19, label %._crit_edge159
 
 ._crit_edge159:                                   ; preds = %.loopexit, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %.1, %.loopexit ]
@@ -1600,7 +1600,5 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !9}
-!11 = distinct !{!11, !9}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

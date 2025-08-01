@@ -114,7 +114,7 @@ define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr 
   %38 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %37
   %39 = load i8, ptr %38, align 1, !tbaa !3
   %.not44 = icmp eq i8 %39, 0
-  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %36, %31, %13
   %.034.lcssa = phi i64 [ 0, %13 ], [ %.03453, %31 ], [ %37, %36 ]
@@ -123,7 +123,7 @@ define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr 
   br i1 %.not46, label %41, label %40
 
 40:                                               ; preds = %._crit_edge
-  store ptr %.lcssa, ptr %1, align 8, !tbaa !17
+  store ptr %.lcssa, ptr %1, align 8, !tbaa !16
   br label %41
 
 41:                                               ; preds = %40, %._crit_edge
@@ -188,7 +188,7 @@ define noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef captures(addres
 20:                                               ; preds = %17
   %21 = load ptr, ptr %.02127, align 8, !tbaa !6
   %.not25 = icmp eq ptr %21, null
-  br i1 %.not25, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %.not25, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %20, %17, %2, %15
   %.020 = phi ptr [ %.02127, %15 ], [ null, %2 ], [ null, %17 ], [ null, %20 ]
@@ -225,7 +225,7 @@ define i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %0, ptr noundef %1, ptr
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !19
   %14 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 35, i64 1, ptr %13) #20
   tail call void @exit(i32 noundef 1) #21
   unreachable
@@ -269,7 +269,7 @@ define i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %0, ptr noundef %1, ptr
 33:                                               ; preds = %30
   %34 = load ptr, ptr %.02127.i, align 8, !tbaa !6
   %.not25.i = icmp eq ptr %34, null
-  br i1 %.not25.i, label %_Z15pj_param_existsP8ARG_listPKc.exit, label %.preheader.i, !llvm.loop !19
+  br i1 %.not25.i, label %_Z15pj_param_existsP8ARG_listPKc.exit, label %.preheader.i, !llvm.loop !18
 
 _Z15pj_param_existsP8ARG_listPKc.exit:            ; preds = %30, %33, %15, %28
   %.020.i = phi ptr [ %.02127.i, %28 ], [ null, %15 ], [ null, %33 ], [ null, %30 ]
@@ -352,7 +352,7 @@ _Z15pj_param_existsP8ARG_listPKc.exit:            ; preds = %30, %33, %15, %28
   %63 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   %64 = load i8, ptr %63, align 1, !tbaa !3
   %.not = icmp eq i8 %64, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 65:                                               ; preds = %45
   %66 = tail call noundef double @_Z7pj_atofPKc(ptr noundef nonnull %spec.select)
@@ -457,13 +457,12 @@ attributes #21 = { cold noreturn nounwind }
 !10 = !{!"p1 short", !8, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"short", !4, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 omnipotent char", !8, i64 0}
-!19 = distinct !{!19, !14, !15}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
-!22 = distinct !{!22, !14, !15}
+!15 = distinct !{!15, !14}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !8, i64 0}
+!18 = distinct !{!18, !14}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!21 = distinct !{!21, !14}

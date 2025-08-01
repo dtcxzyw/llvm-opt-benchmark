@@ -247,7 +247,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i: ; 
 
 57:                                               ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !31
+  %59 = load ptr, ptr %58, align 8, !tbaa !30
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %56 to i64
   %62 = sub i64 %60, %61
@@ -306,7 +306,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i25: 
 
 81:                                               ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit.i25
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !31
+  %83 = load ptr, ptr %82, align 8, !tbaa !30
   %84 = ptrtoint ptr %83 to i64
   %85 = ptrtoint ptr %80 to i64
   %86 = sub i64 %84, %85
@@ -529,7 +529,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 
 20:                                               ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !31
+  %22 = load ptr, ptr %21, align 8, !tbaa !30
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %19 to i64
   %25 = sub i64 %23, %24
@@ -591,10 +591,10 @@ define hidden void @_ZNK4cvc58internal26ValidWitnessProofGenerator8identifyB5cxx
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
-  store i64 26, ptr %2, align 8, !tbaa !32
+  store i64 26, ptr %2, align 8, !tbaa !31
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %4, ptr %0, align 8, !tbaa !18
-  %5 = load i64, ptr %2, align 8, !tbaa !32
+  %5 = load i64, ptr %2, align 8, !tbaa !31
   store i64 %5, ptr %3, align 8, !tbaa !17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %4, ptr noundef nonnull align 1 dereferenceable(26) @.str.2, i64 26, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -609,22 +609,22 @@ define hidden void @_ZNK4cvc58internal26ValidWitnessProofGenerator8identifyB5cxx
 ; Function Attrs: uwtable
 define hidden void @_ZThn16_NK4cvc58internal26ValidWitnessProofGenerator8identifyB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readnone captures(none) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !11, !alias.scope !33
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15, !noalias !33
-  store i64 26, ptr %3, align 8, !tbaa !32, !noalias !33
+  store ptr %4, ptr %0, align 8, !tbaa !11, !alias.scope !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15, !noalias !32
+  store i64 26, ptr %3, align 8, !tbaa !31, !noalias !32
   %5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %5, ptr %0, align 8, !tbaa !18, !alias.scope !33
-  %6 = load i64, ptr %3, align 8, !tbaa !32, !noalias !33
-  store i64 %6, ptr %4, align 8, !tbaa !17, !alias.scope !33
+  store ptr %5, ptr %0, align 8, !tbaa !18, !alias.scope !32
+  %6 = load i64, ptr %3, align 8, !tbaa !31, !noalias !32
+  store i64 %6, ptr %4, align 8, !tbaa !17, !alias.scope !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %5, ptr noundef nonnull align 1 dereferenceable(26) @.str.2, i64 26, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %6, ptr %7, align 8, !tbaa !14, !alias.scope !33
-  %8 = load ptr, ptr %0, align 8, !tbaa !18, !alias.scope !33
+  store i64 %6, ptr %7, align 8, !tbaa !14, !alias.scope !32
+  %8 = load ptr, ptr %0, align 8, !tbaa !18, !alias.scope !32
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 %6
   store i8 0, ptr %9, align 1, !tbaa !17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15, !noalias !33
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15, !noalias !32
   ret void
 }
 
@@ -715,11 +715,10 @@ attributes #17 = { noreturn nounwind }
 !25 = !{!"_ZTSNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_Vector_impl_dataE", !26, i64 0, !26, i64 8, !26, i64 16}
 !26 = !{!"p1 _ZTSN4cvc58internal12NodeTemplateILb1EEE", !9, i64 0}
 !27 = !{!25, !26, i64 8}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!25, !26, i64 16}
-!32 = !{!16, !16, i64 0}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZNK4cvc58internal26ValidWitnessProofGenerator8identifyB5cxx11Ev: argument 0"}
-!35 = distinct !{!35, !"_ZNK4cvc58internal26ValidWitnessProofGenerator8identifyB5cxx11Ev"}
+!30 = !{!25, !26, i64 16}
+!31 = !{!16, !16, i64 0}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZNK4cvc58internal26ValidWitnessProofGenerator8identifyB5cxx11Ev: argument 0"}
+!34 = distinct !{!34, !"_ZNK4cvc58internal26ValidWitnessProofGenerator8identifyB5cxx11Ev"}

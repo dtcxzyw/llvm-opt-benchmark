@@ -1342,7 +1342,7 @@ while.body.i.i63:                                 ; preds = %if.then10, %while.b
   %__first.sroa.0.03.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i63 ], [ %16, %if.then10 ]
   %shr.i.i65 = lshr i64 %__len.04.i.i64, 1
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.sound::SoundDataOpenStream::SoundBufferUntil", ptr %__first.sroa.0.03.i.i, i64 %shr.i.i65
-  %call.val.i.i.i69 = load i32, ptr %add.ptr.i.i.i.i.i, align 4, !tbaa !108
+  %call.val.i.i.i69 = load i32, ptr %add.ptr.i.i.i.i.i, align 4, !tbaa !107
   %cmp.i.i15.i.i = icmp ugt i32 %call.val.i.i.i69, %offset
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %18 = xor i64 %shr.i.i65, -1
@@ -1350,7 +1350,7 @@ while.body.i.i63:                                 ; preds = %if.then10, %while.b
   %__first.sroa.0.1.i.i = select i1 %cmp.i.i15.i.i, ptr %__first.sroa.0.03.i.i, ptr %incdec.ptr.i.i.i
   %__len.1.i.i70 = select i1 %cmp.i.i15.i.i, i64 %shr.i.i65, i64 %sub9.i.i
   %cmp.i.i71 = icmp sgt i64 %__len.1.i.i70, 0
-  br i1 %cmp.i.i71, label %while.body.i.i63, label %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS4_SaIS4_EEEEjZNS3_17getOrLoadBufferAtEjE3$_1ET_SB_SB_RKT0_T1_.exit", !llvm.loop !110
+  br i1 %cmp.i.i71, label %while.body.i.i63, label %"_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS4_SaIS4_EEEEjZNS3_17getOrLoadBufferAtEjE3$_1ET_SB_SB_RKT0_T1_.exit", !llvm.loop !109
 
 "_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS4_SaIS4_EEEEjZNS3_17getOrLoadBufferAtEjE3$_1ET_SB_SB_RKT0_T1_.exit": ; preds = %while.body.i.i63, %if.then10
   %__first.sroa.0.0.lcssa.i.i = phi ptr [ %16, %if.then10 ], [ %__first.sroa.0.1.i.i, %while.body.i.i63 ]
@@ -1397,7 +1397,7 @@ cond.true:                                        ; preds = %entry
   %_M_finish.i.i = getelementptr inbounds i8, ptr %after_it.coerce, i64 -16
   %2 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 -8
-  %3 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !108
+  %3 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !107
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.true, %entry
@@ -1407,7 +1407,7 @@ cond.end:                                         ; preds = %cond.true, %entry
   %cond20 = load i32, ptr %spec.select228, align 4, !tbaa !84
   %m_decode_info21 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %freq = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %4 = load i32, ptr %freq, align 8, !tbaa !111
+  %4 = load i32, ptr %freq, align 8, !tbaa !110
   %conv = sitofp i32 %4 to float
   %conv22 = fptoui float %conv to i32
   %add = add i32 %offset, %conv22
@@ -1456,7 +1456,7 @@ cond.false49:                                     ; preds = %if.end33
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %7 = load ptr, ptr %_M_finish.i, align 8, !tbaa !4
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %8 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !112
+  %8 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !111
   %cmp.not.i.i = icmp eq ptr %7, %8
   br i1 %cmp.not.i.i, label %if.else21.i.i, label %if.then.i.i
 
@@ -1470,7 +1470,7 @@ if.then9.i.i:                                     ; preds = %if.then.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_buffers.i.i.i.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_buffers53, i8 0, i64 24, i1 false)
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %after_it.coerce, i64 32
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !114
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !113
   br label %cond.end59
 
 if.else.i.i:                                      ; preds = %if.then.i.i
@@ -1484,11 +1484,11 @@ if.else21.i.i:                                    ; preds = %cond.false49
           to label %cond.end59 unwind label %lpad
 
 cond.end59:                                       ; preds = %if.else21.i.i, %if.else.i.i, %if.then9.i.i
-  %9 = load ptr, ptr %m_bufferss, align 8, !tbaa !115
+  %9 = load ptr, ptr %m_bufferss, align 8, !tbaa !114
   %add.ptr.i.i184 = getelementptr inbounds i8, ptr %9, i64 %sub.ptr.sub.i.i.i
-  %10 = load ptr, ptr %m_buffers53, align 8, !tbaa !116
+  %10 = load ptr, ptr %m_buffers53, align 8, !tbaa !115
   %_M_finish.i.i186 = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 16
-  %11 = load ptr, ptr %_M_finish.i.i186, align 8, !tbaa !117
+  %11 = load ptr, ptr %_M_finish.i.i186, align 8, !tbaa !116
   %cmp.not3.i.i.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.not3.i.i.i.i.i, label %invoke.cont.i.i, label %for.body.i.i.i.i.i
 
@@ -1498,10 +1498,10 @@ for.body.i.i.i.i.i:                               ; preds = %cond.end59, %for.bo
   call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i, i32 noundef 0) #21
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %11
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !118
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !117
 
 invoke.contthread-pre-split.i.i:                  ; preds = %for.body.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %m_buffers53, align 8, !tbaa !116
+  %.pr.i.i = load ptr, ptr %m_buffers53, align 8, !tbaa !115
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %cond.end59
@@ -1522,25 +1522,25 @@ cleanup.done65:                                   ; preds = %_ZN5sound19SoundDat
   %m_buffers70 = getelementptr inbounds nuw i8, ptr %it.sroa.0.0, i64 8
   %_M_finish.i187 = getelementptr inbounds nuw i8, ptr %it.sroa.0.0, i64 16
   %13 = load ptr, ptr %_M_finish.i187, align 8, !tbaa !4
-  %14 = load ptr, ptr %m_buffers70, align 8, !tbaa !116
+  %14 = load ptr, ptr %m_buffers70, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp74) #21
-  store i32 %spec.select229, ptr %ref.tmp74, align 4, !tbaa !108
+  store i32 %spec.select229, ptr %ref.tmp74, align 4, !tbaa !107
   %m_buffer = getelementptr inbounds nuw i8, ptr %ref.tmp74, i64 4
   %15 = load i32, ptr %new_buf, align 4, !tbaa !84
   store i32 0, ptr %new_buf, align 4, !tbaa !84
   store i32 %15, ptr %m_buffer, align 4, !tbaa !80
   %_M_end_of_storage.i.i189 = getelementptr inbounds nuw i8, ptr %it.sroa.0.0, i64 24
-  %16 = load ptr, ptr %_M_end_of_storage.i.i189, align 8, !tbaa !119
+  %16 = load ptr, ptr %_M_end_of_storage.i.i189, align 8, !tbaa !118
   %cmp.not.i.i190 = icmp eq ptr %13, %16
   br i1 %cmp.not.i.i190, label %if.else.i.i193, label %if.then.i.i191
 
 if.then.i.i191:                                   ; preds = %cleanup.done65
-  store i32 %spec.select229, ptr %13, align 4, !tbaa !108
+  store i32 %spec.select229, ptr %13, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 0, ptr %m_buffer, align 4, !tbaa !84
   store i32 %15, ptr %m_buffer.i.i.i.i.i, align 4, !tbaa !80
   %incdec.ptr.i.i192 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %incdec.ptr.i.i192, ptr %_M_finish.i187, align 8, !tbaa !117
+  store ptr %incdec.ptr.i.i192, ptr %_M_finish.i187, align 8, !tbaa !116
   br label %invoke.cont77
 
 if.else.i.i193:                                   ; preds = %cleanup.done65
@@ -1612,7 +1612,7 @@ if.end135:                                        ; preds = %invoke.cont129, %in
   %sub.ptr.rhs.cast.i = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %m_buffers138 = getelementptr inbounds nuw i8, ptr %it.sroa.0.1, i64 8
-  %26 = load ptr, ptr %m_buffers138, align 8, !tbaa !116
+  %26 = load ptr, ptr %m_buffers138, align 8, !tbaa !115
   %add.ptr.i208 = getelementptr inbounds i8, ptr %26, i64 %sub.ptr.sub.i
   %m_buffer140 = getelementptr inbounds nuw i8, ptr %add.ptr.i208, i64 4
   %27 = load i32, ptr %m_buffer140, align 4, !tbaa !80
@@ -1640,9 +1640,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define linkonce_odr dso_local void @_ZN5sound19SoundDataOpenStream17ContiguousBuffersD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_buffers = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %m_buffers, align 8, !tbaa !116
+  %0 = load ptr, ptr %m_buffers, align 8, !tbaa !115
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !117
+  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !116
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
@@ -1652,10 +1652,10 @@ for.body.i.i.i.i:                                 ; preds = %entry, %for.body.i.
   tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i, i32 noundef 0) #21
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !120
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !117
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
-  %.pr.i = load ptr, ptr %m_buffers, align 8, !tbaa !116
+  %.pr.i = load ptr, ptr %m_buffers, align 8, !tbaa !115
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %entry
@@ -1773,18 +1773,18 @@ _ZN5sound19SoundDataUnopenFileD2Ev.exit:          ; preds = %if.then.i.i.i, %_ZN
 define linkonce_odr dso_local void @_ZN5sound19SoundDataOpenStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_bufferss = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %0 = load ptr, ptr %m_bufferss, align 8, !tbaa !115
+  %0 = load ptr, ptr %m_bufferss, align 8, !tbaa !114
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !114
+  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !113
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyIN5sound19SoundDataOpenStream17ContiguousBuffersEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyIN5sound19SoundDataOpenStream17ContiguousBuffersEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
   %m_buffers.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
-  %2 = load ptr, ptr %m_buffers.i.i.i.i.i.i, align 8, !tbaa !116
+  %2 = load ptr, ptr %m_buffers.i.i.i.i.i.i, align 8, !tbaa !115
   %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 16
-  %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8, !tbaa !117
+  %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i, align 8, !tbaa !116
   %cmp.not3.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i
 
@@ -1794,10 +1794,10 @@ for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i, %
   tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i.i.i.i, i32 noundef 0) #21
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i, %3
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !121
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, !llvm.loop !117
 
 invoke.contthread-pre-split.i.i.i.i.i.i.i:        ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
-  %.pr.i.i.i.i.i.i.i = load ptr, ptr %m_buffers.i.i.i.i.i.i, align 8, !tbaa !116
+  %.pr.i.i.i.i.i.i.i = load ptr, ptr %m_buffers.i.i.i.i.i.i, align 8, !tbaa !115
   br label %invoke.cont.i.i.i.i.i.i.i
 
 invoke.cont.i.i.i.i.i.i.i:                        ; preds = %invoke.contthread-pre-split.i.i.i.i.i.i.i, %for.body.i.i.i.i
@@ -1812,10 +1812,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont.i.i.i.i
 _ZSt8_DestroyIN5sound19SoundDataOpenStream17ContiguousBuffersEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !122
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !119
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN5sound19SoundDataOpenStream17ContiguousBuffersEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %m_bufferss, align 8, !tbaa !115
+  %.pr.i = load ptr, ptr %m_bufferss, align 8, !tbaa !114
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %entry
@@ -2045,9 +2045,9 @@ entry:
   %agg.tmp.i.i.i = alloca %"class.std::unique_ptr", align 8
   %call5.i.i.i19 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24
   %_M_use_count.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19, i64 8
-  store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !123
+  store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !120
   %_M_weak_count.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19, i64 12
-  store i32 1, ptr %_M_weak_count.i.i, align 4, !tbaa !125
+  store i32 1, ptr %_M_weak_count.i.i, align 4, !tbaa !122
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i19, align 8, !tbaa !24
   %_M_impl.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
@@ -2092,7 +2092,7 @@ lpad.i.i.i:                                       ; preds = %entry
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5sound11RAIIOggFileEEclEPS1_.exit.i.i.i.i, %invoke.cont.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
-  store ptr %call5.i.i.i19, ptr %this, align 8, !tbaa !126
+  store ptr %call5.i.i.i19, ptr %this, align 8, !tbaa !123
   store ptr %_M_impl.i.i, ptr %__p, align 8, !tbaa !4
   ret void
 }
@@ -2151,7 +2151,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds nuw i8, ptr %__ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !127
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !124
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -2184,9 +2184,9 @@ entry:
   %agg.tmp.i.i.i = alloca %"class.std::unique_ptr", align 8
   %call5.i.i.i19 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #24
   %_M_use_count.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19, i64 8
-  store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !123
+  store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !120
   %_M_weak_count.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19, i64 12
-  store i32 1, ptr %_M_weak_count.i.i, align 4, !tbaa !125
+  store i32 1, ptr %_M_weak_count.i.i, align 4, !tbaa !122
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenStreamESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i19, align 8, !tbaa !24
   %_M_impl.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
@@ -2255,7 +2255,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5sound19SoundDataOpenStre
   %m_bufferss.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i19, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_bufferss.i.i.i.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
-  store ptr %call5.i.i.i19, ptr %this, align 8, !tbaa !126
+  store ptr %call5.i.i.i19, ptr %this, align 8, !tbaa !123
   store ptr %_M_impl.i.i, ptr %__p, align 8, !tbaa !4
   ret void
 }
@@ -2297,7 +2297,7 @@ entry:
 
 lor.lhs.false:                                    ; preds = %entry
   %__name.i = getelementptr inbounds nuw i8, ptr %__ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !127
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !124
   %cmp.i = icmp eq ptr %0, @_ZTSSt19_Sp_make_shared_tag
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -2326,7 +2326,7 @@ declare i32 @ov_clear(ptr noundef) local_unnamed_addr #0
 define linkonce_odr dso_local void @_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE13_M_insert_auxIS2_EEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__arg) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish, align 8, !tbaa !114
+  %0 = load ptr, ptr %_M_finish, align 8, !tbaa !113
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 -32
   %1 = load i32, ptr %add.ptr, align 8, !tbaa !94
   store i32 %1, ptr %0, align 8, !tbaa !94
@@ -2336,12 +2336,12 @@ entry:
   store <2 x ptr> %2, ptr %m_buffers.i.i.i, align 8, !tbaa !4
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 -8
-  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8, !tbaa !119
-  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !tbaa !119
+  %3 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8, !tbaa !118
+  store ptr %3, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !tbaa !118
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_buffers3.i.i.i, i8 0, i64 24, i1 false)
-  %4 = load ptr, ptr %_M_finish, align 8, !tbaa !114
+  %4 = load ptr, ptr %_M_finish, align 8, !tbaa !113
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %incdec.ptr, ptr %_M_finish, align 8, !tbaa !114
+  store ptr %incdec.ptr, ptr %_M_finish, align 8, !tbaa !113
   %add.ptr9 = getelementptr inbounds i8, ptr %4, i64 -32
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr9 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %__position.coerce to i64
@@ -2360,15 +2360,15 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZN5sound19
   store i32 %5, ptr %incdec.ptr1.i.i.i.i.i, align 8, !tbaa !94
   %m_buffers.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -24
   %m_buffers3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i, i64 -24
-  %6 = load ptr, ptr %m_buffers.i.i.i.i.i.i, align 8, !tbaa !116
+  %6 = load ptr, ptr %m_buffers.i.i.i.i.i.i, align 8, !tbaa !115
   %_M_finish.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -16
-  %7 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !117
+  %7 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !116
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -8
   %8 = load <2 x ptr>, ptr %m_buffers3.i.i.i.i.i.i, align 8, !tbaa !4
   store <2 x ptr> %8, ptr %m_buffers.i.i.i.i.i.i, align 8, !tbaa !4
   %_M_end_of_storage.i5.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i, i64 -8
-  %9 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i.i.i.i.i.i, align 8, !tbaa !119
-  store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !119
+  %9 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i.i.i.i.i.i, align 8, !tbaa !118
+  store ptr %9, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !118
   %cmp.not3.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_buffers3.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2379,7 +2379,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i.i.i.i,
   tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 noundef 0) #21
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %7
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !129
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !117
 
 invoke.cont.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -2392,22 +2392,22 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %invoke.cont.i.i.i.i
 _ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i.i
   %dec.i.i.i.i.i = add nsw i64 %__n.08.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp sgt i64 %__n.08.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt13move_backwardIPN5sound19SoundDataOpenStream17ContiguousBuffersES3_ET0_T_S5_S4_.exit, !llvm.loop !130
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZSt13move_backwardIPN5sound19SoundDataOpenStream17ContiguousBuffersES3_ET0_T_S5_S4_.exit, !llvm.loop !126
 
 _ZSt13move_backwardIPN5sound19SoundDataOpenStream17ContiguousBuffersES3_ET0_T_S5_S4_.exit: ; preds = %_ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit.i.i.i.i.i, %entry
   %10 = load i32, ptr %__arg, align 8, !tbaa !94
   store i32 %10, ptr %__position.coerce, align 8, !tbaa !94
   %m_buffers.i = getelementptr inbounds nuw i8, ptr %__position.coerce, i64 8
   %m_buffers3.i = getelementptr inbounds nuw i8, ptr %__arg, i64 8
-  %11 = load ptr, ptr %m_buffers.i, align 8, !tbaa !116
+  %11 = load ptr, ptr %m_buffers.i, align 8, !tbaa !115
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__position.coerce, i64 16
-  %12 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !117
+  %12 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !116
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__position.coerce, i64 24
   %13 = load <2 x ptr>, ptr %m_buffers3.i, align 8, !tbaa !4
   store <2 x ptr> %13, ptr %m_buffers.i, align 8, !tbaa !4
   %_M_end_of_storage.i5.i.i.i.i = getelementptr inbounds nuw i8, ptr %__arg, i64 24
-  %14 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i, align 8, !tbaa !119
-  store ptr %14, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !119
+  %14 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i, align 8, !tbaa !118
+  store ptr %14, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !118
   %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %11, %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_buffers3.i, i8 0, i64 24, i1 false)
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i
@@ -2418,7 +2418,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %_ZSt13move_backward
   tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i, i32 noundef 0) #21
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %12
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !131
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !117
 
 invoke.cont.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i.i, %_ZSt13move_backwardIPN5sound19SoundDataOpenStream17ContiguousBuffersES3_ET0_T_S5_S4_.exit
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, null
@@ -2436,7 +2436,7 @@ _ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit: ; preds = %if.the
 define linkonce_odr dso_local void @_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !114
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !113
   %1 = load ptr, ptr %this, align 8, !tbaa !4
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -2470,8 +2470,8 @@ _ZNKSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE12_M_check
   store <2 x ptr> %4, ptr %m_buffers.i.i.i, align 8, !tbaa !4
   %_M_end_of_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %_M_end_of_storage4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__args, i64 24
-  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8, !tbaa !119
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !tbaa !119
+  %5 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i, align 8, !tbaa !118
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i, align 8, !tbaa !118
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_buffers3.i.i.i, i8 0, i64 24, i1 false)
   %cmp.not6.i.i.i = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not6.i.i.i, label %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i
@@ -2479,23 +2479,23 @@ _ZNKSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE12_M_check
 for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
   %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
-  %6 = load i32, ptr %__first.addr.07.i.i.i, align 8, !tbaa !94, !alias.scope !135, !noalias !132
-  store i32 %6, ptr %__cur.08.i.i.i, align 8, !tbaa !94, !alias.scope !132, !noalias !135
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
+  %6 = load i32, ptr %__first.addr.07.i.i.i, align 8, !tbaa !94, !alias.scope !130, !noalias !127
+  store i32 %6, ptr %__cur.08.i.i.i, align 8, !tbaa !94, !alias.scope !127, !noalias !130
   %m_buffers.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   %m_buffers3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 8
-  %7 = load <2 x ptr>, ptr %m_buffers3.i.i.i.i.i.i.i, align 8, !tbaa !4, !alias.scope !135, !noalias !132
-  store <2 x ptr> %7, ptr %m_buffers.i.i.i.i.i.i.i, align 8, !tbaa !4, !alias.scope !132, !noalias !135
+  %7 = load <2 x ptr>, ptr %m_buffers3.i.i.i.i.i.i.i, align 8, !tbaa !4, !alias.scope !130, !noalias !127
+  store <2 x ptr> %7, ptr %m_buffers.i.i.i.i.i.i.i, align 8, !tbaa !4, !alias.scope !127, !noalias !130
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 24
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 24
-  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !119, !alias.scope !135, !noalias !132
-  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !119, !alias.scope !132, !noalias !135
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_buffers3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !135, !noalias !132
+  %8 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !118, !alias.scope !130, !noalias !127
+  store ptr %8, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !118, !alias.scope !127, !noalias !130
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_buffers3.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !130, !noalias !127
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !137
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !132
 
 _ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE12_M_check_lenEmPKc.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -2506,23 +2506,23 @@ _ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_reloca
 for.body.i.i.i33:                                 ; preds = %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i33
   %__cur.08.i.i.i34 = phi ptr [ %incdec.ptr1.i.i.i43, %for.body.i.i.i33 ], [ %incdec.ptr, %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %__first.addr.07.i.i.i35 = phi ptr [ %incdec.ptr.i.i.i42, %for.body.i.i.i33 ], [ %__position.coerce, %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
-  %9 = load i32, ptr %__first.addr.07.i.i.i35, align 8, !tbaa !94, !alias.scope !141, !noalias !138
-  store i32 %9, ptr %__cur.08.i.i.i34, align 8, !tbaa !94, !alias.scope !138, !noalias !141
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
+  %9 = load i32, ptr %__first.addr.07.i.i.i35, align 8, !tbaa !94, !alias.scope !136, !noalias !133
+  store i32 %9, ptr %__cur.08.i.i.i34, align 8, !tbaa !94, !alias.scope !133, !noalias !136
   %m_buffers.i.i.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i34, i64 8
   %m_buffers3.i.i.i.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i35, i64 8
-  %10 = load <2 x ptr>, ptr %m_buffers3.i.i.i.i.i.i.i37, align 8, !tbaa !4, !alias.scope !141, !noalias !138
-  store <2 x ptr> %10, ptr %m_buffers.i.i.i.i.i.i.i36, align 8, !tbaa !4, !alias.scope !138, !noalias !141
+  %10 = load <2 x ptr>, ptr %m_buffers3.i.i.i.i.i.i.i37, align 8, !tbaa !4, !alias.scope !136, !noalias !133
+  store <2 x ptr> %10, ptr %m_buffers.i.i.i.i.i.i.i36, align 8, !tbaa !4, !alias.scope !133, !noalias !136
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i34, i64 24
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i35, i64 24
-  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i41, align 8, !tbaa !119, !alias.scope !141, !noalias !138
-  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i40, align 8, !tbaa !119, !alias.scope !138, !noalias !141
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_buffers3.i.i.i.i.i.i.i37, i8 0, i64 24, i1 false), !alias.scope !141, !noalias !138
+  %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i41, align 8, !tbaa !118, !alias.scope !136, !noalias !133
+  store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i40, align 8, !tbaa !118, !alias.scope !133, !noalias !136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_buffers3.i.i.i.i.i.i.i37, i8 0, i64 24, i1 false), !alias.scope !136, !noalias !133
   %incdec.ptr.i.i.i42 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i35, i64 32
   %incdec.ptr1.i.i.i43 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i34, i64 32
   %cmp.not.i.i.i44 = icmp eq ptr %incdec.ptr.i.i.i42, %0
-  br i1 %cmp.not.i.i.i44, label %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit46, label %for.body.i.i.i33, !llvm.loop !143
+  br i1 %cmp.not.i.i.i44, label %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit46, label %for.body.i.i.i33, !llvm.loop !132
 
 _ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit46: ; preds = %for.body.i.i.i33, %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %__cur.0.lcssa.i.i.i45 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %incdec.ptr1.i.i.i43, %for.body.i.i.i33 ]
@@ -2535,10 +2535,10 @@ if.then.i47:                                      ; preds = %_ZNSt6vectorIN5soun
 
 _ZNSt12_Vector_baseIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i47, %_ZNSt6vectorIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit46
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !115
-  store ptr %__cur.0.lcssa.i.i.i45, ptr %_M_finish.i.i, align 8, !tbaa !114
+  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !114
+  store ptr %__cur.0.lcssa.i.i.i45, ptr %_M_finish.i.i, align 8, !tbaa !113
   %add.ptr19 = getelementptr inbounds nuw %"struct.sound::SoundDataOpenStream::ContiguousBuffers", ptr %call5.i.i.i, i64 %cond.i
-  store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !112
+  store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !111
   ret void
 }
 
@@ -2549,7 +2549,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 define linkonce_odr dso_local void @_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(8) %__args) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !117
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !116
   %1 = load ptr, ptr %this, align 8, !tbaa !4
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -2585,17 +2585,17 @@ _ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_
 for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_lenEmPKc.exit, %for.body.i.i.i
   %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
   %m_buffer3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 4
-  %4 = load <2 x i32>, ptr %__first.addr.07.i.i.i, align 4, !tbaa !84, !alias.scope !147, !noalias !144
-  store i32 0, ptr %m_buffer3.i.i.i.i.i.i.i, align 4, !tbaa !84, !alias.scope !147, !noalias !144
-  store <2 x i32> %4, ptr %__cur.08.i.i.i, align 4, !tbaa !84, !alias.scope !144, !noalias !147
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i.i, i32 noundef 0) #21, !noalias !144
+  %4 = load <2 x i32>, ptr %__first.addr.07.i.i.i, align 4, !tbaa !84, !alias.scope !141, !noalias !138
+  store i32 0, ptr %m_buffer3.i.i.i.i.i.i.i, align 4, !tbaa !84, !alias.scope !141, !noalias !138
+  store <2 x i32> %4, ptr %__cur.08.i.i.i, align 4, !tbaa !84, !alias.scope !138, !noalias !141
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i.i, i32 noundef 0) #21, !noalias !138
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 8
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !149
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %for.body.i.i.i, !llvm.loop !143
 
 _ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %for.body.i.i.i, %_ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_lenEmPKc.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -2606,17 +2606,17 @@ _ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocat
 for.body.i.i.i33:                                 ; preds = %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %for.body.i.i.i33
   %__cur.08.i.i.i34 = phi ptr [ %incdec.ptr1.i.i.i39, %for.body.i.i.i33 ], [ %incdec.ptr, %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
   %__first.addr.07.i.i.i35 = phi ptr [ %incdec.ptr.i.i.i38, %for.body.i.i.i33 ], [ %__position.coerce, %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   %m_buffer3.i.i.i.i.i.i.i37 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i35, i64 4
-  %5 = load <2 x i32>, ptr %__first.addr.07.i.i.i35, align 4, !tbaa !84, !alias.scope !153, !noalias !150
-  store i32 0, ptr %m_buffer3.i.i.i.i.i.i.i37, align 4, !tbaa !84, !alias.scope !153, !noalias !150
-  store <2 x i32> %5, ptr %__cur.08.i.i.i34, align 4, !tbaa !84, !alias.scope !150, !noalias !153
-  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i.i37, i32 noundef 0) #21, !noalias !150
+  %5 = load <2 x i32>, ptr %__first.addr.07.i.i.i35, align 4, !tbaa !84, !alias.scope !147, !noalias !144
+  store i32 0, ptr %m_buffer3.i.i.i.i.i.i.i37, align 4, !tbaa !84, !alias.scope !147, !noalias !144
+  store <2 x i32> %5, ptr %__cur.08.i.i.i34, align 4, !tbaa !84, !alias.scope !144, !noalias !147
+  tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i.i37, i32 noundef 0) #21, !noalias !144
   %incdec.ptr.i.i.i38 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i35, i64 8
   %incdec.ptr1.i.i.i39 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i34, i64 8
   %cmp.not.i.i.i40 = icmp eq ptr %incdec.ptr.i.i.i38, %0
-  br i1 %cmp.not.i.i.i40, label %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit42, label %for.body.i.i.i33, !llvm.loop !155
+  br i1 %cmp.not.i.i.i40, label %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit42, label %for.body.i.i.i33, !llvm.loop !143
 
 _ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit42: ; preds = %for.body.i.i.i33, %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %__cur.0.lcssa.i.i.i41 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %incdec.ptr1.i.i.i39, %for.body.i.i.i33 ]
@@ -2629,10 +2629,10 @@ if.then.i43:                                      ; preds = %_ZNSt6vectorIN5soun
 
 _ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i43, %_ZNSt6vectorIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit42
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !116
-  store ptr %__cur.0.lcssa.i.i.i41, ptr %_M_finish.i.i, align 8, !tbaa !117
+  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !115
+  store ptr %__cur.0.lcssa.i.i.i41, ptr %_M_finish.i.i, align 8, !tbaa !116
   %add.ptr19 = getelementptr inbounds nuw %"struct.sound::SoundDataOpenStream::SoundBufferUntil", ptr %call5.i.i.i, i64 %cond.i
-  store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !119
+  store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !118
   ret void
 }
 
@@ -2648,7 +2648,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !119
+  %0 = load ptr, ptr %_M_end_of_storage, align 8, !tbaa !118
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8, !tbaa !4
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
@@ -2672,8 +2672,8 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %if.then13
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.preheader
   %__cur.020.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %1, %for.body.i.i.i.i.i.preheader ]
   %__first.sroa.0.019.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %add.ptr, %for.body.i.i.i.i.i.preheader ]
-  %2 = load i32, ptr %__first.sroa.0.019.i.i.i.i.i, align 4, !tbaa !108
-  store i32 %2, ptr %__cur.020.i.i.i.i.i, align 4, !tbaa !108
+  %2 = load i32, ptr %__first.sroa.0.019.i.i.i.i.i, align 4, !tbaa !107
+  store i32 %2, ptr %__cur.020.i.i.i.i.i, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.020.i.i.i.i.i, i64 4
   %m_buffer3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.019.i.i.i.i.i, i64 4
   %3 = load i32, ptr %m_buffer3.i.i.i.i.i.i.i, align 4, !tbaa !84
@@ -2682,11 +2682,11 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.019.i.i.i.i.i, i64 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.020.i.i.i.i.i, i64 8
   %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !156
+  br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit, label %for.body.i.i.i.i.i, !llvm.loop !149
 
 _ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %for.body.i.i.i.i.i
   %add.ptr31 = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i.i.i.i
-  store ptr %add.ptr31, ptr %_M_finish, align 8, !tbaa !117
+  store ptr %add.ptr31, ptr %_M_finish, align 8, !tbaa !116
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
@@ -2699,14 +2699,14 @@ for.body.i.i.i.i.i149:                            ; preds = %_ZSt22__uninitializ
   %__last.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i150, %for.body.i.i.i.i.i149 ], [ %add.ptr, %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit ]
   %incdec.ptr.i.i.i.i.i150 = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i, i64 -8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -8
-  %4 = load i32, ptr %incdec.ptr.i.i.i.i.i150, align 4, !tbaa !108
-  store i32 %4, ptr %incdec.ptr1.i.i.i.i.i, align 4, !tbaa !108
+  %4 = load i32, ptr %incdec.ptr.i.i.i.i.i150, align 4, !tbaa !107
+  store i32 %4, ptr %incdec.ptr1.i.i.i.i.i, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.addr.07.i.i.i.i.i, i64 -4
   %m_buffer3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.06.i.i.i.i.i, i64 -4
   %call.i.i.i.i.i.i = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBufferaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i) #21
   %dec.i.i.i.i.i = add nsw i64 %__n.08.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp ugt i64 %__n.08.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i149, label %_ZSt13move_backwardIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_ET0_T_S5_S4_.exit, !llvm.loop !157
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i149, label %_ZSt13move_backwardIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_ET0_T_S5_S4_.exit, !llvm.loop !150
 
 _ZSt13move_backwardIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_ET0_T_S5_S4_.exit: ; preds = %for.body.i.i.i.i.i149, %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit
   %cmp7.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
@@ -2716,8 +2716,8 @@ for.body.i.i.i.i.i156:                            ; preds = %_ZSt13move_backward
   %__n.010.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i162, %for.body.i.i.i.i.i156 ], [ %sub.ptr.div.i.i.i.i, %_ZSt13move_backwardIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_ET0_T_S5_S4_.exit ]
   %__result.addr.09.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i161, %for.body.i.i.i.i.i156 ], [ %__position.coerce, %_ZSt13move_backwardIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_ET0_T_S5_S4_.exit ]
   %__first.addr.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i160, %for.body.i.i.i.i.i156 ], [ %__first.coerce, %_ZSt13move_backwardIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_ET0_T_S5_S4_.exit ]
-  %5 = load i32, ptr %__first.addr.08.i.i.i.i.i, align 4, !tbaa !108
-  store i32 %5, ptr %__result.addr.09.i.i.i.i.i, align 4, !tbaa !108
+  %5 = load i32, ptr %__first.addr.08.i.i.i.i.i, align 4, !tbaa !107
+  store i32 %5, ptr %__result.addr.09.i.i.i.i.i, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i.i157 = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i, i64 4
   %m_buffer3.i.i.i.i.i.i158 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i, i64 4
   %call.i.i.i.i.i.i159 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBufferaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i157, ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i158) #21
@@ -2725,7 +2725,7 @@ for.body.i.i.i.i.i156:                            ; preds = %_ZSt13move_backward
   %incdec.ptr1.i.i.i.i.i161 = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i, i64 8
   %dec.i.i.i.i.i162 = add nsw i64 %__n.010.i.i.i.i.i, -1
   %cmp.i.i.i.i.i163 = icmp ugt i64 %__n.010.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i163, label %for.body.i.i.i.i.i156, label %if.end121, !llvm.loop !158
+  br i1 %cmp.i.i.i.i.i163, label %for.body.i.i.i.i.i156, label %if.end121, !llvm.loop !151
 
 _ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit: ; preds = %if.then13
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub.ptr.sub.i
@@ -2735,8 +2735,8 @@ _ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDat
 for.body.i.i.i.i:                                 ; preds = %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit, %for.body.i.i.i.i
   %__cur.020.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i168, %for.body.i.i.i.i ], [ %1, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit ]
   %__first.sroa.0.019.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i167, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit ]
-  %6 = load i32, ptr %__first.sroa.0.019.i.i.i.i, align 4, !tbaa !108
-  store i32 %6, ptr %__cur.020.i.i.i.i, align 4, !tbaa !108
+  %6 = load i32, ptr %__first.sroa.0.019.i.i.i.i, align 4, !tbaa !107
+  store i32 %6, ptr %__cur.020.i.i.i.i, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i.i165 = getelementptr inbounds nuw i8, ptr %__cur.020.i.i.i.i, i64 4
   %m_buffer3.i.i.i.i.i.i166 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.019.i.i.i.i, i64 4
   %7 = load i32, ptr %m_buffer3.i.i.i.i.i.i166, align 4, !tbaa !84
@@ -2745,7 +2745,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZSt7advanceISt13mo
   %incdec.ptr.i.i.i.i.i.i167 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.019.i.i.i.i, i64 8
   %incdec.ptr.i.i.i.i168 = getelementptr inbounds nuw i8, ptr %__cur.020.i.i.i.i, i64 8
   %cmp.i.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i167, %__last.coerce
-  br i1 %cmp.i.i.i.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit, label %for.body.i.i.i.i, !llvm.loop !159
+  br i1 %cmp.i.i.i.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit, label %for.body.i.i.i.i, !llvm.loop !152
 
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %for.body.i.i.i.i, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit
   %cmp.i.i.not18.i.i.i.i.i169 = icmp eq ptr %1, %__position.coerce
@@ -2753,7 +2753,7 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN
 
 _ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179.thread: ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit
   %add.ptr663 = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i.i.i.i
-  store ptr %add.ptr663, ptr %_M_finish, align 8, !tbaa !117
+  store ptr %add.ptr663, ptr %_M_finish, align 8, !tbaa !116
   br label %if.end121
 
 for.body.i.i.i.i.i170.preheader:                  ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream16SoundBufferUntilESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit
@@ -2764,8 +2764,8 @@ for.body.i.i.i.i.i170.preheader:                  ; preds = %_ZSt22__uninitializ
 for.body.i.i.i.i.i170:                            ; preds = %for.body.i.i.i.i.i170, %for.body.i.i.i.i.i170.preheader
   %__cur.020.i.i.i.i.i171 = phi ptr [ %incdec.ptr.i.i.i.i.i176, %for.body.i.i.i.i.i170 ], [ %add.ptr58, %for.body.i.i.i.i.i170.preheader ]
   %__first.sroa.0.019.i.i.i.i.i172 = phi ptr [ %incdec.ptr.i.i.i.i.i.i175, %for.body.i.i.i.i.i170 ], [ %__position.coerce, %for.body.i.i.i.i.i170.preheader ]
-  %8 = load i32, ptr %__first.sroa.0.019.i.i.i.i.i172, align 4, !tbaa !108
-  store i32 %8, ptr %__cur.020.i.i.i.i.i171, align 4, !tbaa !108
+  %8 = load i32, ptr %__first.sroa.0.019.i.i.i.i.i172, align 4, !tbaa !107
+  store i32 %8, ptr %__cur.020.i.i.i.i.i171, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i.i.i173 = getelementptr inbounds nuw i8, ptr %__cur.020.i.i.i.i.i171, i64 4
   %m_buffer3.i.i.i.i.i.i.i174 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.019.i.i.i.i.i172, i64 4
   %9 = load i32, ptr %m_buffer3.i.i.i.i.i.i.i174, align 4, !tbaa !84
@@ -2774,11 +2774,11 @@ for.body.i.i.i.i.i170:                            ; preds = %for.body.i.i.i.i.i1
   %incdec.ptr.i.i.i.i.i.i175 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.019.i.i.i.i.i172, i64 8
   %incdec.ptr.i.i.i.i.i176 = getelementptr inbounds nuw i8, ptr %__cur.020.i.i.i.i.i171, i64 8
   %cmp.i.i.not.i.i.i.i.i177 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i175, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i177, label %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179, label %for.body.i.i.i.i.i170, !llvm.loop !160
+  br i1 %cmp.i.i.not.i.i.i.i.i177, label %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179, label %for.body.i.i.i.i.i170, !llvm.loop !149
 
 _ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179: ; preds = %for.body.i.i.i.i.i170
   %add.ptr66 = getelementptr inbounds i8, ptr %1, i64 %sub.ptr.sub.i.i.i.i
-  store ptr %add.ptr66, ptr %_M_finish, align 8, !tbaa !117
+  store ptr %add.ptr66, ptr %_M_finish, align 8, !tbaa !116
   %cmp7.i.i.i.i.i184 = icmp sgt i64 %sub.ptr.div.i, 0
   br i1 %cmp7.i.i.i.i.i184, label %for.body.i.i.i.i.i190, label %if.end121
 
@@ -2786,8 +2786,8 @@ for.body.i.i.i.i.i190:                            ; preds = %_ZSt22__uninitializ
   %__n.010.i.i.i.i.i191 = phi i64 [ %dec.i.i.i.i.i199, %for.body.i.i.i.i.i190 ], [ %sub.ptr.div.i, %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179 ]
   %__result.addr.09.i.i.i.i.i192 = phi ptr [ %incdec.ptr1.i.i.i.i.i198, %for.body.i.i.i.i.i190 ], [ %__position.coerce, %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179 ]
   %__first.addr.08.i.i.i.i.i193 = phi ptr [ %incdec.ptr.i.i.i.i.i197, %for.body.i.i.i.i.i190 ], [ %__first.coerce, %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179 ]
-  %10 = load i32, ptr %__first.addr.08.i.i.i.i.i193, align 4, !tbaa !108
-  store i32 %10, ptr %__result.addr.09.i.i.i.i.i192, align 4, !tbaa !108
+  %10 = load i32, ptr %__first.addr.08.i.i.i.i.i193, align 4, !tbaa !107
+  store i32 %10, ptr %__result.addr.09.i.i.i.i.i192, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i.i194 = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i192, i64 4
   %m_buffer3.i.i.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i193, i64 4
   %call.i.i.i.i.i.i196 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN5sound17RAIIALSoundBufferaSEOS0_(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i194, ptr noundef nonnull align 4 dereferenceable(4) %m_buffer3.i.i.i.i.i.i195) #21
@@ -2795,10 +2795,10 @@ for.body.i.i.i.i.i190:                            ; preds = %_ZSt22__uninitializ
   %incdec.ptr1.i.i.i.i.i198 = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i192, i64 8
   %dec.i.i.i.i.i199 = add nsw i64 %__n.010.i.i.i.i.i191, -1
   %cmp.i.i.i.i.i200 = icmp ugt i64 %__n.010.i.i.i.i.i191, 1
-  br i1 %cmp.i.i.i.i.i200, label %for.body.i.i.i.i.i190, label %if.end121, !llvm.loop !161
+  br i1 %cmp.i.i.i.i.i200, label %for.body.i.i.i.i.i190, label %if.end121, !llvm.loop !151
 
 if.else78:                                        ; preds = %if.then
-  %11 = load ptr, ptr %this, align 8, !tbaa !116
+  %11 = load ptr, ptr %this, align 8, !tbaa !115
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.rhs.cast, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
@@ -2832,8 +2832,8 @@ _ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_M_
 for.body.i.i.i.i.i204:                            ; preds = %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_M_allocateEm.exit, %for.body.i.i.i.i.i204
   %__cur.020.i.i.i.i.i205 = phi ptr [ %incdec.ptr.i.i.i.i.i210, %for.body.i.i.i.i.i204 ], [ %cond.i202, %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_M_allocateEm.exit ]
   %__first.sroa.0.019.i.i.i.i.i206 = phi ptr [ %incdec.ptr.i.i.i.i.i.i209, %for.body.i.i.i.i.i204 ], [ %11, %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_M_allocateEm.exit ]
-  %13 = load i32, ptr %__first.sroa.0.019.i.i.i.i.i206, align 4, !tbaa !108
-  store i32 %13, ptr %__cur.020.i.i.i.i.i205, align 4, !tbaa !108
+  %13 = load i32, ptr %__first.sroa.0.019.i.i.i.i.i206, align 4, !tbaa !107
+  store i32 %13, ptr %__cur.020.i.i.i.i.i205, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i.i.i207 = getelementptr inbounds nuw i8, ptr %__cur.020.i.i.i.i.i205, i64 4
   %m_buffer3.i.i.i.i.i.i.i208 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.019.i.i.i.i.i206, i64 4
   %14 = load i32, ptr %m_buffer3.i.i.i.i.i.i.i208, align 4, !tbaa !84
@@ -2842,7 +2842,7 @@ for.body.i.i.i.i.i204:                            ; preds = %_ZNSt12_Vector_base
   %incdec.ptr.i.i.i.i.i.i209 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.019.i.i.i.i.i206, i64 8
   %incdec.ptr.i.i.i.i.i210 = getelementptr inbounds nuw i8, ptr %__cur.020.i.i.i.i.i205, i64 8
   %cmp.i.i.not.i.i.i.i.i211 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i209, %__position.coerce
-  br i1 %cmp.i.i.not.i.i.i.i.i211, label %for.body.i.i.i.i214.preheader, label %for.body.i.i.i.i.i204, !llvm.loop !162
+  br i1 %cmp.i.i.not.i.i.i.i.i211, label %for.body.i.i.i.i214.preheader, label %for.body.i.i.i.i.i204, !llvm.loop !149
 
 for.body.i.i.i.i214.preheader:                    ; preds = %for.body.i.i.i.i.i204, %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_M_allocateEm.exit
   %__cur.020.i.i.i.i215.ph = phi ptr [ %cond.i202, %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE11_M_allocateEm.exit ], [ %incdec.ptr.i.i.i.i.i210, %for.body.i.i.i.i.i204 ]
@@ -2851,8 +2851,8 @@ for.body.i.i.i.i214.preheader:                    ; preds = %for.body.i.i.i.i.i2
 for.body.i.i.i.i214:                              ; preds = %for.body.i.i.i.i214.preheader, %for.body.i.i.i.i214
   %__cur.020.i.i.i.i215 = phi ptr [ %incdec.ptr.i.i.i.i220, %for.body.i.i.i.i214 ], [ %__cur.020.i.i.i.i215.ph, %for.body.i.i.i.i214.preheader ]
   %__first.sroa.0.019.i.i.i.i216 = phi ptr [ %incdec.ptr.i.i.i.i.i.i219, %for.body.i.i.i.i214 ], [ %__first.coerce, %for.body.i.i.i.i214.preheader ]
-  %15 = load i32, ptr %__first.sroa.0.019.i.i.i.i216, align 4, !tbaa !108
-  store i32 %15, ptr %__cur.020.i.i.i.i215, align 4, !tbaa !108
+  %15 = load i32, ptr %__first.sroa.0.019.i.i.i.i216, align 4, !tbaa !107
+  store i32 %15, ptr %__cur.020.i.i.i.i215, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i.i217 = getelementptr inbounds nuw i8, ptr %__cur.020.i.i.i.i215, i64 4
   %m_buffer3.i.i.i.i.i.i218 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.019.i.i.i.i216, i64 4
   %16 = load i32, ptr %m_buffer3.i.i.i.i.i.i218, align 4, !tbaa !84
@@ -2861,7 +2861,7 @@ for.body.i.i.i.i214:                              ; preds = %for.body.i.i.i.i214
   %incdec.ptr.i.i.i.i.i.i219 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.019.i.i.i.i216, i64 8
   %incdec.ptr.i.i.i.i220 = getelementptr inbounds nuw i8, ptr %__cur.020.i.i.i.i215, i64 8
   %cmp.i.i.i.not.i.i.i.i221 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i219, %__last.coerce
-  br i1 %cmp.i.i.i.not.i.i.i.i221, label %invoke.cont95, label %for.body.i.i.i.i214, !llvm.loop !163
+  br i1 %cmp.i.i.i.not.i.i.i.i221, label %invoke.cont95, label %for.body.i.i.i.i214, !llvm.loop !152
 
 invoke.cont95:                                    ; preds = %for.body.i.i.i.i214
   %cmp.i.i.not18.i.i.i.i.i224 = icmp eq ptr %1, %__position.coerce
@@ -2870,8 +2870,8 @@ invoke.cont95:                                    ; preds = %for.body.i.i.i.i214
 for.body.i.i.i.i.i225:                            ; preds = %invoke.cont95, %for.body.i.i.i.i.i225
   %__cur.020.i.i.i.i.i226 = phi ptr [ %incdec.ptr.i.i.i.i.i231, %for.body.i.i.i.i.i225 ], [ %incdec.ptr.i.i.i.i220, %invoke.cont95 ]
   %__first.sroa.0.019.i.i.i.i.i227 = phi ptr [ %incdec.ptr.i.i.i.i.i.i230, %for.body.i.i.i.i.i225 ], [ %__position.coerce, %invoke.cont95 ]
-  %17 = load i32, ptr %__first.sroa.0.019.i.i.i.i.i227, align 4, !tbaa !108
-  store i32 %17, ptr %__cur.020.i.i.i.i.i226, align 4, !tbaa !108
+  %17 = load i32, ptr %__first.sroa.0.019.i.i.i.i.i227, align 4, !tbaa !107
+  store i32 %17, ptr %__cur.020.i.i.i.i.i226, align 4, !tbaa !107
   %m_buffer.i.i.i.i.i.i.i228 = getelementptr inbounds nuw i8, ptr %__cur.020.i.i.i.i.i226, i64 4
   %m_buffer3.i.i.i.i.i.i.i229 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.019.i.i.i.i.i227, i64 4
   %18 = load i32, ptr %m_buffer3.i.i.i.i.i.i.i229, align 4, !tbaa !84
@@ -2880,7 +2880,7 @@ for.body.i.i.i.i.i225:                            ; preds = %invoke.cont95, %for
   %incdec.ptr.i.i.i.i.i.i230 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.019.i.i.i.i.i227, i64 8
   %incdec.ptr.i.i.i.i.i231 = getelementptr inbounds nuw i8, ptr %__cur.020.i.i.i.i.i226, i64 8
   %cmp.i.i.not.i.i.i.i.i232 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i230, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i232, label %invoke.cont99, label %for.body.i.i.i.i.i225, !llvm.loop !164
+  br i1 %cmp.i.i.not.i.i.i.i.i232, label %invoke.cont99, label %for.body.i.i.i.i.i225, !llvm.loop !149
 
 invoke.cont99:                                    ; preds = %for.body.i.i.i.i.i225, %invoke.cont95
   %__cur.0.lcssa.i.i.i.i.i233 = phi ptr [ %incdec.ptr.i.i.i.i220, %invoke.cont95 ], [ %incdec.ptr.i.i.i.i.i231, %for.body.i.i.i.i.i225 ]
@@ -2893,7 +2893,7 @@ for.body.i.i.i:                                   ; preds = %invoke.cont99, %for
   tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i, i32 noundef 0) #21
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN5sound19SoundDataOpenStream16SoundBufferUntilES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !165
+  br i1 %cmp.not.i.i.i, label %_ZSt8_DestroyIPN5sound19SoundDataOpenStream16SoundBufferUntilES2_EvT_S4_RSaIT0_E.exit, label %for.body.i.i.i, !llvm.loop !117
 
 _ZSt8_DestroyIPN5sound19SoundDataOpenStream16SoundBufferUntilES2_EvT_S4_RSaIT0_E.exit: ; preds = %for.body.i.i.i, %invoke.cont99
   %tobool.not.i = icmp eq ptr %11, null
@@ -2904,10 +2904,10 @@ if.then.i235:                                     ; preds = %_ZSt8_DestroyIPN5so
   br label %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit
 
 _ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i235, %_ZSt8_DestroyIPN5sound19SoundDataOpenStream16SoundBufferUntilES2_EvT_S4_RSaIT0_E.exit
-  store ptr %cond.i202, ptr %this, align 8, !tbaa !116
-  store ptr %__cur.0.lcssa.i.i.i.i.i233, ptr %_M_finish, align 8, !tbaa !117
+  store ptr %cond.i202, ptr %this, align 8, !tbaa !115
+  store ptr %__cur.0.lcssa.i.i.i.i.i233, ptr %_M_finish, align 8, !tbaa !116
   %add.ptr117 = getelementptr inbounds nuw %"struct.sound::SoundDataOpenStream::SoundBufferUntil", ptr %cond.i202, i64 %cond.i
-  store ptr %add.ptr117, ptr %_M_end_of_storage, align 8, !tbaa !119
+  store ptr %add.ptr117, ptr %_M_end_of_storage, align 8, !tbaa !118
   br label %if.end121
 
 if.end121:                                        ; preds = %for.body.i.i.i.i.i190, %for.body.i.i.i.i.i156, %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179.thread, %_ZNSt12_Vector_baseIN5sound19SoundDataOpenStream16SoundBufferUntilESaIS2_EE13_M_deallocateEPS2_m.exit, %_ZSt22__uninitialized_move_aIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_SaIS2_EET0_T_S6_S5_RT1_.exit179, %_ZSt13move_backwardIPN5sound19SoundDataOpenStream16SoundBufferUntilES3_ET0_T_S5_S4_.exit, %entry
@@ -2939,15 +2939,15 @@ for.body.i.i.i.i.i:                               ; preds = %if.then, %_ZN5sound
   store i32 %1, ptr %__result.addr.09.i.i.i.i.i, align 8, !tbaa !94
   %m_buffers.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i, i64 8
   %m_buffers3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i, i64 8
-  %2 = load ptr, ptr %m_buffers.i.i.i.i.i.i, align 8, !tbaa !116
+  %2 = load ptr, ptr %m_buffers.i.i.i.i.i.i, align 8, !tbaa !115
   %_M_finish.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i, i64 16
-  %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !117
+  %3 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !116
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i, i64 24
   %4 = load <2 x ptr>, ptr %m_buffers3.i.i.i.i.i.i, align 8, !tbaa !4
   store <2 x ptr> %4, ptr %m_buffers.i.i.i.i.i.i, align 8, !tbaa !4
   %_M_end_of_storage.i5.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i, i64 24
-  %5 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i.i.i.i.i.i, align 8, !tbaa !119
-  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !119
+  %5 = load ptr, ptr %_M_end_of_storage.i5.i.i.i.i.i.i.i.i.i, align 8, !tbaa !118
+  store ptr %5, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !118
   %cmp.not3.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_buffers3.i.i.i.i.i.i, i8 0, i64 24, i1 false)
   br i1 %cmp.not3.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2958,7 +2958,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i.i.i.i,
   tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i32 noundef 0) #21
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i.i, %3
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !166
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !117
 
 invoke.cont.i.i.i.i.i.i.i.i.i:                    ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
   %tobool.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %2, null
@@ -2973,20 +2973,20 @@ _ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit.i.i.i.i.i: ; preds
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__result.addr.09.i.i.i.i.i, i64 32
   %dec.i.i.i.i.i = add nsw i64 %__n.010.i.i.i.i.i, -1
   %cmp.i.i.i.i.i = icmp sgt i64 %__n.010.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end.loopexit, !llvm.loop !167
+  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %if.end.loopexit, !llvm.loop !153
 
 if.end.loopexit:                                  ; preds = %_ZN5sound19SoundDataOpenStream17ContiguousBuffersaSEOS1_.exit.i.i.i.i.i
-  %.pre = load ptr, ptr %_M_finish.i, align 8, !tbaa !114
+  %.pre = load ptr, ptr %_M_finish.i, align 8, !tbaa !113
   br label %if.end
 
 if.end:                                           ; preds = %if.end.loopexit, %if.then, %entry
   %6 = phi ptr [ %.pre, %if.end.loopexit ], [ %0, %if.then ], [ %add.ptr.i, %entry ]
   %incdec.ptr = getelementptr inbounds i8, ptr %6, i64 -32
-  store ptr %incdec.ptr, ptr %_M_finish.i, align 8, !tbaa !114
+  store ptr %incdec.ptr, ptr %_M_finish.i, align 8, !tbaa !113
   %m_buffers.i.i.i = getelementptr inbounds i8, ptr %6, i64 -24
-  %7 = load ptr, ptr %m_buffers.i.i.i, align 8, !tbaa !116
+  %7 = load ptr, ptr %m_buffers.i.i.i, align 8, !tbaa !115
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 -16
-  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !117
+  %8 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !116
   %cmp.not3.i.i.i.i.i.i.i = icmp eq ptr %7, %8
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
@@ -2996,10 +2996,10 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.end, %for.body.i
   tail call void @_ZN5sound17RAIIALSoundBuffer5resetEj(ptr noundef nonnull align 4 dereferenceable(4) %m_buffer.i.i.i.i.i.i.i.i.i, i32 noundef 0) #21
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %8
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !168
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !117
 
 invoke.contthread-pre-split.i.i.i.i:              ; preds = %for.body.i.i.i.i.i.i.i
-  %.pr.i.i.i.i = load ptr, ptr %m_buffers.i.i.i, align 8, !tbaa !116
+  %.pr.i.i.i.i = load ptr, ptr %m_buffers.i.i.i, align 8, !tbaa !115
   br label %invoke.cont.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %invoke.contthread-pre-split.i.i.i.i, %if.end
@@ -3180,67 +3180,52 @@ attributes #25 = { noreturn nounwind }
 !102 = distinct !{!102, !"_ZSt13__lower_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream17ContiguousBuffersESt6vectorIS5_SaIS5_EEEEEjNS1_5__ops14_Iter_comp_valIZNS4_17getOrLoadBufferAtEjE3$_0EEET_SG_SG_RKT0_T1_"}
 !103 = distinct !{!103, !104, !"_ZSt11lower_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream17ContiguousBuffersESt6vectorIS5_SaIS5_EEEEEjZNS4_17getOrLoadBufferAtEjE3$_0ET_SD_SD_RKT0_T1_: %agg.result"}
 !104 = distinct !{!104, !"_ZSt11lower_boundISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN5sound19SoundDataOpenStream17ContiguousBuffersESt6vectorIS5_SaIS5_EEEEEjZNS4_17getOrLoadBufferAtEjE3$_0ET_SD_SD_RKT0_T1_"}
-!105 = distinct !{!105, !106, !107}
+!105 = distinct !{!105, !106}
 !106 = !{!"llvm.loop.mustprogress"}
-!107 = !{!"llvm.loop.estimated_trip_count"}
-!108 = !{!109, !20, i64 0}
-!109 = !{!"_ZTSN5sound19SoundDataOpenStream16SoundBufferUntilE", !20, i64 0, !81, i64 4}
-!110 = distinct !{!110, !106, !107}
-!111 = !{!83, !20, i64 56}
-!112 = !{!113, !5, i64 16}
-!113 = !{!"_ZTSNSt12_Vector_baseIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!114 = !{!113, !5, i64 8}
-!115 = !{!113, !5, i64 0}
-!116 = !{!99, !5, i64 0}
-!117 = !{!99, !5, i64 8}
-!118 = distinct !{!118, !106, !107}
-!119 = !{!99, !5, i64 16}
-!120 = distinct !{!120, !106, !107}
-!121 = distinct !{!121, !106, !107}
-!122 = distinct !{!122, !106, !107}
-!123 = !{!124, !20, i64 8}
-!124 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !20, i64 8, !20, i64 12}
-!125 = !{!124, !20, i64 12}
-!126 = !{!50, !5, i64 0}
-!127 = !{!128, !5, i64 8}
-!128 = !{!"_ZTSSt9type_info", !5, i64 8}
-!129 = distinct !{!129, !106, !107}
-!130 = distinct !{!130, !106, !107}
-!131 = distinct !{!131, !106, !107}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream17ContiguousBuffersES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!134 = distinct !{!134, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream17ContiguousBuffersES2_SaIS2_EEvPT_PT0_RT1_"}
-!135 = !{!136}
-!136 = distinct !{!136, !134, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream17ContiguousBuffersES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!137 = distinct !{!137, !106, !107}
+!107 = !{!108, !20, i64 0}
+!108 = !{!"_ZTSN5sound19SoundDataOpenStream16SoundBufferUntilE", !20, i64 0, !81, i64 4}
+!109 = distinct !{!109, !106}
+!110 = !{!83, !20, i64 56}
+!111 = !{!112, !5, i64 16}
+!112 = !{!"_ZTSNSt12_Vector_baseIN5sound19SoundDataOpenStream17ContiguousBuffersESaIS2_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!113 = !{!112, !5, i64 8}
+!114 = !{!112, !5, i64 0}
+!115 = !{!99, !5, i64 0}
+!116 = !{!99, !5, i64 8}
+!117 = distinct !{!117, !106}
+!118 = !{!99, !5, i64 16}
+!119 = distinct !{!119, !106}
+!120 = !{!121, !20, i64 8}
+!121 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !20, i64 8, !20, i64 12}
+!122 = !{!121, !20, i64 12}
+!123 = !{!50, !5, i64 0}
+!124 = !{!125, !5, i64 8}
+!125 = !{!"_ZTSSt9type_info", !5, i64 8}
+!126 = distinct !{!126, !106}
+!127 = !{!128}
+!128 = distinct !{!128, !129, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream17ContiguousBuffersES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!129 = distinct !{!129, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream17ContiguousBuffersES2_SaIS2_EEvPT_PT0_RT1_"}
+!130 = !{!131}
+!131 = distinct !{!131, !129, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream17ContiguousBuffersES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!132 = distinct !{!132, !106}
+!133 = !{!134}
+!134 = distinct !{!134, !135, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream17ContiguousBuffersES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!135 = distinct !{!135, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream17ContiguousBuffersES2_SaIS2_EEvPT_PT0_RT1_"}
+!136 = !{!137}
+!137 = distinct !{!137, !135, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream17ContiguousBuffersES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
 !138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream17ContiguousBuffersES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!140 = distinct !{!140, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream17ContiguousBuffersES2_SaIS2_EEvPT_PT0_RT1_"}
+!139 = distinct !{!139, !140, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream16SoundBufferUntilES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!140 = distinct !{!140, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream16SoundBufferUntilES2_SaIS2_EEvPT_PT0_RT1_"}
 !141 = !{!142}
-!142 = distinct !{!142, !140, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream17ContiguousBuffersES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!143 = distinct !{!143, !106, !107}
+!142 = distinct !{!142, !140, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream16SoundBufferUntilES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!143 = distinct !{!143, !106}
 !144 = !{!145}
 !145 = distinct !{!145, !146, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream16SoundBufferUntilES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
 !146 = distinct !{!146, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream16SoundBufferUntilES2_SaIS2_EEvPT_PT0_RT1_"}
 !147 = !{!148}
 !148 = distinct !{!148, !146, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream16SoundBufferUntilES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!149 = distinct !{!149, !106, !107}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream16SoundBufferUntilES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!152 = distinct !{!152, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream16SoundBufferUntilES2_SaIS2_EEvPT_PT0_RT1_"}
-!153 = !{!154}
-!154 = distinct !{!154, !152, !"_ZSt19__relocate_object_aIN5sound19SoundDataOpenStream16SoundBufferUntilES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!155 = distinct !{!155, !106, !107}
-!156 = distinct !{!156, !106, !107}
-!157 = distinct !{!157, !106, !107}
-!158 = distinct !{!158, !106, !107}
-!159 = distinct !{!159, !106, !107}
-!160 = distinct !{!160, !106, !107}
-!161 = distinct !{!161, !106, !107}
-!162 = distinct !{!162, !106, !107}
-!163 = distinct !{!163, !106, !107}
-!164 = distinct !{!164, !106, !107}
-!165 = distinct !{!165, !106, !107}
-!166 = distinct !{!166, !106, !107}
-!167 = distinct !{!167, !106, !107}
-!168 = distinct !{!168, !106, !107}
+!149 = distinct !{!149, !106}
+!150 = distinct !{!150, !106}
+!151 = distinct !{!151, !106}
+!152 = distinct !{!152, !106}
+!153 = distinct !{!153, !106}

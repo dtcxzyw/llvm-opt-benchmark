@@ -1081,7 +1081,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
 215:                                              ; preds = %212, %209
   %216 = add nuw nsw i32 %.021.i.i.i, 1
   %exitcond.not.i.i108.i = icmp eq i32 %216, 32
-  br i1 %exitcond.not.i.i108.i, label %dissect_pvfs2_request.exit, label %209, !llvm.loop !11
+  br i1 %exitcond.not.i.i108.i, label %dissect_pvfs2_request.exit, label %209, !llvm.loop !10
 
 217:                                              ; preds = %101
   %218 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef 48, ptr noundef %21, ptr noundef nonnull @.str.410)
@@ -1120,7 +1120,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
 241:                                              ; preds = %238, %235
   %242 = add nuw nsw i32 %.021.i.i109.i, 1
   %exitcond.not.i.i111.i = icmp eq i32 %242, 32
-  br i1 %exitcond.not.i.i111.i, label %dissect_pvfs2_request.exit, label %235, !llvm.loop !11
+  br i1 %exitcond.not.i.i111.i, label %dissect_pvfs2_request.exit, label %235, !llvm.loop !10
 
 243:                                              ; preds = %101
   %244 = load i32, ptr @hf_pvfs_path, align 4
@@ -1340,7 +1340,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   %405 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.01819.i.i, ptr noundef %21, ptr noundef nonnull @.str.410)
   %406 = add nuw i32 %.020.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %406, %403
-  br i1 %exitcond.not.i.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 407:                                              ; preds = %101
   %408 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef 48, ptr noundef %21, ptr noundef nonnull @.str.410)
@@ -1423,7 +1423,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   %456 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.0131.i.i, ptr noundef %21, ptr noundef nonnull @.str.410)
   %457 = add nuw i32 %.02.i.i, 1
   %exitcond.not.i115.i = icmp eq i32 %457, %455
-  br i1 %exitcond.not.i115.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i114.i, !llvm.loop !13
+  br i1 %exitcond.not.i115.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i114.i, !llvm.loop !12
 
 458:                                              ; preds = %101
   %459 = load i32, ptr @hf_pvfs_mgmt_perf_mon_request_event_count, align 4
@@ -1473,7 +1473,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   %486 = call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %21, i32 noundef %485, i32 noundef %484, ptr noundef readonly %1)
   %487 = add nuw i32 %.012.i.i.i, 1
   %exitcond.not.i.i117.i = icmp eq i32 %487, %481
-  br i1 %exitcond.not.i.i117.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i117.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 
 488:                                              ; preds = %101
   %489 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef 48, ptr noundef %21, ptr noundef nonnull @.str.410)
@@ -1497,7 +1497,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   %498 = call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %21, i32 noundef %497, i32 noundef %496, ptr noundef readonly %1)
   %499 = add nuw i32 %.012.i.i120.i, 1
   %exitcond.not.i.i122.i = icmp eq i32 %499, %493
-  br i1 %exitcond.not.i.i122.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i119.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i122.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i119.i, !llvm.loop !13
 
 500:                                              ; preds = %101
   %501 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef 48, ptr noundef %21, ptr noundef nonnull @.str.410)
@@ -1574,7 +1574,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   %529 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.032.i.i, ptr noundef %21, ptr noundef nonnull @.str.410)
   %530 = add nuw i32 %.02931.i.i, 1
   %exitcond.not.i.i74 = icmp eq i32 %530, %526
-  br i1 %exitcond.not.i.i74, label %._crit_edge.i.i, label %.lr.ph.i.i73, !llvm.loop !15
+  br i1 %exitcond.not.i.i74, label %._crit_edge.i.i, label %.lr.ph.i.i73, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i73, %525
   %.0.lcssa.i.i = phi i32 [ 48, %525 ], [ %529, %.lr.ph.i.i73 ]
@@ -1595,7 +1595,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   %536 = call fastcc i32 @dissect_pvfs_object_attr(ptr noundef %0, ptr noundef %534, i32 noundef %.134.i.i, ptr noundef readonly %1)
   %537 = add nuw i32 %.13033.i.i, 1
   %exitcond41.not.i.i = icmp eq i32 %537, %532
-  br i1 %exitcond41.not.i.i, label %dissect_pvfs2_request.exit, label %.lr.ph36.i.i, !llvm.loop !16
+  br i1 %exitcond41.not.i.i, label %dissect_pvfs2_request.exit, label %.lr.ph36.i.i, !llvm.loop !15
 
 538:                                              ; preds = %dissect_pvfs2_error.exit.i
   %539 = call fastcc noundef i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef 40, ptr noundef %21, ptr noundef nonnull @.str.410)
@@ -1628,7 +1628,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   %554 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %553, ptr noundef %21, ptr noundef nonnull @.str.410)
   %555 = add nuw i32 %.029.i.i, 1
   %exitcond.not.i78.i = icmp eq i32 %555, %549
-  br i1 %exitcond.not.i78.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i77.i, !llvm.loop !17
+  br i1 %exitcond.not.i78.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i77.i, !llvm.loop !16
 
 556:                                              ; preds = %dissect_pvfs2_error.exit.i
   %557 = load i32, ptr @ett_pvfs_server_config, align 4
@@ -1692,7 +1692,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   %584 = icmp ult i32 %582, %spec.select.i.i
   %585 = icmp samesign ult i32 %.094157.i.i, 255
   %or.cond.i.i = select i1 %584, i1 %585, i1 false
-  br i1 %or.cond.i.i, label %.lr.ph.i82.i, label %.critedge.i.i, !llvm.loop !18
+  br i1 %or.cond.i.i, label %.lr.ph.i82.i, label %.critedge.i.i, !llvm.loop !17
 
 .critedge.i.i:                                    ; preds = %579
   %586 = icmp eq i32 %583, 256
@@ -1746,7 +1746,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   %603 = getelementptr i8, ptr %.095162.i.i, i64 1
   %604 = add i32 %.093163.i.i, -1
   %.not120.i.i = icmp eq i32 %604, 0
-  br i1 %.not120.i.i, label %.critedge2.i.i, label %.lr.ph164.i.i, !llvm.loop !19
+  br i1 %.not120.i.i, label %.critedge2.i.i, label %.lr.ph164.i.i, !llvm.loop !18
 
 .critedge2.i.i:                                   ; preds = %602, %590
   %.095.lcssa.i.i = phi ptr [ %592, %590 ], [ %scevgep192.i.i, %602 ]
@@ -1804,7 +1804,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #12
   %630 = add nuw i32 %.0110167.i.i, 1
   %exitcond.not.i81.i = icmp eq i32 %630, %564
-  br i1 %exitcond.not.i81.i, label %.loopexit.i.i, label %576, !llvm.loop !20
+  br i1 %exitcond.not.i81.i, label %.loopexit.i.i, label %576, !llvm.loop !19
 
 .loopexit.i.i:                                    ; preds = %625, %.thread128.i.i, %571
   %.099152.i.i = phi i32 [ %.099170.i.i, %.thread128.i.i ], [ 52, %571 ], [ %627, %625 ]
@@ -1911,7 +1911,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   %713 = add i32 %.02526.i.i, 48
   %714 = add nuw i32 %.027.i.i, 1
   %exitcond.not.i85.i = icmp eq i32 %714, %683
-  br i1 %exitcond.not.i85.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i84.i, !llvm.loop !21
+  br i1 %exitcond.not.i85.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i84.i, !llvm.loop !20
 
 715:                                              ; preds = %dissect_pvfs2_error.exit.i
   %716 = load i32, ptr @hf_pvfs_mgmt_iterate_handles_response_ds_position, align 4
@@ -1928,7 +1928,7 @@ dissect_pvfs2_error.exit.i:                       ; preds = %514, %509
   %721 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.0171.i.i, ptr noundef %21, ptr noundef nonnull @.str.410)
   %722 = add nuw i32 %.02.i.i72, 1
   %exitcond.not.i89.i = icmp eq i32 %722, %718
-  br i1 %exitcond.not.i89.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i88.i, !llvm.loop !22
+  br i1 %exitcond.not.i89.i, label %dissect_pvfs2_request.exit, label %.lr.ph.i88.i, !llvm.loop !21
 
 723:                                              ; preds = %dissect_pvfs2_error.exit.i
   %724 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 44)
@@ -1987,7 +1987,7 @@ dissect_pvfs2_mgmt_dspace_info.exit.i.i:          ; preds = %738, %733
   %755 = call fastcc noundef i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %754, ptr noundef %.029.i94.i, ptr noundef nonnull @.str.410)
   %756 = add nuw i32 %.02126.i.i, 1
   %exitcond.not.i95.i = icmp eq i32 %756, %724
-  br i1 %exitcond.not.i95.i, label %dissect_pvfs2_request.exit, label %733, !llvm.loop !23
+  br i1 %exitcond.not.i95.i, label %dissect_pvfs2_request.exit, label %733, !llvm.loop !22
 
 757:                                              ; preds = %dissect_pvfs2_error.exit.i
   %758 = load i32, ptr @hf_pvfs_mgmt_event_mon_response_api, align 4
@@ -2031,7 +2031,7 @@ dissect_pvfs2_mgmt_dspace_info.exit.i.i:          ; preds = %738, %733
   %784 = call fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %21, i32 noundef %783, i32 noundef %782, ptr noundef readonly %1)
   %785 = add nuw i32 %.012.i.i.i77, 1
   %exitcond.not.i.i.i79 = icmp eq i32 %785, %780
-  br i1 %exitcond.not.i.i.i79, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i.i76, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i79, label %dissect_pvfs2_request.exit, label %.lr.ph.i.i.i76, !llvm.loop !13
 
 dissect_pvfs2_request.exit:                       ; preds = %dissect_pvfs2_mgmt_dspace_info.exit.i.i, %.lr.ph.i88.i, %.lr.ph.i84.i, %.lr.ph.i77.i, %.lr.ph36.i.i, %.lr.ph.i.i.i76, %.lr.ph.i.i119.i, %.lr.ph.i.i.i, %.lr.ph.i114.i, %.lr.ph.i.i, %241, %215, %.preheader.i.i.i, %779, %777, %773, %757, %732, %715, %674, %641, %638, %634, %632, %.loopexit.i.i, %563, %556, %544, %542, %540, %538, %._crit_edge.i.i, %523, %519, %517, %dissect_pvfs2_error.exit.i, %500, %488, %476, %472, %465, %461, %458, %452, %448, %443, %440, %417, %407, %399, %389, %340, %292, %243, %217, %130, %126, %112, %101, %438, %433, %430, %424, %87
   ret void
@@ -2099,7 +2099,7 @@ define internal fastcc noundef i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef 
   %12 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %11)
   %13 = xor i32 %12, %.02.i
   %14 = add i32 %13, %12
-  br i1 %10, label %.preheader.i, label %15, !llvm.loop !24
+  br i1 %10, label %.preheader.i, label %15, !llvm.loop !23
 
 15:                                               ; preds = %.preheader.i
   %16 = load i32, ptr @hf_pvfs_fh_hash, align 4
@@ -2415,7 +2415,7 @@ define internal fastcc i32 @dissect_pvfs_object_attr(ptr noundef %0, ptr noundef
 72:                                               ; preds = %69, %66
   %73 = add nuw nsw i32 %.021.i, 1
   %exitcond.not.i = icmp eq i32 %73, 32
-  br i1 %exitcond.not.i, label %dissect_pvfs2_attrmask.exit, label %66, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_pvfs2_attrmask.exit, label %66, !llvm.loop !10
 
 dissect_pvfs2_attrmask.exit:                      ; preds = %72
   %74 = add i32 %2, 44
@@ -2442,7 +2442,7 @@ dissect_pvfs2_attrmask.exit:                      ; preds = %72
   %86 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.0141.i, ptr noundef %9, ptr noundef nonnull @.str.410)
   %87 = add nuw i32 %.02.i, 1
   %exitcond.not.i62 = icmp eq i32 %87, %82
-  br i1 %exitcond.not.i62, label %dissect_pvfs_meta_attr_dfiles.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i62, label %dissect_pvfs_meta_attr_dfiles.exit, label %.lr.ph.i, !llvm.loop !24
 
 88:                                               ; preds = %dissect_pvfs2_attrmask.exit
   %89 = and i32 %61, 2048
@@ -2463,7 +2463,7 @@ dissect_pvfs2_attrmask.exit:                      ; preds = %72
   %95 = call fastcc i32 @dissect_pvfs_fh(ptr noundef %0, i32 noundef %.0141.i66, ptr noundef %9, ptr noundef nonnull @.str.410)
   %96 = add nuw i32 %.02.i65, 1
   %exitcond.not.i67 = icmp eq i32 %96, %91
-  br i1 %exitcond.not.i67, label %dissect_pvfs_meta_attr_dfiles.exit, label %.lr.ph.i64, !llvm.loop !25
+  br i1 %exitcond.not.i67, label %dissect_pvfs_meta_attr_dfiles.exit, label %.lr.ph.i64, !llvm.loop !24
 
 97:                                               ; preds = %88
   %98 = and i32 %61, 32768
@@ -2557,21 +2557,20 @@ attributes #14 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}

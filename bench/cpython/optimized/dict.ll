@@ -945,7 +945,7 @@ test_dict_inner.exit.thread:                      ; preds = %6, %65, %Py_DECREF.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 200
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !15
 
 .loopexit:                                        ; preds = %72, %test_dict_inner.exit.thread
   %.04 = phi ptr [ null, %test_dict_inner.exit.thread ], [ @_Py_NoneStruct, %72 ]
@@ -1021,7 +1021,6 @@ attributes #6 = { noreturn nounwind }
 !10 = !{!6, !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !6, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
+!15 = distinct !{!15, !14}

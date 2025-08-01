@@ -279,7 +279,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Selec
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #26
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -392,7 +392,7 @@ define void @_ZN3vcg9Trackball10ClearModesEv(ptr noundef nonnull align 8 derefer
   %.in.i.i.i = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 %.in.v.i.i.i
   %.020.i.i.i = load ptr, ptr %.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.020.i.i.i, null
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !8
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   br i1 %17, label %._crit_edge.thread.i.i.i, label %22
@@ -449,7 +449,7 @@ _ZNSt8_Rb_treeIPN3vcg9TrackModeES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_ins
 _ZNSt3setIPN3vcg9TrackModeESt4lessIS2_ESaIS2_EE6insertERKS2_.exit: ; preds = %.noexc, %22, %.lr.ph
   %37 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.019) #30
   %.not13 = icmp eq ptr %37, %11
-  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZNSt3setIPN3vcg9TrackModeESt4lessIS2_ESaIS2_EE6insertERKS2_.exit
   %.pre = load ptr, ptr %5, align 8
@@ -473,7 +473,7 @@ _ZNSt3setIPN3vcg9TrackModeESt4lessIS2_ESaIS2_EE6insertERKS2_.exit: ; preds = %.n
 45:                                               ; preds = %.lr.ph23, %41
   %46 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.021) #30
   %.not14 = icmp eq ptr %46, %3
-  br i1 %.not14, label %._crit_edge24, label %.lr.ph23, !llvm.loop !11
+  br i1 %.not14, label %._crit_edge24, label %.lr.ph23, !llvm.loop !10
 
 ._crit_edge24:                                    ; preds = %45, %1, %._crit_edge
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -557,7 +557,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN3vcg9TrackModeES2_St9_IdentityIS2_ESt
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #26
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -586,7 +586,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiP
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE11lower_boundERS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i, label %_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE11lower_boundERS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !12
 
 _ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE11lower_boundERS6_.exit: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -692,7 +692,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !14
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -764,7 +764,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !14
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !13
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -829,7 +829,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !14
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !13
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -896,7 +896,7 @@ define void @_ZN3vcg9Trackball11SetIdentityEv(ptr noundef nonnull align 8 captur
 14:                                               ; preds = %10, %.lr.ph.i
   %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.010.i) #30
   %.not8.i = icmp eq ptr %15, %7
-  br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %14, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -947,7 +947,7 @@ define void @_ZN3vcg9Trackball5ResetEv(ptr noundef nonnull align 8 captures(addr
 14:                                               ; preds = %.lr.ph, %10
   %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.06.010) #30
   %.not8 = icmp eq ptr %15, %7
-  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %14, %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -1006,18 +1006,18 @@ define linkonce_odr void @_ZN3vcg4ViewIfE7GetViewEv(ptr noundef nonnull align 4 
   %12 = shl i64 %indvars.iv.i.i.i, 2
   %13 = add nuw nsw i64 %12, %indvars.iv15.i.i.i
   %14 = getelementptr inbounds [16 x float], ptr %5, i64 0, i64 %13
-  %15 = load float, ptr %11, align 4, !alias.scope !16
-  %16 = load float, ptr %14, align 4, !alias.scope !16
-  store float %16, ptr %11, align 4, !alias.scope !16
-  store float %15, ptr %14, align 4, !alias.scope !16
+  %15 = load float, ptr %11, align 4, !alias.scope !15
+  %16 = load float, ptr %14, align 4, !alias.scope !15
+  store float %16, ptr %11, align 4, !alias.scope !15
+  store float %15, ptr %14, align 4, !alias.scope !15
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %indvars.iv15.i.i.i
-  br i1 %exitcond.not.i.i.i, label %17, label %9, !llvm.loop !19
+  br i1 %exitcond.not.i.i.i, label %17, label %9, !llvm.loop !18
 
 17:                                               ; preds = %9
   %indvars.iv.next16.i.i.i = add nuw nsw i64 %indvars.iv15.i.i.i, 1
   %exitcond18.not.i.i.i = icmp eq i64 %indvars.iv.next16.i.i.i, 4
-  br i1 %exitcond18.not.i.i.i, label %_ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit, label %.preheader.i.i.i, !llvm.loop !20
+  br i1 %exitcond18.not.i.i.i, label %_ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit, label %.preheader.i.i.i, !llvm.loop !19
 
 _ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit:           ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %5, i64 64, i1 false)
@@ -1041,18 +1041,18 @@ _ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit:           ; preds = %17
   %22 = shl i64 %indvars.iv.i.i.i3, 2
   %23 = add nuw nsw i64 %22, %indvars.iv15.i.i.i2
   %24 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %23
-  %25 = load float, ptr %21, align 4, !alias.scope !21
-  %26 = load float, ptr %24, align 4, !alias.scope !21
-  store float %26, ptr %21, align 4, !alias.scope !21
-  store float %25, ptr %24, align 4, !alias.scope !21
+  %25 = load float, ptr %21, align 4, !alias.scope !20
+  %26 = load float, ptr %24, align 4, !alias.scope !20
+  store float %26, ptr %21, align 4, !alias.scope !20
+  store float %25, ptr %24, align 4, !alias.scope !20
   %indvars.iv.next.i.i.i4 = add nuw nsw i64 %indvars.iv.i.i.i3, 1
   %exitcond.not.i.i.i5 = icmp eq i64 %indvars.iv.next.i.i.i4, %indvars.iv15.i.i.i2
-  br i1 %exitcond.not.i.i.i5, label %27, label %19, !llvm.loop !19
+  br i1 %exitcond.not.i.i.i5, label %27, label %19, !llvm.loop !18
 
 27:                                               ; preds = %19
   %indvars.iv.next16.i.i.i6 = add nuw nsw i64 %indvars.iv15.i.i.i2, 1
   %exitcond18.not.i.i.i7 = icmp eq i64 %indvars.iv.next16.i.i.i6, 4
-  br i1 %exitcond18.not.i.i.i7, label %_ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit8, label %.preheader.i.i.i1, !llvm.loop !20
+  br i1 %exitcond18.not.i.i.i7, label %_ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit8, label %.preheader.i.i.i1, !llvm.loop !19
 
 _ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit8:          ; preds = %27
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1067,7 +1067,7 @@ _ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit8:          ; preds = %27
   %.sink = zext i1 %32 to i8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i8 %.sink, ptr %33, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  call void @llvm.experimental.noalias.scope.decl(metadata !23)
   br label %.preheader19.i
 
 .preheader19.i:                                   ; preds = %47, %_ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit8
@@ -1084,28 +1084,28 @@ _ZN3vcg6glGetvEjRNS_8Matrix44IfEE.exit8:          ; preds = %27
   %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %43, %35 ]
   %36 = add nuw nsw i64 %indvars.iv.i, %34
   %37 = getelementptr inbounds nuw [16 x float], ptr %0, i64 0, i64 %36
-  %38 = load float, ptr %37, align 4, !noalias !24
+  %38 = load float, ptr %37, align 4, !noalias !23
   %39 = shl nuw nsw i64 %indvars.iv.i, 2
   %40 = add nuw nsw i64 %39, %indvars.iv25.i
   %41 = getelementptr inbounds nuw [16 x float], ptr %28, i64 0, i64 %40
-  %42 = load float, ptr %41, align 4, !noalias !24
+  %42 = load float, ptr %41, align 4, !noalias !23
   %43 = call float @llvm.fmuladd.f32(float %38, float %42, float %.01620.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %44, label %35, !llvm.loop !27
+  br i1 %exitcond.not.i, label %44, label %35, !llvm.loop !26
 
 44:                                               ; preds = %35
   %45 = add nuw nsw i64 %indvars.iv25.i, %34
   %46 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %45
-  store float %43, ptr %46, align 4, !alias.scope !24
+  store float %43, ptr %46, align 4, !alias.scope !23
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
-  br i1 %exitcond28.not.i, label %47, label %.preheader.i, !llvm.loop !28
+  br i1 %exitcond28.not.i, label %47, label %.preheader.i, !llvm.loop !27
 
 47:                                               ; preds = %44
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 4
-  br i1 %exitcond32.not.i, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, label %.preheader19.i, !llvm.loop !29
+  br i1 %exitcond32.not.i, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, label %.preheader19.i, !llvm.loop !28
 
 _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %47
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1141,12 +1141,12 @@ define linkonce_odr void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_
   store double %11, ptr %12, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %13, label %8, !llvm.loop !30
+  br i1 %exitcond.not.i, label %13, label %8, !llvm.loop !29
 
 13:                                               ; preds = %8
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 4
-  br i1 %exitcond16.not.i, label %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit, label %.preheader.i, !llvm.loop !31
+  br i1 %exitcond16.not.i, label %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit, label %.preheader.i, !llvm.loop !30
 
 _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit: ; preds = %13
   %.sroa.0286.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %3, align 16
@@ -1326,12 +1326,12 @@ _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_
   store float %155, ptr %157, align 4
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 4
-  br i1 %exitcond.not.i7, label %158, label %151, !llvm.loop !32
+  br i1 %exitcond.not.i7, label %158, label %151, !llvm.loop !31
 
 158:                                              ; preds = %151
   %indvars.iv.next14.i8 = add nuw nsw i64 %indvars.iv13.i4, 1
   %exitcond16.not.i9 = icmp eq i64 %indvars.iv.next14.i8, 4
-  br i1 %exitcond16.not.i9, label %_ZN3vcg8Matrix44IfE15FromEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRKT_.exit, label %.preheader.i3, !llvm.loop !33
+  br i1 %exitcond16.not.i9, label %_ZN3vcg8Matrix44IfE15FromEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRKT_.exit, label %.preheader.i3, !llvm.loop !32
 
 _ZN3vcg8Matrix44IfE15FromEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRKT_.exit: ; preds = %158
   ret void
@@ -1392,18 +1392,18 @@ define void @_ZN3vcg9Trackball5ApplyEv(ptr noundef nonnull align 8 dereferenceab
   %14 = shl i64 %indvars.iv.i.i.i, 2
   %15 = add nuw nsw i64 %14, %indvars.iv15.i.i.i
   %16 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %15
-  %17 = load float, ptr %13, align 4, !alias.scope !34
-  %18 = load float, ptr %16, align 4, !alias.scope !34
-  store float %18, ptr %13, align 4, !alias.scope !34
-  store float %17, ptr %16, align 4, !alias.scope !34
+  %17 = load float, ptr %13, align 4, !alias.scope !33
+  %18 = load float, ptr %16, align 4, !alias.scope !33
+  store float %18, ptr %13, align 4, !alias.scope !33
+  store float %17, ptr %16, align 4, !alias.scope !33
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %indvars.iv15.i.i.i
-  br i1 %exitcond.not.i.i.i, label %19, label %11, !llvm.loop !19
+  br i1 %exitcond.not.i.i.i, label %19, label %11, !llvm.loop !18
 
 19:                                               ; preds = %11
   %indvars.iv.next16.i.i.i = add nuw nsw i64 %indvars.iv15.i.i.i, 1
   %exitcond18.not.i.i.i = icmp eq i64 %indvars.iv.next16.i.i.i, 4
-  br i1 %exitcond18.not.i.i.i, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, label %.preheader.i.i.i, !llvm.loop !20
+  br i1 %exitcond18.not.i.i.i, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, label %.preheader.i.i.i, !llvm.loop !19
 
 _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %19
   call void @glMultMatrixf(ptr noundef nonnull %2)
@@ -1523,7 +1523,7 @@ define linkonce_odr void @_ZNK3vcg10SimilarityIfNS_10QuaternionIfEEE6MatrixEv(pt
   store float %56, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.824.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 60
   store float 1.000000e+00, ptr %.sroa.824.0..sroa_idx, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
   br label %.preheader19.i
 
 .preheader19.i:                                   ; preds = %70, %2
@@ -1540,31 +1540,31 @@ define linkonce_odr void @_ZNK3vcg10SimilarityIfNS_10QuaternionIfEEE6MatrixEv(pt
   %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %66, %58 ]
   %59 = add nuw nsw i64 %indvars.iv.i, %57
   %60 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %59
-  %61 = load float, ptr %60, align 4, !noalias !37
+  %61 = load float, ptr %60, align 4, !noalias !36
   %62 = shl nuw nsw i64 %indvars.iv.i, 2
   %63 = add nuw nsw i64 %62, %indvars.iv25.i
   %64 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %63
-  %65 = load float, ptr %64, align 4, !noalias !37
+  %65 = load float, ptr %64, align 4, !noalias !36
   %66 = tail call float @llvm.fmuladd.f32(float %61, float %65, float %.01620.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %67, label %58, !llvm.loop !27
+  br i1 %exitcond.not.i, label %67, label %58, !llvm.loop !26
 
 67:                                               ; preds = %58
   %68 = add nuw nsw i64 %indvars.iv25.i, %57
   %69 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %68
-  store float %66, ptr %69, align 4, !alias.scope !37
+  store float %66, ptr %69, align 4, !alias.scope !36
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
-  br i1 %exitcond28.not.i, label %70, label %.preheader.i, !llvm.loop !28
+  br i1 %exitcond28.not.i, label %70, label %.preheader.i, !llvm.loop !27
 
 70:                                               ; preds = %67
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 4
-  br i1 %exitcond32.not.i, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, label %.preheader19.i, !llvm.loop !29
+  br i1 %exitcond32.not.i, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit, label %.preheader19.i, !llvm.loop !28
 
 _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %70
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   br label %.preheader19.i8
 
 .preheader19.i8:                                  ; preds = %84, %_ZNK3vcg8Matrix44IfEmlERKS1_.exit
@@ -1581,28 +1581,28 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit:                ; preds = %70
   %.01620.i13 = phi float [ 0.000000e+00, %.preheader.i10 ], [ %80, %72 ]
   %73 = add nuw nsw i64 %indvars.iv.i12, %71
   %74 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %73
-  %75 = load float, ptr %74, align 4, !noalias !40
+  %75 = load float, ptr %74, align 4, !noalias !39
   %76 = shl nuw nsw i64 %indvars.iv.i12, 2
   %77 = add nuw nsw i64 %76, %indvars.iv25.i11
   %78 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %77
-  %79 = load float, ptr %78, align 4, !noalias !40
+  %79 = load float, ptr %78, align 4, !noalias !39
   %80 = tail call float @llvm.fmuladd.f32(float %75, float %79, float %.01620.i13)
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 4
-  br i1 %exitcond.not.i15, label %81, label %72, !llvm.loop !27
+  br i1 %exitcond.not.i15, label %81, label %72, !llvm.loop !26
 
 81:                                               ; preds = %72
   %82 = add nuw nsw i64 %indvars.iv25.i11, %71
   %83 = getelementptr inbounds nuw [16 x float], ptr %0, i64 0, i64 %82
-  store float %80, ptr %83, align 4, !alias.scope !40
+  store float %80, ptr %83, align 4, !alias.scope !39
   %indvars.iv.next26.i16 = add nuw nsw i64 %indvars.iv25.i11, 1
   %exitcond28.not.i17 = icmp eq i64 %indvars.iv.next26.i16, 4
-  br i1 %exitcond28.not.i17, label %84, label %.preheader.i10, !llvm.loop !28
+  br i1 %exitcond28.not.i17, label %84, label %.preheader.i10, !llvm.loop !27
 
 84:                                               ; preds = %81
   %indvars.iv.next30.i18 = add nuw nsw i64 %indvars.iv29.i9, 1
   %exitcond32.not.i19 = icmp eq i64 %indvars.iv.next30.i18, 4
-  br i1 %exitcond32.not.i19, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit20, label %.preheader19.i8, !llvm.loop !29
+  br i1 %exitcond32.not.i19, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit20, label %.preheader19.i8, !llvm.loop !28
 
 _ZNK3vcg8Matrix44IfEmlERKS1_.exit20:              ; preds = %84
   ret void
@@ -1625,7 +1625,7 @@ define void @_ZN3vcg9Trackball12ApplyInverseEv(ptr noundef nonnull align 8 deref
   %10 = load float, ptr %9, align 8
   tail call void @glTranslatef(float noundef %6, float noundef %8, float noundef %10)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
-  call void @_ZNK3vcg10SimilarityIfNS_10QuaternionIfEEE6MatrixEv(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %3, ptr noundef nonnull align 4 dereferenceable(32) %0), !noalias !43
+  call void @_ZNK3vcg10SimilarityIfNS_10QuaternionIfEEE6MatrixEv(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %3, ptr noundef nonnull align 4 dereferenceable(32) %0), !noalias !42
   call void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %4, ptr noundef nonnull align 4 dereferenceable(64) %3)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
@@ -1644,18 +1644,18 @@ define void @_ZN3vcg9Trackball12ApplyInverseEv(ptr noundef nonnull align 8 deref
   %15 = shl i64 %indvars.iv.i.i.i, 2
   %16 = add nuw nsw i64 %15, %indvars.iv15.i.i.i
   %17 = getelementptr inbounds [16 x float], ptr %2, i64 0, i64 %16
-  %18 = load float, ptr %14, align 4, !alias.scope !46
-  %19 = load float, ptr %17, align 4, !alias.scope !46
-  store float %19, ptr %14, align 4, !alias.scope !46
-  store float %18, ptr %17, align 4, !alias.scope !46
+  %18 = load float, ptr %14, align 4, !alias.scope !45
+  %19 = load float, ptr %17, align 4, !alias.scope !45
+  store float %19, ptr %14, align 4, !alias.scope !45
+  store float %18, ptr %17, align 4, !alias.scope !45
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %indvars.iv15.i.i.i
-  br i1 %exitcond.not.i.i.i, label %20, label %12, !llvm.loop !19
+  br i1 %exitcond.not.i.i.i, label %20, label %12, !llvm.loop !18
 
 20:                                               ; preds = %12
   %indvars.iv.next16.i.i.i = add nuw nsw i64 %indvars.iv15.i.i.i, 1
   %exitcond18.not.i.i.i = icmp eq i64 %indvars.iv.next16.i.i.i, 4
-  br i1 %exitcond18.not.i.i.i, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, label %.preheader.i.i.i, !llvm.loop !20
+  br i1 %exitcond18.not.i.i.i, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, label %.preheader.i.i.i, !llvm.loop !19
 
 _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %20
   call void @glMultMatrixf(ptr noundef nonnull %2)
@@ -1744,7 +1744,7 @@ define void @_ZNK3vcg9Trackball6MatrixEv(ptr dead_on_unwind noalias writable wri
   store float %52, ptr %55, align 4
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store float 1.000000e+00, ptr %56, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   br label %.preheader19.i
 
 .preheader19.i:                                   ; preds = %70, %2
@@ -1761,7 +1761,7 @@ define void @_ZNK3vcg9Trackball6MatrixEv(ptr dead_on_unwind noalias writable wri
   %.01620.i = phi float [ 0.000000e+00, %.preheader.i ], [ %66, %58 ]
   %59 = add nuw nsw i64 %indvars.iv.i, %57
   %60 = getelementptr inbounds nuw [16 x float], ptr %5, i64 0, i64 %59
-  %61 = load float, ptr %60, align 4, !noalias !49
+  %61 = load float, ptr %60, align 4, !noalias !48
   %62 = shl nuw nsw i64 %indvars.iv.i, 2
   %63 = add nuw nsw i64 %62, %indvars.iv25.i
   %64 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %63
@@ -1769,20 +1769,20 @@ define void @_ZNK3vcg9Trackball6MatrixEv(ptr dead_on_unwind noalias writable wri
   %66 = tail call float @llvm.fmuladd.f32(float %61, float %65, float %.01620.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %67, label %58, !llvm.loop !27
+  br i1 %exitcond.not.i, label %67, label %58, !llvm.loop !26
 
 67:                                               ; preds = %58
   %68 = add nuw nsw i64 %indvars.iv25.i, %57
   %69 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %68
-  store float %66, ptr %69, align 4, !alias.scope !49
+  store float %66, ptr %69, align 4, !alias.scope !48
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 4
-  br i1 %exitcond28.not.i, label %70, label %.preheader.i, !llvm.loop !28
+  br i1 %exitcond28.not.i, label %70, label %.preheader.i, !llvm.loop !27
 
 70:                                               ; preds = %67
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 4
-  br i1 %exitcond32.not.i, label %71, label %.preheader19.i, !llvm.loop !29
+  br i1 %exitcond32.not.i, label %71, label %.preheader19.i, !llvm.loop !28
 
 71:                                               ; preds = %70
   %72 = fdiv float 1.000000e+00, %52
@@ -1819,15 +1819,15 @@ define void @_ZNK3vcg9Trackball6MatrixEv(ptr dead_on_unwind noalias writable wri
   store float %80, ptr %79, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %indvars.iv15.i.i
-  br i1 %exitcond.not.i.i, label %82, label %74, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %82, label %74, !llvm.loop !18
 
 82:                                               ; preds = %74
   %indvars.iv.next16.i.i = add nuw nsw i64 %indvars.iv15.i.i, 1
   %exitcond18.not.i.i = icmp eq i64 %indvars.iv.next16.i.i, 4
-  br i1 %exitcond18.not.i.i, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit, label %.preheader.i.i, !llvm.loop !20
+  br i1 %exitcond18.not.i.i, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit, label %.preheader.i.i, !llvm.loop !19
 
 _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %82
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   br label %.preheader19.i21
 
 .preheader19.i21:                                 ; preds = %96, %_ZNK3vcg8Matrix44IfE9transposeEv.exit
@@ -1844,7 +1844,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %82
   %.01620.i26 = phi float [ 0.000000e+00, %.preheader.i23 ], [ %92, %84 ]
   %85 = add nuw nsw i64 %indvars.iv.i25, %83
   %86 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %85
-  %87 = load float, ptr %86, align 4, !noalias !52
+  %87 = load float, ptr %86, align 4, !noalias !51
   %88 = shl nuw nsw i64 %indvars.iv.i25, 2
   %89 = add nuw nsw i64 %88, %indvars.iv25.i24
   %90 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %89
@@ -1852,20 +1852,20 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit:            ; preds = %82
   %92 = tail call float @llvm.fmuladd.f32(float %87, float %91, float %.01620.i26)
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 4
-  br i1 %exitcond.not.i28, label %93, label %84, !llvm.loop !27
+  br i1 %exitcond.not.i28, label %93, label %84, !llvm.loop !26
 
 93:                                               ; preds = %84
   %94 = add nuw nsw i64 %indvars.iv25.i24, %83
   %95 = getelementptr inbounds nuw [16 x float], ptr %8, i64 0, i64 %94
-  store float %92, ptr %95, align 4, !alias.scope !52
+  store float %92, ptr %95, align 4, !alias.scope !51
   %indvars.iv.next26.i29 = add nuw nsw i64 %indvars.iv25.i24, 1
   %exitcond28.not.i30 = icmp eq i64 %indvars.iv.next26.i29, 4
-  br i1 %exitcond28.not.i30, label %96, label %.preheader.i23, !llvm.loop !28
+  br i1 %exitcond28.not.i30, label %96, label %.preheader.i23, !llvm.loop !27
 
 96:                                               ; preds = %93
   %indvars.iv.next30.i31 = add nuw nsw i64 %indvars.iv29.i22, 1
   %exitcond32.not.i32 = icmp eq i64 %indvars.iv.next30.i31, 4
-  br i1 %exitcond32.not.i32, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit33, label %.preheader19.i21, !llvm.loop !29
+  br i1 %exitcond32.not.i32, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit33, label %.preheader19.i21, !llvm.loop !28
 
 _ZNK3vcg8Matrix44IfEmlERKS1_.exit33:              ; preds = %96
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1974,7 +1974,7 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit33:              ; preds = %96
   store float %167, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.864.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 60
   store float 1.000000e+00, ptr %.sroa.864.0..sroa_idx, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   br label %.preheader19.i42
 
 .preheader19.i42:                                 ; preds = %181, %155
@@ -1991,28 +1991,28 @@ _ZNK3vcg8Matrix44IfEmlERKS1_.exit33:              ; preds = %96
   %.01620.i47 = phi float [ 0.000000e+00, %.preheader.i44 ], [ %177, %169 ]
   %170 = add nuw nsw i64 %indvars.iv.i46, %168
   %171 = getelementptr inbounds nuw [16 x float], ptr %4, i64 0, i64 %170
-  %172 = load float, ptr %171, align 4, !noalias !55
+  %172 = load float, ptr %171, align 4, !noalias !54
   %173 = shl nuw nsw i64 %indvars.iv.i46, 2
   %174 = add nuw nsw i64 %173, %indvars.iv25.i45
   %175 = getelementptr inbounds nuw [16 x float], ptr %7, i64 0, i64 %174
-  %176 = load float, ptr %175, align 4, !noalias !55
+  %176 = load float, ptr %175, align 4, !noalias !54
   %177 = tail call float @llvm.fmuladd.f32(float %172, float %176, float %.01620.i47)
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 4
-  br i1 %exitcond.not.i49, label %178, label %169, !llvm.loop !27
+  br i1 %exitcond.not.i49, label %178, label %169, !llvm.loop !26
 
 178:                                              ; preds = %169
   %179 = add nuw nsw i64 %indvars.iv25.i45, %168
   %180 = getelementptr inbounds nuw [16 x float], ptr %0, i64 0, i64 %179
-  store float %177, ptr %180, align 4, !alias.scope !55
+  store float %177, ptr %180, align 4, !alias.scope !54
   %indvars.iv.next26.i50 = add nuw nsw i64 %indvars.iv25.i45, 1
   %exitcond28.not.i51 = icmp eq i64 %indvars.iv.next26.i50, 4
-  br i1 %exitcond28.not.i51, label %181, label %.preheader.i44, !llvm.loop !28
+  br i1 %exitcond28.not.i51, label %181, label %.preheader.i44, !llvm.loop !27
 
 181:                                              ; preds = %178
   %indvars.iv.next30.i52 = add nuw nsw i64 %indvars.iv29.i43, 1
   %exitcond32.not.i53 = icmp eq i64 %indvars.iv.next30.i52, 4
-  br i1 %exitcond32.not.i53, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit54, label %.preheader19.i42, !llvm.loop !29
+  br i1 %exitcond32.not.i53, label %_ZNK3vcg8Matrix44IfEmlERKS1_.exit54, label %.preheader19.i42, !llvm.loop !28
 
 _ZNK3vcg8Matrix44IfEmlERKS1_.exit54:              ; preds = %181
   ret void
@@ -2191,7 +2191,7 @@ define void @_ZN3vcg9Trackball9MouseDownEi(ptr noundef nonnull align 8 dereferen
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %16 = icmp eq ptr %.19.i.i.i.i, %12
@@ -2273,7 +2273,7 @@ define void @_ZN3vcg9Trackball16SetCurrentActionEv(ptr noundef nonnull align 8 d
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %13 = icmp eq ptr %.19.i.i.i, %9
@@ -2347,7 +2347,7 @@ define void @_ZN3vcg9Trackball9MouseDownEiii(ptr noundef nonnull align 8 derefer
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %18 = icmp eq ptr %.19.i.i.i.i, %14
@@ -2618,7 +2618,7 @@ define void @_ZN3vcg9Trackball8ButtonUpENS0_6ButtonE(ptr noundef nonnull align 8
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %20 = icmp eq ptr %.19.i.i.i, %14
@@ -2669,7 +2669,7 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit: ; pr
   %.1.in.i.i.i22 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 %.1.in.v.i.i.i21
   %.1.i.i.i23 = load ptr, ptr %.1.in.i.i.i22, align 8
   %.not.i.i.i24 = icmp eq ptr %.1.i.i.i23, null
-  br i1 %.not.i.i.i24, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25, label %.lr.ph.i.i.i17, !llvm.loop !58
+  br i1 %.not.i.i.i24, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25, label %.lr.ph.i.i.i17, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i25: ; preds = %.lr.ph.i.i.i17
   %40 = icmp eq ptr %.19.i.i.i20, %14
@@ -2723,7 +2723,7 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit27: ; 
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %60 = icmp eq ptr %.19.i.i.i.i, %14
@@ -2802,7 +2802,7 @@ define void @_ZN3vcg9Trackball10MouseWheelEf(ptr noundef nonnull align 8 derefer
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %17 = icmp eq ptr %.19.i.i.i.i, %13
@@ -2889,7 +2889,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %21
   %.1.in.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i5, i64 %.1.in.v.i.i.i.i8
   %.1.i.i.i.i10 = load ptr, ptr %.1.in.i.i.i.i9, align 8
   %.not.i.i.i.i11 = icmp eq ptr %.1.i.i.i.i10, null
-  br i1 %.not.i.i.i.i11, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i12, label %.lr.ph.i.i.i.i4, !llvm.loop !58
+  br i1 %.not.i.i.i.i11, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i12, label %.lr.ph.i.i.i.i4, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i12: ; preds = %.lr.ph.i.i.i.i4
   %46 = icmp eq ptr %.19.i.i.i.i7, %13
@@ -2960,7 +2960,7 @@ define void @_ZN3vcg9Trackball10MouseWheelEfi(ptr noundef nonnull align 8 derefe
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %19 = icmp eq ptr %.19.i.i.i.i, %15
@@ -3062,7 +3062,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %23
   %.1.in.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i8, i64 %.1.in.v.i.i.i.i11
   %.1.i.i.i.i13 = load ptr, ptr %.1.in.i.i.i.i12, align 8
   %.not.i.i.i.i14 = icmp eq ptr %.1.i.i.i.i13, null
-  br i1 %.not.i.i.i.i14, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i15, label %.lr.ph.i.i.i.i7, !llvm.loop !58
+  br i1 %.not.i.i.i.i14, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i15, label %.lr.ph.i.i.i.i7, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i15: ; preds = %.lr.ph.i.i.i.i7
   %57 = icmp eq ptr %.19.i.i.i.i10, %15
@@ -3171,7 +3171,7 @@ _ZN3vcg9Trackball4SyncEj.exit:                    ; preds = %3, %18, %24
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %40 = icmp eq ptr %.19.i.i.i, %35
@@ -3221,7 +3221,7 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit: ; pr
   %.1.in.i.i.i23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i19, i64 %.1.in.v.i.i.i22
   %.1.i.i.i24 = load ptr, ptr %.1.in.i.i.i23, align 8
   %.not.i.i.i25 = icmp eq ptr %.1.i.i.i24, null
-  br i1 %.not.i.i.i25, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i26, label %.lr.ph.i.i.i18, !llvm.loop !58
+  br i1 %.not.i.i.i25, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i26, label %.lr.ph.i.i.i18, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i26: ; preds = %.lr.ph.i.i.i18
   %59 = icmp eq ptr %.19.i.i.i21, %35
@@ -3275,7 +3275,7 @@ _ZNKSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEE5countERS6_.exit28: ; 
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !58
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 _ZNKSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %79 = icmp eq ptr %.19.i.i.i.i, %35
@@ -3450,57 +3450,56 @@ attributes #30 = { nounwind willreturn memory(read) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
-!18 = distinct !{!18, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
-!23 = distinct !{!23, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
-!26 = distinct !{!26, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
-!30 = distinct !{!30, !6, !7}
-!31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !6, !7}
-!33 = distinct !{!33, !6, !7}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
-!36 = distinct !{!36, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
-!39 = distinct !{!39, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
-!42 = distinct !{!42, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZNK3vcg10SimilarityIfNS_10QuaternionIfEEE13InverseMatrixEv: argument 0"}
-!45 = distinct !{!45, !"_ZNK3vcg10SimilarityIfNS_10QuaternionIfEEE13InverseMatrixEv"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
-!48 = distinct !{!48, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
-!51 = distinct !{!51, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
-!54 = distinct !{!54, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
-!57 = distinct !{!57, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
-!58 = distinct !{!58, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
+!17 = distinct !{!17, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
+!22 = distinct !{!22, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
+!25 = distinct !{!25, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
+!35 = distinct !{!35, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
+!38 = distinct !{!38, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
+!41 = distinct !{!41, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZNK3vcg10SimilarityIfNS_10QuaternionIfEEE13InverseMatrixEv: argument 0"}
+!44 = distinct !{!44, !"_ZNK3vcg10SimilarityIfNS_10QuaternionIfEEE13InverseMatrixEv"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
+!47 = distinct !{!47, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
+!50 = distinct !{!50, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
+!53 = distinct !{!53, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZNK3vcg8Matrix44IfEmlERKS1_: argument 0"}
+!56 = distinct !{!56, !"_ZNK3vcg8Matrix44IfEmlERKS1_"}
+!57 = distinct !{!57, !6}

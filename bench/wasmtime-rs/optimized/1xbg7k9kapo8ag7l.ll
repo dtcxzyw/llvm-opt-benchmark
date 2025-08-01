@@ -388,7 +388,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 
 .noexc14.i:                                       ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd99ef32853d54d57E.exit6.i.i"
   %143 = icmp eq ptr %142, null
-  br i1 %143, label %._crit_edge.i.i, label %139, !llvm.loop !12
+  br i1 %143, label %._crit_edge.i.i, label %139
 
 144:                                              ; preds = %._crit_edge.i.i
   store ptr @anon.792701b81ad76444630bbc03b8bdde37.18, ptr %101, align 8, !noalias !6
@@ -711,7 +711,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 
 .noexc51.i:                                       ; preds = %.backedge.i.i
   %218 = icmp eq ptr %217, null
-  br i1 %218, label %._crit_edge.i31.i, label %.lr.ph.i30.i, !llvm.loop !14
+  br i1 %218, label %._crit_edge.i31.i, label %.lr.ph.i30.i
 
 219:                                              ; preds = %.noexc49.i
   %220 = load ptr, ptr %110, align 8, !noalias !6, !nonnull !9, !align !10, !noundef !9
@@ -719,7 +719,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
           to label %.noexc52.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !6
 
 .noexc52.i:                                       ; preds = %219
-  %221 = load i64, ptr %89, align 8, !range !15, !noalias !6, !noundef !9
+  %221 = load i64, ptr %89, align 8, !range !12, !noalias !6, !noundef !9
   %222 = icmp eq i64 %221, -9223372036854775808
   br i1 %222, label %.invoke309.i, label %223
 
@@ -744,7 +744,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
           to label %.noexc55.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !6
 
 .noexc55.i:                                       ; preds = %227
-  %229 = load i64, ptr %87, align 8, !range !15, !noalias !6, !noundef !9
+  %229 = load i64, ptr %87, align 8, !range !12, !noalias !6, !noundef !9
   %230 = icmp eq i64 %229, -9223372036854775808
   br i1 %230, label %.invoke309.i, label %232
 
@@ -871,7 +871,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 
 276:                                              ; preds = %.noexc63.i, %.lr.ph46.i.i
   %277 = phi ptr [ %244, %.lr.ph46.i.i ], [ %279, %.noexc63.i ]
-  %278 = load i64, ptr %277, align 8, !range !15, !noalias !6, !noundef !9
+  %278 = load i64, ptr %277, align 8, !range !12, !noalias !6, !noundef !9
   %.not.i.i = icmp eq i64 %278, -9223372036854775808
   br i1 %.not.i.i, label %.backedge1.i.i, label %281
 
@@ -881,7 +881,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 
 .noexc63.i:                                       ; preds = %.backedge1.i.i
   %280 = icmp eq ptr %279, null
-  br i1 %280, label %.loopexit137.i, label %276, !llvm.loop !16
+  br i1 %280, label %.loopexit137.i, label %276
 
 281:                                              ; preds = %276
   %282 = getelementptr inbounds nuw i8, ptr %277, i64 72
@@ -904,7 +904,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   %293 = load ptr, ptr %246, align 8, !noalias !6, !nonnull !9, !noundef !9
   %294 = load i64, ptr %247, align 8, !noalias !6, !noundef !9
   %295 = icmp ult i64 %292, %294
-  br i1 %295, label %296, label %.invoke.i, !prof !17
+  br i1 %295, label %296, label %.invoke.i, !prof !13
 
 296:                                              ; preds = %.noexc64.i
   %297 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %293, i64 0, i64 %292
@@ -1061,7 +1061,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 
 .noexc82.i:                                       ; preds = %.lr.ph43.i.i
   %327 = icmp ult i64 %326, %294
-  br i1 %327, label %328, label %.invoke.i, !prof !17
+  br i1 %327, label %328, label %.invoke.i, !prof !13
 
 328:                                              ; preds = %.noexc82.i
   %329 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %293, i64 0, i64 %326
@@ -1092,7 +1092,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 
 .noexc87.i:                                       ; preds = %.backedge.i60.i
   %336 = icmp eq ptr %335, null
-  br i1 %336, label %._crit_edge44.i.i, label %.lr.ph43.i.i, !llvm.loop !18
+  br i1 %336, label %._crit_edge44.i.i, label %.lr.ph43.i.i
 
 337:                                              ; preds = %328
   store ptr %69, ptr %65, align 8, !noalias !6
@@ -1146,7 +1146,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 
 .noexc95.i:                                       ; preds = %.lr.ph.i58.i
   %348 = icmp ult i64 %347, %294
-  br i1 %348, label %349, label %.invoke.i, !prof !17
+  br i1 %348, label %349, label %.invoke.i, !prof !13
 
 349:                                              ; preds = %.noexc95.i
   %350 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %293, i64 0, i64 %347
@@ -1159,7 +1159,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 .noexc96.i:                                       ; preds = %349
   %354 = load i64, ptr %261, align 8, !noalias !6, !noundef !9
   %355 = icmp ult i64 %353, %354
-  br i1 %355, label %356, label %.invoke.i, !prof !17
+  br i1 %355, label %356, label %.invoke.i, !prof !13
 
 356:                                              ; preds = %.noexc96.i
   %357 = load ptr, ptr %262, align 8, !noalias !6, !nonnull !9, !noundef !9
@@ -1202,7 +1202,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 
 .noexc102.i:                                      ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd99ef32853d54d57E.exit.i.i"
   %365 = icmp eq ptr %364, null
-  br i1 %365, label %._crit_edge.i59.i, label %.lr.ph.i58.i, !llvm.loop !19
+  br i1 %365, label %._crit_edge.i59.i, label %.lr.ph.i58.i
 
 .invoke.i:                                        ; preds = %.noexc64.i, %.noexc82.i, %.noexc96.i, %.noexc95.i
   %366 = phi i64 [ %353, %.noexc96.i ], [ %347, %.noexc95.i ], [ %326, %.noexc82.i ], [ %292, %.noexc64.i ]
@@ -1414,7 +1414,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   %434 = getelementptr inbounds nuw i8, ptr %430, i64 16
   %435 = load i64, ptr %434, align 8, !noalias !6, !noundef !9
   %436 = icmp ult i64 %431, %435
-  br i1 %436, label %437, label %.invoke.i.i, !prof !17
+  br i1 %436, label %437, label %.invoke.i.i, !prof !13
 
 437:                                              ; preds = %433
   %438 = getelementptr inbounds nuw i8, ptr %430, i64 8
@@ -1445,7 +1445,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   %452 = getelementptr inbounds nuw i8, ptr %441, i64 64
   %453 = load i64, ptr %452, align 8, !noalias !6, !noundef !9
   %454 = icmp ult i64 %444, %453
-  br i1 %454, label %455, label %.invoke.i.i, !prof !17
+  br i1 %454, label %455, label %.invoke.i.i, !prof !13
 
 455:                                              ; preds = %449
   %456 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %451, i64 0, i64 %444
@@ -1484,7 +1484,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
           to label %466 unwind label %.loopexit188.i.i, !noalias !6
 
 466:                                              ; preds = %465
-  %467 = load i64, ptr %48, align 8, !range !15, !noalias !6, !noundef !9
+  %467 = load i64, ptr %48, align 8, !range !12, !noalias !6, !noundef !9
   %468 = icmp eq i64 %467, -9223372036854775808
   br i1 %468, label %469, label %470
 
@@ -1566,7 +1566,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 489:                                              ; preds = %486
   %490 = load i64, ptr %404, align 8, !noalias !6, !noundef !9
   %.not.i112.i = icmp eq i64 %490, 0
-  br i1 %.not.i112.i, label %.invoke596.i.i, label %499, !prof !20
+  br i1 %.not.i112.i, label %.invoke596.i.i, label %499, !prof !14
 
 491:                                              ; preds = %486
   %492 = extractvalue { i64, ptr } %485, 0
@@ -1580,7 +1580,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   %496 = getelementptr inbounds nuw i8, ptr %494, i64 88
   %497 = load i64, ptr %496, align 8, !noalias !6, !noundef !9
   %498 = icmp ult i64 %495, %497
-  br i1 %498, label %601, label %.invoke596.i.i, !prof !17
+  br i1 %498, label %601, label %.invoke596.i.i, !prof !13
 
 499:                                              ; preds = %489
   %500 = load ptr, ptr %405, align 8, !noalias !6, !nonnull !9, !noundef !9
@@ -1593,7 +1593,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   %504 = getelementptr inbounds nuw i8, ptr %502, i64 88
   %505 = load i64, ptr %504, align 8, !noalias !6, !noundef !9
   %506 = icmp ult i64 %503, %505
-  br i1 %506, label %510, label %.invoke596.i.i, !prof !17
+  br i1 %506, label %510, label %.invoke596.i.i, !prof !13
 
 .invoke596.i.i:                                   ; preds = %516, %.noexc171.i.i, %489, %613, %.noexc166.i.i
   %507 = phi i64 [ %495, %.noexc166.i.i ], [ %612, %613 ], [ %503, %.noexc171.i.i ], [ 0, %489 ], [ %515, %516 ]
@@ -1609,7 +1609,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   %511 = getelementptr inbounds nuw i8, ptr %502, i64 80
   %512 = load ptr, ptr %511, align 8, !noalias !6, !nonnull !9, !noundef !9
   %513 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %512, i64 0, i64 %503
-  %514 = load i64, ptr %513, align 8, !range !15, !noalias !6, !noundef !9
+  %514 = load i64, ptr %513, align 8, !range !12, !noalias !6, !noundef !9
   %.not181.i.i = icmp eq i64 %514, -9223372036854775808
   %.sroa.3.0.in.v.i168.i.i = select i1 %.not181.i.i, i64 48, i64 24
   %.sroa.3.0.in.i169.i.i = getelementptr inbounds nuw i8, ptr %513, i64 %.sroa.3.0.in.v.i168.i.i
@@ -1619,12 +1619,12 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 
 516:                                              ; preds = %510
   %517 = icmp ult i64 %515, %453
-  br i1 %517, label %518, label %.invoke596.i.i, !prof !17
+  br i1 %517, label %518, label %.invoke596.i.i, !prof !13
 
 518:                                              ; preds = %516
   %519 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %451, i64 0, i64 %515
   store ptr %519, ptr %30, align 8, !noalias !6
-  %520 = load i8, ptr %406, align 8, !range !21, !noalias !6, !noundef !9
+  %520 = load i8, ptr %406, align 8, !range !15, !noalias !6, !noundef !9
   %521 = icmp eq i8 %520, 2
   br i1 %521, label %522, label %524
 
@@ -1665,7 +1665,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   br i1 %530, label %.critedge.i.i, label %532
 
 532:                                              ; preds = %531
-  %533 = load i8, ptr %406, align 8, !range !21, !noalias !6, !noundef !9
+  %533 = load i8, ptr %406, align 8, !range !15, !noalias !6, !noundef !9
   %534 = load ptr, ptr %376, align 8, !noalias !6, !nonnull !9, !align !10, !noundef !9
   switch i8 %533, label %default.unreachable [
     i8 0, label %535
@@ -1741,7 +1741,7 @@ default.unreachable:                              ; preds = %532
   br i1 %548, label %.loopexit200.i.i, label %551
 
 551:                                              ; preds = %550
-  %552 = load i8, ptr %406, align 8, !range !21, !noalias !6, !noundef !9
+  %552 = load i8, ptr %406, align 8, !range !15, !noalias !6, !noundef !9
   %553 = invoke zeroext i1 @_ZN14cranelift_isle7codegen7Codegen10emit_block17h331cdb966078936eE(ptr nonnull align 8 %110, ptr nonnull align 8 %55, ptr nonnull align 8 %56, i8 %552)
           to label %554 unwind label %.thread177.loopexit.i.i, !noalias !6
 
@@ -1749,7 +1749,7 @@ default.unreachable:                              ; preds = %532
   br i1 %553, label %.loopexit200.i.i, label %555
 
 555:                                              ; preds = %554
-  %556 = load i8, ptr %406, align 8, !range !21, !noalias !6, !noundef !9
+  %556 = load i8, ptr %406, align 8, !range !15, !noalias !6, !noundef !9
   %557 = load i64, ptr %417, align 8, !noalias !6, !noundef !9
   %558 = load ptr, ptr %418, align 8, !noalias !6, !nonnull !9
   %559 = add i64 %557, -1
@@ -1782,7 +1782,7 @@ default.unreachable:                              ; preds = %532
 
 569:                                              ; preds = %563
   %570 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, { i16, [19 x i16] } }], ptr %558, i64 0, i64 %559, i32 1
-  %571 = load i16, ptr %570, align 8, !range !22, !noalias !6, !noundef !9
+  %571 = load i16, ptr %570, align 8, !range !16, !noalias !6, !noundef !9
   %572 = icmp eq i16 %571, 3
   br i1 %572, label %567, label %573
 
@@ -1870,7 +1870,7 @@ default.unreachable:                              ; preds = %532
 
 .noexc117.i:                                      ; preds = %.noexc116.i
   %.not343.i.i = icmp eq ptr %600, null
-  br i1 %.not343.i.i, label %_ZN14cranelift_isle7codegen7Codegen13generate_rust17h4fe1bb35a025d3d4E.exit, label %424, !llvm.loop !23
+  br i1 %.not343.i.i, label %_ZN14cranelift_isle7codegen7Codegen13generate_rust17h4fe1bb35a025d3d4E.exit, label %424
 
 .loopexit200.i.i:                                 ; preds = %595, %566, %554, %550, %590
   invoke void @"_ZN4core3ptr91drop_in_place$LT$cranelift_isle..StableSet$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h58363ccd0ae96c9aE"(ptr nonnull align 8 %18)
@@ -1885,7 +1885,7 @@ default.unreachable:                              ; preds = %532
   %602 = getelementptr inbounds nuw i8, ptr %494, i64 80
   %603 = load ptr, ptr %602, align 8, !noalias !6, !nonnull !9, !noundef !9
   %604 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %603, i64 0, i64 %495
-  %605 = load i64, ptr %604, align 8, !range !15, !noalias !6, !noundef !9
+  %605 = load i64, ptr %604, align 8, !range !12, !noalias !6, !noundef !9
   %.not180.i.i = icmp eq i64 %605, -9223372036854775808
   %.sroa.3.0.in.v.i.i.i = select i1 %.not180.i.i, i64 48, i64 24
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %604, i64 %.sroa.3.0.in.v.i.i.i
@@ -1918,7 +1918,7 @@ default.unreachable:                              ; preds = %532
 
 613:                                              ; preds = %610
   %614 = icmp ult i64 %612, %453
-  br i1 %614, label %615, label %.invoke596.i.i, !prof !17
+  br i1 %614, label %615, label %.invoke596.i.i, !prof !13
 
 615:                                              ; preds = %613
   %616 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %451, i64 0, i64 %612
@@ -1995,7 +1995,7 @@ default.unreachable:                              ; preds = %532
           to label %642 unwind label %.loopexit.i108.i, !noalias !6
 
 642:                                              ; preds = %639
-  br i1 %641, label %.critedge.i.i, label %484, !llvm.loop !24
+  br i1 %641, label %.critedge.i.i, label %484
 
 .loopexit193.i.i:                                 ; preds = %464, %459, %.critedge.i.i
   invoke void @"_ZN4core3ptr86drop_in_place$LT$cranelift_isle..codegen..BodyContext$LT$alloc..string..String$GT$$GT$17hf671e9fa8f81edfdE"(ptr nonnull align 8 %55)
@@ -2252,7 +2252,7 @@ define internal fastcc void @_ZN14cranelift_isle7codegen7Codegen18generate_trait
 68:                                               ; preds = %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %70 = load i8, ptr %69, align 8, !range !21, !noundef !9
+  %70 = load i8, ptr %69, align 8, !range !15, !noundef !9
   switch i8 %70, label %default.unreachable2 [
     i8 2, label %71
     i8 0, label %92
@@ -2493,13 +2493,13 @@ define hidden void @_ZN14cranelift_isle7codegen7Codegen9type_name17h4f5388863d61
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %11 = load i64, ptr %10, align 8, !noundef !9
   %12 = icmp ult i64 %9, %11
-  br i1 %12, label %13, label %19, !prof !17
+  br i1 %12, label %13, label %19, !prof !13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %15 = load ptr, ptr %14, align 8, !nonnull !9, !noundef !9
   %16 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %15, i64 0, i64 %9
-  %17 = load i64, ptr %16, align 8, !range !15, !noundef !9
+  %17 = load i64, ptr %16, align 8, !range !12, !noundef !9
   %18 = icmp eq i64 %17, -9223372036854775808
   br i1 %18, label %20, label %27
 
@@ -2514,7 +2514,7 @@ define hidden void @_ZN14cranelift_isle7codegen7Codegen9type_name17h4f5388863d61
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %25 = load i64, ptr %24, align 8, !noundef !9
   %26 = icmp ult i64 %23, %25
-  br i1 %26, label %35, label %39, !prof !17
+  br i1 %26, label %35, label %39, !prof !13
 
 27:                                               ; preds = %13
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -2528,7 +2528,7 @@ define hidden void @_ZN14cranelift_isle7codegen7Codegen9type_name17h4f5388863d61
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %33 = load i64, ptr %32, align 8, !noundef !9
   %34 = icmp ult i64 %31, %33
-  br i1 %34, label %41, label %48, !prof !17
+  br i1 %34, label %41, label %48, !prof !13
 
 35:                                               ; preds = %20
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -2571,13 +2571,13 @@ define hidden { i1, i64 } @_ZN14cranelift_isle7codegen7Codegen2ty17h0dba03be4379
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %6 = load i64, ptr %5, align 8, !noundef !9
   %7 = icmp ult i64 %4, %6
-  br i1 %7, label %8, label %16, !prof !17
+  br i1 %7, label %8, label %16, !prof !13
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %10 = load ptr, ptr %9, align 8, !nonnull !9, !noundef !9
   %11 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %10, i64 0, i64 %4
-  %12 = load i64, ptr %11, align 8, !range !15, !noundef !9
+  %12 = load i64, ptr %11, align 8, !range !12, !noundef !9
   %13 = icmp ne i64 %12, -9223372036854775808
   %.sroa.3.0.in.v = select i1 %13, i64 24, i64 48
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.3.0.in.v
@@ -2820,16 +2820,8 @@ attributes #8 = { cold noreturn nounwind }
 !9 = !{}
 !10 = !{i64 8}
 !11 = !{i8 0, i8 2}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !13}
-!15 = !{i64 0, i64 -9223372036854775807}
-!16 = distinct !{!16, !13}
-!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!18 = distinct !{!18, !13}
-!19 = distinct !{!19, !13}
-!20 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!21 = !{i8 0, i8 3}
-!22 = !{i16 0, i16 4}
-!23 = distinct !{!23, !13}
-!24 = distinct !{!24, !13}
+!12 = !{i64 0, i64 -9223372036854775807}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!15 = !{i8 0, i8 3}
+!16 = !{i16 0, i16 4}

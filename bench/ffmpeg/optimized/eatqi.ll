@@ -102,17 +102,17 @@ tqi_calculate_qtable.exit:                        ; preds = %30
   %narrow = add nsw i32 %6, -8
   %gepdiff = zext nneg i32 %narrow to i64
   tail call void @av_fast_padded_malloc(ptr noundef nonnull %52, ptr noundef nonnull %53, i64 noundef %gepdiff) #4
-  %54 = load ptr, ptr %52, align 8, !tbaa !44
+  %54 = load ptr, ptr %52, align 8, !tbaa !43
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %152, label %55
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %57 = load ptr, ptr %56, align 8, !tbaa !45
+  %57 = load ptr, ptr %56, align 8, !tbaa !44
   %58 = lshr i32 %narrow, 2
   tail call void %57(ptr noundef nonnull %54, ptr noundef nonnull %45, i32 noundef %58) #4
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %60 = load ptr, ptr %52, align 8, !tbaa !44
+  %60 = load ptr, ptr %52, align 8, !tbaa !43
   %61 = shl i32 %narrow, 3
   %or.cond.i = icmp ult i32 %61, 2147483135
   %62 = icmp ne ptr %60, null
@@ -120,18 +120,18 @@ tqi_calculate_qtable.exit:                        ; preds = %30
   %.018.i = select i1 %or.cond3.i, i32 %61, i32 0
   %.017.i = select i1 %or.cond.i, ptr %60, ptr null
   %63 = lshr exact i32 %.018.i, 3
-  store ptr %.017.i, ptr %59, align 8, !tbaa !46
+  store ptr %.017.i, ptr %59, align 8, !tbaa !45
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %.018.i, ptr %64, align 4, !tbaa !47
+  store i32 %.018.i, ptr %64, align 4, !tbaa !46
   %65 = add nuw nsw i32 %.018.i, 8
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 %65, ptr %66, align 8, !tbaa !48
+  store i32 %65, ptr %66, align 8, !tbaa !47
   %67 = zext nneg i32 %63 to i64
   %68 = getelementptr inbounds nuw i8, ptr %.017.i, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %68, ptr %69, align 8, !tbaa !49
+  store ptr %68, ptr %69, align 8, !tbaa !48
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 0, ptr %70, align 8, !tbaa !50
+  store i32 0, ptr %70, align 8, !tbaa !49
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 236
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 244
   store i32 0, ptr %72, align 4, !tbaa !27
@@ -141,7 +141,7 @@ tqi_calculate_qtable.exit:                        ; preds = %30
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %75 = add nuw nsw i32 %44, 15
   %76 = lshr i32 %75, 4
-  store i32 0, ptr %74, align 8, !tbaa !51
+  store i32 0, ptr %74, align 8, !tbaa !50
   %.not64 = icmp eq i16 %15, 0
   br i1 %.not64, label %.loopexit, label %.lr.ph63
 
@@ -166,11 +166,11 @@ tqi_calculate_qtable.exit:                        ; preds = %30
   br i1 %.not65, label %.lr.ph63.split, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph63, %._crit_edge.us
-  store i32 0, ptr %77, align 4, !tbaa !52
+  store i32 0, ptr %77, align 4, !tbaa !51
   br label %93
 
 93:                                               ; preds = %.lr.ph.us, %tqi_idct_put.exit.us
-  %94 = load ptr, ptr %81, align 8, !tbaa !53
+  %94 = load ptr, ptr %81, align 8, !tbaa !52
   tail call void %94(ptr noundef nonnull %80) #4
   br label %95
 
@@ -185,27 +185,27 @@ tqi_calculate_qtable.exit:                        ; preds = %30
 100:                                              ; preds = %95
   %indvars.iv.next.i59.us = add nuw nsw i64 %indvars.iv.i58.us, 1
   %exitcond.not.i60.us = icmp eq i64 %indvars.iv.next.i59.us, 6
-  br i1 %exitcond.not.i60.us, label %tqi_decode_mb.exit.us, label %95, !llvm.loop !54
+  br i1 %exitcond.not.i60.us, label %tqi_decode_mb.exit.us, label %95, !llvm.loop !53
 
 tqi_decode_mb.exit.us:                            ; preds = %100
   %101 = load ptr, ptr %7, align 8, !tbaa !4
   %102 = load i32, ptr %82, align 8, !tbaa !27
   %103 = sext i32 %102 to i64
-  %104 = load ptr, ptr %1, align 8, !tbaa !55
+  %104 = load ptr, ptr %1, align 8, !tbaa !54
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 104
-  %106 = load i32, ptr %105, align 8, !tbaa !51
+  %106 = load i32, ptr %105, align 8, !tbaa !50
   %107 = shl nsw i32 %106, 4
   %108 = sext i32 %107 to i64
   %109 = mul nsw i64 %108, %103
   %110 = getelementptr inbounds i8, ptr %104, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %101, i64 100
-  %112 = load i32, ptr %111, align 4, !tbaa !52
+  %112 = load i32, ptr %111, align 4, !tbaa !51
   %113 = shl nsw i32 %112, 4
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %110, i64 %114
-  %116 = load ptr, ptr %83, align 8, !tbaa !55
+  %116 = load ptr, ptr %83, align 8, !tbaa !54
   %117 = load i32, ptr %84, align 4, !tbaa !27
-  %118 = load ptr, ptr %85, align 8, !tbaa !55
+  %118 = load ptr, ptr %85, align 8, !tbaa !54
   %119 = load i32, ptr %86, align 8, !tbaa !27
   tail call void @ff_ea_idct_put_c(ptr noundef %115, i64 noundef %103, ptr noundef nonnull %80) #4
   %120 = getelementptr inbounds nuw i8, ptr %115, i64 8
@@ -215,7 +215,7 @@ tqi_decode_mb.exit.us:                            ; preds = %100
   tail call void @ff_ea_idct_put_c(ptr noundef %122, i64 noundef %103, ptr noundef nonnull %88) #4
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   tail call void @ff_ea_idct_put_c(ptr noundef nonnull %123, i64 noundef %103, ptr noundef nonnull %89) #4
-  %124 = load i32, ptr %90, align 8, !tbaa !56
+  %124 = load i32, ptr %90, align 8, !tbaa !55
   %125 = and i32 %124, 8192
   %.not.i.us = icmp eq i32 %125, 0
   br i1 %.not.i.us, label %126, label %tqi_idct_put.exit.us
@@ -241,29 +241,29 @@ tqi_decode_mb.exit.us:                            ; preds = %100
   br label %tqi_idct_put.exit.us
 
 tqi_idct_put.exit.us:                             ; preds = %126, %tqi_decode_mb.exit.us
-  %142 = load i32, ptr %77, align 4, !tbaa !52
+  %142 = load i32, ptr %77, align 4, !tbaa !51
   %143 = add nsw i32 %142, 1
-  store i32 %143, ptr %77, align 4, !tbaa !52
+  store i32 %143, ptr %77, align 4, !tbaa !51
   %144 = icmp slt i32 %143, %79
-  br i1 %144, label %93, label %._crit_edge.us, !llvm.loop !57
+  br i1 %144, label %93, label %._crit_edge.us, !llvm.loop !56
 
 ._crit_edge.us:                                   ; preds = %tqi_idct_put.exit.us
-  %145 = load i32, ptr %74, align 8, !tbaa !51
+  %145 = load i32, ptr %74, align 8, !tbaa !50
   %146 = add nsw i32 %145, 1
-  store i32 %146, ptr %74, align 8, !tbaa !51
+  store i32 %146, ptr %74, align 8, !tbaa !50
   %147 = icmp slt i32 %146, %76
-  br i1 %147, label %.lr.ph.us, label %.loopexit, !llvm.loop !58
+  br i1 %147, label %.lr.ph.us, label %.loopexit, !llvm.loop !57
 
 .lr.ph63.split:                                   ; preds = %.lr.ph63
   %148 = tail call i32 @llvm.umax.i32(i32 %76, i32 1)
-  store i32 0, ptr %77, align 4, !tbaa !52
-  store i32 %148, ptr %74, align 8, !tbaa !51
+  store i32 0, ptr %77, align 4, !tbaa !51
+  store i32 %148, ptr %74, align 8, !tbaa !50
   br label %.loopexit
 
 tqi_decode_mb.exit.thread:                        ; preds = %95
   %149 = load ptr, ptr %8, align 16, !tbaa !32
-  %150 = load i32, ptr %77, align 4, !tbaa !52
-  %151 = load i32, ptr %74, align 8, !tbaa !51
+  %150 = load i32, ptr %77, align 4, !tbaa !51
+  %151 = load i32, ptr %74, align 8, !tbaa !50
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %149, i32 noundef 16, ptr noundef nonnull @.str.2, i32 noundef %150, i32 noundef %151) #4
   br label %.loopexit
 
@@ -357,22 +357,21 @@ attributes #4 = { nounwind }
 !38 = !{!8, !8, i64 0}
 !39 = !{!40, !40, i64 0}
 !40 = !{!"short", !8, i64 0}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = !{!33, !7, i64 88}
-!45 = !{!33, !7, i64 72}
-!46 = !{!35, !14, i64 0}
-!47 = !{!35, !10, i64 20}
-!48 = !{!35, !10, i64 24}
-!49 = !{!35, !14, i64 8}
-!50 = !{!35, !10, i64 16}
-!51 = !{!33, !10, i64 104}
-!52 = !{!33, !10, i64 100}
-!53 = !{!33, !7, i64 48}
-!54 = distinct !{!54, !42, !43}
-!55 = !{!14, !14, i64 0}
-!56 = !{!5, !10, i64 64}
-!57 = distinct !{!57, !42, !43}
-!58 = distinct !{!58, !42, !43, !59}
-!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = !{!33, !7, i64 88}
+!44 = !{!33, !7, i64 72}
+!45 = !{!35, !14, i64 0}
+!46 = !{!35, !10, i64 20}
+!47 = !{!35, !10, i64 24}
+!48 = !{!35, !14, i64 8}
+!49 = !{!35, !10, i64 16}
+!50 = !{!33, !10, i64 104}
+!51 = !{!33, !10, i64 100}
+!52 = !{!33, !7, i64 48}
+!53 = distinct !{!53, !42}
+!54 = !{!14, !14, i64 0}
+!55 = !{!5, !10, i64 64}
+!56 = distinct !{!56, !42}
+!57 = distinct !{!57, !42, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}

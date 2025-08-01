@@ -417,7 +417,7 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELin1ELi0ELi
   %154 = tail call double @llvm.fmuladd.f64(double %110, double %153, double %.0183201)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -427,15 +427,15 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELi3ELi0ELin
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %9 = load i64, ptr %8, align 8, !tbaa !25
+  %9 = load i64, ptr %8, align 8, !tbaa !24
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = load ptr, ptr %1, align 8, !tbaa !27
-  %12 = load ptr, ptr %0, align 8, !tbaa !28
+  %11 = load ptr, ptr %1, align 8, !tbaa !26
+  %12 = load ptr, ptr %0, align 8, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !30
+  %14 = load i64, ptr %13, align 8, !tbaa !29
   %15 = shl nsw i64 %14, 1
   %.idx = shl i64 %9, 3
   br label %70
@@ -614,7 +614,7 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELi3ELi0ELin
   %154 = tail call double @llvm.fmuladd.f64(double %110, double %153, double %.0183202)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -624,15 +624,15 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELi3ELi0ELin
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %9 = load i64, ptr %8, align 8, !tbaa !25
+  %9 = load i64, ptr %8, align 8, !tbaa !24
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = load ptr, ptr %1, align 8, !tbaa !27
-  %12 = load ptr, ptr %0, align 8, !tbaa !28
+  %11 = load ptr, ptr %1, align 8, !tbaa !26
+  %12 = load ptr, ptr %0, align 8, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !30
+  %14 = load i64, ptr %13, align 8, !tbaa !29
   %15 = shl nsw i64 %14, 1
   %.idx = shl i64 %9, 3
   br label %70
@@ -811,7 +811,7 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELi3ELi0ELin
   %154 = tail call double @llvm.fmuladd.f64(double %110, double %153, double %.0183201)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -821,17 +821,17 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELin1ELi1ELi
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %9 = load i64, ptr %8, align 8, !tbaa !33
+  %9 = load i64, ptr %8, align 8, !tbaa !32
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = load ptr, ptr %1, align 8, !tbaa !35
+  %11 = load ptr, ptr %1, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !36
-  %14 = load ptr, ptr %0, align 8, !tbaa !37
+  %13 = load i64, ptr %12, align 8, !tbaa !35
+  %14 = load ptr, ptr %0, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !39
+  %16 = load i64, ptr %15, align 8, !tbaa !38
   br label %71
 
 ._crit_edge:                                      ; preds = %71, %5
@@ -1012,7 +1012,7 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELin1ELi1ELi
   %159 = tail call double @llvm.fmuladd.f64(double %115, double %158, double %.0183202)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !39
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1022,17 +1022,17 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELin1ELi1ELi
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %9 = load i64, ptr %8, align 8, !tbaa !33
+  %9 = load i64, ptr %8, align 8, !tbaa !32
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = load ptr, ptr %1, align 8, !tbaa !35
+  %11 = load ptr, ptr %1, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !36
-  %14 = load ptr, ptr %0, align 8, !tbaa !37
+  %13 = load i64, ptr %12, align 8, !tbaa !35
+  %14 = load ptr, ptr %0, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !39
+  %16 = load i64, ptr %15, align 8, !tbaa !38
   br label %71
 
 ._crit_edge:                                      ; preds = %71, %5
@@ -1213,7 +1213,7 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELin1ELi1ELi
   %159 = tail call double @llvm.fmuladd.f64(double %115, double %158, double %.0183201)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %71, !llvm.loop !40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1223,13 +1223,13 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELi3ELi1ELin
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %9 = load i64, ptr %8, align 8, !tbaa !42
+  %9 = load i64, ptr %8, align 8, !tbaa !41
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = load ptr, ptr %1, align 8, !tbaa !44
-  %12 = load ptr, ptr %0, align 8, !tbaa !45
+  %11 = load ptr, ptr %1, align 8, !tbaa !43
+  %12 = load ptr, ptr %0, align 8, !tbaa !44
   br label %67
 
 ._crit_edge:                                      ; preds = %67, %5
@@ -1410,7 +1410,7 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELi3ELi1ELin
   %151 = tail call double @llvm.fmuladd.f64(double %107, double %150, double %.0183219)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1420,13 +1420,13 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELi3ELi1ELin
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %9 = load i64, ptr %8, align 8, !tbaa !42
+  %9 = load i64, ptr %8, align 8, !tbaa !41
   %10 = icmp sgt i64 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = load ptr, ptr %1, align 8, !tbaa !44
-  %12 = load ptr, ptr %0, align 8, !tbaa !45
+  %11 = load ptr, ptr %1, align 8, !tbaa !43
+  %12 = load ptr, ptr %0, align 8, !tbaa !44
   br label %67
 
 ._crit_edge:                                      ; preds = %67, %5
@@ -1607,7 +1607,7 @@ define weak_odr dso_local void @_ZN3igl7momentsIN5Eigen6MatrixIdLin1ELi3ELi1ELin
   %151 = tail call double @llvm.fmuladd.f64(double %107, double %150, double %.0183218)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !47
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
@@ -1640,31 +1640,30 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !18 = !{!6, !6, i64 0}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"int", !6, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !22, !23}
-!25 = !{!26, !12, i64 8}
-!26 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi3ELi0EEE", !10, i64 0, !12, i64 8}
-!27 = !{!26, !10, i64 0}
-!28 = !{!29, !16, i64 0}
-!29 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi3ELi0EEE", !16, i64 0, !12, i64 8}
-!30 = !{!29, !12, i64 8}
-!31 = distinct !{!31, !22, !23}
-!32 = distinct !{!32, !22, !23}
-!33 = !{!34, !12, i64 8}
-!34 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELin1ELi1EEE", !10, i64 0, !12, i64 8, !12, i64 16}
-!35 = !{!34, !10, i64 0}
-!36 = !{!34, !12, i64 16}
-!37 = !{!38, !16, i64 0}
-!38 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EEE", !16, i64 0, !12, i64 8, !12, i64 16}
-!39 = !{!38, !12, i64 16}
-!40 = distinct !{!40, !22, !23}
-!41 = distinct !{!41, !22, !23}
-!42 = !{!43, !12, i64 8}
-!43 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi3ELi1EEE", !10, i64 0, !12, i64 8}
-!44 = !{!43, !10, i64 0}
-!45 = !{!46, !16, i64 0}
-!46 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi3ELi1EEE", !16, i64 0, !12, i64 8}
-!47 = distinct !{!47, !22, !23}
-!48 = distinct !{!48, !22, !23}
+!23 = distinct !{!23, !22}
+!24 = !{!25, !12, i64 8}
+!25 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi3ELi0EEE", !10, i64 0, !12, i64 8}
+!26 = !{!25, !10, i64 0}
+!27 = !{!28, !16, i64 0}
+!28 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi3ELi0EEE", !16, i64 0, !12, i64 8}
+!29 = !{!28, !12, i64 8}
+!30 = distinct !{!30, !22}
+!31 = distinct !{!31, !22}
+!32 = !{!33, !12, i64 8}
+!33 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELin1ELi1EEE", !10, i64 0, !12, i64 8, !12, i64 16}
+!34 = !{!33, !10, i64 0}
+!35 = !{!33, !12, i64 16}
+!36 = !{!37, !16, i64 0}
+!37 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EEE", !16, i64 0, !12, i64 8, !12, i64 16}
+!38 = !{!37, !12, i64 16}
+!39 = distinct !{!39, !22}
+!40 = distinct !{!40, !22}
+!41 = !{!42, !12, i64 8}
+!42 = !{!"_ZTSN5Eigen12DenseStorageIiLin1ELin1ELi3ELi1EEE", !10, i64 0, !12, i64 8}
+!43 = !{!42, !10, i64 0}
+!44 = !{!45, !16, i64 0}
+!45 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi3ELi1EEE", !16, i64 0, !12, i64 8}
+!46 = distinct !{!46, !22}
+!47 = distinct !{!47, !22}

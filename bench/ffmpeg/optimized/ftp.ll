@@ -397,7 +397,7 @@ ftp_retrieve.exit.thread:                         ; preds = %24, %ftp_send_comma
   %66 = call fastcc i32 @ftp_abort(ptr noundef nonnull %0)
   %67 = icmp slt i32 %66, 0
   %brmerge = or i1 %.not57.not, %67
-  br i1 %brmerge, label %.loopexit.split.loop.exit75, label %16, !llvm.loop !26
+  br i1 %brmerge, label %.loopexit.split.loop.exit75, label %16
 
 68:                                               ; preds = %.thread, %38
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.27) #10
@@ -656,7 +656,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_open_dir(ptr noundef %0) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = tail call fastcc i32 @ftp_connect(ptr noundef %0, ptr noundef %6)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %ftp_list.exit.thread, label %9
@@ -734,15 +734,15 @@ ftp_send_command.exit.i6.i:                       ; preds = %32
 35:                                               ; preds = %ftp_send_command.exit.i6.i, %ftp_send_command.exit.i.i
   %.sink.i = phi i32 [ 2, %ftp_send_command.exit.i.i ], [ 1, %ftp_send_command.exit.i6.i ]
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 1144
-  store i32 %.sink.i, ptr %36, align 8, !tbaa !29
+  store i32 %.sink.i, ptr %36, align 8, !tbaa !27
   %37 = call noalias ptr @av_malloc(i64 noundef 4096) #10
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 1160
-  store ptr %37, ptr %38, align 8, !tbaa !30
+  store ptr %37, ptr %38, align 8, !tbaa !28
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %ftp_list.exit.thread, label %39
 
 39:                                               ; preds = %35
-  store i8 0, ptr %37, align 1, !tbaa !31
+  store i8 0, ptr %37, align 1, !tbaa !29
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !24
   %.not20 = icmp eq ptr %41, null
@@ -781,25 +781,25 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
   br label %13
 
 13:                                               ; preds = %128, %2
-  %14 = load ptr, ptr %8, align 8, !tbaa !30
-  %15 = load i64, ptr %9, align 8, !tbaa !32
+  %14 = load ptr, ptr %8, align 8, !tbaa !28
+  %15 = load i64, ptr %9, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
   %strchr84 = call ptr @strchr(ptr nonnull dereferenceable(1) %16, i32 10)
   %.not85 = icmp eq ptr %strchr84, null
   br i1 %.not85, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %13
-  %17 = load i64, ptr %10, align 8, !tbaa !33
+  %17 = load i64, ptr %10, align 8, !tbaa !31
   %18 = sub i64 %17, %15
-  store i64 %18, ptr %10, align 8, !tbaa !33
-  store i64 0, ptr %9, align 8, !tbaa !32
+  store i64 %18, ptr %10, align 8, !tbaa !31
+  store i64 0, ptr %9, align 8, !tbaa !30
   %.not55 = icmp eq i64 %17, %15
   br i1 %.not55, label %20, label %19
 
 19:                                               ; preds = %.lr.ph
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %16, i64 %18, i1 false)
-  %.pre = load ptr, ptr %8, align 8, !tbaa !30
-  %.pre96 = load i64, ptr %10, align 8, !tbaa !33
+  %.pre = load ptr, ptr %8, align 8, !tbaa !28
+  %.pre96 = load i64, ptr %10, align 8, !tbaa !31
   br label %20
 
 20:                                               ; preds = %19, %.lr.ph
@@ -818,25 +818,25 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
   br i1 %.not56, label %30, label %31
 
 30:                                               ; preds = %29
-  store ptr null, ptr %1, align 8, !tbaa !34
+  store ptr null, ptr %1, align 8, !tbaa !32
   br label %.thread68
 
 31:                                               ; preds = %29
   %32 = zext nneg i32 %27 to i64
-  %33 = load i64, ptr %10, align 8, !tbaa !33
+  %33 = load i64, ptr %10, align 8, !tbaa !31
   %34 = add i64 %33, %32
-  store i64 %34, ptr %10, align 8, !tbaa !33
-  %35 = load ptr, ptr %8, align 8, !tbaa !30
+  store i64 %34, ptr %10, align 8, !tbaa !31
+  %35 = load ptr, ptr %8, align 8, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
-  store i8 0, ptr %36, align 1, !tbaa !31
-  %37 = load ptr, ptr %8, align 8, !tbaa !30
+  store i8 0, ptr %36, align 1, !tbaa !29
+  %37 = load ptr, ptr %8, align 8, !tbaa !28
   %strchr = call ptr @strchr(ptr nonnull dereferenceable(1) %37, i32 10)
   %.not = icmp eq ptr %strchr, null
-  br i1 %.not, label %.thread68, label %.._crit_edge_crit_edge, !llvm.loop !36
+  br i1 %.not, label %.thread68, label %.._crit_edge_crit_edge, !llvm.loop !34
 
 .._crit_edge_crit_edge:                           ; preds = %31
-  %.pre97 = load i64, ptr %9, align 8, !tbaa !32
-  br label %._crit_edge, !llvm.loop !36
+  %.pre97 = load i64, ptr %9, align 8, !tbaa !30
+  br label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %13
   %38 = phi i64 [ %15, %13 ], [ %.pre97, %.._crit_edge_crit_edge ]
@@ -847,34 +847,34 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
   %41 = ptrtoint ptr %.046.lcssa to i64
   %42 = sub i64 %40, %41
   %43 = add i64 %42, %38
-  store i64 %43, ptr %9, align 8, !tbaa !32
-  store i8 0, ptr %strchr.lcssa, align 1, !tbaa !31
+  store i64 %43, ptr %9, align 8, !tbaa !30
+  store i8 0, ptr %strchr.lcssa, align 1, !tbaa !29
   %44 = icmp ugt ptr %strchr.lcssa, %.046.lcssa
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %._crit_edge
   %46 = getelementptr inbounds i8, ptr %strchr.lcssa, i64 -1
-  %47 = load i8, ptr %46, align 1, !tbaa !31
+  %47 = load i8, ptr %46, align 1, !tbaa !29
   %48 = icmp eq i8 %47, 13
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %45
-  store i8 0, ptr %46, align 1, !tbaa !31
+  store i8 0, ptr %46, align 1, !tbaa !29
   br label %50
 
 50:                                               ; preds = %49, %45, %._crit_edge
   %51 = call ptr @ff_alloc_dir_entry() #10
-  store ptr %51, ptr %1, align 8, !tbaa !34
+  store ptr %51, ptr %1, align 8, !tbaa !32
   %.not52 = icmp eq ptr %51, null
   br i1 %.not52, label %.thread68, label %52
 
 52:                                               ; preds = %50
-  %53 = load i32, ptr %12, align 8, !tbaa !38
+  %53 = load i32, ptr %12, align 8, !tbaa !36
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 12
-  store i32 %53, ptr %54, align 4, !tbaa !39
+  store i32 %53, ptr %54, align 4, !tbaa !37
   %.val = load ptr, ptr %6, align 8, !tbaa !4
   %55 = getelementptr i8, ptr %.val, i64 1144
-  %.val.val = load i32, ptr %55, align 8, !tbaa !29
+  %.val.val = load i32, ptr %55, align 8, !tbaa !27
   switch i32 %.val.val, label %.thread [
     i32 2, label %56
     i32 1, label %ftp_parse_entry.exit.thread
@@ -903,20 +903,20 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
 
 64:                                               ; preds = %.backedge.i.i, %.lr.ph.i.i
   %65 = phi ptr [ %57, %.lr.ph.i.i ], [ %71, %.backedge.i.i ]
-  %66 = load i8, ptr %65, align 1, !tbaa !31
+  %66 = load i8, ptr %65, align 1, !tbaa !29
   %67 = icmp eq i8 %66, 32
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 1
   %70 = call noalias ptr @av_strdup(ptr noundef nonnull %69) #10
-  store ptr %70, ptr %51, align 8, !tbaa !41
+  store ptr %70, ptr %51, align 8, !tbaa !39
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %124, %122, %117, %110, %103, %96, %93, %90, %89, %85, %72, %68
   %71 = call ptr @av_strtok(ptr noundef null, ptr noundef nonnull @.str.52, ptr noundef nonnull %5) #10
   %.not.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i, label %ftp_parse_entry.exit.thread64, label %64, !llvm.loop !42
+  br i1 %.not.i.i, label %ftp_parse_entry.exit.thread64, label %64, !llvm.loop !40
 
 72:                                               ; preds = %64
   %73 = call ptr @av_strtok(ptr noundef nonnull %65, ptr noundef nonnull @.str.53, ptr noundef nonnull %4) #10
@@ -947,7 +947,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
   br i1 %.not31.i.i, label %85, label %86
 
 85:                                               ; preds = %82
-  store i32 3, ptr %63, align 8, !tbaa !43
+  store i32 3, ptr %63, align 8, !tbaa !41
   br label %.backedge.i.i
 
 86:                                               ; preds = %82
@@ -957,7 +957,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
   br i1 %.not32.i.i, label %89, label %90
 
 89:                                               ; preds = %86
-  store i32 7, ptr %63, align 8, !tbaa !43
+  store i32 7, ptr %63, align 8, !tbaa !41
   br label %.backedge.i.i
 
 90:                                               ; preds = %86
@@ -967,7 +967,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
   br i1 %.not33.i.i, label %93, label %.backedge.i.i
 
 93:                                               ; preds = %90
-  store i32 5, ptr %63, align 8, !tbaa !43
+  store i32 5, ptr %63, align 8, !tbaa !41
   br label %.backedge.i.i
 
 94:                                               ; preds = %74
@@ -983,7 +983,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
   %99 = call i64 @av_timegm(ptr noundef nonnull %3) #10
   %100 = mul nsw i64 %99, 1000000
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #10
-  store i64 %100, ptr %62, align 8, !tbaa !44
+  store i64 %100, ptr %62, align 8, !tbaa !42
   br label %.backedge.i.i
 
 101:                                              ; preds = %94
@@ -994,7 +994,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
 103:                                              ; preds = %101
   %104 = load ptr, ptr %4, align 8, !tbaa !20
   %105 = call i64 @strtoumax(ptr noundef %104, ptr noundef null, i32 noundef 8) #10
-  store i64 %105, ptr %61, align 8, !tbaa !45
+  store i64 %105, ptr %61, align 8, !tbaa !43
   br label %.backedge.i.i
 
 106:                                              ; preds = %101
@@ -1010,7 +1010,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
 110:                                              ; preds = %108, %106
   %111 = load ptr, ptr %4, align 8, !tbaa !20
   %112 = call i64 @strtoumax(ptr noundef %111, ptr noundef null, i32 noundef 10) #10
-  store i64 %112, ptr %60, align 8, !tbaa !46
+  store i64 %112, ptr %60, align 8, !tbaa !44
   br label %.backedge.i.i
 
 113:                                              ; preds = %108
@@ -1026,7 +1026,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
 117:                                              ; preds = %115, %113
   %118 = load ptr, ptr %4, align 8, !tbaa !20
   %119 = call i64 @strtoumax(ptr noundef %118, ptr noundef null, i32 noundef 10) #10
-  store i64 %119, ptr %59, align 8, !tbaa !47
+  store i64 %119, ptr %59, align 8, !tbaa !45
   br label %.backedge.i.i
 
 120:                                              ; preds = %115
@@ -1042,12 +1042,12 @@ define internal range(i32 -2147483648, 1) i32 @ftp_read_dir(ptr noundef readonly
 124:                                              ; preds = %122, %120
   %125 = load ptr, ptr %4, align 8, !tbaa !20
   %126 = call i64 @strtoll(ptr noundef captures(none) %125, ptr noundef null, i32 noundef 10) #10
-  store i64 %126, ptr %58, align 8, !tbaa !48
+  store i64 %126, ptr %58, align 8, !tbaa !46
   br label %.backedge.i.i
 
 ftp_parse_entry.exit.thread:                      ; preds = %52
   %127 = call noalias ptr @av_strdup(ptr noundef nonnull %.046.lcssa) #10
-  store ptr %127, ptr %51, align 8, !tbaa !41
+  store ptr %127, ptr %51, align 8, !tbaa !39
   br label %.thread68
 
 ftp_parse_entry.exit.thread64:                    ; preds = %56, %.backedge.i.i
@@ -1059,7 +1059,7 @@ ftp_parse_entry.exit.thread64:                    ; preds = %56, %.backedge.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   call void @avio_free_directory_entry(ptr noundef nonnull %1) #10
-  br label %13, !llvm.loop !49
+  br label %13, !llvm.loop !47
 
 .thread68:                                        ; preds = %50, %20, %31, %ftp_parse_entry.exit.thread64, %ftp_parse_entry.exit.thread, %.thread, %30
   %.045 = phi i32 [ 0, %30 ], [ -1, %.thread ], [ 0, %ftp_parse_entry.exit.thread ], [ 0, %ftp_parse_entry.exit.thread64 ], [ %27, %20 ], [ -5, %31 ], [ -12, %50 ]
@@ -1086,7 +1086,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_delete(ptr noundef %0) #0 {
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
   %7 = tail call fastcc i32 @ftp_connect(ptr noundef %0, ptr noundef %6)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %ftp_send_command.exit14.thread, label %9
@@ -1173,7 +1173,7 @@ define internal range(i32 -2147483648, 1) i32 @ftp_move(ptr noundef %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = tail call fastcc i32 @ftp_connect(ptr noundef %0, ptr noundef %8)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %ftp_send_command.exit.thread, label %11
@@ -1205,7 +1205,7 @@ ftp_send_command.exit:                            ; preds = %19
 
 24:                                               ; preds = %ftp_send_command.exit
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %26 = load ptr, ptr %25, align 8, !tbaa !26
   call void @av_url_split(ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef nonnull %4, i32 noundef 4096, ptr noundef %26) #10
   %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096, ptr noundef nonnull @.str.72, ptr noundef nonnull %4) #10
   %28 = icmp ugt i32 %27, 4095
@@ -1273,35 +1273,35 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect(ptr noundef %0
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1140
   store i32 5, ptr %10, align 4, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 1144
-  store i32 0, ptr %11, align 8, !tbaa !29
+  store i32 0, ptr %11, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 1104
   store i64 -1, ptr %12, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1112
   store i64 0, ptr %13, align 8, !tbaa !25
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 1152
-  store ptr null, ptr %14, align 8, !tbaa !50
+  store ptr null, ptr %14, align 8, !tbaa !48
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 1068
   call void @av_url_split(ptr noundef nonnull %4, i32 noundef 10, ptr noundef nonnull %6, i32 noundef 4096, ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %15, ptr noundef nonnull %5, i32 noundef 4096, ptr noundef %1) #10
-  %16 = load i8, ptr %6, align 16, !tbaa !31
+  %16 = load i8, ptr %6, align 16, !tbaa !29
   %.not = icmp eq i8 %16, 0
   br i1 %.not, label %17, label %31
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 1192
-  %19 = load ptr, ptr %18, align 8, !tbaa !51
+  %19 = load ptr, ptr %18, align 8, !tbaa !49
   %.not50 = icmp eq ptr %19, null
   br i1 %.not50, label %20, label %24
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 1128
-  %22 = load ptr, ptr %21, align 8, !tbaa !52
+  %22 = load ptr, ptr %21, align 8, !tbaa !50
   %.not.i = icmp eq ptr %22, null
   %23 = select i1 %.not.i, ptr @.str.4, ptr %22
   br label %27
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 1200
-  %26 = load ptr, ptr %25, align 8, !tbaa !53
+  %26 = load ptr, ptr %25, align 8, !tbaa !51
   br label %27
 
 27:                                               ; preds = %24, %20
@@ -1309,7 +1309,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect(ptr noundef %0
   %.042 = phi ptr [ %26, %24 ], [ %23, %20 ]
   %28 = call noalias ptr @av_strdup(ptr noundef nonnull %.043) #10
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 1080
-  store ptr %28, ptr %29, align 8, !tbaa !54
+  store ptr %28, ptr %29, align 8, !tbaa !52
   %30 = call noalias ptr @av_strdup(ptr noundef %.042) #10
   br label %43
 
@@ -1320,13 +1320,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect(ptr noundef %0
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store i8 0, ptr %32, align 1, !tbaa !31
+  store i8 0, ptr %32, align 1, !tbaa !29
   %35 = call ptr @ff_urldecode(ptr noundef nonnull %34, i32 noundef 0) #10
   br label %40
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 1200
-  %38 = load ptr, ptr %37, align 8, !tbaa !53
+  %38 = load ptr, ptr %37, align 8, !tbaa !51
   %39 = call noalias ptr @av_strdup(ptr noundef %38) #10
   br label %40
 
@@ -1334,7 +1334,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect(ptr noundef %0
   %.sink = phi ptr [ %39, %36 ], [ %35, %33 ]
   %.2 = phi ptr [ %38, %36 ], [ %34, %33 ]
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 1088
-  store ptr %.sink, ptr %41, align 8, !tbaa !55
+  store ptr %.sink, ptr %41, align 8, !tbaa !53
   %42 = call ptr @ff_urldecode(ptr noundef nonnull %6, i32 noundef 0) #10
   br label %43
 
@@ -1346,13 +1346,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect(ptr noundef %0
   store ptr %.sink64, ptr %44, align 8, !tbaa !20
   %45 = call noalias ptr @av_strdup(ptr noundef nonnull %7) #10
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 1072
-  store ptr %45, ptr %46, align 8, !tbaa !56
+  store ptr %45, ptr %46, align 8, !tbaa !54
   %.not52 = icmp eq ptr %45, null
   br i1 %.not52, label %85, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 1080
-  %49 = load ptr, ptr %48, align 8, !tbaa !54
+  %49 = load ptr, ptr %48, align 8, !tbaa !52
   %.not53 = icmp eq ptr %49, null
   br i1 %.not53, label %85, label %50
 
@@ -1362,17 +1362,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect(ptr noundef %0
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 1088
-  %53 = load ptr, ptr %52, align 8, !tbaa !55
+  %53 = load ptr, ptr %52, align 8, !tbaa !53
   %.not55 = icmp eq ptr %53, null
   br i1 %.not55, label %85, label %54
 
 54:                                               ; preds = %51, %50
-  %55 = load i32, ptr %15, align 4, !tbaa !57
+  %55 = load i32, ptr %15, align 4, !tbaa !55
   %or.cond = icmp ugt i32 %55, 65535
   br i1 %or.cond, label %56, label %57
 
 56:                                               ; preds = %54
-  store i32 21, ptr %15, align 4, !tbaa !57
+  store i32 21, ptr %15, align 4, !tbaa !55
   br label %57
 
 57:                                               ; preds = %54, %56
@@ -1405,7 +1405,7 @@ ftp_send_command.exit.i:                          ; preds = %63
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %74 ], [ 0, %ftp_send_command.exit.i ]
   %.014.i = phi ptr [ %.1.i, %74 ], [ null, %ftp_send_command.exit.i ]
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 %indvars.iv.i
-  %70 = load i8, ptr %69, align 1, !tbaa !31
+  %70 = load i8, ptr %69, align 1, !tbaa !29
   switch i8 %70, label %74 [
     i8 0, label %.thread.i
     i8 34, label %71
@@ -1422,10 +1422,10 @@ ftp_send_command.exit.i:                          ; preds = %63
 74:                                               ; preds = %72, %.preheader.i
   %.1.i = phi ptr [ %73, %72 ], [ %.014.i, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.preheader.i, !llvm.loop !58
+  br label %.preheader.i, !llvm.loop !56
 
 75:                                               ; preds = %71
-  store i8 0, ptr %69, align 1, !tbaa !31
+  store i8 0, ptr %69, align 1, !tbaa !29
   %76 = call noalias ptr @av_strdup(ptr noundef nonnull %.014.i) #10
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 1096
   store ptr %76, ptr %77, align 8, !tbaa !19
@@ -1490,7 +1490,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_control_connec
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   store ptr null, ptr %4, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !tbaa !59
+  store ptr null, ptr %5, align 8, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1500,12 +1500,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_control_connec
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 1072
-  %12 = load ptr, ptr %11, align 8, !tbaa !56
+  %12 = load ptr, ptr %11, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 1068
-  %14 = load i32, ptr %13, align 4, !tbaa !57
+  %14 = load i32, ptr %13, align 4, !tbaa !55
   %15 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %3, i32 noundef 1024, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef %12, i32 noundef %14, ptr noundef null) #10
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 1120
-  %17 = load i32, ptr %16, align 8, !tbaa !61
+  %17 = load i32, ptr %16, align 8, !tbaa !59
   %.not30 = icmp eq i32 %17, -1
   br i1 %.not30, label %21, label %18
 
@@ -1517,9 +1517,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_control_connec
 21:                                               ; preds = %18, %10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load ptr, ptr %23, align 8, !tbaa !62
+  %24 = load ptr, ptr %23, align 8, !tbaa !60
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = load ptr, ptr %25, align 8, !tbaa !63
+  %26 = load ptr, ptr %25, align 8, !tbaa !61
   %27 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 3, ptr noundef nonnull %22, ptr noundef nonnull %5, ptr noundef %24, ptr noundef %26, ptr noundef nonnull %0) #10
   call void @av_dict_free(ptr noundef nonnull %5) #10
   %28 = icmp slt i32 %27, 0
@@ -1531,7 +1531,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_control_connec
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = load i32, ptr %31, align 8, !tbaa !64
+  %32 = load i32, ptr %31, align 8, !tbaa !62
   %33 = and i32 %32, 2
   %.not31 = icmp eq i32 %33, 0
   %. = select i1 %.not31, ptr null, ptr %4
@@ -1544,7 +1544,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_control_connec
   br label %ftp_features.exit
 
 36:                                               ; preds = %30
-  %37 = load i32, ptr %31, align 8, !tbaa !64
+  %37 = load i32, ptr %31, align 8, !tbaa !62
   %38 = and i32 %37, 2
   %.not33 = icmp eq i32 %38, 0
   br i1 %.not33, label %43, label %39
@@ -1564,7 +1564,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_control_connec
   call void @av_free(ptr noundef %44) #10
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #10
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 1080
-  %46 = load ptr, ptr %45, align 8, !tbaa !54
+  %46 = load ptr, ptr %45, align 8, !tbaa !52
   %47 = call ptr @strpbrk(ptr noundef %46, ptr noundef nonnull @.str.14) #11
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %48, label %69
@@ -1593,7 +1593,7 @@ ftp_send_command.exit.i:                          ; preds = %53
 
 59:                                               ; preds = %ftp_send_command.exit.i
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 1088
-  %61 = load ptr, ptr %60, align 8, !tbaa !55
+  %61 = load ptr, ptr %60, align 8, !tbaa !53
   %.not14.i = icmp eq ptr %61, null
   br i1 %.not14.i, label %69, label %62
 
@@ -1667,7 +1667,7 @@ ftp_send_command.exit.thread.i44:                 ; preds = %ftp_send_command.ex
   br label %81
 
 81:                                               ; preds = %ftp_send_command.exit.thread.i44, %ftp_send_command.exit.i42
-  %.val.i = load ptr, ptr %76, align 8, !tbaa !50
+  %.val.i = load ptr, ptr %76, align 8, !tbaa !48
   %.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i, label %ftp_features.exit, label %ftp_has_feature.exit.i
 
@@ -1702,7 +1702,7 @@ ftp_send_command.exit14.i:                        ; preds = %89, %85
 
 92:                                               ; preds = %ftp_send_command.exit14.i
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 1184
-  store i32 1, ptr %93, align 8, !tbaa !38
+  store i32 1, ptr %93, align 8, !tbaa !36
   br label %ftp_features.exit
 
 ftp_features.exit:                                ; preds = %92, %ftp_send_command.exit14.i, %88, %83, %ftp_has_feature.exit.i, %81, %1, %75, %69, %35, %29
@@ -1761,8 +1761,8 @@ define internal fastcc i32 @ftp_status(ptr noundef %0, ptr noundef %1, ptr nound
   br label %18
 
 18:                                               ; preds = %.outer, %39
-  %19 = load ptr, ptr %8, align 8, !tbaa !65
-  %20 = load ptr, ptr %9, align 8, !tbaa !66
+  %19 = load ptr, ptr %8, align 8, !tbaa !63
+  %20 = load ptr, ptr %9, align 8, !tbaa !64
   %.not.i.i = icmp ult ptr %19, %20
   br i1 %.not.i.i, label %ftp_getc.exit.i, label %21
 
@@ -1779,14 +1779,14 @@ define internal fastcc i32 @ftp_status(ptr noundef %0, ptr noundef %1, ptr nound
 26:                                               ; preds = %25
   %27 = zext nneg i32 %23 to i64
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 %27
-  store ptr %28, ptr %9, align 8, !tbaa !66
+  store ptr %28, ptr %9, align 8, !tbaa !64
   br label %ftp_getc.exit.i
 
 ftp_getc.exit.i:                                  ; preds = %26, %18
   %29 = phi ptr [ %11, %26 ], [ %19, %18 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store ptr %30, ptr %8, align 8, !tbaa !65
-  %31 = load i8, ptr %29, align 1, !tbaa !31
+  store ptr %30, ptr %8, align 8, !tbaa !63
+  %31 = load i8, ptr %29, align 1, !tbaa !29
   %32 = icmp eq i8 %31, 10
   br i1 %32, label %33, label %39
 
@@ -1796,18 +1796,18 @@ ftp_getc.exit.i:                                  ; preds = %26, %18
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %.0.i.ph, i64 -1
-  %37 = load i8, ptr %36, align 1, !tbaa !31
+  %37 = load i8, ptr %36, align 1, !tbaa !29
   %38 = icmp eq i8 %37, 13
   %spec.select.i = select i1 %38, ptr %36, ptr %.0.i.ph
   br label %43
 
 39:                                               ; preds = %ftp_getc.exit.i
-  br i1 %17, label %40, label %18, !llvm.loop !67
+  br i1 %17, label %40, label %18
 
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 1
-  store i8 %31, ptr %.0.i.ph, align 1, !tbaa !31
-  br label %.outer, !llvm.loop !67
+  store i8 %31, ptr %.0.i.ph, align 1, !tbaa !29
+  br label %.outer
 
 42:                                               ; preds = %21, %25
   %.015.i.ph = phi i32 [ -1, %25 ], [ %23, %21 ]
@@ -1815,7 +1815,7 @@ ftp_getc.exit.i:                                  ; preds = %26, %18
 
 43:                                               ; preds = %35, %33
   %.1.i = phi ptr [ %.0.i.ph, %33 ], [ %spec.select.i, %35 ]
-  store i8 0, ptr %.1.i, align 1, !tbaa !31
+  store i8 0, ptr %.1.i, align 1, !tbaa !29
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.12, ptr noundef nonnull %4) #10
   %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
   %45 = trunc i64 %44 to i32
@@ -1826,7 +1826,7 @@ ftp_getc.exit.i:                                  ; preds = %26, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %43 ]
   %.15073 = phi i32 [ %53, %50 ], [ 0, %43 ]
   %47 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 0, i64 %indvars.iv
-  %48 = load i8, ptr %47, align 1, !tbaa !31
+  %48 = load i8, ptr %47, align 1, !tbaa !29
   %49 = add i8 %48, -58
   %or.cond58 = icmp ult i8 %49, -10
   br i1 %or.cond58, label %.loopexit70, label %50
@@ -1838,7 +1838,7 @@ ftp_getc.exit.i:                                  ; preds = %26, %18
   %53 = add nsw i32 %51, %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit70, label %.preheader69, !llvm.loop !68
+  br i1 %exitcond.not, label %.loopexit70, label %.preheader69, !llvm.loop !65
 
 .loopexit70:                                      ; preds = %.preheader69, %50, %43
   %.049 = phi i32 [ 0, %43 ], [ 0, %.preheader69 ], [ %53, %50 ]
@@ -1849,16 +1849,16 @@ ftp_getc.exit.i:                                  ; preds = %26, %18
   br i1 %55, label %.loopexit68, label %.preheader
 
 .preheader:                                       ; preds = %54
-  %56 = load i32, ptr %2, align 4, !tbaa !69
+  %56 = load i32, ptr %2, align 4, !tbaa !66
   %.not5675 = icmp eq i32 %56, 0
   br i1 %.not5675, label %.loopexit, label %.lr.ph
 
 57:                                               ; preds = %.lr.ph
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %58 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next83
-  %59 = load i32, ptr %58, align 4, !tbaa !69
+  %59 = load i32, ptr %58, align 4, !tbaa !66
   %.not56 = icmp eq i32 %59, 0
-  br i1 %.not56, label %.loopexit, label %.lr.ph, !llvm.loop !70
+  br i1 %.not56, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 .lr.ph:                                           ; preds = %.preheader, %57
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %57 ], [ 0, %.preheader ]
@@ -1898,7 +1898,7 @@ ftp_getc.exit.i:                                  ; preds = %26, %18
   %.146 = phi i32 [ %spec.store.select, %69 ], [ %.04577, %63 ], [ %.049, %65 ], [ %.04577, %.preheader ], [ %.04577, %57 ]
   %72 = icmp ne i32 %.146, 0
   %73 = select i1 %.not55, i1 true, i1 %72
-  br i1 %73, label %14, label %74, !llvm.loop !71
+  br i1 %73, label %14, label %74, !llvm.loop !68
 
 74:                                               ; preds = %.loopexit
   br i1 %.not, label %76, label %.sink.split
@@ -1991,7 +1991,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ftp_connect_data_connectio
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  store ptr null, ptr %7, align 8, !tbaa !59
+  store ptr null, ptr %7, align 8, !tbaa !57
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -2024,7 +2024,7 @@ ftp_send_command.exit.i:                          ; preds = %15
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 0, %ftp_send_command.exit.i ]
   %.024.i = phi ptr [ %.1.i, %25 ], [ null, %ftp_send_command.exit.i ]
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.i
-  %22 = load i8, ptr %21, align 1, !tbaa !31
+  %22 = load i8, ptr %21, align 1, !tbaa !29
   switch i8 %22, label %25 [
     i8 0, label %.loopexit
     i8 40, label %23
@@ -2038,48 +2038,48 @@ ftp_send_command.exit.i:                          ; preds = %15
 25:                                               ; preds = %23, %.preheader.i
   %.1.i = phi ptr [ %24, %23 ], [ %.024.i, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.preheader.i, !llvm.loop !72
+  br label %.preheader.i, !llvm.loop !69
 
 26:                                               ; preds = %.preheader.i
   %.not.i = icmp eq ptr %.024.i, null
   br i1 %.not.i, label %.loopexit, label %27
 
 27:                                               ; preds = %26
-  store i8 0, ptr %21, align 1, !tbaa !31
+  store i8 0, ptr %21, align 1, !tbaa !29
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.024.i) #11
   %29 = icmp ult i64 %28, 5
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %27
-  %31 = load i8, ptr %.024.i, align 1, !tbaa !31
+  %31 = load i8, ptr %.024.i, align 1, !tbaa !29
   %.not28.i = icmp eq i8 %31, 124
   br i1 %.not28.i, label %32, label %.loopexit
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
-  %34 = load i8, ptr %33, align 1, !tbaa !31
+  %34 = load i8, ptr %33, align 1, !tbaa !29
   %.not29.i = icmp eq i8 %34, 124
   br i1 %.not29.i, label %35, label %.loopexit
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %.024.i, i64 2
-  %37 = load i8, ptr %36, align 1, !tbaa !31
+  %37 = load i8, ptr %36, align 1, !tbaa !29
   %.not30.i = icmp eq i8 %37, 124
   br i1 %.not30.i, label %38, label %.loopexit
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %21, i64 -1
-  %40 = load i8, ptr %39, align 1, !tbaa !31
+  %40 = load i8, ptr %39, align 1, !tbaa !29
   %.not31.i = icmp eq i8 %40, 124
   br i1 %.not31.i, label %ftp_passive_mode_epsv.exit, label %.loopexit
 
 ftp_passive_mode_epsv.exit:                       ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %.024.i, i64 3
-  store i8 0, ptr %39, align 1, !tbaa !31
+  store i8 0, ptr %39, align 1, !tbaa !29
   %42 = call i64 @strtol(ptr noundef nonnull captures(none) %41, ptr noundef null, i32 noundef 10) #10
   %43 = trunc i64 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 1064
-  store i32 %43, ptr %44, align 8, !tbaa !73
+  store i32 %43, ptr %44, align 8, !tbaa !70
   %45 = load ptr, ptr %5, align 8, !tbaa !20
   call void @av_free(ptr noundef %45) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
@@ -2089,7 +2089,7 @@ ftp_passive_mode_epsv.exit:                       ; preds = %38
   %46 = load ptr, ptr %5, align 8, !tbaa !20
   call void @av_free(ptr noundef %46) #10
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 1064
-  store i32 -1, ptr %47, align 8, !tbaa !73
+  store i32 -1, ptr %47, align 8, !tbaa !70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
@@ -2116,7 +2116,7 @@ ftp_send_command.exit.i30:                        ; preds = %49
   %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i41, %59 ], [ 0, %ftp_send_command.exit.i30 ]
   %.019.i = phi ptr [ %.1.i40, %59 ], [ null, %ftp_send_command.exit.i30 ]
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv.i34
-  %56 = load i8, ptr %55, align 1, !tbaa !31
+  %56 = load i8, ptr %55, align 1, !tbaa !29
   switch i8 %56, label %59 [
     i8 0, label %ftp_passive_mode.exit.thread
     i8 40, label %57
@@ -2130,7 +2130,7 @@ ftp_send_command.exit.i30:                        ; preds = %49
 59:                                               ; preds = %57, %.preheader.i33
   %.1.i40 = phi ptr [ %58, %57 ], [ %.019.i, %.preheader.i33 ]
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i34, 1
-  br label %.preheader.i33, !llvm.loop !74
+  br label %.preheader.i33, !llvm.loop !71
 
 .loopexit.i:                                      ; preds = %.preheader.i33
   store ptr %55, ptr %4, align 8, !tbaa !20
@@ -2138,7 +2138,7 @@ ftp_send_command.exit.i30:                        ; preds = %49
   br i1 %.not.i35, label %ftp_passive_mode.exit.thread, label %60
 
 60:                                               ; preds = %.loopexit.i
-  store i8 0, ptr %55, align 1, !tbaa !31
+  store i8 0, ptr %55, align 1, !tbaa !29
   %61 = call ptr @av_strtok(ptr noundef nonnull %.019.i, ptr noundef nonnull @.str.30, ptr noundef nonnull %4) #10
   %.not26.i = icmp eq ptr %61, null
   br i1 %.not26.i, label %ftp_passive_mode.exit.thread, label %62
@@ -2167,7 +2167,7 @@ ftp_send_command.exit.i30:                        ; preds = %49
   %71 = call i64 @strtol(ptr noundef nonnull captures(none) %69, ptr noundef null, i32 noundef 10) #10
   %72 = trunc i64 %71 to i32
   %73 = shl nsw i32 %72, 8
-  store i32 %73, ptr %47, align 8, !tbaa !73
+  store i32 %73, ptr %47, align 8, !tbaa !70
   %74 = call ptr @av_strtok(ptr noundef null, ptr noundef nonnull @.str.30, ptr noundef nonnull %4) #10
   %.not31.i39 = icmp eq ptr %74, null
   br i1 %.not31.i39, label %ftp_passive_mode.exit.thread, label %ftp_passive_mode.exit
@@ -2175,7 +2175,7 @@ ftp_send_command.exit.i30:                        ; preds = %49
 ftp_passive_mode.exit.thread:                     ; preds = %.preheader.i33, %.loopexit, %49, %ftp_send_command.exit.i30, %.loopexit.i, %60, %62, %64, %66, %68, %70
   %75 = load ptr, ptr %3, align 8, !tbaa !20
   call void @av_free(ptr noundef %75) #10
-  store i32 -1, ptr %47, align 8, !tbaa !73
+  store i32 -1, ptr %47, align 8, !tbaa !70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   br label %115
@@ -2183,9 +2183,9 @@ ftp_passive_mode.exit.thread:                     ; preds = %.preheader.i33, %.l
 ftp_passive_mode.exit:                            ; preds = %70
   %76 = call i64 @strtol(ptr noundef nonnull captures(none) %74, ptr noundef null, i32 noundef 10) #10
   %77 = trunc i64 %76 to i32
-  %78 = load i32, ptr %47, align 8, !tbaa !73
+  %78 = load i32, ptr %47, align 8, !tbaa !70
   %79 = add nsw i32 %78, %77
-  store i32 %79, ptr %47, align 8, !tbaa !73
+  store i32 %79, ptr %47, align 8, !tbaa !70
   %80 = load ptr, ptr %3, align 8, !tbaa !20
   call void @av_free(ptr noundef %80) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
@@ -2194,12 +2194,12 @@ ftp_passive_mode.exit:                            ; preds = %70
 
 81:                                               ; preds = %ftp_passive_mode.exit, %ftp_passive_mode_epsv.exit
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 1072
-  %83 = load ptr, ptr %82, align 8, !tbaa !56
+  %83 = load ptr, ptr %82, align 8, !tbaa !54
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 1064
-  %85 = load i32, ptr %84, align 8, !tbaa !73
+  %85 = load i32, ptr %84, align 8, !tbaa !70
   %86 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull @.str.1, ptr noundef null, ptr noundef %83, i32 noundef %85, ptr noundef null) #10
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 1120
-  %88 = load i32, ptr %87, align 8, !tbaa !61
+  %88 = load i32, ptr %87, align 8, !tbaa !59
   %.not27 = icmp eq i32 %88, -1
   br i1 %.not27, label %92, label %89
 
@@ -2210,12 +2210,12 @@ ftp_passive_mode.exit:                            ; preds = %70
 
 92:                                               ; preds = %89, %81
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %94 = load i32, ptr %93, align 8, !tbaa !64
+  %94 = load i32, ptr %93, align 8, !tbaa !62
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %97 = load ptr, ptr %96, align 8, !tbaa !62
+  %97 = load ptr, ptr %96, align 8, !tbaa !60
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %99 = load ptr, ptr %98, align 8, !tbaa !63
+  %99 = load ptr, ptr %98, align 8, !tbaa !61
   %100 = call i32 @ffurl_open_whitelist(ptr noundef nonnull %10, ptr noundef nonnull %6, i32 noundef %94, ptr noundef nonnull %95, ptr noundef nonnull %7, ptr noundef %97, ptr noundef %99, ptr noundef %0) #10
   call void @av_dict_free(ptr noundef nonnull %7) #10
   %101 = icmp slt i32 %100, 0
@@ -2396,52 +2396,49 @@ attributes #11 = { nounwind willreturn memory(read) }
 !23 = !{!16, !12, i64 1140}
 !24 = !{!16, !17, i64 16}
 !25 = !{!16, !14, i64 1112}
-!26 = distinct !{!26, !27}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!5, !11, i64 24}
-!29 = !{!16, !12, i64 1144}
-!30 = !{!16, !11, i64 1160}
-!31 = !{!8, !8, i64 0}
-!32 = !{!16, !14, i64 1176}
-!33 = !{!16, !14, i64 1168}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 _ZTS12AVIODirEntry", !7, i64 0}
-!36 = distinct !{!36, !37, !27}
-!37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!16, !12, i64 1184}
-!39 = !{!40, !12, i64 12}
-!40 = !{!"AVIODirEntry", !11, i64 0, !12, i64 8, !12, i64 12, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64}
-!41 = !{!40, !11, i64 0}
-!42 = distinct !{!42, !37, !27}
-!43 = !{!40, !12, i64 8}
-!44 = !{!40, !14, i64 24}
-!45 = !{!40, !14, i64 64}
-!46 = !{!40, !14, i64 48}
-!47 = !{!40, !14, i64 56}
-!48 = !{!40, !14, i64 16}
-!49 = distinct !{!49, !37, !27}
-!50 = !{!16, !11, i64 1152}
-!51 = !{!16, !11, i64 1192}
-!52 = !{!16, !11, i64 1128}
-!53 = !{!16, !11, i64 1200}
-!54 = !{!16, !11, i64 1080}
-!55 = !{!16, !11, i64 1088}
-!56 = !{!16, !11, i64 1072}
-!57 = !{!16, !12, i64 1068}
-!58 = distinct !{!58, !37, !27}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!61 = !{!16, !12, i64 1120}
-!62 = !{!5, !11, i64 72}
-!63 = !{!5, !11, i64 80}
-!64 = !{!5, !12, i64 32}
-!65 = !{!16, !11, i64 1048}
-!66 = !{!16, !11, i64 1056}
-!67 = distinct !{!67, !27}
-!68 = distinct !{!68, !37, !27}
-!69 = !{!12, !12, i64 0}
-!70 = distinct !{!70, !37, !27}
-!71 = distinct !{!71, !37, !27}
-!72 = distinct !{!72, !37, !27}
-!73 = !{!16, !12, i64 1064}
-!74 = distinct !{!74, !37, !27}
+!26 = !{!5, !11, i64 24}
+!27 = !{!16, !12, i64 1144}
+!28 = !{!16, !11, i64 1160}
+!29 = !{!8, !8, i64 0}
+!30 = !{!16, !14, i64 1176}
+!31 = !{!16, !14, i64 1168}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS12AVIODirEntry", !7, i64 0}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = !{!16, !12, i64 1184}
+!37 = !{!38, !12, i64 12}
+!38 = !{!"AVIODirEntry", !11, i64 0, !12, i64 8, !12, i64 12, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64}
+!39 = !{!38, !11, i64 0}
+!40 = distinct !{!40, !35}
+!41 = !{!38, !12, i64 8}
+!42 = !{!38, !14, i64 24}
+!43 = !{!38, !14, i64 64}
+!44 = !{!38, !14, i64 48}
+!45 = !{!38, !14, i64 56}
+!46 = !{!38, !14, i64 16}
+!47 = distinct !{!47, !35}
+!48 = !{!16, !11, i64 1152}
+!49 = !{!16, !11, i64 1192}
+!50 = !{!16, !11, i64 1128}
+!51 = !{!16, !11, i64 1200}
+!52 = !{!16, !11, i64 1080}
+!53 = !{!16, !11, i64 1088}
+!54 = !{!16, !11, i64 1072}
+!55 = !{!16, !12, i64 1068}
+!56 = distinct !{!56, !35}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!59 = !{!16, !12, i64 1120}
+!60 = !{!5, !11, i64 72}
+!61 = !{!5, !11, i64 80}
+!62 = !{!5, !12, i64 32}
+!63 = !{!16, !11, i64 1048}
+!64 = !{!16, !11, i64 1056}
+!65 = distinct !{!65, !35}
+!66 = !{!12, !12, i64 0}
+!67 = distinct !{!67, !35}
+!68 = distinct !{!68, !35}
+!69 = distinct !{!69, !35}
+!70 = !{!16, !12, i64 1064}
+!71 = distinct !{!71, !35}

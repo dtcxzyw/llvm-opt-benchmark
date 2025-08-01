@@ -609,7 +609,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   store ptr %199, ptr %200, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %197, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %197, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %197, %.preheader596
   %201 = zext i32 %191 to i64
@@ -777,7 +777,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   br label %310
 
 310:                                              ; preds = %299, %306, %289
-  %311 = load i8, ptr @pref_dissect_more_detail_framebuffer, align 1, !range !10, !noundef !11
+  %311 = load i8, ptr @pref_dissect_more_detail_framebuffer, align 1, !range !9, !noundef !10
   %312 = trunc nuw i8 %311 to i1
   br i1 %312, label %313, label %423
 
@@ -854,7 +854,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   %356 = add i32 %.6, 2
   %357 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %356)
   %358 = icmp sgt i32 %357, 0
-  br i1 %358, label %.lr.ph604, label %.loopexit594, !llvm.loop !12
+  br i1 %358, label %.lr.ph604, label %.loopexit594, !llvm.loop !11
 
 359:                                              ; preds = %314
   %360 = getelementptr inbounds nuw i8, ptr %.1527, i64 28
@@ -952,7 +952,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   %419 = add i32 %.9, 3
   %420 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %419)
   %421 = icmp sgt i32 %420, 0
-  br i1 %421, label %377, label %.loopexit594, !llvm.loop !13
+  br i1 %421, label %377, label %.loopexit594, !llvm.loop !12
 
 .critedge:                                        ; preds = %314, %333, %329, %325, %321, %317, %313, %367, %363, %359
   %422 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1035,7 +1035,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   store ptr %462, ptr %463, align 8
   %indvars.iv.next644 = add nuw nsw i64 %indvars.iv643, 1
   %exitcond647.not = icmp eq i64 %indvars.iv.next644, %wide.trip.count646
-  br i1 %exitcond647.not, label %._crit_edge608.loopexit, label %460, !llvm.loop !14
+  br i1 %exitcond647.not, label %._crit_edge608.loopexit, label %460, !llvm.loop !13
 
 ._crit_edge608.loopexit:                          ; preds = %460
   %464 = zext i32 %454 to i64
@@ -1112,7 +1112,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   %503 = getelementptr inbounds nuw i8, ptr %493, i64 16
   %504 = load ptr, ptr %503, align 8
   %505 = zext nneg i32 %.0510 to i64
-  %506 = call ptr @__memcpy_chk(ptr noundef %501, ptr noundef %504, i64 noundef range(i64 1, 2147483648) %505, i64 noundef %500) #6, !alias.scope !15
+  %506 = call ptr @__memcpy_chk(ptr noundef %501, ptr noundef %504, i64 noundef range(i64 1, 2147483648) %505, i64 noundef %500) #6, !alias.scope !14
   br label %508
 
 507:                                              ; preds = %497
@@ -1179,7 +1179,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   %.0507.be = phi i8 [ %522, %537 ], [ 10, %531 ], [ 10, %527 ]
   %535 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1515.be)
   %536 = icmp sgt i32 %535, 0
-  br i1 %536, label %.lr.ph614, label %._crit_edge615, !llvm.loop !19
+  br i1 %536, label %.lr.ph614, label %._crit_edge615, !llvm.loop !18
 
 537:                                              ; preds = %.lr.ph614
   store i8 %.0508612, ptr %526, align 1
@@ -1299,7 +1299,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   store ptr %590, ptr %591, align 8
   %indvars.iv.next649 = add nuw nsw i64 %indvars.iv648, 1
   %exitcond652.not = icmp eq i64 %indvars.iv.next649, %wide.trip.count651
-  br i1 %exitcond652.not, label %._crit_edge621, label %588, !llvm.loop !20
+  br i1 %exitcond652.not, label %._crit_edge621, label %588, !llvm.loop !19
 
 ._crit_edge621:                                   ; preds = %588, %.preheader591
   %592 = zext i32 %583 to i64
@@ -1342,7 +1342,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   %.4518 = phi i32 [ %576, %572 ], [ %615, %612 ]
   %617 = call i32 @tvb_reported_length_remaining(ptr noundef %549, i32 noundef %.4518)
   %618 = icmp sgt i32 %617, 0
-  br i1 %618, label %555, label %.loopexit, !llvm.loop !21
+  br i1 %618, label %555, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %616, %548, %.thread588
   %619 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1564,19 +1564,18 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{!16, !18}
-!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
-!17 = distinct !{!17, !"memcpy.inline"}
-!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
+!16 = distinct !{!16, !"memcpy.inline"}
+!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

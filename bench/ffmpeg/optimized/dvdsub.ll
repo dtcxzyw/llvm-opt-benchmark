@@ -43,7 +43,7 @@ define void @ff_dvdsub_parse_palette(ptr noundef writeonly captures(none) %0, pt
   store ptr %11, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %4, label %5, !llvm.loop !15
+  br i1 %exitcond.not, label %4, label %5, !llvm.loop !14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
@@ -67,7 +67,6 @@ attributes #2 = { nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !7, i64 0}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
+!14 = distinct !{!14, !13}

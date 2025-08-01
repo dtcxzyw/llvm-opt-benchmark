@@ -156,7 +156,7 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
   %spec.select.i.i.us = select i1 %75, ptr %.ptr.us, ptr %.018.i.i.us
   %.add.us = add nuw nsw i64 %.idx.us, 1
   %.not.i.i.us = icmp eq i64 %.add.us, 5
-  br i1 %.not.i.i.us, label %_ZSt3minIhET_St16initializer_listIS0_E.exit.us, label %.lr.ph.i.i.us, !llvm.loop !10
+  br i1 %.not.i.i.us, label %_ZSt3minIhET_St16initializer_listIS0_E.exit.us, label %.lr.ph.i.i.us, !llvm.loop !9
 
 _ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
   %77 = load i8, ptr %spec.select.i.i.us, align 1, !tbaa !4
@@ -165,12 +165,12 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #3
   %79 = add i64 %.06093.us, 1
   %.not64.us = icmp ugt i64 %79, %.059
-  br i1 %.not64.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %.not64.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZSt3minIhET_St16initializer_listIS0_E.exit.us, %_ZSt3minIhET_St16initializer_listIS0_E.exit, %50
   %80 = add nuw i64 %.05795, 1
   %.not.not = icmp ult i64 %.05795, %.sroa.080.0
-  br i1 %.not.not, label %34, label %._crit_edge97, !llvm.loop !13
+  br i1 %.not.not, label %34, label %._crit_edge97, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZSt3minIhET_St16initializer_listIS0_E.exit
   %.06093 = phi i64 [ %115, %_ZSt3minIhET_St16initializer_listIS0_E.exit ], [ %.058, %.lr.ph ]
@@ -230,7 +230,7 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit.us:   ; preds = %.lr.ph.i.i.us
   %spec.select.i.i = select i1 %111, ptr %.ptr, ptr %.018.i.i
   %.add = add nuw nsw i64 %.idx, 1
   %.not.i.i = icmp eq i64 %.add, 5
-  br i1 %.not.i.i, label %_ZSt3minIhET_St16initializer_listIS0_E.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %_ZSt3minIhET_St16initializer_listIS0_E.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 _ZSt3minIhET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   %113 = load i8, ptr %spec.select.i.i, align 1, !tbaa !4
@@ -239,7 +239,7 @@ _ZSt3minIhET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #3
   %115 = add i64 %.06093, 1
   %.not64 = icmp ugt i64 %115, %.059
-  br i1 %.not64, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
+  br i1 %.not64, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 116:                                              ; preds = %11, %._crit_edge97, %18
   %.0 = phi i8 [ %19, %18 ], [ %33, %._crit_edge97 ], [ %8, %11 ]
@@ -269,11 +269,10 @@ attributes #3 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}

@@ -79,7 +79,7 @@ align_get_bits.exit:                              ; preds = %3, %7
   store i8 %43, ptr %44, align 1, !tbaa !19
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next34, 1024
-  br i1 %exitcond.not, label %45, label %35, !llvm.loop !28
+  br i1 %exitcond.not, label %45, label %35, !llvm.loop !27
 
 45:                                               ; preds = %42
   ret void
@@ -121,7 +121,6 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !22 = !{!15, !10, i64 20}
 !23 = !{!15, !10, i64 48}
 !24 = !{!10, !10, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
+!27 = distinct !{!27, !26}

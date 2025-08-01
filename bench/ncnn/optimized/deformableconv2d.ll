@@ -1245,7 +1245,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
 
 79:                                               ; preds = %78
   %80 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv520
-  %81 = load float, ptr %80, align 4, !tbaa !68
+  %81 = load float, ptr %80, align 4, !tbaa !67
   br label %82
 
 82:                                               ; preds = %79, %78
@@ -1265,9 +1265,9 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
 
 83:                                               ; preds = %._crit_edge478.us.us
   %84 = load ptr, ptr %42, align 8, !tbaa !16
-  %85 = load float, ptr %84, align 4, !tbaa !68
+  %85 = load float, ptr %84, align 4, !tbaa !67
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %87 = load float, ptr %86, align 4, !tbaa !68
+  %87 = load float, ptr %86, align 4, !tbaa !67
   %88 = fneg fast float %87
   %89 = fdiv fast float %88, %85
   %90 = fcmp fast olt float %.1.lcssa.us.us, %89
@@ -1306,9 +1306,9 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
 
 112:                                              ; preds = %._crit_edge478.us.us
   %113 = load ptr, ptr %42, align 8, !tbaa !16
-  %114 = load float, ptr %113, align 4, !tbaa !68
+  %114 = load float, ptr %113, align 4, !tbaa !67
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 4
-  %116 = load float, ptr %115, align 4, !tbaa !68
+  %116 = load float, ptr %115, align 4, !tbaa !67
   %117 = fcmp fast olt float %.1.lcssa.us.us, %114
   %.0.us.us = select nsz i1 %117, float %114, float %.1.lcssa.us.us
   %118 = fcmp fast ogt float %.0.us.us, %116
@@ -1319,7 +1319,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
 
 120:                                              ; preds = %._crit_edge478.us.us
   %121 = load ptr, ptr %42, align 8, !tbaa !16
-  %122 = load float, ptr %121, align 4, !tbaa !68
+  %122 = load float, ptr %121, align 4, !tbaa !67
   %123 = fcmp fast ogt float %.1.lcssa.us.us, 0.000000e+00
   %124 = select fast i1 %123, float 1.000000e+00, float %122
   %125 = fmul fast float %124, %.1.lcssa.us.us
@@ -1333,10 +1333,10 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
   %.1387.us.us = phi nsz float [ %.1.lcssa.us.us, %._crit_edge478.us.us ], [ %127, %126 ], [ %125, %120 ], [ %116, %119 ], [ %.0.us.us, %112 ], [ %111, %105 ], [ %104, %99 ], [ %.1.lcssa.us.us, %91 ], [ %98, %95 ], [ 0.000000e+00, %83 ]
   %.reass.us.us = mul i64 %factor.op.mul487.us, %indvars.iv520
   %gep489.us.us = getelementptr i8, ptr %invariant.gep488.us.us, i64 %.reass.us.us
-  store float %.1387.us.us, ptr %gep489.us.us, align 4, !tbaa !68
+  store float %.1387.us.us, ptr %gep489.us.us, align 4, !tbaa !67
   %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
   %exitcond524.not = icmp eq i64 %indvars.iv.next521, %wide.trip.count523
-  br i1 %exitcond524.not, label %._crit_edge.us498.us, label %78, !llvm.loop !70
+  br i1 %exitcond524.not, label %._crit_edge.us498.us, label %78, !llvm.loop !69
 
 .preheader.lr.ph.us.us:                           ; preds = %82
   %128 = load i32, ptr %32, align 4, !tbaa !34
@@ -1351,7 +1351,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
   %136 = mul i64 %135, %133
   %invariant.gep462.us.us = getelementptr i8, ptr %131, i64 %136
   %invariant.gep463.us.us = getelementptr float, ptr %invariant.gep462.us.us, i64 %indvars.iv525
-  %137 = load i8, ptr %7, align 1, !range !72
+  %137 = load i8, ptr %7, align 1, !range !71
   %138 = trunc nuw i8 %137 to i1
   %139 = load ptr, ptr %8, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 144
@@ -1406,20 +1406,20 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
   %172 = shl nuw nsw i64 %171, 1
   %.reass461.us.us.us = mul i64 %factor.op.mul460.us.us, %172
   %gep464.us.us.us = getelementptr i8, ptr %invariant.gep463.us.us, i64 %.reass461.us.us.us
-  %173 = load float, ptr %gep464.us.us.us, align 4, !tbaa !68
+  %173 = load float, ptr %gep464.us.us.us, align 4, !tbaa !67
   %174 = or disjoint i64 %172, 1
   %175 = mul i64 %factor.op.mul460.us.us, %174
   %gep467.us.us.us = getelementptr i8, ptr %invariant.gep463.us.us, i64 %175
-  %176 = load float, ptr %gep467.us.us.us, align 4, !tbaa !68
+  %176 = load float, ptr %gep467.us.us.us, align 4, !tbaa !67
   br i1 %138, label %.noexc232.us.us.us, label %.critedge.us.us.us
 
 .noexc232.us.us.us:                               ; preds = %.noexc229.us.us.us
   %177 = add nuw nsw i64 %170, %indvars.iv510
-  %178 = load i32, ptr %141, align 4, !tbaa !50, !noalias !73
-  %179 = load ptr, ptr %140, align 8, !tbaa !16, !noalias !73
-  %180 = load i64, ptr %142, align 8, !tbaa !17, !noalias !73
+  %178 = load i32, ptr %141, align 4, !tbaa !50, !noalias !72
+  %179 = load ptr, ptr %140, align 8, !tbaa !16, !noalias !72
+  %180 = load i64, ptr %142, align 8, !tbaa !17, !noalias !72
   %181 = mul i64 %180, %177
-  %182 = load i64, ptr %143, align 8, !tbaa !47, !noalias !73
+  %182 = load i64, ptr %143, align 8, !tbaa !47, !noalias !72
   %183 = mul i64 %181, %182
   %184 = getelementptr inbounds nuw i8, ptr %179, i64 %183
   %185 = sext i32 %178 to i64
@@ -1427,7 +1427,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
   %187 = mul i64 %186, %182
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 %187
   %189 = getelementptr inbounds nuw float, ptr %188, i64 %indvars.iv525
-  %190 = load float, ptr %189, align 4, !tbaa !68
+  %190 = load float, ptr %189, align 4, !tbaa !67
   br label %.critedge.us.us.us
 
 .critedge.us.us.us:                               ; preds = %.noexc232.us.us.us, %.noexc229.us.us.us
@@ -1466,7 +1466,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
   %.3.lcssa.us.us.us = phi float [ %.2458.us.us.us, %.thread395.us.us.us ], [ %.2458.us.us.us, %.critedge.us.us.us ], [ %248, %.critedge178.us.us.us.us ]
   %indvars.iv.next511 = add nuw nsw i64 %indvars.iv510, 1
   %exitcond514.not = icmp eq i64 %indvars.iv.next511, %wide.trip.count513
-  br i1 %exitcond514.not, label %._crit_edge459.us.us.us, label %.noexc229.us.us.us, !llvm.loop !76
+  br i1 %exitcond514.not, label %._crit_edge459.us.us.us, label %.noexc229.us.us.us, !llvm.loop !75
 
 .lr.ph.split.us.us.us.us:                         ; preds = %.thread395.us.us.us
   %214 = add nsw i32 %203, 1
@@ -1508,7 +1508,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
 .noexc234.us.us.us.us:                            ; preds = %230
   %.reass.us.us.us.us = mul i64 %factor.op.mul.us.us, %indvars.iv
   %gep434.us.us.us.us = getelementptr i8, ptr %invariant.gep433.us.us.us, i64 %.reass.us.us.us.us
-  %231 = load float, ptr %gep434.us.us.us.us, align 4, !tbaa !68
+  %231 = load float, ptr %gep434.us.us.us.us, align 4, !tbaa !67
   br label %.critedge172.us.us.us.us
 
 .critedge172.us.us.us.us:                         ; preds = %.noexc234.us.us.us.us, %230
@@ -1518,7 +1518,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
 .noexc236.us.us.us.us:                            ; preds = %.critedge172.us.us.us.us
   %.reass436.us.us.us.us = mul i64 %factor.op.mul.us.us, %indvars.iv
   %gep439.us.us.us.us = getelementptr i8, ptr %invariant.gep438.us.us.us, i64 %.reass436.us.us.us.us
-  %233 = load float, ptr %gep439.us.us.us.us, align 4, !tbaa !68
+  %233 = load float, ptr %gep439.us.us.us.us, align 4, !tbaa !67
   br label %.critedge174.us.us.us.us
 
 .critedge174.us.us.us.us:                         ; preds = %.noexc236.us.us.us.us, %.critedge172.us.us.us.us
@@ -1528,7 +1528,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
 .noexc238.us.us.us.us:                            ; preds = %.critedge174.us.us.us.us
   %.reass441.us.us.us.us = mul i64 %factor.op.mul.us.us, %indvars.iv
   %gep444.us.us.us.us = getelementptr i8, ptr %invariant.gep443.us.us.us, i64 %.reass441.us.us.us.us
-  %235 = load float, ptr %gep444.us.us.us.us, align 4, !tbaa !68
+  %235 = load float, ptr %gep444.us.us.us.us, align 4, !tbaa !67
   br label %.critedge176.us.us.us.us
 
 .critedge176.us.us.us.us:                         ; preds = %.noexc238.us.us.us.us, %.critedge174.us.us.us.us
@@ -1538,7 +1538,7 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
 .noexc240.us.us.us.us:                            ; preds = %.critedge176.us.us.us.us
   %.reass446.us.us.us.us = mul i64 %factor.op.mul.us.us, %indvars.iv
   %gep449.us.us.us.us = getelementptr i8, ptr %invariant.gep448.us.us.us, i64 %.reass446.us.us.us.us
-  %237 = load float, ptr %gep449.us.us.us.us, align 4, !tbaa !68
+  %237 = load float, ptr %gep449.us.us.us.us, align 4, !tbaa !67
   br label %.critedge178.us.us.us.us
 
 .critedge178.us.us.us.us:                         ; preds = %.noexc240.us.us.us.us, %.critedge176.us.us.us.us
@@ -1555,22 +1555,22 @@ define internal void @_ZNK4ncnn16DeformableConv2D7forwardERKSt6vectorINS_3MatESa
   %244 = add nsw i64 %243, %indvars.iv515
   %245 = mul nsw i64 %244, %163
   %gep = getelementptr float, ptr %invariant.gep, i64 %245
-  %246 = load float, ptr %gep, align 4, !tbaa !68
+  %246 = load float, ptr %gep, align 4, !tbaa !67
   %247 = fmul fast float %241, %246
   %248 = fadd fast float %247, %.3430.us.us.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %230, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %230, !llvm.loop !76
 
 ._crit_edge459.us.us.us:                          ; preds = %._crit_edge.us.us.us
   %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
   %exitcond519.not = icmp eq i64 %indvars.iv.next516, %wide.trip.count518
-  br i1 %exitcond519.not, label %._crit_edge478.us.us, label %.preheader.us.us.us, !llvm.loop !78
+  br i1 %exitcond519.not, label %._crit_edge478.us.us, label %.preheader.us.us.us, !llvm.loop !77
 
 ._crit_edge.us498.us:                             ; preds = %.noexc242.us.us
   %indvars.iv.next526 = add nuw nsw i64 %indvars.iv525, 1
   %exitcond529.not = icmp eq i64 %indvars.iv.next526, %wide.trip.count528
-  br i1 %exitcond529.not, label %._crit_edge492.us, label %.lr.ph.us497.us, !llvm.loop !79
+  br i1 %exitcond529.not, label %._crit_edge492.us, label %.lr.ph.us497.us, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %._crit_edge492.us, %.preheader429.lr.ph, %22
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %24)
@@ -1600,7 +1600,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #9
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare !callback !80 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #9
+declare !callback !79 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.maxnum.f32(float, float) #10
@@ -1707,20 +1707,19 @@ attributes #15 = { builtin nounwind }
 !62 = !{!59, !13, i64 4}
 !63 = !{!20, !21, i64 8}
 !64 = !{!20, !21, i64 9}
-!65 = distinct !{!65, !66, !67}
-!66 = !{!"llvm.loop.estimated_trip_count"}
-!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"float", !10, i64 0}
-!70 = distinct !{!70, !71, !66}
-!71 = !{!"llvm.loop.mustprogress"}
-!72 = !{i8 0, i8 2}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!75 = distinct !{!75, !"_ZNK4ncnn3Mat7channelEi"}
-!76 = distinct !{!76, !71, !66}
-!77 = distinct !{!77, !71, !66, !67}
-!78 = distinct !{!78, !71, !66, !67}
-!79 = distinct !{!79, !71, !66, !67}
-!80 = !{!81}
-!81 = !{i64 2, i64 -1, i64 -1, i1 true}
+!65 = distinct !{!65, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"float", !10, i64 0}
+!69 = distinct !{!69, !70}
+!70 = !{!"llvm.loop.mustprogress"}
+!71 = !{i8 0, i8 2}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!74 = distinct !{!74, !"_ZNK4ncnn3Mat7channelEi"}
+!75 = distinct !{!75, !70}
+!76 = distinct !{!76, !70, !66}
+!77 = distinct !{!77, !70, !66}
+!78 = distinct !{!78, !70, !66}
+!79 = !{!80}
+!80 = !{i64 2, i64 -1, i64 -1, i1 true}

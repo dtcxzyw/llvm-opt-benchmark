@@ -318,7 +318,7 @@ epl_wmem_iarray_insert.exit:                      ; preds = %89, %97
   %103 = getelementptr i8, ptr %.04558, i64 8
   %104 = load ptr, ptr %103, align 8
   %.not49 = icmp eq ptr %104, null
-  br i1 %.not49, label %._crit_edge, label %30, !llvm.loop !9
+  br i1 %.not49, label %._crit_edge, label %30, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %102, %12
   call void @g_strfreev(ptr noundef %22)
@@ -400,7 +400,7 @@ define internal fastcc zeroext i16 @epl_g_key_file_get_uint16(ptr noundef %0, pt
   %15 = and i16 %14, 1024
   %.not6.i = icmp eq i16 %15, 0
   %16 = getelementptr i8, ptr %.0.i, i64 1
-  br i1 %.not6.i, label %epl_ishex.exit, label %10, !llvm.loop !10
+  br i1 %.not6.i, label %epl_ishex.exit, label %10, !llvm.loop !9
 
 epl_ishex.exit:                                   ; preds = %10
   %17 = tail call signext i8 @g_ascii_tolower(i8 noundef signext %11) #16
@@ -517,7 +517,7 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
   %8 = getelementptr i8, ptr %.04289, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not55 = icmp eq ptr %9, null
-  br i1 %.not55, label %14, label %.preheader, !llvm.loop !11
+  br i1 %.not55, label %14, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %4, %6
   %10 = phi ptr [ %9, %6 ], [ @.str.42, %4 ]
@@ -580,7 +580,7 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
   %36 = getelementptr i8, ptr %.04190, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not56 = icmp eq ptr %37, null
-  br i1 %.not56, label %38, label %21, !llvm.loop !12
+  br i1 %.not56, label %38, label %21, !llvm.loop !11
 
 38:                                               ; preds = %35
   %39 = tail call zeroext i1 @epl_profile_object_mappings_update(ptr noundef %0)
@@ -706,7 +706,7 @@ find_in_range.exit.i:                             ; preds = %.lr.ph.i.i
   %.118.i.i = phi i64 [ %.01720.i.i, %18 ], [ %12, %find_in_range.exit.i ]
   %.1.i.i = phi i64 [ %19, %18 ], [ %.01621.i.i, %find_in_range.exit.i ]
   %21 = icmp ult i64 %.1.i.i, %.118.i.i
-  br i1 %21, label %.lr.ph.i.i, label %bsearch_garray.exit, !llvm.loop !13
+  br i1 %21, label %.lr.ph.i.i, label %bsearch_garray.exit, !llvm.loop !12
 
 bsearch_garray.exit:                              ; preds = %.lr.ph.i.i, %17, %20, %2
   %.0.i.i = phi ptr [ null, %2 ], [ null, %20 ], [ %14, %17 ], [ %14, %.lr.ph.i.i ]
@@ -770,13 +770,13 @@ define internal fastcc void @epl_wmem_iarray_sort_and_compact(ptr noundef captur
   %31 = tail call ptr @g_array_remove_index(ptr noundef %30, i32 noundef %.02228)
   %32 = add i32 %.126, -1
   %33 = icmp ult i32 %.02228, %32
-  br i1 %33, label %20, label %.critedge, !llvm.loop !14
+  br i1 %33, label %20, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %20, %28, %25
   %.1.lcssa = phi i32 [ %.126, %20 ], [ %umin, %28 ], [ %.126, %25 ]
   %34 = add nuw i32 %.02228, 1
   %35 = icmp ult i32 %34, %.1.lcssa
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.critedge, %6
   %36 = load i8, ptr %3, align 4
@@ -931,7 +931,7 @@ define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr noundef readonl
   %50 = getelementptr inbounds nuw i8, ptr %.05062, i64 48
   %.050 = load ptr, ptr %50, align 8
   %.not56 = icmp eq ptr %.050, null
-  br i1 %.not56, label %.sink.split, label %.lr.ph, !llvm.loop !16
+  br i1 %.not56, label %.sink.split, label %.lr.ph, !llvm.loop !15
 
 .sink.split:                                      ; preds = %49, %29, %31
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #13
@@ -942,7 +942,7 @@ define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr noundef readonl
   %52 = getelementptr inbounds nuw i8, ptr %.04765, i64 48
   %.047 = load ptr, ptr %52, align 8
   %.not54 = icmp eq ptr %.047, null
-  br i1 %.not54, label %._crit_edge68.loopexit, label %21, !llvm.loop !17
+  br i1 %.not54, label %._crit_edge68.loopexit, label %21, !llvm.loop !16
 
 ._crit_edge68.loopexit:                           ; preds = %51
   %.pre = load i32, ptr %0, align 8
@@ -952,7 +952,7 @@ define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr noundef readonl
   %53 = phi i32 [ %.pre, %._crit_edge68.loopexit ], [ %10, %18 ]
   %54 = add nuw nsw i32 %.04669, 1
   %55 = icmp slt i32 %54, %53
-  br i1 %55, label %9, label %.critedge59, !llvm.loop !18
+  br i1 %55, label %9, label %.critedge59, !llvm.loop !17
 
 .critedge59:                                      ; preds = %._crit_edge68, %9, %15, %2
   %.2 = phi i32 [ 0, %2 ], [ -1, %15 ], [ -1, %9 ], [ 0, %._crit_edge68 ]
@@ -1097,7 +1097,7 @@ epl_wmem_iarray_insert.exit:                      ; preds = %48, %56
   %70 = getelementptr inbounds nuw i8, ptr %.041, i64 48
   %.0 = load ptr, ptr %70, align 8
   %.not35 = icmp eq ptr %.0, null
-  br i1 %.not35, label %._crit_edge.loopexit, label %43, !llvm.loop !19
+  br i1 %.not35, label %._crit_edge.loopexit, label %43, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %69
   %.pre = load ptr, ptr %40, align 8
@@ -1115,7 +1115,7 @@ epl_wmem_iarray_insert.exit:                      ; preds = %48, %56
   %73 = load i32, ptr %0, align 8
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %14, label %._crit_edge45, !llvm.loop !20
+  br i1 %75, label %14, label %._crit_edge45, !llvm.loop !19
 
 ._crit_edge45:                                    ; preds = %72, %2
   ret i32 0
@@ -1236,7 +1236,7 @@ define internal fastcc noundef zeroext i1 @parse_obj_tag(ptr noundef readonly ca
   %52 = getelementptr inbounds nuw i8, ptr %.03763, i64 48
   %.037 = load ptr, ptr %52, align 8
   %.not = icmp eq ptr %.037, null
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %51
   %.not45 = icmp eq ptr %.243, null
@@ -1349,19 +1349,18 @@ attributes #17 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

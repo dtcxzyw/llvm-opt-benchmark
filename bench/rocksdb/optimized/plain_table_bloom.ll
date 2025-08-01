@@ -200,12 +200,12 @@ define void @_ZN7rocksdb17BloomBlockBuilder13AddKeysHashesERKSt6vectorIjSaIjEE(p
   %48 = add i32 %.013.i.i, %37
   %49 = add nuw nsw i32 %.01112.i.i, 1
   %exitcond.not.i3.i = icmp eq i32 %49, %35
-  br i1 %exitcond.not.i3.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit, label %.lr.ph.i2.i, !llvm.loop !27
+  br i1 %exitcond.not.i3.i, label %_ZN7rocksdb17PlainTableBloomV17AddHashEj.exit, label %.lr.ph.i2.i, !llvm.loop !26
 
 _ZN7rocksdb17PlainTableBloomV17AddHashEj.exit:    ; preds = %.lr.ph.i.i, %.lr.ph.i2.i, %12, %33
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 4
   %.not = icmp eq ptr %50, %5
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -233,13 +233,13 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_plain_table_bloom.cc() #10 section ".text.startup" personality ptr @__gxx_personality_v0 {
-  store i64 -241, ptr @_ZN7rocksdbL23kRangeTombstoneSentinelE, align 8, !tbaa !29
+  store i64 -241, ptr @_ZN7rocksdbL23kRangeTombstoneSentinelE, align 8, !tbaa !27
   %1 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN7rocksdbL23kRangeTombstoneSentinelE)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN7rocksdbL18empty_operand_listE, i8 0, i64 24, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev, ptr nonnull @_ZN7rocksdbL18empty_operand_listE, ptr nonnull @__dso_handle) #13
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdb17BloomBlockBuilder11kBloomBlockB5cxx11E, i64 16), ptr @_ZN7rocksdb17BloomBlockBuilder11kBloomBlockB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdb17BloomBlockBuilder11kBloomBlockB5cxx11E, i64 16), ptr @_ZN7rocksdb17BloomBlockBuilder11kBloomBlockB5cxx11E, align 8, !tbaa !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN7rocksdb17BloomBlockBuilder11kBloomBlockB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str, i64 11, i1 false)
-  store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdb17BloomBlockBuilder11kBloomBlockB5cxx11E, i64 8), align 8, !tbaa !33
+  store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdb17BloomBlockBuilder11kBloomBlockB5cxx11E, i64 8), align 8, !tbaa !31
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN7rocksdb17BloomBlockBuilder11kBloomBlockB5cxx11E, i64 27), align 1, !tbaa !23
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN7rocksdb17BloomBlockBuilder11kBloomBlockB5cxx11E, ptr nonnull @__dso_handle) #13
   ret void
@@ -289,14 +289,12 @@ attributes #13 = { nounwind }
 !21 = !{!"p1 int", !7, i64 0}
 !22 = !{!13, !13, i64 0}
 !23 = !{!8, !8, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
-!28 = distinct !{!28, !26}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"long", !8, i64 0}
-!31 = !{!32, !14, i64 0}
-!32 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !14, i64 0}
-!33 = !{!34, !30, i64 8}
-!34 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !32, i64 0, !30, i64 8, !8, i64 16}
+!26 = distinct !{!26, !25}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"long", !8, i64 0}
+!29 = !{!30, !14, i64 0}
+!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !14, i64 0}
+!31 = !{!32, !28, i64 8}
+!32 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !30, i64 0, !28, i64 8, !8, i64 16}

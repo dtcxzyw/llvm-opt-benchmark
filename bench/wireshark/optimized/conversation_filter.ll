@@ -280,7 +280,7 @@ define ptr @conversation_filter_from_packet(ptr noundef %0) local_unnamed_addr #
   %8 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %find_conversation_filter.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %find_conversation_filter.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !8
 
 find_conversation_filter.exit.i:                  ; preds = %.lr.ph.i.i
   %.not18.i = icmp eq ptr %4, null
@@ -306,7 +306,7 @@ find_conversation_filter.exit.thread.i:           ; preds = %7, %16, %10, %find_
   %21 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 8
   %.014.i = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %.014.i, null
-  br i1 %.not.i, label %conversation_filter_from_pinfo.exit, label %.lr.ph.i.preheader.i, !llvm.loop !10
+  br i1 %.not.i, label %conversation_filter_from_pinfo.exit, label %.lr.ph.i.preheader.i, !llvm.loop !9
 
 conversation_filter_from_pinfo.exit:              ; preds = %16, %find_conversation_filter.exit.thread.i, %1
   %spec.select.i = phi ptr [ null, %1 ], [ null, %find_conversation_filter.exit.thread.i ], [ %20, %16 ]
@@ -339,7 +339,7 @@ define ptr @conversation_filter_from_log(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %find_conversation_filter.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i, label %find_conversation_filter.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !8
 
 find_conversation_filter.exit.i:                  ; preds = %.lr.ph.i.i
   %.not18.i = icmp eq ptr %4, null
@@ -365,7 +365,7 @@ find_conversation_filter.exit.thread.i:           ; preds = %7, %16, %10, %find_
   %21 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 8
   %.014.i = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %.014.i, null
-  br i1 %.not.i, label %conversation_filter_from_pinfo.exit, label %.lr.ph.i.preheader.i, !llvm.loop !10
+  br i1 %.not.i, label %conversation_filter_from_pinfo.exit, label %.lr.ph.i.preheader.i, !llvm.loop !9
 
 conversation_filter_from_pinfo.exit:              ; preds = %16, %find_conversation_filter.exit.thread.i, %1
   %spec.select.i = phi ptr [ null, %1 ], [ null, %find_conversation_filter.exit.thread.i ], [ %20, %16 ]
@@ -396,8 +396,7 @@ attributes #5 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

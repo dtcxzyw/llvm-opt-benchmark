@@ -74,7 +74,7 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %12 = icmp slt i32 %11, 0
   %indvars.iv.i.sroa.gep40 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %indvars.iv57.sroa.gep78 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  br i1 %12, label %359, label %13
+  br i1 %12, label %360, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -86,7 +86,7 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %20 = sext i32 %19 to i64
   %21 = tail call i32 @ff_get_encode_buffer(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %20, i32 noundef 0) #5
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %359, label %.preheader41
+  br i1 %22, label %360, label %.preheader41
 
 .preheader41:                                     ; preds = %13
   %23 = icmp sgt i32 %18, 3
@@ -102,12 +102,11 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 3020
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 3032
-  %invariant.gep.i = getelementptr i8, ptr %9, i64 816
   br label %32
 
 32:                                               ; preds = %.lr.ph, %aptx_encode_samples.exit
   %indvars.iv60 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next61, %aptx_encode_samples.exit ]
-  %.03749 = phi i32 [ 0, %.lr.ph ], [ %354, %aptx_encode_samples.exit ]
+  %.03749 = phi i32 [ 0, %.lr.ph ], [ %355, %aptx_encode_samples.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
   br label %.preheader
 
@@ -133,10 +132,10 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   br i1 %exitcond.not, label %43, label %36, !llvm.loop !46
 
 43:                                               ; preds = %36
-  br i1 %33, label %.preheader, label %44, !llvm.loop !49
+  br i1 %33, label %.preheader, label %44, !llvm.loop !48
 
 44:                                               ; preds = %43
-  %45 = load ptr, ptr %24, align 8, !tbaa !50
+  %45 = load ptr, ptr %24, align 8, !tbaa !49
   br label %46
 
 46:                                               ; preds = %aptx_encode_channel.exit.i, %44
@@ -144,7 +143,7 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %indvars.iv.i.sroa.phi = phi ptr [ %7, %44 ], [ %indvars.iv.i.sroa.gep40, %aptx_encode_channel.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %44 ], [ 1, %aptx_encode_channel.exit.i ]
   %48 = getelementptr inbounds nuw [2 x %struct.Channel], ptr %25, i64 0, i64 %indvars.iv.i
-  %49 = load i32, ptr %9, align 4, !tbaa !52
+  %49 = load i32, ptr %9, align 4, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
@@ -173,19 +172,19 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %59 = getelementptr inbounds nuw i32, ptr %54, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !45
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %62 = load i32, ptr %57, align 4, !tbaa !53
+  %62 = load i32, ptr %57, align 4, !tbaa !52
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds [32 x i32], ptr %61, i64 0, i64 %63
   store i32 %60, ptr %64, align 4, !tbaa !45
-  %65 = load i32, ptr %57, align 4, !tbaa !53
+  %65 = load i32, ptr %57, align 4, !tbaa !52
   %66 = add nsw i32 %65, 16
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds [32 x i32], ptr %61, i64 0, i64 %67
   store i32 %60, ptr %68, align 4, !tbaa !45
-  %69 = load i32, ptr %57, align 4, !tbaa !53
+  %69 = load i32, ptr %57, align 4, !tbaa !52
   %70 = add nsw i32 %69, 1
   %71 = and i32 %70, 15
-  store i32 %71, ptr %57, align 4, !tbaa !53
+  store i32 %71, ptr %57, align 4, !tbaa !52
   %72 = getelementptr inbounds nuw [16 x i32], ptr @aptx_qmf_outer_coeffs, i64 %indvars.iv40.i.i.i
   %73 = zext nneg i32 %71 to i64
   %74 = getelementptr inbounds nuw [32 x i32], ptr %61, i64 0, i64 %73
@@ -204,7 +203,7 @@ define internal range(i32 -2147483648, 1) i32 @aptx_encode_frame(ptr noundef %0,
   %83 = add nsw i64 %82, %.010.i2230.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16
-  br i1 %exitcond.not.i.i.i, label %aptx_qmf_convolution.exit24.i.i.i, label %75, !llvm.loop !55
+  br i1 %exitcond.not.i.i.i, label %aptx_qmf_convolution.exit24.i.i.i, label %75, !llvm.loop !54
 
 aptx_qmf_convolution.exit24.i.i.i:                ; preds = %75
   %84 = add nsw i64 %83, 4194304
@@ -217,7 +216,7 @@ aptx_qmf_convolution.exit24.i.i.i:                ; preds = %75
   %90 = tail call i32 @llvm.smax.i32(i32 %89, i32 -8388608)
   %.0.i.i26.i.i.i = tail call i32 @llvm.smin.i32(i32 %90, i32 8388607)
   store i32 %.0.i.i26.i.i.i, ptr %indvars.iv40.i.sroa.phi.i.i, align 4, !tbaa !45
-  br i1 %56, label %55, label %aptx_qmf_polyphase_analysis.exit.i.i.i, !llvm.loop !56
+  br i1 %56, label %55, label %aptx_qmf_polyphase_analysis.exit.i.i.i, !llvm.loop !55
 
 aptx_qmf_polyphase_analysis.exit.i.i.i:           ; preds = %aptx_qmf_convolution.exit24.i.i.i
   %91 = or disjoint i64 %indvars.iv43.i.i.i, 2
@@ -234,7 +233,7 @@ aptx_qmf_polyphase_analysis.exit.i.i.i:           ; preds = %aptx_qmf_convolutio
   store i32 %.0.i.i.i.i.i, ptr %92, align 4, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.4.i.i)
-  br i1 %53, label %52, label %.preheader.i.i.i, !llvm.loop !57
+  br i1 %53, label %52, label %.preheader.i.i.i, !llvm.loop !56
 
 97:                                               ; preds = %aptx_qmf_polyphase_analysis.exit20.i.i.i, %.preheader.i.i.i
   %98 = phi i1 [ true, %.preheader.i.i.i ], [ false, %aptx_qmf_polyphase_analysis.exit20.i.i.i ]
@@ -255,19 +254,19 @@ aptx_qmf_polyphase_analysis.exit.i.i.i:           ; preds = %aptx_qmf_convolutio
   %106 = getelementptr inbounds nuw i32, ptr %101, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !45
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  %109 = load i32, ptr %104, align 4, !tbaa !53
+  %109 = load i32, ptr %104, align 4, !tbaa !52
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds [32 x i32], ptr %108, i64 0, i64 %110
   store i32 %107, ptr %111, align 4, !tbaa !45
-  %112 = load i32, ptr %104, align 4, !tbaa !53
+  %112 = load i32, ptr %104, align 4, !tbaa !52
   %113 = add nsw i32 %112, 16
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds [32 x i32], ptr %108, i64 0, i64 %114
   store i32 %107, ptr %115, align 4, !tbaa !45
-  %116 = load i32, ptr %104, align 4, !tbaa !53
+  %116 = load i32, ptr %104, align 4, !tbaa !52
   %117 = add nsw i32 %116, 1
   %118 = and i32 %117, 15
-  store i32 %118, ptr %104, align 4, !tbaa !53
+  store i32 %118, ptr %104, align 4, !tbaa !52
   %119 = getelementptr inbounds nuw [16 x i32], ptr @aptx_qmf_inner_coeffs, i64 %indvars.iv50.i.i.i
   %120 = zext nneg i32 %118 to i64
   %121 = getelementptr inbounds nuw [32 x i32], ptr %108, i64 0, i64 %120
@@ -286,7 +285,7 @@ aptx_qmf_polyphase_analysis.exit.i.i.i:           ; preds = %aptx_qmf_convolutio
   %130 = add nsw i64 %129, %.010.i34.i.i.i
   %indvars.iv.next47.i.i.i = add nuw nsw i64 %indvars.iv46.i.i.i, 1
   %exitcond49.not.i.i.i = icmp eq i64 %indvars.iv.next47.i.i.i, 16
-  br i1 %exitcond49.not.i.i.i, label %aptx_qmf_convolution.exit.i.i.i, label %122, !llvm.loop !55
+  br i1 %exitcond49.not.i.i.i, label %aptx_qmf_convolution.exit.i.i.i, label %122, !llvm.loop !54
 
 aptx_qmf_convolution.exit.i.i.i:                  ; preds = %122
   %131 = add nsw i64 %130, 4194304
@@ -299,7 +298,7 @@ aptx_qmf_convolution.exit.i.i.i:                  ; preds = %122
   %137 = tail call i32 @llvm.smax.i32(i32 %136, i32 -8388608)
   %.0.i.i28.i.i.i = tail call i32 @llvm.smin.i32(i32 %137, i32 8388607)
   store i32 %.0.i.i28.i.i.i, ptr %indvars.iv50.i.sroa.phi.i.i, align 4, !tbaa !45
-  br i1 %103, label %102, label %aptx_qmf_polyphase_analysis.exit20.i.i.i, !llvm.loop !56
+  br i1 %103, label %102, label %aptx_qmf_polyphase_analysis.exit20.i.i.i, !llvm.loop !55
 
 aptx_qmf_polyphase_analysis.exit20.i.i.i:         ; preds = %aptx_qmf_convolution.exit.i.i.i
   %138 = getelementptr inbounds nuw i32, ptr %6, i64 %100
@@ -316,12 +315,12 @@ aptx_qmf_polyphase_analysis.exit20.i.i.i:         ; preds = %aptx_qmf_convolutio
   store i32 %.0.i.i19.i.i.i, ptr %139, align 4, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.022.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.423.i.i)
-  br i1 %98, label %97, label %aptx_qmf_tree_analysis.exit.i.i, !llvm.loop !58
+  br i1 %98, label %97, label %aptx_qmf_tree_analysis.exit.i.i, !llvm.loop !57
 
 aptx_qmf_tree_analysis.exit.i.i:                  ; preds = %aptx_qmf_polyphase_analysis.exit20.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #5
   tail call void @ff_aptx_generate_dither(ptr noundef nonnull %48) #5
-  %144 = getelementptr i8, ptr %48, i64 1228
+  %144 = getelementptr inbounds nuw i8, ptr %48, i64 1228
   %145 = getelementptr inbounds nuw i8, ptr %48, i64 816
   %146 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %48, i64 864
@@ -334,8 +333,8 @@ aptx_qmf_tree_analysis.exit.i.i:                  ; preds = %aptx_qmf_polyphase_
   %151 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv.i.i
   %152 = load i32, ptr %151, align 4, !tbaa !45
   %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 320
-  %153 = getelementptr i8, ptr %144, i64 %.idx.i.i
-  %154 = load i32, ptr %153, align 4, !tbaa !59
+  %153 = getelementptr inbounds nuw i8, ptr %144, i64 %.idx.i.i
+  %154 = load i32, ptr %153, align 4, !tbaa !58
   %155 = sub nsw i32 %152, %154
   %156 = tail call i32 @llvm.smax.i32(i32 %155, i32 -8388608)
   %.0.i.i.i = tail call i32 @llvm.smin.i32(i32 %156, i32 8388607)
@@ -343,13 +342,13 @@ aptx_qmf_tree_analysis.exit.i.i:                  ; preds = %aptx_qmf_polyphase_
   %158 = getelementptr inbounds nuw [4 x i32], ptr %146, i64 0, i64 %indvars.iv.i.i
   %159 = load i32, ptr %158, align 4, !tbaa !45
   %160 = getelementptr inbounds nuw [4 x %struct.InvertQuantize], ptr %147, i64 0, i64 %indvars.iv.i.i
-  %161 = load i32, ptr %160, align 4, !tbaa !61
+  %161 = load i32, ptr %160, align 4, !tbaa !60
   %162 = getelementptr inbounds nuw [4 x %struct.anon], ptr %149, i64 0, i64 %indvars.iv.i.i
-  %163 = load ptr, ptr %162, align 16, !tbaa !63
+  %163 = load ptr, ptr %162, align 16, !tbaa !62
   %164 = tail call i32 @llvm.abs.i32(i32 %.0.i.i.i, i1 true)
   %165 = tail call i32 @llvm.umin.i32(i32 %164, i32 8388607)
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 32
-  %167 = load i32, ptr %166, align 16, !tbaa !65
+  %167 = load i32, ptr %166, align 16, !tbaa !64
   %168 = ashr i32 %167, 1
   %169 = icmp sgt i32 %168, 0
   br i1 %169, label %.lr.ph.i.i.i, label %.aptx_bin_search.exit_crit_edge.i.i.i
@@ -378,7 +377,7 @@ aptx_qmf_tree_analysis.exit.i.i:                  ; preds = %aptx_qmf_polyphase_
   %spec.select.i.i.i.i = select i1 %.not.i50.i.i.i, i32 %.010.i54.i.i.i, i32 %175
   %181 = lshr i32 %.0.i4955.i.i.i, 1
   %.not.i18.i.i = icmp ult i32 %.0.i4955.i.i.i, 2
-  br i1 %.not.i18.i.i, label %aptx_quantize_difference.exit.i.i, label %174, !llvm.loop !66
+  br i1 %.not.i18.i.i, label %aptx_quantize_difference.exit.i.i, label %174, !llvm.loop !65
 
 aptx_quantize_difference.exit.i.i:                ; preds = %174, %.aptx_bin_search.exit_crit_edge.i.i.i
   %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %.aptx_bin_search.exit_crit_edge.i.i.i ], [ %171, %174 ]
@@ -397,7 +396,7 @@ aptx_quantize_difference.exit.i.i:                ; preds = %174, %.aptx_bin_sea
   %191 = add nsw i32 %.0.i.i52.i.i.i, -8388608
   %192 = sext i32 %191 to i64
   %193 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  %194 = load ptr, ptr %193, align 16, !tbaa !67
+  %194 = load ptr, ptr %193, align 16, !tbaa !66
   %195 = sext i32 %.010.i.lcssa.i.i.i to i64
   %196 = getelementptr inbounds i32, ptr %194, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !45
@@ -451,51 +450,51 @@ aptx_quantize_difference.exit.i.i:                ; preds = %174, %.aptx_bin_sea
   %spec.select.i.i.i = tail call i64 @llvm.abs.i64(i64 %238, i1 true)
   %239 = trunc nuw i64 %spec.select.i.i.i to i32
   %240 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  store i32 %239, ptr %240, align 4, !tbaa !68
+  store i32 %239, ptr %240, align 4, !tbaa !67
   %241 = icmp slt i64 %233, 0
   %242 = add nsw i32 %.010.i.lcssa.i.i.i, -1
   %..i.i.i = select i1 %241, i32 %.010.i.lcssa.i.i.i, i32 %242
   %.44.i.i.i = select i1 %241, i32 %242, i32 %.010.i.lcssa.i.i.i
   %243 = xor i32 %.44.i.i.i, %.lobit.neg.i.i.i
-  store i32 %243, ptr %157, align 4, !tbaa !61
+  store i32 %243, ptr %157, align 4, !tbaa !60
   %244 = xor i32 %..i.i.i, %.lobit.neg.i.i.i
   %245 = getelementptr inbounds nuw i8, ptr %157, i64 4
-  store i32 %244, ptr %245, align 4, !tbaa !69
+  store i32 %244, ptr %245, align 4, !tbaa !68
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %aptx_encode_channel.exit.i, label %150, !llvm.loop !70
+  br i1 %exitcond.not.i.i, label %aptx_encode_channel.exit.i, label %150, !llvm.loop !69
 
 aptx_encode_channel.exit.i:                       ; preds = %aptx_quantize_difference.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
-  br i1 %47, label %46, label %246, !llvm.loop !71
+  br i1 %47, label %46, label %246, !llvm.loop !70
 
 246:                                              ; preds = %aptx_encode_channel.exit.i
-  %247 = load i32, ptr %26, align 4, !tbaa !72
+  %247 = load i32, ptr %26, align 4, !tbaa !71
   br label %248
 
 248:                                              ; preds = %248, %246
   %indvars.iv.i.i.i.i = phi i64 [ 0, %246 ], [ %indvars.iv.next.i.i.i.i, %248 ]
   %.067.i.i.i.i = phi i32 [ %247, %246 ], [ %251, %248 ]
   %249 = getelementptr inbounds nuw [4 x %struct.Quantize], ptr %27, i64 0, i64 %indvars.iv.i.i.i.i
-  %250 = load i32, ptr %249, align 4, !tbaa !61
+  %250 = load i32, ptr %249, align 4, !tbaa !60
   %251 = xor i32 %250, %.067.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i, label %aptx_quantized_parity.exit.i.i.i, label %248, !llvm.loop !75
+  br i1 %exitcond.not.i.i.i.i, label %aptx_quantized_parity.exit.i.i.i, label %248, !llvm.loop !74
 
 aptx_quantized_parity.exit.i.i.i:                 ; preds = %248
-  %252 = load i32, ptr %28, align 4, !tbaa !72
+  %252 = load i32, ptr %28, align 4, !tbaa !71
   br label %253
 
 253:                                              ; preds = %253, %aptx_quantized_parity.exit.i.i.i
   %indvars.iv.i6.i.i.i = phi i64 [ 0, %aptx_quantized_parity.exit.i.i.i ], [ %indvars.iv.next.i8.i.i.i, %253 ]
   %.067.i7.i.i.i = phi i32 [ %252, %aptx_quantized_parity.exit.i.i.i ], [ %256, %253 ]
   %254 = getelementptr inbounds nuw [4 x %struct.Quantize], ptr %29, i64 0, i64 %indvars.iv.i6.i.i.i
-  %255 = load i32, ptr %254, align 4, !tbaa !61
+  %255 = load i32, ptr %254, align 4, !tbaa !60
   %256 = xor i32 %255, %.067.i7.i.i.i
   %indvars.iv.next.i8.i.i.i = add nuw nsw i64 %indvars.iv.i6.i.i.i, 1
   %exitcond.not.i9.i.i.i = icmp eq i64 %indvars.iv.next.i8.i.i.i, 4
-  br i1 %exitcond.not.i9.i.i.i, label %aptx_check_parity.exit.i.i, label %253, !llvm.loop !75
+  br i1 %exitcond.not.i9.i.i.i, label %aptx_check_parity.exit.i.i, label %253, !llvm.loop !74
 
 aptx_check_parity.exit.i.i:                       ; preds = %253
   %257 = sext i32 %.03749 to i64
@@ -510,169 +509,170 @@ aptx_check_parity.exit.i.i:                       ; preds = %253
   %.not.i.i = xor i1 %264, %263
   br i1 %.not.i.i, label %aptx_insert_sync.exit.i.preheader, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %aptx_check_parity.exit.i.i, %275
-  %.022.i.i = phi ptr [ %spec.select.i.i, %275 ], [ %31, %aptx_check_parity.exit.i.i ]
-  %.01521.i.idx.i = phi i64 [ %.01521.i.add.i, %275 ], [ 2204, %aptx_check_parity.exit.i.i ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.01521.i.idx.i
-  br label %265
+.preheader.i.i:                                   ; preds = %aptx_check_parity.exit.i.i, %276
+  %.022.i.i = phi ptr [ %spec.select.i.i, %276 ], [ %31, %aptx_check_parity.exit.i.i ]
+  %.01521.i.idx.i = phi i64 [ %.01521.i.add.i, %276 ], [ 2204, %aptx_check_parity.exit.i.i ]
+  %.01521.i.ptr.i = getelementptr inbounds i8, ptr %9, i64 %.01521.i.idx.i
+  %265 = getelementptr inbounds nuw i8, ptr %.01521.i.ptr.i, i64 816
+  br label %266
 
-265:                                              ; preds = %265, %.preheader.i.i
-  %indvars.iv.i30.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i31.i, %265 ]
-  %.120.i.i = phi ptr [ %.022.i.i, %.preheader.i.i ], [ %spec.select.i.i, %265 ]
-  %266 = getelementptr inbounds nuw [4 x i32], ptr @aptx_insert_sync.map, i64 0, i64 %indvars.iv.i30.i
-  %267 = load i32, ptr %266, align 4, !tbaa !45
-  %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds [4 x %struct.Quantize], ptr %gep.i, i64 0, i64 %268
-  %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
-  %271 = load i32, ptr %270, align 4, !tbaa !68
-  %272 = getelementptr inbounds nuw i8, ptr %.120.i.i, i64 8
-  %273 = load i32, ptr %272, align 4, !tbaa !68
-  %274 = icmp slt i32 %271, %273
-  %spec.select.i.i = select i1 %274, ptr %269, ptr %.120.i.i
+266:                                              ; preds = %266, %.preheader.i.i
+  %indvars.iv.i30.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i31.i, %266 ]
+  %.120.i.i = phi ptr [ %.022.i.i, %.preheader.i.i ], [ %spec.select.i.i, %266 ]
+  %267 = getelementptr inbounds nuw [4 x i32], ptr @aptx_insert_sync.map, i64 0, i64 %indvars.iv.i30.i
+  %268 = load i32, ptr %267, align 4, !tbaa !45
+  %269 = sext i32 %268 to i64
+  %270 = getelementptr inbounds [4 x %struct.Quantize], ptr %265, i64 0, i64 %269
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
+  %272 = load i32, ptr %271, align 4, !tbaa !67
+  %273 = getelementptr inbounds nuw i8, ptr %.120.i.i, i64 8
+  %274 = load i32, ptr %273, align 4, !tbaa !67
+  %275 = icmp slt i32 %272, %274
+  %spec.select.i.i = select i1 %275, ptr %270, ptr %.120.i.i
   %indvars.iv.next.i31.i = add nuw nsw i64 %indvars.iv.i30.i, 1
   %exitcond.not.i32.i = icmp eq i64 %indvars.iv.next.i31.i, 4
-  br i1 %exitcond.not.i32.i, label %275, label %265, !llvm.loop !76
+  br i1 %exitcond.not.i32.i, label %276, label %266, !llvm.loop !75
 
-275:                                              ; preds = %265
+276:                                              ; preds = %266
   %.01521.i.add.i = add nsw i64 %.01521.i.idx.i, -2192
   %.not17.i.i = icmp samesign ult i64 %.01521.i.idx.i, 2204
-  br i1 %.not17.i.i, label %276, label %.preheader.i.i, !llvm.loop !77
+  br i1 %.not17.i.i, label %277, label %.preheader.i.i, !llvm.loop !76
 
-276:                                              ; preds = %275
-  %277 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
-  %278 = load i32, ptr %277, align 4, !tbaa !69
-  store i32 %278, ptr %spec.select.i.i, align 4, !tbaa !61
+277:                                              ; preds = %276
+  %278 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
+  %279 = load i32, ptr %278, align 4, !tbaa !68
+  store i32 %279, ptr %spec.select.i.i, align 4, !tbaa !60
   br label %aptx_insert_sync.exit.i.preheader
 
-aptx_insert_sync.exit.i.preheader:                ; preds = %276, %aptx_check_parity.exit.i.i
+aptx_insert_sync.exit.i.preheader:                ; preds = %277, %aptx_check_parity.exit.i.i
   br label %aptx_insert_sync.exit.i
 
-aptx_insert_sync.exit.i:                          ; preds = %aptx_insert_sync.exit.i.preheader, %352
-  %279 = phi i1 [ false, %352 ], [ true, %aptx_insert_sync.exit.i.preheader ]
-  %indvars.iv64.i = phi i64 [ 1, %352 ], [ 0, %aptx_insert_sync.exit.i.preheader ]
-  %280 = getelementptr inbounds nuw [2 x %struct.Channel], ptr %25, i64 0, i64 %indvars.iv64.i
-  %281 = load i32, ptr %9, align 4, !tbaa !52
-  tail call void @ff_aptx_invert_quantize_and_prediction(ptr noundef nonnull %280, i32 noundef %281) #5
-  %282 = load i32, ptr %9, align 4, !tbaa !52
-  %.not.i = icmp eq i32 %282, 0
-  br i1 %.not.i, label %321, label %aptxhd_pack_codeword.exit.i
+aptx_insert_sync.exit.i:                          ; preds = %aptx_insert_sync.exit.i.preheader, %353
+  %280 = phi i1 [ false, %353 ], [ true, %aptx_insert_sync.exit.i.preheader ]
+  %indvars.iv64.i = phi i64 [ 1, %353 ], [ 0, %aptx_insert_sync.exit.i.preheader ]
+  %281 = getelementptr inbounds nuw [2 x %struct.Channel], ptr %25, i64 0, i64 %indvars.iv64.i
+  %282 = load i32, ptr %9, align 4, !tbaa !51
+  tail call void @ff_aptx_invert_quantize_and_prediction(ptr noundef nonnull %281, i32 noundef %282) #5
+  %283 = load i32, ptr %9, align 4, !tbaa !51
+  %.not.i = icmp eq i32 %283, 0
+  br i1 %.not.i, label %322, label %aptxhd_pack_codeword.exit.i
 
 aptxhd_pack_codeword.exit.i:                      ; preds = %aptx_insert_sync.exit.i
-  %283 = getelementptr inbounds nuw i8, ptr %280, i64 816
-  %284 = load i32, ptr %283, align 4, !tbaa !61
-  %285 = trunc i32 %284 to i8
-  %286 = mul nuw nsw i64 %indvars.iv64.i, 3
-  %287 = getelementptr inbounds nuw i8, ptr %258, i64 %286
-  %288 = getelementptr inbounds nuw i8, ptr %287, i64 2
-  store i8 %285, ptr %288, align 1, !tbaa !44
-  %289 = getelementptr inbounds nuw i8, ptr %280, i64 4
-  %290 = getelementptr inbounds nuw i8, ptr %280, i64 840
-  %291 = getelementptr inbounds nuw i8, ptr %280, i64 828
-  %292 = load i32, ptr %290, align 4, !tbaa !61
-  %293 = shl i32 %292, 15
-  %294 = load i32, ptr %291, align 4, !tbaa !61
-  %295 = shl i32 %294, 9
-  %296 = and i32 %295, 32256
-  %297 = or disjoint i32 %296, %293
-  %298 = load i32, ptr %283, align 4, !tbaa !61
-  %299 = and i32 %298, 256
-  %300 = or disjoint i32 %297, %299
-  %301 = lshr exact i32 %300, 8
-  %302 = trunc i32 %301 to i8
-  %303 = getelementptr inbounds nuw i8, ptr %287, i64 1
-  store i8 %302, ptr %303, align 1, !tbaa !44
-  %304 = load i32, ptr %289, align 4, !tbaa !72
-  br label %305
+  %284 = getelementptr inbounds nuw i8, ptr %281, i64 816
+  %285 = load i32, ptr %284, align 4, !tbaa !60
+  %286 = trunc i32 %285 to i8
+  %287 = mul nuw nsw i64 %indvars.iv64.i, 3
+  %288 = getelementptr inbounds nuw i8, ptr %258, i64 %287
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 2
+  store i8 %286, ptr %289, align 1, !tbaa !44
+  %290 = getelementptr inbounds nuw i8, ptr %281, i64 4
+  %291 = getelementptr inbounds nuw i8, ptr %281, i64 840
+  %292 = getelementptr inbounds nuw i8, ptr %281, i64 828
+  %293 = load i32, ptr %291, align 4, !tbaa !60
+  %294 = shl i32 %293, 15
+  %295 = load i32, ptr %292, align 4, !tbaa !60
+  %296 = shl i32 %295, 9
+  %297 = and i32 %296, 32256
+  %298 = or disjoint i32 %297, %294
+  %299 = load i32, ptr %284, align 4, !tbaa !60
+  %300 = and i32 %299, 256
+  %301 = or disjoint i32 %298, %300
+  %302 = lshr exact i32 %301, 8
+  %303 = trunc i32 %302 to i8
+  %304 = getelementptr inbounds nuw i8, ptr %288, i64 1
+  store i8 %303, ptr %304, align 1, !tbaa !44
+  %305 = load i32, ptr %290, align 4, !tbaa !71
+  br label %306
 
-305:                                              ; preds = %305, %aptxhd_pack_codeword.exit.i
-  %indvars.iv.i.i41.i = phi i64 [ 0, %aptxhd_pack_codeword.exit.i ], [ %indvars.iv.next.i.i43.i, %305 ]
-  %.067.i.i42.i = phi i32 [ %304, %aptxhd_pack_codeword.exit.i ], [ %308, %305 ]
-  %306 = getelementptr inbounds nuw [4 x %struct.Quantize], ptr %283, i64 0, i64 %indvars.iv.i.i41.i
-  %307 = load i32, ptr %306, align 4, !tbaa !61
-  %308 = xor i32 %307, %.067.i.i42.i
+306:                                              ; preds = %306, %aptxhd_pack_codeword.exit.i
+  %indvars.iv.i.i41.i = phi i64 [ 0, %aptxhd_pack_codeword.exit.i ], [ %indvars.iv.next.i.i43.i, %306 ]
+  %.067.i.i42.i = phi i32 [ %305, %aptxhd_pack_codeword.exit.i ], [ %309, %306 ]
+  %307 = getelementptr inbounds nuw [4 x %struct.Quantize], ptr %284, i64 0, i64 %indvars.iv.i.i41.i
+  %308 = load i32, ptr %307, align 4, !tbaa !60
+  %309 = xor i32 %308, %.067.i.i42.i
   %indvars.iv.next.i.i43.i = add nuw nsw i64 %indvars.iv.i.i41.i, 1
   %exitcond.not.i.i44.i = icmp eq i64 %indvars.iv.next.i.i43.i, 4
-  br i1 %exitcond.not.i.i44.i, label %aptxhd_pack_codeword.exit45.i, label %305, !llvm.loop !75
+  br i1 %exitcond.not.i.i44.i, label %aptxhd_pack_codeword.exit45.i, label %306, !llvm.loop !74
 
-aptxhd_pack_codeword.exit45.i:                    ; preds = %305
-  %309 = getelementptr inbounds nuw i8, ptr %280, i64 852
-  %310 = and i32 %308, 1
-  %311 = load i32, ptr %309, align 4, !tbaa !61
-  %312 = and i32 %311, 30
-  %313 = or disjoint i32 %312, %310
-  %314 = shl nuw nsw i32 %313, 19
-  %315 = load i32, ptr %290, align 4, !tbaa !61
-  %316 = shl i32 %315, 15
-  %317 = and i32 %316, 458752
-  %318 = or disjoint i32 %314, %317
-  %319 = lshr exact i32 %318, 16
-  %320 = trunc nuw i32 %319 to i8
-  store i8 %320, ptr %287, align 1, !tbaa !44
-  br label %352
+aptxhd_pack_codeword.exit45.i:                    ; preds = %306
+  %310 = getelementptr inbounds nuw i8, ptr %281, i64 852
+  %311 = and i32 %309, 1
+  %312 = load i32, ptr %310, align 4, !tbaa !60
+  %313 = and i32 %312, 30
+  %314 = or disjoint i32 %313, %311
+  %315 = shl nuw nsw i32 %314, 19
+  %316 = load i32, ptr %291, align 4, !tbaa !60
+  %317 = shl i32 %316, 15
+  %318 = and i32 %317, 458752
+  %319 = or disjoint i32 %315, %318
+  %320 = lshr exact i32 %319, 16
+  %321 = trunc nuw i32 %320 to i8
+  store i8 %321, ptr %288, align 1, !tbaa !44
+  br label %353
 
-321:                                              ; preds = %aptx_insert_sync.exit.i
-  %322 = getelementptr inbounds nuw i8, ptr %280, i64 4
-  %323 = load i32, ptr %322, align 4, !tbaa !72
-  %324 = getelementptr inbounds nuw i8, ptr %280, i64 816
-  br label %325
+322:                                              ; preds = %aptx_insert_sync.exit.i
+  %323 = getelementptr inbounds nuw i8, ptr %281, i64 4
+  %324 = load i32, ptr %323, align 4, !tbaa !71
+  %325 = getelementptr inbounds nuw i8, ptr %281, i64 816
+  br label %326
 
-325:                                              ; preds = %325, %321
-  %indvars.iv.i.i46.i = phi i64 [ 0, %321 ], [ %indvars.iv.next.i.i48.i, %325 ]
-  %.067.i.i47.i = phi i32 [ %323, %321 ], [ %328, %325 ]
-  %326 = getelementptr inbounds nuw [4 x %struct.Quantize], ptr %324, i64 0, i64 %indvars.iv.i.i46.i
-  %327 = load i32, ptr %326, align 4, !tbaa !61
-  %328 = xor i32 %327, %.067.i.i47.i
+326:                                              ; preds = %326, %322
+  %indvars.iv.i.i46.i = phi i64 [ 0, %322 ], [ %indvars.iv.next.i.i48.i, %326 ]
+  %.067.i.i47.i = phi i32 [ %324, %322 ], [ %329, %326 ]
+  %327 = getelementptr inbounds nuw [4 x %struct.Quantize], ptr %325, i64 0, i64 %indvars.iv.i.i46.i
+  %328 = load i32, ptr %327, align 4, !tbaa !60
+  %329 = xor i32 %328, %.067.i.i47.i
   %indvars.iv.next.i.i48.i = add nuw nsw i64 %indvars.iv.i.i46.i, 1
   %exitcond.not.i.i49.i = icmp eq i64 %indvars.iv.next.i.i48.i, 4
-  br i1 %exitcond.not.i.i49.i, label %aptx_pack_codeword.exit.i, label %325, !llvm.loop !75
+  br i1 %exitcond.not.i.i49.i, label %aptx_pack_codeword.exit.i, label %326, !llvm.loop !74
 
-aptx_pack_codeword.exit.i:                        ; preds = %325
-  %329 = and i32 %328, 1
-  %330 = getelementptr inbounds nuw i8, ptr %280, i64 852
-  %331 = load i32, ptr %330, align 4, !tbaa !61
-  %332 = and i32 %331, 6
-  %333 = or disjoint i32 %332, %329
-  %334 = shl nuw nsw i32 %333, 13
-  %335 = getelementptr inbounds nuw i8, ptr %280, i64 840
-  %336 = load i32, ptr %335, align 4, !tbaa !61
-  %337 = shl i32 %336, 11
-  %338 = and i32 %337, 6144
-  %339 = or disjoint i32 %334, %338
-  %340 = getelementptr inbounds nuw i8, ptr %280, i64 828
-  %341 = load i32, ptr %340, align 4, !tbaa !61
-  %342 = shl i32 %341, 7
-  %343 = and i32 %342, 1920
-  %344 = or disjoint i32 %339, %343
-  %345 = load i32, ptr %324, align 4, !tbaa !61
-  %346 = and i32 %345, 127
-  %347 = or disjoint i32 %344, %346
-  %348 = trunc nuw i32 %347 to i16
-  %349 = tail call i16 @llvm.bswap.i16(i16 %348)
-  %350 = shl nuw nsw i64 %indvars.iv64.i, 1
-  %351 = getelementptr inbounds nuw i8, ptr %258, i64 %350
-  store i16 %349, ptr %351, align 1, !tbaa !44
-  br label %352
+aptx_pack_codeword.exit.i:                        ; preds = %326
+  %330 = and i32 %329, 1
+  %331 = getelementptr inbounds nuw i8, ptr %281, i64 852
+  %332 = load i32, ptr %331, align 4, !tbaa !60
+  %333 = and i32 %332, 6
+  %334 = or disjoint i32 %333, %330
+  %335 = shl nuw nsw i32 %334, 13
+  %336 = getelementptr inbounds nuw i8, ptr %281, i64 840
+  %337 = load i32, ptr %336, align 4, !tbaa !60
+  %338 = shl i32 %337, 11
+  %339 = and i32 %338, 6144
+  %340 = or disjoint i32 %335, %339
+  %341 = getelementptr inbounds nuw i8, ptr %281, i64 828
+  %342 = load i32, ptr %341, align 4, !tbaa !60
+  %343 = shl i32 %342, 7
+  %344 = and i32 %343, 1920
+  %345 = or disjoint i32 %340, %344
+  %346 = load i32, ptr %325, align 4, !tbaa !60
+  %347 = and i32 %346, 127
+  %348 = or disjoint i32 %345, %347
+  %349 = trunc nuw i32 %348 to i16
+  %350 = tail call i16 @llvm.bswap.i16(i16 %349)
+  %351 = shl nuw nsw i64 %indvars.iv64.i, 1
+  %352 = getelementptr inbounds nuw i8, ptr %258, i64 %351
+  store i16 %350, ptr %352, align 1, !tbaa !44
+  br label %353
 
-352:                                              ; preds = %aptx_pack_codeword.exit.i, %aptxhd_pack_codeword.exit45.i
-  br i1 %279, label %aptx_insert_sync.exit.i, label %aptx_encode_samples.exit, !llvm.loop !78
+353:                                              ; preds = %aptx_pack_codeword.exit.i, %aptxhd_pack_codeword.exit45.i
+  br i1 %280, label %aptx_insert_sync.exit.i, label %aptx_encode_samples.exit, !llvm.loop !77
 
-aptx_encode_samples.exit:                         ; preds = %352
+aptx_encode_samples.exit:                         ; preds = %353
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #5
-  %353 = load i32, ptr %14, align 4, !tbaa !36
-  %354 = add nsw i32 %353, %.03749
+  %354 = load i32, ptr %14, align 4, !tbaa !36
+  %355 = add nsw i32 %354, %.03749
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 4
-  %355 = icmp slt i32 %354, %19
-  br i1 %355, label %32, label %._crit_edge, !llvm.loop !79
+  %356 = icmp slt i32 %355, %19
+  br i1 %356, label %32, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %aptx_encode_samples.exit, %.preheader41
-  %356 = load i32, ptr %16, align 8, !tbaa !38
-  %357 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %358 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void @ff_af_queue_remove(ptr noundef nonnull %10, i32 noundef %356, ptr noundef nonnull %357, ptr noundef nonnull %358) #5
+  %357 = load i32, ptr %16, align 8, !tbaa !38
+  %358 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %359 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  tail call void @ff_af_queue_remove(ptr noundef nonnull %10, i32 noundef %357, ptr noundef nonnull %358, ptr noundef nonnull %359) #5
   store i32 1, ptr %3, align 4, !tbaa !45
-  br label %359
+  br label %360
 
-359:                                              ; preds = %13, %4, %._crit_edge
+360:                                              ; preds = %13, %4, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ %11, %4 ], [ %21, %13 ]
   ret i32 %.0
 }
@@ -781,37 +781,36 @@ attributes #5 = { nounwind }
 !43 = !{!14, !14, i64 0}
 !44 = !{!8, !8, i64 0}
 !45 = !{!10, !10, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !47, !48}
-!50 = !{!51, !14, i64 24}
-!51 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!52 = !{!37, !10, i64 0}
-!53 = !{!54, !10, i64 0}
-!54 = !{!"", !10, i64 0, !8, i64 4}
-!55 = distinct !{!55, !47, !48}
-!56 = distinct !{!56, !47, !48}
-!57 = distinct !{!57, !47, !48}
-!58 = distinct !{!58, !47, !48}
-!59 = !{!60, !10, i64 316}
-!60 = !{!"", !8, i64 0, !8, i64 8, !8, i64 16, !10, i64 112, !8, i64 116, !10, i64 308, !10, i64 312, !10, i64 316}
-!61 = !{!62, !10, i64 0}
-!62 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8}
-!63 = !{!64, !24, i64 0}
-!64 = !{!"", !24, i64 0, !24, i64 8, !24, i64 16, !17, i64 24, !10, i64 32, !10, i64 36, !10, i64 40}
-!65 = !{!64, !10, i64 32}
-!66 = distinct !{!66, !47, !48}
-!67 = !{!64, !24, i64 16}
-!68 = !{!62, !10, i64 8}
-!69 = !{!62, !10, i64 4}
-!70 = distinct !{!70, !47, !48}
-!71 = distinct !{!71, !47, !48}
-!72 = !{!73, !10, i64 4}
-!73 = !{!"", !10, i64 0, !10, i64 4, !8, i64 8, !74, i64 24, !8, i64 816, !8, i64 864, !8, i64 912}
-!74 = !{!"", !8, i64 0, !8, i64 264}
-!75 = distinct !{!75, !47, !48}
-!76 = distinct !{!76, !47, !48}
-!77 = distinct !{!77, !47, !48}
-!78 = distinct !{!78, !47, !48}
-!79 = distinct !{!79, !47, !48}
+!48 = distinct !{!48, !47}
+!49 = !{!50, !14, i64 24}
+!50 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
+!51 = !{!37, !10, i64 0}
+!52 = !{!53, !10, i64 0}
+!53 = !{!"", !10, i64 0, !8, i64 4}
+!54 = distinct !{!54, !47}
+!55 = distinct !{!55, !47}
+!56 = distinct !{!56, !47}
+!57 = distinct !{!57, !47}
+!58 = !{!59, !10, i64 316}
+!59 = !{!"", !8, i64 0, !8, i64 8, !8, i64 16, !10, i64 112, !8, i64 116, !10, i64 308, !10, i64 312, !10, i64 316}
+!60 = !{!61, !10, i64 0}
+!61 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8}
+!62 = !{!63, !24, i64 0}
+!63 = !{!"", !24, i64 0, !24, i64 8, !24, i64 16, !17, i64 24, !10, i64 32, !10, i64 36, !10, i64 40}
+!64 = !{!63, !10, i64 32}
+!65 = distinct !{!65, !47}
+!66 = !{!63, !24, i64 16}
+!67 = !{!61, !10, i64 8}
+!68 = !{!61, !10, i64 4}
+!69 = distinct !{!69, !47}
+!70 = distinct !{!70, !47}
+!71 = !{!72, !10, i64 4}
+!72 = !{!"", !10, i64 0, !10, i64 4, !8, i64 8, !73, i64 24, !8, i64 816, !8, i64 864, !8, i64 912}
+!73 = !{!"", !8, i64 0, !8, i64 264}
+!74 = distinct !{!74, !47}
+!75 = distinct !{!75, !47}
+!76 = distinct !{!76, !47}
+!77 = distinct !{!77, !47}
+!78 = distinct !{!78, !47}

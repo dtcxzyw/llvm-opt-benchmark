@@ -681,7 +681,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %360 = getelementptr i8, ptr %.1640691, i64 256
   %361 = getelementptr i8, ptr %.1638692, i64 256
   %362 = icmp ugt i64 %359, 255
-  br i1 %362, label %67, label %.loopexit, !llvm.loop !7
+  br i1 %362, label %67, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %232, %4
   %.0642 = phi i64 [ %3, %4 ], [ %359, %232 ]
@@ -755,7 +755,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %413 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %411, <4 x i32> %411, <4 x i32> splat (i32 7))
   %414 = add nuw nsw i32 %.0649697, 2
   %415 = icmp samesign ult i32 %.0649697, 18
-  br i1 %415, label %373, label %416, !llvm.loop !8
+  br i1 %415, label %373, label %416, !llvm.loop !7
 
 416:                                              ; preds = %373
   %417 = add <4 x i32> %403, %369
@@ -797,7 +797,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %446 = getelementptr i8, ptr %.2641699, i64 64
   %447 = getelementptr i8, ptr %.2700, i64 64
   %448 = icmp ugt i64 %445, 63
-  br i1 %448, label %368, label %._crit_edge, !llvm.loop !9
+  br i1 %448, label %368, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %416, %.loopexit
   %.2644.lcssa = phi i64 [ %.0642, %.loopexit ], [ %445, %416 ]
@@ -865,7 +865,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %497 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %495, <4 x i32> %495, <4 x i32> splat (i32 7))
   %498 = add nuw nsw i32 %.0707, 2
   %499 = icmp samesign ult i32 %.0707, 18
-  br i1 %499, label %457, label %500, !llvm.loop !10
+  br i1 %499, label %457, label %500, !llvm.loop !9
 
 500:                                              ; preds = %457
   %501 = add <4 x i32> %487, %450
@@ -893,7 +893,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   store i8 %514, ptr %515, align 1
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.2644.lcssa
-  br i1 %exitcond.not, label %516, label %509, !llvm.loop !11
+  br i1 %exitcond.not, label %516, label %509, !llvm.loop !10
 
 516:                                              ; preds = %509
   call void @sodium_memzero(ptr noundef nonnull %5, i64 noundef 64) #6
@@ -929,11 +929,10 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

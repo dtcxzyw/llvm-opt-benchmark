@@ -1662,6 +1662,5 @@ attributes #20 = { nounwind willreturn memory(read) }
 !63 = !{!64, !65, i64 0}
 !64 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !65, i64 0, !65, i64 8, !65, i64 16}
 !65 = !{!"p1 double", !7, i64 0}
-!66 = distinct !{!66, !67, !68}
+!66 = distinct !{!66, !67}
 !67 = !{!"llvm.loop.mustprogress"}
-!68 = !{!"llvm.loop.estimated_trip_count"}

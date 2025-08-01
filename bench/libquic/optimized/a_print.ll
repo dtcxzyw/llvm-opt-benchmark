@@ -83,19 +83,19 @@ switch.early.test:                                ; preds = %10
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @ASN1_UNIVERSALSTRING_to_string(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !12
+  %3 = load i32, ptr %2, align 4, !tbaa !11
   %.not = icmp eq i32 %3, 28
   br i1 %.not, label %4, label %.thread
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr %0, align 8, !tbaa !18
+  %5 = load i32, ptr %0, align 8, !tbaa !17
   %6 = and i32 %5, 3
   %.not27 = icmp eq i32 %6, 0
   br i1 %.not27, label %7, label %.thread
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = icmp sgt i32 %5, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -126,29 +126,29 @@ define hidden range(i32 0, 2) i32 @ASN1_UNIVERSALSTRING_to_string(ptr noundef ca
   %20 = getelementptr inbounds nuw i8, ptr %.032, i64 4
   %21 = add nuw nsw i32 %.02431, 4
   %22 = icmp slt i32 %21, %5
-  br i1 %22, label %.lr.ph, label %.preheader, !llvm.loop !20
+  br i1 %22, label %.lr.ph, label %.preheader, !llvm.loop !19
 
 .lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph35 ], [ 3, %.preheader ]
   %.134 = phi ptr [ %26, %.lr.ph35 ], [ %9, %.preheader ]
-  %23 = load ptr, ptr %8, align 8, !tbaa !19
+  %23 = load ptr, ptr %8, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1, !tbaa !6
   %26 = getelementptr inbounds nuw i8, ptr %.134, i64 1
   store i8 %25, ptr %.134, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %27 = load i32, ptr %0, align 8, !tbaa !18
+  %27 = load i32, ptr %0, align 8, !tbaa !17
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph35, label %._crit_edge, !llvm.loop !21
+  br i1 %29, label %.lr.ph35, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph35, %7, %.preheader
   %.1.lcssa = phi ptr [ %9, %.preheader ], [ %9, %7 ], [ %26, %.lr.ph35 ]
   store i8 0, ptr %.1.lcssa, align 1, !tbaa !6
-  %30 = load i32, ptr %0, align 8, !tbaa !18
+  %30 = load i32, ptr %0, align 8, !tbaa !17
   %31 = sdiv i32 %30, 4
-  store i32 %31, ptr %0, align 8, !tbaa !18
-  %32 = load ptr, ptr %8, align 8, !tbaa !19
+  store i32 %31, ptr %0, align 8, !tbaa !17
+  %32 = load ptr, ptr %8, align 8, !tbaa !18
   %33 = icmp eq ptr %32, null
   br i1 %33, label %ASN1_PRINTABLE_type.exit, label %.preheader.i
 
@@ -221,7 +221,7 @@ switch.early.test.i:                              ; preds = %40
 
 ASN1_PRINTABLE_type.exit:                         ; preds = %._crit_edge, %.preheader.i, %.critedge.i
   %.060.i = phi i32 [ 19, %._crit_edge ], [ 19, %.preheader.i ], [ %spec.select88.i, %.critedge.i ]
-  store i32 %.060.i, ptr %2, align 4, !tbaa !12
+  store i32 %.060.i, ptr %2, align 4, !tbaa !11
   br label %.thread
 
 .thread:                                          ; preds = %16, %13, %.lr.ph, %4, %1, %ASN1_PRINTABLE_type.exit
@@ -243,16 +243,15 @@ attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !6 = !{!7, !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !14, i64 4}
-!13 = !{!"asn1_string_st", !14, i64 0, !14, i64 4, !15, i64 8, !17, i64 16}
-!14 = !{!"int", !7, i64 0}
-!15 = !{!"p1 omnipotent char", !16, i64 0}
-!16 = !{!"any pointer", !7, i64 0}
-!17 = !{!"long", !7, i64 0}
-!18 = !{!13, !14, i64 0}
-!19 = !{!13, !15, i64 8}
-!20 = distinct !{!20, !10, !11}
-!21 = distinct !{!21, !10, !11}
+!11 = !{!12, !13, i64 4}
+!12 = !{!"asn1_string_st", !13, i64 0, !13, i64 4, !14, i64 8, !16, i64 16}
+!13 = !{!"int", !7, i64 0}
+!14 = !{!"p1 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !7, i64 0}
+!16 = !{!"long", !7, i64 0}
+!17 = !{!12, !13, i64 0}
+!18 = !{!12, !14, i64 8}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !10}

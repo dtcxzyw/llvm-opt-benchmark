@@ -294,13 +294,13 @@ define internal noundef nonnull ptr @test_critical_sections_gc(ptr readnone capt
   %3 = alloca %struct.test_data_gc, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #4
   %4 = tail call ptr @PyDict_New() #4
-  store ptr %4, ptr %3, align 8, !tbaa !29
+  store ptr %4, ptr %3, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 3, ptr %5, align 8, !tbaa !31
+  store i64 3, ptr %5, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %6, align 8, !tbaa !32
+  store i64 0, ptr %6, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 3, ptr %7, align 8, !tbaa !33
+  store i64 3, ptr %7, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.not = icmp eq ptr %4, null
   store i64 0, ptr %8, align 8
@@ -312,7 +312,7 @@ define internal noundef nonnull ptr @test_critical_sections_gc(ptr readnone capt
 
 10:                                               ; preds = %.preheader
   call void @PyEvent_Wait(ptr noundef nonnull %8) #4
-  %11 = load ptr, ptr %3, align 8, !tbaa !29
+  %11 = load ptr, ptr %3, align 8, !tbaa !28
   %12 = load i32, ptr %11, align 8, !tbaa !19
   %.not.i = icmp sgt i32 %12, -1
   br i1 %.not.i, label %13, label %Py_DECREF.exit
@@ -336,7 +336,7 @@ Py_DECREF.exit:                                   ; preds = %10, %13, %16
   %17 = call i64 @PyThread_start_new_thread(ptr noundef nonnull @thread_gc, ptr noundef nonnull %3) #4
   %18 = add nuw nsw i64 %.02, 1
   %exitcond.not = icmp eq i64 %18, 3
-  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !34
+  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -378,7 +378,7 @@ define internal void @thread_critical_sections(ptr noundef %0) #0 {
   tail call void @PyEval_RestoreThread(ptr noundef %8) #4
   %9 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %9, 200
-  br i1 %exitcond.not, label %3, label %7, !llvm.loop !35
+  br i1 %exitcond.not, label %3, label %7, !llvm.loop !34
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -403,7 +403,7 @@ define internal void @thread_gc(ptr noundef %0) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = atomicrmw add ptr %3, i64 1 seq_cst, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !31
+  %6 = load i64, ptr %5, align 8, !tbaa !30
   %7 = add i64 %6, -1
   %8 = icmp eq i64 %4, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -494,13 +494,12 @@ attributes #5 = { noreturn nounwind }
 !23 = !{!21, !14, i64 8}
 !24 = !{!21, !14, i64 16}
 !25 = !{!21, !10, i64 24}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!30, !14, i64 0}
-!30 = !{!"test_data_gc", !14, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !22, i64 32, !22, i64 33}
-!31 = !{!30, !10, i64 8}
-!32 = !{!30, !10, i64 16}
-!33 = !{!30, !10, i64 24}
-!34 = distinct !{!34, !27, !28}
-!35 = distinct !{!35, !27, !28}
+!28 = !{!29, !14, i64 0}
+!29 = !{!"test_data_gc", !14, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !22, i64 32, !22, i64 33}
+!30 = !{!29, !10, i64 8}
+!31 = !{!29, !10, i64 16}
+!32 = !{!29, !10, i64 24}
+!33 = distinct !{!33, !27}
+!34 = distinct !{!34, !27}

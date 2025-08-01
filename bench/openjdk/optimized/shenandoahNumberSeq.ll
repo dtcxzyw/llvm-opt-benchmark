@@ -64,7 +64,7 @@ define hidden void @_ZN6HdrSeqD2Ev(ptr noundef nonnull align 8 captures(none) de
 8:                                                ; preds = %3, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %9, label %3, !llvm.loop !9
+  br i1 %exitcond.not, label %9, label %3, !llvm.loop !8
 
 9:                                                ; preds = %8
   %10 = load ptr, ptr %2, align 8
@@ -98,7 +98,7 @@ define hidden void @_ZN6HdrSeq3addEd(ptr noundef nonnull align 8 dereferenceable
   %7 = add nuw nsw i32 %.03039, 1
   %8 = fdiv double %.03138, 1.000000e+01
   %9 = fcmp ult double %8, 1.000000e+00
-  br i1 %9, label %.preheader, label %.lr.ph, !llvm.loop !10
+  br i1 %9, label %.preheader, label %.lr.ph, !llvm.loop !9
 
 .lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
   %.142 = phi i32 [ %10, %.lr.ph43 ], [ %.030.lcssa, %.preheader ]
@@ -106,7 +106,7 @@ define hidden void @_ZN6HdrSeq3addEd(ptr noundef nonnull align 8 dereferenceable
   %10 = add nsw i32 %.142, -1
   %11 = fmul double %.13241, 1.000000e+01
   %12 = fcmp olt double %11, 1.000000e-01
-  br i1 %12, label %.lr.ph43, label %.loopexit, !llvm.loop !11
+  br i1 %12, label %.lr.ph43, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph43, %.preheader, %2
   %.233 = phi double [ %.034, %2 ], [ %.031.lcssa, %.preheader ], [ %11, %.lr.ph43 ]
@@ -190,13 +190,13 @@ define hidden noundef double @_ZNK6HdrSeq10percentileEd(ptr noundef nonnull alig
 27:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %27, %12
   %.2 = phi i32 [ %.01524, %12 ], [ %17, %27 ]
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 24
-  br i1 %exitcond33.not, label %28, label %12, !llvm.loop !13
+  br i1 %exitcond33.not, label %28, label %12, !llvm.loop !12
 
 28:                                               ; preds = %.loopexit
   %29 = load ptr, ptr %0, align 8
@@ -224,7 +224,7 @@ define hidden void @_ZN18BinaryMagnitudeSeqC2Ev(ptr noundef nonnull align 8 capt
   store i64 0, ptr %6, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %_ZN18BinaryMagnitudeSeq5clearEv.exit, label %4, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_ZN18BinaryMagnitudeSeq5clearEv.exit, label %4, !llvm.loop !13
 
 _ZN18BinaryMagnitudeSeq5clearEv.exit:             ; preds = %4
   store i64 0, ptr %0, align 8
@@ -243,7 +243,7 @@ define hidden void @_ZN18BinaryMagnitudeSeq5clearEv(ptr noundef nonnull align 8 
   store i64 0, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %6, label %3, !llvm.loop !14
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !13
 
 6:                                                ; preds = %3
   store i64 0, ptr %0, align 8
@@ -260,7 +260,7 @@ define hidden void @_ZN18BinaryMagnitudeSeqD2Ev(ptr noundef nonnull readonly ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18BinaryMagnitudeSeq3addEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %0) #9, !srcloc !15
+  %3 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %0) #9, !srcloc !14
   %4 = icmp eq i64 %1, 0
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %1, i1 true)
   %6 = trunc nuw nsw i64 %5 to i32
@@ -272,7 +272,7 @@ define hidden void @_ZN18BinaryMagnitudeSeq3addEm(ptr noundef nonnull align 8 de
   %12 = select i1 %4, i64 -1, i64 %11
   %13 = getelementptr i64, ptr %10, i64 %12
   %14 = getelementptr i8, ptr %13, i64 8
-  %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %14) #9, !srcloc !15
+  %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr %14) #9, !srcloc !14
   ret void
 }
 
@@ -308,7 +308,7 @@ define hidden noundef i64 @_ZNK18BinaryMagnitudeSeq3numEv(ptr noundef nonnull re
   %7 = add i64 %6, %.056
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %8, label %4, !llvm.loop !16
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !15
 
 8:                                                ; preds = %4
   ret i64 %7
@@ -336,7 +336,7 @@ define hidden noundef range(i32 0, 64) i32 @_ZNK18BinaryMagnitudeSeq9min_levelEv
 7:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.split.loop.exit, label %4, !llvm.loop !17
+  br i1 %exitcond.not, label %.split.loop.exit, label %4, !llvm.loop !16
 
 .split.loop.exit8:                                ; preds = %4
   %8 = trunc nuw nsw i64 %indvars.iv to i32
@@ -364,7 +364,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZNK18BinaryMagnitudeSeq9ma
 8:                                                ; preds = %4
   %9 = add nsw i32 %.06, -1
   %10 = icmp samesign ugt i32 %.06, 1
-  br i1 %10, label %4, label %11, !llvm.loop !18
+  br i1 %10, label %4, label %11, !llvm.loop !17
 
 11:                                               ; preds = %8, %4
   %.05 = phi i32 [ %.06, %4 ], [ 0, %8 ]
@@ -434,16 +434,15 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{i64 2145411697}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = !{i64 2145411697}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

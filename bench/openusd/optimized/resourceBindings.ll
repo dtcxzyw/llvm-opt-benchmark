@@ -210,7 +210,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_17HgiBuf
   %23 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %23, %4
-  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !6
 
 .loopexit:                                        ; preds = %22, %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -354,7 +354,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_18HgiTex
   %23 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %23, %4
-  br i1 %.not.i.i.i.i.i, label %.loopexit18, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i, label %.loopexit18, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 .loopexit18:                                      ; preds = %22, %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -416,7 +416,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_18HgiTex
   %65 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i15, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i14, i64 16
   %.not.i.i.i.i.i16 = icmp eq ptr %65, %46
-  br i1 %.not.i.i.i.i.i16, label %.loopexit, label %.lr.ph.i.i.i.i.i13, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i16, label %.loopexit, label %.lr.ph.i.i.i.i.i13, !llvm.loop !8
 
 .loopexit:                                        ; preds = %64, %58
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -468,7 +468,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__neERKNS_18HgiTex
   %23 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i = icmp eq ptr %23, %4
-  br i1 %.not.i.i.i.i.i.i, label %.loopexit18.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit18.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !7
 
 .loopexit18.i:                                    ; preds = %22, %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -530,7 +530,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__neERKNS_18HgiTex
   %65 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i15.i, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i14.i, i64 16
   %.not.i.i.i.i.i16.i = icmp eq ptr %65, %46
-  br i1 %.not.i.i.i.i.i16.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i13.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i16.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i13.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %64, %58
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -609,7 +609,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %30 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 88
   %31 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 88
   %.not.i.i.i.i.i = icmp eq ptr %30, %15
-  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %29, %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -679,7 +679,7 @@ define linkonce_odr noundef zeroext i1 @_ZSteqIN32pxrInternal_v0_24__pxrReserved
   %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.i.i.i, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %37, %18
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %.loopexit18.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %.loopexit18.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !7
 
 .loopexit18.i.i.i.i.i:                            ; preds = %36, %30
   %39 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i.i, i64 48
@@ -741,7 +741,7 @@ define linkonce_odr noundef zeroext i1 @_ZSteqIN32pxrInternal_v0_24__pxrReserved
   %79 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i15.i.i.i.i.i, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i14.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i16.i.i.i.i.i = icmp eq ptr %79, %60
-  br i1 %.not.i.i.i.i.i16.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_18HgiTextureBindDescES2_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i13.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i16.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_18HgiTextureBindDescES2_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i13.i.i.i.i.i, !llvm.loop !8
 
 _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_18HgiTextureBindDescES2_.exit.i.i.i.i: ; preds = %78, %72
   %81 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i.i, i64 60
@@ -757,7 +757,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_18HgiTextureBindDescES2_.exit.i.i.i
   %89 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i.i, i64 64
   %90 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %89, %4
-  br i1 %.not.i.i.i.i, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__18HgiTextureBindDescESt6vectorIS3_SaIS3_EEEES9_EbT_SA_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i, label %_ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__18HgiTextureBindDescESt6vectorIS3_SaIS3_EEEES9_EbT_SA_T0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
 _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__18HgiTextureBindDescESt6vectorIS3_SaIS3_EEEES9_EbT_SA_T0_.exit: ; preds = %88, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_18HgiTextureBindDescES2_.exit.i.i.i.i, %56, %50, %44, %.loopexit18.i.i.i.i.i, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i13.i.i.i.i.i, %16, %2
   %91 = phi i1 [ false, %2 ], [ true, %16 ], [ false, %.lr.ph.i.i.i.i.i13.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_18HgiTextureBindDescES2_.exit.i.i.i.i ], [ true, %88 ], [ false, %50 ], [ false, %44 ], [ false, %.loopexit18.i.i.i.i.i ], [ false, %.lr.ph.i.i.i.i ], [ false, %56 ]
@@ -821,7 +821,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescEJRKS1_EE
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 88
   %21 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 88
   %.not.i.i.i.i = icmp eq ptr %20, %19
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 22:                                               ; preds = %.lr.ph.i.i.i.i
   %23 = landingpad { ptr, i32 }
@@ -922,7 +922,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__18HgiTextureBindDescEJRKS1_E
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 64
   %.not.i.i.i.i = icmp eq ptr %19, %18
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__18HgiTextureBindDescESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__18HgiTextureBindDescESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 21:                                               ; preds = %.lr.ph.i.i.i.i
   %22 = landingpad { ptr, i32 }
@@ -1030,7 +1030,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit2.i.i.i.i.i:         ; preds = %15, %_ZNSt6vectorIj
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescEEvPT_.exit.i.i.i: ; preds = %22, %_ZNSt6vectorIjSaIjEED2Ev.exit2.i.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 88
   %.not.i.i.i = icmp eq ptr %28, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !13
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -1121,7 +1121,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit2.i.i.i:             ; preds = %13, %_ZNSt6vectorIj
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescEEvPT_.exit.i: ; preds = %20, %_ZNSt6vectorIjSaIjEED2Ev.exit2.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.05.i, i64 88
   %.not.i = icmp eq ptr %26, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !13
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescEEEvT_S5_.exit: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__17HgiBufferBindDescEEvPT_.exit.i, %2
   ret void
@@ -1185,7 +1185,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_9Hg
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %19, %18
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_9HgiBufferEEESaIS3_EEC2ERKS5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_9HgiBufferEEESaIS3_EEC2ERKS5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_9HgiBufferEEESaIS3_EEC2ERKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %12
   %.0.lcssa.i.i.i.i.i = phi ptr [ %13, %12 ], [ %20, %.lr.ph.i.i.i.i.i ]
@@ -1424,7 +1424,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_10H
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %19, %18
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_10HgiTextureEEESaIS3_EEC2ERKS5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !16
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_10HgiTextureEEESaIS3_EEC2ERKS5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_10HgiTextureEEESaIS3_EEC2ERKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %12
   %.0.lcssa.i.i.i.i.i = phi ptr [ %13, %12 ], [ %20, %.lr.ph.i.i.i.i.i ]
@@ -1476,7 +1476,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__9HgiHandleINS0_10H
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i9, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i8, i64 16
   %.not.i.i.i.i.i10 = icmp eq ptr %38, %37
-  br i1 %.not.i.i.i.i.i10, label %.loopexit, label %.lr.ph.i.i.i.i.i7, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i10, label %.loopexit, label %.lr.ph.i.i.i.i.i7, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i7, %.noexc13
   %.0.lcssa.i.i.i.i.i11 = phi ptr [ %32, %.noexc13 ], [ %39, %.lr.ph.i.i.i.i.i7 ]
@@ -1545,17 +1545,16 @@ attributes #20 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

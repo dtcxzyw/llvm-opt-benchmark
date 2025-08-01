@@ -135,7 +135,7 @@ strbuf_setlen.exit:                               ; preds = %25, %27
   %32 = load ptr, ptr %3, align 8
   %33 = icmp ne ptr %32, null
   %or.cond = select i1 %31, i1 %33, i1 false
-  br i1 %or.cond, label %10, label %._crit_edge, !llvm.loop !25
+  br i1 %or.cond, label %10, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %29, %2
   %.lcssa = phi i32 [ %4, %2 ], [ %30, %29 ]
@@ -162,7 +162,7 @@ define dso_local void @subprocess_stop(ptr noundef %0, ptr noundef %1) local_unn
   %7 = and i16 %6, -257
   store i16 %7, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %9 = load i32, ptr %8, align 8, !tbaa !27
+  %9 = load i32, ptr %8, align 8, !tbaa !25
   %10 = tail call i32 @kill(i32 noundef %9, i32 noundef 15) #12
   %11 = tail call i32 @finish_command(ptr noundef nonnull %4) #12
   %12 = tail call ptr @hashmap_remove(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #12
@@ -189,15 +189,15 @@ define dso_local i32 @subprocess_start(ptr noundef %0, ptr noundef initializes((
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %9 = load i16, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store i32 -1, ptr %10, align 8, !tbaa !28
+  store i32 -1, ptr %10, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  store i32 -1, ptr %11, align 4, !tbaa !29
+  store i32 -1, ptr %11, align 4, !tbaa !27
   %12 = or i16 %9, 288
   store i16 %12, ptr %8, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr @subprocess_exit_handler, ptr %13, align 8, !tbaa !30
+  store ptr @subprocess_exit_handler, ptr %13, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr @.str.1, ptr %14, align 8, !tbaa !31
+  store ptr @.str.1, ptr %14, align 8, !tbaa !29
   %15 = tail call i32 @start_command(ptr noundef nonnull %6) #12
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %18, label %16
@@ -221,7 +221,7 @@ subprocess_stop.exit:                             ; preds = %18
   %24 = and i16 %23, -257
   store i16 %24, ptr %8, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %26 = load i32, ptr %25, align 8, !tbaa !27
+  %26 = load i32, ptr %25, align 8, !tbaa !25
   %27 = tail call i32 @kill(i32 noundef %26, i32 noundef 15) #12
   %28 = tail call i32 @finish_command(ptr noundef nonnull %6) #12
   %29 = tail call ptr @hashmap_remove(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null) #12
@@ -244,10 +244,10 @@ declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #4
 define internal void @subprocess_exit_handler(ptr noundef %0) #3 {
   %2 = tail call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load i32, ptr %3, align 8, !tbaa !28
+  %4 = load i32, ptr %3, align 8, !tbaa !26
   %5 = tail call i32 @close(i32 noundef %4) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %7 = load i32, ptr %6, align 4, !tbaa !29
+  %7 = load i32, ptr %6, align 4, !tbaa !27
   %8 = tail call i32 @close(i32 noundef %7) #12
   %9 = tail call i32 @sigchain_pop(i32 noundef 13) #12
   %10 = tail call i32 @finish_command(ptr noundef %0) #12
@@ -268,13 +268,13 @@ define dso_local range(i32 0, 2) i32 @subprocess_handshake(ptr noundef readonly 
   %.not.i = icmp eq ptr %3, null
   %spec.store.select.i = select i1 %.not.i, ptr %7, ptr %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %10 = load i32, ptr %9, align 8, !tbaa !28
+  %10 = load i32, ptr %9, align 8, !tbaa !26
   %11 = tail call i32 (i32, ptr, ...) @packet_write_fmt_gently(i32 noundef %10, ptr noundef nonnull @.str.6, ptr noundef %1) #12
   %.not38.i = icmp eq i32 %11, 0
   br i1 %.not38.i, label %.preheader62.i, label %13
 
 .preheader62.i:                                   ; preds = %6
-  %12 = load i32, ptr %2, align 4, !tbaa !32
+  %12 = load i32, ptr %2, align 4, !tbaa !30
   %.not3965.i = icmp eq i32 %12, 0
   br i1 %.not3965.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -285,14 +285,14 @@ define dso_local range(i32 0, 2) i32 @subprocess_handshake(ptr noundef readonly 
 15:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next.i
-  %17 = load i32, ptr %16, align 4, !tbaa !32
+  %17 = load i32, ptr %16, align 4, !tbaa !30
   %.not39.i = icmp eq i32 %17, 0
-  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
 
 .lr.ph.i:                                         ; preds = %.preheader62.i, %15
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %.preheader62.i ]
   %18 = phi i32 [ %17, %15 ], [ %12, %.preheader62.i ]
-  %19 = load i32, ptr %9, align 8, !tbaa !28
+  %19 = load i32, ptr %9, align 8, !tbaa !26
   %20 = tail call i32 (i32, ptr, ...) @packet_write_fmt_gently(i32 noundef %19, ptr noundef nonnull @.str.8, i32 noundef %18) #12
   %.not48.i = icmp eq i32 %20, 0
   br i1 %.not48.i, label %15, label %21
@@ -302,7 +302,7 @@ define dso_local range(i32 0, 2) i32 @subprocess_handshake(ptr noundef readonly 
   br label %handshake_version.exit.thread
 
 ._crit_edge.i:                                    ; preds = %15, %.preheader62.i
-  %23 = load i32, ptr %9, align 8, !tbaa !28
+  %23 = load i32, ptr %9, align 8, !tbaa !26
   %24 = tail call i32 @packet_flush_gently(i32 noundef %23) #12
   %.not40.i = icmp eq i32 %24, 0
   br i1 %.not40.i, label %27, label %25
@@ -313,7 +313,7 @@ define dso_local range(i32 0, 2) i32 @subprocess_handshake(ptr noundef readonly 
 
 27:                                               ; preds = %._crit_edge.i
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %29 = load i32, ptr %28, align 4, !tbaa !29
+  %29 = load i32, ptr %28, align 4, !tbaa !27
   %30 = tail call ptr @packet_read_line(i32 noundef %29, ptr noundef null) #12
   %.not41.i = icmp eq ptr %30, null
   br i1 %.not41.i, label %skip_prefix.exit.i, label %.preheader61.i
@@ -330,7 +330,7 @@ define dso_local range(i32 0, 2) i32 @subprocess_handshake(ptr noundef readonly 
   %34 = load i8, ptr %.07.i.i, align 1, !tbaa !24
   %35 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 1
   %36 = icmp eq i8 %34, %31
-  br i1 %36, label %.preheader61.i, label %skip_prefix.exit.i, !llvm.loop !35
+  br i1 %36, label %.preheader61.i, label %skip_prefix.exit.i, !llvm.loop !33
 
 37:                                               ; preds = %.preheader61.i
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.07.i.i, ptr noundef nonnull dereferenceable(8) @.str.11) #11
@@ -343,7 +343,7 @@ skip_prefix.exit.i:                               ; preds = %32, %37, %27
   br label %handshake_version.exit.thread
 
 41:                                               ; preds = %37
-  %42 = load i32, ptr %28, align 4, !tbaa !29
+  %42 = load i32, ptr %28, align 4, !tbaa !27
   %43 = tail call ptr @packet_read_line(i32 noundef %42, ptr noundef null) #12
   %.not43.i = icmp eq ptr %43, null
   br i1 %.not43.i, label %skip_prefix.exit52.i, label %.preheader60.preheader.i
@@ -365,7 +365,7 @@ skip_prefix.exit.i:                               ; preds = %32, %37, %27
   %47 = load i8, ptr %.07.i49.i, align 1, !tbaa !24
   %.06.i50.add.i = add nuw nsw i64 %.06.i50.idx.i, 1
   %48 = icmp eq i8 %47, %45
-  br i1 %48, label %.preheader60.i, label %skip_prefix.exit52.i, !llvm.loop !35
+  br i1 %48, label %.preheader60.i, label %skip_prefix.exit52.i, !llvm.loop !33
 
 49:                                               ; preds = %.preheader60.i
   %50 = call fastcc i32 @strtol_i(ptr noundef nonnull %scevgep.i, ptr noundef nonnull %spec.store.select.i)
@@ -378,15 +378,15 @@ skip_prefix.exit52.i:                             ; preds = %44, %49, %41
   br label %handshake_version.exit.thread
 
 53:                                               ; preds = %49
-  %54 = load i32, ptr %28, align 4, !tbaa !29
+  %54 = load i32, ptr %28, align 4, !tbaa !27
   %55 = tail call ptr @packet_read_line(i32 noundef %54, ptr noundef null) #12
   %.not45.i = icmp eq ptr %55, null
   br i1 %.not45.i, label %.preheader.i, label %57
 
 .preheader.i:                                     ; preds = %53
-  %56 = load i32, ptr %2, align 4, !tbaa !32
+  %56 = load i32, ptr %2, align 4, !tbaa !30
   %.not4667.i = icmp eq i32 %56, 0
-  %.pre.i = load i32, ptr %spec.store.select.i, align 4, !tbaa !32
+  %.pre.i = load i32, ptr %spec.store.select.i, align 4, !tbaa !30
   br i1 %.not4667.i, label %._crit_edge70.i, label %.lr.ph69.i
 
 57:                                               ; preds = %53
@@ -396,9 +396,9 @@ skip_prefix.exit52.i:                             ; preds = %44, %49, %41
 59:                                               ; preds = %.lr.ph69.i
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %60 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next75.i
-  %61 = load i32, ptr %60, align 4, !tbaa !32
+  %61 = load i32, ptr %60, align 4, !tbaa !30
   %.not46.i = icmp eq i32 %61, 0
-  br i1 %.not46.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !36
+  br i1 %.not46.i, label %._crit_edge70.i, label %.lr.ph69.i, !llvm.loop !34
 
 .lr.ph69.i:                                       ; preds = %.preheader.i, %59
   %indvars.iv74.i = phi i64 [ %indvars.iv.next75.i, %59 ], [ 0, %.preheader.i ]
@@ -416,33 +416,33 @@ handshake_version.exit.thread:                    ; preds = %13, %21, %25, %skip
 
 65:                                               ; preds = %.lr.ph69.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
-  %66 = load ptr, ptr %4, align 8, !tbaa !37
+  %66 = load ptr, ptr %4, align 8, !tbaa !35
   %.not41.i8 = icmp eq ptr %66, null
   br i1 %.not41.i8, label %._crit_edge.i13, label %.lr.ph.i9
 
 67:                                               ; preds = %.lr.ph.i9
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %68 = getelementptr inbounds nuw %struct.subprocess_capability, ptr %4, i64 %indvars.iv.next.i11
-  %69 = load ptr, ptr %68, align 8, !tbaa !37
+  %69 = load ptr, ptr %68, align 8, !tbaa !35
   %.not.i12 = icmp eq ptr %69, null
-  br i1 %.not.i12, label %._crit_edge.i13, label %.lr.ph.i9, !llvm.loop !39
+  br i1 %.not.i12, label %._crit_edge.i13, label %.lr.ph.i9, !llvm.loop !37
 
 .lr.ph.i9:                                        ; preds = %65, %67
   %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i11, %67 ], [ 0, %65 ]
   %70 = phi ptr [ %69, %67 ], [ %66, %65 ]
-  %71 = load i32, ptr %9, align 8, !tbaa !28
+  %71 = load i32, ptr %9, align 8, !tbaa !26
   %72 = tail call i32 (i32, ptr, ...) @packet_write_fmt_gently(i32 noundef %71, ptr noundef nonnull @.str.18, ptr noundef nonnull %70) #12
   %.not32.i = icmp eq i32 %72, 0
   br i1 %.not32.i, label %67, label %.loopexit.sink.split.i
 
 ._crit_edge.i13:                                  ; preds = %67, %65
-  %73 = load i32, ptr %9, align 8, !tbaa !28
+  %73 = load i32, ptr %9, align 8, !tbaa !26
   %74 = tail call i32 @packet_flush_gently(i32 noundef %73) #12
   %.not26.i = icmp eq i32 %74, 0
   br i1 %.not26.i, label %.preheader38.i, label %.loopexit.sink.split.i
 
 .preheader38.i:                                   ; preds = %._crit_edge.i13
-  %75 = load i32, ptr %28, align 4, !tbaa !29
+  %75 = load i32, ptr %28, align 4, !tbaa !27
   %76 = tail call ptr @packet_read_line(i32 noundef %75, ptr noundef null) #12
   %.not2747.i = icmp eq ptr %76, null
   br i1 %.not2747.i, label %handshake_capabilities.exit, label %.preheader.lr.ph.i
@@ -460,7 +460,7 @@ handshake_version.exit.thread:                    ; preds = %13, %21, %25, %skip
   %.07.i.us.i = phi ptr [ %81, %79 ], [ %77, %.preheader.us.i ]
   %.06.i.us.idx.i = phi i64 [ %.06.i.us.add.i, %79 ], [ 0, %.preheader.us.i ]
   %exitcond67.i = icmp eq i64 %.06.i.us.idx.i, 11
-  br i1 %exitcond67.i, label %skip_prefix.exit.preheader.us.i, label %79, !llvm.loop !40
+  br i1 %exitcond67.i, label %skip_prefix.exit.preheader.us.i, label %79, !llvm.loop !38
 
 79:                                               ; preds = %78
   %.06.i.us.ptr.i = getelementptr inbounds nuw i8, ptr @.str.20, i64 %.06.i.us.idx.i
@@ -469,29 +469,29 @@ handshake_version.exit.thread:                    ; preds = %13, %21, %25, %skip
   %82 = load i8, ptr %.07.i.us.i, align 1, !tbaa !24
   %.06.i.us.add.i = add nuw nsw i64 %.06.i.us.idx.i, 1
   %83 = icmp eq i8 %82, %80
-  br i1 %83, label %78, label %skip_prefix.exit.thread.us.i, !llvm.loop !35
+  br i1 %83, label %78, label %skip_prefix.exit.thread.us.i, !llvm.loop !33
 
 skip_prefix.exit.us.i:                            ; preds = %.lr.ph45.us.i, %86
   %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %86 ], [ 1, %.lr.ph45.us.i ]
   %84 = getelementptr inbounds nuw %struct.subprocess_capability, ptr %4, i64 %indvars.iv68.i
-  %85 = load ptr, ptr %84, align 8, !tbaa !37
+  %85 = load ptr, ptr %84, align 8, !tbaa !35
   %.not28.us.i = icmp eq ptr %85, null
-  br i1 %.not28.us.i, label %skip_prefix.exit.preheader._crit_edge.i, label %86, !llvm.loop !41
+  br i1 %.not28.us.i, label %skip_prefix.exit.preheader._crit_edge.i, label %86, !llvm.loop !39
 
 86:                                               ; preds = %skip_prefix.exit.us.i
   %87 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep66.i, ptr noundef nonnull dereferenceable(1) %85) #11
   %.not29.us.i = icmp eq i32 %87, 0
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
-  br i1 %.not29.us.i, label %skip_prefix.exit.thread.us.i, label %skip_prefix.exit.us.i, !llvm.loop !41
+  br i1 %.not29.us.i, label %skip_prefix.exit.thread.us.i, label %skip_prefix.exit.us.i, !llvm.loop !39
 
 skip_prefix.exit.thread.us.i:                     ; preds = %79, %86, %.lr.ph45.us.i
-  %88 = load i32, ptr %28, align 4, !tbaa !29
+  %88 = load i32, ptr %28, align 4, !tbaa !27
   %89 = tail call ptr @packet_read_line(i32 noundef %88, ptr noundef null) #12
   %.not27.us.i = icmp eq ptr %89, null
-  br i1 %.not27.us.i, label %handshake_capabilities.exit, label %.preheader.us.i, !llvm.loop !42
+  br i1 %.not27.us.i, label %handshake_capabilities.exit, label %.preheader.us.i, !llvm.loop !40
 
 skip_prefix.exit.preheader.us.i:                  ; preds = %78
-  %90 = load ptr, ptr %4, align 8, !tbaa !37
+  %90 = load ptr, ptr %4, align 8, !tbaa !35
   %.not2843.us.i = icmp eq ptr %90, null
   br i1 %.not2843.us.i, label %skip_prefix.exit.preheader._crit_edge.i, label %.lr.ph45.us.i
 
@@ -509,10 +509,10 @@ skip_prefix.exit.preheader.us.i:                  ; preds = %78
   %.07.i.i16 = phi ptr [ %97, %95 ], [ %92, %.preheader.i14 ]
   %.06.i.idx.i = phi i64 [ %.06.i.add.i, %95 ], [ 0, %.preheader.i14 ]
   %exitcond.i17 = icmp eq i64 %.06.i.idx.i, 11
-  br i1 %exitcond.i17, label %skip_prefix.exit.preheader.i, label %95, !llvm.loop !40
+  br i1 %exitcond.i17, label %skip_prefix.exit.preheader.i, label %95, !llvm.loop !38
 
 skip_prefix.exit.preheader.i:                     ; preds = %93
-  %94 = load ptr, ptr %4, align 8, !tbaa !37
+  %94 = load ptr, ptr %4, align 8, !tbaa !35
   %.not2843.i = icmp eq ptr %94, null
   br i1 %.not2843.i, label %skip_prefix.exit.preheader._crit_edge.i, label %.lr.ph45.i
 
@@ -523,14 +523,14 @@ skip_prefix.exit.preheader.i:                     ; preds = %93
   %98 = load i8, ptr %.07.i.i16, align 1, !tbaa !24
   %.06.i.add.i = add nuw nsw i64 %.06.i.idx.i, 1
   %99 = icmp eq i8 %98, %96
-  br i1 %99, label %93, label %skip_prefix.exit.thread.i, !llvm.loop !35
+  br i1 %99, label %93, label %skip_prefix.exit.thread.i, !llvm.loop !33
 
 skip_prefix.exit.i18:                             ; preds = %.lr.ph45.i
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %100 = getelementptr inbounds nuw %struct.subprocess_capability, ptr %4, i64 %indvars.iv.next64.i
-  %101 = load ptr, ptr %100, align 8, !tbaa !37
+  %101 = load ptr, ptr %100, align 8, !tbaa !35
   %.not28.i = icmp eq ptr %101, null
-  br i1 %.not28.i, label %skip_prefix.exit.preheader._crit_edge.i, label %.lr.ph45.i, !llvm.loop !41
+  br i1 %.not28.i, label %skip_prefix.exit.preheader._crit_edge.i, label %.lr.ph45.i, !llvm.loop !39
 
 .lr.ph45.i:                                       ; preds = %skip_prefix.exit.preheader.i, %skip_prefix.exit.i18
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %skip_prefix.exit.i18 ], [ 0, %skip_prefix.exit.preheader.i ]
@@ -541,25 +541,25 @@ skip_prefix.exit.i18:                             ; preds = %.lr.ph45.i
 
 .critedge.i:                                      ; preds = %.lr.ph45.i
   %104 = getelementptr inbounds nuw %struct.subprocess_capability, ptr %4, i64 %indvars.iv63.i, i32 1
-  %105 = load i32, ptr %104, align 8, !tbaa !44
-  %106 = load i32, ptr %5, align 4, !tbaa !32
+  %105 = load i32, ptr %104, align 8, !tbaa !42
+  %106 = load i32, ptr %5, align 4, !tbaa !30
   %107 = or i32 %106, %105
-  store i32 %107, ptr %5, align 4, !tbaa !32
+  store i32 %107, ptr %5, align 4, !tbaa !30
   br label %skip_prefix.exit.thread.i
 
 skip_prefix.exit.preheader._crit_edge.i:          ; preds = %skip_prefix.exit.preheader.i, %skip_prefix.exit.i18, %skip_prefix.exit.preheader.us.i, %skip_prefix.exit.us.i
   %.07.i.lcssa.lcssa.i = phi ptr [ %scevgep66.i, %skip_prefix.exit.us.i ], [ %scevgep66.i, %skip_prefix.exit.preheader.us.i ], [ %scevgep.i15, %skip_prefix.exit.i18 ], [ %scevgep.i15, %skip_prefix.exit.preheader.i ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %109 = load ptr, ptr %108, align 8, !tbaa !45
-  %110 = load ptr, ptr %109, align 8, !tbaa !46
+  %109 = load ptr, ptr %108, align 8, !tbaa !43
+  %110 = load ptr, ptr %109, align 8, !tbaa !44
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.21, ptr noundef %110, ptr noundef nonnull %.07.i.lcssa.lcssa.i) #13
   unreachable
 
 skip_prefix.exit.thread.i:                        ; preds = %95, %.critedge.i
-  %111 = load i32, ptr %28, align 4, !tbaa !29
+  %111 = load i32, ptr %28, align 4, !tbaa !27
   %112 = tail call ptr @packet_read_line(i32 noundef %111, ptr noundef null) #12
   %.not27.i = icmp eq ptr %112, null
-  br i1 %.not27.i, label %handshake_capabilities.exit, label %.preheader.i14, !llvm.loop !47
+  br i1 %.not27.i, label %handshake_capabilities.exit, label %.preheader.i14
 
 .loopexit.sink.split.i:                           ; preds = %.lr.ph.i9, %._crit_edge.i13
   %.str.10.sink.i = phi ptr [ @.str.10, %._crit_edge.i13 ], [ @.str.19, %.lr.ph.i9 ]
@@ -594,14 +594,14 @@ define internal fastcc range(i32 -1, 1) i32 @strtol_i(ptr noundef %0, ptr nounde
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   %4 = tail call ptr @__errno_location() #14
-  store i32 0, ptr %4, align 4, !tbaa !32
+  store i32 0, ptr %4, align 4, !tbaa !30
   %5 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #12
-  %6 = load i32, ptr %4, align 4, !tbaa !32
+  %6 = load i32, ptr %4, align 4, !tbaa !30
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !46
+  %8 = load ptr, ptr %3, align 8, !tbaa !44
   %9 = load i8, ptr %8, align 1, !tbaa !24
   %.not7 = icmp eq i8 %9, 0
   %10 = icmp ne ptr %8, %0
@@ -613,7 +613,7 @@ define internal fastcc range(i32 -1, 1) i32 @strtol_i(ptr noundef %0, ptr nounde
 
 12:                                               ; preds = %7
   %13 = trunc nsw i64 %5 to i32
-  store i32 %13, ptr %1, align 4, !tbaa !32
+  store i32 %13, ptr %1, align 4, !tbaa !30
   br label %14
 
 14:                                               ; preds = %2, %7, %12
@@ -677,26 +677,23 @@ attributes #14 = { nounwind willreturn memory(none) }
 !22 = !{!"strbuf", !16, i64 0, !16, i64 8, !12, i64 16}
 !23 = !{!22, !12, i64 16}
 !24 = !{!9, !9, i64 0}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!5, !11, i64 72}
-!28 = !{!13, !11, i64 80}
-!29 = !{!13, !11, i64 84}
-!30 = !{!13, !8, i64 112}
-!31 = !{!13, !12, i64 64}
-!32 = !{!11, !11, i64 0}
-!33 = distinct !{!33, !34, !26}
-!34 = !{!"llvm.loop.mustprogress"}
-!35 = distinct !{!35, !34, !26}
-!36 = distinct !{!36, !34, !26}
-!37 = !{!38, !12, i64 0}
-!38 = !{!"subprocess_capability", !12, i64 0, !11, i64 8}
-!39 = distinct !{!39, !34, !26}
-!40 = distinct !{!40, !34}
-!41 = distinct !{!41, !34, !26}
-!42 = distinct !{!42, !26, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!44 = !{!38, !11, i64 8}
-!45 = !{!13, !15, i64 0}
-!46 = !{!12, !12, i64 0}
-!47 = distinct !{!47, !26}
+!25 = !{!5, !11, i64 72}
+!26 = !{!13, !11, i64 80}
+!27 = !{!13, !11, i64 84}
+!28 = !{!13, !8, i64 112}
+!29 = !{!13, !12, i64 64}
+!30 = !{!11, !11, i64 0}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = distinct !{!33, !32}
+!34 = distinct !{!34, !32}
+!35 = !{!36, !12, i64 0}
+!36 = !{!"subprocess_capability", !12, i64 0, !11, i64 8}
+!37 = distinct !{!37, !32}
+!38 = distinct !{!38, !32}
+!39 = distinct !{!39, !32}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = !{!36, !11, i64 8}
+!43 = !{!13, !15, i64 0}
+!44 = !{!12, !12, i64 0}

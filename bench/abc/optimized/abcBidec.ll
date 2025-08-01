@@ -98,7 +98,7 @@ select.unfold.i69:                                ; preds = %Extra_TruthNot.exit
   %48 = or i32 %47, %45
   store i32 %48, ptr %44, align 4, !tbaa !3
   %49 = icmp samesign ugt i64 %indvars.iv.i70, 1
-  br i1 %49, label %select.unfold.i69, label %select.unfold.i79.preheader, !llvm.loop !10
+  br i1 %49, label %select.unfold.i69, label %select.unfold.i79.preheader, !llvm.loop !9
 
 select.unfold.i74:                                ; preds = %Extra_TruthNot.exit66, %select.unfold.i74
   %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i76, %select.unfold.i74 ], [ %38, %Extra_TruthNot.exit66 ]
@@ -111,7 +111,7 @@ select.unfold.i74:                                ; preds = %Extra_TruthNot.exit
   %55 = and i32 %51, %54
   store i32 %55, ptr %50, align 4, !tbaa !3
   %56 = icmp samesign ugt i64 %indvars.iv.i75, 1
-  br i1 %56, label %select.unfold.i74, label %select.unfold.i79.preheader, !llvm.loop !11
+  br i1 %56, label %select.unfold.i74, label %select.unfold.i79.preheader, !llvm.loop !10
 
 select.unfold.i79.preheader:                      ; preds = %select.unfold.i74, %select.unfold.i69
   br label %select.unfold.i79
@@ -131,7 +131,7 @@ Extra_TruthNot.exit82:                            ; preds = %select.unfold.i79, 
   %61 = tail call i32 @Bdc_ManDecompose(ptr noundef %0, ptr noundef %11, ptr noundef %.sink, i32 noundef %3, ptr noundef null, i32 noundef 1000) #11
   %62 = tail call ptr @Bdc_ManFunc(ptr noundef %0, i32 noundef 0) #11
   %63 = getelementptr i8, ptr %1, i64 24
-  %.val = load ptr, ptr %63, align 8, !tbaa !12
+  %.val = load ptr, ptr %63, align 8, !tbaa !11
   tail call void @Bdc_FuncSetCopy(ptr noundef %62, ptr noundef %.val) #11
   %64 = icmp sgt i32 %3, 0
   br i1 %64, label %.lr.ph.preheader, label %._crit_edge
@@ -145,14 +145,14 @@ Extra_TruthNot.exit82:                            ; preds = %select.unfold.i79, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = trunc nuw nsw i64 %indvars.iv.next to i32
   %66 = tail call ptr @Bdc_ManFunc(ptr noundef %0, i32 noundef %65) #11
-  %.val60 = load ptr, ptr %1, align 8, !tbaa !20
+  %.val60 = load ptr, ptr %1, align 8, !tbaa !19
   %67 = getelementptr i8, ptr %.val60, i64 8
-  %.val60.val = load ptr, ptr %67, align 8, !tbaa !21
+  %.val60.val = load ptr, ptr %67, align 8, !tbaa !20
   %68 = getelementptr inbounds nuw ptr, ptr %.val60.val, i64 %indvars.iv
-  %69 = load ptr, ptr %68, align 8, !tbaa !23
+  %69 = load ptr, ptr %68, align 8, !tbaa !22
   tail call void @Bdc_FuncSetCopy(ptr noundef %66, ptr noundef %69) #11
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Extra_TruthNot.exit82
   %70 = tail call i32 @Bdc_ManNodeNum(ptr noundef %0) #11
@@ -185,7 +185,7 @@ Extra_TruthNot.exit82:                            ; preds = %select.unfold.i79, 
   tail call void @Bdc_FuncSetCopy(ptr noundef %72, ptr noundef %91) #11
   %.1 = add i32 %.187, 1
   %exitcond93.not = icmp eq i32 %.1, %70
-  br i1 %exitcond93.not, label %._crit_edge90, label %.lr.ph89, !llvm.loop !25
+  br i1 %exitcond93.not, label %._crit_edge90, label %.lr.ph89, !llvm.loop !24
 
 ._crit_edge90:                                    ; preds = %.lr.ph89, %._crit_edge
   %92 = tail call ptr @Bdc_ManRoot(ptr noundef %0) #11
@@ -238,10 +238,10 @@ define void @Abc_NtkBidecResyn(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %8, label %Abc_Clock.exit, label %9
 
 9:                                                ; preds = %2
-  %10 = load i64, ptr %4, align 8, !tbaa !26
+  %10 = load i64, ptr %4, align 8, !tbaa !25
   %.neg43 = mul i64 %10, -1000000
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !28
+  %12 = load i64, ptr %11, align 8, !tbaa !27
   %.neg = sdiv i64 %12, -1000
   %.neg44 = add i64 %.neg, %.neg43
   br label %Abc_Clock.exit
@@ -255,9 +255,9 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 
 14:                                               ; preds = %Abc_Clock.exit
   %15 = call i32 @Abc_NtkGetFaninMax(ptr noundef %0) #11
-  store i32 %15, ptr %5, align 4, !tbaa !29
+  store i32 %15, ptr %5, align 4, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %1, ptr %16, align 4, !tbaa !31
+  store i32 %1, ptr %16, align 4, !tbaa !30
   %17 = icmp sgt i32 %15, 15
   br i1 %17, label %18, label %21
 
@@ -270,16 +270,16 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br label %20
 
 20:                                               ; preds = %19, %18
-  store i32 15, ptr %5, align 4, !tbaa !29
+  store i32 15, ptr %5, align 4, !tbaa !28
   br label %21
 
 21:                                               ; preds = %20, %14
   %calloc.i = call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %22 = call ptr @Bdc_ManAlloc(ptr noundef nonnull %5) #11
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !32
+  %24 = load ptr, ptr %23, align 8, !tbaa !31
   %25 = getelementptr i8, ptr %24, i64 4
-  %.val47 = load i32, ptr %25, align 4, !tbaa !48
+  %.val47 = load i32, ptr %25, align 4, !tbaa !47
   %26 = icmp sgt i32 %.val47, 0
   br i1 %26, label %.lr.ph, label %.critedge
 
@@ -292,9 +292,9 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %.03248 = phi i32 [ 0, %.lr.ph ], [ %.1, %50 ]
   %30 = getelementptr i8, ptr %29, i64 8
-  %.val37.val = load ptr, ptr %30, align 8, !tbaa !21
+  %.val37.val = load ptr, ptr %30, align 8, !tbaa !20
   %31 = getelementptr inbounds nuw ptr, ptr %.val37.val, i64 %indvars.iv
-  %32 = load ptr, ptr %31, align 8, !tbaa !23
+  %32 = load ptr, ptr %31, align 8, !tbaa !22
   %33 = icmp eq ptr %32, null
   br i1 %33, label %50, label %34
 
@@ -307,23 +307,23 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %32, i64 28
-  %.val39 = load i32, ptr %38, align 4, !tbaa !49
+  %.val39 = load i32, ptr %38, align 4, !tbaa !48
   %39 = icmp sgt i32 %.val39, 15
   br i1 %39, label %50, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  %42 = load ptr, ptr %41, align 8, !tbaa !52
+  %42 = load ptr, ptr %41, align 8, !tbaa !51
   %43 = call i32 @Hop_DagSize(ptr noundef %42) #11
-  %44 = load ptr, ptr %27, align 8, !tbaa !53
-  %45 = load ptr, ptr %41, align 8, !tbaa !52
-  %.val40 = load i32, ptr %38, align 4, !tbaa !49
+  %44 = load ptr, ptr %27, align 8, !tbaa !52
+  %45 = load ptr, ptr %41, align 8, !tbaa !51
+  %.val40 = load i32, ptr %38, align 4, !tbaa !48
   %46 = call ptr @Abc_NodeIfNodeResyn(ptr noundef %22, ptr noundef %44, ptr noundef %45, i32 noundef %.val40, ptr noundef %calloc.i, ptr noundef null, float noundef -1.000000e+00)
-  store ptr %46, ptr %41, align 8, !tbaa !52
+  store ptr %46, ptr %41, align 8, !tbaa !51
   %47 = call i32 @Hop_DagSize(ptr noundef %46) #11
   %48 = add i32 %43, %.03248
   %49 = sub i32 %48, %47
-  %.pre = load ptr, ptr %23, align 8, !tbaa !32
+  %.pre = load ptr, ptr %23, align 8, !tbaa !31
   br label %50
 
 50:                                               ; preds = %40, %34, %28, %37
@@ -331,16 +331,16 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   %.1 = phi i32 [ %.03248, %28 ], [ %.03248, %37 ], [ %49, %40 ], [ %.03248, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = getelementptr i8, ptr %51, i64 4
-  %.val = load i32, ptr %52, align 4, !tbaa !48
+  %.val = load i32, ptr %52, align 4, !tbaa !47
   %53 = sext i32 %.val to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %28, label %.critedge, !llvm.loop !54
+  br i1 %54, label %28, label %.critedge, !llvm.loop !53
 
 .critedge:                                        ; preds = %50, %21
   %.032.lcssa = phi i32 [ 0, %21 ], [ %.1, %50 ]
   call void @Bdc_ManFree(ptr noundef %22) #11
   %55 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !55
+  %56 = load ptr, ptr %55, align 8, !tbaa !54
   %.not.i = icmp eq ptr %56, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %57
 
@@ -362,10 +362,10 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %57
   br i1 %61, label %Abc_Clock.exit42, label %62
 
 62:                                               ; preds = %58
-  %63 = load i64, ptr %3, align 8, !tbaa !26
+  %63 = load i64, ptr %3, align 8, !tbaa !25
   %64 = mul nsw i64 %63, 1000000
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %66 = load i64, ptr %65, align 8, !tbaa !28
+  %66 = load i64, ptr %65, align 8, !tbaa !27
   %67 = sdiv i64 %66, 1000
   %68 = add nsw i64 %67, %64
   br label %Abc_Clock.exit42
@@ -414,7 +414,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #11
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !56
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !55
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #12
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #11
@@ -422,7 +422,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #4 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !56, !noalias !58
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !55, !noalias !57
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #11
   br label %17
 
@@ -490,57 +490,56 @@ attributes #12 = { nounwind willreturn memory(read) }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = !{!13, !16, i64 24}
-!13 = !{!"Hop_Man_t_", !14, i64 0, !14, i64 8, !14, i64 16, !16, i64 24, !17, i64 32, !5, i64 72, !4, i64 96, !4, i64 100, !18, i64 104, !4, i64 112, !15, i64 120, !4, i64 128, !4, i64 132, !4, i64 136, !14, i64 144, !14, i64 152, !16, i64 160, !19, i64 168, !19, i64 176}
-!14 = !{!"p1 _ZTS10Vec_Ptr_t_", !15, i64 0}
-!15 = !{!"any pointer", !5, i64 0}
-!16 = !{!"p1 _ZTS10Hop_Obj_t_", !15, i64 0}
-!17 = !{!"Hop_Obj_t_", !5, i64 0, !5, i64 8, !16, i64 16, !16, i64 24, !4, i64 32, !4, i64 32, !4, i64 32, !4, i64 32, !4, i64 32, !4, i64 36}
-!18 = !{!"p2 _ZTS10Hop_Obj_t_", !15, i64 0}
-!19 = !{!"long", !5, i64 0}
-!20 = !{!13, !14, i64 0}
-!21 = !{!22, !15, i64 8}
-!22 = !{!"Vec_Ptr_t_", !4, i64 0, !4, i64 4, !15, i64 8}
-!23 = !{!15, !15, i64 0}
-!24 = distinct !{!24, !8, !9}
-!25 = distinct !{!25, !8, !9}
-!26 = !{!27, !19, i64 0}
-!27 = !{!"timespec", !19, i64 0, !19, i64 8}
-!28 = !{!27, !19, i64 8}
-!29 = !{!30, !4, i64 0}
-!30 = !{!"Bdc_Par_t_", !4, i64 0, !4, i64 4, !4, i64 8}
-!31 = !{!30, !4, i64 4}
-!32 = !{!33, !14, i64 32}
-!33 = !{!"Abc_Ntk_t_", !4, i64 0, !4, i64 4, !34, i64 8, !34, i64 16, !35, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !5, i64 96, !4, i64 140, !4, i64 144, !4, i64 148, !4, i64 152, !36, i64 160, !4, i64 168, !37, i64 176, !36, i64 184, !4, i64 192, !4, i64 196, !4, i64 200, !38, i64 208, !4, i64 216, !39, i64 224, !41, i64 240, !42, i64 248, !15, i64 256, !43, i64 264, !15, i64 272, !44, i64 280, !4, i64 284, !45, i64 288, !14, i64 296, !40, i64 304, !46, i64 312, !14, i64 320, !36, i64 328, !15, i64 336, !15, i64 344, !36, i64 352, !15, i64 360, !15, i64 368, !45, i64 376, !45, i64 384, !34, i64 392, !47, i64 400, !14, i64 408, !45, i64 416, !45, i64 424, !14, i64 432, !45, i64 440, !45, i64 448, !45, i64 456}
-!34 = !{!"p1 omnipotent char", !15, i64 0}
-!35 = !{!"p1 _ZTS9Nm_Man_t_", !15, i64 0}
-!36 = !{!"p1 _ZTS10Abc_Ntk_t_", !15, i64 0}
-!37 = !{!"p1 _ZTS10Abc_Des_t_", !15, i64 0}
-!38 = !{!"double", !5, i64 0}
-!39 = !{!"Vec_Int_t_", !4, i64 0, !4, i64 4, !40, i64 8}
-!40 = !{!"p1 int", !15, i64 0}
-!41 = !{!"p1 _ZTS12Mem_Fixed_t_", !15, i64 0}
-!42 = !{!"p1 _ZTS11Mem_Step_t_", !15, i64 0}
-!43 = !{!"p1 _ZTS14Abc_ManTime_t_", !15, i64 0}
-!44 = !{!"float", !5, i64 0}
-!45 = !{!"p1 _ZTS10Vec_Int_t_", !15, i64 0}
-!46 = !{!"p1 _ZTS10Abc_Cex_t_", !15, i64 0}
-!47 = !{!"p1 float", !15, i64 0}
-!48 = !{!22, !4, i64 4}
-!49 = !{!50, !4, i64 28}
-!50 = !{!"Abc_Obj_t_", !36, i64 0, !51, i64 8, !4, i64 16, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !39, i64 24, !39, i64 40, !5, i64 56, !5, i64 64}
-!51 = !{!"p1 _ZTS10Abc_Obj_t_", !15, i64 0}
-!52 = !{!5, !5, i64 0}
-!53 = !{!33, !15, i64 256}
-!54 = distinct !{!54, !8, !9}
-!55 = !{!39, !40, i64 8}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"p1 _ZTS8_IO_FILE", !15, i64 0}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"vprintf: argument 0"}
-!60 = distinct !{!60, !"vprintf"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = !{!12, !15, i64 24}
+!12 = !{!"Hop_Man_t_", !13, i64 0, !13, i64 8, !13, i64 16, !15, i64 24, !16, i64 32, !5, i64 72, !4, i64 96, !4, i64 100, !17, i64 104, !4, i64 112, !14, i64 120, !4, i64 128, !4, i64 132, !4, i64 136, !13, i64 144, !13, i64 152, !15, i64 160, !18, i64 168, !18, i64 176}
+!13 = !{!"p1 _ZTS10Vec_Ptr_t_", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = !{!"p1 _ZTS10Hop_Obj_t_", !14, i64 0}
+!16 = !{!"Hop_Obj_t_", !5, i64 0, !5, i64 8, !15, i64 16, !15, i64 24, !4, i64 32, !4, i64 32, !4, i64 32, !4, i64 32, !4, i64 32, !4, i64 36}
+!17 = !{!"p2 _ZTS10Hop_Obj_t_", !14, i64 0}
+!18 = !{!"long", !5, i64 0}
+!19 = !{!12, !13, i64 0}
+!20 = !{!21, !14, i64 8}
+!21 = !{!"Vec_Ptr_t_", !4, i64 0, !4, i64 4, !14, i64 8}
+!22 = !{!14, !14, i64 0}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}
+!25 = !{!26, !18, i64 0}
+!26 = !{!"timespec", !18, i64 0, !18, i64 8}
+!27 = !{!26, !18, i64 8}
+!28 = !{!29, !4, i64 0}
+!29 = !{!"Bdc_Par_t_", !4, i64 0, !4, i64 4, !4, i64 8}
+!30 = !{!29, !4, i64 4}
+!31 = !{!32, !13, i64 32}
+!32 = !{!"Abc_Ntk_t_", !4, i64 0, !4, i64 4, !33, i64 8, !33, i64 16, !34, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !5, i64 96, !4, i64 140, !4, i64 144, !4, i64 148, !4, i64 152, !35, i64 160, !4, i64 168, !36, i64 176, !35, i64 184, !4, i64 192, !4, i64 196, !4, i64 200, !37, i64 208, !4, i64 216, !38, i64 224, !40, i64 240, !41, i64 248, !14, i64 256, !42, i64 264, !14, i64 272, !43, i64 280, !4, i64 284, !44, i64 288, !13, i64 296, !39, i64 304, !45, i64 312, !13, i64 320, !35, i64 328, !14, i64 336, !14, i64 344, !35, i64 352, !14, i64 360, !14, i64 368, !44, i64 376, !44, i64 384, !33, i64 392, !46, i64 400, !13, i64 408, !44, i64 416, !44, i64 424, !13, i64 432, !44, i64 440, !44, i64 448, !44, i64 456}
+!33 = !{!"p1 omnipotent char", !14, i64 0}
+!34 = !{!"p1 _ZTS9Nm_Man_t_", !14, i64 0}
+!35 = !{!"p1 _ZTS10Abc_Ntk_t_", !14, i64 0}
+!36 = !{!"p1 _ZTS10Abc_Des_t_", !14, i64 0}
+!37 = !{!"double", !5, i64 0}
+!38 = !{!"Vec_Int_t_", !4, i64 0, !4, i64 4, !39, i64 8}
+!39 = !{!"p1 int", !14, i64 0}
+!40 = !{!"p1 _ZTS12Mem_Fixed_t_", !14, i64 0}
+!41 = !{!"p1 _ZTS11Mem_Step_t_", !14, i64 0}
+!42 = !{!"p1 _ZTS14Abc_ManTime_t_", !14, i64 0}
+!43 = !{!"float", !5, i64 0}
+!44 = !{!"p1 _ZTS10Vec_Int_t_", !14, i64 0}
+!45 = !{!"p1 _ZTS10Abc_Cex_t_", !14, i64 0}
+!46 = !{!"p1 float", !14, i64 0}
+!47 = !{!21, !4, i64 4}
+!48 = !{!49, !4, i64 28}
+!49 = !{!"Abc_Obj_t_", !35, i64 0, !50, i64 8, !4, i64 16, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 20, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !4, i64 21, !38, i64 24, !38, i64 40, !5, i64 56, !5, i64 64}
+!50 = !{!"p1 _ZTS10Abc_Obj_t_", !14, i64 0}
+!51 = !{!5, !5, i64 0}
+!52 = !{!32, !14, i64 256}
+!53 = distinct !{!53, !8}
+!54 = !{!38, !39, i64 8}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"vprintf: argument 0"}
+!59 = distinct !{!59, !"vprintf"}

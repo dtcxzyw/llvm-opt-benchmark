@@ -708,8 +708,8 @@ _ZNK7rocksdb15BlockBasedTable17IndexReaderCommon32ApproximateIndexBlockMemoryUsa
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb15BlockBasedTable11IndexReader17CacheDependenciesERKNS_11ReadOptionsEbPNS_18FilePrefetchBufferE(ptr dead_on_unwind noalias writable sret(%"class.rocksdb::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %6, align 8, !tbaa !44, !alias.scope !200
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !200
+  store ptr null, ptr %6, align 8, !tbaa !44, !alias.scope !199
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !199
   ret void
 }
 
@@ -770,7 +770,7 @@ define linkonce_odr void @_ZN7rocksdb13CachableEntryINS_5BlockEE11DeleteValueEPv
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_binary_search_index_reader.cc() #12 section ".text.startup" {
-  store i64 -241, ptr @_ZN7rocksdbL23kRangeTombstoneSentinelE, align 8, !tbaa !203
+  store i64 -241, ptr @_ZN7rocksdbL23kRangeTombstoneSentinelE, align 8, !tbaa !202
   %1 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN7rocksdbL23kRangeTombstoneSentinelE)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN7rocksdbL18empty_operand_listE, i8 0, i64 24, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev, ptr nonnull @_ZN7rocksdbL18empty_operand_listE, ptr nonnull @__dso_handle) #14
@@ -994,10 +994,9 @@ attributes #16 = { builtin allocsize(0) }
 !194 = !{!172, !7, i64 8}
 !195 = !{!172, !7, i64 16}
 !196 = !{!172, !173, i64 24}
-!197 = distinct !{!197, !198, !199}
+!197 = distinct !{!197, !198}
 !198 = !{!"llvm.loop.mustprogress"}
-!199 = !{!"llvm.loop.estimated_trip_count"}
-!200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZN7rocksdb6Status2OKEv: argument 0"}
-!202 = distinct !{!202, !"_ZN7rocksdb6Status2OKEv"}
-!203 = !{!74, !74, i64 0}
+!199 = !{!200}
+!200 = distinct !{!200, !201, !"_ZN7rocksdb6Status2OKEv: argument 0"}
+!201 = distinct !{!201, !"_ZN7rocksdb6Status2OKEv"}
+!202 = !{!74, !74, i64 0}

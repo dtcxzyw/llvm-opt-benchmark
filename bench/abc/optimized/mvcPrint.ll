@@ -50,11 +50,11 @@ Mvc_CubePrint.exit:                               ; preds = %12, %.lr.ph
   %putchar.i = tail call i32 @putchar(i32 10)
   %.013 = load ptr, ptr %.01317, align 8, !tbaa !16
   %.not = icmp eq ptr %.013, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %Mvc_CubePrint.exit, %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %25 = load ptr, ptr %24, align 8, !tbaa !22
+  %25 = load ptr, ptr %24, align 8, !tbaa !21
   %.not14 = icmp eq ptr %25, null
   br i1 %.not14, label %35, label %.preheader
 
@@ -65,7 +65,7 @@ Mvc_CubePrint.exit:                               ; preds = %12, %.lr.ph
 
 .lr.ph19:                                         ; preds = %.preheader, %.lr.ph19
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph19 ], [ 0, %.preheader ]
-  %28 = load ptr, ptr %24, align 8, !tbaa !22
+  %28 = load ptr, ptr %24, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !17
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %30)
@@ -73,7 +73,7 @@ Mvc_CubePrint.exit:                               ; preds = %12, %.lr.ph
   %32 = load i32, ptr %5, align 8, !tbaa !14
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph19, label %._crit_edge20, !llvm.loop !23
+  br i1 %34, label %.lr.ph19, label %._crit_edge20, !llvm.loop !22
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %.preheader
   %putchar = tail call i32 @putchar(i32 10)
@@ -175,17 +175,17 @@ default.unreachable:                              ; preds = %12
   %25 = load i32, ptr %5, align 8, !tbaa !14
   %26 = sdiv i32 %25, 2
   %27 = icmp slt i32 %24, %26
-  br i1 %27, label %12, label %Mvc_CubePrintBinary.exit, !llvm.loop !24
+  br i1 %27, label %12, label %Mvc_CubePrintBinary.exit, !llvm.loop !23
 
 Mvc_CubePrintBinary.exit:                         ; preds = %12, %23, %.lr.ph
   %putchar.i = tail call i32 @putchar(i32 10)
   %.013 = load ptr, ptr %.01317, align 8, !tbaa !16
   %.not = icmp eq ptr %.013, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %Mvc_CubePrintBinary.exit, %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %29 = load ptr, ptr %28, align 8, !tbaa !22
+  %29 = load ptr, ptr %28, align 8, !tbaa !21
   %.not14 = icmp eq ptr %29, null
   br i1 %.not14, label %39, label %.preheader
 
@@ -196,7 +196,7 @@ Mvc_CubePrintBinary.exit:                         ; preds = %12, %23, %.lr.ph
 
 .lr.ph19:                                         ; preds = %.preheader, %.lr.ph19
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph19 ], [ 0, %.preheader ]
-  %32 = load ptr, ptr %28, align 8, !tbaa !22
+  %32 = load ptr, ptr %28, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !17
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %34)
@@ -204,7 +204,7 @@ Mvc_CubePrintBinary.exit:                         ; preds = %12, %23, %.lr.ph
   %36 = load i32, ptr %5, align 8, !tbaa !14
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph19, label %._crit_edge20, !llvm.loop !26
+  br i1 %38, label %.lr.ph19, label %._crit_edge20, !llvm.loop !25
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %.preheader
   %putchar = tail call i32 @putchar(i32 10)
@@ -245,12 +245,11 @@ attributes #2 = { nofree nounwind }
 !15 = !{!4, !5, i64 0}
 !16 = !{!9, !9, i64 0}
 !17 = !{!5, !5, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = !{!4, !12, i64 56}
-!23 = distinct !{!23, !19, !20}
-!24 = distinct !{!24, !19, !20}
-!25 = distinct !{!25, !19, !20}
-!26 = distinct !{!26, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = !{!4, !12, i64 56}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
+!24 = distinct !{!24, !19}
+!25 = distinct !{!25, !19}

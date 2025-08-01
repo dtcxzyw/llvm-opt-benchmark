@@ -2702,7 +2702,7 @@ define linkonce_odr dso_local noundef i64 @_ZSt8distanceIN32pxrInternal_v0_24__p
 
 .noexc4:                                          ; preds = %.noexc3
   %9 = add nuw nsw i64 %.02.i, 1
-  br i1 %8, label %.lr.ph.i, label %_ZSt10__distanceIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_St18input_iterator_tag.exit, !llvm.loop !8
+  br i1 %8, label %.lr.ph.i, label %_ZSt10__distanceIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_St18input_iterator_tag.exit, !llvm.loop !7
 
 _ZSt10__distanceIN32pxrInternal_v0_24__pxrReserved__10UsdZipFile8IteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_St18input_iterator_tag.exit: ; preds = %.noexc4, %.noexc
   %.0.lcssa.i = phi i64 [ 0, %.noexc ], [ %9, %.noexc4 ]
@@ -2889,7 +2889,6 @@ attributes #13 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
+!7 = distinct !{!7, !6}

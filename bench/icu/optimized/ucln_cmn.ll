@@ -46,7 +46,7 @@ ucln_cleanupOne_77.exit.i:                        ; preds = %4, %1
 10:                                               ; preds = %8, %.preheader.i
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next16.i, 29
-  br i1 %exitcond18.not.i, label %ucln_lib_cleanup_77.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond18.not.i, label %ucln_lib_cleanup_77.exit, label %.preheader.i, !llvm.loop !9
 
 ucln_lib_cleanup_77.exit:                         ; preds = %10
   %11 = tail call signext i8 @cmemory_cleanup_77()
@@ -94,7 +94,7 @@ ucln_cleanupOne_77.exit:                          ; preds = %1, %4
 10:                                               ; preds = %.preheader, %8
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 29
-  br i1 %exitcond18.not, label %11, label %.preheader, !llvm.loop !10
+  br i1 %exitcond18.not, label %11, label %.preheader, !llvm.loop !9
 
 11:                                               ; preds = %10
   ret i8 1
@@ -199,7 +199,6 @@ attributes #6 = { nounwind }
 !4 = !{!"any pointer", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

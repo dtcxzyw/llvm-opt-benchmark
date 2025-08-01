@@ -53,9 +53,9 @@ define noundef ptr @prte_reachable_allocate(i32 noundef %0, i32 noundef %1) loca
 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  store i32 %0, ptr %20, align 8, !tbaa !23
+  store i32 %0, ptr %20, align 8, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 124
-  store i32 %1, ptr %21, align 4, !tbaa !26
+  store i32 %1, ptr %21, align 4, !tbaa !25
   %22 = zext i32 %0 to i64
   %23 = zext i32 %1 to i64
   %24 = shl nuw nsw i64 %23, 2
@@ -67,9 +67,9 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
 
 29:                                               ; preds = %pmix_obj_new_tma.exit
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store ptr %27, ptr %30, align 8, !tbaa !27
+  store ptr %27, ptr %30, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  store ptr %27, ptr %31, align 8, !tbaa !28
+  store ptr %27, ptr %31, align 8, !tbaa !27
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
@@ -82,11 +82,11 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02426 = phi ptr [ %33, %.lr.ph.preheader ], [ %35, %.lr.ph ]
   %34 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
-  store ptr %.02426, ptr %34, align 8, !tbaa !29
+  store ptr %.02426, ptr %34, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %.02426, i64 %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %22
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph, %29, %pmix_obj_new_tma.exit
   %.0 = phi ptr [ null, %pmix_obj_new_tma.exit ], [ %4, %29 ], [ %4, %.lr.ph ]
@@ -99,14 +99,14 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @prte_reachable_construct(ptr noundef writeonly captures(none) initializes((128, 136)) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr null, ptr %2, align 8, !tbaa !28
+  store ptr null, ptr %2, align 8, !tbaa !27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @prte_reachable_destruct(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %3 = load ptr, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -162,15 +162,14 @@ attributes #9 = { nounwind }
 !17 = !{!15, !10, i64 48}
 !18 = !{!4, !6, i64 40}
 !19 = !{!6, !6, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!24, !10, i64 120}
-!24 = !{!"prte_reachable_t", !15, i64 0, !10, i64 120, !10, i64 124, !25, i64 128, !6, i64 136}
-!25 = !{!"p2 int", !6, i64 0}
-!26 = !{!24, !10, i64 124}
-!27 = !{!24, !6, i64 136}
-!28 = !{!24, !25, i64 128}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 int", !6, i64 0}
-!31 = distinct !{!31, !21, !22}
+!22 = !{!23, !10, i64 120}
+!23 = !{!"prte_reachable_t", !15, i64 0, !10, i64 120, !10, i64 124, !24, i64 128, !6, i64 136}
+!24 = !{!"p2 int", !6, i64 0}
+!25 = !{!23, !10, i64 124}
+!26 = !{!23, !6, i64 136}
+!27 = !{!23, !24, i64 128}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 int", !6, i64 0}
+!30 = distinct !{!30, !21}

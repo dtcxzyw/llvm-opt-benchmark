@@ -765,7 +765,7 @@ define internal void @mtp3_stat_reset(ptr noundef %0) #0 {
   %8 = add nuw i32 %.014, 1
   %9 = load i32, ptr %2, align 4
   %10 = icmp ult i32 %8, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -811,7 +811,7 @@ define internal i32 @dissect_mtp3(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %9 = load i32, ptr @proto_mtp3, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  %12 = load i8, ptr @mtp3_heuristic_standard, align 1, !range !10, !noundef !11
+  %12 = load i8, ptr @mtp3_heuristic_standard, align 1, !range !9, !noundef !10
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %proto_item_set_generated.exit
 
@@ -925,7 +925,7 @@ switch.lookup:                                    ; preds = %proto_item_set_gene
   ]
 
 71:                                               ; preds = %54, %54
-  %72 = load i8, ptr @mtp3_show_itu_priority, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr @mtp3_show_itu_priority, align 1, !range !9, !noundef !10
   %73 = trunc nuw i8 %72 to i1
   %hf_mtp3_itu_priority.hf_mtp3_itu_spare.i = select i1 %73, ptr @hf_mtp3_itu_priority, ptr @hf_mtp3_itu_spare
   br label %.sink.split.i
@@ -1102,7 +1102,7 @@ mtp3_pc_structured.exit96.thread.i:               ; preds = %133, %mtp3_pc_struc
   br i1 %164, label %165, label %174
 
 165:                                              ; preds = %145
-  %166 = load i8, ptr @mtp3_use_ansi_5_bit_sls, align 1, !range !10, !noundef !11
+  %166 = load i8, ptr @mtp3_use_ansi_5_bit_sls, align 1, !range !9, !noundef !10
   %167 = trunc nuw i8 %166 to i1
   br i1 %167, label %168, label %171
 
@@ -1214,7 +1214,7 @@ proto_item_set_hidden.exit107.i:                  ; preds = %213, %210, %mtp3_pc
   br label %proto_item_set_hidden.exit110.i
 
 proto_item_set_hidden.exit110.i:                  ; preds = %222, %219, %proto_item_set_hidden.exit107.i
-  %226 = load i8, ptr @mtp3_use_japan_5_bit_sls, align 1, !range !10, !noundef !11
+  %226 = load i8, ptr @mtp3_use_japan_5_bit_sls, align 1, !range !9, !noundef !10
   %227 = trunc nuw i8 %226 to i1
   br i1 %227, label %228, label %233
 
@@ -1685,9 +1685,8 @@ attributes #17 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}

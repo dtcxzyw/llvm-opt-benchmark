@@ -46,7 +46,7 @@ define void @CAST_set_key(ptr noundef writeonly captures(none) %0, i32 noundef %
 ._crit_edge.thread:                               ; preds = %._crit_edge, %3
   %.sink = phi i32 [ 1, %3 ], [ %spec.select, %._crit_edge ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i32 %.sink, ptr %13, align 4, !tbaa !11
+  store i32 %.sink, ptr %13, align 4, !tbaa !10
   %14 = load i32, ptr %4, align 16, !tbaa !3
   %15 = shl i32 %14, 24
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -733,7 +733,7 @@ define void @CAST_set_key(ptr noundef writeonly captures(none) %0, i32 noundef %
   store i32 %667, ptr %668, align 4, !tbaa !3
   %.not = icmp eq ptr %.0193, %5
   %669 = getelementptr inbounds nuw i8, ptr %.0193, i64 64
-  br i1 %.not, label %69, label %.preheader, !llvm.loop !13
+  br i1 %.not, label %69, label %.preheader
 
 .preheader:                                       ; preds = %69, %.preheader
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %.preheader ], [ 0, %69 ]
@@ -752,7 +752,7 @@ define void @CAST_set_key(ptr noundef writeonly captures(none) %0, i32 noundef %
   store i32 %678, ptr %680, align 4, !tbaa !3
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %exitcond240.not = icmp eq i64 %indvars.iv.next238, 16
-  br i1 %exitcond240.not, label %681, label %.preheader, !llvm.loop !14
+  br i1 %exitcond240.not, label %681, label %.preheader, !llvm.loop !12
 
 681:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #4
@@ -788,10 +788,8 @@ attributes #4 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !4, i64 128}
-!12 = !{!"cast_key_st", !5, i64 0, !4, i64 128}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !9, !10}
+!10 = !{!11, !4, i64 128}
+!11 = !{!"cast_key_st", !5, i64 0, !4, i64 128}
+!12 = distinct !{!12, !9}

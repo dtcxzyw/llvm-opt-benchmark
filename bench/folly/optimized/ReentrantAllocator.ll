@@ -224,7 +224,7 @@ define noundef ptr @_ZN5folly6detail24reentrant_allocator_base8allocateEmm(ptr n
 _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us54: ; preds = %.outer.split.split.us57
   %18 = cmpxchg weak ptr %17, i64 %20, i64 %23 release monotonic, align 8
   %19 = extractvalue { i64, i1 } %18, 1
-  br i1 %19, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit, label %.outer.split.split.us57, !llvm.loop !31
+  br i1 %19, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit, label %.outer.split.split.us57, !llvm.loop !30
 
 .outer.split.split.us57:                          ; preds = %.outer.us, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us54
   %20 = load atomic i64, ptr %17 acquire, align 8
@@ -263,7 +263,7 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us54:
   unreachable
 
 _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35: ; preds = %.split.us
-  store ptr %.043.ph.fr, ptr %29, align 8, !tbaa !33
+  store ptr %.043.ph.fr, ptr %29, align 8, !tbaa !32
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 16, ptr %31, align 8, !tbaa !25
   %32 = load ptr, ptr %0, align 8, !tbaa !7
@@ -276,7 +276,7 @@ _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35: ; preds = %.split.us
 
 .outer.backedge:                                  ; preds = %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35, %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit
   %.043.ph.be = phi ptr [ %.0.i.i38, %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit ], [ %29, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35 ]
-  br label %.outer, !llvm.loop !35
+  br label %.outer
 
 38:                                               ; preds = %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35
   %39 = tail call i32 @munmap(ptr noundef nonnull %29, i64 noundef %.fr65) #4
@@ -297,7 +297,7 @@ _ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit: ; preds = %38
 _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit: ; preds = %.outer.split.split
   %44 = cmpxchg weak ptr %24, i64 %25, i64 %28 release monotonic, align 8
   %45 = extractvalue { i64, i1 } %44, 1
-  br i1 %45, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit77, label %.outer.split.split, !llvm.loop !35
+  br i1 %45, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit77, label %.outer.split.split
 
 _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us54
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %22
@@ -391,11 +391,9 @@ attributes #5 = { cold noreturn nounwind }
 !25 = !{!19, !15, i64 0}
 !26 = !{!21, !22, i64 0}
 !27 = !{!22, !22, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = distinct !{!31, !30, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = !{!34, !22, i64 0}
-!34 = !{!"_ZTSN5folly6detail24reentrant_allocator_base6node_tE", !22, i64 0, !18, i64 8}
-!35 = distinct !{!35, !30}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = !{!33, !22, i64 0}
+!33 = !{!"_ZTSN5folly6detail24reentrant_allocator_base6node_tE", !22, i64 0, !18, i64 8}

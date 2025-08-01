@@ -166,7 +166,7 @@ define dso_local range(i32 0, 2) i32 @cmd_verify_tag(i32 noundef %0, ptr noundef
   %.1 = phi i32 [ 1, %57 ], [ 1, %59 ], [ %.021, %64 ], [ %.021, %62 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9) #5
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %65
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %8) #5
@@ -243,5 +243,3 @@ attributes #6 = { noreturn nounwind }
 !26 = !{!10, !10, i64 0}
 !27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.estimated_trip_count"}

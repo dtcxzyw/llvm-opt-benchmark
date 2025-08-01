@@ -166,7 +166,7 @@ define internal noundef zeroext i1 @ch7xxx_init(ptr noundef captures(none) %0, p
   br label %68
 
 67:                                               ; preds = %68
-  br i1 %69, label %68, label %.thread4, !llvm.loop !12
+  br i1 %69, label %68, label %.thread4, !llvm.loop !11
 
 68:                                               ; preds = %65, %67
   %69 = phi i1 [ false, %67 ], [ true, %65 ]
@@ -1044,7 +1044,7 @@ define internal void @ch7xxx_dump_regs(ptr noundef readonly captures(none) %0) #
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %38) #7
   %39 = add nuw nsw i32 %16, 1
   %40 = icmp eq i32 %39, 76
-  br i1 %40, label %41, label %15, !llvm.loop !13
+  br i1 %40, label %41, label %15, !llvm.loop !12
 
 41:                                               ; preds = %37
   ret void
@@ -1090,9 +1090,8 @@ attributes #7 = { nounwind }
 !5 = !{!"auto-init"}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

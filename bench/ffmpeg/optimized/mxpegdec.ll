@@ -351,7 +351,7 @@ mxpeg_decode_com.exit:                            ; preds = %79, %sub_0.i, %sub_
   br label %.thread132
 
 150:                                              ; preds = %146
-  %151 = load i32, ptr %44, align 16, !tbaa !67
+  %151 = load i32, ptr %44, align 16, !tbaa !66
   %.not120 = icmp eq i32 %151, 0
   br i1 %.not120, label %153, label %152
 
@@ -381,7 +381,7 @@ mxpeg_decode_com.exit:                            ; preds = %79, %sub_0.i, %sub_
   br i1 %.not113, label %161, label %178
 
 161:                                              ; preds = %159
-  %162 = load i32, ptr %33, align 4, !tbaa !68
+  %162 = load i32, ptr %33, align 4, !tbaa !67
   %.not114 = icmp eq i32 %162, 0
   br i1 %.not114, label %164, label %163
 
@@ -399,32 +399,32 @@ mxpeg_decode_com.exit:                            ; preds = %79, %sub_0.i, %sub_
   br label %mxpeg_decode_com.exit.thread
 
 167:                                              ; preds = %164
-  %168 = load ptr, ptr %32, align 8, !tbaa !69
+  %168 = load ptr, ptr %32, align 8, !tbaa !68
   call void @av_frame_unref(ptr noundef %168) #6
-  %169 = load ptr, ptr %32, align 8, !tbaa !69
+  %169 = load ptr, ptr %32, align 8, !tbaa !68
   %170 = call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %169, i32 noundef 1) #6
   %171 = icmp slt i32 %170, 0
   br i1 %171, label %.thread132, label %172
 
 172:                                              ; preds = %167
-  %173 = load ptr, ptr %32, align 8, !tbaa !69
+  %173 = load ptr, ptr %32, align 8, !tbaa !68
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 120
-  store i32 2, ptr %174, align 8, !tbaa !70
+  store i32 2, ptr %174, align 8, !tbaa !69
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 276
-  %176 = load i32, ptr %175, align 4, !tbaa !74
+  %176 = load i32, ptr %175, align 4, !tbaa !73
   %177 = and i32 %176, -3
-  store i32 %177, ptr %175, align 4, !tbaa !74
+  store i32 %177, ptr %175, align 4, !tbaa !73
   store i32 1, ptr %20, align 16, !tbaa !47
   br label %184
 
 178:                                              ; preds = %159
-  %179 = load ptr, ptr %32, align 8, !tbaa !69
+  %179 = load ptr, ptr %32, align 8, !tbaa !68
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 120
-  store i32 1, ptr %180, align 8, !tbaa !70
+  store i32 1, ptr %180, align 8, !tbaa !69
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 276
-  %182 = load i32, ptr %181, align 4, !tbaa !74
+  %182 = load i32, ptr %181, align 4, !tbaa !73
   %183 = or i32 %182, 2
-  store i32 %183, ptr %181, align 4, !tbaa !74
+  store i32 %183, ptr %181, align 4, !tbaa !73
   br label %184
 
 184:                                              ; preds = %178, %172
@@ -434,12 +434,12 @@ mxpeg_decode_com.exit:                            ; preds = %79, %sub_0.i, %sub_
   br i1 %.not116, label %228, label %187
 
 187:                                              ; preds = %184
-  %188 = load i32, ptr %35, align 16, !tbaa !75
+  %188 = load i32, ptr %35, align 16, !tbaa !74
   %189 = xor i32 %188, 1
   %190 = sext i32 %189 to i64
   %191 = getelementptr inbounds [2 x ptr], ptr %34, i64 0, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !27
-  %193 = load i32, ptr %36, align 4, !tbaa !76
+  %193 = load i32, ptr %36, align 4, !tbaa !75
   %194 = add nsw i32 %193, 15
   %195 = ashr i32 %194, 4
   %196 = load i32, ptr %37, align 8, !tbaa !57
@@ -447,7 +447,7 @@ mxpeg_decode_com.exit:                            ; preds = %79, %sub_0.i, %sub_
   br i1 %.not.i127, label %197, label %mxpeg_check_dimensions.exit
 
 197:                                              ; preds = %187
-  %198 = load i32, ptr %38, align 8, !tbaa !77
+  %198 = load i32, ptr %38, align 8, !tbaa !76
   %199 = add nsw i32 %198, 15
   %200 = ashr i32 %199, 4
   %201 = load i32, ptr %39, align 4, !tbaa !58
@@ -467,7 +467,7 @@ mxpeg_decode_com.exit:                            ; preds = %79, %sub_0.i, %sub_
 206:                                              ; preds = %213
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.loopexit, label %207, !llvm.loop !78
+  br i1 %exitcond.not.i, label %.loopexit, label %207, !llvm.loop !77
 
 207:                                              ; preds = %206, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %206 ]
@@ -490,7 +490,7 @@ mxpeg_decode_com.exit:                            ; preds = %79, %sub_0.i, %sub_
 
 mxpeg_check_dimensions.exit:                      ; preds = %207, %213, %187, %197
   %.str.15.sink.i = phi ptr [ @.str.14, %197 ], [ @.str.14, %187 ], [ @.str.15, %213 ], [ @.str.15, %207 ]
-  %218 = load ptr, ptr %40, align 8, !tbaa !79
+  %218 = load ptr, ptr %40, align 8, !tbaa !78
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %218, i32 noundef 16, ptr noundef nonnull %.str.15.sink.i) #6
   br label %mxpeg_decode_com.exit.thread
 
@@ -507,7 +507,7 @@ mxpeg_check_dimensions.exit:                      ; preds = %207, %213, %187, %1
   br i1 %224, label %225, label %mxpeg_decode_com.exit.thread
 
 225:                                              ; preds = %.loopexit
-  %226 = load i32, ptr %43, align 8, !tbaa !80
+  %226 = load i32, ptr %43, align 8, !tbaa !79
   %227 = and i32 %226, 8
   %.not119 = icmp eq i32 %227, 0
   br i1 %.not119, label %mxpeg_decode_com.exit.thread, label %.thread132
@@ -518,7 +518,7 @@ mxpeg_check_dimensions.exit:                      ; preds = %207, %213, %187, %1
   br i1 %230, label %231, label %mxpeg_decode_com.exit.thread
 
 231:                                              ; preds = %228
-  %232 = load i32, ptr %43, align 8, !tbaa !80
+  %232 = load i32, ptr %43, align 8, !tbaa !79
   %233 = and i32 %232, 8
   %.not117 = icmp eq i32 %233, 0
   br i1 %.not117, label %mxpeg_decode_com.exit.thread, label %.thread132
@@ -532,7 +532,7 @@ mxpeg_decode_com.exit.thread:                     ; preds = %.loopexit, %225, %7
   %238 = getelementptr inbounds i8, ptr %236, i64 %237
   store ptr %238, ptr %5, align 8, !tbaa !46
   %239 = icmp ult ptr %238, %19
-  br i1 %239, label %47, label %._crit_edge, !llvm.loop !81
+  br i1 %239, label %47, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %47, %mxpeg_decode_app.exit, %mxpeg_decode_com.exit.thread
   %.pr136.pre = load i32, ptr %20, align 16, !tbaa !47
@@ -541,7 +541,7 @@ mxpeg_decode_com.exit.thread:                     ; preds = %.loopexit, %225, %7
 
 .thread137:                                       ; preds = %68, %._crit_edge
   %241 = getelementptr inbounds nuw i8, ptr %13, i64 1224
-  %242 = load ptr, ptr %241, align 8, !tbaa !69
+  %242 = load ptr, ptr %241, align 8, !tbaa !68
   %243 = call i32 @av_frame_ref(ptr noundef %1, ptr noundef %242) #6
   %244 = icmp sgt i32 %243, -1
   br i1 %244, label %245, label %.thread132
@@ -549,14 +549,14 @@ mxpeg_decode_com.exit.thread:                     ; preds = %.loopexit, %225, %7
 245:                                              ; preds = %.thread137
   store i32 1, ptr %2, align 4, !tbaa !50
   %246 = getelementptr inbounds nuw i8, ptr %13, i64 4496
-  %247 = load i32, ptr %246, align 16, !tbaa !75
+  %247 = load i32, ptr %246, align 16, !tbaa !74
   %248 = xor i32 %247, 1
-  store i32 %248, ptr %246, align 16, !tbaa !75
+  store i32 %248, ptr %246, align 16, !tbaa !74
   %249 = getelementptr inbounds nuw i8, ptr %13, i64 4480
   %250 = sext i32 %248 to i64
   %251 = getelementptr inbounds [2 x ptr], ptr %249, i64 0, i64 %250
   %252 = load ptr, ptr %251, align 8, !tbaa !27
-  store ptr %252, ptr %241, align 8, !tbaa !69
+  store ptr %252, ptr %241, align 8, !tbaa !68
   %253 = getelementptr inbounds nuw i8, ptr %13, i64 4524
   %254 = load i32, ptr %253, align 4, !tbaa !63
   %.not123 = icmp eq i32 %254, 0
@@ -734,21 +734,20 @@ attributes #6 = { nounwind }
 !61 = !{!30, !14, i64 4512}
 !62 = !{!30, !14, i64 4528}
 !63 = !{!30, !10, i64 4524}
-!64 = distinct !{!64, !65, !66}
+!64 = distinct !{!64, !65}
 !65 = !{!"llvm.loop.mustprogress"}
-!66 = !{!"llvm.loop.estimated_trip_count"}
-!67 = !{!31, !10, i64 896}
-!68 = !{!31, !10, i64 892}
-!69 = !{!31, !28, i64 1224}
-!70 = !{!71, !10, i64 120}
-!71 = !{!"AVFrame", !8, i64 0, !8, i64 64, !72, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !73, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !37, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!72 = !{!"p2 omnipotent char", !26, i64 0}
-!73 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!74 = !{!71, !10, i64 276}
-!75 = !{!30, !10, i64 4496}
-!76 = !{!31, !10, i64 980}
-!77 = !{!31, !10, i64 984}
-!78 = distinct !{!78, !65, !66}
-!79 = !{!31, !32, i64 8}
-!80 = !{!5, !10, i64 528}
-!81 = distinct !{!81, !65, !66}
+!66 = !{!31, !10, i64 896}
+!67 = !{!31, !10, i64 892}
+!68 = !{!31, !28, i64 1224}
+!69 = !{!70, !10, i64 120}
+!70 = !{!"AVFrame", !8, i64 0, !8, i64 64, !71, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !72, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !37, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!71 = !{!"p2 omnipotent char", !26, i64 0}
+!72 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!73 = !{!70, !10, i64 276}
+!74 = !{!30, !10, i64 4496}
+!75 = !{!31, !10, i64 980}
+!76 = !{!31, !10, i64 984}
+!77 = distinct !{!77, !65}
+!78 = !{!31, !32, i64 8}
+!79 = !{!5, !10, i64 528}
+!80 = distinct !{!80, !65}

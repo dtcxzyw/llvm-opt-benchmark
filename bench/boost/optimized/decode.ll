@@ -180,7 +180,7 @@ define noundef i64 @_ZN5boost4urls6detail13decode_unsafeEPcPKcNS_4core17basic_st
   %.028.be.i = phi ptr [ %17, %16 ], [ %29, %27 ], [ %31, %30 ]
   %.0.be.i = getelementptr inbounds nuw i8, ptr %.037.i, i64 1
   %.not.i = icmp eq ptr %.028.be.i, %7
-  br i1 %.not.i, label %._crit_edge.i, label %10, !llvm.loop !9
+  br i1 %.not.i, label %._crit_edge.i, label %10, !llvm.loop !8
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %.02836.i, i64 1
@@ -258,7 +258,7 @@ define noundef i64 @_ZN5boost4urls6detail13decode_unsafeEPcPKcNS_4core17basic_st
   %.028.be.i12 = phi ptr [ %53, %51 ], [ %42, %54 ]
   %.0.be.i13 = getelementptr inbounds nuw i8, ptr %.035.i, i64 1
   %.not.i14 = icmp eq ptr %.028.be.i12, %7
-  br i1 %.not.i14, label %._crit_edge.i15, label %35, !llvm.loop !10
+  br i1 %.not.i14, label %._crit_edge.i15, label %35, !llvm.loop !9
 
 54:                                               ; preds = %39
   store i8 %40, ptr %.035.i, align 1, !tbaa !3
@@ -293,8 +293,7 @@ attributes #4 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

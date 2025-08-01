@@ -184,7 +184,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev22applyTetrahedralAVX512EPKfiS1_Pfi(
   %145 = or disjoint i64 %144, 15
   %146 = add nuw i32 %.02324.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %146, %19
-  br i1 %exitcond.not.i.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit.i: ; preds = %.lr.ph.i.i
   %147 = trunc i64 %145 to i16
@@ -269,20 +269,20 @@ _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_
   %226 = tail call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> %217, <16 x i32> zeroinitializer, i16 -1, i32 4)
   %227 = tail call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> %220, <16 x i32> zeroinitializer, i16 -1, i32 4)
   %228 = tail call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> %224, <16 x i32> zeroinitializer, i16 -1, i32 4)
-  %229 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %0, <16 x i32> %225, <16 x i1> splat (i1 true), i32 4), !noalias !13
+  %229 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %0, <16 x i32> %225, <16 x i1> splat (i1 true), i32 4), !noalias !12
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %231 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %230, <16 x i32> %225, <16 x i1> splat (i1 true), i32 4), !noalias !13
+  %231 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %230, <16 x i32> %225, <16 x i1> splat (i1 true), i32 4), !noalias !12
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %233 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %232, <16 x i32> %225, <16 x i1> splat (i1 true), i32 4), !noalias !13
-  %234 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %0, <16 x i32> %226, <16 x i1> splat (i1 true), i32 4), !noalias !13
-  %235 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %230, <16 x i32> %226, <16 x i1> splat (i1 true), i32 4), !noalias !13
-  %236 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %232, <16 x i32> %226, <16 x i1> splat (i1 true), i32 4), !noalias !13
-  %237 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %0, <16 x i32> %227, <16 x i1> splat (i1 true), i32 4), !noalias !13
-  %238 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %230, <16 x i32> %227, <16 x i1> splat (i1 true), i32 4), !noalias !13
-  %239 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %232, <16 x i32> %227, <16 x i1> splat (i1 true), i32 4), !noalias !13
-  %240 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %0, <16 x i32> %228, <16 x i1> splat (i1 true), i32 4), !noalias !13
-  %241 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %230, <16 x i32> %228, <16 x i1> splat (i1 true), i32 4), !noalias !13
-  %242 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %232, <16 x i32> %228, <16 x i1> splat (i1 true), i32 4), !noalias !13
+  %233 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %232, <16 x i32> %225, <16 x i1> splat (i1 true), i32 4), !noalias !12
+  %234 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %0, <16 x i32> %226, <16 x i1> splat (i1 true), i32 4), !noalias !12
+  %235 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %230, <16 x i32> %226, <16 x i1> splat (i1 true), i32 4), !noalias !12
+  %236 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %232, <16 x i32> %226, <16 x i1> splat (i1 true), i32 4), !noalias !12
+  %237 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %0, <16 x i32> %227, <16 x i1> splat (i1 true), i32 4), !noalias !12
+  %238 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %230, <16 x i32> %227, <16 x i1> splat (i1 true), i32 4), !noalias !12
+  %239 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %232, <16 x i32> %227, <16 x i1> splat (i1 true), i32 4), !noalias !12
+  %240 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %0, <16 x i32> %228, <16 x i1> splat (i1 true), i32 4), !noalias !12
+  %241 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %230, <16 x i32> %228, <16 x i1> splat (i1 true), i32 4), !noalias !12
+  %242 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %232, <16 x i32> %228, <16 x i1> splat (i1 true), i32 4), !noalias !12
   br label %.lr.ph.i57.i
 
 .lr.ph.i57.i:                                     ; preds = %.lr.ph.i57.i, %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_fS6_S6_S6_j.exit.i
@@ -292,7 +292,7 @@ _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE10LoadMaskedEPKfRDv16_
   %244 = or disjoint i64 %243, 15
   %245 = add nuw i32 %.028.i.i, 1
   %exitcond.not.i58.i = icmp eq i32 %245, %19
-  br i1 %exitcond.not.i58.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE11StoreMaskedEPfDv16_fS4_S4_S4_j.exit.i, label %.lr.ph.i57.i, !llvm.loop !16
+  br i1 %exitcond.not.i58.i, label %_ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE11StoreMaskedEPfDv16_fS4_S4_S4_j.exit.i, label %.lr.ph.i57.i, !llvm.loop !15
 
 _ZN19OpenColorIO_v2_5dev14AVX512RGBAPackILNS_8BitDepthE8EE11StoreMaskedEPfDv16_fS4_S4_S4_j.exit.i: ; preds = %.lr.ph.i57.i
   %246 = shufflevector <16 x float> %167, <16 x float> %168, <16 x i32> <i32 2, i32 3, i32 18, i32 19, i32 6, i32 7, i32 22, i32 23, i32 10, i32 11, i32 26, i32 27, i32 14, i32 15, i32 30, i32 31>
@@ -403,11 +403,10 @@ attributes #10 = { nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_125interp_tetrahedral_avx512ERKNS0_18Lut3DContextAVX512ERDv16_fS5_S5_S5_: argument 0"}
 !8 = distinct !{!8, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_125interp_tetrahedral_avx512ERKNS0_18Lut3DContextAVX512ERDv16_fS5_S5_S5_"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_125interp_tetrahedral_avx512ERKNS0_18Lut3DContextAVX512ERDv16_fS5_S5_S5_: argument 0"}
-!15 = distinct !{!15, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_125interp_tetrahedral_avx512ERKNS0_18Lut3DContextAVX512ERDv16_fS5_S5_S5_"}
-!16 = distinct !{!16, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_125interp_tetrahedral_avx512ERKNS0_18Lut3DContextAVX512ERDv16_fS5_S5_S5_: argument 0"}
+!14 = distinct !{!14, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_125interp_tetrahedral_avx512ERKNS0_18Lut3DContextAVX512ERDv16_fS5_S5_S5_"}
+!15 = distinct !{!15, !10}

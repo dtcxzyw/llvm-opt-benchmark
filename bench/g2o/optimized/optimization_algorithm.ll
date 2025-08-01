@@ -435,6 +435,5 @@ attributes #18 = { nounwind willreturn memory(read) }
 !56 = !{!"p1 _ZTSN3g2o12BasePropertyE", !9, i64 0}
 !57 = !{!53, !55, i64 0}
 !58 = !{!53, !21, i64 8}
-!59 = distinct !{!59, !60, !61}
+!59 = distinct !{!59, !60}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!"llvm.loop.estimated_trip_count"}

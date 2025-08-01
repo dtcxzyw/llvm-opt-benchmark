@@ -86,19 +86,19 @@ define i32 @ff_rtp_get_payload_type(ptr noundef readonly captures(address_is_nul
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !28
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %.not46 = icmp eq ptr %7, null
   br i1 %.not46, label %.thread.split.preheader, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %10 = load ptr, ptr %9, align 8, !tbaa !42
+  %10 = load ptr, ptr %9, align 8, !tbaa !41
   %.not47 = icmp eq ptr %10, null
   br i1 %.not47, label %.thread.split.preheader, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !44
   %.not48 = icmp eq ptr %13, null
   br i1 %.not48, label %.thread.split.preheader, label %14
 
@@ -185,7 +185,7 @@ define i32 @ff_rtp_get_payload_type(ptr noundef readonly captures(address_is_nul
   %58 = getelementptr inbounds nuw [27 x %struct.anon], ptr @rtp_payload_types, i64 0, i64 %indvars.iv.next67
   %59 = load i32, ptr %58, align 4, !tbaa !24
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 26
-  br i1 %exitcond69.not, label %.split.us, label %29, !llvm.loop !46
+  br i1 %exitcond69.not, label %.split.us, label %29, !llvm.loop !45
 
 .thread.split:                                    ; preds = %.thread.split.preheader, %101
   %indvars.iv = phi i64 [ 0, %.thread.split.preheader ], [ %indvars.iv.next, %101 ]
@@ -202,18 +202,18 @@ define i32 @ff_rtp_get_payload_type(ptr noundef readonly captures(address_is_nul
   br i1 %67, label %68, label %77
 
 68:                                               ; preds = %66
-  %69 = load ptr, ptr %21, align 8, !tbaa !28
+  %69 = load ptr, ptr %21, align 8, !tbaa !27
   %.not51 = icmp eq ptr %69, null
   br i1 %.not51, label %101, label %70
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 56
-  %72 = load ptr, ptr %71, align 8, !tbaa !42
+  %72 = load ptr, ptr %71, align 8, !tbaa !41
   %.not52 = icmp eq ptr %72, null
   br i1 %.not52, label %101, label %73
 
 73:                                               ; preds = %70
-  %74 = load ptr, ptr %22, align 8, !tbaa !45
+  %74 = load ptr, ptr %22, align 8, !tbaa !44
   %.not53 = icmp eq ptr %74, null
   br i1 %.not53, label %101, label %75
 
@@ -273,7 +273,7 @@ thread-pre-split:                                 ; preds = %75
   %102 = getelementptr inbounds nuw [27 x %struct.anon], ptr @rtp_payload_types, i64 0, i64 %indvars.iv.next
   %103 = load i32, ptr %102, align 4, !tbaa !24
   %exitcond.not = icmp eq i64 %indvars.iv.next, 26
-  br i1 %exitcond.not, label %.split.us, label %.thread.split, !llvm.loop !48
+  br i1 %exitcond.not, label %.split.us, label %.thread.split, !llvm.loop !47
 
 .split.us:                                        ; preds = %101, %57
   %104 = icmp slt i32 %2, 0
@@ -308,13 +308,13 @@ define nonnull ptr @ff_rtp_enc_name(i32 noundef %0) local_unnamed_addr #3 {
   %indvars.iv13 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv13, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 26
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !48
 
 3:                                                ; preds = %.lr.ph
   %4 = getelementptr inbounds nuw [27 x %struct.anon], ptr @rtp_payload_types, i64 0, i64 %indvars.iv.next
   %5 = load i32, ptr %4, align 4, !tbaa !24
   %6 = icmp eq i32 %5, %0
-  br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %3, %1
   %.lcssa = phi ptr [ @rtp_payload_types, %1 ], [ %4, %3 ]
@@ -353,7 +353,7 @@ define i32 @ff_rtp_codec_id(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = getelementptr inbounds nuw [27 x %struct.anon], ptr @rtp_payload_types, i64 0, i64 %indvars.iv.next
   %exitcond.not = icmp eq i64 %indvars.iv.next, 26
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !49
 
 .loopexit:                                        ; preds = %14, %11
   %.07 = phi i32 [ %13, %11 ], [ 0, %14 ]
@@ -395,29 +395,28 @@ attributes #4 = { nounwind }
 !22 = !{!5, !6, i64 20}
 !23 = !{!11, !6, i64 152}
 !24 = !{!5, !6, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!29, !32, i64 16}
-!29 = !{!"AVFormatContext", !30, i64 0, !31, i64 8, !32, i64 16, !13, i64 24, !33, i64 32, !6, i64 40, !6, i64 44, !34, i64 48, !6, i64 56, !36, i64 64, !6, i64 72, !37, i64 80, !12, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !6, i64 120, !6, i64 124, !6, i64 128, !15, i64 136, !15, i64 144, !12, i64 152, !6, i64 160, !6, i64 164, !38, i64 168, !6, i64 176, !6, i64 180, !6, i64 184, !6, i64 188, !39, i64 192, !15, i64 200, !6, i64 208, !6, i64 212, !40, i64 216, !6, i64 232, !6, i64 236, !6, i64 240, !6, i64 244, !15, i64 248, !6, i64 256, !6, i64 260, !6, i64 264, !6, i64 268, !6, i64 272, !6, i64 276, !6, i64 280, !6, i64 284, !6, i64 288, !6, i64 292, !6, i64 296, !6, i64 300, !15, i64 304, !6, i64 312, !6, i64 316, !6, i64 320, !6, i64 324, !6, i64 328, !12, i64 336, !12, i64 344, !12, i64 352, !12, i64 360, !6, i64 368, !41, i64 376, !41, i64 384, !41, i64 392, !41, i64 400, !6, i64 408, !13, i64 416, !13, i64 424, !15, i64 432, !12, i64 440, !13, i64 448, !13, i64 456, !15, i64 464}
-!30 = !{!"p1 _ZTS7AVClass", !13, i64 0}
-!31 = !{!"p1 _ZTS13AVInputFormat", !13, i64 0}
-!32 = !{!"p1 _ZTS14AVOutputFormat", !13, i64 0}
-!33 = !{!"p1 _ZTS11AVIOContext", !13, i64 0}
-!34 = !{!"p2 _ZTS8AVStream", !35, i64 0}
-!35 = !{!"any p2 pointer", !13, i64 0}
-!36 = !{!"p2 _ZTS13AVStreamGroup", !35, i64 0}
-!37 = !{!"p2 _ZTS9AVChapter", !35, i64 0}
-!38 = !{!"p2 _ZTS9AVProgram", !35, i64 0}
-!39 = !{!"p1 _ZTS12AVDictionary", !13, i64 0}
-!40 = !{!"AVIOInterruptCB", !13, i64 0, !13, i64 8}
-!41 = !{!"p1 _ZTS7AVCodec", !13, i64 0}
-!42 = !{!43, !30, i64 56}
-!43 = !{!"AVOutputFormat", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !44, i64 48, !30, i64 56}
-!44 = !{!"p2 _ZTS10AVCodecTag", !35, i64 0}
-!45 = !{!29, !13, i64 24}
-!46 = distinct !{!46, !26, !27, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = distinct !{!48, !26, !27}
-!49 = distinct !{!49, !26, !27}
-!50 = distinct !{!50, !26, !27}
+!27 = !{!28, !31, i64 16}
+!28 = !{!"AVFormatContext", !29, i64 0, !30, i64 8, !31, i64 16, !13, i64 24, !32, i64 32, !6, i64 40, !6, i64 44, !33, i64 48, !6, i64 56, !35, i64 64, !6, i64 72, !36, i64 80, !12, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !6, i64 120, !6, i64 124, !6, i64 128, !15, i64 136, !15, i64 144, !12, i64 152, !6, i64 160, !6, i64 164, !37, i64 168, !6, i64 176, !6, i64 180, !6, i64 184, !6, i64 188, !38, i64 192, !15, i64 200, !6, i64 208, !6, i64 212, !39, i64 216, !6, i64 232, !6, i64 236, !6, i64 240, !6, i64 244, !15, i64 248, !6, i64 256, !6, i64 260, !6, i64 264, !6, i64 268, !6, i64 272, !6, i64 276, !6, i64 280, !6, i64 284, !6, i64 288, !6, i64 292, !6, i64 296, !6, i64 300, !15, i64 304, !6, i64 312, !6, i64 316, !6, i64 320, !6, i64 324, !6, i64 328, !12, i64 336, !12, i64 344, !12, i64 352, !12, i64 360, !6, i64 368, !40, i64 376, !40, i64 384, !40, i64 392, !40, i64 400, !6, i64 408, !13, i64 416, !13, i64 424, !15, i64 432, !12, i64 440, !13, i64 448, !13, i64 456, !15, i64 464}
+!29 = !{!"p1 _ZTS7AVClass", !13, i64 0}
+!30 = !{!"p1 _ZTS13AVInputFormat", !13, i64 0}
+!31 = !{!"p1 _ZTS14AVOutputFormat", !13, i64 0}
+!32 = !{!"p1 _ZTS11AVIOContext", !13, i64 0}
+!33 = !{!"p2 _ZTS8AVStream", !34, i64 0}
+!34 = !{!"any p2 pointer", !13, i64 0}
+!35 = !{!"p2 _ZTS13AVStreamGroup", !34, i64 0}
+!36 = !{!"p2 _ZTS9AVChapter", !34, i64 0}
+!37 = !{!"p2 _ZTS9AVProgram", !34, i64 0}
+!38 = !{!"p1 _ZTS12AVDictionary", !13, i64 0}
+!39 = !{!"AVIOInterruptCB", !13, i64 0, !13, i64 8}
+!40 = !{!"p1 _ZTS7AVCodec", !13, i64 0}
+!41 = !{!42, !29, i64 56}
+!42 = !{!"AVOutputFormat", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !43, i64 48, !29, i64 56}
+!43 = !{!"p2 _ZTS10AVCodecTag", !34, i64 0}
+!44 = !{!28, !13, i64 24}
+!45 = distinct !{!45, !26, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !26}
+!48 = distinct !{!48, !26}
+!49 = distinct !{!49, !26}

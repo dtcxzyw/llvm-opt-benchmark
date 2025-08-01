@@ -283,13 +283,13 @@ define internal i32 @dissect_ax25(ptr noundef %0, ptr noundef initializes((112, 
   %.0.lcssa = phi i32 [ 14, %49 ], [ %62, %61 ]
   %67 = load i32, ptr @hf_ax25_ctl, align 4
   %68 = load i32, ptr @ett_ax25_ctl, align 4
-  %69 = load i8, ptr @gEXTENDED_MODE, align 1, !range !9, !noundef !10
+  %69 = load i8, ptr @gEXTENDED_MODE, align 1, !range !8, !noundef !9
   %70 = trunc nuw i8 %69 to i1
   %71 = tail call i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %.0.lcssa, ptr noundef %1, ptr noundef %14, i32 noundef %67, i32 noundef %68, ptr noundef nonnull @ax25_cf_items, ptr noundef nonnull @ax25_cf_items_ext, ptr noundef null, ptr noundef null, i1 noundef zeroext %50, i1 noundef zeroext %70, i1 noundef zeroext false)
   %72 = and i32 %71, 255
   %73 = and i32 %71, 3
   %74 = icmp ne i32 %73, 3
-  %75 = load i8, ptr @gEXTENDED_MODE, align 1, !range !9
+  %75 = load i8, ptr @gEXTENDED_MODE, align 1, !range !8
   %76 = trunc nuw i8 %75 to i1
   %.not86 = select i1 %74, i1 %76, i1 false
   %77 = select i1 %.not86, i32 2, i32 1
@@ -365,7 +365,7 @@ define internal zeroext i1 @capture_ax25(ptr noundef %0, i32 noundef %1, i32 nou
   %15 = and i8 %14, 1
   %16 = icmp eq i8 %15, 0
   %17 = add i32 %.0, 7
-  br i1 %16, label %10, label %18, !llvm.loop !11
+  br i1 %16, label %10, label %18, !llvm.loop !10
 
 18:                                               ; preds = %10
   %19 = sext i32 %.0 to i64
@@ -482,9 +482,8 @@ attributes #3 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}

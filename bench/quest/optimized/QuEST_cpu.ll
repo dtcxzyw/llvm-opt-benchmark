@@ -156,7 +156,7 @@ define internal void @densmatr_oneQubitDegradeOffDiagonal.omp_outlined(ptr noali
 47:                                               ; preds = %32, %38
   %48 = add i64 %.026, 1
   %exitcond.not = icmp eq i64 %.026, %18
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %32
 
 ._crit_edge:                                      ; preds = %47, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -184,7 +184,7 @@ declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #4
 declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare !callback !22 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #4
+declare !callback !20 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @densmatr_mixDephasing(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #1 {
@@ -360,7 +360,7 @@ define internal void @densmatr_mixTwoQubitDephasing.omp_outlined(ptr noalias nou
 56:                                               ; preds = %36, %47
   %57 = add i64 %.037, 1
   %exitcond.not = icmp eq i64 %.037, %21
-  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %36
 
 ._crit_edge:                                      ; preds = %56, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -528,7 +528,7 @@ define internal void @densmatr_mixDepolarisingLocal.omp_outlined(ptr noalias nou
 84:                                               ; preds = %48, %51, %39
   %85 = add i64 %.045, 1
   %exitcond.not = icmp eq i64 %.045, %19
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %33
 
 ._crit_edge:                                      ; preds = %84, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -694,7 +694,7 @@ define internal void @densmatr_mixDampingLocal.omp_outlined(ptr noalias noundef 
 72:                                               ; preds = %49, %52, %40
   %73 = add i64 %.040, 1
   %exitcond.not = icmp eq i64 %.040, %20
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %34
 
 ._crit_edge:                                      ; preds = %72, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -833,13 +833,13 @@ define internal void @densmatr_mixDepolarisingDistributed.omp_outlined(ptr noali
   %38 = zext i32 %28 to i64
   %39 = shl nuw i64 1, %38
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %41 = load ptr, ptr %40, align 8, !tbaa !27
+  %41 = load ptr, ptr %40, align 8, !tbaa !22
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %43 = load ptr, ptr %42, align 8, !tbaa !28
+  %43 = load ptr, ptr %42, align 8, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %45 = load ptr, ptr %44, align 8, !tbaa !29
+  %45 = load ptr, ptr %44, align 8, !tbaa !24
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %47 = load ptr, ptr %46, align 8, !tbaa !30
+  %47 = load ptr, ptr %46, align 8, !tbaa !25
   br label %48
 
 48:                                               ; preds = %.lr.ph, %48
@@ -884,7 +884,7 @@ define internal void @densmatr_mixDepolarisingDistributed.omp_outlined(ptr noali
   store double %83, ptr %76, align 8, !tbaa !4
   %84 = add i64 %.037, 1
   %exitcond.not = icmp eq i64 %.037, %20
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %48
 
 ._crit_edge:                                      ; preds = %48, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -1095,7 +1095,7 @@ define internal void @densmatr_mixDampingDistributed.omp_outlined(ptr noalias no
 92:                                               ; preds = %83, %70
   %93 = add i64 %.042, 1
   %exitcond.not = icmp eq i64 %.042, %21
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %49
 
 ._crit_edge:                                      ; preds = %92, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -1244,7 +1244,7 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
 69:                                               ; preds = %44, %48, %40
   %70 = add i64 %.099109, 1
   %exitcond.not = icmp eq i64 %.099109, %26
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %40
 
 ._crit_edge:                                      ; preds = %69, %23
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -1337,7 +1337,7 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
 120:                                              ; preds = %95, %99, %91
   %121 = add i64 %.0100111, 1
   %exitcond120.not = icmp eq i64 %.0100111, %77
-  br i1 %exitcond120.not, label %._crit_edge114, label %91, !llvm.loop !34
+  br i1 %exitcond120.not, label %._crit_edge114, label %91
 
 ._crit_edge114:                                   ; preds = %120, %74
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -1439,7 +1439,7 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
 180:                                              ; preds = %146, %150, %142
   %181 = add i64 %.0116, 1
   %exitcond121.not = icmp eq i64 %.0116, %128
-  br i1 %exitcond121.not, label %._crit_edge119, label %142, !llvm.loop !35
+  br i1 %exitcond121.not, label %._crit_edge119, label %142
 
 ._crit_edge119:                                   ; preds = %180, %125
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -1578,7 +1578,7 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocalPart1.omp_outlined(pt
 60:                                               ; preds = %35, %39, %31
   %61 = add i64 %.037, 1
   %exitcond.not = icmp eq i64 %.037, %17
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %31
 
 ._crit_edge:                                      ; preds = %60, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -1706,13 +1706,13 @@ define internal void @densmatr_mixTwoQubitDepolarisingDistributed.omp_outlined(p
   %49 = shl nuw i64 1, %48
   %50 = shl i64 %28, 1
   %51 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !27
+  %52 = load ptr, ptr %51, align 8, !tbaa !22
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %54 = load ptr, ptr %53, align 8, !tbaa !28
+  %54 = load ptr, ptr %53, align 8, !tbaa !23
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %56 = load ptr, ptr %55, align 8, !tbaa !29
+  %56 = load ptr, ptr %55, align 8, !tbaa !24
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %58 = load ptr, ptr %57, align 8, !tbaa !30
+  %58 = load ptr, ptr %57, align 8, !tbaa !25
   br label %59
 
 59:                                               ; preds = %.lr.ph, %59
@@ -1765,7 +1765,7 @@ define internal void @densmatr_mixTwoQubitDepolarisingDistributed.omp_outlined(p
   store double %101, ptr %95, align 8, !tbaa !4
   %102 = add i64 %.046, 1
   %exitcond.not = icmp eq i64 %.046, %24
-  br i1 %exitcond.not, label %._crit_edge, label %59, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %59
 
 ._crit_edge:                                      ; preds = %59, %21
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -1894,13 +1894,13 @@ define internal void @densmatr_mixTwoQubitDepolarisingQ1LocalQ2DistributedPart3.
   %50 = shl nuw i64 1, %49
   %51 = shl i64 %28, 1
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %53 = load ptr, ptr %52, align 8, !tbaa !27
+  %53 = load ptr, ptr %52, align 8, !tbaa !22
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %55 = load ptr, ptr %54, align 8, !tbaa !28
+  %55 = load ptr, ptr %54, align 8, !tbaa !23
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %57 = load ptr, ptr %56, align 8, !tbaa !29
+  %57 = load ptr, ptr %56, align 8, !tbaa !24
   %58 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %59 = load ptr, ptr %58, align 8, !tbaa !30
+  %59 = load ptr, ptr %58, align 8, !tbaa !25
   br label %60
 
 60:                                               ; preds = %.lr.ph, %60
@@ -1958,7 +1958,7 @@ define internal void @densmatr_mixTwoQubitDepolarisingQ1LocalQ2DistributedPart3.
   store double %104, ptr %98, align 8, !tbaa !4
   %105 = add i64 %.050, 1
   %exitcond.not = icmp eq i64 %.050, %24
-  br i1 %exitcond.not, label %._crit_edge, label %60, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %60
 
 ._crit_edge:                                      ; preds = %60, %21
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -2015,9 +2015,9 @@ define internal void @zeroSomeAmps.omp_outlined(ptr noalias noundef readonly cap
 
 .lr.ph:                                           ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !27
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !29
+  %22 = load ptr, ptr %21, align 8, !tbaa !24
   br label %23
 
 23:                                               ; preds = %.lr.ph, %23
@@ -2029,7 +2029,7 @@ define internal void @zeroSomeAmps.omp_outlined(ptr noalias noundef readonly cap
   store double 0.000000e+00, ptr %26, align 8, !tbaa !4
   %27 = add i64 %.020, 1
   %exitcond.not = icmp eq i64 %.020, %17
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %23, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -2090,9 +2090,9 @@ define internal void @normaliseSomeAmps.omp_outlined(ptr noalias noundef readonl
 
 .lr.ph:                                           ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !27
+  %21 = load ptr, ptr %20, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %23 = load ptr, ptr %22, align 8, !tbaa !29
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
@@ -2110,7 +2110,7 @@ define internal void @normaliseSomeAmps.omp_outlined(ptr noalias noundef readonl
   store double %33, ptr %31, align 8, !tbaa !4
   %34 = add i64 %.021, 1
   %exitcond.not = icmp eq i64 %.021, %18
-  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %24
 
 ._crit_edge:                                      ; preds = %24, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -2216,7 +2216,7 @@ define internal void @alternateNormZeroingSomeAmpBlocks.omp_outlined(ptr noalias
   %35 = add nsw i64 %.018, 1
   %36 = load i64, ptr %16, align 8, !tbaa !16
   %.not.not = icmp slt i64 %.018, %36
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %.not.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
@@ -2302,7 +2302,7 @@ define internal void @alternateNormZeroingSomeAmpBlocks.omp_outlined.1(ptr noali
   %35 = add nsw i64 %.018, 1
   %36 = load i64, ptr %16, align 8, !tbaa !16
   %.not.not = icmp slt i64 %.018, %36
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %.not.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %23)
@@ -2506,7 +2506,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr noundef readonly byval(%str
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   %76 = add nuw nsw i64 %.05170, 1
   %exitcond73.not = icmp eq i64 %76, %66
-  br i1 %exitcond73.not, label %.loopexit, label %72, !llvm.loop !43
+  br i1 %exitcond73.not, label %.loopexit, label %72
 
 77:                                               ; preds = %.lr.ph, %77
   %.069 = phi i64 [ 0, %.lr.ph ], [ %82, %77 ]
@@ -2542,7 +2542,7 @@ define void @densmatr_collapseToKnownProbOutcome(ptr noundef readonly byval(%str
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %82 = add nuw nsw i64 %.069, 1
   %exitcond.not = icmp eq i64 %82, %66
-  br i1 %exitcond.not, label %.loopexit, label %77, !llvm.loop !44
+  br i1 %exitcond.not, label %.loopexit, label %77
 
 .loopexit:                                        ; preds = %77, %72, %.preheader67, %.preheader, %59, %60, %61, %56
   ret void
@@ -2562,12 +2562,12 @@ define double @densmatr_calcPurityLocal(ptr noundef readonly byval(%struct.Qureg
   store double 0.000000e+00, ptr %3, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !27
-  store ptr %9, ptr %4, align 8, !tbaa !45
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
+  store ptr %9, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
-  store ptr %11, ptr %5, align 8, !tbaa !45
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  store ptr %11, ptr %5, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @densmatr_calcPurityLocal.omp_outlined, ptr nonnull %2, ptr nonnull %3, ptr nonnull %4, ptr nonnull %5)
   %12 = load double, ptr %3, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
@@ -2611,8 +2611,8 @@ define internal void @densmatr_calcPurityLocal.omp_outlined(ptr noalias noundef 
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %20 = load ptr, ptr %4, align 8, !tbaa !45
-  %21 = load ptr, ptr %5, align 8, !tbaa !45
+  %20 = load ptr, ptr %4, align 8, !tbaa !26
+  %21 = load ptr, ptr %5, align 8, !tbaa !26
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
@@ -2628,7 +2628,7 @@ define internal void @densmatr_calcPurityLocal.omp_outlined(ptr noalias noundef 
   store double %30, ptr %7, align 8, !tbaa !4
   %31 = add i64 %.020, 1
   %exitcond.not = icmp eq i64 %.020, %18
-  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %22
 
 ._crit_edge:                                      ; preds = %22, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -2693,20 +2693,20 @@ define void @densmatr_mixDensityMatrix(ptr noundef readonly byval(%struct.Qureg)
   store double %1, ptr %4, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !27
-  store ptr %11, ptr %5, align 8, !tbaa !45
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  store ptr %11, ptr %5, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !29
-  store ptr %13, ptr %6, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  store ptr %13, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !27
-  store ptr %15, ptr %7, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
+  store ptr %15, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
-  store ptr %17, ptr %8, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  store ptr %17, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !8
@@ -2750,10 +2750,10 @@ define internal void @densmatr_mixDensityMatrix.omp_outlined(ptr noalias noundef
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %20 = load ptr, ptr %3, align 8, !tbaa !45
-  %21 = load ptr, ptr %5, align 8, !tbaa !45
-  %22 = load ptr, ptr %6, align 8, !tbaa !45
-  %23 = load ptr, ptr %7, align 8, !tbaa !45
+  %20 = load ptr, ptr %3, align 8, !tbaa !26
+  %21 = load ptr, ptr %5, align 8, !tbaa !26
+  %22 = load ptr, ptr %6, align 8, !tbaa !26
+  %23 = load ptr, ptr %7, align 8, !tbaa !26
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
@@ -2784,7 +2784,7 @@ define internal void @densmatr_mixDensityMatrix.omp_outlined(ptr noalias noundef
   store double %44, ptr %32, align 8, !tbaa !4
   %45 = add i64 %.023, 1
   %exitcond.not = icmp eq i64 %.023, %18
-  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %24
 
 ._crit_edge:                                      ; preds = %24, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -2813,20 +2813,20 @@ define double @densmatr_calcHilbertSchmidtDistanceSquaredLocal(ptr noundef reado
   store i64 %10, ptr %3, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !27
-  store ptr %12, ptr %4, align 8, !tbaa !45
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  store ptr %12, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !29
-  store ptr %14, ptr %5, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
+  store ptr %14, ptr %5, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !27
-  store ptr %16, ptr %6, align 8, !tbaa !45
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  store ptr %16, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
-  store ptr %18, ptr %7, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  store ptr %18, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   store double 0.000000e+00, ptr %8, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @densmatr_calcHilbertSchmidtDistanceSquaredLocal.omp_outlined, ptr nonnull %3, ptr nonnull %4, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7, ptr nonnull %8)
@@ -2874,10 +2874,10 @@ define internal void @densmatr_calcHilbertSchmidtDistanceSquaredLocal.omp_outlin
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %22 = load ptr, ptr %3, align 8, !tbaa !45
-  %23 = load ptr, ptr %4, align 8, !tbaa !45
-  %24 = load ptr, ptr %5, align 8, !tbaa !45
-  %25 = load ptr, ptr %6, align 8, !tbaa !45
+  %22 = load ptr, ptr %3, align 8, !tbaa !26
+  %23 = load ptr, ptr %4, align 8, !tbaa !26
+  %24 = load ptr, ptr %5, align 8, !tbaa !26
+  %25 = load ptr, ptr %6, align 8, !tbaa !26
   br label %26
 
 26:                                               ; preds = %.lr.ph, %26
@@ -2899,7 +2899,7 @@ define internal void @densmatr_calcHilbertSchmidtDistanceSquaredLocal.omp_outlin
   store double %40, ptr %9, align 8, !tbaa !4
   %41 = add i64 %.026, 1
   %exitcond.not = icmp eq i64 %.026, %20
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %26, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -2961,20 +2961,20 @@ define double @densmatr_calcInnerProductLocal(ptr noundef readonly byval(%struct
   store i64 %10, ptr %3, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !27
-  store ptr %12, ptr %4, align 8, !tbaa !45
+  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  store ptr %12, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !29
-  store ptr %14, ptr %5, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
+  store ptr %14, ptr %5, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !27
-  store ptr %16, ptr %6, align 8, !tbaa !45
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  store ptr %16, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
-  store ptr %18, ptr %7, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  store ptr %18, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   store double 0.000000e+00, ptr %8, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @densmatr_calcInnerProductLocal.omp_outlined, ptr nonnull %3, ptr nonnull %8, ptr nonnull %4, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7)
@@ -3022,10 +3022,10 @@ define internal void @densmatr_calcInnerProductLocal.omp_outlined(ptr noalias no
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %22 = load ptr, ptr %4, align 8, !tbaa !45
-  %23 = load ptr, ptr %5, align 8, !tbaa !45
-  %24 = load ptr, ptr %6, align 8, !tbaa !45
-  %25 = load ptr, ptr %7, align 8, !tbaa !45
+  %22 = load ptr, ptr %4, align 8, !tbaa !26
+  %23 = load ptr, ptr %5, align 8, !tbaa !26
+  %24 = load ptr, ptr %6, align 8, !tbaa !26
+  %25 = load ptr, ptr %7, align 8, !tbaa !26
   br label %26
 
 26:                                               ; preds = %.lr.ph, %26
@@ -3045,7 +3045,7 @@ define internal void @densmatr_calcInnerProductLocal.omp_outlined(ptr noalias no
   store double %38, ptr %9, align 8, !tbaa !4
   %39 = add i64 %.022, 1
   %exitcond.not = icmp eq i64 %.022, %20
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %26, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -3105,23 +3105,23 @@ define double @densmatr_calcFidelityLocal(ptr noundef readonly byval(%struct.Qur
   %10 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !28
-  store ptr %12, ptr %3, align 8, !tbaa !45
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  store ptr %12, ptr %3, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
-  store ptr %14, ptr %4, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  store ptr %14, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !27
-  store ptr %16, ptr %5, align 8, !tbaa !45
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  store ptr %16, ptr %5, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
-  store ptr %18, ptr %6, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  store ptr %18, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !50
+  %20 = load i64, ptr %19, align 8, !tbaa !27
   %21 = trunc i64 %20 to i32
   store i32 %21, ptr %7, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
@@ -3183,8 +3183,8 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nounde
   br i1 %.not50, label %._crit_edge54, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %19
-  %24 = load ptr, ptr %3, align 8, !tbaa !45
-  %25 = load ptr, ptr %4, align 8, !tbaa !45
+  %24 = load ptr, ptr %3, align 8, !tbaa !26
+  %25 = load ptr, ptr %4, align 8, !tbaa !26
   %26 = load i32, ptr %5, align 4, !tbaa !18
   %27 = icmp sgt i32 %26, 0
   %28 = load ptr, ptr %6, align 8
@@ -3239,7 +3239,7 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nounde
   %61 = fadd double %.04446.us, %60
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count
-  br i1 %exitcond61.not, label %._crit_edge.us, label %43, !llvm.loop !51
+  br i1 %exitcond61.not, label %._crit_edge.us, label %43
 
 ._crit_edge.us:                                   ; preds = %43
   %62 = fmul double %42, %61
@@ -3249,7 +3249,7 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nounde
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
   %lftr.wideiv65 = trunc i64 %indvars.iv.next63 to i32
   %exitcond66.not = icmp eq i32 %37, %lftr.wideiv65
-  br i1 %exitcond66.not, label %._crit_edge54, label %.lr.ph.us, !llvm.loop !52
+  br i1 %exitcond66.not, label %._crit_edge54, label %.lr.ph.us, !llvm.loop !28
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53.split.preheader, %.lr.ph53.split
   %indvars.iv = phi i64 [ %30, %.lr.ph53.split.preheader ], [ %indvars.iv.next, %.lr.ph53.split ]
@@ -3265,7 +3265,7 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nounde
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %31, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge54, label %.lr.ph53.split, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge54, label %.lr.ph53.split
 
 ._crit_edge54:                                    ; preds = %.lr.ph53.split, %._crit_edge.us, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -3335,20 +3335,20 @@ define { double, double } @statevec_calcInnerProductLocal(ptr noundef readonly b
   store i64 %11, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !27
-  store ptr %13, ptr %6, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
+  store ptr %13, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !29
-  store ptr %15, ptr %7, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  store ptr %15, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !27
-  store ptr %17, ptr %8, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !22
+  store ptr %17, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !29
-  store ptr %19, ptr %9, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !24
+  store ptr %19, ptr %9, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @statevec_calcInnerProductLocal.omp_outlined, ptr nonnull %5, ptr nonnull %6, ptr nonnull %7, ptr nonnull %8, ptr nonnull %9, ptr nonnull %3, ptr nonnull %4)
   %20 = load double, ptr %3, align 8, !tbaa !4
   %21 = load double, ptr %4, align 8, !tbaa !4
@@ -3401,10 +3401,10 @@ define internal void @statevec_calcInnerProductLocal.omp_outlined(ptr noalias no
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %24 = load ptr, ptr %3, align 8, !tbaa !45
-  %25 = load ptr, ptr %4, align 8, !tbaa !45
-  %26 = load ptr, ptr %5, align 8, !tbaa !45
-  %27 = load ptr, ptr %6, align 8, !tbaa !45
+  %24 = load ptr, ptr %3, align 8, !tbaa !26
+  %25 = load ptr, ptr %4, align 8, !tbaa !26
+  %26 = load ptr, ptr %5, align 8, !tbaa !26
+  %27 = load ptr, ptr %6, align 8, !tbaa !26
   br label %28
 
 28:                                               ; preds = %.lr.ph, %28
@@ -3430,7 +3430,7 @@ define internal void @statevec_calcInnerProductLocal.omp_outlined(ptr noalias no
   store double %45, ptr %11, align 8, !tbaa !4
   %46 = add i64 %.032, 1
   %exitcond.not = icmp eq i64 %.032, %22
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %28, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -3506,12 +3506,12 @@ define void @densmatr_initClassicalState(ptr noundef readonly byval(%struct.Qure
   store i64 %7, ptr %3, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !27
-  store ptr %9, ptr %4, align 8, !tbaa !45
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
+  store ptr %9, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
-  store ptr %11, ptr %5, align 8, !tbaa !45
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  store ptr %11, ptr %5, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @densmatr_initClassicalState.omp_outlined, ptr nonnull %3, ptr nonnull %4, ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !17
@@ -3528,10 +3528,10 @@ define void @densmatr_initClassicalState(ptr noundef readonly byval(%struct.Qure
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %2
-  %24 = load ptr, ptr %4, align 8, !tbaa !45
+  %24 = load ptr, ptr %4, align 8, !tbaa !26
   %25 = getelementptr inbounds double, ptr %24, i64 %21
   store double 1.000000e+00, ptr %25, align 8, !tbaa !4
-  %26 = load ptr, ptr %5, align 8, !tbaa !45
+  %26 = load ptr, ptr %5, align 8, !tbaa !26
   %27 = getelementptr inbounds double, ptr %26, i64 %21
   store double 0.000000e+00, ptr %27, align 8, !tbaa !4
   br label %28
@@ -3573,8 +3573,8 @@ define internal void @densmatr_initClassicalState.omp_outlined(ptr noalias nound
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %17 = load ptr, ptr %3, align 8, !tbaa !45
-  %18 = load ptr, ptr %4, align 8, !tbaa !45
+  %17 = load ptr, ptr %3, align 8, !tbaa !26
+  %18 = load ptr, ptr %4, align 8, !tbaa !26
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
@@ -3585,7 +3585,7 @@ define internal void @densmatr_initClassicalState.omp_outlined(ptr noalias nound
   store double 0.000000e+00, ptr %21, align 8, !tbaa !4
   %22 = add i64 %.016, 1
   %exitcond.not = icmp eq i64 %.016, %15
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %19, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -3616,12 +3616,12 @@ define void @densmatr_initPlusState(ptr noundef readonly byval(%struct.Qureg) al
   store double %11, ptr %2, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !27
-  store ptr %13, ptr %3, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
+  store ptr %13, ptr %3, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !29
-  store ptr %15, ptr %4, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  store ptr %15, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !8
@@ -3664,8 +3664,8 @@ define internal void @densmatr_initPlusState.omp_outlined(ptr noalias noundef re
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %18 = load ptr, ptr %3, align 8, !tbaa !45
-  %19 = load ptr, ptr %5, align 8, !tbaa !45
+  %18 = load ptr, ptr %3, align 8, !tbaa !26
+  %19 = load ptr, ptr %5, align 8, !tbaa !26
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
@@ -3677,7 +3677,7 @@ define internal void @densmatr_initPlusState.omp_outlined(ptr noalias noundef re
   store double 0.000000e+00, ptr %23, align 8, !tbaa !4
   %24 = add i64 %.017, 1
   %exitcond.not = icmp eq i64 %.017, %16
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %20, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -3713,24 +3713,24 @@ define void @densmatr_initPureStateLocal(ptr noundef readonly byval(%struct.Qure
   store i64 %14, ptr %4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !50
+  %17 = load i64, ptr %16, align 8, !tbaa !27
   store i64 %17, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %19 = load ptr, ptr %18, align 8, !tbaa !28
-  store ptr %19, ptr %6, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  store ptr %19, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load ptr, ptr %20, align 8, !tbaa !30
-  store ptr %21, ptr %7, align 8, !tbaa !45
+  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  store ptr %21, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !27
-  store ptr %23, ptr %8, align 8, !tbaa !45
+  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  store ptr %23, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
-  store ptr %25, ptr %9, align 8, !tbaa !45
+  %25 = load ptr, ptr %24, align 8, !tbaa !24
+  store ptr %25, ptr %9, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @densmatr_initPureStateLocal.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %6, ptr nonnull %7, ptr nonnull %3, ptr nonnull %8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
@@ -3809,12 +3809,12 @@ define internal void @densmatr_initPureStateLocal.omp_outlined(ptr noalias nound
   store double %45, ptr %46, align 8, !tbaa !4
   %47 = add nuw nsw i64 %.037.us, 1
   %exitcond.not = icmp eq i64 %47, %21
-  br i1 %exitcond.not, label %._crit_edge.us, label %32, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge.us, label %32
 
 ._crit_edge.us:                                   ; preds = %32
   %48 = add i64 %.03539.us, 1
   %exitcond42.not = icmp eq i64 %.03539.us, %19
-  br i1 %exitcond42.not, label %._crit_edge40, label %.preheader.us, !llvm.loop !59
+  br i1 %exitcond42.not, label %._crit_edge40, label %.preheader.us, !llvm.loop !30
 
 ._crit_edge40:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -3838,8 +3838,8 @@ define void @statevec_setAmps(ptr noundef readonly byval(%struct.Qureg) align 8 
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %2, ptr %6, align 8, !tbaa !45
-  store ptr %3, ptr %7, align 8, !tbaa !45
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  store ptr %3, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !19
@@ -3873,12 +3873,12 @@ define void @statevec_setAmps(ptr noundef readonly byval(%struct.Qureg) align 8 
 27:                                               ; preds = %26, %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !27
-  store ptr %29, ptr %11, align 8, !tbaa !45
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
+  store ptr %29, ptr %11, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !29
-  store ptr %31, ptr %12, align 8, !tbaa !45
+  %31 = load ptr, ptr %30, align 8, !tbaa !24
+  store ptr %31, ptr %12, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @statevec_setAmps.omp_outlined, ptr nonnull %8, ptr nonnull %9, ptr nonnull %11, ptr nonnull %6, ptr nonnull %10, ptr nonnull %12, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
@@ -3921,13 +3921,13 @@ define internal void @statevec_setAmps.omp_outlined(ptr noalias noundef readonly
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %17
-  %25 = load ptr, ptr %5, align 8, !tbaa !45
+  %25 = load ptr, ptr %5, align 8, !tbaa !26
   %26 = load i64, ptr %6, align 8, !tbaa !16
   %invariant.gep = getelementptr double, ptr %25, i64 %26
-  %27 = load ptr, ptr %4, align 8, !tbaa !45
-  %28 = load ptr, ptr %8, align 8, !tbaa !45
+  %27 = load ptr, ptr %4, align 8, !tbaa !26
+  %28 = load ptr, ptr %8, align 8, !tbaa !26
   %invariant.gep27 = getelementptr double, ptr %28, i64 %26
-  %29 = load ptr, ptr %7, align 8, !tbaa !45
+  %29 = load ptr, ptr %7, align 8, !tbaa !26
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
@@ -3943,7 +3943,7 @@ define internal void @statevec_setAmps.omp_outlined(ptr noalias noundef readonly
   store double %34, ptr %35, align 8, !tbaa !4
   %36 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %.026, %21
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %30
 
 ._crit_edge:                                      ; preds = %30, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -3963,42 +3963,42 @@ define void @statevec_createQureg(ptr noundef initializes((0, 4), (8, 12), (16, 
   %4 = zext nneg i32 %1 to i64
   %5 = shl nuw i64 1, %4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !61
+  %7 = load i32, ptr %6, align 4, !tbaa !31
   %8 = sext i32 %7 to i64
   %9 = sdiv i64 %5, %8
   tail call void @validateMemoryAllocationSize(i64 noundef %9, ptr noundef nonnull @__func__.statevec_createQureg) #4
   %10 = shl i64 %9, 3
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %11, ptr %12, align 8, !tbaa !27
+  store ptr %11, ptr %12, align 8, !tbaa !22
   %13 = tail call noalias ptr @malloc(i64 noundef %10) #23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %13, ptr %14, align 8, !tbaa !29
+  store ptr %13, ptr %14, align 8, !tbaa !24
   %15 = icmp sgt i32 %7, 1
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %3
   %17 = tail call noalias ptr @malloc(i64 noundef %10) #23
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %17, ptr %18, align 8, !tbaa !28
+  store ptr %17, ptr %18, align 8, !tbaa !23
   %19 = tail call noalias ptr @malloc(i64 noundef %10) #23
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %19, ptr %20, align 8, !tbaa !30
+  store ptr %19, ptr %20, align 8, !tbaa !25
   br label %21
 
 21:                                               ; preds = %16, %3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %22, align 8, !tbaa !64
+  store i32 %1, ptr %22, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %5, ptr %23, align 8, !tbaa !50
+  store i64 %5, ptr %23, align 8, !tbaa !27
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %9, ptr %24, align 8, !tbaa !8
-  %25 = load i32, ptr %2, align 8, !tbaa !65
+  %25 = load i32, ptr %2, align 8, !tbaa !35
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %25, ptr %26, align 8, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %7, ptr %27, align 4, !tbaa !66
-  store i32 0, ptr %0, align 8, !tbaa !67
+  store i32 %7, ptr %27, align 4, !tbaa !36
+  store i32 0, ptr %0, align 8, !tbaa !37
   tail call void @validateQuregAllocation(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %2, ptr noundef nonnull @__func__.statevec_createQureg) #4
   ret void
 }
@@ -4013,22 +4013,22 @@ declare void @validateQuregAllocation(ptr noundef, ptr noundef byval(%struct.QuE
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @statevec_destroyQureg(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !27
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
   tail call void @free(ptr noundef %4) #4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !29
+  %6 = load ptr, ptr %5, align 8, !tbaa !24
   tail call void @free(ptr noundef %6) #4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !61
+  %8 = load i32, ptr %7, align 4, !tbaa !31
   %9 = icmp sgt i32 %8, 1
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !28
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
   tail call void @free(ptr noundef %12) #4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
   tail call void @free(ptr noundef %14) #4
   br label %15
 
@@ -4050,27 +4050,27 @@ define void @statevec_applySubDiagonalOp(ptr noundef readonly byval(%struct.Qure
   %11 = alloca i64, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  store ptr %1, ptr %5, align 8, !tbaa !68
+  store ptr %1, ptr %5, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8, !tbaa !8
   store i64 %15, ptr %6, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !27
-  store ptr %17, ptr %7, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !22
+  store ptr %17, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !29
-  store ptr %19, ptr %8, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !24
+  store ptr %19, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !70
-  store ptr %21, ptr %9, align 8, !tbaa !45
+  %21 = load ptr, ptr %20, align 8, !tbaa !40
+  store ptr %21, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !72
-  store ptr %23, ptr %10, align 8, !tbaa !45
+  %23 = load ptr, ptr %22, align 8, !tbaa !42
+  store ptr %23, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8, !tbaa !19
@@ -4078,7 +4078,7 @@ define void @statevec_applySubDiagonalOp(ptr noundef readonly byval(%struct.Qure
   %27 = mul nsw i64 %15, %26
   store i64 %27, ptr %11, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
-  %28 = load i32, ptr %2, align 8, !tbaa !73
+  %28 = load i32, ptr %2, align 8, !tbaa !43
   store i32 %28, ptr %12, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
   %.not = icmp eq i32 %3, 0
@@ -4130,12 +4130,12 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nound
   %24 = load i32, ptr %4, align 4, !tbaa !18
   %25 = icmp sgt i32 %24, 0
   %26 = load ptr, ptr %5, align 8
-  %27 = load ptr, ptr %6, align 8, !tbaa !45
-  %28 = load ptr, ptr %7, align 8, !tbaa !45
+  %27 = load ptr, ptr %6, align 8, !tbaa !26
+  %28 = load ptr, ptr %7, align 8, !tbaa !26
   %29 = load i32, ptr %8, align 4, !tbaa !18
   %30 = sitofp i32 %29 to double
-  %31 = load ptr, ptr %9, align 8, !tbaa !45
-  %32 = load ptr, ptr %10, align 8, !tbaa !45
+  %31 = load ptr, ptr %9, align 8, !tbaa !26
+  %32 = load ptr, ptr %10, align 8, !tbaa !26
   br i1 %25, label %.lr.ph.us.preheader, label %.lr.ph47.split
 
 .lr.ph.us.preheader:                              ; preds = %.lr.ph47
@@ -4163,7 +4163,7 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nound
   %45 = or i64 %.043.us, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond51.not, label %._crit_edge.us, label %34, !llvm.loop !74
+  br i1 %exitcond51.not, label %._crit_edge.us, label %34
 
 ._crit_edge.us:                                   ; preds = %34
   %46 = getelementptr inbounds double, ptr %27, i64 %45
@@ -4184,7 +4184,7 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nound
   store double %59, ptr %53, align 8, !tbaa !4
   %60 = add i64 %.04145.us, 1
   %exitcond52.not = icmp eq i64 %.04145.us, %21
-  br i1 %exitcond52.not, label %._crit_edge48, label %.lr.ph.us, !llvm.loop !75
+  br i1 %exitcond52.not, label %._crit_edge48, label %.lr.ph.us, !llvm.loop !44
 
 .lr.ph47.split:                                   ; preds = %.lr.ph47, %.lr.ph47.split
   %.04145 = phi i64 [ %73, %.lr.ph47.split ], [ %22, %.lr.ph47 ]
@@ -4204,7 +4204,7 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nound
   store double %72, ptr %66, align 8, !tbaa !4
   %73 = add i64 %.04145, 1
   %exitcond.not = icmp eq i64 %.04145, %21
-  br i1 %exitcond.not, label %._crit_edge48, label %.lr.ph47.split, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge48, label %.lr.ph47.split
 
 ._crit_edge48:                                    ; preds = %.lr.ph47.split, %._crit_edge.us, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -4221,26 +4221,26 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nound
 
 ; Function Attrs: nounwind uwtable
 define void @agnostic_createDiagonalOp(ptr dead_on_unwind noalias writable sret(%struct.DiagonalOp) align 8 initializes((0, 4), (8, 40)) %0, i32 noundef %1, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %2) local_unnamed_addr #1 {
-  store i32 %1, ptr %0, align 8, !tbaa !77
+  store i32 %1, ptr %0, align 8, !tbaa !45
   %4 = zext nneg i32 %1 to i64
   %5 = shl nuw i64 1, %4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !61
+  %7 = load i32, ptr %6, align 4, !tbaa !31
   %8 = sext i32 %7 to i64
   %9 = sdiv i64 %5, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %9, ptr %10, align 8, !tbaa !79
-  %11 = load i32, ptr %2, align 8, !tbaa !65
+  store i64 %9, ptr %10, align 8, !tbaa !47
+  %11 = load i32, ptr %2, align 8, !tbaa !35
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %11, ptr %12, align 4, !tbaa !80
+  store i32 %11, ptr %12, align 4, !tbaa !48
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %7, ptr %13, align 8, !tbaa !81
+  store i32 %7, ptr %13, align 8, !tbaa !49
   %14 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 8) #24
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %14, ptr %15, align 8, !tbaa !82
+  store ptr %14, ptr %15, align 8, !tbaa !50
   %16 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 8) #24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %16, ptr %17, align 8, !tbaa !83
+  store ptr %16, ptr %17, align 8, !tbaa !51
   tail call void @validateDiagonalOpAllocation(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %2, ptr noundef nonnull @__func__.agnostic_createDiagonalOp) #4
   ret void
 }
@@ -4253,10 +4253,10 @@ declare void @validateDiagonalOpAllocation(ptr noundef, ptr noundef byval(%struc
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @agnostic_destroyDiagonalOp(ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !82
+  %3 = load ptr, ptr %2, align 8, !tbaa !50
   tail call void @free(ptr noundef %3) #4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !83
+  %5 = load ptr, ptr %4, align 8, !tbaa !51
   tail call void @free(ptr noundef %5) #4
   ret void
 }
@@ -4278,37 +4278,37 @@ define void @agnostic_initDiagonalOpFromPauliHamil(ptr noundef readonly byval(%s
   %10 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %12 = load i32, ptr %11, align 4, !tbaa !80
+  %12 = load i32, ptr %11, align 4, !tbaa !48
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !79
+  %15 = load i64, ptr %14, align 8, !tbaa !47
   %16 = mul nsw i64 %15, %13
   store i64 %16, ptr %3, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   store i64 %15, ptr %4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !82
-  store ptr %18, ptr %5, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !50
+  store ptr %18, ptr %5, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !83
-  store ptr %20, ptr %6, align 8, !tbaa !45
+  %20 = load ptr, ptr %19, align 8, !tbaa !51
+  store ptr %20, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !84
+  %22 = load i32, ptr %21, align 8, !tbaa !52
   store i32 %22, ptr %7, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %24 = load i32, ptr %23, align 4, !tbaa !86
+  %24 = load i32, ptr %23, align 4, !tbaa !54
   store i32 %24, ptr %8, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !87
-  store ptr %26, ptr %9, align 8, !tbaa !45
+  %26 = load ptr, ptr %25, align 8, !tbaa !55
+  store ptr %26, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
-  %27 = load ptr, ptr %1, align 8, !tbaa !88
-  store ptr %27, ptr %10, align 8, !tbaa !89
+  %27 = load ptr, ptr %1, align 8, !tbaa !56
+  store ptr %27, ptr %10, align 8, !tbaa !57
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 8, ptr nonnull @agnostic_initDiagonalOpFromPauliHamil.omp_outlined, ptr nonnull %4, ptr nonnull %3, ptr nonnull %7, ptr nonnull %8, ptr nonnull %10, ptr nonnull %9, ptr nonnull %5, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
@@ -4357,8 +4357,8 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
   %25 = load i32, ptr %5, align 4
   %26 = icmp sgt i32 %25, 0
   %27 = load ptr, ptr %7, align 8
-  %28 = load ptr, ptr %8, align 8, !tbaa !45
-  %29 = load ptr, ptr %9, align 8, !tbaa !45
+  %28 = load ptr, ptr %8, align 8, !tbaa !26
+  %29 = load ptr, ptr %9, align 8, !tbaa !26
   br i1 %24, label %.preheader.lr.ph.us.preheader, label %.lr.ph.split
 
 .preheader.lr.ph.us.preheader:                    ; preds = %.lr.ph
@@ -4381,7 +4381,7 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
   %35 = fadd double %34, %.045.us51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond60.not, label %._crit_edge46.us, label %.preheader.us50, !llvm.loop !90
+  br i1 %exitcond60.not, label %._crit_edge46.us, label %.preheader.us50
 
 ._crit_edge46.us:                                 ; preds = %.preheader.us50, %._crit_edge.us.us
   %.us-phi.us = phi double [ %58, %._crit_edge.us.us ], [ %35, %.preheader.us50 ]
@@ -4391,7 +4391,7 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
   store double 0.000000e+00, ptr %37, align 8, !tbaa !4
   %38 = add i64 %.03849.us, 1
   %exitcond71.not = icmp eq i64 %.03849.us, %20
-  br i1 %exitcond71.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !91
+  br i1 %exitcond71.not, label %._crit_edge, label %.preheader.lr.ph.us, !llvm.loop !58
 
 .preheader.us.us:                                 ; preds = %.preheader.lr.ph.us, %._crit_edge.us.us
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %._crit_edge.us.us ], [ 0, %.preheader.lr.ph.us ]
@@ -4425,7 +4425,7 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
   %.1.us.us = phi i32 [ %51, %50 ], [ %.03543.us.us, %45 ], [ %.03543.us.us, %41 ]
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %30
-  br i1 %exitcond65.not, label %._crit_edge.us.us, label %41, !llvm.loop !92
+  br i1 %exitcond65.not, label %._crit_edge.us.us, label %41
 
 ._crit_edge.us.us:                                ; preds = %52
   %53 = shl nuw nsw i32 %.1.us.us, 1
@@ -4436,7 +4436,7 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
   %58 = call double @llvm.fmuladd.f64(double %56, double %57, double %.045.us.us)
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge46.us, label %.preheader.us.us, !llvm.loop !93
+  br i1 %exitcond70.not, label %._crit_edge46.us, label %.preheader.us.us, !llvm.loop !59
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.03849 = phi i64 [ %61, %.lr.ph.split ], [ %21, %.lr.ph ]
@@ -4446,7 +4446,7 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
   store double 0.000000e+00, ptr %60, align 8, !tbaa !4
   %61 = add i64 %.03849, 1
   %exitcond.not = icmp eq i64 %.03849, %20
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %._crit_edge46.us, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -4464,13 +4464,13 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
 ; Function Attrs: nounwind uwtable
 define void @statevec_reportStateToScreen(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !64
+  %5 = load i32, ptr %4, align 8, !tbaa !34
   %6 = icmp slt i32 %5, 6
   br i1 %6, label %.preheader, label %52
 
 .preheader:                                       ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %8 = load i32, ptr %7, align 4, !tbaa !66
+  %8 = load i32, ptr %7, align 4, !tbaa !36
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph20, label %.loopexit
 
@@ -4506,7 +4506,7 @@ define void @statevec_reportStateToScreen(ptr noundef readonly byval(%struct.Qur
   tail call void @syncQuESTEnv(ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #4
   %23 = add nuw nsw i32 %.019.us, 1
   %exitcond29.not = icmp eq i32 %23, %8
-  br i1 %exitcond29.not, label %.loopexit, label %.lr.ph20.split.us, !llvm.loop !95
+  br i1 %exitcond29.not, label %.loopexit, label %.lr.ph20.split.us, !llvm.loop !60
 
 .lr.ph.us:                                        ; preds = %20, %.lr.ph.us
   %.01118.us = phi i64 [ %29, %.lr.ph.us ], [ 0, %20 ]
@@ -4517,7 +4517,7 @@ define void @statevec_reportStateToScreen(ptr noundef readonly byval(%struct.Qur
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %25, double noundef %27)
   %29 = add nuw nsw i64 %.01118.us, 1
   %exitcond.not = icmp eq i64 %29, %.fr26
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us
 
 .lr.ph20.split:                                   ; preds = %.lr.ph20
   %30 = add nsw i32 %8, -1
@@ -4549,7 +4549,7 @@ define void @statevec_reportStateToScreen(ptr noundef readonly byval(%struct.Qur
   tail call void @syncQuESTEnv(ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #4
   %38 = add nuw nsw i32 %.019.us21, 1
   %exitcond32.not = icmp eq i32 %38, %8
-  br i1 %exitcond32.not, label %.loopexit, label %.lr.ph20.split.split.us, !llvm.loop !97
+  br i1 %exitcond32.not, label %.loopexit, label %.lr.ph20.split.split.us, !llvm.loop !61
 
 .lr.ph.us24:                                      ; preds = %.lr.ph.us24.preheader, %.lr.ph.us24
   %.01118.us23 = phi i64 [ %44, %.lr.ph.us24 ], [ 0, %.lr.ph.us24.preheader ]
@@ -4560,7 +4560,7 @@ define void @statevec_reportStateToScreen(ptr noundef readonly byval(%struct.Qur
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %40, double noundef %42)
   %44 = add nuw nsw i64 %.01118.us23, 1
   %exitcond31.not = icmp eq i64 %44, %.fr26
-  br i1 %exitcond31.not, label %._crit_edge.us25, label %.lr.ph.us24, !llvm.loop !96
+  br i1 %exitcond31.not, label %._crit_edge.us25, label %.lr.ph.us24
 
 ._crit_edge.us25:                                 ; preds = %.lr.ph.us24
   br i1 %32, label %36, label %37
@@ -4589,7 +4589,7 @@ define void @statevec_reportStateToScreen(ptr noundef readonly byval(%struct.Qur
   tail call void @syncQuESTEnv(ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #4
   %51 = add nuw nsw i32 %.019, 1
   %exitcond30.not = icmp eq i32 %51, %8
-  br i1 %exitcond30.not, label %.loopexit, label %.lr.ph20.split.split, !llvm.loop !98
+  br i1 %exitcond30.not, label %.loopexit, label %.lr.ph20.split.split
 
 52:                                               ; preds = %3
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -4615,12 +4615,12 @@ define void @statevec_initBlankState(ptr noundef readonly byval(%struct.Qureg) a
   store i64 %6, ptr %2, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
-  store ptr %8, ptr %3, align 8, !tbaa !45
+  %8 = load ptr, ptr %7, align 8, !tbaa !22
+  store ptr %8, ptr %3, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !29
-  store ptr %10, ptr %4, align 8, !tbaa !45
+  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  store ptr %10, ptr %4, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @statevec_initBlankState.omp_outlined, ptr nonnull %2, ptr nonnull %3, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
@@ -4658,8 +4658,8 @@ define internal void @statevec_initBlankState.omp_outlined(ptr noalias noundef r
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %17 = load ptr, ptr %3, align 8, !tbaa !45
-  %18 = load ptr, ptr %4, align 8, !tbaa !45
+  %17 = load ptr, ptr %3, align 8, !tbaa !26
+  %18 = load ptr, ptr %4, align 8, !tbaa !26
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
@@ -4670,7 +4670,7 @@ define internal void @statevec_initBlankState.omp_outlined(ptr noalias noundef r
   store double 0.000000e+00, ptr %21, align 8, !tbaa !4
   %22 = add i64 %.016, 1
   %exitcond.not = icmp eq i64 %.016, %15
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !99
+  br i1 %exitcond.not, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %19, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -4699,9 +4699,9 @@ define void @statevec_initZeroState(ptr noundef readonly byval(%struct.Qureg) al
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
   store i64 %.sroa.3.0.copyload, ptr %2, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store ptr %.sroa.41.0.copyload, ptr %3, align 8, !tbaa !45
+  store ptr %.sroa.41.0.copyload, ptr %3, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  store ptr %.sroa.5.0.copyload, ptr %4, align 8, !tbaa !45
+  store ptr %.sroa.5.0.copyload, ptr %4, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @statevec_initBlankState.omp_outlined, ptr nonnull %2, ptr nonnull %3, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
@@ -4731,7 +4731,7 @@ define void @statevec_initPlusState(ptr noundef readonly byval(%struct.Qureg) al
   %7 = load i64, ptr %6, align 8, !tbaa !8
   store i64 %7, ptr %2, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %9 = load i32, ptr %8, align 4, !tbaa !66
+  %9 = load i32, ptr %8, align 4, !tbaa !36
   %10 = sext i32 %9 to i64
   %11 = mul nsw i64 %7, %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
@@ -4741,12 +4741,12 @@ define void @statevec_initPlusState(ptr noundef readonly byval(%struct.Qureg) al
   store double %14, ptr %3, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !27
-  store ptr %16, ptr %4, align 8, !tbaa !45
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  store ptr %16, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
-  store ptr %18, ptr %5, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  store ptr %18, ptr %5, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @statevec_initPlusState.omp_outlined, ptr nonnull %2, ptr nonnull %4, ptr nonnull %3, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
@@ -4785,8 +4785,8 @@ define internal void @statevec_initPlusState.omp_outlined(ptr noalias noundef re
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %18 = load ptr, ptr %3, align 8, !tbaa !45
-  %19 = load ptr, ptr %5, align 8, !tbaa !45
+  %18 = load ptr, ptr %3, align 8, !tbaa !26
+  %19 = load ptr, ptr %5, align 8, !tbaa !26
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
@@ -4798,7 +4798,7 @@ define internal void @statevec_initPlusState.omp_outlined(ptr noalias noundef re
   store double 0.000000e+00, ptr %23, align 8, !tbaa !4
   %24 = add i64 %.017, 1
   %exitcond.not = icmp eq i64 %.017, %16
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !100
+  br i1 %exitcond.not, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %20, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -4824,12 +4824,12 @@ define void @statevec_initClassicalState(ptr noundef readonly byval(%struct.Qure
   store i64 %7, ptr %3, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !27
-  store ptr %9, ptr %4, align 8, !tbaa !45
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
+  store ptr %9, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
-  store ptr %11, ptr %5, align 8, !tbaa !45
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  store ptr %11, ptr %5, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @statevec_initClassicalState.omp_outlined, ptr nonnull %3, ptr nonnull %4, ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !19
@@ -4841,10 +4841,10 @@ define void @statevec_initClassicalState(ptr noundef readonly byval(%struct.Qure
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %2
-  %20 = load ptr, ptr %4, align 8, !tbaa !45
+  %20 = load ptr, ptr %4, align 8, !tbaa !26
   %21 = getelementptr inbounds double, ptr %20, i64 %17
   store double 1.000000e+00, ptr %21, align 8, !tbaa !4
-  %22 = load ptr, ptr %5, align 8, !tbaa !45
+  %22 = load ptr, ptr %5, align 8, !tbaa !26
   %23 = getelementptr inbounds double, ptr %22, i64 %17
   store double 0.000000e+00, ptr %23, align 8, !tbaa !4
   br label %24
@@ -4886,8 +4886,8 @@ define internal void @statevec_initClassicalState.omp_outlined(ptr noalias nound
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %17 = load ptr, ptr %3, align 8, !tbaa !45
-  %18 = load ptr, ptr %4, align 8, !tbaa !45
+  %17 = load ptr, ptr %3, align 8, !tbaa !26
+  %18 = load ptr, ptr %4, align 8, !tbaa !26
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
@@ -4898,7 +4898,7 @@ define internal void @statevec_initClassicalState.omp_outlined(ptr noalias nound
   store double 0.000000e+00, ptr %21, align 8, !tbaa !4
   %22 = add i64 %.016, 1
   %exitcond.not = icmp eq i64 %.016, %15
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %19, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -4926,20 +4926,20 @@ define void @statevec_cloneQureg(ptr noundef readonly byval(%struct.Qureg) align
   store i64 %9, ptr %3, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !27
-  store ptr %11, ptr %4, align 8, !tbaa !45
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  store ptr %11, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !29
-  store ptr %13, ptr %5, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  store ptr %13, ptr %5, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !27
-  store ptr %15, ptr %6, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
+  store ptr %15, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
-  store ptr %17, ptr %7, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  store ptr %17, ptr %7, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull @statevec_cloneQureg.omp_outlined, ptr nonnull %3, ptr nonnull %4, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
@@ -4979,10 +4979,10 @@ define internal void @statevec_cloneQureg.omp_outlined(ptr noalias noundef reado
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %19 = load ptr, ptr %4, align 8, !tbaa !45
-  %20 = load ptr, ptr %3, align 8, !tbaa !45
-  %21 = load ptr, ptr %6, align 8, !tbaa !45
-  %22 = load ptr, ptr %5, align 8, !tbaa !45
+  %19 = load ptr, ptr %4, align 8, !tbaa !26
+  %20 = load ptr, ptr %3, align 8, !tbaa !26
+  %21 = load ptr, ptr %6, align 8, !tbaa !26
+  %22 = load ptr, ptr %5, align 8, !tbaa !26
   br label %23
 
 23:                                               ; preds = %.lr.ph, %23
@@ -4997,7 +4997,7 @@ define internal void @statevec_cloneQureg.omp_outlined(ptr noalias noundef reado
   store double %28, ptr %29, align 8, !tbaa !4
   %30 = add i64 %.020, 1
   %exitcond.not = icmp eq i64 %.020, %17
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %23, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -5025,12 +5025,12 @@ define void @statevec_initDebugState(ptr noundef readonly byval(%struct.Qureg) a
   store i64 %7, ptr %2, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !27
-  store ptr %9, ptr %4, align 8, !tbaa !45
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
+  store ptr %9, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
-  store ptr %11, ptr %5, align 8, !tbaa !45
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  store ptr %11, ptr %5, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load i32, ptr %12, align 8, !tbaa !19
   %14 = sext i32 %13 to i64
@@ -5075,8 +5075,8 @@ define internal void @statevec_initDebugState.omp_outlined(ptr noalias noundef r
 
 .lr.ph:                                           ; preds = %13
   %18 = load i64, ptr %4, align 8, !tbaa !16
-  %19 = load ptr, ptr %3, align 8, !tbaa !45
-  %20 = load ptr, ptr %5, align 8, !tbaa !45
+  %19 = load ptr, ptr %3, align 8, !tbaa !26
+  %20 = load ptr, ptr %5, align 8, !tbaa !26
   br label %21
 
 21:                                               ; preds = %.lr.ph, %21
@@ -5093,7 +5093,7 @@ define internal void @statevec_initDebugState.omp_outlined(ptr noalias noundef r
   store double %28, ptr %29, align 8, !tbaa !4
   %30 = add i64 %.019, 1
   %exitcond.not = icmp eq i64 %.019, %16
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !103
+  br i1 %exitcond.not, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %21, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -5133,12 +5133,12 @@ define void @statevec_compactUnitaryLocal(ptr noundef readonly byval(%struct.Qur
   store i64 %21, ptr %7, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !27
-  store ptr %23, ptr %10, align 8, !tbaa !45
+  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  store ptr %23, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
-  store ptr %25, ptr %11, align 8, !tbaa !45
+  %25 = load ptr, ptr %24, align 8, !tbaa !24
+  store ptr %25, ptr %11, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
   store double %3, ptr %12, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
@@ -5192,8 +5192,8 @@ define internal void @statevec_compactUnitaryLocal.omp_outlined(ptr noalias noun
 .lr.ph:                                           ; preds = %18
   %23 = load i64, ptr %3, align 8, !tbaa !16
   %24 = load i64, ptr %4, align 8, !tbaa !16
-  %25 = load ptr, ptr %5, align 8, !tbaa !45
-  %26 = load ptr, ptr %6, align 8, !tbaa !45
+  %25 = load ptr, ptr %5, align 8, !tbaa !26
+  %26 = load ptr, ptr %6, align 8, !tbaa !26
   br label %27
 
 27:                                               ; preds = %.lr.ph, %27
@@ -5254,7 +5254,7 @@ define internal void @statevec_compactUnitaryLocal.omp_outlined(ptr noalias noun
   store double %77, ptr %39, align 8, !tbaa !4
   %78 = add i64 %.048, 1
   %exitcond.not = icmp eq i64 %.048, %21
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge, label %27
 
 ._crit_edge:                                      ; preds = %27, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -5283,12 +5283,12 @@ define void @statevec_multiControlledTwoQubitUnitaryLocal(ptr noundef readonly b
   store i32 %3, ptr %8, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !27
-  store ptr %14, ptr %9, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
+  store ptr %14, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !29
-  store ptr %16, ptr %10, align 8, !tbaa !45
+  %16 = load ptr, ptr %15, align 8, !tbaa !24
+  store ptr %16, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8, !tbaa !19
@@ -5580,7 +5580,7 @@ define internal void @statevec_multiControlledTwoQubitUnitaryLocal.omp_outlined(
 242:                                              ; preds = %81, %78
   %243 = add i64 %.0108, 1
   %exitcond.not = icmp eq i64 %.0108, %20
-  br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !105
+  br i1 %exitcond.not, label %._crit_edge, label %69
 
 ._crit_edge:                                      ; preds = %242, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre109)
@@ -5616,16 +5616,16 @@ define void @statevec_multiControlledMultiQubitUnitaryLocal(ptr noundef readonly
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
   store i64 %1, ptr %6, align 8, !tbaa !16
-  store ptr %2, ptr %7, align 8, !tbaa !68
+  store ptr %2, ptr %7, align 8, !tbaa !38
   store i32 %3, ptr %8, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !27
-  store ptr %15, ptr %9, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
+  store ptr %15, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
-  store ptr %17, ptr %10, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  store ptr %17, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !8
@@ -5633,7 +5633,7 @@ define void @statevec_multiControlledMultiQubitUnitaryLocal(ptr noundef readonly
   %21 = ashr i64 %19, %20
   store i64 %21, ptr %11, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
-  %22 = load i32, ptr %4, align 8, !tbaa !106
+  %22 = load i32, ptr %4, align 8, !tbaa !62
   %23 = shl nuw i32 1, %22
   %24 = sext i32 %23 to i64
   store i64 %24, ptr %12, align 8, !tbaa !16
@@ -5668,7 +5668,7 @@ define void @statevec_multiControlledMultiQubitUnitaryLocal(ptr noundef readonly
   store i32 %34, ptr %35, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %20
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
@@ -5742,7 +5742,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   %48 = xor i64 %47, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader82
   %.0.lcssa = phi i64 [ %.071101, %.preheader82 ], [ %48, %.lr.ph ]
@@ -5786,7 +5786,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   %.1.us = phi i64 [ %62, %57 ], [ %.06788.us, %54 ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %._crit_edge90.us, label %54, !llvm.loop !111
+  br i1 %exitcond113.not, label %._crit_edge90.us, label %54
 
 ._crit_edge90.us:                                 ; preds = %63
   %64 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv114
@@ -5801,7 +5801,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   store double %69, ptr %70, align 8, !tbaa !4
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next115, %35
-  br i1 %exitcond117.not, label %.preheader81, label %.preheader.us, !llvm.loop !112
+  br i1 %exitcond117.not, label %.preheader81, label %.preheader.us, !llvm.loop !65
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
   %71 = getelementptr inbounds double, ptr %37, i64 %.0.lcssa
@@ -5827,9 +5827,9 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   %80 = getelementptr inbounds double, ptr %38, i64 %78
   store double 0.000000e+00, ptr %80, align 8, !tbaa !4
   %81 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv122
-  %82 = load ptr, ptr %81, align 8, !tbaa !45
+  %82 = load ptr, ptr %81, align 8, !tbaa !26
   %83 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv122
-  %84 = load ptr, ptr %83, align 8, !tbaa !45
+  %84 = load ptr, ptr %83, align 8, !tbaa !26
   br label %85
 
 85:                                               ; preds = %.lr.ph96.us, %85
@@ -5855,12 +5855,12 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   store double %102, ptr %80, align 8, !tbaa !4
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next119, %35
-  br i1 %exitcond121.not, label %._crit_edge97.us, label %85, !llvm.loop !113
+  br i1 %exitcond121.not, label %._crit_edge97.us, label %85
 
 ._crit_edge97.us:                                 ; preds = %85
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, %35
-  br i1 %exitcond125.not, label %.loopexit, label %.lr.ph96.us, !llvm.loop !114
+  br i1 %exitcond125.not, label %.loopexit, label %.lr.ph96.us, !llvm.loop !66
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.preheader
   %indvars.iv105 = phi i64 [ 0, %.preheader.lr.ph.split ], [ %indvars.iv.next106, %.preheader ]
@@ -5872,12 +5872,12 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   store double %74, ptr %105, align 8, !tbaa !4
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, %35
-  br i1 %exitcond108.not, label %.lr.ph99, label %.preheader, !llvm.loop !115
+  br i1 %exitcond108.not, label %.lr.ph99, label %.preheader
 
 .loopexit:                                        ; preds = %._crit_edge97.us, %49, %52, %.preheader81
   %106 = add i64 %.071101, 1
   %exitcond126.not = icmp eq i64 %.071101, %29
-  br i1 %exitcond126.not, label %._crit_edge102, label %.preheader82, !llvm.loop !116
+  br i1 %exitcond126.not, label %._crit_edge102, label %.preheader82
 
 ._crit_edge102:                                   ; preds = %.loopexit, %26
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -5916,12 +5916,12 @@ define void @statevec_unitaryLocal(ptr noundef readonly byval(%struct.Qureg) ali
   store i64 %14, ptr %4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !27
-  store ptr %16, ptr %7, align 8, !tbaa !45
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  store ptr %16, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
-  store ptr %18, ptr %8, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  store ptr %18, ptr %8, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @statevec_unitaryLocal.omp_outlined, ptr nonnull %6, ptr nonnull %5, ptr nonnull %4, ptr nonnull %7, ptr nonnull %8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
@@ -5963,8 +5963,8 @@ define internal void @statevec_unitaryLocal.omp_outlined(ptr noalias noundef rea
 .lr.ph:                                           ; preds = %15
   %20 = load i64, ptr %3, align 8, !tbaa !16
   %21 = load i64, ptr %4, align 8, !tbaa !16
-  %22 = load ptr, ptr %5, align 8, !tbaa !45
-  %23 = load ptr, ptr %6, align 8, !tbaa !45
+  %22 = load ptr, ptr %5, align 8, !tbaa !26
+  %23 = load ptr, ptr %6, align 8, !tbaa !26
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -6030,7 +6030,7 @@ define internal void @statevec_unitaryLocal.omp_outlined(ptr noalias noundef rea
   store double %79, ptr %43, align 8, !tbaa !4
   %80 = add i64 %.045, 1
   %exitcond.not = icmp eq i64 %.045, %18
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !117
+  br i1 %exitcond.not, label %._crit_edge, label %31
 
 ._crit_edge:                                      ; preds = %31, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -6071,17 +6071,17 @@ define void @statevec_compactUnitaryDistributed(ptr noundef readonly byval(%stru
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #4
   store double %4, ptr %16, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #4
-  store ptr %5, ptr %17, align 8, !tbaa !45
+  store ptr %5, ptr %17, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #4
-  store ptr %6, ptr %18, align 8, !tbaa !45
+  store ptr %6, ptr %18, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #4
-  store ptr %7, ptr %19, align 8, !tbaa !45
+  store ptr %7, ptr %19, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #4
-  store ptr %8, ptr %20, align 8, !tbaa !45
+  store ptr %8, ptr %20, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #4
-  store ptr %9, ptr %21, align 8, !tbaa !45
+  store ptr %9, ptr %21, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #4
-  store ptr %10, ptr %22, align 8, !tbaa !45
+  store ptr %10, ptr %22, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 11, ptr nonnull @statevec_compactUnitaryDistributed.omp_outlined, ptr nonnull %12, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, ptr nonnull %20, ptr nonnull %21, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, ptr nonnull %16, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #4
@@ -6127,12 +6127,12 @@ define internal void @statevec_compactUnitaryDistributed.omp_outlined(ptr noalia
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
-  %25 = load ptr, ptr %3, align 8, !tbaa !45
-  %26 = load ptr, ptr %4, align 8, !tbaa !45
-  %27 = load ptr, ptr %5, align 8, !tbaa !45
-  %28 = load ptr, ptr %6, align 8, !tbaa !45
-  %29 = load ptr, ptr %7, align 8, !tbaa !45
-  %30 = load ptr, ptr %12, align 8, !tbaa !45
+  %25 = load ptr, ptr %3, align 8, !tbaa !26
+  %26 = load ptr, ptr %4, align 8, !tbaa !26
+  %27 = load ptr, ptr %5, align 8, !tbaa !26
+  %28 = load ptr, ptr %6, align 8, !tbaa !26
+  %29 = load ptr, ptr %7, align 8, !tbaa !26
+  %30 = load ptr, ptr %12, align 8, !tbaa !26
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
@@ -6169,7 +6169,7 @@ define internal void @statevec_compactUnitaryDistributed.omp_outlined(ptr noalia
   store double %58, ptr %59, align 8, !tbaa !4
   %60 = add i64 %.036, 1
   %exitcond.not = icmp eq i64 %.036, %23
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !118
+  br i1 %exitcond.not, label %._crit_edge, label %31
 
 ._crit_edge:                                      ; preds = %31, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -6210,17 +6210,17 @@ define void @statevec_unitaryDistributed(ptr noundef readonly byval(%struct.Qure
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #4
   store double %4, ptr %16, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #4
-  store ptr %5, ptr %17, align 8, !tbaa !45
+  store ptr %5, ptr %17, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #4
-  store ptr %6, ptr %18, align 8, !tbaa !45
+  store ptr %6, ptr %18, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #4
-  store ptr %7, ptr %19, align 8, !tbaa !45
+  store ptr %7, ptr %19, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #4
-  store ptr %8, ptr %20, align 8, !tbaa !45
+  store ptr %8, ptr %20, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #4
-  store ptr %9, ptr %21, align 8, !tbaa !45
+  store ptr %9, ptr %21, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #4
-  store ptr %10, ptr %22, align 8, !tbaa !45
+  store ptr %10, ptr %22, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 11, ptr nonnull @statevec_unitaryDistributed.omp_outlined, ptr nonnull %12, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, ptr nonnull %20, ptr nonnull %21, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, ptr nonnull %16, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #4
@@ -6266,12 +6266,12 @@ define internal void @statevec_unitaryDistributed.omp_outlined(ptr noalias nound
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
-  %25 = load ptr, ptr %3, align 8, !tbaa !45
-  %26 = load ptr, ptr %4, align 8, !tbaa !45
-  %27 = load ptr, ptr %5, align 8, !tbaa !45
-  %28 = load ptr, ptr %6, align 8, !tbaa !45
-  %29 = load ptr, ptr %7, align 8, !tbaa !45
-  %30 = load ptr, ptr %12, align 8, !tbaa !45
+  %25 = load ptr, ptr %3, align 8, !tbaa !26
+  %26 = load ptr, ptr %4, align 8, !tbaa !26
+  %27 = load ptr, ptr %5, align 8, !tbaa !26
+  %28 = load ptr, ptr %6, align 8, !tbaa !26
+  %29 = load ptr, ptr %7, align 8, !tbaa !26
+  %30 = load ptr, ptr %12, align 8, !tbaa !26
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
@@ -6308,7 +6308,7 @@ define internal void @statevec_unitaryDistributed.omp_outlined(ptr noalias nound
   store double %58, ptr %59, align 8, !tbaa !4
   %60 = add i64 %.036, 1
   %exitcond.not = icmp eq i64 %.036, %23
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge, label %31
 
 ._crit_edge:                                      ; preds = %31, %20
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -6359,12 +6359,12 @@ define void @statevec_controlledCompactUnitaryLocal(ptr noundef readonly byval(%
   store i64 %28, ptr %9, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !27
-  store ptr %30, ptr %14, align 8, !tbaa !45
+  %30 = load ptr, ptr %29, align 8, !tbaa !22
+  store ptr %30, ptr %14, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !29
-  store ptr %32, ptr %15, align 8, !tbaa !45
+  %32 = load ptr, ptr %31, align 8, !tbaa !24
+  store ptr %32, ptr %15, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #4
   store double %4, ptr %16, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #4
@@ -6499,7 +6499,7 @@ define internal void @statevec_controlledCompactUnitaryLocal.omp_outlined(ptr no
 92:                                               ; preds = %45, %36
   %93 = add i64 %.054, 1
   %exitcond.not = icmp eq i64 %.054, %24
-  br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !120
+  br i1 %exitcond.not, label %._crit_edge, label %36
 
 ._crit_edge:                                      ; preds = %92, %21
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -6548,12 +6548,12 @@ define void @statevec_multiControlledUnitaryLocal(ptr noundef readonly byval(%st
   store i64 %23, ptr %8, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %25 = load ptr, ptr %24, align 8, !tbaa !27
-  store ptr %25, ptr %13, align 8, !tbaa !45
+  %25 = load ptr, ptr %24, align 8, !tbaa !22
+  store ptr %25, ptr %13, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %27 = load ptr, ptr %26, align 8, !tbaa !29
-  store ptr %27, ptr %14, align 8, !tbaa !45
+  %27 = load ptr, ptr %26, align 8, !tbaa !24
+  store ptr %27, ptr %14, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 10, ptr nonnull @statevec_multiControlledUnitaryLocal.omp_outlined, ptr nonnull %10, ptr nonnull %9, ptr nonnull %8, ptr nonnull %6, ptr nonnull %12, ptr nonnull %11, ptr nonnull %7, ptr nonnull %13, ptr nonnull %14, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
@@ -6679,7 +6679,7 @@ define internal void @statevec_multiControlledUnitaryLocal.omp_outlined(ptr noal
 94:                                               ; preds = %49, %40
   %95 = add i64 %.050, 1
   %exitcond.not = icmp eq i64 %.050, %22
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !121
+  br i1 %exitcond.not, label %._crit_edge, label %40
 
 ._crit_edge:                                      ; preds = %94, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -6726,12 +6726,12 @@ define void @statevec_controlledUnitaryLocal(ptr noundef readonly byval(%struct.
   store i64 %21, ptr %6, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !27
-  store ptr %23, ptr %11, align 8, !tbaa !45
+  %23 = load ptr, ptr %22, align 8, !tbaa !22
+  store ptr %23, ptr %11, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
-  store ptr %25, ptr %12, align 8, !tbaa !45
+  %25 = load ptr, ptr %24, align 8, !tbaa !24
+  store ptr %25, ptr %12, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 9, ptr nonnull @statevec_controlledUnitaryLocal.omp_outlined, ptr nonnull %8, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %10, ptr nonnull %9, ptr nonnull %11, ptr nonnull %12, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
@@ -6859,7 +6859,7 @@ define internal void @statevec_controlledUnitaryLocal.omp_outlined(ptr noalias n
 94:                                               ; preds = %49, %40
   %95 = add i64 %.051, 1
   %exitcond.not = icmp eq i64 %.051, %21
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !122
+  br i1 %exitcond.not, label %._crit_edge, label %40
 
 ._crit_edge:                                      ; preds = %94, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -6911,20 +6911,20 @@ define void @statevec_controlledCompactUnitaryDistributed(ptr noundef readonly b
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #4
   store double %5, ptr %19, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #4
-  store ptr %6, ptr %20, align 8, !tbaa !45
+  store ptr %6, ptr %20, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #4
-  store ptr %7, ptr %21, align 8, !tbaa !45
+  store ptr %7, ptr %21, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #4
-  store ptr %8, ptr %22, align 8, !tbaa !45
+  store ptr %8, ptr %22, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #4
-  store ptr %9, ptr %23, align 8, !tbaa !45
+  store ptr %9, ptr %23, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #4
-  %31 = load ptr, ptr %10, align 8, !tbaa !123
-  store ptr %31, ptr %24, align 8, !tbaa !45
+  %31 = load ptr, ptr %10, align 8, !tbaa !67
+  store ptr %31, ptr %24, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #4
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !124
-  store ptr %33, ptr %25, align 8, !tbaa !45
+  %33 = load ptr, ptr %32, align 8, !tbaa !68
+  store ptr %33, ptr %25, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 14, ptr nonnull @statevec_controlledCompactUnitaryDistributed.omp_outlined, ptr nonnull %13, ptr nonnull %12, ptr nonnull %15, ptr nonnull %14, ptr nonnull %20, ptr nonnull %21, ptr nonnull %22, ptr nonnull %23, ptr nonnull %24, ptr nonnull %16, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #4
@@ -7031,7 +7031,7 @@ define internal void @statevec_controlledCompactUnitaryDistributed.omp_outlined(
 74:                                               ; preds = %45, %40
   %75 = add i64 %.042, 1
   %exitcond.not = icmp eq i64 %.042, %26
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !125
+  br i1 %exitcond.not, label %._crit_edge, label %40
 
 ._crit_edge:                                      ; preds = %74, %23
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -7083,20 +7083,20 @@ define void @statevec_controlledUnitaryDistributed(ptr noundef readonly byval(%s
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #4
   store double %5, ptr %19, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #4
-  store ptr %6, ptr %20, align 8, !tbaa !45
+  store ptr %6, ptr %20, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #4
-  store ptr %7, ptr %21, align 8, !tbaa !45
+  store ptr %7, ptr %21, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #4
-  store ptr %8, ptr %22, align 8, !tbaa !45
+  store ptr %8, ptr %22, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #4
-  store ptr %9, ptr %23, align 8, !tbaa !45
+  store ptr %9, ptr %23, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #4
-  %31 = load ptr, ptr %10, align 8, !tbaa !123
-  store ptr %31, ptr %24, align 8, !tbaa !45
+  %31 = load ptr, ptr %10, align 8, !tbaa !67
+  store ptr %31, ptr %24, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #4
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !124
-  store ptr %33, ptr %25, align 8, !tbaa !45
+  %33 = load ptr, ptr %32, align 8, !tbaa !68
+  store ptr %33, ptr %25, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 14, ptr nonnull @statevec_controlledUnitaryDistributed.omp_outlined, ptr nonnull %13, ptr nonnull %12, ptr nonnull %15, ptr nonnull %14, ptr nonnull %20, ptr nonnull %21, ptr nonnull %22, ptr nonnull %23, ptr nonnull %24, ptr nonnull %16, ptr nonnull %17, ptr nonnull %18, ptr nonnull %19, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #4
@@ -7203,7 +7203,7 @@ define internal void @statevec_controlledUnitaryDistributed.omp_outlined(ptr noa
 74:                                               ; preds = %45, %40
   %75 = add i64 %.042, 1
   %exitcond.not = icmp eq i64 %.042, %26
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !126
+  br i1 %exitcond.not, label %._crit_edge, label %40
 
 ._crit_edge:                                      ; preds = %74, %23
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -7257,23 +7257,23 @@ define void @statevec_multiControlledUnitaryDistributed(ptr noundef readonly byv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #4
   store double %7, ptr %21, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #4
-  store ptr %8, ptr %22, align 8, !tbaa !45
+  store ptr %8, ptr %22, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #4
-  store ptr %9, ptr %23, align 8, !tbaa !45
+  store ptr %9, ptr %23, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #4
-  %33 = load ptr, ptr %10, align 8, !tbaa !123
-  store ptr %33, ptr %24, align 8, !tbaa !45
+  %33 = load ptr, ptr %10, align 8, !tbaa !67
+  store ptr %33, ptr %24, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #4
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !124
-  store ptr %35, ptr %25, align 8, !tbaa !45
+  %35 = load ptr, ptr %34, align 8, !tbaa !68
+  store ptr %35, ptr %25, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #4
-  %36 = load ptr, ptr %11, align 8, !tbaa !123
-  store ptr %36, ptr %26, align 8, !tbaa !45
+  %36 = load ptr, ptr %11, align 8, !tbaa !67
+  store ptr %36, ptr %26, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #4
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !124
-  store ptr %38, ptr %27, align 8, !tbaa !45
+  %38 = load ptr, ptr %37, align 8, !tbaa !68
+  store ptr %38, ptr %27, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 15, ptr nonnull @statevec_multiControlledUnitaryDistributed.omp_outlined, ptr nonnull %15, ptr nonnull %13, ptr nonnull %17, ptr nonnull %16, ptr nonnull %14, ptr nonnull %22, ptr nonnull %23, ptr nonnull %24, ptr nonnull %25, ptr nonnull %26, ptr nonnull %18, ptr nonnull %19, ptr nonnull %20, ptr nonnull %21, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #4
@@ -7378,7 +7378,7 @@ define internal void @statevec_multiControlledUnitaryDistributed.omp_outlined(pt
 74:                                               ; preds = %45, %40
   %75 = add i64 %.041, 1
   %exitcond.not = icmp eq i64 %.041, %27
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !127
+  br i1 %exitcond.not, label %._crit_edge, label %40
 
 ._crit_edge:                                      ; preds = %74, %24
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -7414,12 +7414,12 @@ define void @statevec_pauliXLocal(ptr noundef readonly byval(%struct.Qureg) alig
   store i64 %13, ptr %3, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !27
-  store ptr %15, ptr %6, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
+  store ptr %15, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
-  store ptr %17, ptr %7, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  store ptr %17, ptr %7, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull @statevec_pauliXLocal.omp_outlined, ptr nonnull %5, ptr nonnull %4, ptr nonnull %3, ptr nonnull %6, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
@@ -7461,8 +7461,8 @@ define internal void @statevec_pauliXLocal.omp_outlined(ptr noalias noundef read
 .lr.ph:                                           ; preds = %14
   %19 = load i64, ptr %3, align 8, !tbaa !16
   %20 = load i64, ptr %4, align 8, !tbaa !16
-  %21 = load ptr, ptr %5, align 8, !tbaa !45
-  %22 = load ptr, ptr %6, align 8, !tbaa !45
+  %21 = load ptr, ptr %5, align 8, !tbaa !26
+  %22 = load ptr, ptr %6, align 8, !tbaa !26
   br label %23
 
 23:                                               ; preds = %.lr.ph, %23
@@ -7486,7 +7486,7 @@ define internal void @statevec_pauliXLocal.omp_outlined(ptr noalias noundef read
   store double %32, ptr %35, align 8, !tbaa !4
   %37 = add i64 %.030, 1
   %exitcond.not = icmp eq i64 %.030, %17
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !128
+  br i1 %exitcond.not, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %23, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -7513,13 +7513,13 @@ define void @statevec_pauliXDistributed(ptr noundef readonly byval(%struct.Qureg
   %12 = load i64, ptr %11, align 8, !tbaa !8
   store i64 %12, ptr %6, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
-  store ptr %1, ptr %7, align 8, !tbaa !45
+  store ptr %1, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
-  store ptr %2, ptr %8, align 8, !tbaa !45
+  store ptr %2, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
-  store ptr %3, ptr %9, align 8, !tbaa !45
+  store ptr %3, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
-  store ptr %4, ptr %10, align 8, !tbaa !45
+  store ptr %4, ptr %10, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull @statevec_pauliXDistributed.omp_outlined, ptr nonnull %6, ptr nonnull %9, ptr nonnull %7, ptr nonnull %10, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
@@ -7559,10 +7559,10 @@ define internal void @statevec_pauliXDistributed.omp_outlined(ptr noalias nounde
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %19 = load ptr, ptr %4, align 8, !tbaa !45
-  %20 = load ptr, ptr %3, align 8, !tbaa !45
-  %21 = load ptr, ptr %6, align 8, !tbaa !45
-  %22 = load ptr, ptr %5, align 8, !tbaa !45
+  %19 = load ptr, ptr %4, align 8, !tbaa !26
+  %20 = load ptr, ptr %3, align 8, !tbaa !26
+  %21 = load ptr, ptr %6, align 8, !tbaa !26
+  %22 = load ptr, ptr %5, align 8, !tbaa !26
   br label %23
 
 23:                                               ; preds = %.lr.ph, %23
@@ -7577,7 +7577,7 @@ define internal void @statevec_pauliXDistributed.omp_outlined(ptr noalias nounde
   store double %28, ptr %29, align 8, !tbaa !4
   %30 = add i64 %.020, 1
   %exitcond.not = icmp eq i64 %.020, %17
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %23, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -7624,12 +7624,12 @@ define void @statevec_controlledNotLocal(ptr noundef readonly byval(%struct.Qure
   store i64 %20, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !27
-  store ptr %22, ptr %10, align 8, !tbaa !45
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
+  store ptr %22, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %24 = load ptr, ptr %23, align 8, !tbaa !29
-  store ptr %24, ptr %11, align 8, !tbaa !45
+  %24 = load ptr, ptr %23, align 8, !tbaa !24
+  store ptr %24, ptr %11, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 8, ptr nonnull @statevec_controlledNotLocal.omp_outlined, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %4, ptr nonnull %9, ptr nonnull %8, ptr nonnull %10, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
@@ -7715,7 +7715,7 @@ define internal void @statevec_controlledNotLocal.omp_outlined(ptr noalias nound
 51:                                               ; preds = %41, %32
   %52 = add i64 %.036, 1
   %exitcond.not = icmp eq i64 %.036, %20
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !130
+  br i1 %exitcond.not, label %._crit_edge, label %32
 
 ._crit_edge:                                      ; preds = %51, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -7753,13 +7753,13 @@ define void @statevec_controlledNotDistributed(ptr noundef readonly byval(%struc
   %19 = sext i32 %18 to i64
   store i64 %19, ptr %10, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
-  store ptr %2, ptr %11, align 8, !tbaa !45
+  store ptr %2, ptr %11, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
-  store ptr %3, ptr %12, align 8, !tbaa !45
+  store ptr %3, ptr %12, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
-  store ptr %4, ptr %13, align 8, !tbaa !45
+  store ptr %4, ptr %13, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
-  store ptr %5, ptr %14, align 8, !tbaa !45
+  store ptr %5, ptr %14, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 8, ptr nonnull @statevec_controlledNotDistributed.omp_outlined, ptr nonnull %8, ptr nonnull %7, ptr nonnull %10, ptr nonnull %9, ptr nonnull %13, ptr nonnull %11, ptr nonnull %14, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
@@ -7836,7 +7836,7 @@ define internal void @statevec_controlledNotDistributed.omp_outlined(ptr noalias
 44:                                               ; preds = %37, %32
   %45 = add i64 %.026, 1
   %exitcond.not = icmp eq i64 %.026, %20
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !131
+  br i1 %exitcond.not, label %._crit_edge, label %32
 
 ._crit_edge:                                      ; preds = %44, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -7867,12 +7867,12 @@ define void @statevec_multiControlledMultiQubitNotLocal(ptr noundef readonly byv
   store i64 %11, ptr %6, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !27
-  store ptr %13, ptr %7, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
+  store ptr %13, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !29
-  store ptr %15, ptr %8, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  store ptr %15, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !19
@@ -7951,7 +7951,7 @@ define internal void @statevec_multiControlledMultiQubitNotLocal.omp_outlined(pt
 38:                                               ; preds = %29, %.lr.ph.split.us
   %39 = add i64 %.036.us, 1
   %exitcond38.not = icmp eq i64 %.036.us, %18
-  br i1 %exitcond38.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !132
+  br i1 %exitcond38.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !69
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %54
   %.036 = phi i64 [ %55, %54 ], [ %19, %.lr.ph ]
@@ -7983,7 +7983,7 @@ define internal void @statevec_multiControlledMultiQubitNotLocal.omp_outlined(pt
 54:                                               ; preds = %45, %.lr.ph.split, %42
   %55 = add i64 %.036, 1
   %exitcond.not = icmp eq i64 %.036, %18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !133
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %54, %38, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -8021,13 +8021,13 @@ define void @statevec_multiControlledMultiQubitNotDistributed(ptr noundef readon
   %21 = mul nsw i64 %17, %20
   store i64 %21, ptr %11, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
-  store ptr %3, ptr %12, align 8, !tbaa !45
+  store ptr %3, ptr %12, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
-  store ptr %4, ptr %13, align 8, !tbaa !45
+  store ptr %4, ptr %13, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
-  store ptr %5, ptr %14, align 8, !tbaa !45
+  store ptr %5, ptr %14, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #4
-  store ptr %6, ptr %15, align 8, !tbaa !45
+  store ptr %6, ptr %15, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 8, ptr nonnull @statevec_multiControlledMultiQubitNotDistributed.omp_outlined, ptr nonnull %10, ptr nonnull %11, ptr nonnull %8, ptr nonnull %9, ptr nonnull %14, ptr nonnull %12, ptr nonnull %15, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
@@ -8097,7 +8097,7 @@ define internal void @statevec_multiControlledMultiQubitNotDistributed.omp_outli
   store double %39, ptr %40, align 8, !tbaa !4
   %41 = add i64 %.031.us, 1
   %exitcond33.not = icmp eq i64 %.031.us, %20
-  br i1 %exitcond33.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !134
+  br i1 %exitcond33.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !70
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %53
   %.031 = phi i64 [ %54, %53 ], [ %21, %.lr.ph ]
@@ -8122,7 +8122,7 @@ define internal void @statevec_multiControlledMultiQubitNotDistributed.omp_outli
 53:                                               ; preds = %.lr.ph.split, %44
   %54 = add i64 %.031, 1
   %exitcond.not = icmp eq i64 %.031, %20
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !135
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph.split.us, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -8160,12 +8160,12 @@ define void @statevec_pauliYLocal(ptr noundef readonly byval(%struct.Qureg) alig
   store i64 %15, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !27
-  store ptr %17, ptr %8, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !22
+  store ptr %17, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !29
-  store ptr %19, ptr %9, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !24
+  store ptr %19, ptr %9, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @statevec_pauliYLocal.omp_outlined, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %8, ptr nonnull %9, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
@@ -8207,8 +8207,8 @@ define internal void @statevec_pauliYLocal.omp_outlined(ptr noalias noundef read
 .lr.ph:                                           ; preds = %15
   %20 = load i64, ptr %3, align 8, !tbaa !16
   %21 = load i64, ptr %4, align 8, !tbaa !16
-  %22 = load ptr, ptr %5, align 8, !tbaa !45
-  %23 = load ptr, ptr %6, align 8, !tbaa !45
+  %22 = load ptr, ptr %5, align 8, !tbaa !26
+  %23 = load ptr, ptr %6, align 8, !tbaa !26
   %24 = load i32, ptr %7, align 4, !tbaa !18
   %25 = sitofp i32 %24 to double
   br label %26
@@ -8240,7 +8240,7 @@ define internal void @statevec_pauliYLocal.omp_outlined(ptr noalias noundef read
   store double %45, ptr %36, align 8, !tbaa !4
   %46 = add i64 %.031, 1
   %exitcond.not = icmp eq i64 %.031, %18
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !136
+  br i1 %exitcond.not, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %26, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -8271,13 +8271,13 @@ define void @statevec_pauliYDistributed(ptr noundef readonly byval(%struct.Qureg
   %17 = load i64, ptr %16, align 8, !tbaa !8
   store i64 %17, ptr %9, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
-  store ptr %1, ptr %10, align 8, !tbaa !45
+  store ptr %1, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
-  store ptr %2, ptr %11, align 8, !tbaa !45
+  store ptr %2, ptr %11, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
-  store ptr %3, ptr %12, align 8, !tbaa !45
+  store ptr %3, ptr %12, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
-  store ptr %4, ptr %13, align 8, !tbaa !45
+  store ptr %4, ptr %13, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #4
   store i32 1, ptr %14, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #4
@@ -8330,13 +8330,13 @@ define internal void @statevec_pauliYDistributed.omp_outlined(ptr noalias nounde
   %23 = load i32, ptr %5, align 4, !tbaa !18
   %24 = mul nsw i32 %23, %22
   %25 = sitofp i32 %24 to double
-  %26 = load ptr, ptr %6, align 8, !tbaa !45
-  %27 = load ptr, ptr %3, align 8, !tbaa !45
+  %26 = load ptr, ptr %6, align 8, !tbaa !26
+  %27 = load ptr, ptr %3, align 8, !tbaa !26
   %28 = load i32, ptr %8, align 4, !tbaa !18
   %29 = mul nsw i32 %28, %22
   %30 = sitofp i32 %29 to double
-  %31 = load ptr, ptr %9, align 8, !tbaa !45
-  %32 = load ptr, ptr %7, align 8, !tbaa !45
+  %31 = load ptr, ptr %9, align 8, !tbaa !26
+  %32 = load ptr, ptr %7, align 8, !tbaa !26
   br label %33
 
 33:                                               ; preds = %.lr.ph, %33
@@ -8353,7 +8353,7 @@ define internal void @statevec_pauliYDistributed.omp_outlined(ptr noalias nounde
   store double %40, ptr %41, align 8, !tbaa !4
   %42 = add i64 %.023, 1
   %exitcond.not = icmp eq i64 %.023, %20
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge, label %33
 
 ._crit_edge:                                      ; preds = %33, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -8402,12 +8402,12 @@ define void @statevec_controlledPauliYLocal(ptr noundef readonly byval(%struct.Q
   store i64 %22, ptr %7, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !27
-  store ptr %24, ptr %12, align 8, !tbaa !45
+  %24 = load ptr, ptr %23, align 8, !tbaa !22
+  store ptr %24, ptr %12, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !29
-  store ptr %26, ptr %13, align 8, !tbaa !45
+  %26 = load ptr, ptr %25, align 8, !tbaa !24
+  store ptr %26, ptr %13, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 9, ptr nonnull @statevec_controlledPauliYLocal.omp_outlined, ptr nonnull %9, ptr nonnull %8, ptr nonnull %7, ptr nonnull %5, ptr nonnull %11, ptr nonnull %10, ptr nonnull %12, ptr nonnull %13, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
@@ -8501,7 +8501,7 @@ define internal void @statevec_controlledPauliYLocal.omp_outlined(ptr noalias no
 60:                                               ; preds = %44, %35
   %61 = add i64 %.037, 1
   %exitcond.not = icmp eq i64 %.037, %21
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !138
+  br i1 %exitcond.not, label %._crit_edge, label %35
 
 ._crit_edge:                                      ; preds = %60, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -8541,13 +8541,13 @@ define void @statevec_controlledPauliYDistributed(ptr noundef readonly byval(%st
   %21 = sext i32 %20 to i64
   store i64 %21, ptr %12, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
-  store ptr %2, ptr %13, align 8, !tbaa !45
+  store ptr %2, ptr %13, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
-  store ptr %3, ptr %14, align 8, !tbaa !45
+  store ptr %3, ptr %14, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #4
-  store ptr %4, ptr %15, align 8, !tbaa !45
+  store ptr %4, ptr %15, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #4
-  store ptr %5, ptr %16, align 8, !tbaa !45
+  store ptr %5, ptr %16, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 9, ptr nonnull @statevec_controlledPauliYDistributed.omp_outlined, ptr nonnull %10, ptr nonnull %8, ptr nonnull %12, ptr nonnull %11, ptr nonnull %15, ptr nonnull %9, ptr nonnull %14, ptr nonnull %16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #4
@@ -8629,7 +8629,7 @@ define internal void @statevec_controlledPauliYDistributed.omp_outlined(ptr noal
 50:                                               ; preds = %40, %35
   %51 = add i64 %.027, 1
   %exitcond.not = icmp eq i64 %.027, %21
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !139
+  br i1 %exitcond.not, label %._crit_edge, label %35
 
 ._crit_edge:                                      ; preds = %50, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -8666,12 +8666,12 @@ define void @statevec_hadamardLocal(ptr noundef readonly byval(%struct.Qureg) al
   store i64 %14, ptr %3, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !27
-  store ptr %16, ptr %6, align 8, !tbaa !45
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  store ptr %16, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
-  store ptr %18, ptr %7, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  store ptr %18, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   store double 0x3FE6A09E667F3BCC, ptr %8, align 8, !tbaa !4
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @statevec_hadamardLocal.omp_outlined, ptr nonnull %5, ptr nonnull %4, ptr nonnull %3, ptr nonnull %6, ptr nonnull %7, ptr nonnull %8)
@@ -8716,8 +8716,8 @@ define internal void @statevec_hadamardLocal.omp_outlined(ptr noalias noundef re
 .lr.ph:                                           ; preds = %15
   %20 = load i64, ptr %3, align 8, !tbaa !16
   %21 = load i64, ptr %4, align 8, !tbaa !16
-  %22 = load ptr, ptr %5, align 8, !tbaa !45
-  %23 = load ptr, ptr %6, align 8, !tbaa !45
+  %22 = load ptr, ptr %5, align 8, !tbaa !26
+  %23 = load ptr, ptr %6, align 8, !tbaa !26
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
@@ -8753,7 +8753,7 @@ define internal void @statevec_hadamardLocal.omp_outlined(ptr noalias noundef re
   store double %49, ptr %36, align 8, !tbaa !4
   %50 = add i64 %.037, 1
   %exitcond.not = icmp eq i64 %.037, %18
-  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !140
+  br i1 %exitcond.not, label %._crit_edge, label %24
 
 ._crit_edge:                                      ; preds = %24, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -8790,17 +8790,17 @@ define void @statevec_hadamardDistributed(ptr noundef readonly byval(%struct.Qur
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   store double 0x3FE6A09E667F3BCC, ptr %11, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
-  store ptr %1, ptr %12, align 8, !tbaa !45
+  store ptr %1, ptr %12, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
-  store ptr %2, ptr %13, align 8, !tbaa !45
+  store ptr %2, ptr %13, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
-  store ptr %3, ptr %14, align 8, !tbaa !45
+  store ptr %3, ptr %14, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #4
-  store ptr %4, ptr %15, align 8, !tbaa !45
+  store ptr %4, ptr %15, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #4
-  store ptr %5, ptr %16, align 8, !tbaa !45
+  store ptr %5, ptr %16, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #4
-  store ptr %6, ptr %17, align 8, !tbaa !45
+  store ptr %6, ptr %17, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 9, ptr nonnull @statevec_hadamardDistributed.omp_outlined, ptr nonnull %9, ptr nonnull %12, ptr nonnull %13, ptr nonnull %14, ptr nonnull %15, ptr nonnull %16, ptr nonnull %11, ptr nonnull %10, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #4
@@ -8844,14 +8844,14 @@ define internal void @statevec_hadamardDistributed.omp_outlined(ptr noalias noun
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %23 = load ptr, ptr %3, align 8, !tbaa !45
-  %24 = load ptr, ptr %4, align 8, !tbaa !45
-  %25 = load ptr, ptr %5, align 8, !tbaa !45
-  %26 = load ptr, ptr %6, align 8, !tbaa !45
+  %23 = load ptr, ptr %3, align 8, !tbaa !26
+  %24 = load ptr, ptr %4, align 8, !tbaa !26
+  %25 = load ptr, ptr %5, align 8, !tbaa !26
+  %26 = load ptr, ptr %6, align 8, !tbaa !26
   %27 = load i32, ptr %9, align 4, !tbaa !18
   %28 = sitofp i32 %27 to double
-  %29 = load ptr, ptr %7, align 8, !tbaa !45
-  %30 = load ptr, ptr %10, align 8, !tbaa !45
+  %29 = load ptr, ptr %7, align 8, !tbaa !26
+  %30 = load ptr, ptr %10, align 8, !tbaa !26
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
@@ -8876,7 +8876,7 @@ define internal void @statevec_hadamardDistributed.omp_outlined(ptr noalias noun
   store double %46, ptr %47, align 8, !tbaa !4
   %48 = add i64 %.030, 1
   %exitcond.not = icmp eq i64 %.030, %21
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !141
+  br i1 %exitcond.not, label %._crit_edge, label %31
 
 ._crit_edge:                                      ; preds = %31, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -8915,12 +8915,12 @@ define void @statevec_phaseShiftByTerm(ptr noundef readonly byval(%struct.Qureg)
   store i64 %14, ptr %6, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !27
-  store ptr %19, ptr %9, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !22
+  store ptr %19, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
-  store ptr %21, ptr %10, align 8, !tbaa !45
+  %21 = load ptr, ptr %20, align 8, !tbaa !24
+  store ptr %21, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   store double %2, ptr %11, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
@@ -9006,7 +9006,7 @@ define internal void @statevec_phaseShiftByTerm.omp_outlined(ptr noalias noundef
 50:                                               ; preds = %36, %31
   %51 = add i64 %.029, 1
   %exitcond.not = icmp eq i64 %.029, %21
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !142
+  br i1 %exitcond.not, label %._crit_edge, label %31
 
 ._crit_edge:                                      ; preds = %50, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %19)
@@ -9046,12 +9046,12 @@ define void @statevec_controlledPhaseShift(ptr noundef readonly byval(%struct.Qu
   store i64 %15, ptr %7, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !27
-  store ptr %20, ptr %10, align 8, !tbaa !45
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
+  store ptr %20, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !29
-  store ptr %22, ptr %11, align 8, !tbaa !45
+  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  store ptr %22, ptr %11, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
   %23 = tail call double @cos(double noundef %3) #4, !tbaa !18
   store double %23, ptr %12, align 8, !tbaa !4
@@ -9153,7 +9153,7 @@ define internal void @statevec_controlledPhaseShift.omp_outlined(ptr noalias nou
 59:                                               ; preds = %45, %35
   %60 = add i64 %.032, 1
   %exitcond.not = icmp eq i64 %.032, %22
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !143
+  br i1 %exitcond.not, label %._crit_edge, label %35
 
 ._crit_edge:                                      ; preds = %59, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
@@ -9193,12 +9193,12 @@ define void @statevec_multiControlledPhaseShift(ptr noundef readonly byval(%stru
   store i64 %14, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !27
-  store ptr %20, ptr %9, align 8, !tbaa !45
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
+  store ptr %20, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !29
-  store ptr %22, ptr %10, align 8, !tbaa !45
+  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  store ptr %22, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %23 = tail call double @cos(double noundef %3) #4, !tbaa !18
   store double %23, ptr %11, align 8, !tbaa !4
@@ -9285,7 +9285,7 @@ define internal void @statevec_multiControlledPhaseShift.omp_outlined(ptr noalia
 46:                                               ; preds = %32, %28
   %47 = add i64 %.028, 1
   %exitcond.not = icmp eq i64 %.028, %20
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !144
+  br i1 %exitcond.not, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %46, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -9312,7 +9312,7 @@ define range(i32 0, 2) i32 @getBitMaskParity(i64 noundef %0) local_unnamed_addr 
   %3 = add nsw i64 %.058, -1
   %4 = and i64 %3, %.058
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !145
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %2, %.lr.ph ]
@@ -9343,12 +9343,12 @@ define void @statevec_multiRotateZ(ptr noundef readonly byval(%struct.Qureg) ali
   store i64 %13, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !27
-  store ptr %18, ptr %8, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !22
+  store ptr %18, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %20 = load ptr, ptr %19, align 8, !tbaa !29
-  store ptr %20, ptr %9, align 8, !tbaa !45
+  %20 = load ptr, ptr %19, align 8, !tbaa !24
+  store ptr %20, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %21 = fmul double %2, 5.000000e-01
   %22 = tail call double @cos(double noundef %21) #4, !tbaa !18
@@ -9397,8 +9397,8 @@ define internal void @statevec_multiRotateZ.omp_outlined(ptr noalias noundef rea
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %22 = load ptr, ptr %3, align 8, !tbaa !45
-  %23 = load ptr, ptr %4, align 8, !tbaa !45
+  %22 = load ptr, ptr %3, align 8, !tbaa !26
+  %23 = load ptr, ptr %4, align 8, !tbaa !26
   %24 = load i64, ptr %5, align 8, !tbaa !16
   %25 = load i64, ptr %6, align 8, !tbaa !16
   %26 = load i64, ptr %7, align 8, !tbaa !16
@@ -9428,7 +9428,7 @@ define internal void @statevec_multiRotateZ.omp_outlined(ptr noalias noundef rea
   %38 = add nsw i64 %.058.i, -1
   %39 = and i64 %38, %.058.i
   %.not.i = icmp eq i64 %39, 0
-  br i1 %.not.i, label %getBitMaskParity.exit, label %.lr.ph.i, !llvm.loop !145
+  br i1 %.not.i, label %getBitMaskParity.exit, label %.lr.ph.i
 
 getBitMaskParity.exit:                            ; preds = %.lr.ph.i
   %40 = icmp eq i32 %.09.i, 1
@@ -9462,7 +9462,7 @@ getBitMaskParity.exit:                            ; preds = %.lr.ph.i
   store double %56, ptr %31, align 8, !tbaa !4
   %57 = add i64 %.031, 1
   %exitcond.not = icmp eq i64 %.031, %20
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !146
+  br i1 %exitcond.not, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %52, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -9501,12 +9501,12 @@ define void @statevec_multiControlledMultiRotateZ(ptr noundef readonly byval(%st
   store i64 %17, ptr %8, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !27
-  store ptr %20, ptr %9, align 8, !tbaa !45
+  %20 = load ptr, ptr %19, align 8, !tbaa !22
+  store ptr %20, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !29
-  store ptr %22, ptr %10, align 8, !tbaa !45
+  %22 = load ptr, ptr %21, align 8, !tbaa !24
+  store ptr %22, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %23 = fmul double %3, 5.000000e-01
   %24 = tail call double @cos(double noundef %23) #4, !tbaa !18
@@ -9554,8 +9554,8 @@ define internal void @statevec_multiControlledMultiRotateZ.omp_outlined(ptr noal
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %22 = load ptr, ptr %3, align 8, !tbaa !45
-  %23 = load ptr, ptr %4, align 8, !tbaa !45
+  %22 = load ptr, ptr %3, align 8, !tbaa !26
+  %23 = load ptr, ptr %4, align 8, !tbaa !26
   %24 = load i64, ptr %5, align 8, !tbaa !16
   %25 = load i64, ptr %6, align 8, !tbaa !16
   %.fr = freeze i64 %25
@@ -9581,7 +9581,7 @@ define internal void @statevec_multiControlledMultiRotateZ.omp_outlined(ptr noal
   %34 = add nsw i64 %.058.i.us, -1
   %35 = and i64 %34, %.058.i.us
   %.not.i.us = icmp eq i64 %35, 0
-  br i1 %.not.i.us, label %getBitMaskParity.exit.us.loopexit, label %.lr.ph.i.us, !llvm.loop !145
+  br i1 %.not.i.us, label %getBitMaskParity.exit.us.loopexit, label %.lr.ph.i.us
 
 getBitMaskParity.exit.us.loopexit:                ; preds = %.lr.ph.i.us
   %36 = shl nuw nsw i32 %33, 1
@@ -9607,7 +9607,7 @@ getBitMaskParity.exit.us:                         ; preds = %getBitMaskParity.ex
   store double %49, ptr %29, align 8, !tbaa !4
   %50 = add i64 %.035.us, 1
   %exitcond38.not = icmp eq i64 %.035.us, %20
-  br i1 %exitcond38.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !147
+  br i1 %exitcond38.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !71
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %76
   %.035 = phi i64 [ %77, %76 ], [ %21, %.lr.ph ]
@@ -9632,7 +9632,7 @@ getBitMaskParity.exit.us:                         ; preds = %getBitMaskParity.ex
   %60 = add nsw i64 %.058.i, -1
   %61 = and i64 %60, %.058.i
   %.not.i = icmp eq i64 %61, 0
-  br i1 %.not.i, label %getBitMaskParity.exit.loopexit, label %.lr.ph.i, !llvm.loop !145
+  br i1 %.not.i, label %getBitMaskParity.exit.loopexit, label %.lr.ph.i
 
 getBitMaskParity.exit.loopexit:                   ; preds = %.lr.ph.i
   %62 = shl nuw nsw i32 %59, 1
@@ -9661,7 +9661,7 @@ getBitMaskParity.exit:                            ; preds = %getBitMaskParity.ex
 76:                                               ; preds = %.lr.ph.split, %getBitMaskParity.exit
   %77 = add i64 %.035, 1
   %exitcond.not = icmp eq i64 %.035, %20
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !148
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %76, %getBitMaskParity.exit.us, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -9727,8 +9727,8 @@ define double @densmatr_findProbabilityOfZeroLocal(ptr noundef readonly byval(%s
   store double 0.000000e+00, ptr %8, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !27
-  store ptr %34, ptr %9, align 8, !tbaa !45
+  %34 = load ptr, ptr %33, align 8, !tbaa !22
+  store ptr %34, ptr %9, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @densmatr_findProbabilityOfZeroLocal.omp_outlined, ptr nonnull %7, ptr nonnull %5, ptr nonnull %6, ptr nonnull %4, ptr nonnull %3, ptr nonnull %8, ptr nonnull %9)
   %35 = load double, ptr %8, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
@@ -9806,7 +9806,7 @@ define internal void @densmatr_findProbabilityOfZeroLocal.omp_outlined(ptr noali
   %44 = phi double [ %42, %38 ], [ %32, %31 ]
   %45 = add i64 %.023, 1
   %exitcond.not = icmp eq i64 %.023, %21
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !149
+  br i1 %exitcond.not, label %._crit_edge, label %31
 
 ._crit_edge:                                      ; preds = %43, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -9878,12 +9878,12 @@ define double @statevec_findProbabilityOfZeroLocal(ptr noundef readonly byval(%s
   store double 0.000000e+00, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !27
-  store ptr %16, ptr %7, align 8, !tbaa !45
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
+  store ptr %16, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
-  store ptr %18, ptr %8, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  store ptr %18, ptr %8, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @statevec_findProbabilityOfZeroLocal.omp_outlined, ptr nonnull %6, ptr nonnull %4, ptr nonnull %3, ptr nonnull %5, ptr nonnull %7, ptr nonnull %8)
   %19 = load double, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
@@ -9931,8 +9931,8 @@ define internal void @statevec_findProbabilityOfZeroLocal.omp_outlined(ptr noali
 .lr.ph:                                           ; preds = %17
   %22 = load i64, ptr %3, align 8, !tbaa !16
   %23 = load i64, ptr %4, align 8, !tbaa !16
-  %24 = load ptr, ptr %6, align 8, !tbaa !45
-  %25 = load ptr, ptr %7, align 8, !tbaa !45
+  %24 = load ptr, ptr %6, align 8, !tbaa !26
+  %25 = load ptr, ptr %7, align 8, !tbaa !26
   br label %26
 
 26:                                               ; preds = %.lr.ph, %26
@@ -9952,7 +9952,7 @@ define internal void @statevec_findProbabilityOfZeroLocal.omp_outlined(ptr noali
   store double %38, ptr %9, align 8, !tbaa !4
   %39 = add i64 %.025, 1
   %exitcond.not = icmp eq i64 %.025, %20
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !150
+  br i1 %exitcond.not, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %26, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -10014,12 +10014,12 @@ define double @statevec_findProbabilityOfZeroDistributed(ptr noundef readonly by
   store double 0.000000e+00, ptr %2, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !27
-  store ptr %9, ptr %4, align 8, !tbaa !45
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
+  store ptr %9, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
-  store ptr %11, ptr %5, align 8, !tbaa !45
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  store ptr %11, ptr %5, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @statevec_findProbabilityOfZeroDistributed.omp_outlined, ptr nonnull %3, ptr nonnull %2, ptr nonnull %4, ptr nonnull %5)
   %12 = load double, ptr %2, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
@@ -10063,8 +10063,8 @@ define internal void @statevec_findProbabilityOfZeroDistributed.omp_outlined(ptr
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %20 = load ptr, ptr %4, align 8, !tbaa !45
-  %21 = load ptr, ptr %5, align 8, !tbaa !45
+  %20 = load ptr, ptr %4, align 8, !tbaa !26
+  %21 = load ptr, ptr %5, align 8, !tbaa !26
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
@@ -10080,7 +10080,7 @@ define internal void @statevec_findProbabilityOfZeroDistributed.omp_outlined(ptr
   store double %30, ptr %7, align 8, !tbaa !4
   %31 = add i64 %.020, 1
   %exitcond.not = icmp eq i64 %.020, %18
-  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !151
+  br i1 %exitcond.not, label %._crit_edge, label %22
 
 ._crit_edge:                                      ; preds = %22, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -10138,8 +10138,8 @@ define void @statevec_calcProbOfAllOutcomesLocal(ptr noundef %0, ptr noundef rea
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8, !tbaa !45
-  store ptr %2, ptr %6, align 8, !tbaa !68
+  store ptr %0, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !38
   store i32 %3, ptr %7, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %13 = shl nuw i32 1, %3
@@ -10158,12 +10158,12 @@ define void @statevec_calcProbOfAllOutcomesLocal(ptr noundef %0, ptr noundef rea
   store i64 %20, ptr %10, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !27
-  store ptr %22, ptr %11, align 8, !tbaa !45
+  %22 = load ptr, ptr %21, align 8, !tbaa !22
+  store ptr %22, ptr %11, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %24 = load ptr, ptr %23, align 8, !tbaa !29
-  store ptr %24, ptr %12, align 8, !tbaa !45
+  %24 = load ptr, ptr %23, align 8, !tbaa !24
+  store ptr %24, ptr %12, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @statevec_calcProbOfAllOutcomesLocal.omp_outlined.7, ptr nonnull %9, ptr nonnull %7, ptr nonnull %6, ptr nonnull %10, ptr nonnull %11, ptr nonnull %12, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
@@ -10203,7 +10203,7 @@ define internal void @statevec_calcProbOfAllOutcomesLocal.omp_outlined(ptr noali
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %16 = load ptr, ptr %3, align 8, !tbaa !45
+  %16 = load ptr, ptr %3, align 8, !tbaa !26
   %17 = shl i64 %15, 3
   %scevgep = getelementptr i8, ptr %16, i64 %17
   %18 = add nsw i64 %14, 1
@@ -10261,7 +10261,7 @@ define internal void @statevec_calcProbOfAllOutcomesLocal.omp_outlined.7(ptr noa
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %23 = load ptr, ptr %4, align 8, !tbaa !68
+  %23 = load ptr, ptr %4, align 8, !tbaa !38
   %24 = load i64, ptr %5, align 8, !tbaa !16
   %25 = add nsw i64 %24, %.03034
   %wide.trip.count = zext nneg i32 %21 to i64
@@ -10282,25 +10282,25 @@ define internal void @statevec_calcProbOfAllOutcomesLocal.omp_outlined.7(ptr noa
   %35 = add nsw i64 %34, %.02931
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !152
+  br i1 %exitcond.not, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %26, %.preheader
   %.029.lcssa = phi i64 [ 0, %.preheader ], [ %35, %26 ]
-  %36 = load ptr, ptr %6, align 8, !tbaa !45
+  %36 = load ptr, ptr %6, align 8, !tbaa !26
   %37 = getelementptr inbounds double, ptr %36, i64 %.03034
   %38 = load double, ptr %37, align 8, !tbaa !4
-  %39 = load ptr, ptr %7, align 8, !tbaa !45
+  %39 = load ptr, ptr %7, align 8, !tbaa !26
   %40 = getelementptr inbounds double, ptr %39, i64 %.03034
   %41 = load double, ptr %40, align 8, !tbaa !4
   %42 = fmul double %41, %41
   %43 = call double @llvm.fmuladd.f64(double %38, double %38, double %42)
-  %44 = load ptr, ptr %8, align 8, !tbaa !45
+  %44 = load ptr, ptr %8, align 8, !tbaa !26
   %45 = getelementptr inbounds double, ptr %44, i64 %.029.lcssa
   %46 = atomicrmw fadd ptr %45, double %43 monotonic, align 8
   %47 = add nsw i64 %.03034, 1
   %48 = load i64, ptr %11, align 8, !tbaa !16
   %.not.not = icmp slt i64 %.03034, %48
-  br i1 %.not.not, label %.preheader, label %._crit_edge35, !llvm.loop !153
+  br i1 %.not.not, label %.preheader, label %._crit_edge35
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -10326,8 +10326,8 @@ define void @densmatr_calcProbOfAllOutcomesLocal(ptr noundef %0, ptr noundef rea
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8, !tbaa !45
-  store ptr %2, ptr %6, align 8, !tbaa !68
+  store ptr %0, ptr %5, align 8, !tbaa !26
+  store ptr %2, ptr %6, align 8, !tbaa !38
   store i32 %3, ptr %7, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %14 = shl nuw i32 1, %3
@@ -10373,8 +10373,8 @@ define void @densmatr_calcProbOfAllOutcomesLocal(ptr noundef %0, ptr noundef rea
   store i64 %spec.store.select, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %40 = load ptr, ptr %39, align 8, !tbaa !27
-  store ptr %40, ptr %13, align 8, !tbaa !45
+  %40 = load ptr, ptr %39, align 8, !tbaa !22
+  store ptr %40, ptr %13, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 8, ptr nonnull @densmatr_calcProbOfAllOutcomesLocal.omp_outlined.8, ptr nonnull %12, ptr nonnull %10, ptr nonnull %11, ptr nonnull %9, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
@@ -10415,7 +10415,7 @@ define internal void @densmatr_calcProbOfAllOutcomesLocal.omp_outlined(ptr noali
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %16 = load ptr, ptr %3, align 8, !tbaa !45
+  %16 = load ptr, ptr %3, align 8, !tbaa !26
   %17 = shl i64 %15, 3
   %scevgep = getelementptr i8, ptr %16, i64 %17
   %18 = add nsw i64 %14, 1
@@ -10478,7 +10478,7 @@ define internal void @densmatr_calcProbOfAllOutcomesLocal.omp_outlined.8(ptr noa
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph35
-  %29 = load ptr, ptr %7, align 8, !tbaa !68
+  %29 = load ptr, ptr %7, align 8, !tbaa !38
   %wide.trip.count = zext nneg i32 %27 to i64
   br label %30
 
@@ -10497,13 +10497,13 @@ define internal void @densmatr_calcProbOfAllOutcomesLocal.omp_outlined.8(ptr noa
   %39 = add nsw i64 %38, %.02830
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !154
+  br i1 %exitcond.not, label %._crit_edge, label %30
 
 ._crit_edge:                                      ; preds = %30, %.lr.ph35
   %.028.lcssa = phi i64 [ 0, %.lr.ph35 ], [ %39, %30 ]
-  %40 = load ptr, ptr %8, align 8, !tbaa !45
+  %40 = load ptr, ptr %8, align 8, !tbaa !26
   %41 = getelementptr inbounds double, ptr %40, i64 %.028.lcssa
-  %42 = load ptr, ptr %9, align 8, !tbaa !45
+  %42 = load ptr, ptr %9, align 8, !tbaa !26
   %43 = getelementptr double, ptr %42, i64 %24
   %44 = getelementptr double, ptr %43, i64 %26
   %45 = load double, ptr %44, align 8, !tbaa !4
@@ -10511,7 +10511,7 @@ define internal void @densmatr_calcProbOfAllOutcomesLocal.omp_outlined.8(ptr noa
   %47 = add nsw i64 %.02933, 1
   %48 = load i64, ptr %12, align 8, !tbaa !16
   %.not.not = icmp slt i64 %.02933, %48
-  br i1 %.not.not, label %.lr.ph35, label %._crit_edge36, !llvm.loop !155
+  br i1 %.not.not, label %.lr.ph35, label %._crit_edge36
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -10550,12 +10550,12 @@ define void @statevec_controlledPhaseFlip(ptr noundef readonly byval(%struct.Qur
   store i64 %12, ptr %6, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !27
-  store ptr %17, ptr %9, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !22
+  store ptr %17, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !29
-  store ptr %19, ptr %10, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !24
+  store ptr %19, ptr %10, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @statevec_controlledPhaseFlip.omp_outlined, ptr nonnull %6, ptr nonnull %4, ptr nonnull %8, ptr nonnull %7, ptr nonnull %5, ptr nonnull %9, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
@@ -10636,7 +10636,7 @@ define internal void @statevec_controlledPhaseFlip.omp_outlined(ptr noalias noun
 50:                                               ; preds = %43, %33
   %51 = add i64 %.026, 1
   %exitcond.not = icmp eq i64 %.026, %20
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !156
+  br i1 %exitcond.not, label %._crit_edge, label %33
 
 ._crit_edge:                                      ; preds = %50, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
@@ -10674,12 +10674,12 @@ define void @statevec_multiControlledPhaseFlip(ptr noundef readonly byval(%struc
   store i64 %11, ptr %4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !27
-  store ptr %17, ptr %8, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !22
+  store ptr %17, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !29
-  store ptr %19, ptr %9, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !24
+  store ptr %19, ptr %9, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @statevec_multiControlledPhaseFlip.omp_outlined, ptr nonnull %4, ptr nonnull %7, ptr nonnull %6, ptr nonnull %5, ptr nonnull %8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
@@ -10749,7 +10749,7 @@ define internal void @statevec_multiControlledPhaseFlip.omp_outlined(ptr noalias
 37:                                               ; preds = %30, %26
   %38 = add i64 %.022, 1
   %exitcond.not = icmp eq i64 %.022, %18
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !157
+  br i1 %exitcond.not, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %37, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -10792,12 +10792,12 @@ define void @statevec_collapseToKnownProbOutcomeLocal(ptr noundef readonly byval
   store double %19, ptr %8, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !27
-  store ptr %21, ptr %10, align 8, !tbaa !45
+  %21 = load ptr, ptr %20, align 8, !tbaa !22
+  store ptr %21, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = load ptr, ptr %22, align 8, !tbaa !29
-  store ptr %23, ptr %11, align 8, !tbaa !45
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
+  store ptr %23, ptr %11, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @statevec_collapseToKnownProbOutcomeLocal.omp_outlined, ptr nonnull %5, ptr nonnull %9, ptr nonnull %7, ptr nonnull %6, ptr nonnull %10, ptr nonnull %8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #4
@@ -10849,8 +10849,8 @@ define internal void @statevec_collapseToKnownProbOutcomeLocal.omp_outlined(ptr 
 .lr.ph53:                                         ; preds = %23
   %28 = load i64, ptr %4, align 8, !tbaa !16
   %29 = load i64, ptr %5, align 8, !tbaa !16
-  %30 = load ptr, ptr %6, align 8, !tbaa !45
-  %31 = load ptr, ptr %8, align 8, !tbaa !45
+  %30 = load ptr, ptr %6, align 8, !tbaa !26
+  %31 = load ptr, ptr %8, align 8, !tbaa !26
   br label %32
 
 32:                                               ; preds = %.lr.ph53, %32
@@ -10875,7 +10875,7 @@ define internal void @statevec_collapseToKnownProbOutcomeLocal.omp_outlined(ptr 
   store double 0.000000e+00, ptr %46, align 8, !tbaa !4
   %47 = add i64 %.051, 1
   %exitcond55.not = icmp eq i64 %.051, %26
-  br i1 %exitcond55.not, label %._crit_edge54, label %32, !llvm.loop !158
+  br i1 %exitcond55.not, label %._crit_edge54, label %32
 
 ._crit_edge54:                                    ; preds = %32, %23
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre56)
@@ -10913,8 +10913,8 @@ define internal void @statevec_collapseToKnownProbOutcomeLocal.omp_outlined(ptr 
 .lr.ph:                                           ; preds = %50
   %55 = load i64, ptr %4, align 8, !tbaa !16
   %56 = load i64, ptr %5, align 8, !tbaa !16
-  %57 = load ptr, ptr %6, align 8, !tbaa !45
-  %58 = load ptr, ptr %8, align 8, !tbaa !45
+  %57 = load ptr, ptr %6, align 8, !tbaa !26
+  %58 = load ptr, ptr %8, align 8, !tbaa !26
   br label %59
 
 59:                                               ; preds = %.lr.ph, %59
@@ -10939,7 +10939,7 @@ define internal void @statevec_collapseToKnownProbOutcomeLocal.omp_outlined(ptr 
   store double %73, ptr %70, align 8, !tbaa !4
   %74 = add i64 %.04649, 1
   %exitcond.not = icmp eq i64 %.04649, %53
-  br i1 %exitcond.not, label %._crit_edge, label %59, !llvm.loop !159
+  br i1 %exitcond.not, label %._crit_edge, label %59
 
 ._crit_edge:                                      ; preds = %59, %50
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre56)
@@ -10973,12 +10973,12 @@ define void @statevec_collapseToKnownProbOutcomeDistributedRenorm(ptr noundef re
   store double %11, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !27
-  store ptr %13, ptr %6, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
+  store ptr %13, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !29
-  store ptr %15, ptr %7, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  store ptr %15, ptr %7, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 4, ptr nonnull @statevec_collapseToKnownProbOutcomeDistributedRenorm.omp_outlined, ptr nonnull %4, ptr nonnull %6, ptr nonnull %5, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
@@ -11017,8 +11017,8 @@ define internal void @statevec_collapseToKnownProbOutcomeDistributedRenorm.omp_o
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %18 = load ptr, ptr %3, align 8, !tbaa !45
-  %19 = load ptr, ptr %5, align 8, !tbaa !45
+  %18 = load ptr, ptr %3, align 8, !tbaa !26
+  %19 = load ptr, ptr %5, align 8, !tbaa !26
   br label %20
 
 20:                                               ; preds = %.lr.ph, %20
@@ -11035,7 +11035,7 @@ define internal void @statevec_collapseToKnownProbOutcomeDistributedRenorm.omp_o
   store double %28, ptr %25, align 8, !tbaa !4
   %29 = add i64 %.019, 1
   %exitcond.not = icmp eq i64 %.019, %16
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !160
+  br i1 %exitcond.not, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %20, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -11061,12 +11061,12 @@ define void @statevec_collapseToOutcomeDistributedSetZero(ptr noundef readonly b
   store i64 %6, ptr %2, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
-  store ptr %8, ptr %3, align 8, !tbaa !45
+  %8 = load ptr, ptr %7, align 8, !tbaa !22
+  store ptr %8, ptr %3, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !29
-  store ptr %10, ptr %4, align 8, !tbaa !45
+  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  store ptr %10, ptr %4, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 3, ptr nonnull @statevec_collapseToOutcomeDistributedSetZero.omp_outlined, ptr nonnull %2, ptr nonnull %3, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
@@ -11104,8 +11104,8 @@ define internal void @statevec_collapseToOutcomeDistributedSetZero.omp_outlined(
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %17 = load ptr, ptr %3, align 8, !tbaa !45
-  %18 = load ptr, ptr %4, align 8, !tbaa !45
+  %17 = load ptr, ptr %3, align 8, !tbaa !26
+  %18 = load ptr, ptr %4, align 8, !tbaa !26
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
@@ -11116,7 +11116,7 @@ define internal void @statevec_collapseToOutcomeDistributedSetZero.omp_outlined(
   store double 0.000000e+00, ptr %21, align 8, !tbaa !4
   %22 = add i64 %.016, 1
   %exitcond.not = icmp eq i64 %.016, %15
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !161
+  br i1 %exitcond.not, label %._crit_edge, label %19
 
 ._crit_edge:                                      ; preds = %19, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -11142,12 +11142,12 @@ define void @statevec_swapQubitAmpsLocal(ptr noundef readonly byval(%struct.Qure
   store i32 %2, ptr %5, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !27
-  store ptr %10, ptr %6, align 8, !tbaa !45
+  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  store ptr %10, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !29
-  store ptr %12, ptr %7, align 8, !tbaa !45
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
+  store ptr %12, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !8
@@ -11202,8 +11202,8 @@ define internal void @statevec_swapQubitAmpsLocal.omp_outlined(ptr noalias nound
   %28 = shl nuw i64 1, %27
   %29 = zext nneg i32 %20 to i64
   %30 = shl nuw i64 1, %29
-  %31 = load ptr, ptr %5, align 8, !tbaa !45
-  %32 = load ptr, ptr %6, align 8, !tbaa !45
+  %31 = load ptr, ptr %5, align 8, !tbaa !26
+  %32 = load ptr, ptr %6, align 8, !tbaa !26
   br label %33
 
 33:                                               ; preds = %.lr.ph, %33
@@ -11232,7 +11232,7 @@ define internal void @statevec_swapQubitAmpsLocal.omp_outlined(ptr noalias nound
   store double %47, ptr %50, align 8, !tbaa !4
   %52 = add i64 %.031, 1
   %exitcond.not = icmp eq i64 %.031, %17
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !162
+  br i1 %exitcond.not, label %._crit_edge, label %33
 
 ._crit_edge:                                      ; preds = %33, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -11262,20 +11262,20 @@ define void @statevec_swapQubitAmpsDistributed(ptr noundef readonly byval(%struc
   store i32 %3, ptr %6, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !27
-  store ptr %15, ptr %7, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !22
+  store ptr %15, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
-  store ptr %17, ptr %8, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  store ptr %17, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %19 = load ptr, ptr %18, align 8, !tbaa !28
-  store ptr %19, ptr %9, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  store ptr %19, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load ptr, ptr %20, align 8, !tbaa !30
-  store ptr %21, ptr %10, align 8, !tbaa !45
+  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  store ptr %21, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !8
@@ -11374,7 +11374,7 @@ define internal void @statevec_swapQubitAmpsDistributed.omp_outlined(ptr noalias
 51:                                               ; preds = %43, %35
   %52 = add i64 %.030, 1
   %exitcond.not = icmp eq i64 %.030, %21
-  br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !163
+  br i1 %exitcond.not, label %._crit_edge, label %35
 
 ._crit_edge:                                      ; preds = %51, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -11410,28 +11410,28 @@ define void @statevec_setWeightedQureg(double %0, double %1, ptr noundef readonl
   store i64 %24, ptr %10, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !27
-  store ptr %26, ptr %11, align 8, !tbaa !45
+  %26 = load ptr, ptr %25, align 8, !tbaa !22
+  store ptr %26, ptr %11, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
-  store ptr %28, ptr %12, align 8, !tbaa !45
+  %28 = load ptr, ptr %27, align 8, !tbaa !24
+  store ptr %28, ptr %12, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #4
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !27
-  store ptr %30, ptr %13, align 8, !tbaa !45
+  %30 = load ptr, ptr %29, align 8, !tbaa !22
+  store ptr %30, ptr %13, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %32 = load ptr, ptr %31, align 8, !tbaa !29
-  store ptr %32, ptr %14, align 8, !tbaa !45
+  %32 = load ptr, ptr %31, align 8, !tbaa !24
+  store ptr %32, ptr %14, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #4
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !27
-  store ptr %34, ptr %15, align 8, !tbaa !45
+  %34 = load ptr, ptr %33, align 8, !tbaa !22
+  store ptr %34, ptr %15, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #4
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %36 = load ptr, ptr %35, align 8, !tbaa !29
-  store ptr %36, ptr %16, align 8, !tbaa !45
+  %36 = load ptr, ptr %35, align 8, !tbaa !24
+  store ptr %36, ptr %16, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #4
   store double %0, ptr %17, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #4
@@ -11491,12 +11491,12 @@ define internal void @statevec_setWeightedQureg.omp_outlined(ptr noalias noundef
   br i1 %.not43, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
-  %27 = load ptr, ptr %3, align 8, !tbaa !45
-  %28 = load ptr, ptr %4, align 8, !tbaa !45
-  %29 = load ptr, ptr %5, align 8, !tbaa !45
-  %30 = load ptr, ptr %6, align 8, !tbaa !45
-  %31 = load ptr, ptr %7, align 8, !tbaa !45
-  %32 = load ptr, ptr %8, align 8, !tbaa !45
+  %27 = load ptr, ptr %3, align 8, !tbaa !26
+  %28 = load ptr, ptr %4, align 8, !tbaa !26
+  %29 = load ptr, ptr %5, align 8, !tbaa !26
+  %30 = load ptr, ptr %6, align 8, !tbaa !26
+  %31 = load ptr, ptr %7, align 8, !tbaa !26
+  %32 = load ptr, ptr %8, align 8, !tbaa !26
   br label %33
 
 33:                                               ; preds = %.lr.ph, %33
@@ -11548,7 +11548,7 @@ define internal void @statevec_setWeightedQureg.omp_outlined(ptr noalias noundef
   store double %76, ptr %44, align 8, !tbaa !4
   %77 = add i64 %.044, 1
   %exitcond.not = icmp eq i64 %.044, %25
-  br i1 %exitcond.not, label %._crit_edge, label %33, !llvm.loop !164
+  br i1 %exitcond.not, label %._crit_edge, label %33
 
 ._crit_edge:                                      ; preds = %33, %22
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -11576,20 +11576,20 @@ define void @statevec_applyDiagonalOp(ptr noundef readonly byval(%struct.Qureg) 
   store i64 %9, ptr %3, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !27
-  store ptr %11, ptr %4, align 8, !tbaa !45
+  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  store ptr %11, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !29
-  store ptr %13, ptr %5, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  store ptr %13, ptr %5, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !82
-  store ptr %15, ptr %6, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !50
+  store ptr %15, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !83
-  store ptr %17, ptr %7, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !51
+  store ptr %17, ptr %7, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 5, ptr nonnull @statevec_applyDiagonalOp.omp_outlined, ptr nonnull %3, ptr nonnull %4, ptr nonnull %5, ptr nonnull %6, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
@@ -11629,10 +11629,10 @@ define internal void @statevec_applyDiagonalOp.omp_outlined(ptr noalias noundef 
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %19 = load ptr, ptr %3, align 8, !tbaa !45
-  %20 = load ptr, ptr %4, align 8, !tbaa !45
-  %21 = load ptr, ptr %5, align 8, !tbaa !45
-  %22 = load ptr, ptr %6, align 8, !tbaa !45
+  %19 = load ptr, ptr %3, align 8, !tbaa !26
+  %20 = load ptr, ptr %4, align 8, !tbaa !26
+  %21 = load ptr, ptr %5, align 8, !tbaa !26
+  %22 = load ptr, ptr %6, align 8, !tbaa !26
   br label %23
 
 23:                                               ; preds = %.lr.ph, %23
@@ -11654,7 +11654,7 @@ define internal void @statevec_applyDiagonalOp.omp_outlined(ptr noalias noundef 
   store double %36, ptr %26, align 8, !tbaa !4
   %37 = add i64 %.030, 1
   %exitcond.not = icmp eq i64 %.030, %17
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !165
+  br i1 %exitcond.not, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %23, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -11682,25 +11682,25 @@ define void @densmatr_applyDiagonalOpLocal(ptr noundef readonly byval(%struct.Qu
   %10 = load i64, ptr %9, align 8, !tbaa !8
   store i64 %10, ptr %3, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  %11 = load i32, ptr %1, align 8, !tbaa !77
+  %11 = load i32, ptr %1, align 8, !tbaa !45
   %12 = shl nuw i32 1, %11
   store i32 %12, ptr %4, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !27
-  store ptr %14, ptr %5, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
+  store ptr %14, ptr %5, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !29
-  store ptr %16, ptr %6, align 8, !tbaa !45
+  %16 = load ptr, ptr %15, align 8, !tbaa !24
+  store ptr %16, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !28
-  store ptr %18, ptr %7, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  store ptr %18, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = load ptr, ptr %19, align 8, !tbaa !30
-  store ptr %20, ptr %8, align 8, !tbaa !45
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  store ptr %20, ptr %8, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 6, ptr nonnull @densmatr_applyDiagonalOpLocal.omp_outlined, ptr nonnull %3, ptr nonnull %5, ptr nonnull %6, ptr nonnull %7, ptr nonnull %4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
@@ -11741,12 +11741,12 @@ define internal void @densmatr_applyDiagonalOpLocal.omp_outlined(ptr noalias nou
   br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %20 = load ptr, ptr %3, align 8, !tbaa !45
-  %21 = load ptr, ptr %4, align 8, !tbaa !45
-  %22 = load ptr, ptr %5, align 8, !tbaa !45
+  %20 = load ptr, ptr %3, align 8, !tbaa !26
+  %21 = load ptr, ptr %4, align 8, !tbaa !26
+  %22 = load ptr, ptr %5, align 8, !tbaa !26
   %23 = load i32, ptr %6, align 4, !tbaa !18
   %24 = sext i32 %23 to i64
-  %25 = load ptr, ptr %7, align 8, !tbaa !45
+  %25 = load ptr, ptr %7, align 8, !tbaa !26
   br label %26
 
 26:                                               ; preds = %.lr.ph, %26
@@ -11769,7 +11769,7 @@ define internal void @densmatr_applyDiagonalOpLocal.omp_outlined(ptr noalias nou
   store double %40, ptr %29, align 8, !tbaa !4
   %41 = add i64 %.031, 1
   %exitcond.not = icmp eq i64 %.031, %18
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !166
+  br i1 %exitcond.not, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %26, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -11803,20 +11803,20 @@ define { double, double } @statevec_calcExpecDiagonalOpLocal(ptr noundef readonl
   store i64 %11, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !27
-  store ptr %13, ptr %6, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
+  store ptr %13, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !29
-  store ptr %15, ptr %7, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  store ptr %15, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !82
-  store ptr %17, ptr %8, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !50
+  store ptr %17, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !83
-  store ptr %19, ptr %9, align 8, !tbaa !45
+  %19 = load ptr, ptr %18, align 8, !tbaa !51
+  store ptr %19, ptr %9, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @statevec_calcExpecDiagonalOpLocal.omp_outlined, ptr nonnull %5, ptr nonnull %6, ptr nonnull %7, ptr nonnull %8, ptr nonnull %9, ptr nonnull %3, ptr nonnull %4)
   %20 = load double, ptr %3, align 8, !tbaa !4
   %21 = load double, ptr %4, align 8, !tbaa !4
@@ -11869,10 +11869,10 @@ define internal void @statevec_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %24 = load ptr, ptr %3, align 8, !tbaa !45
-  %25 = load ptr, ptr %4, align 8, !tbaa !45
-  %26 = load ptr, ptr %5, align 8, !tbaa !45
-  %27 = load ptr, ptr %6, align 8, !tbaa !45
+  %24 = load ptr, ptr %3, align 8, !tbaa !26
+  %25 = load ptr, ptr %4, align 8, !tbaa !26
+  %26 = load ptr, ptr %5, align 8, !tbaa !26
+  %27 = load ptr, ptr %6, align 8, !tbaa !26
   br label %28
 
 28:                                               ; preds = %.lr.ph, %28
@@ -11895,7 +11895,7 @@ define internal void @statevec_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
   store double %42, ptr %11, align 8, !tbaa !4
   %43 = add i64 %.032, 1
   %exitcond.not = icmp eq i64 %.032, %22
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !167
+  br i1 %exitcond.not, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %28, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -12008,20 +12008,20 @@ define { double, double } @densmatr_calcExpecDiagonalOpLocal(ptr noundef readonl
   store i64 %28, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !27
-  store ptr %33, ptr %6, align 8, !tbaa !45
+  %33 = load ptr, ptr %32, align 8, !tbaa !22
+  store ptr %33, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %35 = load ptr, ptr %34, align 8, !tbaa !29
-  store ptr %35, ptr %7, align 8, !tbaa !45
+  %35 = load ptr, ptr %34, align 8, !tbaa !24
+  store ptr %35, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !82
-  store ptr %37, ptr %8, align 8, !tbaa !45
+  %37 = load ptr, ptr %36, align 8, !tbaa !50
+  store ptr %37, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !83
-  store ptr %39, ptr %9, align 8, !tbaa !45
+  %39 = load ptr, ptr %38, align 8, !tbaa !51
+  store ptr %39, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   store double 0.000000e+00, ptr %10, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
@@ -12087,12 +12087,12 @@ define internal void @densmatr_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %23
-  %34 = load ptr, ptr %5, align 8, !tbaa !45
-  %35 = load ptr, ptr %6, align 8, !tbaa !45
+  %34 = load ptr, ptr %5, align 8, !tbaa !26
+  %35 = load ptr, ptr %6, align 8, !tbaa !26
   %36 = load i64, ptr %2, align 8, !tbaa !16
   %37 = load i64, ptr %4, align 8, !tbaa !16
-  %38 = load ptr, ptr %7, align 8, !tbaa !45
-  %39 = load ptr, ptr %8, align 8, !tbaa !45
+  %38 = load ptr, ptr %7, align 8, !tbaa !26
+  %39 = load ptr, ptr %8, align 8, !tbaa !26
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
@@ -12122,7 +12122,7 @@ define internal void @densmatr_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
   store double %61, ptr %13, align 8, !tbaa !4
   %62 = add nuw i64 %.042, 1
   %63 = icmp ult i64 %62, %32
-  br i1 %63, label %40, label %._crit_edge, !llvm.loop !168
+  br i1 %63, label %40, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %40, %23
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -12196,14 +12196,14 @@ define void @agnostic_setDiagonalOpElems(ptr noundef readonly byval(%struct.Diag
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  store ptr %2, ptr %6, align 8, !tbaa !45
-  store ptr %3, ptr %7, align 8, !tbaa !45
+  store ptr %2, ptr %6, align 8, !tbaa !26
+  store ptr %3, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !80
+  %14 = load i32, ptr %13, align 4, !tbaa !48
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !79
+  %17 = load i64, ptr %16, align 8, !tbaa !47
   %18 = mul nsw i64 %17, %15
   %19 = sub nsw i64 %1, %18
   store i64 %19, ptr %8, align 8, !tbaa !16
@@ -12231,12 +12231,12 @@ define void @agnostic_setDiagonalOpElems(ptr noundef readonly byval(%struct.Diag
 27:                                               ; preds = %26, %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !82
-  store ptr %29, ptr %11, align 8, !tbaa !45
+  %29 = load ptr, ptr %28, align 8, !tbaa !50
+  store ptr %29, ptr %11, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !83
-  store ptr %31, ptr %12, align 8, !tbaa !45
+  %31 = load ptr, ptr %30, align 8, !tbaa !51
+  store ptr %31, ptr %12, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 7, ptr nonnull @agnostic_setDiagonalOpElems.omp_outlined, ptr nonnull %8, ptr nonnull %9, ptr nonnull %11, ptr nonnull %6, ptr nonnull %10, ptr nonnull %12, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #4
@@ -12279,13 +12279,13 @@ define internal void @agnostic_setDiagonalOpElems.omp_outlined(ptr noalias nound
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %17
-  %25 = load ptr, ptr %5, align 8, !tbaa !45
+  %25 = load ptr, ptr %5, align 8, !tbaa !26
   %26 = load i64, ptr %6, align 8, !tbaa !16
   %invariant.gep = getelementptr double, ptr %25, i64 %26
-  %27 = load ptr, ptr %4, align 8, !tbaa !45
-  %28 = load ptr, ptr %8, align 8, !tbaa !45
+  %27 = load ptr, ptr %4, align 8, !tbaa !26
+  %28 = load ptr, ptr %8, align 8, !tbaa !26
   %invariant.gep27 = getelementptr double, ptr %28, i64 %26
-  %29 = load ptr, ptr %7, align 8, !tbaa !45
+  %29 = load ptr, ptr %7, align 8, !tbaa !26
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
@@ -12301,7 +12301,7 @@ define internal void @agnostic_setDiagonalOpElems.omp_outlined(ptr noalias nound
   store double %34, ptr %35, align 8, !tbaa !4
   %36 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %.026, %21
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !169
+  br i1 %exitcond.not, label %._crit_edge, label %30
 
 ._crit_edge:                                      ; preds = %30, %17
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -12332,14 +12332,14 @@ define void @statevec_applyPhaseFuncOverrides(ptr noundef readonly byval(%struct
   %23 = alloca i64, align 8
   %24 = alloca ptr, align 8
   %25 = alloca ptr, align 8
-  store ptr %1, ptr %12, align 8, !tbaa !68
+  store ptr %1, ptr %12, align 8, !tbaa !38
   store i32 %2, ptr %13, align 4, !tbaa !18
   store i32 %3, ptr %14, align 4, !tbaa !18
-  store ptr %4, ptr %15, align 8, !tbaa !45
-  store ptr %5, ptr %16, align 8, !tbaa !45
+  store ptr %4, ptr %15, align 8, !tbaa !26
+  store ptr %5, ptr %16, align 8, !tbaa !26
   store i32 %6, ptr %17, align 4, !tbaa !18
-  store ptr %7, ptr %18, align 8, !tbaa !170
-  store ptr %8, ptr %19, align 8, !tbaa !45
+  store ptr %7, ptr %18, align 8, !tbaa !72
+  store ptr %8, ptr %19, align 8, !tbaa !26
   store i32 %9, ptr %20, align 4, !tbaa !18
   store i32 %10, ptr %21, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #4
@@ -12352,12 +12352,12 @@ define void @statevec_applyPhaseFuncOverrides(ptr noundef readonly byval(%struct
   store i64 %29, ptr %23, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load ptr, ptr %30, align 8, !tbaa !27
-  store ptr %31, ptr %24, align 8, !tbaa !45
+  %31 = load ptr, ptr %30, align 8, !tbaa !22
+  store ptr %31, ptr %24, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load ptr, ptr %32, align 8, !tbaa !29
-  store ptr %33, ptr %25, align 8, !tbaa !45
+  %33 = load ptr, ptr %32, align 8, !tbaa !24
+  store ptr %33, ptr %25, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 14, ptr nonnull @statevec_applyPhaseFuncOverrides.omp_outlined, ptr nonnull %23, ptr nonnull %22, ptr nonnull %14, ptr nonnull %13, ptr nonnull %12, ptr nonnull %20, ptr nonnull %18, ptr nonnull %19, ptr nonnull %17, ptr nonnull %15, ptr nonnull %16, ptr nonnull %21, ptr nonnull %24, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #4
@@ -12402,8 +12402,8 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
   %31 = load ptr, ptr %11, align 8
   %32 = load ptr, ptr %12, align 8
   %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %14, align 8, !tbaa !45
-  %35 = load ptr, ptr %15, align 8, !tbaa !45
+  %34 = load ptr, ptr %14, align 8, !tbaa !26
+  %35 = load ptr, ptr %15, align 8, !tbaa !26
   br label %36
 
 36:                                               ; preds = %.lr.ph99, %.loopexit
@@ -12452,7 +12452,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
   %55 = add nsw i64 %54, %.086
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
-  br i1 %exitcond109.not, label %.loopexit79, label %.lr.ph87, !llvm.loop !172
+  br i1 %exitcond109.not, label %.loopexit79, label %.lr.ph87
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -12469,7 +12469,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
   %64 = add nsw i64 %63, %.283
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !173
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader80
   %.2.lcssa = phi i64 [ 0, %.preheader80 ], [ %64, %.lr.ph ]
@@ -12519,7 +12519,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
 85:                                               ; preds = %.lr.ph91
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count113
-  br i1 %exitcond114.not, label %.preheader, label %.lr.ph91, !llvm.loop !174
+  br i1 %exitcond114.not, label %.preheader, label %.lr.ph91
 
 86:                                               ; preds = %.lr.ph91
   %87 = and i64 %indvars.iv110, 4294967295
@@ -12540,7 +12540,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
   %97 = load i32, ptr %10, align 4, !tbaa !18
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next116, %98
-  br i1 %99, label %90, label %.loopexit, !llvm.loop !175
+  br i1 %99, label %90, label %.loopexit
 
 .loopexit:                                        ; preds = %90, %.preheader, %86
   %.071 = phi double [ %89, %86 ], [ 0.000000e+00, %.preheader ], [ %96, %90 ]
@@ -12563,7 +12563,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
   store double %112, ptr %106, align 8, !tbaa !4
   %113 = add i64 %.07097, 1
   %exitcond118.not = icmp eq i64 %.07097, %26
-  br i1 %exitcond118.not, label %._crit_edge100, label %36, !llvm.loop !176
+  br i1 %exitcond118.not, label %._crit_edge100, label %36
 
 ._crit_edge100:                                   ; preds = %.loopexit, %23
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -12598,15 +12598,15 @@ define void @statevec_applyMultiVarPhaseFuncOverrides(ptr noundef readonly byval
   %25 = alloca i64, align 8
   %26 = alloca ptr, align 8
   %27 = alloca ptr, align 8
-  store ptr %1, ptr %13, align 8, !tbaa !68
-  store ptr %2, ptr %14, align 8, !tbaa !68
+  store ptr %1, ptr %13, align 8, !tbaa !38
+  store ptr %2, ptr %14, align 8, !tbaa !38
   store i32 %3, ptr %15, align 4, !tbaa !18
   store i32 %4, ptr %16, align 4, !tbaa !18
-  store ptr %5, ptr %17, align 8, !tbaa !45
-  store ptr %6, ptr %18, align 8, !tbaa !45
-  store ptr %7, ptr %19, align 8, !tbaa !68
-  store ptr %8, ptr %20, align 8, !tbaa !170
-  store ptr %9, ptr %21, align 8, !tbaa !45
+  store ptr %5, ptr %17, align 8, !tbaa !26
+  store ptr %6, ptr %18, align 8, !tbaa !26
+  store ptr %7, ptr %19, align 8, !tbaa !38
+  store ptr %8, ptr %20, align 8, !tbaa !72
+  store ptr %9, ptr %21, align 8, !tbaa !26
   store i32 %10, ptr %22, align 4, !tbaa !18
   store i32 %11, ptr %23, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #4
@@ -12619,12 +12619,12 @@ define void @statevec_applyMultiVarPhaseFuncOverrides(ptr noundef readonly byval
   store i64 %31, ptr %25, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !27
-  store ptr %33, ptr %26, align 8, !tbaa !45
+  %33 = load ptr, ptr %32, align 8, !tbaa !22
+  store ptr %33, ptr %26, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %35 = load ptr, ptr %34, align 8, !tbaa !29
-  store ptr %35, ptr %27, align 8, !tbaa !45
+  %35 = load ptr, ptr %34, align 8, !tbaa !24
+  store ptr %35, ptr %27, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 15, ptr nonnull @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined, ptr nonnull %25, ptr nonnull %24, ptr nonnull %15, ptr nonnull %16, ptr nonnull %14, ptr nonnull %13, ptr nonnull %22, ptr nonnull %20, ptr nonnull %21, ptr nonnull %19, ptr nonnull %17, ptr nonnull %18, ptr nonnull %23, ptr nonnull %26, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #4
@@ -12668,8 +12668,8 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %30 = load i64, ptr %2, align 8, !tbaa !16
   %31 = load ptr, ptr %11, align 8
   %32 = load ptr, ptr %10, align 8
-  %33 = load ptr, ptr %15, align 8, !tbaa !45
-  %34 = load ptr, ptr %16, align 8, !tbaa !45
+  %33 = load ptr, ptr %15, align 8, !tbaa !26
+  %34 = load ptr, ptr %16, align 8, !tbaa !26
   br label %35
 
 35:                                               ; preds = %.lr.ph147, %.loopexit105
@@ -12719,13 +12719,13 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %60 = add nsw i64 %59, %51
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count174
-  br i1 %exitcond175.not, label %..loopexit_crit_edge.us, label %50, !llvm.loop !177
+  br i1 %exitcond175.not, label %..loopexit_crit_edge.us, label %50
 
 .loopexit.us:                                     ; preds = %..loopexit_crit_edge.us, %.preheader103.us
   %.188.lcssa.us = phi i32 [ %62, %..loopexit_crit_edge.us ], [ %.087119.us, %.preheader103.us ]
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %45
-  br i1 %exitcond180.not, label %.preheader106, label %.preheader103.us, !llvm.loop !178
+  br i1 %exitcond180.not, label %.preheader106, label %.preheader103.us, !llvm.loop !74
 
 .lr.ph115.us:                                     ; preds = %.preheader103.us
   %61 = sext i32 %.087119.us to i64
@@ -12787,12 +12787,12 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %93 = add nsw i64 %92, %84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %83, !llvm.loop !179
+  br i1 %exitcond.not, label %._crit_edge.us, label %83
 
 94:                                               ; preds = %80, %68
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %45
-  br i1 %exitcond166.not, label %.preheader106, label %.preheader104.us, !llvm.loop !180
+  br i1 %exitcond166.not, label %.preheader106, label %.preheader104.us, !llvm.loop !75
 
 .lr.ph.us:                                        ; preds = %.preheader104.us
   %95 = sext i32 %.087119.us126 to i64
@@ -12838,7 +12838,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 109:                                              ; preds = %110
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %107
-  br i1 %exitcond188.not, label %.critedge.loopexit, label %110, !llvm.loop !181
+  br i1 %exitcond188.not, label %.critedge.loopexit, label %110
 
 110:                                              ; preds = %.preheader102.us, %109
   %indvars.iv184 = phi i64 [ 0, %.preheader102.us ], [ %indvars.iv.next185, %109 ]
@@ -12852,7 +12852,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 114:                                              ; preds = %110
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192
-  br i1 %exitcond193.not, label %.preheader.lr.ph, label %.preheader102.us, !llvm.loop !182
+  br i1 %exitcond193.not, label %.preheader.lr.ph, label %.preheader102.us, !llvm.loop !76
 
 .preheader.lr.ph:                                 ; preds = %114, %.preheader106, %.preheader106.thread202
   %115 = load ptr, ptr %12, align 8
@@ -12900,7 +12900,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %135 = add nuw nsw i32 %.085137, 1
   %136 = load i32, ptr %121, align 4, !tbaa !18
   %137 = icmp slt i32 %135, %136
-  br i1 %137, label %128, label %.critedge100.loopexit, !llvm.loop !183
+  br i1 %137, label %128, label %.critedge100.loopexit
 
 .critedge100.loopexit:                            ; preds = %128
   %138 = trunc nsw i64 %indvars.iv.next195 to i32
@@ -12914,7 +12914,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %140 = sext i32 %139 to i64
   %141 = icmp slt i64 %indvars.iv.next198, %140
-  br i1 %141, label %.preheader, label %.loopexit105, !llvm.loop !184
+  br i1 %141, label %.preheader, label %.loopexit105
 
 .loopexit105:                                     ; preds = %.critedge100, %.preheader106.thread, %.critedge
   %.091 = phi double [ %119, %.critedge ], [ 0.000000e+00, %.preheader106.thread ], [ %.293.lcssa, %.critedge100 ]
@@ -12937,7 +12937,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   store double %154, ptr %148, align 8, !tbaa !4
   %155 = add i64 %.086145, 1
   %exitcond200.not = icmp eq i64 %.086145, %28
-  br i1 %exitcond200.not, label %._crit_edge148, label %35, !llvm.loop !185
+  br i1 %exitcond200.not, label %._crit_edge148, label %35
 
 ._crit_edge148:                                   ; preds = %.loopexit105, %25
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre201)
@@ -12969,14 +12969,14 @@ define void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef readonly byv
   %24 = alloca i64, align 8
   %25 = alloca ptr, align 8
   %26 = alloca ptr, align 8
-  store ptr %1, ptr %13, align 8, !tbaa !68
-  store ptr %2, ptr %14, align 8, !tbaa !68
+  store ptr %1, ptr %13, align 8, !tbaa !38
+  store ptr %2, ptr %14, align 8, !tbaa !38
   store i32 %3, ptr %15, align 4, !tbaa !18
   store i32 %4, ptr %16, align 4, !tbaa !18
   store i32 %5, ptr %17, align 4, !tbaa !18
-  store ptr %6, ptr %18, align 8, !tbaa !45
-  store ptr %8, ptr %19, align 8, !tbaa !170
-  store ptr %9, ptr %20, align 8, !tbaa !45
+  store ptr %6, ptr %18, align 8, !tbaa !26
+  store ptr %8, ptr %19, align 8, !tbaa !72
+  store ptr %9, ptr %20, align 8, !tbaa !26
   store i32 %10, ptr %21, align 4, !tbaa !18
   store i32 %11, ptr %22, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #4
@@ -12989,12 +12989,12 @@ define void @statevec_applyParamNamedPhaseFuncOverrides(ptr noundef readonly byv
   store i64 %30, ptr %24, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %32 = load ptr, ptr %31, align 8, !tbaa !27
-  store ptr %32, ptr %25, align 8, !tbaa !45
+  %32 = load ptr, ptr %31, align 8, !tbaa !22
+  store ptr %32, ptr %25, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load ptr, ptr %33, align 8, !tbaa !29
-  store ptr %34, ptr %26, align 8, !tbaa !45
+  %34 = load ptr, ptr %33, align 8, !tbaa !24
+  store ptr %34, ptr %26, align 8, !tbaa !26
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @3, i32 14, ptr nonnull @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined, ptr nonnull %24, ptr nonnull %23, ptr nonnull %15, ptr nonnull %16, ptr nonnull %14, ptr nonnull %13, ptr nonnull %21, ptr nonnull %19, ptr nonnull %20, ptr nonnull %17, ptr nonnull %18, ptr nonnull %22, ptr nonnull %25, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #4
@@ -13014,7 +13014,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %22 = load i64, ptr %2, align 8, !tbaa !16
   %23 = icmp sgt i64 %22, 0
   %.pre = load i32, ptr %0, align 4, !tbaa !18
-  br i1 %23, label %24, label %235
+  br i1 %23, label %24, label %241
 
 24:                                               ; preds = %16
   %25 = add nsw i64 %22, -1
@@ -13031,26 +13031,24 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %27 = call i64 @llvm.smin.i64(i64 %26, i64 %25)
   store i64 %27, ptr %19, align 8, !tbaa !16
   %28 = load i64, ptr %18, align 8, !tbaa !16
-  %.not236 = icmp sgt i64 %28, %27
-  br i1 %.not236, label %._crit_edge240, label %.lr.ph239
+  %.not232 = icmp sgt i64 %28, %27
+  br i1 %.not232, label %._crit_edge236, label %.lr.ph235
 
-.lr.ph239:                                        ; preds = %24
+.lr.ph235:                                        ; preds = %24
   %29 = load i64, ptr %2, align 8, !tbaa !16
   %30 = load ptr, ptr %12, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %invariant.gep218 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %10, align 8
-  %33 = load ptr, ptr %14, align 8, !tbaa !45
-  %34 = load ptr, ptr %15, align 8, !tbaa !45
+  %33 = load ptr, ptr %14, align 8, !tbaa !26
+  %34 = load ptr, ptr %15, align 8, !tbaa !26
   br label %35
 
-35:                                               ; preds = %.lr.ph239, %220
-  %.0141237 = phi i64 [ %28, %.lr.ph239 ], [ %234, %220 ]
+35:                                               ; preds = %.lr.ph235, %226
+  %.0141233 = phi i64 [ %28, %.lr.ph235 ], [ %240, %226 ]
   %36 = load i32, ptr %3, align 4, !tbaa !18
   %37 = sext i32 %36 to i64
   %38 = mul nsw i64 %29, %37
-  %39 = add nsw i64 %38, %.0141237
+  %39 = add nsw i64 %38, %.0141233
   %40 = load i32, ptr %4, align 4, !tbaa !18
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph199, label %.preheader183.thread
@@ -13059,7 +13057,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %42 = load i32, ptr %5, align 4, !tbaa !18
   %43 = load ptr, ptr %6, align 8
   %44 = load ptr, ptr %7, align 8
-  %wide.trip.count271 = zext nneg i32 %40 to i64
+  %wide.trip.count267 = zext nneg i32 %40 to i64
   br label %58
 
 .preheader183:                                    ; preds = %.loopexit
@@ -13075,38 +13073,38 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .preheader.lr.ph:                                 ; preds = %.preheader183
   %49 = load ptr, ptr %9, align 8
   %50 = zext nneg i32 %40 to i64
-  %wide.trip.count281 = zext nneg i32 %45 to i64
+  %wide.trip.count277 = zext nneg i32 %45 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %57
-  %indvars.iv278 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next279, %57 ]
-  %51 = mul nuw nsw i64 %indvars.iv278, %50
-  %invariant.gep324 = getelementptr inbounds nuw i64, ptr %49, i64 %51
+  %indvars.iv274 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next275, %57 ]
+  %51 = mul nuw nsw i64 %indvars.iv274, %50
+  %invariant.gep = getelementptr inbounds nuw i64, ptr %49, i64 %51
   br label %53
 
 52:                                               ; preds = %53
-  %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
-  %exitcond277.not = icmp eq i64 %indvars.iv.next274, %50
-  br i1 %exitcond277.not, label %.critedge.loopexit, label %53, !llvm.loop !186
+  %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
+  %exitcond273.not = icmp eq i64 %indvars.iv.next270, %50
+  br i1 %exitcond273.not, label %.critedge.loopexit, label %53
 
 53:                                               ; preds = %.preheader.us, %52
-  %indvars.iv273 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next274, %52 ]
-  %54 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv273
+  %indvars.iv269 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next270, %52 ]
+  %54 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv269
   %55 = load i64, ptr %54, align 8, !tbaa !16
-  %gep325 = getelementptr inbounds nuw i64, ptr %invariant.gep324, i64 %indvars.iv273
-  %56 = load i64, ptr %gep325, align 8, !tbaa !16
+  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv269
+  %56 = load i64, ptr %gep, align 8, !tbaa !16
   %.not165.us = icmp eq i64 %55, %56
   br i1 %.not165.us, label %52, label %57
 
 57:                                               ; preds = %53
-  %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
-  %exitcond282.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count281
-  br i1 %exitcond282.not, label %.critedge.thread, label %.preheader.us, !llvm.loop !187
+  %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
+  %exitcond278.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count277
+  br i1 %exitcond278.not, label %.critedge.thread, label %.preheader.us, !llvm.loop !77
 
 58:                                               ; preds = %.lr.ph199, %.loopexit
-  %indvars.iv268 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next269, %.loopexit ]
+  %indvars.iv264 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next265, %.loopexit ]
   %.0137196 = phi i32 [ 0, %.lr.ph199 ], [ %.3140, %.loopexit ]
-  %59 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv268
+  %59 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv264
   store i64 0, ptr %59, align 8, !tbaa !16
   switch i32 %42, label %.loopexit [
     i32 0, label %.preheader171
@@ -13114,7 +13112,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   ]
 
 .preheader172:                                    ; preds = %58
-  %60 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv268
+  %60 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv264
   %61 = load i32, ptr %60, align 4, !tbaa !18
   %62 = add i32 %61, -1
   %63 = icmp sgt i32 %61, 1
@@ -13126,22 +13124,22 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %80
 
 .preheader171:                                    ; preds = %58
-  %65 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv268
+  %65 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv264
   %66 = load i32, ptr %65, align 4, !tbaa !18
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph192, label %.loopexit
 
 .lr.ph192:                                        ; preds = %.preheader171
   %68 = sext i32 %.0137196 to i64
-  %wide.trip.count266 = zext nneg i32 %66 to i64
+  %wide.trip.count262 = zext nneg i32 %66 to i64
   br label %69
 
 69:                                               ; preds = %.lr.ph192, %69
-  %indvars.iv261 = phi i64 [ %68, %.lr.ph192 ], [ %indvars.iv.next262, %69 ]
-  %indvars.iv259 = phi i64 [ 0, %.lr.ph192 ], [ %indvars.iv.next260, %69 ]
+  %indvars.iv257 = phi i64 [ %68, %.lr.ph192 ], [ %indvars.iv.next258, %69 ]
+  %indvars.iv255 = phi i64 [ 0, %.lr.ph192 ], [ %indvars.iv.next256, %69 ]
   %70 = phi i64 [ 0, %.lr.ph192 ], [ %79, %69 ]
-  %indvars.iv.next262 = add nsw i64 %indvars.iv261, 1
-  %71 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv261
+  %indvars.iv.next258 = add nsw i64 %indvars.iv257, 1
+  %71 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv257
   %72 = load i32, ptr %71, align 4, !tbaa !18
   %73 = zext i32 %72 to i64
   %74 = shl nuw i64 1, %73
@@ -13149,18 +13147,18 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %76 = ashr i64 %75, %73
   %sext170 = shl i64 %76, 32
   %77 = ashr exact i64 %sext170, 32
-  %78 = shl i64 %77, %indvars.iv259
+  %78 = shl i64 %77, %indvars.iv255
   %79 = add nsw i64 %78, %70
-  %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
-  %exitcond267.not = icmp eq i64 %indvars.iv.next260, %wide.trip.count266
-  br i1 %exitcond267.not, label %..loopexit_crit_edge, label %69, !llvm.loop !188
+  %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
+  %exitcond263.not = icmp eq i64 %indvars.iv.next256, %wide.trip.count262
+  br i1 %exitcond263.not, label %..loopexit_crit_edge, label %69
 
 80:                                               ; preds = %.lr.ph, %80
-  %indvars.iv254 = phi i64 [ %64, %.lr.ph ], [ %indvars.iv.next255, %80 ]
+  %indvars.iv250 = phi i64 [ %64, %.lr.ph ], [ %indvars.iv.next251, %80 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
   %81 = phi i64 [ 0, %.lr.ph ], [ %90, %80 ]
-  %indvars.iv.next255 = add nsw i64 %indvars.iv254, 1
-  %82 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv254
+  %indvars.iv.next251 = add nsw i64 %indvars.iv250, 1
+  %82 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv250
   %83 = load i32, ptr %82, align 4, !tbaa !18
   %84 = zext i32 %83 to i64
   %85 = shl nuw i64 1, %84
@@ -13172,7 +13170,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %90 = add nsw i64 %89, %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %80, !llvm.loop !189
+  br i1 %exitcond.not, label %._crit_edge, label %80
 
 ._crit_edge:                                      ; preds = %80
   %91 = add i32 %.0137196, %61
@@ -13206,39 +13204,39 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %105, %..loopexit_crit_edge
-  %.lcssa316.sink = phi i64 [ %79, %..loopexit_crit_edge ], [ %107, %105 ]
+  %.lcssa312.sink = phi i64 [ %79, %..loopexit_crit_edge ], [ %107, %105 ]
   %.3140.ph = phi i32 [ %108, %..loopexit_crit_edge ], [ %95, %105 ]
-  store i64 %.lcssa316.sink, ptr %59, align 8, !tbaa !16
+  store i64 %.lcssa312.sink, ptr %59, align 8, !tbaa !16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.sink.split, %.preheader171, %58, %93
   %.3140 = phi i32 [ %95, %93 ], [ %.0137196, %58 ], [ %.0137196, %.preheader171 ], [ %.3140.ph, %.loopexit.sink.split ]
-  %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
-  %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
-  br i1 %exitcond272.not, label %.preheader183, label %58, !llvm.loop !190
+  %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
+  %exitcond268.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count267
+  br i1 %exitcond268.not, label %.preheader183, label %58
 
 .critedge.loopexit:                               ; preds = %52
-  %109 = and i64 %indvars.iv278, 4294967295
+  %109 = and i64 %indvars.iv274, 4294967295
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader183.thread, %.critedge.loopexit
   %.0136.lcssa185 = phi i64 [ %109, %.critedge.loopexit ], [ 0, %.preheader183.thread ]
   %110 = getelementptr inbounds nuw double, ptr %32, i64 %.0136.lcssa185
   %111 = load double, ptr %110, align 8, !tbaa !4
-  br label %220
+  br label %226
 
 .critedge.thread:                                 ; preds = %57, %.preheader183.thread, %.preheader183
   %112 = load i32, ptr %11, align 4, !tbaa !18
-  switch i32 %112, label %220 [
+  switch i32 %112, label %226 [
     i32 3, label %.preheader173
     i32 2, label %.preheader173
     i32 1, label %.preheader173
     i32 0, label %.preheader173
     i32 4, label %.preheader175
-    i32 5, label %145
-    i32 7, label %145
-    i32 6, label %145
-    i32 8, label %145
+    i32 5, label %147
+    i32 7, label %147
+    i32 6, label %147
+    i32 8, label %147
     i32 13, label %.preheader177
     i32 14, label %.preheader179
     i32 9, label %.preheader181
@@ -13269,291 +13267,294 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %.lr.ph216
 
 .preheader175:                                    ; preds = %.critedge.thread
-  br i1 %41, label %.lr.ph228.preheader, label %.loopexit174
+  br i1 %41, label %.lr.ph226.preheader, label %.loopexit174
 
-.lr.ph228.preheader:                              ; preds = %.preheader175
-  %wide.trip.count300 = zext nneg i32 %40 to i64
-  br label %.lr.ph228
+.lr.ph226.preheader:                              ; preds = %.preheader175
+  %wide.trip.count296 = zext nneg i32 %40 to i64
+  br label %.lr.ph226
 
 .preheader173:                                    ; preds = %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread
-  br i1 %41, label %.lr.ph234.preheader, label %.loopexit174
+  br i1 %41, label %.lr.ph230.preheader, label %.loopexit174
 
-.lr.ph234.preheader:                              ; preds = %.preheader173
-  %wide.trip.count305 = zext nneg i32 %40 to i64
-  br label %.lr.ph234
+.lr.ph230.preheader:                              ; preds = %.preheader173
+  %wide.trip.count301 = zext nneg i32 %40 to i64
+  br label %.lr.ph230
 
-.lr.ph228:                                        ; preds = %.lr.ph228.preheader, %.lr.ph228
-  %indvars.iv297 = phi i64 [ 0, %.lr.ph228.preheader ], [ %indvars.iv.next298, %.lr.ph228 ]
-  %.0145226 = phi double [ 0.000000e+00, %.lr.ph228.preheader ], [ %121, %.lr.ph228 ]
-  %116 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv297
+.lr.ph226:                                        ; preds = %.lr.ph226.preheader, %.lr.ph226
+  %indvars.iv293 = phi i64 [ 0, %.lr.ph226.preheader ], [ %indvars.iv.next294, %.lr.ph226 ]
+  %.0145224 = phi double [ 0.000000e+00, %.lr.ph226.preheader ], [ %123, %.lr.ph226 ]
+  %116 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv293
   %117 = load i64, ptr %116, align 8, !tbaa !16
   %118 = sitofp i64 %117 to double
-  %gep231 = getelementptr inbounds nuw double, ptr %invariant.gep218, i64 %indvars.iv297
-  %119 = load double, ptr %gep231, align 8, !tbaa !4
-  %120 = fsub double %118, %119
-  %121 = call double @llvm.fmuladd.f64(double %120, double %120, double %.0145226)
-  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
-  %exitcond301.not = icmp eq i64 %indvars.iv.next298, %wide.trip.count300
-  br i1 %exitcond301.not, label %.loopexit174, label %.lr.ph228, !llvm.loop !191
+  %119 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv293
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %121 = load double, ptr %120, align 8, !tbaa !4
+  %122 = fsub double %118, %121
+  %123 = call double @llvm.fmuladd.f64(double %122, double %122, double %.0145224)
+  %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
+  %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count296
+  br i1 %exitcond297.not, label %.loopexit174, label %.lr.ph226
 
-.lr.ph234:                                        ; preds = %.lr.ph234.preheader, %.lr.ph234
-  %indvars.iv302 = phi i64 [ 0, %.lr.ph234.preheader ], [ %indvars.iv.next303, %.lr.ph234 ]
-  %.2147232 = phi double [ 0.000000e+00, %.lr.ph234.preheader ], [ %126, %.lr.ph234 ]
-  %122 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv302
-  %123 = load i64, ptr %122, align 8, !tbaa !16
-  %124 = mul nsw i64 %123, %123
-  %125 = uitofp nneg i64 %124 to double
-  %126 = fadd double %.2147232, %125
-  %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
-  %exitcond306.not = icmp eq i64 %indvars.iv.next303, %wide.trip.count305
-  br i1 %exitcond306.not, label %.loopexit174, label %.lr.ph234, !llvm.loop !192
+.lr.ph230:                                        ; preds = %.lr.ph230.preheader, %.lr.ph230
+  %indvars.iv298 = phi i64 [ 0, %.lr.ph230.preheader ], [ %indvars.iv.next299, %.lr.ph230 ]
+  %.2147228 = phi double [ 0.000000e+00, %.lr.ph230.preheader ], [ %128, %.lr.ph230 ]
+  %124 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv298
+  %125 = load i64, ptr %124, align 8, !tbaa !16
+  %126 = mul nsw i64 %125, %125
+  %127 = uitofp nneg i64 %126 to double
+  %128 = fadd double %.2147228, %127
+  %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
+  %exitcond302.not = icmp eq i64 %indvars.iv.next299, %wide.trip.count301
+  br i1 %exitcond302.not, label %.loopexit174, label %.lr.ph230
 
-.loopexit174:                                     ; preds = %.lr.ph228, %.lr.ph234, %.preheader175, %.preheader173
-  %.1146 = phi double [ 0.000000e+00, %.preheader173 ], [ 0.000000e+00, %.preheader175 ], [ %126, %.lr.ph234 ], [ %121, %.lr.ph228 ]
-  %127 = call double @sqrt(double noundef %.1146) #4, !tbaa !18
-  %128 = load i32, ptr %11, align 4, !tbaa !18
-  switch i32 %128, label %.fold.split [
-    i32 0, label %220
-    i32 2, label %129
-    i32 1, label %135
-    i32 3, label %138
-    i32 4, label %138
+.loopexit174:                                     ; preds = %.lr.ph226, %.lr.ph230, %.preheader175, %.preheader173
+  %.1146 = phi double [ 0.000000e+00, %.preheader173 ], [ 0.000000e+00, %.preheader175 ], [ %128, %.lr.ph230 ], [ %123, %.lr.ph226 ]
+  %129 = call double @sqrt(double noundef %.1146) #4, !tbaa !18
+  %130 = load i32, ptr %11, align 4, !tbaa !18
+  switch i32 %130, label %.fold.split [
+    i32 0, label %226
+    i32 2, label %131
+    i32 1, label %137
+    i32 3, label %140
+    i32 4, label %140
   ]
 
-129:                                              ; preds = %.loopexit174
-  %130 = fcmp oeq double %127, 0.000000e+00
-  br i1 %130, label %131, label %133
+131:                                              ; preds = %.loopexit174
+  %132 = fcmp oeq double %129, 0.000000e+00
+  br i1 %132, label %133, label %135
 
-131:                                              ; preds = %129
-  %132 = load double, ptr %30, align 8, !tbaa !4
-  br label %220
+133:                                              ; preds = %131
+  %134 = load double, ptr %30, align 8, !tbaa !4
+  br label %226
 
-133:                                              ; preds = %129
-  %134 = fdiv double 1.000000e+00, %127
-  br label %220
+135:                                              ; preds = %131
+  %136 = fdiv double 1.000000e+00, %129
+  br label %226
 
-135:                                              ; preds = %.loopexit174
-  %136 = load double, ptr %30, align 8, !tbaa !4
-  %137 = fmul double %127, %136
-  br label %220
+137:                                              ; preds = %.loopexit174
+  %138 = load double, ptr %30, align 8, !tbaa !4
+  %139 = fmul double %129, %138
+  br label %226
 
-138:                                              ; preds = %.loopexit174, %.loopexit174
-  %139 = fcmp ugt double %127, 1.000000e-13
-  br i1 %139, label %142, label %140
+140:                                              ; preds = %.loopexit174, %.loopexit174
+  %141 = fcmp ugt double %129, 1.000000e-13
+  br i1 %141, label %144, label %142
 
-140:                                              ; preds = %138
-  %141 = load double, ptr %31, align 8, !tbaa !4
-  br label %220
+142:                                              ; preds = %140
+  %143 = load double, ptr %31, align 8, !tbaa !4
+  br label %226
 
-142:                                              ; preds = %138
-  %143 = load double, ptr %30, align 8, !tbaa !4
-  %144 = fdiv double %143, %127
-  br label %220
+144:                                              ; preds = %140
+  %145 = load double, ptr %30, align 8, !tbaa !4
+  %146 = fdiv double %145, %129
+  br label %226
 
-145:                                              ; preds = %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread
-  br i1 %41, label %.lr.ph223.preheader, label %._crit_edge224
+147:                                              ; preds = %.critedge.thread, %.critedge.thread, %.critedge.thread, %.critedge.thread
+  br i1 %41, label %.lr.ph221.preheader, label %._crit_edge222
 
-.lr.ph223.preheader:                              ; preds = %145
-  %wide.trip.count295 = zext nneg i32 %40 to i64
-  br label %.lr.ph223
+.lr.ph221.preheader:                              ; preds = %147
+  %wide.trip.count291 = zext nneg i32 %40 to i64
+  br label %.lr.ph221
 
-.lr.ph223:                                        ; preds = %.lr.ph223.preheader, %.lr.ph223
-  %indvars.iv292 = phi i64 [ 0, %.lr.ph223.preheader ], [ %indvars.iv.next293, %.lr.ph223 ]
-  %.0148220 = phi double [ 1.000000e+00, %.lr.ph223.preheader ], [ %149, %.lr.ph223 ]
-  %146 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv292
-  %147 = load i64, ptr %146, align 8, !tbaa !16
-  %148 = sitofp i64 %147 to double
-  %149 = fmul double %.0148220, %148
-  %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
-  %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count295
-  br i1 %exitcond296.not, label %._crit_edge224, label %.lr.ph223, !llvm.loop !193
+.lr.ph221:                                        ; preds = %.lr.ph221.preheader, %.lr.ph221
+  %indvars.iv288 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next289, %.lr.ph221 ]
+  %.0148218 = phi double [ 1.000000e+00, %.lr.ph221.preheader ], [ %151, %.lr.ph221 ]
+  %148 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv288
+  %149 = load i64, ptr %148, align 8, !tbaa !16
+  %150 = sitofp i64 %149 to double
+  %151 = fmul double %.0148218, %150
+  %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
+  %exitcond292.not = icmp eq i64 %indvars.iv.next289, %wide.trip.count291
+  br i1 %exitcond292.not, label %._crit_edge222, label %.lr.ph221
 
-._crit_edge224:                                   ; preds = %.lr.ph223, %145
-  %.0148.lcssa = phi double [ 1.000000e+00, %145 ], [ %149, %.lr.ph223 ]
+._crit_edge222:                                   ; preds = %.lr.ph221, %147
+  %.0148.lcssa = phi double [ 1.000000e+00, %147 ], [ %151, %.lr.ph221 ]
   switch i32 %112, label %default.unreachable [
-    i32 5, label %220
-    i32 7, label %150
-    i32 6, label %156
-    i32 8, label %159
+    i32 5, label %226
+    i32 7, label %152
+    i32 6, label %158
+    i32 8, label %161
   ]
 
-150:                                              ; preds = %._crit_edge224
-  %151 = fcmp oeq double %.0148.lcssa, 0.000000e+00
-  br i1 %151, label %152, label %154
+152:                                              ; preds = %._crit_edge222
+  %153 = fcmp oeq double %.0148.lcssa, 0.000000e+00
+  br i1 %153, label %154, label %156
 
-152:                                              ; preds = %150
-  %153 = load double, ptr %30, align 8, !tbaa !4
-  br label %220
+154:                                              ; preds = %152
+  %155 = load double, ptr %30, align 8, !tbaa !4
+  br label %226
 
-154:                                              ; preds = %150
-  %155 = fdiv double 1.000000e+00, %.0148.lcssa
-  br label %220
+156:                                              ; preds = %152
+  %157 = fdiv double 1.000000e+00, %.0148.lcssa
+  br label %226
 
-156:                                              ; preds = %._crit_edge224
-  %157 = load double, ptr %30, align 8, !tbaa !4
-  %158 = fmul double %.0148.lcssa, %157
-  br label %220
+158:                                              ; preds = %._crit_edge222
+  %159 = load double, ptr %30, align 8, !tbaa !4
+  %160 = fmul double %.0148.lcssa, %159
+  br label %226
 
-159:                                              ; preds = %._crit_edge224
-  %160 = fcmp oeq double %.0148.lcssa, 0.000000e+00
-  br i1 %160, label %161, label %163
+161:                                              ; preds = %._crit_edge222
+  %162 = fcmp oeq double %.0148.lcssa, 0.000000e+00
+  br i1 %162, label %163, label %165
 
-161:                                              ; preds = %159
-  %162 = load double, ptr %31, align 8, !tbaa !4
-  br label %220
+163:                                              ; preds = %161
+  %164 = load double, ptr %31, align 8, !tbaa !4
+  br label %226
 
-163:                                              ; preds = %159
-  %164 = load double, ptr %30, align 8, !tbaa !4
-  %165 = fdiv double %164, %.0148.lcssa
-  br label %220
+165:                                              ; preds = %161
+  %166 = load double, ptr %30, align 8, !tbaa !4
+  %167 = fdiv double %166, %.0148.lcssa
+  br label %226
 
 .lr.ph216:                                        ; preds = %.lr.ph216.preheader, %.lr.ph216
-  %indvars.iv289 = phi i64 [ 0, %.lr.ph216.preheader ], [ %indvars.iv.next290, %.lr.ph216 ]
-  %.0149214 = phi double [ 0.000000e+00, %.lr.ph216.preheader ], [ %176, %.lr.ph216 ]
-  %166 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv289
-  %167 = load i64, ptr %166, align 16, !tbaa !16
-  %168 = or disjoint i64 %indvars.iv289, 1
-  %169 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %168
-  %170 = load i64, ptr %169, align 8, !tbaa !16
-  %171 = sub nsw i64 %167, %170
-  %172 = sitofp i64 %171 to double
-  %173 = lshr exact i64 %indvars.iv289, 1
-  %gep219 = getelementptr inbounds nuw double, ptr %invariant.gep218, i64 %173
-  %174 = load double, ptr %gep219, align 8, !tbaa !4
-  %175 = fsub double %172, %174
-  %176 = call double @llvm.fmuladd.f64(double %175, double %175, double %.0149214)
-  %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 2
-  %177 = icmp samesign ult i64 %indvars.iv.next290, %115
-  br i1 %177, label %.lr.ph216, label %.loopexit178.thread, !llvm.loop !194
+  %indvars.iv285 = phi i64 [ 0, %.lr.ph216.preheader ], [ %indvars.iv.next286, %.lr.ph216 ]
+  %.0149214 = phi double [ 0.000000e+00, %.lr.ph216.preheader ], [ %180, %.lr.ph216 ]
+  %168 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv285
+  %169 = load i64, ptr %168, align 16, !tbaa !16
+  %170 = or disjoint i64 %indvars.iv285, 1
+  %171 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %170
+  %172 = load i64, ptr %171, align 8, !tbaa !16
+  %173 = sub nsw i64 %169, %172
+  %174 = sitofp i64 %173 to double
+  %175 = lshr exact i64 %indvars.iv285, 1
+  %176 = getelementptr inbounds nuw double, ptr %30, i64 %175
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
+  %178 = load double, ptr %177, align 8, !tbaa !4
+  %179 = fsub double %174, %178
+  %180 = call double @llvm.fmuladd.f64(double %179, double %179, double %.0149214)
+  %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 2
+  %181 = icmp samesign ult i64 %indvars.iv.next286, %115
+  br i1 %181, label %.lr.ph216, label %.loopexit178.thread
 
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %.lr.ph212
-  %indvars.iv286 = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next287, %.lr.ph212 ]
-  %.2151210 = phi double [ 0.000000e+00, %.lr.ph212.preheader ], [ %190, %.lr.ph212 ]
-  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 2
-  %178 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv.next287
-  %179 = load double, ptr %178, align 8, !tbaa !4
-  %180 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv286
-  %181 = load i64, ptr %180, align 16, !tbaa !16
-  %182 = or disjoint i64 %indvars.iv286, 1
-  %183 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %182
-  %184 = load i64, ptr %183, align 8, !tbaa !16
-  %185 = sub nsw i64 %181, %184
-  %186 = sitofp i64 %185 to double
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv286
-  %187 = load double, ptr %gep, align 8, !tbaa !4
-  %188 = fsub double %186, %187
-  %189 = fmul double %179, %188
-  %190 = call double @llvm.fmuladd.f64(double %189, double %188, double %.2151210)
-  %191 = icmp samesign ult i64 %indvars.iv.next287, %114
-  br i1 %191, label %.lr.ph212, label %.loopexit178.thread, !llvm.loop !195
+  %indvars.iv282 = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next283, %.lr.ph212 ]
+  %.2151210 = phi double [ 0.000000e+00, %.lr.ph212.preheader ], [ %196, %.lr.ph212 ]
+  %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 2
+  %182 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv.next283
+  %183 = load double, ptr %182, align 8, !tbaa !4
+  %184 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv282
+  %185 = load i64, ptr %184, align 16, !tbaa !16
+  %186 = or disjoint i64 %indvars.iv282, 1
+  %187 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %186
+  %188 = load i64, ptr %187, align 8, !tbaa !16
+  %189 = sub nsw i64 %185, %188
+  %190 = sitofp i64 %189 to double
+  %191 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv282
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
+  %193 = load double, ptr %192, align 8, !tbaa !4
+  %194 = fsub double %190, %193
+  %195 = fmul double %183, %194
+  %196 = call double @llvm.fmuladd.f64(double %195, double %194, double %.2151210)
+  %197 = icmp samesign ult i64 %indvars.iv.next283, %114
+  br i1 %197, label %.lr.ph212, label %.loopexit178.thread
 
 .lr.ph208:                                        ; preds = %.lr.ph208.preheader, %.lr.ph208
-  %indvars.iv283 = phi i64 [ 0, %.lr.ph208.preheader ], [ %indvars.iv.next284, %.lr.ph208 ]
-  %.3152206 = phi double [ 0.000000e+00, %.lr.ph208.preheader ], [ %200, %.lr.ph208 ]
-  %192 = or disjoint i64 %indvars.iv283, 1
-  %193 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %192
-  %194 = load i64, ptr %193, align 8, !tbaa !16
-  %195 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv283
-  %196 = load i64, ptr %195, align 16, !tbaa !16
-  %197 = sub nsw i64 %194, %196
-  %198 = mul nsw i64 %197, %197
-  %199 = uitofp nneg i64 %198 to double
-  %200 = fadd double %.3152206, %199
-  %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 2
-  %201 = icmp samesign ult i64 %indvars.iv.next284, %113
-  br i1 %201, label %.lr.ph208, label %.loopexit178, !llvm.loop !196
+  %indvars.iv279 = phi i64 [ 0, %.lr.ph208.preheader ], [ %indvars.iv.next280, %.lr.ph208 ]
+  %.3152206 = phi double [ 0.000000e+00, %.lr.ph208.preheader ], [ %206, %.lr.ph208 ]
+  %198 = or disjoint i64 %indvars.iv279, 1
+  %199 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %198
+  %200 = load i64, ptr %199, align 8, !tbaa !16
+  %201 = getelementptr inbounds nuw [100 x i64], ptr %17, i64 0, i64 %indvars.iv279
+  %202 = load i64, ptr %201, align 16, !tbaa !16
+  %203 = sub nsw i64 %200, %202
+  %204 = mul nsw i64 %203, %203
+  %205 = uitofp nneg i64 %204 to double
+  %206 = fadd double %.3152206, %205
+  %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 2
+  %207 = icmp samesign ult i64 %indvars.iv.next280, %113
+  br i1 %207, label %.lr.ph208, label %.loopexit178
 
 .loopexit178.thread:                              ; preds = %.lr.ph212, %.lr.ph216, %.preheader179, %.preheader177
-  %.1150.ph = phi double [ 0.000000e+00, %.preheader179 ], [ 0.000000e+00, %.preheader177 ], [ %176, %.lr.ph216 ], [ %190, %.lr.ph212 ]
-  %202 = fcmp olt double %.1150.ph, 0.000000e+00
-  %.4153309 = select i1 %202, double 0.000000e+00, double %.1150.ph
-  %sqrt310 = call double @llvm.sqrt.f64(double %.4153309)
-  br label %213
+  %.1150.ph = phi double [ 0.000000e+00, %.preheader179 ], [ 0.000000e+00, %.preheader177 ], [ %180, %.lr.ph216 ], [ %196, %.lr.ph212 ]
+  %208 = fcmp olt double %.1150.ph, 0.000000e+00
+  %.4153305 = select i1 %208, double 0.000000e+00, double %.1150.ph
+  %sqrt306 = call double @llvm.sqrt.f64(double %.4153305)
+  br label %219
 
 .loopexit178:                                     ; preds = %.lr.ph208, %.preheader181
-  %.1150 = phi double [ 0.000000e+00, %.preheader181 ], [ %200, %.lr.ph208 ]
-  %203 = fcmp olt double %.1150, 0.000000e+00
-  %.4153 = select i1 %203, double 0.000000e+00, double %.1150
+  %.1150 = phi double [ 0.000000e+00, %.preheader181 ], [ %206, %.lr.ph208 ]
+  %209 = fcmp olt double %.1150, 0.000000e+00
+  %.4153 = select i1 %209, double 0.000000e+00, double %.1150
   %sqrt = call double @llvm.sqrt.f64(double %.4153)
-  switch i32 %112, label %default.unreachable313 [
-    i32 9, label %220
-    i32 11, label %204
-    i32 10, label %210
-    i32 12, label %213
+  switch i32 %112, label %default.unreachable309 [
+    i32 9, label %226
+    i32 11, label %210
+    i32 10, label %216
+    i32 12, label %219
   ]
 
-204:                                              ; preds = %.loopexit178
-  %205 = fcmp oeq double %.4153, 0.000000e+00
-  br i1 %205, label %206, label %208
-
-206:                                              ; preds = %204
-  %207 = load double, ptr %30, align 8, !tbaa !4
-  br label %220
-
-208:                                              ; preds = %204
-  %209 = fdiv double 1.000000e+00, %sqrt
-  br label %220
-
 210:                                              ; preds = %.loopexit178
-  %211 = load double, ptr %30, align 8, !tbaa !4
-  %212 = fmul double %sqrt, %211
-  br label %220
+  %211 = fcmp oeq double %.4153, 0.000000e+00
+  br i1 %211, label %212, label %214
 
-213:                                              ; preds = %.loopexit178.thread, %.loopexit178
-  %sqrt312 = phi double [ %sqrt310, %.loopexit178.thread ], [ %sqrt, %.loopexit178 ]
-  %214 = fcmp ugt double %sqrt312, 1.000000e-13
-  br i1 %214, label %217, label %215
+212:                                              ; preds = %210
+  %213 = load double, ptr %30, align 8, !tbaa !4
+  br label %226
 
-215:                                              ; preds = %213
-  %216 = load double, ptr %31, align 8, !tbaa !4
-  br label %220
+214:                                              ; preds = %210
+  %215 = fdiv double 1.000000e+00, %sqrt
+  br label %226
 
-217:                                              ; preds = %213
-  %218 = load double, ptr %30, align 8, !tbaa !4
-  %219 = fdiv double %218, %sqrt312
-  br label %220
+216:                                              ; preds = %.loopexit178
+  %217 = load double, ptr %30, align 8, !tbaa !4
+  %218 = fmul double %sqrt, %217
+  br label %226
+
+219:                                              ; preds = %.loopexit178.thread, %.loopexit178
+  %sqrt308 = phi double [ %sqrt306, %.loopexit178.thread ], [ %sqrt, %.loopexit178 ]
+  %220 = fcmp ugt double %sqrt308, 1.000000e-13
+  br i1 %220, label %223, label %221
+
+221:                                              ; preds = %219
+  %222 = load double, ptr %31, align 8, !tbaa !4
+  br label %226
+
+223:                                              ; preds = %219
+  %224 = load double, ptr %30, align 8, !tbaa !4
+  %225 = fdiv double %224, %sqrt308
+  br label %226
 
 .fold.split:                                      ; preds = %.loopexit174
-  br label %220
+  br label %226
 
-default.unreachable:                              ; preds = %._crit_edge224
+default.unreachable:                              ; preds = %._crit_edge222
   unreachable
 
-default.unreachable313:                           ; preds = %.loopexit178
+default.unreachable309:                           ; preds = %.loopexit178
   unreachable
 
-220:                                              ; preds = %.critedge.thread, %215, %217, %.loopexit178, %206, %208, %161, %163, %._crit_edge224, %152, %154, %140, %142, %.loopexit174, %.fold.split, %131, %133, %135, %210, %156, %.critedge
-  %.0143 = phi double [ %111, %.critedge ], [ %137, %135 ], [ %158, %156 ], [ %212, %210 ], [ %127, %.loopexit174 ], [ %132, %131 ], [ %134, %133 ], [ 0.000000e+00, %.fold.split ], [ %141, %140 ], [ %144, %142 ], [ %.0148.lcssa, %._crit_edge224 ], [ %153, %152 ], [ %155, %154 ], [ %162, %161 ], [ %165, %163 ], [ 0.000000e+00, %.critedge.thread ], [ %sqrt, %.loopexit178 ], [ %207, %206 ], [ %209, %208 ], [ %216, %215 ], [ %219, %217 ]
-  %221 = load i32, ptr %13, align 4, !tbaa !18
-  %.not167 = icmp eq i32 %221, 0
-  %222 = fneg double %.0143
-  %spec.select = select i1 %.not167, double %.0143, double %222
-  %223 = call double @cos(double noundef %spec.select) #4, !tbaa !18
-  %224 = call double @sin(double noundef %spec.select) #4, !tbaa !18
-  %225 = getelementptr inbounds double, ptr %33, i64 %.0141237
-  %226 = load double, ptr %225, align 8, !tbaa !4
-  %227 = getelementptr inbounds double, ptr %34, i64 %.0141237
-  %228 = load double, ptr %227, align 8, !tbaa !4
-  %229 = fneg double %224
-  %230 = fmul double %228, %229
-  %231 = call double @llvm.fmuladd.f64(double %226, double %223, double %230)
-  store double %231, ptr %225, align 8, !tbaa !4
-  %232 = fmul double %223, %228
-  %233 = call double @llvm.fmuladd.f64(double %226, double %224, double %232)
-  store double %233, ptr %227, align 8, !tbaa !4
-  %234 = add i64 %.0141237, 1
-  %exitcond307.not = icmp eq i64 %.0141237, %27
-  br i1 %exitcond307.not, label %._crit_edge240, label %35, !llvm.loop !197
+226:                                              ; preds = %.critedge.thread, %221, %223, %.loopexit178, %212, %214, %163, %165, %._crit_edge222, %154, %156, %142, %144, %.loopexit174, %.fold.split, %133, %135, %137, %216, %158, %.critedge
+  %.0143 = phi double [ %111, %.critedge ], [ %139, %137 ], [ %160, %158 ], [ %218, %216 ], [ %129, %.loopexit174 ], [ %134, %133 ], [ %136, %135 ], [ 0.000000e+00, %.fold.split ], [ %143, %142 ], [ %146, %144 ], [ %.0148.lcssa, %._crit_edge222 ], [ %155, %154 ], [ %157, %156 ], [ %164, %163 ], [ %167, %165 ], [ 0.000000e+00, %.critedge.thread ], [ %sqrt, %.loopexit178 ], [ %213, %212 ], [ %215, %214 ], [ %222, %221 ], [ %225, %223 ]
+  %227 = load i32, ptr %13, align 4, !tbaa !18
+  %.not167 = icmp eq i32 %227, 0
+  %228 = fneg double %.0143
+  %spec.select = select i1 %.not167, double %.0143, double %228
+  %229 = call double @cos(double noundef %spec.select) #4, !tbaa !18
+  %230 = call double @sin(double noundef %spec.select) #4, !tbaa !18
+  %231 = getelementptr inbounds double, ptr %33, i64 %.0141233
+  %232 = load double, ptr %231, align 8, !tbaa !4
+  %233 = getelementptr inbounds double, ptr %34, i64 %.0141233
+  %234 = load double, ptr %233, align 8, !tbaa !4
+  %235 = fneg double %230
+  %236 = fmul double %234, %235
+  %237 = call double @llvm.fmuladd.f64(double %232, double %229, double %236)
+  store double %237, ptr %231, align 8, !tbaa !4
+  %238 = fmul double %229, %234
+  %239 = call double @llvm.fmuladd.f64(double %232, double %230, double %238)
+  store double %239, ptr %233, align 8, !tbaa !4
+  %240 = add i64 %.0141233, 1
+  %exitcond303.not = icmp eq i64 %.0141233, %27
+  br i1 %exitcond303.not, label %._crit_edge236, label %35
 
-._crit_edge240:                                   ; preds = %220, %24
+._crit_edge236:                                   ; preds = %226, %24
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #4
-  br label %235
+  br label %241
 
-235:                                              ; preds = %._crit_edge240, %16
+241:                                              ; preds = %._crit_edge236, %16
   call void @__kmpc_barrier(ptr nonnull @2, i32 %.pre)
   call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %17) #4
   ret void
@@ -13592,27 +13593,27 @@ define void @densmatr_setQuregToPauliHamil(ptr noundef readonly byval(%struct.Qu
   store i32 1, ptr %19, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = load i32, ptr %20, align 8, !tbaa !84
+  %21 = load i32, ptr %20, align 8, !tbaa !52
   store i32 %21, ptr %5, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %23 = load i32, ptr %22, align 4, !tbaa !86
+  %23 = load i32, ptr %22, align 4, !tbaa !54
   store i32 %23, ptr %6, align 4, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
-  %24 = load ptr, ptr %1, align 8, !tbaa !88
-  store ptr %24, ptr %7, align 8, !tbaa !89
+  %24 = load ptr, ptr %1, align 8, !tbaa !56
+  store ptr %24, ptr %7, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !87
-  store ptr %26, ptr %8, align 8, !tbaa !45
+  %26 = load ptr, ptr %25, align 8, !tbaa !55
+  store ptr %26, ptr %8, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !27
-  store ptr %28, ptr %9, align 8, !tbaa !45
+  %28 = load ptr, ptr %27, align 8, !tbaa !22
+  store ptr %28, ptr %9, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !29
-  store ptr %30, ptr %10, align 8, !tbaa !45
+  %30 = load ptr, ptr %29, align 8, !tbaa !24
+  store ptr %30, ptr %10, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !8
@@ -13681,8 +13682,8 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
   %31 = sext i32 %25 to i64
   %32 = icmp sgt i32 %25, 0
   %33 = load ptr, ptr %9, align 8
-  %34 = load ptr, ptr %10, align 8, !tbaa !45
-  %35 = load ptr, ptr %11, align 8, !tbaa !45
+  %34 = load ptr, ptr %10, align 8, !tbaa !26
+  %35 = load ptr, ptr %11, align 8, !tbaa !26
   br i1 %30, label %.lr.ph73.us, label %.lr.ph.split
 
 .lr.ph73.us:                                      ; preds = %.lr.ph, %._crit_edge74.us
@@ -13703,7 +13704,7 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
   %43 = call double @llvm.fmuladd.f64(double %41, double 0.000000e+00, double %.06169.us82)
   %44 = add nuw nsw i64 %.05771.us80, 1
   %exitcond94.not = icmp eq i64 %44, %29
-  br i1 %exitcond94.not, label %._crit_edge74.us, label %.lr.ph73.split.us86, !llvm.loop !198
+  br i1 %exitcond94.not, label %._crit_edge74.us, label %.lr.ph73.split.us86
 
 ._crit_edge74.us:                                 ; preds = %.lr.ph73.split.us86, %._crit_edge.us.us
   %.us-phi.us = phi double [ %79, %._crit_edge.us.us ], [ %43, %.lr.ph73.split.us86 ]
@@ -13714,7 +13715,7 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
   store double %.us-phi.us, ptr %46, align 8, !tbaa !4
   %47 = add i64 %.06079.us, 1
   %exitcond98.not = icmp eq i64 %.06079.us, %22
-  br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph73.us, !llvm.loop !199
+  br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph73.us, !llvm.loop !78
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph73.us, %._crit_edge.us.us
   %.05771.us.us = phi i64 [ %80, %._crit_edge.us.us ], [ 0, %.lr.ph73.us ]
@@ -13754,7 +13755,7 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
   %73 = add nsw i32 %72, %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next, %26
-  br i1 %exitcond96.not, label %._crit_edge.us.us, label %49, !llvm.loop !200
+  br i1 %exitcond96.not, label %._crit_edge.us.us, label %49
 
 ._crit_edge.us.us:                                ; preds = %49
   %74 = getelementptr inbounds nuw double, ptr %33, i64 %.05771.us.us
@@ -13765,7 +13766,7 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
   %79 = call double @llvm.fmuladd.f64(double %75, double %78, double %.06169.us.us)
   %80 = add nuw nsw i64 %.05771.us.us, 1
   %exitcond97.not = icmp eq i64 %80, %29
-  br i1 %exitcond97.not, label %._crit_edge74.us, label %.lr.ph.us.us, !llvm.loop !201
+  br i1 %exitcond97.not, label %._crit_edge74.us, label %.lr.ph.us.us, !llvm.loop !79
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.06079 = phi i64 [ %83, %.lr.ph.split ], [ %23, %.lr.ph ]
@@ -13775,7 +13776,7 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
   store double 0.000000e+00, ptr %82, align 8, !tbaa !4
   %83 = add i64 %.06079, 1
   %exitcond.not = icmp eq i64 %.06079, %22
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !202
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %._crit_edge74.us, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -13859,186 +13860,63 @@ attributes #24 = { nounwind allocsize(0,1) }
 !17 = !{!9, !10, i64 4}
 !18 = !{!10, !10, i64 0}
 !19 = !{!9, !10, i64 32}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23}
-!23 = !{i64 2, i64 -1, i64 -1, i1 true}
-!24 = distinct !{!24, !21}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !21}
-!27 = !{!9, !13, i64 40}
-!28 = !{!9, !13, i64 56}
-!29 = !{!9, !13, i64 48}
-!30 = !{!9, !13, i64 64}
-!31 = distinct !{!31, !21}
-!32 = distinct !{!32, !21}
-!33 = distinct !{!33, !21}
-!34 = distinct !{!34, !21}
-!35 = distinct !{!35, !21}
-!36 = distinct !{!36, !21}
-!37 = distinct !{!37, !21}
-!38 = distinct !{!38, !21}
-!39 = distinct !{!39, !21}
-!40 = distinct !{!40, !21}
-!41 = distinct !{!41, !21}
-!42 = distinct !{!42, !21}
-!43 = distinct !{!43, !21}
-!44 = distinct !{!44, !21}
-!45 = !{!13, !13, i64 0}
-!46 = distinct !{!46, !21}
-!47 = distinct !{!47, !21}
-!48 = distinct !{!48, !21}
-!49 = distinct !{!49, !21}
-!50 = !{!9, !11, i64 24}
-!51 = distinct !{!51, !21}
-!52 = distinct !{!52, !21, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = distinct !{!54, !21}
-!55 = distinct !{!55, !21}
-!56 = distinct !{!56, !21}
-!57 = distinct !{!57, !21}
-!58 = distinct !{!58, !21}
-!59 = distinct !{!59, !21, !53}
-!60 = distinct !{!60, !21}
-!61 = !{!62, !10, i64 4}
-!62 = !{!"QuESTEnv", !10, i64 0, !10, i64 4, !63, i64 8, !10, i64 16, !15, i64 24}
-!63 = !{!"p1 long", !14, i64 0}
-!64 = !{!9, !10, i64 8}
-!65 = !{!62, !10, i64 0}
-!66 = !{!9, !10, i64 36}
-!67 = !{!9, !10, i64 0}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"p1 int", !14, i64 0}
-!70 = !{!71, !13, i64 16}
-!71 = !{!"SubDiagonalOp", !10, i64 0, !11, i64 8, !13, i64 16, !13, i64 24}
-!72 = !{!71, !13, i64 24}
-!73 = !{!71, !10, i64 0}
-!74 = distinct !{!74, !21}
-!75 = distinct !{!75, !21, !53}
-!76 = distinct !{!76, !21}
-!77 = !{!78, !10, i64 0}
-!78 = !{!"DiagonalOp", !10, i64 0, !11, i64 8, !10, i64 16, !10, i64 20, !13, i64 24, !13, i64 32, !12, i64 40}
-!79 = !{!78, !11, i64 8}
-!80 = !{!78, !10, i64 20}
-!81 = !{!78, !10, i64 16}
-!82 = !{!78, !13, i64 24}
-!83 = !{!78, !13, i64 32}
-!84 = !{!85, !10, i64 16}
-!85 = !{!"PauliHamil", !14, i64 0, !13, i64 8, !10, i64 16, !10, i64 20}
-!86 = !{!85, !10, i64 20}
-!87 = !{!85, !13, i64 8}
-!88 = !{!85, !14, i64 0}
-!89 = !{!14, !14, i64 0}
-!90 = distinct !{!90, !21}
-!91 = distinct !{!91, !21, !53}
-!92 = distinct !{!92, !21}
-!93 = distinct !{!93, !21, !53}
-!94 = distinct !{!94, !21}
-!95 = distinct !{!95, !21, !53}
-!96 = distinct !{!96, !21}
-!97 = distinct !{!97, !21, !53}
-!98 = distinct !{!98, !21}
-!99 = distinct !{!99, !21}
-!100 = distinct !{!100, !21}
-!101 = distinct !{!101, !21}
-!102 = distinct !{!102, !21}
-!103 = distinct !{!103, !21}
-!104 = distinct !{!104, !21}
-!105 = distinct !{!105, !21}
-!106 = !{!107, !10, i64 0}
-!107 = !{!"ComplexMatrixN", !10, i64 0, !108, i64 8, !108, i64 16}
-!108 = !{!"p2 double", !15, i64 0}
-!109 = distinct !{!109, !21}
-!110 = distinct !{!110, !21}
-!111 = distinct !{!111, !21}
-!112 = distinct !{!112, !21, !53}
-!113 = distinct !{!113, !21}
-!114 = distinct !{!114, !21, !53}
-!115 = distinct !{!115, !21}
-!116 = distinct !{!116, !21}
-!117 = distinct !{!117, !21}
-!118 = distinct !{!118, !21}
-!119 = distinct !{!119, !21}
-!120 = distinct !{!120, !21}
-!121 = distinct !{!121, !21}
-!122 = distinct !{!122, !21}
-!123 = !{!12, !13, i64 0}
-!124 = !{!12, !13, i64 8}
-!125 = distinct !{!125, !21}
-!126 = distinct !{!126, !21}
-!127 = distinct !{!127, !21}
-!128 = distinct !{!128, !21}
-!129 = distinct !{!129, !21}
-!130 = distinct !{!130, !21}
-!131 = distinct !{!131, !21}
-!132 = distinct !{!132, !21, !53}
-!133 = distinct !{!133, !21}
-!134 = distinct !{!134, !21, !53}
-!135 = distinct !{!135, !21}
-!136 = distinct !{!136, !21}
-!137 = distinct !{!137, !21}
-!138 = distinct !{!138, !21}
-!139 = distinct !{!139, !21}
-!140 = distinct !{!140, !21}
-!141 = distinct !{!141, !21}
-!142 = distinct !{!142, !21}
-!143 = distinct !{!143, !21}
-!144 = distinct !{!144, !21}
-!145 = distinct !{!145, !21}
-!146 = distinct !{!146, !21}
-!147 = distinct !{!147, !21, !53}
-!148 = distinct !{!148, !21}
-!149 = distinct !{!149, !21}
-!150 = distinct !{!150, !21}
-!151 = distinct !{!151, !21}
-!152 = distinct !{!152, !21}
-!153 = distinct !{!153, !21}
-!154 = distinct !{!154, !21}
-!155 = distinct !{!155, !21}
-!156 = distinct !{!156, !21}
-!157 = distinct !{!157, !21}
-!158 = distinct !{!158, !21}
-!159 = distinct !{!159, !21}
-!160 = distinct !{!160, !21}
-!161 = distinct !{!161, !21}
-!162 = distinct !{!162, !21}
-!163 = distinct !{!163, !21}
-!164 = distinct !{!164, !21}
-!165 = distinct !{!165, !21}
-!166 = distinct !{!166, !21}
-!167 = distinct !{!167, !21}
-!168 = distinct !{!168, !21}
-!169 = distinct !{!169, !21}
-!170 = !{!171, !171, i64 0}
-!171 = !{!"p1 long long", !14, i64 0}
-!172 = distinct !{!172, !21}
-!173 = distinct !{!173, !21}
-!174 = distinct !{!174, !21}
-!175 = distinct !{!175, !21}
-!176 = distinct !{!176, !21}
-!177 = distinct !{!177, !21}
-!178 = distinct !{!178, !21, !53}
-!179 = distinct !{!179, !21}
-!180 = distinct !{!180, !21, !53}
-!181 = distinct !{!181, !21}
-!182 = distinct !{!182, !21, !53}
-!183 = distinct !{!183, !21}
-!184 = distinct !{!184, !21}
-!185 = distinct !{!185, !21}
-!186 = distinct !{!186, !21}
-!187 = distinct !{!187, !21, !53}
-!188 = distinct !{!188, !21}
-!189 = distinct !{!189, !21}
-!190 = distinct !{!190, !21}
-!191 = distinct !{!191, !21}
-!192 = distinct !{!192, !21}
-!193 = distinct !{!193, !21}
-!194 = distinct !{!194, !21}
-!195 = distinct !{!195, !21}
-!196 = distinct !{!196, !21}
-!197 = distinct !{!197, !21}
-!198 = distinct !{!198, !21}
-!199 = distinct !{!199, !21, !53}
-!200 = distinct !{!200, !21}
-!201 = distinct !{!201, !21, !53}
-!202 = distinct !{!202, !21}
+!20 = !{!21}
+!21 = !{i64 2, i64 -1, i64 -1, i1 true}
+!22 = !{!9, !13, i64 40}
+!23 = !{!9, !13, i64 56}
+!24 = !{!9, !13, i64 48}
+!25 = !{!9, !13, i64 64}
+!26 = !{!13, !13, i64 0}
+!27 = !{!9, !11, i64 24}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !29}
+!31 = !{!32, !10, i64 4}
+!32 = !{!"QuESTEnv", !10, i64 0, !10, i64 4, !33, i64 8, !10, i64 16, !15, i64 24}
+!33 = !{!"p1 long", !14, i64 0}
+!34 = !{!9, !10, i64 8}
+!35 = !{!32, !10, i64 0}
+!36 = !{!9, !10, i64 36}
+!37 = !{!9, !10, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 int", !14, i64 0}
+!40 = !{!41, !13, i64 16}
+!41 = !{!"SubDiagonalOp", !10, i64 0, !11, i64 8, !13, i64 16, !13, i64 24}
+!42 = !{!41, !13, i64 24}
+!43 = !{!41, !10, i64 0}
+!44 = distinct !{!44, !29}
+!45 = !{!46, !10, i64 0}
+!46 = !{!"DiagonalOp", !10, i64 0, !11, i64 8, !10, i64 16, !10, i64 20, !13, i64 24, !13, i64 32, !12, i64 40}
+!47 = !{!46, !11, i64 8}
+!48 = !{!46, !10, i64 20}
+!49 = !{!46, !10, i64 16}
+!50 = !{!46, !13, i64 24}
+!51 = !{!46, !13, i64 32}
+!52 = !{!53, !10, i64 16}
+!53 = !{!"PauliHamil", !14, i64 0, !13, i64 8, !10, i64 16, !10, i64 20}
+!54 = !{!53, !10, i64 20}
+!55 = !{!53, !13, i64 8}
+!56 = !{!53, !14, i64 0}
+!57 = !{!14, !14, i64 0}
+!58 = distinct !{!58, !29}
+!59 = distinct !{!59, !29}
+!60 = distinct !{!60, !29}
+!61 = distinct !{!61, !29}
+!62 = !{!63, !10, i64 0}
+!63 = !{!"ComplexMatrixN", !10, i64 0, !64, i64 8, !64, i64 16}
+!64 = !{!"p2 double", !15, i64 0}
+!65 = distinct !{!65, !29}
+!66 = distinct !{!66, !29}
+!67 = !{!12, !13, i64 0}
+!68 = !{!12, !13, i64 8}
+!69 = distinct !{!69, !29}
+!70 = distinct !{!70, !29}
+!71 = distinct !{!71, !29}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 long long", !14, i64 0}
+!74 = distinct !{!74, !29}
+!75 = distinct !{!75, !29}
+!76 = distinct !{!76, !29}
+!77 = distinct !{!77, !29}
+!78 = distinct !{!78, !29}
+!79 = distinct !{!79, !29}

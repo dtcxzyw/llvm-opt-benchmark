@@ -110,7 +110,7 @@ define internal void @zend_signal_handler_defer(i32 noundef %0, ptr noundef %1, 
   store i32 0, ptr %.033, align 8, !tbaa !20
   store ptr %.033, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 3128), align 8, !tbaa !19
   %.not31 = icmp eq ptr %24, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not31, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 8), align 8, !tbaa !24
@@ -149,7 +149,7 @@ define internal void @zend_signal_handler_defer(i32 noundef %0, ptr noundef %1, 
   br label %40
 
 40:                                               ; preds = %39, %37
-  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 3120), align 8, !tbaa !29
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 3120), align 8, !tbaa !27
   br label %42
 
 41:                                               ; preds = %3
@@ -177,14 +177,14 @@ define dso_local void @zend_sigaction(i32 noundef %0, ptr noundef readonly captu
   %7 = add nsw i32 %0, -1
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [65 x %struct._zend_signal_entry_t], ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 24), i64 0, i64 %8
-  %10 = load i32, ptr %9, align 8, !tbaa !30
+  %10 = load i32, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  store i32 %10, ptr %11, align 8, !tbaa !32
+  store i32 %10, ptr %11, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !35
-  store ptr %13, ptr %2, align 8, !tbaa !36
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
+  store ptr %13, ptr %2, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef nonnull align 8 dereferenceable(128) @global_sigmask, i64 128, i1 false), !tbaa.struct !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef nonnull align 8 dereferenceable(128) @global_sigmask, i64 128, i1 false), !tbaa.struct !35
   br label %15
 
 15:                                               ; preds = %6, %3
@@ -193,14 +193,14 @@ define dso_local void @zend_sigaction(i32 noundef %0, ptr noundef readonly captu
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %18 = load i32, ptr %17, align 8, !tbaa !32
+  %18 = load i32, ptr %17, align 8, !tbaa !30
   %19 = add nsw i32 %0, -1
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds [65 x %struct._zend_signal_entry_t], ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 24), i64 0, i64 %20
-  store i32 %18, ptr %21, align 8, !tbaa !30
-  %.sink = load ptr, ptr %1, align 8, !tbaa !36
+  store i32 %18, ptr %21, align 8, !tbaa !28
+  %.sink = load ptr, ptr %1, align 8, !tbaa !34
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %.sink, ptr %22, align 8, !tbaa !35
+  store ptr %.sink, ptr %22, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %23, i8 0, i64 144, i1 false)
   %24 = icmp eq ptr %.sink, inttoptr (i64 1 to ptr)
@@ -210,14 +210,14 @@ define dso_local void @zend_sigaction(i32 noundef %0, ptr noundef readonly captu
   %26 = and i32 %18, 939524091
   %27 = or disjoint i32 %26, 134217732
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i32 %27, ptr %28, align 8, !tbaa !32
+  store i32 %27, ptr %28, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %29, ptr noundef nonnull align 8 dereferenceable(128) @global_sigmask, i64 128, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %29, ptr noundef nonnull align 8 dereferenceable(128) @global_sigmask, i64 128, i1 false), !tbaa.struct !35
   br label %30
 
 30:                                               ; preds = %16, %25
   %zend_signal_handler_defer.sink = phi ptr [ @zend_signal_handler_defer, %25 ], [ inttoptr (i64 1 to ptr), %16 ]
-  store ptr %zend_signal_handler_defer.sink, ptr %4, align 8, !tbaa !36
+  store ptr %zend_signal_handler_defer.sink, ptr %4, align 8, !tbaa !34
   %31 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %4, ptr noundef null) #8
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %34
@@ -259,9 +259,9 @@ define dso_local void @zend_signal(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store ptr %1, ptr %3, align 8, !tbaa !36
+  store ptr %1, ptr %3, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) @global_sigmask, i64 128, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) @global_sigmask, i64 128, i1 false), !tbaa.struct !35
   call void @zend_sigaction(i32 noundef %0, ptr noundef nonnull %3, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %3) #8
   ret void
@@ -271,7 +271,7 @@ define dso_local void @zend_signal(i32 noundef %0, ptr noundef %1) local_unnamed
 define hidden void @zend_signal_activate() local_unnamed_addr #0 {
   %1 = alloca %struct.sigaction, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 24), ptr noundef nonnull align 16 dereferenceable(1040) @global_orig_handlers, i64 1040, i1 false)
-  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 17), align 1, !tbaa !38, !range !39, !noundef !40
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 17), align 1, !tbaa !36, !range !37, !noundef !38
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %.preheader, label %.loopexit
 
@@ -290,7 +290,7 @@ define hidden void @zend_signal_activate() local_unnamed_addr #0 {
   br i1 %10, label %11, label %zend_signal_register.exit
 
 11:                                               ; preds = %6
-  %12 = load i32, ptr %4, align 8, !tbaa !32
+  %12 = load i32, ptr %4, align 8, !tbaa !30
   %13 = and i32 %12, 4
   %.not.i = icmp ne i32 %13, 0
   %14 = load ptr, ptr %1, align 8
@@ -302,12 +302,12 @@ define hidden void @zend_signal_activate() local_unnamed_addr #0 {
   %17 = add nsw i32 %8, -1
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds [65 x %struct._zend_signal_entry_t], ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 24), i64 0, i64 %18
-  store i32 %12, ptr %19, align 8, !tbaa !30
+  store i32 %12, ptr %19, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %14, ptr %20, align 8, !tbaa !35
-  store i32 4, ptr %4, align 8, !tbaa !32
-  store ptr @zend_signal_handler_defer, ptr %1, align 8, !tbaa !36
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) @global_sigmask, i64 128, i1 false), !tbaa.struct !37
+  store ptr %14, ptr %20, align 8, !tbaa !33
+  store i32 4, ptr %4, align 8, !tbaa !30
+  store ptr @zend_signal_handler_defer, ptr %1, align 8, !tbaa !34
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) @global_sigmask, i64 128, i1 false), !tbaa.struct !35
   %21 = call i32 @sigaction(i32 noundef %8, ptr noundef nonnull %1, ptr noundef null) #8
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %zend_signal_register.exit
@@ -320,7 +320,7 @@ zend_signal_register.exit:                        ; preds = %6, %11, %16
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #8
   %24 = add nuw nsw i64 %.03, 1
   %exitcond.not = icmp eq i64 %24, 7
-  br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !41
+  br i1 %exitcond.not, label %.loopexit, label %6
 
 .loopexit:                                        ; preds = %zend_signal_register.exit, %0
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 12), align 4, !tbaa !4
@@ -331,7 +331,7 @@ zend_signal_register.exit:                        ; preds = %6, %11, %16
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_signal_deactivate() local_unnamed_addr #0 {
   %1 = alloca %struct.sigaction, align 8
-  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 16), align 8, !tbaa !42, !range !39, !noundef !40
+  %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 16), align 8, !tbaa !39, !range !37, !noundef !38
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %18
 
@@ -353,7 +353,7 @@ define hidden void @zend_signal_deactivate() local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw [7 x i32], ptr @zend_sigs, i64 0, i64 %.010
   %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = call i32 @sigaction(i32 noundef %9, ptr noundef null, ptr noundef nonnull %1) #8
-  %11 = load ptr, ptr %1, align 8, !tbaa !36
+  %11 = load ptr, ptr %1, align 8, !tbaa !34
   %12 = icmp ne ptr %11, @zend_signal_handler_defer
   %13 = icmp ne ptr %11, inttoptr (i64 1 to ptr)
   %or.cond = and i1 %12, %13
@@ -366,7 +366,7 @@ define hidden void @zend_signal_deactivate() local_unnamed_addr #0 {
 15:                                               ; preds = %7, %14
   %16 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %16, 7
-  br i1 %exitcond.not, label %17, label %7, !llvm.loop !43
+  br i1 %exitcond.not, label %17, label %7
 
 17:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #8
@@ -414,19 +414,19 @@ define hidden void @zend_signal_init() local_unnamed_addr #0 {
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %3
-  %8 = load i32, ptr %2, align 8, !tbaa !32
+  %8 = load i32, ptr %2, align 8, !tbaa !30
   %9 = add nsw i64 %indvars.iv, -1
   %10 = getelementptr inbounds [65 x %struct._zend_signal_entry_t], ptr @global_orig_handlers, i64 0, i64 %9
-  store i32 %8, ptr %10, align 16, !tbaa !30
-  %11 = load ptr, ptr %1, align 8, !tbaa !36
+  store i32 %8, ptr %10, align 16, !tbaa !28
+  %11 = load ptr, ptr %1, align 8, !tbaa !34
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %11, ptr %12, align 8, !tbaa !35
+  store ptr %11, ptr %12, align 8, !tbaa !33
   br label %13
 
 13:                                               ; preds = %7, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65
-  br i1 %exitcond.not, label %14, label %3, !llvm.loop !44
+  br i1 %exitcond.not, label %14, label %3
 
 14:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #8
@@ -437,7 +437,7 @@ define hidden void @zend_signal_init() local_unnamed_addr #0 {
 define dso_local void @zend_signal_startup() local_unnamed_addr #0 {
   %1 = alloca %struct.sigaction, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3136) @zend_signal_globals, i8 0, i64 3128, i1 false)
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 17), align 1, !tbaa !38
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 17), align 1, !tbaa !36
   br label %2
 
 2:                                                ; preds = %2, %0
@@ -449,7 +449,7 @@ define dso_local void @zend_signal_startup() local_unnamed_addr #0 {
   store ptr %3, ptr %5, align 8, !tbaa !14
   %6 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %6, 64
-  br i1 %exitcond.not.i, label %zend_signal_globals_ctor.exit, label %2, !llvm.loop !45
+  br i1 %exitcond.not.i, label %zend_signal_globals_ctor.exit, label %2
 
 zend_signal_globals_ctor.exit:                    ; preds = %2
   store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @zend_signal_globals, i64 3128), align 8, !tbaa !19
@@ -480,19 +480,19 @@ zend_signal_globals_ctor.exit:                    ; preds = %2
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %22
-  %27 = load i32, ptr %21, align 8, !tbaa !32
+  %27 = load i32, ptr %21, align 8, !tbaa !30
   %28 = add nsw i64 %indvars.iv.i, -1
   %29 = getelementptr inbounds [65 x %struct._zend_signal_entry_t], ptr @global_orig_handlers, i64 0, i64 %28
-  store i32 %27, ptr %29, align 16, !tbaa !30
-  %30 = load ptr, ptr %1, align 8, !tbaa !36
+  store i32 %27, ptr %29, align 16, !tbaa !28
+  %30 = load ptr, ptr %1, align 8, !tbaa !34
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %30, ptr %31, align 8, !tbaa !35
+  store ptr %30, ptr %31, align 8, !tbaa !33
   br label %32
 
 32:                                               ; preds = %26, %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i1 = icmp eq i64 %indvars.iv.next.i, 65
-  br i1 %exitcond.not.i1, label %zend_signal_init.exit, label %22, !llvm.loop !44
+  br i1 %exitcond.not.i1, label %zend_signal_init.exit, label %22
 
 zend_signal_init.exit:                            ; preds = %32
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %1) #8
@@ -534,7 +534,7 @@ define internal fastcc void @zend_signal_handler(i32 noundef %0, ptr noundef %1,
   br i1 %13, label %14, label %31
 
 14:                                               ; preds = %11
-  store ptr null, ptr %4, align 8, !tbaa !36
+  store ptr null, ptr %4, align 8, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = call i32 @sigemptyset(ptr noundef nonnull %15) #8
   %17 = call i32 @sigemptyset(ptr noundef nonnull %5) #8
@@ -559,8 +559,8 @@ define internal fastcc void @zend_signal_handler(i32 noundef %0, ptr noundef %1,
   br i1 %.not17, label %29, label %28
 
 28:                                               ; preds = %27
-  store i32 0, ptr %10, align 8, !tbaa !30
-  store ptr null, ptr %.sroa.52.0..sroa_idx, align 8, !tbaa !35
+  store i32 0, ptr %10, align 8, !tbaa !28
+  store ptr null, ptr %.sroa.52.0..sroa_idx, align 8, !tbaa !33
   br label %29
 
 29:                                               ; preds = %28, %27
@@ -625,22 +625,16 @@ attributes #10 = { noreturn nounwind }
 !24 = !{!5, !6, i64 8}
 !25 = !{!15, !11, i64 8}
 !26 = !{!15, !11, i64 16}
-!27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!5, !10, i64 3120}
-!30 = !{!31, !6, i64 0}
-!31 = !{!"_zend_signal_entry_t", !6, i64 0, !11, i64 8}
-!32 = !{!33, !6, i64 136}
-!33 = !{!"sigaction", !7, i64 0, !34, i64 8, !6, i64 136, !11, i64 144}
-!34 = !{!"", !7, i64 0}
-!35 = !{!31, !11, i64 8}
-!36 = !{!7, !7, i64 0}
-!37 = !{i64 0, i64 128, !36}
-!38 = !{!5, !9, i64 17}
-!39 = !{i8 0, i8 2}
-!40 = !{}
-!41 = distinct !{!41, !28}
-!42 = !{!5, !9, i64 16}
-!43 = distinct !{!43, !28}
-!44 = distinct !{!44, !28}
-!45 = distinct !{!45, !28}
+!27 = !{!5, !10, i64 3120}
+!28 = !{!29, !6, i64 0}
+!29 = !{!"_zend_signal_entry_t", !6, i64 0, !11, i64 8}
+!30 = !{!31, !6, i64 136}
+!31 = !{!"sigaction", !7, i64 0, !32, i64 8, !6, i64 136, !11, i64 144}
+!32 = !{!"", !7, i64 0}
+!33 = !{!29, !11, i64 8}
+!34 = !{!7, !7, i64 0}
+!35 = !{i64 0, i64 128, !34}
+!36 = !{!5, !9, i64 17}
+!37 = !{i8 0, i8 2}
+!38 = !{}
+!39 = !{!5, !9, i64 16}

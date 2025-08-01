@@ -3974,7 +3974,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_EvT_S4_RSaIT0_E.
 
 821:                                              ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i
   %822 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %823 = load ptr, ptr %822, align 8, !tbaa !83
+  %823 = load ptr, ptr %822, align 8, !tbaa !82
   %824 = ptrtoint ptr %823 to i64
   %825 = ptrtoint ptr %820 to i64
   %826 = sub i64 %824, %825
@@ -3984,7 +3984,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_EvT_S4_RSaIT0_E.
 _ZSt8_DestroyISt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EEEvPT_.exit.i.i.i.i.i: ; preds = %821, %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i
   %827 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i336 = icmp eq ptr %827, %807
-  br i1 %.not.i.i.i.i.i336, label %_ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !84
+  br i1 %.not.i.i.i.i.i336, label %_ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !83
 
 _ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %38, align 8, !tbaa !72
@@ -3997,7 +3997,7 @@ _ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES
 
 829:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i.i
   %830 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %831 = load ptr, ptr %830, align 8, !tbaa !85
+  %831 = load ptr, ptr %830, align 8, !tbaa !84
   %832 = ptrtoint ptr %831 to i64
   %833 = ptrtoint ptr %828 to i64
   %834 = sub i64 %832, %833
@@ -4583,7 +4583,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_EvT_S4_RSaIT0_E.
 
 18:                                               ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !83
+  %20 = load ptr, ptr %19, align 8, !tbaa !82
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -4593,7 +4593,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_EvT_S4_RSaIT0_E.
 _ZSt8_DestroyISt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EEEvPT_.exit.i.i.i.i: ; preds = %18, %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
   %.not.i.i.i.i = icmp eq ptr %24, %4
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !84
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !83
 
 _ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %0, align 8, !tbaa !72
@@ -4606,7 +4606,7 @@ _ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES
 
 26:                                               ; preds = %_ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !85
+  %28 = load ptr, ptr %27, align 8, !tbaa !84
   %29 = ptrtoint ptr %28 to i64
   %30 = ptrtoint ptr %25 to i64
   %31 = sub i64 %29, %30
@@ -5271,9 +5271,9 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev13ViewTransformELN9__gnu_cxx12_Lock_p
           to label %290 unwind label %337
 
 290:                                              ; preds = %288
-  %291 = load ptr, ptr %289, align 8, !tbaa !86
+  %291 = load ptr, ptr %289, align 8, !tbaa !85
   %292 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  %293 = load ptr, ptr %292, align 8, !tbaa !86
+  %293 = load ptr, ptr %292, align 8, !tbaa !85
   %.not141151 = icmp eq ptr %291, %293
   br i1 %.not141151, label %._crit_edge156, label %.lr.ph155
 
@@ -5333,7 +5333,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_EvT_S4_RSaIT0_E.
 
 311:                                              ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i
   %312 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 16
-  %313 = load ptr, ptr %312, align 8, !tbaa !83
+  %313 = load ptr, ptr %312, align 8, !tbaa !82
   %314 = ptrtoint ptr %313 to i64
   %315 = ptrtoint ptr %310 to i64
   %316 = sub i64 %314, %315
@@ -5343,7 +5343,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_EvT_S4_RSaIT0_E.
 _ZSt8_DestroyISt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EEEvPT_.exit.i.i.i.i.i: ; preds = %311, %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev15LookParseResult5TokenES2_EvT_S4_RSaIT0_E.exit.i.i.i.i.i.i.i
   %317 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i115 = icmp eq ptr %317, %297
-  br i1 %.not.i.i.i.i.i115, label %_ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !84
+  br i1 %.not.i.i.i.i.i115, label %_ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !83
 
 _ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyISt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EEEvPT_.exit.i.i.i.i.i
   %.pr.i.i = load ptr, ptr %14, align 8, !tbaa !72
@@ -5356,7 +5356,7 @@ _ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES
 
 319:                                              ; preds = %_ZSt8_DestroyIPSt6vectorIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i.i
   %320 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %321 = load ptr, ptr %320, align 8, !tbaa !85
+  %321 = load ptr, ptr %320, align 8, !tbaa !84
   %322 = ptrtoint ptr %321 to i64
   %323 = ptrtoint ptr %318 to i64
   %324 = sub i64 %322, %323
@@ -5408,9 +5408,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 339:                                              ; preds = %.lr.ph155, %._crit_edge
   %.7153 = phi i1 [ %.2, %.lr.ph155 ], [ %.8.lcssa, %._crit_edge ]
   %.sroa.0133.0152 = phi ptr [ %291, %.lr.ph155 ], [ %343, %._crit_edge ]
-  %340 = load ptr, ptr %.sroa.0133.0152, align 8, !tbaa !87
+  %340 = load ptr, ptr %.sroa.0133.0152, align 8, !tbaa !86
   %341 = getelementptr inbounds nuw i8, ptr %.sroa.0133.0152, i64 8
-  %342 = load ptr, ptr %341, align 8, !tbaa !87
+  %342 = load ptr, ptr %341, align 8, !tbaa !86
   %.not142148 = icmp eq ptr %340, %342
   br i1 %.not142148, label %._crit_edge, label %.lr.ph
 
@@ -5418,7 +5418,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.8.lcssa = phi i1 [ %.7153, %339 ], [ %.9, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev4LookELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %343 = getelementptr inbounds nuw i8, ptr %.sroa.0133.0152, i64 24
   %.not141 = icmp eq ptr %343, %293
-  br i1 %.not141, label %._crit_edge156, label %339, !llvm.loop !88
+  br i1 %.not141, label %._crit_edge156, label %339
 
 .lr.ph:                                           ; preds = %339, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev4LookELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %.8150 = phi i1 [ %.9, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev4LookELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %.7153, %339 ]
@@ -5429,13 +5429,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %345 unwind label %352
 
 345:                                              ; preds = %.lr.ph
-  %346 = load ptr, ptr %15, align 8, !tbaa !89
+  %346 = load ptr, ptr %15, align 8, !tbaa !87
   %.not143 = icmp eq ptr %346, null
   br i1 %.not143, label %356, label %347
 
 347:                                              ; preds = %345
   %348 = getelementptr inbounds nuw i8, ptr %.sroa.0129.0149, i64 32
-  %349 = load i32, ptr %348, align 8, !tbaa !92
+  %349 = load i32, ptr %348, align 8, !tbaa !90
   %350 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev23CollectContextVariablesERKNS_6ConfigERKNS_7ContextENS_18TransformDirectionERKNS_4LookERSt10shared_ptrIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %349, ptr noundef nonnull align 8 dereferenceable(8) %346, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %351 unwind label %354
 
@@ -5508,7 +5508,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev4LookELN9__gnu_cxx12_Lock_policyE2EED
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #22
   %379 = getelementptr inbounds nuw i8, ptr %.sroa.0129.0149, i64 40
   %.not142 = icmp eq ptr %379, %342
-  br i1 %.not142, label %._crit_edge, label %.lr.ph, !llvm.loop !94
+  br i1 %.not142, label %._crit_edge, label %.lr.ph
 
 380:                                              ; preds = %354, %352
   %.pn74 = phi { ptr, i32 } [ %355, %354 ], [ %353, %352 ]
@@ -5740,9 +5740,9 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev20DisplayViewTransformEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !92
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !96
+  %5 = load ptr, ptr %4, align 8, !tbaa !93
   invoke void %3(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -5767,7 +5767,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev20Displ
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev20DisplayViewTransformEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !98
+  %4 = load ptr, ptr %3, align 8, !tbaa !95
   %5 = icmp eq ptr %4, @_ZTSPFvPN19OpenColorIO_v2_5dev20DisplayViewTransformEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -6081,23 +6081,20 @@ attributes #25 = { builtin nounwind }
 !77 = !{!"_ZTSNSt12_Vector_baseIN19OpenColorIO_v2_5dev15LookParseResult5TokenESaIS2_EE17_Vector_impl_dataE", !78, i64 0, !78, i64 8, !78, i64 16}
 !78 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev15LookParseResult5TokenE", !6, i64 0}
 !79 = !{!77, !78, i64 8}
-!80 = distinct !{!80, !81, !82}
+!80 = distinct !{!80, !81}
 !81 = !{!"llvm.loop.mustprogress"}
-!82 = !{!"llvm.loop.estimated_trip_count"}
-!83 = !{!77, !78, i64 16}
-!84 = distinct !{!84, !81, !82}
-!85 = !{!73, !74, i64 16}
-!86 = !{!74, !74, i64 0}
-!87 = !{!78, !78, i64 0}
-!88 = distinct !{!88, !82}
-!89 = !{!90, !91, i64 0}
-!90 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev4LookELN9__gnu_cxx12_Lock_policyE2EE", !91, i64 0, !9, i64 8}
-!91 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev4LookE", !6, i64 0}
-!92 = !{!93, !24, i64 32}
-!93 = !{!"_ZTSN19OpenColorIO_v2_5dev15LookParseResult5TokenE", !25, i64 0, !24, i64 32}
-!94 = distinct !{!94, !82}
-!95 = !{!6, !6, i64 0}
-!96 = !{!97, !5, i64 24}
-!97 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev20DisplayViewTransformEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
-!98 = !{!99, !27, i64 8}
-!99 = !{!"_ZTSSt9type_info", !27, i64 8}
+!82 = !{!77, !78, i64 16}
+!83 = distinct !{!83, !81}
+!84 = !{!73, !74, i64 16}
+!85 = !{!74, !74, i64 0}
+!86 = !{!78, !78, i64 0}
+!87 = !{!88, !89, i64 0}
+!88 = !{!"_ZTSSt12__shared_ptrIKN19OpenColorIO_v2_5dev4LookELN9__gnu_cxx12_Lock_policyE2EE", !89, i64 0, !9, i64 8}
+!89 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev4LookE", !6, i64 0}
+!90 = !{!91, !24, i64 32}
+!91 = !{!"_ZTSN19OpenColorIO_v2_5dev15LookParseResult5TokenE", !25, i64 0, !24, i64 32}
+!92 = !{!6, !6, i64 0}
+!93 = !{!94, !5, i64 24}
+!94 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev20DisplayViewTransformEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
+!95 = !{!96, !27, i64 8}
+!96 = !{!"_ZTSSt9type_info", !27, i64 8}

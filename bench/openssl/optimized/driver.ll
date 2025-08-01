@@ -319,7 +319,7 @@ set_seed.exit.i:                                  ; preds = %26, %23
 39:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %39, %.preheader.i.i
   %40 = call i64 @strtol(ptr noundef nonnull readonly captures(none) %.0.i.ph, ptr noundef null, i32 noundef 10) #13
@@ -442,7 +442,7 @@ process_shared_options.exit:                      ; preds = %4
   store i32 %95, ptr %94, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.b102 = load i1, ptr @rand_order, align 4
@@ -468,7 +468,7 @@ process_shared_options.exit:                      ; preds = %4
   store i32 %105, ptr %102, align 4, !tbaa !3
   store i32 %103, ptr %104, align 4, !tbaa !3
   %106 = icmp samesign ugt i64 %indvars.iv170, 2
-  br i1 %106, label %.lr.ph142, label %.loopexit130.loopexit, !llvm.loop !20
+  br i1 %106, label %.lr.ph142, label %.loopexit130.loopexit, !llvm.loop !19
 
 .loopexit130.loopexit:                            ; preds = %.lr.ph142
   %.pre = load i32, ptr @num_tests, align 4, !tbaa !3
@@ -615,14 +615,14 @@ set_test_title.exit118:                           ; preds = %142, %143
   %.067.i = phi i32 [ %167, %.preheader ], [ %165, %.critedge ]
   %167 = srem i32 %.08.i119, %.067.i
   %.not.i120 = icmp eq i32 %167, 0
-  br i1 %.not.i120, label %gcd.exit, label %.preheader, !llvm.loop !21
+  br i1 %.not.i120, label %gcd.exit, label %.preheader, !llvm.loop !20
 
 gcd.exit:                                         ; preds = %.preheader
   %.not109 = icmp eq i32 %.067.i, 1
   br i1 %.not109, label %.loopexit, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %gcd.exit, %.critedge
-  br label %.critedge, !llvm.loop !22
+  br label %.critedge, !llvm.loop !21
 
 .loopexit:                                        ; preds = %gcd.exit, %161
   %168 = phi i32 [ %.pre176, %161 ], [ %164, %gcd.exit ]
@@ -700,7 +700,7 @@ finalize.exit122:                                 ; preds = %184, %185
   %.188 = phi i32 [ %.289, %195 ], [ %.087143, %172 ]
   %.3 = phi i32 [ %.pre-phi, %195 ], [ %.2146, %172 ]
   %198 = icmp slt i32 %177, %197
-  br i1 %198, label %172, label %._crit_edge149, !llvm.loop !23
+  br i1 %198, label %172, label %._crit_edge149, !llvm.loop !22
 
 ._crit_edge149:                                   ; preds = %196, %.loopexit
   %199 = phi i32 [ %168, %.loopexit ], [ %197, %196 ]
@@ -751,7 +751,7 @@ finalize.exit122:                                 ; preds = %184, %185
   %217 = load i32, ptr @num_tests, align 4, !tbaa !3
   %218 = zext i32 %217 to i64
   %.not = icmp eq i64 %indvars.iv.next174, %218
-  br i1 %.not, label %._crit_edge159.loopexit, label %.lr.ph158, !llvm.loop !24
+  br i1 %.not, label %._crit_edge159.loopexit, label %.lr.ph158, !llvm.loop !23
 
 ._crit_edge159.loopexit:                          ; preds = %216
   %219 = icmp ne i32 %.191, 0
@@ -828,7 +828,7 @@ define noundef ptr @glue_strings(ptr noundef readonly captures(none) %0, ptr nou
   %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.020.lcssa = phi i64 [ 0, %2 ], [ %6, %.lr.ph ]
@@ -836,7 +836,7 @@ define noundef ptr @glue_strings(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not24, label %10, label %9
 
 9:                                                ; preds = %._crit_edge
-  store i64 %.020.lcssa, ptr %1, align 8, !tbaa !26
+  store i64 %.020.lcssa, ptr %1, align 8, !tbaa !25
   br label %10
 
 10:                                               ; preds = %9, %._crit_edge
@@ -862,7 +862,7 @@ define noundef ptr @glue_strings(ptr noundef readonly captures(none) %0, ptr nou
   %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next36
   %20 = load ptr, ptr %19, align 8, !tbaa !14
   %.not26 = icmp eq ptr %20, null
-  br i1 %.not26, label %.loopexit, label %.lr.ph33, !llvm.loop !28
+  br i1 %.not26, label %.loopexit, label %.lr.ph33, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph33, %.preheader, %10
   %.018 = phi ptr [ null, %10 ], [ %12, %.preheader ], [ %12, %.lr.ph33 ]
@@ -993,17 +993,16 @@ attributes #14 = { nounwind willreturn memory(read) }
 !12 = !{!8, !4, i64 24}
 !13 = !{!8, !10, i64 16}
 !14 = !{!9, !9, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
-!19 = distinct !{!19, !16, !17}
-!20 = distinct !{!20, !16, !17}
-!21 = distinct !{!21, !16, !17}
-!22 = distinct !{!22, !17}
-!23 = distinct !{!23, !16, !17}
-!24 = distinct !{!24, !16, !17}
-!25 = distinct !{!25, !16, !17}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"long", !5, i64 0}
-!28 = distinct !{!28, !16, !17}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}
+!19 = distinct !{!19, !16}
+!20 = distinct !{!20, !16}
+!21 = distinct !{!21, !16}
+!22 = distinct !{!22, !16}
+!23 = distinct !{!23, !16}
+!24 = distinct !{!24, !16}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"long", !5, i64 0}
+!27 = distinct !{!27, !16}

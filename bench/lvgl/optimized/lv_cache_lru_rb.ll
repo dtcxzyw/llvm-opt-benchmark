@@ -15,7 +15,7 @@ define internal nonnull ptr @alloc_cb() #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %0, %.preheader
-  br label %.preheader, !llvm.loop !3
+  br label %.preheader
 
 2:                                                ; preds = %0
   tail call void @lv_memset(ptr noundef nonnull %1, i8 noundef zeroext 0, i64 noundef 120) #5
@@ -25,30 +25,30 @@ define internal nonnull ptr @alloc_cb() #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @init_cnt_cb(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !5
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !19
+  br label %.preheader
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
   %.not15 = icmp eq ptr %6, null
   br i1 %.not15, label %.preheader17, label %7
 
 .preheader17:                                     ; preds = %4, %.preheader17
-  br label %.preheader17, !llvm.loop !21
+  br label %.preheader17
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !22
+  %9 = load i32, ptr %8, align 8, !tbaa !18
   %.not16 = icmp eq i32 %9, 0
   br i1 %.not16, label %.preheader18, label %10
 
 .preheader18:                                     ; preds = %7, %.preheader18
-  br label %.preheader18, !llvm.loop !23
+  br label %.preheader18
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -62,7 +62,7 @@ define internal noundef zeroext i1 @init_cnt_cb(ptr noundef %0) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @lv_ll_init(ptr noundef nonnull %17, i32 noundef 8) #5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @cnt_get_data_size_cb, ptr %18, align 8, !tbaa !24
+  store ptr @cnt_get_data_size_cb, ptr %18, align 8, !tbaa !19
   br label %19
 
 19:                                               ; preds = %10, %16
@@ -75,12 +75,12 @@ define internal void @destroy_cb(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !25
+  br label %.preheader
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %0, align 8, !tbaa !26
+  %4 = load ptr, ptr %0, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !27
+  %6 = load ptr, ptr %5, align 8, !tbaa !21
   tail call void %6(ptr noundef nonnull %0, ptr noundef %1) #5
   ret void
 }
@@ -91,14 +91,14 @@ define internal ptr @get_cb(ptr noundef %0, ptr noundef %1, ptr readnone capture
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !29
+  br label %.preheader
 
 4:                                                ; preds = %3
   %.not34 = icmp eq ptr %1, null
   br i1 %.not34, label %.preheader39, label %5
 
 .preheader39:                                     ; preds = %4, %.preheader39
-  br label %.preheader39, !llvm.loop !30
+  br label %.preheader39
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -107,14 +107,14 @@ define internal ptr @get_cb(ptr noundef %0, ptr noundef %1, ptr readnone capture
   br i1 %.not35, label %18, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %7, align 8, !tbaa !31
+  %9 = load ptr, ptr %7, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !32
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !34
+  %13 = load i32, ptr %12, align 8, !tbaa !26
   %14 = tail call ptr @lv_cache_entry_get_entry(ptr noundef %11, i32 noundef %13) #5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !5
+  %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = tail call signext i8 %16(ptr noundef %11, ptr noundef nonnull %1) #5
   %.not36 = icmp eq i8 %17, 0
   br i1 %.not36, label %32, label %18
@@ -127,17 +127,17 @@ define internal ptr @get_cb(ptr noundef %0, ptr noundef %1, ptr readnone capture
 
 21:                                               ; preds = %18
   %22 = getelementptr i8, ptr %0, i64 80
-  %.val = load i64, ptr %22, align 8, !tbaa !35
+  %.val = load i64, ptr %22, align 8, !tbaa !27
   %23 = getelementptr i8, ptr %20, i64 32
-  %.val38 = load ptr, ptr %23, align 8, !tbaa !32
+  %.val38 = load ptr, ptr %23, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw i8, ptr %.val38, i64 %.val
   %25 = getelementptr inbounds i8, ptr %24, i64 -8
-  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  %26 = load ptr, ptr %25, align 8, !tbaa !28
   %27 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %6) #5
   tail call void @lv_ll_move_before(ptr noundef nonnull %6, ptr noundef %26, ptr noundef %27) #5
-  %28 = load ptr, ptr %23, align 8, !tbaa !32
+  %28 = load ptr, ptr %23, align 8, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !34
+  %30 = load i32, ptr %29, align 8, !tbaa !26
   %31 = tail call ptr @lv_cache_entry_get_entry(ptr noundef %28, i32 noundef %30) #5
   br label %32
 
@@ -154,36 +154,36 @@ define internal ptr @add_cb(ptr noundef %0, ptr noundef %1, ptr readnone capture
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !37
+  br label %.preheader
 
 6:                                                ; preds = %3
   %.not20 = icmp eq ptr %1, null
   br i1 %.not20, label %.preheader21, label %7
 
 .preheader21:                                     ; preds = %6, %.preheader21
-  br label %.preheader21, !llvm.loop !38
+  br label %.preheader21
 
 7:                                                ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = tail call ptr @lv_rb_insert(ptr noundef nonnull %8, ptr noundef nonnull %1) #5
-  store ptr %9, ptr %4, align 8, !tbaa !31
+  store ptr %9, ptr %4, align 8, !tbaa !23
   %10 = icmp eq ptr %9, null
   br i1 %10, label %alloc_new_node.exit.thread, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !32
+  %13 = load ptr, ptr %12, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !22
+  %15 = load i32, ptr %14, align 8, !tbaa !18
   %16 = tail call ptr @lv_cache_entry_get_entry(ptr noundef %13, i32 noundef %15) #5
-  %17 = load i32, ptr %14, align 8, !tbaa !22
+  %17 = load i32, ptr %14, align 8, !tbaa !18
   %18 = zext i32 %17 to i64
   %19 = tail call ptr @lv_memcpy(ptr noundef %13, ptr noundef nonnull %1, i64 noundef %18) #5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = tail call ptr @lv_ll_ins_head(ptr noundef nonnull %20) #5
-  store ptr %21, ptr %5, align 8, !tbaa !36
+  store ptr %21, ptr %5, align 8, !tbaa !28
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %alloc_new_node.exit
 
@@ -198,17 +198,17 @@ alloc_new_node.exit.thread:                       ; preds = %7, %23
 
 alloc_new_node.exit:                              ; preds = %11
   %25 = call ptr @lv_memcpy(ptr noundef nonnull %21, ptr noundef nonnull %4, i64 noundef 8) #5
-  %26 = load ptr, ptr %4, align 8, !tbaa !31
+  %26 = load ptr, ptr %4, align 8, !tbaa !23
   %27 = getelementptr i8, ptr %0, i64 80
-  %.val.i = load i64, ptr %27, align 8, !tbaa !35
+  %.val.i = load i64, ptr %27, align 8, !tbaa !27
   %28 = getelementptr i8, ptr %26, i64 32
-  %.val23.i = load ptr, ptr %28, align 8, !tbaa !32
+  %.val23.i = load ptr, ptr %28, align 8, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 %.val.i
   %30 = getelementptr inbounds i8, ptr %29, i64 -8
   %31 = call ptr @lv_memcpy(ptr noundef nonnull %30, ptr noundef nonnull %5, i64 noundef 8) #5
-  %32 = load i32, ptr %14, align 8, !tbaa !22
+  %32 = load i32, ptr %14, align 8, !tbaa !18
   call void @lv_cache_entry_init(ptr noundef %16, ptr noundef nonnull %0, i32 noundef %32) #5
-  %.pre.i = load ptr, ptr %4, align 8, !tbaa !31
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %33 = icmp eq ptr %.pre.i, null
@@ -216,16 +216,16 @@ alloc_new_node.exit:                              ; preds = %11
 
 34:                                               ; preds = %alloc_new_node.exit
   %35 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !32
-  %37 = load i32, ptr %14, align 8, !tbaa !34
+  %36 = load ptr, ptr %35, align 8, !tbaa !24
+  %37 = load i32, ptr %14, align 8, !tbaa !26
   %38 = call ptr @lv_cache_entry_get_entry(ptr noundef %36, i32 noundef %37) #5
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %40 = load ptr, ptr %39, align 8, !tbaa !24
+  %40 = load ptr, ptr %39, align 8, !tbaa !19
   %41 = call i32 %40(ptr noundef nonnull %1) #5
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load i32, ptr %42, align 8, !tbaa !39
+  %43 = load i32, ptr %42, align 8, !tbaa !29
   %44 = add i32 %43, %41
-  store i32 %44, ptr %42, align 8, !tbaa !39
+  store i32 %44, ptr %42, align 8, !tbaa !29
   br label %45
 
 45:                                               ; preds = %alloc_new_node.exit.thread, %34, %alloc_new_node.exit
@@ -239,14 +239,14 @@ define internal void @remove_cb(ptr noundef %0, ptr noundef %1, ptr readnone cap
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !40
+  br label %.preheader
 
 4:                                                ; preds = %3
   %.not22 = icmp eq ptr %1, null
   br i1 %.not22, label %.preheader24, label %5
 
 .preheader24:                                     ; preds = %4, %.preheader24
-  br label %.preheader24, !llvm.loop !41
+  br label %.preheader24
 
 5:                                                ; preds = %4
   %6 = tail call ptr @lv_cache_entry_get_data(ptr noundef nonnull %1) #5
@@ -257,23 +257,23 @@ define internal void @remove_cb(ptr noundef %0, ptr noundef %1, ptr readnone cap
 
 10:                                               ; preds = %5
   %11 = getelementptr i8, ptr %0, i64 80
-  %.val = load i64, ptr %11, align 8, !tbaa !35
+  %.val = load i64, ptr %11, align 8, !tbaa !27
   %12 = getelementptr i8, ptr %8, i64 32
-  %.val23 = load ptr, ptr %12, align 8, !tbaa !32
+  %.val23 = load ptr, ptr %12, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %.val23, i64 %.val
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
-  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
   %16 = tail call ptr @lv_rb_remove_node(ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @lv_ll_remove(ptr noundef nonnull %17, ptr noundef %15) #5
   tail call void @lv_free(ptr noundef %15) #5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %19 = load ptr, ptr %18, align 8, !tbaa !24
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
   %20 = tail call i32 %19(ptr noundef %6) #5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !39
+  %22 = load i32, ptr %21, align 8, !tbaa !29
   %23 = sub i32 %22, %20
-  store i32 %23, ptr %21, align 8, !tbaa !39
+  store i32 %23, ptr %21, align 8, !tbaa !29
   br label %24
 
 24:                                               ; preds = %10, %5
@@ -286,14 +286,14 @@ define internal void @drop_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !42
+  br label %.preheader
 
 4:                                                ; preds = %3
   %.not28 = icmp eq ptr %1, null
   br i1 %.not28, label %.preheader30, label %5
 
 .preheader30:                                     ; preds = %4, %.preheader30
-  br label %.preheader30, !llvm.loop !43
+  br label %.preheader30
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -303,26 +303,26 @@ define internal void @drop_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !32
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !20
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
   tail call void %13(ptr noundef %11, ptr noundef %2) #5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  %15 = load ptr, ptr %14, align 8, !tbaa !19
   %16 = tail call i32 %15(ptr noundef %11) #5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i32, ptr %17, align 8, !tbaa !39
+  %18 = load i32, ptr %17, align 8, !tbaa !29
   %19 = sub i32 %18, %16
-  store i32 %19, ptr %17, align 8, !tbaa !39
+  store i32 %19, ptr %17, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !34
+  %21 = load i32, ptr %20, align 8, !tbaa !26
   %22 = tail call ptr @lv_cache_entry_get_entry(ptr noundef %11, i32 noundef %21) #5
   %23 = getelementptr i8, ptr %0, i64 80
-  %.val = load i64, ptr %23, align 8, !tbaa !35
-  %.val29 = load ptr, ptr %10, align 8, !tbaa !32
+  %.val = load i64, ptr %23, align 8, !tbaa !27
+  %.val29 = load ptr, ptr %10, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw i8, ptr %.val29, i64 %.val
   %25 = getelementptr inbounds i8, ptr %24, i64 -8
-  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  %26 = load ptr, ptr %25, align 8, !tbaa !28
   %27 = tail call ptr @lv_rb_remove_node(ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   tail call void @lv_cache_entry_delete(ptr noundef %22) #5
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -340,7 +340,7 @@ define internal void @drop_all_cb(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !44
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -355,31 +355,31 @@ define internal void @drop_all_cb(ptr noundef %0, ptr noundef %1) #0 {
 
 8:                                                ; preds = %.lr.ph, %18
   %.01822 = phi ptr [ %5, %.lr.ph ], [ %19, %18 ]
-  %9 = load ptr, ptr %.01822, align 8, !tbaa !31
+  %9 = load ptr, ptr %.01822, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !32
-  %12 = load i32, ptr %6, align 8, !tbaa !34
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  %12 = load i32, ptr %6, align 8, !tbaa !26
   %13 = tail call ptr @lv_cache_entry_get_entry(ptr noundef %11, i32 noundef %12) #5
   %14 = tail call i32 @lv_cache_entry_get_ref(ptr noundef %13) #5
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %8
-  %17 = load ptr, ptr %7, align 8, !tbaa !20
+  %17 = load ptr, ptr %7, align 8, !tbaa !17
   tail call void %17(ptr noundef %11, ptr noundef %1) #5
   br label %18
 
 18:                                               ; preds = %8, %16
   %19 = tail call ptr @lv_ll_get_next(ptr noundef nonnull %4, ptr noundef nonnull %.01822) #5
   %.not20 = icmp eq ptr %19, null
-  br i1 %.not20, label %._crit_edge, label %8, !llvm.loop !45
+  br i1 %.not20, label %._crit_edge, label %8, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %18, %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @lv_rb_destroy(ptr noundef nonnull %20) #5
   tail call void @lv_ll_clear(ptr noundef nonnull %4) #5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %21, align 8, !tbaa !39
+  store i32 0, ptr %21, align 8, !tbaa !29
   ret void
 }
 
@@ -389,7 +389,7 @@ define internal noundef ptr @get_victim_cb(ptr noundef %0, ptr readnone captures
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !47
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -403,10 +403,10 @@ define internal noundef ptr @get_victim_cb(ptr noundef %0, ptr readnone captures
 
 7:                                                ; preds = %.lr.ph, %14
   %.01318 = phi ptr [ %5, %.lr.ph ], [ %15, %14 ]
-  %8 = load ptr, ptr %.01318, align 8, !tbaa !31
+  %8 = load ptr, ptr %.01318, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !32
-  %11 = load i32, ptr %6, align 8, !tbaa !34
+  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  %11 = load i32, ptr %6, align 8, !tbaa !26
   %12 = tail call ptr @lv_cache_entry_get_entry(ptr noundef %10, i32 noundef %11) #5
   %13 = tail call i32 @lv_cache_entry_get_ref(ptr noundef %12) #5
   %.not16 = icmp eq i32 %13, 0
@@ -415,7 +415,7 @@ define internal noundef ptr @get_victim_cb(ptr noundef %0, ptr readnone captures
 14:                                               ; preds = %7
   %15 = tail call ptr @lv_ll_get_prev(ptr noundef nonnull %4, ptr noundef nonnull %.01318) #5
   %.not15 = icmp eq ptr %15, null
-  br i1 %.not15, label %._crit_edge, label %7, !llvm.loop !48
+  br i1 %.not15, label %._crit_edge, label %7, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %7, %14, %3
   %.2 = phi ptr [ null, %3 ], [ null, %14 ], [ %12, %7 ]
@@ -428,7 +428,7 @@ define internal range(i32 0, 3) i32 @reserve_cond_cb(ptr noundef readonly captur
   br i1 %.not, label %.preheader, label %5
 
 .preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader, !llvm.loop !49
+  br label %.preheader
 
 5:                                                ; preds = %4
   %.not16 = icmp eq ptr %1, null
@@ -436,15 +436,15 @@ define internal range(i32 0, 3) i32 @reserve_cond_cb(ptr noundef readonly captur
 
 .thread:                                          ; preds = %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !50
+  %7 = load i32, ptr %6, align 4, !tbaa !33
   br label %15
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !19
   %11 = tail call i32 %10(ptr noundef nonnull %1) #5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !50
+  %13 = load i32, ptr %12, align 4, !tbaa !33
   %14 = icmp ugt i32 %11, %13
   br i1 %14, label %27, label %15
 
@@ -452,7 +452,7 @@ define internal range(i32 0, 3) i32 @reserve_cond_cb(ptr noundef readonly captur
   %16 = phi i32 [ %7, %.thread ], [ %13, %8 ]
   %17 = phi i32 [ 0, %.thread ], [ %11, %8 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i32, ptr %18, align 8, !tbaa !39
+  %19 = load i32, ptr %18, align 8, !tbaa !29
   %20 = zext i32 %19 to i64
   %21 = zext i32 %17 to i64
   %22 = add i64 %2, %21
@@ -470,7 +470,7 @@ define internal range(i32 0, 3) i32 @reserve_cond_cb(ptr noundef readonly captur
 ; Function Attrs: nounwind uwtable
 define internal ptr @cache_iter_create_cb(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !34
+  %3 = load i32, ptr %2, align 8, !tbaa !26
   %4 = tail call i32 @lv_cache_entry_get_size(i32 noundef %3) #5
   %5 = tail call ptr @lv_iter_create(ptr noundef %0, i32 noundef %4, i32 noundef 8, ptr noundef nonnull @cache_iter_next_cb) #5
   ret ptr %5
@@ -479,30 +479,30 @@ define internal ptr @cache_iter_create_cb(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @init_size_cb(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !5
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !51
+  br label %.preheader
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
   %.not15 = icmp eq ptr %6, null
   br i1 %.not15, label %.preheader17, label %7
 
 .preheader17:                                     ; preds = %4, %.preheader17
-  br label %.preheader17, !llvm.loop !52
+  br label %.preheader17
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !22
+  %9 = load i32, ptr %8, align 8, !tbaa !18
   %.not16 = icmp eq i32 %9, 0
   br i1 %.not16, label %.preheader18, label %10
 
 .preheader18:                                     ; preds = %7, %.preheader18
-  br label %.preheader18, !llvm.loop !53
+  br label %.preheader18
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -516,7 +516,7 @@ define internal noundef zeroext i1 @init_size_cb(ptr noundef %0) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @lv_ll_init(ptr noundef nonnull %17, i32 noundef 8) #5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @size_get_data_size_cb, ptr %18, align 8, !tbaa !24
+  store ptr @size_get_data_size_cb, ptr %18, align 8, !tbaa !19
   br label %19
 
 19:                                               ; preds = %10, %16
@@ -546,7 +546,7 @@ define internal noundef i32 @cnt_get_data_size_cb(ptr readnone captures(none) %0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @size_get_data_size_cb(ptr noundef readonly captures(none) %0) #4 {
-  %2 = load i64, ptr %0, align 8, !tbaa !54
+  %2 = load i64, ptr %0, align 8, !tbaa !34
   %3 = trunc i64 %2 to i32
   ret i32 %3
 }
@@ -599,10 +599,10 @@ define internal range(i32 0, 2) i32 @cache_iter_next_cb(ptr noundef %0, ptr noun
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !56
+  br label %.preheader
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %1, align 8, !tbaa !57
+  %5 = load ptr, ptr %1, align 8, !tbaa !36
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br i1 %6, label %8, label %10
@@ -617,16 +617,16 @@ define internal range(i32 0, 2) i32 @cache_iter_next_cb(ptr noundef %0, ptr noun
 
 12:                                               ; preds = %10, %8
   %storemerge = phi ptr [ %11, %10 ], [ %9, %8 ]
-  store ptr %storemerge, ptr %1, align 8, !tbaa !57
+  store ptr %storemerge, ptr %1, align 8, !tbaa !36
   %13 = icmp eq ptr %storemerge, null
   br i1 %13, label %23, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !22
-  %17 = load ptr, ptr %storemerge, align 8, !tbaa !31
+  %16 = load i32, ptr %15, align 8, !tbaa !18
+  %17 = load ptr, ptr %storemerge, align 8, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = tail call i32 @lv_cache_entry_get_size(i32 noundef %16) #5
   %21 = zext i32 %20 to i64
   %22 = tail call ptr @lv_memcpy(ptr noundef %2, ptr noundef %19, i64 noundef %21) #5
@@ -649,59 +649,38 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = !{!6, !9, i64 24}
-!6 = !{!"_lv_lru_rb_t", !7, i64 0, !15, i64 64, !18, i64 88, !9, i64 112}
-!7 = !{!"_lv_cache_t", !8, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !13, i64 24, !12, i64 48, !14, i64 56}
-!8 = !{!"p1 _ZTS17_lv_cache_class_t", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"int", !10, i64 0}
-!13 = !{!"_lv_cache_ops_t", !9, i64 0, !9, i64 8, !9, i64 16}
-!14 = !{!"p1 omnipotent char", !9, i64 0}
-!15 = !{!"_lv_rb_t", !16, i64 0, !9, i64 8, !17, i64 16}
-!16 = !{!"p1 _ZTS13_lv_rb_node_t", !9, i64 0}
-!17 = !{!"long", !10, i64 0}
-!18 = !{!"", !12, i64 0, !14, i64 8, !14, i64 16}
-!19 = distinct !{!19, !4}
-!20 = !{!6, !9, i64 40}
-!21 = distinct !{!21, !4}
-!22 = !{!6, !12, i64 8}
-!23 = distinct !{!23, !4}
-!24 = !{!6, !9, i64 112}
-!25 = distinct !{!25, !4}
-!26 = !{!7, !8, i64 0}
-!27 = !{!28, !9, i64 56}
-!28 = !{!"_lv_cache_class_t", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80}
-!29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4}
-!31 = !{!16, !16, i64 0}
-!32 = !{!33, !9, i64 32}
-!33 = !{!"_lv_rb_node_t", !16, i64 0, !16, i64 8, !16, i64 16, !12, i64 24, !9, i64 32}
-!34 = !{!7, !12, i64 8}
-!35 = !{!6, !17, i64 80}
-!36 = !{!9, !9, i64 0}
-!37 = distinct !{!37, !4}
-!38 = distinct !{!38, !4}
-!39 = !{!7, !12, i64 16}
-!40 = distinct !{!40, !4}
-!41 = distinct !{!41, !4}
-!42 = distinct !{!42, !4}
-!43 = distinct !{!43, !4}
-!44 = distinct !{!44, !4}
-!45 = distinct !{!45, !46, !4}
-!46 = !{!"llvm.loop.mustprogress"}
-!47 = distinct !{!47, !4}
-!48 = distinct !{!48, !46, !4}
-!49 = distinct !{!49, !4}
-!50 = !{!6, !12, i64 12}
-!51 = distinct !{!51, !4}
-!52 = distinct !{!52, !4}
-!53 = distinct !{!53, !4}
-!54 = !{!55, !17, i64 0}
-!55 = !{!"_lv_cache_slot_size_t", !17, i64 0}
-!56 = distinct !{!56, !4}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"p2 _ZTS13_lv_rb_node_t", !9, i64 0}
+!3 = !{!4, !7, i64 24}
+!4 = !{!"_lv_lru_rb_t", !5, i64 0, !13, i64 64, !16, i64 88, !7, i64 112}
+!5 = !{!"_lv_cache_t", !6, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !11, i64 24, !10, i64 48, !12, i64 56}
+!6 = !{!"p1 _ZTS17_lv_cache_class_t", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!"int", !8, i64 0}
+!11 = !{!"_lv_cache_ops_t", !7, i64 0, !7, i64 8, !7, i64 16}
+!12 = !{!"p1 omnipotent char", !7, i64 0}
+!13 = !{!"_lv_rb_t", !14, i64 0, !7, i64 8, !15, i64 16}
+!14 = !{!"p1 _ZTS13_lv_rb_node_t", !7, i64 0}
+!15 = !{!"long", !8, i64 0}
+!16 = !{!"", !10, i64 0, !12, i64 8, !12, i64 16}
+!17 = !{!4, !7, i64 40}
+!18 = !{!4, !10, i64 8}
+!19 = !{!4, !7, i64 112}
+!20 = !{!5, !6, i64 0}
+!21 = !{!22, !7, i64 56}
+!22 = !{!"_lv_cache_class_t", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !7, i64 72, !7, i64 80}
+!23 = !{!14, !14, i64 0}
+!24 = !{!25, !7, i64 32}
+!25 = !{!"_lv_rb_node_t", !14, i64 0, !14, i64 8, !14, i64 16, !10, i64 24, !7, i64 32}
+!26 = !{!5, !10, i64 8}
+!27 = !{!4, !15, i64 80}
+!28 = !{!7, !7, i64 0}
+!29 = !{!5, !10, i64 16}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.mustprogress"}
+!32 = distinct !{!32, !31}
+!33 = !{!4, !10, i64 12}
+!34 = !{!35, !15, i64 0}
+!35 = !{!"_lv_cache_slot_size_t", !15, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p2 _ZTS13_lv_rb_node_t", !7, i64 0}

@@ -235,7 +235,7 @@ rb_scan_args_set.exit:                            ; preds = %26
   %.sink = phi ptr [ %44, %48 ], [ %55, %56 ]
   %61 = inttoptr i64 %2 to ptr
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  store ptr %.sink, ptr %62, align 8, !tbaa !16
+  store ptr %.sink, ptr %62, align 8, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   ret i64 %2
@@ -267,7 +267,7 @@ define internal range(i64 0, 21) i64 @ossl_dsa_is_public(i64 noundef %0) #0 {
 10:                                               ; preds = %6
   %11 = tail call ptr @EVP_PKEY_get0_DSA(ptr noundef nonnull %3) #5
   call void @DSA_get0_key(ptr noundef %11, ptr noundef nonnull %2, ptr noundef null) #5
-  %12 = load ptr, ptr %2, align 8, !tbaa !20
+  %12 = load ptr, ptr %2, align 8, !tbaa !19
   %.not5 = icmp eq ptr %12, null
   %13 = select i1 %.not5, i64 0, i64 20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
@@ -300,7 +300,7 @@ define internal range(i64 0, 21) i64 @ossl_dsa_is_private(i64 noundef %0) #0 {
   %11 = tail call ptr @EVP_PKEY_get0_DSA(ptr noundef nonnull %3) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   call void @DSA_get0_key(ptr noundef %11, ptr noundef null, ptr noundef nonnull %2) #5
-  %12 = load ptr, ptr %2, align 8, !tbaa !20
+  %12 = load ptr, ptr %2, align 8, !tbaa !19
   %.not2.i = icmp eq ptr %12, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   br i1 %.not2.i, label %13, label %DSA_PRIVATE.exit.thread
@@ -314,7 +314,7 @@ define internal range(i64 0, 21) i64 @ossl_dsa_is_private(i64 noundef %0) #0 {
   %14 = call i64 @rb_intern2(ptr noundef nonnull @.str.25, i64 noundef 7) #5
   store i64 %14, ptr @DSA_PRIVATE.rbimpl_id, align 8, !tbaa !6
   %.not.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %DSA_PRIVATE.exit, !llvm.loop !22
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %DSA_PRIVATE.exit, !llvm.loop !21
 
 DSA_PRIVATE.exit:                                 ; preds = %.lr.ph.i.i, %13
   %.lcssa.i.i = phi i64 [ %.pr.i.i, %13 ], [ %14, %.lr.ph.i.i ]
@@ -355,7 +355,7 @@ define internal i64 @ossl_dsa_export(i32 noundef %0, ptr noundef %1, i64 noundef
   %13 = tail call ptr @EVP_PKEY_get0_DSA(ptr noundef nonnull %5) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   call void @DSA_get0_key(ptr noundef %13, ptr noundef null, ptr noundef nonnull %4) #5
-  %14 = load ptr, ptr %4, align 8, !tbaa !20
+  %14 = load ptr, ptr %4, align 8, !tbaa !19
   %.not12 = icmp eq ptr %14, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   br i1 %.not12, label %17, label %15
@@ -401,7 +401,7 @@ define internal i64 @ossl_dsa_to_der(i64 noundef %0) #0 {
   %11 = tail call ptr @EVP_PKEY_get0_DSA(ptr noundef nonnull %3) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   call void @DSA_get0_key(ptr noundef %11, ptr noundef null, ptr noundef nonnull %2) #5
-  %12 = load ptr, ptr %2, align 8, !tbaa !20
+  %12 = load ptr, ptr %2, align 8, !tbaa !19
   %.not10 = icmp eq ptr %12, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   br i1 %.not10, label %15, label %13
@@ -445,7 +445,7 @@ define internal i64 @ossl_dsa_get_p(i64 noundef %0) #0 {
 10:                                               ; preds = %6
   %11 = tail call ptr @EVP_PKEY_get0_DSA(ptr noundef nonnull %3) #5
   call void @DSA_get0_pqg(ptr noundef %11, ptr noundef nonnull %2, ptr noundef null, ptr noundef null) #5
-  %12 = load ptr, ptr %2, align 8, !tbaa !20
+  %12 = load ptr, ptr %2, align 8, !tbaa !19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
 
@@ -485,7 +485,7 @@ define internal i64 @ossl_dsa_get_q(i64 noundef %0) #0 {
 10:                                               ; preds = %6
   %11 = tail call ptr @EVP_PKEY_get0_DSA(ptr noundef nonnull %3) #5
   call void @DSA_get0_pqg(ptr noundef %11, ptr noundef null, ptr noundef nonnull %2, ptr noundef null) #5
-  %12 = load ptr, ptr %2, align 8, !tbaa !20
+  %12 = load ptr, ptr %2, align 8, !tbaa !19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
 
@@ -525,7 +525,7 @@ define internal i64 @ossl_dsa_get_g(i64 noundef %0) #0 {
 10:                                               ; preds = %6
   %11 = tail call ptr @EVP_PKEY_get0_DSA(ptr noundef nonnull %3) #5
   call void @DSA_get0_pqg(ptr noundef %11, ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #5
-  %12 = load ptr, ptr %2, align 8, !tbaa !20
+  %12 = load ptr, ptr %2, align 8, !tbaa !19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
 
@@ -565,7 +565,7 @@ define internal i64 @ossl_dsa_get_pub_key(i64 noundef %0) #0 {
 10:                                               ; preds = %6
   %11 = tail call ptr @EVP_PKEY_get0_DSA(ptr noundef nonnull %3) #5
   call void @DSA_get0_key(ptr noundef %11, ptr noundef nonnull %2, ptr noundef null) #5
-  %12 = load ptr, ptr %2, align 8, !tbaa !20
+  %12 = load ptr, ptr %2, align 8, !tbaa !19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
 
@@ -605,7 +605,7 @@ define internal i64 @ossl_dsa_get_priv_key(i64 noundef %0) #0 {
 10:                                               ; preds = %6
   %11 = tail call ptr @EVP_PKEY_get0_DSA(ptr noundef nonnull %3) #5
   call void @DSA_get0_key(ptr noundef %11, ptr noundef null, ptr noundef nonnull %2) #5
-  %12 = load ptr, ptr %2, align 8, !tbaa !20
+  %12 = load ptr, ptr %2, align 8, !tbaa !19
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
 
@@ -721,13 +721,12 @@ attributes #6 = { noreturn nounwind }
 !10 = !{!11, !11, i64 0}
 !11 = !{!"p1 long", !12, i64 0}
 !12 = !{!"any pointer", !8, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !12, i64 32}
-!17 = !{!"RTypedData", !18, i64 0, !19, i64 16, !7, i64 24, !12, i64 32}
-!18 = !{!"RBasic", !7, i64 0, !7, i64 8}
-!19 = !{!"p1 _ZTS19rb_data_type_struct", !12, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS9bignum_st", !12, i64 0}
-!22 = distinct !{!22, !14, !15}
+!15 = !{!16, !12, i64 32}
+!16 = !{!"RTypedData", !17, i64 0, !18, i64 16, !7, i64 24, !12, i64 32}
+!17 = !{!"RBasic", !7, i64 0, !7, i64 8}
+!18 = !{!"p1 _ZTS19rb_data_type_struct", !12, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS9bignum_st", !12, i64 0}
+!21 = distinct !{!21, !14}

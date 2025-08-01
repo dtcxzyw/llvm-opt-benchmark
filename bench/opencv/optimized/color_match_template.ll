@@ -1148,7 +1148,7 @@ define internal void @_ZL17UpdateThreshImageiPv(i32 %0, ptr noundef %1) #5 perso
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #10
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !41
+  %40 = load i32, ptr %39, align 8, !tbaa !40
   %41 = icmp slt i32 %40, 10
   br i1 %41, label %42, label %86
 
@@ -1157,7 +1157,7 @@ define internal void @_ZL17UpdateThreshImageiPv(i32 %0, ptr noundef %1) #5 perso
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader unwind label %55
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds = %42
-  %44 = load i32, ptr %39, align 8, !tbaa !41
+  %44 = load i32, ptr %39, align 8, !tbaa !40
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge
 
@@ -1195,14 +1195,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge: ; preds
 
 57:                                               ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38 ]
-  %58 = load i32, ptr %46, align 4, !tbaa !42
+  %58 = load i32, ptr %46, align 4, !tbaa !41
   %59 = sitofp i32 %58 to double
-  %60 = load ptr, ptr %47, align 8, !tbaa !43
-  %61 = load ptr, ptr %48, align 8, !tbaa !44
+  %60 = load ptr, ptr %47, align 8, !tbaa !42
+  %61 = load ptr, ptr %48, align 8, !tbaa !43
   %62 = load i64, ptr %61, align 8, !tbaa !10
   %63 = mul i64 %62, %indvars.iv
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 %63
-  %65 = load double, ptr %64, align 8, !tbaa !45
+  %65 = load double, ptr %64, align 8, !tbaa !44
   %66 = fsub double %59, %65
   %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %66)
           to label %_ZNSolsEd.exit unwind label %84
@@ -1212,15 +1212,15 @@ _ZNSolsEd.exit:                                   ; preds = %57
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36 unwind label %84
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36: ; preds = %_ZNSolsEd.exit
-  %69 = load i32, ptr %49, align 8, !tbaa !41
+  %69 = load i32, ptr %49, align 8, !tbaa !40
   %70 = sitofp i32 %69 to double
-  %71 = load ptr, ptr %47, align 8, !tbaa !43
-  %72 = load ptr, ptr %48, align 8, !tbaa !44
+  %71 = load ptr, ptr %47, align 8, !tbaa !42
+  %72 = load ptr, ptr %48, align 8, !tbaa !43
   %73 = load i64, ptr %72, align 8, !tbaa !10
   %74 = mul i64 %73, %indvars.iv
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = load double, ptr %76, align 8, !tbaa !45
+  %77 = load double, ptr %76, align 8, !tbaa !44
   %78 = fsub double %70, %77
   %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %78)
           to label %_ZNSolsEd.exit37 unwind label %84
@@ -1231,10 +1231,10 @@ _ZNSolsEd.exit37:                                 ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit38: ; preds = %_ZNSolsEd.exit37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = load i32, ptr %39, align 8, !tbaa !41
+  %81 = load i32, ptr %39, align 8, !tbaa !40
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %57, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge, !llvm.loop !47
+  br i1 %83, label %57, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit._crit_edge, !llvm.loop !46
 
 84:                                               ; preds = %_ZNSolsEd.exit37, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36, %_ZNSolsEd.exit, %57
   %85 = landingpad { ptr, i32 }
@@ -1467,13 +1467,12 @@ attributes #11 = { builtin nounwind }
 !35 = !{!"p1 int", !7, i64 0}
 !36 = !{!"_ZTSN2cv7MatStepE", !37, i64 0, !8, i64 8}
 !37 = !{!"p1 long", !7, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!31, !24, i64 8}
-!42 = !{!31, !24, i64 12}
-!43 = !{!31, !6, i64 16}
-!44 = !{!31, !37, i64 72}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"double", !8, i64 0}
-!47 = distinct !{!47, !39, !40}
+!40 = !{!31, !24, i64 8}
+!41 = !{!31, !24, i64 12}
+!42 = !{!31, !6, i64 16}
+!43 = !{!31, !37, i64 72}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"double", !8, i64 0}
+!46 = distinct !{!46, !39}

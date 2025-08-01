@@ -1532,7 +1532,7 @@ declare void @copy_pathspec(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal void @update_index_from_diff(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !106
+  %5 = load i32, ptr %4, align 4, !tbaa !105
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -1543,12 +1543,12 @@ define internal void @update_index_from_diff(ptr noundef readonly captures(none)
 
 9:                                                ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
-  %10 = load ptr, ptr %0, align 8, !tbaa !109
+  %10 = load ptr, ptr %0, align 8, !tbaa !108
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !110
-  %13 = load ptr, ptr %12, align 8, !tbaa !112
+  %12 = load ptr, ptr %11, align 8, !tbaa !109
+  %13 = load ptr, ptr %12, align 8, !tbaa !111
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %15 = load i16, ptr %14, align 8, !tbaa !116
+  %15 = load i16, ptr %14, align 8, !tbaa !115
   %.not = icmp eq i16 %15, 0
   br i1 %.not, label %17, label %16
 
@@ -1567,19 +1567,19 @@ define internal void @update_index_from_diff(ptr noundef readonly captures(none)
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !119
+  %24 = load ptr, ptr %23, align 8, !tbaa !118
   %25 = tail call i32 @remove_file_from_index(ptr noundef %21, ptr noundef %24) #13
   br label %73
 
 26:                                               ; preds = %17
   %27 = zext i16 %15 to i32
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !119
+  %29 = load ptr, ptr %28, align 8, !tbaa !118
   %30 = tail call ptr @make_cache_entry(ptr noundef %21, i32 noundef %27, ptr noundef nonnull %13, ptr noundef %29, i32 noundef 0, i32 noundef 0) #13
   %31 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 384
   %33 = load ptr, ptr %32, align 8, !tbaa !51
-  %34 = load ptr, ptr %28, align 8, !tbaa !119
+  %34 = load ptr, ptr %28, align 8, !tbaa !118
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #15
   %36 = trunc i64 %35 to i32
   %37 = tail call i32 @index_name_pos(ptr noundef %33, ptr noundef nonnull %34, i32 noundef %36) #13
@@ -1590,10 +1590,10 @@ define internal void @update_index_from_diff(ptr noundef readonly captures(none)
   %40 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 384
   %42 = load ptr, ptr %41, align 8, !tbaa !51
-  %43 = load ptr, ptr %42, align 8, !tbaa !120
+  %43 = load ptr, ptr %42, align 8, !tbaa !119
   %44 = zext nneg i32 %37 to i64
   %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
-  %46 = load ptr, ptr %45, align 8, !tbaa !121
+  %46 = load ptr, ptr %45, align 8, !tbaa !120
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %48 = load i32, ptr %47, align 8, !tbaa !4
   %49 = and i32 %48, 1073741824
@@ -1601,7 +1601,7 @@ define internal void @update_index_from_diff(ptr noundef readonly captures(none)
   br i1 %.not30, label %59, label %.thread33
 
 50:                                               ; preds = %26
-  %51 = load ptr, ptr %28, align 8, !tbaa !119
+  %51 = load ptr, ptr %28, align 8, !tbaa !118
   %52 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 384
   %54 = load ptr, ptr %53, align 8, !tbaa !51
@@ -1622,7 +1622,7 @@ define internal void @update_index_from_diff(ptr noundef readonly captures(none)
 
 60:                                               ; preds = %59
   %61 = tail call fastcc ptr @_(ptr noundef nonnull @.str.59)
-  %62 = load ptr, ptr %28, align 8, !tbaa !119
+  %62 = load ptr, ptr %28, align 8, !tbaa !118
   tail call void (ptr, ...) @die(ptr noundef %61, ptr noundef %62) #14
   unreachable
 
@@ -1646,10 +1646,10 @@ define internal void @update_index_from_diff(ptr noundef readonly captures(none)
 
 73:                                               ; preds = %68, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %74 = load i32, ptr %4, align 4, !tbaa !106
+  %74 = load i32, ptr %4, align 4, !tbaa !105
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next, %75
-  br i1 %76, label %9, label %._crit_edge, !llvm.loop !122
+  br i1 %76, label %9, label %._crit_edge, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %73, %3
   ret void
@@ -1850,23 +1850,22 @@ attributes #15 = { nounwind willreturn memory(read) }
 !100 = !{!101, !10, i64 8}
 !101 = !{!"tree_desc", !43, i64 0, !10, i64 8, !102, i64 16, !5, i64 72, !5, i64 76}
 !102 = !{!"name_entry", !49, i64 0, !9, i64 40, !5, i64 48, !5, i64 52}
-!103 = distinct !{!103, !104, !105}
+!103 = distinct !{!103, !104}
 !104 = !{!"llvm.loop.mustprogress"}
-!105 = !{!"llvm.loop.estimated_trip_count"}
-!106 = !{!107, !5, i64 12}
-!107 = !{!"diff_queue_struct", !108, i64 0, !5, i64 8, !5, i64 12}
-!108 = !{!"p2 _ZTS13diff_filepair", !10, i64 0}
-!109 = !{!107, !108, i64 0}
-!110 = !{!111, !111, i64 0}
-!111 = !{!"p1 _ZTS13diff_filepair", !10, i64 0}
-!112 = !{!113, !114, i64 0}
-!113 = !{!"diff_filepair", !114, i64 0, !114, i64 8, !115, i64 16, !6, i64 18, !5, i64 19, !5, i64 19, !5, i64 19, !5, i64 19, !5, i64 19}
-!114 = !{!"p1 _ZTS13diff_filespec", !10, i64 0}
-!115 = !{!"short", !6, i64 0}
-!116 = !{!117, !115, i64 80}
-!117 = !{!"diff_filespec", !49, i64 0, !9, i64 40, !10, i64 48, !10, i64 56, !13, i64 64, !5, i64 72, !5, i64 76, !115, i64 80, !5, i64 82, !5, i64 82, !5, i64 82, !5, i64 82, !5, i64 82, !5, i64 82, !5, i64 82, !118, i64 88}
-!118 = !{!"p1 _ZTS15userdiff_driver", !10, i64 0}
-!119 = !{!117, !9, i64 40}
-!120 = !{!80, !81, i64 0}
-!121 = !{!76, !76, i64 0}
-!122 = distinct !{!122, !104, !105}
+!105 = !{!106, !5, i64 12}
+!106 = !{!"diff_queue_struct", !107, i64 0, !5, i64 8, !5, i64 12}
+!107 = !{!"p2 _ZTS13diff_filepair", !10, i64 0}
+!108 = !{!106, !107, i64 0}
+!109 = !{!110, !110, i64 0}
+!110 = !{!"p1 _ZTS13diff_filepair", !10, i64 0}
+!111 = !{!112, !113, i64 0}
+!112 = !{!"diff_filepair", !113, i64 0, !113, i64 8, !114, i64 16, !6, i64 18, !5, i64 19, !5, i64 19, !5, i64 19, !5, i64 19, !5, i64 19}
+!113 = !{!"p1 _ZTS13diff_filespec", !10, i64 0}
+!114 = !{!"short", !6, i64 0}
+!115 = !{!116, !114, i64 80}
+!116 = !{!"diff_filespec", !49, i64 0, !9, i64 40, !10, i64 48, !10, i64 56, !13, i64 64, !5, i64 72, !5, i64 76, !114, i64 80, !5, i64 82, !5, i64 82, !5, i64 82, !5, i64 82, !5, i64 82, !5, i64 82, !5, i64 82, !117, i64 88}
+!117 = !{!"p1 _ZTS15userdiff_driver", !10, i64 0}
+!118 = !{!116, !9, i64 40}
+!119 = !{!80, !81, i64 0}
+!120 = !{!76, !76, i64 0}
+!121 = distinct !{!121, !104}

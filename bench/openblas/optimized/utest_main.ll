@@ -456,7 +456,7 @@ define range(i32 -2147483647, -2147483648) i32 @ctest_main(i32 noundef %0, ptr n
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   %12 = load ptr, ptr %11, align 8, !tbaa !7
   store ptr %12, ptr %test_name.sink, align 8, !tbaa !7
-  store ptr %suite_test_filter.sink, ptr @ctest_main.filter, align 8, !tbaa !16
+  store ptr %suite_test_filter.sink, ptr @ctest_main.filter, align 8, !tbaa !15
   br label %13
 
 13:                                               ; preds = %.sink.split, %2
@@ -464,24 +464,24 @@ define range(i32 -2147483647, -2147483648) i32 @ctest_main(i32 noundef %0, ptr n
   store i32 %14, ptr @color_output, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #15
   %15 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #15
-  %16 = load i64, ptr %4, align 8, !tbaa !17
+  %16 = load i64, ptr %4, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !19
+  %18 = load i64, ptr %17, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
   br label %19
 
 19:                                               ; preds = %select.unfold.i, %13
   %.022.i = phi ptr [ @__ctest_suite_test_pointer, %13 ], [ %20, %select.unfold.i ]
   %20 = getelementptr inbounds i8, ptr %.022.i, i64 -16
-  %21 = load ptr, ptr %20, align 8, !tbaa !20
+  %21 = load ptr, ptr %20, align 8, !tbaa !19
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.preheader.i.preheader, label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %19
   %23 = getelementptr inbounds i8, ptr %.022.i, i64 -8
-  %24 = load ptr, ptr %23, align 8, !tbaa !20
+  %24 = load ptr, ptr %23, align 8, !tbaa !19
   %.not.i = icmp eq ptr %24, inttoptr (i64 3735928559 to ptr)
-  br i1 %.not.i, label %19, label %.preheader.i.preheader, !llvm.loop !22
+  br i1 %.not.i, label %19, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %select.unfold.i, %19
   br label %.preheader.i
@@ -489,15 +489,15 @@ select.unfold.i:                                  ; preds = %19
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %28
   %.025.i = phi ptr [ %25, %28 ], [ @__ctest_suite_test_pointer, %.preheader.i.preheader ]
   %25 = getelementptr inbounds nuw i8, ptr %.025.i, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !20
+  %26 = load ptr, ptr %25, align 8, !tbaa !19
   %27 = icmp eq ptr %26, null
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %.preheader.i
   %29 = getelementptr inbounds nuw i8, ptr %.025.i, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !20
+  %30 = load ptr, ptr %29, align 8, !tbaa !19
   %.not29.i = icmp eq ptr %30, inttoptr (i64 3735928559 to ptr)
-  br i1 %.not29.i, label %.preheader.i, label %31, !llvm.loop !23
+  br i1 %.not29.i, label %.preheader.i, label %31
 
 31:                                               ; preds = %28, %.preheader.i
   %.not3040.i = icmp eq ptr %.022.i, %25
@@ -508,35 +508,35 @@ select.unfold.i:                                  ; preds = %19
   br i1 %32, label %._crit_edge.loopexit.i, label %.lr.ph.i.preheader43
 
 .lr.ph.i.preheader43:                             ; preds = %.lr.ph.i.preheader
-  %.pre = load ptr, ptr %.022.i, align 8, !tbaa !20
+  %.pre = load ptr, ptr %.022.i, align 8, !tbaa !19
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader43, %.lr.ph.i
   %33 = phi ptr [ %35, %.lr.ph.i ], [ %.pre, %.lr.ph.i.preheader43 ]
   %.02141.i32 = phi ptr [ %34, %.lr.ph.i ], [ %.022.i, %.lr.ph.i.preheader43 ]
   %34 = getelementptr inbounds nuw i8, ptr %.02141.i32, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !20
+  %35 = load ptr, ptr %34, align 8, !tbaa !19
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 56
-  store ptr %35, ptr %36, align 8, !tbaa !24
+  store ptr %35, ptr %36, align 8, !tbaa !21
   %37 = icmp eq ptr %34, %.025.i
   br i1 %37, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.02141.i.lcssa = phi ptr [ %.022.i, %.lr.ph.i.preheader ], [ %.025.i, %.lr.ph.i ]
-  %38 = load ptr, ptr %.02141.i.lcssa, align 8, !tbaa !20
+  %38 = load ptr, ptr %.02141.i.lcssa, align 8, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  store ptr null, ptr %39, align 8, !tbaa !24
+  store ptr null, ptr %39, align 8, !tbaa !21
   br label %__ctest_linkTests.exit
 
 __ctest_linkTests.exit:                           ; preds = %31, %._crit_edge.loopexit.i
-  store ptr %.022.i, ptr @__ctest_head_p, align 8, !tbaa !26
-  %storemerge33 = load ptr, ptr %.022.i, align 8, !tbaa !20
-  store ptr %storemerge33, ptr @ctest_main.test, align 8, !tbaa !20
+  store ptr %.022.i, ptr @__ctest_head_p, align 8, !tbaa !23
+  %storemerge33 = load ptr, ptr %.022.i, align 8, !tbaa !19
+  store ptr %storemerge33, ptr @ctest_main.test, align 8, !tbaa !19
   %.not1334 = icmp eq ptr %storemerge33, null
   br i1 %.not1334, label %._crit_edge.thread, label %.lr.ph36
 
 ._crit_edge.thread:                               ; preds = %__ctest_linkTests.exit
-  store ptr null, ptr @ctest_main.test, align 8, !tbaa !20
+  store ptr null, ptr @ctest_main.test, align 8, !tbaa !19
   br label %._crit_edge42
 
 .lr.ph36:                                         ; preds = %__ctest_linkTests.exit, %47
@@ -545,8 +545,8 @@ __ctest_linkTests.exit:                           ; preds = %31, %._crit_edge.lo
   br i1 %40, label %47, label %41
 
 41:                                               ; preds = %.lr.ph36
-  %42 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !16
-  %43 = call i32 %42(ptr noundef nonnull %storemerge35) #15, !callees !28
+  %42 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !15
+  %43 = call i32 %42(ptr noundef nonnull %storemerge35) #15, !callees !25
   %.not22 = icmp eq i32 %43, 0
   br i1 %.not22, label %47, label %44
 
@@ -557,17 +557,17 @@ __ctest_linkTests.exit:                           ; preds = %31, %._crit_edge.lo
   br label %47
 
 47:                                               ; preds = %41, %44, %.lr.ph36
-  %48 = load ptr, ptr @ctest_main.test, align 8, !tbaa !20
+  %48 = load ptr, ptr @ctest_main.test, align 8, !tbaa !19
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  %storemerge = load ptr, ptr %49, align 8, !tbaa !20
-  store ptr %storemerge, ptr @ctest_main.test, align 8, !tbaa !20
+  %storemerge = load ptr, ptr %49, align 8, !tbaa !19
+  store ptr %storemerge, ptr @ctest_main.test, align 8, !tbaa !19
   %.not13 = icmp eq ptr %storemerge, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph36, !llvm.loop !29
+  br i1 %.not13, label %._crit_edge, label %.lr.ph36, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %47
-  %.pre45 = load ptr, ptr @__ctest_head_p, align 8, !tbaa !26
-  %storemerge1437.pre = load ptr, ptr %.pre45, align 8, !tbaa !20
-  store ptr %storemerge1437.pre, ptr @ctest_main.test, align 8, !tbaa !20
+  %.pre45 = load ptr, ptr @__ctest_head_p, align 8, !tbaa !23
+  %storemerge1437.pre = load ptr, ptr %.pre45, align 8, !tbaa !19
+  store ptr %storemerge1437.pre, ptr @ctest_main.test, align 8, !tbaa !19
   %.not1538 = icmp eq ptr %storemerge1437.pre, null
   br i1 %.not1538, label %._crit_edge42, label %.lr.ph41
 
@@ -577,10 +577,10 @@ __ctest_linkTests.exit:                           ; preds = %31, %._crit_edge.lo
   br i1 %50, label %112, label %51
 
 51:                                               ; preds = %.lr.ph41
-  %52 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !16
-  %53 = call i32 %52(ptr noundef nonnull %storemerge1439) #15, !callees !28
+  %52 = load ptr, ptr @ctest_main.filter, align 8, !tbaa !15
+  %53 = call i32 %52(ptr noundef nonnull %storemerge1439) #15, !callees !25
   %.not16 = icmp eq i32 %53, 0
-  %.pre49 = load ptr, ptr @ctest_main.test, align 8, !tbaa !20
+  %.pre49 = load ptr, ptr @ctest_main.test, align 8, !tbaa !19
   br i1 %.not16, label %112, label %54
 
 54:                                               ; preds = %51
@@ -589,15 +589,15 @@ __ctest_linkTests.exit:                           ; preds = %31, %._crit_edge.lo
   store ptr @ctest_errorbuffer, ptr @ctest_errormsg, align 8, !tbaa !7
   %55 = load i32, ptr @ctest_main.index, align 4, !tbaa !3
   %56 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
-  %57 = load ptr, ptr %.pre49, align 8, !tbaa !30
+  %57 = load ptr, ptr %.pre49, align 8, !tbaa !27
   %58 = getelementptr inbounds nuw i8, ptr %.pre49, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !31
+  %59 = load ptr, ptr %58, align 8, !tbaa !28
   %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %55, i32 noundef %56, ptr noundef %57, ptr noundef %59)
-  %61 = load ptr, ptr @stdout, align 8, !tbaa !32
+  %61 = load ptr, ptr @stdout, align 8, !tbaa !29
   %62 = call i32 @fflush(ptr noundef %61)
-  %63 = load ptr, ptr @ctest_main.test, align 8, !tbaa !20
+  %63 = load ptr, ptr @ctest_main.test, align 8, !tbaa !19
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  %65 = load i32, ptr %64, align 8, !tbaa !34
+  %65 = load i32, ptr %64, align 8, !tbaa !31
   %.not17 = icmp eq i32 %65, 0
   br i1 %.not17, label %73, label %66
 
@@ -626,26 +626,26 @@ color_print.exit:                                 ; preds = %68, %70
   br i1 %75, label %76, label %99
 
 76:                                               ; preds = %73
-  %77 = load ptr, ptr @ctest_main.test, align 8, !tbaa !20
+  %77 = load ptr, ptr @ctest_main.test, align 8, !tbaa !19
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  %79 = load ptr, ptr %78, align 8, !tbaa !35
+  %79 = load ptr, ptr %78, align 8, !tbaa !32
   %.not18 = icmp eq ptr %79, null
   br i1 %.not18, label %83, label %80
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %82 = load ptr, ptr %81, align 8, !tbaa !36
+  %82 = load ptr, ptr %81, align 8, !tbaa !33
   call void %79(ptr noundef %82) #15
-  %.pre47 = load ptr, ptr @ctest_main.test, align 8, !tbaa !20
+  %.pre47 = load ptr, ptr @ctest_main.test, align 8, !tbaa !19
   br label %83
 
 83:                                               ; preds = %80, %76
   %84 = phi ptr [ %.pre47, %80 ], [ %77, %76 ]
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %86 = load ptr, ptr %85, align 8, !tbaa !36
+  %86 = load ptr, ptr %85, align 8, !tbaa !33
   %.not19 = icmp eq ptr %86, null
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %88 = load ptr, ptr %87, align 8, !tbaa !37
+  %88 = load ptr, ptr %87, align 8, !tbaa !34
   br i1 %.not19, label %90, label %89
 
 89:                                               ; preds = %83
@@ -657,15 +657,15 @@ color_print.exit:                                 ; preds = %68, %70
   br label %91
 
 91:                                               ; preds = %90, %89
-  %92 = load ptr, ptr @ctest_main.test, align 8, !tbaa !20
+  %92 = load ptr, ptr @ctest_main.test, align 8, !tbaa !19
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
-  %94 = load ptr, ptr %93, align 8, !tbaa !38
+  %94 = load ptr, ptr %93, align 8, !tbaa !35
   %.not20 = icmp eq ptr %94, null
   br i1 %.not20, label %98, label %95
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  %97 = load ptr, ptr %96, align 8, !tbaa !36
+  %97 = load ptr, ptr %96, align 8, !tbaa !33
   call void %94(ptr noundef %97) #15
   br label %98
 
@@ -703,23 +703,23 @@ color_print.exit26:                               ; preds = %103, %101, %98
   %110 = load i32, ptr @ctest_main.index, align 4, !tbaa !3
   %111 = add nsw i32 %110, 1
   store i32 %111, ptr @ctest_main.index, align 4, !tbaa !3
-  %.pre48 = load ptr, ptr @ctest_main.test, align 8, !tbaa !20
+  %.pre48 = load ptr, ptr @ctest_main.test, align 8, !tbaa !19
   br label %112
 
 112:                                              ; preds = %51, %109, %.lr.ph41
   %113 = phi ptr [ %.pre49, %51 ], [ %.pre48, %109 ], [ @__ctest_suite_test, %.lr.ph41 ]
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 56
-  %storemerge14 = load ptr, ptr %114, align 8, !tbaa !20
-  store ptr %storemerge14, ptr @ctest_main.test, align 8, !tbaa !20
+  %storemerge14 = load ptr, ptr %114, align 8, !tbaa !19
+  store ptr %storemerge14, ptr @ctest_main.test, align 8, !tbaa !19
   %.not15 = icmp eq ptr %storemerge14, null
-  br i1 %.not15, label %._crit_edge42, label %.lr.ph41, !llvm.loop !39
+  br i1 %.not15, label %._crit_edge42, label %.lr.ph41, !llvm.loop !36
 
 ._crit_edge42:                                    ; preds = %112, %._crit_edge.thread, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
   %115 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #15
-  %116 = load i64, ptr %3, align 8, !tbaa !17
+  %116 = load i64, ptr %3, align 8, !tbaa !16
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %118 = load i64, ptr %117, align 8, !tbaa !19
+  %118 = load i64, ptr %117, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
   %119 = load i32, ptr @ctest_main.total, align 4, !tbaa !3
   %120 = load i32, ptr @ctest_main.num_ok, align 4, !tbaa !3
@@ -778,7 +778,7 @@ define internal void @sighandler(i32 noundef %0) #6 {
   br label %color_print.exit
 
 color_print.exit:                                 ; preds = %6, %8
-  %9 = load ptr, ptr @stdout, align 8, !tbaa !32
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !29
   %10 = call i32 @fflush(ptr noundef %9)
   %11 = call ptr @signal(i32 noundef %0, ptr noundef null) #15
   %12 = call i32 @getpid() #15
@@ -790,7 +790,7 @@ color_print.exit:                                 ; preds = %6, %8
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @suite_filter(ptr noundef readonly captures(none) %0) #10 {
   %2 = load ptr, ptr @suite_name, align 8, !tbaa !7
-  %3 = load ptr, ptr %0, align 8, !tbaa !30
+  %3 = load ptr, ptr %0, align 8, !tbaa !27
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %5 = tail call i32 @strncmp(ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) #17
   %6 = icmp eq i32 %5, 0
@@ -801,12 +801,12 @@ define internal range(i32 0, 2) i32 @suite_filter(ptr noundef readonly captures(
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @suite_test_filter(ptr noundef readonly captures(none) %0) #10 {
   %2 = load ptr, ptr @suite_name, align 8, !tbaa !7
-  %3 = load ptr, ptr %0, align 8, !tbaa !30
+  %3 = load ptr, ptr %0, align 8, !tbaa !27
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   %5 = tail call i32 @strncmp(ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) #17
   %6 = load ptr, ptr @test_name, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !31
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #17
   %10 = tail call i32 @strncmp(ptr noundef nonnull %6, ptr noundef %8, i64 noundef %9) #17
   %11 = or i32 %10, %5
@@ -941,30 +941,27 @@ attributes #18 = { nounwind returns_twice }
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !5, i64 0}
 !12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!9, !9, i64 0}
-!17 = !{!18, !11, i64 0}
-!18 = !{!"timeval", !11, i64 0, !11, i64 8}
-!19 = !{!18, !11, i64 8}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS5ctest", !9, i64 0}
-!22 = distinct !{!22, !15}
-!23 = distinct !{!23, !15}
-!24 = !{!25, !21, i64 56}
-!25 = !{!"ctest", !8, i64 0, !8, i64 8, !9, i64 16, !4, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !21, i64 56, !4, i64 64}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p2 _ZTS5ctest", !9, i64 0}
-!28 = !{ptr @suite_all, ptr @suite_filter, ptr @suite_test_filter}
-!29 = distinct !{!29, !14, !15}
-!30 = !{!25, !8, i64 0}
-!31 = !{!25, !8, i64 8}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!34 = !{!25, !4, i64 24}
-!35 = !{!25, !9, i64 40}
-!36 = !{!25, !9, i64 32}
-!37 = !{!25, !9, i64 16}
-!38 = !{!25, !9, i64 48}
-!39 = distinct !{!39, !14, !15}
+!15 = !{!9, !9, i64 0}
+!16 = !{!17, !11, i64 0}
+!17 = !{!"timeval", !11, i64 0, !11, i64 8}
+!18 = !{!17, !11, i64 8}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS5ctest", !9, i64 0}
+!21 = !{!22, !20, i64 56}
+!22 = !{!"ctest", !8, i64 0, !8, i64 8, !9, i64 16, !4, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !20, i64 56, !4, i64 64}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p2 _ZTS5ctest", !9, i64 0}
+!25 = !{ptr @suite_all, ptr @suite_filter, ptr @suite_test_filter}
+!26 = distinct !{!26, !14}
+!27 = !{!22, !8, i64 0}
+!28 = !{!22, !8, i64 8}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!31 = !{!22, !4, i64 24}
+!32 = !{!22, !9, i64 40}
+!33 = !{!22, !9, i64 32}
+!34 = !{!22, !9, i64 16}
+!35 = !{!22, !9, i64 48}
+!36 = distinct !{!36, !14}

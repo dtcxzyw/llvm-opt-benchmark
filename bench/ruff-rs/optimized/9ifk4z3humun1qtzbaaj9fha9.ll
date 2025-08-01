@@ -530,7 +530,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit29.i: ; preds = %"_ZN5alloc
   %222 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %213, i64 %221)
   %223 = extractvalue { i64, i1 } %222, 1
   %224 = add nuw i64 %213, %221
-  br i1 %223, label %.loopexit.i, label %.preheader44.i.i, !llvm.loop !87
+  br i1 %223, label %.loopexit.i, label %.preheader44.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %229
   %.sroa.01.153.i.i = phi ptr [ %232, %229 ], [ %.sroa.01.153.i.i.ph, %.lr.ph.i.i.preheader ]
@@ -549,7 +549,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit29.i: ; preds = %"_ZN5alloc
   %233 = zext nneg i32 %227 to i64
   %234 = add i64 %230, %233
   %.not42.i.i = icmp eq i64 %231, 0
-  br i1 %.not42.i.i, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit.i", label %.lr.ph.i.i, !llvm.loop !89
+  br i1 %.not42.i.i, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit.i", label %.lr.ph.i.i
 
 235:                                              ; preds = %152, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit.i"
   %.sroa.10.sroa.10.sroa.0.1 = phi i56 [ %.sroa.10.sroa.10.0.extract.trunc, %"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E.exit.i" ], [ undef, %152 ]
@@ -753,6 +753,3 @@ attributes #10 = { cold noreturn nounwind }
 !84 = distinct !{!84, !"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E"}
 !85 = !{!86, !32, !29}
 !86 = distinct !{!86, !84, !"_ZN4core3num23_$LT$impl$u20$usize$GT$16from_ascii_radix17hc106fb2194a84924E: argument 0"}
-!87 = distinct !{!87, !88}
-!88 = !{!"llvm.loop.estimated_trip_count"}
-!89 = distinct !{!89, !88}

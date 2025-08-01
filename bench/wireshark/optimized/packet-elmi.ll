@@ -327,7 +327,7 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
 81:                                               ; preds = %.lr.ph7.i
   %82 = add i32 %85, %.26.i
   %83 = icmp slt i32 %82, %79
-  br i1 %83, label %.lr.ph7.i, label %dissect_elmi_info_elem.exit, !llvm.loop !9
+  br i1 %83, label %.lr.ph7.i, label %dissect_elmi_info_elem.exit, !llvm.loop !8
 
 .lr.ph7.i:                                        ; preds = %71, %81
   %.26.i = phi i32 [ %82, %81 ], [ %77, %71 ]
@@ -358,7 +358,7 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
 104:                                              ; preds = %.lr.ph.i
   %105 = add i32 %108, %.33.i
   %106 = icmp slt i32 %105, %102
-  br i1 %106, label %.lr.ph.i, label %dissect_elmi_info_elem.exit, !llvm.loop !10
+  br i1 %106, label %.lr.ph.i, label %dissect_elmi_info_elem.exit, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %87, %104
   %.33.i = phi i32 [ %105, %104 ], [ %100, %87 ]
@@ -379,7 +379,7 @@ dissect_elmi_info_elem.exit:                      ; preds = %104, %.lr.ph.i, %81
   call void @proto_item_set_len(ptr noundef %113, i32 noundef %114)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   %115 = icmp slt i32 %114, 1
-  br i1 %115, label %.loopexit, label %22, !llvm.loop !11
+  br i1 %115, label %.loopexit, label %22, !llvm.loop !10
 
 .loopexit:                                        ; preds = %dissect_elmi_info_elem.exit, %22, %dissect_elmi_info_elem.exit.thread
   %116 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -493,7 +493,7 @@ define internal fastcc noundef i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i
   %34 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %33, ptr noundef %0, i32 noundef %.1115, i32 noundef 2, i32 noundef 0)
   %35 = add i32 %.1115, 2
   %36 = icmp slt i32 %35, %19
-  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 37:                                               ; preds = %3
   %38 = load i32, ptr @hf_elmi_sub_info_color_mode_flag, align 4
@@ -575,10 +575,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

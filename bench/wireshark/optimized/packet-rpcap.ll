@@ -839,7 +839,7 @@ dissect_rpcap_auth_reply.exit:                    ; preds = %147, %149
 205:                                              ; preds = %.lr.ph.i.i
   %206 = add nuw i16 %.06166.i.i, 1
   %exitcond.not.i.i = icmp eq i16 %206, %184
-  br i1 %exitcond.not.i.i, label %dissect_rpcap_findalldevs_if.exit.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %dissect_rpcap_findalldevs_if.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %204, %205
   %.267.i.i = phi i32 [ %218, %205 ], [ %.1.i.i, %204 ]
@@ -944,7 +944,7 @@ dissect_rpcap_auth_request.exit:                  ; preds = %146, %145, %144, %1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_rpcap_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = load i8, ptr @rpcap_desegment, align 1, !range !10, !noundef !11
+  %5 = load i8, ptr @rpcap_desegment, align 1, !range !9, !noundef !10
   %6 = trunc nuw i8 %5 to i1
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %6, i32 noundef 8, ptr noundef nonnull @get_rpcap_pdu_len, ptr noundef nonnull @dissect_rpcap, ptr noundef %3)
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1022,7 +1022,7 @@ define internal noundef zeroext i1 @dissect_rpcap_heur_tcp(ptr noundef %0, ptr n
   br label %12
 
 12:                                               ; preds = %8, %6
-  %13 = load i8, ptr @rpcap_desegment, align 1, !range !10, !noundef !11
+  %13 = load i8, ptr @rpcap_desegment, align 1, !range !9, !noundef !10
   %14 = trunc nuw i8 %13 to i1
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %14, i32 noundef 8, ptr noundef nonnull @get_rpcap_pdu_len, ptr noundef nonnull @dissect_rpcap, ptr noundef %3)
   br label %15
@@ -1096,7 +1096,7 @@ define internal fastcc void @dissect_rpcap_filter(ptr noundef %0, ptr noundef %1
 19:                                               ; preds = %dissect_rpcap_filterbpf_insn.exit
   %20 = add nuw i32 %.030, 1
   %exitcond.not = icmp eq i32 %20, %15
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %.030 = phi i32 [ %20, %19 ], [ 0, %.lr.ph.preheader ]
@@ -1209,7 +1209,7 @@ define internal fastcc void @dissect_rpcap_packet(ptr noundef %0, ptr noundef %1
 
 29:                                               ; preds = %5
   %30 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef 28, i32 noundef %16, i32 noundef %19)
-  %31 = load i8, ptr @decode_content, align 1, !range !10, !noundef !11
+  %31 = load i8, ptr @decode_content, align 1, !range !9, !noundef !10
   %32 = trunc nuw i8 %31 to i1
   %33 = load i32, ptr @linktype, align 4
   %34 = icmp ne i32 %33, -1
@@ -1712,10 +1712,9 @@ attributes #8 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}

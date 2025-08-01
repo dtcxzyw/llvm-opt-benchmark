@@ -5271,7 +5271,7 @@ dissect_ptp_v2_text.exit749:                      ; preds = %dissect_ptp_v2_text
   store i32 %596, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %56
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph772, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph772, !llvm.loop !10
 
 597:                                              ; preds = %49
   %598 = load i32, ptr @hf_ptp_v2_mm_ptEN, align 4
@@ -6348,7 +6348,7 @@ proto_item_set_generated.exit755:                 ; preds = %953, %1007, %1010
   store i32 %1401, ptr %9, align 4
   %1402 = add i32 %1400, 16
   %.not737 = icmp sgt i32 %1402, %1395
-  br i1 %.not737, label %dissect_ptp_v2_text.exit757.thread, label %.lr.ph, !llvm.loop !12
+  br i1 %.not737, label %dissect_ptp_v2_text.exit757.thread, label %.lr.ph, !llvm.loop !11
 
 1403:                                             ; preds = %23
   %1404 = load i32, ptr %9, align 4
@@ -6710,7 +6710,7 @@ dissect_ptp_v2_text.exit757.thread._crit_edge:    ; preds = %dissect_ptp_v2_text
   %1678 = phi i32 [ %1672, %dissect_ptp_v2_text.exit757.thread._crit_edge ], [ %1674, %1676 ]
   %1679 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1678)
   %1680 = icmp slt i32 %1679, 4
-  br i1 %1680, label %._crit_edge778.loopexit, label %23, !llvm.loop !13
+  br i1 %1680, label %._crit_edge778.loopexit, label %23
 
 ._crit_edge778.loopexit:                          ; preds = %1677
   %1681 = trunc nuw i8 %.2760 to i1
@@ -7016,9 +7016,7 @@ attributes #11 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

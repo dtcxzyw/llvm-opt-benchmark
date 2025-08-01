@@ -675,7 +675,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !46
+  %12 = load ptr, ptr %11, align 8, !tbaa !45
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -859,7 +859,7 @@ define void @_ZNK3gmx18nonbonded_verlet_t23dispatchNonbondedKernelENS_19Interact
   %16 = alloca %"class.gmx::ArrayRef.143", align 8
   %17 = alloca ptr, align 8
   %18 = alloca %"class.gmx::ArrayRef.6", align 8
-  %19 = load ptr, ptr %0, align 8, !tbaa !47
+  %19 = load ptr, ptr %0, align 8, !tbaa !46
   %20 = icmp eq i32 %1, 0
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %22 = load ptr, ptr %21, align 8
@@ -867,7 +867,7 @@ define void @_ZNK3gmx18nonbonded_verlet_t23dispatchNonbondedKernelENS_19Interact
   %24 = load ptr, ptr %23, align 8
   %.0.i = select i1 %20, ptr %22, ptr %24
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = load i32, ptr %25, align 8, !tbaa !49
+  %26 = load i32, ptr %25, align 8, !tbaa !48
   switch i32 %26, label %112 [
     i32 1, label %27
     i32 2, label %27
@@ -879,26 +879,26 @@ define void @_ZNK3gmx18nonbonded_verlet_t23dispatchNonbondedKernelENS_19Interact
 
 27:                                               ; preds = %9, %9, %9, %9
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !53
-  %30 = load ptr, ptr %5, align 8, !tbaa !55
-  %31 = load ptr, ptr %7, align 8, !tbaa !58
-  %32 = load ptr, ptr %6, align 8, !tbaa !58
+  %29 = load ptr, ptr %28, align 8, !tbaa !52
+  %30 = load ptr, ptr %5, align 8, !tbaa !54
+  %31 = load ptr, ptr %7, align 8, !tbaa !57
+  %32 = load ptr, ptr %6, align 8, !tbaa !57
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load ptr, ptr %33, align 8, !tbaa !61
+  %34 = load ptr, ptr %33, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %35 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
-  store ptr %29, ptr %10, align 8, !tbaa !53
+  store ptr %29, ptr %10, align 8, !tbaa !52
   store i32 %4, ptr %11, align 4, !tbaa !11
-  store ptr %34, ptr %12, align 8, !tbaa !98
+  store ptr %34, ptr %12, align 8, !tbaa !97
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #18
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %37 = load i32, ptr %36, align 4, !tbaa !99
+  %37 = load i32, ptr %36, align 4, !tbaa !98
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  %39 = load float, ptr %38, align 4, !tbaa !124
+  %39 = load float, ptr %38, align 4, !tbaa !123
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %41 = load float, ptr %40, align 8, !tbaa !125
+  %41 = load float, ptr %40, align 8, !tbaa !124
   %42 = fcmp oeq float %39, %41
   switch i32 %37, label %43 [
     i32 1, label %_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
@@ -910,7 +910,7 @@ define void @_ZNK3gmx18nonbonded_verlet_t23dispatchNonbondedKernelENS_19Interact
 
 43:                                               ; preds = %27
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %45 = load i32, ptr %44, align 4, !tbaa !126
+  %45 = load i32, ptr %44, align 4, !tbaa !125
   %46 = icmp eq i32 %45, 1
   br i1 %46, label %47, label %48
 
@@ -926,26 +926,26 @@ _ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.
   %.0.i.i = phi i32 [ %..i.i, %47 ], [ %.5.i.i, %48 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ]
   store i32 %.0.i.i, ptr %13, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #18
-  %49 = load i32, ptr %25, align 8, !tbaa !49
+  %49 = load i32, ptr %25, align 8, !tbaa !48
   %50 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %51 = load i32, ptr %50, align 8, !tbaa !127
-  %52 = load i32, ptr %2, align 8, !tbaa !154
+  %51 = load i32, ptr %50, align 8, !tbaa !126
+  %52 = load i32, ptr %2, align 8, !tbaa !153
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %54 = load i32, ptr %53, align 4, !tbaa !155
+  %54 = load i32, ptr %53, align 4, !tbaa !154
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 92
-  %56 = load i32, ptr %55, align 4, !tbaa !156
+  %56 = load i32, ptr %55, align 4, !tbaa !155
   %57 = tail call noundef i32 @_ZN3gmx16getVdwKernelTypeENS_15NbnxmKernelTypeENS_17LJCombinationRuleE15VanDerWaalsType20InteractionModifiers12LongRangeVdW(i32 noundef %49, i32 noundef %51, i32 noundef %52, i32 noundef %54, i32 noundef %56)
   store i32 %57, ptr %14, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #18
-  %58 = load i32, ptr %25, align 8, !tbaa !49
+  %58 = load i32, ptr %25, align 8, !tbaa !48
   %59 = and i32 %58, -2
   %60 = icmp eq i32 %59, 2
   %61 = zext i1 %60 to i8
-  store i8 %61, ptr %15, align 1, !tbaa !157
+  store i8 %61, ptr %15, align 1, !tbaa !156
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #18
-  %62 = load ptr, ptr %.0.i, align 8, !tbaa !158
+  %62 = load ptr, ptr %.0.i, align 8, !tbaa !157
   %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !161
+  %64 = load ptr, ptr %63, align 8, !tbaa !160
   %65 = ptrtoint ptr %64 to i64
   %66 = ptrtoint ptr %62 to i64
   %67 = sub i64 %65, %66
@@ -954,19 +954,19 @@ _ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.
   %69 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %68, ptr %69, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #18
-  store ptr %30, ptr %17, align 8, !tbaa !162
+  store ptr %30, ptr %17, align 8, !tbaa !161
   %70 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 3)
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %35, i32 %70)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnxn_atomdata_tERK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiPfSJ_P13gmx_wallcycle.omp_outlined, ptr nonnull %16, ptr nonnull %10, ptr nonnull %11, ptr nonnull %12, ptr nonnull align 1 dereferenceable(20) %3, ptr nonnull align 4 dereferenceable(8) %25, ptr nonnull %13, ptr nonnull %14, ptr nonnull align 8 dereferenceable(152) %2, ptr nonnull %17, ptr nonnull %15, ptr nonnull %29)
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %72 = load i8, ptr %71, align 1, !tbaa !163, !range !165, !noundef !166
+  %72 = load i8, ptr %71, align 1, !tbaa !162, !range !164, !noundef !165
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnxn_atomdata_tERK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiPfSJ_P13gmx_wallcycle.exit
 
 74:                                               ; preds = %_ZN3gmx20getCoulombKernelTypeENS_18EwaldExclusionTypeE22CoulombInteractionTypeb.exit.i
-  %75 = load ptr, ptr %10, align 8, !tbaa !53
+  %75 = load ptr, ptr %10, align 8, !tbaa !52
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %16, align 8
-  %76 = load ptr, ptr %69, align 8, !tbaa !167
+  %76 = load ptr, ptr %69, align 8, !tbaa !166
   %77 = ptrtoint ptr %76 to i64
   %78 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i to i64
   %79 = sub i64 %77, %78
@@ -988,37 +988,37 @@ _ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnx
 
 82:                                               ; preds = %9
   %83 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  %84 = load ptr, ptr %83, align 8, !tbaa !169
+  %84 = load ptr, ptr %83, align 8, !tbaa !168
   %85 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
-  %86 = load ptr, ptr %85, align 8, !tbaa !169
+  %86 = load ptr, ptr %85, align 8, !tbaa !168
   %87 = icmp eq ptr %84, %86
   %spec.select.i = select i1 %87, ptr null, ptr %84
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !53
-  %90 = load ptr, ptr %5, align 8, !tbaa !55
+  %89 = load ptr, ptr %88, align 8, !tbaa !52
+  %90 = load ptr, ptr %5, align 8, !tbaa !54
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !55
+  %92 = load ptr, ptr %91, align 8, !tbaa !54
   %93 = ptrtoint ptr %92 to i64
   %94 = ptrtoint ptr %90 to i64
   %95 = sub i64 %93, %94
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %89, i64 408
-  %98 = load ptr, ptr %97, align 8, !tbaa !171
+  %98 = load ptr, ptr %97, align 8, !tbaa !170
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !174
-  store ptr %100, ptr %18, align 8, !tbaa !58
+  %100 = load ptr, ptr %99, align 8, !tbaa !173
+  store ptr %100, ptr %18, align 8, !tbaa !57
   %101 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %103 = load ptr, ptr %102, align 8, !tbaa !175
+  %103 = load ptr, ptr %102, align 8, !tbaa !174
   %104 = ptrtoint ptr %103 to i64
   %105 = ptrtoint ptr %100 to i64
   %106 = sub i64 %104, %105
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 %106
-  store ptr %107, ptr %101, align 8, !tbaa !58
+  store ptr %107, ptr %101, align 8, !tbaa !57
   %108 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %109 = load ptr, ptr %108, align 8, !tbaa !174
-  %110 = load ptr, ptr %7, align 8, !tbaa !58
-  %111 = load ptr, ptr %6, align 8, !tbaa !58
+  %109 = load ptr, ptr %108, align 8, !tbaa !173
+  %110 = load ptr, ptr %7, align 8, !tbaa !57
+  %111 = load ptr, ptr %6, align 8, !tbaa !57
   tail call void @_ZN3gmx20nbnxn_kernel_gpu_refEPKNS_16NbnxnPairlistGpuEPKNS_16nbnxn_atomdata_tEPK19interaction_const_tNS_8ArrayRefIKNS_11BasicVectorIfEEEERKNS_12StepWorkloadEiNS9_IfEEPfSI_SI_(ptr noundef %spec.select.i, ptr noundef %89, ptr noundef nonnull %2, ptr %90, ptr %96, ptr noundef nonnull align 1 dereferenceable(20) %3, i32 noundef %4, ptr noundef nonnull byval(%"class.gmx::ArrayRef.6") align 8 %18, ptr noundef %109, ptr noundef %110, ptr noundef %111)
   br label %113
 
@@ -1034,7 +1034,7 @@ _ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnx
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %.val = load i8, ptr %115, align 1
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %.val.i = load i32, ptr %116, align 4, !tbaa !176
+  %.val.i = load i32, ptr %116, align 4, !tbaa !175
   switch i32 %.val.i, label %117 [
     i32 1, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
     i32 2, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
@@ -1044,13 +1044,13 @@ _ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16NbnxmKernelSetupEPNS_16nbnx
   ]
 
 117:                                              ; preds = %114
-  %118 = load i32, ptr %25, align 8, !tbaa !177
+  %118 = load i32, ptr %25, align 8, !tbaa !176
   %119 = icmp eq i32 %118, 4
   br i1 %119, label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i, label %120
 
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %122 = load i32, ptr %121, align 4, !tbaa !126
+  %122 = load i32, ptr %121, align 4, !tbaa !125
   %123 = icmp eq i32 %122, 2
   %.mux.i = select i1 %123, i32 30, i32 28
   br label %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
@@ -1061,32 +1061,32 @@ _ZL7usingRFRK22CoulombInteractionType.exit.thread.i: ; preds = %120, %117, %114,
   %125 = zext i8 %.val to i32
   %spec.select.i16 = or disjoint i32 %.033.i, %125
   %126 = getelementptr inbounds nuw i8, ptr %.0.i, i64 116
-  %127 = load i32, ptr %126, align 4, !tbaa !178
+  %127 = load i32, ptr %126, align 4, !tbaa !177
   %128 = sitofp i32 %127 to double
   %129 = zext nneg i32 %spec.select.i16 to i64
   %130 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %129
-  %131 = load double, ptr %130, align 8, !tbaa !193
+  %131 = load double, ptr %130, align 8, !tbaa !192
   %132 = fadd double %131, %128
-  store double %132, ptr %130, align 8, !tbaa !193
+  store double %132, ptr %130, align 8, !tbaa !192
   %133 = getelementptr inbounds nuw i8, ptr %.0.i, i64 120
-  %134 = load i32, ptr %133, align 8, !tbaa !194
+  %134 = load i32, ptr %133, align 8, !tbaa !193
   %135 = sitofp i32 %134 to double
   %136 = select i1 %124, i64 33, i64 32
   %137 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %136
-  %138 = load double, ptr %137, align 8, !tbaa !193
+  %138 = load double, ptr %137, align 8, !tbaa !192
   %139 = fadd double %138, %135
-  store double %139, ptr %137, align 8, !tbaa !193
+  store double %139, ptr %137, align 8, !tbaa !192
   %140 = add nuw nsw i32 %spec.select.i16, 8
   %141 = getelementptr inbounds nuw i8, ptr %.0.i, i64 124
-  %142 = load i32, ptr %141, align 4, !tbaa !195
+  %142 = load i32, ptr %141, align 4, !tbaa !194
   %143 = sitofp i32 %142 to double
   %144 = zext nneg i32 %140 to i64
   %145 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %144
-  %146 = load double, ptr %145, align 8, !tbaa !193
+  %146 = load double, ptr %145, align 8, !tbaa !192
   %147 = fadd double %146, %143
-  store double %147, ptr %145, align 8, !tbaa !193
+  store double %147, ptr %145, align 8, !tbaa !192
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %149 = load i32, ptr %148, align 4, !tbaa !155
+  %149 = load i32, ptr %148, align 4, !tbaa !154
   switch i32 %149, label %158 [
     i32 5, label %.sink.split.i
     i32 3, label %150
@@ -1102,13 +1102,13 @@ _ZL7usingRFRK22CoulombInteractionType.exit.thread.i: ; preds = %120, %117, %114,
   %153 = sitofp i32 %152 to double
   %154 = zext i8 %151 to i64
   %155 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %154
-  %156 = load double, ptr %155, align 8, !tbaa !193
+  %156 = load double, ptr %155, align 8, !tbaa !192
   %157 = fadd double %156, %153
-  store double %157, ptr %155, align 8, !tbaa !193
+  store double %157, ptr %155, align 8, !tbaa !192
   br label %158
 
 158:                                              ; preds = %.sink.split.i, %_ZL7usingRFRK22CoulombInteractionType.exit.thread.i
-  %159 = load i32, ptr %2, align 8, !tbaa !154
+  %159 = load i32, ptr %2, align 8, !tbaa !153
   %160 = icmp eq i32 %159, 5
   br i1 %160, label %161, label %_ZN3gmxL12accountFlopsEP6t_nrnbRKNS_11PairlistSetERKNS_18nonbonded_verlet_tERK19interaction_const_tRKNS_12StepWorkloadE.exit
 
@@ -1118,9 +1118,9 @@ _ZL7usingRFRK22CoulombInteractionType.exit.thread.i: ; preds = %120, %117, %114,
   %164 = sitofp i32 %163 to double
   %165 = zext i8 %162 to i64
   %166 = getelementptr inbounds nuw [116 x double], ptr %8, i64 0, i64 %165
-  %167 = load double, ptr %166, align 8, !tbaa !193
+  %167 = load double, ptr %166, align 8, !tbaa !192
   %168 = fadd double %167, %164
-  store double %168, ptr %166, align 8, !tbaa !193
+  store double %168, ptr %166, align 8, !tbaa !192
   br label %_ZN3gmxL12accountFlopsEP6t_nrnbRKNS_11PairlistSetERKNS_18nonbonded_verlet_tERK19interaction_const_tRKNS_12StepWorkloadE.exit
 
 _ZN3gmxL12accountFlopsEP6t_nrnbRKNS_11PairlistSetERKNS_18nonbonded_verlet_tERK19interaction_const_tRKNS_12StepWorkloadE.exit: ; preds = %161, %158, %113
@@ -1139,7 +1139,7 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
   %18 = alloca i32, align 4
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !167
+  %20 = load ptr, ptr %19, align 8, !tbaa !166
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %23 = sub i64 %21, %22
@@ -1173,11 +1173,11 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 
 34:                                               ; preds = %.lr.ph, %232
   %.0105 = phi i64 [ %31, %.lr.ph ], [ %233, %232 ]
-  %35 = load ptr, ptr %3, align 8, !tbaa !53
+  %35 = load ptr, ptr %3, align 8, !tbaa !52
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 408
   %sext = shl i64 %.0105, 32
   %37 = ashr exact i64 %sext, 32
-  %38 = load ptr, ptr %36, align 8, !tbaa !171
+  %38 = load ptr, ptr %36, align 8, !tbaa !170
   %39 = getelementptr inbounds nuw %"struct.gmx::nbnxn_atomdata_output_t", ptr %38, i64 %37
   %40 = load i32, ptr %4, align 4, !tbaa !11
   %41 = icmp eq i32 %40, 1
@@ -1190,7 +1190,7 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %46 = load ptr, ptr %45, align 8, !tbaa !174
+  %46 = load ptr, ptr %45, align 8, !tbaa !173
   invoke void @_ZN3gmx12clear_fshiftEPf(ptr noundef %46)
           to label %47 unwind label %.loopexit
 
@@ -1198,12 +1198,12 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
   %48 = load i64, ptr %2, align 8
   %49 = inttoptr i64 %48 to ptr
   %50 = getelementptr inbounds %"struct.gmx::NbnxnPairlistCpu", ptr %49, i64 %.0105
-  %51 = load i8, ptr %32, align 1, !tbaa !163, !range !165, !noundef !166
+  %51 = load i8, ptr %32, align 1, !tbaa !162, !range !164, !noundef !165
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %87, label %53
 
 53:                                               ; preds = %47
-  %54 = load i32, ptr %7, align 4, !tbaa !49
+  %54 = load i32, ptr %7, align 4, !tbaa !48
   switch i32 %54, label %.invoke108 [
     i32 1, label %55
     i32 3, label %65
@@ -1222,9 +1222,9 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 
 .invoke:                                          ; preds = %79, %72, %65, %55
   %.in = phi ptr [ %61, %55 ], [ %71, %65 ], [ %78, %72 ], [ %85, %79 ]
-  %62 = load ptr, ptr %.in, align 8, !tbaa !196
-  %63 = load ptr, ptr %3, align 8, !tbaa !53
-  %64 = load ptr, ptr %11, align 8, !tbaa !162
+  %62 = load ptr, ptr %.in, align 8, !tbaa !195
+  %63 = load ptr, ptr %3, align 8, !tbaa !52
+  %64 = load ptr, ptr %11, align 8, !tbaa !161
   invoke void %62(ptr noundef nonnull %50, ptr noundef %63, ptr noundef nonnull %10, ptr noundef %64, ptr noundef nonnull %39)
           to label %232 unwind label %.loopexit
 
@@ -1266,13 +1266,13 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 87:                                               ; preds = %47
   %88 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %89 = getelementptr inbounds nuw i8, ptr %39, i64 80
-  %90 = load ptr, ptr %89, align 8, !tbaa !175
-  %91 = load ptr, ptr %88, align 8, !tbaa !174
+  %90 = load ptr, ptr %89, align 8, !tbaa !174
+  %91 = load ptr, ptr %88, align 8, !tbaa !173
   %92 = ptrtoint ptr %90 to i64
   %93 = ptrtoint ptr %91 to i64
   %94 = sub i64 %92, %93
   %95 = icmp eq i64 %94, 4
-  %96 = load i8, ptr %12, align 1, !tbaa !157, !range !165, !noundef !166
+  %96 = load i8, ptr %12, align 1, !tbaa !156, !range !164, !noundef !165
   %97 = trunc nuw i8 %96 to i1
   br i1 %95, label %98, label %160
 
@@ -1281,22 +1281,22 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %39, i64 128
-  %101 = load ptr, ptr %100, align 8, !tbaa !197
+  %101 = load ptr, ptr %100, align 8, !tbaa !196
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 64
-  store float 0.000000e+00, ptr %102, align 32, !tbaa !199
+  store float 0.000000e+00, ptr %102, align 32, !tbaa !198
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 68
-  store float 0.000000e+00, ptr %103, align 4, !tbaa !202
+  store float 0.000000e+00, ptr %103, align 4, !tbaa !201
   br label %107
 
 104:                                              ; preds = %98
-  store float 0.000000e+00, ptr %91, align 4, !tbaa !203
+  store float 0.000000e+00, ptr %91, align 4, !tbaa !202
   %105 = getelementptr inbounds nuw i8, ptr %39, i64 104
-  %106 = load ptr, ptr %105, align 8, !tbaa !174
-  store float 0.000000e+00, ptr %106, align 4, !tbaa !203
+  %106 = load ptr, ptr %105, align 8, !tbaa !173
+  store float 0.000000e+00, ptr %106, align 4, !tbaa !202
   br label %107
 
 107:                                              ; preds = %104, %99
-  %108 = load i32, ptr %7, align 4, !tbaa !49
+  %108 = load i32, ptr %7, align 4, !tbaa !48
   switch i32 %108, label %.invoke108 [
     i32 1, label %109
     i32 3, label %119
@@ -1315,9 +1315,9 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 
 .invoke106:                                       ; preds = %133, %126, %119, %109
   %.in110 = phi ptr [ %115, %109 ], [ %125, %119 ], [ %132, %126 ], [ %139, %133 ]
-  %116 = load ptr, ptr %.in110, align 8, !tbaa !196
-  %117 = load ptr, ptr %3, align 8, !tbaa !53
-  %118 = load ptr, ptr %11, align 8, !tbaa !162
+  %116 = load ptr, ptr %.in110, align 8, !tbaa !195
+  %117 = load ptr, ptr %3, align 8, !tbaa !52
+  %118 = load ptr, ptr %11, align 8, !tbaa !161
   invoke void %116(ptr noundef nonnull %50, ptr noundef %117, ptr noundef nonnull %10, ptr noundef %118, ptr noundef nonnull %39)
           to label %140 unwind label %.loopexit
 
@@ -1349,23 +1349,23 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
   br label %.invoke106
 
 140:                                              ; preds = %.invoke106
-  %141 = load i8, ptr %12, align 1, !tbaa !157, !range !165, !noundef !166
+  %141 = load i8, ptr %12, align 1, !tbaa !156, !range !164, !noundef !165
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %143, label %232
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds nuw i8, ptr %39, i64 128
-  %145 = load ptr, ptr %144, align 8, !tbaa !197
+  %145 = load ptr, ptr %144, align 8, !tbaa !196
   %146 = getelementptr inbounds nuw i8, ptr %39, i64 104
-  %147 = load ptr, ptr %146, align 8, !tbaa !174
+  %147 = load ptr, ptr %146, align 8, !tbaa !173
   %148 = getelementptr inbounds nuw i8, ptr %39, i64 112
-  %149 = load ptr, ptr %148, align 8, !tbaa !175
+  %149 = load ptr, ptr %148, align 8, !tbaa !174
   %150 = ptrtoint ptr %149 to i64
   %151 = ptrtoint ptr %147 to i64
   %152 = sub i64 %150, %151
   %153 = getelementptr inbounds nuw i8, ptr %147, i64 %152
-  %154 = load ptr, ptr %88, align 8, !tbaa !174
-  %155 = load ptr, ptr %89, align 8, !tbaa !175
+  %154 = load ptr, ptr %88, align 8, !tbaa !173
+  %155 = load ptr, ptr %89, align 8, !tbaa !174
   %156 = ptrtoint ptr %155 to i64
   %157 = ptrtoint ptr %154 to i64
   %158 = sub i64 %156, %157
@@ -1378,8 +1378,8 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
 
 161:                                              ; preds = %160
   %162 = getelementptr inbounds nuw i8, ptr %39, i64 136
-  %163 = load ptr, ptr %162, align 8, !tbaa !204
-  %164 = load ptr, ptr %33, align 8, !tbaa !206
+  %163 = load ptr, ptr %162, align 8, !tbaa !203
+  %164 = load ptr, ptr %33, align 8, !tbaa !205
   invoke void @_ZN3gmx17EnergyAccumulatorILb1ELb1EE43clearEnergiesAndSetEnergyGroupsForJClustersERKNS_22EnergyGroupsPerClusterE(ptr noundef nonnull align 8 dereferenceable(148) %163, ptr noundef nonnull align 8 dereferenceable(40) %164)
           to label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92 unwind label %.loopexit
 
@@ -1392,14 +1392,14 @@ define internal void @_ZN3gmxL16nbnxn_kernel_cpuERKNS_11PairlistSetERKNS_16Nbnxm
   %167 = sub i64 %166, %93
   %168 = and i64 %167, -4
   %169 = add i64 %168, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %91, i8 0, i64 %169, i1 false), !tbaa !203
+  call void @llvm.memset.p0.i64(ptr align 4 %91, i8 0, i64 %169, i1 false), !tbaa !202
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit: ; preds = %.lr.ph.i.i.i.i.preheader, %165
   %170 = getelementptr inbounds nuw i8, ptr %39, i64 104
-  %171 = load ptr, ptr %170, align 8, !tbaa !162
+  %171 = load ptr, ptr %170, align 8, !tbaa !161
   %172 = getelementptr inbounds nuw i8, ptr %39, i64 112
-  %173 = load ptr, ptr %172, align 8, !tbaa !162
+  %173 = load ptr, ptr %172, align 8, !tbaa !161
   %.not6.i.i.i.i88 = icmp eq ptr %171, %173
   br i1 %.not6.i.i.i.i88, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92, label %.lr.ph.i.i.i.i89.preheader
 
@@ -1410,11 +1410,11 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
   %177 = sub i64 %176, %175
   %178 = and i64 %177, -4
   %179 = add i64 %178, 4
-  call void @llvm.memset.p0.i64(ptr align 4 %171, i8 0, i64 %179, i1 false), !tbaa !203
+  call void @llvm.memset.p0.i64(ptr align 4 %171, i8 0, i64 %179, i1 false), !tbaa !202
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit92: ; preds = %.lr.ph.i.i.i.i89.preheader, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20HostAllocationPolicyEEEEEEfEvT_SA_RKT0_.exit, %161
-  %180 = load i32, ptr %7, align 4, !tbaa !49
+  %180 = load i32, ptr %7, align 4, !tbaa !48
   switch i32 %180, label %.invoke108 [
     i32 1, label %181
     i32 3, label %191
@@ -1433,9 +1433,9 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
 
 .invoke107:                                       ; preds = %205, %198, %191, %181
   %.in109 = phi ptr [ %187, %181 ], [ %197, %191 ], [ %204, %198 ], [ %211, %205 ]
-  %188 = load ptr, ptr %.in109, align 8, !tbaa !196
-  %189 = load ptr, ptr %3, align 8, !tbaa !53
-  %190 = load ptr, ptr %11, align 8, !tbaa !162
+  %188 = load ptr, ptr %.in109, align 8, !tbaa !195
+  %189 = load ptr, ptr %3, align 8, !tbaa !52
+  %190 = load ptr, ptr %11, align 8, !tbaa !161
   invoke void %188(ptr noundef nonnull %50, ptr noundef %189, ptr noundef nonnull %10, ptr noundef %190, ptr noundef nonnull %39)
           to label %212 unwind label %.loopexit
 
@@ -1467,23 +1467,23 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
   br label %.invoke107
 
 212:                                              ; preds = %.invoke107
-  %213 = load i8, ptr %12, align 1, !tbaa !157, !range !165, !noundef !166
+  %213 = load i8, ptr %12, align 1, !tbaa !156, !range !164, !noundef !165
   %214 = trunc nuw i8 %213 to i1
   br i1 %214, label %215, label %232
 
 215:                                              ; preds = %212
   %216 = getelementptr inbounds nuw i8, ptr %39, i64 136
-  %217 = load ptr, ptr %216, align 8, !tbaa !204
+  %217 = load ptr, ptr %216, align 8, !tbaa !203
   %218 = getelementptr inbounds nuw i8, ptr %39, i64 104
-  %219 = load ptr, ptr %218, align 8, !tbaa !174
+  %219 = load ptr, ptr %218, align 8, !tbaa !173
   %220 = getelementptr inbounds nuw i8, ptr %39, i64 112
-  %221 = load ptr, ptr %220, align 8, !tbaa !175
+  %221 = load ptr, ptr %220, align 8, !tbaa !174
   %222 = ptrtoint ptr %221 to i64
   %223 = ptrtoint ptr %219 to i64
   %224 = sub i64 %222, %223
   %225 = getelementptr inbounds nuw i8, ptr %219, i64 %224
-  %226 = load ptr, ptr %88, align 8, !tbaa !174
-  %227 = load ptr, ptr %89, align 8, !tbaa !175
+  %226 = load ptr, ptr %88, align 8, !tbaa !173
+  %227 = load ptr, ptr %89, align 8, !tbaa !174
   %228 = ptrtoint ptr %227 to i64
   %229 = ptrtoint ptr %226 to i64
   %230 = sub i64 %228, %229
@@ -1495,7 +1495,7 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfN3gmx9AllocatorIfNS4_20Hos
   %233 = add nsw i64 %.0105, 1
   %234 = load i64, ptr %16, align 8, !tbaa !32
   %.not.not = icmp slt i64 %.0105, %234
-  br i1 %.not.not, label %34, label %._crit_edge, !llvm.loop !207
+  br i1 %.not.not, label %34, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %232, %26
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %28)
@@ -1548,7 +1548,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #18
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
-declare !callback !208 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #18
+declare !callback !206 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #18
 
 declare void @_ZN3gmx26reduce_energies_over_listsEPKNS_16nbnxn_atomdata_tEiPfS3_(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
@@ -2173,170 +2173,168 @@ attributes #25 = { noreturn nounwind }
 !40 = !{!38, !39, i64 8}
 !41 = !{!42, !9, i64 0}
 !42 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !9, i64 0}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!38, !39, i64 16}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"p1 _ZTSN3gmx12PairlistSetsE", !9, i64 0}
-!49 = !{!50, !51, i64 0}
-!50 = !{!"_ZTSN3gmx16NbnxmKernelSetupE", !51, i64 0, !52, i64 4}
-!51 = !{!"_ZTSN3gmx15NbnxmKernelTypeE", !10, i64 0}
-!52 = !{!"_ZTSN3gmx18EwaldExclusionTypeE", !10, i64 0}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"p1 _ZTSN3gmx16nbnxn_atomdata_tE", !9, i64 0}
-!55 = !{!56, !57, i64 0}
-!56 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_11BasicVectorIfEEEE", !57, i64 0}
-!57 = !{!"p1 _ZTSN3gmx11BasicVectorIfEE", !9, i64 0}
-!58 = !{!59, !60, i64 0}
-!59 = !{!"_ZTSN3gmx12ArrayRefIterIfEE", !60, i64 0}
-!60 = !{!"p1 float", !9, i64 0}
-!61 = !{!62, !96, i64 48}
-!62 = !{!"_ZTSN3gmx18nonbonded_verlet_tE", !63, i64 0, !69, i64 8, !76, i64 16, !50, i64 24, !82, i64 32, !89, i64 40, !96, i64 48, !97, i64 56}
-!63 = !{!"_ZTSSt10unique_ptrIN3gmx12PairlistSetsESt14default_deleteIS1_EE", !64, i64 0}
-!64 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx12PairlistSetsESt14default_deleteIS1_ELb1ELb1EE", !65, i64 0}
-!65 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx12PairlistSetsESt14default_deleteIS1_EE", !66, i64 0}
-!66 = !{!"_ZTSSt5tupleIJPN3gmx12PairlistSetsESt14default_deleteIS1_EEE", !67, i64 0}
-!67 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx12PairlistSetsESt14default_deleteIS1_EEE", !68, i64 0}
-!68 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx12PairlistSetsELb0EE", !48, i64 0}
-!69 = !{!"_ZTSSt10unique_ptrIN3gmx10PairSearchESt14default_deleteIS1_EE", !70, i64 0}
-!70 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx10PairSearchESt14default_deleteIS1_ELb1ELb1EE", !71, i64 0}
-!71 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx10PairSearchESt14default_deleteIS1_EE", !72, i64 0}
-!72 = !{!"_ZTSSt5tupleIJPN3gmx10PairSearchESt14default_deleteIS1_EEE", !73, i64 0}
-!73 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx10PairSearchESt14default_deleteIS1_EEE", !74, i64 0}
-!74 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx10PairSearchELb0EE", !75, i64 0}
-!75 = !{!"p1 _ZTSN3gmx10PairSearchE", !9, i64 0}
-!76 = !{!"_ZTSSt10unique_ptrIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EE", !77, i64 0}
-!77 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_ELb1ELb1EE", !78, i64 0}
-!78 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EE", !79, i64 0}
-!79 = !{!"_ZTSSt5tupleIJPN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EEE", !80, i64 0}
-!80 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EEE", !81, i64 0}
-!81 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx16nbnxn_atomdata_tELb0EE", !54, i64 0}
-!82 = !{!"_ZTSSt10unique_ptrIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EE", !83, i64 0}
-!83 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_ELb1ELb1EE", !84, i64 0}
-!84 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EE", !85, i64 0}
-!85 = !{!"_ZTSSt5tupleIJPN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EEE", !86, i64 0}
-!86 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EEE", !87, i64 0}
-!87 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx18FreeEnergyDispatchELb0EE", !88, i64 0}
-!88 = !{!"p1 _ZTSN3gmx18FreeEnergyDispatchE", !9, i64 0}
-!89 = !{!"_ZTSSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EE", !90, i64 0}
-!90 = !{!"_ZTSSt15__uniq_ptr_dataI16ExclusionCheckerSt14default_deleteIS0_ELb1ELb1EE", !91, i64 0}
-!91 = !{!"_ZTSSt15__uniq_ptr_implI16ExclusionCheckerSt14default_deleteIS0_EE", !92, i64 0}
-!92 = !{!"_ZTSSt5tupleIJP16ExclusionCheckerSt14default_deleteIS0_EEE", !93, i64 0}
-!93 = !{!"_ZTSSt11_Tuple_implILm0EJP16ExclusionCheckerSt14default_deleteIS0_EEE", !94, i64 0}
-!94 = !{!"_ZTSSt10_Head_baseILm0EP16ExclusionCheckerLb0EE", !95, i64 0}
-!95 = !{!"p1 _ZTS16ExclusionChecker", !9, i64 0}
-!96 = !{!"p1 _ZTS13gmx_wallcycle", !9, i64 0}
-!97 = !{!"p1 _ZTSN3gmx8NbnxmGpuE", !9, i64 0}
-!98 = !{!96, !96, i64 0}
-!99 = !{!100, !108, i64 68}
-!100 = !{!"_ZTS19interaction_const_t", !101, i64 0, !102, i64 4, !103, i64 8, !104, i64 16, !104, i64 20, !105, i64 24, !105, i64 36, !106, i64 48, !107, i64 60, !104, i64 64, !108, i64 68, !102, i64 72, !104, i64 76, !104, i64 80, !104, i64 84, !104, i64 88, !109, i64 92, !104, i64 96, !104, i64 100, !104, i64 104, !104, i64 108, !104, i64 112, !104, i64 116, !104, i64 120, !110, i64 128, !110, i64 136, !117, i64 144}
-!101 = !{!"_ZTS15VanDerWaalsType", !10, i64 0}
-!102 = !{!"_ZTS20InteractionModifiers", !10, i64 0}
-!103 = !{!"double", !10, i64 0}
-!104 = !{!"float", !10, i64 0}
-!105 = !{!"_ZTS14shift_consts_t", !104, i64 0, !104, i64 4, !104, i64 8}
-!106 = !{!"_ZTS15switch_consts_t", !104, i64 0, !104, i64 4, !104, i64 8}
-!107 = !{!"bool", !10, i64 0}
-!108 = !{!"_ZTS22CoulombInteractionType", !10, i64 0}
-!109 = !{!"_ZTS12LongRangeVdW", !10, i64 0}
-!110 = !{!"_ZTSSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EE", !111, i64 0}
-!111 = !{!"_ZTSSt15__uniq_ptr_dataI21EwaldCorrectionTablesSt14default_deleteIS0_ELb1ELb1EE", !112, i64 0}
-!112 = !{!"_ZTSSt15__uniq_ptr_implI21EwaldCorrectionTablesSt14default_deleteIS0_EE", !113, i64 0}
-!113 = !{!"_ZTSSt5tupleIJP21EwaldCorrectionTablesSt14default_deleteIS0_EEE", !114, i64 0}
-!114 = !{!"_ZTSSt11_Tuple_implILm0EJP21EwaldCorrectionTablesSt14default_deleteIS0_EEE", !115, i64 0}
-!115 = !{!"_ZTSSt10_Head_baseILm0EP21EwaldCorrectionTablesLb0EE", !116, i64 0}
-!116 = !{!"p1 _ZTS21EwaldCorrectionTables", !9, i64 0}
-!117 = !{!"_ZTSSt10unique_ptrIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EE", !118, i64 0}
-!118 = !{!"_ZTSSt15__uniq_ptr_dataIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_ELb1ELb1EE", !119, i64 0}
-!119 = !{!"_ZTSSt15__uniq_ptr_implIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EE", !120, i64 0}
-!120 = !{!"_ZTSSt5tupleIJPN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EEE", !121, i64 0}
-!121 = !{!"_ZTSSt11_Tuple_implILm0EJPN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EEE", !122, i64 0}
-!122 = !{!"_ZTSSt10_Head_baseILm0EPN19interaction_const_t18SoftCoreParametersELb0EE", !123, i64 0}
-!123 = !{!"p1 _ZTSN19interaction_const_t18SoftCoreParametersE", !9, i64 0}
-!124 = !{!100, !104, i64 76}
-!125 = !{!100, !104, i64 16}
-!126 = !{!50, !52, i64 4}
-!127 = !{!128, !136, i64 40}
-!128 = !{!"_ZTSN3gmx16nbnxn_atomdata_t6ParamsE", !12, i64 0, !129, i64 8, !136, i64 40, !129, i64 48, !137, i64 80, !141, i64 104, !129, i64 136, !129, i64 168, !12, i64 200, !147, i64 208}
-!129 = !{!"_ZTSSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE", !130, i64 0}
-!130 = !{!"_ZTSSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE", !131, i64 0}
-!131 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE12_Vector_implE", !132, i64 0, !135, i64 8}
-!132 = !{!"_ZTSN3gmx9AllocatorIfNS_20HostAllocationPolicyEEE", !133, i64 0}
-!133 = !{!"_ZTSN3gmx20HostAllocationPolicyE", !134, i64 0, !107, i64 4}
-!134 = !{!"_ZTSN3gmx13PinningPolicyE", !10, i64 0}
-!135 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_Vector_impl_dataE", !60, i64 0, !60, i64 8, !60, i64 16}
-!136 = !{!"_ZTSN3gmx17LJCombinationRuleE", !10, i64 0}
-!137 = !{!"_ZTSSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE", !138, i64 0}
-!138 = !{!"_ZTSSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE", !139, i64 0}
-!139 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE12_Vector_implE", !140, i64 0}
-!140 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_Vector_impl_dataE", !60, i64 0, !60, i64 8, !60, i64 16}
-!141 = !{!"_ZTSSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE", !142, i64 0}
-!142 = !{!"_ZTSSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE", !143, i64 0}
-!143 = !{!"_ZTSNSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE12_Vector_implE", !144, i64 0, !145, i64 8}
-!144 = !{!"_ZTSN3gmx9AllocatorIiNS_20HostAllocationPolicyEEE", !133, i64 0}
-!145 = !{!"_ZTSNSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE17_Vector_impl_dataE", !146, i64 0, !146, i64 8, !146, i64 16}
-!146 = !{!"p1 int", !9, i64 0}
-!147 = !{!"_ZTSSt10unique_ptrIN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_EE", !148, i64 0}
-!148 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_ELb1ELb1EE", !149, i64 0}
-!149 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_EE", !150, i64 0}
-!150 = !{!"_ZTSSt5tupleIJPN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_EEE", !151, i64 0}
-!151 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_EEE", !152, i64 0}
-!152 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx22EnergyGroupsPerClusterELb0EE", !153, i64 0}
-!153 = !{!"p1 _ZTSN3gmx22EnergyGroupsPerClusterE", !9, i64 0}
-!154 = !{!100, !101, i64 0}
-!155 = !{!100, !102, i64 4}
-!156 = !{!100, !109, i64 92}
-!157 = !{!107, !107, i64 0}
-!158 = !{!159, !160, i64 0}
-!159 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistCpuESaIS1_EE17_Vector_impl_dataE", !160, i64 0, !160, i64 8, !160, i64 16}
-!160 = !{!"p1 _ZTSN3gmx16NbnxnPairlistCpuE", !9, i64 0}
-!161 = !{!159, !160, i64 8}
-!162 = !{!60, !60, i64 0}
-!163 = !{!164, !107, i64 5}
-!164 = !{!"_ZTSN3gmx12StepWorkloadE", !107, i64 0, !107, i64 1, !107, i64 2, !107, i64 3, !107, i64 4, !107, i64 5, !107, i64 6, !107, i64 7, !107, i64 8, !107, i64 9, !107, i64 10, !107, i64 11, !107, i64 12, !107, i64 13, !107, i64 14, !107, i64 15, !107, i64 16, !107, i64 17, !107, i64 18, !107, i64 19}
-!165 = !{i8 0, i8 2}
-!166 = !{}
-!167 = !{!168, !160, i64 0}
-!168 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_16NbnxnPairlistCpuEEE", !160, i64 0}
-!169 = !{!170, !170, i64 0}
-!170 = !{!"p1 _ZTSN3gmx16NbnxnPairlistGpuE", !9, i64 0}
-!171 = !{!172, !173, i64 0}
-!172 = !{!"_ZTSNSt12_Vector_baseIN3gmx23nbnxn_atomdata_output_tESaIS1_EE17_Vector_impl_dataE", !173, i64 0, !173, i64 8, !173, i64 16}
-!173 = !{!"p1 _ZTSN3gmx23nbnxn_atomdata_output_tE", !9, i64 0}
-!174 = !{!135, !60, i64 0}
-!175 = !{!135, !60, i64 8}
-!176 = !{!108, !108, i64 0}
-!177 = !{!62, !51, i64 24}
-!178 = !{!179, !12, i64 116}
-!179 = !{!"_ZTSN3gmx11PairlistSetE", !180, i64 0, !180, i64 24, !183, i64 48, !187, i64 72, !107, i64 80, !107, i64 81, !188, i64 88, !12, i64 112, !12, i64 116, !12, i64 120, !12, i64 124}
-!180 = !{!"_ZTSSt6vectorIN3gmx16NbnxnPairlistCpuESaIS1_EE", !181, i64 0}
-!181 = !{!"_ZTSSt12_Vector_baseIN3gmx16NbnxnPairlistCpuESaIS1_EE", !182, i64 0}
-!182 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistCpuESaIS1_EE12_Vector_implE", !159, i64 0}
-!183 = !{!"_ZTSSt6vectorIN3gmx16NbnxnPairlistGpuESaIS1_EE", !184, i64 0}
-!184 = !{!"_ZTSSt12_Vector_baseIN3gmx16NbnxnPairlistGpuESaIS1_EE", !185, i64 0}
-!185 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistGpuESaIS1_EE12_Vector_implE", !186, i64 0}
-!186 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistGpuESaIS1_EE17_Vector_impl_dataE", !170, i64 0, !170, i64 8, !170, i64 16}
-!187 = !{!"p1 _ZTSN3gmx14PairlistParamsE", !9, i64 0}
-!188 = !{!"_ZTSSt6vectorISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE", !189, i64 0}
-!189 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE", !190, i64 0}
-!190 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE12_Vector_implE", !191, i64 0}
-!191 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE17_Vector_impl_dataE", !192, i64 0, !192, i64 8, !192, i64 16}
-!192 = !{!"p1 _ZTSSt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS1_EE", !9, i64 0}
-!193 = !{!103, !103, i64 0}
-!194 = !{!179, !12, i64 120}
-!195 = !{!179, !12, i64 124}
-!196 = !{!9, !9, i64 0}
-!197 = !{!198, !198, i64 0}
-!198 = !{!"p1 _ZTSN3gmx17EnergyAccumulatorILb0ELb1EEE", !9, i64 0}
-!199 = !{!200, !104, i64 64}
-!200 = !{!"_ZTSN3gmx17EnergyAccumulatorILb0ELb1EEE", !201, i64 0, !201, i64 32, !104, i64 64, !104, i64 68}
-!201 = !{!"_ZTSN3gmx9SimdFloatE", !10, i64 0}
-!202 = !{!200, !104, i64 68}
-!203 = !{!104, !104, i64 0}
-!204 = !{!205, !205, i64 0}
-!205 = !{!"p1 _ZTSN3gmx17EnergyAccumulatorILb1ELb1EEE", !9, i64 0}
-!206 = !{!153, !153, i64 0}
-!207 = distinct !{!207, !45}
-!208 = !{!209}
-!209 = !{i64 2, i64 -1, i64 -1, i1 true}
+!45 = !{!38, !39, i64 16}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTSN3gmx12PairlistSetsE", !9, i64 0}
+!48 = !{!49, !50, i64 0}
+!49 = !{!"_ZTSN3gmx16NbnxmKernelSetupE", !50, i64 0, !51, i64 4}
+!50 = !{!"_ZTSN3gmx15NbnxmKernelTypeE", !10, i64 0}
+!51 = !{!"_ZTSN3gmx18EwaldExclusionTypeE", !10, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTSN3gmx16nbnxn_atomdata_tE", !9, i64 0}
+!54 = !{!55, !56, i64 0}
+!55 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_11BasicVectorIfEEEE", !56, i64 0}
+!56 = !{!"p1 _ZTSN3gmx11BasicVectorIfEE", !9, i64 0}
+!57 = !{!58, !59, i64 0}
+!58 = !{!"_ZTSN3gmx12ArrayRefIterIfEE", !59, i64 0}
+!59 = !{!"p1 float", !9, i64 0}
+!60 = !{!61, !95, i64 48}
+!61 = !{!"_ZTSN3gmx18nonbonded_verlet_tE", !62, i64 0, !68, i64 8, !75, i64 16, !49, i64 24, !81, i64 32, !88, i64 40, !95, i64 48, !96, i64 56}
+!62 = !{!"_ZTSSt10unique_ptrIN3gmx12PairlistSetsESt14default_deleteIS1_EE", !63, i64 0}
+!63 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx12PairlistSetsESt14default_deleteIS1_ELb1ELb1EE", !64, i64 0}
+!64 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx12PairlistSetsESt14default_deleteIS1_EE", !65, i64 0}
+!65 = !{!"_ZTSSt5tupleIJPN3gmx12PairlistSetsESt14default_deleteIS1_EEE", !66, i64 0}
+!66 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx12PairlistSetsESt14default_deleteIS1_EEE", !67, i64 0}
+!67 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx12PairlistSetsELb0EE", !47, i64 0}
+!68 = !{!"_ZTSSt10unique_ptrIN3gmx10PairSearchESt14default_deleteIS1_EE", !69, i64 0}
+!69 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx10PairSearchESt14default_deleteIS1_ELb1ELb1EE", !70, i64 0}
+!70 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx10PairSearchESt14default_deleteIS1_EE", !71, i64 0}
+!71 = !{!"_ZTSSt5tupleIJPN3gmx10PairSearchESt14default_deleteIS1_EEE", !72, i64 0}
+!72 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx10PairSearchESt14default_deleteIS1_EEE", !73, i64 0}
+!73 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx10PairSearchELb0EE", !74, i64 0}
+!74 = !{!"p1 _ZTSN3gmx10PairSearchE", !9, i64 0}
+!75 = !{!"_ZTSSt10unique_ptrIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EE", !76, i64 0}
+!76 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_ELb1ELb1EE", !77, i64 0}
+!77 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EE", !78, i64 0}
+!78 = !{!"_ZTSSt5tupleIJPN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EEE", !79, i64 0}
+!79 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx16nbnxn_atomdata_tESt14default_deleteIS1_EEE", !80, i64 0}
+!80 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx16nbnxn_atomdata_tELb0EE", !53, i64 0}
+!81 = !{!"_ZTSSt10unique_ptrIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EE", !82, i64 0}
+!82 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_ELb1ELb1EE", !83, i64 0}
+!83 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EE", !84, i64 0}
+!84 = !{!"_ZTSSt5tupleIJPN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EEE", !85, i64 0}
+!85 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx18FreeEnergyDispatchESt14default_deleteIS1_EEE", !86, i64 0}
+!86 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx18FreeEnergyDispatchELb0EE", !87, i64 0}
+!87 = !{!"p1 _ZTSN3gmx18FreeEnergyDispatchE", !9, i64 0}
+!88 = !{!"_ZTSSt10unique_ptrI16ExclusionCheckerSt14default_deleteIS0_EE", !89, i64 0}
+!89 = !{!"_ZTSSt15__uniq_ptr_dataI16ExclusionCheckerSt14default_deleteIS0_ELb1ELb1EE", !90, i64 0}
+!90 = !{!"_ZTSSt15__uniq_ptr_implI16ExclusionCheckerSt14default_deleteIS0_EE", !91, i64 0}
+!91 = !{!"_ZTSSt5tupleIJP16ExclusionCheckerSt14default_deleteIS0_EEE", !92, i64 0}
+!92 = !{!"_ZTSSt11_Tuple_implILm0EJP16ExclusionCheckerSt14default_deleteIS0_EEE", !93, i64 0}
+!93 = !{!"_ZTSSt10_Head_baseILm0EP16ExclusionCheckerLb0EE", !94, i64 0}
+!94 = !{!"p1 _ZTS16ExclusionChecker", !9, i64 0}
+!95 = !{!"p1 _ZTS13gmx_wallcycle", !9, i64 0}
+!96 = !{!"p1 _ZTSN3gmx8NbnxmGpuE", !9, i64 0}
+!97 = !{!95, !95, i64 0}
+!98 = !{!99, !107, i64 68}
+!99 = !{!"_ZTS19interaction_const_t", !100, i64 0, !101, i64 4, !102, i64 8, !103, i64 16, !103, i64 20, !104, i64 24, !104, i64 36, !105, i64 48, !106, i64 60, !103, i64 64, !107, i64 68, !101, i64 72, !103, i64 76, !103, i64 80, !103, i64 84, !103, i64 88, !108, i64 92, !103, i64 96, !103, i64 100, !103, i64 104, !103, i64 108, !103, i64 112, !103, i64 116, !103, i64 120, !109, i64 128, !109, i64 136, !116, i64 144}
+!100 = !{!"_ZTS15VanDerWaalsType", !10, i64 0}
+!101 = !{!"_ZTS20InteractionModifiers", !10, i64 0}
+!102 = !{!"double", !10, i64 0}
+!103 = !{!"float", !10, i64 0}
+!104 = !{!"_ZTS14shift_consts_t", !103, i64 0, !103, i64 4, !103, i64 8}
+!105 = !{!"_ZTS15switch_consts_t", !103, i64 0, !103, i64 4, !103, i64 8}
+!106 = !{!"bool", !10, i64 0}
+!107 = !{!"_ZTS22CoulombInteractionType", !10, i64 0}
+!108 = !{!"_ZTS12LongRangeVdW", !10, i64 0}
+!109 = !{!"_ZTSSt10unique_ptrI21EwaldCorrectionTablesSt14default_deleteIS0_EE", !110, i64 0}
+!110 = !{!"_ZTSSt15__uniq_ptr_dataI21EwaldCorrectionTablesSt14default_deleteIS0_ELb1ELb1EE", !111, i64 0}
+!111 = !{!"_ZTSSt15__uniq_ptr_implI21EwaldCorrectionTablesSt14default_deleteIS0_EE", !112, i64 0}
+!112 = !{!"_ZTSSt5tupleIJP21EwaldCorrectionTablesSt14default_deleteIS0_EEE", !113, i64 0}
+!113 = !{!"_ZTSSt11_Tuple_implILm0EJP21EwaldCorrectionTablesSt14default_deleteIS0_EEE", !114, i64 0}
+!114 = !{!"_ZTSSt10_Head_baseILm0EP21EwaldCorrectionTablesLb0EE", !115, i64 0}
+!115 = !{!"p1 _ZTS21EwaldCorrectionTables", !9, i64 0}
+!116 = !{!"_ZTSSt10unique_ptrIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EE", !117, i64 0}
+!117 = !{!"_ZTSSt15__uniq_ptr_dataIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_ELb1ELb1EE", !118, i64 0}
+!118 = !{!"_ZTSSt15__uniq_ptr_implIN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EE", !119, i64 0}
+!119 = !{!"_ZTSSt5tupleIJPN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EEE", !120, i64 0}
+!120 = !{!"_ZTSSt11_Tuple_implILm0EJPN19interaction_const_t18SoftCoreParametersESt14default_deleteIS1_EEE", !121, i64 0}
+!121 = !{!"_ZTSSt10_Head_baseILm0EPN19interaction_const_t18SoftCoreParametersELb0EE", !122, i64 0}
+!122 = !{!"p1 _ZTSN19interaction_const_t18SoftCoreParametersE", !9, i64 0}
+!123 = !{!99, !103, i64 76}
+!124 = !{!99, !103, i64 16}
+!125 = !{!49, !51, i64 4}
+!126 = !{!127, !135, i64 40}
+!127 = !{!"_ZTSN3gmx16nbnxn_atomdata_t6ParamsE", !12, i64 0, !128, i64 8, !135, i64 40, !128, i64 48, !136, i64 80, !140, i64 104, !128, i64 136, !128, i64 168, !12, i64 200, !146, i64 208}
+!128 = !{!"_ZTSSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE", !129, i64 0}
+!129 = !{!"_ZTSSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE", !130, i64 0}
+!130 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE12_Vector_implE", !131, i64 0, !134, i64 8}
+!131 = !{!"_ZTSN3gmx9AllocatorIfNS_20HostAllocationPolicyEEE", !132, i64 0}
+!132 = !{!"_ZTSN3gmx20HostAllocationPolicyE", !133, i64 0, !106, i64 4}
+!133 = !{!"_ZTSN3gmx13PinningPolicyE", !10, i64 0}
+!134 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE17_Vector_impl_dataE", !59, i64 0, !59, i64 8, !59, i64 16}
+!135 = !{!"_ZTSN3gmx17LJCombinationRuleE", !10, i64 0}
+!136 = !{!"_ZTSSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE", !137, i64 0}
+!137 = !{!"_ZTSSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE", !138, i64 0}
+!138 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE12_Vector_implE", !139, i64 0}
+!139 = !{!"_ZTSNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_Vector_impl_dataE", !59, i64 0, !59, i64 8, !59, i64 16}
+!140 = !{!"_ZTSSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE", !141, i64 0}
+!141 = !{!"_ZTSSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE", !142, i64 0}
+!142 = !{!"_ZTSNSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE12_Vector_implE", !143, i64 0, !144, i64 8}
+!143 = !{!"_ZTSN3gmx9AllocatorIiNS_20HostAllocationPolicyEEE", !132, i64 0}
+!144 = !{!"_ZTSNSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE17_Vector_impl_dataE", !145, i64 0, !145, i64 8, !145, i64 16}
+!145 = !{!"p1 int", !9, i64 0}
+!146 = !{!"_ZTSSt10unique_ptrIN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_EE", !147, i64 0}
+!147 = !{!"_ZTSSt15__uniq_ptr_dataIN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_ELb1ELb1EE", !148, i64 0}
+!148 = !{!"_ZTSSt15__uniq_ptr_implIN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_EE", !149, i64 0}
+!149 = !{!"_ZTSSt5tupleIJPN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_EEE", !150, i64 0}
+!150 = !{!"_ZTSSt11_Tuple_implILm0EJPN3gmx22EnergyGroupsPerClusterESt14default_deleteIS1_EEE", !151, i64 0}
+!151 = !{!"_ZTSSt10_Head_baseILm0EPN3gmx22EnergyGroupsPerClusterELb0EE", !152, i64 0}
+!152 = !{!"p1 _ZTSN3gmx22EnergyGroupsPerClusterE", !9, i64 0}
+!153 = !{!99, !100, i64 0}
+!154 = !{!99, !101, i64 4}
+!155 = !{!99, !108, i64 92}
+!156 = !{!106, !106, i64 0}
+!157 = !{!158, !159, i64 0}
+!158 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistCpuESaIS1_EE17_Vector_impl_dataE", !159, i64 0, !159, i64 8, !159, i64 16}
+!159 = !{!"p1 _ZTSN3gmx16NbnxnPairlistCpuE", !9, i64 0}
+!160 = !{!158, !159, i64 8}
+!161 = !{!59, !59, i64 0}
+!162 = !{!163, !106, i64 5}
+!163 = !{!"_ZTSN3gmx12StepWorkloadE", !106, i64 0, !106, i64 1, !106, i64 2, !106, i64 3, !106, i64 4, !106, i64 5, !106, i64 6, !106, i64 7, !106, i64 8, !106, i64 9, !106, i64 10, !106, i64 11, !106, i64 12, !106, i64 13, !106, i64 14, !106, i64 15, !106, i64 16, !106, i64 17, !106, i64 18, !106, i64 19}
+!164 = !{i8 0, i8 2}
+!165 = !{}
+!166 = !{!167, !159, i64 0}
+!167 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_16NbnxnPairlistCpuEEE", !159, i64 0}
+!168 = !{!169, !169, i64 0}
+!169 = !{!"p1 _ZTSN3gmx16NbnxnPairlistGpuE", !9, i64 0}
+!170 = !{!171, !172, i64 0}
+!171 = !{!"_ZTSNSt12_Vector_baseIN3gmx23nbnxn_atomdata_output_tESaIS1_EE17_Vector_impl_dataE", !172, i64 0, !172, i64 8, !172, i64 16}
+!172 = !{!"p1 _ZTSN3gmx23nbnxn_atomdata_output_tE", !9, i64 0}
+!173 = !{!134, !59, i64 0}
+!174 = !{!134, !59, i64 8}
+!175 = !{!107, !107, i64 0}
+!176 = !{!61, !50, i64 24}
+!177 = !{!178, !12, i64 116}
+!178 = !{!"_ZTSN3gmx11PairlistSetE", !179, i64 0, !179, i64 24, !182, i64 48, !186, i64 72, !106, i64 80, !106, i64 81, !187, i64 88, !12, i64 112, !12, i64 116, !12, i64 120, !12, i64 124}
+!179 = !{!"_ZTSSt6vectorIN3gmx16NbnxnPairlistCpuESaIS1_EE", !180, i64 0}
+!180 = !{!"_ZTSSt12_Vector_baseIN3gmx16NbnxnPairlistCpuESaIS1_EE", !181, i64 0}
+!181 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistCpuESaIS1_EE12_Vector_implE", !158, i64 0}
+!182 = !{!"_ZTSSt6vectorIN3gmx16NbnxnPairlistGpuESaIS1_EE", !183, i64 0}
+!183 = !{!"_ZTSSt12_Vector_baseIN3gmx16NbnxnPairlistGpuESaIS1_EE", !184, i64 0}
+!184 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistGpuESaIS1_EE12_Vector_implE", !185, i64 0}
+!185 = !{!"_ZTSNSt12_Vector_baseIN3gmx16NbnxnPairlistGpuESaIS1_EE17_Vector_impl_dataE", !169, i64 0, !169, i64 8, !169, i64 16}
+!186 = !{!"p1 _ZTSN3gmx14PairlistParamsE", !9, i64 0}
+!187 = !{!"_ZTSSt6vectorISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE", !188, i64 0}
+!188 = !{!"_ZTSSt12_Vector_baseISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE", !189, i64 0}
+!189 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE12_Vector_implE", !190, i64 0}
+!190 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS2_EESaIS5_EE17_Vector_impl_dataE", !191, i64 0, !191, i64 8, !191, i64 16}
+!191 = !{!"p1 _ZTSSt10unique_ptrIN3gmx12AtomPairlistESt14default_deleteIS1_EE", !9, i64 0}
+!192 = !{!102, !102, i64 0}
+!193 = !{!178, !12, i64 120}
+!194 = !{!178, !12, i64 124}
+!195 = !{!9, !9, i64 0}
+!196 = !{!197, !197, i64 0}
+!197 = !{!"p1 _ZTSN3gmx17EnergyAccumulatorILb0ELb1EEE", !9, i64 0}
+!198 = !{!199, !103, i64 64}
+!199 = !{!"_ZTSN3gmx17EnergyAccumulatorILb0ELb1EEE", !200, i64 0, !200, i64 32, !103, i64 64, !103, i64 68}
+!200 = !{!"_ZTSN3gmx9SimdFloatE", !10, i64 0}
+!201 = !{!199, !103, i64 68}
+!202 = !{!103, !103, i64 0}
+!203 = !{!204, !204, i64 0}
+!204 = !{!"p1 _ZTSN3gmx17EnergyAccumulatorILb1ELb1EEE", !9, i64 0}
+!205 = !{!152, !152, i64 0}
+!206 = !{!207}
+!207 = !{i64 2, i64 -1, i64 -1, i1 true}

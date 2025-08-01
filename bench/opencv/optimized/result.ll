@@ -1520,6 +1520,5 @@ attributes #12 = { builtin allocsize(0) }
 !38 = !{!39, !40, i64 0}
 !39 = !{!"_ZTSN5zxing3RefINS_11ResultPointEEE", !40, i64 0}
 !40 = !{!"p1 _ZTSN5zxing11ResultPointE", !13, i64 0}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}

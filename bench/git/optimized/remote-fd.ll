@@ -137,7 +137,7 @@ define dso_local noundef i32 @cmd_remote_fd(i32 noundef %0, ptr noundef %1, ptr 
   %49 = load ptr, ptr @stdin, align 8, !tbaa !10
   %50 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 4095, ptr noundef %49)
   %.not.i = icmp eq ptr %50, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph19.i, !llvm.loop !15
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph19.i
 
 51:                                               ; preds = %.critedge.i
   %52 = call i32 @starts_with(ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #10
@@ -239,7 +239,5 @@ attributes #12 = { nounwind willreturn memory(read) }
 !9 = !{!7, !7, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}

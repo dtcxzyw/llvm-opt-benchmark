@@ -4316,9 +4316,9 @@ define internal void @_ZN5arrow4util12_GLOBAL__N_19FifoQueue4PushESt10unique_ptr
   store ptr null, ptr %1, align 8, !tbaa !200
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(24) %3) #26
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i64, ptr %7, align 8, !tbaa !248
+  %8 = load i64, ptr %7, align 8, !tbaa !247
   %9 = add i64 %8, 1
-  store i64 %9, ptr %7, align 8, !tbaa !248
+  store i64 %9, ptr %7, align 8, !tbaa !247
   ret void
 }
 
@@ -4331,9 +4331,9 @@ define internal void @_ZN5arrow4util12_GLOBAL__N_19FifoQueue3PopEv(ptr dead_on_u
   store i64 %6, ptr %0, align 8, !tbaa !200
   store ptr null, ptr %5, align 8, !tbaa !200
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load i64, ptr %7, align 8, !tbaa !248
+  %8 = load i64, ptr %7, align 8, !tbaa !247
   %9 = add i64 %8, -1
-  store i64 %9, ptr %7, align 8, !tbaa !248
+  store i64 %9, ptr %7, align 8, !tbaa !247
   tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   %10 = load ptr, ptr %5, align 8, !tbaa !200
   %.not.i.i.i.i.i = icmp eq ptr %10, null
@@ -4407,7 +4407,7 @@ _ZNSt7__cxx114listISt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14defa
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @_ZNK5arrow4util12_GLOBAL__N_19FifoQueue4SizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8, !tbaa !248
+  %3 = load i64, ptr %2, align 8, !tbaa !247
   ret i64 %3
 }
 
@@ -4575,32 +4575,32 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %3
 
 29:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !alias.scope !251
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26, !noalias !251
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !alias.scope !250
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26, !noalias !250
   invoke void @_ZN5arrow10FutureImpl4MakeEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.140") align 8 %5)
-          to label %30 unwind label %39, !noalias !251
+          to label %30 unwind label %39, !noalias !250
 
 30:                                               ; preds = %29
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26, !noalias !251
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26, !noalias !250
   invoke void @_ZNSt12__shared_ptrIN5arrow10FutureImplELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %31 unwind label %41, !noalias !251
+          to label %31 unwind label %41, !noalias !250
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr %4, align 8, !tbaa !23, !noalias !251
+  %32 = load ptr, ptr %4, align 8, !tbaa !23, !noalias !250
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %35 = load ptr, ptr %33, align 8, !tbaa !14, !noalias !251
-  %.pre.i = load ptr, ptr %5, align 8, !tbaa !23, !noalias !251
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26, !noalias !251
+  %35 = load ptr, ptr %33, align 8, !tbaa !14, !noalias !250
+  %.pre.i = load ptr, ptr %5, align 8, !tbaa !23, !noalias !250
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26, !noalias !250
   %.not.i.i5 = icmp eq ptr %.pre.i, null
   br i1 %.not.i.i5, label %48, label %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i: ; preds = %31
-  %36 = load ptr, ptr %.pre.i, align 8, !tbaa !17, !noalias !251
+  %36 = load ptr, ptr %.pre.i, align 8, !tbaa !17, !noalias !250
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8, !noalias !251
-  call void %38(ptr noundef nonnull align 8 dereferenceable(72) %.pre.i) #26, !noalias !251
+  %38 = load ptr, ptr %37, align 8, !noalias !250
+  call void %38(ptr noundef nonnull align 8 dereferenceable(72) %.pre.i) #26, !noalias !250
   br label %48
 
 39:                                               ; preds = %29
@@ -4611,27 +4611,27 @@ _ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i: ; preds = %31
 41:                                               ; preds = %30
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %5, align 8, !tbaa !23, !noalias !251
+  %43 = load ptr, ptr %5, align 8, !tbaa !23, !noalias !250
   %.not.i4.i = icmp eq ptr %43, null
   br i1 %.not.i4.i, label %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i, label %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i5.i
 
 _ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i5.i: ; preds = %41
-  %44 = load ptr, ptr %43, align 8, !tbaa !17, !noalias !251
+  %44 = load ptr, ptr %43, align 8, !tbaa !17, !noalias !250
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load ptr, ptr %45, align 8, !noalias !251
-  call void %46(ptr noundef nonnull align 8 dereferenceable(72) %43) #26, !noalias !251
+  %46 = load ptr, ptr %45, align 8, !noalias !250
+  call void %46(ptr noundef nonnull align 8 dereferenceable(72) %43) #26, !noalias !250
   br label %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i
 
 _ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i: ; preds = %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i5.i, %41, %39
   %.pn.i = phi { ptr, i32 } [ %40, %39 ], [ %42, %41 ], [ %42, %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i5.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26, !noalias !251
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26, !noalias !250
   call void @_ZN5arrow6FutureINS_8internal5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
   %47 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #26
   resume { ptr, i32 } %.pn.i
 
 48:                                               ; preds = %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i, %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26, !noalias !251
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26, !noalias !250
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr %32, ptr %10, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -4762,7 +4762,7 @@ _ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit:   ; preds = %_ZN5arrow6FutureINS
 _ZNSt8optionalIN5arrow6FutureINS0_8internal5EmptyEEEEC2IRS4_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS5_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISA_ISt10in_place_tSH_EESt16is_constructibleIS4_JSD_EESt14is_convertibleISD_S4_EEEbE4typeELb1EEEOSD_.exit: ; preds = %103, %100, %_ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit, %22, %19, %12, %27
   %.sink = phi i8 [ 0, %27 ], [ 1, %12 ], [ 1, %19 ], [ 1, %22 ], [ 1, %_ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit ], [ 1, %100 ], [ 1, %103 ]
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.sink, ptr %105, align 8, !tbaa !254
+  store i8 %.sink, ptr %105, align 8, !tbaa !253
   %106 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %7) #26
   ret void
 }
@@ -4861,32 +4861,32 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 
 11:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !256
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26, !noalias !256
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !255
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26, !noalias !255
   invoke void @_ZN5arrow10FutureImpl4MakeEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.140") align 8 %3)
-          to label %12 unwind label %21, !noalias !256
+          to label %12 unwind label %21, !noalias !255
 
 12:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26, !noalias !256
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26, !noalias !255
   invoke void @_ZNSt12__shared_ptrIN5arrow10FutureImplELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %13 unwind label %23, !noalias !256
+          to label %13 unwind label %23, !noalias !255
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %2, align 8, !tbaa !23, !noalias !256
+  %14 = load ptr, ptr %2, align 8, !tbaa !23, !noalias !255
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = load ptr, ptr %15, align 8, !tbaa !14, !noalias !256
-  %.pre.i = load ptr, ptr %3, align 8, !tbaa !23, !noalias !256
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26, !noalias !256
+  %17 = load ptr, ptr %15, align 8, !tbaa !14, !noalias !255
+  %.pre.i = load ptr, ptr %3, align 8, !tbaa !23, !noalias !255
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26, !noalias !255
   %.not.i.i2 = icmp eq ptr %.pre.i, null
   br i1 %.not.i.i2, label %30, label %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i: ; preds = %13
-  %18 = load ptr, ptr %.pre.i, align 8, !tbaa !17, !noalias !256
+  %18 = load ptr, ptr %.pre.i, align 8, !tbaa !17, !noalias !255
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !noalias !256
-  call void %20(ptr noundef nonnull align 8 dereferenceable(72) %.pre.i) #26, !noalias !256
+  %20 = load ptr, ptr %19, align 8, !noalias !255
+  call void %20(ptr noundef nonnull align 8 dereferenceable(72) %.pre.i) #26, !noalias !255
   br label %30
 
 21:                                               ; preds = %11
@@ -4897,27 +4897,27 @@ _ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i: ; preds = %13
 23:                                               ; preds = %12
   %24 = landingpad { ptr, i32 }
           cleanup
-  %25 = load ptr, ptr %3, align 8, !tbaa !23, !noalias !256
+  %25 = load ptr, ptr %3, align 8, !tbaa !23, !noalias !255
   %.not.i4.i = icmp eq ptr %25, null
   br i1 %.not.i4.i, label %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i, label %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i5.i
 
 _ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i5.i: ; preds = %23
-  %26 = load ptr, ptr %25, align 8, !tbaa !17, !noalias !256
+  %26 = load ptr, ptr %25, align 8, !tbaa !17, !noalias !255
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !noalias !256
-  call void %28(ptr noundef nonnull align 8 dereferenceable(72) %25) #26, !noalias !256
+  %28 = load ptr, ptr %27, align 8, !noalias !255
+  call void %28(ptr noundef nonnull align 8 dereferenceable(72) %25) #26, !noalias !255
   br label %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i
 
 _ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i: ; preds = %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i5.i, %23, %21
   %.pn.i = phi { ptr, i32 } [ %22, %21 ], [ %24, %23 ], [ %24, %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i5.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26, !noalias !256
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26, !noalias !255
   call void @_ZN5arrow6FutureINS_8internal5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
   %29 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #26
   resume { ptr, i32 } %.pn.i
 
 30:                                               ; preds = %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i, %13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26, !noalias !256
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26, !noalias !255
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store ptr %14, ptr %9, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -5094,13 +5094,13 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA32_KcEEES0_NS_10StatusCod
   %4 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26, !noalias !259
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !259
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26, !noalias !258
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !258
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !262, !noalias !259
-  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(32) %2) #26, !noalias !259
+  %7 = load ptr, ptr %6, align 8, !tbaa !261, !noalias !258
+  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(32) %2) #26, !noalias !258
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(32) %2, i64 noundef %8)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA32_KcEEvRSoOT_.exit.i unwind label %10, !noalias !259
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA32_KcEEvRSoOT_.exit.i unwind label %10, !noalias !258
 
 _ZN5arrow4util22StringBuilderRecursiveIRA32_KcEEvRSoOT_.exit.i: ; preds = %3
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -5114,12 +5114,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26, !noalias !259
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26, !noalias !258
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA32_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA32_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #26
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26, !noalias !259
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26, !noalias !258
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %21
 
@@ -5224,7 +5224,7 @@ define linkonce_odr void @_ZN5arrow4util12ThrottleImpl14NotifyUnlockedEOSt11uniq
   br label %_ZNSt11unique_lockISt5mutexE6unlockEv.exit
 
 _ZNSt11unique_lockISt5mutexE6unlockEv.exit:       ; preds = %17, %15
-  store ptr null, ptr %4, align 8, !tbaa !81, !alias.scope !272
+  store ptr null, ptr %4, align 8, !tbaa !81, !alias.scope !271
   invoke void @_ZN5arrow6FutureINS_8internal5EmptyEE12MarkFinishedIS2_vEEvNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %4)
           to label %19 unwind label %50
 
@@ -5671,7 +5671,7 @@ _ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EE
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %57 = load i8, ptr %56, align 8, !tbaa !254, !range !94, !noundef !95
+  %57 = load i8, ptr %56, align 8, !tbaa !253, !range !94, !noundef !95
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %59, label %151
 
@@ -5703,13 +5703,13 @@ _ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i30: 
   %71 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %8) #26
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !146, !noalias !275
+  %74 = load ptr, ptr %73, align 8, !tbaa !146, !noalias !274
   %75 = icmp eq ptr %74, null
   br i1 %75, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %76
 
 76:                                               ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %78 = load atomic i32, ptr %77 monotonic, align 8, !noalias !275
+  %78 = load atomic i32, ptr %77 monotonic, align 8, !noalias !274
   br label %79
 
 79:                                               ; preds = %80, %76
@@ -5719,14 +5719,14 @@ _ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i30: 
 
 80:                                               ; preds = %79
   %81 = add nsw i32 %.06.i.i.i.i.i, 1
-  %82 = cmpxchg weak ptr %77, i32 %.06.i.i.i.i.i, i32 %81 acq_rel monotonic, align 8, !noalias !275
+  %82 = cmpxchg weak ptr %77, i32 %.06.i.i.i.i.i, i32 %81 acq_rel monotonic, align 8, !noalias !274
   %83 = extractvalue { i32, i1 } %82, 1
   %84 = extractvalue { i32, i1 } %82, 0
-  br i1 %83, label %86, label %79, !llvm.loop !278
+  br i1 %83, label %86, label %79, !llvm.loop !277
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %79, %70
-  %85 = call ptr @__cxa_allocate_exception(i64 8) #26, !noalias !275
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %85, align 8, !tbaa !17, !noalias !275
+  %85 = call ptr @__cxa_allocate_exception(i64 8) #26, !noalias !274
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %85, align 8, !tbaa !17, !noalias !274
   invoke void @__cxa_throw(ptr nonnull %85, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #29
           to label %.noexc33 unwind label %146
 
@@ -5734,7 +5734,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   unreachable
 
 86:                                               ; preds = %80
-  %87 = load ptr, ptr %72, align 8, !tbaa !145, !noalias !275
+  %87 = load ptr, ptr %72, align 8, !tbaa !145, !noalias !274
   %88 = getelementptr inbounds nuw i8, ptr %74, i64 12
   %89 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !64
   %.not.i.i.i.i = icmp eq i8 %89, 0
@@ -5940,12 +5940,12 @@ _ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i54: 
 
 _ZNSt12__shared_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %134, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %120, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit52
   %.1 = phi i1 [ %154, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit52 ], [ true, %120 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i ], [ true, %134 ]
-  %166 = load i8, ptr %56, align 8, !tbaa !254, !range !94, !noundef !95
+  %166 = load i8, ptr %56, align 8, !tbaa !253, !range !94, !noundef !95
   %167 = trunc nuw i8 %166 to i1
   br i1 %167, label %168, label %192
 
 168:                                              ; preds = %_ZNSt12__shared_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  store i8 0, ptr %56, align 8, !tbaa !254
+  store i8 0, ptr %56, align 8, !tbaa !253
   %169 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !14
   %.not.i.i.i.i.i.i.i = icmp eq ptr %170, null
@@ -6106,26 +6106,26 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4util12_GLOBAL__N_131Throttl
   %12 = tail call { i64, ptr } %11(ptr noundef nonnull align 8 dereferenceable(16) %8)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !123
-  store i32 %2, ptr %6, align 8, !tbaa !279
+  store i32 %2, ptr %6, align 8, !tbaa !278
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 %7, ptr %15, align 4, !tbaa !283
+  store i8 %7, ptr %15, align 4, !tbaa !282
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i64, ptr %1, align 8, !tbaa !200
   store i64 %17, ptr %16, align 8, !tbaa !200
   store ptr null, ptr %1, align 8, !tbaa !200
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !284)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !146, !noalias !284
-  store ptr %22, ptr %20, align 8, !tbaa !14, !alias.scope !284
+  %22 = load ptr, ptr %21, align 8, !tbaa !146, !noalias !283
+  store ptr %22, ptr %20, align 8, !tbaa !14, !alias.scope !283
   %23 = icmp eq ptr %22, null
   br i1 %23, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i, label %24
 
 24:                                               ; preds = %4
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %26 = load atomic i32, ptr %25 monotonic, align 8, !noalias !284
+  %26 = load atomic i32, ptr %25 monotonic, align 8, !noalias !283
   br label %27
 
 27:                                               ; preds = %28, %24
@@ -6135,14 +6135,14 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4util12_GLOBAL__N_131Throttl
 
 28:                                               ; preds = %27
   %29 = add nsw i32 %.06.i.i.i.i.i, 1
-  %30 = cmpxchg weak ptr %25, i32 %.06.i.i.i.i.i, i32 %29 acq_rel monotonic, align 8, !noalias !284
+  %30 = cmpxchg weak ptr %25, i32 %.06.i.i.i.i.i, i32 %29 acq_rel monotonic, align 8, !noalias !283
   %31 = extractvalue { i32, i1 } %30, 1
   %32 = extractvalue { i32, i1 } %30, 0
-  br i1 %31, label %34, label %27, !llvm.loop !278
+  br i1 %31, label %34, label %27, !llvm.loop !277
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i: ; preds = %27, %4
-  %33 = tail call ptr @__cxa_allocate_exception(i64 8) #26, !noalias !284
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %33, align 8, !tbaa !17, !noalias !284
+  %33 = tail call ptr @__cxa_allocate_exception(i64 8) #26, !noalias !283
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %33, align 8, !tbaa !17, !noalias !283
   invoke void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #29
           to label %.noexc unwind label %63
 
@@ -6150,8 +6150,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
   unreachable
 
 34:                                               ; preds = %28
-  %35 = load ptr, ptr %19, align 8, !tbaa !145, !noalias !284
-  store ptr %35, ptr %18, align 8, !tbaa !287, !alias.scope !284
+  %35 = load ptr, ptr %19, align 8, !tbaa !145, !noalias !283
+  store ptr %35, ptr %18, align 8, !tbaa !286, !alias.scope !283
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %36 = invoke noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #27
           to label %.noexc7 unwind label %69
@@ -6159,29 +6159,29 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowE
 .noexc7:                                          ; preds = %34
   %37 = extractvalue { i64, ptr } %12, 0
   %38 = extractvalue { i64, ptr } %12, 1
-  %39 = load i64, ptr %16, align 8, !tbaa !200, !noalias !288
-  store ptr null, ptr %16, align 8, !tbaa !200, !noalias !288
-  %40 = load ptr, ptr %20, align 8, !tbaa !14, !noalias !288
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false), !noalias !288
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler4TaskE, i64 16), ptr %36, align 8, !tbaa !17, !noalias !288
+  %39 = load i64, ptr %16, align 8, !tbaa !200, !noalias !287
+  store ptr null, ptr %16, align 8, !tbaa !200, !noalias !287
+  %40 = load ptr, ptr %20, align 8, !tbaa !14, !noalias !287
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false), !noalias !287
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler4TaskE, i64 16), ptr %36, align 8, !tbaa !17, !noalias !287
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  tail call void @_ZN5arrow4util7tracing4SpanC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #26, !noalias !288
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS1_4TaskESt14default_deleteIS6_EEibEUlvE_EE, i64 16), ptr %36, align 8, !tbaa !17, !noalias !288
+  tail call void @_ZN5arrow4util7tracing4SpanC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #26, !noalias !287
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS1_4TaskESt14default_deleteIS6_EEibEUlvE_EE, i64 16), ptr %36, align 8, !tbaa !17, !noalias !287
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %42, ptr noundef nonnull align 8 dereferenceable(5) %6, i64 5, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store i64 %39, ptr %43, align 8, !tbaa !200, !noalias !288
+  store i64 %39, ptr %43, align 8, !tbaa !200, !noalias !287
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store ptr %35, ptr %44, align 8, !tbaa !287, !noalias !288
+  store ptr %35, ptr %44, align 8, !tbaa !286, !noalias !287
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store ptr %40, ptr %45, align 8, !tbaa !14, !noalias !288
+  store ptr %40, ptr %45, align 8, !tbaa !14, !noalias !287
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  store i64 %37, ptr %46, align 8, !tbaa !199, !noalias !288
+  store i64 %37, ptr %46, align 8, !tbaa !199, !noalias !287
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %36, i64 56
-  store ptr %38, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !291, !noalias !288
+  store ptr %38, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !290, !noalias !287
   %47 = getelementptr inbounds nuw i8, ptr %36, i64 96
-  store i8 0, ptr %47, align 8, !tbaa !292, !noalias !288
-  store ptr %36, ptr %5, align 8, !tbaa !294
+  store i8 0, ptr %47, align 8, !tbaa !291, !noalias !287
+  store ptr %36, ptr %5, align 8, !tbaa !293
   %48 = load ptr, ptr %14, align 8, !tbaa !17
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
@@ -6250,12 +6250,12 @@ _ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt14_Optional_baseIN5arrow6FutureINS0_8internal5EmptyEEELb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i8, ptr %2, align 8, !tbaa !254, !range !94, !noundef !95
+  %3 = load i8, ptr %2, align 8, !tbaa !253, !range !94, !noundef !95
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %_ZNSt17_Optional_payloadIN5arrow6FutureINS0_8internal5EmptyEEELb0ELb0ELb0EED2Ev.exit
 
 5:                                                ; preds = %1
-  store i8 0, ptr %2, align 8, !tbaa !254
+  store i8 0, ptr %2, align 8, !tbaa !253
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %.not.i.i.i.i.i.i = icmp eq ptr %7, null
@@ -6401,13 +6401,13 @@ define internal void @_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !146, !noalias !295
+  %8 = load ptr, ptr %7, align 8, !tbaa !146, !noalias !294
   %.not.i.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNO5arrow6FutureINS_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl7AddTaskESt10unique_ptrINS6_18AsyncTaskScheduler4TaskESt14default_deleteISB_EEEUlRKNS_6StatusEE_EclERKNS_10FutureImplE.exit, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load atomic i32, ptr %10 monotonic, align 8, !noalias !295
+  %11 = load atomic i32, ptr %10 monotonic, align 8, !noalias !294
   br label %12
 
 12:                                               ; preds = %13, %9
@@ -6417,16 +6417,16 @@ define internal void @_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS
 
 13:                                               ; preds = %12
   %14 = add nsw i32 %.06.i.i.i.i.i.i.i, 1
-  %15 = cmpxchg weak ptr %10, i32 %.06.i.i.i.i.i.i.i, i32 %14 acq_rel monotonic, align 8, !noalias !295
+  %15 = cmpxchg weak ptr %10, i32 %.06.i.i.i.i.i.i.i, i32 %14 acq_rel monotonic, align 8, !noalias !294
   %16 = extractvalue { i32, i1 } %15, 1
   %17 = extractvalue { i32, i1 } %15, 0
-  br i1 %16, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i, label %12, !llvm.loop !278
+  br i1 %16, label %_ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i, label %12, !llvm.loop !277
 
 _ZNKSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE16_M_get_use_countEv.exit.i.i.i.i.i: ; preds = %13
-  %18 = load atomic i32, ptr %10 monotonic, align 8, !noalias !295
+  %18 = load atomic i32, ptr %10 monotonic, align 8, !noalias !294
   %.fr.i.i.i.i.i = freeze i32 %18
   %.not.i.i.i.i.i = icmp ne i32 %.fr.i.i.i.i.i, 0
-  %19 = load ptr, ptr %3, align 8, !noalias !295
+  %19 = load ptr, ptr %3, align 8, !noalias !294
   %20 = icmp ne ptr %19, null
   %or.cond.i.i = select i1 %.not.i.i.i.i.i, i1 %20, i1 false
   br i1 %or.cond.i.i, label %21, label %.thread.i.i
@@ -6561,7 +6561,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %_ZNSt11unique_lockI
           to label %46 unwind label %85
 
 46:                                               ; preds = %41
-  %47 = load i8, ptr %11, align 8, !tbaa !254, !range !94, !noundef !95
+  %47 = load i8, ptr %11, align 8, !tbaa !253, !range !94, !noundef !95
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %89
 
@@ -6795,12 +6795,12 @@ _ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EE
 _ZNSt11unique_lockISt5mutexE4lockEv.exit:         ; preds = %87, %70, %73, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit46
   %.sroa.10.2 = phi i8 [ 0, %70 ], [ 0, %73 ], [ %.sroa.10.7, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit46 ], [ 1, %87 ]
   %.0 = phi i32 [ 1, %70 ], [ 1, %73 ], [ %.1, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit46 ], [ 2, %87 ]
-  %126 = load i8, ptr %11, align 8, !tbaa !254, !range !94, !noundef !95
+  %126 = load i8, ptr %11, align 8, !tbaa !253, !range !94, !noundef !95
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %128, label %_ZNSt14_Optional_baseIN5arrow6FutureINS0_8internal5EmptyEEELb0ELb0EED2Ev.exit
 
 128:                                              ; preds = %_ZNSt11unique_lockISt5mutexE4lockEv.exit
-  store i8 0, ptr %11, align 8, !tbaa !254
+  store i8 0, ptr %11, align 8, !tbaa !253
   %129 = load ptr, ptr %16, align 8, !tbaa !14
   %.not.i.i.i.i.i.i.i = icmp eq ptr %129, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt14_Optional_baseIN5arrow6FutureINS0_8internal5EmptyEEELb0ELb0EED2Ev.exit, label %130
@@ -6857,7 +6857,7 @@ _ZNSt14_Optional_baseIN5arrow6FutureINS0_8internal5EmptyEEELb0ELb0EED2Ev.exit: ;
   ]
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.backedge: ; preds = %_ZNSt14_Optional_baseIN5arrow6FutureINS0_8internal5EmptyEEELb0ELb0EED2Ev.exit, %_ZNSt14_Optional_baseIN5arrow6FutureINS0_8internal5EmptyEEELb0ELb0EED2Ev.exit
-  br label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, !llvm.loop !298
+  br label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, !llvm.loop !297
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt14_Function_baseD2Ev.exit6.i, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit49
   %.sroa.10.5 = phi i8 [ %.sroa.10.8, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit49 ], [ 0, %_ZNSt14_Function_baseD2Ev.exit6.i ], [ 0, %.loopexit.split-lp ], [ 0, %.loopexit ]
@@ -6899,17 +6899,17 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit52:          ; preds = %156, %158
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEEvEZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNSF_13ContinueTasksEvENKSG_clEvEUlRKNS0_6StatusEE_NSB_21WrapStatusyOnComplete8CallbackISK_EEEEbT_NS0_15CallbackOptionsEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable writeonly sret(%"class.arrow::internal::FnOnce.161") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
-  %.val = load ptr, ptr %1, align 8, !tbaa !299
-  %.val.val = load ptr, ptr %.val, align 8, !tbaa !301
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
+  %.val = load ptr, ptr %1, align 8, !tbaa !298
+  %.val.val = load ptr, ptr %.val, align 8, !tbaa !300
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
   %3 = getelementptr inbounds nuw i8, ptr %.val.val, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !146, !noalias !306
+  %4 = load ptr, ptr %3, align 8, !tbaa !146, !noalias !305
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i.i.i, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load atomic i32, ptr %7 monotonic, align 8, !noalias !306
+  %8 = load atomic i32, ptr %7 monotonic, align 8, !noalias !305
   br label %9
 
 9:                                                ; preds = %10, %6
@@ -6919,36 +6919,36 @@ define internal void @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_
 
 10:                                               ; preds = %9
   %11 = add nsw i32 %.06.i.i.i.i.i.i.i.i.i, 1
-  %12 = cmpxchg weak ptr %7, i32 %.06.i.i.i.i.i.i.i.i.i, i32 %11 acq_rel monotonic, align 8, !noalias !306
+  %12 = cmpxchg weak ptr %7, i32 %.06.i.i.i.i.i.i.i.i.i, i32 %11 acq_rel monotonic, align 8, !noalias !305
   %13 = extractvalue { i32, i1 } %12, 1
   %14 = extractvalue { i32, i1 } %12, 0
-  br i1 %13, label %_ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISA_SE_SF_EEbT_NS0_15CallbackOptionsEEUlvE_JEESH_St14__invoke_otherOT0_DpOT1_.exit.i, label %9, !llvm.loop !278
+  br i1 %13, label %_ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISA_SE_SF_EEbT_NS0_15CallbackOptionsEEUlvE_JEESH_St14__invoke_otherOT0_DpOT1_.exit.i, label %9, !llvm.loop !277
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE23_M_add_ref_lock_nothrowEv.exit.i.i.i.i.i.i.i.i: ; preds = %9, %2
-  %15 = tail call ptr @__cxa_allocate_exception(i64 8) #26, !noalias !306
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %15, align 8, !tbaa !17, !noalias !306
-  tail call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #29, !noalias !306
+  %15 = tail call ptr @__cxa_allocate_exception(i64 8) #26, !noalias !305
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12bad_weak_ptr, i64 16), ptr %15, align 8, !tbaa !17, !noalias !305
+  tail call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #29, !noalias !305
   unreachable
 
 _ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISA_SE_SF_EEbT_NS0_15CallbackOptionsEEUlvE_JEESH_St14__invoke_otherOT0_DpOT1_.exit.i: ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %.val.val, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !145, !noalias !306
+  %17 = load ptr, ptr %16, align 8, !tbaa !145, !noalias !305
   %18 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
-          to label %_ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNSE_13ContinueTasksEvENKSF_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOSS_DpOST_.exit unwind label %19, !noalias !303
+          to label %_ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNSE_13ContinueTasksEvENKSF_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOSS_DpOST_.exit unwind label %19, !noalias !302
 
 19:                                               ; preds = %_ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISA_SE_SF_EEbT_NS0_15CallbackOptionsEEUlvE_JEESH_St14__invoke_otherOT0_DpOT1_.exit.i
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS_6StatusEE_ED2Ev(ptr nonnull %4) #26, !noalias !303
+  tail call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS_6StatusEE_ED2Ev(ptr nonnull %4) #26, !noalias !302
   resume { ptr, i32 } %20
 
 _ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNSE_13ContinueTasksEvENKSF_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOSS_DpOST_.exit: ; preds = %_ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISA_SE_SF_EEbT_NS0_15CallbackOptionsEEUlvE_JEESH_St14__invoke_otherOT0_DpOT1_.exit.i
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS_6StatusEE_EEEE, i64 16), ptr %18, align 8, !tbaa !17, !noalias !303
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS_6StatusEE_EEEE, i64 16), ptr %18, align 8, !tbaa !17, !noalias !302
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %17, ptr %21, align 8, !tbaa !287, !noalias !303
+  store ptr %17, ptr %21, align 8, !tbaa !286, !noalias !302
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %4, ptr %22, align 8, !tbaa !14, !noalias !303
-  store ptr %18, ptr %0, align 8, !tbaa !75, !alias.scope !303
+  store ptr %4, ptr %22, align 8, !tbaa !14, !noalias !302
+  store ptr %18, ptr %0, align 8, !tbaa !75, !alias.scope !302
   ret void
 }
 
@@ -7242,13 +7242,13 @@ _ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EE
 define internal void @_ZN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS1_4TaskESt14default_deleteIS6_EEibEUlvE_ED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS1_4TaskESt14default_deleteIS6_EEibEUlvE_EE, i64 16), ptr %0, align 8, !tbaa !17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load i8, ptr %2, align 8, !tbaa !292, !range !94, !noundef !95
+  %3 = load i8, ptr %2, align 8, !tbaa !291, !range !94, !noundef !95
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 0, ptr %2, align 8, !tbaa !292
+  store i8 0, ptr %2, align 8, !tbaa !291
   %7 = load ptr, ptr %6, align 8, !tbaa !196
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = icmp eq ptr %7, %8
@@ -7354,13 +7354,13 @@ _ZN5arrow4util18AsyncTaskScheduler4TaskD2Ev.exit: ; preds = %_ZZN5arrow4util12_G
 define internal void @_ZN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS1_4TaskESt14default_deleteIS6_EEibEUlvE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS1_4TaskESt14default_deleteIS6_EEibEUlvE_EE, i64 16), ptr %0, align 8, !tbaa !17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load i8, ptr %2, align 8, !tbaa !292, !range !94, !noundef !95
+  %3 = load i8, ptr %2, align 8, !tbaa !291, !range !94, !noundef !95
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 0, ptr %2, align 8, !tbaa !292
+  store i8 0, ptr %2, align 8, !tbaa !291
   %7 = load ptr, ptr %6, align 8, !tbaa !196
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = icmp eq ptr %7, %8
@@ -7469,15 +7469,15 @@ define internal void @_ZN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLO
   %5 = alloca %"class.arrow::Result.155", align 8
   %6 = alloca %"class.arrow::Future", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !315)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #26, !noalias !315
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #26, !noalias !314
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !200, !noalias !315
-  %10 = load ptr, ptr %9, align 8, !tbaa !17, !noalias !315
+  %9 = load ptr, ptr %8, align 8, !tbaa !200, !noalias !314
+  %10 = load ptr, ptr %9, align 8, !tbaa !17, !noalias !314
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !noalias !315
-  call void %12(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Result.155") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %9), !noalias !315
-  %13 = load ptr, ptr %5, align 8, !tbaa !81, !noalias !315
+  %12 = load ptr, ptr %11, align 8, !noalias !314
+  call void %12(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Result.155") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %9), !noalias !314
+  %13 = load ptr, ptr %5, align 8, !tbaa !81, !noalias !314
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15, !prof !82
 
@@ -7486,99 +7486,99 @@ define internal void @_ZN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLO
   br label %61
 
 16:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26, !noalias !315
-  call void @llvm.experimental.noalias.scope.decl(metadata !318)
-  call void @llvm.experimental.noalias.scope.decl(metadata !321)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #26, !noalias !314
+  call void @llvm.experimental.noalias.scope.decl(metadata !317)
+  call void @llvm.experimental.noalias.scope.decl(metadata !320)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !60, !noalias !324
-  store ptr %18, ptr %6, align 8, !tbaa !60, !alias.scope !325, !noalias !315
+  %18 = load ptr, ptr %17, align 8, !tbaa !60, !noalias !323
+  store ptr %18, ptr %6, align 8, !tbaa !60, !alias.scope !324, !noalias !314
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !14, !noalias !324
-  store ptr null, ptr %20, align 8, !tbaa !14, !noalias !324
-  store ptr %21, ptr %19, align 8, !tbaa !14, !alias.scope !325, !noalias !315
-  store ptr null, ptr %17, align 8, !tbaa !60, !noalias !324
+  %21 = load ptr, ptr %20, align 8, !tbaa !14, !noalias !323
+  store ptr null, ptr %20, align 8, !tbaa !14, !noalias !323
+  store ptr %21, ptr %19, align 8, !tbaa !14, !alias.scope !324, !noalias !314
+  store ptr null, ptr %17, align 8, !tbaa !60, !noalias !323
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !315
-  store ptr %22, ptr %3, align 8, !noalias !315
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !314
+  store ptr %22, ptr %3, align 8, !noalias !314
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %7, ptr %23, align 8, !noalias !315
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26, !noalias !315
+  store ptr %7, ptr %23, align 8, !noalias !314
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #26, !noalias !314
   %24 = ptrtoint ptr %3 to i64
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %27, align 8, !noalias !315
-  store i64 %24, ptr %4, align 8, !tbaa !195, !noalias !315
-  store ptr @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEEvEZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSD_18AsyncTaskScheduler4TaskESt14default_deleteISI_EEibENUlvE_clEvEUlvE_ZZZNSF_10SubmitTaskESL_ibENSM_clEvENKSN_clEvEUlRKNS0_6StatusEE_NSB_21WrapStatusyOnComplete8CallbackISR_EEEEbT_NS0_15CallbackOptionsEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %26, align 8, !tbaa !210, !noalias !315
-  store ptr @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEEvEZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSD_18AsyncTaskScheduler4TaskESt14default_deleteISI_EEibENUlvE_clEvEUlvE_ZZZNSF_10SubmitTaskESL_ibENSM_clEvENKSN_clEvEUlRKNS0_6StatusEE_NSB_21WrapStatusyOnComplete8CallbackISR_EEEEbT_NS0_15CallbackOptionsEEUlvE_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %25, align 8, !tbaa !213, !noalias !315
+  store i64 0, ptr %27, align 8, !noalias !314
+  store i64 %24, ptr %4, align 8, !tbaa !195, !noalias !314
+  store ptr @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEEvEZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSD_18AsyncTaskScheduler4TaskESt14default_deleteISI_EEibENUlvE_clEvEUlvE_ZZZNSF_10SubmitTaskESL_ibENSM_clEvENKSN_clEvEUlRKNS0_6StatusEE_NSB_21WrapStatusyOnComplete8CallbackISR_EEEEbT_NS0_15CallbackOptionsEEUlvE_E9_M_invokeERKSt9_Any_data, ptr %26, align 8, !tbaa !210, !noalias !314
+  store ptr @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEEvEZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSD_18AsyncTaskScheduler4TaskESt14default_deleteISI_EEibENUlvE_clEvEUlvE_ZZZNSF_10SubmitTaskESL_ibENSM_clEvENKSN_clEvEUlRKNS0_6StatusEE_NSB_21WrapStatusyOnComplete8CallbackISR_EEEEbT_NS0_15CallbackOptionsEEUlvE_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation, ptr %25, align 8, !tbaa !213, !noalias !314
   %28 = invoke noundef zeroext i1 @_ZN5arrow10FutureImpl14TryAddCallbackERKSt8functionIFNS_8internal6FnOnceIFvRKS0_EEEvEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 0, ptr null)
-          to label %29 unwind label %36, !noalias !315
+          to label %29 unwind label %36, !noalias !314
 
 29:                                               ; preds = %16
-  %30 = load ptr, ptr %25, align 8, !tbaa !213, !noalias !315
+  %30 = load ptr, ptr %25, align 8, !tbaa !213, !noalias !314
   %.not.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i, label %44, label %31
 
 31:                                               ; preds = %29
   %32 = invoke noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
-          to label %44 unwind label %33, !noalias !315
+          to label %44 unwind label %33, !noalias !314
 
 33:                                               ; preds = %31
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #30, !noalias !315
+  call void @__clang_call_terminate(ptr %35) #30, !noalias !314
   unreachable
 
 36:                                               ; preds = %16
   %37 = landingpad { ptr, i32 }
           cleanup
-  %38 = load ptr, ptr %25, align 8, !tbaa !213, !noalias !315
+  %38 = load ptr, ptr %25, align 8, !tbaa !213, !noalias !314
   %.not.i5.i.i = icmp eq ptr %38, null
   br i1 %.not.i5.i.i, label %_ZNSt14_Function_baseD2Ev.exit6.i.i, label %39
 
 39:                                               ; preds = %36
   %40 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit6.i.i unwind label %41, !noalias !315
+          to label %_ZNSt14_Function_baseD2Ev.exit6.i.i unwind label %41, !noalias !314
 
 41:                                               ; preds = %39
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #30, !noalias !315
+  call void @__clang_call_terminate(ptr %43) #30, !noalias !314
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit6.i.i:              ; preds = %39, %36
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26, !noalias !315
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26, !noalias !314
   br label %.body.i
 
 44:                                               ; preds = %31, %29
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26, !noalias !315
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !315
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26, !noalias !314
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !314
   br i1 %28, label %_ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit.i, label %45
 
 45:                                               ; preds = %44
-  %.val9.i = load ptr, ptr %22, align 8, !tbaa !287, !noalias !315
+  %.val9.i = load ptr, ptr %22, align 8, !tbaa !286, !noalias !314
   %46 = getelementptr inbounds nuw i8, ptr %.val9.i, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !144, !noalias !315
-  %48 = load i32, ptr %7, align 8, !tbaa !279, !noalias !315
-  %49 = load ptr, ptr %47, align 8, !tbaa !17, !noalias !315
+  %47 = load ptr, ptr %46, align 8, !tbaa !144, !noalias !314
+  %48 = load i32, ptr %7, align 8, !tbaa !278, !noalias !314
+  %49 = load ptr, ptr %47, align 8, !tbaa !17, !noalias !314
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %51 = load ptr, ptr %50, align 8, !noalias !315
+  %51 = load ptr, ptr %50, align 8, !noalias !314
   invoke void %51(ptr noundef nonnull align 8 dereferenceable(8) %47, i32 noundef %48)
-          to label %52 unwind label %57, !noalias !315
+          to label %52 unwind label %57, !noalias !314
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %54 = load i8, ptr %53, align 4, !tbaa !283, !range !94, !noalias !315, !noundef !95
+  %54 = load i8, ptr %53, align 4, !tbaa !282, !range !94, !noalias !314, !noundef !95
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %_ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit.i, label %56
 
 56:                                               ; preds = %52
-  %.val.i = load ptr, ptr %22, align 8, !tbaa !287, !noalias !315
+  %.val.i = load ptr, ptr %22, align 8, !tbaa !286, !noalias !314
   invoke fastcc void @_ZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEv(ptr noundef nonnull align 8 dereferenceable(88) %.val.i)
-          to label %_ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit.i unwind label %57, !noalias !315
+          to label %_ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit.i unwind label %57, !noalias !314
 
 57:                                               ; preds = %56, %45
   %58 = landingpad { ptr, i32 }
@@ -7587,29 +7587,29 @@ _ZNSt14_Function_baseD2Ev.exit6.i.i:              ; preds = %39, %36
 
 .body.i:                                          ; preds = %57, %_ZNSt14_Function_baseD2Ev.exit6.i.i
   %eh.lpad-body.i = phi { ptr, i32 } [ %58, %57 ], [ %37, %_ZNSt14_Function_baseD2Ev.exit6.i.i ]
-  call void @_ZN5arrow6FutureINS_8internal5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26, !noalias !315
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26, !noalias !315
-  call void @_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #26, !noalias !315
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26, !noalias !315
+  call void @_ZN5arrow6FutureINS_8internal5EmptyEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26, !noalias !314
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26, !noalias !314
+  call void @_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #26, !noalias !314
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26, !noalias !314
   resume { ptr, i32 } %eh.lpad-body.i
 
 _ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit.i: ; preds = %56, %52, %44
-  store ptr null, ptr %0, align 8, !tbaa !81, !alias.scope !315
+  store ptr null, ptr %0, align 8, !tbaa !81, !alias.scope !314
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %18, ptr %59, align 8, !tbaa !60, !alias.scope !315
+  store ptr %18, ptr %59, align 8, !tbaa !60, !alias.scope !314
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %21, ptr %60, align 8, !tbaa !14, !alias.scope !315
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26, !noalias !315
+  store ptr %21, ptr %60, align 8, !tbaa !14, !alias.scope !314
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26, !noalias !314
   br label %61
 
 61:                                               ; preds = %_ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit.i, %15
-  %62 = load ptr, ptr %5, align 8, !tbaa !81, !noalias !315
+  %62 = load ptr, ptr %5, align 8, !tbaa !81, !noalias !314
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE7DestroyEv.exit.thread.i.i, !prof !82
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !14, !noalias !315
+  %66 = load ptr, ptr %65, align 8, !tbaa !14, !noalias !314
   %.not.i.i.i.i.i.i.i = icmp eq ptr %66, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE7DestroyEv.exit.i.i, label %67
 
@@ -7635,7 +7635,7 @@ _ZN5arrow6FutureINS_8internal5EmptyEED2Ev.exit.i: ; preds = %56, %52, %44
   br label %_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE7DestroyEv.exit.i.i
 
 80:                                               ; preds = %67
-  %81 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !64, !noalias !315
+  %81 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !64, !noalias !314
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %81, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %84, label %82
 
@@ -7658,7 +7658,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
   br label %_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE7DestroyEv.exit.i.i
 
 _ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE7DestroyEv.exit.i.i: ; preds = %87, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %72, %64
-  %.pr.i.i = load ptr, ptr %5, align 8, !tbaa !81, !noalias !315
+  %.pr.i.i = load ptr, ptr %5, align 8, !tbaa !81, !noalias !314
   %.not.i.i11.i = icmp eq ptr %.pr.i.i, null
   br i1 %.not.i.i11.i, label %_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEv.exit, label %_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE7DestroyEv.exit.thread.i.i, !prof !214
 
@@ -7674,7 +7674,7 @@ _ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE7DestroyEv.exit.thread.i.i: ; 
   br label %_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEv.exit
 
 _ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEv.exit: ; preds = %_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE7DestroyEv.exit.i.i, %_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE7DestroyEv.exit.thread.i.i, %92
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26, !noalias !315
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #26, !noalias !314
   ret void
 }
 
@@ -7688,7 +7688,7 @@ define internal { i64, ptr } @_ZNK5arrow4util18AsyncTaskScheduler10SimpleTaskIZN
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0.0.copyload = load i64, ptr %2, align 8, !tbaa !199
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !291
+  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !290
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.2.0.copyload, 1
   ret { i64, ptr } %.fca.1.insert
@@ -7832,34 +7832,34 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNSt17_Function_handlerIFN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEEvEZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSD_18AsyncTaskScheduler4TaskESt14default_deleteISI_EEibENUlvE_clEvEUlvE_ZZZNSF_10SubmitTaskESL_ibENSM_clEvENKSN_clEvEUlRKNS0_6StatusEE_NSB_21WrapStatusyOnComplete8CallbackISR_EEEEbT_NS0_15CallbackOptionsEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias writable writeonly sret(%"class.arrow::internal::FnOnce.161") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
-  %.val = load ptr, ptr %1, align 8, !tbaa !326
-  %.val.val = load ptr, ptr %.val, align 8, !tbaa !328
+  %.val = load ptr, ptr %1, align 8, !tbaa !325
+  %.val.val = load ptr, ptr %.val, align 8, !tbaa !327
   %3 = getelementptr i8, ptr %.val, i64 8
-  %.val.val1 = load ptr, ptr %3, align 8, !tbaa !332
+  %.val.val1 = load ptr, ptr %3, align 8, !tbaa !331
   %.val.val1.val = load i32, ptr %.val.val1, align 4, !tbaa !65
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
-  %4 = load ptr, ptr %.val.val, align 8, !tbaa !287, !noalias !336
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
+  %4 = load ptr, ptr %.val.val, align 8, !tbaa !286, !noalias !335
   %5 = getelementptr inbounds nuw i8, ptr %.val.val, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !14, !noalias !336
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val.val, i8 0, i64 16, i1 false), !noalias !333
+  %6 = load ptr, ptr %5, align 8, !tbaa !14, !noalias !335
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val.val, i8 0, i64 16, i1 false), !noalias !332
   %7 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-          to label %_ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSC_18AsyncTaskScheduler4TaskESt14default_deleteISH_EEibENUlvE_clEvEUlvE_ZZZNSE_10SubmitTaskESK_ibENSL_clEvENKSM_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISQ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISU_T0_DpT1_EESU_E4typeEOSZ_DpOS10_.exit unwind label %8, !noalias !333
+          to label %_ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSC_18AsyncTaskScheduler4TaskESt14default_deleteISH_EEibENUlvE_clEvEUlvE_ZZZNSE_10SubmitTaskESK_ibENSL_clEvENKSM_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISQ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISU_T0_DpT1_EESU_E4typeEOSZ_DpOS10_.exit unwind label %8, !noalias !332
 
 8:                                                ; preds = %2
   %9 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS6_18AsyncTaskScheduler4TaskESt14default_deleteISB_EEibENUlvE_clEvENKUlvE_clEvEUlRKNS_6StatusEE_ED2Ev(ptr %6) #26, !noalias !333
+  tail call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS6_18AsyncTaskScheduler4TaskESt14default_deleteISB_EEibENUlvE_clEvENKUlvE_clEvEUlRKNS_6StatusEE_ED2Ev(ptr %6) #26, !noalias !332
   resume { ptr, i32 } %9
 
 _ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSC_18AsyncTaskScheduler4TaskESt14default_deleteISH_EEibENUlvE_clEvEUlvE_ZZZNSE_10SubmitTaskESK_ibENSL_clEvENKSM_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISQ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISU_T0_DpT1_EESU_E4typeEOSZ_DpOS10_.exit: ; preds = %2
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE21WrapStatusyOnComplete8CallbackIZZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSD_18AsyncTaskScheduler4TaskESt14default_deleteISI_EEibENUlvE_clEvENKUlvE_clEvEUlRKNS_6StatusEE_EEEE, i64 16), ptr %7, align 8, !tbaa !17, !noalias !333
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE21WrapStatusyOnComplete8CallbackIZZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSD_18AsyncTaskScheduler4TaskESt14default_deleteISI_EEibENUlvE_clEvENKUlvE_clEvEUlRKNS_6StatusEE_EEEE, i64 16), ptr %7, align 8, !tbaa !17, !noalias !332
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %.val.val1.val, ptr %10, align 8, !tbaa !343, !noalias !333
+  store i32 %.val.val1.val, ptr %10, align 8, !tbaa !342, !noalias !332
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %4, ptr %11, align 8, !tbaa !287, !noalias !333
+  store ptr %4, ptr %11, align 8, !tbaa !286, !noalias !332
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %6, ptr %12, align 8, !tbaa !14, !noalias !333
-  store ptr %7, ptr %0, align 8, !tbaa !75, !alias.scope !333
+  store ptr %6, ptr %12, align 8, !tbaa !14, !noalias !332
+  store ptr %7, ptr %0, align 8, !tbaa !75, !alias.scope !332
   ret void
 }
 
@@ -8065,15 +8065,15 @@ define internal void @_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val2.i.i = load ptr, ptr %7, align 8, !tbaa !287
+  %.val2.i.i = load ptr, ptr %7, align 8, !tbaa !286
   %8 = getelementptr inbounds nuw i8, ptr %.val2.i.i, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !144
-  %10 = load i32, ptr %6, align 8, !tbaa !343
+  %10 = load i32, ptr %6, align 8, !tbaa !342
   %11 = load ptr, ptr %9, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %10)
-  %.val.i.i = load ptr, ptr %7, align 8, !tbaa !287
+  %.val.i.i = load ptr, ptr %7, align 8, !tbaa !286
   tail call fastcc void @_ZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEv(ptr noundef nonnull align 8 dereferenceable(88) %.val.i.i)
   br label %_ZNO5arrow6FutureINS_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS6_18AsyncTaskScheduler4TaskESt14default_deleteISB_EEibENUlvE_clEvENKUlvE_clEvEUlRKNS_6StatusEE_EclERKNS_10FutureImplE.exit
 
@@ -8087,21 +8087,21 @@ define internal void @_ZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImplD2Ev(ptr n
   %3 = alloca %"class.arrow::Status", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImplE, i64 16), ptr %0, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val = load ptr, ptr %4, align 8, !tbaa !345
+  %.val = load ptr, ptr %4, align 8, !tbaa !344
   %5 = atomicrmw sub ptr %.val, i32 1 seq_cst, align 4
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %52
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
-  %.val1 = load ptr, ptr %4, align 8, !tbaa !345
+  %.val1 = load ptr, ptr %4, align 8, !tbaa !344
   %8 = getelementptr inbounds nuw i8, ptr %.val1, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !159, !noalias !346
+  %9 = load i64, ptr %8, align 8, !tbaa !159, !noalias !345
   %10 = inttoptr i64 %9 to ptr
-  store ptr null, ptr %8, align 8, !tbaa !159, !noalias !346
-  %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !346
+  store ptr null, ptr %8, align 8, !tbaa !159, !noalias !345
+  %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !345
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load ptr, ptr %12, align 8, !noalias !346
+  %13 = load ptr, ptr %12, align 8, !noalias !345
   invoke void %13(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %18 unwind label %_ZNSt10unique_ptrIN5arrow8internal6FnOnceIFNS0_6StatusEvEE4ImplESt14default_deleteIS6_EED2Ev.exit4.i
 
@@ -8132,19 +8132,19 @@ _ZNSt10unique_ptrIN5arrow8internal6FnOnceIFNS0_6StatusEvEE4ImplESt14default_dele
           to label %.noexc unwind label %75
 
 .noexc:                                           ; preds = %24
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler4TaskE, i64 16), ptr %27, align 8, !tbaa !17, !noalias !349
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler4TaskE, i64 16), ptr %27, align 8, !tbaa !17, !noalias !348
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  call void @_ZN5arrow4util7tracing4SpanC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #26, !noalias !349
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLOBAL__N_118AsyncTaskGroupImplD1EvEUlvE_EE, i64 16), ptr %27, align 8, !tbaa !17, !noalias !349
+  call void @_ZN5arrow4util7tracing4SpanC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #26, !noalias !348
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLOBAL__N_118AsyncTaskGroupImplD1EvEUlvE_EE, i64 16), ptr %27, align 8, !tbaa !17, !noalias !348
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %22, ptr %29, align 8, !tbaa !81, !noalias !349
+  store ptr %22, ptr %29, align 8, !tbaa !81, !noalias !348
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i64 20, ptr %30, align 8, !tbaa !199, !noalias !349
+  store i64 20, ptr %30, align 8, !tbaa !199, !noalias !348
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store ptr @.str.7, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !291, !noalias !349
+  store ptr @.str.7, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !290, !noalias !348
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  store i8 0, ptr %31, align 8, !tbaa !292, !noalias !349
-  store ptr %27, ptr %2, align 8, !tbaa !294
+  store i8 0, ptr %31, align 8, !tbaa !291, !noalias !348
+  store ptr %27, ptr %2, align 8, !tbaa !293
   %32 = load ptr, ptr %26, align 8, !tbaa !17
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
@@ -8181,7 +8181,7 @@ _ZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImplD1EvENUlvE_D2Ev.exit: ; preds =
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %.pr = load ptr, ptr %3, align 8, !tbaa !81
   %.not.i = icmp eq ptr %.pr, null
-  br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %47, !prof !352
+  br i1 %.not.i, label %_ZN5arrow6StatusD2Ev.exit, label %47, !prof !351
 
 47:                                               ; preds = %_ZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImplD1EvENUlvE_D2Ev.exit
   %48 = getelementptr inbounds nuw i8, ptr %.pr, i64 1
@@ -8273,47 +8273,47 @@ define internal void @_ZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImplD0Ev(ptr n
 define internal noundef zeroext i1 @_ZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.132", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val = load ptr, ptr %4, align 8, !tbaa !345
+  %.val = load ptr, ptr %4, align 8, !tbaa !344
   %5 = atomicrmw add ptr %.val, i32 1 seq_cst, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !161
   %.val2 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val3 = load ptr, ptr %8, align 8
-  %9 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27, !noalias !353
-  %10 = load i64, ptr %1, align 8, !tbaa !200, !noalias !353
-  store ptr null, ptr %1, align 8, !tbaa !200, !noalias !353
+  %9 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27, !noalias !352
+  %10 = load i64, ptr %1, align 8, !tbaa !200, !noalias !352
+  store ptr null, ptr %1, align 8, !tbaa !200, !noalias !352
   %.not.i.i.i.i = icmp eq ptr %.val3, null
   br i1 %.not.i.i.i.i, label %_ZSt11make_uniqueIZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS1_18AsyncTaskScheduler4TaskESt14default_deleteIS6_EEE11WrapperTaskJS9_RSt10shared_ptrINS3_5StateEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %.val3, i64 8
-  %13 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !64, !noalias !353
+  %13 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !64, !noalias !352
   %.not.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %.not.i.i.i.i.i, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = load i32, ptr %12, align 4, !tbaa !65, !noalias !353
+  %15 = load i32, ptr %12, align 4, !tbaa !65, !noalias !352
   %16 = add nsw i32 %15, 1
-  store i32 %16, ptr %12, align 4, !tbaa !65, !noalias !353
+  store i32 %16, ptr %12, align 4, !tbaa !65, !noalias !352
   br label %_ZSt11make_uniqueIZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS1_18AsyncTaskScheduler4TaskESt14default_deleteIS6_EEE11WrapperTaskJS9_RSt10shared_ptrINS3_5StateEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 17:                                               ; preds = %11
-  %18 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4, !noalias !353
+  %18 = atomicrmw volatile add ptr %12, i32 1 acq_rel, align 4, !noalias !352
   br label %_ZSt11make_uniqueIZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS1_18AsyncTaskScheduler4TaskESt14default_deleteIS6_EEE11WrapperTaskJS9_RSt10shared_ptrINS3_5StateEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
 
 _ZSt11make_uniqueIZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS1_18AsyncTaskScheduler4TaskESt14default_deleteIS6_EEE11WrapperTaskJS9_RSt10shared_ptrINS3_5StateEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %2, %14, %17
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler4TaskE, i64 16), ptr %9, align 8, !tbaa !17, !noalias !353
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler4TaskE, i64 16), ptr %9, align 8, !tbaa !17, !noalias !352
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  tail call void @_ZN5arrow4util7tracing4SpanC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #26, !noalias !353
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEE11WrapperTask, i64 16), ptr %9, align 8, !tbaa !17, !noalias !353
+  tail call void @_ZN5arrow4util7tracing4SpanC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #26, !noalias !352
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEE11WrapperTask, i64 16), ptr %9, align 8, !tbaa !17, !noalias !352
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %10, ptr %20, align 8, !tbaa !200, !noalias !353
+  store i64 %10, ptr %20, align 8, !tbaa !200, !noalias !352
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %.val2, ptr %21, align 8, !tbaa !345, !noalias !353
+  store ptr %.val2, ptr %21, align 8, !tbaa !344, !noalias !352
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %.val3, ptr %22, align 8, !tbaa !14, !noalias !353
-  store ptr %9, ptr %3, align 8, !tbaa !294
+  store ptr %.val3, ptr %22, align 8, !tbaa !14, !noalias !352
+  store ptr %9, ptr %3, align 8, !tbaa !293
   %23 = load ptr, ptr %7, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
@@ -8436,13 +8436,13 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 define internal void @_ZN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLOBAL__N_118AsyncTaskGroupImplD1EvEUlvE_ED2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLOBAL__N_118AsyncTaskGroupImplD1EvEUlvE_EE, i64 16), ptr %0, align 8, !tbaa !17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load i8, ptr %2, align 8, !tbaa !292, !range !94, !noundef !95
+  %3 = load i8, ptr %2, align 8, !tbaa !291, !range !94, !noundef !95
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %2, align 8, !tbaa !292
+  store i8 0, ptr %2, align 8, !tbaa !291
   %7 = load ptr, ptr %6, align 8, !tbaa !196
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = icmp eq ptr %7, %8
@@ -8500,13 +8500,13 @@ _ZN5arrow4util18AsyncTaskScheduler4TaskD2Ev.exit: ; preds = %_ZZN5arrow4util12_G
 define internal void @_ZN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLOBAL__N_118AsyncTaskGroupImplD1EvEUlvE_ED0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLOBAL__N_118AsyncTaskGroupImplD1EvEUlvE_EE, i64 16), ptr %0, align 8, !tbaa !17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load i8, ptr %2, align 8, !tbaa !292, !range !94, !noundef !95
+  %3 = load i8, ptr %2, align 8, !tbaa !291, !range !94, !noundef !95
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit.i
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %2, align 8, !tbaa !292
+  store i8 0, ptr %2, align 8, !tbaa !291
   %7 = load ptr, ptr %6, align 8, !tbaa !196
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = icmp eq ptr %7, %8
@@ -8565,7 +8565,7 @@ define internal void @_ZN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS0_12_GLO
   %3 = alloca %"class.arrow::Status", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr null, ptr %3, align 8, !tbaa !81, !alias.scope !356
+  store ptr null, ptr %3, align 8, !tbaa !81, !alias.scope !355
   call void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %3) #26
   %5 = load ptr, ptr %3, align 8, !tbaa !81
@@ -8592,7 +8592,7 @@ define internal { i64, ptr } @_ZNK5arrow4util18AsyncTaskScheduler10SimpleTaskIZN
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload = load i64, ptr %2, align 8, !tbaa !199
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !291
+  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !290
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.2.0.copyload, 1
   ret { i64, ptr } %.fca.1.insert
@@ -8795,54 +8795,54 @@ define internal void @_ZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskE
 
 19:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #26
-  call void @llvm.experimental.noalias.scope.decl(metadata !359)
-  call void @llvm.experimental.noalias.scope.decl(metadata !362)
+  call void @llvm.experimental.noalias.scope.decl(metadata !358)
+  call void @llvm.experimental.noalias.scope.decl(metadata !361)
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !60, !noalias !365
-  store ptr %21, ptr %9, align 8, !tbaa !60, !alias.scope !365
+  %21 = load ptr, ptr %20, align 8, !tbaa !60, !noalias !364
+  store ptr %21, ptr %9, align 8, !tbaa !60, !alias.scope !364
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !14, !noalias !365
-  store ptr null, ptr %23, align 8, !tbaa !14, !noalias !365
-  store ptr %24, ptr %22, align 8, !tbaa !14, !alias.scope !365
-  store ptr null, ptr %20, align 8, !tbaa !60, !noalias !365
+  %24 = load ptr, ptr %23, align 8, !tbaa !14, !noalias !364
+  store ptr null, ptr %23, align 8, !tbaa !14, !noalias !364
+  store ptr %24, ptr %22, align 8, !tbaa !14, !alias.scope !364
+  store ptr null, ptr %20, align 8, !tbaa !60, !noalias !364
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #26
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !345
+  %26 = load ptr, ptr %25, align 8, !tbaa !344
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !14
-  call void @llvm.experimental.noalias.scope.decl(metadata !366)
+  call void @llvm.experimental.noalias.scope.decl(metadata !365)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  call void @llvm.experimental.noalias.scope.decl(metadata !369)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !alias.scope !372
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26, !noalias !372
+  call void @llvm.experimental.noalias.scope.decl(metadata !368)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !alias.scope !371
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26, !noalias !371
   invoke void @_ZN5arrow10FutureImpl4MakeEv(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.140") align 8 %6)
-          to label %29 unwind label %38, !noalias !372
+          to label %29 unwind label %38, !noalias !371
 
 29:                                               ; preds = %19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26, !noalias !372
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #26, !noalias !371
   invoke void @_ZNSt12__shared_ptrIN5arrow10FutureImplELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %30 unwind label %40, !noalias !372
+          to label %30 unwind label %40, !noalias !371
 
 30:                                               ; preds = %29
-  %31 = load ptr, ptr %5, align 8, !tbaa !23, !noalias !372
-  store ptr null, ptr %5, align 8, !tbaa !23, !noalias !372
-  store ptr %31, ptr %10, align 8, !tbaa !23, !alias.scope !372
+  %31 = load ptr, ptr %5, align 8, !tbaa !23, !noalias !371
+  store ptr null, ptr %5, align 8, !tbaa !23, !noalias !371
+  store ptr %31, ptr %10, align 8, !tbaa !23, !alias.scope !371
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %34 = load ptr, ptr %32, align 8, !tbaa !14, !noalias !372
-  store ptr %34, ptr %33, align 8, !tbaa !14, !alias.scope !372
-  %.pre.i.i = load ptr, ptr %6, align 8, !tbaa !23, !noalias !372
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26, !noalias !372
+  %34 = load ptr, ptr %32, align 8, !tbaa !14, !noalias !371
+  store ptr %34, ptr %33, align 8, !tbaa !14, !alias.scope !371
+  %.pre.i.i = load ptr, ptr %6, align 8, !tbaa !23, !noalias !371
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #26, !noalias !371
   %.not.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %.not.i.i.i, label %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i, label %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i.i: ; preds = %30
-  %35 = load ptr, ptr %.pre.i.i, align 8, !tbaa !17, !noalias !372
+  %35 = load ptr, ptr %.pre.i.i, align 8, !tbaa !17, !noalias !371
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load ptr, ptr %36, align 8, !noalias !372
-  call void %37(ptr noundef nonnull align 8 dereferenceable(72) %.pre.i.i) #26, !noalias !372
+  %37 = load ptr, ptr %36, align 8, !noalias !371
+  call void %37(ptr noundef nonnull align 8 dereferenceable(72) %.pre.i.i) #26, !noalias !371
   br label %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i
 
 38:                                               ; preds = %19
@@ -8853,15 +8853,15 @@ _ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i.i: ; preds = %30
 40:                                               ; preds = %29
   %41 = landingpad { ptr, i32 }
           cleanup
-  %42 = load ptr, ptr %6, align 8, !tbaa !23, !noalias !372
+  %42 = load ptr, ptr %6, align 8, !tbaa !23, !noalias !371
   %.not.i4.i.i = icmp eq ptr %42, null
   br i1 %.not.i4.i.i, label %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i, label %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i5.i.i
 
 _ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i5.i.i: ; preds = %40
-  %43 = load ptr, ptr %42, align 8, !tbaa !17, !noalias !372
+  %43 = load ptr, ptr %42, align 8, !tbaa !17, !noalias !371
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8, !noalias !372
-  call void %45(ptr noundef nonnull align 8 dereferenceable(72) %42) #26, !noalias !372
+  %45 = load ptr, ptr %44, align 8, !noalias !371
+  call void %45(ptr noundef nonnull align 8 dereferenceable(72) %42) #26, !noalias !371
   br label %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i
 
 common.resume.i:                                  ; preds = %.body.i, %_ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i
@@ -8878,82 +8878,82 @@ common.resume.i:                                  ; preds = %.body.i, %_ZNSt10un
 
 _ZNSt10unique_ptrIN5arrow10FutureImplESt14default_deleteIS1_EED2Ev.exit6.i.i: ; preds = %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i5.i.i, %40, %38
   %.pn.i.i = phi { ptr, i32 } [ %39, %38 ], [ %41, %40 ], [ %41, %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i5.i.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26, !noalias !372
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26, !noalias !371
   br label %common.resume.i
 
 _ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i: ; preds = %_ZNKSt14default_deleteIN5arrow10FutureImplEEclEPS1_.exit.i.i.i, %30
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26, !noalias !372
-  store ptr %26, ptr %7, align 8, !tbaa !345, !noalias !366
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26, !noalias !371
+  store ptr %26, ptr %7, align 8, !tbaa !344, !noalias !365
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %28, ptr %46, align 8, !tbaa !14, !noalias !366
+  store ptr %28, ptr %46, align 8, !tbaa !14, !noalias !365
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %31, ptr %47, align 8, !tbaa !60, !noalias !366
+  store ptr %31, ptr %47, align 8, !tbaa !60, !noalias !365
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %34, ptr %48, align 8, !tbaa !14, !noalias !366
+  store ptr %34, ptr %48, align 8, !tbaa !14, !noalias !365
   %.not.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i, label %_ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i, label %49
 
 49:                                               ; preds = %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i
   %50 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %51 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !64, !noalias !366
+  %51 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !64, !noalias !365
   %.not.i.i.i.i.i.i = icmp eq i8 %51, 0
   br i1 %.not.i.i.i.i.i.i, label %55, label %52
 
 52:                                               ; preds = %49
-  %53 = load i32, ptr %50, align 4, !tbaa !65, !noalias !366
+  %53 = load i32, ptr %50, align 4, !tbaa !65, !noalias !365
   %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %50, align 4, !tbaa !65, !noalias !366
+  store i32 %54, ptr %50, align 4, !tbaa !65, !noalias !365
   br label %_ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i
 
 55:                                               ; preds = %49
-  %56 = atomicrmw volatile add ptr %50, i32 1 acq_rel, align 4, !noalias !366
-  %.val.i.pre = load ptr, ptr %9, align 8, !tbaa !60, !noalias !366
+  %56 = atomicrmw volatile add ptr %50, i32 1 acq_rel, align 4, !noalias !365
+  %.val.i.pre = load ptr, ptr %9, align 8, !tbaa !60, !noalias !365
   br label %_ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i
 
 _ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i: ; preds = %55, %52, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i
   %.val.i = phi ptr [ %.val.i.pre, %55 ], [ %21, %52 ], [ %21, %_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv.exit.i ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !366
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !366
-  store ptr %26, ptr %4, align 8, !tbaa !345, !noalias !366
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !365
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !365
+  store ptr %26, ptr %4, align 8, !tbaa !344, !noalias !365
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %46, align 8, !tbaa !14, !noalias !366
-  store ptr %28, ptr %57, align 8, !tbaa !14, !noalias !366
-  store ptr null, ptr %7, align 8, !tbaa !345, !noalias !366
+  store ptr null, ptr %46, align 8, !tbaa !14, !noalias !365
+  store ptr %28, ptr %57, align 8, !tbaa !14, !noalias !365
+  store ptr null, ptr %7, align 8, !tbaa !344, !noalias !365
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %31, ptr %58, align 8, !tbaa !60, !noalias !366
+  store ptr %31, ptr %58, align 8, !tbaa !60, !noalias !365
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %48, align 8, !tbaa !14, !noalias !366
-  store ptr %34, ptr %59, align 8, !tbaa !14, !noalias !366
-  store ptr null, ptr %47, align 8, !tbaa !60, !noalias !366
+  store ptr null, ptr %48, align 8, !tbaa !14, !noalias !365
+  store ptr %34, ptr %59, align 8, !tbaa !14, !noalias !365
+  store ptr null, ptr %47, align 8, !tbaa !60, !noalias !365
   %60 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
-          to label %61 unwind label %71, !noalias !366
+          to label %61 unwind label %71, !noalias !365
 
 61:                                               ; preds = %_ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !noalias !366
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false), !noalias !366
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINSE_18AsyncTaskScheduler4TaskESt14default_deleteISJ_EEEN11WrapperTaskclEvEUlvE_NSA_17PassthruOnFailureISO_EEEEEEEE, i64 16), ptr %60, align 8, !tbaa !17, !noalias !366
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !noalias !365
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false), !noalias !365
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINSE_18AsyncTaskScheduler4TaskESt14default_deleteISJ_EEEN11WrapperTaskclEvEUlvE_NSA_17PassthruOnFailureISO_EEEEEEEE, i64 16), ptr %60, align 8, !tbaa !17, !noalias !365
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %26, ptr %62, align 8, !tbaa !345, !noalias !366
+  store ptr %26, ptr %62, align 8, !tbaa !344, !noalias !365
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store ptr %28, ptr %63, align 8, !tbaa !14, !noalias !366
+  store ptr %28, ptr %63, align 8, !tbaa !14, !noalias !365
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store ptr %31, ptr %64, align 8, !tbaa !60, !noalias !366
+  store ptr %31, ptr %64, align 8, !tbaa !60, !noalias !365
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  store ptr %34, ptr %65, align 8, !tbaa !14, !noalias !366
-  store ptr %60, ptr %3, align 8, !tbaa !75, !noalias !366
+  store ptr %34, ptr %65, align 8, !tbaa !14, !noalias !365
+  store ptr %60, ptr %3, align 8, !tbaa !75, !noalias !365
   invoke void @_ZN5arrow10FutureImpl11AddCallbackENS_8internal6FnOnceIFvRKS0_EEENS_15CallbackOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %.val.i, ptr noundef nonnull %3, i32 0, ptr null)
-          to label %66 unwind label %73, !noalias !366
+          to label %66 unwind label %73, !noalias !365
 
 66:                                               ; preds = %61
-  %67 = load ptr, ptr %3, align 8, !tbaa !75, !noalias !366
+  %67 = load ptr, ptr %3, align 8, !tbaa !75, !noalias !365
   %.not.i.i.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i.i.i, label %_ZZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEEN11WrapperTaskclEvENUlvE_D2Ev.exit, label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i: ; preds = %66
-  %68 = load ptr, ptr %67, align 8, !tbaa !17, !noalias !366
+  %68 = load ptr, ptr %67, align 8, !tbaa !17, !noalias !365
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8, !noalias !366
-  call void %70(ptr noundef nonnull align 8 dereferenceable(8) %67) #26, !noalias !366
+  %70 = load ptr, ptr %69, align 8, !noalias !365
+  call void %70(ptr noundef nonnull align 8 dereferenceable(8) %67) #26, !noalias !365
   br label %_ZZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEEN11WrapperTaskclEvENUlvE_D2Ev.exit
 
 71:                                               ; preds = %_ZN5arrow6FutureINS_8internal5EmptyEEC2ERKS3_.exit.i
@@ -8964,30 +8964,30 @@ _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclE
 73:                                               ; preds = %61
   %74 = landingpad { ptr, i32 }
           cleanup
-  %75 = load ptr, ptr %3, align 8, !tbaa !75, !noalias !366
+  %75 = load ptr, ptr %3, align 8, !tbaa !75, !noalias !365
   %.not.i.i7.i.i = icmp eq ptr %75, null
   br i1 %.not.i.i7.i.i, label %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit9.i.i, label %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i8.i.i
 
 _ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i8.i.i: ; preds = %73
-  %76 = load ptr, ptr %75, align 8, !tbaa !17, !noalias !366
+  %76 = load ptr, ptr %75, align 8, !tbaa !17, !noalias !365
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8, !noalias !366
-  call void %78(ptr noundef nonnull align 8 dereferenceable(8) %75) #26, !noalias !366
+  %78 = load ptr, ptr %77, align 8, !noalias !365
+  call void %78(ptr noundef nonnull align 8 dereferenceable(8) %75) #26, !noalias !365
   br label %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit9.i.i
 
 _ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit9.i.i: ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i8.i.i, %73
-  store ptr null, ptr %3, align 8, !tbaa !75, !noalias !366
+  store ptr null, ptr %3, align 8, !tbaa !75, !noalias !365
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit9.i.i, %71
   %.pn.i6.i = phi { ptr, i32 } [ %74, %_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEED2Ev.exit9.i.i ], [ %72, %71 ]
-  call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE20WrapResultOnComplete8CallbackINS3_14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS7_18AsyncTaskScheduler4TaskESt14default_deleteISC_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISH_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #26, !noalias !366
-  call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #26, !noalias !366
+  call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE20WrapResultOnComplete8CallbackINS3_14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS7_18AsyncTaskScheduler4TaskESt14default_deleteISC_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISH_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #26, !noalias !365
+  call fastcc void @_ZN5arrow6FutureINS_8internal5EmptyEE14ThenOnCompleteIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #26, !noalias !365
   br label %common.resume.i
 
 _ZZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEEN11WrapperTaskclEvENUlvE_D2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEE4ImplEEclEPS8_.exit.i.i.i.i, %66
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !366
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !366
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !365
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !365
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   store ptr null, ptr %0, align 8, !tbaa !81
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9648,21 +9648,21 @@ _ZNKR5arrow6ResultINS_8internal5EmptyEE10ValueOrDieEv.exit.i.i: ; preds = %2
   store ptr %14, ptr %12, align 8, !tbaa !14
   store ptr null, ptr %10, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !373)
-  %.val1.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !345, !noalias !373
-  %15 = atomicrmw sub ptr %.val1.i.i.i.i.i, i32 1 seq_cst, align 4, !noalias !373
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !372)
+  %.val1.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !344, !noalias !372
+  %15 = atomicrmw sub ptr %.val1.i.i.i.i.i, i32 1 seq_cst, align 4, !noalias !372
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %17, label %31
 
 17:                                               ; preds = %_ZNKR5arrow6ResultINS_8internal5EmptyEE10ValueOrDieEv.exit.i.i
-  %.val.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !345, !noalias !373
+  %.val.i.i.i.i.i = load ptr, ptr %6, align 8, !tbaa !344, !noalias !372
   %18 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i.i, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !159, !noalias !376
+  %19 = load i64, ptr %18, align 8, !tbaa !159, !noalias !375
   %20 = inttoptr i64 %19 to ptr
-  store ptr null, ptr %18, align 8, !tbaa !159, !noalias !376
-  %21 = load ptr, ptr %20, align 8, !tbaa !17, !noalias !376
+  store ptr null, ptr %18, align 8, !tbaa !159, !noalias !375
+  %21 = load ptr, ptr %20, align 8, !tbaa !17, !noalias !375
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8, !noalias !376
+  %23 = load ptr, ptr %22, align 8, !noalias !375
   invoke void %23(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %20)
           to label %_ZNO5arrow8internal6FnOnceIFNS_6StatusEvEEclEv.exit.i.i.i.i.i unwind label %_ZNSt10unique_ptrIN5arrow8internal6FnOnceIFNS0_6StatusEvEE4ImplESt14default_deleteIS6_EED2Ev.exit4.i.i.i.i.i.i
 
@@ -9683,7 +9683,7 @@ _ZNO5arrow8internal6FnOnceIFNS_6StatusEvEEclEv.exit.i.i.i.i.i: ; preds = %17
   br label %_ZZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEEN11WrapperTaskclEvENKUlvE_clEv.exit.i.i.i.i
 
 31:                                               ; preds = %_ZNKR5arrow6ResultINS_8internal5EmptyEE10ValueOrDieEv.exit.i.i
-  store ptr null, ptr %3, align 8, !tbaa !81, !alias.scope !379
+  store ptr null, ptr %3, align 8, !tbaa !81, !alias.scope !378
   br label %_ZZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEEN11WrapperTaskclEvENKUlvE_clEv.exit.i.i.i.i
 
 _ZZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEEN11WrapperTaskclEvENKUlvE_clEv.exit.i.i.i.i: ; preds = %31, %_ZNO5arrow8internal6FnOnceIFNS_6StatusEvEEclEv.exit.i.i.i.i.i
@@ -9819,8 +9819,8 @@ define internal fastcc void @_ZNK5arrow6detail14ContinueFutureclINS_6FutureINS_8
   %4 = alloca %"class.arrow::Result", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
   call void @_ZN5arrow6ResultINS_8internal5EmptyEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(8) %1) #26
-  call void @llvm.experimental.noalias.scope.decl(metadata !382)
-  %5 = load ptr, ptr %4, align 8, !tbaa !81, !noalias !382
+  call void @llvm.experimental.noalias.scope.decl(metadata !381)
+  %5 = load ptr, ptr %4, align 8, !tbaa !81, !noalias !381
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7, !prof !82
 
@@ -9829,14 +9829,14 @@ define internal fastcc void @_ZNK5arrow6detail14ContinueFutureclINS_6FutureINS_8
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %7
-  %8 = load ptr, ptr %4, align 8, !tbaa !81, !noalias !382
-  %9 = load ptr, ptr %3, align 8, !tbaa !81, !alias.scope !382
-  store ptr %9, ptr %4, align 8, !tbaa !81, !noalias !382
+  %8 = load ptr, ptr %4, align 8, !tbaa !81, !noalias !381
+  %9 = load ptr, ptr %3, align 8, !tbaa !81, !alias.scope !381
+  store ptr %9, ptr %4, align 8, !tbaa !81, !noalias !381
   br label %10
 
 10:                                               ; preds = %.noexc, %2
   %storemerge.i = phi ptr [ %8, %.noexc ], [ null, %2 ]
-  store ptr %storemerge.i, ptr %3, align 8, !tbaa !81, !alias.scope !382
+  store ptr %storemerge.i, ptr %3, align 8, !tbaa !81, !alias.scope !381
   invoke void @_ZN5arrow6FutureINS_8internal5EmptyEE12MarkFinishedIS2_vEEvNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
           to label %11 unwind label %26
 
@@ -10437,143 +10437,142 @@ attributes #30 = { noreturn nounwind }
 !242 = !{!243}
 !243 = distinct !{!243, !244, !"_ZNO5arrow6ResultINS_8internal5EmptyEE6statusEv: argument 0"}
 !244 = distinct !{!244, !"_ZNO5arrow6ResultINS_8internal5EmptyEE6statusEv"}
-!245 = distinct !{!245, !246, !247}
+!245 = distinct !{!245, !246}
 !246 = !{!"llvm.loop.mustprogress"}
-!247 = !{!"llvm.loop.estimated_trip_count"}
-!248 = !{!249, !90, i64 16}
-!249 = !{!"_ZTSNSt7__cxx1110_List_baseISt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS5_EESaIS8_EEE", !250, i64 0}
-!250 = !{!"_ZTSNSt7__cxx1110_List_baseISt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS5_EESaIS8_EE10_List_implE", !111, i64 0}
-!251 = !{!252}
-!252 = distinct !{!252, !253, !"_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv: argument 0"}
-!253 = distinct !{!253, !"_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv"}
-!254 = !{!255, !86, i64 16}
-!255 = !{!"_ZTSSt22_Optional_payload_baseIN5arrow6FutureINS0_8internal5EmptyEEEE", !7, i64 0, !86, i64 16}
-!256 = !{!257}
-!257 = distinct !{!257, !258, !"_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv: argument 0"}
-!258 = distinct !{!258, !"_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv"}
-!259 = !{!260}
-!260 = distinct !{!260, !261, !"_ZN5arrow4util13StringBuilderIJRA32_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!261 = distinct !{!261, !"_ZN5arrow4util13StringBuilderIJRA32_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!262 = !{!263, !271, i64 8}
-!263 = !{!"_ZTSN5arrow4util6detail19StringStreamWrapperE", !264, i64 0, !271, i64 8}
-!264 = !{!"_ZTSSt10unique_ptrINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE", !265, i64 0}
-!265 = !{!"_ZTSSt15__uniq_ptr_dataINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_ELb1ELb1EE", !266, i64 0}
-!266 = !{!"_ZTSSt15__uniq_ptr_implINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE", !267, i64 0}
-!267 = !{!"_ZTSSt5tupleIJPNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE", !268, i64 0}
-!268 = !{!"_ZTSSt11_Tuple_implILm0EJPNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE", !269, i64 0}
-!269 = !{!"_ZTSSt10_Head_baseILm0EPNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEELb0EE", !270, i64 0}
-!270 = !{!"p1 _ZTSNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE", !6, i64 0}
-!271 = !{!"p1 _ZTSSo", !6, i64 0}
-!272 = !{!273}
-!273 = distinct !{!273, !274, !"_ZN5arrow6Status2OKEv: argument 0"}
-!274 = distinct !{!274, !"_ZN5arrow6Status2OKEv"}
-!275 = !{!276}
-!276 = distinct !{!276, !277, !"_ZNSt23enable_shared_from_thisIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE16shared_from_thisEv: argument 0"}
-!277 = distinct !{!277, !"_ZNSt23enable_shared_from_thisIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE16shared_from_thisEv"}
-!278 = distinct !{!278, !246, !247}
-!279 = !{!280, !31, i64 0}
-!280 = !{!"_ZTSZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibEUlvE_", !31, i64 0, !86, i64 4, !204, i64 8, !281, i64 16}
-!281 = !{!"_ZTSSt10shared_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE", !282, i64 0}
-!282 = !{!"_ZTSSt12__shared_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplELN9__gnu_cxx12_Lock_policyE2EE", !129, i64 0, !9, i64 8}
-!283 = !{!280, !86, i64 4}
-!284 = !{!285}
-!285 = distinct !{!285, !286, !"_ZNSt23enable_shared_from_thisIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE16shared_from_thisEv: argument 0"}
-!286 = distinct !{!286, !"_ZNSt23enable_shared_from_thisIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE16shared_from_thisEv"}
-!287 = !{!282, !129, i64 0}
-!288 = !{!289}
-!289 = distinct !{!289, !290, !"_ZSt11make_uniqueIN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS1_12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS2_4TaskESt14default_deleteIS7_EEibEUlvE_EEJSB_RSt17basic_string_viewIcSt11char_traitsIcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!290 = distinct !{!290, !"_ZSt11make_uniqueIN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS1_12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS2_4TaskESt14default_deleteIS7_EEibEUlvE_EEJSB_RSt17basic_string_viewIcSt11char_traitsIcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!291 = !{!89, !89, i64 0}
-!292 = !{!293, !86, i64 32}
-!293 = !{!"_ZTSSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE", !7, i64 0, !86, i64 32}
-!294 = !{!209, !201, i64 0}
-!295 = !{!296}
-!296 = distinct !{!296, !297, !"_ZNKSt8weak_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE4lockEv: argument 0"}
-!297 = distinct !{!297, !"_ZNKSt8weak_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE4lockEv"}
-!298 = distinct !{!298, !246, !247}
-!299 = !{!300, !6, i64 0}
-!300 = !{!"_ZTSZNK5arrow6FutureINS_8internal5EmptyEE14TryAddCallbackIZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNS7_13ContinueTasksEvENKS8_clEvEUlRKNS_6StatusEE_NS3_21WrapStatusyOnComplete8CallbackISC_EEEEbT_NS_15CallbackOptionsEEUlvE_", !6, i64 0}
-!301 = !{!302, !129, i64 0}
-!302 = !{!"_ZTSZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_", !129, i64 0}
-!303 = !{!304}
-!304 = distinct !{!304, !305, !"_ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNSE_13ContinueTasksEvENKSF_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOSS_DpOST_: argument 0"}
-!305 = distinct !{!305, !"_ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNSE_13ContinueTasksEvENKSF_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOSS_DpOST_"}
-!306 = !{!307, !309, !311, !313, !304}
-!307 = distinct !{!307, !308, !"_ZNSt23enable_shared_from_thisIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE16shared_from_thisEv: argument 0"}
-!308 = distinct !{!308, !"_ZNSt23enable_shared_from_thisIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE16shared_from_thisEv"}
-!309 = distinct !{!309, !310, !"_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEv: argument 0"}
-!310 = distinct !{!310, !"_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEv"}
-!311 = distinct !{!311, !312, !"_ZZNK5arrow6FutureINS_8internal5EmptyEE14TryAddCallbackIZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNS7_13ContinueTasksEvENKS8_clEvEUlRKNS_6StatusEE_NS3_21WrapStatusyOnComplete8CallbackISC_EEEEbT_NS_15CallbackOptionsEENKUlvE_clEv: argument 0"}
-!312 = distinct !{!312, !"_ZZNK5arrow6FutureINS_8internal5EmptyEE14TryAddCallbackIZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNS7_13ContinueTasksEvENKS8_clEvEUlRKNS_6StatusEE_NS3_21WrapStatusyOnComplete8CallbackISC_EEEEbT_NS_15CallbackOptionsEENKUlvE_clEv"}
-!313 = distinct !{!313, !314, !"_ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISA_SE_SF_EEbT_NS0_15CallbackOptionsEEUlvE_JEESH_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!314 = distinct !{!314, !"_ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISA_SE_SF_EEbT_NS0_15CallbackOptionsEEUlvE_JEESH_St14__invoke_otherOT0_DpOT1_"}
-!315 = !{!316}
-!316 = distinct !{!316, !317, !"_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEv: argument 0"}
-!317 = distinct !{!317, !"_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEv"}
-!318 = !{!319}
-!319 = distinct !{!319, !320, !"_ZNO5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE11ValueUnsafeEv: argument 0"}
-!320 = distinct !{!320, !"_ZNO5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE11ValueUnsafeEv"}
-!321 = !{!322}
-!322 = distinct !{!322, !323, !"_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE15MoveValueUnsafeEv: argument 0"}
-!323 = distinct !{!323, !"_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE15MoveValueUnsafeEv"}
-!324 = !{!322, !319, !316}
-!325 = !{!322, !319}
-!326 = !{!327, !6, i64 0}
-!327 = !{!"_ZTSZNK5arrow6FutureINS_8internal5EmptyEE14TryAddCallbackIZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEibENUlvE_clEvEUlvE_ZZZNS7_10SubmitTaskESD_ibENSE_clEvENKSF_clEvEUlRKNS_6StatusEE_NS3_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS_15CallbackOptionsEEUlvE_", !6, i64 0}
-!328 = !{!329, !330, i64 0}
-!329 = !{!"_ZTSZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEvEUlvE_", !330, i64 0, !331, i64 8}
-!330 = !{!"p1 _ZTSSt10shared_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE", !6, i64 0}
-!331 = !{!"p1 int", !6, i64 0}
-!332 = !{!329, !331, i64 8}
-!333 = !{!334}
-!334 = distinct !{!334, !335, !"_ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSC_18AsyncTaskScheduler4TaskESt14default_deleteISH_EEibENUlvE_clEvEUlvE_ZZZNSE_10SubmitTaskESK_ibENSL_clEvENKSM_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISQ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISU_T0_DpT1_EESU_E4typeEOSZ_DpOS10_: argument 0"}
-!335 = distinct !{!335, !"_ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSC_18AsyncTaskScheduler4TaskESt14default_deleteISH_EEibENUlvE_clEvEUlvE_ZZZNSE_10SubmitTaskESK_ibENSL_clEvENKSM_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISQ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISU_T0_DpT1_EESU_E4typeEOSZ_DpOS10_"}
-!336 = !{!337, !339, !341, !334}
-!337 = distinct !{!337, !338, !"_ZZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEvENKUlvE_clEv: argument 0"}
-!338 = distinct !{!338, !"_ZZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEvENKUlvE_clEv"}
-!339 = distinct !{!339, !340, !"_ZZNK5arrow6FutureINS_8internal5EmptyEE14TryAddCallbackIZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEibENUlvE_clEvEUlvE_ZZZNS7_10SubmitTaskESD_ibENSE_clEvENKSF_clEvEUlRKNS_6StatusEE_NS3_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS_15CallbackOptionsEENKUlvE_clEv: argument 0"}
-!340 = distinct !{!340, !"_ZZNK5arrow6FutureINS_8internal5EmptyEE14TryAddCallbackIZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEibENUlvE_clEvEUlvE_ZZZNS7_10SubmitTaskESD_ibENSE_clEvENKSF_clEvEUlRKNS_6StatusEE_NS3_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS_15CallbackOptionsEENKUlvE_clEv"}
-!341 = distinct !{!341, !342, !"_ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS7_18AsyncTaskScheduler4TaskESt14default_deleteISC_EEibENUlvE_clEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISH_SL_SM_EEbT_NS0_15CallbackOptionsEEUlvE_JEESO_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!342 = distinct !{!342, !"_ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS7_18AsyncTaskScheduler4TaskESt14default_deleteISC_EEibENUlvE_clEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISH_SL_SM_EEbT_NS0_15CallbackOptionsEEUlvE_JEESO_St14__invoke_otherOT0_DpOT1_"}
-!343 = !{!344, !31, i64 0}
-!344 = !{!"_ZTSZZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEvENKUlvE_clEvEUlRKNS_6StatusEE_", !31, i64 0, !281, i64 8}
-!345 = !{!165, !166, i64 0}
-!346 = !{!347}
-!347 = distinct !{!347, !348, !"_ZNO5arrow8internal6FnOnceIFNS_6StatusEvEEclEv: argument 0"}
-!348 = distinct !{!348, !"_ZNO5arrow8internal6FnOnceIFNS_6StatusEvEEclEv"}
-!349 = !{!350}
-!350 = distinct !{!350, !351, !"_ZSt11make_uniqueIN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS1_12_GLOBAL__N_118AsyncTaskGroupImplD1EvEUlvE_EEJS6_RSt17basic_string_viewIcSt11char_traitsIcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!351 = distinct !{!351, !"_ZSt11make_uniqueIN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS1_12_GLOBAL__N_118AsyncTaskGroupImplD1EvEUlvE_EEJS6_RSt17basic_string_viewIcSt11char_traitsIcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!352 = !{!"branch_weights", !"expected", i32 2145766519, i32 1717129}
-!353 = !{!354}
-!354 = distinct !{!354, !355, !"_ZSt11make_uniqueIZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS1_18AsyncTaskScheduler4TaskESt14default_deleteIS6_EEE11WrapperTaskJS9_RSt10shared_ptrINS3_5StateEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!355 = distinct !{!355, !"_ZSt11make_uniqueIZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS1_18AsyncTaskScheduler4TaskESt14default_deleteIS6_EEE11WrapperTaskJS9_RSt10shared_ptrINS3_5StateEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!356 = !{!357}
-!357 = distinct !{!357, !358, !"_ZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImplD1EvENKUlvE_clEv: argument 0"}
-!358 = distinct !{!358, !"_ZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImplD1EvENKUlvE_clEv"}
-!359 = !{!360}
-!360 = distinct !{!360, !361, !"_ZNO5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE11ValueUnsafeEv: argument 0"}
-!361 = distinct !{!361, !"_ZNO5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE11ValueUnsafeEv"}
-!362 = !{!363}
-!363 = distinct !{!363, !364, !"_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE15MoveValueUnsafeEv: argument 0"}
-!364 = distinct !{!364, !"_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE15MoveValueUnsafeEv"}
-!365 = !{!363, !360}
-!366 = !{!367}
-!367 = distinct !{!367, !368, !"_ZNK5arrow6FutureINS_8internal5EmptyEE4ThenIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EENS3_14ThenOnCompleteISF_SH_EES3_EET2_T_T0_NS_15CallbackOptionsE: argument 0"}
-!368 = distinct !{!368, !"_ZNK5arrow6FutureINS_8internal5EmptyEE4ThenIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EENS3_14ThenOnCompleteISF_SH_EES3_EET2_T_T0_NS_15CallbackOptionsE"}
-!369 = !{!370}
-!370 = distinct !{!370, !371, !"_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv: argument 0"}
-!371 = distinct !{!371, !"_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv"}
-!372 = !{!370, !367}
-!373 = !{!374}
-!374 = distinct !{!374, !375, !"_ZZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEEN11WrapperTaskclEvENKUlvE_clEv: argument 0"}
-!375 = distinct !{!375, !"_ZZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEEN11WrapperTaskclEvENKUlvE_clEv"}
-!376 = !{!377, !374}
-!377 = distinct !{!377, !378, !"_ZNO5arrow8internal6FnOnceIFNS_6StatusEvEEclEv: argument 0"}
-!378 = distinct !{!378, !"_ZNO5arrow8internal6FnOnceIFNS_6StatusEvEEclEv"}
-!379 = !{!380, !374}
-!380 = distinct !{!380, !381, !"_ZN5arrow6Status2OKEv: argument 0"}
-!381 = distinct !{!381, !"_ZN5arrow6Status2OKEv"}
-!382 = !{!383}
-!383 = distinct !{!383, !384, !"_ZNO5arrow6ResultINS_8internal5EmptyEE6statusEv: argument 0"}
-!384 = distinct !{!384, !"_ZNO5arrow6ResultINS_8internal5EmptyEE6statusEv"}
+!247 = !{!248, !90, i64 16}
+!248 = !{!"_ZTSNSt7__cxx1110_List_baseISt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS5_EESaIS8_EEE", !249, i64 0}
+!249 = !{!"_ZTSNSt7__cxx1110_List_baseISt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS5_EESaIS8_EE10_List_implE", !111, i64 0}
+!250 = !{!251}
+!251 = distinct !{!251, !252, !"_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv: argument 0"}
+!252 = distinct !{!252, !"_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv"}
+!253 = !{!254, !86, i64 16}
+!254 = !{!"_ZTSSt22_Optional_payload_baseIN5arrow6FutureINS0_8internal5EmptyEEEE", !7, i64 0, !86, i64 16}
+!255 = !{!256}
+!256 = distinct !{!256, !257, !"_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv: argument 0"}
+!257 = distinct !{!257, !"_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv"}
+!258 = !{!259}
+!259 = distinct !{!259, !260, !"_ZN5arrow4util13StringBuilderIJRA32_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!260 = distinct !{!260, !"_ZN5arrow4util13StringBuilderIJRA32_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!261 = !{!262, !270, i64 8}
+!262 = !{!"_ZTSN5arrow4util6detail19StringStreamWrapperE", !263, i64 0, !270, i64 8}
+!263 = !{!"_ZTSSt10unique_ptrINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE", !264, i64 0}
+!264 = !{!"_ZTSSt15__uniq_ptr_dataINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_ELb1ELb1EE", !265, i64 0}
+!265 = !{!"_ZTSSt15__uniq_ptr_implINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE", !266, i64 0}
+!266 = !{!"_ZTSSt5tupleIJPNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE", !267, i64 0}
+!267 = !{!"_ZTSSt11_Tuple_implILm0EJPNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEE", !268, i64 0}
+!268 = !{!"_ZTSSt10_Head_baseILm0EPNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEELb0EE", !269, i64 0}
+!269 = !{!"p1 _ZTSNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE", !6, i64 0}
+!270 = !{!"p1 _ZTSSo", !6, i64 0}
+!271 = !{!272}
+!272 = distinct !{!272, !273, !"_ZN5arrow6Status2OKEv: argument 0"}
+!273 = distinct !{!273, !"_ZN5arrow6Status2OKEv"}
+!274 = !{!275}
+!275 = distinct !{!275, !276, !"_ZNSt23enable_shared_from_thisIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE16shared_from_thisEv: argument 0"}
+!276 = distinct !{!276, !"_ZNSt23enable_shared_from_thisIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE16shared_from_thisEv"}
+!277 = distinct !{!277, !246}
+!278 = !{!279, !31, i64 0}
+!279 = !{!"_ZTSZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibEUlvE_", !31, i64 0, !86, i64 4, !204, i64 8, !280, i64 16}
+!280 = !{!"_ZTSSt10shared_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE", !281, i64 0}
+!281 = !{!"_ZTSSt12__shared_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplELN9__gnu_cxx12_Lock_policyE2EE", !129, i64 0, !9, i64 8}
+!282 = !{!279, !86, i64 4}
+!283 = !{!284}
+!284 = distinct !{!284, !285, !"_ZNSt23enable_shared_from_thisIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE16shared_from_thisEv: argument 0"}
+!285 = distinct !{!285, !"_ZNSt23enable_shared_from_thisIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE16shared_from_thisEv"}
+!286 = !{!281, !129, i64 0}
+!287 = !{!288}
+!288 = distinct !{!288, !289, !"_ZSt11make_uniqueIN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS1_12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS2_4TaskESt14default_deleteIS7_EEibEUlvE_EEJSB_RSt17basic_string_viewIcSt11char_traitsIcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!289 = distinct !{!289, !"_ZSt11make_uniqueIN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS1_12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS2_4TaskESt14default_deleteIS7_EEibEUlvE_EEJSB_RSt17basic_string_viewIcSt11char_traitsIcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!290 = !{!89, !89, i64 0}
+!291 = !{!292, !86, i64 32}
+!292 = !{!"_ZTSSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE", !7, i64 0, !86, i64 32}
+!293 = !{!209, !201, i64 0}
+!294 = !{!295}
+!295 = distinct !{!295, !296, !"_ZNKSt8weak_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE4lockEv: argument 0"}
+!296 = distinct !{!296, !"_ZNKSt8weak_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE4lockEv"}
+!297 = distinct !{!297, !246}
+!298 = !{!299, !6, i64 0}
+!299 = !{!"_ZTSZNK5arrow6FutureINS_8internal5EmptyEE14TryAddCallbackIZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNS7_13ContinueTasksEvENKS8_clEvEUlRKNS_6StatusEE_NS3_21WrapStatusyOnComplete8CallbackISC_EEEEbT_NS_15CallbackOptionsEEUlvE_", !6, i64 0}
+!300 = !{!301, !129, i64 0}
+!301 = !{!"_ZTSZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_", !129, i64 0}
+!302 = !{!303}
+!303 = distinct !{!303, !304, !"_ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNSE_13ContinueTasksEvENKSF_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOSS_DpOST_: argument 0"}
+!304 = distinct !{!304, !"_ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNSE_13ContinueTasksEvENKSF_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISN_T0_DpT1_EESN_E4typeEOSS_DpOST_"}
+!305 = !{!306, !308, !310, !312, !303}
+!306 = distinct !{!306, !307, !"_ZNSt23enable_shared_from_thisIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE16shared_from_thisEv: argument 0"}
+!307 = distinct !{!307, !"_ZNSt23enable_shared_from_thisIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE16shared_from_thisEv"}
+!308 = distinct !{!308, !309, !"_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEv: argument 0"}
+!309 = distinct !{!309, !"_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEv"}
+!310 = distinct !{!310, !311, !"_ZZNK5arrow6FutureINS_8internal5EmptyEE14TryAddCallbackIZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNS7_13ContinueTasksEvENKS8_clEvEUlRKNS_6StatusEE_NS3_21WrapStatusyOnComplete8CallbackISC_EEEEbT_NS_15CallbackOptionsEENKUlvE_clEv: argument 0"}
+!311 = distinct !{!311, !"_ZZNK5arrow6FutureINS_8internal5EmptyEE14TryAddCallbackIZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvEUlvE_ZZNS7_13ContinueTasksEvENKS8_clEvEUlRKNS_6StatusEE_NS3_21WrapStatusyOnComplete8CallbackISC_EEEEbT_NS_15CallbackOptionsEENKUlvE_clEv"}
+!312 = distinct !{!312, !313, !"_ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISA_SE_SF_EEbT_NS0_15CallbackOptionsEEUlvE_JEESH_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!313 = distinct !{!313, !"_ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl13ContinueTasksEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISA_SE_SF_EEbT_NS0_15CallbackOptionsEEUlvE_JEESH_St14__invoke_otherOT0_DpOT1_"}
+!314 = !{!315}
+!315 = distinct !{!315, !316, !"_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEv: argument 0"}
+!316 = distinct !{!316, !"_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEv"}
+!317 = !{!318}
+!318 = distinct !{!318, !319, !"_ZNO5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE11ValueUnsafeEv: argument 0"}
+!319 = distinct !{!319, !"_ZNO5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE11ValueUnsafeEv"}
+!320 = !{!321}
+!321 = distinct !{!321, !322, !"_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE15MoveValueUnsafeEv: argument 0"}
+!322 = distinct !{!322, !"_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE15MoveValueUnsafeEv"}
+!323 = !{!321, !318, !315}
+!324 = !{!321, !318}
+!325 = !{!326, !6, i64 0}
+!326 = !{!"_ZTSZNK5arrow6FutureINS_8internal5EmptyEE14TryAddCallbackIZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEibENUlvE_clEvEUlvE_ZZZNS7_10SubmitTaskESD_ibENSE_clEvENKSF_clEvEUlRKNS_6StatusEE_NS3_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS_15CallbackOptionsEEUlvE_", !6, i64 0}
+!327 = !{!328, !329, i64 0}
+!328 = !{!"_ZTSZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEvEUlvE_", !329, i64 0, !330, i64 8}
+!329 = !{!"p1 _ZTSSt10shared_ptrIN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImplEE", !6, i64 0}
+!330 = !{!"p1 int", !6, i64 0}
+!331 = !{!328, !330, i64 8}
+!332 = !{!333}
+!333 = distinct !{!333, !334, !"_ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSC_18AsyncTaskScheduler4TaskESt14default_deleteISH_EEibENUlvE_clEvEUlvE_ZZZNSE_10SubmitTaskESK_ibENSL_clEvENKSM_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISQ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISU_T0_DpT1_EESU_E4typeEOSZ_DpOS10_: argument 0"}
+!334 = distinct !{!334, !"_ZSt10__invoke_rIN5arrow8internal6FnOnceIFvRKNS0_10FutureImplEEEERZNKS0_6FutureINS1_5EmptyEE14TryAddCallbackIZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINSC_18AsyncTaskScheduler4TaskESt14default_deleteISH_EEibENUlvE_clEvEUlvE_ZZZNSE_10SubmitTaskESK_ibENSL_clEvENKSM_clEvEUlRKNS0_6StatusEE_NSA_21WrapStatusyOnComplete8CallbackISQ_EEEEbT_NS0_15CallbackOptionsEEUlvE_JEENSt9enable_ifIX16is_invocable_r_vISU_T0_DpT1_EESU_E4typeEOSZ_DpOS10_"}
+!335 = !{!336, !338, !340, !333}
+!336 = distinct !{!336, !337, !"_ZZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEvENKUlvE_clEv: argument 0"}
+!337 = distinct !{!337, !"_ZZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEvENKUlvE_clEv"}
+!338 = distinct !{!338, !339, !"_ZZNK5arrow6FutureINS_8internal5EmptyEE14TryAddCallbackIZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEibENUlvE_clEvEUlvE_ZZZNS7_10SubmitTaskESD_ibENSE_clEvENKSF_clEvEUlRKNS_6StatusEE_NS3_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS_15CallbackOptionsEENKUlvE_clEv: argument 0"}
+!339 = distinct !{!339, !"_ZZNK5arrow6FutureINS_8internal5EmptyEE14TryAddCallbackIZZNS_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEibENUlvE_clEvEUlvE_ZZZNS7_10SubmitTaskESD_ibENSE_clEvENKSF_clEvEUlRKNS_6StatusEE_NS3_21WrapStatusyOnComplete8CallbackISJ_EEEEbT_NS_15CallbackOptionsEENKUlvE_clEv"}
+!340 = distinct !{!340, !341, !"_ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS7_18AsyncTaskScheduler4TaskESt14default_deleteISC_EEibENUlvE_clEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISH_SL_SM_EEbT_NS0_15CallbackOptionsEEUlvE_JEESO_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!341 = distinct !{!341, !"_ZSt13__invoke_implIN5arrow6FutureINS0_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZZZNS0_4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS7_18AsyncTaskScheduler4TaskESt14default_deleteISC_EEibENUlvE_clEvENKUlvE_clEvEUlRKNS0_6StatusEE_EERZNKS4_14TryAddCallbackISH_SL_SM_EEbT_NS0_15CallbackOptionsEEUlvE_JEESO_St14__invoke_otherOT0_DpOT1_"}
+!342 = !{!343, !31, i64 0}
+!343 = !{!"_ZTSZZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEibENUlvE_clEvENKUlvE_clEvEUlRKNS_6StatusEE_", !31, i64 0, !280, i64 8}
+!344 = !{!165, !166, i64 0}
+!345 = !{!346}
+!346 = distinct !{!346, !347, !"_ZNO5arrow8internal6FnOnceIFNS_6StatusEvEEclEv: argument 0"}
+!347 = distinct !{!347, !"_ZNO5arrow8internal6FnOnceIFNS_6StatusEvEEclEv"}
+!348 = !{!349}
+!349 = distinct !{!349, !350, !"_ZSt11make_uniqueIN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS1_12_GLOBAL__N_118AsyncTaskGroupImplD1EvEUlvE_EEJS6_RSt17basic_string_viewIcSt11char_traitsIcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!350 = distinct !{!350, !"_ZSt11make_uniqueIN5arrow4util18AsyncTaskScheduler10SimpleTaskIZNS1_12_GLOBAL__N_118AsyncTaskGroupImplD1EvEUlvE_EEJS6_RSt17basic_string_viewIcSt11char_traitsIcEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!351 = !{!"branch_weights", !"expected", i32 2145766519, i32 1717129}
+!352 = !{!353}
+!353 = distinct !{!353, !354, !"_ZSt11make_uniqueIZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS1_18AsyncTaskScheduler4TaskESt14default_deleteIS6_EEE11WrapperTaskJS9_RSt10shared_ptrINS3_5StateEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!354 = distinct !{!354, !"_ZSt11make_uniqueIZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS1_18AsyncTaskScheduler4TaskESt14default_deleteIS6_EEE11WrapperTaskJS9_RSt10shared_ptrINS3_5StateEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!355 = !{!356}
+!356 = distinct !{!356, !357, !"_ZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImplD1EvENKUlvE_clEv: argument 0"}
+!357 = distinct !{!357, !"_ZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImplD1EvENKUlvE_clEv"}
+!358 = !{!359}
+!359 = distinct !{!359, !360, !"_ZNO5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE11ValueUnsafeEv: argument 0"}
+!360 = distinct !{!360, !"_ZNO5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE11ValueUnsafeEv"}
+!361 = !{!362}
+!362 = distinct !{!362, !363, !"_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE15MoveValueUnsafeEv: argument 0"}
+!363 = distinct !{!363, !"_ZN5arrow6ResultINS_6FutureINS_8internal5EmptyEEEE15MoveValueUnsafeEv"}
+!364 = !{!362, !359}
+!365 = !{!366}
+!366 = distinct !{!366, !367, !"_ZNK5arrow6FutureINS_8internal5EmptyEE4ThenIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EENS3_14ThenOnCompleteISF_SH_EES3_EET2_T_T0_NS_15CallbackOptionsE: argument 0"}
+!367 = distinct !{!367, !"_ZNK5arrow6FutureINS_8internal5EmptyEE4ThenIZZNS_4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS5_18AsyncTaskScheduler4TaskESt14default_deleteISA_EEEN11WrapperTaskclEvEUlvE_NS3_17PassthruOnFailureISF_EENS3_14ThenOnCompleteISF_SH_EES3_EET2_T_T0_NS_15CallbackOptionsE"}
+!368 = !{!369}
+!369 = distinct !{!369, !370, !"_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv: argument 0"}
+!370 = distinct !{!370, !"_ZN5arrow6FutureINS_8internal5EmptyEE4MakeEv"}
+!371 = !{!369, !366}
+!372 = !{!373}
+!373 = distinct !{!373, !374, !"_ZZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEEN11WrapperTaskclEvENKUlvE_clEv: argument 0"}
+!374 = distinct !{!374, !"_ZZZN5arrow4util12_GLOBAL__N_118AsyncTaskGroupImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEEN11WrapperTaskclEvENKUlvE_clEv"}
+!375 = !{!376, !373}
+!376 = distinct !{!376, !377, !"_ZNO5arrow8internal6FnOnceIFNS_6StatusEvEEclEv: argument 0"}
+!377 = distinct !{!377, !"_ZNO5arrow8internal6FnOnceIFNS_6StatusEvEEclEv"}
+!378 = !{!379, !373}
+!379 = distinct !{!379, !380, !"_ZN5arrow6Status2OKEv: argument 0"}
+!380 = distinct !{!380, !"_ZN5arrow6Status2OKEv"}
+!381 = !{!382}
+!382 = distinct !{!382, !383, !"_ZNO5arrow6ResultINS_8internal5EmptyEE6statusEv: argument 0"}
+!383 = distinct !{!383, !"_ZNO5arrow6ResultINS_8internal5EmptyEE6statusEv"}

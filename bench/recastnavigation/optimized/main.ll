@@ -164,7 +164,7 @@ define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #5
   %5 = getelementptr inbounds i8, ptr %3, i64 -32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   %6 = icmp eq ptr %4, @_ZL9g_samples
-  br i1 %6, label %7, label %2, !llvm.loop !5
+  br i1 %6, label %7, label %2
 
 7:                                                ; preds = %2
   ret void
@@ -697,7 +697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit623: ;
   %.sroa.0333.1.be = phi i32 [ %.sroa.0333.1, %148 ], [ %.sroa.0333.1, %166 ], [ %.sroa.0333.1, %171 ], [ %.sroa.0333.1, %173 ], [ %.sroa.0333.1, %177 ], [ %.sroa.0333.1, %202 ], [ %.sroa.0333.1, %178 ], [ %.sroa.0333.1, %209 ], [ %.sroa.0333.1, %211 ], [ %.sroa.0333.1, %214 ], [ %.sroa.0333.1, %216 ], [ %.sroa.0333.1, %218 ], [ %.sroa.0335.1, %221 ], [ %.sroa.0333.1, %226 ], [ %.sroa.0333.1, %230 ], [ %.sroa.0333.1, %233 ], [ %.sroa.0333.1, %249 ], [ %.sroa.0333.1, %160 ], [ %.sroa.0333.1, %.fold.split ], [ %.sroa.0333.1, %225 ], [ %.sroa.0333.1, %237 ], [ %.sroa.0333.1, %.invoke ]
   %.sroa.7340.1.be = phi i32 [ %.sroa.7340.1, %148 ], [ %.sroa.7340.1, %166 ], [ %.sroa.7340.1, %171 ], [ %.sroa.7340.1, %173 ], [ %.sroa.7340.1, %177 ], [ %.sroa.7340.1, %202 ], [ %.sroa.7340.1, %178 ], [ %.sroa.7340.1, %209 ], [ %.sroa.7340.1, %211 ], [ %.sroa.7340.1, %214 ], [ %.sroa.7340.1, %216 ], [ %.sroa.7340.1, %218 ], [ %.sroa.7340.1, %221 ], [ %.sroa.7340.1, %226 ], [ %.sroa.7340.1, %230 ], [ %236, %233 ], [ %.sroa.7340.1, %249 ], [ %.sroa.7340.1, %160 ], [ %.sroa.7340.1, %.fold.split ], [ %.sroa.7340.1, %225 ], [ %236, %237 ], [ %.sroa.7340.1, %.invoke ]
   %.sroa.0335.1.be = phi i32 [ %.sroa.0335.1, %148 ], [ %.sroa.0335.1, %166 ], [ %.sroa.0335.1, %171 ], [ %.sroa.0335.1, %173 ], [ %.sroa.0335.1, %177 ], [ %.sroa.0335.1, %202 ], [ %.sroa.0335.1, %178 ], [ %.sroa.0335.1, %209 ], [ %.sroa.0335.1, %211 ], [ %.sroa.0335.1, %214 ], [ %.sroa.0335.1, %216 ], [ %.sroa.0335.1, %218 ], [ %.sroa.0335.1, %221 ], [ %.sroa.0335.1, %226 ], [ %.sroa.0335.1, %230 ], [ %234, %233 ], [ %.sroa.0335.1, %249 ], [ %.sroa.0335.1, %160 ], [ %.sroa.0335.1, %.fold.split ], [ %.sroa.0335.1, %225 ], [ %234, %237 ], [ %.sroa.0335.1, %.invoke ]
-  br label %145, !llvm.loop !7
+  br label %145, !llvm.loop !5
 
 177:                                              ; preds = %160
   br i1 %.not581, label %.backedge1605, label %.invoke
@@ -969,7 +969,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 312:                                              ; preds = %308, %.lr.ph
   %313 = add nuw nsw i32 %.04001012, 1
   %314 = fcmp ogt float %306, 0x3FA99999A0000000
-  br i1 %314, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %314, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %312, %.preheader813
   %.1397.lcssa = phi float [ %.1397.ph, %.preheader813 ], [ %306, %312 ]
@@ -1645,7 +1645,7 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %569, %572
 .backedge.backedge:                               ; preds = %608, %.thread1223
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %608 ], [ %indvars.iv.next1225, %.thread1223 ]
   %.03941014.be = phi ptr [ %.1395, %608 ], [ null, %.thread1223 ]
-  br label %.backedge, !llvm.loop !10
+  br label %.backedge, !llvm.loop !8
 
 .thread1223:                                      ; preds = %605
   %indvars.iv.next1225 = add nuw nsw i64 %indvars.iv, 1
@@ -1789,7 +1789,7 @@ _ZN9rcContext8resetLogEv.exit:                    ; preds = %569, %572
   %spec.select785 = select i1 %666, ptr %.sroa.0678.01018, ptr %.sroa.0672.01017
   %668 = getelementptr inbounds nuw i8, ptr %.sroa.0678.01018, i64 32
   %.not787 = icmp eq ptr %668, %664
-  br i1 %.not787, label %._crit_edge1021, label %.lr.ph1020, !llvm.loop !11
+  br i1 %.not787, label %._crit_edge1021, label %.lr.ph1020, !llvm.loop !9
 
 ._crit_edge1021:                                  ; preds = %667
   %.not788 = icmp eq ptr %spec.select785, %664
@@ -2031,7 +2031,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %spec.select786 = select i1 %756, ptr %.sroa.0669.01024, ptr %.sroa.0.06811025
   %758 = getelementptr inbounds nuw i8, ptr %.sroa.0669.01024, i64 32
   %.not791 = icmp eq ptr %758, %754
-  br i1 %.not791, label %._crit_edge1028, label %.lr.ph1027, !llvm.loop !12
+  br i1 %.not791, label %._crit_edge1028, label %.lr.ph1027, !llvm.loop !10
 
 ._crit_edge1028:                                  ; preds = %757
   %.not792 = icmp eq ptr %spec.select786, %754
@@ -2142,7 +2142,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %.1 = phi ptr [ %789, %791 ], [ null, %790 ], [ %.03881030, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.03881030, %776 ]
   %indvars.iv.next1219 = add nuw nsw i64 %indvars.iv1218, 1
   %exitcond1221.not = icmp eq i64 %indvars.iv.next1219, 3
-  br i1 %exitcond1221.not, label %793, label %776, !llvm.loop !13
+  br i1 %exitcond1221.not, label %793, label %776, !llvm.loop !11
 
 793:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread738
   %794 = icmp eq ptr %.3417, null
@@ -2453,7 +2453,7 @@ _ZN9rcContext8resetLogEv.exit661:                 ; preds = %.thread747, %843
 
 917:                                              ; preds = %916
   %918 = add nuw nsw i32 %.0384, 1
-  br label %910, !llvm.loop !14
+  br label %910, !llvm.loop !12
 
 919:                                              ; preds = %912
   invoke void @_Z18imguiEndScrollAreav()
@@ -2533,7 +2533,7 @@ _ZN9rcContext8resetLogEv.exit661:                 ; preds = %.thread747, %843
 953:                                              ; preds = %.preheader
   %954 = add nuw nsw i32 %.03821032, 1
   %exitcond1222.not = icmp eq i32 %954, 20
-  br i1 %exitcond1222.not, label %955, label %.preheader, !llvm.loop !15
+  br i1 %exitcond1222.not, label %955, label %.preheader, !llvm.loop !13
 
 955:                                              ; preds = %953
   invoke void @glEnd()
@@ -2558,7 +2558,7 @@ _ZN9rcContext8resetLogEv.exit661:                 ; preds = %.thread747, %843
 960:                                              ; preds = %959
   %961 = load ptr, ptr %4, align 8
   invoke void @SDL_GL_SwapWindow(ptr noundef %961)
-          to label %140 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !16
+          to label %140 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !14
 
 962:                                              ; preds = %140
   invoke void @_Z20imguiRenderGLDestroyv()
@@ -2602,7 +2602,7 @@ _ZN9rcContext8resetLogEv.exit661:                 ; preds = %.thread747, %843
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #22
   %976 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %976, %975
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %13, align 8
@@ -2842,7 +2842,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #22
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !15
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -3152,7 +3152,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit15.i: 
   %43 = getelementptr inbounds i8, ptr %41, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #22
   %44 = icmp eq ptr %42, @_ZL9g_samples
-  br i1 %44, label %.loopexit.i, label %40, !llvm.loop !18
+  br i1 %44, label %.loopexit.i, label %40
 
 .loopexit.i:                                      ; preds = %40, %.body.thread.i
   %.pn.pn23.i = phi { ptr, i32 } [ %.pn.pn.ph.i, %.body.thread.i ], [ %.pn.i, %40 ]
@@ -3224,16 +3224,13 @@ attributes #23 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !8, !6}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !6}
-!10 = distinct !{!10, !8, !6}
-!11 = distinct !{!11, !8, !6}
-!12 = distinct !{!12, !8, !6}
-!13 = distinct !{!13, !8, !6}
-!14 = distinct !{!14, !8, !6}
-!15 = distinct !{!15, !8, !6}
-!16 = distinct !{!16, !8, !6}
-!17 = distinct !{!17, !8, !6}
-!18 = distinct !{!18, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}

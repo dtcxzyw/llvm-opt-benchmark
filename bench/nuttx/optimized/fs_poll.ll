@@ -373,12 +373,12 @@ poll_fdsetup.exit34.i:                            ; preds = %poll_notify.exit.lo
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
   %exitcond54.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count53.i
-  br i1 %exitcond54.not.i, label %.thread, label %.lr.ph42.i, !llvm.loop !9
+  br i1 %exitcond54.not.i, label %.thread, label %.lr.ph42.i, !llvm.loop !8
 
 .thread.i:                                        ; preds = %19, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %poll_setup.exit.thread, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %poll_setup.exit.thread, label %.lr.ph.i, !llvm.loop !9
 
 poll_setup.exit.thread:                           ; preds = %.thread.i, %3
   %58 = icmp eq i32 %2, 0
@@ -527,7 +527,7 @@ poll_fdsetup.exit.i:                              ; preds = %poll_notify.exit.lo
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
-  br i1 %exitcond.not.i31, label %.loopexit, label %.lr.ph.i27, !llvm.loop !11
+  br i1 %exitcond.not.i31, label %.loopexit, label %.lr.ph.i27, !llvm.loop !10
 
 .thread:                                          ; preds = %poll_fdsetup.exit34.i, %.preheader.i
   %storemerge.in = load i32, ptr %23, align 8
@@ -592,9 +592,8 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

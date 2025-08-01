@@ -420,6 +420,5 @@ attributes #12 = { nounwind willreturn memory(none) }
 !19 = !{!"trace_key", !8, i64 0, !20, i64 8, !20, i64 12, !20, i64 12}
 !20 = !{!"int", !5, i64 0}
 !21 = !{!20, !20, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}

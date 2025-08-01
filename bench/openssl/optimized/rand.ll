@@ -95,7 +95,7 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
   br label %5, !llvm.loop !8
 
 .thread131:                                       ; preds = %5, %.thread122, %69, %63, %48, %40, %72
-  %7 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %7 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %8 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.30, ptr noundef %4) #6
   br label %.thread143
 
@@ -136,19 +136,19 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
   br i1 %22, label %23, label %72
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %21, align 8, !tbaa !14
+  %24 = load ptr, ptr %21, align 8, !tbaa !13
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(4) @.str.31) #7
   %.not103.not = icmp eq i32 %25, 0
   br i1 %.not103.not, label %.thread165, label %.preheader171
 
 .preheader171:                                    ; preds = %23
-  %26 = load i8, ptr %24, align 1, !tbaa !16
+  %26 = load i8, ptr %24, align 1, !tbaa !15
   %.not104191 = icmp eq i8 %26, 0
   br i1 %.not104191, label %.thread122, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader171
   %27 = tail call ptr @__ctype_b_loc() #8
-  %28 = load ptr, ptr %27, align 8, !tbaa !17
+  %28 = load ptr, ptr %27, align 8, !tbaa !16
   br label %29
 
 29:                                               ; preds = %.lr.ph, %43
@@ -156,7 +156,7 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
   %30 = phi i8 [ %26, %.lr.ph ], [ %45, %43 ]
   %31 = sext i8 %30 to i64
   %32 = getelementptr inbounds i16, ptr %28, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !19
+  %33 = load i16, ptr %32, align 2, !tbaa !18
   %34 = and i16 %33, 2048
   %.not105 = icmp eq i16 %34, 0
   br i1 %.not105, label %35, label %43
@@ -180,16 +180,16 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
   br label %46
 
 40:                                               ; preds = %35
-  %41 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %41 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %41, ptr noundef nonnull @.str.32, ptr noundef nonnull %36) #6
   br label %.thread131
 
 43:                                               ; preds = %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.next
-  %45 = load i8, ptr %44, align 1, !tbaa !16
+  %45 = load i8, ptr %44, align 1, !tbaa !15
   %.not104 = icmp eq i8 %45, 0
-  br i1 %.not104, label %.thread122, label %29, !llvm.loop !21
+  br i1 %.not104, label %.thread122, label %29, !llvm.loop !20
 
 46:                                               ; preds = %35, %37, %38, %39
   %.175.ph = phi i64 [ 10, %35 ], [ 40, %39 ], [ 30, %38 ], [ 20, %37 ]
@@ -198,15 +198,15 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
   br i1 %.not107, label %51, label %48
 
 48:                                               ; preds = %46
-  %49 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %49 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %50 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %49, ptr noundef nonnull @.str.32, ptr noundef nonnull %36) #6
   br label %.thread131
 
 51:                                               ; preds = %46
   %52 = and i64 %indvars.iv, 4294967295
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 %52
-  store i8 0, ptr %53, align 1, !tbaa !16
-  %.pre = load ptr, ptr %21, align 8, !tbaa !14
+  store i8 0, ptr %53, align 1, !tbaa !15
+  %.pre = load ptr, ptr %21, align 8, !tbaa !13
   br label %.thread122
 
 .thread122:                                       ; preds = %43, %.preheader171, %51
@@ -229,7 +229,7 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %60
-  %64 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %64 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %65 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %64, ptr noundef nonnull @.str.33, i64 noundef %57) #6
   br label %.thread131
 
@@ -239,7 +239,7 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
   br i1 %68, label %69, label %.thread165
 
 69:                                               ; preds = %66
-  %70 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %70 = load ptr, ptr @bio_err, align 8, !tbaa !10
   %71 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %70, ptr noundef nonnull @.str.34) #6
   br label %.thread131
 
@@ -300,12 +300,12 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
 93:                                               ; preds = %.preheader.us
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next219, %89
-  br i1 %exitcond.not, label %.loopexit.us, label %.preheader.us, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit.us, label %.preheader.us, !llvm.loop !21
 
 .preheader.us:                                    ; preds = %.lr.ph197.split.us, %93
   %indvars.iv218 = phi i64 [ %indvars.iv.next219, %93 ], [ 0, %.lr.ph197.split.us ]
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 %indvars.iv218
-  %95 = load i8, ptr %94, align 1, !tbaa !16
+  %95 = load i8, ptr %94, align 1, !tbaa !15
   %96 = zext i8 %95 to i32
   %97 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %76, ptr noundef nonnull @.str.36, i32 noundef %96) #6
   %.not112.us = icmp eq i32 %97, 2
@@ -314,7 +314,7 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
 .loopexit.us:                                     ; preds = %93
   %98 = sub i64 %.4196.us, %89
   %.not110.us = icmp eq i64 %98, 0
-  br i1 %.not110.us, label %._crit_edge, label %.lr.ph197.split.us, !llvm.loop !23
+  br i1 %.not110.us, label %._crit_edge, label %.lr.ph197.split.us, !llvm.loop !22
 
 .lr.ph197.split:                                  ; preds = %.lr.ph197.split.preheader, %105
   %.4196 = phi i64 [ %106, %105 ], [ %.3, %.lr.ph197.split.preheader ]
@@ -355,7 +355,7 @@ define dso_local range(i32 0, 2) i32 @rand_main(i32 noundef %0, ptr noundef %1) 
 .thread143:                                       ; preds = %17, %14, %.lr.ph197.split.us, %.preheader.us, %.lr.ph197.split, %103, %80, %.thread165, %75, %.thread131, %._crit_edge.thread
   %.078152 = phi ptr [ %111, %._crit_edge.thread ], [ null, %80 ], [ null, %.thread165 ], [ null, %75 ], [ null, %.thread131 ], [ %88, %103 ], [ %88, %.lr.ph197.split ], [ %85, %.preheader.us ], [ %85, %.lr.ph197.split.us ], [ null, %14 ], [ null, %17 ]
   %.088148 = phi ptr [ %.189224229, %._crit_edge.thread ], [ %76, %80 ], [ null, %.thread165 ], [ null, %75 ], [ null, %.thread131 ], [ %.189223227, %103 ], [ %.189223227, %.lr.ph197.split ], [ %76, %.preheader.us ], [ %76, %.lr.ph197.split.us ], [ null, %14 ], [ null, %17 ]
-  %115 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %115 = load ptr, ptr @bio_err, align 8, !tbaa !10
   call void @ERR_print_errors(ptr noundef %115) #6
   br label %116
 
@@ -460,20 +460,19 @@ attributes #8 = { nounwind willreturn memory(none) }
 !5 = !{!"long", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS6bio_st", !13, i64 0}
-!13 = !{!"any pointer", !6, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 omnipotent char", !13, i64 0}
-!16 = !{!6, !6, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 short", !13, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !6, i64 0}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS6bio_st", !12, i64 0}
+!12 = !{!"any pointer", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !12, i64 0}
+!15 = !{!6, !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 short", !12, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !6, i64 0}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}

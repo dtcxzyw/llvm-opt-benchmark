@@ -401,7 +401,7 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
 58:                                               ; preds = %49, %53
   %59 = load i64, ptr %7, align 8, !tbaa !27
   %60 = icmp slt i64 %51, %59
-  br i1 %60, label %.lr.ph, label %.thread, !llvm.loop !33
+  br i1 %60, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %58, %53
   %.lcssa.ph = phi i1 [ false, %58 ], [ true, %53 ]
@@ -416,7 +416,7 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   %63 = trunc i64 %70 to i32
   %64 = add i32 %.02366, %63
   %65 = icmp ult i32 %64, %.231
-  br i1 %65, label %66, label %.loopexit, !llvm.loop !35
+  br i1 %65, label %66, label %.loopexit, !llvm.loop !33
 
 66:                                               ; preds = %.lr.ph67, %62
   %.02366 = phi i32 [ 0, %.lr.ph67 ], [ %64, %62 ]
@@ -563,6 +563,4 @@ attributes #16 = { cold }
 !31 = !{i8 0, i8 2}
 !32 = !{}
 !33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = distinct !{!35, !36, !34}
-!36 = !{!"llvm.loop.mustprogress"}
+!34 = !{!"llvm.loop.mustprogress"}

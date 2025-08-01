@@ -102,7 +102,7 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
 52:                                               ; preds = %40, %45
   %.pre-phi = phi i32 [ %.pre, %40 ], [ %46, %45 ]
   %.1214 = phi ptr [ %42, %40 ], [ %48, %45 ]
-  br i1 %32, label %.loopexit, label %.thread248, !llvm.loop !6
+  br i1 %32, label %.loopexit, label %.thread248
 
 53:                                               ; preds = %.thread248
   %54 = icmp eq i32 %31, -5
@@ -218,7 +218,7 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   %105 = ptrtoint ptr %104 to i64
   %106 = sub i64 %105, %27
   %107 = icmp slt i64 %106, %98
-  br i1 %107, label %.lr.ph, label %.critedge, !llvm.loop !8
+  br i1 %107, label %.lr.ph, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %.lr.ph, %103, %.preheader258
   %.4.lcssa = phi ptr [ %.0198, %.preheader258 ], [ %104, %103 ], [ %.4278, %.lr.ph ]
@@ -249,7 +249,7 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   %117 = ptrtoint ptr %116 to i64
   %118 = sub i64 %117, %27
   %119 = icmp slt i64 %118, %.pre304
-  br i1 %119, label %.lr.ph282, label %.critedge13, !llvm.loop !10
+  br i1 %119, label %.lr.ph282, label %.critedge13, !llvm.loop !8
 
 .critedge13:                                      ; preds = %.lr.ph282, %115, %.preheader
   %.6.lcssa = phi ptr [ %.3, %.preheader ], [ %116, %115 ], [ %.6281, %.lr.ph282 ]
@@ -278,7 +278,7 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %128, ptr %17, align 8
   %130 = tail call i32 @inflateEnd(ptr noundef %16)
   %131 = tail call i32 @inflateInit2_(ptr noundef %16, i32 noundef %.0222.ph.ph, ptr noundef nonnull @.str, i32 noundef 112)
-  br label %.thread248.outer, !llvm.loop !6
+  br label %.thread248.outer
 
 .thread248.outer:                                 ; preds = %.thread248.outer.outer, %126
   %.0224.ph = phi i32 [ 2, %126 ], [ %.0224.ph.ph, %.thread248.outer.outer ]
@@ -304,7 +304,7 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   %137 = tail call i32 @inflateInit2_(ptr noundef %16, i32 noundef -15, ptr noundef nonnull @.str, i32 noundef 112)
   %138 = add nuw nsw i32 %.0224.ph, 1
   %.not233 = icmp eq i32 %137, 0
-  br i1 %.not233, label %.thread248.outer.outer, label %139, !llvm.loop !6
+  br i1 %.not233, label %.thread248.outer.outer, label %139
 
 .thread248.outer.outer:                           ; preds = %.preheader259, %134
   %.0224.ph.ph = phi i32 [ 1, %.preheader259 ], [ %138, %134 ]
@@ -468,7 +468,5 @@ attributes #9 = { allocsize(1) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

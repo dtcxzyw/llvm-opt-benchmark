@@ -377,7 +377,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %50, %_ZNK10ciMetada
   %80 = load i32, ptr %71, align 4
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %75, label %._crit_edge77, !llvm.loop !9
+  br i1 %82, label %75, label %._crit_edge77, !llvm.loop !8
 
 ._crit_edge77:                                    ; preds = %75, %65
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -428,7 +428,7 @@ _ZN10CompileLog4nameEP8ciSymbol.exit:             ; preds = %._crit_edge77, %89
   %107 = load i32, ptr %71, align 4
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next84, %108
-  br i1 %109, label %100, label %._crit_edge81, !llvm.loop !10
+  br i1 %109, label %100, label %._crit_edge81, !llvm.loop !9
 
 ._crit_edge81:                                    ; preds = %100, %96
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.11) #11
@@ -662,7 +662,7 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1, i64 noundef %24) #11
   %.not78 = icmp eq i64 %27, 0
-  br i1 %.not78, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not78, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %26, %.lr.ph, %16
   %31 = tail call i64 @read(i32 noundef %15, ptr noundef nonnull %1, i64 noundef %8) #11
@@ -672,7 +672,7 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
 .loopexit:                                        ; preds = %53
   %33 = tail call i64 @read(i32 noundef %15, ptr noundef nonnull %1, i64 noundef %8) #11
   %34 = icmp sgt i64 %33, 0
-  br i1 %34, label %.lr.ph95, label %._crit_edge96, !llvm.loop !12
+  br i1 %34, label %.lr.ph95, label %._crit_edge96, !llvm.loop !11
 
 .lr.ph95:                                         ; preds = %._crit_edge, %.loopexit
   %35 = phi i64 [ %33, %.loopexit ], [ %31, %._crit_edge ]
@@ -720,7 +720,7 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
   %.3 = phi i32 [ %spec.select, %40 ], [ 0, %42 ], [ 0, %37 ]
   %45 = add nuw i64 %.06488, 1
   %exitcond.not = icmp eq i64 %45, %.17189
-  br i1 %exitcond.not, label %.critedge, label %37, !llvm.loop !13
+  br i1 %exitcond.not, label %.critedge, label %37, !llvm.loop !12
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr %0, align 8
@@ -743,7 +743,7 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
   %54 = sub i64 %.17189, %.06482
   %55 = getelementptr inbounds i8, ptr %.06591, i64 %.06482
   %.not79 = icmp eq i64 %54, 0
-  br i1 %.not79, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %.not79, label %.loopexit, label %.preheader, !llvm.loop !13
 
 ._crit_edge96:                                    ; preds = %.loopexit
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.26, i64 noundef 3) #11
@@ -766,7 +766,7 @@ define hidden void @_ZN10CompileLog19finish_log_on_errorEP12outputStreamPci(ptr 
   %62 = load ptr, ptr %61, align 8
   tail call void %62(ptr noundef nonnull align 8 dereferenceable(440) %.098) #11
   %.not = icmp eq ptr %59, null
-  br i1 %.not, label %._crit_edge101, label %10, !llvm.loop !15
+  br i1 %.not, label %._crit_edge101, label %10, !llvm.loop !14
 
 ._crit_edge101:                                   ; preds = %57, %4
   store ptr null, ptr @_ZN10CompileLog6_firstE, align 8
@@ -894,13 +894,12 @@ attributes #13 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

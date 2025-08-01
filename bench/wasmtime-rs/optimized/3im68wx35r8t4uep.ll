@@ -135,7 +135,7 @@ define hidden i64 @"_ZN22cranelift_codegen_meta12unique_table23UniqueSeqTable$LT
   %22 = extractvalue { ptr, i64 } %21, 0
   %23 = extractvalue { ptr, i64 } %21, 1
   %24 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc1b95e6fcb962aadE"(ptr align 8 %22, i64 %23, ptr align 8 %1, i64 range(i64 1, 0) %2)
-  br i1 %24, label %26, label %14, !llvm.loop !5
+  br i1 %24, label %26, label %14
 
 25:                                               ; preds = %3, %._crit_edge, %26
   %.0 = phi i64 [ %19, %26 ], [ %36, %._crit_edge ], [ 0, %3 ]
@@ -186,7 +186,7 @@ define hidden i64 @"_ZN22cranelift_codegen_meta12unique_table23UniqueSeqTable$LT
 47:                                               ; preds = %.lr.ph
   %48 = add i64 %.02630, -1
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %49, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -226,7 +226,7 @@ define hidden i64 @"_ZN22cranelift_codegen_meta12unique_table23UniqueSeqTable$LT
   %22 = extractvalue { ptr, i64 } %21, 0
   %23 = extractvalue { ptr, i64 } %21, 1
   %24 = call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9c0dd9d75a0ecb90E"(ptr align 8 %22, i64 %23, ptr align 8 %1, i64 range(i64 1, 0) %2)
-  br i1 %24, label %26, label %14, !llvm.loop !8
+  br i1 %24, label %26, label %14
 
 25:                                               ; preds = %3, %._crit_edge, %26
   %.0 = phi i64 [ %19, %26 ], [ %36, %._crit_edge ], [ 0, %3 ]
@@ -277,7 +277,7 @@ define hidden i64 @"_ZN22cranelift_codegen_meta12unique_table23UniqueSeqTable$LT
 47:                                               ; preds = %.lr.ph
   %48 = add i64 %.02630, -1
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %49, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -385,8 +385,3 @@ attributes #8 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 8}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}

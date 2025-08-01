@@ -165,7 +165,7 @@ define internal range(i32 -2147483648, 1) i32 @vp9_handle_packet(ptr noundef %0,
   %66 = add nsw i32 %.3137, %.sink
   %67 = add nsw i32 %.2152, -1
   %.old3.not = icmp eq i32 %67, 0
-  br i1 %.old3.not, label %.thread, label %.preheader210, !llvm.loop !14
+  br i1 %.old3.not, label %.thread, label %.preheader210
 
 .thread:                                          ; preds = %64, %43, %.thread193, %50
   %.2136 = phi i32 [ %54, %50 ], [ %49, %.thread193 ], [ %.0134, %43 ], [ %66, %64 ]
@@ -261,7 +261,7 @@ define internal range(i32 -2147483648, 1) i32 @vp9_handle_packet(ptr noundef %0,
   %103 = add nsw i32 %.11145218, %102
   %104 = add nuw nsw i32 %.1149217, 1
   %exitcond.not = icmp eq i32 %104, %89
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 105:                                              ; preds = %94
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.4) #4
@@ -304,7 +304,7 @@ define internal range(i32 -2147483648, 1) i32 @vp9_handle_packet(ptr noundef %0,
 
 119:                                              ; preds = %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %121 = load i32, ptr %120, align 8, !tbaa !18
+  %121 = load i32, ptr %120, align 8, !tbaa !16
   %122 = tail call i32 @ff_rtp_finalize_packet(ptr noundef %3, ptr noundef nonnull %1, i32 noundef %121) #4
   %. = tail call i32 @llvm.smin.i32(i32 %122, i32 0)
   br label %.thread201
@@ -352,17 +352,15 @@ attributes #4 = { nounwind }
 !12 = !{!10, !10, i64 0}
 !13 = !{!8, !8, i64 0}
 !14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !17, !15}
-!17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !10, i64 8}
-!19 = !{!"AVStream", !20, i64 0, !10, i64 8, !10, i64 12, !21, i64 16, !7, i64 24, !22, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !10, i64 64, !10, i64 68, !22, i64 72, !24, i64 80, !22, i64 88, !25, i64 96, !10, i64 200, !22, i64 204, !10, i64 212}
-!20 = !{!"p1 _ZTS7AVClass", !7, i64 0}
-!21 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
-!22 = !{!"AVRational", !10, i64 0, !10, i64 4}
-!23 = !{!"long", !8, i64 0}
-!24 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!25 = !{!"AVPacket", !26, i64 0, !23, i64 8, !23, i64 16, !27, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !28, i64 48, !10, i64 56, !23, i64 64, !23, i64 72, !7, i64 80, !26, i64 88, !22, i64 96}
-!26 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!27 = !{!"p1 omnipotent char", !7, i64 0}
-!28 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!17, !10, i64 8}
+!17 = !{!"AVStream", !18, i64 0, !10, i64 8, !10, i64 12, !19, i64 16, !7, i64 24, !20, i64 32, !21, i64 40, !21, i64 48, !21, i64 56, !10, i64 64, !10, i64 68, !20, i64 72, !22, i64 80, !20, i64 88, !23, i64 96, !10, i64 200, !20, i64 204, !10, i64 212}
+!18 = !{!"p1 _ZTS7AVClass", !7, i64 0}
+!19 = !{!"p1 _ZTS17AVCodecParameters", !7, i64 0}
+!20 = !{!"AVRational", !10, i64 0, !10, i64 4}
+!21 = !{!"long", !8, i64 0}
+!22 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!23 = !{!"AVPacket", !24, i64 0, !21, i64 8, !21, i64 16, !25, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !26, i64 48, !10, i64 56, !21, i64 64, !21, i64 72, !7, i64 80, !24, i64 88, !20, i64 96}
+!24 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!25 = !{!"p1 omnipotent char", !7, i64 0}
+!26 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}

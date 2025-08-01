@@ -404,7 +404,7 @@ define hidden void @_ZN22ShenandoahPhaseTimingsC2Ej(ptr noundef nonnull align 8 
   tail call void @_ZN6HdrSeqC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %.ptr) #12
   %.add = add nuw nsw i64 %.idx, 80
   %4 = icmp eq i64 %.add, 27816
-  br i1 %4, label %.preheader160, label %3, !llvm.loop !6
+  br i1 %4, label %.preheader160, label %3
 
 .preheader160:                                    ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 27816
@@ -419,7 +419,7 @@ define hidden void @_ZN22ShenandoahPhaseTimingsC2Ej(ptr noundef nonnull align 8 
   store double -1.000000e+00, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 316
-  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !8
+  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !6
 
 .preheader:                                       ; preds = %7, %211
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %211 ], [ 0, %7 ]
@@ -457,7 +457,7 @@ define hidden void @_ZN22ShenandoahPhaseTimingsC2Ej(ptr noundef nonnull align 8 
   %26 = load i32, ptr %15, align 8
   %27 = zext i32 %26 to i64
   %28 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %27
-  br i1 %28, label %.lr.ph.i.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader, !llvm.loop !10
+  br i1 %28, label %.lr.ph.i.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i.preheader: ; preds = %.lr.ph.i.i.i, %12
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i
@@ -476,7 +476,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i:       ; preds = %_ZN15WorkerDataArra
 32:                                               ; preds = %31, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit:           ; preds = %32
   %33 = add nuw nsw i64 %indvars.iv164, 2
@@ -511,7 +511,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit:           ; preds = %32
   %48 = load i32, ptr %37, align 8
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next.i.i.i83, %49
-  br i1 %50, label %.lr.ph.i.i.i81, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84.preheader, !llvm.loop !10
+  br i1 %50, label %.lr.ph.i.i.i81, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84.preheader: ; preds = %.lr.ph.i.i.i81, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84
@@ -530,7 +530,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84:     ; preds = %_ZN15WorkerDataArra
 54:                                               ; preds = %53, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84
   %indvars.iv.next.i.i87 = add nuw nsw i64 %indvars.iv.i.i85, 1
   %exitcond.not.i.i88 = icmp eq i64 %indvars.iv.next.i.i87, 9
-  br i1 %exitcond.not.i.i88, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84, !llvm.loop !11
+  br i1 %exitcond.not.i.i88, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i84, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89:         ; preds = %54
   %55 = add nuw nsw i64 %indvars.iv164, 3
@@ -565,7 +565,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89:         ; preds = %54
   %70 = load i32, ptr %59, align 8
   %71 = zext i32 %70 to i64
   %72 = icmp samesign ult i64 %indvars.iv.next.i.i.i93, %71
-  br i1 %72, label %.lr.ph.i.i.i91, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader, !llvm.loop !10
+  br i1 %72, label %.lr.ph.i.i.i91, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94.preheader: ; preds = %.lr.ph.i.i.i91, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit89
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94
@@ -584,7 +584,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94:     ; preds = %_ZN15WorkerDataArra
 76:                                               ; preds = %75, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94
   %indvars.iv.next.i.i97 = add nuw nsw i64 %indvars.iv.i.i95, 1
   %exitcond.not.i.i98 = icmp eq i64 %indvars.iv.next.i.i97, 9
-  br i1 %exitcond.not.i.i98, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94, !llvm.loop !11
+  br i1 %exitcond.not.i.i98, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i94, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99:         ; preds = %76
   %77 = add nuw nsw i64 %indvars.iv164, 4
@@ -619,7 +619,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99:         ; preds = %76
   %92 = load i32, ptr %81, align 8
   %93 = zext i32 %92 to i64
   %94 = icmp samesign ult i64 %indvars.iv.next.i.i.i103, %93
-  br i1 %94, label %.lr.ph.i.i.i101, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader, !llvm.loop !10
+  br i1 %94, label %.lr.ph.i.i.i101, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104.preheader: ; preds = %.lr.ph.i.i.i101, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit99
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104
@@ -638,7 +638,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104:    ; preds = %_ZN15WorkerDataArra
 98:                                               ; preds = %97, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104
   %indvars.iv.next.i.i107 = add nuw nsw i64 %indvars.iv.i.i105, 1
   %exitcond.not.i.i108 = icmp eq i64 %indvars.iv.next.i.i107, 9
-  br i1 %exitcond.not.i.i108, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104, !llvm.loop !11
+  br i1 %exitcond.not.i.i108, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i104, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109:        ; preds = %98
   %99 = add nuw nsw i64 %indvars.iv164, 5
@@ -673,7 +673,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109:        ; preds = %98
   %114 = load i32, ptr %103, align 8
   %115 = zext i32 %114 to i64
   %116 = icmp samesign ult i64 %indvars.iv.next.i.i.i113, %115
-  br i1 %116, label %.lr.ph.i.i.i111, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader, !llvm.loop !10
+  br i1 %116, label %.lr.ph.i.i.i111, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114.preheader: ; preds = %.lr.ph.i.i.i111, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit109
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114
@@ -692,7 +692,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114:    ; preds = %_ZN15WorkerDataArra
 120:                                              ; preds = %119, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114
   %indvars.iv.next.i.i117 = add nuw nsw i64 %indvars.iv.i.i115, 1
   %exitcond.not.i.i118 = icmp eq i64 %indvars.iv.next.i.i117, 9
-  br i1 %exitcond.not.i.i118, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114, !llvm.loop !11
+  br i1 %exitcond.not.i.i118, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i114, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119:        ; preds = %120
   %121 = add nuw nsw i64 %indvars.iv164, 6
@@ -727,7 +727,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119:        ; preds = %120
   %136 = load i32, ptr %125, align 8
   %137 = zext i32 %136 to i64
   %138 = icmp samesign ult i64 %indvars.iv.next.i.i.i123, %137
-  br i1 %138, label %.lr.ph.i.i.i121, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader, !llvm.loop !10
+  br i1 %138, label %.lr.ph.i.i.i121, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124.preheader: ; preds = %.lr.ph.i.i.i121, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit119
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124
@@ -746,7 +746,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124:    ; preds = %_ZN15WorkerDataArra
 142:                                              ; preds = %141, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124
   %indvars.iv.next.i.i127 = add nuw nsw i64 %indvars.iv.i.i125, 1
   %exitcond.not.i.i128 = icmp eq i64 %indvars.iv.next.i.i127, 9
-  br i1 %exitcond.not.i.i128, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124, !llvm.loop !11
+  br i1 %exitcond.not.i.i128, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i124, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129:        ; preds = %142
   %143 = add nuw nsw i64 %indvars.iv164, 7
@@ -781,7 +781,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129:        ; preds = %142
   %158 = load i32, ptr %147, align 8
   %159 = zext i32 %158 to i64
   %160 = icmp samesign ult i64 %indvars.iv.next.i.i.i133, %159
-  br i1 %160, label %.lr.ph.i.i.i131, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader, !llvm.loop !10
+  br i1 %160, label %.lr.ph.i.i.i131, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134.preheader: ; preds = %.lr.ph.i.i.i131, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit129
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134
@@ -800,7 +800,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134:    ; preds = %_ZN15WorkerDataArra
 164:                                              ; preds = %163, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134
   %indvars.iv.next.i.i137 = add nuw nsw i64 %indvars.iv.i.i135, 1
   %exitcond.not.i.i138 = icmp eq i64 %indvars.iv.next.i.i137, 9
-  br i1 %exitcond.not.i.i138, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134, !llvm.loop !11
+  br i1 %exitcond.not.i.i138, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i134, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139:        ; preds = %164
   %165 = add nuw nsw i64 %indvars.iv164, 8
@@ -835,7 +835,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139:        ; preds = %164
   %180 = load i32, ptr %169, align 8
   %181 = zext i32 %180 to i64
   %182 = icmp samesign ult i64 %indvars.iv.next.i.i.i143, %181
-  br i1 %182, label %.lr.ph.i.i.i141, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader, !llvm.loop !10
+  br i1 %182, label %.lr.ph.i.i.i141, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144.preheader: ; preds = %.lr.ph.i.i.i141, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit139
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144
@@ -854,7 +854,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144:    ; preds = %_ZN15WorkerDataArra
 186:                                              ; preds = %185, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144
   %indvars.iv.next.i.i147 = add nuw nsw i64 %indvars.iv.i.i145, 1
   %exitcond.not.i.i148 = icmp eq i64 %indvars.iv.next.i.i147, 9
-  br i1 %exitcond.not.i.i148, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144, !llvm.loop !11
+  br i1 %exitcond.not.i.i148, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i144, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149:        ; preds = %186
   %187 = add nuw nsw i64 %indvars.iv164, 9
@@ -889,7 +889,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149:        ; preds = %186
   %202 = load i32, ptr %191, align 8
   %203 = zext i32 %202 to i64
   %204 = icmp samesign ult i64 %indvars.iv.next.i.i.i153, %203
-  br i1 %204, label %.lr.ph.i.i.i151, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader, !llvm.loop !10
+  br i1 %204, label %.lr.ph.i.i.i151, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154.preheader: ; preds = %.lr.ph.i.i.i151, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit149
   br label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154
@@ -908,7 +908,7 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154:    ; preds = %_ZN15WorkerDataArra
 208:                                              ; preds = %207, %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154
   %indvars.iv.next.i.i157 = add nuw nsw i64 %indvars.iv.i.i155, 1
   %exitcond.not.i.i158 = icmp eq i64 %indvars.iv.next.i.i157, 9
-  br i1 %exitcond.not.i.i158, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit159, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154, !llvm.loop !11
+  br i1 %exitcond.not.i.i158, label %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit159, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i.i154, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit159:        ; preds = %208
   %209 = add nuw nsw i64 %indvars.iv164, 10
@@ -919,7 +919,7 @@ _ZN15WorkerDataArrayIdEC2EPKcS2_j.exit159:        ; preds = %208
 211:                                              ; preds = %.preheader, %_ZN15WorkerDataArrayIdEC2EPKcS2_j.exit159
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, 316
-  br i1 %exitcond167.not, label %212, label %.preheader, !llvm.loop !12
+  br i1 %exitcond167.not, label %212, label %.preheader, !llvm.loop !10
 
 212:                                              ; preds = %211
   %213 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -1061,7 +1061,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings20record_workers_startENS_5PhaseE
   %14 = load i32, ptr %10, align 8
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next.i.i, %15
-  br i1 %16, label %.lr.ph.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i, !llvm.loop !10
+  br i1 %16, label %.lr.ph.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %5
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -1081,12 +1081,12 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %5
 22:                                               ; preds = %21, %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %_ZN15WorkerDataArrayIdE5resetEv.exit, label %18, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN15WorkerDataArrayIdE5resetEv.exit, label %18, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdE5resetEv.exit:             ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZN15WorkerDataArrayIdE5resetEv.exit, %2
   ret void
@@ -1147,7 +1147,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(pt
   %23 = load i32, ptr %0, align 8
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %22
   %26 = fcmp une double %.1, -1.000000e+00
@@ -1168,7 +1168,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(pt
   %.131 = phi double [ %31, %30 ], [ %.03037, %._crit_edge ], [ %.1, %27 ], [ %.03037, %.preheader.split ]
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next43, 10
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !15
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !13
 
 .split.us:                                        ; preds = %._crit_edge.thread
   %33 = fcmp une double %.131, -1.000000e+00
@@ -1181,7 +1181,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings26flush_par_workers_to_cycleEv(pt
 
 .split.us.thread:                                 ; preds = %4, %34, %.split.us
   %exitcond48.not = icmp eq i64 %7, 316
-  br i1 %exitcond48.not, label %36, label %4, !llvm.loop !17
+  br i1 %exitcond48.not, label %36, label %4, !llvm.loop !15
 
 36:                                               ; preds = %.split.us.thread
   ret void
@@ -1234,7 +1234,7 @@ define hidden void @_ZN22ShenandoahPhaseTimings21flush_cycle_to_globalEv(ptr nou
   %23 = load i32, ptr %19, align 8
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next.i.i, %24
-  br i1 %25, label %.lr.ph.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i, !llvm.loop !10
+  br i1 %25, label %.lr.ph.i.i, label %_ZN15WorkerDataArrayIdE7set_allEd.exit.i, !llvm.loop !8
 
 _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %17
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1254,16 +1254,16 @@ _ZN15WorkerDataArrayIdE7set_allEd.exit.i:         ; preds = %.lr.ph.i.i, %17
 31:                                               ; preds = %30, %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond.not.i, label %_ZN15WorkerDataArrayIdE5resetEv.exit, label %27, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN15WorkerDataArrayIdE5resetEv.exit, label %27, !llvm.loop !9
 
 _ZN15WorkerDataArrayIdE5resetEv.exit:             ; preds = %31, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 316
-  br i1 %exitcond.not, label %32, label %5, !llvm.loop !18
+  br i1 %exitcond.not, label %32, label %5, !llvm.loop !16
 
 32:                                               ; preds = %_ZN15WorkerDataArrayIdE5resetEv.exit
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !20
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !18
   ret void
 }
 
@@ -1342,7 +1342,7 @@ define hidden void @_ZNK22ShenandoahPhaseTimings14print_cycle_onEP12outputStream
   %38 = load i32, ptr %0, align 8
   %39 = zext i32 %38 to i64
   %40 = icmp samesign ult i64 %indvars.iv.next, %39
-  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %37, %26, %23
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #12
@@ -1351,7 +1351,7 @@ define hidden void @_ZNK22ShenandoahPhaseTimings14print_cycle_onEP12outputStream
 41:                                               ; preds = %5, %.loopexit
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next38, 316
-  br i1 %exitcond.not, label %42, label %5, !llvm.loop !22
+  br i1 %exitcond.not, label %42, label %5, !llvm.loop !20
 
 42:                                               ; preds = %41
   ret void
@@ -1427,7 +1427,7 @@ define hidden void @_ZNK22ShenandoahPhaseTimings15print_global_onEP12outputStrea
 33:                                               ; preds = %4, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 316
-  br i1 %exitcond.not, label %34, label %4, !llvm.loop !23
+  br i1 %exitcond.not, label %34, label %4, !llvm.loop !21
 
 34:                                               ; preds = %33
   ret void
@@ -1796,7 +1796,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !24
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !22
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #12
@@ -2575,7 +2575,7 @@ define linkonce_odr hidden noundef i64 @_ZN15EventWriterHostI11EncoderHostI20Big
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !18
   store volatile ptr %31, ptr %34, align 8
   store ptr %31, ptr %0, align 8
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
@@ -2607,7 +2607,7 @@ _ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE4seekEl.exit.i: ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !18
   store volatile ptr %43, ptr %46, align 8
   store ptr %43, ptr %0, align 8
   br label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE6commitEv.exit
@@ -3323,7 +3323,7 @@ define linkonce_odr hidden void @_ZN15WorkerDataArrayImE5resetEv(ptr noundef non
   %7 = load i32, ptr %3, align 8
   %8 = zext i32 %7 to i64
   %9 = icmp samesign ult i64 %indvars.iv.next.i, %8
-  br i1 %9, label %.lr.ph.i, label %_ZN15WorkerDataArrayImE7set_allEm.exit, !llvm.loop !25
+  br i1 %9, label %.lr.ph.i, label %_ZN15WorkerDataArrayImE7set_allEm.exit, !llvm.loop !23
 
 _ZN15WorkerDataArrayImE7set_allEm.exit:           ; preds = %.lr.ph.i, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3343,7 +3343,7 @@ _ZN15WorkerDataArrayImE7set_allEm.exit:           ; preds = %.lr.ph.i, %1
 15:                                               ; preds = %11, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %16, label %11, !llvm.loop !26
+  br i1 %exitcond.not, label %16, label %11, !llvm.loop !24
 
 16:                                               ; preds = %15
   ret void
@@ -3384,23 +3384,21 @@ attributes #13 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !9, !7}
-!12 = distinct !{!12, !9, !7}
-!13 = distinct !{!13, !9, !7}
-!14 = distinct !{!14, !9, !7}
-!15 = distinct !{!15, !9, !7, !16}
-!16 = !{!"llvm.loop.unswitch.partial.disable"}
-!17 = distinct !{!17, !9, !7}
-!18 = distinct !{!18, !9, !7}
-!19 = !{i64 2145392998}
-!20 = !{i64 2145392468}
-!21 = distinct !{!21, !9, !7}
-!22 = distinct !{!22, !9, !7}
-!23 = distinct !{!23, !9, !7}
-!24 = !{!"branch_weights", i32 1, i32 1048575}
-!25 = distinct !{!25, !9, !7}
-!26 = distinct !{!26, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7, !14}
+!14 = !{!"llvm.loop.unswitch.partial.disable"}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = !{i64 2145392998}
+!18 = !{i64 2145392468}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = !{!"branch_weights", i32 1, i32 1048575}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

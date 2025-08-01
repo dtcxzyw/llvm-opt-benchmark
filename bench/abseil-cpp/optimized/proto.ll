@@ -168,7 +168,7 @@ _ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit: ; pr
   %37 = lshr i64 %.01718, 8
   %38 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %38, 8
-  br i1 %exitcond.not, label %28, label %33, !llvm.loop !16
+  br i1 %exitcond.not, label %28, label %33, !llvm.loop !15
 
 39:                                               ; preds = %_ZN4absl12log_internal10VarintSizeEm.exit, %28
   %storemerge = phi i64 [ %32, %28 ], [ 0, %_ZN4absl12log_internal10VarintSizeEm.exit ]
@@ -245,7 +245,7 @@ _ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit: ; pr
   %37 = lshr i32 %.01718, 8
   %38 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %38, 4
-  br i1 %exitcond.not, label %28, label %33, !llvm.loop !17
+  br i1 %exitcond.not, label %28, label %33, !llvm.loop !16
 
 39:                                               ; preds = %_ZN4absl12log_internal10VarintSizeEm.exit, %28
   %storemerge = phi i64 [ %32, %28 ], [ 0, %_ZN4absl12log_internal10VarintSizeEm.exit ]
@@ -611,12 +611,12 @@ _ZN4absl12log_internal12_GLOBAL__N_115EncodeRawVarintEmmPNS_4SpanIcEE.exit: ; pr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4absl12log_internal10ProtoField10DecodeFromEPNS_4SpanIKcEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !18
+  %4 = load i64, ptr %3, align 8, !tbaa !17
   %5 = icmp ne i64 %4, 0
   br i1 %5, label %6, label %80
 
 6:                                                ; preds = %2
-  %.pre.pre.i = load ptr, ptr %1, align 8, !tbaa !20
+  %.pre.pre.i = load ptr, ptr %1, align 8, !tbaa !19
   br label %7
 
 7:                                                ; preds = %8, %6
@@ -635,20 +635,20 @@ define dso_local noundef zeroext i1 @_ZN4absl12log_internal10ProtoField10DecodeF
   %15 = or i64 %14, %.010.i
   %16 = add i64 %.0.i, 1
   %.not.i = icmp sgt i8 %10, -1
-  br i1 %.not.i, label %_ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit, label %7, !llvm.loop !21
+  br i1 %.not.i, label %_ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit, label %7, !llvm.loop !20
 
 _ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit: ; preds = %7, %8
   %.111.i = phi i64 [ %15, %8 ], [ %.010.i, %7 ]
   %.1.i = phi i64 [ %16, %8 ], [ %4, %7 ]
   %17 = getelementptr inbounds nuw i8, ptr %.pre.pre.i, i64 %.1.i
-  store ptr %17, ptr %1, align 8, !tbaa !20
+  store ptr %17, ptr %1, align 8, !tbaa !19
   %18 = sub i64 %4, %.1.i
-  store i64 %18, ptr %3, align 8, !tbaa !18
+  store i64 %18, ptr %3, align 8, !tbaa !17
   %19 = lshr i64 %.111.i, 3
-  store i64 %19, ptr %0, align 8, !tbaa !22
+  store i64 %19, ptr %0, align 8, !tbaa !21
   %20 = and i64 %.111.i, 7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %20, ptr %21, align 8, !tbaa !25
+  store i64 %20, ptr %21, align 8, !tbaa !24
   switch i64 %20, label %80 [
     i64 0, label %.preheader
     i64 1, label %34
@@ -672,17 +672,17 @@ _ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit: ; preds 
   %29 = or i64 %28, %.010.i13
   %30 = add i64 %.0.i14, 1
   %.not.i16 = icmp sgt i8 %24, -1
-  br i1 %.not.i16, label %_ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit19, label %.preheader, !llvm.loop !21
+  br i1 %.not.i16, label %_ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit19, label %.preheader, !llvm.loop !20
 
 _ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit19: ; preds = %.preheader, %22
   %.111.i17 = phi i64 [ %29, %22 ], [ %.010.i13, %.preheader ]
   %.1.i18 = phi i64 [ %30, %22 ], [ %18, %.preheader ]
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 %.1.i18
-  store ptr %31, ptr %1, align 8, !tbaa !20
+  store ptr %31, ptr %1, align 8, !tbaa !19
   %32 = sub i64 %18, %.1.i18
-  store i64 %32, ptr %3, align 8, !tbaa !18
+  store i64 %32, ptr %3, align 8, !tbaa !17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.111.i17, ptr %33, align 8, !tbaa !26
+  store i64 %.111.i17, ptr %33, align 8, !tbaa !25
   br label %80
 
 34:                                               ; preds = %_ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit
@@ -704,17 +704,17 @@ _ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit19: ; pred
   %42 = or i64 %41, %.09.i
   %43 = add nuw nsw i64 %.0.i21, 1
   %44 = icmp eq i64 %43, 8
-  br i1 %44, label %_ZN4absl12log_internal12_GLOBAL__N_111Decode64BitEPNS_4SpanIKcEE.exit, label %35, !llvm.loop !27
+  br i1 %44, label %_ZN4absl12log_internal12_GLOBAL__N_111Decode64BitEPNS_4SpanIKcEE.exit, label %35, !llvm.loop !26
 
 _ZN4absl12log_internal12_GLOBAL__N_111Decode64BitEPNS_4SpanIKcEE.exit: ; preds = %35, %36
   %.110.i = phi i64 [ %42, %36 ], [ %.09.i, %35 ]
   %.1.i23 = phi i64 [ 8, %36 ], [ %umin.i, %35 ]
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 %.1.i23
-  store ptr %45, ptr %1, align 8, !tbaa !20
+  store ptr %45, ptr %1, align 8, !tbaa !19
   %46 = sub i64 %18, %.1.i23
-  store i64 %46, ptr %3, align 8, !tbaa !18
+  store i64 %46, ptr %3, align 8, !tbaa !17
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.110.i, ptr %47, align 8, !tbaa !26
+  store i64 %.110.i, ptr %47, align 8, !tbaa !25
   br label %80
 
 .preheader41:                                     ; preds = %_ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit, %48
@@ -733,28 +733,28 @@ _ZN4absl12log_internal12_GLOBAL__N_111Decode64BitEPNS_4SpanIKcEE.exit: ; preds =
   %55 = or i64 %54, %.010.i25
   %56 = add i64 %.0.i26, 1
   %.not.i28 = icmp sgt i8 %50, -1
-  br i1 %.not.i28, label %_ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit31, label %.preheader41, !llvm.loop !21
+  br i1 %.not.i28, label %_ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit31, label %.preheader41, !llvm.loop !20
 
 _ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit31: ; preds = %.preheader41, %48
   %.111.i29 = phi i64 [ %55, %48 ], [ %.010.i25, %.preheader41 ]
   %.1.i30 = phi i64 [ %56, %48 ], [ %18, %.preheader41 ]
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 %.1.i30
-  store ptr %57, ptr %1, align 8, !tbaa !20
+  store ptr %57, ptr %1, align 8, !tbaa !19
   %58 = sub i64 %18, %.1.i30
-  store i64 %58, ptr %3, align 8, !tbaa !18
+  store i64 %58, ptr %3, align 8, !tbaa !17
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.111.i29, ptr %59, align 8, !tbaa !26
+  store i64 %.111.i29, ptr %59, align 8, !tbaa !25
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %58, i64 %.111.i29)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %57, ptr %60, align 8, !tbaa !28
+  store ptr %57, ptr %60, align 8, !tbaa !27
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.speculated, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !29
-  %61 = load ptr, ptr %1, align 8, !tbaa !20
+  store i64 %.sroa.speculated, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !28
+  %61 = load ptr, ptr %1, align 8, !tbaa !19
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.speculated
-  store ptr %62, ptr %1, align 8, !tbaa !20
-  %63 = load i64, ptr %3, align 8, !tbaa !18
+  store ptr %62, ptr %1, align 8, !tbaa !19
+  %63 = load i64, ptr %3, align 8, !tbaa !17
   %64 = sub i64 %63, %.sroa.speculated
-  store i64 %64, ptr %3, align 8, !tbaa !18
+  store i64 %64, ptr %3, align 8, !tbaa !17
   br label %80
 
 65:                                               ; preds = %_ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit
@@ -777,18 +777,18 @@ _ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit31: ; pred
   %73 = or i32 %72, %.09.i35
   %74 = add nuw nsw i64 %.0.i36, 1
   %75 = icmp eq i64 %74, 4
-  br i1 %75, label %_ZN4absl12log_internal12_GLOBAL__N_111Decode32BitEPNS_4SpanIKcEE.exit, label %66, !llvm.loop !30
+  br i1 %75, label %_ZN4absl12log_internal12_GLOBAL__N_111Decode32BitEPNS_4SpanIKcEE.exit, label %66, !llvm.loop !29
 
 _ZN4absl12log_internal12_GLOBAL__N_111Decode32BitEPNS_4SpanIKcEE.exit: ; preds = %66, %67
   %.110.i38 = phi i32 [ %73, %67 ], [ %.09.i35, %66 ]
   %.1.i39 = phi i64 [ 4, %67 ], [ %umin.i33, %66 ]
   %76 = getelementptr inbounds nuw i8, ptr %17, i64 %.1.i39
-  store ptr %76, ptr %1, align 8, !tbaa !20
+  store ptr %76, ptr %1, align 8, !tbaa !19
   %77 = sub i64 %18, %.1.i39
-  store i64 %77, ptr %3, align 8, !tbaa !18
+  store i64 %77, ptr %3, align 8, !tbaa !17
   %78 = zext i32 %.110.i38 to i64
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %78, ptr %79, align 8, !tbaa !26
+  store i64 %78, ptr %79, align 8, !tbaa !25
   br label %80
 
 80:                                               ; preds = %_ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit, %_ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit19, %_ZN4absl12log_internal12_GLOBAL__N_111Decode64BitEPNS_4SpanIKcEE.exit, %_ZN4absl12log_internal12_GLOBAL__N_112DecodeVarintEPNS_4SpanIKcEE.exit31, %_ZN4absl12log_internal12_GLOBAL__N_111Decode32BitEPNS_4SpanIKcEE.exit, %2
@@ -820,21 +820,20 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !10 = !{!"long", !8, i64 0}
 !11 = !{!5, !6, i64 0}
 !12 = !{!8, !8, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15}
-!18 = !{!19, !10, i64 8}
-!19 = !{!"_ZTSN4absl4SpanIKcEE", !6, i64 0, !10, i64 8}
-!20 = !{!19, !6, i64 0}
-!21 = distinct !{!21, !14, !15}
-!22 = !{!23, !10, i64 0}
-!23 = !{!"_ZTSN4absl12log_internal10ProtoFieldE", !10, i64 0, !24, i64 8, !10, i64 16, !19, i64 24}
-!24 = !{!"_ZTSN4absl12log_internal8WireTypeE", !8, i64 0}
-!25 = !{!23, !24, i64 8}
-!26 = !{!23, !10, i64 16}
-!27 = distinct !{!27, !14, !15}
-!28 = !{!6, !6, i64 0}
-!29 = !{!10, !10, i64 0}
-!30 = distinct !{!30, !14, !15}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14}
+!17 = !{!18, !10, i64 8}
+!18 = !{!"_ZTSN4absl4SpanIKcEE", !6, i64 0, !10, i64 8}
+!19 = !{!18, !6, i64 0}
+!20 = distinct !{!20, !14}
+!21 = !{!22, !10, i64 0}
+!22 = !{!"_ZTSN4absl12log_internal10ProtoFieldE", !10, i64 0, !23, i64 8, !10, i64 16, !18, i64 24}
+!23 = !{!"_ZTSN4absl12log_internal8WireTypeE", !8, i64 0}
+!24 = !{!22, !23, i64 8}
+!25 = !{!22, !10, i64 16}
+!26 = distinct !{!26, !14}
+!27 = !{!6, !6, i64 0}
+!28 = !{!10, !10, i64 0}
+!29 = distinct !{!29, !14}

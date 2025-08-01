@@ -1720,7 +1720,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler15printIdentifierENS_10I
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load i8, ptr %10, align 8, !tbaa !35, !range !24, !noundef !25
+  %11 = load i8, ptr %10, align 8, !tbaa !34, !range !24, !noundef !25
   %12 = trunc nuw i8 %11 to i1
   %.sroa.01.0.copyload = load i64, ptr %1, align 8, !tbaa !20
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1753,7 +1753,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler15printIdentifierENS_10I
   %spec.select.i = select i1 %20, i64 %.079186.i, i64 %.074187.i
   %21 = add nuw i64 %.079186.i, 1
   %.not.i = icmp eq i64 %21, %.sroa.01.0.copyload
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
 
 22:                                               ; preds = %42, %.lr.ph190.i
   %23 = phi i64 [ %16, %.lr.ph190.i ], [ %47, %42 ]
@@ -1810,7 +1810,7 @@ _ZL7isValidc.exit.thread.i:                       ; preds = %_ZL7isValidc.exit.i
   store i64 %47, ptr %15, align 8, !tbaa !26
   %48 = add nuw i64 %.169189.i, 1
   %.not102.i = icmp eq i64 %48, %spec.select.i
-  br i1 %.not102.i, label %._crit_edge191.loopexit.i, label %22, !llvm.loop !38
+  br i1 %.not102.i, label %._crit_edge191.loopexit.i, label %22, !llvm.loop !37
 
 ._crit_edge191.loopexit.i:                        ; preds = %42
   %49 = add i64 %spec.select.i, 1
@@ -1886,7 +1886,7 @@ _ZL19decodePunycodeDigitcRm.exit.i:               ; preds = %74
   %76 = mul i64 %75, %.076194.i
   %77 = add i64 %.073195.i, 36
   %78 = icmp eq i64 %55, %.sroa.01.0.copyload
-  br i1 %78, label %.loopexit, label %54, !llvm.loop !39
+  br i1 %78, label %.loopexit, label %54, !llvm.loop !38
 
 79:                                               ; preds = %69
   %80 = sub i64 %52, %16
@@ -1905,7 +1905,7 @@ _ZL19decodePunycodeDigitcRm.exit.i:               ; preds = %74
   %88 = udiv i64 %.01011.i.i, 35
   %89 = add i64 %.012.i.i, 36
   %90 = icmp ugt i64 %.01011.i.i, 15959
-  br i1 %90, label %.lr.ph.i.i, label %"_ZZL14decodePunycodeSt17basic_string_viewIcSt11char_traitsIcEERN4llvm16itanium_demangle12OutputBufferEENK3$_0clEmm.exit.i", !llvm.loop !40
+  br i1 %90, label %.lr.ph.i.i, label %"_ZZL14decodePunycodeSt17basic_string_viewIcSt11char_traitsIcEERN4llvm16itanium_demangle12OutputBufferEENK3$_0clEmm.exit.i", !llvm.loop !39
 
 "_ZZL14decodePunycodeSt17basic_string_viewIcSt11char_traitsIcEERN4llvm16itanium_demangle12OutputBufferEENK3$_0clEmm.exit.i": ; preds = %.lr.ph.i.i, %79
   %.010.lcssa.i.i = phi i64 [ %86, %79 ], [ %88, %.lr.ph.i.i ]
@@ -2039,7 +2039,7 @@ _ZL19decodePunycodeDigitcRm.exit.i:               ; preds = %74
   store i64 %165, ptr %15, align 8, !tbaa !26
   %166 = add nuw nsw i64 %95, 1
   %.not103.i = icmp eq i64 %55, %.sroa.01.0.copyload
-  br i1 %.not103.i, label %._crit_edge203.i, label %.preheader.i, !llvm.loop !41
+  br i1 %.not103.i, label %._crit_edge203.i, label %.preheader.i, !llvm.loop !40
 
 ._crit_edge203.i:                                 ; preds = %156, %._crit_edge191.i
   %167 = phi i64 [ %50, %._crit_edge191.i ], [ %165, %156 ]
@@ -2086,7 +2086,7 @@ _ZL19decodePunycodeDigitcRm.exit.i:               ; preds = %74
   %191 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 4
   %192 = add nsw i64 %.047.i.i.i.i.i.i, -1
   %193 = icmp sgt i64 %.047.i.i.i.i.i.i, 1
-  br i1 %193, label %175, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !42
+  br i1 %193, label %175, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !41
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %190, %._crit_edge203.i
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %169, %._crit_edge203.i ], [ %scevgep.i.i.i.i.i.i, %190 ]
@@ -2159,7 +2159,7 @@ _ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i
   %.1.i.i.i.i = phi ptr [ %.032.i.i.i.i, %.lr.ph.i.i.i.i ], [ %213, %212 ]
   %.017.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01733.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %170
-  br i1 %.not.i.i.i.i, label %_ZL14decodePunycodeSt17basic_string_viewIcSt11char_traitsIcEERN4llvm16itanium_demangle12OutputBufferE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !43
+  br i1 %.not.i.i.i.i, label %_ZL14decodePunycodeSt17basic_string_viewIcSt11char_traitsIcEERN4llvm16itanium_demangle12OutputBufferE.exit, label %.lr.ph.i.i.i.i, !llvm.loop !42
 
 _ZL14decodePunycodeSt17basic_string_viewIcSt11char_traitsIcEERN4llvm16itanium_demangle12OutputBufferE.exit: ; preds = %214, %._crit_edge.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i
   %.016.i.i.i.i = phi ptr [ %.028.i.i.i.i.i.i, %_ZSt9__find_ifIPcN9__gnu_cxx5__ops16_Iter_equals_valIKcEEET_S6_S6_T0_.exit.i.i.i.i ], [ %170, %._crit_edge.i.i.i.i.i.i ], [ %170, %._crit_edge._crit_edge52.i.i.i.i.i.i ], [ %.1.i.i.i.i, %214 ]
@@ -2432,7 +2432,7 @@ _ZL7isValidc.exit18.thread:                       ; preds = %_ZL7isValidc.exit21
   %106 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4
   %107 = add nsw i64 %.047.i.i.i.i, -1
   %108 = icmp sgt i64 %.047.i.i.i.i, 1
-  br i1 %108, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !44
+  br i1 %108, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !43
 
 ._crit_edge.i.i.i.i:                              ; preds = %_ZL7isValidc.exit18.thread, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %.029.lcssa.i.i.i.i = phi ptr [ %63, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %scevgep, %_ZL7isValidc.exit18.thread ]
@@ -2529,7 +2529,7 @@ _ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread:       ; preds = %130, %_ZL7isValidc.
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %63, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !21
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 %.0.i.ph, ptr %144, align 8, !tbaa !35
+  store i8 %.0.i.ph, ptr %144, align 8, !tbaa !34
   br label %145
 
 145:                                              ; preds = %143, %_ZSt6all_ofIPKcPFbcEEbT_S4_T0_.exit.thread, %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit9
@@ -3648,7 +3648,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   %540 = add i64 %.0117, 1
   %541 = load i8, ptr %2, align 1, !tbaa !18, !range !24, !noundef !25
   %542 = trunc nuw i8 %541 to i1
-  br i1 %542, label %.critedge, label %513, !llvm.loop !45
+  br i1 %542, label %.critedge, label %513, !llvm.loop !44
 
 .critedge:                                        ; preds = %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit
   %.0115 = phi i64 [ %.0117, %_ZN12_GLOBAL__N_19Demangler9consumeIfEc.exit ], [ %540, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit ]
@@ -3896,7 +3896,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19Demangler18printDecimalNumberEm(p
   store i8 %14, ptr %.ptr.i.i.i, align 1, !tbaa !29
   %15 = udiv i64 %.08.i.i.i, 10
   %.not.i.i.i = icmp ult i64 %.08.i.i.i, 10
-  br i1 %.not.i.i.i, label %16, label %11, !llvm.loop !46
+  br i1 %.not.i.i.i, label %16, label %11, !llvm.loop !45
 
 16:                                               ; preds = %11
   %.ptr.i.i.i.le = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i
@@ -4219,7 +4219,7 @@ _ZN12_GLOBAL__N_19Demangler5printEc.exit.i:       ; preds = %_ZN4llvm16itanium_d
   store i8 %61, ptr %.ptr.i.i.i.i.i, align 1, !tbaa !29
   %62 = udiv i64 %.08.i.i.i.i.i, 10
   %.not.i.i.i.i.i = icmp ult i64 %.08.i.i.i.i.i, 10
-  br i1 %.not.i.i.i.i.i, label %63, label %58, !llvm.loop !46
+  br i1 %.not.i.i.i.i.i, label %63, label %58, !llvm.loop !45
 
 63:                                               ; preds = %58
   %.ptr.i.i.i.i.i.le = getelementptr inbounds i8, ptr %2, i64 %.0.add.i.i.i.i.i
@@ -4536,7 +4536,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 31:                                               ; preds = %2
   %32 = add i64 %1, -1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !47
+  %34 = load i64, ptr %33, align 8, !tbaa !46
   %.not = icmp ult i64 %32, %34
   br i1 %.not, label %37, label %35
 
@@ -4725,7 +4725,7 @@ _ZN12_GLOBAL__N_19Demangler5printEc.exit33:       ; preds = %87, %_ZN4llvm16itan
   store i8 %116, ptr %.ptr.i.i.i.i, align 1, !tbaa !29
   %117 = udiv i64 %.08.i.i.i.i, 10
   %.not.i.i.i.i = icmp ult i64 %.08.i.i.i.i, 10
-  br i1 %.not.i.i.i.i, label %118, label %113, !llvm.loop !46
+  br i1 %.not.i.i.i.i, label %118, label %113, !llvm.loop !45
 
 118:                                              ; preds = %113
   %.ptr.i.i.i.i.le = getelementptr inbounds i8, ptr %3, i64 %.0.add.i.i.i.i
@@ -4784,7 +4784,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 define internal fastcc void @_ZN12_GLOBAL__N_19Demangler13demangleFnSigEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.(anonymous namespace)::Identifier", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !47
+  %4 = load i64, ptr %3, align 8, !tbaa !46
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler22demangleOptionalBinderEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %6 = load i8, ptr %5, align 1, !tbaa !18, !range !24, !noundef !25
@@ -4984,7 +4984,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i34: ; preds = %._ZN4llvm
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
   call fastcc void @_ZN12_GLOBAL__N_19Demangler15parseIdentifierEv(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(96) %0)
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %108 = load i8, ptr %107, align 8, !tbaa !35, !range !24, !noundef !25
+  %108 = load i8, ptr %107, align 8, !tbaa !34, !range !24, !noundef !25
   %109 = trunc nuw i8 %108 to i1
   br i1 %109, label %110, label %111
 
@@ -5062,7 +5062,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i: ; preds = %._ZN4llvm16itani
 _ZN12_GLOBAL__N_19Demangler5printEc.exit:         ; preds = %119, %_ZN4llvm16itanium_demangle12OutputBufferpLEc.exit.i
   %140 = getelementptr inbounds nuw i8, ptr %.010125, i64 1
   %.not = icmp eq ptr %140, %115
-  br i1 %.not, label %._crit_edge, label %119, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %119
 
 _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit38: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i34, %83, %._crit_edge
   %141 = load i8, ptr %5, align 1, !tbaa !18, !range !24, !noundef !25
@@ -5308,7 +5308,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   %255 = add i64 %.0126, 1
   %256 = load i8, ptr %5, align 1, !tbaa !18, !range !24, !noundef !25
   %257 = trunc nuw i8 %256 to i1
-  br i1 %257, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit96, label %196, !llvm.loop !49
+  br i1 %257, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit96, label %196, !llvm.loop !47
 
 258:                                              ; preds = %230, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit74.thread139
   %259 = load i8, ptr %166, align 8, !range !24
@@ -5367,7 +5367,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
 define internal fastcc void @_ZN12_GLOBAL__N_19Demangler17demangleDynBoundsEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.(anonymous namespace)::Identifier", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !47
+  %4 = load i64, ptr %3, align 8, !tbaa !46
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %6 = load i8, ptr %5, align 1, !tbaa !18, !range !24, !noundef !25
   %7 = trunc nuw i8 %6 to i1
@@ -5707,7 +5707,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler12demangleTypeEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
   %148 = load i8, ptr %5, align 1, !tbaa !18, !range !24, !noundef !25
   %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %.critedge, label %.lr.ph, !llvm.loop !50
+  br i1 %149, label %.critedge, label %.lr.ph, !llvm.loop !48
 
 .critedge.i:                                      ; preds = %70, %.lr.ph, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit11
   %150 = phi i8 [ 1, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit11 ], [ 0, %.lr.ph ], [ 0, %70 ]
@@ -5760,7 +5760,7 @@ _ZN12_GLOBAL__N_19Demangler16demangleDynTraitEv.exit: ; preds = %_ZN4llvm16itani
   %170 = phi i8 [ %.pre112, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i17 ], [ %150, %.critedge.i ]
   %171 = add i64 %.0100, 1
   %172 = trunc nuw i8 %170 to i1
-  br i1 %172, label %.critedge, label %38, !llvm.loop !51
+  br i1 %172, label %.critedge, label %38, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6539,7 +6539,7 @@ _ZN12_GLOBAL__N_19Demangler7consumeEv.exit:       ; preds = %.lr.ph68
 53:                                               ; preds = %49, %43
   %.2 = phi i64 [ %46, %43 ], [ %52, %49 ]
   %.not.i25 = icmp ult i64 %37, %9
-  br i1 %.not.i25, label %.lr.ph68, label %.critedge.thread.sink.split, !llvm.loop !52
+  br i1 %.not.i25, label %.lr.ph68, label %.critedge.thread.sink.split, !llvm.loop !50
 
 .critedge.thread.sink.split:                      ; preds = %47, %53, %.lr.ph, %28, %30, %_ZNK12_GLOBAL__N_19Demangler4lookEv.exit
   store i8 1, ptr %5, align 1, !tbaa !18
@@ -6694,7 +6694,7 @@ _ZN12_GLOBAL__N_19Demangler25parseOptionalBase62NumberEc.exit: ; preds = %_ZN12_
   %.010.i16.i = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.thread13.i ], [ %43, %_ZN12_GLOBAL__N_19Demangler17parseBase62NumberEv.exit.i ]
   %45 = add nuw i64 %.010.i16.i, 1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !47
+  %47 = load i64, ptr %46, align 8, !tbaa !46
   %48 = sub i64 %9, %47
   %.not = icmp ult i64 %45, %48
   br i1 %.not, label %50, label %49
@@ -6801,9 +6801,9 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i16: ; preds = %._ZN4llvm
 
 97:                                               ; preds = %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit29
   %.039 = phi i64 [ 0, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %121, %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit29 ]
-  %98 = load i64, ptr %46, align 8, !tbaa !47
+  %98 = load i64, ptr %46, align 8, !tbaa !46
   %99 = add i64 %98, 1
-  store i64 %99, ptr %46, align 8, !tbaa !47
+  store i64 %99, ptr %46, align 8, !tbaa !46
   %.not9 = icmp eq i64 %.039, 0
   br i1 %.not9, label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit29, label %100
 
@@ -6856,7 +6856,7 @@ _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exi
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler13printLifetimeEm(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef 1)
   %121 = add i64 %.039, 1
   %.not8 = icmp eq i64 %.039, %.010.i16.i
-  br i1 %.not8, label %76, label %97, !llvm.loop !53
+  br i1 %.not8, label %76, label %97, !llvm.loop !51
 
 _ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit20: ; preds = %42, %_ZN12_GLOBAL__N_19Demangler9addAssignERmm.exit.i.i, %_ZN12_GLOBAL__N_19Demangler9mulAssignERmm.exit.i.i, %.loopexit.i.i, %44, %1, %5, %10, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i16, %76, %49
   ret void
@@ -6924,25 +6924,23 @@ attributes #14 = { noreturn nounwind }
 !29 = !{!6, !6, i64 0}
 !30 = !{!4, !5, i64 8}
 !31 = !{!8, !9, i64 8}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!36, !11, i64 16}
-!36 = !{!"_ZTSN12_GLOBAL__N_110IdentifierE", !8, i64 0, !11, i64 16}
-!37 = distinct !{!37, !33, !34}
-!38 = distinct !{!38, !33, !34}
-!39 = distinct !{!39, !33, !34}
-!40 = distinct !{!40, !33, !34}
-!41 = distinct !{!41, !33, !34}
-!42 = distinct !{!42, !33, !34}
-!43 = distinct !{!43, !33, !34}
-!44 = distinct !{!44, !33, !34}
-!45 = distinct !{!45, !33, !34}
-!46 = distinct !{!46, !33, !34}
-!47 = !{!4, !5, i64 16}
-!48 = distinct !{!48, !34}
-!49 = distinct !{!49, !33, !34}
-!50 = distinct !{!50, !33, !34}
-!51 = distinct !{!51, !33, !34}
-!52 = distinct !{!52, !33, !34}
-!53 = distinct !{!53, !33, !34}
+!34 = !{!35, !11, i64 16}
+!35 = !{!"_ZTSN12_GLOBAL__N_110IdentifierE", !8, i64 0, !11, i64 16}
+!36 = distinct !{!36, !33}
+!37 = distinct !{!37, !33}
+!38 = distinct !{!38, !33}
+!39 = distinct !{!39, !33}
+!40 = distinct !{!40, !33}
+!41 = distinct !{!41, !33}
+!42 = distinct !{!42, !33}
+!43 = distinct !{!43, !33}
+!44 = distinct !{!44, !33}
+!45 = distinct !{!45, !33}
+!46 = !{!4, !5, i64 16}
+!47 = distinct !{!47, !33}
+!48 = distinct !{!48, !33}
+!49 = distinct !{!49, !33}
+!50 = distinct !{!50, !33}
+!51 = distinct !{!51, !33}

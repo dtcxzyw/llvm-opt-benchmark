@@ -645,7 +645,7 @@ define hidden void @proto_register_sgsap() local_unnamed_addr #0 {
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next24, 32
-  br i1 %exitcond30.not, label %8, label %.preheader, !llvm.loop !9
+  br i1 %exitcond30.not, label %8, label %.preheader, !llvm.loop !8
 
 8:                                                ; preds = %.preheader
   %9 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43)
@@ -2390,7 +2390,6 @@ attributes #8 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

@@ -1224,7 +1224,7 @@ define internal ptr @process_sublinks_mutator(ptr noundef %0, ptr noundef readon
   %190 = load i32, ptr %189, align 4
   %191 = tail call ptr @lappend_int(ptr noundef %.0139.i, i32 noundef %190) #10
   %192 = add i32 %.sroa.18.0.i, 1
-  br label %135, !llvm.loop !9
+  br label %135, !llvm.loop !8
 
 193:                                              ; preds = %169
   %194 = getelementptr inbounds nuw i8, ptr %41, i64 112
@@ -1551,7 +1551,7 @@ define dso_local void @SS_identify_outer_params(ptr noundef captures(none) %0) l
   %.036.in = getelementptr inbounds nuw i8, ptr %.03692, i64 32
   %.036 = load ptr, ptr %.036.in, align 8
   %.not = icmp eq ptr %.036, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph93, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph93, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %53, %.preheader
   %.0.lcssa = phi ptr [ null, %.preheader ], [ %.4, %53 ]
@@ -3221,7 +3221,7 @@ list_length.exit:                                 ; preds = %136, %138
 143:                                              ; preds = %list_length.exit
   %144 = tail call ptr @lappend(ptr noundef %137, ptr noundef null) #10
   store ptr %144, ptr %135, align 8
-  br label %136, !llvm.loop !11
+  br label %136, !llvm.loop !10
 
 145:                                              ; preds = %list_length.exit
   %146 = add i32 %6, -1
@@ -3904,9 +3904,8 @@ attributes #12 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

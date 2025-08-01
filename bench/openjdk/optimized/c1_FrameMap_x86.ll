@@ -470,7 +470,7 @@ define hidden void @_ZN8FrameMap10initializeEv() local_unnamed_addr #0 align 2 {
   store i64 %25, ptr %26, align 8
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, %..i.i
-  br i1 %exitcond107.not, label %27, label %23, !llvm.loop !9
+  br i1 %exitcond107.not, label %27, label %23, !llvm.loop !8
 
 27:                                               ; preds = %23
   store i8 1, ptr @_ZN8FrameMap10_init_doneE, align 1
@@ -713,7 +713,6 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

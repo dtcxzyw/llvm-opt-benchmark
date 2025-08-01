@@ -197,13 +197,13 @@ rb_scan_args_set.exit:                            ; preds = %25
   %29 = call i64 @rb_io_taint_check(i64 noundef %2) #5
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !22
-  store ptr %32, ptr %7, align 8, !tbaa !26
+  %32 = load ptr, ptr %31, align 8, !tbaa !21
+  store ptr %32, ptr %7, align 8, !tbaa !25
   call void @rb_io_check_closed(ptr noundef %32) #5
-  %33 = load ptr, ptr %7, align 8, !tbaa !26
+  %33 = load ptr, ptr %7, align 8, !tbaa !25
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load i32, ptr %34, align 8, !tbaa !30
-  store i32 %35, ptr %13, align 8, !tbaa !38
+  %35 = load i32, ptr %34, align 8, !tbaa !29
+  store i32 %35, ptr %13, align 8, !tbaa !37
   %36 = load i64, ptr %4, align 8, !tbaa !6
   %37 = and i64 %36, 1
   %.not.i13 = icmp eq i64 %37, 0
@@ -221,16 +221,16 @@ rb_num2int_inline.exit:                           ; preds = %38, %40
   %.0.i14 = phi i64 [ %39, %38 ], [ %41, %40 ]
   %42 = trunc i64 %.0.i14 to i32
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 %42, ptr %43, align 4, !tbaa !39
+  store i32 %42, ptr %43, align 4, !tbaa !38
   %44 = load i64, ptr %5, align 8, !tbaa !6
   %45 = load i64, ptr %6, align 8, !tbaa !6
-  %46 = load ptr, ptr %7, align 8, !tbaa !26
+  %46 = load ptr, ptr %7, align 8, !tbaa !25
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load i32, ptr %47, align 8, !tbaa !30
+  %48 = load i32, ptr %47, align 8, !tbaa !29
   %49 = call i32 @rsock_fd_family(i32 noundef %48) #5
   %50 = call ptr @rsock_addrinfo(i64 noundef %44, i64 noundef %45, i32 noundef %49, i32 noundef 2, i32 noundef 0) #5
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %50, ptr %51, align 8, !tbaa !40
+  store ptr %50, ptr %51, align 8, !tbaa !39
   %52 = ptrtoint ptr %7 to i64
   %53 = ptrtoint ptr %50 to i64
   %54 = call i64 @rb_ensure(ptr noundef nonnull @udp_send_internal, i64 noundef %52, ptr noundef nonnull @rsock_freeaddrinfo, i64 noundef %53) #5
@@ -293,23 +293,23 @@ define internal range(i64 0, 21) i64 @udp_connect_internal(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !16
-  %.08 = load ptr, ptr %4, align 8, !tbaa !41
+  %.08 = load ptr, ptr %4, align 8, !tbaa !40
   %.not9 = icmp eq ptr %.08, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.010, i64 40
-  %.0 = load ptr, ptr %6, align 8, !tbaa !41
+  %.0 = load ptr, ptr %6, align 8, !tbaa !40
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 .lr.ph:                                           ; preds = %1, %5
   %.010 = phi ptr [ %.0, %5 ], [ %.08, %1 ]
   %7 = load i64, ptr %2, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %.010, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !44
+  %9 = load ptr, ptr %8, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %.010, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !46
+  %11 = load i32, ptr %10, align 8, !tbaa !45
   %12 = tail call i32 @rsock_connect(i64 noundef %7, ptr noundef %9, i32 noundef %11, i32 noundef 0, i64 noundef 4) #5
   %13 = icmp sgt i32 %12, -1
   br i1 %13, label %._crit_edge, label %5
@@ -333,28 +333,28 @@ define internal range(i64 0, 21) i64 @udp_bind_internal(i64 noundef %0) #0 {
   %4 = tail call i64 @rb_io_taint_check(i64 noundef %3) #5
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !22
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
   tail call void @rb_io_check_closed(ptr noundef %7) #5
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.089 = load ptr, ptr %9, align 8, !tbaa !41
+  %.089 = load ptr, ptr %9, align 8, !tbaa !40
   %.not10 = icmp eq ptr %.089, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.0811, i64 40
-  %.08 = load ptr, ptr %12, align 8, !tbaa !41
+  %.08 = load ptr, ptr %12, align 8, !tbaa !40
   %.not = icmp eq ptr %.08, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %1, %11
   %.0811 = phi ptr [ %.08, %11 ], [ %.089, %1 ]
-  %13 = load i32, ptr %10, align 8, !tbaa !30
+  %13 = load i32, ptr %10, align 8, !tbaa !29
   %14 = getelementptr inbounds nuw i8, ptr %.0811, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !44
+  %15 = load ptr, ptr %14, align 8, !tbaa !43
   %16 = getelementptr inbounds nuw i8, ptr %.0811, i64 16
-  %17 = load i32, ptr %16, align 8, !tbaa !46
+  %17 = load i32, ptr %16, align 8, !tbaa !45
   %18 = tail call i32 @bind(i32 noundef %13, ptr %15, i32 noundef %17) #5
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %11, label %._crit_edge
@@ -378,11 +378,11 @@ declare i64 @rb_string_value(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @udp_send_internal(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
   tail call void @rb_io_check_closed(ptr noundef %3) #5
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !40
-  %.01620 = load ptr, ptr %5, align 8, !tbaa !41
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %.01620 = load ptr, ptr %5, align 8, !tbaa !40
   %.not21 = icmp eq ptr %.01620, null
   br i1 %.not21, label %rb_ll2num_inline.exit, label %.preheader.lr.ph
 
@@ -400,12 +400,12 @@ define internal i64 @udp_send_internal(i64 noundef %0) #0 {
   br label %12
 
 12:                                               ; preds = %.preheader, %25
-  %13 = load i32, ptr %6, align 8, !tbaa !30
-  store i32 %13, ptr %7, align 8, !tbaa !38
-  %14 = load ptr, ptr %10, align 8, !tbaa !44
-  store ptr %14, ptr %8, align 8, !tbaa !48
-  %15 = load i32, ptr %11, align 8, !tbaa !46
-  store i32 %15, ptr %9, align 8, !tbaa !49
+  %13 = load i32, ptr %6, align 8, !tbaa !29
+  store i32 %13, ptr %7, align 8, !tbaa !37
+  %14 = load ptr, ptr %10, align 8, !tbaa !43
+  store ptr %14, ptr %8, align 8, !tbaa !47
+  %15 = load i32, ptr %11, align 8, !tbaa !45
+  store i32 %15, ptr %9, align 8, !tbaa !48
   %16 = tail call i64 @rb_io_blocking_region(ptr noundef %3, ptr noundef nonnull @rsock_sendto_blocking, ptr noundef nonnull %7) #5
   %17 = icmp sgt i64 %16, -1
   br i1 %17, label %18, label %25
@@ -426,16 +426,16 @@ define internal i64 @udp_send_internal(i64 noundef %0) #0 {
 25:                                               ; preds = %12
   %26 = tail call ptr @rb_errno_ptr() #5
   %27 = load i32, ptr %26, align 4, !tbaa !10
-  %28 = load i64, ptr %3, align 8, !tbaa !50
+  %28 = load i64, ptr %3, align 8, !tbaa !49
   %29 = tail call i32 @rb_io_maybe_wait_writable(i32 noundef %27, i64 noundef %28, i64 noundef 4) #5
   %.not18 = icmp eq i32 %29, 0
-  br i1 %.not18, label %30, label %12, !llvm.loop !51
+  br i1 %.not18, label %30, label %12
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %.01622, i64 40
-  %.016 = load ptr, ptr %31, align 8, !tbaa !41
+  %.016 = load ptr, ptr %31, align 8, !tbaa !40
   %.not = icmp eq ptr %.016, null
-  br i1 %.not, label %rb_ll2num_inline.exit, label %.preheader, !llvm.loop !52
+  br i1 %.not, label %rb_ll2num_inline.exit, label %.preheader, !llvm.loop !50
 
 rb_ll2num_inline.exit:                            ; preds = %30, %1, %23, %20
   %.0 = phi i64 [ %22, %20 ], [ %24, %23 ], [ 0, %1 ], [ 0, %30 ]
@@ -485,37 +485,35 @@ attributes #6 = { noreturn nounwind }
 !16 = !{!13, !14, i64 8}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"p1 long", !15, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !25, i64 16}
-!23 = !{!"RFile", !24, i64 0, !25, i64 16}
-!24 = !{!"RBasic", !7, i64 0, !7, i64 8}
-!25 = !{!"p1 _ZTS5rb_io", !15, i64 0}
-!26 = !{!27, !25, i64 0}
-!27 = !{!"udp_send_arg", !25, i64 0, !14, i64 8, !28, i64 16}
-!28 = !{!"rsock_send_arg", !11, i64 0, !11, i64 4, !7, i64 8, !29, i64 16, !11, i64 24}
-!29 = !{!"p1 _ZTS8sockaddr", !15, i64 0}
-!30 = !{!31, !11, i64 16}
-!31 = !{!"rb_io", !7, i64 0, !32, i64 8, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !7, i64 32, !15, i64 40, !33, i64 48, !33, i64 68, !7, i64 88, !35, i64 96, !37, i64 128, !33, i64 136, !37, i64 160, !7, i64 168, !11, i64 176, !11, i64 180, !7, i64 184, !7, i64 192, !7, i64 200}
-!32 = !{!"p1 _ZTS8_IO_FILE", !15, i64 0}
-!33 = !{!"rb_io_internal_buffer", !34, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!34 = !{!"p1 omnipotent char", !15, i64 0}
-!35 = !{!"rb_io_encoding", !36, i64 0, !36, i64 8, !11, i64 16, !7, i64 24}
-!36 = !{!"p1 _ZTS18OnigEncodingTypeST", !15, i64 0}
-!37 = !{!"p1 _ZTS10rb_econv_t", !15, i64 0}
-!38 = !{!27, !11, i64 16}
-!39 = !{!27, !11, i64 20}
-!40 = !{!27, !14, i64 8}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS8addrinfo", !15, i64 0}
-!43 = distinct !{!43, !20, !21}
-!44 = !{!45, !29, i64 24}
-!45 = !{!"addrinfo", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !29, i64 24, !34, i64 32, !42, i64 40}
-!46 = !{!45, !11, i64 16}
-!47 = distinct !{!47, !20, !21}
-!48 = !{!27, !29, i64 32}
-!49 = !{!27, !11, i64 40}
-!50 = !{!31, !7, i64 0}
-!51 = distinct !{!51, !21}
-!52 = distinct !{!52, !20, !21}
+!21 = !{!22, !24, i64 16}
+!22 = !{!"RFile", !23, i64 0, !24, i64 16}
+!23 = !{!"RBasic", !7, i64 0, !7, i64 8}
+!24 = !{!"p1 _ZTS5rb_io", !15, i64 0}
+!25 = !{!26, !24, i64 0}
+!26 = !{!"udp_send_arg", !24, i64 0, !14, i64 8, !27, i64 16}
+!27 = !{!"rsock_send_arg", !11, i64 0, !11, i64 4, !7, i64 8, !28, i64 16, !11, i64 24}
+!28 = !{!"p1 _ZTS8sockaddr", !15, i64 0}
+!29 = !{!30, !11, i64 16}
+!30 = !{!"rb_io", !7, i64 0, !31, i64 8, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !7, i64 32, !15, i64 40, !32, i64 48, !32, i64 68, !7, i64 88, !34, i64 96, !36, i64 128, !32, i64 136, !36, i64 160, !7, i64 168, !11, i64 176, !11, i64 180, !7, i64 184, !7, i64 192, !7, i64 200}
+!31 = !{!"p1 _ZTS8_IO_FILE", !15, i64 0}
+!32 = !{!"rb_io_internal_buffer", !33, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!33 = !{!"p1 omnipotent char", !15, i64 0}
+!34 = !{!"rb_io_encoding", !35, i64 0, !35, i64 8, !11, i64 16, !7, i64 24}
+!35 = !{!"p1 _ZTS18OnigEncodingTypeST", !15, i64 0}
+!36 = !{!"p1 _ZTS10rb_econv_t", !15, i64 0}
+!37 = !{!26, !11, i64 16}
+!38 = !{!26, !11, i64 20}
+!39 = !{!26, !14, i64 8}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS8addrinfo", !15, i64 0}
+!42 = distinct !{!42, !20}
+!43 = !{!44, !28, i64 24}
+!44 = !{!"addrinfo", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !28, i64 24, !33, i64 32, !41, i64 40}
+!45 = !{!44, !11, i64 16}
+!46 = distinct !{!46, !20}
+!47 = !{!26, !28, i64 32}
+!48 = !{!26, !11, i64 40}
+!49 = !{!30, !7, i64 0}
+!50 = distinct !{!50, !20}

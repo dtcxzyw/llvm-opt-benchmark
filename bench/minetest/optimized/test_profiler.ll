@@ -2037,7 +2037,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %while.body
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.07) #20
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !39
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !38
 
 while.end:                                        ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS8_E.exit, %entry
   ret void
@@ -2198,7 +2198,6 @@ attributes #24 = { builtin allocsize(0) }
 !33 = !{!31, !10, i64 0}
 !34 = !{!23, !10, i64 24}
 !35 = !{!23, !10, i64 16}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = distinct !{!39, !37, !38}
+!38 = distinct !{!38, !37}

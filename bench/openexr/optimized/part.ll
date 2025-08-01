@@ -301,7 +301,7 @@ switch.lookup:                                    ; preds = %.loopexit
 76:                                               ; preds = %switch.lookup
   %77 = load ptr, ptr %5, align 8, !tbaa !27
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 112
-  %79 = load ptr, ptr %78, align 8, !tbaa !35
+  %79 = load ptr, ptr %78, align 8, !tbaa !34
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !30
   %82 = call i32 @exr_attr_string_init_static_with_length(ptr noundef nonnull %0, ptr noundef %81, ptr noundef nonnull %switch.load156, i32 noundef %switch.load) #6
@@ -351,16 +351,16 @@ switch.lookup:                                    ; preds = %.loopexit
 .thread143:                                       ; preds = %101
   %107 = load ptr, ptr %5, align 8, !tbaa !27
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 120
-  %109 = load ptr, ptr %108, align 8, !tbaa !36
+  %109 = load ptr, ptr %108, align 8, !tbaa !35
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   store i32 1, ptr %110, align 8, !tbaa !30
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 1, ptr %111, align 4, !tbaa !37
+  store i8 1, ptr %111, align 4, !tbaa !36
   br label %.thread140
 
 112:                                              ; preds = %101
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 1, ptr %113, align 4, !tbaa !37
+  store i8 1, ptr %113, align 4, !tbaa !36
   br label %.thread136
 
 .thread140:                                       ; preds = %.thread131, %.thread143
@@ -370,12 +370,12 @@ switch.lookup:                                    ; preds = %.loopexit
 
 116:                                              ; preds = %.thread140
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 1, ptr %117, align 1, !tbaa !38
+  store i8 1, ptr %117, align 1, !tbaa !37
   br label %118
 
 118:                                              ; preds = %116, %.thread140
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %120 = load i8, ptr %119, align 4, !tbaa !37
+  %120 = load i8, ptr %119, align 4, !tbaa !36
   %.not125 = icmp eq i8 %120, 0
   br i1 %.not125, label %121, label %126
 
@@ -387,12 +387,12 @@ switch.lookup:                                    ; preds = %.loopexit
 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 1, ptr %125, align 1, !tbaa !39
+  store i8 1, ptr %125, align 1, !tbaa !38
   br label %128
 
 126:                                              ; preds = %121, %118
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 0, ptr %127, align 1, !tbaa !39
+  store i8 0, ptr %127, align 1, !tbaa !38
   br label %128
 
 .thread136:                                       ; preds = %86, %92, %112
@@ -483,31 +483,31 @@ define i32 @exr_get_tile_levels(ptr noundef %0, i32 noundef %1, ptr noundef writ
 
 34:                                               ; preds = %26, %26
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 96
-  %36 = load ptr, ptr %35, align 8, !tbaa !40
+  %36 = load ptr, ptr %35, align 8, !tbaa !39
   %.not43 = icmp eq ptr %36, null
   br i1 %.not43, label %51, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 192
-  %39 = load i32, ptr %38, align 8, !tbaa !41
+  %39 = load i32, ptr %38, align 8, !tbaa !40
   %40 = icmp slt i32 %39, 1
   br i1 %40, label %51, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 196
-  %43 = load i32, ptr %42, align 4, !tbaa !42
+  %43 = load i32, ptr %42, align 4, !tbaa !41
   %44 = icmp slt i32 %43, 1
   br i1 %44, label %51, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 200
-  %47 = load ptr, ptr %46, align 8, !tbaa !43
+  %47 = load ptr, ptr %46, align 8, !tbaa !42
   %.not44 = icmp eq ptr %47, null
   br i1 %.not44, label %51, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 208
-  %50 = load ptr, ptr %49, align 8, !tbaa !44
+  %50 = load ptr, ptr %49, align 8, !tbaa !43
   %.not45 = icmp eq ptr %50, null
   br i1 %.not45, label %51, label %61
 
@@ -540,7 +540,7 @@ define i32 @exr_get_tile_levels(ptr noundef %0, i32 noundef %1, ptr noundef writ
   br i1 %.not47, label %66, label %64
 
 64:                                               ; preds = %63
-  %65 = load i32, ptr %42, align 4, !tbaa !42
+  %65 = load i32, ptr %42, align 4, !tbaa !41
   store i32 %65, ptr %3, align 4, !tbaa !24
   br label %66
 
@@ -631,31 +631,31 @@ define i32 @exr_get_tile_counts(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 36:                                               ; preds = %28, %28
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 96
-  %38 = load ptr, ptr %37, align 8, !tbaa !40
+  %38 = load ptr, ptr %37, align 8, !tbaa !39
   %.not60 = icmp eq ptr %38, null
   br i1 %.not60, label %53, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 192
-  %41 = load i32, ptr %40, align 8, !tbaa !41
+  %41 = load i32, ptr %40, align 8, !tbaa !40
   %42 = icmp slt i32 %41, 1
   br i1 %42, label %53, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 196
-  %45 = load i32, ptr %44, align 4, !tbaa !42
+  %45 = load i32, ptr %44, align 4, !tbaa !41
   %46 = icmp slt i32 %45, 1
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 200
-  %49 = load ptr, ptr %48, align 8, !tbaa !43
+  %49 = load ptr, ptr %48, align 8, !tbaa !42
   %.not61 = icmp eq ptr %49, null
   br i1 %.not61, label %53, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %33, i64 208
-  %52 = load ptr, ptr %51, align 8, !tbaa !44
+  %52 = load ptr, ptr %51, align 8, !tbaa !43
   %.not62 = icmp eq ptr %52, null
   br i1 %.not62, label %53, label %63
 
@@ -809,31 +809,31 @@ define i32 @exr_get_tile_sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 
 36:                                               ; preds = %28, %28
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 96
-  %38 = load ptr, ptr %37, align 8, !tbaa !40
+  %38 = load ptr, ptr %37, align 8, !tbaa !39
   %.not75 = icmp eq ptr %38, null
   br i1 %.not75, label %53, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 192
-  %41 = load i32, ptr %40, align 8, !tbaa !41
+  %41 = load i32, ptr %40, align 8, !tbaa !40
   %42 = icmp slt i32 %41, 1
   br i1 %42, label %53, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 196
-  %45 = load i32, ptr %44, align 4, !tbaa !42
+  %45 = load i32, ptr %44, align 4, !tbaa !41
   %46 = icmp slt i32 %45, 1
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 200
-  %49 = load ptr, ptr %48, align 8, !tbaa !43
+  %49 = load ptr, ptr %48, align 8, !tbaa !42
   %.not76 = icmp eq ptr %49, null
   br i1 %.not76, label %53, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %33, i64 208
-  %52 = load ptr, ptr %51, align 8, !tbaa !44
+  %52 = load ptr, ptr %51, align 8, !tbaa !43
   %.not77 = icmp eq ptr %52, null
   br i1 %.not77, label %53, label %63
 
@@ -886,11 +886,11 @@ define i32 @exr_get_tile_sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %33, i64 216
-  %80 = load ptr, ptr %79, align 8, !tbaa !45
+  %80 = load ptr, ptr %79, align 8, !tbaa !44
   %81 = zext nneg i32 %2 to i64
   %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !24
-  %84 = load i32, ptr %77, align 1, !tbaa !46
+  %84 = load i32, ptr %77, align 1, !tbaa !45
   %. = tail call i32 @llvm.umin.i32(i32 %84, i32 %83)
   store i32 %., ptr %4, align 4, !tbaa !24
   br label %85
@@ -901,12 +901,12 @@ define i32 @exr_get_tile_sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 
 86:                                               ; preds = %85
   %87 = getelementptr inbounds nuw i8, ptr %33, i64 224
-  %88 = load ptr, ptr %87, align 8, !tbaa !48
+  %88 = load ptr, ptr %87, align 8, !tbaa !47
   %89 = zext nneg i32 %3 to i64
   %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !24
   %92 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  %93 = load i32, ptr %92, align 1, !tbaa !49
+  %93 = load i32, ptr %92, align 1, !tbaa !48
   %.84 = tail call i32 @llvm.umin.i32(i32 %93, i32 %91)
   store i32 %.84, ptr %5, align 4, !tbaa !24
   br label %94
@@ -998,31 +998,31 @@ define i32 @exr_get_level_sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 36:                                               ; preds = %28, %28
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 96
-  %38 = load ptr, ptr %37, align 8, !tbaa !40
+  %38 = load ptr, ptr %37, align 8, !tbaa !39
   %.not59 = icmp eq ptr %38, null
   br i1 %.not59, label %53, label %39
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 192
-  %41 = load i32, ptr %40, align 8, !tbaa !41
+  %41 = load i32, ptr %40, align 8, !tbaa !40
   %42 = icmp slt i32 %41, 1
   br i1 %42, label %53, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 196
-  %45 = load i32, ptr %44, align 4, !tbaa !42
+  %45 = load i32, ptr %44, align 4, !tbaa !41
   %46 = icmp slt i32 %45, 1
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 200
-  %49 = load ptr, ptr %48, align 8, !tbaa !43
+  %49 = load ptr, ptr %48, align 8, !tbaa !42
   %.not60 = icmp eq ptr %49, null
   br i1 %.not60, label %53, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %33, i64 208
-  %52 = load ptr, ptr %51, align 8, !tbaa !44
+  %52 = load ptr, ptr %51, align 8, !tbaa !43
   %.not61 = icmp eq ptr %52, null
   br i1 %.not61, label %53, label %63
 
@@ -1073,7 +1073,7 @@ define i32 @exr_get_level_sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 76:                                               ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %33, i64 216
-  %78 = load ptr, ptr %77, align 8, !tbaa !45
+  %78 = load ptr, ptr %77, align 8, !tbaa !44
   %79 = zext nneg i32 %2 to i64
   %80 = getelementptr inbounds nuw i32, ptr %78, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !24
@@ -1086,7 +1086,7 @@ define i32 @exr_get_level_sizes(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 83:                                               ; preds = %82
   %84 = getelementptr inbounds nuw i8, ptr %33, i64 224
-  %85 = load ptr, ptr %84, align 8, !tbaa !48
+  %85 = load ptr, ptr %84, align 8, !tbaa !47
   %86 = zext nneg i32 %3 to i64
   %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !24
@@ -1192,7 +1192,7 @@ define i32 @exr_get_chunk_count(ptr noundef %0, i32 noundef %1, ptr noundef writ
 
 41:                                               ; preds = %25
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !50
+  %43 = load ptr, ptr %42, align 8, !tbaa !49
   %.not56 = icmp eq ptr %43, null
   br i1 %.not56, label %97, label %44
 
@@ -1209,13 +1209,13 @@ define i32 @exr_get_chunk_count(ptr noundef %0, i32 noundef %1, ptr noundef writ
 
 47:                                               ; preds = %44, %44
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 96
-  %49 = load ptr, ptr %48, align 8, !tbaa !40
+  %49 = load ptr, ptr %48, align 8, !tbaa !39
   %.not58 = icmp eq ptr %49, null
   br i1 %.not58, label %58, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 244
-  %52 = load i32, ptr %51, align 4, !tbaa !51
+  %52 = load i32, ptr %51, align 4, !tbaa !50
   store i32 %52, ptr %2, align 4, !tbaa !24
   %53 = load i8, ptr %0, align 8, !tbaa !22
   %54 = icmp eq i8 %53, 1
@@ -1238,19 +1238,19 @@ define i32 @exr_get_chunk_count(ptr noundef %0, i32 noundef %1, ptr noundef writ
 
 64:                                               ; preds = %58, %61
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %66 = load ptr, ptr %65, align 8, !tbaa !52
+  %66 = load ptr, ptr %65, align 8, !tbaa !51
   %67 = tail call i32 %66(ptr noundef nonnull %0, i32 noundef 13, ptr noundef nonnull @.str.13) #6
   br label %107
 
 68:                                               ; preds = %44, %44
   %69 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %70 = load ptr, ptr %69, align 8, !tbaa !53
+  %70 = load ptr, ptr %69, align 8, !tbaa !52
   %.not57 = icmp eq ptr %70, null
   br i1 %.not57, label %79, label %71
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %30, i64 244
-  %73 = load i32, ptr %72, align 4, !tbaa !51
+  %73 = load i32, ptr %72, align 4, !tbaa !50
   store i32 %73, ptr %2, align 4, !tbaa !24
   %74 = load i8, ptr %0, align 8, !tbaa !22
   %75 = icmp eq i8 %74, 1
@@ -1273,13 +1273,13 @@ define i32 @exr_get_chunk_count(ptr noundef %0, i32 noundef %1, ptr noundef writ
 
 85:                                               ; preds = %79, %82
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %87 = load ptr, ptr %86, align 8, !tbaa !52
+  %87 = load ptr, ptr %86, align 8, !tbaa !51
   %88 = tail call i32 %87(ptr noundef nonnull %0, i32 noundef 13, ptr noundef nonnull @.str.14) #6
   br label %107
 
 89:                                               ; preds = %44
   %90 = getelementptr inbounds nuw i8, ptr %30, i64 244
-  %91 = load i32, ptr %90, align 4, !tbaa !51
+  %91 = load i32, ptr %90, align 4, !tbaa !50
   store i32 %91, ptr %2, align 4, !tbaa !24
   %92 = load i8, ptr %0, align 8, !tbaa !22
   %93 = icmp eq i8 %92, 1
@@ -1302,7 +1302,7 @@ define i32 @exr_get_chunk_count(ptr noundef %0, i32 noundef %1, ptr noundef writ
 
 103:                                              ; preds = %97, %100
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %105 = load ptr, ptr %104, align 8, !tbaa !52
+  %105 = load ptr, ptr %104, align 8, !tbaa !51
   %106 = tail call i32 %105(ptr noundef nonnull %0, i32 noundef 13, ptr noundef nonnull @.str.15) #6
   br label %107
 
@@ -1441,29 +1441,29 @@ define i32 @exr_validate_chunk_table(ptr noundef %0, i32 noundef %1) local_unnam
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %35 = load i64, ptr %34, align 8, !tbaa !54
+  %35 = load i64, ptr %34, align 8, !tbaa !53
   %36 = icmp sgt i64 %35, 0
   %spec.select = select i1 %36, i64 %35, i64 -1
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 244
-  %38 = load i32, ptr %37, align 4, !tbaa !51
+  %38 = load i32, ptr %37, align 4, !tbaa !50
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %33
-  %40 = load ptr, ptr %4, align 8, !tbaa !55
-  %41 = load i64, ptr %3, align 8, !tbaa !57
+  %40 = load ptr, ptr %4, align 8, !tbaa !54
+  %41 = load i64, ptr %3, align 8, !tbaa !56
   %wide.trip.count = zext nneg i32 %38 to i64
   br label %43
 
 42:                                               ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !58
+  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !57
 
 43:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %44 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv
-  %45 = load i64, ptr %44, align 8, !tbaa !57
+  %45 = load i64, ptr %44, align 8, !tbaa !56
   %46 = icmp uge i64 %45, %41
   %.not39 = icmp ult i64 %45, %spec.select
   %or.cond = select i1 %46, i1 %.not39, i1 false
@@ -1546,7 +1546,7 @@ define i32 @exr_get_scanlines_per_chunk(ptr noundef %0, i32 noundef %1, ptr noun
 
 40:                                               ; preds = %37, %37
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 240
-  %42 = load i16, ptr %41, align 8, !tbaa !59
+  %42 = load i16, ptr %41, align 8, !tbaa !58
   %43 = sext i16 %42 to i32
   store i32 %43, ptr %2, align 4, !tbaa !24
   %44 = load i8, ptr %0, align 8, !tbaa !22
@@ -1633,7 +1633,7 @@ define i32 @exr_get_chunk_unpacked_size(ptr noundef %0, i32 noundef %1, ptr noun
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 232
-  %32 = load i64, ptr %31, align 8, !tbaa !60
+  %32 = load i64, ptr %31, align 8, !tbaa !59
   %33 = icmp eq i8 %.pre26, 1
   br i1 %33, label %34, label %37
 
@@ -1653,7 +1653,7 @@ define i32 @exr_get_chunk_unpacked_size(ptr noundef %0, i32 noundef %1, ptr noun
   br label %43
 
 42:                                               ; preds = %37
-  store i64 %32, ptr %2, align 8, !tbaa !57
+  store i64 %32, ptr %2, align 8, !tbaa !56
   br label %43
 
 43:                                               ; preds = %3, %42, %38, %21
@@ -1714,7 +1714,7 @@ define i32 @exr_get_zip_compression_level(ptr noundef %0, i32 noundef %1, ptr no
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
-  %32 = load i32, ptr %31, align 8, !tbaa !61
+  %32 = load i32, ptr %31, align 8, !tbaa !60
   %33 = icmp eq i8 %.pre26, 1
   br i1 %33, label %34, label %37
 
@@ -1792,14 +1792,14 @@ define i32 @exr_set_zip_compression_level(ptr noundef %0, i32 noundef %1, i32 no
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 184
-  store i32 %2, ptr %31, align 8, !tbaa !61
+  store i32 %2, ptr %31, align 8, !tbaa !60
   %32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #6
   br label %38
 
 33:                                               ; preds = %28
   %34 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #6
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %36 = load ptr, ptr %35, align 8, !tbaa !52
+  %36 = load ptr, ptr %35, align 8, !tbaa !51
   %37 = tail call i32 %36(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.16) #6
   br label %38
 
@@ -1861,7 +1861,7 @@ define i32 @exr_get_dwa_compression_level(ptr noundef %0, i32 noundef %1, ptr no
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 188
-  %32 = load float, ptr %31, align 4, !tbaa !62
+  %32 = load float, ptr %31, align 4, !tbaa !61
   %33 = icmp eq i8 %.pre26, 1
   br i1 %33, label %34, label %37
 
@@ -1881,7 +1881,7 @@ define i32 @exr_get_dwa_compression_level(ptr noundef %0, i32 noundef %1, ptr no
   br label %43
 
 42:                                               ; preds = %37
-  store float %32, ptr %2, align 4, !tbaa !63
+  store float %32, ptr %2, align 4, !tbaa !62
   br label %43
 
 43:                                               ; preds = %3, %42, %38, %21
@@ -1940,14 +1940,14 @@ define i32 @exr_set_dwa_compression_level(ptr noundef %0, i32 noundef %1, float 
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 188
-  store float %2, ptr %32, align 4, !tbaa !62
+  store float %2, ptr %32, align 4, !tbaa !61
   %33 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #6
   br label %39
 
 34:                                               ; preds = %28
   %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #6
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %37 = load ptr, ptr %36, align 8, !tbaa !52
+  %37 = load ptr, ptr %36, align 8, !tbaa !51
   %38 = tail call i32 %37(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.17) #6
   br label %39
 
@@ -2008,35 +2008,34 @@ attributes #7 = { nounwind willreturn memory(read) }
 !29 = !{!13, !10, i64 104}
 !30 = !{!5, !5, i64 0}
 !31 = !{!7, !9, i64 8}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!13, !10, i64 112}
-!36 = !{!13, !10, i64 120}
-!37 = !{!4, !5, i64 4}
-!38 = !{!4, !5, i64 5}
-!39 = !{!4, !5, i64 3}
-!40 = !{!13, !10, i64 96}
-!41 = !{!13, !8, i64 192}
-!42 = !{!13, !8, i64 196}
-!43 = !{!13, !18, i64 200}
-!44 = !{!13, !18, i64 208}
-!45 = !{!13, !18, i64 216}
-!46 = !{!47, !8, i64 0}
-!47 = !{!"", !8, i64 0, !8, i64 4, !5, i64 8}
-!48 = !{!13, !18, i64 224}
-!49 = !{!47, !8, i64 4}
-!50 = !{!13, !10, i64 48}
-!51 = !{!13, !8, i64 244}
-!52 = !{!4, !10, i64 64}
-!53 = !{!13, !10, i64 40}
-!54 = !{!4, !12, i64 152}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"p1 long", !10, i64 0}
-!57 = !{!12, !12, i64 0}
-!58 = distinct !{!58, !33, !34}
-!59 = !{!13, !19, i64 240}
-!60 = !{!13, !12, i64 232}
-!61 = !{!13, !8, i64 184}
-!62 = !{!13, !11, i64 188}
-!63 = !{!11, !11, i64 0}
+!34 = !{!13, !10, i64 112}
+!35 = !{!13, !10, i64 120}
+!36 = !{!4, !5, i64 4}
+!37 = !{!4, !5, i64 5}
+!38 = !{!4, !5, i64 3}
+!39 = !{!13, !10, i64 96}
+!40 = !{!13, !8, i64 192}
+!41 = !{!13, !8, i64 196}
+!42 = !{!13, !18, i64 200}
+!43 = !{!13, !18, i64 208}
+!44 = !{!13, !18, i64 216}
+!45 = !{!46, !8, i64 0}
+!46 = !{!"", !8, i64 0, !8, i64 4, !5, i64 8}
+!47 = !{!13, !18, i64 224}
+!48 = !{!46, !8, i64 4}
+!49 = !{!13, !10, i64 48}
+!50 = !{!13, !8, i64 244}
+!51 = !{!4, !10, i64 64}
+!52 = !{!13, !10, i64 40}
+!53 = !{!4, !12, i64 152}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 long", !10, i64 0}
+!56 = !{!12, !12, i64 0}
+!57 = distinct !{!57, !33}
+!58 = !{!13, !19, i64 240}
+!59 = !{!13, !12, i64 232}
+!60 = !{!13, !8, i64 184}
+!61 = !{!13, !11, i64 188}
+!62 = !{!11, !11, i64 0}

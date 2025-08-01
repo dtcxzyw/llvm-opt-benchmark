@@ -201,9 +201,9 @@ _ZN8XLiveMap13claim_segmentEm.exit.preheader:     ; preds = %9
   br i1 %.not13, label %_ZN8XLiveMap13claim_segmentEm.exit.preheader21, label %21
 
 18:                                               ; preds = %9
-  %19 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %.017.i.i, ptr nonnull %5) #7, !srcloc !11
+  %19 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %.017.i.i, ptr nonnull %5) #7, !srcloc !10
   %20 = icmp eq i64 %19, %.017.i.i
-  br i1 %20, label %30, label %9, !llvm.loop !12
+  br i1 %20, label %30, label %9, !llvm.loop !11
 
 21:                                               ; preds = %.lr.ph
   %22 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN7XThread12_initializedE)
@@ -229,7 +229,7 @@ _ZN8XLiveMap13claim_segmentEm.exit:               ; preds = %_ZN8XLiveMap13claim
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %29 = and i64 %28, %7
   %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %_ZN8XLiveMap13claim_segmentEm.exit, label %_ZN8XLiveMap16set_segment_liveEm.exit, !llvm.loop !13
+  br i1 %.not, label %_ZN8XLiveMap13claim_segmentEm.exit, label %_ZN8XLiveMap16set_segment_liveEm.exit, !llvm.loop !12
 
 30:                                               ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -263,9 +263,9 @@ _ZN8XLiveMap13claim_segmentEm.exit:               ; preds = %_ZN8XLiveMap13claim
   br i1 %.not.not.not.i.not.not.not.i12.not, label %_ZN8XLiveMap16set_segment_liveEm.exit, label %47
 
 47:                                               ; preds = %45
-  %48 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %46, i64 %.017.i.i11, ptr nonnull %43) #7, !srcloc !11
+  %48 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %46, i64 %.017.i.i11, ptr nonnull %43) #7, !srcloc !10
   %49 = icmp eq i64 %48, %.017.i.i11
-  br i1 %49, label %_ZN8XLiveMap16set_segment_liveEm.exit, label %45, !llvm.loop !12
+  br i1 %49, label %_ZN8XLiveMap16set_segment_liveEm.exit, label %45, !llvm.loop !11
 
 _ZN8XLiveMap16set_segment_liveEm.exit:            ; preds = %47, %45, %_ZN8XLiveMap13claim_segmentEm.exit, %_ZN8XLiveMap13claim_segmentEm.exit.preheader
   ret void
@@ -439,9 +439,8 @@ attributes #7 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
 !7 = !{i64 2145411161}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 2145412694}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!10 = !{i64 2145412694}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

@@ -150,7 +150,7 @@ define range(i32 0, 15) i32 @rijndaelSetupEncrypt(ptr noundef captures(none) ini
   store i32 %120, ptr %121, align 4, !tbaa !6
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %122 = icmp eq i64 %indvars.iv.next141, 10
-  br i1 %122, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %122, label %.loopexit, label %.preheader
 
 123:                                              ; preds = %3
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -257,7 +257,7 @@ define range(i32 0, 15) i32 @rijndaelSetupEncrypt(ptr noundef captures(none) ini
   %210 = xor i32 %208, %167
   %211 = getelementptr inbounds nuw i8, ptr %.1124, i64 44
   store i32 %210, ptr %211, align 4, !tbaa !6
-  br label %.preheader130, !llvm.loop !10
+  br label %.preheader130
 
 212:                                              ; preds = %123
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -399,7 +399,7 @@ define range(i32 0, 15) i32 @rijndaelSetupEncrypt(ptr noundef captures(none) ini
   %332 = xor i32 %330, %256
   %333 = getelementptr inbounds nuw i8, ptr %.2125, i64 60
   store i32 %332, ptr %333, align 4, !tbaa !6
-  br label %.preheader132, !llvm.loop !11
+  br label %.preheader132
 
 .loopexit:                                        ; preds = %.preheader132, %.preheader130, %.preheader, %212
   %.0122 = phi i32 [ 0, %212 ], [ 10, %.preheader ], [ 12, %.preheader130 ], [ 14, %.preheader132 ]
@@ -451,7 +451,7 @@ define range(i32 0, 15) i32 @rijndaelSetupDecrypt(ptr noundef captures(none) ini
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
   %23 = icmp slt i64 %indvars.iv.next77, %indvars.iv.next
-  br i1 %23, label %.lr.ph, label %.preheader, !llvm.loop !12
+  br i1 %23, label %.lr.ph, label %.preheader
 
 .lr.ph75:                                         ; preds = %.preheader, %.lr.ph75
   %.074 = phi ptr [ %24, %.lr.ph75 ], [ %0, %.preheader ]
@@ -618,7 +618,7 @@ define range(i32 0, 15) i32 @rijndaelSetupDecrypt(ptr noundef captures(none) ini
   store i32 %179, ptr %141, align 4, !tbaa !6
   %180 = add nuw nsw i32 %.173, 1
   %exitcond.not = icmp eq i32 %180, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph75, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph75
 
 ._crit_edge:                                      ; preds = %.lr.ph75, %3, %.preheader
   ret i32 %4
@@ -3683,9 +3683,3 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}

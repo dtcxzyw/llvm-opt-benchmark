@@ -1104,7 +1104,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %.pre295 = load i32, ptr %57, align 8, !tbaa !76
   %223 = icmp slt i32 %.0202289, %.pre295
   %224 = add nuw nsw i32 %.0202289, 1
-  br i1 %223, label %155, label %._crit_edge, !llvm.loop !89
+  br i1 %223, label %155, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %216, %219, %141
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 768
@@ -1166,7 +1166,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
 261:                                              ; preds = %244
   %262 = load ptr, ptr %120, align 8, !tbaa !83
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %264 = load ptr, ptr %263, align 8, !tbaa !91
+  %264 = load ptr, ptr %263, align 8, !tbaa !89
   %265 = tail call double @N_VWrmsNorm(ptr noundef %262, ptr noundef %264) #13
   store double %265, ptr %1, align 8, !tbaa !67
   tail call void @lsrkStep_DomEigUpdateLogic(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %265)
@@ -1206,7 +1206,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %2
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !92
+  %8 = load i32, ptr %7, align 4, !tbaa !90
   switch i32 %8, label %19 [
     i32 0, label %9
     i32 1, label %11
@@ -1241,10 +1241,10 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %2
 
 20:                                               ; preds = %17, %15, %13, %11, %9
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !93
+  %22 = load i32, ptr %21, align 8, !tbaa !91
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, i32 noundef %22) #13
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %25 = load i32, ptr %24, align 4, !tbaa !94
+  %25 = load i32, ptr %24, align 4, !tbaa !92
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.21, i32 noundef %25) #13
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 140
   %28 = load i32, ptr %27, align 4, !tbaa !60
@@ -1272,30 +1272,30 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %2
   %45 = load i32, ptr %44, align 4, !tbaa !51
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.27, i32 noundef %45) #13
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %48 = load i64, ptr %47, align 8, !tbaa !95
+  %48 = load i64, ptr %47, align 8, !tbaa !93
   %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.28, i64 noundef %48) #13
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %51 = load i64, ptr %50, align 8, !tbaa !64
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.29, i64 noundef %51) #13
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %54 = load i64, ptr %53, align 8, !tbaa !96
+  %54 = load i64, ptr %53, align 8, !tbaa !94
   %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i64 noundef %54) #13
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %57 = load double, ptr %56, align 8, !tbaa !97
+  %57 = load double, ptr %56, align 8, !tbaa !95
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %59 = load double, ptr %58, align 8, !tbaa !98
+  %59 = load double, ptr %58, align 8, !tbaa !96
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.31, double noundef %57, double noundef %59) #13
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %62 = load double, ptr %61, align 8, !tbaa !69
   %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.32, double noundef %62) #13
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %65 = load double, ptr %64, align 8, !tbaa !99
+  %65 = load double, ptr %64, align 8, !tbaa !97
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.33, double noundef %65) #13
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %68 = load double, ptr %67, align 8, !tbaa !100
+  %68 = load double, ptr %67, align 8, !tbaa !98
   %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.34, double noundef %68) #13
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %71 = load double, ptr %70, align 8, !tbaa !101
+  %71 = load double, ptr %70, align 8, !tbaa !99
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, double noundef %71) #13
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %74 = load i32, ptr %73, align 8, !tbaa !54
@@ -1340,7 +1340,7 @@ define range(i32 -21, 1) i32 @lsrkStep_AccessARKODEStepMem(ptr noundef %0, ptr n
   br label %13
 
 12:                                               ; preds = %7
-  store ptr %9, ptr %3, align 8, !tbaa !102
+  store ptr %9, ptr %3, align 8, !tbaa !100
   br label %13
 
 13:                                               ; preds = %12, %11, %6
@@ -1360,7 +1360,7 @@ define range(i32 -21, 1) i32 @lsrkStep_AccessStepMem(ptr noundef %0, ptr noundef
   br label %9
 
 8:                                                ; preds = %3
-  store ptr %5, ptr %2, align 8, !tbaa !102
+  store ptr %5, ptr %2, align 8, !tbaa !100
   br label %9
 
 9:                                                ; preds = %8, %7
@@ -1391,12 +1391,12 @@ define range(i32 -49, 1) i32 @lsrkStep_ComputeNewDomEig(ptr noundef %0, ptr noun
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %18 = load ptr, ptr %17, align 8, !tbaa !84
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %20 = load ptr, ptr %19, align 8, !tbaa !104
+  %20 = load ptr, ptr %19, align 8, !tbaa !102
   %21 = tail call i32 %4(double noundef %6, ptr noundef %8, ptr noundef %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %20) #13
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %23 = load i64, ptr %22, align 8, !tbaa !96
+  %23 = load i64, ptr %22, align 8, !tbaa !94
   %24 = add nsw i64 %23, 1
-  store i64 %24, ptr %22, align 8, !tbaa !96
+  store i64 %24, ptr %22, align 8, !tbaa !94
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %26, label %25
 
@@ -1405,7 +1405,7 @@ define range(i32 -49, 1) i32 @lsrkStep_ComputeNewDomEig(ptr noundef %0, ptr noun
   br label %61
 
 26:                                               ; preds = %2
-  %27 = load double, ptr %11, align 8, !tbaa !97
+  %27 = load double, ptr %11, align 8, !tbaa !95
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %29 = load double, ptr %28, align 8, !tbaa !68
   %30 = fmul double %27, %29
@@ -1418,7 +1418,7 @@ define range(i32 -49, 1) i32 @lsrkStep_ComputeNewDomEig(ptr noundef %0, ptr noun
 
 33:                                               ; preds = %26
   %34 = fcmp une double %27, 0.000000e+00
-  %.pre = load double, ptr %12, align 8, !tbaa !98
+  %.pre = load double, ptr %12, align 8, !tbaa !96
   %35 = fcmp ueq double %.pre, 0.000000e+00
   %or.cond49 = select i1 %34, i1 true, i1 %35
   br i1 %or.cond49, label %37, label %36
@@ -1429,11 +1429,11 @@ define range(i32 -49, 1) i32 @lsrkStep_ComputeNewDomEig(ptr noundef %0, ptr noun
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %39 = load double, ptr %38, align 8, !tbaa !101
+  %39 = load double, ptr %38, align 8, !tbaa !99
   %40 = fmul double %27, %39
-  store double %40, ptr %11, align 8, !tbaa !97
+  store double %40, ptr %11, align 8, !tbaa !95
   %41 = fmul double %39, %.pre
-  store double %41, ptr %12, align 8, !tbaa !98
+  store double %41, ptr %12, align 8, !tbaa !96
   %42 = fmul double %41, %41
   %43 = tail call double @llvm.fmuladd.f64(double %40, double %40, double %42)
   %44 = fcmp ugt double %43, 0.000000e+00
@@ -1448,19 +1448,19 @@ define range(i32 -49, 1) i32 @lsrkStep_ComputeNewDomEig(ptr noundef %0, ptr noun
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %49, ptr %50, align 8, !tbaa !52
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %52 = load double, ptr %51, align 8, !tbaa !99
+  %52 = load double, ptr %51, align 8, !tbaa !97
   %53 = fcmp ogt double %45, %52
   %. = select i1 %53, double %45, double %52
-  store double %., ptr %51, align 8, !tbaa !99
+  store double %., ptr %51, align 8, !tbaa !97
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %55 = load double, ptr %54, align 8, !tbaa !100
+  %55 = load double, ptr %54, align 8, !tbaa !98
   %56 = fcmp olt double %45, %55
   %57 = icmp eq i64 %49, 0
   %or.cond = select i1 %56, i1 true, i1 %57
   br i1 %or.cond, label %58, label %59
 
 58:                                               ; preds = %37
-  store double %45, ptr %54, align 8, !tbaa !100
+  store double %45, ptr %54, align 8, !tbaa !98
   br label %59
 
 59:                                               ; preds = %37, %58
@@ -1514,7 +1514,7 @@ define void @lsrkStep_DomEigUpdateLogic(ptr noundef captures(none) %0, ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store i32 1, ptr %10, align 8, !tbaa !62
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %12 = load i32, ptr %11, align 4, !tbaa !105
+  %12 = load i32, ptr %11, align 4, !tbaa !103
   %13 = icmp eq i32 %12, 1
   %14 = zext i1 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -1527,7 +1527,7 @@ define void @lsrkStep_DomEigUpdateLogic(ptr noundef captures(none) %0, ptr nound
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = load i64, ptr %20, align 8, !tbaa !52
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %23 = load i64, ptr %22, align 8, !tbaa !95
+  %23 = load i64, ptr %22, align 8, !tbaa !93
   %24 = add nsw i64 %23, %21
   %.not14 = icmp slt i64 %19, %24
   br i1 %.not14, label %32, label %25
@@ -1872,7 +1872,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %.1173 = phi double [ %.0169230, %202 ], [ %.0172229, %199 ]
   %.1170 = phi double [ %148, %202 ], [ %.0169230, %199 ]
   %.not195 = icmp sgt i32 %145, %207
-  br i1 %.not195, label %._crit_edge, label %136, !llvm.loop !106
+  br i1 %.not195, label %._crit_edge, label %136
 
 ._crit_edge:                                      ; preds = %206, %122
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 768
@@ -1934,7 +1934,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
 244:                                              ; preds = %227
   %245 = load ptr, ptr %101, align 8, !tbaa !83
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %247 = load ptr, ptr %246, align 8, !tbaa !91
+  %247 = load ptr, ptr %246, align 8, !tbaa !89
   %248 = tail call double @N_VWrmsNorm(ptr noundef %245, ptr noundef %247) #13
   store double %248, ptr %1, align 8, !tbaa !67
   tail call void @lsrkStep_DomEigUpdateLogic(ptr noundef nonnull %0, ptr noundef nonnull %5, double noundef %248)
@@ -2141,7 +2141,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %119 = add nuw nsw i32 %.0143, 1
   %120 = load i32, ptr %12, align 8, !tbaa !76
   %.not128 = icmp slt i32 %119, %120
-  br i1 %.not128, label %80, label %._crit_edge, !llvm.loop !107
+  br i1 %.not128, label %80, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %118, %73
   %121 = load ptr, ptr %5, align 8, !tbaa !49
@@ -2207,7 +2207,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %160, double noundef -1.000000e+00, ptr noundef %161, ptr noundef %161) #13
   %162 = load ptr, ptr %155, align 8, !tbaa !83
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %164 = load ptr, ptr %163, align 8, !tbaa !91
+  %164 = load ptr, ptr %163, align 8, !tbaa !89
   %165 = tail call double @N_VWrmsNorm(ptr noundef %162, ptr noundef %164) #13
   store double %165, ptr %1, align 8, !tbaa !67
   br label %.thread
@@ -2350,7 +2350,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %89 = load double, ptr %44, align 8, !tbaa !68
   %90 = tail call double @llvm.fmuladd.f64(double %88, double %89, double %84)
   %91 = load ptr, ptr %49, align 8, !tbaa !87
-  %92 = load ptr, ptr %78, align 8, !tbaa !104
+  %92 = load ptr, ptr %78, align 8, !tbaa !102
   %93 = load ptr, ptr %79, align 8, !tbaa !63
   %94 = tail call i32 %83(double noundef %90, ptr noundef %91, ptr noundef %92, ptr noundef %93) #13
   %95 = load i64, ptr %80, align 8, !tbaa !64
@@ -2367,7 +2367,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %100 = load ptr, ptr %49, align 8, !tbaa !87
   %101 = load double, ptr %44, align 8, !tbaa !68
   %102 = fmul double %21, %101
-  %103 = load ptr, ptr %78, align 8, !tbaa !104
+  %103 = load ptr, ptr %78, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %100, double noundef %102, ptr noundef %103, ptr noundef %100) #13
   %104 = load i32, ptr %51, align 8, !tbaa !56
   %.not225 = icmp eq i32 %104, 0
@@ -2377,7 +2377,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %106 = load ptr, ptr %81, align 8, !tbaa !83
   %107 = load double, ptr %44, align 8, !tbaa !68
   %108 = fdiv double %107, %14
-  %109 = load ptr, ptr %78, align 8, !tbaa !104
+  %109 = load ptr, ptr %78, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %106, double noundef %108, ptr noundef %109, ptr noundef %106) #13
   br label %110
 
@@ -2400,7 +2400,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
 120:                                              ; preds = %110, %112
   %121 = add nuw nsw i32 %.0202273, 1
   %exitcond.not = icmp eq i32 %.0202273, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %82, !llvm.loop !108
+  br i1 %exitcond.not, label %._crit_edge, label %82
 
 ._crit_edge:                                      ; preds = %120, %72
   %122 = load ptr, ptr %49, align 8, !tbaa !87
@@ -2433,7 +2433,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %140 = load double, ptr %44, align 8, !tbaa !68
   %141 = tail call double @llvm.fmuladd.f64(double %139, double %140, double %136)
   %142 = load ptr, ptr %49, align 8, !tbaa !87
-  %143 = load ptr, ptr %130, align 8, !tbaa !104
+  %143 = load ptr, ptr %130, align 8, !tbaa !102
   %144 = load ptr, ptr %131, align 8, !tbaa !63
   %145 = tail call i32 %135(double noundef %141, ptr noundef %142, ptr noundef %143, ptr noundef %144) #13
   %146 = load i64, ptr %132, align 8, !tbaa !64
@@ -2450,7 +2450,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %151 = load ptr, ptr %49, align 8, !tbaa !87
   %152 = load double, ptr %44, align 8, !tbaa !68
   %153 = fmul double %21, %152
-  %154 = load ptr, ptr %130, align 8, !tbaa !104
+  %154 = load ptr, ptr %130, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %151, double noundef %153, ptr noundef %154, ptr noundef %151) #13
   %155 = load i32, ptr %51, align 8, !tbaa !56
   %.not230 = icmp eq i32 %155, 0
@@ -2460,7 +2460,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %157 = load ptr, ptr %133, align 8, !tbaa !83
   %158 = load double, ptr %44, align 8, !tbaa !68
   %159 = fdiv double %158, %14
-  %160 = load ptr, ptr %130, align 8, !tbaa !104
+  %160 = load ptr, ptr %130, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %157, double noundef %159, ptr noundef %160, ptr noundef %157) #13
   br label %161
 
@@ -2482,7 +2482,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
 
 171:                                              ; preds = %161, %163
   %exitcond292.not = icmp eq i32 %.0201277, %128
-  br i1 %exitcond292.not, label %._crit_edge280, label %134, !llvm.loop !109
+  br i1 %exitcond292.not, label %._crit_edge280, label %134
 
 ._crit_edge280:                                   ; preds = %171, %._crit_edge
   %172 = load ptr, ptr %5, align 8, !tbaa !49
@@ -2497,7 +2497,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %181 = tail call double @llvm.fmuladd.f64(double %179, double %180, double %174)
   %182 = load ptr, ptr %49, align 8, !tbaa !87
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %184 = load ptr, ptr %183, align 8, !tbaa !104
+  %184 = load ptr, ptr %183, align 8, !tbaa !102
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %186 = load ptr, ptr %185, align 8, !tbaa !63
   %187 = tail call i32 %172(double noundef %181, ptr noundef %182, ptr noundef %184, ptr noundef %186) #13
@@ -2531,7 +2531,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %205 = fdiv double %204, %195
   %206 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double %205, ptr %206, align 8, !tbaa !67
-  %207 = load ptr, ptr %183, align 8, !tbaa !104
+  %207 = load ptr, ptr %183, align 8, !tbaa !102
   %208 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %207, ptr %208, align 8, !tbaa !88
   %209 = load ptr, ptr %49, align 8, !tbaa !87
@@ -2549,7 +2549,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %215 = load ptr, ptr %214, align 8, !tbaa !83
   %216 = load double, ptr %44, align 8, !tbaa !68
   %217 = fdiv double %216, %14
-  %218 = load ptr, ptr %183, align 8, !tbaa !104
+  %218 = load ptr, ptr %183, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %215, double noundef %217, ptr noundef %218, ptr noundef %215) #13
   br label %219
 
@@ -2592,7 +2592,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %241 = load double, ptr %44, align 8, !tbaa !68
   %242 = tail call double @llvm.fmuladd.f64(double %240, double %241, double %236)
   %243 = load ptr, ptr %49, align 8, !tbaa !87
-  %244 = load ptr, ptr %183, align 8, !tbaa !104
+  %244 = load ptr, ptr %183, align 8, !tbaa !102
   %245 = load ptr, ptr %185, align 8, !tbaa !63
   %246 = tail call i32 %235(double noundef %242, ptr noundef %243, ptr noundef %244, ptr noundef %245) #13
   %247 = load i64, ptr %188, align 8, !tbaa !64
@@ -2609,7 +2609,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %252 = load ptr, ptr %49, align 8, !tbaa !87
   %253 = load double, ptr %44, align 8, !tbaa !68
   %254 = fmul double %21, %253
-  %255 = load ptr, ptr %183, align 8, !tbaa !104
+  %255 = load ptr, ptr %183, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %252, double noundef %254, ptr noundef %255, ptr noundef %252) #13
   %256 = load i32, ptr %51, align 8, !tbaa !56
   %.not240 = icmp eq i32 %256, 0
@@ -2619,7 +2619,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %258 = load ptr, ptr %233, align 8, !tbaa !83
   %259 = load double, ptr %44, align 8, !tbaa !68
   %260 = fdiv double %259, %14
-  %261 = load ptr, ptr %183, align 8, !tbaa !104
+  %261 = load ptr, ptr %183, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %258, double noundef %260, ptr noundef %261, ptr noundef %258) #13
   br label %262
 
@@ -2649,7 +2649,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
 273:                                              ; preds = %._crit_edge293, %262
   %274 = phi i32 [ %.pre, %._crit_edge293 ], [ %.pre294, %262 ]
   %.not238.not.not = icmp slt i32 %.0284, %274
-  br i1 %.not238.not.not, label %234, label %._crit_edge287, !llvm.loop !110
+  br i1 %.not238.not.not, label %234, label %._crit_edge287
 
 ._crit_edge287:                                   ; preds = %273, %231
   %275 = load i32, ptr %51, align 8, !tbaa !56
@@ -2663,7 +2663,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %277, double noundef -1.000000e+00, ptr noundef %279, ptr noundef %279) #13
   %280 = load ptr, ptr %278, align 8, !tbaa !83
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %282 = load ptr, ptr %281, align 8, !tbaa !91
+  %282 = load ptr, ptr %281, align 8, !tbaa !89
   %283 = tail call double @N_VWrmsNorm(ptr noundef %280, ptr noundef %282) #13
   store double %283, ptr %1, align 8, !tbaa !67
   br label %.thread
@@ -2770,7 +2770,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %64 = tail call double @llvm.fmuladd.f64(double %63, double 5.000000e-01, double %62)
   %65 = load ptr, ptr %36, align 8, !tbaa !87
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %67 = load ptr, ptr %66, align 8, !tbaa !104
+  %67 = load ptr, ptr %66, align 8, !tbaa !102
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = load ptr, ptr %68, align 8, !tbaa !63
   %70 = tail call i32 %60(double noundef %64, ptr noundef %65, ptr noundef %67, ptr noundef %69) #13
@@ -2789,7 +2789,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %77 = load ptr, ptr %36, align 8, !tbaa !87
   %78 = load double, ptr %31, align 8, !tbaa !68
   %79 = fmul double %78, 5.000000e-01
-  %80 = load ptr, ptr %66, align 8, !tbaa !104
+  %80 = load ptr, ptr %66, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %77, double noundef %79, ptr noundef %80, ptr noundef %77) #13
   %81 = load i32, ptr %38, align 8, !tbaa !56
   %.not130 = icmp eq i32 %81, 0
@@ -2800,7 +2800,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %84 = load ptr, ptr %83, align 8, !tbaa !83
   %85 = load double, ptr %31, align 8, !tbaa !68
   %86 = fmul double %85, 2.500000e-01
-  %87 = load ptr, ptr %66, align 8, !tbaa !104
+  %87 = load ptr, ptr %66, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %84, double noundef %86, ptr noundef %87, ptr noundef %84) #13
   br label %88
 
@@ -2825,7 +2825,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %100 = load double, ptr %31, align 8, !tbaa !68
   %101 = fadd double %99, %100
   %102 = load ptr, ptr %36, align 8, !tbaa !87
-  %103 = load ptr, ptr %66, align 8, !tbaa !104
+  %103 = load ptr, ptr %66, align 8, !tbaa !102
   %104 = load ptr, ptr %68, align 8, !tbaa !63
   %105 = tail call i32 %98(double noundef %101, ptr noundef %102, ptr noundef %103, ptr noundef %104) #13
   %106 = load i64, ptr %71, align 8, !tbaa !64
@@ -2851,7 +2851,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %116 = fmul double %115, 0x3FC5555555555555
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double %116, ptr %117, align 8, !tbaa !67
-  %118 = load ptr, ptr %66, align 8, !tbaa !104
+  %118 = load ptr, ptr %66, align 8, !tbaa !102
   %119 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %118, ptr %119, align 8, !tbaa !88
   %120 = load ptr, ptr %36, align 8, !tbaa !87
@@ -2869,7 +2869,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %126 = load ptr, ptr %125, align 8, !tbaa !83
   %127 = load double, ptr %31, align 8, !tbaa !68
   %128 = fmul double %127, 2.500000e-01
-  %129 = load ptr, ptr %66, align 8, !tbaa !104
+  %129 = load ptr, ptr %66, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %126, double noundef %128, ptr noundef %129, ptr noundef %126) #13
   br label %130
 
@@ -2894,7 +2894,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %142 = load double, ptr %31, align 8, !tbaa !68
   %143 = tail call double @llvm.fmuladd.f64(double %142, double 5.000000e-01, double %141)
   %144 = load ptr, ptr %36, align 8, !tbaa !87
-  %145 = load ptr, ptr %66, align 8, !tbaa !104
+  %145 = load ptr, ptr %66, align 8, !tbaa !102
   %146 = load ptr, ptr %68, align 8, !tbaa !63
   %147 = tail call i32 %140(double noundef %143, ptr noundef %144, ptr noundef %145, ptr noundef %146) #13
   %148 = load i64, ptr %71, align 8, !tbaa !64
@@ -2911,7 +2911,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %153 = load ptr, ptr %36, align 8, !tbaa !87
   %154 = load double, ptr %31, align 8, !tbaa !68
   %155 = fmul double %154, 5.000000e-01
-  %156 = load ptr, ptr %66, align 8, !tbaa !104
+  %156 = load ptr, ptr %66, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %153, double noundef %155, ptr noundef %156, ptr noundef %153) #13
   %157 = load i32, ptr %38, align 8, !tbaa !56
   %.not139 = icmp eq i32 %157, 0
@@ -2922,14 +2922,14 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %160 = load ptr, ptr %159, align 8, !tbaa !83
   %161 = load double, ptr %31, align 8, !tbaa !68
   %162 = fmul double %161, 2.500000e-01
-  %163 = load ptr, ptr %66, align 8, !tbaa !104
+  %163 = load ptr, ptr %66, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %160, double noundef %162, ptr noundef %163, ptr noundef %160) #13
   %164 = load ptr, ptr %36, align 8, !tbaa !87
   %165 = load ptr, ptr %159, align 8, !tbaa !83
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %164, double noundef -1.000000e+00, ptr noundef %165, ptr noundef %165) #13
   %166 = load ptr, ptr %159, align 8, !tbaa !83
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %168 = load ptr, ptr %167, align 8, !tbaa !91
+  %168 = load ptr, ptr %167, align 8, !tbaa !89
   %169 = tail call double @N_VWrmsNorm(ptr noundef %166, ptr noundef %168) #13
   store double %169, ptr %1, align 8, !tbaa !67
   br label %170
@@ -3055,7 +3055,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %73 = load double, ptr %35, align 8, !tbaa !68
   %74 = tail call double @llvm.fmuladd.f64(double %.pre-phi181, double %73, double %72)
   %75 = load ptr, ptr %40, align 8, !tbaa !87
-  %76 = load ptr, ptr %55, align 8, !tbaa !104
+  %76 = load ptr, ptr %55, align 8, !tbaa !102
   %77 = load ptr, ptr %54, align 8, !tbaa !63
   %78 = tail call i32 %71(double noundef %74, ptr noundef %75, ptr noundef %76, ptr noundef %77) #13
   %79 = load i64, ptr %56, align 8, !tbaa !64
@@ -3072,7 +3072,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %84 = load ptr, ptr %40, align 8, !tbaa !87
   %85 = load double, ptr %35, align 8, !tbaa !68
   %86 = fmul double %85, 0x3FC5555555555555
-  %87 = load ptr, ptr %55, align 8, !tbaa !104
+  %87 = load ptr, ptr %55, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %84, double noundef %86, ptr noundef %87, ptr noundef %84) #13
   %88 = icmp eq i32 %.0129173, 4
   br i1 %88, label %89, label %96
@@ -3086,14 +3086,14 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %92 = load ptr, ptr %57, align 8, !tbaa !83
   %93 = load double, ptr %35, align 8, !tbaa !68
   %94 = fmul double %93, 3.000000e-01
-  %95 = load ptr, ptr %55, align 8, !tbaa !104
+  %95 = load ptr, ptr %55, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %92, double noundef %94, ptr noundef %95, ptr noundef %92) #13
   br label %96
 
 96:                                               ; preds = %83, %89, %91
   %97 = add nuw nsw i32 %.0129173, 1
   %exitcond = icmp eq i32 %97, 6
-  br i1 %exitcond, label %98, label %58, !llvm.loop !111
+  br i1 %exitcond, label %98, label %58
 
 98:                                               ; preds = %96
   %99 = load ptr, ptr %32, align 8, !tbaa !84
@@ -3129,7 +3129,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %117 = load double, ptr %35, align 8, !tbaa !68
   %118 = tail call double @llvm.fmuladd.f64(double %116, double %117, double %113)
   %119 = load ptr, ptr %40, align 8, !tbaa !87
-  %120 = load ptr, ptr %55, align 8, !tbaa !104
+  %120 = load ptr, ptr %55, align 8, !tbaa !102
   %121 = load ptr, ptr %54, align 8, !tbaa !63
   %122 = tail call i32 %112(double noundef %118, ptr noundef %119, ptr noundef %120, ptr noundef %121) #13
   %123 = load i64, ptr %56, align 8, !tbaa !64
@@ -3146,7 +3146,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %128 = load ptr, ptr %40, align 8, !tbaa !87
   %129 = load double, ptr %35, align 8, !tbaa !68
   %130 = fmul double %129, 0x3FC5555555555555
-  %131 = load ptr, ptr %55, align 8, !tbaa !104
+  %131 = load ptr, ptr %55, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %128, double noundef %130, ptr noundef %131, ptr noundef %128) #13
   switch i32 %.0174, label %140 [
     i32 7, label %132
@@ -3168,7 +3168,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %136 = load ptr, ptr %57, align 8, !tbaa !83
   %137 = load double, ptr %35, align 8, !tbaa !68
   %138 = fmul double %137, %.sink188
-  %139 = load ptr, ptr %55, align 8, !tbaa !104
+  %139 = load ptr, ptr %55, align 8, !tbaa !102
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %136, double noundef %138, ptr noundef %139, ptr noundef %136) #13
   br label %140
 
@@ -3193,7 +3193,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
 152:                                              ; preds = %140, %142
   %153 = add nuw nsw i32 %.0174, 1
   %exitcond177 = icmp eq i32 %153, 10
-  br i1 %exitcond177, label %154, label %111, !llvm.loop !112
+  br i1 %exitcond177, label %154, label %111
 
 154:                                              ; preds = %152
   %155 = load ptr, ptr %5, align 8, !tbaa !49
@@ -3201,7 +3201,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %157 = load double, ptr %35, align 8, !tbaa !68
   %158 = fadd double %156, %157
   %159 = load ptr, ptr %40, align 8, !tbaa !87
-  %160 = load ptr, ptr %55, align 8, !tbaa !104
+  %160 = load ptr, ptr %55, align 8, !tbaa !102
   %161 = load ptr, ptr %54, align 8, !tbaa !63
   %162 = tail call i32 %155(double noundef %158, ptr noundef %159, ptr noundef %160, ptr noundef %161) #13
   %163 = load i64, ptr %56, align 8, !tbaa !64
@@ -3227,7 +3227,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   %173 = fmul double %172, 1.000000e-01
   %174 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store double %173, ptr %174, align 8, !tbaa !67
-  %175 = load ptr, ptr %55, align 8, !tbaa !104
+  %175 = load ptr, ptr %55, align 8, !tbaa !102
   %176 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %175, ptr %176, align 8, !tbaa !88
   %177 = load ptr, ptr %40, align 8, !tbaa !87
@@ -3246,7 +3246,7 @@ lsrkStep_AccessStepMem.exit:                      ; preds = %3
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %182, double noundef -1.000000e+00, ptr noundef %183, ptr noundef %183) #13
   %184 = load ptr, ptr %57, align 8, !tbaa !83
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %186 = load ptr, ptr %185, align 8, !tbaa !91
+  %186 = load ptr, ptr %185, align 8, !tbaa !89
   %187 = tail call double @N_VWrmsNorm(ptr noundef %184, ptr noundef %186) #13
   store double %187, ptr %1, align 8, !tbaa !67
   br label %.thread
@@ -3381,27 +3381,18 @@ attributes #14 = { nounwind allocsize(0,1) }
 !86 = !{!4, !9, i64 752}
 !87 = !{!4, !11, i64 584}
 !88 = !{!11, !11, i64 0}
-!89 = distinct !{!89, !90}
-!90 = !{!"llvm.loop.estimated_trip_count"}
-!91 = !{!4, !11, i64 560}
-!92 = !{!18, !10, i64 28}
-!93 = !{!18, !10, i64 16}
-!94 = !{!18, !10, i64 20}
-!95 = !{!18, !14, i64 120}
-!96 = !{!18, !14, i64 40}
-!97 = !{!18, !9, i64 72}
-!98 = !{!18, !9, i64 80}
-!99 = !{!18, !9, i64 96}
-!100 = !{!18, !9, i64 104}
-!101 = !{!18, !9, i64 112}
-!102 = !{!103, !103, i64 0}
-!103 = !{!"p1 _ZTS20ARKodeLSRKStepMemRec", !6, i64 0}
-!104 = !{!4, !11, i64 632}
-!105 = !{!18, !10, i64 132}
-!106 = distinct !{!106, !90}
-!107 = distinct !{!107, !90}
-!108 = distinct !{!108, !90}
-!109 = distinct !{!109, !90}
-!110 = distinct !{!110, !90}
-!111 = distinct !{!111, !90}
-!112 = distinct !{!112, !90}
+!89 = !{!4, !11, i64 560}
+!90 = !{!18, !10, i64 28}
+!91 = !{!18, !10, i64 16}
+!92 = !{!18, !10, i64 20}
+!93 = !{!18, !14, i64 120}
+!94 = !{!18, !14, i64 40}
+!95 = !{!18, !9, i64 72}
+!96 = !{!18, !9, i64 80}
+!97 = !{!18, !9, i64 96}
+!98 = !{!18, !9, i64 104}
+!99 = !{!18, !9, i64 112}
+!100 = !{!101, !101, i64 0}
+!101 = !{!"p1 _ZTS20ARKodeLSRKStepMemRec", !6, i64 0}
+!102 = !{!4, !11, i64 632}
+!103 = !{!18, !10, i64 132}

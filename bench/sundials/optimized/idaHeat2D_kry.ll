@@ -257,7 +257,7 @@ check_retval.exit126:                             ; preds = %89
   %96 = add nuw nsw i32 %.067201, 1
   %97 = fmul double %.0202, 2.000000e+00
   %exitcond.not = icmp eq i32 %96, 12
-  br i1 %exitcond.not, label %98, label %89, !llvm.loop !21
+  br i1 %exitcond.not, label %98, label %89
 
 98:                                               ; preds = %94
   %99 = call i32 @IDAGetNumErrTestFails(ptr noundef nonnull %43, ptr noundef nonnull %3) #10
@@ -290,11 +290,11 @@ check_retval.exit130:                             ; preds = %check_retval.exit12
   br label %check_retval.exit132
 
 check_retval.exit132:                             ; preds = %check_retval.exit130, %111
-  %114 = load i64, ptr %3, align 8, !tbaa !23
+  %114 = load i64, ptr %3, align 8, !tbaa !21
   %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i64 noundef %114)
-  %116 = load i64, ptr %4, align 8, !tbaa !23
+  %116 = load i64, ptr %4, align 8, !tbaa !21
   %117 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i64 noundef %116)
-  %118 = load i64, ptr %5, align 8, !tbaa !23
+  %118 = load i64, ptr %5, align 8, !tbaa !21
   %119 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %118)
   call fastcc void @SetInitialProfile(ptr noundef nonnull %33, ptr noundef nonnull %13, ptr noundef nonnull %18, ptr noundef nonnull %23)
   %120 = call i32 @IDAReInit(ptr noundef nonnull %43, double noundef 0.000000e+00, ptr noundef nonnull %13, ptr noundef nonnull %18) #10
@@ -341,7 +341,7 @@ check_retval.exit138:                             ; preds = %130
   %137 = add nuw nsw i32 %.168203, 1
   %138 = fmul double %.1204, 2.000000e+00
   %exitcond208.not = icmp eq i32 %137, 12
-  br i1 %exitcond208.not, label %139, label %130, !llvm.loop !24
+  br i1 %exitcond208.not, label %139, label %130
 
 139:                                              ; preds = %135
   %140 = call i32 @IDAGetNumErrTestFails(ptr noundef nonnull %43, ptr noundef nonnull %3) #10
@@ -374,11 +374,11 @@ check_retval.exit142:                             ; preds = %check_retval.exit14
   br label %check_retval.exit144
 
 check_retval.exit144:                             ; preds = %check_retval.exit142, %152
-  %155 = load i64, ptr %3, align 8, !tbaa !23
+  %155 = load i64, ptr %3, align 8, !tbaa !21
   %156 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i64 noundef %155)
-  %157 = load i64, ptr %4, align 8, !tbaa !23
+  %157 = load i64, ptr %4, align 8, !tbaa !21
   %158 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i64 noundef %157)
-  %159 = load i64, ptr %5, align 8, !tbaa !23
+  %159 = load i64, ptr %5, align 8, !tbaa !21
   %160 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i64 noundef %159)
   call void @IDAFree(ptr noundef nonnull %1) #10
   %161 = call i32 @SUNLinSolFree(ptr noundef nonnull %69) #10
@@ -451,12 +451,12 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   store double %25, ptr %26, align 8, !tbaa !20
   %27 = add nuw nsw i64 %.055.us, 1
   %exitcond.not = icmp eq i64 %27, %5
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %17
 
 ._crit_edge.us:                                   ; preds = %17
   %28 = add nuw nsw i64 %.04956.us, 1
   %exitcond74.not = icmp eq i64 %28, %5
-  br i1 %exitcond74.not, label %._crit_edge59, label %.lr.ph.us, !llvm.loop !26
+  br i1 %exitcond74.not, label %._crit_edge59, label %.lr.ph.us, !llvm.loop !22
 
 ._crit_edge59:                                    ; preds = %._crit_edge.us, %4
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %2) #10
@@ -506,12 +506,12 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   store double %59, ptr %60, align 8, !tbaa !20
   %61 = add nuw nsw i64 %.038.us.i, 1
   %exitcond.not.i = icmp eq i64 %.038.us.i, %37
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %39, !llvm.loop !28
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %39
 
 ._crit_edge.us.i:                                 ; preds = %39
   %62 = add nuw nsw i64 %.03739.us.i, 1
   %exitcond43.not.i = icmp eq i64 %62, 9
-  br i1 %exitcond43.not.i, label %resHeat.exit, label %.lr.ph.us.i, !llvm.loop !29
+  br i1 %exitcond43.not.i, label %resHeat.exit, label %.lr.ph.us.i, !llvm.loop !24
 
 resHeat.exit:                                     ; preds = %._crit_edge.us.i, %._crit_edge59
   tail call void @N_VScale(double noundef -1.000000e+00, ptr noundef %3, ptr noundef %2) #10
@@ -545,7 +545,7 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
 72:                                               ; preds = %70, %.lr.ph.split.split.us70
   %73 = add nuw nsw i64 %.160.us65, 1
   %exitcond75.not = icmp eq i64 %73, %5
-  br i1 %exitcond75.not, label %._crit_edge.us69, label %.lr.ph.split.split.us70, !llvm.loop !30
+  br i1 %exitcond75.not, label %._crit_edge.us69, label %.lr.ph.split.split.us70
 
 .lr.ph.split.us68:                                ; preds = %.lr.ph.us66
   %74 = icmp eq i64 %.15062.us, %8
@@ -559,7 +559,7 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
 ._crit_edge.us69:                                 ; preds = %72, %._crit_edge.us69.sink.split
   %75 = add nuw nsw i64 %.15062.us, 1
   %exitcond77.not = icmp eq i64 %75, %5
-  br i1 %exitcond77.not, label %._crit_edge64, label %.lr.ph.us66, !llvm.loop !31
+  br i1 %exitcond77.not, label %._crit_edge64, label %.lr.ph.us66, !llvm.loop !25
 
 ._crit_edge64:                                    ; preds = %._crit_edge.us69, %resHeat.exit
   ret void
@@ -625,12 +625,12 @@ define dso_local noundef i32 @resHeat(double %0, ptr noundef %1, ptr noundef %2,
   store double %36, ptr %37, align 8, !tbaa !20
   %38 = add nuw nsw i64 %.038.us, 1
   %exitcond.not = icmp eq i64 %.038.us, %14
-  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge.us, label %16
 
 ._crit_edge.us:                                   ; preds = %16
   %39 = add nuw nsw i64 %.03739.us, 1
   %exitcond43.not = icmp eq i64 %39, 9
-  br i1 %exitcond43.not, label %.split41.us, label %.lr.ph.us, !llvm.loop !29
+  br i1 %exitcond43.not, label %.split41.us, label %.lr.ph.us, !llvm.loop !24
 
 .split41.us:                                      ; preds = %._crit_edge.us, %5
   ret i32 0
@@ -674,12 +674,12 @@ define dso_local noundef i32 @PsetupHeat(double %0, ptr readnone captures(none) 
   store double %15, ptr %21, align 8, !tbaa !20
   %22 = add nuw nsw i64 %.020.us, 1
   %exitcond.not = icmp eq i64 %22, %16
-  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge.us, label %20
 
 ._crit_edge.us:                                   ; preds = %20
   %23 = add nuw nsw i64 %.01821.us, 1
   %exitcond25.not = icmp eq i64 %23, %16
-  br i1 %exitcond25.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !33
+  br i1 %exitcond25.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !26
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %6
   ret i32 0
@@ -835,15 +835,15 @@ check_retval.exit28:                              ; preds = %check_retval.exit26
   br label %check_retval.exit30
 
 check_retval.exit30:                              ; preds = %check_retval.exit28, %62
-  %65 = load i32, ptr %13, align 4, !tbaa !34
-  %66 = load i64, ptr %5, align 8, !tbaa !23
-  %67 = load i64, ptr %6, align 8, !tbaa !23
-  %68 = load i64, ptr %7, align 8, !tbaa !23
-  %69 = load i64, ptr %8, align 8, !tbaa !23
-  %70 = load i64, ptr %9, align 8, !tbaa !23
+  %65 = load i32, ptr %13, align 4, !tbaa !27
+  %66 = load i64, ptr %5, align 8, !tbaa !21
+  %67 = load i64, ptr %6, align 8, !tbaa !21
+  %68 = load i64, ptr %7, align 8, !tbaa !21
+  %69 = load i64, ptr %8, align 8, !tbaa !21
+  %70 = load i64, ptr %9, align 8, !tbaa !21
   %71 = load double, ptr %4, align 8, !tbaa !20
-  %72 = load i64, ptr %11, align 8, !tbaa !23
-  %73 = load i64, ptr %12, align 8, !tbaa !23
+  %72 = load i64, ptr %11, align 8, !tbaa !21
+  %73 = load i64, ptr %12, align 8, !tbaa !21
   %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, double noundef %1, double noundef %14, i32 noundef %65, i64 noundef %66, i64 noundef %67, i64 noundef %68, i64 noundef %69, i64 noundef %70, double noundef %71, i64 noundef %72, i64 noundef %73)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
@@ -957,18 +957,11 @@ attributes #12 = { nounwind allocsize(0) }
 !18 = !{!12, !14, i64 16}
 !19 = !{!6, !6, i64 0}
 !20 = !{!14, !14, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!13, !13, i64 0}
-!24 = distinct !{!24, !22}
-!25 = distinct !{!25, !22}
-!26 = distinct !{!26, !22, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !22}
-!29 = distinct !{!29, !22, !27}
-!30 = distinct !{!30, !22}
-!31 = distinct !{!31, !22, !27}
-!32 = distinct !{!32, !22}
-!33 = distinct !{!33, !22, !27}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"int", !7, i64 0}
+!21 = !{!13, !13, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = distinct !{!26, !23}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"int", !7, i64 0}

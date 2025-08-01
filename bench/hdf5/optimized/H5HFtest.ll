@@ -243,9 +243,9 @@ define range(i32 -1, 2) i32 @H5HF_cmp_cparam_test(ptr noundef readonly captures(
 105:                                              ; preds = %.lr.ph, %103
   %.077108 = phi i64 [ 0, %.lr.ph ], [ %104, %103 ]
   %106 = getelementptr inbounds nuw i32, ptr %100, i64 %.077108
-  %107 = load i32, ptr %106, align 4, !tbaa !62
+  %107 = load i32, ptr %106, align 4, !tbaa !61
   %108 = getelementptr inbounds nuw i32, ptr %102, i64 %.077108
-  %109 = load i32, ptr %108, align 4, !tbaa !62
+  %109 = load i32, ptr %108, align 4, !tbaa !61
   %110 = icmp ult i32 %107, %109
   br i1 %110, label %.loopexit, label %111
 
@@ -256,7 +256,7 @@ define range(i32 -1, 2) i32 @H5HF_cmp_cparam_test(ptr noundef readonly captures(
 ._crit_edge:                                      ; preds = %103, %.preheader
   %113 = add nuw i64 %.078109, 1
   %exitcond126.not = icmp eq i64 %113, %65
-  br i1 %exitcond126.not, label %.loopexit, label %75, !llvm.loop !63
+  br i1 %exitcond126.not, label %.loopexit, label %75, !llvm.loop !62
 
 .loopexit:                                        ; preds = %75, %81, %83, %89, %91, %97, %._crit_edge, %111, %105, %.preheader105, %2, %9, %13, %15, %21, %23, %29, %31, %37, %39, %45, %47, %53, %55, %61, %63, %69
   %.079 = phi i32 [ 0, %2 ], [ -1, %9 ], [ 1, %13 ], [ -1, %15 ], [ 1, %21 ], [ -1, %23 ], [ 1, %29 ], [ -1, %31 ], [ 1, %37 ], [ -1, %39 ], [ 1, %45 ], [ -1, %47 ], [ 1, %53 ], [ -1, %55 ], [ 1, %61 ], [ -1, %63 ], [ 1, %69 ], [ 0, %.preheader105 ], [ 1, %111 ], [ -1, %105 ], [ -1, %75 ], [ 1, %81 ], [ -1, %83 ], [ 1, %89 ], [ -1, %91 ], [ 1, %97 ], [ 0, %._crit_edge ]
@@ -276,7 +276,7 @@ define i32 @H5HF_get_max_root_rows(ptr noundef readonly captures(none) %0) local
 8:                                                ; preds = %1
   %9 = load ptr, ptr %0, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 308
-  %11 = load i32, ptr %10, align 4, !tbaa !64
+  %11 = load i32, ptr %10, align 4, !tbaa !63
   br label %12
 
 12:                                               ; preds = %8, %1
@@ -297,7 +297,7 @@ define i32 @H5HF_get_dtable_width_test(ptr noundef readonly captures(none) %0) l
 8:                                                ; preds = %1
   %9 = load ptr, ptr %0, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
-  %11 = load i32, ptr %10, align 8, !tbaa !65
+  %11 = load i32, ptr %10, align 8, !tbaa !64
   br label %12
 
 12:                                               ; preds = %8, %1
@@ -318,7 +318,7 @@ define i32 @H5HF_get_dtable_max_drows_test(ptr noundef readonly captures(none) %
 8:                                                ; preds = %1
   %9 = load ptr, ptr %0, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 312
-  %11 = load i32, ptr %10, align 8, !tbaa !66
+  %11 = load i32, ptr %10, align 8, !tbaa !65
   br label %12
 
 12:                                               ; preds = %8, %1
@@ -339,9 +339,9 @@ define i32 @H5HF_get_iblock_max_drows_test(ptr noundef readonly captures(none) %
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 320
-  %12 = load i32, ptr %11, align 8, !tbaa !67
+  %12 = load i32, ptr %11, align 8, !tbaa !66
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 328
-  %14 = load i32, ptr %13, align 8, !tbaa !68
+  %14 = load i32, ptr %13, align 8, !tbaa !67
   %15 = add i32 %1, 1
   %16 = add i32 %15, %12
   %17 = sub i32 %16, %14
@@ -365,10 +365,10 @@ define i64 @H5HF_get_dblock_size_test(ptr noundef readonly captures(none) %0, i3
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 344
-  %12 = load ptr, ptr %11, align 8, !tbaa !69
+  %12 = load ptr, ptr %11, align 8, !tbaa !68
   %13 = zext i32 %1 to i64
   %14 = getelementptr inbounds nuw i64, ptr %12, i64 %13
-  %15 = load i64, ptr %14, align 8, !tbaa !70
+  %15 = load i64, ptr %14, align 8, !tbaa !69
   br label %16
 
 16:                                               ; preds = %9, %2
@@ -389,10 +389,10 @@ define i64 @H5HF_get_dblock_free_test(ptr noundef readonly captures(none) %0, i3
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 360
-  %12 = load ptr, ptr %11, align 8, !tbaa !71
+  %12 = load ptr, ptr %11, align 8, !tbaa !70
   %13 = zext i32 %1 to i64
   %14 = getelementptr inbounds nuw i64, ptr %12, i64 %13
-  %15 = load i64, ptr %14, align 8, !tbaa !70
+  %15 = load i64, ptr %14, align 8, !tbaa !69
   br label %16
 
 16:                                               ; preds = %9, %2
@@ -411,7 +411,7 @@ define noundef i32 @H5HF_get_id_off_test(ptr noundef readonly captures(none) %0,
   br i1 %9, label %10, label %.loopexit, !prof !9
 
 10:                                               ; preds = %3
-  store i64 0, ptr %2, align 8, !tbaa !70
+  store i64 0, ptr %2, align 8, !tbaa !69
   %11 = load ptr, ptr %0, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 697
   %13 = load i8, ptr %12, align 1, !tbaa !36
@@ -430,13 +430,13 @@ define noundef i32 @H5HF_get_id_off_test(ptr noundef readonly captures(none) %0,
   %.01213 = phi ptr [ %16, %.lr.ph ], [ %20, %17 ]
   %19 = shl i64 %18, 8
   %20 = getelementptr inbounds i8, ptr %.01213, i64 -1
-  %21 = load i8, ptr %20, align 1, !tbaa !72
+  %21 = load i8, ptr %20, align 1, !tbaa !71
   %22 = zext i8 %21 to i64
   %23 = or disjoint i64 %19, %22
-  store i64 %23, ptr %2, align 8, !tbaa !70
+  store i64 %23, ptr %2, align 8, !tbaa !69
   %24 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %24, %14
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !73
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !72
 
 .loopexit:                                        ; preds = %17, %10, %3
   ret i32 0
@@ -453,9 +453,9 @@ define noundef i32 @H5HF_get_id_type_test(ptr noundef readonly captures(none) %0
   br i1 %8, label %9, label %12, !prof !9
 
 9:                                                ; preds = %2
-  %10 = load i8, ptr %0, align 1, !tbaa !72
+  %10 = load i8, ptr %0, align 1, !tbaa !71
   %11 = and i8 %10, 48
-  store i8 %11, ptr %1, align 1, !tbaa !72
+  store i8 %11, ptr %1, align 1, !tbaa !71
   br label %12
 
 12:                                               ; preds = %9, %2
@@ -475,10 +475,10 @@ define noundef i32 @H5HF_get_tiny_info_test(ptr noundef readonly captures(none) 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 688
-  %13 = load i64, ptr %12, align 8, !tbaa !74
-  store i64 %13, ptr %1, align 8, !tbaa !70
+  %13 = load i64, ptr %12, align 8, !tbaa !73
+  store i64 %13, ptr %1, align 8, !tbaa !69
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 696
-  %15 = load i8, ptr %14, align 8, !tbaa !75, !range !7, !noundef !8
+  %15 = load i8, ptr %14, align 8, !tbaa !74, !range !7, !noundef !8
   store i8 %15, ptr %2, align 1, !tbaa !3
   br label %16
 
@@ -503,13 +503,13 @@ define noundef i32 @H5HF_get_huge_info_test(ptr noundef readonly captures(none) 
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %.pre, i64 400
-  %13 = load i64, ptr %12, align 8, !tbaa !76
-  store i64 %13, ptr %1, align 8, !tbaa !70
+  %13 = load i64, ptr %12, align 8, !tbaa !75
+  store i64 %13, ptr %1, align 8, !tbaa !69
   br label %14
 
 14:                                               ; preds = %11, %10
   %15 = getelementptr inbounds nuw i8, ptr %.pre, i64 681
-  %16 = load i8, ptr %15, align 1, !tbaa !77, !range !7, !noundef !8
+  %16 = load i8, ptr %15, align 1, !tbaa !76, !range !7, !noundef !8
   store i8 %16, ptr %2, align 1, !tbaa !3
   br label %17
 
@@ -587,22 +587,21 @@ attributes #7 = { nounwind }
 !56 = !{!53, !21, i64 4}
 !57 = !{!53, !19, i64 32}
 !58 = !{!53, !55, i64 56}
-!59 = distinct !{!59, !60, !61}
+!59 = distinct !{!59, !60}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!"llvm.loop.estimated_trip_count"}
-!62 = !{!21, !21, i64 0}
-!63 = distinct !{!63, !60, !61}
-!64 = !{!16, !21, i64 308}
-!65 = !{!16, !21, i64 264}
-!66 = !{!16, !21, i64 312}
-!67 = !{!16, !21, i64 320}
-!68 = !{!16, !21, i64 328}
-!69 = !{!16, !24, i64 344}
-!70 = !{!19, !19, i64 0}
-!71 = !{!16, !24, i64 360}
-!72 = !{!5, !5, i64 0}
-!73 = distinct !{!73, !60, !61}
-!74 = !{!16, !19, i64 688}
-!75 = !{!16, !4, i64 696}
-!76 = !{!16, !19, i64 400}
-!77 = !{!16, !4, i64 681}
+!61 = !{!21, !21, i64 0}
+!62 = distinct !{!62, !60}
+!63 = !{!16, !21, i64 308}
+!64 = !{!16, !21, i64 264}
+!65 = !{!16, !21, i64 312}
+!66 = !{!16, !21, i64 320}
+!67 = !{!16, !21, i64 328}
+!68 = !{!16, !24, i64 344}
+!69 = !{!19, !19, i64 0}
+!70 = !{!16, !24, i64 360}
+!71 = !{!5, !5, i64 0}
+!72 = distinct !{!72, !60}
+!73 = !{!16, !19, i64 688}
+!74 = !{!16, !4, i64 696}
+!75 = !{!16, !19, i64 400}
+!76 = !{!16, !4, i64 681}

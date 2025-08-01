@@ -269,7 +269,7 @@ _ZL11u_writeDiffiPh.exit:                         ; preds = %122, %113, %98, %84
   %141 = load ptr, ptr %140, align 8
   call void %141(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %.042, i32 noundef %138)
   %142 = icmp slt i32 %.137.lcssa, %2
-  br i1 %142, label %9, label %._crit_edge61, !llvm.loop !15
+  br i1 %142, label %9, label %._crit_edge61, !llvm.loop !14
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %4
   %.0.lcssa = phi i32 [ %0, %4 ], [ %.1.lcssa, %._crit_edge ]
@@ -302,7 +302,6 @@ attributes #2 = { nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"char16_t", !8, i64 0}
 !11 = !{!8, !8, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
+!14 = distinct !{!14, !13}

@@ -465,7 +465,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge42, %69
   %100 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %79, i64 %indvars.iv
   %101 = getelementptr %"class.cv::Point3_", ptr %99, i64 %indvars.iv
   %102 = getelementptr %"class.cv::Point3_", ptr %101, i64 %65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %102, ptr noundef nonnull align 2 dereferenceable(6) %100, i64 6, i1 false), !tbaa.struct !67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %102, ptr noundef nonnull align 2 dereferenceable(6) %100, i64 6, i1 false), !tbaa.struct !66
   br label %105
 
 103:                                              ; preds = %87
@@ -478,7 +478,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge42, %69
   %106 = load i32, ptr %60, align 4, !tbaa !56
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %indvars.iv.next, %107
-  br i1 %108, label %87, label %._crit_edge.loopexit, !llvm.loop !70
+  br i1 %108, label %87, label %._crit_edge.loopexit, !llvm.loop !69
 
 109:                                              ; preds = %103, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn30 = phi { ptr, i32 } [ %104, %103 ], [ %.pn28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
@@ -542,26 +542,26 @@ define noundef zeroext i1 @_ZN2cv6detail10Timelapser10test_pointENS_6Point_IiEE(
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load i32, ptr %3, align 8, !tbaa !71
+  %4 = load i32, ptr %3, align 8, !tbaa !70
   %.not.i = icmp sgt i32 %4, %.sroa.0.0.extract.trunc
   br i1 %.not.i, label %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load i32, ptr %6, align 8, !tbaa !72
+  %7 = load i32, ptr %6, align 8, !tbaa !71
   %8 = add nsw i32 %7, %4
   %9 = icmp sgt i32 %8, %.sroa.0.0.extract.trunc
   br i1 %9, label %10, label %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %12 = load i32, ptr %11, align 4, !tbaa !73
+  %12 = load i32, ptr %11, align 4, !tbaa !72
   %.not8.i = icmp sgt i32 %12, %.sroa.2.0.extract.trunc
   br i1 %.not8.i, label %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %15 = load i32, ptr %14, align 4, !tbaa !74
+  %15 = load i32, ptr %14, align 4, !tbaa !73
   %16 = add nsw i32 %15, %12
   %17 = icmp sgt i32 %16, %.sroa.2.0.extract.trunc
   br label %_ZNK2cv5Rect_IiE8containsIiEEbRKNS_6Point_IT_EE.exit
@@ -678,12 +678,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6deta
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !77
+  %10 = load i8, ptr %7, align 1, !tbaa !76
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -745,12 +745,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv6deta
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !75
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !77
+  %10 = load i8, ptr %7, align 1, !tbaa !76
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -867,18 +867,17 @@ attributes #22 = { noreturn nounwind }
 !60 = !{!42, !24, i64 16}
 !61 = !{!42, !48, i64 72}
 !62 = !{!26, !26, i64 0}
-!63 = distinct !{!63, !64, !65, !66}
+!63 = distinct !{!63, !64, !65}
 !64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!"llvm.loop.estimated_trip_count"}
-!66 = !{!"llvm.loop.unswitch.partial.disable"}
-!67 = !{i64 0, i64 2, !68, i64 2, i64 2, !68, i64 4, i64 2, !68}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"short", !11, i64 0}
-!70 = distinct !{!70, !64, !65}
-!71 = !{!53, !10, i64 0}
-!72 = !{!53, !10, i64 8}
-!73 = !{!53, !10, i64 4}
-!74 = !{!53, !10, i64 12}
-!75 = !{!76, !24, i64 8}
-!76 = !{!"_ZTSSt9type_info", !24, i64 8}
-!77 = !{!11, !11, i64 0}
+!65 = !{!"llvm.loop.unswitch.partial.disable"}
+!66 = !{i64 0, i64 2, !67, i64 2, i64 2, !67, i64 4, i64 2, !67}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"short", !11, i64 0}
+!69 = distinct !{!69, !64}
+!70 = !{!53, !10, i64 0}
+!71 = !{!53, !10, i64 8}
+!72 = !{!53, !10, i64 4}
+!73 = !{!53, !10, i64 12}
+!74 = !{!75, !24, i64 8}
+!75 = !{!"_ZTSSt9type_info", !24, i64 8}
+!76 = !{!11, !11, i64 0}

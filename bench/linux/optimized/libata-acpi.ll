@@ -735,7 +735,7 @@ define dso_local noundef range(i32 0, 2) i32 @ata_acpi_cbl_80wire(ptr noundef %0
 35:                                               ; preds = %9
   %36 = call ptr @ata_dev_next(ptr noundef nonnull %10, ptr noundef nonnull %4, i32 noundef 0) #8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.loopexit, label %9, !llvm.loop !11
+  br i1 %37, label %.loopexit, label %9, !llvm.loop !10
 
 .loopexit:                                        ; preds = %35, %9, %2
   %38 = phi i32 [ 0, %2 ], [ 0, %35 ], [ 1, %9 ]
@@ -876,7 +876,7 @@ ata_acpi_stm.exit:                                ; preds = %42, %42, %45
   br i1 %71, label %.critedge8, label %72
 
 72:                                               ; preds = %68
-  %73 = tail call fastcc i32 @ata_dev_get_GTF(ptr noundef nonnull %52, ptr noundef null), !range !12
+  %73 = tail call fastcc i32 @ata_dev_get_GTF(ptr noundef nonnull %52, ptr noundef null), !range !11
   %74 = icmp sgt i32 %73, -1
   br i1 %74, label %75, label %.critedge8
 
@@ -889,7 +889,7 @@ ata_acpi_stm.exit:                                ; preds = %42, %42, %45
 .critedge8:                                       ; preds = %.preheader, %.critedge6, %61, %75, %72, %68
   %78 = tail call ptr @ata_dev_next(ptr noundef nonnull %52, ptr noundef nonnull %49, i32 noundef 2) #8
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %79, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .critedge:                                        ; preds = %1, %14
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8256
@@ -923,7 +923,7 @@ ata_acpi_stm.exit:                                ; preds = %42, %42, %45
 91:                                               ; preds = %.preheader12, %.critedge11
   %92 = tail call ptr @ata_dev_next(ptr noundef nonnull %83, ptr noundef nonnull %80, i32 noundef 2) #8
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %.loopexit, label %.preheader12, !llvm.loop !14
+  br i1 %93, label %.loopexit, label %.preheader12, !llvm.loop !13
 
 .loopexit:                                        ; preds = %91, %.critedge8, %.critedge, %ata_acpi_stm.exit
   ret void
@@ -1130,7 +1130,7 @@ define dso_local void @ata_acpi_set_state(ptr noundef %0, i32 %1) local_unnamed_
 .thread.us:                                       ; preds = %43, %38, %28, %21, %.split.us
   %45 = tail call ptr @ata_dev_next(ptr noundef nonnull %16, ptr noundef nonnull %10, i32 noundef 0) #8
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread8, label %.split.us, !llvm.loop !15
+  br i1 %46, label %.thread8, label %.split.us, !llvm.loop !14
 
 .split:                                           ; preds = %13, %.thread
   %47 = phi ptr [ %65, %.thread ], [ %11, %13 ]
@@ -1162,7 +1162,7 @@ define dso_local void @ata_acpi_set_state(ptr noundef %0, i32 %1) local_unnamed_
 .thread:                                          ; preds = %52, %.split, %63, %59
   %65 = tail call ptr @ata_dev_next(ptr noundef nonnull %47, ptr noundef nonnull %10, i32 noundef 0) #8
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.thread8, label %.split, !llvm.loop !17
+  br i1 %66, label %.thread8, label %.split, !llvm.loop !16
 
 67:                                               ; preds = %2
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 15424
@@ -1229,7 +1229,7 @@ define dso_local void @ata_acpi_set_state(ptr noundef %0, i32 %1) local_unnamed_
 .thread10:                                        ; preds = %96, %90, %107, %103
   %109 = tail call ptr @ata_dev_next(ptr noundef nonnull %91, ptr noundef nonnull %84, i32 noundef 0) #8
   %110 = icmp eq ptr %109, null
-  br i1 %110, label %.loopexit, label %90, !llvm.loop !18
+  br i1 %110, label %.loopexit, label %90, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.thread10, %83
   br i1 %80, label %111, label %.thread8
@@ -1361,7 +1361,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
 69:                                               ; preds = %.thread16, %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store ptr null, ptr %3, align 8
-  %70 = call fastcc i32 @ata_dev_get_GTF(ptr noundef %0, ptr noundef nonnull %3), !range !12
+  %70 = call fastcc i32 @ata_dev_get_GTF(ptr noundef %0, ptr noundef nonnull %3), !range !11
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %272, label %72
 
@@ -1625,7 +1625,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   %228 = getelementptr i8, ptr %225, i64 7
   store ptr %228, ptr %3, align 8
   %229 = icmp eq i32 %227, %70
-  br i1 %229, label %.loopexit57.loopexit, label %88, !llvm.loop !19
+  br i1 %229, label %.loopexit57.loopexit, label %88, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.thread17
   %230 = load ptr, ptr %0, align 64
@@ -1839,12 +1839,12 @@ define internal fastcc void @ata_acpi_handle_hotplug(ptr noundef %0, ptr noundef
   store i64 %37, ptr %35, align 16
   %38 = tail call ptr @ata_dev_next(ptr noundef nonnull %34, ptr noundef nonnull %31, i32 noundef 2) #8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %.preheader4
   %40 = tail call ptr @ata_link_next(ptr noundef nonnull %31, ptr noundef %0, i32 noundef 0) #8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.loopexit5, label %.preheader4, !llvm.loop !21
+  br i1 %41, label %.loopexit5, label %.preheader4, !llvm.loop !20
 
 .loopexit5:                                       ; preds = %.loopexit, %28, %24
   tail call void @ata_port_schedule_eh(ptr noundef %0) #8
@@ -1925,18 +1925,17 @@ attributes #10 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i32 -22, i32 1}
 !6 = !{!"auto-init"}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = !{i32 -22, i32 613566757}
-!13 = distinct !{!13, !8, !9, !10}
-!14 = distinct !{!14, !8, !9, !10}
-!15 = distinct !{!15, !8, !9, !10, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !8, !9, !10}
-!18 = distinct !{!18, !8, !9, !10}
-!19 = distinct !{!19, !8, !9, !10}
-!20 = distinct !{!20, !8, !9, !10}
-!21 = distinct !{!21, !8, !9, !10}
+!10 = distinct !{!10, !8, !9}
+!11 = !{i32 -22, i32 613566757}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}

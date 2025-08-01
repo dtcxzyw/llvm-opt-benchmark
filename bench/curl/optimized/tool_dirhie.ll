@@ -97,7 +97,7 @@ define dso_local range(i32 0, 28) i32 @create_dir_hierarchy(ptr noundef readonly
 .lr.ph:                                           ; preds = %26, %26, %23
   %29 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str) #11
   %.not45 = icmp eq ptr %29, null
-  br i1 %.not45, label %.loopexit, label %.lr.ph77, !llvm.loop !9
+  br i1 %.not45, label %.loopexit, label %.lr.ph77
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %8, %.thread63
   %.4 = phi i32 [ 23, %.thread63 ], [ 0, %8 ], [ 0, %.lr.ph.preheader ], [ 0, %.lr.ph ]
@@ -168,5 +168,3 @@ attributes #13 = { nounwind willreturn memory(none) }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}

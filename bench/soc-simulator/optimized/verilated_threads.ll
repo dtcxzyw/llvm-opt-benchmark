@@ -539,10 +539,10 @@ define linkonce_odr dso_local void @_ZN14VlWorkerThread7addTaskEPFvPvbES0_b(ptr 
   br i1 %.not.i.i2.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %8
 
 8:                                                ; preds = %.preheader.i.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !11
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !10
   %9 = add nuw nsw i32 %.03.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %9, 50000
-  br i1 %exitcond.not.i.i, label %10, label %.preheader.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %10, label %.preheader.i.i, !llvm.loop !11
 
 10:                                               ; preds = %8
   %11 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
@@ -615,11 +615,11 @@ _ZNKSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc12, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i ], [ %37, %.noexc12 ]
   %.0911.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i ], [ %25, %.noexc12 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i.i, i64 24, i1 false), !alias.scope !13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i.i, i64 24, i1 false), !alias.scope !12
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %41, %16
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !16
 
 _ZNSt6vectorIN14VlWorkerThread7ExecRecESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.i: ; preds = %.lr.ph.i.i.i.i.i, %.noexc12
   %.0.lcssa.i.i.i.i.i = phi ptr [ %37, %.noexc12 ], [ %42, %.lr.ph.i.i.i.i.i ]
@@ -709,16 +709,16 @@ define dso_local void @_ZN14VlWorkerThread4waitEv(ptr noundef nonnull align 8 de
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !18
+  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !17
   %9 = add nuw nsw i32 %.03, 1
   %exitcond.not = icmp eq i32 %9, 50000
-  br i1 %exitcond.not, label %.preheader, label %5, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader, label %5, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %10 = call noundef i32 @sched_yield() #24
   %11 = load atomic i8, ptr %2 seq_cst, align 1
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %12, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %5, %.lr.ph, %.preheader
   ret void
@@ -766,10 +766,10 @@ define linkonce_odr dso_local void @_ZN14VlWorkerThread9dequeWorkILb0EEEvPNS_7Ex
   br i1 %.not.i.i2.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %5
 
 5:                                                ; preds = %.preheader.i.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !11
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !10
   %6 = add nuw nsw i32 %.03.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %6, 50000
-  br i1 %exitcond.not.i.i, label %7, label %.preheader.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %7, label %.preheader.i.i, !llvm.loop !11
 
 7:                                                ; preds = %5
   %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
@@ -798,7 +798,7 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %2,
 20:                                               ; preds = %13
   store i8 1, ptr %19, align 8
   invoke void @_ZNSt3_V222condition_variable_any4waitI14VerilatedMutexEEvRT_(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %13 unwind label %21, !llvm.loop !21
+          to label %13 unwind label %21, !llvm.loop !20
 
 21:                                               ; preds = %20
   %22 = landingpad { ptr, i32 }
@@ -855,10 +855,10 @@ define linkonce_odr dso_local void @_ZN14VlWorkerThread9dequeWorkILb1EEEvPNS_7Ex
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %4
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !22
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !21
   %7 = add nuw nsw i32 %.01722, 1
   %exitcond.not = icmp eq i32 %7, 50000
-  br i1 %exitcond.not, label %8, label %4, !llvm.loop !23
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !22
 
 8:                                                ; preds = %4, %6
   %9 = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
@@ -872,10 +872,10 @@ define linkonce_odr dso_local void @_ZN14VlWorkerThread9dequeWorkILb1EEEvPNS_7Ex
   br i1 %.not.i.i2.i.i, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit, label %11
 
 11:                                               ; preds = %.preheader.i.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !11
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !10
   %12 = add nuw nsw i32 %.03.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %12, 50000
-  br i1 %exitcond.not.i.i, label %13, label %.preheader.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %13, label %.preheader.i.i, !llvm.loop !11
 
 13:                                               ; preds = %11
   %14 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
@@ -904,7 +904,7 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %8,
 26:                                               ; preds = %19
   store i8 1, ptr %25, align 8
   invoke void @_ZNSt3_V222condition_variable_any4waitI14VerilatedMutexEEvRT_(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %19 unwind label %27, !llvm.loop !24
+          to label %19 unwind label %27, !llvm.loop !23
 
 27:                                               ; preds = %26
   %28 = landingpad { ptr, i32 }
@@ -1056,7 +1056,7 @@ _ZNSt6vectorIP14VlWorkerThreadSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17_
 _ZNSt6vectorIP14VlWorkerThreadSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP14VlWorkerThreadSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %13
   %36 = add nuw i32 %.0712, 1
   %exitcond.not = icmp eq i32 %36, %2
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !24
 
 .loopexit:                                        ; preds = %7, %_ZNKSt6vectorIP14VlWorkerThreadSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1124,7 +1124,7 @@ define dso_local void @_ZN12VlThreadPoolD2Ev(ptr noundef nonnull readonly align 
 10:                                               ; preds = %.lr.ph, %9
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.04.07, i64 8
   %12 = icmp eq ptr %11, %5
-  br i1 %12, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %12, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %10
   %.pre = load ptr, ptr %2, align 8
@@ -1171,7 +1171,7 @@ define dso_local void @_ZN12VlThreadPoolD0Ev(ptr noundef nonnull align 8 derefer
 10:                                               ; preds = %9, %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i, i64 8
   %12 = icmp eq ptr %11, %5
-  br i1 %12, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !26
+  br i1 %12, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %10
   %.pre.i = load ptr, ptr %2, align 8
@@ -1358,10 +1358,10 @@ define linkonce_odr dso_local void @_ZN18VerilatedLockGuardC2ER14VerilatedMutex(
   br i1 %.not.i.i2.i, label %_ZN14VerilatedMutex4lockEv.exit, label %5
 
 5:                                                ; preds = %.preheader.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !11
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !10
   %6 = add nuw nsw i32 %.03.i, 1
   %exitcond.not.i = icmp eq i32 %6, 50000
-  br i1 %exitcond.not.i, label %7, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %7, label %.preheader.i, !llvm.loop !11
 
 7:                                                ; preds = %5
   %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #24
@@ -1396,10 +1396,10 @@ define linkonce_odr dso_local void @_ZN14VerilatedMutex4lockEv(ptr noundef nonnu
   br i1 %.not.i.i2, label %_ZNSt5mutex4lockEv.exit, label %4
 
 4:                                                ; preds = %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !11
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !10
   %5 = add nuw nsw i32 %.03, 1
   %exitcond.not = icmp eq i32 %5, 50000
-  br i1 %exitcond.not, label %6, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %6, label %.preheader, !llvm.loop !11
 
 6:                                                ; preds = %4
   %7 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
@@ -1710,10 +1710,10 @@ define linkonce_odr dso_local void @_ZNSt3_V222condition_variable_any7_UnlockI14
   br i1 %.not.i.i2.i, label %_ZN14VerilatedMutex4lockEv.exit, label %7
 
 7:                                                ; preds = %.preheader.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !11
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !10
   %8 = add nuw nsw i32 %.03.i, 1
   %exitcond.not.i = icmp eq i32 %8, 50000
-  br i1 %exitcond.not.i, label %9, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %9, label %.preheader.i, !llvm.loop !11
 
 9:                                                ; preds = %7
   %10 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #24
@@ -1762,10 +1762,10 @@ define linkonce_odr dso_local void @_ZNSt3_V222condition_variable_any7_UnlockI14
   br i1 %.not.i.i2.i8, label %_ZN14VerilatedMutex4lockEv.exit, label %25
 
 25:                                               ; preds = %.preheader.i6
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !11
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !10
   %26 = add nuw nsw i32 %.03.i7, 1
   %exitcond.not.i9 = icmp eq i32 %26, 50000
-  br i1 %exitcond.not.i9, label %27, label %.preheader.i6, !llvm.loop !12
+  br i1 %exitcond.not.i9, label %27, label %.preheader.i6, !llvm.loop !11
 
 27:                                               ; preds = %25
   %28 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #24
@@ -1864,22 +1864,20 @@ attributes #29 = { nounwind willreturn memory(read) }
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZSt11make_sharedISt5mutexJEESt10shared_ptrIT_EDpOT0_: argument 0"}
 !7 = distinct !{!7, !"_ZSt11make_sharedISt5mutexJEESt10shared_ptrIT_EDpOT0_"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 2153422205}
-!12 = distinct !{!12, !9, !10}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"_ZSt19__relocate_object_aIN14VlWorkerThread7ExecRecES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!15 = distinct !{!15, !"_ZSt19__relocate_object_aIN14VlWorkerThread7ExecRecES1_SaIS1_EEvPT_PT0_RT1_"}
-!16 = distinct !{!16, !15, !"_ZSt19__relocate_object_aIN14VlWorkerThread7ExecRecES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!17 = distinct !{!17, !9, !10}
-!18 = !{i64 2153704878}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = !{i64 2153699829}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !10}
+!10 = !{i64 2153422205}
+!11 = distinct !{!11, !9}
+!12 = !{!13, !15}
+!13 = distinct !{!13, !14, !"_ZSt19__relocate_object_aIN14VlWorkerThread7ExecRecES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!14 = distinct !{!14, !"_ZSt19__relocate_object_aIN14VlWorkerThread7ExecRecES1_SaIS1_EEvPT_PT0_RT1_"}
+!15 = distinct !{!15, !14, !"_ZSt19__relocate_object_aIN14VlWorkerThread7ExecRecES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!16 = distinct !{!16, !9}
+!17 = !{i64 2153704878}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = !{i64 2153699829}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}

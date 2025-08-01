@@ -230,7 +230,7 @@ define noundef i32 @_ZN3tbb6detail2r122AvailableHwConcurrencyEv() local_unnamed_
 27:                                               ; preds = %22
   tail call void @_ZdaPv(ptr noundef nonnull %18) #14
   %28 = shl i32 %.043.i, 1
-  br label %12, !llvm.loop !12
+  br label %12
 
 29:                                               ; preds = %12
   store i32 %.043.i, ptr @_ZN3tbb6detail2r1L9num_masksE, align 4, !tbaa !11
@@ -352,7 +352,7 @@ _ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i: ; preds = %_ZN
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %66 = icmp slt i64 %indvars.iv.next.i, %13
   %67 = select i1 %77, i1 %66, i1 false
-  br i1 %67, label %.preheader.i, label %._crit_edge.i, !llvm.loop !14
+  br i1 %67, label %.preheader.i, label %._crit_edge.i, !llvm.loop !12
 
 68:                                               ; preds = %68, %.preheader.i
   %.169.i = phi i32 [ %.071.i, %.preheader.i ], [ %spec.select.i, %68 ]
@@ -360,7 +360,7 @@ _ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i: ; preds = %_ZN
   %69 = and i64 %.04568.i, 63
   %70 = lshr i64 %.04568.i, 6
   %71 = getelementptr inbounds nuw i64, ptr %64, i64 %70
-  %72 = load i64, ptr %71, align 8, !tbaa !16
+  %72 = load i64, ptr %71, align 8, !tbaa !14
   %73 = lshr i64 %72, %69
   %74 = trunc i64 %73 to i32
   %75 = and i32 %74, 1
@@ -369,7 +369,7 @@ _ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i: ; preds = %_ZN
   %77 = icmp slt i32 %spec.select.i, %11
   %78 = icmp samesign ult i64 %.04568.i, 1023
   %79 = select i1 %77, i1 %78, i1 false
-  br i1 %79, label %68, label %65, !llvm.loop !18
+  br i1 %79, label %68, label %65, !llvm.loop !16
 
 80:                                               ; preds = %22
   %81 = icmp eq i32 %11, 2147483647
@@ -420,7 +420,7 @@ _ZNSt6atomicIN3tbb6detail2d013do_once_stateEE23compare_exchange_strongERS3_S3_St
   %97 = add nsw i32 %.01.i.i.us.i.i, -1
   tail call void @llvm.x86.sse2.pause()
   %98 = icmp samesign ugt i32 %.01.i.i.us.i.i, 1
-  br i1 %98, label %.lr.ph.i.i.us.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i, !llvm.loop !19
+  br i1 %98, label %.lr.ph.i.i.us.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i, !llvm.loop !17
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i: ; preds = %.lr.ph.i.i.us.i.i, %95
   %99 = shl nsw i32 %.sroa.0.09.us.i.i, 1
@@ -430,12 +430,12 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i: ; preds = %_ZN3tbb6detail
   %.sroa.0.1.us.i.i = phi i32 [ %99, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i.i ], [ %.sroa.0.09.us.i.i, %93 ]
   %100 = load atomic i32, ptr @_ZN3tbb6detail2r1L25hardware_concurrency_infoE acquire, align 4
   %101 = icmp eq i32 %100, 1
-  br i1 %101, label %.lr.ph.i.i, label %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i, !llvm.loop !20
+  br i1 %101, label %.lr.ph.i.i, label %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i, !llvm.loop !18
 
 _ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i.i, %_ZNSt6atomicIN3tbb6detail2d013do_once_stateEE23compare_exchange_strongERS3_S3_St12memory_orderS6_.exit.i
   %102 = load atomic i32, ptr @_ZN3tbb6detail2r1L25hardware_concurrency_infoE acquire, align 4
   %.not.i = icmp eq i32 %102, 2
-  br i1 %.not.i, label %_ZN3tbb6detail2d014atomic_do_onceIPFvvEEEvRKT_RSt6atomicINS1_13do_once_stateEE.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %_ZN3tbb6detail2d014atomic_do_onceIPFvvEEEvRKT_RSt6atomicINS1_13do_once_stateEE.exit, label %.lr.ph.i, !llvm.loop !20
 
 _ZN3tbb6detail2d014atomic_do_onceIPFvvEEEvRKT_RSt6atomicINS1_13do_once_stateEE.exit: ; preds = %_ZN3tbb6detail2d015spin_wait_whileINS1_13do_once_stateEZNS1_18spin_wait_while_eqIS3_S3_EET_RKSt6atomicIS5_ET0_St12memory_orderEUlS3_E_EES5_S9_SA_SB_.exit.i, %0, %_ZN3tbb6detail2r1L36initialize_hardware_concurrency_infoEv.exit
   %103 = load i32, ptr @_ZN3tbb6detail2r1L11theNumProcsE, align 4, !tbaa !11
@@ -516,13 +516,11 @@ attributes #18 = { nounwind willreturn memory(none) }
 !10 = !{!8, !9, i64 8}
 !11 = !{!9, !9, i64 0}
 !12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !15, !13}
-!15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !5, i64 0}
-!18 = distinct !{!18, !15, !13}
-!19 = distinct !{!19, !15, !13}
-!20 = distinct !{!20, !15, !13, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !15, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !5, i64 0}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !13}

@@ -563,7 +563,7 @@ define dso_local void @jw_object_sub_jw(ptr noundef %0, ptr noundef %1, ptr noun
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 149, ptr noundef nonnull @.str.18, ptr noundef %8) #9
   unreachable
 
@@ -603,7 +603,7 @@ strbuf_setlen.exit.i:                             ; preds = %11
   store i64 0, ptr %15, align 8, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !22
+  %18 = load i64, ptr %17, align 8, !tbaa !21
   %.not.i = icmp eq i64 %18, 0
   br i1 %.not.i, label %increase_indent.exit, label %.lr.ph.i
 
@@ -616,7 +616,7 @@ strbuf_setlen.exit.i:                             ; preds = %11
 
 22:                                               ; preds = %36, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
-  %23 = load ptr, ptr %20, align 8, !tbaa !21
+  %23 = load ptr, ptr %20, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv.i
   %25 = load i8, ptr %24, align 1, !tbaa !13
   %26 = load i64, ptr %3, align 8, !tbaa !4
@@ -655,9 +655,9 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
 
 36:                                               ; preds = %35, %strbuf_addch.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %37 = load i64, ptr %17, align 8, !tbaa !22
+  %37 = load i64, ptr %17, align 8, !tbaa !21
   %38 = icmp ugt i64 %37, %indvars.iv.next.i
-  br i1 %38, label %22, label %increase_indent.exit, !llvm.loop !23
+  br i1 %38, label %22, label %increase_indent.exit, !llvm.loop !22
 
 increase_indent.exit:                             ; preds = %36, %strbuf_setlen.exit.i
   call void @strbuf_addbuf(ptr noundef %0, ptr noundef nonnull %3) #8
@@ -679,7 +679,7 @@ strbuf_setlen.exit.i17:                           ; preds = %39
   store i64 0, ptr %43, align 8, !tbaa !11
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !22
+  %46 = load i64, ptr %45, align 8, !tbaa !21
   %.not.i18 = icmp eq i64 %46, 0
   br i1 %.not.i18, label %kill_indent.exit, label %.lr.ph.i19
 
@@ -691,7 +691,7 @@ strbuf_setlen.exit.i17:                           ; preds = %39
   %49 = phi i64 [ %46, %.lr.ph.i19 ], [ %66, %65 ]
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i27, %65 ]
   %.01216.i = phi i32 [ 0, %.lr.ph.i19 ], [ %.1.i, %65 ]
-  %50 = load ptr, ptr %47, align 8, !tbaa !21
+  %50 = load ptr, ptr %47, align 8, !tbaa !20
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv.i20
   %52 = load i8, ptr %51, align 1, !tbaa !13
   %53 = icmp ne i32 %.01216.i, 0
@@ -729,7 +729,7 @@ strbuf_addch.exit.i25:                            ; preds = %strbuf_avail.exit.t
   %63 = load i64, ptr %43, align 8, !tbaa !11
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 %63
   store i8 0, ptr %64, align 1, !tbaa !13
-  %.pre.i = load i64, ptr %45, align 8, !tbaa !22
+  %.pre.i = load i64, ptr %45, align 8, !tbaa !21
   br label %65
 
 65:                                               ; preds = %strbuf_addch.exit.i25, %48
@@ -737,7 +737,7 @@ strbuf_addch.exit.i25:                            ; preds = %strbuf_avail.exit.t
   %.1.i = phi i32 [ 0, %strbuf_addch.exit.i25 ], [ 1, %48 ]
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i20, 1
   %67 = icmp ugt i64 %66, %indvars.iv.next.i27
-  br i1 %67, label %48, label %kill_indent.exit, !llvm.loop !24
+  br i1 %67, label %48, label %kill_indent.exit, !llvm.loop !23
 
 kill_indent.exit:                                 ; preds = %65, %strbuf_setlen.exit.i17
   call void @strbuf_addbuf(ptr noundef %0, ptr noundef nonnull %4) #8
@@ -1183,7 +1183,7 @@ define dso_local void @jw_array_sub_jw(ptr noundef %0, ptr noundef %1) local_unn
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 149, ptr noundef nonnull @.str.18, ptr noundef %7) #9
   unreachable
 
@@ -1205,12 +1205,12 @@ define dso_local void @jw_array_argc_argv(ptr noundef %0, i32 noundef %1, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !24
   tail call fastcc void @array_common(ptr noundef %0)
   tail call fastcc void @append_quoted_string(ptr noundef %0, ptr noundef readonly %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1218,7 +1218,7 @@ define dso_local void @jw_array_argc_argv(ptr noundef %0, i32 noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @jw_array_argv(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !25
+  %3 = load ptr, ptr %1, align 8, !tbaa !24
   %.not4 = icmp eq ptr %3, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -1228,9 +1228,9 @@ define dso_local void @jw_array_argv(ptr noundef %0, ptr noundef readonly captur
   %5 = getelementptr inbounds nuw i8, ptr %.05, i64 8
   tail call fastcc void @array_common(ptr noundef %0)
   tail call fastcc void @append_quoted_string(ptr noundef %0, ptr noundef nonnull readonly %4)
-  %6 = load ptr, ptr %5, align 8, !tbaa !25
+  %6 = load ptr, ptr %5, align 8, !tbaa !24
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1400,7 +1400,7 @@ define dso_local void @jw_end(ptr noundef %0) local_unnamed_addr #3 {
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !21
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.4, i32 noundef 394, ptr noundef nonnull @.str.5, ptr noundef %6) #9
   unreachable
 
@@ -1574,13 +1574,12 @@ attributes #9 = { noreturn nounwind }
 !15 = !{!"json_writer", !5, i64 0, !5, i64 24, !16, i64 48, !16, i64 48}
 !16 = !{!"int", !7, i64 0}
 !17 = !{!15, !9, i64 40}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!15, !9, i64 16}
-!22 = !{!15, !6, i64 8}
-!23 = distinct !{!23, !19, !20}
-!24 = distinct !{!24, !19, !20}
-!25 = !{!9, !9, i64 0}
-!26 = distinct !{!26, !19, !20}
-!27 = distinct !{!27, !19, !20}
+!20 = !{!15, !9, i64 16}
+!21 = !{!15, !6, i64 8}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
+!24 = !{!9, !9, i64 0}
+!25 = distinct !{!25, !19}
+!26 = distinct !{!26, !19}

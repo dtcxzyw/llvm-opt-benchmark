@@ -327,7 +327,7 @@ define void @_ZN21rcHeightfieldLayerSetD2Ev(ptr noundef nonnull readonly align 8
   %17 = load i32, ptr %2, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %16, %1
   %20 = load ptr, ptr %0, align 8
@@ -408,7 +408,7 @@ define void @_ZN12rcContourSetD2Ev(ptr noundef nonnull readonly align 8 captures
   %13 = load i32, ptr %2, align 8
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %12, %1
   %16 = load ptr, ptr %0, align 8
@@ -602,7 +602,7 @@ define void @_Z12rcCalcBoundsPKfiPfS1_(ptr noundef readonly captures(none) %0, i
   store float %44, ptr %16, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -765,7 +765,7 @@ define void @_Z23rcMarkWalkableTrianglesP9rcContextfPKfiPKiiPh(ptr noundef readn
 67:                                               ; preds = %.lr.ph, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %67, %7
   ret void
@@ -853,7 +853,7 @@ define void @_Z26rcClearUnwalkableTrianglesP9rcContextfPKfiPKiiPh(ptr noundef re
 67:                                               ; preds = %.lr.ph, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %67, %7
   ret void
@@ -892,13 +892,13 @@ define noundef i32 @_Z25rcGetHeightFieldSpanCountP9rcContextRK13rcHeightfield(pt
   %14 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %.0 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.1.lcssa = phi i32 [ %.01218, %10 ], [ %spec.select, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge22, label %10, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge22, label %10, !llvm.loop !12
 
 ._crit_edge22:                                    ; preds = %._crit_edge, %2
   %.012.lcssa = phi i32 [ 0, %2 ], [ %.1.lcssa, %._crit_edge ]
@@ -962,13 +962,13 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit: ; preds = %10, %14
   %29 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %.0.i = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %25
   %.1.lcssa.i = phi i32 [ %.01218.i, %25 ], [ %spec.select.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_Z25rcGetHeightFieldSpanCountP9rcContextRK13rcHeightfield.exit, label %25, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_Z25rcGetHeightFieldSpanCountP9rcContextRK13rcHeightfield.exit, label %25, !llvm.loop !12
 
 _Z25rcGetHeightFieldSpanCountP9rcContextRK13rcHeightfield.exit: ; preds = %._crit_edge.i, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit
   %.012.lcssa.i = phi i32 [ 0, %_ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit ], [ %.1.lcssa.i, %._crit_edge.i ]
@@ -1137,7 +1137,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %.2167.lcssa.us = phi i32 [ %.1166218.us, %99 ], [ %.4.us, %114 ]
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %96
-  br i1 %exitcond245.not, label %._crit_edge220.us, label %99, !llvm.loop !14
+  br i1 %exitcond245.not, label %._crit_edge220.us, label %99, !llvm.loop !13
 
 .lr.ph215.us:                                     ; preds = %.lr.ph215.us.preheader, %114
   %indvars.iv238 = phi i64 [ %108, %.lr.ph215.us.preheader ], [ %indvars.iv.next239, %114 ]
@@ -1151,7 +1151,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 114:                                              ; preds = %.loopexit.us
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %115 = icmp samesign ult i64 %indvars.iv.next239, %109
-  br i1 %115, label %.lr.ph215.us, label %._crit_edge.us, !llvm.loop !15
+  br i1 %115, label %.lr.ph215.us, label %._crit_edge.us, !llvm.loop !14
 
 116:                                              ; preds = %.loopexit.us, %.lr.ph215.us
   %117 = phi i32 [ %164, %.loopexit.us ], [ %.pre, %.lr.ph215.us ]
@@ -1229,7 +1229,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %.4.us = phi i32 [ %.3168212.us, %116 ], [ %.5208.us, %158 ], [ %.3168212.us, %133 ], [ %.6.us, %167 ]
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next235, 4
-  br i1 %exitcond237.not, label %114, label %116, !llvm.loop !16
+  br i1 %exitcond237.not, label %114, label %116, !llvm.loop !15
 
 165:                                              ; preds = %155
   %166 = tail call noundef i32 @llvm.smax.i32(i32 %.5208.us, i32 %157)
@@ -1239,7 +1239,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %.6.us = phi i32 [ %166, %165 ], [ %.5208.us, %152 ], [ %.5208.us, %140 ]
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %168 = icmp samesign ult i64 %indvars.iv.next232, %180
-  br i1 %168, label %140, label %.loopexit.us, !llvm.loop !17
+  br i1 %168, label %140, label %.loopexit.us, !llvm.loop !16
 
 .lr.ph210.us:                                     ; preds = %133
   %169 = and i32 %139, 16777215
@@ -1259,7 +1259,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 ._crit_edge220.us:                                ; preds = %._crit_edge.us
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
-  br i1 %exitcond250.not, label %._crit_edge224, label %.preheader.us, !llvm.loop !18
+  br i1 %exitcond250.not, label %._crit_edge224, label %.preheader.us, !llvm.loop !17
 
 181:                                              ; preds = %.lr.ph, %.loopexit202
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit202 ]
@@ -1334,13 +1334,13 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %227 = getelementptr inbounds nuw i8, ptr %.0163204, i64 8
   %228 = load ptr, ptr %227, align 8
   %.not190 = icmp eq ptr %228, null
-  br i1 %.not190, label %.loopexit202, label %190, !llvm.loop !20
+  br i1 %.not190, label %.loopexit202, label %190, !llvm.loop !19
 
 .loopexit202:                                     ; preds = %226, %181
   %.1 = phi i32 [ %.0161207, %181 ], [ %.3, %226 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader201, label %181, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader201, label %181, !llvm.loop !20
 
 ._crit_edge224:                                   ; preds = %._crit_edge220.us
   %229 = icmp sgt i32 %.2167.lcssa.us, 62
@@ -1468,21 +1468,20 @@ attributes #21 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}

@@ -160,7 +160,7 @@ define ptr @Cudd_Init(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nounde
 
 ._crit_edge:                                      ; preds = %97, %.preheader
   %107 = getelementptr inbounds nuw i8, ptr %13, i64 140
-  %108 = load i32, ptr %107, align 4, !tbaa !40
+  %108 = load i32, ptr %107, align 4, !tbaa !39
   %.not = icmp eq i32 %108, 0
   br i1 %.not, label %111, label %109
 
@@ -173,9 +173,9 @@ define ptr @Cudd_Init(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 nounde
   %113 = sext i32 %112 to i64
   %114 = shl nsw i64 %113, 3
   %115 = getelementptr inbounds nuw i8, ptr %13, i64 632
-  %116 = load i64, ptr %115, align 8, !tbaa !41
+  %116 = load i64, ptr %115, align 8, !tbaa !40
   %117 = add i64 %114, %116
-  store i64 %117, ptr %115, align 8, !tbaa !41
+  store i64 %117, ptr %115, align 8, !tbaa !40
   %118 = getelementptr inbounds nuw i8, ptr %13, i64 736
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, i8 0, i64 24, i1 false)
   br label %.loopexit
@@ -201,12 +201,12 @@ declare ptr @cuddUniqueInter(ptr noundef, i32 noundef, ptr noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @cuddZddInitUniv(ptr noundef initializes((360, 368)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %3 = load i32, ptr %2, align 4, !tbaa !40
+  %3 = load i32, ptr %2, align 4, !tbaa !39
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 3
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  store ptr %6, ptr %7, align 8, !tbaa !42
+  store ptr %6, ptr %7, align 8, !tbaa !41
   %8 = icmp eq ptr %6, null
   br i1 %8, label %9, label %11
 
@@ -237,22 +237,22 @@ define range(i32 0, 2) i32 @cuddZddInitUniv(ptr noundef initializes((360, 368)) 
   %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %.03036 = phi ptr [ %13, %.lr.ph ], [ %27, %31 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %24 = load ptr, ptr %21, align 8, !tbaa !43
+  %24 = load ptr, ptr %21, align 8, !tbaa !42
   %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next
-  %26 = load i32, ptr %25, align 4, !tbaa !44
+  %26 = load i32, ptr %25, align 4, !tbaa !43
   %27 = tail call ptr @cuddUniqueInterZdd(ptr noundef nonnull %0, i32 noundef %26, ptr noundef %.03036, ptr noundef %.03036) #6
   %.not33 = icmp eq ptr %27, null
   br i1 %.not33, label %28, label %31
 
 28:                                               ; preds = %23
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.03036) #6
-  %29 = load ptr, ptr %7, align 8, !tbaa !42
+  %29 = load ptr, ptr %7, align 8, !tbaa !41
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %.thread, label %30
 
 30:                                               ; preds = %28
   tail call void @free(ptr noundef nonnull %29) #6
-  store ptr null, ptr %7, align 8, !tbaa !42
+  store ptr null, ptr %7, align 8, !tbaa !41
   br label %.thread
 
 31:                                               ; preds = %23
@@ -270,11 +270,11 @@ define range(i32 0, 2) i32 @cuddZddInitUniv(ptr noundef initializes((360, 368)) 
   %42 = load i32, ptr %41, align 4, !tbaa !27
   %43 = add i32 %42, -1
   store i32 %43, ptr %41, align 4, !tbaa !27
-  %44 = load ptr, ptr %7, align 8, !tbaa !42
+  %44 = load ptr, ptr %7, align 8, !tbaa !41
   %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.next
   store ptr %27, ptr %45, align 8, !tbaa !36
   %46 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %46, label %23, label %.thread, !llvm.loop !45
+  br i1 %46, label %23, label %.thread, !llvm.loop !44
 
 .thread:                                          ; preds = %31, %11, %28, %30, %9
   %.0 = phi i32 [ 0, %9 ], [ 0, %30 ], [ 0, %28 ], [ 1, %11 ], [ 1, %31 ]
@@ -310,20 +310,20 @@ declare void @Cudd_RecursiveDerefZdd(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define void @cuddZddFreeUniv(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8, !tbaa !36
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %5) #6
-  %6 = load ptr, ptr %2, align 8, !tbaa !42
+  %6 = load ptr, ptr %2, align 8, !tbaa !41
   %.not7 = icmp eq ptr %6, null
   br i1 %.not7, label %8, label %7
 
 7:                                                ; preds = %4
   tail call void @free(ptr noundef nonnull %6) #6
-  store ptr null, ptr %2, align 8, !tbaa !42
+  store ptr null, ptr %2, align 8, !tbaa !41
   br label %8
 
 8:                                                ; preds = %7, %4, %1
@@ -384,12 +384,11 @@ attributes #7 = { nounwind allocsize(0) }
 !34 = !{!4, !6, i64 136}
 !35 = !{!4, !6, i64 624}
 !36 = !{!9, !9, i64 0}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!4, !6, i64 140}
-!41 = !{!4, !11, i64 632}
-!42 = !{!4, !16, i64 360}
-!43 = !{!4, !17, i64 336}
-!44 = !{!6, !6, i64 0}
-!45 = distinct !{!45, !38, !39}
+!39 = !{!4, !6, i64 140}
+!40 = !{!4, !11, i64 632}
+!41 = !{!4, !16, i64 360}
+!42 = !{!4, !17, i64 336}
+!43 = !{!6, !6, i64 0}
+!44 = distinct !{!44, !38}

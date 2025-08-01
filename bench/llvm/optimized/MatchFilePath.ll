@@ -194,7 +194,7 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   br label %.thread214
 
 .loopexit:                                        ; preds = %78
-  %94 = load i64, ptr %6, align 8, !tbaa !9
+  %94 = load i64, ptr %6, align 8, !tbaa !8
   %.sroa.speculated4.i = call i64 @llvm.umin.i64(i64 %94, i64 %79)
   %95 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.speculated4.i
   %96 = sub i64 %94, %.sroa.speculated4.i
@@ -203,7 +203,7 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   br i1 %98, label %.lr.ph272, label %.thread214
 
 .loopexit.thread:                                 ; preds = %88
-  %99 = load i64, ptr %6, align 8, !tbaa !9
+  %99 = load i64, ptr %6, align 8, !tbaa !8
   %.sroa.speculated4.i315 = call i64 @llvm.umin.i64(i64 %99, i64 %90)
   %100 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.speculated4.i315
   %101 = sub i64 %99, %.sroa.speculated4.i315
@@ -231,13 +231,13 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   %113 = zext i32 %112 to i64
   %114 = icmp ule i64 %3, %113
   %or.cond380.not = select i1 %111, i1 true, i1 %114
-  br i1 %or.cond380.not, label %.thread214, label %.critedge7.us, !llvm.loop !14
+  br i1 %or.cond380.not, label %.thread214, label %.critedge7.us, !llvm.loop !13
 
 115:                                              ; preds = %.critedge7
   %116 = add i32 %.3126271, 1
   %117 = zext i32 %116 to i64
   %118 = icmp ugt i64 %3, %117
-  br i1 %118, label %.lr.ph272.split, label %.thread214, !llvm.loop !16
+  br i1 %118, label %.lr.ph272.split, label %.thread214, !llvm.loop !15
 
 .lr.ph272.split:                                  ; preds = %.lr.ph272, %115
   %119 = phi i64 [ %117, %115 ], [ %97, %.lr.ph272 ]
@@ -280,7 +280,7 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   %.pre-phi307 = phi i32 [ %.pre306, %._crit_edge305 ], [ %131, %130 ]
   %136 = call noundef i64 @_ZNK4llvm9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.1, i64 2, i64 noundef %.pre-phi309) #4
   %.not147 = icmp eq i64 %136, -1
-  %.pre = load ptr, ptr %5, align 8, !tbaa !17
+  %.pre = load ptr, ptr %5, align 8, !tbaa !16
   br i1 %.not147, label %.thread, label %137
 
 137:                                              ; preds = %135
@@ -349,7 +349,7 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   %175 = zext i32 %.12 to i64
   %176 = icmp ule i64 %136, %175
   %.not150 = or i1 %.0, %176
-  br i1 %.not150, label %177, label %149, !llvm.loop !18
+  br i1 %.not150, label %177, label %149, !llvm.loop !17
 
 177:                                              ; preds = %174
   %178 = xor i1 %147, %.0
@@ -372,7 +372,7 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   %185 = add i32 %.1124209, 1
   %186 = zext i32 %185 to i64
   %.not156 = icmp ugt i64 %3, %186
-  br i1 %.not156, label %15, label %.preheader, !llvm.loop !19
+  br i1 %.not156, label %15, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %.critedge5, %.critedge158.preheader
   %.1113 = phi i32 [ 0, %.critedge158.preheader ], [ %.14, %.critedge5 ]
@@ -381,14 +381,14 @@ _ZNK4llvm9StringRef4findEcm.exit:                 ; preds = %_ZNK4llvm9StringRef
   br i1 %188, label %.lr.ph279, label %.critedge9
 
 .lr.ph279:                                        ; preds = %.preheader
-  %189 = load ptr, ptr %5, align 8, !tbaa !17
+  %189 = load ptr, ptr %5, align 8, !tbaa !16
   br label %194
 
 190:                                              ; preds = %194
   %191 = add i32 %.15278, 1
   %192 = zext i32 %191 to i64
   %193 = icmp ugt i64 %1, %192
-  br i1 %193, label %194, label %.critedge9, !llvm.loop !20
+  br i1 %193, label %194, label %.critedge9, !llvm.loop !19
 
 194:                                              ; preds = %.lr.ph279, %190
   %195 = phi i64 [ %187, %.lr.ph279 ], [ %192, %190 ]
@@ -430,18 +430,17 @@ attributes #4 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !13, i64 8}
-!10 = !{!"_ZTSN4llvm9StringRefE", !11, i64 0, !13, i64 8}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !4, i64 0}
-!13 = !{!"long", !4, i64 0}
-!14 = distinct !{!14, !7, !8, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7, !8}
-!17 = !{!10, !11, i64 0}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
+!8 = !{!9, !12, i64 8}
+!9 = !{!"_ZTSN4llvm9StringRefE", !10, i64 0, !12, i64 8}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}
+!12 = !{!"long", !4, i64 0}
+!13 = distinct !{!13, !7, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7}
+!16 = !{!9, !10, i64 0}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

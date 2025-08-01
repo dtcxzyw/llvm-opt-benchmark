@@ -209,6 +209,5 @@ attributes #6 = { nounwind willreturn memory(read) }
 !24 = !{!"p2 _ZTS23archive_read_passphrase", !11, i64 0}
 !25 = !{!26, !12, i64 8}
 !26 = !{!"archive_format_descriptor", !11, i64 0, !12, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}

@@ -197,7 +197,7 @@ switch.lookup:                                    ; preds = %17
   %64 = icmp slt i32 %.1129, %54
   %65 = icmp samesign ult i32 %.1131178, 5
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %55, label %.loopexit172, !llvm.loop !6
+  br i1 %66, label %55, label %.loopexit172, !llvm.loop !5
 
 .loopexit172:                                     ; preds = %62, %.thread169, %22
   %.0134 = phi i32 [ -1, %22 ], [ -1, %.thread169 ], [ %.3137, %62 ]
@@ -344,7 +344,7 @@ switch.lookup:                                    ; preds = %17
   %132 = load i16, ptr %118, align 4
   %133 = zext i16 %132 to i64
   %.not160 = icmp samesign ult i64 %indvars.iv.next, %133
-  br i1 %.not160, label %.critedge, label %.critedge168, !llvm.loop !7
+  br i1 %.not160, label %.critedge, label %.critedge168, !llvm.loop !6
 
 .critedge:                                        ; preds = %.preheader171, %131
   %134 = phi ptr [ %145, %131 ], [ %127, %.preheader171 ]
@@ -422,7 +422,7 @@ switch.lookup:                                    ; preds = %17
   %171 = load i16, ptr %149, align 2
   %172 = zext i16 %171 to i64
   %173 = icmp samesign ult i64 %indvars.iv.next192, %172
-  br i1 %173, label %.lr.ph186, label %.loopexit, !llvm.loop !8
+  br i1 %173, label %.lr.ph186, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph186, %.preheader170, %.critedge168
   %174 = tail call i32 @SDL_GetNextObjectID() #8
@@ -436,7 +436,7 @@ switch.lookup:                                    ; preds = %17
   %176 = getelementptr inbounds nuw i8, ptr %.0, i64 264
   %177 = load ptr, ptr %176, align 8
   %.not165 = icmp eq ptr %177, null
-  br i1 %.not165, label %178, label %.preheader, !llvm.loop !9
+  br i1 %.not165, label %178, label %.preheader, !llvm.loop !8
 
 178:                                              ; preds = %.preheader
   %179 = getelementptr inbounds nuw i8, ptr %.0, i64 264
@@ -495,7 +495,7 @@ define internal fastcc void @VIRTUAL_FreeHWData(ptr noundef %0) unnamed_addr #0 
 
 .lr.ph:                                           ; preds = %.lr.ph88
   %10 = icmp eq ptr %0, %.048
-  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph88, !llvm.loop !10
+  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph88, !llvm.loop !9
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.04876.lcssa = phi ptr [ %.04873, %.lr.ph.preheader ], [ %.048, %.lr.ph ]
@@ -519,7 +519,7 @@ define internal fastcc void @VIRTUAL_FreeHWData(ptr noundef %0) unnamed_addr #0 
   %16 = getelementptr inbounds nuw i8, ptr %.0487687, i64 264
   %.048 = load ptr, ptr %16, align 8
   %.not60 = icmp eq ptr %.048, null
-  br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not60, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph88, %8, %13, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -623,7 +623,7 @@ define internal fastcc void @VIRTUAL_FreeHWData(ptr noundef %0) unnamed_addr #0 
   %52 = load i16, ptr %44, align 4
   %53 = zext i16 %52 to i64
   %54 = icmp samesign ult i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %54, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !10
 
 55:                                               ; preds = %._crit_edge, %41
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -683,7 +683,7 @@ define hidden zeroext i1 @SDL_JoystickDetachVirtualInner(i32 noundef %0) local_u
   %5 = getelementptr inbounds nuw i8, ptr %.08.i, i64 264
   %.0.i = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 .loopexit:                                        ; preds = %4, %1
   %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #8
@@ -1077,7 +1077,7 @@ define internal i32 @VIRTUAL_JoystickGetCount() #0 {
   %2 = getelementptr inbounds nuw i8, ptr %.037, i64 264
   %.03 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %.03, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %.0.lcssa = phi i32 [ 0, %0 ], [ %1, %.lr.ph ]
@@ -1112,7 +1112,7 @@ define internal ptr @VIRTUAL_JoystickGetDeviceName(i32 noundef %0) #0 {
   %6 = icmp eq ptr %.0.i, null
   %7 = icmp eq i32 %4, 0
   %or.cond.i = select i1 %6, i1 true, i1 %7
-  br i1 %or.cond.i, label %VIRTUAL_HWDataForIndex.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %or.cond.i, label %VIRTUAL_HWDataForIndex.exit, label %.lr.ph.i, !llvm.loop !13
 
 VIRTUAL_HWDataForIndex.exit:                      ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi ptr [ %.06.i, %1 ], [ %.0.i, %.lr.ph.i ]
@@ -1162,7 +1162,7 @@ define internal void @VIRTUAL_JoystickSetDevicePlayerIndex(i32 noundef %0, i32 n
   %7 = icmp eq ptr %.0.i, null
   %8 = icmp eq i32 %5, 0
   %or.cond.i = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond.i, label %VIRTUAL_HWDataForIndex.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %or.cond.i, label %VIRTUAL_HWDataForIndex.exit, label %.lr.ph.i, !llvm.loop !13
 
 VIRTUAL_HWDataForIndex.exit:                      ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi ptr [ %.06.i, %2 ], [ %.0.i, %.lr.ph.i ]
@@ -1203,7 +1203,7 @@ define internal { i64, i64 } @VIRTUAL_JoystickGetDeviceGUID(i32 noundef %0) #0 {
   %6 = icmp eq ptr %.0.i, null
   %7 = icmp eq i32 %4, 0
   %or.cond.i = select i1 %6, i1 true, i1 %7
-  br i1 %or.cond.i, label %VIRTUAL_HWDataForIndex.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %or.cond.i, label %VIRTUAL_HWDataForIndex.exit, label %.lr.ph.i, !llvm.loop !13
 
 VIRTUAL_HWDataForIndex.exit:                      ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi ptr [ %.06.i, %1 ], [ %.0.i, %.lr.ph.i ]
@@ -1243,7 +1243,7 @@ define internal i32 @VIRTUAL_JoystickGetDeviceInstanceID(i32 noundef %0) #0 {
   %6 = icmp eq ptr %.0.i, null
   %7 = icmp eq i32 %4, 0
   %or.cond.i = select i1 %6, i1 true, i1 %7
-  br i1 %or.cond.i, label %VIRTUAL_HWDataForIndex.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %or.cond.i, label %VIRTUAL_HWDataForIndex.exit, label %.lr.ph.i, !llvm.loop !13
 
 VIRTUAL_HWDataForIndex.exit:                      ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi ptr [ %.06.i, %1 ], [ %.0.i, %.lr.ph.i ]
@@ -1278,7 +1278,7 @@ define internal zeroext i1 @VIRTUAL_JoystickOpen(ptr noundef %0, i32 noundef %1)
   %7 = icmp eq ptr %.0.i, null
   %8 = icmp eq i32 %5, 0
   %or.cond.i = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond.i, label %VIRTUAL_HWDataForIndex.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %or.cond.i, label %VIRTUAL_HWDataForIndex.exit, label %.lr.ph.i, !llvm.loop !13
 
 VIRTUAL_HWDataForIndex.exit:                      ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi ptr [ %.06.i, %2 ], [ %.0.i, %.lr.ph.i ]
@@ -1338,7 +1338,7 @@ VIRTUAL_HWDataForIndex.exit:                      ; preds = %.lr.ph.i, %2
   %36 = load i16, ptr %26, align 4
   %37 = zext i16 %36 to i64
   %38 = icmp samesign ult i64 %indvars.iv.next, %37
-  br i1 %38, label %32, label %.preheader, !llvm.loop !15
+  br i1 %38, label %32, label %.preheader, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %41, %.preheader
   %39 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 144
@@ -1358,7 +1358,7 @@ VIRTUAL_HWDataForIndex.exit:                      ; preds = %.lr.ph.i, %2
   %47 = load i16, ptr %29, align 2
   %48 = zext i16 %47 to i64
   %49 = icmp samesign ult i64 %indvars.iv.next46, %48
-  br i1 %49, label %41, label %._crit_edge, !llvm.loop !16
+  br i1 %49, label %41, label %._crit_edge, !llvm.loop !15
 
 50:                                               ; preds = %._crit_edge
   %51 = tail call i32 @SDL_GetJoystickProperties_REAL(ptr noundef nonnull %0) #8
@@ -1612,7 +1612,7 @@ define internal void @VIRTUAL_JoystickUpdate(ptr noundef %0) #0 {
   %25 = load i16, ptr %16, align 4
   %26 = zext i8 %24 to i16
   %27 = icmp ugt i16 %25, %26
-  br i1 %27, label %19, label %.loopexit109.loopexit, !llvm.loop !17
+  br i1 %27, label %19, label %.loopexit109.loopexit, !llvm.loop !16
 
 .loopexit109.loopexit:                            ; preds = %19
   %.pre = load i32, ptr %13, align 8
@@ -1663,7 +1663,7 @@ define internal void @VIRTUAL_JoystickUpdate(ptr noundef %0) #0 {
   %46 = add i8 %.083111, 1
   %47 = zext i8 %46 to i16
   %48 = icmp ugt i16 %45, %47
-  br i1 %48, label %33, label %.loopexit107.loopexit, !llvm.loop !18
+  br i1 %48, label %33, label %.loopexit107.loopexit, !llvm.loop !17
 
 .loopexit107.loopexit:                            ; preds = %44
   %.pre137 = load i32, ptr %13, align 8
@@ -1690,14 +1690,14 @@ define internal void @VIRTUAL_JoystickUpdate(ptr noundef %0) #0 {
   %55 = load ptr, ptr %53, align 8
   %56 = zext i8 %.086113 to i64
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
-  %58 = load i8, ptr %57, align 1, !range !19, !noundef !20
+  %58 = load i8, ptr %57, align 1, !range !18, !noundef !19
   %59 = trunc nuw i8 %58 to i1
   tail call void @SDL_SendJoystickButton(i64 noundef %2, ptr noundef nonnull %0, i8 noundef zeroext %.086113, i1 noundef zeroext %59) #8
   %60 = add i8 %.086113, 1
   %61 = load i16, ptr %51, align 2
   %62 = zext i8 %60 to i16
   %63 = icmp ugt i16 %61, %62
-  br i1 %63, label %54, label %.loopexit105.loopexit, !llvm.loop !21
+  br i1 %63, label %54, label %.loopexit105.loopexit, !llvm.loop !20
 
 .loopexit105.loopexit:                            ; preds = %54
   %.pre138 = load i32, ptr %13, align 8
@@ -1730,7 +1730,7 @@ define internal void @VIRTUAL_JoystickUpdate(ptr noundef %0) #0 {
   %75 = load i16, ptr %66, align 2
   %76 = zext i8 %74 to i16
   %77 = icmp ugt i16 %75, %76
-  br i1 %77, label %69, label %.loopexit103.loopexit, !llvm.loop !22
+  br i1 %77, label %69, label %.loopexit103.loopexit, !llvm.loop !21
 
 .loopexit103.loopexit:                            ; preds = %69
   %.pre139 = load i32, ptr %13, align 8
@@ -1776,13 +1776,13 @@ define internal void @VIRTUAL_JoystickUpdate(ptr noundef %0) #0 {
   %92 = trunc nuw nsw i64 %indvars.iv.next130 to i32
   %93 = zext i16 %91 to i64
   %94 = icmp samesign ult i64 %indvars.iv.next130, %93
-  br i1 %94, label %83, label %.loopexit101, !llvm.loop !23
+  br i1 %94, label %83, label %.loopexit101, !llvm.loop !22
 
 95:                                               ; preds = %.lr.ph118, %95
   %indvars.iv = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next, %95 ]
   %96 = load ptr, ptr %90, align 8
   %97 = getelementptr inbounds nuw %struct.SDL_JoystickTouchpadFingerInfo, ptr %96, i64 %indvars.iv
-  %98 = load i8, ptr %97, align 4, !range !19, !noundef !20
+  %98 = load i8, ptr %97, align 4, !range !18, !noundef !19
   %99 = trunc nuw i8 %98 to i1
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %101 = load float, ptr %100, align 4
@@ -1796,7 +1796,7 @@ define internal void @VIRTUAL_JoystickUpdate(ptr noundef %0) #0 {
   %107 = load i32, ptr %87, align 8
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next, %108
-  br i1 %109, label %95, label %._crit_edge.loopexit, !llvm.loop !24
+  br i1 %109, label %95, label %._crit_edge.loopexit, !llvm.loop !23
 
 .loopexit101:                                     ; preds = %._crit_edge, %.preheader100, %.loopexit103
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 236
@@ -1806,7 +1806,7 @@ define internal void @VIRTUAL_JoystickUpdate(ptr noundef %0) #0 {
 
 113:                                              ; preds = %.loopexit101
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  %115 = load i8, ptr %114, align 8, !range !19, !noundef !20
+  %115 = load i8, ptr %114, align 8, !range !18, !noundef !19
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %.lr.ph122, label %.loopexit
 
@@ -1829,7 +1829,7 @@ define internal void @VIRTUAL_JoystickUpdate(ptr noundef %0) #0 {
   %127 = load i32, ptr %110, align 4
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next132, %128
-  br i1 %129, label %118, label %.loopexit, !llvm.loop !25
+  br i1 %129, label %118, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %118, %113
   store i32 0, ptr %110, align 4
@@ -1873,7 +1873,7 @@ define internal void @VIRTUAL_JoystickQuit() #0 {
   tail call fastcc void @VIRTUAL_FreeHWData(ptr noundef nonnull %2)
   %3 = load ptr, ptr @g_VJoys, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -1897,7 +1897,7 @@ define internal noundef zeroext i1 @VIRTUAL_JoystickGetGamepadMapping(i32 nounde
   %7 = icmp eq ptr %.0.i, null
   %8 = icmp eq i32 %5, 0
   %or.cond.i = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond.i, label %VIRTUAL_HWDataForIndex.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %or.cond.i, label %VIRTUAL_HWDataForIndex.exit, label %.lr.ph.i, !llvm.loop !13
 
 VIRTUAL_HWDataForIndex.exit:                      ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi ptr [ %.06.i, %2 ], [ %.0.i, %.lr.ph.i ]
@@ -2583,27 +2583,26 @@ attributes #10 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = !{i8 0, i8 2}
-!20 = !{}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}

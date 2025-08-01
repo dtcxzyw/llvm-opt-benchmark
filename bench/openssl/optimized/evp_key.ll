@@ -239,7 +239,7 @@ define i32 @EVP_BytesToKey(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %58 = add nsw i32 %.262, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.old4 = icmp eq i32 %58, 0
-  br i1 %.old4, label %.loopexit96, label %.preheader95, !llvm.loop !11
+  br i1 %.old4, label %.loopexit96, label %.preheader95
 
 .loopexit96.loopexit.split.loop.exit:             ; preds = %.preheader95
   %59 = trunc nuw i64 %indvars.iv to i32
@@ -282,7 +282,7 @@ define i32 @EVP_BytesToKey(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %72 = add nsw i32 %.265, -1
   %73 = add i32 %.3, 1
   %.old7 = icmp eq i32 %72, 0
-  br i1 %.old7, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %.old7, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %71, %.preheader, %60, %.loopexit96
   %.168 = phi ptr [ %.067, %60 ], [ %.067, %.loopexit96 ], [ %.370, %71 ], [ %.269, %.preheader ]
@@ -290,7 +290,7 @@ define i32 @EVP_BytesToKey(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %74 = icmp eq i32 %.161, 0
   %75 = icmp eq i32 %.164, 0
   %or.cond3 = select i1 %74, i1 %75, i1 false
-  br i1 %or.cond3, label %76, label %24, !llvm.loop !13
+  br i1 %or.cond3, label %76, label %24
 
 76:                                               ; preds = %.loopexit
   %77 = call i32 @EVP_CIPHER_get_key_length(ptr noundef %0) #8
@@ -350,9 +350,5 @@ attributes #9 = { noreturn nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}

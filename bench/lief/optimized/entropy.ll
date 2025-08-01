@@ -345,7 +345,7 @@ entropy_gather_internal.exit:                     ; preds = %._crit_edge.loopexi
   %spec.select59 = add i64 %49, %.03475
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %50 = icmp eq i32 %spec.select, 0
@@ -356,7 +356,7 @@ entropy_gather_internal.exit:                     ; preds = %._crit_edge.loopexi
 .backedge:                                        ; preds = %entropy_gather_internal.exit, %._crit_edge.loopexit
   %53 = add nuw nsw i32 %11, 1
   %exitcond88 = icmp eq i32 %11, 257
-  br i1 %exitcond88, label %.loopexit, label %10, !llvm.loop !25
+  br i1 %exitcond88, label %.loopexit, label %10, !llvm.loop !24
 
 54:                                               ; preds = %._crit_edge.loopexit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
@@ -394,18 +394,18 @@ entropy_gather_internal.exit:                     ; preds = %._crit_edge.loopexi
   br i1 %67, label %.lr.ph78, label %._crit_edge79
 
 .lr.ph78:                                         ; preds = %.preheader
-  %68 = getelementptr i8, ptr %0, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %wide.trip.count92 = zext nneg i32 %66 to i64
   br label %69
 
 69:                                               ; preds = %.lr.ph78, %69
   %indvars.iv89 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next90, %69 ]
   %.idx = mul nuw nsw i64 %indvars.iv89, 40
-  %70 = getelementptr i8, ptr %68, i64 %.idx
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
   store i64 0, ptr %70, align 8, !tbaa !20
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
-  br i1 %exitcond93.not, label %._crit_edge79, label %69, !llvm.loop !26
+  br i1 %exitcond93.not, label %._crit_edge79, label %69, !llvm.loop !25
 
 ._crit_edge79:                                    ; preds = %69, %.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %6, i64 %2, i1 false)
@@ -658,17 +658,17 @@ mbedtls_entropy_gather.exit.thread32:             ; preds = %16, %.preheader.i.i
   store i8 %56, ptr %54, align 1, !tbaa !18
   %57 = add nuw nsw i64 %.042, 1
   %exitcond.not = icmp eq i64 %57, 64
-  br i1 %exitcond.not, label %58, label %.preheader37, !llvm.loop !27
+  br i1 %exitcond.not, label %58, label %.preheader37, !llvm.loop !26
 
 58:                                               ; preds = %.preheader37
   %59 = add nuw nsw i64 %.01443, 1
   %exitcond49.not = icmp eq i64 %59, 8
-  br i1 %exitcond49.not, label %.preheader, label %.preheader38, !llvm.loop !28
+  br i1 %exitcond49.not, label %.preheader, label %.preheader38, !llvm.loop !27
 
 60:                                               ; preds = %.preheader
   %61 = add nuw nsw i64 %.144, 1
   %exitcond50.not = icmp eq i64 %61, 64
-  br i1 %exitcond50.not, label %mbedtls_entropy_add_source.exit, label %.preheader, !llvm.loop !29
+  br i1 %exitcond50.not, label %mbedtls_entropy_add_source.exit, label %.preheader, !llvm.loop !28
 
 .preheader:                                       ; preds = %58, %60
   %.144 = phi i64 [ %61, %60 ], [ 0, %58 ]
@@ -769,12 +769,11 @@ attributes #10 = { nounwind }
 !18 = !{!8, !8, i64 0}
 !19 = !{!14, !14, i64 0}
 !20 = !{!13, !14, i64 16}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !22, !23}
-!25 = distinct !{!25, !22, !23}
-!26 = distinct !{!26, !22, !23}
-!27 = distinct !{!27, !22, !23}
-!28 = distinct !{!28, !22, !23}
-!29 = distinct !{!29, !22, !23}
+!23 = distinct !{!23, !22}
+!24 = distinct !{!24, !22}
+!25 = distinct !{!25, !22}
+!26 = distinct !{!26, !22}
+!27 = distinct !{!27, !22}
+!28 = distinct !{!28, !22}

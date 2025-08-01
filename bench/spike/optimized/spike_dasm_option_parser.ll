@@ -278,10 +278,10 @@ define noundef nonnull ptr @_ZN15option_parser_t5parseEPKPKc(ptr noundef nonnull
   ret ptr %.0.lcssa
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %0, align 8, !tbaa !26
+  %15 = load ptr, ptr %0, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %18 = load ptr, ptr %5, align 8, !tbaa !26
+  %18 = load ptr, ptr %5, align 8, !tbaa !25
   %19 = icmp eq ptr %15, %18
   br i1 %19, label %.critedge2, label %.lr.ph142
 
@@ -397,7 +397,7 @@ define noundef nonnull ptr @_ZN15option_parser_t5parseEPKPKc(ptr noundef nonnull
 .thread76:                                        ; preds = %.thread, %34, %26, %30, %31
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.057.0101141, i64 56
   %64 = icmp eq ptr %63, %18
-  br i1 %64, label %.critedge2, label %.lr.ph142, !llvm.loop !27
+  br i1 %64, label %.critedge2, label %.lr.ph142, !llvm.loop !26
 
 .critedge2:                                       ; preds = %14, %.thread76
   %65 = load ptr, ptr %1, align 8, !tbaa !22
@@ -413,12 +413,12 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 
 ; Function Attrs: cold mustprogress noreturn uwtable
 define void @_ZN15option_parser_t5errorEPKcS1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
-  %5 = load ptr, ptr @stderr, align 8, !tbaa !28
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !27
   %.not = icmp eq ptr %3, null
   %6 = select i1 %.not, ptr @.str.4, ptr %3
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %6) #20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %9 = load ptr, ptr %8, align 8, !tbaa !29
   %.not5 = icmp eq ptr %9, null
   br i1 %.not5, label %11, label %10
 
@@ -441,7 +441,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #5
 define linkonce_odr void @_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !16
-  %6 = load ptr, ptr %0, align 8, !tbaa !35
+  %6 = load ptr, ptr %0, align 8, !tbaa !34
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -493,33 +493,33 @@ _ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvR
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit, %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
   %.012.i.i.i = phi ptr [ %40, %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %20, %_ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %39, %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i, i64 20, i1 false), !alias.scope !41
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i, i64 20, i1 false), !alias.scope !40
   %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 48
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 24, i1 false), !alias.scope !36, !noalias !39
-  %34 = load ptr, ptr %33, align 8, !tbaa !15, !alias.scope !39, !noalias !36
-  store ptr %34, ptr %32, align 8, !tbaa !15, !alias.scope !36, !noalias !39
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 24, i1 false), !alias.scope !35, !noalias !38
+  %34 = load ptr, ptr %33, align 8, !tbaa !15, !alias.scope !38, !noalias !35
+  store ptr %34, ptr %32, align 8, !tbaa !15, !alias.scope !35, !noalias !38
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 40
-  %36 = load ptr, ptr %35, align 8, !tbaa !3, !alias.scope !39, !noalias !36
+  %36 = load ptr, ptr %35, align 8, !tbaa !3, !alias.scope !38, !noalias !35
   %.not.i.i.not.i.i.i.i.i.i.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i.i, label %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, label %_ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i
 
 _ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %37 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 16, i1 false), !tbaa.struct !20, !alias.scope !41
-  store ptr %36, ptr %38, align 8, !tbaa !3, !alias.scope !36, !noalias !39
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false), !alias.scope !39, !noalias !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %37, i64 16, i1 false), !tbaa.struct !20, !alias.scope !40
+  store ptr %36, ptr %38, align 8, !tbaa !3, !alias.scope !35, !noalias !38
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false), !alias.scope !38, !noalias !35
   br label %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i, %.lr.ph.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 56
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %39, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !42
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !41
 
 _ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit ], [ %40, %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i ]
@@ -530,33 +530,33 @@ _ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i22
   %.012.i.i.i18 = phi ptr [ %51, %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %41, %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i19 = phi ptr [ %50, %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i22 ], [ %1, %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i19, i64 20, i1 false), !alias.scope !48
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.012.i.i.i18, ptr noundef nonnull align 8 dereferenceable(56) %.0911.i.i.i19, i64 20, i1 false), !alias.scope !47
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 48
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 24, i1 false), !alias.scope !43, !noalias !46
-  %45 = load ptr, ptr %44, align 8, !tbaa !15, !alias.scope !46, !noalias !43
-  store ptr %45, ptr %43, align 8, !tbaa !15, !alias.scope !43, !noalias !46
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, i8 0, i64 24, i1 false), !alias.scope !42, !noalias !45
+  %45 = load ptr, ptr %44, align 8, !tbaa !15, !alias.scope !45, !noalias !42
+  store ptr %45, ptr %43, align 8, !tbaa !15, !alias.scope !42, !noalias !45
   %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 40
-  %47 = load ptr, ptr %46, align 8, !tbaa !3, !alias.scope !46, !noalias !43
+  %47 = load ptr, ptr %46, align 8, !tbaa !3, !alias.scope !45, !noalias !42
   %.not.i.i.not.i.i.i.i.i.i.i.i20 = icmp eq ptr %47, null
   br i1 %.not.i.i.not.i.i.i.i.i.i.i.i20, label %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i22, label %_ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i21
 
 _ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i21: ; preds = %.lr.ph.i.i.i17
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %48, i64 16, i1 false), !tbaa.struct !20, !alias.scope !48
-  store ptr %47, ptr %49, align 8, !tbaa !3, !alias.scope !43, !noalias !46
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false), !alias.scope !46, !noalias !43
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %48, i64 16, i1 false), !tbaa.struct !20, !alias.scope !47
+  store ptr %47, ptr %49, align 8, !tbaa !3, !alias.scope !42, !noalias !45
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false), !alias.scope !45, !noalias !42
   br label %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i22
 
 _ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i22: ; preds = %_ZNSt16allocator_traitsISaIN15option_parser_t8option_tEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_.exit.i.i.i.i21, %.lr.ph.i.i.i17
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 56
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 56
   %.not.i.i.i23 = icmp eq ptr %50, %5
-  br i1 %.not.i.i.i23, label %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25, label %.lr.ph.i.i.i17, !llvm.loop !42
+  br i1 %.not.i.i.i23, label %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25, label %.lr.ph.i.i.i17, !llvm.loop !41
 
 _ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25: ; preds = %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i22, %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i24 = phi ptr [ %41, %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %51, %_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_.exit.i.i.i22 ]
@@ -572,7 +572,7 @@ _ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
   br label %_ZNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN15option_parser_t8option_tESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit25, %53
-  store ptr %20, ptr %0, align 8, !tbaa !35
+  store ptr %20, ptr %0, align 8, !tbaa !34
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !16
   %57 = getelementptr inbounds nuw %"struct.option_parser_t::option_t", ptr %20, i64 %16
   store ptr %57, ptr %52, align 8, !tbaa !19
@@ -672,29 +672,28 @@ attributes #23 = { builtin nounwind }
 !20 = !{i64 0, i64 16, !21}
 !21 = !{!5, !5, i64 0}
 !22 = !{!10, !10, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!18, !18, i64 0}
-!27 = distinct !{!27, !24, !25}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
-!30 = !{!31, !7, i64 24}
-!31 = !{!"_ZTS15option_parser_t", !32, i64 0, !7, i64 24}
-!32 = !{!"_ZTSSt6vectorIN15option_parser_t8option_tESaIS1_EE", !33, i64 0}
-!33 = !{!"_ZTSSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE", !34, i64 0}
-!34 = !{!"_ZTSNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE12_Vector_implE", !17, i64 0}
-!35 = !{!17, !18, i64 0}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!38 = distinct !{!38, !"_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_"}
-!39 = !{!40}
-!40 = distinct !{!40, !38, !"_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!41 = !{!37, !40}
-!42 = distinct !{!42, !24, !25}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!45 = distinct !{!45, !"_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_"}
-!46 = !{!47}
-!47 = distinct !{!47, !45, !"_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!48 = !{!44, !47}
+!25 = !{!18, !18, i64 0}
+!26 = distinct !{!26, !24}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
+!29 = !{!30, !7, i64 24}
+!30 = !{!"_ZTS15option_parser_t", !31, i64 0, !7, i64 24}
+!31 = !{!"_ZTSSt6vectorIN15option_parser_t8option_tESaIS1_EE", !32, i64 0}
+!32 = !{!"_ZTSSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE", !33, i64 0}
+!33 = !{!"_ZTSNSt12_Vector_baseIN15option_parser_t8option_tESaIS1_EE12_Vector_implE", !17, i64 0}
+!34 = !{!17, !18, i64 0}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!37 = distinct !{!37, !"_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_"}
+!38 = !{!39}
+!39 = distinct !{!39, !37, !"_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!40 = !{!36, !39}
+!41 = distinct !{!41, !24}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!44 = distinct !{!44, !"_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_"}
+!45 = !{!46}
+!46 = distinct !{!46, !44, !"_ZSt19__relocate_object_aIN15option_parser_t8option_tES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!47 = !{!43, !46}

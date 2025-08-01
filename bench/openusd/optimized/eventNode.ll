@@ -459,7 +459,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEEptEv.exit6:
   store i64 %.sroa.speculated, ptr %12, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.013.017, i64 8
   %.not = icmp eq ptr %32, %7
-  br i1 %.not, label %.loopexit, label %13, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEEptEv.exit6, %10
   ret void
@@ -660,7 +660,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceEventDataD2Ev.exit.i.i.i.i.i: ; pred
 _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceEventDataD2Ev.exit.i.i.i.i.i, %15
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 80) #16
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_14TraceEventDataEESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit, %2
   ret void
@@ -1117,7 +1117,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_14TraceEventNo
   %18 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %.not = icmp eq ptr %18, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 20:                                               ; preds = %15
   %21 = landingpad { ptr, i32 }
@@ -1262,7 +1262,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread
   %51 = getelementptr inbounds nuw i8, ptr %.0715.i, i64 %.sink.i
   %.07.i = load ptr, ptr %51, align 8
   %.not.i = icmp eq ptr %.07.i, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !14
 
 .loopexit:                                        ; preds = %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7TfTokenEEclERKS1_S4_.exit.thread9.i
   %52 = icmp eq ptr %.0715.i, %19
@@ -1486,10 +1486,8 @@ attributes #17 = { noreturn }
 !7 = !{!8, !5}
 !8 = distinct !{!8, !9, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfCreateRefPtrINS_14TraceEventNodeEEENS_8TfRefPtrIT_EEPS3_: argument 0"}
 !9 = distinct !{!9, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfCreateRefPtrINS_14TraceEventNodeEEENS_8TfRefPtrIT_EEPS3_"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}

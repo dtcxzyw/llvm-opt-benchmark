@@ -94,7 +94,7 @@ define noundef ptr @cl_hash_data(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 26:                                               ; preds = %36
   %27 = add i64 %37, %.05683
   %28 = icmp ult i64 %27, %2
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %26
   %.05683 = phi i64 [ %27, %26 ], [ 0, %.preheader ]
@@ -250,7 +250,7 @@ define noundef ptr @cl_hash_file_fd_ctx(ptr noundef %0, i32 noundef %1, ptr noun
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %12 = load i64, ptr %11, align 8, !tbaa !9
+  %12 = load i64, ptr %11, align 8, !tbaa !7
   %13 = and i64 %12, 4294967295
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #13
   %.not = icmp eq ptr %14, null
@@ -274,7 +274,7 @@ define noundef ptr @cl_hash_file_fd_ctx(ptr noundef %0, i32 noundef %1, ptr noun
 21:                                               ; preds = %.preheader
   %22 = tail call i32 @EVP_DigestUpdate(ptr noundef %0, ptr noundef nonnull %14, i64 noundef %19) #12
   %.not32 = icmp eq i32 %22, 0
-  br i1 %.not32, label %23, label %.preheader, !llvm.loop !13
+  br i1 %.not32, label %23, label %.preheader
 
 23:                                               ; preds = %21
   tail call void @free(ptr noundef nonnull %14) #12
@@ -1028,14 +1028,14 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
 6:                                                ; preds = %.lr.ph, %.backedge
   %7 = phi ptr [ %5, %.lr.ph ], [ %11, %.backedge ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 19
-  %9 = load i8, ptr %8, align 1, !tbaa !14
+  %9 = load i8, ptr %8, align 1, !tbaa !11
   %10 = icmp eq i8 %9, 46
   br i1 %10, label %.backedge, label %12
 
 .backedge:                                        ; preds = %6, %12
   %11 = tail call ptr @readdir(ptr noundef nonnull %3) #12
   %.not58 = icmp eq ptr %11, null
-  br i1 %.not58, label %.outer._crit_edge, label %6, !llvm.loop !15
+  br i1 %.not58, label %.outer._crit_edge, label %6
 
 12:                                               ; preds = %6
   %13 = tail call i32 @cli_strbcasestr(ptr noundef nonnull %8, ptr noundef nonnull @.str.5) #12
@@ -1057,10 +1057,10 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
   %.189 = phi i64 [ %19, %.preheader70 ], [ %.053.ph84, %18 ]
   %19 = add i64 %.189, -1
   %20 = getelementptr inbounds nuw ptr, ptr %.052.ph85, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !16
+  %21 = load ptr, ptr %20, align 8, !tbaa !12
   tail call void @free(ptr noundef %21) #12
   %.not66 = icmp eq i64 %19, 0
-  br i1 %.not66, label %22, label %.preheader70, !llvm.loop !19
+  br i1 %.not66, label %22, label %.preheader70
 
 22:                                               ; preds = %.preheader70
   tail call void @free(ptr noundef nonnull %.052.ph85) #12
@@ -1077,7 +1077,7 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
   %29 = add i64 %28, %27
   %30 = tail call noalias ptr @malloc(i64 noundef %29) #13
   %31 = getelementptr inbounds nuw ptr, ptr %17, i64 %.053.ph84
-  store ptr %30, ptr %31, align 8, !tbaa !16
+  store ptr %30, ptr %31, align 8, !tbaa !12
   %.not67 = icmp eq ptr %30, null
   br i1 %.not67, label %32, label %.outer
 
@@ -1089,13 +1089,13 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
   %.288 = phi i64 [ %33, %.preheader71 ], [ %.053.ph84, %32 ]
   %33 = add i64 %.288, -1
   %34 = getelementptr inbounds nuw ptr, ptr %17, i64 %.288
-  %35 = load ptr, ptr %34, align 8, !tbaa !16
+  %35 = load ptr, ptr %34, align 8, !tbaa !12
   tail call void @free(ptr noundef %35) #12
   %.not69 = icmp eq i64 %33, 0
-  br i1 %.not69, label %36, label %.preheader71, !llvm.loop !20
+  br i1 %.not69, label %36, label %.preheader71
 
 36:                                               ; preds = %.preheader71
-  %37 = load ptr, ptr %17, align 8, !tbaa !16
+  %37 = load ptr, ptr %17, align 8, !tbaa !12
   tail call void @free(ptr noundef %37) #12
   br label %38
 
@@ -1108,7 +1108,7 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
   %40 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %0, ptr noundef nonnull %8) #12
   %41 = tail call ptr @readdir(ptr noundef nonnull %3) #12
   %.not5879 = icmp eq ptr %41, null
-  br i1 %.not5879, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not5879, label %.outer._crit_edge, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader72
   %.053.ph.lcssa78 = phi i64 [ 0, %.preheader72 ], [ %.053.ph84, %.backedge ], [ %15, %.outer ]
@@ -1128,10 +1128,10 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
   %.395 = phi i64 [ %47, %.preheader ], [ %.053.ph.lcssa78, %46 ]
   %47 = add i64 %.395, -1
   %48 = getelementptr inbounds nuw ptr, ptr %.052.ph.lcssa76, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !16
+  %49 = load ptr, ptr %48, align 8, !tbaa !12
   tail call void @free(ptr noundef %49) #12
   %.not61 = icmp eq i64 %47, 0
-  br i1 %.not61, label %50, label %.preheader, !llvm.loop !21
+  br i1 %.not61, label %50, label %.preheader
 
 50:                                               ; preds = %.preheader
   tail call void @free(ptr noundef nonnull %.052.ph.lcssa76) #12
@@ -1139,7 +1139,7 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
 
 51:                                               ; preds = %.outer._crit_edge
   %52 = getelementptr inbounds nuw ptr, ptr %45, i64 %.053.ph.lcssa78
-  store ptr null, ptr %52, align 8, !tbaa !16
+  store ptr null, ptr %52, align 8, !tbaa !12
   %53 = tail call i32 @cl_validate_certificate_chain(ptr noundef nonnull %45, ptr noundef null, ptr noundef %1)
   %.not6290 = icmp eq i64 %.053.ph.lcssa78, 0
   br i1 %.not6290, label %._crit_edge94, label %.lr.ph93
@@ -1148,10 +1148,10 @@ define range(i32 -1, 9) i32 @cl_validate_certificate_chain_ts_dir(ptr noundef %0
   %.491 = phi i64 [ %54, %.lr.ph93 ], [ %.053.ph.lcssa78, %51 ]
   %54 = add i64 %.491, -1
   %55 = getelementptr inbounds nuw ptr, ptr %45, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !16
+  %56 = load ptr, ptr %55, align 8, !tbaa !12
   tail call void @free(ptr noundef %56) #12
   %.not62 = icmp eq i64 %54, 0
-  br i1 %.not62, label %._crit_edge94, label %.lr.ph93, !llvm.loop !22
+  br i1 %.not62, label %._crit_edge94, label %.lr.ph93
 
 ._crit_edge94:                                    ; preds = %.lr.ph93, %51
   tail call void @free(ptr noundef nonnull %45) #12
@@ -1247,16 +1247,16 @@ cl_load_crl.exit:                                 ; preds = %18
 28:                                               ; preds = %24, %10
   %.071 = phi ptr [ %14, %24 ], [ null, %10 ]
   %.070 = phi ptr [ %23, %24 ], [ null, %10 ]
-  %29 = load ptr, ptr %0, align 8, !tbaa !16
+  %29 = load ptr, ptr %0, align 8, !tbaa !12
   %.not85112 = icmp eq ptr %29, null
   br i1 %.not85112, label %._crit_edge, label %.lr.ph
 
 30:                                               ; preds = %.lr.ph
   %31 = add i64 %.069113, 1
   %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  %33 = load ptr, ptr %32, align 8, !tbaa !12
   %.not85 = icmp eq ptr %33, null
-  br i1 %.not85, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not85, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %30
   %34 = phi ptr [ %33, %30 ], [ %29, %28 ]
@@ -1539,7 +1539,7 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly captures(address_is_nu
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !15
   %.not29 = icmp eq ptr %6, null
   br i1 %.not29, label %40, label %7
 
@@ -1555,7 +1555,7 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly captures(address_is_nu
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !26
+  %14 = load i32, ptr %13, align 4, !tbaa !17
   switch i32 %14, label %.critedge [
     i32 23, label %15
     i32 24, label %23
@@ -1563,36 +1563,36 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly captures(address_is_nu
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %17 = load i8, ptr %16, align 1, !tbaa !14
+  %17 = load i8, ptr %16, align 1, !tbaa !11
   %18 = icmp eq i8 %17, 48
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 48, ptr %20, align 1, !tbaa !14
-  store i8 57, ptr %16, align 1, !tbaa !14
+  store i8 48, ptr %20, align 1, !tbaa !11
+  store i8 57, ptr %16, align 1, !tbaa !11
   br label %31
 
 21:                                               ; preds = %15
   %22 = add i8 %17, -1
-  store i8 %22, ptr %16, align 1, !tbaa !14
+  store i8 %22, ptr %16, align 1, !tbaa !11
   br label %31
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  %25 = load i8, ptr %24, align 1, !tbaa !14
+  %25 = load i8, ptr %24, align 1, !tbaa !11
   %26 = icmp eq i8 %25, 48
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 48, ptr %28, align 1, !tbaa !14
-  store i8 57, ptr %24, align 1, !tbaa !14
+  store i8 48, ptr %28, align 1, !tbaa !11
+  store i8 57, ptr %24, align 1, !tbaa !11
   br label %31
 
 29:                                               ; preds = %23
   %30 = add i8 %25, -1
-  store i8 %30, ptr %24, align 1, !tbaa !14
+  store i8 %30, ptr %24, align 1, !tbaa !11
   br label %31
 
 .critedge:                                        ; preds = %12
@@ -1611,12 +1611,12 @@ define noundef ptr @cl_ASN1_GetTimeT(ptr noundef readonly captures(address_is_nu
 
 34:                                               ; preds = %31
   %35 = tail call i64 @time(ptr noundef null) #12
-  store i64 %35, ptr %2, align 8, !tbaa !27
+  store i64 %35, ptr %2, align 8, !tbaa !18
   %36 = call ptr @localtime_r(ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %38 = load i32, ptr %37, align 8, !tbaa !28
+  %38 = load i32, ptr %37, align 8, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 %38, ptr %39, align 8, !tbaa !28
+  store i32 %38, ptr %39, align 8, !tbaa !19
   br label %40
 
 40:                                               ; preds = %10, %7, %1, %4, %34, %33, %.critedge
@@ -1744,26 +1744,17 @@ attributes #16 = { nounwind allocsize(1) }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !11, i64 56}
-!10 = !{!"stat", !11, i64 0, !11, i64 8, !11, i64 16, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !12, i64 72, !12, i64 88, !12, i64 104, !5, i64 120}
-!11 = !{!"long", !5, i64 0}
-!12 = !{!"timespec", !11, i64 0, !11, i64 8}
-!13 = distinct !{!13, !8}
-!14 = !{!5, !5, i64 0}
-!15 = distinct !{!15, !8}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 omnipotent char", !18, i64 0}
-!18 = !{!"any pointer", !5, i64 0}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = !{!25, !17, i64 8}
-!25 = !{!"asn1_string_st", !4, i64 0, !4, i64 4, !17, i64 8, !11, i64 16}
-!26 = !{!25, !4, i64 4}
-!27 = !{!11, !11, i64 0}
-!28 = !{!29, !4, i64 32}
-!29 = !{!"tm", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !11, i64 40, !17, i64 48}
+!7 = !{!8, !9, i64 56}
+!8 = !{!"stat", !9, i64 0, !9, i64 8, !9, i64 16, !4, i64 24, !4, i64 28, !4, i64 32, !4, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !10, i64 72, !10, i64 88, !10, i64 104, !5, i64 120}
+!9 = !{!"long", !5, i64 0}
+!10 = !{!"timespec", !9, i64 0, !9, i64 8}
+!11 = !{!5, !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = !{!16, !13, i64 8}
+!16 = !{!"asn1_string_st", !4, i64 0, !4, i64 4, !13, i64 8, !9, i64 16}
+!17 = !{!16, !4, i64 4}
+!18 = !{!9, !9, i64 0}
+!19 = !{!20, !4, i64 32}
+!20 = !{!"tm", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !9, i64 40, !13, i64 48}

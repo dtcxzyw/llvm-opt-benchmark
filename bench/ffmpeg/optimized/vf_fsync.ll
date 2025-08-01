@@ -164,7 +164,7 @@ buf_skip_eol.exit:                                ; preds = %.lr.ph.i, %23, %.cr
   %28 = getelementptr inbounds nuw i8, ptr %.012.i, i64 1
   %29 = add nuw nsw i32 %.0811.i, 1
   %exitcond.not.i101 = icmp eq ptr %28, %17
-  br i1 %exitcond.not.i101, label %.loopexit, label %.lr.ph.i100, !llvm.loop !37
+  br i1 %exitcond.not.i101, label %.loopexit, label %.lr.ph.i100, !llvm.loop !36
 
 .loopexit:                                        ; preds = %27, %buf_skip_eol.exit
   %30 = ptrtoint ptr %17 to i64
@@ -190,7 +190,7 @@ buf_skip_eol.exit:                                ; preds = %.lr.ph.i, %23, %.cr
   store i8 %39, ptr %41, align 1, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i103 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i103, label %._crit_edge.loopexit.i, label %36, !llvm.loop !38
+  br i1 %exitcond.not.i103, label %._crit_edge.loopexit.i, label %36, !llvm.loop !37
 
 ._crit_edge.loopexit.i:                           ; preds = %36
   %.pre.i = load ptr, ptr %16, align 8, !tbaa !27
@@ -246,7 +246,7 @@ buf_fill.exit.i:                                  ; preds = %._crit_edge.i
   %63 = getelementptr inbounds nuw i8, ptr %.012.i107, i64 1
   %64 = add nuw nsw i32 %.0811.i108, 1
   %exitcond.not.i109 = icmp eq ptr %63, %59
-  br i1 %exitcond.not.i109, label %buf_reload.exit.thread, label %.lr.ph.i106, !llvm.loop !37
+  br i1 %exitcond.not.i109, label %buf_reload.exit.thread, label %.lr.ph.i106, !llvm.loop !36
 
 buf_get_line_count.exit.thread122:                ; preds = %.lr.ph.i100, %.lr.ph.i100, %.lr.ph.i106, %.lr.ph.i106
   %.075 = phi i32 [ %.0811.i108, %.lr.ph.i106 ], [ %.0811.i108, %.lr.ph.i106 ], [ %.0811.i, %.lr.ph.i100 ], [ %.0811.i, %.lr.ph.i100 ]
@@ -275,7 +275,7 @@ buf_get_line_count.exit.thread122:                ; preds = %.lr.ph.i100, %.lr.p
 74:                                               ; preds = %.lr.ph.i.i
   %75 = add nuw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %75, %71
-  br i1 %exitcond.not.i.i, label %buf_get_zero.exit, label %.lr.ph.i.i, !llvm.loop !39
+  br i1 %exitcond.not.i.i, label %buf_get_zero.exit, label %.lr.ph.i.i, !llvm.loop !38
 
 buf_get_zero.exit:                                ; preds = %.lr.ph.i.i, %74
   %.0.lcssa.i.ph.i = phi i64 [ %71, %74 ], [ %.05.i.i, %.lr.ph.i.i ]
@@ -293,7 +293,7 @@ buf_get_zero.exit:                                ; preds = %.lr.ph.i.i, %74
 80:                                               ; preds = %.lr.ph.i.i112
   %81 = add nuw i64 %.05.i.i113, 1
   %exitcond.not.i.i115 = icmp eq i64 %81, %71
-  br i1 %exitcond.not.i.i115, label %av_strnlen.exit.loopexit.i116, label %.lr.ph.i.i112, !llvm.loop !39
+  br i1 %exitcond.not.i.i115, label %av_strnlen.exit.loopexit.i116, label %.lr.ph.i.i112, !llvm.loop !38
 
 av_strnlen.exit.loopexit.i116:                    ; preds = %80, %.lr.ph.i.i112
   %.0.lcssa.i.ph.i117 = phi i64 [ %71, %80 ], [ %.05.i.i113, %.lr.ph.i.i112 ]
@@ -302,7 +302,7 @@ av_strnlen.exit.loopexit.i116:                    ; preds = %80, %.lr.ph.i.i112
 
 83:                                               ; preds = %buf_get_zero.exit, %buf_get_line_count.exit.thread122
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %85 = load ptr, ptr %84, align 8, !tbaa !40
+  %85 = load ptr, ptr %84, align 8, !tbaa !39
   %.not86 = icmp eq ptr %85, null
   br i1 %.not86, label %.thread, label %87
 
@@ -326,21 +326,21 @@ av_strnlen.exit.loopexit.i116:                    ; preds = %80, %.lr.ph.i.i112
   br label %buf_reload.exit.thread
 
 95:                                               ; preds = %87
-  %96 = load ptr, ptr %84, align 8, !tbaa !40
+  %96 = load ptr, ptr %84, align 8, !tbaa !39
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 136
-  %98 = load i64, ptr %97, align 8, !tbaa !41
+  %98 = load i64, ptr %97, align 8, !tbaa !40
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.14, i64 noundef %98) #5
-  %99 = load ptr, ptr %84, align 8, !tbaa !40
+  %99 = load ptr, ptr %84, align 8, !tbaa !39
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 136
-  %101 = load i64, ptr %100, align 8, !tbaa !41
-  %102 = load i64, ptr %89, align 8, !tbaa !49
+  %101 = load i64, ptr %100, align 8, !tbaa !40
+  %102 = load i64, ptr %89, align 8, !tbaa !48
   %.not88 = icmp slt i64 %101, %102
   br i1 %.not88, label %120, label %103
 
 103:                                              ; preds = %95
-  %104 = load i64, ptr %90, align 8, !tbaa !50
+  %104 = load i64, ptr %90, align 8, !tbaa !49
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.15, i64 noundef %102, i64 noundef %104) #5
-  %105 = load ptr, ptr %84, align 8, !tbaa !40
+  %105 = load ptr, ptr %84, align 8, !tbaa !39
   %106 = tail call ptr @av_frame_clone(ptr noundef %105) #5
   %.not90 = icmp eq ptr %106, null
   br i1 %.not90, label %107, label %108
@@ -350,9 +350,9 @@ av_strnlen.exit.loopexit.i116:                    ; preds = %80, %.lr.ph.i.i112
   br label %buf_reload.exit.thread
 
 108:                                              ; preds = %103
-  %109 = load i64, ptr %90, align 8, !tbaa !50
+  %109 = load i64, ptr %90, align 8, !tbaa !49
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 136
-  store i64 %109, ptr %110, align 8, !tbaa !41
+  store i64 %109, ptr %110, align 8, !tbaa !40
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 152
   %112 = load i64, ptr %91, align 8
   store i64 %112, ptr %111, align 8
@@ -387,7 +387,7 @@ av_strnlen.exit.loopexit.i116:                    ; preds = %80, %.lr.ph.i.i112
   %.0.lcssa.i.i118 = phi i32 [ %82, %av_strnlen.exit.loopexit.i116 ], [ 0, %68 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.12, i32 noundef %.0.lcssa.i.i118) #5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !40
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !39
   %124 = icmp eq ptr %.pre, null
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %124, label %127, label %126
@@ -410,8 +410,8 @@ av_strnlen.exit.loopexit.i116:                    ; preds = %80, %.lr.ph.i.i112
   br i1 %.not93, label %.critedge96, label %133
 
 133:                                              ; preds = %131
-  %134 = load i32, ptr %2, align 4, !tbaa !51
-  %135 = load i64, ptr %3, align 8, !tbaa !52
+  %134 = load i32, ptr %2, align 4, !tbaa !50
+  %135 = load i64, ptr %3, align 8, !tbaa !51
   call void @ff_avfilter_link_set_in_status(ptr noundef %11, i32 noundef %134, i64 noundef %135) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
@@ -435,7 +435,7 @@ buf_reload.exit.thread:                           ; preds = %62, %57, %buf_fill.
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1094995529, 1) i32 @fsync_config_props(ptr noundef %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !53
+  %2 = load ptr, ptr %0, align 8, !tbaa !52
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -560,28 +560,27 @@ attributes #5 = { nounwind }
 !31 = !{!32, !32, i64 0}
 !32 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
 !33 = !{!5, !13, i64 56}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = distinct !{!37, !35, !36}
-!38 = distinct !{!38, !35, !36}
-!39 = distinct !{!39, !35, !36}
-!40 = !{!21, !23, i64 16}
-!41 = !{!42, !24, i64 136}
-!42 = !{!"AVFrame", !8, i64 0, !8, i64 64, !43, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !44, i64 124, !24, i64 136, !24, i64 144, !44, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !45, i64 248, !15, i64 256, !46, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !24, i64 304, !47, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !24, i64 344, !24, i64 352, !24, i64 360, !24, i64 368, !7, i64 376, !48, i64 384, !24, i64 408}
-!43 = !{!"p2 omnipotent char", !14, i64 0}
-!44 = !{!"AVRational", !15, i64 0, !15, i64 4}
-!45 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
-!46 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
-!47 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!48 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
-!49 = !{!21, !24, i64 56}
-!50 = !{!21, !24, i64 64}
-!51 = !{!15, !15, i64 0}
-!52 = !{!24, !24, i64 0}
-!53 = !{!54, !55, i64 0}
-!54 = !{!"AVFilterLink", !55, i64 0, !12, i64 8, !55, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !44, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !48, i64 72, !44, i64 96, !46, i64 104, !15, i64 112, !56, i64 120, !56, i64 160}
-!55 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
-!56 = !{!"AVFilterFormatsConfig", !57, i64 0, !57, i64 8, !58, i64 16, !57, i64 24, !57, i64 32}
-!57 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
-!58 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
+!36 = distinct !{!36, !35}
+!37 = distinct !{!37, !35}
+!38 = distinct !{!38, !35}
+!39 = !{!21, !23, i64 16}
+!40 = !{!41, !24, i64 136}
+!41 = !{!"AVFrame", !8, i64 0, !8, i64 64, !42, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !43, i64 124, !24, i64 136, !24, i64 144, !43, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !44, i64 248, !15, i64 256, !45, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !24, i64 304, !46, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !24, i64 344, !24, i64 352, !24, i64 360, !24, i64 368, !7, i64 376, !47, i64 384, !24, i64 408}
+!42 = !{!"p2 omnipotent char", !14, i64 0}
+!43 = !{!"AVRational", !15, i64 0, !15, i64 4}
+!44 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
+!45 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
+!46 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!47 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
+!48 = !{!21, !24, i64 56}
+!49 = !{!21, !24, i64 64}
+!50 = !{!15, !15, i64 0}
+!51 = !{!24, !24, i64 0}
+!52 = !{!53, !54, i64 0}
+!53 = !{!"AVFilterLink", !54, i64 0, !12, i64 8, !54, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !43, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !47, i64 72, !43, i64 96, !45, i64 104, !15, i64 112, !55, i64 120, !55, i64 160}
+!54 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
+!55 = !{!"AVFilterFormatsConfig", !56, i64 0, !56, i64 8, !57, i64 16, !56, i64 24, !56, i64 32}
+!56 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
+!57 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}

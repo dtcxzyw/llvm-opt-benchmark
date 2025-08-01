@@ -388,13 +388,13 @@ define internal ptr @pylong_export(ptr readnone captures(none) %0, ptr noundef %
 45:                                               ; preds = %.lr.ph
   %46 = call i32 @PyList_Append(ptr noundef nonnull %31, ptr noundef nonnull %43) #5
   %47 = icmp sgt i32 %46, -1
-  %48 = load i32, ptr %43, align 8, !tbaa !41
+  %48 = load i32, ptr %43, align 8, !tbaa !40
   %.not.i = icmp sgt i32 %48, -1
   br i1 %.not.i, label %49, label %53
 
 49:                                               ; preds = %45
   %50 = add nsw i32 %48, -1
-  store i32 %50, ptr %43, align 8, !tbaa !41
+  store i32 %50, ptr %43, align 8, !tbaa !40
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %53
 
@@ -406,13 +406,13 @@ define internal ptr @pylong_export(ptr readnone captures(none) %0, ptr noundef %
   br i1 %47, label %36, label %.split
 
 .split:                                           ; preds = %53, %.lr.ph
-  %54 = load i32, ptr %31, align 8, !tbaa !41
+  %54 = load i32, ptr %31, align 8, !tbaa !40
   %.not.i.i = icmp sgt i32 %54, -1
   br i1 %.not.i.i, label %55, label %.sink.split
 
 55:                                               ; preds = %.split
   %56 = add nsw i32 %54, -1
-  store i32 %56, ptr %31, align 8, !tbaa !41
+  store i32 %56, ptr %31, align 8, !tbaa !40
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %.sink.split
 
@@ -436,7 +436,7 @@ define internal ptr @pylong_export(ptr readnone captures(none) %0, ptr noundef %
   %66 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.29, i32 noundef %65, ptr noundef nonnull %31) #5
   call void @PyLong_FreeExport(ptr noundef nonnull %3) #5
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %68 = load i64, ptr %67, align 8, !tbaa !42
+  %68 = load i64, ptr %67, align 8, !tbaa !41
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %71, label %70
 
@@ -498,7 +498,7 @@ define internal ptr @pylongwriter_create(ptr readnone captures(none) %0, ptr nou
 
 PyList_GET_SIZE.exit:                             ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %18 = load i64, ptr %17, align 8, !tbaa !43
+  %18 = load i64, ptr %17, align 8, !tbaa !42
   %19 = shl i64 %18, 2
   %20 = call ptr @PyMem_Malloc(i64 noundef %19) #5
   %21 = icmp eq ptr %20, null
@@ -529,7 +529,7 @@ PyList_GET_SIZE.exit:                             ; preds = %15
 
 30:                                               ; preds = %.lr.ph
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !44
+  %32 = load ptr, ptr %31, align 8, !tbaa !43
   %33 = getelementptr ptr, ptr %32, i64 %.02740
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = call i64 @PyLong_AsLong(ptr noundef %34) #5
@@ -556,7 +556,7 @@ PyList_GET_SIZE.exit:                             ; preds = %15
   store i32 %42, ptr %43, align 4, !tbaa !23
   %44 = add nuw nsw i64 %.02740, 1
   %exitcond.not = icmp eq i64 %44, %18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %41, %.preheader
   %45 = load i32, ptr %3, align 4, !tbaa !23
@@ -576,7 +576,7 @@ PyList_GET_SIZE.exit:                             ; preds = %15
   unreachable
 
 54:                                               ; preds = %48
-  %55 = load ptr, ptr %5, align 8, !tbaa !48
+  %55 = load ptr, ptr %5, align 8, !tbaa !47
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr nonnull align 4 %20, i64 %19, i1 false)
   %56 = call ptr @PyLongWriter_Finish(ptr noundef nonnull %46) #5
   call void @PyMem_Free(ptr noundef nonnull %20) #5
@@ -596,16 +596,16 @@ PyList_GET_SIZE.exit:                             ; preds = %15
 ; Function Attrs: nounwind uwtable
 define internal ptr @get_pylong_layout(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @PyLong_GetNativeLayout() #5
-  %4 = load i8, ptr %3, align 1, !tbaa !49
+  %4 = load i8, ptr %3, align 1, !tbaa !48
   %5 = zext i8 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %7 = load i8, ptr %6, align 1, !tbaa !36
   %8 = zext i8 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %10 = load i8, ptr %9, align 1, !tbaa !50
+  %10 = load i8, ptr %9, align 1, !tbaa !49
   %11 = sext i8 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %13 = load i8, ptr %12, align 1, !tbaa !51
+  %13 = load i8, ptr %12, align 1, !tbaa !50
   %14 = sext i8 %13 to i32
   %15 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %5, ptr noundef nonnull @.str.41, i32 noundef %8, ptr noundef nonnull @.str.42, i32 noundef %11, ptr noundef nonnull @.str.43, i32 noundef %14) #5
   ret ptr %15
@@ -833,17 +833,16 @@ attributes #6 = { noreturn nounwind }
 !35 = !{!32, !12, i64 0}
 !36 = !{!37, !5, i64 1}
 !37 = !{!"PyLongLayout", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!5, !5, i64 0}
-!42 = !{!32, !12, i64 32}
-!43 = !{!11, !12, i64 16}
-!44 = !{!45, !46, i64 24}
-!45 = !{!"", !11, i64 0, !46, i64 24, !12, i64 32}
-!46 = !{!"p2 _ZTS7_object", !8, i64 0}
-!47 = distinct !{!47, !39, !40}
-!48 = !{!8, !8, i64 0}
-!49 = !{!37, !5, i64 0}
-!50 = !{!37, !5, i64 2}
-!51 = !{!37, !5, i64 3}
+!40 = !{!5, !5, i64 0}
+!41 = !{!32, !12, i64 32}
+!42 = !{!11, !12, i64 16}
+!43 = !{!44, !45, i64 24}
+!44 = !{!"", !11, i64 0, !45, i64 24, !12, i64 32}
+!45 = !{!"p2 _ZTS7_object", !8, i64 0}
+!46 = distinct !{!46, !39}
+!47 = !{!8, !8, i64 0}
+!48 = !{!37, !5, i64 0}
+!49 = !{!37, !5, i64 2}
+!50 = !{!37, !5, i64 3}

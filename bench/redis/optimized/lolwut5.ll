@@ -83,7 +83,7 @@ define dso_local ptr @lwDrawSchotter(i32 noundef %0, i32 noundef %1, i32 noundef
 ._crit_edge.us:                                   ; preds = %.lr.ph.split.us60, %.lr.ph.split.us.us
   %32 = add nuw nsw i32 %.05256.us, 1
   %exitcond64.not = icmp eq i32 %32, %2
-  br i1 %exitcond64.not, label %._crit_edge57, label %.preheader.us, !llvm.loop !11
+  br i1 %exitcond64.not, label %._crit_edge57, label %.preheader.us, !llvm.loop !10
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us, %.lr.ph.split.us.us
   %.05155.us.us = phi i32 [ %70, %.lr.ph.split.us.us ], [ 0, %.preheader.us ]
@@ -133,7 +133,7 @@ define dso_local ptr @lwDrawSchotter(i32 noundef %0, i32 noundef %1, i32 noundef
   tail call void @lwDrawSquare(ptr noundef %16, i32 noundef %65, i32 noundef %69, float noundef %11, float noundef %.047.us.us, i32 noundef 1) #6
   %70 = add nuw nsw i32 %.05155.us.us, 1
   %exitcond63.not = icmp eq i32 %70, %1
-  br i1 %exitcond63.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !13
+  br i1 %exitcond63.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !12
 
 ._crit_edge57:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %3
   ret ptr %16
@@ -156,53 +156,53 @@ define dso_local void @lolwut5Command(ptr noundef %0) local_unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 66, ptr %3, align 8, !tbaa !14
+  store i64 66, ptr %3, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  store i64 8, ptr %4, align 8, !tbaa !14
+  store i64 8, ptr %4, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store i64 12, ptr %5, align 8, !tbaa !14
+  store i64 12, ptr %5, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = load i32, ptr %6, align 8, !tbaa !16
+  %7 = load i32, ptr %6, align 8, !tbaa !15
   %8 = icmp sgt i32 %7, 1
   br i1 %8, label %9, label %.thread22
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %11 = load ptr, ptr %10, align 8, !tbaa !36
+  %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !37
+  %13 = load ptr, ptr %12, align 8, !tbaa !36
   %14 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %13, ptr noundef nonnull %3, ptr noundef null) #6
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %123
 
 15:                                               ; preds = %9
-  %.pr = load i32, ptr %6, align 8, !tbaa !16
+  %.pr = load i32, ptr %6, align 8, !tbaa !15
   %16 = icmp sgt i32 %.pr, 2
   br i1 %16, label %17, label %.thread22
 
 17:                                               ; preds = %15
-  %18 = load ptr, ptr %10, align 8, !tbaa !36
+  %18 = load ptr, ptr %10, align 8, !tbaa !35
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !37
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
   %21 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %4, ptr noundef null) #6
   %.not18 = icmp eq i32 %21, 0
   br i1 %.not18, label %22, label %123
 
 22:                                               ; preds = %17
-  %.pr21 = load i32, ptr %6, align 8, !tbaa !16
+  %.pr21 = load i32, ptr %6, align 8, !tbaa !15
   %23 = icmp sgt i32 %.pr21, 3
   br i1 %23, label %24, label %.thread22
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr %10, align 8, !tbaa !36
+  %25 = load ptr, ptr %10, align 8, !tbaa !35
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !37
+  %27 = load ptr, ptr %26, align 8, !tbaa !36
   %28 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull %5, ptr noundef null) #6
   %.not19 = icmp eq i32 %28, 0
   br i1 %.not19, label %.thread22, label %123
 
 .thread22:                                        ; preds = %1, %15, %24, %22
-  %29 = load i64, ptr %3, align 8, !tbaa !14
+  %29 = load i64, ptr %3, align 8, !tbaa !13
   %30 = icmp slt i64 %29, 1
   br i1 %30, label %.sink.split, label %31
 
@@ -212,12 +212,12 @@ define dso_local void @lolwut5Command(ptr noundef %0) local_unnamed_addr #2 {
 
 .sink.split:                                      ; preds = %31, %.thread22
   %.sink = phi i64 [ 1, %.thread22 ], [ 1000, %31 ]
-  store i64 %.sink, ptr %3, align 8, !tbaa !14
+  store i64 %.sink, ptr %3, align 8, !tbaa !13
   br label %33
 
 33:                                               ; preds = %.sink.split, %31
   %34 = phi i64 [ %29, %31 ], [ %.sink, %.sink.split ]
-  %35 = load i64, ptr %4, align 8, !tbaa !14
+  %35 = load i64, ptr %4, align 8, !tbaa !13
   %36 = icmp slt i64 %35, 1
   br i1 %36, label %.sink.split26, label %37
 
@@ -227,12 +227,12 @@ define dso_local void @lolwut5Command(ptr noundef %0) local_unnamed_addr #2 {
 
 .sink.split26:                                    ; preds = %37, %33
   %.sink28 = phi i64 [ 1, %33 ], [ 200, %37 ]
-  store i64 %.sink28, ptr %4, align 8, !tbaa !14
+  store i64 %.sink28, ptr %4, align 8, !tbaa !13
   br label %39
 
 39:                                               ; preds = %.sink.split26, %37
   %40 = phi i64 [ %35, %37 ], [ %.sink28, %.sink.split26 ]
-  %41 = load i64, ptr %5, align 8, !tbaa !14
+  %41 = load i64, ptr %5, align 8, !tbaa !13
   %42 = icmp slt i64 %41, 1
   br i1 %42, label %.sink.split29, label %43
 
@@ -242,7 +242,7 @@ define dso_local void @lolwut5Command(ptr noundef %0) local_unnamed_addr #2 {
 
 .sink.split29:                                    ; preds = %43, %39
   %.sink31 = phi i64 [ 1, %39 ], [ 200, %43 ]
-  store i64 %.sink31, ptr %5, align 8, !tbaa !14
+  store i64 %.sink31, ptr %5, align 8, !tbaa !13
   br label %45
 
 45:                                               ; preds = %.sink.split29, %43
@@ -253,7 +253,7 @@ define dso_local void @lolwut5Command(ptr noundef %0) local_unnamed_addr #2 {
   %50 = call ptr @lwDrawSchotter(i32 noundef %47, i32 noundef %48, i32 noundef %49)
   %51 = call ptr @sdsempty() #6
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %53 = load i32, ptr %52, align 4, !tbaa !38
+  %53 = load i32, ptr %52, align 4, !tbaa !37
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.preheader.lr.ph.i, label %renderCanvas.exit
 
@@ -266,7 +266,7 @@ define dso_local void @lolwut5Command(ptr noundef %0) local_unnamed_addr #2 {
   %57 = phi i32 [ %53, %.preheader.lr.ph.i ], [ %95, %94 ]
   %.04459.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %96, %94 ]
   %.04558.i = phi ptr [ %51, %.preheader.lr.ph.i ], [ %.247.i, %94 ]
-  %58 = load i32, ptr %50, align 8, !tbaa !40
+  %58 = load i32, ptr %50, align 8, !tbaa !39
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.lr.ph.i, label %._crit_edge.i
 
@@ -277,7 +277,7 @@ define dso_local void @lolwut5Command(ptr noundef %0) local_unnamed_addr #2 {
   br label %65
 
 ._crit_edge.loopexit.i:                           ; preds = %65
-  %.pre.i = load i32, ptr %52, align 4, !tbaa !38
+  %.pre.i = load i32, ptr %52, align 4, !tbaa !37
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
@@ -335,13 +335,13 @@ define dso_local void @lolwut5Command(ptr noundef %0) local_unnamed_addr #2 {
   %88 = call ptr @sdscatlen(ptr noundef %.14656.i, ptr noundef nonnull %2, i64 noundef 3) #6
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %2) #6
   %89 = add nuw nsw i32 %.04357.i, 2
-  %90 = load i32, ptr %50, align 8, !tbaa !40
+  %90 = load i32, ptr %50, align 8, !tbaa !39
   %91 = icmp slt i32 %89, %90
-  br i1 %91, label %65, label %._crit_edge.loopexit.i, !llvm.loop !41
+  br i1 %91, label %65, label %._crit_edge.loopexit.i, !llvm.loop !40
 
 92:                                               ; preds = %._crit_edge.i
   %93 = call ptr @sdscatlen(ptr noundef %.146.lcssa.i, ptr noundef nonnull @.str.2, i64 noundef 1) #6
-  %.pre62.i = load i32, ptr %52, align 4, !tbaa !38
+  %.pre62.i = load i32, ptr %52, align 4, !tbaa !37
   br label %94
 
 94:                                               ; preds = %92, %._crit_edge.i
@@ -349,7 +349,7 @@ define dso_local void @lolwut5Command(ptr noundef %0) local_unnamed_addr #2 {
   %.247.i = phi ptr [ %93, %92 ], [ %.146.lcssa.i, %._crit_edge.i ]
   %96 = add nuw nsw i32 %.04459.i, 4
   %97 = icmp slt i32 %96, %95
-  br i1 %97, label %.preheader.i, label %renderCanvas.exit, !llvm.loop !42
+  br i1 %97, label %.preheader.i, label %renderCanvas.exit, !llvm.loop !41
 
 renderCanvas.exit:                                ; preds = %94, %45
   %.045.lcssa.i = phi ptr [ %51, %45 ], [ %.247.i, %94 ]
@@ -381,19 +381,19 @@ renderCanvas.exit:                                ; preds = %94, %45
 
 112:                                              ; preds = %renderCanvas.exit
   %113 = getelementptr inbounds i8, ptr %100, i64 -5
-  %114 = load i16, ptr %113, align 1, !tbaa !43
+  %114 = load i16, ptr %113, align 1, !tbaa !42
   %115 = zext i16 %114 to i64
   br label %sdslen.exit
 
 116:                                              ; preds = %renderCanvas.exit
   %117 = getelementptr inbounds i8, ptr %100, i64 -9
-  %118 = load i32, ptr %117, align 1, !tbaa !45
+  %118 = load i32, ptr %117, align 1, !tbaa !44
   %119 = zext i32 %118 to i64
   br label %sdslen.exit
 
 120:                                              ; preds = %renderCanvas.exit
   %121 = getelementptr inbounds i8, ptr %100, i64 -17
-  %122 = load i64, ptr %121, align 1, !tbaa !14
+  %122 = load i64, ptr %121, align 1, !tbaa !13
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %renderCanvas.exit, %105, %108, %112, %116, %120
@@ -444,41 +444,40 @@ attributes #6 = { nounwind }
 !5 = !{!6, !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !9, !10, !12}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !6, i64 0}
-!16 = !{!17, !20, i64 88}
-!17 = !{!"client", !15, i64 0, !15, i64 8, !18, i64 16, !6, i64 24, !6, i64 25, !6, i64 26, !6, i64 27, !20, i64 28, !21, i64 32, !22, i64 40, !22, i64 48, !22, i64 56, !23, i64 64, !15, i64 72, !15, i64 80, !20, i64 88, !24, i64 96, !20, i64 104, !20, i64 108, !24, i64 112, !15, i64 120, !25, i64 128, !25, i64 136, !25, i64 144, !25, i64 152, !19, i64 160, !20, i64 168, !20, i64 172, !15, i64 176, !26, i64 184, !27, i64 192, !26, i64 200, !15, i64 208, !15, i64 216, !15, i64 224, !20, i64 232, !28, i64 240, !15, i64 248, !15, i64 256, !20, i64 264, !20, i64 268, !20, i64 272, !20, i64 276, !15, i64 280, !15, i64 288, !23, i64 296, !27, i64 304, !27, i64 312, !27, i64 320, !27, i64 328, !27, i64 336, !27, i64 344, !27, i64 352, !27, i64 360, !6, i64 368, !20, i64 412, !23, i64 416, !20, i64 424, !20, i64 428, !15, i64 432, !29, i64 440, !31, i64 480, !27, i64 552, !26, i64 560, !32, i64 568, !32, i64 576, !32, i64 584, !23, i64 592, !23, i64 600, !33, i64 608, !33, i64 616, !33, i64 624, !19, i64 632, !19, i64 640, !19, i64 648, !19, i64 656, !19, i64 664, !15, i64 672, !34, i64 680, !15, i64 688, !20, i64 696, !33, i64 704, !19, i64 712, !33, i64 720, !15, i64 728, !35, i64 736, !15, i64 760, !27, i64 768, !20, i64 776, !15, i64 784, !23, i64 792}
-!18 = !{!"p1 _ZTS10connection", !19, i64 0}
-!19 = !{!"any pointer", !6, i64 0}
-!20 = !{!"int", !6, i64 0}
-!21 = !{!"p1 _ZTS7redisDb", !19, i64 0}
-!22 = !{!"p1 _ZTS11redisObject", !19, i64 0}
-!23 = !{!"p1 omnipotent char", !19, i64 0}
-!24 = !{!"p2 _ZTS11redisObject", !19, i64 0}
-!25 = !{!"p1 _ZTS12redisCommand", !19, i64 0}
-!26 = !{!"p1 _ZTS4list", !19, i64 0}
-!27 = !{!"long long", !6, i64 0}
-!28 = !{!"p1 _ZTS9dictEntry", !19, i64 0}
-!29 = !{!"multiState", !30, i64 0, !20, i64 8, !20, i64 12, !20, i64 16, !15, i64 24, !20, i64 32}
-!30 = !{!"p1 _ZTS8multiCmd", !19, i64 0}
-!31 = !{!"blockingState", !20, i64 0, !27, i64 8, !20, i64 16, !32, i64 24, !20, i64 32, !20, i64 36, !27, i64 40, !19, i64 48, !19, i64 56, !15, i64 64}
-!32 = !{!"p1 _ZTS4dict", !19, i64 0}
-!33 = !{!"p1 _ZTS8listNode", !19, i64 0}
-!34 = !{!"p1 _ZTS3rax", !19, i64 0}
-!35 = !{!"listNode", !33, i64 0, !33, i64 8, !19, i64 16}
-!36 = !{!17, !24, i64 96}
-!37 = !{!22, !22, i64 0}
-!38 = !{!39, !20, i64 4}
-!39 = !{!"lwCanvas", !20, i64 0, !20, i64 4, !23, i64 8}
-!40 = !{!39, !20, i64 0}
-!41 = distinct !{!41, !9, !10}
-!42 = distinct !{!42, !9, !10}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"short", !6, i64 0}
-!45 = !{!20, !20, i64 0}
+!10 = distinct !{!10, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !9, !11}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !6, i64 0}
+!15 = !{!16, !19, i64 88}
+!16 = !{!"client", !14, i64 0, !14, i64 8, !17, i64 16, !6, i64 24, !6, i64 25, !6, i64 26, !6, i64 27, !19, i64 28, !20, i64 32, !21, i64 40, !21, i64 48, !21, i64 56, !22, i64 64, !14, i64 72, !14, i64 80, !19, i64 88, !23, i64 96, !19, i64 104, !19, i64 108, !23, i64 112, !14, i64 120, !24, i64 128, !24, i64 136, !24, i64 144, !24, i64 152, !18, i64 160, !19, i64 168, !19, i64 172, !14, i64 176, !25, i64 184, !26, i64 192, !25, i64 200, !14, i64 208, !14, i64 216, !14, i64 224, !19, i64 232, !27, i64 240, !14, i64 248, !14, i64 256, !19, i64 264, !19, i64 268, !19, i64 272, !19, i64 276, !14, i64 280, !14, i64 288, !22, i64 296, !26, i64 304, !26, i64 312, !26, i64 320, !26, i64 328, !26, i64 336, !26, i64 344, !26, i64 352, !26, i64 360, !6, i64 368, !19, i64 412, !22, i64 416, !19, i64 424, !19, i64 428, !14, i64 432, !28, i64 440, !30, i64 480, !26, i64 552, !25, i64 560, !31, i64 568, !31, i64 576, !31, i64 584, !22, i64 592, !22, i64 600, !32, i64 608, !32, i64 616, !32, i64 624, !18, i64 632, !18, i64 640, !18, i64 648, !18, i64 656, !18, i64 664, !14, i64 672, !33, i64 680, !14, i64 688, !19, i64 696, !32, i64 704, !18, i64 712, !32, i64 720, !14, i64 728, !34, i64 736, !14, i64 760, !26, i64 768, !19, i64 776, !14, i64 784, !22, i64 792}
+!17 = !{!"p1 _ZTS10connection", !18, i64 0}
+!18 = !{!"any pointer", !6, i64 0}
+!19 = !{!"int", !6, i64 0}
+!20 = !{!"p1 _ZTS7redisDb", !18, i64 0}
+!21 = !{!"p1 _ZTS11redisObject", !18, i64 0}
+!22 = !{!"p1 omnipotent char", !18, i64 0}
+!23 = !{!"p2 _ZTS11redisObject", !18, i64 0}
+!24 = !{!"p1 _ZTS12redisCommand", !18, i64 0}
+!25 = !{!"p1 _ZTS4list", !18, i64 0}
+!26 = !{!"long long", !6, i64 0}
+!27 = !{!"p1 _ZTS9dictEntry", !18, i64 0}
+!28 = !{!"multiState", !29, i64 0, !19, i64 8, !19, i64 12, !19, i64 16, !14, i64 24, !19, i64 32}
+!29 = !{!"p1 _ZTS8multiCmd", !18, i64 0}
+!30 = !{!"blockingState", !19, i64 0, !26, i64 8, !19, i64 16, !31, i64 24, !19, i64 32, !19, i64 36, !26, i64 40, !18, i64 48, !18, i64 56, !14, i64 64}
+!31 = !{!"p1 _ZTS4dict", !18, i64 0}
+!32 = !{!"p1 _ZTS8listNode", !18, i64 0}
+!33 = !{!"p1 _ZTS3rax", !18, i64 0}
+!34 = !{!"listNode", !32, i64 0, !32, i64 8, !18, i64 16}
+!35 = !{!16, !23, i64 96}
+!36 = !{!21, !21, i64 0}
+!37 = !{!38, !19, i64 4}
+!38 = !{!"lwCanvas", !19, i64 0, !19, i64 4, !22, i64 8}
+!39 = !{!38, !19, i64 0}
+!40 = distinct !{!40, !9}
+!41 = distinct !{!41, !9}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"short", !6, i64 0}
+!44 = !{!19, !19, i64 0}

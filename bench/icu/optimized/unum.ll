@@ -2093,7 +2093,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit:           ; preds = %87
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   %97 = add nuw nsw i32 %.060, 1
   %exitcond.not = icmp eq i32 %97, %77
-  br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !36
 
 98:                                               ; preds = %83
   %99 = landingpad { ptr, i32 }
@@ -2549,12 +2549,12 @@ define linkonce_odr void @_ZN6icu_7720DecimalFormatSymbols9setSymbolENS0_19ENumb
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2568
-  store i8 1, ptr %7, align 8, !tbaa !38
+  store i8 1, ptr %7, align 8, !tbaa !37
   br label %.thread23
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2569
-  store i8 1, ptr %9, align 1, !tbaa !45
+  store i8 1, ptr %9, align 1, !tbaa !44
   br label %.thread23
 
 .thread23:                                        ; preds = %6, %8
@@ -2593,7 +2593,7 @@ define linkonce_odr void @_ZN6icu_7720DecimalFormatSymbols9setSymbolENS0_19ENumb
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  store i32 %23, ptr %31, align 8, !tbaa !46
+  store i32 %23, ptr %31, align 8, !tbaa !45
   br label %32
 
 32:                                               ; preds = %30, %32
@@ -2609,11 +2609,11 @@ define linkonce_odr void @_ZN6icu_7720DecimalFormatSymbols9setSymbolENS0_19ENumb
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.thread25, label %32, !llvm.loop !47
+  br i1 %exitcond.not, label %.thread25, label %32, !llvm.loop !46
 
 37:                                               ; preds = %27, %24, %22
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  store i32 -1, ptr %38, align 8, !tbaa !46
+  store i32 -1, ptr %38, align 8, !tbaa !45
   br label %.thread25
 
 39:                                               ; preds = %16
@@ -2623,7 +2623,7 @@ define linkonce_odr void @_ZN6icu_7720DecimalFormatSymbols9setSymbolENS0_19ENumb
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  store i32 -1, ptr %42, align 8, !tbaa !46
+  store i32 -1, ptr %42, align 8, !tbaa !45
   br label %.thread25
 
 .thread25:                                        ; preds = %32, %14, %.thread23, %37, %39, %41
@@ -2991,17 +2991,16 @@ attributes #12 = { nounwind willreturn memory(read) }
 !31 = !{!13, !13, i64 0}
 !32 = !{!33, !33, i64 0}
 !33 = !{!"char16_t", !5, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = distinct !{!37, !35, !36}
-!38 = !{!39, !5, i64 2568}
-!39 = !{!"_ZTSN6icu_7720DecimalFormatSymbolsE", !12, i64 0, !5, i64 8, !40, i64 1864, !13, i64 1928, !42, i64 1936, !44, i64 2160, !44, i64 2168, !22, i64 2176, !5, i64 2184, !5, i64 2376, !5, i64 2568, !5, i64 2569, !5, i64 2570}
-!40 = !{!"_ZTSN6icu_7713UnicodeStringE", !41, i64 0, !5, i64 8}
-!41 = !{!"_ZTSN6icu_7711ReplaceableE", !12, i64 0}
-!42 = !{!"_ZTSN6icu_776LocaleE", !12, i64 0, !5, i64 8, !5, i64 20, !5, i64 26, !13, i64 32, !43, i64 40, !5, i64 48, !43, i64 208, !5, i64 216}
-!43 = !{!"p1 omnipotent char", !23, i64 0}
-!44 = !{!"p1 _ZTSN6icu_7710CharStringE", !23, i64 0}
-!45 = !{!39, !5, i64 2569}
-!46 = !{!39, !13, i64 1928}
-!47 = distinct !{!47, !35, !36}
+!36 = distinct !{!36, !35}
+!37 = !{!38, !5, i64 2568}
+!38 = !{!"_ZTSN6icu_7720DecimalFormatSymbolsE", !12, i64 0, !5, i64 8, !39, i64 1864, !13, i64 1928, !41, i64 1936, !43, i64 2160, !43, i64 2168, !22, i64 2176, !5, i64 2184, !5, i64 2376, !5, i64 2568, !5, i64 2569, !5, i64 2570}
+!39 = !{!"_ZTSN6icu_7713UnicodeStringE", !40, i64 0, !5, i64 8}
+!40 = !{!"_ZTSN6icu_7711ReplaceableE", !12, i64 0}
+!41 = !{!"_ZTSN6icu_776LocaleE", !12, i64 0, !5, i64 8, !5, i64 20, !5, i64 26, !13, i64 32, !42, i64 40, !5, i64 48, !42, i64 208, !5, i64 216}
+!42 = !{!"p1 omnipotent char", !23, i64 0}
+!43 = !{!"p1 _ZTSN6icu_7710CharStringE", !23, i64 0}
+!44 = !{!38, !5, i64 2569}
+!45 = !{!38, !13, i64 1928}
+!46 = distinct !{!46, !35}

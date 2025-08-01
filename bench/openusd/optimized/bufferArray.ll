@@ -536,7 +536,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog11GetInstanceEv.exit: ; preds = %
   %.110 = phi i64 [ %14, %_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog11GetInstanceEv.exit ], [ %.0915, %63 ]
   %.1 = phi i64 [ %.016, %_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog11GetInstanceEv.exit ], [ %64, %63 ]
   %66 = icmp ult i64 %.1, %.110
-  br i1 %66, label %6, label %._crit_edge, !llvm.loop !7
+  br i1 %66, label %6, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %65, %1
   %.09.lcssa = phi i64 [ 0, %1 ], [ %.110, %65 ]
@@ -799,19 +799,19 @@ _ZNKSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRang
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %26, %_ZNKSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %29 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !11, !noalias !8
-  store ptr %29, ptr %.012.i.i.i, align 8, !alias.scope !8, !noalias !11
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  %29 = load ptr, ptr %.0911.i.i.i, align 8, !alias.scope !10, !noalias !7
+  store ptr %29, ptr %.012.i.i.i, align 8, !alias.scope !7, !noalias !10
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %32 = load ptr, ptr %31, align 8, !alias.scope !11, !noalias !8
-  store ptr %32, ptr %30, align 8, !alias.scope !8, !noalias !11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i8 0, i64 16, i1 false), !alias.scope !11, !noalias !8
+  %32 = load ptr, ptr %31, align 8, !alias.scope !10, !noalias !7
+  store ptr %32, ptr %30, align 8, !alias.scope !7, !noalias !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i8 0, i64 16, i1 false), !alias.scope !10, !noalias !7
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %33, %5
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !12
 
 _ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE12_M_check_lenEmPKc.exit
   %.not.i36 = icmp eq ptr %6, null
@@ -902,7 +902,7 @@ _ZSt10_ConstructISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayR
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %31, %2
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIS2_ES_ISA_SaISA_EEEEEEPS3_mT_SH_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIS2_ES_ISA_SaISA_EEEEEEPS3_mT_SH_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
 
 _ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIS2_ES_ISA_SaISA_EEEEEEPS3_mT_SH_.exit.loopexit: ; preds = %_ZSt10_ConstructISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEJRKSt10shared_ptrIS2_EEEvPT_DpOT0_.exit.i.i.i.i.i
   %.pre46 = load ptr, ptr %0, align 8
@@ -1058,7 +1058,7 @@ _ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSIS1_EE
   %95 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   %96 = add nsw i64 %.012.i.i.i.i.i, -1
   %97 = icmp sgt i64 %.012.i.i.i.i.i, 1
-  br i1 %97, label %.lr.ph.i.i.i.i.i18, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_EET0_T_SG_SF_.exit.loopexit, !llvm.loop !15
+  br i1 %97, label %.lr.ph.i.i.i.i.i18, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_EET0_T_SG_SF_.exit.loopexit, !llvm.loop !14
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_EET0_T_SG_SF_.exit.loopexit: ; preds = %_ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS2_E4typeESE_.exit.i.i.i.i.i
   %.pre = load ptr, ptr %61, align 8
@@ -1187,7 +1187,7 @@ _ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSIS1_EE
   %146 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i28, i64 16
   %147 = add nsw i64 %.012.i.i.i.i.i27, -1
   %148 = icmp sgt i64 %.012.i.i.i.i.i27, 1
-  br i1 %148, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_EET0_T_SG_SF_.exit37.loopexit, !llvm.loop !15
+  br i1 %148, label %.lr.ph.i.i.i.i.i26, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_EET0_T_SG_SF_.exit37.loopexit, !llvm.loop !14
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_EET0_T_SG_SF_.exit37.loopexit: ; preds = %_ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSIS1_EENSt9enable_ifIXsr13is_assignableIRSt10__weak_ptrIS1_LN9__gnu_cxx12_Lock_policyE2EERKSt10shared_ptrIT_EEE5valueERS2_E4typeESE_.exit.i.i.i.i.i36
   %.pre45 = load ptr, ptr %61, align 8
@@ -1230,7 +1230,7 @@ _ZSt10_ConstructISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayR
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i, i64 16
   %163 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i, i64 16
   %.not.i.i.i.i41 = icmp eq ptr %162, %2
-  br i1 %.not.i.i.i.i41, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_ESD_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i38, !llvm.loop !14
+  br i1 %.not.i.i.i.i41, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_ESD_ET0_T_SG_SF_RSaIT1_E.exit, label %.lr.ph.i.i.i.i38, !llvm.loop !13
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_ESD_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %_ZSt10_ConstructISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEJRKSt10shared_ptrIS2_EEEvPT_DpOT0_.exit.i.i.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_EET0_T_SG_SF_.exit37
   %.0.lcssa.i.i.i.i = phi ptr [ %149, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESt6vectorIS5_SaIS5_EEEEPSt8weak_ptrIS4_EET0_T_SG_SF_.exit37 ], [ %163, %_ZSt10_ConstructISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEJRKSt10shared_ptrIS2_EEEvPT_DpOT0_.exit.i.i.i.i ]
@@ -1281,15 +1281,14 @@ attributes #20 = { builtin allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZSt19__relocate_object_aISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!10 = distinct !{!10, !"_ZSt19__relocate_object_aISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEES3_SaIS3_EEvPT_PT0_RT1_"}
-!11 = !{!12}
-!12 = distinct !{!12, !10, !"_ZSt19__relocate_object_aISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZSt19__relocate_object_aISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!9 = distinct !{!9, !"_ZSt19__relocate_object_aISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEES3_SaIS3_EEvPT_PT0_RT1_"}
+!10 = !{!11}
+!11 = distinct !{!11, !9, !"_ZSt19__relocate_object_aISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}

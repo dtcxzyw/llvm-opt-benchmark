@@ -40,7 +40,7 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly capture
   %12 = add i64 %11, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.041.lcssa = phi i64 [ %7, %4 ], [ %12, %.lr.ph ]
@@ -77,7 +77,7 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly capture
   store ptr %22, ptr %27, align 8
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge56.loopexit, label %.lr.ph55, !llvm.loop !6
+  br i1 %exitcond70.not, label %._crit_edge56.loopexit, label %.lr.ph55
 
 ._crit_edge56.loopexit:                           ; preds = %.lr.ph55
   %28 = zext nneg i32 %0 to i64
@@ -235,6 +235,3 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}

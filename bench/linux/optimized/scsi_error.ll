@@ -924,7 +924,7 @@ define dso_local range(i32 0, 2) i32 @scsi_block_when_processing_errors(ptr noun
 
 .critedge:                                        ; preds = %15, %24
   call void @schedule() #14
-  br label %15, !llvm.loop !36
+  br label %15
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 144
@@ -1079,7 +1079,7 @@ thread-pre-split:                                 ; preds = %46, %37
   %61 = phi i32 [ %59, %58 ], [ 8, %41 ]
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %63 = zext nneg i32 %61 to i64
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %62, i64 %63) #14, !srcloc !38
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %62, i64 %63) #14, !srcloc !36
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 384
   %65 = load ptr, ptr @system_wq, align 8
   %66 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %65, ptr noundef nonnull %64) #14
@@ -1502,8 +1502,8 @@ define dso_local void @scsi_eh_prep_cmnd(ptr noundef captures(none) %0, ptr noun
   br i1 %47, label %48, label %49, !prof !15
 
 48:                                               ; preds = %46
-  tail call void asm sideeffect "520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 520) #14, !srcloc !39
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1082, i32 0, i64 12) #14, !srcloc !40
+  tail call void asm sideeffect "520: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 520b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 520) #14, !srcloc !37
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1082, i32 0, i64 12) #14, !srcloc !38
   unreachable
 
 49:                                               ; preds = %46
@@ -1717,7 +1717,7 @@ define dso_local range(i32 0, 2) i32 @scsi_eh_get_sense(ptr noundef %0, ptr noun
 
 63:                                               ; preds = %57, %47, %42, %.critedge, %15, %7
   %64 = icmp eq ptr %10, %0
-  br i1 %64, label %.loopexit, label %7, !llvm.loop !41
+  br i1 %64, label %.loopexit, label %7, !llvm.loop !39
 
 .loopexit:                                        ; preds = %63, %31, %2
   %65 = load volatile ptr, ptr %0, align 8
@@ -2006,7 +2006,7 @@ define internal fastcc void @scsi_handle_queue_full(ptr noundef readonly capture
   %33 = load ptr, ptr %0, align 8
   %34 = tail call ptr @__scsi_iterate_devices(ptr noundef %33, ptr noundef nonnull %16) #14
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %.loopexit, label %15, !llvm.loop !44
+  br i1 %35, label %.loopexit, label %15, !llvm.loop !42
 
 .loopexit:                                        ; preds = %32, %9, %1
   ret void
@@ -2095,7 +2095,7 @@ define internal fastcc void @scsi_handle_queue_ramp_up(ptr noundef captures(none
   %59 = load ptr, ptr %0, align 8
   %60 = tail call ptr @__scsi_iterate_devices(ptr noundef %59, ptr noundef nonnull %38) #14
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.loopexit, label %37, !llvm.loop !45
+  br i1 %61, label %.loopexit, label %37, !llvm.loop !43
 
 .loopexit:                                        ; preds = %58, %31, %24, %15, %9, %1
   ret void
@@ -2173,7 +2173,7 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 44:                                               ; preds = %41, %35, %.preheader97
   %45 = load ptr, ptr %31, align 8
   %46 = icmp eq ptr %45, %1
-  br i1 %46, label %.thread, label %.preheader97, !llvm.loop !46
+  br i1 %46, label %.thread, label %.preheader97, !llvm.loop !44
 
 47:                                               ; preds = %41
   %48 = icmp eq ptr %32, null
@@ -2195,7 +2195,7 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
   %59 = tail call fastcc i32 @scsi_send_eh_cmnd(ptr noundef nonnull %32, ptr noundef nonnull @scsi_eh_try_stu.stu_command, i32 noundef 6, i32 noundef %58, i32 noundef 0)
   %60 = icmp eq i32 %59, 8193
   %61 = and i1 %55, %60
-  br i1 %61, label %.preheader96, label %62, !llvm.loop !47
+  br i1 %61, label %.preheader96, label %62, !llvm.loop !45
 
 62:                                               ; preds = %.preheader96
   %63 = icmp eq i32 %59, 8194
@@ -2224,7 +2224,7 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 72:                                               ; preds = %.preheader93
   %73 = add nsw i32 %67, -1
   %74 = icmp eq i32 %67, 0
-  br i1 %74, label %.loopexit95, label %.preheader93, !llvm.loop !48
+  br i1 %74, label %.loopexit95, label %.preheader93
 
 .loopexit95:                                      ; preds = %72, %.preheader93, %64, %64, %64
   %75 = load ptr, ptr %1, align 8
@@ -2279,12 +2279,12 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 
 101:                                              ; preds = %.critedge55, %93, %.preheader92
   %102 = icmp eq ptr %79, %1
-  br i1 %102, label %.thread, label %.preheader92, !llvm.loop !49
+  br i1 %102, label %.thread, label %.preheader92, !llvm.loop !46
 
 .thread:                                          ; preds = %44, %.preheader93, %101, %.critedge, %.loopexit95, %62, %49, %47
   %103 = tail call ptr @__scsi_iterate_devices(ptr noundef %0, ptr noundef nonnull %15) #14
   %104 = icmp eq ptr %103, null
-  br i1 %104, label %.loopexit99, label %14, !llvm.loop !50
+  br i1 %104, label %.loopexit99, label %14, !llvm.loop !47
 
 .loopexit99:                                      ; preds = %.thread, %30, %3
   %105 = load volatile ptr, ptr %1, align 8
@@ -2340,7 +2340,7 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
   %133 = getelementptr i8, ptr %130, i64 -8
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, %115
-  br i1 %135, label %136, label %.preheader89, !llvm.loop !51
+  br i1 %135, label %136, label %.preheader89, !llvm.loop !48
 
 136:                                              ; preds = %132
   %137 = getelementptr i8, ptr %130, i64 -8
@@ -2391,7 +2391,7 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 159:                                              ; preds = %.preheader86
   %160 = add nsw i32 %154, -1
   %161 = icmp eq i32 %154, 0
-  br i1 %161, label %.loopexit88, label %.preheader86, !llvm.loop !52
+  br i1 %161, label %.loopexit88, label %.preheader86
 
 .loopexit88:                                      ; preds = %159, %.preheader86, %146, %.thread63, %.thread63, %.thread63
   %162 = load ptr, ptr %1, align 8
@@ -2446,12 +2446,12 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 
 191:                                              ; preds = %185, %182, %.preheader85
   %192 = icmp eq ptr %166, %1
-  br i1 %192, label %.thread61, label %.preheader85, !llvm.loop !53
+  br i1 %192, label %.thread61, label %.preheader85, !llvm.loop !49
 
 .thread61:                                        ; preds = %.preheader89, %.preheader86, %191, %146, %139, %.loopexit88, %136
   %193 = tail call ptr @__scsi_iterate_devices(ptr noundef %0, ptr noundef nonnull %115) #14
   %194 = icmp eq ptr %193, null
-  br i1 %194, label %.loopexit91, label %114, !llvm.loop !54
+  br i1 %194, label %.loopexit91, label %114, !llvm.loop !50
 
 .loopexit91:                                      ; preds = %.thread61, %128, %107
   %195 = load volatile ptr, ptr %1, align 8
@@ -2617,7 +2617,7 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 
 279:                                              ; preds = %274, %.preheader84.split.us
   %280 = icmp eq ptr %268, %6
-  br i1 %280, label %.loopexit, label %.preheader84.split.us, !llvm.loop !55
+  br i1 %280, label %.loopexit, label %.preheader84.split.us, !llvm.loop !51
 
 .preheader84.split.us109:                         ; preds = %.preheader84, %293
   %281 = phi ptr [ %282, %293 ], [ %265, %.preheader84 ]
@@ -2644,7 +2644,7 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 
 293:                                              ; preds = %288, %.preheader84.split.us109
   %294 = icmp eq ptr %282, %6
-  br i1 %294, label %.loopexit, label %.preheader84.split.us109, !llvm.loop !57
+  br i1 %294, label %.loopexit, label %.preheader84.split.us109, !llvm.loop !53
 
 .preheader84.split:                               ; preds = %.preheader84, %308
   %295 = phi ptr [ %296, %308 ], [ %265, %.preheader84 ]
@@ -2672,15 +2672,15 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 
 308:                                              ; preds = %302, %.preheader84.split
   %309 = icmp eq ptr %296, %6
-  br i1 %309, label %.loopexit, label %.preheader84.split, !llvm.loop !58
+  br i1 %309, label %.loopexit, label %.preheader84.split, !llvm.loop !54
 
 .loopexit:                                        ; preds = %293, %279, %308, %263
   %310 = load volatile ptr, ptr %6, align 8
   %311 = icmp eq ptr %310, %6
-  br i1 %311, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %311, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.loopexit, %206
-  %312 = call fastcc i32 @scsi_eh_test_devices(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !60
+  %312 = call fastcc i32 @scsi_eh_test_devices(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !56
   %313 = icmp eq i32 %312, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
@@ -2761,7 +2761,7 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 148
   %350 = load i32, ptr %349, align 4
   %351 = icmp eq i32 %320, %350
-  br i1 %351, label %352, label %.preheader82, !llvm.loop !61
+  br i1 %351, label %352, label %.preheader82, !llvm.loop !57
 
 352:                                              ; preds = %346
   %353 = getelementptr i8, ptr %344, i64 -8
@@ -2821,7 +2821,7 @@ define dso_local void @scsi_eh_ready_devs(ptr noundef %0, ptr noundef %1, ptr no
 387:                                              ; preds = %383, %.preheader.i
   %388 = load ptr, ptr %379, align 8
   %389 = icmp eq ptr %388, %356
-  br i1 %389, label %scsi_try_bus_reset.exit.thread68, label %.preheader.i, !llvm.loop !62
+  br i1 %389, label %scsi_try_bus_reset.exit.thread68, label %.preheader.i, !llvm.loop !58
 
 scsi_try_bus_reset.exit.thread68:                 ; preds = %387, %370
   %390 = load ptr, ptr %371, align 8
@@ -2867,16 +2867,16 @@ scsi_try_bus_reset.exit:                          ; preds = %362
 
 411:                                              ; preds = %406, %398
   %412 = icmp eq ptr %400, %1
-  br i1 %412, label %.thread67, label %398, !llvm.loop !63
+  br i1 %412, label %.thread67, label %398, !llvm.loop !59
 
 .thread67:                                        ; preds = %.preheader82, %411, %scsi_try_bus_reset.exit, %355, %392, %352
   %413 = add i32 %320, 1
   %414 = load i32, ptr %318, align 8
   %415 = icmp ugt i32 %413, %414
-  br i1 %415, label %416, label %319, !llvm.loop !64
+  br i1 %415, label %416, label %319, !llvm.loop !60
 
 416:                                              ; preds = %.thread67
-  %417 = call fastcc i32 @scsi_eh_test_devices(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !60
+  %417 = call fastcc i32 @scsi_eh_test_devices(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, i32 noundef 0), !range !56
   %418 = icmp eq i32 %417, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   br i1 %418, label %419, label %scsi_eh_offline_sdevs.exit
@@ -2947,7 +2947,7 @@ scsi_try_bus_reset.exit:                          ; preds = %362
 457:                                              ; preds = %453, %.preheader.i.i
   %458 = load ptr, ptr %449, align 8
   %459 = icmp eq ptr %458, %426
-  br i1 %459, label %scsi_try_host_reset.exit.thread4.i, label %.preheader.i.i, !llvm.loop !65
+  br i1 %459, label %scsi_try_host_reset.exit.thread4.i, label %.preheader.i.i, !llvm.loop !58
 
 scsi_try_host_reset.exit.thread4.i:               ; preds = %457, %440
   %460 = load ptr, ptr %441, align 8
@@ -2989,10 +2989,10 @@ scsi_try_host_reset.exit.thread4.i:               ; preds = %457, %440
   store ptr %477, ptr %474, align 8
   store volatile ptr %472, ptr %477, align 8
   %478 = icmp eq ptr %473, %1
-  br i1 %478, label %scsi_eh_host_reset.exit, label %.preheader81, !llvm.loop !66
+  br i1 %478, label %scsi_eh_host_reset.exit, label %.preheader81, !llvm.loop !61
 
 scsi_eh_host_reset.exit:                          ; preds = %.preheader81, %419, %423, %432, %scsi_try_host_reset.exit.thread4.i, %463, %469
-  %479 = call fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i32 noundef 1), !range !60
+  %479 = call fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2, i32 noundef 1), !range !56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
   %480 = icmp eq i32 %479, 0
   br i1 %480, label %481, label %scsi_eh_offline_sdevs.exit
@@ -3025,7 +3025,7 @@ scsi_eh_host_reset.exit:                          ; preds = %.preheader81, %419,
   store ptr %495, ptr %491, align 8
   store volatile ptr %484, ptr %495, align 8
   %496 = icmp eq ptr %486, %1
-  br i1 %496, label %scsi_eh_offline_sdevs.exit, label %.preheader, !llvm.loop !67
+  br i1 %496, label %scsi_eh_offline_sdevs.exit, label %.preheader, !llvm.loop !62
 
 scsi_eh_offline_sdevs.exit:                       ; preds = %.preheader, %._crit_edge, %481, %341, %scsi_eh_host_reset.exit, %416, %314, %.loopexit91, %.loopexit99
   ret void
@@ -3174,7 +3174,7 @@ define dso_local void @scsi_eh_flush_done_q(ptr noundef readonly captures(addres
 
 79:                                               ; preds = %78, %65
   %80 = icmp eq ptr %6, %0
-  br i1 %80, label %.loopexit, label %.preheader, !llvm.loop !68
+  br i1 %80, label %.loopexit, label %.preheader, !llvm.loop !63
 
 .loopexit:                                        ; preds = %79, %1
   ret void
@@ -3187,10 +3187,10 @@ declare dso_local void @blk_mq_kick_requeue_list(ptr noundef) local_unnamed_addr
 define dso_local noundef i32 @scsi_error_handler(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.list_head, align 8
   %3 = alloca %struct.list_head, align 8
-  %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !69
+  %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !64
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 1, ptr nonnull elementtype(i32) %6) #14, !srcloc !70
+  %7 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 1, ptr nonnull elementtype(i32) %6) #14, !srcloc !65
   %8 = tail call zeroext i1 @kthread_should_stop() #14
   br i1 %8, label %.loopexit6, label %9
 
@@ -3231,9 +3231,9 @@ define dso_local noundef i32 @scsi_error_handler(ptr noundef %0) local_unnamed_a
   br label %34
 
 34:                                               ; preds = %139, %134, %41, %33
-  %35 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 1, ptr nonnull elementtype(i32) %6) #14, !srcloc !70
+  %35 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, i32 1, ptr nonnull elementtype(i32) %6) #14, !srcloc !65
   %36 = call zeroext i1 @kthread_should_stop() #14
-  br i1 %36, label %.loopexit6, label %24, !llvm.loop !71
+  br i1 %36, label %.loopexit6, label %24, !llvm.loop !66
 
 37:                                               ; preds = %30
   store volatile i32 0, ptr %6, align 8
@@ -3287,7 +3287,7 @@ define dso_local noundef i32 @scsi_error_handler(ptr noundef %0) local_unnamed_a
 60:                                               ; preds = %55, %50
   %61 = load ptr, ptr %16, align 8
   call void @_raw_spin_unlock_irqrestore(ptr noundef %61, i64 noundef %52) #14
-  %62 = call i32 @scsi_eh_get_sense(ptr noundef nonnull %2, ptr noundef nonnull %3), !range !60
+  %62 = call i32 @scsi_eh_get_sense(ptr noundef nonnull %2, ptr noundef nonnull %3), !range !56
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %65
 
@@ -3381,7 +3381,7 @@ define dso_local noundef i32 @scsi_error_handler(ptr noundef %0) local_unnamed_a
 106:                                              ; preds = %103, %79, %.preheader, %.preheader, %.preheader
   %107 = call ptr @__scsi_iterate_devices(ptr noundef %0, ptr noundef nonnull %76) #14
   %108 = icmp eq ptr %107, null
-  br i1 %108, label %.loopexit, label %.preheader, !llvm.loop !72
+  br i1 %108, label %.loopexit, label %.preheader, !llvm.loop !67
 
 .loopexit:                                        ; preds = %106, %73
   %109 = load ptr, ptr %16, align 8
@@ -3401,8 +3401,8 @@ define dso_local noundef i32 @scsi_error_handler(ptr noundef %0) local_unnamed_a
   br i1 %118, label %120, label %119, !prof !13
 
 119:                                              ; preds = %116
-  call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #14, !srcloc !73
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2144, i32 0, i64 12) #14, !srcloc !74
+  call void asm sideeffect "527: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 527b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 527) #14, !srcloc !68
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2144, i32 0, i64 12) #14, !srcloc !69
   unreachable
 
 120:                                              ; preds = %116, %113, %.loopexit
@@ -3427,9 +3427,9 @@ define dso_local noundef i32 @scsi_error_handler(ptr noundef %0) local_unnamed_a
   br i1 %132, label %134, label %133, !prof !13
 
 133:                                              ; preds = %130
-  call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #14, !srcloc !75
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2168, i32 2305, i64 12) #14, !srcloc !76
-  call void asm sideeffect "529: nop\0A\09.pushsection .discard.instr_end\0A\09.long 529b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 529) #14, !srcloc !77
+  call void asm sideeffect "528: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 528b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 528) #14, !srcloc !70
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2168, i32 2305, i64 12) #14, !srcloc !71
+  call void asm sideeffect "529: nop\0A\09.pushsection .discard.instr_end\0A\09.long 529b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 529) #14, !srcloc !72
   br label %134
 
 134:                                              ; preds = %133, %130, %127, %120
@@ -3483,7 +3483,7 @@ define dso_local void @scsi_report_bus_reset(ptr noundef readonly captures(addre
 13:                                               ; preds = %9, %.preheader
   %14 = load ptr, ptr %5, align 8
   %15 = icmp eq ptr %14, %0
-  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !78
+  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !58
 
 .loopexit:                                        ; preds = %13, %2
   ret void
@@ -3527,7 +3527,7 @@ define dso_local void @scsi_report_device_reset(ptr noundef readonly captures(ad
 18:                                               ; preds = %14, %10, %.preheader
   %19 = load ptr, ptr %6, align 8
   %20 = icmp eq ptr %19, %0
-  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !79
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !73
 
 .loopexit:                                        ; preds = %18, %3
   ret void
@@ -3545,7 +3545,7 @@ define dso_local i32 @scsi_ioctl_reset(ptr noundef %0, ptr noundef %1) local_unn
 
 7:                                                ; preds = %5
   %8 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %9 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %8) #14, !srcloc !80
+  %9 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %8) #14, !srcloc !74
   %10 = extractvalue { ptr, i32, i64 } %9, 0
   %11 = extractvalue { ptr, i32, i64 } %9, 1
   %12 = extractvalue { ptr, i32, i64 } %9, 2
@@ -3789,7 +3789,7 @@ define internal fastcc i32 @scsi_try_bus_reset(ptr noundef %0) unnamed_addr #0 a
 35:                                               ; preds = %31, %.preheader
   %36 = load ptr, ptr %27, align 8
   %37 = icmp eq ptr %36, %3
-  br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !62
+  br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !58
 
 .loopexit:                                        ; preds = %35, %18
   %38 = load ptr, ptr %19, align 8
@@ -3856,7 +3856,7 @@ define internal fastcc i32 @scsi_try_host_reset(ptr noundef %0) unnamed_addr #0 
 35:                                               ; preds = %31, %.preheader
   %36 = load ptr, ptr %27, align 8
   %37 = icmp eq ptr %36, %3
-  br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !65
+  br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !58
 
 .loopexit:                                        ; preds = %35, %18
   %38 = load ptr, ptr %19, align 8
@@ -4027,7 +4027,7 @@ define internal fastcc noundef range(i32 8193, 8196) i32 @scsi_send_eh_cmnd(ptr 
   %49 = icmp eq i32 %48, 8
   %50 = icmp ne i64 %46, 0
   %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %.preheader, label %.loopexit13, !llvm.loop !81
+  br i1 %51, label %.preheader, label %.loopexit13, !llvm.loop !75
 
 .loopexit13:                                      ; preds = %.preheader, %36
   %52 = phi i64 [ %37, %36 ], [ %46, %.preheader ]
@@ -4072,7 +4072,7 @@ define internal fastcc noundef range(i32 8193, 8196) i32 @scsi_send_eh_cmnd(ptr 
   %71 = add i64 %52, -100
   %72 = call i32 @jiffies_to_msecs(i64 noundef 100) #14
   call void @msleep(i32 noundef %72) #14
-  br label %36, !llvm.loop !82
+  br label %36
 
 73:                                               ; preds = %54
   %74 = call i64 @wait_for_completion_timeout(ptr noundef nonnull %6, i64 noundef %12) #14
@@ -4176,7 +4176,7 @@ define internal fastcc noundef range(i32 8193, 8196) i32 @scsi_send_eh_cmnd(ptr 
   %130 = load ptr, ptr %98, align 8
   %131 = call ptr @__scsi_iterate_devices(ptr noundef %130, ptr noundef nonnull %113) #14
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %.loopexit, label %112, !llvm.loop !83
+  br i1 %132, label %.loopexit, label %112, !llvm.loop !42
 
 .loopexit:                                        ; preds = %129, %106, %97, %80
   br label %scsi_try_host_reset.exit
@@ -4344,7 +4344,7 @@ define internal fastcc noundef range(i32 8193, 8196) i32 @scsi_send_eh_cmnd(ptr 
 213:                                              ; preds = %209, %.preheader.i
   %214 = load ptr, ptr %205, align 8
   %215 = icmp eq ptr %214, %183
-  br i1 %215, label %scsi_try_bus_reset.exit, label %.preheader.i, !llvm.loop !62
+  br i1 %215, label %scsi_try_bus_reset.exit, label %.preheader.i, !llvm.loop !58
 
 scsi_try_bus_reset.exit:                          ; preds = %213, %196
   %216 = load ptr, ptr %197, align 8
@@ -4403,7 +4403,7 @@ scsi_try_bus_reset.exit:                          ; preds = %213, %196
 249:                                              ; preds = %245, %.preheader.i8
   %250 = load ptr, ptr %241, align 8
   %251 = icmp eq ptr %250, %219
-  br i1 %251, label %.loopexit.i9, label %.preheader.i8, !llvm.loop !65
+  br i1 %251, label %.loopexit.i9, label %.preheader.i8, !llvm.loop !58
 
 .loopexit.i9:                                     ; preds = %249, %232
   %252 = load ptr, ptr %233, align 8
@@ -4476,7 +4476,7 @@ define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0,
 .loopexit:                                        ; preds = %111, %.loopexit19
   %11 = load volatile ptr, ptr %0, align 8
   %12 = icmp eq ptr %11, %0
-  br i1 %12, label %.loopexit21, label %13, !llvm.loop !84
+  br i1 %12, label %.loopexit21, label %13, !llvm.loop !76
 
 13:                                               ; preds = %.loopexit, %7
   %14 = phi ptr [ %5, %7 ], [ %11, %.loopexit ]
@@ -4556,7 +4556,7 @@ define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0,
   %54 = tail call fastcc i32 @scsi_send_eh_cmnd(ptr noundef %15, ptr noundef nonnull @scsi_eh_try_stu.stu_command, i32 noundef 6, i32 noundef %53, i32 noundef 0)
   %55 = icmp eq i32 %54, 8193
   %56 = and i1 %50, %55
-  br i1 %56, label %.preheader20, label %57, !llvm.loop !85
+  br i1 %56, label %.preheader20, label %57, !llvm.loop !45
 
 57:                                               ; preds = %.preheader20
   %58 = icmp eq i32 %54, 8194
@@ -4576,7 +4576,7 @@ define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0,
 64:                                               ; preds = %.preheader17
   %65 = add nsw i32 %59, -1
   %66 = icmp eq i32 %59, 0
-  br i1 %66, label %.loopexit19, label %.preheader17, !llvm.loop !86
+  br i1 %66, label %.loopexit19, label %.preheader17
 
 .loopexit18:                                      ; preds = %.loopexit18.preheader, %72
   %67 = phi i32 [ %73, %72 ], [ 1, %.loopexit18.preheader ]
@@ -4592,7 +4592,7 @@ define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0,
 72:                                               ; preds = %.loopexit18
   %73 = add nsw i32 %67, -1
   %74 = icmp eq i32 %67, 0
-  br i1 %74, label %.loopexit19.loopexit27, label %.loopexit18, !llvm.loop !87
+  br i1 %74, label %.loopexit19.loopexit27, label %.loopexit18
 
 .loopexit19.loopexit27:                           ; preds = %.loopexit18, %72
   br label %.loopexit19
@@ -4671,7 +4671,7 @@ define internal fastcc range(i32 0, 2) i32 @scsi_eh_test_devices(ptr noundef %0,
 
 111:                                              ; preds = %109, %.preheader
   %112 = icmp eq ptr %80, %0
-  br i1 %112, label %.loopexit, label %.preheader, !llvm.loop !88
+  br i1 %112, label %.loopexit, label %.preheader, !llvm.loop !77
 
 .loopexit21:                                      ; preds = %.loopexit, %36, %33, %4
   %113 = load volatile ptr, ptr %1, align 8
@@ -4776,56 +4776,45 @@ attributes #16 = { nounwind allocsize(0) }
 !33 = !{i64 2156825760, i64 2156825569, i64 2156825621, i64 2156825667, i64 2156825695}
 !34 = !{i64 2156825834, i64 2156825863, i64 2156825909, i64 2156825967, i64 2156826021, i64 2156826075, i64 2156826130, i64 2156826161}
 !35 = !{!"auto-init"}
-!36 = distinct !{!36, !37}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{i64 2148529249, i64 2148529288, i64 2148529309, i64 2148529346, i64 2148529369, i64 2148529239}
-!39 = !{i64 2156857384, i64 2156857193, i64 2156857245, i64 2156857291, i64 2156857319}
-!40 = !{i64 2156857458, i64 2156857487, i64 2156857533, i64 2156857591, i64 2156857645, i64 2156857699, i64 2156857754, i64 2156857785}
-!41 = distinct !{!41, !42, !43, !37}
-!42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.unroll.disable"}
-!44 = distinct !{!44, !42, !43, !37}
-!45 = distinct !{!45, !42, !43, !37}
-!46 = distinct !{!46, !42, !43, !37}
-!47 = distinct !{!47, !42, !43, !37}
-!48 = distinct !{!48, !37}
-!49 = distinct !{!49, !42, !43, !37}
-!50 = distinct !{!50, !42, !43, !37}
-!51 = distinct !{!51, !42, !43, !37}
-!52 = distinct !{!52, !37}
-!53 = distinct !{!53, !42, !43, !37}
-!54 = distinct !{!54, !42, !43, !37}
-!55 = distinct !{!55, !42, !43, !37, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = distinct !{!57, !42, !43, !37, !56}
-!58 = distinct !{!58, !42, !43, !37}
-!59 = distinct !{!59, !42, !43, !37}
-!60 = !{i32 0, i32 2}
-!61 = distinct !{!61, !42, !43, !37}
-!62 = distinct !{!62, !42, !43, !37}
-!63 = distinct !{!63, !42, !43, !37}
-!64 = distinct !{!64, !42, !43, !37}
-!65 = distinct !{!65, !42, !43, !37}
-!66 = distinct !{!66, !42, !43, !37}
-!67 = distinct !{!67, !42, !43, !37}
-!68 = distinct !{!68, !42, !43, !37}
-!69 = !{i64 2148417613}
-!70 = !{i64 2156964031}
-!71 = distinct !{!71, !43, !37}
-!72 = distinct !{!72, !42, !43, !37}
-!73 = !{i64 2156949050, i64 2156948859, i64 2156948911, i64 2156948957, i64 2156948985}
-!74 = !{i64 2156949124, i64 2156949153, i64 2156949199, i64 2156949257, i64 2156949311, i64 2156949365, i64 2156949420, i64 2156949451}
-!75 = !{i64 2156951104, i64 2156950913, i64 2156950965, i64 2156951011, i64 2156951039}
-!76 = !{i64 2156951178, i64 2156951207, i64 2156951253, i64 2156951311, i64 2156951365, i64 2156951419, i64 2156951474, i64 2156951505, i64 2156951813, i64 2156951819, i64 2156951866, i64 2156951889, i64 2156951915}
-!77 = !{i64 2156952374, i64 2156952185, i64 2156952235, i64 2156952281, i64 2156952309}
-!78 = distinct !{!78, !42, !43, !37}
-!79 = distinct !{!79, !42, !43, !37}
-!80 = !{i64 2156984247}
-!81 = distinct !{!81, !42, !43, !37}
-!82 = distinct !{!82, !37}
-!83 = distinct !{!83, !42, !43, !37}
-!84 = distinct !{!84, !42, !43, !37}
-!85 = distinct !{!85, !42, !43, !37}
-!86 = distinct !{!86, !37}
-!87 = distinct !{!87, !37}
-!88 = distinct !{!88, !42, !43, !37}
+!36 = !{i64 2148529249, i64 2148529288, i64 2148529309, i64 2148529346, i64 2148529369, i64 2148529239}
+!37 = !{i64 2156857384, i64 2156857193, i64 2156857245, i64 2156857291, i64 2156857319}
+!38 = !{i64 2156857458, i64 2156857487, i64 2156857533, i64 2156857591, i64 2156857645, i64 2156857699, i64 2156857754, i64 2156857785}
+!39 = distinct !{!39, !40, !41}
+!40 = !{!"llvm.loop.mustprogress"}
+!41 = !{!"llvm.loop.unroll.disable"}
+!42 = distinct !{!42, !40, !41}
+!43 = distinct !{!43, !40, !41}
+!44 = distinct !{!44, !40, !41}
+!45 = distinct !{!45, !40, !41}
+!46 = distinct !{!46, !40, !41}
+!47 = distinct !{!47, !40, !41}
+!48 = distinct !{!48, !40, !41}
+!49 = distinct !{!49, !40, !41}
+!50 = distinct !{!50, !40, !41}
+!51 = distinct !{!51, !40, !41, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !40, !41, !52}
+!54 = distinct !{!54, !40, !41}
+!55 = distinct !{!55, !40, !41}
+!56 = !{i32 0, i32 2}
+!57 = distinct !{!57, !40, !41}
+!58 = distinct !{!58, !40, !41}
+!59 = distinct !{!59, !40, !41}
+!60 = distinct !{!60, !40, !41}
+!61 = distinct !{!61, !40, !41}
+!62 = distinct !{!62, !40, !41}
+!63 = distinct !{!63, !40, !41}
+!64 = !{i64 2148417613}
+!65 = !{i64 2156964031}
+!66 = distinct !{!66, !41}
+!67 = distinct !{!67, !40, !41}
+!68 = !{i64 2156949050, i64 2156948859, i64 2156948911, i64 2156948957, i64 2156948985}
+!69 = !{i64 2156949124, i64 2156949153, i64 2156949199, i64 2156949257, i64 2156949311, i64 2156949365, i64 2156949420, i64 2156949451}
+!70 = !{i64 2156951104, i64 2156950913, i64 2156950965, i64 2156951011, i64 2156951039}
+!71 = !{i64 2156951178, i64 2156951207, i64 2156951253, i64 2156951311, i64 2156951365, i64 2156951419, i64 2156951474, i64 2156951505, i64 2156951813, i64 2156951819, i64 2156951866, i64 2156951889, i64 2156951915}
+!72 = !{i64 2156952374, i64 2156952185, i64 2156952235, i64 2156952281, i64 2156952309}
+!73 = distinct !{!73, !40, !41}
+!74 = !{i64 2156984247}
+!75 = distinct !{!75, !40, !41}
+!76 = distinct !{!76, !40, !41}
+!77 = distinct !{!77, !40, !41}

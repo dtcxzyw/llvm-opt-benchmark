@@ -234,7 +234,7 @@ partial_load_u64a.exit.i118:                      ; preds = %133, %125, %122, %1
 
 final.exit123:                                    ; preds = %139, %partial_load_u64a.exit.i118
   %.not36.i = icmp eq i32 %80, 0
-  br i1 %.not36.i, label %scan.exit, label %77, !prof !7, !llvm.loop !8
+  br i1 %.not36.i, label %scan.exit, label %77, !prof !7
 
 143:                                              ; preds = %29
   %144 = icmp eq i64 %27, 32
@@ -365,7 +365,7 @@ partial_load_u64a.exit.i106:                      ; preds = %210, %202, %199, %1
 
 final.exit111:                                    ; preds = %216, %partial_load_u64a.exit.i106
   %.not.i36 = icmp eq i32 %157, 0
-  br i1 %.not.i36, label %scan.exit, label %154, !prof !7, !llvm.loop !10
+  br i1 %.not.i36, label %scan.exit, label %154, !prof !7
 
 220:                                              ; preds = %143
   %221 = ptrtoint ptr %1 to i64
@@ -510,11 +510,11 @@ partial_load_u64a.exit.i94:                       ; preds = %299, %291, %288, %2
 
 final.exit99:                                     ; preds = %305, %partial_load_u64a.exit.i94
   %.not.i43 = icmp eq i32 %246, 0
-  br i1 %.not.i43, label %scanSingleUnaligned.exit46, label %243, !prof !7, !llvm.loop !10
+  br i1 %.not.i43, label %scanSingleUnaligned.exit46, label %243, !prof !7
 
 scanSingleUnaligned.exit46:                       ; preds = %final.exit99, %230, %220
   %.not84.i18 = icmp eq i64 %224, %227
-  br i1 %.not84.i18, label %scanSingleFast.exit, label %309, !prof !11
+  br i1 %.not84.i18, label %scanSingleFast.exit, label %309, !prof !8
 
 309:                                              ; preds = %scanSingleUnaligned.exit46
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 %228
@@ -655,12 +655,12 @@ partial_load_u64a.exit.i70:                       ; preds = %381, %373, %370, %3
 
 final.exit75:                                     ; preds = %387, %partial_load_u64a.exit.i70
   %.not.i62 = icmp eq i32 %328, 0
-  br i1 %.not.i62, label %.critedge.i, label %325, !prof !7, !llvm.loop !12
+  br i1 %.not.i62, label %.critedge.i, label %325, !prof !7
 
 .critedge.i:                                      ; preds = %final.exit75, %316
   %391 = getelementptr inbounds nuw i8, ptr %.028.i525, i64 32
   %392 = icmp ult ptr %391, %310
-  br i1 %392, label %316, label %scanSingleFast.exit, !llvm.loop !13
+  br i1 %392, label %316, label %scanSingleFast.exit
 
 scanSingleFast.exit:                              ; preds = %.critedge.i, %309, %scanSingleUnaligned.exit46
   %393 = icmp eq i64 %228, %2
@@ -799,7 +799,7 @@ partial_load_u64a.exit.i100:                      ; preds = %466, %458, %455, %4
 
 final.exit105:                                    ; preds = %472, %partial_load_u64a.exit.i100
   %.not.i38 = icmp eq i32 %413, 0
-  br i1 %.not.i38, label %scan.exit, label %410, !prof !7, !llvm.loop !10
+  br i1 %.not.i38, label %scan.exit, label %410, !prof !7
 
 476:                                              ; preds = %19
   %477 = insertelement <32 x i8> poison, i8 %21, i64 0
@@ -996,7 +996,7 @@ partial_load_u64a.exit.i112:                      ; preds = %579, %571, %568, %5
 
 final.exit117:                                    ; preds = %585, %partial_load_u64a.exit.i112
   %.not36.i25 = icmp eq i32 %526, 0
-  br i1 %.not36.i25, label %scan.exit, label %523, !prof !7, !llvm.loop !8
+  br i1 %.not36.i25, label %scan.exit, label %523, !prof !7
 
 589:                                              ; preds = %476
   %590 = icmp eq i64 %27, 32
@@ -1126,7 +1126,7 @@ partial_load_u64a.exit.i88:                       ; preds = %655, %647, %644, %6
 
 final.exit93:                                     ; preds = %661, %partial_load_u64a.exit.i88
   %.not.i48 = icmp eq i32 %602, 0
-  br i1 %.not.i48, label %scan.exit, label %599, !prof !7, !llvm.loop !10
+  br i1 %.not.i48, label %scan.exit, label %599, !prof !7
 
 665:                                              ; preds = %589
   %666 = ptrtoint ptr %1 to i64
@@ -1270,11 +1270,11 @@ partial_load_u64a.exit.i76:                       ; preds = %743, %735, %732, %7
 
 final.exit81:                                     ; preds = %749, %partial_load_u64a.exit.i76
   %.not.i58 = icmp eq i32 %690, 0
-  br i1 %.not.i58, label %scanSingleUnaligned.exit61, label %687, !prof !7, !llvm.loop !10
+  br i1 %.not.i58, label %scanSingleUnaligned.exit61, label %687, !prof !7
 
 scanSingleUnaligned.exit61:                       ; preds = %final.exit81, %675, %665
   %.not84.i = icmp eq i64 %669, %672
-  br i1 %.not84.i, label %scanSingleFast.exit68, label %753, !prof !11
+  br i1 %.not84.i, label %scanSingleFast.exit68, label %753, !prof !8
 
 753:                                              ; preds = %scanSingleUnaligned.exit61
   %754 = getelementptr inbounds nuw i8, ptr %1, i64 %673
@@ -1414,12 +1414,12 @@ partial_load_u64a.exit.i:                         ; preds = %824, %816, %813, %8
 
 final.exit:                                       ; preds = %830, %partial_load_u64a.exit.i
   %.not.i65 = icmp eq i32 %771, 0
-  br i1 %.not.i65, label %.critedge.i67, label %768, !prof !7, !llvm.loop !12
+  br i1 %.not.i65, label %.critedge.i67, label %768, !prof !7
 
 .critedge.i67:                                    ; preds = %final.exit, %760
   %834 = getelementptr inbounds nuw i8, ptr %.028.i63490, i64 32
   %835 = icmp ult ptr %834, %754
-  br i1 %835, label %760, label %scanSingleFast.exit68, !llvm.loop !13
+  br i1 %835, label %760, label %scanSingleFast.exit68
 
 scanSingleFast.exit68:                            ; preds = %.critedge.i67, %753, %scanSingleUnaligned.exit61
   %836 = icmp eq i64 %673, %2
@@ -1557,7 +1557,7 @@ partial_load_u64a.exit.i82:                       ; preds = %908, %900, %897, %8
 
 final.exit87:                                     ; preds = %914, %partial_load_u64a.exit.i82
   %.not.i53 = icmp eq i32 %855, 0
-  br i1 %.not.i53, label %scan.exit, label %852, !prof !7, !llvm.loop !10
+  br i1 %.not.i53, label %scan.exit, label %852, !prof !7
 
 918:                                              ; preds = %16
   %919 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -1776,7 +1776,7 @@ partial_load_u64a.exit.i.i:                       ; preds = %1047, %1044, %1036,
 
 final.exit.i:                                     ; preds = %1053, %partial_load_u64a.exit.i.i
   %.not40.i = icmp eq i32 %991, 0
-  br i1 %.not40.i, label %scan.exit, label %988, !prof !7, !llvm.loop !14
+  br i1 %.not40.i, label %scan.exit, label %988, !prof !7
 
 1058:                                             ; preds = %928
   %1059 = icmp eq i64 %937, 32
@@ -1908,7 +1908,7 @@ partial_load_u64a.exit.i.i164:                    ; preds = %1132, %1129, %1121,
 
 final.exit.i167:                                  ; preds = %1138, %partial_load_u64a.exit.i.i164
   %.not.i163 = icmp eq i32 %1076, 0
-  br i1 %.not.i163, label %scan.exit, label %1073, !prof !7, !llvm.loop !15
+  br i1 %.not.i163, label %scan.exit, label %1073, !prof !7
 
 1143:                                             ; preds = %1058
   %1144 = ptrtoint ptr %1 to i64
@@ -2055,7 +2055,7 @@ partial_load_u64a.exit.i.i184:                    ; preds = %1230, %1227, %1219,
 
 final.exit.i187:                                  ; preds = %1236, %partial_load_u64a.exit.i.i184
   %.not.i183 = icmp eq i32 %1174, 0
-  br i1 %.not.i183, label %scanDoubleUnaligned.exit192, label %1171, !prof !7, !llvm.loop !15
+  br i1 %.not.i183, label %scanDoubleUnaligned.exit192, label %1171, !prof !7
 
 scanDoubleUnaligned.exit192:                      ; preds = %final.exit.i187, %1154, %1143
   %.not98.i127 = icmp ult i64 %1148, %923
@@ -2063,7 +2063,7 @@ scanDoubleUnaligned.exit192:                      ; preds = %final.exit.i187, %1
 
 1241:                                             ; preds = %scanDoubleUnaligned.exit192
   %.not99.i129 = icmp eq i64 %1147, %1151
-  br i1 %.not99.i129, label %scanDoubleFast.exit, label %1242, !prof !11
+  br i1 %.not99.i129, label %scanDoubleFast.exit, label %1242, !prof !8
 
 1242:                                             ; preds = %1241
   %1243 = getelementptr inbounds nuw i8, ptr %1, i64 %1152
@@ -2207,12 +2207,12 @@ partial_load_u64a.exit.i.i228:                    ; preds = %1322, %1319, %1311,
 
 final.exit.i231:                                  ; preds = %1328, %partial_load_u64a.exit.i.i228
   %.not.i227 = icmp eq i32 %1266, 0
-  br i1 %.not.i227, label %.critedge.i235, label %1263, !prof !7, !llvm.loop !16
+  br i1 %.not.i227, label %.critedge.i235, label %1263, !prof !7
 
 .critedge.i235:                                   ; preds = %final.exit.i231, %1249
   %1333 = getelementptr inbounds nuw i8, ptr %.034.i585, i64 32
   %1334 = icmp ult ptr %1333, %1243
-  br i1 %1334, label %1249, label %scanDoubleFast.exit, !llvm.loop !17
+  br i1 %1334, label %1249, label %scanDoubleFast.exit
 
 scanDoubleFast.exit:                              ; preds = %.critedge.i235, %1242, %1241
   %.0.i130 = phi i64 [ %1149, %1241 ], [ %1152, %1242 ], [ %1152, %.critedge.i235 ]
@@ -2353,7 +2353,7 @@ partial_load_u64a.exit.i.i173:                    ; preds = %1415, %1412, %1404,
 
 final.exit.i176:                                  ; preds = %1421, %partial_load_u64a.exit.i.i173
   %.not.i172 = icmp eq i32 %1359, 0
-  br i1 %.not.i172, label %scan.exit, label %1356, !prof !7, !llvm.loop !15
+  br i1 %.not.i172, label %scan.exit, label %1356, !prof !7
 
 1426:                                             ; preds = %918
   %1427 = insertelement <32 x i8> poison, i8 %927, i64 0
@@ -2557,7 +2557,7 @@ partial_load_u64a.exit.i.i146:                    ; preds = %1542, %1539, %1531,
 
 final.exit.i149:                                  ; preds = %1548, %partial_load_u64a.exit.i.i146
   %.not40.i145 = icmp eq i32 %1486, 0
-  br i1 %.not40.i145, label %scan.exit, label %1483, !prof !7, !llvm.loop !14
+  br i1 %.not40.i145, label %scan.exit, label %1483, !prof !7
 
 1553:                                             ; preds = %1426
   %1554 = icmp eq i64 %1433, 32
@@ -2688,7 +2688,7 @@ partial_load_u64a.exit.i.i195:                    ; preds = %1626, %1623, %1615,
 
 final.exit.i198:                                  ; preds = %1632, %partial_load_u64a.exit.i.i195
   %.not.i194 = icmp eq i32 %1570, 0
-  br i1 %.not.i194, label %scan.exit, label %1567, !prof !7, !llvm.loop !15
+  br i1 %.not.i194, label %scan.exit, label %1567, !prof !7
 
 1637:                                             ; preds = %1553
   %1638 = ptrtoint ptr %1 to i64
@@ -2834,7 +2834,7 @@ partial_load_u64a.exit.i.i217:                    ; preds = %1723, %1720, %1712,
 
 final.exit.i220:                                  ; preds = %1729, %partial_load_u64a.exit.i.i217
   %.not.i216 = icmp eq i32 %1667, 0
-  br i1 %.not.i216, label %scanDoubleUnaligned.exit225, label %1664, !prof !7, !llvm.loop !15
+  br i1 %.not.i216, label %scanDoubleUnaligned.exit225, label %1664, !prof !7
 
 scanDoubleUnaligned.exit225:                      ; preds = %final.exit.i220, %1648, %1637
   %.not98.i = icmp ult i64 %1642, %923
@@ -2842,7 +2842,7 @@ scanDoubleUnaligned.exit225:                      ; preds = %final.exit.i220, %1
 
 1734:                                             ; preds = %scanDoubleUnaligned.exit225
   %.not99.i = icmp eq i64 %1641, %1645
-  br i1 %.not99.i, label %scanDoubleFast.exit248, label %1735, !prof !11
+  br i1 %.not99.i, label %scanDoubleFast.exit248, label %1735, !prof !8
 
 1735:                                             ; preds = %1734
   %1736 = getelementptr inbounds nuw i8, ptr %1, i64 %1646
@@ -2985,12 +2985,12 @@ partial_load_u64a.exit.i.i240:                    ; preds = %1814, %1811, %1803,
 
 final.exit.i243:                                  ; preds = %1820, %partial_load_u64a.exit.i.i240
   %.not.i239 = icmp eq i32 %1758, 0
-  br i1 %.not.i239, label %.critedge.i247, label %1755, !prof !7, !llvm.loop !16
+  br i1 %.not.i239, label %.critedge.i247, label %1755, !prof !7
 
 .critedge.i247:                                   ; preds = %final.exit.i243, %1742
   %1825 = getelementptr inbounds nuw i8, ptr %.034.i237558, i64 32
   %1826 = icmp ult ptr %1825, %1736
-  br i1 %1826, label %1742, label %scanDoubleFast.exit248, !llvm.loop !17
+  br i1 %1826, label %1742, label %scanDoubleFast.exit248
 
 scanDoubleFast.exit248:                           ; preds = %.critedge.i247, %1735, %1734
   %.0.i125 = phi i64 [ %1643, %1734 ], [ %1646, %1735 ], [ %1646, %.critedge.i247 ]
@@ -3130,7 +3130,7 @@ partial_load_u64a.exit.i.i206:                    ; preds = %1906, %1903, %1895,
 
 final.exit.i209:                                  ; preds = %1912, %partial_load_u64a.exit.i.i206
   %.not.i205 = icmp eq i32 %1850, 0
-  br i1 %.not.i205, label %scan.exit, label %1847, !prof !7, !llvm.loop !15
+  br i1 %.not.i205, label %scan.exit, label %1847, !prof !7
 
 scan.exit:                                        ; preds = %749, %830, %final.exit87, %914, %final.exit93, %661, %final.exit117, %585, %305, %387, %final.exit105, %472, %final.exit111, %216, %final.exit123, %139, %1729, %1820, %final.exit.i209, %1912, %final.exit.i198, %1632, %final.exit.i149, %1548, %1236, %1328, %final.exit.i176, %1421, %final.exit.i167, %1138, %final.exit.i, %1053, %837, %591, %514, %394, %145, %67, %1828, %1555, %1470, %1336, %1060, %974, %939, %scanDoubleUnaligned.exit192, %scanDoubleFast.exit, %1435, %scanDoubleUnaligned.exit225, %scanDoubleFast.exit248, %32, %scanSingleFast.exit, %479, %scanSingleFast.exit68, %6
   %.0.i = phi i32 [ 0, %6 ], [ 0, %scanSingleFast.exit ], [ 0, %32 ], [ 0, %scanSingleFast.exit68 ], [ 0, %479 ], [ 0, %scanDoubleUnaligned.exit192 ], [ 0, %scanDoubleFast.exit ], [ 0, %939 ], [ 0, %scanDoubleUnaligned.exit225 ], [ 0, %scanDoubleFast.exit248 ], [ 0, %1435 ], [ 0, %974 ], [ 0, %1060 ], [ 0, %1336 ], [ 0, %1470 ], [ 0, %1555 ], [ 0, %1828 ], [ 0, %67 ], [ 0, %145 ], [ 0, %394 ], [ 0, %514 ], [ 0, %591 ], [ 0, %837 ], [ 0, %final.exit.i ], [ 1, %1053 ], [ 0, %final.exit.i167 ], [ 1, %1138 ], [ 0, %final.exit.i176 ], [ 1, %1421 ], [ 1, %1328 ], [ 1, %1236 ], [ 0, %final.exit.i149 ], [ 1, %1548 ], [ 0, %final.exit.i198 ], [ 1, %1632 ], [ 0, %final.exit.i209 ], [ 1, %1912 ], [ 1, %1820 ], [ 1, %1729 ], [ 0, %final.exit123 ], [ 1, %139 ], [ 0, %final.exit111 ], [ 1, %216 ], [ 0, %final.exit105 ], [ 1, %472 ], [ 1, %387 ], [ 1, %305 ], [ 0, %final.exit117 ], [ 1, %585 ], [ 0, %final.exit93 ], [ 1, %661 ], [ 0, %final.exit87 ], [ 1, %914 ], [ 1, %830 ], [ 1, %749 ]
@@ -3367,7 +3367,7 @@ partial_load_u64a.exit66:                         ; preds = %partial_load_u64a.e
   %142 = zext i8 %140 to i64
   %143 = sub i64 %122, %142
   %.not60 = icmp ugt i64 %141, %143
-  br i1 %.not60, label %.critedge63, label %126, !llvm.loop !18
+  br i1 %.not60, label %.critedge63, label %126
 
 144:                                              ; preds = %135
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
@@ -3599,7 +3599,7 @@ partial_load_u64a.exit.i177:                      ; preds = %266, %258, %255, %2
 
 final.exit182:                                    ; preds = %272, %partial_load_u64a.exit.i177
   %.not36.i = icmp eq i32 %213, 0
-  br i1 %.not36.i, label %scan.exit, label %210, !prof !7, !llvm.loop !8
+  br i1 %.not36.i, label %scan.exit, label %210, !prof !7
 
 276:                                              ; preds = %162
   %277 = icmp eq i64 %160, 32
@@ -3730,7 +3730,7 @@ partial_load_u64a.exit.i165:                      ; preds = %343, %335, %332, %3
 
 final.exit170:                                    ; preds = %349, %partial_load_u64a.exit.i165
   %.not.i95 = icmp eq i32 %290, 0
-  br i1 %.not.i95, label %scan.exit, label %287, !prof !7, !llvm.loop !10
+  br i1 %.not.i95, label %scan.exit, label %287, !prof !7
 
 353:                                              ; preds = %276
   %354 = ptrtoint ptr %3 to i64
@@ -3875,11 +3875,11 @@ partial_load_u64a.exit.i153:                      ; preds = %432, %424, %421, %4
 
 final.exit158:                                    ; preds = %438, %partial_load_u64a.exit.i153
   %.not.i102 = icmp eq i32 %379, 0
-  br i1 %.not.i102, label %scanSingleUnaligned.exit105, label %376, !prof !7, !llvm.loop !10
+  br i1 %.not.i102, label %scanSingleUnaligned.exit105, label %376, !prof !7
 
 scanSingleUnaligned.exit105:                      ; preds = %final.exit158, %363, %353
   %.not84.i77 = icmp eq i64 %357, %360
-  br i1 %.not84.i77, label %scanSingleFast.exit, label %442, !prof !11
+  br i1 %.not84.i77, label %scanSingleFast.exit, label %442, !prof !8
 
 442:                                              ; preds = %scanSingleUnaligned.exit105
   %443 = getelementptr inbounds nuw i8, ptr %3, i64 %361
@@ -4020,12 +4020,12 @@ partial_load_u64a.exit.i129:                      ; preds = %514, %506, %503, %4
 
 final.exit134:                                    ; preds = %520, %partial_load_u64a.exit.i129
   %.not.i121 = icmp eq i32 %461, 0
-  br i1 %.not.i121, label %.critedge.i, label %458, !prof !7, !llvm.loop !12
+  br i1 %.not.i121, label %.critedge.i, label %458, !prof !7
 
 .critedge.i:                                      ; preds = %final.exit134, %449
   %524 = getelementptr inbounds nuw i8, ptr %.028.i586, i64 32
   %525 = icmp ult ptr %524, %443
-  br i1 %525, label %449, label %scanSingleFast.exit, !llvm.loop !13
+  br i1 %525, label %449, label %scanSingleFast.exit
 
 scanSingleFast.exit:                              ; preds = %.critedge.i, %442, %scanSingleUnaligned.exit105
   %526 = icmp eq i64 %361, %4
@@ -4164,7 +4164,7 @@ partial_load_u64a.exit.i159:                      ; preds = %599, %591, %588, %5
 
 final.exit164:                                    ; preds = %605, %partial_load_u64a.exit.i159
   %.not.i97 = icmp eq i32 %546, 0
-  br i1 %.not.i97, label %scan.exit, label %543, !prof !7, !llvm.loop !10
+  br i1 %.not.i97, label %scan.exit, label %543, !prof !7
 
 609:                                              ; preds = %153
   %610 = insertelement <32 x i8> poison, i8 %155, i64 0
@@ -4361,7 +4361,7 @@ partial_load_u64a.exit.i171:                      ; preds = %712, %704, %701, %6
 
 final.exit176:                                    ; preds = %718, %partial_load_u64a.exit.i171
   %.not36.i84 = icmp eq i32 %659, 0
-  br i1 %.not36.i84, label %scan.exit, label %656, !prof !7, !llvm.loop !8
+  br i1 %.not36.i84, label %scan.exit, label %656, !prof !7
 
 722:                                              ; preds = %609
   %723 = icmp eq i64 %160, 32
@@ -4491,7 +4491,7 @@ partial_load_u64a.exit.i147:                      ; preds = %788, %780, %777, %7
 
 final.exit152:                                    ; preds = %794, %partial_load_u64a.exit.i147
   %.not.i107 = icmp eq i32 %735, 0
-  br i1 %.not.i107, label %scan.exit, label %732, !prof !7, !llvm.loop !10
+  br i1 %.not.i107, label %scan.exit, label %732, !prof !7
 
 798:                                              ; preds = %722
   %799 = ptrtoint ptr %3 to i64
@@ -4635,11 +4635,11 @@ partial_load_u64a.exit.i135:                      ; preds = %876, %868, %865, %8
 
 final.exit140:                                    ; preds = %882, %partial_load_u64a.exit.i135
   %.not.i117 = icmp eq i32 %823, 0
-  br i1 %.not.i117, label %scanSingleUnaligned.exit120, label %820, !prof !7, !llvm.loop !10
+  br i1 %.not.i117, label %scanSingleUnaligned.exit120, label %820, !prof !7
 
 scanSingleUnaligned.exit120:                      ; preds = %final.exit140, %808, %798
   %.not84.i = icmp eq i64 %802, %805
-  br i1 %.not84.i, label %scanSingleFast.exit127, label %886, !prof !11
+  br i1 %.not84.i, label %scanSingleFast.exit127, label %886, !prof !8
 
 886:                                              ; preds = %scanSingleUnaligned.exit120
   %887 = getelementptr inbounds nuw i8, ptr %3, i64 %806
@@ -4779,12 +4779,12 @@ partial_load_u64a.exit.i:                         ; preds = %957, %949, %946, %9
 
 final.exit:                                       ; preds = %963, %partial_load_u64a.exit.i
   %.not.i124 = icmp eq i32 %904, 0
-  br i1 %.not.i124, label %.critedge.i126, label %901, !prof !7, !llvm.loop !12
+  br i1 %.not.i124, label %.critedge.i126, label %901, !prof !7
 
 .critedge.i126:                                   ; preds = %final.exit, %893
   %967 = getelementptr inbounds nuw i8, ptr %.028.i122551, i64 32
   %968 = icmp ult ptr %967, %887
-  br i1 %968, label %893, label %scanSingleFast.exit127, !llvm.loop !13
+  br i1 %968, label %893, label %scanSingleFast.exit127
 
 scanSingleFast.exit127:                           ; preds = %.critedge.i126, %886, %scanSingleUnaligned.exit120
   %969 = icmp eq i64 %806, %4
@@ -4922,7 +4922,7 @@ partial_load_u64a.exit.i141:                      ; preds = %1041, %1033, %1030,
 
 final.exit146:                                    ; preds = %1047, %partial_load_u64a.exit.i141
   %.not.i112 = icmp eq i32 %988, 0
-  br i1 %.not.i112, label %scan.exit, label %985, !prof !7, !llvm.loop !10
+  br i1 %.not.i112, label %scan.exit, label %985, !prof !7
 
 1051:                                             ; preds = %150
   %1052 = getelementptr inbounds nuw i8, ptr %0, i64 25
@@ -5140,7 +5140,7 @@ partial_load_u64a.exit.i.i:                       ; preds = %1179, %1176, %1168,
 
 final.exit.i:                                     ; preds = %1185, %partial_load_u64a.exit.i.i
   %.not40.i = icmp eq i32 %1123, 0
-  br i1 %.not40.i, label %scan.exit, label %1120, !prof !7, !llvm.loop !14
+  br i1 %.not40.i, label %scan.exit, label %1120, !prof !7
 
 1190:                                             ; preds = %1060
   %1191 = icmp eq i64 %1069, 32
@@ -5272,7 +5272,7 @@ partial_load_u64a.exit.i.i223:                    ; preds = %1264, %1261, %1253,
 
 final.exit.i226:                                  ; preds = %1270, %partial_load_u64a.exit.i.i223
   %.not.i222 = icmp eq i32 %1208, 0
-  br i1 %.not.i222, label %scan.exit, label %1205, !prof !7, !llvm.loop !15
+  br i1 %.not.i222, label %scan.exit, label %1205, !prof !7
 
 1275:                                             ; preds = %1190
   %1276 = ptrtoint ptr %3 to i64
@@ -5419,7 +5419,7 @@ partial_load_u64a.exit.i.i243:                    ; preds = %1362, %1359, %1351,
 
 final.exit.i246:                                  ; preds = %1368, %partial_load_u64a.exit.i.i243
   %.not.i242 = icmp eq i32 %1306, 0
-  br i1 %.not.i242, label %scanDoubleUnaligned.exit251, label %1303, !prof !7, !llvm.loop !15
+  br i1 %.not.i242, label %scanDoubleUnaligned.exit251, label %1303, !prof !7
 
 scanDoubleUnaligned.exit251:                      ; preds = %final.exit.i246, %1286, %1275
   %.not98.i186 = icmp ult i64 %1280, %1056
@@ -5427,7 +5427,7 @@ scanDoubleUnaligned.exit251:                      ; preds = %final.exit.i246, %1
 
 1373:                                             ; preds = %scanDoubleUnaligned.exit251
   %.not99.i188 = icmp eq i64 %1279, %1283
-  br i1 %.not99.i188, label %scanDoubleFast.exit, label %1374, !prof !11
+  br i1 %.not99.i188, label %scanDoubleFast.exit, label %1374, !prof !8
 
 1374:                                             ; preds = %1373
   %1375 = getelementptr inbounds nuw i8, ptr %3, i64 %1284
@@ -5571,12 +5571,12 @@ partial_load_u64a.exit.i.i287:                    ; preds = %1454, %1451, %1443,
 
 final.exit.i290:                                  ; preds = %1460, %partial_load_u64a.exit.i.i287
   %.not.i286 = icmp eq i32 %1398, 0
-  br i1 %.not.i286, label %.critedge.i294, label %1395, !prof !7, !llvm.loop !16
+  br i1 %.not.i286, label %.critedge.i294, label %1395, !prof !7
 
 .critedge.i294:                                   ; preds = %final.exit.i290, %1381
   %1465 = getelementptr inbounds nuw i8, ptr %.034.i646, i64 32
   %1466 = icmp ult ptr %1465, %1375
-  br i1 %1466, label %1381, label %scanDoubleFast.exit, !llvm.loop !17
+  br i1 %1466, label %1381, label %scanDoubleFast.exit
 
 scanDoubleFast.exit:                              ; preds = %.critedge.i294, %1374, %1373
   %.0.i189 = phi i64 [ %1281, %1373 ], [ %1284, %1374 ], [ %1284, %.critedge.i294 ]
@@ -5717,7 +5717,7 @@ partial_load_u64a.exit.i.i232:                    ; preds = %1547, %1544, %1536,
 
 final.exit.i235:                                  ; preds = %1553, %partial_load_u64a.exit.i.i232
   %.not.i231 = icmp eq i32 %1491, 0
-  br i1 %.not.i231, label %scan.exit, label %1488, !prof !7, !llvm.loop !15
+  br i1 %.not.i231, label %scan.exit, label %1488, !prof !7
 
 1558:                                             ; preds = %1051
   %1559 = insertelement <32 x i8> poison, i8 %1059, i64 0
@@ -5921,7 +5921,7 @@ partial_load_u64a.exit.i.i205:                    ; preds = %1674, %1671, %1663,
 
 final.exit.i208:                                  ; preds = %1680, %partial_load_u64a.exit.i.i205
   %.not40.i204 = icmp eq i32 %1618, 0
-  br i1 %.not40.i204, label %scan.exit, label %1615, !prof !7, !llvm.loop !14
+  br i1 %.not40.i204, label %scan.exit, label %1615, !prof !7
 
 1685:                                             ; preds = %1558
   %1686 = icmp eq i64 %1565, 32
@@ -6052,7 +6052,7 @@ partial_load_u64a.exit.i.i254:                    ; preds = %1758, %1755, %1747,
 
 final.exit.i257:                                  ; preds = %1764, %partial_load_u64a.exit.i.i254
   %.not.i253 = icmp eq i32 %1702, 0
-  br i1 %.not.i253, label %scan.exit, label %1699, !prof !7, !llvm.loop !15
+  br i1 %.not.i253, label %scan.exit, label %1699, !prof !7
 
 1769:                                             ; preds = %1685
   %1770 = ptrtoint ptr %3 to i64
@@ -6198,7 +6198,7 @@ partial_load_u64a.exit.i.i276:                    ; preds = %1855, %1852, %1844,
 
 final.exit.i279:                                  ; preds = %1861, %partial_load_u64a.exit.i.i276
   %.not.i275 = icmp eq i32 %1799, 0
-  br i1 %.not.i275, label %scanDoubleUnaligned.exit284, label %1796, !prof !7, !llvm.loop !15
+  br i1 %.not.i275, label %scanDoubleUnaligned.exit284, label %1796, !prof !7
 
 scanDoubleUnaligned.exit284:                      ; preds = %final.exit.i279, %1780, %1769
   %.not98.i = icmp ult i64 %1774, %1056
@@ -6206,7 +6206,7 @@ scanDoubleUnaligned.exit284:                      ; preds = %final.exit.i279, %1
 
 1866:                                             ; preds = %scanDoubleUnaligned.exit284
   %.not99.i = icmp eq i64 %1773, %1777
-  br i1 %.not99.i, label %scanDoubleFast.exit307, label %1867, !prof !11
+  br i1 %.not99.i, label %scanDoubleFast.exit307, label %1867, !prof !8
 
 1867:                                             ; preds = %1866
   %1868 = getelementptr inbounds nuw i8, ptr %3, i64 %1778
@@ -6349,12 +6349,12 @@ partial_load_u64a.exit.i.i299:                    ; preds = %1946, %1943, %1935,
 
 final.exit.i302:                                  ; preds = %1952, %partial_load_u64a.exit.i.i299
   %.not.i298 = icmp eq i32 %1890, 0
-  br i1 %.not.i298, label %.critedge.i306, label %1887, !prof !7, !llvm.loop !16
+  br i1 %.not.i298, label %.critedge.i306, label %1887, !prof !7
 
 .critedge.i306:                                   ; preds = %final.exit.i302, %1874
   %1957 = getelementptr inbounds nuw i8, ptr %.034.i296619, i64 32
   %1958 = icmp ult ptr %1957, %1868
-  br i1 %1958, label %1874, label %scanDoubleFast.exit307, !llvm.loop !17
+  br i1 %1958, label %1874, label %scanDoubleFast.exit307
 
 scanDoubleFast.exit307:                           ; preds = %.critedge.i306, %1867, %1866
   %.0.i184 = phi i64 [ %1775, %1866 ], [ %1778, %1867 ], [ %1778, %.critedge.i306 ]
@@ -6494,7 +6494,7 @@ partial_load_u64a.exit.i.i265:                    ; preds = %2038, %2035, %2027,
 
 final.exit.i268:                                  ; preds = %2044, %partial_load_u64a.exit.i.i265
   %.not.i264 = icmp eq i32 %1982, 0
-  br i1 %.not.i264, label %scan.exit, label %1979, !prof !7, !llvm.loop !15
+  br i1 %.not.i264, label %scan.exit, label %1979, !prof !7
 
 scan.exit:                                        ; preds = %882, %963, %final.exit146, %1047, %final.exit152, %794, %final.exit176, %718, %438, %520, %final.exit164, %605, %final.exit170, %349, %final.exit182, %272, %1861, %1952, %final.exit.i268, %2044, %final.exit.i257, %1764, %final.exit.i208, %1680, %1368, %1460, %final.exit.i235, %1553, %final.exit.i226, %1270, %final.exit.i, %1185, %970, %724, %647, %527, %278, %200, %1960, %1687, %1602, %1468, %1192, %1106, %144, %1071, %scanDoubleUnaligned.exit251, %scanDoubleFast.exit, %1567, %scanDoubleUnaligned.exit284, %scanDoubleFast.exit307, %165, %scanSingleFast.exit, %612, %scanSingleFast.exit127, %145, %7
   %.0 = phi i32 [ 0, %7 ], [ 1, %144 ], [ 0, %145 ], [ 0, %scanSingleFast.exit ], [ 0, %165 ], [ 0, %scanSingleFast.exit127 ], [ 0, %612 ], [ 0, %scanDoubleUnaligned.exit251 ], [ 0, %scanDoubleFast.exit ], [ 0, %1071 ], [ 0, %scanDoubleUnaligned.exit284 ], [ 0, %scanDoubleFast.exit307 ], [ 0, %1567 ], [ 0, %1106 ], [ 0, %1192 ], [ 0, %1468 ], [ 0, %1602 ], [ 0, %1687 ], [ 0, %1960 ], [ 0, %200 ], [ 0, %278 ], [ 0, %527 ], [ 0, %647 ], [ 0, %724 ], [ 0, %970 ], [ 0, %final.exit.i ], [ 1, %1185 ], [ 0, %final.exit.i226 ], [ 1, %1270 ], [ 0, %final.exit.i235 ], [ 1, %1553 ], [ 1, %1460 ], [ 1, %1368 ], [ 0, %final.exit.i208 ], [ 1, %1680 ], [ 0, %final.exit.i257 ], [ 1, %1764 ], [ 0, %final.exit.i268 ], [ 1, %2044 ], [ 1, %1952 ], [ 1, %1861 ], [ 0, %final.exit182 ], [ 1, %272 ], [ 0, %final.exit170 ], [ 1, %349 ], [ 0, %final.exit164 ], [ 1, %605 ], [ 1, %520 ], [ 1, %438 ], [ 0, %final.exit176 ], [ 1, %718 ], [ 0, %final.exit152 ], [ 1, %794 ], [ 0, %final.exit146 ], [ 1, %1047 ], [ 1, %963 ], [ 1, %882 ]
@@ -6533,14 +6533,4 @@ attributes #8 = { nounwind }
 !5 = !{!"branch_weights", i32 1999, i32 1}
 !6 = !{i64 4501333, i64 4501362}
 !7 = !{!"branch_weights", i32 1, i32 0}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !9}
-!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!8 = !{!"branch_weights", !"expected", i32 1, i32 2000}

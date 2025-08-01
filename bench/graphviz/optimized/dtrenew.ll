@@ -87,25 +87,25 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %47 = load i32, ptr %46, align 8, !tbaa !25
+  %47 = load i32, ptr %46, align 8, !tbaa !24
   %48 = add nsw i32 %47, -1
   %49 = and i32 %48, %45
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw ptr, ptr %43, i64 %50
-  %52 = load ptr, ptr %51, align 8, !tbaa !26
+  %52 = load ptr, ptr %51, align 8, !tbaa !25
   %53 = icmp eq ptr %52, %12
   br i1 %53, label %54, label %.preheader
 
 54:                                               ; preds = %41
   %55 = load ptr, ptr %12, align 8, !tbaa !20
-  store ptr %55, ptr %51, align 8, !tbaa !26
+  store ptr %55, ptr %51, align 8, !tbaa !25
   br label %59
 
 .preheader:                                       ; preds = %41, %.preheader
   %.1 = phi ptr [ %56, %.preheader ], [ %52, %41 ]
   %56 = load ptr, ptr %.1, align 8, !tbaa !20
   %.not59 = icmp eq ptr %56, %12
-  br i1 %.not59, label %57, label %.preheader, !llvm.loop !27
+  br i1 %.not59, label %57, label %.preheader, !llvm.loop !26
 
 57:                                               ; preds = %.preheader
   %58 = load ptr, ptr %12, align 8, !tbaa !20
@@ -114,15 +114,15 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 59:                                               ; preds = %57, %54
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %61 = load i32, ptr %60, align 4, !tbaa !28
+  %61 = load i32, ptr %60, align 4, !tbaa !27
   %62 = icmp slt i32 %61, 0
-  %63 = load i32, ptr %4, align 8, !tbaa !29
+  %63 = load i32, ptr %4, align 8, !tbaa !28
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds i8, ptr %1, i64 %64
   br i1 %62, label %66, label %68
 
 66:                                               ; preds = %59
-  %67 = load ptr, ptr %65, align 8, !tbaa !30
+  %67 = load ptr, ptr %65, align 8, !tbaa !29
   br label %68
 
 68:                                               ; preds = %59, %66
@@ -134,12 +134,12 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 71:                                               ; preds = %31, %39, %34, %68
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %73 = load i32, ptr %72, align 4, !tbaa !32
+  %73 = load i32, ptr %72, align 4, !tbaa !31
   %74 = add nsw i32 %73, -1
-  store i32 %74, ptr %72, align 4, !tbaa !32
+  store i32 %74, ptr %72, align 4, !tbaa !31
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %76 = load ptr, ptr %75, align 8, !tbaa !33
-  %77 = load ptr, ptr %76, align 8, !tbaa !34
+  %76 = load ptr, ptr %75, align 8, !tbaa !32
+  %77 = load ptr, ptr %76, align 8, !tbaa !33
   %78 = tail call ptr %77(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 32) #2
   %.not63 = icmp eq ptr %78, null
   %79 = select i1 %.not63, ptr null, ptr %1
@@ -182,17 +182,16 @@ attributes #2 = { nounwind }
 !19 = !{!"dtlink_s_", !11, i64 0, !6, i64 8}
 !20 = !{!19, !11, i64 0}
 !21 = !{!6, !6, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!4, !10, i64 40}
-!26 = !{!11, !11, i64 0}
-!27 = distinct !{!27, !23, !24}
-!28 = !{!16, !10, i64 4}
-!29 = !{!16, !10, i64 0}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 omnipotent char", !5, i64 0}
-!32 = !{!4, !10, i64 44}
-!33 = !{!4, !5, i64 56}
-!34 = !{!35, !5, i64 0}
-!35 = !{!"", !5, i64 0, !10, i64 8}
+!24 = !{!4, !10, i64 40}
+!25 = !{!11, !11, i64 0}
+!26 = distinct !{!26, !23}
+!27 = !{!16, !10, i64 4}
+!28 = !{!16, !10, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 omnipotent char", !5, i64 0}
+!31 = !{!4, !10, i64 44}
+!32 = !{!4, !5, i64 56}
+!33 = !{!34, !5, i64 0}
+!34 = !{!"", !5, i64 0, !10, i64 8}

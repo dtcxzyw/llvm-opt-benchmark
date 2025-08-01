@@ -151,7 +151,7 @@ _ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.ex
   %27 = trunc i32 %25 to i1
   %28 = icmp ne i32 %26, 35
   %or.cond.not = select i1 %27, i1 %28, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit.thread, !llvm.loop !3
+  br i1 %or.cond.not, label %.lr.ph, label %_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h90db77d37318a36eE.exit.thread
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -248,5 +248,3 @@ attributes #4 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.87.0 (17067e9ac 2025-05-09)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}

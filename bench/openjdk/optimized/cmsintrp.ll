@@ -285,7 +285,7 @@ define hidden ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr noundef readonl
   store i32 %32, ptr %33, align 4
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %27
-  br i1 %exitcond61.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !9
+  br i1 %exitcond61.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !8
 
 ._crit_edge54:                                    ; preds = %.lr.ph53, %._crit_edge.thread, %._crit_edge
   %34 = tail call i32 @_cmsSetInterpolationRoutine(ptr noundef %0, ptr noundef nonnull %10)
@@ -319,7 +319,7 @@ define hidden ptr @_cmsComputeInterpParams(ptr noundef %0, i32 noundef %1, i32 n
   store i32 %1, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %10, label %8, !llvm.loop !10
+  br i1 %exitcond.not, label %10, label %8, !llvm.loop !9
 
 10:                                               ; preds = %8
   %11 = call ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
@@ -492,7 +492,7 @@ define internal void @Eval1InputFloat(ptr noundef readonly captures(none) %0, pt
   %27 = load i32, ptr %19, align 8
   %28 = zext i32 %27 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next47, %28
-  br i1 %29, label %.lr.ph42, label %.loopexit, !llvm.loop !11
+  br i1 %29, label %.lr.ph42, label %.loopexit, !llvm.loop !10
 
 30:                                               ; preds = %13
   %31 = uitofp i32 %.pre to float
@@ -532,7 +532,7 @@ define internal void @Eval1InputFloat(ptr noundef readonly captures(none) %0, pt
   %58 = load i32, ptr %44, align 8
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph42, %30, %._crit_edge
   ret void
@@ -576,7 +576,7 @@ define internal void @Eval1Input(ptr noundef readonly captures(none) %0, ptr nou
   %23 = load i32, ptr %15, align 8
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next45, %24
-  br i1 %25, label %.lr.ph40, label %.loopexit, !llvm.loop !13
+  br i1 %25, label %.lr.ph40, label %.loopexit, !llvm.loop !12
 
 26:                                               ; preds = %9
   %27 = mul i32 %.pre, %7
@@ -620,7 +620,7 @@ define internal void @Eval1Input(ptr noundef readonly captures(none) %0, ptr nou
   %58 = load i32, ptr %38, align 8
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph40, %26, %._crit_edge
   ret void
@@ -714,7 +714,7 @@ define internal void @BilinearInterpFloat(ptr noundef readonly captures(none) %0
   store float %68, ptr %69, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %58, %3
   ret void
@@ -816,7 +816,7 @@ define internal void @BilinearInterp16(ptr noundef readonly captures(none) %0, p
   store i16 %77, ptr %78, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %49, %3
   ret void
@@ -964,7 +964,7 @@ define internal void @TrilinearInterpFloat(ptr noundef readonly captures(none) %
   store float %113, ptr %114, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %91, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %91, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %91, %3
   ret void
@@ -1139,7 +1139,7 @@ define internal void @TrilinearInterp16(ptr noundef readonly captures(none) %0, 
   store i16 %142, ptr %143, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %78, %3
   ret void
@@ -1381,7 +1381,7 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
   store float %150, ptr %151, align 4
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
   %exitcond256.not = icmp eq i64 %indvars.iv.next253, %wide.trip.count255
-  br i1 %exitcond256.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %exitcond256.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
@@ -1403,7 +1403,7 @@ define internal void @TetrahedralInterpFloat(ptr noundef readonly captures(none)
   store float %161, ptr %162, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %147, %3
   ret void
@@ -1519,7 +1519,7 @@ define internal void @TetrahedralInterp16(ptr noundef readonly captures(none) %0
   store i16 %91, ptr %.0213250, align 2
   %93 = add i32 %.0251, -1
   %.not242 = icmp eq i32 %93, 0
-  br i1 %.not242, label %.loopexit, label %65, !llvm.loop !22
+  br i1 %.not242, label %.loopexit, label %65, !llvm.loop !21
 
 94:                                               ; preds = %58
   %.not239 = icmp samesign ult i32 %39, %37
@@ -1571,7 +1571,7 @@ define internal void @TetrahedralInterp16(ptr noundef readonly captures(none) %0
   store i16 %127, ptr %.1214254, align 2
   %129 = add i32 %.1255, -1
   %.not241 = icmp eq i32 %129, 0
-  br i1 %.not241, label %.loopexit, label %101, !llvm.loop !23
+  br i1 %.not241, label %.loopexit, label %101, !llvm.loop !22
 
 130:                                              ; preds = %94
   br i1 %.not240257, label %.loopexit, label %.lr.ph261
@@ -1618,7 +1618,7 @@ define internal void @TetrahedralInterp16(ptr noundef readonly captures(none) %0
   store i16 %162, ptr %.2215259, align 2
   %164 = add i32 %.2260, -1
   %.not240 = icmp eq i32 %164, 0
-  br i1 %.not240, label %.loopexit, label %136, !llvm.loop !24
+  br i1 %.not240, label %.loopexit, label %136, !llvm.loop !23
 
 165:                                              ; preds = %3
   %.not233 = icmp samesign ult i32 %37, %39
@@ -1670,7 +1670,7 @@ define internal void @TetrahedralInterp16(ptr noundef readonly captures(none) %0
   store i16 %198, ptr %.3216264, align 2
   %200 = add i32 %.3265, -1
   %.not237 = icmp eq i32 %200, 0
-  br i1 %.not237, label %.loopexit, label %172, !llvm.loop !25
+  br i1 %.not237, label %.loopexit, label %172, !llvm.loop !24
 
 201:                                              ; preds = %165
   %.not234 = icmp samesign ult i32 %38, %39
@@ -1722,7 +1722,7 @@ define internal void @TetrahedralInterp16(ptr noundef readonly captures(none) %0
   store i16 %234, ptr %.4217269, align 2
   %236 = add i32 %.4270, -1
   %.not236 = icmp eq i32 %236, 0
-  br i1 %.not236, label %.loopexit, label %208, !llvm.loop !26
+  br i1 %.not236, label %.loopexit, label %208, !llvm.loop !25
 
 237:                                              ; preds = %201
   br i1 %.not235272, label %.loopexit, label %.lr.ph276
@@ -1769,7 +1769,7 @@ define internal void @TetrahedralInterp16(ptr noundef readonly captures(none) %0
   store i16 %269, ptr %.5218274, align 2
   %271 = add i32 %.5275, -1
   %.not235 = icmp eq i32 %271, 0
-  br i1 %.not235, label %.loopexit, label %243, !llvm.loop !27
+  br i1 %.not235, label %.loopexit, label %243, !llvm.loop !26
 
 .loopexit:                                        ; preds = %65, %101, %136, %172, %208, %243, %59, %95, %130, %166, %202, %237
   ret void
@@ -1836,7 +1836,7 @@ define internal void @Eval4InputsFloat(ptr noundef readonly captures(none) %0, p
   %46 = load i32, ptr %37, align 8
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -2101,7 +2101,7 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   store i16 %211, ptr %212, align 2
   %indvars.iv.next494 = add nuw nsw i64 %indvars.iv493, 1
   %exitcond497.not = icmp eq i64 %indvars.iv.next494, %wide.trip.count496
-  br i1 %exitcond497.not, label %.lr.ph483, label %.lr.ph.split.us, !llvm.loop !29
+  br i1 %exitcond497.not, label %.lr.ph483, label %.lr.ph.split.us, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -2145,7 +2145,7 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   store i16 %248, ptr %249, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count496
-  br i1 %exitcond.not, label %.lr.ph483, label %.lr.ph.split, !llvm.loop !30
+  br i1 %exitcond.not, label %.lr.ph483, label %.lr.ph.split, !llvm.loop !29
 
 .lr.ph483:                                        ; preds = %.lr.ph.split, %199
   %.pn = sext i32 %54 to i64
@@ -2328,7 +2328,7 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   store i16 %384, ptr %385, align 2
   %indvars.iv.next504 = add nuw nsw i64 %indvars.iv503, 1
   %exitcond507.not = icmp eq i64 %indvars.iv.next504, %wide.trip.count506
-  br i1 %exitcond507.not, label %.lr.ph485.preheader, label %.lr.ph483.split.us, !llvm.loop !31
+  br i1 %exitcond507.not, label %.lr.ph485.preheader, label %.lr.ph483.split.us, !llvm.loop !30
 
 .lr.ph483.split:                                  ; preds = %.lr.ph483, %.lr.ph483.split
   %indvars.iv498 = phi i64 [ %indvars.iv.next499, %.lr.ph483.split ], [ 0, %.lr.ph483 ]
@@ -2372,7 +2372,7 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   store i16 %421, ptr %422, align 2
   %indvars.iv.next499 = add nuw nsw i64 %indvars.iv498, 1
   %exitcond502.not = icmp eq i64 %indvars.iv.next499, %wide.trip.count506
-  br i1 %exitcond502.not, label %.lr.ph485.preheader, label %.lr.ph483.split, !llvm.loop !32
+  br i1 %exitcond502.not, label %.lr.ph485.preheader, label %.lr.ph483.split, !llvm.loop !31
 
 .lr.ph485.preheader:                              ; preds = %.lr.ph483.split, %372
   br label %.lr.ph485
@@ -2397,7 +2397,7 @@ define internal void @Eval4Inputs(ptr noundef readonly captures(none) %0, ptr no
   %436 = load i32, ptr %76, align 8
   %437 = zext i32 %436 to i64
   %438 = icmp samesign ult i64 %indvars.iv.next509, %437
-  br i1 %438, label %.lr.ph485, label %._crit_edge486, !llvm.loop !33
+  br i1 %438, label %.lr.ph485, label %._crit_edge486, !llvm.loop !32
 
 ._crit_edge486:                                   ; preds = %.lr.ph485, %3
   ret void
@@ -2516,7 +2516,7 @@ define internal void @Eval5InputsFloat(ptr noundef readonly captures(none) %0, p
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
-  br i1 %exitcond.not, label %Eval4InputsFloat.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not, label %Eval4InputsFloat.exit, label %.lr.ph.i, !llvm.loop !27
 
 Eval4InputsFloat.exit:                            ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
@@ -2575,7 +2575,7 @@ Eval4InputsFloat.exit37.thread:                   ; preds = %Eval4InputsFloat.ex
   store float %76, ptr %77, align 4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next.i36, %70
-  br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !28
+  br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !27
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i34
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
@@ -2597,7 +2597,7 @@ Eval4InputsFloat.exit37.thread:                   ; preds = %Eval4InputsFloat.ex
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %86 = zext i32 %85 to i64
   %87 = icmp samesign ult i64 %indvars.iv.next, %86
-  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval4InputsFloat.exit37.thread
   ret void
@@ -2666,7 +2666,7 @@ define internal void @Eval5Inputs(ptr noundef readonly captures(none) %0, ptr no
   %48 = load i32, ptr %33, align 8
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -2733,7 +2733,7 @@ define internal void @Eval6InputsFloat(ptr noundef readonly captures(none) %0, p
   %46 = load i32, ptr %37, align 8
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -2850,7 +2850,7 @@ define internal void @Eval6Inputs(ptr noundef readonly captures(none) %0, ptr no
   store i16 %62, ptr %63, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
-  br i1 %exitcond.not, label %Eval5Inputs.exit, label %.lr.ph.i, !llvm.loop !35
+  br i1 %exitcond.not, label %Eval5Inputs.exit, label %.lr.ph.i, !llvm.loop !34
 
 Eval5Inputs.exit:                                 ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
@@ -2915,7 +2915,7 @@ Eval5Inputs.exit32.thread:                        ; preds = %Eval5Inputs.exit
   store i16 %80, ptr %81, align 2
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next.i31, %68
-  br i1 %exitcond72.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !35
+  br i1 %exitcond72.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !34
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i29
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
@@ -2943,7 +2943,7 @@ Eval5Inputs.exit32.thread:                        ; preds = %Eval5Inputs.exit
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %96 = zext i32 %95 to i64
   %97 = icmp samesign ult i64 %indvars.iv.next, %96
-  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !37
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval5Inputs.exit32.thread
   ret void
@@ -3062,7 +3062,7 @@ define internal void @Eval7InputsFloat(ptr noundef readonly captures(none) %0, p
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
-  br i1 %exitcond.not, label %Eval6InputsFloat.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %exitcond.not, label %Eval6InputsFloat.exit, label %.lr.ph.i, !llvm.loop !35
 
 Eval6InputsFloat.exit:                            ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
@@ -3121,7 +3121,7 @@ Eval6InputsFloat.exit37.thread:                   ; preds = %Eval6InputsFloat.ex
   store float %76, ptr %77, align 4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next.i36, %70
-  br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !36
+  br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !35
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i34
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
@@ -3143,7 +3143,7 @@ Eval6InputsFloat.exit37.thread:                   ; preds = %Eval6InputsFloat.ex
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %86 = zext i32 %85 to i64
   %87 = icmp samesign ult i64 %indvars.iv.next, %86
-  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval6InputsFloat.exit37.thread
   ret void
@@ -3212,7 +3212,7 @@ define internal void @Eval7Inputs(ptr noundef readonly captures(none) %0, ptr no
   %48 = load i32, ptr %33, align 8
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3279,7 +3279,7 @@ define internal void @Eval8InputsFloat(ptr noundef readonly captures(none) %0, p
   %46 = load i32, ptr %37, align 8
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3396,7 +3396,7 @@ define internal void @Eval8Inputs(ptr noundef readonly captures(none) %0, ptr no
   store i16 %62, ptr %63, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
-  br i1 %exitcond.not, label %Eval7Inputs.exit, label %.lr.ph.i, !llvm.loop !39
+  br i1 %exitcond.not, label %Eval7Inputs.exit, label %.lr.ph.i, !llvm.loop !38
 
 Eval7Inputs.exit:                                 ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
@@ -3461,7 +3461,7 @@ Eval7Inputs.exit32.thread:                        ; preds = %Eval7Inputs.exit
   store i16 %80, ptr %81, align 2
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next.i31, %68
-  br i1 %exitcond72.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !39
+  br i1 %exitcond72.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !38
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i29
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
@@ -3489,7 +3489,7 @@ Eval7Inputs.exit32.thread:                        ; preds = %Eval7Inputs.exit
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %96 = zext i32 %95 to i64
   %97 = icmp samesign ult i64 %indvars.iv.next, %96
-  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval7Inputs.exit32.thread
   ret void
@@ -3608,7 +3608,7 @@ define internal void @Eval9InputsFloat(ptr noundef readonly captures(none) %0, p
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
-  br i1 %exitcond.not, label %Eval8InputsFloat.exit, label %.lr.ph.i, !llvm.loop !40
+  br i1 %exitcond.not, label %Eval8InputsFloat.exit, label %.lr.ph.i, !llvm.loop !39
 
 Eval8InputsFloat.exit:                            ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
@@ -3667,7 +3667,7 @@ Eval8InputsFloat.exit37.thread:                   ; preds = %Eval8InputsFloat.ex
   store float %76, ptr %77, align 4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next.i36, %70
-  br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !40
+  br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !39
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i34
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
@@ -3689,7 +3689,7 @@ Eval8InputsFloat.exit37.thread:                   ; preds = %Eval8InputsFloat.ex
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %86 = zext i32 %85 to i64
   %87 = icmp samesign ult i64 %indvars.iv.next, %86
-  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval8InputsFloat.exit37.thread
   ret void
@@ -3758,7 +3758,7 @@ define internal void @Eval9Inputs(ptr noundef readonly captures(none) %0, ptr no
   %48 = load i32, ptr %33, align 8
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3825,7 +3825,7 @@ define internal void @Eval10InputsFloat(ptr noundef readonly captures(none) %0, 
   %46 = load i32, ptr %37, align 8
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -3942,7 +3942,7 @@ define internal void @Eval10Inputs(ptr noundef readonly captures(none) %0, ptr n
   store i16 %62, ptr %63, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
-  br i1 %exitcond.not, label %Eval9Inputs.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %exitcond.not, label %Eval9Inputs.exit, label %.lr.ph.i, !llvm.loop !42
 
 Eval9Inputs.exit:                                 ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
@@ -4007,7 +4007,7 @@ Eval9Inputs.exit32.thread:                        ; preds = %Eval9Inputs.exit
   store i16 %80, ptr %81, align 2
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next.i31, %68
-  br i1 %exitcond72.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !43
+  br i1 %exitcond72.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !42
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i29
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
@@ -4035,7 +4035,7 @@ Eval9Inputs.exit32.thread:                        ; preds = %Eval9Inputs.exit
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %96 = zext i32 %95 to i64
   %97 = icmp samesign ult i64 %indvars.iv.next, %96
-  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval9Inputs.exit32.thread
   ret void
@@ -4154,7 +4154,7 @@ define internal void @Eval11InputsFloat(ptr noundef readonly captures(none) %0, 
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
-  br i1 %exitcond.not, label %Eval10InputsFloat.exit, label %.lr.ph.i, !llvm.loop !44
+  br i1 %exitcond.not, label %Eval10InputsFloat.exit, label %.lr.ph.i, !llvm.loop !43
 
 Eval10InputsFloat.exit:                           ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
@@ -4213,7 +4213,7 @@ Eval10InputsFloat.exit37.thread:                  ; preds = %Eval10InputsFloat.e
   store float %76, ptr %77, align 4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next.i36, %70
-  br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !44
+  br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !43
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i34
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
@@ -4235,7 +4235,7 @@ Eval10InputsFloat.exit37.thread:                  ; preds = %Eval10InputsFloat.e
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %86 = zext i32 %85 to i64
   %87 = icmp samesign ult i64 %indvars.iv.next, %86
-  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval10InputsFloat.exit37.thread
   ret void
@@ -4304,7 +4304,7 @@ define internal void @Eval11Inputs(ptr noundef readonly captures(none) %0, ptr n
   %48 = load i32, ptr %33, align 8
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4371,7 +4371,7 @@ define internal void @Eval12InputsFloat(ptr noundef readonly captures(none) %0, 
   %46 = load i32, ptr %37, align 8
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !48
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4488,7 +4488,7 @@ define internal void @Eval12Inputs(ptr noundef readonly captures(none) %0, ptr n
   store i16 %62, ptr %63, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
-  br i1 %exitcond.not, label %Eval11Inputs.exit, label %.lr.ph.i, !llvm.loop !47
+  br i1 %exitcond.not, label %Eval11Inputs.exit, label %.lr.ph.i, !llvm.loop !46
 
 Eval11Inputs.exit:                                ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
@@ -4553,7 +4553,7 @@ Eval11Inputs.exit32.thread:                       ; preds = %Eval11Inputs.exit
   store i16 %80, ptr %81, align 2
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next.i31, %68
-  br i1 %exitcond72.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !47
+  br i1 %exitcond72.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !46
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i29
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
@@ -4581,7 +4581,7 @@ Eval11Inputs.exit32.thread:                       ; preds = %Eval11Inputs.exit
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %96 = zext i32 %95 to i64
   %97 = icmp samesign ult i64 %indvars.iv.next, %96
-  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval11Inputs.exit32.thread
   ret void
@@ -4700,7 +4700,7 @@ define internal void @Eval13InputsFloat(ptr noundef readonly captures(none) %0, 
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
-  br i1 %exitcond.not, label %Eval12InputsFloat.exit, label %.lr.ph.i, !llvm.loop !48
+  br i1 %exitcond.not, label %Eval12InputsFloat.exit, label %.lr.ph.i, !llvm.loop !47
 
 Eval12InputsFloat.exit:                           ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
@@ -4759,7 +4759,7 @@ Eval12InputsFloat.exit37.thread:                  ; preds = %Eval12InputsFloat.e
   store float %76, ptr %77, align 4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next.i36, %70
-  br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !48
+  br i1 %exitcond76.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !47
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i34
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
@@ -4781,7 +4781,7 @@ Eval12InputsFloat.exit37.thread:                  ; preds = %Eval12InputsFloat.e
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %86 = zext i32 %85 to i64
   %87 = icmp samesign ult i64 %indvars.iv.next, %86
-  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval12InputsFloat.exit37.thread
   ret void
@@ -4850,7 +4850,7 @@ define internal void @Eval13Inputs(ptr noundef readonly captures(none) %0, ptr n
   %48 = load i32, ptr %33, align 8
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -4917,7 +4917,7 @@ define internal void @Eval14InputsFloat(ptr noundef readonly captures(none) %0, 
   %46 = load i32, ptr %37, align 8
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !52
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5035,7 +5035,7 @@ define internal void @Eval14Inputs(ptr noundef readonly captures(none) %0, ptr n
   store i16 %62, ptr %63, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
-  br i1 %exitcond.not, label %Eval13Inputs.exit, label %.lr.ph.i, !llvm.loop !51
+  br i1 %exitcond.not, label %Eval13Inputs.exit, label %.lr.ph.i, !llvm.loop !50
 
 Eval13Inputs.exit:                                ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7)
@@ -5100,7 +5100,7 @@ Eval13Inputs.exit32.thread:                       ; preds = %Eval13Inputs.exit
   store i16 %80, ptr %81, align 2
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next.i31, %68
-  br i1 %exitcond74.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !51
+  br i1 %exitcond74.not, label %.lr.ph.preheader, label %.lr.ph.i29, !llvm.loop !50
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i29
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
@@ -5128,7 +5128,7 @@ Eval13Inputs.exit32.thread:                       ; preds = %Eval13Inputs.exit
   %95 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %96 = zext i32 %95 to i64
   %97 = icmp samesign ult i64 %indvars.iv.next, %96
-  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !53
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval13Inputs.exit32.thread
   ret void
@@ -5247,7 +5247,7 @@ define internal void @Eval15InputsFloat(ptr noundef readonly captures(none) %0, 
   store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %58
-  br i1 %exitcond.not, label %Eval14InputsFloat.exit, label %.lr.ph.i, !llvm.loop !52
+  br i1 %exitcond.not, label %Eval14InputsFloat.exit, label %.lr.ph.i, !llvm.loop !51
 
 Eval14InputsFloat.exit:                           ; preds = %.lr.ph.i, %3
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7)
@@ -5306,7 +5306,7 @@ Eval14InputsFloat.exit37.thread:                  ; preds = %Eval14InputsFloat.e
   store float %76, ptr %77, align 4
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next.i36, %70
-  br i1 %exitcond78.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !52
+  br i1 %exitcond78.not, label %.lr.ph.preheader, label %.lr.ph.i34, !llvm.loop !51
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i34
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
@@ -5328,7 +5328,7 @@ Eval14InputsFloat.exit37.thread:                  ; preds = %Eval14InputsFloat.e
   %85 = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   %86 = zext i32 %85 to i64
   %87 = icmp samesign ult i64 %indvars.iv.next, %86
-  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !54
+  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Eval14InputsFloat.exit37.thread
   ret void
@@ -5397,7 +5397,7 @@ define internal void @Eval15Inputs(ptr noundef readonly captures(none) %0, ptr n
   %48 = load i32, ptr %33, align 8
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !55
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5439,53 +5439,52 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8, !20}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8, !20}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !7, !8}
-!42 = distinct !{!42, !7, !8}
-!43 = distinct !{!43, !7, !8}
-!44 = distinct !{!44, !7, !8}
-!45 = distinct !{!45, !7, !8}
-!46 = distinct !{!46, !7, !8}
-!47 = distinct !{!47, !7, !8}
-!48 = distinct !{!48, !7, !8}
-!49 = distinct !{!49, !7, !8}
-!50 = distinct !{!50, !7, !8}
-!51 = distinct !{!51, !7, !8}
-!52 = distinct !{!52, !7, !8}
-!53 = distinct !{!53, !7, !8}
-!54 = distinct !{!54, !7, !8}
-!55 = distinct !{!55, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7, !19}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7, !19}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}
+!46 = distinct !{!46, !7}
+!47 = distinct !{!47, !7}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}
+!50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7}
+!52 = distinct !{!52, !7}
+!53 = distinct !{!53, !7}
+!54 = distinct !{!54, !7}

@@ -1610,7 +1610,7 @@ slot_getattr.exit144.i.i.i:                       ; preds = %slot_getsomeattrs.e
   %sext.i.i.i = shl i32 %396, 16
   %397 = ashr exact i32 %sext.i.i.i, 16
   %398 = call zeroext i1 @bms_is_member(i32 noundef %397, ptr noundef nonnull %.0120.i.i.i) #12
-  br i1 %398, label %399, label %443, !llvm.loop !16
+  br i1 %398, label %399, label %443, !llvm.loop !15
 
 399:                                              ; preds = %393, %slot_getattr.exit144.i.i.i
   %400 = load i16, ptr %387, align 2
@@ -1714,7 +1714,7 @@ slot_getattr.exit152.i.i.i:                       ; preds = %slot_getsomeattrs.e
   call void %446(ptr noundef nonnull %383) #12
   %447 = load ptr, ptr %384, align 8
   %448 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %447, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %383) #12
-  br i1 %448, label %390, label %._crit_edge.i.loopexit.i.i, !llvm.loop !17
+  br i1 %448, label %390, label %._crit_edge.i.loopexit.i.i
 
 ._crit_edge.i.loopexit.i.i:                       ; preds = %443
   %449 = trunc nuw i8 %.2.i.i to i1
@@ -1834,7 +1834,7 @@ slot_getattr.exit159.i.i.i:                       ; preds = %slot_getsomeattrs.e
   call void %503(ptr noundef nonnull %478) #12
   %504 = load ptr, ptr %479, align 8
   %505 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %504, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull %478) #12
-  br i1 %505, label %486, label %.thread.i.i.i, !llvm.loop !18
+  br i1 %505, label %486, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %494, %493, %492, %475
   %.055.i.i = phi ptr [ null, %492 ], [ null, %493 ], [ null, %475 ], [ %500, %494 ]
@@ -1928,7 +1928,7 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
   %535 = load i32, ptr %450, align 8
   %536 = sext i32 %535 to i64
   %537 = icmp slt i64 %indvars.iv.next.i.i, %536
-  br i1 %537, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !19
+  br i1 %537, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !16
 
 538:                                              ; preds = %fetch_remote_table_info.exit.i.i
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.18) #12
@@ -1965,7 +1965,7 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %554 = sext i32 %553 to i64
   %555 = icmp slt i64 %indvars.iv.next75.i.i, %554
-  br i1 %555, label %.lr.ph65.i.i, label %._crit_edge66.i.i, !llvm.loop !20
+  br i1 %555, label %.lr.ph65.i.i, label %._crit_edge66.i.i, !llvm.loop !17
 
 556:                                              ; preds = %._crit_edge66.i.i
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.20) #12
@@ -2003,7 +2003,7 @@ fetch_remote_table_info.exit.i.i:                 ; preds = %walrcv_clear_result
   %574 = load i32, ptr %566, align 4
   %575 = sext i32 %574 to i64
   %576 = icmp slt i64 %indvars.iv.next78.i.i, %575
-  br i1 %576, label %.lr.ph69.i.i, label %.critedge.i.i, !llvm.loop !21
+  br i1 %576, label %.lr.ph69.i.i, label %.critedge.i.i, !llvm.loop !18
 
 .critedge.i.i:                                    ; preds = %.lr.ph69.i.i, %561
   call void @list_free_deep(ptr noundef nonnull %.257.i.i) #12
@@ -2117,7 +2117,7 @@ walrcv_clear_result.exit.i.i:                     ; preds = %621, %618
   %635 = load i32, ptr %625, align 8
   %636 = sext i32 %635 to i64
   %637 = icmp slt i64 %indvars.iv.next.i47.i.i, %636
-  br i1 %637, label %629, label %copy_table.exit.i, !llvm.loop !22
+  br i1 %637, label %629, label %copy_table.exit.i, !llvm.loop !19
 
 copy_table.exit.i:                                ; preds = %629, %walrcv_clear_result.exit.i.i
   %.06.lcssa.i.i.i = phi ptr [ null, %walrcv_clear_result.exit.i.i ], [ %634, %629 ]
@@ -2231,7 +2231,7 @@ walrcv_clear_result.exit49.i:                     ; preds = %663, %660
   %692 = load i64, ptr %0, align 8
   %693 = getelementptr inbounds nuw i8, ptr %690, i64 56
   store i64 %692, ptr %693, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !23
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !20
   %694 = load ptr, ptr @MyLogicalRepWorker, align 8
   %695 = getelementptr inbounds nuw i8, ptr %694, i64 64
   store i8 0, ptr %695, align 8
@@ -2527,7 +2527,7 @@ define internal i32 @copy_read_data(ptr noundef writeonly captures(none) %0, i32
   %47 = icmp sgt i32 %45, 0
   %.not57 = icmp slt i32 %46, %1
   %or.cond = select i1 %47, i1 %.not57, i1 false
-  br i1 %or.cond, label %24, label %.thread, !llvm.loop !24
+  br i1 %or.cond, label %24, label %.thread
 
 .thread:                                          ; preds = %36, %34
   %.1.ph = phi i32 [ %46, %36 ], [ %.241, %34 ]
@@ -2544,7 +2544,7 @@ define internal i32 @copy_read_data(ptr noundef writeonly captures(none) %0, i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   %53 = icmp slt i32 %.241, %1
-  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %48, %20, %.thread
   %.2 = phi i32 [ %.1.ph, %.thread ], [ %.039, %20 ], [ %.241, %48 ]
@@ -2644,16 +2644,12 @@ attributes #16 = { nounwind returns_twice }
 !10 = !{}
 !11 = !{i64 2151326091}
 !12 = !{i64 2151328202}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !14}
 !16 = distinct !{!16, !14}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !14, !15}
-!20 = distinct !{!20, !14, !15}
-!21 = distinct !{!21, !14, !15}
-!22 = distinct !{!22, !14, !15}
-!23 = !{i64 2151337653}
-!24 = distinct !{!24, !15}
-!25 = distinct !{!25, !14, !15}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = distinct !{!19, !14}
+!20 = !{i64 2151337653}
+!21 = distinct !{!21, !14}

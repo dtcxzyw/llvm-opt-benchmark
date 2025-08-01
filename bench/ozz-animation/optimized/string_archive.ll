@@ -83,7 +83,7 @@ define dso_local void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_tra
 _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIKcEEEEvRKT_.exit: ; preds = %.lr.ph.i.i, %.preheader.i.i, %31
   %37 = add nuw i64 %.013, 1
   %exitcond14.not = icmp eq i64 %37, %2
-  br i1 %exitcond14.not, label %._crit_edge, label %7, !llvm.loop !28
+  br i1 %exitcond14.not, label %._crit_edge, label %7, !llvm.loop !27
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -114,12 +114,12 @@ define dso_local void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_tra
   %11 = load ptr, ptr %9, align 8, !tbaa !23
   store i8 0, ptr %11, align 1, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  %12 = load ptr, ptr %0, align 8, !tbaa !29
+  %12 = load ptr, ptr %0, align 8, !tbaa !28
   %13 = load ptr, ptr %12, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %5, i64 noundef 4)
-  %17 = load i8, ptr %7, align 8, !tbaa !31, !range !16, !noundef !17
+  %17 = load i8, ptr %7, align 8, !tbaa !30, !range !16, !noundef !17
   %18 = trunc nuw i8 %17 to i1
   %19 = load i32, ptr %5, align 4
   %.sroa.0.0.insert.insert.i = call i32 @llvm.bswap.i32(i32 %19)
@@ -139,12 +139,12 @@ define dso_local void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_tra
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #9
   %23 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %23, %2
-  br i1 %exitcond.not, label %._crit_edge23, label %8, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge23, label %8, !llvm.loop !31
 
 24:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE6appendEPKcm.exit
   %.01519 = phi i64 [ %21, %.lr.ph ], [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE6appendEPKcm.exit ]
   %25 = call noundef i64 @llvm.umin.i64(i64 %.01519, i64 128)
-  %26 = load ptr, ptr %0, align 8, !tbaa !29
+  %26 = load ptr, ptr %0, align 8, !tbaa !28
   %27 = load ptr, ptr %26, align 8, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -294,7 +294,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE6appendEP
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %36
   store i8 0, ptr %84, align 1, !tbaa !24
   %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -476,12 +476,11 @@ attributes #11 = { noreturn nounwind }
 !22 = !{!"vtable pointer", !10, i64 0}
 !23 = !{!5, !7, i64 0}
 !24 = !{!9, !9, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
-!29 = !{!30, !14, i64 0}
-!30 = !{!"_ZTSN3ozz2io8IArchiveE", !14, i64 0, !15, i64 8}
-!31 = !{!30, !15, i64 8}
-!32 = distinct !{!32, !26, !27}
-!33 = distinct !{!33, !26, !27}
+!27 = distinct !{!27, !26}
+!28 = !{!29, !14, i64 0}
+!29 = !{!"_ZTSN3ozz2io8IArchiveE", !14, i64 0, !15, i64 8}
+!30 = !{!29, !15, i64 8}
+!31 = distinct !{!31, !26}
+!32 = distinct !{!32, !26}

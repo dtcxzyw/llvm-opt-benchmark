@@ -145,7 +145,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fC2ERKSt6vectorIS1_
   br i1 %22, label %21, label %.critedge2, !llvm.loop !4
 
 .critedge2:                                       ; preds = %21, %23
-  br i1 %12, label %11, label %.critedge, !llvm.loop !7
+  br i1 %12, label %11, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %.critedge2, %11
   %28 = load float, ptr %3, align 16
@@ -211,10 +211,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fC2ERKSt6vectorIS1_
   %25 = load float, ptr %24, align 4
   %26 = getelementptr inbounds nuw [2 x float], ptr %.01618.sroa.phi, i64 0, i64 %.017
   store float %25, ptr %26, align 4
-  br i1 %22, label %21, label %.critedge2, !llvm.loop !8
+  br i1 %22, label %21, label %.critedge2, !llvm.loop !7
 
 .critedge2:                                       ; preds = %21, %23
-  br i1 %12, label %11, label %.critedge, !llvm.loop !9
+  br i1 %12, label %11, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.critedge2, %11
   %27 = load float, ptr %3, align 16
@@ -594,7 +594,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_
   br label %7
 
 6:                                                ; preds = %7
-  br i1 %8, label %7, label %18, !llvm.loop !10
+  br i1 %8, label %7, label %18, !llvm.loop !9
 
 7:                                                ; preds = %.preheader, %6
   %8 = phi i1 [ true, %.preheader ], [ false, %6 ]
@@ -611,7 +611,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_
   br i1 %17, label %6, label %.loopexit
 
 18:                                               ; preds = %6
-  br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !11
+  br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %18, %7
   ret i1 %17
@@ -696,11 +696,10 @@ attributes #15 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

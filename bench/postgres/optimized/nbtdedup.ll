@@ -1233,7 +1233,7 @@ _bt_dedup_start_pending.exit83:                   ; preds = %BTreeTupleIsPosting
 183:                                              ; preds = %_bt_dedup_save_htid.exit, %_bt_dedup_start_pending.exit83, %_bt_dedup_start_pending.exit
   %184 = add i16 %.06086, 1
   %.not = icmp ugt i16 %184, %.0.i
-  br i1 %.not, label %._crit_edge, label %64, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %64, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %183, %BufferGetPage.exit
   call fastcc void @_bt_bottomupdel_finish_pending(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %29, ptr noundef %5)
@@ -1461,7 +1461,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %14, %BTreeTupleIsPo
   store i32 %120, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv109 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next110, %.lr.ph.split ]
@@ -1499,14 +1499,14 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %14, %BTreeTupleIsPo
   store i32 %138, ptr %12, align 4
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !12
+  br i1 %exitcond113.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split, %49, %BTreeTupleIsPosting.exit.thread
   %139 = phi i32 [ %.ph, %49 ], [ %46, %BTreeTupleIsPosting.exit.thread ], [ %138, %.lr.ph.split ], [ %120, %.lr.ph.split.us ]
   %140 = add nuw nsw i32 %.0102, 1
   %141 = load i32, ptr %4, align 4
   %142 = icmp slt i32 %140, %141
-  br i1 %142, label %.outer, label %._crit_edge, !llvm.loop !13
+  br i1 %142, label %.outer, label %._crit_edge, !llvm.loop !12
 
 .outer:                                           ; preds = %.loopexit, %.lr.ph103
   %.ph = phi i32 [ %139, %.loopexit ], [ %.pre, %.lr.ph103 ]
@@ -1518,7 +1518,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %14, %BTreeTupleIsPo
   %144 = add nuw nsw i32 %.0102, 1
   %145 = load i32, ptr %4, align 4
   %146 = icmp slt i32 %144, %145
-  br i1 %146, label %14, label %._crit_edge.thread, !llvm.loop !13
+  br i1 %146, label %14, label %._crit_edge.thread, !llvm.loop !12
 
 147:                                              ; preds = %._crit_edge
   %148 = trunc i32 %141 to i16
@@ -1750,7 +1750,7 @@ define dso_local void @_bt_update_posting(ptr noundef captures(none) %0) local_u
   %67 = and i16 %.val, 4095
   %68 = zext nneg i16 %67 to i64
   %69 = icmp samesign ult i64 %indvars.iv.next, %68
-  br i1 %69, label %44, label %._crit_edge, !llvm.loop !14
+  br i1 %69, label %44, label %._crit_edge, !llvm.loop !13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1867,12 +1867,11 @@ attributes #11 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

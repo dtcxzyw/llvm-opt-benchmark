@@ -354,7 +354,7 @@ right_encode.exit.thread:                         ; preds = %get_encode_size.exi
   store i8 %25, ptr %26, align 1, !tbaa !20
   %27 = lshr i64 %.01618.i, 8
   %28 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %28, label %.preheader.i, label %29, !llvm.loop !24
+  br i1 %28, label %.preheader.i, label %29, !llvm.loop !23
 
 29:                                               ; preds = %.preheader.i
   %30 = trunc nuw nsw i32 %.07.lcssa.i22.i to i8
@@ -378,7 +378,7 @@ right_encode.exit.thread:                         ; preds = %get_encode_size.exi
   %42 = phi i32 [ 0, %29 ], [ %40, %35 ], [ 0, %right_encode.exit.thread ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load i64, ptr %43, align 8, !tbaa !17
-  store i64 %44, ptr %2, align 8, !tbaa !25
+  store i64 %44, ptr %2, align 8, !tbaa !24
   br label %45
 
 45:                                               ; preds = %4, %41
@@ -438,7 +438,7 @@ define internal range(i32 0, 2) i32 @kmac_set_ctx_params(ptr noundef %0, ptr nou
   br i1 %4, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !26
+  %5 = load ptr, ptr %1, align 8, !tbaa !25
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %6
 
@@ -460,13 +460,13 @@ ossl_param_is_empty.exit:                         ; preds = %2
 
 13:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 0, ptr %3, align 8, !tbaa !25
+  store i64 0, ptr %3, align 8, !tbaa !24
   %14 = call i32 @OSSL_PARAM_get_size_t(ptr noundef nonnull %12, ptr noundef nonnull %3) #6
   %.not29 = icmp eq i32 %14, 0
   br i1 %.not29, label %.critedge, label %15
 
 15:                                               ; preds = %13
-  %16 = load i64, ptr %3, align 8, !tbaa !25
+  %16 = load i64, ptr %3, align 8, !tbaa !24
   %17 = icmp ugt i64 %16, 2097151
   br i1 %17, label %18, label %19
 
@@ -489,9 +489,9 @@ ossl_param_is_empty.exit:                         ; preds = %2
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %27 = load i64, ptr %26, align 8, !tbaa !30
+  %27 = load i64, ptr %26, align 8, !tbaa !29
   %28 = call fastcc i32 @kmac_setkey(ptr noundef %0, ptr noundef %25, i64 noundef %27)
   %.not31 = icmp eq i32 %28, 0
   br i1 %.not31, label %ossl_param_is_empty.exit.thread, label %29
@@ -503,7 +503,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !30
+  %33 = load i64, ptr %32, align 8, !tbaa !29
   %34 = icmp ugt i64 %33, 512
   br i1 %34, label %35, label %36
 
@@ -517,12 +517,12 @@ ossl_param_is_empty.exit:                         ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 740
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !29
+  %40 = load ptr, ptr %39, align 8, !tbaa !28
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %36
-  store i64 0, ptr %38, align 8, !tbaa !25
+  store i64 0, ptr %38, align 8, !tbaa !24
   br label %ossl_param_is_empty.exit.thread
 
 43:                                               ; preds = %36
@@ -562,13 +562,13 @@ get_encode_size.exit.i:                           ; preds = %.lr.ph.i.i, %43
   %59 = lshr i64 %.02630.i, 8
   %60 = add nsw i64 %.02531.i, -1
   %.not.i = icmp eq i64 %60, 0
-  br i1 %.not.i, label %61, label %56, !llvm.loop !31
+  br i1 %.not.i, label %61, label %56, !llvm.loop !30
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw i8, ptr %37, i64 %50
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull readonly align 1 %40, i64 range(i64 0, 513) %33, i1 false)
-  store i64 %52, ptr %38, align 8, !tbaa !25
+  store i64 %52, ptr %38, align 8, !tbaa !24
   br label %ossl_param_is_empty.exit.thread
 
 encode_string.exit:                               ; preds = %get_encode_size.exit.i
@@ -800,7 +800,7 @@ get_encode_size.exit.i.i:                         ; preds = %.lr.ph.i.i.i
   %34 = lshr i64 %.02630.i.i, 8
   %35 = add nsw i64 %.02531.i.i, -1
   %.not.i.i = icmp eq i64 %35, 0
-  br i1 %.not.i.i, label %36, label %31, !llvm.loop !31
+  br i1 %.not.i.i, label %36, label %31, !llvm.loop !30
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 %25
@@ -822,11 +822,11 @@ encode_string.exit.i:                             ; preds = %get_encode_size.exi
   %42 = urem i32 %.lhs.trunc.i, %7
   %.zext.i = zext nneg i32 %42 to i64
   %43 = sub nsw i64 %41, %.zext.i
-  store i64 %43, ptr %15, align 8, !tbaa !25
+  store i64 %43, ptr %15, align 8, !tbaa !24
   %44 = icmp ult i64 %43, 673
   %45 = icmp samesign ult i32 %7, 256
   %or.cond15 = select i1 %44, i1 %45, i1 false
-  br i1 %or.cond15, label %46, label %64, !prof !32
+  br i1 %or.cond15, label %46, label %64, !prof !31
 
 46:                                               ; preds = %39
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 69
@@ -933,15 +933,14 @@ attributes #6 = { nounwind }
 !18 = !{!4, !13, i64 64}
 !19 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !20 = !{!6, !6, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !22, !23}
-!25 = !{!12, !12, i64 0}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"ossl_param_st", !28, i64 0, !13, i64 8, !5, i64 16, !12, i64 24, !12, i64 32}
-!28 = !{!"p1 omnipotent char", !5, i64 0}
-!29 = !{!27, !5, i64 16}
-!30 = !{!27, !12, i64 24}
-!31 = distinct !{!31, !22, !23}
-!32 = !{!"branch_weights", i32 4000000, i32 4001}
+!23 = distinct !{!23, !22}
+!24 = !{!12, !12, i64 0}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"ossl_param_st", !27, i64 0, !13, i64 8, !5, i64 16, !12, i64 24, !12, i64 32}
+!27 = !{!"p1 omnipotent char", !5, i64 0}
+!28 = !{!26, !5, i64 16}
+!29 = !{!26, !12, i64 24}
+!30 = distinct !{!30, !22}
+!31 = !{!"branch_weights", i32 4000000, i32 4001}

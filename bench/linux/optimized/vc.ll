@@ -103,7 +103,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   br label %310
 
 24:                                               ; preds = %17, %4
-  store i32 0, ptr %11, align 4, !annotation !9
+  store i32 0, ptr %11, align 4, !annotation !8
   %25 = add nuw nsw i32 %1, 4
   %26 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %25, ptr noundef nonnull %11) #4
   %27 = load i32, ptr %11, align 4
@@ -139,7 +139,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
 
 46:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
-  store i32 0, ptr %12, align 4, !annotation !9
+  store i32 0, ptr %12, align 4, !annotation !8
   %47 = add nuw nsw i32 %1, 8
   %48 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %47, ptr noundef nonnull %12) #4
   %49 = load i32, ptr %12, align 4
@@ -193,7 +193,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   %81 = add nuw nsw i32 %76, 1
   %82 = getelementptr i8, ptr %77, i64 4
   %83 = icmp eq i32 %81, %74
-  br i1 %83, label %.loopexit15.thread, label %.preheader14.split.us, !llvm.loop !10
+  br i1 %83, label %.loopexit15.thread, label %.preheader14.split.us, !llvm.loop !9
 
 .preheader14.split:                               ; preds = %.preheader14, %.preheader14.split
   %84 = phi i32 [ %90, %.preheader14.split ], [ 0, %.preheader14 ]
@@ -205,14 +205,14 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   %90 = add nuw nsw i32 %84, 1
   %91 = getelementptr i8, ptr %85, i64 4
   %92 = icmp eq i32 %90, %74
-  br i1 %92, label %.loopexit15.thread30, label %.preheader14.split, !llvm.loop !12
+  br i1 %92, label %.loopexit15.thread30, label %.preheader14.split, !llvm.loop !11
 
 .loopexit15:                                      ; preds = %72
   br i1 %3, label %.loopexit15.thread, label %.loopexit15.thread30
 
 .loopexit15.thread30:                             ; preds = %.preheader14.split, %.loopexit15
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10) #4
-  store i16 0, ptr %10, align 2, !annotation !9
+  store i16 0, ptr %10, align 2, !annotation !8
   %93 = add nuw nsw i32 %1, 12
   %94 = call i32 @pci_read_config_word(ptr noundef %0, i32 noundef %93, ptr noundef nonnull %10) #4
   %95 = load i16, ptr %10, align 2
@@ -265,7 +265,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   %124 = phi i32 [ %113, %112 ], [ %304, %302 ]
   %125 = phi i32 [ 0, %112 ], [ %305, %302 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
-  store i32 0, ptr %13, align 4, !annotation !9
+  store i32 0, ptr %13, align 4, !annotation !8
   %126 = mul nuw nsw i32 %125, 12
   %127 = add nuw nsw i32 %115, %126
   %128 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %127, ptr noundef nonnull %13) #4
@@ -323,7 +323,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   %162 = add nuw nsw i32 %157, 1
   %163 = getelementptr i8, ptr %158, i64 4
   %164 = icmp eq i32 %162, %155
-  br i1 %164, label %.loopexit, label %.preheader.split.us, !llvm.loop !13
+  br i1 %164, label %.loopexit, label %.preheader.split.us, !llvm.loop !12
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %165 = phi i32 [ %171, %.preheader.split ], [ 0, %.preheader ]
@@ -335,7 +335,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   %171 = add nuw nsw i32 %165, 1
   %172 = getelementptr i8, ptr %166, i64 4
   %173 = icmp eq i32 %171, %155
-  br i1 %173, label %.loopexit, label %.preheader.split, !llvm.loop !14
+  br i1 %173, label %.loopexit, label %.preheader.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader.split, %.preheader.split.us, %153
   %174 = zext nneg i32 %150 to i64
@@ -363,7 +363,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
 
 187:                                              ; preds = %183
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #4
-  store i32 0, ptr %14, align 4, !annotation !9
+  store i32 0, ptr %14, align 4, !annotation !8
   %188 = load i32, ptr %181, align 4
   %189 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %184, ptr noundef nonnull %14) #4
   %190 = load i32, ptr %14, align 4
@@ -378,7 +378,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
 
 197:                                              ; preds = %187
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
-  store i32 0, ptr %9, align 4, !annotation !9
+  store i32 0, ptr %9, align 4, !annotation !8
   %.reass22 = add nuw nsw i32 %126, %120
   %198 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %184, ptr noundef nonnull %9) #4
   %199 = load i32, ptr %9, align 4
@@ -404,13 +404,13 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
 
 210:                                              ; preds = %206
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
-  store i32 0, ptr %5, align 4, !annotation !9
+  store i32 0, ptr %5, align 4, !annotation !8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
-  store i32 0, ptr %6, align 4, !annotation !9
+  store i32 0, ptr %6, align 4, !annotation !8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  store i32 0, ptr %7, align 4, !annotation !9
+  store i32 0, ptr %7, align 4, !annotation !8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
-  store i32 0, ptr %8, align 4, !annotation !9
+  store i32 0, ptr %8, align 4, !annotation !8
   %211 = load i8, ptr %118, align 4
   %212 = icmp eq i8 %211, 0
   br i1 %212, label %298, label %213
@@ -471,7 +471,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
 254:                                              ; preds = %257
   %255 = add nuw nsw i32 %258, 1
   %256 = icmp eq i32 %258, %247
-  br i1 %256, label %.thread, label %257, !llvm.loop !15
+  br i1 %256, label %.thread, label %257, !llvm.loop !13
 
 257:                                              ; preds = %254, %249
   %258 = phi i32 [ 1, %249 ], [ %255, %254 ]
@@ -562,7 +562,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef ra
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
   %305 = add nuw nsw i32 %125, 1
   %306 = icmp eq i32 %125, %28
-  br i1 %306, label %307, label %122, !llvm.loop !16
+  br i1 %306, label %307, label %122, !llvm.loop !14
 
 307:                                              ; preds = %302
   %308 = icmp eq ptr %303, null
@@ -602,7 +602,7 @@ define dso_local void @pci_restore_vc_state(ptr noundef %0) local_unnamed_addr #
 15:                                               ; preds = %12, %2
   %16 = add nuw nsw i64 %3, 1
   %17 = icmp eq i64 %16, 3
-  br i1 %17, label %18, label %2, !llvm.loop !17
+  br i1 %17, label %18, label %2, !llvm.loop !15
 
 18:                                               ; preds = %15
   ret void
@@ -638,7 +638,7 @@ define dso_local void @pci_allocate_vc_save_buffers(ptr noundef %0) local_unname
 18:                                               ; preds = %15, %10, %3
   %19 = add nuw nsw i64 %4, 1
   %20 = icmp eq i64 %19, 3
-  br i1 %20, label %21, label %3, !llvm.loop !18
+  br i1 %20, label %21, label %3, !llvm.loop !16
 
 21:                                               ; preds = %18
   ret void
@@ -676,17 +676,15 @@ attributes #5 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = distinct !{!10, !6, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8, !11}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
+!8 = !{!"auto-init"}
+!9 = distinct !{!9, !6, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7, !10}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}

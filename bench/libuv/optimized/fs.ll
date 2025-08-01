@@ -464,7 +464,7 @@ uv__fs_close.exit:                                ; preds = %159, %163
   %248 = sub nsw i64 %.061.i226, %243
   %249 = add nuw nsw i64 %243, %.060.i227
   %cond = icmp eq i64 %248, 0
-  br i1 %cond, label %.thread, label %.lr.ph, !llvm.loop !4
+  br i1 %cond, label %.thread, label %.lr.ph
 
 250:                                              ; preds = %245, %238, %224, %215, %206, %193, %176
   %.067.i = phi i32 [ -1, %176 ], [ %185, %193 ], [ %185, %206 ], [ %185, %215 ], [ %185, %224 ], [ %185, %238 ], [ %185, %245 ]
@@ -1147,7 +1147,7 @@ sub_0.i:                                          ; preds = %538
 551:                                              ; preds = %.tail.i, %.tail1.i
   %552 = load i64, ptr %534, align 8
   %553 = icmp ugt i64 %552, %537
-  br i1 %553, label %538, label %uv__fs_readdir.exit, !llvm.loop !6
+  br i1 %553, label %538, label %uv__fs_readdir.exit
 
 .tail1.thread.i:                                  ; preds = %.tail.i, %.tail1.i, %sub_0.i
   %554 = getelementptr inbounds nuw i8, ptr %540, i64 19
@@ -1166,7 +1166,7 @@ sub_0.i:                                          ; preds = %538
   %562 = zext i32 %561 to i64
   %563 = load i64, ptr %534, align 8
   %564 = icmp ugt i64 %563, %562
-  br i1 %564, label %.lr.ph.i, label %uv__fs_readdir.exit, !llvm.loop !6
+  br i1 %564, label %.lr.ph.i, label %uv__fs_readdir.exit
 
 .loopexit6.i:                                     ; preds = %.tail1.thread.i, %542
   %.not26.i = icmp eq i32 %.023.ph18.i, 0
@@ -1187,7 +1187,7 @@ sub_0.i:                                          ; preds = %538
   store ptr null, ptr %569, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %uv__fs_readdir.exit, label %.lr.ph21.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %uv__fs_readdir.exit, label %.lr.ph21.i
 
 uv__fs_readdir.exit:                              ; preds = %.outer.i, %.lr.ph21.i, %551, %533, %542, %.loopexit6.i
   %.024.i = phi i32 [ %.023.ph18.i, %542 ], [ -1, %.loopexit6.i ], [ 0, %533 ], [ %.023.ph18.i, %551 ], [ -1, %.lr.ph21.i ], [ %561, %.outer.i ]
@@ -1428,7 +1428,7 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
 659:                                              ; preds = %.split.us110.i.i
   %660 = load i32, ptr %25, align 4
   %661 = icmp eq i32 %660, 4
-  br i1 %661, label %.split.us110.i.i, label %.split102.us109.i.i, !llvm.loop !8
+  br i1 %661, label %.split.us110.i.i, label %.split102.us109.i.i
 
 662:                                              ; preds = %.split102.us109.i.i
   switch i32 %663, label %uv__fs_sendfile_emul.exit.i [
@@ -1437,7 +1437,7 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
   ]
 
 .backedge:                                        ; preds = %662, %662
-  br label %656, !llvm.loop !9
+  br label %656, !llvm.loop !4
 
 .split102.us109.i.i:                              ; preds = %659, %666
   %663 = phi i32 [ %667, %666 ], [ %660, %659 ]
@@ -1455,7 +1455,7 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
 666:                                              ; preds = %.split.us.us.i.i
   %667 = load i32, ptr %25, align 4
   %668 = icmp eq i32 %667, 4
-  br i1 %668, label %.split.us.us.i.i, label %.split102.us109.i.i, !llvm.loop !11
+  br i1 %668, label %.split.us.us.i.i, label %.split102.us109.i.i, !llvm.loop !6
 
 .preheader64.i.i:                                 ; preds = %.split.us110.i.i, %.split.us.us.i.i
   %.0105.us177.i.i = phi i32 [ %.0105.us.i.i, %.split.us.us.i.i ], [ 0, %.split.us110.i.i ]
@@ -1482,13 +1482,13 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
   ]
 
 .preheader.i.i.backedge:                          ; preds = %671, %.critedge57.i.i
-  br label %.preheader.i.i, !llvm.loop !12
+  br label %.preheader.i.i
 
 .outer.i.i:                                       ; preds = %.preheader.i.i
   %673 = add nsw i64 %670, %.049.ph147.i.i
   %674 = icmp slt i64 %673, %.us-phi98.i.i
   %675 = sub nsw i64 %.us-phi98.i.i, %673
-  br i1 %674, label %.outer.split.i.i, label %.outer68.i.i, !llvm.loop !12
+  br i1 %674, label %.outer.split.i.i, label %.outer68.i.i
 
 .outer.split.i.i:                                 ; preds = %.preheader64.i.i, %.outer.i.i
   %676 = phi i64 [ %675, %.outer.i.i ], [ %.us-phi98.i.i, %.preheader64.i.i ]
@@ -1510,7 +1510,7 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
 682:                                              ; preds = %679
   %683 = load i32, ptr %25, align 4
   %684 = icmp eq i32 %683, 4
-  br i1 %684, label %679, label %.critedge6.i.i, !llvm.loop !13
+  br i1 %684, label %679, label %.critedge6.i.i
 
 .critedge57.i.i:                                  ; preds = %679
   %685 = load i16, ptr %80, align 2
@@ -1526,7 +1526,7 @@ thread-pre-split.i:                               ; preds = %uv__is_cifs_or_smb.
   %687 = add nsw i64 %.us-phi98.i.i, %.047.ph149.i.i
   %688 = add nsw i64 %.us-phi98.i.i, %.048104.us.i.i
   %689 = icmp ult i64 %688, %652
-  br i1 %689, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !14
+  br i1 %689, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.outer68.i.i, %.split.us110.i.i, %.split.us.us.i.i
   %.047.ph96.i.i = phi i64 [ %.047.ph149.i.i, %.split.us.us.i.i ], [ %.047.ph149.i.i, %.split.us110.i.i ], [ %687, %.outer68.i.i ]
@@ -1835,7 +1835,7 @@ uv__fs_write.exit.i:                              ; preds = %uv__pwritev.exit.i.
 821:                                              ; preds = %uv__fs_write.exit.i
   %822 = load i32, ptr %25, align 4
   %823 = icmp eq i32 %822, 4
-  br i1 %823, label %thread-pre-split.i124, label %.critedge.thread.i119, !llvm.loop !15
+  br i1 %823, label %thread-pre-split.i124, label %.critedge.thread.i119
 
 .critedge.i121:                                   ; preds = %uv__fs_write.exit.i
   %824 = icmp eq i64 %.0.i.i, 0
@@ -1873,7 +1873,7 @@ uv__fs_write.exit.i:                              ; preds = %uv__pwritev.exit.i.
   %837 = sub nuw i64 %.01522.i.i, %835
   %838 = add i64 %.023.i.i, 1
   %.not.i.i122 = icmp eq i64 %837, 0
-  br i1 %.not.i.i122, label %uv__fs_buf_offset.exit.i, label %833, !llvm.loop !16
+  br i1 %.not.i.i122, label %uv__fs_buf_offset.exit.i, label %833
 
 .critedge.i.i:                                    ; preds = %833
   %839 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %832, i64 %.023.i.i
@@ -1897,7 +1897,7 @@ uv__fs_buf_offset.exit.i:                         ; preds = %836, %.critedge.i.i
   %848 = sub i32 %.054.i, %845
   %849 = add nuw nsw i64 %.0.i.i, %.03153.i
   %.not.i123 = icmp eq i32 %848, 0
-  br i1 %.not.i123, label %.loopexit.i, label %.lr.ph.i117, !llvm.loop !17
+  br i1 %.not.i123, label %.loopexit.i, label %.lr.ph.i117
 
 .loopexit.i:                                      ; preds = %uv__fs_buf_offset.exit.i, %.critedge.thread.i119, %781
   %.1.i120 = phi i64 [ %spec.select38.i, %.critedge.thread.i119 ], [ 0, %781 ], [ %849, %uv__fs_buf_offset.exit.i ]
@@ -1933,7 +1933,7 @@ uv__fs_readlink.exit.thread:                      ; preds = %598, %605, %592, %5
   %854 = load i32, ptr %25, align 4
   %855 = icmp eq i32 %854, 4
   %or.cond = and i1 %spec.select, %855
-  br i1 %or.cond, label %141, label %.thread157, !llvm.loop !18
+  br i1 %or.cond, label %141, label %.thread157
 
 .thread157:                                       ; preds = %uv__fs_readlink.exit.thread
   %856 = sub nsw i32 0, %854
@@ -4428,7 +4428,7 @@ define internal i64 @uv__preadv_emul(i32 noundef %0, ptr noundef readonly captur
   %14 = tail call ptr @__errno_location() #16
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 4
-  br i1 %16, label %10, label %.critedge.i, !llvm.loop !19
+  br i1 %16, label %10, label %.critedge.i
 
 .critedge.i:                                      ; preds = %13
   %17 = icmp sgt i64 %.03136.i, 0
@@ -4444,7 +4444,7 @@ define internal i64 @uv__preadv_emul(i32 noundef %0, ptr noundef readonly captur
   %21 = add nsw i64 %11, %.02838.i
   %22 = add nuw i64 %.02937.i, 1
   %exitcond.not.i = icmp eq i64 %22, %5
-  br i1 %exitcond.not.i, label %uv__preadv_or_pwritev_emul.exit, label %.split.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %uv__preadv_or_pwritev_emul.exit, label %.split.i
 
 uv__preadv_or_pwritev_emul.exit:                  ; preds = %.critedge32.split.i, %20, %4, %.critedge.i
   %.0.i = phi i64 [ %.031..i, %.critedge.i ], [ 0, %4 ], [ %18, %20 ], [ %18, %.critedge32.split.i ]
@@ -4471,7 +4471,7 @@ define internal i64 @uv__pwritev_emul(i32 noundef %0, ptr noundef readonly captu
   %11 = add nsw i64 %14, %.02838.us.i
   %12 = add nuw i64 %.02937.us.i, 1
   %exitcond53.not.i = icmp eq i64 %12, %5
-  br i1 %exitcond53.not.i, label %uv__preadv_or_pwritev_emul.exit, label %.split.us.us.i, !llvm.loop !21
+  br i1 %exitcond53.not.i, label %uv__preadv_or_pwritev_emul.exit, label %.split.us.us.i, !llvm.loop !7
 
 13:                                               ; preds = %16, %.split.us.us.i
   %14 = tail call i64 @pwrite64(i32 noundef %0, ptr noundef %7, i64 noundef %9, i64 noundef %.02838.us.i) #15
@@ -4482,7 +4482,7 @@ define internal i64 @uv__pwritev_emul(i32 noundef %0, ptr noundef readonly captu
   %17 = tail call ptr @__errno_location() #16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %13, label %.critedge.i, !llvm.loop !22
+  br i1 %19, label %13, label %.critedge.i, !llvm.loop !8
 
 .critedge32.split.us.us.i:                        ; preds = %13
   %20 = add nsw i64 %14, %.03136.us.i
@@ -4628,21 +4628,7 @@ attributes #18 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
 !8 = distinct !{!8, !5}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !5, !10}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5, !10}
-!22 = distinct !{!22, !5, !10}

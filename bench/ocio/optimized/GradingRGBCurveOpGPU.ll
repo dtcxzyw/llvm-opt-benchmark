@@ -5559,7 +5559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i: ; preds 
   store i8 %48, ptr %51, align 1, !tbaa !21
   %52 = add i32 %.01819.i.i, -2
   %53 = icmp ugt i32 %.020.i.i, 9999
-  br i1 %53, label %.lr.ph.i2.i, label %._crit_edge.i.i, !llvm.loop !96
+  br i1 %53, label %.lr.ph.i2.i, label %._crit_edge.i.i, !llvm.loop !95
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i2.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i
   %.0.lcssa.i.i = phi i32 [ %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i ], [ %39, %.lr.ph.i2.i ]
@@ -5681,7 +5681,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit.i: ; 
   %104 = load i64, ptr %86, align 8, !tbaa !37
   %105 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %103, i64 noundef %102, i64 noundef %104) #19
   %.not.i = icmp eq i64 %105, -1
-  br i1 %.not.i, label %_ZN11StringUtils14ReplaceInPlaceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_S8_.exit, label %.lr.ph.i, !llvm.loop !97
+  br i1 %.not.i, label %_ZN11StringUtils14ReplaceInPlaceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_S8_.exit, label %.lr.ph.i, !llvm.loop !96
 
 _ZN11StringUtils14ReplaceInPlaceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS5_S8_.exit: ; preds = %.noexc22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %106 = load ptr, ptr %7, align 8, !tbaa !35
@@ -6239,7 +6239,7 @@ _ZNSt14_Function_base13_Base_managerIPFivEE10_M_managerERSt9_Any_dataRKS4_St18_M
 define linkonce_odr hidden noundef ptr @_ZNSt17_Function_handlerIFPKivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFS1_vEPS5_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !70
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !98
+  %4 = load ptr, ptr %3, align 8, !tbaa !97
   %.unpack.i.i.i.i.i.i = load i64, ptr %2, align 8, !tbaa !21
   %.elt2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.unpack3.i.i.i.i.i.i = load i64, ptr %.elt2.i.i.i.i.i.i, align 8, !tbaa !21
@@ -6275,7 +6275,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFPKivESt
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFPKivEPS1_EE, ptr %0, align 8, !tbaa !99
+  store ptr @_ZTISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFPKivEPS1_EE, ptr %0, align 8, !tbaa !98
   br label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFPKivEPS3_EEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
@@ -6312,7 +6312,7 @@ declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText24declareUniformArrayFloatE
 define linkonce_odr hidden noundef i32 @_ZNSt17_Function_handlerIFivESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !74
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !98
+  %4 = load ptr, ptr %3, align 8, !tbaa !97
   %.unpack.i.i.i.i.i.i = load i64, ptr %2, align 8, !tbaa !21
   %.elt2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.unpack3.i.i.i.i.i.i = load i64, ptr %.elt2.i.i.i.i.i.i, align 8, !tbaa !21
@@ -6348,7 +6348,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFivESt5_
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS1_EE, ptr %0, align 8, !tbaa !99
+  store ptr @_ZTISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS1_EE, ptr %0, align 8, !tbaa !98
   br label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFivEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
@@ -6380,7 +6380,7 @@ _ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicP
 define linkonce_odr hidden noundef ptr @_ZNSt17_Function_handlerIFPKfvESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFS1_vEPS5_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !76
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !98
+  %4 = load ptr, ptr %3, align 8, !tbaa !97
   %.unpack.i.i.i.i.i.i = load i64, ptr %2, align 8, !tbaa !21
   %.elt2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.unpack3.i.i.i.i.i.i = load i64, ptr %.elt2.i.i.i.i.i.i, align 8, !tbaa !21
@@ -6416,7 +6416,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFPKfvESt
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFPKfvEPS1_EE, ptr %0, align 8, !tbaa !99
+  store ptr @_ZTISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFPKfvEPS1_EE, ptr %0, align 8, !tbaa !98
   br label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFPKfvEPS3_EEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
@@ -6450,7 +6450,7 @@ declare void @_ZN19OpenColorIO_v2_5dev13GpuShaderText18declareUniformBoolERKNSt7
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbvESt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFbvEPS3_EEE9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #3 comdat align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !80
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !98
+  %4 = load ptr, ptr %3, align 8, !tbaa !97
   %.unpack.i.i.i.i.i.i = load i64, ptr %2, align 8, !tbaa !21
   %.elt2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.unpack3.i.i.i.i.i.i = load i64, ptr %.elt2.i.i.i.i.i.i, align 8, !tbaa !21
@@ -6486,7 +6486,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt17_Function_handlerIFbvESt5_
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFbvEPS1_EE, ptr %0, align 8, !tbaa !99
+  store ptr @_ZTISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFbvEPS1_EE, ptr %0, align 8, !tbaa !98
   br label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN19OpenColorIO_v2_5dev34DynamicPropertyGradingRGBCurveImplEKFbvEPS3_EEE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
@@ -6699,11 +6699,10 @@ attributes #23 = { noreturn nounwind }
 !90 = !{!91}
 !91 = distinct !{!91, !92, !"_ZNSt7__cxx119to_stringEj: argument 0"}
 !92 = distinct !{!92, !"_ZNSt7__cxx119to_stringEj"}
-!93 = distinct !{!93, !94, !95}
+!93 = distinct !{!93, !94}
 !94 = !{!"llvm.loop.mustprogress"}
-!95 = !{!"llvm.loop.estimated_trip_count"}
-!96 = distinct !{!96, !94, !95}
-!97 = distinct !{!97, !94, !95}
-!98 = !{!19, !19, i64 0}
-!99 = !{!100, !100, i64 0}
-!100 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
+!95 = distinct !{!95, !94}
+!96 = distinct !{!96, !94}
+!97 = !{!19, !19, i64 0}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTSSt9type_info", !6, i64 0}

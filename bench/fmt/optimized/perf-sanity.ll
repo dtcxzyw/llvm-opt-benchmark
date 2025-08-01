@@ -115,13 +115,13 @@ define linkonce_odr hidden void @_ZN3fmt3v1119basic_memory_bufferIcLm500ENS0_6de
 
 9:                                                ; preds = %2
   %10 = tail call ptr @__cxa_allocate_exception(i64 8) #11
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %10, align 8, !tbaa !17
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %10, align 8, !tbaa !16
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #13
   unreachable
 
 _ZN3fmt3v116detail9allocatorIcE8allocateEm.exit:  ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !19
+  %12 = load i64, ptr %11, align 8, !tbaa !18
   %13 = icmp ule i64 %12, %spec.select
   tail call void @llvm.assume(i1 %13)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr align 1 %7, i64 %12, i1 false)
@@ -197,9 +197,8 @@ attributes #13 = { noreturn }
 !11 = !{!"long", !5, i64 0}
 !12 = !{!8, !9, i64 0}
 !13 = !{!8, !11, i64 16}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"vtable pointer", !6, i64 0}
-!19 = !{!8, !11, i64 8}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"vtable pointer", !6, i64 0}
+!18 = !{!8, !11, i64 8}

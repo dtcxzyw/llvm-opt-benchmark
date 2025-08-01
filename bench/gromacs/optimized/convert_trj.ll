@@ -515,7 +515,7 @@ _ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i.i: ; preds = %_
 _ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i.i, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit5.i
   store ptr null, ptr %.ptr7.i, align 8, !tbaa !110
   %41 = icmp eq i64 %.add.i, 64
-  br i1 %41, label %_ZN3gmx21TrajectoryFrameWriterD2Ev.exit, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit5.i, !llvm.loop !112
+  br i1 %41, label %_ZN3gmx21TrajectoryFrameWriterD2Ev.exit, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit5.i
 
 _ZN3gmx21TrajectoryFrameWriterD2Ev.exit:          ; preds = %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i.i
   tail call void @_ZN3gmx20TrajectoryFileOpenerD1Ev(ptr noundef nonnull align 8 dereferenceable(4272) %1) #15
@@ -702,5 +702,3 @@ attributes #16 = { noreturn nounwind }
 !109 = !{!98, !99, i64 16}
 !110 = !{!111, !111, i64 0}
 !111 = !{!"p1 _ZTSN3gmx14IOutputAdapterE", !10, i64 0}
-!112 = distinct !{!112, !113}
-!113 = !{!"llvm.loop.estimated_trip_count"}

@@ -500,16 +500,16 @@ define internal i32 @drawbox_vaapi_config_output(ptr noundef %0) #2 {
   %108 = phi i32 [ %106, %105 ], [ %92, %99 ]
   %109 = trunc i32 %93 to i16
   %110 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  store i16 %109, ptr %110, align 8, !tbaa !96
+  store i16 %109, ptr %110, align 8, !tbaa !95
   %111 = trunc i32 %101 to i16
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 146
-  store i16 %111, ptr %112, align 2, !tbaa !97
+  store i16 %111, ptr %112, align 2, !tbaa !96
   %113 = trunc i32 %100 to i16
   %114 = getelementptr inbounds nuw i8, ptr %9, i64 148
-  store i16 %113, ptr %114, align 4, !tbaa !98
+  store i16 %113, ptr %114, align 4, !tbaa !97
   %115 = trunc i32 %108 to i16
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 150
-  store i16 %115, ptr %116, align 2, !tbaa !99
+  store i16 %115, ptr %116, align 2, !tbaa !98
   %117 = and i32 %100, 65535
   %118 = shl i32 %78, 1
   %.not = icmp ugt i32 %117, %118
@@ -522,17 +522,17 @@ define internal i32 @drawbox_vaapi_config_output(ptr noundef %0) #2 {
   %121 = trunc i32 %78 to i16
   %122 = add i16 %121, %109
   %123 = getelementptr inbounds nuw i8, ptr %9, i64 152
-  store i16 %122, ptr %123, align 8, !tbaa !100
+  store i16 %122, ptr %123, align 8, !tbaa !99
   %124 = add i16 %121, %111
   %125 = getelementptr inbounds nuw i8, ptr %9, i64 154
-  store i16 %124, ptr %125, align 2, !tbaa !101
+  store i16 %124, ptr %125, align 2, !tbaa !100
   %126 = shl i16 %121, 1
   %127 = sub i16 %113, %126
   %128 = getelementptr inbounds nuw i8, ptr %9, i64 156
-  store i16 %127, ptr %128, align 4, !tbaa !102
+  store i16 %127, ptr %128, align 4, !tbaa !101
   %129 = sub i16 %115, %126
   %130 = getelementptr inbounds nuw i8, ptr %9, i64 158
-  store i16 %129, ptr %130, align 2, !tbaa !103
+  store i16 %129, ptr %130, align 2, !tbaa !102
   br label %131
 
 131:                                              ; preds = %107, %120
@@ -540,16 +540,16 @@ define internal i32 @drawbox_vaapi_config_output(ptr noundef %0) #2 {
   %132 = getelementptr inbounds nuw i8, ptr %9, i64 252
   store i32 %.sink, ptr %132, align 4, !tbaa !72
   %133 = getelementptr inbounds nuw i8, ptr %9, i64 68
-  store i32 %95, ptr %133, align 4, !tbaa !104
+  store i32 %95, ptr %133, align 4, !tbaa !103
   %134 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store i32 %103, ptr %134, align 8, !tbaa !105
+  store i32 %103, ptr %134, align 8, !tbaa !104
   %135 = call i32 @ff_vaapi_vpp_config_output(ptr noundef nonnull %0) #5
   %136 = icmp slt i32 %135, 0
   br i1 %136, label %160, label %137
 
 137:                                              ; preds = %131
   %138 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %139 = load ptr, ptr %138, align 8, !tbaa !106
+  %139 = load ptr, ptr %138, align 8, !tbaa !105
   %140 = call ptr @av_hwframe_ctx_alloc(ptr noundef %139) #5
   %141 = getelementptr inbounds nuw i8, ptr %9, i64 160
   store ptr %140, ptr %141, align 8, !tbaa !50
@@ -558,25 +558,25 @@ define internal i32 @drawbox_vaapi_config_output(ptr noundef %0) #2 {
 
 142:                                              ; preds = %137
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %144 = load ptr, ptr %143, align 8, !tbaa !107
+  %144 = load ptr, ptr %143, align 8, !tbaa !106
   %145 = getelementptr inbounds nuw i8, ptr %9, i64 168
-  store ptr %144, ptr %145, align 8, !tbaa !110
+  store ptr %144, ptr %145, align 8, !tbaa !109
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 60
-  store i32 44, ptr %146, align 4, !tbaa !111
+  store i32 44, ptr %146, align 4, !tbaa !110
   %147 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %148 = load ptr, ptr %147, align 8, !tbaa !115
+  %148 = load ptr, ptr %147, align 8, !tbaa !114
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 64
-  %150 = load i32, ptr %149, align 8, !tbaa !116
+  %150 = load i32, ptr %149, align 8, !tbaa !115
   %151 = getelementptr inbounds nuw i8, ptr %144, i64 64
-  store i32 %150, ptr %151, align 8, !tbaa !116
-  %152 = load i16, ptr %114, align 4, !tbaa !98
+  store i32 %150, ptr %151, align 8, !tbaa !115
+  %152 = load i16, ptr %114, align 4, !tbaa !97
   %153 = zext i16 %152 to i32
   %154 = getelementptr inbounds nuw i8, ptr %144, i64 68
-  store i32 %153, ptr %154, align 4, !tbaa !117
-  %155 = load i16, ptr %116, align 2, !tbaa !99
+  store i32 %153, ptr %154, align 4, !tbaa !116
+  %155 = load i16, ptr %116, align 2, !tbaa !98
   %156 = zext i16 %155 to i32
   %157 = getelementptr inbounds nuw i8, ptr %144, i64 72
-  store i32 %156, ptr %157, align 8, !tbaa !118
+  store i32 %156, ptr %157, align 8, !tbaa !117
   %158 = call i32 @av_hwframe_ctx_init(ptr noundef nonnull %140) #5
   br label %160
 
@@ -715,29 +715,28 @@ attributes #5 = { nounwind }
 !90 = !{!49, !15, i64 228}
 !91 = !{!49, !11, i64 216}
 !92 = !{!49, !15, i64 244}
-!93 = distinct !{!93, !94, !95}
+!93 = distinct !{!93, !94}
 !94 = !{!"llvm.loop.mustprogress"}
-!95 = !{!"llvm.loop.estimated_trip_count"}
-!96 = !{!49, !25, i64 144}
-!97 = !{!49, !25, i64 146}
-!98 = !{!49, !25, i64 148}
-!99 = !{!49, !25, i64 150}
-!100 = !{!49, !25, i64 152}
-!101 = !{!49, !25, i64 154}
-!102 = !{!49, !25, i64 156}
-!103 = !{!49, !25, i64 158}
-!104 = !{!21, !15, i64 68}
-!105 = !{!21, !15, i64 72}
-!106 = !{!21, !19, i64 16}
-!107 = !{!108, !11, i64 8}
-!108 = !{!"AVBufferRef", !109, i64 0, !11, i64 8, !44, i64 16}
-!109 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
-!110 = !{!49, !23, i64 168}
-!111 = !{!112, !15, i64 60}
-!112 = !{!"AVHWFramesContext", !6, i64 0, !19, i64 8, !113, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !114, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72}
-!113 = !{!"p1 _ZTS17AVHWDeviceContext", !7, i64 0}
-!114 = !{!"p1 _ZTS12AVBufferPool", !7, i64 0}
-!115 = !{!21, !23, i64 48}
-!116 = !{!112, !15, i64 64}
-!117 = !{!112, !15, i64 68}
-!118 = !{!112, !15, i64 72}
+!95 = !{!49, !25, i64 144}
+!96 = !{!49, !25, i64 146}
+!97 = !{!49, !25, i64 148}
+!98 = !{!49, !25, i64 150}
+!99 = !{!49, !25, i64 152}
+!100 = !{!49, !25, i64 154}
+!101 = !{!49, !25, i64 156}
+!102 = !{!49, !25, i64 158}
+!103 = !{!21, !15, i64 68}
+!104 = !{!21, !15, i64 72}
+!105 = !{!21, !19, i64 16}
+!106 = !{!107, !11, i64 8}
+!107 = !{!"AVBufferRef", !108, i64 0, !11, i64 8, !44, i64 16}
+!108 = !{!"p1 _ZTS8AVBuffer", !7, i64 0}
+!109 = !{!49, !23, i64 168}
+!110 = !{!111, !15, i64 60}
+!111 = !{!"AVHWFramesContext", !6, i64 0, !19, i64 8, !112, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !113, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !15, i64 68, !15, i64 72}
+!112 = !{!"p1 _ZTS17AVHWDeviceContext", !7, i64 0}
+!113 = !{!"p1 _ZTS12AVBufferPool", !7, i64 0}
+!114 = !{!21, !23, i64 48}
+!115 = !{!111, !15, i64 64}
+!116 = !{!111, !15, i64 68}
+!117 = !{!111, !15, i64 72}

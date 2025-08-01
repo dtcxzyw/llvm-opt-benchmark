@@ -481,7 +481,7 @@ define dso_local i32 @pcmcia_loop_tuple(ptr noundef %0, i8 noundef zeroext %1, p
 27:                                               ; preds = %24, %.preheader
   %28 = call i32 @pccard_get_next_tuple(ptr noundef %6, i32 noundef %9, ptr noundef nonnull %5) #8
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %29, label %.preheader, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %27, %24, %15
   %30 = phi i32 [ %20, %15 ], [ 0, %24 ], [ %28, %27 ]
@@ -620,8 +620,6 @@ attributes #11 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}

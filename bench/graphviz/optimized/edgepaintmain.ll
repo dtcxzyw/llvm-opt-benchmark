@@ -318,7 +318,7 @@ openFile.exit.i:                                  ; preds = %53
   store i32 0, ptr %3, align 4, !tbaa !14
   %100 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.11, ptr noundef nonnull @init.opts, ptr noundef nonnull %3) #11
   %101 = icmp eq i32 %100, -1
-  br i1 %101, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %101, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.thread102.i, %2
   %.222 = phi i32 [ 0, %2 ], [ %.121, %.thread102.i ]
@@ -331,7 +331,7 @@ openFile.exit.i:                                  ; preds = %53
 104:                                              ; preds = %._crit_edge.i
   %105 = sext i32 %102 to i64
   %106 = getelementptr inbounds ptr, ptr %1, i64 %105
-  store ptr %106, ptr @Files, align 8, !tbaa !18
+  store ptr %106, ptr @Files, align 8, !tbaa !16
   br label %107
 
 107:                                              ; preds = %104, %._crit_edge.i
@@ -345,7 +345,7 @@ openFile.exit.i:                                  ; preds = %53
   br label %init.exit
 
 init.exit:                                        ; preds = %107, %110
-  %112 = load ptr, ptr @Files, align 8, !tbaa !18
+  %112 = load ptr, ptr @Files, align 8, !tbaa !16
   %113 = call ptr @newIngraph(ptr noundef nonnull %10, ptr noundef %112) #11
   %114 = call ptr @nextGraph(ptr noundef nonnull %10) #11
   %.not45 = icmp eq ptr %114, null
@@ -374,20 +374,20 @@ init.exit:                                        ; preds = %107, %110
   call void @flockfile(ptr noundef %122) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #11
   %123 = call i64 @time(ptr noundef null) #11
-  store i64 %123, ptr %11, align 8, !tbaa !20
+  store i64 %123, ptr %11, align 8, !tbaa !18
   %124 = call ptr @localtime(ptr noundef nonnull %11) #11
   %125 = load ptr, ptr @stderr, align 8, !tbaa !9
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 20
-  %127 = load i32, ptr %126, align 4, !tbaa !22
+  %127 = load i32, ptr %126, align 4, !tbaa !20
   %128 = add nsw i32 %127, 1900
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %130 = load i32, ptr %129, align 8, !tbaa !24
+  %130 = load i32, ptr %129, align 8, !tbaa !22
   %131 = add nsw i32 %130, 1
   %132 = getelementptr inbounds nuw i8, ptr %124, i64 12
-  %133 = load i32, ptr %132, align 4, !tbaa !25
+  %133 = load i32, ptr %132, align 4, !tbaa !23
   %134 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %135 = load i32, ptr %134, align 8, !tbaa !26
-  %136 = load i32, ptr %124, align 8, !tbaa !27
+  %135 = load i32, ptr %134, align 8, !tbaa !24
+  %136 = load i32, ptr %124, align 8, !tbaa !25
   %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %125, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 109), i32 noundef 281, i32 noundef %128, i32 noundef %131, i32 noundef %133, i32 noundef %135, i32 noundef %136) #13
   %138 = load ptr, ptr @stderr, align 8, !tbaa !9
   %139 = call ptr @agnameof(ptr noundef nonnull %115) #11
@@ -423,7 +423,7 @@ init.exit:                                        ; preds = %107, %110
   %.idx.i.i = select i1 %152, i64 0, i64 -64
   %153 = getelementptr inbounds i8, ptr %.01822.i.i, i64 %.idx.i.i
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 56
-  %155 = load ptr, ptr %154, align 8, !tbaa !28
+  %155 = load ptr, ptr %154, align 8, !tbaa !26
   %156 = icmp eq ptr %155, %.01725.i.i
   %157 = icmp eq ptr %155, %.123.i.i
   %or.cond.i.i = or i1 %156, %157
@@ -432,12 +432,12 @@ init.exit:                                        ; preds = %107, %110
 158:                                              ; preds = %.lr.ph.i.i
   %159 = call ptr @agnxtout(ptr noundef nonnull %115, ptr noundef nonnull %.01822.i.i) #11
   %.not19.i.i = icmp eq ptr %159, null
-  br i1 %.not19.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !36
+  br i1 %.not19.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !34
 
 ._crit_edge.i.i:                                  ; preds = %158, %.lr.ph27.i.i
   %160 = call ptr @agnxtnode(ptr noundef nonnull %115, ptr noundef nonnull %.01725.i.i) #11
   %.not.i.i = icmp eq ptr %160, null
-  br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph27.i.i, !llvm.loop !38
+  br i1 %.not.i.i, label %.loopexit.i, label %.lr.ph27.i.i, !llvm.loop !36
 
 checkG.exit.i:                                    ; preds = %.lr.ph.i.i
   %161 = call ptr @agnameof(ptr noundef nonnull %115) #11
@@ -459,7 +459,7 @@ clarify.exit.thread:                              ; preds = %.loopexit.i, %check
   %166 = phi i32 [ %.01346, %163 ], [ 1, %checkG.exit.i ], [ 1, %.loopexit.i ]
   %167 = call ptr @nextGraph(ptr noundef nonnull %10) #11
   %.not = icmp eq ptr %167, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %clarify.exit.thread, %init.exit
   %.013.lcssa = phi i32 [ 0, %init.exit ], [ %166, %clarify.exit.thread ]
@@ -622,27 +622,25 @@ attributes #16 = { noreturn nounwind }
 !13 = !{!"double", !7, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"int", !7, i64 0}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p2 omnipotent char", !6, i64 0}
 !18 = !{!19, !19, i64 0}
-!19 = !{!"p2 omnipotent char", !6, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"long", !7, i64 0}
-!22 = !{!23, !15, i64 20}
-!23 = !{!"tm", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !21, i64 40, !5, i64 48}
-!24 = !{!23, !15, i64 16}
-!25 = !{!23, !15, i64 12}
-!26 = !{!23, !15, i64 8}
-!27 = !{!23, !15, i64 0}
-!28 = !{!29, !35, i64 56}
-!29 = !{!"Agedge_s", !30, i64 0, !33, i64 24, !33, i64 40, !35, i64 56}
-!30 = !{!"Agobj_s", !31, i64 0, !32, i64 16}
-!31 = !{!"Agtag_s", !15, i64 0, !15, i64 0, !15, i64 0, !15, i64 0, !21, i64 8}
-!32 = !{!"p1 _ZTS7Agrec_s", !6, i64 0}
-!33 = !{!"dtlink_s_", !34, i64 0, !7, i64 8}
-!34 = !{!"p1 _ZTS9dtlink_s_", !6, i64 0}
-!35 = !{!"p1 _ZTS8Agnode_s", !6, i64 0}
-!36 = distinct !{!36, !37, !17}
-!37 = !{!"llvm.loop.mustprogress"}
-!38 = distinct !{!38, !37, !17}
-!39 = distinct !{!39, !37, !17}
+!19 = !{!"long", !7, i64 0}
+!20 = !{!21, !15, i64 20}
+!21 = !{!"tm", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !19, i64 40, !5, i64 48}
+!22 = !{!21, !15, i64 16}
+!23 = !{!21, !15, i64 12}
+!24 = !{!21, !15, i64 8}
+!25 = !{!21, !15, i64 0}
+!26 = !{!27, !33, i64 56}
+!27 = !{!"Agedge_s", !28, i64 0, !31, i64 24, !31, i64 40, !33, i64 56}
+!28 = !{!"Agobj_s", !29, i64 0, !30, i64 16}
+!29 = !{!"Agtag_s", !15, i64 0, !15, i64 0, !15, i64 0, !15, i64 0, !19, i64 8}
+!30 = !{!"p1 _ZTS7Agrec_s", !6, i64 0}
+!31 = !{!"dtlink_s_", !32, i64 0, !7, i64 8}
+!32 = !{!"p1 _ZTS9dtlink_s_", !6, i64 0}
+!33 = !{!"p1 _ZTS8Agnode_s", !6, i64 0}
+!34 = distinct !{!34, !35}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = distinct !{!36, !35}
+!37 = distinct !{!37, !35}

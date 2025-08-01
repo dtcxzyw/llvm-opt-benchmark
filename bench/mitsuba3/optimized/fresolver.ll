@@ -516,7 +516,7 @@ define linkonce_odr hidden ptr @_ZNSt3__16removeB8ne190000INS_11__wrap_iterIPN7m
   %49 = add nsw i64 %.01625.i.i.i.i.i.i.i, -1
   %50 = getelementptr inbounds nuw i8, ptr %.027.i.i.i.i.i.i.i, i64 1
   %.not19.i.i.i.i.i.i.i = icmp eq i64 %49, 0
-  br i1 %.not19.i.i.i.i.i.i.i, label %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i.i.i, label %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !6
 
 _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i: ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %.0918.i.i.i.i.i, i64 16
@@ -529,7 +529,7 @@ _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %54 = getelementptr inbounds nuw i8, ptr %.0918.i.i.i.i.i, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %.0819.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %54, %14
-  br i1 %.not.i.i.i.i.i, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %12
   %56 = call noundef nonnull align 8 dereferenceable(25) ptr @_ZN7mitsuba10filesystem4pathaSEOS1_(ptr noundef nonnull align 8 dereferenceable(25) %.sroa.010.117, ptr noundef nonnull align 8 dereferenceable(25) %13)
@@ -540,7 +540,7 @@ _ZNK7mitsuba10filesystem4patheqERKS1_.exit:       ; preds = %_ZNKSt3__110__equal
   %.sroa.010.2 = phi ptr [ %57, %.loopexit ], [ %.sroa.010.117, %26 ], [ %.sroa.010.117, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ]
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %.not13 = icmp eq ptr %58, %1
-  br i1 %.not13, label %.loopexit15, label %12, !llvm.loop !9
+  br i1 %.not13, label %.loopexit15, label %12, !llvm.loop !8
 
 .loopexit15:                                      ; preds = %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, %.preheader, %3
   %.sroa.010.0 = phi ptr [ %9, %3 ], [ %9, %.preheader ], [ %.sroa.010.2, %_ZNK7mitsuba10filesystem4patheqERKS1_.exit ]
@@ -617,7 +617,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 21:                                               ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i.i, %15
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 32
   %.not = icmp eq ptr %22, %11
-  br i1 %.not, label %.loopexit, label %13, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %21, %7, %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 0, i64 24, i1 false)
@@ -1054,9 +1054,9 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE16__init_with_sizeB8ne190000IPS6_SA_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::__1::__exception_guard_exceptions", align 8
-  store ptr %0, ptr %5, align 8, !alias.scope !11
+  store ptr %0, ptr %5, align 8, !alias.scope !9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 0, ptr %6, align 8, !alias.scope !11
+  store i8 0, ptr %6, align 8, !alias.scope !9
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %_ZNSt3__128__exception_guard_exceptionsINS_6vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS5_IS7_EEE16__destroy_vectorEED2B8ne190000Ev.exit, label %7
 
@@ -1096,7 +1096,7 @@ _ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcE
   %16 = getelementptr inbounds nuw i8, ptr %.028.i.i.i, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %.02427.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %16, %2
-  br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE18__construct_at_endIPS6_SA_EEvT_T0_m.exit, label %.lr.ph.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE18__construct_at_endIPS6_SA_EEvT_T0_m.exit, label %.lr.ph.i.i.i, !llvm.loop !12
 
 18:                                               ; preds = %.lr.ph.i.i.i
   %19 = landingpad { ptr, i32 }
@@ -1109,7 +1109,7 @@ _ZNSt3__116allocator_traitsINS_9allocatorINS_12basic_stringIcNS_11char_traitsIcE
   %20 = getelementptr inbounds i8, ptr %.sroa.12.06.i.i.i.i.i.i, i64 -24
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #16
   %.not.i.i.i.i.i.i = icmp eq ptr %20, %11
-  br i1 %.not.i.i.i.i.i.i, label %.body.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i.i.i.i, label %.body.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !13
 
 .body.i:                                          ; preds = %.lr.ph.i.i.i.i.i.i, %18
   store ptr %11, ptr %13, align 8
@@ -1428,7 +1428,7 @@ define linkonce_odr hidden void @_ZNSt3__134__uninitialized_allocator_relocateB8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %5, ptr %.sroa.5.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i8 0, ptr %8, align 8, !alias.scope !16
+  store i8 0, ptr %8, align 8, !alias.scope !14
   %.not14 = icmp eq ptr %1, %2
   br i1 %.not14, label %_ZNSt3__128__exception_guard_exceptionsINS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEED2B8ne190000Ev.exit, label %.lr.ph
 
@@ -1457,7 +1457,7 @@ define linkonce_odr hidden void @_ZNSt3__134__uninitialized_allocator_relocateB8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr %24, ptr %5, align 8
   %.not = icmp eq ptr %22, %2
-  br i1 %.not, label %.lr.ph.i, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %.lr.ph.i, label %.lr.ph, !llvm.loop !17
 
 25:                                               ; preds = %.lr.ph
   %26 = landingpad { ptr, i32 }
@@ -1497,7 +1497,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 _ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba10filesystem4pathEEEE7destroyB8ne190000IS4_TnNS_9enable_ifIXsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i: ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i.i.i.i.i, %.lr.ph.i
   %33 = getelementptr inbounds nuw i8, ptr %.06.i, i64 32
   %.not.i = icmp eq ptr %33, %2
-  br i1 %.not.i, label %_ZNSt3__128__exception_guard_exceptionsINS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEED2B8ne190000Ev.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not.i, label %_ZNSt3__128__exception_guard_exceptionsINS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEED2B8ne190000Ev.exit, label %.lr.ph.i, !llvm.loop !18
 
 _ZNSt3__128__exception_guard_exceptionsINS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEED2B8ne190000Ev.exit: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba10filesystem4pathEEEE7destroyB8ne190000IS4_TnNS_9enable_ifIXsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i, %4
   ret void
@@ -1552,7 +1552,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 
 _ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba10filesystem4pathEEEE7destroyB8ne190000IS4_TnNS_9enable_ifIXsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i: ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i.i.i.i.i.i, %.lr.ph.i.i
   %.not.i.i = icmp eq ptr %12, %11
-  br i1 %.not.i.i, label %_ZNKSt3__129_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS4_EclB8ne190000Ev.exit, label %.lr.ph.i.i, !llvm.loop !21
+  br i1 %.not.i.i, label %_ZNKSt3__129_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS4_EclB8ne190000Ev.exit, label %.lr.ph.i.i, !llvm.loop !19
 
 _ZNKSt3__129_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS4_EclB8ne190000Ev.exit: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba10filesystem4pathEEEE7destroyB8ne190000IS4_TnNS_9enable_ifIXsr13__has_destroyIS5_PT_EE5valueEiE4typeELi0EEEvRS5_SA_.exit.i.i, %5, %1
   ret void
@@ -1564,9 +1564,9 @@ define linkonce_odr hidden void @_ZNSt3__16vectorIN7mitsuba10filesystem4pathENS_
   %6 = alloca ptr, align 8
   %7 = alloca %"struct.std::__1::__exception_guard_exceptions.28", align 8
   %8 = alloca %"struct.std::__1::__exception_guard_exceptions.33", align 8
-  store ptr %0, ptr %8, align 8, !alias.scope !22
+  store ptr %0, ptr %8, align 8, !alias.scope !20
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i8 0, ptr %9, align 8, !alias.scope !22
+  store i8 0, ptr %9, align 8, !alias.scope !20
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %_ZNSt3__128__exception_guard_exceptionsINS_6vectorIN7mitsuba10filesystem4pathENS_9allocatorIS4_EEE16__destroy_vectorEED2B8ne190000Ev.exit, label %10
 
@@ -1604,7 +1604,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba10filesystem4pat
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %5, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i8 0, ptr %19, align 8, !alias.scope !25
+  store i8 0, ptr %19, align 8, !alias.scope !23
   %.not8.i.i.i = icmp eq ptr %1, %2
   br i1 %.not8.i.i.i, label %_ZNSt3__16vectorIN7mitsuba10filesystem4pathENS_9allocatorIS3_EEE18__construct_at_endIPS3_S8_EEvT_T0_m.exit, label %.lr.ph.i.i.i
 
@@ -1633,7 +1633,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba10filesystem4pat
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr %35, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %33, %2
-  br i1 %.not.i.i.i, label %_ZNSt3__16vectorIN7mitsuba10filesystem4pathENS_9allocatorIS3_EEE18__construct_at_endIPS3_S8_EEvT_T0_m.exit, label %.lr.ph.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i, label %_ZNSt3__16vectorIN7mitsuba10filesystem4pathENS_9allocatorIS3_EEE18__construct_at_endIPS3_S8_EEvT_T0_m.exit, label %.lr.ph.i.i.i, !llvm.loop !26
 
 .body.i:                                          ; preds = %.lr.ph.i.i.i
   %36 = landingpad { ptr, i32 }
@@ -1764,7 +1764,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__111__find_implB8ne190000IPN7mits
 18:                                               ; preds = %.lr.ph.split.us
   %19 = getelementptr inbounds nuw i8, ptr %.012.us, i64 32
   %.not.us = icmp eq ptr %19, %1
-  br i1 %.not.us, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split.us, !llvm.loop !29
+  br i1 %.not.us, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit
   %.012 = phi ptr [ %56, %.loopexit ], [ %0, %.lr.ph ]
@@ -1824,7 +1824,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__111__find_implB8ne190000IPN7mits
   %49 = add nsw i64 %.01625.i.i.i.i.i.i.i, -1
   %50 = getelementptr inbounds nuw i8, ptr %.027.i.i.i.i.i.i.i, i64 1
   %.not19.i.i.i.i.i.i.i = icmp eq i64 %49, 0
-  br i1 %.not19.i.i.i.i.i.i.i, label %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i.i.i, label %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !6
 
 _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i: ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %.0918.i.i.i.i.i, i64 16
@@ -1837,12 +1837,12 @@ _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %54 = getelementptr inbounds nuw i8, ptr %.0918.i.i.i.i.i, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %.0819.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %54, %6
-  br i1 %.not.i.i.i.i.i, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.split
   %56 = getelementptr inbounds nuw i8, ptr %.012, i64 32
   %.not = icmp eq ptr %56, %1
-  br i1 %.not, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split, !llvm.loop !31
+  br i1 %.not, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split, !llvm.loop !29
 
 _ZNK7mitsuba10filesystem4patheqERKS1_.exit:       ; preds = %.loopexit, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, %18, %.lr.ph.split.us, %4
   %.010 = phi ptr [ %0, %4 ], [ %19, %18 ], [ %.012.us, %.lr.ph.split.us ], [ %.012, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %56, %.loopexit ]
@@ -1879,7 +1879,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__111__find_implB8ne190000IPKN7mit
 18:                                               ; preds = %.lr.ph.split.us
   %19 = getelementptr inbounds nuw i8, ptr %.012.us, i64 32
   %.not.us = icmp eq ptr %19, %1
-  br i1 %.not.us, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split.us, !llvm.loop !32
+  br i1 %.not.us, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split.us, !llvm.loop !30
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit
   %.012 = phi ptr [ %56, %.loopexit ], [ %0, %.lr.ph ]
@@ -1939,7 +1939,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__111__find_implB8ne190000IPKN7mit
   %49 = add nsw i64 %.01625.i.i.i.i.i.i.i, -1
   %50 = getelementptr inbounds nuw i8, ptr %.027.i.i.i.i.i.i.i, i64 1
   %.not19.i.i.i.i.i.i.i = icmp eq i64 %49, 0
-  br i1 %.not19.i.i.i.i.i.i.i, label %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %.not19.i.i.i.i.i.i.i, label %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !6
 
 _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i: ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %.0918.i.i.i.i.i, i64 16
@@ -1952,12 +1952,12 @@ _ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %54 = getelementptr inbounds nuw i8, ptr %.0918.i.i.i.i.i, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %.0819.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %54, %6
-  br i1 %.not.i.i.i.i.i, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i.i.i, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.split
   %56 = getelementptr inbounds nuw i8, ptr %.012, i64 32
   %.not = icmp eq ptr %56, %1
-  br i1 %.not, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split, !llvm.loop !33
+  br i1 %.not, label %_ZNK7mitsuba10filesystem4patheqERKS1_.exit, label %.lr.ph.split, !llvm.loop !31
 
 _ZNK7mitsuba10filesystem4patheqERKS1_.exit:       ; preds = %.loopexit, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i, %18, %.lr.ph.split.us, %4
   %.010 = phi ptr [ %0, %4 ], [ %19, %18 ], [ %.012.us, %.lr.ph.split.us ], [ %.012, %_ZNKSt3__110__equal_toclB8ne190000INS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_EEbRKT_RKT0_.exit.thread.i.i.i.i.i ], [ %56, %.loopexit ]
@@ -2237,9 +2237,9 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit11.i: ; preds = %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit10.i
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %8, align 16, !alias.scope !34
+  store ptr null, ptr %8, align 16, !alias.scope !32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %9, align 16, !alias.scope !37
+  store ptr null, ptr %9, align 16, !alias.scope !35
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull @.str.7, i64 noundef 0)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit12.i unwind label %.thread28.i
 
@@ -2413,39 +2413,37 @@ attributes #20 = { builtin allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !6}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZNSt3__122__make_exception_guardB8ne190000INS_6vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS5_IS7_EEE16__destroy_vectorEEENS_28__exception_guard_exceptionsIT_EESC_: argument 0"}
-!13 = distinct !{!13, !"_ZNSt3__122__make_exception_guardB8ne190000INS_6vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS5_IS7_EEE16__destroy_vectorEEENS_28__exception_guard_exceptionsIT_EESC_"}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNSt3__122__make_exception_guardB8ne190000INS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEEENS_28__exception_guard_exceptionsIT_EESA_: argument 0"}
-!18 = distinct !{!18, !"_ZNSt3__122__make_exception_guardB8ne190000INS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEEENS_28__exception_guard_exceptionsIT_EESA_"}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNSt3__122__make_exception_guardB8ne190000INS_6vectorIN7mitsuba10filesystem4pathENS_9allocatorIS4_EEE16__destroy_vectorEEENS_28__exception_guard_exceptionsIT_EESA_: argument 0"}
-!24 = distinct !{!24, !"_ZNSt3__122__make_exception_guardB8ne190000INS_6vectorIN7mitsuba10filesystem4pathENS_9allocatorIS4_EEE16__destroy_vectorEEENS_28__exception_guard_exceptionsIT_EESA_"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNSt3__122__make_exception_guardB8ne190000INS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEEENS_28__exception_guard_exceptionsIT_EESA_: argument 0"}
-!27 = distinct !{!27, !"_ZNSt3__122__make_exception_guardB8ne190000INS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEEENS_28__exception_guard_exceptionsIT_EESA_"}
-!28 = distinct !{!28, !5, !6}
-!29 = distinct !{!29, !5, !6, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !5, !6}
-!32 = distinct !{!32, !5, !6, !30}
-!33 = distinct !{!33, !5, !6}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN7mitsuba6detail21get_construct_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES8_EEEv: argument 0"}
-!36 = distinct !{!36, !"_ZN7mitsuba6detail21get_construct_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES8_EEEv"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN7mitsuba6detail23get_unserialize_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES7_EEEv: argument 0"}
-!39 = distinct !{!39, !"_ZN7mitsuba6detail23get_unserialize_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES7_EEEv"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNSt3__122__make_exception_guardB8ne190000INS_6vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS5_IS7_EEE16__destroy_vectorEEENS_28__exception_guard_exceptionsIT_EESC_: argument 0"}
+!11 = distinct !{!11, !"_ZNSt3__122__make_exception_guardB8ne190000INS_6vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS5_IS7_EEE16__destroy_vectorEEENS_28__exception_guard_exceptionsIT_EESC_"}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZNSt3__122__make_exception_guardB8ne190000INS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEEENS_28__exception_guard_exceptionsIT_EESA_: argument 0"}
+!16 = distinct !{!16, !"_ZNSt3__122__make_exception_guardB8ne190000INS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEEENS_28__exception_guard_exceptionsIT_EESA_"}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZNSt3__122__make_exception_guardB8ne190000INS_6vectorIN7mitsuba10filesystem4pathENS_9allocatorIS4_EEE16__destroy_vectorEEENS_28__exception_guard_exceptionsIT_EESA_: argument 0"}
+!22 = distinct !{!22, !"_ZNSt3__122__make_exception_guardB8ne190000INS_6vectorIN7mitsuba10filesystem4pathENS_9allocatorIS4_EEE16__destroy_vectorEEENS_28__exception_guard_exceptionsIT_EESA_"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZNSt3__122__make_exception_guardB8ne190000INS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEEENS_28__exception_guard_exceptionsIT_EESA_: argument 0"}
+!25 = distinct !{!25, !"_ZNSt3__122__make_exception_guardB8ne190000INS_29_AllocatorDestroyRangeReverseINS_9allocatorIN7mitsuba10filesystem4pathEEEPS5_EEEENS_28__exception_guard_exceptionsIT_EESA_"}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5, !28}
+!31 = distinct !{!31, !5}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN7mitsuba6detail21get_construct_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES8_EEEv: argument 0"}
+!34 = distinct !{!34, !"_ZN7mitsuba6detail21get_construct_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_RKNS_10PropertiesEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES8_EEEv"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN7mitsuba6detail23get_unserialize_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES7_EEEv: argument 0"}
+!37 = distinct !{!37, !"_ZN7mitsuba6detail23get_unserialize_functorINS_12FileResolverETnNSt3__19enable_ifIXnt18is_constructible_vIT_PNS_6StreamEEEiE4typeELi0EEENS3_8functionIFPNS_6ObjectES7_EEEv"}

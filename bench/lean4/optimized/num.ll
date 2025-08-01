@@ -972,13 +972,13 @@ define internal fastcc void @_ZN4leanL6to_numERKNS_4exprEb(ptr dead_on_unwind no
 23:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @_ZN4lean3mpzC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
-  store i8 1, ptr %0, align 8, !tbaa !53, !alias.scope !55
+  store i8 1, ptr %0, align 8, !tbaa !52, !alias.scope !54
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN4lean3mpzC1EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %25 unwind label %26
 
 _ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit: ; preds = %22
-  store i8 0, ptr %0, align 8, !tbaa !53
+  store i8 0, ptr %0, align 8, !tbaa !52
   br label %.critedge
 
 25:                                               ; preds = %23
@@ -1000,7 +1000,7 @@ _ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit: ; preds = %22
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @_ZN4lean3mpzC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 1)
-  store i8 1, ptr %0, align 8, !tbaa !53, !alias.scope !58
+  store i8 1, ptr %0, align 8, !tbaa !52, !alias.scope !57
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN4lean3mpzC1EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit88 unwind label %32
@@ -1053,7 +1053,7 @@ _ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit88: ; preds = %30
 50:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !3, !noalias !61
+  %52 = load ptr, ptr %51, align 8, !tbaa !3, !noalias !60
   %53 = ptrtoint ptr %52 to i64
   %54 = and i64 %53, 1
   %.not.i = icmp eq i64 %54, 0
@@ -1070,7 +1070,7 @@ _ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit88: ; preds = %30
           to label %_ZNK4lean3nat6to_mpzEv.exit unwind label %60
 
 _ZNK4lean3nat6to_mpzEv.exit:                      ; preds = %55, %57
-  store i8 1, ptr %0, align 8, !tbaa !53, !alias.scope !64
+  store i8 1, ptr %0, align 8, !tbaa !52, !alias.scope !63
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN4lean3mpzC1EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit91 unwind label %62
@@ -1113,7 +1113,7 @@ _ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit91: ; preds = %_ZNK4lean3nat6t
           to label %71 unwind label %84
 
 71:                                               ; preds = %69
-  %72 = load i8, ptr %9, align 8, !tbaa !53, !range !39, !noundef !40
+  %72 = load i8, ptr %9, align 8, !tbaa !52, !range !39, !noundef !40
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %_ZN4lean8optionalINS_3mpzEED2Ev.exit113
 
@@ -1132,7 +1132,7 @@ _ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit91: ; preds = %_ZNK4lean3nat6t
           to label %_ZN4leanmlEiNS_3mpzE.exit unwind label %88
 
 _ZN4leanmlEiNS_3mpzE.exit:                        ; preds = %.noexc92
-  store i8 1, ptr %0, align 8, !tbaa !53, !alias.scope !67
+  store i8 1, ptr %0, align 8, !tbaa !52, !alias.scope !66
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN4lean3mpzC1EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit95 unwind label %90
@@ -1141,7 +1141,7 @@ _ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit95: ; preds = %_ZN4leanmlEiNS_
   call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #10
   call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
-  %79 = load i8, ptr %9, align 8, !tbaa !53, !range !39, !noundef !40
+  %79 = load i8, ptr %9, align 8, !tbaa !52, !range !39, !noundef !40
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %_ZN4lean8optionalINS_3mpzEED2Ev.exit
 
@@ -1187,7 +1187,7 @@ _ZN4lean8optionalINS_3mpzEED2Ev.exit:             ; preds = %_ZN4lean4someINS_3m
 93:                                               ; preds = %92, %86
   %.pn66.pn = phi { ptr, i32 } [ %.pn66, %92 ], [ %87, %86 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #10
-  %94 = load i8, ptr %9, align 8, !tbaa !53, !range !39, !noundef !40
+  %94 = load i8, ptr %9, align 8, !tbaa !52, !range !39, !noundef !40
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %96, label %_ZN4lean8optionalINS_3mpzEED2Ev.exit96
 
@@ -1217,7 +1217,7 @@ _ZN4lean8optionalINS_3mpzEED2Ev.exit96:           ; preds = %96, %93, %84
           to label %103 unwind label %117
 
 103:                                              ; preds = %101
-  %104 = load i8, ptr %13, align 8, !tbaa !53, !range !39, !noundef !40
+  %104 = load i8, ptr %13, align 8, !tbaa !52, !range !39, !noundef !40
   %105 = trunc nuw i8 %104 to i1
   br i1 %105, label %106, label %_ZN4lean8optionalINS_3mpzEED2Ev.exit112
 
@@ -1244,7 +1244,7 @@ _ZN4leanmlEiNS_3mpzE.exit99:                      ; preds = %.noexc97
           to label %_ZN4leanplENS_3mpzEi.exit unwind label %123
 
 _ZN4leanplENS_3mpzEi.exit:                        ; preds = %.noexc100
-  store i8 1, ptr %0, align 8, !tbaa !53, !alias.scope !70
+  store i8 1, ptr %0, align 8, !tbaa !52, !alias.scope !69
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN4lean3mpzC1EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit103 unwind label %125
@@ -1254,7 +1254,7 @@ _ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit103: ; preds = %_ZN4leanplENS_
   call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #10
   call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
-  %112 = load i8, ptr %13, align 8, !tbaa !53, !range !39, !noundef !40
+  %112 = load i8, ptr %13, align 8, !tbaa !52, !range !39, !noundef !40
   %113 = trunc nuw i8 %112 to i1
   br i1 %113, label %114, label %_ZN4lean8optionalINS_3mpzEED2Ev.exit104
 
@@ -1310,7 +1310,7 @@ _ZN4lean8optionalINS_3mpzEED2Ev.exit104:          ; preds = %_ZN4lean4someINS_3m
 129:                                              ; preds = %128, %119
   %.pn59.pn.pn = phi { ptr, i32 } [ %.pn59.pn, %128 ], [ %120, %119 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #10
-  %130 = load i8, ptr %13, align 8, !tbaa !53, !range !39, !noundef !40
+  %130 = load i8, ptr %13, align 8, !tbaa !52, !range !39, !noundef !40
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %132, label %_ZN4lean8optionalINS_3mpzEED2Ev.exit105
 
@@ -1343,7 +1343,7 @@ _ZN4lean8optionalINS_3mpzEED2Ev.exit105:          ; preds = %132, %129, %117
           to label %140 unwind label %155
 
 140:                                              ; preds = %138
-  %141 = load i8, ptr %18, align 8, !tbaa !53, !range !39, !noundef !40
+  %141 = load i8, ptr %18, align 8, !tbaa !52, !range !39, !noundef !40
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %143, label %_ZN4lean8optionalINS_3mpzEED2Ev.exit111
 
@@ -1355,14 +1355,14 @@ _ZN4lean8optionalINS_3mpzEED2Ev.exit105:          ; preds = %132, %129, %117
 
 145:                                              ; preds = %143
   %146 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %147 = load i32, ptr %146, align 4, !tbaa !73, !noalias !76
+  %147 = load i32, ptr %146, align 4, !tbaa !72, !noalias !75
   %148 = sub nsw i32 0, %147
-  store i32 %148, ptr %146, align 4, !tbaa !73, !noalias !76
+  store i32 %148, ptr %146, align 4, !tbaa !72, !noalias !75
   invoke void @_ZN4lean3mpzC1EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20)
           to label %_ZN4lean3negENS_3mpzE.exit unwind label %159
 
 _ZN4lean3negENS_3mpzE.exit:                       ; preds = %145
-  store i8 1, ptr %0, align 8, !tbaa !53, !alias.scope !79
+  store i8 1, ptr %0, align 8, !tbaa !52, !alias.scope !78
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN4lean3mpzC1EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef nonnull align 8 dereferenceable(16) %19)
           to label %_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit108 unwind label %161
@@ -1371,7 +1371,7 @@ _ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit108: ; preds = %_ZN4lean3negEN
   call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #10
   call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #10
-  %150 = load i8, ptr %18, align 8, !tbaa !53, !range !39, !noundef !40
+  %150 = load i8, ptr %18, align 8, !tbaa !52, !range !39, !noundef !40
   %151 = trunc nuw i8 %150 to i1
   br i1 %151, label %152, label %168
 
@@ -1413,7 +1413,7 @@ _ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit108: ; preds = %_ZN4lean3negEN
 164:                                              ; preds = %163, %157
   %.pn.pn = phi { ptr, i32 } [ %.pn, %163 ], [ %158, %157 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #10
-  %165 = load i8, ptr %18, align 8, !tbaa !53, !range !39, !noundef !40
+  %165 = load i8, ptr %18, align 8, !tbaa !52, !range !39, !noundef !40
   %166 = trunc nuw i8 %165 to i1
   br i1 %166, label %167, label %_ZN4lean8optionalINS_3mpzEED2Ev.exit110
 
@@ -1615,7 +1615,7 @@ _ZN4lean8optionalINS_4exprEED2Ev.exit119:         ; preds = %211, %214, %222, %2
   br label %231
 
 230:                                              ; preds = %_ZN4lean8optionalINS_4exprEED2Ev.exit119
-  store i8 0, ptr %0, align 8, !tbaa !53
+  store i8 0, ptr %0, align 8, !tbaa !52
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit, %_ZN4lean8optionalINS_4exprEED2Ev.exit119, %25, %230, %_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_.exit88
@@ -1701,24 +1701,24 @@ _ZN4leanrmENS_3mpzERKS0_.exit:                    ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
   call void @_ZN4lean3mpzC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !82
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10, !noalias !81
   invoke void @_ZN4lean3mpzC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 2)
           to label %.noexc23 unwind label %53
 
 .noexc23:                                         ; preds = %23
   %24 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4lean3mpzdVERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %_ZN4lean3mpzdVEi.exit.i unwind label %25, !noalias !82
+          to label %_ZN4lean3mpzdVEi.exit.i unwind label %25, !noalias !81
 
 25:                                               ; preds = %.noexc23
   %26 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10, !noalias !82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !82
+  call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10, !noalias !81
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !81
   br label %.body
 
 _ZN4lean3mpzdVEi.exit.i:                          ; preds = %.noexc23
-  call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10, !noalias !82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !82
+  call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #10, !noalias !81
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10, !noalias !81
   invoke void @_ZN4lean3mpzC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %24)
           to label %_ZN4leandvENS_3mpzEi.exit unwind label %53
 
@@ -1841,24 +1841,24 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %31, %38, %40, %41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #10
   call void @_ZN4lean3mpzC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10, !noalias !85
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10, !noalias !84
   invoke void @_ZN4lean3mpzC1Ei(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 2)
           to label %.noexc29 unwind label %82
 
 .noexc29:                                         ; preds = %60
   %61 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4lean3mpzdVERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %_ZN4lean3mpzdVEi.exit.i28 unwind label %62, !noalias !85
+          to label %_ZN4lean3mpzdVEi.exit.i28 unwind label %62, !noalias !84
 
 62:                                               ; preds = %.noexc29
   %63 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10, !noalias !85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10, !noalias !85
+  call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10, !noalias !84
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10, !noalias !84
   br label %.body30
 
 _ZN4lean3mpzdVEi.exit.i28:                        ; preds = %.noexc29
-  call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10, !noalias !85
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10, !noalias !85
+  call void @_ZN4lean3mpzD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #10, !noalias !84
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10, !noalias !84
   invoke void @_ZN4lean3mpzC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %61)
           to label %_ZN4leandvENS_3mpzEi.exit33 unwind label %82
 
@@ -2211,41 +2211,40 @@ attributes #11 = { noreturn nounwind }
 !47 = !{!"long", !6, i64 0}
 !48 = !{!45, !47, i64 8}
 !49 = !{!45, !47, i64 16}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!54, !10, i64 0}
-!54 = !{!"_ZTSN4lean8optionalINS_3mpzEEE", !10, i64 0, !6, i64 8}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_: argument 0"}
-!57 = distinct !{!57, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_: argument 0"}
-!60 = distinct !{!60, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZNK4lean3nat6to_mpzEv: argument 0"}
-!63 = distinct !{!63, !"_ZNK4lean3nat6to_mpzEv"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_: argument 0"}
-!66 = distinct !{!66, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_: argument 0"}
-!69 = distinct !{!69, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_: argument 0"}
-!72 = distinct !{!72, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_"}
-!73 = !{!74, !19, i64 4}
-!74 = !{!"_ZTS12__mpz_struct", !19, i64 0, !19, i64 4, !75, i64 8}
-!75 = !{!"p1 long", !5, i64 0}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN4lean3negENS_3mpzE: argument 0"}
-!78 = distinct !{!78, !"_ZN4lean3negENS_3mpzE"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_: argument 0"}
-!81 = distinct !{!81, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN4leandvENS_3mpzEi: argument 0"}
-!84 = distinct !{!84, !"_ZN4leandvENS_3mpzEi"}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN4leandvENS_3mpzEi: argument 0"}
-!87 = distinct !{!87, !"_ZN4leandvENS_3mpzEi"}
+!52 = !{!53, !10, i64 0}
+!53 = !{!"_ZTSN4lean8optionalINS_3mpzEEE", !10, i64 0, !6, i64 8}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_: argument 0"}
+!56 = distinct !{!56, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_: argument 0"}
+!59 = distinct !{!59, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_"}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZNK4lean3nat6to_mpzEv: argument 0"}
+!62 = distinct !{!62, !"_ZNK4lean3nat6to_mpzEv"}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_: argument 0"}
+!65 = distinct !{!65, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_: argument 0"}
+!68 = distinct !{!68, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_: argument 0"}
+!71 = distinct !{!71, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_"}
+!72 = !{!73, !19, i64 4}
+!73 = !{!"_ZTS12__mpz_struct", !19, i64 0, !19, i64 4, !74, i64 8}
+!74 = !{!"p1 long", !5, i64 0}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZN4lean3negENS_3mpzE: argument 0"}
+!77 = distinct !{!77, !"_ZN4lean3negENS_3mpzE"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_: argument 0"}
+!80 = distinct !{!80, !"_ZN4lean4someINS_3mpzEEENS_8optionalIT_EEOS3_"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZN4leandvENS_3mpzEi: argument 0"}
+!83 = distinct !{!83, !"_ZN4leandvENS_3mpzEi"}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZN4leandvENS_3mpzEi: argument 0"}
+!86 = distinct !{!86, !"_ZN4leandvENS_3mpzEi"}

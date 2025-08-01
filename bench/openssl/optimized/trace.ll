@@ -160,7 +160,7 @@ define i32 @OSSL_trace_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
   %.12227 = phi ptr [ %3, %.lr.ph.preheader ], [ %20, %17 ]
-  %13 = load i8, ptr %.12227, align 1, !tbaa !16
+  %13 = load i8, ptr %.12227, align 1, !tbaa !15
   %.not25 = icmp eq i8 %13, 10
   br i1 %.not25, label %17, label %14
 
@@ -171,17 +171,17 @@ define i32 @OSSL_trace_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   br i1 %.not26, label %._crit_edge30, label %17
 
 ._crit_edge30:                                    ; preds = %14
-  %.pre = load i8, ptr %.12227, align 1, !tbaa !16
+  %.pre = load i8, ptr %.12227, align 1, !tbaa !15
   br label %17
 
 17:                                               ; preds = %.lr.ph, %._crit_edge30, %14
   %18 = phi i8 [ 32, %14 ], [ %.pre, %._crit_edge30 ], [ 10, %.lr.ph ]
   %19 = getelementptr inbounds nuw [81 x i8], ptr %6, i64 0, i64 %indvars.iv
-  store i8 %18, ptr %19, align 1, !tbaa !16
+  store i8 %18, ptr %19, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw i8, ptr %.12227, i64 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.preheader
   %21 = icmp eq i32 %10, 0
@@ -191,7 +191,7 @@ define i32 @OSSL_trace_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   %.122.lcssa41 = phi ptr [ %3, %._crit_edge ], [ %20, %17 ]
   %.020333539 = phi i32 [ %10, %._crit_edge ], [ %.0203336, %17 ]
   %22 = getelementptr inbounds i8, ptr %.122.lcssa41, i64 -1
-  %23 = load i8, ptr %22, align 1, !tbaa !16
+  %23 = load i8, ptr %22, align 1, !tbaa !15
   %.not24 = icmp eq i8 %23, 10
   br i1 %.not24, label %28, label %24
 
@@ -200,7 +200,7 @@ define i32 @OSSL_trace_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   %25 = add nsw i32 %.020333540, 1
   %26 = sext i32 %.020333540 to i64
   %27 = getelementptr inbounds [81 x i8], ptr %6, i64 0, i64 %26
-  store i8 10, ptr %27, align 1, !tbaa !16
+  store i8 10, ptr %27, align 1, !tbaa !15
   br label %28
 
 28:                                               ; preds = %.thread, %._crit_edge.thread, %24, %9
@@ -236,8 +236,7 @@ attributes #4 = { nounwind }
 !10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !11 = !{!4, !9, i64 8}
 !12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !14, !15}
+!15 = !{!7, !7, i64 0}
+!16 = distinct !{!16, !14}

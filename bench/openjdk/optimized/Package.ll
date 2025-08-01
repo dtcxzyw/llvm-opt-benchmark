@@ -348,19 +348,19 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  %23 = load i8, ptr %10, align 8, !noalias !12
+  %23 = load i8, ptr %10, align 8, !noalias !11
   %24 = trunc i8 %23 to i1
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %22
-  %26 = call ptr @__cxa_allocate_exception(i64 56) #12, !noalias !12
-  store ptr @.str.10, ptr %4, align 8, !noalias !12
+  %26 = call ptr @__cxa_allocate_exception(i64 56) #12, !noalias !11
+  store ptr @.str.10, ptr %4, align 8, !noalias !11
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @__FUNCTION__._ZNK12_GLOBAL__N_117FirstLineConsumer8getValueB5cxx11Ev, ptr %27, align 8, !noalias !12
+  store ptr @__FUNCTION__._ZNK12_GLOBAL__N_117FirstLineConsumer8getValueB5cxx11Ev, ptr %27, align 8, !noalias !11
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 52, ptr %28, align 8, !noalias !12
+  store i32 52, ptr %28, align 8, !noalias !11
   invoke void @_Z13makeExceptionPKcRK13SourceCodePos(ptr dead_on_unwind writable sret(%class.JpError) align 8 %26, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(20) %4)
-          to label %29 unwind label %30, !noalias !12
+          to label %29 unwind label %30, !noalias !11
 
 29:                                               ; preds = %25
   invoke void @__cxa_throw(ptr %26, ptr nonnull @_ZTI7JpErrorISt13runtime_errorE, ptr nonnull @_ZN7JpErrorISt13runtime_errorED2Ev) #14
@@ -372,7 +372,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 30:                                               ; preds = %25
   %31 = landingpad { ptr, i32 }
           catch ptr null
-  call void @__cxa_free_exception(ptr %26) #12, !noalias !12
+  call void @__cxa_free_exception(ptr %26) #12, !noalias !11
   br label %.body
 
 32:                                               ; preds = %22
@@ -732,11 +732,11 @@ define linkonce_odr hidden void @_Z13makeExceptionPKcRK13SourceCodePos(ptr dead_
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %7
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11JpErrorBase, i64 16), ptr %0, align 8, !alias.scope !15
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11JpErrorBase, i64 16), ptr %0, align 8, !alias.scope !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %4) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV7JpErrorISt13runtime_errorE, i64 16), ptr %0, align 8, !alias.scope !15
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV7JpErrorISt13runtime_errorE, i64 64), ptr %8, align 8, !alias.scope !15
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV7JpErrorISt13runtime_errorE, i64 16), ptr %0, align 8, !alias.scope !14
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV7JpErrorISt13runtime_errorE, i64 64), ptr %8, align 8, !alias.scope !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_Z11makeMessageB5cxx11RKSt13runtime_errorRK13SourceCodePos(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(20) %2)
           to label %11 unwind label %.body.i
@@ -1039,12 +1039,11 @@ attributes #14 = { noreturn }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN8tstrings5splitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS_9SplitTypeE: argument 0"}
 !8 = distinct !{!8, !"_ZN8tstrings5splitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS_9SplitTypeE"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZNK12_GLOBAL__N_117FirstLineConsumer8getValueB5cxx11Ev: argument 0"}
-!14 = distinct !{!14, !"_ZNK12_GLOBAL__N_117FirstLineConsumer8getValueB5cxx11Ev"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_Z13makeExceptionRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK13SourceCodePos: argument 0"}
-!17 = distinct !{!17, !"_Z13makeExceptionRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK13SourceCodePos"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZNK12_GLOBAL__N_117FirstLineConsumer8getValueB5cxx11Ev: argument 0"}
+!13 = distinct !{!13, !"_ZNK12_GLOBAL__N_117FirstLineConsumer8getValueB5cxx11Ev"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_Z13makeExceptionRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK13SourceCodePos: argument 0"}
+!16 = distinct !{!16, !"_Z13makeExceptionRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK13SourceCodePos"}

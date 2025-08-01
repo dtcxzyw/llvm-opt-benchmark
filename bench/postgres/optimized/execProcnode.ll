@@ -982,7 +982,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %35 = load i32, ptr %4, align 8
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %31, label %.loopexit, !llvm.loop !10
+  br i1 %37, label %31, label %.loopexit, !llvm.loop !9
 
 38:                                               ; preds = %tailrecurse
   %39 = getelementptr inbounds nuw i8, ptr %.tr54, i64 72
@@ -1080,7 +1080,6 @@ attributes #7 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

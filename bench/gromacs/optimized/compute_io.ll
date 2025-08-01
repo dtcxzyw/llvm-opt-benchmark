@@ -90,7 +90,7 @@ _ZL10div_nstepsii.exit102.thread:                 ; preds = %_ZL10div_nstepsii.e
   %.0.i101121 = phi double [ %40, %._crit_edge ], [ 0.000000e+00, %_ZL10div_nstepsii.exit100 ]
   %.083 = phi double [ %39, %._crit_edge ], [ 5.600000e+01, %_ZL10div_nstepsii.exit100 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %46 = load i32, ptr %45, align 4, !tbaa !112
+  %46 = load i32, ptr %45, align 4, !tbaa !111
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %48, label %_ZL10div_nstepsii.exit104
 
@@ -103,7 +103,7 @@ _ZL10div_nstepsii.exit102.thread:                 ; preds = %_ZL10div_nstepsii.e
 _ZL10div_nstepsii.exit104:                        ; preds = %_ZL10div_nstepsii.exit102.thread, %48
   %.0.i103 = phi double [ %51, %48 ], [ 0.000000e+00, %_ZL10div_nstepsii.exit102.thread ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %53 = load i32, ptr %52, align 4, !tbaa !113
+  %53 = load i32, ptr %52, align 4, !tbaa !112
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %55, label %_ZL10div_nstepsii.exit106
 
@@ -136,32 +136,32 @@ _ZL10div_nstepsii.exit106:                        ; preds = %_ZL10div_nstepsii.e
   %77 = fmul double %76, 3.000000e+00
   %78 = tail call double @llvm.fmuladd.f64(double %77, double 4.000000e+00, double %74)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 420
-  %80 = load i32, ptr %79, align 4, !tbaa !114
+  %80 = load i32, ptr %79, align 4, !tbaa !113
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %81, label %85
 
 81:                                               ; preds = %_ZL10div_nstepsii.exit106
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %83 = load i8, ptr %82, align 8, !tbaa !115, !range !116, !noundef !117
+  %83 = load i8, ptr %82, align 8, !tbaa !114, !range !115, !noundef !116
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %85, label %151
 
 85:                                               ; preds = %81, %_ZL10div_nstepsii.exit106
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %87 = load ptr, ptr %86, align 8, !tbaa !118
-  %88 = load i32, ptr %87, align 8, !tbaa !119
+  %87 = load ptr, ptr %86, align 8, !tbaa !117
+  %88 = load i32, ptr %87, align 8, !tbaa !118
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %90, label %151
 
 90:                                               ; preds = %85
   %91 = getelementptr inbounds nuw i8, ptr %87, i64 36
-  %92 = load i32, ptr %91, align 4, !tbaa !127
+  %92 = load i32, ptr %91, align 4, !tbaa !126
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 260
   br label %98
 
 94:                                               ; preds = %98
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 268
-  %96 = load i32, ptr %95, align 4, !tbaa !128
+  %96 = load i32, ptr %95, align 4, !tbaa !127
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %_ZL10div_nstepsii.exit108, label %119
 
@@ -169,12 +169,12 @@ _ZL10div_nstepsii.exit106:                        ; preds = %_ZL10div_nstepsii.e
   %indvars.iv132 = phi i64 [ 0, %90 ], [ %indvars.iv.next133, %98 ]
   %.089128 = phi i32 [ 0, %90 ], [ %spec.select, %98 ]
   %99 = getelementptr inbounds nuw [7 x i8], ptr %93, i64 0, i64 %indvars.iv132
-  %100 = load i8, ptr %99, align 1, !tbaa !129, !range !116, !noundef !117
+  %100 = load i8, ptr %99, align 1, !tbaa !128, !range !115, !noundef !116
   %101 = zext nneg i8 %100 to i32
   %spec.select = add nuw nsw i32 %.089128, %101
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %.not122 = icmp eq i64 %indvars.iv.next133, 7
-  br i1 %.not122, label %94, label %98, !llvm.loop !130
+  br i1 %.not122, label %94, label %98
 
 _ZL10div_nstepsii.exit108:                        ; preds = %94
   %102 = shl nsw i32 %spec.select, 3
@@ -182,14 +182,14 @@ _ZL10div_nstepsii.exit108:                        ; preds = %94
   %104 = add i32 %103, 8
   %105 = add i32 %104, %102
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %107 = load ptr, ptr %106, align 8, !tbaa !131
+  %107 = load ptr, ptr %106, align 8, !tbaa !129
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = load i32, ptr %108, align 8, !tbaa !132
+  %109 = load i32, ptr %108, align 8, !tbaa !130
   %110 = icmp sgt i32 %109, 0
   %111 = add nsw i32 %105, 5
   %spec.select95 = select i1 %110, i32 %111, i32 %105
   %112 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %113 = load i32, ptr %112, align 8, !tbaa !141
+  %113 = load i32, ptr %112, align 8, !tbaa !139
   %.not94 = icmp eq i32 %113, 0
   %114 = add nsw i32 %spec.select95, 12
   %.192 = select i1 %.not94, i32 %spec.select95, i32 %114
@@ -201,21 +201,21 @@ _ZL10div_nstepsii.exit108:                        ; preds = %94
 
 119:                                              ; preds = %94
   %120 = getelementptr inbounds nuw i8, ptr %87, i64 276
-  %121 = load i32, ptr %120, align 4, !tbaa !142
+  %121 = load i32, ptr %120, align 4, !tbaa !140
   %122 = icmp slt i32 %121, 1
   br i1 %122, label %_ZL10div_nstepsii.exit110, label %139
 
 _ZL10div_nstepsii.exit110:                        ; preds = %119
   %123 = add nsw i32 %spec.select, %92
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %125 = load ptr, ptr %124, align 8, !tbaa !131
+  %125 = load ptr, ptr %124, align 8, !tbaa !129
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = load i32, ptr %126, align 8, !tbaa !132
+  %127 = load i32, ptr %126, align 8, !tbaa !130
   %128 = icmp sgt i32 %127, 0
   %129 = zext i1 %128 to i32
   %spec.select96 = add nsw i32 %123, %129
   %130 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %131 = load i32, ptr %130, align 8, !tbaa !141
+  %131 = load i32, ptr %130, align 8, !tbaa !139
   %.not93 = icmp ne i32 %131, 0
   %132 = zext i1 %.not93 to i32
   %.1 = add nsw i32 %spec.select96, %132
@@ -254,13 +254,13 @@ _ZL10div_nstepsii.exit112:                        ; preds = %139, %140
 151:                                              ; preds = %150, %85, %81
   %.085 = phi double [ %.186, %150 ], [ %78, %85 ], [ %78, %81 ]
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %153 = load ptr, ptr %152, align 8, !tbaa !143
+  %153 = load ptr, ptr %152, align 8, !tbaa !141
   %.not123 = icmp eq ptr %153, null
   br i1 %.not123, label %173, label %154
 
 154:                                              ; preds = %151
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 20
-  %156 = load i32, ptr %155, align 4, !tbaa !144
+  %156 = load i32, ptr %155, align 4, !tbaa !142
   %157 = icmp sgt i32 %156, 0
   br i1 %157, label %158, label %_ZL10div_nstepsii.exit114
 
@@ -275,7 +275,7 @@ _ZL10div_nstepsii.exit114:                        ; preds = %154, %158
   %.0.i113 = phi double [ %162, %158 ], [ 0.000000e+00, %154 ]
   %163 = fadd double %.085, %.0.i113
   %164 = getelementptr inbounds nuw i8, ptr %153, i64 24
-  %165 = load i32, ptr %164, align 8, !tbaa !156
+  %165 = load i32, ptr %164, align 8, !tbaa !154
   %166 = icmp sgt i32 %165, 0
   br i1 %166, label %167, label %_ZL10div_nstepsii.exit116
 
@@ -416,51 +416,49 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !106 = !{!107, !107, i64 0}
 !107 = !{!"p1 omnipotent char", !20, i64 0}
 !108 = !{!7, !7, i64 0}
-!109 = distinct !{!109, !110, !111}
+!109 = distinct !{!109, !110}
 !110 = !{!"llvm.loop.mustprogress"}
-!111 = !{!"llvm.loop.estimated_trip_count"}
-!112 = !{!5, !6, i64 52}
-!113 = !{!5, !6, i64 68}
-!114 = !{!5, !40, i64 420}
-!115 = !{!5, !14, i64 432}
-!116 = !{i8 0, i8 2}
-!117 = !{}
-!118 = !{!47, !47, i64 0}
-!119 = !{!120, !6, i64 0}
-!120 = !{!"_ZTS8t_lambda", !6, i64 0, !13, i64 8, !6, i64 16, !13, i64 24, !121, i64 32, !6, i64 36, !122, i64 40, !6, i64 208, !6, i64 212, !6, i64 216, !21, i64 220, !6, i64 224, !21, i64 228, !21, i64 232, !21, i64 236, !14, i64 240, !123, i64 244, !21, i64 248, !21, i64 252, !21, i64 256, !124, i64 260, !125, i64 268, !126, i64 272, !6, i64 276, !13, i64 280}
-!121 = !{!"_ZTS21FreeEnergyPrintEnergy", !7, i64 0}
-!122 = !{!"_ZTSN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEE", !7, i64 0}
-!123 = !{!"_ZTS12SoftcoreType", !7, i64 0}
-!124 = !{!"_ZTSN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypebLS1_7EEE", !7, i64 0}
-!125 = !{!"_ZTS16SeparateDhdlFile", !7, i64 0}
-!126 = !{!"_ZTS25DhDlDerivativeCalculation", !7, i64 0}
-!127 = !{!120, !6, i64 36}
-!128 = !{!120, !125, i64 268}
-!129 = !{!14, !14, i64 0}
-!130 = distinct !{!130, !111}
-!131 = !{!61, !61, i64 0}
-!132 = !{!133, !135, i64 8}
-!133 = !{!"_ZTS10t_expanded", !6, i64 0, !134, i64 4, !135, i64 8, !136, i64 12, !6, i64 16, !21, i64 20, !21, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !14, i64 40, !6, i64 44, !21, i64 48, !6, i64 52, !14, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !21, i64 76, !21, i64 80, !21, i64 84, !14, i64 88, !21, i64 92, !137, i64 96, !137, i64 120, !137, i64 144}
-!134 = !{!"_ZTS23LambdaWeightCalculation", !7, i64 0}
-!135 = !{!"_ZTS21LambdaMoveCalculation", !7, i64 0}
-!136 = !{!"_ZTS32LambdaWeightWillReachEquilibrium", !7, i64 0}
-!137 = !{!"_ZTSSt6vectorIfSaIfEE", !138, i64 0}
-!138 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !139, i64 0}
-!139 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !140, i64 0}
-!140 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !91, i64 0, !91, i64 8, !91, i64 16}
-!141 = !{!120, !121, i64 32}
-!142 = !{!120, !6, i64 276}
-!143 = !{!72, !72, i64 0}
-!144 = !{!145, !6, i64 20}
-!145 = !{!"_ZTS13pull_params_t", !6, i64 0, !6, i64 4, !21, i64 8, !21, i64 12, !14, i64 16, !14, i64 17, !14, i64 18, !14, i64 19, !6, i64 20, !6, i64 24, !14, i64 28, !14, i64 29, !146, i64 32, !151, i64 56}
-!146 = !{!"_ZTSSt6vectorI12t_pull_groupSaIS0_EE", !147, i64 0}
-!147 = !{!"_ZTSSt12_Vector_baseI12t_pull_groupSaIS0_EE", !148, i64 0}
-!148 = !{!"_ZTSNSt12_Vector_baseI12t_pull_groupSaIS0_EE12_Vector_implE", !149, i64 0}
-!149 = !{!"_ZTSNSt12_Vector_baseI12t_pull_groupSaIS0_EE17_Vector_impl_dataE", !150, i64 0, !150, i64 8, !150, i64 16}
-!150 = !{!"p1 _ZTS12t_pull_group", !20, i64 0}
-!151 = !{!"_ZTSSt6vectorI12t_pull_coordSaIS0_EE", !152, i64 0}
-!152 = !{!"_ZTSSt12_Vector_baseI12t_pull_coordSaIS0_EE", !153, i64 0}
-!153 = !{!"_ZTSNSt12_Vector_baseI12t_pull_coordSaIS0_EE12_Vector_implE", !154, i64 0}
-!154 = !{!"_ZTSNSt12_Vector_baseI12t_pull_coordSaIS0_EE17_Vector_impl_dataE", !155, i64 0, !155, i64 8, !155, i64 16}
-!155 = !{!"p1 _ZTS12t_pull_coord", !20, i64 0}
-!156 = !{!145, !6, i64 24}
+!111 = !{!5, !6, i64 52}
+!112 = !{!5, !6, i64 68}
+!113 = !{!5, !40, i64 420}
+!114 = !{!5, !14, i64 432}
+!115 = !{i8 0, i8 2}
+!116 = !{}
+!117 = !{!47, !47, i64 0}
+!118 = !{!119, !6, i64 0}
+!119 = !{!"_ZTS8t_lambda", !6, i64 0, !13, i64 8, !6, i64 16, !13, i64 24, !120, i64 32, !6, i64 36, !121, i64 40, !6, i64 208, !6, i64 212, !6, i64 216, !21, i64 220, !6, i64 224, !21, i64 228, !21, i64 232, !21, i64 236, !14, i64 240, !122, i64 244, !21, i64 248, !21, i64 252, !21, i64 256, !123, i64 260, !124, i64 268, !125, i64 272, !6, i64 276, !13, i64 280}
+!120 = !{!"_ZTS21FreeEnergyPrintEnergy", !7, i64 0}
+!121 = !{!"_ZTSN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypeSt6vectorIdSaIdEELS1_7EEE", !7, i64 0}
+!122 = !{!"_ZTS12SoftcoreType", !7, i64 0}
+!123 = !{!"_ZTSN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypebLS1_7EEE", !7, i64 0}
+!124 = !{!"_ZTS16SeparateDhdlFile", !7, i64 0}
+!125 = !{!"_ZTS25DhDlDerivativeCalculation", !7, i64 0}
+!126 = !{!119, !6, i64 36}
+!127 = !{!119, !124, i64 268}
+!128 = !{!14, !14, i64 0}
+!129 = !{!61, !61, i64 0}
+!130 = !{!131, !133, i64 8}
+!131 = !{!"_ZTS10t_expanded", !6, i64 0, !132, i64 4, !133, i64 8, !134, i64 12, !6, i64 16, !21, i64 20, !21, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !14, i64 40, !6, i64 44, !21, i64 48, !6, i64 52, !14, i64 56, !6, i64 60, !6, i64 64, !6, i64 68, !6, i64 72, !21, i64 76, !21, i64 80, !21, i64 84, !14, i64 88, !21, i64 92, !135, i64 96, !135, i64 120, !135, i64 144}
+!132 = !{!"_ZTS23LambdaWeightCalculation", !7, i64 0}
+!133 = !{!"_ZTS21LambdaMoveCalculation", !7, i64 0}
+!134 = !{!"_ZTS32LambdaWeightWillReachEquilibrium", !7, i64 0}
+!135 = !{!"_ZTSSt6vectorIfSaIfEE", !136, i64 0}
+!136 = !{!"_ZTSSt12_Vector_baseIfSaIfEE", !137, i64 0}
+!137 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE12_Vector_implE", !138, i64 0}
+!138 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !91, i64 0, !91, i64 8, !91, i64 16}
+!139 = !{!119, !120, i64 32}
+!140 = !{!119, !6, i64 276}
+!141 = !{!72, !72, i64 0}
+!142 = !{!143, !6, i64 20}
+!143 = !{!"_ZTS13pull_params_t", !6, i64 0, !6, i64 4, !21, i64 8, !21, i64 12, !14, i64 16, !14, i64 17, !14, i64 18, !14, i64 19, !6, i64 20, !6, i64 24, !14, i64 28, !14, i64 29, !144, i64 32, !149, i64 56}
+!144 = !{!"_ZTSSt6vectorI12t_pull_groupSaIS0_EE", !145, i64 0}
+!145 = !{!"_ZTSSt12_Vector_baseI12t_pull_groupSaIS0_EE", !146, i64 0}
+!146 = !{!"_ZTSNSt12_Vector_baseI12t_pull_groupSaIS0_EE12_Vector_implE", !147, i64 0}
+!147 = !{!"_ZTSNSt12_Vector_baseI12t_pull_groupSaIS0_EE17_Vector_impl_dataE", !148, i64 0, !148, i64 8, !148, i64 16}
+!148 = !{!"p1 _ZTS12t_pull_group", !20, i64 0}
+!149 = !{!"_ZTSSt6vectorI12t_pull_coordSaIS0_EE", !150, i64 0}
+!150 = !{!"_ZTSSt12_Vector_baseI12t_pull_coordSaIS0_EE", !151, i64 0}
+!151 = !{!"_ZTSNSt12_Vector_baseI12t_pull_coordSaIS0_EE12_Vector_implE", !152, i64 0}
+!152 = !{!"_ZTSNSt12_Vector_baseI12t_pull_coordSaIS0_EE17_Vector_impl_dataE", !153, i64 0, !153, i64 8, !153, i64 16}
+!153 = !{!"p1 _ZTS12t_pull_coord", !20, i64 0}
+!154 = !{!143, !6, i64 24}

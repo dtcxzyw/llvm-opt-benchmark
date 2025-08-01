@@ -143,2439 +143,2432 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   %65 = load i8, ptr %52, align 8
   store i8 %65, ptr %64, align 1
   %66 = load i32, ptr %53, align 4
+  br label %.loopexit1864
+
+.loopexit1864:                                    ; preds = %.loopexit1864.backedge, %.loopexit
+  %.01413 = phi ptr [ %64, %.loopexit ], [ %.01413.be, %.loopexit1864.backedge ]
+  %.01406 = phi ptr [ %64, %.loopexit ], [ %.01406.be, %.loopexit1864.backedge ]
+  %.01405 = phi i32 [ %66, %.loopexit ], [ %.01405.be, %.loopexit1864.backedge ]
   br label %67
 
-.loopexit1864:                                    ; preds = %._crit_edge.i1839, %1555, %1755
-  %.31416.ph = phi ptr [ %1753, %1755 ], [ %1483, %1555 ], [ %1753, %._crit_edge.i1839 ]
-  %.51411.ph = phi ptr [ %1761, %1755 ], [ %1557, %1555 ], [ %1761, %._crit_edge.i1839 ]
-  %.6.ph = phi i32 [ %1762, %1755 ], [ %1556, %1555 ], [ %1803, %._crit_edge.i1839 ]
-  br label %67, !llvm.loop !6
+67:                                               ; preds = %._crit_edge, %.loopexit1864
+  %.11407 = phi ptr [ %.01406, %.loopexit1864 ], [ %105, %._crit_edge ]
+  %.1 = phi i32 [ %.01405, %.loopexit1864 ], [ %104, %._crit_edge ]
+  %68 = load i8, ptr %.11407, align 1
+  %69 = zext i8 %68 to i64
+  %70 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %69
+  %71 = load i8, ptr %70, align 1
+  %72 = sext i32 %.1 to i64
+  %73 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %72
+  %74 = load i16, ptr %73, align 2
+  %.not1496 = icmp eq i16 %74, 0
+  br i1 %.not1496, label %76, label %75
 
-67:                                               ; preds = %.loopexit1864, %.loopexit
-  %.01413 = phi ptr [ %64, %.loopexit ], [ %.31416.ph, %.loopexit1864 ]
-  %.01406 = phi ptr [ %64, %.loopexit ], [ %.51411.ph, %.loopexit1864 ]
-  %.01405 = phi i32 [ %66, %.loopexit ], [ %.6.ph, %.loopexit1864 ]
-  br label %68
-
-68:                                               ; preds = %._crit_edge, %67
-  %.11407 = phi ptr [ %.01406, %67 ], [ %106, %._crit_edge ]
-  %.1 = phi i32 [ %.01405, %67 ], [ %105, %._crit_edge ]
-  %69 = load i8, ptr %.11407, align 1
-  %70 = zext i8 %69 to i64
-  %71 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = sext i32 %.1 to i64
-  %74 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %73
-  %75 = load i16, ptr %74, align 2
-  %.not1496 = icmp eq i16 %75, 0
-  br i1 %.not1496, label %77, label %76
-
-76:                                               ; preds = %68
+75:                                               ; preds = %67
   store i32 %.1, ptr %54, align 8
   store ptr %.11407, ptr %55, align 8
-  br label %77
+  br label %76
 
-77:                                               ; preds = %76, %68
-  %78 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %73
-  %79 = load i16, ptr %78, align 2
-  %80 = sext i16 %79 to i64
-  %81 = zext i8 %72 to i64
-  %82 = add nsw i64 %80, %81
-  %83 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %82
-  %84 = load i16, ptr %83, align 2
-  %85 = sext i16 %84 to i32
-  %.not14972209 = icmp eq i32 %.1, %85
+76:                                               ; preds = %75, %67
+  %77 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %72
+  %78 = load i16, ptr %77, align 2
+  %79 = sext i16 %78 to i64
+  %80 = zext i8 %71 to i64
+  %81 = add nsw i64 %79, %80
+  %82 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %81
+  %83 = load i16, ptr %82, align 2
+  %84 = sext i16 %83 to i32
+  %.not14972209 = icmp eq i32 %.1, %84
   br i1 %.not14972209, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %77, %94
-  %86 = phi i64 [ %99, %94 ], [ %81, %77 ]
-  %87 = phi i64 [ %95, %94 ], [ %73, %77 ]
-  %.014192210 = phi i8 [ %.11420, %94 ], [ %72, %77 ]
-  %88 = getelementptr [193 x i16], ptr @yy_def, i64 0, i64 %87
-  %89 = load i16, ptr %88, align 2
-  %90 = icmp sgt i16 %89, 186
-  br i1 %90, label %91, label %94
+.lr.ph:                                           ; preds = %76, %93
+  %85 = phi i64 [ %98, %93 ], [ %80, %76 ]
+  %86 = phi i64 [ %94, %93 ], [ %72, %76 ]
+  %.014192210 = phi i8 [ %.11420, %93 ], [ %71, %76 ]
+  %87 = getelementptr [193 x i16], ptr @yy_def, i64 0, i64 %86
+  %88 = load i16, ptr %87, align 2
+  %89 = icmp sgt i16 %88, 186
+  br i1 %89, label %90, label %93
 
-91:                                               ; preds = %.lr.ph
-  %92 = getelementptr [62 x i8], ptr @yy_meta, i64 0, i64 %86
-  %93 = load i8, ptr %92, align 1
-  br label %94
+90:                                               ; preds = %.lr.ph
+  %91 = getelementptr [62 x i8], ptr @yy_meta, i64 0, i64 %85
+  %92 = load i8, ptr %91, align 1
+  br label %93
 
-94:                                               ; preds = %91, %.lr.ph
-  %.11420 = phi i8 [ %93, %91 ], [ %.014192210, %.lr.ph ]
-  %95 = sext i16 %89 to i64
-  %96 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %95
-  %97 = load i16, ptr %96, align 2
-  %98 = sext i16 %97 to i64
-  %99 = zext i8 %.11420 to i64
-  %100 = add nsw i64 %98, %99
-  %101 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %100
-  %102 = load i16, ptr %101, align 2
-  %.not1497 = icmp eq i16 %89, %102
-  br i1 %.not1497, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+93:                                               ; preds = %90, %.lr.ph
+  %.11420 = phi i8 [ %92, %90 ], [ %.014192210, %.lr.ph ]
+  %94 = sext i16 %88 to i64
+  %95 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %94
+  %96 = load i16, ptr %95, align 2
+  %97 = sext i16 %96 to i64
+  %98 = zext i8 %.11420 to i64
+  %99 = add nsw i64 %97, %98
+  %100 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %99
+  %101 = load i16, ptr %100, align 2
+  %.not1497 = icmp eq i16 %88, %101
+  br i1 %.not1497, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %94, %77
-  %.lcssa = phi i64 [ %82, %77 ], [ %100, %94 ]
-  %103 = getelementptr [316 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
-  %104 = load i16, ptr %103, align 2
-  %105 = sext i16 %104 to i32
-  %106 = getelementptr i8, ptr %.11407, i64 1
-  %.not1498 = icmp eq i16 %104, 186
-  br i1 %.not1498, label %107, label %68, !llvm.loop !10
+._crit_edge:                                      ; preds = %93, %76
+  %.lcssa = phi i64 [ %81, %76 ], [ %99, %93 ]
+  %102 = getelementptr [316 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa
+  %103 = load i16, ptr %102, align 2
+  %104 = sext i16 %103 to i32
+  %105 = getelementptr i8, ptr %.11407, i64 1
+  %.not1498 = icmp eq i16 %103, 186
+  br i1 %.not1498, label %.backedge.sink.split2662, label %67, !llvm.loop !8
 
-107:                                              ; preds = %._crit_edge
-  %108 = load ptr, ptr %55, align 8
-  %109 = load i32, ptr %54, align 8
-  br label %110
+.backedge.sink.split2662:                         ; preds = %._crit_edge, %.backedge.sink.split2662.backedge
+  %.11414.ph = phi ptr [ %.11414.ph.be, %.backedge.sink.split2662.backedge ], [ %.01413, %._crit_edge ]
+  %106 = load ptr, ptr %55, align 8
+  %107 = load i32, ptr %54, align 8
+  br label %.backedge
 
-110:                                              ; preds = %.backedge, %107
-  %.11414 = phi ptr [ %.01413, %107 ], [ %.11414.be, %.backedge ]
-  %.21408 = phi ptr [ %108, %107 ], [ %.21408.be, %.backedge ]
-  %.3 = phi i32 [ %109, %107 ], [ %.3.be, %.backedge ]
-  %111 = sext i32 %.3 to i64
-  %112 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %111
-  %113 = load i16, ptr %112, align 2
-  %114 = sext i16 %113 to i32
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split2662
+  %.11414 = phi ptr [ %.11414.ph, %.backedge.sink.split2662 ], [ %1800, %.backedge.backedge ]
+  %.21408 = phi ptr [ %106, %.backedge.sink.split2662 ], [ %1802, %.backedge.backedge ]
+  %.3 = phi i32 [ %107, %.backedge.sink.split2662 ], [ %.3.be, %.backedge.backedge ]
+  %108 = sext i32 %.3 to i64
+  %109 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %108
+  %110 = load i16, ptr %109, align 2
+  %111 = sext i16 %110 to i32
   store ptr %.11414, ptr %56, align 8
-  %115 = ptrtoint ptr %.21408 to i64
-  %116 = ptrtoint ptr %.11414 to i64
-  %117 = sub i64 %115, %116
-  %118 = trunc i64 %117 to i32
-  store i32 %118, ptr %57, align 8
-  %119 = load i8, ptr %.21408, align 1
-  store i8 %119, ptr %52, align 8
+  %112 = ptrtoint ptr %.21408 to i64
+  %113 = ptrtoint ptr %.11414 to i64
+  %114 = sub i64 %112, %113
+  %115 = trunc i64 %114 to i32
+  store i32 %115, ptr %57, align 8
+  %116 = load i8, ptr %.21408, align 1
+  store i8 %116, ptr %52, align 8
   store i8 0, ptr %.21408, align 1
   store ptr %.21408, ptr %51, align 8
   %.not1499 = icmp eq i32 %.3, 5
-  br i1 %.not1499, label %.loopexit1866.preheader, label %120
+  br i1 %.not1499, label %.loopexit1866.preheader, label %117
 
-120:                                              ; preds = %110
-  %121 = icmp ne i16 %113, 68
-  %122 = add i32 %.3, -9
-  %123 = icmp ult i32 %122, -2
-  %.not1500 = and i1 %121, %123
+117:                                              ; preds = %.backedge
+  %118 = icmp ne i16 %110, 68
+  %119 = add i32 %.3, -9
+  %120 = icmp ult i32 %119, -2
+  %.not1500 = and i1 %118, %120
   br i1 %.not1500, label %.loopexit1866.preheader, label %.preheader
 
-.preheader:                                       ; preds = %120
-  %124 = load i32, ptr %57, align 8
-  %125 = icmp sgt i32 %124, 0
-  br i1 %125, label %.lr.ph2212, label %.loopexit1866.preheader
+.preheader:                                       ; preds = %117
+  %121 = load i32, ptr %57, align 8
+  %122 = icmp sgt i32 %121, 0
+  br i1 %122, label %.lr.ph2212, label %.loopexit1866.preheader
 
-.lr.ph2212:                                       ; preds = %.preheader, %144
-  %126 = phi i32 [ %145, %144 ], [ %124, %.preheader ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %144 ], [ 0, %.preheader ]
-  %127 = load ptr, ptr %56, align 8
-  %128 = getelementptr i8, ptr %127, i64 %indvars.iv
-  %129 = load i8, ptr %128, align 1
-  %130 = icmp eq i8 %129, 10
-  br i1 %130, label %131, label %144
+.lr.ph2212:                                       ; preds = %.preheader, %141
+  %123 = phi i32 [ %142, %141 ], [ %121, %.preheader ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %141 ], [ 0, %.preheader ]
+  %124 = load ptr, ptr %56, align 8
+  %125 = getelementptr i8, ptr %124, i64 %indvars.iv
+  %126 = load i8, ptr %125, align 1
+  %127 = icmp eq i8 %126, 10
+  br i1 %127, label %128, label %141
 
-131:                                              ; preds = %.lr.ph2212
-  %132 = load ptr, ptr %58, align 8
-  %133 = load i64, ptr %59, align 8
-  %134 = getelementptr ptr, ptr %132, i64 %133
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 44
-  %137 = load i32, ptr %136, align 4
-  %138 = add i32 %137, 1
-  store i32 %138, ptr %136, align 4
-  %139 = load ptr, ptr %58, align 8
-  %140 = load i64, ptr %59, align 8
-  %141 = getelementptr ptr, ptr %139, i64 %140
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 48
-  store i32 0, ptr %143, align 8
+128:                                              ; preds = %.lr.ph2212
+  %129 = load ptr, ptr %58, align 8
+  %130 = load i64, ptr %59, align 8
+  %131 = getelementptr ptr, ptr %129, i64 %130
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 44
+  %134 = load i32, ptr %133, align 4
+  %135 = add i32 %134, 1
+  store i32 %135, ptr %133, align 4
+  %136 = load ptr, ptr %58, align 8
+  %137 = load i64, ptr %59, align 8
+  %138 = getelementptr ptr, ptr %136, i64 %137
+  %139 = load ptr, ptr %138, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 48
+  store i32 0, ptr %140, align 8
   %.pre2401 = load i32, ptr %57, align 8
-  br label %144
+  br label %141
 
-144:                                              ; preds = %.lr.ph2212, %131
-  %145 = phi i32 [ %126, %.lr.ph2212 ], [ %.pre2401, %131 ]
+141:                                              ; preds = %.lr.ph2212, %128
+  %142 = phi i32 [ %123, %.lr.ph2212 ], [ %.pre2401, %128 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %146 = sext i32 %145 to i64
-  %147 = icmp slt i64 %indvars.iv.next, %146
-  br i1 %147, label %.lr.ph2212, label %.loopexit1866.preheader, !llvm.loop !11
+  %143 = sext i32 %142 to i64
+  %144 = icmp slt i64 %indvars.iv.next, %143
+  br i1 %144, label %.lr.ph2212, label %.loopexit1866.preheader, !llvm.loop !9
 
-.loopexit1866.preheader:                          ; preds = %144, %.preheader, %120, %110
+.loopexit1866.preheader:                          ; preds = %141, %.preheader, %117, %.backedge
   br label %.loopexit1866
 
 .loopexit1866:                                    ; preds = %.loopexit1866.preheader, %yy_get_previous_state.exit1842
-  %.01417 = phi i32 [ %1855, %yy_get_previous_state.exit1842 ], [ %114, %.loopexit1866.preheader ]
-  switch i32 %.01417, label %1856 [
-    i32 0, label %148
-    i32 1, label %152
-    i32 2, label %172
-    i32 3, label %192
-    i32 4, label %212
-    i32 5, label %232
-    i32 6, label %252
-    i32 7, label %272
-    i32 8, label %292
-    i32 9, label %312
-    i32 10, label %332
-    i32 11, label %352
-    i32 12, label %372
-    i32 13, label %392
-    i32 14, label %412
-    i32 15, label %432
-    i32 16, label %452
-    i32 17, label %472
-    i32 18, label %492
-    i32 19, label %512
-    i32 20, label %532
-    i32 21, label %552
-    i32 22, label %572
-    i32 23, label %592
-    i32 24, label %612
-    i32 25, label %632
-    i32 26, label %652
-    i32 27, label %672
-    i32 28, label %692
-    i32 29, label %712
-    i32 30, label %732
-    i32 31, label %752
-    i32 32, label %772
-    i32 33, label %792
-    i32 34, label %812
-    i32 35, label %832
-    i32 36, label %852
-    i32 37, label %872
-    i32 38, label %892
-    i32 39, label %912
-    i32 40, label %932
-    i32 41, label %952
-    i32 42, label %972
-    i32 43, label %992
-    i32 44, label %1012
-    i32 45, label %1032
-    i32 46, label %1052
-    i32 47, label %1072
-    i32 48, label %1092
-    i32 49, label %1112
-    i32 50, label %1132
-    i32 51, label %1152
-    i32 52, label %1172
-    i32 53, label %1192
-    i32 54, label %1212
-    i32 55, label %1232
-    i32 56, label %1252
-    i32 57, label %1272
-    i32 58, label %1292
-    i32 59, label %1312
-    i32 60, label %1332
-    i32 61, label %1352
-    i32 62, label %1372
-    i32 63, label %1392
-    i32 64, label %1412
+  %.01417 = phi i32 [ %1850, %yy_get_previous_state.exit1842 ], [ %111, %.loopexit1866.preheader ]
+  switch i32 %.01417, label %1851 [
+    i32 0, label %145
+    i32 1, label %147
+    i32 2, label %167
+    i32 3, label %187
+    i32 4, label %207
+    i32 5, label %227
+    i32 6, label %247
+    i32 7, label %267
+    i32 8, label %287
+    i32 9, label %307
+    i32 10, label %327
+    i32 11, label %347
+    i32 12, label %367
+    i32 13, label %387
+    i32 14, label %407
+    i32 15, label %427
+    i32 16, label %447
+    i32 17, label %467
+    i32 18, label %487
+    i32 19, label %507
+    i32 20, label %527
+    i32 21, label %547
+    i32 22, label %567
+    i32 23, label %587
+    i32 24, label %607
+    i32 25, label %627
+    i32 26, label %647
+    i32 27, label %667
+    i32 28, label %687
+    i32 29, label %707
+    i32 30, label %727
+    i32 31, label %747
+    i32 32, label %767
+    i32 33, label %787
+    i32 34, label %807
+    i32 35, label %827
+    i32 36, label %847
+    i32 37, label %867
+    i32 38, label %887
+    i32 39, label %907
+    i32 40, label %927
+    i32 41, label %947
+    i32 42, label %967
+    i32 43, label %987
+    i32 44, label %1007
+    i32 45, label %1027
+    i32 46, label %1047
+    i32 47, label %1067
+    i32 48, label %1087
+    i32 49, label %1107
+    i32 50, label %1127
+    i32 51, label %1147
+    i32 52, label %1167
+    i32 53, label %1187
+    i32 54, label %1207
+    i32 55, label %1227
+    i32 56, label %1247
+    i32 57, label %1267
+    i32 58, label %1287
+    i32 59, label %1307
+    i32 60, label %1327
+    i32 61, label %1347
+    i32 62, label %1367
+    i32 63, label %1387
+    i32 64, label %1407
     i32 65, label %.loopexit.backedge
-    i32 66, label %1432
-    i32 67, label %1436
+    i32 66, label %1427
+    i32 67, label %1431
     i32 68, label %.loopexit.backedge
     i32 69, label %.loopexit.backedge
-    i32 70, label %1440
-    i32 71, label %1442
+    i32 70, label %1435
+    i32 71, label %1437
     i32 73, label %.loopexit1863
     i32 74, label %.loopexit1863
-    i32 72, label %1448
-  ], !llvm.loop !12
+    i32 72, label %1443
+  ]
 
-148:                                              ; preds = %.loopexit1866
-  %149 = load i8, ptr %52, align 8
-  store i8 %149, ptr %.21408, align 1
-  br label %.backedge.sink.split
+145:                                              ; preds = %.loopexit1866
+  %146 = load i8, ptr %52, align 8
+  store i8 %146, ptr %.21408, align 1
+  br label %.backedge.sink.split2662.backedge
 
-.backedge.sink.split:                             ; preds = %yy_try_NUL_trans.exit, %148
-  %.11414.be.ph = phi ptr [ %.11414, %148 ], [ %1483, %yy_try_NUL_trans.exit ]
-  %150 = load ptr, ptr %55, align 8
-  %151 = load i32, ptr %54, align 8
-  br label %.backedge
-
-.backedge:                                        ; preds = %._crit_edge.i1854, %.backedge.sink.split, %yy_get_next_buffer.exit.thread1859
-  %.11414.be = phi ptr [ %1805, %yy_get_next_buffer.exit.thread1859 ], [ %.11414.be.ph, %.backedge.sink.split ], [ %1805, %._crit_edge.i1854 ]
-  %.21408.be = phi ptr [ %1807, %yy_get_next_buffer.exit.thread1859 ], [ %150, %.backedge.sink.split ], [ %1807, %._crit_edge.i1854 ]
-  %.3.be = phi i32 [ %1808, %yy_get_next_buffer.exit.thread1859 ], [ %151, %.backedge.sink.split ], [ %1849, %._crit_edge.i1854 ]
-  br label %110, !llvm.loop !6
-
-152:                                              ; preds = %.loopexit1866
-  %153 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %154 = load ptr, ptr %0, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 56
-  store ptr %153, ptr %155, align 8
-  %156 = load ptr, ptr %0, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 56
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %156, i64 24
-  %160 = load ptr, ptr %159, align 8
-  %161 = tail call ptr @g_slist_prepend(ptr noundef %160, ptr noundef %158)
-  store ptr %161, ptr %159, align 8
-  %162 = load ptr, ptr %56, align 8
+147:                                              ; preds = %.loopexit1866
+  %148 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %149 = load ptr, ptr %0, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 56
+  store ptr %148, ptr %150, align 8
+  %151 = load ptr, ptr %0, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 56
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 24
+  %155 = load ptr, ptr %154, align 8
+  %156 = tail call ptr @g_slist_prepend(ptr noundef %155, ptr noundef %153)
+  store ptr %156, ptr %154, align 8
+  %157 = load ptr, ptr %56, align 8
   %.val = load ptr, ptr %0, align 8
-  %163 = tail call fastcc ptr @strdup_and_store(ptr %.val, ptr noundef %162)
-  %164 = load ptr, ptr %0, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 56
-  %166 = load ptr, ptr %165, align 8
-  store ptr %163, ptr %166, align 8
-  %167 = load ptr, ptr %58, align 8
-  %.not.i = icmp eq ptr %167, null
-  br i1 %.not.i, label %.loopexit1863.sink.split, label %168
+  %158 = tail call fastcc ptr @strdup_and_store(ptr %.val, ptr noundef %157)
+  %159 = load ptr, ptr %0, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 56
+  %161 = load ptr, ptr %160, align 8
+  store ptr %158, ptr %161, align 8
+  %162 = load ptr, ptr %58, align 8
+  %.not.i = icmp eq ptr %162, null
+  br i1 %.not.i, label %.loopexit1863.sink.split, label %163
 
-168:                                              ; preds = %152
-  %169 = load i64, ptr %59, align 8
-  %170 = getelementptr ptr, ptr %167, i64 %169
-  %171 = load ptr, ptr %170, align 8
-  %.not8.i = icmp eq ptr %171, null
+163:                                              ; preds = %147
+  %164 = load i64, ptr %59, align 8
+  %165 = getelementptr ptr, ptr %162, i64 %164
+  %166 = load ptr, ptr %165, align 8
+  %.not8.i = icmp eq ptr %166, null
   br i1 %.not8.i, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-172:                                              ; preds = %.loopexit1866
-  %173 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %174 = load ptr, ptr %0, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 56
-  store ptr %173, ptr %175, align 8
-  %176 = load ptr, ptr %0, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 56
-  %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %176, i64 24
-  %180 = load ptr, ptr %179, align 8
-  %181 = tail call ptr @g_slist_prepend(ptr noundef %180, ptr noundef %178)
-  store ptr %181, ptr %179, align 8
-  %182 = load ptr, ptr %56, align 8
+167:                                              ; preds = %.loopexit1866
+  %168 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %169 = load ptr, ptr %0, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 56
+  store ptr %168, ptr %170, align 8
+  %171 = load ptr, ptr %0, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 56
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 24
+  %175 = load ptr, ptr %174, align 8
+  %176 = tail call ptr @g_slist_prepend(ptr noundef %175, ptr noundef %173)
+  store ptr %176, ptr %174, align 8
+  %177 = load ptr, ptr %56, align 8
   %.val1503 = load ptr, ptr %0, align 8
-  %183 = tail call fastcc ptr @strdup_and_store(ptr %.val1503, ptr noundef %182)
-  %184 = load ptr, ptr %0, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 56
-  %186 = load ptr, ptr %185, align 8
-  store ptr %183, ptr %186, align 8
-  %187 = load ptr, ptr %58, align 8
-  %.not.i1566 = icmp eq ptr %187, null
-  br i1 %.not.i1566, label %.loopexit1863.sink.split, label %188
+  %178 = tail call fastcc ptr @strdup_and_store(ptr %.val1503, ptr noundef %177)
+  %179 = load ptr, ptr %0, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 56
+  %181 = load ptr, ptr %180, align 8
+  store ptr %178, ptr %181, align 8
+  %182 = load ptr, ptr %58, align 8
+  %.not.i1566 = icmp eq ptr %182, null
+  br i1 %.not.i1566, label %.loopexit1863.sink.split, label %183
 
-188:                                              ; preds = %172
-  %189 = load i64, ptr %59, align 8
-  %190 = getelementptr ptr, ptr %187, i64 %189
-  %191 = load ptr, ptr %190, align 8
-  %.not8.i1567 = icmp eq ptr %191, null
+183:                                              ; preds = %167
+  %184 = load i64, ptr %59, align 8
+  %185 = getelementptr ptr, ptr %182, i64 %184
+  %186 = load ptr, ptr %185, align 8
+  %.not8.i1567 = icmp eq ptr %186, null
   br i1 %.not8.i1567, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-192:                                              ; preds = %.loopexit1866
-  %193 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %194 = load ptr, ptr %0, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %194, i64 56
-  store ptr %193, ptr %195, align 8
-  %196 = load ptr, ptr %0, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 56
-  %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %196, i64 24
-  %200 = load ptr, ptr %199, align 8
-  %201 = tail call ptr @g_slist_prepend(ptr noundef %200, ptr noundef %198)
-  store ptr %201, ptr %199, align 8
-  %202 = load ptr, ptr %56, align 8
+187:                                              ; preds = %.loopexit1866
+  %188 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %189 = load ptr, ptr %0, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 56
+  store ptr %188, ptr %190, align 8
+  %191 = load ptr, ptr %0, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 56
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 24
+  %195 = load ptr, ptr %194, align 8
+  %196 = tail call ptr @g_slist_prepend(ptr noundef %195, ptr noundef %193)
+  store ptr %196, ptr %194, align 8
+  %197 = load ptr, ptr %56, align 8
   %.val1504 = load ptr, ptr %0, align 8
-  %203 = tail call fastcc ptr @strdup_and_store(ptr %.val1504, ptr noundef %202)
-  %204 = load ptr, ptr %0, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 56
-  %206 = load ptr, ptr %205, align 8
-  store ptr %203, ptr %206, align 8
-  %207 = load ptr, ptr %58, align 8
-  %.not.i1570 = icmp eq ptr %207, null
-  br i1 %.not.i1570, label %.loopexit1863.sink.split, label %208
+  %198 = tail call fastcc ptr @strdup_and_store(ptr %.val1504, ptr noundef %197)
+  %199 = load ptr, ptr %0, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 56
+  %201 = load ptr, ptr %200, align 8
+  store ptr %198, ptr %201, align 8
+  %202 = load ptr, ptr %58, align 8
+  %.not.i1570 = icmp eq ptr %202, null
+  br i1 %.not.i1570, label %.loopexit1863.sink.split, label %203
 
-208:                                              ; preds = %192
-  %209 = load i64, ptr %59, align 8
-  %210 = getelementptr ptr, ptr %207, i64 %209
-  %211 = load ptr, ptr %210, align 8
-  %.not8.i1571 = icmp eq ptr %211, null
+203:                                              ; preds = %187
+  %204 = load i64, ptr %59, align 8
+  %205 = getelementptr ptr, ptr %202, i64 %204
+  %206 = load ptr, ptr %205, align 8
+  %.not8.i1571 = icmp eq ptr %206, null
   br i1 %.not8.i1571, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-212:                                              ; preds = %.loopexit1866
-  %213 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %214 = load ptr, ptr %0, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 56
-  store ptr %213, ptr %215, align 8
-  %216 = load ptr, ptr %0, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 56
-  %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %216, i64 24
-  %220 = load ptr, ptr %219, align 8
-  %221 = tail call ptr @g_slist_prepend(ptr noundef %220, ptr noundef %218)
-  store ptr %221, ptr %219, align 8
-  %222 = load ptr, ptr %56, align 8
+207:                                              ; preds = %.loopexit1866
+  %208 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %209 = load ptr, ptr %0, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 56
+  store ptr %208, ptr %210, align 8
+  %211 = load ptr, ptr %0, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 56
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 24
+  %215 = load ptr, ptr %214, align 8
+  %216 = tail call ptr @g_slist_prepend(ptr noundef %215, ptr noundef %213)
+  store ptr %216, ptr %214, align 8
+  %217 = load ptr, ptr %56, align 8
   %.val1505 = load ptr, ptr %0, align 8
-  %223 = tail call fastcc ptr @strdup_and_store(ptr %.val1505, ptr noundef %222)
-  %224 = load ptr, ptr %0, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 56
-  %226 = load ptr, ptr %225, align 8
-  store ptr %223, ptr %226, align 8
-  %227 = load ptr, ptr %58, align 8
-  %.not.i1574 = icmp eq ptr %227, null
-  br i1 %.not.i1574, label %.loopexit1863.sink.split, label %228
+  %218 = tail call fastcc ptr @strdup_and_store(ptr %.val1505, ptr noundef %217)
+  %219 = load ptr, ptr %0, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 56
+  %221 = load ptr, ptr %220, align 8
+  store ptr %218, ptr %221, align 8
+  %222 = load ptr, ptr %58, align 8
+  %.not.i1574 = icmp eq ptr %222, null
+  br i1 %.not.i1574, label %.loopexit1863.sink.split, label %223
 
-228:                                              ; preds = %212
-  %229 = load i64, ptr %59, align 8
-  %230 = getelementptr ptr, ptr %227, i64 %229
-  %231 = load ptr, ptr %230, align 8
-  %.not8.i1575 = icmp eq ptr %231, null
+223:                                              ; preds = %207
+  %224 = load i64, ptr %59, align 8
+  %225 = getelementptr ptr, ptr %222, i64 %224
+  %226 = load ptr, ptr %225, align 8
+  %.not8.i1575 = icmp eq ptr %226, null
   br i1 %.not8.i1575, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-232:                                              ; preds = %.loopexit1866
-  %233 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %234 = load ptr, ptr %0, align 8
-  %235 = getelementptr inbounds nuw i8, ptr %234, i64 56
-  store ptr %233, ptr %235, align 8
-  %236 = load ptr, ptr %0, align 8
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 56
-  %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %236, i64 24
-  %240 = load ptr, ptr %239, align 8
-  %241 = tail call ptr @g_slist_prepend(ptr noundef %240, ptr noundef %238)
-  store ptr %241, ptr %239, align 8
-  %242 = load ptr, ptr %56, align 8
+227:                                              ; preds = %.loopexit1866
+  %228 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %229 = load ptr, ptr %0, align 8
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 56
+  store ptr %228, ptr %230, align 8
+  %231 = load ptr, ptr %0, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 56
+  %233 = load ptr, ptr %232, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %231, i64 24
+  %235 = load ptr, ptr %234, align 8
+  %236 = tail call ptr @g_slist_prepend(ptr noundef %235, ptr noundef %233)
+  store ptr %236, ptr %234, align 8
+  %237 = load ptr, ptr %56, align 8
   %.val1506 = load ptr, ptr %0, align 8
-  %243 = tail call fastcc ptr @strdup_and_store(ptr %.val1506, ptr noundef %242)
-  %244 = load ptr, ptr %0, align 8
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 56
-  %246 = load ptr, ptr %245, align 8
-  store ptr %243, ptr %246, align 8
-  %247 = load ptr, ptr %58, align 8
-  %.not.i1578 = icmp eq ptr %247, null
-  br i1 %.not.i1578, label %.loopexit1863.sink.split, label %248
+  %238 = tail call fastcc ptr @strdup_and_store(ptr %.val1506, ptr noundef %237)
+  %239 = load ptr, ptr %0, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 56
+  %241 = load ptr, ptr %240, align 8
+  store ptr %238, ptr %241, align 8
+  %242 = load ptr, ptr %58, align 8
+  %.not.i1578 = icmp eq ptr %242, null
+  br i1 %.not.i1578, label %.loopexit1863.sink.split, label %243
 
-248:                                              ; preds = %232
-  %249 = load i64, ptr %59, align 8
-  %250 = getelementptr ptr, ptr %247, i64 %249
-  %251 = load ptr, ptr %250, align 8
-  %.not8.i1579 = icmp eq ptr %251, null
+243:                                              ; preds = %227
+  %244 = load i64, ptr %59, align 8
+  %245 = getelementptr ptr, ptr %242, i64 %244
+  %246 = load ptr, ptr %245, align 8
+  %.not8.i1579 = icmp eq ptr %246, null
   br i1 %.not8.i1579, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-252:                                              ; preds = %.loopexit1866
-  %253 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %254 = load ptr, ptr %0, align 8
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 56
-  store ptr %253, ptr %255, align 8
-  %256 = load ptr, ptr %0, align 8
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 56
-  %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds nuw i8, ptr %256, i64 24
-  %260 = load ptr, ptr %259, align 8
-  %261 = tail call ptr @g_slist_prepend(ptr noundef %260, ptr noundef %258)
-  store ptr %261, ptr %259, align 8
-  %262 = load ptr, ptr %56, align 8
+247:                                              ; preds = %.loopexit1866
+  %248 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %249 = load ptr, ptr %0, align 8
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 56
+  store ptr %248, ptr %250, align 8
+  %251 = load ptr, ptr %0, align 8
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 56
+  %253 = load ptr, ptr %252, align 8
+  %254 = getelementptr inbounds nuw i8, ptr %251, i64 24
+  %255 = load ptr, ptr %254, align 8
+  %256 = tail call ptr @g_slist_prepend(ptr noundef %255, ptr noundef %253)
+  store ptr %256, ptr %254, align 8
+  %257 = load ptr, ptr %56, align 8
   %.val1507 = load ptr, ptr %0, align 8
-  %263 = tail call fastcc ptr @strdup_and_store(ptr %.val1507, ptr noundef %262)
-  %264 = load ptr, ptr %0, align 8
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 56
-  %266 = load ptr, ptr %265, align 8
-  store ptr %263, ptr %266, align 8
-  %267 = load ptr, ptr %58, align 8
-  %.not.i1582 = icmp eq ptr %267, null
-  br i1 %.not.i1582, label %.loopexit1863.sink.split, label %268
+  %258 = tail call fastcc ptr @strdup_and_store(ptr %.val1507, ptr noundef %257)
+  %259 = load ptr, ptr %0, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 56
+  %261 = load ptr, ptr %260, align 8
+  store ptr %258, ptr %261, align 8
+  %262 = load ptr, ptr %58, align 8
+  %.not.i1582 = icmp eq ptr %262, null
+  br i1 %.not.i1582, label %.loopexit1863.sink.split, label %263
 
-268:                                              ; preds = %252
-  %269 = load i64, ptr %59, align 8
-  %270 = getelementptr ptr, ptr %267, i64 %269
-  %271 = load ptr, ptr %270, align 8
-  %.not8.i1583 = icmp eq ptr %271, null
+263:                                              ; preds = %247
+  %264 = load i64, ptr %59, align 8
+  %265 = getelementptr ptr, ptr %262, i64 %264
+  %266 = load ptr, ptr %265, align 8
+  %.not8.i1583 = icmp eq ptr %266, null
   br i1 %.not8.i1583, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-272:                                              ; preds = %.loopexit1866
-  %273 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %274 = load ptr, ptr %0, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 56
-  store ptr %273, ptr %275, align 8
-  %276 = load ptr, ptr %0, align 8
-  %277 = getelementptr inbounds nuw i8, ptr %276, i64 56
-  %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds nuw i8, ptr %276, i64 24
-  %280 = load ptr, ptr %279, align 8
-  %281 = tail call ptr @g_slist_prepend(ptr noundef %280, ptr noundef %278)
-  store ptr %281, ptr %279, align 8
-  %282 = load ptr, ptr %56, align 8
+267:                                              ; preds = %.loopexit1866
+  %268 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %269 = load ptr, ptr %0, align 8
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 56
+  store ptr %268, ptr %270, align 8
+  %271 = load ptr, ptr %0, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 56
+  %273 = load ptr, ptr %272, align 8
+  %274 = getelementptr inbounds nuw i8, ptr %271, i64 24
+  %275 = load ptr, ptr %274, align 8
+  %276 = tail call ptr @g_slist_prepend(ptr noundef %275, ptr noundef %273)
+  store ptr %276, ptr %274, align 8
+  %277 = load ptr, ptr %56, align 8
   %.val1508 = load ptr, ptr %0, align 8
-  %283 = tail call fastcc ptr @strdup_and_store(ptr %.val1508, ptr noundef %282)
-  %284 = load ptr, ptr %0, align 8
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 56
-  %286 = load ptr, ptr %285, align 8
-  store ptr %283, ptr %286, align 8
-  %287 = load ptr, ptr %58, align 8
-  %.not.i1586 = icmp eq ptr %287, null
-  br i1 %.not.i1586, label %.loopexit1863.sink.split, label %288
+  %278 = tail call fastcc ptr @strdup_and_store(ptr %.val1508, ptr noundef %277)
+  %279 = load ptr, ptr %0, align 8
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 56
+  %281 = load ptr, ptr %280, align 8
+  store ptr %278, ptr %281, align 8
+  %282 = load ptr, ptr %58, align 8
+  %.not.i1586 = icmp eq ptr %282, null
+  br i1 %.not.i1586, label %.loopexit1863.sink.split, label %283
 
-288:                                              ; preds = %272
-  %289 = load i64, ptr %59, align 8
-  %290 = getelementptr ptr, ptr %287, i64 %289
-  %291 = load ptr, ptr %290, align 8
-  %.not8.i1587 = icmp eq ptr %291, null
+283:                                              ; preds = %267
+  %284 = load i64, ptr %59, align 8
+  %285 = getelementptr ptr, ptr %282, i64 %284
+  %286 = load ptr, ptr %285, align 8
+  %.not8.i1587 = icmp eq ptr %286, null
   br i1 %.not8.i1587, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-292:                                              ; preds = %.loopexit1866
-  %293 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %294 = load ptr, ptr %0, align 8
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 56
-  store ptr %293, ptr %295, align 8
-  %296 = load ptr, ptr %0, align 8
-  %297 = getelementptr inbounds nuw i8, ptr %296, i64 56
-  %298 = load ptr, ptr %297, align 8
-  %299 = getelementptr inbounds nuw i8, ptr %296, i64 24
-  %300 = load ptr, ptr %299, align 8
-  %301 = tail call ptr @g_slist_prepend(ptr noundef %300, ptr noundef %298)
-  store ptr %301, ptr %299, align 8
-  %302 = load ptr, ptr %56, align 8
+287:                                              ; preds = %.loopexit1866
+  %288 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %289 = load ptr, ptr %0, align 8
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 56
+  store ptr %288, ptr %290, align 8
+  %291 = load ptr, ptr %0, align 8
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 56
+  %293 = load ptr, ptr %292, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 24
+  %295 = load ptr, ptr %294, align 8
+  %296 = tail call ptr @g_slist_prepend(ptr noundef %295, ptr noundef %293)
+  store ptr %296, ptr %294, align 8
+  %297 = load ptr, ptr %56, align 8
   %.val1509 = load ptr, ptr %0, align 8
-  %303 = tail call fastcc ptr @strdup_and_store(ptr %.val1509, ptr noundef %302)
-  %304 = load ptr, ptr %0, align 8
-  %305 = getelementptr inbounds nuw i8, ptr %304, i64 56
-  %306 = load ptr, ptr %305, align 8
-  store ptr %303, ptr %306, align 8
-  %307 = load ptr, ptr %58, align 8
-  %.not.i1590 = icmp eq ptr %307, null
-  br i1 %.not.i1590, label %.loopexit1863.sink.split, label %308
+  %298 = tail call fastcc ptr @strdup_and_store(ptr %.val1509, ptr noundef %297)
+  %299 = load ptr, ptr %0, align 8
+  %300 = getelementptr inbounds nuw i8, ptr %299, i64 56
+  %301 = load ptr, ptr %300, align 8
+  store ptr %298, ptr %301, align 8
+  %302 = load ptr, ptr %58, align 8
+  %.not.i1590 = icmp eq ptr %302, null
+  br i1 %.not.i1590, label %.loopexit1863.sink.split, label %303
 
-308:                                              ; preds = %292
-  %309 = load i64, ptr %59, align 8
-  %310 = getelementptr ptr, ptr %307, i64 %309
-  %311 = load ptr, ptr %310, align 8
-  %.not8.i1591 = icmp eq ptr %311, null
+303:                                              ; preds = %287
+  %304 = load i64, ptr %59, align 8
+  %305 = getelementptr ptr, ptr %302, i64 %304
+  %306 = load ptr, ptr %305, align 8
+  %.not8.i1591 = icmp eq ptr %306, null
   br i1 %.not8.i1591, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-312:                                              ; preds = %.loopexit1866
-  %313 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %314 = load ptr, ptr %0, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 56
-  store ptr %313, ptr %315, align 8
-  %316 = load ptr, ptr %0, align 8
-  %317 = getelementptr inbounds nuw i8, ptr %316, i64 56
-  %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds nuw i8, ptr %316, i64 24
-  %320 = load ptr, ptr %319, align 8
-  %321 = tail call ptr @g_slist_prepend(ptr noundef %320, ptr noundef %318)
-  store ptr %321, ptr %319, align 8
-  %322 = load ptr, ptr %56, align 8
+307:                                              ; preds = %.loopexit1866
+  %308 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %309 = load ptr, ptr %0, align 8
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 56
+  store ptr %308, ptr %310, align 8
+  %311 = load ptr, ptr %0, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 56
+  %313 = load ptr, ptr %312, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %311, i64 24
+  %315 = load ptr, ptr %314, align 8
+  %316 = tail call ptr @g_slist_prepend(ptr noundef %315, ptr noundef %313)
+  store ptr %316, ptr %314, align 8
+  %317 = load ptr, ptr %56, align 8
   %.val1510 = load ptr, ptr %0, align 8
-  %323 = tail call fastcc ptr @strdup_and_store(ptr %.val1510, ptr noundef %322)
-  %324 = load ptr, ptr %0, align 8
-  %325 = getelementptr inbounds nuw i8, ptr %324, i64 56
-  %326 = load ptr, ptr %325, align 8
-  store ptr %323, ptr %326, align 8
-  %327 = load ptr, ptr %58, align 8
-  %.not.i1594 = icmp eq ptr %327, null
-  br i1 %.not.i1594, label %.loopexit1863.sink.split, label %328
+  %318 = tail call fastcc ptr @strdup_and_store(ptr %.val1510, ptr noundef %317)
+  %319 = load ptr, ptr %0, align 8
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 56
+  %321 = load ptr, ptr %320, align 8
+  store ptr %318, ptr %321, align 8
+  %322 = load ptr, ptr %58, align 8
+  %.not.i1594 = icmp eq ptr %322, null
+  br i1 %.not.i1594, label %.loopexit1863.sink.split, label %323
 
-328:                                              ; preds = %312
-  %329 = load i64, ptr %59, align 8
-  %330 = getelementptr ptr, ptr %327, i64 %329
-  %331 = load ptr, ptr %330, align 8
-  %.not8.i1595 = icmp eq ptr %331, null
+323:                                              ; preds = %307
+  %324 = load i64, ptr %59, align 8
+  %325 = getelementptr ptr, ptr %322, i64 %324
+  %326 = load ptr, ptr %325, align 8
+  %.not8.i1595 = icmp eq ptr %326, null
   br i1 %.not8.i1595, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-332:                                              ; preds = %.loopexit1866
-  %333 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %334 = load ptr, ptr %0, align 8
-  %335 = getelementptr inbounds nuw i8, ptr %334, i64 56
-  store ptr %333, ptr %335, align 8
-  %336 = load ptr, ptr %0, align 8
-  %337 = getelementptr inbounds nuw i8, ptr %336, i64 56
-  %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds nuw i8, ptr %336, i64 24
-  %340 = load ptr, ptr %339, align 8
-  %341 = tail call ptr @g_slist_prepend(ptr noundef %340, ptr noundef %338)
-  store ptr %341, ptr %339, align 8
-  %342 = load ptr, ptr %56, align 8
+327:                                              ; preds = %.loopexit1866
+  %328 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %329 = load ptr, ptr %0, align 8
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 56
+  store ptr %328, ptr %330, align 8
+  %331 = load ptr, ptr %0, align 8
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 56
+  %333 = load ptr, ptr %332, align 8
+  %334 = getelementptr inbounds nuw i8, ptr %331, i64 24
+  %335 = load ptr, ptr %334, align 8
+  %336 = tail call ptr @g_slist_prepend(ptr noundef %335, ptr noundef %333)
+  store ptr %336, ptr %334, align 8
+  %337 = load ptr, ptr %56, align 8
   %.val1511 = load ptr, ptr %0, align 8
-  %343 = tail call fastcc ptr @strdup_and_store(ptr %.val1511, ptr noundef %342)
-  %344 = load ptr, ptr %0, align 8
-  %345 = getelementptr inbounds nuw i8, ptr %344, i64 56
-  %346 = load ptr, ptr %345, align 8
-  store ptr %343, ptr %346, align 8
-  %347 = load ptr, ptr %58, align 8
-  %.not.i1598 = icmp eq ptr %347, null
-  br i1 %.not.i1598, label %.loopexit1863.sink.split, label %348
+  %338 = tail call fastcc ptr @strdup_and_store(ptr %.val1511, ptr noundef %337)
+  %339 = load ptr, ptr %0, align 8
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 56
+  %341 = load ptr, ptr %340, align 8
+  store ptr %338, ptr %341, align 8
+  %342 = load ptr, ptr %58, align 8
+  %.not.i1598 = icmp eq ptr %342, null
+  br i1 %.not.i1598, label %.loopexit1863.sink.split, label %343
 
-348:                                              ; preds = %332
-  %349 = load i64, ptr %59, align 8
-  %350 = getelementptr ptr, ptr %347, i64 %349
-  %351 = load ptr, ptr %350, align 8
-  %.not8.i1599 = icmp eq ptr %351, null
+343:                                              ; preds = %327
+  %344 = load i64, ptr %59, align 8
+  %345 = getelementptr ptr, ptr %342, i64 %344
+  %346 = load ptr, ptr %345, align 8
+  %.not8.i1599 = icmp eq ptr %346, null
   br i1 %.not8.i1599, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-352:                                              ; preds = %.loopexit1866
-  %353 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %354 = load ptr, ptr %0, align 8
-  %355 = getelementptr inbounds nuw i8, ptr %354, i64 56
-  store ptr %353, ptr %355, align 8
-  %356 = load ptr, ptr %0, align 8
-  %357 = getelementptr inbounds nuw i8, ptr %356, i64 56
-  %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr inbounds nuw i8, ptr %356, i64 24
-  %360 = load ptr, ptr %359, align 8
-  %361 = tail call ptr @g_slist_prepend(ptr noundef %360, ptr noundef %358)
-  store ptr %361, ptr %359, align 8
-  %362 = load ptr, ptr %56, align 8
+347:                                              ; preds = %.loopexit1866
+  %348 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %349 = load ptr, ptr %0, align 8
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 56
+  store ptr %348, ptr %350, align 8
+  %351 = load ptr, ptr %0, align 8
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 56
+  %353 = load ptr, ptr %352, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %351, i64 24
+  %355 = load ptr, ptr %354, align 8
+  %356 = tail call ptr @g_slist_prepend(ptr noundef %355, ptr noundef %353)
+  store ptr %356, ptr %354, align 8
+  %357 = load ptr, ptr %56, align 8
   %.val1512 = load ptr, ptr %0, align 8
-  %363 = tail call fastcc ptr @strdup_and_store(ptr %.val1512, ptr noundef %362)
-  %364 = load ptr, ptr %0, align 8
-  %365 = getelementptr inbounds nuw i8, ptr %364, i64 56
-  %366 = load ptr, ptr %365, align 8
-  store ptr %363, ptr %366, align 8
-  %367 = load ptr, ptr %58, align 8
-  %.not.i1602 = icmp eq ptr %367, null
-  br i1 %.not.i1602, label %.loopexit1863.sink.split, label %368
+  %358 = tail call fastcc ptr @strdup_and_store(ptr %.val1512, ptr noundef %357)
+  %359 = load ptr, ptr %0, align 8
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 56
+  %361 = load ptr, ptr %360, align 8
+  store ptr %358, ptr %361, align 8
+  %362 = load ptr, ptr %58, align 8
+  %.not.i1602 = icmp eq ptr %362, null
+  br i1 %.not.i1602, label %.loopexit1863.sink.split, label %363
 
-368:                                              ; preds = %352
-  %369 = load i64, ptr %59, align 8
-  %370 = getelementptr ptr, ptr %367, i64 %369
-  %371 = load ptr, ptr %370, align 8
-  %.not8.i1603 = icmp eq ptr %371, null
+363:                                              ; preds = %347
+  %364 = load i64, ptr %59, align 8
+  %365 = getelementptr ptr, ptr %362, i64 %364
+  %366 = load ptr, ptr %365, align 8
+  %.not8.i1603 = icmp eq ptr %366, null
   br i1 %.not8.i1603, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-372:                                              ; preds = %.loopexit1866
-  %373 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %374 = load ptr, ptr %0, align 8
-  %375 = getelementptr inbounds nuw i8, ptr %374, i64 56
-  store ptr %373, ptr %375, align 8
-  %376 = load ptr, ptr %0, align 8
-  %377 = getelementptr inbounds nuw i8, ptr %376, i64 56
-  %378 = load ptr, ptr %377, align 8
-  %379 = getelementptr inbounds nuw i8, ptr %376, i64 24
-  %380 = load ptr, ptr %379, align 8
-  %381 = tail call ptr @g_slist_prepend(ptr noundef %380, ptr noundef %378)
-  store ptr %381, ptr %379, align 8
-  %382 = load ptr, ptr %56, align 8
+367:                                              ; preds = %.loopexit1866
+  %368 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %369 = load ptr, ptr %0, align 8
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 56
+  store ptr %368, ptr %370, align 8
+  %371 = load ptr, ptr %0, align 8
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 56
+  %373 = load ptr, ptr %372, align 8
+  %374 = getelementptr inbounds nuw i8, ptr %371, i64 24
+  %375 = load ptr, ptr %374, align 8
+  %376 = tail call ptr @g_slist_prepend(ptr noundef %375, ptr noundef %373)
+  store ptr %376, ptr %374, align 8
+  %377 = load ptr, ptr %56, align 8
   %.val1513 = load ptr, ptr %0, align 8
-  %383 = tail call fastcc ptr @strdup_and_store(ptr %.val1513, ptr noundef %382)
-  %384 = load ptr, ptr %0, align 8
-  %385 = getelementptr inbounds nuw i8, ptr %384, i64 56
-  %386 = load ptr, ptr %385, align 8
-  store ptr %383, ptr %386, align 8
-  %387 = load ptr, ptr %58, align 8
-  %.not.i1606 = icmp eq ptr %387, null
-  br i1 %.not.i1606, label %.loopexit1863.sink.split, label %388
+  %378 = tail call fastcc ptr @strdup_and_store(ptr %.val1513, ptr noundef %377)
+  %379 = load ptr, ptr %0, align 8
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 56
+  %381 = load ptr, ptr %380, align 8
+  store ptr %378, ptr %381, align 8
+  %382 = load ptr, ptr %58, align 8
+  %.not.i1606 = icmp eq ptr %382, null
+  br i1 %.not.i1606, label %.loopexit1863.sink.split, label %383
 
-388:                                              ; preds = %372
-  %389 = load i64, ptr %59, align 8
-  %390 = getelementptr ptr, ptr %387, i64 %389
-  %391 = load ptr, ptr %390, align 8
-  %.not8.i1607 = icmp eq ptr %391, null
+383:                                              ; preds = %367
+  %384 = load i64, ptr %59, align 8
+  %385 = getelementptr ptr, ptr %382, i64 %384
+  %386 = load ptr, ptr %385, align 8
+  %.not8.i1607 = icmp eq ptr %386, null
   br i1 %.not8.i1607, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-392:                                              ; preds = %.loopexit1866
-  %393 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %394 = load ptr, ptr %0, align 8
-  %395 = getelementptr inbounds nuw i8, ptr %394, i64 56
-  store ptr %393, ptr %395, align 8
-  %396 = load ptr, ptr %0, align 8
-  %397 = getelementptr inbounds nuw i8, ptr %396, i64 56
-  %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds nuw i8, ptr %396, i64 24
-  %400 = load ptr, ptr %399, align 8
-  %401 = tail call ptr @g_slist_prepend(ptr noundef %400, ptr noundef %398)
-  store ptr %401, ptr %399, align 8
-  %402 = load ptr, ptr %56, align 8
+387:                                              ; preds = %.loopexit1866
+  %388 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %389 = load ptr, ptr %0, align 8
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 56
+  store ptr %388, ptr %390, align 8
+  %391 = load ptr, ptr %0, align 8
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 56
+  %393 = load ptr, ptr %392, align 8
+  %394 = getelementptr inbounds nuw i8, ptr %391, i64 24
+  %395 = load ptr, ptr %394, align 8
+  %396 = tail call ptr @g_slist_prepend(ptr noundef %395, ptr noundef %393)
+  store ptr %396, ptr %394, align 8
+  %397 = load ptr, ptr %56, align 8
   %.val1514 = load ptr, ptr %0, align 8
-  %403 = tail call fastcc ptr @strdup_and_store(ptr %.val1514, ptr noundef %402)
-  %404 = load ptr, ptr %0, align 8
-  %405 = getelementptr inbounds nuw i8, ptr %404, i64 56
-  %406 = load ptr, ptr %405, align 8
-  store ptr %403, ptr %406, align 8
-  %407 = load ptr, ptr %58, align 8
-  %.not.i1610 = icmp eq ptr %407, null
-  br i1 %.not.i1610, label %.loopexit1863.sink.split, label %408
+  %398 = tail call fastcc ptr @strdup_and_store(ptr %.val1514, ptr noundef %397)
+  %399 = load ptr, ptr %0, align 8
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 56
+  %401 = load ptr, ptr %400, align 8
+  store ptr %398, ptr %401, align 8
+  %402 = load ptr, ptr %58, align 8
+  %.not.i1610 = icmp eq ptr %402, null
+  br i1 %.not.i1610, label %.loopexit1863.sink.split, label %403
 
-408:                                              ; preds = %392
-  %409 = load i64, ptr %59, align 8
-  %410 = getelementptr ptr, ptr %407, i64 %409
-  %411 = load ptr, ptr %410, align 8
-  %.not8.i1611 = icmp eq ptr %411, null
+403:                                              ; preds = %387
+  %404 = load i64, ptr %59, align 8
+  %405 = getelementptr ptr, ptr %402, i64 %404
+  %406 = load ptr, ptr %405, align 8
+  %.not8.i1611 = icmp eq ptr %406, null
   br i1 %.not8.i1611, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-412:                                              ; preds = %.loopexit1866
-  %413 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %414 = load ptr, ptr %0, align 8
-  %415 = getelementptr inbounds nuw i8, ptr %414, i64 56
-  store ptr %413, ptr %415, align 8
-  %416 = load ptr, ptr %0, align 8
-  %417 = getelementptr inbounds nuw i8, ptr %416, i64 56
-  %418 = load ptr, ptr %417, align 8
-  %419 = getelementptr inbounds nuw i8, ptr %416, i64 24
-  %420 = load ptr, ptr %419, align 8
-  %421 = tail call ptr @g_slist_prepend(ptr noundef %420, ptr noundef %418)
-  store ptr %421, ptr %419, align 8
-  %422 = load ptr, ptr %56, align 8
+407:                                              ; preds = %.loopexit1866
+  %408 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %409 = load ptr, ptr %0, align 8
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 56
+  store ptr %408, ptr %410, align 8
+  %411 = load ptr, ptr %0, align 8
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 56
+  %413 = load ptr, ptr %412, align 8
+  %414 = getelementptr inbounds nuw i8, ptr %411, i64 24
+  %415 = load ptr, ptr %414, align 8
+  %416 = tail call ptr @g_slist_prepend(ptr noundef %415, ptr noundef %413)
+  store ptr %416, ptr %414, align 8
+  %417 = load ptr, ptr %56, align 8
   %.val1515 = load ptr, ptr %0, align 8
-  %423 = tail call fastcc ptr @strdup_and_store(ptr %.val1515, ptr noundef %422)
-  %424 = load ptr, ptr %0, align 8
-  %425 = getelementptr inbounds nuw i8, ptr %424, i64 56
-  %426 = load ptr, ptr %425, align 8
-  store ptr %423, ptr %426, align 8
-  %427 = load ptr, ptr %58, align 8
-  %.not.i1614 = icmp eq ptr %427, null
-  br i1 %.not.i1614, label %.loopexit1863.sink.split, label %428
+  %418 = tail call fastcc ptr @strdup_and_store(ptr %.val1515, ptr noundef %417)
+  %419 = load ptr, ptr %0, align 8
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 56
+  %421 = load ptr, ptr %420, align 8
+  store ptr %418, ptr %421, align 8
+  %422 = load ptr, ptr %58, align 8
+  %.not.i1614 = icmp eq ptr %422, null
+  br i1 %.not.i1614, label %.loopexit1863.sink.split, label %423
 
-428:                                              ; preds = %412
-  %429 = load i64, ptr %59, align 8
-  %430 = getelementptr ptr, ptr %427, i64 %429
-  %431 = load ptr, ptr %430, align 8
-  %.not8.i1615 = icmp eq ptr %431, null
+423:                                              ; preds = %407
+  %424 = load i64, ptr %59, align 8
+  %425 = getelementptr ptr, ptr %422, i64 %424
+  %426 = load ptr, ptr %425, align 8
+  %.not8.i1615 = icmp eq ptr %426, null
   br i1 %.not8.i1615, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-432:                                              ; preds = %.loopexit1866
-  %433 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %434 = load ptr, ptr %0, align 8
-  %435 = getelementptr inbounds nuw i8, ptr %434, i64 56
-  store ptr %433, ptr %435, align 8
-  %436 = load ptr, ptr %0, align 8
-  %437 = getelementptr inbounds nuw i8, ptr %436, i64 56
-  %438 = load ptr, ptr %437, align 8
-  %439 = getelementptr inbounds nuw i8, ptr %436, i64 24
-  %440 = load ptr, ptr %439, align 8
-  %441 = tail call ptr @g_slist_prepend(ptr noundef %440, ptr noundef %438)
-  store ptr %441, ptr %439, align 8
-  %442 = load ptr, ptr %56, align 8
+427:                                              ; preds = %.loopexit1866
+  %428 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %429 = load ptr, ptr %0, align 8
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 56
+  store ptr %428, ptr %430, align 8
+  %431 = load ptr, ptr %0, align 8
+  %432 = getelementptr inbounds nuw i8, ptr %431, i64 56
+  %433 = load ptr, ptr %432, align 8
+  %434 = getelementptr inbounds nuw i8, ptr %431, i64 24
+  %435 = load ptr, ptr %434, align 8
+  %436 = tail call ptr @g_slist_prepend(ptr noundef %435, ptr noundef %433)
+  store ptr %436, ptr %434, align 8
+  %437 = load ptr, ptr %56, align 8
   %.val1516 = load ptr, ptr %0, align 8
-  %443 = tail call fastcc ptr @strdup_and_store(ptr %.val1516, ptr noundef %442)
-  %444 = load ptr, ptr %0, align 8
-  %445 = getelementptr inbounds nuw i8, ptr %444, i64 56
-  %446 = load ptr, ptr %445, align 8
-  store ptr %443, ptr %446, align 8
-  %447 = load ptr, ptr %58, align 8
-  %.not.i1618 = icmp eq ptr %447, null
-  br i1 %.not.i1618, label %.loopexit1863.sink.split, label %448
+  %438 = tail call fastcc ptr @strdup_and_store(ptr %.val1516, ptr noundef %437)
+  %439 = load ptr, ptr %0, align 8
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 56
+  %441 = load ptr, ptr %440, align 8
+  store ptr %438, ptr %441, align 8
+  %442 = load ptr, ptr %58, align 8
+  %.not.i1618 = icmp eq ptr %442, null
+  br i1 %.not.i1618, label %.loopexit1863.sink.split, label %443
 
-448:                                              ; preds = %432
-  %449 = load i64, ptr %59, align 8
-  %450 = getelementptr ptr, ptr %447, i64 %449
-  %451 = load ptr, ptr %450, align 8
-  %.not8.i1619 = icmp eq ptr %451, null
+443:                                              ; preds = %427
+  %444 = load i64, ptr %59, align 8
+  %445 = getelementptr ptr, ptr %442, i64 %444
+  %446 = load ptr, ptr %445, align 8
+  %.not8.i1619 = icmp eq ptr %446, null
   br i1 %.not8.i1619, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-452:                                              ; preds = %.loopexit1866
-  %453 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %454 = load ptr, ptr %0, align 8
-  %455 = getelementptr inbounds nuw i8, ptr %454, i64 56
-  store ptr %453, ptr %455, align 8
-  %456 = load ptr, ptr %0, align 8
-  %457 = getelementptr inbounds nuw i8, ptr %456, i64 56
-  %458 = load ptr, ptr %457, align 8
-  %459 = getelementptr inbounds nuw i8, ptr %456, i64 24
-  %460 = load ptr, ptr %459, align 8
-  %461 = tail call ptr @g_slist_prepend(ptr noundef %460, ptr noundef %458)
-  store ptr %461, ptr %459, align 8
-  %462 = load ptr, ptr %56, align 8
+447:                                              ; preds = %.loopexit1866
+  %448 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %449 = load ptr, ptr %0, align 8
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 56
+  store ptr %448, ptr %450, align 8
+  %451 = load ptr, ptr %0, align 8
+  %452 = getelementptr inbounds nuw i8, ptr %451, i64 56
+  %453 = load ptr, ptr %452, align 8
+  %454 = getelementptr inbounds nuw i8, ptr %451, i64 24
+  %455 = load ptr, ptr %454, align 8
+  %456 = tail call ptr @g_slist_prepend(ptr noundef %455, ptr noundef %453)
+  store ptr %456, ptr %454, align 8
+  %457 = load ptr, ptr %56, align 8
   %.val1517 = load ptr, ptr %0, align 8
-  %463 = tail call fastcc ptr @strdup_and_store(ptr %.val1517, ptr noundef %462)
-  %464 = load ptr, ptr %0, align 8
-  %465 = getelementptr inbounds nuw i8, ptr %464, i64 56
-  %466 = load ptr, ptr %465, align 8
-  store ptr %463, ptr %466, align 8
-  %467 = load ptr, ptr %58, align 8
-  %.not.i1622 = icmp eq ptr %467, null
-  br i1 %.not.i1622, label %.loopexit1863.sink.split, label %468
+  %458 = tail call fastcc ptr @strdup_and_store(ptr %.val1517, ptr noundef %457)
+  %459 = load ptr, ptr %0, align 8
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 56
+  %461 = load ptr, ptr %460, align 8
+  store ptr %458, ptr %461, align 8
+  %462 = load ptr, ptr %58, align 8
+  %.not.i1622 = icmp eq ptr %462, null
+  br i1 %.not.i1622, label %.loopexit1863.sink.split, label %463
 
-468:                                              ; preds = %452
-  %469 = load i64, ptr %59, align 8
-  %470 = getelementptr ptr, ptr %467, i64 %469
-  %471 = load ptr, ptr %470, align 8
-  %.not8.i1623 = icmp eq ptr %471, null
+463:                                              ; preds = %447
+  %464 = load i64, ptr %59, align 8
+  %465 = getelementptr ptr, ptr %462, i64 %464
+  %466 = load ptr, ptr %465, align 8
+  %.not8.i1623 = icmp eq ptr %466, null
   br i1 %.not8.i1623, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-472:                                              ; preds = %.loopexit1866
-  %473 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %474 = load ptr, ptr %0, align 8
-  %475 = getelementptr inbounds nuw i8, ptr %474, i64 56
-  store ptr %473, ptr %475, align 8
-  %476 = load ptr, ptr %0, align 8
-  %477 = getelementptr inbounds nuw i8, ptr %476, i64 56
-  %478 = load ptr, ptr %477, align 8
-  %479 = getelementptr inbounds nuw i8, ptr %476, i64 24
-  %480 = load ptr, ptr %479, align 8
-  %481 = tail call ptr @g_slist_prepend(ptr noundef %480, ptr noundef %478)
-  store ptr %481, ptr %479, align 8
-  %482 = load ptr, ptr %56, align 8
+467:                                              ; preds = %.loopexit1866
+  %468 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %469 = load ptr, ptr %0, align 8
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 56
+  store ptr %468, ptr %470, align 8
+  %471 = load ptr, ptr %0, align 8
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 56
+  %473 = load ptr, ptr %472, align 8
+  %474 = getelementptr inbounds nuw i8, ptr %471, i64 24
+  %475 = load ptr, ptr %474, align 8
+  %476 = tail call ptr @g_slist_prepend(ptr noundef %475, ptr noundef %473)
+  store ptr %476, ptr %474, align 8
+  %477 = load ptr, ptr %56, align 8
   %.val1518 = load ptr, ptr %0, align 8
-  %483 = tail call fastcc ptr @strdup_and_store(ptr %.val1518, ptr noundef %482)
-  %484 = load ptr, ptr %0, align 8
-  %485 = getelementptr inbounds nuw i8, ptr %484, i64 56
-  %486 = load ptr, ptr %485, align 8
-  store ptr %483, ptr %486, align 8
-  %487 = load ptr, ptr %58, align 8
-  %.not.i1626 = icmp eq ptr %487, null
-  br i1 %.not.i1626, label %.loopexit1863.sink.split, label %488
+  %478 = tail call fastcc ptr @strdup_and_store(ptr %.val1518, ptr noundef %477)
+  %479 = load ptr, ptr %0, align 8
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 56
+  %481 = load ptr, ptr %480, align 8
+  store ptr %478, ptr %481, align 8
+  %482 = load ptr, ptr %58, align 8
+  %.not.i1626 = icmp eq ptr %482, null
+  br i1 %.not.i1626, label %.loopexit1863.sink.split, label %483
 
-488:                                              ; preds = %472
-  %489 = load i64, ptr %59, align 8
-  %490 = getelementptr ptr, ptr %487, i64 %489
-  %491 = load ptr, ptr %490, align 8
-  %.not8.i1627 = icmp eq ptr %491, null
+483:                                              ; preds = %467
+  %484 = load i64, ptr %59, align 8
+  %485 = getelementptr ptr, ptr %482, i64 %484
+  %486 = load ptr, ptr %485, align 8
+  %.not8.i1627 = icmp eq ptr %486, null
   br i1 %.not8.i1627, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-492:                                              ; preds = %.loopexit1866
-  %493 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %494 = load ptr, ptr %0, align 8
-  %495 = getelementptr inbounds nuw i8, ptr %494, i64 56
-  store ptr %493, ptr %495, align 8
-  %496 = load ptr, ptr %0, align 8
-  %497 = getelementptr inbounds nuw i8, ptr %496, i64 56
-  %498 = load ptr, ptr %497, align 8
-  %499 = getelementptr inbounds nuw i8, ptr %496, i64 24
-  %500 = load ptr, ptr %499, align 8
-  %501 = tail call ptr @g_slist_prepend(ptr noundef %500, ptr noundef %498)
-  store ptr %501, ptr %499, align 8
-  %502 = load ptr, ptr %56, align 8
+487:                                              ; preds = %.loopexit1866
+  %488 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %489 = load ptr, ptr %0, align 8
+  %490 = getelementptr inbounds nuw i8, ptr %489, i64 56
+  store ptr %488, ptr %490, align 8
+  %491 = load ptr, ptr %0, align 8
+  %492 = getelementptr inbounds nuw i8, ptr %491, i64 56
+  %493 = load ptr, ptr %492, align 8
+  %494 = getelementptr inbounds nuw i8, ptr %491, i64 24
+  %495 = load ptr, ptr %494, align 8
+  %496 = tail call ptr @g_slist_prepend(ptr noundef %495, ptr noundef %493)
+  store ptr %496, ptr %494, align 8
+  %497 = load ptr, ptr %56, align 8
   %.val1519 = load ptr, ptr %0, align 8
-  %503 = tail call fastcc ptr @strdup_and_store(ptr %.val1519, ptr noundef %502)
-  %504 = load ptr, ptr %0, align 8
-  %505 = getelementptr inbounds nuw i8, ptr %504, i64 56
-  %506 = load ptr, ptr %505, align 8
-  store ptr %503, ptr %506, align 8
-  %507 = load ptr, ptr %58, align 8
-  %.not.i1630 = icmp eq ptr %507, null
-  br i1 %.not.i1630, label %.loopexit1863.sink.split, label %508
+  %498 = tail call fastcc ptr @strdup_and_store(ptr %.val1519, ptr noundef %497)
+  %499 = load ptr, ptr %0, align 8
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 56
+  %501 = load ptr, ptr %500, align 8
+  store ptr %498, ptr %501, align 8
+  %502 = load ptr, ptr %58, align 8
+  %.not.i1630 = icmp eq ptr %502, null
+  br i1 %.not.i1630, label %.loopexit1863.sink.split, label %503
 
-508:                                              ; preds = %492
-  %509 = load i64, ptr %59, align 8
-  %510 = getelementptr ptr, ptr %507, i64 %509
-  %511 = load ptr, ptr %510, align 8
-  %.not8.i1631 = icmp eq ptr %511, null
+503:                                              ; preds = %487
+  %504 = load i64, ptr %59, align 8
+  %505 = getelementptr ptr, ptr %502, i64 %504
+  %506 = load ptr, ptr %505, align 8
+  %.not8.i1631 = icmp eq ptr %506, null
   br i1 %.not8.i1631, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-512:                                              ; preds = %.loopexit1866
-  %513 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %514 = load ptr, ptr %0, align 8
-  %515 = getelementptr inbounds nuw i8, ptr %514, i64 56
-  store ptr %513, ptr %515, align 8
-  %516 = load ptr, ptr %0, align 8
-  %517 = getelementptr inbounds nuw i8, ptr %516, i64 56
-  %518 = load ptr, ptr %517, align 8
-  %519 = getelementptr inbounds nuw i8, ptr %516, i64 24
-  %520 = load ptr, ptr %519, align 8
-  %521 = tail call ptr @g_slist_prepend(ptr noundef %520, ptr noundef %518)
-  store ptr %521, ptr %519, align 8
-  %522 = load ptr, ptr %56, align 8
+507:                                              ; preds = %.loopexit1866
+  %508 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %509 = load ptr, ptr %0, align 8
+  %510 = getelementptr inbounds nuw i8, ptr %509, i64 56
+  store ptr %508, ptr %510, align 8
+  %511 = load ptr, ptr %0, align 8
+  %512 = getelementptr inbounds nuw i8, ptr %511, i64 56
+  %513 = load ptr, ptr %512, align 8
+  %514 = getelementptr inbounds nuw i8, ptr %511, i64 24
+  %515 = load ptr, ptr %514, align 8
+  %516 = tail call ptr @g_slist_prepend(ptr noundef %515, ptr noundef %513)
+  store ptr %516, ptr %514, align 8
+  %517 = load ptr, ptr %56, align 8
   %.val1520 = load ptr, ptr %0, align 8
-  %523 = tail call fastcc ptr @strdup_and_store(ptr %.val1520, ptr noundef %522)
-  %524 = load ptr, ptr %0, align 8
-  %525 = getelementptr inbounds nuw i8, ptr %524, i64 56
-  %526 = load ptr, ptr %525, align 8
-  store ptr %523, ptr %526, align 8
-  %527 = load ptr, ptr %58, align 8
-  %.not.i1634 = icmp eq ptr %527, null
-  br i1 %.not.i1634, label %.loopexit1863.sink.split, label %528
+  %518 = tail call fastcc ptr @strdup_and_store(ptr %.val1520, ptr noundef %517)
+  %519 = load ptr, ptr %0, align 8
+  %520 = getelementptr inbounds nuw i8, ptr %519, i64 56
+  %521 = load ptr, ptr %520, align 8
+  store ptr %518, ptr %521, align 8
+  %522 = load ptr, ptr %58, align 8
+  %.not.i1634 = icmp eq ptr %522, null
+  br i1 %.not.i1634, label %.loopexit1863.sink.split, label %523
 
-528:                                              ; preds = %512
-  %529 = load i64, ptr %59, align 8
-  %530 = getelementptr ptr, ptr %527, i64 %529
-  %531 = load ptr, ptr %530, align 8
-  %.not8.i1635 = icmp eq ptr %531, null
+523:                                              ; preds = %507
+  %524 = load i64, ptr %59, align 8
+  %525 = getelementptr ptr, ptr %522, i64 %524
+  %526 = load ptr, ptr %525, align 8
+  %.not8.i1635 = icmp eq ptr %526, null
   br i1 %.not8.i1635, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-532:                                              ; preds = %.loopexit1866
-  %533 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %534 = load ptr, ptr %0, align 8
-  %535 = getelementptr inbounds nuw i8, ptr %534, i64 56
-  store ptr %533, ptr %535, align 8
-  %536 = load ptr, ptr %0, align 8
-  %537 = getelementptr inbounds nuw i8, ptr %536, i64 56
-  %538 = load ptr, ptr %537, align 8
-  %539 = getelementptr inbounds nuw i8, ptr %536, i64 24
-  %540 = load ptr, ptr %539, align 8
-  %541 = tail call ptr @g_slist_prepend(ptr noundef %540, ptr noundef %538)
-  store ptr %541, ptr %539, align 8
-  %542 = load ptr, ptr %56, align 8
+527:                                              ; preds = %.loopexit1866
+  %528 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %529 = load ptr, ptr %0, align 8
+  %530 = getelementptr inbounds nuw i8, ptr %529, i64 56
+  store ptr %528, ptr %530, align 8
+  %531 = load ptr, ptr %0, align 8
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 56
+  %533 = load ptr, ptr %532, align 8
+  %534 = getelementptr inbounds nuw i8, ptr %531, i64 24
+  %535 = load ptr, ptr %534, align 8
+  %536 = tail call ptr @g_slist_prepend(ptr noundef %535, ptr noundef %533)
+  store ptr %536, ptr %534, align 8
+  %537 = load ptr, ptr %56, align 8
   %.val1521 = load ptr, ptr %0, align 8
-  %543 = tail call fastcc ptr @strdup_and_store(ptr %.val1521, ptr noundef %542)
-  %544 = load ptr, ptr %0, align 8
-  %545 = getelementptr inbounds nuw i8, ptr %544, i64 56
-  %546 = load ptr, ptr %545, align 8
-  store ptr %543, ptr %546, align 8
-  %547 = load ptr, ptr %58, align 8
-  %.not.i1638 = icmp eq ptr %547, null
-  br i1 %.not.i1638, label %.loopexit1863.sink.split, label %548
+  %538 = tail call fastcc ptr @strdup_and_store(ptr %.val1521, ptr noundef %537)
+  %539 = load ptr, ptr %0, align 8
+  %540 = getelementptr inbounds nuw i8, ptr %539, i64 56
+  %541 = load ptr, ptr %540, align 8
+  store ptr %538, ptr %541, align 8
+  %542 = load ptr, ptr %58, align 8
+  %.not.i1638 = icmp eq ptr %542, null
+  br i1 %.not.i1638, label %.loopexit1863.sink.split, label %543
 
-548:                                              ; preds = %532
-  %549 = load i64, ptr %59, align 8
-  %550 = getelementptr ptr, ptr %547, i64 %549
-  %551 = load ptr, ptr %550, align 8
-  %.not8.i1639 = icmp eq ptr %551, null
+543:                                              ; preds = %527
+  %544 = load i64, ptr %59, align 8
+  %545 = getelementptr ptr, ptr %542, i64 %544
+  %546 = load ptr, ptr %545, align 8
+  %.not8.i1639 = icmp eq ptr %546, null
   br i1 %.not8.i1639, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-552:                                              ; preds = %.loopexit1866
-  %553 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %554 = load ptr, ptr %0, align 8
-  %555 = getelementptr inbounds nuw i8, ptr %554, i64 56
-  store ptr %553, ptr %555, align 8
-  %556 = load ptr, ptr %0, align 8
-  %557 = getelementptr inbounds nuw i8, ptr %556, i64 56
-  %558 = load ptr, ptr %557, align 8
-  %559 = getelementptr inbounds nuw i8, ptr %556, i64 24
-  %560 = load ptr, ptr %559, align 8
-  %561 = tail call ptr @g_slist_prepend(ptr noundef %560, ptr noundef %558)
-  store ptr %561, ptr %559, align 8
-  %562 = load ptr, ptr %56, align 8
+547:                                              ; preds = %.loopexit1866
+  %548 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %549 = load ptr, ptr %0, align 8
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 56
+  store ptr %548, ptr %550, align 8
+  %551 = load ptr, ptr %0, align 8
+  %552 = getelementptr inbounds nuw i8, ptr %551, i64 56
+  %553 = load ptr, ptr %552, align 8
+  %554 = getelementptr inbounds nuw i8, ptr %551, i64 24
+  %555 = load ptr, ptr %554, align 8
+  %556 = tail call ptr @g_slist_prepend(ptr noundef %555, ptr noundef %553)
+  store ptr %556, ptr %554, align 8
+  %557 = load ptr, ptr %56, align 8
   %.val1522 = load ptr, ptr %0, align 8
-  %563 = tail call fastcc ptr @strdup_and_store(ptr %.val1522, ptr noundef %562)
-  %564 = load ptr, ptr %0, align 8
-  %565 = getelementptr inbounds nuw i8, ptr %564, i64 56
-  %566 = load ptr, ptr %565, align 8
-  store ptr %563, ptr %566, align 8
-  %567 = load ptr, ptr %58, align 8
-  %.not.i1642 = icmp eq ptr %567, null
-  br i1 %.not.i1642, label %.loopexit1863.sink.split, label %568
+  %558 = tail call fastcc ptr @strdup_and_store(ptr %.val1522, ptr noundef %557)
+  %559 = load ptr, ptr %0, align 8
+  %560 = getelementptr inbounds nuw i8, ptr %559, i64 56
+  %561 = load ptr, ptr %560, align 8
+  store ptr %558, ptr %561, align 8
+  %562 = load ptr, ptr %58, align 8
+  %.not.i1642 = icmp eq ptr %562, null
+  br i1 %.not.i1642, label %.loopexit1863.sink.split, label %563
 
-568:                                              ; preds = %552
-  %569 = load i64, ptr %59, align 8
-  %570 = getelementptr ptr, ptr %567, i64 %569
-  %571 = load ptr, ptr %570, align 8
-  %.not8.i1643 = icmp eq ptr %571, null
+563:                                              ; preds = %547
+  %564 = load i64, ptr %59, align 8
+  %565 = getelementptr ptr, ptr %562, i64 %564
+  %566 = load ptr, ptr %565, align 8
+  %.not8.i1643 = icmp eq ptr %566, null
   br i1 %.not8.i1643, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-572:                                              ; preds = %.loopexit1866
-  %573 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %574 = load ptr, ptr %0, align 8
-  %575 = getelementptr inbounds nuw i8, ptr %574, i64 56
-  store ptr %573, ptr %575, align 8
-  %576 = load ptr, ptr %0, align 8
-  %577 = getelementptr inbounds nuw i8, ptr %576, i64 56
-  %578 = load ptr, ptr %577, align 8
-  %579 = getelementptr inbounds nuw i8, ptr %576, i64 24
-  %580 = load ptr, ptr %579, align 8
-  %581 = tail call ptr @g_slist_prepend(ptr noundef %580, ptr noundef %578)
-  store ptr %581, ptr %579, align 8
-  %582 = load ptr, ptr %56, align 8
+567:                                              ; preds = %.loopexit1866
+  %568 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %569 = load ptr, ptr %0, align 8
+  %570 = getelementptr inbounds nuw i8, ptr %569, i64 56
+  store ptr %568, ptr %570, align 8
+  %571 = load ptr, ptr %0, align 8
+  %572 = getelementptr inbounds nuw i8, ptr %571, i64 56
+  %573 = load ptr, ptr %572, align 8
+  %574 = getelementptr inbounds nuw i8, ptr %571, i64 24
+  %575 = load ptr, ptr %574, align 8
+  %576 = tail call ptr @g_slist_prepend(ptr noundef %575, ptr noundef %573)
+  store ptr %576, ptr %574, align 8
+  %577 = load ptr, ptr %56, align 8
   %.val1523 = load ptr, ptr %0, align 8
-  %583 = tail call fastcc ptr @strdup_and_store(ptr %.val1523, ptr noundef %582)
-  %584 = load ptr, ptr %0, align 8
-  %585 = getelementptr inbounds nuw i8, ptr %584, i64 56
-  %586 = load ptr, ptr %585, align 8
-  store ptr %583, ptr %586, align 8
-  %587 = load ptr, ptr %58, align 8
-  %.not.i1646 = icmp eq ptr %587, null
-  br i1 %.not.i1646, label %.loopexit1863.sink.split, label %588
+  %578 = tail call fastcc ptr @strdup_and_store(ptr %.val1523, ptr noundef %577)
+  %579 = load ptr, ptr %0, align 8
+  %580 = getelementptr inbounds nuw i8, ptr %579, i64 56
+  %581 = load ptr, ptr %580, align 8
+  store ptr %578, ptr %581, align 8
+  %582 = load ptr, ptr %58, align 8
+  %.not.i1646 = icmp eq ptr %582, null
+  br i1 %.not.i1646, label %.loopexit1863.sink.split, label %583
 
-588:                                              ; preds = %572
-  %589 = load i64, ptr %59, align 8
-  %590 = getelementptr ptr, ptr %587, i64 %589
-  %591 = load ptr, ptr %590, align 8
-  %.not8.i1647 = icmp eq ptr %591, null
+583:                                              ; preds = %567
+  %584 = load i64, ptr %59, align 8
+  %585 = getelementptr ptr, ptr %582, i64 %584
+  %586 = load ptr, ptr %585, align 8
+  %.not8.i1647 = icmp eq ptr %586, null
   br i1 %.not8.i1647, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-592:                                              ; preds = %.loopexit1866
-  %593 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %594 = load ptr, ptr %0, align 8
-  %595 = getelementptr inbounds nuw i8, ptr %594, i64 56
-  store ptr %593, ptr %595, align 8
-  %596 = load ptr, ptr %0, align 8
-  %597 = getelementptr inbounds nuw i8, ptr %596, i64 56
-  %598 = load ptr, ptr %597, align 8
-  %599 = getelementptr inbounds nuw i8, ptr %596, i64 24
-  %600 = load ptr, ptr %599, align 8
-  %601 = tail call ptr @g_slist_prepend(ptr noundef %600, ptr noundef %598)
-  store ptr %601, ptr %599, align 8
-  %602 = load ptr, ptr %56, align 8
+587:                                              ; preds = %.loopexit1866
+  %588 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %589 = load ptr, ptr %0, align 8
+  %590 = getelementptr inbounds nuw i8, ptr %589, i64 56
+  store ptr %588, ptr %590, align 8
+  %591 = load ptr, ptr %0, align 8
+  %592 = getelementptr inbounds nuw i8, ptr %591, i64 56
+  %593 = load ptr, ptr %592, align 8
+  %594 = getelementptr inbounds nuw i8, ptr %591, i64 24
+  %595 = load ptr, ptr %594, align 8
+  %596 = tail call ptr @g_slist_prepend(ptr noundef %595, ptr noundef %593)
+  store ptr %596, ptr %594, align 8
+  %597 = load ptr, ptr %56, align 8
   %.val1524 = load ptr, ptr %0, align 8
-  %603 = tail call fastcc ptr @strdup_and_store(ptr %.val1524, ptr noundef %602)
-  %604 = load ptr, ptr %0, align 8
-  %605 = getelementptr inbounds nuw i8, ptr %604, i64 56
-  %606 = load ptr, ptr %605, align 8
-  store ptr %603, ptr %606, align 8
-  %607 = load ptr, ptr %58, align 8
-  %.not.i1650 = icmp eq ptr %607, null
-  br i1 %.not.i1650, label %.loopexit1863.sink.split, label %608
+  %598 = tail call fastcc ptr @strdup_and_store(ptr %.val1524, ptr noundef %597)
+  %599 = load ptr, ptr %0, align 8
+  %600 = getelementptr inbounds nuw i8, ptr %599, i64 56
+  %601 = load ptr, ptr %600, align 8
+  store ptr %598, ptr %601, align 8
+  %602 = load ptr, ptr %58, align 8
+  %.not.i1650 = icmp eq ptr %602, null
+  br i1 %.not.i1650, label %.loopexit1863.sink.split, label %603
 
-608:                                              ; preds = %592
-  %609 = load i64, ptr %59, align 8
-  %610 = getelementptr ptr, ptr %607, i64 %609
-  %611 = load ptr, ptr %610, align 8
-  %.not8.i1651 = icmp eq ptr %611, null
+603:                                              ; preds = %587
+  %604 = load i64, ptr %59, align 8
+  %605 = getelementptr ptr, ptr %602, i64 %604
+  %606 = load ptr, ptr %605, align 8
+  %.not8.i1651 = icmp eq ptr %606, null
   br i1 %.not8.i1651, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-612:                                              ; preds = %.loopexit1866
-  %613 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %614 = load ptr, ptr %0, align 8
-  %615 = getelementptr inbounds nuw i8, ptr %614, i64 56
-  store ptr %613, ptr %615, align 8
-  %616 = load ptr, ptr %0, align 8
-  %617 = getelementptr inbounds nuw i8, ptr %616, i64 56
-  %618 = load ptr, ptr %617, align 8
-  %619 = getelementptr inbounds nuw i8, ptr %616, i64 24
-  %620 = load ptr, ptr %619, align 8
-  %621 = tail call ptr @g_slist_prepend(ptr noundef %620, ptr noundef %618)
-  store ptr %621, ptr %619, align 8
-  %622 = load ptr, ptr %56, align 8
+607:                                              ; preds = %.loopexit1866
+  %608 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %609 = load ptr, ptr %0, align 8
+  %610 = getelementptr inbounds nuw i8, ptr %609, i64 56
+  store ptr %608, ptr %610, align 8
+  %611 = load ptr, ptr %0, align 8
+  %612 = getelementptr inbounds nuw i8, ptr %611, i64 56
+  %613 = load ptr, ptr %612, align 8
+  %614 = getelementptr inbounds nuw i8, ptr %611, i64 24
+  %615 = load ptr, ptr %614, align 8
+  %616 = tail call ptr @g_slist_prepend(ptr noundef %615, ptr noundef %613)
+  store ptr %616, ptr %614, align 8
+  %617 = load ptr, ptr %56, align 8
   %.val1525 = load ptr, ptr %0, align 8
-  %623 = tail call fastcc ptr @strdup_and_store(ptr %.val1525, ptr noundef %622)
-  %624 = load ptr, ptr %0, align 8
-  %625 = getelementptr inbounds nuw i8, ptr %624, i64 56
-  %626 = load ptr, ptr %625, align 8
-  store ptr %623, ptr %626, align 8
-  %627 = load ptr, ptr %58, align 8
-  %.not.i1654 = icmp eq ptr %627, null
-  br i1 %.not.i1654, label %.loopexit1863.sink.split, label %628
+  %618 = tail call fastcc ptr @strdup_and_store(ptr %.val1525, ptr noundef %617)
+  %619 = load ptr, ptr %0, align 8
+  %620 = getelementptr inbounds nuw i8, ptr %619, i64 56
+  %621 = load ptr, ptr %620, align 8
+  store ptr %618, ptr %621, align 8
+  %622 = load ptr, ptr %58, align 8
+  %.not.i1654 = icmp eq ptr %622, null
+  br i1 %.not.i1654, label %.loopexit1863.sink.split, label %623
 
-628:                                              ; preds = %612
-  %629 = load i64, ptr %59, align 8
-  %630 = getelementptr ptr, ptr %627, i64 %629
-  %631 = load ptr, ptr %630, align 8
-  %.not8.i1655 = icmp eq ptr %631, null
+623:                                              ; preds = %607
+  %624 = load i64, ptr %59, align 8
+  %625 = getelementptr ptr, ptr %622, i64 %624
+  %626 = load ptr, ptr %625, align 8
+  %.not8.i1655 = icmp eq ptr %626, null
   br i1 %.not8.i1655, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-632:                                              ; preds = %.loopexit1866
-  %633 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %634 = load ptr, ptr %0, align 8
-  %635 = getelementptr inbounds nuw i8, ptr %634, i64 56
-  store ptr %633, ptr %635, align 8
-  %636 = load ptr, ptr %0, align 8
-  %637 = getelementptr inbounds nuw i8, ptr %636, i64 56
-  %638 = load ptr, ptr %637, align 8
-  %639 = getelementptr inbounds nuw i8, ptr %636, i64 24
-  %640 = load ptr, ptr %639, align 8
-  %641 = tail call ptr @g_slist_prepend(ptr noundef %640, ptr noundef %638)
-  store ptr %641, ptr %639, align 8
-  %642 = load ptr, ptr %56, align 8
+627:                                              ; preds = %.loopexit1866
+  %628 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %629 = load ptr, ptr %0, align 8
+  %630 = getelementptr inbounds nuw i8, ptr %629, i64 56
+  store ptr %628, ptr %630, align 8
+  %631 = load ptr, ptr %0, align 8
+  %632 = getelementptr inbounds nuw i8, ptr %631, i64 56
+  %633 = load ptr, ptr %632, align 8
+  %634 = getelementptr inbounds nuw i8, ptr %631, i64 24
+  %635 = load ptr, ptr %634, align 8
+  %636 = tail call ptr @g_slist_prepend(ptr noundef %635, ptr noundef %633)
+  store ptr %636, ptr %634, align 8
+  %637 = load ptr, ptr %56, align 8
   %.val1526 = load ptr, ptr %0, align 8
-  %643 = tail call fastcc ptr @strdup_and_store(ptr %.val1526, ptr noundef %642)
-  %644 = load ptr, ptr %0, align 8
-  %645 = getelementptr inbounds nuw i8, ptr %644, i64 56
-  %646 = load ptr, ptr %645, align 8
-  store ptr %643, ptr %646, align 8
-  %647 = load ptr, ptr %58, align 8
-  %.not.i1658 = icmp eq ptr %647, null
-  br i1 %.not.i1658, label %.loopexit1863.sink.split, label %648
+  %638 = tail call fastcc ptr @strdup_and_store(ptr %.val1526, ptr noundef %637)
+  %639 = load ptr, ptr %0, align 8
+  %640 = getelementptr inbounds nuw i8, ptr %639, i64 56
+  %641 = load ptr, ptr %640, align 8
+  store ptr %638, ptr %641, align 8
+  %642 = load ptr, ptr %58, align 8
+  %.not.i1658 = icmp eq ptr %642, null
+  br i1 %.not.i1658, label %.loopexit1863.sink.split, label %643
 
-648:                                              ; preds = %632
-  %649 = load i64, ptr %59, align 8
-  %650 = getelementptr ptr, ptr %647, i64 %649
-  %651 = load ptr, ptr %650, align 8
-  %.not8.i1659 = icmp eq ptr %651, null
+643:                                              ; preds = %627
+  %644 = load i64, ptr %59, align 8
+  %645 = getelementptr ptr, ptr %642, i64 %644
+  %646 = load ptr, ptr %645, align 8
+  %.not8.i1659 = icmp eq ptr %646, null
   br i1 %.not8.i1659, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-652:                                              ; preds = %.loopexit1866
-  %653 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %654 = load ptr, ptr %0, align 8
-  %655 = getelementptr inbounds nuw i8, ptr %654, i64 56
-  store ptr %653, ptr %655, align 8
-  %656 = load ptr, ptr %0, align 8
-  %657 = getelementptr inbounds nuw i8, ptr %656, i64 56
-  %658 = load ptr, ptr %657, align 8
-  %659 = getelementptr inbounds nuw i8, ptr %656, i64 24
-  %660 = load ptr, ptr %659, align 8
-  %661 = tail call ptr @g_slist_prepend(ptr noundef %660, ptr noundef %658)
-  store ptr %661, ptr %659, align 8
-  %662 = load ptr, ptr %56, align 8
+647:                                              ; preds = %.loopexit1866
+  %648 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %649 = load ptr, ptr %0, align 8
+  %650 = getelementptr inbounds nuw i8, ptr %649, i64 56
+  store ptr %648, ptr %650, align 8
+  %651 = load ptr, ptr %0, align 8
+  %652 = getelementptr inbounds nuw i8, ptr %651, i64 56
+  %653 = load ptr, ptr %652, align 8
+  %654 = getelementptr inbounds nuw i8, ptr %651, i64 24
+  %655 = load ptr, ptr %654, align 8
+  %656 = tail call ptr @g_slist_prepend(ptr noundef %655, ptr noundef %653)
+  store ptr %656, ptr %654, align 8
+  %657 = load ptr, ptr %56, align 8
   %.val1527 = load ptr, ptr %0, align 8
-  %663 = tail call fastcc ptr @strdup_and_store(ptr %.val1527, ptr noundef %662)
-  %664 = load ptr, ptr %0, align 8
-  %665 = getelementptr inbounds nuw i8, ptr %664, i64 56
-  %666 = load ptr, ptr %665, align 8
-  store ptr %663, ptr %666, align 8
-  %667 = load ptr, ptr %58, align 8
-  %.not.i1662 = icmp eq ptr %667, null
-  br i1 %.not.i1662, label %.loopexit1863.sink.split, label %668
+  %658 = tail call fastcc ptr @strdup_and_store(ptr %.val1527, ptr noundef %657)
+  %659 = load ptr, ptr %0, align 8
+  %660 = getelementptr inbounds nuw i8, ptr %659, i64 56
+  %661 = load ptr, ptr %660, align 8
+  store ptr %658, ptr %661, align 8
+  %662 = load ptr, ptr %58, align 8
+  %.not.i1662 = icmp eq ptr %662, null
+  br i1 %.not.i1662, label %.loopexit1863.sink.split, label %663
 
-668:                                              ; preds = %652
-  %669 = load i64, ptr %59, align 8
-  %670 = getelementptr ptr, ptr %667, i64 %669
-  %671 = load ptr, ptr %670, align 8
-  %.not8.i1663 = icmp eq ptr %671, null
+663:                                              ; preds = %647
+  %664 = load i64, ptr %59, align 8
+  %665 = getelementptr ptr, ptr %662, i64 %664
+  %666 = load ptr, ptr %665, align 8
+  %.not8.i1663 = icmp eq ptr %666, null
   br i1 %.not8.i1663, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-672:                                              ; preds = %.loopexit1866
-  %673 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %674 = load ptr, ptr %0, align 8
-  %675 = getelementptr inbounds nuw i8, ptr %674, i64 56
-  store ptr %673, ptr %675, align 8
-  %676 = load ptr, ptr %0, align 8
-  %677 = getelementptr inbounds nuw i8, ptr %676, i64 56
-  %678 = load ptr, ptr %677, align 8
-  %679 = getelementptr inbounds nuw i8, ptr %676, i64 24
-  %680 = load ptr, ptr %679, align 8
-  %681 = tail call ptr @g_slist_prepend(ptr noundef %680, ptr noundef %678)
-  store ptr %681, ptr %679, align 8
-  %682 = load ptr, ptr %56, align 8
+667:                                              ; preds = %.loopexit1866
+  %668 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %669 = load ptr, ptr %0, align 8
+  %670 = getelementptr inbounds nuw i8, ptr %669, i64 56
+  store ptr %668, ptr %670, align 8
+  %671 = load ptr, ptr %0, align 8
+  %672 = getelementptr inbounds nuw i8, ptr %671, i64 56
+  %673 = load ptr, ptr %672, align 8
+  %674 = getelementptr inbounds nuw i8, ptr %671, i64 24
+  %675 = load ptr, ptr %674, align 8
+  %676 = tail call ptr @g_slist_prepend(ptr noundef %675, ptr noundef %673)
+  store ptr %676, ptr %674, align 8
+  %677 = load ptr, ptr %56, align 8
   %.val1528 = load ptr, ptr %0, align 8
-  %683 = tail call fastcc ptr @strdup_and_store(ptr %.val1528, ptr noundef %682)
-  %684 = load ptr, ptr %0, align 8
-  %685 = getelementptr inbounds nuw i8, ptr %684, i64 56
-  %686 = load ptr, ptr %685, align 8
-  store ptr %683, ptr %686, align 8
-  %687 = load ptr, ptr %58, align 8
-  %.not.i1666 = icmp eq ptr %687, null
-  br i1 %.not.i1666, label %.loopexit1863.sink.split, label %688
+  %678 = tail call fastcc ptr @strdup_and_store(ptr %.val1528, ptr noundef %677)
+  %679 = load ptr, ptr %0, align 8
+  %680 = getelementptr inbounds nuw i8, ptr %679, i64 56
+  %681 = load ptr, ptr %680, align 8
+  store ptr %678, ptr %681, align 8
+  %682 = load ptr, ptr %58, align 8
+  %.not.i1666 = icmp eq ptr %682, null
+  br i1 %.not.i1666, label %.loopexit1863.sink.split, label %683
 
-688:                                              ; preds = %672
-  %689 = load i64, ptr %59, align 8
-  %690 = getelementptr ptr, ptr %687, i64 %689
-  %691 = load ptr, ptr %690, align 8
-  %.not8.i1667 = icmp eq ptr %691, null
+683:                                              ; preds = %667
+  %684 = load i64, ptr %59, align 8
+  %685 = getelementptr ptr, ptr %682, i64 %684
+  %686 = load ptr, ptr %685, align 8
+  %.not8.i1667 = icmp eq ptr %686, null
   br i1 %.not8.i1667, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-692:                                              ; preds = %.loopexit1866
-  %693 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %694 = load ptr, ptr %0, align 8
-  %695 = getelementptr inbounds nuw i8, ptr %694, i64 56
-  store ptr %693, ptr %695, align 8
-  %696 = load ptr, ptr %0, align 8
-  %697 = getelementptr inbounds nuw i8, ptr %696, i64 56
-  %698 = load ptr, ptr %697, align 8
-  %699 = getelementptr inbounds nuw i8, ptr %696, i64 24
-  %700 = load ptr, ptr %699, align 8
-  %701 = tail call ptr @g_slist_prepend(ptr noundef %700, ptr noundef %698)
-  store ptr %701, ptr %699, align 8
-  %702 = load ptr, ptr %56, align 8
+687:                                              ; preds = %.loopexit1866
+  %688 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %689 = load ptr, ptr %0, align 8
+  %690 = getelementptr inbounds nuw i8, ptr %689, i64 56
+  store ptr %688, ptr %690, align 8
+  %691 = load ptr, ptr %0, align 8
+  %692 = getelementptr inbounds nuw i8, ptr %691, i64 56
+  %693 = load ptr, ptr %692, align 8
+  %694 = getelementptr inbounds nuw i8, ptr %691, i64 24
+  %695 = load ptr, ptr %694, align 8
+  %696 = tail call ptr @g_slist_prepend(ptr noundef %695, ptr noundef %693)
+  store ptr %696, ptr %694, align 8
+  %697 = load ptr, ptr %56, align 8
   %.val1529 = load ptr, ptr %0, align 8
-  %703 = tail call fastcc ptr @strdup_and_store(ptr %.val1529, ptr noundef %702)
-  %704 = load ptr, ptr %0, align 8
-  %705 = getelementptr inbounds nuw i8, ptr %704, i64 56
-  %706 = load ptr, ptr %705, align 8
-  store ptr %703, ptr %706, align 8
-  %707 = load ptr, ptr %58, align 8
-  %.not.i1670 = icmp eq ptr %707, null
-  br i1 %.not.i1670, label %.loopexit1863.sink.split, label %708
+  %698 = tail call fastcc ptr @strdup_and_store(ptr %.val1529, ptr noundef %697)
+  %699 = load ptr, ptr %0, align 8
+  %700 = getelementptr inbounds nuw i8, ptr %699, i64 56
+  %701 = load ptr, ptr %700, align 8
+  store ptr %698, ptr %701, align 8
+  %702 = load ptr, ptr %58, align 8
+  %.not.i1670 = icmp eq ptr %702, null
+  br i1 %.not.i1670, label %.loopexit1863.sink.split, label %703
 
-708:                                              ; preds = %692
-  %709 = load i64, ptr %59, align 8
-  %710 = getelementptr ptr, ptr %707, i64 %709
-  %711 = load ptr, ptr %710, align 8
-  %.not8.i1671 = icmp eq ptr %711, null
+703:                                              ; preds = %687
+  %704 = load i64, ptr %59, align 8
+  %705 = getelementptr ptr, ptr %702, i64 %704
+  %706 = load ptr, ptr %705, align 8
+  %.not8.i1671 = icmp eq ptr %706, null
   br i1 %.not8.i1671, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-712:                                              ; preds = %.loopexit1866
-  %713 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %714 = load ptr, ptr %0, align 8
-  %715 = getelementptr inbounds nuw i8, ptr %714, i64 56
-  store ptr %713, ptr %715, align 8
-  %716 = load ptr, ptr %0, align 8
-  %717 = getelementptr inbounds nuw i8, ptr %716, i64 56
-  %718 = load ptr, ptr %717, align 8
-  %719 = getelementptr inbounds nuw i8, ptr %716, i64 24
-  %720 = load ptr, ptr %719, align 8
-  %721 = tail call ptr @g_slist_prepend(ptr noundef %720, ptr noundef %718)
-  store ptr %721, ptr %719, align 8
-  %722 = load ptr, ptr %56, align 8
+707:                                              ; preds = %.loopexit1866
+  %708 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %709 = load ptr, ptr %0, align 8
+  %710 = getelementptr inbounds nuw i8, ptr %709, i64 56
+  store ptr %708, ptr %710, align 8
+  %711 = load ptr, ptr %0, align 8
+  %712 = getelementptr inbounds nuw i8, ptr %711, i64 56
+  %713 = load ptr, ptr %712, align 8
+  %714 = getelementptr inbounds nuw i8, ptr %711, i64 24
+  %715 = load ptr, ptr %714, align 8
+  %716 = tail call ptr @g_slist_prepend(ptr noundef %715, ptr noundef %713)
+  store ptr %716, ptr %714, align 8
+  %717 = load ptr, ptr %56, align 8
   %.val1530 = load ptr, ptr %0, align 8
-  %723 = tail call fastcc ptr @strdup_and_store(ptr %.val1530, ptr noundef %722)
-  %724 = load ptr, ptr %0, align 8
-  %725 = getelementptr inbounds nuw i8, ptr %724, i64 56
-  %726 = load ptr, ptr %725, align 8
-  store ptr %723, ptr %726, align 8
-  %727 = load ptr, ptr %58, align 8
-  %.not.i1674 = icmp eq ptr %727, null
-  br i1 %.not.i1674, label %.loopexit1863.sink.split, label %728
+  %718 = tail call fastcc ptr @strdup_and_store(ptr %.val1530, ptr noundef %717)
+  %719 = load ptr, ptr %0, align 8
+  %720 = getelementptr inbounds nuw i8, ptr %719, i64 56
+  %721 = load ptr, ptr %720, align 8
+  store ptr %718, ptr %721, align 8
+  %722 = load ptr, ptr %58, align 8
+  %.not.i1674 = icmp eq ptr %722, null
+  br i1 %.not.i1674, label %.loopexit1863.sink.split, label %723
 
-728:                                              ; preds = %712
-  %729 = load i64, ptr %59, align 8
-  %730 = getelementptr ptr, ptr %727, i64 %729
-  %731 = load ptr, ptr %730, align 8
-  %.not8.i1675 = icmp eq ptr %731, null
+723:                                              ; preds = %707
+  %724 = load i64, ptr %59, align 8
+  %725 = getelementptr ptr, ptr %722, i64 %724
+  %726 = load ptr, ptr %725, align 8
+  %.not8.i1675 = icmp eq ptr %726, null
   br i1 %.not8.i1675, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-732:                                              ; preds = %.loopexit1866
-  %733 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %734 = load ptr, ptr %0, align 8
-  %735 = getelementptr inbounds nuw i8, ptr %734, i64 56
-  store ptr %733, ptr %735, align 8
-  %736 = load ptr, ptr %0, align 8
-  %737 = getelementptr inbounds nuw i8, ptr %736, i64 56
-  %738 = load ptr, ptr %737, align 8
-  %739 = getelementptr inbounds nuw i8, ptr %736, i64 24
-  %740 = load ptr, ptr %739, align 8
-  %741 = tail call ptr @g_slist_prepend(ptr noundef %740, ptr noundef %738)
-  store ptr %741, ptr %739, align 8
-  %742 = load ptr, ptr %56, align 8
+727:                                              ; preds = %.loopexit1866
+  %728 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %729 = load ptr, ptr %0, align 8
+  %730 = getelementptr inbounds nuw i8, ptr %729, i64 56
+  store ptr %728, ptr %730, align 8
+  %731 = load ptr, ptr %0, align 8
+  %732 = getelementptr inbounds nuw i8, ptr %731, i64 56
+  %733 = load ptr, ptr %732, align 8
+  %734 = getelementptr inbounds nuw i8, ptr %731, i64 24
+  %735 = load ptr, ptr %734, align 8
+  %736 = tail call ptr @g_slist_prepend(ptr noundef %735, ptr noundef %733)
+  store ptr %736, ptr %734, align 8
+  %737 = load ptr, ptr %56, align 8
   %.val1531 = load ptr, ptr %0, align 8
-  %743 = tail call fastcc ptr @strdup_and_store(ptr %.val1531, ptr noundef %742)
-  %744 = load ptr, ptr %0, align 8
-  %745 = getelementptr inbounds nuw i8, ptr %744, i64 56
-  %746 = load ptr, ptr %745, align 8
-  store ptr %743, ptr %746, align 8
-  %747 = load ptr, ptr %58, align 8
-  %.not.i1678 = icmp eq ptr %747, null
-  br i1 %.not.i1678, label %.loopexit1863.sink.split, label %748
+  %738 = tail call fastcc ptr @strdup_and_store(ptr %.val1531, ptr noundef %737)
+  %739 = load ptr, ptr %0, align 8
+  %740 = getelementptr inbounds nuw i8, ptr %739, i64 56
+  %741 = load ptr, ptr %740, align 8
+  store ptr %738, ptr %741, align 8
+  %742 = load ptr, ptr %58, align 8
+  %.not.i1678 = icmp eq ptr %742, null
+  br i1 %.not.i1678, label %.loopexit1863.sink.split, label %743
 
-748:                                              ; preds = %732
-  %749 = load i64, ptr %59, align 8
-  %750 = getelementptr ptr, ptr %747, i64 %749
-  %751 = load ptr, ptr %750, align 8
-  %.not8.i1679 = icmp eq ptr %751, null
+743:                                              ; preds = %727
+  %744 = load i64, ptr %59, align 8
+  %745 = getelementptr ptr, ptr %742, i64 %744
+  %746 = load ptr, ptr %745, align 8
+  %.not8.i1679 = icmp eq ptr %746, null
   br i1 %.not8.i1679, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-752:                                              ; preds = %.loopexit1866
-  %753 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %754 = load ptr, ptr %0, align 8
-  %755 = getelementptr inbounds nuw i8, ptr %754, i64 56
-  store ptr %753, ptr %755, align 8
-  %756 = load ptr, ptr %0, align 8
-  %757 = getelementptr inbounds nuw i8, ptr %756, i64 56
-  %758 = load ptr, ptr %757, align 8
-  %759 = getelementptr inbounds nuw i8, ptr %756, i64 24
-  %760 = load ptr, ptr %759, align 8
-  %761 = tail call ptr @g_slist_prepend(ptr noundef %760, ptr noundef %758)
-  store ptr %761, ptr %759, align 8
-  %762 = load ptr, ptr %56, align 8
+747:                                              ; preds = %.loopexit1866
+  %748 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %749 = load ptr, ptr %0, align 8
+  %750 = getelementptr inbounds nuw i8, ptr %749, i64 56
+  store ptr %748, ptr %750, align 8
+  %751 = load ptr, ptr %0, align 8
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 56
+  %753 = load ptr, ptr %752, align 8
+  %754 = getelementptr inbounds nuw i8, ptr %751, i64 24
+  %755 = load ptr, ptr %754, align 8
+  %756 = tail call ptr @g_slist_prepend(ptr noundef %755, ptr noundef %753)
+  store ptr %756, ptr %754, align 8
+  %757 = load ptr, ptr %56, align 8
   %.val1532 = load ptr, ptr %0, align 8
-  %763 = tail call fastcc ptr @strdup_and_store(ptr %.val1532, ptr noundef %762)
-  %764 = load ptr, ptr %0, align 8
-  %765 = getelementptr inbounds nuw i8, ptr %764, i64 56
-  %766 = load ptr, ptr %765, align 8
-  store ptr %763, ptr %766, align 8
-  %767 = load ptr, ptr %58, align 8
-  %.not.i1682 = icmp eq ptr %767, null
-  br i1 %.not.i1682, label %.loopexit1863.sink.split, label %768
+  %758 = tail call fastcc ptr @strdup_and_store(ptr %.val1532, ptr noundef %757)
+  %759 = load ptr, ptr %0, align 8
+  %760 = getelementptr inbounds nuw i8, ptr %759, i64 56
+  %761 = load ptr, ptr %760, align 8
+  store ptr %758, ptr %761, align 8
+  %762 = load ptr, ptr %58, align 8
+  %.not.i1682 = icmp eq ptr %762, null
+  br i1 %.not.i1682, label %.loopexit1863.sink.split, label %763
 
-768:                                              ; preds = %752
-  %769 = load i64, ptr %59, align 8
-  %770 = getelementptr ptr, ptr %767, i64 %769
-  %771 = load ptr, ptr %770, align 8
-  %.not8.i1683 = icmp eq ptr %771, null
+763:                                              ; preds = %747
+  %764 = load i64, ptr %59, align 8
+  %765 = getelementptr ptr, ptr %762, i64 %764
+  %766 = load ptr, ptr %765, align 8
+  %.not8.i1683 = icmp eq ptr %766, null
   br i1 %.not8.i1683, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-772:                                              ; preds = %.loopexit1866
-  %773 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %774 = load ptr, ptr %0, align 8
-  %775 = getelementptr inbounds nuw i8, ptr %774, i64 56
-  store ptr %773, ptr %775, align 8
-  %776 = load ptr, ptr %0, align 8
-  %777 = getelementptr inbounds nuw i8, ptr %776, i64 56
-  %778 = load ptr, ptr %777, align 8
-  %779 = getelementptr inbounds nuw i8, ptr %776, i64 24
-  %780 = load ptr, ptr %779, align 8
-  %781 = tail call ptr @g_slist_prepend(ptr noundef %780, ptr noundef %778)
-  store ptr %781, ptr %779, align 8
-  %782 = load ptr, ptr %56, align 8
+767:                                              ; preds = %.loopexit1866
+  %768 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %769 = load ptr, ptr %0, align 8
+  %770 = getelementptr inbounds nuw i8, ptr %769, i64 56
+  store ptr %768, ptr %770, align 8
+  %771 = load ptr, ptr %0, align 8
+  %772 = getelementptr inbounds nuw i8, ptr %771, i64 56
+  %773 = load ptr, ptr %772, align 8
+  %774 = getelementptr inbounds nuw i8, ptr %771, i64 24
+  %775 = load ptr, ptr %774, align 8
+  %776 = tail call ptr @g_slist_prepend(ptr noundef %775, ptr noundef %773)
+  store ptr %776, ptr %774, align 8
+  %777 = load ptr, ptr %56, align 8
   %.val1533 = load ptr, ptr %0, align 8
-  %783 = tail call fastcc ptr @strdup_and_store(ptr %.val1533, ptr noundef %782)
-  %784 = load ptr, ptr %0, align 8
-  %785 = getelementptr inbounds nuw i8, ptr %784, i64 56
-  %786 = load ptr, ptr %785, align 8
-  store ptr %783, ptr %786, align 8
-  %787 = load ptr, ptr %58, align 8
-  %.not.i1686 = icmp eq ptr %787, null
-  br i1 %.not.i1686, label %.loopexit1863.sink.split, label %788
+  %778 = tail call fastcc ptr @strdup_and_store(ptr %.val1533, ptr noundef %777)
+  %779 = load ptr, ptr %0, align 8
+  %780 = getelementptr inbounds nuw i8, ptr %779, i64 56
+  %781 = load ptr, ptr %780, align 8
+  store ptr %778, ptr %781, align 8
+  %782 = load ptr, ptr %58, align 8
+  %.not.i1686 = icmp eq ptr %782, null
+  br i1 %.not.i1686, label %.loopexit1863.sink.split, label %783
 
-788:                                              ; preds = %772
-  %789 = load i64, ptr %59, align 8
-  %790 = getelementptr ptr, ptr %787, i64 %789
-  %791 = load ptr, ptr %790, align 8
-  %.not8.i1687 = icmp eq ptr %791, null
+783:                                              ; preds = %767
+  %784 = load i64, ptr %59, align 8
+  %785 = getelementptr ptr, ptr %782, i64 %784
+  %786 = load ptr, ptr %785, align 8
+  %.not8.i1687 = icmp eq ptr %786, null
   br i1 %.not8.i1687, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-792:                                              ; preds = %.loopexit1866
-  %793 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %794 = load ptr, ptr %0, align 8
-  %795 = getelementptr inbounds nuw i8, ptr %794, i64 56
-  store ptr %793, ptr %795, align 8
-  %796 = load ptr, ptr %0, align 8
-  %797 = getelementptr inbounds nuw i8, ptr %796, i64 56
-  %798 = load ptr, ptr %797, align 8
-  %799 = getelementptr inbounds nuw i8, ptr %796, i64 24
-  %800 = load ptr, ptr %799, align 8
-  %801 = tail call ptr @g_slist_prepend(ptr noundef %800, ptr noundef %798)
-  store ptr %801, ptr %799, align 8
-  %802 = load ptr, ptr %56, align 8
+787:                                              ; preds = %.loopexit1866
+  %788 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %789 = load ptr, ptr %0, align 8
+  %790 = getelementptr inbounds nuw i8, ptr %789, i64 56
+  store ptr %788, ptr %790, align 8
+  %791 = load ptr, ptr %0, align 8
+  %792 = getelementptr inbounds nuw i8, ptr %791, i64 56
+  %793 = load ptr, ptr %792, align 8
+  %794 = getelementptr inbounds nuw i8, ptr %791, i64 24
+  %795 = load ptr, ptr %794, align 8
+  %796 = tail call ptr @g_slist_prepend(ptr noundef %795, ptr noundef %793)
+  store ptr %796, ptr %794, align 8
+  %797 = load ptr, ptr %56, align 8
   %.val1534 = load ptr, ptr %0, align 8
-  %803 = tail call fastcc ptr @strdup_and_store(ptr %.val1534, ptr noundef %802)
-  %804 = load ptr, ptr %0, align 8
-  %805 = getelementptr inbounds nuw i8, ptr %804, i64 56
-  %806 = load ptr, ptr %805, align 8
-  store ptr %803, ptr %806, align 8
-  %807 = load ptr, ptr %58, align 8
-  %.not.i1690 = icmp eq ptr %807, null
-  br i1 %.not.i1690, label %.loopexit1863.sink.split, label %808
+  %798 = tail call fastcc ptr @strdup_and_store(ptr %.val1534, ptr noundef %797)
+  %799 = load ptr, ptr %0, align 8
+  %800 = getelementptr inbounds nuw i8, ptr %799, i64 56
+  %801 = load ptr, ptr %800, align 8
+  store ptr %798, ptr %801, align 8
+  %802 = load ptr, ptr %58, align 8
+  %.not.i1690 = icmp eq ptr %802, null
+  br i1 %.not.i1690, label %.loopexit1863.sink.split, label %803
 
-808:                                              ; preds = %792
-  %809 = load i64, ptr %59, align 8
-  %810 = getelementptr ptr, ptr %807, i64 %809
-  %811 = load ptr, ptr %810, align 8
-  %.not8.i1691 = icmp eq ptr %811, null
+803:                                              ; preds = %787
+  %804 = load i64, ptr %59, align 8
+  %805 = getelementptr ptr, ptr %802, i64 %804
+  %806 = load ptr, ptr %805, align 8
+  %.not8.i1691 = icmp eq ptr %806, null
   br i1 %.not8.i1691, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-812:                                              ; preds = %.loopexit1866
-  %813 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %814 = load ptr, ptr %0, align 8
-  %815 = getelementptr inbounds nuw i8, ptr %814, i64 56
-  store ptr %813, ptr %815, align 8
-  %816 = load ptr, ptr %0, align 8
-  %817 = getelementptr inbounds nuw i8, ptr %816, i64 56
-  %818 = load ptr, ptr %817, align 8
-  %819 = getelementptr inbounds nuw i8, ptr %816, i64 24
-  %820 = load ptr, ptr %819, align 8
-  %821 = tail call ptr @g_slist_prepend(ptr noundef %820, ptr noundef %818)
-  store ptr %821, ptr %819, align 8
-  %822 = load ptr, ptr %56, align 8
+807:                                              ; preds = %.loopexit1866
+  %808 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %809 = load ptr, ptr %0, align 8
+  %810 = getelementptr inbounds nuw i8, ptr %809, i64 56
+  store ptr %808, ptr %810, align 8
+  %811 = load ptr, ptr %0, align 8
+  %812 = getelementptr inbounds nuw i8, ptr %811, i64 56
+  %813 = load ptr, ptr %812, align 8
+  %814 = getelementptr inbounds nuw i8, ptr %811, i64 24
+  %815 = load ptr, ptr %814, align 8
+  %816 = tail call ptr @g_slist_prepend(ptr noundef %815, ptr noundef %813)
+  store ptr %816, ptr %814, align 8
+  %817 = load ptr, ptr %56, align 8
   %.val1535 = load ptr, ptr %0, align 8
-  %823 = tail call fastcc ptr @strdup_and_store(ptr %.val1535, ptr noundef %822)
-  %824 = load ptr, ptr %0, align 8
-  %825 = getelementptr inbounds nuw i8, ptr %824, i64 56
-  %826 = load ptr, ptr %825, align 8
-  store ptr %823, ptr %826, align 8
-  %827 = load ptr, ptr %58, align 8
-  %.not.i1694 = icmp eq ptr %827, null
-  br i1 %.not.i1694, label %.loopexit1863.sink.split, label %828
+  %818 = tail call fastcc ptr @strdup_and_store(ptr %.val1535, ptr noundef %817)
+  %819 = load ptr, ptr %0, align 8
+  %820 = getelementptr inbounds nuw i8, ptr %819, i64 56
+  %821 = load ptr, ptr %820, align 8
+  store ptr %818, ptr %821, align 8
+  %822 = load ptr, ptr %58, align 8
+  %.not.i1694 = icmp eq ptr %822, null
+  br i1 %.not.i1694, label %.loopexit1863.sink.split, label %823
 
-828:                                              ; preds = %812
-  %829 = load i64, ptr %59, align 8
-  %830 = getelementptr ptr, ptr %827, i64 %829
-  %831 = load ptr, ptr %830, align 8
-  %.not8.i1695 = icmp eq ptr %831, null
+823:                                              ; preds = %807
+  %824 = load i64, ptr %59, align 8
+  %825 = getelementptr ptr, ptr %822, i64 %824
+  %826 = load ptr, ptr %825, align 8
+  %.not8.i1695 = icmp eq ptr %826, null
   br i1 %.not8.i1695, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-832:                                              ; preds = %.loopexit1866
-  %833 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %834 = load ptr, ptr %0, align 8
-  %835 = getelementptr inbounds nuw i8, ptr %834, i64 56
-  store ptr %833, ptr %835, align 8
-  %836 = load ptr, ptr %0, align 8
-  %837 = getelementptr inbounds nuw i8, ptr %836, i64 56
-  %838 = load ptr, ptr %837, align 8
-  %839 = getelementptr inbounds nuw i8, ptr %836, i64 24
-  %840 = load ptr, ptr %839, align 8
-  %841 = tail call ptr @g_slist_prepend(ptr noundef %840, ptr noundef %838)
-  store ptr %841, ptr %839, align 8
-  %842 = load ptr, ptr %56, align 8
+827:                                              ; preds = %.loopexit1866
+  %828 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %829 = load ptr, ptr %0, align 8
+  %830 = getelementptr inbounds nuw i8, ptr %829, i64 56
+  store ptr %828, ptr %830, align 8
+  %831 = load ptr, ptr %0, align 8
+  %832 = getelementptr inbounds nuw i8, ptr %831, i64 56
+  %833 = load ptr, ptr %832, align 8
+  %834 = getelementptr inbounds nuw i8, ptr %831, i64 24
+  %835 = load ptr, ptr %834, align 8
+  %836 = tail call ptr @g_slist_prepend(ptr noundef %835, ptr noundef %833)
+  store ptr %836, ptr %834, align 8
+  %837 = load ptr, ptr %56, align 8
   %.val1536 = load ptr, ptr %0, align 8
-  %843 = tail call fastcc ptr @strdup_and_store(ptr %.val1536, ptr noundef %842)
-  %844 = load ptr, ptr %0, align 8
-  %845 = getelementptr inbounds nuw i8, ptr %844, i64 56
-  %846 = load ptr, ptr %845, align 8
-  store ptr %843, ptr %846, align 8
-  %847 = load ptr, ptr %58, align 8
-  %.not.i1698 = icmp eq ptr %847, null
-  br i1 %.not.i1698, label %.loopexit1863.sink.split, label %848
+  %838 = tail call fastcc ptr @strdup_and_store(ptr %.val1536, ptr noundef %837)
+  %839 = load ptr, ptr %0, align 8
+  %840 = getelementptr inbounds nuw i8, ptr %839, i64 56
+  %841 = load ptr, ptr %840, align 8
+  store ptr %838, ptr %841, align 8
+  %842 = load ptr, ptr %58, align 8
+  %.not.i1698 = icmp eq ptr %842, null
+  br i1 %.not.i1698, label %.loopexit1863.sink.split, label %843
 
-848:                                              ; preds = %832
-  %849 = load i64, ptr %59, align 8
-  %850 = getelementptr ptr, ptr %847, i64 %849
-  %851 = load ptr, ptr %850, align 8
-  %.not8.i1699 = icmp eq ptr %851, null
+843:                                              ; preds = %827
+  %844 = load i64, ptr %59, align 8
+  %845 = getelementptr ptr, ptr %842, i64 %844
+  %846 = load ptr, ptr %845, align 8
+  %.not8.i1699 = icmp eq ptr %846, null
   br i1 %.not8.i1699, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-852:                                              ; preds = %.loopexit1866
-  %853 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %854 = load ptr, ptr %0, align 8
-  %855 = getelementptr inbounds nuw i8, ptr %854, i64 56
-  store ptr %853, ptr %855, align 8
-  %856 = load ptr, ptr %0, align 8
-  %857 = getelementptr inbounds nuw i8, ptr %856, i64 56
-  %858 = load ptr, ptr %857, align 8
-  %859 = getelementptr inbounds nuw i8, ptr %856, i64 24
-  %860 = load ptr, ptr %859, align 8
-  %861 = tail call ptr @g_slist_prepend(ptr noundef %860, ptr noundef %858)
-  store ptr %861, ptr %859, align 8
-  %862 = load ptr, ptr %56, align 8
+847:                                              ; preds = %.loopexit1866
+  %848 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %849 = load ptr, ptr %0, align 8
+  %850 = getelementptr inbounds nuw i8, ptr %849, i64 56
+  store ptr %848, ptr %850, align 8
+  %851 = load ptr, ptr %0, align 8
+  %852 = getelementptr inbounds nuw i8, ptr %851, i64 56
+  %853 = load ptr, ptr %852, align 8
+  %854 = getelementptr inbounds nuw i8, ptr %851, i64 24
+  %855 = load ptr, ptr %854, align 8
+  %856 = tail call ptr @g_slist_prepend(ptr noundef %855, ptr noundef %853)
+  store ptr %856, ptr %854, align 8
+  %857 = load ptr, ptr %56, align 8
   %.val1537 = load ptr, ptr %0, align 8
-  %863 = tail call fastcc ptr @strdup_and_store(ptr %.val1537, ptr noundef %862)
-  %864 = load ptr, ptr %0, align 8
-  %865 = getelementptr inbounds nuw i8, ptr %864, i64 56
-  %866 = load ptr, ptr %865, align 8
-  store ptr %863, ptr %866, align 8
-  %867 = load ptr, ptr %58, align 8
-  %.not.i1702 = icmp eq ptr %867, null
-  br i1 %.not.i1702, label %.loopexit1863.sink.split, label %868
+  %858 = tail call fastcc ptr @strdup_and_store(ptr %.val1537, ptr noundef %857)
+  %859 = load ptr, ptr %0, align 8
+  %860 = getelementptr inbounds nuw i8, ptr %859, i64 56
+  %861 = load ptr, ptr %860, align 8
+  store ptr %858, ptr %861, align 8
+  %862 = load ptr, ptr %58, align 8
+  %.not.i1702 = icmp eq ptr %862, null
+  br i1 %.not.i1702, label %.loopexit1863.sink.split, label %863
 
-868:                                              ; preds = %852
-  %869 = load i64, ptr %59, align 8
-  %870 = getelementptr ptr, ptr %867, i64 %869
-  %871 = load ptr, ptr %870, align 8
-  %.not8.i1703 = icmp eq ptr %871, null
+863:                                              ; preds = %847
+  %864 = load i64, ptr %59, align 8
+  %865 = getelementptr ptr, ptr %862, i64 %864
+  %866 = load ptr, ptr %865, align 8
+  %.not8.i1703 = icmp eq ptr %866, null
   br i1 %.not8.i1703, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-872:                                              ; preds = %.loopexit1866
-  %873 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %874 = load ptr, ptr %0, align 8
-  %875 = getelementptr inbounds nuw i8, ptr %874, i64 56
-  store ptr %873, ptr %875, align 8
-  %876 = load ptr, ptr %0, align 8
-  %877 = getelementptr inbounds nuw i8, ptr %876, i64 56
-  %878 = load ptr, ptr %877, align 8
-  %879 = getelementptr inbounds nuw i8, ptr %876, i64 24
-  %880 = load ptr, ptr %879, align 8
-  %881 = tail call ptr @g_slist_prepend(ptr noundef %880, ptr noundef %878)
-  store ptr %881, ptr %879, align 8
-  %882 = load ptr, ptr %56, align 8
+867:                                              ; preds = %.loopexit1866
+  %868 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %869 = load ptr, ptr %0, align 8
+  %870 = getelementptr inbounds nuw i8, ptr %869, i64 56
+  store ptr %868, ptr %870, align 8
+  %871 = load ptr, ptr %0, align 8
+  %872 = getelementptr inbounds nuw i8, ptr %871, i64 56
+  %873 = load ptr, ptr %872, align 8
+  %874 = getelementptr inbounds nuw i8, ptr %871, i64 24
+  %875 = load ptr, ptr %874, align 8
+  %876 = tail call ptr @g_slist_prepend(ptr noundef %875, ptr noundef %873)
+  store ptr %876, ptr %874, align 8
+  %877 = load ptr, ptr %56, align 8
   %.val1538 = load ptr, ptr %0, align 8
-  %883 = tail call fastcc ptr @strdup_and_store(ptr %.val1538, ptr noundef %882)
-  %884 = load ptr, ptr %0, align 8
-  %885 = getelementptr inbounds nuw i8, ptr %884, i64 56
-  %886 = load ptr, ptr %885, align 8
-  store ptr %883, ptr %886, align 8
-  %887 = load ptr, ptr %58, align 8
-  %.not.i1706 = icmp eq ptr %887, null
-  br i1 %.not.i1706, label %.loopexit1863.sink.split, label %888
+  %878 = tail call fastcc ptr @strdup_and_store(ptr %.val1538, ptr noundef %877)
+  %879 = load ptr, ptr %0, align 8
+  %880 = getelementptr inbounds nuw i8, ptr %879, i64 56
+  %881 = load ptr, ptr %880, align 8
+  store ptr %878, ptr %881, align 8
+  %882 = load ptr, ptr %58, align 8
+  %.not.i1706 = icmp eq ptr %882, null
+  br i1 %.not.i1706, label %.loopexit1863.sink.split, label %883
 
-888:                                              ; preds = %872
-  %889 = load i64, ptr %59, align 8
-  %890 = getelementptr ptr, ptr %887, i64 %889
-  %891 = load ptr, ptr %890, align 8
-  %.not8.i1707 = icmp eq ptr %891, null
+883:                                              ; preds = %867
+  %884 = load i64, ptr %59, align 8
+  %885 = getelementptr ptr, ptr %882, i64 %884
+  %886 = load ptr, ptr %885, align 8
+  %.not8.i1707 = icmp eq ptr %886, null
   br i1 %.not8.i1707, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-892:                                              ; preds = %.loopexit1866
-  %893 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %894 = load ptr, ptr %0, align 8
-  %895 = getelementptr inbounds nuw i8, ptr %894, i64 56
-  store ptr %893, ptr %895, align 8
-  %896 = load ptr, ptr %0, align 8
-  %897 = getelementptr inbounds nuw i8, ptr %896, i64 56
-  %898 = load ptr, ptr %897, align 8
-  %899 = getelementptr inbounds nuw i8, ptr %896, i64 24
-  %900 = load ptr, ptr %899, align 8
-  %901 = tail call ptr @g_slist_prepend(ptr noundef %900, ptr noundef %898)
-  store ptr %901, ptr %899, align 8
-  %902 = load ptr, ptr %56, align 8
+887:                                              ; preds = %.loopexit1866
+  %888 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %889 = load ptr, ptr %0, align 8
+  %890 = getelementptr inbounds nuw i8, ptr %889, i64 56
+  store ptr %888, ptr %890, align 8
+  %891 = load ptr, ptr %0, align 8
+  %892 = getelementptr inbounds nuw i8, ptr %891, i64 56
+  %893 = load ptr, ptr %892, align 8
+  %894 = getelementptr inbounds nuw i8, ptr %891, i64 24
+  %895 = load ptr, ptr %894, align 8
+  %896 = tail call ptr @g_slist_prepend(ptr noundef %895, ptr noundef %893)
+  store ptr %896, ptr %894, align 8
+  %897 = load ptr, ptr %56, align 8
   %.val1539 = load ptr, ptr %0, align 8
-  %903 = tail call fastcc ptr @strdup_and_store(ptr %.val1539, ptr noundef %902)
-  %904 = load ptr, ptr %0, align 8
-  %905 = getelementptr inbounds nuw i8, ptr %904, i64 56
-  %906 = load ptr, ptr %905, align 8
-  store ptr %903, ptr %906, align 8
-  %907 = load ptr, ptr %58, align 8
-  %.not.i1710 = icmp eq ptr %907, null
-  br i1 %.not.i1710, label %.loopexit1863.sink.split, label %908
+  %898 = tail call fastcc ptr @strdup_and_store(ptr %.val1539, ptr noundef %897)
+  %899 = load ptr, ptr %0, align 8
+  %900 = getelementptr inbounds nuw i8, ptr %899, i64 56
+  %901 = load ptr, ptr %900, align 8
+  store ptr %898, ptr %901, align 8
+  %902 = load ptr, ptr %58, align 8
+  %.not.i1710 = icmp eq ptr %902, null
+  br i1 %.not.i1710, label %.loopexit1863.sink.split, label %903
 
-908:                                              ; preds = %892
-  %909 = load i64, ptr %59, align 8
-  %910 = getelementptr ptr, ptr %907, i64 %909
-  %911 = load ptr, ptr %910, align 8
-  %.not8.i1711 = icmp eq ptr %911, null
+903:                                              ; preds = %887
+  %904 = load i64, ptr %59, align 8
+  %905 = getelementptr ptr, ptr %902, i64 %904
+  %906 = load ptr, ptr %905, align 8
+  %.not8.i1711 = icmp eq ptr %906, null
   br i1 %.not8.i1711, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-912:                                              ; preds = %.loopexit1866
-  %913 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %914 = load ptr, ptr %0, align 8
-  %915 = getelementptr inbounds nuw i8, ptr %914, i64 56
-  store ptr %913, ptr %915, align 8
-  %916 = load ptr, ptr %0, align 8
-  %917 = getelementptr inbounds nuw i8, ptr %916, i64 56
-  %918 = load ptr, ptr %917, align 8
-  %919 = getelementptr inbounds nuw i8, ptr %916, i64 24
-  %920 = load ptr, ptr %919, align 8
-  %921 = tail call ptr @g_slist_prepend(ptr noundef %920, ptr noundef %918)
-  store ptr %921, ptr %919, align 8
-  %922 = load ptr, ptr %56, align 8
+907:                                              ; preds = %.loopexit1866
+  %908 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %909 = load ptr, ptr %0, align 8
+  %910 = getelementptr inbounds nuw i8, ptr %909, i64 56
+  store ptr %908, ptr %910, align 8
+  %911 = load ptr, ptr %0, align 8
+  %912 = getelementptr inbounds nuw i8, ptr %911, i64 56
+  %913 = load ptr, ptr %912, align 8
+  %914 = getelementptr inbounds nuw i8, ptr %911, i64 24
+  %915 = load ptr, ptr %914, align 8
+  %916 = tail call ptr @g_slist_prepend(ptr noundef %915, ptr noundef %913)
+  store ptr %916, ptr %914, align 8
+  %917 = load ptr, ptr %56, align 8
   %.val1540 = load ptr, ptr %0, align 8
-  %923 = tail call fastcc ptr @strdup_and_store(ptr %.val1540, ptr noundef %922)
-  %924 = load ptr, ptr %0, align 8
-  %925 = getelementptr inbounds nuw i8, ptr %924, i64 56
-  %926 = load ptr, ptr %925, align 8
-  store ptr %923, ptr %926, align 8
-  %927 = load ptr, ptr %58, align 8
-  %.not.i1714 = icmp eq ptr %927, null
-  br i1 %.not.i1714, label %.loopexit1863.sink.split, label %928
+  %918 = tail call fastcc ptr @strdup_and_store(ptr %.val1540, ptr noundef %917)
+  %919 = load ptr, ptr %0, align 8
+  %920 = getelementptr inbounds nuw i8, ptr %919, i64 56
+  %921 = load ptr, ptr %920, align 8
+  store ptr %918, ptr %921, align 8
+  %922 = load ptr, ptr %58, align 8
+  %.not.i1714 = icmp eq ptr %922, null
+  br i1 %.not.i1714, label %.loopexit1863.sink.split, label %923
 
-928:                                              ; preds = %912
-  %929 = load i64, ptr %59, align 8
-  %930 = getelementptr ptr, ptr %927, i64 %929
-  %931 = load ptr, ptr %930, align 8
-  %.not8.i1715 = icmp eq ptr %931, null
+923:                                              ; preds = %907
+  %924 = load i64, ptr %59, align 8
+  %925 = getelementptr ptr, ptr %922, i64 %924
+  %926 = load ptr, ptr %925, align 8
+  %.not8.i1715 = icmp eq ptr %926, null
   br i1 %.not8.i1715, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-932:                                              ; preds = %.loopexit1866
-  %933 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %934 = load ptr, ptr %0, align 8
-  %935 = getelementptr inbounds nuw i8, ptr %934, i64 56
-  store ptr %933, ptr %935, align 8
-  %936 = load ptr, ptr %0, align 8
-  %937 = getelementptr inbounds nuw i8, ptr %936, i64 56
-  %938 = load ptr, ptr %937, align 8
-  %939 = getelementptr inbounds nuw i8, ptr %936, i64 24
-  %940 = load ptr, ptr %939, align 8
-  %941 = tail call ptr @g_slist_prepend(ptr noundef %940, ptr noundef %938)
-  store ptr %941, ptr %939, align 8
-  %942 = load ptr, ptr %56, align 8
+927:                                              ; preds = %.loopexit1866
+  %928 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %929 = load ptr, ptr %0, align 8
+  %930 = getelementptr inbounds nuw i8, ptr %929, i64 56
+  store ptr %928, ptr %930, align 8
+  %931 = load ptr, ptr %0, align 8
+  %932 = getelementptr inbounds nuw i8, ptr %931, i64 56
+  %933 = load ptr, ptr %932, align 8
+  %934 = getelementptr inbounds nuw i8, ptr %931, i64 24
+  %935 = load ptr, ptr %934, align 8
+  %936 = tail call ptr @g_slist_prepend(ptr noundef %935, ptr noundef %933)
+  store ptr %936, ptr %934, align 8
+  %937 = load ptr, ptr %56, align 8
   %.val1541 = load ptr, ptr %0, align 8
-  %943 = tail call fastcc ptr @strdup_and_store(ptr %.val1541, ptr noundef %942)
-  %944 = load ptr, ptr %0, align 8
-  %945 = getelementptr inbounds nuw i8, ptr %944, i64 56
-  %946 = load ptr, ptr %945, align 8
-  store ptr %943, ptr %946, align 8
-  %947 = load ptr, ptr %58, align 8
-  %.not.i1718 = icmp eq ptr %947, null
-  br i1 %.not.i1718, label %.loopexit1863.sink.split, label %948
+  %938 = tail call fastcc ptr @strdup_and_store(ptr %.val1541, ptr noundef %937)
+  %939 = load ptr, ptr %0, align 8
+  %940 = getelementptr inbounds nuw i8, ptr %939, i64 56
+  %941 = load ptr, ptr %940, align 8
+  store ptr %938, ptr %941, align 8
+  %942 = load ptr, ptr %58, align 8
+  %.not.i1718 = icmp eq ptr %942, null
+  br i1 %.not.i1718, label %.loopexit1863.sink.split, label %943
 
-948:                                              ; preds = %932
-  %949 = load i64, ptr %59, align 8
-  %950 = getelementptr ptr, ptr %947, i64 %949
-  %951 = load ptr, ptr %950, align 8
-  %.not8.i1719 = icmp eq ptr %951, null
+943:                                              ; preds = %927
+  %944 = load i64, ptr %59, align 8
+  %945 = getelementptr ptr, ptr %942, i64 %944
+  %946 = load ptr, ptr %945, align 8
+  %.not8.i1719 = icmp eq ptr %946, null
   br i1 %.not8.i1719, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-952:                                              ; preds = %.loopexit1866
-  %953 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %954 = load ptr, ptr %0, align 8
-  %955 = getelementptr inbounds nuw i8, ptr %954, i64 56
-  store ptr %953, ptr %955, align 8
-  %956 = load ptr, ptr %0, align 8
-  %957 = getelementptr inbounds nuw i8, ptr %956, i64 56
-  %958 = load ptr, ptr %957, align 8
-  %959 = getelementptr inbounds nuw i8, ptr %956, i64 24
-  %960 = load ptr, ptr %959, align 8
-  %961 = tail call ptr @g_slist_prepend(ptr noundef %960, ptr noundef %958)
-  store ptr %961, ptr %959, align 8
-  %962 = load ptr, ptr %56, align 8
+947:                                              ; preds = %.loopexit1866
+  %948 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %949 = load ptr, ptr %0, align 8
+  %950 = getelementptr inbounds nuw i8, ptr %949, i64 56
+  store ptr %948, ptr %950, align 8
+  %951 = load ptr, ptr %0, align 8
+  %952 = getelementptr inbounds nuw i8, ptr %951, i64 56
+  %953 = load ptr, ptr %952, align 8
+  %954 = getelementptr inbounds nuw i8, ptr %951, i64 24
+  %955 = load ptr, ptr %954, align 8
+  %956 = tail call ptr @g_slist_prepend(ptr noundef %955, ptr noundef %953)
+  store ptr %956, ptr %954, align 8
+  %957 = load ptr, ptr %56, align 8
   %.val1542 = load ptr, ptr %0, align 8
-  %963 = tail call fastcc ptr @strdup_and_store(ptr %.val1542, ptr noundef %962)
-  %964 = load ptr, ptr %0, align 8
-  %965 = getelementptr inbounds nuw i8, ptr %964, i64 56
-  %966 = load ptr, ptr %965, align 8
-  store ptr %963, ptr %966, align 8
-  %967 = load ptr, ptr %58, align 8
-  %.not.i1722 = icmp eq ptr %967, null
-  br i1 %.not.i1722, label %.loopexit1863.sink.split, label %968
+  %958 = tail call fastcc ptr @strdup_and_store(ptr %.val1542, ptr noundef %957)
+  %959 = load ptr, ptr %0, align 8
+  %960 = getelementptr inbounds nuw i8, ptr %959, i64 56
+  %961 = load ptr, ptr %960, align 8
+  store ptr %958, ptr %961, align 8
+  %962 = load ptr, ptr %58, align 8
+  %.not.i1722 = icmp eq ptr %962, null
+  br i1 %.not.i1722, label %.loopexit1863.sink.split, label %963
 
-968:                                              ; preds = %952
-  %969 = load i64, ptr %59, align 8
-  %970 = getelementptr ptr, ptr %967, i64 %969
-  %971 = load ptr, ptr %970, align 8
-  %.not8.i1723 = icmp eq ptr %971, null
+963:                                              ; preds = %947
+  %964 = load i64, ptr %59, align 8
+  %965 = getelementptr ptr, ptr %962, i64 %964
+  %966 = load ptr, ptr %965, align 8
+  %.not8.i1723 = icmp eq ptr %966, null
   br i1 %.not8.i1723, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-972:                                              ; preds = %.loopexit1866
-  %973 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %974 = load ptr, ptr %0, align 8
-  %975 = getelementptr inbounds nuw i8, ptr %974, i64 56
-  store ptr %973, ptr %975, align 8
-  %976 = load ptr, ptr %0, align 8
-  %977 = getelementptr inbounds nuw i8, ptr %976, i64 56
-  %978 = load ptr, ptr %977, align 8
-  %979 = getelementptr inbounds nuw i8, ptr %976, i64 24
-  %980 = load ptr, ptr %979, align 8
-  %981 = tail call ptr @g_slist_prepend(ptr noundef %980, ptr noundef %978)
-  store ptr %981, ptr %979, align 8
-  %982 = load ptr, ptr %56, align 8
+967:                                              ; preds = %.loopexit1866
+  %968 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %969 = load ptr, ptr %0, align 8
+  %970 = getelementptr inbounds nuw i8, ptr %969, i64 56
+  store ptr %968, ptr %970, align 8
+  %971 = load ptr, ptr %0, align 8
+  %972 = getelementptr inbounds nuw i8, ptr %971, i64 56
+  %973 = load ptr, ptr %972, align 8
+  %974 = getelementptr inbounds nuw i8, ptr %971, i64 24
+  %975 = load ptr, ptr %974, align 8
+  %976 = tail call ptr @g_slist_prepend(ptr noundef %975, ptr noundef %973)
+  store ptr %976, ptr %974, align 8
+  %977 = load ptr, ptr %56, align 8
   %.val1543 = load ptr, ptr %0, align 8
-  %983 = tail call fastcc ptr @strdup_and_store(ptr %.val1543, ptr noundef %982)
-  %984 = load ptr, ptr %0, align 8
-  %985 = getelementptr inbounds nuw i8, ptr %984, i64 56
-  %986 = load ptr, ptr %985, align 8
-  store ptr %983, ptr %986, align 8
-  %987 = load ptr, ptr %58, align 8
-  %.not.i1726 = icmp eq ptr %987, null
-  br i1 %.not.i1726, label %.loopexit1863.sink.split, label %988
+  %978 = tail call fastcc ptr @strdup_and_store(ptr %.val1543, ptr noundef %977)
+  %979 = load ptr, ptr %0, align 8
+  %980 = getelementptr inbounds nuw i8, ptr %979, i64 56
+  %981 = load ptr, ptr %980, align 8
+  store ptr %978, ptr %981, align 8
+  %982 = load ptr, ptr %58, align 8
+  %.not.i1726 = icmp eq ptr %982, null
+  br i1 %.not.i1726, label %.loopexit1863.sink.split, label %983
 
-988:                                              ; preds = %972
-  %989 = load i64, ptr %59, align 8
-  %990 = getelementptr ptr, ptr %987, i64 %989
-  %991 = load ptr, ptr %990, align 8
-  %.not8.i1727 = icmp eq ptr %991, null
+983:                                              ; preds = %967
+  %984 = load i64, ptr %59, align 8
+  %985 = getelementptr ptr, ptr %982, i64 %984
+  %986 = load ptr, ptr %985, align 8
+  %.not8.i1727 = icmp eq ptr %986, null
   br i1 %.not8.i1727, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-992:                                              ; preds = %.loopexit1866
-  %993 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %994 = load ptr, ptr %0, align 8
-  %995 = getelementptr inbounds nuw i8, ptr %994, i64 56
-  store ptr %993, ptr %995, align 8
-  %996 = load ptr, ptr %0, align 8
-  %997 = getelementptr inbounds nuw i8, ptr %996, i64 56
-  %998 = load ptr, ptr %997, align 8
-  %999 = getelementptr inbounds nuw i8, ptr %996, i64 24
-  %1000 = load ptr, ptr %999, align 8
-  %1001 = tail call ptr @g_slist_prepend(ptr noundef %1000, ptr noundef %998)
-  store ptr %1001, ptr %999, align 8
-  %1002 = load ptr, ptr %56, align 8
+987:                                              ; preds = %.loopexit1866
+  %988 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %989 = load ptr, ptr %0, align 8
+  %990 = getelementptr inbounds nuw i8, ptr %989, i64 56
+  store ptr %988, ptr %990, align 8
+  %991 = load ptr, ptr %0, align 8
+  %992 = getelementptr inbounds nuw i8, ptr %991, i64 56
+  %993 = load ptr, ptr %992, align 8
+  %994 = getelementptr inbounds nuw i8, ptr %991, i64 24
+  %995 = load ptr, ptr %994, align 8
+  %996 = tail call ptr @g_slist_prepend(ptr noundef %995, ptr noundef %993)
+  store ptr %996, ptr %994, align 8
+  %997 = load ptr, ptr %56, align 8
   %.val1544 = load ptr, ptr %0, align 8
-  %1003 = tail call fastcc ptr @strdup_and_store(ptr %.val1544, ptr noundef %1002)
-  %1004 = load ptr, ptr %0, align 8
-  %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 56
-  %1006 = load ptr, ptr %1005, align 8
-  store ptr %1003, ptr %1006, align 8
-  %1007 = load ptr, ptr %58, align 8
-  %.not.i1730 = icmp eq ptr %1007, null
-  br i1 %.not.i1730, label %.loopexit1863.sink.split, label %1008
+  %998 = tail call fastcc ptr @strdup_and_store(ptr %.val1544, ptr noundef %997)
+  %999 = load ptr, ptr %0, align 8
+  %1000 = getelementptr inbounds nuw i8, ptr %999, i64 56
+  %1001 = load ptr, ptr %1000, align 8
+  store ptr %998, ptr %1001, align 8
+  %1002 = load ptr, ptr %58, align 8
+  %.not.i1730 = icmp eq ptr %1002, null
+  br i1 %.not.i1730, label %.loopexit1863.sink.split, label %1003
 
-1008:                                             ; preds = %992
-  %1009 = load i64, ptr %59, align 8
-  %1010 = getelementptr ptr, ptr %1007, i64 %1009
-  %1011 = load ptr, ptr %1010, align 8
-  %.not8.i1731 = icmp eq ptr %1011, null
+1003:                                             ; preds = %987
+  %1004 = load i64, ptr %59, align 8
+  %1005 = getelementptr ptr, ptr %1002, i64 %1004
+  %1006 = load ptr, ptr %1005, align 8
+  %.not8.i1731 = icmp eq ptr %1006, null
   br i1 %.not8.i1731, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1012:                                             ; preds = %.loopexit1866
-  %1013 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1014 = load ptr, ptr %0, align 8
-  %1015 = getelementptr inbounds nuw i8, ptr %1014, i64 56
-  store ptr %1013, ptr %1015, align 8
-  %1016 = load ptr, ptr %0, align 8
-  %1017 = getelementptr inbounds nuw i8, ptr %1016, i64 56
-  %1018 = load ptr, ptr %1017, align 8
-  %1019 = getelementptr inbounds nuw i8, ptr %1016, i64 24
-  %1020 = load ptr, ptr %1019, align 8
-  %1021 = tail call ptr @g_slist_prepend(ptr noundef %1020, ptr noundef %1018)
-  store ptr %1021, ptr %1019, align 8
-  %1022 = load ptr, ptr %56, align 8
+1007:                                             ; preds = %.loopexit1866
+  %1008 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1009 = load ptr, ptr %0, align 8
+  %1010 = getelementptr inbounds nuw i8, ptr %1009, i64 56
+  store ptr %1008, ptr %1010, align 8
+  %1011 = load ptr, ptr %0, align 8
+  %1012 = getelementptr inbounds nuw i8, ptr %1011, i64 56
+  %1013 = load ptr, ptr %1012, align 8
+  %1014 = getelementptr inbounds nuw i8, ptr %1011, i64 24
+  %1015 = load ptr, ptr %1014, align 8
+  %1016 = tail call ptr @g_slist_prepend(ptr noundef %1015, ptr noundef %1013)
+  store ptr %1016, ptr %1014, align 8
+  %1017 = load ptr, ptr %56, align 8
   %.val1545 = load ptr, ptr %0, align 8
-  %1023 = tail call fastcc ptr @strdup_and_store(ptr %.val1545, ptr noundef %1022)
-  %1024 = load ptr, ptr %0, align 8
-  %1025 = getelementptr inbounds nuw i8, ptr %1024, i64 56
-  %1026 = load ptr, ptr %1025, align 8
-  store ptr %1023, ptr %1026, align 8
-  %1027 = load ptr, ptr %58, align 8
-  %.not.i1734 = icmp eq ptr %1027, null
-  br i1 %.not.i1734, label %.loopexit1863.sink.split, label %1028
+  %1018 = tail call fastcc ptr @strdup_and_store(ptr %.val1545, ptr noundef %1017)
+  %1019 = load ptr, ptr %0, align 8
+  %1020 = getelementptr inbounds nuw i8, ptr %1019, i64 56
+  %1021 = load ptr, ptr %1020, align 8
+  store ptr %1018, ptr %1021, align 8
+  %1022 = load ptr, ptr %58, align 8
+  %.not.i1734 = icmp eq ptr %1022, null
+  br i1 %.not.i1734, label %.loopexit1863.sink.split, label %1023
 
-1028:                                             ; preds = %1012
-  %1029 = load i64, ptr %59, align 8
-  %1030 = getelementptr ptr, ptr %1027, i64 %1029
-  %1031 = load ptr, ptr %1030, align 8
-  %.not8.i1735 = icmp eq ptr %1031, null
+1023:                                             ; preds = %1007
+  %1024 = load i64, ptr %59, align 8
+  %1025 = getelementptr ptr, ptr %1022, i64 %1024
+  %1026 = load ptr, ptr %1025, align 8
+  %.not8.i1735 = icmp eq ptr %1026, null
   br i1 %.not8.i1735, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1032:                                             ; preds = %.loopexit1866
-  %1033 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1034 = load ptr, ptr %0, align 8
-  %1035 = getelementptr inbounds nuw i8, ptr %1034, i64 56
-  store ptr %1033, ptr %1035, align 8
-  %1036 = load ptr, ptr %0, align 8
-  %1037 = getelementptr inbounds nuw i8, ptr %1036, i64 56
-  %1038 = load ptr, ptr %1037, align 8
-  %1039 = getelementptr inbounds nuw i8, ptr %1036, i64 24
-  %1040 = load ptr, ptr %1039, align 8
-  %1041 = tail call ptr @g_slist_prepend(ptr noundef %1040, ptr noundef %1038)
-  store ptr %1041, ptr %1039, align 8
-  %1042 = load ptr, ptr %56, align 8
+1027:                                             ; preds = %.loopexit1866
+  %1028 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1029 = load ptr, ptr %0, align 8
+  %1030 = getelementptr inbounds nuw i8, ptr %1029, i64 56
+  store ptr %1028, ptr %1030, align 8
+  %1031 = load ptr, ptr %0, align 8
+  %1032 = getelementptr inbounds nuw i8, ptr %1031, i64 56
+  %1033 = load ptr, ptr %1032, align 8
+  %1034 = getelementptr inbounds nuw i8, ptr %1031, i64 24
+  %1035 = load ptr, ptr %1034, align 8
+  %1036 = tail call ptr @g_slist_prepend(ptr noundef %1035, ptr noundef %1033)
+  store ptr %1036, ptr %1034, align 8
+  %1037 = load ptr, ptr %56, align 8
   %.val1546 = load ptr, ptr %0, align 8
-  %1043 = tail call fastcc ptr @strdup_and_store(ptr %.val1546, ptr noundef %1042)
-  %1044 = load ptr, ptr %0, align 8
-  %1045 = getelementptr inbounds nuw i8, ptr %1044, i64 56
-  %1046 = load ptr, ptr %1045, align 8
-  store ptr %1043, ptr %1046, align 8
-  %1047 = load ptr, ptr %58, align 8
-  %.not.i1738 = icmp eq ptr %1047, null
-  br i1 %.not.i1738, label %.loopexit1863.sink.split, label %1048
+  %1038 = tail call fastcc ptr @strdup_and_store(ptr %.val1546, ptr noundef %1037)
+  %1039 = load ptr, ptr %0, align 8
+  %1040 = getelementptr inbounds nuw i8, ptr %1039, i64 56
+  %1041 = load ptr, ptr %1040, align 8
+  store ptr %1038, ptr %1041, align 8
+  %1042 = load ptr, ptr %58, align 8
+  %.not.i1738 = icmp eq ptr %1042, null
+  br i1 %.not.i1738, label %.loopexit1863.sink.split, label %1043
 
-1048:                                             ; preds = %1032
-  %1049 = load i64, ptr %59, align 8
-  %1050 = getelementptr ptr, ptr %1047, i64 %1049
-  %1051 = load ptr, ptr %1050, align 8
-  %.not8.i1739 = icmp eq ptr %1051, null
+1043:                                             ; preds = %1027
+  %1044 = load i64, ptr %59, align 8
+  %1045 = getelementptr ptr, ptr %1042, i64 %1044
+  %1046 = load ptr, ptr %1045, align 8
+  %.not8.i1739 = icmp eq ptr %1046, null
   br i1 %.not8.i1739, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1052:                                             ; preds = %.loopexit1866
-  %1053 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1054 = load ptr, ptr %0, align 8
-  %1055 = getelementptr inbounds nuw i8, ptr %1054, i64 56
-  store ptr %1053, ptr %1055, align 8
-  %1056 = load ptr, ptr %0, align 8
-  %1057 = getelementptr inbounds nuw i8, ptr %1056, i64 56
-  %1058 = load ptr, ptr %1057, align 8
-  %1059 = getelementptr inbounds nuw i8, ptr %1056, i64 24
-  %1060 = load ptr, ptr %1059, align 8
-  %1061 = tail call ptr @g_slist_prepend(ptr noundef %1060, ptr noundef %1058)
-  store ptr %1061, ptr %1059, align 8
-  %1062 = load ptr, ptr %56, align 8
+1047:                                             ; preds = %.loopexit1866
+  %1048 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1049 = load ptr, ptr %0, align 8
+  %1050 = getelementptr inbounds nuw i8, ptr %1049, i64 56
+  store ptr %1048, ptr %1050, align 8
+  %1051 = load ptr, ptr %0, align 8
+  %1052 = getelementptr inbounds nuw i8, ptr %1051, i64 56
+  %1053 = load ptr, ptr %1052, align 8
+  %1054 = getelementptr inbounds nuw i8, ptr %1051, i64 24
+  %1055 = load ptr, ptr %1054, align 8
+  %1056 = tail call ptr @g_slist_prepend(ptr noundef %1055, ptr noundef %1053)
+  store ptr %1056, ptr %1054, align 8
+  %1057 = load ptr, ptr %56, align 8
   %.val1547 = load ptr, ptr %0, align 8
-  %1063 = tail call fastcc ptr @strdup_and_store(ptr %.val1547, ptr noundef %1062)
-  %1064 = load ptr, ptr %0, align 8
-  %1065 = getelementptr inbounds nuw i8, ptr %1064, i64 56
-  %1066 = load ptr, ptr %1065, align 8
-  store ptr %1063, ptr %1066, align 8
-  %1067 = load ptr, ptr %58, align 8
-  %.not.i1742 = icmp eq ptr %1067, null
-  br i1 %.not.i1742, label %.loopexit1863.sink.split, label %1068
+  %1058 = tail call fastcc ptr @strdup_and_store(ptr %.val1547, ptr noundef %1057)
+  %1059 = load ptr, ptr %0, align 8
+  %1060 = getelementptr inbounds nuw i8, ptr %1059, i64 56
+  %1061 = load ptr, ptr %1060, align 8
+  store ptr %1058, ptr %1061, align 8
+  %1062 = load ptr, ptr %58, align 8
+  %.not.i1742 = icmp eq ptr %1062, null
+  br i1 %.not.i1742, label %.loopexit1863.sink.split, label %1063
 
-1068:                                             ; preds = %1052
-  %1069 = load i64, ptr %59, align 8
-  %1070 = getelementptr ptr, ptr %1067, i64 %1069
-  %1071 = load ptr, ptr %1070, align 8
-  %.not8.i1743 = icmp eq ptr %1071, null
+1063:                                             ; preds = %1047
+  %1064 = load i64, ptr %59, align 8
+  %1065 = getelementptr ptr, ptr %1062, i64 %1064
+  %1066 = load ptr, ptr %1065, align 8
+  %.not8.i1743 = icmp eq ptr %1066, null
   br i1 %.not8.i1743, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1072:                                             ; preds = %.loopexit1866
-  %1073 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1074 = load ptr, ptr %0, align 8
-  %1075 = getelementptr inbounds nuw i8, ptr %1074, i64 56
-  store ptr %1073, ptr %1075, align 8
-  %1076 = load ptr, ptr %0, align 8
-  %1077 = getelementptr inbounds nuw i8, ptr %1076, i64 56
-  %1078 = load ptr, ptr %1077, align 8
-  %1079 = getelementptr inbounds nuw i8, ptr %1076, i64 24
-  %1080 = load ptr, ptr %1079, align 8
-  %1081 = tail call ptr @g_slist_prepend(ptr noundef %1080, ptr noundef %1078)
-  store ptr %1081, ptr %1079, align 8
-  %1082 = load ptr, ptr %56, align 8
+1067:                                             ; preds = %.loopexit1866
+  %1068 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1069 = load ptr, ptr %0, align 8
+  %1070 = getelementptr inbounds nuw i8, ptr %1069, i64 56
+  store ptr %1068, ptr %1070, align 8
+  %1071 = load ptr, ptr %0, align 8
+  %1072 = getelementptr inbounds nuw i8, ptr %1071, i64 56
+  %1073 = load ptr, ptr %1072, align 8
+  %1074 = getelementptr inbounds nuw i8, ptr %1071, i64 24
+  %1075 = load ptr, ptr %1074, align 8
+  %1076 = tail call ptr @g_slist_prepend(ptr noundef %1075, ptr noundef %1073)
+  store ptr %1076, ptr %1074, align 8
+  %1077 = load ptr, ptr %56, align 8
   %.val1548 = load ptr, ptr %0, align 8
-  %1083 = tail call fastcc ptr @strdup_and_store(ptr %.val1548, ptr noundef %1082)
-  %1084 = load ptr, ptr %0, align 8
-  %1085 = getelementptr inbounds nuw i8, ptr %1084, i64 56
-  %1086 = load ptr, ptr %1085, align 8
-  store ptr %1083, ptr %1086, align 8
-  %1087 = load ptr, ptr %58, align 8
-  %.not.i1746 = icmp eq ptr %1087, null
-  br i1 %.not.i1746, label %.loopexit1863.sink.split, label %1088
+  %1078 = tail call fastcc ptr @strdup_and_store(ptr %.val1548, ptr noundef %1077)
+  %1079 = load ptr, ptr %0, align 8
+  %1080 = getelementptr inbounds nuw i8, ptr %1079, i64 56
+  %1081 = load ptr, ptr %1080, align 8
+  store ptr %1078, ptr %1081, align 8
+  %1082 = load ptr, ptr %58, align 8
+  %.not.i1746 = icmp eq ptr %1082, null
+  br i1 %.not.i1746, label %.loopexit1863.sink.split, label %1083
 
-1088:                                             ; preds = %1072
-  %1089 = load i64, ptr %59, align 8
-  %1090 = getelementptr ptr, ptr %1087, i64 %1089
-  %1091 = load ptr, ptr %1090, align 8
-  %.not8.i1747 = icmp eq ptr %1091, null
+1083:                                             ; preds = %1067
+  %1084 = load i64, ptr %59, align 8
+  %1085 = getelementptr ptr, ptr %1082, i64 %1084
+  %1086 = load ptr, ptr %1085, align 8
+  %.not8.i1747 = icmp eq ptr %1086, null
   br i1 %.not8.i1747, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1092:                                             ; preds = %.loopexit1866
-  %1093 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1094 = load ptr, ptr %0, align 8
-  %1095 = getelementptr inbounds nuw i8, ptr %1094, i64 56
-  store ptr %1093, ptr %1095, align 8
-  %1096 = load ptr, ptr %0, align 8
-  %1097 = getelementptr inbounds nuw i8, ptr %1096, i64 56
-  %1098 = load ptr, ptr %1097, align 8
-  %1099 = getelementptr inbounds nuw i8, ptr %1096, i64 24
-  %1100 = load ptr, ptr %1099, align 8
-  %1101 = tail call ptr @g_slist_prepend(ptr noundef %1100, ptr noundef %1098)
-  store ptr %1101, ptr %1099, align 8
-  %1102 = load ptr, ptr %56, align 8
+1087:                                             ; preds = %.loopexit1866
+  %1088 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1089 = load ptr, ptr %0, align 8
+  %1090 = getelementptr inbounds nuw i8, ptr %1089, i64 56
+  store ptr %1088, ptr %1090, align 8
+  %1091 = load ptr, ptr %0, align 8
+  %1092 = getelementptr inbounds nuw i8, ptr %1091, i64 56
+  %1093 = load ptr, ptr %1092, align 8
+  %1094 = getelementptr inbounds nuw i8, ptr %1091, i64 24
+  %1095 = load ptr, ptr %1094, align 8
+  %1096 = tail call ptr @g_slist_prepend(ptr noundef %1095, ptr noundef %1093)
+  store ptr %1096, ptr %1094, align 8
+  %1097 = load ptr, ptr %56, align 8
   %.val1549 = load ptr, ptr %0, align 8
-  %1103 = tail call fastcc ptr @strdup_and_store(ptr %.val1549, ptr noundef %1102)
-  %1104 = load ptr, ptr %0, align 8
-  %1105 = getelementptr inbounds nuw i8, ptr %1104, i64 56
-  %1106 = load ptr, ptr %1105, align 8
-  store ptr %1103, ptr %1106, align 8
-  %1107 = load ptr, ptr %58, align 8
-  %.not.i1750 = icmp eq ptr %1107, null
-  br i1 %.not.i1750, label %.loopexit1863.sink.split, label %1108
+  %1098 = tail call fastcc ptr @strdup_and_store(ptr %.val1549, ptr noundef %1097)
+  %1099 = load ptr, ptr %0, align 8
+  %1100 = getelementptr inbounds nuw i8, ptr %1099, i64 56
+  %1101 = load ptr, ptr %1100, align 8
+  store ptr %1098, ptr %1101, align 8
+  %1102 = load ptr, ptr %58, align 8
+  %.not.i1750 = icmp eq ptr %1102, null
+  br i1 %.not.i1750, label %.loopexit1863.sink.split, label %1103
 
-1108:                                             ; preds = %1092
-  %1109 = load i64, ptr %59, align 8
-  %1110 = getelementptr ptr, ptr %1107, i64 %1109
-  %1111 = load ptr, ptr %1110, align 8
-  %.not8.i1751 = icmp eq ptr %1111, null
+1103:                                             ; preds = %1087
+  %1104 = load i64, ptr %59, align 8
+  %1105 = getelementptr ptr, ptr %1102, i64 %1104
+  %1106 = load ptr, ptr %1105, align 8
+  %.not8.i1751 = icmp eq ptr %1106, null
   br i1 %.not8.i1751, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1112:                                             ; preds = %.loopexit1866
-  %1113 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1114 = load ptr, ptr %0, align 8
-  %1115 = getelementptr inbounds nuw i8, ptr %1114, i64 56
-  store ptr %1113, ptr %1115, align 8
-  %1116 = load ptr, ptr %0, align 8
-  %1117 = getelementptr inbounds nuw i8, ptr %1116, i64 56
-  %1118 = load ptr, ptr %1117, align 8
-  %1119 = getelementptr inbounds nuw i8, ptr %1116, i64 24
-  %1120 = load ptr, ptr %1119, align 8
-  %1121 = tail call ptr @g_slist_prepend(ptr noundef %1120, ptr noundef %1118)
-  store ptr %1121, ptr %1119, align 8
-  %1122 = load ptr, ptr %56, align 8
+1107:                                             ; preds = %.loopexit1866
+  %1108 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1109 = load ptr, ptr %0, align 8
+  %1110 = getelementptr inbounds nuw i8, ptr %1109, i64 56
+  store ptr %1108, ptr %1110, align 8
+  %1111 = load ptr, ptr %0, align 8
+  %1112 = getelementptr inbounds nuw i8, ptr %1111, i64 56
+  %1113 = load ptr, ptr %1112, align 8
+  %1114 = getelementptr inbounds nuw i8, ptr %1111, i64 24
+  %1115 = load ptr, ptr %1114, align 8
+  %1116 = tail call ptr @g_slist_prepend(ptr noundef %1115, ptr noundef %1113)
+  store ptr %1116, ptr %1114, align 8
+  %1117 = load ptr, ptr %56, align 8
   %.val1550 = load ptr, ptr %0, align 8
-  %1123 = tail call fastcc ptr @strdup_and_store(ptr %.val1550, ptr noundef %1122)
-  %1124 = load ptr, ptr %0, align 8
-  %1125 = getelementptr inbounds nuw i8, ptr %1124, i64 56
-  %1126 = load ptr, ptr %1125, align 8
-  store ptr %1123, ptr %1126, align 8
-  %1127 = load ptr, ptr %58, align 8
-  %.not.i1754 = icmp eq ptr %1127, null
-  br i1 %.not.i1754, label %.loopexit1863.sink.split, label %1128
+  %1118 = tail call fastcc ptr @strdup_and_store(ptr %.val1550, ptr noundef %1117)
+  %1119 = load ptr, ptr %0, align 8
+  %1120 = getelementptr inbounds nuw i8, ptr %1119, i64 56
+  %1121 = load ptr, ptr %1120, align 8
+  store ptr %1118, ptr %1121, align 8
+  %1122 = load ptr, ptr %58, align 8
+  %.not.i1754 = icmp eq ptr %1122, null
+  br i1 %.not.i1754, label %.loopexit1863.sink.split, label %1123
 
-1128:                                             ; preds = %1112
-  %1129 = load i64, ptr %59, align 8
-  %1130 = getelementptr ptr, ptr %1127, i64 %1129
-  %1131 = load ptr, ptr %1130, align 8
-  %.not8.i1755 = icmp eq ptr %1131, null
+1123:                                             ; preds = %1107
+  %1124 = load i64, ptr %59, align 8
+  %1125 = getelementptr ptr, ptr %1122, i64 %1124
+  %1126 = load ptr, ptr %1125, align 8
+  %.not8.i1755 = icmp eq ptr %1126, null
   br i1 %.not8.i1755, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1132:                                             ; preds = %.loopexit1866
-  %1133 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1134 = load ptr, ptr %0, align 8
-  %1135 = getelementptr inbounds nuw i8, ptr %1134, i64 56
-  store ptr %1133, ptr %1135, align 8
-  %1136 = load ptr, ptr %0, align 8
-  %1137 = getelementptr inbounds nuw i8, ptr %1136, i64 56
-  %1138 = load ptr, ptr %1137, align 8
-  %1139 = getelementptr inbounds nuw i8, ptr %1136, i64 24
-  %1140 = load ptr, ptr %1139, align 8
-  %1141 = tail call ptr @g_slist_prepend(ptr noundef %1140, ptr noundef %1138)
-  store ptr %1141, ptr %1139, align 8
-  %1142 = load ptr, ptr %56, align 8
+1127:                                             ; preds = %.loopexit1866
+  %1128 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1129 = load ptr, ptr %0, align 8
+  %1130 = getelementptr inbounds nuw i8, ptr %1129, i64 56
+  store ptr %1128, ptr %1130, align 8
+  %1131 = load ptr, ptr %0, align 8
+  %1132 = getelementptr inbounds nuw i8, ptr %1131, i64 56
+  %1133 = load ptr, ptr %1132, align 8
+  %1134 = getelementptr inbounds nuw i8, ptr %1131, i64 24
+  %1135 = load ptr, ptr %1134, align 8
+  %1136 = tail call ptr @g_slist_prepend(ptr noundef %1135, ptr noundef %1133)
+  store ptr %1136, ptr %1134, align 8
+  %1137 = load ptr, ptr %56, align 8
   %.val1551 = load ptr, ptr %0, align 8
-  %1143 = tail call fastcc ptr @strdup_and_store(ptr %.val1551, ptr noundef %1142)
-  %1144 = load ptr, ptr %0, align 8
-  %1145 = getelementptr inbounds nuw i8, ptr %1144, i64 56
-  %1146 = load ptr, ptr %1145, align 8
-  store ptr %1143, ptr %1146, align 8
-  %1147 = load ptr, ptr %58, align 8
-  %.not.i1758 = icmp eq ptr %1147, null
-  br i1 %.not.i1758, label %.loopexit1863.sink.split, label %1148
+  %1138 = tail call fastcc ptr @strdup_and_store(ptr %.val1551, ptr noundef %1137)
+  %1139 = load ptr, ptr %0, align 8
+  %1140 = getelementptr inbounds nuw i8, ptr %1139, i64 56
+  %1141 = load ptr, ptr %1140, align 8
+  store ptr %1138, ptr %1141, align 8
+  %1142 = load ptr, ptr %58, align 8
+  %.not.i1758 = icmp eq ptr %1142, null
+  br i1 %.not.i1758, label %.loopexit1863.sink.split, label %1143
 
-1148:                                             ; preds = %1132
-  %1149 = load i64, ptr %59, align 8
-  %1150 = getelementptr ptr, ptr %1147, i64 %1149
-  %1151 = load ptr, ptr %1150, align 8
-  %.not8.i1759 = icmp eq ptr %1151, null
+1143:                                             ; preds = %1127
+  %1144 = load i64, ptr %59, align 8
+  %1145 = getelementptr ptr, ptr %1142, i64 %1144
+  %1146 = load ptr, ptr %1145, align 8
+  %.not8.i1759 = icmp eq ptr %1146, null
   br i1 %.not8.i1759, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1152:                                             ; preds = %.loopexit1866
-  %1153 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1154 = load ptr, ptr %0, align 8
-  %1155 = getelementptr inbounds nuw i8, ptr %1154, i64 56
-  store ptr %1153, ptr %1155, align 8
-  %1156 = load ptr, ptr %0, align 8
-  %1157 = getelementptr inbounds nuw i8, ptr %1156, i64 56
-  %1158 = load ptr, ptr %1157, align 8
-  %1159 = getelementptr inbounds nuw i8, ptr %1156, i64 24
-  %1160 = load ptr, ptr %1159, align 8
-  %1161 = tail call ptr @g_slist_prepend(ptr noundef %1160, ptr noundef %1158)
-  store ptr %1161, ptr %1159, align 8
-  %1162 = load ptr, ptr %56, align 8
+1147:                                             ; preds = %.loopexit1866
+  %1148 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1149 = load ptr, ptr %0, align 8
+  %1150 = getelementptr inbounds nuw i8, ptr %1149, i64 56
+  store ptr %1148, ptr %1150, align 8
+  %1151 = load ptr, ptr %0, align 8
+  %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 56
+  %1153 = load ptr, ptr %1152, align 8
+  %1154 = getelementptr inbounds nuw i8, ptr %1151, i64 24
+  %1155 = load ptr, ptr %1154, align 8
+  %1156 = tail call ptr @g_slist_prepend(ptr noundef %1155, ptr noundef %1153)
+  store ptr %1156, ptr %1154, align 8
+  %1157 = load ptr, ptr %56, align 8
   %.val1552 = load ptr, ptr %0, align 8
-  %1163 = tail call fastcc ptr @strdup_and_store(ptr %.val1552, ptr noundef %1162)
-  %1164 = load ptr, ptr %0, align 8
-  %1165 = getelementptr inbounds nuw i8, ptr %1164, i64 56
-  %1166 = load ptr, ptr %1165, align 8
-  store ptr %1163, ptr %1166, align 8
-  %1167 = load ptr, ptr %58, align 8
-  %.not.i1762 = icmp eq ptr %1167, null
-  br i1 %.not.i1762, label %.loopexit1863.sink.split, label %1168
+  %1158 = tail call fastcc ptr @strdup_and_store(ptr %.val1552, ptr noundef %1157)
+  %1159 = load ptr, ptr %0, align 8
+  %1160 = getelementptr inbounds nuw i8, ptr %1159, i64 56
+  %1161 = load ptr, ptr %1160, align 8
+  store ptr %1158, ptr %1161, align 8
+  %1162 = load ptr, ptr %58, align 8
+  %.not.i1762 = icmp eq ptr %1162, null
+  br i1 %.not.i1762, label %.loopexit1863.sink.split, label %1163
 
-1168:                                             ; preds = %1152
-  %1169 = load i64, ptr %59, align 8
-  %1170 = getelementptr ptr, ptr %1167, i64 %1169
-  %1171 = load ptr, ptr %1170, align 8
-  %.not8.i1763 = icmp eq ptr %1171, null
+1163:                                             ; preds = %1147
+  %1164 = load i64, ptr %59, align 8
+  %1165 = getelementptr ptr, ptr %1162, i64 %1164
+  %1166 = load ptr, ptr %1165, align 8
+  %.not8.i1763 = icmp eq ptr %1166, null
   br i1 %.not8.i1763, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1172:                                             ; preds = %.loopexit1866
-  %1173 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1174 = load ptr, ptr %0, align 8
-  %1175 = getelementptr inbounds nuw i8, ptr %1174, i64 56
-  store ptr %1173, ptr %1175, align 8
-  %1176 = load ptr, ptr %0, align 8
-  %1177 = getelementptr inbounds nuw i8, ptr %1176, i64 56
-  %1178 = load ptr, ptr %1177, align 8
-  %1179 = getelementptr inbounds nuw i8, ptr %1176, i64 24
-  %1180 = load ptr, ptr %1179, align 8
-  %1181 = tail call ptr @g_slist_prepend(ptr noundef %1180, ptr noundef %1178)
-  store ptr %1181, ptr %1179, align 8
-  %1182 = load ptr, ptr %56, align 8
+1167:                                             ; preds = %.loopexit1866
+  %1168 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1169 = load ptr, ptr %0, align 8
+  %1170 = getelementptr inbounds nuw i8, ptr %1169, i64 56
+  store ptr %1168, ptr %1170, align 8
+  %1171 = load ptr, ptr %0, align 8
+  %1172 = getelementptr inbounds nuw i8, ptr %1171, i64 56
+  %1173 = load ptr, ptr %1172, align 8
+  %1174 = getelementptr inbounds nuw i8, ptr %1171, i64 24
+  %1175 = load ptr, ptr %1174, align 8
+  %1176 = tail call ptr @g_slist_prepend(ptr noundef %1175, ptr noundef %1173)
+  store ptr %1176, ptr %1174, align 8
+  %1177 = load ptr, ptr %56, align 8
   %.val1553 = load ptr, ptr %0, align 8
-  %1183 = tail call fastcc ptr @strdup_and_store(ptr %.val1553, ptr noundef %1182)
-  %1184 = load ptr, ptr %0, align 8
-  %1185 = getelementptr inbounds nuw i8, ptr %1184, i64 56
-  %1186 = load ptr, ptr %1185, align 8
-  store ptr %1183, ptr %1186, align 8
-  %1187 = load ptr, ptr %58, align 8
-  %.not.i1766 = icmp eq ptr %1187, null
-  br i1 %.not.i1766, label %.loopexit1863.sink.split, label %1188
+  %1178 = tail call fastcc ptr @strdup_and_store(ptr %.val1553, ptr noundef %1177)
+  %1179 = load ptr, ptr %0, align 8
+  %1180 = getelementptr inbounds nuw i8, ptr %1179, i64 56
+  %1181 = load ptr, ptr %1180, align 8
+  store ptr %1178, ptr %1181, align 8
+  %1182 = load ptr, ptr %58, align 8
+  %.not.i1766 = icmp eq ptr %1182, null
+  br i1 %.not.i1766, label %.loopexit1863.sink.split, label %1183
 
-1188:                                             ; preds = %1172
-  %1189 = load i64, ptr %59, align 8
-  %1190 = getelementptr ptr, ptr %1187, i64 %1189
-  %1191 = load ptr, ptr %1190, align 8
-  %.not8.i1767 = icmp eq ptr %1191, null
+1183:                                             ; preds = %1167
+  %1184 = load i64, ptr %59, align 8
+  %1185 = getelementptr ptr, ptr %1182, i64 %1184
+  %1186 = load ptr, ptr %1185, align 8
+  %.not8.i1767 = icmp eq ptr %1186, null
   br i1 %.not8.i1767, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1192:                                             ; preds = %.loopexit1866
-  %1193 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1194 = load ptr, ptr %0, align 8
-  %1195 = getelementptr inbounds nuw i8, ptr %1194, i64 56
-  store ptr %1193, ptr %1195, align 8
-  %1196 = load ptr, ptr %0, align 8
-  %1197 = getelementptr inbounds nuw i8, ptr %1196, i64 56
-  %1198 = load ptr, ptr %1197, align 8
-  %1199 = getelementptr inbounds nuw i8, ptr %1196, i64 24
-  %1200 = load ptr, ptr %1199, align 8
-  %1201 = tail call ptr @g_slist_prepend(ptr noundef %1200, ptr noundef %1198)
-  store ptr %1201, ptr %1199, align 8
-  %1202 = load ptr, ptr %56, align 8
+1187:                                             ; preds = %.loopexit1866
+  %1188 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1189 = load ptr, ptr %0, align 8
+  %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 56
+  store ptr %1188, ptr %1190, align 8
+  %1191 = load ptr, ptr %0, align 8
+  %1192 = getelementptr inbounds nuw i8, ptr %1191, i64 56
+  %1193 = load ptr, ptr %1192, align 8
+  %1194 = getelementptr inbounds nuw i8, ptr %1191, i64 24
+  %1195 = load ptr, ptr %1194, align 8
+  %1196 = tail call ptr @g_slist_prepend(ptr noundef %1195, ptr noundef %1193)
+  store ptr %1196, ptr %1194, align 8
+  %1197 = load ptr, ptr %56, align 8
   %.val1554 = load ptr, ptr %0, align 8
-  %1203 = tail call fastcc ptr @strdup_and_store(ptr %.val1554, ptr noundef %1202)
-  %1204 = load ptr, ptr %0, align 8
-  %1205 = getelementptr inbounds nuw i8, ptr %1204, i64 56
-  %1206 = load ptr, ptr %1205, align 8
-  store ptr %1203, ptr %1206, align 8
-  %1207 = load ptr, ptr %58, align 8
-  %.not.i1770 = icmp eq ptr %1207, null
-  br i1 %.not.i1770, label %.loopexit1863.sink.split, label %1208
+  %1198 = tail call fastcc ptr @strdup_and_store(ptr %.val1554, ptr noundef %1197)
+  %1199 = load ptr, ptr %0, align 8
+  %1200 = getelementptr inbounds nuw i8, ptr %1199, i64 56
+  %1201 = load ptr, ptr %1200, align 8
+  store ptr %1198, ptr %1201, align 8
+  %1202 = load ptr, ptr %58, align 8
+  %.not.i1770 = icmp eq ptr %1202, null
+  br i1 %.not.i1770, label %.loopexit1863.sink.split, label %1203
 
-1208:                                             ; preds = %1192
-  %1209 = load i64, ptr %59, align 8
-  %1210 = getelementptr ptr, ptr %1207, i64 %1209
-  %1211 = load ptr, ptr %1210, align 8
-  %.not8.i1771 = icmp eq ptr %1211, null
+1203:                                             ; preds = %1187
+  %1204 = load i64, ptr %59, align 8
+  %1205 = getelementptr ptr, ptr %1202, i64 %1204
+  %1206 = load ptr, ptr %1205, align 8
+  %.not8.i1771 = icmp eq ptr %1206, null
   br i1 %.not8.i1771, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1212:                                             ; preds = %.loopexit1866
-  %1213 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1214 = load ptr, ptr %0, align 8
-  %1215 = getelementptr inbounds nuw i8, ptr %1214, i64 56
-  store ptr %1213, ptr %1215, align 8
-  %1216 = load ptr, ptr %0, align 8
-  %1217 = getelementptr inbounds nuw i8, ptr %1216, i64 56
-  %1218 = load ptr, ptr %1217, align 8
-  %1219 = getelementptr inbounds nuw i8, ptr %1216, i64 24
-  %1220 = load ptr, ptr %1219, align 8
-  %1221 = tail call ptr @g_slist_prepend(ptr noundef %1220, ptr noundef %1218)
-  store ptr %1221, ptr %1219, align 8
-  %1222 = load ptr, ptr %56, align 8
+1207:                                             ; preds = %.loopexit1866
+  %1208 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1209 = load ptr, ptr %0, align 8
+  %1210 = getelementptr inbounds nuw i8, ptr %1209, i64 56
+  store ptr %1208, ptr %1210, align 8
+  %1211 = load ptr, ptr %0, align 8
+  %1212 = getelementptr inbounds nuw i8, ptr %1211, i64 56
+  %1213 = load ptr, ptr %1212, align 8
+  %1214 = getelementptr inbounds nuw i8, ptr %1211, i64 24
+  %1215 = load ptr, ptr %1214, align 8
+  %1216 = tail call ptr @g_slist_prepend(ptr noundef %1215, ptr noundef %1213)
+  store ptr %1216, ptr %1214, align 8
+  %1217 = load ptr, ptr %56, align 8
   %.val1555 = load ptr, ptr %0, align 8
-  %1223 = tail call fastcc ptr @strdup_and_store(ptr %.val1555, ptr noundef %1222)
-  %1224 = load ptr, ptr %0, align 8
-  %1225 = getelementptr inbounds nuw i8, ptr %1224, i64 56
-  %1226 = load ptr, ptr %1225, align 8
-  store ptr %1223, ptr %1226, align 8
-  %1227 = load ptr, ptr %58, align 8
-  %.not.i1774 = icmp eq ptr %1227, null
-  br i1 %.not.i1774, label %.loopexit1863.sink.split, label %1228
+  %1218 = tail call fastcc ptr @strdup_and_store(ptr %.val1555, ptr noundef %1217)
+  %1219 = load ptr, ptr %0, align 8
+  %1220 = getelementptr inbounds nuw i8, ptr %1219, i64 56
+  %1221 = load ptr, ptr %1220, align 8
+  store ptr %1218, ptr %1221, align 8
+  %1222 = load ptr, ptr %58, align 8
+  %.not.i1774 = icmp eq ptr %1222, null
+  br i1 %.not.i1774, label %.loopexit1863.sink.split, label %1223
 
-1228:                                             ; preds = %1212
-  %1229 = load i64, ptr %59, align 8
-  %1230 = getelementptr ptr, ptr %1227, i64 %1229
-  %1231 = load ptr, ptr %1230, align 8
-  %.not8.i1775 = icmp eq ptr %1231, null
+1223:                                             ; preds = %1207
+  %1224 = load i64, ptr %59, align 8
+  %1225 = getelementptr ptr, ptr %1222, i64 %1224
+  %1226 = load ptr, ptr %1225, align 8
+  %.not8.i1775 = icmp eq ptr %1226, null
   br i1 %.not8.i1775, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1232:                                             ; preds = %.loopexit1866
-  %1233 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1234 = load ptr, ptr %0, align 8
-  %1235 = getelementptr inbounds nuw i8, ptr %1234, i64 56
-  store ptr %1233, ptr %1235, align 8
-  %1236 = load ptr, ptr %0, align 8
-  %1237 = getelementptr inbounds nuw i8, ptr %1236, i64 56
-  %1238 = load ptr, ptr %1237, align 8
-  %1239 = getelementptr inbounds nuw i8, ptr %1236, i64 24
-  %1240 = load ptr, ptr %1239, align 8
-  %1241 = tail call ptr @g_slist_prepend(ptr noundef %1240, ptr noundef %1238)
-  store ptr %1241, ptr %1239, align 8
-  %1242 = load ptr, ptr %56, align 8
+1227:                                             ; preds = %.loopexit1866
+  %1228 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1229 = load ptr, ptr %0, align 8
+  %1230 = getelementptr inbounds nuw i8, ptr %1229, i64 56
+  store ptr %1228, ptr %1230, align 8
+  %1231 = load ptr, ptr %0, align 8
+  %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 56
+  %1233 = load ptr, ptr %1232, align 8
+  %1234 = getelementptr inbounds nuw i8, ptr %1231, i64 24
+  %1235 = load ptr, ptr %1234, align 8
+  %1236 = tail call ptr @g_slist_prepend(ptr noundef %1235, ptr noundef %1233)
+  store ptr %1236, ptr %1234, align 8
+  %1237 = load ptr, ptr %56, align 8
   %.val1556 = load ptr, ptr %0, align 8
-  %1243 = tail call fastcc ptr @strdup_and_store(ptr %.val1556, ptr noundef %1242)
-  %1244 = load ptr, ptr %0, align 8
-  %1245 = getelementptr inbounds nuw i8, ptr %1244, i64 56
-  %1246 = load ptr, ptr %1245, align 8
-  store ptr %1243, ptr %1246, align 8
-  %1247 = load ptr, ptr %58, align 8
-  %.not.i1778 = icmp eq ptr %1247, null
-  br i1 %.not.i1778, label %.loopexit1863.sink.split, label %1248
+  %1238 = tail call fastcc ptr @strdup_and_store(ptr %.val1556, ptr noundef %1237)
+  %1239 = load ptr, ptr %0, align 8
+  %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 56
+  %1241 = load ptr, ptr %1240, align 8
+  store ptr %1238, ptr %1241, align 8
+  %1242 = load ptr, ptr %58, align 8
+  %.not.i1778 = icmp eq ptr %1242, null
+  br i1 %.not.i1778, label %.loopexit1863.sink.split, label %1243
 
-1248:                                             ; preds = %1232
-  %1249 = load i64, ptr %59, align 8
-  %1250 = getelementptr ptr, ptr %1247, i64 %1249
-  %1251 = load ptr, ptr %1250, align 8
-  %.not8.i1779 = icmp eq ptr %1251, null
+1243:                                             ; preds = %1227
+  %1244 = load i64, ptr %59, align 8
+  %1245 = getelementptr ptr, ptr %1242, i64 %1244
+  %1246 = load ptr, ptr %1245, align 8
+  %.not8.i1779 = icmp eq ptr %1246, null
   br i1 %.not8.i1779, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1252:                                             ; preds = %.loopexit1866
-  %1253 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1254 = load ptr, ptr %0, align 8
-  %1255 = getelementptr inbounds nuw i8, ptr %1254, i64 56
-  store ptr %1253, ptr %1255, align 8
-  %1256 = load ptr, ptr %0, align 8
-  %1257 = getelementptr inbounds nuw i8, ptr %1256, i64 56
-  %1258 = load ptr, ptr %1257, align 8
-  %1259 = getelementptr inbounds nuw i8, ptr %1256, i64 24
-  %1260 = load ptr, ptr %1259, align 8
-  %1261 = tail call ptr @g_slist_prepend(ptr noundef %1260, ptr noundef %1258)
-  store ptr %1261, ptr %1259, align 8
-  %1262 = load ptr, ptr %56, align 8
+1247:                                             ; preds = %.loopexit1866
+  %1248 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1249 = load ptr, ptr %0, align 8
+  %1250 = getelementptr inbounds nuw i8, ptr %1249, i64 56
+  store ptr %1248, ptr %1250, align 8
+  %1251 = load ptr, ptr %0, align 8
+  %1252 = getelementptr inbounds nuw i8, ptr %1251, i64 56
+  %1253 = load ptr, ptr %1252, align 8
+  %1254 = getelementptr inbounds nuw i8, ptr %1251, i64 24
+  %1255 = load ptr, ptr %1254, align 8
+  %1256 = tail call ptr @g_slist_prepend(ptr noundef %1255, ptr noundef %1253)
+  store ptr %1256, ptr %1254, align 8
+  %1257 = load ptr, ptr %56, align 8
   %.val1557 = load ptr, ptr %0, align 8
-  %1263 = tail call fastcc ptr @strdup_and_store(ptr %.val1557, ptr noundef %1262)
-  %1264 = load ptr, ptr %0, align 8
-  %1265 = getelementptr inbounds nuw i8, ptr %1264, i64 56
-  %1266 = load ptr, ptr %1265, align 8
-  store ptr %1263, ptr %1266, align 8
-  %1267 = load ptr, ptr %58, align 8
-  %.not.i1782 = icmp eq ptr %1267, null
-  br i1 %.not.i1782, label %.loopexit1863.sink.split, label %1268
+  %1258 = tail call fastcc ptr @strdup_and_store(ptr %.val1557, ptr noundef %1257)
+  %1259 = load ptr, ptr %0, align 8
+  %1260 = getelementptr inbounds nuw i8, ptr %1259, i64 56
+  %1261 = load ptr, ptr %1260, align 8
+  store ptr %1258, ptr %1261, align 8
+  %1262 = load ptr, ptr %58, align 8
+  %.not.i1782 = icmp eq ptr %1262, null
+  br i1 %.not.i1782, label %.loopexit1863.sink.split, label %1263
 
-1268:                                             ; preds = %1252
-  %1269 = load i64, ptr %59, align 8
-  %1270 = getelementptr ptr, ptr %1267, i64 %1269
-  %1271 = load ptr, ptr %1270, align 8
-  %.not8.i1783 = icmp eq ptr %1271, null
+1263:                                             ; preds = %1247
+  %1264 = load i64, ptr %59, align 8
+  %1265 = getelementptr ptr, ptr %1262, i64 %1264
+  %1266 = load ptr, ptr %1265, align 8
+  %.not8.i1783 = icmp eq ptr %1266, null
   br i1 %.not8.i1783, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1272:                                             ; preds = %.loopexit1866
-  %1273 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1274 = load ptr, ptr %0, align 8
-  %1275 = getelementptr inbounds nuw i8, ptr %1274, i64 56
-  store ptr %1273, ptr %1275, align 8
-  %1276 = load ptr, ptr %0, align 8
-  %1277 = getelementptr inbounds nuw i8, ptr %1276, i64 56
-  %1278 = load ptr, ptr %1277, align 8
-  %1279 = getelementptr inbounds nuw i8, ptr %1276, i64 24
-  %1280 = load ptr, ptr %1279, align 8
-  %1281 = tail call ptr @g_slist_prepend(ptr noundef %1280, ptr noundef %1278)
-  store ptr %1281, ptr %1279, align 8
-  %1282 = load ptr, ptr %56, align 8
+1267:                                             ; preds = %.loopexit1866
+  %1268 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1269 = load ptr, ptr %0, align 8
+  %1270 = getelementptr inbounds nuw i8, ptr %1269, i64 56
+  store ptr %1268, ptr %1270, align 8
+  %1271 = load ptr, ptr %0, align 8
+  %1272 = getelementptr inbounds nuw i8, ptr %1271, i64 56
+  %1273 = load ptr, ptr %1272, align 8
+  %1274 = getelementptr inbounds nuw i8, ptr %1271, i64 24
+  %1275 = load ptr, ptr %1274, align 8
+  %1276 = tail call ptr @g_slist_prepend(ptr noundef %1275, ptr noundef %1273)
+  store ptr %1276, ptr %1274, align 8
+  %1277 = load ptr, ptr %56, align 8
   %.val1558 = load ptr, ptr %0, align 8
-  %1283 = tail call fastcc ptr @strdup_and_store(ptr %.val1558, ptr noundef %1282)
-  %1284 = load ptr, ptr %0, align 8
-  %1285 = getelementptr inbounds nuw i8, ptr %1284, i64 56
-  %1286 = load ptr, ptr %1285, align 8
-  store ptr %1283, ptr %1286, align 8
-  %1287 = load ptr, ptr %58, align 8
-  %.not.i1786 = icmp eq ptr %1287, null
-  br i1 %.not.i1786, label %.loopexit1863.sink.split, label %1288
+  %1278 = tail call fastcc ptr @strdup_and_store(ptr %.val1558, ptr noundef %1277)
+  %1279 = load ptr, ptr %0, align 8
+  %1280 = getelementptr inbounds nuw i8, ptr %1279, i64 56
+  %1281 = load ptr, ptr %1280, align 8
+  store ptr %1278, ptr %1281, align 8
+  %1282 = load ptr, ptr %58, align 8
+  %.not.i1786 = icmp eq ptr %1282, null
+  br i1 %.not.i1786, label %.loopexit1863.sink.split, label %1283
 
-1288:                                             ; preds = %1272
-  %1289 = load i64, ptr %59, align 8
-  %1290 = getelementptr ptr, ptr %1287, i64 %1289
-  %1291 = load ptr, ptr %1290, align 8
-  %.not8.i1787 = icmp eq ptr %1291, null
+1283:                                             ; preds = %1267
+  %1284 = load i64, ptr %59, align 8
+  %1285 = getelementptr ptr, ptr %1282, i64 %1284
+  %1286 = load ptr, ptr %1285, align 8
+  %.not8.i1787 = icmp eq ptr %1286, null
   br i1 %.not8.i1787, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1292:                                             ; preds = %.loopexit1866
-  %1293 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1294 = load ptr, ptr %0, align 8
-  %1295 = getelementptr inbounds nuw i8, ptr %1294, i64 56
-  store ptr %1293, ptr %1295, align 8
-  %1296 = load ptr, ptr %0, align 8
-  %1297 = getelementptr inbounds nuw i8, ptr %1296, i64 56
-  %1298 = load ptr, ptr %1297, align 8
-  %1299 = getelementptr inbounds nuw i8, ptr %1296, i64 24
-  %1300 = load ptr, ptr %1299, align 8
-  %1301 = tail call ptr @g_slist_prepend(ptr noundef %1300, ptr noundef %1298)
-  store ptr %1301, ptr %1299, align 8
-  %1302 = load ptr, ptr %56, align 8
+1287:                                             ; preds = %.loopexit1866
+  %1288 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1289 = load ptr, ptr %0, align 8
+  %1290 = getelementptr inbounds nuw i8, ptr %1289, i64 56
+  store ptr %1288, ptr %1290, align 8
+  %1291 = load ptr, ptr %0, align 8
+  %1292 = getelementptr inbounds nuw i8, ptr %1291, i64 56
+  %1293 = load ptr, ptr %1292, align 8
+  %1294 = getelementptr inbounds nuw i8, ptr %1291, i64 24
+  %1295 = load ptr, ptr %1294, align 8
+  %1296 = tail call ptr @g_slist_prepend(ptr noundef %1295, ptr noundef %1293)
+  store ptr %1296, ptr %1294, align 8
+  %1297 = load ptr, ptr %56, align 8
   %.val1559 = load ptr, ptr %0, align 8
-  %1303 = tail call fastcc ptr @strdup_and_store(ptr %.val1559, ptr noundef %1302)
-  %1304 = load ptr, ptr %0, align 8
-  %1305 = getelementptr inbounds nuw i8, ptr %1304, i64 56
-  %1306 = load ptr, ptr %1305, align 8
-  store ptr %1303, ptr %1306, align 8
-  %1307 = load ptr, ptr %58, align 8
-  %.not.i1790 = icmp eq ptr %1307, null
-  br i1 %.not.i1790, label %.loopexit1863.sink.split, label %1308
+  %1298 = tail call fastcc ptr @strdup_and_store(ptr %.val1559, ptr noundef %1297)
+  %1299 = load ptr, ptr %0, align 8
+  %1300 = getelementptr inbounds nuw i8, ptr %1299, i64 56
+  %1301 = load ptr, ptr %1300, align 8
+  store ptr %1298, ptr %1301, align 8
+  %1302 = load ptr, ptr %58, align 8
+  %.not.i1790 = icmp eq ptr %1302, null
+  br i1 %.not.i1790, label %.loopexit1863.sink.split, label %1303
 
-1308:                                             ; preds = %1292
-  %1309 = load i64, ptr %59, align 8
-  %1310 = getelementptr ptr, ptr %1307, i64 %1309
-  %1311 = load ptr, ptr %1310, align 8
-  %.not8.i1791 = icmp eq ptr %1311, null
+1303:                                             ; preds = %1287
+  %1304 = load i64, ptr %59, align 8
+  %1305 = getelementptr ptr, ptr %1302, i64 %1304
+  %1306 = load ptr, ptr %1305, align 8
+  %.not8.i1791 = icmp eq ptr %1306, null
   br i1 %.not8.i1791, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1312:                                             ; preds = %.loopexit1866
-  %1313 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1314 = load ptr, ptr %0, align 8
-  %1315 = getelementptr inbounds nuw i8, ptr %1314, i64 56
-  store ptr %1313, ptr %1315, align 8
-  %1316 = load ptr, ptr %0, align 8
-  %1317 = getelementptr inbounds nuw i8, ptr %1316, i64 56
-  %1318 = load ptr, ptr %1317, align 8
-  %1319 = getelementptr inbounds nuw i8, ptr %1316, i64 24
-  %1320 = load ptr, ptr %1319, align 8
-  %1321 = tail call ptr @g_slist_prepend(ptr noundef %1320, ptr noundef %1318)
-  store ptr %1321, ptr %1319, align 8
-  %1322 = load ptr, ptr %56, align 8
+1307:                                             ; preds = %.loopexit1866
+  %1308 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1309 = load ptr, ptr %0, align 8
+  %1310 = getelementptr inbounds nuw i8, ptr %1309, i64 56
+  store ptr %1308, ptr %1310, align 8
+  %1311 = load ptr, ptr %0, align 8
+  %1312 = getelementptr inbounds nuw i8, ptr %1311, i64 56
+  %1313 = load ptr, ptr %1312, align 8
+  %1314 = getelementptr inbounds nuw i8, ptr %1311, i64 24
+  %1315 = load ptr, ptr %1314, align 8
+  %1316 = tail call ptr @g_slist_prepend(ptr noundef %1315, ptr noundef %1313)
+  store ptr %1316, ptr %1314, align 8
+  %1317 = load ptr, ptr %56, align 8
   %.val1560 = load ptr, ptr %0, align 8
-  %1323 = tail call fastcc ptr @strdup_and_store(ptr %.val1560, ptr noundef %1322)
-  %1324 = load ptr, ptr %0, align 8
-  %1325 = getelementptr inbounds nuw i8, ptr %1324, i64 56
-  %1326 = load ptr, ptr %1325, align 8
-  store ptr %1323, ptr %1326, align 8
-  %1327 = load ptr, ptr %58, align 8
-  %.not.i1794 = icmp eq ptr %1327, null
-  br i1 %.not.i1794, label %.loopexit1863.sink.split, label %1328
+  %1318 = tail call fastcc ptr @strdup_and_store(ptr %.val1560, ptr noundef %1317)
+  %1319 = load ptr, ptr %0, align 8
+  %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 56
+  %1321 = load ptr, ptr %1320, align 8
+  store ptr %1318, ptr %1321, align 8
+  %1322 = load ptr, ptr %58, align 8
+  %.not.i1794 = icmp eq ptr %1322, null
+  br i1 %.not.i1794, label %.loopexit1863.sink.split, label %1323
 
-1328:                                             ; preds = %1312
-  %1329 = load i64, ptr %59, align 8
-  %1330 = getelementptr ptr, ptr %1327, i64 %1329
-  %1331 = load ptr, ptr %1330, align 8
-  %.not8.i1795 = icmp eq ptr %1331, null
+1323:                                             ; preds = %1307
+  %1324 = load i64, ptr %59, align 8
+  %1325 = getelementptr ptr, ptr %1322, i64 %1324
+  %1326 = load ptr, ptr %1325, align 8
+  %.not8.i1795 = icmp eq ptr %1326, null
   br i1 %.not8.i1795, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1332:                                             ; preds = %.loopexit1866
-  %1333 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1334 = load ptr, ptr %0, align 8
-  %1335 = getelementptr inbounds nuw i8, ptr %1334, i64 56
-  store ptr %1333, ptr %1335, align 8
-  %1336 = load ptr, ptr %0, align 8
-  %1337 = getelementptr inbounds nuw i8, ptr %1336, i64 56
-  %1338 = load ptr, ptr %1337, align 8
-  %1339 = getelementptr inbounds nuw i8, ptr %1336, i64 24
-  %1340 = load ptr, ptr %1339, align 8
-  %1341 = tail call ptr @g_slist_prepend(ptr noundef %1340, ptr noundef %1338)
-  store ptr %1341, ptr %1339, align 8
-  %1342 = load ptr, ptr %56, align 8
+1327:                                             ; preds = %.loopexit1866
+  %1328 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1329 = load ptr, ptr %0, align 8
+  %1330 = getelementptr inbounds nuw i8, ptr %1329, i64 56
+  store ptr %1328, ptr %1330, align 8
+  %1331 = load ptr, ptr %0, align 8
+  %1332 = getelementptr inbounds nuw i8, ptr %1331, i64 56
+  %1333 = load ptr, ptr %1332, align 8
+  %1334 = getelementptr inbounds nuw i8, ptr %1331, i64 24
+  %1335 = load ptr, ptr %1334, align 8
+  %1336 = tail call ptr @g_slist_prepend(ptr noundef %1335, ptr noundef %1333)
+  store ptr %1336, ptr %1334, align 8
+  %1337 = load ptr, ptr %56, align 8
   %.val1561 = load ptr, ptr %0, align 8
-  %1343 = tail call fastcc ptr @strdup_and_store(ptr %.val1561, ptr noundef %1342)
-  %1344 = load ptr, ptr %0, align 8
-  %1345 = getelementptr inbounds nuw i8, ptr %1344, i64 56
-  %1346 = load ptr, ptr %1345, align 8
-  store ptr %1343, ptr %1346, align 8
-  %1347 = load ptr, ptr %58, align 8
-  %.not.i1798 = icmp eq ptr %1347, null
-  br i1 %.not.i1798, label %.loopexit1863.sink.split, label %1348
+  %1338 = tail call fastcc ptr @strdup_and_store(ptr %.val1561, ptr noundef %1337)
+  %1339 = load ptr, ptr %0, align 8
+  %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 56
+  %1341 = load ptr, ptr %1340, align 8
+  store ptr %1338, ptr %1341, align 8
+  %1342 = load ptr, ptr %58, align 8
+  %.not.i1798 = icmp eq ptr %1342, null
+  br i1 %.not.i1798, label %.loopexit1863.sink.split, label %1343
 
-1348:                                             ; preds = %1332
-  %1349 = load i64, ptr %59, align 8
-  %1350 = getelementptr ptr, ptr %1347, i64 %1349
-  %1351 = load ptr, ptr %1350, align 8
-  %.not8.i1799 = icmp eq ptr %1351, null
+1343:                                             ; preds = %1327
+  %1344 = load i64, ptr %59, align 8
+  %1345 = getelementptr ptr, ptr %1342, i64 %1344
+  %1346 = load ptr, ptr %1345, align 8
+  %.not8.i1799 = icmp eq ptr %1346, null
   br i1 %.not8.i1799, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1352:                                             ; preds = %.loopexit1866
-  %1353 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1354 = load ptr, ptr %0, align 8
-  %1355 = getelementptr inbounds nuw i8, ptr %1354, i64 56
-  store ptr %1353, ptr %1355, align 8
-  %1356 = load ptr, ptr %0, align 8
-  %1357 = getelementptr inbounds nuw i8, ptr %1356, i64 56
-  %1358 = load ptr, ptr %1357, align 8
-  %1359 = getelementptr inbounds nuw i8, ptr %1356, i64 24
-  %1360 = load ptr, ptr %1359, align 8
-  %1361 = tail call ptr @g_slist_prepend(ptr noundef %1360, ptr noundef %1358)
-  store ptr %1361, ptr %1359, align 8
-  %1362 = load ptr, ptr %56, align 8
+1347:                                             ; preds = %.loopexit1866
+  %1348 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1349 = load ptr, ptr %0, align 8
+  %1350 = getelementptr inbounds nuw i8, ptr %1349, i64 56
+  store ptr %1348, ptr %1350, align 8
+  %1351 = load ptr, ptr %0, align 8
+  %1352 = getelementptr inbounds nuw i8, ptr %1351, i64 56
+  %1353 = load ptr, ptr %1352, align 8
+  %1354 = getelementptr inbounds nuw i8, ptr %1351, i64 24
+  %1355 = load ptr, ptr %1354, align 8
+  %1356 = tail call ptr @g_slist_prepend(ptr noundef %1355, ptr noundef %1353)
+  store ptr %1356, ptr %1354, align 8
+  %1357 = load ptr, ptr %56, align 8
   %.val1562 = load ptr, ptr %0, align 8
-  %1363 = tail call fastcc ptr @strdup_and_store(ptr %.val1562, ptr noundef %1362)
-  %1364 = load ptr, ptr %0, align 8
-  %1365 = getelementptr inbounds nuw i8, ptr %1364, i64 56
-  %1366 = load ptr, ptr %1365, align 8
-  store ptr %1363, ptr %1366, align 8
-  %1367 = load ptr, ptr %58, align 8
-  %.not.i1802 = icmp eq ptr %1367, null
-  br i1 %.not.i1802, label %.loopexit1863.sink.split, label %1368
+  %1358 = tail call fastcc ptr @strdup_and_store(ptr %.val1562, ptr noundef %1357)
+  %1359 = load ptr, ptr %0, align 8
+  %1360 = getelementptr inbounds nuw i8, ptr %1359, i64 56
+  %1361 = load ptr, ptr %1360, align 8
+  store ptr %1358, ptr %1361, align 8
+  %1362 = load ptr, ptr %58, align 8
+  %.not.i1802 = icmp eq ptr %1362, null
+  br i1 %.not.i1802, label %.loopexit1863.sink.split, label %1363
 
-1368:                                             ; preds = %1352
-  %1369 = load i64, ptr %59, align 8
-  %1370 = getelementptr ptr, ptr %1367, i64 %1369
-  %1371 = load ptr, ptr %1370, align 8
-  %.not8.i1803 = icmp eq ptr %1371, null
+1363:                                             ; preds = %1347
+  %1364 = load i64, ptr %59, align 8
+  %1365 = getelementptr ptr, ptr %1362, i64 %1364
+  %1366 = load ptr, ptr %1365, align 8
+  %.not8.i1803 = icmp eq ptr %1366, null
   br i1 %.not8.i1803, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1372:                                             ; preds = %.loopexit1866
-  %1373 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1374 = load ptr, ptr %0, align 8
-  %1375 = getelementptr inbounds nuw i8, ptr %1374, i64 56
-  store ptr %1373, ptr %1375, align 8
-  %1376 = load ptr, ptr %0, align 8
-  %1377 = getelementptr inbounds nuw i8, ptr %1376, i64 56
-  %1378 = load ptr, ptr %1377, align 8
-  %1379 = getelementptr inbounds nuw i8, ptr %1376, i64 24
-  %1380 = load ptr, ptr %1379, align 8
-  %1381 = tail call ptr @g_slist_prepend(ptr noundef %1380, ptr noundef %1378)
-  store ptr %1381, ptr %1379, align 8
-  %1382 = load ptr, ptr %56, align 8
+1367:                                             ; preds = %.loopexit1866
+  %1368 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1369 = load ptr, ptr %0, align 8
+  %1370 = getelementptr inbounds nuw i8, ptr %1369, i64 56
+  store ptr %1368, ptr %1370, align 8
+  %1371 = load ptr, ptr %0, align 8
+  %1372 = getelementptr inbounds nuw i8, ptr %1371, i64 56
+  %1373 = load ptr, ptr %1372, align 8
+  %1374 = getelementptr inbounds nuw i8, ptr %1371, i64 24
+  %1375 = load ptr, ptr %1374, align 8
+  %1376 = tail call ptr @g_slist_prepend(ptr noundef %1375, ptr noundef %1373)
+  store ptr %1376, ptr %1374, align 8
+  %1377 = load ptr, ptr %56, align 8
   %.val1563 = load ptr, ptr %0, align 8
-  %1383 = tail call fastcc ptr @strdup_and_store(ptr %.val1563, ptr noundef %1382)
-  %1384 = load ptr, ptr %0, align 8
-  %1385 = getelementptr inbounds nuw i8, ptr %1384, i64 56
-  %1386 = load ptr, ptr %1385, align 8
-  store ptr %1383, ptr %1386, align 8
-  %1387 = load ptr, ptr %58, align 8
-  %.not.i1806 = icmp eq ptr %1387, null
-  br i1 %.not.i1806, label %.loopexit1863.sink.split, label %1388
+  %1378 = tail call fastcc ptr @strdup_and_store(ptr %.val1563, ptr noundef %1377)
+  %1379 = load ptr, ptr %0, align 8
+  %1380 = getelementptr inbounds nuw i8, ptr %1379, i64 56
+  %1381 = load ptr, ptr %1380, align 8
+  store ptr %1378, ptr %1381, align 8
+  %1382 = load ptr, ptr %58, align 8
+  %.not.i1806 = icmp eq ptr %1382, null
+  br i1 %.not.i1806, label %.loopexit1863.sink.split, label %1383
 
-1388:                                             ; preds = %1372
-  %1389 = load i64, ptr %59, align 8
-  %1390 = getelementptr ptr, ptr %1387, i64 %1389
-  %1391 = load ptr, ptr %1390, align 8
-  %.not8.i1807 = icmp eq ptr %1391, null
+1383:                                             ; preds = %1367
+  %1384 = load i64, ptr %59, align 8
+  %1385 = getelementptr ptr, ptr %1382, i64 %1384
+  %1386 = load ptr, ptr %1385, align 8
+  %.not8.i1807 = icmp eq ptr %1386, null
   br i1 %.not8.i1807, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1392:                                             ; preds = %.loopexit1866
-  %1393 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1394 = load ptr, ptr %0, align 8
-  %1395 = getelementptr inbounds nuw i8, ptr %1394, i64 56
-  store ptr %1393, ptr %1395, align 8
-  %1396 = load ptr, ptr %0, align 8
-  %1397 = getelementptr inbounds nuw i8, ptr %1396, i64 56
-  %1398 = load ptr, ptr %1397, align 8
-  %1399 = getelementptr inbounds nuw i8, ptr %1396, i64 24
-  %1400 = load ptr, ptr %1399, align 8
-  %1401 = tail call ptr @g_slist_prepend(ptr noundef %1400, ptr noundef %1398)
-  store ptr %1401, ptr %1399, align 8
-  %1402 = load ptr, ptr %56, align 8
+1387:                                             ; preds = %.loopexit1866
+  %1388 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1389 = load ptr, ptr %0, align 8
+  %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 56
+  store ptr %1388, ptr %1390, align 8
+  %1391 = load ptr, ptr %0, align 8
+  %1392 = getelementptr inbounds nuw i8, ptr %1391, i64 56
+  %1393 = load ptr, ptr %1392, align 8
+  %1394 = getelementptr inbounds nuw i8, ptr %1391, i64 24
+  %1395 = load ptr, ptr %1394, align 8
+  %1396 = tail call ptr @g_slist_prepend(ptr noundef %1395, ptr noundef %1393)
+  store ptr %1396, ptr %1394, align 8
+  %1397 = load ptr, ptr %56, align 8
   %.val1564 = load ptr, ptr %0, align 8
-  %1403 = tail call fastcc ptr @strdup_and_store(ptr %.val1564, ptr noundef %1402)
-  %1404 = load ptr, ptr %0, align 8
-  %1405 = getelementptr inbounds nuw i8, ptr %1404, i64 56
-  %1406 = load ptr, ptr %1405, align 8
-  store ptr %1403, ptr %1406, align 8
-  %1407 = load ptr, ptr %58, align 8
-  %.not.i1810 = icmp eq ptr %1407, null
-  br i1 %.not.i1810, label %.loopexit1863.sink.split, label %1408
+  %1398 = tail call fastcc ptr @strdup_and_store(ptr %.val1564, ptr noundef %1397)
+  %1399 = load ptr, ptr %0, align 8
+  %1400 = getelementptr inbounds nuw i8, ptr %1399, i64 56
+  %1401 = load ptr, ptr %1400, align 8
+  store ptr %1398, ptr %1401, align 8
+  %1402 = load ptr, ptr %58, align 8
+  %.not.i1810 = icmp eq ptr %1402, null
+  br i1 %.not.i1810, label %.loopexit1863.sink.split, label %1403
 
-1408:                                             ; preds = %1392
-  %1409 = load i64, ptr %59, align 8
-  %1410 = getelementptr ptr, ptr %1407, i64 %1409
-  %1411 = load ptr, ptr %1410, align 8
-  %.not8.i1811 = icmp eq ptr %1411, null
+1403:                                             ; preds = %1387
+  %1404 = load i64, ptr %59, align 8
+  %1405 = getelementptr ptr, ptr %1402, i64 %1404
+  %1406 = load ptr, ptr %1405, align 8
+  %.not8.i1811 = icmp eq ptr %1406, null
   br i1 %.not8.i1811, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1412:                                             ; preds = %.loopexit1866
-  %1413 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
-  %1414 = load ptr, ptr %0, align 8
-  %1415 = getelementptr inbounds nuw i8, ptr %1414, i64 56
-  store ptr %1413, ptr %1415, align 8
-  %1416 = load ptr, ptr %0, align 8
-  %1417 = getelementptr inbounds nuw i8, ptr %1416, i64 56
-  %1418 = load ptr, ptr %1417, align 8
-  %1419 = getelementptr inbounds nuw i8, ptr %1416, i64 24
-  %1420 = load ptr, ptr %1419, align 8
-  %1421 = tail call ptr @g_slist_prepend(ptr noundef %1420, ptr noundef %1418)
-  store ptr %1421, ptr %1419, align 8
-  %1422 = load ptr, ptr %56, align 8
+1407:                                             ; preds = %.loopexit1866
+  %1408 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0(i64 noundef 16) #24
+  %1409 = load ptr, ptr %0, align 8
+  %1410 = getelementptr inbounds nuw i8, ptr %1409, i64 56
+  store ptr %1408, ptr %1410, align 8
+  %1411 = load ptr, ptr %0, align 8
+  %1412 = getelementptr inbounds nuw i8, ptr %1411, i64 56
+  %1413 = load ptr, ptr %1412, align 8
+  %1414 = getelementptr inbounds nuw i8, ptr %1411, i64 24
+  %1415 = load ptr, ptr %1414, align 8
+  %1416 = tail call ptr @g_slist_prepend(ptr noundef %1415, ptr noundef %1413)
+  store ptr %1416, ptr %1414, align 8
+  %1417 = load ptr, ptr %56, align 8
   %.val1565 = load ptr, ptr %0, align 8
-  %1423 = tail call fastcc ptr @strdup_and_store(ptr %.val1565, ptr noundef %1422)
-  %1424 = load ptr, ptr %0, align 8
-  %1425 = getelementptr inbounds nuw i8, ptr %1424, i64 56
-  %1426 = load ptr, ptr %1425, align 8
-  store ptr %1423, ptr %1426, align 8
-  %1427 = load ptr, ptr %58, align 8
-  %.not.i1814 = icmp eq ptr %1427, null
-  br i1 %.not.i1814, label %.loopexit1863.sink.split, label %1428
+  %1418 = tail call fastcc ptr @strdup_and_store(ptr %.val1565, ptr noundef %1417)
+  %1419 = load ptr, ptr %0, align 8
+  %1420 = getelementptr inbounds nuw i8, ptr %1419, i64 56
+  %1421 = load ptr, ptr %1420, align 8
+  store ptr %1418, ptr %1421, align 8
+  %1422 = load ptr, ptr %58, align 8
+  %.not.i1814 = icmp eq ptr %1422, null
+  br i1 %.not.i1814, label %.loopexit1863.sink.split, label %1423
 
-1428:                                             ; preds = %1412
-  %1429 = load i64, ptr %59, align 8
-  %1430 = getelementptr ptr, ptr %1427, i64 %1429
-  %1431 = load ptr, ptr %1430, align 8
-  %.not8.i1815 = icmp eq ptr %1431, null
+1423:                                             ; preds = %1407
+  %1424 = load i64, ptr %59, align 8
+  %1425 = getelementptr ptr, ptr %1422, i64 %1424
+  %1426 = load ptr, ptr %1425, align 8
+  %.not8.i1815 = icmp eq ptr %1426, null
   br i1 %.not8.i1815, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
 
-1432:                                             ; preds = %.loopexit1866
-  %1433 = load i32, ptr %53, align 4
-  %1434 = add i32 %1433, -1
-  %1435 = sdiv i32 %1434, 2
-  store i32 %1435, ptr @old_status, align 4
+1427:                                             ; preds = %.loopexit1866
+  %1428 = load i32, ptr %53, align 4
+  %1429 = add i32 %1428, -1
+  %1430 = sdiv i32 %1429, 2
+  store i32 %1430, ptr @old_status, align 4
   store i32 3, ptr %53, align 4
   br label %.loopexit.backedge
 
-1436:                                             ; preds = %.loopexit1866
-  %1437 = load i32, ptr @old_status, align 4
-  %1438 = shl i32 %1437, 1
-  %1439 = or disjoint i32 %1438, 1
-  store i32 %1439, ptr %53, align 4
+1431:                                             ; preds = %.loopexit1866
+  %1432 = load i32, ptr @old_status, align 4
+  %1433 = shl i32 %1432, 1
+  %1434 = or disjoint i32 %1433, 1
+  store i32 %1434, ptr %53, align 4
   br label %.loopexit.backedge
 
-1440:                                             ; preds = %.loopexit1866
-  %1441 = load ptr, ptr %0, align 8
-  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %1441, ptr noundef nonnull @.str)
+1435:                                             ; preds = %.loopexit1866
+  %1436 = load ptr, ptr %0, align 8
+  tail call void (ptr, ptr, ...) @pbl_parser_error(ptr noundef %1436, ptr noundef nonnull @.str)
   br label %.loopexit.backedge
 
-1442:                                             ; preds = %.loopexit1866
-  %1443 = load ptr, ptr %56, align 8
-  %1444 = load i32, ptr %57, align 8
-  %1445 = sext i32 %1444 to i64
-  %1446 = load ptr, ptr %63, align 8
-  %1447 = tail call i64 @fwrite(ptr noundef %1443, i64 noundef %1445, i64 noundef 1, ptr noundef %1446)
+1437:                                             ; preds = %.loopexit1866
+  %1438 = load ptr, ptr %56, align 8
+  %1439 = load i32, ptr %57, align 8
+  %1440 = sext i32 %1439 to i64
+  %1441 = load ptr, ptr %63, align 8
+  %1442 = tail call i64 @fwrite(ptr noundef %1438, i64 noundef %1440, i64 noundef 1, ptr noundef %1441)
   br label %.loopexit.backedge
 
-.loopexit.backedge:                               ; preds = %.loopexit1866, %.loopexit1866, %.loopexit1866, %1442, %1440, %1436, %1432
-  br label %.loopexit, !llvm.loop !12
+.loopexit.backedge:                               ; preds = %.loopexit1866, %.loopexit1866, %.loopexit1866, %1437, %1435, %1431, %1427
+  br label %.loopexit
 
-1448:                                             ; preds = %.loopexit1866
-  %1449 = load ptr, ptr %56, align 8
-  %1450 = load i8, ptr %52, align 8
-  store i8 %1450, ptr %.21408, align 1
-  %1451 = load ptr, ptr %58, align 8
-  %1452 = load i64, ptr %59, align 8
-  %1453 = getelementptr ptr, ptr %1451, i64 %1452
-  %1454 = load ptr, ptr %1453, align 8
-  %1455 = getelementptr inbounds nuw i8, ptr %1454, i64 56
-  %1456 = load i32, ptr %1455, align 8
-  %1457 = icmp eq i32 %1456, 0
-  br i1 %1457, label %1458, label %1468
+1443:                                             ; preds = %.loopexit1866
+  %1444 = load ptr, ptr %56, align 8
+  %1445 = load i8, ptr %52, align 8
+  store i8 %1445, ptr %.21408, align 1
+  %1446 = load ptr, ptr %58, align 8
+  %1447 = load i64, ptr %59, align 8
+  %1448 = getelementptr ptr, ptr %1446, i64 %1447
+  %1449 = load ptr, ptr %1448, align 8
+  %1450 = getelementptr inbounds nuw i8, ptr %1449, i64 56
+  %1451 = load i32, ptr %1450, align 8
+  %1452 = icmp eq i32 %1451, 0
+  br i1 %1452, label %1453, label %1463
 
-1458:                                             ; preds = %1448
-  %1459 = getelementptr inbounds nuw i8, ptr %1454, i64 28
-  %1460 = load i32, ptr %1459, align 4
-  store i32 %1460, ptr %60, align 4
-  %1461 = load ptr, ptr %61, align 8
-  %1462 = load ptr, ptr %1453, align 8
-  store ptr %1461, ptr %1462, align 8
-  %1463 = load ptr, ptr %58, align 8
-  %1464 = load i64, ptr %59, align 8
-  %1465 = getelementptr ptr, ptr %1463, i64 %1464
-  %1466 = load ptr, ptr %1465, align 8
-  %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 56
-  store i32 1, ptr %1467, align 8
+1453:                                             ; preds = %1443
+  %1454 = getelementptr inbounds nuw i8, ptr %1449, i64 28
+  %1455 = load i32, ptr %1454, align 4
+  store i32 %1455, ptr %60, align 4
+  %1456 = load ptr, ptr %61, align 8
+  %1457 = load ptr, ptr %1448, align 8
+  store ptr %1456, ptr %1457, align 8
+  %1458 = load ptr, ptr %58, align 8
+  %1459 = load i64, ptr %59, align 8
+  %1460 = getelementptr ptr, ptr %1458, i64 %1459
+  %1461 = load ptr, ptr %1460, align 8
+  %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 56
+  store i32 1, ptr %1462, align 8
   %.pre2402 = load ptr, ptr %58, align 8
   %.pre2403 = load i64, ptr %59, align 8
   %.phi.trans.insert2404 = getelementptr ptr, ptr %.pre2402, i64 %.pre2403
   %.pre2405 = load ptr, ptr %.phi.trans.insert2404, align 8
-  br label %1468
+  br label %1463
 
-1468:                                             ; preds = %1458, %1448
-  %1469 = phi ptr [ %.pre2405, %1458 ], [ %1454, %1448 ]
-  %1470 = phi i64 [ %.pre2403, %1458 ], [ %1452, %1448 ]
-  %1471 = phi ptr [ %.pre2402, %1458 ], [ %1451, %1448 ]
-  %1472 = load ptr, ptr %51, align 8
-  %1473 = getelementptr inbounds nuw i8, ptr %1469, i64 8
-  %1474 = load ptr, ptr %1473, align 8
-  %1475 = load i32, ptr %60, align 4
-  %1476 = sext i32 %1475 to i64
-  %1477 = getelementptr i8, ptr %1474, i64 %1476
-  %.not1501 = icmp ugt ptr %1472, %1477
-  br i1 %.not1501, label %1558, label %1478
+1463:                                             ; preds = %1453, %1443
+  %1464 = phi ptr [ %.pre2405, %1453 ], [ %1449, %1443 ]
+  %1465 = phi i64 [ %.pre2403, %1453 ], [ %1447, %1443 ]
+  %1466 = phi ptr [ %.pre2402, %1453 ], [ %1446, %1443 ]
+  %1467 = load ptr, ptr %51, align 8
+  %1468 = getelementptr inbounds nuw i8, ptr %1464, i64 8
+  %1469 = load ptr, ptr %1468, align 8
+  %1470 = load i32, ptr %60, align 4
+  %1471 = sext i32 %1470 to i64
+  %1472 = getelementptr i8, ptr %1469, i64 %1471
+  %.not1501 = icmp ugt ptr %1467, %1472
+  br i1 %.not1501, label %1553, label %1473
 
-1478:                                             ; preds = %1468
-  %1479 = ptrtoint ptr %.21408 to i64
-  %1480 = ptrtoint ptr %1449 to i64
-  %1481 = xor i64 %1480, -1
-  %1482 = add i64 %1481, %1479
-  %1483 = load ptr, ptr %56, align 8
-  %sext = shl i64 %1482, 32
-  %1484 = ashr exact i64 %sext, 32
-  %1485 = getelementptr i8, ptr %1483, i64 %1484
-  store ptr %1485, ptr %51, align 8
-  %1486 = load i32, ptr %53, align 4
-  %1487 = icmp ult ptr %1483, %1485
-  br i1 %1487, label %.lr.ph31.i, label %yy_get_previous_state.exit
+1473:                                             ; preds = %1463
+  %1474 = ptrtoint ptr %.21408 to i64
+  %1475 = ptrtoint ptr %1444 to i64
+  %1476 = xor i64 %1475, -1
+  %1477 = add i64 %1476, %1474
+  %1478 = load ptr, ptr %56, align 8
+  %sext = shl i64 %1477, 32
+  %1479 = ashr exact i64 %sext, 32
+  %1480 = getelementptr i8, ptr %1478, i64 %1479
+  store ptr %1480, ptr %51, align 8
+  %1481 = load i32, ptr %53, align 4
+  %1482 = icmp ult ptr %1478, %1480
+  br i1 %1482, label %.lr.ph31.i, label %yy_get_previous_state.exit
 
-.lr.ph31.i:                                       ; preds = %1478, %._crit_edge.i
-  %.02129.i = phi i32 [ %1527, %._crit_edge.i ], [ %1486, %1478 ]
-  %.02328.i = phi ptr [ %1528, %._crit_edge.i ], [ %1483, %1478 ]
-  %1488 = load i8, ptr %.02328.i, align 1
-  %.not.i1818 = icmp eq i8 %1488, 0
-  br i1 %.not.i1818, label %1493, label %1489
+.lr.ph31.i:                                       ; preds = %1473, %._crit_edge.i
+  %.02129.i = phi i32 [ %1522, %._crit_edge.i ], [ %1481, %1473 ]
+  %.02328.i = phi ptr [ %1523, %._crit_edge.i ], [ %1478, %1473 ]
+  %1483 = load i8, ptr %.02328.i, align 1
+  %.not.i1818 = icmp eq i8 %1483, 0
+  br i1 %.not.i1818, label %1488, label %1484
 
-1489:                                             ; preds = %.lr.ph31.i
-  %1490 = zext i8 %1488 to i64
-  %1491 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %1490
-  %1492 = load i8, ptr %1491, align 1
-  br label %1493
+1484:                                             ; preds = %.lr.ph31.i
+  %1485 = zext i8 %1483 to i64
+  %1486 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %1485
+  %1487 = load i8, ptr %1486, align 1
+  br label %1488
 
-1493:                                             ; preds = %1489, %.lr.ph31.i
-  %1494 = phi i8 [ %1492, %1489 ], [ 1, %.lr.ph31.i ]
-  %1495 = sext i32 %.02129.i to i64
-  %1496 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %1495
-  %1497 = load i16, ptr %1496, align 2
-  %.not24.i = icmp eq i16 %1497, 0
-  br i1 %.not24.i, label %1499, label %1498
+1488:                                             ; preds = %1484, %.lr.ph31.i
+  %1489 = phi i8 [ %1487, %1484 ], [ 1, %.lr.ph31.i ]
+  %1490 = sext i32 %.02129.i to i64
+  %1491 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %1490
+  %1492 = load i16, ptr %1491, align 2
+  %.not24.i = icmp eq i16 %1492, 0
+  br i1 %.not24.i, label %1494, label %1493
 
-1498:                                             ; preds = %1493
+1493:                                             ; preds = %1488
   store i32 %.02129.i, ptr %54, align 8
   store ptr %.02328.i, ptr %55, align 8
-  br label %1499
+  br label %1494
 
-1499:                                             ; preds = %1498, %1493
-  %1500 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1495
+1494:                                             ; preds = %1493, %1488
+  %1495 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1490
+  %1496 = load i16, ptr %1495, align 2
+  %1497 = sext i16 %1496 to i64
+  %1498 = zext i8 %1489 to i64
+  %1499 = add nsw i64 %1497, %1498
+  %1500 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1499
   %1501 = load i16, ptr %1500, align 2
-  %1502 = sext i16 %1501 to i64
-  %1503 = zext i8 %1494 to i64
-  %1504 = add nsw i64 %1502, %1503
-  %1505 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1504
-  %1506 = load i16, ptr %1505, align 2
-  %1507 = sext i16 %1506 to i32
-  %.not2526.i = icmp eq i32 %.02129.i, %1507
+  %1502 = sext i16 %1501 to i32
+  %.not2526.i = icmp eq i32 %.02129.i, %1502
   br i1 %.not2526.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %1499, %1516
-  %1508 = phi i64 [ %1521, %1516 ], [ %1503, %1499 ]
-  %1509 = phi i64 [ %1517, %1516 ], [ %1495, %1499 ]
-  %.027.i = phi i8 [ %.1.i, %1516 ], [ %1494, %1499 ]
-  %1510 = getelementptr [193 x i16], ptr @yy_def, i64 0, i64 %1509
-  %1511 = load i16, ptr %1510, align 2
-  %1512 = icmp sgt i16 %1511, 186
-  br i1 %1512, label %1513, label %1516
+.lr.ph.i:                                         ; preds = %1494, %1511
+  %1503 = phi i64 [ %1516, %1511 ], [ %1498, %1494 ]
+  %1504 = phi i64 [ %1512, %1511 ], [ %1490, %1494 ]
+  %.027.i = phi i8 [ %.1.i, %1511 ], [ %1489, %1494 ]
+  %1505 = getelementptr [193 x i16], ptr @yy_def, i64 0, i64 %1504
+  %1506 = load i16, ptr %1505, align 2
+  %1507 = icmp sgt i16 %1506, 186
+  br i1 %1507, label %1508, label %1511
 
-1513:                                             ; preds = %.lr.ph.i
-  %1514 = getelementptr [62 x i8], ptr @yy_meta, i64 0, i64 %1508
-  %1515 = load i8, ptr %1514, align 1
-  br label %1516
+1508:                                             ; preds = %.lr.ph.i
+  %1509 = getelementptr [62 x i8], ptr @yy_meta, i64 0, i64 %1503
+  %1510 = load i8, ptr %1509, align 1
+  br label %1511
 
-1516:                                             ; preds = %1513, %.lr.ph.i
-  %.1.i = phi i8 [ %1515, %1513 ], [ %.027.i, %.lr.ph.i ]
-  %1517 = sext i16 %1511 to i64
-  %1518 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1517
+1511:                                             ; preds = %1508, %.lr.ph.i
+  %.1.i = phi i8 [ %1510, %1508 ], [ %.027.i, %.lr.ph.i ]
+  %1512 = sext i16 %1506 to i64
+  %1513 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1512
+  %1514 = load i16, ptr %1513, align 2
+  %1515 = sext i16 %1514 to i64
+  %1516 = zext i8 %.1.i to i64
+  %1517 = add nsw i64 %1515, %1516
+  %1518 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1517
   %1519 = load i16, ptr %1518, align 2
-  %1520 = sext i16 %1519 to i64
-  %1521 = zext i8 %.1.i to i64
-  %1522 = add nsw i64 %1520, %1521
-  %1523 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1522
-  %1524 = load i16, ptr %1523, align 2
-  %.not25.i = icmp eq i16 %1511, %1524
-  br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  %.not25.i = icmp eq i16 %1506, %1519
+  br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %1516, %1499
-  %.lcssa.i = phi i64 [ %1504, %1499 ], [ %1522, %1516 ]
-  %1525 = getelementptr [316 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i
+._crit_edge.i:                                    ; preds = %1511, %1494
+  %.lcssa.i = phi i64 [ %1499, %1494 ], [ %1517, %1511 ]
+  %1520 = getelementptr [316 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i
+  %1521 = load i16, ptr %1520, align 2
+  %1522 = sext i16 %1521 to i32
+  %1523 = getelementptr i8, ptr %.02328.i, i64 1
+  %exitcond.not.i = icmp eq ptr %1523, %1480
+  br i1 %exitcond.not.i, label %yy_get_previous_state.exit, label %.lr.ph31.i, !llvm.loop !11
+
+yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %1473
+  %.021.lcssa.i = phi i32 [ %1481, %1473 ], [ %1522, %._crit_edge.i ]
+  %1524 = sext i32 %.021.lcssa.i to i64
+  %1525 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %1524
   %1526 = load i16, ptr %1525, align 2
-  %1527 = sext i16 %1526 to i32
-  %1528 = getelementptr i8, ptr %.02328.i, i64 1
-  %exitcond.not.i = icmp eq ptr %1528, %1485
-  br i1 %exitcond.not.i, label %yy_get_previous_state.exit, label %.lr.ph31.i, !llvm.loop !14
+  %.not.i1819 = icmp eq i16 %1526, 0
+  br i1 %.not.i1819, label %1528, label %1527
 
-yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %1478
-  %.021.lcssa.i = phi i32 [ %1486, %1478 ], [ %1527, %._crit_edge.i ]
-  %1529 = sext i32 %.021.lcssa.i to i64
-  %1530 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %1529
-  %1531 = load i16, ptr %1530, align 2
-  %.not.i1819 = icmp eq i16 %1531, 0
-  br i1 %.not.i1819, label %1533, label %1532
-
-1532:                                             ; preds = %yy_get_previous_state.exit
+1527:                                             ; preds = %yy_get_previous_state.exit
   store i32 %.021.lcssa.i, ptr %54, align 8
-  store ptr %1485, ptr %55, align 8
-  br label %1533
+  store ptr %1480, ptr %55, align 8
+  br label %1528
 
-1533:                                             ; preds = %1532, %yy_get_previous_state.exit
-  %1534 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1529
-  %1535 = load i16, ptr %1534, align 2
-  %1536 = sext i16 %1535 to i64
-  %1537 = add nsw i64 %1536, 1
-  %1538 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1537
-  %1539 = load i16, ptr %1538, align 2
-  %1540 = sext i16 %1539 to i32
-  %.not1819.i = icmp eq i32 %.021.lcssa.i, %1540
+1528:                                             ; preds = %1527, %yy_get_previous_state.exit
+  %1529 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1524
+  %1530 = load i16, ptr %1529, align 2
+  %1531 = sext i16 %1530 to i64
+  %1532 = add nsw i64 %1531, 1
+  %1533 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1532
+  %1534 = load i16, ptr %1533, align 2
+  %1535 = sext i16 %1534 to i32
+  %.not1819.i = icmp eq i32 %.021.lcssa.i, %1535
   br i1 %.not1819.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i1820
 
-.lr.ph.i1820:                                     ; preds = %1533, %.lr.ph.i1820
-  %1541 = phi i64 [ %1544, %.lr.ph.i1820 ], [ %1529, %1533 ]
-  %1542 = getelementptr [193 x i16], ptr @yy_def, i64 0, i64 %1541
-  %1543 = load i16, ptr %1542, align 2
-  %1544 = sext i16 %1543 to i64
-  %1545 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1544
-  %1546 = load i16, ptr %1545, align 2
-  %1547 = sext i16 %1546 to i64
-  %1548 = add nsw i64 %1547, 1
-  %1549 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1548
-  %1550 = load i16, ptr %1549, align 2
-  %.not18.i = icmp eq i16 %1543, %1550
-  br i1 %.not18.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i1820, !llvm.loop !15
+.lr.ph.i1820:                                     ; preds = %1528, %.lr.ph.i1820
+  %1536 = phi i64 [ %1539, %.lr.ph.i1820 ], [ %1524, %1528 ]
+  %1537 = getelementptr [193 x i16], ptr @yy_def, i64 0, i64 %1536
+  %1538 = load i16, ptr %1537, align 2
+  %1539 = sext i16 %1538 to i64
+  %1540 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1539
+  %1541 = load i16, ptr %1540, align 2
+  %1542 = sext i16 %1541 to i64
+  %1543 = add nsw i64 %1542, 1
+  %1544 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1543
+  %1545 = load i16, ptr %1544, align 2
+  %.not18.i = icmp eq i16 %1538, %1545
+  br i1 %.not18.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i1820, !llvm.loop !12
 
-yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i1820, %1533
-  %.lcssa.i1822 = phi i64 [ %1537, %1533 ], [ %1548, %.lr.ph.i1820 ]
-  %1551 = getelementptr [316 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i1822
-  %1552 = load i16, ptr %1551, align 2
-  %1553 = icmp eq i16 %1552, 186
-  %1554 = and i64 %.lcssa.i1822, 9223372036854775807
-  %.not15021861 = icmp eq i64 %1554, 0
-  %.not1502 = or i1 %1553, %.not15021861
-  br i1 %.not1502, label %.backedge.sink.split, label %1555
+yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i1820, %1528
+  %.lcssa.i1822 = phi i64 [ %1532, %1528 ], [ %1543, %.lr.ph.i1820 ]
+  %1546 = getelementptr [316 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i1822
+  %1547 = load i16, ptr %1546, align 2
+  %1548 = icmp eq i16 %1547, 186
+  %1549 = and i64 %.lcssa.i1822, 9223372036854775807
+  %.not15021861 = icmp eq i64 %1549, 0
+  %.not1502 = or i1 %1548, %.not15021861
+  br i1 %.not1502, label %.backedge.sink.split2662.backedge, label %1550
 
-1555:                                             ; preds = %yy_try_NUL_trans.exit
-  %1556 = sext i16 %1552 to i32
-  %1557 = getelementptr i8, ptr %1485, i64 1
-  store ptr %1557, ptr %51, align 8
+.backedge.sink.split2662.backedge:                ; preds = %yy_try_NUL_trans.exit, %145
+  %.11414.ph.be = phi ptr [ %.11414, %145 ], [ %1478, %yy_try_NUL_trans.exit ]
+  br label %.backedge.sink.split2662
+
+1550:                                             ; preds = %yy_try_NUL_trans.exit
+  %1551 = sext i16 %1547 to i32
+  %1552 = getelementptr i8, ptr %1480, i64 1
+  store ptr %1552, ptr %51, align 8
+  br label %.loopexit1864.backedge
+
+.loopexit1864.backedge:                           ; preds = %._crit_edge.i1839, %1550, %1750
+  %.01413.be = phi ptr [ %1748, %1750 ], [ %1478, %1550 ], [ %1748, %._crit_edge.i1839 ]
+  %.01406.be = phi ptr [ %1756, %1750 ], [ %1552, %1550 ], [ %1756, %._crit_edge.i1839 ]
+  %.01405.be = phi i32 [ %1757, %1750 ], [ %1551, %1550 ], [ %1798, %._crit_edge.i1839 ]
   br label %.loopexit1864
 
-1558:                                             ; preds = %1468
-  %1559 = load ptr, ptr %56, align 8
-  %1560 = add i32 %1475, 1
-  %1561 = sext i32 %1560 to i64
-  %1562 = getelementptr i8, ptr %1474, i64 %1561
-  %1563 = icmp ugt ptr %1472, %1562
-  br i1 %1563, label %1564, label %1565
+1553:                                             ; preds = %1463
+  %1554 = load ptr, ptr %56, align 8
+  %1555 = add i32 %1470, 1
+  %1556 = sext i32 %1555 to i64
+  %1557 = getelementptr i8, ptr %1469, i64 %1556
+  %1558 = icmp ugt ptr %1467, %1557
+  br i1 %1558, label %1559, label %1560
 
-1564:                                             ; preds = %1558
+1559:                                             ; preds = %1553
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.8) #25
   unreachable
 
-1565:                                             ; preds = %1558
-  %1566 = getelementptr inbounds nuw i8, ptr %1469, i64 52
-  %1567 = load i32, ptr %1566, align 4
-  %1568 = icmp eq i32 %1567, 0
-  %1569 = ptrtoint ptr %1472 to i64
-  %1570 = ptrtoint ptr %1559 to i64
-  br i1 %1568, label %1571, label %1574
+1560:                                             ; preds = %1553
+  %1561 = getelementptr inbounds nuw i8, ptr %1464, i64 52
+  %1562 = load i32, ptr %1561, align 4
+  %1563 = icmp eq i32 %1562, 0
+  %1564 = ptrtoint ptr %1467 to i64
+  %1565 = ptrtoint ptr %1554 to i64
+  br i1 %1563, label %1566, label %1569
 
-1571:                                             ; preds = %1565
-  %1572 = sub i64 %1569, %1570
-  %1573 = icmp eq i64 %1572, 1
-  br i1 %1573, label %yy_get_previous_state.exit1842, label %yy_get_next_buffer.exit.thread1859
+1566:                                             ; preds = %1560
+  %1567 = sub i64 %1564, %1565
+  %1568 = icmp eq i64 %1567, 1
+  br i1 %1568, label %yy_get_previous_state.exit1842, label %yy_get_next_buffer.exit.thread1859
 
-1574:                                             ; preds = %1565
-  %1575 = xor i64 %1570, -1
-  %1576 = add i64 %1575, %1569
-  %1577 = trunc i64 %1576 to i32
-  %1578 = icmp sgt i32 %1577, 0
-  br i1 %1578, label %.lr.ph.i1826, label %._crit_edge.i1823
+1569:                                             ; preds = %1560
+  %1570 = xor i64 %1565, -1
+  %1571 = add i64 %1570, %1564
+  %1572 = trunc i64 %1571 to i32
+  %1573 = icmp sgt i32 %1572, 0
+  br i1 %1573, label %.lr.ph.i1826, label %._crit_edge.i1823
 
-.lr.ph.i1826:                                     ; preds = %1574, %.lr.ph.i1826
-  %.0129161.i = phi ptr [ %1581, %.lr.ph.i1826 ], [ %1474, %1574 ]
-  %.0130160.i = phi ptr [ %1579, %.lr.ph.i1826 ], [ %1559, %1574 ]
-  %.0131159.i = phi i32 [ %1582, %.lr.ph.i1826 ], [ 0, %1574 ]
-  %1579 = getelementptr i8, ptr %.0130160.i, i64 1
-  %1580 = load i8, ptr %.0130160.i, align 1
-  %1581 = getelementptr i8, ptr %.0129161.i, i64 1
-  store i8 %1580, ptr %.0129161.i, align 1
-  %1582 = add nuw nsw i32 %.0131159.i, 1
-  %exitcond.not.i1827 = icmp eq i32 %1582, %1577
-  br i1 %exitcond.not.i1827, label %._crit_edge.loopexit.i, label %.lr.ph.i1826, !llvm.loop !16
+.lr.ph.i1826:                                     ; preds = %1569, %.lr.ph.i1826
+  %.0129161.i = phi ptr [ %1576, %.lr.ph.i1826 ], [ %1469, %1569 ]
+  %.0130160.i = phi ptr [ %1574, %.lr.ph.i1826 ], [ %1554, %1569 ]
+  %.0131159.i = phi i32 [ %1577, %.lr.ph.i1826 ], [ 0, %1569 ]
+  %1574 = getelementptr i8, ptr %.0130160.i, i64 1
+  %1575 = load i8, ptr %.0130160.i, align 1
+  %1576 = getelementptr i8, ptr %.0129161.i, i64 1
+  store i8 %1575, ptr %.0129161.i, align 1
+  %1577 = add nuw nsw i32 %.0131159.i, 1
+  %exitcond.not.i1827 = icmp eq i32 %1577, %1572
+  br i1 %exitcond.not.i1827, label %._crit_edge.loopexit.i, label %.lr.ph.i1826, !llvm.loop !13
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i1826
   %.pre.i = load ptr, ptr %58, align 8
@@ -2584,545 +2577,549 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i1820, %1533
   %.pre176.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i1823
 
-._crit_edge.i1823:                                ; preds = %._crit_edge.loopexit.i, %1574
-  %1583 = phi ptr [ %.pre176.i, %._crit_edge.loopexit.i ], [ %1469, %1574 ]
-  %1584 = phi i64 [ %.pre175.i, %._crit_edge.loopexit.i ], [ %1470, %1574 ]
-  %1585 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %1471, %1574 ]
-  %1586 = getelementptr inbounds nuw i8, ptr %1583, i64 56
-  %1587 = load i32, ptr %1586, align 8
-  %1588 = icmp eq i32 %1587, 2
-  br i1 %1588, label %1589, label %1591
+._crit_edge.i1823:                                ; preds = %._crit_edge.loopexit.i, %1569
+  %1578 = phi ptr [ %.pre176.i, %._crit_edge.loopexit.i ], [ %1464, %1569 ]
+  %1579 = phi i64 [ %.pre175.i, %._crit_edge.loopexit.i ], [ %1465, %1569 ]
+  %1580 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %1466, %1569 ]
+  %1581 = getelementptr inbounds nuw i8, ptr %1578, i64 56
+  %1582 = load i32, ptr %1581, align 8
+  %1583 = icmp eq i32 %1582, 2
+  br i1 %1583, label %1584, label %1586
 
-1589:                                             ; preds = %._crit_edge.i1823
-  %1590 = getelementptr ptr, ptr %1585, i64 %1584
+1584:                                             ; preds = %._crit_edge.i1823
+  %1585 = getelementptr ptr, ptr %1580, i64 %1579
   store i32 0, ptr %60, align 4
-  br label %1684
+  br label %1679
 
-1591:                                             ; preds = %._crit_edge.i1823
-  %1592 = xor i32 %1577, -1
-  %.pn.in162.i = getelementptr inbounds nuw i8, ptr %1583, i64 24
+1586:                                             ; preds = %._crit_edge.i1823
+  %1587 = xor i32 %1572, -1
+  %.pn.in162.i = getelementptr inbounds nuw i8, ptr %1578, i64 24
   %.pn163.i = load i32, ptr %.pn.in162.i, align 8
-  %.0132164.i = add i32 %.pn163.i, %1592
-  %1593 = icmp slt i32 %.0132164.i, 1
-  br i1 %1593, label %.lr.ph166.preheader.i, label %._crit_edge167.i
+  %.0132164.i = add i32 %.pn163.i, %1587
+  %1588 = icmp slt i32 %.0132164.i, 1
+  br i1 %1588, label %.lr.ph166.preheader.i, label %._crit_edge167.i
 
-.lr.ph166.preheader.i:                            ; preds = %1591
+.lr.ph166.preheader.i:                            ; preds = %1586
   %.pre177.i = load ptr, ptr %51, align 8
   br label %.lr.ph166.i
 
-.lr.ph166.i:                                      ; preds = %1615, %.lr.ph166.preheader.i
-  %1594 = phi i32 [ %.pn163.i, %.lr.ph166.preheader.i ], [ %.pn.i, %1615 ]
-  %1595 = phi ptr [ %.pre177.i, %.lr.ph166.preheader.i ], [ %1617, %1615 ]
-  %1596 = phi ptr [ %1583, %.lr.ph166.preheader.i ], [ %1621, %1615 ]
-  %1597 = getelementptr inbounds nuw i8, ptr %1596, i64 8
-  %1598 = load ptr, ptr %1597, align 8
-  %1599 = ptrtoint ptr %1595 to i64
-  %1600 = ptrtoint ptr %1598 to i64
-  %1601 = sub i64 %1599, %1600
-  %1602 = getelementptr inbounds nuw i8, ptr %1596, i64 32
-  %1603 = load i32, ptr %1602, align 8
-  %.not145.i = icmp eq i32 %1603, 0
-  br i1 %.not145.i, label %.thread.i, label %1604
+.lr.ph166.i:                                      ; preds = %1610, %.lr.ph166.preheader.i
+  %1589 = phi i32 [ %.pn163.i, %.lr.ph166.preheader.i ], [ %.pn.i, %1610 ]
+  %1590 = phi ptr [ %.pre177.i, %.lr.ph166.preheader.i ], [ %1612, %1610 ]
+  %1591 = phi ptr [ %1578, %.lr.ph166.preheader.i ], [ %1616, %1610 ]
+  %1592 = getelementptr inbounds nuw i8, ptr %1591, i64 8
+  %1593 = load ptr, ptr %1592, align 8
+  %1594 = ptrtoint ptr %1590 to i64
+  %1595 = ptrtoint ptr %1593 to i64
+  %1596 = sub i64 %1594, %1595
+  %1597 = getelementptr inbounds nuw i8, ptr %1591, i64 32
+  %1598 = load i32, ptr %1597, align 8
+  %.not145.i = icmp eq i32 %1598, 0
+  br i1 %.not145.i, label %.thread.i, label %1599
 
 .thread.i:                                        ; preds = %.lr.ph166.i
-  store ptr null, ptr %1597, align 8
+  store ptr null, ptr %1592, align 8
   br label %.loopexit.i
 
-1604:                                             ; preds = %.lr.ph166.i
-  %1605 = getelementptr inbounds nuw i8, ptr %1596, i64 24
-  %1606 = shl i32 %1594, 1
-  %1607 = icmp slt i32 %1606, 1
-  br i1 %1607, label %1608, label %1611
+1599:                                             ; preds = %.lr.ph166.i
+  %1600 = getelementptr inbounds nuw i8, ptr %1591, i64 24
+  %1601 = shl i32 %1589, 1
+  %1602 = icmp slt i32 %1601, 1
+  br i1 %1602, label %1603, label %1606
 
-1608:                                             ; preds = %1604
-  %1609 = sdiv i32 %1594, 8
-  %1610 = add i32 %1609, %1594
-  br label %1611
+1603:                                             ; preds = %1599
+  %1604 = sdiv i32 %1589, 8
+  %1605 = add i32 %1604, %1589
+  br label %1606
 
-1611:                                             ; preds = %1608, %1604
-  %storemerge146.i = phi i32 [ %1610, %1608 ], [ %1606, %1604 ]
-  store i32 %storemerge146.i, ptr %1605, align 8
-  %1612 = add i32 %storemerge146.i, 2
-  %1613 = sext i32 %1612 to i64
-  %1614 = tail call ptr @realloc(ptr noundef %1598, i64 noundef %1613) #26
-  store ptr %1614, ptr %1597, align 8
-  %.not147.i = icmp eq ptr %1614, null
-  br i1 %.not147.i, label %.loopexit.i, label %1615
+1606:                                             ; preds = %1603, %1599
+  %storemerge146.i = phi i32 [ %1605, %1603 ], [ %1601, %1599 ]
+  store i32 %storemerge146.i, ptr %1600, align 8
+  %1607 = add i32 %storemerge146.i, 2
+  %1608 = sext i32 %1607 to i64
+  %1609 = tail call ptr @realloc(ptr noundef %1593, i64 noundef %1608) #26
+  store ptr %1609, ptr %1592, align 8
+  %.not147.i = icmp eq ptr %1609, null
+  br i1 %.not147.i, label %.loopexit.i, label %1610
 
-.loopexit.i:                                      ; preds = %1611, %.thread.i
+.loopexit.i:                                      ; preds = %1606, %.thread.i
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.9) #25
   unreachable
 
-1615:                                             ; preds = %1611
-  %sext148.i = shl i64 %1601, 32
-  %1616 = ashr exact i64 %sext148.i, 32
-  %1617 = getelementptr i8, ptr %1614, i64 %1616
-  store ptr %1617, ptr %51, align 8
-  %1618 = load ptr, ptr %58, align 8
-  %1619 = load i64, ptr %59, align 8
-  %1620 = getelementptr ptr, ptr %1618, i64 %1619
-  %1621 = load ptr, ptr %1620, align 8
-  %.pn.in.i = getelementptr inbounds nuw i8, ptr %1621, i64 24
+1610:                                             ; preds = %1606
+  %sext148.i = shl i64 %1596, 32
+  %1611 = ashr exact i64 %sext148.i, 32
+  %1612 = getelementptr i8, ptr %1609, i64 %1611
+  store ptr %1612, ptr %51, align 8
+  %1613 = load ptr, ptr %58, align 8
+  %1614 = load i64, ptr %59, align 8
+  %1615 = getelementptr ptr, ptr %1613, i64 %1614
+  %1616 = load ptr, ptr %1615, align 8
+  %.pn.in.i = getelementptr inbounds nuw i8, ptr %1616, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
-  %.0132.i = add i32 %.pn.i, %1592
-  %1622 = icmp slt i32 %.0132.i, 1
-  br i1 %1622, label %.lr.ph166.i, label %._crit_edge167.i, !llvm.loop !17
+  %.0132.i = add i32 %.pn.i, %1587
+  %1617 = icmp slt i32 %.0132.i, 1
+  br i1 %1617, label %.lr.ph166.i, label %._crit_edge167.i, !llvm.loop !14
 
-._crit_edge167.i:                                 ; preds = %1615, %1591
-  %1623 = phi ptr [ %1583, %1591 ], [ %1621, %1615 ]
-  %.0132.lcssa.i = phi i32 [ %.0132164.i, %1591 ], [ %.0132.i, %1615 ]
-  %1624 = tail call i32 @llvm.umin.i32(i32 %.0132.lcssa.i, i32 8192)
-  %1625 = getelementptr inbounds nuw i8, ptr %1623, i64 36
-  %1626 = load i32, ptr %1625, align 4
-  %.not.i1824 = icmp eq i32 %1626, 0
-  br i1 %.not.i1824, label %1657, label %.preheader.i
+._crit_edge167.i:                                 ; preds = %1610, %1586
+  %1618 = phi ptr [ %1578, %1586 ], [ %1616, %1610 ]
+  %.0132.lcssa.i = phi i32 [ %.0132164.i, %1586 ], [ %.0132.i, %1610 ]
+  %1619 = tail call i32 @llvm.umin.i32(i32 %.0132.lcssa.i, i32 8192)
+  %1620 = getelementptr inbounds nuw i8, ptr %1618, i64 36
+  %1621 = load i32, ptr %1620, align 4
+  %.not.i1824 = icmp eq i32 %1621, 0
+  br i1 %.not.i1824, label %1652, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge167.i
-  %sext144.i = shl i64 %1576, 32
-  %1627 = ashr exact i64 %sext144.i, 32
-  %wide.trip.count.i = zext nneg i32 %1624 to i64
-  br label %1628
+  %sext144.i = shl i64 %1571, 32
+  %1622 = ashr exact i64 %sext144.i, 32
+  %wide.trip.count.i = zext nneg i32 %1619 to i64
+  br label %1623
 
-1628:                                             ; preds = %1631, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %1631 ]
-  %1629 = load ptr, ptr %61, align 8
-  %1630 = tail call i32 @getc(ptr noundef %1629)
-  switch i32 %1630, label %1631 [
+1623:                                             ; preds = %1626, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %1626 ]
+  %1624 = load ptr, ptr %61, align 8
+  %1625 = tail call i32 @getc(ptr noundef %1624)
+  switch i32 %1625, label %1626 [
     i32 -1, label %.critedge.split.loop.exit.i
     i32 10, label %.critedge.split.loop.exit.i
   ]
 
-1631:                                             ; preds = %1628
-  %1632 = trunc i32 %1630 to i8
-  %1633 = load ptr, ptr %58, align 8
-  %1634 = load i64, ptr %59, align 8
-  %1635 = getelementptr ptr, ptr %1633, i64 %1634
-  %1636 = load ptr, ptr %1635, align 8
-  %1637 = getelementptr inbounds nuw i8, ptr %1636, i64 8
-  %1638 = load ptr, ptr %1637, align 8
-  %1639 = getelementptr i8, ptr %1638, i64 %1627
-  %1640 = getelementptr i8, ptr %1639, i64 %indvars.iv.i
-  store i8 %1632, ptr %1640, align 1
+1626:                                             ; preds = %1623
+  %1627 = trunc i32 %1625 to i8
+  %1628 = load ptr, ptr %58, align 8
+  %1629 = load i64, ptr %59, align 8
+  %1630 = getelementptr ptr, ptr %1628, i64 %1629
+  %1631 = load ptr, ptr %1630, align 8
+  %1632 = getelementptr inbounds nuw i8, ptr %1631, i64 8
+  %1633 = load ptr, ptr %1632, align 8
+  %1634 = getelementptr i8, ptr %1633, i64 %1622
+  %1635 = getelementptr i8, ptr %1634, i64 %indvars.iv.i
+  store i8 %1627, ptr %1635, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond174.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond174.not.i, label %.critedge.i, label %1628, !llvm.loop !18
+  br i1 %exitcond174.not.i, label %.critedge.i, label %1623, !llvm.loop !15
 
-.critedge.split.loop.exit.i:                      ; preds = %1628, %1628
-  %1641 = trunc nuw nsw i64 %indvars.iv.i to i32
+.critedge.split.loop.exit.i:                      ; preds = %1623, %1623
+  %1636 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %1631, %.critedge.split.loop.exit.i
-  %.0126.lcssa.i = phi i32 [ %1641, %.critedge.split.loop.exit.i ], [ %1624, %1631 ]
-  switch i32 %1630, label %1656 [
+.critedge.i:                                      ; preds = %1626, %.critedge.split.loop.exit.i
+  %.0126.lcssa.i = phi i32 [ %1636, %.critedge.split.loop.exit.i ], [ %1619, %1626 ]
+  switch i32 %1625, label %1651 [
     i32 10, label %.thread152.i
-    i32 -1, label %1652
+    i32 -1, label %1647
   ]
 
 .thread152.i:                                     ; preds = %.critedge.i
-  %1642 = load ptr, ptr %58, align 8
-  %1643 = load i64, ptr %59, align 8
-  %1644 = getelementptr ptr, ptr %1642, i64 %1643
-  %1645 = load ptr, ptr %1644, align 8
-  %1646 = getelementptr inbounds nuw i8, ptr %1645, i64 8
-  %1647 = load ptr, ptr %1646, align 8
-  %1648 = getelementptr i8, ptr %1647, i64 %1627
-  %1649 = add nuw i32 %.0126.lcssa.i, 1
-  %1650 = zext nneg i32 %.0126.lcssa.i to i64
-  %1651 = getelementptr i8, ptr %1648, i64 %1650
-  store i8 10, ptr %1651, align 1
-  br label %1656
+  %1637 = load ptr, ptr %58, align 8
+  %1638 = load i64, ptr %59, align 8
+  %1639 = getelementptr ptr, ptr %1637, i64 %1638
+  %1640 = load ptr, ptr %1639, align 8
+  %1641 = getelementptr inbounds nuw i8, ptr %1640, i64 8
+  %1642 = load ptr, ptr %1641, align 8
+  %1643 = getelementptr i8, ptr %1642, i64 %1622
+  %1644 = add nuw i32 %.0126.lcssa.i, 1
+  %1645 = zext nneg i32 %.0126.lcssa.i to i64
+  %1646 = getelementptr i8, ptr %1643, i64 %1645
+  store i8 10, ptr %1646, align 1
+  br label %1651
 
-1652:                                             ; preds = %.critedge.i
-  %1653 = load ptr, ptr %61, align 8
-  %1654 = tail call i32 @ferror(ptr noundef %1653) #27
-  %.not143.i = icmp eq i32 %1654, 0
-  br i1 %.not143.i, label %1656, label %1655
+1647:                                             ; preds = %.critedge.i
+  %1648 = load ptr, ptr %61, align 8
+  %1649 = tail call i32 @ferror(ptr noundef %1648) #27
+  %.not143.i = icmp eq i32 %1649, 0
+  br i1 %.not143.i, label %1651, label %1650
 
-1655:                                             ; preds = %1652
+1650:                                             ; preds = %1647
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #25
   unreachable
 
-1656:                                             ; preds = %1652, %.thread152.i, %.critedge.i
-  %.1154.i = phi i32 [ %1649, %.thread152.i ], [ %.0126.lcssa.i, %1652 ], [ %.0126.lcssa.i, %.critedge.i ]
+1651:                                             ; preds = %1647, %.thread152.i, %.critedge.i
+  %.1154.i = phi i32 [ %1644, %.thread152.i ], [ %.0126.lcssa.i, %1647 ], [ %.0126.lcssa.i, %.critedge.i ]
   store i32 %.1154.i, ptr %60, align 4
   br label %.critedge2.i
 
-1657:                                             ; preds = %._crit_edge167.i
-  %1658 = tail call ptr @__errno_location() #28
-  store i32 0, ptr %1658, align 4
-  %sext.i = shl i64 %1576, 32
-  %1659 = ashr exact i64 %sext.i, 32
-  %1660 = zext nneg i32 %1624 to i64
+1652:                                             ; preds = %._crit_edge167.i
+  %1653 = tail call ptr @__errno_location() #28
+  store i32 0, ptr %1653, align 4
+  %sext.i = shl i64 %1571, 32
+  %1654 = ashr exact i64 %sext.i, 32
+  %1655 = zext nneg i32 %1619 to i64
   br label %fread.inline.exit.i
 
-fread.inline.exit.i:                              ; preds = %1657, %1678
-  %1661 = load ptr, ptr %61, align 8
-  %1662 = load ptr, ptr %58, align 8
-  %1663 = load i64, ptr %59, align 8
-  %1664 = getelementptr ptr, ptr %1662, i64 %1663
-  %1665 = load ptr, ptr %1664, align 8
-  %1666 = getelementptr inbounds nuw i8, ptr %1665, i64 8
-  %1667 = load ptr, ptr %1666, align 8
-  %1668 = getelementptr i8, ptr %1667, i64 %1659
-  %1669 = tail call i64 @fread(ptr noundef %1668, i64 noundef 1, i64 noundef range(i64 1, 2147483648) %1660, ptr noundef %1661)
-  %1670 = trunc i64 %1669 to i32
-  store i32 %1670, ptr %60, align 4
-  %1671 = icmp eq i32 %1670, 0
-  br i1 %1671, label %1672, label %.critedge2.i
+fread.inline.exit.i:                              ; preds = %1652, %1673
+  %1656 = load ptr, ptr %61, align 8
+  %1657 = load ptr, ptr %58, align 8
+  %1658 = load i64, ptr %59, align 8
+  %1659 = getelementptr ptr, ptr %1657, i64 %1658
+  %1660 = load ptr, ptr %1659, align 8
+  %1661 = getelementptr inbounds nuw i8, ptr %1660, i64 8
+  %1662 = load ptr, ptr %1661, align 8
+  %1663 = getelementptr i8, ptr %1662, i64 %1654
+  %1664 = tail call i64 @fread(ptr noundef %1663, i64 noundef 1, i64 noundef range(i64 1, 2147483648) %1655, ptr noundef %1656)
+  %1665 = trunc i64 %1664 to i32
+  store i32 %1665, ptr %60, align 4
+  %1666 = icmp eq i32 %1665, 0
+  br i1 %1666, label %1667, label %.critedge2.i
 
-1672:                                             ; preds = %fread.inline.exit.i
-  %1673 = load ptr, ptr %61, align 8
-  %1674 = tail call i32 @ferror(ptr noundef %1673) #27
-  %.not140.i = icmp eq i32 %1674, 0
-  br i1 %.not140.i, label %.critedge2.i, label %1675
+1667:                                             ; preds = %fread.inline.exit.i
+  %1668 = load ptr, ptr %61, align 8
+  %1669 = tail call i32 @ferror(ptr noundef %1668) #27
+  %.not140.i = icmp eq i32 %1669, 0
+  br i1 %.not140.i, label %.critedge2.i, label %1670
 
-1675:                                             ; preds = %1672
-  %1676 = load i32, ptr %1658, align 4
-  %.not141.i = icmp eq i32 %1676, 4
-  br i1 %.not141.i, label %1678, label %1677
+1670:                                             ; preds = %1667
+  %1671 = load i32, ptr %1653, align 4
+  %.not141.i = icmp eq i32 %1671, 4
+  br i1 %.not141.i, label %1673, label %1672
 
-1677:                                             ; preds = %1675
+1672:                                             ; preds = %1670
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #25
   unreachable
 
-1678:                                             ; preds = %1675
-  store i32 0, ptr %1658, align 4
-  %1679 = load ptr, ptr %61, align 8
-  tail call void @clearerr(ptr noundef %1679) #27
-  br label %fread.inline.exit.i, !llvm.loop !19
+1673:                                             ; preds = %1670
+  store i32 0, ptr %1653, align 4
+  %1674 = load ptr, ptr %61, align 8
+  tail call void @clearerr(ptr noundef %1674) #27
+  br label %fread.inline.exit.i, !llvm.loop !16
 
-.critedge2.i:                                     ; preds = %1672, %fread.inline.exit.i, %1656
-  %1680 = phi i32 [ %.1154.i, %1656 ], [ %1670, %fread.inline.exit.i ], [ 0, %1672 ]
-  %1681 = load ptr, ptr %58, align 8
-  %1682 = load i64, ptr %59, align 8
-  %1683 = getelementptr ptr, ptr %1681, i64 %1682
-  br label %1684
+.critedge2.i:                                     ; preds = %1667, %fread.inline.exit.i, %1651
+  %1675 = phi i32 [ %.1154.i, %1651 ], [ %1665, %fread.inline.exit.i ], [ 0, %1667 ]
+  %1676 = load ptr, ptr %58, align 8
+  %1677 = load i64, ptr %59, align 8
+  %1678 = getelementptr ptr, ptr %1676, i64 %1677
+  br label %1679
 
-1684:                                             ; preds = %.critedge2.i, %1589
-  %.sink191.in.i = phi ptr [ %1683, %.critedge2.i ], [ %1590, %1589 ]
-  %.sink.i = phi i32 [ %1680, %.critedge2.i ], [ 0, %1589 ]
+1679:                                             ; preds = %.critedge2.i, %1584
+  %.sink191.in.i = phi ptr [ %1678, %.critedge2.i ], [ %1585, %1584 ]
+  %.sink.i = phi i32 [ %1675, %.critedge2.i ], [ 0, %1584 ]
   %.sink191.i = load ptr, ptr %.sink191.in.i, align 8
-  %1685 = getelementptr inbounds nuw i8, ptr %.sink191.i, i64 28
-  store i32 %.sink.i, ptr %1685, align 4
-  %1686 = load i32, ptr %60, align 4
-  %1687 = icmp eq i32 %1686, 0
-  br i1 %1687, label %1688, label %1698
+  %1680 = getelementptr inbounds nuw i8, ptr %.sink191.i, i64 28
+  store i32 %.sink.i, ptr %1680, align 4
+  %1681 = load i32, ptr %60, align 4
+  %1682 = icmp eq i32 %1681, 0
+  br i1 %1682, label %1683, label %1693
 
-1688:                                             ; preds = %1684
-  %1689 = icmp eq i32 %1577, 0
-  br i1 %1689, label %1690, label %1692
+1683:                                             ; preds = %1679
+  %1684 = icmp eq i32 %1572, 0
+  br i1 %1684, label %1685, label %1687
 
-1690:                                             ; preds = %1688
-  %1691 = load ptr, ptr %61, align 8
-  tail call void @protobuf_lang_restart(ptr noundef %1691, ptr noundef %0)
-  br label %1698
+1685:                                             ; preds = %1683
+  %1686 = load ptr, ptr %61, align 8
+  tail call void @protobuf_lang_restart(ptr noundef %1686, ptr noundef %0)
+  br label %1693
 
-1692:                                             ; preds = %1688
-  %1693 = load ptr, ptr %58, align 8
-  %1694 = load i64, ptr %59, align 8
-  %1695 = getelementptr ptr, ptr %1693, i64 %1694
-  %1696 = load ptr, ptr %1695, align 8
-  %1697 = getelementptr inbounds nuw i8, ptr %1696, i64 56
-  store i32 2, ptr %1697, align 8
-  br label %1698
+1687:                                             ; preds = %1683
+  %1688 = load ptr, ptr %58, align 8
+  %1689 = load i64, ptr %59, align 8
+  %1690 = getelementptr ptr, ptr %1688, i64 %1689
+  %1691 = load ptr, ptr %1690, align 8
+  %1692 = getelementptr inbounds nuw i8, ptr %1691, i64 56
+  store i32 2, ptr %1692, align 8
+  br label %1693
 
-1698:                                             ; preds = %1692, %1690, %1684
-  %.0133.i = phi i32 [ 1, %1690 ], [ 2, %1692 ], [ 0, %1684 ]
-  %1699 = load i32, ptr %60, align 4
-  %1700 = add i32 %1699, %1577
-  %1701 = load ptr, ptr %58, align 8
-  %1702 = load i64, ptr %59, align 8
-  %1703 = getelementptr ptr, ptr %1701, i64 %1702
-  %1704 = load ptr, ptr %1703, align 8
-  %1705 = getelementptr inbounds nuw i8, ptr %1704, i64 24
-  %1706 = load i32, ptr %1705, align 8
-  %1707 = icmp sgt i32 %1700, %1706
-  br i1 %1707, label %1708, label %yy_get_next_buffer.exit
+1693:                                             ; preds = %1687, %1685, %1679
+  %.0133.i = phi i32 [ 1, %1685 ], [ 2, %1687 ], [ 0, %1679 ]
+  %1694 = load i32, ptr %60, align 4
+  %1695 = add i32 %1694, %1572
+  %1696 = load ptr, ptr %58, align 8
+  %1697 = load i64, ptr %59, align 8
+  %1698 = getelementptr ptr, ptr %1696, i64 %1697
+  %1699 = load ptr, ptr %1698, align 8
+  %1700 = getelementptr inbounds nuw i8, ptr %1699, i64 24
+  %1701 = load i32, ptr %1700, align 8
+  %1702 = icmp sgt i32 %1695, %1701
+  br i1 %1702, label %1703, label %yy_get_next_buffer.exit
 
-1708:                                             ; preds = %1698
-  %1709 = ashr i32 %1699, 1
-  %1710 = add i32 %1700, %1709
-  %1711 = getelementptr inbounds nuw i8, ptr %1704, i64 8
-  %1712 = load ptr, ptr %1711, align 8
-  %1713 = sext i32 %1710 to i64
-  %1714 = tail call ptr @realloc(ptr noundef %1712, i64 noundef %1713) #26
+1703:                                             ; preds = %1693
+  %1704 = ashr i32 %1694, 1
+  %1705 = add i32 %1695, %1704
+  %1706 = getelementptr inbounds nuw i8, ptr %1699, i64 8
+  %1707 = load ptr, ptr %1706, align 8
+  %1708 = sext i32 %1705 to i64
+  %1709 = tail call ptr @realloc(ptr noundef %1707, i64 noundef %1708) #26
+  %1710 = load ptr, ptr %58, align 8
+  %1711 = load i64, ptr %59, align 8
+  %1712 = getelementptr ptr, ptr %1710, i64 %1711
+  %1713 = load ptr, ptr %1712, align 8
+  %1714 = getelementptr inbounds nuw i8, ptr %1713, i64 8
+  store ptr %1709, ptr %1714, align 8
   %1715 = load ptr, ptr %58, align 8
   %1716 = load i64, ptr %59, align 8
   %1717 = getelementptr ptr, ptr %1715, i64 %1716
   %1718 = load ptr, ptr %1717, align 8
   %1719 = getelementptr inbounds nuw i8, ptr %1718, i64 8
-  store ptr %1714, ptr %1719, align 8
-  %1720 = load ptr, ptr %58, align 8
-  %1721 = load i64, ptr %59, align 8
-  %1722 = getelementptr ptr, ptr %1720, i64 %1721
-  %1723 = load ptr, ptr %1722, align 8
-  %1724 = getelementptr inbounds nuw i8, ptr %1723, i64 8
-  %1725 = load ptr, ptr %1724, align 8
-  %.not149.i = icmp eq ptr %1725, null
-  br i1 %.not149.i, label %1726, label %1727
+  %1720 = load ptr, ptr %1719, align 8
+  %.not149.i = icmp eq ptr %1720, null
+  br i1 %.not149.i, label %1721, label %1722
 
-1726:                                             ; preds = %1708
+1721:                                             ; preds = %1703
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.11) #25
   unreachable
 
-1727:                                             ; preds = %1708
-  %1728 = add i32 %1710, -2
-  %1729 = getelementptr inbounds nuw i8, ptr %1723, i64 24
-  store i32 %1728, ptr %1729, align 8
+1722:                                             ; preds = %1703
+  %1723 = add i32 %1705, -2
+  %1724 = getelementptr inbounds nuw i8, ptr %1718, i64 24
+  store i32 %1723, ptr %1724, align 8
   %.pre178.i = load i32, ptr %60, align 4
   %.pre179.i = load ptr, ptr %58, align 8
   %.pre180.i = load i64, ptr %59, align 8
-  %.pre181.i = add i32 %.pre178.i, %1577
+  %.pre181.i = add i32 %.pre178.i, %1572
   br label %yy_get_next_buffer.exit
 
-yy_get_next_buffer.exit:                          ; preds = %1698, %1727
-  %.pre-phi.i = phi i32 [ %.pre181.i, %1727 ], [ %1700, %1698 ]
-  %1730 = phi i64 [ %.pre180.i, %1727 ], [ %1702, %1698 ]
-  %1731 = phi ptr [ %.pre179.i, %1727 ], [ %1701, %1698 ]
+yy_get_next_buffer.exit:                          ; preds = %1693, %1722
+  %.pre-phi.i = phi i32 [ %.pre181.i, %1722 ], [ %1695, %1693 ]
+  %1725 = phi i64 [ %.pre180.i, %1722 ], [ %1697, %1693 ]
+  %1726 = phi ptr [ %.pre179.i, %1722 ], [ %1696, %1693 ]
   store i32 %.pre-phi.i, ptr %60, align 4
-  %1732 = getelementptr ptr, ptr %1731, i64 %1730
-  %1733 = load ptr, ptr %1732, align 8
-  %1734 = getelementptr inbounds nuw i8, ptr %1733, i64 8
-  %1735 = load ptr, ptr %1734, align 8
-  %1736 = sext i32 %.pre-phi.i to i64
-  %1737 = getelementptr i8, ptr %1735, i64 %1736
-  store i8 0, ptr %1737, align 1
-  %1738 = load ptr, ptr %58, align 8
-  %1739 = load i64, ptr %59, align 8
-  %1740 = getelementptr ptr, ptr %1738, i64 %1739
-  %1741 = load ptr, ptr %1740, align 8
-  %1742 = getelementptr inbounds nuw i8, ptr %1741, i64 8
-  %1743 = load ptr, ptr %1742, align 8
-  %1744 = load i32, ptr %60, align 4
-  %1745 = add i32 %1744, 1
-  %1746 = sext i32 %1745 to i64
-  %1747 = getelementptr i8, ptr %1743, i64 %1746
-  store i8 0, ptr %1747, align 1
-  %1748 = load ptr, ptr %58, align 8
-  %1749 = load i64, ptr %59, align 8
-  %1750 = getelementptr ptr, ptr %1748, i64 %1749
-  %1751 = load ptr, ptr %1750, align 8
-  %1752 = getelementptr inbounds nuw i8, ptr %1751, i64 8
-  %1753 = load ptr, ptr %1752, align 8
-  store ptr %1753, ptr %56, align 8
+  %1727 = getelementptr ptr, ptr %1726, i64 %1725
+  %1728 = load ptr, ptr %1727, align 8
+  %1729 = getelementptr inbounds nuw i8, ptr %1728, i64 8
+  %1730 = load ptr, ptr %1729, align 8
+  %1731 = sext i32 %.pre-phi.i to i64
+  %1732 = getelementptr i8, ptr %1730, i64 %1731
+  store i8 0, ptr %1732, align 1
+  %1733 = load ptr, ptr %58, align 8
+  %1734 = load i64, ptr %59, align 8
+  %1735 = getelementptr ptr, ptr %1733, i64 %1734
+  %1736 = load ptr, ptr %1735, align 8
+  %1737 = getelementptr inbounds nuw i8, ptr %1736, i64 8
+  %1738 = load ptr, ptr %1737, align 8
+  %1739 = load i32, ptr %60, align 4
+  %1740 = add i32 %1739, 1
+  %1741 = sext i32 %1740 to i64
+  %1742 = getelementptr i8, ptr %1738, i64 %1741
+  store i8 0, ptr %1742, align 1
+  %1743 = load ptr, ptr %58, align 8
+  %1744 = load i64, ptr %59, align 8
+  %1745 = getelementptr ptr, ptr %1743, i64 %1744
+  %1746 = load ptr, ptr %1745, align 8
+  %1747 = getelementptr inbounds nuw i8, ptr %1746, i64 8
+  %1748 = load ptr, ptr %1747, align 8
+  store ptr %1748, ptr %56, align 8
   switch i32 %.0133.i, label %default.unreachable2411 [
     i32 1, label %yy_get_previous_state.exit1842
-    i32 0, label %1755
+    i32 0, label %1750
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge
   ]
 
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge: ; preds = %yy_get_next_buffer.exit
-  %1754 = getelementptr ptr, ptr %1748, i64 %1749
-  %.pre2406 = load ptr, ptr %1754, align 8
+  %1749 = getelementptr ptr, ptr %1743, i64 %1744
+  %.pre2406 = load ptr, ptr %1749, align 8
   %.phi.trans.insert2407 = getelementptr inbounds nuw i8, ptr %.pre2406, i64 8
   %.pre2408 = load ptr, ptr %.phi.trans.insert2407, align 8
   %.pre2409 = load i32, ptr %60, align 4
   %.pre2410 = sext i32 %.pre2409 to i64
   br label %yy_get_next_buffer.exit.thread1859
 
-1755:                                             ; preds = %yy_get_next_buffer.exit
-  %1756 = ptrtoint ptr %.21408 to i64
-  %1757 = ptrtoint ptr %1449 to i64
-  %1758 = xor i64 %1757, -1
-  %1759 = add i64 %1758, %1756
-  %sext2512 = shl i64 %1759, 32
-  %1760 = ashr exact i64 %sext2512, 32
-  %1761 = getelementptr i8, ptr %1753, i64 %1760
-  store ptr %1761, ptr %51, align 8
-  %1762 = load i32, ptr %53, align 4
-  %1763 = icmp ult ptr %1753, %1761
-  br i1 %1763, label %.lr.ph31.i1829, label %.loopexit1864
+1750:                                             ; preds = %yy_get_next_buffer.exit
+  %1751 = ptrtoint ptr %.21408 to i64
+  %1752 = ptrtoint ptr %1444 to i64
+  %1753 = xor i64 %1752, -1
+  %1754 = add i64 %1753, %1751
+  %sext2512 = shl i64 %1754, 32
+  %1755 = ashr exact i64 %sext2512, 32
+  %1756 = getelementptr i8, ptr %1748, i64 %1755
+  store ptr %1756, ptr %51, align 8
+  %1757 = load i32, ptr %53, align 4
+  %1758 = icmp ult ptr %1748, %1756
+  br i1 %1758, label %.lr.ph31.i1829, label %.loopexit1864.backedge
 
-.lr.ph31.i1829:                                   ; preds = %1755, %._crit_edge.i1839
-  %.02129.i1830 = phi i32 [ %1803, %._crit_edge.i1839 ], [ %1762, %1755 ]
-  %.02328.i1831 = phi ptr [ %1804, %._crit_edge.i1839 ], [ %1753, %1755 ]
-  %1764 = load i8, ptr %.02328.i1831, align 1
-  %.not.i1832 = icmp eq i8 %1764, 0
-  br i1 %.not.i1832, label %1769, label %1765
+.lr.ph31.i1829:                                   ; preds = %1750, %._crit_edge.i1839
+  %.02129.i1830 = phi i32 [ %1798, %._crit_edge.i1839 ], [ %1757, %1750 ]
+  %.02328.i1831 = phi ptr [ %1799, %._crit_edge.i1839 ], [ %1748, %1750 ]
+  %1759 = load i8, ptr %.02328.i1831, align 1
+  %.not.i1832 = icmp eq i8 %1759, 0
+  br i1 %.not.i1832, label %1764, label %1760
 
-1765:                                             ; preds = %.lr.ph31.i1829
-  %1766 = zext i8 %1764 to i64
-  %1767 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %1766
-  %1768 = load i8, ptr %1767, align 1
-  br label %1769
+1760:                                             ; preds = %.lr.ph31.i1829
+  %1761 = zext i8 %1759 to i64
+  %1762 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %1761
+  %1763 = load i8, ptr %1762, align 1
+  br label %1764
 
-1769:                                             ; preds = %1765, %.lr.ph31.i1829
-  %1770 = phi i8 [ %1768, %1765 ], [ 1, %.lr.ph31.i1829 ]
-  %1771 = sext i32 %.02129.i1830 to i64
-  %1772 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %1771
-  %1773 = load i16, ptr %1772, align 2
-  %.not24.i1833 = icmp eq i16 %1773, 0
-  br i1 %.not24.i1833, label %1775, label %1774
+1764:                                             ; preds = %1760, %.lr.ph31.i1829
+  %1765 = phi i8 [ %1763, %1760 ], [ 1, %.lr.ph31.i1829 ]
+  %1766 = sext i32 %.02129.i1830 to i64
+  %1767 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %1766
+  %1768 = load i16, ptr %1767, align 2
+  %.not24.i1833 = icmp eq i16 %1768, 0
+  br i1 %.not24.i1833, label %1770, label %1769
 
-1774:                                             ; preds = %1769
+1769:                                             ; preds = %1764
   store i32 %.02129.i1830, ptr %54, align 8
   store ptr %.02328.i1831, ptr %55, align 8
-  br label %1775
+  br label %1770
 
-1775:                                             ; preds = %1774, %1769
-  %1776 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1771
+1770:                                             ; preds = %1769, %1764
+  %1771 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1766
+  %1772 = load i16, ptr %1771, align 2
+  %1773 = sext i16 %1772 to i64
+  %1774 = zext i8 %1765 to i64
+  %1775 = add nsw i64 %1773, %1774
+  %1776 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1775
   %1777 = load i16, ptr %1776, align 2
-  %1778 = sext i16 %1777 to i64
-  %1779 = zext i8 %1770 to i64
-  %1780 = add nsw i64 %1778, %1779
-  %1781 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1780
-  %1782 = load i16, ptr %1781, align 2
-  %1783 = sext i16 %1782 to i32
-  %.not2526.i1834 = icmp eq i32 %.02129.i1830, %1783
+  %1778 = sext i16 %1777 to i32
+  %.not2526.i1834 = icmp eq i32 %.02129.i1830, %1778
   br i1 %.not2526.i1834, label %._crit_edge.i1839, label %.lr.ph.i1835
 
-.lr.ph.i1835:                                     ; preds = %1775, %1792
-  %1784 = phi i64 [ %1797, %1792 ], [ %1779, %1775 ]
-  %1785 = phi i64 [ %1793, %1792 ], [ %1771, %1775 ]
-  %.027.i1836 = phi i8 [ %.1.i1837, %1792 ], [ %1770, %1775 ]
-  %1786 = getelementptr [193 x i16], ptr @yy_def, i64 0, i64 %1785
-  %1787 = load i16, ptr %1786, align 2
-  %1788 = icmp sgt i16 %1787, 186
-  br i1 %1788, label %1789, label %1792
+.lr.ph.i1835:                                     ; preds = %1770, %1787
+  %1779 = phi i64 [ %1792, %1787 ], [ %1774, %1770 ]
+  %1780 = phi i64 [ %1788, %1787 ], [ %1766, %1770 ]
+  %.027.i1836 = phi i8 [ %.1.i1837, %1787 ], [ %1765, %1770 ]
+  %1781 = getelementptr [193 x i16], ptr @yy_def, i64 0, i64 %1780
+  %1782 = load i16, ptr %1781, align 2
+  %1783 = icmp sgt i16 %1782, 186
+  br i1 %1783, label %1784, label %1787
 
-1789:                                             ; preds = %.lr.ph.i1835
-  %1790 = getelementptr [62 x i8], ptr @yy_meta, i64 0, i64 %1784
-  %1791 = load i8, ptr %1790, align 1
-  br label %1792
+1784:                                             ; preds = %.lr.ph.i1835
+  %1785 = getelementptr [62 x i8], ptr @yy_meta, i64 0, i64 %1779
+  %1786 = load i8, ptr %1785, align 1
+  br label %1787
 
-1792:                                             ; preds = %1789, %.lr.ph.i1835
-  %.1.i1837 = phi i8 [ %1791, %1789 ], [ %.027.i1836, %.lr.ph.i1835 ]
-  %1793 = sext i16 %1787 to i64
-  %1794 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1793
+1787:                                             ; preds = %1784, %.lr.ph.i1835
+  %.1.i1837 = phi i8 [ %1786, %1784 ], [ %.027.i1836, %.lr.ph.i1835 ]
+  %1788 = sext i16 %1782 to i64
+  %1789 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1788
+  %1790 = load i16, ptr %1789, align 2
+  %1791 = sext i16 %1790 to i64
+  %1792 = zext i8 %.1.i1837 to i64
+  %1793 = add nsw i64 %1791, %1792
+  %1794 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1793
   %1795 = load i16, ptr %1794, align 2
-  %1796 = sext i16 %1795 to i64
-  %1797 = zext i8 %.1.i1837 to i64
-  %1798 = add nsw i64 %1796, %1797
-  %1799 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1798
-  %1800 = load i16, ptr %1799, align 2
-  %.not25.i1838 = icmp eq i16 %1787, %1800
-  br i1 %.not25.i1838, label %._crit_edge.i1839, label %.lr.ph.i1835, !llvm.loop !13
+  %.not25.i1838 = icmp eq i16 %1782, %1795
+  br i1 %.not25.i1838, label %._crit_edge.i1839, label %.lr.ph.i1835, !llvm.loop !10
 
-._crit_edge.i1839:                                ; preds = %1792, %1775
-  %.lcssa.i1840 = phi i64 [ %1780, %1775 ], [ %1798, %1792 ]
-  %1801 = getelementptr [316 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i1840
-  %1802 = load i16, ptr %1801, align 2
-  %1803 = sext i16 %1802 to i32
-  %1804 = getelementptr i8, ptr %.02328.i1831, i64 1
-  %exitcond.not.i1841 = icmp eq ptr %1804, %1761
-  br i1 %exitcond.not.i1841, label %.loopexit1864, label %.lr.ph31.i1829, !llvm.loop !14
+._crit_edge.i1839:                                ; preds = %1787, %1770
+  %.lcssa.i1840 = phi i64 [ %1775, %1770 ], [ %1793, %1787 ]
+  %1796 = getelementptr [316 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i1840
+  %1797 = load i16, ptr %1796, align 2
+  %1798 = sext i16 %1797 to i32
+  %1799 = getelementptr i8, ptr %.02328.i1831, i64 1
+  %exitcond.not.i1841 = icmp eq ptr %1799, %1756
+  br i1 %exitcond.not.i1841, label %.loopexit1864.backedge, label %.lr.ph31.i1829, !llvm.loop !11
 
-yy_get_next_buffer.exit.thread1859:               ; preds = %1571, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge
-  %.pre-phi = phi i64 [ %.pre2410, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge ], [ %1476, %1571 ]
-  %1805 = phi ptr [ %1753, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge ], [ %1559, %1571 ]
-  %1806 = phi ptr [ %.pre2408, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge ], [ %1474, %1571 ]
-  %1807 = getelementptr i8, ptr %1806, i64 %.pre-phi
-  store ptr %1807, ptr %51, align 8
-  %1808 = load i32, ptr %53, align 4
-  %1809 = icmp ult ptr %1805, %1807
-  br i1 %1809, label %.lr.ph31.i1844, label %.backedge
+yy_get_next_buffer.exit.thread1859:               ; preds = %1566, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge
+  %.pre-phi = phi i64 [ %.pre2410, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge ], [ %1471, %1566 ]
+  %1800 = phi ptr [ %1748, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge ], [ %1554, %1566 ]
+  %1801 = phi ptr [ %.pre2408, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge ], [ %1469, %1566 ]
+  %1802 = getelementptr i8, ptr %1801, i64 %.pre-phi
+  store ptr %1802, ptr %51, align 8
+  %1803 = load i32, ptr %53, align 4
+  %1804 = icmp ult ptr %1800, %1802
+  br i1 %1804, label %.lr.ph31.i1844, label %.backedge.backedge
+
+.backedge.backedge:                               ; preds = %._crit_edge.i1854, %yy_get_next_buffer.exit.thread1859
+  %.3.be = phi i32 [ %1803, %yy_get_next_buffer.exit.thread1859 ], [ %1844, %._crit_edge.i1854 ]
+  br label %.backedge
 
 .lr.ph31.i1844:                                   ; preds = %yy_get_next_buffer.exit.thread1859, %._crit_edge.i1854
-  %.02129.i1845 = phi i32 [ %1849, %._crit_edge.i1854 ], [ %1808, %yy_get_next_buffer.exit.thread1859 ]
-  %.02328.i1846 = phi ptr [ %1850, %._crit_edge.i1854 ], [ %1805, %yy_get_next_buffer.exit.thread1859 ]
-  %1810 = load i8, ptr %.02328.i1846, align 1
-  %.not.i1847 = icmp eq i8 %1810, 0
-  br i1 %.not.i1847, label %1815, label %1811
+  %.02129.i1845 = phi i32 [ %1844, %._crit_edge.i1854 ], [ %1803, %yy_get_next_buffer.exit.thread1859 ]
+  %.02328.i1846 = phi ptr [ %1845, %._crit_edge.i1854 ], [ %1800, %yy_get_next_buffer.exit.thread1859 ]
+  %1805 = load i8, ptr %.02328.i1846, align 1
+  %.not.i1847 = icmp eq i8 %1805, 0
+  br i1 %.not.i1847, label %1810, label %1806
 
-1811:                                             ; preds = %.lr.ph31.i1844
-  %1812 = zext i8 %1810 to i64
-  %1813 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %1812
-  %1814 = load i8, ptr %1813, align 1
-  br label %1815
+1806:                                             ; preds = %.lr.ph31.i1844
+  %1807 = zext i8 %1805 to i64
+  %1808 = getelementptr [256 x i8], ptr @yy_ec, i64 0, i64 %1807
+  %1809 = load i8, ptr %1808, align 1
+  br label %1810
 
-1815:                                             ; preds = %1811, %.lr.ph31.i1844
-  %1816 = phi i8 [ %1814, %1811 ], [ 1, %.lr.ph31.i1844 ]
-  %1817 = sext i32 %.02129.i1845 to i64
-  %1818 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %1817
-  %1819 = load i16, ptr %1818, align 2
-  %.not24.i1848 = icmp eq i16 %1819, 0
-  br i1 %.not24.i1848, label %1821, label %1820
+1810:                                             ; preds = %1806, %.lr.ph31.i1844
+  %1811 = phi i8 [ %1809, %1806 ], [ 1, %.lr.ph31.i1844 ]
+  %1812 = sext i32 %.02129.i1845 to i64
+  %1813 = getelementptr [187 x i16], ptr @yy_accept, i64 0, i64 %1812
+  %1814 = load i16, ptr %1813, align 2
+  %.not24.i1848 = icmp eq i16 %1814, 0
+  br i1 %.not24.i1848, label %1816, label %1815
 
-1820:                                             ; preds = %1815
+1815:                                             ; preds = %1810
   store i32 %.02129.i1845, ptr %54, align 8
   store ptr %.02328.i1846, ptr %55, align 8
-  br label %1821
+  br label %1816
 
-1821:                                             ; preds = %1820, %1815
-  %1822 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1817
+1816:                                             ; preds = %1815, %1810
+  %1817 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1812
+  %1818 = load i16, ptr %1817, align 2
+  %1819 = sext i16 %1818 to i64
+  %1820 = zext i8 %1811 to i64
+  %1821 = add nsw i64 %1819, %1820
+  %1822 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1821
   %1823 = load i16, ptr %1822, align 2
-  %1824 = sext i16 %1823 to i64
-  %1825 = zext i8 %1816 to i64
-  %1826 = add nsw i64 %1824, %1825
-  %1827 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1826
-  %1828 = load i16, ptr %1827, align 2
-  %1829 = sext i16 %1828 to i32
-  %.not2526.i1849 = icmp eq i32 %.02129.i1845, %1829
+  %1824 = sext i16 %1823 to i32
+  %.not2526.i1849 = icmp eq i32 %.02129.i1845, %1824
   br i1 %.not2526.i1849, label %._crit_edge.i1854, label %.lr.ph.i1850
 
-.lr.ph.i1850:                                     ; preds = %1821, %1838
-  %1830 = phi i64 [ %1843, %1838 ], [ %1825, %1821 ]
-  %1831 = phi i64 [ %1839, %1838 ], [ %1817, %1821 ]
-  %.027.i1851 = phi i8 [ %.1.i1852, %1838 ], [ %1816, %1821 ]
-  %1832 = getelementptr [193 x i16], ptr @yy_def, i64 0, i64 %1831
-  %1833 = load i16, ptr %1832, align 2
-  %1834 = icmp sgt i16 %1833, 186
-  br i1 %1834, label %1835, label %1838
+.lr.ph.i1850:                                     ; preds = %1816, %1833
+  %1825 = phi i64 [ %1838, %1833 ], [ %1820, %1816 ]
+  %1826 = phi i64 [ %1834, %1833 ], [ %1812, %1816 ]
+  %.027.i1851 = phi i8 [ %.1.i1852, %1833 ], [ %1811, %1816 ]
+  %1827 = getelementptr [193 x i16], ptr @yy_def, i64 0, i64 %1826
+  %1828 = load i16, ptr %1827, align 2
+  %1829 = icmp sgt i16 %1828, 186
+  br i1 %1829, label %1830, label %1833
 
-1835:                                             ; preds = %.lr.ph.i1850
-  %1836 = getelementptr [62 x i8], ptr @yy_meta, i64 0, i64 %1830
-  %1837 = load i8, ptr %1836, align 1
-  br label %1838
+1830:                                             ; preds = %.lr.ph.i1850
+  %1831 = getelementptr [62 x i8], ptr @yy_meta, i64 0, i64 %1825
+  %1832 = load i8, ptr %1831, align 1
+  br label %1833
 
-1838:                                             ; preds = %1835, %.lr.ph.i1850
-  %.1.i1852 = phi i8 [ %1837, %1835 ], [ %.027.i1851, %.lr.ph.i1850 ]
-  %1839 = sext i16 %1833 to i64
-  %1840 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1839
+1833:                                             ; preds = %1830, %.lr.ph.i1850
+  %.1.i1852 = phi i8 [ %1832, %1830 ], [ %.027.i1851, %.lr.ph.i1850 ]
+  %1834 = sext i16 %1828 to i64
+  %1835 = getelementptr [193 x i16], ptr @yy_base, i64 0, i64 %1834
+  %1836 = load i16, ptr %1835, align 2
+  %1837 = sext i16 %1836 to i64
+  %1838 = zext i8 %.1.i1852 to i64
+  %1839 = add nsw i64 %1837, %1838
+  %1840 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1839
   %1841 = load i16, ptr %1840, align 2
-  %1842 = sext i16 %1841 to i64
-  %1843 = zext i8 %.1.i1852 to i64
-  %1844 = add nsw i64 %1842, %1843
-  %1845 = getelementptr [316 x i16], ptr @yy_chk, i64 0, i64 %1844
-  %1846 = load i16, ptr %1845, align 2
-  %.not25.i1853 = icmp eq i16 %1833, %1846
-  br i1 %.not25.i1853, label %._crit_edge.i1854, label %.lr.ph.i1850, !llvm.loop !13
+  %.not25.i1853 = icmp eq i16 %1828, %1841
+  br i1 %.not25.i1853, label %._crit_edge.i1854, label %.lr.ph.i1850, !llvm.loop !10
 
-._crit_edge.i1854:                                ; preds = %1838, %1821
-  %.lcssa.i1855 = phi i64 [ %1826, %1821 ], [ %1844, %1838 ]
-  %1847 = getelementptr [316 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i1855
-  %1848 = load i16, ptr %1847, align 2
-  %1849 = sext i16 %1848 to i32
-  %1850 = getelementptr i8, ptr %.02328.i1846, i64 1
-  %exitcond.not.i1856 = icmp eq ptr %1850, %1807
-  br i1 %exitcond.not.i1856, label %.backedge, label %.lr.ph31.i1844, !llvm.loop !14
+._crit_edge.i1854:                                ; preds = %1833, %1816
+  %.lcssa.i1855 = phi i64 [ %1821, %1816 ], [ %1839, %1833 ]
+  %1842 = getelementptr [316 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i1855
+  %1843 = load i16, ptr %1842, align 2
+  %1844 = sext i16 %1843 to i32
+  %1845 = getelementptr i8, ptr %.02328.i1846, i64 1
+  %exitcond.not.i1856 = icmp eq ptr %1845, %1802
+  br i1 %exitcond.not.i1856, label %.backedge.backedge, label %.lr.ph31.i1844, !llvm.loop !11
 
 default.unreachable2411:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
-yy_get_previous_state.exit1842:                   ; preds = %yy_get_next_buffer.exit, %1571
-  %1851 = phi ptr [ %1559, %1571 ], [ %1753, %yy_get_next_buffer.exit ]
+yy_get_previous_state.exit1842:                   ; preds = %yy_get_next_buffer.exit, %1566
+  %1846 = phi ptr [ %1554, %1566 ], [ %1748, %yy_get_next_buffer.exit ]
   store i32 0, ptr %62, align 8
-  store ptr %1851, ptr %51, align 8
-  %1852 = load i32, ptr %53, align 4
-  %1853 = add i32 %1852, -1
-  %1854 = sdiv i32 %1853, 2
-  %1855 = add nsw i32 %1854, 73
+  store ptr %1846, ptr %51, align 8
+  %1847 = load i32, ptr %53, align 4
+  %1848 = add i32 %1847, -1
+  %1849 = sdiv i32 %1848, 2
+  %1850 = add nsw i32 %1849, 73
   br label %.loopexit1866
 
-1856:                                             ; preds = %.loopexit1866
+1851:                                             ; preds = %.loopexit1866
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.1) #25
   unreachable
 
-.loopexit1863.sink.split.sink.split:              ; preds = %1428, %1408, %1388, %1368, %1348, %1328, %1308, %1288, %1268, %1248, %1228, %1208, %1188, %1168, %1148, %1128, %1108, %1088, %1068, %1048, %1028, %1008, %988, %968, %948, %928, %908, %888, %868, %848, %828, %808, %788, %768, %748, %728, %708, %688, %668, %648, %628, %608, %588, %568, %548, %528, %508, %488, %468, %448, %428, %408, %388, %368, %348, %328, %308, %288, %268, %248, %228, %208, %188, %168
-  %.sink2511 = phi ptr [ %171, %168 ], [ %191, %188 ], [ %211, %208 ], [ %231, %228 ], [ %251, %248 ], [ %271, %268 ], [ %291, %288 ], [ %311, %308 ], [ %331, %328 ], [ %351, %348 ], [ %371, %368 ], [ %391, %388 ], [ %411, %408 ], [ %431, %428 ], [ %451, %448 ], [ %471, %468 ], [ %491, %488 ], [ %511, %508 ], [ %531, %528 ], [ %551, %548 ], [ %571, %568 ], [ %591, %588 ], [ %611, %608 ], [ %631, %628 ], [ %651, %648 ], [ %671, %668 ], [ %691, %688 ], [ %711, %708 ], [ %731, %728 ], [ %751, %748 ], [ %771, %768 ], [ %791, %788 ], [ %811, %808 ], [ %831, %828 ], [ %851, %848 ], [ %871, %868 ], [ %891, %888 ], [ %911, %908 ], [ %931, %928 ], [ %951, %948 ], [ %971, %968 ], [ %991, %988 ], [ %1011, %1008 ], [ %1031, %1028 ], [ %1051, %1048 ], [ %1071, %1068 ], [ %1091, %1088 ], [ %1111, %1108 ], [ %1131, %1128 ], [ %1151, %1148 ], [ %1171, %1168 ], [ %1191, %1188 ], [ %1211, %1208 ], [ %1231, %1228 ], [ %1251, %1248 ], [ %1271, %1268 ], [ %1291, %1288 ], [ %1311, %1308 ], [ %1331, %1328 ], [ %1351, %1348 ], [ %1371, %1368 ], [ %1391, %1388 ], [ %1411, %1408 ], [ %1431, %1428 ]
-  %.0.ph.ph = phi i32 [ 28, %168 ], [ 29, %188 ], [ 33, %208 ], [ 34, %228 ], [ 31, %248 ], [ 32, %268 ], [ 35, %288 ], [ 36, %308 ], [ 37, %328 ], [ 38, %348 ], [ 39, %368 ], [ 40, %388 ], [ 25, %408 ], [ 41, %428 ], [ 42, %448 ], [ 43, %468 ], [ 44, %488 ], [ 45, %508 ], [ 46, %528 ], [ 47, %548 ], [ 48, %568 ], [ 49, %588 ], [ 50, %608 ], [ 51, %628 ], [ 52, %648 ], [ 53, %668 ], [ 54, %688 ], [ 55, %708 ], [ 56, %728 ], [ 26, %748 ], [ 30, %768 ], [ 57, %788 ], [ 58, %808 ], [ 59, %828 ], [ 60, %848 ], [ 2, %868 ], [ 3, %888 ], [ 4, %908 ], [ 5, %928 ], [ 6, %948 ], [ 7, %968 ], [ 8, %988 ], [ 9, %1008 ], [ 10, %1028 ], [ 11, %1048 ], [ 12, %1068 ], [ 13, %1088 ], [ 14, %1108 ], [ 15, %1128 ], [ 16, %1148 ], [ 17, %1168 ], [ 18, %1188 ], [ 19, %1208 ], [ 20, %1228 ], [ 21, %1248 ], [ 22, %1268 ], [ 23, %1288 ], [ 24, %1308 ], [ 61, %1328 ], [ 62, %1348 ], [ 63, %1368 ], [ 1, %1388 ], [ 27, %1408 ], [ 27, %1428 ]
-  %1857 = getelementptr inbounds nuw i8, ptr %.sink2511, i64 44
-  %1858 = load i32, ptr %1857, align 4
+.loopexit1863.sink.split.sink.split:              ; preds = %1423, %1403, %1383, %1363, %1343, %1323, %1303, %1283, %1263, %1243, %1223, %1203, %1183, %1163, %1143, %1123, %1103, %1083, %1063, %1043, %1023, %1003, %983, %963, %943, %923, %903, %883, %863, %843, %823, %803, %783, %763, %743, %723, %703, %683, %663, %643, %623, %603, %583, %563, %543, %523, %503, %483, %463, %443, %423, %403, %383, %363, %343, %323, %303, %283, %263, %243, %223, %203, %183, %163
+  %.sink2511 = phi ptr [ %166, %163 ], [ %186, %183 ], [ %206, %203 ], [ %226, %223 ], [ %246, %243 ], [ %266, %263 ], [ %286, %283 ], [ %306, %303 ], [ %326, %323 ], [ %346, %343 ], [ %366, %363 ], [ %386, %383 ], [ %406, %403 ], [ %426, %423 ], [ %446, %443 ], [ %466, %463 ], [ %486, %483 ], [ %506, %503 ], [ %526, %523 ], [ %546, %543 ], [ %566, %563 ], [ %586, %583 ], [ %606, %603 ], [ %626, %623 ], [ %646, %643 ], [ %666, %663 ], [ %686, %683 ], [ %706, %703 ], [ %726, %723 ], [ %746, %743 ], [ %766, %763 ], [ %786, %783 ], [ %806, %803 ], [ %826, %823 ], [ %846, %843 ], [ %866, %863 ], [ %886, %883 ], [ %906, %903 ], [ %926, %923 ], [ %946, %943 ], [ %966, %963 ], [ %986, %983 ], [ %1006, %1003 ], [ %1026, %1023 ], [ %1046, %1043 ], [ %1066, %1063 ], [ %1086, %1083 ], [ %1106, %1103 ], [ %1126, %1123 ], [ %1146, %1143 ], [ %1166, %1163 ], [ %1186, %1183 ], [ %1206, %1203 ], [ %1226, %1223 ], [ %1246, %1243 ], [ %1266, %1263 ], [ %1286, %1283 ], [ %1306, %1303 ], [ %1326, %1323 ], [ %1346, %1343 ], [ %1366, %1363 ], [ %1386, %1383 ], [ %1406, %1403 ], [ %1426, %1423 ]
+  %.0.ph.ph = phi i32 [ 28, %163 ], [ 29, %183 ], [ 33, %203 ], [ 34, %223 ], [ 31, %243 ], [ 32, %263 ], [ 35, %283 ], [ 36, %303 ], [ 37, %323 ], [ 38, %343 ], [ 39, %363 ], [ 40, %383 ], [ 25, %403 ], [ 41, %423 ], [ 42, %443 ], [ 43, %463 ], [ 44, %483 ], [ 45, %503 ], [ 46, %523 ], [ 47, %543 ], [ 48, %563 ], [ 49, %583 ], [ 50, %603 ], [ 51, %623 ], [ 52, %643 ], [ 53, %663 ], [ 54, %683 ], [ 55, %703 ], [ 56, %723 ], [ 26, %743 ], [ 30, %763 ], [ 57, %783 ], [ 58, %803 ], [ 59, %823 ], [ 60, %843 ], [ 2, %863 ], [ 3, %883 ], [ 4, %903 ], [ 5, %923 ], [ 6, %943 ], [ 7, %963 ], [ 8, %983 ], [ 9, %1003 ], [ 10, %1023 ], [ 11, %1043 ], [ 12, %1063 ], [ 13, %1083 ], [ 14, %1103 ], [ 15, %1123 ], [ 16, %1143 ], [ 17, %1163 ], [ 18, %1183 ], [ 19, %1203 ], [ 20, %1223 ], [ 21, %1243 ], [ 22, %1263 ], [ 23, %1283 ], [ 24, %1303 ], [ 61, %1323 ], [ 62, %1343 ], [ 63, %1363 ], [ 1, %1383 ], [ 27, %1403 ], [ 27, %1423 ]
+  %1852 = getelementptr inbounds nuw i8, ptr %.sink2511, i64 44
+  %1853 = load i32, ptr %1852, align 4
   br label %.loopexit1863.sink.split
 
-.loopexit1863.sink.split:                         ; preds = %.loopexit1863.sink.split.sink.split, %1428, %1412, %1408, %1392, %1388, %1372, %1368, %1352, %1348, %1332, %1328, %1312, %1308, %1292, %1288, %1272, %1268, %1252, %1248, %1232, %1228, %1212, %1208, %1192, %1188, %1172, %1168, %1152, %1148, %1132, %1128, %1112, %1108, %1092, %1088, %1072, %1068, %1052, %1048, %1032, %1028, %1012, %1008, %992, %988, %972, %968, %952, %948, %932, %928, %912, %908, %892, %888, %872, %868, %852, %848, %832, %828, %812, %808, %792, %788, %772, %768, %752, %748, %732, %728, %712, %708, %692, %688, %672, %668, %652, %648, %632, %628, %612, %608, %592, %588, %572, %568, %552, %548, %532, %528, %512, %508, %492, %488, %472, %468, %452, %448, %432, %428, %412, %408, %392, %388, %372, %368, %352, %348, %332, %328, %312, %308, %292, %288, %272, %268, %252, %248, %232, %228, %212, %208, %192, %188, %172, %168, %152
-  %.0.i1816.sink = phi i32 [ 0, %152 ], [ 0, %168 ], [ 0, %172 ], [ 0, %188 ], [ 0, %192 ], [ 0, %208 ], [ 0, %212 ], [ 0, %228 ], [ 0, %232 ], [ 0, %248 ], [ 0, %252 ], [ 0, %268 ], [ 0, %272 ], [ 0, %288 ], [ 0, %292 ], [ 0, %308 ], [ 0, %312 ], [ 0, %328 ], [ 0, %332 ], [ 0, %348 ], [ 0, %352 ], [ 0, %368 ], [ 0, %372 ], [ 0, %388 ], [ 0, %392 ], [ 0, %408 ], [ 0, %412 ], [ 0, %428 ], [ 0, %432 ], [ 0, %448 ], [ 0, %452 ], [ 0, %468 ], [ 0, %472 ], [ 0, %488 ], [ 0, %492 ], [ 0, %508 ], [ 0, %512 ], [ 0, %528 ], [ 0, %532 ], [ 0, %548 ], [ 0, %552 ], [ 0, %568 ], [ 0, %572 ], [ 0, %588 ], [ 0, %592 ], [ 0, %608 ], [ 0, %612 ], [ 0, %628 ], [ 0, %632 ], [ 0, %648 ], [ 0, %652 ], [ 0, %668 ], [ 0, %672 ], [ 0, %688 ], [ 0, %692 ], [ 0, %708 ], [ 0, %712 ], [ 0, %728 ], [ 0, %732 ], [ 0, %748 ], [ 0, %752 ], [ 0, %768 ], [ 0, %772 ], [ 0, %788 ], [ 0, %792 ], [ 0, %808 ], [ 0, %812 ], [ 0, %828 ], [ 0, %832 ], [ 0, %848 ], [ 0, %852 ], [ 0, %868 ], [ 0, %872 ], [ 0, %888 ], [ 0, %892 ], [ 0, %908 ], [ 0, %912 ], [ 0, %928 ], [ 0, %932 ], [ 0, %948 ], [ 0, %952 ], [ 0, %968 ], [ 0, %972 ], [ 0, %988 ], [ 0, %992 ], [ 0, %1008 ], [ 0, %1012 ], [ 0, %1028 ], [ 0, %1032 ], [ 0, %1048 ], [ 0, %1052 ], [ 0, %1068 ], [ 0, %1072 ], [ 0, %1088 ], [ 0, %1092 ], [ 0, %1108 ], [ 0, %1112 ], [ 0, %1128 ], [ 0, %1132 ], [ 0, %1148 ], [ 0, %1152 ], [ 0, %1168 ], [ 0, %1172 ], [ 0, %1188 ], [ 0, %1192 ], [ 0, %1208 ], [ 0, %1212 ], [ 0, %1228 ], [ 0, %1232 ], [ 0, %1248 ], [ 0, %1252 ], [ 0, %1268 ], [ 0, %1272 ], [ 0, %1288 ], [ 0, %1292 ], [ 0, %1308 ], [ 0, %1312 ], [ 0, %1328 ], [ 0, %1332 ], [ 0, %1348 ], [ 0, %1352 ], [ 0, %1368 ], [ 0, %1372 ], [ 0, %1388 ], [ 0, %1392 ], [ 0, %1408 ], [ 0, %1412 ], [ 0, %1428 ], [ %1858, %.loopexit1863.sink.split.sink.split ]
-  %.0.ph = phi i32 [ 28, %152 ], [ 28, %168 ], [ 29, %172 ], [ 29, %188 ], [ 33, %192 ], [ 33, %208 ], [ 34, %212 ], [ 34, %228 ], [ 31, %232 ], [ 31, %248 ], [ 32, %252 ], [ 32, %268 ], [ 35, %272 ], [ 35, %288 ], [ 36, %292 ], [ 36, %308 ], [ 37, %312 ], [ 37, %328 ], [ 38, %332 ], [ 38, %348 ], [ 39, %352 ], [ 39, %368 ], [ 40, %372 ], [ 40, %388 ], [ 25, %392 ], [ 25, %408 ], [ 41, %412 ], [ 41, %428 ], [ 42, %432 ], [ 42, %448 ], [ 43, %452 ], [ 43, %468 ], [ 44, %472 ], [ 44, %488 ], [ 45, %492 ], [ 45, %508 ], [ 46, %512 ], [ 46, %528 ], [ 47, %532 ], [ 47, %548 ], [ 48, %552 ], [ 48, %568 ], [ 49, %572 ], [ 49, %588 ], [ 50, %592 ], [ 50, %608 ], [ 51, %612 ], [ 51, %628 ], [ 52, %632 ], [ 52, %648 ], [ 53, %652 ], [ 53, %668 ], [ 54, %672 ], [ 54, %688 ], [ 55, %692 ], [ 55, %708 ], [ 56, %712 ], [ 56, %728 ], [ 26, %732 ], [ 26, %748 ], [ 30, %752 ], [ 30, %768 ], [ 57, %772 ], [ 57, %788 ], [ 58, %792 ], [ 58, %808 ], [ 59, %812 ], [ 59, %828 ], [ 60, %832 ], [ 60, %848 ], [ 2, %852 ], [ 2, %868 ], [ 3, %872 ], [ 3, %888 ], [ 4, %892 ], [ 4, %908 ], [ 5, %912 ], [ 5, %928 ], [ 6, %932 ], [ 6, %948 ], [ 7, %952 ], [ 7, %968 ], [ 8, %972 ], [ 8, %988 ], [ 9, %992 ], [ 9, %1008 ], [ 10, %1012 ], [ 10, %1028 ], [ 11, %1032 ], [ 11, %1048 ], [ 12, %1052 ], [ 12, %1068 ], [ 13, %1072 ], [ 13, %1088 ], [ 14, %1092 ], [ 14, %1108 ], [ 15, %1112 ], [ 15, %1128 ], [ 16, %1132 ], [ 16, %1148 ], [ 17, %1152 ], [ 17, %1168 ], [ 18, %1172 ], [ 18, %1188 ], [ 19, %1192 ], [ 19, %1208 ], [ 20, %1212 ], [ 20, %1228 ], [ 21, %1232 ], [ 21, %1248 ], [ 22, %1252 ], [ 22, %1268 ], [ 23, %1272 ], [ 23, %1288 ], [ 24, %1292 ], [ 24, %1308 ], [ 61, %1312 ], [ 61, %1328 ], [ 62, %1332 ], [ 62, %1348 ], [ 63, %1352 ], [ 63, %1368 ], [ 1, %1372 ], [ 1, %1388 ], [ 27, %1392 ], [ 27, %1408 ], [ 27, %1412 ], [ 27, %1428 ], [ %.0.ph.ph, %.loopexit1863.sink.split.sink.split ]
-  %1859 = load ptr, ptr %0, align 8
-  %1860 = getelementptr inbounds nuw i8, ptr %1859, i64 56
-  %1861 = load ptr, ptr %1860, align 8
-  %1862 = getelementptr inbounds nuw i8, ptr %1861, i64 8
-  store i32 %.0.i1816.sink, ptr %1862, align 8
+.loopexit1863.sink.split:                         ; preds = %.loopexit1863.sink.split.sink.split, %1423, %1407, %1403, %1387, %1383, %1367, %1363, %1347, %1343, %1327, %1323, %1307, %1303, %1287, %1283, %1267, %1263, %1247, %1243, %1227, %1223, %1207, %1203, %1187, %1183, %1167, %1163, %1147, %1143, %1127, %1123, %1107, %1103, %1087, %1083, %1067, %1063, %1047, %1043, %1027, %1023, %1007, %1003, %987, %983, %967, %963, %947, %943, %927, %923, %907, %903, %887, %883, %867, %863, %847, %843, %827, %823, %807, %803, %787, %783, %767, %763, %747, %743, %727, %723, %707, %703, %687, %683, %667, %663, %647, %643, %627, %623, %607, %603, %587, %583, %567, %563, %547, %543, %527, %523, %507, %503, %487, %483, %467, %463, %447, %443, %427, %423, %407, %403, %387, %383, %367, %363, %347, %343, %327, %323, %307, %303, %287, %283, %267, %263, %247, %243, %227, %223, %207, %203, %187, %183, %167, %163, %147
+  %.0.i1816.sink = phi i32 [ 0, %147 ], [ 0, %163 ], [ 0, %167 ], [ 0, %183 ], [ 0, %187 ], [ 0, %203 ], [ 0, %207 ], [ 0, %223 ], [ 0, %227 ], [ 0, %243 ], [ 0, %247 ], [ 0, %263 ], [ 0, %267 ], [ 0, %283 ], [ 0, %287 ], [ 0, %303 ], [ 0, %307 ], [ 0, %323 ], [ 0, %327 ], [ 0, %343 ], [ 0, %347 ], [ 0, %363 ], [ 0, %367 ], [ 0, %383 ], [ 0, %387 ], [ 0, %403 ], [ 0, %407 ], [ 0, %423 ], [ 0, %427 ], [ 0, %443 ], [ 0, %447 ], [ 0, %463 ], [ 0, %467 ], [ 0, %483 ], [ 0, %487 ], [ 0, %503 ], [ 0, %507 ], [ 0, %523 ], [ 0, %527 ], [ 0, %543 ], [ 0, %547 ], [ 0, %563 ], [ 0, %567 ], [ 0, %583 ], [ 0, %587 ], [ 0, %603 ], [ 0, %607 ], [ 0, %623 ], [ 0, %627 ], [ 0, %643 ], [ 0, %647 ], [ 0, %663 ], [ 0, %667 ], [ 0, %683 ], [ 0, %687 ], [ 0, %703 ], [ 0, %707 ], [ 0, %723 ], [ 0, %727 ], [ 0, %743 ], [ 0, %747 ], [ 0, %763 ], [ 0, %767 ], [ 0, %783 ], [ 0, %787 ], [ 0, %803 ], [ 0, %807 ], [ 0, %823 ], [ 0, %827 ], [ 0, %843 ], [ 0, %847 ], [ 0, %863 ], [ 0, %867 ], [ 0, %883 ], [ 0, %887 ], [ 0, %903 ], [ 0, %907 ], [ 0, %923 ], [ 0, %927 ], [ 0, %943 ], [ 0, %947 ], [ 0, %963 ], [ 0, %967 ], [ 0, %983 ], [ 0, %987 ], [ 0, %1003 ], [ 0, %1007 ], [ 0, %1023 ], [ 0, %1027 ], [ 0, %1043 ], [ 0, %1047 ], [ 0, %1063 ], [ 0, %1067 ], [ 0, %1083 ], [ 0, %1087 ], [ 0, %1103 ], [ 0, %1107 ], [ 0, %1123 ], [ 0, %1127 ], [ 0, %1143 ], [ 0, %1147 ], [ 0, %1163 ], [ 0, %1167 ], [ 0, %1183 ], [ 0, %1187 ], [ 0, %1203 ], [ 0, %1207 ], [ 0, %1223 ], [ 0, %1227 ], [ 0, %1243 ], [ 0, %1247 ], [ 0, %1263 ], [ 0, %1267 ], [ 0, %1283 ], [ 0, %1287 ], [ 0, %1303 ], [ 0, %1307 ], [ 0, %1323 ], [ 0, %1327 ], [ 0, %1343 ], [ 0, %1347 ], [ 0, %1363 ], [ 0, %1367 ], [ 0, %1383 ], [ 0, %1387 ], [ 0, %1403 ], [ 0, %1407 ], [ 0, %1423 ], [ %1853, %.loopexit1863.sink.split.sink.split ]
+  %.0.ph = phi i32 [ 28, %147 ], [ 28, %163 ], [ 29, %167 ], [ 29, %183 ], [ 33, %187 ], [ 33, %203 ], [ 34, %207 ], [ 34, %223 ], [ 31, %227 ], [ 31, %243 ], [ 32, %247 ], [ 32, %263 ], [ 35, %267 ], [ 35, %283 ], [ 36, %287 ], [ 36, %303 ], [ 37, %307 ], [ 37, %323 ], [ 38, %327 ], [ 38, %343 ], [ 39, %347 ], [ 39, %363 ], [ 40, %367 ], [ 40, %383 ], [ 25, %387 ], [ 25, %403 ], [ 41, %407 ], [ 41, %423 ], [ 42, %427 ], [ 42, %443 ], [ 43, %447 ], [ 43, %463 ], [ 44, %467 ], [ 44, %483 ], [ 45, %487 ], [ 45, %503 ], [ 46, %507 ], [ 46, %523 ], [ 47, %527 ], [ 47, %543 ], [ 48, %547 ], [ 48, %563 ], [ 49, %567 ], [ 49, %583 ], [ 50, %587 ], [ 50, %603 ], [ 51, %607 ], [ 51, %623 ], [ 52, %627 ], [ 52, %643 ], [ 53, %647 ], [ 53, %663 ], [ 54, %667 ], [ 54, %683 ], [ 55, %687 ], [ 55, %703 ], [ 56, %707 ], [ 56, %723 ], [ 26, %727 ], [ 26, %743 ], [ 30, %747 ], [ 30, %763 ], [ 57, %767 ], [ 57, %783 ], [ 58, %787 ], [ 58, %803 ], [ 59, %807 ], [ 59, %823 ], [ 60, %827 ], [ 60, %843 ], [ 2, %847 ], [ 2, %863 ], [ 3, %867 ], [ 3, %883 ], [ 4, %887 ], [ 4, %903 ], [ 5, %907 ], [ 5, %923 ], [ 6, %927 ], [ 6, %943 ], [ 7, %947 ], [ 7, %963 ], [ 8, %967 ], [ 8, %983 ], [ 9, %987 ], [ 9, %1003 ], [ 10, %1007 ], [ 10, %1023 ], [ 11, %1027 ], [ 11, %1043 ], [ 12, %1047 ], [ 12, %1063 ], [ 13, %1067 ], [ 13, %1083 ], [ 14, %1087 ], [ 14, %1103 ], [ 15, %1107 ], [ 15, %1123 ], [ 16, %1127 ], [ 16, %1143 ], [ 17, %1147 ], [ 17, %1163 ], [ 18, %1167 ], [ 18, %1183 ], [ 19, %1187 ], [ 19, %1203 ], [ 20, %1207 ], [ 20, %1223 ], [ 21, %1227 ], [ 21, %1243 ], [ 22, %1247 ], [ 22, %1263 ], [ 23, %1267 ], [ 23, %1283 ], [ 24, %1287 ], [ 24, %1303 ], [ 61, %1307 ], [ 61, %1323 ], [ 62, %1327 ], [ 62, %1343 ], [ 63, %1347 ], [ 63, %1363 ], [ 1, %1367 ], [ 1, %1383 ], [ 27, %1387 ], [ 27, %1403 ], [ 27, %1407 ], [ 27, %1423 ], [ %.0.ph.ph, %.loopexit1863.sink.split.sink.split ]
+  %1854 = load ptr, ptr %0, align 8
+  %1855 = getelementptr inbounds nuw i8, ptr %1854, i64 56
+  %1856 = load ptr, ptr %1855, align 8
+  %1857 = getelementptr inbounds nuw i8, ptr %1856, i64 8
+  store i32 %.0.i1816.sink, ptr %1857, align 8
   br label %.loopexit1863
 
 .loopexit1863:                                    ; preds = %.loopexit1866, %.loopexit1866, %.loopexit1863.sink.split
@@ -4402,7 +4399,7 @@ protobuf_lang_pop_buffer_state.exit:              ; preds = %26, %44, %47
   %58 = getelementptr ptr, ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.critedge, label %.critedge.i, !llvm.loop !20
+  br i1 %60, label %.critedge, label %.critedge.i, !llvm.loop !17
 
 .critedge:                                        ; preds = %protobuf_lang_pop_buffer_state.exit, %protobuf_lang__delete_buffer.exit, %41, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %41 ], [ null, %protobuf_lang__delete_buffer.exit ], [ %56, %protobuf_lang_pop_buffer_state.exit ]
@@ -4499,17 +4496,14 @@ attributes #31 = { nounwind willreturn memory(read) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !9, !7}
-!14 = distinct !{!14, !9, !7}
-!15 = distinct !{!15, !9, !7}
-!16 = distinct !{!16, !9, !7}
-!17 = distinct !{!17, !9, !7}
-!18 = distinct !{!18, !9, !7}
-!19 = distinct !{!19, !9, !7}
-!20 = distinct !{!20, !9, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

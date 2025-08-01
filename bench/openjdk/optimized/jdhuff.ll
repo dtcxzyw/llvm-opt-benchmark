@@ -150,7 +150,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %69 = load i8, ptr %68, align 1
   %70 = sext i8 %69 to i32
   %71 = icmp eq i32 %.0111135, %70
-  br i1 %71, label %.lr.ph130, label %._crit_edge131.loopexit, !llvm.loop !9
+  br i1 %71, label %.lr.ph130, label %._crit_edge131.loopexit, !llvm.loop !8
 
 ._crit_edge131.loopexit:                          ; preds = %.lr.ph130
   %72 = trunc nsw i64 %indvars.iv.next165 to i32
@@ -179,7 +179,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %83 = getelementptr inbounds [257 x i8], ptr %5, i64 0, i64 %82
   %84 = load i8, ptr %83, align 1
   %.not115 = icmp eq i8 %84, 0
-  br i1 %.not115, label %.preheader121, label %.preheader122, !llvm.loop !10
+  br i1 %.not115, label %.preheader121, label %.preheader122, !llvm.loop !9
 
 85:                                               ; preds = %.preheader121, %101
   %indvars.iv167 = phi i64 [ 1, %.preheader121 ], [ %indvars.iv.next168, %101 ]
@@ -212,7 +212,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   store i32 %.sink, ptr %102, align 4
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next168, 17
-  br i1 %exitcond170.not, label %103, label %85, !llvm.loop !11
+  br i1 %exitcond170.not, label %103, label %85, !llvm.loop !10
 
 103:                                              ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %38, i64 68
@@ -260,7 +260,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %indvars.iv.next172 = add nsw i64 %indvars.iv171, 1
   %124 = add nsw i32 %.0106141.us, -1
   %125 = icmp sgt i32 %.0106141.us, 1
-  br i1 %125, label %120, label %._crit_edge144.us, !llvm.loop !12
+  br i1 %125, label %120, label %._crit_edge144.us, !llvm.loop !11
 
 ._crit_edge144.us:                                ; preds = %120
   %126 = add nuw nsw i32 %.1109146.us, 1
@@ -268,7 +268,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %127 = load i8, ptr %108, align 1
   %128 = zext i8 %127 to i32
   %.not116.us.not = icmp samesign ult i32 %.1109146.us, %128
-  br i1 %.not116.us.not, label %.lr.ph143.us, label %._crit_edge149.loopexit158, !llvm.loop !13
+  br i1 %.not116.us.not, label %.lr.ph143.us, label %._crit_edge149.loopexit158, !llvm.loop !12
 
 ._crit_edge149.loopexit158:                       ; preds = %._crit_edge144.us
   %129 = trunc nsw i64 %indvars.iv.next175 to i32
@@ -278,7 +278,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %.7.lcssa = phi i32 [ %.6153, %.preheader120 ], [ %129, %._crit_edge149.loopexit158 ]
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next178, 9
-  br i1 %exitcond180.not, label %130, label %.preheader120, !llvm.loop !15
+  br i1 %exitcond180.not, label %130, label %.preheader120, !llvm.loop !14
 
 130:                                              ; preds = %._crit_edge149
   %131 = icmp sgt i32 %.1.lcssa, 0
@@ -308,7 +308,7 @@ define hidden void @jMkDDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 141:                                              ; preds = %136, %132
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count
-  br i1 %exitcond184.not, label %.loopexit, label %132, !llvm.loop !16
+  br i1 %exitcond184.not, label %.loopexit, label %132, !llvm.loop !15
 
 .loopexit:                                        ; preds = %141, %130
   ret void
@@ -400,7 +400,7 @@ define hidden range(i32 0, 2) i32 @jFilBitBuf(ptr noundef captures(none) %0, i32
   switch i8 %47, label %48 [
     i8 -1, label %.preheader
     i8 0, label %.loopexit63
-  ], !llvm.loop !17
+  ]
 
 48:                                               ; preds = %44
   %49 = zext i8 %47 to i32
@@ -415,7 +415,7 @@ define hidden range(i32 0, 2) i32 @jFilBitBuf(ptr noundef captures(none) %0, i32
   %51 = or disjoint i32 %.0, %50
   %52 = add nsw i32 %.05684, 8
   %53 = icmp slt i32 %.05684, 17
-  br i1 %53, label %15, label %.loopexit65, !llvm.loop !18
+  br i1 %53, label %15, label %.loopexit65, !llvm.loop !16
 
 54:                                               ; preds = %4, %48
   %.157 = phi i32 [ %.05684, %48 ], [ %2, %4 ]
@@ -535,7 +535,7 @@ define hidden range(i32 -1, 256) i32 @jHufDecode(ptr noundef captures(none) %0, 
   %38 = getelementptr inbounds [18 x i32], ptr %3, i64 0, i64 %indvars.iv.next
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %37, %39
-  br i1 %40, label %25, label %._crit_edge.loopexit, !llvm.loop !19
+  br i1 %40, label %25, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %33
   %41 = trunc nsw i64 %indvars.iv.next to i32
@@ -608,7 +608,7 @@ define hidden void @jIHDecoder(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %12, label %10, !llvm.loop !20
+  br i1 %exitcond.not, label %12, label %10, !llvm.loop !18
 
 12:                                               ; preds = %10
   ret void
@@ -701,7 +701,7 @@ define internal void @start_pass_huff_decoder(ptr noundef %0) #0 {
   %52 = load i32, ptr %22, align 8
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next, %53
-  br i1 %54, label %40, label %.preheader, !llvm.loop !21
+  br i1 %54, label %40, label %.preheader, !llvm.loop !19
 
 55:                                               ; preds = %.lr.ph61, %83
   %indvars.iv63 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next64, %83 ]
@@ -753,7 +753,7 @@ define internal void @start_pass_huff_decoder(ptr noundef %0) #0 {
   %87 = load i32, ptr %29, align 8
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next64, %88
-  br i1 %89, label %55, label %._crit_edge, !llvm.loop !22
+  br i1 %89, label %55, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %83, %.preheader
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -822,7 +822,7 @@ define internal range(i32 0, 2) i32 @decode_mcu(ptr noundef %0, ptr noundef read
   %32 = load i32, ptr %26, align 8
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %34, label %30, label %._crit_edge.i, !llvm.loop !23
+  br i1 %34, label %30, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %30, %.preheader.i
   %35 = load i32, ptr %7, align 8
@@ -1132,7 +1132,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   %.11 = phi i32 [ %.10, %188 ], [ %.9, %197 ]
   %200 = add nsw i32 %.1170, 1
   %201 = icmp slt i32 %.1170, 63
-  br i1 %201, label %.preheader225, label %.loopexit, !llvm.loop !24
+  br i1 %201, label %.preheader225, label %.loopexit, !llvm.loop !22
 
 .preheader:                                       ; preds = %133, %241
   %.12242 = phi i32 [ %.17, %241 ], [ %.4, %133 ]
@@ -1228,7 +1228,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   %.3172 = add nsw i32 %.2171240, 1
   %242 = add nsw i32 %.3172, %229
   %243 = icmp slt i32 %242, 64
-  br i1 %243, label %.preheader, label %.loopexit, !llvm.loop !25
+  br i1 %243, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %196, %199, %240, %241
   %.18167 = phi i32 [ %.17166, %241 ], [ %.15164, %240 ], [ %.11160, %199 ], [ %.9158, %196 ]
@@ -1237,7 +1237,7 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   %244 = load i32, ptr %56, align 8
   %245 = sext i32 %244 to i64
   %246 = icmp slt i64 %indvars.iv.next, %245
-  br i1 %246, label %66, label %._crit_edge.loopexit, !llvm.loop !26
+  br i1 %246, label %66, label %._crit_edge.loopexit, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre = load ptr, ptr %3, align 8
@@ -1288,24 +1288,22 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

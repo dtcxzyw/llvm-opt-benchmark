@@ -397,7 +397,7 @@ define dso_local ptr @kvs_get(ptr noundef %0) local_unnamed_addr #0 {
   %16 = or disjoint i32 %15, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_hash.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_hash.exit, label %.lr.ph.i, !llvm.loop !10
 
 _hash.exit:                                       ; preds = %.lr.ph.i, %5
   %.09.lcssa.i = phi i32 [ 0, %5 ], [ %16, %.lr.ph.i ]
@@ -415,7 +415,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %5
   %24 = load i32, ptr %21, align 8
   %25 = zext i32 %24 to i64
   %26 = icmp samesign ult i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %_hash.exit, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %_hash.exit ]
@@ -483,7 +483,7 @@ define dso_local noundef i32 @kvs_put(ptr noundef %0, ptr noundef %1) local_unna
   %17 = or disjoint i32 %16, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_hash.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_hash.exit, label %.lr.ph.i, !llvm.loop !10
 
 _hash.exit:                                       ; preds = %.lr.ph.i, %6
   %.09.lcssa.i = phi i32 [ 0, %6 ], [ %17, %.lr.ph.i ]
@@ -505,7 +505,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   %23 = load i32, ptr %.phi.trans.insert, align 8
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
@@ -608,7 +608,7 @@ define dso_local noundef i32 @kvs_clear() local_unnamed_addr #0 {
   %13 = load i32, ptr %5, align 8
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr @hash_size, align 4
@@ -619,7 +619,7 @@ define dso_local noundef i32 @kvs_clear() local_unnamed_addr #0 {
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next18, %17
-  br i1 %18, label %.lr.ph13, label %._crit_edge14, !llvm.loop !16
+  br i1 %18, label %.lr.ph13, label %._crit_edge14, !llvm.loop !15
 
 ._crit_edge14:                                    ; preds = %._crit_edge, %0
   tail call void @slurm_xfree(ptr noundef nonnull @kvs_hash) #6
@@ -645,12 +645,11 @@ attributes #7 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !12, !9, !10}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12, !9, !10}
-!14 = distinct !{!14, !12, !9, !10}
-!15 = distinct !{!15, !12, !9, !10}
-!16 = distinct !{!16, !12, !9, !10}
+!10 = distinct !{!10, !11, !9}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11, !9}
+!13 = distinct !{!13, !11, !9}
+!14 = distinct !{!14, !11, !9}
+!15 = distinct !{!15, !11, !9}

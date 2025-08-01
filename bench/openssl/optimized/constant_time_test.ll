@@ -322,14 +322,14 @@ test_binary_op.exit69:                            ; preds = %.critedge.i61, %43,
 define internal range(i32 0, 2) i32 @test_binops_8(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %2
-  %4 = load i8, ptr %3, align 1, !tbaa !12
+  %4 = load i8, ptr %3, align 1, !tbaa !11
   br label %5
 
 5:                                                ; preds = %1, %test_binary_op_8.exit64
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %test_binary_op_8.exit64 ]
   %.02985 = phi i32 [ 1, %1 ], [ %.1, %test_binary_op_8.exit64 ]
   %6 = getelementptr inbounds nuw [9 x i8], ptr @test_values_8, i64 0, i64 %indvars.iv
-  %7 = load i8, ptr %6, align 1, !tbaa !12
+  %7 = load i8, ptr %6, align 1, !tbaa !11
   %.not = icmp ult i8 %4, %7
   %isneg = icmp ult i8 %4, %7
   %8 = select i1 %isneg, i32 255, i32 0
@@ -420,7 +420,7 @@ test_binary_op_8.exit64:                          ; preds = %.critedge.i56, %24,
   %.1 = phi i32 [ %.02985, %test_binary_op_8.exit58 ], [ %.02985, %.critedge.i62 ], [ 0, %test_binary_op_8.exit64.thread ], [ 0, %9 ], [ 0, %.critedge.i ], [ 0, %13 ], [ 0, %.critedge.i38 ], [ 0, %17 ], [ 0, %.critedge.i44 ], [ 0, %21 ], [ 0, %.critedge.i50 ], [ 0, %24 ], [ 0, %.critedge.i56 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %29, label %5, !llvm.loop !13
+  br i1 %exitcond.not, label %29, label %5, !llvm.loop !12
 
 29:                                               ; preds = %test_binary_op_8.exit64
   ret i32 %.1
@@ -430,10 +430,10 @@ test_binary_op_8.exit64:                          ; preds = %.critedge.i56, %24,
 define internal range(i32 0, 2) i32 @test_binops_s(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [10 x i64], ptr @test_values_s, i64 0, i64 %2
-  %4 = load i64, ptr %3, align 8, !tbaa !14
-  %5 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) -1) #3, !srcloc !16
+  %4 = load i64, ptr %3, align 8, !tbaa !13
+  %5 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) -1) #3, !srcloc !15
   %6 = and i64 %5, %4
-  %7 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) 0) #3, !srcloc !16
+  %7 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) 0) #3, !srcloc !15
   %8 = trunc i64 %4 to i32
   %9 = and i64 %7, %4
   br label %10
@@ -442,7 +442,7 @@ define internal range(i32 0, 2) i32 @test_binops_s(i32 noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %test_binary_op_s.exit74 ]
   %.03398 = phi i32 [ 1, %1 ], [ %.1, %test_binary_op_s.exit74 ]
   %11 = getelementptr inbounds nuw [10 x i64], ptr @test_values_s, i64 0, i64 %indvars.iv
-  %12 = load i64, ptr %11, align 8, !tbaa !14
+  %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = and i64 %7, %12
   %14 = or i64 %13, %6
   %15 = trunc i64 %14 to i32
@@ -577,7 +577,7 @@ test_binary_op_s.exit74:                          ; preds = %.critedge.i66, %55,
   %.1 = phi i32 [ %.03398, %test_binary_op_s.exit68 ], [ %.03398, %.critedge.i72 ], [ 0, %test_binary_op_s.exit74.thread ], [ 0, %test_select_s.exit ], [ 0, %10 ], [ 0, %24 ], [ 0, %26 ], [ 0, %33 ], [ 0, %.critedge.i ], [ 0, %41 ], [ 0, %.critedge.i48 ], [ 0, %45 ], [ 0, %.critedge.i54 ], [ 0, %50 ], [ 0, %.critedge.i60 ], [ 0, %55 ], [ 0, %.critedge.i66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %60, label %10, !llvm.loop !17
+  br i1 %exitcond.not, label %60, label %10, !llvm.loop !16
 
 60:                                               ; preds = %test_binary_op_s.exit74
   ret i32 %.1
@@ -643,7 +643,7 @@ test_eq_int_8.exit:                               ; preds = %22, %20, %9, %test_
   %.1 = phi i32 [ %.01128, %24 ], [ %.01128, %test_eq_int.exit ], [ 0, %test_eq_int_8.exit.thread ], [ 0, %test_select_int.exit ], [ 0, %9 ], [ 0, %20 ], [ 0, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %27, label %9, !llvm.loop !18
+  br i1 %exitcond.not, label %27, label %9, !llvm.loop !17
 
 27:                                               ; preds = %test_eq_int_8.exit
   ret i32 %.1
@@ -653,7 +653,7 @@ test_eq_int_8.exit:                               ; preds = %22, %20, %9, %test_
 define internal range(i32 0, 2) i32 @test_8values(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [9 x i8], ptr @test_values_8, i64 0, i64 %2
-  %4 = load i8, ptr %3, align 1, !tbaa !12
+  %4 = load i8, ptr %3, align 1, !tbaa !11
   %5 = zext i8 %4 to i32
   %6 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 256) 255) #3, !srcloc !8
   %7 = and i32 %6, %5
@@ -664,7 +664,7 @@ define internal range(i32 0, 2) i32 @test_8values(i32 noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %22 ]
   %.0712 = phi i32 [ 1, %1 ], [ %23, %22 ]
   %10 = getelementptr inbounds nuw [9 x i8], ptr @test_values_8, i64 0, i64 %indvars.iv
-  %11 = load i8, ptr %10, align 1, !tbaa !12
+  %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = zext i8 %11 to i32
   %13 = and i32 %8, %12
   %14 = or i32 %13, %7
@@ -690,7 +690,7 @@ test_select_8.exit.thread:                        ; preds = %9, %test_select_8.e
   %23 = phi i32 [ 0, %test_select_8.exit.thread ], [ %.0712, %test_select_8.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %24, label %9, !llvm.loop !19
+  br i1 %exitcond.not, label %24, label %9, !llvm.loop !18
 
 24:                                               ; preds = %22
   ret i32 %23
@@ -701,9 +701,9 @@ define internal range(i32 0, 2) i32 @test_32values(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [9 x i32], ptr @test_values_32, i64 0, i64 %2
   %4 = load i32, ptr %3, align 4, !tbaa !4
-  %5 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) -1) #3, !srcloc !20
+  %5 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) -1) #3, !srcloc !19
   %6 = and i32 %5, %4
-  %7 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) 0) #3, !srcloc !20
+  %7 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) 0) #3, !srcloc !19
   %8 = and i32 %7, %4
   br label %9
 
@@ -737,7 +737,7 @@ test_select_32.exit.thread:                       ; preds = %9, %test_select_32.
   %23 = phi i32 [ 0, %test_select_32.exit.thread ], [ %.0711, %test_select_32.exit ]
   %24 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %24, 9
-  br i1 %exitcond.not, label %25, label %9, !llvm.loop !21
+  br i1 %exitcond.not, label %25, label %9, !llvm.loop !20
 
 25:                                               ; preds = %22
   ret i32 %23
@@ -747,7 +747,7 @@ test_select_32.exit.thread:                       ; preds = %9, %test_select_32.
 define internal range(i32 0, 2) i32 @test_64values(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [11 x i64], ptr @test_values_64, i64 0, i64 %2
-  %4 = load i64, ptr %3, align 8, !tbaa !14
+  %4 = load i64, ptr %3, align 8, !tbaa !13
   %5 = icmp slt i32 %0, 10
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -756,7 +756,7 @@ define internal range(i32 0, 2) i32 @test_64values(i32 noundef %0) #0 {
   %.01423 = phi i32 [ %.1, %test_select_64.exit ], [ 1, %1 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %6 = getelementptr inbounds [11 x i64], ptr @test_values_64, i64 0, i64 %indvars.iv.next
-  %7 = load i64, ptr %6, align 8, !tbaa !14
+  %7 = load i64, ptr %6, align 8, !tbaa !13
   %8 = icmp uge i64 %4, %7
   %9 = xor i64 %7, %4
   %10 = sub i64 %4, %7
@@ -780,14 +780,14 @@ define internal range(i32 0, 2) i32 @test_64values(i32 noundef %0) #0 {
   br label %test_binary_op_64.exit.thread
 
 test_binary_op_64.exit.thread:                    ; preds = %14, %16
-  %17 = load ptr, ptr @bio_err, align 8, !tbaa !22
+  %17 = load ptr, ptr @bio_err, align 8, !tbaa !21
   %18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %17, ptr noundef nonnull @.str.55, i64 noundef %4, i64 noundef %7) #2
   br label %test_select_64.exit.thread
 
 test_binary_op_64.exit:                           ; preds = %15
-  %19 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) -1) #3, !srcloc !25
+  %19 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) -1) #3, !srcloc !24
   %20 = and i64 %19, %4
-  %21 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) 0) #3, !srcloc !25
+  %21 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) 0) #3, !srcloc !24
   %22 = and i64 %21, %7
   %23 = or i64 %22, %20
   %.not.i16 = icmp eq i64 %23, %4
@@ -795,7 +795,7 @@ test_binary_op_64.exit:                           ; preds = %15
 
 24:                                               ; preds = %test_binary_op_64.exit
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.12, i32 noundef 198, ptr noundef nonnull @.str.57) #2
-  %25 = load ptr, ptr @bio_err, align 8, !tbaa !22
+  %25 = load ptr, ptr @bio_err, align 8, !tbaa !21
   %26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.58, i64 noundef %4, i64 noundef %7, i64 noundef %23) #2
   br label %test_select_64.exit.thread
 
@@ -807,7 +807,7 @@ test_binary_op_64.exit:                           ; preds = %15
   br i1 %.not19.i, label %test_select_64.exit, label %31
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr @bio_err, align 8, !tbaa !22
+  %32 = load ptr, ptr @bio_err, align 8, !tbaa !21
   %33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %32, ptr noundef nonnull @.str.59, i64 noundef %4, i64 noundef %7, i64 noundef %30) #2
   br label %test_select_64.exit.thread
 
@@ -819,7 +819,7 @@ test_select_64.exit.thread:                       ; preds = %31, %24, %test_bina
 test_select_64.exit:                              ; preds = %27, %test_select_64.exit.thread
   %.1 = phi i32 [ 0, %test_select_64.exit.thread ], [ %.01423, %27 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %test_select_64.exit, %1
   %.014.lcssa = phi i32 [ 1, %1 ], [ %.1, %test_select_64.exit ]
@@ -856,21 +856,20 @@ attributes #3 = { nounwind memory(none) }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{i64 312011}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !10, !11}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !6, i64 0}
-!16 = !{i64 312783}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11}
-!20 = !{i64 312274}
-!21 = distinct !{!21, !10, !11}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS6bio_st", !24, i64 0}
-!24 = !{!"any pointer", !6, i64 0}
-!25 = !{i64 312533}
-!26 = distinct !{!26, !10, !11}
+!11 = !{!6, !6, i64 0}
+!12 = distinct !{!12, !10}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !6, i64 0}
+!15 = !{i64 312783}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = !{i64 312274}
+!20 = distinct !{!20, !10}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS6bio_st", !23, i64 0}
+!23 = !{!"any pointer", !6, i64 0}
+!24 = !{i64 312533}
+!25 = distinct !{!25, !10}

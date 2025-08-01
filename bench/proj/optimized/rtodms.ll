@@ -58,7 +58,7 @@ define void @_Z10set_rtodmsii(i32 noundef %0, i32 noundef %1) local_unnamed_addr
   br label %19
 
 19:                                               ; preds = %14, %12
-  store i32 %1, ptr @_ZL6dolong, align 4, !tbaa !10
+  store i32 %1, ptr @_ZL6dolong, align 4, !tbaa !9
   br label %20
 
 20:                                               ; preds = %19, %2
@@ -83,13 +83,13 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned captures(ret: address, 
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9
-  store i8 0, ptr %0, align 1, !tbaa !12
+  store i8 0, ptr %0, align 1, !tbaa !11
   br label %.critedge
 
 12:                                               ; preds = %9
   %13 = add i64 %1, -1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 45, ptr %0, align 1, !tbaa !12
+  store i8 45, ptr %0, align 1, !tbaa !11
   br label %15
 
 15:                                               ; preds = %5, %7, %12
@@ -102,16 +102,16 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned captures(ret: address, 
   %18 = tail call double @llvm.floor.f64(double %17)
   %19 = load double, ptr @_ZL3RES, align 8, !tbaa !3
   %20 = fdiv double %18, %19
-  %21 = tail call double @fmod(double noundef %20, double noundef 6.000000e+01) #6, !tbaa !10
+  %21 = tail call double @fmod(double noundef %20, double noundef 6.000000e+01) #6, !tbaa !9
   %22 = load double, ptr @_ZL5RES60, align 8, !tbaa !3
   %23 = fdiv double %18, %22
   %24 = tail call double @llvm.floor.f64(double %23)
-  %25 = tail call double @fmod(double noundef %24, double noundef 6.000000e+01) #6, !tbaa !10
+  %25 = tail call double @fmod(double noundef %24, double noundef 6.000000e+01) #6, !tbaa !9
   %26 = fptosi double %25 to i32
   %27 = fdiv double %24, 6.000000e+01
   %28 = tail call double @llvm.floor.f64(double %27)
   %29 = fptosi double %28 to i32
-  %30 = load i32, ptr @_ZL6dolong, align 4, !tbaa !10
+  %30 = load i32, ptr @_ZL6dolong, align 4, !tbaa !9
   %.not79 = icmp eq i32 %30, 0
   br i1 %.not79, label %33, label %31
 
@@ -132,19 +132,19 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned captures(ret: address, 
 
 38:                                               ; preds = %41, %35
   %.064 = phi ptr [ %.069, %35 ], [ %42, %41 ]
-  %39 = load i8, ptr %.064, align 1, !tbaa !12
+  %39 = load i8, ptr %.064, align 1, !tbaa !11
   switch i8 %39, label %41 [
     i8 0, label %.loopexit88
     i8 44, label %40
   ]
 
 40:                                               ; preds = %38
-  store i8 46, ptr %.064, align 1, !tbaa !12
+  store i8 46, ptr %.064, align 1, !tbaa !11
   br label %.loopexit88
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %.064, i64 1
-  br label %38, !llvm.loop !13
+  br label %38, !llvm.loop !12
 
 .loopexit88:                                      ; preds = %38, %40
   %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.069) #7
@@ -159,7 +159,7 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned captures(ret: address, 
 47:                                               ; preds = %49, %44
   %.165.idx = phi i64 [ 0, %44 ], [ %.165.add85, %49 ]
   %.165.ptr = getelementptr inbounds i8, ptr %46, i64 %.165.idx
-  %48 = load i8, ptr %.165.ptr, align 1, !tbaa !12
+  %48 = load i8, ptr %.165.ptr, align 1, !tbaa !11
   switch i8 %48, label %50 [
     i8 48, label %49
     i8 46, label %.loopexit
@@ -167,7 +167,7 @@ define noundef ptr @_Z6rtodmsPcmdii(ptr noundef returned captures(ret: address, 
 
 49:                                               ; preds = %47
   %.165.add85 = add nsw i64 %.165.idx, -1
-  br label %47, !llvm.loop !14
+  br label %47, !llvm.loop !13
 
 50:                                               ; preds = %47
   %.165.add = add nsw i64 %.165.idx, 1
@@ -233,11 +233,10 @@ attributes #7 = { nounwind willreturn memory(read) }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = !{!5, !5, i64 0}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}

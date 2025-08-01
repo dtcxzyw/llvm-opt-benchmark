@@ -767,11 +767,11 @@ _ZN4File10DirectReadEPvm.exit63:                  ; preds = %._crit_edge.i61, %5
 
 60:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
-  store i8 0, ptr %4, align 1, !tbaa !39
+  store i8 0, ptr %4, align 1, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #19
-  store i8 0, ptr %5, align 1, !tbaa !39
+  store i8 0, ptr %5, align 1, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
-  store i8 0, ptr %6, align 1, !tbaa !39
+  store i8 0, ptr %6, align 1, !tbaa !38
   %61 = icmp eq i32 %39, 0
   %62 = load i32, ptr %20, align 4
   %63 = icmp eq i32 %62, 0
@@ -780,15 +780,15 @@ _ZN4File10DirectReadEPvm.exit63:                  ; preds = %._crit_edge.i61, %5
 
 64:                                               ; preds = %60
   call void @_ZN12ErrorHandler13AskRepeatReadEPKwRbS2_S2_(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull %24, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
-  %65 = load i8, ptr %5, align 1, !tbaa !39, !range !31, !noundef !32
+  %65 = load i8, ptr %5, align 1, !tbaa !38, !range !31, !noundef !32
   %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %84, label %._crit_edge, !llvm.loop !40
+  br i1 %66, label %84, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %64
-  %.pre = load i8, ptr %4, align 1, !tbaa !39, !range !31
+  %.pre = load i8, ptr %4, align 1, !tbaa !38, !range !31
   %.pre81 = load i32, ptr %11, align 4
   %67 = trunc nuw i8 %.pre to i1
-  br label %.loopexit84, !llvm.loop !40
+  br label %.loopexit84, !llvm.loop !39
 
 .loopexit84:                                      ; preds = %60, %._crit_edge
   %68 = phi i32 [ %.pre81, %._crit_edge ], [ %39, %60 ]
@@ -964,7 +964,7 @@ define noundef zeroext i1 @_ZN4File7RawSeekEli(ptr noundef nonnull align 8 deref
   %32 = add nsw i64 %31, %29
   store i64 %32, ptr %20, align 8, !tbaa !30
   %.not34 = icmp eq i64 %30, 0
-  br i1 %.not34, label %.critedge38, label %21, !llvm.loop !41
+  br i1 %.not34, label %.critedge38, label %21, !llvm.loop !40
 
 33:                                               ; preds = %13
   %34 = icmp eq i32 %2, 2
@@ -989,7 +989,7 @@ define noundef zeroext i1 @_ZN4File7RawSeekEli(ptr noundef nonnull align 8 deref
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %4, i64 noundef 4096)
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph, label %.critedge38, !llvm.loop !42
+  br i1 %48, label %.lr.ph, label %.critedge38, !llvm.loop !41
 
 .critedge38:                                      ; preds = %.lr.ph, %21, %28, %.preheader, %.critedge, %33
   %.4 = phi i1 [ false, %33 ], [ true, %.critedge ], [ true, %.preheader ], [ %27, %28 ], [ %27, %21 ], [ true, %.lr.ph ]
@@ -1122,12 +1122,12 @@ define void @_ZN4File8PreallocEl(ptr noundef nonnull readnone align 8 captures(n
 define noundef zeroext i8 @_ZN4File7GetByteEv(ptr noundef nonnull align 8 dereferenceable(8256) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #19
-  store i8 0, ptr %2, align 1, !tbaa !43
+  store i8 0, ptr %2, align 1, !tbaa !42
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %2, i64 noundef 1)
-  %7 = load i8, ptr %2, align 1, !tbaa !43
+  %7 = load i8, ptr %2, align 1, !tbaa !42
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #19
   ret i8 %7
 }
@@ -1135,7 +1135,7 @@ define noundef zeroext i8 @_ZN4File7GetByteEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4File7PutByteEh(ptr noundef nonnull align 8 dereferenceable(8256) %0, i8 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = alloca i8, align 1
-  store i8 %1, ptr %3, align 1, !tbaa !43
+  store i8 %1, ptr %3, align 1, !tbaa !42
   %4 = call noundef zeroext i1 @_ZN4File5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef nonnull %3, i64 noundef 1)
   ret void
 }
@@ -1188,7 +1188,7 @@ define void @_ZN4File22SetCloseFileTimeByNameEPKwP7RarTimeS3_(ptr noundef %0, pt
   br i1 %.not, label %.thread21, label %6
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %1, align 8, !tbaa !44
+  %7 = load i64, ptr %1, align 8, !tbaa !43
   %8 = icmp ne i64 %7, 0
   %.not16 = icmp eq ptr %2, null
   br i1 %.not16, label %.thread, label %9
@@ -1199,7 +1199,7 @@ define void @_ZN4File22SetCloseFileTimeByNameEPKwP7RarTimeS3_(ptr noundef %0, pt
 
 9:                                                ; preds = %.thread21, %6
   %10 = phi i1 [ false, %.thread21 ], [ %8, %6 ]
-  %11 = load i64, ptr %2, align 8, !tbaa !44
+  %11 = load i64, ptr %2, align 8, !tbaa !43
   %12 = icmp ne i64 %11, 0
   %or.cond = or i1 %10, %12
   br i1 %or.cond, label %15, label %.thread.thread
@@ -1211,9 +1211,9 @@ define void @_ZN4File22SetCloseFileTimeByNameEPKwP7RarTimeS3_(ptr noundef %0, pt
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #19
   %13 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 2048)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #19
-  store i64 0, ptr %5, align 16, !tbaa !46
+  store i64 0, ptr %5, align 16, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1073741823, ptr %14, align 8, !tbaa !48
+  store i64 1073741823, ptr %14, align 8, !tbaa !47
   br label %24
 
 15:                                               ; preds = %9
@@ -1224,36 +1224,36 @@ define void @_ZN4File22SetCloseFileTimeByNameEPKwP7RarTimeS3_(ptr noundef %0, pt
 
 17:                                               ; preds = %15
   %18 = call noundef i64 @_ZN7RarTime7GetUnixEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  store i64 %18, ptr %5, align 16, !tbaa !46
+  store i64 %18, ptr %5, align 16, !tbaa !45
   %19 = call noundef i64 @_ZN7RarTime9GetUnixNSEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %20 = urem i64 %19, 1000000000
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %20, ptr %21, align 8, !tbaa !48
+  store i64 %20, ptr %21, align 8, !tbaa !47
   br i1 %10, label %24, label %.critedge18
 
 22:                                               ; preds = %15
-  store i64 0, ptr %5, align 16, !tbaa !46
+  store i64 0, ptr %5, align 16, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1073741823, ptr %23, align 8, !tbaa !48
+  store i64 1073741823, ptr %23, align 8, !tbaa !47
   br i1 %10, label %24, label %.critedge18
 
 24:                                               ; preds = %.thread23, %17, %22
   %25 = call noundef i64 @_ZN7RarTime7GetUnixEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %25, ptr %26, align 16, !tbaa !46
+  store i64 %25, ptr %26, align 16, !tbaa !45
   %27 = call noundef i64 @_ZN7RarTime9GetUnixNSEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %28 = urem i64 %27, 1000000000
   br label %30
 
 .critedge18:                                      ; preds = %17, %22
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %29, align 16, !tbaa !46
+  store i64 0, ptr %29, align 16, !tbaa !45
   br label %30
 
 30:                                               ; preds = %.critedge18, %24
   %31 = phi i64 [ %28, %24 ], [ 1073741823, %.critedge18 ]
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %31, ptr %32, align 8, !tbaa !48
+  store i64 %31, ptr %32, align 8, !tbaa !47
   %33 = call i32 @utimensat(i32 noundef -100, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #19
@@ -1277,10 +1277,10 @@ define void @_ZN4File13StatToRarTimeER4statP7RarTimeS3_S3_(ptr noundef nonnull r
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = load i64, ptr %6, align 8, !tbaa !49
+  %7 = load i64, ptr %6, align 8, !tbaa !48
   %8 = mul i64 %7, 1000000000
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load i64, ptr %9, align 8, !tbaa !51
+  %10 = load i64, ptr %9, align 8, !tbaa !50
   %11 = add i64 %8, %10
   tail call void @_ZN7RarTime9SetUnixNSEm(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %11)
   br label %12
@@ -1291,10 +1291,10 @@ define void @_ZN4File13StatToRarTimeER4statP7RarTimeS3_S3_(ptr noundef nonnull r
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %15 = load i64, ptr %14, align 8, !tbaa !52
+  %15 = load i64, ptr %14, align 8, !tbaa !51
   %16 = mul i64 %15, 1000000000
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %18 = load i64, ptr %17, align 8, !tbaa !53
+  %18 = load i64, ptr %17, align 8, !tbaa !52
   %19 = add i64 %16, %18
   tail call void @_ZN7RarTime9SetUnixNSEm(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %19)
   br label %20
@@ -1305,10 +1305,10 @@ define void @_ZN4File13StatToRarTimeER4statP7RarTimeS3_S3_(ptr noundef nonnull r
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %23 = load i64, ptr %22, align 8, !tbaa !54
+  %23 = load i64, ptr %22, align 8, !tbaa !53
   %24 = mul i64 %23, 1000000000
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = load i64, ptr %25, align 8, !tbaa !55
+  %26 = load i64, ptr %25, align 8, !tbaa !54
   %27 = add i64 %24, %26
   tail call void @_ZN7RarTime9SetUnixNSEm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %27)
   br label %28
@@ -1332,10 +1332,10 @@ define void @_ZN4File15GetOpenFileTimeEP7RarTimeS1_S1_(ptr noundef nonnull reado
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %12 = load i64, ptr %11, align 8, !tbaa !49
+  %12 = load i64, ptr %11, align 8, !tbaa !48
   %13 = mul i64 %12, 1000000000
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %15 = load i64, ptr %14, align 8, !tbaa !51
+  %15 = load i64, ptr %14, align 8, !tbaa !50
   %16 = add i64 %13, %15
   tail call void @_ZN7RarTime9SetUnixNSEm(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %16)
   br label %17
@@ -1346,10 +1346,10 @@ define void @_ZN4File15GetOpenFileTimeEP7RarTimeS1_S1_(ptr noundef nonnull reado
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %20 = load i64, ptr %19, align 8, !tbaa !52
+  %20 = load i64, ptr %19, align 8, !tbaa !51
   %21 = mul i64 %20, 1000000000
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %23 = load i64, ptr %22, align 8, !tbaa !53
+  %23 = load i64, ptr %22, align 8, !tbaa !52
   %24 = add i64 %21, %23
   tail call void @_ZN7RarTime9SetUnixNSEm(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %24)
   br label %25
@@ -1360,10 +1360,10 @@ define void @_ZN4File15GetOpenFileTimeEP7RarTimeS1_S1_(ptr noundef nonnull reado
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %28 = load i64, ptr %27, align 8, !tbaa !54
+  %28 = load i64, ptr %27, align 8, !tbaa !53
   %29 = mul i64 %28, 1000000000
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %31 = load i64, ptr %30, align 8, !tbaa !55
+  %31 = load i64, ptr %30, align 8, !tbaa !54
   %32 = add i64 %29, %31
   tail call void @_ZN7RarTime9SetUnixNSEm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %32)
   br label %_ZN4File13StatToRarTimeER4statP7RarTimeS3_S3_.exit
@@ -1493,7 +1493,7 @@ _ZN5ArrayIhEC2Em.exit.thread:                     ; preds = %3
   %37 = add nsw i64 %.02355, %33
   %spec.select = sub nsw i64 %.056, %33
   %38 = icmp sgt i64 %spec.select, 0
-  br i1 %38, label %.lr.ph.split, label %.thread43, !llvm.loop !56
+  br i1 %38, label %.lr.ph.split, label %.thread43
 
 .thread43:                                        ; preds = %36, %29, %13, %_ZN5ArrayIhEC2Em.exit.thread
   %.02353 = phi i64 [ 0, %_ZN5ArrayIhEC2Em.exit.thread ], [ %.02355.us, %13 ], [ %37, %36 ], [ %.02355, %29 ]
@@ -1607,23 +1607,21 @@ attributes #22 = { nounwind willreturn memory(read) }
 !34 = !{!"int", !9, i64 0}
 !35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36, !38}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!10, !10, i64 0}
+!37 = distinct !{!37, !36}
+!38 = !{!10, !10, i64 0}
+!39 = distinct !{!39, !36}
 !40 = distinct !{!40, !36}
-!41 = distinct !{!41, !36, !38}
-!42 = distinct !{!42, !36, !38}
-!43 = !{!9, !9, i64 0}
-!44 = !{!45, !8, i64 0}
-!45 = !{!"_ZTS7RarTime", !8, i64 0}
-!46 = !{!47, !8, i64 0}
-!47 = !{!"_ZTS8timespec", !8, i64 0, !8, i64 8}
-!48 = !{!47, !8, i64 8}
-!49 = !{!50, !8, i64 88}
-!50 = !{!"_ZTS4stat", !8, i64 0, !8, i64 8, !8, i64 16, !34, i64 24, !34, i64 28, !34, i64 32, !34, i64 36, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !47, i64 72, !47, i64 88, !47, i64 104, !9, i64 120}
-!51 = !{!50, !8, i64 96}
-!52 = !{!50, !8, i64 104}
-!53 = !{!50, !8, i64 112}
-!54 = !{!50, !8, i64 72}
-!55 = !{!50, !8, i64 80}
-!56 = distinct !{!56, !38}
+!41 = distinct !{!41, !36}
+!42 = !{!9, !9, i64 0}
+!43 = !{!44, !8, i64 0}
+!44 = !{!"_ZTS7RarTime", !8, i64 0}
+!45 = !{!46, !8, i64 0}
+!46 = !{!"_ZTS8timespec", !8, i64 0, !8, i64 8}
+!47 = !{!46, !8, i64 8}
+!48 = !{!49, !8, i64 88}
+!49 = !{!"_ZTS4stat", !8, i64 0, !8, i64 8, !8, i64 16, !34, i64 24, !34, i64 28, !34, i64 32, !34, i64 36, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !46, i64 72, !46, i64 88, !46, i64 104, !9, i64 120}
+!50 = !{!49, !8, i64 96}
+!51 = !{!49, !8, i64 104}
+!52 = !{!49, !8, i64 112}
+!53 = !{!49, !8, i64 72}
+!54 = !{!49, !8, i64 80}

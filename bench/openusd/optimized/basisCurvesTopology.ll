@@ -568,7 +568,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
   %spec.select.i.i.i = select i1 %91, ptr %89, ptr %.018.i.i.i
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %.not.i.i.i = icmp eq ptr %93, %85
-  br i1 %.not.i.i.i, label %_ZSt11max_elementIPKiET_S2_S2_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i, label %_ZSt11max_elementIPKiET_S2_S2_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
 _ZSt11max_elementIPKiET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i, %.noexc32
   %.011.i.i.i = phi ptr [ %84, %.noexc32 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
@@ -1316,7 +1316,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
   %spec.select.i.i.i = select i1 %288, ptr %286, ptr %.018.i.i.i
   %290 = getelementptr inbounds nuw i8, ptr %286, i64 4
   %.not.i.i.i = icmp eq ptr %290, %282
-  br i1 %.not.i.i.i, label %_ZSt11max_elementIPKiET_S2_S2_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i, label %_ZSt11max_elementIPKiET_S2_S2_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
 _ZSt11max_elementIPKiET_S2_S2_.exit.i:            ; preds = %.lr.ph.i.i.i, %.noexc87
   %.011.i.i.i = phi ptr [ %281, %.noexc87 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
@@ -1543,7 +1543,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurves
 
 7:                                                ; preds = %2
   fence syncscope("singlethread") seq_cst
-  %8 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
+  %8 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %9 = extractvalue { i32, i32 } %8, 0
   %10 = extractvalue { i32, i32 } %8, 1
   %11 = zext i32 %10 to i64
@@ -1626,7 +1626,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 61:                                               ; preds = %59
   fence syncscope("singlethread") seq_cst
-  %62 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  %62 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   store ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyeqERKS0_E16TraceKeyData_100, ptr %4, align 8
   %.sroa.7.12.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.7.0
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %.sroa.7.12.insert.insert, i64 noundef %62) #13
@@ -1644,7 +1644,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %59, %
 
 65:                                               ; preds = %63
   fence syncscope("singlethread") seq_cst
-  %66 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  %66 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   store ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopologyeqERKS0_E16TraceKeyData_100, ptr %3, align 8
   %.sroa.7.12.insert.insert15 = or disjoint i64 %.sroa.11.0, %.sroa.7.0
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.sroa.7.12.insert.insert15, i64 noundef %66) #13
@@ -1674,7 +1674,7 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopolog
 
 6:                                                ; preds = %1
   fence syncscope("singlethread") seq_cst
-  %7 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
+  %7 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %8 = extractvalue { i32, i32 } %7, 0
   %9 = extractvalue { i32, i32 } %7, 1
   %10 = zext i32 %9 to i64
@@ -1733,7 +1733,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 38:                                               ; preds = %37
   fence syncscope("singlethread") seq_cst
-  %39 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  %39 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   store ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology11ComputeHashEvE16TraceKeyData_121, ptr %3, align 8
   %.sroa.7.12.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.7.0
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.sroa.7.12.insert.insert, i64 noundef %39) #13
@@ -1751,7 +1751,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %37, %
 
 42:                                               ; preds = %40
   fence syncscope("singlethread") seq_cst
-  %43 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  %43 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   store ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology11ComputeHashEvE16TraceKeyData_121, ptr %2, align 8
   %.sroa.7.12.insert.insert14 = or disjoint i64 %.sroa.11.0, %.sroa.7.0
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %.sroa.7.12.insert.insert14, i64 noundef %43) #13
@@ -1776,7 +1776,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray<int>::_Streamer", align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.7)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i64, ptr %8, align 8, !noalias !10
+  %9 = load i64, ptr %8, align 8, !noalias !9
   %10 = and i64 %9, 7
   %.not.i.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology13GetCurveBasisEv.exit, label %11
@@ -1784,7 +1784,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
 11:                                               ; preds = %2
   %12 = and i64 %9, -8
   %13 = inttoptr i64 %12 to ptr
-  %14 = atomicrmw add ptr %13, i32 2 monotonic, align 4, !noalias !10
+  %14 = atomicrmw add ptr %13, i32 2 monotonic, align 4, !noalias !9
   %15 = and i32 %14, 1
   %.not1.i.i.i = icmp eq i32 %15, 0
   %16 = select i1 %.not1.i.i.i, i64 %12, i64 %9
@@ -1816,7 +1816,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load i64, ptr %28, align 8, !noalias !13
+  %29 = load i64, ptr %28, align 8, !noalias !12
   %30 = and i64 %29, 7
   %.not.i.i.i14 = icmp eq i64 %30, 0
   br i1 %.not.i.i.i14, label %_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveTypeEv.exit, label %31
@@ -1824,7 +1824,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
 31:                                               ; preds = %27
   %32 = and i64 %29, -8
   %33 = inttoptr i64 %32 to ptr
-  %34 = atomicrmw add ptr %33, i32 2 monotonic, align 4, !noalias !13
+  %34 = atomicrmw add ptr %33, i32 2 monotonic, align 4, !noalias !12
   %35 = and i32 %34, 1
   %.not1.i.i.i15 = icmp eq i32 %35, 0
   %36 = select i1 %.not1.i.i.i15, i64 %32, i64 %29
@@ -1856,7 +1856,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit18: ; pred
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %49 = load i64, ptr %48, align 8, !noalias !16
+  %49 = load i64, ptr %48, align 8, !noalias !15
   %50 = and i64 %49, 7
   %.not.i.i.i19 = icmp eq i64 %50, 0
   br i1 %.not.i.i.i19, label %_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv.exit, label %51
@@ -1864,7 +1864,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit18: ; pred
 51:                                               ; preds = %47
   %52 = and i64 %49, -8
   %53 = inttoptr i64 %52 to ptr
-  %54 = atomicrmw add ptr %53, i32 2 monotonic, align 4, !noalias !16
+  %54 = atomicrmw add ptr %53, i32 2 monotonic, align 4, !noalias !15
   %55 = and i32 %54, 1
   %.not1.i.i.i20 = icmp eq i32 %55, 0
   %56 = select i1 %.not1.i.i.i20, i64 %52, i64 %49
@@ -2081,7 +2081,7 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopolog
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology43CalculateNeededNumberOfVaryingControlPointsEv(ptr noundef nonnull align 8 dereferenceable(200) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !noalias !19
+  %3 = load i64, ptr %2, align 8, !noalias !18
   %4 = and i64 %3, 7
   %.not.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveTypeEv.exit, label %5
@@ -2089,7 +2089,7 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopolog
 5:                                                ; preds = %1
   %6 = and i64 %3, -8
   %7 = inttoptr i64 %6 to ptr
-  %8 = atomicrmw add ptr %7, i32 2 monotonic, align 4, !noalias !19
+  %8 = atomicrmw add ptr %7, i32 2 monotonic, align 4, !noalias !18
   %9 = and i32 %8, 1
   %.not1.i.i.i = icmp eq i32 %9, 0
   %10 = select i1 %.not1.i.i.i, i64 %6, i64 %3
@@ -2167,7 +2167,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNK32pxrInte
 
 40:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load i64, ptr %41, align 8, !noalias !22
+  %42 = load i64, ptr %41, align 8, !noalias !21
   %43 = and i64 %42, 7
   %.not.i.i.i26 = icmp eq i64 %43, 0
   br i1 %.not.i.i.i26, label %_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv.exit, label %44
@@ -2175,7 +2175,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNK32pxrInte
 44:                                               ; preds = %40
   %45 = and i64 %42, -8
   %46 = inttoptr i64 %45 to ptr
-  %47 = atomicrmw add ptr %46, i32 2 monotonic, align 4, !noalias !22
+  %47 = atomicrmw add ptr %46, i32 2 monotonic, align 4, !noalias !21
   %48 = and i32 %47, 1
   %.not1.i.i.i27 = icmp eq i32 %48, 0
   %49 = select i1 %.not1.i.i.i27, i64 %45, i64 %42
@@ -2235,7 +2235,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit35: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit33, %69
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load i64, ptr %73, align 8, !noalias !25
+  %74 = load i64, ptr %73, align 8, !noalias !24
   %75 = and i64 %74, 7
   %.not.i.i.i36 = icmp eq i64 %75, 0
   br i1 %.not.i.i.i36, label %_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology13GetCurveBasisEv.exit, label %76
@@ -2243,7 +2243,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit35: ; preds = %_ZNK32pxrIn
 76:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit35
   %77 = and i64 %74, -8
   %78 = inttoptr i64 %77 to ptr
-  %79 = atomicrmw add ptr %78, i32 2 monotonic, align 4, !noalias !25
+  %79 = atomicrmw add ptr %78, i32 2 monotonic, align 4, !noalias !24
   %80 = and i32 %79, 1
   %.not1.i.i.i37 = icmp eq i32 %80, 0
   %81 = select i1 %.not1.i.i.i37, i64 %77, i64 %74
@@ -2331,7 +2331,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45: ; preds = %_ZNK32pxrIn
   %116 = getelementptr inbounds nuw i8, ptr %.071.us, i64 4
   %117 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4cendEv(ptr noundef nonnull align 8 dereferenceable(40) %105)
   %.not.us = icmp eq ptr %116, %117
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !27
 
 118:                                              ; preds = %52
   %119 = landingpad { ptr, i32 }
@@ -2375,7 +2375,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45: ; preds = %_ZNK32pxrIn
   %132 = getelementptr inbounds nuw i8, ptr %.071, i64 4
   %133 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4cendEv(ptr noundef nonnull align 8 dereferenceable(40) %105)
   %.not = icmp eq ptr %132, %133
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !30
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !29
 
 .loopexit:                                        ; preds = %131, %115, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45, %34
   %.016 = phi i64 [ %36, %34 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45 ], [ %.1.us, %115 ], [ %.1, %131 ]
@@ -2471,30 +2471,29 @@ attributes #14 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i64 81801338, i64 81801347, i64 81801371}
-!9 = !{i64 81800284, i64 81800293, i64 81800322, i64 81800349}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology13GetCurveBasisEv: argument 0"}
-!12 = distinct !{!12, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology13GetCurveBasisEv"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveTypeEv: argument 0"}
-!15 = distinct !{!15, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveTypeEv"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv: argument 0"}
-!18 = distinct !{!18, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveTypeEv: argument 0"}
-!21 = distinct !{!21, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveTypeEv"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv: argument 0"}
-!24 = distinct !{!24, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology13GetCurveBasisEv: argument 0"}
-!27 = distinct !{!27, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology13GetCurveBasisEv"}
-!28 = distinct !{!28, !5, !6, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = !{i64 81801338, i64 81801347, i64 81801371}
+!8 = !{i64 81800284, i64 81800293, i64 81800322, i64 81800349}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology13GetCurveBasisEv: argument 0"}
+!11 = distinct !{!11, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology13GetCurveBasisEv"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveTypeEv: argument 0"}
+!14 = distinct !{!14, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveTypeEv"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv: argument 0"}
+!17 = distinct !{!17, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveTypeEv: argument 0"}
+!20 = distinct !{!20, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveTypeEv"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv: argument 0"}
+!23 = distinct !{!23, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology13GetCurveBasisEv: argument 0"}
+!26 = distinct !{!26, !"_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology13GetCurveBasisEv"}
+!27 = distinct !{!27, !5, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !5}

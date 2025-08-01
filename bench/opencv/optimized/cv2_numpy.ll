@@ -117,8 +117,8 @@ define hidden noundef ptr @_ZNK14NumpyAllocator8allocateEiPKiiPvPmN2cv10AccessFl
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !34
-  %14 = load ptr, ptr %13, align 8, !tbaa !37
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
+  %14 = load ptr, ptr %13, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6, i32 noundef %7)
@@ -152,10 +152,10 @@ switch.lookup:                                    ; preds = %18
   %33 = add nsw i32 %1, 1
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %35, ptr %9, align 8, !tbaa !39
+  store ptr %35, ptr %9, align 8, !tbaa !38
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.not.i.i = icmp ugt i32 %33, 136
-  store i64 %34, ptr %36, align 8, !tbaa !41
+  store i64 %34, ptr %36, align 8, !tbaa !40
   br i1 %.not.i.i, label %37, label %_ZN2cv10AutoBufferIlLm136EEC2Em.exit
 
 37:                                               ; preds = %31
@@ -166,7 +166,7 @@ switch.lookup:                                    ; preds = %18
           to label %.noexc unwind label %49
 
 .noexc:                                           ; preds = %37
-  store ptr %41, ptr %9, align 8, !tbaa !39
+  store ptr %41, ptr %9, align 8, !tbaa !38
   br label %_ZN2cv10AutoBufferIlLm136EEC2Em.exit
 
 _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
@@ -187,7 +187,7 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
   store i64 %47, ptr %48, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !41
 
 49:                                               ; preds = %37
   %50 = landingpad { ptr, i32 }
@@ -207,11 +207,11 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
 
 55:                                               ; preds = %51, %._crit_edge
   %.046 = phi i32 [ %33, %51 ], [ %1, %._crit_edge ]
-  %56 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !43
+  %56 = load ptr, ptr @opencv_ARRAY_API, align 8, !tbaa !42
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 744
-  %58 = load ptr, ptr %57, align 8, !tbaa !45
+  %58 = load ptr, ptr %57, align 8, !tbaa !44
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !45
+  %60 = load ptr, ptr %59, align 8, !tbaa !44
   %61 = invoke noundef ptr %58(ptr noundef %60, i32 noundef %.046, ptr noundef nonnull %42, i32 noundef %32, ptr noundef null, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null)
           to label %62 unwind label %66
 
@@ -244,14 +244,14 @@ _ZN2cv10AutoBufferIlLm136EEC2Em.exit:             ; preds = %31, %.noexc
 70:                                               ; preds = %64
   %71 = landingpad { ptr, i32 }
           cleanup
-  %72 = load ptr, ptr %10, align 8, !tbaa !46
+  %72 = load ptr, ptr %10, align 8, !tbaa !45
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %74 = icmp eq ptr %72, %73
   br i1 %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %76 = load i64, ptr %75, align 8, !tbaa !49
+  %76 = load i64, ptr %75, align 8, !tbaa !48
   %77 = icmp ult i64 %76, 16
   call void @llvm.assume(i1 %77)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -324,7 +324,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i64 %103, ptr %104, align 8, !tbaa !29
   %105 = getelementptr inbounds nuw i8, ptr %79, i64 64
   store ptr %61, ptr %105, align 8, !tbaa !30
-  %106 = load ptr, ptr %9, align 8, !tbaa !39
+  %106 = load ptr, ptr %9, align 8, !tbaa !38
   %.not.i.i64 = icmp eq ptr %106, %35
   %107 = icmp eq ptr %106, null
   %or.cond = or i1 %.not.i.i64, %107
@@ -348,7 +348,7 @@ _ZN2cv10AutoBufferIlLm136EED2Ev.exit:             ; preds = %108, %.loopexit
 
 .body:                                            ; preds = %66, %87, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.pn56 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %67, %66 ], [ %88, %87 ]
-  %112 = load ptr, ptr %9, align 8, !tbaa !39
+  %112 = load ptr, ptr %9, align 8, !tbaa !38
   %.not.i.i65 = icmp eq ptr %112, %35
   %113 = icmp eq ptr %112, null
   %or.cond71 = or i1 %.not.i.i65, %113
@@ -387,8 +387,8 @@ declare void @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK14NumpyAllocator8allocateEPN2cv8UMatDataENS0_10AccessFlagENS0_14UMatUsageFlagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !34
-  %7 = load ptr, ptr %6, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %7 = load ptr, ptr %6, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %1, i32 noundef %2, i32 noundef %3)
@@ -407,7 +407,7 @@ define hidden void @_ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE(ptr nonnull
 7:                                                ; preds = %2
   %8 = tail call i32 @PyGILState_Ensure()
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !50
+  %10 = load i32, ptr %9, align 8, !tbaa !49
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %25, label %12
 
@@ -432,14 +432,14 @@ define hidden void @_ZNK14NumpyAllocator10deallocateEPN2cv8UMatDataE(ptr nonnull
 17:                                               ; preds = %13
   %18 = landingpad { ptr, i32 }
           cleanup
-  %19 = load ptr, ptr %3, align 8, !tbaa !46
+  %19 = load ptr, ptr %3, align 8, !tbaa !45
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = icmp eq ptr %19, %20
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !49
+  %23 = load i64, ptr %22, align 8, !tbaa !48
   %24 = icmp ult i64 %23, 16
   call void @llvm.assume(i1 %24)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -456,7 +456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %27 = load i32, ptr %26, align 4, !tbaa !51
+  %27 = load i32, ptr %26, align 4, !tbaa !50
   %28 = icmp sgt i32 %27, -1
   br i1 %28, label %42, label %29
 
@@ -481,14 +481,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 34:                                               ; preds = %30
   %35 = landingpad { ptr, i32 }
           cleanup
-  %36 = load ptr, ptr %5, align 8, !tbaa !46
+  %36 = load ptr, ptr %5, align 8, !tbaa !45
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %38 = icmp eq ptr %36, %37
   br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i19: ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !49
+  %40 = load i64, ptr %39, align 8, !tbaa !48
   %41 = icmp ult i64 %40, 16
   call void @llvm.assume(i1 %41)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20
@@ -514,9 +514,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   br i1 %.not.i, label %_ZL11_Py_XDECREFP7_object.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = load i64, ptr %46, align 8, !tbaa !52
+  %48 = load i64, ptr %46, align 8, !tbaa !51
   %49 = add nsw i64 %48, -1
-  store i64 %49, ptr %46, align 8, !tbaa !52
+  store i64 %49, ptr %46, align 8, !tbaa !51
   %.not.i.i = icmp eq i64 %49, 0
   br i1 %.not.i.i, label %50, label %_ZL11_Py_XDECREFP7_object.exit
 
@@ -670,25 +670,24 @@ attributes #15 = { noreturn nounwind }
 !28 = !{!12, !12, i64 0}
 !29 = !{!17, !6, i64 40}
 !30 = !{!17, !10, i64 64}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!35, !18, i64 8}
-!35 = !{!"_ZTS14NumpyAllocator", !36, i64 0, !18, i64 8}
-!36 = !{!"_ZTSN2cv12MatAllocatorE"}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"vtable pointer", !8, i64 0}
-!39 = !{!40, !13, i64 0}
-!40 = !{!"_ZTSN2cv10AutoBufferIlLm136EEE", !13, i64 0, !6, i64 8, !7, i64 16}
-!41 = !{!40, !6, i64 8}
-!42 = distinct !{!42, !32, !33}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"any p2 pointer", !10, i64 0}
-!45 = !{!10, !10, i64 0}
-!46 = !{!47, !11, i64 0}
-!47 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !48, i64 0, !6, i64 8, !7, i64 16}
-!48 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !11, i64 0}
-!49 = !{!47, !6, i64 8}
-!50 = !{!17, !12, i64 16}
-!51 = !{!17, !12, i64 20}
-!52 = !{!5, !6, i64 0}
+!33 = !{!34, !18, i64 8}
+!34 = !{!"_ZTS14NumpyAllocator", !35, i64 0, !18, i64 8}
+!35 = !{!"_ZTSN2cv12MatAllocatorE"}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"vtable pointer", !8, i64 0}
+!38 = !{!39, !13, i64 0}
+!39 = !{!"_ZTSN2cv10AutoBufferIlLm136EEE", !13, i64 0, !6, i64 8, !7, i64 16}
+!40 = !{!39, !6, i64 8}
+!41 = distinct !{!41, !32}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"any p2 pointer", !10, i64 0}
+!44 = !{!10, !10, i64 0}
+!45 = !{!46, !11, i64 0}
+!46 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !47, i64 0, !6, i64 8, !7, i64 16}
+!47 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !11, i64 0}
+!48 = !{!46, !6, i64 8}
+!49 = !{!17, !12, i64 16}
+!50 = !{!17, !12, i64 20}
+!51 = !{!5, !6, i64 0}

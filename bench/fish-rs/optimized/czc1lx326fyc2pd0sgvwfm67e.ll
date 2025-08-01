@@ -93,12 +93,12 @@ define { ptr, i64 } @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = add nuw nsw i64 %.sroa.01.018.i.i.i, 1
   %15 = icmp eq ptr %13, %6
-  br i1 %15, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit", label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %15, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit", label %.lr.ph.i.i.i
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit": ; preds = %.lr.ph.i.i.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h915bea6934e9cd93E.exit.i.i.i"
   %.sroa.0.0.i.i = phi i64 [ %10, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h915bea6934e9cd93E.exit.i.i.i" ], [ %.sroa.01.018.i.i.i, %.lr.ph.i.i.i ]
   %16 = icmp ugt i64 %.sroa.0.0.i.i, %5
-  br i1 %16, label %28, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit.thread", !prof !20
+  br i1 %16, label %28, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit.thread", !prof !18
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit.thread": ; preds = %2, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit"
   %.sroa.0.0.i.i15 = phi i64 [ %.sroa.0.0.i.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit" ], [ 0, %2 ]
@@ -113,7 +113,7 @@ define { ptr, i64 } @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish
 .lr.ph.i.i.i6:                                    ; preds = %.lr.ph.i.i.i6.preheader, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E.exit.i.i.i"
   %.sroa.01.018.i.i.i7 = phi i64 [ %23, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E.exit.i.i.i" ], [ 0, %.lr.ph.i.i.i6.preheader ]
   %19 = phi ptr [ %22, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E.exit.i.i.i" ], [ %18, %.lr.ph.i.i.i6.preheader ]
-  %20 = load i32, ptr %19, align 4, !range !5, !alias.scope !21, !noalias !24, !noundef !3
+  %20 = load i32, ptr %19, align 4, !range !5, !alias.scope !19, !noalias !22, !noundef !3
   %21 = icmp eq i32 %20, 37
   br i1 %21, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E.exit.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E.exit"
 
@@ -121,7 +121,7 @@ define { ptr, i64 } @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %23 = add nuw nsw i64 %.sroa.01.018.i.i.i7, 1
   %24 = icmp eq ptr %22, %6
-  br i1 %24, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E.exit", label %.lr.ph.i.i.i6, !llvm.loop !32
+  br i1 %24, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E.exit", label %.lr.ph.i.i.i6
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E.exit": ; preds = %.lr.ph.i.i.i6, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E.exit.i.i.i", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit.thread"
   %.sroa.0.0.i.i8 = phi i64 [ 0, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E.exit.thread" ], [ %.sroa.01.018.i.i.i7, %.lr.ph.i.i.i6 ], [ %23, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E.exit.i.i.i" ]
@@ -151,7 +151,7 @@ define { ptr, i64 } @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish
   br i1 %36, label %37, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h18ff10cb156c632fE.exit", !prof !6
 
 37:                                               ; preds = %30
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %35, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.3) #6, !noalias !33
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h295f890f9c88ef86E(i64 noundef %35, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.db5b5264aa4d041cff4cacb9b40c1303.3) #6, !noalias !30
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h18ff10cb156c632fE.exit": ; preds = %30
@@ -209,21 +209,18 @@ attributes #6 = { noreturn }
 !15 = distinct !{!15, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17he22bb624f8baf988E"}
 !16 = distinct !{!16, !17, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E: argument 0"}
 !17 = distinct !{!17, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3d88d3c339f7a055E"}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!"branch_weights", !"expected", i32 1717128, i32 2145766520}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E: argument 0"}
-!23 = distinct !{!23, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E"}
-!24 = !{!25, !27, !28, !30}
-!25 = distinct !{!25, !26, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7b74f6b12c07bf2cE: argument 0"}
-!26 = distinct !{!26, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7b74f6b12c07bf2cE"}
-!27 = distinct !{!27, !26, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7b74f6b12c07bf2cE: argument 1"}
-!28 = distinct !{!28, !29, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h5c5306853df0c9cfE: argument 0"}
-!29 = distinct !{!29, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h5c5306853df0c9cfE"}
-!30 = distinct !{!30, !31, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E: argument 0"}
-!31 = distinct !{!31, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E"}
-!32 = distinct !{!32, !19}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h18ff10cb156c632fE: argument 0"}
-!35 = distinct !{!35, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h18ff10cb156c632fE"}
+!18 = !{!"branch_weights", !"expected", i32 1717128, i32 2145766520}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E: argument 0"}
+!21 = distinct !{!21, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h24347fdb85971813E"}
+!22 = !{!23, !25, !26, !28}
+!23 = distinct !{!23, !24, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7b74f6b12c07bf2cE: argument 0"}
+!24 = distinct !{!24, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7b74f6b12c07bf2cE"}
+!25 = distinct !{!25, !24, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7b74f6b12c07bf2cE: argument 1"}
+!26 = distinct !{!26, !27, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h5c5306853df0c9cfE: argument 0"}
+!27 = distinct !{!27, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h5c5306853df0c9cfE"}
+!28 = distinct !{!28, !29, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E: argument 0"}
+!29 = distinct !{!29, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h18ff10cb156c632fE: argument 0"}
+!32 = distinct !{!32, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h18ff10cb156c632fE"}

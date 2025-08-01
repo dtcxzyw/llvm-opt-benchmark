@@ -124,7 +124,7 @@ define void @ff_mqc_encode(ptr noundef captures(none) %0, ptr noundef captures(n
   %55 = load ptr, ptr %0, align 8, !tbaa !12
   %56 = load i8, ptr %55, align 1, !tbaa !14
   %57 = icmp eq i8 %56, -1
-  br i1 %57, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %57, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 58:                                               ; preds = %.lr.ph.i.i
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 1
@@ -150,7 +150,7 @@ byteout.exit.i:                                   ; preds = %58, %._crit_edge.i.
   %67 = phi i32 [ %37, %32 ], [ %63, %byteout.exit.i ]
   %68 = and i32 %65, 32768
   %.not7.i = icmp eq i32 %68, 0
-  br i1 %.not7.i, label %32, label %renorme.exit, !llvm.loop !20
+  br i1 %.not7.i, label %32, label %renorme.exit, !llvm.loop !18
 
 69:                                               ; preds = %16
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -233,7 +233,7 @@ byteout.exit.i:                                   ; preds = %58, %._crit_edge.i.
   %110 = load ptr, ptr %0, align 8, !tbaa !12
   %111 = load i8, ptr %110, align 1, !tbaa !14
   %112 = icmp eq i8 %111, -1
-  br i1 %112, label %._crit_edge.i.i32, label %.lr.ph.i.i30, !llvm.loop !18
+  br i1 %112, label %._crit_edge.i.i32, label %.lr.ph.i.i30
 
 113:                                              ; preds = %.lr.ph.i.i30
   %114 = getelementptr inbounds nuw i8, ptr %104, i64 1
@@ -259,7 +259,7 @@ byteout.exit.i34:                                 ; preds = %113, %._crit_edge.i
   %122 = phi i32 [ %92, %87 ], [ %118, %byteout.exit.i34 ]
   %123 = and i32 %120, 32768
   %.not7.i29 = icmp eq i32 %123, 0
-  br i1 %.not7.i29, label %87, label %renorme.exit, !llvm.loop !20
+  br i1 %.not7.i29, label %87, label %renorme.exit, !llvm.loop !18
 
 renorme.exit:                                     ; preds = %119, %64, %69
   ret void
@@ -269,11 +269,11 @@ renorme.exit:                                     ; preds = %119, %64, %69
 define i32 @ff_mqc_flush_to(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 1)) %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.17.0.copyload = load i32, ptr %.sroa.17.0..sroa_idx, align 8, !tbaa !22
+  %.sroa.17.0.copyload = load i32, ptr %.sroa.17.0..sroa_idx, align 8, !tbaa !20
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %.sroa.18.0.copyload = load i32, ptr %.sroa.18.0..sroa_idx, align 4, !tbaa !22
+  %.sroa.18.0.copyload = load i32, ptr %.sroa.18.0..sroa_idx, align 4, !tbaa !20
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.28.0.copyload = load i32, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !22
+  %.sroa.28.0.copyload = load i32, ptr %.sroa.28.0..sroa_idx, align 8, !tbaa !20
   %4 = load ptr, ptr %0, align 8, !tbaa !12
   %5 = load i8, ptr %4, align 1, !tbaa !14
   store i8 %5, ptr %1, align 1, !tbaa !14
@@ -309,7 +309,7 @@ define i32 @ff_mqc_flush_to(ptr noundef readonly captures(none) %0, ptr noundef 
   %18 = add nuw i8 %15, 1
   store i8 %18, ptr %1, align 1, !tbaa !14
   %19 = icmp eq i8 %18, -1
-  br i1 %19, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !18
+  br i1 %19, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 20:                                               ; preds = %.lr.ph.i.i
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -352,7 +352,7 @@ byteout.exit.i:                                   ; preds = %20, %._crit_edge.i.
   %35 = add nuw i8 %32, 1
   store i8 %35, ptr %.sroa.0.0, align 1, !tbaa !14
   %36 = icmp eq i8 %35, -1
-  br i1 %36, label %._crit_edge.i18.i, label %.lr.ph.i16.i, !llvm.loop !18
+  br i1 %36, label %._crit_edge.i18.i, label %.lr.ph.i16.i
 
 37:                                               ; preds = %.lr.ph.i16.i
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -371,7 +371,7 @@ byteout.exit21.i:                                 ; preds = %37, %._crit_edge.i1
   %44 = ptrtoint ptr %spec.select to i64
   %45 = sub i64 %44, %43
   %46 = trunc i64 %45 to i32
-  store i32 %46, ptr %2, align 4, !tbaa !22
+  store i32 %46, ptr %2, align 4, !tbaa !20
   %47 = load ptr, ptr %0, align 8, !tbaa !12
   %48 = load ptr, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !13
   %49 = icmp ult ptr %47, %48
@@ -379,7 +379,7 @@ byteout.exit21.i:                                 ; preds = %37, %._crit_edge.i1
 
 50:                                               ; preds = %byteout.exit21.i
   %51 = add nsw i32 %46, -1
-  store i32 %51, ptr %2, align 4, !tbaa !22
+  store i32 %51, ptr %2, align 4, !tbaa !20
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %53 = sext i32 %51 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %52, i64 %53, i1 false)
@@ -388,7 +388,7 @@ byteout.exit21.i:                                 ; preds = %37, %._crit_edge.i1
   %56 = ptrtoint ptr %54 to i64
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
-  %59 = load i32, ptr %2, align 4, !tbaa !22
+  %59 = load i32, ptr %2, align 4, !tbaa !20
   %60 = trunc i64 %58 to i32
   %61 = add i32 %59, 1
   %62 = add i32 %61, %60
@@ -438,7 +438,5 @@ attributes #5 = { nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !8, i64 0}
 !18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !21, !19}
-!21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!10, !10, i64 0}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = !{!10, !10, i64 0}

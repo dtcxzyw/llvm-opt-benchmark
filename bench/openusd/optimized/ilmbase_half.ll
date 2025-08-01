@@ -215,7 +215,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half9printBitsERSoNS0_4ha
 11:                                               ; preds = %4, %9
   %12 = add nsw i32 %.08, -1
   %.not9 = icmp eq i32 %.08, 0
-  br i1 %.not9, label %13, label %4, !llvm.loop !7
+  br i1 %.not9, label %13, label %4, !llvm.loop !6
 
 13:                                               ; preds = %11
   ret void
@@ -246,7 +246,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half9printBitsERSof(ptr n
 12:                                               ; preds = %10, %4
   %13 = add nsw i32 %.08, -1
   %.not9 = icmp eq i32 %.08, 0
-  br i1 %.not9, label %14, label %4, !llvm.loop !8
+  br i1 %.not9, label %14, label %4, !llvm.loop !7
 
 14:                                               ; preds = %12
   ret void
@@ -284,7 +284,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half9printBitsEPcNS0_4hal
   %15 = add nsw i32 %.01213, -1
   %16 = add nsw i32 %.1, 1
   %.not15 = icmp eq i32 %.01213, 0
-  br i1 %.not15, label %17, label %4, !llvm.loop !9
+  br i1 %.not15, label %17, label %4, !llvm.loop !8
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -323,7 +323,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half9printBitsEPcf(ptr no
   %16 = add nsw i32 %.01213, -1
   %17 = add nsw i32 %.1, 1
   %.not15 = icmp eq i32 %.01213, 0
-  br i1 %.not15, label %18, label %4, !llvm.loop !10
+  br i1 %.not15, label %18, label %4, !llvm.loop !9
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 34
@@ -349,10 +349,9 @@ attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

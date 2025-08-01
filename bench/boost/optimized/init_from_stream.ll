@@ -207,9 +207,9 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 define linkonce_odr hidden void @_ZN5boost13property_tree11basic_ptreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_IwS4_IwESaIwEEESt4lessIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 .noexc1:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2 = load ptr, ptr %1, align 8, !tbaa !24
+  %2 = load ptr, ptr %1, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = icmp eq ptr %6, null
@@ -247,22 +247,22 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 .noexc4:                                          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.0.i.i6, i64 noundef 112) #7
-  %24 = load ptr, ptr %3, align 8, !tbaa !28
+  %24 = load ptr, ptr %3, align 8, !tbaa !27
   %.not.i.i = icmp eq ptr %14, %24
-  br i1 %.not.i.i, label %_ZN5boost11multi_index21multi_index_containerISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13property_tree11basic_ptreeIS8_NS4_IwS5_IwESaIwEEESt4lessIS8_EEEENS0_10indexed_byINS0_9sequencedINS0_3tagIN4mpl_2naESN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_EEEENS0_18ordered_non_uniqueINSL_INSH_4subs7by_nameESN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_EENS0_6memberISI_S9_XadL_ZNSI_5firstEEEEESG_EESN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_EESaISI_EED2Ev.exit, label %.noexc3, !llvm.loop !30
+  br i1 %.not.i.i, label %_ZN5boost11multi_index21multi_index_containerISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13property_tree11basic_ptreeIS8_NS4_IwS5_IwESaIwEEESt4lessIS8_EEEENS0_10indexed_byINS0_9sequencedINS0_3tagIN4mpl_2naESN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_EEEENS0_18ordered_non_uniqueINSL_INSH_4subs7by_nameESN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_EENS0_6memberISI_S9_XadL_ZNSI_5firstEEEEESG_EESN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_EESaISI_EED2Ev.exit, label %.noexc3, !llvm.loop !29
 
 _ZN5boost11multi_index21multi_index_containerISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13property_tree11basic_ptreeIS8_NS4_IwS5_IwESaIwEEESt4lessIS8_EEEENS0_10indexed_byINS0_9sequencedINS0_3tagIN4mpl_2naESN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_EEEENS0_18ordered_non_uniqueINSL_INSH_4subs7by_nameESN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_EENS0_6memberISI_S9_XadL_ZNSI_5firstEEEEESG_EESN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_EESaISI_EED2Ev.exit: ; preds = %.noexc4, %.noexc1
   %25 = phi ptr [ %4, %.noexc1 ], [ %24, %.noexc4 ]
   tail call void @_ZdlPvm(ptr noundef %25, i64 noundef 112) #7
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 32) #7
-  %26 = load ptr, ptr %0, align 8, !tbaa !31
+  %26 = load ptr, ptr %0, align 8, !tbaa !30
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = icmp eq ptr %26, %27
   br i1 %28, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZN5boost11multi_index21multi_index_containerISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13property_tree11basic_ptreeIS8_NS4_IwS5_IwESaIwEEESt4lessIS8_EEEENS0_10indexed_byINS0_9sequencedINS0_3tagIN4mpl_2naESN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_EEEENS0_18ordered_non_uniqueINSL_INSH_4subs7by_nameESN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_EENS0_6memberISI_S9_XadL_ZNSI_5firstEEEEESG_EESN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_SN_EESaISI_EED2Ev.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !32
+  %30 = load i64, ptr %29, align 8, !tbaa !31
   %31 = icmp ult i64 %30, 4
   tail call void @llvm.assume(i1 %31)
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
@@ -313,15 +313,14 @@ attributes #7 = { builtin nounwind }
 !18 = !{!12, !5, i64 0}
 !19 = !{!12, !14, i64 8}
 !20 = !{!6, !6, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!25, !5, i64 32}
-!25 = !{!"_ZTSN5boost13property_tree11basic_ptreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_IwS4_IwESaIwEEESt4lessIS7_EEE", !26, i64 0, !5, i64 32}
-!26 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE", !27, i64 0, !14, i64 8, !6, i64 16}
-!27 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderE", !5, i64 0}
-!28 = !{!29, !5, i64 0}
-!29 = !{!"_ZTSN5boost11multi_index6detail13header_holderIPNS1_20sequenced_index_nodeINS1_18ordered_index_nodeINS1_19null_augment_policyENS1_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13property_tree11basic_ptreeISD_NS9_IwSA_IwESaIwEEESt4lessISD_EEEESaISN_EEEEEEENS0_21multi_index_containerISN_NS0_10indexed_byINS0_9sequencedINS0_3tagIN4mpl_2naESY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_EEEENS0_18ordered_non_uniqueINSW_INSM_4subs7by_nameESY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_EENS0_6memberISN_SE_XadL_ZNSN_5firstEEEEESL_EESY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_EESO_EEEE", !5, i64 0}
-!30 = distinct !{!30, !22, !23}
-!31 = !{!26, !5, i64 0}
-!32 = !{!26, !14, i64 8}
+!23 = !{!24, !5, i64 32}
+!24 = !{!"_ZTSN5boost13property_tree11basic_ptreeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_IwS4_IwESaIwEEESt4lessIS7_EEE", !25, i64 0, !5, i64 32}
+!25 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE", !26, i64 0, !14, i64 8, !6, i64 16}
+!26 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderE", !5, i64 0}
+!27 = !{!28, !5, i64 0}
+!28 = !{!"_ZTSN5boost11multi_index6detail13header_holderIPNS1_20sequenced_index_nodeINS1_18ordered_index_nodeINS1_19null_augment_policyENS1_15index_node_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13property_tree11basic_ptreeISD_NS9_IwSA_IwESaIwEEESt4lessISD_EEEESaISN_EEEEEEENS0_21multi_index_containerISN_NS0_10indexed_byINS0_9sequencedINS0_3tagIN4mpl_2naESY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_EEEENS0_18ordered_non_uniqueINSW_INSM_4subs7by_nameESY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_EENS0_6memberISN_SE_XadL_ZNSN_5firstEEEEESL_EESY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_SY_EESO_EEEE", !5, i64 0}
+!29 = distinct !{!29, !22}
+!30 = !{!25, !5, i64 0}
+!31 = !{!25, !14, i64 8}

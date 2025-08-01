@@ -1183,7 +1183,7 @@ define range(i32 0, 2) i32 @ossl_ec_GF2m_simple_points_make_affine(ptr noundef %
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw ptr, ptr %2, i64 %.09
-  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %10, align 8, !tbaa !33
   %12 = tail call i32 %9(ptr noundef nonnull %0, ptr noundef %11, ptr noundef %3) #4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %._crit_edge, label %5
@@ -1235,14 +1235,14 @@ define internal i32 @ec_GF2m_simple_points_mul(ptr noundef %0, ptr noundef %1, p
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !35
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = tail call i32 @BN_is_zero(ptr noundef %11) #4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %17
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !36
+  %15 = load ptr, ptr %14, align 8, !tbaa !35
   %16 = tail call i32 @BN_is_zero(ptr noundef %15) #4
   %.not47 = icmp eq i32 %16, 0
   br i1 %.not47, label %19, label %17
@@ -1268,8 +1268,8 @@ define internal i32 @ec_GF2m_simple_points_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %or.cond3, label %27, label %31
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %5, align 8, !tbaa !37
-  %29 = load ptr, ptr %4, align 8, !tbaa !34
+  %28 = load ptr, ptr %5, align 8, !tbaa !36
+  %29 = load ptr, ptr %4, align 8, !tbaa !33
   %30 = tail call i32 @ossl_ec_scalar_mul_ladder(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %28, ptr noundef %29, ptr noundef %6) #4
   br label %44
 
@@ -1290,8 +1290,8 @@ define internal i32 @ec_GF2m_simple_points_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %.not48, label %43, label %37
 
 37:                                               ; preds = %35
-  %38 = load ptr, ptr %5, align 8, !tbaa !37
-  %39 = load ptr, ptr %4, align 8, !tbaa !34
+  %38 = load ptr, ptr %5, align 8, !tbaa !36
+  %39 = load ptr, ptr %4, align 8, !tbaa !33
   %40 = tail call i32 @ossl_ec_scalar_mul_ladder(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %38, ptr noundef %39, ptr noundef %6) #4
   %.not49 = icmp eq i32 %40, 0
   br i1 %.not49, label %43, label %41
@@ -1379,12 +1379,12 @@ define internal range(i32 0, 2) i32 @ec_GF2m_simple_ladder_pre(ptr noundef %0, p
   %19 = load ptr, ptr %9, align 8, !tbaa !22
   %20 = tail call i32 @BN_is_zero(ptr noundef %19) #4
   %.not56 = icmp eq i32 %20, 0
-  br i1 %.not56, label %21, label %11, !llvm.loop !38
+  br i1 %.not56, label %21, label %11, !llvm.loop !37
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %0, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 280
-  %24 = load ptr, ptr %23, align 8, !tbaa !39
+  %24 = load ptr, ptr %23, align 8, !tbaa !38
   %.not57 = icmp eq ptr %24, null
   br i1 %.not57, label %28, label %25
 
@@ -1434,12 +1434,12 @@ define internal range(i32 0, 2) i32 @ec_GF2m_simple_ladder_pre(ptr noundef %0, p
   %47 = load ptr, ptr %38, align 8, !tbaa !21
   %48 = tail call i32 @BN_is_zero(ptr noundef %47) #4
   %.not61 = icmp eq i32 %48, 0
-  br i1 %.not61, label %49, label %39, !llvm.loop !40
+  br i1 %.not61, label %49, label %39, !llvm.loop !39
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %0, align 8, !tbaa !25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 280
-  %52 = load ptr, ptr %51, align 8, !tbaa !39
+  %52 = load ptr, ptr %51, align 8, !tbaa !38
   %.not62 = icmp eq ptr %52, null
   br i1 %.not62, label %56, label %53
 
@@ -1817,7 +1817,7 @@ define internal i32 @ec_GF2m_simple_ladder_post(ptr noundef %0, ptr noundef %1, 
 91:                                               ; preds = %85
   %92 = load ptr, ptr %0, align 8, !tbaa !25
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 272
-  %94 = load ptr, ptr %93, align 8, !tbaa !41
+  %94 = load ptr, ptr %93, align 8, !tbaa !40
   %95 = tail call i32 %94(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %23, ptr noundef %4) #4
   %.not123 = icmp eq i32 %95, 0
   br i1 %.not123, label %129, label %96
@@ -1946,14 +1946,13 @@ attributes #4 = { nounwind }
 !28 = !{!27, !6, i64 256}
 !29 = !{!27, !6, i64 248}
 !30 = !{!27, !6, i64 208}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!9, !9, i64 0}
-!35 = !{!4, !10, i64 16}
-!36 = !{!4, !10, i64 24}
-!37 = !{!10, !10, i64 0}
-!38 = distinct !{!38, !32, !33}
-!39 = !{!27, !6, i64 280}
-!40 = distinct !{!40, !32, !33}
-!41 = !{!27, !6, i64 272}
+!33 = !{!9, !9, i64 0}
+!34 = !{!4, !10, i64 16}
+!35 = !{!4, !10, i64 24}
+!36 = !{!10, !10, i64 0}
+!37 = distinct !{!37, !32}
+!38 = !{!27, !6, i64 280}
+!39 = distinct !{!39, !32}
+!40 = !{!27, !6, i64 272}

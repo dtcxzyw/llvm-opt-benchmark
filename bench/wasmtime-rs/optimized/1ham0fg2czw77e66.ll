@@ -131,12 +131,12 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %47 = add i64 %46, %.02739
   %.027 = and i64 %47, %20
   %48 = icmp ult i64 %.027, %38
-  br i1 %48, label %42, label %.preheader._crit_edge, !prof !6, !llvm.loop !7
+  br i1 %48, label %42, label %.preheader._crit_edge, !prof !6
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds [0 x ptr], ptr %40, i64 0, i64 %.02739
   store ptr %33, ptr %50, align 8
-  br label %.split, !llvm.loop !9
+  br label %.split
 
 51:                                               ; preds = %.loopexit
   %52 = landingpad { ptr, i32 }
@@ -271,12 +271,12 @@ define hidden void @_ZN22cranelift_codegen_meta13constant_hash14generate_table17
   %47 = add i64 %46, %.02739
   %.027 = and i64 %47, %20
   %48 = icmp ult i64 %.027, %38
-  br i1 %48, label %42, label %.preheader._crit_edge, !prof !6, !llvm.loop !10
+  br i1 %48, label %42, label %.preheader._crit_edge, !prof !6
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds [0 x ptr], ptr %40, i64 0, i64 %.02739
   store ptr %33, ptr %50, align 8
-  br label %.split, !llvm.loop !11
+  br label %.split
 
 51:                                               ; preds = %.loopexit
   %52 = landingpad { ptr, i32 }
@@ -356,8 +356,3 @@ attributes #8 = { cold noreturn nounwind }
 !4 = !{}
 !5 = !{!"branch_weights", i32 127, i32 1}
 !6 = !{!"branch_weights", i32 255873, i32 127}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}

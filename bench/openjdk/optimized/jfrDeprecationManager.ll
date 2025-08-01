@@ -495,7 +495,7 @@ define hidden void @_ZN21JfrDeprecationManager7on_linkEPK6MethodPS0_ihP10JavaThr
   br i1 %48, label %50, label %49
 
 49:                                               ; preds = %46
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   br label %50
 
@@ -548,7 +548,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit.i: ; preds = %58, %_ZN18Safepoint
   store ptr %66, ptr %64, align 8
   %67 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.0.i10, ptr %66, ptr nonnull @_ZL5_list) #11, !srcloc !8
   %.not.i.i11 = icmp eq ptr %67, %66
-  br i1 %.not.i.i11, label %_ZL13should_recordPK6MethodS1_P10JavaThread.exit, label %65, !llvm.loop !13
+  br i1 %.not.i.i11, label %_ZL13should_recordPK6MethodS1_P10JavaThread.exit, label %65, !llvm.loop !12
 
 _ZL13should_recordPK6MethodS1_P10JavaThread.exit: ; preds = %.preheader.i, %65, %16, %7, %5
   ret void
@@ -567,7 +567,7 @@ define hidden void @_ZN21JfrDeprecationManager18on_safepoint_clearEv() local_unn
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %3 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr %2, ptr nonnull @_ZL5_list) #11, !srcloc !8
   %.not.i.i = icmp eq ptr %3, %2
-  br i1 %.not.i.i, label %_ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE3cutEv.exit.i, label %1, !llvm.loop !14
+  br i1 %.not.i.i, label %_ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE3cutEv.exit.i, label %1, !llvm.loop !13
 
 _ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE3cutEv.exit.i: ; preds = %1
   %.not.i = icmp eq ptr %2, null
@@ -592,7 +592,7 @@ define hidden void @_ZN21JfrDeprecationManager18on_safepoint_writeEv() local_unn
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %3 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr %2, ptr nonnull @_ZL5_list) #11, !srcloc !8
   %.not.i.i = icmp eq ptr %3, %2
-  br i1 %.not.i.i, label %_ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE3cutEv.exit.i, label %1, !llvm.loop !14
+  br i1 %.not.i.i, label %_ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE3cutEv.exit.i, label %1, !llvm.loop !13
 
 _ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE3cutEv.exit.i: ; preds = %1
   %.not.i = icmp eq ptr %2, null
@@ -634,7 +634,7 @@ define hidden void @_ZN21JfrDeprecationManager16prepare_type_setEP10JavaThread(p
   %10 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = call noundef zeroext i1 @_ZN23JfrDeprecatedEventClear7processEPK17JfrDeprecatedEdge(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull %.0.i.i) #11
-  br i1 %12, label %8, label %_ZL20reset_type_set_blobsv.exit, !llvm.loop !15
+  br i1 %12, label %8, label %_ZL20reset_type_set_blobsv.exit, !llvm.loop !14
 
 _ZL20reset_type_set_blobsv.exit:                  ; preds = %8, %9, %1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
@@ -662,7 +662,7 @@ _ZL20reset_type_set_blobsv.exit:                  ; preds = %8, %9, %1
   %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = call noundef zeroext i1 @_ZN20PendingListProcessor7processEP17JfrDeprecatedEdge(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %.0.i)
-  br i1 %21, label %17, label %_ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE7iterateI20PendingListProcessorEEvRT_.exit, !llvm.loop !16
+  br i1 %21, label %17, label %_ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE7iterateI20PendingListProcessorEEvRT_.exit, !llvm.loop !15
 
 _ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE7iterateI20PendingListProcessorEEvRT_.exit: ; preds = %17, %18
   %22 = load ptr, ptr @_ZL13_pending_tail, align 8
@@ -673,7 +673,7 @@ _ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE7iterateI20PendingListProces
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %25 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr %24, ptr nonnull @_ZL14_resolved_list) #11, !srcloc !8
   %.not.i3 = icmp eq ptr %25, %24
-  br i1 %.not.i3, label %_ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE3cutEv.exit, label %23, !llvm.loop !14
+  br i1 %.not.i3, label %_ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE3cutEv.exit, label %23, !llvm.loop !13
 
 _ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE3cutEv.exit: ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -687,7 +687,7 @@ _ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE3cutEv.exit: ; preds = %23
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %30 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr %29, ptr nonnull align 8 dereferenceable(8) @_ZL13_pending_list) #11, !srcloc !8
   %.not.i.i4 = icmp eq ptr %30, %29
-  br i1 %.not.i.i4, label %_ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE5clearEv.exit, label %28, !llvm.loop !14
+  br i1 %.not.i.i4, label %_ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE5clearEv.exit, label %28, !llvm.loop !13
 
 _ZN13JfrLinkedListI17JfrDeprecatedEdge11JfrCHeapObjE5clearEv.exit: ; preds = %28
   call void @_ZN19JfrCheckpointWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %3) #11
@@ -761,7 +761,7 @@ define hidden void @_ZN21JfrDeprecationManager11write_edgesER14JfrChunkWriterP6T
   %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef zeroext i1 @_ZN29JfrDeprecatedStackTraceWriter7processEPK17JfrDeprecatedEdge(ptr noundef nonnull align 8 dereferenceable(37) %6, ptr noundef nonnull %.0.i.i) #11
-  br i1 %19, label %15, label %_ZL17write_stacktracesR14JfrChunkWriter.exit, !llvm.loop !17
+  br i1 %19, label %15, label %_ZL17write_stacktracesR14JfrChunkWriter.exit, !llvm.loop !16
 
 _ZL17write_stacktracesR14JfrChunkWriter.exit:     ; preds = %15, %16
   call void @_ZN29JfrDeprecatedStackTraceWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(37) %6) #11
@@ -789,7 +789,7 @@ _ZL17write_stacktracesR14JfrChunkWriter.exit:     ; preds = %15, %16
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i3, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = call noundef zeroext i1 @_ZN24JfrDeprecatedEventWriter7processEPK17JfrDeprecatedEdge(ptr noundef nonnull align 8 dereferenceable(26) %5, ptr noundef nonnull %.0.i.i3) #11
-  br i1 %29, label %25, label %_ZL12write_eventsR14JfrChunkWriterP6Threadb.exit, !llvm.loop !18
+  br i1 %29, label %25, label %_ZL12write_eventsR14JfrChunkWriterP6Threadb.exit, !llvm.loop !17
 
 _ZL12write_eventsR14JfrChunkWriterP6Threadb.exit: ; preds = %25, %26
   call void @_ZN19JfrCheckpointWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %4) #11
@@ -865,7 +865,7 @@ _ZN17JfrDeprecatedEdge16install_type_setERK14RefCountHandleI15RefCountPointerI7J
   %24 = getelementptr inbounds nuw i8, ptr %.06.i, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, %8
-  br i1 %.not.i, label %_ZN26JfrReferenceCountedStorage7installI17JfrDeprecatedEdgeEEvPT_PKS2_.exit, label %.lr.phthread-pre-split.i, !llvm.loop !19
+  br i1 %.not.i, label %_ZN26JfrReferenceCountedStorage7installI17JfrDeprecatedEdgeEEvPT_PKS2_.exit, label %.lr.phthread-pre-split.i, !llvm.loop !18
 
 _ZN26JfrReferenceCountedStorage7installI17JfrDeprecatedEdgeEEvPT_PKS2_.exit: ; preds = %_ZN17JfrDeprecatedEdge16install_type_setERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit.i, %4, %2
   %.not = icmp eq ptr %0, null
@@ -1262,14 +1262,13 @@ attributes #11 = { nounwind }
 !6 = !{i64 2145392468}
 !7 = !{i64 2145411697}
 !8 = !{i64 2145412694}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i64 2145392998}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11}
+!11 = !{i64 2145392998}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}

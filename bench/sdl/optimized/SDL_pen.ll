@@ -76,7 +76,7 @@ define hidden i32 @SDL_FindPenByCallback(ptr noundef readonly captures(none) %0,
   %7 = load i32, ptr @pen_device_count, align 4
   %8 = sext i32 %7 to i64
   %9 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %9, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %9, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %2, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %2 ]
@@ -145,7 +145,7 @@ define hidden void @SDL_QuitPen() local_unnamed_addr #0 {
   %9 = load ptr, ptr %8, align 8
   tail call void @SDL_free_REAL(ptr noundef %9) #8
   %.not2 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not2, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not2, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
 
 10:                                               ; preds = %._crit_edge, %0
   store i32 0, ptr @pen_device_count, align 4
@@ -178,7 +178,7 @@ define hidden i32 @SDL_GetPenStatus(i32 noundef %0, ptr noundef writeonly captur
 8:                                                ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %FindPenByInstanceId.exit.thread, label %9, !llvm.loop !8
+  br i1 %exitcond.not.i, label %FindPenByInstanceId.exit.thread, label %9, !llvm.loop !7
 
 9:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
@@ -347,7 +347,7 @@ define hidden void @SDL_RemovePenDevice(i64 noundef %0, i32 noundef %1) local_un
 8:                                                ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge, label %9, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.critedge, label %9, !llvm.loop !7
 
 9:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
@@ -461,7 +461,7 @@ define hidden void @SDL_RemoveAllPenDevices(ptr noundef readonly captures(none) 
   %14 = load i32, ptr @pen_device_count, align 4
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %2
   %17 = load ptr, ptr @pen_devices, align 8
@@ -495,7 +495,7 @@ define hidden void @SDL_SendPenTouch(i64 noundef %0, i32 noundef %1, ptr noundef
 13:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge, label %14, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.critedge, label %14, !llvm.loop !7
 
 14:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
@@ -587,7 +587,7 @@ FindPenByInstanceId.exit:                         ; preds = %14
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 230
-  %57 = load i8, ptr %56, align 2, !range !10, !noundef !11
+  %57 = load i8, ptr %56, align 2, !range !9, !noundef !10
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %59, label %65
 
@@ -613,7 +613,7 @@ FindPenByInstanceId.exit:                         ; preds = %14
 
 65:                                               ; preds = %.sink.split, %61, %63, %55
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 231
-  %67 = load i8, ptr %66, align 1, !range !10, !noundef !11
+  %67 = load i8, ptr %66, align 1, !range !9, !noundef !10
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %84
 
@@ -698,7 +698,7 @@ define hidden void @SDL_SendPenAxis(i64 noundef %0, i32 noundef %1, ptr noundef 
 11:                                               ; preds = %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %FindPenByInstanceId.exit.thread, label %12, !llvm.loop !8
+  br i1 %exitcond.not.i, label %FindPenByInstanceId.exit.thread, label %12, !llvm.loop !7
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
@@ -776,7 +776,7 @@ FindPenByInstanceId.exit:                         ; preds = %12
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 231
-  %53 = load i8, ptr %52, align 1, !range !10, !noundef !11
+  %53 = load i8, ptr %52, align 1, !range !9, !noundef !10
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %64
 
@@ -828,7 +828,7 @@ define hidden void @SDL_SendPenMotion(i64 noundef %0, i32 noundef %1, ptr nounde
 11:                                               ; preds = %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %FindPenByInstanceId.exit.thread, label %12, !llvm.loop !8
+  br i1 %exitcond.not.i, label %FindPenByInstanceId.exit.thread, label %12, !llvm.loop !7
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
@@ -904,7 +904,7 @@ FindPenByInstanceId.exit:                         ; preds = %12
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 230
-  %49 = load i8, ptr %48, align 2, !range !10, !noundef !11
+  %49 = load i8, ptr %48, align 2, !range !9, !noundef !10
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %52
 
@@ -914,7 +914,7 @@ FindPenByInstanceId.exit:                         ; preds = %12
 
 52:                                               ; preds = %51, %47
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 231
-  %54 = load i8, ptr %53, align 1, !range !10, !noundef !11
+  %54 = load i8, ptr %53, align 1, !range !9, !noundef !10
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %70
 
@@ -981,7 +981,7 @@ define hidden void @SDL_SendPenButton(i64 noundef %0, i32 noundef %1, ptr nounde
 15:                                               ; preds = %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge, label %16, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.critedge, label %16, !llvm.loop !7
 
 16:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
@@ -1072,7 +1072,7 @@ FindPenByInstanceId.exit:                         ; preds = %16
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 230
-  %60 = load i8, ptr %59, align 2, !range !10, !noundef !11
+  %60 = load i8, ptr %59, align 2, !range !9, !noundef !10
   %61 = trunc nuw i8 %60 to i1
   %62 = icmp ult i8 %3, 5
   %or.cond10 = and i1 %62, %61
@@ -1128,12 +1128,11 @@ attributes #9 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = !{i8 0, i8 2}
+!10 = !{}

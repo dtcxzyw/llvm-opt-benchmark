@@ -72,7 +72,7 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr noundef reado
 29:                                               ; preds = %24
   tail call void @llvm.memset.p0.i64(ptr nonnull align 64 %27, i8 0, i64 %5, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 %15, ptr %30, align 8, !tbaa !16
+  store i32 %15, ptr %30, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i32 1, ptr %31, align 4, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -90,24 +90,24 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr noundef reado
   %38 = getelementptr inbounds nuw i32, ptr %1, i64 %.15972.i
   %39 = load i32, ptr %38, align 4, !tbaa !4
   %40 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %39, i1 true)
-  %41 = load ptr, ptr @rhash_info_table, align 8, !tbaa !19
+  %41 = load ptr, ptr @rhash_info_table, align 8, !tbaa !18
   %42 = zext nneg i32 %40 to i64
   %43 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %41, i64 %42
   %44 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %36, i64 0, i64 %.15972.i
-  store ptr %43, ptr %44, align 8, !tbaa !21
+  store ptr %43, ptr %44, align 8, !tbaa !20
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %.05773.i, ptr %45, align 16, !tbaa !23
+  store ptr %.05773.i, ptr %45, align 16, !tbaa !22
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !8
   %48 = add i64 %47, 63
   %49 = and i64 %48, -64
   %50 = getelementptr inbounds nuw i8, ptr %.05773.i, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %52 = load ptr, ptr %51, align 8, !tbaa !23
   tail call void %52(ptr noundef %.05773.i) #15
   %53 = add nuw i64 %.15972.i, 1
   %exitcond75.not.i = icmp eq i64 %53, %0
-  br i1 %exitcond75.not.i, label %rhash_alloc_multi.exit, label %37, !llvm.loop !25
+  br i1 %exitcond75.not.i, label %rhash_alloc_multi.exit, label %37, !llvm.loop !24
 
 .loopexit.sink.split.i:                           ; preds = %8, %2
   %54 = tail call ptr @__errno_location() #17
@@ -171,7 +171,7 @@ define dso_local noundef ptr @rhash_init(i32 noundef %0) local_unnamed_addr #0 {
   %.1 = phi i64 [ %18, %17 ], [ %.0612, %15 ]
   %21 = shl i32 %.013, 1
   %.not10 = icmp ugt i32 %21, %0
-  br i1 %.not10, label %22, label %15, !llvm.loop !26
+  br i1 %.not10, label %22, label %15, !llvm.loop !25
 
 22:                                               ; preds = %20
   %23 = call ptr @rhash_init_multi(i64 noundef %.1, ptr noundef nonnull %3)
@@ -207,15 +207,15 @@ define dso_local void @rhash_free(ptr noundef %0) local_unnamed_addr #0 {
   %9 = phi i32 [ %6, %.lr.ph ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %10 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %7, i64 0, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !21
+  %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !27
+  %13 = load ptr, ptr %12, align 8, !tbaa !26
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !23
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
   tail call void %13(ptr noundef %16) #15
   %.pre = load i32, ptr %5, align 8, !tbaa !4
   br label %17
@@ -225,7 +225,7 @@ define dso_local void @rhash_free(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %8, label %._crit_edge, !llvm.loop !28
+  br i1 %20, label %8, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %17, %3
   tail call void @free(ptr noundef nonnull %0) #15
@@ -254,29 +254,29 @@ define dso_local void @rhash_reset(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %7 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %5, i64 0, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !27
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
   tail call void %10(ptr noundef %13) #15
   br label %14
 
 14:                                               ; preds = %11, %6
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !24
+  %16 = load ptr, ptr %15, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  %18 = load ptr, ptr %17, align 8, !tbaa !22
   tail call void %16(ptr noundef %18) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %3, align 8, !tbaa !4
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %6, label %._crit_edge, !llvm.loop !29
+  br i1 %21, label %6, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %14, %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -294,9 +294,9 @@ define dso_local noundef i32 @rhash_update(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not, label %6, label %.loopexit
 
 6:                                                ; preds = %3
-  %7 = load i64, ptr %0, align 8, !tbaa !30
+  %7 = load i64, ptr %0, align 8, !tbaa !29
   %8 = add i64 %7, %2
-  store i64 %8, ptr %0, align 8, !tbaa !30
+  store i64 %8, ptr %0, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !4
   %.not16 = icmp eq i32 %10, 0
@@ -309,17 +309,17 @@ define dso_local noundef i32 @rhash_update(ptr noundef %0, ptr noundef %1, i64 n
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %11, i64 0, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8, !tbaa !21
+  %14 = load ptr, ptr %13, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !31
+  %16 = load ptr, ptr %15, align 8, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  %18 = load ptr, ptr %17, align 8, !tbaa !22
   tail call void %16(ptr noundef %18, ptr noundef %1, i64 noundef %2) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %9, align 8, !tbaa !4
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %12, label %.loopexit, !llvm.loop !32
+  br i1 %21, label %12, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %12, %6, %3
   ret i32 0
@@ -351,17 +351,17 @@ define dso_local noundef i32 @rhash_final(ptr noundef captures(none) %0, ptr nou
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.01516 = phi ptr [ %11, %.lr.ph ], [ %3, %13 ]
   %14 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %12, i64 0, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !21
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !33
+  %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  %19 = load ptr, ptr %18, align 8, !tbaa !22
   call void %17(ptr noundef %19, ptr noundef nonnull %.01516) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %9, align 8, !tbaa !4
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %13, label %._crit_edge.loopexit, !llvm.loop !34
+  br i1 %22, label %13, label %._crit_edge.loopexit, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %13
   %.pre = load i32, ptr %4, align 4, !tbaa !4
@@ -395,9 +395,9 @@ define dso_local noalias noundef ptr @rhash_import(ptr noundef readnone captures
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @rhash_set_callback(ptr noundef writeonly captures(none) initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %4, align 8, !tbaa !35
+  store ptr %1, ptr %4, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %2, ptr %5, align 8, !tbaa !35
+  store ptr %2, ptr %5, align 8, !tbaa !34
   ret void
 }
 
@@ -451,7 +451,7 @@ rhash_init.exit.thread:                           ; preds = %4
   %.1.i = phi i64 [ %22, %21 ], [ %.0612.i, %19 ]
   %25 = shl i32 %.013.i, 1
   %.not10.i = icmp ugt i32 %25, %8
-  br i1 %.not10.i, label %26, label %19, !llvm.loop !26
+  br i1 %.not10.i, label %26, label %19, !llvm.loop !25
 
 26:                                               ; preds = %24
   %27 = call ptr @rhash_init_multi(i64 noundef %.1.i, ptr noundef nonnull %7)
@@ -471,9 +471,9 @@ rhash_init.exit:                                  ; preds = %14, %26
   br i1 %.not.i, label %32, label %rhash_update.exit
 
 32:                                               ; preds = %29
-  %33 = load i64, ptr %.07.i, align 8, !tbaa !30
+  %33 = load i64, ptr %.07.i, align 8, !tbaa !29
   %34 = add i64 %33, %2
-  store i64 %34, ptr %.07.i, align 8, !tbaa !30
+  store i64 %34, ptr %.07.i, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %36 = load i32, ptr %35, align 8, !tbaa !4
   %.not16.i = icmp eq i32 %36, 0
@@ -486,17 +486,17 @@ rhash_init.exit:                                  ; preds = %14, %26
 38:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
   %39 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %37, i64 0, i64 %indvars.iv.i
-  %40 = load ptr, ptr %39, align 8, !tbaa !21
+  %40 = load ptr, ptr %39, align 8, !tbaa !20
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !31
+  %42 = load ptr, ptr %41, align 8, !tbaa !30
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !23
+  %44 = load ptr, ptr %43, align 8, !tbaa !22
   tail call void %42(ptr noundef %44, ptr noundef %1, i64 noundef %2) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %45 = load i32, ptr %35, align 8, !tbaa !4
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next.i, %46
-  br i1 %47, label %38, label %rhash_update.exit, !llvm.loop !32
+  br i1 %47, label %38, label %rhash_update.exit, !llvm.loop !31
 
 rhash_update.exit:                                ; preds = %38, %29, %32
   call void @llvm.lifetime.start.p0(i64 130, ptr nonnull %5) #15
@@ -522,17 +522,17 @@ rhash_update.exit:                                ; preds = %38, %29, %32
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %57 ]
   %.01516.i = phi ptr [ %55, %.lr.ph.i10 ], [ %5, %57 ]
   %58 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %56, i64 0, i64 %indvars.iv.i12
-  %59 = load ptr, ptr %58, align 8, !tbaa !21
+  %59 = load ptr, ptr %58, align 8, !tbaa !20
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
-  %61 = load ptr, ptr %60, align 8, !tbaa !33
+  %61 = load ptr, ptr %60, align 8, !tbaa !32
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !23
+  %63 = load ptr, ptr %62, align 8, !tbaa !22
   call void %61(ptr noundef %63, ptr noundef nonnull %.01516.i) #15
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %64 = load i32, ptr %53, align 8, !tbaa !4
   %65 = zext i32 %64 to i64
   %66 = icmp samesign ult i64 %indvars.iv.next.i13, %65
-  br i1 %66, label %57, label %._crit_edge.loopexit.i, !llvm.loop !34
+  br i1 %66, label %57, label %._crit_edge.loopexit.i, !llvm.loop !33
 
 ._crit_edge.loopexit.i:                           ; preds = %57
   %.pre.i = load i32, ptr %48, align 4, !tbaa !4
@@ -560,15 +560,15 @@ rhash_update.exit:                                ; preds = %38, %29, %32
   %74 = phi i32 [ %71, %.lr.ph.i14 ], [ %83, %82 ]
   %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.i14 ], [ %indvars.iv.next.i18, %82 ]
   %75 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %72, i64 0, i64 %indvars.iv.i15
-  %76 = load ptr, ptr %75, align 8, !tbaa !21
+  %76 = load ptr, ptr %75, align 8, !tbaa !20
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
-  %78 = load ptr, ptr %77, align 8, !tbaa !27
+  %78 = load ptr, ptr %77, align 8, !tbaa !26
   %.not.i16 = icmp eq ptr %78, null
   br i1 %.not.i16, label %82, label %79
 
 79:                                               ; preds = %73
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !23
+  %81 = load ptr, ptr %80, align 8, !tbaa !22
   call void %78(ptr noundef %81) #15
   %.pre.i17 = load i32, ptr %70, align 8, !tbaa !4
   br label %82
@@ -578,7 +578,7 @@ rhash_update.exit:                                ; preds = %38, %29, %32
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i15, 1
   %84 = zext i32 %83 to i64
   %85 = icmp samesign ult i64 %indvars.iv.next.i18, %84
-  br i1 %85, label %73, label %rhash_free.exit, !llvm.loop !28
+  br i1 %85, label %73, label %rhash_free.exit, !llvm.loop !27
 
 rhash_free.exit:                                  ; preds = %82, %69
   call void @free(ptr noundef nonnull %.07.i) #15
@@ -634,9 +634,9 @@ define dso_local range(i32 -1, 1) i32 @rhash_file_update(ptr noundef %0, ptr nou
   br i1 %.not.i, label %20, label %rhash_update.exit
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %0, align 8, !tbaa !30
+  %21 = load i64, ptr %0, align 8, !tbaa !29
   %22 = add i64 %21, %15
-  store i64 %22, ptr %0, align 8, !tbaa !30
+  store i64 %22, ptr %0, align 8, !tbaa !29
   %23 = load i32, ptr %8, align 8, !tbaa !4
   %.not16.i = icmp eq i32 %23, 0
   br i1 %.not16.i, label %rhash_update.exit, label %.lr.ph.i
@@ -644,33 +644,33 @@ define dso_local range(i32 -1, 1) i32 @rhash_file_update(ptr noundef %0, ptr nou
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %20 ]
   %24 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %9, i64 0, i64 %indvars.iv.i
-  %25 = load ptr, ptr %24, align 8, !tbaa !21
+  %25 = load ptr, ptr %24, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !31
+  %27 = load ptr, ptr %26, align 8, !tbaa !30
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !23
+  %29 = load ptr, ptr %28, align 8, !tbaa !22
   tail call void %27(ptr noundef %29, ptr noundef nonnull %6, i64 noundef %15) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %30 = load i32, ptr %8, align 8, !tbaa !4
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next.i, %31
-  br i1 %32, label %.lr.ph.i, label %rhash_update.exit, !llvm.loop !32
+  br i1 %32, label %.lr.ph.i, label %rhash_update.exit, !llvm.loop !31
 
 rhash_update.exit:                                ; preds = %.lr.ph.i, %18, %20
-  %33 = load ptr, ptr %10, align 8, !tbaa !35
+  %33 = load ptr, ptr %10, align 8, !tbaa !34
   %.not28 = icmp eq ptr %33, null
   br i1 %.not28, label %37, label %34
 
 34:                                               ; preds = %rhash_update.exit
-  %35 = load ptr, ptr %11, align 8, !tbaa !35
-  %36 = load i64, ptr %0, align 8, !tbaa !30
+  %35 = load ptr, ptr %11, align 8, !tbaa !34
+  %36 = load i64, ptr %0, align 8, !tbaa !29
   tail call void %33(ptr noundef %35, i64 noundef %36) #15
   br label %37
 
 37:                                               ; preds = %17, %34, %rhash_update.exit
   %38 = tail call i32 @feof(ptr noundef %1) #15
   %.not24 = icmp eq i32 %38, 0
-  br i1 %.not24, label %12, label %._crit_edge, !llvm.loop !36
+  br i1 %.not24, label %12, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %37, %12, %14, %.preheader
   %.0 = phi i32 [ 0, %.preheader ], [ -1, %14 ], [ 0, %12 ], [ 0, %37 ]
@@ -747,7 +747,7 @@ define dso_local range(i32 -1, 1) i32 @rhash_file(i32 noundef %0, ptr noundef re
   %.1.i = phi i64 [ %24, %23 ], [ %.0612.i, %21 ]
   %27 = shl i32 %.013.i, 1
   %.not10.i = icmp ugt i32 %27, %7
-  br i1 %.not10.i, label %28, label %21, !llvm.loop !26
+  br i1 %.not10.i, label %28, label %21, !llvm.loop !25
 
 28:                                               ; preds = %26
   %29 = call ptr @rhash_init_multi(i64 noundef %.1.i, ptr noundef nonnull %6)
@@ -794,17 +794,17 @@ rhash_init.exit:                                  ; preds = %16, %28
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
   %.01516.i = phi ptr [ %44, %.lr.ph.i ], [ %4, %46 ]
   %47 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %45, i64 0, i64 %indvars.iv.i
-  %48 = load ptr, ptr %47, align 8, !tbaa !21
+  %48 = load ptr, ptr %47, align 8, !tbaa !20
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %50 = load ptr, ptr %49, align 8, !tbaa !33
+  %50 = load ptr, ptr %49, align 8, !tbaa !32
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !23
+  %52 = load ptr, ptr %51, align 8, !tbaa !22
   call void %50(ptr noundef %52, ptr noundef nonnull %.01516.i) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %53 = load i32, ptr %42, align 8, !tbaa !4
   %54 = zext i32 %53 to i64
   %55 = icmp samesign ult i64 %indvars.iv.next.i, %54
-  br i1 %55, label %46, label %._crit_edge.loopexit.i, !llvm.loop !34
+  br i1 %55, label %46, label %._crit_edge.loopexit.i, !llvm.loop !33
 
 ._crit_edge.loopexit.i:                           ; preds = %46
   %.pre.i = load i32, ptr %37, align 4, !tbaa !4
@@ -836,15 +836,15 @@ rhash_final.exit:                                 ; preds = %36, %._crit_edge.i
   %64 = phi i32 [ %61, %.lr.ph.i19 ], [ %73, %72 ]
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i23, %72 ]
   %65 = getelementptr inbounds nuw [0 x %struct.rhash_vector_item], ptr %62, i64 0, i64 %indvars.iv.i20
-  %66 = load ptr, ptr %65, align 8, !tbaa !21
+  %66 = load ptr, ptr %65, align 8, !tbaa !20
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %68 = load ptr, ptr %67, align 8, !tbaa !27
+  %68 = load ptr, ptr %67, align 8, !tbaa !26
   %.not.i21 = icmp eq ptr %68, null
   br i1 %.not.i21, label %72, label %69
 
 69:                                               ; preds = %63
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !23
+  %71 = load ptr, ptr %70, align 8, !tbaa !22
   call void %68(ptr noundef %71) #15
   %.pre.i22 = load i32, ptr %60, align 8, !tbaa !4
   br label %72
@@ -854,7 +854,7 @@ rhash_final.exit:                                 ; preds = %36, %._crit_edge.i
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i20, 1
   %74 = zext i32 %73 to i64
   %75 = icmp samesign ult i64 %indvars.iv.next.i23, %74
-  br i1 %75, label %63, label %rhash_free.exit, !llvm.loop !28
+  br i1 %75, label %63, label %rhash_free.exit, !llvm.loop !27
 
 rhash_free.exit:                                  ; preds = %72, %58
   call void @free(ptr noundef nonnull %.07.i) #15
@@ -879,13 +879,13 @@ define dso_local i32 @rhash_get_digest_size(i32 noundef %0) local_unnamed_addr #
   br i1 %or.cond, label %4, label %13
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr @rhash_info_table, align 8, !tbaa !19
+  %5 = load ptr, ptr @rhash_info_table, align 8, !tbaa !18
   %6 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %2, i1 true)
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw %struct.rhash_hash_info, ptr %5, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !37
+  %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !38
+  %11 = load i64, ptr %10, align 8, !tbaa !37
   %12 = trunc i64 %11 to i32
   br label %13
 
@@ -905,11 +905,11 @@ define dso_local i32 @rhash_get_hash_length(i32 noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !41
+  %5 = load i32, ptr %4, align 4, !tbaa !40
   %6 = and i32 %5, 1
   %.not4 = icmp eq i32 %6, 0
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !38
+  %8 = load i64, ptr %7, align 8, !tbaa !37
   br i1 %.not4, label %13, label %9
 
 9:                                                ; preds = %3
@@ -938,7 +938,7 @@ define dso_local ptr @rhash_get_name(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -954,7 +954,7 @@ define dso_local ptr @rhash_get_magnet_name(i32 noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !43
+  %5 = load ptr, ptr %4, align 8, !tbaa !42
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -1002,34 +1002,33 @@ attributes #17 = { nounwind willreturn memory(none) }
 !10 = !{!"p1 _ZTS10rhash_info", !11, i64 0}
 !11 = !{!"any pointer", !6, i64 0}
 !12 = !{!"long", !6, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !5, i64 8}
-!17 = !{!"rhash_context", !18, i64 0, !5, i64 8}
-!18 = !{!"long long", !6, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 _ZTS15rhash_hash_info", !11, i64 0}
-!21 = !{!22, !20, i64 0}
-!22 = !{!"rhash_vector_item", !20, i64 0, !11, i64 8}
-!23 = !{!22, !11, i64 8}
-!24 = !{!9, !11, i64 24}
-!25 = distinct !{!25, !14, !15}
-!26 = distinct !{!26, !14, !15}
-!27 = !{!9, !11, i64 48}
-!28 = distinct !{!28, !14, !15}
-!29 = distinct !{!29, !14, !15}
-!30 = !{!17, !18, i64 0}
-!31 = !{!9, !11, i64 32}
-!32 = distinct !{!32, !14, !15}
-!33 = !{!9, !11, i64 40}
-!34 = distinct !{!34, !14, !15}
-!35 = !{!11, !11, i64 0}
-!36 = distinct !{!36, !14, !15}
-!37 = !{!9, !10, i64 0}
-!38 = !{!39, !12, i64 8}
-!39 = !{!"rhash_info", !5, i64 0, !5, i64 4, !12, i64 8, !40, i64 16, !40, i64 24}
-!40 = !{!"p1 omnipotent char", !11, i64 0}
-!41 = !{!39, !5, i64 4}
-!42 = !{!39, !40, i64 16}
-!43 = !{!39, !40, i64 24}
+!15 = !{!16, !5, i64 8}
+!16 = !{!"rhash_context", !17, i64 0, !5, i64 8}
+!17 = !{!"long long", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS15rhash_hash_info", !11, i64 0}
+!20 = !{!21, !19, i64 0}
+!21 = !{!"rhash_vector_item", !19, i64 0, !11, i64 8}
+!22 = !{!21, !11, i64 8}
+!23 = !{!9, !11, i64 24}
+!24 = distinct !{!24, !14}
+!25 = distinct !{!25, !14}
+!26 = !{!9, !11, i64 48}
+!27 = distinct !{!27, !14}
+!28 = distinct !{!28, !14}
+!29 = !{!16, !17, i64 0}
+!30 = !{!9, !11, i64 32}
+!31 = distinct !{!31, !14}
+!32 = !{!9, !11, i64 40}
+!33 = distinct !{!33, !14}
+!34 = !{!11, !11, i64 0}
+!35 = distinct !{!35, !14}
+!36 = !{!9, !10, i64 0}
+!37 = !{!38, !12, i64 8}
+!38 = !{!"rhash_info", !5, i64 0, !5, i64 4, !12, i64 8, !39, i64 16, !39, i64 24}
+!39 = !{!"p1 omnipotent char", !11, i64 0}
+!40 = !{!38, !5, i64 4}
+!41 = !{!38, !39, i64 16}
+!42 = !{!38, !39, i64 24}

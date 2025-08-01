@@ -718,7 +718,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_19make_timeERKNS1_6detail10civil_timeIN
   %.214.i = phi i64 [ %.012.i, %272 ], [ %.012.i, %.._crit_edge.loopexit_crit_edge.i ], [ %271, %268 ], [ %.012.i, %277 ]
   %.1.i54 = phi i64 [ %.011.i, %272 ], [ %.pre.pre.i, %.._crit_edge.loopexit_crit_edge.i ], [ %.011.i, %268 ], [ %.012.i, %277 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
-  br i1 %.not17.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %258, !llvm.loop !54
+  br i1 %.not17.not.i, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit, label %258, !llvm.loop !53
 
 _ZN4absl13time_internal4cctz12_GLOBAL__N_110find_transElll.exit: ; preds = %258, %._crit_edge.i, %._crit_edge.thread.i
   %.2.i = phi i64 [ %.012.i, %._crit_edge.thread.i ], [ %.1.i54, %._crit_edge.i ], [ %.012.i, %258 ]
@@ -866,10 +866,10 @@ define dso_local noundef zeroext i1 @_ZNK4absl13time_internal4cctz12TimeZoneLibC
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneLibC7VersionB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %0, align 8, !tbaa !55
+  store ptr %3, ptr %0, align 8, !tbaa !54
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %4, align 8, !tbaa !57
-  store i8 0, ptr %3, align 8, !tbaa !59
+  store i64 0, ptr %4, align 8, !tbaa !56
+  store i8 0, ptr %3, align 8, !tbaa !58
   ret void
 }
 
@@ -881,13 +881,13 @@ define dso_local void @_ZNK4absl13time_internal4cctz12TimeZoneLibC11DescriptionB
   %4 = trunc nuw i8 %3 to i1
   %5 = select i1 %4, ptr @.str.2, ptr @.str.1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %0, align 8, !tbaa !55
+  store ptr %6, ptr %0, align 8, !tbaa !54
   %7 = select i1 %4, i64 9, i64 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %6, ptr noundef nonnull align 1 dereferenceable(3) %5, i64 %7, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %8, align 8, !tbaa !57
+  store i64 %7, ptr %8, align 8, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %7
-  store i8 0, ptr %9, align 1, !tbaa !59
+  store i8 0, ptr %9, align 1, !tbaa !58
   ret void
 }
 
@@ -1315,7 +1315,7 @@ _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124: ; preds = %.
   %.not111 = icmp sgt i64 %.6, %89
   %90 = sub nsw i64 %.6, %89
   %91 = add nsw i64 %.788, 1
-  br i1 %.not111, label %.preheader132, label %.loopexit, !llvm.loop !60
+  br i1 %.not111, label %.preheader132, label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124, %46
   %.283 = phi i64 [ %.182, %46 ], [ %.788, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124 ]
@@ -1329,7 +1329,7 @@ _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit124: ; preds = %.
   %.1 = phi i8 [ %spec.select117, %108 ], [ %1, %.loopexit ]
   %93 = sext i8 %.1 to i64
   %94 = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 0, i64 %93
-  %95 = load i32, ptr %94, align 4, !tbaa !61
+  %95 = load i32, ptr %94, align 4, !tbaa !59
   %96 = icmp eq i8 %.1, 2
   %97 = and i64 %.1091, 3
   %98 = icmp eq i64 %97, 0
@@ -1361,7 +1361,7 @@ _ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit: ; preds = %.pr
   %112 = zext i1 %111 to i64
   %spec.select116 = add nsw i64 %.1091, %112
   %spec.select117 = select i1 %111, i8 1, i8 %110
-  br label %.preheader, !llvm.loop !62
+  br label %.preheader
 
 .thread:                                          ; preds = %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit, %.loopexit
   %.990 = phi i64 [ %.283, %.loopexit ], [ %.1091, %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit ]
@@ -1563,15 +1563,12 @@ attributes #15 = { builtin nounwind }
 !48 = !{!"_ZTSN4absl13time_internal4cctz9time_zone12civil_lookup10civil_kindE", !11, i64 0}
 !49 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEE", !50, i64 0}
 !50 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1EEEE", !17, i64 0}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = distinct !{!54, !52, !53}
-!55 = !{!56, !23, i64 0}
-!56 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !23, i64 0}
-!57 = !{!58, !17, i64 8}
-!58 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !56, i64 0, !17, i64 8, !11, i64 16}
-!59 = !{!11, !11, i64 0}
-!60 = distinct !{!60, !53}
-!61 = !{!22, !22, i64 0}
-!62 = distinct !{!62, !53}
+!53 = distinct !{!53, !52}
+!54 = !{!55, !23, i64 0}
+!55 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !23, i64 0}
+!56 = !{!57, !17, i64 8}
+!57 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !55, i64 0, !17, i64 8, !11, i64 16}
+!58 = !{!11, !11, i64 0}
+!59 = !{!22, !22, i64 0}

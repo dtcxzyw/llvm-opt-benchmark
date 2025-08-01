@@ -179,7 +179,7 @@ declare void @bql_unlock() local_unnamed_addr #2
 define dso_local void @cpu_exit(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 199
   store atomic i8 1, ptr %2 monotonic, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
   fence release
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 11194
   store atomic i16 -1, ptr %3 monotonic, align 2
@@ -216,7 +216,7 @@ define dso_local void @cpu_reset(ptr noundef %0) local_unnamed_addr #0 {
   %5 = load i32, ptr %4, align 16
   %6 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %6, 0
-  br i1 %.not.i.i, label %trace_cpu_reset.exit, label %7, !prof !10
+  br i1 %.not.i.i, label %trace_cpu_reset.exit, label %7, !prof !9
 
 7:                                                ; preds = %1
   %8 = load i16, ptr @_TRACE_CPU_RESET_DSTATE, align 2
@@ -230,13 +230,13 @@ define dso_local void @cpu_reset(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not3.i.i, label %trace_cpu_reset.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i8, ptr @message_with_timestamp, align 1, !range !11, !noundef !12
+  %13 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !12
   %16 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #12
   %17 = tail call i32 @qemu_get_thread_id() #12
   %18 = load i64, ptr %2, align 8
@@ -371,7 +371,7 @@ define internal void @cpu_common_initfn(ptr noundef %0) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store ptr %16, ptr %17, align 8
   tail call void @cpu_exec_initfn(ptr noundef %0) #12
-  %18 = load i8, ptr @tcg_allowed, align 1, !range !11, !noundef !12
+  %18 = load i8, ptr @tcg_allowed, align 1, !range !10, !noundef !11
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %23
 
@@ -388,7 +388,7 @@ define internal void @cpu_common_initfn(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cpu_common_finalize(ptr noundef %0) #0 {
-  %2 = load i8, ptr @tcg_allowed, align 1, !range !11, !noundef !12
+  %2 = load i8, ptr @tcg_allowed, align 1, !range !10, !noundef !11
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %7
 
@@ -532,7 +532,7 @@ define internal void @cpu_common_parse_features(ptr noundef %0, ptr noundef %1, 
   tail call void @qdev_prop_register_global(ptr noundef nonnull %10) #12
   %16 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.12) #12
   %.not31 = icmp eq ptr %16, null
-  br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 17:                                               ; preds = %.lr.ph
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 189, ptr noundef nonnull @__func__.cpu_common_parse_features, ptr noundef nonnull @.str.14, ptr noundef nonnull %.02735) #12
@@ -580,7 +580,7 @@ define internal void @cpu_common_realizefn(ptr noundef %0, ptr readnone captures
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 273
-  %10 = load i8, ptr %9, align 1, !range !11, !noundef !12
+  %10 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 752
   store i8 %10, ptr %11, align 16
   br label %12
@@ -602,7 +602,7 @@ define internal void @cpu_common_realizefn(ptr noundef %0, ptr readnone captures
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cpu_common_unrealizefn(ptr noundef %0) #0 {
-  %2 = load i8, ptr @tcg_allowed, align 1, !range !11, !noundef !12
+  %2 = load i8, ptr @tcg_allowed, align 1, !range !10, !noundef !11
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %5
 
@@ -656,7 +656,7 @@ log_cpu_state.exit:                               ; preds = %cpu_dump_state.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 0, ptr %20, align 16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %22 = load i8, ptr %21, align 4, !range !11, !noundef !12
+  %22 = load i8, ptr %21, align 4, !range !10, !noundef !11
   %23 = zext nneg i8 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 716
   store i32 %23, ptr %24, align 4
@@ -736,12 +736,11 @@ attributes #16 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i64 2152391754}
 !5 = !{i64 2152395967}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2152396636}
-!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = !{!"auto-init"}
-!14 = distinct !{!14, !7, !8}
+!8 = !{i64 2152396636}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = !{!"auto-init"}
+!13 = distinct !{!13, !7}

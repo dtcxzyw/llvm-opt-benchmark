@@ -46,10 +46,10 @@ define hidden range(i32 0, 256) i32 @mbedtls_ct_memcmp_partial(ptr noundef %0, p
   %10 = load volatile i8, ptr %9, align 1, !tbaa !3
   %11 = xor i8 %10, %8
   %12 = zext i8 %11 to i32
-  %13 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %.02021, i64 %3) #3, !srcloc !9
+  %13 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %.02021, i64 %3) #3, !srcloc !8
   %14 = extractvalue { i64, i64, i64 } %13, 1
   %15 = xor i64 %14, -1
-  %16 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %.02021, i64 %6) #3, !srcloc !9
+  %16 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %.02021, i64 %6) #3, !srcloc !8
   %17 = extractvalue { i64, i64, i64 } %16, 1
   %18 = and i64 %17, %15
   %19 = trunc i64 %18 to i32
@@ -57,7 +57,7 @@ define hidden range(i32 0, 256) i32 @mbedtls_ct_memcmp_partial(ptr noundef %0, p
   %21 = or i32 %20, %.022
   %22 = add nuw i64 %.02021, 1
   %exitcond.not = icmp eq i64 %22, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -74,7 +74,7 @@ define hidden void @mbedtls_ct_memmove_left(ptr noundef %0, i64 noundef %1, i64 
 
 .lr.ph.us:                                        ; preds = %.lr.ph29, %._crit_edge.us
   %.027.us = phi i64 [ %23, %._crit_edge.us ], [ 0, %.lr.ph29 ]
-  %7 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %.027.us, i64 %4) #3, !srcloc !9
+  %7 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %.027.us, i64 %4) #3, !srcloc !8
   %8 = extractvalue { i64, i64, i64 } %7, 1
   br label %9
 
@@ -87,12 +87,12 @@ define hidden void @mbedtls_ct_memmove_left(ptr noundef %0, i64 noundef %1, i64 
   %14 = load volatile i8, ptr %13, align 1, !tbaa !3
   %15 = zext i8 %11 to i64
   %16 = zext i8 %14 to i64
-  %17 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %8, i64 range(i64 0, 256) %15, i64 range(i64 0, 256) %16) #3, !srcloc !11
+  %17 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %8, i64 range(i64 0, 256) %15, i64 range(i64 0, 256) %16) #3, !srcloc !10
   %18 = extractvalue { i64, i64, i64 } %17, 2
   %19 = trunc i64 %18 to i8
   store volatile i8 %19, ptr %10, align 1, !tbaa !3
   %exitcond.not = icmp eq i64 %12, %5
-  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.us, label %9, !llvm.loop !11
 
 ._crit_edge.us:                                   ; preds = %9
   %20 = load volatile i8, ptr %6, align 1, !tbaa !3
@@ -101,13 +101,13 @@ define hidden void @mbedtls_ct_memmove_left(ptr noundef %0, i64 noundef %1, i64 
   store volatile i8 %22, ptr %6, align 1, !tbaa !3
   %23 = add nuw i64 %.027.us, 1
   %exitcond33.not = icmp eq i64 %23, %1
-  br i1 %exitcond33.not, label %._crit_edge30, label %.lr.ph.us, !llvm.loop !13
+  br i1 %exitcond33.not, label %._crit_edge30, label %.lr.ph.us, !llvm.loop !12
 
 ._crit_edge30:                                    ; preds = %._crit_edge.us, %.lr.ph29.split, %3
   ret void
 
 .lr.ph29.split:                                   ; preds = %.lr.ph29
-  %24 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 0, i64 %4) #3, !srcloc !9
+  %24 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 0, i64 %4) #3, !srcloc !8
   %25 = extractvalue { i64, i64, i64 } %24, 1
   %26 = load volatile i8, ptr %6, align 1, !tbaa !3
   %27 = trunc i64 %25 to i8
@@ -118,7 +118,7 @@ define hidden void @mbedtls_ct_memmove_left(ptr noundef %0, i64 noundef %1, i64 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_ct_memcpy_if(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #1 {
-  %6 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %0) #3, !srcloc !15
+  %6 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %0) #3, !srcloc !14
   %7 = xor i64 %6, -1
   %8 = icmp eq ptr %3, null
   %spec.select = select i1 %8, ptr %1, ptr %3
@@ -144,7 +144,7 @@ define hidden void @mbedtls_ct_memcpy_if(i64 noundef %0, ptr noundef captures(no
   store i64 %16, ptr %15, align 1
   %17 = add i64 %10, 8
   %.not = icmp ugt i64 %17, %4
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !15
 
 .lr.ph34:                                         ; preds = %.preheader, %.lr.ph34
   %.133 = phi i64 [ %29, %.lr.ph34 ], [ %.027.lcssa, %.preheader ]
@@ -162,7 +162,7 @@ define hidden void @mbedtls_ct_memcpy_if(i64 noundef %0, ptr noundef captures(no
   store i8 %27, ptr %28, align 1, !tbaa !3
   %29 = add nuw i64 %.133, 1
   %exitcond.not = icmp eq i64 %29, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph34, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph34, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph34, %.preheader
   ret void
@@ -183,13 +183,13 @@ define hidden void @mbedtls_ct_memcpy_offset(ptr noundef captures(none) %0, ptr 
 
 .preheader.i.us:                                  ; preds = %mbedtls_ct_memcpy_if.exit.us, %.lr.ph.split.us
   %.010.us = phi i64 [ %3, %.lr.ph.split.us ], [ %26, %mbedtls_ct_memcpy_if.exit.us ]
-  %7 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.010.us) #3, !srcloc !15
-  %8 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %2) #3, !srcloc !15
+  %7 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.010.us) #3, !srcloc !14
+  %8 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %2) #3, !srcloc !14
   %9 = xor i64 %8, %7
-  %10 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %9) #3, !srcloc !18
+  %10 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %9) #3, !srcloc !17
   %11 = xor i64 %10, -1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.010.us
-  %13 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %11) #3, !srcloc !15
+  %13 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %11) #3, !srcloc !14
   %14 = xor i64 %13, -1
   br i1 %.not11, label %mbedtls_ct_memcpy_if.exit.us, label %.lr.ph34.i.us
 
@@ -208,22 +208,22 @@ define hidden void @mbedtls_ct_memcpy_offset(ptr noundef captures(none) %0, ptr 
   store i8 %24, ptr %19, align 1, !tbaa !3
   %25 = add nuw nsw i64 %.133.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %25, %5
-  br i1 %exitcond.not.i.us, label %mbedtls_ct_memcpy_if.exit.us, label %.lr.ph34.i.us, !llvm.loop !17
+  br i1 %exitcond.not.i.us, label %mbedtls_ct_memcpy_if.exit.us, label %.lr.ph34.i.us, !llvm.loop !16
 
 mbedtls_ct_memcpy_if.exit.us:                     ; preds = %.lr.ph34.i.us, %.preheader.i.us
   %26 = add i64 %.010.us, 1
   %.not.us = icmp ugt i64 %26, %4
-  br i1 %.not.us, label %._crit_edge, label %.preheader.i.us, !llvm.loop !19
+  br i1 %.not.us, label %._crit_edge, label %.preheader.i.us, !llvm.loop !18
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %mbedtls_ct_memcpy_if.exit
   %.010 = phi i64 [ %54, %mbedtls_ct_memcpy_if.exit ], [ %3, %.lr.ph ]
-  %27 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.010) #3, !srcloc !15
-  %28 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %2) #3, !srcloc !15
+  %27 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.010) #3, !srcloc !14
+  %28 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %2) #3, !srcloc !14
   %29 = xor i64 %28, %27
-  %30 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %29) #3, !srcloc !18
+  %30 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %29) #3, !srcloc !17
   %31 = xor i64 %30, -1
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %.010
-  %33 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %31) #3, !srcloc !15
+  %33 = tail call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %31) #3, !srcloc !14
   %34 = xor i64 %33, -1
   br label %.lr.ph.i
 
@@ -244,7 +244,7 @@ mbedtls_ct_memcpy_if.exit.us:                     ; preds = %.lr.ph34.i.us, %.pr
   store i64 %41, ptr %39, align 1
   %42 = add i64 %36, 8
   %.not.i = icmp ugt i64 %42, %5
-  br i1 %.not.i, label %.preheader.i.loopexit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %.preheader.i.loopexit, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph34.i:                                       ; preds = %.preheader.i.loopexit, %.lr.ph34.i
   %.133.i = phi i64 [ %53, %.lr.ph34.i ], [ %36, %.preheader.i.loopexit ]
@@ -261,12 +261,12 @@ mbedtls_ct_memcpy_if.exit.us:                     ; preds = %.lr.ph34.i.us, %.pr
   store i8 %52, ptr %47, align 1, !tbaa !3
   %53 = add nuw i64 %.133.i, 1
   %exitcond.not.i = icmp eq i64 %53, %5
-  br i1 %exitcond.not.i, label %mbedtls_ct_memcpy_if.exit, label %.lr.ph34.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %mbedtls_ct_memcpy_if.exit, label %.lr.ph34.i, !llvm.loop !16
 
 mbedtls_ct_memcpy_if.exit:                        ; preds = %.lr.ph34.i, %.preheader.i.loopexit
   %54 = add i64 %.010, 1
   %.not = icmp ugt i64 %54, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %mbedtls_ct_memcpy_if.exit, %mbedtls_ct_memcpy_if.exit.us, %6
   ret void
@@ -297,7 +297,7 @@ define hidden void @mbedtls_ct_zeroize_if(i64 noundef %0, ptr noundef captures(n
   store i32 %10, ptr %9, align 1
   %11 = add i64 %8, 4
   %.not = icmp ugt i64 %11, %2
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !20
 
 12:                                               ; preds = %.lr.ph21, %12
   %.120 = phi i64 [ %.0.lcssa, %.lr.ph21 ], [ %16, %12 ]
@@ -307,7 +307,7 @@ define hidden void @mbedtls_ct_zeroize_if(i64 noundef %0, ptr noundef captures(n
   store i8 %15, ptr %13, align 1, !tbaa !3
   %16 = add nuw i64 %.120, 1
   %exitcond.not = icmp eq i64 %16, %2
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %12, %.preheader
   ret void
@@ -326,20 +326,19 @@ attributes #3 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 851442, i64 851492, i64 851564, i64 851636, i64 851708, i64 851780, i64 851852, i64 851924, i64 851996}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i64 848210, i64 848260, i64 848332, i64 848404, i64 848476}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = !{i64 841911}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = !{i64 844789, i64 844839, i64 844911, i64 844983, i64 845055}
-!19 = distinct !{!19, !7, !8, !14}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
+!8 = !{i64 851442, i64 851492, i64 851564, i64 851636, i64 851708, i64 851780, i64 851852, i64 851924, i64 851996}
+!9 = distinct !{!9, !7}
+!10 = !{i64 848210, i64 848260, i64 848332, i64 848404, i64 848476}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = !{i64 841911}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = !{i64 844789, i64 844839, i64 844911, i64 844983, i64 845055}
+!18 = distinct !{!18, !7, !13}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

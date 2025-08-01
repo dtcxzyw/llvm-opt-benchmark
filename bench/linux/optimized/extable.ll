@@ -123,7 +123,7 @@ define dso_local void @trim_init_extable(ptr noundef captures(none) %0) local_un
   %39 = add i32 %.pr, -1
   store i32 %39, ptr %2, align 4
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.thread, label %9, !llvm.loop !9
+  br i1 %40, label %.thread, label %9, !llvm.loop !8
 
 41:                                               ; preds = %35
   %42 = zext i32 %.pr to i64
@@ -165,7 +165,7 @@ define dso_local void @trim_init_extable(ptr noundef captures(none) %0) local_un
   %70 = add nuw nsw i64 %54, 1
   %71 = icmp samesign ult i64 %54, 6
   %72 = icmp eq i64 %70, 7
-  br i1 %72, label %73, label %53, !llvm.loop !10
+  br i1 %72, label %73, label %53, !llvm.loop !5
 
 73:                                               ; preds = %69, %60
   %74 = phi i1 [ %55, %60 ], [ %71, %69 ]
@@ -174,7 +174,7 @@ define dso_local void @trim_init_extable(ptr noundef captures(none) %0) local_un
 75:                                               ; preds = %73
   store i32 %46, ptr %2, align 4
   %76 = icmp eq i32 %46, 0
-  br i1 %76, label %.thread, label %43, !llvm.loop !11
+  br i1 %76, label %.thread, label %43, !llvm.loop !9
 
 .thread:                                          ; preds = %37, %75, %73, %1
   ret void
@@ -220,10 +220,8 @@ attributes #6 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}

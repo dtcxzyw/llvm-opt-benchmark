@@ -192,7 +192,7 @@ define internal fastcc void @kh_resize_oid_set(ptr noundef captures(none) %0, i3
   %94 = load i32, ptr %93, align 4, !tbaa !15
   %95 = or i32 %94, %91
   store i32 %95, ptr %93, align 4, !tbaa !15
-  br label %57, !llvm.loop !21
+  br label %57
 
 split:                                            ; preds = %82, %._crit_edge._crit_edge
   %96 = phi ptr [ %.pre121, %._crit_edge._crit_edge ], [ %.pre122, %82 ]
@@ -209,7 +209,7 @@ split:                                            ; preds = %82, %._crit_edge._c
   %100 = phi i32 [ %40, %39 ], [ %.pre123, %split ]
   %101 = add i32 %.1110, 1
   %.not = icmp eq i32 %101, %100
-  br i1 %.not, label %._crit_edge113, label %39, !llvm.loop !22
+  br i1 %.not, label %._crit_edge113, label %39, !llvm.loop !20
 
 ._crit_edge113:                                   ; preds = %99
   %102 = icmp ugt i32 %100, %spec.store.select
@@ -232,9 +232,9 @@ split:                                            ; preds = %82, %._crit_edge._c
   store i32 %spec.store.select, ptr %0, align 8, !tbaa !12
   %111 = load i32, ptr %15, align 4, !tbaa !4
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %111, ptr %112, align 8, !tbaa !23
+  store i32 %111, ptr %112, align 8, !tbaa !21
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %19, ptr %113, align 4, !tbaa !24
+  store i32 %19, ptr %113, align 4, !tbaa !22
   br label %.critedge
 
 .critedge:                                        ; preds = %2, %._crit_edge113.thread
@@ -284,7 +284,7 @@ define dso_local range(i32 0, 2) i32 @oidset_contains(ptr noundef readonly captu
   %25 = zext i32 %.027.i to i64
   %26 = getelementptr inbounds nuw %struct.object_id, ptr %24, i64 %25
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 4 dereferenceable(36) %26, i64 36, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 4 dereferenceable(36) %26, i64 36, i1 false), !tbaa.struct !23
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32)
   %.not.i.i.not.i = icmp eq i32 %bcmp.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #16
@@ -295,7 +295,7 @@ define dso_local range(i32 0, 2) i32 @oidset_contains(ptr noundef readonly captu
   %28 = add i32 %27, %.027.i
   %29 = and i32 %28, %7
   %30 = icmp eq i32 %29, %8
-  br i1 %30, label %kh_get_oid_set.exit, label %12, !llvm.loop !26
+  br i1 %30, label %kh_get_oid_set.exit, label %12, !llvm.loop !24
 
 .critedge.i:                                      ; preds = %23, %12
   %31 = shl nuw i32 3, %18
@@ -328,9 +328,9 @@ define dso_local range(i32 0, 2) i32 @oidset_insert(ptr noundef captures(none) %
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 4 dereferenceable(36) %1, i64 36, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !23
+  %6 = load i32, ptr %5, align 8, !tbaa !21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !24
+  %8 = load i32, ptr %7, align 4, !tbaa !22
   %.not.i = icmp ult i32 %6, %8
   br i1 %.not.i, label %15, label %.sink.split.i
 
@@ -392,7 +392,7 @@ define dso_local range(i32 0, 2) i32 @oidset_insert(ptr noundef captures(none) %
   %43 = zext i32 %.069.i to i64
   %44 = getelementptr inbounds nuw %struct.object_id, ptr %42, i64 %43
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 4 dereferenceable(36) %44, i64 36, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 4 dereferenceable(36) %44, i64 36, i1 false), !tbaa.struct !23
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32)
   %.not.i.i.not.i = icmp eq i32 %bcmp.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #16
@@ -407,7 +407,7 @@ define dso_local range(i32 0, 2) i32 @oidset_insert(ptr noundef captures(none) %
   %48 = add i32 %47, %.069.i
   %49 = and i32 %48, %17
   %50 = icmp eq i32 %49, %18
-  br i1 %50, label %.critedge.i, label %30, !llvm.loop !27
+  br i1 %50, label %.critedge.i, label %30, !llvm.loop !25
 
 .critedge.i:                                      ; preds = %.critedge2.i
   %51 = icmp eq i32 %spec.select.i, %16
@@ -446,7 +446,7 @@ define dso_local range(i32 0, 2) i32 @oidset_insert(ptr noundef captures(none) %
   %64 = load ptr, ptr %63, align 8, !tbaa !13
   %65 = zext i32 %.068.i to i64
   %66 = getelementptr inbounds nuw %struct.object_id, ptr %64, i64 %65
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %66, ptr noundef nonnull readonly align 8 dereferenceable(36) %4, i64 36, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %66, ptr noundef nonnull readonly align 8 dereferenceable(36) %4, i64 36, i1 false), !tbaa.struct !23
   %67 = shl nuw i32 3, %59
   %68 = xor i32 %67, -1
   %69 = load ptr, ptr %19, align 8, !tbaa !14
@@ -458,9 +458,9 @@ define dso_local range(i32 0, 2) i32 @oidset_insert(ptr noundef captures(none) %
   %74 = load i32, ptr %73, align 4, !tbaa !4
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 4, !tbaa !4
-  %76 = load i32, ptr %5, align 8, !tbaa !23
+  %76 = load i32, ptr %5, align 8, !tbaa !21
   %77 = add i32 %76, 1
-  store i32 %77, ptr %5, align 8, !tbaa !23
+  store i32 %77, ptr %5, align 8, !tbaa !21
   br label %kh_put_oid_set.exit
 
 78:                                               ; preds = %53
@@ -473,7 +473,7 @@ define dso_local range(i32 0, 2) i32 @oidset_insert(ptr noundef captures(none) %
   %82 = load ptr, ptr %81, align 8, !tbaa !13
   %83 = zext i32 %.068.i to i64
   %84 = getelementptr inbounds nuw %struct.object_id, ptr %82, i64 %83
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %84, ptr noundef nonnull readonly align 8 dereferenceable(36) %4, i64 36, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %84, ptr noundef nonnull readonly align 8 dereferenceable(36) %4, i64 36, i1 false), !tbaa.struct !23
   %85 = shl nuw i32 3, %59
   %86 = xor i32 %85, -1
   %87 = load ptr, ptr %19, align 8, !tbaa !14
@@ -526,7 +526,7 @@ define dso_local void @oidset_insert_from_set(ptr noundef captures(none) %0, ptr
 18:                                               ; preds = %8
   %19 = add i32 %9, 1
   %.not.i = icmp eq i32 %19, %6
-  br i1 %.not.i, label %oidset_iter_next.exit.thread, label %8, !llvm.loop !28
+  br i1 %.not.i, label %oidset_iter_next.exit.thread, label %8, !llvm.loop !26
 
 oidset_iter_next.exit:                            ; preds = %8
   %20 = load ptr, ptr %5, align 8, !tbaa !13
@@ -540,7 +540,7 @@ oidset_iter_next.exit:                            ; preds = %8
   %25 = tail call i32 @oidset_insert(ptr noundef %0, ptr noundef nonnull %23)
   %26 = load i32, ptr %1, align 8, !tbaa !12
   %.not16.i = icmp eq i32 %24, %26
-  br i1 %.not16.i, label %oidset_iter_next.exit.thread, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not16.i, label %oidset_iter_next.exit.thread, label %.lr.ph.i, !llvm.loop !27
 
 oidset_iter_next.exit.thread:                     ; preds = %oidset_iter_next.exit, %21, %18, %2
   ret void
@@ -589,7 +589,7 @@ define dso_local range(i32 0, 2) i32 @oidset_remove(ptr noundef captures(none) %
   %25 = zext i32 %.027.i to i64
   %26 = getelementptr inbounds nuw %struct.object_id, ptr %24, i64 %25
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 4 dereferenceable(36) %26, i64 36, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 4 dereferenceable(36) %26, i64 36, i1 false), !tbaa.struct !23
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32)
   %.not.i.i.not.i = icmp eq i32 %bcmp.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #16
@@ -600,7 +600,7 @@ define dso_local range(i32 0, 2) i32 @oidset_remove(ptr noundef captures(none) %
   %28 = add i32 %27, %.027.i
   %29 = and i32 %28, %7
   %30 = icmp eq i32 %29, %8
-  br i1 %30, label %kh_get_oid_set.exit.thread, label %12, !llvm.loop !26
+  br i1 %30, label %kh_get_oid_set.exit.thread, label %12, !llvm.loop !24
 
 kh_get_oid_set.exit.thread:                       ; preds = %.critedge2.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4)
@@ -657,7 +657,7 @@ define dso_local void @oidset_clear(ptr noundef captures(none) initializes((0, 1
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   tail call void @free(ptr noundef %5) #16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %7 = load ptr, ptr %6, align 8, !tbaa !28
   tail call void @free(ptr noundef %7) #16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   ret void
@@ -698,7 +698,7 @@ define dso_local void @oidset_parse_file_carefully(ptr noundef captures(none) %0
 
 14:                                               ; preds = %.lr.ph, %41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
-  %15 = load ptr, ptr %11, align 8, !tbaa !31
+  %15 = load ptr, ptr %11, align 8, !tbaa !29
   %16 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 35) #18
   %.not17 = icmp eq ptr %16, null
   br i1 %.not17, label %strbuf_setlen.exit, label %17
@@ -707,7 +707,7 @@ define dso_local void @oidset_parse_file_carefully(ptr noundef captures(none) %0
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %15 to i64
   %20 = sub i64 %18, %19
-  %21 = load i64, ptr %6, align 8, !tbaa !35
+  %21 = load i64, ptr %6, align 8, !tbaa !33
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %21, i64 1)
   %22 = icmp ugt i64 %20, %spec.select.i
   br i1 %22, label %23, label %24
@@ -717,7 +717,7 @@ define dso_local void @oidset_parse_file_carefully(ptr noundef captures(none) %0
   unreachable
 
 24:                                               ; preds = %17
-  store i64 %20, ptr %12, align 8, !tbaa !36
+  store i64 %20, ptr %12, align 8, !tbaa !34
   %.not9.i = icmp eq ptr %15, @strbuf_slopbuf
   br i1 %.not9.i, label %strbuf_setlen.exit, label %25
 
@@ -728,24 +728,24 @@ define dso_local void @oidset_parse_file_carefully(ptr noundef captures(none) %0
 
 strbuf_setlen.exit:                               ; preds = %25, %24, %14
   call void @strbuf_trim(ptr noundef nonnull %6) #16
-  %27 = load i64, ptr %12, align 8, !tbaa !36
+  %27 = load i64, ptr %12, align 8, !tbaa !34
   %.not18 = icmp eq i64 %27, 0
-  br i1 %.not18, label %41, label %28, !llvm.loop !37
+  br i1 %.not18, label %41, label %28, !llvm.loop !35
 
 28:                                               ; preds = %strbuf_setlen.exit
-  %29 = load ptr, ptr %11, align 8, !tbaa !31
+  %29 = load ptr, ptr %11, align 8, !tbaa !29
   %30 = call i32 @parse_oid_hex_algop(ptr noundef %29, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %2) #16
   %.not19 = icmp eq i32 %30, 0
   br i1 %.not19, label %31, label %34
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr %8, align 8, !tbaa !38
+  %32 = load ptr, ptr %8, align 8, !tbaa !36
   %33 = load i8, ptr %32, align 1, !tbaa !17
   %.not20 = icmp eq i8 %33, 0
   br i1 %.not20, label %36, label %34
 
 34:                                               ; preds = %31, %28
-  %35 = load ptr, ptr %11, align 8, !tbaa !31
+  %35 = load ptr, ptr %11, align 8, !tbaa !29
   call void (ptr, ...) @die(ptr noundef nonnull @.str.2, ptr noundef %35) #17
   unreachable
 
@@ -755,7 +755,7 @@ strbuf_setlen.exit:                               ; preds = %25, %24, %14
 37:                                               ; preds = %36
   %38 = call i32 %3(ptr noundef nonnull %7, ptr noundef %4) #16
   %.not22 = icmp eq i32 %38, 0
-  br i1 %.not22, label %39, label %41, !llvm.loop !37
+  br i1 %.not22, label %39, label %41, !llvm.loop !35
 
 39:                                               ; preds = %37, %36
   %40 = call i32 @oidset_insert(ptr noundef %0, ptr noundef nonnull %7)
@@ -765,7 +765,7 @@ strbuf_setlen.exit:                               ; preds = %25, %24, %14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   %42 = call i32 @strbuf_getline(ptr noundef nonnull %6, ptr noundef nonnull %9) #16
   %.not15 = icmp eq i32 %42, 0
-  br i1 %.not15, label %14, label %._crit_edge, !llvm.loop !39
+  br i1 %.not15, label %14, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %41, %.preheader
   %43 = call i32 @ferror(ptr noundef nonnull %9) #16
@@ -871,25 +871,22 @@ attributes #18 = { nounwind willreturn memory(read) }
 !15 = !{!6, !6, i64 0}
 !16 = !{i64 0, i64 28, !17, i64 28, i64 4, !15}
 !17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !20}
-!22 = distinct !{!22, !19, !20}
-!23 = !{!5, !6, i64 8}
-!24 = !{!5, !6, i64 12}
-!25 = !{i64 0, i64 32, !17, i64 32, i64 4, !15}
-!26 = distinct !{!26, !19, !20}
-!27 = distinct !{!27, !19, !20}
-!28 = distinct !{!28, !19, !20}
-!29 = distinct !{!29, !19, !20}
-!30 = !{!5, !9, i64 32}
-!31 = !{!32, !34, i64 16}
-!32 = !{!"strbuf", !33, i64 0, !33, i64 8, !34, i64 16}
-!33 = !{!"long", !7, i64 0}
-!34 = !{!"p1 omnipotent char", !10, i64 0}
-!35 = !{!32, !33, i64 0}
-!36 = !{!32, !33, i64 8}
-!37 = distinct !{!37, !19}
-!38 = !{!34, !34, i64 0}
-!39 = distinct !{!39, !20}
+!20 = distinct !{!20, !19}
+!21 = !{!5, !6, i64 8}
+!22 = !{!5, !6, i64 12}
+!23 = !{i64 0, i64 32, !17, i64 32, i64 4, !15}
+!24 = distinct !{!24, !19}
+!25 = distinct !{!25, !19}
+!26 = distinct !{!26, !19}
+!27 = distinct !{!27, !19}
+!28 = !{!5, !9, i64 32}
+!29 = !{!30, !32, i64 16}
+!30 = !{!"strbuf", !31, i64 0, !31, i64 8, !32, i64 16}
+!31 = !{!"long", !7, i64 0}
+!32 = !{!"p1 omnipotent char", !10, i64 0}
+!33 = !{!30, !31, i64 0}
+!34 = !{!30, !31, i64 8}
+!35 = distinct !{!35, !19}
+!36 = !{!32, !32, i64 0}

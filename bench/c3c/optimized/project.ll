@@ -378,7 +378,7 @@ define dso_local ptr @project_select_target(ptr noundef readonly captures(none) 
 15:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond.not, label %22, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %22, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %8, %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %8 ]
@@ -606,7 +606,7 @@ get_valid_string_setting.exit.i:                  ; preds = %40
 97:                                               ; preds = %91, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %project_add_target.exit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %project_add_target.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 project_add_target.exit.i:                        ; preds = %97, %85, %75
   %98 = call ptr (ptr, ...) @str_printf(ptr noundef nonnull @.str.164, ptr noundef %49, ptr noundef %32) #8
@@ -618,7 +618,7 @@ project_add_target.exit.i:                        ; preds = %97, %85, %75
   %102 = zext i32 %101 to i64
   %103 = load i64, ptr %20, align 8
   %104 = icmp ugt i64 %103, %102
-  br i1 %104, label %25, label %project_add_targets.exit, !llvm.loop !12
+  br i1 %104, label %25, label %project_add_targets.exit, !llvm.loop !11
 
 project_add_targets.exit:                         ; preds = %project_add_target.exit.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %1)
@@ -662,7 +662,7 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
 14:                                               ; preds = %16
   %15 = add nuw nsw i64 %.017.i, 1
   %exitcond.not.i = icmp eq i64 %15, 47
-  br i1 %exitcond.not.i, label %21, label %16, !llvm.loop !13
+  br i1 %exitcond.not.i, label %21, label %16, !llvm.loop !12
 
 16:                                               ; preds = %14, %9
   %.017.i = phi i64 [ 0, %9 ], [ %15, %14 ]
@@ -682,7 +682,7 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
   %.1.i = phi i1 [ true, %21 ], [ %.01419.i, %16 ]
   %23 = add nuw i64 %.01518.i, 1
   %24 = icmp ult i64 %23, %22
-  br i1 %24, label %9, label %._crit_edge.i, !llvm.loop !14
+  br i1 %24, label %9, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
   %25 = xor i1 %.1.i, true
@@ -709,7 +709,7 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
 33:                                               ; preds = %35
   %34 = add nuw nsw i64 %.017.i367, 1
   %exitcond.not.i368 = icmp eq i64 %34, 55
-  br i1 %exitcond.not.i368, label %40, label %35, !llvm.loop !13
+  br i1 %exitcond.not.i368, label %40, label %35, !llvm.loop !12
 
 35:                                               ; preds = %33, %28
   %.017.i367 = phi i64 [ 0, %28 ], [ %34, %33 ]
@@ -729,7 +729,7 @@ define internal fastcc void @load_into_build_target(ptr noundef %0, ptr noundef 
   %.1.i371 = phi i1 [ true, %40 ], [ %.01419.i365, %35 ]
   %42 = add nuw i64 %.01518.i366, 1
   %43 = icmp ult i64 %42, %41
-  br i1 %43, label %28, label %._crit_edge.i372, !llvm.loop !14
+  br i1 %43, label %28, label %._crit_edge.i372, !llvm.loop !13
 
 ._crit_edge.i372:                                 ; preds = %.loopexit.i370
   %44 = xor i1 %.1.i371, true
@@ -908,7 +908,7 @@ get_string.exit379:                               ; preds = %get_string.exit, %6
   store ptr %85, ptr %117, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread542, label %83, !llvm.loop !15
+  br i1 %exitcond.not, label %.thread542, label %83, !llvm.loop !14
 
 .thread542:                                       ; preds = %110, %79, %.thread539, %74, %78
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 120
@@ -1057,7 +1057,7 @@ get_valid_string.exit393:                         ; preds = %137
 169:                                              ; preds = %.lr.ph576
   %indvars.iv.next588 = add nuw nsw i64 %indvars.iv587, 1
   %exitcond591.not = icmp eq i64 %indvars.iv.next588, %wide.trip.count590
-  br i1 %exitcond591.not, label %._crit_edge, label %.lr.ph576, !llvm.loop !16
+  br i1 %exitcond591.not, label %._crit_edge, label %.lr.ph576, !llvm.loop !15
 
 .lr.ph576:                                        ; preds = %.lr.ph576.preheader, %169
   %indvars.iv587 = phi i64 [ 0, %.lr.ph576.preheader ], [ %indvars.iv.next588, %169 ]
@@ -1517,7 +1517,7 @@ get_valid_string_setting.exit433:                 ; preds = %get_valid_string_se
   store ptr %339, ptr %374, align 8
   %indvars.iv.next593 = add nuw nsw i64 %indvars.iv592, 1
   %exitcond596.not = icmp eq i64 %indvars.iv.next593, %wide.trip.count595
-  br i1 %exitcond596.not, label %.loopexit, label %337, !llvm.loop !17
+  br i1 %exitcond596.not, label %.loopexit, label %337, !llvm.loop !16
 
 .loopexit:                                        ; preds = %367, %333, %get_valid_string_setting.exit433
   %375 = tail call ptr @json_obj_get(ptr noundef %0, ptr noundef nonnull @.str.89) #8
@@ -2272,7 +2272,7 @@ define internal fastcc ptr @get_valid_array(ptr noundef %0, ptr noundef %1, ptr 
   %51 = zext i32 %50 to i64
   %52 = load i64, ptr %7, align 8
   %53 = icmp ugt i64 %52, %51
-  br i1 %53, label %11, label %.loopexit, !llvm.loop !18
+  br i1 %53, label %11, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %42, %.preheader, %3
   %.027 = phi ptr [ null, %3 ], [ null, %.preheader ], [ %45, %42 ]
@@ -2370,7 +2370,7 @@ define internal fastcc void @target_append_strings(ptr noundef %0, ptr noundef %
   store ptr %23, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread53.sink.split, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.thread53.sink.split, label %.lr.ph, !llvm.loop !18
 
 .thread53.sink.split:                             ; preds = %40, %.thread60, %18, %.thread
   %.sink = phi ptr [ %9, %.thread ], [ %11, %.thread60 ], [ %11, %18 ], [ %43, %40 ]
@@ -2428,16 +2428,15 @@ attributes #10 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}

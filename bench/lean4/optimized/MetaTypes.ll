@@ -1455,7 +1455,7 @@ lean_nat_eq.exit:                                 ; preds = %30
   br i1 %47, label %.backedge.backedge, label %.loopexit
 
 .backedge.backedge:                               ; preds = %lean_nat_eq.exit, %45
-  br label %.backedge, !llvm.loop !17
+  br label %.backedge
 
 .loopexit:                                        ; preds = %lean_nat_eq.exit, %lean_obj_tag.exit31, %45, %lean_obj_tag.exit27
   %.1 = phi i8 [ %., %lean_obj_tag.exit27 ], [ 0, %45 ], [ 0, %lean_obj_tag.exit31 ], [ 0, %lean_nat_eq.exit ]
@@ -1627,7 +1627,7 @@ lean_nat_eq.exit.i:                               ; preds = %61
   br i1 %78, label %.backedge.i.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
 .backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %76
-  br label %.backedge.i, !llvm.loop !17
+  br label %.backedge.i
 
 79:                                               ; preds = %lean_obj_tag.exit
   br i1 %.not.i26, label %83, label %80
@@ -1747,7 +1747,7 @@ lean_nat_eq.exit.i39:                             ; preds = %119
   br i1 %136, label %.backedge.i41.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
 .backedge.i41.backedge:                           ; preds = %lean_nat_eq.exit.i39, %134
-  br label %.backedge.i41, !llvm.loop !17
+  br label %.backedge.i41
 
 l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit: ; preds = %lean_nat_eq.exit.i, %76, %lean_obj_tag.exit31.i, %lean_nat_eq.exit.i39, %134, %lean_obj_tag.exit31.i36, %lean_obj_tag.exit27.i44, %lean_obj_tag.exit27.i, %lean_obj_tag.exit29, %lean_obj_tag.exit25, %lean_obj_tag.exit21
   %.0.shrunk = phi i1 [ %20, %lean_obj_tag.exit21 ], [ false, %lean_obj_tag.exit25 ], [ false, %lean_obj_tag.exit29 ], [ %52, %lean_obj_tag.exit27.i ], [ %110, %lean_obj_tag.exit27.i44 ], [ false, %lean_obj_tag.exit31.i36 ], [ false, %134 ], [ false, %lean_nat_eq.exit.i39 ], [ false, %lean_obj_tag.exit31.i ], [ false, %76 ], [ false, %lean_nat_eq.exit.i ]
@@ -1852,7 +1852,7 @@ lean_nat_eq.exit.i:                               ; preds = %31
   br i1 %48, label %.backedge.i.backedge, label %l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit
 
 .backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %46
-  br label %.backedge.i, !llvm.loop !17
+  br label %.backedge.i
 
 l_List_hasDecEq___at_Lean_Meta_beqOccurrences____x40_Init_MetaTypes___hyg_1231____spec__1.exit: ; preds = %lean_obj_tag.exit31.i, %46, %lean_nat_eq.exit.i, %lean_obj_tag.exit27.i
   %.1.i = phi i64 [ %22, %lean_obj_tag.exit27.i ], [ 1, %lean_nat_eq.exit.i ], [ 1, %46 ], [ 1, %lean_obj_tag.exit31.i ]
@@ -2134,7 +2134,7 @@ _init_l_Lean_Meta_instBEqEtaStructMode___closed__1.exit: ; preds = %_init_l_Lean
 _init_l_Lean_Meta_DSimp_instInhabitedConfig___closed__1.exit: ; preds = %_init_l_Lean_Meta_instBEqEtaStructMode___closed__1.exit
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i64 0, ptr %52, align 8, !tbaa !19
+  store i64 0, ptr %52, align 8, !tbaa !17
   store i32 1, ptr %48, align 4, !tbaa !4
   store i32 24, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -2182,7 +2182,7 @@ _init_l_Lean_Meta_DSimp_instBEqConfig___closed__1.exit: ; preds = %_init_l_Lean_
 _init_l_Lean_Meta_Simp_instInhabitedConfig___closed__1.exit: ; preds = %_init_l_Lean_Meta_DSimp_instBEqConfig___closed__1.exit
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  store i64 0, ptr %67, align 8, !tbaa !19
+  store i64 0, ptr %67, align 8, !tbaa !17
   store i32 1, ptr %63, align 4, !tbaa !4
   store i32 131120, ptr %66, align 4
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -2233,7 +2233,7 @@ _init_l_Lean_Meta_Simp_instBEqConfig___closed__1.exit: ; preds = %_init_l_Lean_M
 _init_l_Lean_Meta_Simp_neutralConfig___closed__1.exit: ; preds = %_init_l_Lean_Meta_Simp_instBEqConfig___closed__1.exit
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  store i64 65792, ptr %85, align 8, !tbaa !19
+  store i64 65792, ptr %85, align 8, !tbaa !17
   store i32 1, ptr %81, align 4, !tbaa !4
   store i32 131120, ptr %84, align 4
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -2359,7 +2359,5 @@ attributes #8 = { noreturn nounwind }
 !14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !15 = !{!7, !7, i64 0}
 !16 = !{!"branch_weights", i32 4000000, i32 4001}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !7, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !7, i64 0}

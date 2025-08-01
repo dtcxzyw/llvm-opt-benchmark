@@ -42,7 +42,7 @@ define void @lv_animimg_set_src(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader, !llvm.loop !20
+  br label %.preheader
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -64,7 +64,7 @@ define void @lv_animimg_start(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !22
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -80,7 +80,7 @@ define void @lv_animimg_set_duration(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !23
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -99,7 +99,7 @@ define void @lv_animimg_set_repeat_count(ptr noundef %0, i32 noundef %1) local_u
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !24
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -115,7 +115,7 @@ define ptr @lv_animimg_get_src(ptr noundef readonly captures(address_is_null) %0
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !25
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -129,7 +129,7 @@ define zeroext i8 @lv_animimg_get_src_count(ptr noundef readonly captures(addres
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !26
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -143,7 +143,7 @@ define i32 @lv_animimg_get_duration(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !27
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -159,7 +159,7 @@ define i32 @lv_animimg_get_repeat_count(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !28
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -175,7 +175,7 @@ define nonnull ptr @lv_animimg_get_anim(ptr noundef readnone captures(address_is
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !29
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -203,7 +203,7 @@ define internal void @index_change(ptr noundef %0, i32 noundef %1) #0 {
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %10)
   %11 = sext i32 %spec.select to i64
   %12 = getelementptr inbounds ptr, ptr %4, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !20
   tail call void @lv_image_set_src(ptr noundef nonnull %0, ptr noundef %13) #5
   br label %14
 
@@ -245,14 +245,4 @@ attributes #5 = { nounwind }
 !17 = !{!"", !15, i64 0, !15, i64 4}
 !18 = !{!"_lv_anim_t", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !15, i64 72, !15, i64 76, !15, i64 80, !15, i64 84, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !15, i64 104, !9, i64 108, !15, i64 116, !15, i64 120, !15, i64 124, !9, i64 128, !9, i64 128, !9, i64 128, !9, i64 128, !9, i64 128}
 !19 = !{!4, !9, i64 264}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = distinct !{!24, !21}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !21}
-!27 = distinct !{!27, !21}
-!28 = distinct !{!28, !21}
-!29 = distinct !{!29, !21}
-!30 = !{!8, !8, i64 0}
+!20 = !{!8, !8, i64 0}

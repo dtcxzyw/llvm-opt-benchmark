@@ -195,7 +195,7 @@ check_retval.exit57:                              ; preds = %.lr.ph
   %75 = load double, ptr %3, align 8, !tbaa !4
   %76 = fsub double 1.000000e+01, %75
   %77 = fcmp ogt double %76, 1.000000e-15
-  br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !30
+  br i1 %77, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %65, %check_retval.exit57
   %puts40 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -280,21 +280,21 @@ check_retval.exit71:                              ; preds = %check_retval.exit69
 
 check_retval.exit73:                              ; preds = %check_retval.exit71, %115
   %puts41 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %118 = load i64, ptr %4, align 8, !tbaa !32
+  %118 = load i64, ptr %4, align 8, !tbaa !30
   %119 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i64 noundef %118)
-  %120 = load i64, ptr %5, align 8, !tbaa !32
+  %120 = load i64, ptr %5, align 8, !tbaa !30
   %121 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i64 noundef %120)
-  %122 = load i64, ptr %6, align 8, !tbaa !32
+  %122 = load i64, ptr %6, align 8, !tbaa !30
   %123 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i64 noundef %122)
-  %124 = load i64, ptr %8, align 8, !tbaa !32
+  %124 = load i64, ptr %8, align 8, !tbaa !30
   %125 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i64 noundef %124)
-  %126 = load i64, ptr %7, align 8, !tbaa !32
+  %126 = load i64, ptr %7, align 8, !tbaa !30
   %127 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i64 noundef %126)
-  %128 = load i64, ptr %9, align 8, !tbaa !32
+  %128 = load i64, ptr %9, align 8, !tbaa !30
   %129 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i64 noundef %128)
-  %130 = load i64, ptr %10, align 8, !tbaa !32
+  %130 = load i64, ptr %10, align 8, !tbaa !30
   %131 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %130)
-  %132 = load i64, ptr %11, align 8, !tbaa !32
+  %132 = load i64, ptr %11, align 8, !tbaa !30
   %133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %132)
   %134 = load double, ptr %3, align 8, !tbaa !4
   %.val = load ptr, ptr %21, align 8, !tbaa !22
@@ -350,7 +350,7 @@ define internal noundef i32 @f(double noundef %0, ptr noundef readonly captures(
   %10 = tail call double @llvm.fmuladd.f64(double %0, double %0, double 1.000000e+00)
   %11 = fdiv double 1.000000e+00, %10
   %12 = tail call double @llvm.fmuladd.f64(double %5, double %9, double %11)
-  %13 = tail call double @atan(double noundef %0) #10, !tbaa !33
+  %13 = tail call double @atan(double noundef %0) #10, !tbaa !31
   %14 = fneg double %5
   %15 = tail call double @llvm.fmuladd.f64(double %14, double %13, double %12)
   %16 = load ptr, ptr %2, align 8, !tbaa !22
@@ -389,7 +389,7 @@ declare i32 @CVodeGetNumLinRhsEvals(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @check_ans(double %.0.val.16.val.0.val, double noundef %0) unnamed_addr #5 {
-  %2 = tail call double @atan(double noundef %0) #10, !tbaa !33
+  %2 = tail call double @atan(double noundef %0) #10, !tbaa !31
   %3 = tail call double @llvm.fabs.f64(double %2)
   %4 = tail call double @llvm.fmuladd.f64(double %3, double 0x3EB0C6F7A0B5ED8D, double 1.000000e-10)
   %5 = fdiv double 1.000000e+00, %4
@@ -560,7 +560,5 @@ attributes #11 = { cold nounwind }
 !27 = !{!"long", !6, i64 0}
 !28 = !{!"int", !6, i64 0}
 !29 = !{!"p1 double", !10, i64 0}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!27, !27, i64 0}
-!33 = !{!28, !28, i64 0}
+!30 = !{!27, !27, i64 0}
+!31 = !{!28, !28, i64 0}

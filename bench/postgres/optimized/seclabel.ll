@@ -798,7 +798,7 @@ define dso_local void @DeleteSecurityLabel(ptr noundef readonly captures(none) %
   call void @CatalogTupleDelete(ptr noundef %20, ptr noundef nonnull %24) #8
   %25 = call ptr @systable_getnext(ptr noundef %21) #8
   %.not15 = icmp eq ptr %25, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   call void @systable_endscan(ptr noundef %21) #8
@@ -862,7 +862,6 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

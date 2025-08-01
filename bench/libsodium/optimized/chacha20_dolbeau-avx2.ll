@@ -697,7 +697,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %376 = getelementptr i8, ptr %.110891170, i64 512
   %377 = getelementptr i8, ptr %.110871171, i64 512
   %378 = icmp ugt i64 %375, 511
-  br i1 %378, label %67, label %.loopexit1144, !llvm.loop !7
+  br i1 %378, label %67, label %.loopexit1144, !llvm.loop !6
 
 .loopexit1144:                                    ; preds = %232, %4
   %.01093 = phi i64 [ %3, %4 ], [ %375, %232 ]
@@ -948,7 +948,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %602 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %601, <4 x i32> %601, <4 x i32> splat (i32 7))
   %603 = add nuw nsw i32 %.011311178, 2
   %604 = icmp samesign ult i32 %.011311178, 18
-  br i1 %604, label %458, label %605, !llvm.loop !8
+  br i1 %604, label %458, label %605, !llvm.loop !7
 
 605:                                              ; preds = %458
   %606 = add <4 x i32> %543, %383
@@ -1097,7 +1097,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %733 = getelementptr i8, ptr %.310911182, i64 256
   %734 = getelementptr i8, ptr %.31183, i64 256
   %735 = icmp ugt i64 %732, 255
-  br i1 %735, label %440, label %.loopexit, !llvm.loop !9
+  br i1 %735, label %440, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %605, %.loopexit1144
   %.21095 = phi i64 [ %.01093, %.loopexit1144 ], [ %732, %605 ]
@@ -1171,7 +1171,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %786 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %784, <4 x i32> %784, <4 x i32> splat (i32 7))
   %787 = add nuw nsw i32 %.011021188, 2
   %788 = icmp samesign ult i32 %.011021188, 18
-  br i1 %788, label %746, label %789, !llvm.loop !10
+  br i1 %788, label %746, label %789, !llvm.loop !9
 
 789:                                              ; preds = %746
   %790 = add <4 x i32> %776, %742
@@ -1213,7 +1213,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %819 = getelementptr i8, ptr %.410921190, i64 64
   %820 = getelementptr i8, ptr %.41191, i64 64
   %821 = icmp ugt i64 %818, 63
-  br i1 %821, label %741, label %._crit_edge, !llvm.loop !11
+  br i1 %821, label %741, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %789, %.loopexit
   %.41097.lcssa = phi i64 [ %.21095, %.loopexit ], [ %818, %789 ]
@@ -1281,7 +1281,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %870 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %868, <4 x i32> %868, <4 x i32> splat (i32 7))
   %871 = add nuw nsw i32 %.01198, 2
   %872 = icmp samesign ult i32 %.01198, 18
-  br i1 %872, label %830, label %873, !llvm.loop !12
+  br i1 %872, label %830, label %873, !llvm.loop !11
 
 873:                                              ; preds = %830
   %874 = add <4 x i32> %860, %823
@@ -1309,7 +1309,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   store i8 %887, ptr %888, align 1
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.41097.lcssa
-  br i1 %exitcond.not, label %889, label %882, !llvm.loop !13
+  br i1 %exitcond.not, label %889, label %882, !llvm.loop !12
 
 889:                                              ; preds = %882
   call void @sodium_memzero(ptr noundef nonnull %5, i64 noundef 64) #6
@@ -1348,13 +1348,12 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

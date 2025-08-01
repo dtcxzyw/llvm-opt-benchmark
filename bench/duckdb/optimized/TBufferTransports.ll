@@ -349,7 +349,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %48
 
 64:                                               ; preds = %._crit_edge
   %65 = tail call ptr @__cxa_allocate_exception(i64 8) #16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %65, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %65, align 8, !tbaa !34
   tail call void @__cxa_throw(ptr nonnull %65, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #15
   unreachable
 
@@ -407,15 +407,15 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN13duckdb_apache6thrift9transport19TTransportExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift10TExceptionE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift10TExceptionE, i64 16), ptr %0, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %4, align 8, !tbaa !37
+  store ptr %5, ptr %4, align 8, !tbaa !36
   %6 = load ptr, ptr %1, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  store i64 %8, ptr %3, align 8, !tbaa !38
+  store i64 %8, ptr %3, align 8, !tbaa !37
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.noexc.i.i, label %._crit_edge.i.i.i
 
@@ -425,8 +425,8 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift9transport19TTransportExcepti
 
 .noexc.i:                                         ; preds = %.noexc.i.i
   store ptr %10, ptr %4, align 8, !tbaa !29
-  %11 = load i64, ptr %3, align 8, !tbaa !38
-  store i64 %11, ptr %5, align 8, !tbaa !39
+  %11 = load i64, ptr %3, align 8, !tbaa !37
+  store i64 %11, ptr %5, align 8, !tbaa !38
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i, %2
@@ -437,8 +437,8 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift9transport19TTransportExcepti
   ]
 
 13:                                               ; preds = %._crit_edge.i.i.i
-  %14 = load i8, ptr %6, align 1, !tbaa !39
-  store i8 %14, ptr %12, align 1, !tbaa !39
+  %14 = load i8, ptr %6, align 1, !tbaa !38
+  store i8 %14, ptr %12, align 1, !tbaa !38
   br label %_ZN13duckdb_apache6thrift10TExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 15:                                               ; preds = %._crit_edge.i.i.i
@@ -452,22 +452,22 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift9transport19TTransportExcepti
   resume { ptr, i32 } %17
 
 _ZN13duckdb_apache6thrift10TExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %._crit_edge.i.i.i, %13, %15
-  %18 = load i64, ptr %3, align 8, !tbaa !38
+  %18 = load i64, ptr %3, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %18, ptr %19, align 8, !tbaa !21
   %20 = load ptr, ptr %4, align 8, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
-  store i8 0, ptr %21, align 1, !tbaa !39
+  store i8 0, ptr %21, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift9transport19TTransportExceptionE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift9transport19TTransportExceptionE, i64 16), ptr %0, align 8, !tbaa !34
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %22, align 8, !tbaa !40
+  store i32 0, ptr %22, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13duckdb_apache6thrift10TExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift10TExceptionE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift10TExceptionE, i64 16), ptr %0, align 8, !tbaa !34
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -498,15 +498,15 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN13duckdb_apache6thrift9transport19TTransportExceptionC2ENS2_23TTransportExceptionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift10TExceptionE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift10TExceptionE, i64 16), ptr %0, align 8, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %6, ptr %5, align 8, !tbaa !37
+  store ptr %6, ptr %5, align 8, !tbaa !36
   %7 = load ptr, ptr %2, align 8, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  store i64 %9, ptr %4, align 8, !tbaa !38
+  store i64 %9, ptr %4, align 8, !tbaa !37
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc.i.i, label %._crit_edge.i.i.i
 
@@ -516,8 +516,8 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift9transport19TTransportExcepti
 
 .noexc.i:                                         ; preds = %.noexc.i.i
   store ptr %11, ptr %5, align 8, !tbaa !29
-  %12 = load i64, ptr %4, align 8, !tbaa !38
-  store i64 %12, ptr %6, align 8, !tbaa !39
+  %12 = load i64, ptr %4, align 8, !tbaa !37
+  store i64 %12, ptr %6, align 8, !tbaa !38
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i, %3
@@ -528,8 +528,8 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift9transport19TTransportExcepti
   ]
 
 14:                                               ; preds = %._crit_edge.i.i.i
-  %15 = load i8, ptr %7, align 1, !tbaa !39
-  store i8 %15, ptr %13, align 1, !tbaa !39
+  %15 = load i8, ptr %7, align 1, !tbaa !38
+  store i8 %15, ptr %13, align 1, !tbaa !38
   br label %_ZN13duckdb_apache6thrift10TExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 16:                                               ; preds = %._crit_edge.i.i.i
@@ -543,16 +543,16 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift9transport19TTransportExcepti
   resume { ptr, i32 } %18
 
 _ZN13duckdb_apache6thrift10TExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %._crit_edge.i.i.i, %14, %16
-  %19 = load i64, ptr %4, align 8, !tbaa !38
+  %19 = load i64, ptr %4, align 8, !tbaa !37
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %19, ptr %20, align 8, !tbaa !21
   %21 = load ptr, ptr %5, align 8, !tbaa !29
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
-  store i8 0, ptr %22, align 1, !tbaa !39
+  store i8 0, ptr %22, align 1, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift9transport19TTransportExceptionE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift9transport19TTransportExceptionE, i64 16), ptr %0, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %1, ptr %23, align 8, !tbaa !40
+  store i32 %1, ptr %23, align 8, !tbaa !39
   ret void
 }
 
@@ -682,7 +682,7 @@ define noundef ptr @_ZN13duckdb_apache6thrift9transport13TMemoryBuffer10borrowSl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13duckdb_apache6thrift9transport13TMemoryBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN13duckdb_apache6thrift9transport13TMemoryBufferE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN13duckdb_apache6thrift9transport13TMemoryBufferE, i64 16), ptr %0, align 8, !tbaa !34
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8, !tbaa !26, !range !27, !noundef !28
   %4 = trunc nuw i8 %3 to i1
@@ -700,7 +700,7 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift9transport13TMemoryBufferD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13duckdb_apache6thrift9transport13TMemoryBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN13duckdb_apache6thrift9transport13TMemoryBufferE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN13duckdb_apache6thrift9transport13TMemoryBufferE, i64 16), ptr %0, align 8, !tbaa !34
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8, !tbaa !26, !range !27, !noundef !28
   %4 = trunc nuw i8 %3 to i1
@@ -751,7 +751,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift9transport17TVirtualTr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %.not.i = icmp ugt ptr %7, %9
-  br i1 %.not.i, label %11, label %10, !prof !45
+  br i1 %.not.i, label %11, label %10, !prof !44
 
 10:                                               ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %5, i64 %6, i1 false)
@@ -759,7 +759,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift9transport17TVirtualTr
   br label %_ZN13duckdb_apache6thrift9transport11TBufferBase4readEPhj.exit
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr %0, align 8, !tbaa !35
+  %12 = load ptr, ptr %0, align 8, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2)
@@ -779,7 +779,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift9transport17TVirtualTr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %.not.i.i = icmp ugt ptr %7, %9
-  br i1 %.not.i.i, label %11, label %10, !prof !45
+  br i1 %.not.i.i, label %11, label %10, !prof !44
 
 10:                                               ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %5, i64 %6, i1 false)
@@ -840,7 +840,7 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift9transport17TVirtualTransport
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   %.not.i = icmp ugt ptr %7, %9
-  br i1 %.not.i, label %11, label %10, !prof !45
+  br i1 %.not.i, label %11, label %10, !prof !44
 
 10:                                               ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %5, ptr align 1 %1, i64 %6, i1 false)
@@ -848,7 +848,7 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift9transport17TVirtualTransport
   br label %_ZN13duckdb_apache6thrift9transport11TBufferBase5writeEPKhj.exit
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr %0, align 8, !tbaa !35
+  %12 = load ptr, ptr %0, align 8, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2)
@@ -888,7 +888,7 @@ define linkonce_odr noundef ptr @_ZN13duckdb_apache6thrift9transport17TVirtualTr
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %.not.i = icmp slt i64 %12, %5
-  br i1 %.not.i, label %15, label %13, !prof !45
+  br i1 %.not.i, label %15, label %13, !prof !44
 
 13:                                               ; preds = %3
   %14 = trunc i64 %12 to i32
@@ -896,7 +896,7 @@ define linkonce_odr noundef ptr @_ZN13duckdb_apache6thrift9transport17TVirtualTr
   br label %_ZN13duckdb_apache6thrift9transport11TBufferBase6borrowEPhPj.exit
 
 15:                                               ; preds = %3
-  %16 = load ptr, ptr %0, align 8, !tbaa !35
+  %16 = load ptr, ptr %0, align 8, !tbaa !34
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 136
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull %2)
@@ -917,12 +917,12 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift9transport17TVirtualTransport
 define linkonce_odr void @_ZNK13duckdb_apache6thrift9transport10TTransport9getOriginB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %0, align 8, !tbaa !37
+  store ptr %2, ptr %0, align 8, !tbaa !36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %2, ptr noundef nonnull align 1 dereferenceable(7) @.str.4, i64 7, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 7, ptr %3, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  store i8 0, ptr %4, align 1, !tbaa !39
+  store i8 0, ptr %4, align 1, !tbaa !38
   ret void
 }
 
@@ -931,7 +931,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13duckdb_apache6thrift10TExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift10TExceptionE, i64 16), ptr %0, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN13duckdb_apache6thrift10TExceptionE, i64 16), ptr %0, align 8, !tbaa !34
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -994,7 +994,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift9transport7readAllINS1
 8:                                                ; preds = %_ZN13duckdb_apache6thrift9transport11TBufferBase4readEPhj.exit
   %9 = add i32 %.0.i, %.01524
   %10 = icmp ult i32 %9, %2
-  br i1 %10, label %11, label %._crit_edge, !llvm.loop !46
+  br i1 %10, label %11, label %._crit_edge, !llvm.loop !45
 
 11:                                               ; preds = %.lr.ph, %8
   %.01524 = phi i32 [ 0, %.lr.ph ], [ %9, %8 ]
@@ -1006,7 +1006,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift9transport7readAllINS1
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load ptr, ptr %7, align 8, !tbaa !12
   %.not.i = icmp ugt ptr %17, %18
-  br i1 %.not.i, label %20, label %19, !prof !45
+  br i1 %.not.i, label %20, label %19, !prof !44
 
 19:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %15, i64 %16, i1 false)
@@ -1014,7 +1014,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift9transport7readAllINS1
   br label %_ZN13duckdb_apache6thrift9transport11TBufferBase4readEPhj.exit
 
 20:                                               ; preds = %11
-  %21 = load ptr, ptr %0, align 8, !tbaa !35
+  %21 = load ptr, ptr %0, align 8, !tbaa !34
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 120
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %13, i32 noundef %14)
@@ -1101,7 +1101,7 @@ define linkonce_odr void @_ZN13duckdb_apache6thrift9transport11TBufferBase7consu
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %.not = icmp slt i64 %12, %5
-  br i1 %.not, label %15, label %13, !prof !45
+  br i1 %.not, label %15, label %13, !prof !44
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %5
@@ -1227,18 +1227,17 @@ attributes #18 = { nounwind allocsize(1) }
 !29 = !{!22, !8, i64 0}
 !30 = !{!18, !16, i64 48}
 !31 = !{!18, !16, i64 52}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"vtable pointer", !11, i64 0}
-!37 = !{!23, !8, i64 0}
-!38 = !{!24, !24, i64 0}
-!39 = !{!10, !10, i64 0}
-!40 = !{!41, !44, i64 40}
-!41 = !{!"_ZTSN13duckdb_apache6thrift9transport19TTransportExceptionE", !42, i64 0, !44, i64 40}
-!42 = !{!"_ZTSN13duckdb_apache6thrift10TExceptionE", !43, i64 0, !22, i64 8}
-!43 = !{!"_ZTSSt9exception"}
-!44 = !{!"_ZTSN13duckdb_apache6thrift9transport19TTransportException23TTransportExceptionTypeE", !10, i64 0}
-!45 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!46 = distinct !{!46, !33, !34}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"vtable pointer", !11, i64 0}
+!36 = !{!23, !8, i64 0}
+!37 = !{!24, !24, i64 0}
+!38 = !{!10, !10, i64 0}
+!39 = !{!40, !43, i64 40}
+!40 = !{!"_ZTSN13duckdb_apache6thrift9transport19TTransportExceptionE", !41, i64 0, !43, i64 40}
+!41 = !{!"_ZTSN13duckdb_apache6thrift10TExceptionE", !42, i64 0, !22, i64 8}
+!42 = !{!"_ZTSSt9exception"}
+!43 = !{!"_ZTSN13duckdb_apache6thrift9transport19TTransportException23TTransportExceptionTypeE", !10, i64 0}
+!44 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!45 = distinct !{!45, !33}

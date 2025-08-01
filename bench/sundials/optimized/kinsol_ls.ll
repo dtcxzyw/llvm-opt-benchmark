@@ -1922,7 +1922,7 @@ define i32 @kinLsDenseDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   tail call void @N_VLinearSum(double noundef %42, ptr noundef %4, double noundef %43, ptr noundef %1, ptr noundef %5) #13
   %44 = add nuw nsw i64 %.04447, 1
   %exitcond.not = icmp eq i64 %44, %9
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !102
+  br i1 %exitcond.not, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %41, %20, %6
   %.1 = phi i32 [ 0, %6 ], [ %38, %20 ], [ 0, %41 ]
@@ -1982,7 +1982,7 @@ define i32 @kinLsBandDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store double %39, ptr %37, align 8, !tbaa !84
   %40 = add nsw i64 %.092105, %20
   %41 = icmp slt i64 %40, %9
-  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !104
+  br i1 %41, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %42 = load ptr, ptr %23, align 8, !tbaa !46
@@ -2029,17 +2029,17 @@ define i32 @kinLsBandDQJac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store double %68, ptr %70, align 8, !tbaa !84
   %71 = add nuw nsw i64 %.091107, 1
   %.not103.not = icmp slt i64 %.091107, %62
-  br i1 %.not103.not, label %.lr.ph109, label %._crit_edge110, !llvm.loop !105
+  br i1 %.not103.not, label %.lr.ph109, label %._crit_edge110
 
 ._crit_edge110:                                   ; preds = %.lr.ph109, %.lr.ph112
   %72 = add nsw i64 %.1111, %20
   %73 = icmp slt i64 %72, %9
-  br i1 %73, label %.lr.ph112, label %._crit_edge113, !llvm.loop !106
+  br i1 %73, label %.lr.ph112, label %._crit_edge113
 
 ._crit_edge113:                                   ; preds = %._crit_edge110
   %74 = add nuw i64 %.090115, 1
   %exitcond.not = icmp eq i64 %.090115, %21
-  br i1 %exitcond.not, label %._crit_edge118, label %.lr.ph.preheader, !llvm.loop !107
+  br i1 %exitcond.not, label %._crit_edge118, label %.lr.ph.preheader
 
 ._crit_edge118:                                   ; preds = %._crit_edge113, %6
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -2239,9 +2239,3 @@ attributes #14 = { nounwind allocsize(0) }
 !99 = !{!17, !17, i64 0}
 !100 = !{!27, !5, i64 32}
 !101 = !{!11, !5, i64 96}
-!102 = distinct !{!102, !103}
-!103 = !{!"llvm.loop.estimated_trip_count"}
-!104 = distinct !{!104, !103}
-!105 = distinct !{!105, !103}
-!106 = distinct !{!106, !103}
-!107 = distinct !{!107, !103}

@@ -146,7 +146,7 @@ define dso_local noundef i32 @nlmsvc_unshare_file(ptr noundef readnone captures(
 .critedge:                                        ; preds = %16, %21, %10
   %29 = load ptr, ptr %11, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit, label %10, !llvm.loop !9
+  br i1 %30, label %.loopexit, label %10, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.critedge, %27, %3
   ret i32 0
@@ -164,7 +164,7 @@ define dso_local void @nlmsvc_traverse_shares(ptr noundef %0, ptr noundef captur
 
 7:                                                ; preds = %11
   %8 = icmp eq ptr %17, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %3, %7
   %9 = phi ptr [ %17, %7 ], [ %5, %3 ]
@@ -185,7 +185,7 @@ define dso_local void @nlmsvc_traverse_shares(ptr noundef %0, ptr noundef captur
   tail call void @kfree(ptr noundef nonnull %12) #6
   %19 = load ptr, ptr %10, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit, label %11, !llvm.loop !11
+  br i1 %20, label %.loopexit, label %11, !llvm.loop !9
 
 .loopexit:                                        ; preds = %7, %18, %3
   ret void
@@ -212,10 +212,8 @@ attributes #6 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}

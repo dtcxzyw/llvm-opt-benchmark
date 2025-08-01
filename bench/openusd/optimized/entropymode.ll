@@ -157,7 +157,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
   store i32 %53, ptr %56, align 4
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 8
-  br i1 %exitcond110.not, label %.preheader.preheader, label %.preheader93, !llvm.loop !7
+  br i1 %exitcond110.not, label %.preheader.preheader, label %.preheader93, !llvm.loop !6
 
 .preheader.preheader:                             ; preds = %.preheader93
   %57 = sext i32 %4 to i64
@@ -189,7 +189,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
   %spec.select91 = tail call i32 @llvm.smax.i32(i32 %63, i32 %.08098)
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count
-  br i1 %exitcond116.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond116.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.082.lcssa = phi i32 [ %60, %.preheader ], [ %spec.select, %.lr.ph ]
@@ -222,7 +222,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
   %82 = trunc nuw nsw i64 %indvars.iv119 to i32
   store i32 %82, ptr %81, align 4
   %83 = icmp sgt i64 %indvars.iv.next120, %indvars.iv122
-  br i1 %83, label %.lr.ph101, label %._crit_edge102, !llvm.loop !9
+  br i1 %83, label %.lr.ph101, label %._crit_edge102, !llvm.loop !8
 
 ._crit_edge102:                                   ; preds = %.lr.ph101, %67
   store i32 %70, ptr %58, align 4
@@ -236,7 +236,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
 87:                                               ; preds = %._crit_edge, %._crit_edge102
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 3
-  br i1 %exitcond125.not, label %88, label %.preheader, !llvm.loop !10
+  br i1 %exitcond125.not, label %88, label %.preheader, !llvm.loop !9
 
 88:                                               ; preds = %87
   %.not = icmp eq ptr %6, null
@@ -268,7 +268,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
   %104 = add nsw i32 %103, %.078104
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, 3
-  br i1 %exitcond129.not, label %105, label %98, !llvm.loop !11
+  br i1 %exitcond129.not, label %105, label %98, !llvm.loop !10
 
 105:                                              ; preds = %98
   %106 = sext i32 %104 to i64
@@ -397,7 +397,7 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
   %.1 = phi i32 [ %62, %56 ], [ %.082, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %64, label %53, !llvm.loop !12
+  br i1 %exitcond.not, label %64, label %53, !llvm.loop !11
 
 64:                                               ; preds = %63
   %65 = load i32, ptr %9, align 4
@@ -506,7 +506,7 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
   %.157 = phi i32 [ %.05683, %111 ], [ %spec.select, %113 ]
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 3
-  br i1 %exitcond91.not, label %118, label %106, !llvm.loop !13
+  br i1 %exitcond91.not, label %118, label %106, !llvm.loop !12
 
 118:                                              ; preds = %116
   %.not74 = icmp eq i32 %.157, -1
@@ -530,7 +530,7 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
   %126 = add nsw i32 %125, %.05485
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 3
-  br i1 %exitcond95.not, label %127, label %120, !llvm.loop !14
+  br i1 %exitcond95.not, label %127, label %120, !llvm.loop !13
 
 127:                                              ; preds = %120
   %128 = sext i32 %126 to i64
@@ -726,7 +726,7 @@ get_ref_frame_buf.exit:                           ; preds = %get_ref_frame_map_i
 get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_map_idx.exit.i, %get_ref_frame_buf.exit, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %get_ref_frame_map_idx.exit.i, !llvm.loop !15
+  br i1 %exitcond.not, label %.preheader, label %get_ref_frame_map_idx.exit.i, !llvm.loop !14
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv23 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next24, %20 ]
@@ -739,7 +739,7 @@ get_ref_frame_buf.exit.thread:                    ; preds = %get_ref_frame_map_i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21264) %25, ptr noundef nonnull align 4 dereferenceable(21264) %26, i64 21264, i1 false)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, 16
-  br i1 %exitcond27.not, label %.loopexit, label %20, !llvm.loop !16
+  br i1 %exitcond27.not, label %.loopexit, label %20, !llvm.loop !15
 
 .loopexit:                                        ; preds = %20, %1
   ret void
@@ -969,7 +969,7 @@ get_ref_frame_buf.exit.i:                         ; preds = %get_ref_frame_map_i
 get_ref_frame_buf.exit.thread.i:                  ; preds = %110, %get_ref_frame_buf.exit.i, %get_ref_frame_map_idx.exit.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %.preheader.i, label %get_ref_frame_map_idx.exit.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.preheader.i, label %get_ref_frame_map_idx.exit.i.i, !llvm.loop !14
 
 113:                                              ; preds = %113, %.preheader.i
   %indvars.iv23.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next24.i, %113 ]
@@ -982,7 +982,7 @@ get_ref_frame_buf.exit.thread.i:                  ; preds = %110, %get_ref_frame
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(21264) %118, ptr noundef nonnull align 4 dereferenceable(21264) %119, i64 21264, i1 false)
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, 16
-  br i1 %exitcond27.not.i, label %av1_setup_frame_contexts.exit, label %113, !llvm.loop !16
+  br i1 %exitcond27.not.i, label %av1_setup_frame_contexts.exit, label %113, !llvm.loop !15
 
 av1_setup_frame_contexts.exit:                    ; preds = %113, %14
   ret void
@@ -1014,16 +1014,15 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

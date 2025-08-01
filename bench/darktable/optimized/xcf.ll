@@ -178,7 +178,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %79 = getelementptr inbounds nuw i8, ptr %.0180255, i64 8
   %.0180 = load ptr, ptr %79, align 8, !tbaa !18
   %.not213 = icmp eq ptr %.0180, null
-  br i1 %.not213, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not213, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %72, %68
   %.0178 = phi i32 [ 0, %68 ], [ 0, %72 ], [ %78, %.lr.ph ]
@@ -262,8 +262,8 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 
 .lr.ph261:                                        ; preds = %.lr.ph266, %189
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #17
-  %119 = load ptr, ptr %115, align 16, !tbaa !40
-  %120 = load ptr, ptr %15, align 8, !tbaa !41
+  %119 = load ptr, ptr %115, align 16, !tbaa !38
+  %120 = load ptr, ptr %15, align 8, !tbaa !39
   %121 = ptrtoint ptr %120 to i64
   %122 = trunc i64 %121 to i32
   %123 = call ptr @dt_dev_get_raster_mask(ptr noundef nonnull %115, ptr noundef %119, i32 noundef %122, ptr noundef null, ptr noundef nonnull %17) #17
@@ -273,18 +273,18 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 124:                                              ; preds = %.lr.ph261
   %125 = call i32 @xcf_add_channel(ptr noundef nonnull %44) #17
   %126 = call i32 (ptr, i32, ...) @xcf_set(ptr noundef nonnull %44, i32 noundef 2, i32 noundef 8, i32 noundef 0) #17
-  %127 = load ptr, ptr %115, align 16, !tbaa !40
+  %127 = load ptr, ptr %115, align 16, !tbaa !38
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 792
-  %129 = load ptr, ptr %128, align 8, !tbaa !42
-  %130 = load ptr, ptr %15, align 8, !tbaa !41
+  %129 = load ptr, ptr %128, align 8, !tbaa !40
+  %130 = load ptr, ptr %15, align 8, !tbaa !39
   %131 = call ptr @g_hash_table_lookup(ptr noundef %129, ptr noundef %130) #17
   %.not220 = icmp eq ptr %131, null
   br i1 %.not220, label %132, label %137
 
 132:                                              ; preds = %124
-  %133 = load ptr, ptr %115, align 16, !tbaa !40
+  %133 = load ptr, ptr %115, align 16, !tbaa !38
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 40
-  %135 = load ptr, ptr %134, align 8, !tbaa !54
+  %135 = load ptr, ptr %134, align 8, !tbaa !52
   %136 = call ptr %135() #17
   br label %137
 
@@ -315,7 +315,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 .lr.ph259:                                        ; preds = %.preheader, %156
   %.0168258 = phi i64 [ %159, %156 ], [ 0, %.preheader ]
   %147 = getelementptr inbounds nuw float, ptr %123, i64 %.0168258
-  %148 = load float, ptr %147, align 4, !tbaa !55
+  %148 = load float, ptr %147, align 4, !tbaa !53
   %149 = fcmp reassoc nsz arcp contract afn ult float %148, 0.000000e+00
   br i1 %149, label %156, label %150
 
@@ -332,10 +332,10 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 156:                                              ; preds = %.lr.ph259, %152, %150
   %157 = phi i8 [ %155, %152 ], [ -1, %150 ], [ 0, %.lr.ph259 ]
   %158 = getelementptr inbounds nuw i8, ptr %146, i64 %.0168258
-  store i8 %157, ptr %158, align 1, !tbaa !56
+  store i8 %157, ptr %158, align 1, !tbaa !54
   %159 = add nuw i64 %.0168258, 1
   %exitcond270.not = icmp eq i64 %159, %145
-  br i1 %exitcond270.not, label %.thread240, label %.lr.ph259, !llvm.loop !57
+  br i1 %exitcond270.not, label %.thread240, label %.lr.ph259
 
 160:                                              ; preds = %137
   %161 = load i32, ptr %48, align 4, !tbaa !13
@@ -356,7 +356,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 .lr.ph257:                                        ; preds = %.preheader250, %178
   %.0256 = phi i64 [ %181, %178 ], [ 0, %.preheader250 ]
   %169 = getelementptr inbounds nuw float, ptr %123, i64 %.0256
-  %170 = load float, ptr %169, align 4, !tbaa !55
+  %170 = load float, ptr %169, align 4, !tbaa !53
   %171 = fcmp reassoc nsz arcp contract afn ult float %170, 0.000000e+00
   br i1 %171, label %178, label %172
 
@@ -373,10 +373,10 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
 178:                                              ; preds = %.lr.ph257, %174, %172
   %179 = phi i16 [ %177, %174 ], [ -1, %172 ], [ 0, %.lr.ph257 ]
   %180 = getelementptr inbounds nuw i16, ptr %167, i64 %.0256
-  store i16 %179, ptr %180, align 2, !tbaa !58
+  store i16 %179, ptr %180, align 2, !tbaa !55
   %181 = add nuw i64 %.0256, 1
   %exitcond.not = icmp eq i64 %181, %168
-  br i1 %exitcond.not, label %.thread240, label %.lr.ph257, !llvm.loop !59
+  br i1 %exitcond.not, label %.thread240, label %.lr.ph257
 
 .thread235:                                       ; preds = %137, %160, %140
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %1) #17
@@ -409,7 +409,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #17
   %190 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #17
   %.not218 = icmp eq i32 %190, 0
-  br i1 %.not218, label %._crit_edge, label %.lr.ph261, !llvm.loop !60
+  br i1 %.not218, label %._crit_edge, label %.lr.ph261
 
 ._crit_edge:                                      ; preds = %189, %.lr.ph266
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #17
@@ -418,7 +418,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   %191 = getelementptr inbounds nuw i8, ptr %.0177264, i64 8
   %.0177 = load ptr, ptr %191, align 8, !tbaa !18
   %.not217 = icmp eq ptr %.0177, null
-  br i1 %.not217, label %.thread248, label %.lr.ph266, !llvm.loop !61
+  br i1 %.not217, label %.thread248, label %.lr.ph266
 
 192:                                              ; preds = %.lr.ph261
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #17
@@ -552,10 +552,10 @@ define range(i32 0, 2) i32 @set_params(ptr noundef readonly captures(none) %0, p
 
 .sink.split:                                      ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %7 = load i32, ptr %6, align 4, !tbaa !17
-  %8 = load ptr, ptr %5, align 8, !tbaa !67
+  %8 = load ptr, ptr %5, align 8, !tbaa !61
   %switch.selectcmp = icmp eq i32 %7, 32
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 0
   %switch.selectcmp10 = icmp eq i32 %7, 16
@@ -624,7 +624,7 @@ define void @gui_init(ptr noundef initializes((352, 360)) %0) local_unnamed_addr
   %2 = alloca [2 x ptr], align 8
   %3 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store ptr %3, ptr %4, align 8, !tbaa !62
+  store ptr %3, ptr %4, align 8, !tbaa !56
   %5 = tail call i32 @dt_conf_key_exists(ptr noundef nonnull @.str.13) #17
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.thread12, label %6
@@ -643,17 +643,17 @@ define void @gui_init(ptr noundef initializes((352, 360)) %0) local_unnamed_addr
 .thread12:                                        ; preds = %6, %1
   %12 = phi i32 [ 2, %1 ], [ %spec.select, %6 ]
   %13 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef null, i32 noundef %12, ptr noundef nonnull @bpp_combobox_changed, ptr noundef null, ptr noundef nonnull @gui_init.texts) #17
-  store ptr %13, ptr %3, align 8, !tbaa !67
+  store ptr %13, ptr %3, align 8, !tbaa !61
   %14 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #17
   %15 = tail call i64 @gtk_box_get_type() #21
   %16 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %15) #17
-  %17 = load ptr, ptr %3, align 8, !tbaa !67
-  store ptr %17, ptr %2, align 8, !tbaa !41
+  %17 = load ptr, ptr %3, align 8, !tbaa !61
+  store ptr %17, ptr %2, align 8, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr inttoptr (i64 -1 to ptr), ptr %18, align 8, !tbaa !41
+  store ptr inttoptr (i64 -1 to ptr), ptr %18, align 8, !tbaa !39
   %19 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.21, i32 noundef 362, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %16, ptr noundef nonnull %2) #17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store ptr %19, ptr %20, align 8, !tbaa !69
+  store ptr %19, ptr %20, align 8, !tbaa !63
   ret void
 }
 
@@ -684,7 +684,7 @@ declare i64 @gtk_box_get_type() local_unnamed_addr #14
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
   tail call void @free(ptr noundef %3) #17
   ret void
 }
@@ -692,8 +692,8 @@ define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %3 = load ptr, ptr %2, align 8, !tbaa !62
-  %4 = load ptr, ptr %3, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   tail call void @dt_bauhaus_combobox_set(ptr noundef %4, i32 noundef 2) #17
   ret void
 }
@@ -768,35 +768,29 @@ attributes #21 = { nounwind willreturn memory(none) }
 !35 = !{!"short", !8, i64 0}
 !36 = !{!"", !7, i64 0, !8, i64 16}
 !37 = !{!"p1 _ZTS11_GHashTable", !12, i64 0}
-!38 = distinct !{!38, !39}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!23, !24, i64 0}
-!41 = !{!12, !12, i64 0}
-!42 = !{!43, !37, i64 792}
-!43 = !{!"dt_iop_module_t", !7, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !12, i64 264, !12, i64 272, !12, i64 280, !12, i64 288, !12, i64 296, !12, i64 304, !12, i64 312, !12, i64 320, !12, i64 328, !12, i64 336, !12, i64 344, !12, i64 352, !12, i64 360, !12, i64 368, !12, i64 376, !12, i64 384, !12, i64 392, !12, i64 400, !12, i64 408, !12, i64 416, !12, i64 424, !12, i64 432, !12, i64 440, !44, i64 448, !8, i64 456, !7, i64 476, !7, i64 480, !7, i64 484, !7, i64 488, !7, i64 492, !7, i64 496, !7, i64 500, !8, i64 512, !8, i64 528, !8, i64 544, !8, i64 560, !8, i64 576, !8, i64 592, !28, i64 608, !29, i64 616, !8, i64 640, !7, i64 656, !7, i64 660, !45, i64 664, !7, i64 672, !7, i64 676, !12, i64 680, !12, i64 688, !7, i64 696, !12, i64 704, !46, i64 712, !12, i64 752, !47, i64 760, !47, i64 768, !12, i64 776, !48, i64 784, !51, i64 816, !51, i64 824, !51, i64 832, !51, i64 840, !51, i64 848, !51, i64 856, !51, i64 864, !7, i64 872, !51, i64 880, !51, i64 888, !51, i64 896, !52, i64 904, !52, i64 912, !51, i64 920, !51, i64 928, !7, i64 936, !53, i64 944, !7, i64 952, !8, i64 956, !7, i64 1084, !51, i64 1088, !12, i64 1096, !7, i64 1104}
-!44 = !{!"p1 _ZTS8_GModule", !12, i64 0}
-!45 = !{!"p1 _ZTS12dt_develop_t", !12, i64 0}
-!46 = !{!"dt_pthread_mutex_t", !8, i64 0}
-!47 = !{!"p1 _ZTS25dt_develop_blend_params_t", !12, i64 0}
-!48 = !{!"", !49, i64 0, !50, i64 16}
-!49 = !{!"", !37, i64 0, !37, i64 8}
-!50 = !{!"", !24, i64 0, !7, i64 8}
-!51 = !{!"p1 _ZTS10_GtkWidget", !12, i64 0}
-!52 = !{!"p1 _ZTS7_GSList", !12, i64 0}
-!53 = !{!"p1 _ZTS18dt_iop_module_so_t", !12, i64 0}
-!54 = !{!43, !12, i64 40}
-!55 = !{!31, !31, i64 0}
-!56 = !{!8, !8, i64 0}
-!57 = distinct !{!57, !39}
-!58 = !{!35, !35, i64 0}
-!59 = distinct !{!59, !39}
-!60 = distinct !{!60, !39}
-!61 = distinct !{!61, !39}
-!62 = !{!63, !12, i64 352}
-!63 = !{!"dt_imageio_module_format_t", !64, i64 0, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !8, i64 208, !44, i64 336, !51, i64 344, !12, i64 352, !7, i64 360, !7, i64 364}
-!64 = !{!"dt_action_t", !7, i64 0, !65, i64 8, !65, i64 16, !12, i64 24, !66, i64 32, !66, i64 40}
-!65 = !{!"p1 omnipotent char", !12, i64 0}
-!66 = !{!"p1 _ZTS11dt_action_t", !12, i64 0}
-!67 = !{!68, !51, i64 0}
-!68 = !{!"dt_imageio_xcf_gui_t", !51, i64 0}
-!69 = !{!63, !51, i64 344}
+!38 = !{!23, !24, i64 0}
+!39 = !{!12, !12, i64 0}
+!40 = !{!41, !37, i64 792}
+!41 = !{!"dt_iop_module_t", !7, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !12, i64 264, !12, i64 272, !12, i64 280, !12, i64 288, !12, i64 296, !12, i64 304, !12, i64 312, !12, i64 320, !12, i64 328, !12, i64 336, !12, i64 344, !12, i64 352, !12, i64 360, !12, i64 368, !12, i64 376, !12, i64 384, !12, i64 392, !12, i64 400, !12, i64 408, !12, i64 416, !12, i64 424, !12, i64 432, !12, i64 440, !42, i64 448, !8, i64 456, !7, i64 476, !7, i64 480, !7, i64 484, !7, i64 488, !7, i64 492, !7, i64 496, !7, i64 500, !8, i64 512, !8, i64 528, !8, i64 544, !8, i64 560, !8, i64 576, !8, i64 592, !28, i64 608, !29, i64 616, !8, i64 640, !7, i64 656, !7, i64 660, !43, i64 664, !7, i64 672, !7, i64 676, !12, i64 680, !12, i64 688, !7, i64 696, !12, i64 704, !44, i64 712, !12, i64 752, !45, i64 760, !45, i64 768, !12, i64 776, !46, i64 784, !49, i64 816, !49, i64 824, !49, i64 832, !49, i64 840, !49, i64 848, !49, i64 856, !49, i64 864, !7, i64 872, !49, i64 880, !49, i64 888, !49, i64 896, !50, i64 904, !50, i64 912, !49, i64 920, !49, i64 928, !7, i64 936, !51, i64 944, !7, i64 952, !8, i64 956, !7, i64 1084, !49, i64 1088, !12, i64 1096, !7, i64 1104}
+!42 = !{!"p1 _ZTS8_GModule", !12, i64 0}
+!43 = !{!"p1 _ZTS12dt_develop_t", !12, i64 0}
+!44 = !{!"dt_pthread_mutex_t", !8, i64 0}
+!45 = !{!"p1 _ZTS25dt_develop_blend_params_t", !12, i64 0}
+!46 = !{!"", !47, i64 0, !48, i64 16}
+!47 = !{!"", !37, i64 0, !37, i64 8}
+!48 = !{!"", !24, i64 0, !7, i64 8}
+!49 = !{!"p1 _ZTS10_GtkWidget", !12, i64 0}
+!50 = !{!"p1 _ZTS7_GSList", !12, i64 0}
+!51 = !{!"p1 _ZTS18dt_iop_module_so_t", !12, i64 0}
+!52 = !{!41, !12, i64 40}
+!53 = !{!31, !31, i64 0}
+!54 = !{!8, !8, i64 0}
+!55 = !{!35, !35, i64 0}
+!56 = !{!57, !12, i64 352}
+!57 = !{!"dt_imageio_module_format_t", !58, i64 0, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !8, i64 208, !42, i64 336, !49, i64 344, !12, i64 352, !7, i64 360, !7, i64 364}
+!58 = !{!"dt_action_t", !7, i64 0, !59, i64 8, !59, i64 16, !12, i64 24, !60, i64 32, !60, i64 40}
+!59 = !{!"p1 omnipotent char", !12, i64 0}
+!60 = !{!"p1 _ZTS11dt_action_t", !12, i64 0}
+!61 = !{!62, !49, i64 0}
+!62 = !{!"dt_imageio_xcf_gui_t", !49, i64 0}
+!63 = !{!57, !49, i64 344}

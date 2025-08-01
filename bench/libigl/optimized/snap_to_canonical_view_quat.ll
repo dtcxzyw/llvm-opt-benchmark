@@ -68,7 +68,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   %.2 = select i1 %22, double %indvar.conv, double %.161
   %23 = add nuw nsw i32 %.04362, 1
   %exitcond69.not = icmp eq i32 %23, 24
-  br i1 %exitcond69.not, label %19, label %.preheader54, !llvm.loop !11
+  br i1 %exitcond69.not, label %19, label %.preheader54, !llvm.loop !10
 
 24:                                               ; preds = %.preheader54, %24
   %indvars.iv = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next, %24 ]
@@ -84,10 +84,10 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   %33 = call double @llvm.fmuladd.f64(double %29, double %32, double %.04257)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %21, label %24, !llvm.loop !12
+  br i1 %exitcond.not, label %21, label %24, !llvm.loop !11
 
 34:                                               ; preds = %17
-  %35 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %35 = load ptr, ptr @stderr, align 8, !tbaa !12
   %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str, double noundef %.251) #6
   br label %37
 
@@ -105,7 +105,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   store double %42, ptr %43, align 8, !tbaa !4
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
-  br i1 %exitcond73.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond73.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %37, %3
   %.052 = phi i1 [ false, %3 ], [ false, %37 ], [ true, %.preheader ]
@@ -132,20 +132,20 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_quatIfEEbPKT_S1_PS1_(ptr noundef %0, float noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat {
   %4 = alloca [4 x float], align 16
-  %5 = load float, ptr %0, align 4, !tbaa !17
-  store float %5, ptr %2, align 4, !tbaa !17
+  %5 = load float, ptr %0, align 4, !tbaa !16
+  store float %5, ptr %2, align 4, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load float, ptr %6, align 4, !tbaa !17
+  %7 = load float, ptr %6, align 4, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %7, ptr %8, align 4, !tbaa !17
+  store float %7, ptr %8, align 4, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load float, ptr %9, align 4, !tbaa !17
+  %10 = load float, ptr %9, align 4, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %10, ptr %11, align 4, !tbaa !17
+  store float %10, ptr %11, align 4, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load float, ptr %12, align 4, !tbaa !17
+  %13 = load float, ptr %12, align 4, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float %13, ptr %14, align 4, !tbaa !17
+  store float %13, ptr %14, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
   %15 = call noundef zeroext i1 @_ZN3igl14normalize_quatIfEEbPKT_PS1_(ptr noundef nonnull %0, ptr noundef nonnull %4)
   br i1 %15, label %.preheader55, label %.loopexit
@@ -173,7 +173,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
 19:                                               ; preds = %21
   %.int = add nsw i32 %.04466.int, 2
   %20 = icmp ult i32 %.04466.int, -2
-  br i1 %20, label %17, label %.preheader55, !llvm.loop !19
+  br i1 %20, label %17, label %.preheader55, !llvm.loop !18
 
 21:                                               ; preds = %24
   %22 = fcmp ogt float %.15059, %39
@@ -182,19 +182,19 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   %.2 = select i1 %22, double %indvar.conv, double %.161
   %23 = add nuw nsw i32 %.04362, 1
   %exitcond69.not = icmp eq i32 %23, 24
-  br i1 %exitcond69.not, label %19, label %.preheader54, !llvm.loop !20
+  br i1 %exitcond69.not, label %19, label %.preheader54, !llvm.loop !19
 
 24:                                               ; preds = %.preheader54, %24
   %indvars.iv = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next, %24 ]
   %.04257 = phi float [ 0.000000e+00, %.preheader54 ], [ %39, %24 ]
   %25 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv
-  %26 = load float, ptr %25, align 4, !tbaa !17
+  %26 = load float, ptr %25, align 4, !tbaa !16
   %27 = fpext float %26 to double
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = call noundef float @_ZN3igl19CANONICAL_VIEW_QUATIfEET_ii(i32 noundef %.04362, i32 noundef %28)
   %30 = fpext float %29 to double
   %31 = call double @llvm.fmuladd.f64(double %16, double %30, double %27)
-  %32 = load float, ptr %25, align 4, !tbaa !17
+  %32 = load float, ptr %25, align 4, !tbaa !16
   %33 = fpext float %32 to double
   %34 = call noundef float @_ZN3igl19CANONICAL_VIEW_QUATIfEET_ii(i32 noundef %.04362, i32 noundef %28)
   %35 = fpext float %34 to double
@@ -204,10 +204,10 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   %39 = fptrunc double %38 to float
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %21, label %24, !llvm.loop !21
+  br i1 %exitcond.not, label %21, label %24, !llvm.loop !20
 
 40:                                               ; preds = %17
-  %41 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %41 = load ptr, ptr @stderr, align 8, !tbaa !12
   %42 = fpext float %.251 to double
   %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str, double noundef %42) #6
   br label %44
@@ -225,10 +225,10 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   %50 = fmul double %.2, %49
   %51 = fptrunc double %50 to float
   %52 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv70
-  store float %51, ptr %52, align 4, !tbaa !17
+  store float %51, ptr %52, align 4, !tbaa !16
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
-  br i1 %exitcond73.not, label %.loopexit, label %.preheader, !llvm.loop !22
+  br i1 %exitcond73.not, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %44, %3
   %.052 = phi i1 [ false, %3 ], [ false, %44 ], [ true, %.preheader ]
@@ -271,18 +271,17 @@ attributes #6 = { cold nounwind }
 !5 = !{!"double", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS8_IO_FILE", !15, i64 0}
-!15 = !{!"any pointer", !6, i64 0}
-!16 = distinct !{!16, !9, !10}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"float", !6, i64 0}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = distinct !{!15, !9}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"float", !6, i64 0}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}

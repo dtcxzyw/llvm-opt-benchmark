@@ -281,7 +281,7 @@ switch.lookup:                                    ; preds = %30, %4
 
 30:                                               ; preds = %28
   tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %11) #6
-  br label %switch.lookup, !llvm.loop !20
+  br label %switch.lookup
 
 .loopexit:                                        ; preds = %28, %20, %25, %17
   tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %11) #6
@@ -427,7 +427,7 @@ define internal void @mlkem_export_import(ptr readnone captures(none) %0, ptr re
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   store ptr null, ptr %7, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
-  store ptr null, ptr %8, align 8, !tbaa !22
+  store ptr null, ptr %8, align 8, !tbaa !20
   %9 = call i32 @EVP_PKEY_todata(ptr noundef %2, i32 noundef 135, ptr noundef nonnull %8) #6
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %13
@@ -448,7 +448,7 @@ define internal void @mlkem_export_import(ptr readnone captures(none) %0, ptr re
   br label %25
 
 19:                                               ; preds = %13
-  %20 = load ptr, ptr %8, align 8, !tbaa !22
+  %20 = load ptr, ptr %8, align 8, !tbaa !20
   %21 = call i32 @EVP_PKEY_fromdata(ptr noundef nonnull %14, ptr noundef nonnull %7, i32 noundef 135, ptr noundef %20) #6
   %.not7 = icmp eq i32 %21, 0
   br i1 %.not7, label %22, label %25
@@ -463,7 +463,7 @@ define internal void @mlkem_export_import(ptr readnone captures(none) %0, ptr re
   call void @EVP_PKEY_CTX_free(ptr noundef %.0) #6
   %26 = load ptr, ptr %7, align 8, !tbaa !18
   call void @EVP_PKEY_free(ptr noundef %26) #6
-  %27 = load ptr, ptr %8, align 8, !tbaa !22
+  %27 = load ptr, ptr %8, align 8, !tbaa !20
   call void @OSSL_PARAM_free(ptr noundef %27) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
@@ -638,7 +638,5 @@ attributes #7 = { cold }
 !17 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"p1 _ZTS11evp_pkey_st", !5, i64 0}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS13ossl_param_st", !5, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS13ossl_param_st", !5, i64 0}

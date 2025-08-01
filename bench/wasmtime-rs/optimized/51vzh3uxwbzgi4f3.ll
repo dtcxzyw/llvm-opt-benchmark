@@ -689,7 +689,7 @@ define void @_ZN11shellexpand16env_with_context17h9ef4ded570c439edE(ptr writeonl
   %.sroa.054.0.be = phi ptr [ %218, %228 ], [ %218, %271 ], [ %138, %144 ], [ %.sroa.054.1, %85 ], [ %126, %128 ], [ %170, %172 ], [ %265, %268 ]
   %.sroa.54.0.be = phi i64 [ %219, %228 ], [ %219, %271 ], [ %139, %144 ], [ %.sroa.54.1, %85 ], [ %129, %128 ], [ %173, %172 ], [ %269, %268 ]
   %.0256.be = phi i64 [ %223, %228 ], [ %223, %271 ], [ %143, %144 ], [ %86, %85 ], [ %130, %128 ], [ %174, %172 ], [ %270, %268 ]
-  br label %.backedge, !llvm.loop !6
+  br label %.backedge
 
 271:                                              ; preds = %228
   invoke void @"_ZN4core3ptr119drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$alloc..string..String$GT$$C$std..env..VarError$GT$$GT$17h3db9214e52b07772E"(ptr nonnull align 8 %11)
@@ -859,5 +859,3 @@ attributes #10 = { cold noreturn nounwind }
 !3 = !{i64 0, i64 2}
 !4 = !{}
 !5 = !{i64 0, i64 -9223372036854775807}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}

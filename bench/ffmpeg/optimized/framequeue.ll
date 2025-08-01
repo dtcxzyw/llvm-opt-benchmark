@@ -194,16 +194,16 @@ define range(i32 -12, 1) i32 @ff_framequeue_add(ptr noundef captures(none) %0, p
   %37 = add i64 %30, 1
   store i64 %37, ptr %3, align 8, !tbaa !15
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load i64, ptr %38, align 8, !tbaa !35
+  %39 = load i64, ptr %38, align 8, !tbaa !34
   %40 = add i64 %39, 1
-  store i64 %40, ptr %38, align 8, !tbaa !35
+  store i64 %40, ptr %38, align 8, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %42 = load i32, ptr %41, align 8, !tbaa !19
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %45 = load i64, ptr %44, align 8, !tbaa !36
+  %45 = load i64, ptr %44, align 8, !tbaa !35
   %46 = add i64 %45, %43
-  store i64 %46, ptr %44, align 8, !tbaa !36
+  store i64 %46, ptr %44, align 8, !tbaa !35
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %10, %27
@@ -243,7 +243,7 @@ define void @ff_framequeue_skip_samples(ptr noundef captures(none) %0, i64 nound
   %11 = getelementptr inbounds nuw %struct.FFFrameBucket, ptr %4, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 116
-  %14 = load i32, ptr %13, align 4, !tbaa !37
+  %14 = load i32, ptr %13, align 4, !tbaa !36
   %15 = tail call i32 @av_sample_fmt_is_planar(i32 noundef %14) #10
   %.not = icmp eq i32 %15, 0
   %.pre = load ptr, ptr %11, align 8, !tbaa !18
@@ -251,13 +251,13 @@ define void @ff_framequeue_skip_samples(ptr noundef captures(none) %0, i64 nound
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %.pre, i64 388
-  %18 = load i32, ptr %17, align 4, !tbaa !38
+  %18 = load i32, ptr %17, align 4, !tbaa !37
   br label %19
 
 19:                                               ; preds = %3, %16
   %20 = phi i32 [ %18, %16 ], [ 1, %3 ]
   %21 = getelementptr inbounds nuw i8, ptr %.pre, i64 116
-  %22 = load i32, ptr %21, align 4, !tbaa !37
+  %22 = load i32, ptr %21, align 4, !tbaa !36
   %23 = tail call i32 @av_get_bytes_per_sample(i32 noundef %22) #10
   %24 = sext i32 %23 to i64
   %25 = mul i64 %1, %24
@@ -266,7 +266,7 @@ define void @ff_framequeue_skip_samples(ptr noundef captures(none) %0, i64 nound
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %.pre48, i64 388
-  %28 = load i32, ptr %27, align 4, !tbaa !38
+  %28 = load i32, ptr %27, align 4, !tbaa !37
   %29 = sext i32 %28 to i64
   %30 = mul i64 %25, %29
   br label %31
@@ -274,19 +274,19 @@ define void @ff_framequeue_skip_samples(ptr noundef captures(none) %0, i64 nound
 31:                                               ; preds = %26, %19
   %.0 = phi i64 [ %25, %19 ], [ %30, %26 ]
   %32 = getelementptr inbounds nuw i8, ptr %.pre48, i64 136
-  %33 = load i64, ptr %32, align 8, !tbaa !39
+  %33 = load i64, ptr %32, align 8, !tbaa !38
   %.not38 = icmp eq i64 %33, -9223372036854775808
   br i1 %.not38, label %39, label %34
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %.pre48, i64 180
-  %36 = load i32, ptr %35, align 4, !tbaa !40
+  %36 = load i32, ptr %35, align 4, !tbaa !39
   %.sroa.2.0.insert.ext.i = zext i32 %36 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, 1
   %37 = tail call i64 @av_rescale_q(i64 noundef %1, i64 %.sroa.0.0.insert.insert.i, i64 %2) #11
   %38 = add nsw i64 %37, %33
-  store i64 %38, ptr %32, align 8, !tbaa !39
+  store i64 %38, ptr %32, align 8, !tbaa !38
   br label %39
 
 39:                                               ; preds = %34, %31
@@ -296,45 +296,45 @@ define void @ff_framequeue_skip_samples(ptr noundef captures(none) %0, i64 nound
   %43 = sub i32 %41, %42
   store i32 %43, ptr %40, align 8, !tbaa !19
   %44 = getelementptr inbounds nuw i8, ptr %.pre48, i64 64
-  %45 = load i32, ptr %44, align 8, !tbaa !41
+  %45 = load i32, ptr %44, align 8, !tbaa !40
   %46 = trunc i64 %.0 to i32
   %47 = sub i32 %45, %46
-  store i32 %47, ptr %44, align 8, !tbaa !41
+  store i32 %47, ptr %44, align 8, !tbaa !40
   %48 = icmp sgt i32 %20, 0
   br i1 %48, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %39
   %49 = getelementptr inbounds nuw i8, ptr %.pre48, i64 96
-  %50 = load ptr, ptr %49, align 8, !tbaa !42
+  %50 = load ptr, ptr %49, align 8, !tbaa !41
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %54
 
 .lr.ph41:                                         ; preds = %54
   %51 = tail call i32 @llvm.umin.i32(i32 %20, i32 8)
   %52 = getelementptr inbounds nuw i8, ptr %.pre48, i64 96
-  %53 = load ptr, ptr %52, align 8, !tbaa !42
+  %53 = load ptr, ptr %52, align 8, !tbaa !41
   %wide.trip.count46 = zext nneg i32 %51 to i64
   br label %58
 
 54:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %55 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
-  %56 = load ptr, ptr %55, align 8, !tbaa !43
+  %56 = load ptr, ptr %55, align 8, !tbaa !42
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.0
-  store ptr %57, ptr %55, align 8, !tbaa !43
+  store ptr %57, ptr %55, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph41, label %54, !llvm.loop !45
+  br i1 %exitcond.not, label %.lr.ph41, label %54, !llvm.loop !44
 
 58:                                               ; preds = %.lr.ph41, %58
   %indvars.iv43 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next44, %58 ]
   %59 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv43
-  %60 = load ptr, ptr %59, align 8, !tbaa !43
+  %60 = load ptr, ptr %59, align 8, !tbaa !42
   %61 = getelementptr inbounds nuw [8 x ptr], ptr %.pre48, i64 0, i64 %indvars.iv43
-  store ptr %60, ptr %61, align 8, !tbaa !43
+  store ptr %60, ptr %61, align 8, !tbaa !42
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %._crit_edge, label %58, !llvm.loop !46
+  br i1 %exitcond47.not, label %._crit_edge, label %58, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %58, %39
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -403,18 +403,17 @@ attributes #11 = { nounwind willreturn memory(none) }
 !29 = !{!5, !10, i64 64}
 !30 = !{!5, !13, i64 72}
 !31 = !{!12, !12, i64 0}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!5, !10, i64 40}
-!36 = !{!5, !10, i64 56}
-!37 = !{!20, !13, i64 116}
-!38 = !{!20, !13, i64 388}
-!39 = !{!20, !10, i64 136}
-!40 = !{!20, !13, i64 180}
-!41 = !{!13, !13, i64 0}
-!42 = !{!20, !21, i64 96}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 omnipotent char", !7, i64 0}
-!45 = distinct !{!45, !33, !34}
-!46 = distinct !{!46, !33, !34}
+!34 = !{!5, !10, i64 40}
+!35 = !{!5, !10, i64 56}
+!36 = !{!20, !13, i64 116}
+!37 = !{!20, !13, i64 388}
+!38 = !{!20, !10, i64 136}
+!39 = !{!20, !13, i64 180}
+!40 = !{!13, !13, i64 0}
+!41 = !{!20, !21, i64 96}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 omnipotent char", !7, i64 0}
+!44 = distinct !{!44, !33}
+!45 = distinct !{!45, !33}

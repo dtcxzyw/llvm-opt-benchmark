@@ -83,7 +83,7 @@ _ZN4base12LazyInstanceIN12_GLOBAL__N_19URandomFdENS_8internal23LeakyLazyInstance
 .critedge.i:                                      ; preds = %15
   %22 = icmp slt i64 %16, 1
   %23 = add i64 %16, %.015.i
-  br i1 %22, label %_ZN4baseL10ReadFromFDEiPcm.exit, label %11, !llvm.loop !14
+  br i1 %22, label %_ZN4baseL10ReadFromFDEiPcm.exit, label %11
 
 _ZN4baseL10ReadFromFDEiPcm.exit:                  ; preds = %11, %.critedge.i, %18
   %24 = icmp eq i64 %.015.i, %1
@@ -168,7 +168,5 @@ attributes #7 = { nounwind willreturn memory(none) }
 !8 = !{!"_ZTSN12_GLOBAL__N_19URandomFdE", !9, i64 0}
 !9 = !{!"int", !5, i64 0}
 !10 = !{!9, !9, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !13}

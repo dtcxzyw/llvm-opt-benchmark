@@ -213,7 +213,7 @@ define hidden ptr @convert_ext_list(ptr noundef %0, ptr noundef %1, ptr noundef 
   %22 = getelementptr inbounds nuw i8, ptr %.05474, i64 1
   %23 = load i8, ptr %22, align 1
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
 
 24:                                               ; preds = %._crit_edge
   store i8 0, ptr %17, align 1
@@ -291,7 +291,7 @@ define hidden ptr @convert_ext_list(ptr noundef %0, ptr noundef %1, ptr noundef 
   %54 = getelementptr inbounds nuw i8, ptr %.076, i64 1
   %55 = load i8, ptr %54, align 1
   %.not65 = icmp eq i8 %55, 0
-  br i1 %.not65, label %.critedge, label %32, !llvm.loop !7
+  br i1 %.not65, label %.critedge, label %32, !llvm.loop !6
 
 .critedge:                                        ; preds = %53, %.preheader, %30
   %56 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %0) #4
@@ -378,7 +378,7 @@ define hidden noundef ptr @validate_filters(ptr noundef readonly captures(addres
   %21 = getelementptr inbounds nuw i8, ptr %.02036.i, i64 1
   %22 = load i8, ptr %21, align 1
   %.not.i = icmp eq i8 %22, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %20, %.preheader.i
   %23 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %5) #4
@@ -391,7 +391,7 @@ define hidden noundef ptr @validate_filters(ptr noundef readonly captures(addres
 28:                                               ; preds = %.lr.ph, %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !8
 
 .thread:                                          ; preds = %28, %._crit_edge.i, %13, %14, %16, %2
   %.3 = phi ptr [ null, %2 ], [ @.str.3, %16 ], [ @.str.3, %14 ], [ @.str.5, %13 ], [ null, %28 ], [ @.str.3, %._crit_edge.i ]
@@ -442,7 +442,7 @@ define hidden ptr @validate_list(ptr noundef %0) local_unnamed_addr #0 {
   %17 = getelementptr inbounds nuw i8, ptr %.02036, i64 1
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %16, %.preheader
   %19 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %0) #4
@@ -470,10 +470,9 @@ attributes #5 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

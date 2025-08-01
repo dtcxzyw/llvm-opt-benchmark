@@ -280,12 +280,12 @@ define internal noundef i32 @camellia_ofb_cipher(ptr noundef %0, ptr noundef %1,
   %6 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %7 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
-  store i32 %7, ptr %5, align 4, !tbaa !14
+  store i32 %7, ptr %5, align 4, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   call void @CRYPTO_ofb128_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef %10) #4
-  %11 = load i32, ptr %5, align 4, !tbaa !14
+  %11 = load i32, ptr %5, align 4, !tbaa !13
   %12 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %11) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 1
@@ -303,13 +303,13 @@ define internal noundef i32 @camellia_cfb_cipher(ptr noundef %0, ptr noundef %1,
   %6 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %7 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
-  store i32 %7, ptr %5, align 4, !tbaa !14
+  store i32 %7, ptr %5, align 4, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   call void @CRYPTO_cfb128_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef %9, ptr noundef %11) #4
-  %12 = load i32, ptr %5, align 4, !tbaa !14
+  %12 = load i32, ptr %5, align 4, !tbaa !13
   %13 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %12) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 1
@@ -339,13 +339,13 @@ define internal noundef i32 @camellia_cfb1_cipher(ptr noundef %0, ptr noundef %1
 13:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %14 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
-  store i32 %14, ptr %5, align 4, !tbaa !14
+  store i32 %14, ptr %5, align 4, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #4
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   call void @CRYPTO_cfb128_1_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %8, ptr noundef nonnull %15, ptr noundef nonnull %5, i32 noundef %16, ptr noundef %18) #4
-  %19 = load i32, ptr %5, align 4, !tbaa !14
+  %19 = load i32, ptr %5, align 4, !tbaa !13
   %20 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %19) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   br label %40
@@ -356,18 +356,18 @@ define internal noundef i32 @camellia_cfb1_cipher(ptr noundef %0, ptr noundef %1
   %.03537 = phi ptr [ %1, %.lr.ph ], [ %28, %21 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
   %22 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
-  store i32 %22, ptr %6, align 4, !tbaa !14
+  store i32 %22, ptr %6, align 4, !tbaa !13
   %23 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #4
   %24 = load ptr, ptr %12, align 8, !tbaa !3
   call void @CRYPTO_cfb128_1_encrypt(ptr noundef %.03438, ptr noundef %.03537, i64 noundef -9223372036854775808, ptr noundef %8, ptr noundef nonnull %11, ptr noundef nonnull %6, i32 noundef %23, ptr noundef %24) #4
-  %25 = load i32, ptr %6, align 4, !tbaa !14
+  %25 = load i32, ptr %6, align 4, !tbaa !13
   %26 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %25) #4
   %27 = add i64 %.03339, -1152921504606846976
   %28 = getelementptr inbounds nuw i8, ptr %.03537, i64 1152921504606846976
   %29 = getelementptr inbounds nuw i8, ptr %.03438, i64 1152921504606846976
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   %30 = icmp ugt i64 %27, 1152921504606846975
-  br i1 %30, label %21, label %._crit_edge, !llvm.loop !15
+  br i1 %30, label %21, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %21, %.preheader
   %.035.lcssa = phi ptr [ %1, %.preheader ], [ %28, %21 ]
@@ -379,14 +379,14 @@ define internal noundef i32 @camellia_cfb1_cipher(ptr noundef %0, ptr noundef %1
 31:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   %32 = call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
-  store i32 %32, ptr %7, align 4, !tbaa !14
+  store i32 %32, ptr %7, align 4, !tbaa !13
   %33 = shl nuw nsw i64 %.033.lcssa, 3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #4
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 280
   %37 = load ptr, ptr %36, align 8, !tbaa !3
   call void @CRYPTO_cfb128_1_encrypt(ptr noundef %.034.lcssa, ptr noundef %.035.lcssa, i64 noundef %33, ptr noundef %8, ptr noundef nonnull %34, ptr noundef nonnull %7, i32 noundef %35, ptr noundef %37) #4
-  %38 = load i32, ptr %7, align 4, !tbaa !14
+  %38 = load i32, ptr %7, align 4, !tbaa !13
   %39 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %38) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   br label %40
@@ -405,13 +405,13 @@ define internal noundef i32 @camellia_cfb8_cipher(ptr noundef %0, ptr noundef %1
   %6 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %7 = tail call i32 @EVP_CIPHER_CTX_get_num(ptr noundef %0) #4
-  store i32 %7, ptr %5, align 4, !tbaa !14
+  store i32 %7, ptr %5, align 4, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   call void @CRYPTO_cfb128_8_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef %9, ptr noundef %11) #4
-  %12 = load i32, ptr %5, align 4, !tbaa !14
+  %12 = load i32, ptr %5, align 4, !tbaa !13
   %13 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %12) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 1
@@ -429,7 +429,7 @@ define internal range(i32 0, 2) i32 @camellia_ctr_cipher(ptr noundef %0, ptr nou
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %4
-  store i32 %6, ptr %5, align 4, !tbaa !14
+  store i32 %6, ptr %5, align 4, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %.not = icmp eq ptr %11, null
@@ -449,7 +449,7 @@ define internal range(i32 0, 2) i32 @camellia_ctr_cipher(ptr noundef %0, ptr nou
   br label %19
 
 19:                                               ; preds = %16, %14
-  %20 = load i32, ptr %5, align 4, !tbaa !14
+  %20 = load i32, ptr %5, align 4, !tbaa !13
   %21 = call i32 @EVP_CIPHER_CTX_set_num(ptr noundef nonnull %0, i32 noundef %20) #4
   br label %22
 
@@ -484,8 +484,7 @@ attributes #4 = { nounwind }
 !8 = !{!"int", !6, i64 0}
 !9 = !{!"any pointer", !6, i64 0}
 !10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!8, !8, i64 0}
-!15 = distinct !{!15, !12, !13}
+!13 = !{!8, !8, i64 0}
+!14 = distinct !{!14, !12}

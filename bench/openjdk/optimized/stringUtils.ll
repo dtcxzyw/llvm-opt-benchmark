@@ -92,7 +92,7 @@ define hidden noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef 
 23:                                               ; preds = %18, %14
   %24 = add nuw i64 %.027.us, 1
   %exitcond.not = icmp eq i64 %24, %10
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %14, !llvm.loop !9
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %14, !llvm.loop !8
 
 25:                                               ; preds = %18
   %26 = add i64 %.02328.us, 1
@@ -102,7 +102,7 @@ define hidden noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef 
   %.1.us = phi i64 [ %26, %25 ], [ %.02328.us, %23 ]
   %27 = add nuw i64 %.02229.us, 1
   %exitcond33.not = icmp eq i64 %27, %9
-  br i1 %exitcond33.not, label %._crit_edge.loopexit32, label %.preheader.us, !llvm.loop !10
+  br i1 %exitcond33.not, label %._crit_edge.loopexit32, label %.preheader.us, !llvm.loop !9
 
 ._crit_edge.loopexit32:                           ; preds = %..loopexit_crit_edge.us
   %28 = uitofp i64 %.1.us to double
@@ -141,7 +141,7 @@ define hidden noundef ptr @_ZN11StringUtils13strstr_nocaseEPKcS1_(ptr noundef re
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %10 = load i8, ptr %9, align 1
   %.not24 = icmp eq i8 %10, 0
-  br i1 %.not24, label %.critedge, label %11, !llvm.loop !12
+  br i1 %.not24, label %.critedge, label %11, !llvm.loop !11
 
 11:                                               ; preds = %.preheader, %7
   %.in = phi i8 [ %3, %.preheader ], [ %10, %7 ]
@@ -164,7 +164,7 @@ define hidden noundef ptr @_ZN11StringUtils13strstr_nocaseEPKcS1_(ptr noundef re
   %22 = getelementptr inbounds i8, ptr %0, i64 %21
   %23 = load i8, ptr %22, align 1
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !13
+  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !12
 
 .critedge:                                        ; preds = %20, %11, %7, %.preheader26, %2
   %.021 = phi ptr [ %0, %2 ], [ null, %.preheader26 ], [ null, %11 ], [ %6, %7 ], [ null, %20 ]
@@ -219,7 +219,7 @@ define hidden noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr nou
   %18 = getelementptr inbounds i8, ptr %.02228, i64 %17
   %19 = load i8, ptr %18, align 1
   %.not24.i = icmp eq i8 %19, 0
-  br i1 %.not24.i, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32, label %20, !llvm.loop !12
+  br i1 %.not24.i, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32, label %20, !llvm.loop !11
 
 20:                                               ; preds = %16, %.preheader.i
   %.in.i = phi i8 [ %13, %.preheader.i ], [ %19, %16 ]
@@ -242,7 +242,7 @@ define hidden noundef zeroext i1 @_ZN11StringUtils13is_star_matchEPKcS1_(ptr nou
   %31 = getelementptr inbounds i8, ptr %.02048, i64 %30
   %32 = load i8, ptr %31, align 1
   %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.preheader.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.preheader.i, !llvm.loop !12
 
 _ZN11StringUtils13strstr_nocaseEPKcS1_.exit:      ; preds = %6
   %33 = icmp eq ptr %.02048, null
@@ -259,7 +259,7 @@ _ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32: ; preds = %16, %_ZN11Strin
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr i8, ptr %36, i64 %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   %char0 = load i8, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 1
   %.not = icmp eq i8 %char0, 0
-  br i1 %.not, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread, label %.lr.ph, !llvm.loop !13
 
 _ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread: ; preds = %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32, %.preheader26.i, %29, %20, %2
   %.not44 = phi i1 [ true, %2 ], [ false, %20 ], [ false, %29 ], [ false, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit ], [ true, %_ZN11StringUtils13strstr_nocaseEPKcS1_.exit.thread32 ], [ false, %.preheader26.i ]
@@ -306,7 +306,7 @@ define hidden noundef ptr @_ZN11StringUtils28CommaSeparatedStringIterator12canon
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   store i8 %.sink, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %6, !llvm.loop !15
+  br label %6, !llvm.loop !14
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
@@ -340,13 +340,12 @@ attributes #11 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

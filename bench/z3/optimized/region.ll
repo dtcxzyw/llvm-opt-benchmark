@@ -164,7 +164,7 @@ define hidden void @_ZN6region5resetEv(ptr noundef nonnull align 8 dereferenceab
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %11, align 8, !tbaa !18
+  store ptr null, ptr %11, align 8, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %13 = tail call noundef ptr @_Z21allocate_default_pagePcRS_(ptr noundef %.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -207,28 +207,28 @@ _ZnwmR6region.exit:                               ; preds = %1, %9
   %storemerge = inttoptr i64 %storemerge.in to ptr
   store ptr %storemerge, ptr %3, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !18
-  store ptr %2, ptr %.0.i.i, align 8, !tbaa !19
+  %19 = load ptr, ptr %18, align 8, !tbaa !17
+  store ptr %2, ptr %.0.i.i, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  store ptr %4, ptr %20, align 8, !tbaa !21
+  store ptr %4, ptr %20, align 8, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  store ptr %19, ptr %21, align 8, !tbaa !22
-  store ptr %.0.i.i, ptr %18, align 8, !tbaa !18
+  store ptr %19, ptr %21, align 8, !tbaa !21
+  store ptr %.0.i.i, ptr %18, align 8, !tbaa !17
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6region9pop_scopeEv(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
-  %4 = load ptr, ptr %3, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !21
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !22
-  store ptr %9, ptr %2, align 8, !tbaa !18
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  store ptr %9, ptr %2, align 8, !tbaa !17
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   %.not2 = icmp eq ptr %10, %4
   br i1 %.not2, label %._crit_edge, label %.lr.ph
@@ -246,7 +246,7 @@ define hidden void @_ZN6region9pop_scopeEv(ptr noundef nonnull align 8 dereferen
   tail call void @_Z12recycle_pagePcRS_(ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(8) %11)
   store ptr %17, ptr %0, align 8, !tbaa !3
   %.not = icmp eq ptr %4, %17
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %12, %1
   %.lcssa = phi ptr [ %10, %1 ], [ %17, %12 ]
@@ -271,7 +271,7 @@ define hidden void @_ZNK6region17display_mem_statsERSo(ptr noundef nonnull reado
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %9 = zext i32 %4 to i64
@@ -333,13 +333,12 @@ attributes #10 = { nounwind }
 !12 = !{!4, !5, i64 24}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !7, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!4, !9, i64 32}
-!19 = !{!20, !5, i64 0}
-!20 = !{!"_ZTSN6region4markE", !5, i64 0, !5, i64 8, !9, i64 16}
-!21 = !{!20, !5, i64 8}
-!22 = !{!20, !9, i64 16}
-!23 = distinct !{!23, !16, !17}
-!24 = distinct !{!24, !16, !17}
+!17 = !{!4, !9, i64 32}
+!18 = !{!19, !5, i64 0}
+!19 = !{!"_ZTSN6region4markE", !5, i64 0, !5, i64 8, !9, i64 16}
+!20 = !{!19, !5, i64 8}
+!21 = !{!19, !9, i64 16}
+!22 = distinct !{!22, !16}
+!23 = distinct !{!23, !16}

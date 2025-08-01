@@ -129,7 +129,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load i8, ptr %22, align 8, !tbaa !19
+  %23 = load i8, ptr %22, align 8, !tbaa !18
   %.not146 = icmp eq i8 %23, 0
   br i1 %.not146, label %24, label %.critedge.sink.split
 
@@ -301,7 +301,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
   %124 = sdiv i64 %123, %.pre-phi154
   %125 = trunc i64 %124 to i32
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %125, ptr %126, align 4, !tbaa !20
+  store i32 %125, ptr %126, align 4, !tbaa !19
   %127 = zext nneg i32 %26 to i64
   %128 = getelementptr inbounds nuw i32, ptr %.0131, i64 %127
   %129 = getelementptr inbounds nuw i32, ptr %.0133, i64 %127
@@ -321,7 +321,7 @@ define void @upvec_setValue_77(ptr noundef captures(address_is_null) %0, i32 nou
   %138 = or disjoint i32 %137, %27
   store i32 %138, ptr %135, align 4, !tbaa !15
   %139 = icmp eq ptr %135, %129
-  br i1 %139, label %.critedge, label %.lr.ph, !llvm.loop !21
+  br i1 %139, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge.sink.split:                             ; preds = %63, %61, %21, %10, %13, %17
   %.sink = phi i32 [ 1, %17 ], [ 1, %13 ], [ 1, %10 ], [ 30, %21 ], [ 5, %61 ], [ 7, %63 ]
@@ -339,7 +339,7 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !20
+  %8 = load i32, ptr %7, align 4, !tbaa !19
   %9 = load ptr, ptr %0, align 8, !tbaa !7
   %10 = mul nsw i32 %8, %4
   %11 = sext i32 %10 to i64
@@ -364,7 +364,7 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
 
 24:                                               ; preds = %18
   %25 = add nsw i32 %8, 1
-  store i32 %25, ptr %7, align 4, !tbaa !20
+  store i32 %25, ptr %7, align 4, !tbaa !19
   br label %69
 
 26:                                               ; preds = %18
@@ -376,7 +376,7 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
 
 31:                                               ; preds = %26
   %32 = add nsw i32 %8, 2
-  store i32 %32, ptr %7, align 4, !tbaa !20
+  store i32 %32, ptr %7, align 4, !tbaa !19
   br label %69
 
 33:                                               ; preds = %26
@@ -396,10 +396,10 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !15
   %.not66 = icmp slt i32 %1, %42
-  br i1 %.not66, label %43, label %38, !llvm.loop !22
+  br i1 %.not66, label %43, label %38, !llvm.loop !21
 
 43:                                               ; preds = %38
-  store i32 %39, ptr %7, align 4, !tbaa !20
+  store i32 %39, ptr %7, align 4, !tbaa !19
   br label %69
 
 44:                                               ; preds = %2
@@ -409,7 +409,7 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %44
-  store i32 0, ptr %7, align 4, !tbaa !20
+  store i32 0, ptr %7, align 4, !tbaa !19
   br label %69
 
 49:                                               ; preds = %44, %33
@@ -435,7 +435,7 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
   br i1 %61, label %62, label %63
 
 62:                                               ; preds = %58
-  store i32 %52, ptr %7, align 4, !tbaa !20
+  store i32 %52, ptr %7, align 4, !tbaa !19
   br label %69
 
 63:                                               ; preds = %58, %.lr.ph
@@ -443,11 +443,11 @@ define internal fastcc noundef ptr @_ZL8_findRowP13UPropsVectorsi(ptr noundef ca
   %.1 = phi i32 [ %52, %.lr.ph ], [ %.05972, %58 ]
   %64 = add nsw i32 %.1, -1
   %65 = icmp slt i32 %.161, %64
-  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %63, %49
   %.060.lcssa = phi i32 [ 0, %49 ], [ %.161, %63 ]
-  store i32 %.060.lcssa, ptr %7, align 4, !tbaa !20
+  store i32 %.060.lcssa, ptr %7, align 4, !tbaa !19
   %66 = mul nsw i32 %.060.lcssa, %4
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i32, ptr %9, i64 %67
@@ -467,7 +467,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !19
+  %5 = load i8, ptr %4, align 8, !tbaa !18
   %6 = icmp ne i8 %5, 0
   %7 = icmp ugt i32 %1, 1114113
   %or.cond3 = or i1 %7, %6
@@ -486,7 +486,7 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %17 = load i32, ptr %16, align 4, !tbaa !20
+  %17 = load i32, ptr %16, align 4, !tbaa !19
   %18 = load ptr, ptr %0, align 8, !tbaa !7
   %19 = mul nsw i32 %17, %11
   %20 = sext i32 %19 to i64
@@ -511,7 +511,7 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
 
 33:                                               ; preds = %27
   %34 = add nsw i32 %17, 1
-  store i32 %34, ptr %16, align 4, !tbaa !20
+  store i32 %34, ptr %16, align 4, !tbaa !19
   br label %_ZL8_findRowP13UPropsVectorsi.exit
 
 35:                                               ; preds = %27
@@ -523,7 +523,7 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
 
 40:                                               ; preds = %35
   %41 = add nsw i32 %17, 2
-  store i32 %41, ptr %16, align 4, !tbaa !20
+  store i32 %41, ptr %16, align 4, !tbaa !19
   br label %_ZL8_findRowP13UPropsVectorsi.exit
 
 42:                                               ; preds = %35
@@ -543,10 +543,10 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !15
   %.not66.i = icmp slt i32 %1, %51
-  br i1 %.not66.i, label %52, label %47, !llvm.loop !22
+  br i1 %.not66.i, label %52, label %47, !llvm.loop !21
 
 52:                                               ; preds = %47
-  store i32 %48, ptr %16, align 4, !tbaa !20
+  store i32 %48, ptr %16, align 4, !tbaa !19
   br label %_ZL8_findRowP13UPropsVectorsi.exit
 
 53:                                               ; preds = %13
@@ -556,7 +556,7 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %53
-  store i32 0, ptr %16, align 4, !tbaa !20
+  store i32 0, ptr %16, align 4, !tbaa !19
   br label %_ZL8_findRowP13UPropsVectorsi.exit
 
 58:                                               ; preds = %53, %42
@@ -582,7 +582,7 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %67
-  store i32 %61, ptr %16, align 4, !tbaa !20
+  store i32 %61, ptr %16, align 4, !tbaa !19
   br label %_ZL8_findRowP13UPropsVectorsi.exit
 
 72:                                               ; preds = %67, %.lr.ph.i
@@ -590,11 +590,11 @@ define i32 @upvec_getValue_77(ptr noundef captures(none) %0, i32 noundef %1, i32
   %.1.i = phi i32 [ %61, %.lr.ph.i ], [ %.05972.i, %67 ]
   %73 = add nsw i32 %.1.i, -1
   %74 = icmp slt i32 %.161.i, %73
-  br i1 %74, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %74, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %72, %58
   %.060.lcssa.i = phi i32 [ 0, %58 ], [ %.161.i, %72 ]
-  store i32 %.060.lcssa.i, ptr %16, align 4, !tbaa !20
+  store i32 %.060.lcssa.i, ptr %16, align 4, !tbaa !19
   %75 = mul nsw i32 %.060.lcssa.i, %11
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds i32, ptr %18, i64 %76
@@ -616,7 +616,7 @@ _ZL8_findRowP13UPropsVectorsi.exit:               ; preds = %23, %33, %40, %52, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define ptr @upvec_getRow_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i8, ptr %5, align 8, !tbaa !19
+  %6 = load i8, ptr %5, align 8, !tbaa !18
   %7 = icmp ne i8 %6, 0
   %8 = icmp slt i32 %1, 0
   %or.cond = or i1 %8, %7
@@ -679,12 +679,12 @@ define void @upvec_compact_77(ptr noundef %0, ptr noundef readonly captures(addr
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i8, ptr %11, align 8, !tbaa !19
+  %12 = load i8, ptr %11, align 8, !tbaa !18
   %.not90 = icmp eq i8 %12, 0
   br i1 %.not90, label %13, label %.loopexit
 
 13:                                               ; preds = %10
-  store i8 1, ptr %11, align 8, !tbaa !19
+  store i8 1, ptr %11, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -746,7 +746,7 @@ define void @upvec_compact_77(ptr noundef %0, ptr noundef readonly captures(addr
   %47 = getelementptr inbounds i32, ptr %.0104, i64 %31
   %48 = add nuw nsw i32 %.084102, 1
   %exitcond.not = icmp eq i32 %48, %15
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %46, %23
   %.082.lcssa = phi i32 [ %25, %23 ], [ %.183, %46 ]
@@ -815,7 +815,7 @@ define void @upvec_compact_77(ptr noundef %0, ptr noundef readonly captures(addr
   %83 = getelementptr inbounds i32, ptr %.1108, i64 %58
   %84 = add nuw nsw i32 %.185106, 1
   %exitcond116.not = icmp eq i32 %84, %15
-  br i1 %exitcond116.not, label %._crit_edge111, label %59, !llvm.loop !25
+  br i1 %exitcond116.not, label %._crit_edge111, label %59, !llvm.loop !24
 
 ._crit_edge111:                                   ; preds = %82, %53
   %.2.lcssa = phi i32 [ %25, %53 ], [ %.3, %82 ]
@@ -858,7 +858,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17upvec_compareRowsPKvS0_S0_(pt
   %spec.store.select = select i1 %17, i32 0, i32 %16
   %18 = add nsw i32 %.015, -1
   %19 = icmp sgt i32 %.015, 1
-  br i1 %19, label %6, label %.loopexit, !llvm.loop !26
+  br i1 %19, label %6, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %15, %12
   %.0 = phi i32 [ %14, %12 ], [ 0, %15 ]
@@ -868,7 +868,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL17upvec_compareRowsPKvS0_S0_(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @upvec_getArray_77(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !19
+  %5 = load i8, ptr %4, align 8, !tbaa !18
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %17, label %6
 
@@ -910,7 +910,7 @@ define noalias ptr @upvec_cloneArray_77(ptr noundef readonly captures(none) %0, 
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i8, ptr %8, align 8, !tbaa !19
+  %9 = load i8, ptr %8, align 8, !tbaa !18
   %.not21 = icmp eq i8 %9, 0
   br i1 %.not21, label %10, label %11
 
@@ -967,11 +967,11 @@ define ptr @upvec_compactToUTrie2WithRowIndexes_77(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @upvec_compact_77(ptr noundef %0, ptr noundef nonnull @upvec_compactToUTrie2Handler_77, ptr noundef nonnull %3, ptr noundef %1)
-  %4 = load ptr, ptr %3, align 8, !tbaa !27
+  %4 = load ptr, ptr %3, align 8, !tbaa !26
   call void @utrie2_freeze_77(ptr noundef %4, i32 noundef 0, ptr noundef %1)
   %5 = load i32, ptr %1, align 4, !tbaa !3
   %6 = icmp slt i32 %5, 1
-  %.pre = load ptr, ptr %3, align 8, !tbaa !27
+  %.pre = load ptr, ptr %3, align 8, !tbaa !26
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %2
@@ -990,7 +990,7 @@ define void @upvec_compactToUTrie2Handler_77(ptr noundef captures(none) %0, i32 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = load ptr, ptr %0, align 8, !tbaa !27
+  %10 = load ptr, ptr %0, align 8, !tbaa !26
   tail call void @utrie2_setRange32_77(ptr noundef %10, i32 noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef signext 1, ptr noundef %6)
   br label %26
 
@@ -1003,17 +1003,17 @@ define void @upvec_compactToUTrie2Handler_77(ptr noundef captures(none) %0, i32 
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %3, ptr %13, align 8, !tbaa !30
+  store i32 %3, ptr %13, align 8, !tbaa !29
   br label %26
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %3, ptr %15, align 4, !tbaa !31
+  store i32 %3, ptr %15, align 4, !tbaa !30
   br label %26
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %3, ptr %17, align 8, !tbaa !32
+  store i32 %3, ptr %17, align 8, !tbaa !31
   %18 = icmp sgt i32 %3, 65535
   br i1 %18, label %19, label %20
 
@@ -1023,11 +1023,11 @@ define void @upvec_compactToUTrie2Handler_77(ptr noundef captures(none) %0, i32 
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !30
+  %22 = load i32, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !31
+  %24 = load i32, ptr %23, align 4, !tbaa !30
   %25 = tail call ptr @utrie2_open_77(i32 noundef %22, i32 noundef %24, ptr noundef %6)
-  store ptr %25, ptr %0, align 8, !tbaa !27
+  store ptr %25, ptr %0, align 8, !tbaa !26
   br label %26
 
 26:                                               ; preds = %12, %14, %20, %19, %11, %9
@@ -1077,20 +1077,19 @@ attributes #12 = { nounwind }
 !13 = !{!8, !11, i64 12}
 !14 = !{!8, !11, i64 16}
 !15 = !{!11, !11, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!8, !5, i64 24}
-!20 = !{!8, !11, i64 20}
-!21 = distinct !{!21, !17, !18}
-!22 = distinct !{!22, !17, !18}
-!23 = distinct !{!23, !17, !18}
-!24 = distinct !{!24, !17, !18}
-!25 = distinct !{!25, !17, !18}
-!26 = distinct !{!26, !17, !18}
-!27 = !{!28, !29, i64 0}
-!28 = !{!"_ZTS20UPVecToUTrie2Context", !29, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
-!29 = !{!"p1 _ZTS6UTrie2", !10, i64 0}
-!30 = !{!28, !11, i64 8}
-!31 = !{!28, !11, i64 12}
-!32 = !{!28, !11, i64 16}
+!18 = !{!8, !5, i64 24}
+!19 = !{!8, !11, i64 20}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !17}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"_ZTS20UPVecToUTrie2Context", !28, i64 0, !11, i64 8, !11, i64 12, !11, i64 16}
+!28 = !{!"p1 _ZTS6UTrie2", !10, i64 0}
+!29 = !{!27, !11, i64 8}
+!30 = !{!27, !11, i64 12}
+!31 = !{!27, !11, i64 16}

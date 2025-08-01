@@ -409,7 +409,7 @@ define dso_local void @RequestXLogStreaming(i32 noundef %0, i64 noundef %1, ptr 
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %0, ptr %46, align 8
   %47 = load i32, ptr %7, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !15
   store i8 0, ptr %12, align 2
   br i1 %33, label %48, label %49
 
@@ -475,7 +475,7 @@ define dso_local i64 @GetWalRcvFlushRecPtr(ptr noundef writeonly captures(addres
   br label %18
 
 18:                                               ; preds = %14, %15
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !16
   store i8 0, ptr %4, align 2
   ret i64 %10
 }
@@ -503,7 +503,7 @@ define dso_local i32 @GetReplicationApplyDelay() local_unnamed_addr #0 {
 6:                                                ; preds = %0, %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load i64, ptr %7, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !17
   store i8 0, ptr %2, align 2
   %9 = tail call i64 @GetXLogReplayRecPtr(ptr noundef null) #8
   %10 = icmp eq i64 %8, %9
@@ -550,7 +550,7 @@ define dso_local i32 @GetReplicationTransferLatency() local_unnamed_addr #0 {
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %10 = load i64, ptr %9, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
   store i8 0, ptr %2, align 2
   %11 = tail call i64 @TimestampDifferenceMilliseconds(i64 noundef %8, i64 noundef %10) #8
   %12 = trunc i64 %11 to i32
@@ -585,10 +585,9 @@ attributes #8 = { nounwind }
 !10 = !{i64 2150902136}
 !11 = !{i64 2150902448}
 !12 = !{i64 2150902750}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{i64 2150903239}
-!17 = !{i64 2150903573}
-!18 = !{i64 2150903861}
-!19 = !{i64 2150904160}
+!15 = !{i64 2150903239}
+!16 = !{i64 2150903573}
+!17 = !{i64 2150903861}
+!18 = !{i64 2150904160}

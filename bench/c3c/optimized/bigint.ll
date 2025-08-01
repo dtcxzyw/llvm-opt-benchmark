@@ -227,7 +227,7 @@ i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
   %106 = icmp eq i64 %.sroa.03.0.i38, 0
   %107 = icmp eq i64 %.sroa.3.0.i39, 0
   %108 = select i1 %106, i1 %107, i1 false
-  br i1 %108, label %109, label %24, !llvm.loop !10
+  br i1 %108, label %109, label %24, !llvm.loop !9
 
 109:                                              ; preds = %i128_udiv.exit
   %110 = ptrtoint ptr %63 to i64
@@ -255,7 +255,7 @@ i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
   %120 = getelementptr inbounds nuw i8, ptr %.148, i64 1
   store i8 %119, ptr %.148, align 1
   %121 = icmp ugt ptr %118, %9
-  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %116
   %.1.lcssa = phi ptr [ %.0, %116 ], [ %120, %.lr.ph ]
@@ -575,7 +575,7 @@ define dso_local { i64, i64 } @i128_from_str(ptr noundef readonly captures(none)
   %22 = add i64 %17, %21
   %23 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.sroa.4.0.lcssa = phi i64 [ 0, %1 ], [ %19, %.lr.ph ]
@@ -657,7 +657,7 @@ define dso_local { i64, i64 } @i128_from_strl(ptr noundef readonly captures(addr
   %21 = zext i1 %20 to i64
   %22 = add i64 %16, %21
   %.not = icmp eq ptr %3, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.sroa.4.0.lcssa = phi i64 [ 0, %2 ], [ %19, %.lr.ph ]
@@ -691,7 +691,7 @@ define dso_local { i64, i64 } @i128_from_hexstrl(ptr noundef readonly captures(a
   %15 = zext i1 %14 to i64
   %16 = add i64 %5, %15
   %.not = icmp eq ptr %3, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.sroa.4.0.lcssa = phi i64 [ 0, %2 ], [ %13, %.lr.ph ]
@@ -3451,7 +3451,7 @@ define dso_local void @int_xor(ptr dead_on_unwind noalias writable writeonly sre
 define dso_local void @int_neg(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.42.0.copyload = load i64, ptr %.sroa.42.0..sroa_idx, align 8
@@ -3459,14 +3459,14 @@ define dso_local void @int_neg(ptr dead_on_unwind noalias writable writeonly sre
   %6 = sext i1 %5 to i64
   %spec.select.i.i = sub i64 %6, %.sroa.0.0.copyload
   %7 = sub i64 0, %.sroa.42.0.copyload
-  %8 = tail call { i64, i64 } @i128_extend(i64 %spec.select.i.i, i64 %7, i32 noundef %4), !noalias !15
+  %8 = tail call { i64, i64 } @i128_extend(i64 %spec.select.i.i, i64 %7, i32 noundef %4), !noalias !14
   %9 = extractvalue { i64, i64 } %8, 0
-  store i64 %9, ptr %0, align 8, !alias.scope !15
+  store i64 %9, ptr %0, align 8, !alias.scope !14
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = extractvalue { i64, i64 } %8, 1
-  store i64 %11, ptr %10, align 8, !alias.scope !15
+  store i64 %11, ptr %10, align 8, !alias.scope !14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %4, ptr %12, align 8, !alias.scope !15
+  store i32 %4, ptr %12, align 8, !alias.scope !14
   ret void
 }
 
@@ -3886,14 +3886,13 @@ attributes #21 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"int_sub: argument 0"}
-!17 = distinct !{!17, !"int_sub"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"int_sub: argument 0"}
+!16 = distinct !{!16, !"int_sub"}

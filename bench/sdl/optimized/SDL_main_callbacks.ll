@@ -149,7 +149,7 @@ define internal fastcc void @SDL_DispatchMainCallbackEvents() unnamed_addr #1 {
 .loopexit:                                        ; preds = %SDL_DispatchMainCallbackEvent.exit
   %4 = call i32 @SDL_PeepEvents_REAL(ptr noundef nonnull %1, i32 noundef 16, i32 noundef 2, i32 noundef 0, i32 noundef 65535) #4
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %._crit_edge, label %.preheader, !llvm.loop !3
+  br i1 %5, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %0, %.loopexit
   %6 = phi i32 [ %4, %.loopexit ], [ %2, %0 ]
@@ -179,7 +179,7 @@ define internal fastcc void @SDL_DispatchMainCallbackEvents() unnamed_addr #1 {
 SDL_DispatchMainCallbackEvent.exit:               ; preds = %12, %9, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %.loopexit, %0
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %1) #4
@@ -215,6 +215,4 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !6, !4}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!"llvm.loop.mustprogress"}

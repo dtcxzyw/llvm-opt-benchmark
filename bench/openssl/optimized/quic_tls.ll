@@ -816,9 +816,9 @@ define internal range(i32 0, 2) i32 @quic_new_record_layer(ptr readnone captures
   %85 = phi ptr [ %.pre, %._crit_edge ], [ %61, %59 ]
   %.0 = phi i32 [ %.1, %._crit_edge ], [ 0, %59 ]
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 56
-  %87 = load ptr, ptr %86, align 8, !tbaa !135
+  %87 = load ptr, ptr %86, align 8, !tbaa !134
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 64
-  %89 = load ptr, ptr %88, align 8, !tbaa !136
+  %89 = load ptr, ptr %88, align 8, !tbaa !135
   %90 = tail call i32 %87(i32 noundef %5, i32 noundef %., i32 noundef %.0, ptr noundef %20, ptr noundef %7, i64 noundef %8, ptr noundef %89) #9
   %.not69 = icmp eq i32 %90, 0
   br i1 %.not69, label %91, label %100
@@ -915,7 +915,7 @@ define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef captures(ad
   %5 = alloca [5 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   %6 = icmp eq i64 %2, 1
-  br i1 %6, label %14, label %7, !prof !137
+  br i1 %6, label %14, label %7, !prof !136
 
 7:                                                ; preds = %3
   %.not = icmp eq ptr %0, null
@@ -957,30 +957,30 @@ define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef captures(ad
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %19
-  %24 = load i8, ptr %1, align 8, !tbaa !138
+  %24 = load i8, ptr %1, align 8, !tbaa !137
   br label %25
 
 25:                                               ; preds = %19, %23
   %26 = phi i8 [ %24, %23 ], [ 23, %19 ]
-  store i8 %26, ptr %5, align 1, !tbaa !139
+  store i8 %26, ptr %5, align 1, !tbaa !138
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !140
+  %28 = load i32, ptr %27, align 4, !tbaa !139
   %29 = lshr i32 %28, 8
   %30 = trunc i32 %29 to i8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %30, ptr %31, align 1, !tbaa !139
+  store i8 %30, ptr %31, align 1, !tbaa !138
   %32 = trunc i32 %28 to i8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 %32, ptr %33, align 1, !tbaa !139
+  store i8 %32, ptr %33, align 1, !tbaa !138
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !141
+  %35 = load i64, ptr %34, align 8, !tbaa !140
   %36 = lshr i64 %35, 8
   %37 = trunc i64 %36 to i8
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  store i8 %37, ptr %38, align 1, !tbaa !139
+  store i8 %37, ptr %38, align 1, !tbaa !138
   %39 = trunc i64 %35 to i8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i8 %39, ptr %40, align 1, !tbaa !139
+  store i8 %39, ptr %40, align 1, !tbaa !138
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %42 = load ptr, ptr %41, align 8, !tbaa !126
   call void %18(i32 noundef 1, i32 noundef 772, i32 noundef 256, ptr noundef nonnull %5, i64 noundef 5, ptr noundef %42) #9
@@ -999,7 +999,7 @@ define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef captures(ad
   br label %48
 
 48:                                               ; preds = %47, %14
-  %49 = load i8, ptr %1, align 8, !tbaa !138
+  %49 = load i8, ptr %1, align 8, !tbaa !137
   switch i8 %49, label %114 [
     i8 21, label %50
     i8 22, label %76
@@ -1007,7 +1007,7 @@ define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef captures(ad
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %52 = load i64, ptr %51, align 8, !tbaa !141
+  %52 = load i64, ptr %51, align 8, !tbaa !140
   %.not67 = icmp eq i64 %52, 2
   br i1 %.not67, label %59, label %53
 
@@ -1026,14 +1026,14 @@ define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef captures(ad
 
 59:                                               ; preds = %50
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !142
+  %61 = load ptr, ptr %60, align 8, !tbaa !141
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  %63 = load i8, ptr %62, align 1, !tbaa !139
+  %63 = load i8, ptr %62, align 1, !tbaa !138
   %64 = load ptr, ptr %0, align 8, !tbaa !120
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 104
-  %66 = load ptr, ptr %65, align 8, !tbaa !143
+  %66 = load ptr, ptr %65, align 8, !tbaa !142
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 112
-  %68 = load ptr, ptr %67, align 8, !tbaa !144
+  %68 = load ptr, ptr %67, align 8, !tbaa !143
   %69 = call i32 %66(ptr noundef %68, i8 noundef zeroext %63) #9
   %.not68 = icmp eq i32 %69, 0
   br i1 %.not68, label %70, label %120
@@ -1054,17 +1054,17 @@ define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef captures(ad
 76:                                               ; preds = %48
   %77 = load ptr, ptr %0, align 8, !tbaa !120
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !145
+  %79 = load ptr, ptr %78, align 8, !tbaa !144
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !142
+  %81 = load ptr, ptr %80, align 8, !tbaa !141
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %83 = load i64, ptr %82, align 8, !tbaa !146
+  %83 = load i64, ptr %82, align 8, !tbaa !145
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %86 = load i64, ptr %85, align 8, !tbaa !141
+  %86 = load i64, ptr %85, align 8, !tbaa !140
   %87 = sub i64 %86, %83
   %88 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !147
+  %89 = load ptr, ptr %88, align 8, !tbaa !146
   %90 = call i32 %79(ptr noundef %84, i64 noundef %87, ptr noundef nonnull %4, ptr noundef %89) #9
   %.not65 = icmp eq i32 %90, 0
   br i1 %.not65, label %91, label %97
@@ -1084,15 +1084,15 @@ define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef captures(ad
 
 97:                                               ; preds = %76
   %98 = load i64, ptr %4, align 8, !tbaa !91
-  %99 = load i64, ptr %82, align 8, !tbaa !146
+  %99 = load i64, ptr %82, align 8, !tbaa !145
   %100 = add i64 %99, %98
-  %101 = load i64, ptr %85, align 8, !tbaa !141
+  %101 = load i64, ptr %85, align 8, !tbaa !140
   %.not66 = icmp eq i64 %100, %101
   br i1 %.not66, label %113, label %102
 
 102:                                              ; preds = %97
   %103 = icmp ult i64 %100, %101
-  br i1 %103, label %110, label %104, !prof !137
+  br i1 %103, label %110, label %104, !prof !136
 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1108,15 +1108,15 @@ define internal range(i32 -2, 2) i32 @quic_write_records(ptr noundef captures(ad
   br label %120
 
 110:                                              ; preds = %102
-  store i64 %100, ptr %82, align 8, !tbaa !146
+  store i64 %100, ptr %82, align 8, !tbaa !145
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !148
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !tbaa.struct !147
   %112 = load ptr, ptr %15, align 8, !tbaa !125
   call void @BIO_set_flags(ptr noundef %112, i32 noundef 10) #9
   br label %120
 
 113:                                              ; preds = %97
-  store i64 0, ptr %82, align 8, !tbaa !146
+  store i64 0, ptr %82, align 8, !tbaa !145
   br label %120
 
 114:                                              ; preds = %48
@@ -1149,13 +1149,13 @@ define internal range(i32 -2, 2) i32 @quic_retry_write_records(ptr noundef %0) #
 define internal range(i32 -2, 2) i32 @quic_read_record(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7) #0 {
   %9 = alloca [5 x i8], align 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load i64, ptr %10, align 8, !tbaa !149
+  %11 = load i64, ptr %10, align 8, !tbaa !148
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %12, label %56
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %14 = load i64, ptr %13, align 8, !tbaa !150
+  %14 = load i64, ptr %13, align 8, !tbaa !149
   %.not29 = icmp eq i64 %14, 0
   br i1 %.not29, label %15, label %56
 
@@ -1165,9 +1165,9 @@ define internal range(i32 -2, 2) i32 @quic_read_record(ptr noundef %0, ptr nound
   tail call void @BIO_clear_flags(ptr noundef %17, i32 noundef 15) #9
   %18 = load ptr, ptr %0, align 8, !tbaa !120
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !151
+  %20 = load ptr, ptr %19, align 8, !tbaa !150
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !152
+  %22 = load ptr, ptr %21, align 8, !tbaa !151
   %23 = tail call i32 %20(ptr noundef %4, ptr noundef %5, ptr noundef %22) #9
   %.not30 = icmp eq i32 %23, 0
   br i1 %.not30, label %24, label %30
@@ -1198,10 +1198,10 @@ define internal range(i32 -2, 2) i32 @quic_read_record(ptr noundef %0, ptr nound
 35:                                               ; preds = %30
   store ptr %0, ptr %1, align 8, !tbaa !20
   store i32 772, ptr %2, align 4, !tbaa !21
-  store i8 22, ptr %3, align 1, !tbaa !139
+  store i8 22, ptr %3, align 1, !tbaa !138
   %36 = load i64, ptr %5, align 8, !tbaa !91
-  store i64 %36, ptr %13, align 8, !tbaa !150
-  store i64 %36, ptr %10, align 8, !tbaa !149
+  store i64 %36, ptr %13, align 8, !tbaa !149
+  store i64 %36, ptr %10, align 8, !tbaa !148
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = load ptr, ptr %37, align 8, !tbaa !131
   %.not31 = icmp eq ptr %38, null
@@ -1213,19 +1213,19 @@ define internal range(i32 -2, 2) i32 @quic_read_record(ptr noundef %0, ptr nound
   %41 = load i32, ptr %40, align 8, !tbaa !123
   %42 = icmp eq i32 %41, 0
   %43 = select i1 %42, i8 22, i8 23
-  store i8 %43, ptr %9, align 1, !tbaa !139
+  store i8 %43, ptr %9, align 1, !tbaa !138
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 3, ptr %44, align 1, !tbaa !139
+  store i8 3, ptr %44, align 1, !tbaa !138
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  store i8 3, ptr %45, align 1, !tbaa !139
+  store i8 3, ptr %45, align 1, !tbaa !138
   %46 = load i64, ptr %5, align 8, !tbaa !91
   %47 = lshr i64 %46, 8
   %48 = trunc i64 %47 to i8
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 3
-  store i8 %48, ptr %49, align 1, !tbaa !139
+  store i8 %48, ptr %49, align 1, !tbaa !138
   %50 = trunc i64 %46 to i8
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i8 %50, ptr %51, align 1, !tbaa !139
+  store i8 %50, ptr %51, align 1, !tbaa !138
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %53 = load ptr, ptr %52, align 8, !tbaa !126
   call void %38(i32 noundef 0, i32 noundef 772, i32 noundef 256, ptr noundef nonnull %9, i64 noundef 5, ptr noundef %53) #9
@@ -1243,19 +1243,19 @@ define internal range(i32 -2, 2) i32 @quic_read_record(ptr noundef %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2, 2) i32 @quic_release_record(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %5 = load i64, ptr %4, align 8, !tbaa !149
+  %5 = load i64, ptr %4, align 8, !tbaa !148
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %10, label %6, !prof !153
+  br i1 %.not, label %10, label %6, !prof !152
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load i64, ptr %7, align 8, !tbaa !150
+  %8 = load i64, ptr %7, align 8, !tbaa !149
   %.not26 = icmp ugt i64 %8, %5
   %9 = icmp ne ptr %0, %1
   %or.cond.not33 = or i1 %9, %.not26
   %.not27 = icmp ugt i64 %2, %8
   %or.cond31 = or i1 %.not27, %or.cond.not33
-  br i1 %or.cond31, label %10, label %16, !prof !154
+  br i1 %or.cond31, label %10, label %16, !prof !153
 
 10:                                               ; preds = %6, %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1272,16 +1272,16 @@ define internal range(i32 -2, 2) i32 @quic_release_record(ptr noundef captures(a
 
 16:                                               ; preds = %6
   %17 = sub nuw i64 %8, %2
-  store i64 %17, ptr %7, align 8, !tbaa !150
+  store i64 %17, ptr %7, align 8, !tbaa !149
   %.not29 = icmp eq i64 %8, %2
   br i1 %.not29, label %18, label %32
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %0, align 8, !tbaa !120
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !155
+  %21 = load ptr, ptr %20, align 8, !tbaa !154
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %23 = load ptr, ptr %22, align 8, !tbaa !156
+  %23 = load ptr, ptr %22, align 8, !tbaa !155
   %24 = tail call i32 %21(i64 noundef %5, ptr noundef %23) #9
   %.not30 = icmp eq i32 %24, 0
   br i1 %.not30, label %25, label %31
@@ -1300,7 +1300,7 @@ define internal range(i32 -2, 2) i32 @quic_release_record(ptr noundef captures(a
   br label %32
 
 31:                                               ; preds = %18
-  store i64 0, ptr %4, align 8, !tbaa !149
+  store i64 0, ptr %4, align 8, !tbaa !148
   br label %32
 
 32:                                               ; preds = %16, %10, %31, %25
@@ -1340,7 +1340,7 @@ define internal range(i32 0, 2) i32 @quic_set1_bio(ptr noundef captures(none) %0
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @quic_set_protocol_version(ptr noundef captures(address_is_null) %0, i32 noundef %1) #0 {
   %3 = icmp eq i32 %1, 772
-  br i1 %3, label %11, label %4, !prof !137
+  br i1 %3, label %11, label %4, !prof !136
 
 4:                                                ; preds = %2
   %.not = icmp eq ptr %0, null
@@ -1669,28 +1669,27 @@ attributes #9 = { nounwind }
 !129 = !{!"ossl_dispatch_st", !9, i64 0, !6, i64 8}
 !130 = !{!129, !6, i64 8}
 !131 = !{!121, !6, i64 80}
-!132 = distinct !{!132, !133, !134}
+!132 = distinct !{!132, !133}
 !133 = !{!"llvm.loop.mustprogress"}
-!134 = !{!"llvm.loop.estimated_trip_count"}
-!135 = !{!14, !6, i64 56}
-!136 = !{!14, !6, i64 64}
-!137 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!138 = !{!122, !7, i64 0}
-!139 = !{!7, !7, i64 0}
-!140 = !{!122, !9, i64 4}
-!141 = !{!122, !16, i64 16}
-!142 = !{!122, !15, i64 8}
-!143 = !{!14, !6, i64 104}
-!144 = !{!14, !6, i64 112}
-!145 = !{!14, !6, i64 8}
-!146 = !{!121, !16, i64 24}
-!147 = !{!14, !6, i64 16}
-!148 = !{i64 0, i64 1, !139, i64 4, i64 4, !21, i64 8, i64 8, !89, i64 16, i64 8, !91}
-!149 = !{!121, !16, i64 64}
-!150 = !{!121, !16, i64 72}
-!151 = !{!14, !6, i64 24}
-!152 = !{!14, !6, i64 32}
-!153 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!154 = !{!"branch_weights", i32 6003000, i32 -294967296}
-!155 = !{!14, !6, i64 40}
-!156 = !{!14, !6, i64 48}
+!134 = !{!14, !6, i64 56}
+!135 = !{!14, !6, i64 64}
+!136 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!137 = !{!122, !7, i64 0}
+!138 = !{!7, !7, i64 0}
+!139 = !{!122, !9, i64 4}
+!140 = !{!122, !16, i64 16}
+!141 = !{!122, !15, i64 8}
+!142 = !{!14, !6, i64 104}
+!143 = !{!14, !6, i64 112}
+!144 = !{!14, !6, i64 8}
+!145 = !{!121, !16, i64 24}
+!146 = !{!14, !6, i64 16}
+!147 = !{i64 0, i64 1, !138, i64 4, i64 4, !21, i64 8, i64 8, !89, i64 16, i64 8, !91}
+!148 = !{!121, !16, i64 64}
+!149 = !{!121, !16, i64 72}
+!150 = !{!14, !6, i64 24}
+!151 = !{!14, !6, i64 32}
+!152 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!153 = !{!"branch_weights", i32 6003000, i32 -294967296}
+!154 = !{!14, !6, i64 40}
+!155 = !{!14, !6, i64 48}

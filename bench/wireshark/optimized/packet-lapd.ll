@@ -617,7 +617,7 @@ new_byte.exit:                                    ; preds = %204, %202, %198, %1
   %.4 = phi i8 [ %.3, %189 ], [ 0, %190 ], [ %193, %192 ], [ 0, %194 ], [ %.3, %187 ], [ 0, %198 ], [ 0, %196 ], [ 0, %204 ], [ 0, %202 ]
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %154, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %154, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit, %addresses_equal.exit183.thread209
   %.1198.lcssa = phi i32 [ %.0197, %addresses_equal.exit183.thread209 ], [ %.5202, %.loopexit ]
@@ -662,7 +662,7 @@ new_byte.exit:                                    ; preds = %204, %202, %198, %1
   store i32 %230, ptr %231, align 4
   %232 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %233 = sext i32 %230 to i64
-  %234 = call ptr @__memcpy_chk(ptr noundef nonnull %232, ptr noundef nonnull readonly %224, i64 noundef range(i64 -2147483648, 2147483648) %233, i64 noundef 1028) #11, !alias.scope !20
+  %234 = call ptr @__memcpy_chk(ptr noundef nonnull %232, ptr noundef nonnull readonly %224, i64 noundef range(i64 -2147483648, 2147483648) %233, i64 noundef 1028) #11, !alias.scope !19
   br label %240
 
 235:                                              ; preds = %212
@@ -767,7 +767,7 @@ new_byte.exit:                                    ; preds = %204, %202, %198, %1
   store i32 %284, ptr %285, align 4
   %286 = getelementptr inbounds nuw i8, ptr %279, i64 12
   %287 = sext i32 %284 to i64
-  %288 = call ptr @__memcpy_chk(ptr noundef nonnull %286, ptr noundef nonnull readonly %5, i64 noundef range(i64 -2147483648, 2147483648) %287, i64 noundef 1028) #11, !alias.scope !24
+  %288 = call ptr @__memcpy_chk(ptr noundef nonnull %286, ptr noundef nonnull readonly %5, i64 noundef range(i64 -2147483648, 2147483648) %287, i64 noundef 1028) #11, !alias.scope !23
   %289 = call ptr @wmem_file_scope()
   %290 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc(ptr noundef %289, i64 noundef 72) #13
   %291 = call ptr @wmem_file_scope()
@@ -1297,15 +1297,14 @@ attributes #14 = { nounwind willreturn memory(read) }
 !13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
 !14 = distinct !{!14, !"memcpy.inline"}
 !15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
-!22 = distinct !{!22, !"memcpy.inline"}
-!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
-!24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"memcpy.inline: argument 0"}
-!26 = distinct !{!26, !"memcpy.inline"}
-!27 = distinct !{!27, !26, !"memcpy.inline: argument 1"}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"memcpy.inline: argument 0"}
+!25 = distinct !{!25, !"memcpy.inline"}
+!26 = distinct !{!26, !25, !"memcpy.inline: argument 1"}

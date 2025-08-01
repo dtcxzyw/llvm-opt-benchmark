@@ -2104,7 +2104,7 @@ dissect_wisun_vpie.exit:                          ; preds = %wisun_add_wbxml_uin
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #5
   %213 = add nuw nsw i32 %.0211.i, 1
   %exitcond.not.i = icmp eq i32 %213, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %dissect_wisun_pomie.exit, label %207, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_wisun_pomie.exit, label %207, !llvm.loop !10
 
 dissect_wisun_pomie.exit:                         ; preds = %207, %192
   %214 = call i32 @tvb_reported_length(ptr noundef %123)
@@ -2250,7 +2250,7 @@ dissect_wisun_pomie.exit:                         ; preds = %207, %192
   %315 = add i32 %.pre-phi.i, %289
   %316 = call i32 @tvb_reported_length_remaining(ptr noundef %123, i32 noundef %315)
   %317 = icmp sgt i32 %316, 0
-  br i1 %317, label %.lr.ph.i97, label %dissect_wisun_lgtkhashie.exit, !llvm.loop !12
+  br i1 %317, label %.lr.ph.i97, label %dissect_wisun_lgtkhashie.exit, !llvm.loop !11
 
 318:                                              ; preds = %120
   %319 = load i32, ptr @hf_wisun_unknown_ie, align 4
@@ -2272,7 +2272,7 @@ dissect_wisun_lgtkhashie.exit:                    ; preds = %314, %272, %256, %2
   %331 = add i32 %330, %.099
   %332 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %331)
   %333 = icmp sgt i32 %332, 1
-  br i1 %333, label %19, label %._crit_edge, !llvm.loop !13
+  br i1 %333, label %19, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %dissect_wisun_lgtkhashie.exit, %4
   %.0.lcssa = phi i32 [ 2, %4 ], [ %331, %dissect_wisun_lgtkhashie.exit ]
@@ -2548,7 +2548,7 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
   %47 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %46, ptr noundef %0, i32 noundef %.290, i32 noundef 1, i32 noundef -2147483648)
   %.2 = add nuw nsw i32 %.290, 1
   %.not84 = icmp eq i32 %45, 0
-  br i1 %.not84, label %.loopexit86, label %.lr.ph, !llvm.loop !14
+  br i1 %.not84, label %.loopexit86, label %.lr.ph, !llvm.loop !13
 
 .loopexit86:                                      ; preds = %.lr.ph, %40, %29, %36
   %.1 = phi i32 [ %33, %29 ], [ %39, %36 ], [ %.287, %40 ], [ %.2, %.lr.ph ]
@@ -2581,7 +2581,7 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
   %60 = add nuw nsw i32 %.393, 4
   %61 = add nsw i32 %.18392, -1
   %.not85 = icmp eq i32 %61, 0
-  br i1 %.not85, label %.loopexit, label %.lr.ph94, !llvm.loop !15
+  br i1 %.not85, label %.loopexit, label %.lr.ph94, !llvm.loop !14
 
 62:                                               ; preds = %.loopexit86
   %63 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
@@ -2623,11 +2623,10 @@ attributes #6 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}

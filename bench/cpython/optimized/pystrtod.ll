@@ -112,7 +112,7 @@ case_insensitive_match.exit36:                    ; preds = %42
 case_insensitive_match.exit36.thread:             ; preds = %.lr.ph.i31, %case_insensitive_match.exit36, %.loopexit
   %.017 = phi double [ %33, %.loopexit ], [ %., %case_insensitive_match.exit36 ], [ -1.000000e+00, %.lr.ph.i31 ]
   %.2 = phi ptr [ %32, %.loopexit ], [ %46, %case_insensitive_match.exit36 ], [ %0, %.lr.ph.i31 ]
-  store ptr %.2, ptr %1, align 8, !tbaa !10
+  store ptr %.2, ptr %1, align 8, !tbaa !9
   ret double %.017
 }
 
@@ -130,7 +130,7 @@ define dso_local double @PyOS_string_to_double(ptr noundef %0, ptr noundef write
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   %5 = tail call ptr @__errno_location() #13
-  store i32 0, ptr %5, align 4, !tbaa !13
+  store i32 0, ptr %5, align 4, !tbaa !12
   %6 = tail call zeroext i16 @_Py_get_387controlword() #12
   %7 = and i16 %6, -3841
   %8 = or disjoint i16 %7, 512
@@ -149,7 +149,7 @@ define dso_local double @PyOS_string_to_double(ptr noundef %0, ptr noundef write
 
 12:                                               ; preds = %10, %.thread.i
   %13 = phi double [ %9, %.thread.i ], [ %11, %10 ]
-  %14 = load ptr, ptr %4, align 8, !tbaa !10
+  %14 = load ptr, ptr %4, align 8, !tbaa !9
   %15 = icmp eq ptr %14, %0
   br i1 %15, label %16, label %_PyOS_ascii_strtod.exit
 
@@ -243,19 +243,19 @@ case_insensitive_match.exit36.i.i:                ; preds = %56
 _Py_parse_inf_or_nan.exit.i:                      ; preds = %.lr.ph.i31.i.i, %case_insensitive_match.exit36.i.i, %.loopexit.i.i
   %.017.i.i = phi double [ %47, %.loopexit.i.i ], [ %..i.i, %case_insensitive_match.exit36.i.i ], [ -1.000000e+00, %.lr.ph.i31.i.i ]
   %.2.i.i = phi ptr [ %46, %.loopexit.i.i ], [ %60, %case_insensitive_match.exit36.i.i ], [ %0, %.lr.ph.i31.i.i ]
-  store ptr %.2.i.i, ptr %4, align 8, !tbaa !10
+  store ptr %.2.i.i, ptr %4, align 8, !tbaa !9
   br label %_PyOS_ascii_strtod.exit
 
 _PyOS_ascii_strtod.exit:                          ; preds = %12, %_Py_parse_inf_or_nan.exit.i
   %61 = phi ptr [ %.2.i.i, %_Py_parse_inf_or_nan.exit.i ], [ %14, %12 ]
   %.0.i = phi double [ %.017.i.i, %_Py_parse_inf_or_nan.exit.i ], [ %13, %12 ]
-  %62 = load i32, ptr %5, align 4, !tbaa !13
+  %62 = load i32, ptr %5, align 4, !tbaa !12
   %63 = icmp eq i32 %62, 12
   br i1 %63, label %64, label %66
 
 64:                                               ; preds = %_PyOS_ascii_strtod.exit
   %65 = call ptr @PyErr_NoMemory() #12
-  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %0, ptr %4, align 8, !tbaa !9
   br label %86
 
 66:                                               ; preds = %_PyOS_ascii_strtod.exit
@@ -272,7 +272,7 @@ _PyOS_ascii_strtod.exit:                          ; preds = %12, %_Py_parse_inf_
   br i1 %.not20, label %73, label %.thread
 
 .thread:                                          ; preds = %67, %69
-  %71 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
+  %71 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !14
   %72 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %71, ptr noundef nonnull @.str.3, ptr noundef %0) #12
   br label %89
 
@@ -281,7 +281,7 @@ _PyOS_ascii_strtod.exit:                          ; preds = %12, %_Py_parse_inf_
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %73
-  %76 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
+  %76 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !14
   %77 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %76, ptr noundef nonnull @.str.3, ptr noundef %0) #12
   br label %86
 
@@ -306,8 +306,8 @@ _PyOS_ascii_strtod.exit:                          ; preds = %12, %_Py_parse_inf_
   br i1 %.not21, label %89, label %87
 
 87:                                               ; preds = %86
-  %88 = load ptr, ptr %4, align 8, !tbaa !10
-  store ptr %88, ptr %1, align 8, !tbaa !10
+  %88 = load ptr, ptr %4, align 8, !tbaa !9
+  store ptr %88, ptr %1, align 8, !tbaa !9
   br label %89
 
 89:                                               ; preds = %.thread, %87, %86
@@ -376,7 +376,7 @@ define hidden ptr @_Py_string_to_number_with_underscores(ptr noundef %0, i64 nou
   %28 = phi i8 [ 95, %21 ], [ %.pre, %23 ]
   %.1 = phi ptr [ %.038, %21 ], [ %24, %23 ]
   %29 = getelementptr i8, ptr %.040, i64 1
-  br label %19, !llvm.loop !17
+  br label %19, !llvm.loop !16
 
 30:                                               ; preds = %19
   %31 = icmp ne i8 %.039, 95
@@ -395,7 +395,7 @@ define hidden ptr @_Py_string_to_number_with_underscores(ptr noundef %0, i64 nou
 
 .loopexit:                                        ; preds = %21, %23, %30
   tail call void @PyMem_Free(ptr noundef nonnull %13) #12
-  %37 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !15
+  %37 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !14
   %38 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %37, ptr noundef nonnull @.str.5, ptr noundef %2, ptr noundef %3) #12
   br label %39
 
@@ -487,14 +487,14 @@ define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signex
 
 29:                                               ; preds = %27, %.thread.i
   %30 = phi ptr [ %26, %.thread.i ], [ %28, %27 ]
-  %31 = load i32, ptr %7, align 4, !tbaa !13
+  %31 = load i32, ptr %7, align 4, !tbaa !12
   %.fr252.i = freeze i32 %31
   %32 = sext i32 %.fr252.i to i64
   %33 = icmp eq ptr %30, null
   br i1 %33, label %169, label %34
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %6, align 8, !tbaa !10
+  %35 = load ptr, ptr %6, align 8, !tbaa !9
   %36 = ptrtoint ptr %35 to i64
   %37 = ptrtoint ptr %30 to i64
   %38 = sub i64 %36, %37
@@ -516,7 +516,7 @@ define dso_local ptr @PyOS_double_to_string(double noundef %0, i8 noundef signex
   br i1 %45, label %46, label %.thread200.i
 
 46:                                               ; preds = %43, %42
-  store i32 0, ptr %8, align 4, !tbaa !13
+  store i32 0, ptr %8, align 4, !tbaa !12
   br label %47
 
 47:                                               ; preds = %46, %34
@@ -531,7 +531,7 @@ thread-pre-split.i:                               ; preds = %47, %42
   %48 = phi i8 [ %.pr.i, %thread-pre-split.i ], [ %44, %43 ]
   %49 = zext i8 %48 to i64
   %50 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %49
-  %51 = load i32, ptr %50, align 4, !tbaa !13
+  %51 = load i32, ptr %50, align 4, !tbaa !12
   %52 = and i32 %51, 4
   %.not183.i = icmp eq i32 %52, 0
   br i1 %.not183.i, label %53, label %80
@@ -543,7 +543,7 @@ thread-pre-split.i:                               ; preds = %47, %42
   ]
 
 54:                                               ; preds = %53, %53
-  store i32 0, ptr %8, align 4, !tbaa !13
+  store i32 0, ptr %8, align 4, !tbaa !12
   br label %55
 
 55:                                               ; preds = %54, %53
@@ -556,7 +556,7 @@ thread-pre-split.i:                               ; preds = %47, %42
   br label %171
 
 60:                                               ; preds = %55
-  %61 = load i32, ptr %8, align 4, !tbaa !13
+  %61 = load i32, ptr %8, align 4, !tbaa !12
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %.sink.split.i, label %63
 
@@ -580,14 +580,14 @@ thread-pre-split.i:                               ; preds = %47, %42
   ]
 
 67:                                               ; preds = %65, %65
-  %68 = load ptr, ptr %.3, align 8, !tbaa !10
+  %68 = load ptr, ptr %.3, align 8, !tbaa !9
   %69 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %.1.i, ptr noundef nonnull dereferenceable(1) %68, i64 noundef 3) #12
   %70 = getelementptr i8, ptr %.1.i, i64 3
   %.not186.i = icmp eq ptr %4, null
   br i1 %.not186.i, label %168, label %71
 
 71:                                               ; preds = %67
-  store i32 1, ptr %4, align 4, !tbaa !13
+  store i32 1, ptr %4, align 4, !tbaa !12
   br label %168
 
 72:                                               ; preds = %65
@@ -597,14 +597,14 @@ thread-pre-split.i:                               ; preds = %47, %42
 
 74:                                               ; preds = %72, %65
   %75 = getelementptr i8, ptr %.3, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !10
+  %76 = load ptr, ptr %75, align 8, !tbaa !9
   %77 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %.1.i, ptr noundef nonnull dereferenceable(1) %76, i64 noundef 3) #12
   %78 = getelementptr i8, ptr %.1.i, i64 3
   %.not185.i = icmp eq ptr %4, null
   br i1 %.not185.i, label %168, label %79
 
 79:                                               ; preds = %74
-  store i32 2, ptr %4, align 4, !tbaa !13
+  store i32 2, ptr %4, align 4, !tbaa !12
   br label %168
 
 80:                                               ; preds = %.thread200.i, %47
@@ -612,7 +612,7 @@ thread-pre-split.i:                               ; preds = %47, %42
   br i1 %.not187.i, label %82, label %81
 
 81:                                               ; preds = %80
-  store i32 0, ptr %4, align 4, !tbaa !13
+  store i32 0, ptr %4, align 4, !tbaa !12
   br label %82
 
 82:                                               ; preds = %81, %80
@@ -712,7 +712,7 @@ thread-pre-split.i:                               ; preds = %47, %42
   br label %171
 
 122:                                              ; preds = %109
-  %123 = load i32, ptr %8, align 4, !tbaa !13
+  %123 = load i32, ptr %8, align 4, !tbaa !12
   %124 = icmp eq i32 %123, 1
   br i1 %124, label %.sink.split246.i, label %125
 
@@ -792,7 +792,7 @@ thread-pre-split.i:                               ; preds = %47, %42
 
 160:                                              ; preds = %153
   %161 = getelementptr i8, ptr %.3, i64 16
-  %162 = load ptr, ptr %161, align 8, !tbaa !10
+  %162 = load ptr, ptr %161, align 8, !tbaa !9
   %163 = load i8, ptr %162, align 1, !tbaa !4
   %164 = getelementptr i8, ptr %spec.select199.i, i64 1
   store i8 %163, ptr %spec.select199.i, align 1, !tbaa !4
@@ -886,14 +886,13 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !5, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS7_object", !12, i64 0}
-!17 = distinct !{!17, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !5, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS7_object", !11, i64 0}
+!16 = distinct !{!16, !8}

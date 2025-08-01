@@ -1108,18 +1108,18 @@ _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds =
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %47, %.lr.ph.i.i.i17 ], [ %38, %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   %.0911.i.i.i19 = phi ptr [ %46, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
-  %39 = load i8, ptr %.0911.i.i.i19, align 1, !tbaa !172, !alias.scope !188, !noalias !185
-  store i8 %39, ptr %.012.i.i.i18, align 1, !tbaa !172, !alias.scope !185, !noalias !188
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
+  %39 = load i8, ptr %.0911.i.i.i19, align 1, !tbaa !172, !alias.scope !187, !noalias !184
+  store i8 %39, ptr %.012.i.i.i18, align 1, !tbaa !172, !alias.scope !184, !noalias !187
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !3, !alias.scope !188, !noalias !185
-  store i64 %42, ptr %40, align 8, !tbaa !3, !alias.scope !185, !noalias !188
+  %42 = load i64, ptr %41, align 8, !tbaa !3, !alias.scope !187, !noalias !184
+  store i64 %42, ptr %40, align 8, !tbaa !3, !alias.scope !184, !noalias !187
   %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !3, !alias.scope !188, !noalias !185
-  store i64 %45, ptr %43, align 8, !tbaa !3, !alias.scope !185, !noalias !188
+  %45 = load i64, ptr %44, align 8, !tbaa !3, !alias.scope !187, !noalias !184
+  store i64 %45, ptr %43, align 8, !tbaa !3, !alias.scope !184, !noalias !187
   %46 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 24
   %.not.i.i.i20 = icmp eq ptr %46, %5
@@ -1371,11 +1371,10 @@ attributes #19 = { builtin nounwind }
 !179 = distinct !{!179, !"_ZSt19__relocate_object_aISt5tupleIJmmhEES1_SaIS1_EEvPT_PT0_RT1_"}
 !180 = !{!181}
 !181 = distinct !{!181, !179, !"_ZSt19__relocate_object_aISt5tupleIJmmhEES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!182 = distinct !{!182, !183, !184}
+!182 = distinct !{!182, !183}
 !183 = !{!"llvm.loop.mustprogress"}
-!184 = !{!"llvm.loop.estimated_trip_count"}
-!185 = !{!186}
-!186 = distinct !{!186, !187, !"_ZSt19__relocate_object_aISt5tupleIJmmhEES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!187 = distinct !{!187, !"_ZSt19__relocate_object_aISt5tupleIJmmhEES1_SaIS1_EEvPT_PT0_RT1_"}
-!188 = !{!189}
-!189 = distinct !{!189, !187, !"_ZSt19__relocate_object_aISt5tupleIJmmhEES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!184 = !{!185}
+!185 = distinct !{!185, !186, !"_ZSt19__relocate_object_aISt5tupleIJmmhEES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!186 = distinct !{!186, !"_ZSt19__relocate_object_aISt5tupleIJmmhEES1_SaIS1_EEvPT_PT0_RT1_"}
+!187 = !{!188}
+!188 = distinct !{!188, !186, !"_ZSt19__relocate_object_aISt5tupleIJmmhEES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}

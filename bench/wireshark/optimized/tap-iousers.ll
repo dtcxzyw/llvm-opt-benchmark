@@ -466,7 +466,7 @@ switch.lookup:                                    ; preds = %16
   %218 = phi ptr [ null, %216 ], [ %48, %.lr.ph168 ]
   %219 = phi ptr [ null, %216 ], [ %49, %.lr.ph168 ]
   %.not146 = icmp eq i64 %.0.lcssa.ph, 0
-  br i1 %.not146, label %.critedge2.thread, label %33, !llvm.loop !10
+  br i1 %.not146, label %.critedge2.thread, label %33, !llvm.loop !9
 
 .critedge2.thread:                                ; preds = %33, %.critedge2
   %220 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.4)
@@ -542,7 +542,6 @@ attributes #10 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

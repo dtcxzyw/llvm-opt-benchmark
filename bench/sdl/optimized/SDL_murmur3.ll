@@ -61,7 +61,7 @@ define hidden i32 @SDL_murmur3_32_REAL(ptr noundef %0, i64 noundef %1, i32 nound
   %32 = mul i32 %31, 5
   %33 = add i32 %32, -430675100
   %.not = icmp eq i64 %23, 0
-  br i1 %.not, label %.loopexit.loopexit69, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %.loopexit.loopexit69, label %.lr.ph, !llvm.loop !5
 
 .loopexit.loopexit:                               ; preds = %.lr.ph64
   %34 = and i64 %1, -4
@@ -99,7 +99,7 @@ define hidden i32 @SDL_murmur3_32_REAL(ptr noundef %0, i64 noundef %1, i32 nound
   %48 = zext i8 %47 to i32
   %49 = or disjoint i32 %45, %48
   %.not53 = icmp eq i64 %44, 0
-  br i1 %.not53, label %37, label %.preheader, !llvm.loop !7
+  br i1 %.not53, label %37, label %.preheader, !llvm.loop !6
 
 50:                                               ; preds = %37, %.loopexit
   %.3 = phi i32 [ %43, %37 ], [ %.148, %.loopexit ]
@@ -127,8 +127,7 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

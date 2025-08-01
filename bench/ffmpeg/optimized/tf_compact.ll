@@ -293,17 +293,17 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %103 = load i8, ptr %102, align 8, !tbaa !19
   %104 = sext i8 %103 to i32
   %105 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %105, align 8, !tbaa !36
+  %.val = load ptr, ptr %105, align 8, !tbaa !35
   %106 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !37
+  %107 = load ptr, ptr %106, align 8, !tbaa !36
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  %109 = load ptr, ptr %108, align 8, !tbaa !40
+  %109 = load ptr, ptr %108, align 8, !tbaa !39
   tail call void %109(ptr noundef %.val, i32 noundef range(i32 -128, 128) %104) #9
   br label %.critedge
 
 .critedge:                                        ; preds = %24, %101, %95, %93, %._crit_edge
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %111 = load i32, ptr %110, align 8, !tbaa !42
+  %111 = load i32, ptr %110, align 8, !tbaa !41
   %.not73 = icmp eq i32 %111, 0
   br i1 %.not73, label %122, label %112
 
@@ -374,11 +374,11 @@ tf_get_section.exit:                              ; preds = %8
 
 25:                                               ; preds = %21
   %26 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %26, align 8, !tbaa !36
+  %.val = load ptr, ptr %26, align 8, !tbaa !35
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !37
+  %28 = load ptr, ptr %27, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !40
+  %30 = load ptr, ptr %29, align 8, !tbaa !39
   tail call void %30(ptr noundef %.val, i32 noundef 10) #9
   br label %31
 
@@ -404,17 +404,17 @@ define internal void @compact_print_int(ptr noundef readonly captures(none) %0, 
   %14 = load i8, ptr %13, align 8, !tbaa !19
   %15 = sext i8 %14 to i32
   %16 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %16, align 8, !tbaa !36
+  %.val = load ptr, ptr %16, align 8, !tbaa !35
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !37
+  %18 = load ptr, ptr %17, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !40
+  %20 = load ptr, ptr %19, align 8, !tbaa !39
   tail call void %20(ptr noundef %.val, i32 noundef range(i32 -128, 128) %15) #9
   br label %21
 
 21:                                               ; preds = %12, %3
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %23 = load i32, ptr %22, align 4, !tbaa !43
+  %23 = load i32, ptr %22, align 4, !tbaa !42
   %.not11 = icmp eq i32 %23, 0
   br i1 %.not11, label %24, label %30
 
@@ -452,17 +452,17 @@ define internal void @compact_print_str(ptr noundef %0, ptr noundef %1, ptr noun
   %15 = load i8, ptr %14, align 8, !tbaa !19
   %16 = sext i8 %15 to i32
   %17 = getelementptr i8, ptr %0, i64 16
-  %.val = load ptr, ptr %17, align 8, !tbaa !36
+  %.val = load ptr, ptr %17, align 8, !tbaa !35
   %18 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %19 = load ptr, ptr %18, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !40
+  %21 = load ptr, ptr %20, align 8, !tbaa !39
   tail call void %21(ptr noundef %.val, i32 noundef range(i32 -128, 128) %16) #9
   br label %22
 
 22:                                               ; preds = %13, %3
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %24 = load i32, ptr %23, align 4, !tbaa !43
+  %24 = load i32, ptr %23, align 4, !tbaa !42
   %.not15 = icmp eq i32 %24, 0
   br i1 %.not15, label %25, label %31
 
@@ -483,11 +483,11 @@ define internal void @compact_print_str(ptr noundef %0, ptr noundef %1, ptr noun
   %35 = load i8, ptr %34, align 8, !tbaa !19
   %36 = call ptr %33(ptr noundef nonnull %4, ptr noundef %2, i8 noundef signext %35, ptr noundef nonnull %0) #9
   %37 = getelementptr i8, ptr %0, i64 16
-  %.val16 = load ptr, ptr %37, align 8, !tbaa !36
+  %.val16 = load ptr, ptr %37, align 8, !tbaa !35
   %38 = getelementptr inbounds nuw i8, ptr %.val16, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !37
+  %39 = load ptr, ptr %38, align 8, !tbaa !36
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %41 = load ptr, ptr %40, align 8, !tbaa !44
+  %41 = load ptr, ptr %40, align 8, !tbaa !43
   call void %41(ptr noundef %.val16, ptr noundef %36) #9
   %42 = call i32 @av_bprint_finalize(ptr noundef nonnull %4, ptr noundef null) #9
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #9
@@ -564,7 +564,7 @@ define internal ptr @c_escape_str(ptr noundef %0, ptr noundef readonly captures(
 
 17:                                               ; preds = %7, %8, %9, %10, %11, %15
   %18 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %5, !llvm.loop !45
+  br label %5, !llvm.loop !44
 
 19:                                               ; preds = %5
   %20 = load ptr, ptr %0, align 8, !tbaa !30
@@ -614,7 +614,7 @@ define internal ptr @csv_escape_str(ptr noundef %0, ptr noundef readonly capture
   %18 = phi i8 [ %15, %14 ], [ %.pre, %16 ]
   tail call void @av_bprint_chars(ptr noundef %0, i8 noundef signext %18, i32 noundef 1) #9
   %19 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %14, !llvm.loop !46
+  br label %14, !llvm.loop !45
 
 20:                                               ; preds = %14
   br i1 %.not, label %22, label %21
@@ -647,11 +647,11 @@ define internal void @writer_printf(ptr noundef readonly captures(none) %0, ptr 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !36
+  %5 = load ptr, ptr %4, align 8, !tbaa !35
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !37
+  %7 = load ptr, ptr %6, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %9 = load ptr, ptr %8, align 8, !tbaa !47
+  %9 = load ptr, ptr %8, align 8, !tbaa !46
   call void %9(ptr noundef %5, ptr noundef %1, ptr noundef nonnull %3) #9
   call void @llvm.va_end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
@@ -714,18 +714,17 @@ attributes #9 = { nounwind }
 !30 = !{!31, !12, i64 0}
 !31 = !{!"AVBPrint", !12, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !8, i64 20, !8, i64 21}
 !32 = !{!26, !7, i64 96}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!5, !11, i64 16}
-!37 = !{!38, !39, i64 8}
-!38 = !{!"AVTextWriterContext", !6, i64 0, !39, i64 8, !12, i64 16, !7, i64 24}
-!39 = !{!"p1 _ZTS12AVTextWriter", !7, i64 0}
-!40 = !{!41, !7, i64 40}
-!41 = !{!"AVTextWriter", !6, i64 0, !14, i64 8, !12, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56}
-!42 = !{!17, !14, i64 24}
-!43 = !{!17, !14, i64 20}
-!44 = !{!41, !7, i64 48}
-!45 = distinct !{!45, !34, !35}
-!46 = distinct !{!46, !34, !35}
-!47 = !{!41, !7, i64 56}
+!35 = !{!5, !11, i64 16}
+!36 = !{!37, !38, i64 8}
+!37 = !{!"AVTextWriterContext", !6, i64 0, !38, i64 8, !12, i64 16, !7, i64 24}
+!38 = !{!"p1 _ZTS12AVTextWriter", !7, i64 0}
+!39 = !{!40, !7, i64 40}
+!40 = !{!"AVTextWriter", !6, i64 0, !14, i64 8, !12, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !7, i64 56}
+!41 = !{!17, !14, i64 24}
+!42 = !{!17, !14, i64 20}
+!43 = !{!40, !7, i64 48}
+!44 = distinct !{!44, !34}
+!45 = distinct !{!45, !34}
+!46 = !{!40, !7, i64 56}

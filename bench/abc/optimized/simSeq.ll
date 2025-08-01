@@ -80,7 +80,7 @@ define ptr @Sim_SimulateSeqRandom(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 43:                                               ; preds = %.lr.ph63
   %44 = getelementptr i8, ptr %40, i64 56
-  %.val53 = load ptr, ptr %44, align 8, !tbaa !36
+  %.val53 = load ptr, ptr %44, align 8, !tbaa !35
   %magicptr = ptrtoint ptr %.val53 to i64
   %45 = load ptr, ptr %9, align 8, !tbaa !26
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -112,7 +112,7 @@ define ptr @Sim_SimulateSeqRandom(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %.val = load i32, ptr %55, align 4, !tbaa !24
   %56 = sext i32 %.val to i64
   %57 = icmp slt i64 %indvars.iv.next68, %56
-  br i1 %57, label %.lr.ph63, label %.critedge2.preheader, !llvm.loop !37
+  br i1 %57, label %.lr.ph63, label %.critedge2.preheader, !llvm.loop !36
 
 .critedge2:                                       ; preds = %.lr.ph65, %.critedge2
   %.264 = phi i32 [ 0, %.lr.ph65 ], [ %60, %.critedge2 ]
@@ -121,7 +121,7 @@ define ptr @Sim_SimulateSeqRandom(ptr noundef %0, i32 noundef %1, i32 noundef %2
   tail call fastcc void @Sim_SimulateSeqFrame(ptr noundef %7, ptr noundef nonnull %0, i32 noundef %.264, i32 noundef %2, i32 noundef %59)
   %60 = add nuw nsw i32 %.264, 1
   %exitcond.not = icmp eq i32 %60, %1
-  br i1 %exitcond.not, label %.critedge2._crit_edge, label %.critedge2, !llvm.loop !38
+  br i1 %exitcond.not, label %.critedge2._crit_edge, label %.critedge2, !llvm.loop !37
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %.critedge2.preheader
   ret ptr %7
@@ -150,7 +150,7 @@ define internal fastcc void @Sim_SimulateSeqFrame(ptr noundef %0, ptr noundef re
 
 .critedge.preheader:                              ; preds = %25, %5
   %11 = getelementptr i8, ptr %1, i64 48
-  %.val4551 = load ptr, ptr %11, align 8, !tbaa !39
+  %.val4551 = load ptr, ptr %11, align 8, !tbaa !38
   %12 = getelementptr i8, ptr %.val4551, i64 4
   %.val45.val52 = load i32, ptr %12, align 4, !tbaa !24
   %13 = icmp sgt i32 %.val45.val52, 0
@@ -189,7 +189,7 @@ define internal fastcc void @Sim_SimulateSeqFrame(ptr noundef %0, ptr noundef re
   %.val40 = load i32, ptr %27, align 4, !tbaa !24
   %28 = sext i32 %.val40 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %15, label %.critedge.preheader, !llvm.loop !40
+  br i1 %29, label %15, label %.critedge.preheader, !llvm.loop !39
 
 .critedge:                                        ; preds = %.lr.ph55, %.critedge
   %indvars.iv60 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next61, %.critedge ]
@@ -200,12 +200,12 @@ define internal fastcc void @Sim_SimulateSeqFrame(ptr noundef %0, ptr noundef re
   %32 = load ptr, ptr %31, align 8, !tbaa !30
   tail call void @Sim_UtilTransferNodeOne(ptr noundef %32, ptr noundef %0, i32 noundef %3, i32 noundef %14, i32 noundef 0) #3
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %.val45 = load ptr, ptr %11, align 8, !tbaa !39
+  %.val45 = load ptr, ptr %11, align 8, !tbaa !38
   %33 = getelementptr i8, ptr %.val45, i64 4
   %.val45.val = load i32, ptr %33, align 4, !tbaa !24
   %34 = sext i32 %.val45.val to i64
   %35 = icmp slt i64 %indvars.iv.next61, %34
-  br i1 %35, label %.critedge, label %.critedge2, !llvm.loop !41
+  br i1 %35, label %.critedge, label %.critedge2, !llvm.loop !40
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   %.not = icmp eq i32 %4, 0
@@ -248,7 +248,7 @@ define internal fastcc void @Sim_SimulateSeqFrame(ptr noundef %0, ptr noundef re
   %.val = load i32, ptr %51, align 4, !tbaa !24
   %52 = sext i32 %.val to i64
   %53 = icmp slt i64 %indvars.iv.next64, %52
-  br i1 %53, label %41, label %.critedge4, !llvm.loop !42
+  br i1 %53, label %41, label %.critedge4, !llvm.loop !41
 
 .critedge4:                                       ; preds = %49, %.preheader, %.critedge2
   ret void
@@ -308,21 +308,21 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr noundef rea
   %32 = add nsw i32 %31, %28
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i32, ptr %2, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !43
+  %35 = load i32, ptr %34, align 4, !tbaa !42
   %.not49.us = icmp ne i32 %35, 0
   %36 = sext i1 %.not49.us to i32
   %37 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
-  store i32 %36, ptr %37, align 4, !tbaa !43
+  store i32 %36, ptr %37, align 4, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !43
 
 ._crit_edge.us:                                   ; preds = %29
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %.val52.val.us = load i32, ptr %16, align 4, !tbaa !24
   %38 = sext i32 %.val52.val.us to i64
   %39 = icmp slt i64 %indvars.iv.next72, %38
-  br i1 %39, label %.lr.ph.us, label %.critedge.preheader, !llvm.loop !45
+  br i1 %39, label %.lr.ph.us, label %.critedge.preheader, !llvm.loop !44
 
 .critedge.preheader:                              ; preds = %._crit_edge.us, %.lr.ph64, %3
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -361,7 +361,7 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr noundef rea
   %57 = getelementptr inbounds ptr, ptr %53, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !30
   %59 = getelementptr i8, ptr %49, i64 56
-  %.val56 = load ptr, ptr %59, align 8, !tbaa !36
+  %.val56 = load ptr, ptr %59, align 8, !tbaa !35
   %magicptr = ptrtoint ptr %.val56 to i64
   switch i64 %magicptr, label %62 [
     i64 1, label %60
@@ -369,11 +369,11 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr noundef rea
   ]
 
 60:                                               ; preds = %52
-  store i32 0, ptr %58, align 4, !tbaa !43
+  store i32 0, ptr %58, align 4, !tbaa !42
   br label %.critedge
 
 61:                                               ; preds = %52
-  store i32 -1, ptr %58, align 4, !tbaa !43
+  store i32 -1, ptr %58, align 4, !tbaa !42
   br label %.critedge
 
 62:                                               ; preds = %52
@@ -384,7 +384,7 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr noundef rea
   %67 = xor i32 %66, %64
   %68 = tail call i32 @rand() #3
   %69 = xor i32 %67, %68
-  store i32 %69, ptr %58, align 4, !tbaa !43
+  store i32 %69, ptr %58, align 4, !tbaa !42
   %.pre = load ptr, ptr %40, align 8, !tbaa !32
   br label %.critedge
 
@@ -395,7 +395,7 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr noundef rea
   %.val = load i32, ptr %71, align 4, !tbaa !24
   %72 = sext i32 %.val to i64
   %73 = icmp slt i64 %indvars.iv.next75, %72
-  br i1 %73, label %.lr.ph, label %.critedge2.preheader, !llvm.loop !47
+  br i1 %73, label %.lr.ph, label %.critedge2.preheader, !llvm.loop !46
 
 .critedge2:                                       ; preds = %.lr.ph68, %.critedge2
   %.267 = phi i32 [ 0, %.lr.ph68 ], [ %76, %.critedge2 ]
@@ -404,7 +404,7 @@ define ptr @Sim_SimulateSeqModel(ptr noundef %0, i32 noundef %1, ptr noundef rea
   tail call fastcc void @Sim_SimulateSeqFrame(ptr noundef %6, ptr noundef %0, i32 noundef %.267, i32 noundef 1, i32 noundef %75)
   %76 = add nuw nsw i32 %.267, 1
   %exitcond77.not = icmp eq i32 %76, %1
-  br i1 %exitcond77.not, label %.critedge2._crit_edge, label %.critedge2, !llvm.loop !48
+  br i1 %exitcond77.not, label %.critedge2._crit_edge, label %.critedge2, !llvm.loop !47
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %.critedge2.preheader
   ret ptr %6
@@ -457,19 +457,18 @@ attributes #3 = { nounwind }
 !30 = !{!9, !9, i64 0}
 !31 = !{!4, !11, i64 40}
 !32 = !{!4, !11, i64 80}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!6, !6, i64 0}
-!37 = distinct !{!37, !34, !35}
-!38 = distinct !{!38, !34, !35}
-!39 = !{!4, !11, i64 48}
-!40 = distinct !{!40, !34, !35}
-!41 = distinct !{!41, !34, !35}
-!42 = distinct !{!42, !34, !35}
-!43 = !{!5, !5, i64 0}
-!44 = distinct !{!44, !34, !35}
-!45 = distinct !{!45, !34, !35, !46}
-!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!47 = distinct !{!47, !34, !35}
-!48 = distinct !{!48, !34, !35}
+!35 = !{!6, !6, i64 0}
+!36 = distinct !{!36, !34}
+!37 = distinct !{!37, !34}
+!38 = !{!4, !11, i64 48}
+!39 = distinct !{!39, !34}
+!40 = distinct !{!40, !34}
+!41 = distinct !{!41, !34}
+!42 = !{!5, !5, i64 0}
+!43 = distinct !{!43, !34}
+!44 = distinct !{!44, !34, !45}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !34}
+!47 = distinct !{!47, !34}

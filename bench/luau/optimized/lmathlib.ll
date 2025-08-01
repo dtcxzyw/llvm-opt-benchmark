@@ -328,7 +328,7 @@ define internal noundef i32 @_ZL8math_minP9lua_State(ptr noundef %0) #0 {
   %.1 = select i1 %5, double %4, double %.015
   %6 = add nuw i32 %.01114, 1
   %exitcond.not = icmp eq i32 %.01114, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi double [ %3, %1 ], [ %.1, %.lr.ph ]
@@ -342,7 +342,7 @@ define internal noundef i32 @_ZL9math_modfP9lua_State(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   %3 = tail call noundef double @_Z16luaL_checknumberP9lua_Statei(ptr noundef %0, i32 noundef 1)
   %4 = call double @modf(double noundef %3, ptr noundef nonnull %2) #10
-  %5 = load double, ptr %2, align 8, !tbaa !32
+  %5 = load double, ptr %2, align 8, !tbaa !31
   tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %5)
   tail call void @_Z14lua_pushnumberP9lua_Stated(ptr noundef %0, double noundef %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
@@ -620,143 +620,143 @@ define internal noundef i32 @_ZL10math_noiseP9lua_State(ptr noundef %0) #0 {
   %50 = fmul float %47, %49
   %51 = zext nneg i32 %30 to i64
   %52 = getelementptr inbounds nuw i8, ptr @_ZL11kPerlinHash, i64 %51
-  %53 = load i8, ptr %52, align 1, !tbaa !34
+  %53 = load i8, ptr %52, align 1, !tbaa !33
   %.tr.i = trunc i32 %31 to i8
   %.narrow.i = add i8 %53, %.tr.i
   %54 = zext i8 %.narrow.i to i64
   %55 = getelementptr inbounds nuw i8, ptr @_ZL11kPerlinHash, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !34
+  %56 = load i8, ptr %55, align 1, !tbaa !33
   %.tr83.i = trunc i32 %32 to i8
   %.narrow84.i = add i8 %56, %.tr83.i
   %57 = zext i8 %.narrow84.i to i64
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 1
-  %59 = load i8, ptr %58, align 1, !tbaa !34
+  %59 = load i8, ptr %58, align 1, !tbaa !33
   %.narrow86.i = add i8 %59, %.tr83.i
   %60 = zext i8 %.narrow86.i to i64
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  %62 = load i8, ptr %61, align 1, !tbaa !34
+  %62 = load i8, ptr %61, align 1, !tbaa !33
   %.narrow88.i = add i8 %62, %.tr.i
   %63 = zext i8 %.narrow88.i to i64
   %64 = getelementptr inbounds nuw i8, ptr @_ZL11kPerlinHash, i64 %63
-  %65 = load i8, ptr %64, align 1, !tbaa !34
+  %65 = load i8, ptr %64, align 1, !tbaa !33
   %.narrow90.i = add i8 %65, %.tr83.i
   %66 = zext i8 %.narrow90.i to i64
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 1
-  %68 = load i8, ptr %67, align 1, !tbaa !34
+  %68 = load i8, ptr %67, align 1, !tbaa !33
   %.narrow92.i = add i8 %68, %.tr83.i
   %69 = zext i8 %.narrow92.i to i64
   %70 = getelementptr inbounds nuw i8, ptr @_ZL11kPerlinHash, i64 %57
-  %71 = load i8, ptr %70, align 1, !tbaa !34
+  %71 = load i8, ptr %70, align 1, !tbaa !33
   %72 = and i8 %71, 15
   %73 = zext nneg i8 %72 to i64
   %74 = getelementptr inbounds nuw [16 x [3 x float]], ptr @_ZL11kPerlinGrad, i64 0, i64 %73
-  %75 = load float, ptr %74, align 4, !tbaa !35
+  %75 = load float, ptr %74, align 4, !tbaa !34
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  %77 = load float, ptr %76, align 4, !tbaa !35
+  %77 = load float, ptr %76, align 4, !tbaa !34
   %78 = fmul float %34, %77
   %79 = call float @llvm.fmuladd.f32(float %75, float %33, float %78)
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %81 = load float, ptr %80, align 4, !tbaa !35
+  %81 = load float, ptr %80, align 4, !tbaa !34
   %82 = call noundef float @llvm.fmuladd.f32(float %81, float %35, float %79)
   %83 = getelementptr inbounds nuw i8, ptr @_ZL11kPerlinHash, i64 %66
-  %84 = load i8, ptr %83, align 1, !tbaa !34
+  %84 = load i8, ptr %83, align 1, !tbaa !33
   %85 = fadd float %33, -1.000000e+00
   %86 = and i8 %84, 15
   %87 = zext nneg i8 %86 to i64
   %88 = getelementptr inbounds nuw [16 x [3 x float]], ptr @_ZL11kPerlinGrad, i64 0, i64 %87
-  %89 = load float, ptr %88, align 4, !tbaa !35
+  %89 = load float, ptr %88, align 4, !tbaa !34
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 4
-  %91 = load float, ptr %90, align 4, !tbaa !35
+  %91 = load float, ptr %90, align 4, !tbaa !34
   %92 = fmul float %34, %91
   %93 = call float @llvm.fmuladd.f32(float %89, float %85, float %92)
   %94 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %95 = load float, ptr %94, align 4, !tbaa !35
+  %95 = load float, ptr %94, align 4, !tbaa !34
   %96 = call noundef float @llvm.fmuladd.f32(float %95, float %35, float %93)
   %97 = fsub float %96, %82
   %98 = call noundef float @llvm.fmuladd.f32(float %40, float %97, float %82)
   %99 = getelementptr inbounds nuw i8, ptr @_ZL11kPerlinHash, i64 %60
-  %100 = load i8, ptr %99, align 1, !tbaa !34
+  %100 = load i8, ptr %99, align 1, !tbaa !33
   %101 = fadd float %34, -1.000000e+00
   %102 = and i8 %100, 15
   %103 = zext nneg i8 %102 to i64
   %104 = getelementptr inbounds nuw [16 x [3 x float]], ptr @_ZL11kPerlinGrad, i64 0, i64 %103
-  %105 = load float, ptr %104, align 4, !tbaa !35
+  %105 = load float, ptr %104, align 4, !tbaa !34
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  %107 = load float, ptr %106, align 4, !tbaa !35
+  %107 = load float, ptr %106, align 4, !tbaa !34
   %108 = fmul float %101, %107
   %109 = call float @llvm.fmuladd.f32(float %105, float %33, float %108)
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %111 = load float, ptr %110, align 4, !tbaa !35
+  %111 = load float, ptr %110, align 4, !tbaa !34
   %112 = call noundef float @llvm.fmuladd.f32(float %111, float %35, float %109)
   %113 = getelementptr inbounds nuw i8, ptr @_ZL11kPerlinHash, i64 %69
-  %114 = load i8, ptr %113, align 1, !tbaa !34
+  %114 = load i8, ptr %113, align 1, !tbaa !33
   %115 = and i8 %114, 15
   %116 = zext nneg i8 %115 to i64
   %117 = getelementptr inbounds nuw [16 x [3 x float]], ptr @_ZL11kPerlinGrad, i64 0, i64 %116
-  %118 = load float, ptr %117, align 4, !tbaa !35
+  %118 = load float, ptr %117, align 4, !tbaa !34
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  %120 = load float, ptr %119, align 4, !tbaa !35
+  %120 = load float, ptr %119, align 4, !tbaa !34
   %121 = fmul float %101, %120
   %122 = call float @llvm.fmuladd.f32(float %118, float %85, float %121)
   %123 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %124 = load float, ptr %123, align 4, !tbaa !35
+  %124 = load float, ptr %123, align 4, !tbaa !34
   %125 = call noundef float @llvm.fmuladd.f32(float %124, float %35, float %122)
   %126 = fsub float %125, %112
   %127 = call noundef float @llvm.fmuladd.f32(float %40, float %126, float %112)
   %128 = getelementptr inbounds nuw i8, ptr %70, i64 1
-  %129 = load i8, ptr %128, align 1, !tbaa !34
+  %129 = load i8, ptr %128, align 1, !tbaa !33
   %130 = fadd float %35, -1.000000e+00
   %131 = and i8 %129, 15
   %132 = zext nneg i8 %131 to i64
   %133 = getelementptr inbounds nuw [16 x [3 x float]], ptr @_ZL11kPerlinGrad, i64 0, i64 %132
-  %134 = load float, ptr %133, align 4, !tbaa !35
+  %134 = load float, ptr %133, align 4, !tbaa !34
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 4
-  %136 = load float, ptr %135, align 4, !tbaa !35
+  %136 = load float, ptr %135, align 4, !tbaa !34
   %137 = fmul float %34, %136
   %138 = call float @llvm.fmuladd.f32(float %134, float %33, float %137)
   %139 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %140 = load float, ptr %139, align 4, !tbaa !35
+  %140 = load float, ptr %139, align 4, !tbaa !34
   %141 = call noundef float @llvm.fmuladd.f32(float %140, float %130, float %138)
   %142 = getelementptr inbounds nuw i8, ptr %83, i64 1
-  %143 = load i8, ptr %142, align 1, !tbaa !34
+  %143 = load i8, ptr %142, align 1, !tbaa !33
   %144 = and i8 %143, 15
   %145 = zext nneg i8 %144 to i64
   %146 = getelementptr inbounds nuw [16 x [3 x float]], ptr @_ZL11kPerlinGrad, i64 0, i64 %145
-  %147 = load float, ptr %146, align 4, !tbaa !35
+  %147 = load float, ptr %146, align 4, !tbaa !34
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 4
-  %149 = load float, ptr %148, align 4, !tbaa !35
+  %149 = load float, ptr %148, align 4, !tbaa !34
   %150 = fmul float %34, %149
   %151 = call float @llvm.fmuladd.f32(float %147, float %85, float %150)
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %153 = load float, ptr %152, align 4, !tbaa !35
+  %153 = load float, ptr %152, align 4, !tbaa !34
   %154 = call noundef float @llvm.fmuladd.f32(float %153, float %130, float %151)
   %155 = fsub float %154, %141
   %156 = call noundef float @llvm.fmuladd.f32(float %40, float %155, float %141)
   %157 = getelementptr inbounds nuw i8, ptr %99, i64 1
-  %158 = load i8, ptr %157, align 1, !tbaa !34
+  %158 = load i8, ptr %157, align 1, !tbaa !33
   %159 = and i8 %158, 15
   %160 = zext nneg i8 %159 to i64
   %161 = getelementptr inbounds nuw [16 x [3 x float]], ptr @_ZL11kPerlinGrad, i64 0, i64 %160
-  %162 = load float, ptr %161, align 4, !tbaa !35
+  %162 = load float, ptr %161, align 4, !tbaa !34
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 4
-  %164 = load float, ptr %163, align 4, !tbaa !35
+  %164 = load float, ptr %163, align 4, !tbaa !34
   %165 = fmul float %101, %164
   %166 = call float @llvm.fmuladd.f32(float %162, float %33, float %165)
   %167 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %168 = load float, ptr %167, align 4, !tbaa !35
+  %168 = load float, ptr %167, align 4, !tbaa !34
   %169 = call noundef float @llvm.fmuladd.f32(float %168, float %130, float %166)
   %170 = getelementptr inbounds nuw i8, ptr %113, i64 1
-  %171 = load i8, ptr %170, align 1, !tbaa !34
+  %171 = load i8, ptr %170, align 1, !tbaa !33
   %172 = and i8 %171, 15
   %173 = zext nneg i8 %172 to i64
   %174 = getelementptr inbounds nuw [16 x [3 x float]], ptr @_ZL11kPerlinGrad, i64 0, i64 %173
-  %175 = load float, ptr %174, align 4, !tbaa !35
+  %175 = load float, ptr %174, align 4, !tbaa !34
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 4
-  %177 = load float, ptr %176, align 4, !tbaa !35
+  %177 = load float, ptr %176, align 4, !tbaa !34
   %178 = fmul float %101, %177
   %179 = call float @llvm.fmuladd.f32(float %175, float %85, float %178)
   %180 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  %181 = load float, ptr %180, align 4, !tbaa !35
+  %181 = load float, ptr %180, align 4, !tbaa !34
   %182 = call noundef float @llvm.fmuladd.f32(float %181, float %130, float %179)
   %183 = fsub float %182, %169
   %184 = call noundef float @llvm.fmuladd.f32(float %40, float %183, float %169)
@@ -933,11 +933,11 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_lmathlib.cpp() #8 section ".text.startup" {
   store i8 0, ptr @_ZN5FFlag12LuauMathLerpE, align 8, !tbaa !21
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag12LuauMathLerpE, i64 1), align 1, !tbaa !37
-  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag12LuauMathLerpE, i64 8), align 8, !tbaa !38
-  %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !39
-  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag12LuauMathLerpE, i64 16), align 8, !tbaa !40
-  store ptr @_ZN5FFlag12LuauMathLerpE, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !39
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag12LuauMathLerpE, i64 1), align 1, !tbaa !36
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag12LuauMathLerpE, i64 8), align 8, !tbaa !37
+  %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !38
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag12LuauMathLerpE, i64 16), align 8, !tbaa !39
+  store ptr @_ZN5FFlag12LuauMathLerpE, ptr @_ZN4Luau6FValueIbE4listE, align 8, !tbaa !38
   ret void
 }
 
@@ -988,16 +988,15 @@ attributes #12 = { noreturn }
 !25 = !{i8 0, i8 2}
 !26 = !{}
 !27 = !{!13, !13, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = distinct !{!31, !29, !30}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"double", !6, i64 0}
-!34 = !{!6, !6, i64 0}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"float", !6, i64 0}
-!37 = !{!22, !8, i64 1}
-!38 = !{!22, !23, i64 8}
-!39 = !{!24, !24, i64 0}
-!40 = !{!22, !24, i64 16}
+!30 = distinct !{!30, !29}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"double", !6, i64 0}
+!33 = !{!6, !6, i64 0}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"float", !6, i64 0}
+!36 = !{!22, !8, i64 1}
+!37 = !{!22, !23, i64 8}
+!38 = !{!24, !24, i64 0}
+!39 = !{!22, !24, i64 16}

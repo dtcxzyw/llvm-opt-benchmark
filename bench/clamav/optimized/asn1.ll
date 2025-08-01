@@ -686,7 +686,7 @@ thread-pre-split:                                 ; preds = %181, %.preheader
   %167 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %163, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %166) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %150
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %160
   %168 = select i1 %.not76, ptr @.str.20, ptr @.str.21
@@ -695,21 +695,21 @@ thread-pre-split:                                 ; preds = %181, %.preheader
   br label %169
 
 169:                                              ; preds = %._crit_edge, %158
-  %170 = load ptr, ptr %59, align 8, !tbaa !25
+  %170 = load ptr, ptr %59, align 8, !tbaa !23
   %.not87 = icmp eq ptr %170, null
   br i1 %.not87, label %171, label %177
 
 171:                                              ; preds = %169
-  %172 = load ptr, ptr %60, align 8, !tbaa !46
+  %172 = load ptr, ptr %60, align 8, !tbaa !44
   %173 = call ptr @mpool_calloc(ptr noundef %172, i64 noundef 1, i64 noundef 416) #11
-  store ptr %173, ptr %59, align 8, !tbaa !25
+  store ptr %173, ptr %59, align 8, !tbaa !23
   %.not88 = icmp eq ptr %173, null
   br i1 %.not88, label %.thread, label %174
 
 174:                                              ; preds = %171
-  %175 = load ptr, ptr %60, align 8, !tbaa !46
+  %175 = load ptr, ptr %60, align 8, !tbaa !44
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 408
-  store ptr %175, ptr %176, align 8, !tbaa !47
+  store ptr %175, ptr %176, align 8, !tbaa !45
   br label %177
 
 177:                                              ; preds = %174, %169
@@ -993,7 +993,7 @@ asn1_expect_objtype.exit396:                      ; preds = %49
 
 105:                                              ; preds = %102
   %106 = load ptr, ptr %98, align 8, !tbaa !18
-  store ptr %106, ptr %6, align 8, !tbaa !63
+  store ptr %106, ptr %6, align 8, !tbaa !61
   %107 = load i32, ptr %96, align 4, !tbaa !16
   store i32 %107, ptr %7, align 4, !tbaa !17
   %108 = load ptr, ptr %79, align 8, !tbaa !12
@@ -1030,7 +1030,7 @@ asn1_expect_objtype.exit396:                      ; preds = %49
 117:                                              ; preds = %114, %116
   %.pr = load i32, ptr %16, align 4, !tbaa !17
   %.not294 = icmp eq i32 %.pr, 0
-  br i1 %.not294, label %119, label %114, !llvm.loop !64
+  br i1 %.not294, label %119, label %114
 
 118:                                              ; preds = %114
   call void @crtmgr_free(ptr noundef nonnull %22) #11
@@ -1038,16 +1038,16 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   br label %.thread432
 
 119:                                              ; preds = %117
-  %120 = load ptr, ptr %22, align 8, !tbaa !65
+  %120 = load ptr, ptr %22, align 8, !tbaa !62
   %.not296 = icmp eq ptr %120, null
   br i1 %.not296, label %265, label %121
 
 121:                                              ; preds = %119
   %122 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %123 = load i32, ptr %122, align 8, !tbaa !66
+  %123 = load i32, ptr %122, align 8, !tbaa !63
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.57, i32 noundef %123) #11
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %125 = load i64, ptr %124, align 8, !tbaa !67
+  %125 = load i64, ptr %124, align 8, !tbaa !64
   %126 = and i64 %125, 16
   %.not297 = icmp eq i64 %126, 0
   br i1 %.not297, label %.lr.ph511, label %.preheader478
@@ -1061,10 +1061,10 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %27) #11
   call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %28) #11
   %127 = getelementptr inbounds nuw i8, ptr %.1507, i64 328
-  %128 = load ptr, ptr %127, align 8, !tbaa !68
+  %128 = load ptr, ptr %127, align 8, !tbaa !65
   %129 = call ptr @BN_bn2hex(ptr noundef %128) #11
   %130 = getelementptr inbounds nuw i8, ptr %.1507, i64 336
-  %131 = load ptr, ptr %130, align 8, !tbaa !71
+  %131 = load ptr, ptr %130, align 8, !tbaa !68
   %132 = call ptr @BN_bn2hex(ptr noundef %131) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %23, i8 0, i64 129, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(129) %24, i8 0, i64 129, i1 false)
@@ -1092,7 +1092,7 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   %143 = load i8, ptr %133, align 8, !tbaa !22
   %144 = zext i8 %143 to i64
   %145 = icmp samesign ult i64 %indvars.iv.next, %144
-  br i1 %145, label %.lr.ph, label %.preheader477, !llvm.loop !72
+  br i1 %145, label %.lr.ph, label %.preheader477
 
 .preheader476:                                    ; preds = %.lr.ph503, %.preheader477
   %146 = getelementptr inbounds nuw i8, ptr %.1507, i64 136
@@ -1112,7 +1112,7 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   %154 = load i8, ptr %135, align 8, !tbaa !22
   %155 = zext i8 %154 to i64
   %156 = icmp samesign ult i64 %indvars.iv.next545, %155
-  br i1 %156, label %.lr.ph503, label %.preheader476, !llvm.loop !73
+  br i1 %156, label %.lr.ph503, label %.preheader476
 
 .preheader:                                       ; preds = %.lr.ph505, %.preheader476
   %157 = getelementptr inbounds nuw i8, ptr %.1507, i64 220
@@ -1138,7 +1138,7 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   %170 = load i8, ptr %146, align 8, !tbaa !22
   %171 = zext i8 %170 to i64
   %172 = icmp samesign ult i64 %indvars.iv.next548, %171
-  br i1 %172, label %.lr.ph505, label %.preheader, !llvm.loop !74
+  br i1 %172, label %.lr.ph505, label %.preheader
 
 173:                                              ; preds = %.preheader, %173
   %indvars.iv550 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next551, %173 ]
@@ -1160,7 +1160,7 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   %189 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %185, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %188) #11
   %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next551, 20
-  br i1 %exitcond.not, label %190, label %173, !llvm.loop !75
+  br i1 %exitcond.not, label %190, label %173
 
 190:                                              ; preds = %173
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59) #11
@@ -1168,19 +1168,19 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.61, ptr noundef nonnull %28) #11
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.62, ptr noundef %129) #11
   %191 = getelementptr inbounds nuw i8, ptr %.1507, i64 352
-  %192 = load i64, ptr %191, align 8, !tbaa !76
+  %192 = load i64, ptr %191, align 8, !tbaa !69
   %193 = getelementptr inbounds nuw i8, ptr %.1507, i64 360
-  %194 = load i64, ptr %193, align 8, !tbaa !77
+  %194 = load i64, ptr %193, align 8, !tbaa !70
   %195 = getelementptr inbounds nuw i8, ptr %.1507, i64 376
-  %196 = load i32, ptr %195, align 8, !tbaa !78
+  %196 = load i32, ptr %195, align 8, !tbaa !71
   %.not315 = icmp eq i32 %196, 0
   %197 = select i1 %.not315, ptr @.str.65, ptr @.str.64
   %198 = getelementptr inbounds nuw i8, ptr %.1507, i64 380
-  %199 = load i32, ptr %198, align 4, !tbaa !79
+  %199 = load i32, ptr %198, align 4, !tbaa !72
   %.not316 = icmp eq i32 %199, 0
   %200 = select i1 %.not316, ptr @.str.65, ptr @.str.66
   %201 = getelementptr inbounds nuw i8, ptr %.1507, i64 372
-  %202 = load i32, ptr %201, align 4, !tbaa !80
+  %202 = load i32, ptr %201, align 4, !tbaa !73
   %.not317 = icmp eq i32 %202, 0
   %203 = select i1 %.not317, ptr @.str.65, ptr @.str.67
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.63, ptr noundef nonnull %26, i64 noundef %192, i64 noundef %194, ptr noundef nonnull %197, ptr noundef nonnull %200, ptr noundef nonnull %203) #11
@@ -1189,7 +1189,7 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.70, ptr noundef nonnull %25) #11
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.71, ptr noundef nonnull %23) #11
   %204 = getelementptr inbounds nuw i8, ptr %.1507, i64 400
-  %205 = load ptr, ptr %204, align 8, !tbaa !81
+  %205 = load ptr, ptr %204, align 8, !tbaa !74
   call void @CRYPTO_free(ptr noundef %129, ptr noundef nonnull @.str.72, i32 noundef 1604) #11
   call void @CRYPTO_free(ptr noundef %132, ptr noundef nonnull @.str.72, i32 noundef 1605) #11
   call void @llvm.lifetime.end.p0(i64 41, ptr nonnull %28) #11
@@ -1199,10 +1199,10 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %24) #11
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %23) #11
   %.not298 = icmp eq ptr %205, null
-  br i1 %.not298, label %206, label %.preheader478, !llvm.loop !82
+  br i1 %.not298, label %206, label %.preheader478
 
 206:                                              ; preds = %190
-  %207 = load ptr, ptr %22, align 8, !tbaa !65
+  %207 = load ptr, ptr %22, align 8, !tbaa !62
   %.not299508 = icmp eq ptr %207, null
   br i1 %.not299508, label %._crit_edge516, label %.lr.ph511
 
@@ -1220,14 +1220,14 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   br i1 %.not300, label %217, label %211
 
 211:                                              ; preds = %209
-  %212 = load ptr, ptr %210, align 8, !tbaa !83
+  %212 = load ptr, ptr %210, align 8, !tbaa !75
   %.not301 = icmp eq ptr %212, null
   %spec.select = select i1 %.not301, ptr @.str.74, ptr %212
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.73, ptr noundef nonnull %spec.select) #11
   br i1 %.not302, label %217, label %213
 
 213:                                              ; preds = %211
-  %214 = load ptr, ptr %210, align 8, !tbaa !83
+  %214 = load ptr, ptr %210, align 8, !tbaa !75
   %.not303 = icmp eq ptr %214, null
   %spec.select382 = select i1 %.not303, ptr @.str.74, ptr %214
   %215 = call i32 @cli_append_virus(ptr noundef nonnull %8, ptr noundef nonnull %spec.select382) #11
@@ -1243,11 +1243,11 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   %218 = call ptr @crtmgr_trust_list_lookup(ptr noundef %4, ptr noundef nonnull %.2510, i32 noundef 1) #11
   %.not304 = icmp eq ptr %218, null
   %219 = getelementptr inbounds nuw i8, ptr %.2510, i64 400
-  %220 = load ptr, ptr %219, align 8, !tbaa !81
+  %220 = load ptr, ptr %219, align 8, !tbaa !74
   br i1 %.not304, label %231, label %221
 
 221:                                              ; preds = %217
-  %222 = load ptr, ptr %218, align 8, !tbaa !83
+  %222 = load ptr, ptr %218, align 8, !tbaa !75
   %.not305 = icmp eq ptr %222, null
   %spec.select383 = select i1 %.not305, ptr @.str.76, ptr %222
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.75, ptr noundef nonnull %spec.select383) #11
@@ -1256,13 +1256,13 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   br i1 %.not306, label %228, label %224
 
 224:                                              ; preds = %221
-  %225 = load ptr, ptr %218, align 8, !tbaa !83
+  %225 = load ptr, ptr %218, align 8, !tbaa !75
   %.not307 = icmp eq ptr %225, null
   br i1 %.not307, label %228, label %226
 
 226:                                              ; preds = %224
   %227 = call noalias ptr @strdup(ptr noundef nonnull %225) #11
-  store ptr %227, ptr %.2510, align 8, !tbaa !83
+  store ptr %227, ptr %.2510, align 8, !tbaa !75
   br label %228
 
 228:                                              ; preds = %226, %224, %221
@@ -1291,7 +1291,7 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   br label %.thread432
 
 235:                                              ; preds = %._crit_edge
-  %.pr561 = load ptr, ptr %22, align 8, !tbaa !65
+  %.pr561 = load ptr, ptr %22, align 8, !tbaa !62
   %.not309512 = icmp eq ptr %.pr561, null
   br i1 %.not309512, label %._crit_edge516, label %.lr.ph515
 
@@ -1303,7 +1303,7 @@ asn1_expect_objtype.exit396:                      ; preds = %49
 
 237:                                              ; preds = %.lr.ph515
   %238 = getelementptr inbounds nuw i8, ptr %.6513, i64 400
-  %239 = load ptr, ptr %238, align 8, !tbaa !81
+  %239 = load ptr, ptr %238, align 8, !tbaa !74
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.78) #11
   call void @crtmgr_del(ptr noundef nonnull %22, ptr noundef nonnull %.6513) #11
   br label %260
@@ -1314,33 +1314,33 @@ asn1_expect_objtype.exit396:                      ; preds = %49
   br i1 %.not311, label %257, label %242
 
 242:                                              ; preds = %240
-  %243 = load ptr, ptr %241, align 8, !tbaa !83
+  %243 = load ptr, ptr %241, align 8, !tbaa !75
   %.not312 = icmp eq ptr %243, null
   %spec.select384 = select i1 %.not312, ptr @.str.76, ptr %243
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.79, ptr noundef nonnull %spec.select384) #11
   %244 = getelementptr inbounds nuw i8, ptr %241, i64 376
-  %245 = load i32, ptr %244, align 8, !tbaa !78
+  %245 = load i32, ptr %244, align 8, !tbaa !71
   %246 = getelementptr inbounds nuw i8, ptr %.6513, i64 376
-  %247 = load i32, ptr %246, align 8, !tbaa !78
+  %247 = load i32, ptr %246, align 8, !tbaa !71
   %248 = and i32 %247, %245
-  store i32 %248, ptr %246, align 8, !tbaa !78
+  store i32 %248, ptr %246, align 8, !tbaa !71
   %249 = getelementptr inbounds nuw i8, ptr %241, i64 380
-  %250 = load i32, ptr %249, align 4, !tbaa !79
+  %250 = load i32, ptr %249, align 4, !tbaa !72
   %251 = getelementptr inbounds nuw i8, ptr %.6513, i64 380
-  %252 = load i32, ptr %251, align 4, !tbaa !79
+  %252 = load i32, ptr %251, align 4, !tbaa !72
   %253 = and i32 %252, %250
-  store i32 %253, ptr %251, align 4, !tbaa !79
+  store i32 %253, ptr %251, align 4, !tbaa !72
   %254 = call zeroext i1 @crtmgr_add(ptr noundef %4, ptr noundef nonnull %.6513) #11
   br i1 %254, label %261, label %255
 
 255:                                              ; preds = %242
   call void @crtmgr_del(ptr noundef nonnull %22, ptr noundef nonnull %.6513) #11
-  %256 = load ptr, ptr %22, align 8, !tbaa !65
+  %256 = load ptr, ptr %22, align 8, !tbaa !62
   br label %260
 
 257:                                              ; preds = %240
   %258 = getelementptr inbounds nuw i8, ptr %.6513, i64 400
-  %259 = load ptr, ptr %258, align 8, !tbaa !81
+  %259 = load ptr, ptr %258, align 8, !tbaa !74
   br label %260
 
 260:                                              ; preds = %257, %255, %237
@@ -1355,7 +1355,7 @@ asn1_expect_objtype.exit396:                      ; preds = %49
 
 ._crit_edge516:                                   ; preds = %260, %206, %235
   %.3220.lcssa560565 = phi i32 [ %.5222, %235 ], [ 27, %206 ], [ %.5222, %260 ]
-  %262 = load i32, ptr %122, align 8, !tbaa !66
+  %262 = load i32, ptr %122, align 8, !tbaa !63
   %.not314 = icmp eq i32 %262, 0
   br i1 %.not314, label %264, label %263
 
@@ -1789,7 +1789,7 @@ thread-pre-split437:                              ; preds = %363, %375, %410
   br label %.thread455.thread
 
 426:                                              ; preds = %422
-  %427 = load ptr, ptr %6, align 8, !tbaa !63
+  %427 = load ptr, ptr %6, align 8, !tbaa !61
   %428 = load i32, ptr %7, align 4, !tbaa !17
   %429 = call fastcc i32 @map_hash(ptr noundef nonnull %1, ptr noundef %427, i32 noundef %428, ptr noundef %17, i32 noundef %327)
   %.not356 = icmp eq i32 %429, 0
@@ -1875,13 +1875,13 @@ thread-pre-split437:                              ; preds = %363, %375, %410
 469:                                              ; preds = %467
   %470 = call i64 @time(ptr noundef null) #11
   %471 = getelementptr inbounds nuw i8, ptr %465, i64 352
-  %472 = load i64, ptr %471, align 8, !tbaa !76
+  %472 = load i64, ptr %471, align 8, !tbaa !69
   %473 = icmp slt i64 %470, %472
   br i1 %473, label %478, label %474
 
 474:                                              ; preds = %469
   %475 = getelementptr inbounds nuw i8, ptr %465, i64 360
-  %476 = load i64, ptr %475, align 8, !tbaa !77
+  %476 = load i64, ptr %475, align 8, !tbaa !70
   %477 = icmp sgt i64 %470, %476
   br i1 %477, label %478, label %479
 
@@ -2037,9 +2037,9 @@ thread-pre-split445:                              ; preds = %thread-pre-split445
   br i1 %517, label %534, label %thread-pre-split445.sink.split
 
 534:                                              ; preds = %533
-  %535 = load i64, ptr %493, align 8, !tbaa !76
-  %536 = load i64, ptr %494, align 8, !tbaa !77
-  %.val = load ptr, ptr %491, align 8, !tbaa !63
+  %535 = load i64, ptr %493, align 8, !tbaa !69
+  %536 = load i64, ptr %494, align 8, !tbaa !70
+  %.val = load ptr, ptr %491, align 8, !tbaa !61
   %537 = call fastcc i32 @asn1_parse_countersignature(ptr noundef nonnull %1, ptr %.val, ptr noundef %490, ptr noundef %4, ptr noundef %455, i32 noundef %423, i64 noundef %535, i64 noundef %536)
   %.not378 = icmp eq i32 %537, 0
   br i1 %.not378, label %539, label %.thread455.thread
@@ -2071,13 +2071,13 @@ thread-pre-split445.sink.split:                   ; preds = %533
 544:                                              ; preds = %.thread455.thread572, %.thread455
   %545 = call i64 @time(ptr noundef null) #11
   %546 = getelementptr inbounds nuw i8, ptr %465, i64 352
-  %547 = load i64, ptr %546, align 8, !tbaa !76
+  %547 = load i64, ptr %546, align 8, !tbaa !69
   %548 = icmp slt i64 %545, %547
   br i1 %548, label %553, label %549
 
 549:                                              ; preds = %544
   %550 = getelementptr inbounds nuw i8, ptr %465, i64 360
-  %551 = load i64, ptr %550, align 8, !tbaa !77
+  %551 = load i64, ptr %550, align 8, !tbaa !70
   %552 = icmp sgt i64 %545, %551
   br i1 %552, label %553, label %.thread460
 
@@ -2141,7 +2141,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_expect_objtype(ptr noundef %0, 
 define internal fastcc range(i32 0, 2) i32 @asn1_expect_obj(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, i8 noundef zeroext range(i8 2, 7) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca %struct.cli_asn1, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
-  %8 = load ptr, ptr %1, align 8, !tbaa !63
+  %8 = load ptr, ptr %1, align 8, !tbaa !61
   %9 = call fastcc i32 @asn1_get_obj(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %7)
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %10, label %asn1_expect_objtype.exit.thread
@@ -2205,7 +2205,7 @@ asn1_expect_objtype.exit:                         ; preds = %10
 35:                                               ; preds = %33, %18
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !12
-  store ptr %37, ptr %1, align 8, !tbaa !63
+  store ptr %37, ptr %1, align 8, !tbaa !61
   br label %asn1_expect_objtype.exit.thread
 
 asn1_expect_objtype.exit.thread:                  ; preds = %6, %12, %35, %34, %32, %17
@@ -2304,7 +2304,7 @@ define range(i32 1, 0) i32 @asn1_check_mscat(ptr noundef %0, ptr noundef %1, i64
   br i1 %.not41, label %20, label %.loopexit
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr %13, align 8, !tbaa !63
+  %21 = load ptr, ptr %13, align 8, !tbaa !61
   %22 = call fastcc i32 @asn1_get_obj(ptr noundef %1, ptr noundef %21, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %27
@@ -2382,12 +2382,12 @@ asn1_expect_objtype.exit:                         ; preds = %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %49 = getelementptr inbounds nuw %struct.cli_mapped_region, ptr %4, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !84
+  %51 = load i32, ptr %50, align 4, !tbaa !76
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %63, label %53
 
 53:                                               ; preds = %48
-  %54 = load i32, ptr %49, align 4, !tbaa !86
+  %54 = load i32, ptr %49, align 4, !tbaa !78
   %55 = zext i32 %54 to i64
   %56 = zext i32 %51 to i64
   %57 = load ptr, ptr %47, align 8, !tbaa !19
@@ -2396,7 +2396,7 @@ asn1_expect_objtype.exit:                         ; preds = %23
   br i1 %.not50, label %.loopexit, label %59
 
 59:                                               ; preds = %53
-  %60 = load i32, ptr %50, align 4, !tbaa !84
+  %60 = load i32, ptr %50, align 4, !tbaa !76
   %61 = zext i32 %60 to i64
   %62 = call i32 @cl_update_hash(ptr noundef nonnull %45, ptr noundef nonnull %58, i64 noundef %61) #11
   br label %63
@@ -2404,7 +2404,7 @@ asn1_expect_objtype.exit:                         ; preds = %23
 63:                                               ; preds = %59, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %48
 
 ._crit_edge:                                      ; preds = %63, %.preheader
   %64 = call i32 @cl_finish_hash(ptr noundef nonnull %45, ptr noundef nonnull %11) #11
@@ -2433,7 +2433,7 @@ asn1_expect_objtype.exit:                         ; preds = %23
   %73 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %72) #11
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !88
+  br i1 %exitcond66.not, label %._crit_edge58, label %.lr.ph57
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %66
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull %15) #11
@@ -2552,7 +2552,7 @@ define internal fastcc range(i32 0, 3) i32 @asn1_get_x509(ptr noundef %0, ptr no
   br i1 %20, label %.sink.split458, label %21
 
 21:                                               ; preds = %4
-  %22 = load ptr, ptr %1, align 8, !tbaa !63
+  %22 = load ptr, ptr %1, align 8, !tbaa !61
   %23 = call fastcc i32 @asn1_get_obj(ptr noundef %0, ptr noundef %22, ptr noundef nonnull %2, ptr noundef nonnull %5)
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %24, label %.sink.split458
@@ -2570,7 +2570,7 @@ define internal fastcc range(i32 0, 3) i32 @asn1_get_x509(ptr noundef %0, ptr no
 asn1_expect_objtype.exit:                         ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !12
-  store ptr %29, ptr %1, align 8, !tbaa !63
+  store ptr %29, ptr %1, align 8, !tbaa !61
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2613,7 +2613,7 @@ asn1_expect_objtype.exit174:                      ; preds = %34
   store i32 %53, ptr %8, align 4, !tbaa !17
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !12
-  store ptr %55, ptr %12, align 8, !tbaa !63
+  store ptr %55, ptr %12, align 8, !tbaa !61
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %57 = call fastcc i32 @asn1_expect_obj(ptr noundef %0, ptr noundef %56, ptr noundef %8, i8 noundef zeroext 2, i32 noundef 1, ptr noundef nonnull @.str.145)
   %.not101 = icmp eq i32 %57, 0
@@ -2635,11 +2635,11 @@ asn1_expect_objtype.exit174:                      ; preds = %34
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 372
-  store i32 1, ptr %65, align 4, !tbaa !80
+  store i32 1, ptr %65, align 4, !tbaa !73
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 376
-  store i32 0, ptr %66, align 8, !tbaa !78
+  store i32 0, ptr %66, align 8, !tbaa !71
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 380
-  store i32 1, ptr %67, align 4, !tbaa !79
+  store i32 1, ptr %67, align 4, !tbaa !72
   br label %68
 
 68:                                               ; preds = %60, %64
@@ -2682,7 +2682,7 @@ asn1_expect_objtype.exit174:                      ; preds = %34
   %90 = load i32, ptr %71, align 4, !tbaa !16
   store i32 %90, ptr %8, align 4, !tbaa !17
   %91 = load ptr, ptr %69, align 8, !tbaa !18
-  store ptr %91, ptr %12, align 8, !tbaa !63
+  store ptr %91, ptr %12, align 8, !tbaa !61
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 352
   %93 = call fastcc i32 @asn1_get_time(ptr noundef %0, ptr noundef %12, ptr noundef %8, ptr noundef %92)
   %.not109 = icmp eq i32 %93, 0
@@ -2695,8 +2695,8 @@ asn1_expect_objtype.exit174:                      ; preds = %34
   br i1 %.not110, label %97, label %.sink.split458
 
 97:                                               ; preds = %94
-  %98 = load i64, ptr %92, align 8, !tbaa !76
-  %99 = load i64, ptr %95, align 8, !tbaa !77
+  %98 = load i64, ptr %92, align 8, !tbaa !69
+  %99 = load i64, ptr %95, align 8, !tbaa !70
   %.not111 = icmp slt i64 %98, %99
   br i1 %.not111, label %100, label %.sink.split458
 
@@ -2959,7 +2959,7 @@ thread-pre-split:                                 ; preds = %174
   %227 = lshr i8 %.0, 2
   %.lobit = and i8 %227, 1
   %228 = zext nneg i8 %.lobit to i32
-  store i32 %228, ptr %135, align 4, !tbaa !80
+  store i32 %228, ptr %135, align 4, !tbaa !73
   br label %.loopexit389
 
 229:                                              ; preds = %194
@@ -3022,7 +3022,7 @@ thread-pre-split:                                 ; preds = %174
   br i1 %.not143, label %254, label %255
 
 254:                                              ; preds = %253
-  store i32 1, ptr %139, align 8, !tbaa !78
+  store i32 1, ptr %139, align 8, !tbaa !71
   br label %.backedge
 
 255:                                              ; preds = %253
@@ -3031,7 +3031,7 @@ thread-pre-split:                                 ; preds = %174
   br i1 %.not145, label %256, label %257
 
 256:                                              ; preds = %255
-  store i32 1, ptr %138, align 4, !tbaa !79
+  store i32 1, ptr %138, align 4, !tbaa !72
   br label %.backedge
 
 257:                                              ; preds = %255
@@ -3046,7 +3046,7 @@ thread-pre-split:                                 ; preds = %174
 .backedge:                                        ; preds = %254, %257, %258, %256, %241
   %259 = load i32, ptr %137, align 4, !tbaa !16
   %.not139 = icmp eq i32 %259, 0
-  br i1 %.not139, label %.loopexit, label %.lr.ph, !llvm.loop !89
+  br i1 %.not139, label %.loopexit, label %.lr.ph
 
 .loopexit.sink.split:                             ; preds = %244, %.lr.ph
   store i32 1, ptr %119, align 4, !tbaa !16
@@ -3059,7 +3059,7 @@ thread-pre-split:                                 ; preds = %174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #11
   %260 = load i32, ptr %119, align 4, !tbaa !16
   %.not121 = icmp eq i32 %260, 0
-  br i1 %.not121, label %.thread199, label %158, !llvm.loop !90
+  br i1 %.not121, label %.thread199, label %158
 
 261:                                              ; preds = %229
   %bcmp148 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) @.str.173, ptr noundef nonnull dereferenceable(3) %187, i64 3)
@@ -3125,7 +3125,7 @@ thread-pre-split:                                 ; preds = %174
 
 287:                                              ; preds = %270, %265, %283
   %.sink = phi i32 [ %286, %283 ], [ 0, %265 ], [ 0, %270 ]
-  store i32 %.sink, ptr %135, align 4, !tbaa !80
+  store i32 %.sink, ptr %135, align 4, !tbaa !73
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18) #11
   br label %.loopexit389
 
@@ -3136,7 +3136,7 @@ thread-pre-split:                                 ; preds = %174
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #11
   %288 = load i32, ptr %119, align 4, !tbaa !16
   %.not121507 = icmp eq i32 %288, 0
-  br i1 %.not121507, label %.preheader.outer..preheader.outer..thread199_crit_edge_crit_edge, label %.lr.ph509, !llvm.loop !90
+  br i1 %.not121507, label %.preheader.outer..preheader.outer..thread199_crit_edge_crit_edge, label %.lr.ph509
 
 .loopexit223:                                     ; preds = %230, %235
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17) #11
@@ -3158,8 +3158,8 @@ thread-pre-split:                                 ; preds = %174
   br i1 %.082.lcssa, label %290, label %291
 
 290:                                              ; preds = %.thread199
-  store i32 1, ptr %138, align 4, !tbaa !79
-  store i32 1, ptr %139, align 8, !tbaa !78
+  store i32 1, ptr %138, align 4, !tbaa !72
+  store i32 1, ptr %139, align 8, !tbaa !71
   br label %291
 
 291:                                              ; preds = %290, %.thread199
@@ -3167,7 +3167,7 @@ thread-pre-split:                                 ; preds = %174
   br i1 %.not157, label %292, label %293
 
 292:                                              ; preds = %291
-  store i32 1, ptr %135, align 4, !tbaa !80
+  store i32 1, ptr %135, align 4, !tbaa !73
   br label %293
 
 293:                                              ; preds = %291, %292
@@ -3177,7 +3177,7 @@ thread-pre-split:                                 ; preds = %174
 294:                                              ; preds = %293, %150
   %.pr = load i32, ptr %46, align 4, !tbaa !16
   %.not117 = icmp eq i32 %.pr, 0
-  br i1 %.not117, label %.thread385, label %140, !llvm.loop !91
+  br i1 %.not117, label %.thread385, label %140
 
 .thread387:                                       ; preds = %152, %.loopexit223.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #11
@@ -3192,7 +3192,7 @@ thread-pre-split:                                 ; preds = %174
 
 .thread385:                                       ; preds = %294, %118, %295
   %297 = getelementptr inbounds nuw i8, ptr %11, i64 372
-  %298 = load i32, ptr %297, align 4, !tbaa !80
+  %298 = load i32, ptr %297, align 4, !tbaa !73
   %299 = icmp ne i32 %298, 0
   %300 = getelementptr inbounds nuw i8, ptr %11, i64 376
   %301 = load i32, ptr %300, align 8
@@ -3233,7 +3233,7 @@ thread-pre-split:                                 ; preds = %174
 
 318:                                              ; preds = %315
   %319 = getelementptr inbounds nuw i8, ptr %11, i64 368
-  store i32 %316, ptr %319, align 8, !tbaa !92
+  store i32 %316, ptr %319, align 8, !tbaa !79
   %320 = call ptr @crtmgr_lookup(ptr noundef nonnull %3, ptr noundef nonnull %11) #11
   %.not163 = icmp eq ptr %320, null
   br i1 %.not163, label %321, label %.sink.split458
@@ -3268,7 +3268,7 @@ thread-pre-split:                                 ; preds = %174
 
 339:                                              ; preds = %327
   %340 = getelementptr inbounds nuw i8, ptr %11, i64 344
-  %341 = load ptr, ptr %340, align 8, !tbaa !93
+  %341 = load ptr, ptr %340, align 8, !tbaa !80
   %342 = call ptr @BN_bin2bn(ptr noundef %328, i32 noundef %325, ptr noundef %341) #11
   %.not166 = icmp eq ptr %342, null
   br i1 %.not166, label %351, label %343
@@ -3280,7 +3280,7 @@ thread-pre-split:                                 ; preds = %174
 
 345:                                              ; preds = %343
   %346 = getelementptr inbounds nuw i8, ptr %11, i64 264
-  %347 = load i32, ptr %319, align 8, !tbaa !92
+  %347 = load i32, ptr %319, align 8, !tbaa !79
   %348 = call fastcc i32 @map_hash(ptr noundef nonnull %0, ptr noundef %31, i32 noundef %43, ptr noundef %346, i32 noundef %347)
   %.not168 = icmp eq i32 %348, 0
   br i1 %.not168, label %349, label %.sink.split458
@@ -3414,7 +3414,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_get_obj(ptr noundef %0, ptr nou
   store i32 %45, ptr %36, align 4, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %.055, i64 1
   %.not50 = icmp eq i32 %41, 0
-  br i1 %.not50, label %.loopexit, label %.lr.ph, !llvm.loop !94
+  br i1 %.not50, label %.loopexit, label %.lr.ph
 
 47:                                               ; preds = %21
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3498,7 +3498,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_expect_algo(ptr noundef %0, ptr
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
-  %7 = load ptr, ptr %1, align 8, !tbaa !63
+  %7 = load ptr, ptr %1, align 8, !tbaa !61
   %8 = call fastcc i32 @asn1_get_obj(ptr noundef %0, ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %5)
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %asn1_expect_objtype.exit.thread
@@ -3519,7 +3519,7 @@ asn1_expect_objtype.exit:                         ; preds = %9
   store i32 %14, ptr %6, align 4, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !12
-  store ptr %16, ptr %1, align 8, !tbaa !63
+  store ptr %16, ptr %1, align 8, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = call fastcc i32 @asn1_expect_obj(ptr noundef %0, ptr noundef %17, ptr noundef %6, i8 noundef zeroext 6, i32 noundef 9, ptr noundef nonnull @.str.111)
   %.not14 = icmp eq i32 %18, 0
@@ -3532,7 +3532,7 @@ asn1_expect_objtype.exit:                         ; preds = %9
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #11
-  %22 = load ptr, ptr %17, align 8, !tbaa !63
+  %22 = load ptr, ptr %17, align 8, !tbaa !61
   %23 = call fastcc i32 @asn1_get_obj(ptr noundef %0, ptr noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %4)
   %.not.i.i = icmp eq i32 %23, 0
   br i1 %.not.i.i, label %24, label %31
@@ -4134,7 +4134,7 @@ thread-pre-split:                                 ; preds = %171, %160, %154, %1
   br i1 %.not85, label %167, label %.thread14
 
 167:                                              ; preds = %165
-  %168 = load i64, ptr %20, align 8, !tbaa !95
+  %168 = load i64, ptr %20, align 8, !tbaa !81
   %169 = icmp slt i64 %168, %5
   %170 = icmp sgt i64 %168, %6
   %or.cond102 = or i1 %169, %170
@@ -4348,7 +4348,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_get_time(ptr noundef %0, ptr no
   %5 = alloca %struct.cli_asn1, align 8
   %6 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
-  %7 = load ptr, ptr %1, align 8, !tbaa !63
+  %7 = load ptr, ptr %1, align 8, !tbaa !61
   %8 = call fastcc i32 @asn1_get_obj(ptr noundef %0, ptr noundef %7, ptr noundef %2, ptr noundef %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #11
   %.not = icmp eq i32 %8, 0
@@ -4452,7 +4452,7 @@ asn1_getnum.exit95:                               ; preds = %42
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 %.sink
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %55 = add nsw i32 %52, -1900
-  store i32 %55, ptr %54, align 4, !tbaa !96
+  store i32 %55, ptr %54, align 4, !tbaa !82
   %56 = load i8, ptr %53, align 1, !tbaa !22
   %57 = add i8 %56, -58
   %or.cond.i96 = icmp ult i8 %57, -10
@@ -4488,7 +4488,7 @@ asn1_getnum.exit105:                              ; preds = %51
 67:                                               ; preds = %asn1_getnum.exit105
   %68 = add nsw i32 %64, -1
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %68, ptr %69, align 8, !tbaa !98
+  store i32 %68, ptr %69, align 8, !tbaa !84
   %70 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %71 = load i8, ptr %70, align 1, !tbaa !22
   %72 = add i8 %71, -58
@@ -4524,7 +4524,7 @@ asn1_getnum.exit115:                              ; preds = %67
 
 82:                                               ; preds = %asn1_getnum.exit115
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %79, ptr %83, align 4, !tbaa !99
+  store i32 %79, ptr %83, align 4, !tbaa !85
   %84 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %85 = tail call fastcc i32 @asn1_getnum(ptr noundef nonnull %84)
   %or.cond5 = icmp ugt i32 %85, 23
@@ -4536,7 +4536,7 @@ asn1_getnum.exit115:                              ; preds = %67
 
 87:                                               ; preds = %82
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %85, ptr %88, align 8, !tbaa !100
+  store i32 %85, ptr %88, align 8, !tbaa !86
   %89 = getelementptr inbounds nuw i8, ptr %53, i64 6
   %90 = tail call fastcc i32 @asn1_getnum(ptr noundef nonnull %89)
   %or.cond7 = icmp ugt i32 %90, 59
@@ -4548,14 +4548,14 @@ asn1_getnum.exit115:                              ; preds = %67
 
 92:                                               ; preds = %87
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %90, ptr %93, align 4, !tbaa !101
+  store i32 %90, ptr %93, align 4, !tbaa !87
   %94 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %95 = load i8, ptr %94, align 1, !tbaa !22
   %96 = icmp eq i8 %95, 90
   br i1 %96, label %97, label %98
 
 97:                                               ; preds = %92
-  store i32 0, ptr %6, align 8, !tbaa !102
+  store i32 0, ptr %6, align 8, !tbaa !88
   br label %106
 
 98:                                               ; preds = %92
@@ -4568,7 +4568,7 @@ asn1_getnum.exit115:                              ; preds = %67
   br label %110
 
 101:                                              ; preds = %98
-  store i32 %99, ptr %6, align 8, !tbaa !102
+  store i32 %99, ptr %6, align 8, !tbaa !88
   %102 = getelementptr inbounds nuw i8, ptr %53, i64 10
   %103 = load i8, ptr %102, align 1, !tbaa !22
   %.not75 = icmp eq i8 %103, 90
@@ -4581,10 +4581,10 @@ asn1_getnum.exit115:                              ; preds = %67
 
 106:                                              ; preds = %101, %97
   %107 = call i64 @mktime(ptr noundef nonnull %6) #11
-  store i64 %107, ptr %3, align 8, !tbaa !95
+  store i64 %107, ptr %3, align 8, !tbaa !81
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !12
-  store ptr %109, ptr %1, align 8, !tbaa !63
+  store ptr %109, ptr %1, align 8, !tbaa !61
   br label %110
 
 110:                                              ; preds = %asn1_getnum.exit95.thread, %asn1_getnum.exit.thread, %4, %106, %104, %100, %91, %86, %81, %66, %26, %12
@@ -4600,7 +4600,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_get_rsa_pubkey(ptr noundef %0, 
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
-  %7 = load ptr, ptr %1, align 8, !tbaa !63
+  %7 = load ptr, ptr %1, align 8, !tbaa !61
   %8 = call fastcc i32 @asn1_get_obj(ptr noundef %0, ptr noundef %7, ptr noundef nonnull %2, ptr noundef nonnull %5)
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %9, label %asn1_expect_objtype.exit.thread
@@ -4618,7 +4618,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_get_rsa_pubkey(ptr noundef %0, 
 asn1_expect_objtype.exit:                         ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !12
-  store ptr %14, ptr %1, align 8, !tbaa !63
+  store ptr %14, ptr %1, align 8, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !16
   store i32 %16, ptr %6, align 4, !tbaa !17
@@ -4743,7 +4743,7 @@ asn1_expect_objtype.exit39:                       ; preds = %23
 
 71:                                               ; preds = %61
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 328
-  %73 = load ptr, ptr %72, align 8, !tbaa !68
+  %73 = load ptr, ptr %72, align 8, !tbaa !65
   %74 = tail call ptr @BN_bin2bn(ptr noundef %62, i32 noundef %57, ptr noundef %73) #11
   %.not30 = icmp eq ptr %74, null
   br i1 %.not30, label %asn1_expect_objtype.exit.thread, label %75
@@ -4794,7 +4794,7 @@ asn1_expect_objtype.exit39:                       ; preds = %23
 
 96:                                               ; preds = %86
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 336
-  %98 = load ptr, ptr %97, align 8, !tbaa !71
+  %98 = load ptr, ptr %97, align 8, !tbaa !68
   %99 = tail call ptr @BN_bin2bn(ptr noundef %87, i32 noundef %82, ptr noundef %98) #11
   %.not34 = icmp eq ptr %99, null
   %. = zext i1 %.not34 to i32
@@ -4820,7 +4820,7 @@ define internal fastcc ptr @asn1_expect_algo_multi(ptr noundef %0, ptr noundef n
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
-  %9 = load ptr, ptr %1, align 8, !tbaa !63
+  %9 = load ptr, ptr %1, align 8, !tbaa !61
   %10 = call fastcc i32 @asn1_get_obj(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %2, ptr noundef nonnull %7)
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %11, label %.thread40.sink.split
@@ -4841,7 +4841,7 @@ asn1_expect_objtype.exit:                         ; preds = %11
   store i32 %16, ptr %8, align 4, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !12
-  store ptr %18, ptr %1, align 8, !tbaa !63
+  store ptr %18, ptr %1, align 8, !tbaa !61
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !18
   %21 = call fastcc i32 @asn1_get_obj(ptr noundef %0, ptr noundef %20, ptr noundef nonnull %8, ptr noundef nonnull %7)
@@ -4892,12 +4892,12 @@ asn1_expect_objtype.exit30:                       ; preds = %22
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %48 ]
   %43 = getelementptr inbounds nuw %struct._oid_alternative, ptr %3, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i32, ptr %44, align 8, !tbaa !103
+  %45 = load i32, ptr %44, align 8, !tbaa !89
   %.not22 = icmp eq i32 %26, %45
   br i1 %.not22, label %46, label %48
 
 46:                                               ; preds = %.preheader
-  %47 = load ptr, ptr %43, align 8, !tbaa !105
+  %47 = load ptr, ptr %43, align 8, !tbaa !91
   %bcmp = tail call i32 @bcmp(ptr %29, ptr %47, i64 %30)
   %.not23 = icmp eq i32 %bcmp, 0
   br i1 %.not23, label %.thread, label %48
@@ -4905,7 +4905,7 @@ asn1_expect_objtype.exit30:                       ; preds = %22
 48:                                               ; preds = %46, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !106
+  br i1 %exitcond.not, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %46, %48
   %49 = phi ptr [ %scevgep, %48 ], [ %43, %46 ]
@@ -4915,7 +4915,7 @@ asn1_expect_objtype.exit30:                       ; preds = %22
 
 51:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #11
-  %52 = load ptr, ptr %17, align 8, !tbaa !63
+  %52 = load ptr, ptr %17, align 8, !tbaa !61
   %53 = call fastcc i32 @asn1_get_obj(ptr noundef %0, ptr noundef %52, ptr noundef nonnull %8, ptr noundef nonnull %6)
   %.not.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i, label %54, label %61
@@ -5053,87 +5053,72 @@ attributes #11 = { nounwind }
 !20 = !{!4, !5, i64 16}
 !21 = !{!4, !8, i64 72}
 !22 = !{!6, !6, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!26, !28, i64 128}
-!26 = !{!"cl_engine", !14, i64 0, !14, i64 4, !14, i64 8, !6, i64 12, !14, i64 20, !14, i64 24, !14, i64 28, !11, i64 32, !14, i64 40, !8, i64 48, !14, i64 56, !14, i64 60, !8, i64 64, !8, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !27, i64 96, !28, i64 104, !28, i64 112, !28, i64 120, !28, i64 128, !29, i64 136, !30, i64 144, !30, i64 152, !31, i64 160, !32, i64 168, !33, i64 176, !33, i64 184, !34, i64 192, !28, i64 200, !28, i64 208, !11, i64 216, !35, i64 224, !36, i64 232, !37, i64 240, !8, i64 248, !38, i64 256, !39, i64 264, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !41, i64 416, !6, i64 936, !6, i64 992, !14, i64 1020, !14, i64 1024, !14, i64 1028, !14, i64 1032, !8, i64 1040, !8, i64 1048, !8, i64 1056, !8, i64 1064, !8, i64 1072, !5, i64 1080, !5, i64 1088, !5, i64 1096, !5, i64 1104, !5, i64 1112, !5, i64 1120, !5, i64 1128, !5, i64 1136, !5, i64 1144, !14, i64 1152, !14, i64 1156, !14, i64 1160, !8, i64 1168, !8, i64 1176, !8, i64 1184, !45, i64 1192}
-!27 = !{!"p2 _ZTS11cli_matcher", !5, i64 0}
-!28 = !{!"p1 _ZTS11cli_matcher", !5, i64 0}
-!29 = !{!"p1 _ZTS7cli_cdb", !5, i64 0}
-!30 = !{!"p1 _ZTS13regex_matcher", !5, i64 0}
-!31 = !{!"p1 _ZTS10phishcheck", !5, i64 0}
-!32 = !{!"p1 _ZTS9cli_dconf", !5, i64 0}
-!33 = !{!"p1 _ZTS9cli_ftype", !5, i64 0}
-!34 = !{!"p2 _ZTS8cli_pwdb", !5, i64 0}
-!35 = !{!"p1 _ZTS12icon_matcher", !5, i64 0}
-!36 = !{!"p1 _ZTS5CACHE", !5, i64 0}
-!37 = !{!"p1 _ZTS10cli_dbinfo", !5, i64 0}
-!38 = !{!"p1 _ZTS2MP", !5, i64 0}
-!39 = !{!"", !40, i64 0, !14, i64 8}
-!40 = !{!"p1 _ZTS9cli_crt_t", !5, i64 0}
-!41 = !{!"cli_all_bc", !42, i64 0, !14, i64 8, !43, i64 16, !44, i64 24, !14, i64 516}
-!42 = !{!"p1 _ZTS6cli_bc", !5, i64 0}
-!43 = !{!"p1 _ZTS12cli_bcengine", !5, i64 0}
-!44 = !{!"cli_environment", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !6, i64 28, !6, i64 93, !6, i64 158, !6, i64 223, !6, i64 288, !6, i64 353, !6, i64 418, !6, i64 483, !6, i64 484, !6, i64 485, !6, i64 486, !6, i64 487, !6, i64 488, !6, i64 489, !6, i64 490, !6, i64 491}
-!45 = !{!"p1 _ZTS12_yara_global", !5, i64 0}
-!46 = !{!26, !38, i64 256}
-!47 = !{!48, !38, i64 408}
-!48 = !{!"cli_matcher", !14, i64 0, !11, i64 8, !49, i64 16, !49, i64 24, !50, i64 32, !14, i64 40, !14, i64 44, !14, i64 48, !14, i64 52, !14, i64 56, !51, i64 64, !52, i64 160, !14, i64 232, !14, i64 236, !14, i64 240, !14, i64 244, !14, i64 248, !53, i64 256, !54, i64 264, !55, i64 272, !56, i64 280, !57, i64 288, !57, i64 296, !14, i64 304, !14, i64 308, !6, i64 312, !6, i64 313, !58, i64 320, !59, i64 328, !6, i64 330, !14, i64 332, !60, i64 336, !14, i64 344, !14, i64 348, !14, i64 352, !61, i64 360, !5, i64 368, !14, i64 376, !62, i64 384, !8, i64 392, !8, i64 400, !38, i64 408}
-!49 = !{!"p2 _ZTS11cli_bm_patt", !5, i64 0}
-!50 = !{!"p1 int", !5, i64 0}
-!51 = !{!"cli_hash_patt", !6, i64 0}
-!52 = !{!"cli_hash_wild", !6, i64 0}
-!53 = !{!"p2 _ZTS11cli_ac_lsig", !5, i64 0}
-!54 = !{!"p1 _ZTS11cli_ac_node", !5, i64 0}
-!55 = !{!"p2 _ZTS11cli_ac_node", !5, i64 0}
-!56 = !{!"p2 _ZTS11cli_ac_list", !5, i64 0}
-!57 = !{!"p2 _ZTS11cli_ac_patt", !5, i64 0}
-!58 = !{!"p1 _ZTS6filter", !5, i64 0}
-!59 = !{!"short", !6, i64 0}
-!60 = !{!"p2 _ZTS13cli_pcre_meta", !5, i64 0}
-!61 = !{!"p2 _ZTS14cli_bcomp_meta", !5, i64 0}
-!62 = !{!"p3 _ZTS11cli_ac_node", !5, i64 0}
-!63 = !{!5, !5, i64 0}
-!64 = distinct !{!64, !24}
-!65 = !{!39, !40, i64 0}
-!66 = !{!39, !14, i64 8}
-!67 = !{!26, !8, i64 48}
-!68 = !{!69, !70, i64 328}
-!69 = !{!"cli_crt_t", !11, i64 0, !6, i64 8, !6, i64 72, !6, i64 136, !6, i64 200, !6, i64 220, !6, i64 240, !14, i64 260, !6, i64 264, !70, i64 328, !70, i64 336, !70, i64 344, !8, i64 352, !8, i64 360, !14, i64 368, !14, i64 372, !14, i64 376, !14, i64 380, !14, i64 384, !40, i64 392, !40, i64 400}
-!70 = !{!"p1 _ZTS9bignum_st", !5, i64 0}
-!71 = !{!69, !70, i64 336}
-!72 = distinct !{!72, !24}
-!73 = distinct !{!73, !24}
-!74 = distinct !{!74, !24}
-!75 = distinct !{!75, !24}
-!76 = !{!69, !8, i64 352}
-!77 = !{!69, !8, i64 360}
-!78 = !{!69, !14, i64 376}
-!79 = !{!69, !14, i64 380}
-!80 = !{!69, !14, i64 372}
-!81 = !{!69, !40, i64 400}
-!82 = distinct !{!82, !24}
-!83 = !{!69, !11, i64 0}
-!84 = !{!85, !14, i64 4}
-!85 = !{!"cli_mapped_region", !14, i64 0, !14, i64 4}
-!86 = !{!85, !14, i64 0}
-!87 = distinct !{!87, !24}
-!88 = distinct !{!88, !24}
-!89 = distinct !{!89, !24}
-!90 = distinct !{!90, !24}
-!91 = distinct !{!91, !24}
-!92 = !{!69, !14, i64 368}
-!93 = !{!69, !70, i64 344}
-!94 = distinct !{!94, !24}
-!95 = !{!8, !8, i64 0}
-!96 = !{!97, !14, i64 20}
-!97 = !{!"tm", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32, !8, i64 40, !11, i64 48}
-!98 = !{!97, !14, i64 16}
-!99 = !{!97, !14, i64 12}
-!100 = !{!97, !14, i64 8}
-!101 = !{!97, !14, i64 4}
-!102 = !{!97, !14, i64 0}
-!103 = !{!104, !14, i64 8}
-!104 = !{!"_oid_alternative", !11, i64 0, !14, i64 8, !6, i64 12}
-!105 = !{!104, !11, i64 0}
-!106 = distinct !{!106, !24}
+!23 = !{!24, !26, i64 128}
+!24 = !{!"cl_engine", !14, i64 0, !14, i64 4, !14, i64 8, !6, i64 12, !14, i64 20, !14, i64 24, !14, i64 28, !11, i64 32, !14, i64 40, !8, i64 48, !14, i64 56, !14, i64 60, !8, i64 64, !8, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !25, i64 96, !26, i64 104, !26, i64 112, !26, i64 120, !26, i64 128, !27, i64 136, !28, i64 144, !28, i64 152, !29, i64 160, !30, i64 168, !31, i64 176, !31, i64 184, !32, i64 192, !26, i64 200, !26, i64 208, !11, i64 216, !33, i64 224, !34, i64 232, !35, i64 240, !8, i64 248, !36, i64 256, !37, i64 264, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !39, i64 416, !6, i64 936, !6, i64 992, !14, i64 1020, !14, i64 1024, !14, i64 1028, !14, i64 1032, !8, i64 1040, !8, i64 1048, !8, i64 1056, !8, i64 1064, !8, i64 1072, !5, i64 1080, !5, i64 1088, !5, i64 1096, !5, i64 1104, !5, i64 1112, !5, i64 1120, !5, i64 1128, !5, i64 1136, !5, i64 1144, !14, i64 1152, !14, i64 1156, !14, i64 1160, !8, i64 1168, !8, i64 1176, !8, i64 1184, !43, i64 1192}
+!25 = !{!"p2 _ZTS11cli_matcher", !5, i64 0}
+!26 = !{!"p1 _ZTS11cli_matcher", !5, i64 0}
+!27 = !{!"p1 _ZTS7cli_cdb", !5, i64 0}
+!28 = !{!"p1 _ZTS13regex_matcher", !5, i64 0}
+!29 = !{!"p1 _ZTS10phishcheck", !5, i64 0}
+!30 = !{!"p1 _ZTS9cli_dconf", !5, i64 0}
+!31 = !{!"p1 _ZTS9cli_ftype", !5, i64 0}
+!32 = !{!"p2 _ZTS8cli_pwdb", !5, i64 0}
+!33 = !{!"p1 _ZTS12icon_matcher", !5, i64 0}
+!34 = !{!"p1 _ZTS5CACHE", !5, i64 0}
+!35 = !{!"p1 _ZTS10cli_dbinfo", !5, i64 0}
+!36 = !{!"p1 _ZTS2MP", !5, i64 0}
+!37 = !{!"", !38, i64 0, !14, i64 8}
+!38 = !{!"p1 _ZTS9cli_crt_t", !5, i64 0}
+!39 = !{!"cli_all_bc", !40, i64 0, !14, i64 8, !41, i64 16, !42, i64 24, !14, i64 516}
+!40 = !{!"p1 _ZTS6cli_bc", !5, i64 0}
+!41 = !{!"p1 _ZTS12cli_bcengine", !5, i64 0}
+!42 = !{!"cli_environment", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !6, i64 28, !6, i64 93, !6, i64 158, !6, i64 223, !6, i64 288, !6, i64 353, !6, i64 418, !6, i64 483, !6, i64 484, !6, i64 485, !6, i64 486, !6, i64 487, !6, i64 488, !6, i64 489, !6, i64 490, !6, i64 491}
+!43 = !{!"p1 _ZTS12_yara_global", !5, i64 0}
+!44 = !{!24, !36, i64 256}
+!45 = !{!46, !36, i64 408}
+!46 = !{!"cli_matcher", !14, i64 0, !11, i64 8, !47, i64 16, !47, i64 24, !48, i64 32, !14, i64 40, !14, i64 44, !14, i64 48, !14, i64 52, !14, i64 56, !49, i64 64, !50, i64 160, !14, i64 232, !14, i64 236, !14, i64 240, !14, i64 244, !14, i64 248, !51, i64 256, !52, i64 264, !53, i64 272, !54, i64 280, !55, i64 288, !55, i64 296, !14, i64 304, !14, i64 308, !6, i64 312, !6, i64 313, !56, i64 320, !57, i64 328, !6, i64 330, !14, i64 332, !58, i64 336, !14, i64 344, !14, i64 348, !14, i64 352, !59, i64 360, !5, i64 368, !14, i64 376, !60, i64 384, !8, i64 392, !8, i64 400, !36, i64 408}
+!47 = !{!"p2 _ZTS11cli_bm_patt", !5, i64 0}
+!48 = !{!"p1 int", !5, i64 0}
+!49 = !{!"cli_hash_patt", !6, i64 0}
+!50 = !{!"cli_hash_wild", !6, i64 0}
+!51 = !{!"p2 _ZTS11cli_ac_lsig", !5, i64 0}
+!52 = !{!"p1 _ZTS11cli_ac_node", !5, i64 0}
+!53 = !{!"p2 _ZTS11cli_ac_node", !5, i64 0}
+!54 = !{!"p2 _ZTS11cli_ac_list", !5, i64 0}
+!55 = !{!"p2 _ZTS11cli_ac_patt", !5, i64 0}
+!56 = !{!"p1 _ZTS6filter", !5, i64 0}
+!57 = !{!"short", !6, i64 0}
+!58 = !{!"p2 _ZTS13cli_pcre_meta", !5, i64 0}
+!59 = !{!"p2 _ZTS14cli_bcomp_meta", !5, i64 0}
+!60 = !{!"p3 _ZTS11cli_ac_node", !5, i64 0}
+!61 = !{!5, !5, i64 0}
+!62 = !{!37, !38, i64 0}
+!63 = !{!37, !14, i64 8}
+!64 = !{!24, !8, i64 48}
+!65 = !{!66, !67, i64 328}
+!66 = !{!"cli_crt_t", !11, i64 0, !6, i64 8, !6, i64 72, !6, i64 136, !6, i64 200, !6, i64 220, !6, i64 240, !14, i64 260, !6, i64 264, !67, i64 328, !67, i64 336, !67, i64 344, !8, i64 352, !8, i64 360, !14, i64 368, !14, i64 372, !14, i64 376, !14, i64 380, !14, i64 384, !38, i64 392, !38, i64 400}
+!67 = !{!"p1 _ZTS9bignum_st", !5, i64 0}
+!68 = !{!66, !67, i64 336}
+!69 = !{!66, !8, i64 352}
+!70 = !{!66, !8, i64 360}
+!71 = !{!66, !14, i64 376}
+!72 = !{!66, !14, i64 380}
+!73 = !{!66, !14, i64 372}
+!74 = !{!66, !38, i64 400}
+!75 = !{!66, !11, i64 0}
+!76 = !{!77, !14, i64 4}
+!77 = !{!"cli_mapped_region", !14, i64 0, !14, i64 4}
+!78 = !{!77, !14, i64 0}
+!79 = !{!66, !14, i64 368}
+!80 = !{!66, !67, i64 344}
+!81 = !{!8, !8, i64 0}
+!82 = !{!83, !14, i64 20}
+!83 = !{!"tm", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28, !14, i64 32, !8, i64 40, !11, i64 48}
+!84 = !{!83, !14, i64 16}
+!85 = !{!83, !14, i64 12}
+!86 = !{!83, !14, i64 8}
+!87 = !{!83, !14, i64 4}
+!88 = !{!83, !14, i64 0}
+!89 = !{!90, !14, i64 8}
+!90 = !{!"_oid_alternative", !11, i64 0, !14, i64 8, !6, i64 12}
+!91 = !{!90, !11, i64 0}

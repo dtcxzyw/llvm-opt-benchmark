@@ -360,7 +360,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %126 = load i32, ptr %10, align 4
   %127 = sext i32 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next, %127
-  br i1 %128, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  br i1 %128, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %125
   %129 = zext nneg i8 %.1245 to i32
@@ -416,7 +416,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #7
   %146 = add nuw nsw i32 %.0228271, 1
   %exitcond.not = icmp eq i32 %146, %2
-  br i1 %exitcond.not, label %.preheader256.loopexit, label %47, !llvm.loop !10
+  br i1 %exitcond.not, label %.preheader256.loopexit, label %47, !llvm.loop !9
 
 147:                                              ; preds = %.preheader256, %150
   %indvars.iv310 = phi i64 [ 0, %.preheader256 ], [ %indvars.iv.next311, %150 ]
@@ -428,7 +428,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
 150:                                              ; preds = %147
   %indvars.iv.next311 = add nuw nsw i64 %indvars.iv310, 1
   %exitcond313.not = icmp eq i64 %indvars.iv.next311, 5
-  br i1 %exitcond313.not, label %.critedge.thread, label %147, !llvm.loop !11
+  br i1 %exitcond313.not, label %.critedge.thread, label %147, !llvm.loop !10
 
 .critedge:                                        ; preds = %147
   %151 = icmp eq i64 %indvars.iv310, 4
@@ -487,7 +487,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %.1234 = phi i64 [ %176, %170 ], [ %.0233285, %.lr.ph287 ]
   %178 = call ptr @hash_seq_search(ptr noundef nonnull %7) #7
   %.not253 = icmp eq ptr %178, null
-  br i1 %.not253, label %._crit_edge288.loopexit, label %.lr.ph287, !llvm.loop !12
+  br i1 %.not253, label %._crit_edge288.loopexit, label %.lr.ph287, !llvm.loop !11
 
 ._crit_edge288.loopexit:                          ; preds = %177
   %179 = uitofp nneg i64 %.1234 to double
@@ -566,7 +566,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   store float %224, ptr %225, align 4
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %exitcond317.not = icmp eq i64 %indvars.iv.next315, %197
-  br i1 %exitcond317.not, label %226, label %210, !llvm.loop !13
+  br i1 %exitcond317.not, label %226, label %210, !llvm.loop !12
 
 226:                                              ; preds = %210
   %227 = sitofp i64 %.2237 to double
@@ -661,7 +661,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   store ptr %284, ptr %287, align 8
   %288 = call ptr @hash_seq_search(ptr noundef nonnull %7) #7
   %.not254 = icmp eq ptr %288, null
-  br i1 %.not254, label %._crit_edge297, label %.lr.ph296, !llvm.loop !14
+  br i1 %.not254, label %._crit_edge297, label %.lr.ph296, !llvm.loop !13
 
 ._crit_edge297:                                   ; preds = %.lr.ph296, %277
   call void @qsort_interruptible(ptr noundef %282, i64 noundef %280, i64 noundef 8, ptr noundef nonnull @countitem_compare_count, ptr noundef null) #7
@@ -715,7 +715,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %318 = mul nsw i64 %317, %307
   %319 = add i64 %318, %.1299
   %320 = icmp slt i64 %319, 1
-  br i1 %320, label %.lr.ph300, label %._crit_edge301, !llvm.loop !15
+  br i1 %320, label %.lr.ph300, label %._crit_edge301, !llvm.loop !14
 
 ._crit_edge301:                                   ; preds = %.lr.ph300, %.preheader.._crit_edge301_crit_edge
   %321 = phi ptr [ %.pre, %.preheader.._crit_edge301_crit_edge ], [ %314, %.lr.ph300 ]
@@ -728,7 +728,7 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   %325 = sub nsw i64 %.1.lcssa, %309
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next319, %299
-  br i1 %exitcond322.not, label %326, label %.preheader, !llvm.loop !16
+  br i1 %exitcond322.not, label %326, label %.preheader, !llvm.loop !15
 
 326:                                              ; preds = %._crit_edge301
   %sext326 = shl i64 %.1239, 32
@@ -891,14 +891,13 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

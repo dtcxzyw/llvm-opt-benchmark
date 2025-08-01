@@ -1236,12 +1236,12 @@ define hidden noundef i32 @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6O
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %15 = load i32, ptr %14, align 4, !tbaa !39
-  store i32 %15, ptr %4, align 4, !tbaa !47
+  store i32 %15, ptr %4, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %16 = load ptr, ptr %1, align 8, !tbaa !16
-  store ptr %16, ptr %5, align 8, !tbaa !48
+  store ptr %16, ptr %5, align 8, !tbaa !47
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !50
+  %18 = load i32, ptr %17, align 4, !tbaa !49
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %10, i32 %18)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 3, ptr nonnull @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined, ptr nonnull %4, ptr nonnull %5, ptr nonnull %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
@@ -1252,13 +1252,13 @@ define hidden noundef i32 @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6O
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %21 = load i32, ptr %20, align 4, !tbaa !39
-  store i32 %21, ptr %6, align 4, !tbaa !47
+  store i32 %21, ptr %6, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %23 = load i32, ptr %22, align 8, !tbaa !40
-  store i32 %23, ptr %7, align 4, !tbaa !47
+  store i32 %23, ptr %7, align 4, !tbaa !46
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !50
+  %25 = load i32, ptr %24, align 4, !tbaa !49
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %10, i32 %25)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.1, ptr nonnull %7, ptr nonnull %1, ptr nonnull %0, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
@@ -1280,13 +1280,13 @@ define hidden noundef i32 @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6O
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %36 = load i32, ptr %35, align 8, !tbaa !42
-  store i32 %36, ptr %8, align 4, !tbaa !47
+  store i32 %36, ptr %8, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
   %37 = mul nsw i32 %32, %30
   %38 = mul nsw i32 %37, %34
-  store i32 %38, ptr %9, align 4, !tbaa !47
+  store i32 %38, ptr %9, align 4, !tbaa !46
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %40 = load i32, ptr %39, align 4, !tbaa !50
+  %40 = load i32, ptr %39, align 4, !tbaa !49
   tail call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %10, i32 %40)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.2, ptr nonnull %8, ptr nonnull %1, ptr nonnull %0, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
@@ -1328,9 +1328,9 @@ define hidden void @_ZN4ncnn9BatchNormC2Ev(ptr noundef nonnull align 8 dereferen
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %11, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %13, i8 0, i64 28, i1 false)
-  store i8 1, ptr %15, align 8, !tbaa !52
+  store i8 1, ptr %15, align 8, !tbaa !51
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  store i8 1, ptr %16, align 1, !tbaa !53
+  store i8 1, ptr %16, align 1, !tbaa !52
   ret void
 }
 
@@ -1377,33 +1377,33 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = load i32, ptr %2, align 4, !tbaa !47
+  %10 = load i32, ptr %2, align 4, !tbaa !46
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %12, label %34
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %10, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
-  store i32 0, ptr %6, align 4, !tbaa !47
+  store i32 0, ptr %6, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
-  store i32 %13, ptr %7, align 4, !tbaa !47
+  store i32 %13, ptr %7, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
-  store i32 1, ptr %8, align 4, !tbaa !47
+  store i32 1, ptr %8, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
-  store i32 0, ptr %9, align 4, !tbaa !47
-  %14 = load i32, ptr %0, align 4, !tbaa !47
+  store i32 0, ptr %9, align 4, !tbaa !46
+  %14 = load i32, ptr %0, align 4, !tbaa !46
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %14, i32 34, ptr nonnull %9, ptr nonnull %6, ptr nonnull %7, ptr nonnull %8, i32 1, i32 1)
-  %15 = load i32, ptr %7, align 4, !tbaa !47
+  %15 = load i32, ptr %7, align 4, !tbaa !46
   %16 = call i32 @llvm.smin.i32(i32 %15, i32 %13)
-  store i32 %16, ptr %7, align 4, !tbaa !47
-  %17 = load i32, ptr %6, align 4, !tbaa !47
+  store i32 %16, ptr %7, align 4, !tbaa !46
+  %17 = load i32, ptr %6, align 4, !tbaa !46
   %.not16 = icmp sgt i32 %17, %16
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 576
   %19 = load ptr, ptr %18, align 8, !tbaa !16
-  %20 = load ptr, ptr %3, align 8, !tbaa !48
+  %20 = load ptr, ptr %3, align 8, !tbaa !47
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 504
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = sext i32 %17 to i64
@@ -1424,7 +1424,7 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %24, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %25
 
 ._crit_edge:                                      ; preds = %25, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -1451,7 +1451,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #11
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
-declare !callback !55 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #11
+declare !callback !53 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #11
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
 define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.1(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %3, ptr noundef readonly captures(none) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5) #10 personality ptr @__gxx_personality_v0 {
@@ -1459,26 +1459,26 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = load i32, ptr %2, align 4, !tbaa !47
+  %11 = load i32, ptr %2, align 4, !tbaa !46
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %43
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
-  store i32 0, ptr %7, align 4, !tbaa !47
+  store i32 0, ptr %7, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
-  store i32 %14, ptr %8, align 4, !tbaa !47
+  store i32 %14, ptr %8, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
-  store i32 1, ptr %9, align 4, !tbaa !47
+  store i32 1, ptr %9, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #11
-  store i32 0, ptr %10, align 4, !tbaa !47
-  %15 = load i32, ptr %0, align 4, !tbaa !47
+  store i32 0, ptr %10, align 4, !tbaa !46
+  %15 = load i32, ptr %0, align 4, !tbaa !46
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %15, i32 34, ptr nonnull %10, ptr nonnull %7, ptr nonnull %8, ptr nonnull %9, i32 1, i32 1)
-  %16 = load i32, ptr %8, align 4, !tbaa !47
+  %16 = load i32, ptr %8, align 4, !tbaa !46
   %17 = call i32 @llvm.smin.i32(i32 %16, i32 %14)
-  store i32 %17, ptr %8, align 4, !tbaa !47
-  %18 = load i32, ptr %7, align 4, !tbaa !47
+  store i32 %17, ptr %8, align 4, !tbaa !46
+  %18 = load i32, ptr %7, align 4, !tbaa !46
   %.not27 = icmp sgt i32 %18, %17
   br i1 %.not27, label %._crit_edge31, label %.lr.ph30
 
@@ -1494,7 +1494,7 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
   %26 = load ptr, ptr %25, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 576
   %28 = load ptr, ptr %27, align 8, !tbaa !16
-  %29 = load i32, ptr %5, align 4, !tbaa !47
+  %29 = load i32, ptr %5, align 4, !tbaa !46
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %.lr.ph.us.preheader, label %._crit_edge31
 
@@ -1523,13 +1523,13 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
   store float %42, ptr %39, align 4, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %38, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge.us, label %38, !llvm.loop !55
 
 ._crit_edge.us:                                   ; preds = %38
   %indvars.iv.next35 = add nsw i64 %indvars.iv34, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next35 to i32
   %exitcond37.not = icmp eq i32 %32, %lftr.wideiv
-  br i1 %exitcond37.not, label %._crit_edge31, label %.lr.ph.us, !llvm.loop !58
+  br i1 %exitcond37.not, label %._crit_edge31, label %.lr.ph.us, !llvm.loop !56
 
 ._crit_edge31:                                    ; preds = %._crit_edge.us, %.lr.ph30, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1549,41 +1549,41 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = load i32, ptr %2, align 4, !tbaa !47
+  %11 = load i32, ptr %2, align 4, !tbaa !46
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %42
 
 13:                                               ; preds = %6
   %14 = add nsw i32 %11, -1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
-  store i32 0, ptr %7, align 4, !tbaa !47
+  store i32 0, ptr %7, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
-  store i32 %14, ptr %8, align 4, !tbaa !47
+  store i32 %14, ptr %8, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
-  store i32 1, ptr %9, align 4, !tbaa !47
+  store i32 1, ptr %9, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #11
-  store i32 0, ptr %10, align 4, !tbaa !47
-  %15 = load i32, ptr %0, align 4, !tbaa !47
+  store i32 0, ptr %10, align 4, !tbaa !46
+  %15 = load i32, ptr %0, align 4, !tbaa !46
   call void @__kmpc_for_static_init_4(ptr nonnull @1, i32 %15, i32 34, ptr nonnull %10, ptr nonnull %7, ptr nonnull %8, ptr nonnull %9, i32 1, i32 1)
-  %16 = load i32, ptr %8, align 4, !tbaa !47
+  %16 = load i32, ptr %8, align 4, !tbaa !46
   %17 = call i32 @llvm.smin.i32(i32 %16, i32 %14)
-  store i32 %17, ptr %8, align 4, !tbaa !47
-  %18 = load i32, ptr %7, align 4, !tbaa !47
+  store i32 %17, ptr %8, align 4, !tbaa !46
+  %18 = load i32, ptr %7, align 4, !tbaa !46
   %.not34 = icmp sgt i32 %18, %17
   br i1 %.not34, label %._crit_edge36, label %.noexc27.lr.ph
 
 .noexc27.lr.ph:                                   ; preds = %13
-  %19 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !60
+  %19 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !58
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i64, ptr %20, align 8, !tbaa !17, !noalias !60
+  %21 = load i64, ptr %20, align 8, !tbaa !17, !noalias !58
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !36, !noalias !60
+  %23 = load i64, ptr %22, align 8, !tbaa !36, !noalias !58
   %factor.op.mul = mul i64 %21, %23
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 504
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 576
   %27 = load ptr, ptr %26, align 8, !tbaa !16
-  %28 = load i32, ptr %5, align 4, !tbaa !47
+  %28 = load i32, ptr %5, align 4, !tbaa !46
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.noexc27.us.preheader, label %._crit_edge36
 
@@ -1612,13 +1612,13 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
   store float %41, ptr %38, align 4, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !61
 
 ._crit_edge.us:                                   ; preds = %37
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next40 to i32
   %exitcond42.not = icmp eq i32 %31, %lftr.wideiv
-  br i1 %exitcond42.not, label %._crit_edge36, label %.noexc27.us, !llvm.loop !64
+  br i1 %exitcond42.not, label %._crit_edge36, label %.noexc27.us, !llvm.loop !62
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.noexc27.lr.ph, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1705,24 +1705,22 @@ attributes #16 = { builtin nounwind }
 !41 = !{!8, !13, i64 52}
 !42 = !{!8, !13, i64 56}
 !43 = !{!34, !34, i64 0}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!13, !13, i64 0}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 float", !9, i64 0}
-!50 = !{!51, !13, i64 4}
-!51 = !{!"_ZTSN4ncnn6OptionE", !21, i64 0, !13, i64 4, !14, i64 8, !14, i64 16, !13, i64 24, !21, i64 28, !21, i64 29, !21, i64 30, !21, i64 31, !21, i64 32, !21, i64 33, !21, i64 34, !21, i64 35, !21, i64 36, !21, i64 37, !21, i64 38, !21, i64 39, !21, i64 40, !21, i64 41, !21, i64 42, !21, i64 43, !21, i64 44, !21, i64 45, !21, i64 46, !21, i64 47, !13, i64 48, !21, i64 52, !21, i64 53, !21, i64 54, !21, i64 55, !21, i64 56, !21, i64 57, !21, i64 58, !21, i64 59, !21, i64 60, !21, i64 61, !21, i64 62, !21, i64 63}
-!52 = !{!20, !21, i64 8}
-!53 = !{!20, !21, i64 9}
-!54 = distinct !{!54, !46}
-!55 = !{!56}
-!56 = !{i64 2, i64 -1, i64 -1, i1 true}
-!57 = distinct !{!57, !45, !46}
-!58 = distinct !{!58, !46, !59}
-!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!62 = distinct !{!62, !"_ZN4ncnn3Mat7channelEi"}
-!63 = distinct !{!63, !45, !46}
-!64 = distinct !{!64, !46, !59}
+!46 = !{!13, !13, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 float", !9, i64 0}
+!49 = !{!50, !13, i64 4}
+!50 = !{!"_ZTSN4ncnn6OptionE", !21, i64 0, !13, i64 4, !14, i64 8, !14, i64 16, !13, i64 24, !21, i64 28, !21, i64 29, !21, i64 30, !21, i64 31, !21, i64 32, !21, i64 33, !21, i64 34, !21, i64 35, !21, i64 36, !21, i64 37, !21, i64 38, !21, i64 39, !21, i64 40, !21, i64 41, !21, i64 42, !21, i64 43, !21, i64 44, !21, i64 45, !21, i64 46, !21, i64 47, !13, i64 48, !21, i64 52, !21, i64 53, !21, i64 54, !21, i64 55, !21, i64 56, !21, i64 57, !21, i64 58, !21, i64 59, !21, i64 60, !21, i64 61, !21, i64 62, !21, i64 63}
+!51 = !{!20, !21, i64 8}
+!52 = !{!20, !21, i64 9}
+!53 = !{!54}
+!54 = !{i64 2, i64 -1, i64 -1, i1 true}
+!55 = distinct !{!55, !45}
+!56 = distinct !{!56, !57}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!60 = distinct !{!60, !"_ZN4ncnn3Mat7channelEi"}
+!61 = distinct !{!61, !45}
+!62 = distinct !{!62, !57}

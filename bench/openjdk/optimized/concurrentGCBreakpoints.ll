@@ -322,7 +322,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph
   %25 = tail call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef 0) #7
   %26 = load i8, ptr @_ZN23ConcurrentGCBreakpoints10_want_idleE, align 1
   %27 = trunc i8 %26 to i1
-  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 _ZN13MonitorLockerD2Ev.exit.sink.split:           ; preds = %23, %._crit_edge
   %.str.9.sink = phi ptr [ @.str.8, %._crit_edge ], [ @.str.9, %23 ]
@@ -386,7 +386,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %14, %_ZN13MonitorLo
   %17 = tail call noundef zeroext i1 @_ZN7Monitor28wait_without_safepoint_checkEm(ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef 0) #7
   %18 = load i8, ptr @_ZN23ConcurrentGCBreakpoints11_is_stoppedE, align 1
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %_ZN13MonitorLocker4waitEl.exit, label %._crit_edge, !llvm.loop !10
+  br i1 %19, label %_ZN13MonitorLocker4waitEl.exit, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN13MonitorLocker4waitEl.exit, %14
   %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_11ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -616,8 +616,7 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

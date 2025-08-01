@@ -1421,7 +1421,7 @@ define hidden void @BF_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr n
   store i8 %245, ptr %244, align 1, !tbaa !10
   %.1 = add nsw i64 %.1274, -8
   %247 = icmp samesign ugt i64 %.1274, 7
-  br i1 %247, label %184, label %._crit_edge277, !llvm.loop !14
+  br i1 %247, label %184, label %._crit_edge277, !llvm.loop !13
 
 ._crit_edge277:                                   ; preds = %184, %182
   %.1248.lcssa = phi ptr [ %1, %182 ], [ %246, %184 ]
@@ -1621,7 +1621,7 @@ define hidden void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i64 nounde
   store i32 %27, ptr %25, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 18
-  br i1 %exitcond.not, label %28, label %6, !llvm.loop !15
+  br i1 %exitcond.not, label %28, label %6, !llvm.loop !14
 
 28:                                               ; preds = %6
   store i32 0, ptr %4, align 4, !tbaa !6
@@ -1640,7 +1640,7 @@ define hidden void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i64 nounde
   store i32 %33, ptr %34, align 4, !tbaa !6
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 2
   %35 = icmp samesign ult i64 %indvars.iv62, 16
-  br i1 %35, label %30, label %36, !llvm.loop !16
+  br i1 %35, label %30, label %36, !llvm.loop !15
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1657,7 +1657,7 @@ define hidden void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i64 nounde
   store i32 %41, ptr %42, align 4, !tbaa !6
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 2
   %43 = icmp samesign ult i64 %indvars.iv65, 1022
-  br i1 %43, label %38, label %44, !llvm.loop !17
+  br i1 %43, label %38, label %44, !llvm.loop !16
 
 44:                                               ; preds = %38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
@@ -1691,10 +1691,9 @@ attributes #6 = { nounwind }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!8, !8, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = distinct !{!15, !12, !13}
-!16 = distinct !{!16, !12, !13}
-!17 = distinct !{!17, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !12}

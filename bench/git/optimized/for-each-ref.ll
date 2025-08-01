@@ -575,14 +575,14 @@ define dso_local noundef i32 @cmd_for_each_ref(i32 noundef %0, ptr noundef %1, p
 
 ._crit_edge:                                      ; preds = %245, %.preheader
   call void @strbuf_release(ptr noundef nonnull %13) #9
-  %250 = load ptr, ptr %11, align 8, !tbaa !36
-  store ptr %250, ptr %9, align 8, !tbaa !39
+  %250 = load ptr, ptr %11, align 8, !tbaa !35
+  store ptr %250, ptr %9, align 8, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #9
   %.pre = load i8, ptr %230, align 8
   br label %252
 
 251:                                              ; preds = %226
-  store ptr %1, ptr %9, align 8, !tbaa !39
+  store ptr %1, ptr %9, align 8, !tbaa !38
   br label %252
 
 252:                                              ; preds = %251, %._crit_edge
@@ -735,16 +735,15 @@ attributes #10 = { noreturn nounwind }
 !30 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
 !31 = !{!32, !10, i64 16}
 !32 = !{!"strbuf", !12, i64 0, !12, i64 8, !10, i64 16}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!37, !38, i64 0}
-!37 = !{!"strvec", !38, i64 0, !12, i64 8, !12, i64 16}
-!38 = !{!"p2 omnipotent char", !11, i64 0}
-!39 = !{!40, !38, i64 0}
-!40 = !{!"ref_filter", !38, i64 0, !37, i64 8, !41, i64 32, !43, i64 64, !43, i64 72, !43, i64 80, !43, i64 88, !5, i64 96, !5, i64 96, !5, i64 96, !5, i64 96, !5, i64 100, !5, i64 104, !5, i64 108, !5, i64 112, !44, i64 120}
-!41 = !{!"oid_array", !42, i64 0, !12, i64 8, !12, i64 16, !5, i64 24}
-!42 = !{!"p1 _ZTS9object_id", !11, i64 0}
-!43 = !{!"p1 _ZTS11commit_list", !11, i64 0}
-!44 = !{!"", !45, i64 0, !45, i64 24}
-!45 = !{!"contains_cache", !5, i64 0, !5, i64 4, !5, i64 8, !11, i64 16}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"strvec", !37, i64 0, !12, i64 8, !12, i64 16}
+!37 = !{!"p2 omnipotent char", !11, i64 0}
+!38 = !{!39, !37, i64 0}
+!39 = !{!"ref_filter", !37, i64 0, !36, i64 8, !40, i64 32, !42, i64 64, !42, i64 72, !42, i64 80, !42, i64 88, !5, i64 96, !5, i64 96, !5, i64 96, !5, i64 96, !5, i64 100, !5, i64 104, !5, i64 108, !5, i64 112, !43, i64 120}
+!40 = !{!"oid_array", !41, i64 0, !12, i64 8, !12, i64 16, !5, i64 24}
+!41 = !{!"p1 _ZTS9object_id", !11, i64 0}
+!42 = !{!"p1 _ZTS11commit_list", !11, i64 0}
+!43 = !{!"", !44, i64 0, !44, i64 24}
+!44 = !{!"contains_cache", !5, i64 0, !5, i64 4, !5, i64 8, !11, i64 16}

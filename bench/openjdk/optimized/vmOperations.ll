@@ -665,7 +665,7 @@ define hidden void @_ZN16VM_FindDeadlocks4doitEv(ptr noundef nonnull align 8 der
   %15 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not8 = icmp eq ptr %16, null
-  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %cond = icmp eq i32 %.0711, 0
@@ -869,7 +869,7 @@ _ZN18ObjectMonitorsDumpC2Ev.exit:                 ; preds = %24, %28
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1128
   %55 = load volatile i32, ptr %54, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %56 = add i32 %55, -57003
   %57 = icmp ult i32 %56, 4
   br i1 %57, label %75, label %58
@@ -910,7 +910,7 @@ _ZN18ObjectMonitorsDumpC2Ev.exit:                 ; preds = %24, %28
   %79 = load i32, ptr %78, align 4
   %80 = zext i32 %79 to i64
   %81 = icmp samesign ult i64 %indvars.iv.next41, %80
-  br i1 %81, label %47, label %.loopexit, !llvm.loop !11
+  br i1 %81, label %47, label %.loopexit, !llvm.loop !10
 
 82:                                               ; preds = %.lr.ph, %123
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %123 ]
@@ -947,7 +947,7 @@ _ZNK14instanceHandleclEv.exit25:                  ; preds = %_ZNK14instanceHandl
 99:                                               ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %94, i64 1128
   %101 = load volatile i32, ptr %100, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   %102 = add i32 %101, -57003
   %103 = icmp ult i32 %102, 4
   br i1 %103, label %.thread, label %104
@@ -990,7 +990,7 @@ _ZNK14instanceHandleclEv.exit25:                  ; preds = %_ZNK14instanceHandl
   %124 = load i32, ptr %36, align 8
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next, %125
-  br i1 %126, label %82, label %.loopexit, !llvm.loop !12
+  br i1 %126, label %82, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %123, %75, %.preheader32, %.preheader
   call void @_ZN18ObjectMonitorsDumpD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
@@ -1097,12 +1097,12 @@ define linkonce_odr hidden void @_ZN18ObjectMonitorsDumpD2Ev(ptr noundef nonnull
   store i32 %25, ptr %5, align 8
   %26 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %21, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1031
-  br i1 %exitcond.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPvPN18ObjectMonitorsDump23ObjectMonitorLinkedListEES1_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZNS2_8ptr_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SE_EEE6unlinkIZNS2_D1EvE25CleanupObjectMonitorsDumpEEvPSC_.exit, label %6, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPvPN18ObjectMonitorsDump23ObjectMonitorLinkedListEES1_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZNS2_8ptr_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SE_EEE6unlinkIZNS2_D1EvE25CleanupObjectMonitorsDumpEEvPSC_.exit, label %6, !llvm.loop !13
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPvPN18ObjectMonitorsDump23ObjectMonitorLinkedListEES1_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZNS2_8ptr_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SE_EEE6unlinkIZNS2_D1EvE25CleanupObjectMonitorsDumpEEvPSC_.exit: ; preds = %._crit_edge.i
   %27 = load ptr, ptr %3, align 8
@@ -1122,12 +1122,12 @@ _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPvPN18ObjectMo
   %31 = load ptr, ptr %30, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0810.i.i) #10
   %.not.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader
   %.0.add.i.i = add nuw nsw i64 %.0.idx11.i.i, 8
   %32 = icmp samesign ult i64 %.0.idx11.i.i, 8240
-  br i1 %32, label %.preheader, label %_ZN17ResourceHashtableIPvPN18ObjectMonitorsDump23ObjectMonitorLinkedListELj1031ELN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZNS1_8ptr_hashERKS0_EEXadL_Z16primitive_equalsIS0_EbRKT_SC_EEED2Ev.exit, !llvm.loop !16
+  br i1 %32, label %.preheader, label %_ZN17ResourceHashtableIPvPN18ObjectMonitorsDump23ObjectMonitorLinkedListELj1031ELN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZNS1_8ptr_hashERKS0_EEXadL_Z16primitive_equalsIS0_EbRKT_SC_EEED2Ev.exit, !llvm.loop !15
 
 _ZN17ResourceHashtableIPvPN18ObjectMonitorsDump23ObjectMonitorLinkedListELj1031ELN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZNS1_8ptr_hashERKS0_EEXadL_Z16primitive_equalsIS0_EbRKT_SC_EEED2Ev.exit: ; preds = %._crit_edge.i.i
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %27) #10
@@ -1194,7 +1194,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
 23:                                               ; preds = %19
   %24 = add nsw i32 %.012, 1
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 1128
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   store volatile i32 57006, ptr %25, align 4
   %.pre = load i32, ptr %5, align 8
   %.pre14 = load ptr, ptr %6, align 8
@@ -1207,7 +1207,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %30 = load i32, ptr %29, align 4
   %.not.i = icmp ult i32 %28, %30
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !17
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1293,7 +1293,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %_ZN28JavaThreadIter
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
   %.not.i = icmp ult i32 %45, %48
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !18
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !17
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, %44
   %.023.lcssa.ph = phi i32 [ %.02333, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ %.124, %44 ]
@@ -1317,7 +1317,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN28JavaThreadIter
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %.not.i32.not = icmp eq i32 %56, 0
-  br i1 %.not.i32.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.preheader, !llvm.loop !19
+  br i1 %.not.i32.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.preheader, !llvm.loop !18
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread.thread: ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %_ZN13MonitorLockerD2Ev.exit, %0
   %.023.lcssa41 = phi i32 [ 0, %0 ], [ %.023.lcssa.ph, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread ], [ 0, %_ZN13MonitorLockerD2Ev.exit ]
@@ -1390,7 +1390,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.i:  ; preds = %12, %37
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 1128
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   store volatile i32 57006, ptr %36, align 4
   %.pre.i = load i32, ptr %17, align 8
   %.pre14.i = load ptr, ptr %18, align 8
@@ -1402,7 +1402,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.i:  ; preds = %12, %37
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %41 = load i32, ptr %40, align 4
   %.not.i.i = icmp ult i32 %39, %41
-  br i1 %.not.i.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.i, label %_ZN7VM_Exit13set_vm_exitedEv.exit, !llvm.loop !17
+  br i1 %.not.i.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.i, label %_ZN7VM_Exit13set_vm_exitedEv.exit, !llvm.loop !16
 
 _ZN7VM_Exit13set_vm_exitedEv.exit:                ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.i, %37, %12
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %16) #10
@@ -1795,7 +1795,7 @@ define linkonce_odr hidden void @_ZN18ObjectMonitorsDump5visitEP14MonitorClosure
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 _ZN18ObjectMonitorsDump8get_listEPv.exit:         ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1818,7 +1818,7 @@ _ZN18LinkedListIteratorIP13ObjectMonitorE4nextEv.exit: ; preds = %_ZN18ObjectMon
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %30) #10
   %33 = icmp eq ptr %29, null
-  br i1 %33, label %._crit_edge, label %_ZN18LinkedListIteratorIP13ObjectMonitorE4nextEv.exit, !llvm.loop !21
+  br i1 %33, label %._crit_edge, label %_ZN18LinkedListIteratorIP13ObjectMonitorE4nextEv.exit, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %20, %_ZN18LinkedListIteratorIP13ObjectMonitorE4nextEv.exit, %3, %_ZN18ObjectMonitorsDump8get_listEPv.exit, %_ZN18ObjectMonitorsDump8get_listEPv.exit.thread
   ret void
@@ -1854,7 +1854,7 @@ define linkonce_odr hidden void @_ZThn8_N18ObjectMonitorsDump5visitEP14MonitorCl
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not.i.i.i.i.i, label %_ZN18ObjectMonitorsDump5visitEP14MonitorClosureP10JavaThread.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i, label %_ZN18ObjectMonitorsDump5visitEP14MonitorClosureP10JavaThread.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !19
 
 _ZN18ObjectMonitorsDump8get_listEPv.exit.i:       ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1877,7 +1877,7 @@ _ZN18LinkedListIteratorIP13ObjectMonitorE4nextEv.exit.i: ; preds = %_ZN18ObjectM
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %30) #10
   %33 = icmp eq ptr %29, null
-  br i1 %33, label %_ZN18ObjectMonitorsDump5visitEP14MonitorClosureP10JavaThread.exit, label %_ZN18LinkedListIteratorIP13ObjectMonitorE4nextEv.exit.i, !llvm.loop !21
+  br i1 %33, label %_ZN18ObjectMonitorsDump5visitEP14MonitorClosureP10JavaThread.exit, label %_ZN18LinkedListIteratorIP13ObjectMonitorE4nextEv.exit.i, !llvm.loop !20
 
 _ZN18ObjectMonitorsDump5visitEP14MonitorClosureP10JavaThread.exit: ; preds = %20, %_ZN18LinkedListIteratorIP13ObjectMonitorE4nextEv.exit.i, %3, %_ZN18ObjectMonitorsDump8get_listEPv.exit.i, %_ZN18ObjectMonitorsDump8get_listEPv.exit.thread.i
   ret void
@@ -1924,7 +1924,7 @@ define linkonce_odr hidden void @_ZN18ObjectMonitorsDump3addEP13ObjectMonitor(pt
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.i, label %_ZN18ObjectMonitorsDump8get_listEPv.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i, label %_ZN18ObjectMonitorsDump8get_listEPv.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 _ZN18ObjectMonitorsDump8get_listEPv.exit:         ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1966,7 +1966,7 @@ _ZN18ObjectMonitorsDump8get_listEPv.exit.thread:  ; preds = %23, %2, %_ZN18Objec
   %44 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 24
   %45 = load ptr, ptr %44, align 8
   %.not.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPvPN18ObjectMonitorsDump23ObjectMonitorLinkedListEES1_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZNS2_8ptr_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPvPN18ObjectMonitorsDump23ObjectMonitorLinkedListEES1_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZNS2_8ptr_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !19
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1031EPvPN18ObjectMonitorsDump23ObjectMonitorLinkedListEES1_S4_LN6AnyObj15allocation_typeE2EL8MEMFLAGS2EXadL_ZNS2_8ptr_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SE_EEE11lookup_nodeEjSA_.exit.i: ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
@@ -2036,7 +2036,7 @@ _ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN1
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i) #10
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit.i.i, !llvm.loop !22
+  br i1 %.not.i.i, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit.i.i, !llvm.loop !21
 
 _ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit: ; preds = %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit.i.i, %1
   ret void
@@ -2057,7 +2057,7 @@ _ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN1
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i.i) #10
   %.not.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i, label %_ZN18ObjectMonitorsDump23ObjectMonitorLinkedListD2Ev.exit, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit.i.i.i, !llvm.loop !22
+  br i1 %.not.i.i.i, label %_ZN18ObjectMonitorsDump23ObjectMonitorLinkedListD2Ev.exit, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit.i.i.i, !llvm.loop !21
 
 _ZN18ObjectMonitorsDump23ObjectMonitorLinkedListD2Ev.exit: ; preds = %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit.i.i.i, %1
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %0) #10
@@ -2079,7 +2079,7 @@ define linkonce_odr hidden void @_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not9 = icmp eq ptr %8, null
-  br i1 %.not9, label %.critedge, label %5, !llvm.loop !23
+  br i1 %.not9, label %.critedge, label %5, !llvm.loop !22
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2148,7 +2148,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplIP13ObjectMoni
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %.0) #10
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %3, !llvm.loop !24
+  br i1 %9, label %10, label %3, !llvm.loop !23
 
 10:                                               ; preds = %3, %4
   ret i1 %.not
@@ -2169,7 +2169,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplIP13ObjectMonitorLN6A
 5:                                                ; preds = %4
   %6 = load ptr, ptr %.0, align 8
   %7 = icmp eq ptr %6, %3
-  br i1 %7, label %.critedge, label %4, !llvm.loop !25
+  br i1 %7, label %.critedge, label %4, !llvm.loop !24
 
 .critedge:                                        ; preds = %4, %5
   ret ptr %.0
@@ -2214,7 +2214,7 @@ define linkonce_odr hidden noundef ptr @_ZN14LinkedListImplIP13ObjectMonitorLN6A
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not20 = icmp eq ptr %15, %2
-  br i1 %.not20, label %.critedge, label %.preheader, !llvm.loop !26
+  br i1 %.not20, label %.critedge, label %.preheader, !llvm.loop !25
 
 .critedge:                                        ; preds = %.preheader, %13
   store ptr %2, ptr %8, align 8
@@ -2263,7 +2263,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplIP13ObjectMoni
 5:                                                ; preds = %4
   %6 = load ptr, ptr %.08, align 8
   %7 = icmp eq ptr %6, %3
-  br i1 %7, label %8, label %4, !llvm.loop !27
+  br i1 %7, label %8, label %4, !llvm.loop !26
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
@@ -2300,7 +2300,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplIP13ObjectMoni
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not17 = icmp eq ptr %12, %1
-  br i1 %.not17, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit19, label %.preheader, !llvm.loop !28
+  br i1 %.not17, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit19, label %.preheader, !llvm.loop !27
 
 _ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit19: ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -2332,7 +2332,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14LinkedListImplIP13ObjectMoni
   %6 = icmp ne ptr %.017, %1
   %7 = and i1 %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %.017, i64 8
-  br i1 %7, label %4, label %9, !llvm.loop !29
+  br i1 %7, label %4, label %9, !llvm.loop !28
 
 9:                                                ; preds = %4
   %10 = icmp ne ptr %.016, null
@@ -2415,7 +2415,7 @@ _ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN1
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06) #10
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit, %1
   ret void
@@ -2436,7 +2436,7 @@ _ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN1
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i) #10
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv.exit, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit.i, !llvm.loop !22
+  br i1 %.not.i, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv.exit, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit.i, !llvm.loop !21
 
 _ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE5clearEv.exit: ; preds = %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit.i, %1
   ret void
@@ -2457,7 +2457,7 @@ _ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN1
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.06.i.i) #10
   %.not.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit.i.i, !llvm.loop !22
+  br i1 %.not.i.i, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit, label %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit.i.i, !llvm.loop !21
 
 _ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EED2Ev.exit: ; preds = %_ZN14LinkedListImplIP13ObjectMonitorLN6AnyObj15allocation_typeE2EL8MEMFLAGS2ELN17AllocFailStrategy13AllocFailEnumE1EE11delete_nodeEP14LinkedListNodeIS1_E.exit.i.i, %1
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %0) #10
@@ -2565,27 +2565,26 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i64 2145392468}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i64 2145392468}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}

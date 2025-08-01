@@ -169,7 +169,7 @@ define dso_local void @common_gres_set_env(ptr noundef %0) local_unnamed_addr #0
   %.1 = phi i1 [ true, %62 ], [ %.05190, %26 ], [ %.05190, %38 ], [ %.05190, %49 ]
   %65 = call ptr @slurm_list_next(ptr noundef %19) #6
   %.not72 = icmp eq ptr %65, null
-  br i1 %.not72, label %._crit_edge, label %26, !llvm.loop !13
+  br i1 %.not72, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %64, %18
   %.052.lcssa = phi i32 [ 0, %18 ], [ %.153, %64 ]
@@ -347,7 +347,7 @@ define internal fastcc void @_print_gres_list_helper(ptr noundef %0, i32 noundef
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %1, ptr noundef nonnull @.str.19, ptr noundef %10, i64 noundef %12, ptr noundef %14, i32 noundef %16, ptr noundef %18, ptr noundef %20, ptr noundef %22, ptr noundef nonnull %spec.select.i.us, ptr noundef nonnull %25, ptr noundef %27) #6
   %28 = tail call ptr @slurm_list_next(ptr noundef %6) #6
   %.not.us = icmp eq ptr %28, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %29 = phi ptr [ %48, %.lr.ph.split ], [ %7, %.lr.ph ]
@@ -372,7 +372,7 @@ define internal fastcc void @_print_gres_list_helper(ptr noundef %0, i32 noundef
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %1, ptr noundef nonnull @.str.7, ptr noundef %31, ptr noundef %33, i64 noundef %35, i32 noundef %37, ptr noundef %39, ptr noundef %41, ptr noundef %43, ptr noundef %45, ptr noundef %47) #6
   %48 = tail call ptr @slurm_list_next(ptr noundef %6) #6
   %.not = icmp eq ptr %48, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %5
   tail call void @slurm_list_iterator_destroy(ptr noundef %6) #6
@@ -712,7 +712,7 @@ define dso_local noundef zeroext i1 @gres_common_prep_set_env(ptr noundef %0, pt
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr %6, align 4
   %.not54.not = icmp slt i32 %52, %.037
-  br i1 %.not54.not, label %35, label %._crit_edge, !llvm.loop !18
+  br i1 %.not54.not, label %35, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %51
   %.pre = load ptr, ptr %7, align 8
@@ -880,9 +880,7 @@ attributes #7 = { cold nounwind }
 !10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !11, !12, !14, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !11, !12, !14}
-!18 = distinct !{!18, !11, !12, !14}
+!13 = distinct !{!13, !11, !12, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}

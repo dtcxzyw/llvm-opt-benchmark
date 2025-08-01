@@ -155,7 +155,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h4ee80c7825b4a2f0E.exit2: ; p
 
 49:                                               ; preds = %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  br label %13, !llvm.loop !6
+  br label %13
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -179,7 +179,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6f5f62f710b676a9E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %8, ptr align 8 %., ptr nonnull align 8 %3)
   %14 = load i64, ptr %8, align 8, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %16 = load i64, ptr %15, align 8, !range !8, !noundef !3
+  %16 = load i64, ptr %15, align 8, !range !6, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -189,7 +189,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6f5f62f710b676a9E"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %6, ptr align 8 %.047, ptr nonnull align 8 %7)
   %22 = load i64, ptr %6, align 8, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %24 = load i64, ptr %23, align 8, !range !8, !noundef !3
+  %24 = load i64, ptr %23, align 8, !range !6, !noundef !3
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = call i64 @llvm.uadd.sat.i64(i64 %14, i64 %22)
@@ -219,7 +219,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hccb8b9ede942089dE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %5, ptr nonnull align 8 %1)
   %.pre60 = load i64, ptr %5, align 8
   %.phi.trans.insert61 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre62 = load i64, ptr %.phi.trans.insert61, align 8, !range !8
+  %.pre62 = load i64, ptr %.phi.trans.insert61, align 8, !range !6
   %.phi.trans.insert63 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre64 = load i64, ptr %.phi.trans.insert63, align 8
   %40 = icmp eq i64 %.pre62, 0
@@ -276,7 +276,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hccb8b9ede942089dE"(ptr nonnull sret({ i64, { i64, [1 x i64] } }) align 8 %4, ptr nonnull align 8 %1)
   %.pre = load i64, ptr %4, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.pre57 = load i64, ptr %.phi.trans.insert, align 8, !range !8
+  %.pre57 = load i64, ptr %.phi.trans.insert, align 8, !range !6
   %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre59 = load i64, ptr %.phi.trans.insert58, align 8
   %63 = icmp eq i64 %.pre, 0
@@ -447,6 +447,4 @@ attributes #8 = { cold noreturn nounwind }
 !3 = !{}
 !4 = !{i64 0, i64 6}
 !5 = !{i64 0, i64 -9223372036854775807}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{i64 0, i64 2}
+!6 = !{i64 0, i64 2}

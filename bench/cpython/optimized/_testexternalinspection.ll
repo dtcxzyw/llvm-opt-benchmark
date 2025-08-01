@@ -225,7 +225,7 @@ read_memory.exit.i:                               ; preds = %55
 
 59:                                               ; preds = %read_memory.exit.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #9
-  %60 = load i64, ptr %35, align 8, !tbaa !38
+  %60 = load i64, ptr %35, align 8, !tbaa !37
   %61 = add i64 %60, %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
@@ -272,7 +272,7 @@ read_char.exit.i:                                 ; preds = %71
 
 77:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  %78 = load i64, ptr %38, align 8, !tbaa !39
+  %78 = load i64, ptr %38, align 8, !tbaa !38
   %79 = add i64 %78, %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
@@ -333,7 +333,7 @@ read_py_ptr.exit.thread.i:                        ; preds = %92
 .backedge:                                        ; preds = %.backedge.sink.split, %read_py_ptr.exit.thread.i
   %98 = load i64, ptr %14, align 8, !tbaa !8
   %.not8 = icmp eq i64 %98, 0
-  br i1 %.not8, label %Py_DECREF.exit, label %41, !llvm.loop !40
+  br i1 %.not8, label %Py_DECREF.exit, label %41, !llvm.loop !39
 
 parse_frame_object.exit.thread13:                 ; preds = %read_char.exit.i, %read_char.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
@@ -537,7 +537,7 @@ Py_DECREF.exit50:                                 ; preds = %53, %55, %58
 73:                                               ; preds = %68
   %74 = load i32, ptr %5, align 4, !tbaa !6
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %76 = load i64, ptr %75, align 8, !tbaa !41
+  %76 = load i64, ptr %75, align 8, !tbaa !40
   %77 = add i64 %76, %69
   %78 = call fastcc i32 @read_py_ptr(i32 noundef %74, i64 noundef %77, ptr noundef %10)
   %.not32 = icmp eq i32 %78, 0
@@ -556,7 +556,7 @@ Py_DECREF.exit50:                                 ; preds = %53, %55, %58
 84:                                               ; preds = %79
   %85 = load i32, ptr %5, align 4, !tbaa !6
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 640
-  %87 = load i64, ptr %86, align 8, !tbaa !45
+  %87 = load i64, ptr %86, align 8, !tbaa !44
   %88 = add i64 %87, %80
   %89 = call fastcc i32 @read_py_ptr(i32 noundef %85, i64 noundef %88, ptr noundef %11)
   %.not33 = icmp eq i32 %89, 0
@@ -596,13 +596,13 @@ Py_DECREF.exit50:                                 ; preds = %53, %55, %58
     i32 0, label %.preheader
     i32 4, label %106
     i32 2, label %Py_DECREF.exit46
-  ], !llvm.loop !46
+  ], !llvm.loop !45
 
 106:                                              ; preds = %99, %.preheader
   %107 = load i32, ptr %5, align 4, !tbaa !6
   %108 = load i64, ptr %9, align 8, !tbaa !8
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val = load i64, ptr %109, align 8, !tbaa !47
+  %.val = load i64, ptr %109, align 8, !tbaa !46
   %110 = call fastcc ptr @parse_task_name(i32 noundef %107, ptr noundef %7, i64 %.val, i64 noundef %108)
   %111 = icmp eq ptr %110, null
   br i1 %111, label %Py_DECREF.exit46, label %112
@@ -816,7 +816,7 @@ define internal fastcc range(i32 -1, 1) i32 @find_running_frame(i32 noundef %0, 
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %14 = load i64, ptr %13, align 8, !tbaa !48
+  %14 = load i64, ptr %13, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
   %15 = add i64 %14, %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
@@ -872,7 +872,7 @@ read_memory.exit:                                 ; preds = %27
 36:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %38 = load i64, ptr %37, align 8, !tbaa !49
+  %38 = load i64, ptr %37, align 8, !tbaa !48
   %39 = add i64 %38, %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
@@ -921,7 +921,7 @@ read_memory.exit19:                               ; preds = %51
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 184
-  %59 = load i64, ptr %58, align 8, !tbaa !50
+  %59 = load i64, ptr %58, align 8, !tbaa !49
   %60 = add i64 %59, %56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
@@ -1001,7 +1001,7 @@ find_map_start_address.exit.thread:               ; preds = %3
   %13 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
   %14 = tail call ptr @PyErr_SetFromErrno(ptr noundef %13) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
-  br label %98
+  br label %100
 
 15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #9
@@ -1027,14 +1027,14 @@ find_map_start_address.exit.thread:               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   %24 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 256, ptr noundef nonnull %11)
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %find_map_start_address.exit.thread63, label %.lr.ph.i, !llvm.loop !51
+  br i1 %.not.i, label %find_map_start_address.exit.thread63, label %.lr.ph.i
 
 find_map_start_address.exit.thread63:             ; preds = %23, %15
   %25 = call i32 @fclose(ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
-  br label %98
+  br label %100
 
 find_map_start_address.exit:                      ; preds = %.lr.ph.i
   %26 = load i64, ptr %7, align 8, !tbaa !8
@@ -1045,7 +1045,7 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
   %29 = icmp eq i64 %26, 0
-  br i1 %29, label %98, label %30
+  br i1 %29, label %100, label %30
 
 30:                                               ; preds = %find_map_start_address.exit
   %31 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %8, i32 noundef 0) #9
@@ -1055,7 +1055,7 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
 33:                                               ; preds = %30
   %34 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
   %35 = call ptr @PyErr_SetFromErrno(ptr noundef %34) #9
-  br label %88
+  br label %90
 
 36:                                               ; preds = %30
   %37 = call i32 @fstat(i32 noundef %31, ptr noundef nonnull %9) #9
@@ -1065,11 +1065,11 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
 38:                                               ; preds = %36
   %39 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
   %40 = call ptr @PyErr_SetFromErrno(ptr noundef %39) #9
-  br label %88
+  br label %90
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %43 = load i64, ptr %42, align 8, !tbaa !52
+  %43 = load i64, ptr %42, align 8, !tbaa !50
   %44 = call ptr @mmap(ptr noundef null, i64 noundef %43, i32 noundef 1, i32 noundef 2, i32 noundef %31, i64 noundef 0) #9
   %45 = icmp eq ptr %44, inttoptr (i64 -1 to ptr)
   br i1 %45, label %46, label %49
@@ -1077,21 +1077,20 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
 46:                                               ; preds = %41
   %47 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
   %48 = call ptr @PyErr_SetFromErrno(ptr noundef %47) #9
-  br label %88
+  br label %90
 
 49:                                               ; preds = %41
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %51 = load i64, ptr %50, align 8, !tbaa !55
+  %51 = load i64, ptr %50, align 8, !tbaa !53
   %52 = getelementptr i8, ptr %44, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 62
-  %54 = load i16, ptr %53, align 2, !tbaa !58
+  %54 = load i16, ptr %53, align 2, !tbaa !56
   %55 = zext i16 %54 to i64
   %56 = getelementptr %struct.Elf64_Shdr, ptr %52, i64 %55, i32 4
-  %57 = load i64, ptr %56, align 8, !tbaa !59
+  %57 = load i64, ptr %56, align 8, !tbaa !57
   %58 = getelementptr i8, ptr %44, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 60
-  %60 = load i16, ptr %59, align 4, !tbaa !61
-  %invariant.gep = getelementptr i8, ptr %58, i64 1
+  %60 = load i16, ptr %59, align 4, !tbaa !59
   %.not75 = icmp eq i16 %60, 0
   br i1 %.not75, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1102,90 +1101,91 @@ find_map_start_address.exit:                      ; preds = %.lr.ph.i
 61:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
   %62 = getelementptr %struct.Elf64_Shdr, ptr %52, i64 %indvars.iv
-  %63 = load i32, ptr %62, align 8, !tbaa !63
+  %63 = load i32, ptr %62, align 8, !tbaa !61
   %64 = zext i32 %63 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %64
-  %65 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %gep) #10
-  %.not59 = icmp eq i32 %65, 0
+  %65 = getelementptr i8, ptr %58, i64 %64
+  %66 = getelementptr i8, ptr %65, i64 1
+  %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %66) #10
+  %.not59 = icmp eq i32 %67, 0
   br i1 %.not59, label %._crit_edge, label %61
 
 ._crit_edge:                                      ; preds = %.lr.ph, %61, %49
   %.1 = phi ptr [ null, %49 ], [ null, %61 ], [ %62, %.lr.ph ]
-  %66 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %67 = load i64, ptr %66, align 8, !tbaa !64
-  %68 = getelementptr i8, ptr %44, i64 %67
-  %69 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  %70 = load i16, ptr %69, align 8, !tbaa !65
-  %.not76 = icmp eq i16 %70, 0
+  %68 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %69 = load i64, ptr %68, align 8, !tbaa !62
+  %70 = getelementptr i8, ptr %44, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %44, i64 56
+  %72 = load i16, ptr %71, align 8, !tbaa !63
+  %.not76 = icmp eq i16 %72, 0
   br i1 %.not76, label %.thread, label %.lr.ph74.preheader
 
 .lr.ph74.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count82 = zext i16 %70 to i64
+  %wide.trip.count82 = zext i16 %72 to i64
   br label %.lr.ph74
 
-71:                                               ; preds = %.lr.ph74
+73:                                               ; preds = %.lr.ph74
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
-  br i1 %exitcond83.not, label %.thread, label %.lr.ph74, !llvm.loop !66
+  br i1 %exitcond83.not, label %.thread, label %.lr.ph74, !llvm.loop !64
 
-.lr.ph74:                                         ; preds = %.lr.ph74.preheader, %71
-  %indvars.iv79 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next80, %71 ]
-  %72 = getelementptr %struct.Elf64_Phdr, ptr %68, i64 %indvars.iv79
-  %73 = load i32, ptr %72, align 8, !tbaa !67
-  %74 = icmp eq i32 %73, 1
-  br i1 %74, label %75, label %71
+.lr.ph74:                                         ; preds = %.lr.ph74.preheader, %73
+  %indvars.iv79 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next80, %73 ]
+  %74 = getelementptr %struct.Elf64_Phdr, ptr %70, i64 %indvars.iv79
+  %75 = load i32, ptr %74, align 8, !tbaa !65
+  %76 = icmp eq i32 %75, 1
+  br i1 %76, label %77, label %73
 
-75:                                               ; preds = %.lr.ph74
+77:                                               ; preds = %.lr.ph74
   %.not67 = icmp eq ptr %.1, null
-  br i1 %.not67, label %.thread, label %76
+  br i1 %.not67, label %.thread, label %78
 
-76:                                               ; preds = %75
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %78 = load i64, ptr %77, align 8, !tbaa !69
-  %79 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  %80 = load i64, ptr %79, align 8, !tbaa !70
-  %81 = urem i64 %78, %80
-  %82 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %83 = load i64, ptr %82, align 8, !tbaa !71
-  %84 = sub i64 %26, %78
-  %.neg = add i64 %84, %81
-  %85 = add i64 %.neg, %83
-  br label %88
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %80 = load i64, ptr %79, align 8, !tbaa !67
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 48
+  %82 = load i64, ptr %81, align 8, !tbaa !68
+  %83 = urem i64 %80, %82
+  %84 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %85 = load i64, ptr %84, align 8, !tbaa !69
+  %86 = sub i64 %26, %80
+  %.neg = add i64 %86, %83
+  %87 = add i64 %.neg, %85
+  br label %90
 
-.thread:                                          ; preds = %71, %._crit_edge, %75
-  %86 = load ptr, ptr @PyExc_KeyError, align 8, !tbaa !33
-  %87 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %86, ptr noundef nonnull @.str.11, ptr noundef %1) #9
-  br label %88
+.thread:                                          ; preds = %73, %._crit_edge, %77
+  %88 = load ptr, ptr @PyExc_KeyError, align 8, !tbaa !33
+  %89 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %88, ptr noundef nonnull @.str.11, ptr noundef %1) #9
+  br label %90
 
-88:                                               ; preds = %76, %.thread, %46, %38, %33
-  %.054 = phi ptr [ null, %33 ], [ null, %38 ], [ inttoptr (i64 -1 to ptr), %46 ], [ %44, %76 ], [ %44, %.thread ]
-  %.051 = phi i64 [ 0, %33 ], [ 0, %38 ], [ 0, %46 ], [ %85, %76 ], [ 0, %.thread ]
-  %89 = call i32 @close(i32 noundef %31) #9
-  %.not60 = icmp eq i32 %89, 0
-  br i1 %.not60, label %93, label %90
+90:                                               ; preds = %78, %.thread, %46, %38, %33
+  %.054 = phi ptr [ null, %33 ], [ null, %38 ], [ inttoptr (i64 -1 to ptr), %46 ], [ %44, %78 ], [ %44, %.thread ]
+  %.051 = phi i64 [ 0, %33 ], [ 0, %38 ], [ 0, %46 ], [ %87, %78 ], [ 0, %.thread ]
+  %91 = call i32 @close(i32 noundef %31) #9
+  %.not60 = icmp eq i32 %91, 0
+  br i1 %.not60, label %95, label %92
 
-90:                                               ; preds = %88
-  %91 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
-  %92 = call ptr @PyErr_SetFromErrno(ptr noundef %91) #9
-  br label %93
+92:                                               ; preds = %90
+  %93 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !33
+  %94 = call ptr @PyErr_SetFromErrno(ptr noundef %93) #9
+  br label %95
 
-93:                                               ; preds = %90, %88
+95:                                               ; preds = %92, %90
   %.not61 = icmp eq ptr %.054, null
-  br i1 %.not61, label %98, label %94
+  br i1 %.not61, label %100, label %96
 
-94:                                               ; preds = %93
-  %95 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %96 = load i64, ptr %95, align 8, !tbaa !52
-  %97 = call i32 @munmap(ptr noundef nonnull %.054, i64 noundef %96) #9
-  br label %98
+96:                                               ; preds = %95
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %98 = load i64, ptr %97, align 8, !tbaa !50
+  %99 = call i32 @munmap(ptr noundef nonnull %.054, i64 noundef %98) #9
+  br label %100
 
-98:                                               ; preds = %find_map_start_address.exit.thread63, %find_map_start_address.exit.thread, %93, %94, %find_map_start_address.exit
-  %.0 = phi i64 [ 0, %find_map_start_address.exit ], [ %.051, %94 ], [ %.051, %93 ], [ 0, %find_map_start_address.exit.thread ], [ 0, %find_map_start_address.exit.thread63 ]
+100:                                              ; preds = %find_map_start_address.exit.thread63, %find_map_start_address.exit.thread, %95, %96, %find_map_start_address.exit
+  %.0 = phi i64 [ 0, %find_map_start_address.exit ], [ %.051, %96 ], [ %.051, %95 ], [ 0, %find_map_start_address.exit.thread ], [ 0, %find_map_start_address.exit.thread63 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #9
   ret i64 %.0
 }
@@ -1403,7 +1403,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_code_object(i32 noundef %0, p
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  %9 = load i64, ptr %8, align 8, !tbaa !72
+  %9 = load i64, ptr %8, align 8, !tbaa !70
   %10 = add i64 %9, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
@@ -1505,7 +1505,7 @@ define internal fastcc ptr @read_py_str(i32 noundef %0, ptr noundef nonnull read
 14:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 592
-  %16 = load i64, ptr %15, align 8, !tbaa !73
+  %16 = load i64, ptr %15, align 8, !tbaa !71
   %17 = add i64 %16, %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
@@ -1558,7 +1558,7 @@ read_memory.exit.i:                               ; preds = %29
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 600
-  %39 = load i64, ptr %38, align 8, !tbaa !74
+  %39 = load i64, ptr %38, align 8, !tbaa !72
   %40 = add i64 %39, %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
@@ -1652,7 +1652,7 @@ define internal fastcc range(i32 -1, 1) i32 @find_running_task(i32 noundef %0, i
   %16 = alloca i64, align 8
   store i64 0, ptr %4, align 8, !tbaa !8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %18 = load i64, ptr %17, align 8, !tbaa !48
+  %18 = load i64, ptr %17, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #9
   %19 = add i64 %18, %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #9
@@ -1708,7 +1708,7 @@ read_memory.exit:                                 ; preds = %31
 40:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #9
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %42 = load i64, ptr %41, align 8, !tbaa !49
+  %42 = load i64, ptr %41, align 8, !tbaa !48
   %43 = add i64 %42, %36
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #9
@@ -1758,7 +1758,7 @@ read_memory.exit21:                               ; preds = %55
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %64 = load i64, ptr %63, align 8, !tbaa !75
+  %64 = load i64, ptr %63, align 8, !tbaa !73
   %65 = add i64 %64, %60
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
@@ -1810,7 +1810,7 @@ read_ptr.exit.i:                                  ; preds = %77
 84:                                               ; preds = %80
   %85 = load i64, ptr %15, align 8, !tbaa !8
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %87 = load i64, ptr %86, align 8, !tbaa !76
+  %87 = load i64, ptr %86, align 8, !tbaa !74
   %88 = add i64 %87, %85
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
@@ -1924,7 +1924,7 @@ read_memory.exit:                                 ; preds = %28
 32:                                               ; preds = %read_memory.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #9
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 264
-  %34 = load i64, ptr %33, align 8, !tbaa !38
+  %34 = load i64, ptr %33, align 8, !tbaa !37
   %35 = add i64 %34, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #9
@@ -1983,7 +1983,7 @@ read_memory.exit30:                               ; preds = %47
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %61 = load i64, ptr %60, align 8, !tbaa !39
+  %61 = load i64, ptr %60, align 8, !tbaa !38
   %62 = add i64 %61, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
@@ -2154,10 +2154,10 @@ read_pyobj.exit:                                  ; preds = %47
 50:                                               ; preds = %read_pyobj.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #9
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !77
+  %52 = load ptr, ptr %51, align 8, !tbaa !75
   %53 = ptrtoint ptr %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %55 = load i64, ptr %54, align 8, !tbaa !80
+  %55 = load i64, ptr %54, align 8, !tbaa !78
   %56 = add i64 %55, %53
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #9
@@ -2209,7 +2209,7 @@ read_unsigned_long.exit:                          ; preds = %68
   %75 = load i64, ptr %15, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 536
-  %77 = load i64, ptr %76, align 8, !tbaa !81
+  %77 = load i64, ptr %76, align 8, !tbaa !79
   %78 = add i64 %77, %75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
@@ -2275,7 +2275,7 @@ read_py_long.exit.thread8:                        ; preds = %94
 
 105:                                              ; preds = %100
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 544
-  %107 = load i64, ptr %106, align 8, !tbaa !82
+  %107 = load i64, ptr %106, align 8, !tbaa !80
   %108 = add i64 %107, %75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
@@ -2328,7 +2328,7 @@ read_memory.exit37.i:                             ; preds = %120
   %129 = add i64 %128, %.02843.i
   %130 = add nuw nsw i64 %.02744.i, 1
   %exitcond.not.i = icmp eq i64 %130, %98
-  br i1 %exitcond.not.i, label %read_py_long.exit, label %.lr.ph.i, !llvm.loop !83
+  br i1 %exitcond.not.i, label %read_py_long.exit, label %.lr.ph.i, !llvm.loop !81
 
 131:                                              ; preds = %read_memory.exit37.i, %read_memory.exit37.thread.i
   call void @PyMem_RawFree(ptr noundef nonnull %102) #9
@@ -2410,7 +2410,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_task_awaited_by(i32 noundef %
   %24 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #9
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !84
+  %26 = load i64, ptr %25, align 8, !tbaa !82
   %27 = add i64 %26, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #9
@@ -2462,7 +2462,7 @@ read_ptr.exit.i:                                  ; preds = %39
 46:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %23) #9
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %48 = load i64, ptr %47, align 8, !tbaa !85
+  %48 = load i64, ptr %47, align 8, !tbaa !83
   %49 = add i64 %48, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #9
@@ -2510,7 +2510,7 @@ read_char.exit:                                   ; preds = %61
   br i1 %.not24, label %140, label %66
 
 66:                                               ; preds = %64
-  %67 = load i64, ptr %25, align 8, !tbaa !84
+  %67 = load i64, ptr %25, align 8, !tbaa !82
   %68 = add i64 %67, %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
@@ -2563,7 +2563,7 @@ parse_tasks_in_set.exit.thread:                   ; preds = %read_ptr.exit.threa
   store i64 %85, ptr %12, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #9
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 464
-  %87 = load i64, ptr %86, align 8, !tbaa !86
+  %87 = load i64, ptr %86, align 8, !tbaa !84
   %88 = add i64 %87, %85
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
@@ -2609,7 +2609,7 @@ read_ssize_t.exit:                                ; preds = %100
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #9
   %104 = load i64, ptr %12, align 8, !tbaa !8
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 480
-  %106 = load i64, ptr %105, align 8, !tbaa !87
+  %106 = load i64, ptr %105, align 8, !tbaa !85
   %107 = add i64 %106, %104
   %108 = call fastcc i32 @read_ssize_t(i32 noundef %0, i64 noundef %107, ptr noundef %14)
   %.not31.i = icmp eq i32 %108, 0
@@ -2628,7 +2628,7 @@ parse_tasks_in_set.exit.thread75:                 ; preds = %103
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #9
   %112 = load i64, ptr %12, align 8, !tbaa !8
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 472
-  %114 = load i64, ptr %113, align 8, !tbaa !88
+  %114 = load i64, ptr %113, align 8, !tbaa !86
   %115 = add i64 %114, %112
   %116 = call fastcc i32 @read_ptr(i32 noundef %0, i64 noundef %115, ptr noundef %15)
   %.not32.i = icmp eq i32 %116, 0
@@ -2706,7 +2706,7 @@ parse_tasks_in_set.exit.thread75:                 ; preds = %103
   switch i32 %.021.i, label %parse_tasks_in_set.exit.thread79 [
     i32 0, label %.preheader
     i32 3, label %parse_tasks_in_set.exit
-  ], !llvm.loop !89
+  ], !llvm.loop !87
 
 parse_tasks_in_set.exit.thread72:                 ; preds = %read_ssize_t.exit, %read_ssize_t.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
@@ -2729,7 +2729,7 @@ parse_tasks_in_set.exit:                          ; preds = %.preheader, %139
 
 140:                                              ; preds = %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #9
-  %141 = load i64, ptr %25, align 8, !tbaa !84
+  %141 = load i64, ptr %25, align 8, !tbaa !82
   %142 = add i64 %141, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #9
@@ -2811,7 +2811,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_task(i32 noundef %0, ptr noun
   %12 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !90
+  %14 = load i64, ptr %13, align 8, !tbaa !88
   %15 = add i64 %14, %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
@@ -2939,7 +2939,7 @@ Py_DECREF.exit73:                                 ; preds = %60, %61, %64
 
 66:                                               ; preds = %Py_DECREF.exit73
   %67 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %67, align 8, !tbaa !47
+  %.val = load i64, ptr %67, align 8, !tbaa !46
   %68 = call fastcc ptr @parse_task_name(i32 noundef %0, ptr noundef %1, i64 %.val, i64 noundef %3)
   %69 = icmp eq ptr %68, null
   br i1 %69, label %Py_DECREF.exit75, label %70
@@ -2980,7 +2980,7 @@ Py_DECREF.exit73:                                 ; preds = %60, %61, %64
 Py_DECREF.exit69:                                 ; preds = %78, %79, %82
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %84 = load i64, ptr %83, align 8, !tbaa !41
+  %84 = load i64, ptr %83, align 8, !tbaa !40
   %85 = add i64 %84, %3
   %86 = call fastcc i32 @read_py_ptr(i32 noundef %0, i64 noundef %85, ptr noundef %12)
   %.not55 = icmp eq i32 %86, 0
@@ -3206,7 +3206,7 @@ read_ptr.exit:                                    ; preds = %30
 33:                                               ; preds = %read_ptr.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 632
-  %35 = load i64, ptr %34, align 8, !tbaa !91
+  %35 = load i64, ptr %34, align 8, !tbaa !89
   %36 = add i64 %35, %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
@@ -3279,7 +3279,7 @@ read_ptr.exit.i:                                  ; preds = %48
 Py_DECREF.exit:                                   ; preds = %58, %60, %63
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #9
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 648
-  %65 = load i64, ptr %64, align 8, !tbaa !92
+  %65 = load i64, ptr %64, align 8, !tbaa !90
   %66 = add i64 %65, %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
@@ -3322,10 +3322,10 @@ read_int.exit:                                    ; preds = %79, %76
 84:                                               ; preds = %read_int.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #9
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 640
-  %86 = load i64, ptr %85, align 8, !tbaa !45
+  %86 = load i64, ptr %85, align 8, !tbaa !44
   %87 = add i64 %86, %2
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %89 = load i64, ptr %88, align 8, !tbaa !38
+  %89 = load i64, ptr %88, align 8, !tbaa !37
   %90 = add i64 %87, %89
   %91 = call fastcc i32 @read_char(i32 noundef %0, i64 noundef %90, ptr noundef %14)
   %.not47 = icmp eq i32 %91, 0
@@ -3343,10 +3343,10 @@ read_int.exit:                                    ; preds = %79, %76
 
 96:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #9
-  %97 = load i64, ptr %85, align 8, !tbaa !45
+  %97 = load i64, ptr %85, align 8, !tbaa !44
   %98 = add i64 %97, %2
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %100 = load i64, ptr %99, align 8, !tbaa !93
+  %100 = load i64, ptr %99, align 8, !tbaa !91
   %101 = add i64 %98, %100
   %102 = call fastcc i32 @read_py_ptr(i32 noundef %0, i64 noundef %101, ptr noundef %15)
   %.not49 = icmp eq i32 %102, 0
@@ -3486,62 +3486,60 @@ attributes #10 = { nounwind willreturn memory(read) }
 !32 = !{!30, !9, i64 8}
 !33 = !{!34, !34, i64 0}
 !34 = !{!"p1 _ZTS7_object", !31, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!11, !9, i64 264}
-!39 = !{!11, !9, i64 240}
-!40 = distinct !{!40, !36, !37}
-!41 = !{!42, !9, i64 40}
-!42 = !{!"_Py_AsyncioModuleDebugOffsets", !43, i64 0, !44, i64 48}
-!43 = !{!"_asyncio_task_object", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40}
-!44 = !{!"_asyncio_thread_state", !9, i64 0, !9, i64 8, !9, i64 16}
-!45 = !{!11, !9, i64 640}
-!46 = distinct !{!46, !36, !37}
-!47 = !{!42, !9, i64 8}
-!48 = !{!11, !9, i64 40}
-!49 = !{!11, !9, i64 72}
-!50 = !{!11, !9, i64 184}
-!51 = distinct !{!51, !37}
-!52 = !{!53, !9, i64 48}
-!53 = !{!"stat", !9, i64 0, !9, i64 8, !9, i64 16, !7, i64 24, !7, i64 28, !7, i64 32, !7, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !54, i64 72, !54, i64 88, !54, i64 104, !4, i64 120}
-!54 = !{!"timespec", !9, i64 0, !9, i64 8}
-!55 = !{!56, !9, i64 40}
-!56 = !{!"", !4, i64 0, !57, i64 16, !57, i64 18, !7, i64 20, !9, i64 24, !9, i64 32, !9, i64 40, !7, i64 48, !57, i64 52, !57, i64 54, !57, i64 56, !57, i64 58, !57, i64 60, !57, i64 62}
-!57 = !{!"short", !4, i64 0}
-!58 = !{!56, !57, i64 62}
-!59 = !{!60, !9, i64 24}
-!60 = !{!"", !7, i64 0, !7, i64 4, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !7, i64 40, !7, i64 44, !9, i64 48, !9, i64 56}
-!61 = !{!56, !57, i64 60}
-!62 = distinct !{!62, !36, !37}
-!63 = !{!60, !7, i64 0}
-!64 = !{!56, !9, i64 32}
-!65 = !{!56, !57, i64 56}
-!66 = distinct !{!66, !36, !37}
-!67 = !{!68, !7, i64 0}
-!68 = !{!"", !7, i64 0, !7, i64 4, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
-!69 = !{!68, !9, i64 16}
-!70 = !{!68, !9, i64 48}
-!71 = !{!60, !9, i64 16}
-!72 = !{!11, !9, i64 296}
-!73 = !{!11, !9, i64 592}
-!74 = !{!11, !9, i64 600}
-!75 = !{!42, !9, i64 56}
-!76 = !{!42, !9, i64 64}
-!77 = !{!78, !79, i64 8}
-!78 = !{!"_object", !4, i64 0, !79, i64 8}
-!79 = !{!"p1 _ZTS11_typeobject", !31, i64 0}
-!80 = !{!11, !9, i64 400}
-!81 = !{!11, !9, i64 536}
-!82 = !{!11, !9, i64 544}
-!83 = distinct !{!83, !36, !37}
-!84 = !{!42, !9, i64 16}
-!85 = !{!42, !9, i64 32}
-!86 = !{!11, !9, i64 464}
-!87 = !{!11, !9, i64 480}
-!88 = !{!11, !9, i64 472}
-!89 = distinct !{!89, !36, !37}
-!90 = !{!42, !9, i64 24}
-!91 = !{!11, !9, i64 632}
-!92 = !{!11, !9, i64 648}
-!93 = !{!11, !9, i64 272}
+!37 = !{!11, !9, i64 264}
+!38 = !{!11, !9, i64 240}
+!39 = distinct !{!39, !36}
+!40 = !{!41, !9, i64 40}
+!41 = !{!"_Py_AsyncioModuleDebugOffsets", !42, i64 0, !43, i64 48}
+!42 = !{!"_asyncio_task_object", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40}
+!43 = !{!"_asyncio_thread_state", !9, i64 0, !9, i64 8, !9, i64 16}
+!44 = !{!11, !9, i64 640}
+!45 = distinct !{!45, !36}
+!46 = !{!41, !9, i64 8}
+!47 = !{!11, !9, i64 40}
+!48 = !{!11, !9, i64 72}
+!49 = !{!11, !9, i64 184}
+!50 = !{!51, !9, i64 48}
+!51 = !{!"stat", !9, i64 0, !9, i64 8, !9, i64 16, !7, i64 24, !7, i64 28, !7, i64 32, !7, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !52, i64 72, !52, i64 88, !52, i64 104, !4, i64 120}
+!52 = !{!"timespec", !9, i64 0, !9, i64 8}
+!53 = !{!54, !9, i64 40}
+!54 = !{!"", !4, i64 0, !55, i64 16, !55, i64 18, !7, i64 20, !9, i64 24, !9, i64 32, !9, i64 40, !7, i64 48, !55, i64 52, !55, i64 54, !55, i64 56, !55, i64 58, !55, i64 60, !55, i64 62}
+!55 = !{!"short", !4, i64 0}
+!56 = !{!54, !55, i64 62}
+!57 = !{!58, !9, i64 24}
+!58 = !{!"", !7, i64 0, !7, i64 4, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !7, i64 40, !7, i64 44, !9, i64 48, !9, i64 56}
+!59 = !{!54, !55, i64 60}
+!60 = distinct !{!60, !36}
+!61 = !{!58, !7, i64 0}
+!62 = !{!54, !9, i64 32}
+!63 = !{!54, !55, i64 56}
+!64 = distinct !{!64, !36}
+!65 = !{!66, !7, i64 0}
+!66 = !{!"", !7, i64 0, !7, i64 4, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
+!67 = !{!66, !9, i64 16}
+!68 = !{!66, !9, i64 48}
+!69 = !{!58, !9, i64 16}
+!70 = !{!11, !9, i64 296}
+!71 = !{!11, !9, i64 592}
+!72 = !{!11, !9, i64 600}
+!73 = !{!41, !9, i64 56}
+!74 = !{!41, !9, i64 64}
+!75 = !{!76, !77, i64 8}
+!76 = !{!"_object", !4, i64 0, !77, i64 8}
+!77 = !{!"p1 _ZTS11_typeobject", !31, i64 0}
+!78 = !{!11, !9, i64 400}
+!79 = !{!11, !9, i64 536}
+!80 = !{!11, !9, i64 544}
+!81 = distinct !{!81, !36}
+!82 = !{!41, !9, i64 16}
+!83 = !{!41, !9, i64 32}
+!84 = !{!11, !9, i64 464}
+!85 = !{!11, !9, i64 480}
+!86 = !{!11, !9, i64 472}
+!87 = distinct !{!87, !36}
+!88 = !{!41, !9, i64 24}
+!89 = !{!11, !9, i64 632}
+!90 = !{!11, !9, i64 648}
+!91 = !{!11, !9, i64 272}

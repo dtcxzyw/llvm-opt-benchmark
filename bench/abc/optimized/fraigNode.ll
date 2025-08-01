@@ -175,9 +175,9 @@ Abc_Clock.exit.._crit_edge_crit_edge:             ; preds = %Abc_Clock.exit
   %60 = or disjoint i32 %59, %58
   store i32 %60, ptr %30, align 8
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 100
-  store i32 0, ptr %61, align 4, !tbaa !43
+  store i32 0, ptr %61, align 4, !tbaa !42
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %63 = load i32, ptr %62, align 8, !tbaa !44
+  %63 = load i32, ptr %62, align 8, !tbaa !43
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph58, label %._crit_edge59
 
@@ -190,14 +190,14 @@ Abc_Clock.exit.._crit_edge_crit_edge:             ; preds = %Abc_Clock.exit
   %68 = getelementptr inbounds nuw [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv62
   %69 = load i32, ptr %68, align 4, !tbaa !39
   %70 = mul i32 %69, %65
-  %71 = load i32, ptr %61, align 4, !tbaa !43
+  %71 = load i32, ptr %61, align 4, !tbaa !42
   %72 = xor i32 %71, %70
-  store i32 %72, ptr %61, align 4, !tbaa !43
+  store i32 %72, ptr %61, align 4, !tbaa !42
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %73 = load i32, ptr %62, align 8, !tbaa !44
+  %73 = load i32, ptr %62, align 8, !tbaa !43
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next63, %74
-  br i1 %75, label %.lr.ph58, label %._crit_edge59, !llvm.loop !45
+  br i1 %75, label %.lr.ph58, label %._crit_edge59, !llvm.loop !44
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #7
@@ -219,9 +219,9 @@ Abc_Clock.exit52:                                 ; preds = %._crit_edge59, %78
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
   %85 = add i64 %.0.i51, %.0.i.neg
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %87 = load i64, ptr %86, align 8, !tbaa !46
+  %87 = load i64, ptr %86, align 8, !tbaa !45
   %88 = add nsw i64 %85, %87
-  store i64 %88, ptr %86, align 8, !tbaa !46
+  store i64 %88, ptr %86, align 8, !tbaa !45
   %89 = call ptr @Fraig_HashTableLookupF(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
   ret ptr %6
 }
@@ -241,7 +241,7 @@ define noundef ptr @Fraig_NodeCreate(ptr noundef captures(none) %0, ptr noundef 
   %8 = tail call ptr @Fraig_MemFixedEntryFetch(ptr noundef %7) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %8, i8 0, i64 160, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %1, ptr %9, align 8, !tbaa !47
+  store ptr %1, ptr %9, align 8, !tbaa !46
   %10 = ptrtoint ptr %1 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
@@ -250,7 +250,7 @@ define noundef ptr @Fraig_NodeCreate(ptr noundef captures(none) %0, ptr noundef 
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %13, align 4, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr %2, ptr %16, align 8, !tbaa !48
+  store ptr %2, ptr %16, align 8, !tbaa !47
   %17 = ptrtoint ptr %2 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
@@ -359,9 +359,9 @@ Abc_Clock.exit:                                   ; preds = %57, %74
   store i32 0, ptr %87, align 8, !tbaa !38
   call void @Fraig_NodeSimulate(ptr noundef nonnull %8, i32 noundef 0, i32 noundef %83, i32 noundef 1)
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 100
-  store i32 0, ptr %88, align 4, !tbaa !43
+  store i32 0, ptr %88, align 4, !tbaa !42
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %90 = load i32, ptr %89, align 8, !tbaa !44
+  %90 = load i32, ptr %89, align 8, !tbaa !43
   call void @Fraig_NodeSimulate(ptr noundef nonnull %8, i32 noundef 0, i32 noundef %90, i32 noundef 0)
   %91 = load ptr, ptr %81, align 8, !tbaa !30
   %92 = load i32, ptr %82, align 8, !tbaa !31
@@ -403,9 +403,9 @@ Abc_Clock.exit55:                                 ; preds = %104, %107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   %114 = add i64 %.0.i54, %.0.i.neg
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %116 = load i64, ptr %115, align 8, !tbaa !46
+  %116 = load i64, ptr %115, align 8, !tbaa !45
   %117 = add nsw i64 %114, %116
-  store i64 %117, ptr %115, align 8, !tbaa !46
+  store i64 %117, ptr %115, align 8, !tbaa !45
   call void @Fraig_NodeAddFaninFanout(ptr noundef nonnull %12, ptr noundef nonnull %8) #7
   call void @Fraig_NodeAddFaninFanout(ptr noundef nonnull %19, ptr noundef nonnull %8) #7
   ret ptr %8
@@ -416,22 +416,22 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %.not = icmp eq i32 %3, 0
   %.in.v = select i1 %.not, i64 112, i64 104
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %5 = load ptr, ptr %.in, align 8, !tbaa !49
+  %5 = load ptr, ptr %.in, align 8, !tbaa !48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !47
+  %7 = load ptr, ptr %6, align 8, !tbaa !46
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !48
+  %12 = load ptr, ptr %11, align 8, !tbaa !47
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, -2
   %15 = inttoptr i64 %14 to ptr
   %. = select i1 %.not, i64 112, i64 104
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 %.
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %.
-  %18 = load ptr, ptr %16, align 8, !tbaa !49
-  %19 = load ptr, ptr %17, align 8, !tbaa !49
+  %18 = load ptr, ptr %16, align 8, !tbaa !48
+  %19 = load ptr, ptr %17, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 1
@@ -520,7 +520,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %67 = xor i32 %66, %.0147203
   %indvars.iv.next252 = add nsw i64 %indvars.iv251, 1
   %exitcond255.not = icmp eq i64 %indvars.iv.next252, %wide.trip.count254
-  br i1 %exitcond255.not, label %.loopexit, label %.lr.ph205, !llvm.loop !50
+  br i1 %exitcond255.not, label %.loopexit, label %.lr.ph205, !llvm.loop !49
 
 .lr.ph209:                                        ; preds = %.lr.ph209.preheader, %.lr.ph209
   %indvars.iv256 = phi i64 [ %57, %.lr.ph209.preheader ], [ %indvars.iv.next257, %.lr.ph209 ]
@@ -539,7 +539,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %78 = xor i32 %77, %.1148207
   %indvars.iv.next257 = add nsw i64 %indvars.iv256, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count259
-  br i1 %exitcond260.not, label %.loopexit, label %.lr.ph209, !llvm.loop !51
+  br i1 %exitcond260.not, label %.loopexit, label %.lr.ph209, !llvm.loop !50
 
 79:                                               ; preds = %50
   %80 = icmp eq i32 %36, 0
@@ -584,7 +584,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %95 = xor i32 %94, %.3150181
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !51
 
 .lr.ph185:                                        ; preds = %.lr.ph185.preheader, %.lr.ph185
   %indvars.iv226 = phi i64 [ %84, %.lr.ph185.preheader ], [ %indvars.iv.next227, %.lr.ph185 ]
@@ -603,7 +603,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %106 = xor i32 %105, %.4151183
   %indvars.iv.next227 = add nsw i64 %indvars.iv226, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count229
-  br i1 %exitcond230.not, label %.loopexit, label %.lr.ph185, !llvm.loop !53
+  br i1 %exitcond230.not, label %.loopexit, label %.lr.ph185, !llvm.loop !52
 
 107:                                              ; preds = %79
   %or.cond5 = select i1 %80, i1 %53, i1 false
@@ -647,7 +647,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %122 = xor i32 %121, %.5152195
   %indvars.iv.next242 = add nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
-  br i1 %exitcond245.not, label %.loopexit, label %.lr.ph197, !llvm.loop !54
+  br i1 %exitcond245.not, label %.loopexit, label %.lr.ph197, !llvm.loop !53
 
 .lr.ph201:                                        ; preds = %.lr.ph201.preheader, %.lr.ph201
   %indvars.iv246 = phi i64 [ %111, %.lr.ph201.preheader ], [ %indvars.iv.next247, %.lr.ph201 ]
@@ -666,7 +666,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %133 = xor i32 %132, %.6153199
   %indvars.iv.next247 = add nsw i64 %indvars.iv246, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
-  br i1 %exitcond250.not, label %.loopexit, label %.lr.ph201, !llvm.loop !55
+  br i1 %exitcond250.not, label %.loopexit, label %.lr.ph201, !llvm.loop !54
 
 134:                                              ; preds = %107
   br i1 %.not163, label %.preheader173, label %.preheader175
@@ -704,7 +704,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %147 = xor i32 %146, %.7154187
   %indvars.iv.next232 = add nsw i64 %indvars.iv231, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count234
-  br i1 %exitcond235.not, label %.loopexit, label %.lr.ph189, !llvm.loop !56
+  br i1 %exitcond235.not, label %.loopexit, label %.lr.ph189, !llvm.loop !55
 
 .lr.ph193:                                        ; preds = %.lr.ph193.preheader, %.lr.ph193
   %indvars.iv236 = phi i64 [ %136, %.lr.ph193.preheader ], [ %indvars.iv.next237, %.lr.ph193 ]
@@ -722,7 +722,7 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
   %157 = xor i32 %156, %.8191
   %indvars.iv.next237 = add nsw i64 %indvars.iv236, 1
   %exitcond240.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count239
-  br i1 %exitcond240.not, label %.loopexit, label %.lr.ph193, !llvm.loop !57
+  br i1 %exitcond240.not, label %.loopexit, label %.lr.ph193, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph185, %.lr.ph189, %.lr.ph193, %.lr.ph197, %.lr.ph201, %.lr.ph205, %.lr.ph209, %.preheader179, %.preheader177, %.preheader175, %.preheader173, %.preheader171, %.preheader169, %.preheader167, %.preheader
   %.2149 = phi i32 [ 0, %.preheader ], [ 0, %.preheader167 ], [ 0, %.preheader169 ], [ 0, %.preheader171 ], [ 0, %.preheader173 ], [ 0, %.preheader175 ], [ 0, %.preheader177 ], [ 0, %.preheader179 ], [ %78, %.lr.ph209 ], [ %67, %.lr.ph205 ], [ %133, %.lr.ph201 ], [ %122, %.lr.ph197 ], [ %157, %.lr.ph193 ], [ %147, %.lr.ph189 ], [ %106, %.lr.ph185 ], [ %95, %.lr.ph ]
@@ -737,9 +737,9 @@ define void @Fraig_NodeSimulate(ptr noundef captures(none) %0, i32 noundef %1, i
 
 162:                                              ; preds = %.loopexit
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %164 = load i32, ptr %163, align 4, !tbaa !43
+  %164 = load i32, ptr %163, align 4, !tbaa !42
   %165 = xor i32 %164, %.2149
-  store i32 %165, ptr %163, align 4, !tbaa !43
+  store i32 %165, ptr %163, align 4, !tbaa !42
   br label %166
 
 166:                                              ; preds = %162, %158
@@ -805,21 +805,20 @@ attributes #7 = { nounwind }
 !37 = !{!36, !13, i64 8}
 !38 = !{!25, !12, i64 96}
 !39 = !{!12, !12, i64 0}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!25, !12, i64 100}
-!44 = !{!4, !12, i64 136}
-!45 = distinct !{!45, !41, !42}
-!46 = !{!4, !13, i64 376}
-!47 = !{!25, !9, i64 32}
-!48 = !{!25, !9, i64 40}
-!49 = !{!15, !15, i64 0}
-!50 = distinct !{!50, !41, !42}
-!51 = distinct !{!51, !41, !42}
-!52 = distinct !{!52, !41, !42}
-!53 = distinct !{!53, !41, !42}
-!54 = distinct !{!54, !41, !42}
-!55 = distinct !{!55, !41, !42}
-!56 = distinct !{!56, !41, !42}
-!57 = distinct !{!57, !41, !42}
+!42 = !{!25, !12, i64 100}
+!43 = !{!4, !12, i64 136}
+!44 = distinct !{!44, !41}
+!45 = !{!4, !13, i64 376}
+!46 = !{!25, !9, i64 32}
+!47 = !{!25, !9, i64 40}
+!48 = !{!15, !15, i64 0}
+!49 = distinct !{!49, !41}
+!50 = distinct !{!50, !41}
+!51 = distinct !{!51, !41}
+!52 = distinct !{!52, !41}
+!53 = distinct !{!53, !41}
+!54 = distinct !{!54, !41}
+!55 = distinct !{!55, !41}
+!56 = distinct !{!56, !41}

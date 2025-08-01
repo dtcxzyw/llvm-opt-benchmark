@@ -85,7 +85,7 @@ define internal range(i32 0, 101) i32 @avs3video_probe(ptr noundef readonly capt
   br i1 %32, label %33, label %.loopexit
 
 33:                                               ; preds = %._crit_edge
-  %34 = load ptr, ptr %0, align 8, !tbaa !17
+  %34 = load ptr, ptr %0, align 8, !tbaa !16
   %35 = call i32 @av_match_ext(ptr noundef %34, ptr noundef nonnull @.str) #3
   %.not = icmp eq i32 %35, 0
   %spec.select = select i1 %.not, i32 0, i32 100
@@ -132,7 +132,6 @@ attributes #3 = { nounwind }
 !11 = !{!5, !10, i64 16}
 !12 = !{!10, !10, i64 0}
 !13 = !{!8, !8, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!5, !6, i64 0}
+!16 = !{!5, !6, i64 0}

@@ -183,6 +183,5 @@ attributes #3 = { nounwind }
 !35 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
 !36 = !{!12, !12, i64 0}
 !37 = !{!11, !11, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}

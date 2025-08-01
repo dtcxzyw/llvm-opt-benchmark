@@ -1850,7 +1850,7 @@ define internal i32 @dissect_h450_err(ptr noundef %0, ptr noundef %1, ptr nounde
 18:                                               ; preds = %20
   %19 = add nsw i32 %.06.i, -1
   %.not.i = icmp eq i32 %.06.i, 0
-  br i1 %.not.i, label %get_err.exit.thread, label %20, !llvm.loop !9
+  br i1 %.not.i, label %get_err.exit.thread, label %20, !llvm.loop !8
 
 20:                                               ; preds = %18, %15
   %.06.i = phi i32 [ 37, %15 ], [ %19, %18 ]
@@ -1954,7 +1954,7 @@ define hidden void @proto_reg_handoff_h450() local_unnamed_addr #0 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.605, i32 noundef %3, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 58
-  br i1 %exitcond.not, label %.preheader, label %1, !llvm.loop !10
+  br i1 %exitcond.not, label %.preheader, label %1, !llvm.loop !9
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %.preheader ], [ 0, %1 ]
@@ -1964,7 +1964,7 @@ define hidden void @proto_reg_handoff_h450() local_unnamed_addr #0 {
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.609, i32 noundef %7, ptr noundef %8)
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond13.not = icmp eq i64 %indvars.iv.next11, 38
-  br i1 %exitcond13.not, label %9, label %.preheader, !llvm.loop !11
+  br i1 %exitcond13.not, label %9, label %.preheader, !llvm.loop !10
 
 9:                                                ; preds = %.preheader
   ret void
@@ -3858,9 +3858,8 @@ attributes #5 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

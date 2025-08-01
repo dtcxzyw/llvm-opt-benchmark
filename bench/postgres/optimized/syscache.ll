@@ -119,7 +119,7 @@ define dso_local void @InitCatalogCache() local_unnamed_addr #0 {
   %.1.i = phi i64 [ %41, %42 ], [ %.0231.i, %40 ], [ %.02.i, %.preheader.i ]
   %46 = add nuw i64 %.0231.i, 1
   %exitcond.not.i = icmp eq i64 %46, %32
-  br i1 %exitcond.not.i, label %47, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %47, label %.preheader.i, !llvm.loop !6
 
 47:                                               ; preds = %45
   %48 = trunc i64 %.1.i to i32
@@ -164,7 +164,7 @@ qunique.exit:                                     ; preds = %29, %47
   %.1.i20 = phi i64 [ %62, %63 ], [ %.0231.i17, %61 ], [ %.02.i16, %.preheader.i15 ]
   %67 = add nuw i64 %.0231.i17, 1
   %exitcond.not.i21 = icmp eq i64 %67, %53
-  br i1 %exitcond.not.i21, label %68, label %.preheader.i15, !llvm.loop !7
+  br i1 %exitcond.not.i21, label %68, label %.preheader.i15, !llvm.loop !6
 
 68:                                               ; preds = %66
   %69 = trunc i64 %.1.i20 to i32
@@ -213,7 +213,7 @@ define dso_local void @InitCatalogCachePhase2() local_unnamed_addr #0 {
   tail call void @InitCatCachePhase2(ptr noundef %3, i1 noundef zeroext true) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 85
-  br i1 %exitcond.not, label %4, label %1, !llvm.loop !8
+  br i1 %exitcond.not, label %4, label %1, !llvm.loop !7
 
 4:                                                ; preds = %1
   ret void
@@ -342,7 +342,7 @@ define dso_local ptr @SearchSysCacheLocked1(i32 noundef %0, i64 noundef %1) loca
   %.sink = phi ptr [ %24, %.split ], [ %28, %.split18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %3, ptr noundef nonnull align 4 dereferenceable(6) %.sink, i64 6, i1 false)
   call void @ReleaseCatCache(ptr noundef nonnull %19) #11
-  %30 = load i8, ptr %10, align 8, !range !9, !noundef !10
+  %30 = load i8, ptr %10, align 8, !range !8, !noundef !9
   %31 = trunc nuw i8 %30 to i1
   %32 = load i32, ptr @MyDatabaseId, align 4
   %33 = select i1 %31, i32 0, i32 %32
@@ -363,7 +363,7 @@ define dso_local ptr @SearchSysCacheLocked1(i32 noundef %0, i64 noundef %1) loca
   %39 = call i32 @LockAcquire(ptr noundef nonnull %4, i32 noundef 7, i1 noundef zeroext false, i1 noundef zeroext false) #11
   call void @AcceptInvalidationMessages() #11
   %.pre = load ptr, ptr %6, align 8
-  br label %17, !llvm.loop !11
+  br label %17
 
 .loopexit:                                        ; preds = %23, %27, %21
   %.1.ph = phi ptr [ null, %21 ], [ %19, %23 ], [ null, %27 ]
@@ -509,7 +509,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 -
   %31 = zext nneg i32 %24 to i64
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 6
-  %34 = load i8, ptr %33, align 2, !range !9, !noundef !10
+  %34 = load i8, ptr %33, align 2, !range !8, !noundef !9
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %37 = load i16, ptr %36, align 4
@@ -605,7 +605,7 @@ define dso_local ptr @SearchSysCacheAttName(i32 noundef %0, ptr noundef %1) loca
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 91
-  %14 = load i8, ptr %13, align 1, !range !9, !noundef !10
+  %14 = load i8, ptr %13, align 1, !range !8, !noundef !9
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %17
 
@@ -635,7 +635,7 @@ define dso_local ptr @SearchSysCacheCopyAttName(i32 noundef %0, ptr noundef %1) 
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 91
-  %14 = load i8, ptr %13, align 1, !range !9, !noundef !10
+  %14 = load i8, ptr %13, align 1, !range !8, !noundef !9
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %SearchSysCacheAttName.exit.thread.sink.split, label %SearchSysCacheAttName.exit
 
@@ -670,7 +670,7 @@ define dso_local zeroext i1 @SearchSysCacheExistsAttName(i32 noundef %0, ptr nou
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 91
-  %14 = load i8, ptr %13, align 1, !range !9, !noundef !10
+  %14 = load i8, ptr %13, align 1, !range !8, !noundef !9
   %15 = trunc nuw i8 %14 to i1
   tail call void @ReleaseCatCache(ptr noundef nonnull %6) #11
   %not. = xor i1 %15, true
@@ -698,7 +698,7 @@ define dso_local ptr @SearchSysCacheAttNum(i32 noundef %0, i16 noundef signext %
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 91
-  %14 = load i8, ptr %13, align 1, !range !9, !noundef !10
+  %14 = load i8, ptr %13, align 1, !range !8, !noundef !9
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %17
 
@@ -728,7 +728,7 @@ define dso_local ptr @SearchSysCacheCopyAttNum(i32 noundef %0, i16 noundef signe
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 91
-  %14 = load i8, ptr %13, align 1, !range !9, !noundef !10
+  %14 = load i8, ptr %13, align 1, !range !8, !noundef !9
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %SearchSysCacheAttNum.exit.thread.sink.split, label %SearchSysCacheAttNum.exit
 
@@ -823,7 +823,7 @@ SysCacheGetAttr.exit:                             ; preds = %12, %15
   %16 = phi ptr [ %.pre12.i, %15 ], [ %14, %12 ]
   %17 = sext i16 %2 to i32
   %18 = call fastcc i64 @heap_getattr(ptr noundef %1, i32 noundef %17, ptr noundef %16, ptr noundef nonnull %4)
-  %19 = load i8, ptr %4, align 1, !range !9, !noundef !10
+  %19 = load i8, ptr %4, align 1, !range !8, !noundef !9
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %38
 
@@ -982,7 +982,7 @@ define dso_local noundef zeroext i1 @RelationHasSysCache(i32 noundef %0) local_u
   %.218 = select i1 %11, i32 %12, i32 %.01623
   %.215 = select i1 %11, i32 %.01324, i32 %13
   %.not.not = icmp sgt i32 %.218, %.215
-  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %10, %.lr.ph, %1
   %.not.lcssa = phi i1 [ false, %1 ], [ %.not21, %.lr.ph ], [ %.not21, %10 ]
@@ -1015,7 +1015,7 @@ define dso_local noundef zeroext i1 @RelationSupportsSysCache(i32 noundef %0) lo
   %.218 = select i1 %11, i32 %12, i32 %.01623
   %.215 = select i1 %11, i32 %.01324, i32 %13
   %.not.not = icmp sgt i32 %.218, %.215
-  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !11
 
 .critedge:                                        ; preds = %10, %.lr.ph, %1
   %.not.lcssa = phi i1 [ false, %1 ], [ %.not21, %.lr.ph ], [ %.not21, %10 ]
@@ -1054,13 +1054,11 @@ attributes #12 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

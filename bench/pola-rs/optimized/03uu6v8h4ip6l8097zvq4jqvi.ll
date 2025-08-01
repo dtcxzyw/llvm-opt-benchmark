@@ -1032,7 +1032,7 @@ define hidden noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTr
   %62 = load i64, ptr %61, align 8, !alias.scope !144, !noalias !137
   %.sroa.01.0.i12.i.i.i = select i1 %57, i64 %62, i64 %.sroa.0.0.sroa.speculated.i.i11.i.i.i
   %63 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h13ecb89839c8f2a2E"(ptr noalias noundef nonnull readonly align 1 %spec.select.i7.i.i.i, i64 noundef %.sroa.01.0.i9.i.i.i, ptr noalias noundef nonnull readonly align 1 %spec.select.i10.i.i.i, i64 noundef %.sroa.01.0.i12.i.i.i), !noalias !137
-  br i1 %63, label %19, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hed28a19998a6857fE.exit, !llvm.loop !147
+  br i1 %63, label %19, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hed28a19998a6857fE.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hed28a19998a6857fE.exit: ; preds = %19, %23, %27, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h5dfc4270a676fe00E.exit.i"
   %64 = phi i1 [ false, %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h5dfc4270a676fe00E.exit.i" ], [ true, %19 ], [ true, %23 ], [ false, %27 ]
@@ -1043,7 +1043,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hed28a19998a6857fE.exit: ; pred
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN99_$LT$polars_arrow..buffer..immutable..Buffer$LT$T$GT$$u20$as$u20$polars_arrow..array..Splitable$GT$19_split_at_unchecked17h34a010e658e9e59dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %5 = load i64, ptr %4, align 8, !range !149, !noundef !3
+  %5 = load i64, ptr %4, align 8, !range !147, !noundef !3
   %6 = icmp eq i64 %5, 3
   br i1 %6, label %.thread, label %16
 
@@ -1083,7 +1083,7 @@ define hidden void @"_ZN99_$LT$polars_arrow..buffer..immutable..Buffer$LT$T$GT$$
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN99_$LT$polars_arrow..buffer..immutable..Buffer$LT$T$GT$$u20$as$u20$polars_arrow..array..Splitable$GT$19_split_at_unchecked17h7c96c6ec0f38681eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %5 = load i64, ptr %4, align 8, !range !149, !noundef !3
+  %5 = load i64, ptr %4, align 8, !range !147, !noundef !3
   %6 = icmp eq i64 %5, 3
   br i1 %6, label %.thread, label %16
 
@@ -1123,7 +1123,7 @@ define hidden void @"_ZN99_$LT$polars_arrow..buffer..immutable..Buffer$LT$T$GT$$
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @"_ZN99_$LT$polars_arrow..buffer..immutable..Buffer$LT$T$GT$$u20$as$u20$polars_arrow..array..Splitable$GT$19_split_at_unchecked17hd9bde96701027e9aE"(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
-  %5 = load i64, ptr %4, align 8, !range !149, !noundef !3
+  %5 = load i64, ptr %4, align 8, !range !147, !noundef !3
   %6 = icmp eq i64 %5, 3
   br i1 %6, label %.thread, label %16
 
@@ -1461,6 +1461,4 @@ attributes #20 = { nounwind }
 !144 = !{!145}
 !145 = distinct !{!145, !146, !"_ZN11compact_str4repr4Repr8as_slice17hc7a0720dd5185931E: argument 0"}
 !146 = distinct !{!146, !"_ZN11compact_str4repr4Repr8as_slice17hc7a0720dd5185931E"}
-!147 = distinct !{!147, !148}
-!148 = !{!"llvm.loop.estimated_trip_count"}
-!149 = !{i64 0, i64 4}
+!147 = !{i64 0, i64 4}

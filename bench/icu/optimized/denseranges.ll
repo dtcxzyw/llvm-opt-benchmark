@@ -133,7 +133,7 @@ define range(i32 -2147483646, -2147483647) i32 @uprv_makeDenseRanges(ptr noundef
   %68 = getelementptr inbounds [15 x i64], ptr %29, i64 0, i64 %indvars.iv21.i
   store i64 %67, ptr %68, align 8, !tbaa !10
   %69 = icmp sgt i64 %indvars.iv.next22.i, %61
-  br i1 %69, label %62, label %._crit_edge.i, !llvm.loop !15
+  br i1 %69, label %62, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %62, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %61, %62 ]
@@ -147,7 +147,7 @@ _ZN12_GLOBAL__N_111LargestGaps3addEil.exit:       ; preds = %._crit_edge.i, %.cr
   %.161 = phi i32 [ %32, %31 ], [ %34, %.critedge.i ], [ %34, %._crit_edge.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %exitcond.not, label %.preheader, label %31, !llvm.loop !16
+  br i1 %exitcond.not, label %.preheader, label %31, !llvm.loop !15
 
 72:                                               ; preds = %.lr.ph, %81
   %indvars.iv102 = phi i32 [ 1, %.lr.ph ], [ %indvars.iv.next103, %81 ]
@@ -172,7 +172,7 @@ _ZN12_GLOBAL__N_111LargestGaps3addEil.exit:       ; preds = %._crit_edge.i, %.cr
   %82 = add nuw nsw i32 %.05884, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
   %indvars.iv.next103 = add nuw nsw i32 %indvars.iv102, 1
-  br i1 %exitcond98.not, label %.loopexit, label %72, !llvm.loop !17
+  br i1 %exitcond98.not, label %.loopexit, label %72, !llvm.loop !16
 
 83:                                               ; preds = %78
   %84 = add nsw i32 %.05884, -1
@@ -226,7 +226,7 @@ _ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit:   ; preds = %83, %85
   %.1.i.us = phi i32 [ %.01118.i.us, %88 ], [ %spec.select16.i.us, %92 ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i75.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us, label %88, !llvm.loop !18
+  br i1 %exitcond.not.i.us, label %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us, label %88, !llvm.loop !17
 
 _ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us: ; preds = %96
   %97 = sext i32 %.1.i.us to i64
@@ -243,7 +243,7 @@ _ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us: ; preds = %96
   %106 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv.next108
   store i32 %105, ptr %106, align 4, !tbaa !3
   %exitcond113.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count112
-  br i1 %exitcond113.not, label %._crit_edge, label %.lr.ph.i74.us, !llvm.loop !19
+  br i1 %exitcond113.not, label %._crit_edge, label %.lr.ph.i74.us, !llvm.loop !18
 
 .lr.ph88.split:                                   ; preds = %.lr.ph88
   %107 = add nsw i32 %86, -1
@@ -262,7 +262,7 @@ _ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit: ; preds = %.lr.ph88.split, %
   %113 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 %indvars.iv.next100
   store i32 %111, ptr %113, align 4, !tbaa !3
   %exitcond106.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge, label %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit, !llvm.loop !21
+  br i1 %exitcond106.not, label %._crit_edge, label %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit, %_ZNK12_GLOBAL__N_111LargestGaps10firstAfterEi.exit.loopexit.us, %_ZN12_GLOBAL__N_111LargestGaps8truncateEi.exit
   %114 = sext i32 %84 to i64
@@ -308,13 +308,12 @@ attributes #3 = { nounwind }
 !9 = !{!8, !4, i64 4}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = distinct !{!16, !13, !14}
-!17 = distinct !{!17, !13, !14}
-!18 = distinct !{!18, !13, !14}
-!19 = distinct !{!19, !13, !14, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !13, !14}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !13}

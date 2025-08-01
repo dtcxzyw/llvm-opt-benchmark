@@ -675,7 +675,7 @@ _ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit: ; preds = %59, 
 _ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread: ; preds = %60, %62, %64, %.lr.ph, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit
   %72 = getelementptr inbounds nuw i8, ptr %.03863, i64 32
   %.not44 = icmp eq ptr %72, %54
-  br i1 %.not44, label %.thread, label %.lr.ph, !llvm.loop !51
+  br i1 %.not44, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit, %_ZNK4llvm4User8operandsEv.exit, %_ZNK4llvm4User10getOperandEj.exit, %21, %21, %21, %17, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZL18isUseOnlyIntrinsicj.exit, %23, %1, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %73 = phi i32 [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %4 ], [ 24, %1 ], [ %22, %_ZL18isUseOnlyIntrinsicj.exit ], [ %24, %23 ], [ 24, %17 ], [ %16, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ 23, %21 ], [ 23, %21 ], [ 23, %21 ], [ %spec.select, %_ZNK4llvm4User10getOperandEj.exit ], [ 24, %_ZNK4llvm4User8operandsEv.exit ], [ 24, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread ], [ 23, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit ]
@@ -772,7 +772,7 @@ _ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit: ; preds = %13, 
 _ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread: ; preds = %14, %16, %18, %.lr.ph, %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit
   %26 = getelementptr inbounds nuw i8, ptr %.01426, i64 32
   %.not = icmp eq ptr %26, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 27:                                               ; preds = %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit
   %28 = tail call noundef zeroext i1 @_ZNK4llvm8CallBase15onlyReadsMemoryEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #7
@@ -982,7 +982,7 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %14, %_ZNK4llvm8Call
   %26 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #7
   %27 = extractvalue { ptr, i64 } %26, 0
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !54
+  %29 = load i32, ptr %28, align 8, !tbaa !51
   %30 = load i32, ptr %8, align 4
   %31 = icmp slt i32 %30, 0
   tail call void @llvm.assume(i1 %31)
@@ -991,7 +991,7 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %14, %_ZNK4llvm8Call
   %34 = extractvalue { ptr, i64 } %32, 1
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   %36 = getelementptr inbounds i8, ptr %35, i64 -4
-  %37 = load i32, ptr %36, align 4, !tbaa !57
+  %37 = load i32, ptr %36, align 4, !tbaa !54
   %38 = sub i32 %37, %29
   %39 = zext i32 %38 to i64
   br label %_ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit
@@ -1081,10 +1081,7 @@ attributes #7 = { nounwind }
 !48 = !{!"p1 _ZTSN4llvm12FunctionTypeE", !9, i64 0}
 !49 = !{!21, !21, i64 0}
 !50 = !{!17, !20, i64 8}
-!51 = distinct !{!51, !52}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = distinct !{!53, !52}
-!54 = !{!55, !19, i64 8}
-!55 = !{!"_ZTSN4llvm8CallBase12BundleOpInfoE", !56, i64 0, !19, i64 8, !19, i64 12}
-!56 = !{!"p1 _ZTSN4llvm14StringMapEntryIjEE", !9, i64 0}
-!57 = !{!55, !19, i64 12}
+!51 = !{!52, !19, i64 8}
+!52 = !{!"_ZTSN4llvm8CallBase12BundleOpInfoE", !53, i64 0, !19, i64 8, !19, i64 12}
+!53 = !{!"p1 _ZTSN4llvm14StringMapEntryIjEE", !9, i64 0}
+!54 = !{!52, !19, i64 12}

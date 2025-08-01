@@ -176,7 +176,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr no
   %69 = select i1 %68, i8 1, i8 %65
   %70 = add nuw nsw i64 %64, 1
   %71 = icmp eq i64 %70, 6
-  br i1 %71, label %72, label %63, !llvm.loop !11
+  br i1 %71, label %72, label %63, !llvm.loop !10
 
 72:                                               ; preds = %63
   %73 = icmp eq i8 %60, 0
@@ -187,7 +187,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr no
 76:                                               ; preds = %72, %46, %44
   %77 = add nsw i32 %21, -1
   %78 = icmp ugt i32 %21, 1
-  br i1 %78, label %20, label %79, !llvm.loop !12
+  br i1 %78, label %20, label %79, !llvm.loop !11
 
 79:                                               ; preds = %76, %72, %45
   %80 = phi i32 [ -5, %76 ], [ 0, %45 ], [ 0, %72 ]
@@ -381,7 +381,7 @@ thread-pre-split:                                 ; preds = %44
 
 105:                                              ; preds = %101
   %106 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %106, i64 3) #8, !srcloc !13
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %106, i64 3) #8, !srcloc !12
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %108 = load i32, ptr %107, align 4
   tail call void @input_set_abs_params(ptr noundef %96, i32 noundef 0, i32 noundef 0, i32 noundef %108, i32 noundef 0, i32 noundef 0) #8
@@ -405,7 +405,7 @@ thread-pre-split:                                 ; preds = %44
 
 119:                                              ; preds = %105
   %120 = getelementptr inbounds nuw i8, ptr %96, i64 32
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %120, i64 3) #8, !srcloc !13
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %120, i64 3) #8, !srcloc !12
   %121 = load i32, ptr %97, align 4
   tail call void @input_alloc_absinfo(ptr noundef %96) #8
   %122 = getelementptr inbounds nuw i8, ptr %96, i64 328
@@ -456,20 +456,20 @@ thread-pre-split:                                 ; preds = %44
 
 145:                                              ; preds = %143, %139
   %146 = getelementptr inbounds nuw i8, ptr %96, i64 48
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 330) #8, !srcloc !13
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 325) #8, !srcloc !13
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 333) #8, !srcloc !13
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 334) #8, !srcloc !13
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 335) #8, !srcloc !13
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 328) #8, !srcloc !13
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %106, i64 2) #8, !srcloc !14
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 330) #8, !srcloc !12
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 325) #8, !srcloc !12
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 333) #8, !srcloc !12
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 334) #8, !srcloc !12
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 335) #8, !srcloc !12
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 328) #8, !srcloc !12
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %106, i64 2) #8, !srcloc !13
   %147 = getelementptr inbounds nuw i8, ptr %96, i64 144
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %147, i64 0) #8, !srcloc !14
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %147, i64 1) #8, !srcloc !14
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %106, i64 1) #8, !srcloc !13
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 272) #8, !srcloc !13
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 273) #8, !srcloc !13
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 274) #8, !srcloc !13
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %147, i64 0) #8, !srcloc !13
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %147, i64 1) #8, !srcloc !13
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %106, i64 1) #8, !srcloc !12
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 272) #8, !srcloc !12
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 273) #8, !srcloc !12
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %146, i64 274) #8, !srcloc !12
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 1, ptr %148, align 8
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -675,7 +675,7 @@ define internal noundef range(i32 -1, 1) i32 @cypress_reconnect(ptr noundef %0) 
 
 .backedge:                                        ; preds = %12, %.thread
   %.be = add nsw i32 %6, -1
-  br label %5, !llvm.loop !15
+  br label %5, !llvm.loop !14
 
 .thread:                                          ; preds = %5
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #8
@@ -798,7 +798,7 @@ define internal fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zero
 
 39:                                               ; preds = %.thread11, %.thread15
   %40 = add nsw i32 %6, -1
-  br label %5, !llvm.loop !16
+  br label %5, !llvm.loop !15
 
 .thread16:                                        ; preds = %.thread10, %29, %.thread11, %.thread15
   tail call void @ps2_end_command(ptr noundef nonnull %3) #8
@@ -1047,7 +1047,7 @@ select.unfold:                                    ; preds = %19, %15
   store i16 %134, ptr %135, align 2
   %136 = add nuw nsw i64 %127, 1
   %137 = icmp eq i64 %136, %125
-  br i1 %137, label %138, label %126, !llvm.loop !17
+  br i1 %137, label %138, label %126, !llvm.loop !16
 
 138:                                              ; preds = %126
   %139 = call i32 @input_mt_assign_slots(ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %122, i32 noundef 0) #8
@@ -1070,7 +1070,7 @@ select.unfold:                                    ; preds = %19, %15
   call void @input_event(ptr noundef %6, i32 noundef 3, i32 noundef 58, i32 noundef %150) #8
   %151 = add nuw nsw i64 %141, 1
   %152 = icmp eq i64 %151, %125
-  br i1 %152, label %.loopexit, label %140, !llvm.loop !18
+  br i1 %152, label %.loopexit, label %140, !llvm.loop !17
 
 .critedge:                                        ; preds = %114
   %153 = call i32 @input_mt_assign_slots(ptr noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %122, i32 noundef 0) #8
@@ -1136,15 +1136,14 @@ attributes #10 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i32 -5, i32 1}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !8, !9, !10}
-!12 = distinct !{!12, !8, !9, !10}
-!13 = !{i64 2148475245}
-!14 = !{i64 2148476778}
-!15 = distinct !{!15, !8, !9, !10}
-!16 = distinct !{!16, !8, !9, !10}
-!17 = distinct !{!17, !8, !9, !10}
-!18 = distinct !{!18, !8, !9, !10}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{i64 2148475245}
+!13 = !{i64 2148476778}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}

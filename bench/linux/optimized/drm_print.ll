@@ -572,7 +572,7 @@ define dso_local void @drm_print_regset32(ptr noundef %0, ptr noundef readonly c
   %18 = tail call i32 @llvm.smax.i32(i32 %13, i32 %17)
   %19 = add nuw nsw i64 %12, 1
   %20 = icmp eq i64 %19, %8
-  br i1 %20, label %9, label %11, !llvm.loop !17
+  br i1 %20, label %9, label %11, !llvm.loop !16
 
 21:                                               ; preds = %21, %9
   %22 = phi i64 [ 0, %9 ], [ %31, %21 ]
@@ -583,13 +583,13 @@ define dso_local void @drm_print_regset32(ptr noundef %0, ptr noundef readonly c
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr i8, ptr %26, i64 %28
-  %30 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %29) #14, !srcloc !18
+  %30 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %29) #14, !srcloc !17
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %18, ptr noundef %25, i32 noundef %30)
   %31 = add nuw nsw i64 %22, 1
   %32 = load i32, ptr %3, align 8
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %31, %33
-  br i1 %34, label %21, label %.loopexit, !llvm.loop !19
+  br i1 %34, label %21, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %21, %2
   ret void
@@ -649,10 +649,9 @@ attributes #16 = { cold nounwind }
 !10 = !{i64 2154468043, i64 2154467852, i64 2154467904, i64 2154467950, i64 2154467978}
 !11 = !{i64 2154468117, i64 2154468146, i64 2154468192, i64 2154468250, i64 2154468304, i64 2154468358, i64 2154468413, i64 2154468444, i64 2154468752, i64 2154468758, i64 2154468805, i64 2154468828, i64 2154468854}
 !12 = !{i64 2154469314, i64 2154469125, i64 2154469175, i64 2154469221, i64 2154469249}
-!13 = distinct !{!13, !14, !15, !16}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !14, !15, !16}
-!18 = !{i64 2148197787}
-!19 = distinct !{!19, !14, !15, !16}
+!16 = distinct !{!16, !14, !15}
+!17 = !{i64 2148197787}
+!18 = distinct !{!18, !14, !15}

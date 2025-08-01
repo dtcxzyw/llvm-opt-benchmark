@@ -852,14 +852,14 @@ redisContextTimeoutMsec.exit:                     ; preds = %42, %46
   %118 = getelementptr inbounds nuw i8, ptr %.093165, i64 40
   %.093 = load ptr, ptr %118, align 8, !tbaa !31
   %.not120 = icmp eq ptr %.093, null
-  br i1 %.not120, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !46
+  br i1 %.not120, label %._crit_edge.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %116, %117
   %.093165 = phi ptr [ %.093, %117 ], [ %.093163, %116 ]
   %119 = getelementptr inbounds nuw i8, ptr %.093165, i64 24
-  %120 = load ptr, ptr %119, align 8, !tbaa !48
+  %120 = load ptr, ptr %119, align 8, !tbaa !46
   %121 = getelementptr inbounds nuw i8, ptr %.093165, i64 16
-  %122 = load i32, ptr %121, align 8, !tbaa !49
+  %122 = load i32, ptr %121, align 8, !tbaa !47
   %123 = call i32 @bind(i32 noundef %101, ptr noundef %120, i32 noundef %122) #10
   %.not121 = icmp eq i32 %123, -1
   br i1 %.not121, label %117, label %129
@@ -889,7 +889,7 @@ redisContextTimeoutMsec.exit:                     ; preds = %42, %46
   %132 = load ptr, ptr %85, align 8, !tbaa !25
   %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !36
   call void %133(ptr noundef %132) #10
-  %134 = load i32, ptr %98, align 8, !tbaa !49
+  %134 = load i32, ptr %98, align 8, !tbaa !47
   %135 = zext i32 %134 to i64
   %136 = load ptr, ptr @hiredisAllocFns, align 8, !tbaa !28
   %137 = call ptr %136(i64 noundef range(i64 0, 4294967296) %135) #10
@@ -898,14 +898,14 @@ redisContextTimeoutMsec.exit:                     ; preds = %42, %46
   br i1 %138, label %redisContextUpdateConnectTimeout.exit, label %139
 
 139:                                              ; preds = %131
-  %140 = load ptr, ptr %99, align 8, !tbaa !48
-  %141 = load i32, ptr %98, align 8, !tbaa !49
+  %140 = load ptr, ptr %99, align 8, !tbaa !46
+  %141 = load i32, ptr %98, align 8, !tbaa !47
   %142 = zext i32 %141 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %137, ptr align 2 %140, i64 %142, i1 false)
-  %143 = load i32, ptr %98, align 8, !tbaa !49
+  %143 = load i32, ptr %98, align 8, !tbaa !47
   %144 = zext i32 %143 to i64
   store i64 %144, ptr %86, align 8, !tbaa !26
-  %145 = load ptr, ptr %99, align 8, !tbaa !48
+  %145 = load ptr, ptr %99, align 8, !tbaa !46
   %146 = call i32 @connect(i32 noundef %101, ptr noundef %145, i32 noundef %143) #10
   %147 = icmp eq i32 %146, -1
   br i1 %147, label %148, label %.loopexit
@@ -958,7 +958,7 @@ redisNetClose.exit133:                            ; preds = %159, %162
   %166 = load i32, ptr %92, align 4, !tbaa !45
   %167 = call i32 @socket(i32 noundef %164, i32 noundef %165, i32 noundef %166) #10
   %168 = icmp eq i32 %167, -1
-  br i1 %168, label %redisNetClose.exit, label %100, !llvm.loop !50
+  br i1 %168, label %redisNetClose.exit, label %100
 
 .loopexit140:                                     ; preds = %156, %155
   %169 = call fastcc i32 @redisContextWaitReady(ptr noundef nonnull %0, i64 noundef %storemerge.i.ph)
@@ -990,7 +990,7 @@ redisNetClose.exit:                               ; preds = %redisNetClose.exit1
   %177 = getelementptr inbounds nuw i8, ptr %.094172, i64 40
   %.094 = load ptr, ptr %177, align 8, !tbaa !31
   %.not115 = icmp eq ptr %.094, null
-  br i1 %.not115, label %._crit_edge173, label %.preheader, !llvm.loop !51
+  br i1 %.not115, label %._crit_edge173, label %.preheader
 
 ._crit_edge173:                                   ; preds = %redisNetClose.exit, %.preheader141
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #10
@@ -1063,7 +1063,7 @@ redisCreateSocket.exit.thread:                    ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 1, ptr %17, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %19 = load ptr, ptr %18, align 8, !tbaa !52
+  %19 = load ptr, ptr %18, align 8, !tbaa !48
   %.not38 = icmp eq ptr %19, %1
   br i1 %.not38, label %25, label %20
 
@@ -1072,7 +1072,7 @@ redisCreateSocket.exit.thread:                    ; preds = %3
   tail call void %21(ptr noundef %19) #10
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 24), align 8, !tbaa !37
   %23 = tail call ptr %22(ptr noundef %1) #10
-  store ptr %23, ptr %18, align 8, !tbaa !52
+  store ptr %23, ptr %18, align 8, !tbaa !48
   %24 = icmp eq ptr %23, null
   br i1 %24, label %redisContextUpdateConnectTimeout.exit, label %25
 
@@ -1159,7 +1159,7 @@ redisContextTimeoutMsec.exit:                     ; preds = %40, %44
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 110, ptr %62, align 8, !tbaa !26
-  store i16 1, ptr %59, align 2, !tbaa !53
+  store i16 1, ptr %59, align 2, !tbaa !49
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %64 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 107) #10
   %65 = load i32, ptr %14, align 4, !tbaa !4
@@ -1281,9 +1281,9 @@ define internal fastcc range(i32 -1, 1) i32 @redisContextWaitReady(ptr noundef %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %10 = load i32, ptr %9, align 4, !tbaa !4
-  store i32 %10, ptr %8, align 4, !tbaa !55
+  store i32 %10, ptr %8, align 4, !tbaa !51
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i16 4, ptr %11, align 4, !tbaa !57
+  store i16 4, ptr %11, align 4, !tbaa !53
   %12 = tail call ptr @__errno_location() #11
   %13 = load i32, ptr %12, align 4, !tbaa !18
   %14 = icmp eq i32 %13, 115
@@ -1502,15 +1502,11 @@ attributes #11 = { nounwind willreturn memory(none) }
 !43 = !{!"addrinfo", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !16, i64 24, !11, i64 32, !32, i64 40}
 !44 = !{!43, !10, i64 4}
 !45 = !{!43, !10, i64 12}
-!46 = distinct !{!46, !47}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = !{!43, !16, i64 24}
-!49 = !{!43, !10, i64 16}
-!50 = distinct !{!50, !47}
-!51 = distinct !{!51, !47}
-!52 = !{!5, !11, i64 216}
-!53 = !{!54, !23, i64 0}
-!54 = !{!"sockaddr_un", !23, i64 0, !8, i64 2}
-!55 = !{!56, !10, i64 0}
-!56 = !{!"pollfd", !10, i64 0, !23, i64 4, !23, i64 6}
-!57 = !{!56, !23, i64 4}
+!46 = !{!43, !16, i64 24}
+!47 = !{!43, !10, i64 16}
+!48 = !{!5, !11, i64 216}
+!49 = !{!50, !23, i64 0}
+!50 = !{!"sockaddr_un", !23, i64 0, !8, i64 2}
+!51 = !{!52, !10, i64 0}
+!52 = !{!"pollfd", !10, i64 0, !23, i64 4, !23, i64 6}
+!53 = !{!52, !23, i64 4}

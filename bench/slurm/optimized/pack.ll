@@ -1352,7 +1352,7 @@ define dso_local range(i32 -1, 1) i32 @unpack16_array(ptr noundef initializes((0
   %38 = load i32, ptr %1, align 4
   %39 = zext i32 %38 to i64
   %40 = icmp samesign ult i64 %indvars.iv.next, %39
-  br i1 %40, label %25, label %unpack16.exit.thread36, !llvm.loop !14
+  br i1 %40, label %25, label %unpack16.exit.thread36, !llvm.loop !13
 
 unpack32.exit:                                    ; preds = %25, %20, %3
   tail call void @slurm_xfree(ptr noundef nonnull %0) #14
@@ -1485,7 +1485,7 @@ try_grow_buf_remaining.exit.i7:                   ; preds = %61, %39
 pack32.exit10:                                    ; preds = %47, %52, %57, %59, %try_grow_buf_remaining.exit.i7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %pack32.exit10, %pack32.exit
   ret void
@@ -1561,7 +1561,7 @@ define dso_local range(i32 -1, 1) i32 @unpack32_array(ptr noundef initializes((0
   %39 = load i32, ptr %1, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next, %40
-  br i1 %41, label %25, label %unpack32.exit30.thread37, !llvm.loop !16
+  br i1 %41, label %25, label %unpack32.exit30.thread37, !llvm.loop !15
 
 unpack32.exit:                                    ; preds = %25, %20, %3
   tail call void @slurm_xfree(ptr noundef nonnull %0) #14
@@ -1959,7 +1959,7 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_xmalloc_escaped(ptr noundef wri
   store i8 %38, ptr %.1, align 1
   %49 = add nuw i32 %.048, 1
   %exitcond.not = icmp eq i32 %49, %18
-  br i1 %exitcond.not, label %.critedge, label %37, !llvm.loop !17
+  br i1 %exitcond.not, label %.critedge, label %37, !llvm.loop !16
 
 unpack32.exit:                                    ; preds = %3, %27
   store i32 0, ptr %1, align 4
@@ -2231,7 +2231,7 @@ try_grow_buf_remaining.exit:                      ; preds = %28, %3
   tail call void @packmem(ptr noundef %37, i32 noundef %.0, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %try_grow_buf_remaining.exit.thread, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %try_grow_buf_remaining.exit.thread, label %.lr.ph, !llvm.loop !17
 
 try_grow_buf_remaining.exit.thread:               ; preds = %42, %try_grow_buf_remaining.exit, %25, %11, %17, %23
   ret void
@@ -2368,7 +2368,7 @@ unpackstr_xmalloc_chooser.exit:                   ; preds = %.lr.ph
   %66 = load i32, ptr %1, align 4
   %67 = zext i32 %66 to i64
   %68 = icmp samesign ult i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph, label %.thread, !llvm.loop !19
+  br i1 %68, label %.lr.ph, label %.thread, !llvm.loop !18
 
 unpack32.exit:                                    ; preds = %unpackstr_xmalloc_chooser.exit, %.thread45, %3, %22, %20
   store i32 0, ptr %1, align 4
@@ -2845,7 +2845,7 @@ try_grow_buf_remaining.exit.i7:                   ; preds = %60, %39
 pack64.exit:                                      ; preds = %46, %51, %56, %58, %try_grow_buf_remaining.exit.i7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %pack64.exit, %pack32.exit
   ret void
@@ -2921,7 +2921,7 @@ define dso_local range(i32 -1, 1) i32 @unpack64_array(ptr noundef initializes((0
   %39 = load i32, ptr %1, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next, %40
-  br i1 %41, label %25, label %unpack64.exit.thread36, !llvm.loop !21
+  br i1 %41, label %25, label %unpack64.exit.thread36, !llvm.loop !20
 
 unpack32.exit:                                    ; preds = %25, %20, %3
   tail call void @slurm_xfree(ptr noundef nonnull %0) #14
@@ -3056,7 +3056,7 @@ try_grow_buf_remaining.exit.i7:                   ; preds = %60, %39
 packdouble.exit:                                  ; preds = %46, %51, %56, %58, %try_grow_buf_remaining.exit.i7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %packdouble.exit, %pack32.exit
   ret void
@@ -3129,7 +3129,7 @@ define dso_local range(i32 -1, 1) i32 @unpackdouble_array(ptr noundef initialize
   %39 = load i32, ptr %1, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %unpackdouble.exit.thread36, !llvm.loop !23
+  br i1 %41, label %.lr.ph, label %unpackdouble.exit.thread36, !llvm.loop !22
 
 unpack32.exit:                                    ; preds = %.lr.ph, %20, %3
   tail call void @slurm_xfree(ptr noundef nonnull %0) #14
@@ -3218,7 +3218,7 @@ pack32.exit:                                      ; preds = %12, %18, %24, %26, 
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %pack32.exit
   ret void
@@ -3325,7 +3325,7 @@ unpackmem_ptr.exit.i:                             ; preds = %45, %32
   %53 = load i32, ptr %1, align 4
   %54 = zext i32 %53 to i64
   %55 = icmp samesign ult i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph, label %.thread35, !llvm.loop !25
+  br i1 %55, label %.lr.ph, label %.thread35, !llvm.loop !24
 
 .loopexit:                                        ; preds = %unpackmem_ptr.exit.i, %42, %.lr.ph, %40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
@@ -3451,19 +3451,18 @@ attributes #16 = { nounwind willreturn memory(read) }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !11, !12, !13}
-!15 = distinct !{!15, !11, !12, !13}
-!16 = distinct !{!16, !11, !12, !13}
-!17 = distinct !{!17, !11, !12, !13}
-!18 = distinct !{!18, !11, !12, !13}
-!19 = distinct !{!19, !11, !12, !13}
-!20 = distinct !{!20, !11, !12, !13}
-!21 = distinct !{!21, !11, !12, !13}
-!22 = distinct !{!22, !11, !12, !13}
-!23 = distinct !{!23, !11, !12, !13}
-!24 = distinct !{!24, !11, !12, !13}
-!25 = distinct !{!25, !11, !12, !13}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}
+!23 = distinct !{!23, !11, !12}
+!24 = distinct !{!24, !11, !12}

@@ -1356,6 +1356,5 @@ attributes #19 = { noreturn }
 !8 = distinct !{!8, !9, !"_ZN8facebook5velox11HYPERLOGLOGEv: %agg.result"}
 !9 = distinct !{!9, !"_ZN8facebook5velox11HYPERLOGLOGEv"}
 !10 = !{!"branch_weights", i32 1, i32 1048575}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}

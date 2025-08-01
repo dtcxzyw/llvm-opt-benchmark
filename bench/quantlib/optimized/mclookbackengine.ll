@@ -2167,7 +2167,7 @@ while.body.i.i42:                                 ; preds = %while.body.i.i42, %
   %spec.select.i.i46 = select i1 %cmp.i.i.i45, ptr %incdec.ptr11.i.i43, ptr %__result.010.i.i44
   %incdec.ptr.i.i47 = getelementptr inbounds nuw i8, ptr %incdec.ptr11.i.i43, i64 8
   %cmp1.not.i.i48 = icmp eq ptr %incdec.ptr.i.i47, %add.ptr.i.i35
-  br i1 %cmp1.not.i.i48, label %sw.epilog, label %while.body.i.i42, !llvm.loop !74
+  br i1 %cmp1.not.i.i48, label %sw.epilog, label %while.body.i.i42, !llvm.loop !73
 
 do.body35:                                        ; preds = %do.end
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream36) #19
@@ -2356,7 +2356,7 @@ invoke.cont:
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib30LookbackPartialFixedPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %lookbackStart_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store double %lookbackStart, ptr %lookbackStart_, align 8, !tbaa !75
+  store double %lookbackStart, ptr %lookbackStart_, align 8, !tbaa !74
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %type_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %type, ptr %type_.i.i.i, align 8, !tbaa !25
@@ -2364,7 +2364,7 @@ invoke.cont:
   store double %strike, ptr %strike_.i.i, align 8, !tbaa !29
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18PlainVanillaPayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store double %discount, ptr %discount_, align 8, !tbaa !77
+  store double %discount, ptr %discount_, align 8, !tbaa !76
   %cmp = fcmp ult double %strike, 0.000000e+00
   br i1 %cmp, label %if.then, label %do.end
 
@@ -2710,7 +2710,7 @@ ehcleanup24:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %entry
   %lookbackStart_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %23 = load double, ptr %lookbackStart_, align 8, !tbaa !75
+  %23 = load double, ptr %lookbackStart_, align 8, !tbaa !74
   %call27 = tail call noundef i64 @_ZNK8QuantLib8TimeGrid12closestIndexEd(ptr noundef nonnull align 8 dereferenceable(72) %path, double noundef %23)
   %type_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %24 = load i32, ptr %type_.i, align 8, !tbaa !25
@@ -2783,7 +2783,7 @@ while.body.i.i44:                                 ; preds = %while.body.i.i44, %
   %spec.select.i.i48 = select i1 %cmp.i.i.i47, ptr %incdec.ptr11.i.i45, ptr %__result.010.i.i46
   %incdec.ptr.i.i49 = getelementptr inbounds nuw i8, ptr %incdec.ptr11.i.i45, i64 8
   %cmp1.not.i.i50 = icmp eq ptr %incdec.ptr.i.i49, %add.ptr.i.i37
-  br i1 %cmp1.not.i.i50, label %sw.epilog, label %while.body.i.i44, !llvm.loop !74
+  br i1 %cmp1.not.i.i50, label %sw.epilog, label %while.body.i.i44, !llvm.loop !73
 
 do.body39:                                        ; preds = %do.end
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream40) #19
@@ -2947,7 +2947,7 @@ sw.epilog:                                        ; preds = %while.body.i.i44, %
   %underlying.0 = load double, ptr %underlying.0.in, align 8, !tbaa !70
   %call77 = tail call noundef double @_ZNK8QuantLib18PlainVanillaPayoffclEd(ptr noundef nonnull align 8 dereferenceable(24) %payoff_, double noundef %underlying.0)
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %60 = load double, ptr %discount_, align 8, !tbaa !77
+  %60 = load double, ptr %discount_, align 8, !tbaa !76
   %mul = fmul double %call77, %60
   ret double %mul
 
@@ -2970,7 +2970,7 @@ entry:
   store i32 %type, ptr %type_.i.i, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FloatingTypePayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store double %discount, ptr %discount_, align 8, !tbaa !78
+  store double %discount, ptr %discount_, align 8, !tbaa !77
   ret void
 }
 
@@ -3213,7 +3213,7 @@ while.body.i.i45:                                 ; preds = %while.body.i.i45, %
   %spec.select.i.i49 = select i1 %cmp.i.i.i48, ptr %incdec.ptr11.i.i46, ptr %__result.010.i.i47
   %incdec.ptr.i.i50 = getelementptr inbounds nuw i8, ptr %incdec.ptr11.i.i46, i64 8
   %cmp1.not.i.i51 = icmp eq ptr %incdec.ptr.i.i50, %25
-  br i1 %cmp1.not.i.i51, label %sw.epilog, label %while.body.i.i45, !llvm.loop !74
+  br i1 %cmp1.not.i.i51, label %sw.epilog, label %while.body.i.i45, !llvm.loop !73
 
 do.body36:                                        ; preds = %do.end
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream37) #19
@@ -3377,7 +3377,7 @@ sw.epilog:                                        ; preds = %while.body.i.i45, %
   %strike.0 = load double, ptr %strike.0.in, align 8, !tbaa !70
   %call74 = tail call noundef double @_ZNK8QuantLib18FloatingTypePayoffclEdd(ptr noundef nonnull align 8 dereferenceable(12) %payoff_, double noundef %26, double noundef %strike.0)
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %55 = load double, ptr %discount_, align 8, !tbaa !78
+  %55 = load double, ptr %discount_, align 8, !tbaa !77
   %mul = fmul double %call74, %55
   ret double %mul
 
@@ -3396,13 +3396,13 @@ define void @_ZN8QuantLib33LookbackPartialFloatingPathPricerC2EdNS_6Option4TypeE
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib33LookbackPartialFloatingPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %lookbackEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store double %lookbackEnd, ptr %lookbackEnd_, align 8, !tbaa !81
+  store double %lookbackEnd, ptr %lookbackEnd_, align 8, !tbaa !80
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %type_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %type, ptr %type_.i.i, align 8, !tbaa !25
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib18FloatingTypePayoffE, i64 16), ptr %payoff_, align 8, !tbaa !14
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store double %discount, ptr %discount_, align 8, !tbaa !83
+  store double %discount, ptr %discount_, align 8, !tbaa !82
   ret void
 }
 
@@ -3585,7 +3585,7 @@ ehcleanup24:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %entry
   %lookbackEnd_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %23 = load double, ptr %lookbackEnd_, align 8, !tbaa !81
+  %23 = load double, ptr %lookbackEnd_, align 8, !tbaa !80
   %call27 = tail call noundef i64 @_ZNK8QuantLib8TimeGrid12closestIndexEd(ptr noundef nonnull align 8 dereferenceable(72) %path, double noundef %23)
   %values_.i = getelementptr inbounds nuw i8, ptr %path, i64 72
   %n_.i.i = getelementptr inbounds nuw i8, ptr %path, i64 80
@@ -3653,7 +3653,7 @@ while.body.i.i44:                                 ; preds = %while.body.i.i44, %
   %spec.select.i.i48 = select i1 %cmp.i.i.i47, ptr %incdec.ptr11.i.i45, ptr %__result.010.i.i46
   %incdec.ptr.i.i49 = getelementptr inbounds nuw i8, ptr %incdec.ptr11.i.i45, i64 8
   %cmp1.not.i.i50 = icmp eq ptr %incdec.ptr.i.i49, %add.ptr40
-  br i1 %cmp1.not.i.i50, label %sw.epilog, label %while.body.i.i44, !llvm.loop !74
+  br i1 %cmp1.not.i.i50, label %sw.epilog, label %while.body.i.i44, !llvm.loop !73
 
 do.body42:                                        ; preds = %do.end
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream43) #19
@@ -3817,7 +3817,7 @@ sw.epilog:                                        ; preds = %while.body.i.i44, %
   %strike.0 = load double, ptr %strike.0.in, align 8, !tbaa !70
   %call80 = tail call noundef double @_ZNK8QuantLib18FloatingTypePayoffclEdd(ptr noundef nonnull align 8 dereferenceable(12) %payoff_, double noundef %27, double noundef %strike.0)
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %58 = load double, ptr %discount_, align 8, !tbaa !83
+  %58 = load double, ptr %discount_, align 8, !tbaa !82
   %mul = fmul double %call80, %58
   ret double %mul
 
@@ -4244,16 +4244,15 @@ attributes #23 = { builtin allocsize(0) }
 !68 = !{!"_ZTSSt11_Tuple_implILm0EJPdSt14default_deleteIA_dEEE", !69, i64 0}
 !69 = !{!"_ZTSSt10_Head_baseILm0EPdLb0EE", !5, i64 0}
 !70 = !{!31, !31, i64 0}
-!71 = distinct !{!71, !72, !73}
+!71 = distinct !{!71, !72}
 !72 = !{!"llvm.loop.mustprogress"}
-!73 = !{!"llvm.loop.estimated_trip_count"}
-!74 = distinct !{!74, !72, !73}
-!75 = !{!76, !31, i64 8}
-!76 = !{!"_ZTSN8QuantLib30LookbackPartialFixedPathPricerE", !59, i64 0, !31, i64 8, !60, i64 16, !31, i64 40}
-!77 = !{!76, !31, i64 40}
-!78 = !{!79, !31, i64 24}
-!79 = !{!"_ZTSN8QuantLib26LookbackFloatingPathPricerE", !59, i64 0, !80, i64 8, !31, i64 24}
-!80 = !{!"_ZTSN8QuantLib18FloatingTypePayoffE", !26, i64 0}
-!81 = !{!82, !31, i64 8}
-!82 = !{!"_ZTSN8QuantLib33LookbackPartialFloatingPathPricerE", !59, i64 0, !31, i64 8, !80, i64 16, !31, i64 32}
-!83 = !{!82, !31, i64 32}
+!73 = distinct !{!73, !72}
+!74 = !{!75, !31, i64 8}
+!75 = !{!"_ZTSN8QuantLib30LookbackPartialFixedPathPricerE", !59, i64 0, !31, i64 8, !60, i64 16, !31, i64 40}
+!76 = !{!75, !31, i64 40}
+!77 = !{!78, !31, i64 24}
+!78 = !{!"_ZTSN8QuantLib26LookbackFloatingPathPricerE", !59, i64 0, !79, i64 8, !31, i64 24}
+!79 = !{!"_ZTSN8QuantLib18FloatingTypePayoffE", !26, i64 0}
+!80 = !{!81, !31, i64 8}
+!81 = !{!"_ZTSN8QuantLib33LookbackPartialFloatingPathPricerE", !59, i64 0, !31, i64 8, !79, i64 16, !31, i64 32}
+!82 = !{!81, !31, i64 32}

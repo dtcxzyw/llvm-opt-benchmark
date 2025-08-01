@@ -179,13 +179,13 @@ _ZN5boost9container3pmr13pool_resource16priv_fix_optionsEv.exit: ; preds = %1, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_optionsEPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %4, align 8, !tbaa !27
+  store ptr %2, ptr %4, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %5, align 8, !tbaa !28
+  store ptr %5, ptr %5, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %5, ptr %6, align 8, !tbaa !29
+  store ptr %5, ptr %6, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = load i64, ptr %0, align 8, !tbaa !3
@@ -236,11 +236,11 @@ define hidden void @_ZN5boost9container3pmr13pool_resourceC2Ev(ptr noundef nonnu
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef ptr @_ZN5boost9container3pmr20get_default_resourceEv() #18
-  store ptr %3, ptr %2, align 8, !tbaa !27
+  store ptr %3, ptr %2, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %4, align 8, !tbaa !28
+  store ptr %4, ptr %4, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %4, ptr %5, align 8, !tbaa !29
+  store ptr %4, ptr %5, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = load i64, ptr %0, align 8, !tbaa !3
@@ -277,11 +277,11 @@ declare noundef ptr @_ZN5boost9container3pmr20get_default_resourceEv() local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN5boost9container3pmr13pool_resourceC2EPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(56) initializes((16, 24)) %0, ptr noundef %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %3, align 8, !tbaa !27
+  store ptr %1, ptr %3, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %4, align 8, !tbaa !28
+  store ptr %4, ptr %4, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %4, ptr %5, align 8, !tbaa !29
+  store ptr %4, ptr %5, align 8, !tbaa !28
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store i64 32, ptr %0, align 8, !tbaa !3
@@ -292,14 +292,14 @@ define hidden void @_ZN5boost9container3pmr13pool_resourceC2EPNS1_15memory_resou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_optionsE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef ptr @_ZN5boost9container3pmr20get_default_resourceEv() #18
-  store ptr %4, ptr %3, align 8, !tbaa !27
+  store ptr %4, ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %5, ptr %5, align 8, !tbaa !28
+  store ptr %5, ptr %5, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %5, ptr %6, align 8, !tbaa !29
+  store ptr %5, ptr %6, align 8, !tbaa !28
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = load i64, ptr %0, align 8, !tbaa !3
@@ -335,7 +335,7 @@ define hidden void @_ZN5boost9container3pmr13pool_resourceD2Ev(ptr noundef nonnu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !13
-  %5 = load ptr, ptr %2, align 8, !tbaa !28
+  %5 = load ptr, ptr %2, align 8, !tbaa !27
   br label %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i
 
 _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i: ; preds = %6, %1
@@ -344,9 +344,9 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i: ; preds = %6
   br i1 %.not.i.i, label %_ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE7releaseERNS1_15memory_resourceE.exit.i, label %6
 
 6:                                                ; preds = %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i
-  %7 = load ptr, ptr %.0.i.i, align 8, !tbaa !28
+  %7 = load ptr, ptr %.0.i.i, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !30
+  %9 = load i64, ptr %8, align 8, !tbaa !29
   %10 = load ptr, ptr %4, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
@@ -361,9 +361,9 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i: ; preds = %6
   unreachable
 
 _ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE7releaseERNS1_15memory_resourceE.exit.i: ; preds = %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i
-  store ptr %2, ptr %2, align 8, !tbaa !28
+  store ptr %2, ptr %2, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %2, ptr %16, align 8, !tbaa !29
+  store ptr %2, ptr %16, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i64, ptr %17, align 8, !tbaa !17
   %.not4.i = icmp eq i64 %18, 0
@@ -391,7 +391,7 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i.i: ; preds = 
 26:                                               ; preds = %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i.i
   %27 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !32
+  %29 = load i64, ptr %28, align 8, !tbaa !31
   %30 = load ptr, ptr %23, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
@@ -411,7 +411,7 @@ _ZN5boost9container3pmr11pool_data_t7releaseERNS1_15memory_resourceE.exit.i: ; p
   store i64 1, ptr %36, align 8, !tbaa !20
   %37 = add nuw i64 %.05.i, 1
   %.not.i = icmp eq i64 %37, %18
-  br i1 %.not.i, label %_ZN5boost9container3pmr13pool_resource7releaseEv.exit.loopexit, label %20, !llvm.loop !34
+  br i1 %.not.i, label %_ZN5boost9container3pmr13pool_resource7releaseEv.exit.loopexit, label %20, !llvm.loop !33
 
 _ZN5boost9container3pmr13pool_resource7releaseEv.exit.loopexit: ; preds = %_ZN5boost9container3pmr11pool_data_t7releaseERNS1_15memory_resourceE.exit.i
   %.pre = load i64, ptr %17, align 8, !tbaa !17
@@ -449,7 +449,7 @@ define hidden void @_ZN5boost9container3pmr13pool_resource7releaseEv(ptr noundef
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !13
-  %5 = load ptr, ptr %2, align 8, !tbaa !28
+  %5 = load ptr, ptr %2, align 8, !tbaa !27
   br label %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i
 
 _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i: ; preds = %6, %1
@@ -458,9 +458,9 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i: ; preds = %6, 
   br i1 %.not.i, label %_ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE7releaseERNS1_15memory_resourceE.exit, label %6
 
 6:                                                ; preds = %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i
-  %7 = load ptr, ptr %.0.i, align 8, !tbaa !28
+  %7 = load ptr, ptr %.0.i, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !30
+  %9 = load i64, ptr %8, align 8, !tbaa !29
   %10 = load ptr, ptr %4, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
@@ -475,9 +475,9 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i: ; preds = %6, 
   unreachable
 
 _ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE7releaseERNS1_15memory_resourceE.exit: ; preds = %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i
-  store ptr %2, ptr %2, align 8, !tbaa !28
+  store ptr %2, ptr %2, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %2, ptr %16, align 8, !tbaa !29
+  store ptr %2, ptr %16, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i64, ptr %17, align 8, !tbaa !17
   %.not4 = icmp eq i64 %18, 0
@@ -508,7 +508,7 @@ _ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i: ; preds = %2
 26:                                               ; preds = %_ZN5boost9container3pmr15memory_resource10deallocateEPvmm.exit.i.i
   %27 = load ptr, ptr %.0.i.i, align 8, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !32
+  %29 = load i64, ptr %28, align 8, !tbaa !31
   %30 = load ptr, ptr %23, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
@@ -528,7 +528,7 @@ _ZN5boost9container3pmr11pool_data_t7releaseERNS1_15memory_resourceE.exit: ; pre
   store i64 1, ptr %36, align 8, !tbaa !20
   %37 = add nuw i64 %.05, 1
   %.not = icmp eq i64 %37, %18
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -614,14 +614,14 @@ _ZN5boost9container3pmr15block_list_baseINS1_17block_list_headerEE8allocateEmRNS
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(8) %33, i64 noundef %35, i64 noundef 16)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store i64 %35, ptr %40, align 8, !tbaa !30
-  %41 = load ptr, ptr %34, align 8, !tbaa !28
+  store i64 %35, ptr %40, align 8, !tbaa !29
+  %41 = load ptr, ptr %34, align 8, !tbaa !27
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %34, ptr %42, align 8, !tbaa !29
-  store ptr %41, ptr %39, align 8, !tbaa !28
-  store ptr %39, ptr %34, align 8, !tbaa !28
+  store ptr %34, ptr %42, align 8, !tbaa !28
+  store ptr %41, ptr %39, align 8, !tbaa !27
+  store ptr %39, ptr %34, align 8, !tbaa !27
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %39, ptr %43, align 8, !tbaa !29
+  store ptr %39, ptr %43, align 8, !tbaa !28
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 32
   br label %_ZN5boost9container3pmr11pool_data_t14allocate_blockEv.exit20
 
@@ -645,7 +645,7 @@ _ZN5boost9container3pmr11pool_data_t14allocate_blockEv.exit: ; preds = %45
 
 55:                                               ; preds = %45
   %56 = shl i64 16, %48
-  %57 = load i64, ptr %0, align 8, !tbaa !35
+  %57 = load i64, ptr %0, align 8, !tbaa !34
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %59 = load i64, ptr %58, align 8, !tbaa !3
   %.sroa.speculated17.i = tail call i64 @llvm.umin.i64(i64 %57, i64 %59)
@@ -669,7 +669,7 @@ _ZN5boost9container3pmr16block_slist_baseINS1_18block_slist_headerEE8allocateEmR
   %70 = load ptr, ptr %69, align 8
   %71 = tail call noundef ptr %70(ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef %67, i64 noundef 16)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i64 %67, ptr %72, align 8, !tbaa !32
+  store i64 %67, ptr %72, align 8, !tbaa !31
   %73 = load ptr, ptr %49, align 8, !tbaa !18
   store ptr %73, ptr %71, align 8, !tbaa !18
   store ptr %71, ptr %49, align 8, !tbaa !18
@@ -694,7 +694,7 @@ _ZN5boost9container3pmr16block_slist_baseINS1_18block_slist_headerEE8allocateEmR
   %77 = getelementptr inbounds nuw i8, ptr %.023.i, i64 %56
   %78 = add i64 %.01022.i, 1
   %.not.i17 = icmp eq i64 %78, %.sroa.speculated.i15
-  br i1 %.not.i17, label %_ZN5boost9container3pmr11pool_data_t9replenishERNS1_15memory_resourceEmm.exit, label %75, !llvm.loop !36
+  br i1 %.not.i17, label %_ZN5boost9container3pmr11pool_data_t9replenishERNS1_15memory_resourceEmm.exit, label %75, !llvm.loop !35
 
 _ZN5boost9container3pmr11pool_data_t9replenishERNS1_15memory_resourceEmm.exit: ; preds = %75, %_ZN5boost9container3pmr16block_slist_baseINS1_18block_slist_headerEE8allocateEmRNS1_15memory_resourceE.exit.i._ZN5boost9container3pmr11pool_data_t9replenishERNS1_15memory_resourceEmm.exit_crit_edge
   %79 = phi ptr [ %.pre, %_ZN5boost9container3pmr16block_slist_baseINS1_18block_slist_headerEE8allocateEmRNS1_15memory_resourceE.exit.i._ZN5boost9container3pmr11pool_data_t9replenishERNS1_15memory_resourceEmm.exit_crit_edge ], [ %.023.i, %75 ]
@@ -729,14 +729,14 @@ define hidden void @_ZN5boost9container3pmr13pool_resource13do_deallocateEPvmm(p
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   %11 = getelementptr inbounds i8, ptr %1, i64 -32
-  %12 = load ptr, ptr %11, align 8, !tbaa !28
+  %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = getelementptr inbounds i8, ptr %1, i64 -24
-  %14 = load ptr, ptr %13, align 8, !tbaa !29
-  store ptr %12, ptr %14, align 8, !tbaa !28
+  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  store ptr %12, ptr %14, align 8, !tbaa !27
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !29
+  store ptr %14, ptr %15, align 8, !tbaa !28
   %16 = getelementptr inbounds i8, ptr %1, i64 -16
-  %17 = load i64, ptr %16, align 8, !tbaa !30
+  %17 = load i64, ptr %16, align 8, !tbaa !29
   %18 = load ptr, ptr %10, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
@@ -773,7 +773,7 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource10pool_countEv
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %7, label %4, !prof !37
+  br i1 %.not, label %7, label %4, !prof !36
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -805,7 +805,7 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource10pool_indexEm
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %12, label %9, !prof !37
+  br i1 %.not.i, label %12, label %9, !prof !36
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -840,7 +840,7 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource26pool_next_bl
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %1, %6
   %8 = select i1 %.not, i1 %7, i1 false
-  br i1 %8, label %9, label %12, !prof !38
+  br i1 %8, label %9, label %12, !prof !37
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw %"class.boost::container::pmr::pool_data_t", ptr %4, i64 %1, i32 2
@@ -867,7 +867,7 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource18pool_cached_
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %1, %6
   %8 = select i1 %.not, i1 %7, i1 false
-  br i1 %8, label %9, label %_ZNK5boost9container3pmr11pool_data_t11cache_countEv.exit, !prof !38
+  br i1 %8, label %9, label %_ZNK5boost9container3pmr11pool_data_t11cache_countEv.exit, !prof !37
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw %"class.boost::container::pmr::pool_data_t", ptr %4, i64 %1, i32 1
@@ -879,7 +879,7 @@ define hidden noundef i64 @_ZNK5boost9container3pmr13pool_resource18pool_cached_
   %12 = load ptr, ptr %.0.i.i, align 8, !tbaa !18
   %13 = add i64 %.04.i.i, 1
   %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %_ZNK5boost9container3pmr11pool_data_t11cache_countEv.exit, label %11, !llvm.loop !39
+  br i1 %.not.i.i, label %_ZNK5boost9container3pmr11pool_data_t11cache_countEv.exit, label %11, !llvm.loop !38
 
 _ZNK5boost9container3pmr11pool_data_t11cache_countEv.exit: ; preds = %11, %2
   %.0 = phi i64 [ 0, %2 ], [ %.04.i.i, %11 ]
@@ -896,7 +896,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define linkonce_odr hidden void @_ZN5boost9container15throw_bad_allocEv() local_unnamed_addr #13 comdat personality ptr @__gxx_personality_v0 {
   %1 = tail call ptr @__cxa_allocate_exception(i64 16) #18
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr @.str, ptr %2, align 8, !tbaa !40
+  store ptr @.str, ptr %2, align 8, !tbaa !39
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost9container9bad_allocE, i64 16), ptr %1, align 8, !tbaa !14
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTIN5boost9container9bad_allocE, ptr nonnull @_ZNSt9exceptionD2Ev) #20
   unreachable
@@ -920,7 +920,7 @@ define linkonce_odr hidden void @_ZN5boost9container9bad_allocD0Ev(ptr noundef n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost9container9exception4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
   %.not = icmp eq ptr %3, null
   %spec.select = select i1 %.not, ptr @.str.1, ptr %3
   ret ptr %spec.select
@@ -983,23 +983,22 @@ attributes #21 = { builtin nounwind }
 !20 = !{!21, !4, i64 16}
 !21 = !{!"_ZTSN5boost9container3pmr11pool_data_tE", !22, i64 0, !19, i64 8, !4, i64 16}
 !22 = !{!"_ZTSN5boost9container3pmr16block_slist_baseINS1_18block_slist_headerEEE", !19, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{i64 0, i64 8, !3, i64 8, i64 8, !3}
-!27 = !{!10, !10, i64 0}
-!28 = !{!12, !10, i64 0}
-!29 = !{!12, !10, i64 8}
-!30 = !{!31, !4, i64 16}
-!31 = !{!"_ZTSN5boost9container3pmr17block_list_headerE", !12, i64 0, !4, i64 16}
-!32 = !{!33, !4, i64 8}
-!33 = !{!"_ZTSN5boost9container3pmr18block_slist_headerE", !19, i64 0, !4, i64 8}
-!34 = distinct !{!34, !24, !25}
-!35 = !{!8, !4, i64 0}
-!36 = distinct !{!36, !24, !25}
-!37 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!38 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!39 = distinct !{!39, !24, !25}
-!40 = !{!41, !10, i64 8}
-!41 = !{!"_ZTSN5boost9container9exceptionE", !42, i64 0, !10, i64 8}
-!42 = !{!"_ZTSSt9exception"}
+!25 = !{i64 0, i64 8, !3, i64 8, i64 8, !3}
+!26 = !{!10, !10, i64 0}
+!27 = !{!12, !10, i64 0}
+!28 = !{!12, !10, i64 8}
+!29 = !{!30, !4, i64 16}
+!30 = !{!"_ZTSN5boost9container3pmr17block_list_headerE", !12, i64 0, !4, i64 16}
+!31 = !{!32, !4, i64 8}
+!32 = !{!"_ZTSN5boost9container3pmr18block_slist_headerE", !19, i64 0, !4, i64 8}
+!33 = distinct !{!33, !24}
+!34 = !{!8, !4, i64 0}
+!35 = distinct !{!35, !24}
+!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!37 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!38 = distinct !{!38, !24}
+!39 = !{!40, !10, i64 8}
+!40 = !{!"_ZTSN5boost9container9exceptionE", !41, i64 0, !10, i64 8}
+!41 = !{!"_ZTSSt9exception"}

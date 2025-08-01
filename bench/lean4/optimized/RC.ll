@@ -11833,7 +11833,7 @@ lean_obj_tag.exit47:                              ; preds = %16
 
 lean_dec.exit.backedge:                           ; preds = %lean_obj_tag.exit47, %36, %42, %44, %45, %91, %93, %94, %lean_alloc_ctor.exit, %l_Lean_IR_ExplicitRC_mustConsume.exit
   %.0.be = phi ptr [ %23, %lean_obj_tag.exit47 ], [ %23, %36 ], [ %23, %42 ], [ %23, %44 ], [ %23, %45 ], [ %23, %91 ], [ %23, %93 ], [ %23, %94 ], [ %80, %lean_alloc_ctor.exit ], [ %23, %l_Lean_IR_ExplicitRC_mustConsume.exit ]
-  br label %lean_dec.exit, !llvm.loop !19
+  br label %lean_dec.exit
 
 lean_obj_tag.exit47.thread:                       ; preds = %16
   %29 = getelementptr i8, ptr %24, i64 4
@@ -13682,9 +13682,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_isBorrowParam___lambda__1___boxed, ptr %8, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 2, ptr %9, align 8, !tbaa !21
+  store i16 2, ptr %9, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 1, ptr %10, align 2, !tbaa !21
+  store i16 1, ptr %10, align 2, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %11, align 8, !tbaa !4
   %12 = getelementptr i8, ptr %1, i64 8
@@ -13772,9 +13772,9 @@ l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_isBorrowParam.exit: ; pred
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_isBorrowParam___lambda__1___boxed, ptr %8, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 2, ptr %9, align 8, !tbaa !21
+  store i16 2, ptr %9, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 1, ptr %10, align 2, !tbaa !21
+  store i16 1, ptr %10, align 2, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %2, ptr %11, align 8, !tbaa !4
   %12 = getelementptr i8, ptr %1, i64 8
@@ -15725,9 +15725,9 @@ lean_alloc_closure.exit:                          ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_isBorrowParam___lambda__1___boxed, ptr %10, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i16 2, ptr %11, align 8, !tbaa !21
+  store i16 2, ptr %11, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  store i16 1, ptr %12, align 2, !tbaa !21
+  store i16 1, ptr %12, align 2, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %2, ptr %13, align 8, !tbaa !4
   %14 = getelementptr i8, ptr %1, i64 8
@@ -15757,9 +15757,9 @@ l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_addIncBefore.exit: ; preds
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_isBorrowParam___lambda__1___boxed, ptr %10, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i16 2, ptr %11, align 8, !tbaa !21
+  store i16 2, ptr %11, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  store i16 1, ptr %12, align 2, !tbaa !21
+  store i16 1, ptr %12, align 2, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %2, ptr %13, align 8, !tbaa !4
   %14 = getelementptr i8, ptr %1, i64 8
@@ -16237,9 +16237,9 @@ l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_isBorrowParam.exit: ; pred
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store ptr @l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_isBorrowParam___lambda__1___boxed, ptr %164, align 8, !tbaa !4
   %165 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  store i16 2, ptr %165, align 8, !tbaa !21
+  store i16 2, ptr %165, align 8, !tbaa !19
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 18
-  store i16 1, ptr %166, align 2, !tbaa !21
+  store i16 1, ptr %166, align 2, !tbaa !19
   %167 = getelementptr inbounds nuw i8, ptr %160, i64 24
   store ptr %2, ptr %167, align 8, !tbaa !4
   %.val.i.i = load i64, ptr %15, align 8, !tbaa !15
@@ -17729,7 +17729,7 @@ lean_obj_tag.exit36:                              ; preds = %41, %44
   %56 = and i64 %55, 1
   %57 = icmp ne i64 %56, 0
   %or.cond = select i1 %54, i1 %57, i1 false
-  br i1 %or.cond, label %58, label %.critedge.i30, !prof !23
+  br i1 %or.cond, label %58, label %.critedge.i30, !prof !21
 
 58:                                               ; preds = %48
   %59 = icmp ule ptr %50, %51
@@ -19061,7 +19061,7 @@ lean_dec.exit377:                                 ; preds = %162, %161, %159, %l
 177:                                              ; preds = %176, %173
   %.val.i491 = phi i32 [ %.val.i491.pr, %176 ], [ %174, %173 ]
   %178 = icmp sgt i32 %.val.i491, 0
-  br i1 %178, label %179, label %181, !prof !24
+  br i1 %178, label %179, label %181, !prof !22
 
 179:                                              ; preds = %177
   %180 = add nuw i32 %.val.i491, 1
@@ -19915,9 +19915,9 @@ l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_addIncBefore.exit: ; preds
   %495 = getelementptr inbounds nuw i8, ptr %491, i64 8
   store ptr @l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_isBorrowParam___lambda__1___boxed, ptr %495, align 8, !tbaa !4
   %496 = getelementptr inbounds nuw i8, ptr %491, i64 16
-  store i16 2, ptr %496, align 8, !tbaa !21
+  store i16 2, ptr %496, align 8, !tbaa !19
   %497 = getelementptr inbounds nuw i8, ptr %491, i64 18
-  store i16 1, ptr %497, align 2, !tbaa !21
+  store i16 1, ptr %497, align 2, !tbaa !19
   %498 = getelementptr inbounds nuw i8, ptr %491, i64 24
   store ptr %452, ptr %498, align 8, !tbaa !4
   %.val.i.i = load i64, ptr %470, align 8, !tbaa !15
@@ -26634,9 +26634,9 @@ l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_addIncBefore.exit: ; preds
   %1585 = getelementptr inbounds nuw i8, ptr %1581, i64 8
   store ptr @l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_isBorrowParam___lambda__1___boxed, ptr %1585, align 8, !tbaa !4
   %1586 = getelementptr inbounds nuw i8, ptr %1581, i64 16
-  store i16 2, ptr %1586, align 8, !tbaa !21
+  store i16 2, ptr %1586, align 8, !tbaa !19
   %1587 = getelementptr inbounds nuw i8, ptr %1581, i64 18
-  store i16 1, ptr %1587, align 2, !tbaa !21
+  store i16 1, ptr %1587, align 2, !tbaa !19
   %1588 = getelementptr inbounds nuw i8, ptr %1581, i64 24
   store ptr %1573, ptr %1588, align 8, !tbaa !4
   %1589 = getelementptr i8, ptr %1534, i64 8
@@ -27941,9 +27941,9 @@ _init_l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_addDecForAlt___close
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr @l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_addDecForAlt___lambda__1___boxed, ptr %71, align 8, !tbaa !4
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store i16 2, ptr %72, align 8, !tbaa !21
+  store i16 2, ptr %72, align 8, !tbaa !19
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 18
-  store i16 0, ptr %73, align 2, !tbaa !21
+  store i16 0, ptr %73, align 2, !tbaa !19
   store ptr %67, ptr @l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_addDecForAlt___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %67) #6
   tail call void @lean_inc_heartbeat() #6
@@ -27962,9 +27962,9 @@ _init_l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_addIncBeforeConsumeA
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr @l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_addIncBeforeConsumeAll___lambda__1___boxed, ptr %78, align 8, !tbaa !4
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store i16 1, ptr %79, align 8, !tbaa !21
+  store i16 1, ptr %79, align 8, !tbaa !19
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 18
-  store i16 0, ptr %80, align 2, !tbaa !21
+  store i16 0, ptr %80, align 2, !tbaa !19
   store ptr %74, ptr @l___private_Lean_Compiler_IR_RC_0__Lean_IR_ExplicitRC_addIncBeforeConsumeAll___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %74) #6
   tail call void @lean_inc_heartbeat() #6
@@ -28085,9 +28085,7 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!"long", !6, i64 0}
 !17 = !{!6, !6, i64 0}
 !18 = distinct !{!18, !14}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"short", !6, i64 0}
-!23 = !{!"branch_weights", i32 4000000, i32 4001}
-!24 = !{!"branch_weights", !"expected", i32 2146812769, i32 670879}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !6, i64 0}
+!21 = !{!"branch_weights", i32 4000000, i32 4001}
+!22 = !{!"branch_weights", !"expected", i32 2146812769, i32 670879}

@@ -81,11 +81,11 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly captures(address_is_n
   %.0111131 = phi i32 [ %46, %.lr.ph132 ], [ %.0110.lcssa, %.preheader126 ]
   %43 = sext i32 %.0111131 to i64
   %44 = getelementptr inbounds double, ptr %34, i64 %43
-  store double 0.000000e+00, ptr %44, align 8, !tbaa !19
+  store double 0.000000e+00, ptr %44, align 8, !tbaa !18
   %45 = getelementptr inbounds i32, ptr %3, i64 %43
   %46 = load i32, ptr %45, align 4, !tbaa !14
   %.not124 = icmp eq i32 %46, -1
-  br i1 %.not124, label %._crit_edge, label %.lr.ph132, !llvm.loop !21
+  br i1 %.not124, label %._crit_edge, label %.lr.ph132, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph132, %.preheader126
   %47 = load i32, ptr %23, align 4, !tbaa !14
@@ -108,15 +108,15 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly captures(address_is_n
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %.lr.ph135
   %indvars.iv151 = phi i64 [ %49, %.lr.ph135.preheader ], [ %indvars.iv.next152, %.lr.ph135 ]
   %52 = getelementptr inbounds double, ptr %27, i64 %indvars.iv151
-  %53 = load double, ptr %52, align 8, !tbaa !19
+  %53 = load double, ptr %52, align 8, !tbaa !18
   %54 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv151
   %55 = load i32, ptr %54, align 4, !tbaa !14
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds double, ptr %34, i64 %56
-  store double %53, ptr %57, align 8, !tbaa !19
+  store double %53, ptr %57, align 8, !tbaa !18
   %indvars.iv.next152 = add nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
-  br i1 %exitcond155.not, label %.preheader, label %.lr.ph135, !llvm.loop !22
+  br i1 %exitcond155.not, label %.preheader, label %.lr.ph135, !llvm.loop !21
 
 58:                                               ; preds = %.lr.ph144, %._crit_edge140
   %.0143 = phi double [ 1.000000e+00, %.lr.ph144 ], [ %73, %._crit_edge140 ]
@@ -125,10 +125,10 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly captures(address_is_n
   %60 = getelementptr inbounds i32, ptr %17, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !14
   %62 = getelementptr inbounds double, ptr %34, i64 %59
-  %63 = load double, ptr %62, align 8, !tbaa !19
+  %63 = load double, ptr %62, align 8, !tbaa !18
   %64 = sext i32 %61 to i64
   %65 = getelementptr inbounds double, ptr %21, i64 %64
-  %66 = load double, ptr %65, align 8, !tbaa !19
+  %66 = load double, ptr %65, align 8, !tbaa !18
   %67 = fdiv double %63, %66
   %68 = fmul double %67, %50
   %69 = fmul double %67, %68
@@ -146,7 +146,7 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly captures(address_is_n
   %79 = fmul double %63, %78
   %80 = select i1 %51, double %79, double 0.000000e+00
   %81 = tail call double @llvm.fmuladd.f64(double %76, double %66, double %80)
-  store double %81, ptr %65, align 8, !tbaa !19
+  store double %81, ptr %65, align 8, !tbaa !18
   %82 = getelementptr i8, ptr %60, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !14
   %.2136 = add nsw i32 %61, 1
@@ -164,19 +164,19 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly captures(address_is_n
   %88 = load i32, ptr %87, align 4, !tbaa !14
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds double, ptr %34, i64 %89
-  %91 = load double, ptr %90, align 8, !tbaa !19
+  %91 = load double, ptr %90, align 8, !tbaa !18
   %92 = getelementptr inbounds double, ptr %21, i64 %indvars.iv160
-  %93 = load double, ptr %92, align 8, !tbaa !19
+  %93 = load double, ptr %92, align 8, !tbaa !18
   %94 = tail call double @llvm.fmuladd.f64(double %85, double %93, double %91)
-  store double %94, ptr %90, align 8, !tbaa !19
-  %95 = load double, ptr %92, align 8, !tbaa !19
+  store double %94, ptr %90, align 8, !tbaa !18
+  %95 = load double, ptr %92, align 8, !tbaa !18
   %96 = fmul double %78, %91
   %97 = tail call double @llvm.fmuladd.f64(double %74, double %95, double %96)
-  store double %97, ptr %92, align 8, !tbaa !19
+  store double %97, ptr %92, align 8, !tbaa !18
   %indvars.iv.next161 = add nsw i64 %indvars.iv160, 1
   %lftr.wideiv163 = trunc i64 %indvars.iv.next161 to i32
   %exitcond164.not = icmp eq i32 %83, %lftr.wideiv163
-  br i1 %exitcond164.not, label %._crit_edge140, label %.lr.ph139.split.us, !llvm.loop !23
+  br i1 %exitcond164.not, label %._crit_edge140, label %.lr.ph139.split.us, !llvm.loop !22
 
 .lr.ph139.split:                                  ; preds = %.lr.ph139, %.lr.ph139.split
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph139.split ], [ %86, %.lr.ph139 ]
@@ -184,25 +184,25 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly captures(address_is_n
   %99 = load i32, ptr %98, align 4, !tbaa !14
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds double, ptr %34, i64 %100
-  %102 = load double, ptr %101, align 8, !tbaa !19
+  %102 = load double, ptr %101, align 8, !tbaa !18
   %103 = getelementptr inbounds double, ptr %21, i64 %indvars.iv156
-  %104 = load double, ptr %103, align 8, !tbaa !19
+  %104 = load double, ptr %103, align 8, !tbaa !18
   %105 = tail call double @llvm.fmuladd.f64(double %85, double %104, double %102)
-  store double %105, ptr %101, align 8, !tbaa !19
-  %106 = load double, ptr %103, align 8, !tbaa !19
+  store double %105, ptr %101, align 8, !tbaa !18
+  %106 = load double, ptr %103, align 8, !tbaa !18
   %107 = fmul double %78, %105
   %108 = tail call double @llvm.fmuladd.f64(double %75, double %106, double %107)
-  store double %108, ptr %103, align 8, !tbaa !19
+  store double %108, ptr %103, align 8, !tbaa !18
   %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next157 to i32
   %exitcond159.not = icmp eq i32 %83, %lftr.wideiv
-  br i1 %exitcond159.not, label %._crit_edge140, label %.lr.ph139.split, !llvm.loop !25
+  br i1 %exitcond159.not, label %._crit_edge140, label %.lr.ph139.split, !llvm.loop !24
 
 ._crit_edge140:                                   ; preds = %.lr.ph139.split, %.lr.ph139.split.us, %72
   %109 = getelementptr inbounds i32, ptr %3, i64 %59
   %110 = load i32, ptr %109, align 4, !tbaa !14
   %.not125 = icmp eq i32 %110, -1
-  br i1 %.not125, label %._crit_edge145.loopexit, label %58, !llvm.loop !26
+  br i1 %.not125, label %._crit_edge145.loopexit, label %58, !llvm.loop !25
 
 ._crit_edge145.loopexit:                          ; preds = %58, %._crit_edge140
   %.1.ph = phi double [ %73, %._crit_edge140 ], [ %70, %58 ]
@@ -258,14 +258,13 @@ attributes #5 = { nounwind }
 !13 = !{!4, !10, i64 32}
 !14 = !{!5, !5, i64 0}
 !15 = !{!4, !5, i64 8}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"double", !6, i64 0}
-!21 = distinct !{!21, !17, !18}
-!22 = distinct !{!22, !17, !18}
-!23 = distinct !{!23, !17, !18, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !17, !18}
-!26 = distinct !{!26, !17, !18}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"double", !6, i64 0}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !17}
+!22 = distinct !{!22, !17, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}

@@ -490,7 +490,7 @@ _ZN20btAlignedObjectArrayIS_IjEED2Ev.exit:        ; preds = %_ZN20btAlignedObjec
   %36 = load ptr, ptr %34, align 8, !tbaa !40
   %37 = getelementptr inbounds nuw %class.btAlignedObjectArray.8, ptr %36, i64 %indvars.iv.i.i.i5
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !65
+  %39 = load ptr, ptr %38, align 8, !tbaa !64
   %.not.i.i.i.i.i.i6 = icmp ne ptr %39, null
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %41 = load i8, ptr %40, align 8, !range !58
@@ -511,14 +511,14 @@ _ZN20btAlignedObjectArrayIS_IjEED2Ev.exit:        ; preds = %_ZN20btAlignedObjec
 
 _ZN20btAlignedObjectArrayI8btCell32ED2Ev.exit.i.i.i: ; preds = %43, %35
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  store i8 1, ptr %40, align 8, !tbaa !69
-  store ptr null, ptr %38, align 8, !tbaa !65
-  store i32 0, ptr %47, align 4, !tbaa !70
+  store i8 1, ptr %40, align 8, !tbaa !68
+  store ptr null, ptr %38, align 8, !tbaa !64
+  store i32 0, ptr %47, align 4, !tbaa !69
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i32 0, ptr %48, align 8, !tbaa !71
+  store i32 0, ptr %48, align 8, !tbaa !70
   %indvars.iv.next.i.i.i8 = add nuw nsw i64 %indvars.iv.i.i.i5, 1
   %49 = icmp eq i64 %indvars.iv.next.i.i.i8, %zext.i.i4
-  br i1 %49, label %_ZN20btAlignedObjectArrayIS_I8btCell32EE7destroyEii.exit.i.i, label %35, !llvm.loop !72
+  br i1 %49, label %_ZN20btAlignedObjectArrayIS_I8btCell32EE7destroyEii.exit.i.i, label %35, !llvm.loop !71
 
 _ZN20btAlignedObjectArrayIS_I8btCell32EE7destroyEii.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayI8btCell32ED2Ev.exit.i.i.i, %_ZN20btAlignedObjectArrayIS_IjEED2Ev.exit
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -562,7 +562,7 @@ _ZN20btAlignedObjectArrayIS_I8btCell32EED2Ev.exit: ; preds = %_ZN20btAlignedObje
   %65 = load ptr, ptr %63, align 8, !tbaa !36
   %66 = getelementptr inbounds nuw %class.btAlignedObjectArray.12, ptr %65, i64 %indvars.iv.i.i.i13
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !73
+  %68 = load ptr, ptr %67, align 8, !tbaa !72
   %.not.i.i.i.i.i.i14 = icmp ne ptr %68, null
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %70 = load i8, ptr %69, align 8, !range !58
@@ -583,14 +583,14 @@ _ZN20btAlignedObjectArrayIS_I8btCell32EED2Ev.exit: ; preds = %_ZN20btAlignedObje
 
 _ZN20btAlignedObjectArrayIdED2Ev.exit.i.i.i:      ; preds = %72, %64
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  store i8 1, ptr %69, align 8, !tbaa !77
-  store ptr null, ptr %67, align 8, !tbaa !73
-  store i32 0, ptr %76, align 4, !tbaa !78
+  store i8 1, ptr %69, align 8, !tbaa !76
+  store ptr null, ptr %67, align 8, !tbaa !72
+  store i32 0, ptr %76, align 4, !tbaa !77
   %77 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i32 0, ptr %77, align 8, !tbaa !79
+  store i32 0, ptr %77, align 8, !tbaa !78
   %indvars.iv.next.i.i.i16 = add nuw nsw i64 %indvars.iv.i.i.i13, 1
   %78 = icmp eq i64 %indvars.iv.next.i.i.i16, %zext.i.i12
-  br i1 %78, label %_ZN20btAlignedObjectArrayIS_IdEE7destroyEii.exit.i.i, label %64, !llvm.loop !80
+  br i1 %78, label %_ZN20btAlignedObjectArrayIS_IdEE7destroyEii.exit.i.i, label %64, !llvm.loop !79
 
 _ZN20btAlignedObjectArrayIS_IdEE7destroyEii.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIdED2Ev.exit.i.i.i, %_ZN20btAlignedObjectArrayIS_I8btCell32EED2Ev.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -716,22 +716,21 @@ attributes #19 = { noreturn nounwind }
 !59 = !{!55, !24, i64 24}
 !60 = !{!55, !8, i64 4}
 !61 = !{!55, !8, i64 8}
-!62 = distinct !{!62, !63, !64}
+!62 = distinct !{!62, !63}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!"llvm.loop.estimated_trip_count"}
-!65 = !{!66, !68, i64 16}
-!66 = !{!"_ZTS20btAlignedObjectArrayI8btCell32E", !67, i64 0, !8, i64 4, !8, i64 8, !68, i64 16, !24, i64 24}
-!67 = !{!"_ZTS18btAlignedAllocatorI8btCell32Lj16EE"}
-!68 = !{!"p1 _ZTS8btCell32", !11, i64 0}
-!69 = !{!66, !24, i64 24}
-!70 = !{!66, !8, i64 4}
-!71 = !{!66, !8, i64 8}
-!72 = distinct !{!72, !63, !64}
-!73 = !{!74, !76, i64 16}
-!74 = !{!"_ZTS20btAlignedObjectArrayIdE", !75, i64 0, !8, i64 4, !8, i64 8, !76, i64 16, !24, i64 24}
-!75 = !{!"_ZTS18btAlignedAllocatorIdLj16EE"}
-!76 = !{!"p1 double", !11, i64 0}
-!77 = !{!74, !24, i64 24}
-!78 = !{!74, !8, i64 4}
-!79 = !{!74, !8, i64 8}
-!80 = distinct !{!80, !63, !64}
+!64 = !{!65, !67, i64 16}
+!65 = !{!"_ZTS20btAlignedObjectArrayI8btCell32E", !66, i64 0, !8, i64 4, !8, i64 8, !67, i64 16, !24, i64 24}
+!66 = !{!"_ZTS18btAlignedAllocatorI8btCell32Lj16EE"}
+!67 = !{!"p1 _ZTS8btCell32", !11, i64 0}
+!68 = !{!65, !24, i64 24}
+!69 = !{!65, !8, i64 4}
+!70 = !{!65, !8, i64 8}
+!71 = distinct !{!71, !63}
+!72 = !{!73, !75, i64 16}
+!73 = !{!"_ZTS20btAlignedObjectArrayIdE", !74, i64 0, !8, i64 4, !8, i64 8, !75, i64 16, !24, i64 24}
+!74 = !{!"_ZTS18btAlignedAllocatorIdLj16EE"}
+!75 = !{!"p1 double", !11, i64 0}
+!76 = !{!73, !24, i64 24}
+!77 = !{!73, !8, i64 4}
+!78 = !{!73, !8, i64 8}
+!79 = distinct !{!79, !63}

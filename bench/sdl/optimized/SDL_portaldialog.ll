@@ -456,7 +456,7 @@ define hidden void @SDL_Portal_ShowFileDialogWithProperties(i32 noundef %0, ptr 
   %212 = call i32 %211(ptr noundef nonnull %15, ptr noundef nonnull %16) #5
   %213 = call ptr @SDL_strtok_r_REAL(ptr noundef null, ptr noundef nonnull @.str.46, ptr noundef nonnull %17) #5
   %.not24.i.i = icmp eq ptr %213, null
-  br i1 %.not24.i.i, label %DBus_AppendFilter.exit.i, label %.lr.ph.i.i, !llvm.loop !3
+  br i1 %.not24.i.i, label %DBus_AppendFilter.exit.i, label %.lr.ph.i.i
 
 DBus_AppendFilter.exit.i:                         ; preds = %207, %.lr.ph.i.i, %189, %176
   call void @SDL_free_REAL(ptr noundef %188) #5
@@ -473,7 +473,7 @@ DBus_AppendFilter.exit.i:                         ; preds = %207, %.lr.ph.i.i, %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %DBus_AppendFilters.exit, label %176, !llvm.loop !5
+  br i1 %exitcond.not.i, label %DBus_AppendFilters.exit, label %176, !llvm.loop !3
 
 DBus_AppendFilters.exit:                          ; preds = %DBus_AppendFilter.exit.i, %165
   %218 = load ptr, ptr %117, align 8
@@ -514,7 +514,7 @@ DBus_AppendFilters.exit:                          ; preds = %DBus_AppendFilter.e
   %237 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %238 = load i8, ptr %.0.i, align 1
   %.not.i = icmp eq i8 %238, 0
-  br i1 %.not.i, label %DBus_AppendByteArray.exit, label %234, !llvm.loop !7
+  br i1 %.not.i, label %DBus_AppendByteArray.exit, label %234, !llvm.loop !5
 
 DBus_AppendByteArray.exit:                        ; preds = %234
   %239 = load ptr, ptr %117, align 8
@@ -981,7 +981,7 @@ define internal range(i32 0, 2) i32 @DBus_MessageFilter(ptr noundef %0, ptr noun
   call void @SDL_free_REAL(ptr noundef %131) #5
   %132 = add nuw i64 %.0144, 1
   %exitcond.not = icmp eq i64 %132, %.188137160
-  br i1 %exitcond.not, label %._crit_edge146, label %.lr.ph145, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge146, label %.lr.ph145, !llvm.loop !6
 
 133:                                              ; preds = %.thread114, %._crit_edge146, %.thread124
   %134 = load ptr, ptr %20, align 8
@@ -1122,8 +1122,6 @@ attributes #7 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !6, !4}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6, !4}
-!8 = distinct !{!8, !6, !4}
+!4 = !{!"llvm.loop.mustprogress"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

@@ -211,7 +211,7 @@ _ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds =
   %76 = load ptr, ptr %75, align 8
   %77 = call noundef i64 %76(ptr noundef nonnull align 8 dereferenceable(24) %1) #11
   %78 = icmp ult i64 %66, %77
-  br i1 %78, label %53, label %.thread40, !llvm.loop !28
+  br i1 %78, label %53, label %.thread40
 
 .thread40:                                        ; preds = %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit, %36, %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit.thread
   %.01649 = phi i64 [ %.01650, %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit.thread ], [ %45, %36 ], [ %68, %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit ]
@@ -263,9 +263,9 @@ _ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit27: ; preds
   %99 = load ptr, ptr %98, align 8
   %100 = call noundef i64 %99(ptr noundef nonnull align 8 dereferenceable(24) %1) #11
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %102 = load i64, ptr %101, align 8, !tbaa !30
+  %102 = load i64, ptr %101, align 8, !tbaa !28
   %103 = add i64 %102, %100
-  store i64 %103, ptr %101, align 8, !tbaa !30
+  store i64 %103, ptr %101, align 8, !tbaa !28
   ret ptr %0
 }
 
@@ -306,7 +306,7 @@ define hidden noundef i32 @_ZN4LIEF14ChecksumStream8finalizeEv(ptr noundef nonnu
   %14 = phi i32 [ %.pre, %._crit_edge ], [ %12, %5 ]
   %15 = lshr i32 %14, 16
   %16 = add i32 %15, %14
-  %17 = load i32, ptr %0, align 8, !tbaa !31
+  %17 = load i32, ptr %0, align 8, !tbaa !29
   %18 = and i32 %17, 65535
   %19 = lshr i32 %17, 16
   %20 = and i32 %16, 65535
@@ -321,7 +321,7 @@ define hidden noundef i32 @_ZN4LIEF14ChecksumStream8finalizeEv(ptr noundef nonnu
   %27 = add i32 %26, %.neg14
   %28 = and i32 %27, 65535
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !30
+  %30 = load i64, ptr %29, align 8, !tbaa !28
   %31 = trunc i64 %30 to i32
   %32 = add i32 %28, %31
   ret i32 %32
@@ -336,7 +336,7 @@ define linkonce_odr hidden void @_ZN4LIEF10SpanStreamD0Ev(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK4LIEF10SpanStream4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i64, ptr %2, align 8, !tbaa !32
+  %3 = load i64, ptr %2, align 8, !tbaa !30
   ret i64 %3
 }
 
@@ -368,7 +368,7 @@ define linkonce_odr hidden i64 @_ZN4LIEF12BinaryStream9peek_dataERSt6vectorIhSaI
 
 22:                                               ; preds = %12
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %3)
-  %23 = load ptr, ptr %1, align 8, !tbaa !34
+  %23 = load ptr, ptr %1, align 8, !tbaa !32
   %24 = load ptr, ptr %0, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load ptr, ptr %25, align 8
@@ -408,7 +408,7 @@ define linkonce_odr hidden i64 @_ZN4LIEF12BinaryStream9read_dataERSt6vectorIhSaI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4LIEF10SpanStream1pEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
@@ -445,14 +445,14 @@ define linkonce_odr hidden noundef ptr @_ZN4LIEF12BinaryStream3endEv(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4LIEF10SpanStream5startEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4LIEF10SpanStream3endEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !36
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = load ptr, ptr %0, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -512,8 +512,8 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !37
-  %5 = load ptr, ptr %0, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !35
+  %5 = load ptr, ptr %0, align 8, !tbaa !32
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -523,7 +523,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !38
+  %13 = load ptr, ptr %12, align 8, !tbaa !36
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
   %16 = icmp sgt i64 %8, -1
@@ -548,7 +548,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
   %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
-  store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !37
+  store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !35
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 25:                                               ; preds = %10
@@ -593,11 +593,11 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i: ; preds = %36, %_ZSt27__u
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i: ; preds = %37, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
-  store ptr %30, ptr %0, align 8, !tbaa !34
+  store ptr %30, ptr %0, align 8, !tbaa !32
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 %1
-  store ptr %39, ptr %3, align 8, !tbaa !37
+  store ptr %39, ptr %3, align 8, !tbaa !35
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 %29
-  store ptr %40, ptr %12, align 8, !tbaa !38
+  store ptr %40, ptr %12, align 8, !tbaa !36
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 41:                                               ; preds = %2
@@ -610,7 +610,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i: ; preds = %37, %_ZNSt6vec
   br i1 %.not.i4, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit, label %45
 
 45:                                               ; preds = %43
-  store ptr %44, ptr %3, align 8, !tbaa !37
+  store ptr %44, ptr %3, align 8, !tbaa !35
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 _ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit:   ; preds = %45, %43, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i, %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, %41
@@ -691,14 +691,12 @@ attributes #14 = { builtin nounwind allocsize(0) }
 !25 = !{!20, !21, i64 4}
 !26 = !{!27, !27, i64 0}
 !27 = !{!"short", !6, i64 0}
-!28 = distinct !{!28, !29}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!20, !5, i64 8}
-!31 = !{!20, !21, i64 0}
-!32 = !{!33, !5, i64 8}
-!33 = !{!"_ZTSN3tcb4spanIKhLm18446744073709551615EEE", !15, i64 0}
-!34 = !{!35, !16, i64 0}
-!35 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !16, i64 0, !16, i64 8, !16, i64 16}
-!36 = !{!33, !16, i64 0}
-!37 = !{!35, !16, i64 8}
-!38 = !{!35, !16, i64 16}
+!28 = !{!20, !5, i64 8}
+!29 = !{!20, !21, i64 0}
+!30 = !{!31, !5, i64 8}
+!31 = !{!"_ZTSN3tcb4spanIKhLm18446744073709551615EEE", !15, i64 0}
+!32 = !{!33, !16, i64 0}
+!33 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !16, i64 0, !16, i64 8, !16, i64 16}
+!34 = !{!31, !16, i64 0}
+!35 = !{!33, !16, i64 8}
+!36 = !{!33, !16, i64 16}

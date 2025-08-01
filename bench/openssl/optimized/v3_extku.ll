@@ -74,13 +74,13 @@ define internal ptr @v2i_EXTENDED_KEY_USAGE(ptr readnone captures(none) %0, ptr 
   %.023 = phi i32 [ %21, %19 ], [ 0, %.preheader ]
   %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.023) #4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !11
+  %11 = load ptr, ptr %10, align 8, !tbaa !10
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %15
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !14
+  %14 = load ptr, ptr %13, align 8, !tbaa !13
   br label %15
 
 15:                                               ; preds = %.lr.ph, %12
@@ -100,7 +100,7 @@ define internal ptr @v2i_EXTENDED_KEY_USAGE(ptr readnone captures(none) %0, ptr 
   %20 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %5, ptr noundef nonnull %16) #4
   %21 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %21, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %19, %.preheader, %18, %8
   %.018 = phi ptr [ null, %8 ], [ null, %18 ], [ %5, %.preheader ], [ %5, %19 ]
@@ -189,11 +189,10 @@ attributes #4 = { nounwind }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !13, i64 16}
-!12 = !{!"", !13, i64 0, !13, i64 8, !13, i64 16}
-!13 = !{!"p1 omnipotent char", !5, i64 0}
-!14 = !{!12, !13, i64 8}
-!15 = distinct !{!15, !9, !10}
+!10 = !{!11, !12, i64 16}
+!11 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16}
+!12 = !{!"p1 omnipotent char", !5, i64 0}
+!13 = !{!11, !12, i64 8}
+!14 = distinct !{!14, !9}

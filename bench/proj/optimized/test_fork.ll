@@ -47,18 +47,18 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 15:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %.preheader, label %16, !llvm.loop !4
+  br i1 %exitcond, label %.preheader, label %16
 
 16:                                               ; preds = %14, %15
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %15 ]
   %17 = call i32 @fork() #6
   %18 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %indvars.iv
-  store i32 %17, ptr %18, align 4, !tbaa !6
+  store i32 %17, ptr %18, align 4, !tbaa !4
   %19 = icmp slt i32 %17, 0
   br i1 %19, label %.thread60, label %22
 
 .thread60:                                        ; preds = %16
-  %20 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %20 = load ptr, ptr @stderr, align 8, !tbaa !8
   %21 = call i64 @fwrite(ptr nonnull @.str.1, i64 14, i64 1, ptr %20) #7
   br label %45
 
@@ -93,16 +93,16 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %15, %42
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %42 ], [ 0, %15 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  store i32 0, ptr %2, align 4, !tbaa !6
+  store i32 0, ptr %2, align 4, !tbaa !4
   %35 = getelementptr inbounds nuw [4 x i32], ptr %1, i64 0, i64 %indvars.iv74
-  %36 = load i32, ptr %35, align 4, !tbaa !6
+  %36 = load i32, ptr %35, align 4, !tbaa !4
   %37 = call i32 @waitpid(i32 noundef %36, ptr noundef nonnull %2, i32 noundef 0) #6
-  %38 = load i32, ptr %2, align 4, !tbaa !6
+  %38 = load i32, ptr %2, align 4, !tbaa !4
   %.not56 = icmp eq i32 %38, 0
   br i1 %.not56, label %42, label %39
 
 39:                                               ; preds = %.preheader
-  %40 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %40 = load ptr, ptr @stderr, align 8, !tbaa !8
   %41 = call i64 @fwrite(ptr nonnull @.str.4, i64 15, i64 1, ptr %40) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
   br label %45
@@ -111,13 +111,13 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #6
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77 = icmp eq i64 %indvars.iv.next75, 4
-  br i1 %exitcond77, label %43, label %.preheader, !llvm.loop !13
+  br i1 %exitcond77, label %43, label %.preheader
 
 43:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #6
   %44 = add nuw nsw i32 %.04972, 1
   %exitcond78 = icmp eq i32 %44, 100
-  br i1 %exitcond78, label %.thread68, label %14, !llvm.loop !14
+  br i1 %exitcond78, label %.thread68, label %14
 
 45:                                               ; preds = %39, %.thread60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #6
@@ -174,14 +174,10 @@ attributes #8 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!12 = !{!"any pointer", !8, i64 0}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!10 = !{!"any pointer", !6, i64 0}

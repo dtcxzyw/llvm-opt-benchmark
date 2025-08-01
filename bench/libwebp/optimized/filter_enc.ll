@@ -104,7 +104,7 @@ define hidden void @VP8StoreFilterStats(ptr noundef readonly captures(none) %0) 
 37:                                               ; preds = %32
   %38 = add nuw nsw i32 %.02331.i, 1
   %exitcond38.not.i = icmp eq i32 %38, 13
-  br i1 %exitcond38.not.i, label %.preheader27.i, label %.preheader28.i, !llvm.loop !30
+  br i1 %exitcond38.not.i, label %.preheader27.i, label %.preheader28.i, !llvm.loop !29
 
 .preheader.i:                                     ; preds = %47, %.preheader27.i
   %.236.i = phi double [ %35, %.preheader27.i ], [ %45, %47 ]
@@ -122,12 +122,12 @@ define hidden void @VP8StoreFilterStats(ptr noundef readonly captures(none) %0) 
   %45 = fadd double %42, %44
   %46 = add nuw nsw i32 %.12433.i, 1
   %exitcond39.not.i = icmp eq i32 %46, 7
-  br i1 %exitcond39.not.i, label %47, label %39, !llvm.loop !31
+  br i1 %exitcond39.not.i, label %47, label %39, !llvm.loop !30
 
 47:                                               ; preds = %39
   %48 = add nuw nsw i32 %.12635.i, 1
   %exitcond40.not.i = icmp eq i32 %48, 7
-  br i1 %exitcond40.not.i, label %GetMBSSIM.exit, label %.preheader.i, !llvm.loop !32
+  br i1 %exitcond40.not.i, label %GetMBSSIM.exit, label %.preheader.i, !llvm.loop !31
 
 GetMBSSIM.exit:                                   ; preds = %47
   %49 = load ptr, ptr %19, align 8, !tbaa !6
@@ -151,9 +151,9 @@ GetMBSSIM.exit:                                   ; preds = %47
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %2, align 8, !tbaa !18
-  %59 = load ptr, ptr %58, align 8, !tbaa !33
+  %59 = load ptr, ptr %58, align 8, !tbaa !32
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 36
-  %61 = load i32, ptr %60, align 4, !tbaa !46
+  %61 = load i32, ptr %60, align 4, !tbaa !45
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %GetILevel.exit.i
 
@@ -170,11 +170,11 @@ GetILevel.exit.i:                                 ; preds = %63, %57
   %.0.i.i = phi i32 [ %55, %57 ], [ %66, %63 ]
   %67 = shl nuw nsw i32 %55, 1
   %68 = add nuw nsw i32 %.0.i.i, %67
-  %69 = load ptr, ptr %53, align 8, !tbaa !49
+  %69 = load ptr, ptr %53, align 8, !tbaa !48
   %70 = load ptr, ptr %26, align 8, !tbaa !25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %69, ptr noundef nonnull align 1 dereferenceable(512) %70, i64 512, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %72 = load i32, ptr %71, align 8, !tbaa !50
+  %72 = load i32, ptr %71, align 8, !tbaa !49
   %73 = icmp eq i32 %72, 1
   br i1 %73, label %74, label %77
 
@@ -204,7 +204,7 @@ GetILevel.exit.i:                                 ; preds = %63, %57
 
 DoFilter.exit:                                    ; preds = %74, %77
   %88 = load ptr, ptr %24, align 8, !tbaa !24
-  %89 = load ptr, ptr %53, align 8, !tbaa !49
+  %89 = load ptr, ptr %53, align 8, !tbaa !48
   br label %.preheader28.i36
 
 .preheader28.i36:                                 ; preds = %99, %DoFilter.exit
@@ -232,7 +232,7 @@ DoFilter.exit:                                    ; preds = %74, %77
 99:                                               ; preds = %94
   %100 = add nuw nsw i32 %.02331.i38, 1
   %exitcond38.not.i42 = icmp eq i32 %100, 13
-  br i1 %exitcond38.not.i42, label %.preheader27.i43, label %.preheader28.i36, !llvm.loop !30
+  br i1 %exitcond38.not.i42, label %.preheader27.i43, label %.preheader28.i36, !llvm.loop !29
 
 .preheader.i44:                                   ; preds = %109, %.preheader27.i43
   %.236.i45 = phi double [ %97, %.preheader27.i43 ], [ %107, %109 ]
@@ -250,12 +250,12 @@ DoFilter.exit:                                    ; preds = %74, %77
   %107 = fadd double %104, %106
   %108 = add nuw nsw i32 %.12433.i48, 1
   %exitcond39.not.i49 = icmp eq i32 %108, 7
-  br i1 %exitcond39.not.i49, label %109, label %101, !llvm.loop !31
+  br i1 %exitcond39.not.i49, label %109, label %101, !llvm.loop !30
 
 109:                                              ; preds = %101
   %110 = add nuw nsw i32 %.12635.i46, 1
   %exitcond40.not.i50 = icmp eq i32 %110, 7
-  br i1 %exitcond40.not.i50, label %GetMBSSIM.exit51, label %.preheader.i44, !llvm.loop !32
+  br i1 %exitcond40.not.i50, label %GetMBSSIM.exit51, label %.preheader.i44, !llvm.loop !31
 
 GetMBSSIM.exit51:                                 ; preds = %109
   %111 = load ptr, ptr %19, align 8, !tbaa !6
@@ -270,7 +270,7 @@ GetMBSSIM.exit51:                                 ; preds = %109
 117:                                              ; preds = %54, %GetMBSSIM.exit51
   %118 = add nsw i32 %.057, %18
   %.not34 = icmp sgt i32 %118, %15
-  br i1 %.not34, label %.loopexit, label %54, !llvm.loop !51
+  br i1 %.not34, label %.loopexit, label %54, !llvm.loop !50
 
 .loopexit:                                        ; preds = %117, %GetMBSSIM.exit, %1
   ret void
@@ -286,7 +286,7 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   br i1 %.not, label %18, label %.preheader45
 
 .preheader45:                                     ; preds = %1
-  %6 = getelementptr i8, ptr %3, i64 1292
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1292
   br label %7
 
 7:                                                ; preds = %.preheader45, %16
@@ -308,27 +308,27 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %.1 = select i1 %14, i32 %15, i32 %.03647
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %16, label %11, !llvm.loop !52
+  br i1 %exitcond.not, label %16, label %11, !llvm.loop !51
 
 16:                                               ; preds = %11
   %.idx = mul nuw nsw i64 %indvars.iv53, 744
-  %17 = getelementptr i8, ptr %6, i64 %.idx
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   store i32 %.1, ptr %17, align 4, !tbaa !20
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 4
-  br i1 %exitcond56.not, label %.loopexit, label %7, !llvm.loop !53
+  br i1 %exitcond56.not, label %.loopexit, label %7, !llvm.loop !52
 
 18:                                               ; preds = %1
-  %19 = load ptr, ptr %3, align 8, !tbaa !33
+  %19 = load ptr, ptr %3, align 8, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %21 = load i32, ptr %20, align 4, !tbaa !54
+  %21 = load i32, ptr %20, align 4, !tbaa !53
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 608
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !55
+  %25 = load i32, ptr %24, align 8, !tbaa !54
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds [8 x [64 x i8]], ptr @kLevelsFromDelta, i64 0, i64 %26
   br label %28
@@ -338,9 +338,9 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %.03850 = phi i32 [ 0, %.preheader ], [ %spec.select, %46 ]
   %29 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %23, i64 0, i64 %indvars.iv57
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 688
-  %31 = load i32, ptr %30, align 8, !tbaa !56
+  %31 = load i32, ptr %30, align 8, !tbaa !55
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 226
-  %33 = load i16, ptr %32, align 2, !tbaa !57
+  %33 = load i16, ptr %32, align 2, !tbaa !56
   %34 = zext i16 %33 to i32
   %35 = mul nsw i32 %31, %34
   %36 = ashr i32 %35, 3
@@ -363,11 +363,11 @@ define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) 
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.03850, i32 %47)
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 4
-  br i1 %exitcond60.not, label %48, label %28, !llvm.loop !59
+  br i1 %exitcond60.not, label %48, label %28, !llvm.loop !58
 
 48:                                               ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %spec.select, ptr %49, align 4, !tbaa !60
+  store i32 %spec.select, ptr %49, align 4, !tbaa !59
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %18, %48
@@ -424,37 +424,36 @@ attributes #7 = { nounwind }
 !24 = !{!7, !9, i64 8}
 !25 = !{!7, !9, i64 16}
 !26 = !{!10, !10, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = distinct !{!30, !28, !29}
-!31 = distinct !{!31, !28, !29}
-!32 = distinct !{!32, !28, !29}
-!33 = !{!34, !35, i64 0}
-!34 = !{!"VP8Encoder", !35, i64 0, !36, i64 8, !37, i64 16, !38, i64 32, !8, i64 44, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 60, !39, i64 64, !4, i64 112, !40, i64 496, !8, i64 536, !8, i64 540, !9, i64 544, !8, i64 552, !44, i64 560, !4, i64 608, !8, i64 3584, !8, i64 3588, !8, i64 3592, !8, i64 3596, !8, i64 3600, !8, i64 3604, !8, i64 3608, !8, i64 3612, !45, i64 3616, !4, i64 23512, !14, i64 23544, !8, i64 23552, !4, i64 23556, !4, i64 23604, !8, i64 23616, !8, i64 23620, !8, i64 23624, !8, i64 23628, !8, i64 23632, !8, i64 23636, !8, i64 23640, !10, i64 23648, !9, i64 23656, !13, i64 23664, !9, i64 23672, !9, i64 23680, !15, i64 23688, !9, i64 23696}
-!35 = !{!"p1 _ZTS10WebPConfig", !10, i64 0}
-!36 = !{!"p1 _ZTS11WebPPicture", !10, i64 0}
-!37 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12}
-!38 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8}
-!39 = !{!"VP8BitWriter", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !9, i64 16, !14, i64 24, !14, i64 32, !8, i64 40}
-!40 = !{!"", !41, i64 0, !42, i64 8, !43, i64 16, !8, i64 24, !8, i64 28, !8, i64 32}
-!41 = !{!"p1 _ZTS9VP8Tokens", !10, i64 0}
-!42 = !{!"p2 _ZTS9VP8Tokens", !10, i64 0}
-!43 = !{!"p1 short", !10, i64 0}
-!44 = !{!"", !10, i64 0, !8, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !8, i64 40}
-!45 = !{!"", !4, i64 0, !4, i64 3, !4, i64 4, !4, i64 1060, !4, i64 5284, !4, i64 18344, !8, i64 19880, !8, i64 19884, !8, i64 19888}
-!46 = !{!47, !8, i64 36}
-!47 = !{!"WebPConfig", !8, i64 0, !48, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !48, i64 20, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !8, i64 40, !8, i64 44, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !8, i64 76, !8, i64 80, !8, i64 84, !8, i64 88, !8, i64 92, !8, i64 96, !8, i64 100, !8, i64 104, !8, i64 108, !8, i64 112}
-!48 = !{!"float", !4, i64 0}
-!49 = !{!7, !9, i64 24}
-!50 = !{!34, !8, i64 16}
-!51 = distinct !{!51, !28, !29}
-!52 = distinct !{!52, !28, !29}
-!53 = distinct !{!53, !28, !29}
-!54 = !{!47, !8, i64 32}
-!55 = !{!34, !8, i64 24}
-!56 = !{!21, !8, i64 688}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"short", !4, i64 0}
-!59 = distinct !{!59, !28, !29}
-!60 = !{!34, !8, i64 20}
+!29 = distinct !{!29, !28}
+!30 = distinct !{!30, !28}
+!31 = distinct !{!31, !28}
+!32 = !{!33, !34, i64 0}
+!33 = !{!"VP8Encoder", !34, i64 0, !35, i64 8, !36, i64 16, !37, i64 32, !8, i64 44, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 60, !38, i64 64, !4, i64 112, !39, i64 496, !8, i64 536, !8, i64 540, !9, i64 544, !8, i64 552, !43, i64 560, !4, i64 608, !8, i64 3584, !8, i64 3588, !8, i64 3592, !8, i64 3596, !8, i64 3600, !8, i64 3604, !8, i64 3608, !8, i64 3612, !44, i64 3616, !4, i64 23512, !14, i64 23544, !8, i64 23552, !4, i64 23556, !4, i64 23604, !8, i64 23616, !8, i64 23620, !8, i64 23624, !8, i64 23628, !8, i64 23632, !8, i64 23636, !8, i64 23640, !10, i64 23648, !9, i64 23656, !13, i64 23664, !9, i64 23672, !9, i64 23680, !15, i64 23688, !9, i64 23696}
+!34 = !{!"p1 _ZTS10WebPConfig", !10, i64 0}
+!35 = !{!"p1 _ZTS11WebPPicture", !10, i64 0}
+!36 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12}
+!37 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8}
+!38 = !{!"VP8BitWriter", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !9, i64 16, !14, i64 24, !14, i64 32, !8, i64 40}
+!39 = !{!"", !40, i64 0, !41, i64 8, !42, i64 16, !8, i64 24, !8, i64 28, !8, i64 32}
+!40 = !{!"p1 _ZTS9VP8Tokens", !10, i64 0}
+!41 = !{!"p2 _ZTS9VP8Tokens", !10, i64 0}
+!42 = !{!"p1 short", !10, i64 0}
+!43 = !{!"", !10, i64 0, !8, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !8, i64 40}
+!44 = !{!"", !4, i64 0, !4, i64 3, !4, i64 4, !4, i64 1060, !4, i64 5284, !4, i64 18344, !8, i64 19880, !8, i64 19884, !8, i64 19888}
+!45 = !{!46, !8, i64 36}
+!46 = !{!"WebPConfig", !8, i64 0, !47, i64 4, !8, i64 8, !8, i64 12, !8, i64 16, !47, i64 20, !8, i64 24, !8, i64 28, !8, i64 32, !8, i64 36, !8, i64 40, !8, i64 44, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !8, i64 76, !8, i64 80, !8, i64 84, !8, i64 88, !8, i64 92, !8, i64 96, !8, i64 100, !8, i64 104, !8, i64 108, !8, i64 112}
+!47 = !{!"float", !4, i64 0}
+!48 = !{!7, !9, i64 24}
+!49 = !{!33, !8, i64 16}
+!50 = distinct !{!50, !28}
+!51 = distinct !{!51, !28}
+!52 = distinct !{!52, !28}
+!53 = !{!46, !8, i64 32}
+!54 = !{!33, !8, i64 24}
+!55 = !{!21, !8, i64 688}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"short", !4, i64 0}
+!58 = distinct !{!58, !28}
+!59 = !{!33, !8, i64 20}

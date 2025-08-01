@@ -165,7 +165,7 @@ define void @uiter_setReplaceable_77(ptr noundef writeonly captures(address_is_n
 4:                                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) @_ZL19replaceableIterator, i64 112, i1 false), !tbaa.struct !3
   store ptr %1, ptr %0, align 8, !tbaa !10
-  %5 = load ptr, ptr %1, align 8, !tbaa !18
+  %5 = load ptr, ptr %1, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -229,7 +229,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define i32 @uiter_current32_77(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = tail call noundef i32 %3(ptr noundef %0)
   %5 = and i32 %4, -2048
   %6 = icmp eq i32 %5, 55296
@@ -242,9 +242,9 @@ define i32 @uiter_current32_77(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !21
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = tail call noundef i32 %12(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1)
-  %14 = load ptr, ptr %2, align 8, !tbaa !20
+  %14 = load ptr, ptr %2, align 8, !tbaa !19
   %15 = tail call noundef i32 %14(ptr noundef nonnull %0)
   %16 = and i32 %15, -1024
   %17 = icmp eq i32 %16, 56320
@@ -252,13 +252,13 @@ define i32 @uiter_current32_77(ptr noundef %0) local_unnamed_addr #0 {
   %19 = add nsw i32 %18, -56613888
   %20 = add nuw nsw i32 %19, %15
   %.1 = select i1 %17, i32 %20, i32 %4
-  %21 = load ptr, ptr %11, align 8, !tbaa !21
+  %21 = load ptr, ptr %11, align 8, !tbaa !20
   %22 = tail call noundef i32 %21(ptr noundef nonnull %0, i32 noundef -1, i32 noundef 1)
   br label %37
 
 23:                                               ; preds = %7
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %25 = load ptr, ptr %24, align 8, !tbaa !22
+  %25 = load ptr, ptr %24, align 8, !tbaa !21
   %26 = tail call noundef i32 %25(ptr noundef nonnull %0)
   %27 = and i32 %26, -1024
   %28 = icmp eq i32 %27, 55296
@@ -271,7 +271,7 @@ define i32 @uiter_current32_77(ptr noundef %0) local_unnamed_addr #0 {
 
 33:                                               ; preds = %23
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %35 = load ptr, ptr %34, align 8, !tbaa !21
+  %35 = load ptr, ptr %34, align 8, !tbaa !20
   %36 = tail call noundef i32 %35(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1)
   br label %37
 
@@ -289,14 +289,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 ; Function Attrs: mustprogress uwtable
 define i32 @uiter_next32_77(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
   %4 = tail call noundef i32 %3(ptr noundef %0)
   %5 = and i32 %4, -1024
   %6 = icmp eq i32 %5, 55296
   br i1 %6, label %7, label %22
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8, !tbaa !23
+  %8 = load ptr, ptr %2, align 8, !tbaa !22
   %9 = tail call noundef i32 %8(ptr noundef nonnull %0)
   %10 = and i32 %9, -1024
   %11 = icmp eq i32 %10, 56320
@@ -314,7 +314,7 @@ define i32 @uiter_next32_77(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !21
+  %20 = load ptr, ptr %19, align 8, !tbaa !20
   %21 = tail call noundef i32 %20(ptr noundef nonnull %0, i32 noundef -1, i32 noundef 1)
   br label %22
 
@@ -326,14 +326,14 @@ define i32 @uiter_next32_77(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress uwtable
 define i32 @uiter_previous32_77(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = tail call noundef i32 %3(ptr noundef %0)
   %5 = and i32 %4, -1024
   %6 = icmp eq i32 %5, 56320
   br i1 %6, label %7, label %22
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %2, align 8, !tbaa !22
+  %8 = load ptr, ptr %2, align 8, !tbaa !21
   %9 = tail call noundef i32 %8(ptr noundef nonnull %0)
   %10 = and i32 %9, -1024
   %11 = icmp eq i32 %10, 55296
@@ -351,7 +351,7 @@ define i32 @uiter_previous32_77(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !21
+  %20 = load ptr, ptr %19, align 8, !tbaa !20
   %21 = tail call noundef i32 %20(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1)
   br label %22
 
@@ -367,7 +367,7 @@ define noundef i32 @uiter_getState_77(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7
 
@@ -386,7 +386,7 @@ define void @uiter_setState_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr %2, align 4, !tbaa !25
+  %6 = load i32, ptr %2, align 4, !tbaa !24
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %17
 
@@ -395,17 +395,17 @@ define void @uiter_setState_77(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  store i32 1, ptr %2, align 4, !tbaa !25
+  store i32 1, ptr %2, align 4, !tbaa !24
   br label %17
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %13 = load ptr, ptr %12, align 8, !tbaa !27
+  %13 = load ptr, ptr %12, align 8, !tbaa !26
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %11
-  store i32 16, ptr %2, align 4, !tbaa !25
+  store i32 16, ptr %2, align 4, !tbaa !24
   br label %17
 
 16:                                               ; preds = %11
@@ -428,12 +428,12 @@ define internal noundef i32 @_ZL22stringIteratorGetIndexP13UCharIterator19UCharI
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !28
+  %5 = load i32, ptr %4, align 4, !tbaa !27
   br label %16
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !29
+  %8 = load i32, ptr %7, align 8, !tbaa !28
   br label %16
 
 9:                                                ; preds = %2
@@ -466,13 +466,13 @@ define internal noundef i32 @_ZL18stringIteratorMoveP13UCharIteratori19UCharIter
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !28
+  %6 = load i32, ptr %5, align 4, !tbaa !27
   %7 = add nsw i32 %6, %1
   br label %20
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !29
+  %10 = load i32, ptr %9, align 8, !tbaa !28
   %11 = add nsw i32 %10, %1
   br label %20
 
@@ -491,7 +491,7 @@ define internal noundef i32 @_ZL18stringIteratorMoveP13UCharIteratori19UCharIter
 20:                                               ; preds = %3, %16, %12, %8, %4
   %.0 = phi i32 [ %7, %4 ], [ %11, %8 ], [ %15, %12 ], [ %19, %16 ], [ %1, %3 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %22 = load i32, ptr %21, align 4, !tbaa !28
+  %22 = load i32, ptr %21, align 4, !tbaa !27
   %23 = icmp slt i32 %.0, %22
   br i1 %23, label %27, label %24
 
@@ -504,7 +504,7 @@ define internal noundef i32 @_ZL18stringIteratorMoveP13UCharIteratori19UCharIter
 27:                                               ; preds = %24, %20
   %.1 = phi i32 [ %22, %20 ], [ %spec.select, %24 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.1, ptr %28, align 8, !tbaa !29
+  store i32 %.1, ptr %28, align 8, !tbaa !28
   br label %29
 
 29:                                               ; preds = %3, %27
@@ -515,7 +515,7 @@ define internal noundef i32 @_ZL18stringIteratorMoveP13UCharIteratori19UCharIter
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef signext range(i8 0, 2) i8 @_ZL21stringIteratorHasNextP13UCharIterator(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp slt i32 %3, %5
@@ -526,9 +526,9 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL21stringIteratorHasNextP13
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef signext range(i8 0, 2) i8 @_ZL25stringIteratorHasPreviousP13UCharIterator(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !28
+  %5 = load i32, ptr %4, align 4, !tbaa !27
   %6 = icmp sgt i32 %3, %5
   %7 = zext i1 %6 to i8
   ret i8 %7
@@ -537,7 +537,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL25stringIteratorHasPreviou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL21stringIteratorCurrentP13UCharIterator(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp slt i32 %3, %5
@@ -547,7 +547,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL21stringIteratorCurrentP13U
   %8 = load ptr, ptr %0, align 8, !tbaa !10
   %9 = sext i32 %3 to i64
   %10 = getelementptr inbounds i16, ptr %8, i64 %9
-  %11 = load i16, ptr %10, align 2, !tbaa !30
+  %11 = load i16, ptr %10, align 2, !tbaa !29
   %12 = zext i16 %11 to i32
   br label %13
 
@@ -559,7 +559,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL21stringIteratorCurrentP13U
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL18stringIteratorNextP13UCharIterator(ptr noundef captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp slt i32 %3, %5
@@ -568,10 +568,10 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL18stringIteratorNextP13UCha
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !tbaa !10
   %9 = add nsw i32 %3, 1
-  store i32 %9, ptr %2, align 8, !tbaa !29
+  store i32 %9, ptr %2, align 8, !tbaa !28
   %10 = sext i32 %3 to i64
   %11 = getelementptr inbounds i16, ptr %8, i64 %10
-  %12 = load i16, ptr %11, align 2, !tbaa !30
+  %12 = load i16, ptr %11, align 2, !tbaa !29
   %13 = zext i16 %12 to i32
   br label %14
 
@@ -583,19 +583,19 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL18stringIteratorNextP13UCha
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL22stringIteratorPreviousP13UCharIterator(ptr noundef captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !28
+  %5 = load i32, ptr %4, align 4, !tbaa !27
   %6 = icmp sgt i32 %3, %5
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !tbaa !10
   %9 = add nsw i32 %3, -1
-  store i32 %9, ptr %2, align 8, !tbaa !29
+  store i32 %9, ptr %2, align 8, !tbaa !28
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i16, ptr %8, i64 %10
-  %12 = load i16, ptr %11, align 2, !tbaa !30
+  %12 = load i16, ptr %11, align 2, !tbaa !29
   %13 = zext i16 %12 to i32
   br label %14
 
@@ -607,7 +607,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL22stringIteratorPreviousP13
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZL22stringIteratorGetStatePK13UCharIterator(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   ret i32 %3
 }
 
@@ -617,7 +617,7 @@ define internal void @_ZL22stringIteratorSetStateP13UCharIteratorjP10UErrorCode(
   br i1 %4, label %22, label %5
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr %2, align 4, !tbaa !25
+  %6 = load i32, ptr %2, align 4, !tbaa !24
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %22
 
@@ -626,12 +626,12 @@ define internal void @_ZL22stringIteratorSetStateP13UCharIteratorjP10UErrorCode(
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  store i32 1, ptr %2, align 4, !tbaa !25
+  store i32 1, ptr %2, align 4, !tbaa !24
   br label %22
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !28
+  %13 = load i32, ptr %12, align 4, !tbaa !27
   %14 = icmp slt i32 %1, %13
   br i1 %14, label %19, label %15
 
@@ -642,12 +642,12 @@ define internal void @_ZL22stringIteratorSetStateP13UCharIteratorjP10UErrorCode(
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %15, %11
-  store i32 8, ptr %2, align 4, !tbaa !25
+  store i32 8, ptr %2, align 4, !tbaa !24
   br label %22
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %21, align 8, !tbaa !29
+  store i32 %1, ptr %21, align 8, !tbaa !28
   br label %22
 
 22:                                               ; preds = %10, %20, %19, %3, %5
@@ -681,14 +681,14 @@ define internal noundef i32 @_ZL12noopGetStatePK13UCharIterator(ptr readnone cap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZL12noopSetStateP13UCharIteratorjP10UErrorCode(ptr readnone captures(none) %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #11 {
-  store i32 16, ptr %2, align 4, !tbaa !25
+  store i32 16, ptr %2, align 4, !tbaa !24
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL22utf16BEIteratorCurrentP13UCharIterator(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp slt i32 %3, %5
@@ -716,7 +716,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL22utf16BEIteratorCurrentP13
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL19utf16BEIteratorNextP13UCharIterator(ptr noundef captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp slt i32 %3, %5
@@ -724,7 +724,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL19utf16BEIteratorNextP13UCh
 
 7:                                                ; preds = %1
   %8 = add nsw i32 %3, 1
-  store i32 %8, ptr %2, align 8, !tbaa !29
+  store i32 %8, ptr %2, align 8, !tbaa !28
   %.val = load ptr, ptr %0, align 8, !tbaa !10
   %9 = shl nsw i32 %3, 1
   %10 = sext i32 %9 to i64
@@ -746,15 +746,15 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL19utf16BEIteratorNextP13UCh
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL23utf16BEIteratorPreviousP13UCharIterator(ptr noundef captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !28
+  %5 = load i32, ptr %4, align 4, !tbaa !27
   %6 = icmp sgt i32 %3, %5
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %1
   %8 = add nsw i32 %3, -1
-  store i32 %8, ptr %2, align 8, !tbaa !29
+  store i32 %8, ptr %2, align 8, !tbaa !28
   %.val = load ptr, ptr %0, align 8, !tbaa !10
   %9 = shl nsw i32 %8, 1
   %10 = sext i32 %9 to i64
@@ -786,25 +786,25 @@ define internal noundef i32 @_ZL25characterIteratorGetIndexP13UCharIterator19UCh
 3:                                                ; preds = %2
   %4 = load ptr, ptr %0, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !32
+  %6 = load i32, ptr %5, align 8, !tbaa !31
   br label %20
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %10 = load i32, ptr %9, align 4, !tbaa !36
+  %10 = load i32, ptr %9, align 4, !tbaa !35
   br label %20
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %0, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !37
+  %14 = load i32, ptr %13, align 4, !tbaa !36
   br label %20
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %0, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i32, ptr %17, align 8, !tbaa !38
+  %18 = load i32, ptr %17, align 8, !tbaa !37
   br label %20
 
 19:                                               ; preds = %2
@@ -827,18 +827,18 @@ define internal noundef i32 @_ZL21characterIteratorMoveP13UCharIteratori19UCharI
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %0, align 8, !tbaa !10
-  %6 = load ptr, ptr %5, align 8, !tbaa !18
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i16 %8(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef %1)
   %10 = load ptr, ptr %0, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !36
+  %12 = load i32, ptr %11, align 4, !tbaa !35
   br label %31
 
 13:                                               ; preds = %3, %3, %3
   %14 = load ptr, ptr %0, align 8, !tbaa !10
-  %15 = load ptr, ptr %14, align 8, !tbaa !18
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 192
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i32 %17(ptr noundef nonnull align 8 dereferenceable(24) %14, i32 noundef %1, i32 noundef %2)
@@ -847,15 +847,15 @@ define internal noundef i32 @_ZL21characterIteratorMoveP13UCharIteratori19UCharI
 19:                                               ; preds = %3
   %20 = load ptr, ptr %0, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !38
+  %22 = load i32, ptr %21, align 8, !tbaa !37
   %23 = add nsw i32 %22, %1
-  %24 = load ptr, ptr %20, align 8, !tbaa !18
+  %24 = load ptr, ptr %20, align 8, !tbaa !17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i16 %26(ptr noundef nonnull align 8 dereferenceable(24) %20, i32 noundef %23)
   %28 = load ptr, ptr %0, align 8, !tbaa !10
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  %30 = load i32, ptr %29, align 4, !tbaa !36
+  %30 = load i32, ptr %29, align 4, !tbaa !35
   br label %31
 
 31:                                               ; preds = %3, %19, %13, %4
@@ -866,7 +866,7 @@ define internal noundef i32 @_ZL21characterIteratorMoveP13UCharIteratori19UCharI
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext i8 @_ZL24characterIteratorHasNextP13UCharIterator(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !10
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef signext i8 %5(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -876,7 +876,7 @@ define internal noundef signext i8 @_ZL24characterIteratorHasNextP13UCharIterato
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext i8 @_ZL28characterIteratorHasPreviousP13UCharIterator(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !10
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef signext i8 %5(ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -886,7 +886,7 @@ define internal noundef signext i8 @_ZL28characterIteratorHasPreviousP13UCharIte
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL24characterIteratorCurrentP13UCharIterator(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !10
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i16 %5(ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -896,7 +896,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL24characterIteratorCurrentP
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %0, align 8, !tbaa !10
-  %10 = load ptr, ptr %9, align 8, !tbaa !18
+  %10 = load ptr, ptr %9, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef signext i8 %12(ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -912,7 +912,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL24characterIteratorCurrentP
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL21characterIteratorNextP13UCharIterator(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !10
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef signext i8 %5(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -921,7 +921,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL21characterIteratorNextP13U
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !tbaa !10
-  %9 = load ptr, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i16 %11(ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -936,7 +936,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL21characterIteratorNextP13U
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL25characterIteratorPreviousP13UCharIterator(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !10
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef signext i8 %5(ptr noundef nonnull align 8 dereferenceable(24) %2)
@@ -945,7 +945,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL25characterIteratorPrevious
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !tbaa !10
-  %9 = load ptr, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i16 %11(ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -961,7 +961,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL25characterIteratorPrevious
 define internal noundef i32 @_ZL25characterIteratorGetStatePK13UCharIterator(ptr noundef readonly captures(none) %0) #8 {
   %2 = load ptr, ptr %0, align 8, !tbaa !10
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !36
+  %4 = load i32, ptr %3, align 4, !tbaa !35
   ret i32 %4
 }
 
@@ -971,7 +971,7 @@ define internal void @_ZL25characterIteratorSetStateP13UCharIteratorjP10UErrorCo
   br i1 %4, label %28, label %5
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr %2, align 4, !tbaa !25
+  %6 = load i32, ptr %2, align 4, !tbaa !24
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %28
 
@@ -985,27 +985,27 @@ define internal void @_ZL25characterIteratorSetStateP13UCharIteratorjP10UErrorCo
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10, %8
-  store i32 1, ptr %2, align 4, !tbaa !25
+  store i32 1, ptr %2, align 4, !tbaa !24
   br label %28
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !32
+  %16 = load i32, ptr %15, align 8, !tbaa !31
   %17 = icmp slt i32 %1, %16
   br i1 %17, label %22, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !37
+  %20 = load i32, ptr %19, align 4, !tbaa !36
   %21 = icmp slt i32 %20, %1
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18, %14
-  store i32 8, ptr %2, align 4, !tbaa !25
+  store i32 8, ptr %2, align 4, !tbaa !24
   br label %28
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr %11, align 8, !tbaa !18
+  %24 = load ptr, ptr %11, align 8, !tbaa !17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i16 %26(ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef %1)
@@ -1018,7 +1018,7 @@ define internal void @_ZL25characterIteratorSetStateP13UCharIteratorjP10UErrorCo
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL26replaceableIteratorCurrentP13UCharIterator(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp slt i32 %3, %5
@@ -1026,7 +1026,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL26replaceableIteratorCurren
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !tbaa !10
-  %9 = load ptr, ptr %8, align 8, !tbaa !18
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i16 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %3)
@@ -1041,7 +1041,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL26replaceableIteratorCurren
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL23replaceableIteratorNextP13UCharIterator(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp slt i32 %3, %5
@@ -1050,8 +1050,8 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL23replaceableIteratorNextP1
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !tbaa !10
   %9 = add nsw i32 %3, 1
-  store i32 %9, ptr %2, align 8, !tbaa !29
-  %10 = load ptr, ptr %8, align 8, !tbaa !18
+  store i32 %9, ptr %2, align 8, !tbaa !28
+  %10 = load ptr, ptr %8, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i16 %12(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %3)
@@ -1066,17 +1066,17 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL23replaceableIteratorNextP1
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL27replaceableIteratorPreviousP13UCharIterator(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !28
+  %5 = load i32, ptr %4, align 4, !tbaa !27
   %6 = icmp sgt i32 %3, %5
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8, !tbaa !10
   %9 = add nsw i32 %3, -1
-  store i32 %9, ptr %2, align 8, !tbaa !29
-  %10 = load ptr, ptr %8, align 8, !tbaa !18
+  store i32 %9, ptr %2, align 8, !tbaa !28
+  %10 = load ptr, ptr %8, align 8, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i16 %12(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %9)
@@ -1100,14 +1100,14 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !29
+  %5 = load i32, ptr %4, align 8, !tbaa !28
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %266
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i32, ptr %9, align 4, !tbaa !28
+  %10 = load i32, ptr %9, align 4, !tbaa !27
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph234, label %._crit_edge235
 
@@ -1231,12 +1231,12 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
   %.3161 = phi i32 [ 1, %.lr.ph234 ], [ %80, %77 ], [ 1, %72 ], [ 1, %22 ], [ 1, %54 ], [ 1, %40 ], [ 1, %37 ], [ 1, %68 ]
   %83 = add nuw nsw i32 %.3161, %.0156232
   %84 = icmp slt i32 %.5167, %10
-  br i1 %84, label %.lr.ph234, label %._crit_edge235, !llvm.loop !39
+  br i1 %84, label %.lr.ph234, label %._crit_edge235, !llvm.loop !38
 
 ._crit_edge235:                                   ; preds = %82, %.thread, %7
   %.0162.lcssa = phi i32 [ 0, %7 ], [ %10, %.thread ], [ %.5167, %82 ]
   %.0156.lcssa = phi i32 [ 0, %7 ], [ %81, %.thread ], [ %83, %82 ]
-  store i32 %.0162.lcssa, ptr %9, align 4, !tbaa !28
+  store i32 %.0162.lcssa, ptr %9, align 4, !tbaa !27
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %86 = load i32, ptr %85, align 4, !tbaa !13
   %87 = icmp eq i32 %.0162.lcssa, %86
@@ -1249,11 +1249,11 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
 
 90:                                               ; preds = %88, %._crit_edge235
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %92 = load i32, ptr %91, align 8, !tbaa !40
+  %92 = load i32, ptr %91, align 8, !tbaa !39
   %.not213 = icmp ne i32 %92, 0
   %93 = sext i1 %.not213 to i32
   %spec.select = add nsw i32 %.0156.lcssa, %93
-  store i32 %spec.select, ptr %4, align 8, !tbaa !29
+  store i32 %spec.select, ptr %4, align 8, !tbaa !28
   br label %266
 
 94:                                               ; preds = %2, %2
@@ -1265,10 +1265,10 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
 98:                                               ; preds = %94
   %99 = load ptr, ptr %0, align 8, !tbaa !10
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %101 = load i32, ptr %100, align 8, !tbaa !29
+  %101 = load i32, ptr %100, align 8, !tbaa !28
   %102 = icmp slt i32 %101, 0
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %104 = load i32, ptr %103, align 4, !tbaa !28
+  %104 = load i32, ptr %103, align 4, !tbaa !27
   br i1 %102, label %105, label %184
 
 105:                                              ; preds = %98
@@ -1395,23 +1395,23 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
   %.5 = phi i32 [ %107, %.lr.ph ], [ %173, %172 ], [ %.3, %167 ], [ %107, %163 ], [ %148, %149 ], [ %107, %135 ], [ %107, %132 ], [ %107, %117 ]
   %178 = add nuw nsw i32 %.3149, %.0142223
   %179 = icmp slt i32 %.5, %104
-  br i1 %179, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %179, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %177, %.thread244, %105
   %.0143.lcssa = phi i32 [ 0, %105 ], [ %104, %.thread244 ], [ %.5, %177 ]
   %.0142.lcssa = phi i32 [ 0, %105 ], [ %176, %.thread244 ], [ %178, %177 ]
-  store i32 %.0143.lcssa, ptr %103, align 4, !tbaa !28
+  store i32 %.0143.lcssa, ptr %103, align 4, !tbaa !27
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %181 = load i32, ptr %180, align 8, !tbaa !40
+  %181 = load i32, ptr %180, align 8, !tbaa !39
   %.not202 = icmp ne i32 %181, 0
   %182 = sext i1 %.not202 to i32
   %183 = add nsw i32 %.0142.lcssa, %182
-  store i32 %183, ptr %100, align 8, !tbaa !29
+  store i32 %183, ptr %100, align 8, !tbaa !28
   br label %188
 
 184:                                              ; preds = %98
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %186 = load i32, ptr %185, align 8, !tbaa !40
+  %186 = load i32, ptr %185, align 8, !tbaa !39
   %.not = icmp ne i32 %186, 0
   %187 = zext i1 %.not to i32
   %spec.select219 = add nuw nsw i32 %101, %187
@@ -1545,7 +1545,7 @@ define internal noundef i32 @_ZL20utf8IteratorGetIndexP13UCharIterator19UCharIte
   %.12 = phi i32 [ %192, %.lr.ph228 ], [ %258, %257 ], [ %.10, %252 ], [ %192, %248 ], [ %233, %234 ], [ %192, %220 ], [ %192, %217 ], [ %192, %202 ]
   %263 = add nsw i32 %.7153, %.2226
   %264 = icmp slt i32 %.12, %190
-  br i1 %264, label %.lr.ph228, label %._crit_edge229, !llvm.loop !42
+  br i1 %264, label %.lr.ph228, label %._crit_edge229, !llvm.loop !41
 
 ._crit_edge229:                                   ; preds = %262, %.thread249, %188
   %.2.lcssa = phi i32 [ %.1, %188 ], [ %261, %.thread249 ], [ %263, %262 ]
@@ -1574,7 +1574,7 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !29
+  %7 = load i32, ptr %6, align 8, !tbaa !28
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %9, label %.critedge
 
@@ -1594,13 +1594,13 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 -1, ptr %18, align 8, !tbaa !29
+  store i32 -1, ptr %18, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %20, ptr %21, align 4, !tbaa !28
+  store i32 %20, ptr %21, align 4, !tbaa !27
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %22, align 8, !tbaa !40
+  store i32 0, ptr %22, align 8, !tbaa !39
   %23 = icmp sgt i32 %1, -1
   br i1 %23, label %242, label %62
 
@@ -1611,11 +1611,11 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %27, align 8, !tbaa !40
+  store i32 0, ptr %27, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %28, align 4, !tbaa !28
+  store i32 0, ptr %28, align 4, !tbaa !27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %29, align 8, !tbaa !29
+  store i32 0, ptr %29, align 8, !tbaa !28
   br label %242
 
 30:                                               ; preds = %24
@@ -1626,17 +1626,17 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
   br i1 %or.cond, label %39, label %34
 
 34:                                               ; preds = %30
-  store i32 %32, ptr %33, align 8, !tbaa !29
+  store i32 %32, ptr %33, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %36 = load i32, ptr %35, align 4, !tbaa !13
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %36, ptr %37, align 4, !tbaa !28
+  store i32 %36, ptr %37, align 4, !tbaa !27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %38, align 8, !tbaa !40
+  store i32 0, ptr %38, align 8, !tbaa !39
   br label %242
 
 39:                                               ; preds = %30
-  %40 = load i32, ptr %33, align 8, !tbaa !29
+  %40 = load i32, ptr %33, align 8, !tbaa !28
   %41 = icmp slt i32 %40, 0
   %42 = lshr i32 %40, 1
   %43 = icmp samesign ult i32 %.0144, %42
@@ -1645,10 +1645,10 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %45, align 8, !tbaa !40
+  store i32 0, ptr %45, align 8, !tbaa !39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %46, align 4, !tbaa !28
-  store i32 0, ptr %33, align 8, !tbaa !29
+  store i32 0, ptr %46, align 4, !tbaa !27
+  store i32 0, ptr %33, align 8, !tbaa !28
   br label %58
 
 47:                                               ; preds = %39
@@ -1662,13 +1662,13 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %49
-  store i32 %32, ptr %33, align 8, !tbaa !29
+  store i32 %32, ptr %33, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %55 = load i32, ptr %54, align 4, !tbaa !13
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %55, ptr %56, align 4, !tbaa !28
+  store i32 %55, ptr %56, align 4, !tbaa !27
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %57, align 8, !tbaa !40
+  store i32 0, ptr %57, align 8, !tbaa !39
   br label %58
 
 58:                                               ; preds = %47, %49, %53, %44
@@ -1679,7 +1679,7 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
 
 ._crit_edge:                                      ; preds = %58
   %.phi.trans.insert210 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre211 = load i32, ptr %.phi.trans.insert210, align 4, !tbaa !28
+  %.pre211 = load i32, ptr %.phi.trans.insert210, align 4, !tbaa !27
   br label %80
 
 .critedge:                                        ; preds = %5
@@ -1688,7 +1688,7 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
 
 .critedge._crit_edge:                             ; preds = %.critedge
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !28
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !27
   br label %62
 
 62:                                               ; preds = %.critedge._crit_edge, %17
@@ -1701,10 +1701,10 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
 
 67:                                               ; preds = %62
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %68, align 8, !tbaa !40
-  store i32 0, ptr %66, align 4, !tbaa !28
+  store i32 0, ptr %68, align 8, !tbaa !39
+  store i32 0, ptr %66, align 4, !tbaa !27
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %69, align 8, !tbaa !29
+  store i32 0, ptr %69, align 8, !tbaa !28
   br label %242
 
 70:                                               ; preds = %62
@@ -1718,10 +1718,10 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load i32, ptr %75, align 8, !tbaa !12
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %76, ptr %77, align 8, !tbaa !29
-  store i32 %72, ptr %66, align 4, !tbaa !28
+  store i32 %76, ptr %77, align 8, !tbaa !28
+  store i32 %72, ptr %66, align 4, !tbaa !27
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %78, align 8, !tbaa !40
+  store i32 0, ptr %78, align 8, !tbaa !39
   %79 = icmp sgt i32 %76, -1
   %spec.select = select i1 %79, i32 %76, i32 -2
   br label %242
@@ -1740,12 +1740,12 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %88 = load i32, ptr %87, align 4, !tbaa !13
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %90 = load i32, ptr %89, align 8, !tbaa !40
+  %90 = load i32, ptr %89, align 8, !tbaa !39
   %.not181 = icmp eq i32 %90, 0
   br i1 %.not181, label %94, label %91
 
 91:                                               ; preds = %86
-  store i32 0, ptr %89, align 8, !tbaa !40
+  store i32 0, ptr %89, align 8, !tbaa !39
   %92 = add nsw i32 %81, 1
   %93 = add nsw i32 %.0150, -1
   br label %94
@@ -1878,7 +1878,7 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
   %173 = zext nneg i8 %165 to i32
   %174 = shl nuw nsw i32 %.1146, 6
   %175 = or disjoint i32 %174, %173
-  store i32 %175, ptr %89, align 8, !tbaa !40
+  store i32 %175, ptr %89, align 8, !tbaa !39
   %176 = add nsw i32 %.2204, 1
   br label %.loopexit
 
@@ -1891,7 +1891,7 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
   %180 = icmp sgt i32 %179, 0
   %181 = icmp slt i32 %177, %88
   %182 = select i1 %180, i1 %181, i1 false
-  br i1 %182, label %.lr.ph205, label %.loopexit, !llvm.loop !43
+  br i1 %182, label %.lr.ph205, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.thread, %94, %172
   %183 = phi i32 [ -1, %172 ], [ 0, %94 ], [ 0, %.thread ]
@@ -1922,17 +1922,17 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
 
 197:                                              ; preds = %195
   %198 = add nsw i32 %189, %183
-  store i32 %198, ptr %83, align 8, !tbaa !29
+  store i32 %198, ptr %83, align 8, !tbaa !28
   br label %234
 
 199:                                              ; preds = %80
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %201 = load i32, ptr %200, align 8, !tbaa !40
+  %201 = load i32, ptr %200, align 8, !tbaa !39
   %.not180 = icmp eq i32 %201, 0
   br i1 %.not180, label %206, label %202
 
 202:                                              ; preds = %199
-  store i32 0, ptr %200, align 8, !tbaa !40
+  store i32 0, ptr %200, align 8, !tbaa !39
   %203 = add nsw i32 %.promoted, -4
   %204 = add nsw i32 %81, -1
   %205 = add nsw i32 %.0150, 1
@@ -1972,7 +1972,7 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
 223:                                              ; preds = %221
   %224 = load i32, ptr %4, align 4, !tbaa !8
   %225 = add nsw i32 %224, 4
-  store i32 %219, ptr %200, align 8, !tbaa !40
+  store i32 %219, ptr %200, align 8, !tbaa !39
   %226 = add nsw i32 %.7200, -1
   br label %thread-pre-split
 
@@ -1985,24 +1985,24 @@ define internal noundef i32 @_ZL16utf8IteratorMoveP13UCharIteratori19UCharIterat
   %230 = load i32, ptr %4, align 4
   %231 = icmp sgt i32 %230, 0
   %232 = select i1 %229, i1 %231, i1 false
-  br i1 %232, label %.lr.ph, label %thread-pre-split, !llvm.loop !44
+  br i1 %232, label %.lr.ph, label %thread-pre-split, !llvm.loop !43
 
 thread-pre-split:                                 ; preds = %.thread193, %206, %223, %193, %195, %.loopexit, %191
   %233 = phi i32 [ %88, %191 ], [ %185, %.loopexit ], [ %88, %195 ], [ %88, %193 ], [ %225, %223 ], [ %207, %206 ], [ %230, %.thread193 ]
   %.5.ph = phi i32 [ %.3, %191 ], [ %.3, %.loopexit ], [ %.3, %195 ], [ %.3, %193 ], [ %226, %223 ], [ %.6, %206 ], [ %227, %.thread193 ]
-  %.pr = load i32, ptr %83, align 8, !tbaa !29
+  %.pr = load i32, ptr %83, align 8, !tbaa !28
   br label %234
 
 234:                                              ; preds = %thread-pre-split, %197
   %235 = phi i32 [ %233, %thread-pre-split ], [ %88, %197 ]
   %236 = phi i32 [ %.pr, %thread-pre-split ], [ %198, %197 ]
   %.5 = phi i32 [ %.5.ph, %thread-pre-split ], [ %.3, %197 ]
-  store i32 %235, ptr %84, align 4, !tbaa !28
+  store i32 %235, ptr %84, align 4, !tbaa !27
   %237 = icmp sgt i32 %236, -1
   br i1 %237, label %238, label %239
 
 238:                                              ; preds = %234
-  store i32 %.5, ptr %83, align 8, !tbaa !29
+  store i32 %.5, ptr %83, align 8, !tbaa !28
   br label %242
 
 239:                                              ; preds = %234
@@ -2010,7 +2010,7 @@ thread-pre-split:                                 ; preds = %.thread193, %206, %
   br i1 %240, label %241, label %242
 
 241:                                              ; preds = %239
-  store i32 %235, ptr %83, align 8, !tbaa !29
+  store i32 %235, ptr %83, align 8, !tbaa !28
   br label %242
 
 242:                                              ; preds = %239, %.critedge, %58, %3, %17, %241, %238, %74, %67, %34, %26
@@ -2022,7 +2022,7 @@ thread-pre-split:                                 ; preds = %.thread193, %206, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef signext range(i8 0, 2) i8 @_ZL19utf8IteratorHasNextP13UCharIterator(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !28
+  %3 = load i32, ptr %2, align 4, !tbaa !27
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp slt i32 %3, %5
@@ -2030,7 +2030,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL19utf8IteratorHasNextP13UC
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !40
+  %9 = load i32, ptr %8, align 8, !tbaa !39
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i8
   br label %12
@@ -2043,7 +2043,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL19utf8IteratorHasNextP13UC
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef signext range(i8 0, 2) i8 @_ZL23utf8IteratorHasPreviousP13UCharIterator(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !28
+  %3 = load i32, ptr %2, align 4, !tbaa !27
   %4 = icmp sgt i32 %3, 0
   %5 = zext i1 %4 to i8
   ret i8 %5
@@ -2052,7 +2052,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL23utf8IteratorHasPreviousP
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL19utf8IteratorCurrentP13UCharIterator(ptr noundef readonly captures(none) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i32, ptr %2, align 8, !tbaa !40
+  %3 = load i32, ptr %2, align 8, !tbaa !39
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %7, label %4
 
@@ -2063,7 +2063,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL19utf8IteratorCurrentP13UCh
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !28
+  %9 = load i32, ptr %8, align 4, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = load i32, ptr %10, align 4, !tbaa !13
   %12 = icmp slt i32 %9, %11
@@ -2196,27 +2196,27 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL19utf8IteratorCurrentP13UCh
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharIterator(ptr noundef captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i32, ptr %2, align 8, !tbaa !40
+  %3 = load i32, ptr %2, align 8, !tbaa !39
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %1
   %5 = and i32 %3, 1023
   %6 = or disjoint i32 %5, 56320
-  store i32 0, ptr %2, align 8, !tbaa !40
+  store i32 0, ptr %2, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !29
+  %8 = load i32, ptr %7, align 8, !tbaa !28
   %9 = icmp sgt i32 %8, -1
   br i1 %9, label %10, label %125
 
 10:                                               ; preds = %4
   %11 = add nuw nsw i32 %8, 1
-  store i32 %11, ptr %7, align 8, !tbaa !29
+  store i32 %11, ptr %7, align 8, !tbaa !28
   br label %125
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !28
+  %14 = load i32, ptr %13, align 4, !tbaa !27
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %17 = icmp slt i32 %14, %16
@@ -2225,7 +2225,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
 18:                                               ; preds = %12
   %19 = load ptr, ptr %0, align 8, !tbaa !10
   %20 = add nsw i32 %14, 1
-  store i32 %20, ptr %13, align 4, !tbaa !28
+  store i32 %20, ptr %13, align 4, !tbaa !27
   %21 = sext i32 %14 to i64
   %22 = getelementptr inbounds i8, ptr %19, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !14
@@ -2287,7 +2287,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
 
 61:                                               ; preds = %49
   %62 = add nsw i32 %14, 2
-  store i32 %62, ptr %13, align 4, !tbaa !28
+  store i32 %62, ptr %13, align 4, !tbaa !27
   %.not80 = icmp eq i32 %62, %16
   br i1 %.not80, label %94, label %63
 
@@ -2310,7 +2310,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
   %75 = zext nneg i8 %.0 to i32
   %76 = or disjoint i32 %74, %75
   %77 = add nsw i32 %73, 1
-  store i32 %77, ptr %13, align 4, !tbaa !28
+  store i32 %77, ptr %13, align 4, !tbaa !27
   %.not82 = icmp eq i32 %77, %16
   br i1 %.not82, label %94, label %82
 
@@ -2337,20 +2337,20 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
   %91 = shl nuw nsw i32 %.1, 6
   %92 = or disjoint i32 %91, %90
   %93 = add nsw i32 %83, 1
-  store i32 %93, ptr %13, align 4, !tbaa !28
+  store i32 %93, ptr %13, align 4, !tbaa !27
   br label %94
 
 94:                                               ; preds = %89, %82, %78, %72, %63, %61, %49, %46, %31, %26, %18
   %95 = phi i32 [ %20, %18 ], [ %93, %89 ], [ %83, %82 ], [ %20, %78 ], [ %16, %72 ], [ %62, %63 ], [ %16, %61 ], [ %20, %49 ], [ %20, %46 ], [ %20, %31 ], [ %16, %26 ]
   %.3 = phi i32 [ %24, %18 ], [ %92, %89 ], [ 65533, %82 ], [ 65533, %78 ], [ 65533, %72 ], [ 65533, %63 ], [ 65533, %61 ], [ 65533, %49 ], [ 65533, %46 ], [ 65533, %31 ], [ 65533, %26 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %97 = load i32, ptr %96, align 8, !tbaa !29
+  %97 = load i32, ptr %96, align 8, !tbaa !28
   %98 = icmp sgt i32 %97, -1
   br i1 %98, label %99, label %109
 
 99:                                               ; preds = %94
   %100 = add nuw nsw i32 %97, 1
-  store i32 %100, ptr %96, align 8, !tbaa !29
+  store i32 %100, ptr %96, align 8, !tbaa !28
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = load i32, ptr %101, align 8, !tbaa !12
   %103 = icmp slt i32 %102, 0
@@ -2379,7 +2379,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
   %116 = icmp sgt i32 %.3, 65535
   %117 = sext i1 %116 to i32
   %118 = add nsw i32 %113, %117
-  store i32 %118, ptr %96, align 8, !tbaa !29
+  store i32 %118, ptr %96, align 8, !tbaa !28
   br label %119
 
 119:                                              ; preds = %109, %111, %115, %99, %105
@@ -2387,7 +2387,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
   br i1 %120, label %125, label %121
 
 121:                                              ; preds = %119
-  store i32 %.3, ptr %2, align 8, !tbaa !40
+  store i32 %.3, ptr %2, align 8, !tbaa !39
   %122 = lshr i32 %.3, 10
   %123 = add nuw nsw i32 %122, 55232
   %124 = and i32 %123, 65535
@@ -2401,26 +2401,26 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL16utf8IteratorNextP13UCharI
 ; Function Attrs: mustprogress uwtable
 define internal noundef range(i32 -2147483648, 65536) i32 @_ZL20utf8IteratorPreviousP13UCharIterator(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i32, ptr %2, align 8, !tbaa !40
+  %3 = load i32, ptr %2, align 8, !tbaa !39
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %17, label %4
 
 4:                                                ; preds = %1
   %5 = lshr i32 %3, 10
   %6 = add nuw nsw i32 %5, 55232
-  store i32 0, ptr %2, align 8, !tbaa !40
+  store i32 0, ptr %2, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !28
+  %8 = load i32, ptr %7, align 4, !tbaa !27
   %9 = add nsw i32 %8, -4
-  store i32 %9, ptr %7, align 4, !tbaa !28
+  store i32 %9, ptr %7, align 4, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !29
+  %11 = load i32, ptr %10, align 8, !tbaa !28
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %4
   %14 = add nsw i32 %11, -1
-  store i32 %14, ptr %10, align 8, !tbaa !29
+  store i32 %14, ptr %10, align 8, !tbaa !28
   br label %15
 
 15:                                               ; preds = %13, %4
@@ -2429,14 +2429,14 @@ define internal noundef range(i32 -2147483648, 65536) i32 @_ZL20utf8IteratorPrev
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !28
+  %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %51
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr %0, align 8, !tbaa !10
   %23 = add nsw i32 %19, -1
-  store i32 %23, ptr %18, align 4, !tbaa !28
+  store i32 %23, ptr %18, align 4, !tbaa !27
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !14
@@ -2451,7 +2451,7 @@ define internal noundef range(i32 -2147483648, 65536) i32 @_ZL20utf8IteratorPrev
 31:                                               ; preds = %29, %21
   %.0 = phi i32 [ %27, %21 ], [ %30, %29 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load i32, ptr %32, align 8, !tbaa !29
+  %33 = load i32, ptr %32, align 8, !tbaa !28
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %37
 
@@ -2460,7 +2460,7 @@ define internal noundef range(i32 -2147483648, 65536) i32 @_ZL20utf8IteratorPrev
   br label %.sink.split
 
 37:                                               ; preds = %31
-  %38 = load i32, ptr %18, align 4, !tbaa !28
+  %38 = load i32, ptr %18, align 4, !tbaa !27
   %39 = icmp slt i32 %38, 2
   br i1 %39, label %40, label %44
 
@@ -2472,7 +2472,7 @@ define internal noundef range(i32 -2147483648, 65536) i32 @_ZL20utf8IteratorPrev
 
 .sink.split:                                      ; preds = %35, %40
   %.sink = phi i32 [ %43, %40 ], [ %36, %35 ]
-  store i32 %.sink, ptr %32, align 8, !tbaa !29
+  store i32 %.sink, ptr %32, align 8, !tbaa !28
   br label %44
 
 44:                                               ; preds = %.sink.split, %37
@@ -2480,10 +2480,10 @@ define internal noundef range(i32 -2147483648, 65536) i32 @_ZL20utf8IteratorPrev
   br i1 %45, label %51, label %46
 
 46:                                               ; preds = %44
-  %47 = load i32, ptr %18, align 4, !tbaa !28
+  %47 = load i32, ptr %18, align 4, !tbaa !27
   %48 = add nsw i32 %47, 4
-  store i32 %48, ptr %18, align 4, !tbaa !28
-  store i32 %.0, ptr %2, align 8, !tbaa !40
+  store i32 %48, ptr %18, align 4, !tbaa !27
+  store i32 %.0, ptr %2, align 8, !tbaa !39
   %49 = and i32 %.0, 1023
   %50 = or disjoint i32 %49, 56320
   br label %51
@@ -2496,10 +2496,10 @@ define internal noundef range(i32 -2147483648, 65536) i32 @_ZL20utf8IteratorPrev
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZL20utf8IteratorGetStatePK13UCharIterator(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !28
+  %3 = load i32, ptr %2, align 4, !tbaa !27
   %4 = shl i32 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !40
+  %6 = load i32, ptr %5, align 8, !tbaa !39
   %.not = icmp ne i32 %6, 0
   %7 = zext i1 %.not to i32
   %spec.select = or disjoint i32 %4, %7
@@ -2513,7 +2513,7 @@ define internal void @_ZL20utf8IteratorSetStateP13UCharIteratorjP10UErrorCode(pt
   br i1 %5, label %46, label %6
 
 6:                                                ; preds = %3
-  %7 = load i32, ptr %2, align 4, !tbaa !25
+  %7 = load i32, ptr %2, align 4, !tbaa !24
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %9, label %46
 
@@ -2522,15 +2522,15 @@ define internal void @_ZL20utf8IteratorSetStateP13UCharIteratorjP10UErrorCode(pt
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9
-  store i32 1, ptr %2, align 4, !tbaa !25
+  store i32 1, ptr %2, align 4, !tbaa !24
   br label %46
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !28
+  %14 = load i32, ptr %13, align 4, !tbaa !27
   %15 = shl i32 %14, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load i32, ptr %16, align 8, !tbaa !40
+  %17 = load i32, ptr %16, align 8, !tbaa !39
   %.not.i = icmp ne i32 %17, 0
   %18 = zext i1 %.not.i to i32
   %spec.select.i = or disjoint i32 %15, %18
@@ -2553,19 +2553,19 @@ define internal void @_ZL20utf8IteratorSetStateP13UCharIteratorjP10UErrorCode(pt
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %20, %24
-  store i32 8, ptr %2, align 4, !tbaa !25
+  store i32 8, ptr %2, align 4, !tbaa !24
   br label %45
 
 29:                                               ; preds = %24
-  store i32 %21, ptr %13, align 4, !tbaa !28
+  store i32 %21, ptr %13, align 4, !tbaa !27
   %30 = icmp ult i32 %1, 4
   %spec.select = select i1 %30, i32 %21, i32 -1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %spec.select, ptr %31, align 8, !tbaa !29
+  store i32 %spec.select, ptr %31, align 8, !tbaa !28
   br i1 %.not, label %32, label %33
 
 32:                                               ; preds = %29
-  store i32 0, ptr %16, align 8, !tbaa !40
+  store i32 0, ptr %16, align 8, !tbaa !39
   br label %45
 
 33:                                               ; preds = %29
@@ -2585,11 +2585,11 @@ define internal void @_ZL20utf8IteratorSetStateP13UCharIteratorjP10UErrorCode(pt
   br i1 %43, label %.thread, label %44
 
 .thread:                                          ; preds = %33, %40
-  store i32 8, ptr %2, align 4, !tbaa !25
+  store i32 8, ptr %2, align 4, !tbaa !24
   br label %45
 
 44:                                               ; preds = %40
-  store i32 %42, ptr %16, align 8, !tbaa !40
+  store i32 %42, ptr %16, align 8, !tbaa !39
   br label %45
 
 45:                                               ; preds = %.thread, %44, %32, %28
@@ -2639,33 +2639,32 @@ attributes #15 = { nounwind }
 !12 = !{!11, !9, i64 8}
 !13 = !{!11, !9, i64 20}
 !14 = !{!6, !6, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"vtable pointer", !7, i64 0}
-!20 = !{!11, !5, i64 64}
-!21 = !{!11, !5, i64 40}
-!22 = !{!11, !5, i64 80}
-!23 = !{!11, !5, i64 72}
-!24 = !{!11, !5, i64 96}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"_ZTS10UErrorCode", !6, i64 0}
-!27 = !{!11, !5, i64 104}
-!28 = !{!11, !9, i64 12}
-!29 = !{!11, !9, i64 16}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"char16_t", !6, i64 0}
-!32 = !{!33, !9, i64 16}
-!33 = !{!"_ZTSN6icu_7717CharacterIteratorE", !34, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20}
-!34 = !{!"_ZTSN6icu_7724ForwardCharacterIteratorE", !35, i64 0}
-!35 = !{!"_ZTSN6icu_777UObjectE"}
-!36 = !{!33, !9, i64 12}
-!37 = !{!33, !9, i64 20}
-!38 = !{!33, !9, i64 8}
-!39 = distinct !{!39, !16, !17}
-!40 = !{!11, !9, i64 24}
-!41 = distinct !{!41, !16, !17}
-!42 = distinct !{!42, !16, !17}
-!43 = distinct !{!43, !16, !17}
-!44 = distinct !{!44, !16, !17}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"vtable pointer", !7, i64 0}
+!19 = !{!11, !5, i64 64}
+!20 = !{!11, !5, i64 40}
+!21 = !{!11, !5, i64 80}
+!22 = !{!11, !5, i64 72}
+!23 = !{!11, !5, i64 96}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"_ZTS10UErrorCode", !6, i64 0}
+!26 = !{!11, !5, i64 104}
+!27 = !{!11, !9, i64 12}
+!28 = !{!11, !9, i64 16}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"char16_t", !6, i64 0}
+!31 = !{!32, !9, i64 16}
+!32 = !{!"_ZTSN6icu_7717CharacterIteratorE", !33, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20}
+!33 = !{!"_ZTSN6icu_7724ForwardCharacterIteratorE", !34, i64 0}
+!34 = !{!"_ZTSN6icu_777UObjectE"}
+!35 = !{!32, !9, i64 12}
+!36 = !{!32, !9, i64 20}
+!37 = !{!32, !9, i64 8}
+!38 = distinct !{!38, !16}
+!39 = !{!11, !9, i64 24}
+!40 = distinct !{!40, !16}
+!41 = distinct !{!41, !16}
+!42 = distinct !{!42, !16}
+!43 = distinct !{!43, !16}

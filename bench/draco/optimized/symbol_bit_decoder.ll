@@ -143,7 +143,7 @@ define void @_ZN5draco16SymbolBitDecoder5ClearEv(ptr noundef nonnull align 8 der
 
 _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %1, %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !25
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = icmp eq ptr %7, %2
   br i1 %8, label %_ZNSt6vectorIjSaIjEE13shrink_to_fitEv.exit, label %9
 
@@ -172,7 +172,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 2
@@ -252,7 +252,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIj
   %42 = getelementptr inbounds nuw i32, ptr %33, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !15
   %43 = getelementptr inbounds nuw i32, ptr %32, i64 %30
-  store ptr %43, ptr %11, align 8, !tbaa !25
+  store ptr %43, ptr %11, align 8, !tbaa !24
   br label %44
 
 44:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36, %2
@@ -334,10 +334,10 @@ _ZNSt6vectorIjSaIjEEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPjS1_EEE
   %.sroa.12.0 = phi ptr [ %10, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i ], [ %13, %.noexc5.i ]
   %.sroa.012.0 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i ], [ %12, %.noexc5.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %17 = load ptr, ptr %16, align 8, !tbaa !24
   store ptr %.sroa.012.0, ptr %0, align 8, !tbaa !18
   store ptr %.sroa.12.0, ptr %3, align 8, !tbaa !15
-  store ptr %.sroa.12.0, ptr %16, align 8, !tbaa !25
+  store ptr %.sroa.12.0, ptr %16, align 8, !tbaa !24
   %.not.i.i.i10 = icmp eq ptr %2, null
   br i1 %.not.i.i.i10, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %18
 
@@ -424,7 +424,6 @@ attributes #20 = { noreturn nounwind }
 !19 = !{!17, !17, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"int", !7, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!16, !17, i64 16}
+!24 = !{!16, !17, i64 16}

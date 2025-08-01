@@ -57,7 +57,7 @@ define void @_ZN8WasmEdge8Executor8Executor11instantiateERNS_7Runtime8Instance14
   switch i32 %18, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i [
     i32 11, label %17
     i32 35, label %19
-  ], !llvm.loop !7
+  ]
 
 19:                                               ; preds = %17
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #12
@@ -122,7 +122,7 @@ _ZN8WasmEdge7Runtime8Instance14ModuleInstance6addTagIJRKNS_3AST7TagTypeERPKNS4_7
   %42 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %10) #11
   %43 = getelementptr inbounds nuw i8, ptr %.017, i64 16
   %.not = icmp eq ptr %43, %9
-  br i1 %.not, label %._crit_edge, label %15, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %15
 
 ._crit_edge:                                      ; preds = %_ZN8WasmEdge7Runtime8Instance14ModuleInstance6addTagIJRKNS_3AST7TagTypeERPKNS4_7SubTypeEEEEvDpOT_.exit, %4
   store i64 1, ptr %0, align 4
@@ -154,12 +154,12 @@ declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstance17unsafeAddInstanceINS1_11TagInstanceEJRKNS_3AST7TagTypeERPKNS5_7SubTypeEEEENSt9enable_ifIX11IsInstanceVIT_EEvE4typeERSt6vectorISt10unique_ptrISE_St14default_deleteISE_EESaISL_EERSH_IPSE_SaISP_EEDpOT0_(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14, !noalias !10
-  %7 = load ptr, ptr %4, align 8, !noalias !10
-  %8 = load i32, ptr %3, align 8, !noalias !10
-  store i32 %8, ptr %6, align 8, !noalias !10
+  %6 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #14, !noalias !7
+  %7 = load ptr, ptr %4, align 8, !noalias !7
+  %8 = load i32, ptr %3, align 8, !noalias !7
+  store i32 %8, ptr %6, align 8, !noalias !7
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %7, ptr %9, align 8, !noalias !10
+  store ptr %7, ptr %9, align 8, !noalias !7
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -213,15 +213,15 @@ _ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14defaul
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc13, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i ], [ %31, %.noexc13 ]
   %.0911.i.i.i.i = phi ptr [ %35, %.lr.ph.i.i.i.i ], [ %19, %.noexc13 ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %34 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !16, !noalias !13
-  store i64 %34, ptr %.012.i.i.i.i, align 8, !alias.scope !13, !noalias !16
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !16, !noalias !13
+  %34 = load i64, ptr %.0911.i.i.i.i, align 8, !alias.scope !13, !noalias !10
+  store i64 %34, ptr %.012.i.i.i.i, align 8, !alias.scope !10, !noalias !13
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !alias.scope !13, !noalias !10
   %35 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i11 = icmp eq ptr %35, %11
-  br i1 %.not.i.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i11, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
 _ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %.noexc13
   %.0.lcssa.i.i.i.i = phi ptr [ %31, %.noexc13 ], [ %36, %.lr.ph.i.i.i.i ]
@@ -371,16 +371,13 @@ attributes #15 = { builtin nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj: argument 0"}
 !6 = distinct !{!6, !"_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZSt11make_uniqueIN8WasmEdge7Runtime8Instance11TagInstanceEJRKNS0_3AST7TagTypeERPKNS4_7SubTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!9 = distinct !{!9, !"_ZSt11make_uniqueIN8WasmEdge7Runtime8Instance11TagInstanceEJRKNS0_3AST7TagTypeERPKNS4_7SubTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt11make_uniqueIN8WasmEdge7Runtime8Instance11TagInstanceEJRKNS0_3AST7TagTypeERPKNS4_7SubTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!12 = distinct !{!12, !"_ZSt11make_uniqueIN8WasmEdge7Runtime8Instance11TagInstanceEJRKNS0_3AST7TagTypeERPKNS4_7SubTypeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!11 = distinct !{!11, !12, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!12 = distinct !{!12, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
-!15 = distinct !{!15, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_"}
-!16 = !{!17}
-!17 = distinct !{!17, !15, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!18 = distinct !{!18, !19, !8}
-!19 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !12, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}

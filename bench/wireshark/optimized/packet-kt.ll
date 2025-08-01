@@ -528,7 +528,7 @@ proto_item_set_generated.exit174.i:               ; preds = %224, %221, %218, %p
   call void @proto_item_set_len(ptr noundef %188, i32 noundef %229)
   %230 = add i32 %.1154177.i, -1
   %.not.i = icmp eq i32 %230, 0
-  br i1 %.not.i, label %dissect_kt_play_script.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %dissect_kt_play_script.exit, label %.lr.ph.i, !llvm.loop !10
 
 231:                                              ; preds = %19
   %232 = load i32, ptr @hf_kt_magic, align 4
@@ -648,7 +648,7 @@ proto_item_set_generated.exit95.i:                ; preds = %298, %295, %292, %p
   call void @proto_item_set_len(ptr noundef %256, i32 noundef %303)
   %304 = add i32 %.0101.i, -1
   %.not.i54 = icmp eq i32 %304, 0
-  br i1 %.not.i54, label %dissect_kt_play_script.exit, label %.lr.ph.i53, !llvm.loop !12
+  br i1 %.not.i54, label %dissect_kt_play_script.exit, label %.lr.ph.i53, !llvm.loop !11
 
 305:                                              ; preds = %231
   %306 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %239, ptr noundef %0, i32 noundef %.04577, i32 noundef 1, i32 noundef 1)
@@ -759,7 +759,7 @@ proto_item_set_generated.exit70.i:                ; preds = %362, %359, %356, %.
   call void @proto_item_set_len(ptr noundef %342, i32 noundef %367)
   %368 = add i32 %.076.i, -1
   %.not.i60 = icmp eq i32 %368, 0
-  br i1 %.not.i60, label %dissect_kt_play_script.exit, label %.lr.ph.i59, !llvm.loop !13
+  br i1 %.not.i60, label %dissect_kt_play_script.exit, label %.lr.ph.i59, !llvm.loop !12
 
 369:                                              ; preds = %317
   %370 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %325, ptr noundef %0, i32 noundef %.04577, i32 noundef 1, i32 noundef 1)
@@ -875,7 +875,7 @@ proto_item_set_generated.exit143.i:               ; preds = %428, %425, %422, %.
   call void @proto_item_set_len(ptr noundef %408, i32 noundef %433)
   %434 = add i32 %.0137161.i, -1
   %.not140.i = icmp eq i32 %434, 0
-  br i1 %.not140.i, label %dissect_kt_get_bulk.exit, label %.lr.ph163.i, !llvm.loop !14
+  br i1 %.not140.i, label %dissect_kt_get_bulk.exit, label %.lr.ph163.i, !llvm.loop !13
 
 435:                                              ; preds = %387
   %436 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %391, ptr noundef %0, i32 noundef %.04577, i32 noundef 1, i32 noundef 1)
@@ -1014,7 +1014,7 @@ proto_item_set_generated.exit155.i:               ; preds = %507, %504, %501, %p
   call void @proto_item_set_len(ptr noundef %463, i32 noundef %512)
   %513 = add i32 %.1138158.i, -1
   %.not.i62 = icmp eq i32 %513, 0
-  br i1 %.not.i62, label %dissect_kt_get_bulk.exit, label %.lr.ph.i61, !llvm.loop !15
+  br i1 %.not.i62, label %dissect_kt_get_bulk.exit, label %.lr.ph.i61, !llvm.loop !14
 
 dissect_kt_get_bulk.exit:                         ; preds = %proto_item_set_generated.exit155.i, %proto_item_set_generated.exit143.i, %proto_item_set_generated.exit.i66, %proto_item_set_generated.exit146.i, %proto_item_set_generated.exit149.i
   %.1.i63 = phi i32 [ %388, %proto_item_set_generated.exit146.i ], [ %406, %proto_item_set_generated.exit.i66 ], [ %461, %proto_item_set_generated.exit149.i ], [ %432, %proto_item_set_generated.exit143.i ], [ %511, %proto_item_set_generated.exit155.i ]
@@ -1033,7 +1033,7 @@ dissect_kt_play_script.exit:                      ; preds = %proto_item_set_gene
   call void @proto_item_set_len(ptr noundef %24, i32 noundef %518)
   %519 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %520 = icmp sgt i32 %519, 0
-  br i1 %520, label %14, label %._crit_edge, !llvm.loop !16
+  br i1 %520, label %14, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %dissect_kt_play_script.exit, %4
   %521 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1123,12 +1123,11 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}

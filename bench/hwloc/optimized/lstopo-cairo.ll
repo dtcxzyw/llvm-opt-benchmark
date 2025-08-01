@@ -552,7 +552,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
   %307 = load ptr, ptr %21, align 8, !tbaa !27
   %308 = call i64 @XInternAtom(ptr noundef %307, ptr noundef nonnull @.str.24, i32 noundef 1) #13
-  store ptr null, ptr %5, align 8, !tbaa !85
+  store ptr null, ptr %5, align 8, !tbaa !84
   %309 = load ptr, ptr %21, align 8, !tbaa !27
   %310 = load i64, ptr %80, align 8, !tbaa !48
   %311 = call i32 @XGetWindowProperty(ptr noundef %309, i64 noundef %310, i64 noundef %308, i64 noundef 0, i64 noundef -1, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5) #13
@@ -564,9 +564,9 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %315 = call i64 @XInternAtom(ptr noundef %314, ptr noundef nonnull @.str.25, i32 noundef 1) #13
   %316 = load ptr, ptr %21, align 8, !tbaa !27
   %317 = call i64 @XInternAtom(ptr noundef %316, ptr noundef nonnull @.str.26, i32 noundef 1) #13
-  %318 = load i64, ptr %6, align 8, !tbaa !86
+  %318 = load i64, ptr %6, align 8, !tbaa !85
   %.not.i = icmp eq i64 %318, 0
-  %.pre.i = load ptr, ptr %5, align 8, !tbaa !85
+  %.pre.i = load ptr, ptr %5, align 8, !tbaa !84
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %313, %.lr.ph.i
@@ -574,7 +574,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %.120.i = phi i32 [ %.2.i, %.lr.ph.i ], [ 0, %313 ]
   %.11619.i = phi i32 [ %.217.i, %.lr.ph.i ], [ 0, %313 ]
   %319 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.021.i
-  %320 = load i64, ptr %319, align 8, !tbaa !86
+  %320 = load i64, ptr %319, align 8, !tbaa !85
   %321 = icmp eq i64 %320, %315
   %322 = icmp eq i64 %320, %317
   %spec.select.i = select i1 %322, i32 1, i32 %.120.i
@@ -582,7 +582,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %.2.i = select i1 %321, i32 %.120.i, i32 %spec.select.i
   %323 = add nuw i64 %.021.i, 1
   %exitcond.not.i = icmp eq i64 %323, %318
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !87
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !86
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %324 = icmp ne i32 %.217.i, 0
@@ -637,7 +637,7 @@ x11_is_maximized.exit:                            ; preds = %306, %._crit_edge.i
 341:                                              ; preds = %250
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
   %342 = call i32 @XLookupString(ptr noundef nonnull %11, ptr noundef null, i32 noundef 0, ptr noundef nonnull %12, ptr noundef null) #13
-  %343 = load i64, ptr %12, align 8, !tbaa !86
+  %343 = load i64, ptr %12, align 8, !tbaa !85
   switch i64 %343, label %463 [
     i64 113, label %.thread355
     i64 81, label %.thread355
@@ -837,9 +837,9 @@ x11_is_maximized.exit:                            ; preds = %306, %._crit_edge.i
   br label %463
 
 416:                                              ; preds = %341
-  %417 = load i32, ptr %228, align 8, !tbaa !88
+  %417 = load i32, ptr %228, align 8, !tbaa !87
   %418 = xor i32 %417, 1
-  store i32 %418, ptr %228, align 8, !tbaa !88
+  store i32 %418, ptr %228, align 8, !tbaa !87
   %.not328 = icmp eq i32 %417, 1
   %419 = select i1 %.not328, ptr @.str.6, ptr @.str.5
   %420 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %419)
@@ -849,9 +849,9 @@ x11_is_maximized.exit:                            ; preds = %306, %._crit_edge.i
   br label %463
 
 421:                                              ; preds = %341
-  %422 = load i32, ptr %227, align 4, !tbaa !89
+  %422 = load i32, ptr %227, align 4, !tbaa !88
   %423 = xor i32 %422, 1
-  store i32 %423, ptr %227, align 4, !tbaa !89
+  store i32 %423, ptr %227, align 4, !tbaa !88
   %.not327 = icmp eq i32 %422, 1
   %424 = select i1 %.not327, ptr @.str.6, ptr @.str.5
   %425 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %424)
@@ -861,7 +861,7 @@ x11_is_maximized.exit:                            ; preds = %306, %._crit_edge.i
   br label %463
 
 426:                                              ; preds = %341
-  %427 = load i32, ptr %226, align 4, !tbaa !90
+  %427 = load i32, ptr %226, align 4, !tbaa !89
   %428 = icmp ult i32 %427, 4
   br i1 %428, label %switch.lookup, label %429
 
@@ -876,7 +876,7 @@ switch.lookup:                                    ; preds = %426
   %431 = zext nneg i32 %427 to i64
   %switch.gep402 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.output_x11.11, i64 0, i64 %431
   %switch.load403 = load ptr, ptr %switch.gep402, align 8
-  store i32 %switch.load, ptr %226, align 4, !tbaa !90
+  store i32 %switch.load, ptr %226, align 4, !tbaa !89
   %puts325 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load403)
   store i32 1, ptr %168, align 8, !tbaa !74
   store i32 1, ptr %169, align 4, !tbaa !75
@@ -884,9 +884,9 @@ switch.lookup:                                    ; preds = %426
   br label %463
 
 432:                                              ; preds = %341
-  %433 = load i32, ptr %225, align 4, !tbaa !91
+  %433 = load i32, ptr %225, align 4, !tbaa !90
   %434 = xor i32 %433, 1
-  store i32 %434, ptr %225, align 4, !tbaa !91
+  store i32 %434, ptr %225, align 4, !tbaa !90
   %.not322 = icmp eq i32 %433, 1
   %435 = select i1 %.not322, ptr @.str.6, ptr @.str.5
   %436 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %435)
@@ -895,9 +895,9 @@ switch.lookup:                                    ; preds = %426
   br label %463
 
 437:                                              ; preds = %341
-  %438 = load i32, ptr %224, align 8, !tbaa !92
+  %438 = load i32, ptr %224, align 8, !tbaa !91
   %439 = xor i32 %438, 1
-  store i32 %439, ptr %224, align 8, !tbaa !92
+  store i32 %439, ptr %224, align 8, !tbaa !91
   %.not321 = icmp eq i32 %438, 1
   %440 = select i1 %.not321, ptr @.str.6, ptr @.str.5
   %441 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %440)
@@ -906,9 +906,9 @@ switch.lookup:                                    ; preds = %426
   br label %463
 
 442:                                              ; preds = %341
-  %443 = load i32, ptr %223, align 8, !tbaa !93
+  %443 = load i32, ptr %223, align 8, !tbaa !92
   %444 = xor i32 %443, 1
-  store i32 %444, ptr %223, align 8, !tbaa !93
+  store i32 %444, ptr %223, align 8, !tbaa !92
   %.not320 = icmp eq i32 %443, 1
   %445 = select i1 %.not320, ptr @.str.6, ptr @.str.5
   %446 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %445)
@@ -917,9 +917,9 @@ switch.lookup:                                    ; preds = %426
   br label %463
 
 447:                                              ; preds = %341
-  %448 = load i32, ptr %221, align 8, !tbaa !94
+  %448 = load i32, ptr %221, align 8, !tbaa !93
   %.not313 = icmp eq i32 %448, 0
-  %449 = load i32, ptr %222, align 4, !tbaa !95
+  %449 = load i32, ptr %222, align 4, !tbaa !94
   %.not316 = icmp eq i32 %449, 0
   br i1 %.not313, label %452, label %450
 
@@ -927,19 +927,19 @@ switch.lookup:                                    ; preds = %426
   br i1 %.not316, label %454, label %451
 
 451:                                              ; preds = %450
-  store i32 0, ptr %221, align 8, !tbaa !94
+  store i32 0, ptr %221, align 8, !tbaa !93
   br label %455
 
 452:                                              ; preds = %447
   br i1 %.not316, label %454, label %453
 
 453:                                              ; preds = %452
-  store i32 0, ptr %222, align 4, !tbaa !95
+  store i32 0, ptr %222, align 4, !tbaa !94
   br label %455
 
 454:                                              ; preds = %450, %452
-  store i32 1, ptr %221, align 8, !tbaa !94
-  store i32 1, ptr %222, align 4, !tbaa !95
+  store i32 1, ptr %221, align 8, !tbaa !93
+  store i32 1, ptr %222, align 4, !tbaa !94
   br label %455
 
 455:                                              ; preds = %453, %454, %451
@@ -951,7 +951,7 @@ switch.lookup:                                    ; preds = %426
   br label %463
 
 456:                                              ; preds = %341
-  %457 = load i32, ptr %220, align 8, !tbaa !96
+  %457 = load i32, ptr %220, align 8, !tbaa !95
   %458 = icmp ult i32 %457, 3
   br i1 %458, label %switch.lookup404, label %459
 
@@ -966,7 +966,7 @@ switch.lookup404:                                 ; preds = %456
   %461 = zext nneg i32 %457 to i64
   %switch.gep407 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.output_x11.13, i64 0, i64 %461
   %switch.load408 = load ptr, ptr %switch.gep407, align 8
-  store i32 %switch.load406, ptr %220, align 8, !tbaa !96
+  store i32 %switch.load406, ptr %220, align 8, !tbaa !95
   %puts311 = call i32 @puts(ptr nonnull dereferenceable(1) %switch.load408)
   store i32 1, ptr %168, align 8, !tbaa !74
   store i32 1, ptr %169, align 4, !tbaa !75
@@ -1413,7 +1413,7 @@ define hidden range(i32 -1, 1) i32 @output_png(ptr noundef %0, ptr noundef %1) l
   %3 = alloca %struct.lstopo_cairo_output, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !97
+  %5 = load i32, ptr %4, align 8, !tbaa !96
   %6 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %5) #13
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %13
@@ -1421,7 +1421,7 @@ define hidden range(i32 -1, 1) i32 @output_png(ptr noundef %0, ptr noundef %1) l
 7:                                                ; preds = %2
   %8 = load ptr, ptr @stderr, align 8, !tbaa !26
   %9 = tail call ptr @__errno_location() #17
-  %10 = load i32, ptr %9, align 4, !tbaa !98
+  %10 = load i32, ptr %9, align 4, !tbaa !97
   %11 = tail call ptr @strerror(i32 noundef %10) #13
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.22, ptr noundef %1, ptr noundef %11) #18
   br label %55
@@ -1435,7 +1435,7 @@ define hidden range(i32 -1, 1) i32 @output_png(ptr noundef %0, ptr noundef %1) l
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   store ptr @png_draw_methods, ptr %16, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %6, ptr %17, align 8, !tbaa !99
+  store ptr %6, ptr %17, align 8, !tbaa !98
   %18 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef 1, i32 noundef 1) #13
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !79
@@ -1540,7 +1540,7 @@ define hidden range(i32 -1, 1) i32 @output_pdf(ptr noundef %0, ptr noundef %1) l
   %3 = alloca %struct.lstopo_cairo_output, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !97
+  %5 = load i32, ptr %4, align 8, !tbaa !96
   %6 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %5) #13
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %13
@@ -1548,7 +1548,7 @@ define hidden range(i32 -1, 1) i32 @output_pdf(ptr noundef %0, ptr noundef %1) l
 7:                                                ; preds = %2
   %8 = load ptr, ptr @stderr, align 8, !tbaa !26
   %9 = tail call ptr @__errno_location() #17
-  %10 = load i32, ptr %9, align 4, !tbaa !98
+  %10 = load i32, ptr %9, align 4, !tbaa !97
   %11 = tail call ptr @strerror(i32 noundef %10) #13
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.22, ptr noundef %1, ptr noundef %11) #18
   br label %57
@@ -1562,7 +1562,7 @@ define hidden range(i32 -1, 1) i32 @output_pdf(ptr noundef %0, ptr noundef %1) l
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   store ptr @pdf_draw_methods, ptr %16, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %6, ptr %17, align 8, !tbaa !99
+  store ptr %6, ptr %17, align 8, !tbaa !98
   %18 = call ptr @cairo_pdf_surface_create_for_stream(ptr noundef null, ptr noundef null, double noundef 1.000000e+00, double noundef 1.000000e+00) #13
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !79
@@ -1588,7 +1588,7 @@ define hidden range(i32 -1, 1) i32 @output_pdf(ptr noundef %0, ptr noundef %1) l
   store ptr null, ptr %25, align 8, !tbaa !55
   store i32 1, ptr %20, align 8, !tbaa !49
   call void @cairo_surface_destroy(ptr noundef %18) #13
-  %32 = load ptr, ptr %17, align 8, !tbaa !99
+  %32 = load ptr, ptr %17, align 8, !tbaa !98
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1612
   %34 = load i32, ptr %33, align 4, !tbaa !57
   %35 = uitofp i32 %34 to double
@@ -1648,7 +1648,7 @@ define hidden range(i32 -1, 1) i32 @output_ps(ptr noundef %0, ptr noundef %1) lo
   %3 = alloca %struct.lstopo_cairo_output, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !97
+  %5 = load i32, ptr %4, align 8, !tbaa !96
   %6 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %5) #13
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %13
@@ -1656,7 +1656,7 @@ define hidden range(i32 -1, 1) i32 @output_ps(ptr noundef %0, ptr noundef %1) lo
 7:                                                ; preds = %2
   %8 = load ptr, ptr @stderr, align 8, !tbaa !26
   %9 = tail call ptr @__errno_location() #17
-  %10 = load i32, ptr %9, align 4, !tbaa !98
+  %10 = load i32, ptr %9, align 4, !tbaa !97
   %11 = tail call ptr @strerror(i32 noundef %10) #13
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.22, ptr noundef %1, ptr noundef %11) #18
   br label %57
@@ -1670,7 +1670,7 @@ define hidden range(i32 -1, 1) i32 @output_ps(ptr noundef %0, ptr noundef %1) lo
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   store ptr @ps_draw_methods, ptr %16, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %6, ptr %17, align 8, !tbaa !99
+  store ptr %6, ptr %17, align 8, !tbaa !98
   %18 = call ptr @cairo_ps_surface_create_for_stream(ptr noundef null, ptr noundef null, double noundef 1.000000e+00, double noundef 1.000000e+00) #13
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !79
@@ -1696,7 +1696,7 @@ define hidden range(i32 -1, 1) i32 @output_ps(ptr noundef %0, ptr noundef %1) lo
   store ptr null, ptr %25, align 8, !tbaa !55
   store i32 1, ptr %20, align 8, !tbaa !49
   call void @cairo_surface_destroy(ptr noundef %18) #13
-  %32 = load ptr, ptr %17, align 8, !tbaa !99
+  %32 = load ptr, ptr %17, align 8, !tbaa !98
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1612
   %34 = load i32, ptr %33, align 4, !tbaa !57
   %35 = uitofp i32 %34 to double
@@ -1754,7 +1754,7 @@ define hidden range(i32 -1, 1) i32 @output_cairosvg(ptr noundef %0, ptr noundef 
   %3 = alloca %struct.lstopo_cairo_output, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !97
+  %5 = load i32, ptr %4, align 8, !tbaa !96
   %6 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %5) #13
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %13
@@ -1762,7 +1762,7 @@ define hidden range(i32 -1, 1) i32 @output_cairosvg(ptr noundef %0, ptr noundef 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @stderr, align 8, !tbaa !26
   %9 = tail call ptr @__errno_location() #17
-  %10 = load i32, ptr %9, align 4, !tbaa !98
+  %10 = load i32, ptr %9, align 4, !tbaa !97
   %11 = tail call ptr @strerror(i32 noundef %10) #13
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.22, ptr noundef %1, ptr noundef %11) #18
   br label %57
@@ -1776,7 +1776,7 @@ define hidden range(i32 -1, 1) i32 @output_cairosvg(ptr noundef %0, ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   store ptr @svg_draw_methods, ptr %16, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %6, ptr %17, align 8, !tbaa !99
+  store ptr %6, ptr %17, align 8, !tbaa !98
   %18 = call ptr @cairo_svg_surface_create_for_stream(ptr noundef null, ptr noundef null, double noundef 1.000000e+00, double noundef 1.000000e+00) #13
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !79
@@ -1802,7 +1802,7 @@ define hidden range(i32 -1, 1) i32 @output_cairosvg(ptr noundef %0, ptr noundef 
   store ptr null, ptr %25, align 8, !tbaa !55
   store i32 1, ptr %20, align 8, !tbaa !49
   call void @cairo_surface_destroy(ptr noundef %18) #13
-  %32 = load ptr, ptr %17, align 8, !tbaa !99
+  %32 = load ptr, ptr %17, align 8, !tbaa !98
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1612
   %34 = load i32, ptr %33, align 4, !tbaa !57
   %35 = uitofp i32 %34 to double
@@ -1861,7 +1861,7 @@ define internal void @topo_cairo_box(ptr noundef readonly captures(none) %0, ptr
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %12 = load ptr, ptr %11, align 8, !tbaa !12
   %13 = getelementptr i8, ptr %0, i64 1304
-  %.val = load i32, ptr %13, align 8, !tbaa !93
+  %.val = load i32, ptr %13, align 8, !tbaa !92
   %14 = icmp ne i32 %.val, 0
   %15 = icmp ne ptr %7, null
   %or.cond.i = and i1 %15, %14
@@ -1869,24 +1869,24 @@ define internal void @topo_cairo_box(ptr noundef readonly captures(none) %0, ptr
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %18 = load ptr, ptr %17, align 8, !tbaa !100
+  %18 = load ptr, ptr %17, align 8, !tbaa !99
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 68
-  %21 = load i32, ptr %20, align 4, !tbaa !107
+  %21 = load i32, ptr %20, align 4, !tbaa !106
   br label %lstopo_obj_cpukind_style.exit
 
 lstopo_obj_cpukind_style.exit:                    ; preds = %9, %16, %19
   %.0.i = phi i32 [ %21, %19 ], [ 0, %16 ], [ 0, %9 ]
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !55
-  %24 = load i32, ptr %1, align 8, !tbaa !114
+  %24 = load i32, ptr %1, align 8, !tbaa !113
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !116
+  %26 = load i32, ptr %25, align 4, !tbaa !115
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !117
+  %28 = load i32, ptr %27, align 8, !tbaa !116
   %29 = uitofp i32 %3 to double
   %30 = uitofp i32 %5 to double
   %31 = uitofp i32 %4 to double
@@ -1912,7 +1912,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %16, %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
   %43 = shl nuw i32 1, %.0.i
   %44 = uitofp i32 %43 to double
-  store double %44, ptr %10, align 8, !tbaa !118
+  store double %44, ptr %10, align 8, !tbaa !117
   call void @cairo_set_dash(ptr noundef %23, ptr noundef nonnull %10, i32 noundef 1, double noundef 0.000000e+00) #13
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %46 = load i32, ptr %45, align 8, !tbaa !56
@@ -1958,7 +1958,7 @@ define internal void @topo_cairo_text(ptr noundef readonly captures(none) %0, pt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = getelementptr i8, ptr %0, i64 1304
-  %.val = load i32, ptr %12, align 8, !tbaa !93
+  %.val = load i32, ptr %12, align 8, !tbaa !92
   %13 = icmp ne i32 %.val, 0
   %14 = icmp ne ptr %7, null
   %or.cond.i = and i1 %14, %13
@@ -1966,13 +1966,13 @@ define internal void @topo_cairo_text(ptr noundef readonly captures(none) %0, pt
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 232
-  %17 = load ptr, ptr %16, align 8, !tbaa !100
+  %17 = load ptr, ptr %16, align 8, !tbaa !99
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 68
-  %20 = load i32, ptr %19, align 4, !tbaa !107
+  %20 = load i32, ptr %19, align 4, !tbaa !106
   %21 = and i32 %20, 1
   %22 = icmp eq i32 %21, 0
   br label %lstopo_obj_cpukind_style.exit
@@ -1981,11 +1981,11 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %15, %18
   %.0.i = phi i1 [ %22, %18 ], [ true, %15 ], [ true, %9 ]
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !55
-  %25 = load i32, ptr %1, align 8, !tbaa !114
+  %25 = load i32, ptr %1, align 8, !tbaa !113
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !116
+  %27 = load i32, ptr %26, align 4, !tbaa !115
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load i32, ptr %28, align 8, !tbaa !117
+  %29 = load i32, ptr %28, align 8, !tbaa !116
   %30 = uitofp i32 %4 to double
   %31 = add i32 %5, %2
   %32 = uitofp i32 %31 to double
@@ -2026,9 +2026,9 @@ define internal void @topo_cairo_textsize(ptr noundef readonly captures(none) %0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #13
   call void @cairo_text_extents(ptr noundef %10, ptr noundef %1, ptr noundef nonnull %6) #13
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %12 = load double, ptr %11, align 8, !tbaa !120
+  %12 = load double, ptr %11, align 8, !tbaa !119
   %13 = fptoui double %12 to i32
-  store i32 %13, ptr %4, align 4, !tbaa !98
+  store i32 %13, ptr %4, align 4, !tbaa !97
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #13
   ret void
 }
@@ -2196,43 +2196,42 @@ attributes #18 = { cold nounwind }
 !79 = !{!5, !10, i64 8}
 !80 = !{!13, !15, i64 12}
 !81 = !{!8, !8, i64 0}
-!82 = distinct !{!82, !83, !84}
+!82 = distinct !{!82, !83}
 !83 = !{!"llvm.loop.mustprogress"}
-!84 = !{!"llvm.loop.estimated_trip_count"}
-!85 = !{!22, !22, i64 0}
-!86 = !{!18, !18, i64 0}
-!87 = distinct !{!87, !83, !84}
-!88 = !{!13, !15, i64 1208}
-!89 = !{!13, !15, i64 1124}
-!90 = !{!13, !15, i64 36}
-!91 = !{!13, !15, i64 1292}
-!92 = !{!13, !15, i64 1296}
-!93 = !{!13, !15, i64 1304}
-!94 = !{!13, !15, i64 1328}
-!95 = !{!13, !15, i64 52}
-!96 = !{!13, !15, i64 112}
-!97 = !{!13, !15, i64 32}
-!98 = !{!15, !15, i64 0}
-!99 = !{!13, !16, i64 24}
-!100 = !{!101, !7, i64 232}
-!101 = !{!"hwloc_obj", !15, i64 0, !22, i64 8, !15, i64 16, !22, i64 24, !18, i64 32, !102, i64 40, !15, i64 48, !15, i64 52, !103, i64 56, !103, i64 64, !103, i64 72, !15, i64 80, !103, i64 88, !103, i64 96, !15, i64 104, !104, i64 112, !103, i64 120, !103, i64 128, !15, i64 136, !15, i64 140, !103, i64 144, !15, i64 152, !103, i64 160, !15, i64 168, !103, i64 176, !17, i64 184, !17, i64 192, !17, i64 200, !17, i64 208, !105, i64 216, !7, i64 232, !18, i64 240}
-!102 = !{!"p1 _ZTS16hwloc_obj_attr_u", !7, i64 0}
-!103 = !{!"p1 _ZTS9hwloc_obj", !7, i64 0}
-!104 = !{!"p2 _ZTS9hwloc_obj", !7, i64 0}
-!105 = !{!"hwloc_infos_s", !106, i64 0, !15, i64 8, !15, i64 12}
-!106 = !{!"p1 _ZTS12hwloc_info_s", !7, i64 0}
-!107 = !{!108, !15, i64 68}
-!108 = !{!"lstopo_obj_userdata", !109, i64 0, !15, i64 32, !15, i64 36, !111, i64 40, !15, i64 64, !15, i64 68, !15, i64 72, !15, i64 76, !113, i64 80, !113, i64 112, !113, i64 144, !113, i64 176, !15, i64 208, !15, i64 212, !15, i64 216, !8, i64 220, !15, i64 764, !15, i64 768}
-!109 = !{!"hwloc_utils_userdata", !22, i64 0, !18, i64 8, !22, i64 16, !110, i64 24}
-!110 = !{!"p1 _ZTS20hwloc_utils_userdata", !7, i64 0}
-!111 = !{!"lstopo_style", !112, i64 0, !112, i64 8, !112, i64 16}
-!112 = !{!"p1 _ZTS12lstopo_color", !7, i64 0}
-!113 = !{!"lstopo_children_position", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !112, i64 24}
-!114 = !{!115, !15, i64 0}
-!115 = !{!"lstopo_color", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !8, i64 16, !112, i64 24}
-!116 = !{!115, !15, i64 4}
-!117 = !{!115, !15, i64 8}
-!118 = !{!119, !119, i64 0}
-!119 = !{!"double", !8, i64 0}
-!120 = !{!121, !119, i64 16}
-!121 = !{!"", !119, i64 0, !119, i64 8, !119, i64 16, !119, i64 24, !119, i64 32, !119, i64 40}
+!84 = !{!22, !22, i64 0}
+!85 = !{!18, !18, i64 0}
+!86 = distinct !{!86, !83}
+!87 = !{!13, !15, i64 1208}
+!88 = !{!13, !15, i64 1124}
+!89 = !{!13, !15, i64 36}
+!90 = !{!13, !15, i64 1292}
+!91 = !{!13, !15, i64 1296}
+!92 = !{!13, !15, i64 1304}
+!93 = !{!13, !15, i64 1328}
+!94 = !{!13, !15, i64 52}
+!95 = !{!13, !15, i64 112}
+!96 = !{!13, !15, i64 32}
+!97 = !{!15, !15, i64 0}
+!98 = !{!13, !16, i64 24}
+!99 = !{!100, !7, i64 232}
+!100 = !{!"hwloc_obj", !15, i64 0, !22, i64 8, !15, i64 16, !22, i64 24, !18, i64 32, !101, i64 40, !15, i64 48, !15, i64 52, !102, i64 56, !102, i64 64, !102, i64 72, !15, i64 80, !102, i64 88, !102, i64 96, !15, i64 104, !103, i64 112, !102, i64 120, !102, i64 128, !15, i64 136, !15, i64 140, !102, i64 144, !15, i64 152, !102, i64 160, !15, i64 168, !102, i64 176, !17, i64 184, !17, i64 192, !17, i64 200, !17, i64 208, !104, i64 216, !7, i64 232, !18, i64 240}
+!101 = !{!"p1 _ZTS16hwloc_obj_attr_u", !7, i64 0}
+!102 = !{!"p1 _ZTS9hwloc_obj", !7, i64 0}
+!103 = !{!"p2 _ZTS9hwloc_obj", !7, i64 0}
+!104 = !{!"hwloc_infos_s", !105, i64 0, !15, i64 8, !15, i64 12}
+!105 = !{!"p1 _ZTS12hwloc_info_s", !7, i64 0}
+!106 = !{!107, !15, i64 68}
+!107 = !{!"lstopo_obj_userdata", !108, i64 0, !15, i64 32, !15, i64 36, !110, i64 40, !15, i64 64, !15, i64 68, !15, i64 72, !15, i64 76, !112, i64 80, !112, i64 112, !112, i64 144, !112, i64 176, !15, i64 208, !15, i64 212, !15, i64 216, !8, i64 220, !15, i64 764, !15, i64 768}
+!108 = !{!"hwloc_utils_userdata", !22, i64 0, !18, i64 8, !22, i64 16, !109, i64 24}
+!109 = !{!"p1 _ZTS20hwloc_utils_userdata", !7, i64 0}
+!110 = !{!"lstopo_style", !111, i64 0, !111, i64 8, !111, i64 16}
+!111 = !{!"p1 _ZTS12lstopo_color", !7, i64 0}
+!112 = !{!"lstopo_children_position", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !111, i64 24}
+!113 = !{!114, !15, i64 0}
+!114 = !{!"lstopo_color", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !8, i64 16, !111, i64 24}
+!115 = !{!114, !15, i64 4}
+!116 = !{!114, !15, i64 8}
+!117 = !{!118, !118, i64 0}
+!118 = !{!"double", !8, i64 0}
+!119 = !{!120, !118, i64 16}
+!120 = !{!"", !118, i64 0, !118, i64 8, !118, i64 16, !118, i64 24, !118, i64 32, !118, i64 40}

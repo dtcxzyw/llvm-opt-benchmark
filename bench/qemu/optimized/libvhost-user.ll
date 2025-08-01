@@ -214,7 +214,7 @@ define dso_local ptr @vu_gpa_to_va(ptr noundef readonly captures(none) %0, ptr n
   %26 = add i32 %15, -1
   %.228.i = select i1 %.not31.i, i32 %26, i32 %.02638.i
   %.not.i = icmp sgt i32 %25, %.228.i
-  br i1 %.not.i, label %vu_gpa_to_mem_region.exit.thread, label %12, !llvm.loop !4
+  br i1 %.not.i, label %vu_gpa_to_mem_region.exit.thread, label %12
 
 vu_gpa_to_mem_region.exit:                        ; preds = %20
   %27 = add i64 %4, %2
@@ -302,7 +302,7 @@ define internal void @vu_kick_cb(ptr noundef %0, i32 %1, ptr noundef %2) #3 {
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 108
   %12 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
-  store i64 0, ptr %4, align 8, !annotation !6
+  store i64 0, ptr %4, align 8, !annotation !4
   %13 = call i32 @eventfd_read(i32 noundef %12, ptr noundef nonnull %4) #21
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %15, label %24
@@ -399,7 +399,7 @@ define dso_local zeroext i1 @vu_set_queue_host_notifier(ptr noundef %0, ptr noun
 
 40:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 328, ptr nonnull %6) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %6, i8 0, i64 328, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %6, i8 0, i64 328, i1 false), !annotation !4
   %41 = load i32, ptr %15, align 4
   %42 = and i32 %41, 8
   %43 = icmp eq i32 %42, 0
@@ -519,7 +519,7 @@ define internal fastcc noundef zeroext i1 @vu_message_write(ptr noundef %0, i32 
   %38 = call i64 @sendmsg(i32 noundef %1, ptr noundef nonnull %6, i32 noundef 0) #21
   %39 = trunc i64 %38 to i32
   %40 = icmp slt i32 %39, 0
-  br i1 %40, label %36, label %.critedge, !llvm.loop !7
+  br i1 %40, label %36, label %.critedge
 
 .critedge:                                        ; preds = %.critedge2.backedge, %31
   %.lcssa = phi i32 [ %33, %31 ], [ %39, %.critedge2.backedge ]
@@ -565,7 +565,7 @@ define internal fastcc noundef zeroext i1 @vu_message_write(ptr noundef %0, i32 
   %57 = call i64 @write(i32 noundef %1, ptr noundef nonnull %., i64 noundef %56) #21
   %.1 = trunc i64 %57 to i32
   %58 = icmp slt i32 %.1, 0
-  br i1 %58, label %.lr.ph63, label %.critedge4, !llvm.loop !8
+  br i1 %58, label %.lr.ph63, label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge6.backedge, %.critedge6.preheader
   %.1.lcssa = phi i32 [ %.162, %.critedge6.preheader ], [ %.1, %.critedge6.backedge ]
@@ -616,7 +616,7 @@ define dso_local zeroext i1 @vu_lookup_shared_object(ptr noundef %0, ptr noundef
   br i1 %.not, label %38, label %12
 
 12:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %4, i8 0, i64 328, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(328) %4, i8 0, i64 328, i1 false), !annotation !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %13) #21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -710,7 +710,7 @@ define internal noundef zeroext i1 @vu_message_read_default(ptr noundef %0, i32 
   %19 = call i64 @recvmsg(i32 noundef %1, ptr noundef nonnull %6, i32 noundef 0) #21
   %20 = and i64 %19, 2147483648
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %.critedge43, label %17, !llvm.loop !9
+  br i1 %.not, label %.critedge43, label %17
 
 .critedge:                                        ; preds = %17
   %21 = call ptr @strerror(i32 noundef %18) #21
@@ -782,7 +782,7 @@ __cmsg_nxthdr.exit:                               ; preds = %53, %.lr.ph50
   %56 = and i64 %55, -8
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 %56
   %58 = icmp ugt ptr %57, %26
-  br i1 %58, label %.loopexit, label %__cmsg_nxthdr.exit, !llvm.loop !10
+  br i1 %58, label %.loopexit, label %__cmsg_nxthdr.exit
 
 .loopexit:                                        ; preds = %53, %47, %44, %.critedge43, %41
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -824,7 +824,7 @@ __cmsg_nxthdr.exit:                               ; preds = %53, %.lr.ph50
   %75 = call i64 @read(i32 noundef %1, ptr noundef nonnull %65, i64 noundef %74) #21
   %76 = trunc i64 %75 to i32
   %77 = icmp slt i32 %76, 0
-  br i1 %77, label %71, label %.critedge4, !llvm.loop !11
+  br i1 %77, label %71, label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge6.backedge, %.critedge6.preheader
   %.lcssa = phi i32 [ %68, %.critedge6.preheader ], [ %76, %.critedge6.backedge ]
@@ -869,7 +869,7 @@ __cmsg_nxthdr.exit:                               ; preds = %53, %.lr.ph50
   %93 = load i32, ptr %22, align 1
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next.i, %94
-  br i1 %95, label %89, label %vmsg_close_fds.exit, !llvm.loop !12
+  br i1 %95, label %89, label %vmsg_close_fds.exit
 
 vmsg_close_fds.exit:                              ; preds = %89, %85, %64, %81, %.critedge
   %.037 = phi i1 [ false, %.critedge ], [ true, %81 ], [ true, %64 ], [ false, %85 ], [ false, %89 ]
@@ -1077,7 +1077,7 @@ vu_get_features_exec.exit.i:                      ; preds = %29, %25
   %46 = load i16, ptr %40, align 2
   %47 = zext i16 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %47
-  br i1 %48, label %43, label %vu_process_message.exit, !llvm.loop !13
+  br i1 %48, label %43, label %vu_process_message.exit
 
 49:                                               ; preds = %23
   call fastcc void @vu_set_mem_table_exec(ptr noundef nonnull %0, ptr noundef nonnull %3)
@@ -1329,7 +1329,7 @@ vu_get_shared_object.exit.i:                      ; preds = %142, %139, %135
   %152 = load i32, ptr %13, align 4
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next.i.i, %153
-  br i1 %154, label %148, label %vmsg_close_fds.exit.loopexit.i, !llvm.loop !12
+  br i1 %154, label %148, label %vmsg_close_fds.exit.loopexit.i
 
 vmsg_close_fds.exit.loopexit.i:                   ; preds = %148
   %.pre.i = load i32, ptr %3, align 4
@@ -1411,7 +1411,7 @@ define dso_local void @vu_deinit(ptr noundef %0) local_unnamed_addr #3 {
   %17 = load i32, ptr %2, align 4
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %indvars.iv.next.i, %18
-  br i1 %19, label %5, label %vu_remove_all_mem_regs.exit, !llvm.loop !14
+  br i1 %19, label %5, label %vu_remove_all_mem_regs.exit
 
 vu_remove_all_mem_regs.exit:                      ; preds = %5, %1
   store i32 0, ptr %2, align 4
@@ -1482,7 +1482,7 @@ vu_remove_all_mem_regs.exit:                      ; preds = %5, %1
   %49 = load i16, ptr %20, align 2
   %50 = zext i16 %49 to i64
   %51 = icmp samesign ult i64 %indvars.iv.next, %50
-  br i1 %51, label %24, label %._crit_edge, !llvm.loop !15
+  br i1 %51, label %24, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %47, %vu_remove_all_mem_regs.exit
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1693,7 +1693,7 @@ define dso_local noundef zeroext i1 @vu_init(ptr noundef %0, i16 noundef zeroext
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.6.0..sroa_idx, i8 0, i64 52, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %21, %40
   %.038 = phi i1 [ false, %40 ], [ false, %21 ], [ true, %.preheader ]
@@ -1740,7 +1740,7 @@ define dso_local zeroext i1 @vu_queue_enabled(ptr noundef readnone captures(none
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @vu_queue_started(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %4 = load i8, ptr %3, align 8, !range !17, !noundef !18
+  %4 = load i8, ptr %3, align 8, !range !5, !noundef !6
   %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
@@ -1752,15 +1752,15 @@ define dso_local void @vu_queue_get_avail_bytes(ptr noundef %0, ptr noundef capt
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %12 = load i8, ptr %11, align 8, !range !17, !noundef !18
+  %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %vu_is_vq_usable.exit.thread, label %14, !prof !19
+  br i1 %13, label %vu_is_vq_usable.exit.thread, label %14, !prof !7
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %17, label %vu_is_vq_usable.exit, !prof !19
+  br i1 %.not.i, label %17, label %vu_is_vq_usable.exit, !prof !7
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -1828,10 +1828,10 @@ vu_is_vq_usable.exit:                             ; preds = %.vu_is_vq_usable.ex
   br i1 %.not.i90, label %vu_is_vq_usable.exit.thread, label %virtqueue_num_heads.exit
 
 virtqueue_num_heads.exit:                         ; preds = %41
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !8
   fence acquire
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %7) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %7, i8 0, i64 16384, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %7, i8 0, i64 16384, i1 false), !annotation !4
   %43 = load i32, ptr %1, align 8
   %44 = add i32 %.073204, 1
   %indvars = trunc i32 %44 to i16
@@ -1929,7 +1929,7 @@ virtqueue_get_head.exit:                          ; preds = %virtqueue_num_heads
   %88 = add i32 %77, -1
   %.228.i.i = select i1 %.not31.i.i, i32 %88, i32 %.02638.i.i
   %.not.i.i = icmp sgt i32 %87, %.228.i.i
-  br i1 %.not.i.i, label %.thread, label %74, !llvm.loop !4
+  br i1 %.not.i.i, label %.thread, label %74
 
 vu_gpa_to_mem_region.exit.i:                      ; preds = %82
   %89 = add i64 %66, %67
@@ -1962,7 +1962,7 @@ vu_gpa_to_va.exit:                                ; preds = %vu_gpa_to_mem_regio
   %110 = icmp ne i64 %66, 0
   %111 = icmp ne i64 %100, %67
   %112 = and i1 %110, %111
-  br i1 %112, label %113, label %115, !prof !21
+  br i1 %112, label %113, label %115, !prof !9
 
 113:                                              ; preds = %vu_gpa_to_va.exit
   %114 = call fastcc i32 @virtqueue_read_indirect_desc(ptr noundef %0, ptr noundef %7, i64 noundef %66, i64 noundef %67)
@@ -2028,7 +2028,7 @@ virtqueue_read_next_desc.exit:                    ; preds = %130, %.thread121
   %131 = getelementptr inbounds nuw %struct.vring_desc, ptr %.058, i64 %120, i32 3
   %132 = load i16, ptr %131, align 2
   %133 = zext i16 %132 to i32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
   fence release
   %.not10.i95 = icmp ugt i32 %.062, %133
   br i1 %.not10.i95, label %virtqueue_read_next_desc.exit, label %virtqueue_read_next_desc.exit.thread127
@@ -2084,7 +2084,7 @@ define internal void @vu_panic(ptr noundef initializes((136, 137)) %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
   store ptr null, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !4
   call void @llvm.va_start.p0(ptr nonnull %4)
   %5 = call i32 @vasprintf(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4) #21
   %6 = icmp slt i32 %5, 0
@@ -2167,7 +2167,7 @@ define internal fastcc range(i32 -1, 1) i32 @virtqueue_read_indirect_desc(ptr no
   %26 = add i32 %15, -1
   %.228.i.i = select i1 %.not31.i.i, i32 %26, i32 %.02638.i.i
   %.not.i.i = icmp sgt i32 %25, %.228.i.i
-  br i1 %.not.i.i, label %vu_gpa_to_va.exit.thread, label %12, !llvm.loop !4
+  br i1 %.not.i.i, label %vu_gpa_to_va.exit.thread, label %12
 
 vu_gpa_to_mem_region.exit.i:                      ; preds = %20
   %.not17 = icmp eq i64 %.01230, 0
@@ -2192,7 +2192,7 @@ vu_gpa_to_mem_region.exit.i:                      ; preds = %20
   %41 = add i64 %spec.select, %.01230
   %42 = getelementptr inbounds nuw %struct.vring_desc, ptr %.01329, i64 %spec.select
   %.not = icmp eq i64 %40, 0
-  br i1 %.not, label %vu_gpa_to_va.exit.thread, label %8, !llvm.loop !23
+  br i1 %.not, label %vu_gpa_to_va.exit.thread, label %8
 
 vu_gpa_to_va.exit.thread:                         ; preds = %vu_gpa_to_mem_region.exit.i, %27, %8, %24, %4
   %.014 = phi i32 [ -1, %4 ], [ -1, %24 ], [ -1, %vu_gpa_to_mem_region.exit.i ], [ 0, %27 ], [ -1, %8 ]
@@ -2204,9 +2204,9 @@ define dso_local zeroext i1 @vu_queue_avail_bytes(ptr noundef %0, ptr noundef ca
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
-  store i32 0, ptr %5, align 4, !annotation !6
+  store i32 0, ptr %5, align 4, !annotation !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #21
-  store i32 0, ptr %6, align 4, !annotation !6
+  store i32 0, ptr %6, align 4, !annotation !4
   call void @vu_queue_get_avail_bytes(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %2, i32 noundef %3)
   %7 = load i32, ptr %5, align 4
   %8 = icmp ule i32 %2, %7
@@ -2221,15 +2221,15 @@ define dso_local zeroext i1 @vu_queue_avail_bytes(ptr noundef %0, ptr noundef ca
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @vu_queue_empty(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = load i8, ptr %3, align 8, !range !17, !noundef !18
+  %4 = load i8, ptr %3, align 8, !range !5, !noundef !6
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %vu_is_vq_usable.exit.thread, label %6, !prof !19
+  br i1 %5, label %vu_is_vq_usable.exit.thread, label %6, !prof !7
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %9, label %vu_is_vq_usable.exit, !prof !19
+  br i1 %.not.i, label %9, label %vu_is_vq_usable.exit, !prof !7
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -2288,15 +2288,15 @@ define dso_local void @vu_queue_notify(ptr noundef %0, ptr noundef %1) local_unn
 define internal fastcc void @_vu_queue_notify(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 {
   %4 = alloca %struct.VhostUserMsg, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %6 = load i8, ptr %5, align 8, !range !17, !noundef !18
+  %6 = load i8, ptr %5, align 8, !range !5, !noundef !6
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %vu_is_vq_usable.exit.thread, label %8, !prof !19
+  br i1 %7, label %vu_is_vq_usable.exit.thread, label %8, !prof !7
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %11, label %vu_is_vq_usable.exit, !prof !19
+  br i1 %.not.i, label %11, label %vu_is_vq_usable.exit, !prof !7
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -2325,7 +2325,7 @@ define internal fastcc void @_vu_queue_notify(ptr noundef %0, ptr noundef %1, i1
   br label %vu_is_vq_usable.exit.thread
 
 vu_is_vq_usable.exit:                             ; preds = %20, %8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !24
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !11
   fence seq_cst
   %23 = getelementptr i8, ptr %0, i64 120
   %.val16.i = load i64, ptr %23, align 8
@@ -2340,14 +2340,14 @@ vu_is_vq_usable.exit:                             ; preds = %20, %8
   br i1 %.not.i21, label %28, label %vu_queue_empty.exit.thread21.i
 
 28:                                               ; preds = %25
-  %29 = load i8, ptr %5, align 8, !range !17, !noundef !18
+  %29 = load i8, ptr %5, align 8, !range !5, !noundef !6
   %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %vring_notify.exit.thread, label %31, !prof !19
+  br i1 %30, label %vring_notify.exit.thread, label %31, !prof !7
 
 31:                                               ; preds = %28
   %32 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i, label %33, label %vu_is_vq_usable.exit.i.i, !prof !19
+  br i1 %.not.i.i.i, label %33, label %vu_is_vq_usable.exit.i.i, !prof !7
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -2406,7 +2406,7 @@ vu_queue_empty.exit.thread21.i:                   ; preds = %vu_queue_empty.exit
 
 56:                                               ; preds = %vu_queue_empty.exit.thread21.i
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %58 = load i8, ptr %57, align 8, !range !17, !noundef !18
+  %58 = load i8, ptr %57, align 8, !range !5, !noundef !6
   %59 = trunc nuw i8 %58 to i1
   store i8 1, ptr %57, align 8
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 86
@@ -2570,7 +2570,7 @@ define dso_local void @vu_queue_set_notification(ptr noundef readonly captures(n
   br label %vring_set_avail_event.exit
 
 29:                                               ; preds = %15, %25
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !25
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !12
   fence seq_cst
   br label %vring_set_avail_event.exit
 
@@ -2581,15 +2581,15 @@ vring_set_avail_event.exit:                       ; preds = %27, %9, %29
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @vu_queue_pop(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %5 = load i8, ptr %4, align 8, !range !17, !noundef !18
+  %5 = load i8, ptr %4, align 8, !range !5, !noundef !6
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %vu_queue_inflight_get.exit, label %7, !prof !19
+  br i1 %6, label %vu_queue_inflight_get.exit, label %7, !prof !7
 
 7:                                                ; preds = %3
   %8 = getelementptr i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %10, label %vu_is_vq_usable.exit, !prof !19
+  br i1 %.not.i, label %10, label %vu_is_vq_usable.exit, !prof !7
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -2627,7 +2627,7 @@ vu_is_vq_usable.exit:                             ; preds = %19, %7
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %26 = load i16, ptr %25, align 8
   %.not52 = icmp eq i16 %26, 0
-  br i1 %.not52, label %.critedge, label %27, !prof !26
+  br i1 %.not52, label %.critedge, label %27, !prof !13
 
 27:                                               ; preds = %24
   %28 = add i16 %26, -1
@@ -2651,14 +2651,14 @@ vu_is_vq_usable.exit:                             ; preds = %19, %7
   br label %vu_queue_inflight_get.exit
 
 .critedge:                                        ; preds = %vu_is_vq_usable.exit, %24
-  %38 = load i8, ptr %4, align 8, !range !17, !noundef !18
+  %38 = load i8, ptr %4, align 8, !range !5, !noundef !6
   %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %vu_queue_inflight_get.exit, label %40, !prof !19
+  br i1 %39, label %vu_queue_inflight_get.exit, label %40, !prof !7
 
 40:                                               ; preds = %.critedge
   %41 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i, label %42, label %vu_is_vq_usable.exit.i, !prof !19
+  br i1 %.not.i.i, label %42, label %vu_is_vq_usable.exit.i, !prof !7
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -2703,7 +2703,7 @@ vu_queue_empty.exit:                              ; preds = %vu_is_vq_usable.exi
   br i1 %61, label %vu_queue_inflight_get.exit, label %vu_queue_empty.exit.thread50
 
 vu_queue_empty.exit.thread50:                     ; preds = %vu_is_vq_usable.exit.i, %vu_queue_empty.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !14
   fence acquire
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %63 = load i32, ptr %62, align 4
@@ -2743,7 +2743,7 @@ virtqueue_get_head.exit:                          ; preds = %66
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 89
-  %81 = load i8, ptr %80, align 1, !range !17, !noundef !18
+  %81 = load i8, ptr %80, align 1, !range !5, !noundef !6
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %vring_set_avail_event.exit
 
@@ -2779,7 +2779,7 @@ vring_set_avail_event.exit:                       ; preds = %83, %79, %76
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %98 = load ptr, ptr %97, align 8
   %.not.i45 = icmp eq ptr %98, null
-  br i1 %.not.i45, label %vu_queue_inflight_get.exit, label %99, !prof !19
+  br i1 %.not.i45, label %vu_queue_inflight_get.exit, label %99, !prof !7
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -2814,7 +2814,7 @@ define internal fastcc noundef ptr @vu_queue_map_desc(ptr noundef %0, i32 %.0.va
   store i32 0, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %6) #21
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %7) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %7, i8 0, i64 16384, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %7, i8 0, i64 16384, i1 false), !annotation !4
   %8 = zext i32 %1 to i64
   %9 = getelementptr inbounds nuw %struct.vring_desc, ptr %.8.val, i64 %8, i32 2
   %10 = load i16, ptr %9, align 4
@@ -2883,7 +2883,7 @@ define internal fastcc noundef ptr @vu_queue_map_desc(ptr noundef %0, i32 %.0.va
   %42 = add i32 %31, -1
   %.228.i.i = select i1 %.not31.i.i, i32 %42, i32 %.02638.i.i
   %.not.i.i = icmp sgt i32 %41, %.228.i.i
-  br i1 %.not.i.i, label %virtqueue_alloc_element.exit.thread.sink.split, label %28, !llvm.loop !4
+  br i1 %.not.i.i, label %virtqueue_alloc_element.exit.thread.sink.split, label %28
 
 vu_gpa_to_mem_region.exit.i:                      ; preds = %36
   %43 = add i64 %18, %19
@@ -2916,7 +2916,7 @@ vu_gpa_to_va.exit:                                ; preds = %vu_gpa_to_mem_regio
   %64 = icmp ne i64 %18, 0
   %65 = icmp ne i64 %54, %19
   %66 = and i1 %64, %65
-  br i1 %66, label %67, label %69, !prof !21
+  br i1 %66, label %67, label %69, !prof !9
 
 67:                                               ; preds = %vu_gpa_to_va.exit
   %68 = call fastcc i32 @virtqueue_read_indirect_desc(ptr noundef %0, ptr noundef %7, i64 noundef %18, i64 noundef %19)
@@ -2932,7 +2932,7 @@ vu_gpa_to_va.exit:                                ; preds = %vu_gpa_to_mem_regio
   %.015 = phi i32 [ %1, %3 ], [ 0, %69 ], [ 0, %67 ]
   %.042 = phi ptr [ %.8.val, %3 ], [ %.1, %69 ], [ %7, %67 ]
   %.0 = phi i32 [ %.0.val, %3 ], [ %20, %69 ], [ %20, %67 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %6, i8 0, i64 16384, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %6, i8 0, i64 16384, i1 false), !annotation !4
   br label %virtqueue_read_next_desc.exit
 
 virtqueue_read_next_desc.exit:                    ; preds = %105, %.thread25
@@ -2999,7 +2999,7 @@ virtqueue_read_next_desc.exit:                    ; preds = %105, %.thread25
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 14
   %107 = load i16, ptr %106, align 2
   %108 = zext i16 %107 to i32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
   fence release
   %.not10.i = icmp ugt i32 %.0, %108
   br i1 %.not10.i, label %virtqueue_read_next_desc.exit, label %109
@@ -3056,7 +3056,7 @@ virtqueue_read_next_desc.exit:                    ; preds = %105, %.thread25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef nonnull align 16 dereferenceable(16) %132, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %118
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph
 
 .lr.ph42:                                         ; preds = %.preheader, %.lr.ph42
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph42 ], [ 0, %.preheader ]
@@ -3069,7 +3069,7 @@ virtqueue_read_next_desc.exit:                    ; preds = %105, %.thread25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 16 dereferenceable(16) %138, i64 16, i1 false)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %113
-  br i1 %exitcond56.not, label %virtqueue_alloc_element.exit.thread, label %.lr.ph42, !llvm.loop !29
+  br i1 %exitcond56.not, label %virtqueue_alloc_element.exit.thread, label %.lr.ph42
 
 virtqueue_alloc_element.exit.thread.sink.split:   ; preds = %40, %94, %86, %69, %67, %16, %22, %12, %109
   %.str.104.sink = phi ptr [ @.str.104, %109 ], [ @.str.47, %12 ], [ @.str.49, %22 ], [ @.str.49, %16 ], [ @.str.49, %67 ], [ @.str.49, %69 ], [ @.str.103, %86 ], [ @.str.48, %94 ], [ @.str.49, %40 ]
@@ -3123,15 +3123,15 @@ define dso_local noundef zeroext i1 @vu_queue_rewind(ptr noundef readnone captur
 define dso_local void @vu_queue_fill(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca [1024 x %struct.vring_desc], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %8 = load i8, ptr %7, align 8, !range !17, !noundef !18
+  %8 = load i8, ptr %7, align 8, !range !5, !noundef !6
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %vu_is_vq_usable.exit.thread, label %10, !prof !19
+  br i1 %9, label %vu_is_vq_usable.exit.thread, label %10, !prof !7
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %13, label %vu_is_vq_usable.exit, !prof !19
+  br i1 %.not.i, label %13, label %vu_is_vq_usable.exit, !prof !7
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -3165,7 +3165,7 @@ vu_is_vq_usable.exit:                             ; preds = %22, %10
   %.val13 = load ptr, ptr %25, align 8
   %.val14 = load i32, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %6) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %6, i8 0, i64 16384, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16384) %6, i8 0, i64 16384, i1 false), !annotation !4
   %26 = zext i32 %.val14 to i64
   %27 = getelementptr inbounds nuw %struct.vring_desc, ptr %.val13, i64 %26, i32 2
   %28 = load i16, ptr %27, align 4
@@ -3238,7 +3238,7 @@ vu_is_vq_usable.exit:                             ; preds = %22, %10
   %61 = add i32 %50, -1
   %.228.i.i.i = select i1 %.not31.i.i.i, i32 %61, i32 %.02638.i.i.i
   %.not.i.i.i = icmp sgt i32 %60, %.228.i.i.i
-  br i1 %.not.i.i.i, label %.thread.i, label %47, !llvm.loop !4
+  br i1 %.not.i.i.i, label %.thread.i, label %47
 
 vu_gpa_to_mem_region.exit.i.i:                    ; preds = %55
   %62 = add i64 %37, %38
@@ -3271,7 +3271,7 @@ vu_gpa_to_va.exit.i:                              ; preds = %vu_gpa_to_mem_regio
   %83 = icmp ne i64 %37, 0
   %84 = icmp ne i64 %73, %38
   %85 = and i1 %83, %84
-  br i1 %85, label %86, label %88, !prof !30
+  br i1 %85, label %86, label %88, !prof !15
 
 86:                                               ; preds = %vu_gpa_to_va.exit.i
   %87 = call fastcc i32 @virtqueue_read_indirect_desc(ptr noundef %0, ptr noundef %6, i64 noundef %37, i64 noundef %38)
@@ -3342,10 +3342,10 @@ virtqueue_read_next_desc.exit.i:                  ; preds = %112, %.thread22.i
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 14
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %114 to i32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
   fence release
   %.not10.i.i = icmp ugt i32 %.040.i, %115
-  br i1 %.not10.i.i, label %virtqueue_read_next_desc.exit.i, label %116, !llvm.loop !31
+  br i1 %.not10.i.i, label %virtqueue_read_next_desc.exit.i, label %116
 
 116:                                              ; preds = %112
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.101, i32 noundef %115)
@@ -3385,15 +3385,15 @@ vu_is_vq_usable.exit.thread:                      ; preds = %13, %16, %19, %5, %
 ; Function Attrs: nounwind uwtable
 define dso_local void @vu_queue_flush(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %5 = load i8, ptr %4, align 8, !range !17, !noundef !18
+  %5 = load i8, ptr %4, align 8, !range !5, !noundef !6
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %vu_is_vq_usable.exit.thread, label %7, !prof !19
+  br i1 %6, label %vu_is_vq_usable.exit.thread, label %7, !prof !7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %10, label %vu_is_vq_usable.exit, !prof !19
+  br i1 %.not.i, label %10, label %vu_is_vq_usable.exit, !prof !7
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -3422,7 +3422,7 @@ define dso_local void @vu_queue_flush(ptr noundef %0, ptr noundef captures(none)
   br label %vu_is_vq_usable.exit.thread
 
 vu_is_vq_usable.exit:                             ; preds = %19, %7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !32
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !16
   fence release
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %23 = load i16, ptr %22, align 4
@@ -3447,7 +3447,7 @@ vu_is_vq_usable.exit:                             ; preds = %19, %7
   %38 = sext i16 %37 to i32
   %39 = and i32 %2, 65535
   %40 = icmp sgt i32 %39, %38
-  br i1 %40, label %41, label %vu_is_vq_usable.exit.thread, !prof !19
+  br i1 %40, label %41, label %vu_is_vq_usable.exit.thread, !prof !7
 
 41:                                               ; preds = %vu_is_vq_usable.exit
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -3472,7 +3472,7 @@ define dso_local void @vu_queue_push(ptr noundef %0, ptr noundef captures(none) 
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %vu_queue_inflight_pre_put.exit, label %11, !prof !19
+  br i1 %.not.i, label %vu_queue_inflight_pre_put.exit, label %11, !prof !7
 
 11:                                               ; preds = %8
   %12 = trunc i32 %5 to i16
@@ -3482,15 +3482,15 @@ define dso_local void @vu_queue_push(ptr noundef %0, ptr noundef captures(none) 
 
 vu_queue_inflight_pre_put.exit:                   ; preds = %4, %8, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %15 = load i8, ptr %14, align 8, !range !17, !noundef !18
+  %15 = load i8, ptr %14, align 8, !range !5, !noundef !6
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %vu_queue_flush.exit, label %17, !prof !19
+  br i1 %16, label %vu_queue_flush.exit, label %17, !prof !7
 
 17:                                               ; preds = %vu_queue_inflight_pre_put.exit
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %20, label %vu_is_vq_usable.exit.i, !prof !19
+  br i1 %.not.i.i, label %20, label %vu_is_vq_usable.exit.i, !prof !7
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -3519,7 +3519,7 @@ vu_queue_inflight_pre_put.exit:                   ; preds = %4, %8, %11
   br label %vu_queue_flush.exit
 
 vu_is_vq_usable.exit.i:                           ; preds = %29, %17
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !32
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !16
   fence release
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %33 = load i16, ptr %32, align 4
@@ -3541,7 +3541,7 @@ vu_is_vq_usable.exit.i:                           ; preds = %29, %17
   %45 = load i16, ptr %44, align 2
   %46 = sub i16 %34, %45
   %47 = icmp slt i16 %46, 1
-  br i1 %47, label %48, label %vu_queue_flush.exit, !prof !19
+  br i1 %47, label %48, label %vu_queue_flush.exit, !prof !7
 
 48:                                               ; preds = %vu_is_vq_usable.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -3559,16 +3559,16 @@ vu_queue_flush.exit:                              ; preds = %vu_queue_inflight_p
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %54 = load ptr, ptr %53, align 8
   %.not.i13 = icmp eq ptr %54, null
-  br i1 %.not.i13, label %vu_queue_inflight_post_put.exit, label %55, !prof !19
+  br i1 %.not.i13, label %vu_queue_inflight_post_put.exit, label %55, !prof !7
 
 55:                                               ; preds = %52
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !17
   %56 = load ptr, ptr %53, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = sext i32 %50 to i64
   %59 = getelementptr inbounds [0 x %struct.VuDescStateSplit], ptr %57, i64 0, i64 %58
   store i8 0, ptr %59, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !34
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !18
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %61 = load i16, ptr %60, align 4
   %62 = load ptr, ptr %53, align 8
@@ -3634,7 +3634,7 @@ define internal fastcc void @vu_set_features_exec(ptr noundef initializes((120, 
   %14 = load i16, ptr %8, align 2
   %15 = zext i16 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next.i, %15
-  br i1 %16, label %11, label %vu_set_enable_all_rings.exit, !llvm.loop !13
+  br i1 %16, label %11, label %vu_set_enable_all_rings.exit
 
 vu_set_enable_all_rings.exit:                     ; preds = %11, %7, %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -3668,7 +3668,7 @@ have_userfault.exit.thread:                       ; preds = %2
 
 have_userfault.exit:                              ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %7, align 8, !annotation !6
+  store i64 0, ptr %7, align 8, !annotation !4
   store i64 170, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 48, ptr %8, align 8
@@ -3786,7 +3786,7 @@ define internal fastcc void @vu_set_mem_table_exec(ptr noundef %0, ptr noundef n
   %21 = load i32, ptr %6, align 4
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
-  br i1 %23, label %9, label %vu_remove_all_mem_regs.exit, !llvm.loop !14
+  br i1 %23, label %9, label %vu_remove_all_mem_regs.exit
 
 vu_remove_all_mem_regs.exit:                      ; preds = %9, %2
   store i32 0, ptr %6, align 4
@@ -3811,11 +3811,11 @@ vu_remove_all_mem_regs.exit:                      ; preds = %9, %2
   %33 = load i32, ptr %4, align 8
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next, %34
-  br i1 %35, label %27, label %._crit_edge, !llvm.loop !35
+  br i1 %35, label %27, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %27, %vu_remove_all_mem_regs.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %37 = load i8, ptr %36, align 4, !range !17, !noundef !18
+  %37 = load i8, ptr %36, align 4, !range !5, !noundef !6
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %42, label %.preheader
 
@@ -3885,7 +3885,7 @@ vu_remove_all_mem_regs.exit:                      ; preds = %9, %2
   %71 = load ptr, ptr %65, align 8
   %72 = getelementptr inbounds nuw %struct.VuDevRegion, ptr %71, i64 %indvars.iv.i40
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !4
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load i64, ptr %73, align 8
   %75 = inttoptr i64 %74 to ptr
@@ -3986,7 +3986,7 @@ vu_remove_all_mem_regs.exit:                      ; preds = %9, %2
   %137 = load i32, ptr %6, align 4
   %138 = zext i32 %137 to i64
   %.not58.i = icmp samesign ult i64 %indvars.iv.next.i42, %138
-  br i1 %.not58.i, label %70, label %generate_faults.exit, !llvm.loop !36
+  br i1 %.not58.i, label %70, label %generate_faults.exit
 
 .critedge.i:                                      ; preds = %131, %122, %110
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #21
@@ -4015,7 +4015,7 @@ vu_remove_all_mem_regs.exit:                      ; preds = %9, %2
   %149 = load i16, ptr %39, align 2
   %150 = zext i16 %149 to i64
   %151 = icmp samesign ult i64 %indvars.iv.next80, %150
-  br i1 %151, label %139, label %generate_faults.exit, !llvm.loop !37
+  br i1 %151, label %139, label %generate_faults.exit
 
 generate_faults.exit:                             ; preds = %148, %136, %.preheader, %.critedge.i, %62, %61, %50
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %4) #21
@@ -4343,13 +4343,13 @@ define internal fastcc void @vu_set_vring_kick_exec(ptr noundef %0, ptr noundef 
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %58 = load ptr, ptr %57, align 8
   %.not.i = icmp eq ptr %58, null
-  br i1 %.not.i, label %vu_check_queue_inflights.exit.thread48, label %59, !prof !19
+  br i1 %.not.i, label %vu_check_queue_inflights.exit.thread48, label %59, !prof !7
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load i16, ptr %60, align 8
   %.not50.i = icmp eq i16 %61, 0
-  br i1 %.not50.i, label %62, label %63, !prof !19
+  br i1 %.not50.i, label %62, label %63, !prof !7
 
 62:                                               ; preds = %59
   store i16 1, ptr %60, align 8
@@ -4371,7 +4371,7 @@ define internal fastcc void @vu_set_vring_kick_exec(ptr noundef %0, ptr noundef 
   %72 = getelementptr inbounds nuw i8, ptr %58, i64 14
   %73 = load i16, ptr %72, align 2
   %.not51.i = icmp eq i16 %73, %67
-  br i1 %.not51.i, label %83, label %74, !prof !26
+  br i1 %.not51.i, label %83, label %74, !prof !13
 
 74:                                               ; preds = %63
   %75 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -4380,7 +4380,7 @@ define internal fastcc void @vu_set_vring_kick_exec(ptr noundef %0, ptr noundef 
   %78 = zext i16 %77 to i64
   %79 = getelementptr inbounds nuw [0 x %struct.VuDescStateSplit], ptr %75, i64 0, i64 %78
   store i8 0, ptr %79, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !38
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !19
   %80 = load i16, ptr %68, align 4
   %81 = load ptr, ptr %57, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 14
@@ -4421,7 +4421,7 @@ define internal fastcc void @vu_set_vring_kick_exec(ptr noundef %0, ptr noundef 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %100 = zext i16 %99 to i64
   %101 = icmp samesign ult i64 %indvars.iv.next.i, %100
-  br i1 %101, label %90, label %._crit_edge.i, !llvm.loop !39
+  br i1 %101, label %90, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %98, %83
   %102 = getelementptr inbounds nuw i8, ptr %53, i64 92
@@ -4465,8 +4465,8 @@ define internal fastcc void @vu_set_vring_kick_exec(ptr noundef %0, ptr noundef 
   store i16 %117, ptr %121, align 8
   %122 = load ptr, ptr %57, align 8
   %.idx.i = shl nuw nsw i64 %indvars.iv9.i, 4
-  %123 = getelementptr i8, ptr %122, i64 24
-  %124 = getelementptr i8, ptr %123, i64 %.idx.i
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx.i
   %125 = load i64, ptr %124, align 8
   %126 = load ptr, ptr %70, align 8
   %127 = load i16, ptr %69, align 8
@@ -4486,7 +4486,7 @@ define internal fastcc void @vu_set_vring_kick_exec(ptr noundef %0, ptr noundef 
   %135 = load i16, ptr %134, align 2
   %136 = zext i16 %135 to i64
   %137 = icmp samesign ult i64 %indvars.iv.next10.i, %136
-  br i1 %137, label %.lr.ph4.i, label %._crit_edge5.loopexit.i, !llvm.loop !40
+  br i1 %137, label %.lr.ph4.i, label %._crit_edge5.loopexit.i
 
 ._crit_edge5.loopexit.i:                          ; preds = %132
   %.pre15.pre.i = load ptr, ptr %70, align 8
@@ -4698,7 +4698,7 @@ define internal fastcc void @vu_set_postcopy_advise(ptr noundef initializes((184
   %3 = alloca %struct.uffdio_api, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %4, align 8, !annotation !6
+  store i64 0, ptr %4, align 8, !annotation !4
   %5 = tail call i64 (i64, ...) @syscall(i64 noundef 323, i32 noundef 526336) #21
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -4911,7 +4911,7 @@ define internal fastcc void @vu_set_inflight_fd(ptr noundef %0, ptr noundef nonn
   %50 = getelementptr inbounds nuw i8, ptr %.046, i64 %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %43, !llvm.loop !41
+  br i1 %exitcond.not, label %.loopexit, label %43
 
 .loopexit:                                        ; preds = %43, %36, %20, %._crit_edge
   ret void
@@ -4934,7 +4934,7 @@ define internal fastcc void @vu_handle_vring_kick(ptr noundef %0, i32 %.12.val) 
   %8 = load ptr, ptr %7, align 8
   %9 = zext nneg i32 %.12.val to i64
   %10 = getelementptr inbounds nuw %struct.VuVirtq, ptr %8, i64 %9, i32 17
-  %11 = load i8, ptr %10, align 8, !range !17, !noundef !18
+  %11 = load i8, ptr %10, align 8, !range !5, !noundef !6
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %19, label %13
 
@@ -4994,7 +4994,7 @@ define internal fastcc noundef zeroext i1 @vu_add_mem_reg(ptr noundef %0, ptr no
   %14 = load i32, ptr %5, align 1
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next.i, %15
-  br i1 %16, label %10, label %vmsg_close_fds.exit, !llvm.loop !12
+  br i1 %16, label %10, label %vmsg_close_fds.exit
 
 vmsg_close_fds.exit:                              ; preds = %10, %7
   %17 = phi i32 [ %6, %7 ], [ %14, %10 ]
@@ -5035,7 +5035,7 @@ vmsg_close_fds.exit:                              ; preds = %10, %7
   call fastcc void @_vu_add_mem_reg(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %38)
   %39 = load i32, ptr %37, align 1
   %40 = tail call i32 @close(i32 noundef %39) #21
-  %41 = load i8, ptr %36, align 4, !range !17, !noundef !18
+  %41 = load i8, ptr %36, align 4, !range !5, !noundef !6
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %44
 
@@ -5075,7 +5075,7 @@ define internal fastcc void @vu_rem_mem_reg(ptr noundef %0, ptr noundef nonnull 
   %12 = load i32, ptr %4, align 1
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next.i, %13
-  br i1 %14, label %8, label %vmsg_close_fds.exit, !llvm.loop !12
+  br i1 %14, label %8, label %vmsg_close_fds.exit
 
 vmsg_close_fds.exit:                              ; preds = %8
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.93, i32 noundef %12)
@@ -5104,7 +5104,7 @@ vmsg_close_fds.exit:                              ; preds = %8
   %26 = load i32, ptr %4, align 1
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next.i35, %27
-  br i1 %28, label %22, label %vmsg_close_fds.exit36.loopexit, !llvm.loop !12
+  br i1 %28, label %22, label %vmsg_close_fds.exit36.loopexit
 
 vmsg_close_fds.exit36.loopexit:                   ; preds = %22
   %.pre59 = load i32, ptr %16, align 1
@@ -5161,7 +5161,7 @@ vmsg_close_fds.exit36:                            ; preds = %vmsg_close_fds.exit
   %50 = add i32 %39, -1
   %.228.i = select i1 %.not31.i, i32 %50, i32 %.02638.i
   %.not.i = icmp sgt i32 %49, %.228.i
-  br i1 %.not.i, label %reg_equal.exit, label %36, !llvm.loop !4
+  br i1 %.not.i, label %reg_equal.exit, label %36
 
 vu_gpa_to_mem_region.exit:                        ; preds = %44
   %.phi.trans.insert.i.le = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -5193,7 +5193,7 @@ reg_equal.exit:                                   ; preds = %48, %30, %52, %vu_g
   %63 = load i32, ptr %4, align 1
   %64 = sext i32 %63 to i64
   %65 = icmp slt i64 %indvars.iv.next.i40, %64
-  br i1 %65, label %59, label %vmsg_close_fds.exit41, !llvm.loop !12
+  br i1 %65, label %59, label %vmsg_close_fds.exit41
 
 vmsg_close_fds.exit41:                            ; preds = %59, %reg_equal.exit
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.95)
@@ -5256,7 +5256,7 @@ vmsg_close_fds.exit41:                            ; preds = %59, %reg_equal.exit
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i43, 1
   %96 = zext i16 %95 to i64
   %97 = icmp samesign ult i64 %indvars.iv.next.i45, %96
-  br i1 %97, label %71, label %unmap_rings.exit.loopexit, !llvm.loop !42
+  br i1 %97, label %71, label %unmap_rings.exit.loopexit
 
 unmap_rings.exit.loopexit:                        ; preds = %94
   %.pre = load i64, ptr %.phi.trans.insert.i.le, align 8
@@ -5312,7 +5312,7 @@ unmap_rings.exit:                                 ; preds = %unmap_rings.exit.lo
   %130 = load i32, ptr %4, align 1
   %131 = sext i32 %130 to i64
   %132 = icmp slt i64 %indvars.iv.next.i50, %131
-  br i1 %132, label %126, label %vmsg_close_fds.exit51, !llvm.loop !12
+  br i1 %132, label %126, label %vmsg_close_fds.exit51
 
 vmsg_close_fds.exit51:                            ; preds = %126, %115, %vmsg_close_fds.exit41, %vmsg_close_fds.exit36, %vmsg_close_fds.exit
   ret void
@@ -5335,7 +5335,7 @@ define internal fastcc void @_vu_add_mem_reg(ptr noundef %0, ptr noundef nonnull
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, -1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %13 = load i8, ptr %12, align 4, !range !17, !noundef !18
+  %13 = load i8, ptr %12, align 4, !range !5, !noundef !6
   %14 = trunc nuw i8 %13 to i1
   %spec.select = select i1 %14, i32 0, i32 3
   %.not80 = icmp slt i32 %11, 0
@@ -5374,12 +5374,12 @@ define internal fastcc void @_vu_add_mem_reg(ptr noundef %0, ptr noundef nonnull
   %32 = add i32 %20, -1
   %.2 = select i1 %31, i32 %32, i32 %.06782
   %.not = icmp sgt i32 %spec.select76, %.2
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %17
 
 ._crit_edge:                                      ; preds = %29, %3
   %.068.lcssa = phi i32 [ 0, %3 ], [ %spec.select76, %29 ]
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #21
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 120, i1 false), !annotation !6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %4, i8 0, i64 120, i1 false), !annotation !4
   br label %33
 
 33:                                               ; preds = %35, %._crit_edge
@@ -5391,7 +5391,7 @@ define internal fastcc void @_vu_add_mem_reg(ptr noundef %0, ptr noundef nonnull
   %36 = tail call ptr @__errno_location() #22
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 4
-  br i1 %38, label %33, label %get_fd_hugepagesize.exit, !llvm.loop !44
+  br i1 %38, label %33, label %get_fd_hugepagesize.exit
 
 get_fd_hugepagesize.exit:                         ; preds = %33, %35
   %39 = load i64, ptr %4, align 8
@@ -5460,7 +5460,7 @@ get_fd_hugepagesize.exit:                         ; preds = %33, %35
   %80 = load i32, ptr %9, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %9, align 4
-  %82 = load i8, ptr %12, align 4, !range !17, !noundef !18
+  %82 = load i8, ptr %12, align 4, !range !5, !noundef !6
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %84, label %88
 
@@ -5520,7 +5520,7 @@ define internal fastcc zeroext i1 @map_ring(ptr noundef readonly captures(none) 
 28:                                               ; preds = %13, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %qva_to_va.exit, label %9, !llvm.loop !45
+  br i1 %exitcond.not.i, label %qva_to_va.exit, label %9
 
 qva_to_va.exit:                                   ; preds = %28, %2, %18
   %.2.i = phi ptr [ %27, %18 ], [ null, %2 ], [ null, %28 ]
@@ -5568,7 +5568,7 @@ qva_to_va.exit:                                   ; preds = %28, %2, %18
 54:                                               ; preds = %39, %35
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %wide.trip.count.i15
-  br i1 %exitcond.not.i19, label %qva_to_va.exit21, label %35, !llvm.loop !45
+  br i1 %exitcond.not.i19, label %qva_to_va.exit21, label %35
 
 qva_to_va.exit21:                                 ; preds = %54, %qva_to_va.exit, %44
   %.2.i20 = phi ptr [ %53, %44 ], [ null, %qva_to_va.exit ], [ null, %54 ]
@@ -5616,7 +5616,7 @@ qva_to_va.exit21:                                 ; preds = %54, %qva_to_va.exit
 80:                                               ; preds = %65, %61
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i24
-  br i1 %exitcond.not.i28, label %qva_to_va.exit30, label %61, !llvm.loop !45
+  br i1 %exitcond.not.i28, label %qva_to_va.exit30, label %61
 
 qva_to_va.exit30:                                 ; preds = %80, %qva_to_va.exit21, %70
   %.2.i29 = phi ptr [ %79, %70 ], [ null, %qva_to_va.exit21 ], [ null, %80 ]
@@ -5688,7 +5688,7 @@ define internal fastcc noundef zeroext i1 @vu_check_queue_msg_file(ptr noundef %
   %19 = load i32, ptr %11, align 1
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next.i, %20
-  br i1 %21, label %15, label %vmsg_close_fds.exit, !llvm.loop !12
+  br i1 %21, label %15, label %vmsg_close_fds.exit
 
 vmsg_close_fds.exit:                              ; preds = %15, %10
   tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, i32 noundef %6)
@@ -5718,7 +5718,7 @@ vmsg_close_fds.exit:                              ; preds = %15, %10
   %33 = load i32, ptr %24, align 1
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next.i18, %34
-  br i1 %35, label %29, label %vmsg_close_fds.exit19, !llvm.loop !12
+  br i1 %35, label %29, label %vmsg_close_fds.exit19
 
 36:                                               ; preds = %22
   %.not15 = icmp eq i32 %25, 1
@@ -5741,7 +5741,7 @@ vmsg_close_fds.exit:                              ; preds = %15, %10
   %44 = load i32, ptr %24, align 1
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next.i22, %45
-  br i1 %46, label %40, label %vmsg_close_fds.exit23, !llvm.loop !12
+  br i1 %46, label %40, label %vmsg_close_fds.exit23
 
 vmsg_close_fds.exit23:                            ; preds = %40, %37
   %47 = load i32, ptr %1, align 1
@@ -5870,7 +5870,7 @@ define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %0, pt
   %34 = add i32 %23, -1
   %.228.i.i = select i1 %.not31.i.i, i32 %34, i32 %.02638.i.i
   %.not.i.i = icmp sgt i32 %33, %.228.i.i
-  br i1 %.not.i.i, label %vu_gpa_to_va.exit.thread, label %20, !llvm.loop !4
+  br i1 %.not.i.i, label %vu_gpa_to_va.exit.thread, label %20
 
 vu_gpa_to_mem_region.exit.i:                      ; preds = %28
   %35 = inttoptr i64 %.02850 to ptr
@@ -5909,7 +5909,7 @@ vu_gpa_to_va.exit.thread:                         ; preds = %16, %32
   %55 = sub i64 %.02651, %spec.select
   %56 = add i64 %spec.select, %.02850
   %.not36 = icmp eq i64 %55, 0
-  br i1 %.not36, label %57, label %13, !llvm.loop !46
+  br i1 %.not36, label %57, label %13
 
 57:                                               ; preds = %49
   store i32 %54, ptr %1, align 4
@@ -5970,7 +5970,7 @@ define internal fastcc void @vu_log_write(ptr noundef %0, i64 noundef %1, i64 no
   %31 = add i64 %.015, 1
   %32 = shl i64 %31, 12
   %33 = icmp ult i64 %32, %15
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !47
+  br i1 %33, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6032,47 +6032,19 @@ attributes #27 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!"auto-init"}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!20 = !{i64 2148592474}
-!21 = !{!"branch_weights", !"expected", i32 16312714, i32 2131170934}
-!22 = !{i64 2148592685}
-!23 = distinct !{!23, !5}
-!24 = !{i64 2148593138}
-!25 = !{i64 2148593860}
-!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!27 = !{i64 2148596084}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = !{!"branch_weights", !"expected", i32 16312716, i32 2131170932}
-!31 = distinct !{!31, !5}
-!32 = !{i64 2148597061}
-!33 = !{i64 2148595815}
-!34 = !{i64 2148595861}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = !{i64 2148578788}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
-!44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
-!46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
+!4 = !{!"auto-init"}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = !{i64 2148592474}
+!9 = !{!"branch_weights", !"expected", i32 16312714, i32 2131170934}
+!10 = !{i64 2148592685}
+!11 = !{i64 2148593138}
+!12 = !{i64 2148593860}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = !{i64 2148596084}
+!15 = !{!"branch_weights", !"expected", i32 16312716, i32 2131170932}
+!16 = !{i64 2148597061}
+!17 = !{i64 2148595815}
+!18 = !{i64 2148595861}
+!19 = !{i64 2148578788}

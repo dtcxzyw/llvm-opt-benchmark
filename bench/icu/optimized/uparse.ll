@@ -50,7 +50,7 @@ define ptr @u_rtrim(ptr noundef captures(address, ret: address, provenance) %0) 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   store i8 0, ptr %3, align 1, !tbaa !3
   %5 = icmp ult ptr %0, %3
-  br i1 %5, label %.lr.ph, label %.critedge, !llvm.loop !9
+  br i1 %5, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %1
   %.0.lcssa = phi ptr [ %strchr, %1 ], [ %.012, %.lr.ph ], [ %3, %.critedge2 ]
@@ -70,7 +70,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 define void @u_parseDelimitedFile(ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #4 {
   %8 = alloca [10000 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 10000, ptr nonnull %8) #9
-  %9 = load i32, ptr %6, align 4, !tbaa !10
+  %9 = load i32, ptr %6, align 4, !tbaa !9
   %10 = icmp slt i32 %9, 1
   br i1 %10, label %11, label %83
 
@@ -83,7 +83,7 @@ define void @u_parseDelimitedFile(ptr noundef %0, i8 noundef signext %1, ptr nou
   br i1 %or.cond3, label %15, label %16
 
 15:                                               ; preds = %11
-  store i32 1, ptr %6, align 4, !tbaa !10
+  store i32 1, ptr %6, align 4, !tbaa !9
   br label %83
 
 16:                                               ; preds = %11
@@ -128,7 +128,7 @@ define void @u_parseDelimitedFile(ptr noundef %0, i8 noundef signext %1, ptr nou
   br label %33
 
 32:                                               ; preds = %28
-  store i32 4, ptr %6, align 4, !tbaa !10
+  store i32 4, ptr %6, align 4, !tbaa !9
   br label %83
 
 33:                                               ; preds = %.lr.ph106, %.backedge
@@ -154,7 +154,7 @@ define void @u_parseDelimitedFile(ptr noundef %0, i8 noundef signext %1, ptr nou
 .critedge2.i:                                     ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   store i8 0, ptr %35, align 1, !tbaa !3
   %37 = icmp ult ptr %8, %35
-  br i1 %37, label %.lr.ph.i, label %u_rtrim.exit.preheader, !llvm.loop !9
+  br i1 %37, label %.lr.ph.i, label %u_rtrim.exit.preheader, !llvm.loop !8
 
 u_rtrim.exit.preheader:                           ; preds = %.lr.ph.i, %.critedge2.i, %33
   br label %u_rtrim.exit
@@ -250,7 +250,7 @@ _ZL15getMissingLimitPKc.exit:                     ; preds = %u_rtrim.exit, %.pre
   %.0.i115 = ptrtoint ptr %.0.i to i64
   %54 = icmp eq ptr %.0.i, %8
   %. = select i1 %54, i32 0, i32 -127
-  store i32 %., ptr %6, align 4, !tbaa !10
+  store i32 %., ptr %6, align 4, !tbaa !9
   %55 = load i8, ptr %.0.i, align 1, !tbaa !3
   switch i8 %55, label %57 [
     i8 0, label %.backedge
@@ -260,7 +260,7 @@ _ZL15getMissingLimitPKc.exit:                     ; preds = %u_rtrim.exit, %.pre
 .backedge:                                        ; preds = %65, %_ZL15getMissingLimitPKc.exit, %_ZL15getMissingLimitPKc.exit, %79
   %56 = call ptr @T_FileStream_readLine(ptr noundef nonnull %.070, ptr noundef nonnull %8, i32 noundef 10000)
   %.not80 = icmp eq ptr %56, null
-  br i1 %.not80, label %._crit_edge, label %33, !llvm.loop !12
+  br i1 %.not80, label %._crit_edge, label %33, !llvm.loop !11
 
 57:                                               ; preds = %_ZL15getMissingLimitPKc.exit
   %58 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0.i, i32 noundef 35) #10
@@ -290,7 +290,7 @@ _ZL15getMissingLimitPKc.exit:                     ; preds = %u_rtrim.exit, %.pre
 
 .critedge5:                                       ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %64 = icmp ugt ptr %62, %.0.i
-  br i1 %64, label %.lr.ph, label %.critedge, !llvm.loop !13
+  br i1 %64, label %.lr.ph, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %.critedge5, %.lr.ph, %.preheader92
   %.067.lcssa = phi ptr [ %58, %.preheader92 ], [ %.067100, %.lr.ph ], [ %scevgep, %.critedge5 ]
@@ -327,13 +327,13 @@ _ZL15getMissingLimitPKc.exit:                     ; preds = %u_rtrim.exit, %.pre
   %.not83 = icmp eq i8 %69, 0
   %or.cond88 = or i1 %.not82, %.not83
   %70 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br i1 %or.cond88, label %.critedge7, label %68, !llvm.loop !14
+  br i1 %or.cond88, label %.critedge7, label %68, !llvm.loop !13
 
 .critedge7:                                       ; preds = %68
   %71 = getelementptr inbounds nuw [2 x ptr], ptr %2, i64 %indvars.iv
-  store ptr %.068103, ptr %71, align 8, !tbaa !15
+  store ptr %.068103, ptr %71, align 8, !tbaa !14
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr %.1, ptr %72, align 8, !tbaa !15
+  store ptr %.1, ptr %72, align 8, !tbaa !14
   %73 = load i8, ptr %.1, align 1, !tbaa !3
   %.not84 = icmp eq i8 %73, 0
   %74 = add nuw nsw i64 %indvars.iv, 1
@@ -344,22 +344,22 @@ _ZL15getMissingLimitPKc.exit:                     ; preds = %u_rtrim.exit, %.pre
   br i1 %76, label %.loopexit.thread, label %77
 
 .loopexit.thread:                                 ; preds = %75
-  store i32 9, ptr %6, align 4, !tbaa !10
+  store i32 9, ptr %6, align 4, !tbaa !9
   br label %._crit_edge
 
 77:                                               ; preds = %.critedge7, %75
   %.169 = phi ptr [ %.1, %75 ], [ %70, %.critedge7 ]
   %exitcond.not = icmp eq i64 %74, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %77
-  %.pr = load i32, ptr %6, align 4, !tbaa !10
+  %.pr = load i32, ptr %6, align 4, !tbaa !9
   %78 = icmp slt i32 %.pr, 1
   br i1 %78, label %79, label %._crit_edge
 
 79:                                               ; preds = %.loopexit
   call void %4(ptr noundef %5, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %6)
-  %80 = load i32, ptr %6, align 4, !tbaa !10
+  %80 = load i32, ptr %6, align 4, !tbaa !9
   %81 = icmp slt i32 %80, 1
   br i1 %81, label %.backedge, label %._crit_edge
 
@@ -387,7 +387,7 @@ declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #5
 define i32 @u_parseCodePoints(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  %6 = load i32, ptr %3, align 4, !tbaa !10
+  %6 = load i32, ptr %3, align 4, !tbaa !9
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %.loopexit
 
@@ -432,7 +432,7 @@ define i32 @u_parseCodePoints(ptr noundef %0, ptr noundef writeonly captures(add
 18:                                               ; preds = %15
   %19 = call i64 @strtoul(ptr noundef nonnull %.0.i, ptr noundef nonnull %5, i32 noundef 16) #9
   %20 = trunc i64 %19 to i32
-  %21 = load ptr, ptr %5, align 8, !tbaa !15
+  %21 = load ptr, ptr %5, align 8, !tbaa !14
   %.not33 = icmp ugt ptr %21, %.0.i
   br i1 %.not33, label %22, label %.loopexit.sink.split
 
@@ -463,16 +463,16 @@ define i32 @u_parseCodePoints(ptr noundef %0, ptr noundef writeonly captures(add
   %30 = add nuw nsw i32 %.0.ph, 1
   %31 = zext nneg i32 %.0.ph to i64
   %32 = getelementptr inbounds nuw i32, ptr %1, i64 %31
-  store i32 %20, ptr %32, align 4, !tbaa !19
-  br label %.preheader.outer, !llvm.loop !21
+  store i32 %20, ptr %32, align 4, !tbaa !18
+  br label %.preheader.outer, !llvm.loop !20
 
 33:                                               ; preds = %28
-  store i32 15, ptr %3, align 4, !tbaa !10
-  br label %.preheader, !llvm.loop !21
+  store i32 15, ptr %3, align 4, !tbaa !9
+  br label %.preheader, !llvm.loop !20
 
 .loopexit.sink.split:                             ; preds = %18, %24, %27, %8, %11
   %.sink = phi i32 [ 1, %11 ], [ 1, %8 ], [ 9, %27 ], [ 9, %24 ], [ 9, %18 ]
-  store i32 %.sink, ptr %3, align 4, !tbaa !10
+  store i32 %.sink, ptr %3, align 4, !tbaa !9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %15, %.loopexit.sink.split, %4
@@ -488,7 +488,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 nound
 define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address) %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  %7 = load i32, ptr %4, align 4, !tbaa !10
+  %7 = load i32, ptr %4, align 4, !tbaa !9
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %9, label %65
 
@@ -505,7 +505,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
   br i1 %or.cond3, label %15, label %16
 
 15:                                               ; preds = %12, %9
-  store i32 1, ptr %4, align 4, !tbaa !10
+  store i32 1, ptr %4, align 4, !tbaa !9
   br label %65
 
 16:                                               ; preds = %12
@@ -513,7 +513,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
   br i1 %.not61, label %.preheader, label %17
 
 17:                                               ; preds = %16
-  store i32 -1, ptr %3, align 4, !tbaa !19
+  store i32 -1, ptr %3, align 4, !tbaa !18
   br label %.preheader
 
 .preheader:                                       ; preds = %17, %16
@@ -548,7 +548,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
 24:                                               ; preds = %22
   %25 = sext i32 %.0 to i64
   %26 = getelementptr inbounds i16, ptr %1, i64 %25
-  store i16 0, ptr %26, align 2, !tbaa !22
+  store i16 0, ptr %26, align 2, !tbaa !21
   br label %65
 
 27:                                               ; preds = %22
@@ -556,17 +556,17 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %27
-  store i32 -124, ptr %4, align 4, !tbaa !10
+  store i32 -124, ptr %4, align 4, !tbaa !9
   br label %65
 
 30:                                               ; preds = %27
-  store i32 15, ptr %4, align 4, !tbaa !10
+  store i32 15, ptr %4, align 4, !tbaa !9
   br label %65
 
 31:                                               ; preds = %19
   %32 = call i64 @strtoul(ptr noundef nonnull %.0.i, ptr noundef nonnull %6, i32 noundef 16) #9
   %33 = trunc i64 %32 to i32
-  %34 = load ptr, ptr %6, align 8, !tbaa !15
+  %34 = load ptr, ptr %6, align 8, !tbaa !14
   %.not62 = icmp ugt ptr %34, %.0.i
   br i1 %.not62, label %35, label %41
 
@@ -591,7 +591,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
   br i1 %.old4, label %41, label %42
 
 41:                                               ; preds = %40, %37, %31
-  store i32 9, ptr %4, align 4, !tbaa !10
+  store i32 9, ptr %4, align 4, !tbaa !9
   br label %65
 
 42:                                               ; preds = %37, %40
@@ -599,7 +599,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
   br i1 %.not64, label %44, label %43
 
 43:                                               ; preds = %42
-  store i32 %33, ptr %.050, align 4, !tbaa !19
+  store i32 %33, ptr %.050, align 4, !tbaa !18
   br label %44
 
 44:                                               ; preds = %43, %42
@@ -611,7 +611,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
 
 .backedge:                                        ; preds = %44, %49, %54
   %.0.be = phi i32 [ %47, %44 ], [ %51, %49 ], [ %63, %54 ]
-  br label %18, !llvm.loop !24
+  br label %18, !llvm.loop !23
 
 48:                                               ; preds = %44
   br i1 %45, label %49, label %54
@@ -621,7 +621,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
   %51 = add nsw i32 %.0, 1
   %52 = sext i32 %.0 to i64
   %53 = getelementptr inbounds i16, ptr %1, i64 %52
-  store i16 %50, ptr %53, align 2, !tbaa !22
+  store i16 %50, ptr %53, align 2, !tbaa !21
   br label %.backedge
 
 54:                                               ; preds = %48
@@ -630,13 +630,13 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
   %57 = add i16 %56, -10304
   %58 = sext i32 %.0 to i64
   %59 = getelementptr inbounds i16, ptr %1, i64 %58
-  store i16 %57, ptr %59, align 2, !tbaa !22
+  store i16 %57, ptr %59, align 2, !tbaa !21
   %60 = trunc i64 %32 to i16
   %61 = and i16 %60, 1023
   %62 = or disjoint i16 %61, -9216
   %63 = add nsw i32 %.0, 2
   %64 = getelementptr i8, ptr %59, i64 2
-  store i16 %62, ptr %64, align 2, !tbaa !22
+  store i16 %62, ptr %64, align 2, !tbaa !21
   br label %.backedge
 
 65:                                               ; preds = %24, %30, %29, %5, %41, %15
@@ -649,7 +649,7 @@ define i32 @u_parseString(ptr noundef %0, ptr noundef writeonly captures(address
 define range(i32 0, 1114113) i32 @u_parseCodePointRangeAnyTerminator(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  %7 = load i32, ptr %4, align 4, !tbaa !10
+  %7 = load i32, ptr %4, align 4, !tbaa !9
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %9, label %47
 
@@ -662,7 +662,7 @@ define range(i32 0, 1114113) i32 @u_parseCodePointRangeAnyTerminator(ptr noundef
   br i1 %or.cond3, label %13, label %.preheader
 
 13:                                               ; preds = %9
-  store i32 1, ptr %4, align 4, !tbaa !10
+  store i32 1, ptr %4, align 4, !tbaa !9
   br label %47
 
 .preheader:                                       ; preds = %9, %.critedge.i
@@ -682,19 +682,19 @@ define range(i32 0, 1114113) i32 @u_parseCodePointRangeAnyTerminator(ptr noundef
 u_skipWhitespace.exit:                            ; preds = %.preheader
   %16 = call i64 @strtoul(ptr noundef nonnull %.0.i, ptr noundef nonnull %6, i32 noundef 16) #9
   %17 = trunc i64 %16 to i32
-  %18 = load ptr, ptr %6, align 8, !tbaa !15
+  %18 = load ptr, ptr %6, align 8, !tbaa !14
   %19 = icmp ule ptr %18, %.0.i
   %20 = icmp ugt i32 %17, 1114111
   %or.cond5 = select i1 %19, i1 true, i1 %20
   br i1 %or.cond5, label %21, label %22
 
 21:                                               ; preds = %u_skipWhitespace.exit
-  store i32 9, ptr %4, align 4, !tbaa !10
+  store i32 9, ptr %4, align 4, !tbaa !9
   br label %47
 
 22:                                               ; preds = %u_skipWhitespace.exit
-  store i32 %17, ptr %2, align 4, !tbaa !19
-  store i32 %17, ptr %1, align 4, !tbaa !19
+  store i32 %17, ptr %2, align 4, !tbaa !18
+  store i32 %17, ptr %1, align 4, !tbaa !18
   br label %23
 
 23:                                               ; preds = %.critedge.i44, %22
@@ -719,7 +719,7 @@ u_skipWhitespace.exit:                            ; preds = %.preheader
   br i1 %.not42, label %29, label %.loopexit
 
 .loopexit:                                        ; preds = %23, %26
-  store ptr %18, ptr %3, align 8, !tbaa !15
+  store ptr %18, ptr %3, align 8, !tbaa !14
   br label %47
 
 29:                                               ; preds = %26
@@ -743,28 +743,28 @@ u_skipWhitespace.exit:                            ; preds = %.preheader
 u_skipWhitespace.exit48:                          ; preds = %31
   %34 = call i64 @strtoul(ptr noundef nonnull %.0.i46, ptr noundef nonnull %6, i32 noundef 16) #9
   %35 = trunc i64 %34 to i32
-  %36 = load ptr, ptr %6, align 8, !tbaa !15
+  %36 = load ptr, ptr %6, align 8, !tbaa !14
   %37 = icmp ule ptr %36, %.0.i46
   %38 = icmp ugt i32 %35, 1114111
   %or.cond7 = select i1 %37, i1 true, i1 %38
   br i1 %or.cond7, label %39, label %40
 
 39:                                               ; preds = %u_skipWhitespace.exit48
-  store i32 9, ptr %4, align 4, !tbaa !10
+  store i32 9, ptr %4, align 4, !tbaa !9
   br label %47
 
 40:                                               ; preds = %u_skipWhitespace.exit48
-  store i32 %35, ptr %2, align 4, !tbaa !19
-  %41 = load i32, ptr %1, align 4, !tbaa !19
+  store i32 %35, ptr %2, align 4, !tbaa !18
+  %41 = load i32, ptr %1, align 4, !tbaa !18
   %42 = icmp ugt i32 %41, %35
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %40
-  store i32 9, ptr %4, align 4, !tbaa !10
+  store i32 9, ptr %4, align 4, !tbaa !9
   br label %47
 
 44:                                               ; preds = %40
-  store ptr %36, ptr %3, align 8, !tbaa !15
+  store ptr %36, ptr %3, align 8, !tbaa !14
   %45 = add nuw nsw i32 %35, 1
   %46 = sub nuw nsw i32 %45, %41
   br label %47
@@ -780,12 +780,12 @@ define range(i32 0, 1114113) i32 @u_parseCodePointRange(ptr noundef %0, ptr noun
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %6 = call i32 @u_parseCodePointRangeAnyTerminator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef %3)
-  %7 = load i32, ptr %3, align 4, !tbaa !10
+  %7 = load i32, ptr %3, align 4, !tbaa !9
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !15
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %11
 
 11:                                               ; preds = %.critedge.i, %9
@@ -805,7 +805,7 @@ define range(i32 0, 1114113) i32 @u_parseCodePointRange(ptr noundef %0, ptr noun
   br label %11, !llvm.loop !6
 
 14:                                               ; preds = %11
-  store i32 9, ptr %3, align 4, !tbaa !10
+  store i32 9, ptr %3, align 4, !tbaa !9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %11, %4, %14
@@ -818,7 +818,7 @@ define range(i32 0, 1114113) i32 @u_parseCodePointRange(ptr noundef %0, ptr noun
 define i32 @u_parseUTF8(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  store i32 0, ptr %6, align 4, !tbaa !19
+  store i32 0, ptr %6, align 4, !tbaa !18
   %7 = icmp eq i32 %1, -1
   br i1 %7, label %8, label %11
 
@@ -846,7 +846,7 @@ define i32 @u_parseUTF8(ptr noundef readonly captures(address) %0, i32 noundef %
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %.lr.ph
-  %19 = load i32, ptr %6, align 4, !tbaa !19
+  %19 = load i32, ptr %6, align 4, !tbaa !18
   %20 = trunc i32 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %20, ptr %21, align 1, !tbaa !3
@@ -856,7 +856,7 @@ define i32 @u_parseUTF8(ptr noundef readonly captures(address) %0, i32 noundef %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = getelementptr inbounds nuw i8, ptr %.01619, i64 2
   %24 = icmp ult ptr %23, %13
-  br i1 %24, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !25
+  br i1 %24, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %22
   %25 = trunc nuw i64 %indvars.iv.next to i32
@@ -900,23 +900,22 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"_ZTS10UErrorCode", !4, i64 0}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 omnipotent char", !17, i64 0}
-!17 = !{!"any pointer", !4, i64 0}
-!18 = distinct !{!18, !7, !8}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"int", !4, i64 0}
-!21 = distinct !{!21, !7, !8}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"char16_t", !4, i64 0}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"_ZTS10UErrorCode", !4, i64 0}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !16, i64 0}
+!16 = !{!"any pointer", !4, i64 0}
+!17 = distinct !{!17, !7}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"int", !4, i64 0}
+!20 = distinct !{!20, !7}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"char16_t", !4, i64 0}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

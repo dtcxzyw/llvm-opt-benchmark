@@ -128,7 +128,7 @@ define hidden noundef zeroext i1 @X11_UpdateWindowShape(ptr noundef readnone cap
 ._crit_edge.us.i:                                 ; preds = %46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond31.not.i, label %.loopexit, label %.lr.ph.us.i, !llvm.loop !6
+  br i1 %exitcond31.not.i, label %.loopexit, label %.lr.ph.us.i, !llvm.loop !5
 
 .loopexit:                                        ; preds = %._crit_edge.us.i, %.preheader.i, %.lr.ph28.i
   %60 = load ptr, ptr @X11_XCreateBitmapFromData, align 8
@@ -219,8 +219,7 @@ attributes #5 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!5 = distinct !{!5, !4, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}

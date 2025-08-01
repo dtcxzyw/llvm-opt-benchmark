@@ -962,7 +962,7 @@ define dso_local range(i32 -2, 1) i32 @fwnode_get_mac_address(ptr noundef %0, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2, 1) i32 @device_get_mac_address(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call ptr @__dev_fwnode(ptr noundef %0) #12
-  %4 = tail call i32 @fwnode_get_mac_address(ptr noundef %3, ptr noundef %1), !range !16
+  %4 = tail call i32 @fwnode_get_mac_address(ptr noundef %3, ptr noundef %1), !range !15
   ret i32 %4
 }
 
@@ -975,7 +975,7 @@ define dso_local range(i32 -2, 1) i32 @device_get_ethdev_address(ptr noundef %0,
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %3, i8 0, i64 6, i1 false), !annotation !9
   %4 = tail call ptr @__dev_fwnode(ptr noundef %0) #12
-  %5 = call i32 @fwnode_get_mac_address(ptr noundef %4, ptr noundef nonnull %3), !range !16
+  %5 = call i32 @fwnode_get_mac_address(ptr noundef %4, ptr noundef nonnull %3), !range !15
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8
 
@@ -1043,8 +1043,7 @@ attributes #12 = { nounwind }
 !9 = !{!"auto-init"}
 !10 = !{i64 2160285323}
 !11 = !{!"branch_weights", i32 871893, i32 2146611755}
-!12 = distinct !{!12, !13, !14, !15}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
 !14 = !{!"llvm.loop.unroll.disable"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{i32 -2, i32 1}
+!15 = !{i32 -2, i32 1}

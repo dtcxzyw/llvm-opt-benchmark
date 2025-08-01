@@ -133,7 +133,7 @@ define range(i32 0, 2) i32 @ossl_prov_get_capabilities(ptr noundef readnone capt
 14:                                               ; preds = %.preheader10
   %15 = add nuw nsw i64 %.06.i6, 1
   %exitcond.not.i8 = icmp eq i64 %15, 3
-  br i1 %exitcond.not.i8, label %tls_group_capability.exit, label %.preheader10, !llvm.loop !6
+  br i1 %exitcond.not.i8, label %tls_group_capability.exit, label %.preheader10, !llvm.loop !5
 
 .preheader10:                                     ; preds = %11, %14
   %.06.i6 = phi i64 [ %15, %14 ], [ 0, %11 ]
@@ -158,7 +158,6 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
+!5 = distinct !{!5, !4}

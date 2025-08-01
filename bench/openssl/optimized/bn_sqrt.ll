@@ -134,7 +134,7 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i32 0, ptr %55, align 8, !tbaa !6
+  store i32 0, ptr %55, align 8, !tbaa !5
   %56 = tail call i32 @BN_add_word(ptr noundef %38, i64 noundef 1) #2
   %.not272 = icmp eq i32 %56, 0
   br i1 %.not272, label %.loopexit, label %57
@@ -156,7 +156,7 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i32 0, ptr %64, align 8, !tbaa !6
+  store i32 0, ptr %64, align 8, !tbaa !5
   %65 = tail call i32 @BN_mod_exp(ptr noundef %37, ptr noundef %39, ptr noundef %38, ptr noundef %2, ptr noundef %3) #2
   %.not264 = icmp eq i32 %65, 0
   br i1 %.not264, label %.loopexit, label %66
@@ -198,7 +198,7 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i32 0, ptr %81, align 8, !tbaa !6
+  store i32 0, ptr %81, align 8, !tbaa !5
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %83
 
@@ -224,10 +224,10 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %92, label %93, label %97
 
 93:                                               ; preds = %90
-  %94 = load i32, ptr %82, align 8, !tbaa !6
+  %94 = load i32, ptr %82, align 8, !tbaa !5
   %.not232 = icmp eq i32 %94, 0
   %95 = select i1 %.not232, ptr @BN_sub, ptr @BN_add
-  %96 = tail call i32 %95(ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef %2) #2, !callees !13
+  %96 = tail call i32 %95(ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef %2) #2, !callees !12
   %.not233 = icmp eq i32 %96, 0
   br i1 %.not233, label %.loopexit, label %97
 
@@ -256,7 +256,7 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 105:                                              ; preds = %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 82
-  br i1 %exitcond.not, label %.loopexit.sink.split.loopexit350, label %83, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit.sink.split.loopexit350, label %83, !llvm.loop !13
 
 106:                                              ; preds = %104
   %107 = tail call i32 @BN_rshift(ptr noundef %38, ptr noundef %38, i32 noundef %.0211) #2
@@ -361,7 +361,7 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 143:                                              ; preds = %141
   %144 = add nuw nsw i32 %.1317, 1
   %exitcond329.not = icmp eq i32 %144, %.1212
-  br i1 %exitcond329.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond329.not, label %.loopexit.sink.split, label %.lr.ph, !llvm.loop !14
 
 145:                                              ; preds = %141
   %146 = tail call ptr @BN_copy(ptr noundef %39, ptr noundef nonnull %41) #2
@@ -377,7 +377,7 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 151:                                              ; preds = %.lr.ph320
   %152 = add nsw i32 %.0209318, -1
   %153 = icmp sgt i32 %.0209318, 1
-  br i1 %153, label %.lr.ph320, label %._crit_edge321, !llvm.loop !16
+  br i1 %153, label %.lr.ph320, label %._crit_edge321, !llvm.loop !15
 
 .lr.ph320:                                        ; preds = %147, %151
   %.0209318 = phi i32 [ %152, %151 ], [ %149, %147 ]
@@ -398,7 +398,7 @@ define ptr @BN_mod_sqrt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 158:                                              ; preds = %156
   %159 = tail call i32 @BN_mod_mul(ptr noundef %37, ptr noundef %37, ptr noundef nonnull %41, ptr noundef %2, ptr noundef %3) #2
   %.not259 = icmp eq i32 %159, 0
-  br i1 %.not259, label %.loopexit, label %.preheader311, !llvm.loop !17
+  br i1 %.not259, label %.loopexit, label %.preheader311
 
 160:                                              ; preds = %57, %76, %134
   %161 = tail call i32 @BN_mod_sqr(ptr noundef %40, ptr noundef nonnull %.3292, ptr noundef %2, ptr noundef %3) #2
@@ -523,18 +523,16 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !12, i64 16}
-!7 = !{!"bignum_st", !8, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20}
-!8 = !{!"p1 long", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"int", !10, i64 0}
-!13 = !{ptr @BN_add, ptr @BN_sub}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !5}
+!5 = !{!6, !11, i64 16}
+!6 = !{!"bignum_st", !7, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20}
+!7 = !{!"p1 long", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"int", !9, i64 0}
+!12 = !{ptr @BN_add, ptr @BN_sub}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}

@@ -503,7 +503,7 @@ sub_187:                                          ; preds = %.tail.thread, %.thr
 147:                                              ; preds = %142
   %148 = load i32, ptr @__pg_log_level, align 4
   %149 = icmp ult i32 %148, 2
-  br i1 %149, label %150, label %151, !prof !7
+  br i1 %149, label %150, label %151, !prof !6
 
 150:                                              ; preds = %147
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.101, ptr noundef nonnull %144) #12
@@ -535,7 +535,7 @@ getRestoreCommand.exit:                           ; preds = %113, %151
   unreachable
 
 161:                                              ; preds = %154
-  %162 = load i8, ptr @showprogress, align 1, !range !8, !noundef !9
+  %162 = load i8, ptr @showprogress, align 1, !range !7, !noundef !8
   %163 = trunc nuw i8 %162 to i1
   br i1 %163, label %164, label %165
 
@@ -602,7 +602,7 @@ getRestoreCommand.exit:                           ; preds = %113, %151
 
 193:                                              ; preds = %178
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.102, ptr noundef nonnull %10) #12
-  %194 = load i8, ptr @dry_run, align 1, !range !8, !noundef !9
+  %194 = load i8, ptr @dry_run, align 1, !range !7, !noundef !8
   %195 = trunc nuw i8 %194 to i1
   br i1 %195, label %ensureCleanShutdown.exit, label %196
 
@@ -691,7 +691,7 @@ ensureCleanShutdown.exit:                         ; preds = %193, %208
 231:                                              ; preds = %221
   %232 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ControlFile_target, i64 252), align 4
   %233 = icmp eq i32 %232, 1
-  %234 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ControlFile_target, i64 176), align 8, !range !8
+  %234 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ControlFile_target, i64 176), align 8, !range !7
   %235 = trunc nuw i8 %234 to i1
   %or.cond7.i = select i1 %233, i1 true, i1 %235
   br i1 %or.cond7.i, label %237, label %236
@@ -775,7 +775,7 @@ sanityChecks.exit:                                ; preds = %241
 272:                                              ; preds = %267
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %262
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i.split.loop.exit114:                 ; preds = %267
   %273 = trunc nuw nsw i64 %indvars.iv to i32
@@ -837,7 +837,7 @@ findCommonAncestorTimeline.exit:                  ; preds = %276, %284, %286
 301:                                              ; preds = %.critedge, %findCommonAncestorTimeline.exit
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.35) #12
   %.not10 = xor i1 %.060, true
-  %302 = load i8, ptr @dry_run, align 1, !range !8
+  %302 = load i8, ptr @dry_run, align 1, !range !7
   %303 = trunc nuw i8 %302 to i1
   %or.cond12 = select i1 %.not10, i1 true, i1 %303
   br i1 %or.cond12, label %308, label %304
@@ -865,7 +865,7 @@ findCommonAncestorTimeline.exit:                  ; preds = %276, %284, %286
   %316 = load i32, ptr %16, align 4
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.36, i32 noundef %314, i32 noundef %315, i32 noundef %316) #12
   call void @filehash_init() #12
-  %317 = load i8, ptr @showprogress, align 1, !range !8, !noundef !9
+  %317 = load i8, ptr @showprogress, align 1, !range !7, !noundef !8
   %318 = trunc nuw i8 %317 to i1
   br i1 %318, label %319, label %320
 
@@ -877,7 +877,7 @@ findCommonAncestorTimeline.exit:                  ; preds = %276, %284, %286
   %321 = load ptr, ptr @source, align 8
   %322 = load ptr, ptr %321, align 8
   call void %322(ptr noundef nonnull %321, ptr noundef nonnull @process_source_file) #12
-  %323 = load i8, ptr @showprogress, align 1, !range !8, !noundef !9
+  %323 = load i8, ptr @showprogress, align 1, !range !7, !noundef !8
   %324 = trunc nuw i8 %323 to i1
   br i1 %324, label %325, label %326
 
@@ -888,7 +888,7 @@ findCommonAncestorTimeline.exit:                  ; preds = %276, %284, %286
 326:                                              ; preds = %325, %320
   %327 = load ptr, ptr @datadir_target, align 8
   call void @traverse_datadir(ptr noundef %327, ptr noundef nonnull @process_target_file) #12
-  %328 = load i8, ptr @showprogress, align 1, !range !8, !noundef !9
+  %328 = load i8, ptr @showprogress, align 1, !range !7, !noundef !8
   %329 = trunc nuw i8 %328 to i1
   br i1 %329, label %330, label %331
 
@@ -902,7 +902,7 @@ findCommonAncestorTimeline.exit:                  ; preds = %276, %284, %286
   %334 = load ptr, ptr @restore_command, align 8
   call void @extractPageMap(ptr noundef %332, i64 noundef %333, i32 noundef %277, i64 noundef %., ptr noundef %334) #12
   %335 = call ptr @decide_file_actions() #12
-  %336 = load i8, ptr @showprogress, align 1, !range !8, !noundef !9
+  %336 = load i8, ptr @showprogress, align 1, !range !7, !noundef !8
   %337 = trunc nuw i8 %336 to i1
   br i1 %337, label %338, label %339
 
@@ -919,7 +919,7 @@ findCommonAncestorTimeline.exit:                  ; preds = %276, %284, %286
   br label %341
 
 341:                                              ; preds = %340, %339
-  %342 = load i8, ptr @showprogress, align 1, !range !8, !noundef !9
+  %342 = load i8, ptr @showprogress, align 1, !range !7, !noundef !8
   %343 = trunc nuw i8 %342 to i1
   br i1 %343, label %344, label %351
 
@@ -997,7 +997,7 @@ findCommonAncestorTimeline.exit:                  ; preds = %276, %284, %286
   %385 = load ptr, ptr %379, align 8
   call void %384(ptr noundef %352, ptr noundef %385, i64 noundef %383, i64 noundef 8192) #12
   %386 = call zeroext i1 @datapagemap_next(ptr noundef %377, ptr noundef nonnull %9) #12
-  br i1 %386, label %380, label %._crit_edge.i78, !llvm.loop !11
+  br i1 %386, label %380, label %._crit_edge.i78, !llvm.loop !10
 
 ._crit_edge.i78:                                  ; preds = %380, %375
   call void @pg_free(ptr noundef %377) #12
@@ -1065,7 +1065,7 @@ findCommonAncestorTimeline.exit:                  ; preds = %276, %284, %286
   %416 = load i32, ptr %356, align 8
   %417 = sext i32 %416 to i64
   %418 = icmp slt i64 %indvars.iv.next106, %417
-  br i1 %418, label %369, label %._crit_edge56.i, !llvm.loop !12
+  br i1 %418, label %369, label %._crit_edge56.i, !llvm.loop !11
 
 419:                                              ; preds = %._crit_edge56.i
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(296) @ControlFile_source, ptr noundef nonnull dereferenceable(296) @ControlFile_source_after, i64 296)
@@ -1078,7 +1078,7 @@ findCommonAncestorTimeline.exit:                  ; preds = %276, %284, %286
   unreachable
 
 421:                                              ; preds = %419, %._crit_edge56.i
-  %422 = load i8, ptr @showprogress, align 1, !range !8, !noundef !9
+  %422 = load i8, ptr @showprogress, align 1, !range !7, !noundef !8
   %423 = trunc nuw i8 %422 to i1
   br i1 %423, label %424, label %425
 
@@ -1180,13 +1180,13 @@ createBackupLabel.exit.i:                         ; preds = %425
   store i32 %.046.i, ptr %471, align 8
   %472 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 5, ptr %472, align 8
-  %473 = load i8, ptr @dry_run, align 1, !range !8, !noundef !9
+  %473 = load i8, ptr @dry_run, align 1, !range !7, !noundef !8
   %474 = trunc nuw i8 %473 to i1
   br i1 %474, label %perform_rewind.exit, label %475
 
 475:                                              ; preds = %469
   %476 = load ptr, ptr @datadir_target, align 8
-  %477 = load i8, ptr @do_sync, align 1, !range !8, !noundef !9
+  %477 = load i8, ptr @do_sync, align 1, !range !7, !noundef !8
   %478 = trunc nuw i8 %477 to i1
   call void @update_controlfile(ptr noundef %476, ptr noundef nonnull %7, i1 noundef zeroext %478) #12
   br label %perform_rewind.exit
@@ -1194,7 +1194,7 @@ createBackupLabel.exit.i:                         ; preds = %425
 perform_rewind.exit:                              ; preds = %469, %475
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %7) #12
-  %479 = load i8, ptr @showprogress, align 1, !range !8, !noundef !9
+  %479 = load i8, ptr @showprogress, align 1, !range !7, !noundef !8
   %480 = trunc nuw i8 %479 to i1
   br i1 %480, label %481, label %482
 
@@ -1205,7 +1205,7 @@ perform_rewind.exit:                              ; preds = %469, %475
 482:                                              ; preds = %481, %perform_rewind.exit
   call void @sync_target_dir() #12
   %.not13 = xor i1 %.060, true
-  %483 = load i8, ptr @dry_run, align 1, !range !8
+  %483 = load i8, ptr @dry_run, align 1, !range !7
   %484 = trunc nuw i8 %483 to i1
   %or.cond15 = select i1 %.not13, i1 true, i1 %484
   br i1 %or.cond15, label %489, label %485
@@ -1434,7 +1434,7 @@ define internal fastcc ptr @getTimelineHistory(i32 noundef %0, i1 noundef zeroex
 22:                                               ; preds = %21
   %23 = load i32, ptr @__pg_log_level, align 4
   %24 = icmp ult i32 %23, 2
-  br i1 %24, label %.sink.split, label %25, !prof !7
+  br i1 %24, label %.sink.split, label %25, !prof !6
 
 .sink.split:                                      ; preds = %22
   %.str.81..str.82 = select i1 %1, ptr @.str.81, ptr @.str.82
@@ -1454,7 +1454,7 @@ define internal fastcc ptr @getTimelineHistory(i32 noundef %0, i1 noundef zeroex
   %31 = phi i32 [ %48, %46 ], [ %28, %25 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %25 ]
   %32 = icmp ult i32 %31, 2
-  br i1 %32, label %33, label %46, !prof !7
+  br i1 %32, label %33, label %46, !prof !6
 
 33:                                               ; preds = %.lr.ph.split
   %34 = getelementptr inbounds nuw %struct.TimeLineHistoryEntry, ptr %.0, i64 %indvars.iv
@@ -1480,7 +1480,7 @@ define internal fastcc ptr @getTimelineHistory(i32 noundef %0, i1 noundef zeroex
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = sext i32 %47 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph.split, label %.loopexit, !llvm.loop !13
+  br i1 %50, label %.lr.ph.split, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %46, %25, %21
   ret ptr %.0
@@ -1527,7 +1527,7 @@ define dso_local void @progress_report(i1 noundef zeroext %0) local_unnamed_addr
   %3 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
-  %4 = load i8, ptr @showprogress, align 1, !range !8, !noundef !9
+  %4 = load i8, ptr @showprogress, align 1, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %39
 
@@ -1714,14 +1714,13 @@ attributes #15 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6, !14}
-!14 = !{!"llvm.loop.unswitch.partial.disable"}
+!6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5, !13}
+!13 = !{!"llvm.loop.unswitch.partial.disable"}

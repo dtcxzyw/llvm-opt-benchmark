@@ -229,11 +229,11 @@ sub_0:                                            ; preds = %.lr.ph, %13
   br label %96
 
 .thread68:                                        ; preds = %.tail71, %37
-  store i8 1, ptr @prte_sys_limits, align 8, !tbaa !19
+  store i8 1, ptr @prte_sys_limits, align 8, !tbaa !18
   br label %96
 
 ._crit_edge:                                      ; preds = %93, %.preheader
-  store i8 1, ptr @prte_sys_limits, align 8, !tbaa !19
+  store i8 1, ptr @prte_sys_limits, align 8, !tbaa !18
   br label %.sink.split
 
 96:                                               ; preds = %.thread68, %.thread
@@ -269,7 +269,7 @@ define internal fastcc range(i32 -1, 1) i32 @prte_setlimit(i32 noundef range(i32
   %5 = alloca %struct.rlimit, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
-  store i64 0, ptr %4, align 8, !tbaa !20
+  store i64 0, ptr %4, align 8, !tbaa !19
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str) #8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %14, label %8
@@ -292,11 +292,11 @@ define internal fastcc range(i32 -1, 1) i32 @prte_setlimit(i32 noundef range(i32
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %19 = load i64, ptr %18, align 8, !tbaa !22
+  %19 = load i64, ptr %18, align 8, !tbaa !21
   %spec.select = call i64 @llvm.umin.i64(i64 %19, i64 %.0)
-  store i64 %spec.select, ptr %5, align 8, !tbaa !20
+  store i64 %spec.select, ptr %5, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %spec.select, ptr %20, align 8, !tbaa !22
+  store i64 %spec.select, ptr %20, align 8, !tbaa !21
   %21 = call i32 @setrlimit(i32 noundef %0, ptr noundef nonnull %5) #7
   %22 = icmp sgt i32 %21, -1
   br i1 %22, label %29, label %23
@@ -306,15 +306,15 @@ define internal fastcc range(i32 -1, 1) i32 @prte_setlimit(i32 noundef range(i32
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %23
-  %26 = load i64, ptr %18, align 8, !tbaa !22
-  store i64 %26, ptr %5, align 8, !tbaa !20
-  store i64 %26, ptr %20, align 8, !tbaa !22
+  %26 = load i64, ptr %18, align 8, !tbaa !21
+  store i64 %26, ptr %5, align 8, !tbaa !19
+  store i64 %26, ptr %20, align 8, !tbaa !21
   %27 = call i32 @setrlimit(i32 noundef %0, ptr noundef nonnull %5) #7
   %28 = icmp sgt i32 %27, -1
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %25, %17
-  %storemerge = load i64, ptr %5, align 8, !tbaa !20
+  %storemerge = load i64, ptr %5, align 8, !tbaa !19
   store i64 %storemerge, ptr %2, align 8, !tbaa !8
   br label %30
 
@@ -334,14 +334,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @prte_getpagesize() local_unnamed_addr #0 {
-  %1 = load i32, ptr @prte_getpagesize.page_size, align 4, !tbaa !23
+  %1 = load i32, ptr @prte_getpagesize.page_size, align 4, !tbaa !22
   %.not = icmp eq i32 %1, -1
   br i1 %.not, label %2, label %5
 
 2:                                                ; preds = %0
   %3 = tail call i64 @sysconf(i32 noundef 30) #7
   %4 = trunc i64 %3 to i32
-  store i32 %4, ptr @prte_getpagesize.page_size, align 4, !tbaa !23
+  store i32 %4, ptr @prte_getpagesize.page_size, align 4, !tbaa !22
   br label %5
 
 5:                                                ; preds = %0, %2
@@ -398,11 +398,10 @@ attributes #8 = { nounwind willreturn memory(read) }
 !13 = !{!"int", !6, i64 0}
 !14 = !{!11, !13, i64 8}
 !15 = !{!11, !9, i64 16}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!11, !12, i64 0}
-!20 = !{!21, !9, i64 0}
-!21 = !{!"rlimit", !9, i64 0, !9, i64 8}
-!22 = !{!21, !9, i64 8}
-!23 = !{!13, !13, i64 0}
+!18 = !{!11, !12, i64 0}
+!19 = !{!20, !9, i64 0}
+!20 = !{!"rlimit", !9, i64 0, !9, i64 8}
+!21 = !{!20, !9, i64 8}
+!22 = !{!13, !13, i64 0}

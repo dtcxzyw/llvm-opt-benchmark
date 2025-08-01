@@ -55,7 +55,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = icmp samesign ult i64 %indvars.iv.next, %4
   %14 = select i1 %.162, i1 %13, i1 false
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %14, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   br i1 %.162, label %.preheader88, label %.thread
@@ -86,7 +86,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
   %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next121
   %25 = load ptr, ptr %24, align 8, !tbaa !9
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %._crit_edge100.loopexit, label %.lr.ph99, !llvm.loop !13
+  br i1 %.not, label %._crit_edge100.loopexit, label %.lr.ph99
 
 ._crit_edge100.loopexit:                          ; preds = %23
   %26 = shl i64 %indvars.iv120, 3
@@ -102,7 +102,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
   %30 = ptrtoint ptr %.164.lcssa to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
-  store i64 %32, ptr @ps_buffer_size, align 8, !tbaa !14
+  store i64 %32, ptr @ps_buffer_size, align 8, !tbaa !11
   %33 = tail call noalias ptr @malloc(i64 noundef %.160.lcssa) #12
   store ptr %33, ptr @new_environ, align 8, !tbaa !4
   %34 = tail call noalias ptr @malloc(i64 noundef %.160.lcssa) #12
@@ -129,7 +129,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
   %41 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next124
   %42 = load ptr, ptr %41, align 8, !tbaa !9
   %.not72 = icmp eq ptr %42, null
-  br i1 %.not72, label %._crit_edge107.loopexit, label %.lr.ph106, !llvm.loop !16
+  br i1 %.not72, label %._crit_edge107.loopexit, label %.lr.ph106
 
 ._crit_edge107.loopexit:                          ; preds = %40
   %43 = shl i64 %indvars.iv123, 3
@@ -167,7 +167,7 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
 53:                                               ; preds = %.lr.ph111
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge112, label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %.lr.ph111.preheader, %53
   %indvars.iv126 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next127, %53 ]
@@ -201,12 +201,12 @@ define hidden noundef ptr @save_ps_args(i32 noundef %0, ptr noundef %1) local_un
   store ptr %61, ptr %63, align 8, !tbaa !9
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
-  br i1 %exitcond133.not, label %.loopexit, label %62, !llvm.loop !18
+  br i1 %exitcond133.not, label %.loopexit, label %62
 
 .thread:                                          ; preds = %.lr.ph106, %._crit_edge107, %58, %._crit_edge100, %._crit_edge
   store ptr null, ptr @save_argv, align 8, !tbaa !4
   store ptr null, ptr @ps_buffer, align 8, !tbaa !9
-  store i64 0, ptr @ps_buffer_size, align 8, !tbaa !14
+  store i64 0, ptr @ps_buffer_size, align 8, !tbaa !11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %62, %._crit_edge112.thread, %._crit_edge112, %.thread
@@ -258,7 +258,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 6) i32 @set_ps_title(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #8 {
-  %3 = load i64, ptr @ps_buffer_size, align 8, !tbaa !14
+  %3 = load i64, ptr @ps_buffer_size, align 8, !tbaa !11
   %.not = icmp ult i64 %1, %3
   br i1 %.not, label %4, label %11
 
@@ -275,7 +275,7 @@ define hidden range(i32 0, 6) i32 @set_ps_title(ptr noundef readonly captures(no
 7:                                                ; preds = %4
   %8 = add nuw i64 %1, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %8, i1 false)
-  store i64 %1, ptr @ps_buffer_cur_len, align 8, !tbaa !14
+  store i64 %1, ptr @ps_buffer_cur_len, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %1
   %10 = sub nuw i64 %3, %1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %9, i8 0, i64 %10, i1 false)
@@ -301,8 +301,8 @@ define hidden range(i32 0, 4) i32 @get_ps_title(ptr noundef writeonly captures(n
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr @ps_buffer_cur_len, align 8, !tbaa !14
-  store i64 %6, ptr %0, align 8, !tbaa !14
+  %6 = load i64, ptr @ps_buffer_cur_len, align 8, !tbaa !11
+  store i64 %6, ptr %0, align 8, !tbaa !11
   store ptr %4, ptr %1, align 8, !tbaa !9
   br label %7
 
@@ -331,7 +331,7 @@ define hidden void @cleanup_ps_args(ptr noundef captures(none) %0) local_unnamed
   %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %.not11 = icmp eq ptr %8, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   tail call void @free(ptr noundef nonnull %4) #13
@@ -350,7 +350,7 @@ define hidden void @cleanup_ps_args(ptr noundef captures(none) %0) local_unnamed
   %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next22
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %.not12 = icmp eq ptr %13, null
-  br i1 %.not12, label %._crit_edge19, label %.lr.ph18, !llvm.loop !20
+  br i1 %.not12, label %._crit_edge19, label %.lr.ph18
 
 ._crit_edge19:                                    ; preds = %.lr.ph18, %._crit_edge
   tail call void @free(ptr noundef nonnull %0) #13
@@ -388,13 +388,5 @@ attributes #13 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 omnipotent char", !6, i64 0}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !12}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !7, i64 0}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !7, i64 0}

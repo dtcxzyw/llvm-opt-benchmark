@@ -66,8 +66,8 @@ define hidden i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr no
 21:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #3
   call void @Curl_bufref_init(ptr noundef nonnull %6) #3
-  %22 = load ptr, ptr %4, align 8, !tbaa !79
-  %23 = load i64, ptr %5, align 8, !tbaa !80
+  %22 = load ptr, ptr %4, align 8, !tbaa !78
+  %23 = load i64, ptr %5, align 8, !tbaa !79
   call void @Curl_bufref_set(ptr noundef nonnull %6, ptr noundef %22, i64 noundef %23, ptr noundef nonnull @curl_free) #3
   %24 = call i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %9) #3
   call void @Curl_bufref_free(ptr noundef nonnull %6) #3
@@ -76,13 +76,13 @@ define hidden i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr no
   br i1 %.not75, label %25, label %.critedge77
 
 25:                                               ; preds = %21
-  store i32 2, ptr %10, align 4, !tbaa !81
+  store i32 2, ptr %10, align 4, !tbaa !80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
   br label %73
 
 .critedge.thread:                                 ; preds = %14, %.critedge
-  %26 = load i32, ptr %10, align 4, !tbaa !81
+  %26 = load i32, ptr %10, align 4, !tbaa !80
   switch i32 %26, label %59 [
     i32 4, label %27
     i32 3, label %43
@@ -102,13 +102,13 @@ define hidden i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr no
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %34 = load ptr, ptr %33, align 8, !tbaa !82
+  %34 = load ptr, ptr %33, align 8, !tbaa !81
   %.not73 = icmp eq ptr %34, null
   br i1 %.not73, label %39, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !83
+  %37 = load i32, ptr %36, align 8, !tbaa !82
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %39, label %40
 
@@ -136,13 +136,13 @@ define hidden i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr no
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %50 = load ptr, ptr %49, align 8, !tbaa !82
+  %50 = load ptr, ptr %49, align 8, !tbaa !81
   %.not70 = icmp eq ptr %50, null
   br i1 %.not70, label %55, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load i32, ptr %52, align 8, !tbaa !83
+  %53 = load i32, ptr %52, align 8, !tbaa !82
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %55, label %56
 
@@ -155,7 +155,7 @@ define hidden i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr no
   tail call void @Curl_auth_cleanup_ntlm(ptr noundef nonnull %57) #3
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 1064
   tail call void @Curl_auth_cleanup_ntlm(ptr noundef nonnull %58) #3
-  store i32 0, ptr %10, align 4, !tbaa !81
+  store i32 0, ptr %10, align 4, !tbaa !80
   br label %73
 
 59:                                               ; preds = %.critedge.thread
@@ -171,13 +171,13 @@ define hidden i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr no
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %66 = load ptr, ptr %65, align 8, !tbaa !82
+  %66 = load ptr, ptr %65, align 8, !tbaa !81
   %.not67 = icmp eq ptr %66, null
   br i1 %.not67, label %71, label %67
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %69 = load i32, ptr %68, align 8, !tbaa !83
+  %69 = load i32, ptr %68, align 8, !tbaa !82
   %70 = icmp sgt i32 %69, 0
   br i1 %70, label %71, label %73
 
@@ -186,7 +186,7 @@ define hidden i32 @Curl_input_ntlm(ptr noundef %0, i1 noundef zeroext %1, ptr no
   br label %73
 
 72:                                               ; preds = %.critedge.thread, %40
-  store i32 1, ptr %10, align 4, !tbaa !81
+  store i32 1, ptr %10, align 4, !tbaa !80
   br label %73
 
 .critedge77:                                      ; preds = %19, %21
@@ -237,9 +237,9 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
   %4 = alloca i64, align 8
   %5 = alloca %struct.bufref, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  store ptr null, ptr %3, align 8, !tbaa !79
+  store ptr null, ptr %3, align 8, !tbaa !78
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #3
-  store i64 0, ptr %4, align 8, !tbaa !80
+  store i64 0, ptr %4, align 8, !tbaa !79
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !3
@@ -255,14 +255,14 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.96
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.97
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.98
-  %12 = load ptr, ptr %11, align 8, !tbaa !79
+  %12 = load ptr, ptr %11, align 8, !tbaa !78
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %.99
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 %.100
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %.101
-  %.062 = load ptr, ptr %10, align 8, !tbaa !79
-  %.063 = load ptr, ptr %9, align 8, !tbaa !79
+  %.062 = load ptr, ptr %10, align 8, !tbaa !78
+  %.063 = load ptr, ptr %9, align 8, !tbaa !78
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.102
-  %.060 = load ptr, ptr %13, align 8, !tbaa !79
+  %.060 = load ptr, ptr %13, align 8, !tbaa !78
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i8, ptr %17, align 8
   %19 = and i8 %18, -2
@@ -272,7 +272,7 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
   %.not75 = icmp eq ptr %.062, null
   %spec.store.select1 = select i1 %.not75, ptr @.str.5, ptr %.062
   call void @Curl_bufref_init(ptr noundef nonnull %5) #3
-  %20 = load i32, ptr %15, align 4, !tbaa !81
+  %20 = load i32, ptr %15, align 4, !tbaa !80
   switch i32 %20, label %21 [
     i32 3, label %.thread
     i32 4, label %56
@@ -280,7 +280,7 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
   ]
 
 .thread:                                          ; preds = %2
-  store i32 4, ptr %15, align 4, !tbaa !81
+  store i32 4, ptr %15, align 4, !tbaa !80
   br label %56
 
 21:                                               ; preds = %2
@@ -298,17 +298,17 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
   br i1 %.not81, label %27, label %62
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr @Curl_cfree, align 8, !tbaa !85
-  %29 = load ptr, ptr %8, align 8, !tbaa !79
+  %28 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
+  %29 = load ptr, ptr %8, align 8, !tbaa !78
   call void %28(ptr noundef %29) #3
   %30 = select i1 %1, ptr @.str.7, ptr @.str.5
-  %31 = load ptr, ptr %3, align 8, !tbaa !79
+  %31 = load ptr, ptr %3, align 8, !tbaa !78
   %32 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.6, ptr noundef nonnull %30, ptr noundef %31) #3
-  store ptr %32, ptr %8, align 8, !tbaa !79
-  %33 = load ptr, ptr @Curl_cfree, align 8, !tbaa !85
-  %34 = load ptr, ptr %3, align 8, !tbaa !79
+  store ptr %32, ptr %8, align 8, !tbaa !78
+  %33 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
+  %34 = load ptr, ptr %3, align 8, !tbaa !78
   call void %33(ptr noundef %34) #3
-  %35 = load ptr, ptr %8, align 8, !tbaa !79
+  %35 = load ptr, ptr %8, align 8, !tbaa !78
   %.not82 = icmp eq ptr %35, null
   %spec.select84 = select i1 %.not82, i32 27, i32 0
   br label %62
@@ -331,22 +331,22 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
   br i1 %.not78, label %44, label %62
 
 44:                                               ; preds = %40
-  %45 = load ptr, ptr @Curl_cfree, align 8, !tbaa !85
-  %46 = load ptr, ptr %8, align 8, !tbaa !79
+  %45 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
+  %46 = load ptr, ptr %8, align 8, !tbaa !78
   call void %45(ptr noundef %46) #3
   %47 = select i1 %1, ptr @.str.7, ptr @.str.5
-  %48 = load ptr, ptr %3, align 8, !tbaa !79
+  %48 = load ptr, ptr %3, align 8, !tbaa !78
   %49 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.6, ptr noundef nonnull %47, ptr noundef %48) #3
-  store ptr %49, ptr %8, align 8, !tbaa !79
-  %50 = load ptr, ptr @Curl_cfree, align 8, !tbaa !85
-  %51 = load ptr, ptr %3, align 8, !tbaa !79
+  store ptr %49, ptr %8, align 8, !tbaa !78
+  %50 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
+  %51 = load ptr, ptr %3, align 8, !tbaa !78
   call void %50(ptr noundef %51) #3
-  %52 = load ptr, ptr %8, align 8, !tbaa !79
+  %52 = load ptr, ptr %8, align 8, !tbaa !78
   %.not79 = icmp eq ptr %52, null
   br i1 %.not79, label %62, label %53
 
 53:                                               ; preds = %44
-  store i32 3, ptr %15, align 4, !tbaa !81
+  store i32 3, ptr %15, align 4, !tbaa !80
   %54 = load i8, ptr %17, align 8
   %55 = or i8 %54, 1
   store i8 %55, ptr %17, align 8
@@ -355,11 +355,11 @@ define hidden i32 @Curl_output_ntlm(ptr noundef %0, i1 noundef zeroext %1) local
 56:                                               ; preds = %2, %.thread
   %.103 = select i1 %1, i64 5096, i64 5104
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 %.103
-  store i64 8, ptr %57, align 8, !tbaa !80
-  %58 = load ptr, ptr @Curl_cfree, align 8, !tbaa !85
-  %59 = load ptr, ptr %8, align 8, !tbaa !79
+  store i64 8, ptr %57, align 8, !tbaa !79
+  %58 = load ptr, ptr @Curl_cfree, align 8, !tbaa !84
+  %59 = load ptr, ptr %8, align 8, !tbaa !78
   call void %58(ptr noundef %59) #3
-  store ptr null, ptr %8, align 8, !tbaa !79
+  store ptr null, ptr %8, align 8, !tbaa !78
   %60 = load i8, ptr %17, align 8
   %61 = or i8 %60, 1
   store i8 %61, ptr %17, align 8
@@ -471,13 +471,12 @@ attributes #3 = { nounwind }
 !73 = !{!"p2 _ZTS10curl_slist", !10, i64 0}
 !74 = !{!"curl_tlssessioninfo", !5, i64 0, !10, i64 8}
 !75 = !{!6, !6, i64 0}
-!76 = distinct !{!76, !77, !78}
+!76 = distinct !{!76, !77}
 !77 = !{!"llvm.loop.mustprogress"}
-!78 = !{!"llvm.loop.estimated_trip_count"}
-!79 = !{!29, !29, i64 0}
-!80 = !{!8, !8, i64 0}
-!81 = !{!5, !5, i64 0}
-!82 = !{!4, !66, i64 4864}
-!83 = !{!84, !5, i64 8}
-!84 = !{!"curl_trc_feat", !29, i64 0, !5, i64 8}
-!85 = !{!10, !10, i64 0}
+!78 = !{!29, !29, i64 0}
+!79 = !{!8, !8, i64 0}
+!80 = !{!5, !5, i64 0}
+!81 = !{!4, !66, i64 4864}
+!82 = !{!83, !5, i64 8}
+!83 = !{!"curl_trc_feat", !29, i64 0, !5, i64 8}
+!84 = !{!10, !10, i64 0}

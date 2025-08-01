@@ -334,7 +334,7 @@ strbuf_complete.exit.i:                           ; preds = %strbuf_addch.exit.i
 
 strbuf_setlen.exit12.i:                           ; preds = %56, %54
   %58 = getelementptr inbounds nuw [4 x ptr], ptr @__const.add_rebase_files.path, i64 0, i64 %.014.i
-  %59 = load ptr, ptr %58, align 8, !tbaa !80
+  %59 = load ptr, ptr %58, align 8, !tbaa !79
   %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #14
   call void @strbuf_add(ptr noundef nonnull %8, ptr noundef nonnull %59, i64 noundef %60) #11
   %61 = load ptr, ptr %23, align 8, !tbaa !74
@@ -364,7 +364,7 @@ add_one_file.exit.i:                              ; preds = %66, %63, %strbuf_se
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
   %69 = add nuw nsw i64 %.014.i, 1
   %exitcond.not.i = icmp eq i64 %69, 4
-  br i1 %exitcond.not.i, label %47, label %50, !llvm.loop !81
+  br i1 %exitcond.not.i, label %47, label %50, !llvm.loop !80
 
 add_rebase_files.exit:                            ; preds = %47, %4
   call void @strbuf_release(ptr noundef nonnull %8) #11
@@ -378,9 +378,9 @@ add_rebase_files.exit:                            ; preds = %47, %4
   br label %71
 
 71:                                               ; preds = %70, %add_rebase_files.exit
-  store ptr %3, ptr %9, align 8, !tbaa !82
+  store ptr %3, ptr %9, align 8, !tbaa !81
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %72, align 8, !tbaa !85
+  store i64 0, ptr %72, align 8, !tbaa !84
   %73 = call ptr @prepare_bitmap_walk(ptr noundef %0, i32 noundef 0) #11
   %.not24 = icmp eq ptr %73, null
   br i1 %.not24, label %75, label %74
@@ -459,8 +459,8 @@ add_unseen_recent_objects_to_traversal.exit:      ; preds = %80
   br label %97
 
 97:                                               ; preds = %96, %79
-  %98 = load ptr, ptr %9, align 8, !tbaa !82
-  %99 = load i64, ptr %72, align 8, !tbaa !85
+  %98 = load ptr, ptr %9, align 8, !tbaa !81
+  %99 = load i64, ptr %72, align 8, !tbaa !84
   call void @display_progress(ptr noundef %98, i64 noundef %99) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
   ret void
@@ -530,15 +530,15 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define internal void @mark_commit(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !85
+  %4 = load i64, ptr %3, align 8, !tbaa !84
   %5 = add i64 %4, 1
-  store i64 %5, ptr %3, align 8, !tbaa !85
+  store i64 %5, ptr %3, align 8, !tbaa !84
   %6 = and i64 %5, 1023
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %mark_object.exit
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %1, align 8, !tbaa !82
+  %9 = load ptr, ptr %1, align 8, !tbaa !81
   tail call void @display_progress(ptr noundef %9, i64 noundef %5) #11
   br label %mark_object.exit
 
@@ -549,15 +549,15 @@ mark_object.exit:                                 ; preds = %2, %8
 ; Function Attrs: nounwind uwtable
 define internal void @mark_object(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !85
+  %5 = load i64, ptr %4, align 8, !tbaa !84
   %6 = add i64 %5, 1
-  store i64 %6, ptr %4, align 8, !tbaa !85
+  store i64 %6, ptr %4, align 8, !tbaa !84
   %7 = and i64 %6, 1023
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %update_progress.exit
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %2, align 8, !tbaa !82
+  %10 = load ptr, ptr %2, align 8, !tbaa !81
   tail call void @display_progress(ptr noundef %10, i64 noundef %6) #11
   br label %update_progress.exit
 
@@ -606,9 +606,9 @@ define internal fastcc void @add_recent_object(ptr noundef %0, ptr noundef %1, i
   br i1 %.not.i.i, label %.preheader.i.i, label %load_gc_recent_objects.exit.i
 
 .preheader.i.i:                                   ; preds = %17
-  %20 = load ptr, ptr %10, align 8, !tbaa !86
+  %20 = load ptr, ptr %10, align 8, !tbaa !85
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !87
+  %22 = load i64, ptr %21, align 8, !tbaa !86
   %.not10.i.i = icmp eq i64 %22, 0
   br i1 %.not10.i.i, label %load_gc_recent_objects.exit.i, label %.lr.ph.i.i
 
@@ -621,24 +621,24 @@ define internal fastcc void @add_recent_object(ptr noundef %0, ptr noundef %1, i
 
 27:                                               ; preds = %run_one_gc_recent_objects_hook.exit.i.i
   %28 = add nuw i64 %.09.i.i, 1
-  %29 = load ptr, ptr %10, align 8, !tbaa !86
+  %29 = load ptr, ptr %10, align 8, !tbaa !85
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !87
+  %31 = load i64, ptr %30, align 8, !tbaa !86
   %32 = icmp ult i64 %28, %31
-  br i1 %32, label %33, label %load_gc_recent_objects.exit.i, !llvm.loop !88
+  br i1 %32, label %33, label %load_gc_recent_objects.exit.i, !llvm.loop !87
 
 33:                                               ; preds = %27, %.lr.ph.i.i
   %34 = phi ptr [ %20, %.lr.ph.i.i ], [ %29, %27 ]
   %.09.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %28, %27 ]
-  %35 = load ptr, ptr %34, align 8, !tbaa !89
+  %35 = load ptr, ptr %34, align 8, !tbaa !88
   %36 = getelementptr inbounds nuw %struct.string_list_item, ptr %35, i64 %.09.i.i
-  %37 = load ptr, ptr %36, align 8, !tbaa !90
+  %37 = load ptr, ptr %36, align 8, !tbaa !89
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef nonnull align 8 dereferenceable(120) @__const.run_one_gc_recent_objects_hook.cmd, i64 120, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.add_one_file.buf, i64 24, i1 false)
   store i16 32, ptr %24, align 8
-  store i32 -1, ptr %25, align 4, !tbaa !92
+  store i32 -1, ptr %25, align 4, !tbaa !91
   %38 = call ptr @strvec_push(ptr noundef nonnull %6, ptr noundef %37) #11
   %39 = call i32 @start_command(ptr noundef nonnull %6) #11
   %.not.i.i.i = icmp eq i32 %39, 0
@@ -650,7 +650,7 @@ run_one_gc_recent_objects_hook.exit.thread.i.i:   ; preds = %33
   br label %.loopexit8.i.i
 
 40:                                               ; preds = %33
-  %41 = load i32, ptr %25, align 4, !tbaa !92
+  %41 = load i32, ptr %25, align 4, !tbaa !91
   %42 = call ptr @xfdopen(i32 noundef %41, ptr noundef nonnull @.str.9) #11
   %43 = call i32 @strbuf_getline(ptr noundef nonnull %7, ptr noundef %42) #11
   %.not915.i.i.i = icmp eq i32 %43, -1
@@ -665,7 +665,7 @@ run_one_gc_recent_objects_hook.exit.thread.i.i:   ; preds = %33
   br i1 %.not10.i.i.i, label %46, label %49
 
 46:                                               ; preds = %.lr.ph.i.i.i
-  %47 = load ptr, ptr %9, align 8, !tbaa !80
+  %47 = load ptr, ptr %9, align 8, !tbaa !79
   %48 = load i8, ptr %47, align 1, !tbaa !75
   %.not11.i.i.i = icmp eq i8 %48, 0
   br i1 %.not11.i.i.i, label %55, label %49
@@ -693,7 +693,7 @@ run_one_gc_recent_objects_hook.exit.thread.i.i:   ; preds = %33
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #11
   %57 = call i32 @strbuf_getline(ptr noundef nonnull %7, ptr noundef %42) #11
   %.not9.i.i.i = icmp eq i32 %57, -1
-  br i1 %.not9.i.i.i, label %run_one_gc_recent_objects_hook.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !94
+  br i1 %.not9.i.i.i, label %run_one_gc_recent_objects_hook.exit.i.i, label %.lr.ph.i.i.i
 
 run_one_gc_recent_objects_hook.exit.i.i:          ; preds = %55, %.thread.i.i.i, %40
   %.1.i.i.i = phi i32 [ -1, %.thread.i.i.i ], [ 0, %40 ], [ 0, %55 ]
@@ -983,21 +983,19 @@ attributes #14 = { nounwind willreturn memory(read) }
 !74 = !{!29, !30, i64 16}
 !75 = !{!8, !8, i64 0}
 !76 = !{!29, !10, i64 0}
-!77 = distinct !{!77, !78, !79}
+!77 = distinct !{!77, !78}
 !78 = !{!"llvm.loop.mustprogress"}
-!79 = !{!"llvm.loop.estimated_trip_count"}
-!80 = !{!30, !30, i64 0}
-!81 = distinct !{!81, !78, !79}
-!82 = !{!83, !84, i64 0}
-!83 = !{!"connectivity_progress", !84, i64 0, !10, i64 8}
-!84 = !{!"p1 _ZTS8progress", !7, i64 0}
-!85 = !{!83, !10, i64 8}
-!86 = !{!42, !42, i64 0}
-!87 = !{!33, !10, i64 8}
-!88 = distinct !{!88, !78, !79}
-!89 = !{!33, !34, i64 0}
-!90 = !{!91, !30, i64 0}
-!91 = !{!"string_list_item", !30, i64 0, !7, i64 8}
-!92 = !{!93, !11, i64 84}
-!93 = !{!"child_process", !35, i64 0, !35, i64 24, !11, i64 48, !11, i64 52, !10, i64 56, !30, i64 64, !30, i64 72, !11, i64 80, !11, i64 84, !11, i64 88, !30, i64 96, !11, i64 104, !11, i64 104, !11, i64 104, !11, i64 104, !11, i64 104, !11, i64 104, !11, i64 104, !11, i64 104, !11, i64 105, !11, i64 105, !7, i64 112}
-!94 = distinct !{!94, !79}
+!79 = !{!30, !30, i64 0}
+!80 = distinct !{!80, !78}
+!81 = !{!82, !83, i64 0}
+!82 = !{!"connectivity_progress", !83, i64 0, !10, i64 8}
+!83 = !{!"p1 _ZTS8progress", !7, i64 0}
+!84 = !{!82, !10, i64 8}
+!85 = !{!42, !42, i64 0}
+!86 = !{!33, !10, i64 8}
+!87 = distinct !{!87, !78}
+!88 = !{!33, !34, i64 0}
+!89 = !{!90, !30, i64 0}
+!90 = !{!"string_list_item", !30, i64 0, !7, i64 8}
+!91 = !{!92, !11, i64 84}
+!92 = !{!"child_process", !35, i64 0, !35, i64 24, !11, i64 48, !11, i64 52, !10, i64 56, !30, i64 64, !30, i64 72, !11, i64 80, !11, i64 84, !11, i64 88, !30, i64 96, !11, i64 104, !11, i64 104, !11, i64 104, !11, i64 104, !11, i64 104, !11, i64 104, !11, i64 104, !11, i64 104, !11, i64 105, !11, i64 105, !7, i64 112}

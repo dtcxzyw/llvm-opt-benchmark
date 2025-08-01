@@ -123,8 +123,8 @@ define internal i32 @cng_encode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %48 = load ptr, ptr %47, align 16, !tbaa !33
   %49 = tail call i32 @ff_lpc_calc_ref_coefs(ptr noundef nonnull %6, ptr noundef %45, i32 noundef %46, ptr noundef %48) #5
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !46
-  store i8 %.039, ptr %51, align 1, !tbaa !48
+  %51 = load ptr, ptr %50, align 8, !tbaa !45
+  store i8 %.039, ptr %51, align 1, !tbaa !47
   %52 = load i32, ptr %8, align 16, !tbaa !28
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph49, label %._crit_edge50
@@ -133,17 +133,17 @@ define internal i32 @cng_encode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.lr.ph49 ], [ 0, %43 ]
   %54 = load ptr, ptr %47, align 16, !tbaa !33
   %55 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv54
-  %56 = load double, ptr %55, align 8, !tbaa !49
+  %56 = load double, ptr %55, align 8, !tbaa !48
   %57 = tail call nsz double @llvm.fmuladd.f64(double %56, double 1.270000e+02, double 1.270000e+02)
   %58 = fptoui double %57 to i8
-  %59 = load ptr, ptr %50, align 8, !tbaa !46
+  %59 = load ptr, ptr %50, align 8, !tbaa !45
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv.next55
-  store i8 %58, ptr %60, align 1, !tbaa !48
+  store i8 %58, ptr %60, align 1, !tbaa !47
   %61 = load i32, ptr %8, align 16, !tbaa !28
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next55, %62
-  br i1 %63, label %.lr.ph49, label %._crit_edge50, !llvm.loop !51
+  br i1 %63, label %.lr.ph49, label %._crit_edge50, !llvm.loop !50
 
 ._crit_edge50:                                    ; preds = %.lr.ph49, %43
   store i32 1, ptr %3, align 4, !tbaa !42
@@ -246,12 +246,11 @@ attributes #5 = { nounwind }
 !40 = !{!41, !41, i64 0}
 !41 = !{!"short", !8, i64 0}
 !42 = !{!10, !10, i64 0}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!47, !14, i64 24}
-!47 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!48 = !{!8, !8, i64 0}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"double", !8, i64 0}
-!51 = distinct !{!51, !44, !45}
+!45 = !{!46, !14, i64 24}
+!46 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
+!47 = !{!8, !8, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"double", !8, i64 0}
+!50 = distinct !{!50, !44}

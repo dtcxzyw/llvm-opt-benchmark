@@ -461,7 +461,7 @@ define internal void @_GLOBAL__sub_I_phase.cpp() #3 section ".text.startup" {
   store i64 0, ptr %.ptr.i, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 24
   %3 = icmp eq i64 %.add.i, 1296
-  br i1 %3, label %__cxx_global_var_init.7.exit, label %1, !llvm.loop !6
+  br i1 %3, label %__cxx_global_var_init.7.exit, label %1
 
 __cxx_global_var_init.7.exit:                     ; preds = %1
   ret void
@@ -481,5 +481,3 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}

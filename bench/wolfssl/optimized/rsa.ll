@@ -190,10 +190,10 @@ define range(i32 -173, 1) i32 @wc_FreeRsaKey(ptr noundef %0) local_unnamed_addr 
   %.01528.i.i = phi ptr [ %22, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.preheader23.i.i ]
   %.01827.i.i = phi i32 [ %23, %.lr.ph29.i.i ], [ %18, %.preheader23.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
-  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !24
+  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !23
   %23 = add i32 %.01827.i.i, -8
   %24 = icmp ugt i32 %23, 7
-  br i1 %24, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !26
+  br i1 %24, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !25
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
   %.11734.i.i = phi ptr [ %26, %.lr.ph35.i.i ], [ %.015.lcssa.i.i, %.preheader.i.i ]
@@ -202,11 +202,11 @@ define range(i32 -173, 1) i32 @wc_FreeRsaKey(ptr noundef %0) local_unnamed_addr 
   %26 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
   store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !20
   %.not22.i.i = icmp eq i32 %25, 0
-  br i1 %.not22.i.i, label %ForceZero.exit.i, label %.lr.ph35.i.i, !llvm.loop !27
+  br i1 %.not22.i.i, label %ForceZero.exit.i, label %.lr.ph35.i.i, !llvm.loop !26
 
 ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.preheader.i.i, %9, %6, %3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8360
-  %28 = load i8, ptr %27, align 8, !tbaa !28
+  %28 = load i8, ptr %27, align 8, !tbaa !27
   %.not17.i = icmp eq i8 %28, 0
   br i1 %.not17.i, label %wc_RsaCleanup.exit, label %29
 
@@ -220,7 +220,7 @@ ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.pre
   br label %32
 
 32:                                               ; preds = %31, %29
-  store i8 0, ptr %27, align 8, !tbaa !28
+  store i8 0, ptr %27, align 8, !tbaa !27
   br label %wc_RsaCleanup.exit
 
 wc_RsaCleanup.exit:                               ; preds = %ForceZero.exit.i, %32
@@ -389,7 +389,7 @@ define i32 @wc_RsaPad_ex(ptr noundef readonly captures(address_is_null) %0, i32 
 44:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !28
 
 .loopexit.i:                                      ; preds = %44, %.preheader.i, %30
   %.pre-phi53.i = phi i32 [ %36, %.preheader.i ], [ %.pre52.i, %30 ], [ %36, %44 ]
@@ -700,7 +700,7 @@ define i32 @wc_RsaUnPad_ex(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1, !tbaa !20
   %.not57.i = icmp eq i8 %31, -1
-  br i1 %.not57.i, label %.preheader.i, label %.split.loop.exit, !llvm.loop !30
+  br i1 %.not57.i, label %.preheader.i, label %.split.loop.exit, !llvm.loop !29
 
 .split.loop.exit:                                 ; preds = %29
   %indvars.le = trunc i64 %indvars.iv.next to i16
@@ -721,7 +721,7 @@ define i32 @wc_RsaUnPad_ex(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   br i1 %.not58.i, label %39, label %RsaUnPad.exit
 
 39:                                               ; preds = %34
-  store ptr %36, ptr %2, align 8, !tbaa !31
+  store ptr %36, ptr %2, align 8, !tbaa !30
   %40 = sub nsw i32 %1, %32
   br label %RsaUnPad.exit
 
@@ -744,7 +744,7 @@ define i32 @wc_RsaUnPad_ex(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   %49 = or i16 %.fr.i, %.268.i
   %50 = or i16 %.070.i, %.neg4.i.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !31
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %51 = trunc i16 %50 to i8
@@ -769,7 +769,7 @@ define i32 @wc_RsaUnPad_ex(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   %63 = add nsw i32 %62, %20
   %64 = zext i16 %.2.lcssa.i to i64
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 %64
-  store ptr %65, ptr %2, align 8, !tbaa !31
+  store ptr %65, ptr %2, align 8, !tbaa !30
   %66 = sub nsw i32 %1, %52
   %spec.select = select i1 %53, i8 0, i8 %.0.lcssa.i
   %67 = and i8 %spec.select, %.neg61.i
@@ -859,14 +859,14 @@ RsaMGF.exit.i:                                    ; preds = %95, %94, %93, %92, 
   %.sroa.0.0.i.i = phi ptr [ %103, %.lr.ph.i.i.i ], [ %98, %._crit_edge.i.i ]
   %.04.i.i.i = phi i32 [ %108, %.lr.ph.i.i.i ], [ 0, %._crit_edge.i.i ]
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 8
-  %104 = load i64, ptr %.sroa.0.0.i.i, align 8, !tbaa !24
+  %104 = load i64, ptr %.sroa.0.0.i.i, align 8, !tbaa !23
   %105 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.i.i, i64 8
-  %106 = load i64, ptr %.sroa.026.0.i.i, align 8, !tbaa !24
+  %106 = load i64, ptr %.sroa.026.0.i.i, align 8, !tbaa !23
   %107 = xor i64 %106, %104
-  store i64 %107, ptr %.sroa.026.0.i.i, align 8, !tbaa !24
+  store i64 %107, ptr %.sroa.026.0.i.i, align 8, !tbaa !23
   %108 = add nuw nsw i32 %.04.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %108, %102
-  br i1 %exitcond.not.i.i.i, label %XorWords.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !33
+  br i1 %exitcond.not.i.i.i, label %XorWords.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !32
 
 XorWords.exit.i.i:                                ; preds = %.lr.ph.i.i.i, %._crit_edge.i.i
   %.sroa.026.1.i.i = phi ptr [ %14, %._crit_edge.i.i ], [ %105, %.lr.ph.i.i.i ]
@@ -895,7 +895,7 @@ XorWords.exit.i.i:                                ; preds = %.lr.ph.i.i.i, %._cr
   store i8 %115, ptr %113, align 1, !tbaa !20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %xorbuf.exit.i, label %.lr.ph38.i.i, !llvm.loop !34
+  br i1 %exitcond.not.i.i, label %xorbuf.exit.i, label %.lr.ph38.i.i, !llvm.loop !33
 
 xorbuf.exit.i:                                    ; preds = %.lr.ph38.i.i, %110
   %116 = zext nneg i32 %77 to i64
@@ -949,10 +949,10 @@ RsaMGF.exit82.i:                                  ; preds = %123, %122, %121, %1
   %.01528.i.i = phi ptr [ %126, %.lr.ph29.i.i ], [ %14, %.preheader23.i.i ]
   %.01827.i.i = phi i32 [ %127, %.lr.ph29.i.i ], [ %77, %.preheader23.i.i ]
   %126 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
-  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !24
+  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !23
   %127 = add i32 %.01827.i.i, -8
   %128 = icmp ugt i32 %127, 7
-  br i1 %128, label %.lr.ph29.i.i, label %.preheader.i84.i, !llvm.loop !26
+  br i1 %128, label %.lr.ph29.i.i, label %.preheader.i84.i, !llvm.loop !25
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i84.i, %.lr.ph35.i.i
   %.11734.i.i = phi ptr [ %130, %.lr.ph35.i.i ], [ %.015.lcssa.i.i, %.preheader.i84.i ]
@@ -961,7 +961,7 @@ RsaMGF.exit82.i:                                  ; preds = %123, %122, %121, %1
   %130 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
   store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !20
   %.not22.i.i = icmp eq i32 %129, 0
-  br i1 %.not22.i.i, label %RsaUnPad_OAEP.exit, label %.lr.ph35.i.i, !llvm.loop !27
+  br i1 %.not22.i.i, label %RsaUnPad_OAEP.exit, label %.lr.ph35.i.i, !llvm.loop !26
 
 131:                                              ; preds = %RsaMGF.exit82.i
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 %116
@@ -991,7 +991,7 @@ RsaMGF.exit82.i:                                  ; preds = %123, %122, %121, %1
   store i8 %146, ptr %.12030.i110.i, align 1, !tbaa !20
   %147 = add i32 %.12329.i111.i, -1
   %.not.i112.i = icmp eq i32 %147, 0
-  br i1 %.not.i112.i, label %XorWords.exit.i104.i, label %.lr.ph.split.i108.i, !llvm.loop !35
+  br i1 %.not.i112.i, label %XorWords.exit.i104.i, label %.lr.ph.split.i108.i, !llvm.loop !34
 
 ._crit_edge.i97.i:                                ; preds = %.preheader.i96.i
   %148 = lshr i32 %89, 3
@@ -1003,14 +1003,14 @@ RsaMGF.exit82.i:                                  ; preds = %123, %122, %121, %1
   %.sroa.0.0.i101.i = phi ptr [ %149, %.lr.ph.i.i99.i ], [ %117, %._crit_edge.i97.i ]
   %.04.i.i102.i = phi i32 [ %154, %.lr.ph.i.i99.i ], [ 0, %._crit_edge.i97.i ]
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i101.i, i64 8
-  %150 = load i64, ptr %.sroa.0.0.i101.i, align 8, !tbaa !24
+  %150 = load i64, ptr %.sroa.0.0.i101.i, align 8, !tbaa !23
   %151 = getelementptr inbounds nuw i8, ptr %.sroa.026.0.i100.i, i64 8
-  %152 = load i64, ptr %.sroa.026.0.i100.i, align 8, !tbaa !24
+  %152 = load i64, ptr %.sroa.026.0.i100.i, align 8, !tbaa !23
   %153 = xor i64 %152, %150
-  store i64 %153, ptr %.sroa.026.0.i100.i, align 8, !tbaa !24
+  store i64 %153, ptr %.sroa.026.0.i100.i, align 8, !tbaa !23
   %154 = add nuw nsw i32 %.04.i.i102.i, 1
   %exitcond.not.i.i103.i = icmp eq i32 %154, %148
-  br i1 %exitcond.not.i.i103.i, label %XorWords.exit.i104.i, label %.lr.ph.i.i99.i, !llvm.loop !33
+  br i1 %exitcond.not.i.i103.i, label %XorWords.exit.i104.i, label %.lr.ph.i.i99.i, !llvm.loop !32
 
 XorWords.exit.i104.i:                             ; preds = %.lr.ph.i.i99.i, %.lr.ph.split.i108.i, %._crit_edge.i97.i
   %.123.lcssa50.i105.i = phi i32 [ %89, %._crit_edge.i97.i ], [ 0, %.lr.ph.split.i108.i ], [ %89, %.lr.ph.i.i99.i ]
@@ -1040,7 +1040,7 @@ XorWords.exit.i104.i:                             ; preds = %.lr.ph.i.i99.i, %.l
   store i8 %161, ptr %159, align 1, !tbaa !20
   %indvars.iv.next.i94.i = add nuw nsw i64 %indvars.iv.i93.i, 1
   %exitcond.not.i95.i = icmp eq i64 %indvars.iv.next.i94.i, %wide.trip.count.i91.i
-  br i1 %exitcond.not.i95.i, label %.preheader23.i120.i, label %.lr.ph38.i92.i, !llvm.loop !34
+  br i1 %exitcond.not.i95.i, label %.preheader23.i120.i, label %.lr.ph38.i92.i, !llvm.loop !33
 
 .preheader23.i120.i:                              ; preds = %.lr.ph38.i92.i, %156
   %162 = icmp ugt i32 %1, 7
@@ -1056,10 +1056,10 @@ XorWords.exit.i104.i:                             ; preds = %.lr.ph.i.i99.i, %.l
   %.01528.i132.i = phi ptr [ %163, %.lr.ph29.i131.i ], [ %14, %.preheader23.i120.i ]
   %.01827.i133.i = phi i32 [ %164, %.lr.ph29.i131.i ], [ %1, %.preheader23.i120.i ]
   %163 = getelementptr inbounds nuw i8, ptr %.01528.i132.i, i64 8
-  store volatile i64 0, ptr %.01528.i132.i, align 8, !tbaa !24
+  store volatile i64 0, ptr %.01528.i132.i, align 8, !tbaa !23
   %164 = add i32 %.01827.i133.i, -8
   %165 = icmp ugt i32 %164, 7
-  br i1 %165, label %.lr.ph29.i131.i, label %.preheader.i122.i, !llvm.loop !26
+  br i1 %165, label %.lr.ph29.i131.i, label %.preheader.i122.i, !llvm.loop !25
 
 .lr.ph35.i126.i:                                  ; preds = %.preheader.i122.i, %.lr.ph35.i126.i
   %.11734.i127.i = phi ptr [ %167, %.lr.ph35.i126.i ], [ %.015.lcssa.i124.i, %.preheader.i122.i ]
@@ -1068,7 +1068,7 @@ XorWords.exit.i104.i:                             ; preds = %.lr.ph.i.i99.i, %.l
   %167 = getelementptr inbounds nuw i8, ptr %.11734.i127.i, i64 1
   store volatile i8 0, ptr %.11734.i127.i, align 1, !tbaa !20
   %.not22.i129.i = icmp eq i32 %166, 0
-  br i1 %.not22.i129.i, label %ForceZero.exit134.i, label %.lr.ph35.i126.i, !llvm.loop !27
+  br i1 %.not22.i129.i, label %ForceZero.exit134.i, label %.lr.ph35.i126.i, !llvm.loop !26
 
 ForceZero.exit134.i:                              ; preds = %.lr.ph35.i126.i, %.preheader.i122.i
   %168 = add nuw i32 %85, %77
@@ -1093,7 +1093,7 @@ ForceZero.exit134.i:                              ; preds = %.lr.ph35.i126.i, %.
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i26 to i32
   %exitcond.not.i27 = icmp eq i32 %169, %lftr.wideiv.i
-  br i1 %exitcond.not.i27, label %._crit_edge.i22, label %.lr.ph.i24, !llvm.loop !36
+  br i1 %exitcond.not.i27, label %._crit_edge.i22, label %.lr.ph.i24, !llvm.loop !35
 
 ._crit_edge.i22:                                  ; preds = %.lr.ph.i24, %ForceZero.exit134.i
   %.068.lcssa.i = phi i32 [ %168, %ForceZero.exit134.i ], [ %176, %.lr.ph.i24 ]
@@ -1117,7 +1117,7 @@ ForceZero.exit134.i:                              ; preds = %.lr.ph35.i126.i, %.
   %185 = or i32 %.010.i.i, %184
   %indvars.iv.next.i139.i = add nuw nsw i64 %indvars.iv.i138.i, 1
   %exitcond.not.i140.i = icmp eq i64 %indvars.iv.next.i139.i, %116
-  br i1 %exitcond.not.i140.i, label %ConstantCompare.exit.i, label %.lr.ph.i137.i, !llvm.loop !37
+  br i1 %exitcond.not.i140.i, label %ConstantCompare.exit.i, label %.lr.ph.i137.i, !llvm.loop !36
 
 ConstantCompare.exit.i:                           ; preds = %.lr.ph.i137.i, %178
   %.0.lcssa.i.i = phi i32 [ 0, %178 ], [ %185, %.lr.ph.i137.i ]
@@ -1135,7 +1135,7 @@ ConstantCompare.exit.i:                           ; preds = %.lr.ph.i137.i, %178
   %196 = select i1 %isneg.inv.i, i32 %1, i32 %186
   %197 = zext i32 %196 to i64
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 %197
-  store ptr %198, ptr %2, align 8, !tbaa !31
+  store ptr %198, ptr %2, align 8, !tbaa !30
   %199 = sub i32 %1, %196
   br label %RsaUnPad_OAEP.exit
 
@@ -1251,7 +1251,7 @@ RsaUnPad_OAEP.exit:                               ; preds = %.lr.ph35.i.i, %73, 
 253:                                              ; preds = %.lr.ph.i31
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i33, %247
-  br i1 %exitcond.not, label %._crit_edge.loopexit.i34, label %.lr.ph.i31, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge.loopexit.i34, label %.lr.ph.i31, !llvm.loop !37
 
 ._crit_edge.loopexit.i34:                         ; preds = %253
   %.phi.trans.insert4.i = getelementptr inbounds nuw i8, ptr %.075.i, i64 %247
@@ -1280,7 +1280,7 @@ RsaUnPad_OAEP.exit:                               ; preds = %.lr.ph35.i.i, %73, 
   %263 = zext nneg i32 %.077.i to i64
   %264 = sub nsw i64 0, %263
   %265 = getelementptr inbounds i8, ptr %234, i64 %264
-  store ptr %265, ptr %2, align 8, !tbaa !31
+  store ptr %265, ptr %2, align 8, !tbaa !30
   %266 = add nuw nsw i32 %.077.i, %201
   br label %RsaUnPad.exit
 
@@ -1308,7 +1308,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -253, 1) i32 @RsaFunctionCheckIn(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = load i16, ptr %2, align 8, !tbaa !39
+  %5 = load i16, ptr %2, align 8, !tbaa !38
   %6 = zext i16 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
   %8 = add nuw nsw i64 %7, 16
@@ -1402,7 +1402,7 @@ define internal fastcc i32 @wc_RsaFunction_ex(ptr noundef %0, i32 noundef %1, pt
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8340
-  %22 = load i32, ptr %21, align 4, !tbaa !40
+  %22 = load i32, ptr %21, align 4, !tbaa !39
   %23 = icmp eq i32 %22, 4
   br i1 %23, label %24, label %26
 
@@ -1426,13 +1426,13 @@ define internal fastcc i32 @wc_RsaFunction_ex(ptr noundef %0, i32 noundef %1, pt
   br i1 %33, label %wc_RsaFunctionSync.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = load i16, ptr %5, align 8, !tbaa !39
+  %35 = load i16, ptr %5, align 8, !tbaa !38
   %.not.i = icmp eq i16 %35, 0
   br i1 %.not.i, label %41, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !24
+  %38 = load i64, ptr %37, align 8, !tbaa !23
   %39 = and i64 %38, 1
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %wc_RsaFunctionSync.exit, label %41
@@ -1451,7 +1451,7 @@ wc_RsaFunctionSync.exit:                          ; preds = %26, %29, %31, %36, 
 
 45:                                               ; preds = %wc_RsaFunctionSync.exit
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 8340
-  store i32 0, ptr %46, align 4, !tbaa !40
+  store i32 0, ptr %46, align 4, !tbaa !39
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8328
   %48 = load ptr, ptr %47, align 8, !tbaa !16
   %.not.i45 = icmp eq ptr %48, null
@@ -1504,10 +1504,10 @@ wc_RsaFunctionSync.exit:                          ; preds = %26, %29, %31, %36, 
   %.01528.i.i = phi ptr [ %65, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.preheader23.i.i ]
   %.01827.i.i = phi i32 [ %66, %.lr.ph29.i.i ], [ %61, %.preheader23.i.i ]
   %65 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
-  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !24
+  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !23
   %66 = add i32 %.01827.i.i, -8
   %67 = icmp ugt i32 %66, 7
-  br i1 %67, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !26
+  br i1 %67, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !25
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
   %.11734.i.i = phi ptr [ %69, %.lr.ph35.i.i ], [ %.015.lcssa.i.i, %.preheader.i.i ]
@@ -1516,11 +1516,11 @@ wc_RsaFunctionSync.exit:                          ; preds = %26, %29, %31, %36, 
   %69 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
   store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !20
   %.not22.i.i = icmp eq i32 %68, 0
-  br i1 %.not22.i.i, label %ForceZero.exit.i, label %.lr.ph35.i.i, !llvm.loop !27
+  br i1 %.not22.i.i, label %ForceZero.exit.i, label %.lr.ph35.i.i, !llvm.loop !26
 
 ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.preheader.i.i, %52, %49, %45
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 8360
-  %71 = load i8, ptr %70, align 8, !tbaa !28
+  %71 = load i8, ptr %70, align 8, !tbaa !27
   %.not17.i = icmp eq i8 %71, 0
   br i1 %.not17.i, label %wc_RsaCleanup.exit, label %72
 
@@ -1534,7 +1534,7 @@ ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.pre
   br label %75
 
 75:                                               ; preds = %74, %72
-  store i8 0, ptr %70, align 8, !tbaa !28
+  store i8 0, ptr %70, align 8, !tbaa !27
   br label %wc_RsaCleanup.exit
 
 wc_RsaCleanup.exit:                               ; preds = %ForceZero.exit.i, %75
@@ -1582,7 +1582,7 @@ wc_RsaEncryptSize.exit:                           ; preds = %14
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8340
-  %28 = load i32, ptr %27, align 4, !tbaa !40
+  %28 = load i32, ptr %27, align 4, !tbaa !39
   switch i32 %28, label %.thread67 [
     i32 0, label %29
     i32 1, label %29
@@ -1591,14 +1591,14 @@ wc_RsaEncryptSize.exit:                           ; preds = %14
   ]
 
 29:                                               ; preds = %26, %26
-  store i32 1, ptr %27, align 4, !tbaa !40
+  store i32 1, ptr %27, align 4, !tbaa !39
   %30 = tail call i32 @sp_count_bits(ptr noundef nonnull %4) #12
   %31 = tail call i32 @wc_RsaPad_ex(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %19, i8 noundef zeroext %6, ptr noundef %13, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %30, ptr poison)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  store i32 2, ptr %27, align 4, !tbaa !40
+  store i32 2, ptr %27, align 4, !tbaa !39
   br label %34
 
 34:                                               ; preds = %33, %26
@@ -1611,7 +1611,7 @@ wc_RsaEncryptSize.exit:                           ; preds = %14
   br i1 %or.cond9, label %39, label %.thread
 
 39:                                               ; preds = %34
-  store i32 3, ptr %27, align 4, !tbaa !40
+  store i32 3, ptr %27, align 4, !tbaa !39
   %40 = icmp slt i32 %36, 0
   br i1 %40, label %.thread, label %41
 
@@ -1627,7 +1627,7 @@ wc_RsaEncryptSize.exit:                           ; preds = %14
 
 .thread67:                                        ; preds = %26, %.thread
   %.05869 = phi i32 [ %.058, %.thread ], [ -192, %26 ]
-  store i32 0, ptr %27, align 4, !tbaa !40
+  store i32 0, ptr %27, align 4, !tbaa !39
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8328
   %46 = load ptr, ptr %45, align 8, !tbaa !16
   %.not.i = icmp eq ptr %46, null
@@ -1680,10 +1680,10 @@ wc_RsaEncryptSize.exit:                           ; preds = %14
   %.01528.i.i = phi ptr [ %63, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.preheader23.i.i ]
   %.01827.i.i = phi i32 [ %64, %.lr.ph29.i.i ], [ %59, %.preheader23.i.i ]
   %63 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
-  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !24
+  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !23
   %64 = add i32 %.01827.i.i, -8
   %65 = icmp ugt i32 %64, 7
-  br i1 %65, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !26
+  br i1 %65, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !25
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
   %.11734.i.i = phi ptr [ %67, %.lr.ph35.i.i ], [ %.015.lcssa.i.i, %.preheader.i.i ]
@@ -1692,11 +1692,11 @@ wc_RsaEncryptSize.exit:                           ; preds = %14
   %67 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
   store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !20
   %.not22.i.i = icmp eq i32 %66, 0
-  br i1 %.not22.i.i, label %ForceZero.exit.i, label %.lr.ph35.i.i, !llvm.loop !27
+  br i1 %.not22.i.i, label %ForceZero.exit.i, label %.lr.ph35.i.i, !llvm.loop !26
 
 ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.preheader.i.i, %50, %47, %.thread67
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 8360
-  %69 = load i8, ptr %68, align 8, !tbaa !28
+  %69 = load i8, ptr %68, align 8, !tbaa !27
   %.not17.i = icmp eq i8 %69, 0
   br i1 %.not17.i, label %wc_RsaCleanup.exit, label %70
 
@@ -1710,7 +1710,7 @@ ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.pre
   br label %73
 
 73:                                               ; preds = %72, %70
-  store i8 0, ptr %68, align 8, !tbaa !28
+  store i8 0, ptr %68, align 8, !tbaa !27
   br label %wc_RsaCleanup.exit
 
 wc_RsaCleanup.exit:                               ; preds = %ForceZero.exit.i, %73
@@ -1742,7 +1742,7 @@ define i32 @wc_RsaPrivateDecryptInline(ptr noundef %0, i32 noundef %1, ptr nound
 define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef %5, i32 noundef range(i32 1, 4) %6, i8 noundef zeroext range(i8 1, 3) %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, ptr noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %14) unnamed_addr #0 {
   %16 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #12
-  store ptr null, ptr %16, align 8, !tbaa !31
+  store ptr null, ptr %16, align 8, !tbaa !30
   %17 = icmp eq ptr %0, null
   %18 = icmp eq i32 %1, 0
   %or.cond = or i1 %17, %18
@@ -1754,7 +1754,7 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8340
-  %23 = load i32, ptr %22, align 4, !tbaa !40
+  %23 = load i32, ptr %22, align 4, !tbaa !39
   switch i32 %23, label %106 [
     i32 0, label %24
     i32 4, label %39
@@ -1779,7 +1779,7 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
   %32 = tail call ptr @wolfSSL_Malloc(i64 noundef %31) #12
   store ptr %32, ptr %26, align 8, !tbaa !16
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8360
-  store i8 1, ptr %33, align 8, !tbaa !28
+  store i8 1, ptr %33, align 8, !tbaa !27
   %34 = icmp eq ptr %32, null
   br i1 %34, label %.thread102, label %35
 
@@ -1790,12 +1790,12 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 8360
-  store i8 0, ptr %37, align 8, !tbaa !28
+  store i8 0, ptr %37, align 8, !tbaa !27
   store ptr %2, ptr %26, align 8, !tbaa !16
   br label %38
 
 38:                                               ; preds = %36, %35
-  store i32 4, ptr %22, align 4, !tbaa !40
+  store i32 4, ptr %22, align 4, !tbaa !39
   br label %39
 
 39:                                               ; preds = %38, %21
@@ -1811,7 +1811,7 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
   br i1 %or.cond7, label %48, label %.thread
 
 48:                                               ; preds = %39
-  store i32 5, ptr %22, align 4, !tbaa !40
+  store i32 5, ptr %22, align 4, !tbaa !39
   %49 = icmp slt i32 %45, 0
   br i1 %49, label %.thread, label %50
 
@@ -1872,7 +1872,7 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
   %82 = load i32, ptr %53, align 8, !tbaa !19
   %83 = zext i32 %82 to i64
   %84 = icmp samesign ult i64 %indvars.iv.next, %83
-  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !41
+  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !40
 
 85:                                               ; preds = %65
   %86 = zext nneg i32 %56 to i64
@@ -1880,7 +1880,7 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
   br label %.loopexit
 
 87:                                               ; preds = %63
-  store ptr %61, ptr %4, align 8, !tbaa !31
+  store ptr %61, ptr %4, align 8, !tbaa !30
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %67, %85, %87
@@ -1905,7 +1905,7 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
 
 105:                                              ; preds = %50, %59, %.loopexit
   %.1 = phi i32 [ %104, %.loopexit ], [ %56, %59 ], [ -131, %50 ]
-  store i32 6, ptr %22, align 4, !tbaa !40
+  store i32 6, ptr %22, align 4, !tbaa !39
   br label %.thread
 
 106:                                              ; preds = %21
@@ -1918,7 +1918,7 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
 
 .thread102:                                       ; preds = %30, %24, %21, %106, %.thread
   %.089104 = phi i32 [ %.089, %.thread ], [ -125, %30 ], [ -192, %24 ], [ -130, %21 ], [ -192, %106 ]
-  store i32 0, ptr %22, align 4, !tbaa !40
+  store i32 0, ptr %22, align 4, !tbaa !39
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 8328
   %109 = load ptr, ptr %108, align 8, !tbaa !16
   %.not.i = icmp eq ptr %109, null
@@ -1971,10 +1971,10 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
   %.01528.i.i = phi ptr [ %126, %.lr.ph29.i.i ], [ %.016.lcssa.i.i, %.preheader23.i.i ]
   %.01827.i.i = phi i32 [ %127, %.lr.ph29.i.i ], [ %122, %.preheader23.i.i ]
   %126 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
-  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !24
+  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !23
   %127 = add i32 %.01827.i.i, -8
   %128 = icmp ugt i32 %127, 7
-  br i1 %128, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !26
+  br i1 %128, label %.lr.ph29.i.i, label %.preheader.i.i, !llvm.loop !25
 
 .lr.ph35.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph35.i.i
   %.11734.i.i = phi ptr [ %130, %.lr.ph35.i.i ], [ %.015.lcssa.i.i, %.preheader.i.i ]
@@ -1983,11 +1983,11 @@ define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly captures(ad
   %130 = getelementptr inbounds nuw i8, ptr %.11734.i.i, i64 1
   store volatile i8 0, ptr %.11734.i.i, align 1, !tbaa !20
   %.not22.i.i = icmp eq i32 %129, 0
-  br i1 %.not22.i.i, label %ForceZero.exit.i, label %.lr.ph35.i.i, !llvm.loop !27
+  br i1 %.not22.i.i, label %ForceZero.exit.i, label %.lr.ph35.i.i, !llvm.loop !26
 
 ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.preheader.i.i, %113, %110, %.thread102
   %131 = getelementptr inbounds nuw i8, ptr %5, i64 8360
-  %132 = load i8, ptr %131, align 8, !tbaa !28
+  %132 = load i8, ptr %131, align 8, !tbaa !27
   %.not17.i = icmp eq i8 %132, 0
   br i1 %.not17.i, label %wc_RsaCleanup.exit, label %133
 
@@ -2001,7 +2001,7 @@ ForceZero.exit.i:                                 ; preds = %.lr.ph35.i.i, %.pre
   br label %136
 
 136:                                              ; preds = %135, %133
-  store i8 0, ptr %131, align 8, !tbaa !28
+  store i8 0, ptr %131, align 8, !tbaa !27
   br label %wc_RsaCleanup.exit
 
 wc_RsaCleanup.exit:                               ; preds = %ForceZero.exit.i, %136
@@ -2266,7 +2266,7 @@ define i32 @wc_RsaPSS_VerifyCheckInline(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %11
-  %20 = load ptr, ptr %2, align 8, !tbaa !31
+  %20 = load ptr, ptr %2, align 8, !tbaa !30
   %21 = tail call i32 @wc_RsaPSS_CheckPadding_ex2(ptr noundef readonly %3, i32 noundef %4, ptr noundef readonly %20, i32 noundef %17, i32 noundef %5, i32 noundef %spec.select, i32 noundef %12, ptr poison)
   %.fr = freeze i32 %21
   %22 = icmp eq i32 %.fr, 0
@@ -2739,10 +2739,10 @@ define internal fastcc void @ForceZero(ptr noundef %0, i32 noundef %1) unnamed_a
   %.01528 = phi ptr [ %11, %.lr.ph29 ], [ %.016.lcssa, %.preheader23 ]
   %.01827 = phi i32 [ %12, %.lr.ph29 ], [ %7, %.preheader23 ]
   %11 = getelementptr inbounds nuw i8, ptr %.01528, i64 8
-  store volatile i64 0, ptr %.01528, align 8, !tbaa !24
+  store volatile i64 0, ptr %.01528, align 8, !tbaa !23
   %12 = add i32 %.01827, -8
   %13 = icmp ugt i32 %12, 7
-  br i1 %13, label %.lr.ph29, label %.preheader, !llvm.loop !26
+  br i1 %13, label %.lr.ph29, label %.preheader, !llvm.loop !25
 
 .lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
   %.11734 = phi ptr [ %15, %.lr.ph35 ], [ %.015.lcssa, %.preheader ]
@@ -2751,7 +2751,7 @@ define internal fastcc void @ForceZero(ptr noundef %0, i32 noundef %1) unnamed_a
   %15 = getelementptr inbounds nuw i8, ptr %.11734, i64 1
   store volatile i8 0, ptr %.11734, align 1, !tbaa !20
   %.not22 = icmp eq i32 %14, 0
-  br i1 %.not22, label %._crit_edge, label %.lr.ph35, !llvm.loop !27
+  br i1 %.not22, label %._crit_edge, label %.lr.ph35, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph35, %.preheader
   ret void
@@ -2826,7 +2826,7 @@ define internal fastcc void @xorbuf(ptr noundef %0, ptr noundef %1, i32 noundef 
   store i8 %16, ptr %.12030, align 1, !tbaa !20
   %17 = add i32 %.12329, -1
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %XorWords.exit, label %.lr.ph.split, !llvm.loop !35
+  br i1 %.not, label %XorWords.exit, label %.lr.ph.split, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.preheader
   %18 = lshr i32 %2, 3
@@ -2838,14 +2838,14 @@ define internal fastcc void @xorbuf(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.sroa.0.0 = phi ptr [ %19, %.lr.ph.i ], [ %1, %._crit_edge ]
   %.04.i = phi i32 [ %24, %.lr.ph.i ], [ 0, %._crit_edge ]
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  %20 = load i64, ptr %.sroa.0.0, align 8, !tbaa !24
+  %20 = load i64, ptr %.sroa.0.0, align 8, !tbaa !23
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.026.0, i64 8
-  %22 = load i64, ptr %.sroa.026.0, align 8, !tbaa !24
+  %22 = load i64, ptr %.sroa.026.0, align 8, !tbaa !23
   %23 = xor i64 %22, %20
-  store i64 %23, ptr %.sroa.026.0, align 8, !tbaa !24
+  store i64 %23, ptr %.sroa.026.0, align 8, !tbaa !23
   %24 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %24, %18
-  br i1 %exitcond.not.i, label %XorWords.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %exitcond.not.i, label %XorWords.exit, label %.lr.ph.i, !llvm.loop !32
 
 XorWords.exit:                                    ; preds = %.lr.ph.i, %.lr.ph.split, %._crit_edge
   %.123.lcssa50 = phi i32 [ %2, %._crit_edge ], [ 0, %.lr.ph.split ], [ %2, %.lr.ph.i ]
@@ -2875,7 +2875,7 @@ XorWords.exit:                                    ; preds = %.lr.ph.i, %.lr.ph.s
   store i8 %31, ptr %29, align 1, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !33
 
 ._crit_edge39:                                    ; preds = %.lr.ph38, %26
   ret void
@@ -2948,7 +2948,7 @@ define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %0, ptr noundef
 
 .preheader.us:                                    ; preds = %31
   %40 = add i32 %.041.us, 1
-  br i1 %.not8, label %.thread, label %31, !llvm.loop !42
+  br i1 %.not8, label %.thread, label %31, !llvm.loop !41
 
 .split:                                           ; preds = %.split.preheader, %._crit_edge
   %.041 = phi i32 [ %59, %._crit_edge ], [ 0, %.split.preheader ]
@@ -2992,7 +2992,7 @@ define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %0, ptr noundef
   %55 = icmp samesign ult i64 %indvars.iv.next, %29
   %56 = icmp samesign ult i64 %indvars.iv.next12, %30
   %57 = select i1 %55, i1 %56, i1 false
-  br i1 %57, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !44
+  br i1 %57, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !43
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %58 = trunc nuw i64 %indvars.iv.next12 to i32
@@ -3002,7 +3002,7 @@ define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %0, ptr noundef
   %.2.lcssa = phi i32 [ %.040, %.preheader ], [ %58, %._crit_edge.loopexit ]
   %59 = add i32 %.041, 1
   %60 = icmp ult i32 %.2.lcssa, %4
-  br i1 %60, label %.split, label %.thread, !llvm.loop !45
+  br i1 %60, label %.split, label %.thread, !llvm.loop !44
 
 .thread:                                          ; preds = %._crit_edge, %.split, %.preheader.us, %31, %13, %5
   %.043 = phi i32 [ %.fr6, %5 ], [ -173, %13 ], [ %39, %31 ], [ 0, %.preheader.us ], [ %48, %.split ], [ 0, %._crit_edge ]
@@ -3012,7 +3012,7 @@ define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @RsaFunctionSync(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 0, -1) %4, ptr noundef nonnull %5, ptr noundef %6) unnamed_addr #0 {
-  %8 = load i16, ptr %5, align 8, !tbaa !39
+  %8 = load i16, ptr %5, align 8, !tbaa !38
   %9 = zext i16 %8 to i64
   %10 = shl nuw nsw i64 %9, 4
   %11 = add nuw nsw i64 %10, 16
@@ -3066,14 +3066,14 @@ define internal fastcc i32 @RsaFunctionSync(ptr noundef nonnull %0, i32 noundef 
 define internal fastcc i32 @RsaFunctionPrivate(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
-  store i64 0, ptr %4, align 8, !tbaa !24
-  %5 = load i16, ptr %1, align 8, !tbaa !39
+  store i64 0, ptr %4, align 8, !tbaa !23
+  %5 = load i16, ptr %1, align 8, !tbaa !38
   %6 = zext i16 %5 to i64
   %7 = shl nuw nsw i64 %6, 4
   %8 = add nuw nsw i64 %7, 16
   %9 = tail call ptr @llvm.stacksave.p0()
   %10 = alloca i8, i64 %8, align 16
-  %11 = load i16, ptr %1, align 8, !tbaa !39
+  %11 = load i16, ptr %1, align 8, !tbaa !38
   %12 = zext i16 %11 to i64
   %13 = shl nuw nsw i64 %12, 4
   %14 = add nuw nsw i64 %13, 16
@@ -3088,7 +3088,7 @@ define internal fastcc i32 @RsaFunctionPrivate(ptr noundef nonnull %0, ptr nound
   br i1 %.not, label %20, label %.critedge
 
 20:                                               ; preds = %3
-  %21 = load i16, ptr %1, align 8, !tbaa !39
+  %21 = load i16, ptr %1, align 8, !tbaa !38
   %22 = zext i16 %21 to i32
   %23 = shl nuw nsw i32 %22, 1
   %24 = or disjoint i32 %23, 1
@@ -3120,25 +3120,25 @@ define internal fastcc i32 @RsaFunctionPrivate(ptr noundef nonnull %0, ptr nound
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 3120
-  %39 = load i16, ptr %38, align 8, !tbaa !46
+  %39 = load i16, ptr %38, align 8, !tbaa !45
   %40 = icmp eq i16 %39, 0
   br i1 %40, label %53, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 4160
-  %43 = load i16, ptr %42, align 8, !tbaa !47
+  %43 = load i16, ptr %42, align 8, !tbaa !46
   %44 = icmp eq i16 %43, 0
   br i1 %44, label %53, label %45
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 5200
-  %47 = load i16, ptr %46, align 8, !tbaa !48
+  %47 = load i16, ptr %46, align 8, !tbaa !47
   %48 = icmp eq i16 %47, 0
   br i1 %48, label %53, label %49
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 6240
-  %51 = load i16, ptr %50, align 8, !tbaa !49
+  %51 = load i16, ptr %50, align 8, !tbaa !48
   %52 = icmp eq i16 %51, 0
   br i1 %52, label %53, label %56
 
@@ -3205,7 +3205,7 @@ select.unfold164:                                 ; preds = %66, %53
   br i1 %.not110, label %77, label %.critedge
 
 77:                                               ; preds = %75
-  %78 = load i64, ptr %4, align 8, !tbaa !24
+  %78 = load i64, ptr %4, align 8, !tbaa !23
   %79 = call i32 @sp_mont_red_ex(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %78, i32 noundef 1) #12
   %.not111 = icmp eq i32 %79, 0
   %spec.select126 = select i1 %.not111, i32 0, i32 -117
@@ -3298,32 +3298,31 @@ attributes #12 = { nounwind }
 !18 = !{!"p1 _ZTS6RsaKey", !9, i64 0}
 !19 = !{!4, !11, i64 8344}
 !20 = !{!7, !7, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"long", !7, i64 0}
-!26 = distinct !{!26, !22, !23}
-!27 = distinct !{!27, !22, !23}
-!28 = !{!4, !7, i64 8360}
-!29 = distinct !{!29, !22, !23}
-!30 = distinct !{!30, !22, !23}
-!31 = !{!10, !10, i64 0}
-!32 = distinct !{!32, !22, !23}
-!33 = distinct !{!33, !22, !23}
-!34 = distinct !{!34, !22, !23}
-!35 = distinct !{!35, !22, !23}
-!36 = distinct !{!36, !22, !23}
-!37 = distinct !{!37, !22, !23}
-!38 = distinct !{!38, !22, !23}
-!39 = !{!4, !6, i64 0}
-!40 = !{!4, !11, i64 8340}
-!41 = distinct !{!41, !22, !23}
-!42 = distinct !{!42, !22, !23, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!44 = distinct !{!44, !22, !23}
-!45 = distinct !{!45, !22, !23}
-!46 = !{!4, !6, i64 3120}
-!47 = !{!4, !6, i64 4160}
-!48 = !{!4, !6, i64 5200}
-!49 = !{!4, !6, i64 6240}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"long", !7, i64 0}
+!25 = distinct !{!25, !22}
+!26 = distinct !{!26, !22}
+!27 = !{!4, !7, i64 8360}
+!28 = distinct !{!28, !22}
+!29 = distinct !{!29, !22}
+!30 = !{!10, !10, i64 0}
+!31 = distinct !{!31, !22}
+!32 = distinct !{!32, !22}
+!33 = distinct !{!33, !22}
+!34 = distinct !{!34, !22}
+!35 = distinct !{!35, !22}
+!36 = distinct !{!36, !22}
+!37 = distinct !{!37, !22}
+!38 = !{!4, !6, i64 0}
+!39 = !{!4, !11, i64 8340}
+!40 = distinct !{!40, !22}
+!41 = distinct !{!41, !22, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = distinct !{!43, !22}
+!44 = distinct !{!44, !22}
+!45 = !{!4, !6, i64 3120}
+!46 = !{!4, !6, i64 4160}
+!47 = !{!4, !6, i64 5200}
+!48 = !{!4, !6, i64 6240}

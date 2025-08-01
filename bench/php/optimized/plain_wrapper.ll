@@ -1622,7 +1622,7 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
   switch i8 %18, label %.thread [
     i8 46, label %.preheader
     i8 47, label %.loopexit
-  ], !llvm.loop !54
+  ]
 
 .loopexit:                                        ; preds = %.preheader, %15
   %19 = and i32 %4, 1024
@@ -1690,7 +1690,7 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 %45
   %48 = load i8, ptr %47, align 1, !tbaa !4
   %.not166 = icmp eq i8 %48, 47
-  br i1 %.not166, label %.critedge, label %44, !llvm.loop !56
+  br i1 %.not166, label %.critedge, label %44
 
 .critedge:                                        ; preds = %46
   %49 = icmp eq i64 %45, 0
@@ -1762,7 +1762,7 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
 74:                                               ; preds = %72, %70, %64
   %.0146177.us = phi ptr [ %.0146176.us, %72 ], [ %.0146176.us, %70 ], [ %65, %64 ]
   %.not167.us = icmp eq ptr %.0146177.us, null
-  br i1 %.not167.us, label %.critedge2, label %.lr.ph.split.us, !llvm.loop !57
+  br i1 %.not167.us, label %.critedge2, label %.lr.ph.split.us, !llvm.loop !54
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %86
   %.1148183 = phi ptr [ %.0146177, %86 ], [ %.1195, %.lr.ph ]
@@ -1805,7 +1805,7 @@ define dso_local ptr @_php_stream_fopen_with_path(ptr noundef %0, ptr noundef %1
 86:                                               ; preds = %84, %78
   %.0146177 = phi ptr [ %.0146176, %84 ], [ %79, %78 ]
   %.not167 = icmp eq ptr %.0146177, null
-  br i1 %.not167, label %.critedge2, label %.lr.ph.split, !llvm.loop !59
+  br i1 %.not167, label %.critedge2, label %.lr.ph.split
 
 .critedge2:                                       ; preds = %.lr.ph.split, %86, %.lr.ph.split.us, %74, %57
   %.1196 = phi ptr [ null, %57 ], [ %.1195, %74 ], [ %.1195, %.lr.ph.split.us ], [ %.1195, %86 ], [ %.1195, %.lr.ph.split ]
@@ -1975,9 +1975,9 @@ define internal ptr @php_plain_files_dir_opener(ptr readnone captures(none) %0, 
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr @php_glob_stream_wrapper, align 8, !tbaa !60
+  %9 = load ptr, ptr @php_glob_stream_wrapper, align 8, !tbaa !56
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !63
+  %11 = load ptr, ptr %10, align 8, !tbaa !59
   %12 = tail call ptr %11(ptr noundef nonnull @php_glob_stream_wrapper, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) #17
   br label %25
 
@@ -2097,9 +2097,9 @@ define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr readnone capture
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %33 = load i32, ptr %32, align 4, !tbaa !65
+  %33 = load i32, ptr %32, align 4, !tbaa !61
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %35 = load i32, ptr %34, align 8, !tbaa !66
+  %35 = load i32, ptr %34, align 8, !tbaa !62
   %36 = tail call i32 @chown(ptr noundef nonnull %.034, i32 noundef %33, i32 noundef %35) #17
   %.not39 = icmp eq i32 %36, 0
   br i1 %.not39, label %.critedge, label %37
@@ -2114,7 +2114,7 @@ define internal range(i32 0, 2) i32 @php_plain_files_rename(ptr readnone capture
 
 .critedge:                                        ; preds = %31, %37
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %42 = load i32, ptr %41, align 8, !tbaa !67
+  %42 = load i32, ptr %41, align 8, !tbaa !63
   %43 = tail call i32 @chmod(ptr noundef nonnull %.034, i32 noundef %42) #17
   %.not42 = icmp eq i32 %43, 0
   br i1 %.not42, label %.critedge48, label %44
@@ -2262,13 +2262,13 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   %.052.lcssa.us = phi i32 [ 0, %.critedge.us ], [ %42, %48 ], [ %.052102.us, %.lr.ph.us ]
   %46 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %8) #17
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %.preheader, label %.preheader97.split.us, !llvm.loop !68
+  br i1 %47, label %.preheader, label %.preheader97.split.us, !llvm.loop !64
 
 48:                                               ; preds = %.lr.ph.us
   %49 = add nuw nsw i32 %.052102.us, 1
   store i8 0, ptr %43, align 1, !tbaa !4
   %50 = icmp ugt ptr %43, %6
-  br i1 %50, label %.lr.ph.us, label %.critedge5.us, !llvm.loop !69
+  br i1 %50, label %.lr.ph.us, label %.critedge5.us
 
 .preheader97.split:                               ; preds = %.preheader97, %.critedge5
   %51 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %36, i32 noundef 47) #16
@@ -2304,14 +2304,14 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   %61 = add nuw nsw i32 %.052102, 1
   store i8 0, ptr %57, align 1, !tbaa !4
   %62 = icmp ugt ptr %57, %6
-  br i1 %62, label %.lr.ph, label %.critedge5, !llvm.loop !69
+  br i1 %62, label %.lr.ph, label %.critedge5
 
 .critedge5:                                       ; preds = %.lr.ph, %60, %.critedge
   %.261.lcssa = phi ptr [ %.160, %.critedge ], [ %57, %60 ], [ %.261101, %.lr.ph ]
   %.052.lcssa = phi i32 [ 0, %.critedge ], [ %56, %60 ], [ %.052102, %.lr.ph ]
   %63 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %8) #17
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.preheader, label %.preheader97.split, !llvm.loop !70
+  br i1 %64, label %.preheader, label %.preheader97.split
 
 .preheader:                                       ; preds = %.critedge5, %.critedge5.us
   %.us-phi = phi ptr [ %.261.lcssa.us, %.critedge5.us ], [ %.261.lcssa, %.critedge5 ]
@@ -2368,12 +2368,12 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr readnone captures
   %80 = getelementptr inbounds nuw i8, ptr %.8113, i64 2
   %81 = load i8, ptr %80, align 1, !tbaa !4
   %.not83 = icmp eq i8 %81, 0
-  br i1 %.not83, label %82, label %.loopexit, !llvm.loop !71
+  br i1 %.not83, label %82, label %.loopexit
 
 82:                                               ; preds = %79, %.lr.ph115
   %83 = getelementptr inbounds nuw i8, ptr %76, i64 1
   %.not124 = icmp eq ptr %83, %30
-  br i1 %.not124, label %._crit_edge, label %.lr.ph115, !llvm.loop !72
+  br i1 %.not124, label %._crit_edge, label %.lr.ph115
 
 ._crit_edge:                                      ; preds = %74, %82
   br i1 %68, label %.thread92, label %84
@@ -2601,15 +2601,15 @@ define internal range(i64 -1, 4098) i64 @php_plain_files_dirstream_read(ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 19
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %11 = icmp ugt i64 %10, 4095
-  br i1 %11, label %17, label %12, !prof !73
+  br i1 %11, label %17, label %12, !prof !65
 
 12:                                               ; preds = %8
   %13 = add nuw nsw i64 %10, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %9, i64 %13, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 18
-  %15 = load i8, ptr %14, align 2, !tbaa !74
+  %15 = load i8, ptr %14, align 2, !tbaa !66
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4096
-  store i8 %15, ptr %16, align 1, !tbaa !76
+  store i8 %15, ptr %16, align 1, !tbaa !68
   br label %17
 
 17:                                               ; preds = %4, %12, %8, %3
@@ -2765,26 +2765,18 @@ attributes #19 = { nounwind willreturn memory(none) }
 !52 = !{!32, !16, i64 8}
 !53 = !{!25, !25, i64 0}
 !54 = distinct !{!54, !55}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = distinct !{!56, !55}
-!57 = distinct !{!57, !55, !58}
-!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!59 = distinct !{!59, !55}
-!60 = !{!61, !62, i64 0}
-!61 = !{!"_php_stream_wrapper", !62, i64 0, !11, i64 8, !8, i64 16}
-!62 = !{!"p1 _ZTS23_php_stream_wrapper_ops", !11, i64 0}
-!63 = !{!64, !11, i64 32}
-!64 = !{!"_php_stream_wrapper_ops", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !15, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80}
-!65 = !{!17, !8, i64 28}
-!66 = !{!17, !8, i64 32}
-!67 = !{!17, !8, i64 24}
-!68 = distinct !{!68, !55, !58}
-!69 = distinct !{!69, !55}
-!70 = distinct !{!70, !55}
-!71 = distinct !{!71, !55}
-!72 = distinct !{!72, !55}
-!73 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!74 = !{!75, !5, i64 18}
-!75 = !{!"dirent", !16, i64 0, !16, i64 8, !28, i64 16, !5, i64 18, !5, i64 19}
-!76 = !{!77, !5, i64 4096}
-!77 = !{!"_php_stream_dirent", !5, i64 0, !5, i64 4096}
+!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!56 = !{!57, !58, i64 0}
+!57 = !{!"_php_stream_wrapper", !58, i64 0, !11, i64 8, !8, i64 16}
+!58 = !{!"p1 _ZTS23_php_stream_wrapper_ops", !11, i64 0}
+!59 = !{!60, !11, i64 32}
+!60 = !{!"_php_stream_wrapper_ops", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !15, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80}
+!61 = !{!17, !8, i64 28}
+!62 = !{!17, !8, i64 32}
+!63 = !{!17, !8, i64 24}
+!64 = distinct !{!64, !55}
+!65 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!66 = !{!67, !5, i64 18}
+!67 = !{!"dirent", !16, i64 0, !16, i64 8, !28, i64 16, !5, i64 18, !5, i64 19}
+!68 = !{!69, !5, i64 4096}
+!69 = !{!"_php_stream_dirent", !5, i64 0, !5, i64 4096}

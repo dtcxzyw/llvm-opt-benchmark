@@ -150,14 +150,14 @@ thread-pre-split.thread:                          ; preds = %10, %thread-pre-spl
 
 61:                                               ; preds = %56
   %62 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv127, i32 2
-  store i32 %54, ptr %62, align 8, !tbaa !48
+  store i32 %54, ptr %62, align 8, !tbaa !47
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %64 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv127
-  store ptr %63, ptr %64, align 8, !tbaa !50
+  store ptr %63, ptr %64, align 8, !tbaa !49
   %65 = add i32 %48, %54
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
-  br i1 %exitcond130.not, label %.lr.ph124, label %47, !llvm.loop !51
+  br i1 %exitcond130.not, label %.lr.ph124, label %47, !llvm.loop !50
 
 66:                                               ; preds = %.lr.ph124, %80
   %indvars.iv131 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next132, %80 ]
@@ -183,14 +183,14 @@ thread-pre-split.thread:                          ; preds = %10, %thread-pre-spl
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv131, i32 3
-  store i32 %73, ptr %81, align 4, !tbaa !52
+  store i32 %73, ptr %81, align 4, !tbaa !51
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %83 = getelementptr inbounds nuw %struct.SliceContext, ptr %37, i64 %indvars.iv131, i32 1
-  store ptr %82, ptr %83, align 8, !tbaa !53
+  store ptr %82, ptr %83, align 8, !tbaa !52
   %84 = add i32 %67, %73
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
-  br i1 %exitcond135.not, label %.critedge108, label %66, !llvm.loop !54
+  br i1 %exitcond135.not, label %.critedge108, label %66, !llvm.loop !53
 
 .critedge108:                                     ; preds = %80, %.preheader112
   %85 = tail call i32 @ff_thread_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
@@ -199,10 +199,10 @@ thread-pre-split.thread:                          ; preds = %10, %thread-pre-spl
 
 87:                                               ; preds = %.critedge108
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %89 = load ptr, ptr %88, align 8, !tbaa !55
+  %89 = load ptr, ptr %88, align 8, !tbaa !54
   %90 = load i32, ptr %6, align 8, !tbaa !41
   %91 = tail call i32 %89(ptr noundef %0, ptr noundef nonnull @decode_slices, ptr noundef %1, ptr noundef null, i32 noundef %90) #6
-  store i32 1, ptr %2, align 4, !tbaa !56
+  store i32 1, ptr %2, align 4, !tbaa !55
   %92 = load i32, ptr %7, align 8, !tbaa !33
   br label %.critedge
 
@@ -243,13 +243,13 @@ define internal range(i32 -1094995529, 1) i32 @decode_slices(ptr noundef readonl
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   %10 = sext i32 %2 to i64
   %11 = getelementptr inbounds %struct.SliceContext, ptr %9, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !50
+  %12 = load ptr, ptr %11, align 8, !tbaa !49
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !53
+  %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !48
+  %16 = load i32, ptr %15, align 8, !tbaa !47
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %18 = load i32, ptr %17, align 4, !tbaa !52
+  %18 = load i32, ptr %17, align 4, !tbaa !51
   %19 = shl nsw i32 %2, 4
   %20 = icmp ugt i32 %16, 268435455
   %.not.i.i.i = icmp eq ptr %12, null
@@ -316,14 +316,14 @@ bits_init8_be.exit31.i:                           ; preds = %33, %30
   %.098170.i = phi i32 [ 0, %bits_init8_be.exit31.i ], [ %.199.i, %404 ]
   %44 = icmp ne i64 %indvars.iv.i, 0
   %45 = zext i1 %44 to i32
-  %46 = load i32, ptr %38, align 8, !tbaa !57
+  %46 = load i32, ptr %38, align 8, !tbaa !56
   %47 = ashr i32 %46, %45
   %.val.i = load ptr, ptr %6, align 8, !tbaa !4
   %48 = getelementptr inbounds nuw [8 x i32], ptr %39, i64 0, i64 %indvars.iv.i
-  %49 = load i32, ptr %48, align 4, !tbaa !56
+  %49 = load i32, ptr %48, align 4, !tbaa !55
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv.i
-  %52 = load ptr, ptr %51, align 8, !tbaa !62
+  %52 = load ptr, ptr %51, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #6
   %53 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %.val.i, i64 136
@@ -942,24 +942,24 @@ get_ue_golomb_long.exit.us.i.i:                   ; preds = %bits_read_nz_be.exi
   %.583.us.i.i = phi i32 [ -1, %bits_skip_be.exit.i.us.i.i ], [ %364, %bits_read_nz_be.exit.i.i.us.i.i ], [ 0, %get_ue_golomb_long.exit149.us.i.i ], [ %210, %209 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
-  br i1 %exitcond.i.i, label %.critedge.us.i.i, label %208, !llvm.loop !63
+  br i1 %exitcond.i.i, label %.critedge.us.i.i, label %208, !llvm.loop !62
 
 .critedge.us.i.i:                                 ; preds = %get_ue_golomb_long.exit.us.i.i
   %365 = shl i32 %.371.us.i.i, %57
   %366 = add i32 %365, %55
   %367 = trunc i32 %366 to i16
   store i16 %367, ptr %5, align 16, !tbaa !43
-  %368 = load ptr, ptr %58, align 8, !tbaa !64
+  %368 = load ptr, ptr %58, align 8, !tbaa !63
   %369 = getelementptr inbounds nuw i8, ptr %.07239.us.i.i, i64 %indvars.iv50.i.i
   call void %368(ptr noundef %369, i64 noundef %50, ptr noundef nonnull %5) #6
   %indvars.iv.next51.i.i = add nuw nsw i64 %indvars.iv50.i.i, 8
   %370 = trunc nuw i64 %indvars.iv.next51.i.i to i32
   %.not88.us.i.i = icmp sgt i32 %47, %370
-  br i1 %.not88.us.i.i, label %62, label %..thread4_crit_edge.us.i.i, !llvm.loop !65
+  br i1 %.not88.us.i.i, label %62, label %..thread4_crit_edge.us.i.i, !llvm.loop !64
 
 ..thread4_crit_edge.us.i.i:                       ; preds = %.critedge.us.i.i
   %371 = getelementptr inbounds i8, ptr %.07239.us.i.i, i64 %59
-  br i1 %.not44.i.i, label %.preheader.us.i.i, label %.loopexit.i, !llvm.loop !66
+  br i1 %.not44.i.i, label %.preheader.us.i.i, label %.loopexit.i, !llvm.loop !65
 
 decode_dcac.exit.thread.i:                        ; preds = %65, %211
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #6
@@ -1053,7 +1053,7 @@ bits_align_be.exit.i:                             ; preds = %391, %._crit_edge.i
   %.sroa.0.17.i = phi i64 [ %.sroa.0.15.i, %bits_align_be.exit.i ], [ 0, %._crit_edge.i.i41.i ], [ %402, %400 ], [ %398, %.sink.split.i.i36.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %.thread135.i, label %43, !llvm.loop !68
+  br i1 %exitcond.i, label %.thread135.i, label %43, !llvm.loop !67
 
 .thread135.i:                                     ; preds = %404
   %405 = ptrtoint ptr %.sroa.36.17.i to i64
@@ -1150,27 +1150,26 @@ attributes #6 = { nounwind }
 !42 = !{!36, !37, i64 200}
 !43 = !{!44, !44, i64 0}
 !44 = !{!"short", !8, i64 0}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = !{!49, !10, i64 16}
-!49 = !{!"SliceContext", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20}
-!50 = !{!49, !14, i64 0}
-!51 = distinct !{!51, !46, !47}
-!52 = !{!49, !10, i64 20}
-!53 = !{!49, !14, i64 8}
-!54 = distinct !{!54, !46, !47}
-!55 = !{!5, !7, i64 680}
-!56 = !{!10, !10, i64 0}
-!57 = !{!58, !10, i64 104}
-!58 = !{!"AVFrame", !8, i64 0, !8, i64 64, !59, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !60, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !61, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!59 = !{!"p2 omnipotent char", !26, i64 0}
-!60 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!61 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!62 = !{!14, !14, i64 0}
-!63 = distinct !{!63, !46, !47}
-!64 = !{!36, !7, i64 248}
-!65 = distinct !{!65, !46, !47}
-!66 = distinct !{!66, !46, !47, !67}
-!67 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!68 = distinct !{!68, !46, !47}
+!47 = !{!48, !10, i64 16}
+!48 = !{!"SliceContext", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20}
+!49 = !{!48, !14, i64 0}
+!50 = distinct !{!50, !46}
+!51 = !{!48, !10, i64 20}
+!52 = !{!48, !14, i64 8}
+!53 = distinct !{!53, !46}
+!54 = !{!5, !7, i64 680}
+!55 = !{!10, !10, i64 0}
+!56 = !{!57, !10, i64 104}
+!57 = !{!"AVFrame", !8, i64 0, !8, i64 64, !58, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !59, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !60, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!58 = !{!"p2 omnipotent char", !26, i64 0}
+!59 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!60 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!61 = !{!14, !14, i64 0}
+!62 = distinct !{!62, !46}
+!63 = !{!36, !7, i64 248}
+!64 = distinct !{!64, !46}
+!65 = distinct !{!65, !46, !66}
+!66 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!67 = distinct !{!67, !46}

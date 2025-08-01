@@ -1179,7 +1179,7 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   %68 = add i32 %63, %.6259438.us
   %69 = add nuw nsw i32 %.0287437.us, 1
   %exitcond538.not = icmp eq i32 %69, %61
-  br i1 %exitcond538.not, label %.loopexit, label %.lr.ph439.split.us, !llvm.loop !11
+  br i1 %exitcond538.not, label %.loopexit, label %.lr.ph439.split.us, !llvm.loop !10
 
 .lr.ph439.split:                                  ; preds = %.lr.ph439, %75
   %.6259438 = phi i32 [ %76, %75 ], [ %60, %.lr.ph439 ]
@@ -1197,7 +1197,7 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   %76 = add i32 %71, %.6259438
   %77 = add nuw nsw i32 %.0287437, 1
   %exitcond537.not = icmp eq i32 %77, %61
-  br i1 %exitcond537.not, label %.loopexit, label %.lr.ph439.split, !llvm.loop !13
+  br i1 %exitcond537.not, label %.loopexit, label %.lr.ph439.split, !llvm.loop !12
 
 .split.us:                                        ; preds = %.lr.ph439.split, %.lr.ph439.split.us
   %.us-phi = phi i32 [ %63, %.lr.ph439.split.us ], [ %71, %.lr.ph439.split ]
@@ -1334,7 +1334,7 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %149, label %.lr.ph470, label %._crit_edge471
 
 .lr.ph470:                                        ; preds = %145, %._crit_edge455
-  %.2250468 = phi i32 [ %313, %._crit_edge455 ], [ %.0248422, %145 ]
+  %.2250468 = phi i32 [ %315, %._crit_edge455 ], [ %.0248422, %145 ]
   %.0264467 = phi i32 [ %.3267.lcssa, %._crit_edge455 ], [ 0, %145 ]
   %150 = load i32, ptr @proto_message_jxta, align 4
   %151 = tail call ptr @wmem_strbuf_get_str(ptr noundef %122)
@@ -1602,7 +1602,6 @@ proto_item_set_generated.exit345:                 ; preds = %260, %267, %263, %p
   store ptr @.str.189, ptr %291, align 8
   %292 = getelementptr i8, ptr %291, i64 8
   store ptr @.str.137, ptr %292, align 8
-  %invariant.gep = getelementptr i8, ptr %291, i64 16
   %.not476 = icmp eq i16 %282, 0
   br i1 %.not476, label %._crit_edge, label %.lr.ph448.preheader
 
@@ -1612,29 +1611,30 @@ proto_item_set_generated.exit345:                 ; preds = %260, %267, %263, %p
 
 .lr.ph448:                                        ; preds = %.lr.ph448.preheader, %.lr.ph448
   %indvars.iv = phi i64 [ 0, %.lr.ph448.preheader ], [ %indvars.iv.next, %.lr.ph448 ]
-  %.2266446 = phi i32 [ %286, %.lr.ph448.preheader ], [ %300, %.lr.ph448 ]
+  %.2266446 = phi i32 [ %286, %.lr.ph448.preheader ], [ %302, %.lr.ph448 ]
   %293 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2266446)
   %294 = load ptr, ptr %120, align 8
   %295 = add i32 %.2266446, 2
   %296 = zext i16 %293 to i32
   %297 = tail call ptr @tvb_get_string_enc(ptr noundef %294, ptr noundef %0, i32 noundef %295, i32 noundef %296, i32 noundef 0)
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
-  store ptr %297, ptr %gep, align 8
-  %298 = load i32, ptr @hf_jxta_message_names_name, align 4
-  %299 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %298, ptr noundef %0, i32 noundef %.2266446, i32 noundef 2, i32 noundef 0)
-  %300 = add i32 %295, %296
+  %298 = getelementptr ptr, ptr %291, i64 %indvars.iv
+  %299 = getelementptr i8, ptr %298, i64 16
+  store ptr %297, ptr %299, align 8
+  %300 = load i32, ptr @hf_jxta_message_names_name, align 4
+  %301 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %300, ptr noundef %0, i32 noundef %.2266446, i32 noundef 2, i32 noundef 0)
+  %302 = add i32 %295, %296
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond540.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond540.not, label %._crit_edge, label %.lr.ph448, !llvm.loop !14
+  br i1 %exitcond540.not, label %._crit_edge, label %.lr.ph448, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph448, %281
-  %.2266.lcssa = phi i32 [ %286, %281 ], [ %300, %.lr.ph448 ]
-  %301 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2266.lcssa)
-  %302 = load i32, ptr @hf_jxta_message_element_count, align 4
-  %303 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %302, ptr noundef %0, i32 noundef %.2266.lcssa, i32 noundef 2, i32 noundef 0)
-  %304 = add i32 %.2266.lcssa, 2
-  %305 = zext i16 %301 to i32
-  %.not304450.not = icmp eq i16 %301, 0
+  %.2266.lcssa = phi i32 [ %286, %281 ], [ %302, %.lr.ph448 ]
+  %303 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2266.lcssa)
+  %304 = load i32, ptr @hf_jxta_message_element_count, align 4
+  %305 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %304, ptr noundef %0, i32 noundef %.2266.lcssa, i32 noundef 2, i32 noundef 0)
+  %306 = add i32 %.2266.lcssa, 2
+  %307 = zext i16 %303 to i32
+  %.not304450.not = icmp eq i16 %303, 0
   br i1 %.not304450.not, label %._crit_edge455, label %.lr.ph454
 
 .lr.ph454:                                        ; preds = %._crit_edge
@@ -1644,43 +1644,43 @@ proto_item_set_generated.exit345:                 ; preds = %260, %267, %263, %p
   ]
 
 .lr.ph454.split.us:                               ; preds = %.lr.ph454, %.lr.ph454.split.us
-  %.0252452.us = phi i32 [ %308, %.lr.ph454.split.us ], [ 0, %.lr.ph454 ]
-  %.3267451.us = phi i32 [ %.4268.us, %.lr.ph454.split.us ], [ %304, %.lr.ph454 ]
-  %306 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3267451.us)
-  %307 = tail call fastcc i32 @dissect_jxta_message_element_1(ptr noundef %306, ptr noundef %1, ptr noundef %155, i32 noundef %288, ptr noundef %291)
-  %.4268.us = add i32 %307, %.3267451.us
-  %308 = add nuw nsw i32 %.0252452.us, 1
-  %exitcond542.not = icmp eq i32 %308, %305
-  br i1 %exitcond542.not, label %._crit_edge455, label %.lr.ph454.split.us, !llvm.loop !15
+  %.0252452.us = phi i32 [ %310, %.lr.ph454.split.us ], [ 0, %.lr.ph454 ]
+  %.3267451.us = phi i32 [ %.4268.us, %.lr.ph454.split.us ], [ %306, %.lr.ph454 ]
+  %308 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3267451.us)
+  %309 = tail call fastcc i32 @dissect_jxta_message_element_1(ptr noundef %308, ptr noundef %1, ptr noundef %155, i32 noundef %288, ptr noundef %291)
+  %.4268.us = add i32 %309, %.3267451.us
+  %310 = add nuw nsw i32 %.0252452.us, 1
+  %exitcond542.not = icmp eq i32 %310, %307
+  br i1 %exitcond542.not, label %._crit_edge455, label %.lr.ph454.split.us, !llvm.loop !14
 
 .lr.ph454.split.us458:                            ; preds = %.lr.ph454, %.lr.ph454.split.us458
-  %.0252452.us459 = phi i32 [ %311, %.lr.ph454.split.us458 ], [ 0, %.lr.ph454 ]
-  %.3267451.us460 = phi i32 [ %.4268.us462, %.lr.ph454.split.us458 ], [ %304, %.lr.ph454 ]
-  %309 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3267451.us460)
-  %310 = tail call fastcc i32 @dissect_jxta_message_element_2(ptr noundef %309, ptr noundef %1, ptr noundef %155, i32 noundef %288, ptr noundef %291)
-  %.4268.us462 = add i32 %310, %.3267451.us460
-  %311 = add nuw nsw i32 %.0252452.us459, 1
-  %exitcond541.not = icmp eq i32 %311, %305
-  br i1 %exitcond541.not, label %._crit_edge455, label %.lr.ph454.split.us458, !llvm.loop !16
+  %.0252452.us459 = phi i32 [ %313, %.lr.ph454.split.us458 ], [ 0, %.lr.ph454 ]
+  %.3267451.us460 = phi i32 [ %.4268.us462, %.lr.ph454.split.us458 ], [ %306, %.lr.ph454 ]
+  %311 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3267451.us460)
+  %312 = tail call fastcc i32 @dissect_jxta_message_element_2(ptr noundef %311, ptr noundef %1, ptr noundef %155, i32 noundef %288, ptr noundef %291)
+  %.4268.us462 = add i32 %312, %.3267451.us460
+  %313 = add nuw nsw i32 %.0252452.us459, 1
+  %exitcond541.not = icmp eq i32 %313, %307
+  br i1 %exitcond541.not, label %._crit_edge455, label %.lr.ph454.split.us458, !llvm.loop !15
 
 .lr.ph454.split:                                  ; preds = %.lr.ph454
-  %312 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %304)
+  %314 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %306)
   br label %.thread380
 
 ._crit_edge455:                                   ; preds = %.lr.ph454.split.us458, %.lr.ph454.split.us, %._crit_edge
-  %.3267.lcssa = phi i32 [ %304, %._crit_edge ], [ %.4268.us, %.lr.ph454.split.us ], [ %.4268.us462, %.lr.ph454.split.us458 ]
+  %.3267.lcssa = phi i32 [ %306, %._crit_edge ], [ %.4268.us, %.lr.ph454.split.us ], [ %.4268.us462, %.lr.ph454.split.us458 ]
   tail call void @proto_item_set_end(ptr noundef %153, ptr noundef %0, i32 noundef %.3267.lcssa)
-  %313 = add nsw i32 %.2250468, -1
-  %314 = icmp sgt i32 %.2250468, 1
-  br i1 %314, label %.lr.ph470, label %._crit_edge471
+  %315 = add nsw i32 %.2250468, -1
+  %316 = icmp sgt i32 %.2250468, 1
+  br i1 %316, label %.lr.ph470, label %._crit_edge471
 
 ._crit_edge471:                                   ; preds = %._crit_edge455, %145
   %.0264.lcssa = phi i32 [ 0, %145 ], [ %.3267.lcssa, %._crit_edge455 ]
-  %315 = icmp ne i32 %.0264.lcssa, %.1254.ph
-  %or.cond306.not = and i1 %147, %315
-  br i1 %or.cond306.not, label %316, label %.thread380
+  %317 = icmp ne i32 %.0264.lcssa, %.1254.ph
+  %or.cond306.not = and i1 %147, %317
+  br i1 %or.cond306.not, label %318, label %.thread380
 
-316:                                              ; preds = %._crit_edge471
+318:                                              ; preds = %._crit_edge471
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171, i32 noundef 1450, ptr noundef nonnull @.str.194) #18
   unreachable
 
@@ -1874,7 +1874,7 @@ define internal fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr nou
 .thread:                                          ; preds = %42, %38, %46, %53, %49
   %56 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %36)
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %.loopexit, label %11, !llvm.loop !17
+  br i1 %57, label %.loopexit, label %11
 
 .loopexit:                                        ; preds = %.thread, %5, %17, %25, %33
   %.1115.ph = phi i32 [ %34, %33 ], [ %26, %25 ], [ %18, %17 ], [ 1, %5 ], [ 1, %.thread ]
@@ -1940,7 +1940,7 @@ define internal fastcc i32 @dissect_jxta_message_framing(ptr noundef %0, ptr nou
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %79, i32 noundef %92, ptr noundef %0, i32 noundef %93, i32 noundef %90, i32 noundef 0)
   %95 = add i32 %93, %90
   tail call void @proto_item_set_end(ptr noundef %77, ptr noundef %0, i32 noundef %95)
-  br label %74, !llvm.loop !18
+  br label %74
 
 96:                                               ; preds = %74
   %97 = add i32 %.0118, 1
@@ -2498,7 +2498,7 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   %.pr = load ptr, ptr %128, align 8
   %.not160 = icmp eq ptr %.pr, null
   %indvars.iv.next = add i32 %indvars.iv, 1
-  br i1 %.not160, label %129, label %.preheader, !llvm.loop !19
+  br i1 %.not160, label %129, label %.preheader, !llvm.loop !16
 
 129:                                              ; preds = %.preheader
   %130 = icmp ugt i32 %.0138168, 2147483646
@@ -2607,7 +2607,7 @@ proto_item_set_generated.exit:                    ; preds = %26, %48, %45, %41, 
   %199 = getelementptr i8, ptr %.0142170, i64 8
   %200 = add nuw nsw i32 %.0172, 1
   %exitcond.not = icmp eq i32 %200, %smax
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !17
 
 201:                                              ; preds = %118
   store i32 0, ptr %6, align 4
@@ -3431,16 +3431,13 @@ attributes #19 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10, !12}
-!16 = distinct !{!16, !9, !10, !12}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!10 = distinct !{!10, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9, !11}
+!15 = distinct !{!15, !9, !11}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

@@ -489,7 +489,7 @@ define dso_local { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local
   tail call void @jv_free(i64 %36, ptr %37) #14
   %60 = add nuw nsw i32 %.1101, 1
   %exitcond111.not = icmp eq i32 %60, %27
-  br i1 %exitcond111.not, label %.loopexit.loopexit, label %.lr.ph104, !llvm.loop !7
+  br i1 %exitcond111.not, label %.loopexit.loopexit, label %.lr.ph104, !llvm.loop !6
 
 61:                                               ; preds = %20, %17
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
@@ -598,7 +598,7 @@ define dso_local { i64, ptr } @binop_multiply(i64 %0, ptr %1, i64 %2, ptr %3) lo
   %35 = tail call { i64, ptr } @jv_string_append_buf(i64 %.sroa.065.2, ptr %.sroa.867.2, ptr noundef %34, i32 noundef %30) #14
   %36 = add nsw i32 %.072, -1
   %37 = icmp samesign ugt i32 %.072, 1
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %23
   %.merged = phi { i64, ptr } [ %24, %23 ], [ %32, %25 ], [ %35, %.lr.ph ]
@@ -903,7 +903,7 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %10 = load ptr, ptr %9, align 8
   %11 = call { ptr, ptr } (...) @gen_noop() #14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #14
-  store ptr @.str.9, ptr %3, align 16, !tbaa !9
+  store ptr @.str.9, ptr %3, align 16, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #14
   %14 = extractvalue { ptr, ptr } %13, 0
@@ -912,7 +912,7 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %16 = extractvalue { ptr, ptr } %13, 1
   store ptr %16, ptr %15, align 16
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr @.str.10, ptr %17, align 8, !tbaa !9
+  store ptr @.str.10, ptr %17, align 8, !tbaa !8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = call { i64, ptr } @jv_false() #14
   %20 = extractvalue { i64, ptr } %19, 0
@@ -940,7 +940,7 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %indvars.iv107.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #14
-  store ptr @.str.11, ptr %4, align 16, !tbaa !9
+  store ptr @.str.11, ptr %4, align 16, !tbaa !8
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %37 = call { ptr, ptr } @gen_op_simple(i32 noundef 25) #14
   %38 = extractvalue { ptr, ptr } %37, 0
@@ -963,7 +963,7 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %55 = extractvalue { ptr, ptr } %52, 1
   store ptr %55, ptr %54, align 16
-  store ptr @.str.13, ptr %indvars.iv107.i.sroa.gep11, align 8, !tbaa !9
+  store ptr @.str.13, ptr %indvars.iv107.i.sroa.gep11, align 8, !tbaa !8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %57 = call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef nonnull @.str.13) #14
   %58 = extractvalue { ptr, ptr } %57, 0
@@ -1086,7 +1086,7 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %indvars.iv.i.sroa.phi = phi ptr [ %3, %2 ], [ %17, %169 ]
   %.sroa.082.0101.i = phi ptr [ %.sroa.082.098.i, %2 ], [ %.sroa.082.0.i, %169 ]
   %.sroa.10.0100.i = phi ptr [ %.sroa.10.097.i, %2 ], [ %.sroa.10.0.i, %169 ]
-  %171 = load ptr, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !9
+  %171 = load ptr, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !8
   %172 = call { ptr, ptr } (...) @gen_noop() #14
   %173 = extractvalue { ptr, ptr } %172, 0
   %174 = extractvalue { ptr, ptr } %172, 1
@@ -1100,14 +1100,14 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %182 = call { ptr, ptr } @block_join(ptr %.sroa.082.0101.i, ptr %.sroa.10.0100.i, ptr %180, ptr %181) #14
   %.sroa.10.0.i = extractvalue { ptr, ptr } %182, 1
   %.sroa.082.0.i = extractvalue { ptr, ptr } %182, 0
-  br i1 %170, label %169, label %35, !llvm.loop !17
+  br i1 %170, label %169, label %35, !llvm.loop !16
 
 183:                                              ; preds = %183, %35
   %184 = phi i1 [ true, %35 ], [ false, %183 ]
   %indvars.iv107.i.sroa.phi = phi ptr [ %4, %35 ], [ %indvars.iv107.i.sroa.gep11, %183 ]
   %.sroa.10.1104.i = phi ptr [ %.sroa.10.0.i, %35 ], [ %198, %183 ]
   %.sroa.082.1103.i = phi ptr [ %.sroa.082.0.i, %35 ], [ %197, %183 ]
-  %185 = load ptr, ptr %indvars.iv107.i.sroa.phi, align 8, !tbaa !9
+  %185 = load ptr, ptr %indvars.iv107.i.sroa.phi, align 8, !tbaa !8
   %186 = call { ptr, ptr } @gen_param(ptr noundef nonnull @.str.12) #14
   %187 = extractvalue { ptr, ptr } %186, 0
   %188 = extractvalue { ptr, ptr } %186, 1
@@ -1121,7 +1121,7 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %196 = call { ptr, ptr } @block_join(ptr %.sroa.082.1103.i, ptr %.sroa.10.1104.i, ptr %194, ptr %195) #14
   %197 = extractvalue { ptr, ptr } %196, 0
   %198 = extractvalue { ptr, ptr } %196, 1
-  br i1 %184, label %183, label %bind_bytecoded_builtins.exit, !llvm.loop !18
+  br i1 %184, label %183, label %bind_bytecoded_builtins.exit, !llvm.loop !17
 
 bind_bytecoded_builtins.exit:                     ; preds = %183
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #14
@@ -1194,13 +1194,13 @@ bind_bytecoded_builtins.exit:                     ; preds = %183
   %265 = call { ptr, ptr } @block_join(ptr %263, ptr %264, ptr %8, ptr %10) #14
   %266 = extractvalue { ptr, ptr } %265, 0
   %267 = extractvalue { ptr, ptr } %265, 1
-  store ptr %266, ptr %5, align 8, !tbaa !19
-  store ptr %267, ptr %9, align 8, !tbaa !19
+  store ptr %266, ptr %5, align 8, !tbaa !18
+  store ptr %267, ptr %9, align 8, !tbaa !18
   %268 = call { ptr, ptr } @gen_cbinding(ptr noundef nonnull @function_list, i32 noundef 133, ptr %266, ptr %267) #14
   %269 = extractvalue { ptr, ptr } %268, 0
   %270 = extractvalue { ptr, ptr } %268, 1
-  store ptr %269, ptr %5, align 8, !tbaa !19
-  store ptr %270, ptr %9, align 8, !tbaa !19
+  store ptr %269, ptr %5, align 8, !tbaa !18
+  store ptr %270, ptr %9, align 8, !tbaa !18
   %271 = call { i64, ptr } @block_list_funcs(ptr %269, ptr %270, i32 noundef 1) #14
   %272 = extractvalue { i64, ptr } %271, 0
   %273 = extractvalue { i64, ptr } %271, 1
@@ -1222,16 +1222,16 @@ bind_bytecoded_builtins.exit:                     ; preds = %183
   %289 = call { ptr, ptr } @block_join(ptr %269, ptr %270, ptr %287, ptr %288) #14
   %290 = extractvalue { ptr, ptr } %289, 0
   %291 = extractvalue { ptr, ptr } %289, 1
-  store ptr %290, ptr %5, align 8, !tbaa !19
-  store ptr %291, ptr %9, align 8, !tbaa !19
+  store ptr %290, ptr %5, align 8, !tbaa !18
+  store ptr %291, ptr %9, align 8, !tbaa !18
   %292 = load ptr, ptr %1, align 8
   %293 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %294 = load ptr, ptr %293, align 8
   %295 = call { ptr, ptr } @block_bind_referenced(ptr %290, ptr %291, ptr %292, ptr %294, i32 noundef 128) #14
   %296 = extractvalue { ptr, ptr } %295, 0
   %297 = extractvalue { ptr, ptr } %295, 1
-  store ptr %296, ptr %1, align 8, !tbaa !19
-  store ptr %297, ptr %293, align 8, !tbaa !19
+  store ptr %296, ptr %1, align 8, !tbaa !18
+  store ptr %297, ptr %293, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   ret i32 %7
 }
@@ -1303,7 +1303,7 @@ define internal { i64, ptr } @f_acos(ptr readnone captures(none) %0, i64 %1, ptr
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @acos(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @acos(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1334,7 +1334,7 @@ define internal { i64, ptr } @f_acosh(ptr readnone captures(none) %0, i64 %1, pt
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @acosh(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @acosh(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1365,7 +1365,7 @@ define internal { i64, ptr } @f_asin(ptr readnone captures(none) %0, i64 %1, ptr
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @asin(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @asin(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1396,7 +1396,7 @@ define internal { i64, ptr } @f_asinh(ptr readnone captures(none) %0, i64 %1, pt
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @asinh(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @asinh(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1427,7 +1427,7 @@ define internal { i64, ptr } @f_atan(ptr readnone captures(none) %0, i64 %1, ptr
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @atan(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @atan(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1483,7 +1483,7 @@ define internal { i64, ptr } @f_atan2(ptr readnone captures(none) %0, i64 %1, pt
 31:                                               ; preds = %21
   %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
   %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @atan2(double noundef %32, double noundef %33) #14, !tbaa !20
+  %34 = tail call double @atan2(double noundef %32, double noundef %33) #14, !tbaa !19
   %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
   tail call void @jv_free(i64 %3, ptr %4) #14
   tail call void @jv_free(i64 %10, ptr %12) #14
@@ -1515,7 +1515,7 @@ define internal { i64, ptr } @f_atanh(ptr readnone captures(none) %0, i64 %1, pt
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @atanh(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @atanh(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1577,7 +1577,7 @@ define internal { i64, ptr } @f_cos(ptr readnone captures(none) %0, i64 %1, ptr 
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @cos(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @cos(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1608,7 +1608,7 @@ define internal { i64, ptr } @f_cosh(ptr readnone captures(none) %0, i64 %1, ptr
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @cosh(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @cosh(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1639,7 +1639,7 @@ define internal { i64, ptr } @f_exp(ptr readnone captures(none) %0, i64 %1, ptr 
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @exp(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @exp(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1670,7 +1670,7 @@ define internal { i64, ptr } @f_exp2(ptr readnone captures(none) %0, i64 %1, ptr
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @exp2(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @exp2(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1757,7 +1757,7 @@ define internal { i64, ptr } @f_hypot(ptr readnone captures(none) %0, i64 %1, pt
 31:                                               ; preds = %21
   %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
   %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @hypot(double noundef %32, double noundef %33) #14, !tbaa !20
+  %34 = tail call double @hypot(double noundef %32, double noundef %33) #14, !tbaa !19
   %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
   tail call void @jv_free(i64 %3, ptr %4) #14
   tail call void @jv_free(i64 %10, ptr %12) #14
@@ -1851,7 +1851,7 @@ define internal { i64, ptr } @f_log(ptr readnone captures(none) %0, i64 %1, ptr 
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @log(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @log(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1882,7 +1882,7 @@ define internal { i64, ptr } @f_log10(ptr readnone captures(none) %0, i64 %1, pt
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @log10(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @log10(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1913,7 +1913,7 @@ define internal { i64, ptr } @f_log2(ptr readnone captures(none) %0, i64 %1, ptr
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @log2(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @log2(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -1969,7 +1969,7 @@ define internal { i64, ptr } @f_pow(ptr readnone captures(none) %0, i64 %1, ptr 
 31:                                               ; preds = %21
   %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
   %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @pow(double noundef %32, double noundef %33) #14, !tbaa !20
+  %34 = tail call double @pow(double noundef %32, double noundef %33) #14, !tbaa !19
   %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
   tail call void @jv_free(i64 %3, ptr %4) #14
   tail call void @jv_free(i64 %10, ptr %12) #14
@@ -2026,7 +2026,7 @@ define internal { i64, ptr } @f_remainder(ptr readnone captures(none) %0, i64 %1
 31:                                               ; preds = %21
   %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
   %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @remainder(double noundef %32, double noundef %33) #14, !tbaa !20
+  %34 = tail call double @remainder(double noundef %32, double noundef %33) #14, !tbaa !19
   %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
   tail call void @jv_free(i64 %3, ptr %4) #14
   tail call void @jv_free(i64 %10, ptr %12) #14
@@ -2058,7 +2058,7 @@ define internal { i64, ptr } @f_sin(ptr readnone captures(none) %0, i64 %1, ptr 
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @sin(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @sin(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -2089,7 +2089,7 @@ define internal { i64, ptr } @f_sinh(ptr readnone captures(none) %0, i64 %1, ptr
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @sinh(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @sinh(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -2120,7 +2120,7 @@ define internal { i64, ptr } @f_sqrt(ptr readnone captures(none) %0, i64 %1, ptr
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @sqrt(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @sqrt(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -2151,7 +2151,7 @@ define internal { i64, ptr } @f_tan(ptr readnone captures(none) %0, i64 %1, ptr 
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @tan(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @tan(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -2182,7 +2182,7 @@ define internal { i64, ptr } @f_tanh(ptr readnone captures(none) %0, i64 %1, ptr
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @tanh(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @tanh(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -2213,7 +2213,7 @@ define internal { i64, ptr } @f_tgamma(ptr readnone captures(none) %0, i64 %1, p
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @tgamma(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @tgamma(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -2567,7 +2567,7 @@ define internal { i64, ptr } @f_erf(ptr readnone captures(none) %0, i64 %1, ptr 
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @erf(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @erf(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -2598,7 +2598,7 @@ define internal { i64, ptr } @f_erfc(ptr readnone captures(none) %0, i64 %1, ptr
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @erfc(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @erfc(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -2660,7 +2660,7 @@ define internal { i64, ptr } @f_expm1(ptr readnone captures(none) %0, i64 %1, pt
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @expm1(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @expm1(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -2747,7 +2747,7 @@ define internal { i64, ptr } @f_fdim(ptr readnone captures(none) %0, i64 %1, ptr
 31:                                               ; preds = %21
   %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
   %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @fdim(double noundef %32, double noundef %33) #14, !tbaa !20
+  %34 = tail call double @fdim(double noundef %32, double noundef %33) #14, !tbaa !19
   %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
   tail call void @jv_free(i64 %3, ptr %4) #14
   tail call void @jv_free(i64 %10, ptr %12) #14
@@ -3008,7 +3008,7 @@ define internal { i64, ptr } @f_fmod(ptr readnone captures(none) %0, i64 %1, ptr
 31:                                               ; preds = %21
   %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
   %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @fmod(double noundef %32, double noundef %33) #14, !tbaa !20
+  %34 = tail call double @fmod(double noundef %32, double noundef %33) #14, !tbaa !19
   %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
   tail call void @jv_free(i64 %3, ptr %4) #14
   tail call void @jv_free(i64 %10, ptr %12) #14
@@ -3102,7 +3102,7 @@ define internal { i64, ptr } @f_log1p(ptr readnone captures(none) %0, i64 %1, pt
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @log1p(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @log1p(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -3133,7 +3133,7 @@ define internal { i64, ptr } @f_logb(ptr readnone captures(none) %0, i64 %1, ptr
 
 14:                                               ; preds = %3
   %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @logb(double noundef %15) #14, !tbaa !20
+  %16 = tail call double @logb(double noundef %15) #14, !tbaa !19
   %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
   tail call void @jv_free(i64 %1, ptr %2) #14
   br label %18
@@ -3220,7 +3220,7 @@ define internal { i64, ptr } @f_nextafter(ptr readnone captures(none) %0, i64 %1
 31:                                               ; preds = %21
   %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
   %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @nextafter(double noundef %32, double noundef %33) #14, !tbaa !20
+  %34 = tail call double @nextafter(double noundef %32, double noundef %33) #14, !tbaa !19
   %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
   tail call void @jv_free(i64 %3, ptr %4) #14
   tail call void @jv_free(i64 %10, ptr %12) #14
@@ -3278,7 +3278,7 @@ define internal { i64, ptr } @f_nexttoward(ptr readnone captures(none) %0, i64 %
   %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
   %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
   %34 = fpext double %33 to x86_fp80
-  %35 = tail call double @nexttoward(double noundef %32, x86_fp80 noundef %34) #14, !tbaa !20
+  %35 = tail call double @nexttoward(double noundef %32, x86_fp80 noundef %34) #14, !tbaa !19
   %36 = tail call { i64, ptr } @jv_number(double noundef %35) #14
   tail call void @jv_free(i64 %3, ptr %4) #14
   tail call void @jv_free(i64 %10, ptr %12) #14
@@ -3455,7 +3455,7 @@ define internal { i64, ptr } @f_scalbln(ptr readnone captures(none) %0, i64 %1, 
   %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
   %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
   %34 = fptosi double %33 to i64
-  %35 = tail call double @scalbln(double noundef %32, i64 noundef %34) #14, !tbaa !20
+  %35 = tail call double @scalbln(double noundef %32, i64 noundef %34) #14, !tbaa !19
   %36 = tail call { i64, ptr } @jv_number(double noundef %35) #14
   tail call void @jv_free(i64 %3, ptr %4) #14
   tail call void @jv_free(i64 %10, ptr %12) #14
@@ -3575,7 +3575,7 @@ define internal { i64, ptr } @f_ldexp(ptr readnone captures(none) %0, i64 %1, pt
   %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
   %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
   %34 = fptosi double %33 to i32
-  %35 = tail call double @ldexp(double noundef %32, i32 noundef %34) #14, !tbaa !20
+  %35 = tail call double @ldexp(double noundef %32, i32 noundef %34) #14, !tbaa !19
   %36 = tail call { i64, ptr } @jv_number(double noundef %35) #14
   tail call void @jv_free(i64 %3, ptr %4) #14
   tail call void @jv_free(i64 %10, ptr %12) #14
@@ -3619,7 +3619,7 @@ define internal { i64, ptr } @f_modf(ptr readnone captures(none) %0, i64 %1, ptr
   %24 = tail call { i64, ptr } @jv_array_append(i64 %19, ptr %20, i64 %22, ptr %23) #14
   %25 = extractvalue { i64, ptr } %24, 0
   %26 = extractvalue { i64, ptr } %24, 1
-  %27 = load double, ptr %5, align 8, !tbaa !22
+  %27 = load double, ptr %5, align 8, !tbaa !21
   %28 = tail call { i64, ptr } @jv_number(double noundef %27) #14
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = extractvalue { i64, ptr } %28, 1
@@ -3666,7 +3666,7 @@ define internal { i64, ptr } @f_frexp(ptr readnone captures(none) %0, i64 %1, pt
   %24 = tail call { i64, ptr } @jv_array_append(i64 %19, ptr %20, i64 %22, ptr %23) #14
   %25 = extractvalue { i64, ptr } %24, 0
   %26 = extractvalue { i64, ptr } %24, 1
-  %27 = load i32, ptr %5, align 4, !tbaa !20
+  %27 = load i32, ptr %5, align 4, !tbaa !19
   %28 = sitofp i32 %27 to double
   %29 = tail call { i64, ptr } @jv_number(double noundef %28) #14
   %30 = extractvalue { i64, ptr } %29, 0
@@ -3714,7 +3714,7 @@ define internal { i64, ptr } @f_lgamma_r(ptr readnone captures(none) %0, i64 %1,
   %24 = call { i64, ptr } @jv_array_append(i64 %19, ptr %20, i64 %22, ptr %23) #14
   %25 = extractvalue { i64, ptr } %24, 0
   %26 = extractvalue { i64, ptr } %24, 1
-  %27 = load i32, ptr %5, align 4, !tbaa !20
+  %27 = load i32, ptr %5, align 4, !tbaa !19
   %28 = sitofp i32 %27 to double
   %29 = call { i64, ptr } @jv_number(double noundef %28) #14
   %30 = extractvalue { i64, ptr } %29, 0
@@ -4312,7 +4312,7 @@ define internal { i64, ptr } @f_string_implode(ptr readnone captures(none) %0, i
   %37 = tail call { i64, ptr } @jv_string_append_codepoint(i64 %.sroa.024.078, ptr %.sroa.7.077, i32 noundef %.0) #14
   %38 = add nuw nsw i32 %.04776, 1
   %exitcond.not = icmp eq i32 %38, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %33, %11
   %.pn.lcssa = phi { i64, ptr } [ %16, %11 ], [ %37, %33 ]
@@ -4834,7 +4834,7 @@ define internal { i64, ptr } @f_bsearch(ptr readnone captures(none) %0, i64 %1, 
   %.243 = select i1 %40, i32 %25, i32 %.04156
   %.3 = select i1 %40, i32 %.04057, i32 %41
   %42 = icmp slt i32 %.3, %.243
-  br i1 %42, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %42, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %39, %16, %.thread
   %.04055 = phi i32 [ %.04057, %.thread ], [ 0, %16 ], [ %.3, %39 ]
@@ -5086,7 +5086,7 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   %.sroa.17.5 = phi ptr [ %.sroa.17.4, %72 ], [ %79, %73 ], [ %.sroa.17.4, %84 ], [ %91, %85 ], [ %104, %92 ]
   %106 = add nuw nsw i32 %.1416643, 1
   %exitcond704.not = icmp eq i32 %106, %57
-  br i1 %exitcond704.not, label %.thread498.loopexit, label %.lr.ph646, !llvm.loop !26
+  br i1 %exitcond704.not, label %.thread498.loopexit, label %.lr.ph646, !llvm.loop !24
 
 107:                                              ; preds = %70
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -5158,10 +5158,10 @@ f_tostring.exit484:                               ; preds = %122, %125
   %.ptr = getelementptr inbounds nuw i8, ptr @.str.192, i64 %.0422631.add
   %136 = sext i8 %135 to i64
   %137 = getelementptr inbounds [128 x i32], ptr %12, i64 0, i64 %136
-  store i32 1, ptr %137, align 4, !tbaa !20
-  %138 = load i8, ptr %.ptr, align 1, !tbaa !27
+  store i32 1, ptr %137, align 4, !tbaa !19
+  %138 = load i8, ptr %.ptr, align 1, !tbaa !25
   %exitcond703 = icmp eq i64 %.0422631.add, 66
-  br i1 %exitcond703, label %139, label %134, !llvm.loop !28
+  br i1 %exitcond703, label %139, label %134, !llvm.loop !26
 
 139:                                              ; preds = %134
   %140 = extractvalue { i64, ptr } %133, 0
@@ -5187,7 +5187,7 @@ f_tostring.exit484:                               ; preds = %122, %125
   %.0424634 = phi i32 [ %165, %163 ], [ 0, %139 ]
   %.sroa.26.7636 = extractvalue { i64, ptr } %.pn.pn, 1
   %.sroa.0397.7637 = extractvalue { i64, ptr } %.pn.pn, 0
-  %149 = load i8, ptr %.0423635, align 1, !tbaa !27
+  %149 = load i8, ptr %.0423635, align 1, !tbaa !25
   %150 = zext i8 %149 to i32
   %151 = icmp sgt i8 %149, -1
   br i1 %151, label %152, label %158
@@ -5195,7 +5195,7 @@ f_tostring.exit484:                               ; preds = %122, %125
 152:                                              ; preds = %.lr.ph639
   %153 = zext nneg i8 %149 to i64
   %154 = getelementptr inbounds nuw [128 x i32], ptr %12, i64 0, i64 %153
-  %155 = load i32, ptr %154, align 4, !tbaa !20
+  %155 = load i32, ptr %154, align 4, !tbaa !19
   %.not458 = icmp eq i32 %155, 0
   br i1 %.not458, label %158, label %156
 
@@ -5219,7 +5219,7 @@ f_tostring.exit484:                               ; preds = %122, %125
   %168 = extractvalue { i64, ptr } %166, 1
   %169 = tail call i32 @jv_string_length_bytes(i64 %167, ptr %168) #14
   %170 = icmp slt i32 %165, %169
-  br i1 %170, label %.lr.ph639, label %._crit_edge640, !llvm.loop !29
+  br i1 %170, label %.lr.ph639, label %._crit_edge640, !llvm.loop !27
 
 171:                                              ; preds = %130
   %172 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.194) #17
@@ -5240,7 +5240,7 @@ f_tostring.exit484:                               ; preds = %122, %125
   %.pn558 = phi { i64, ptr } [ %177, %173 ], [ %.pn558.be, %.backedge ]
   %.sroa.11.0 = extractvalue { i64, ptr } %.pn558, 1
   %.sroa.0176.0 = extractvalue { i64, ptr } %.pn558, 0
-  %180 = load i8, ptr %.0425, align 1, !tbaa !27
+  %180 = load i8, ptr %.0425, align 1, !tbaa !25
   switch i8 %180, label %181 [
     i8 0, label %245
     i8 37, label %184
@@ -5267,7 +5267,7 @@ f_tostring.exit484:                               ; preds = %122, %125
   br i1 %188, label %189, label %.critedge9
 
 189:                                              ; preds = %187
-  %190 = load i8, ptr %13, align 4, !tbaa !27
+  %190 = load i8, ptr %13, align 4, !tbaa !25
   %.not465 = icmp sgt i8 %190, -1
   br i1 %.not465, label %.critedge9, label %191
 
@@ -5281,13 +5281,13 @@ f_tostring.exit484:                               ; preds = %122, %125
   br i1 %.not466, label %.critedge9, label %.critedge
 
 .critedge:                                        ; preds = %185, %191
-  %197 = load i8, ptr %.2427, align 1, !tbaa !27
+  %197 = load i8, ptr %.2427, align 1, !tbaa !25
   %.not468 = icmp eq i8 %197, 37
   br i1 %.not468, label %.preheader562, label %199
 
 .preheader562:                                    ; preds = %.critedge
   %198 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 0, i64 %indvars.iv700
-  %.promoted = load i8, ptr %198, align 1, !tbaa !27
+  %.promoted = load i8, ptr %198, align 1, !tbaa !25
   %.4429628 = getelementptr inbounds nuw i8, ptr %.2427, i64 1
   br label %207
 
@@ -5309,8 +5309,8 @@ f_tostring.exit484:                               ; preds = %122, %125
   %.not658 = phi i1 [ true, %.preheader562 ], [ false, %220 ]
   %208 = phi i8 [ %.promoted, %.preheader562 ], [ %221, %220 ]
   %209 = shl i8 %208, 4
-  store i8 %209, ptr %198, align 1, !tbaa !27
-  %210 = load i8, ptr %.4429630, align 1, !tbaa !27
+  store i8 %209, ptr %198, align 1, !tbaa !25
+  %210 = load i8, ptr %.4429630, align 1, !tbaa !25
   %211 = add i8 %210, -48
   %or.cond = icmp ult i8 %211, 10
   br i1 %or.cond, label %220, label %212
@@ -5336,9 +5336,9 @@ f_tostring.exit484:                               ; preds = %122, %125
 220:                                              ; preds = %207, %214, %218
   %.sink738 = phi i8 [ %215, %214 ], [ %219, %218 ], [ %211, %207 ]
   %221 = or i8 %.sink738, %209
-  store i8 %221, ptr %198, align 1, !tbaa !27
+  store i8 %221, ptr %198, align 1, !tbaa !25
   %.4429 = getelementptr inbounds nuw i8, ptr %.4429630, i64 1
-  br i1 %.not658, label %207, label %230, !llvm.loop !30
+  br i1 %.not658, label %207, label %230, !llvm.loop !28
 
 222:                                              ; preds = %216
   call void @jv_free(i64 %.sroa.0176.0, ptr %.sroa.11.0) #14
@@ -5355,7 +5355,7 @@ f_tostring.exit484:                               ; preds = %122, %125
 
 230:                                              ; preds = %220
   %indvars.iv.next701 = add nuw nsw i64 %indvars.iv700, 1
-  br label %185, !llvm.loop !31
+  br label %185, !llvm.loop !29
 
 .critedge9:                                       ; preds = %189, %187, %191
   %231 = and i64 %indvars.iv700, 4294967295
@@ -5391,7 +5391,7 @@ f_tostring.exit484:                               ; preds = %122, %125
 .backedge:                                        ; preds = %242, %181
   %.0425.be = phi ptr [ %182, %181 ], [ %.2427, %242 ]
   %.pn558.be = phi { i64, ptr } [ %183, %181 ], [ %244, %242 ]
-  br label %179, !llvm.loop !32
+  br label %179, !llvm.loop !30
 
 245:                                              ; preds = %179
   call void @jv_free(i64 %175, ptr %176) #14
@@ -5496,7 +5496,7 @@ sub_1:                                            ; preds = %sub_0
   %.pn475 = phi { i64, ptr } [ %282, %278 ], [ %293, %283 ]
   %295 = add nuw nsw i32 %.1434618, 1
   %exitcond699.not = icmp eq i32 %295, %265
-  br i1 %exitcond699.not, label %.thread540, label %.lr.ph621, !llvm.loop !33
+  br i1 %exitcond699.not, label %.thread540, label %.lr.ph621, !llvm.loop !31
 
 296:                                              ; preds = %276
   tail call void @jv_free(i64 %.sroa.0324.0, ptr %.sroa.43.0) #14
@@ -5559,7 +5559,7 @@ sub_1:                                            ; preds = %sub_0
 
 319:                                              ; preds = %316
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv687
-  %320 = load i8, ptr %gep, align 1, !tbaa !27
+  %320 = load i8, ptr %gep, align 1, !tbaa !25
   %321 = zext i8 %320 to i32
   br label %322
 
@@ -5568,7 +5568,7 @@ sub_1:                                            ; preds = %sub_0
   %324 = or disjoint i32 %323, %317
   %indvars.iv.next688 = add nuw nsw i64 %indvars.iv687, 1
   %exitcond690.not = icmp eq i64 %indvars.iv.next688, 3
-  br i1 %exitcond690.not, label %315, label %316, !llvm.loop !34
+  br i1 %exitcond690.not, label %315, label %316, !llvm.loop !32
 
 325:                                              ; preds = %327
   %.sroa.26.21611 = extractvalue { i64, ptr } %.pn655, 1
@@ -5585,20 +5585,20 @@ sub_1:                                            ; preds = %sub_0
   %332 = and i32 %331, 63
   %333 = zext nneg i32 %332 to i64
   %334 = getelementptr inbounds nuw [65 x i8], ptr @BASE64_ENCODE_TABLE, i64 0, i64 %333
-  %335 = load i8, ptr %334, align 1, !tbaa !27
+  %335 = load i8, ptr %334, align 1, !tbaa !25
   %336 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 0, i64 %indvars.iv691
-  store i8 %335, ptr %336, align 1, !tbaa !27
+  store i8 %335, ptr %336, align 1, !tbaa !25
   %indvars.iv.next692 = add nuw nsw i64 %indvars.iv691, 1
   %exitcond695.not = icmp eq i64 %indvars.iv.next692, 4
-  br i1 %exitcond695.not, label %325, label %327, !llvm.loop !35
+  br i1 %exitcond695.not, label %325, label %327, !llvm.loop !33
 
 337:                                              ; preds = %325
-  store i8 61, ptr %310, align 1, !tbaa !27
+  store i8 61, ptr %310, align 1, !tbaa !25
   %338 = icmp eq i64 %314, 2
   br i1 %338, label %.thread547, label %339
 
 339:                                              ; preds = %337
-  store i8 61, ptr %311, align 1, !tbaa !27
+  store i8 61, ptr %311, align 1, !tbaa !25
   br label %.thread547
 
 .thread547:                                       ; preds = %325, %339, %337
@@ -5606,7 +5606,7 @@ sub_1:                                            ; preds = %sub_0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
   %indvars.iv.next697 = add nuw nsw i64 %indvars.iv696, 3
   %341 = icmp samesign ult i64 %indvars.iv.next697, %312
-  br i1 %341, label %313, label %._crit_edge615, !llvm.loop !36
+  br i1 %341, label %313, label %._crit_edge615, !llvm.loop !34
 
 342:                                              ; preds = %.tail.thread
   %343 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(8) @.str.202) #17
@@ -5641,14 +5641,14 @@ sub_1:                                            ; preds = %sub_0
   %.0404596 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1405, %386 ]
   %.0406595 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1407, %386 ]
   %358 = getelementptr inbounds nuw i8, ptr %348, i64 %indvars.iv
-  %359 = load i8, ptr %358, align 1, !tbaa !27
+  %359 = load i8, ptr %358, align 1, !tbaa !25
   %.not481 = icmp eq i8 %359, 61
   br i1 %.not481, label %._crit_edge, label %360
 
 360:                                              ; preds = %.lr.ph
   %361 = zext i8 %359 to i64
   %362 = getelementptr inbounds nuw [255 x i8], ptr @BASE64_DECODE_TABLE, i64 0, i64 %361
-  %363 = load i8, ptr %362, align 1, !tbaa !27
+  %363 = load i8, ptr %362, align 1, !tbaa !25
   %364 = icmp eq i8 %363, -1
   br i1 %364, label %.critedge19, label %365
 
@@ -5666,18 +5666,18 @@ sub_1:                                            ; preds = %sub_0
   %374 = add i32 %.0406595, 1
   %375 = zext i32 %.0406595 to i64
   %376 = getelementptr inbounds nuw i8, ptr %356, i64 %375
-  store i8 %373, ptr %376, align 1, !tbaa !27
+  store i8 %373, ptr %376, align 1, !tbaa !25
   %377 = lshr i32 %367, 8
   %378 = trunc i32 %377 to i8
   %379 = add i32 %.0406595, 2
   %380 = zext i32 %374 to i64
   %381 = getelementptr inbounds nuw i8, ptr %356, i64 %380
-  store i8 %378, ptr %381, align 1, !tbaa !27
+  store i8 %378, ptr %381, align 1, !tbaa !25
   %382 = trunc i32 %368 to i8
   %383 = add i32 %.0406595, 3
   %384 = zext i32 %379 to i64
   %385 = getelementptr inbounds nuw i8, ptr %356, i64 %384
-  store i8 %382, ptr %385, align 1, !tbaa !27
+  store i8 %382, ptr %385, align 1, !tbaa !25
   br label %386
 
 386:                                              ; preds = %365, %371
@@ -5686,7 +5686,7 @@ sub_1:                                            ; preds = %sub_0
   %.1 = phi i32 [ 0, %371 ], [ %368, %365 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 .critedge19:                                      ; preds = %360
   tail call void @free(ptr noundef %356) #14
@@ -5709,7 +5709,7 @@ sub_1:                                            ; preds = %sub_0
   %391 = add i32 %.0406.lcssa, 1
   %392 = zext i32 %.0406.lcssa to i64
   %393 = getelementptr inbounds nuw i8, ptr %356, i64 %392
-  store i8 %390, ptr %393, align 1, !tbaa !27
+  store i8 %390, ptr %393, align 1, !tbaa !25
   br label %._crit_edge.thread.sink.split
 
 394:                                              ; preds = %._crit_edge
@@ -5726,7 +5726,7 @@ sub_1:                                            ; preds = %sub_0
   %398 = add i32 %.0406.lcssa, %.sink741
   %399 = zext i32 %.0406.lcssa.sink to i64
   %400 = getelementptr inbounds nuw i8, ptr %356, i64 %399
-  store i8 %397, ptr %400, align 1, !tbaa !27
+  store i8 %397, ptr %400, align 1, !tbaa !25
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %344, %._crit_edge
@@ -5756,8 +5756,8 @@ f_tostring.exit:                                  ; preds = %394, %._crit_edge.t
 define internal { i64, ptr } @f_env(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   tail call void @jv_free(i64 %1, ptr %2) #14
   %4 = tail call { i64, ptr } @jv_object() #14
-  %5 = load ptr, ptr @environ, align 8, !tbaa !38
-  %6 = load ptr, ptr %5, align 8, !tbaa !40
+  %5 = load ptr, ptr @environ, align 8, !tbaa !36
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
   %.not29 = icmp eq ptr %6, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
@@ -5822,9 +5822,9 @@ define internal { i64, ptr } @f_env(ptr readnone captures(none) %0, i64 %1, ptr 
   %.sroa.023.1 = phi i64 [ %22, %14 ], [ %40, %29 ], [ %.sroa.023.031, %24 ]
   %.sroa.6.1 = phi ptr [ %23, %14 ], [ %41, %29 ], [ %.sroa.6.032, %24 ]
   %43 = getelementptr inbounds nuw i8, ptr %.030, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !40
+  %44 = load ptr, ptr %43, align 8, !tbaa !38
   %.not = icmp eq ptr %44, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6033,7 +6033,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %.3 = phi i32 [ %.2495, %73 ], [ %.2495, %75 ], [ %.2495, %77 ], [ %.2495, %79 ], [ %.2495, %81 ], [ %.2495, %83 ], [ %.2495, %85 ], [ 1, %.lr.ph ]
   %88 = add nuw nsw i32 %.1414493, 1
   %exitcond.not = icmp eq i32 %88, %64
-  br i1 %exitcond.not, label %.thread468.loopexit, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %.thread468.loopexit, label %.lr.ph, !llvm.loop !40
 
 89:                                               ; preds = %.lr.ph
   tail call void @jv_free(i64 %1, ptr %2) #14
@@ -6136,7 +6136,6 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 %142
   %144 = call ptr @onig_region_new() #14
-  %invariant.gep = getelementptr i8, ptr %136, i64 1
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -6144,21 +6143,21 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %149 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br i1 %.not443, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %135, %429
-  %.0416.us = phi ptr [ %.1417.us, %429 ], [ %137, %135 ]
-  %.sroa.0353.1.us = phi i64 [ %.sroa.0353.3.us, %429 ], [ %.sroa.0353.0, %135 ]
-  %.sroa.12.1.us = phi ptr [ %.sroa.12.3.us, %429 ], [ %.sroa.12.0, %135 ]
-  %150 = load ptr, ptr %11, align 8, !tbaa !43
+.split.us:                                        ; preds = %135, %431
+  %.0416.us = phi ptr [ %.1417.us, %431 ], [ %137, %135 ]
+  %.sroa.0353.1.us = phi i64 [ %.sroa.0353.3.us, %431 ], [ %.sroa.0353.0, %135 ]
+  %.sroa.12.1.us = phi ptr [ %.sroa.12.3.us, %431 ], [ %.sroa.12.0, %135 ]
+  %150 = load ptr, ptr %11, align 8, !tbaa !41
   %151 = call ptr @jv_string_value(i64 %1, ptr %2) #14
   %152 = call i32 @onig_search(ptr noundef %150, ptr noundef %151, ptr noundef %143, ptr noundef %.0416.us, ptr noundef %143, ptr noundef %144, i32 noundef 0) #14
   %153 = icmp sgt i32 %152, -1
   br i1 %153, label %154, label %.split534.us
 
 154:                                              ; preds = %.split.us
-  %155 = load ptr, ptr %145, align 8, !tbaa !45
-  %156 = load i32, ptr %155, align 4, !tbaa !20
-  %157 = load ptr, ptr %146, align 8, !tbaa !49
-  %158 = load i32, ptr %157, align 4, !tbaa !20
+  %155 = load ptr, ptr %145, align 8, !tbaa !43
+  %156 = load i32, ptr %155, align 4, !tbaa !19
+  %157 = load ptr, ptr %146, align 8, !tbaa !47
+  %158 = load i32, ptr %157, align 4, !tbaa !19
   %159 = icmp eq i32 %156, %158
   %160 = icmp sgt i32 %156, 0
   br i1 %159, label %.preheader476.us, label %.preheader477.us
@@ -6183,10 +6182,10 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %172 = call { i64, ptr } @jv_object_set(i64 %164, ptr %165, i64 %167, ptr %168, i64 %170, ptr %171) #14
   %173 = extractvalue { i64, ptr } %172, 0
   %174 = extractvalue { i64, ptr } %172, 1
-  %175 = load ptr, ptr %145, align 8, !tbaa !45
-  %176 = load i32, ptr %175, align 4, !tbaa !20
-  %177 = load ptr, ptr %146, align 8, !tbaa !49
-  %178 = load i32, ptr %177, align 4, !tbaa !20
+  %175 = load ptr, ptr %145, align 8, !tbaa !43
+  %176 = load i32, ptr %175, align 4, !tbaa !19
+  %177 = load ptr, ptr %146, align 8, !tbaa !47
+  %178 = load i32, ptr %177, align 4, !tbaa !19
   %179 = sub nsw i32 %176, %178
   %180 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #14
   %181 = extractvalue { i64, ptr } %180, 0
@@ -6200,8 +6199,8 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %189 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
   %190 = extractvalue { i64, ptr } %189, 0
   %191 = extractvalue { i64, ptr } %189, 1
-  %192 = load ptr, ptr %146, align 8, !tbaa !49
-  %193 = load i32, ptr %192, align 4, !tbaa !20
+  %192 = load ptr, ptr %146, align 8, !tbaa !47
+  %193 = load i32, ptr %192, align 4, !tbaa !19
   %194 = sext i32 %193 to i64
   %195 = getelementptr inbounds i8, ptr %136, i64 %194
   %196 = call { i64, ptr } @jv_string_sized(ptr noundef %195, i32 noundef %179) #14
@@ -6216,12 +6215,12 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   store i64 %203, ptr %15, align 8
   %204 = extractvalue { i64, ptr } %202, 1
   store ptr %204, ptr %147, align 8
-  %205 = load i32, ptr %148, align 4, !tbaa !50
+  %205 = load i32, ptr %148, align 4, !tbaa !48
   %206 = icmp sgt i32 %205, 1
   br i1 %206, label %.lr.ph522.us, label %._crit_edge523.us
 
 ._crit_edge523.us:                                ; preds = %345, %._crit_edge.us
-  %207 = load ptr, ptr %11, align 8, !tbaa !43
+  %207 = load ptr, ptr %11, align 8, !tbaa !41
   %208 = call i32 @onig_foreach_name(ptr noundef %207, ptr noundef nonnull @f_match_name_iter, ptr noundef nonnull %15) #14
   %209 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.215) #14
   %210 = extractvalue { i64, ptr } %209, 0
@@ -6232,29 +6231,29 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %215 = extractvalue { i64, ptr } %214, 0
   %216 = extractvalue { i64, ptr } %214, 1
   %217 = call { i64, ptr } @jv_array_append(i64 %.sroa.0353.1.us, ptr %.sroa.12.1.us, i64 %215, ptr %216) #14
-  %218 = load ptr, ptr %145, align 8, !tbaa !45
-  %219 = load i32, ptr %218, align 4, !tbaa !20
+  %218 = load ptr, ptr %145, align 8, !tbaa !43
+  %219 = load i32, ptr %218, align 4, !tbaa !19
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds i8, ptr %136, i64 %220
   call void @onig_region_free(ptr noundef nonnull %144, i32 noundef 0) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #14
-  br label %429
+  br label %431
 
 .lr.ph522.us:                                     ; preds = %._crit_edge.us, %345
   %indvars.iv = phi i64 [ %indvars.iv.next, %345 ], [ 1, %._crit_edge.us ]
-  %222 = load ptr, ptr %146, align 8, !tbaa !49
+  %222 = load ptr, ptr %146, align 8, !tbaa !47
   %223 = getelementptr inbounds nuw i32, ptr %222, i64 %indvars.iv
-  %224 = load i32, ptr %223, align 4, !tbaa !20
-  %225 = load ptr, ptr %145, align 8, !tbaa !45
+  %224 = load i32, ptr %223, align 4, !tbaa !19
+  %225 = load ptr, ptr %145, align 8, !tbaa !43
   %226 = getelementptr inbounds nuw i32, ptr %225, i64 %indvars.iv
-  %227 = load i32, ptr %226, align 4, !tbaa !20
+  %227 = load i32, ptr %226, align 4, !tbaa !19
   %228 = icmp eq i32 %224, %227
   br i1 %228, label %284, label %.preheader475.us
 
 ._crit_edge511.us.loopexit:                       ; preds = %.lr.ph510.us
-  %.pre = load ptr, ptr %146, align 8, !tbaa !49
+  %.pre = load ptr, ptr %146, align 8, !tbaa !47
   %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
-  %.pre551 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !20
+  %.pre551 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !19
   %229 = uitofp i64 %spec.select456.us to double
   %230 = uitofp i64 %277 to double
   br label %._crit_edge511.us
@@ -6289,9 +6288,9 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %254 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
   %255 = extractvalue { i64, ptr } %254, 0
   %256 = extractvalue { i64, ptr } %254, 1
-  %257 = load ptr, ptr %146, align 8, !tbaa !49
+  %257 = load ptr, ptr %146, align 8, !tbaa !47
   %258 = getelementptr inbounds nuw i32, ptr %257, i64 %indvars.iv
-  %259 = load i32, ptr %258, align 4, !tbaa !20
+  %259 = load i32, ptr %258, align 4, !tbaa !19
   %260 = sext i32 %259 to i64
   %261 = getelementptr inbounds i8, ptr %136, i64 %260
   %262 = call { i64, ptr } @jv_string_sized(ptr noundef %261, i32 noundef %232) #14
@@ -6304,26 +6303,26 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %.3424509.us = phi i64 [ %spec.select456.us, %.lr.ph510.us ], [ 0, %.preheader475.us ]
   %.2428508.us = phi i64 [ %277, %.lr.ph510.us ], [ 0, %.preheader475.us ]
   %.2432507.us = phi ptr [ %275, %.lr.ph510.us ], [ %136, %.preheader475.us ]
-  %266 = load ptr, ptr %146, align 8, !tbaa !49
+  %266 = load ptr, ptr %146, align 8, !tbaa !47
   %267 = getelementptr inbounds nuw i32, ptr %266, i64 %indvars.iv
-  %268 = load i32, ptr %267, align 4, !tbaa !20
+  %268 = load i32, ptr %267, align 4, !tbaa !19
   %269 = sext i32 %268 to i64
   %270 = getelementptr inbounds i8, ptr %136, i64 %269
   %271 = icmp eq ptr %.2432507.us, %270
   %spec.select456.us = select i1 %271, i64 %.2428508.us, i64 %.3424509.us
-  %272 = load i8, ptr %.2432507.us, align 1, !tbaa !27
+  %272 = load i8, ptr %.2432507.us, align 1, !tbaa !25
   %273 = call i32 @jvp_utf8_decode_length(i8 noundef signext %272) #14
   %274 = sext i32 %273 to i64
   %275 = getelementptr inbounds i8, ptr %.2432507.us, i64 %274
   %276 = add i64 %.2428508.us, 1
   %277 = select i1 %271, i64 1, i64 %276
-  %278 = load ptr, ptr %145, align 8, !tbaa !45
+  %278 = load ptr, ptr %145, align 8, !tbaa !43
   %279 = getelementptr inbounds nuw i32, ptr %278, i64 %indvars.iv
-  %280 = load i32, ptr %279, align 4, !tbaa !20
+  %280 = load i32, ptr %279, align 4, !tbaa !19
   %281 = sext i32 %280 to i64
   %282 = getelementptr inbounds i8, ptr %136, i64 %281
   %283 = icmp ult ptr %275, %282
-  br i1 %283, label %.lr.ph510.us, label %._crit_edge511.us.loopexit, !llvm.loop !51
+  br i1 %283, label %.lr.ph510.us, label %._crit_edge511.us.loopexit, !llvm.loop !49
 
 284:                                              ; preds = %.lr.ph522.us
   %285 = icmp eq i32 %224, -1
@@ -6359,18 +6358,18 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
 .lr.ph517.us:                                     ; preds = %.preheader.us, %.lr.ph517.us
   %.2423516.us = phi i64 [ %310, %.lr.ph517.us ], [ 0, %.preheader.us ]
   %.1431515.us = phi ptr [ %309, %.lr.ph517.us ], [ %136, %.preheader.us ]
-  %306 = load i8, ptr %.1431515.us, align 1, !tbaa !27
+  %306 = load i8, ptr %.1431515.us, align 1, !tbaa !25
   %307 = call i32 @jvp_utf8_decode_length(i8 noundef signext %306) #14
   %308 = sext i32 %307 to i64
   %309 = getelementptr inbounds i8, ptr %.1431515.us, i64 %308
   %310 = add i64 %.2423516.us, 1
-  %311 = load ptr, ptr %146, align 8, !tbaa !49
+  %311 = load ptr, ptr %146, align 8, !tbaa !47
   %312 = getelementptr inbounds nuw i32, ptr %311, i64 %indvars.iv
-  %313 = load i32, ptr %312, align 4, !tbaa !20
+  %313 = load i32, ptr %312, align 4, !tbaa !19
   %314 = sext i32 %313 to i64
   %315 = getelementptr inbounds i8, ptr %136, i64 %314
   %316 = icmp ult ptr %309, %315
-  br i1 %316, label %.lr.ph517.us, label %._crit_edge518.us.loopexit, !llvm.loop !52
+  br i1 %316, label %.lr.ph517.us, label %._crit_edge518.us.loopexit, !llvm.loop !50
 
 317:                                              ; preds = %284
   %318 = call { i64, ptr } @jv_object() #14
@@ -6426,38 +6425,38 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %storemerge446.us = extractvalue { i64, ptr } %359, 0
   store i64 %storemerge446.us, ptr %15, align 8
   %storemerge.us = extractvalue { i64, ptr } %359, 1
-  store ptr %storemerge.us, ptr %147, align 8, !tbaa !27
+  store ptr %storemerge.us, ptr %147, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %360 = load i32, ptr %148, align 4, !tbaa !50
+  %360 = load i32, ptr %148, align 4, !tbaa !48
   %361 = sext i32 %360 to i64
   %362 = icmp slt i64 %indvars.iv.next, %361
-  br i1 %362, label %.lr.ph522.us, label %._crit_edge523.us, !llvm.loop !53
+  br i1 %362, label %.lr.ph522.us, label %._crit_edge523.us, !llvm.loop !51
 
 .lr.ph504.us:                                     ; preds = %.preheader477.us, %.lr.ph504.us
   %.0421503.us = phi i64 [ %spec.select454.us, %.lr.ph504.us ], [ 0, %.preheader477.us ]
   %.0426502.us = phi i64 [ %373, %.lr.ph504.us ], [ 0, %.preheader477.us ]
   %.0430501.us = phi ptr [ %371, %.lr.ph504.us ], [ %136, %.preheader477.us ]
-  %363 = load ptr, ptr %146, align 8, !tbaa !49
-  %364 = load i32, ptr %363, align 4, !tbaa !20
+  %363 = load ptr, ptr %146, align 8, !tbaa !47
+  %364 = load i32, ptr %363, align 4, !tbaa !19
   %365 = sext i32 %364 to i64
   %366 = getelementptr inbounds i8, ptr %136, i64 %365
   %367 = icmp eq ptr %.0430501.us, %366
   %spec.select454.us = select i1 %367, i64 %.0426502.us, i64 %.0421503.us
-  %368 = load i8, ptr %.0430501.us, align 1, !tbaa !27
+  %368 = load i8, ptr %.0430501.us, align 1, !tbaa !25
   %369 = call i32 @jvp_utf8_decode_length(i8 noundef signext %368) #14
   %370 = sext i32 %369 to i64
   %371 = getelementptr inbounds i8, ptr %.0430501.us, i64 %370
   %372 = add i64 %.0426502.us, 1
   %373 = select i1 %367, i64 1, i64 %372
-  %374 = load ptr, ptr %145, align 8, !tbaa !45
-  %375 = load i32, ptr %374, align 4, !tbaa !20
+  %374 = load ptr, ptr %145, align 8, !tbaa !43
+  %375 = load i32, ptr %374, align 4, !tbaa !19
   %376 = sext i32 %375 to i64
   %377 = getelementptr inbounds i8, ptr %136, i64 %376
   %378 = icmp ult ptr %371, %377
-  br i1 %378, label %.lr.ph504.us, label %._crit_edge.us.loopexit, !llvm.loop !54
+  br i1 %378, label %.lr.ph504.us, label %._crit_edge.us.loopexit, !llvm.loop !52
 
 ._crit_edge527.us.loopexit:                       ; preds = %.lr.ph526.us
-  %379 = uitofp i64 %501 to double
+  %379 = uitofp i64 %503 to double
   br label %._crit_edge527.us
 
 ._crit_edge527.us:                                ; preds = %._crit_edge527.us.loopexit, %.preheader476.us
@@ -6498,12 +6497,12 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   store i64 %411, ptr %14, align 8
   %412 = extractvalue { i64, ptr } %410, 1
   store ptr %412, ptr %149, align 8
-  %413 = load i32, ptr %148, align 4, !tbaa !50
+  %413 = load i32, ptr %148, align 4, !tbaa !48
   %414 = icmp sgt i32 %413, 1
   br i1 %414, label %.lr.ph531.us, label %._crit_edge532.us
 
-._crit_edge532.us:                                ; preds = %470, %._crit_edge527.us
-  %415 = load ptr, ptr %11, align 8, !tbaa !43
+._crit_edge532.us:                                ; preds = %472, %._crit_edge527.us
+  %415 = load ptr, ptr %11, align 8, !tbaa !41
   %416 = call i32 @onig_foreach_name(ptr noundef %415, ptr noundef nonnull @f_match_name_iter, ptr noundef nonnull %14) #14
   %417 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.215) #14
   %418 = extractvalue { i64, ptr } %417, 0
@@ -6514,125 +6513,126 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %423 = extractvalue { i64, ptr } %422, 0
   %424 = extractvalue { i64, ptr } %422, 1
   %425 = call { i64, ptr } @jv_array_append(i64 %.sroa.0353.1.us, ptr %.sroa.12.1.us, i64 %423, ptr %424) #14
-  %426 = load ptr, ptr %145, align 8, !tbaa !45
-  %427 = load i32, ptr %426, align 4, !tbaa !20
+  %426 = load ptr, ptr %145, align 8, !tbaa !43
+  %427 = load i32, ptr %426, align 4, !tbaa !19
   %428 = sext i32 %427 to i64
-  %gep.us = getelementptr i8, ptr %invariant.gep, i64 %428
+  %429 = getelementptr inbounds i8, ptr %136, i64 %428
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
-  br label %429
+  br label %431
 
-429:                                              ; preds = %._crit_edge532.us, %._crit_edge523.us
-  %.1417.us = phi ptr [ %gep.us, %._crit_edge532.us ], [ %221, %._crit_edge523.us ]
+431:                                              ; preds = %._crit_edge532.us, %._crit_edge523.us
+  %.1417.us = phi ptr [ %430, %._crit_edge532.us ], [ %221, %._crit_edge523.us ]
   %.pn450.us = phi { i64, ptr } [ %425, %._crit_edge532.us ], [ %217, %._crit_edge523.us ]
   %.sroa.12.3.us = extractvalue { i64, ptr } %.pn450.us, 1
   %.sroa.0353.3.us = extractvalue { i64, ptr } %.pn450.us, 0
-  %430 = icmp ule ptr %.1417.us, %143
-  %431 = select i1 %.4, i1 %430, i1 false
-  br i1 %431, label %.split.us, label %.loopexit, !llvm.loop !55
+  %432 = icmp ule ptr %.1417.us, %143
+  %433 = select i1 %.4, i1 %432, i1 false
+  br i1 %433, label %.split.us, label %.loopexit, !llvm.loop !53
 
-.lr.ph531.us:                                     ; preds = %._crit_edge527.us, %470
-  %indvars.iv548 = phi i64 [ %indvars.iv.next549, %470 ], [ 1, %._crit_edge527.us ]
-  %432 = call { i64, ptr } @jv_object() #14
-  %433 = extractvalue { i64, ptr } %432, 0
-  %434 = extractvalue { i64, ptr } %432, 1
-  %435 = load ptr, ptr %146, align 8, !tbaa !49
-  %436 = getelementptr inbounds nuw i32, ptr %435, i64 %indvars.iv548
-  %437 = load i32, ptr %436, align 4, !tbaa !20
-  %438 = icmp eq i32 %437, -1
-  %439 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #14
-  %440 = extractvalue { i64, ptr } %439, 0
-  %441 = extractvalue { i64, ptr } %439, 1
-  br i1 %438, label %456, label %442
+.lr.ph531.us:                                     ; preds = %._crit_edge527.us, %472
+  %indvars.iv548 = phi i64 [ %indvars.iv.next549, %472 ], [ 1, %._crit_edge527.us ]
+  %434 = call { i64, ptr } @jv_object() #14
+  %435 = extractvalue { i64, ptr } %434, 0
+  %436 = extractvalue { i64, ptr } %434, 1
+  %437 = load ptr, ptr %146, align 8, !tbaa !47
+  %438 = getelementptr inbounds nuw i32, ptr %437, i64 %indvars.iv548
+  %439 = load i32, ptr %438, align 4, !tbaa !19
+  %440 = icmp eq i32 %439, -1
+  %441 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #14
+  %442 = extractvalue { i64, ptr } %441, 0
+  %443 = extractvalue { i64, ptr } %441, 1
+  br i1 %440, label %458, label %444
 
-442:                                              ; preds = %.lr.ph531.us
-  %443 = call { i64, ptr } @jv_number(double noundef %.0418.lcssa.us) #14
-  %444 = extractvalue { i64, ptr } %443, 0
-  %445 = extractvalue { i64, ptr } %443, 1
-  %446 = call { i64, ptr } @jv_object_set(i64 %433, ptr %434, i64 %440, ptr %441, i64 %444, ptr %445) #14
-  %447 = extractvalue { i64, ptr } %446, 0
-  %448 = extractvalue { i64, ptr } %446, 1
-  %449 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
-  %450 = extractvalue { i64, ptr } %449, 0
-  %451 = extractvalue { i64, ptr } %449, 1
-  %452 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
-  %453 = extractvalue { i64, ptr } %452, 0
-  %454 = extractvalue { i64, ptr } %452, 1
-  %455 = call { i64, ptr } @jv_object_set(i64 %447, ptr %448, i64 %450, ptr %451, i64 %453, ptr %454) #14
-  br label %470
+444:                                              ; preds = %.lr.ph531.us
+  %445 = call { i64, ptr } @jv_number(double noundef %.0418.lcssa.us) #14
+  %446 = extractvalue { i64, ptr } %445, 0
+  %447 = extractvalue { i64, ptr } %445, 1
+  %448 = call { i64, ptr } @jv_object_set(i64 %435, ptr %436, i64 %442, ptr %443, i64 %446, ptr %447) #14
+  %449 = extractvalue { i64, ptr } %448, 0
+  %450 = extractvalue { i64, ptr } %448, 1
+  %451 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
+  %452 = extractvalue { i64, ptr } %451, 0
+  %453 = extractvalue { i64, ptr } %451, 1
+  %454 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
+  %455 = extractvalue { i64, ptr } %454, 0
+  %456 = extractvalue { i64, ptr } %454, 1
+  %457 = call { i64, ptr } @jv_object_set(i64 %449, ptr %450, i64 %452, ptr %453, i64 %455, ptr %456) #14
+  br label %472
 
-456:                                              ; preds = %.lr.ph531.us
-  %457 = call { i64, ptr } @jv_number(double noundef -1.000000e+00) #14
-  %458 = extractvalue { i64, ptr } %457, 0
-  %459 = extractvalue { i64, ptr } %457, 1
-  %460 = call { i64, ptr } @jv_object_set(i64 %433, ptr %434, i64 %440, ptr %441, i64 %458, ptr %459) #14
-  %461 = extractvalue { i64, ptr } %460, 0
-  %462 = extractvalue { i64, ptr } %460, 1
-  %463 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
-  %464 = extractvalue { i64, ptr } %463, 0
-  %465 = extractvalue { i64, ptr } %463, 1
-  %466 = call { i64, ptr } @jv_null() #14
-  %467 = extractvalue { i64, ptr } %466, 0
-  %468 = extractvalue { i64, ptr } %466, 1
-  %469 = call { i64, ptr } @jv_object_set(i64 %461, ptr %462, i64 %464, ptr %465, i64 %467, ptr %468) #14
-  br label %470
+458:                                              ; preds = %.lr.ph531.us
+  %459 = call { i64, ptr } @jv_number(double noundef -1.000000e+00) #14
+  %460 = extractvalue { i64, ptr } %459, 0
+  %461 = extractvalue { i64, ptr } %459, 1
+  %462 = call { i64, ptr } @jv_object_set(i64 %435, ptr %436, i64 %442, ptr %443, i64 %460, ptr %461) #14
+  %463 = extractvalue { i64, ptr } %462, 0
+  %464 = extractvalue { i64, ptr } %462, 1
+  %465 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
+  %466 = extractvalue { i64, ptr } %465, 0
+  %467 = extractvalue { i64, ptr } %465, 1
+  %468 = call { i64, ptr } @jv_null() #14
+  %469 = extractvalue { i64, ptr } %468, 0
+  %470 = extractvalue { i64, ptr } %468, 1
+  %471 = call { i64, ptr } @jv_object_set(i64 %463, ptr %464, i64 %466, ptr %467, i64 %469, ptr %470) #14
+  br label %472
 
-470:                                              ; preds = %456, %442
-  %.pn452.us = phi { i64, ptr } [ %469, %456 ], [ %455, %442 ]
+472:                                              ; preds = %458, %444
+  %.pn452.us = phi { i64, ptr } [ %471, %458 ], [ %457, %444 ]
   %.sroa.16.0.us = extractvalue { i64, ptr } %.pn452.us, 1
   %.sroa.0200.0.us = extractvalue { i64, ptr } %.pn452.us, 0
-  %471 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #14
-  %472 = extractvalue { i64, ptr } %471, 0
-  %473 = extractvalue { i64, ptr } %471, 1
-  %474 = call { i64, ptr } @jv_number(double noundef 0.000000e+00) #14
-  %475 = extractvalue { i64, ptr } %474, 0
-  %476 = extractvalue { i64, ptr } %474, 1
-  %477 = call { i64, ptr } @jv_object_set(i64 %.sroa.0200.0.us, ptr %.sroa.16.0.us, i64 %472, ptr %473, i64 %475, ptr %476) #14
-  %478 = extractvalue { i64, ptr } %477, 0
-  %479 = extractvalue { i64, ptr } %477, 1
-  %480 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.214) #14
-  %481 = extractvalue { i64, ptr } %480, 0
-  %482 = extractvalue { i64, ptr } %480, 1
-  %483 = call { i64, ptr } @jv_null() #14
-  %484 = extractvalue { i64, ptr } %483, 0
-  %485 = extractvalue { i64, ptr } %483, 1
-  %486 = call { i64, ptr } @jv_object_set(i64 %478, ptr %479, i64 %481, ptr %482, i64 %484, ptr %485) #14
-  %487 = extractvalue { i64, ptr } %486, 0
-  %488 = extractvalue { i64, ptr } %486, 1
-  %489 = load i64, ptr %14, align 8
-  %490 = load ptr, ptr %149, align 8
-  %491 = call { i64, ptr } @jv_array_append(i64 %489, ptr %490, i64 %487, ptr %488) #14
-  %492 = extractvalue { i64, ptr } %491, 0
-  %493 = extractvalue { i64, ptr } %491, 1
-  store i64 %492, ptr %14, align 8
-  store ptr %493, ptr %149, align 8, !tbaa !27
+  %473 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #14
+  %474 = extractvalue { i64, ptr } %473, 0
+  %475 = extractvalue { i64, ptr } %473, 1
+  %476 = call { i64, ptr } @jv_number(double noundef 0.000000e+00) #14
+  %477 = extractvalue { i64, ptr } %476, 0
+  %478 = extractvalue { i64, ptr } %476, 1
+  %479 = call { i64, ptr } @jv_object_set(i64 %.sroa.0200.0.us, ptr %.sroa.16.0.us, i64 %474, ptr %475, i64 %477, ptr %478) #14
+  %480 = extractvalue { i64, ptr } %479, 0
+  %481 = extractvalue { i64, ptr } %479, 1
+  %482 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.214) #14
+  %483 = extractvalue { i64, ptr } %482, 0
+  %484 = extractvalue { i64, ptr } %482, 1
+  %485 = call { i64, ptr } @jv_null() #14
+  %486 = extractvalue { i64, ptr } %485, 0
+  %487 = extractvalue { i64, ptr } %485, 1
+  %488 = call { i64, ptr } @jv_object_set(i64 %480, ptr %481, i64 %483, ptr %484, i64 %486, ptr %487) #14
+  %489 = extractvalue { i64, ptr } %488, 0
+  %490 = extractvalue { i64, ptr } %488, 1
+  %491 = load i64, ptr %14, align 8
+  %492 = load ptr, ptr %149, align 8
+  %493 = call { i64, ptr } @jv_array_append(i64 %491, ptr %492, i64 %489, ptr %490) #14
+  %494 = extractvalue { i64, ptr } %493, 0
+  %495 = extractvalue { i64, ptr } %493, 1
+  store i64 %494, ptr %14, align 8
+  store ptr %495, ptr %149, align 8, !tbaa !25
   %indvars.iv.next549 = add nuw nsw i64 %indvars.iv548, 1
-  %494 = load i32, ptr %148, align 4, !tbaa !50
-  %495 = sext i32 %494 to i64
-  %496 = icmp slt i64 %indvars.iv.next549, %495
-  br i1 %496, label %.lr.ph531.us, label %._crit_edge532.us, !llvm.loop !57
+  %496 = load i32, ptr %148, align 4, !tbaa !48
+  %497 = sext i32 %496 to i64
+  %498 = icmp slt i64 %indvars.iv.next549, %497
+  br i1 %498, label %.lr.ph531.us, label %._crit_edge532.us, !llvm.loop !55
 
 .lr.ph526.us:                                     ; preds = %.preheader476.us, %.lr.ph526.us
-  %.0418525.us = phi i64 [ %501, %.lr.ph526.us ], [ 0, %.preheader476.us ]
-  %.0419524.us = phi ptr [ %500, %.lr.ph526.us ], [ %136, %.preheader476.us ]
-  %497 = load i8, ptr %.0419524.us, align 1, !tbaa !27
-  %498 = call i32 @jvp_utf8_decode_length(i8 noundef signext %497) #14
-  %499 = sext i32 %498 to i64
-  %500 = getelementptr inbounds i8, ptr %.0419524.us, i64 %499
-  %501 = add i64 %.0418525.us, 1
-  %502 = load ptr, ptr %146, align 8, !tbaa !49
-  %503 = load i32, ptr %502, align 4, !tbaa !20
-  %504 = sext i32 %503 to i64
-  %505 = getelementptr inbounds i8, ptr %136, i64 %504
-  %506 = icmp ult ptr %500, %505
-  br i1 %506, label %.lr.ph526.us, label %._crit_edge527.us.loopexit, !llvm.loop !58
+  %.0418525.us = phi i64 [ %503, %.lr.ph526.us ], [ 0, %.preheader476.us ]
+  %.0419524.us = phi ptr [ %502, %.lr.ph526.us ], [ %136, %.preheader476.us ]
+  %499 = load i8, ptr %.0419524.us, align 1, !tbaa !25
+  %500 = call i32 @jvp_utf8_decode_length(i8 noundef signext %499) #14
+  %501 = sext i32 %500 to i64
+  %502 = getelementptr inbounds i8, ptr %.0419524.us, i64 %501
+  %503 = add i64 %.0418525.us, 1
+  %504 = load ptr, ptr %146, align 8, !tbaa !47
+  %505 = load i32, ptr %504, align 4, !tbaa !19
+  %506 = sext i32 %505 to i64
+  %507 = getelementptr inbounds i8, ptr %136, i64 %506
+  %508 = icmp ult ptr %502, %507
+  br i1 %508, label %.lr.ph526.us, label %._crit_edge527.us.loopexit, !llvm.loop !56
 
 .preheader.us:                                    ; preds = %284
-  %507 = icmp sgt i32 %224, 0
-  br i1 %507, label %.lr.ph517.us, label %._crit_edge518.us
+  %509 = icmp sgt i32 %224, 0
+  br i1 %509, label %.lr.ph517.us, label %._crit_edge518.us
 
 .preheader475.us:                                 ; preds = %.lr.ph522.us
-  %508 = icmp sgt i32 %227, 0
-  br i1 %508, label %.lr.ph510.us, label %._crit_edge511.us
+  %510 = icmp sgt i32 %227, 0
+  br i1 %510, label %.lr.ph510.us, label %._crit_edge511.us
 
 .preheader476.us:                                 ; preds = %154
   br i1 %160, label %.lr.ph526.us, label %._crit_edge527.us
@@ -6641,58 +6641,58 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %160, label %.lr.ph504.us, label %._crit_edge.us
 
 .split:                                           ; preds = %135
-  %509 = load ptr, ptr %11, align 8, !tbaa !43
-  %510 = call ptr @jv_string_value(i64 %1, ptr %2) #14
-  %511 = call i32 @onig_search(ptr noundef %509, ptr noundef %510, ptr noundef %143, ptr noundef %137, ptr noundef %143, ptr noundef %144, i32 noundef 0) #14
-  %512 = icmp sgt i32 %511, -1
-  br i1 %512, label %513, label %.split534.us
+  %511 = load ptr, ptr %11, align 8, !tbaa !41
+  %512 = call ptr @jv_string_value(i64 %1, ptr %2) #14
+  %513 = call i32 @onig_search(ptr noundef %511, ptr noundef %512, ptr noundef %143, ptr noundef %137, ptr noundef %143, ptr noundef %144, i32 noundef 0) #14
+  %514 = icmp sgt i32 %513, -1
+  br i1 %514, label %515, label %.split534.us
 
-513:                                              ; preds = %.split
-  %514 = call { i64, ptr } @jv_true() #14
-  %515 = extractvalue { i64, ptr } %514, 0
-  %516 = extractvalue { i64, ptr } %514, 1
+515:                                              ; preds = %.split
+  %516 = call { i64, ptr } @jv_true() #14
+  %517 = extractvalue { i64, ptr } %516, 0
+  %518 = extractvalue { i64, ptr } %516, 1
   br label %.loopexit
 
 .split534.us:                                     ; preds = %.split.us, %.split
   %.us-phi = phi i64 [ %.sroa.0353.0, %.split ], [ %.sroa.0353.1.us, %.split.us ]
   %.us-phi535 = phi ptr [ %.sroa.12.0, %.split ], [ %.sroa.12.1.us, %.split.us ]
-  %.us-phi536 = phi i32 [ %511, %.split ], [ %152, %.split.us ]
-  %517 = icmp eq i32 %.us-phi536, -1
-  br i1 %517, label %.loopexit, label %518
+  %.us-phi536 = phi i32 [ %513, %.split ], [ %152, %.split.us ]
+  %519 = icmp eq i32 %.us-phi536, -1
+  br i1 %519, label %.loopexit, label %520
 
-518:                                              ; preds = %.split534.us
+520:                                              ; preds = %.split534.us
   call void @llvm.lifetime.start.p0(i64 90, ptr nonnull %16) #14
-  %519 = call i32 (ptr, i32, ...) @onig_error_code_to_str(ptr noundef nonnull %16, i32 noundef %.us-phi536, ptr noundef nonnull %12) #14
+  %521 = call i32 (ptr, i32, ...) @onig_error_code_to_str(ptr noundef nonnull %16, i32 noundef %.us-phi536, ptr noundef nonnull %12) #14
   call void @jv_free(i64 %.us-phi, ptr %.us-phi535) #14
-  %520 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.211) #14
-  %521 = extractvalue { i64, ptr } %520, 0
-  %522 = extractvalue { i64, ptr } %520, 1
-  %523 = call { i64, ptr } @jv_string(ptr noundef nonnull %16) #14
-  %524 = extractvalue { i64, ptr } %523, 0
-  %525 = extractvalue { i64, ptr } %523, 1
-  %526 = call { i64, ptr } @jv_string_concat(i64 %521, ptr %522, i64 %524, ptr %525) #14
-  %527 = extractvalue { i64, ptr } %526, 0
-  %528 = extractvalue { i64, ptr } %526, 1
-  %529 = call { i64, ptr } @jv_invalid_with_msg(i64 %527, ptr %528) #14
-  %530 = extractvalue { i64, ptr } %529, 0
-  %531 = extractvalue { i64, ptr } %529, 1
+  %522 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.211) #14
+  %523 = extractvalue { i64, ptr } %522, 0
+  %524 = extractvalue { i64, ptr } %522, 1
+  %525 = call { i64, ptr } @jv_string(ptr noundef nonnull %16) #14
+  %526 = extractvalue { i64, ptr } %525, 0
+  %527 = extractvalue { i64, ptr } %525, 1
+  %528 = call { i64, ptr } @jv_string_concat(i64 %523, ptr %524, i64 %526, ptr %527) #14
+  %529 = extractvalue { i64, ptr } %528, 0
+  %530 = extractvalue { i64, ptr } %528, 1
+  %531 = call { i64, ptr } @jv_invalid_with_msg(i64 %529, ptr %530) #14
+  %532 = extractvalue { i64, ptr } %531, 0
+  %533 = extractvalue { i64, ptr } %531, 1
   call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %16) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %429, %.split534.us, %518, %513
-  %.sroa.0353.2 = phi i64 [ %515, %513 ], [ %.us-phi, %.split534.us ], [ %530, %518 ], [ %.sroa.0353.3.us, %429 ]
-  %.sroa.12.2 = phi ptr [ %516, %513 ], [ %.us-phi535, %.split534.us ], [ %531, %518 ], [ %.sroa.12.3.us, %429 ]
+.loopexit:                                        ; preds = %431, %.split534.us, %520, %515
+  %.sroa.0353.2 = phi i64 [ %517, %515 ], [ %.us-phi, %.split534.us ], [ %532, %520 ], [ %.sroa.0353.3.us, %431 ]
+  %.sroa.12.2 = phi ptr [ %518, %515 ], [ %.us-phi535, %.split534.us ], [ %533, %520 ], [ %.sroa.12.3.us, %431 ]
   call void @onig_region_free(ptr noundef %144, i32 noundef 1) #14
-  %532 = load ptr, ptr %11, align 8, !tbaa !43
-  call void @onig_free(ptr noundef %532) #14
+  %534 = load ptr, ptr %11, align 8, !tbaa !41
+  call void @onig_free(ptr noundef %534) #14
   call void @jv_free(i64 %1, ptr %2) #14
   call void @jv_free(i64 %3, ptr %4) #14
-  %533 = insertvalue { i64, ptr } poison, i64 %.sroa.0353.2, 0
-  %534 = insertvalue { i64, ptr } %533, ptr %.sroa.12.2, 1
+  %535 = insertvalue { i64, ptr } poison, i64 %.sroa.0353.2, 0
+  %536 = insertvalue { i64, ptr } %535, ptr %.sroa.12.2, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %100, %118, %.loopexit, %89, %38, %25
-  %.fca.1.insert.merged = phi { i64, ptr } [ %35, %25 ], [ %48, %38 ], [ %129, %118 ], [ %534, %.loopexit ], [ %107, %100 ], [ %96, %89 ]
+  %.fca.1.insert.merged = phi { i64, ptr } [ %35, %25 ], [ %48, %38 ], [ %129, %118 ], [ %536, %.loopexit ], [ %107, %100 ], [ %96, %89 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
   ret { i64, ptr } %.fca.1.insert.merged
@@ -6729,12 +6729,12 @@ define internal { i64, ptr } @f_input(ptr noundef %0, i64 %1, ptr %2) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   call void @jq_get_input_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  %6 = load ptr, ptr %4, align 8, !tbaa !59
+  %6 = load ptr, ptr %4, align 8, !tbaa !57
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %5, align 8, !tbaa !59
+  %9 = load ptr, ptr %5, align 8, !tbaa !57
   %10 = call { i64, ptr } %6(ptr noundef %0, ptr noundef %9) #14
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
@@ -6771,12 +6771,12 @@ define internal { i64, ptr } @f_debug(ptr noundef %0, i64 %1, ptr %2) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   call void @jq_get_debug_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  %6 = load ptr, ptr %4, align 8, !tbaa !59
+  %6 = load ptr, ptr %4, align 8, !tbaa !57
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %5, align 8, !tbaa !59
+  %8 = load ptr, ptr %5, align 8, !tbaa !57
   %9 = call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
   %10 = extractvalue { i64, ptr } %9, 0
   %11 = extractvalue { i64, ptr } %9, 1
@@ -6798,12 +6798,12 @@ define internal { i64, ptr } @f_stderr(ptr noundef %0, i64 %1, ptr %2) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   call void @jq_get_stderr_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
-  %6 = load ptr, ptr %4, align 8, !tbaa !59
+  %6 = load ptr, ptr %4, align 8, !tbaa !57
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %5, align 8, !tbaa !59
+  %8 = load ptr, ptr %5, align 8, !tbaa !57
   %9 = call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
   %10 = extractvalue { i64, ptr } %9, 0
   %11 = extractvalue { i64, ptr } %9, 1
@@ -6843,9 +6843,9 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 8, ptr %16, align 8, !tbaa !60
+  store i32 8, ptr %16, align 8, !tbaa !58
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 367, ptr %17, align 4, !tbaa !63
+  store i32 367, ptr %17, align 4, !tbaa !61
   %18 = tail call ptr @jv_string_value(i64 %1, ptr %2) #14
   %19 = tail call ptr @jv_string_value(i64 %3, ptr %4) #14
   %20 = call ptr @strptime(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %6) #14
@@ -6853,16 +6853,16 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %15
-  %23 = load i8, ptr %20, align 1, !tbaa !27
+  %23 = load i8, ptr %20, align 1, !tbaa !25
   %.not54 = icmp eq i8 %23, 0
   br i1 %.not54, label %36, label %24
 
 24:                                               ; preds = %22
   %25 = tail call ptr @__ctype_b_loc() #15
-  %26 = load ptr, ptr %25, align 8, !tbaa !64
+  %26 = load ptr, ptr %25, align 8, !tbaa !62
   %27 = zext i8 %23 to i64
   %28 = getelementptr inbounds nuw i16, ptr %26, i64 %27
-  %29 = load i16, ptr %28, align 2, !tbaa !66
+  %29 = load i16, ptr %28, align 2, !tbaa !64
   %30 = and i16 %29, 8192
   %.not55 = icmp eq i16 %30, 0
   br i1 %.not55, label %31, label %36
@@ -6878,7 +6878,7 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
 
 36:                                               ; preds = %24, %22
   call void @jv_free(i64 %3, ptr %4) #14
-  %37 = load i32, ptr %16, align 8, !tbaa !60
+  %37 = load i32, ptr %16, align 8, !tbaa !58
   %38 = icmp eq i32 %37, 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %40 = load i32, ptr %39, align 4
@@ -6892,7 +6892,7 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %47 = load i32, ptr %46, align 4, !tbaa !68
+  %47 = load i32, ptr %46, align 4, !tbaa !66
   %48 = add nsw i32 %47, 1900
   %49 = sdiv i32 %48, 100
   %50 = srem i32 %48, 100
@@ -6923,11 +6923,11 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
   %72 = icmp slt i32 %71, 0
   %73 = add nsw i32 %71, 7
   %.0.i = select i1 %72, i32 %73, i32 %71
-  store i32 %.0.i, ptr %16, align 8, !tbaa !60
+  store i32 %.0.i, ptr %16, align 8, !tbaa !58
   br label %74
 
 74:                                               ; preds = %45, %36
-  %75 = load i32, ptr %17, align 4, !tbaa !63
+  %75 = load i32, ptr %17, align 4, !tbaa !61
   %76 = icmp eq i32 %75, 367
   %or.cond11 = select i1 %76, i1 %41, i1 false
   %or.cond17 = select i1 %or.cond11, i1 %44, i1 false
@@ -6939,7 +6939,7 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
 
 79:                                               ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %81 = load i32, ptr %80, align 4, !tbaa !68
+  %81 = load i32, ptr %80, align 4, !tbaa !66
   %82 = add nsw i32 %81, 1900
   %83 = and i32 %81, 3
   %84 = icmp ne i32 %83, 0
@@ -6956,15 +6956,15 @@ set_tm_yday.exit:                                 ; preds = %77, %79
   %.014.i = phi i32 [ -1, %77 ], [ %88, %79 ]
   %89 = zext nneg i32 %43 to i64
   %90 = getelementptr inbounds nuw [12 x i32], ptr @set_tm_yday.d, i64 0, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !20
+  %91 = load i32, ptr %90, align 4, !tbaa !19
   %92 = add i32 %.014.i, %40
   %93 = add i32 %92, %91
-  store i32 %93, ptr %17, align 4, !tbaa !63
+  store i32 %93, ptr %17, align 4, !tbaa !61
   br label %94
 
 94:                                               ; preds = %set_tm_yday.exit, %74
   %95 = call fastcc { i64, ptr } @tm2jv(ptr noundef %6)
-  %96 = load i8, ptr %20, align 1, !tbaa !27
+  %96 = load i8, ptr %20, align 1, !tbaa !25
   %.not56 = icmp eq i8 %96, 0
   br i1 %.not56, label %104, label %97
 
@@ -7262,7 +7262,7 @@ define internal { i64, ptr } @f_gmtime(ptr readnone captures(none) %0, i64 %1, p
   %13 = tail call double @jv_number_value(i64 %1, ptr %2) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   %14 = fptosi double %13 to i64
-  store i64 %14, ptr %5, align 8, !tbaa !69
+  store i64 %14, ptr %5, align 8, !tbaa !67
   tail call void @jv_free(i64 %1, ptr %2) #14
   %15 = call ptr @gmtime_r(ptr noundef nonnull %5, ptr noundef nonnull %4) #14
   %16 = icmp eq ptr %15, null
@@ -7328,7 +7328,7 @@ define internal { i64, ptr } @f_localtime(ptr readnone captures(none) %0, i64 %1
   %13 = tail call double @jv_number_value(i64 %1, ptr %2) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   %14 = fptosi double %13 to i64
-  store i64 %14, ptr %5, align 8, !tbaa !69
+  store i64 %14, ptr %5, align 8, !tbaa !67
   tail call void @jv_free(i64 %1, ptr %2) #14
   %15 = call ptr @localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %4) #14
   %16 = icmp eq ptr %15, null
@@ -7387,10 +7387,10 @@ define internal { i64, ptr } @f_now(ptr readnone captures(none) %0, i64 %1, ptr 
   br label %18
 
 10:                                               ; preds = %3
-  %11 = load i64, ptr %4, align 8, !tbaa !70
+  %11 = load i64, ptr %4, align 8, !tbaa !68
   %12 = sitofp i64 %11 to double
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !72
+  %14 = load i64, ptr %13, align 8, !tbaa !70
   %15 = sitofp i64 %14 to double
   %16 = fdiv double %15, 1.000000e+06
   %17 = fadd double %16, %12
@@ -7692,10 +7692,10 @@ define internal fastcc { i64, ptr } @string_trim(i64 %0, ptr %1, i32 noundef ran
   br i1 %.not50, label %.thread, label %21
 
 21:                                               ; preds = %.preheader62
-  %22 = load i32, ptr %4, align 4, !tbaa !20
+  %22 = load i32, ptr %4, align 4, !tbaa !19
   %23 = call i32 @jvp_codepoint_is_whitespace(i32 noundef %22) #14
   %.not51 = icmp eq i32 %23, 0
-  br i1 %.not51, label %.thread, label %.preheader62, !llvm.loop !73
+  br i1 %.not51, label %.thread, label %.preheader62
 
 .thread:                                          ; preds = %21, %.preheader62, %11
   %.041 = phi ptr [ %16, %11 ], [ %.142, %.preheader62 ], [ %.142, %21 ]
@@ -7709,13 +7709,13 @@ define internal fastcc { i64, ptr } @string_trim(i64 %0, ptr %1, i32 noundef ran
   %25 = getelementptr inbounds i8, ptr %.140, i64 -1
   %26 = call ptr @jvp_utf8_backtrack(ptr noundef nonnull %25, ptr noundef %.041, ptr noundef null) #14
   %27 = call ptr @jvp_utf8_next(ptr noundef %26, ptr noundef %.140, ptr noundef nonnull %4) #14
-  %28 = load i32, ptr %4, align 4, !tbaa !20
+  %28 = load i32, ptr %4, align 4, !tbaa !19
   %29 = call i32 @jvp_codepoint_is_whitespace(i32 noundef %28) #14
   %.not53 = icmp ne i32 %29, 0
   %30 = icmp ne ptr %26, %.041
   %.2 = select i1 %.not53, ptr %26, ptr %.140
   %.not61 = select i1 %.not53, i1 %30, i1 false
-  br i1 %.not61, label %.preheader, label %.loopexit, !llvm.loop !74
+  br i1 %.not61, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.thread
   %.039 = phi ptr [ %18, %.thread ], [ %.2, %.preheader ]
@@ -7958,7 +7958,7 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   %111 = extractvalue { i64, ptr } %109, 1
   %112 = tail call i32 @jv_array_length(i64 %110, ptr %111) #14
   %113 = icmp slt i32 %108, %112
-  br i1 %113, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !75
+  br i1 %113, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !71
 
 114:                                              ; preds = %._crit_edge, %63, %46, %26, %13
   %.fca.1.insert.merged = phi { i64, ptr } [ %23, %13 ], [ %36, %26 ], [ %56, %46 ], [ %64, %63 ], [ %.merged, %._crit_edge ]
@@ -7976,8 +7976,8 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
-  store ptr @.str.206, ptr %4, align 16, !tbaa !40
-  %6 = load i8, ptr %2, align 1, !tbaa !27
+  store ptr @.str.206, ptr %4, align 16, !tbaa !38
+  %6 = load i8, ptr %2, align 1, !tbaa !25
   %.not37 = icmp eq i8 %6, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph
 
@@ -7987,13 +7987,13 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %8 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   %9 = sext i8 %7 to i64
   %10 = getelementptr inbounds [128 x ptr], ptr %4, i64 0, i64 %9
-  store ptr %8, ptr %10, align 8, !tbaa !40
+  store ptr %8, ptr %10, align 8, !tbaa !38
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %14 = load i8, ptr %13, align 1, !tbaa !27
+  %14 = load i8, ptr %13, align 1, !tbaa !25
   %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %15 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
@@ -8005,7 +8005,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %16, i64 %21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
-  store i32 0, ptr %5, align 4, !tbaa !20
+  store i32 0, ptr %5, align 4, !tbaa !19
   %23 = call ptr @jvp_utf8_next(ptr noundef %16, ptr noundef %22, ptr noundef nonnull %5) #14
   %.not3241 = icmp eq ptr %23, null
   br i1 %.not3241, label %._crit_edge47, label %.lr.ph46
@@ -8016,14 +8016,14 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %.02742 = phi ptr [ %24, %39 ], [ %16, %._crit_edge ]
   %.sroa.6.043 = extractvalue { i64, ptr } %.pn.pn, 1
   %.sroa.023.044 = extractvalue { i64, ptr } %.pn.pn, 0
-  %25 = load i32, ptr %5, align 4, !tbaa !20
+  %25 = load i32, ptr %5, align 4, !tbaa !19
   %26 = icmp slt i32 %25, 128
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %.lr.ph46
   %28 = sext i32 %25 to i64
   %29 = getelementptr inbounds [128 x ptr], ptr %4, i64 0, i64 %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !40
+  %30 = load ptr, ptr %29, align 8, !tbaa !38
   %.not33 = icmp eq ptr %30, null
   br i1 %.not33, label %33, label %31
 
@@ -8043,7 +8043,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %.pn = phi { i64, ptr } [ %32, %31 ], [ %38, %33 ]
   %40 = call ptr @jvp_utf8_next(ptr noundef nonnull %24, ptr noundef %22, ptr noundef nonnull %5) #14
   %.not32 = icmp eq ptr %40, null
-  br i1 %.not32, label %._crit_edge47, label %.lr.ph46, !llvm.loop !77
+  br i1 %.not32, label %._crit_edge47, label %.lr.ph46, !llvm.loop !73
 
 ._crit_edge47:                                    ; preds = %39, %._crit_edge
   %.pn34.lcssa = phi { i64, ptr } [ %15, %._crit_edge ], [ %.pn, %39 ]
@@ -8099,7 +8099,7 @@ declare i32 @onig_foreach_name(ptr noundef, ptr noundef, ptr noundef) local_unna
 define internal noundef i32 @f_match_name_iter(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef captures(none) %5) #0 {
   %.sroa.018.0.copyload = load i64, ptr %5, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !27
+  %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !25
   %7 = icmp sgt i32 %2, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -8115,7 +8115,7 @@ define internal noundef i32 @f_match_name_iter(ptr noundef %0, ptr noundef %1, i
   %.sroa.018.0.lcssa = phi i64 [ %.sroa.018.0.copyload, %6 ], [ %.sroa.018.1, %40 ]
   %.sroa.7.0.lcssa = phi ptr [ %.sroa.7.0.copyload, %6 ], [ %.sroa.7.1, %40 ]
   store i64 %.sroa.018.0.lcssa, ptr %5, align 8
-  store ptr %.sroa.7.0.lcssa, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !27
+  store ptr %.sroa.7.0.lcssa, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !25
   ret i32 0
 
 12:                                               ; preds = %.lr.ph, %40
@@ -8126,7 +8126,7 @@ define internal noundef i32 @f_match_name_iter(ptr noundef %0, ptr noundef %1, i
   %14 = extractvalue { i64, ptr } %13, 0
   %15 = extractvalue { i64, ptr } %13, 1
   %16 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 4, !tbaa !20
+  %17 = load i32, ptr %16, align 4, !tbaa !19
   %18 = add nsw i32 %17, -1
   %19 = tail call { i64, ptr } @jv_array_get(i64 %14, ptr %15, i32 noundef %18) #14
   %20 = extractvalue { i64, ptr } %19, 0
@@ -8145,7 +8145,7 @@ define internal noundef i32 @f_match_name_iter(ptr noundef %0, ptr noundef %1, i
   %31 = tail call { i64, ptr } @jv_object_set(i64 %20, ptr %21, i64 %26, ptr %27, i64 %29, ptr %30) #14
   %32 = extractvalue { i64, ptr } %31, 0
   %33 = extractvalue { i64, ptr } %31, 1
-  %34 = load i32, ptr %16, align 4, !tbaa !20
+  %34 = load i32, ptr %16, align 4, !tbaa !19
   %35 = add nsw i32 %34, -1
   %36 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.018.032, ptr %.sroa.7.033, i32 noundef %35, i64 %32, ptr %33) #14
   %37 = extractvalue { i64, ptr } %36, 0
@@ -8161,7 +8161,7 @@ define internal noundef i32 @f_match_name_iter(ptr noundef %0, ptr noundef %1, i
   %.sroa.7.1 = phi ptr [ %38, %24 ], [ %.sroa.7.033, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !74
 }
 
 declare void @onig_region_free(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -8190,7 +8190,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !68
+  %6 = load i32, ptr %5, align 4, !tbaa !66
   %7 = add nsw i32 %6, 1900
   %8 = sitofp i32 %7 to double
   %9 = tail call { i64, ptr } @jv_number(double noundef %8) #14
@@ -8200,7 +8200,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !79
+  %16 = load i32, ptr %15, align 8, !tbaa !75
   %17 = sitofp i32 %16 to double
   %18 = tail call { i64, ptr } @jv_number(double noundef %17) #14
   %19 = extractvalue { i64, ptr } %18, 0
@@ -8209,7 +8209,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !80
+  %25 = load i32, ptr %24, align 4, !tbaa !76
   %26 = sitofp i32 %25 to double
   %27 = tail call { i64, ptr } @jv_number(double noundef %26) #14
   %28 = extractvalue { i64, ptr } %27, 0
@@ -8218,7 +8218,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %31 = extractvalue { i64, ptr } %30, 0
   %32 = extractvalue { i64, ptr } %30, 1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !81
+  %34 = load i32, ptr %33, align 8, !tbaa !77
   %35 = sitofp i32 %34 to double
   %36 = tail call { i64, ptr } @jv_number(double noundef %35) #14
   %37 = extractvalue { i64, ptr } %36, 0
@@ -8227,7 +8227,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %40 = extractvalue { i64, ptr } %39, 0
   %41 = extractvalue { i64, ptr } %39, 1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %43 = load i32, ptr %42, align 4, !tbaa !82
+  %43 = load i32, ptr %42, align 4, !tbaa !78
   %44 = sitofp i32 %43 to double
   %45 = tail call { i64, ptr } @jv_number(double noundef %44) #14
   %46 = extractvalue { i64, ptr } %45, 0
@@ -8235,7 +8235,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %48 = tail call { i64, ptr } @jv_array_append(i64 %40, ptr %41, i64 %46, ptr %47) #14
   %49 = extractvalue { i64, ptr } %48, 0
   %50 = extractvalue { i64, ptr } %48, 1
-  %51 = load i32, ptr %0, align 8, !tbaa !83
+  %51 = load i32, ptr %0, align 8, !tbaa !79
   %52 = sitofp i32 %51 to double
   %53 = tail call { i64, ptr } @jv_number(double noundef %52) #14
   %54 = extractvalue { i64, ptr } %53, 0
@@ -8244,7 +8244,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %57 = extractvalue { i64, ptr } %56, 0
   %58 = extractvalue { i64, ptr } %56, 1
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = load i32, ptr %59, align 8, !tbaa !60
+  %60 = load i32, ptr %59, align 8, !tbaa !58
   %61 = sitofp i32 %60 to double
   %62 = tail call { i64, ptr } @jv_number(double noundef %61) #14
   %63 = extractvalue { i64, ptr } %62, 0
@@ -8253,7 +8253,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures
   %66 = extractvalue { i64, ptr } %65, 0
   %67 = extractvalue { i64, ptr } %65, 1
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %69 = load i32, ptr %68, align 4, !tbaa !63
+  %69 = load i32, ptr %68, align 4, !tbaa !61
   %70 = sitofp i32 %69 to double
   %71 = tail call { i64, ptr } @jv_number(double noundef %70) #14
   %72 = extractvalue { i64, ptr } %71, 0
@@ -8310,13 +8310,13 @@ define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr noundef no
 25:                                               ; preds = %17, %22
   %26 = phi i32 [ %24, %22 ], [ -2147483648, %17 ]
   %27 = getelementptr inbounds nuw [8 x i64], ptr @jv2tm.offsets, i64 0, i64 %.03047
-  %28 = load i64, ptr %27, align 8, !tbaa !69
+  %28 = load i64, ptr %27, align 8, !tbaa !67
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  store i32 %26, ptr %29, align 4, !tbaa !20
+  store i32 %26, ptr %29, align 4, !tbaa !19
   tail call void @jv_free(i64 %10, ptr %11) #14
   %30 = add nuw nsw i64 %.03047, 1
   %exitcond.not = icmp eq i64 %30, 8
-  br i1 %exitcond.not, label %.thread37, label %4, !llvm.loop !84
+  br i1 %exitcond.not, label %.thread37, label %4, !llvm.loop !80
 
 31:                                               ; preds = %13, %15
   tail call void @jv_free(i64 %0, ptr %1) #14
@@ -8384,84 +8384,80 @@ attributes #17 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = !{!10, !11, i64 0}
-!10 = !{!"bytecoded_builtin", !11, i64 0, !15, i64 8}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !13, i64 0}
-!13 = !{!"omnipotent char", !14, i64 0}
-!14 = !{!"Simple C/C++ TBAA"}
-!15 = !{!"block", !16, i64 0, !16, i64 8}
-!16 = !{!"p1 _ZTS4inst", !12, i64 0}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = !{!16, !16, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !13, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"double", !13, i64 0}
-!24 = distinct !{!24, !5, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !5, !6}
-!27 = !{!13, !13, i64 0}
-!28 = distinct !{!28, !5, !6}
-!29 = distinct !{!29, !5, !6}
-!30 = distinct !{!30, !5, !6}
-!31 = distinct !{!31, !5, !6}
-!32 = distinct !{!32, !5, !6}
-!33 = distinct !{!33, !5, !6}
-!34 = distinct !{!34, !5, !6}
-!35 = distinct !{!35, !5, !6}
-!36 = distinct !{!36, !5, !6}
-!37 = distinct !{!37, !5, !6}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"p2 omnipotent char", !12, i64 0}
-!40 = !{!11, !11, i64 0}
-!41 = distinct !{!41, !5, !6}
-!42 = distinct !{!42, !5, !6}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS17re_pattern_buffer", !12, i64 0}
-!45 = !{!46, !47, i64 16}
-!46 = !{!"re_registers", !21, i64 0, !21, i64 4, !47, i64 8, !47, i64 16, !48, i64 24}
-!47 = !{!"p1 int", !12, i64 0}
-!48 = !{!"p1 _ZTS25OnigCaptureTreeNodeStruct", !12, i64 0}
-!49 = !{!46, !47, i64 8}
-!50 = !{!46, !21, i64 4}
-!51 = distinct !{!51, !5, !6}
-!52 = distinct !{!52, !5, !6}
-!53 = distinct !{!53, !5, !6}
-!54 = distinct !{!54, !5, !6}
-!55 = distinct !{!55, !5, !6, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = distinct !{!57, !5, !6}
-!58 = distinct !{!58, !5, !6}
-!59 = !{!12, !12, i64 0}
-!60 = !{!61, !21, i64 24}
-!61 = !{!"tm", !21, i64 0, !21, i64 4, !21, i64 8, !21, i64 12, !21, i64 16, !21, i64 20, !21, i64 24, !21, i64 28, !21, i64 32, !62, i64 40, !11, i64 48}
-!62 = !{!"long", !13, i64 0}
-!63 = !{!61, !21, i64 28}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"bytecoded_builtin", !10, i64 0, !14, i64 8}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !12, i64 0}
+!12 = !{!"omnipotent char", !13, i64 0}
+!13 = !{!"Simple C/C++ TBAA"}
+!14 = !{!"block", !15, i64 0, !15, i64 8}
+!15 = !{!"p1 _ZTS4inst", !11, i64 0}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = !{!15, !15, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !12, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"double", !12, i64 0}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = !{!12, !12, i64 0}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p2 omnipotent char", !11, i64 0}
+!38 = !{!10, !10, i64 0}
+!39 = distinct !{!39, !5}
+!40 = distinct !{!40, !5}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS17re_pattern_buffer", !11, i64 0}
+!43 = !{!44, !45, i64 16}
+!44 = !{!"re_registers", !20, i64 0, !20, i64 4, !45, i64 8, !45, i64 16, !46, i64 24}
+!45 = !{!"p1 int", !11, i64 0}
+!46 = !{!"p1 _ZTS25OnigCaptureTreeNodeStruct", !11, i64 0}
+!47 = !{!44, !45, i64 8}
+!48 = !{!44, !20, i64 4}
+!49 = distinct !{!49, !5}
+!50 = distinct !{!50, !5}
+!51 = distinct !{!51, !5}
+!52 = distinct !{!52, !5}
+!53 = distinct !{!53, !5, !54}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = distinct !{!55, !5}
+!56 = distinct !{!56, !5}
+!57 = !{!11, !11, i64 0}
+!58 = !{!59, !20, i64 24}
+!59 = !{!"tm", !20, i64 0, !20, i64 4, !20, i64 8, !20, i64 12, !20, i64 16, !20, i64 20, !20, i64 24, !20, i64 28, !20, i64 32, !60, i64 40, !10, i64 48}
+!60 = !{!"long", !12, i64 0}
+!61 = !{!59, !20, i64 28}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 short", !11, i64 0}
 !64 = !{!65, !65, i64 0}
-!65 = !{!"p1 short", !12, i64 0}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"short", !13, i64 0}
-!68 = !{!61, !21, i64 20}
-!69 = !{!62, !62, i64 0}
-!70 = !{!71, !62, i64 0}
-!71 = !{!"timeval", !62, i64 0, !62, i64 8}
-!72 = !{!71, !62, i64 8}
-!73 = distinct !{!73, !6}
-!74 = distinct !{!74, !6}
-!75 = distinct !{!75, !5, !6}
-!76 = distinct !{!76, !5, !6}
-!77 = distinct !{!77, !5, !6}
-!78 = distinct !{!78, !5, !6}
-!79 = !{!61, !21, i64 16}
-!80 = !{!61, !21, i64 12}
-!81 = !{!61, !21, i64 8}
-!82 = !{!61, !21, i64 4}
-!83 = !{!61, !21, i64 0}
-!84 = distinct !{!84, !5, !6}
+!65 = !{!"short", !12, i64 0}
+!66 = !{!59, !20, i64 20}
+!67 = !{!60, !60, i64 0}
+!68 = !{!69, !60, i64 0}
+!69 = !{!"timeval", !60, i64 0, !60, i64 8}
+!70 = !{!69, !60, i64 8}
+!71 = distinct !{!71, !5}
+!72 = distinct !{!72, !5}
+!73 = distinct !{!73, !5}
+!74 = distinct !{!74, !5}
+!75 = !{!59, !20, i64 16}
+!76 = !{!59, !20, i64 12}
+!77 = !{!59, !20, i64 8}
+!78 = !{!59, !20, i64 4}
+!79 = !{!59, !20, i64 0}
+!80 = distinct !{!80, !5}

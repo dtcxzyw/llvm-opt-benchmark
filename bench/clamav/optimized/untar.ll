@@ -192,7 +192,7 @@ fmap_need_off_once_len.exit:                      ; preds = %.backedge, %24
   %74 = add nsw i32 %.sink.i, %.02028.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %testchecksum.exit, label %.preheader.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %testchecksum.exit, label %.preheader.i
 
 testchecksum.exit:                                ; preds = %73
   %75 = icmp eq i32 %.0.i.i, %.122.i
@@ -337,7 +337,7 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
 119:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #11
   %120 = tail call ptr @__errno_location() #12
-  %121 = load i32, ptr %120, align 4, !tbaa !49
+  %121 = load i32, ptr %120, align 4, !tbaa !47
   %122 = call ptr @cli_strerror(i32 noundef %121, ptr noundef nonnull %12, i64 noundef 128) #11
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %7, ptr noundef %122) #11
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #11
@@ -397,7 +397,7 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
 
 139:                                              ; preds = %.thread225
   %140 = tail call ptr @__errno_location() #12
-  %141 = load i32, ptr %140, align 4, !tbaa !49
+  %141 = load i32, ptr %140, align 4, !tbaa !47
   %142 = call ptr @cli_strerror(i32 noundef %141, ptr noundef nonnull %13, i64 noundef 128) #11
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.20, i64 noundef %131, ptr noundef nonnull %7, ptr noundef %142) #11
   %143 = call i32 @close(i32 noundef %.0148) #11
@@ -433,7 +433,7 @@ testchecksum.exit.thread:                         ; preds = %58, %testchecksum.e
   %.0123.be = phi i64 [ %38, %.thread ], [ %.2125.ph.ph, %.thread303 ]
   %.0119.be = phi i64 [ %.2121, %.thread ], [ 0, %.thread303 ]
   %.0107.be = phi i64 [ %.4111, %.thread ], [ %.2109.ph.ph, %.thread303 ]
-  br label %.backedge, !llvm.loop !50
+  br label %.backedge
 
 .thread251.thread:                                ; preds = %51
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %11) #11
@@ -596,7 +596,4 @@ attributes #12 = { nounwind willreturn memory(none) }
 !44 = !{!"cli_environment", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
 !45 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
 !46 = !{!7, !7, i64 0}
-!47 = distinct !{!47, !48}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!14, !14, i64 0}
-!50 = distinct !{!50, !48}
+!47 = !{!14, !14, i64 0}

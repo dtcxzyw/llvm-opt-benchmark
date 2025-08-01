@@ -404,7 +404,7 @@ lv_text_utf8_size.exit:                           ; preds = %6
   store i32 %20, ptr %1, align 4, !tbaa !6
   %21 = add nuw nsw i8 %.01220, 1
   %exitcond = icmp eq i8 %21, 4
-  br i1 %exitcond, label %.loopexit, label %6, !llvm.loop !11
+  br i1 %exitcond, label %.loopexit, label %6, !llvm.loop !10
 
 .critedge:                                        ; preds = %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
@@ -458,7 +458,7 @@ lv_text_utf8_size.exit:                           ; preds = %6, %9, %12, %15
   %19 = add i32 %.0.i, %.01012
   %20 = add nuw i32 %.013, 1
   %exitcond.not = icmp eq i32 %20, %1
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %lv_text_utf8_size.exit, %2
   %.010.lcssa = phi i32 [ 0, %2 ], [ %19, %lv_text_utf8_size.exit ], [ %.01012, %.lr.ph ]
@@ -479,7 +479,7 @@ define internal i32 @lv_text_utf8_get_char_id(ptr noundef readonly captures(addr
   %5 = add i32 %.03, 1
   %6 = load i32, ptr %3, align 4, !tbaa !6
   %7 = icmp ult i32 %6, %1
-  br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %5, %.lr.ph ]
@@ -505,7 +505,7 @@ define internal i32 @lv_text_utf8_get_length(ptr noundef readonly captures(addre
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !3
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %5, %.lr.ph ]
@@ -516,9 +516,9 @@ define internal i32 @lv_text_utf8_get_length(ptr noundef readonly captures(addre
 ; Function Attrs: nounwind uwtable
 define void @lv_text_get_size(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
-  store i32 0, ptr %0, align 4, !tbaa !15
+  store i32 0, ptr %0, align 4, !tbaa !14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %9, align 4, !tbaa !17
+  store i32 0, ptr %9, align 4, !tbaa !16
   %10 = icmp eq ptr %1, null
   %11 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %11
@@ -546,7 +546,7 @@ define void @lv_text_get_size(ptr noundef captures(none) initializes((0, 8)) %0,
   %.04759 = phi i32 [ 0, %.lr.ph ], [ %23, %lv_text_get_width.exit ]
   %22 = call i32 @lv_text_get_next_line(ptr noundef nonnull %21, i32 noundef -1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %spec.select, ptr noundef null, i32 noundef %6)
   %23 = add i32 %22, %.04759
-  %24 = load i32, ptr %9, align 4, !tbaa !17
+  %24 = load i32, ptr %9, align 4, !tbaa !16
   %25 = sext i32 %24 to i64
   %26 = add nsw i64 %18, %25
   %27 = icmp ugt i64 %26, 2147483647
@@ -554,7 +554,7 @@ define void @lv_text_get_size(ptr noundef captures(none) initializes((0, 8)) %0,
 
 28:                                               ; preds = %20
   %29 = add i32 %19, %24
-  store i32 %29, ptr %9, align 4, !tbaa !17
+  store i32 %29, ptr %9, align 4, !tbaa !16
   %30 = load i8, ptr %21, align 1, !tbaa !3
   %31 = icmp eq i8 %30, 0
   br i1 %31, label %lv_text_get_width.exit, label %32
@@ -587,7 +587,7 @@ lv_text_encoded_letter_next_2.exit.i:             ; preds = %34, %.lr.ph.i
   %42 = add i32 %41, %40
   %.2.i = select i1 %.not20.i, i32 %.122.i, i32 %42
   %43 = icmp ult i32 %.pre.i, %22
-  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !18
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %lv_text_encoded_letter_next_2.exit.i
   %44 = icmp sgt i32 %.2.i, 0
@@ -602,14 +602,14 @@ lv_text_encoded_letter_next_2.exit.i:             ; preds = %34, %.lr.ph.i
 
 lv_text_get_width.exit:                           ; preds = %28, %46
   %.0.i = phi i32 [ %.016.i, %46 ], [ 0, %28 ]
-  %47 = load i32, ptr %0, align 4, !tbaa !15
+  %47 = load i32, ptr %0, align 4, !tbaa !14
   %. = call i32 @llvm.smax.i32(i32 %.0.i, i32 %47)
-  store i32 %., ptr %0, align 4, !tbaa !15
+  store i32 %., ptr %0, align 4, !tbaa !14
   %48 = zext i32 %23 to i64
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !3
   %.not55 = icmp eq i8 %50, 0
-  br i1 %.not55, label %._crit_edge, label %20, !llvm.loop !19
+  br i1 %.not55, label %._crit_edge, label %20, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %lv_text_get_width.exit
   %.not56 = icmp eq i32 %23, 0
@@ -628,18 +628,18 @@ lv_text_get_width.exit:                           ; preds = %28, %46
 56:                                               ; preds = %51, %51
   %57 = and i32 %14, 65535
   %58 = add nsw i32 %57, %4
-  %59 = load i32, ptr %9, align 4, !tbaa !17
+  %59 = load i32, ptr %9, align 4, !tbaa !16
   %60 = add nsw i32 %58, %59
-  store i32 %60, ptr %9, align 4, !tbaa !17
+  store i32 %60, ptr %9, align 4, !tbaa !16
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %12, %51, %56, %._crit_edge
-  %61 = load i32, ptr %9, align 4, !tbaa !17
+  %61 = load i32, ptr %9, align 4, !tbaa !16
   %62 = icmp eq i32 %61, 0
   %63 = sub nsw i32 %61, %4
   %64 = and i32 %14, 65535
   %storemerge = select i1 %62, i32 %64, i32 %63
-  store i32 %storemerge, ptr %9, align 4, !tbaa !17
+  store i32 %storemerge, ptr %9, align 4, !tbaa !16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %._crit_edge.thread, %7
@@ -700,7 +700,7 @@ define i32 @lv_text_get_next_line(ptr noundef readonly captures(address_is_null)
 22:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge79, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.critedge79, label %.lr.ph, !llvm.loop !19
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %23 = trunc nuw i64 %indvars.iv to i32
@@ -812,7 +812,7 @@ define i32 @lv_text_get_next_line(ptr noundef readonly captures(address_is_null)
   %57 = getelementptr inbounds nuw i8, ptr %34, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !3
   %.not82.i = icmp eq i8 %58, 0
-  br i1 %.not82.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !21
+  br i1 %.not82.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !20
 
 lv_text_is_cmd.exit.i:                            ; preds = %50, %49, %.lr.ph.split.us.i
   %.390 = phi i32 [ %.188, %.lr.ph.split.us.i ], [ %.289, %49 ], [ %.289, %50 ]
@@ -854,7 +854,7 @@ lv_text_is_cmd.exit.i:                            ; preds = %50, %49, %.lr.ph.sp
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.not.i.i = icmp eq i64 %indvars.iv.next.i, 10
   %or.cond.i.i = select i1 %71, i1 true, i1 %.not.not.i.i
-  br i1 %or.cond.i.i, label %lv_text_is_break_char.exit.i, label %.preheader.i, !llvm.loop !22
+  br i1 %or.cond.i.i, label %lv_text_is_break_char.exit.i, label %.preheader.i, !llvm.loop !21
 
 lv_text_is_break_char.exit.i:                     ; preds = %.preheader.i
   br i1 %71, label %72, label %75
@@ -933,7 +933,7 @@ lv_text_is_a_word.exit104.thread110.i:            ; preds = %87, %lv_text_is_a_w
   %99 = getelementptr inbounds nuw i8, ptr %34, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !3
   %.not82149.i = icmp eq i8 %100, 0
-  br i1 %.not82149.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not82149.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %77, %87, %lv_text_is_a_word.exit104.thread110.i, %64, %.thread17.i.i, %72
   %.491 = phi i32 [ %.390, %72 ], [ %.7, %.thread17.i.i ], [ %.390, %64 ], [ %.390, %lv_text_is_a_word.exit104.thread110.i ], [ %.390, %87 ], [ %.390, %77 ]
@@ -1002,7 +1002,7 @@ lv_text_get_next_word.exit:                       ; preds = %105, %108, %109
   switch i8 %119, label %28 [
     i8 10, label %120
     i8 13, label %120
-  ], !llvm.loop !23
+  ]
 
 120:                                              ; preds = %116, %116
   %121 = add i32 %114, 1
@@ -1093,7 +1093,7 @@ lv_text_encoded_letter_next_2.exit:               ; preds = %.lr.ph, %13
   %21 = add i32 %20, %19
   %.2 = select i1 %.not20, i32 %.122, i32 %21
   %22 = icmp ult i32 %.pre, %1
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %lv_text_encoded_letter_next_2.exit
   %23 = icmp sgt i32 %.2, 0
@@ -1229,7 +1229,7 @@ lv_text_is_cmd.exit.thread.us:                    ; preds = %lv_text_encoded_let
   %28 = icmp ne i8 %27, 0
   %29 = icmp ult i32 %24, %1
   %30 = and i1 %29, %28
-  br i1 %30, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !24
+  br i1 %30, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !22
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %lv_text_is_cmd.exit.thread
   %.139 = phi i32 [ %.2, %lv_text_is_cmd.exit.thread ], [ 0, %.lr.ph ]
@@ -1248,7 +1248,7 @@ lv_text_encoded_letter_next_2.exit:               ; preds = %.lr.ph.split.split
 
 lv_text_encoded_letter_next_2.exit.thread:        ; preds = %.lr.ph.split.split
   %37 = icmp eq i32 %.02738, 1
-  br i1 %37, label %lv_text_is_cmd.exit.thread, label %lv_text_is_cmd.exit, !llvm.loop !26
+  br i1 %37, label %lv_text_is_cmd.exit.thread, label %lv_text_is_cmd.exit, !llvm.loop !24
 
 38:                                               ; preds = %lv_text_encoded_letter_next_2.exit
   %switch = icmp ult i32 %.02738, 2
@@ -1257,7 +1257,7 @@ lv_text_encoded_letter_next_2.exit.thread:        ; preds = %.lr.ph.split.split
 
 39:                                               ; preds = %lv_text_encoded_letter_next_2.exit
   %40 = icmp eq i32 %.02738, 1
-  br i1 %40, label %41, label %lv_text_is_cmd.exit, !llvm.loop !26
+  br i1 %40, label %41, label %lv_text_is_cmd.exit, !llvm.loop !24
 
 41:                                               ; preds = %39
   %42 = icmp eq i32 %31, 32
@@ -1284,7 +1284,7 @@ lv_text_is_cmd.exit.thread:                       ; preds = %38, %41, %lv_text_e
   %52 = icmp ne i8 %51, 0
   %53 = icmp ult i32 %48, %1
   %54 = and i1 %53, %52
-  br i1 %54, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !27
+  br i1 %54, label %.lr.ph.split.split, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %lv_text_is_cmd.exit.thread, %lv_text_is_cmd.exit.thread.us
   %.1.lcssa = phi i32 [ %.3.us, %lv_text_is_cmd.exit.thread.us ], [ %.2, %lv_text_is_cmd.exit.thread ]
@@ -1356,7 +1356,7 @@ lv_text_utf8_size.exit.i:                         ; preds = %24, %21, %18, %15
   %28 = add i32 %.0.i.i, %.01012.i
   %29 = add nuw i32 %.013.i, 1
   %exitcond.not.i = icmp eq i32 %29, %1
-  br i1 %exitcond.not.i, label %lv_text_utf8_get_byte_id.exit.loopexit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %lv_text_utf8_get_byte_id.exit.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 lv_text_utf8_get_byte_id.exit.loopexit:           ; preds = %lv_text_utf8_size.exit.i, %.lr.ph.i
   %.010.lcssa.i.ph = phi i32 [ %28, %lv_text_utf8_size.exit.i ], [ %.01012.i, %.lr.ph.i ]
@@ -1378,7 +1378,7 @@ lv_text_utf8_get_byte_id.exit:                    ; preds = %lv_text_utf8_get_by
   store i8 %34, ptr %35, align 1, !tbaa !3
   %36 = add i64 %.027, -1
   %.not = icmp ult i64 %36, %31
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %lv_text_utf8_get_byte_id.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %.010.lcssa.i
@@ -1438,7 +1438,7 @@ lv_text_utf8_size.exit.i:                         ; preds = %19, %16, %13, %10
   %23 = add i32 %.0.i.i, %.01012.i
   %24 = add nuw i32 %.013.i, 1
   %exitcond.not.i = icmp eq i32 %24, %1
-  br i1 %exitcond.not.i, label %lv_text_utf8_get_byte_id.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %lv_text_utf8_get_byte_id.exit, label %.lr.ph.i, !llvm.loop !11
 
 lv_text_utf8_get_byte_id.exit:                    ; preds = %.lr.ph.i, %lv_text_utf8_size.exit.i, %5
   %.010.lcssa.i = phi i32 [ 0, %5 ], [ %.01012.i, %.lr.ph.i ], [ %23, %lv_text_utf8_size.exit.i ]
@@ -1482,7 +1482,7 @@ lv_text_utf8_size.exit.i23:                       ; preds = %39, %36, %33, %30
   %43 = add i32 %.0.i.i24, %.01012.i21
   %44 = add nuw i32 %.013.i20, 1
   %exitcond.not.i25 = icmp eq i32 %44, %2
-  br i1 %exitcond.not.i25, label %lv_text_utf8_get_byte_id.exit27, label %.lr.ph.i19, !llvm.loop !12
+  br i1 %exitcond.not.i25, label %lv_text_utf8_get_byte_id.exit27, label %.lr.ph.i19, !llvm.loop !11
 
 lv_text_utf8_get_byte_id.exit27:                  ; preds = %.lr.ph.i19, %lv_text_utf8_size.exit.i23, %lv_text_utf8_get_byte_id.exit
   %.010.lcssa.i26 = phi i32 [ 0, %lv_text_utf8_get_byte_id.exit ], [ %.01012.i21, %.lr.ph.i19 ], [ %43, %lv_text_utf8_size.exit.i23 ]
@@ -1503,7 +1503,7 @@ lv_text_utf8_get_byte_id.exit27:                  ; preds = %.lr.ph.i19, %lv_tex
   %53 = add i32 %.029, 1
   %54 = zext i32 %53 to i64
   %.not = icmp ult i64 %46, %54
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %lv_text_utf8_get_byte_id.exit27, %3
   ret void
@@ -1523,7 +1523,7 @@ define nonnull ptr @lv_text_set_text_vfmt(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not, label %.preheader, label %8
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !30
+  br label %.preheader
 
 8:                                                ; preds = %2
   %9 = call i32 @lv_vsnprintf(ptr noundef nonnull %7, i64 noundef %6, ptr noundef %0, ptr noundef %1) #11
@@ -1567,26 +1567,22 @@ attributes #11 = { nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = !{!16, !7, i64 0}
-!16 = !{!"", !7, i64 0, !7, i64 4}
-!17 = !{!16, !7, i64 4}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = !{!15, !7, i64 0}
+!15 = !{!"", !7, i64 0, !7, i64 4}
+!16 = !{!15, !7, i64 4}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
 !26 = distinct !{!26, !9}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !10}

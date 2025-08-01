@@ -1088,7 +1088,7 @@ define internal range(i32 0, 2) i32 @template_private_test(i32 noundef %0) #0 {
   store i32 %22, ptr %21, align 4, !tbaa !17
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next234, 5
-  br i1 %exitcond236.not, label %23, label %.preheader, !llvm.loop !25
+  br i1 %exitcond236.not, label %23, label %.preheader, !llvm.loop !24
 
 23:                                               ; preds = %.preheader
   %24 = tail call i32 @OSSL_PARAM_BLD_push_uint(ptr noundef %16, ptr noundef nonnull @.str.48, i32 noundef 6) #3
@@ -1549,7 +1549,7 @@ define internal range(i32 0, 2) i32 @template_private_test(i32 noundef %0) #0 {
 
 285:                                              ; preds = %278
   %286 = load ptr, ptr %279, align 8, !tbaa !21
-  %287 = load ptr, ptr %286, align 8, !tbaa !26
+  %287 = load ptr, ptr %286, align 8, !tbaa !25
   %288 = call i32 @CRYPTO_secure_allocated(ptr noundef %287) #3
   %289 = icmp ne i32 %288, 0
   %290 = zext i1 %289 to i32
@@ -1572,7 +1572,7 @@ define internal range(i32 0, 2) i32 @template_private_test(i32 noundef %0) #0 {
 
 299:                                              ; preds = %295
   %300 = load ptr, ptr %279, align 8, !tbaa !21
-  %301 = load ptr, ptr %300, align 8, !tbaa !26
+  %301 = load ptr, ptr %300, align 8, !tbaa !25
   %302 = getelementptr inbounds nuw i8, ptr %276, i64 24
   %303 = load i64, ptr %302, align 8, !tbaa !16
   %304 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 352, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143, ptr noundef %301, i64 noundef %303, ptr noundef nonnull %13, i64 noundef 20) #3
@@ -1792,7 +1792,7 @@ define internal range(i32 0, 2) i32 @builder_limit_test() #0 {
 4:                                                ; preds = %.preheader38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
-  br i1 %exitcond.not, label %19, label %.preheader38, !llvm.loop !27
+  br i1 %exitcond.not, label %19, label %.preheader38, !llvm.loop !26
 
 .preheader38:                                     ; preds = %0, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %0 ]
@@ -1800,13 +1800,13 @@ define internal range(i32 0, 2) i32 @builder_limit_test() #0 {
   %5 = udiv i8 %.lhs.trunc, 26
   %6 = or disjoint i8 %5, 64
   %7 = getelementptr inbounds nuw [100 x [3 x i8]], ptr %1, i64 0, i64 %indvars.iv
-  store i8 %6, ptr %7, align 1, !tbaa !28
+  store i8 %6, ptr %7, align 1, !tbaa !27
   %8 = urem i8 %.lhs.trunc, 26
   %9 = or disjoint i8 %8, 96
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  store i8 %9, ptr %10, align 1, !tbaa !28
+  store i8 %9, ptr %10, align 1, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i8 0, ptr %11, align 1, !tbaa !28
+  store i8 0, ptr %11, align 1, !tbaa !27
   %12 = trunc i64 %indvars.iv to i32
   %13 = mul i32 %12, 3
   %14 = add i32 %13, 1
@@ -1829,7 +1829,7 @@ define internal range(i32 0, 2) i32 @builder_limit_test() #0 {
   %23 = load ptr, ptr %22, align 8, !tbaa !9
   %.not28 = icmp eq ptr %23, null
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  br i1 %.not28, label %24, label %.preheader37, !llvm.loop !29
+  br i1 %.not28, label %24, label %.preheader37, !llvm.loop !28
 
 24:                                               ; preds = %.preheader37
   %25 = trunc nuw nsw i64 %indvars.iv41 to i32
@@ -1858,7 +1858,7 @@ define internal range(i32 0, 2) i32 @builder_limit_test() #0 {
   %36 = load ptr, ptr %35, align 8, !tbaa !9
   %.not32 = icmp eq ptr %36, null
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  br i1 %.not32, label %37, label %.preheader, !llvm.loop !30
+  br i1 %.not32, label %37, label %.preheader, !llvm.loop !29
 
 37:                                               ; preds = %.preheader
   %38 = trunc nuw nsw i64 %indvars.iv44 to i32
@@ -2281,7 +2281,7 @@ define internal range(i32 0, 2) i32 @builder_merge_test() #0 {
 224:                                              ; preds = %220
   %225 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %226 = load ptr, ptr %225, align 8, !tbaa !21
-  %227 = load ptr, ptr %226, align 8, !tbaa !26
+  %227 = load ptr, ptr %226, align 8, !tbaa !25
   %228 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %229 = load i64, ptr %228, align 8, !tbaa !16
   %230 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 525, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143, ptr noundef %227, i64 noundef %229, ptr noundef nonnull @builder_merge_test.data2, i64 noundef 5) #3
@@ -2542,12 +2542,11 @@ attributes #3 = { nounwind }
 !19 = !{!20, !20, i64 0}
 !20 = !{!"double", !7, i64 0}
 !21 = !{!10, !6, i64 16}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23, !24}
-!26 = !{!6, !6, i64 0}
-!27 = distinct !{!27, !23, !24}
-!28 = !{!7, !7, i64 0}
-!29 = distinct !{!29, !23, !24}
-!30 = distinct !{!30, !23, !24}
+!24 = distinct !{!24, !23}
+!25 = !{!6, !6, i64 0}
+!26 = distinct !{!26, !23}
+!27 = !{!7, !7, i64 0}
+!28 = distinct !{!28, !23}
+!29 = distinct !{!29, !23}

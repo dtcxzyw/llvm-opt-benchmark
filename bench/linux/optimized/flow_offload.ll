@@ -171,7 +171,7 @@ define dso_local noalias ptr @offload_action_alloc(i32 noundef %0) local_unnamed
   store i32 7, ptr %14, align 8
   %15 = add nuw i32 %12, 1
   %16 = icmp eq i32 %15, %0
-  br i1 %16, label %.loopexit, label %11, !llvm.loop !9
+  br i1 %16, label %.loopexit, label %11, !llvm.loop !8
 
 .loopexit:                                        ; preds = %11, %7, %1
   ret ptr %5
@@ -790,7 +790,7 @@ define dso_local ptr @flow_block_cb_lookup(ptr noundef readonly captures(address
 14:                                               ; preds = %10, %.preheader
   %15 = load ptr, ptr %6, align 8
   %16 = icmp eq ptr %15, %0
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !9
 
 17:                                               ; preds = %10
   %18 = getelementptr i8, ptr %6, i64 -16
@@ -848,7 +848,7 @@ define dso_local noundef zeroext i1 @flow_block_cb_is_busy(ptr noundef readnone 
 13:                                               ; preds = %9, %.preheader
   %14 = load ptr, ptr %5, align 8
   %.not5 = icmp eq ptr %14, %2
-  br i1 %.not5, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %.not5, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %13, %9, %3
   %15 = phi i1 [ false, %3 ], [ false, %13 ], [ true, %9 ]
@@ -895,7 +895,7 @@ define dso_local noundef i32 @flow_block_cb_setup_simple(ptr noundef %0, ptr nou
 24:                                               ; preds = %20, %.preheader
   %25 = load ptr, ptr %16, align 8
   %.not11 = icmp eq ptr %25, %1
-  br i1 %.not11, label %.critedge, label %.preheader, !llvm.loop !12
+  br i1 %.not11, label %.critedge, label %.preheader, !llvm.loop !10
 
 .critedge:                                        ; preds = %24, %14
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
@@ -963,7 +963,7 @@ define dso_local noundef i32 @flow_block_cb_setup_simple(ptr noundef %0, ptr nou
 60:                                               ; preds = %56, %.preheader13
   %61 = load ptr, ptr %52, align 8
   %62 = icmp eq ptr %61, %49
-  br i1 %62, label %.thread12, label %.preheader13, !llvm.loop !13
+  br i1 %62, label %.thread12, label %.preheader13, !llvm.loop !9
 
 63:                                               ; preds = %56
   %64 = getelementptr i8, ptr %52, i64 -16
@@ -1022,15 +1022,15 @@ define dso_local noundef range(i32 -12, 1) i32 @flow_indr_dev_register(ptr nound
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %16 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 1, ptr nonnull elementtype(i32) %15) #13, !srcloc !14
+  %16 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 1, ptr nonnull elementtype(i32) %15) #13, !srcloc !11
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %22, label %18, !prof !15
+  br i1 %17, label %22, label %18, !prof !12
 
 18:                                               ; preds = %14
   %19 = add i32 %16, 1
   %20 = or i32 %19, %16
   %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %24, label %22, !prof !16
+  br i1 %21, label %24, label %22, !prof !13
 
 22:                                               ; preds = %18, %14
   %23 = phi i32 [ 2, %14 ], [ 1, %18 ]
@@ -1044,7 +1044,7 @@ define dso_local noundef range(i32 -12, 1) i32 @flow_indr_dev_register(ptr nound
 25:                                               ; preds = %10, %.preheader
   %26 = load ptr, ptr %6, align 8
   %27 = icmp eq ptr %26, @flow_block_indr_dev_list
-  br i1 %27, label %.loopexit8, label %.preheader, !llvm.loop !17
+  br i1 %27, label %.loopexit8, label %.preheader, !llvm.loop !14
 
 .loopexit8:                                       ; preds = %25, %2
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
@@ -1123,7 +1123,7 @@ define dso_local noundef range(i32 -12, 1) i32 @flow_indr_dev_register(ptr nound
 71:                                               ; preds = %66, %45
   %72 = load ptr, ptr %46, align 8
   %73 = icmp eq ptr %72, @flow_indir_dev_list
-  br i1 %73, label %.loopexit, label %45, !llvm.loop !18
+  br i1 %73, label %.loopexit, label %45, !llvm.loop !15
 
 .loopexit:                                        ; preds = %71, %32
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #13
@@ -1173,13 +1173,13 @@ define dso_local void @flow_indr_dev_unregister(ptr noundef %0, ptr noundef %1, 
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %19 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %18, i32 -1, ptr nonnull elementtype(i32) %18) #13, !srcloc !19
+  %19 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %18, i32 -1, ptr nonnull elementtype(i32) %18) #13, !srcloc !16
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %17
   %22 = icmp sgt i32 %19, 0
-  br i1 %22, label %.thread, label %23, !prof !16
+  br i1 %22, label %.thread, label %23, !prof !13
 
 23:                                               ; preds = %21
   call void @refcount_warn_saturate(ptr noundef nonnull %18, i32 noundef 3) #13
@@ -1187,10 +1187,10 @@ define dso_local void @flow_indr_dev_unregister(ptr noundef %0, ptr noundef %1, 
 
 .thread:                                          ; preds = %21, %23, %13, %.preheader11
   %24 = icmp eq ptr %9, @flow_block_indr_dev_list
-  br i1 %24, label %.thread8, label %.preheader11, !llvm.loop !20
+  br i1 %24, label %.thread8, label %.preheader11, !llvm.loop !17
 
 25:                                               ; preds = %17
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !21
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !18
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %8, align 8
@@ -1241,7 +1241,7 @@ define dso_local void @flow_indr_dev_unregister(ptr noundef %0, ptr noundef %1, 
 
 49:                                               ; preds = %43, %39, %.preheader9
   %50 = icmp eq ptr %35, @flow_block_indr_list
-  br i1 %50, label %.loopexit10, label %.preheader9, !llvm.loop !22
+  br i1 %50, label %.loopexit10, label %.preheader9, !llvm.loop !19
 
 .loopexit10:                                      ; preds = %49, %31
   call void @mutex_unlock(ptr noundef nonnull @flow_indr_block_lock) #13
@@ -1265,7 +1265,7 @@ define dso_local void @flow_indr_dev_unregister(ptr noundef %0, ptr noundef %1, 
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef %55) #13
   %62 = icmp eq ptr %56, %4
-  br i1 %62, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %62, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit10
   call void @kfree(ptr noundef nonnull %8) #13
@@ -1351,7 +1351,7 @@ define dso_local i32 @flow_indr_dev_setup_offload(ptr noundef %0, ptr noundef %1
   %14 = getelementptr i8, ptr %11, i64 -40
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %3
-  br i1 %16, label %17, label %.preheader6, !llvm.loop !24
+  br i1 %16, label %17, label %.preheader6, !llvm.loop !21
 
 17:                                               ; preds = %13
   %18 = getelementptr i8, ptr %11, i64 -40
@@ -1405,7 +1405,7 @@ define dso_local i32 @flow_indr_dev_setup_offload(ptr noundef %0, ptr noundef %1
   %44 = getelementptr i8, ptr %41, i64 -40
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %3
-  br i1 %46, label %47, label %.preheader8, !llvm.loop !25
+  br i1 %46, label %47, label %.preheader8, !llvm.loop !21
 
 47:                                               ; preds = %43
   %48 = getelementptr i8, ptr %41, i64 -40
@@ -1442,7 +1442,7 @@ define dso_local i32 @flow_indr_dev_setup_offload(ptr noundef %0, ptr noundef %1
   %66 = add i32 %58, %65
   %67 = load ptr, ptr %57, align 8
   %68 = icmp eq ptr %67, @flow_block_indr_dev_list
-  br i1 %68, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %68, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %.thread
   %69 = phi i32 [ 0, %.thread ], [ %66, %.preheader ]
@@ -1502,25 +1502,21 @@ attributes #14 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = !{i64 2148892937, i64 2148892976, i64 2148892997, i64 2148893034, i64 2148893057, i64 2148893066}
-!15 = !{!"branch_weights", i32 1, i32 2000}
-!16 = !{!"branch_weights", i32 2000, i32 1}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = !{i64 2148895122, i64 2148895161, i64 2148895182, i64 2148895219, i64 2148895242, i64 2148895251}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = !{i64 2150262182}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !6, !7, !8}
-!24 = distinct !{!24, !6, !7, !8}
-!25 = distinct !{!25, !6, !7, !8}
-!26 = distinct !{!26, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = !{i64 2148892937, i64 2148892976, i64 2148892997, i64 2148893034, i64 2148893057, i64 2148893066}
+!12 = !{!"branch_weights", i32 1, i32 2000}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = !{i64 2148895122, i64 2148895161, i64 2148895182, i64 2148895219, i64 2148895242, i64 2148895251}
+!17 = distinct !{!17, !6, !7}
+!18 = !{i64 2150262182}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}

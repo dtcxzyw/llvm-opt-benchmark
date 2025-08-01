@@ -236,7 +236,7 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
 127:                                              ; preds = %126
   %128 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 0, i64 %indvars.iv205
   %129 = load i8, ptr %128, align 1, !tbaa !65
-  %130 = load i8, ptr %119, align 1, !tbaa !77
+  %130 = load i8, ptr %119, align 1, !tbaa !76
   %.not154 = icmp eq i8 %130, 0
   %131 = select i1 %.not154, i8 %104, i8 0
   %spec.select = add i8 %129, %131
@@ -249,7 +249,7 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   store i8 %narrow, ptr %134, align 1, !tbaa !65
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next206, 4
-  br i1 %exitcond208.not, label %.preheader191, label %126, !llvm.loop !78
+  br i1 %exitcond208.not, label %.preheader191, label %126, !llvm.loop !77
 
 135:                                              ; preds = %.preheader191, %135
   %indvars.iv209 = phi i64 [ 0, %.preheader191 ], [ %indvars.iv.next210, %135 ]
@@ -264,7 +264,7 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   store i8 %141, ptr %142, align 1, !tbaa !65
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %exitcond212.not = icmp eq i64 %indvars.iv.next210, 4
-  br i1 %exitcond212.not, label %143, label %135, !llvm.loop !79
+  br i1 %exitcond212.not, label %143, label %135, !llvm.loop !78
 
 143:                                              ; preds = %135
   %144 = load i8, ptr %42, align 8, !tbaa !40
@@ -292,7 +292,7 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   store i8 %150, ptr %151, align 1, !tbaa !65
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next214, 4
-  br i1 %exitcond216.not, label %.preheader189, label %148, !llvm.loop !80
+  br i1 %exitcond216.not, label %.preheader189, label %148, !llvm.loop !79
 
 152:                                              ; preds = %.preheader189, %152
   %indvars.iv217 = phi i64 [ 0, %.preheader189 ], [ %indvars.iv.next218, %152 ]
@@ -302,7 +302,7 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   store i8 %154, ptr %155, align 1, !tbaa !65
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next218, 3
-  br i1 %exitcond220.not, label %.loopexit, label %152, !llvm.loop !81
+  br i1 %exitcond220.not, label %.loopexit, label %152, !llvm.loop !80
 
 .loopexit:                                        ; preds = %152, %146
   %156 = getelementptr inbounds nuw i8, ptr %8, i64 2498
@@ -323,26 +323,26 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   store i8 %162, ptr %163, align 1, !tbaa !65
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next223, 19
-  br i1 %exitcond225.not, label %164, label %160, !llvm.loop !82
+  br i1 %exitcond225.not, label %164, label %160, !llvm.loop !81
 
 164:                                              ; preds = %160
-  br i1 %157, label %.preheader188, label %165, !llvm.loop !83
+  br i1 %157, label %.preheader188, label %165, !llvm.loop !82
 
 165:                                              ; preds = %164
   %166 = getelementptr inbounds nuw i8, ptr %8, i64 352
-  %167 = load i32, ptr %166, align 8, !tbaa !84
+  %167 = load i32, ptr %166, align 8, !tbaa !83
   %168 = trunc i32 %167 to i8
-  store i8 %168, ptr %.sroa.45.0..sroa_idx, align 4, !tbaa !85
+  store i8 %168, ptr %.sroa.45.0..sroa_idx, align 4, !tbaa !84
   %169 = getelementptr inbounds nuw i8, ptr %8, i64 356
-  %170 = load i32, ptr %169, align 4, !tbaa !88
+  %170 = load i32, ptr %169, align 4, !tbaa !87
   %171 = trunc i32 %170 to i8
   %172 = getelementptr inbounds nuw i8, ptr %4, i64 93
-  store i8 %171, ptr %172, align 1, !tbaa !89
+  store i8 %171, ptr %172, align 1, !tbaa !88
   %173 = getelementptr inbounds nuw i8, ptr %8, i64 360
-  %174 = load i32, ptr %173, align 8, !tbaa !90
+  %174 = load i32, ptr %173, align 8, !tbaa !89
   %175 = trunc i32 %174 to i8
   %176 = getelementptr inbounds nuw i8, ptr %4, i64 94
-  store i8 %175, ptr %176, align 2, !tbaa !91
+  store i8 %175, ptr %176, align 2, !tbaa !90
   %177 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 0, ptr noundef nonnull %4, i64 noundef 112) #6
   %178 = icmp slt i32 %177, 0
   br i1 %178, label %249, label %.preheader187
@@ -373,17 +373,17 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %189, ptr noundef nonnull align 1 dereferenceable(11) %190, i64 11, i1 false)
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next234, 3
-  br i1 %exitcond236.not, label %191, label %188, !llvm.loop !92
+  br i1 %exitcond236.not, label %191, label %188, !llvm.loop !91
 
 191:                                              ; preds = %188
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %exitcond240.not = icmp eq i64 %indvars.iv.next238, 8
-  br i1 %exitcond240.not, label %192, label %182, !llvm.loop !93
+  br i1 %exitcond240.not, label %192, label %182, !llvm.loop !92
 
 192:                                              ; preds = %191
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond244.not = icmp eq i64 %indvars.iv.next242, 4
-  br i1 %exitcond244.not, label %193, label %.preheader186, !llvm.loop !94
+  br i1 %exitcond244.not, label %193, label %.preheader186, !llvm.loop !93
 
 193:                                              ; preds = %192
   %194 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 13, ptr noundef nonnull %5, i64 noundef 1072) #6
@@ -392,18 +392,18 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
 
 .preheader:                                       ; preds = %193
   %196 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %197 = load i8, ptr %119, align 1, !tbaa !77
+  %197 = load i8, ptr %119, align 1, !tbaa !76
   %.not152 = icmp eq i8 %197, 0
   %198 = getelementptr inbounds nuw i8, ptr %8, i64 256
-  %199 = load i32, ptr %198, align 4, !tbaa !95
+  %199 = load i32, ptr %198, align 4, !tbaa !94
   %200 = getelementptr inbounds nuw i8, ptr %8, i64 260
-  %201 = load i32, ptr %200, align 4, !tbaa !96
+  %201 = load i32, ptr %200, align 4, !tbaa !95
   %202 = getelementptr inbounds nuw i8, ptr %8, i64 264
-  %203 = load i32, ptr %202, align 4, !tbaa !97
+  %203 = load i32, ptr %202, align 4, !tbaa !96
   %204 = getelementptr inbounds nuw i8, ptr %8, i64 268
-  %205 = load i32, ptr %204, align 4, !tbaa !98
+  %205 = load i32, ptr %204, align 4, !tbaa !97
   %206 = getelementptr inbounds nuw i8, ptr %8, i64 272
-  %207 = load i32, ptr %206, align 4, !tbaa !99
+  %207 = load i32, ptr %206, align 4, !tbaa !98
   %208 = getelementptr inbounds nuw i8, ptr %8, i64 252
   br label %209
 
@@ -415,7 +415,7 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   br i1 %.not152, label %213, label %216
 
 213:                                              ; preds = %209
-  %214 = load i32, ptr %208, align 4, !tbaa !100
+  %214 = load i32, ptr %208, align 4, !tbaa !99
   %215 = add nsw i32 %214, %212
   br label %216
 
@@ -425,40 +425,40 @@ vaapi_vp8_surface_id.exit185:                     ; preds = %vaapi_vp8_surface_i
   %218 = call i32 @llvm.umin.i32(i32 %217, i32 127)
   %219 = trunc nuw nsw i32 %218 to i16
   %220 = getelementptr inbounds nuw [4 x [6 x i16]], ptr %6, i64 0, i64 %indvars.iv245
-  store i16 %219, ptr %220, align 4, !tbaa !101
+  store i16 %219, ptr %220, align 4, !tbaa !100
   %221 = add nsw i32 %199, %.0
   %222 = call i32 @llvm.smax.i32(i32 %221, i32 0)
   %223 = call i32 @llvm.umin.i32(i32 %222, i32 127)
   %224 = trunc nuw nsw i32 %223 to i16
   %225 = getelementptr inbounds nuw i8, ptr %220, i64 2
-  store i16 %224, ptr %225, align 2, !tbaa !101
+  store i16 %224, ptr %225, align 2, !tbaa !100
   %226 = add nsw i32 %201, %.0
   %227 = call i32 @llvm.smax.i32(i32 %226, i32 0)
   %228 = call i32 @llvm.umin.i32(i32 %227, i32 127)
   %229 = trunc nuw nsw i32 %228 to i16
   %230 = getelementptr inbounds nuw i8, ptr %220, i64 4
-  store i16 %229, ptr %230, align 4, !tbaa !101
+  store i16 %229, ptr %230, align 4, !tbaa !100
   %231 = add nsw i32 %203, %.0
   %232 = call i32 @llvm.smax.i32(i32 %231, i32 0)
   %233 = call i32 @llvm.umin.i32(i32 %232, i32 127)
   %234 = trunc nuw nsw i32 %233 to i16
   %235 = getelementptr inbounds nuw i8, ptr %220, i64 6
-  store i16 %234, ptr %235, align 2, !tbaa !101
+  store i16 %234, ptr %235, align 2, !tbaa !100
   %236 = add nsw i32 %205, %.0
   %237 = call i32 @llvm.smax.i32(i32 %236, i32 0)
   %238 = call i32 @llvm.umin.i32(i32 %237, i32 127)
   %239 = trunc nuw nsw i32 %238 to i16
   %240 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  store i16 %239, ptr %240, align 4, !tbaa !101
+  store i16 %239, ptr %240, align 4, !tbaa !100
   %241 = add nsw i32 %207, %.0
   %242 = call i32 @llvm.smax.i32(i32 %241, i32 0)
   %243 = call i32 @llvm.umin.i32(i32 %242, i32 127)
   %244 = trunc nuw nsw i32 %243 to i16
   %245 = getelementptr inbounds nuw i8, ptr %220, i64 10
-  store i16 %244, ptr %245, align 2, !tbaa !101
+  store i16 %244, ptr %245, align 2, !tbaa !100
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245, 1
   %exitcond248.not = icmp eq i64 %indvars.iv.next246, 4
-  br i1 %exitcond248.not, label %246, label %209, !llvm.loop !102
+  br i1 %exitcond248.not, label %246, label %209, !llvm.loop !101
 
 246:                                              ; preds = %216
   %247 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull %6, i64 noundef 64) #6
@@ -499,18 +499,18 @@ define internal i32 @vaapi_vp8_decode_slice(ptr noundef %0, ptr noundef %1, i32 
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.5.0..sroa_idx, i8 0, i64 55, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 344
-  %20 = load ptr, ptr %19, align 8, !tbaa !103
+  %20 = load ptr, ptr %19, align 8, !tbaa !102
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 360
-  %25 = load i32, ptr %24, align 8, !tbaa !90
+  %25 = load i32, ptr %24, align 8, !tbaa !89
   %.tr = trunc i64 %23 to i32
   %26 = shl i32 %.tr, 3
   %27 = sub i32 %26, %25
   %28 = add i32 %27, -8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 4764
-  %30 = load i32, ptr %29, align 4, !tbaa !104
+  %30 = load i32, ptr %29, align 4, !tbaa !103
   %31 = trunc i32 %30 to i8
   %32 = add i8 %31, 1
   store i32 %18, ptr %4, align 4, !tbaa !73
@@ -521,7 +521,7 @@ define internal i32 @vaapi_vp8_decode_slice(ptr noundef %0, ptr noundef %1, i32 
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 %32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !65
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 368
-  %34 = load i32, ptr %33, align 8, !tbaa !105
+  %34 = load i32, ptr %33, align 8, !tbaa !104
   %35 = add i32 %27, -1
   %36 = lshr i32 %35, 3
   %37 = sub i32 %34, %36
@@ -538,7 +538,7 @@ define internal i32 @vaapi_vp8_decode_slice(ptr noundef %0, ptr noundef %1, i32 
   %43 = getelementptr inbounds nuw [9 x i32], ptr %38, i64 0, i64 %indvars.iv.next
   store i32 %42, ptr %43, align 4, !tbaa !73
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %44, label %40, !llvm.loop !106
+  br i1 %exitcond.not, label %44, label %40, !llvm.loop !105
 
 44:                                               ; preds = %40
   %45 = zext i32 %18 to i64
@@ -686,36 +686,35 @@ attributes #6 = { nounwind }
 !71 = !{!69, !8, i64 5}
 !72 = !{!69, !8, i64 6}
 !73 = !{!10, !10, i64 0}
-!74 = distinct !{!74, !75, !76}
+!74 = distinct !{!74, !75}
 !75 = !{!"llvm.loop.mustprogress"}
-!76 = !{!"llvm.loop.estimated_trip_count"}
-!77 = !{!41, !8, i64 165}
-!78 = distinct !{!78, !75, !76}
-!79 = distinct !{!79, !75, !76}
-!80 = distinct !{!80, !75, !76}
-!81 = distinct !{!81, !75, !76}
-!82 = distinct !{!82, !75, !76}
-!83 = distinct !{!83, !75, !76}
-!84 = !{!41, !10, i64 352}
-!85 = !{!86, !8, i64 92}
-!86 = !{!"_VAPictureParameterBufferVP8", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !8, i64 24, !8, i64 28, !8, i64 31, !8, i64 35, !8, i64 39, !8, i64 43, !8, i64 44, !8, i64 45, !8, i64 46, !8, i64 47, !8, i64 51, !8, i64 54, !87, i64 92, !8, i64 96}
-!87 = !{!"_VABoolCoderContextVPX", !8, i64 0, !8, i64 1, !8, i64 2}
-!88 = !{!41, !10, i64 356}
-!89 = !{!86, !8, i64 93}
-!90 = !{!41, !10, i64 360}
-!91 = !{!86, !8, i64 94}
-!92 = distinct !{!92, !75, !76}
-!93 = distinct !{!93, !75, !76}
-!94 = distinct !{!94, !75, !76}
-!95 = !{!41, !10, i64 256}
-!96 = !{!41, !10, i64 260}
-!97 = !{!41, !10, i64 264}
-!98 = !{!41, !10, i64 268}
-!99 = !{!41, !10, i64 272}
-!100 = !{!41, !10, i64 252}
-!101 = !{!44, !44, i64 0}
-!102 = distinct !{!102, !75, !76}
-!103 = !{!41, !14, i64 344}
-!104 = !{!41, !10, i64 4764}
-!105 = !{!41, !10, i64 368}
-!106 = distinct !{!106, !75, !76}
+!76 = !{!41, !8, i64 165}
+!77 = distinct !{!77, !75}
+!78 = distinct !{!78, !75}
+!79 = distinct !{!79, !75}
+!80 = distinct !{!80, !75}
+!81 = distinct !{!81, !75}
+!82 = distinct !{!82, !75}
+!83 = !{!41, !10, i64 352}
+!84 = !{!85, !8, i64 92}
+!85 = !{!"_VAPictureParameterBufferVP8", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !8, i64 24, !8, i64 28, !8, i64 31, !8, i64 35, !8, i64 39, !8, i64 43, !8, i64 44, !8, i64 45, !8, i64 46, !8, i64 47, !8, i64 51, !8, i64 54, !86, i64 92, !8, i64 96}
+!86 = !{!"_VABoolCoderContextVPX", !8, i64 0, !8, i64 1, !8, i64 2}
+!87 = !{!41, !10, i64 356}
+!88 = !{!85, !8, i64 93}
+!89 = !{!41, !10, i64 360}
+!90 = !{!85, !8, i64 94}
+!91 = distinct !{!91, !75}
+!92 = distinct !{!92, !75}
+!93 = distinct !{!93, !75}
+!94 = !{!41, !10, i64 256}
+!95 = !{!41, !10, i64 260}
+!96 = !{!41, !10, i64 264}
+!97 = !{!41, !10, i64 268}
+!98 = !{!41, !10, i64 272}
+!99 = !{!41, !10, i64 252}
+!100 = !{!44, !44, i64 0}
+!101 = distinct !{!101, !75}
+!102 = !{!41, !14, i64 344}
+!103 = !{!41, !10, i64 4764}
+!104 = !{!41, !10, i64 368}
+!105 = distinct !{!105, !75}

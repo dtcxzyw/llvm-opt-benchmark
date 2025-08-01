@@ -324,7 +324,7 @@ define internal i32 @dissect_msnlb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %indvars.iv.next277 = add nuw nsw i32 %indvars.iv276, 8
   %83 = add nuw nsw i32 %.1246257, 1
   %exitcond279.not = icmp eq i32 %83, 34
-  br i1 %exitcond279.not, label %84, label %80, !llvm.loop !9
+  br i1 %exitcond279.not, label %84, label %80, !llvm.loop !8
 
 84:                                               ; preds = %80
   %85 = load i32, ptr @hf_msnlb_newmap, align 4
@@ -341,7 +341,7 @@ define internal i32 @dissect_msnlb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %indvars.iv.next281 = add nuw nsw i32 %indvars.iv280, 8
   %92 = add nuw nsw i32 %.2247259, 1
   %exitcond283.not = icmp eq i32 %92, 34
-  br i1 %exitcond283.not, label %93, label %89, !llvm.loop !10
+  br i1 %exitcond283.not, label %93, label %89, !llvm.loop !9
 
 93:                                               ; preds = %89
   %94 = load i32, ptr @hf_msnlb_idlemap, align 4
@@ -358,7 +358,7 @@ define internal i32 @dissect_msnlb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %indvars.iv.next285 = add nuw nsw i32 %indvars.iv284, 8
   %101 = add nuw nsw i32 %.3248261, 1
   %exitcond287.not = icmp eq i32 %101, 34
-  br i1 %exitcond287.not, label %102, label %98, !llvm.loop !11
+  br i1 %exitcond287.not, label %102, label %98, !llvm.loop !10
 
 102:                                              ; preds = %98
   %103 = load i32, ptr @hf_msnlb_readymap, align 4
@@ -375,7 +375,7 @@ define internal i32 @dissect_msnlb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %indvars.iv.next289 = add nuw nsw i32 %indvars.iv288, 8
   %110 = add nuw nsw i32 %.4249263, 1
   %exitcond291.not = icmp eq i32 %110, 34
-  br i1 %exitcond291.not, label %111, label %107, !llvm.loop !12
+  br i1 %exitcond291.not, label %111, label %107, !llvm.loop !11
 
 111:                                              ; preds = %107
   %112 = load i32, ptr @hf_msnlb_loadweights, align 4
@@ -392,7 +392,7 @@ define internal i32 @dissect_msnlb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %indvars.iv.next293 = add nuw nsw i32 %indvars.iv292, 4
   %119 = add nuw nsw i32 %.5250265, 1
   %exitcond295.not = icmp eq i32 %119, 34
-  br i1 %exitcond295.not, label %120, label %116, !llvm.loop !13
+  br i1 %exitcond295.not, label %120, label %116, !llvm.loop !12
 
 120:                                              ; preds = %116
   %121 = load i32, ptr @hf_msnlb_reserved2, align 4
@@ -409,7 +409,7 @@ define internal i32 @dissect_msnlb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %indvars.iv.next297 = add nuw nsw i32 %indvars.iv296, 4
   %128 = add nuw nsw i32 %.6251267, 1
   %exitcond299.not = icmp eq i32 %128, 34
-  br i1 %exitcond299.not, label %.loopexit, label %125, !llvm.loop !14
+  br i1 %exitcond299.not, label %.loopexit, label %125, !llvm.loop !13
 
 129:                                              ; preds = %.lr.ph, %209
   %130 = phi i32 [ 20, %.lr.ph ], [ %210, %209 ]
@@ -527,7 +527,7 @@ define internal i32 @dissect_msnlb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %210 = and i32 %.8, 65535
   %211 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %210)
   %212 = icmp sgt i32 %211, 0
-  br i1 %212, label %129, label %.loopexit, !llvm.loop !15
+  br i1 %212, label %129, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %209, %125, %.preheader, %14
   %213 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -607,13 +607,12 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

@@ -101,7 +101,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_avif(ptr noundef %0, ptr noundef %1,
 .critedge3:                                       ; preds = %.lr.ph, %30
   %33 = add nuw i64 %.0128162, 1
   %exitcond.not = icmp eq i64 %33, %27
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !71
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %30, %.critedge3, %.preheader161
   %.0128.lcssa = phi i64 [ 0, %.preheader161 ], [ %27, %.critedge3 ], [ %.0128162, %30 ]
@@ -113,14 +113,14 @@ define range(i32 0, 9) i32 @dt_imageio_open_avif(ptr noundef %0, ptr noundef %1,
 
 38:                                               ; preds = %23, %.critedge, %21
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %40 = load i32, ptr %39, align 8, !tbaa !73
+  %40 = load i32, ptr %39, align 8, !tbaa !71
   %41 = and i32 %40, 4
   %.not147 = icmp eq i32 %41, 0
   br i1 %.not147, label %45, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 164
-  %44 = load i8, ptr %43, align 4, !tbaa !79
+  %44 = load i8, ptr %43, align 4, !tbaa !77
   br label %45
 
 45:                                               ; preds = %38, %42
@@ -131,7 +131,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_avif(ptr noundef %0, ptr noundef %1,
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 165
-  %49 = load i8, ptr %48, align 1, !tbaa !80
+  %49 = load i8, ptr %48, align 1, !tbaa !78
   %50 = zext i8 %49 to i32
   br label %51
 
@@ -168,10 +168,10 @@ define range(i32 0, 9) i32 @dt_imageio_open_avif(ptr noundef %0, ptr noundef %1,
 dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
   %.0.i = phi i32 [ %switch.select15.i, %53 ], [ %switch.select19.i, %54 ], [ %switch.select23.i, %55 ], [ %switch.select27.i, %56 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.0.i, ptr %57, align 4, !tbaa !81
+  store i32 %.0.i, ptr %57, align 4, !tbaa !79
   call void @avifRGBImageSetDefaults(ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 0, ptr %58, align 4, !tbaa !82
+  store i32 0, ptr %58, align 4, !tbaa !80
   call void @avifRGBImageAllocatePixels(ptr noundef nonnull %4) #6
   %59 = call i32 @avifImageYUVToRGB(ptr noundef nonnull %5, ptr noundef nonnull %4) #6
   %.not149 = icmp eq i32 %59, 0
@@ -189,23 +189,23 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
   br label %171
 
 65:                                               ; preds = %dt_image_transformation_to_flip_bits.exit
-  %66 = load i32, ptr %4, align 8, !tbaa !84
+  %66 = load i32, ptr %4, align 8, !tbaa !82
   %67 = zext i32 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %69 = load i32, ptr %68, align 4, !tbaa !85
+  %69 = load i32, ptr %68, align 4, !tbaa !83
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %72 = load i32, ptr %71, align 8, !tbaa !86
+  %72 = load i32, ptr %71, align 8, !tbaa !84
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 1372
-  store i32 %66, ptr %73, align 4, !tbaa !87
+  store i32 %66, ptr %73, align 4, !tbaa !85
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 1376
-  store i32 %69, ptr %74, align 16, !tbaa !88
+  store i32 %69, ptr %74, align 16, !tbaa !86
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1488
-  store i32 4, ptr %75, align 16, !tbaa !89
+  store i32 4, ptr %75, align 16, !tbaa !87
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1492
-  store i32 1, ptr %76, align 4, !tbaa !90
+  store i32 1, ptr %76, align 4, !tbaa !88
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  store i32 2, ptr %77, align 16, !tbaa !91
+  store i32 2, ptr %77, align 16, !tbaa !89
   %78 = call ptr @dt_mipmap_cache_alloc(ptr noundef %2, ptr noundef nonnull %0) #6
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %84
@@ -222,19 +222,19 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
 
 84:                                               ; preds = %65
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  store i32 0, ptr %85, align 8, !tbaa !92
+  store i32 0, ptr %85, align 8, !tbaa !90
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  %87 = load i32, ptr %86, align 4, !tbaa !93
+  %87 = load i32, ptr %86, align 4, !tbaa !91
   %88 = and i32 %87, -131137
-  store i32 %88, ptr %86, align 4, !tbaa !93
+  store i32 %88, ptr %86, align 4, !tbaa !91
   %notmask = shl nsw i32 -1, %72
   %89 = xor i32 %notmask, -1
   %90 = uitofp nneg i32 %89 to float
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %92 = load i32, ptr %91, align 8, !tbaa !94
+  %92 = load i32, ptr %91, align 8, !tbaa !92
   %93 = zext i32 %92 to i64
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %95 = load ptr, ptr %94, align 8, !tbaa !95
+  %95 = load ptr, ptr %94, align 8, !tbaa !93
   switch i32 %72, label %152 [
     i32 12, label %96
     i32 10, label %96
@@ -244,7 +244,7 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
 96:                                               ; preds = %84, %84
   %97 = and i32 %87, -131297
   %98 = or disjoint i32 %97, 128
-  store i32 %98, ptr %86, align 4, !tbaa !93
+  store i32 %98, ptr %86, align 4, !tbaa !91
   %.not175 = icmp eq i32 %69, 0
   br i1 %.not175, label %.loopexit, label %.preheader.lr.ph
 
@@ -267,37 +267,37 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
   %106 = add nuw i64 %.0132168.us, %102
   %.idx153.us = shl i64 %106, 4
   %107 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx153.us
-  %108 = load i16, ptr %105, align 2, !tbaa !96
+  %108 = load i16, ptr %105, align 2, !tbaa !94
   %109 = uitofp i16 %108 to float
   %110 = fmul reassoc nsz arcp contract afn float %99, %109
-  store float %110, ptr %107, align 4, !tbaa !97
+  store float %110, ptr %107, align 4, !tbaa !95
   %111 = getelementptr inbounds nuw i8, ptr %105, i64 2
-  %112 = load i16, ptr %111, align 2, !tbaa !96
+  %112 = load i16, ptr %111, align 2, !tbaa !94
   %113 = uitofp i16 %112 to float
   %114 = fmul reassoc nsz arcp contract afn float %99, %113
   %115 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  store float %114, ptr %115, align 4, !tbaa !97
+  store float %114, ptr %115, align 4, !tbaa !95
   %116 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %117 = load i16, ptr %116, align 2, !tbaa !96
+  %117 = load i16, ptr %116, align 2, !tbaa !94
   %118 = uitofp i16 %117 to float
   %119 = fmul reassoc nsz arcp contract afn float %99, %118
   %120 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store float %119, ptr %120, align 4, !tbaa !97
+  store float %119, ptr %120, align 4, !tbaa !95
   %121 = getelementptr inbounds nuw i8, ptr %107, i64 12
-  store float 0.000000e+00, ptr %121, align 4, !tbaa !97
+  store float 0.000000e+00, ptr %121, align 4, !tbaa !95
   %122 = add nuw nsw i64 %.0132168.us, 1
   %exitcond182.not = icmp eq i64 %122, %67
-  br i1 %exitcond182.not, label %._crit_edge.us171, label %103, !llvm.loop !98
+  br i1 %exitcond182.not, label %._crit_edge.us171, label %103
 
 ._crit_edge.us171:                                ; preds = %103
   %123 = add nuw nsw i64 %.0131170.us, 1
   %exitcond183.not = icmp eq i64 %123, %70
-  br i1 %exitcond183.not, label %.loopexit, label %.preheader.us, !llvm.loop !99
+  br i1 %exitcond183.not, label %.loopexit, label %.preheader.us, !llvm.loop !96
 
 124:                                              ; preds = %84
   %125 = and i32 %87, -131297
   %126 = or disjoint i32 %125, 32
-  store i32 %126, ptr %86, align 4, !tbaa !93
+  store i32 %126, ptr %86, align 4, !tbaa !91
   %.not173 = icmp eq i32 %69, 0
   br i1 %.not173, label %.loopexit, label %.preheader159.lr.ph
 
@@ -323,29 +323,29 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
   %136 = load i8, ptr %133, align 1, !tbaa !70
   %137 = uitofp i8 %136 to float
   %138 = fmul reassoc nsz arcp contract afn float %127, %137
-  store float %138, ptr %135, align 4, !tbaa !97
+  store float %138, ptr %135, align 4, !tbaa !95
   %139 = getelementptr inbounds nuw i8, ptr %133, i64 1
   %140 = load i8, ptr %139, align 1, !tbaa !70
   %141 = uitofp i8 %140 to float
   %142 = fmul reassoc nsz arcp contract afn float %127, %141
   %143 = getelementptr inbounds nuw i8, ptr %135, i64 4
-  store float %142, ptr %143, align 4, !tbaa !97
+  store float %142, ptr %143, align 4, !tbaa !95
   %144 = getelementptr inbounds nuw i8, ptr %133, i64 2
   %145 = load i8, ptr %144, align 1, !tbaa !70
   %146 = uitofp i8 %145 to float
   %147 = fmul reassoc nsz arcp contract afn float %127, %146
   %148 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store float %147, ptr %148, align 4, !tbaa !97
+  store float %147, ptr %148, align 4, !tbaa !95
   %149 = getelementptr inbounds nuw i8, ptr %135, i64 12
-  store float 0.000000e+00, ptr %149, align 4, !tbaa !97
+  store float 0.000000e+00, ptr %149, align 4, !tbaa !95
   %150 = add nuw nsw i64 %.0129165.us, 1
   %exitcond180.not = icmp eq i64 %150, %67
-  br i1 %exitcond180.not, label %._crit_edge.us, label %131, !llvm.loop !101
+  br i1 %exitcond180.not, label %._crit_edge.us, label %131
 
 ._crit_edge.us:                                   ; preds = %131
   %151 = add nuw nsw i64 %.0130167.us, 1
   %exitcond181.not = icmp eq i64 %151, %70
-  br i1 %exitcond181.not, label %.loopexit, label %.preheader159.us, !llvm.loop !102
+  br i1 %exitcond181.not, label %.loopexit, label %.preheader159.us, !llvm.loop !98
 
 152:                                              ; preds = %84
   %153 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
@@ -372,7 +372,7 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
 161:                                              ; preds = %159
   %162 = call noalias ptr @g_try_malloc0(i64 noundef %158) #7
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  store ptr %162, ptr %163, align 8, !tbaa !103
+  store ptr %162, ptr %163, align 8, !tbaa !99
   %.not152 = icmp eq ptr %162, null
   br i1 %.not152, label %169, label %164
 
@@ -382,12 +382,12 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %162, ptr align 1 %165, i64 %166, i1 false)
   %167 = trunc i64 %166 to i32
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  store i32 %167, ptr %168, align 16, !tbaa !104
+  store i32 %167, ptr %168, align 16, !tbaa !100
   br label %169
 
 169:                                              ; preds = %161, %164, %159, %.loopexit
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store i32 11, ptr %170, align 16, !tbaa !105
+  store i32 11, ptr %170, align 16, !tbaa !101
   br label %171
 
 171:                                              ; preds = %152, %155, %80, %83, %60, %63, %16, %19, %9, %12, %169
@@ -442,12 +442,12 @@ declare void @avifRGBImageFreePixels(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @dt_imageio_avif_read_profile(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) local_unnamed_addr #0 {
-  store ptr null, ptr %1, align 8, !tbaa !106
-  store i32 2, ptr %2, align 4, !tbaa !107
+  store ptr null, ptr %1, align 8, !tbaa !102
+  store i32 2, ptr %2, align 4, !tbaa !103
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 2, ptr %4, align 4, !tbaa !109
+  store i32 2, ptr %4, align 4, !tbaa !105
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 2, ptr %5, align 4, !tbaa !110
+  store i32 2, ptr %5, align 4, !tbaa !106
   %6 = tail call ptr @avifDecoderCreate() #6
   %7 = tail call ptr @avifImageCreateEmpty() #6
   %8 = icmp eq ptr %6, null
@@ -495,7 +495,7 @@ define i32 @dt_imageio_avif_read_profile(ptr noundef %0, ptr noundef writeonly c
 
 27:                                               ; preds = %25
   %28 = tail call noalias ptr @g_try_malloc0(i64 noundef %24) #7
-  store ptr %28, ptr %1, align 8, !tbaa !106
+  store ptr %28, ptr %1, align 8, !tbaa !102
   %.not52 = icmp eq ptr %28, null
   br i1 %.not52, label %49, label %29
 
@@ -508,17 +508,17 @@ define i32 @dt_imageio_avif_read_profile(ptr noundef %0, ptr noundef writeonly c
 
 33:                                               ; preds = %25, %21
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %35 = load i16, ptr %34, align 8, !tbaa !111
+  %35 = load i16, ptr %34, align 8, !tbaa !107
   %36 = zext i16 %35 to i32
-  store i32 %36, ptr %2, align 4, !tbaa !107
+  store i32 %36, ptr %2, align 4, !tbaa !103
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 114
-  %38 = load i16, ptr %37, align 2, !tbaa !112
+  %38 = load i16, ptr %37, align 2, !tbaa !108
   %39 = zext i16 %38 to i32
-  store i32 %39, ptr %4, align 4, !tbaa !109
+  store i32 %39, ptr %4, align 4, !tbaa !105
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 116
-  %41 = load i16, ptr %40, align 4, !tbaa !113
+  %41 = load i16, ptr %40, align 4, !tbaa !109
   %42 = zext i16 %41 to i32
-  store i32 %42, ptr %5, align 4, !tbaa !110
+  store i32 %42, ptr %5, align 4, !tbaa !106
   %43 = icmp eq i16 %35, 1
   %44 = icmp eq i16 %38, 4
   %or.cond55 = select i1 %43, i1 %44, i1 false
@@ -527,7 +527,7 @@ define i32 @dt_imageio_avif_read_profile(ptr noundef %0, ptr noundef writeonly c
   br i1 %or.cond56, label %.critedge, label %49
 
 .critedge:                                        ; preds = %33
-  store i32 1, ptr %4, align 4, !tbaa !109
+  store i32 1, ptr %4, align 4, !tbaa !105
   %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !6
   %47 = and i32 %46, 262144
   %.not51 = icmp eq i32 %47, 0
@@ -626,46 +626,42 @@ attributes #7 = { nounwind allocsize(0) }
 !68 = !{!"avifRWData", !38, i64 0, !44, i64 8}
 !69 = !{!68, !38, i64 0}
 !70 = !{!10, !10, i64 0}
-!71 = distinct !{!71, !72}
-!72 = !{!"llvm.loop.estimated_trip_count"}
-!73 = !{!74, !9, i64 120}
-!74 = !{!"avifImage", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !10, i64 24, !10, i64 48, !9, i64 60, !9, i64 64, !38, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !68, i64 96, !61, i64 112, !61, i64 114, !61, i64 116, !9, i64 120, !75, i64 124, !76, i64 132, !77, i64 164, !78, i64 165, !68, i64 168, !68, i64 184}
-!75 = !{!"avifPixelAspectRatioBox", !9, i64 0, !9, i64 4}
-!76 = !{!"avifCleanApertureBox", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28}
-!77 = !{!"avifImageRotation", !10, i64 0}
-!78 = !{!"avifImageMirror", !10, i64 0}
-!79 = !{!74, !10, i64 164}
-!80 = !{!74, !10, i64 165}
-!81 = !{!57, !9, i64 4}
-!82 = !{!83, !9, i64 12}
-!83 = !{!"avifRGBImage", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !38, i64 32, !9, i64 40}
-!84 = !{!83, !9, i64 0}
-!85 = !{!83, !9, i64 4}
-!86 = !{!83, !9, i64 8}
-!87 = !{!57, !9, i64 1372}
-!88 = !{!57, !9, i64 1376}
-!89 = !{!57, !9, i64 1488}
-!90 = !{!57, !9, i64 1492}
-!91 = !{!57, !9, i64 1600}
-!92 = !{!57, !9, i64 1496}
-!93 = !{!57, !9, i64 1420}
-!94 = !{!83, !9, i64 40}
-!95 = !{!83, !38, i64 32}
-!96 = !{!61, !61, i64 0}
-!97 = !{!58, !58, i64 0}
-!98 = distinct !{!98, !72}
-!99 = distinct !{!99, !72, !100}
-!100 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!101 = distinct !{!101, !72}
-!102 = distinct !{!102, !72, !100}
-!103 = !{!57, !38, i64 1656}
-!104 = !{!57, !9, i64 1664}
-!105 = !{!57, !9, i64 1472}
-!106 = !{!38, !38, i64 0}
-!107 = !{!108, !9, i64 0}
-!108 = !{!"dt_colorspaces_cicp_t", !9, i64 0, !9, i64 4, !9, i64 8}
-!109 = !{!108, !9, i64 4}
-!110 = !{!108, !9, i64 8}
-!111 = !{!74, !61, i64 112}
-!112 = !{!74, !61, i64 114}
-!113 = !{!74, !61, i64 116}
+!71 = !{!72, !9, i64 120}
+!72 = !{!"avifImage", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !10, i64 24, !10, i64 48, !9, i64 60, !9, i64 64, !38, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !68, i64 96, !61, i64 112, !61, i64 114, !61, i64 116, !9, i64 120, !73, i64 124, !74, i64 132, !75, i64 164, !76, i64 165, !68, i64 168, !68, i64 184}
+!73 = !{!"avifPixelAspectRatioBox", !9, i64 0, !9, i64 4}
+!74 = !{!"avifCleanApertureBox", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28}
+!75 = !{!"avifImageRotation", !10, i64 0}
+!76 = !{!"avifImageMirror", !10, i64 0}
+!77 = !{!72, !10, i64 164}
+!78 = !{!72, !10, i64 165}
+!79 = !{!57, !9, i64 4}
+!80 = !{!81, !9, i64 12}
+!81 = !{!"avifRGBImage", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !38, i64 32, !9, i64 40}
+!82 = !{!81, !9, i64 0}
+!83 = !{!81, !9, i64 4}
+!84 = !{!81, !9, i64 8}
+!85 = !{!57, !9, i64 1372}
+!86 = !{!57, !9, i64 1376}
+!87 = !{!57, !9, i64 1488}
+!88 = !{!57, !9, i64 1492}
+!89 = !{!57, !9, i64 1600}
+!90 = !{!57, !9, i64 1496}
+!91 = !{!57, !9, i64 1420}
+!92 = !{!81, !9, i64 40}
+!93 = !{!81, !38, i64 32}
+!94 = !{!61, !61, i64 0}
+!95 = !{!58, !58, i64 0}
+!96 = distinct !{!96, !97}
+!97 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!98 = distinct !{!98, !97}
+!99 = !{!57, !38, i64 1656}
+!100 = !{!57, !9, i64 1664}
+!101 = !{!57, !9, i64 1472}
+!102 = !{!38, !38, i64 0}
+!103 = !{!104, !9, i64 0}
+!104 = !{!"dt_colorspaces_cicp_t", !9, i64 0, !9, i64 4, !9, i64 8}
+!105 = !{!104, !9, i64 4}
+!106 = !{!104, !9, i64 8}
+!107 = !{!72, !61, i64 112}
+!108 = !{!72, !61, i64 114}
+!109 = !{!72, !61, i64 116}

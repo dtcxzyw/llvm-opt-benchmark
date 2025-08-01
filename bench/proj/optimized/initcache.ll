@@ -55,25 +55,25 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z18pj_clear_initcachev() local_unnamed_addr #4 {
-  %1 = load i32, ptr @_ZL11cache_alloc, align 4, !tbaa !12
+  %1 = load i32, ptr @_ZL11cache_alloc, align 4, !tbaa !11
   %2 = icmp sgt i32 %1, 0
   br i1 %2, label %3, label %19
 
 3:                                                ; preds = %0
   tail call void @_Z15pj_acquire_lockv()
-  %4 = load i32, ptr @_ZL11cache_count, align 4, !tbaa !12
+  %4 = load i32, ptr @_ZL11cache_count, align 4, !tbaa !11
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph12, label %._crit_edge13
 
 .lr.ph12:                                         ; preds = %3, %._crit_edge
   %6 = phi i32 [ %14, %._crit_edge ], [ %4, %3 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %3 ]
-  %7 = load ptr, ptr @_ZL14cache_paralist, align 8, !tbaa !14
+  %7 = load ptr, ptr @_ZL14cache_paralist, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !6
-  %10 = load ptr, ptr @_ZL9cache_key, align 8, !tbaa !17
+  %10 = load ptr, ptr @_ZL9cache_key, align 8, !tbaa !16
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !19
+  %12 = load ptr, ptr %11, align 8, !tbaa !18
   tail call void @free(ptr noundef %12) #10
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -83,10 +83,10 @@ define hidden void @_Z18pj_clear_initcachev() local_unnamed_addr #4 {
   %13 = load ptr, ptr %.09, align 8, !tbaa !6
   tail call void @free(ptr noundef nonnull %.09) #10
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i32, ptr @_ZL11cache_count, align 4, !tbaa !12
+  %.pre = load i32, ptr @_ZL11cache_count, align 4, !tbaa !11
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph12
@@ -94,17 +94,17 @@ define hidden void @_Z18pj_clear_initcachev() local_unnamed_addr #4 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph12, label %._crit_edge13, !llvm.loop !22
+  br i1 %16, label %.lr.ph12, label %._crit_edge13, !llvm.loop !21
 
 ._crit_edge13:                                    ; preds = %._crit_edge, %3
-  %17 = load ptr, ptr @_ZL9cache_key, align 8, !tbaa !17
+  %17 = load ptr, ptr @_ZL9cache_key, align 8, !tbaa !16
   tail call void @free(ptr noundef %17) #10
-  %18 = load ptr, ptr @_ZL14cache_paralist, align 8, !tbaa !14
+  %18 = load ptr, ptr @_ZL14cache_paralist, align 8, !tbaa !13
   tail call void @free(ptr noundef %18) #10
-  store i32 0, ptr @_ZL11cache_count, align 4, !tbaa !12
-  store i32 0, ptr @_ZL11cache_alloc, align 4, !tbaa !12
-  store ptr null, ptr @_ZL9cache_key, align 8, !tbaa !17
-  store ptr null, ptr @_ZL14cache_paralist, align 8, !tbaa !14
+  store i32 0, ptr @_ZL11cache_count, align 4, !tbaa !11
+  store i32 0, ptr @_ZL11cache_alloc, align 4, !tbaa !11
+  store ptr null, ptr @_ZL9cache_key, align 8, !tbaa !16
+  store ptr null, ptr @_ZL14cache_paralist, align 8, !tbaa !13
   tail call void @_Z15pj_release_lockv()
   br label %19
 
@@ -127,7 +127,7 @@ define hidden noundef ptr @_Z19pj_search_initcachePKc(ptr noundef readonly captu
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %4 = load ptr, ptr @_ZL9cache_key, align 8, !tbaa !17
+  %4 = load ptr, ptr @_ZL9cache_key, align 8, !tbaa !16
   %5 = load ptr, ptr @_ZL14cache_paralist, align 8
   %6 = zext nneg i32 %2 to i64
   br label %7
@@ -135,7 +135,7 @@ define hidden noundef ptr @_Z19pj_search_initcachePKc(ptr noundef readonly captu
 7:                                                ; preds = %.lr.ph, %_Z17pj_clone_paralistPK8ARG_list.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z17pj_clone_paralistPK8ARG_list.exit ]
   %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %9) #8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %_Z17pj_clone_paralistPK8ARG_list.exit
@@ -178,7 +178,7 @@ _Z17pj_clone_paralistPK8ARG_list.exit:            ; preds = %23, %12, %7
   %25 = icmp eq ptr %.1, null
   %26 = icmp samesign ult i64 %indvars.iv.next, %6
   %27 = select i1 %25, i1 %26, i1 false
-  br i1 %27, label %7, label %._crit_edge, !llvm.loop !23
+  br i1 %27, label %7, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_Z17pj_clone_paralistPK8ARG_list.exit, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.1, %_Z17pj_clone_paralistPK8ARG_list.exit ]
@@ -192,16 +192,16 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z19pj_insert_initcachePKcPK8ARG_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
   tail call void @_Z15pj_acquire_lockv()
-  %3 = load i32, ptr @_ZL11cache_count, align 4, !tbaa !12
-  %4 = load i32, ptr @_ZL11cache_alloc, align 4, !tbaa !12
+  %3 = load i32, ptr @_ZL11cache_count, align 4, !tbaa !11
+  %4 = load i32, ptr @_ZL11cache_alloc, align 4, !tbaa !11
   %5 = icmp eq i32 %3, %4
-  %.pre = load ptr, ptr @_ZL9cache_key, align 8, !tbaa !17
+  %.pre = load ptr, ptr @_ZL9cache_key, align 8, !tbaa !16
   br i1 %5, label %6, label %25
 
 6:                                                ; preds = %2
   %7 = shl nsw i32 %3, 1
   %8 = add nsw i32 %7, 15
-  store i32 %8, ptr @_ZL11cache_alloc, align 4, !tbaa !12
+  store i32 %8, ptr @_ZL11cache_alloc, align 4, !tbaa !11
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 3
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #9
@@ -218,9 +218,9 @@ define hidden void @_Z19pj_insert_initcachePKcPK8ARG_list(ptr noundef readonly c
 
 17:                                               ; preds = %14, %6
   tail call void @free(ptr noundef %.pre) #10
-  store ptr %11, ptr @_ZL9cache_key, align 8, !tbaa !17
+  store ptr %11, ptr @_ZL9cache_key, align 8, !tbaa !16
   %18 = tail call noalias ptr @malloc(i64 noundef %10) #9
-  %19 = load ptr, ptr @_ZL14cache_paralist, align 8, !tbaa !14
+  %19 = load ptr, ptr @_ZL14cache_paralist, align 8, !tbaa !13
   %20 = icmp ne ptr %19, null
   %or.cond3 = and i1 %13, %20
   br i1 %or.cond3, label %21, label %24
@@ -233,7 +233,7 @@ define hidden void @_Z19pj_insert_initcachePKcPK8ARG_list(ptr noundef readonly c
 
 24:                                               ; preds = %21, %17
   tail call void @free(ptr noundef %19) #10
-  store ptr %18, ptr @_ZL14cache_paralist, align 8, !tbaa !14
+  store ptr %18, ptr @_ZL14cache_paralist, align 8, !tbaa !13
   br label %25
 
 25:                                               ; preds = %24, %2
@@ -243,7 +243,7 @@ define hidden void @_Z19pj_insert_initcachePKcPK8ARG_list(ptr noundef readonly c
   %29 = tail call noalias ptr @malloc(i64 noundef %28) #9
   %30 = sext i32 %3 to i64
   %31 = getelementptr inbounds ptr, ptr %26, i64 %30
-  store ptr %29, ptr %31, align 8, !tbaa !19
+  store ptr %29, ptr %31, align 8, !tbaa !18
   %32 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) %0) #10
   %.not16.i = icmp eq ptr %1, null
   br i1 %.not16.i, label %_Z17pj_clone_paralistPK8ARG_list.exit, label %.lr.ph.i
@@ -276,11 +276,11 @@ define hidden void @_Z19pj_insert_initcachePKcPK8ARG_list(ptr noundef readonly c
 
 _Z17pj_clone_paralistPK8ARG_list.exit:            ; preds = %41, %25
   %.014.lcssa.i = phi ptr [ null, %25 ], [ %.1.i, %41 ]
-  %43 = load ptr, ptr @_ZL14cache_paralist, align 8, !tbaa !14
+  %43 = load ptr, ptr @_ZL14cache_paralist, align 8, !tbaa !13
   %44 = getelementptr inbounds ptr, ptr %43, i64 %30
   store ptr %.014.lcssa.i, ptr %44, align 8, !tbaa !6
   %45 = add nsw i32 %3, 1
-  store i32 %45, ptr @_ZL11cache_count, align 4, !tbaa !12
+  store i32 %45, ptr @_ZL11cache_count, align 4, !tbaa !11
   tail call void @_Z15pj_release_lockv()
   ret void
 }
@@ -311,18 +311,17 @@ attributes #10 = { nounwind }
 !6 = !{!7, !7, i64 0}
 !7 = !{!"p1 _ZTS8ARG_list", !8, i64 0}
 !8 = !{!"any pointer", !4, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !4, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p2 _ZTS8ARG_list", !16, i64 0}
-!16 = !{!"any p2 pointer", !8, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p2 omnipotent char", !16, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 omnipotent char", !8, i64 0}
-!21 = distinct !{!21, !10, !11}
-!22 = distinct !{!22, !10, !11}
-!23 = distinct !{!23, !10, !11}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !4, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p2 _ZTS8ARG_list", !15, i64 0}
+!15 = !{!"any p2 pointer", !8, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p2 omnipotent char", !15, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 omnipotent char", !8, i64 0}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}

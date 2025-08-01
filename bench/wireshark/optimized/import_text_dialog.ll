@@ -998,7 +998,7 @@ _ZN7QStringD2Ev.exit134:                          ; preds = %222, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %260, label %205, !llvm.loop !9
+  br i1 %exitcond.not, label %260, label %205, !llvm.loop !8
 
 227:                                              ; preds = %160
   %228 = landingpad { ptr, i32 }
@@ -1292,7 +1292,7 @@ _ZN7QStringD2Ev.exit164:                          ; preds = %310, %_ZN17QArrayDa
 
 312:                                              ; preds = %281, %_ZN7QStringD2Ev.exit160, %275, %278
   %313 = add nsw i32 %.047, 1
-  br label %269, !llvm.loop !10
+  br label %269, !llvm.loop !9
 
 314:                                              ; preds = %271
   %315 = load ptr, ptr %29, align 8
@@ -1408,7 +1408,7 @@ _ZN7QStringD2Ev.exit178:                          ; preds = %349, %_ZN17QArrayDa
   %354 = getelementptr inbounds nuw i8, ptr %.027191, i64 8
   %355 = load ptr, ptr %354, align 8
   %.not = icmp eq ptr %355, null
-  br i1 %.not, label %._crit_edge, label %335, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %335, !llvm.loop !10
 
 356:                                              ; preds = %_ZN7QStringD2Ev.exit.i167
   %357 = landingpad { ptr, i32 }
@@ -1475,62 +1475,62 @@ _ZN7QStringD2Ev.exit182:                          ; preds = %365, %_ZN17QArrayDa
           to label %377 unwind label %333
 
 377:                                              ; preds = %376
-  %378 = load i8, ptr %35, align 8, !range !12, !noundef !13
+  %378 = load i8, ptr %35, align 8, !range !11, !noundef !12
   %379 = trunc nuw i8 %378 to i1
   br i1 %379, label %380, label %.thread.i
 
 380:                                              ; preds = %377
-  %381 = load i8, ptr %36, align 1, !range !12, !noundef !13
+  %381 = load i8, ptr %36, align 1, !range !11, !noundef !12
   %382 = trunc nuw i8 %381 to i1
   br i1 %382, label %383, label %.thread.i
 
 383:                                              ; preds = %380
-  %384 = load i8, ptr %41, align 1, !range !12, !noundef !13
+  %384 = load i8, ptr %41, align 1, !range !11, !noundef !12
   %385 = trunc nuw i8 %384 to i1
   br i1 %385, label %386, label %.thread.i
 
 386:                                              ; preds = %383
-  %387 = load i8, ptr %42, align 8, !range !12, !noundef !13
+  %387 = load i8, ptr %42, align 8, !range !11, !noundef !12
   %388 = trunc nuw i8 %387 to i1
   br i1 %388, label %389, label %.thread.i
 
 389:                                              ; preds = %386
-  %390 = load i8, ptr %43, align 1, !range !12, !noundef !13
+  %390 = load i8, ptr %43, align 1, !range !11, !noundef !12
   %391 = trunc nuw i8 %390 to i1
   br i1 %391, label %392, label %.thread.i
 
 392:                                              ; preds = %389
-  %393 = load i8, ptr %44, align 2, !range !12, !noundef !13
+  %393 = load i8, ptr %44, align 2, !range !11, !noundef !12
   %394 = trunc nuw i8 %393 to i1
   br i1 %394, label %395, label %.thread.i
 
 395:                                              ; preds = %392
-  %396 = load i8, ptr %45, align 1, !range !12, !noundef !13
+  %396 = load i8, ptr %45, align 1, !range !11, !noundef !12
   %397 = trunc nuw i8 %396 to i1
   br i1 %397, label %398, label %.thread.i
 
 398:                                              ; preds = %395
-  %399 = load i8, ptr %46, align 4, !range !12, !noundef !13
+  %399 = load i8, ptr %46, align 4, !range !11, !noundef !12
   %400 = trunc nuw i8 %399 to i1
   br i1 %400, label %401, label %.thread.i
 
 401:                                              ; preds = %398
-  %402 = load i8, ptr %47, align 1, !range !12, !noundef !13
+  %402 = load i8, ptr %47, align 1, !range !11, !noundef !12
   %403 = trunc nuw i8 %402 to i1
   br i1 %403, label %404, label %.thread.i
 
 404:                                              ; preds = %401
-  %405 = load i8, ptr %48, align 2, !range !12, !noundef !13
+  %405 = load i8, ptr %48, align 2, !range !11, !noundef !12
   %406 = trunc nuw i8 %405 to i1
   br i1 %406, label %407, label %.thread.i
 
 407:                                              ; preds = %404
-  %408 = load i8, ptr %49, align 1, !range !12, !noundef !13
+  %408 = load i8, ptr %49, align 1, !range !11, !noundef !12
   %409 = trunc nuw i8 %408 to i1
   br i1 %409, label %410, label %.thread.i
 
 410:                                              ; preds = %407
-  %411 = load i8, ptr %50, align 8, !range !12, !noundef !13
+  %411 = load i8, ptr %50, align 8, !range !11, !noundef !12
   %412 = trunc nuw i8 %411 to i1
   br i1 %412, label %413, label %.thread.i
 
@@ -1543,22 +1543,22 @@ _ZN7QStringD2Ev.exit182:                          ; preds = %365, %_ZN17QArrayDa
   ]
 
 416:                                              ; preds = %413
-  %417 = load i8, ptr %37, align 2, !range !12, !noundef !13
+  %417 = load i8, ptr %37, align 2, !range !11, !noundef !12
   %418 = trunc nuw i8 %417 to i1
   br i1 %418, label %419, label %.thread.i
 
 419:                                              ; preds = %416
-  %420 = load i8, ptr %38, align 1, !range !12, !noundef !13
+  %420 = load i8, ptr %38, align 1, !range !11, !noundef !12
   %421 = trunc nuw i8 %420 to i1
   br i1 %421, label %422, label %428
 
 422:                                              ; preds = %419
-  %423 = load i8, ptr %39, align 4, !range !12, !noundef !13
+  %423 = load i8, ptr %39, align 4, !range !11, !noundef !12
   %424 = trunc nuw i8 %423 to i1
   br i1 %424, label %425, label %.thread.i
 
 425:                                              ; preds = %422
-  %426 = load i8, ptr %40, align 1, !range !12, !noundef !13
+  %426 = load i8, ptr %40, align 1, !range !11, !noundef !12
   %427 = trunc nuw i8 %426 to i1
   br i1 %427, label %428, label %.thread.i
 
@@ -5677,23 +5677,23 @@ _ZN7QStringD2Ev.exit801:                          ; preds = %1443, %_ZN17QArrayD
   %1456 = load ptr, ptr %1441, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store i64 ptrtoint (ptr @_ZN16QDialogButtonBox8acceptedEv to i64), ptr %5, align 8, !noalias !14
+  store i64 ptrtoint (ptr @_ZN16QDialogButtonBox8acceptedEv to i64), ptr %5, align 8, !noalias !13
   %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !14
-  store i64 441, ptr %6, align 8, !noalias !14
+  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !13
+  store i64 441, ptr %6, align 8, !noalias !13
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !14
+  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !13
   %1457 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #28
           to label %.noexc unwind label %1597
 
 .noexc:                                           ; preds = %1455
-  store i32 1, ptr %1457, align 4, !noalias !14
+  store i32 1, ptr %1457, align 4, !noalias !13
   %1458 = getelementptr inbounds nuw i8, ptr %1457, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %1458, align 8, !noalias !14
+  store ptr @_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %1458, align 8, !noalias !13
   %1459 = getelementptr inbounds nuw i8, ptr %1457, i64 16
-  store i64 441, ptr %1459, align 8, !noalias !14
+  store i64 441, ptr %1459, align 8, !noalias !13
   %.repack7.i.i = getelementptr inbounds nuw i8, ptr %1457, i64 24
-  store i64 0, ptr %.repack7.i.i, align 8, !noalias !14
+  store i64 0, ptr %.repack7.i.i, align 8, !noalias !13
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %99, ptr noundef %1456, ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %1457, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN16QDialogButtonBox16staticMetaObjectE)
           to label %1460 unwind label %1597
 
@@ -5704,23 +5704,23 @@ _ZN7QStringD2Ev.exit801:                          ; preds = %1443, %_ZN17QArrayD
   %1461 = load ptr, ptr %1441, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store i64 ptrtoint (ptr @_ZN16QDialogButtonBox8rejectedEv to i64), ptr %3, align 8, !noalias !17
+  store i64 ptrtoint (ptr @_ZN16QDialogButtonBox8rejectedEv to i64), ptr %3, align 8, !noalias !16
   %.fca.1.gep14.i806 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.fca.1.gep14.i806, align 8, !noalias !17
-  store i64 449, ptr %4, align 8, !noalias !17
+  store i64 0, ptr %.fca.1.gep14.i806, align 8, !noalias !16
+  store i64 449, ptr %4, align 8, !noalias !16
   %.fca.1.gep.i807 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %.fca.1.gep.i807, align 8, !noalias !17
+  store i64 0, ptr %.fca.1.gep.i807, align 8, !noalias !16
   %1462 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #28
           to label %.noexc809 unwind label %1597
 
 .noexc809:                                        ; preds = %1460
-  store i32 1, ptr %1462, align 4, !noalias !17
+  store i32 1, ptr %1462, align 4, !noalias !16
   %1463 = getelementptr inbounds nuw i8, ptr %1462, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %1463, align 8, !noalias !17
+  store ptr @_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %1463, align 8, !noalias !16
   %1464 = getelementptr inbounds nuw i8, ptr %1462, i64 16
-  store i64 449, ptr %1464, align 8, !noalias !17
+  store i64 449, ptr %1464, align 8, !noalias !16
   %.repack7.i.i808 = getelementptr inbounds nuw i8, ptr %1462, i64 24
-  store i64 0, ptr %.repack7.i.i808, align 8, !noalias !17
+  store i64 0, ptr %.repack7.i.i808, align 8, !noalias !16
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %100, ptr noundef %1461, ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %1462, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN16QDialogButtonBox16staticMetaObjectE)
           to label %1465 unwind label %1597
 
@@ -8646,7 +8646,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i:     ; preds = %24, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %26 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %26, %21
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !19
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, %18
   %27 = load ptr, ptr %4, align 8
@@ -8690,7 +8690,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i13: ; preds = %.lr.ph.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i15:   ; preds = %36, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i13, %.lr.ph.i.i.i.i.i.i10
   %38 = getelementptr i8, ptr %.05.i.i.i.i.i.i11, i64 24
   %.not.i.i.i.i.i.i16 = icmp eq ptr %38, %33
-  br i1 %.not.i.i.i.i.i.i16, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i17, label %.lr.ph.i.i.i.i.i.i10, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i.i16, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i17, label %.lr.ph.i.i.i.i.i.i10, !llvm.loop !19
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i17: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i15, %30
   %39 = load ptr, ptr %5, align 8
@@ -9403,73 +9403,73 @@ _ZN7QStringD2Ev.exit144:                          ; preds = %209, %_ZN17QArrayDa
 
 215:                                              ; preds = %_ZN7QStringD2Ev.exit108, %_ZN7QStringD2Ev.exit132, %_ZN7QStringD2Ev.exit140
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %217 = load i8, ptr %216, align 8, !range !12, !noundef !13
+  %217 = load i8, ptr %216, align 8, !range !11, !noundef !12
   %218 = trunc nuw i8 %217 to i1
   br i1 %218, label %219, label %.thread.i
 
 219:                                              ; preds = %215
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %221 = load i8, ptr %220, align 1, !range !12, !noundef !13
+  %221 = load i8, ptr %220, align 1, !range !11, !noundef !12
   %222 = trunc nuw i8 %221 to i1
   br i1 %222, label %223, label %.thread.i
 
 223:                                              ; preds = %219
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 295
-  %225 = load i8, ptr %224, align 1, !range !12, !noundef !13
+  %225 = load i8, ptr %224, align 1, !range !11, !noundef !12
   %226 = trunc nuw i8 %225 to i1
   br i1 %226, label %227, label %.thread.i
 
 227:                                              ; preds = %223
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %229 = load i8, ptr %228, align 8, !range !12, !noundef !13
+  %229 = load i8, ptr %228, align 8, !range !11, !noundef !12
   %230 = trunc nuw i8 %229 to i1
   br i1 %230, label %231, label %.thread.i
 
 231:                                              ; preds = %227
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 297
-  %233 = load i8, ptr %232, align 1, !range !12, !noundef !13
+  %233 = load i8, ptr %232, align 1, !range !11, !noundef !12
   %234 = trunc nuw i8 %233 to i1
   br i1 %234, label %235, label %.thread.i
 
 235:                                              ; preds = %231
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 298
-  %237 = load i8, ptr %236, align 2, !range !12, !noundef !13
+  %237 = load i8, ptr %236, align 2, !range !11, !noundef !12
   %238 = trunc nuw i8 %237 to i1
   br i1 %238, label %239, label %.thread.i
 
 239:                                              ; preds = %235
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 299
-  %241 = load i8, ptr %240, align 1, !range !12, !noundef !13
+  %241 = load i8, ptr %240, align 1, !range !11, !noundef !12
   %242 = trunc nuw i8 %241 to i1
   br i1 %242, label %243, label %.thread.i
 
 243:                                              ; preds = %239
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %245 = load i8, ptr %244, align 4, !range !12, !noundef !13
+  %245 = load i8, ptr %244, align 4, !range !11, !noundef !12
   %246 = trunc nuw i8 %245 to i1
   br i1 %246, label %247, label %.thread.i
 
 247:                                              ; preds = %243
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 301
-  %249 = load i8, ptr %248, align 1, !range !12, !noundef !13
+  %249 = load i8, ptr %248, align 1, !range !11, !noundef !12
   %250 = trunc nuw i8 %249 to i1
   br i1 %250, label %251, label %.thread.i
 
 251:                                              ; preds = %247
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 302
-  %253 = load i8, ptr %252, align 2, !range !12, !noundef !13
+  %253 = load i8, ptr %252, align 2, !range !11, !noundef !12
   %254 = trunc nuw i8 %253 to i1
   br i1 %254, label %255, label %.thread.i
 
 255:                                              ; preds = %251
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 303
-  %257 = load i8, ptr %256, align 1, !range !12, !noundef !13
+  %257 = load i8, ptr %256, align 1, !range !11, !noundef !12
   %258 = trunc nuw i8 %257 to i1
   br i1 %258, label %259, label %.thread.i
 
 259:                                              ; preds = %255
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %261 = load i8, ptr %260, align 8, !range !12, !noundef !13
+  %261 = load i8, ptr %260, align 8, !range !11, !noundef !12
   %262 = trunc nuw i8 %261 to i1
   br i1 %262, label %263, label %.thread.i
 
@@ -9483,25 +9483,25 @@ _ZN7QStringD2Ev.exit144:                          ; preds = %209, %_ZN17QArrayDa
 
 266:                                              ; preds = %263
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 290
-  %268 = load i8, ptr %267, align 2, !range !12, !noundef !13
+  %268 = load i8, ptr %267, align 2, !range !11, !noundef !12
   %269 = trunc nuw i8 %268 to i1
   br i1 %269, label %270, label %.thread.i
 
 270:                                              ; preds = %266
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %272 = load i8, ptr %271, align 1, !range !12, !noundef !13
+  %272 = load i8, ptr %271, align 1, !range !11, !noundef !12
   %273 = trunc nuw i8 %272 to i1
   br i1 %273, label %274, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %276 = load i8, ptr %275, align 4, !range !12, !noundef !13
+  %276 = load i8, ptr %275, align 4, !range !11, !noundef !12
   %277 = trunc nuw i8 %276 to i1
   br i1 %277, label %278, label %.thread.i
 
 278:                                              ; preds = %274
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 293
-  %280 = load i8, ptr %279, align 1, !range !12, !noundef !13
+  %280 = load i8, ptr %279, align 1, !range !11, !noundef !12
   %281 = trunc nuw i8 %280 to i1
   br i1 %281, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit, label %.thread.i
 
@@ -11587,7 +11587,7 @@ _ZN7QStringD2Ev.exit409:                          ; preds = %_ZN7QStringD2Ev.exi
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !21
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !20
 
 _ZNKSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS2_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %761 = icmp eq ptr %.19.i.i.i.i, %754
@@ -12673,73 +12673,73 @@ _ZN7QStringD2Ev.exit603:                          ; preds = %1091, %_ZN17QArrayD
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
 define void @_ZN16ImportTextDialog23updateImportButtonStateEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(305) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %3 = load i8, ptr %2, align 8, !range !12, !noundef !13
+  %3 = load i8, ptr %2, align 8, !range !11, !noundef !12
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %.thread
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %7 = load i8, ptr %6, align 1, !range !12, !noundef !13
+  %7 = load i8, ptr %6, align 1, !range !11, !noundef !12
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 295
-  %11 = load i8, ptr %10, align 1, !range !12, !noundef !13
+  %11 = load i8, ptr %10, align 1, !range !11, !noundef !12
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %15 = load i8, ptr %14, align 8, !range !12, !noundef !13
+  %15 = load i8, ptr %14, align 8, !range !11, !noundef !12
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 297
-  %19 = load i8, ptr %18, align 1, !range !12, !noundef !13
+  %19 = load i8, ptr %18, align 1, !range !11, !noundef !12
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 298
-  %23 = load i8, ptr %22, align 2, !range !12, !noundef !13
+  %23 = load i8, ptr %22, align 2, !range !11, !noundef !12
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 299
-  %27 = load i8, ptr %26, align 1, !range !12, !noundef !13
+  %27 = load i8, ptr %26, align 1, !range !11, !noundef !12
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %31 = load i8, ptr %30, align 4, !range !12, !noundef !13
+  %31 = load i8, ptr %30, align 4, !range !11, !noundef !12
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %.thread
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 301
-  %35 = load i8, ptr %34, align 1, !range !12, !noundef !13
+  %35 = load i8, ptr %34, align 1, !range !11, !noundef !12
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 302
-  %39 = load i8, ptr %38, align 2, !range !12, !noundef !13
+  %39 = load i8, ptr %38, align 2, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 303
-  %43 = load i8, ptr %42, align 1, !range !12, !noundef !13
+  %43 = load i8, ptr %42, align 1, !range !11, !noundef !12
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %.thread
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %47 = load i8, ptr %46, align 8, !range !12, !noundef !13
+  %47 = load i8, ptr %46, align 8, !range !11, !noundef !12
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %.thread
 
@@ -12753,25 +12753,25 @@ define void @_ZN16ImportTextDialog23updateImportButtonStateEv(ptr noundef readon
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 290
-  %54 = load i8, ptr %53, align 2, !range !12, !noundef !13
+  %54 = load i8, ptr %53, align 2, !range !11, !noundef !12
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %58 = load i8, ptr %57, align 1, !range !12, !noundef !13
+  %58 = load i8, ptr %57, align 1, !range !11, !noundef !12
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %68
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %62 = load i8, ptr %61, align 4, !range !12, !noundef !13
+  %62 = load i8, ptr %61, align 4, !range !11, !noundef !12
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %.thread
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 293
-  %66 = load i8, ptr %65, align 1, !range !12, !noundef !13
+  %66 = load i8, ptr %65, align 1, !range !11, !noundef !12
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %68, label %.thread
 
@@ -18643,7 +18643,7 @@ _ZN4QMapI7QString8QVariantE6detachEv.exit:        ; preds = %6, %7, %14
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !22
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !21
 
 _ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS2_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %27 = icmp eq ptr %.19.i.i.i, %20
@@ -18826,10 +18826,10 @@ define void @_ZN16ImportTextDialog31on_modeTabWidget_currentChangedEi(ptr nounde
   %50 = tail call noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef align 8 dereferenceable_or_null(40) %49)
   tail call void @_ZN16ImportTextDialog43on_dataEncodingComboBox_currentIndexChangedEi(ptr noundef align 8 dereferenceable_or_null(305) %0, i32 noundef %50)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %52 = load i8, ptr %51, align 1, !range !12, !noundef !13
+  %52 = load i8, ptr %51, align 1, !range !11, !noundef !12
   %53 = trunc nuw i8 %52 to i1
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 294
-  %55 = load i8, ptr %54, align 2, !range !12, !noundef !13
+  %55 = load i8, ptr %54, align 2, !range !11, !noundef !12
   %56 = trunc nuw i8 %55 to i1
   %57 = load ptr, ptr %46, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 344
@@ -19301,7 +19301,7 @@ _ZN7QStringD2Ev.exit53:                           ; preds = %150, %_ZN17QArrayDa
 
 160:                                              ; preds = %157
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %162 = load i8, ptr %161, align 1, !range !12, !noundef !13
+  %162 = load i8, ptr %161, align 1, !range !11, !noundef !12
   %163 = trunc nuw i8 %162 to i1
   br i1 %163, label %164, label %205
 
@@ -20332,73 +20332,73 @@ define void @_ZN16ImportTextDialog31on_textFileLineEdit_textChangedERK7QString(p
   br label %.thread.i
 
 15:                                               ; preds = %10
-  %.pre = load i8, ptr %11, align 8, !range !12
+  %.pre = load i8, ptr %11, align 8, !range !11
   %16 = trunc nuw i8 %.pre to i1
   br i1 %16, label %17, label %.thread.i
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %19 = load i8, ptr %18, align 1, !range !12, !noundef !13
+  %19 = load i8, ptr %18, align 1, !range !11, !noundef !12
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %.thread.i
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 295
-  %23 = load i8, ptr %22, align 1, !range !12, !noundef !13
+  %23 = load i8, ptr %22, align 1, !range !11, !noundef !12
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %.thread.i
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %27 = load i8, ptr %26, align 8, !range !12, !noundef !13
+  %27 = load i8, ptr %26, align 8, !range !11, !noundef !12
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %.thread.i
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 297
-  %31 = load i8, ptr %30, align 1, !range !12, !noundef !13
+  %31 = load i8, ptr %30, align 1, !range !11, !noundef !12
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %.thread.i
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 298
-  %35 = load i8, ptr %34, align 2, !range !12, !noundef !13
+  %35 = load i8, ptr %34, align 2, !range !11, !noundef !12
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %.thread.i
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 299
-  %39 = load i8, ptr %38, align 1, !range !12, !noundef !13
+  %39 = load i8, ptr %38, align 1, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %.thread.i
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %43 = load i8, ptr %42, align 4, !range !12, !noundef !13
+  %43 = load i8, ptr %42, align 4, !range !11, !noundef !12
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %.thread.i
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 301
-  %47 = load i8, ptr %46, align 1, !range !12, !noundef !13
+  %47 = load i8, ptr %46, align 1, !range !11, !noundef !12
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %.thread.i
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 302
-  %51 = load i8, ptr %50, align 2, !range !12, !noundef !13
+  %51 = load i8, ptr %50, align 2, !range !11, !noundef !12
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %53, label %.thread.i
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 303
-  %55 = load i8, ptr %54, align 1, !range !12, !noundef !13
+  %55 = load i8, ptr %54, align 1, !range !11, !noundef !12
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %.thread.i
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %59 = load i8, ptr %58, align 8, !range !12, !noundef !13
+  %59 = load i8, ptr %58, align 8, !range !11, !noundef !12
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %.thread.i
 
@@ -20412,25 +20412,25 @@ define void @_ZN16ImportTextDialog31on_textFileLineEdit_textChangedERK7QString(p
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 290
-  %66 = load i8, ptr %65, align 2, !range !12, !noundef !13
+  %66 = load i8, ptr %65, align 2, !range !11, !noundef !12
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %68, label %.thread.i
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %70 = load i8, ptr %69, align 1, !range !12, !noundef !13
+  %70 = load i8, ptr %69, align 1, !range !11, !noundef !12
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %72, label %80
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %74 = load i8, ptr %73, align 4, !range !12, !noundef !13
+  %74 = load i8, ptr %73, align 4, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %.thread.i
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 293
-  %78 = load i8, ptr %77, align 1, !range !12, !noundef !13
+  %78 = load i8, ptr %77, align 1, !range !11, !noundef !12
   %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %80, label %.thread.i
 
@@ -20927,7 +20927,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %33, %_ZN17QArrayDat
 49:                                               ; preds = %44
   %.not37 = icmp eq i64 %48, -1
   %50 = add i64 %32, 2
-  br i1 %.not37, label %.loopexit.loopexit, label %26, !llvm.loop !23
+  br i1 %.not37, label %.loopexit.loopexit, label %26, !llvm.loop !22
 
 51:                                               ; preds = %26
   %52 = landingpad { ptr, i32 }
@@ -21478,73 +21478,73 @@ _ZN7QStringD2Ev.exit59:                           ; preds = %140, %_ZN17QArrayDa
 
 146:                                              ; preds = %142, %_ZNK8QVariant10canConvertIiEEbv.exit
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %148 = load i8, ptr %147, align 8, !range !12, !noundef !13
+  %148 = load i8, ptr %147, align 8, !range !11, !noundef !12
   %149 = trunc nuw i8 %148 to i1
   br i1 %149, label %150, label %.thread.i
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %152 = load i8, ptr %151, align 1, !range !12, !noundef !13
+  %152 = load i8, ptr %151, align 1, !range !11, !noundef !12
   %153 = trunc nuw i8 %152 to i1
   br i1 %153, label %154, label %.thread.i
 
 154:                                              ; preds = %150
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 295
-  %156 = load i8, ptr %155, align 1, !range !12, !noundef !13
+  %156 = load i8, ptr %155, align 1, !range !11, !noundef !12
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %158, label %.thread.i
 
 158:                                              ; preds = %154
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %160 = load i8, ptr %159, align 8, !range !12, !noundef !13
+  %160 = load i8, ptr %159, align 8, !range !11, !noundef !12
   %161 = trunc nuw i8 %160 to i1
   br i1 %161, label %162, label %.thread.i
 
 162:                                              ; preds = %158
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 297
-  %164 = load i8, ptr %163, align 1, !range !12, !noundef !13
+  %164 = load i8, ptr %163, align 1, !range !11, !noundef !12
   %165 = trunc nuw i8 %164 to i1
   br i1 %165, label %166, label %.thread.i
 
 166:                                              ; preds = %162
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 298
-  %168 = load i8, ptr %167, align 2, !range !12, !noundef !13
+  %168 = load i8, ptr %167, align 2, !range !11, !noundef !12
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %170, label %.thread.i
 
 170:                                              ; preds = %166
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 299
-  %172 = load i8, ptr %171, align 1, !range !12, !noundef !13
+  %172 = load i8, ptr %171, align 1, !range !11, !noundef !12
   %173 = trunc nuw i8 %172 to i1
   br i1 %173, label %174, label %.thread.i
 
 174:                                              ; preds = %170
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %176 = load i8, ptr %175, align 4, !range !12, !noundef !13
+  %176 = load i8, ptr %175, align 4, !range !11, !noundef !12
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %178, label %.thread.i
 
 178:                                              ; preds = %174
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 301
-  %180 = load i8, ptr %179, align 1, !range !12, !noundef !13
+  %180 = load i8, ptr %179, align 1, !range !11, !noundef !12
   %181 = trunc nuw i8 %180 to i1
   br i1 %181, label %182, label %.thread.i
 
 182:                                              ; preds = %178
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 302
-  %184 = load i8, ptr %183, align 2, !range !12, !noundef !13
+  %184 = load i8, ptr %183, align 2, !range !11, !noundef !12
   %185 = trunc nuw i8 %184 to i1
   br i1 %185, label %186, label %.thread.i
 
 186:                                              ; preds = %182
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 303
-  %188 = load i8, ptr %187, align 1, !range !12, !noundef !13
+  %188 = load i8, ptr %187, align 1, !range !11, !noundef !12
   %189 = trunc nuw i8 %188 to i1
   br i1 %189, label %190, label %.thread.i
 
 190:                                              ; preds = %186
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %192 = load i8, ptr %191, align 8, !range !12, !noundef !13
+  %192 = load i8, ptr %191, align 8, !range !11, !noundef !12
   %193 = trunc nuw i8 %192 to i1
   br i1 %193, label %194, label %.thread.i
 
@@ -21558,25 +21558,25 @@ _ZN7QStringD2Ev.exit59:                           ; preds = %140, %_ZN17QArrayDa
 
 197:                                              ; preds = %194
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 290
-  %199 = load i8, ptr %198, align 2, !range !12, !noundef !13
+  %199 = load i8, ptr %198, align 2, !range !11, !noundef !12
   %200 = trunc nuw i8 %199 to i1
   br i1 %200, label %201, label %.thread.i
 
 201:                                              ; preds = %197
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %203 = load i8, ptr %202, align 1, !range !12, !noundef !13
+  %203 = load i8, ptr %202, align 1, !range !11, !noundef !12
   %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %205, label %213
 
 205:                                              ; preds = %201
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %207 = load i8, ptr %206, align 4, !range !12, !noundef !13
+  %207 = load i8, ptr %206, align 4, !range !11, !noundef !12
   %208 = trunc nuw i8 %207 to i1
   br i1 %208, label %209, label %.thread.i
 
 209:                                              ; preds = %205
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 293
-  %211 = load i8, ptr %210, align 1, !range !12, !noundef !13
+  %211 = load i8, ptr %210, align 1, !range !11, !noundef !12
   %212 = trunc nuw i8 %211 to i1
   br i1 %212, label %213, label %.thread.i
 
@@ -21940,10 +21940,10 @@ _ZN7QStringD2Ev.exit32:                           ; preds = %_ZN7QStringD2Ev.exi
 79:                                               ; preds = %63, %_ZN7QStringD2Ev.exit20
   call void @g_free(ptr noundef %11)
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %81 = load i8, ptr %80, align 1, !range !12, !noundef !13
+  %81 = load i8, ptr %80, align 1, !range !11, !noundef !12
   %82 = trunc nuw i8 %81 to i1
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 294
-  %84 = load i8, ptr %83, align 2, !range !12, !noundef !13
+  %84 = load i8, ptr %83, align 2, !range !11, !noundef !12
   %85 = trunc nuw i8 %84 to i1
   %86 = load ptr, ptr %7, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 344
@@ -21970,73 +21970,73 @@ _ZN7QStringD2Ev.exit32:                           ; preds = %_ZN7QStringD2Ev.exi
   %103 = load ptr, ptr %102, align 8
   call void @_ZN7QWidget10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(40) %103, i1 noundef zeroext %85)
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %105 = load i8, ptr %104, align 8, !range !12, !noundef !13
+  %105 = load i8, ptr %104, align 8, !range !11, !noundef !12
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %107, label %.thread.i
 
 107:                                              ; preds = %79
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %109 = load i8, ptr %108, align 1, !range !12, !noundef !13
+  %109 = load i8, ptr %108, align 1, !range !11, !noundef !12
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %111, label %.thread.i
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 295
-  %113 = load i8, ptr %112, align 1, !range !12, !noundef !13
+  %113 = load i8, ptr %112, align 1, !range !11, !noundef !12
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %115, label %.thread.i
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %117 = load i8, ptr %116, align 8, !range !12, !noundef !13
+  %117 = load i8, ptr %116, align 8, !range !11, !noundef !12
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %119, label %.thread.i
 
 119:                                              ; preds = %115
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 297
-  %121 = load i8, ptr %120, align 1, !range !12, !noundef !13
+  %121 = load i8, ptr %120, align 1, !range !11, !noundef !12
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %123, label %.thread.i
 
 123:                                              ; preds = %119
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 298
-  %125 = load i8, ptr %124, align 2, !range !12, !noundef !13
+  %125 = load i8, ptr %124, align 2, !range !11, !noundef !12
   %126 = trunc nuw i8 %125 to i1
   br i1 %126, label %127, label %.thread.i
 
 127:                                              ; preds = %123
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 299
-  %129 = load i8, ptr %128, align 1, !range !12, !noundef !13
+  %129 = load i8, ptr %128, align 1, !range !11, !noundef !12
   %130 = trunc nuw i8 %129 to i1
   br i1 %130, label %131, label %.thread.i
 
 131:                                              ; preds = %127
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %133 = load i8, ptr %132, align 4, !range !12, !noundef !13
+  %133 = load i8, ptr %132, align 4, !range !11, !noundef !12
   %134 = trunc nuw i8 %133 to i1
   br i1 %134, label %135, label %.thread.i
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 301
-  %137 = load i8, ptr %136, align 1, !range !12, !noundef !13
+  %137 = load i8, ptr %136, align 1, !range !11, !noundef !12
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %139, label %.thread.i
 
 139:                                              ; preds = %135
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 302
-  %141 = load i8, ptr %140, align 2, !range !12, !noundef !13
+  %141 = load i8, ptr %140, align 2, !range !11, !noundef !12
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %143, label %.thread.i
 
 143:                                              ; preds = %139
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 303
-  %145 = load i8, ptr %144, align 1, !range !12, !noundef !13
+  %145 = load i8, ptr %144, align 1, !range !11, !noundef !12
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %147, label %.thread.i
 
 147:                                              ; preds = %143
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %149 = load i8, ptr %148, align 8, !range !12, !noundef !13
+  %149 = load i8, ptr %148, align 8, !range !11, !noundef !12
   %150 = trunc nuw i8 %149 to i1
   br i1 %150, label %151, label %.thread.i
 
@@ -22050,24 +22050,24 @@ _ZN7QStringD2Ev.exit32:                           ; preds = %_ZN7QStringD2Ev.exi
 
 154:                                              ; preds = %151
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 290
-  %156 = load i8, ptr %155, align 2, !range !12, !noundef !13
+  %156 = load i8, ptr %155, align 2, !range !11, !noundef !12
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %158, label %.thread.i
 
 158:                                              ; preds = %154
-  %159 = load i8, ptr %80, align 1, !range !12, !noundef !13
+  %159 = load i8, ptr %80, align 1, !range !11, !noundef !12
   %160 = trunc nuw i8 %159 to i1
   br i1 %160, label %161, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit
 
 161:                                              ; preds = %158
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %163 = load i8, ptr %162, align 4, !range !12, !noundef !13
+  %163 = load i8, ptr %162, align 4, !range !11, !noundef !12
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %165, label %.thread.i
 
 165:                                              ; preds = %161
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 293
-  %167 = load i8, ptr %166, align 1, !range !12, !noundef !13
+  %167 = load i8, ptr %166, align 1, !range !11, !noundef !12
   %168 = trunc nuw i8 %167 to i1
   br i1 %168, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit, label %.thread.i
 
@@ -22102,73 +22102,73 @@ define void @_ZN16ImportTextDialog38on_dirInIndicationLineEdit_textChangedERK7QS
   %7 = zext i1 %5 to i8
   store i8 %7, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %9 = load i8, ptr %8, align 8, !range !12, !noundef !13
+  %9 = load i8, ptr %8, align 8, !range !11, !noundef !12
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %.thread.i
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %13 = load i8, ptr %12, align 1, !range !12, !noundef !13
+  %13 = load i8, ptr %12, align 1, !range !11, !noundef !12
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %.thread.i
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 295
-  %17 = load i8, ptr %16, align 1, !range !12, !noundef !13
+  %17 = load i8, ptr %16, align 1, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %.thread.i
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %21 = load i8, ptr %20, align 8, !range !12, !noundef !13
+  %21 = load i8, ptr %20, align 8, !range !11, !noundef !12
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %.thread.i
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 297
-  %25 = load i8, ptr %24, align 1, !range !12, !noundef !13
+  %25 = load i8, ptr %24, align 1, !range !11, !noundef !12
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %.thread.i
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 298
-  %29 = load i8, ptr %28, align 2, !range !12, !noundef !13
+  %29 = load i8, ptr %28, align 2, !range !11, !noundef !12
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 299
-  %33 = load i8, ptr %32, align 1, !range !12, !noundef !13
+  %33 = load i8, ptr %32, align 1, !range !11, !noundef !12
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %.thread.i
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %37 = load i8, ptr %36, align 4, !range !12, !noundef !13
+  %37 = load i8, ptr %36, align 4, !range !11, !noundef !12
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %39, label %.thread.i
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 301
-  %41 = load i8, ptr %40, align 1, !range !12, !noundef !13
+  %41 = load i8, ptr %40, align 1, !range !11, !noundef !12
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %.thread.i
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 302
-  %45 = load i8, ptr %44, align 2, !range !12, !noundef !13
+  %45 = load i8, ptr %44, align 2, !range !11, !noundef !12
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %.thread.i
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 303
-  %49 = load i8, ptr %48, align 1, !range !12, !noundef !13
+  %49 = load i8, ptr %48, align 1, !range !11, !noundef !12
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %.thread.i
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %53 = load i8, ptr %52, align 8, !range !12, !noundef !13
+  %53 = load i8, ptr %52, align 8, !range !11, !noundef !12
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %.thread.i
 
@@ -22182,13 +22182,13 @@ define void @_ZN16ImportTextDialog38on_dirInIndicationLineEdit_textChangedERK7QS
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 290
-  %60 = load i8, ptr %59, align 2, !range !12, !noundef !13
+  %60 = load i8, ptr %59, align 2, !range !11, !noundef !12
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %62, label %.thread.i
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %64 = load i8, ptr %63, align 1, !range !12, !noundef !13
+  %64 = load i8, ptr %63, align 1, !range !11, !noundef !12
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %66, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit
 
@@ -22197,7 +22197,7 @@ define void @_ZN16ImportTextDialog38on_dirInIndicationLineEdit_textChangedERK7QS
 
 67:                                               ; preds = %66
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 293
-  %69 = load i8, ptr %68, align 1, !range !12, !noundef !13
+  %69 = load i8, ptr %68, align 1, !range !11, !noundef !12
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit, label %.thread.i
 
@@ -22221,73 +22221,73 @@ define void @_ZN16ImportTextDialog39on_dirOutIndicationLineEdit_textChangedERK7Q
   %7 = zext i1 %5 to i8
   store i8 %7, ptr %6, align 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %9 = load i8, ptr %8, align 8, !range !12, !noundef !13
+  %9 = load i8, ptr %8, align 8, !range !11, !noundef !12
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %.thread.i
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %13 = load i8, ptr %12, align 1, !range !12, !noundef !13
+  %13 = load i8, ptr %12, align 1, !range !11, !noundef !12
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %.thread.i
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 295
-  %17 = load i8, ptr %16, align 1, !range !12, !noundef !13
+  %17 = load i8, ptr %16, align 1, !range !11, !noundef !12
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %.thread.i
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %21 = load i8, ptr %20, align 8, !range !12, !noundef !13
+  %21 = load i8, ptr %20, align 8, !range !11, !noundef !12
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %.thread.i
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 297
-  %25 = load i8, ptr %24, align 1, !range !12, !noundef !13
+  %25 = load i8, ptr %24, align 1, !range !11, !noundef !12
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %.thread.i
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 298
-  %29 = load i8, ptr %28, align 2, !range !12, !noundef !13
+  %29 = load i8, ptr %28, align 2, !range !11, !noundef !12
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 299
-  %33 = load i8, ptr %32, align 1, !range !12, !noundef !13
+  %33 = load i8, ptr %32, align 1, !range !11, !noundef !12
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %.thread.i
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %37 = load i8, ptr %36, align 4, !range !12, !noundef !13
+  %37 = load i8, ptr %36, align 4, !range !11, !noundef !12
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %39, label %.thread.i
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 301
-  %41 = load i8, ptr %40, align 1, !range !12, !noundef !13
+  %41 = load i8, ptr %40, align 1, !range !11, !noundef !12
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %.thread.i
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 302
-  %45 = load i8, ptr %44, align 2, !range !12, !noundef !13
+  %45 = load i8, ptr %44, align 2, !range !11, !noundef !12
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %.thread.i
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 303
-  %49 = load i8, ptr %48, align 1, !range !12, !noundef !13
+  %49 = load i8, ptr %48, align 1, !range !11, !noundef !12
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %.thread.i
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %53 = load i8, ptr %52, align 8, !range !12, !noundef !13
+  %53 = load i8, ptr %52, align 8, !range !11, !noundef !12
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %.thread.i
 
@@ -22301,19 +22301,19 @@ define void @_ZN16ImportTextDialog39on_dirOutIndicationLineEdit_textChangedERK7Q
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 290
-  %60 = load i8, ptr %59, align 2, !range !12, !noundef !13
+  %60 = load i8, ptr %59, align 2, !range !11, !noundef !12
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %62, label %.thread.i
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %64 = load i8, ptr %63, align 1, !range !12, !noundef !13
+  %64 = load i8, ptr %63, align 1, !range !11, !noundef !12
   %65 = trunc nuw i8 %64 to i1
   br i1 %65, label %66, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %68 = load i8, ptr %67, align 4, !range !12, !noundef !13
+  %68 = load i8, ptr %67, align 4, !range !11, !noundef !12
   %69 = trunc nuw i8 %68 to i1
   %70 = select i1 %69, i1 %5, i1 false
   br i1 %70, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit, label %.thread.i
@@ -22951,11 +22951,11 @@ _ZN5QListIP15QAbstractButtonED2Ev.exit:           ; preds = %171, %_ZN7QStringD2
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %240 = load ptr, ptr %239, align 8
   call void @_ZNK12QButtonGroup7buttonsEv(ptr dead_on_unwind nonnull writable sret(%class.QList.18) align 8 %13, ptr noundef align 8 dereferenceable_or_null(16) %240)
-  %241 = load ptr, ptr %13, align 8, !noalias !24
+  %241 = load ptr, ptr %13, align 8, !noalias !23
   %242 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %243 = load ptr, ptr %242, align 8, !noalias !24
+  %243 = load ptr, ptr %242, align 8, !noalias !23
   %244 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %245 = load i64, ptr %244, align 8, !noalias !24
+  %245 = load i64, ptr %244, align 8, !noalias !23
   %.idx = shl i64 %245, 3
   %246 = getelementptr i8, ptr %243, i64 %.idx
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #27
@@ -23027,7 +23027,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP15QAbstractButtonEED2Ev.exit: ; preds =
 279:                                              ; preds = %.lr.ph
   %280 = getelementptr i8, ptr %.sroa.10.0176, i64 8
   %.not = icmp eq ptr %280, %246
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 281:                                              ; preds = %.lr.ph
   %282 = landingpad { ptr, i32 }
@@ -23531,7 +23531,7 @@ _ZNK7QString8toUShortEPbi.exit:                   ; preds = %17, %21
   %storemerge.in = phi i64 [ 0, %21 ], [ %20, %17 ]
   %storemerge = trunc i64 %storemerge.in to i32
   store i32 %storemerge, ptr %7, align 4
-  %22 = load i8, ptr %9, align 1, !range !12, !noundef !13
+  %22 = load i8, ptr %9, align 1, !range !11, !noundef !12
   %23 = trunc nuw i8 %22 to i1
   %.not = icmp uge i32 %5, %storemerge
   %or.cond21.not = and i1 %.not, %23
@@ -23545,73 +23545,73 @@ _ZNK7QString8toUShortEPbi.exit:                   ; preds = %17, %21
   %.0 = phi i32 [ 0, %16 ], [ 2, %24 ], [ 4, %_ZNK7QString8toUShortEPbi.exit ]
   call void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef nonnull align 8 dereferenceable_or_null(185) %1, i32 noundef %.0)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %27 = load i8, ptr %26, align 8, !range !12, !noundef !13
+  %27 = load i8, ptr %26, align 8, !range !11, !noundef !12
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %.thread.i
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %31 = load i8, ptr %30, align 1, !range !12, !noundef !13
+  %31 = load i8, ptr %30, align 1, !range !11, !noundef !12
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %.thread.i
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 295
-  %35 = load i8, ptr %34, align 1, !range !12, !noundef !13
+  %35 = load i8, ptr %34, align 1, !range !11, !noundef !12
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %.thread.i
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %39 = load i8, ptr %38, align 8, !range !12, !noundef !13
+  %39 = load i8, ptr %38, align 8, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %.thread.i
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 297
-  %43 = load i8, ptr %42, align 1, !range !12, !noundef !13
+  %43 = load i8, ptr %42, align 1, !range !11, !noundef !12
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %.thread.i
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 298
-  %47 = load i8, ptr %46, align 2, !range !12, !noundef !13
+  %47 = load i8, ptr %46, align 2, !range !11, !noundef !12
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %.thread.i
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 299
-  %51 = load i8, ptr %50, align 1, !range !12, !noundef !13
+  %51 = load i8, ptr %50, align 1, !range !11, !noundef !12
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %53, label %.thread.i
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %55 = load i8, ptr %54, align 4, !range !12, !noundef !13
+  %55 = load i8, ptr %54, align 4, !range !11, !noundef !12
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %.thread.i
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 301
-  %59 = load i8, ptr %58, align 1, !range !12, !noundef !13
+  %59 = load i8, ptr %58, align 1, !range !11, !noundef !12
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %.thread.i
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 302
-  %63 = load i8, ptr %62, align 2, !range !12, !noundef !13
+  %63 = load i8, ptr %62, align 2, !range !11, !noundef !12
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %65, label %.thread.i
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 303
-  %67 = load i8, ptr %66, align 1, !range !12, !noundef !13
+  %67 = load i8, ptr %66, align 1, !range !11, !noundef !12
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %.thread.i
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %71 = load i8, ptr %70, align 8, !range !12, !noundef !13
+  %71 = load i8, ptr %70, align 8, !range !11, !noundef !12
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %73, label %.thread.i
 
@@ -23625,25 +23625,25 @@ _ZNK7QString8toUShortEPbi.exit:                   ; preds = %17, %21
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 290
-  %78 = load i8, ptr %77, align 2, !range !12, !noundef !13
+  %78 = load i8, ptr %77, align 2, !range !11, !noundef !12
   %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %80, label %.thread.i
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %82 = load i8, ptr %81, align 1, !range !12, !noundef !13
+  %82 = load i8, ptr %81, align 1, !range !11, !noundef !12
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %84, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %86 = load i8, ptr %85, align 4, !range !12, !noundef !13
+  %86 = load i8, ptr %85, align 4, !range !11, !noundef !12
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %.thread.i
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 293
-  %90 = load i8, ptr %89, align 1, !range !12, !noundef !13
+  %90 = load i8, ptr %89, align 1, !range !11, !noundef !12
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit, label %.thread.i
 
@@ -23756,73 +23756,73 @@ _ZN10QByteArrayD2Ev.exit20:                       ; preds = %29, %_ZN17QArrayDat
   %.0 = phi i32 [ 0, %13 ], [ 2, %35 ], [ 4, %_ZN10QByteArrayD2Ev.exit ]
   call void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef nonnull align 8 dereferenceable_or_null(185) %1, i32 noundef %.0)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %38 = load i8, ptr %37, align 8, !range !12, !noundef !13
+  %38 = load i8, ptr %37, align 8, !range !11, !noundef !12
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %.thread.i
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %42 = load i8, ptr %41, align 1, !range !12, !noundef !13
+  %42 = load i8, ptr %41, align 1, !range !11, !noundef !12
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %.thread.i
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 295
-  %46 = load i8, ptr %45, align 1, !range !12, !noundef !13
+  %46 = load i8, ptr %45, align 1, !range !11, !noundef !12
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %.thread.i
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %50 = load i8, ptr %49, align 8, !range !12, !noundef !13
+  %50 = load i8, ptr %49, align 8, !range !11, !noundef !12
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %52, label %.thread.i
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 297
-  %54 = load i8, ptr %53, align 1, !range !12, !noundef !13
+  %54 = load i8, ptr %53, align 1, !range !11, !noundef !12
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %.thread.i
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 298
-  %58 = load i8, ptr %57, align 2, !range !12, !noundef !13
+  %58 = load i8, ptr %57, align 2, !range !11, !noundef !12
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %.thread.i
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 299
-  %62 = load i8, ptr %61, align 1, !range !12, !noundef !13
+  %62 = load i8, ptr %61, align 1, !range !11, !noundef !12
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %.thread.i
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %66 = load i8, ptr %65, align 4, !range !12, !noundef !13
+  %66 = load i8, ptr %65, align 4, !range !11, !noundef !12
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %68, label %.thread.i
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 301
-  %70 = load i8, ptr %69, align 1, !range !12, !noundef !13
+  %70 = load i8, ptr %69, align 1, !range !11, !noundef !12
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %72, label %.thread.i
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 302
-  %74 = load i8, ptr %73, align 2, !range !12, !noundef !13
+  %74 = load i8, ptr %73, align 2, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %.thread.i
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 303
-  %78 = load i8, ptr %77, align 1, !range !12, !noundef !13
+  %78 = load i8, ptr %77, align 1, !range !11, !noundef !12
   %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %80, label %.thread.i
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %82 = load i8, ptr %81, align 8, !range !12, !noundef !13
+  %82 = load i8, ptr %81, align 8, !range !11, !noundef !12
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %84, label %.thread.i
 
@@ -23836,25 +23836,25 @@ _ZN10QByteArrayD2Ev.exit20:                       ; preds = %29, %_ZN17QArrayDat
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 290
-  %89 = load i8, ptr %88, align 2, !range !12, !noundef !13
+  %89 = load i8, ptr %88, align 2, !range !11, !noundef !12
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %91, label %.thread.i
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %93 = load i8, ptr %92, align 1, !range !12, !noundef !13
+  %93 = load i8, ptr %92, align 1, !range !11, !noundef !12
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %95, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %97 = load i8, ptr %96, align 4, !range !12, !noundef !13
+  %97 = load i8, ptr %96, align 4, !range !11, !noundef !12
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %99, label %.thread.i
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 293
-  %101 = load i8, ptr %100, align 1, !range !12, !noundef !13
+  %101 = load i8, ptr %100, align 1, !range !11, !noundef !12
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit, label %.thread.i
 
@@ -23966,73 +23966,73 @@ _ZN10QByteArrayD2Ev.exit20:                       ; preds = %29, %_ZN17QArrayDat
   %.0 = phi i32 [ 0, %13 ], [ 2, %35 ], [ 4, %_ZN10QByteArrayD2Ev.exit ]
   call void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef nonnull align 8 dereferenceable_or_null(185) %1, i32 noundef %.0)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %38 = load i8, ptr %37, align 8, !range !12, !noundef !13
+  %38 = load i8, ptr %37, align 8, !range !11, !noundef !12
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %.thread.i
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 289
-  %42 = load i8, ptr %41, align 1, !range !12, !noundef !13
+  %42 = load i8, ptr %41, align 1, !range !11, !noundef !12
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %.thread.i
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 295
-  %46 = load i8, ptr %45, align 1, !range !12, !noundef !13
+  %46 = load i8, ptr %45, align 1, !range !11, !noundef !12
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %.thread.i
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %50 = load i8, ptr %49, align 8, !range !12, !noundef !13
+  %50 = load i8, ptr %49, align 8, !range !11, !noundef !12
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %52, label %.thread.i
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 297
-  %54 = load i8, ptr %53, align 1, !range !12, !noundef !13
+  %54 = load i8, ptr %53, align 1, !range !11, !noundef !12
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %.thread.i
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 298
-  %58 = load i8, ptr %57, align 2, !range !12, !noundef !13
+  %58 = load i8, ptr %57, align 2, !range !11, !noundef !12
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %.thread.i
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 299
-  %62 = load i8, ptr %61, align 1, !range !12, !noundef !13
+  %62 = load i8, ptr %61, align 1, !range !11, !noundef !12
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %.thread.i
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %66 = load i8, ptr %65, align 4, !range !12, !noundef !13
+  %66 = load i8, ptr %65, align 4, !range !11, !noundef !12
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %68, label %.thread.i
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 301
-  %70 = load i8, ptr %69, align 1, !range !12, !noundef !13
+  %70 = load i8, ptr %69, align 1, !range !11, !noundef !12
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %72, label %.thread.i
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 302
-  %74 = load i8, ptr %73, align 2, !range !12, !noundef !13
+  %74 = load i8, ptr %73, align 2, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %.thread.i
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 303
-  %78 = load i8, ptr %77, align 1, !range !12, !noundef !13
+  %78 = load i8, ptr %77, align 1, !range !11, !noundef !12
   %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %80, label %.thread.i
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %82 = load i8, ptr %81, align 8, !range !12, !noundef !13
+  %82 = load i8, ptr %81, align 8, !range !11, !noundef !12
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %84, label %.thread.i
 
@@ -24046,25 +24046,25 @@ _ZN10QByteArrayD2Ev.exit20:                       ; preds = %29, %_ZN17QArrayDat
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 290
-  %89 = load i8, ptr %88, align 2, !range !12, !noundef !13
+  %89 = load i8, ptr %88, align 2, !range !11, !noundef !12
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %91, label %.thread.i
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 291
-  %93 = load i8, ptr %92, align 1, !range !12, !noundef !13
+  %93 = load i8, ptr %92, align 1, !range !11, !noundef !12
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %95, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %97 = load i8, ptr %96, align 4, !range !12, !noundef !13
+  %97 = load i8, ptr %96, align 4, !range !11, !noundef !12
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %99, label %.thread.i
 
 99:                                               ; preds = %95
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 293
-  %101 = load i8, ptr %100, align 1, !range !12, !noundef !13
+  %101 = load i8, ptr %100, align 1, !range !11, !noundef !12
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %_ZN16ImportTextDialog23updateImportButtonStateEv.exit, label %.thread.i
 
@@ -28375,7 +28375,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEv
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !13
+  %17 = load ptr, ptr %16, align 8, !nosanitize !12
   br label %_ZN9QtPrivate15FunctionPointerIM7QDialogFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -28451,7 +28451,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i:       ; preds = %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %14 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %14, %9
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !19
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i, %4
   %15 = load ptr, ptr %0, align 8
@@ -29007,7 +29007,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %63 = add i64 %62, 1
   store i64 %63, ptr %48, align 8
   %64 = icmp ult ptr %61, %45
-  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !28
+  br i1 %64, label %49, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !27
 
 65:                                               ; preds = %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29049,7 +29049,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %59, %49
   %86 = add i64 %85, 1
   store i64 %86, ptr %71, align 8
   %87 = icmp ult ptr %84, %68
-  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !29
+  br i1 %87, label %72, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit, !llvm.loop !28
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10copyAppendEPKS1_S4_.exit: ; preds = %72, %_ZN7QStringC2ERKS_.exit.i, %65, %_ZNK17QArrayDataPointerI7QStringE11needsDetachEv.exit30.thread, %35
   %88 = load ptr, ptr %0, align 8
@@ -29119,7 +29119,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i:       ; preds = %111, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %113 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i = icmp eq ptr %113, %108
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !19
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i, %105
   %114 = load ptr, ptr %5, align 8
@@ -29303,7 +29303,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i:         ; preds = %12, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   %14 = getelementptr i8, ptr %.05.i.i.i.i, i64 24
   %.not.i.i.i.i = icmp eq ptr %14, %9
-  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i, %4
   %15 = load ptr, ptr %0, align 8
@@ -29373,7 +29373,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph
 _ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit: ; preds = %.lr.ph, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i, %11
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 88) #29
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS4_E.exit, %2
   ret void
@@ -29487,7 +29487,7 @@ define linkonce_odr void @_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDat
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i, label %.noexc.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i, label %.noexc.i.i.i, !llvm.loop !30
 
 _ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i: ; preds = %.noexc.i.i.i
   store ptr %.0.i.i.i.i.i.i.i, ptr %18, align 8
@@ -29498,7 +29498,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt10_Select1stIS4_ESt4lessIS0_ESaIS
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i.i, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not.i.i8.i.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i8.i.i.i.i.i, label %31, label %28, !llvm.loop !32
+  br i1 %.not.i.i8.i.i.i.i.i, label %31, label %28, !llvm.loop !31
 
 31:                                               ; preds = %28
   store ptr %.0.i.i7.i.i.i.i.i, ptr %19, align 8
@@ -29648,7 +29648,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt
   %.0.in = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not32 = icmp eq ptr %.0, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 40:                                               ; preds = %38, %36
   %41 = landingpad { ptr, i32 }
@@ -29769,7 +29769,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeI7QStringSt4pairIKS0_8QVariantESt
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %9, !llvm.loop !34
+  br i1 %.not.i, label %._crit_edge.i, label %9, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %9
   br i1 %15, label %._crit_edge.thread.i, label %21
@@ -29918,7 +29918,7 @@ define linkonce_odr void @_ZN9QtPrivate27QDebugStreamOperatorForTypeIiLb1EE11deb
   %6 = tail call noundef align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEi(ptr noundef align 8 dereferenceable_or_null(16) %5, i32 noundef %4)
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load i8, ptr %8, align 8, !range !12, !noundef !13
+  %9 = load i8, ptr %8, align 8, !range !11, !noundef !12
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %_ZN6QDebuglsEi.exit
 
@@ -30017,32 +30017,31 @@ attributes #34 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
-!16 = distinct !{!16, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
-!19 = distinct !{!19, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN9QtPrivate21qMakeForeachContainerI5QListIP15QAbstractButtonEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_: argument 0"}
-!26 = distinct !{!26, !"_ZN9QtPrivate21qMakeForeachContainerI5QListIP15QAbstractButtonEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_"}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
+!15 = distinct !{!15, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
+!18 = distinct !{!18, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN9QtPrivate21qMakeForeachContainerI5QListIP15QAbstractButtonEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_: argument 0"}
+!25 = distinct !{!25, !"_ZN9QtPrivate21qMakeForeachContainerI5QListIP15QAbstractButtonEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS7_"}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}

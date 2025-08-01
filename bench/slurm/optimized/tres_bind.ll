@@ -167,7 +167,7 @@ _valid_shared_gres_bind.exit:                     ; preds = %27
 59:                                               ; preds = %56, %50
   %60 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %7) #7
   %.not.i.i = icmp eq ptr %60, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph51.split.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph51.split.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %59, %56, %53, %50, %.critedge.i.i, %37
   %.031.i.i = phi i32 [ 0, %37 ], [ -1, %50 ], [ -1, %53 ], [ -1, %56 ], [ -1, %.critedge.i.i ], [ 0, %59 ]
@@ -218,7 +218,7 @@ _valid_num_list.exit.i:                           ; preds = %._crit_edge.i.i, %.
   %indvars.iv71.i.i = phi i64 [ %indvars.iv.next72.i.i, %74 ], [ 0, %.lr.ph51.split.us.i.i ]
   %71 = phi i8 [ %76, %74 ], [ %70, %.lr.ph51.split.us.i.i ]
   %72 = sext i8 %71 to i32
-  %73 = call i32 @isxdigit(i32 noundef %72) #7, !callees !13
+  %73 = call i32 @isxdigit(i32 noundef %72) #7, !callees !12
   %.not40.us.i.i = icmp ne i32 %73, 0
   %.not41.us.i.i = icmp eq i8 %71, 42
   %or.cond44.i = or i1 %.not41.us.i.i, %.not40.us.i.i
@@ -259,7 +259,7 @@ _valid_num_list.exit.i:                           ; preds = %._crit_edge.i.i, %.
 87:                                               ; preds = %84, %78
   %88 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #7
   %.not.us.i.i = icmp eq ptr %88, null
-  br i1 %.not.us.i.i, label %._crit_edge.i25.i, label %.lr.ph51.split.us.i.i, !llvm.loop !14
+  br i1 %.not.us.i.i, label %._crit_edge.i25.i, label %.lr.ph51.split.us.i.i, !llvm.loop !13
 
 .split.us.i28.i:                                  ; preds = %.lr.ph.us.i.i
   %89 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull %spec.select46.us.i.i, i32 noundef %72) #7
@@ -314,7 +314,7 @@ _valid_gres_bind.exit:                            ; preds = %_valid_num_list.exi
 _valid_shared_gres_bind.exit.thread:              ; preds = %90, %31, %25, %_valid_shared_gres_bind.exit, %_valid_gres_bind.exit
   %102 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %8) #7
   %.not = icmp eq ptr %102, null
-  br i1 %.not, label %_valid_shared_gres_bind.exit.thread28, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %_valid_shared_gres_bind.exit.thread28, label %.lr.ph, !llvm.loop !15
 
 _valid_shared_gres_bind.exit.thread28:            ; preds = %_valid_shared_gres_bind.exit.thread, %.lr.ph, %_valid_shared_gres_bind.exit, %_valid_gres_bind.exit, %18, %27, %97, %14
   %.0 = phi i32 [ 0, %14 ], [ -1, %97 ], [ -1, %27 ], [ -1, %18 ], [ -1, %_valid_gres_bind.exit ], [ -1, %_valid_shared_gres_bind.exit ], [ -1, %.lr.ph ], [ 0, %_valid_shared_gres_bind.exit.thread ]
@@ -381,12 +381,11 @@ attributes #8 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{null, ptr @isxdigit}
-!14 = distinct !{!14, !9, !10, !11, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{null, ptr @isxdigit}
+!13 = distinct !{!13, !9, !10, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !9, !10}

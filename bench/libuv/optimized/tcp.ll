@@ -398,7 +398,7 @@ uv__is_ipv6_link_local.exit:                      ; preds = %5
 uv__is_ipv6_link_local.exit.thread:               ; preds = %5, %.lr.ph, %uv__is_ipv6_link_local.exit
   %.0 = load ptr, ptr %.021, align 8
   %.not11 = icmp eq ptr %.0, null
-  br i1 %.not11, label %.critedge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not11, label %.critedge, label %.lr.ph
 
 10:                                               ; preds = %uv__is_ipv6_link_local.exit
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -862,5 +862,3 @@ attributes #8 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}

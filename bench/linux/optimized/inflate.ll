@@ -402,7 +402,7 @@ define dso_local i32 @zlib_inflate(ptr noundef %0, i32 noundef %1) local_unnamed
   %149 = add i64 %148, %139
   %150 = add nuw nsw i64 %138, 8
   %151 = icmp samesign ult i64 %138, 24
-  br i1 %151, label %137, label %.loopexit, !llvm.loop !9
+  br i1 %151, label %137, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %143, %78
   %152 = phi ptr [ %66, %78 ], [ %145, %143 ]
@@ -555,7 +555,7 @@ default.unreachable978:                           ; preds = %199
   %235 = add i64 %234, %225
   %236 = add nuw nsw i64 %224, 8
   %237 = icmp samesign ult i64 %224, 24
-  br i1 %237, label %223, label %238, !llvm.loop !10
+  br i1 %237, label %223, label %238, !llvm.loop !9
 
 238:                                              ; preds = %229
   %239 = trunc i64 %236 to i32
@@ -636,7 +636,7 @@ thread-pre-split:                                 ; preds = %64
   %285 = add i64 %284, %275
   %286 = add nuw nsw i64 %274, 8
   %287 = icmp samesign ult i64 %274, 6
-  br i1 %287, label %273, label %288, !llvm.loop !11
+  br i1 %287, label %273, label %288, !llvm.loop !10
 
 288:                                              ; preds = %279
   %289 = trunc i64 %286 to i32
@@ -748,7 +748,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %359 = lshr i64 %349, 3
   %360 = add i32 %350, -3
   %361 = icmp samesign ult i64 %353, %320
-  br i1 %361, label %328, label %thread-pre-split113, !llvm.loop !12
+  br i1 %361, label %328, label %thread-pre-split113, !llvm.loop !11
 
 .preheader131:                                    ; preds = %.preheader131.preheader, %.preheader131
   %indvars.iv = phi i64 [ %327, %.preheader131.preheader ], [ %indvars.iv.next, %.preheader131 ]
@@ -760,7 +760,7 @@ thread-pre-split113:                              ; preds = %346, %310
   store i16 0, ptr %365, align 2
   %366 = and i64 %indvars.iv.next, 4294967295
   %exitcond.not = icmp eq i64 %366, 19
-  br i1 %exitcond.not, label %367, label %.preheader131, !llvm.loop !13
+  br i1 %exitcond.not, label %367, label %.preheader131, !llvm.loop !12
 
 367:                                              ; preds = %.preheader131
   store i32 19, ptr %44, align 4
@@ -846,7 +846,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %418 = load i8, ptr %417, align 1
   %419 = zext i8 %418 to i64
   %420 = icmp samesign ult i64 %413, %419
-  br i1 %420, label %400, label %421, !llvm.loop !14
+  br i1 %420, label %400, label %421, !llvm.loop !13
 
 421:                                              ; preds = %406
   %422 = zext i8 %418 to i32
@@ -892,7 +892,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %452 = add i64 %451, %442
   %453 = add nuw nsw i64 %441, 8
   %454 = icmp samesign ult i64 %453, %439
-  br i1 %454, label %440, label %455, !llvm.loop !15
+  br i1 %454, label %440, label %455, !llvm.loop !14
 
 455:                                              ; preds = %446
   %456 = trunc nuw nsw i64 %453 to i32
@@ -966,7 +966,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %499 = add i64 %498, %489
   %500 = add nuw nsw i64 %488, 8
   %501 = icmp samesign ult i64 %500, %480
-  br i1 %501, label %487, label %502, !llvm.loop !16
+  br i1 %501, label %487, label %502, !llvm.loop !15
 
 502:                                              ; preds = %493
   %503 = trunc nuw nsw i64 %500 to i32
@@ -1012,7 +1012,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %535 = add i64 %534, %525
   %536 = add nuw nsw i64 %524, 8
   %537 = icmp samesign ult i64 %536, %474
-  br i1 %537, label %523, label %538, !llvm.loop !17
+  br i1 %537, label %523, label %538, !llvm.loop !16
 
 538:                                              ; preds = %529
   %539 = trunc nuw nsw i64 %536 to i32
@@ -1050,7 +1050,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %564 = add i64 %563, %554
   %565 = add nuw nsw i64 %553, 8
   %566 = icmp samesign ult i64 %565, %486
-  br i1 %566, label %552, label %567, !llvm.loop !18
+  br i1 %566, label %552, label %567, !llvm.loop !17
 
 567:                                              ; preds = %558
   %568 = trunc nuw nsw i64 %565 to i32
@@ -1091,7 +1091,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %595 = getelementptr [320 x i16], ptr %45, i64 0, i64 %594
   store i16 %587, ptr %595, align 2
   %596 = icmp eq i32 %592, 0
-  br i1 %596, label %597, label %.preheader, !llvm.loop !19
+  br i1 %596, label %597, label %.preheader, !llvm.loop !18
 
 597:                                              ; preds = %.preheader
   store i32 %593, ptr %44, align 4
@@ -1104,7 +1104,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %602 = phi i64 [ %463, %457 ], [ %584, %597 ]
   %603 = phi i32 [ %464, %457 ], [ %585, %597 ]
   %604 = icmp ult i32 %599, %382
-  br i1 %604, label %.preheader129, label %.loopexit130, !llvm.loop !20
+  br i1 %604, label %.preheader129, label %.loopexit130, !llvm.loop !19
 
 .thread:                                          ; preds = %504, %581
   %605 = phi ptr [ %505, %504 ], [ %582, %581 ]
@@ -1227,7 +1227,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %676 = load i8, ptr %675, align 1
   %677 = zext i8 %676 to i64
   %678 = icmp samesign ult i64 %670, %677
-  br i1 %678, label %657, label %679, !llvm.loop !21
+  br i1 %678, label %657, label %679, !llvm.loop !20
 
 679:                                              ; preds = %663
   %680 = zext i8 %676 to i32
@@ -1300,7 +1300,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %737 = add nuw nsw i32 %689, %736
   %738 = zext nneg i32 %737 to i64
   %739 = icmp samesign ult i64 %727, %738
-  br i1 %739, label %714, label %740, !llvm.loop !22
+  br i1 %739, label %714, label %740, !llvm.loop !21
 
 740:                                              ; preds = %720
   %741 = trunc nuw nsw i64 %727 to i32
@@ -1404,7 +1404,7 @@ thread-pre-split120:                              ; preds = %64
   %803 = add i64 %802, %792
   %804 = add i32 %791, 8
   %805 = icmp ult i32 %804, %782
-  br i1 %805, label %.preheader127, label %.loopexit128, !llvm.loop !23
+  br i1 %805, label %.preheader127, label %.loopexit128, !llvm.loop !22
 
 .loopexit128:                                     ; preds = %796, %789
   %806 = phi ptr [ %783, %789 ], [ %798, %796 ]
@@ -1479,7 +1479,7 @@ thread-pre-split120:                              ; preds = %64
   %863 = load i8, ptr %862, align 1
   %864 = zext i8 %863 to i64
   %865 = icmp samesign ult i64 %857, %864
-  br i1 %865, label %844, label %866, !llvm.loop !24
+  br i1 %865, label %844, label %866, !llvm.loop !23
 
 866:                                              ; preds = %850
   %867 = zext i8 %863 to i32
@@ -1551,7 +1551,7 @@ thread-pre-split120:                              ; preds = %64
   %923 = add nuw nsw i32 %876, %922
   %924 = zext nneg i32 %923 to i64
   %925 = icmp samesign ult i64 %913, %924
-  br i1 %925, label %900, label %926, !llvm.loop !25
+  br i1 %925, label %900, label %926, !llvm.loop !24
 
 926:                                              ; preds = %906
   %927 = trunc nuw nsw i64 %913 to i32
@@ -1642,7 +1642,7 @@ thread-pre-split122:                              ; preds = %64
   %982 = add i64 %981, %971
   %983 = add i32 %970, 8
   %984 = icmp ult i32 %983, %961
-  br i1 %984, label %.preheader125, label %.loopexit126, !llvm.loop !26
+  br i1 %984, label %.preheader125, label %.loopexit126, !llvm.loop !25
 
 .loopexit126:                                     ; preds = %975, %968
   %985 = phi ptr [ %962, %968 ], [ %977, %975 ]
@@ -1749,7 +1749,7 @@ thread-pre-split122:                              ; preds = %64
   store i8 %1055, ptr %1051, align 1
   %1057 = add i32 %1052, -1
   %1058 = icmp eq i32 %1057, 0
-  br i1 %1058, label %1059, label %1050, !llvm.loop !27
+  br i1 %1058, label %1059, label %1050, !llvm.loop !26
 
 1059:                                             ; preds = %1050
   %1060 = sub i32 %69, %1048
@@ -1767,7 +1767,7 @@ thread-pre-split122:                              ; preds = %64
   %1070 = phi i32 [ %69, %1127 ], [ %72, %1075 ], [ %72, %1072 ], [ %72, %1059 ], [ %72, %1008 ], [ %72, %956 ], [ %72, %646 ], [ %72, %770 ], [ %72, %774 ], [ %72, %778 ], [ %72, %611 ], [ %72, %620 ], [ %72, %371 ], [ %72, %309 ], [ %72, %264 ], [ %72, %272 ], [ %72, %249 ], [ %72, %185 ], [ %72, %211 ], [ %72, %89 ], [ %72, %118 ], [ %72, %122 ], [ %72, %130 ], [ %72, %132 ], [ %72, %.thread ]
   %1071 = phi i32 [ %73, %1127 ], [ %73, %1075 ], [ %1015, %1072 ], [ %1015, %1059 ], [ %966, %1008 ], [ %829, %956 ], [ %627, %646 ], [ %627, %770 ], [ %627, %774 ], [ %627, %778 ], [ %609, %611 ], [ %618, %620 ], [ %369, %371 ], [ %73, %309 ], [ %73, %264 ], [ %73, %272 ], [ %73, %249 ], [ %73, %185 ], [ %73, %211 ], [ %73, %89 ], [ %73, %118 ], [ %73, %122 ], [ %73, %130 ], [ %73, %132 ], [ %379, %.thread ]
   %.pre967 = load i32, ptr %6, align 8
-  br label %64, !llvm.loop !28
+  br label %64, !llvm.loop !27
 
 1072:                                             ; preds = %1059
   store i32 18, ptr %6, align 8
@@ -1816,7 +1816,7 @@ thread-pre-split122:                              ; preds = %64
   %1099 = add i64 %1098, %1089
   %1100 = add nuw nsw i64 %1088, 8
   %1101 = icmp samesign ult i64 %1088, 24
-  br i1 %1101, label %1087, label %1102, !llvm.loop !29
+  br i1 %1101, label %1087, label %1102, !llvm.loop !28
 
 1102:                                             ; preds = %1093
   %1103 = trunc i64 %1100 to i32
@@ -1842,7 +1842,7 @@ thread-pre-split122:                              ; preds = %64
   %1117 = load i64, ptr %37, align 8
   %1118 = sub nsw i64 0, %1110
   %1119 = getelementptr i8, ptr %67, i64 %1118
-  %1120 = tail call fastcc i64 @zlib_adler32(i64 noundef %1117, ptr noundef %1119, i32 noundef %1109), !range !30
+  %1120 = tail call fastcc i64 @zlib_adler32(i64 noundef %1117, ptr noundef %1119, i32 noundef %1109), !range !29
   store i64 %1120, ptr %37, align 8
   store i64 %1120, ptr %38, align 8
   br label %1121
@@ -2095,7 +2095,7 @@ thread-pre-split122:                              ; preds = %64
   %1279 = load ptr, ptr %22, align 8
   %1280 = sub nsw i64 0, %1268
   %1281 = getelementptr i8, ptr %1279, i64 %1280
-  %1282 = tail call fastcc i64 @zlib_adler32(i64 noundef %1278, ptr noundef %1281, i32 noundef %1263), !range !30
+  %1282 = tail call fastcc i64 @zlib_adler32(i64 noundef %1278, ptr noundef %1281, i32 noundef %1263), !range !29
   store i64 %1282, ptr %37, align 8
   store i64 %1282, ptr %38, align 8
   br label %1283
@@ -2274,7 +2274,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @zlib_adler32(i64 noundef %0
   %100 = getelementptr i8, ptr %20, i64 16
   %101 = add nsw i32 %17, -16
   %102 = icmp samesign ugt i32 %17, 31
-  br i1 %102, label %.preheader, label %103, !llvm.loop !31
+  br i1 %102, label %.preheader, label %103, !llvm.loop !30
 
 103:                                              ; preds = %.preheader
   %104 = icmp eq i32 %101, 0
@@ -2299,7 +2299,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @zlib_adler32(i64 noundef %0
   %118 = add i64 %117, %112
   %119 = add i32 %113, -1
   %120 = icmp eq i32 %119, 0
-  br i1 %120, label %121, label %109, !llvm.loop !32
+  br i1 %120, label %121, label %109, !llvm.loop !31
 
 121:                                              ; preds = %109
   %122 = add nsw i32 %105, -1
@@ -2315,7 +2315,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @zlib_adler32(i64 noundef %0
   %130 = urem i64 %128, 65521
   %131 = urem i64 %129, 65521
   %132 = icmp eq i32 %15, 0
-  br i1 %132, label %.loopexit, label %.preheader4, !llvm.loop !33
+  br i1 %132, label %.loopexit, label %.preheader4, !llvm.loop !32
 
 .loopexit:                                        ; preds = %126, %5
   %133 = phi i64 [ %8, %5 ], [ %130, %126 ]
@@ -2453,7 +2453,7 @@ define dso_local noundef range(i32 -3, 1) i32 @zlib_inflateIncomp(ptr noundef ca
   %65 = load ptr, ptr %0, align 8
   %66 = load i64, ptr %11, align 8
   %67 = trunc i64 %66 to i32
-  %68 = tail call fastcc i64 @zlib_adler32(i64 noundef %64, ptr noundef %65, i32 noundef %67), !range !30
+  %68 = tail call fastcc i64 @zlib_adler32(i64 noundef %64, ptr noundef %65, i32 noundef %67), !range !29
   store i64 %68, ptr %63, align 8
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %68, ptr %69, align 8
@@ -2513,32 +2513,31 @@ attributes #11 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !6, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !6, !7, !8}
-!27 = distinct !{!27, !6, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !6, !7, !8}
-!30 = !{i64 0, i64 4294967296}
-!31 = distinct !{!31, !6, !7, !8}
-!32 = distinct !{!32, !6, !7, !8}
-!33 = distinct !{!33, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = !{i64 0, i64 4294967296}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7}
+!32 = distinct !{!32, !6, !7}

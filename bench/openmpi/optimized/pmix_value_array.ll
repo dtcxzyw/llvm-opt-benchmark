@@ -49,7 +49,7 @@ define range(i32 -29, 1) i32 @pmix_value_array_set_size(ptr noundef captures(non
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %13 = load i64, ptr %12, align 8, !tbaa !18
+  %13 = load i64, ptr %12, align 8, !tbaa !17
   %14 = mul i64 %13, %7
   %15 = tail call ptr @realloc(ptr noundef %11, i64 noundef %14) #7
   store ptr %15, ptr %10, align 8, !tbaa !3
@@ -58,7 +58,7 @@ define range(i32 -29, 1) i32 @pmix_value_array_set_size(ptr noundef captures(non
 
 17:                                               ; preds = %9, %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %1, ptr %18, align 8, !tbaa !19
+  store i64 %1, ptr %18, align 8, !tbaa !18
   br label %19
 
 19:                                               ; preds = %9, %17
@@ -101,8 +101,7 @@ attributes #7 = { nounwind allocsize(1) }
 !12 = !{!"p1 omnipotent char", !9, i64 0}
 !13 = !{!"long", !6, i64 0}
 !14 = !{!4, !13, i64 144}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!4, !13, i64 128}
-!19 = !{!4, !13, i64 136}
+!17 = !{!4, !13, i64 128}
+!18 = !{!4, !13, i64 136}

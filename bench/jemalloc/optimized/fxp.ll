@@ -48,7 +48,7 @@ define hidden noundef zeroext i1 @je_fxp_parse(ptr noundef writeonly captures(no
   br i1 %.not46, label %18, label %17
 
 17:                                               ; preds = %.critedge
-  store i32 %.041.lcssa, ptr %0, align 4, !tbaa !10
+  store i32 %.041.lcssa, ptr %0, align 4, !tbaa !9
   %.not48 = icmp eq ptr %2, null
   br i1 %.not48, label %.loopexit, label %.loopexit.sink.split
 
@@ -75,7 +75,7 @@ define hidden noundef zeroext i1 @je_fxp_parse(ptr noundef writeonly captures(no
   %.1 = add i64 %29, %23
   %30 = add nuw nsw i32 %.03664, 1
   %exitcond.not = icmp eq i32 %30, 14
-  br i1 %exitcond.not, label %.preheader, label %.preheader51, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader, label %.preheader51, !llvm.loop !11
 
 .preheader:                                       ; preds = %.preheader51, %.preheader
   %.3 = phi ptr [ %34, %.preheader ], [ %.2, %.preheader51 ]
@@ -83,20 +83,20 @@ define hidden noundef zeroext i1 @je_fxp_parse(ptr noundef writeonly captures(no
   %32 = add i8 %31, -48
   %33 = icmp ult i8 %32, 10
   %34 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  br i1 %33, label %.preheader, label %35, !llvm.loop !13
+  br i1 %33, label %.preheader, label %35, !llvm.loop !12
 
 35:                                               ; preds = %.preheader
   %36 = shl i64 %.1, 16
   %37 = udiv i64 %36, 100000000000000
   %38 = trunc nuw nsw i64 %37 to i32
   %39 = add i32 %.041.lcssa, %38
-  store i32 %39, ptr %0, align 4, !tbaa !10
+  store i32 %39, ptr %0, align 4, !tbaa !9
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %.loopexit, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %35, %17
   %.3.lcssa.sink = phi ptr [ %.039.lcssa, %17 ], [ %.3, %35 ]
-  store ptr %.3.lcssa.sink, ptr %2, align 8, !tbaa !14
+  store ptr %.3.lcssa.sink, ptr %2, align 8, !tbaa !13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %3, %35, %18, %17
@@ -129,7 +129,7 @@ define hidden void @je_fxp_print(i32 noundef %0, ptr noundef %1) local_unnamed_a
   %12 = mul i64 %.02632, 10
   %13 = add nuw nsw i32 %.02533, 1
   %exitcond.not = icmp eq i32 %13, 14
-  br i1 %exitcond.not, label %5, label %10, !llvm.loop !17
+  br i1 %exitcond.not, label %5, label %10, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.136 = phi i64 [ %14, %.lr.ph ], [ %7, %5 ]
@@ -138,7 +138,7 @@ define hidden void @je_fxp_print(i32 noundef %0, ptr noundef %1) local_unnamed_a
   %15 = urem i64 %14, 10
   %16 = icmp eq i64 %15, 0
   %or.cond30 = and i1 %.not, %16
-  br i1 %or.cond30, label %.lr.ph, label %.critedge, !llvm.loop !18
+  br i1 %or.cond30, label %.lr.ph, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph, %5
   %.1.lcssa = phi i64 [ %7, %5 ], [ %14, %.lr.ph ]
@@ -184,15 +184,14 @@ attributes #4 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 omnipotent char", !16, i64 0}
-!16 = !{!"any pointer", !5, i64 0}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}

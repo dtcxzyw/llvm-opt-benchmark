@@ -310,7 +310,7 @@ define dso_local ptr @parse_precedence_with_left_side(ptr noundef %0, ptr nounde
   %28 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %27, i32 2
   %29 = load i32, ptr %28, align 8
   %30 = icmp ugt i32 %2, %29
-  br i1 %30, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %30, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %13, %24, %3, %19
   %.0 = phi ptr [ %23, %19 ], [ %1, %3 ], [ %.01621, %13 ], [ %25, %24 ]
@@ -445,7 +445,7 @@ define dso_local ptr @parse_cond(ptr noundef %0) local_unnamed_addr #1 {
   %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %64
   store ptr %.sink.i, ptr %65, align 8
   %66 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 29) #8
-  br i1 %66, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %66, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
 
 67:                                               ; preds = %.lr.ph.i
   %68 = call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef 5)
@@ -712,7 +712,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   %211 = getelementptr inbounds nuw ptr, ptr %209, i64 %210
   store ptr %184, ptr %211, align 8
   %212 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
-  br i1 %212, label %183, label %213, !llvm.loop !11
+  br i1 %212, label %183, label %213, !llvm.loop !9
 
 213:                                              ; preds = %206
   %214 = getelementptr inbounds nuw i8, ptr %155, i64 40
@@ -927,7 +927,7 @@ extend_span_with_token.exit.i95:                  ; preds = %282, %281
   %325 = getelementptr inbounds nuw ptr, ptr %323, i64 %324
   store ptr %291, ptr %325, align 8
   %326 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
-  br i1 %326, label %.preheader.i, label %327, !llvm.loop !12
+  br i1 %326, label %.preheader.i, label %327, !llvm.loop !10
 
 327:                                              ; preds = %320
   %328 = getelementptr inbounds nuw i8, ptr %155, i64 40
@@ -1133,7 +1133,7 @@ parse_catch_unwrap.exit.thread:                   ; preds = %extend_span_with_to
   %433 = getelementptr inbounds nuw ptr, ptr %429, i64 %432
   store ptr %.073, ptr %433, align 8
   %434 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
-  br i1 %434, label %8, label %.loopexit, !llvm.loop !13
+  br i1 %434, label %8, label %.loopexit
 
 .loopexit:                                        ; preds = %426, %139, %373
   %435 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1242,7 +1242,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %38 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %37, i32 2
   %39 = load i32, ptr %38, align 8
   %40 = icmp ugt i32 %1, %39
-  br i1 %40, label %.critedge, label %.lr.ph.i, !llvm.loop !7
+  br i1 %40, label %.critedge, label %.lr.ph.i
 
 41:                                               ; preds = %12
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1294,7 +1294,7 @@ define internal fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef %1) unn
   %68 = getelementptr inbounds nuw [190 x %struct.ParseRule], ptr @rules, i64 0, i64 %67, i32 2
   %69 = load i32, ptr %68, align 8
   %70 = icmp ugt i32 %1, %69
-  br i1 %70, label %.critedge, label %.lr.ph.i16, !llvm.loop !7
+  br i1 %70, label %.critedge, label %.lr.ph.i16
 
 .critedge:                                        ; preds = %64, %53, %34, %23, %59, %.split, %29, %.split12, %41, %8
   %.0 = phi ptr [ %11, %8 ], [ %13, %41 ], [ %33, %29 ], [ null, %.split12 ], [ %63, %59 ], [ %13, %.split ], [ %35, %34 ], [ %.01621.i, %23 ], [ %65, %64 ], [ %.01621.i17, %53 ]
@@ -1603,7 +1603,7 @@ extend_span_with_token.exit:                      ; preds = %33, %34
 107:                                              ; preds = %102, %101
   %.sroa.011.0.copyload = load i64, ptr %9, align 8
   %108 = call fastcc zeroext i1 @parse_param_path(ptr noundef nonnull %0, ptr noundef %6)
-  br i1 %108, label %13, label %.loopexit, !llvm.loop !14
+  br i1 %108, label %13, label %.loopexit
 
 .loopexit:                                        ; preds = %107, %25, %50, %61, %89, %98, %8, %20, %105
   %.065 = phi i1 [ false, %105 ], [ false, %20 ], [ false, %8 ], [ false, %107 ], [ false, %25 ], [ false, %50 ], [ false, %61 ], [ true, %89 ], [ true, %98 ]
@@ -1741,7 +1741,7 @@ define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr 
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
   store ptr %.sink, ptr %65, align 8
-  br label %4, !llvm.loop !15
+  br label %4
 
 66:                                               ; preds = %4
   tail call void @advance(ptr noundef nonnull %0) #8
@@ -1893,7 +1893,7 @@ define dso_local ptr @parse_expression_list(ptr noundef %0, i1 noundef zeroext %
   %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %57
   store ptr %.022, ptr %58, align 8
   %59 = call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
-  br i1 %59, label %8, label %.loopexit, !llvm.loop !16
+  br i1 %59, label %8, label %.loopexit
 
 .loopexit:                                        ; preds = %51, %17, %14
   %.023 = phi ptr [ %19, %17 ], [ %15, %14 ], [ %6, %51 ]
@@ -2021,7 +2021,7 @@ define dso_local ptr @parse_ct_expression_list(ptr noundef %0, i1 noundef zeroex
   %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
   store ptr %.034, ptr %67, align 8
   %68 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
-  br i1 %68, label %8, label %.loopexit, !llvm.loop !17
+  br i1 %68, label %8, label %.loopexit
 
 .loopexit:                                        ; preds = %60, %34, %19, %17
   %.033 = phi ptr [ %21, %19 ], [ %18, %17 ], [ %35, %34 ], [ %5, %60 ]
@@ -2105,7 +2105,7 @@ define dso_local ptr @parse_initializer_list(ptr noundef %0, ptr readnone captur
   %.1 = phi i32 [ 1, %23 ], [ 0, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %35, %12, %14
   %.041.lcssa = phi i1 [ false, %14 ], [ false, %12 ], [ %22, %35 ]
@@ -2240,7 +2240,7 @@ define dso_local i32 @read_int_suffix(ptr noundef readonly captures(none) %0, i3
   %21 = add i32 %20, %19
   %22 = add i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %22, %8
-  br i1 %exitcond.not.i, label %read_num_type.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %read_num_type.exit, label %.lr.ph.i, !llvm.loop !12
 
 23:                                               ; preds = %4
   %24 = add nsw i32 %2, -1
@@ -2289,7 +2289,7 @@ define dso_local i32 @read_int_suffix(ptr noundef readonly captures(none) %0, i3
   %48 = add i32 %47, %46
   %49 = add i64 %.018.i17, 1
   %exitcond.not.i19 = icmp eq i64 %49, %35
-  br i1 %exitcond.not.i19, label %read_num_type.exit, label %.lr.ph.i16, !llvm.loop !19
+  br i1 %exitcond.not.i19, label %read_num_type.exit, label %.lr.ph.i16, !llvm.loop !12
 
 read_num_type.exit:                               ; preds = %43, %.lr.ph.i16, %16, %.lr.ph.i, %.preheader.i14, %._crit_edge, %.preheader.i, %6, %4, %29, %23
   %.0 = phi i32 [ %., %23 ], [ 64, %29 ], [ -1, %4 ], [ -1, %6 ], [ 0, %.preheader.i ], [ -1, %._crit_edge ], [ 0, %.preheader.i14 ], [ %21, %16 ], [ %14, %.lr.ph.i ], [ %48, %43 ], [ %41, %.lr.ph.i16 ]
@@ -2395,7 +2395,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %48 = add i32 %47, %46
   %49 = add i64 %.018.i17.i, 1
   %exitcond.not.i19.i = icmp eq i64 %49, %35
-  br i1 %exitcond.not.i19.i, label %read_int_suffix.exit, label %.lr.ph.i16.i, !llvm.loop !19
+  br i1 %exitcond.not.i19.i, label %read_int_suffix.exit, label %.lr.ph.i16.i, !llvm.loop !12
 
 50:                                               ; preds = %.lr.ph511
   %sext392 = shl i64 %.0227506, 32
@@ -2427,7 +2427,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %65 = add i32 %64, %63
   %66 = add i64 %.018.i.i266, 1
   %exitcond.not.i.i268 = icmp eq i64 %66, %52
-  br i1 %exitcond.not.i.i268, label %read_int_suffix.exit, label %.lr.ph.i.i265, !llvm.loop !19
+  br i1 %exitcond.not.i.i268, label %read_int_suffix.exit, label %.lr.ph.i.i265, !llvm.loop !12
 
 67:                                               ; preds = %.lr.ph511
   %68 = trunc i64 %8 to i32
@@ -2462,7 +2462,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %.sroa.0119.2 = phi i64 [ %83, %71 ], [ %.sroa.0119.0510, %.lr.ph511 ]
   %87 = add nuw i64 %.0227506, 1
   %exitcond610.not = icmp eq i64 %87, %8
-  br i1 %exitcond610.not, label %read_int_suffix.exit, label %.lr.ph511, !llvm.loop !20
+  br i1 %exitcond610.not, label %read_int_suffix.exit, label %.lr.ph511, !llvm.loop !13
 
 .lr.ph501:                                        ; preds = %12, %199
   %.sroa.0119.3500 = phi i64 [ %.sroa.0119.4, %199 ], [ 0, %12 ]
@@ -2521,7 +2521,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %111 = add i32 %110, %109
   %112 = add i64 %.018.i.i281, 1
   %exitcond.not.i.i283 = icmp eq i64 %112, %98
-  br i1 %exitcond.not.i.i283, label %read_int_suffix.exit, label %.lr.ph.i.i280, !llvm.loop !19
+  br i1 %exitcond.not.i.i283, label %read_int_suffix.exit, label %.lr.ph.i.i280, !llvm.loop !12
 
 113:                                              ; preds = %92
   %114 = add nsw i32 %94, -1
@@ -2572,7 +2572,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %138 = add i32 %137, %136
   %139 = add i64 %.018.i17.i274, 1
   %exitcond.not.i19.i276 = icmp eq i64 %139, %125
-  br i1 %exitcond.not.i19.i276, label %read_int_suffix.exit, label %.lr.ph.i16.i273, !llvm.loop !19
+  br i1 %exitcond.not.i19.i276, label %read_int_suffix.exit, label %.lr.ph.i16.i273, !llvm.loop !12
 
 140:                                              ; preds = %.lr.ph501, %.lr.ph501
   %141 = trunc i64 %.0229496 to i32
@@ -2614,7 +2614,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %159 = add i32 %158, %157
   %160 = add i64 %.018.i.i296, 1
   %exitcond.not.i.i298 = icmp eq i64 %160, %146
-  br i1 %exitcond.not.i.i298, label %read_int_suffix.exit, label %.lr.ph.i.i295, !llvm.loop !19
+  br i1 %exitcond.not.i.i298, label %read_int_suffix.exit, label %.lr.ph.i.i295, !llvm.loop !12
 
 161:                                              ; preds = %140
   %162 = add nsw i32 %142, -1
@@ -2665,7 +2665,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %186 = add i32 %185, %184
   %187 = add i64 %.018.i17.i289, 1
   %exitcond.not.i19.i291 = icmp eq i64 %187, %173
-  br i1 %exitcond.not.i19.i291, label %read_int_suffix.exit, label %.lr.ph.i16.i288, !llvm.loop !19
+  br i1 %exitcond.not.i19.i291, label %read_int_suffix.exit, label %.lr.ph.i16.i288, !llvm.loop !12
 
 188:                                              ; preds = %.lr.ph501
   %189 = icmp ugt i64 %.sroa.0119.3500, 2305843009213693951
@@ -2688,7 +2688,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %.sroa.0119.4 = phi i64 [ %196, %188 ], [ %.sroa.0119.3500, %.lr.ph501 ]
   %200 = add nuw i64 %.0229496, 1
   %exitcond609.not = icmp eq i64 %200, %8
-  br i1 %exitcond609.not, label %read_int_suffix.exit, label %.lr.ph501, !llvm.loop !21
+  br i1 %exitcond609.not, label %read_int_suffix.exit, label %.lr.ph501, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %12, %312
   %.sroa.0119.5492 = phi i64 [ %.sroa.0119.6, %312 ], [ 0, %12 ]
@@ -2747,7 +2747,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %224 = add i32 %223, %222
   %225 = add i64 %.018.i.i311, 1
   %exitcond.not.i.i313 = icmp eq i64 %225, %211
-  br i1 %exitcond.not.i.i313, label %read_int_suffix.exit, label %.lr.ph.i.i310, !llvm.loop !19
+  br i1 %exitcond.not.i.i313, label %read_int_suffix.exit, label %.lr.ph.i.i310, !llvm.loop !12
 
 226:                                              ; preds = %205
   %227 = add nsw i32 %207, -1
@@ -2798,7 +2798,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %251 = add i32 %250, %249
   %252 = add i64 %.018.i17.i304, 1
   %exitcond.not.i19.i306 = icmp eq i64 %252, %238
-  br i1 %exitcond.not.i19.i306, label %read_int_suffix.exit, label %.lr.ph.i16.i303, !llvm.loop !19
+  br i1 %exitcond.not.i19.i306, label %read_int_suffix.exit, label %.lr.ph.i16.i303, !llvm.loop !12
 
 253:                                              ; preds = %.lr.ph, %.lr.ph
   %254 = trunc i64 %.0230488 to i32
@@ -2840,7 +2840,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %272 = add i32 %271, %270
   %273 = add i64 %.018.i.i326, 1
   %exitcond.not.i.i328 = icmp eq i64 %273, %259
-  br i1 %exitcond.not.i.i328, label %read_int_suffix.exit, label %.lr.ph.i.i325, !llvm.loop !19
+  br i1 %exitcond.not.i.i328, label %read_int_suffix.exit, label %.lr.ph.i.i325, !llvm.loop !12
 
 274:                                              ; preds = %253
   %275 = add nsw i32 %255, -1
@@ -2891,7 +2891,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %299 = add i32 %298, %297
   %300 = add i64 %.018.i17.i319, 1
   %exitcond.not.i19.i321 = icmp eq i64 %300, %286
-  br i1 %exitcond.not.i19.i321, label %read_int_suffix.exit, label %.lr.ph.i16.i318, !llvm.loop !19
+  br i1 %exitcond.not.i19.i321, label %read_int_suffix.exit, label %.lr.ph.i16.i318, !llvm.loop !12
 
 301:                                              ; preds = %.lr.ph
   %302 = add nsw i32 %.1220490, 1
@@ -2914,7 +2914,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %.sroa.0119.6 = phi i64 [ %310, %301 ], [ %.sroa.0119.5492, %.lr.ph ]
   %313 = add nuw i64 %.0230488, 1
   %exitcond.not = icmp eq i64 %313, %8
-  br i1 %exitcond.not, label %read_int_suffix.exit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %read_int_suffix.exit, label %.lr.ph, !llvm.loop !15
 
 .lr.ph520:                                        ; preds = %.lr.ph520.preheader, %425
   %.sroa.0119.7519 = phi i64 [ %.sroa.0119.8, %425 ], [ 0, %.lr.ph520.preheader ]
@@ -2972,7 +2972,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %337 = add i32 %336, %335
   %338 = add i64 %.018.i.i341, 1
   %exitcond.not.i.i343 = icmp eq i64 %338, %324
-  br i1 %exitcond.not.i.i343, label %read_int_suffix.exit, label %.lr.ph.i.i340, !llvm.loop !19
+  br i1 %exitcond.not.i.i343, label %read_int_suffix.exit, label %.lr.ph.i.i340, !llvm.loop !12
 
 339:                                              ; preds = %318
   %340 = add nsw i32 %320, -1
@@ -3023,7 +3023,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %364 = add i32 %363, %362
   %365 = add i64 %.018.i17.i334, 1
   %exitcond.not.i19.i336 = icmp eq i64 %365, %351
-  br i1 %exitcond.not.i19.i336, label %read_int_suffix.exit, label %.lr.ph.i16.i333, !llvm.loop !19
+  br i1 %exitcond.not.i19.i336, label %read_int_suffix.exit, label %.lr.ph.i16.i333, !llvm.loop !12
 
 366:                                              ; preds = %.lr.ph520, %.lr.ph520
   %367 = trunc i64 %.0228516 to i32
@@ -3065,7 +3065,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %385 = add i32 %384, %383
   %386 = add i64 %.018.i.i356, 1
   %exitcond.not.i.i358 = icmp eq i64 %386, %372
-  br i1 %exitcond.not.i.i358, label %read_int_suffix.exit, label %.lr.ph.i.i355, !llvm.loop !19
+  br i1 %exitcond.not.i.i358, label %read_int_suffix.exit, label %.lr.ph.i.i355, !llvm.loop !12
 
 387:                                              ; preds = %366
   %388 = add nsw i32 %368, -1
@@ -3116,7 +3116,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %412 = add i32 %411, %410
   %413 = add i64 %.018.i17.i349, 1
   %exitcond.not.i19.i351 = icmp eq i64 %413, %399
-  br i1 %exitcond.not.i19.i351, label %read_int_suffix.exit, label %.lr.ph.i16.i348, !llvm.loop !19
+  br i1 %exitcond.not.i19.i351, label %read_int_suffix.exit, label %.lr.ph.i16.i348, !llvm.loop !12
 
 414:                                              ; preds = %.lr.ph520
   %415 = tail call { i64, i64 } @i128_mult64(i64 %.sroa.0119.7519, i64 %.sroa.26.7518, i64 noundef 10) #8
@@ -3139,7 +3139,7 @@ define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) 
   %.sroa.0119.8 = phi i64 [ %.sroa.0119.7519, %.lr.ph520 ], [ %421, %414 ]
   %426 = add nuw i64 %.0228516, 1
   %exitcond611.not = icmp eq i64 %426, %8
-  br i1 %exitcond611.not, label %read_int_suffix.exit, label %.lr.ph520, !llvm.loop !23
+  br i1 %exitcond611.not, label %read_int_suffix.exit, label %.lr.ph520, !llvm.loop !16
 
 read_int_suffix.exit:                             ; preds = %312, %294, %.lr.ph.i16.i318, %267, %.lr.ph.i.i325, %246, %.lr.ph.i16.i303, %219, %.lr.ph.i.i310, %199, %181, %.lr.ph.i16.i288, %154, %.lr.ph.i.i295, %133, %.lr.ph.i16.i273, %106, %.lr.ph.i.i280, %86, %60, %.lr.ph.i.i265, %43, %.lr.ph.i16.i, %425, %407, %.lr.ph.i16.i348, %380, %.lr.ph.i.i355, %359, %.lr.ph.i16.i333, %332, %.lr.ph.i.i340, %.preheader.i14.i346, %._crit_edge.i345, %393, %387, %.preheader.i.i354, %370, %366, %.preheader.i14.i331, %._crit_edge.i330, %345, %339, %.preheader.i.i339, %322, %318, %.preheader.i14.i316, %._crit_edge.i315, %280, %274, %.preheader.i.i324, %257, %253, %.preheader.i14.i301, %._crit_edge.i300, %232, %226, %.preheader.i.i309, %209, %205, %.preheader.i14.i286, %._crit_edge.i285, %167, %161, %.preheader.i.i294, %144, %140, %.preheader.i14.i271, %._crit_edge.i270, %119, %113, %.preheader.i.i279, %96, %92, %67, %.preheader.i.i264, %50, %.preheader.i14.i, %._crit_edge.i, %29
   %.1223 = phi i8 [ %.0222507, %29 ], [ %.0222507, %._crit_edge.i ], [ %.0222507, %.preheader.i14.i ], [ %.0222507, %50 ], [ %.0222507, %.preheader.i.i264 ], [ %.0222507, %67 ], [ %.4226497, %92 ], [ %.4226497, %96 ], [ %.4226497, %.preheader.i.i279 ], [ %.4226497, %113 ], [ %.4226497, %119 ], [ %.4226497, %._crit_edge.i270 ], [ %.4226497, %.preheader.i14.i271 ], [ %.4226497, %140 ], [ %.4226497, %144 ], [ %.4226497, %.preheader.i.i294 ], [ %.4226497, %161 ], [ %.4226497, %167 ], [ %.4226497, %._crit_edge.i285 ], [ %.4226497, %.preheader.i14.i286 ], [ %.7489, %205 ], [ %.7489, %209 ], [ %.7489, %.preheader.i.i309 ], [ %.7489, %226 ], [ %.7489, %232 ], [ %.7489, %._crit_edge.i300 ], [ %.7489, %.preheader.i14.i301 ], [ %.7489, %253 ], [ %.7489, %257 ], [ %.7489, %.preheader.i.i324 ], [ %.7489, %274 ], [ %.7489, %280 ], [ %.7489, %._crit_edge.i315 ], [ %.7489, %.preheader.i14.i316 ], [ %.10517, %318 ], [ %.10517, %322 ], [ %.10517, %.preheader.i.i339 ], [ %.10517, %339 ], [ %.10517, %345 ], [ %.10517, %._crit_edge.i330 ], [ %.10517, %.preheader.i14.i331 ], [ %.10517, %366 ], [ %.10517, %370 ], [ %.10517, %.preheader.i.i354 ], [ %.10517, %387 ], [ %.10517, %393 ], [ %.10517, %._crit_edge.i345 ], [ %.10517, %.preheader.i14.i346 ], [ %.10517, %.lr.ph.i.i340 ], [ %.10517, %332 ], [ %.10517, %.lr.ph.i16.i333 ], [ %.10517, %359 ], [ %.10517, %.lr.ph.i.i355 ], [ %.10517, %380 ], [ %.10517, %.lr.ph.i16.i348 ], [ %.10517, %407 ], [ %.11, %425 ], [ %.0222507, %.lr.ph.i16.i ], [ %.0222507, %43 ], [ %.0222507, %.lr.ph.i.i265 ], [ %.0222507, %60 ], [ %.2224, %86 ], [ %.4226497, %.lr.ph.i.i280 ], [ %.4226497, %106 ], [ %.4226497, %.lr.ph.i16.i273 ], [ %.4226497, %133 ], [ %.4226497, %.lr.ph.i.i295 ], [ %.4226497, %154 ], [ %.4226497, %.lr.ph.i16.i288 ], [ %.4226497, %181 ], [ %.5, %199 ], [ %.7489, %.lr.ph.i.i310 ], [ %.7489, %219 ], [ %.7489, %.lr.ph.i16.i303 ], [ %.7489, %246 ], [ %.7489, %.lr.ph.i.i325 ], [ %.7489, %267 ], [ %.7489, %.lr.ph.i16.i318 ], [ %.7489, %294 ], [ %.8, %312 ]
@@ -3338,7 +3338,7 @@ is_power_of_two.exit362:                          ; preds = %466
 507:                                              ; preds = %499, %495
   %508 = add nuw nsw i32 %.0209524, 1
   %exitcond612.not = icmp eq i32 %508, 5
-  br i1 %exitcond612.not, label %.thread374, label %495, !llvm.loop !24
+  br i1 %exitcond612.not, label %.thread374, label %495, !llvm.loop !17
 
 509:                                              ; preds = %503, %505
   %.1212 = phi ptr [ %504, %503 ], [ %506, %505 ]
@@ -4357,7 +4357,7 @@ extend_span_with_token.exit:                      ; preds = %57, %58
   %91 = or disjoint i16 %83, 128
   store i16 %91, ptr %46, align 8
   %92 = call zeroext i1 @parse_attribute(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext true) #8
-  br i1 %92, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !25
+  br i1 %92, label %.lr.ph, label %.outer._crit_edge
 
 93:                                               ; preds = %78, %78
   %94 = icmp eq i32 %81, 12
@@ -4375,7 +4375,7 @@ extend_span_with_token.exit:                      ; preds = %57, %58
 
 102:                                              ; preds = %93
   %.not72 = icmp eq i32 %.063.ph, -1
-  br i1 %.not72, label %.outer, label %103, !llvm.loop !25
+  br i1 %.not72, label %.outer, label %103
 
 103:                                              ; preds = %102
   %104 = load ptr, ptr %6, align 8
@@ -4878,7 +4878,7 @@ define internal ptr @parse_expr_block(ptr noundef %0, ptr readnone captures(none
   store i32 %phi.call, ptr %.01922, align 4
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 54) #8
-  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.critedge, %2
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5004,7 +5004,7 @@ define internal ptr @parse_generic_expr(ptr noundef %0, ptr noundef %1) #1 {
   %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
   store ptr %14, ptr %50, align 8
   %51 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
-  br i1 %51, label %13, label %52, !llvm.loop !27
+  br i1 %51, label %13, label %52, !llvm.loop !19
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5404,7 +5404,7 @@ define internal ptr @parse_string_literal(ptr noundef %0, ptr readnone captures(
   tail call void @advance(ptr noundef nonnull %0) #8
   %16 = load i32, ptr %10, align 8
   %17 = icmp eq i32 %16, 76
-  br i1 %17, label %13, label %.outer._crit_edge, !llvm.loop !28
+  br i1 %17, label %13, label %.outer._crit_edge, !llvm.loop !20
 
 .outer:                                           ; preds = %13
   %18 = add i64 %14, %.041.ph46
@@ -5419,7 +5419,7 @@ define internal ptr @parse_string_literal(ptr noundef %0, ptr readnone captures(
   tail call void @advance(ptr noundef nonnull %0) #8
   %24 = load i32, ptr %10, align 8
   %25 = icmp eq i32 %24, 76
-  br i1 %25, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !28
+  br i1 %25, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !20
 
 .outer._crit_edge:                                ; preds = %.outer, %15, %2
   %.041.ph.lcssa = phi i64 [ %9, %2 ], [ %.041.ph46, %15 ], [ %18, %.outer ]
@@ -5631,7 +5631,7 @@ define internal ptr @parse_bytes_expr(ptr noundef %0, ptr readnone captures(none
   tail call void @advance(ptr noundef nonnull %0) #8
   %13 = load i32, ptr %3, align 8
   %14 = icmp eq i32 %13, 80
-  br i1 %14, label %8, label %.outer._crit_edge, !llvm.loop !29
+  br i1 %14, label %8, label %.outer._crit_edge, !llvm.loop !21
 
 15:                                               ; preds = %8
   %16 = add i32 %.0.ph104, %11
@@ -5716,7 +5716,7 @@ base64_to_sextet.exit.i:                          ; preds = %35, %47, %base64_to
 
 48:                                               ; preds = %47
   %49 = icmp eq ptr %36, %29
-  br i1 %49, label %parse_base64.exit, label %35, !llvm.loop !30
+  br i1 %49, label %parse_base64.exit, label %35, !llvm.loop !22
 
 base64_to_sextet.exit34.i:                        ; preds = %61, %base64_to_sextet.exit.i
   %.2.i = phi ptr [ %36, %base64_to_sextet.exit.i ], [ %50, %61 ]
@@ -5749,7 +5749,7 @@ base64_to_sextet.exit34.i:                        ; preds = %61, %base64_to_sext
     i8 43, label %.preheader.i
     i8 47, label %.preheader.i.loopexit
     i8 61, label %.preheader.i.loopexit294
-  ], !llvm.loop !31
+  ], !llvm.loop !23
 
 .preheader.i.loopexit:                            ; preds = %61
   br label %.preheader.i
@@ -5792,7 +5792,7 @@ base64_to_sextet.exit39.i:                        ; preds = %73, %.preheader.i
     i8 43, label %base64_to_sextet.exit44.preheader.i
     i8 47, label %base64_to_sextet.exit44.preheader.i.loopexit
     i8 61, label %base64_to_sextet.exit44.preheader.i.loopexit293
-  ], !llvm.loop !32
+  ], !llvm.loop !24
 
 base64_to_sextet.exit44.preheader.i.loopexit:     ; preds = %73
   br label %base64_to_sextet.exit44.preheader.i
@@ -5838,7 +5838,7 @@ base64_to_sextet.exit44.i:                        ; preds = %88, %base64_to_sext
     i8 43, label %.loopexit.i.loopexit
     i8 47, label %.loopexit.i.loopexit292
     i8 61, label %.loopexit.i
-  ], !llvm.loop !33
+  ], !llvm.loop !25
 
 .loopexit.i.loopexit:                             ; preds = %88
   br label %.loopexit.i
@@ -5891,7 +5891,7 @@ base64_to_sextet.exit44.i:                        ; preds = %88, %base64_to_sext
 112:                                              ; preds = %109, %107
   %.327.i = phi ptr [ %111, %109 ], [ %.226.i, %107 ]
   %113 = icmp ult ptr %77, %29
-  br i1 %113, label %.preheader48.i, label %parse_base64.exit, !llvm.loop !34
+  br i1 %113, label %.preheader48.i, label %parse_base64.exit, !llvm.loop !26
 
 114:                                              ; preds = %21
   %115 = getelementptr inbounds nuw i8, ptr %24, i64 2
@@ -5923,7 +5923,7 @@ base64_to_sextet.exit44.i:                        ; preds = %88, %base64_to_sext
 
 129:                                              ; preds = %121
   %130 = icmp eq ptr %122, %117
-  br i1 %130, label %parse_base64.exit, label %121, !llvm.loop !35
+  br i1 %130, label %parse_base64.exit, label %121, !llvm.loop !27
 
 .preheader.i45:                                   ; preds = %121, %.preheader.i45
   %.2.i46 = phi ptr [ %131, %.preheader.i45 ], [ %122, %121 ]
@@ -5934,7 +5934,7 @@ base64_to_sextet.exit44.i:                        ; preds = %88, %base64_to_sext
   %135 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %134
   %136 = load i8, ptr %135, align 1
   %137 = icmp slt i8 %136, 1
-  br i1 %137, label %.preheader.i45, label %138, !llvm.loop !36
+  br i1 %137, label %.preheader.i45, label %138, !llvm.loop !28
 
 138:                                              ; preds = %.preheader.i45
   %139 = add nsw i8 %136, -1
@@ -5944,13 +5944,13 @@ base64_to_sextet.exit44.i:                        ; preds = %88, %base64_to_sext
   %143 = getelementptr inbounds nuw i8, ptr %.0919.i, i64 1
   store i8 %142, ptr %.0919.i, align 1
   %144 = icmp ult ptr %131, %117
-  br i1 %144, label %.preheader12.i, label %parse_base64.exit, !llvm.loop !37
+  br i1 %144, label %.preheader12.i, label %parse_base64.exit, !llvm.loop !29
 
 parse_base64.exit:                                ; preds = %138, %112, %129, %48, %114, %26
   tail call void @advance(ptr noundef nonnull %0) #8
   %145 = load i32, ptr %3, align 8
   %146 = icmp eq i32 %145, 80
-  br i1 %146, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !29
+  br i1 %146, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !21
 
 .outer._crit_edge:                                ; preds = %parse_base64.exit, %12, %2
   %.040.ph.lcssa = phi ptr [ null, %2 ], [ %.040.ph103, %12 ], [ %18, %parse_base64.exit ]
@@ -6432,7 +6432,7 @@ define internal ptr @parse_ct_and_or(ptr noundef %0, ptr readnone captures(none)
   %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %18, ptr %54, align 8
   %55 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
-  br i1 %55, label %17, label %56, !llvm.loop !38
+  br i1 %55, label %17, label %56
 
 56:                                               ; preds = %49
   %57 = load i32, ptr %6, align 8
@@ -6726,7 +6726,7 @@ define internal ptr @parse_ct_defined(ptr noundef %0, ptr readnone captures(none
   %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   store ptr %16, ptr %52, align 8
   %53 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
-  br i1 %53, label %13, label %54, !llvm.loop !39
+  br i1 %53, label %13, label %54, !llvm.loop !30
 
 54:                                               ; preds = %47
   %55 = load i32, ptr %6, align 8
@@ -7656,35 +7656,26 @@ attributes #9 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !10, !8}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10, !8}
-!12 = distinct !{!12, !10, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
 !13 = distinct !{!13, !8}
 !14 = distinct !{!14, !8}
 !15 = distinct !{!15, !8}
 !16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
-!18 = distinct !{!18, !10, !8}
-!19 = distinct !{!19, !10, !8}
-!20 = distinct !{!20, !10, !8}
-!21 = distinct !{!21, !10, !8}
-!22 = distinct !{!22, !10, !8}
-!23 = distinct !{!23, !10, !8}
-!24 = distinct !{!24, !10, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}
 !25 = distinct !{!25, !8}
-!26 = distinct !{!26, !10, !8}
-!27 = distinct !{!27, !10, !8}
-!28 = distinct !{!28, !10, !8}
-!29 = distinct !{!29, !10, !8}
-!30 = distinct !{!30, !10, !8}
-!31 = distinct !{!31, !10, !8}
-!32 = distinct !{!32, !10, !8}
-!33 = distinct !{!33, !10, !8}
-!34 = distinct !{!34, !10, !8}
-!35 = distinct !{!35, !10, !8}
-!36 = distinct !{!36, !10, !8}
-!37 = distinct !{!37, !10, !8}
-!38 = distinct !{!38, !8}
-!39 = distinct !{!39, !10, !8}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !8}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8}
+!30 = distinct !{!30, !8}

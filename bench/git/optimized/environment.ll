@@ -241,7 +241,7 @@ sub_0:                                            ; preds = %strbuf_setlen.exit,
   unreachable
 
 29:                                               ; preds = %._crit_edge
-  %30 = load i64, ptr %1, align 8, !tbaa !49
+  %30 = load i64, ptr %1, align 8, !tbaa !48
   %.not.i.i = icmp eq i64 %30, 0
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
@@ -328,7 +328,7 @@ define dso_local ptr @strip_namespace(ptr noundef readonly captures(ret: address
   %7 = load i8, ptr %.07.i, align 1, !tbaa !40
   %8 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
   %9 = icmp eq i8 %7, %4
-  br i1 %9, label %3, label %skip_prefix.exit, !llvm.loop !50
+  br i1 %9, label %3, label %skip_prefix.exit, !llvm.loop !49
 
 skip_prefix.exit:                                 ; preds = %3, %5
   %.0 = phi ptr [ null, %5 ], [ %.07.i, %3 ]
@@ -516,8 +516,7 @@ attributes #16 = { noreturn nounwind }
 !43 = !{!42, !13, i64 16}
 !44 = !{!45, !45, i64 0}
 !45 = !{!"p1 _ZTS6strbuf", !7, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!42, !10, i64 0}
-!50 = distinct !{!50, !47, !48}
+!48 = !{!42, !10, i64 0}
+!49 = distinct !{!49, !47}

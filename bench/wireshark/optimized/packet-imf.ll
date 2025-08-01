@@ -519,7 +519,7 @@ define hidden void @proto_register_imf() local_unnamed_addr #0 {
   %15 = getelementptr i8, ptr %.09, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %17 = load i32, ptr @proto_imf, align 4
@@ -630,12 +630,12 @@ define internal void @header_fields_header_format_set_cb(ptr noundef writeonly c
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !10
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !9
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -670,12 +670,12 @@ define internal void @header_fields_header_format_tostr_cb(ptr noundef readonly 
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !10
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !11
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !10
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -720,12 +720,12 @@ define internal void @header_fields_add_to_col_info_set_cb(ptr noundef writeonly
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !12
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !11
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -760,12 +760,12 @@ define internal void @header_fields_add_to_col_info_tostr_cb(ptr noundef readonl
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !12
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !13
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !12
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -900,7 +900,7 @@ define internal void @header_fields_post_update_cb() #0 {
   %12 = load i32, ptr @dynamic_hf_size, align 4
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next.i, %13
-  br i1 %14, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !14
+  br i1 %14, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !13
 
 15:                                               ; preds = %._crit_edge.i, %0
   %16 = load ptr, ptr @custom_field_table, align 8
@@ -1050,7 +1050,7 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %83 = load i32, ptr @dynamic_hf_size, align 4
   %84 = zext i32 %83 to i64
   %85 = icmp samesign ult i64 %indvars.iv.next, %84
-  br i1 %85, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %85, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
 86:                                               ; preds = %._crit_edge, %deregister_header_fields.exit
   ret void
@@ -1094,7 +1094,7 @@ define internal void @header_fields_reset_cb() #0 {
   %12 = load i32, ptr @dynamic_hf_size, align 4
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next.i, %13
-  br i1 %14, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !14
+  br i1 %14, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !13
 
 15:                                               ; preds = %._crit_edge.i, %0
   %16 = load ptr, ptr @custom_field_table, align 8
@@ -1236,7 +1236,7 @@ define internal i32 @dissect_imf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 62:                                               ; preds = %.lr.ph
   %63 = add nsw i32 %.0146163, 1
   %64 = icmp slt i32 %63, %54
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %62, %.lr.ph, %.preheader
   %.0146.lcssa = phi i32 [ %53, %.preheader ], [ %.0146163, %.lr.ph ], [ %63, %62 ]
@@ -1272,7 +1272,7 @@ define internal i32 @dissect_imf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 84:                                               ; preds = %80, %68
   %.0141 = phi ptr [ %79, %68 ], [ %83, %80 ]
   %85 = getelementptr inbounds nuw i8, ptr %spec.select161, i64 24
-  %86 = load i8, ptr %85, align 8, !range !17, !noundef !18
+  %86 = load i8, ptr %85, align 8, !range !16, !noundef !17
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %111
 
@@ -1328,7 +1328,7 @@ define internal i32 @dissect_imf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 117:                                              ; preds = %.lr.ph.i
   %118 = add nuw nsw i32 %.03337.i, 1
   %exitcond.not.i = icmp eq i32 %118, %115
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
 .lr.ph.i:                                         ; preds = %114, %117
   %.03337.i = phi i32 [ %118, %117 ], [ 0, %114 ]
@@ -1394,12 +1394,12 @@ define internal i32 @dissect_imf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 dissect_imf_content_type.exit:                    ; preds = %137, %126, %._crit_edge.i, %149, %152, %145
   %.1143 = phi ptr [ %148, %145 ], [ %.0142168, %152 ], [ %.0142168, %149 ], [ %.0142168, %._crit_edge.i ], [ %.0142168, %126 ], [ %.0142168, %137 ]
   %154 = load i32, ptr %7, align 4
-  %155 = load i8, ptr %8, align 1, !range !17, !noundef !18
+  %155 = load i8, ptr %8, align 1, !range !16, !noundef !17
   %156 = trunc nuw i8 %155 to i1
-  br i1 %156, label %thread-pre-split, label %32, !llvm.loop !20
+  br i1 %156, label %thread-pre-split, label %32, !llvm.loop !19
 
 ._crit_edge171:                                   ; preds = %48
-  %.pre.pre = load i8, ptr %8, align 1, !range !17
+  %.pre.pre = load i8, ptr %8, align 1, !range !16
   %spec.select213 = zext nneg i8 %.pre.pre to i32
   br label %.sink.split
 
@@ -1489,7 +1489,7 @@ thread-pre-split:                                 ; preds = %dissect_imf_content
   call void @col_append_sep_str(ptr noundef %197, i32 noundef 25, ptr noundef nonnull @.str.218, ptr noundef %201)
   %.1149 = load i32, ptr %7, align 4
   %202 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.1149)
-  br i1 %202, label %192, label %.loopexit, !llvm.loop !21
+  br i1 %202, label %192, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %192, %184, %177
   %.not160 = icmp eq ptr %.0, null
@@ -1725,7 +1725,7 @@ define internal void @dissect_imf_mailbox(ptr noundef %0, i32 noundef %1, i32 no
 21:                                               ; preds = %15
   %22 = add i32 %.035, 1
   %exitcond.not = icmp eq i32 %22, %8
-  br i1 %exitcond.not, label %._crit_edge.thread, label %15, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge.thread, label %15, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %15, %.preheader
   %.0.lcssa = phi i32 [ %1, %.preheader ], [ %.035, %15 ]
@@ -1793,7 +1793,7 @@ define internal void @dissect_imf_address(ptr noundef %0, i32 noundef %1, i32 no
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 256
   %.not = icmp eq i16 %25, 0
-  br i1 %.not, label %26, label %18, !llvm.loop !23
+  br i1 %.not, label %26, label %18, !llvm.loop !22
 
 26:                                               ; preds = %20, %18
   %27 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0)
@@ -1830,7 +1830,7 @@ define internal void @dissect_imf_mailbox_list(ptr noundef %0, i32 noundef %1, i
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %14, ptr noundef %0, i32 noundef %.028, i32 noundef %.0, i32 noundef 0)
   tail call void @dissect_imf_mailbox(ptr noundef %0, i32 noundef %.028, i32 noundef %.0, ptr noundef %15, ptr poison)
   %16 = add nuw i32 %10, 1
-  br i1 %12, label %17, label %8, !llvm.loop !24
+  br i1 %12, label %17, label %8, !llvm.loop !23
 
 17:                                               ; preds = %8
   %18 = icmp eq i32 %.029, 0
@@ -1859,7 +1859,7 @@ define internal void @dissect_imf_address_list(ptr noundef %0, i32 noundef %1, i
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %14, ptr noundef %0, i32 noundef %.028, i32 noundef %.0, i32 noundef 0)
   tail call void @dissect_imf_address(ptr noundef %0, i32 noundef %.028, i32 noundef %.0, ptr noundef %15, ptr noundef %4)
   %16 = add nuw i32 %10, 1
-  br i1 %12, label %17, label %8, !llvm.loop !25
+  br i1 %12, label %17, label %8, !llvm.loop !24
 
 17:                                               ; preds = %8
   %18 = icmp eq i32 %.029, 0
@@ -1896,7 +1896,7 @@ define internal void @dissect_imf_siolabel(ptr noundef %0, i32 noundef %1, i32 n
   %21 = and i16 %20, 256
   %.not = icmp eq i16 %21, 0
   %22 = add i32 %.1, 1
-  br i1 %.not, label %23, label %16, !llvm.loop !26
+  br i1 %.not, label %23, label %16, !llvm.loop !25
 
 23:                                               ; preds = %16
   %24 = icmp eq i32 %15, -1
@@ -1927,7 +1927,7 @@ define internal void @dissect_imf_siolabel(ptr noundef %0, i32 noundef %1, i32 n
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 256
   %.not125 = icmp eq i16 %37, 0
-  br i1 %.not125, label %38, label %32, !llvm.loop !27
+  br i1 %.not125, label %38, label %32, !llvm.loop !26
 
 38:                                               ; preds = %32
   %39 = sub i32 %.0120, %.1
@@ -1944,7 +1944,7 @@ define internal void @dissect_imf_siolabel(ptr noundef %0, i32 noundef %1, i32 n
   %47 = and i16 %46, 256
   %.not126 = icmp eq i16 %47, 0
   %48 = add i32 %.0119, -1
-  br i1 %.not126, label %49, label %41, !llvm.loop !28
+  br i1 %.not126, label %49, label %41, !llvm.loop !27
 
 49:                                               ; preds = %41
   %50 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %.1, ptr noundef nonnull @.str.203, i64 noundef 7)
@@ -2036,7 +2036,7 @@ define internal void @dissect_imf_siolabel(ptr noundef %0, i32 noundef %1, i32 n
 106:                                              ; preds = %90, %99, %60, %72, %102, %66, %52
   %.1117 = phi ptr [ %.0116, %52 ], [ %.0116, %60 ], [ %.0116, %66 ], [ %76, %72 ], [ %.0116, %102 ], [ %.0116, %99 ], [ %.0116, %90 ]
   %107 = add nuw i32 %15, 1
-  br i1 %24, label %108, label %13, !llvm.loop !29
+  br i1 %24, label %108, label %13, !llvm.loop !28
 
 108:                                              ; preds = %106
   %.not128 = icmp eq ptr %.1117, null
@@ -2245,27 +2245,26 @@ attributes #13 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}

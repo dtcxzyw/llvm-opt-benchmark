@@ -1539,7 +1539,7 @@ define void @"_ZN72_$LT$wiggle_generate..config..ErrorConf$u20$as$u20$syn..parse
 
 87:                                               ; preds = %84
   invoke void @"_ZN4core3ptr60drop_in_place$LT$wiggle_generate..config..ErrorConfField$GT$17hdca0e0e7df1d1effE"(ptr nonnull align 8 %21)
-          to label %56 unwind label %.loopexit, !llvm.loop !19
+          to label %56 unwind label %.loopexit
 
 88:                                               ; preds = %100, %99, %90
   %89 = landingpad { ptr, i32 }
@@ -1849,14 +1849,14 @@ define zeroext i1 @"_ZN80_$LT$wiggle_generate..config..UserErrorConfField$u20$as
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN15wiggle_generate6config9Asyncness8is_async17h35389a31338481dbE(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !21, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !19, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775805
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define align 8 ptr @_ZN15wiggle_generate6config9Asyncness8blocking17hc8f535ae2704a41dE(ptr readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !21, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !19, !noundef !3
   %3 = add i64 %2, 9223372036854775807
   %4 = icmp ugt i64 %3, 2
   %5 = icmp eq i64 %3, 1
@@ -1867,7 +1867,7 @@ define align 8 ptr @_ZN15wiggle_generate6config9Asyncness8blocking17hc8f535ae270
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN15wiggle_generate6config9Asyncness7is_sync17h73e4ab8c390d74b4E(ptr readonly align 8 captures(none) %0) unnamed_addr #2 {
-  %2 = load i64, ptr %0, align 8, !range !21, !noundef !3
+  %2 = load i64, ptr %0, align 8, !range !19, !noundef !3
   %3 = icmp eq i64 %2, -9223372036854775807
   ret i1 %3
 }
@@ -2017,7 +2017,7 @@ define noundef zeroext i1 @_ZN15wiggle_generate6config9AsyncConf14contains_async
           to label %36 unwind label %34
 
 26:                                               ; preds = %16
-  %27 = load i64, ptr %3, align 8, !range !21, !noundef !3
+  %27 = load i64, ptr %3, align 8, !range !19, !noundef !3
   %28 = icmp eq i64 %27, -9223372036854775805
   br i1 %28, label %30, label %29
 
@@ -2033,7 +2033,7 @@ define noundef zeroext i1 @_ZN15wiggle_generate6config9AsyncConf14contains_async
   call void @"_ZN4core3ptr66drop_in_place$LT$alloc..rc..Rc$LT$witx..ast..InterfaceFunc$GT$$GT$17h57e5145b8fcd01a0E"(ptr nonnull align 8 %4)
   %32 = call ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8find_map17he3c86a8ae68b83d6E"(ptr nonnull align 8 %5, ptr nonnull align 1 %12)
   %.not22 = icmp eq ptr %32, null
-  br i1 %.not22, label %.loopexit, label %16, !llvm.loop !22
+  br i1 %.not22, label %.loopexit, label %16
 
 33:                                               ; preds = %30
   call void @"_ZN4core3ptr66drop_in_place$LT$alloc..rc..Rc$LT$witx..ast..InterfaceFunc$GT$$GT$17h57e5145b8fcd01a0E"(ptr nonnull align 8 %4)
@@ -2337,7 +2337,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 
 115:                                              ; preds = %111, %114
   invoke void @"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE"(ptr nonnull align 8 %16)
-          to label %76 unwind label %78, !llvm.loop !23
+          to label %76 unwind label %78
 
 116:                                              ; preds = %109
   %lpad.thr_comm.split-lp101 = landingpad { ptr, i32 }
@@ -2809,7 +2809,7 @@ define void @"_ZN82_$LT$wiggle_generate..config..WasmtimeConfigField$u20$as$u20$
 
 11:                                               ; preds = %2
   call void @"_ZN74_$LT$wiggle_generate..config..ConfigField$u20$as$u20$syn..parse..Parse$GT$5parse17hea291bbcc7eb2eafE"(ptr nonnull sret({ i64, [9 x i64] }) align 8 %3, ptr nonnull align 8 %1)
-  %12 = load i64, ptr %3, align 8, !range !24, !noundef !3
+  %12 = load i64, ptr %3, align 8, !range !20, !noundef !3
   %.not = icmp eq i64 %12, -9223372036854775800
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not, label %18, label %17
@@ -3233,7 +3233,7 @@ define void @"_ZN74_$LT$wiggle_generate..config..TracingConf$u20$as$u20$syn..par
 
 114:                                              ; preds = %110, %113
   invoke void @"_ZN4core3ptr59drop_in_place$LT$wiggle_generate..config..FunctionField$GT$17h00786b1656e7c70dE"(ptr nonnull align 8 %13)
-          to label %84 unwind label %86, !llvm.loop !25
+          to label %84 unwind label %86
 
 115:                                              ; preds = %108
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -3859,10 +3859,5 @@ attributes #13 = { noreturn }
 !16 = !{!17, !11}
 !17 = distinct !{!17, !18, !"_ZN82_$LT$wiggle_generate..config..UserErrorConfField$u20$as$u20$core..clone..Clone$GT$5clone17hf78fc3c1aaf68b2cE: argument 0"}
 !18 = distinct !{!18, !"_ZN82_$LT$wiggle_generate..config..UserErrorConfField$u20$as$u20$core..clone..Clone$GT$5clone17hf78fc3c1aaf68b2cE"}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{i64 0, i64 -9223372036854775804}
-!22 = distinct !{!22, !20}
-!23 = distinct !{!23, !20}
-!24 = !{i64 0, i64 -9223372036854775799}
-!25 = distinct !{!25, !20}
+!19 = !{i64 0, i64 -9223372036854775804}
+!20 = !{i64 0, i64 -9223372036854775799}

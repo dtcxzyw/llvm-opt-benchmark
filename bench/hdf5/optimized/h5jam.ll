@@ -140,55 +140,55 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @usage(ptr noundef %0) unnamed_addr #4 {
-  %2 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %2 = load ptr, ptr @stdout, align 8, !tbaa !11
   %3 = tail call i32 @fflush(ptr noundef %2)
-  %4 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %4 = load ptr, ptr @stdout, align 8, !tbaa !11
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.25, ptr noundef %0) #15
-  %6 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %6 = load ptr, ptr @stdout, align 8, !tbaa !11
   %fputc = tail call i32 @fputc(i32 10, ptr %6)
-  %7 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %7 = load ptr, ptr @stdout, align 8, !tbaa !11
   %8 = tail call i64 @fwrite(ptr nonnull @.str.27, i64 78, i64 1, ptr %7)
-  %9 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !11
   %fputc1 = tail call i32 @fputc(i32 10, ptr %9)
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !11
   %11 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 8, i64 1, ptr %10)
-  %12 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %12 = load ptr, ptr @stdout, align 8, !tbaa !11
   %13 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 50, i64 1, ptr %12)
-  %14 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !11
   %15 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 74, i64 1, ptr %14)
-  %16 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %16 = load ptr, ptr @stdout, align 8, !tbaa !11
   %17 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 65, i64 1, ptr %16)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !11
   %19 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 51, i64 1, ptr %18)
-  %20 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %20 = load ptr, ptr @stdout, align 8, !tbaa !11
   %21 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 76, i64 1, ptr %20)
-  %22 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %22 = load ptr, ptr @stdout, align 8, !tbaa !11
   %23 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 49, i64 1, ptr %22)
-  %24 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %24 = load ptr, ptr @stdout, align 8, !tbaa !11
   %25 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 74, i64 1, ptr %24)
-  %26 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %26 = load ptr, ptr @stdout, align 8, !tbaa !11
   %27 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 41, i64 1, ptr %26)
-  %28 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %28 = load ptr, ptr @stdout, align 8, !tbaa !11
   %29 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 73, i64 1, ptr %28)
-  %30 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %30 = load ptr, ptr @stdout, align 8, !tbaa !11
   %31 = tail call i64 @fwrite(ptr nonnull @.str.38, i64 77, i64 1, ptr %30)
-  %32 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %32 = load ptr, ptr @stdout, align 8, !tbaa !11
   %33 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 77, i64 1, ptr %32)
-  %34 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %34 = load ptr, ptr @stdout, align 8, !tbaa !11
   %35 = tail call i64 @fwrite(ptr nonnull @.str.40, i64 62, i64 1, ptr %34)
-  %36 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %36 = load ptr, ptr @stdout, align 8, !tbaa !11
   %fputc2 = tail call i32 @fputc(i32 10, ptr %36)
-  %37 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !11
   %38 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 53, i64 1, ptr %37)
-  %39 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %39 = load ptr, ptr @stdout, align 8, !tbaa !11
   %40 = tail call i64 @fwrite(ptr nonnull @.str.42, i64 62, i64 1, ptr %39)
-  %41 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %41 = load ptr, ptr @stdout, align 8, !tbaa !11
   %fputc3 = tail call i32 @fputc(i32 10, ptr %41)
-  %42 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %42 = load ptr, ptr @stdout, align 8, !tbaa !11
   %43 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 13, i64 1, ptr %42)
-  %44 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %44 = load ptr, ptr @stdout, align 8, !tbaa !11
   %45 = tail call i64 @fwrite(ptr nonnull @.str.44, i64 18, i64 1, ptr %44)
-  %46 = load ptr, ptr @stdout, align 8, !tbaa !12
+  %46 = load ptr, ptr @stdout, align 8, !tbaa !11
   %47 = tail call i64 @fwrite(ptr nonnull @.str.45, i64 26, i64 1, ptr %46)
   ret void
 }
@@ -221,7 +221,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 9:                                                ; preds = %2
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.1) #15
-  %10 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %10 = load ptr, ptr @stderr, align 8, !tbaa !11
   tail call void @help_ref_msg(ptr noundef %10) #15
   tail call void @h5tools_setstatus(i32 noundef 1) #15
   br label %107
@@ -233,7 +233,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 14:                                               ; preds = %11
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.2) #15
-  %15 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !11
   tail call void @help_ref_msg(ptr noundef %15) #15
   tail call void @h5tools_setstatus(i32 noundef 1) #15
   br label %107
@@ -245,7 +245,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 19:                                               ; preds = %16
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.3) #15
-  %20 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %20 = load ptr, ptr @stderr, align 8, !tbaa !11
   tail call void @help_ref_msg(ptr noundef %20) #15
   tail call void @h5tools_setstatus(i32 noundef 1) #15
   br label %107
@@ -258,7 +258,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 25:                                               ; preds = %21
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.4, ptr noundef %24) #15
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !11
   tail call void @help_ref_msg(ptr noundef %26) #15
   tail call void @h5tools_setstatus(i32 noundef 1) #15
   br label %107
@@ -324,7 +324,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %57 = load i64, ptr %56, align 8, !tbaa !14
+  %57 = load i64, ptr %56, align 8, !tbaa !13
   %58 = load ptr, ptr @input_file, align 8, !tbaa !4
   %59 = call i32 (ptr, i32, ...) @open64(ptr noundef %58, i32 noundef 0) #15
   %60 = icmp slt i32 %59, 0
@@ -350,7 +350,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %70 = load i64, ptr %69, align 8, !tbaa !14
+  %70 = load i64, ptr %69, align 8, !tbaa !13
   %71 = load ptr, ptr @output_file, align 8, !tbaa !4
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %79
@@ -387,11 +387,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.0.i = phi i64 [ %87, %.preheader.i ], [ 512, %84 ]
   %86 = icmp ult i64 %.0.i, %57
   %87 = shl i64 %.0.i, 1
-  br i1 %86, label %.preheader.i, label %compute_user_block_size.exit, !llvm.loop !19
+  br i1 %86, label %.preheader.i, label %compute_user_block_size.exit, !llvm.loop !18
 
 compute_user_block_size.exit:                     ; preds = %.preheader.i, %84
   %.06.i = phi i64 [ 0, %84 ], [ %.0.i, %.preheader.i ]
-  %88 = load i64, ptr %3, align 8, !tbaa !20
+  %88 = load i64, ptr %3, align 8, !tbaa !19
   %.not = icmp eq i64 %88, 0
   br i1 %.not, label %compute_user_block_size.exit78, label %89
 
@@ -412,7 +412,7 @@ compute_user_block_size.exit:                     ; preds = %.preheader.i, %84
   %.0.i76 = phi i64 [ %95, %.preheader.i75 ], [ 512, %91 ]
   %94 = icmp ult i64 %.0.i76, %92
   %95 = shl i64 %.0.i76, 1
-  br i1 %94, label %.preheader.i75, label %compute_user_block_size.exit78, !llvm.loop !19
+  br i1 %94, label %.preheader.i75, label %compute_user_block_size.exit78, !llvm.loop !18
 
 compute_user_block_size.exit78:                   ; preds = %.preheader.i75, %91, %90, %compute_user_block_size.exit
   %.044 = phi i64 [ 0, %90 ], [ 0, %compute_user_block_size.exit ], [ %88, %91 ], [ %88, %.preheader.i75 ]
@@ -423,7 +423,7 @@ compute_user_block_size.exit78:                   ; preds = %.preheader.i75, %91
   br i1 %.b, label %101, label %98
 
 98:                                               ; preds = %compute_user_block_size.exit78
-  %99 = load i64, ptr %3, align 8, !tbaa !20
+  %99 = load i64, ptr %3, align 8, !tbaa !19
   %100 = call i64 @copy_some_to_file(i32 noundef %59, i32 noundef %.147, i64 noundef 0, i64 noundef 0, i64 noundef %99)
   br label %101
 
@@ -560,7 +560,7 @@ define dso_local range(i64 0, -1) i64 @compute_user_block_size(i64 noundef %0) l
   %.0 = phi i64 [ %4, %.preheader ], [ 512, %1 ]
   %3 = icmp ult i64 %.0, %0
   %4 = shl i64 %.0, 1
-  br i1 %3, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %3, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %1
   %.06 = phi i64 [ 0, %1 ], [ %.0, %.preheader ]
@@ -598,7 +598,7 @@ define dso_local i64 @copy_some_to_file(i32 noundef %0, i32 noundef %1, i64 noun
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %18 = load i64, ptr %17, align 8, !tbaa !14
+  %18 = load i64, ptr %17, align 8, !tbaa !13
   br label %19
 
 19:                                               ; preds = %10, %16
@@ -656,7 +656,7 @@ define dso_local i64 @copy_some_to_file(i32 noundef %0, i32 noundef %1, i64 noun
   %.2 = sub nsw i64 %.163, %.051.
   %.250 = sub nsw i64 %.14962, %.051.
   %42 = icmp sgt i64 %40, 0
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %38, %21
   %.046.lcssa = phi i64 [ 0, %21 ], [ %39, %38 ]
@@ -678,7 +678,7 @@ define dso_local range(i32 -1, 1) i32 @write_pad(i32 noundef %0, i64 noundef %1,
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  store i8 0, ptr %4, align 1, !tbaa !22
+  store i8 0, ptr %4, align 1, !tbaa !21
   %7 = tail call i64 @lseek64(i32 noundef %0, i64 noundef %1, i32 noundef 0) #15
   %8 = icmp eq i64 %1, 0
   br i1 %8, label %compute_user_block_size.exit, label %.preheader.i
@@ -687,7 +687,7 @@ define dso_local range(i32 -1, 1) i32 @write_pad(i32 noundef %0, i64 noundef %1,
   %.0.i = phi i64 [ %10, %.preheader.i ], [ 512, %6 ]
   %9 = icmp ult i64 %.0.i, %1
   %10 = shl i64 %.0.i, 1
-  br i1 %9, label %.preheader.i, label %compute_user_block_size.exit, !llvm.loop !19
+  br i1 %9, label %.preheader.i, label %compute_user_block_size.exit, !llvm.loop !18
 
 compute_user_block_size.exit:                     ; preds = %.preheader.i, %6
   %.06.i = phi i64 [ 0, %6 ], [ %.0.i, %.preheader.i ]
@@ -699,7 +699,7 @@ compute_user_block_size.exit:                     ; preds = %.preheader.i, %6
   %13 = add i32 %.015, 1
   %14 = zext i32 %13 to i64
   %15 = icmp ugt i64 %11, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %compute_user_block_size.exit, %12
   %.015 = phi i32 [ %13, %12 ], [ 0, %compute_user_block_size.exit ]
@@ -708,7 +708,7 @@ compute_user_block_size.exit:                     ; preds = %.preheader.i, %6
   br i1 %17, label %.loopexit, label %12
 
 ._crit_edge:                                      ; preds = %12, %compute_user_block_size.exit
-  store i64 %.06.i, ptr %2, align 8, !tbaa !20
+  store i64 %.06.i, ptr %2, align 8, !tbaa !19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %._crit_edge
@@ -786,18 +786,17 @@ attributes #17 = { cold noreturn nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!14 = !{!15, !16, i64 48}
-!15 = !{!"stat", !16, i64 0, !16, i64 8, !16, i64 16, !17, i64 24, !17, i64 28, !17, i64 32, !17, i64 36, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !18, i64 72, !18, i64 88, !18, i64 104, !7, i64 120}
-!16 = !{!"long", !7, i64 0}
-!17 = !{!"int", !7, i64 0}
-!18 = !{!"timespec", !16, i64 0, !16, i64 8}
-!19 = distinct !{!19, !10, !11}
-!20 = !{!16, !16, i64 0}
-!21 = distinct !{!21, !10, !11}
-!22 = !{!7, !7, i64 0}
-!23 = distinct !{!23, !10, !11}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!13 = !{!14, !15, i64 48}
+!14 = !{!"stat", !15, i64 0, !15, i64 8, !15, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !17, i64 72, !17, i64 88, !17, i64 104, !7, i64 120}
+!15 = !{!"long", !7, i64 0}
+!16 = !{!"int", !7, i64 0}
+!17 = !{!"timespec", !15, i64 0, !15, i64 8}
+!18 = distinct !{!18, !10}
+!19 = !{!15, !15, i64 0}
+!20 = distinct !{!20, !10}
+!21 = !{!7, !7, i64 0}
+!22 = distinct !{!22, !10}

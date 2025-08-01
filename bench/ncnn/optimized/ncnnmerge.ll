@@ -445,7 +445,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   %174 = add nuw nsw i32 %.070181.i, 1
   %175 = load i32, ptr %16, align 4, !tbaa !22
   %.not123.i = icmp slt i32 %174, %175
-  br i1 %.not123.i, label %.lr.ph182.i, label %._crit_edge.i, !llvm.loop !27
+  br i1 %.not123.i, label %.lr.ph182.i, label %._crit_edge.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %171, %.preheader.i
   %176 = call ptr @fgets(ptr noundef nonnull %12, i32 noundef 1024, ptr noundef nonnull %103)
@@ -461,7 +461,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   %179 = add nuw nsw i32 %.072183.i, 1
   %180 = load i32, ptr %10, align 4, !tbaa !22
   %181 = icmp slt i32 %179, %180
-  br i1 %181, label %.lr.ph185.i, label %.thread164.i, !llvm.loop !28
+  br i1 %181, label %.lr.ph185.i, label %.thread164.i, !llvm.loop !27
 
 182:                                              ; preds = %167, %156, %145
   %.pn117.i = phi { ptr, i32 } [ %168, %167 ], [ %157, %156 ], [ %146, %145 ]
@@ -582,7 +582,7 @@ _ZL10copy_paramPKcP8_IO_FILEPiS3_.exit:           ; preds = %_ZNKSt7__cxx1112bas
   %213 = add nsw i32 %.02428.i, %212
   %214 = add nsw i32 %213, 4095
   %215 = icmp slt i32 %214, %208
-  br i1 %215, label %.lr.ph.i33, label %._crit_edge.i31, !llvm.loop !29
+  br i1 %215, label %.lr.ph.i33, label %._crit_edge.i31, !llvm.loop !28
 
 ._crit_edge.i31:                                  ; preds = %.lr.ph.i33, %205
   %.024.lcssa.i = phi i32 [ 0, %205 ], [ %213, %.lr.ph.i33 ]
@@ -608,7 +608,7 @@ _ZL10copy_paramPKcP8_IO_FILEPiS3_.exit:           ; preds = %_ZNKSt7__cxx1112bas
 _ZL8copy_binPKcP8_IO_FILE.exit:                   ; preds = %202, %225
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !29
 
 227:                                              ; preds = %._crit_edge, %23
   %.0 = phi i32 [ -1, %23 ], [ 0, %._crit_edge ]
@@ -719,10 +719,9 @@ attributes #13 = { builtin nounwind }
 !21 = distinct !{!21, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"int", !7, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
-!28 = distinct !{!28, !25, !26}
-!29 = distinct !{!29, !25, !26}
-!30 = distinct !{!30, !25, !26}
+!26 = distinct !{!26, !25}
+!27 = distinct !{!27, !25}
+!28 = distinct !{!28, !25}
+!29 = distinct !{!29, !25}

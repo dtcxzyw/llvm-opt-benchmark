@@ -1547,7 +1547,7 @@ define dso_local range(i32 -1, 1) i32 @container_p_send_stepd(i32 noundef %0) lo
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %23, %20
-  br label %.lr.ph.split, !llvm.loop !14
+  br label %.lr.ph.split, !llvm.loop !13
 
 .outer49._crit_edge:                              ; preds = %.split.us
   %.not4181 = icmp eq i32 %5, 0
@@ -1611,7 +1611,7 @@ define dso_local range(i32 -1, 1) i32 @container_p_send_stepd(i32 noundef %0) lo
   br label %.lr.ph68.split.backedge
 
 .lr.ph68.split.backedge:                          ; preds = %44, %41
-  br label %.lr.ph68.split, !llvm.loop !15
+  br label %.lr.ph68.split, !llvm.loop !14
 
 .thread:                                          ; preds = %.split73.us, %37, %.split56.us, %16
   %45 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.container_p_send_stepd) #12
@@ -1756,7 +1756,7 @@ define dso_local range(i32 -1, 1) i32 @container_p_recv_stepd(i32 noundef %0) lo
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %46, %43
-  br label %.lr.ph, !llvm.loop !16
+  br label %.lr.ph, !llvm.loop !15
 
 .outer60._crit_edge:                              ; preds = %.split74.us
   %47 = load i32, ptr %2, align 4
@@ -1889,7 +1889,7 @@ define dso_local range(i32 -1, 1) i32 @container_p_recv_stepd(i32 noundef %0) lo
   br label %.lr.ph102.backedge
 
 .lr.ph102.backedge:                               ; preds = %95, %92
-  br label %.lr.ph102, !llvm.loop !17
+  br label %.lr.ph102, !llvm.loop !16
 
 .outer._crit_edge:                                ; preds = %.split108.us, %.outer60._crit_edge
   %96 = tail call ptr @set_slurm_jc_conf(ptr noundef %48) #12
@@ -2108,7 +2108,7 @@ define internal fastcc noundef i32 @_mount_private_dirs(ptr noundef %0, i32 noun
 .backedge:                                        ; preds = %15, %43
   %.017.be = phi ptr [ %44, %43 ], [ %16, %15 ]
   %.not24 = icmp eq ptr %.017.be, null
-  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 17:                                               ; preds = %.lr.ph
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.77, ptr noundef nonnull %0, ptr noundef nonnull %.01739) #12
@@ -2127,7 +2127,7 @@ define internal fastcc noundef i32 @_mount_private_dirs(ptr noundef %0, i32 noun
   ]
 
 .backedge61:                                      ; preds = %21, %26
-  br label %21, !llvm.loop !19
+  br label %21, !llvm.loop !18
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %4, align 8
@@ -2233,7 +2233,7 @@ define internal fastcc range(i32 -1, 1) i32 @_clean_job_basepath(i32 noundef %0)
 .backedge:                                        ; preds = %36, %19, %.lr.ph, %16
   %18 = call ptr @readdir(ptr noundef nonnull %6) #12
   %.not10 = icmp eq ptr %18, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 18
@@ -2398,14 +2398,13 @@ attributes #15 = { nounwind willreturn memory(read) }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !11, !12, !13}
-!15 = distinct !{!15, !11, !12, !13}
-!16 = distinct !{!16, !11, !12, !13}
-!17 = distinct !{!17, !11, !12, !13}
-!18 = distinct !{!18, !11, !12, !13}
-!19 = distinct !{!19, !11, !12, !13}
-!20 = distinct !{!20, !11, !12, !13}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}

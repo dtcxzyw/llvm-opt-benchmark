@@ -94,7 +94,7 @@ define dso_local void @pm_vt_switch_unregister(ptr noundef readnone captures(add
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %0
-  br i1 %9, label %10, label %2, !llvm.loop !9
+  br i1 %9, label %10, label %2, !llvm.loop !8
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -121,7 +121,7 @@ define dso_local void @pm_prepare_console() local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @vt_switch_mutex) #3
   %1 = load volatile ptr, ptr @pm_vt_switch_list, align 8
   %2 = icmp eq ptr %1, @pm_vt_switch_list
-  %3 = load i8, ptr @console_suspend_enabled, align 1, !range !10
+  %3 = load i8, ptr @console_suspend_enabled, align 1, !range !9
   %4 = icmp eq i8 %3, 0
   %5 = select i1 %2, i1 true, i1 %4
   br i1 %5, label %.loopexit, label %.preheader
@@ -134,9 +134,9 @@ thread-pre-split:                                 ; preds = %.preheader
 .preheader:                                       ; preds = %0, %thread-pre-split
   %7 = phi ptr [ %.pr, %thread-pre-split ], [ %1, %0 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load i8, ptr %8, align 8, !range !10, !noundef !11
+  %9 = load i8, ptr %8, align 8, !range !9, !noundef !10
   %10 = icmp eq i8 %9, 0
-  br i1 %10, label %thread-pre-split, label %.loopexit, !llvm.loop !12
+  br i1 %10, label %thread-pre-split, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %0
   tail call void @mutex_unlock(ptr noundef nonnull @vt_switch_mutex) #3
@@ -169,7 +169,7 @@ define dso_local void @pm_restore_console() local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @vt_switch_mutex) #3
   %1 = load volatile ptr, ptr @pm_vt_switch_list, align 8
   %2 = icmp eq ptr %1, @pm_vt_switch_list
-  %3 = load i8, ptr @console_suspend_enabled, align 1, !range !10
+  %3 = load i8, ptr @console_suspend_enabled, align 1, !range !9
   %4 = icmp eq i8 %3, 0
   %5 = select i1 %2, i1 true, i1 %4
   br i1 %5, label %.loopexit, label %.preheader
@@ -182,9 +182,9 @@ thread-pre-split:                                 ; preds = %.preheader
 .preheader:                                       ; preds = %0, %thread-pre-split
   %6 = phi ptr [ %.pr, %thread-pre-split ], [ %1, %0 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load i8, ptr %7, align 8, !range !10, !noundef !11
+  %8 = load i8, ptr %7, align 8, !range !9, !noundef !10
   %.not3.not = icmp ne i8 %8, 0
-  br i1 %.not3.not, label %.loopexit, label %thread-pre-split, !llvm.loop !13
+  br i1 %.not3.not, label %.loopexit, label %thread-pre-split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %thread-pre-split, %0
   %9 = phi i1 [ true, %0 ], [ %.not3.not, %thread-pre-split ], [ %.not3.not, %.preheader ]
@@ -220,12 +220,10 @@ attributes #4 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !6, !7}

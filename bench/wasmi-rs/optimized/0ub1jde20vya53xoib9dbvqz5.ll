@@ -1045,7 +1045,7 @@ define hidden void @"_ZN107_$LT$$RF$mut$u20$$u5b$wasmi_ir..index..Reg$u3b$$u20$N
 
 "_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$15visit_input_reg17h3bda30beda582fb9E.exit": ; preds = %4, %7
   %8 = icmp eq i64 %.sroa.01.0.add, 4
-  br i1 %8, label %9, label %4, !llvm.loop !5
+  br i1 %8, label %9, label %4
 
 9:                                                ; preds = %"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$15visit_input_reg17h3bda30beda582fb9E.exit"
   ret void
@@ -1058,20 +1058,20 @@ define hidden void @"_ZN107_$LT$$RF$mut$u20$$u5b$wasmi_ir..index..Reg$u3b$$u20$N
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN107_$LT$$RF$mut$u20$$u5b$wasmi_ir..index..Reg$u3b$$u20$N$u5d$$u20$as$u20$wasmi_ir..visit_regs..HostVisitor$GT$12host_visitor17h6621ef4dec4f78b7E"(ptr noalias noundef align 2 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 {
-  %.val = load ptr, ptr %1, align 8, !nonnull !3, !align !7, !noundef !3
+  %.val = load ptr, ptr %1, align 8, !nonnull !3, !align !5, !noundef !3
   br label %3
 
 3:                                                ; preds = %2, %3
   %.sroa.01.0.idx2 = phi i64 [ 0, %2 ], [ %.sroa.01.0.add, %3 ]
   %.sroa.01.0.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.01.0.idx2
   %.sroa.01.0.add = add nuw nsw i64 %.sroa.01.0.idx2, 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  %4 = load i16, ptr %.sroa.01.0.ptr, align 2, !alias.scope !14, !noundef !3
-  %5 = tail call noundef i16 @_ZN5wasmi6engine10translator5stack10ValueStack15defrag_register17h4327666a8cd5080fE(ptr noalias noundef nonnull align 8 dereferenceable(248) %.val, i16 noundef %4), !noalias !14
-  store i16 %5, ptr %.sroa.01.0.ptr, align 2, !alias.scope !14
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  %4 = load i16, ptr %.sroa.01.0.ptr, align 2, !alias.scope !12, !noundef !3
+  %5 = tail call noundef i16 @_ZN5wasmi6engine10translator5stack10ValueStack15defrag_register17h4327666a8cd5080fE(ptr noalias noundef nonnull align 8 dereferenceable(248) %.val, i16 noundef %4), !noalias !12
+  store i16 %5, ptr %.sroa.01.0.ptr, align 2, !alias.scope !12
   %6 = icmp eq i64 %.sroa.01.0.add, 4
-  br i1 %6, label %7, label %3, !llvm.loop !15
+  br i1 %6, label %7, label %3
 
 7:                                                ; preds = %3
   ret void
@@ -1099,7 +1099,7 @@ define hidden void @"_ZN107_$LT$$RF$mut$u20$$u5b$wasmi_ir..index..Reg$u3b$$u20$N
 
 "_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$15visit_input_reg17h3bda30beda582fb9E.exit": ; preds = %4, %7
   %8 = icmp eq i64 %.sroa.01.0.add, 6
-  br i1 %8, label %9, label %4, !llvm.loop !16
+  br i1 %8, label %9, label %4
 
 9:                                                ; preds = %"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$15visit_input_reg17h3bda30beda582fb9E.exit"
   ret void
@@ -1112,20 +1112,20 @@ define hidden void @"_ZN107_$LT$$RF$mut$u20$$u5b$wasmi_ir..index..Reg$u3b$$u20$N
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN107_$LT$$RF$mut$u20$$u5b$wasmi_ir..index..Reg$u3b$$u20$N$u5d$$u20$as$u20$wasmi_ir..visit_regs..HostVisitor$GT$12host_visitor17hf213286923f50f80E"(ptr noalias noundef align 2 captures(none) dereferenceable(6) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 {
-  %.val = load ptr, ptr %1, align 8, !nonnull !3, !align !7, !noundef !3
+  %.val = load ptr, ptr %1, align 8, !nonnull !3, !align !5, !noundef !3
   br label %3
 
 3:                                                ; preds = %2, %3
   %.sroa.01.0.idx2 = phi i64 [ 0, %2 ], [ %.sroa.01.0.add, %3 ]
   %.sroa.01.0.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.01.0.idx2
   %.sroa.01.0.add = add nuw nsw i64 %.sroa.01.0.idx2, 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
-  %4 = load i16, ptr %.sroa.01.0.ptr, align 2, !alias.scope !23, !noundef !3
-  %5 = tail call noundef i16 @_ZN5wasmi6engine10translator5stack10ValueStack15defrag_register17h4327666a8cd5080fE(ptr noalias noundef nonnull align 8 dereferenceable(248) %.val, i16 noundef %4), !noalias !23
-  store i16 %5, ptr %.sroa.01.0.ptr, align 2, !alias.scope !23
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  %4 = load i16, ptr %.sroa.01.0.ptr, align 2, !alias.scope !19, !noundef !3
+  %5 = tail call noundef i16 @_ZN5wasmi6engine10translator5stack10ValueStack15defrag_register17h4327666a8cd5080fE(ptr noalias noundef nonnull align 8 dereferenceable(248) %.val, i16 noundef %4), !noalias !19
+  store i16 %5, ptr %.sroa.01.0.ptr, align 2, !alias.scope !19
   %6 = icmp eq i64 %.sroa.01.0.add, 6
-  br i1 %6, label %7, label %3, !llvm.loop !24
+  br i1 %6, label %7, label %3
 
 7:                                                ; preds = %3
   ret void
@@ -1160,7 +1160,7 @@ define hidden noundef align 8 ptr @_ZN10wasmparser7readers4core9operators19visit
   %27 = alloca [16 x i8], align 8
   %28 = alloca [16 x i8], align 8
   %29 = alloca [16 x i8], align 8
-  %30 = load i16, ptr %1, align 8, !range !25, !noundef !3
+  %30 = load i16, ptr %1, align 8, !range !20, !noundef !3
   switch i16 %30, label %31 [
     i16 303, label %36
     i16 304, label %39
@@ -1418,7 +1418,7 @@ define hidden noundef align 8 ptr @_ZN10wasmparser7readers4core9operators19visit
     i16 556, label %610
     i16 557, label %612
     i16 558, label %614
-  ], !prof !26
+  ], !prof !21
 
 31:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -2646,12 +2646,12 @@ define hidden noundef align 8 ptr @_ZN10wasmparser7readers4core9operators19visit
   %34 = extractvalue { ptr, ptr } %33, 0
   %35 = extractvalue { ptr, ptr } %33, 1
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %39, label %36, !prof !27
+  br i1 %.not, label %39, label %36, !prof !22
 
 36:                                               ; preds = %2
   %37 = icmp ne ptr %35, null
   tail call void @llvm.assume(i1 %37)
-  %38 = load i16, ptr %1, align 8, !range !25, !noundef !3
+  %38 = load i16, ptr %1, align 8, !range !20, !noundef !3
   switch i16 %38, label %44 [
     i16 303, label %49
     i16 304, label %54
@@ -2909,7 +2909,7 @@ define hidden noundef align 8 ptr @_ZN10wasmparser7readers4core9operators19visit
     i16 556, label %1129
     i16 557, label %1133
     i16 558, label %1137
-  ], !prof !26
+  ], !prof !21
 
 39:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31)
@@ -4667,12 +4667,12 @@ define hidden noundef align 8 ptr @_ZN10wasmparser7readers4core9operators19visit
   %34 = extractvalue { ptr, ptr } %33, 0
   %35 = extractvalue { ptr, ptr } %33, 1
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %39, label %36, !prof !27
+  br i1 %.not, label %39, label %36, !prof !22
 
 36:                                               ; preds = %2
   %37 = icmp ne ptr %35, null
   tail call void @llvm.assume(i1 %37)
-  %38 = load i16, ptr %1, align 8, !range !25, !noundef !3
+  %38 = load i16, ptr %1, align 8, !range !20, !noundef !3
   switch i16 %38, label %44 [
     i16 303, label %49
     i16 304, label %54
@@ -4930,7 +4930,7 @@ define hidden noundef align 8 ptr @_ZN10wasmparser7readers4core9operators19visit
     i16 556, label %1129
     i16 557, label %1133
     i16 558, label %1137
-  ], !prof !26
+  ], !prof !21
 
 39:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31)
@@ -6688,12 +6688,12 @@ define hidden noundef align 8 ptr @_ZN10wasmparser7readers4core9operators19visit
   %34 = extractvalue { ptr, ptr } %33, 0
   %35 = extractvalue { ptr, ptr } %33, 1
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %39, label %36, !prof !27
+  br i1 %.not, label %39, label %36, !prof !22
 
 36:                                               ; preds = %2
   %37 = icmp ne ptr %35, null
   tail call void @llvm.assume(i1 %37)
-  %38 = load i16, ptr %1, align 8, !range !25, !noundef !3
+  %38 = load i16, ptr %1, align 8, !range !20, !noundef !3
   switch i16 %38, label %44 [
     i16 303, label %49
     i16 304, label %54
@@ -6951,7 +6951,7 @@ define hidden noundef align 8 ptr @_ZN10wasmparser7readers4core9operators19visit
     i16 556, label %1129
     i16 557, label %1133
     i16 558, label %1137
-  ], !prof !26
+  ], !prof !21
 
 39:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31)
@@ -8709,12 +8709,12 @@ define hidden noundef align 8 ptr @_ZN10wasmparser7readers4core9operators19visit
   %34 = extractvalue { ptr, ptr } %33, 0
   %35 = extractvalue { ptr, ptr } %33, 1
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %39, label %36, !prof !27
+  br i1 %.not, label %39, label %36, !prof !22
 
 36:                                               ; preds = %2
   %37 = icmp ne ptr %35, null
   tail call void @llvm.assume(i1 %37)
-  %38 = load i16, ptr %1, align 8, !range !25, !noundef !3
+  %38 = load i16, ptr %1, align 8, !range !20, !noundef !3
   switch i16 %38, label %44 [
     i16 303, label %49
     i16 304, label %54
@@ -8972,7 +8972,7 @@ define hidden noundef align 8 ptr @_ZN10wasmparser7readers4core9operators19visit
     i16 556, label %1129
     i16 557, label %1133
     i16 558, label %1137
-  ], !prof !26
+  ], !prof !21
 
 39:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %31)
@@ -10702,35 +10702,35 @@ define internal noundef zeroext i1 @"_ZN41_$LT$bool$u20$as$u20$core..fmt..Debug$
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h02b4d48d5f3e2b82E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !29
-  store ptr %4, ptr %3, align 8, !noalias !29
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !24
+  store ptr %4, ptr %3, align 8, !noalias !24
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.62, i64 noundef 10, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.63, i64 noundef 7, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.45, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.64, i64 noundef 10, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.61)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !24
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0403cf50f1609313E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !34
-  store ptr %4, ptr %3, align 8, !noalias !34
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !29
+  store ptr %4, ptr %3, align 8, !noalias !29
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.143, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !34
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !29
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h049915969add1bc4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !38
-  store ptr %4, ptr %3, align 8, !noalias !38
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !33
+  store ptr %4, ptr %3, align 8, !noalias !33
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.47, i64 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.48, i64 noundef 2, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.45, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.49, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.46)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !38
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !33
   ret i1 %6
 }
 
@@ -10738,9 +10738,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h06ce57fd69f18accE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
-  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %6 = load i8, ptr %5, align 4, !range !45, !alias.scope !42, !noalias !46, !noundef !3
+  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  %6 = load i8, ptr %5, align 4, !range !40, !alias.scope !37, !noalias !41, !noundef !3
   switch i8 %6, label %default.unreachable [
     i8 0, label %7
     i8 1, label %9
@@ -10751,23 +10751,23 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
-  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.824, i64 noundef 5), !noalias !42
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.824, i64 noundef 5), !noalias !37
   br label %"_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E.exit"
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !48
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !43
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store ptr %10, ptr %4, align 8, !noalias !48
+  store ptr %10, ptr %4, align 8, !noalias !43
   %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.825, i64 noundef 4, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.410)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !48
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !43
   br label %"_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E.exit"
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !48
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !43
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store ptr %13, ptr %3, align 8, !noalias !48
+  store ptr %13, ptr %3, align 8, !noalias !43
   %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.26, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !48
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !43
   br label %"_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E.exit"
 
 "_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E.exit": ; preds = %7, %9, %12
@@ -10779,9 +10779,9 @@ default.unreachable:                              ; preds = %2
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0779f05aa9bd0f3fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
-  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %6 = load i8, ptr %5, align 4, !range !52, !alias.scope !49, !noalias !53, !noundef !3
+  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  %6 = load i8, ptr %5, align 4, !range !47, !alias.scope !44, !noalias !48, !noundef !3
   %7 = add nsw i8 %6, -3
   %8 = icmp ult i8 %7, 12
   %9 = zext nneg i8 %6 to i64
@@ -10807,62 +10807,62 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   unreachable
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !55
-  store ptr %5, ptr %4, align 8, !noalias !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !50
+  store ptr %5, ptr %4, align 8, !noalias !50
   %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.963, i64 noundef 20, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.152)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !55
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !50
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 15:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !50
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store ptr %16, ptr %3, align 8, !noalias !55
+  store ptr %16, ptr %3, align 8, !noalias !50
   %17 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.964, i64 noundef 20, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.410)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !55
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !50
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 18:                                               ; preds = %2
-  %19 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.965, i64 noundef 29), !noalias !49
+  %19 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.965, i64 noundef 29), !noalias !44
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 20:                                               ; preds = %2
-  %21 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.966, i64 noundef 23), !noalias !49
+  %21 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.966, i64 noundef 23), !noalias !44
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 22:                                               ; preds = %2
-  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.967, i64 noundef 20), !noalias !49
+  %23 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.967, i64 noundef 20), !noalias !44
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 24:                                               ; preds = %2
-  %25 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.968, i64 noundef 25), !noalias !49
+  %25 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.968, i64 noundef 25), !noalias !44
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 26:                                               ; preds = %2
-  %27 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.969, i64 noundef 19), !noalias !49
+  %27 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.969, i64 noundef 19), !noalias !44
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 28:                                               ; preds = %2
-  %29 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.970, i64 noundef 26), !noalias !49
+  %29 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.970, i64 noundef 26), !noalias !44
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 30:                                               ; preds = %2
-  %31 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.971, i64 noundef 21), !noalias !49
+  %31 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.971, i64 noundef 21), !noalias !44
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 32:                                               ; preds = %2
-  %33 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.972, i64 noundef 27), !noalias !49
+  %33 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.972, i64 noundef 27), !noalias !44
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 34:                                               ; preds = %2
-  %35 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.973, i64 noundef 22), !noalias !49
+  %35 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.973, i64 noundef 22), !noalias !44
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 36:                                               ; preds = %2
-  %37 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.974, i64 noundef 21), !noalias !49
+  %37 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.974, i64 noundef 21), !noalias !44
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 38:                                               ; preds = %2
-  %39 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.975, i64 noundef 21), !noalias !49
+  %39 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.975, i64 noundef 21), !noalias !44
   br label %"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit"
 
 "_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE.exit": ; preds = %13, %15, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38
@@ -10873,26 +10873,26 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h10840b750b8c6e73E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 25
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !56
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !51
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %7, ptr %3, align 8, !noalias !56
+  store ptr %7, ptr %3, align 8, !noalias !51
   %8 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17he8b53c74d30d059bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.83, i64 noundef 9, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.84, i64 noundef 7, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.45, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.85, i64 noundef 3, ptr noundef nonnull readonly align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.76, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.86, i64 noundef 3, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.81, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.87, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.82)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !56
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !51
   ret i1 %8
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1593f5aa2a995187E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !60
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !55
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store ptr %5, ptr %3, align 8, !noalias !60
+  store ptr %5, ptr %3, align 8, !noalias !55
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.957, i64 noundef 23, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.933, i64 noundef 10, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.928, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.958, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.956)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !60
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !55
   ret i1 %6
 }
 
@@ -10900,21 +10900,21 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h173ce8bd167342f2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !64
-  store ptr %4, ptr %3, align 8, !noalias !64
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !59
+  store ptr %4, ptr %3, align 8, !noalias !59
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.101, i64 noundef 14, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !64
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !59
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h18caabc620e0f63aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !68
-  store ptr %4, ptr %3, align 8, !noalias !68
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !63
+  store ptr %4, ptr %3, align 8, !noalias !63
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.21, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !68
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !63
   ret i1 %5
 }
 
@@ -10922,18 +10922,18 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1a017e86b0cd85d8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !72
-  call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !79
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !67
+  call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !74
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h33883675934178c6E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 2 dereferenceable(4) %4, ptr noundef nonnull readonly %5)
   %7 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h7a7cb238ea66350dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !72
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !67
   ret i1 %7
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1a9a4b59d36c6213E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %4 = tail call fastcc noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core..operators..Operator$u20$as$u20$core..fmt..Debug$GT$3fmt17h48beac7e36807ba8E"(ptr noalias noundef readonly align 8 dereferenceable(56) %3, ptr noalias noundef align 8 dereferenceable(24) %1)
   ret i1 %4
 }
@@ -10942,26 +10942,26 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1c939975b541256fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
-  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  %6 = load i32, ptr %5, align 4, !range !83, !alias.scope !80, !noalias !84, !noundef !3
+  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
+  %6 = load i32, ptr %5, align 4, !range !78, !alias.scope !75, !noalias !79, !noundef !3
   %.not.i = icmp eq i32 %6, 3
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !86
-  store ptr %5, ptr %3, align 8, !noalias !86
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !81
+  store ptr %5, ptr %3, align 8, !noalias !81
   %8 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.133, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.132)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !86
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !81
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17h366d06e39c3ac79bE.exit"
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !86
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !81
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  store ptr %11, ptr %4, align 8, !noalias !86
+  store ptr %11, ptr %4, align 8, !noalias !81
   %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.130, i64 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.131, i64 noundef 6, ptr noundef nonnull readonly align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.95, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.48, i64 noundef 2, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.129)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !86
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !81
   br label %"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17h366d06e39c3ac79bE.exit"
 
 "_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17h366d06e39c3ac79bE.exit": ; preds = %7, %9
@@ -10973,11 +10973,11 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2405a3a7ba5dd232E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !87
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !82
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %5, ptr %3, align 8, !noalias !87
+  store ptr %5, ptr %3, align 8, !noalias !82
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.104, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.94, i64 noundef 5, ptr noundef nonnull readonly align 2 dereferenceable(2) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.102, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.99, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.107)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !87
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !82
   ret i1 %6
 }
 
@@ -10985,10 +10985,10 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h27d694dce3b37ed1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !91
-  store ptr %4, ptr %3, align 8, !noalias !91
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !86
+  store ptr %4, ptr %3, align 8, !noalias !86
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.123, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.49, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.122)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !91
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !86
   ret i1 %5
 }
 
@@ -10996,11 +10996,11 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2c6e3e312a59a4fdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !95
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !90
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %5, ptr %3, align 8, !noalias !95
+  store ptr %5, ptr %3, align 8, !noalias !90
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.104, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.94, i64 noundef 5, ptr noundef nonnull readonly align 2 dereferenceable(2) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.102, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.99, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.111)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !95
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !90
   ret i1 %6
 }
 
@@ -11008,22 +11008,22 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h307d24258fd11977E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !99
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !94
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %5, ptr %3, align 8, !noalias !99
+  store ptr %5, ptr %3, align 8, !noalias !94
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.71, i64 noundef 14, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.72, i64 noundef 4, ptr noundef nonnull readonly align 2 dereferenceable(4) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.69, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.73, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.70)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !99
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !94
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h37b2d52b1e3634adE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !103
-  store ptr %4, ptr %3, align 8, !noalias !103
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !98
+  store ptr %4, ptr %3, align 8, !noalias !98
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.144, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !103
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !98
   ret i1 %5
 }
 
@@ -11031,11 +11031,11 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h38a1e5f7e67857c4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !107
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !102
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %5, ptr %3, align 8, !noalias !107
+  store ptr %5, ptr %3, align 8, !noalias !102
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.104, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.94, i64 noundef 5, ptr noundef nonnull readonly align 2 dereferenceable(2) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.102, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.99, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.109)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !107
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !102
   ret i1 %6
 }
 
@@ -11043,19 +11043,19 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h41341fc91e27471dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !111
-  store ptr %4, ptr %3, align 8, !noalias !111
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !106
+  store ptr %4, ptr %3, align 8, !noalias !106
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.123, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.49, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.125)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !111
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !106
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h41548f7b47f9bc9aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  %5 = load i8, ptr %4, align 1, !range !118, !alias.scope !115, !noalias !119, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
+  %5 = load i8, ptr %4, align 1, !range !113, !alias.scope !110, !noalias !114, !noundef !3
   switch i8 %5, label %default.unreachable [
     i8 0, label %6
     i8 1, label %8
@@ -11069,31 +11069,31 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 6:                                                ; preds = %2
-  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.38, i64 noundef 3), !noalias !115
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.38, i64 noundef 3), !noalias !110
   br label %"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E.exit"
 
 8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.39, i64 noundef 3), !noalias !115
+  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.39, i64 noundef 3), !noalias !110
   br label %"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E.exit"
 
 10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.40, i64 noundef 3), !noalias !115
+  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.40, i64 noundef 3), !noalias !110
   br label %"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E.exit"
 
 12:                                               ; preds = %2
-  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.41, i64 noundef 3), !noalias !115
+  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.41, i64 noundef 3), !noalias !110
   br label %"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E.exit"
 
 14:                                               ; preds = %2
-  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.42, i64 noundef 4), !noalias !115
+  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.42, i64 noundef 4), !noalias !110
   br label %"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E.exit"
 
 16:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !121
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !116
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %17, ptr %3, align 8, !noalias !121
+  store ptr %17, ptr %3, align 8, !noalias !116
   %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.127, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.126)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !121
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !116
   br label %"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E.exit"
 
 "_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E.exit": ; preds = %6, %8, %10, %12, %14, %16
@@ -11103,7 +11103,7 @@ default.unreachable:                              ; preds = %2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h421043fc214ed8d0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %4 = tail call noundef zeroext i1 @"_ZN55_$LT$std..path..PathBuf$u20$as$u20$core..fmt..Debug$GT$3fmt17hd861841d7b212df0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret i1 %4
 }
@@ -11111,55 +11111,55 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h42567d62991890dfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !122
-  store ptr %4, ptr %3, align 8, !noalias !122
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !117
+  store ptr %4, ptr %3, align 8, !noalias !117
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.42, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.128)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !122
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !117
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h43d979df1b78bd2aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !126
-  store ptr %4, ptr %3, align 8, !noalias !126
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !121
+  store ptr %4, ptr %3, align 8, !noalias !121
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.68, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !126
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !121
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h448ce4aa18cd56e0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !130
-  store ptr %4, ptr %3, align 8, !noalias !130
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !125
+  store ptr %4, ptr %3, align 8, !noalias !125
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.91, i64 noundef 12, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.90)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !130
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !125
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h47551eaa8abc6afcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !134
-  store ptr %4, ptr %3, align 8, !noalias !134
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !129
+  store ptr %4, ptr %3, align 8, !noalias !129
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.23, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !134
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !129
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h482101b84b3e68baE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !138
-  store ptr %4, ptr %3, align 8, !noalias !138
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !133
+  store ptr %4, ptr %3, align 8, !noalias !133
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.80, i64 noundef 10, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !138
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !133
   ret i1 %5
 }
 
@@ -11174,9 +11174,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %9 = alloca [8 x i8], align 8
   %10 = alloca [8 x i8], align 8
   %11 = alloca [8 x i8], align 8
-  %12 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
-  %13 = load i32, ptr %12, align 8, !range !145, !alias.scope !142, !noalias !146, !noundef !3
+  %12 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
+  %13 = load i32, ptr %12, align 8, !range !140, !alias.scope !137, !noalias !141, !noundef !3
   switch i32 %13, label %default.unreachable [
     i32 0, label %14
     i32 1, label %17
@@ -11193,76 +11193,76 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !148
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !143
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store ptr %15, ptr %11, align 8, !noalias !148
+  store ptr %15, ptr %11, align 8, !noalias !143
   %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.916, i64 noundef 14, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.917, i64 noundef 5, ptr noundef nonnull align 1 %11, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !148
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !143
   br label %"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E.exit"
 
 17:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !148
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !143
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store ptr %18, ptr %10, align 8, !noalias !148
+  store ptr %18, ptr %10, align 8, !noalias !143
   %19 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.918, i64 noundef 13, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.917, i64 noundef 5, ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !148
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !143
   br label %"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E.exit"
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !148
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !143
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store ptr %21, ptr %9, align 8, !noalias !148
+  store ptr %21, ptr %9, align 8, !noalias !143
   %22 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.919, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.917, i64 noundef 5, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !148
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !143
   br label %"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E.exit"
 
 23:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !148
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !143
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store ptr %24, ptr %8, align 8, !noalias !148
+  store ptr %24, ptr %8, align 8, !noalias !143
   %25 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.920, i64 noundef 15, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.917, i64 noundef 5, ptr noundef nonnull align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !148
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !143
   br label %"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E.exit"
 
 26:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !148
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !143
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store ptr %27, ptr %7, align 8, !noalias !148
+  store ptr %27, ptr %7, align 8, !noalias !143
   %28 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.921, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.917, i64 noundef 5, ptr noundef nonnull align 1 %7, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !148
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !143
   br label %"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E.exit"
 
 29:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !148
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !143
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store ptr %30, ptr %6, align 8, !noalias !148
+  store ptr %30, ptr %6, align 8, !noalias !143
   %31 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.922, i64 noundef 19, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.917, i64 noundef 5, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !148
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !143
   br label %"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E.exit"
 
 32:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !148
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !143
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %33, ptr %5, align 8, !noalias !148
+  store ptr %33, ptr %5, align 8, !noalias !143
   %34 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.923, i64 noundef 17, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.917, i64 noundef 5, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !148
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !143
   br label %"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E.exit"
 
 35:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !148
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !143
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %36, ptr %4, align 8, !noalias !148
+  store ptr %36, ptr %4, align 8, !noalias !143
   %37 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.924, i64 noundef 14, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.917, i64 noundef 5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !148
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !143
   br label %"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E.exit"
 
 38:                                               ; preds = %2
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !148
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !143
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %40, ptr %3, align 8, !noalias !148
+  store ptr %40, ptr %3, align 8, !noalias !143
   %41 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.925, i64 noundef 22, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.917, i64 noundef 5, ptr noundef nonnull readonly align 1 %39, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.134, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.926, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !148
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !143
   br label %"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E.exit"
 
 "_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E.exit": ; preds = %14, %17, %20, %23, %26, %29, %32, %35, %38
@@ -11274,10 +11274,10 @@ default.unreachable:                              ; preds = %2
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4d9ae7413533160fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !149
-  store ptr %4, ptr %3, align 8, !noalias !149
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !144
+  store ptr %4, ptr %3, align 8, !noalias !144
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.60, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.59)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !149
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !144
   ret i1 %5
 }
 
@@ -11285,90 +11285,90 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4fb1f46e1d7bcda4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !153
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !148
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %5, ptr %3, align 8, !noalias !153
+  store ptr %5, ptr %3, align 8, !noalias !148
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.104, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.94, i64 noundef 5, ptr noundef nonnull readonly align 2 dereferenceable(2) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.102, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.99, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.103)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !153
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !148
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5313f68a395560f8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !157
-  store ptr %4, ptr %3, align 8, !noalias !157
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !152
+  store ptr %4, ptr %3, align 8, !noalias !152
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.67, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !157
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !152
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h546d9b93f728b033E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !161
-  store ptr %4, ptr %3, align 8, !noalias !161
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !156
+  store ptr %4, ptr %3, align 8, !noalias !156
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.18, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !161
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !156
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h622589d6622f254dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !165
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !160
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %5, ptr %3, align 8, !noalias !165
+  store ptr %5, ptr %3, align 8, !noalias !160
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.97, i64 noundef 4, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.98, i64 noundef 11, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.95, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.99, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.96)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !165
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !160
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6299f622a365cffcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !169
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !164
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %5, ptr %3, align 8, !noalias !169
+  store ptr %5, ptr %3, align 8, !noalias !164
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.77, i64 noundef 10, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.78, i64 noundef 4, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.76, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.79, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.54)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !169
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !164
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h66f2f7fae50442c4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !173
-  store ptr %4, ptr %3, align 8, !noalias !173
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !168
+  store ptr %4, ptr %3, align 8, !noalias !168
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.831, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.832, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.830)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !173
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !168
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h69ee5bbfcada26e4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
-  %5 = load i32, ptr %4, align 4, !range !180, !alias.scope !177, !noalias !181, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
+  %5 = load i32, ptr %4, align 4, !range !175, !alias.scope !172, !noalias !176, !noundef !3
   %6 = trunc nuw i32 %5 to i1
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !183
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !178
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store ptr %8, ptr %3, align 8, !noalias !183
+  store ptr %8, ptr %3, align 8, !noalias !178
   %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.52, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.57)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !183
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !178
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hff0e5abe7095ec83E.exit"
 
 10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.50, i64 noundef 4), !noalias !177
+  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.50, i64 noundef 4), !noalias !172
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hff0e5abe7095ec83E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hff0e5abe7095ec83E.exit": ; preds = %7, %10
@@ -11379,36 +11379,36 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6a477fa6ff2fb6c2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !184
-  store ptr %4, ptr %3, align 8, !noalias !184
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !179
+  store ptr %4, ptr %3, align 8, !noalias !179
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.979, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !184
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !179
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6b2aa2b85372aa53E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !188
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !183
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store ptr %5, ptr %3, align 8, !noalias !188
+  store ptr %5, ptr %3, align 8, !noalias !183
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.980, i64 noundef 9, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.137, i64 noundef 5, ptr noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.931, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.981, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.57)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !188
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !183
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6f58fbfd325b36eeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 4
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  %.val = load i32, ptr %4, align 4, !range !192, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !193
-  store i32 %.val, ptr %3, align 4, !noalias !193
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %.val = load i32, ptr %4, align 4, !range !187, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !188
+  store i32 %.val, ptr %3, align 4, !noalias !188
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i32, ptr %5, align 8, !alias.scope !196, !noalias !199, !noundef !3
+  %6 = load i32, ptr %5, align 8, !alias.scope !191, !noalias !194, !noundef !3
   %7 = and i32 %6, 33554432
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %12
@@ -11432,7 +11432,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 "_ZN73_$LT$core..num..nonzero..NonZero$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h89bf1109bec4e2f3E.exit": ; preds = %12, %14, %16
   %.sroa.0.0.in.i.i = phi i1 [ %15, %14 ], [ %17, %16 ], [ %13, %12 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !193
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !188
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -11442,9 +11442,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
   %6 = alloca [8 x i8], align 8
-  %7 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
-  %8 = load i32, ptr %7, align 4, !range !83, !alias.scope !201, !noalias !204, !noundef !3
+  %7 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
+  %8 = load i32, ptr %7, align 4, !range !78, !alias.scope !196, !noalias !199, !noundef !3
   switch i32 %8, label %default.unreachable [
     i32 0, label %9
     i32 1, label %13
@@ -11457,36 +11457,36 @@ default.unreachable:                              ; preds = %2
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !206
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !201
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %11, ptr %6, align 8, !noalias !206
+  store ptr %11, ptr %6, align 8, !noalias !201
   %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.135, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.136, i64 noundef 3, ptr noundef nonnull readonly align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.134, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.137, i64 noundef 5, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !206
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !201
   br label %"_ZN80_$LT$wasmparser..readers..core..operators..Catch$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb8f6170f4344335E.exit"
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !206
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !201
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %15, ptr %5, align 8, !noalias !206
+  store ptr %15, ptr %5, align 8, !noalias !201
   %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.138, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.136, i64 noundef 3, ptr noundef nonnull readonly align 1 %14, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.134, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.137, i64 noundef 5, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !206
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !201
   br label %"_ZN80_$LT$wasmparser..readers..core..operators..Catch$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb8f6170f4344335E.exit"
 
 17:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !206
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !201
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store ptr %18, ptr %4, align 8, !noalias !206
+  store ptr %18, ptr %4, align 8, !noalias !201
   %19 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.139, i64 noundef 3, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.137, i64 noundef 5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !206
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !201
   br label %"_ZN80_$LT$wasmparser..readers..core..operators..Catch$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb8f6170f4344335E.exit"
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !206
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !201
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store ptr %21, ptr %3, align 8, !noalias !206
+  store ptr %21, ptr %3, align 8, !noalias !201
   %22 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.140, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.137, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !206
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !201
   br label %"_ZN80_$LT$wasmparser..readers..core..operators..Catch$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb8f6170f4344335E.exit"
 
 "_ZN80_$LT$wasmparser..readers..core..operators..Catch$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb8f6170f4344335E.exit": ; preds = %9, %13, %17, %20
@@ -11498,45 +11498,45 @@ default.unreachable:                              ; preds = %2
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h70545e8ec560cde4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !207
-  call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !214
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !202
+  call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !209
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h33883675934178c6E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 2 dereferenceable(6) %4, ptr noundef nonnull readonly %5)
   %7 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h7a7cb238ea66350dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !207
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !202
   ret i1 %7
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a4e5ba32ca428c7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !215
-  store ptr %4, ptr %3, align 8, !noalias !215
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !210
+  store ptr %4, ptr %3, align 8, !noalias !210
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.19, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !215
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !210
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7acb16c095ef55b9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !219
-  store ptr %4, ptr %3, align 8, !noalias !219
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !214
+  store ptr %4, ptr %3, align 8, !noalias !214
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.26, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !219
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !214
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7bb3ddfeb5e023e1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !223
-  store ptr %4, ptr %3, align 8, !noalias !223
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !218
+  store ptr %4, ptr %3, align 8, !noalias !218
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.22, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !223
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !218
   ret i1 %5
 }
 
@@ -11546,9 +11546,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
   %6 = alloca [8 x i8], align 8
-  %7 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !227)
-  %8 = load i32, ptr %7, align 8, !range !230, !alias.scope !227, !noalias !231, !noundef !3
+  %7 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
+  %8 = load i32, ptr %7, align 8, !range !225, !alias.scope !222, !noalias !226, !noundef !3
   %9 = add nsw i32 %8, -2
   %10 = icmp ult i32 %9, 4
   %11 = icmp ne i32 %9, 2
@@ -11565,34 +11565,34 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   unreachable
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !233
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !228
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %14, ptr %6, align 8, !noalias !233
+  store ptr %14, ptr %6, align 8, !noalias !228
   %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.153, i64 noundef 5, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.959)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !233
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !228
   br label %"_ZN91_$LT$wasmi..engine..translator..control_frame..ControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h78b99b687d01f754E.exit"
 
 16:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !233
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !228
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %17, ptr %5, align 8, !noalias !233
+  store ptr %17, ptr %5, align 8, !noalias !228
   %18 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.155, i64 noundef 4, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.960)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !233
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !228
   br label %"_ZN91_$LT$wasmi..engine..translator..control_frame..ControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h78b99b687d01f754E.exit"
 
 19:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !233
-  store ptr %7, ptr %4, align 8, !noalias !233
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !228
+  store ptr %7, ptr %4, align 8, !noalias !228
   %20 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.156, i64 noundef 2, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.961)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !233
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !228
   br label %"_ZN91_$LT$wasmi..engine..translator..control_frame..ControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h78b99b687d01f754E.exit"
 
 21:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !233
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !228
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store ptr %22, ptr %3, align 8, !noalias !233
+  store ptr %22, ptr %3, align 8, !noalias !228
   %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.150, i64 noundef 11, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.962)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !233
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !228
   br label %"_ZN91_$LT$wasmi..engine..translator..control_frame..ControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h78b99b687d01f754E.exit"
 
 "_ZN91_$LT$wasmi..engine..translator..control_frame..ControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h78b99b687d01f754E.exit": ; preds = %13, %16, %19, %21
@@ -11603,21 +11603,21 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h837e0bd8c145035eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
-  %5 = load i64, ptr %4, align 8, !range !237, !alias.scope !234, !noalias !238, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
+  %5 = load i64, ptr %4, align 8, !range !232, !alias.scope !229, !noalias !233, !noundef !3
   %.not.i = icmp eq i64 %5, -9223372036854775808
   br i1 %.not.i, label %8, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !240
-  store ptr %4, ptr %3, align 8, !noalias !240
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !235
+  store ptr %4, ptr %3, align 8, !noalias !235
   %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.52, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.51)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !240
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !235
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f5b7327e46f9166E.exit"
 
 8:                                                ; preds = %2
-  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.50, i64 noundef 4), !noalias !234
+  %9 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.50, i64 noundef 4), !noalias !229
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f5b7327e46f9166E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f5b7327e46f9166E.exit": ; preds = %6, %8
@@ -11627,7 +11627,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h83acd4efef5a3487E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %.val = load ptr, ptr %3, align 8, !noundef !3
   %4 = ptrtoint ptr %.val to i64
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt17pointer_fmt_inner17hb987031289982626E(i64 noundef %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
@@ -11636,7 +11636,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h83c416d3e1ee6792E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = tail call noundef zeroext i1 @"_ZN78_$LT$wasmparser..readers..core..types..RefType$u20$as$u20$core..fmt..Debug$GT$3fmt17h79514e01e781ebfbE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret i1 %4
 }
@@ -11644,39 +11644,39 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h860451aace0f0fd2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !241
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !236
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %7, ptr %3, align 8, !noalias !241
+  store ptr %7, ptr %3, align 8, !noalias !236
   %8 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17he8b53c74d30d059bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.115, i64 noundef 15, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.116, i64 noundef 7, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.76, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.117, i64 noundef 7, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.81, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.118, i64 noundef 14, ptr noundef nonnull readonly align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.114, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.119, i64 noundef 10, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.82)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !241
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !236
   ret i1 %8
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h875fa743cc24fa98E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !245
-  store ptr %4, ptr %3, align 8, !noalias !245
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !240
+  store ptr %4, ptr %3, align 8, !noalias !240
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.58, i64 noundef 12, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !245
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !240
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h8cb88789b63fd182E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
   %.val = load i32, ptr %4, align 4, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !249
-  %5 = tail call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const32$LT$u64$GT$$GT$$u20$for$u20$u64$GT$4from17h8751f6424864f311E"(i32 noundef %.val), !noalias !249
-  store i64 %5, ptr %3, align 8, !noalias !249
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !244
+  %5 = tail call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const32$LT$u64$GT$$GT$$u20$for$u20$u64$GT$4from17h8751f6424864f311E"(i32 noundef %.val), !noalias !244
+  store i64 %5, ptr %3, align 8, !noalias !244
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load i32, ptr %6, align 8, !alias.scope !252, !noalias !255, !noundef !3
+  %7 = load i32, ptr %6, align 8, !alias.scope !247, !noalias !250, !noundef !3
   %8 = and i32 %7, 33554432
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %13
@@ -11700,31 +11700,31 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 "_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h37ab53749af90271E.exit": ; preds = %13, %15, %17
   %.sroa.0.0.in.i.i = phi i1 [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !249
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !244
   ret i1 %.sroa.0.0.in.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h8de939a8b45b5f48E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !257
-  store ptr %4, ptr %3, align 8, !noalias !257
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !252
+  store ptr %4, ptr %3, align 8, !noalias !252
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.751, i64 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.48, i64 noundef 2, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.821, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.823, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.822)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !257
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !252
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h8e3559e5879b46f5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !261
-  store ptr %4, ptr %3, align 8, !noalias !261
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !256
+  store ptr %4, ptr %3, align 8, !noalias !256
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.990, i64 noundef 9, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.991, i64 noundef 11, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.988, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.992, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.989)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !261
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !256
   ret i1 %6
 }
 
@@ -11732,18 +11732,18 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h8f43dc56983ee21dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !265
-  store ptr %4, ptr %3, align 8, !noalias !265
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !260
+  store ptr %4, ptr %3, align 8, !noalias !260
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.17, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !265
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !260
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h98e46c96da172e13E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
 switch.lookup:
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
-  %.val = load i8, ptr %2, align 1, !range !45, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
+  %.val = load i8, ptr %2, align 1, !range !40, !noundef !3
   %3 = zext nneg i8 %.val to i64
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h98e46c96da172e13E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -11757,28 +11757,28 @@ switch.lookup:
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9a4907bb2a6c84beE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !269
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !264
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %7, ptr %3, align 8, !noalias !269
+  store ptr %7, ptr %3, align 8, !noalias !264
   %8 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field4_finish17he8b53c74d30d059bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.145, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.146, i64 noundef 5, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.114, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.147, i64 noundef 9, ptr noundef nonnull readonly align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.114, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.148, i64 noundef 6, ptr noundef nonnull readonly align 8 dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.76, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.149, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !269
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !264
   ret i1 %8
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9c606db3d8f8c047E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
   %.val = load i32, ptr %4, align 4, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !273
-  %5 = tail call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const32$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17h394969a742c73172E"(i32 noundef %.val), !noalias !273
-  store i64 %5, ptr %3, align 8, !noalias !273
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !268
+  %5 = tail call noundef i64 @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const32$LT$i64$GT$$GT$$u20$for$u20$i64$GT$4from17h394969a742c73172E"(i32 noundef %.val), !noalias !268
+  store i64 %5, ptr %3, align 8, !noalias !268
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load i32, ptr %6, align 8, !alias.scope !276, !noalias !279, !noundef !3
+  %7 = load i32, ptr %6, align 8, !alias.scope !271, !noalias !274, !noundef !3
   %8 = and i32 %7, 33554432
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %13
@@ -11802,7 +11802,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 "_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h137b4170cba3fb38E.exit": ; preds = %13, %15, %17
   %.sroa.0.0.in.i.i = phi i1 [ %16, %15 ], [ %18, %17 ], [ %14, %13 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !273
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !268
   ret i1 %.sroa.0.0.in.i.i
 }
 
@@ -11811,9 +11811,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
-  %6 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
-  %7 = load i32, ptr %6, align 4, !range !284, !alias.scope !281, !noalias !285, !noundef !3
+  %6 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
+  %7 = load i32, ptr %6, align 4, !range !279, !alias.scope !276, !noalias !280, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   switch i32 %7, label %default.unreachable [
     i32 0, label %9
@@ -11825,24 +11825,24 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !287
-  store ptr %8, ptr %5, align 8, !noalias !287
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !282
+  store ptr %8, ptr %5, align 8, !noalias !282
   %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.826, i64 noundef 6, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !287
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !282
   br label %"_ZN84_$LT$wasmparser..readers..core..types..UnpackedIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17h358704a9363b3d14E.exit"
 
 11:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !287
-  store ptr %8, ptr %4, align 8, !noalias !287
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !282
+  store ptr %8, ptr %4, align 8, !noalias !282
   %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.827, i64 noundef 8, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !287
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !282
   br label %"_ZN84_$LT$wasmparser..readers..core..types..UnpackedIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17h358704a9363b3d14E.exit"
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !287
-  store ptr %8, ptr %3, align 8, !noalias !287
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !282
+  store ptr %8, ptr %3, align 8, !noalias !282
   %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.829, i64 noundef 2, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.828)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !287
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !282
   br label %"_ZN84_$LT$wasmparser..readers..core..types..UnpackedIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17h358704a9363b3d14E.exit"
 
 "_ZN84_$LT$wasmparser..readers..core..types..UnpackedIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17h358704a9363b3d14E.exit": ; preds = %9, %11, %13
@@ -11853,33 +11853,33 @@ default.unreachable:                              ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hab36d39d8544a99bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !288
-  store ptr %4, ptr %3, align 8, !noalias !288
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !283
+  store ptr %4, ptr %3, align 8, !noalias !283
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.976, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !288
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !283
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17had76af7c86d50b5cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !292)
-  %5 = load i32, ptr %4, align 4, !range !180, !alias.scope !292, !noalias !295, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
+  %5 = load i32, ptr %4, align 4, !range !175, !alias.scope !287, !noalias !290, !noundef !3
   %6 = trunc nuw i32 %5 to i1
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.978, i64 noundef 8), !noalias !292
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.978, i64 noundef 8), !noalias !287
   br label %"_ZN77_$LT$wasmi..engine..translator..labels..Label$u20$as$u20$core..fmt..Debug$GT$3fmt17h12011b9f38fbde73E.exit"
 
 9:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !297
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !292
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store ptr %10, ptr %3, align 8, !noalias !297
+  store ptr %10, ptr %3, align 8, !noalias !292
   %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.977, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.57)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !297
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !292
   br label %"_ZN77_$LT$wasmi..engine..translator..labels..Label$u20$as$u20$core..fmt..Debug$GT$3fmt17h12011b9f38fbde73E.exit"
 
 "_ZN77_$LT$wasmi..engine..translator..labels..Label$u20$as$u20$core..fmt..Debug$GT$3fmt17h12011b9f38fbde73E.exit": ; preds = %7, %9
@@ -11893,9 +11893,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8
   %6 = alloca [8 x i8], align 8
-  %7 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
-  %8 = load i32, ptr %7, align 4, !range !83, !alias.scope !298, !noalias !301, !noundef !3
+  %7 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
+  %8 = load i32, ptr %7, align 4, !range !78, !alias.scope !293, !noalias !296, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   switch i32 %8, label %default.unreachable [
     i32 0, label %10
@@ -11908,31 +11908,31 @@ default.unreachable:                              ; preds = %2
   unreachable
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !303
-  store ptr %9, ptr %6, align 8, !noalias !303
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !298
+  store ptr %9, ptr %6, align 8, !noalias !298
   %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.20, i64 noundef 4, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.1016)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !303
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !298
   br label %"_ZN69_$LT$wasmi..module..export..ExternIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h27e67e65c391c6c7E.exit"
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !303
-  store ptr %9, ptr %5, align 8, !noalias !303
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !298
+  store ptr %9, ptr %5, align 8, !noalias !298
   %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.21, i64 noundef 5, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.1017)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !303
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !298
   br label %"_ZN69_$LT$wasmi..module..export..ExternIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h27e67e65c391c6c7E.exit"
 
 14:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !303
-  store ptr %9, ptr %4, align 8, !noalias !303
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !298
+  store ptr %9, ptr %4, align 8, !noalias !298
   %15 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.23, i64 noundef 6, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.1018)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !303
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !298
   br label %"_ZN69_$LT$wasmi..module..export..ExternIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h27e67e65c391c6c7E.exit"
 
 16:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !303
-  store ptr %9, ptr %3, align 8, !noalias !303
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !298
+  store ptr %9, ptr %3, align 8, !noalias !298
   %17 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.22, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.1019)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !303
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !298
   br label %"_ZN69_$LT$wasmi..module..export..ExternIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h27e67e65c391c6c7E.exit"
 
 "_ZN69_$LT$wasmi..module..export..ExternIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h27e67e65c391c6c7E.exit": ; preds = %10, %12, %14, %16
@@ -11942,8 +11942,8 @@ default.unreachable:                              ; preds = %2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb0c59e2ac25d33fdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
-  %.val = load i8, ptr %3, align 1, !range !304, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
+  %.val = load i8, ptr %3, align 1, !range !299, !noundef !3
   %4 = trunc nuw i8 %.val to i1
   %..i = select i1 %4, i64 12, i64 14
   %anon.f1b2ef6443bc9398301f7dcabaecd75d.75.anon.f1b2ef6443bc9398301f7dcabaecd75d.74.i = select i1 %4, ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.75, ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.74
@@ -11954,22 +11954,22 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2bfd4d4ae9f47eeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !305)
-  %5 = load i64, ptr %4, align 8, !range !308, !alias.scope !305, !noalias !309, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
+  %5 = load i64, ptr %4, align 8, !range !303, !alias.scope !300, !noalias !304, !noundef !3
   %6 = trunc nuw i64 %5 to i1
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !311
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !306
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %8, ptr %3, align 8, !noalias !311
+  store ptr %8, ptr %3, align 8, !noalias !306
   %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.52, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.56)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !311
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !306
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9ddec7c2b9691dfE.exit"
 
 10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.50, i64 noundef 4), !noalias !305
+  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.50, i64 noundef 4), !noalias !300
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9ddec7c2b9691dfE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9ddec7c2b9691dfE.exit": ; preds = %7, %10
@@ -11980,11 +11980,11 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbdd891319f3bb78fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !312
-  store ptr %4, ptr %3, align 8, !noalias !312
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !307
+  store ptr %4, ptr %3, align 8, !noalias !307
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.1014, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !312
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !307
   ret i1 %5
 }
 
@@ -11992,54 +11992,54 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hbfda566af9b34ea5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [96 x i8], align 8
-  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !316
+  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !311
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !316
-  store ptr %5, ptr %3, align 8, !noalias !316
-  store ptr %6, ptr %4, align 8, !noalias !316
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !311
+  store ptr %5, ptr %3, align 8, !noalias !311
+  store ptr %6, ptr %4, align 8, !noalias !311
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.928, ptr %11, align 8, !noalias !316
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.928, ptr %11, align 8, !noalias !311
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %7, ptr %12, align 8, !noalias !316
+  store ptr %7, ptr %12, align 8, !noalias !311
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.929, ptr %13, align 8, !noalias !316
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.929, ptr %13, align 8, !noalias !311
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %8, ptr %14, align 8, !noalias !316
+  store ptr %8, ptr %14, align 8, !noalias !311
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.930, ptr %15, align 8, !noalias !316
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.930, ptr %15, align 8, !noalias !311
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %9, ptr %16, align 8, !noalias !316
+  store ptr %9, ptr %16, align 8, !noalias !311
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.931, ptr %17, align 8, !noalias !316
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.931, ptr %17, align 8, !noalias !311
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %10, ptr %18, align 8, !noalias !316
+  store ptr %10, ptr %18, align 8, !noalias !311
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.69, ptr %19, align 8, !noalias !316
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.69, ptr %19, align 8, !noalias !311
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %3, ptr %20, align 8, !noalias !316
+  store ptr %3, ptr %20, align 8, !noalias !311
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.932, ptr %21, align 8, !noalias !316
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.932, ptr %21, align 8, !noalias !311
   %22 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_fields_finish17h12a21cdddda664a8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.943, i64 noundef 16, ptr noalias noundef nonnull readonly align 8 @anon.f1b2ef6443bc9398301f7dcabaecd75d.942, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef 6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !316
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !316
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !311
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !311
   ret i1 %22
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc3b5265e71c8e408E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !320
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !315
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %6, ptr %3, align 8, !noalias !320
+  store ptr %6, ptr %3, align 8, !noalias !315
   %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17hf6c9adb2a99956ffE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.984, i64 noundef 15, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.985, i64 noundef 9, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.982, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.986, i64 noundef 9, ptr noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.983, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.987, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.16)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !320
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !315
   ret i1 %7
 }
 
@@ -12047,10 +12047,10 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc709f4b8c1aecda4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !324
-  store ptr %4, ptr %3, align 8, !noalias !324
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !319
+  store ptr %4, ptr %3, align 8, !noalias !319
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.25, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !324
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !319
   ret i1 %5
 }
 
@@ -12058,27 +12058,27 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc76a89c7762f631aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
-  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !328)
-  %6 = load i32, ptr %5, align 4, !range !180, !alias.scope !328, !noalias !331, !noundef !3
+  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !323)
+  %6 = load i32, ptr %5, align 4, !range !175, !alias.scope !323, !noalias !326, !noundef !3
   %7 = trunc nuw i32 %6 to i1
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !333
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !328
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store ptr %9, ptr %3, align 8, !noalias !333
+  store ptr %9, ptr %3, align 8, !noalias !328
   %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.142, i64 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.136, i64 noundef 3, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !333
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !328
   br label %"_ZN81_$LT$wasmparser..readers..core..operators..Handle$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2ccfe776a756855E.exit"
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !333
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !328
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %13, ptr %4, align 8, !noalias !333
+  store ptr %13, ptr %4, align 8, !noalias !328
   %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.141, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.136, i64 noundef 3, ptr noundef nonnull readonly align 1 %12, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.134, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.137, i64 noundef 5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !333
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !328
   br label %"_ZN81_$LT$wasmparser..readers..core..operators..Handle$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2ccfe776a756855E.exit"
 
 "_ZN81_$LT$wasmparser..readers..core..operators..Handle$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2ccfe776a756855E.exit": ; preds = %8, %11
@@ -12090,22 +12090,22 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc88c7874b3d96e06E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !334
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !329
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %5, ptr %3, align 8, !noalias !334
+  store ptr %5, ptr %3, align 8, !noalias !329
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.104, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.94, i64 noundef 5, ptr noundef nonnull readonly align 2 dereferenceable(2) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.102, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.99, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.110)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !334
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !329
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hced112e20fb64c84E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !338
-  store ptr %4, ptr %3, align 8, !noalias !338
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !333
+  store ptr %4, ptr %3, align 8, !noalias !333
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.1015, i64 noundef 9, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !338
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !333
   ret i1 %5
 }
 
@@ -12113,52 +12113,52 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcef398fe590e4887E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !342
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !337
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %5, ptr %3, align 8, !noalias !342
+  store ptr %5, ptr %3, align 8, !noalias !337
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.104, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.94, i64 noundef 5, ptr noundef nonnull readonly align 2 dereferenceable(2) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.102, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.99, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.105)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !342
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !337
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcf0f94e5e958b0f6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !346
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !341
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %5, ptr %3, align 8, !noalias !346
+  store ptr %5, ptr %3, align 8, !noalias !341
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.97, i64 noundef 4, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.98, i64 noundef 11, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.95, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.99, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.100)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !346
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !341
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcfa93707f7e340a1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !350
-  store ptr %4, ptr %3, align 8, !noalias !350
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !345
+  store ptr %4, ptr %3, align 8, !noalias !345
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.1013, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !350
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !345
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd24a05734f297fafE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !354
-  store ptr %4, ptr %3, align 8, !noalias !354
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !349
+  store ptr %4, ptr %3, align 8, !noalias !349
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.1012, i64 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.170, i64 noundef 11, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.1010, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.148, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.1011)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !354
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !349
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd28267a4b3d6097bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %4 = tail call noundef zeroext i1 @"_ZN10wasmparser13binary_reader92_$LT$impl$u20$core..fmt..Debug$u20$for$u20$wasmparser..readers..core..operators..BrTable$GT$3fmt17he5872dec85abdb11E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret i1 %4
 }
@@ -12166,8 +12166,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd9deeb2594060c25E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
 switch.lookup:
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
-  %.val = load i8, ptr %2, align 1, !range !358, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
+  %.val = load i8, ptr %2, align 1, !range !353, !noundef !3
   %3 = zext nneg i8 %.val to i64
   %switch.gep = getelementptr inbounds nuw [11 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd9deeb2594060c25E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -12181,13 +12181,13 @@ switch.lookup:
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hda2378cb3bf14477E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
   %.val = load i32, ptr %4, align 4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !359
-  %5 = tail call noundef double @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const32$LT$f64$GT$$GT$$u20$for$u20$f64$GT$4from17h8d9555698f30a482E"(i32 noundef %.val), !noalias !359
-  store double %5, ptr %3, align 8, !noalias !359
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !354
+  %5 = tail call noundef double @"_ZN8wasmi_ir10immeditate101_$LT$impl$u20$core..convert..From$LT$wasmi_ir..immeditate..Const32$LT$f64$GT$$GT$$u20$for$u20$f64$GT$4from17h8d9555698f30a482E"(i32 noundef %.val), !noalias !354
+  store double %5, ptr %3, align 8, !noalias !354
   %6 = call noundef zeroext i1 @"_ZN4core3fmt5float50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$f64$GT$3fmt17h5b6e0318b8aae6cbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !359
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !354
   ret i1 %6
 }
 
@@ -12195,11 +12195,11 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdab919be293b906eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !362
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !357
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %5, ptr %3, align 8, !noalias !362
+  store ptr %5, ptr %3, align 8, !noalias !357
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.104, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.94, i64 noundef 5, ptr noundef nonnull readonly align 2 dereferenceable(2) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.102, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.99, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.106)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !362
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !357
   ret i1 %6
 }
 
@@ -12207,49 +12207,49 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb1c92479740af2cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !366
-  store ptr %4, ptr %3, align 8, !noalias !366
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !361
+  store ptr %4, ptr %3, align 8, !noalias !361
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.123, i64 noundef 11, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.49, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.124)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !366
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !361
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hde271a472afc3fecE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !370
-  store ptr %4, ptr %3, align 8, !noalias !370
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !365
+  store ptr %4, ptr %3, align 8, !noalias !365
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.93, i64 noundef 10, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.94, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.92)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !370
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !365
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdf7c7b7259db3f22E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [16 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !374
-  call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !378
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !369
+  call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !373
   %7 = getelementptr inbounds nuw { i64, i64 }, ptr %4, i64 %6
   %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hfdac3de2c0f80dacE(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 %4, ptr noundef nonnull readonly %7)
   %9 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h7a7cb238ea66350dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !374
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !369
   ret i1 %9
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he36e473750b1521bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !379
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !374
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %6, ptr %3, align 8, !noalias !379
+  store ptr %6, ptr %3, align 8, !noalias !374
   %7 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field3_finish17hf6c9adb2a99956ffE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.1004, i64 noundef 14, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.958, i64 noundef 4, ptr noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.1002, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.48, i64 noundef 2, ptr noundef nonnull readonly align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.45, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.1005, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.1003)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !379
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !374
   ret i1 %7
 }
 
@@ -12257,63 +12257,63 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he52f577a38f67b55E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [96 x i8], align 8
-  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !383
+  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !378
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 34
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !383
-  store ptr %5, ptr %3, align 8, !noalias !383
-  store ptr %6, ptr %4, align 8, !noalias !383
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !378
+  store ptr %5, ptr %3, align 8, !noalias !378
+  store ptr %6, ptr %4, align 8, !noalias !378
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.928, ptr %11, align 8, !noalias !383
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.928, ptr %11, align 8, !noalias !378
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %7, ptr %12, align 8, !noalias !383
+  store ptr %7, ptr %12, align 8, !noalias !378
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.929, ptr %13, align 8, !noalias !383
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.929, ptr %13, align 8, !noalias !378
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %8, ptr %14, align 8, !noalias !383
+  store ptr %8, ptr %14, align 8, !noalias !378
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.930, ptr %15, align 8, !noalias !383
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.930, ptr %15, align 8, !noalias !378
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %9, ptr %16, align 8, !noalias !383
+  store ptr %9, ptr %16, align 8, !noalias !378
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.931, ptr %17, align 8, !noalias !383
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.931, ptr %17, align 8, !noalias !378
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %10, ptr %18, align 8, !noalias !383
+  store ptr %10, ptr %18, align 8, !noalias !378
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.69, ptr %19, align 8, !noalias !383
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.69, ptr %19, align 8, !noalias !378
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %3, ptr %20, align 8, !noalias !383
+  store ptr %3, ptr %20, align 8, !noalias !378
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.932, ptr %21, align 8, !noalias !383
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.932, ptr %21, align 8, !noalias !378
   %22 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_fields_finish17h12a21cdddda664a8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.940, i64 noundef 17, ptr noalias noundef nonnull readonly align 8 @anon.f1b2ef6443bc9398301f7dcabaecd75d.939, i64 noundef 6, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef 6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !383
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !383
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !378
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !378
   ret i1 %22
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hea43164d49b1d319E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !387)
-  %5 = load i8, ptr %4, align 1, !range !304, !alias.scope !387, !noalias !390, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !382)
+  %5 = load i8, ptr %4, align 1, !range !299, !alias.scope !382, !noalias !385, !noundef !3
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !392
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !387
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %8, ptr %3, align 8, !noalias !392
+  store ptr %8, ptr %3, align 8, !noalias !387
   %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.52, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.55)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !392
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !387
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb27390d8dd62220E.exit"
 
 10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.50, i64 noundef 4), !noalias !387
+  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.50, i64 noundef 4), !noalias !382
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb27390d8dd62220E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb27390d8dd62220E.exit": ; preds = %7, %10
@@ -12325,8 +12325,8 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hea485e9ce8a482cdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [144 x i8], align 8
-  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4), !noalias !393
+  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4), !noalias !388
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -12334,58 +12334,58 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 42
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 45
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !393
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !388
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store ptr %13, ptr %3, align 8, !noalias !393
-  store ptr %6, ptr %4, align 8, !noalias !393
+  store ptr %13, ptr %3, align 8, !noalias !388
+  store ptr %6, ptr %4, align 8, !noalias !388
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.928, ptr %14, align 8, !noalias !393
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.928, ptr %14, align 8, !noalias !388
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %7, ptr %15, align 8, !noalias !393
+  store ptr %7, ptr %15, align 8, !noalias !388
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.929, ptr %16, align 8, !noalias !393
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.929, ptr %16, align 8, !noalias !388
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %8, ptr %17, align 8, !noalias !393
+  store ptr %8, ptr %17, align 8, !noalias !388
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.930, ptr %18, align 8, !noalias !393
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.930, ptr %18, align 8, !noalias !388
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %9, ptr %19, align 8, !noalias !393
+  store ptr %9, ptr %19, align 8, !noalias !388
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.931, ptr %20, align 8, !noalias !393
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.931, ptr %20, align 8, !noalias !388
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %10, ptr %21, align 8, !noalias !393
+  store ptr %10, ptr %21, align 8, !noalias !388
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.69, ptr %22, align 8, !noalias !393
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.69, ptr %22, align 8, !noalias !388
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %5, ptr %23, align 8, !noalias !393
+  store ptr %5, ptr %23, align 8, !noalias !388
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.944, ptr %24, align 8, !noalias !393
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.944, ptr %24, align 8, !noalias !388
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store ptr %11, ptr %25, align 8, !noalias !393
+  store ptr %11, ptr %25, align 8, !noalias !388
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.945, ptr %26, align 8, !noalias !393
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.945, ptr %26, align 8, !noalias !388
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store ptr %12, ptr %27, align 8, !noalias !393
+  store ptr %12, ptr %27, align 8, !noalias !388
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.946, ptr %28, align 8, !noalias !393
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.946, ptr %28, align 8, !noalias !388
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  store ptr %3, ptr %29, align 8, !noalias !393
+  store ptr %3, ptr %29, align 8, !noalias !388
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.53, ptr %30, align 8, !noalias !393
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.53, ptr %30, align 8, !noalias !388
   %31 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_fields_finish17h12a21cdddda664a8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.951, i64 noundef 14, ptr noalias noundef nonnull readonly align 8 @anon.f1b2ef6443bc9398301f7dcabaecd75d.950, i64 noundef 9, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef 9)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !393
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4), !noalias !393
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !388
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4), !noalias !388
   ret i1 %31
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17heaa468fae3dfe07eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !397
-  store ptr %4, ptr %3, align 8, !noalias !397
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !392
+  store ptr %4, ptr %3, align 8, !noalias !392
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.89, i64 noundef 10, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !397
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !392
   ret i1 %5
 }
 
@@ -12393,30 +12393,30 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf00f18d7e1f6d3fdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !401
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !396
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store ptr %5, ptr %3, align 8, !noalias !401
+  store ptr %5, ptr %3, align 8, !noalias !396
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.104, i64 noundef 7, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.94, i64 noundef 5, ptr noundef nonnull readonly align 2 dereferenceable(2) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.102, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.99, i64 noundef 6, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.108)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !401
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !396
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf8962c58db20e50eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !405
-  store ptr %4, ptr %3, align 8, !noalias !405
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !400
+  store ptr %4, ptr %3, align 8, !noalias !400
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.20, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !405
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !400
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfba42b5eb87f1e9cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
 switch.lookup:
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
-  %.val = load i8, ptr %2, align 1, !range !409, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
+  %.val = load i8, ptr %2, align 1, !range !404, !noundef !3
   %3 = zext nneg i8 %.val to i64
   %switch.gep = getelementptr inbounds nuw [14 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfba42b5eb87f1e9cE", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -12429,8 +12429,8 @@ switch.lookup:
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfc251374ec86649eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
-  %.val = load i8, ptr %3, align 1, !range !304, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
+  %.val = load i8, ptr %3, align 1, !range !299, !noundef !3
   %4 = trunc nuw i8 %.val to i1
   %..i = select i1 %4, i64 3, i64 5
   %anon.f1b2ef6443bc9398301f7dcabaecd75d.66.anon.f1b2ef6443bc9398301f7dcabaecd75d.65.i = select i1 %4, ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.66, ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.65
@@ -12442,26 +12442,26 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfc6ba6bde1671128E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
-  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
-  %6 = load i64, ptr %5, align 8, !range !413, !alias.scope !410, !noalias !414, !noundef !3
+  %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !405)
+  %6 = load i64, ptr %5, align 8, !range !408, !alias.scope !405, !noalias !409, !noundef !3
   %.not.i = icmp eq i64 %6, 2
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !416
-  store ptr %5, ptr %3, align 8, !noalias !416
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !411
+  store ptr %5, ptr %3, align 8, !noalias !411
   %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.999, i64 noundef 8, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.1000, i64 noundef 4, ptr noundef nonnull readonly align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.929, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.1001, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.997)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !416
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !411
   br label %"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE.exit"
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !416
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !411
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %11, ptr %4, align 8, !noalias !416
+  store ptr %11, ptr %4, align 8, !noalias !411
   %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.998, i64 noundef 6, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.996, i64 noundef 9, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.997)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !416
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !411
   br label %"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE.exit"
 
 "_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE.exit": ; preds = %7, %10
@@ -12472,25 +12472,25 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 ; Function Attrs: nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfcde4485614a99cfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !417
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !412
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %5, ptr %3, align 8, !noalias !417
+  store ptr %5, ptr %3, align 8, !noalias !412
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.995, i64 noundef 16, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.996, i64 noundef 9, ptr noundef nonnull readonly align 8 dereferenceable(40) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.993, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.992, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.994)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !417
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !412
   ret i1 %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h191efaa05e0e77e2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !7, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %4 = tail call noundef zeroext i1 @"_ZN80_$LT$wasmparser..readers..core..types..SubType$u20$as$u20$core..fmt..Display$GT$3fmt17hc2355d0015fed786E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hc0f39a27fc477c76E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = tail call noundef zeroext i1 @"_ZN80_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Display$GT$3fmt17h7dffa8f31a4b817bE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret i1 %4
 }
@@ -12725,7 +12725,7 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..
 
 ; Function Attrs: nonlazybind uwtable
 define internal void @"_ZN4core3ptr63drop_in_place$LT$wasmi..module..element..ElementSegmentKind$GT$17h095bb30845ccfe9bE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 8, !range !421, !noundef !3
+  %2 = load i32, ptr %0, align 8, !range !416, !noundef !3
   %3 = add nsw i32 %2, -4
   %4 = icmp ugt i32 %3, 2
   %5 = icmp ne i32 %3, 1
@@ -12743,12 +12743,12 @@ define internal void @"_ZN4core3ptr63drop_in_place$LT$wasmi..module..element..El
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h0e5468c0c946d175E"(ptr noalias noundef readonly align 2 dereferenceable(4) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !422
-  call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !426
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !417
+  call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !421
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h33883675934178c6E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 2 %0, ptr noundef nonnull readonly %4)
   %6 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h7a7cb238ea66350dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !422
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !417
   ret i1 %6
 }
 
@@ -12775,23 +12775,23 @@ define void @_ZN4core9panicking13assert_failed17hf5dc42ef6290cb92E(i8 noundef ra
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9f24d659e337efbbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !427
-  store ptr %4, ptr %3, align 8, !noalias !427
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !422
+  store ptr %4, ptr %3, align 8, !noalias !422
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hc07ced22773ccad9E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.1013, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !427
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !422
   ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf36af0685a20dfa9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !33, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !431
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !426
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store ptr %5, ptr %3, align 8, !noalias !431
+  store ptr %5, ptr %3, align 8, !noalias !426
   %6 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17hf0c5d4c85eb75d2fE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.957, i64 noundef 23, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.933, i64 noundef 10, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.928, ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.958, i64 noundef 4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.f1b2ef6443bc9398301f7dcabaecd75d.956)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !431
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !426
   ret i1 %6
 }
 
@@ -12818,7 +12818,7 @@ define internal noundef zeroext i1 @"_ZN60_$LT$wasmi_ir..span..RegSpan$u20$as$u2
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN63_$LT$wasmi_core..value..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17hbc2cb9a4ad5ea7b3E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
 switch.lookup:
-  %2 = load i8, ptr %0, align 1, !range !435, !noundef !3
+  %2 = load i8, ptr %0, align 1, !range !430, !noundef !3
   %3 = zext nneg i8 %2 to i64
   %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @"switch.table._ZN63_$LT$wasmi_core..value..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17hbc2cb9a4ad5ea7b3E", i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -12832,7 +12832,7 @@ switch.lookup:
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h3b8bc4fb7b742a6bE"(ptr noalias noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
-  %4 = load i8, ptr %0, align 1, !range !45, !noundef !3
+  %4 = load i8, ptr %0, align 1, !range !40, !noundef !3
   %.not = icmp eq i8 %4, 2
   br i1 %.not, label %7, label %5
 
@@ -12855,7 +12855,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h463c7e23cd66018dE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
-  %4 = load i64, ptr %0, align 8, !range !308, !noundef !3
+  %4 = load i64, ptr %0, align 8, !range !303, !noundef !3
   %5 = trunc nuw i64 %4 to i1
   br i1 %5, label %6, label %9
 
@@ -12879,7 +12879,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9ddec7c2b9691dfE"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
-  %4 = load i64, ptr %0, align 8, !range !308, !noundef !3
+  %4 = load i64, ptr %0, align 8, !range !303, !noundef !3
   %5 = trunc nuw i64 %4 to i1
   br i1 %5, label %6, label %9
 
@@ -12903,7 +12903,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hff0e5abe7095ec83E"(ptr noalias noundef readonly align 4 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
-  %4 = load i32, ptr %0, align 4, !range !180, !noundef !3
+  %4 = load i32, ptr %0, align 4, !range !175, !noundef !3
   %5 = trunc nuw i32 %4 to i1
   br i1 %5, label %6, label %9
 
@@ -13010,7 +13010,7 @@ define hidden void @"_ZN76_$LT$wasmi_core..typed..TypedVal$u20$as$u20$core..conv
 define internal noundef zeroext i1 @"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17h366d06e39c3ac79bE"(ptr noalias noundef readonly align 4 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
-  %5 = load i32, ptr %0, align 4, !range !83, !noundef !3
+  %5 = load i32, ptr %0, align 4, !range !78, !noundef !3
   %.not = icmp eq i32 %5, 3
   br i1 %.not, label %8, label %6
 
@@ -13290,7 +13290,7 @@ define internal fastcc noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core.
   %240 = alloca [8 x i8], align 8
   %241 = alloca [8 x i8], align 8
   %242 = alloca [8 x i8], align 8
-  %243 = load i16, ptr %0, align 8, !range !25, !noundef !3
+  %243 = load i16, ptr %0, align 8, !range !20, !noundef !3
   switch i16 %243, label %default.unreachable1 [
     i16 0, label %244
     i16 1, label %246
@@ -17433,7 +17433,7 @@ default.unreachable1:                             ; preds = %2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core..operators..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17hb148d6d904acc647E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
-  %3 = load i8, ptr %0, align 1, !range !304, !noundef !3
+  %3 = load i8, ptr %0, align 1, !range !299, !noundef !3
   %4 = trunc nuw i8 %3 to i1
   %anon.f1b2ef6443bc9398301f7dcabaecd75d.820.anon.f1b2ef6443bc9398301f7dcabaecd75d.819 = select i1 %4, ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.820, ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.819
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %anon.f1b2ef6443bc9398301f7dcabaecd75d.820.anon.f1b2ef6443bc9398301f7dcabaecd75d.819, i64 noundef 6)
@@ -17444,7 +17444,7 @@ define internal noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core..operat
 define internal noundef zeroext i1 @"_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E"(ptr noalias noundef readonly align 4 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
-  %5 = load i8, ptr %0, align 4, !range !45, !noundef !3
+  %5 = load i8, ptr %0, align 4, !range !40, !noundef !3
   switch i8 %5, label %default.unreachable1 [
     i8 0, label %6
     i8 1, label %8
@@ -17481,9 +17481,9 @@ default.unreachable1:                             ; preds = %2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$13visit_v128_or17h1492a7a17334dc9dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3704
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17492,9 +17492,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$13visit_v128_or17h759195aa70521608E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3704
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17503,9 +17503,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f32x4_eq17h0338079cbeff8355E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3584
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17514,9 +17514,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f32x4_eq17h0b7a20e2b082b595E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3584
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17525,9 +17525,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f32x4_ge17h93542e180ef37931E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3624
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17536,9 +17536,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f32x4_ge17h9770f899b285a8bbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3624
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17547,9 +17547,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f32x4_gt17h3b6707639163ac5bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3608
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17558,9 +17558,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f32x4_gt17hf2a31172d0aa87daE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3608
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17569,9 +17569,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f32x4_le17h16ef6b12d4544f10E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3616
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17580,9 +17580,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f32x4_le17h54da814d43622890E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3616
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17591,9 +17591,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f32x4_lt17h0a6b4ce973028306E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3600
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17602,9 +17602,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f32x4_lt17h89eea9237dee9de5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3600
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17613,9 +17613,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f32x4_ne17hd88692e05ed91b61E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3592
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17624,9 +17624,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f32x4_ne17hf6efa79bbc659533E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3592
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17635,9 +17635,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f64x2_eq17ha343102138ca2f62E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3632
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17646,9 +17646,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f64x2_eq17haa95bd957b558830E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3632
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17657,9 +17657,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f64x2_ge17h795cb841b656b14eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3672
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17668,9 +17668,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f64x2_ge17hc8d48803b4b47e64E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3672
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17679,9 +17679,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f64x2_gt17h9e5949b6989db34dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3656
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17690,9 +17690,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f64x2_gt17haedc3f6fad0a7233E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3656
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17701,9 +17701,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f64x2_le17h29d44aafdd40bdabE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3664
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17712,9 +17712,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f64x2_le17ha5223a15a27295d0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3664
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17723,9 +17723,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f64x2_lt17h20d3b41c3e7ed9c5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3648
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17734,9 +17734,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f64x2_lt17h58f7c140d418c8b8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3648
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17745,9 +17745,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f64x2_ne17h08e77dfbb1923f56E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3640
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17756,9 +17756,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_f64x2_ne17haf97da2494cdcabcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3640
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17767,9 +17767,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i16x8_eq17h12c1c981627bfe4fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3376
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17778,9 +17778,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i16x8_eq17h3a6113cb6c22b79eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3376
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17789,9 +17789,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i16x8_ne17h6ae4baeeb2a580ebE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3384
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17800,9 +17800,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i16x8_ne17h7032253330feeee3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3384
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17811,9 +17811,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i32x4_eq17h3872c729f0d22995E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3456
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17822,9 +17822,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i32x4_eq17h866b4e20664b0329E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3456
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17833,9 +17833,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i32x4_ne17h1a1242bf3f849a54E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3464
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17844,9 +17844,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i32x4_ne17h33b4354f6d701f9bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3464
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17855,9 +17855,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i64x2_eq17h6dc87fdddc377a1aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3536
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17866,9 +17866,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i64x2_eq17hfb42c0c7904aeb11E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3536
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17877,9 +17877,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i64x2_ne17h63f5ca27e1d8e876E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3544
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17888,9 +17888,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i64x2_ne17h9d5db3a0c545a19cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3544
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17899,9 +17899,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i8x16_eq17h937a7df754a385cfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3296
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17910,9 +17910,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i8x16_eq17hefd258fa819afe21E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3296
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17921,9 +17921,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i8x16_ne17h049334a982794346E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3304
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17932,9 +17932,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_i8x16_ne17h2db57acdc3e5b5b2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3304
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17943,9 +17943,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_v128_and17h7ab05cc78aedd30cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3688
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17954,9 +17954,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_v128_and17h90352fc2b8a74ef3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3688
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17965,9 +17965,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_v128_not17h861748c6ee0cc242E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3680
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17976,9 +17976,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_v128_not17he220fb3d7c4b1e27E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3680
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17987,9 +17987,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_v128_xor17h0150cbcd5c377d58E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3712
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -17998,9 +17998,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$14visit_v128_xor17h2e29d7c4597355c9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3712
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18009,9 +18009,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_abs17h8af1e62ed8acc3daE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4536
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18020,9 +18020,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_abs17hc60b0773a8c719c8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4536
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18031,9 +18031,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_add17hb18c63a6e6508ac1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4560
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18042,9 +18042,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_add17hcec0b5b2557da753E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4560
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18053,9 +18053,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_div17h18cf102375d9be3aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4584
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18064,9 +18064,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_div17hea71e91b771d2d56E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4584
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18075,9 +18075,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_max17hba4de2b46634a8c7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4600
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18086,9 +18086,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_max17hf6b9605a0fc2260aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4600
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18097,9 +18097,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_min17h94cfb949c720246fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4592
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18108,9 +18108,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_min17hed277c0618766be2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4592
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18119,9 +18119,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_mul17h0990acc9b03d1e70E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4576
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18130,9 +18130,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_mul17h92c000d28b241450E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4576
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18141,9 +18141,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_neg17h5af676505b6f3d86E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4544
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18152,9 +18152,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_neg17h9baadc94394224f3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4544
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18163,9 +18163,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_sub17h432a79ccdac2af2dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4568
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18174,9 +18174,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f32x4_sub17h4949ff867346949aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4568
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18185,9 +18185,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_abs17h3d33e34abae9d384E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4656
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18196,9 +18196,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_abs17h8ccba8a1cacf4e41E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4656
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18207,9 +18207,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_add17h2f29069cdc4e4008E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4680
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18218,9 +18218,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_add17h98312c63adf7e883E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4680
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18229,9 +18229,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_div17h5de89ce148607782E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4704
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18240,9 +18240,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_div17he1ebeeb7c5e980ddE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4704
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18251,9 +18251,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_max17h008ecd9f81c2b7f5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4720
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18262,9 +18262,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_max17hdbdc4f8d3748ced0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4720
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18273,9 +18273,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_min17h9e0808e8eec30adcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4712
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18284,9 +18284,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_min17hb7b9f0f00f473ed3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4712
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18295,9 +18295,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_mul17h7ccd6aaae3cc1b3cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4696
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18306,9 +18306,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_mul17he6d16335d8a9e124E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4696
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18317,9 +18317,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_neg17h489cd3cfaf83e2c0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4664
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18328,9 +18328,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_neg17hbcb5d87863214d99E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4664
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18339,9 +18339,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_sub17h7212a21854852c1bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4688
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18350,9 +18350,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_f64x2_sub17hc1b74c76f937c5d3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4688
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18361,9 +18361,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i16x8_abs17h16847555f369f6d9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3920
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18372,9 +18372,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i16x8_abs17hee57c7db4faa9646E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3920
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18383,9 +18383,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i16x8_add17h41f7882a1b9246ebE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4032
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18394,9 +18394,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i16x8_add17h525c05c3c51a1da3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4032
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18405,9 +18405,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i16x8_mul17h180c3e217b272edbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4080
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18416,9 +18416,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i16x8_mul17hc31137ba8fb97c65E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4080
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18427,9 +18427,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i16x8_neg17h387d24195300af32E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3928
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18438,9 +18438,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i16x8_neg17h6107a426a8de1becE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3928
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18449,9 +18449,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i16x8_shl17h47b4a9c22d963086E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4008
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18460,9 +18460,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i16x8_shl17h892efcf0390de8f7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4008
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18471,9 +18471,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i16x8_sub17h3504ae527a83a916E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4056
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18482,9 +18482,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i16x8_sub17hb1c7ce2530f78414E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4056
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18493,9 +18493,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i32x4_abs17h4e079b1940322c99E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4176
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18504,9 +18504,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i32x4_abs17h6fe0258f41909dfcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4176
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18515,9 +18515,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i32x4_add17hdf28ee4f9db6e802E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4264
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18526,9 +18526,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i32x4_add17he0330767353b3c88E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4264
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18537,9 +18537,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i32x4_mul17h262bd1a07834329aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4280
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18548,9 +18548,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i32x4_mul17h70a48f82ee66f321E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4280
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18559,9 +18559,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i32x4_neg17h089c183f78b559c4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4184
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18570,9 +18570,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i32x4_neg17h34d62a60e1da8382E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4184
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18581,9 +18581,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i32x4_shl17h07f3431b9d087344E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4240
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18592,9 +18592,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i32x4_shl17hd90b2b4fe716bbb8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4240
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18603,9 +18603,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i32x4_sub17h0249d2a4d3c6ec1bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4272
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18614,9 +18614,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i32x4_sub17h3097889aa798c333E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4272
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18625,9 +18625,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i64x2_abs17h7e091232d746d79cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4360
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18636,9 +18636,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i64x2_abs17hd1da9dce54666904E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4360
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18647,9 +18647,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i64x2_add17h9a0398d7325213c9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4448
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18658,9 +18658,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i64x2_add17hecbb2836f6f8ed26E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4448
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18669,9 +18669,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i64x2_mul17h8a586ceab776cc7cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4464
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18680,9 +18680,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i64x2_mul17hf5f851fda6311428E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4464
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18691,9 +18691,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i64x2_neg17had387c772a765bbdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4368
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18702,9 +18702,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i64x2_neg17he62033a7ef923ebeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4368
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18713,9 +18713,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i64x2_shl17heafc56bcc755330fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4424
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18724,9 +18724,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i64x2_shl17hfe5d8ff7f32dbf83E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4424
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18735,9 +18735,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i64x2_sub17h4fcc82087bf40295E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4456
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18746,9 +18746,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i64x2_sub17h9afb0377e4712a82E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4456
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18757,9 +18757,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i8x16_abs17h607d7761044a6e43E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3736
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18768,9 +18768,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i8x16_abs17h650fd9626fffb4beE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3736
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18779,9 +18779,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i8x16_add17h3e1e4808bbc1c8bfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3816
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18790,9 +18790,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i8x16_add17h81eab6fce8fe3d42E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3816
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18801,9 +18801,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i8x16_neg17h97aea4c140d29aa9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3744
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18812,9 +18812,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i8x16_neg17hf54217ac6315ed15E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3744
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18823,9 +18823,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i8x16_shl17h12e07d0e53a2135bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3792
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18834,9 +18834,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i8x16_shl17hcf9b24d74c7d844eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3792
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18845,9 +18845,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i8x16_sub17h442031d6d0656139E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3840
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18856,9 +18856,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_i8x16_sub17hbffe582befab6541E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3840
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18867,9 +18867,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_v128_load17h796924793b5a427dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2936
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -18878,9 +18878,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$15visit_v128_load17hc35d8ec646b7202eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2936
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -18889,9 +18889,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f32x4_ceil17ha8a5a7151222fa42E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4504
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18900,9 +18900,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f32x4_ceil17hd09763534b11b436E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4504
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18911,9 +18911,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f32x4_pmax17h877638456150f6b6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4616
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18922,9 +18922,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f32x4_pmax17hef17457d475ac553E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4616
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18933,9 +18933,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f32x4_pmin17h0cdd0d696184423bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4608
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18944,9 +18944,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f32x4_pmin17hce3cb0de8fa0fbb3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4608
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18955,9 +18955,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f32x4_sqrt17h445116d8c9adb69bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4552
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18966,9 +18966,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f32x4_sqrt17hcfc12c22c0bc1333E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4552
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18977,9 +18977,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f64x2_ceil17h79000bef6ffabacdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4624
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18988,9 +18988,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f64x2_ceil17h8086a5ae1a12cbbdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4624
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -18999,9 +18999,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f64x2_pmax17h45b50ea6bfffcf5bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4736
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19010,9 +19010,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f64x2_pmax17hd4b9bf29b699d18cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4736
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19021,9 +19021,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f64x2_pmin17h78a0788565d5d5ffE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4728
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19032,9 +19032,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f64x2_pmin17ha82b84dbec4e4693E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4728
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19043,9 +19043,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f64x2_sqrt17h243869ccae1639d7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4672
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19054,9 +19054,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_f64x2_sqrt17hf1fabe142356ad9aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4672
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19065,9 +19065,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_ge_s17h1f32f24c2e4aca03E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3440
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19076,9 +19076,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_ge_s17h44f45dfc9e7ad63aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3440
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19087,9 +19087,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_ge_u17h79fed980e869b161E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3448
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19098,9 +19098,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_ge_u17ha21740f9941b8a07E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3448
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19109,9 +19109,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_gt_s17h023ef2694aa58d3bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3408
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19120,9 +19120,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_gt_s17he7b67e5f5ad2bbfcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3408
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19131,9 +19131,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_gt_u17h29fce80ca56bd44aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3416
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19142,9 +19142,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_gt_u17hf4e61e2bfa2c9846E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3416
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19153,9 +19153,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_le_s17hc141b901e51b8575E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3424
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19164,9 +19164,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_le_s17he55780d58db1afacE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3424
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19175,9 +19175,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_le_u17h030667d0b44e484cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3432
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19186,9 +19186,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_le_u17hb43341e26114920dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3432
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19197,9 +19197,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_lt_s17h0fac2b888cc672cdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3392
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19208,9 +19208,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_lt_s17h2b583a4f0eb4aaccE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3392
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19219,9 +19219,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_lt_u17h1ed3544656159b5aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3400
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19230,9 +19230,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i16x8_lt_u17h89352db42d15d263E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3400
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19241,9 +19241,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_ge_s17h3598d892b68a460eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3520
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19252,9 +19252,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_ge_s17hd44e7b32f20f3a3fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3520
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19263,9 +19263,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_ge_u17h8e7b72fbd33cc56eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3528
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19274,9 +19274,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_ge_u17hd0df637680413821E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3528
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19285,9 +19285,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_gt_s17h99eae4850ad01e69E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3488
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19296,9 +19296,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_gt_s17hb7d59dc3c5db8d8bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3488
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19307,9 +19307,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_gt_u17h026aed6ce7d603abE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3496
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19318,9 +19318,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_gt_u17h7e31923c2fe1a8dcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3496
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19329,9 +19329,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_le_s17h7fb1a2c6efd754d2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3504
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19340,9 +19340,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_le_s17he9b956f61d426138E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3504
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19351,9 +19351,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_le_u17h00c576f464ea6b41E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3512
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19362,9 +19362,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_le_u17hd09c69eece2bebdcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3512
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19373,9 +19373,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_lt_s17h40c049d352f20fc7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3472
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19384,9 +19384,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_lt_s17hc83f57f7bbce0952E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3472
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19395,9 +19395,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_lt_u17h27b373335f20de33E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3480
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19406,9 +19406,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i32x4_lt_u17h662bc307342419d0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3480
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19417,9 +19417,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i64x2_ge_s17h6ee8a13377435855E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3576
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19428,9 +19428,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i64x2_ge_s17hd7614e16fdb5536eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3576
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19439,9 +19439,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i64x2_gt_s17hd947fba8333da71fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3560
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19450,9 +19450,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i64x2_gt_s17hec8502a71c216c28E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3560
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19461,9 +19461,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i64x2_le_s17h41950bfa660fe0f4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3568
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19472,9 +19472,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i64x2_le_s17hbf075409789b45d1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3568
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19483,9 +19483,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i64x2_lt_s17h6bfefb06987305c0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3552
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19494,9 +19494,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i64x2_lt_s17had16e0b8bb09c256E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3552
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19505,9 +19505,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_ge_s17h731f3cf0d5727247E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3360
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19516,9 +19516,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_ge_s17h94c8b98d9825c2d2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3360
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19527,9 +19527,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_ge_u17he40c3f798d1cb70bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3368
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19538,9 +19538,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_ge_u17hf8c7a65050ee4719E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3368
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19549,9 +19549,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_gt_s17h02f5fd0d0d23cb18E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3328
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19560,9 +19560,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_gt_s17h338143f7ee4765c2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3328
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19571,9 +19571,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_gt_u17h3d13db724db01a7eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3336
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19582,9 +19582,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_gt_u17h70f4ce73626d5b49E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3336
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19593,9 +19593,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_le_s17h61e1391337beb2b4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3344
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19604,9 +19604,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_le_s17h8a36db0a5e02f9eaE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3344
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19615,9 +19615,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_le_u17h6406b9d67a17c24bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3352
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19626,9 +19626,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_le_u17h96e0174753a099a3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3352
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19637,9 +19637,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_lt_s17h479dee9fc4d07dceE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3312
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19648,9 +19648,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_lt_s17hedcb141d9d7aa9e1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3312
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19659,9 +19659,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_lt_u17h442d8e8b6c3b2544E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3320
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19670,9 +19670,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_i8x16_lt_u17hf1299dc33a72d90cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3320
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19681,9 +19681,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_v128_const17h9b5fb883469503ecE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 1 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3112
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1)
@@ -19692,9 +19692,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_v128_const17ha7704c0337835435E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 1 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3112
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1)
@@ -19703,9 +19703,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_v128_store17h5e3abf8ac2d77e64E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3040
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -19714,9 +19714,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$16visit_v128_store17hd532730587ce60deE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3040
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -19725,9 +19725,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_f32x4_floor17h36cd834c395615ddE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4512
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19736,9 +19736,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_f32x4_floor17hfb070ffe7573e400E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4512
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19747,9 +19747,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_f32x4_splat17ha6f93938d3c1d896E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3280
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19758,9 +19758,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_f32x4_splat17hf33da11656f033d3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3280
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19769,9 +19769,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_f32x4_trunc17hc6960231ae09ca1cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4520
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19780,9 +19780,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_f32x4_trunc17hfea2eb0b5b1b2a33E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4520
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19791,9 +19791,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_f64x2_floor17h544af37faa4a3d9dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4632
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19802,9 +19802,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_f64x2_floor17h77e8ace42bde3904E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4632
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19813,9 +19813,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_f64x2_splat17h5999440d9f5746c8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3288
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19824,9 +19824,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_f64x2_splat17h7063328dcf5c7da5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3288
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19835,9 +19835,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_f64x2_trunc17h0ad25b9c3f8af1c2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4640
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19846,9 +19846,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_f64x2_trunc17h7ea1ce4459a91b3fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4640
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19857,9 +19857,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_max_s17h79a0690c9af5acaaE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4104
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19868,9 +19868,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_max_s17hb999ab9a9b5d1ffaE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4104
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19879,9 +19879,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_max_u17h5e31954c8ac8f8baE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4112
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19890,9 +19890,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_max_u17h6c4eb759cbf4646bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4112
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19901,9 +19901,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_min_s17h90692c36dec6dc0dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4088
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19912,9 +19912,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_min_s17hc5c9bbc769b15c48E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4088
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19923,9 +19923,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_min_u17h35c8ceaf8a7df398E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4096
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19934,9 +19934,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_min_u17h72534ec0e00427bbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4096
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19945,9 +19945,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_shr_s17hbde47cd57f1f14d1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4016
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19956,9 +19956,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_shr_s17hf5e5351eb3b10bdfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4016
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19967,9 +19967,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_shr_u17h52a45f554d4a224cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4024
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19978,9 +19978,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_shr_u17hc135dd8f42a25123E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4024
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -19989,9 +19989,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_splat17hc56ac807dfee52f0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3256
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20000,9 +20000,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i16x8_splat17he1bdef8323bbb568E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3256
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20011,9 +20011,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_max_s17h686e7701e4b25a4cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4304
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20022,9 +20022,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_max_s17hf0007963fbd7a606E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4304
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20033,9 +20033,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_max_u17h0164c50e85a77a17E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4312
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20044,9 +20044,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_max_u17hdfe6a1fffab285cbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4312
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20055,9 +20055,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_min_s17hc20da749bef53e54E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4288
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20066,9 +20066,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_min_s17hc983bc556d074e20E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4288
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20077,9 +20077,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_min_u17h66b146208421f620E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4296
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20088,9 +20088,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_min_u17h9e6c724059fa3ba9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4296
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20099,9 +20099,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_shr_s17hbb88b8b9d81691c1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4248
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20110,9 +20110,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_shr_s17hfe5a40bb31641891E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4248
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20121,9 +20121,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_shr_u17h2bc60dbcec374a92E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4256
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20132,9 +20132,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_shr_u17he8295232035a0166E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4256
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20143,9 +20143,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_splat17h13ddaa2612e8bedcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3264
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20154,9 +20154,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i32x4_splat17he9d365fcc290413fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3264
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20165,9 +20165,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i64x2_shr_s17h6073559af12abed8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4432
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20176,9 +20176,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i64x2_shr_s17ha1f70b3156574ed1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4432
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20187,9 +20187,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i64x2_shr_u17h5ed063a3f24bfc50E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4440
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20198,9 +20198,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i64x2_shr_u17h715087eaab9b4536E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4440
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20209,9 +20209,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i64x2_splat17h4c18a3646ae171f8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3272
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20220,9 +20220,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i64x2_splat17hb71391812725b1a3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3272
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20231,9 +20231,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_max_s17he884ea5d83f5fb32E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3880
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20242,9 +20242,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_max_s17hee1ff450ebe77f59E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3880
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20253,9 +20253,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_max_u17h58cdb1413ade6438E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3888
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20264,9 +20264,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_max_u17hed013f02e50f07a1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3888
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20275,9 +20275,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_min_s17h5bd01b48c7d3b602E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3864
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20286,9 +20286,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_min_s17hecfd05a228b9fbb3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3864
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20297,9 +20297,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_min_u17h6b15403da2891272E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3872
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20308,9 +20308,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_min_u17h85d80ece30b8d213E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3872
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20319,9 +20319,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_shr_s17h2517abd4687154f0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3800
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20330,9 +20330,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_shr_s17he1611524cbab6391E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3800
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20341,9 +20341,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_shr_u17h200c898b1aba66ebE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3808
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20352,9 +20352,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_shr_u17hfd26cd6097abfd87E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3808
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20363,9 +20363,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_splat17h6a837760aec68a7dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3248
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20374,9 +20374,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_i8x16_splat17h8469533ff9568d7cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3248
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20385,9 +20385,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_v128_andnot17h37deb57ff082484bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3696
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20396,9 +20396,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$17visit_v128_andnot17h76ad2f4402f087a7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3696
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20407,9 +20407,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$18visit_i16x8_avgr_u17h9ed317847e3df36aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4120
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20418,9 +20418,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$18visit_i16x8_avgr_u17hf9f8d4e1d77ccf6eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4120
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20429,9 +20429,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$18visit_i8x16_avgr_u17h5509ba4a19096d43E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3896
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20440,9 +20440,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$18visit_i8x16_avgr_u17hd01d8e1a7a33820dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3896
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20451,9 +20451,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$18visit_i8x16_popcnt17h258b583cc3641498E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3752
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20462,9 +20462,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$18visit_i8x16_popcnt17he52941228c57d462E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3752
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20473,9 +20473,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_f32x4_nearest17h77f3a1478b22414fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4528
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20484,9 +20484,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_f32x4_nearest17hda367c4829b6764aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4528
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20495,9 +20495,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_f64x2_nearest17h147c4aa14fc6a338E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4648
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20506,9 +20506,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_f64x2_nearest17h659f17ec76a48c91E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4648
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20517,9 +20517,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_i16x8_bitmask17h88676e3b0470a4caE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3952
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20528,9 +20528,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_i16x8_bitmask17he4ff8b8edb0fe226E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3952
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20539,9 +20539,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_i32x4_bitmask17h3d220460df39a2aaE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4200
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20550,9 +20550,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_i32x4_bitmask17hb9f52ff46219f9b4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4200
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20561,9 +20561,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_i64x2_bitmask17hc0d8fa49b7273f5bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4384
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20572,9 +20572,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_i64x2_bitmask17hf53280cf26be9075E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4384
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20583,9 +20583,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_i8x16_bitmask17h19324e40de21827bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3768
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20594,9 +20594,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_i8x16_bitmask17hbcdd482c7d8c29ddE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3768
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20605,9 +20605,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_i8x16_shuffle17h15d242d95d43678aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 1 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3120
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1)
@@ -20616,9 +20616,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_i8x16_shuffle17h6b5e4291a6c8b0c8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 1 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3120
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 1 captures(none) dereferenceable(16) %1)
@@ -20627,9 +20627,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_i8x16_swizzle17h1b37e27c5ae8fba0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3240
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20638,9 +20638,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_i8x16_swizzle17h8bed2a6ef4a3e428E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3240
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20649,9 +20649,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_v128_any_true17h3b5dd6fd356028edE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3728
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20660,9 +20660,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$19visit_v128_any_true17h89b6bba912c53026E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3728
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20671,9 +20671,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_i16x8_all_true17h675d6b874d9661a1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3944
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20682,9 +20682,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_i16x8_all_true17hf8313ef28df2ae54E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3944
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20693,9 +20693,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_i32x4_all_true17h4da48ce83b7c06c4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4192
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20704,9 +20704,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_i32x4_all_true17he4a0112d193dfa77E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4192
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20715,9 +20715,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_i64x2_all_true17h1979a23a5e18b3e9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4376
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20726,9 +20726,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_i64x2_all_true17he8082dc58fd6a2e5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4376
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20737,9 +20737,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_i8x16_all_true17h2cb242ce44215345E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3760
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20748,9 +20748,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_i8x16_all_true17h53bdd5dcb97ec493E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3760
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20759,9 +20759,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_v128_bitselect17h11e0daec915b629dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3720
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20770,9 +20770,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_v128_bitselect17h84f77d034d9a4374E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3720
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20781,9 +20781,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_v128_load8x8_s17h46a9b387c963a607E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2944
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -20792,9 +20792,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_v128_load8x8_s17h4c7df596ab3a09b9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2944
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -20803,9 +20803,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_v128_load8x8_u17h160b6f9ba6eff6ddE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2952
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -20814,9 +20814,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$20visit_v128_load8x8_u17h95b6f88f3161821eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2952
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -20825,9 +20825,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i16x8_add_sat_s17h22e8fca7a2c0eb83E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4040
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20836,9 +20836,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i16x8_add_sat_s17h3c4b9dea8dcf3126E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4040
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20847,9 +20847,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i16x8_add_sat_u17h9f5597b4d1f3119cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4048
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20858,9 +20858,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i16x8_add_sat_u17hbb5233670ae384abE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4048
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20869,9 +20869,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i16x8_sub_sat_s17hb47fdcdee469039dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4064
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20880,9 +20880,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i16x8_sub_sat_s17hc8c86127944c3330E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4064
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20891,9 +20891,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i16x8_sub_sat_u17h656a59ab828d6f73E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4072
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20902,9 +20902,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i16x8_sub_sat_u17hf6aaf6e2d209c16dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4072
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20913,9 +20913,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i8x16_add_sat_s17h9a69767317634749E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3824
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20924,9 +20924,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i8x16_add_sat_s17hca2922af3265773eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3824
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20935,9 +20935,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i8x16_add_sat_u17h3a86301e7590d94cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3832
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20946,9 +20946,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i8x16_add_sat_u17h8a9849238030ff1eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3832
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20957,9 +20957,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i8x16_sub_sat_s17h65275c8262f1f91fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3848
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20968,9 +20968,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i8x16_sub_sat_s17h8bdb5c138a0ef58bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3848
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20979,9 +20979,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i8x16_sub_sat_u17h763a5dc1729786f0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3856
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -20990,9 +20990,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_i8x16_sub_sat_u17hfa70003e97119872E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3856
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21001,9 +21001,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_v128_load16x4_s17h8d82305b66d0fd28E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2960
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21012,9 +21012,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_v128_load16x4_s17hc1abbbe0ecf4a24eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2960
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21023,9 +21023,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_v128_load16x4_u17ha5edd570b4f1b36fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2968
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21034,9 +21034,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_v128_load16x4_u17hf2cdae60737e3b70E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2968
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21045,9 +21045,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_v128_load32x2_s17h45acb079a69fed61E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2976
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21056,9 +21056,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_v128_load32x2_s17hfaa5b01eeb942103E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2976
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21067,9 +21067,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_v128_load32x2_u17ha84b9e8d0d22fdecE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2984
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21078,9 +21078,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_v128_load32x2_u17hba0ed942e4b59284E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2984
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21089,9 +21089,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_v128_load8_lane17h0f1c0885d7f8a574E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3048
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21100,9 +21100,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$21visit_v128_load8_lane17h25689e6c0d06232dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3048
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21111,9 +21111,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_load16_lane17h3f96314570dfcac4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3056
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21122,9 +21122,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_load16_lane17ha8439e9ba34d5ce2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3056
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21133,9 +21133,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_load32_lane17h3ed3dbfb697011b1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3064
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21144,9 +21144,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_load32_lane17h74dc46c733d4966eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3064
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21155,9 +21155,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_load32_zero17h416d9c5ad3a889b6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3024
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21166,9 +21166,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_load32_zero17hf8db11c26f1da7feE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3024
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21177,9 +21177,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_load64_lane17h6aa0502215f58c79E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3072
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21188,9 +21188,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_load64_lane17hd23e937c92c3d49cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3072
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21199,9 +21199,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_load64_zero17hbed3662d547cf86fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3032
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21210,9 +21210,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_load64_zero17heeb3c766d6bba957E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3032
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21221,9 +21221,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_load8_splat17h323835389dce6e6aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2992
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21232,9 +21232,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_load8_splat17hb3c2d0b0f7cb9caeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2992
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21243,9 +21243,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_store8_lane17h8c5bcd1f6ce6c0f9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3080
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21254,9 +21254,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$22visit_v128_store8_lane17hc90137cab190da5eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3080
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21265,9 +21265,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_f32x4_relaxed_max17ha4d7a3154c277d22E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4936
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21276,9 +21276,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_f32x4_relaxed_max17ha674067736db025bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4936
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21287,9 +21287,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_f32x4_relaxed_min17h8f0ee953871a6033E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4928
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21298,9 +21298,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_f32x4_relaxed_min17hd9046176b8d5c0bcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4928
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21309,9 +21309,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_f64x2_relaxed_max17h565b4059cfb5e2cbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4952
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21320,9 +21320,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_f64x2_relaxed_max17h795d7ab36771f5d8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4952
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21331,9 +21331,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_f64x2_relaxed_min17he23c67fff37e380eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4944
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21342,9 +21342,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_f64x2_relaxed_min17hf83f6403858efcdeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4944
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21353,9 +21353,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_i32x4_dot_i16x8_s17h86a80eb567912b6eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4320
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21364,9 +21364,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_i32x4_dot_i16x8_s17hfe565956bc9702d2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4320
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21375,9 +21375,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_v128_load16_splat17h2aaa3de931e00acbE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3000
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21386,9 +21386,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_v128_load16_splat17hc3bc1674df4e02f0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3000
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21397,9 +21397,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_v128_load32_splat17h1df27a25e47c259dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3008
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21408,9 +21408,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_v128_load32_splat17h2ac2c7dc6c9ecbe5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3008
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21419,9 +21419,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_v128_load64_splat17ha5fdf1f049fdefbeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3016
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21430,9 +21430,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_v128_load64_splat17hb24eafdc22714c1fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3016
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1)
@@ -21441,9 +21441,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_v128_store16_lane17h5b04c65a4bc660f3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3088
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21452,9 +21452,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_v128_store16_lane17hc416be2eee36395bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3088
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21463,9 +21463,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_v128_store32_lane17h29306a0aed202ac6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3096
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21474,9 +21474,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_v128_store32_lane17hed8c125ece997787E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3096
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21485,9 +21485,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_v128_store64_lane17h93d17018cd4ae6a4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3104
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21496,9 +21496,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$23visit_v128_store64_lane17hb594f70c919aba2bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, i8 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !7, !noundef !3
+  %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3104
   %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
   %9 = tail call noundef align 8 ptr %8(ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %1, i8 noundef %2)
@@ -21507,9 +21507,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_f32x4_extract_lane17hcb899d1d618b90f9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3208
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21518,9 +21518,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_f32x4_extract_lane17hd62422fa5f70c30aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3208
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21529,9 +21529,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_f32x4_relaxed_madd17hb806e5880e2178cfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4864
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21540,9 +21540,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_f32x4_relaxed_madd17hc885c61ef0ff01b4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4864
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21551,9 +21551,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_f32x4_replace_lane17h529061bbfc661165E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3216
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21562,9 +21562,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_f32x4_replace_lane17h5655df0dfec55eafE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3216
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21573,9 +21573,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_f64x2_extract_lane17hd9b9762234218741E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3224
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21584,9 +21584,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_f64x2_extract_lane17hd9bff14273db08f0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3224
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21595,9 +21595,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_f64x2_relaxed_madd17h266eca8edd24d67bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4880
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21606,9 +21606,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_f64x2_relaxed_madd17he9b553ba2a4b5f0fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4880
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21617,9 +21617,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_f64x2_replace_lane17h61aa024d274f3661E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3232
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21628,9 +21628,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_f64x2_replace_lane17hb0647d5a4dc7d9e0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3232
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21639,9 +21639,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_i16x8_replace_lane17h269ca1858312ad32E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3168
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21650,9 +21650,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_i16x8_replace_lane17h3745aeec1a03ad67E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3168
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21661,9 +21661,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_i32x4_extract_lane17h46a0780c745c521dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3176
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21672,9 +21672,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_i32x4_extract_lane17he0d30c2f556a7d9fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3176
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21683,9 +21683,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_i32x4_replace_lane17h77e85ec9dea0c0c1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3184
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21694,9 +21694,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_i32x4_replace_lane17ha0858f3016b37f63E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3184
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21705,9 +21705,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_i64x2_extract_lane17hcc576b489a4a143aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3192
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21716,9 +21716,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_i64x2_extract_lane17hfa7c231f05bb4813E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3192
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21727,9 +21727,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_i64x2_replace_lane17h601a432ef9161ec2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3200
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21738,9 +21738,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_i64x2_replace_lane17hf5b3c8948976d2b1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3200
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21749,9 +21749,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_i8x16_replace_lane17h339602c80788ae1bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3144
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21760,9 +21760,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$24visit_i8x16_replace_lane17h718907c7eafdf5e1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3144
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21771,9 +21771,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$25visit_f32x4_relaxed_nmadd17h36fe1811503eaf45E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4872
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21782,9 +21782,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$25visit_f32x4_relaxed_nmadd17hd19ae54a5d2b63ffE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4872
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21793,9 +21793,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$25visit_f64x2_relaxed_nmadd17h2a3c459feebcd7c7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4888
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21804,9 +21804,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$25visit_f64x2_relaxed_nmadd17hd993abec77dafa4eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4888
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21815,9 +21815,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$25visit_i16x8_q15mulr_sat_s17h06b86fe8879e0489E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3936
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21826,9 +21826,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$25visit_i16x8_q15mulr_sat_s17h41e2b42633c53ddcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3936
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21837,9 +21837,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i16x8_extract_lane_s17h11222523c880fbcdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3152
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21848,9 +21848,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i16x8_extract_lane_s17h212948e2eb930a67E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3152
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21859,9 +21859,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i16x8_extract_lane_u17h34eeb69b487d851eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3160
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21870,9 +21870,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i16x8_extract_lane_u17hd961d5bfb0778c01E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3160
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21881,9 +21881,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i16x8_narrow_i32x4_s17h2a436e620aa17215E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3960
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21892,9 +21892,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i16x8_narrow_i32x4_s17h305091c43c4a1a23E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3960
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21903,9 +21903,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i16x8_narrow_i32x4_u17h55b6a73a79f530c1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3968
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21914,9 +21914,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i16x8_narrow_i32x4_u17hf32a6ad1d4272fd1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3968
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21925,9 +21925,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i8x16_extract_lane_s17h730c0cc198ea5f97E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3128
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21936,9 +21936,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i8x16_extract_lane_s17h7688450a5d9dc5b3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3128
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21947,9 +21947,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i8x16_extract_lane_u17hb6efe30614fa1a44E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3136
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21958,9 +21958,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i8x16_extract_lane_u17hda9facdee456f054E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !7, !noundef !3
+  %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3136
   %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
   %8 = tail call noundef align 8 ptr %7(ptr noundef nonnull align 1 %3, i8 noundef %1)
@@ -21969,9 +21969,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i8x16_narrow_i16x8_s17h828016453c287995E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3776
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21980,9 +21980,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i8x16_narrow_i16x8_s17ha7f723061bc31499E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3776
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -21991,9 +21991,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i8x16_narrow_i16x8_u17h84ffcfa5d3bf0f29E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3784
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22002,9 +22002,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i8x16_narrow_i16x8_u17ha4cb0e50cbb5bf67E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3784
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22013,9 +22013,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$27visit_f32x4_convert_i32x4_s17h5c78755f2e392d6cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4760
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22024,9 +22024,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$27visit_f32x4_convert_i32x4_s17h88bb5e759a0e1325E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4760
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22035,9 +22035,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$27visit_f32x4_convert_i32x4_u17h48d0df813b970dd3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4768
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22046,9 +22046,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$27visit_f32x4_convert_i32x4_u17h57e5919d2ec471e5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4768
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22057,9 +22057,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$27visit_i8x16_relaxed_swizzle17h0266f7da1c170d3cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4824
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22068,9 +22068,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$27visit_i8x16_relaxed_swizzle17h84b0c932d0cedba6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4824
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22079,9 +22079,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$29visit_f32x4_demote_f64x2_zero17h211c64aea26ecc19E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4808
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22090,9 +22090,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$29visit_f32x4_demote_f64x2_zero17hf915d2a47a3f6f06E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4808
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22101,9 +22101,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$29visit_f64x2_promote_low_f32x417h397f49e2f9306782E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4816
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22112,9 +22112,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$29visit_f64x2_promote_low_f32x417hff8cffda33a50a17E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4816
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22123,9 +22123,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$29visit_i16x8_relaxed_q15mulr_s17h0095cd2473f6d920E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4960
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22134,9 +22134,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$29visit_i16x8_relaxed_q15mulr_s17h7a83a2e8d4d96c64E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4960
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22145,9 +22145,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$29visit_i32x4_trunc_sat_f32x4_s17h486322349fd47d99E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4744
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22156,9 +22156,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$29visit_i32x4_trunc_sat_f32x4_s17h788097e84ab7f343E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4744
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22167,9 +22167,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$29visit_i32x4_trunc_sat_f32x4_u17h7deee8772b2f67c5E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4752
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22178,9 +22178,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$29visit_i32x4_trunc_sat_f32x4_u17hb6b10feecc26910cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4752
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22189,9 +22189,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i16x8_extend_low_i8x16_s17h5921cf5e69ff10c4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3976
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22200,9 +22200,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i16x8_extend_low_i8x16_s17h7096d34104d41424E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3976
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22211,9 +22211,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i16x8_extend_low_i8x16_u17h806912e24fcc410cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3992
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22222,9 +22222,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i16x8_extend_low_i8x16_u17he0517f3d2be482bfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3992
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22233,9 +22233,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i16x8_extmul_low_i8x16_s17h177197df63ccc069E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4128
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22244,9 +22244,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i16x8_extmul_low_i8x16_s17h5d609126567f8596E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4128
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22255,9 +22255,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i16x8_extmul_low_i8x16_u17h5df09a24acf59ebaE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4144
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22266,9 +22266,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i16x8_extmul_low_i8x16_u17hfc63f2fa46b222beE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4144
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22277,9 +22277,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i16x8_relaxed_laneselect17h22ae1a88bc9bfcebE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4904
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22288,9 +22288,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i16x8_relaxed_laneselect17h8f3863a0668ba58bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4904
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22299,9 +22299,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i32x4_extend_low_i16x8_s17h2a1955ec0de6d6cfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4208
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22310,9 +22310,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i32x4_extend_low_i16x8_s17h9b2c36e9fd296ef0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4208
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22321,9 +22321,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i32x4_extend_low_i16x8_u17ha813c2c8492df290E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4224
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22332,9 +22332,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i32x4_extend_low_i16x8_u17hbd83ea44fbfef158E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4224
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22343,9 +22343,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i32x4_extmul_low_i16x8_s17h38871a086a5efdfcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4328
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22354,9 +22354,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i32x4_extmul_low_i16x8_s17h8346e88c7360c5f4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4328
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22365,9 +22365,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i32x4_extmul_low_i16x8_u17h2e80afa54ae2ddb3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4344
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22376,9 +22376,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i32x4_extmul_low_i16x8_u17h58c71297042f366aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4344
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22387,9 +22387,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i32x4_relaxed_laneselect17hbd0bed8d2c8e2415E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4912
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22398,9 +22398,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i32x4_relaxed_laneselect17hecedaa264f503f20E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4912
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22409,9 +22409,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i64x2_extend_low_i32x4_s17h7acc70fb6e933232E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4392
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22420,9 +22420,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i64x2_extend_low_i32x4_s17hc37e76ac2c769575E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4392
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22431,9 +22431,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i64x2_extend_low_i32x4_u17h73a8d7ca278cbeb9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4408
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22442,9 +22442,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i64x2_extend_low_i32x4_u17hf756632ae8594d9cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4408
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22453,9 +22453,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i64x2_extmul_low_i32x4_s17hb47cd4bd20f5fa4fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4472
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22464,9 +22464,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i64x2_extmul_low_i32x4_s17hf77be17d8283fe12E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4472
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22475,9 +22475,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i64x2_extmul_low_i32x4_u17h3e43b1bb1a7f1b78E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4488
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22486,9 +22486,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i64x2_extmul_low_i32x4_u17h4320ebba61af53b9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4488
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22497,9 +22497,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i64x2_relaxed_laneselect17h534d1b5505934f76E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4920
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22508,9 +22508,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i64x2_relaxed_laneselect17he45e91b3b8b79bf2E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4920
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22519,9 +22519,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i8x16_relaxed_laneselect17h4cad18920d737e6cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4896
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22530,9 +22530,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$30visit_i8x16_relaxed_laneselect17hd1fc829dfcf2d5beE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4896
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22541,9 +22541,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_f64x2_convert_low_i32x4_s17h5ff6204fff922d8bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4792
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22552,9 +22552,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_f64x2_convert_low_i32x4_s17hcd9ae32425b779bdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4792
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22563,9 +22563,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_f64x2_convert_low_i32x4_u17h41bd563226b19938E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4800
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22574,9 +22574,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_f64x2_convert_low_i32x4_u17heaa9e2816e21a812E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4800
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22585,9 +22585,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i16x8_extend_high_i8x16_s17h75e88617e228249bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3984
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22596,9 +22596,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i16x8_extend_high_i8x16_s17hdd6cef3caea16d1fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3984
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22607,9 +22607,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i16x8_extend_high_i8x16_u17h18c3cc4e3f694c6eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4000
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22618,9 +22618,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i16x8_extend_high_i8x16_u17h5a70d72c4bc7f481E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4000
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22629,9 +22629,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i16x8_extmul_high_i8x16_s17h36550e23034b685dE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4136
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22640,9 +22640,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i16x8_extmul_high_i8x16_s17h4b9858155b0a1ef4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4136
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22651,9 +22651,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i16x8_extmul_high_i8x16_u17h32e9bdc2691f3d93E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4152
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22662,9 +22662,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i16x8_extmul_high_i8x16_u17h941a3fe2ff13c024E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4152
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22673,9 +22673,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i32x4_extend_high_i16x8_s17h4cacd9b03722083aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4216
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22684,9 +22684,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i32x4_extend_high_i16x8_s17ha81b3b15bfa729f9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4216
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22695,9 +22695,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i32x4_extend_high_i16x8_u17h705c56d1b16290bcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4232
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22706,9 +22706,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i32x4_extend_high_i16x8_u17heb1fc3ebc5520186E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4232
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22717,9 +22717,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i32x4_extmul_high_i16x8_s17h8903deed820fc61fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4336
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22728,9 +22728,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i32x4_extmul_high_i16x8_s17h893eb91bff101591E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4336
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22739,9 +22739,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i32x4_extmul_high_i16x8_u17h0e20fae6701b0c29E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4352
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22750,9 +22750,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i32x4_extmul_high_i16x8_u17hb3302c2f7059625fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4352
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22761,9 +22761,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i64x2_extend_high_i32x4_s17h559aa62f83889446E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4400
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22772,9 +22772,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i64x2_extend_high_i32x4_s17he151999e5ad7ba7cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4400
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22783,9 +22783,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i64x2_extend_high_i32x4_u17hd3b052ff267bd233E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4416
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22794,9 +22794,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i64x2_extend_high_i32x4_u17hf0012378399f8333E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4416
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22805,9 +22805,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i64x2_extmul_high_i32x4_s17h3738f95c61f97a17E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4480
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22816,9 +22816,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i64x2_extmul_high_i32x4_s17he9714404e86dffcdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4480
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22827,9 +22827,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i64x2_extmul_high_i32x4_u17h03dd6dfd9fca7316E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4496
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22838,9 +22838,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$31visit_i64x2_extmul_high_i32x4_u17h8cc72e6ed9b36807E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4496
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22849,9 +22849,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$33visit_i32x4_relaxed_trunc_f32x4_s17h73669af3bf06167cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4832
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22860,9 +22860,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$33visit_i32x4_relaxed_trunc_f32x4_s17hfb892c3fcd3af292E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4832
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22871,9 +22871,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$33visit_i32x4_relaxed_trunc_f32x4_u17h9dcd562268fd6bfeE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4840
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22882,9 +22882,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$33visit_i32x4_relaxed_trunc_f32x4_u17ha63bf129896a91a4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4840
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22893,9 +22893,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$34visit_i32x4_trunc_sat_f64x2_s_zero17h9ce0109e9ad71844E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4776
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22904,9 +22904,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$34visit_i32x4_trunc_sat_f64x2_s_zero17haa4a8731c996c4dfE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4776
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22915,9 +22915,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$34visit_i32x4_trunc_sat_f64x2_u_zero17h309bfb0ea930c6a7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4784
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22926,9 +22926,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$34visit_i32x4_trunc_sat_f64x2_u_zero17hbc1da7338861859cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4784
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22937,9 +22937,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$35visit_i16x8_extadd_pairwise_i8x16_s17h396783557e116279E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3904
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22948,9 +22948,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$35visit_i16x8_extadd_pairwise_i8x16_s17h3e69e1aba44f2636E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3904
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22959,9 +22959,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$35visit_i16x8_extadd_pairwise_i8x16_u17h2ae9b1c4a9993369E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3912
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22970,9 +22970,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$35visit_i16x8_extadd_pairwise_i8x16_u17h715a6c0c18783029E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 3912
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22981,9 +22981,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$35visit_i32x4_extadd_pairwise_i16x8_s17h107bd9f7033f4c0fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4160
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -22992,9 +22992,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$35visit_i32x4_extadd_pairwise_i16x8_s17h2704f46ac37a303fE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4160
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -23003,9 +23003,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$35visit_i32x4_extadd_pairwise_i16x8_u17h30991906a563d1b7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4168
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -23014,9 +23014,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$35visit_i32x4_extadd_pairwise_i16x8_u17he26138068fa82952E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4168
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -23025,9 +23025,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$37visit_i16x8_relaxed_dot_i8x16_i7x16_s17h136e79d3c548ab8aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4968
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -23036,9 +23036,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$37visit_i16x8_relaxed_dot_i8x16_i7x16_s17h85b56dccf0a47cd4E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4968
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -23047,9 +23047,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$38visit_i32x4_relaxed_trunc_f64x2_s_zero17h50ea19950fc1f479E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4848
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -23058,9 +23058,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$38visit_i32x4_relaxed_trunc_f64x2_s_zero17hd15d6ba549860a49E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4848
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -23069,9 +23069,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$38visit_i32x4_relaxed_trunc_f64x2_u_zero17h91b793e5e62b6701E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4856
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -23080,9 +23080,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$38visit_i32x4_relaxed_trunc_f64x2_u_zero17hb42fe69b91574fcdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4856
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -23091,9 +23091,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$41visit_i32x4_relaxed_dot_i8x16_i7x16_add_s17h4d6c39f15cbd924aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4976
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -23102,9 +23102,9 @@ define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparse
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$41visit_i32x4_relaxed_dot_i8x16_i7x16_add_s17hcefc81a6cf34f535E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !28, !noundef !3
+  %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !23, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !7, !noundef !3
+  %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4976
   %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
   %7 = tail call noundef align 8 ptr %6(ptr noundef nonnull align 1 %2)
@@ -23178,10 +23178,10 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$wasmi_ir..span..BoundedRegSpan$u20$as
   %5 = tail call noundef align 2 dereferenceable(2) ptr @_ZN8wasmi_ir4span7RegSpan8head_mut17h3a81aae049ee9780E(ptr noalias noundef nonnull align 2 dereferenceable(2) %4)
   %6 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %6)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !436)
-  %7 = load i16, ptr %5, align 2, !alias.scope !436, !noundef !3
-  %8 = tail call noundef i16 @_ZN5wasmi6engine10translator5stack10ValueStack15defrag_register17h4327666a8cd5080fE(ptr noalias noundef nonnull align 8 dereferenceable(248) %.val, i16 noundef %7), !noalias !436
-  store i16 %8, ptr %5, align 2, !alias.scope !436
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
+  %7 = load i16, ptr %5, align 2, !alias.scope !431, !noundef !3
+  %8 = tail call noundef i16 @_ZN5wasmi6engine10translator5stack10ValueStack15defrag_register17h4327666a8cd5080fE(ptr noalias noundef nonnull align 8 dereferenceable(248) %.val, i16 noundef %7), !noalias !431
+  store i16 %8, ptr %5, align 2, !alias.scope !431
   ret void
 }
 
@@ -23196,14 +23196,14 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$wasmi_ir..span..BoundedRegSpan$u20$as
   %7 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %7)
   %.val2.i = load i16, ptr %6, align 2, !noundef !3
-  %8 = load i16, ptr %.val, align 2, !noalias !439, !noundef !3
+  %8 = load i16, ptr %.val, align 2, !noalias !434, !noundef !3
   %9 = icmp eq i16 %.val2.i, %8
   br i1 %9, label %10, label %"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$16visit_input_regs17h6eadd45651684bcaE.exit"
 
 10:                                               ; preds = %2
   %11 = icmp ne ptr %.val1, null
   tail call void @llvm.assume(i1 %11)
-  store i8 1, ptr %.val1, align 1, !noalias !439
+  store i8 1, ptr %.val1, align 1, !noalias !434
   br label %"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$16visit_input_regs17h6eadd45651684bcaE.exit"
 
 "_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$16visit_input_regs17h6eadd45651684bcaE.exit": ; preds = %2, %10
@@ -23212,7 +23212,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$wasmi_ir..span..BoundedRegSpan$u20$as
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 0, 37) i32 @_ZN5wasmi6engine10translator10comparator26try_into_cmp_br_comparator17h756efa625d14588cE(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
-  %2 = load i16, ptr %0, align 4, !range !442, !noundef !3
+  %2 = load i16, ptr %0, align 4, !range !437, !noundef !3
   %switch.tableidx = add nsw i16 %2, -13
   %3 = icmp ult i16 %switch.tableidx, 68
   br i1 %3, label %switch.lookup, label %5
@@ -23230,15 +23230,15 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder17push_fueled_instr17h744e883ccb7f00a3E(ptr dead_on_unwind noalias noundef writable sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(88) %1, i64 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
-  %5 = load i32, ptr %3, align 8, !range !180, !alias.scope !443, !noalias !446, !noundef !3
+  %5 = load i32, ptr %3, align 8, !range !175, !alias.scope !438, !noalias !441, !noundef !3
   %6 = trunc nuw i32 %5 to i1
   br i1 %6, label %_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE.exit, label %_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE.exit.thread
 
 _ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE.exit: ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = tail call noundef i64 @_ZN10wasmi_core4fuel17FuelCostsProvider4base17h71754cb19beb4cf3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7), !noalias !446
+  %8 = tail call noundef i64 @_ZN10wasmi_core4fuel17FuelCostsProvider4base17h71754cb19beb4cf3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7), !noalias !441
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !443, !noalias !446, !noundef !3
+  %10 = load i32, ptr %9, align 4, !alias.scope !438, !noalias !441, !noundef !3
   %11 = tail call noundef align 4 dereferenceable(8) ptr @_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E(ptr noalias noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %10)
   %12 = tail call noundef align 8 ptr @"_ZN94_$LT$wasmi_ir..enum..Instruction$u20$as$u20$wasmi..engine..translator..BumpFuelConsumption$GT$21bump_fuel_consumption17had26403c968326b6E"(ptr noalias noundef nonnull align 4 dereferenceable(8) %11, i64 noundef %8)
   %.not = icmp eq ptr %12, null
@@ -23267,13 +23267,13 @@ define hidden void @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder11e
   %8 = extractvalue { i64, i64 } %6, 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 192
   call void @_ZN5wasmi6engine10translator5stack6consts15FuncLocalConsts5alloc17h3938f6af66c3574bE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %7, i64 noundef %8)
-  %10 = load i16, ptr %5, align 8, !range !448, !noundef !3
+  %10 = load i16, ptr %5, align 8, !range !443, !noundef !3
   %11 = trunc nuw i16 %10 to i1
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !7, !noundef !3
+  %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !5, !noundef !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8
@@ -23296,7 +23296,7 @@ define hidden void @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder11e
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h0b77a3f33f9c4e99E(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load i32, ptr %1, align 8, !range !180, !noundef !3
+  %3 = load i32, ptr %1, align 8, !range !175, !noundef !3
   %4 = trunc nuw i32 %3 to i1
   br i1 %4, label %5, label %12
 
@@ -23316,7 +23316,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h0d4c291a910437f1E(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %2) unnamed_addr #0 {
-  %4 = load i32, ptr %1, align 8, !range !180, !noundef !3
+  %4 = load i32, ptr %1, align 8, !range !175, !noundef !3
   %5 = trunc nuw i32 %4 to i1
   br i1 %5, label %6, label %14
 
@@ -23338,7 +23338,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h474a83ff475b7497E(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %2) unnamed_addr #0 {
-  %4 = load i32, ptr %1, align 8, !range !180, !noundef !3
+  %4 = load i32, ptr %1, align 8, !range !175, !noundef !3
   %5 = trunc nuw i32 %4 to i1
   br i1 %5, label %6, label %14
 
@@ -23360,7 +23360,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h4c5c14282b01c8a3E(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %2) unnamed_addr #0 {
-  %4 = load i32, ptr %1, align 8, !range !180, !noundef !3
+  %4 = load i32, ptr %1, align 8, !range !175, !noundef !3
   %5 = trunc nuw i32 %4 to i1
   br i1 %5, label %6, label %14
 
@@ -23382,7 +23382,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h6b29850d2967bf4aE(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load i32, ptr %1, align 8, !range !180, !noundef !3
+  %3 = load i32, ptr %1, align 8, !range !175, !noundef !3
   %4 = trunc nuw i32 %3 to i1
   br i1 %4, label %5, label %12
 
@@ -23402,7 +23402,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h6d503005297f2fddE(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load i32, ptr %1, align 8, !range !180, !noundef !3
+  %3 = load i32, ptr %1, align 8, !range !175, !noundef !3
   %4 = trunc nuw i32 %3 to i1
   br i1 %4, label %5, label %12
 
@@ -23422,7 +23422,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load i32, ptr %1, align 8, !range !180, !noundef !3
+  %3 = load i32, ptr %1, align 8, !range !175, !noundef !3
   %4 = trunc nuw i32 %3 to i1
   br i1 %4, label %5, label %12
 
@@ -23442,7 +23442,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17hb19a7881862d60e7E(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %2) unnamed_addr #0 {
-  %4 = load i32, ptr %1, align 8, !range !180, !noundef !3
+  %4 = load i32, ptr %1, align 8, !range !175, !noundef !3
   %5 = trunc nuw i32 %4 to i1
   br i1 %5, label %6, label %14
 
@@ -23464,7 +23464,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17hb97392c8ab0baeecE(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 captures(none) %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = load i32, ptr %1, align 8, !range !180, !noundef !3
+  %5 = load i32, ptr %1, align 8, !range !175, !noundef !3
   %6 = trunc nuw i32 %5 to i1
   br i1 %6, label %7, label %15
 
@@ -23485,7 +23485,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17hb9890789e78f1b41E(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load i32, ptr %1, align 8, !range !180, !noundef !3
+  %3 = load i32, ptr %1, align 8, !range !175, !noundef !3
   %4 = trunc nuw i32 %3 to i1
   br i1 %4, label %5, label %12
 
@@ -23505,7 +23505,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17hbd7d0983ef7051f4E(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 captures(none) %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = load i32, ptr %1, align 8, !range !180, !noundef !3
+  %5 = load i32, ptr %1, align 8, !range !175, !noundef !3
   %6 = trunc nuw i32 %5 to i1
   br i1 %6, label %7, label %15
 
@@ -23526,7 +23526,7 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17hf43a6ecc97863d5bE(ptr noalias noundef align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  %3 = load i32, ptr %1, align 8, !range !180, !noundef !3
+  %3 = load i32, ptr %1, align 8, !range !175, !noundef !3
   %4 = trunc nuw i32 %3 to i1
   br i1 %4, label %5, label %12
 
@@ -23558,7 +23558,7 @@ define hidden void @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder8fu
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %12 = load i32, ptr %11, align 8, !range !180, !noundef !3
+  %12 = load i32, ptr %11, align 8, !range !175, !noundef !3
   %13 = trunc nuw i32 %12 to i1
   br i1 %13, label %15, label %24
 
@@ -23659,7 +23659,7 @@ define hidden void @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder8fu
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %12 = load i32, ptr %11, align 8, !range !180, !noundef !3
+  %12 = load i32, ptr %11, align 8, !range !175, !noundef !3
   %13 = trunc nuw i32 %12 to i1
   br i1 %13, label %15, label %24
 
@@ -23760,7 +23760,7 @@ define hidden void @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder8fu
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %12 = load i32, ptr %11, align 8, !range !180, !noundef !3
+  %12 = load i32, ptr %11, align 8, !range !175, !noundef !3
   %13 = trunc nuw i32 %12 to i1
   br i1 %13, label %15, label %24
 
@@ -23861,7 +23861,7 @@ define hidden void @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder8fu
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %12 = load i32, ptr %11, align 8, !range !180, !noundef !3
+  %12 = load i32, ptr %11, align 8, !range !175, !noundef !3
   %13 = trunc nuw i32 %12 to i1
   br i1 %13, label %15, label %24
 
@@ -24008,9 +24008,9 @@ define void @_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17
 define hidden void @_ZN5wasmi6engine10translator5stack6locals9LocalRefs5reset17h6549a4ec33d69b99E(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5clear17hebc69db483473f02E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  store i64 0, ptr %0, align 8, !alias.scope !449
+  store i64 0, ptr %0, align 8, !alias.scope !444
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %3, align 8, !alias.scope !449
+  store i64 0, ptr %3, align 8, !alias.scope !444
   ret void
 }
 
@@ -24079,7 +24079,7 @@ define void @_ZN5wasmi6engine10translator5stack6locals9LocalRefs7push_at17h2002c
   %5 = alloca [48 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = alloca [8 x i8], align 8
-  %8 = load i64, ptr %0, align 8, !range !308, !noundef !3
+  %8 = load i64, ptr %0, align 8, !range !303, !noundef !3
   %9 = trunc nuw i64 %8 to i1
   br i1 %9, label %10, label %30
 
@@ -24087,11 +24087,11 @@ define void @_ZN5wasmi6engine10translator5stack6locals9LocalRefs7push_at17h2002c
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = tail call fastcc { i64, i64 } @_ZN5wasmi6engine10translator5stack6locals9LocalRefs11update_last17h079dfd7122fcfd36E(ptr noalias noundef align 8 dereferenceable(64) %0, i64 noundef %12, i16 noundef %1)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !447)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store i64 %12, ptr %7, align 8, !noalias !452
+  store i64 %12, ptr %7, align 8, !noalias !447
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load i64, ptr %14, align 8, !alias.scope !452, !noundef !3
+  %15 = load i64, ptr %14, align 8, !alias.scope !447, !noundef !3
   %16 = icmp ult i64 %12, %15
   br i1 %16, label %17, label %23
 
@@ -24099,54 +24099,54 @@ define void @_ZN5wasmi6engine10translator5stack6locals9LocalRefs7push_at17h2002c
   %18 = extractvalue { i64, i64 } %13, 1
   %19 = extractvalue { i64, i64 } %13, 0
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !alias.scope !452, !nonnull !3, !noundef !3
+  %21 = load ptr, ptr %20, align 8, !alias.scope !447, !nonnull !3, !noundef !3
   %22 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %21, i64 %12
-  %.sroa.0.0.copyload.i = load i64, ptr %22, align 8, !noalias !452
+  %.sroa.0.0.copyload.i = load i64, ptr %22, align 8, !noalias !447
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !452
+  %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !447
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !452
-  store i64 %19, ptr %22, align 8, !noalias !452
-  store i64 %18, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !452
-  store i64 %2, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !452
+  %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !447
+  store i64 %19, ptr %22, align 8, !noalias !447
+  store i64 %18, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !447
+  store i64 %2, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !447
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i, 2
-  br i1 %.not.i, label %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12reuse_vacant17hb98ced5cde7f9627E.exit, label %24, !prof !455
+  br i1 %.not.i, label %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12reuse_vacant17hb98ced5cde7f9627E.exit, label %24, !prof !450
 
 23:                                               ; preds = %10
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %12, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.848) #18, !noalias !452
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %12, i64 noundef %15, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.848) #18, !noalias !447
   unreachable
 
 24:                                               ; preds = %17
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !452
-  store i64 %.sroa.0.0.copyload.i, ptr %6, align 8, !noalias !452
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !447
+  store i64 %.sroa.0.0.copyload.i, ptr %6, align 8, !noalias !447
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx2.i, align 8, !noalias !452
+  store i64 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx2.i, align 8, !noalias !447
   %.sroa.6.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %.sroa.6.0.copyload.i, ptr %.sroa.6.0..sroa_idx4.i, align 8, !noalias !452
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !452
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !452
-  store ptr %7, ptr %4, align 8, !noalias !452
+  store i64 %.sroa.6.0.copyload.i, ptr %.sroa.6.0..sroa_idx4.i, align 8, !noalias !447
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !447
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !447
+  store ptr %7, ptr %4, align 8, !noalias !447
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hd8f455fd1d89d1b2E", ptr %.sroa.411.0..sroa_idx.i, align 8, !noalias !452
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hd8f455fd1d89d1b2E", ptr %.sroa.411.0..sroa_idx.i, align 8, !noalias !447
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %6, ptr %25, align 8, !noalias !452
+  store ptr %6, ptr %25, align 8, !noalias !447
   %.sroa.415.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE", ptr %.sroa.415.0..sroa_idx.i, align 8, !noalias !452
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.851, ptr %5, align 8, !noalias !452
+  store ptr @"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE", ptr %.sroa.415.0..sroa_idx.i, align 8, !noalias !447
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.851, ptr %5, align 8, !noalias !447
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 2, ptr %26, align 8, !noalias !452
+  store i64 2, ptr %26, align 8, !noalias !447
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %27, align 8, !noalias !452
+  store ptr null, ptr %27, align 8, !noalias !447
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %28, align 8, !noalias !452
+  store ptr %4, ptr %28, align 8, !noalias !447
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 2, ptr %29, align 8, !noalias !452
-  call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.852) #18, !noalias !452
+  store i64 2, ptr %29, align 8, !noalias !447
+  call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.852) #18, !noalias !447
   unreachable
 
 _ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12reuse_vacant17hb98ced5cde7f9627E.exit: ; preds = %17
-  store i64 %.sroa.5.0.copyload.i, ptr %0, align 8, !alias.scope !452
-  store i64 %.sroa.6.0.copyload.i, ptr %11, align 8, !alias.scope !452
+  store i64 %.sroa.5.0.copyload.i, ptr %0, align 8, !alias.scope !447
+  store i64 %.sroa.6.0.copyload.i, ptr %11, align 8, !alias.scope !447
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %47
 
@@ -24162,17 +24162,17 @@ _ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12reuse_vacant17hb98c
   %38 = load i64, ptr %32, align 8, !noundef !3
   %39 = icmp ult i64 %38, 384307168202282326
   tail call void @llvm.assume(i1 %39)
-  %40 = load i64, ptr %31, align 8, !range !456, !alias.scope !457, !noalias !460, !noundef !3
+  %40 = load i64, ptr %31, align 8, !range !451, !alias.scope !452, !noalias !455, !noundef !3
   %41 = icmp eq i64 %38, %40
   br i1 %41, label %42, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a069d9590901ef9E.exit"
 
 42:                                               ; preds = %30
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hf47a513c44a64bcdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.857), !noalias !460
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hf47a513c44a64bcdE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.857), !noalias !455
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a069d9590901ef9E.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a069d9590901ef9E.exit": ; preds = %30, %42
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %44 = load ptr, ptr %43, align 8, !alias.scope !457, !noalias !460, !nonnull !3, !noundef !3
+  %44 = load ptr, ptr %43, align 8, !alias.scope !452, !noalias !455, !nonnull !3, !noundef !3
   %45 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %44, i64 %38
   store i64 %36, ptr %45, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -24180,7 +24180,7 @@ _ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12reuse_vacant17hb98c
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i64 %2, ptr %.sroa.5.0..sroa_idx, align 8
   %46 = add nuw nsw i64 %38, 1
-  store i64 %46, ptr %32, align 8, !alias.scope !457, !noalias !460
+  store i64 %46, ptr %32, align 8, !alias.scope !452, !noalias !455
   br label %47
 
 47:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a069d9590901ef9E.exit", %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12reuse_vacant17hb98ced5cde7f9627E.exit
@@ -24206,7 +24206,7 @@ define hidden noundef i64 @_ZN5wasmi6engine10translator5stack6locals9LocalRefs6p
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17h205c6ccdd7f5adb6E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %8, ptr noalias noundef nonnull align 8 dereferenceable(24) %13, i16 noundef %1)
   %14 = load ptr, ptr %8, align 8, !noundef !3
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %50, !prof !455
+  br i1 %15, label %16, label %50, !prof !450
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -24227,60 +24227,60 @@ define hidden noundef i64 @_ZN5wasmi6engine10translator5stack6locals9LocalRefs6p
   %26 = extractvalue { ptr, ptr } %25, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %27 = load i64, ptr %26, align 8, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !462)
-  %28 = load i64, ptr %0, align 8, !range !308, !alias.scope !462, !noalias !465, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !457)
+  %28 = load i64, ptr %0, align 8, !range !303, !alias.scope !457, !noalias !460, !noundef !3
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i64, ptr %29, align 8, !alias.scope !462, !noalias !465
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !467
+  %30 = load i64, ptr %29, align 8, !alias.scope !457, !noalias !460
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !462
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %32 = load i64, ptr %31, align 8, !alias.scope !462, !noalias !465, !noundef !3
+  %32 = load i64, ptr %31, align 8, !alias.scope !457, !noalias !460, !noundef !3
   %33 = icmp ult i64 %27, %32
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load ptr, ptr %35, align 8, !alias.scope !462, !noalias !465, !nonnull !3, !noundef !3
+  %36 = load ptr, ptr %35, align 8, !alias.scope !457, !noalias !460, !nonnull !3, !noundef !3
   %37 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %36, i64 %27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false), !noalias !467
-  store i64 2, ptr %37, align 8, !noalias !467
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false), !noalias !462
+  store i64 2, ptr %37, align 8, !noalias !462
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i64 %28, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !467
+  store i64 %28, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !462
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i64 %30, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !467
-  %38 = load i64, ptr %5, align 8, !range !413, !noalias !467, !noundef !3
+  store i64 %30, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !462
+  %38 = load i64, ptr %5, align 8, !range !408, !noalias !462, !noundef !3
   %.not.i = icmp eq i64 %38, 2
-  br i1 %.not.i, label %40, label %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit, !prof !27
+  br i1 %.not.i, label %40, label %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit, !prof !22
 
 39:                                               ; preds = %16
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %27, i64 noundef %32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.853) #18, !noalias !467
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %27, i64 noundef %32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.853) #18, !noalias !462
   unreachable
 
 40:                                               ; preds = %34
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !467
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !467
-  store ptr %5, ptr %3, align 8, !noalias !467
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !462
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !462
+  store ptr %5, ptr %3, align 8, !noalias !462
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE", ptr %.sroa.46.0..sroa_idx.i, align 8, !noalias !467
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.855, ptr %4, align 8, !noalias !467
+  store ptr @"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE", ptr %.sroa.46.0..sroa_idx.i, align 8, !noalias !462
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.855, ptr %4, align 8, !noalias !462
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %41, align 8, !noalias !467
+  store i64 1, ptr %41, align 8, !noalias !462
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %42, align 8, !noalias !467
+  store ptr null, ptr %42, align 8, !noalias !462
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %43, align 8, !noalias !467
+  store ptr %3, ptr %43, align 8, !noalias !462
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %44, align 8, !noalias !467
-  call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.856) #18, !noalias !467
+  store i64 1, ptr %44, align 8, !noalias !462
+  call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.856) #18, !noalias !462
   unreachable
 
 _ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit: ; preds = %34
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %46 = load i64, ptr %45, align 8, !noalias !467
+  %46 = load i64, ptr %45, align 8, !noalias !462
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %48 = load i64, ptr %47, align 8, !noalias !467, !noundef !3
-  store i64 1, ptr %0, align 8, !alias.scope !462, !noalias !465
-  store i64 %27, ptr %29, align 8, !alias.scope !462, !noalias !465
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !467
+  %48 = load i64, ptr %47, align 8, !noalias !462, !noundef !3
+  store i64 1, ptr %0, align 8, !alias.scope !457, !noalias !460
+  store i64 %27, ptr %29, align 8, !alias.scope !457, !noalias !460
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !462
   %49 = trunc nuw i64 %38 to i1
   br i1 %49, label %55, label %57
 
@@ -24322,8 +24322,8 @@ _ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %59
-  store i64 0, ptr %0, align 8, !alias.scope !468
-  store i64 0, ptr %31, align 8, !alias.scope !468
+  store i64 0, ptr %0, align 8, !alias.scope !463
+  store i64 0, ptr %31, align 8, !alias.scope !463
   br label %64
 
 64:                                               ; preds = %59, %63
@@ -24358,154 +24358,154 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator5stack6locals9Loc
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !471)
-  %.promoted.i = load i64, ptr %0, align 8, !alias.scope !471, !noalias !474
+  call void @llvm.experimental.noalias.scope.decl(metadata !466)
+  %.promoted.i = load i64, ptr %0, align 8, !alias.scope !466, !noalias !469
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load i64, ptr %20, align 8, !alias.scope !476, !noalias !479, !noundef !3
+  %21 = load i64, ptr %20, align 8, !alias.scope !471, !noalias !474, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8, !alias.scope !471, !noalias !474, !nonnull !3
+  %23 = load ptr, ptr %22, align 8, !alias.scope !466, !noalias !469, !nonnull !3
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.copyload, i64 2
-  %.promoted26.i = load i64, ptr %19, align 8, !alias.scope !476, !noalias !479
+  %.promoted26.i = load i64, ptr %19, align 8, !alias.scope !471, !noalias !474
   br label %30
 
 30:                                               ; preds = %"_ZN5wasmi6engine10translator5stack8provider13ProviderStack22preserve_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17hfefc72dce00f06b2E.exit.i", %17
   %.sroa.3.02527.i = phi i64 [ %.promoted26.i, %17 ], [ %.sroa.3.025.i, %"_ZN5wasmi6engine10translator5stack8provider13ProviderStack22preserve_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17hfefc72dce00f06b2E.exit.i" ]
   %.sroa.3.025.i = phi i64 [ %18, %17 ], [ %42, %"_ZN5wasmi6engine10translator5stack8provider13ProviderStack22preserve_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17hfefc72dce00f06b2E.exit.i" ]
   %31 = phi i64 [ %.promoted.i, %17 ], [ 1, %"_ZN5wasmi6engine10translator5stack8provider13ProviderStack22preserve_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17hfefc72dce00f06b2E.exit.i" ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !481)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !482
+  call void @llvm.experimental.noalias.scope.decl(metadata !476)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !477
   %32 = icmp ult i64 %.sroa.3.025.i, %21
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %23, i64 %.sroa.3.025.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !482
-  store i64 2, ptr %34, align 8, !noalias !482
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !477
+  store i64 2, ptr %34, align 8, !noalias !477
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i64 %31, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !482
+  store i64 %31, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !477
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i64 %.sroa.3.02527.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !482
-  %35 = load i64, ptr %11, align 8, !range !413, !noalias !482, !noundef !3
+  store i64 %.sroa.3.02527.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !477
+  %35 = load i64, ptr %11, align 8, !range !408, !noalias !477, !noundef !3
   %.not.i.i = icmp eq i64 %35, 2
-  br i1 %.not.i.i, label %37, label %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i, !prof !27
+  br i1 %.not.i.i, label %37, label %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i, !prof !22
 
 36:                                               ; preds = %30
-  call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.sroa.3.025.i, i64 noundef %21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.853) #18, !noalias !482
+  call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %.sroa.3.025.i, i64 noundef %21, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.853) #18, !noalias !477
   unreachable
 
 37:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !482
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !482
-  store ptr %11, ptr %9, align 8, !noalias !482
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !477
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !477
+  store ptr %11, ptr %9, align 8, !noalias !477
   %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr @"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE", ptr %.sroa.46.0..sroa_idx.i.i, align 8, !noalias !482
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.855, ptr %10, align 8, !noalias !482
+  store ptr @"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE", ptr %.sroa.46.0..sroa_idx.i.i, align 8, !noalias !477
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.855, ptr %10, align 8, !noalias !477
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 1, ptr %38, align 8, !noalias !482
+  store i64 1, ptr %38, align 8, !noalias !477
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr null, ptr %39, align 8, !noalias !482
+  store ptr null, ptr %39, align 8, !noalias !477
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %9, ptr %40, align 8, !noalias !482
+  store ptr %9, ptr %40, align 8, !noalias !477
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 1, ptr %41, align 8, !noalias !482
-  call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.856) #18, !noalias !482
+  store i64 1, ptr %41, align 8, !noalias !477
+  call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.856) #18, !noalias !477
   unreachable
 
 _ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i: ; preds = %33
-  %42 = load i64, ptr %24, align 8, !noalias !482
-  %43 = load i64, ptr %25, align 8, !noalias !482, !noundef !3
-  store i64 1, ptr %0, align 8, !alias.scope !476, !noalias !479
-  store i64 %.sroa.3.025.i, ptr %19, align 8, !alias.scope !476, !noalias !479
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !482
-  %44 = load i64, ptr %26, align 8, !noalias !483, !noundef !3
+  %42 = load i64, ptr %24, align 8, !noalias !477
+  %43 = load i64, ptr %25, align 8, !noalias !477, !noundef !3
+  store i64 1, ptr %0, align 8, !alias.scope !471, !noalias !474
+  store i64 %.sroa.3.025.i, ptr %19, align 8, !alias.scope !471, !noalias !474
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !477
+  %44 = load i64, ptr %26, align 8, !noalias !478, !noundef !3
   %45 = icmp ult i64 %43, %44
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i
-  %47 = load ptr, ptr %27, align 8, !noalias !483, !nonnull !3, !noundef !3
+  %47 = load ptr, ptr %27, align 8, !noalias !478, !nonnull !3, !noundef !3
   %48 = getelementptr inbounds nuw { [16 x i8], i8, [7 x i8] }, ptr %47, i64 %43
-  %49 = load i16, ptr %.sroa.5.0.copyload, align 2, !range !448, !noalias !483, !noundef !3
+  %49 = load i16, ptr %.sroa.5.0.copyload, align 2, !range !443, !noalias !478, !noundef !3
   %50 = trunc nuw i16 %49 to i1
   br i1 %50, label %52, label %65
 
 51:                                               ; preds = %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i
-  call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.862) #18, !noalias !483
+  call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %43, i64 noundef %44, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.862) #18, !noalias !478
   unreachable
 
 52:                                               ; preds = %46
-  %53 = load i16, ptr %29, align 2, !noalias !483, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !486
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7), !noalias !486
-  %54 = call noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %53), !noalias !486
+  %53 = load i16, ptr %29, align 2, !noalias !478, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !481
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7), !noalias !481
+  %54 = call noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %53), !noalias !481
   %55 = sub i16 32766, %54
-  store i16 %55, ptr %7, align 2, !noalias !486
+  store i16 %55, ptr %7, align 2, !noalias !481
   %56 = icmp sgt i16 %55, -1
-  br i1 %56, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i, label %57, !prof !455
+  br i1 %56, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i, label %57, !prof !450
 
 57:                                               ; preds = %52
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !486
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !486
-  store ptr %7, ptr %5, align 8, !noalias !486
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !481
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !481
+  store ptr %7, ptr %5, align 8, !noalias !481
   %.sroa.43.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i16$GT$3fmt17h0024ddc3d8df93eaE", ptr %.sroa.43.0..sroa_idx.i.i.i.i, align 8, !noalias !486
+  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i16$GT$3fmt17h0024ddc3d8df93eaE", ptr %.sroa.43.0..sroa_idx.i.i.i.i, align 8, !noalias !481
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %58, align 8, !noalias !486
+  store ptr %4, ptr %58, align 8, !noalias !481
   %.sroa.47.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h73e595d62844075fE", ptr %.sroa.47.0..sroa_idx.i.i.i.i, align 8, !noalias !486
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.883, ptr %6, align 8, !noalias !486
+  store ptr @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h73e595d62844075fE", ptr %.sroa.47.0..sroa_idx.i.i.i.i, align 8, !noalias !481
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.883, ptr %6, align 8, !noalias !481
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 2, ptr %59, align 8, !noalias !486
+  store i64 2, ptr %59, align 8, !noalias !481
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %60, align 8, !noalias !486
+  store ptr null, ptr %60, align 8, !noalias !481
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %5, ptr %61, align 8, !noalias !486
+  store ptr %5, ptr %61, align 8, !noalias !481
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 2, ptr %62, align 8, !noalias !486
-  call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.884) #18, !noalias !486
+  store i64 2, ptr %62, align 8, !noalias !481
+  call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.884) #18, !noalias !481
   unreachable
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i: ; preds = %52
   %63 = zext nneg i16 %55 to i64
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !486
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7), !noalias !486
-  %64 = call { i64, i64 } @"_ZN11multi_stash19MultiStash$LT$T$GT$4bump17h98fd3a1b64f925d6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %.sroa.6.0.copyload, i64 noundef %63, i64 noundef 1), !noalias !483
+  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !481
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7), !noalias !481
+  %64 = call { i64, i64 } @"_ZN11multi_stash19MultiStash$LT$T$GT$4bump17h98fd3a1b64f925d6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %.sroa.6.0.copyload, i64 noundef %63, i64 noundef 1), !noalias !478
   br label %"_ZN5wasmi6engine10translator5stack8provider13ProviderStack22preserve_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17hfefc72dce00f06b2E.exit.i"
 
 65:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !483
-  call void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_preserved17ha55181f5a385343eE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(88) %.sroa.6.0.copyload), !noalias !483
-  %66 = load i16, ptr %8, align 8, !range !448, !noalias !483, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !478
+  call void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_preserved17ha55181f5a385343eE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(88) %.sroa.6.0.copyload), !noalias !478
+  %66 = load i16, ptr %8, align 8, !range !443, !noalias !478, !noundef !3
   %67 = trunc nuw i16 %66 to i1
   br i1 %67, label %_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17hb2efaa15e79c2e9eE.exit, label %68
 
 68:                                               ; preds = %65
-  %69 = load i16, ptr %28, align 2, !noalias !483, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !483
-  store i16 1, ptr %.sroa.5.0.copyload, align 2, !noalias !483
-  store i16 %69, ptr %29, align 2, !noalias !483
+  %69 = load i16, ptr %28, align 2, !noalias !478, !noundef !3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !478
+  store i16 1, ptr %.sroa.5.0.copyload, align 2, !noalias !478
+  store i16 %69, ptr %29, align 2, !noalias !478
   br label %"_ZN5wasmi6engine10translator5stack8provider13ProviderStack22preserve_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17hfefc72dce00f06b2E.exit.i"
 
 "_ZN5wasmi6engine10translator5stack8provider13ProviderStack22preserve_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17hfefc72dce00f06b2E.exit.i": ; preds = %68, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i
   %.sroa.09.0.i.i = phi i16 [ %53, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i ], [ %69, %68 ]
-  store i16 %.sroa.09.0.i.i, ptr %48, align 8, !noalias !483
+  store i16 %.sroa.09.0.i.i, ptr %48, align 8, !noalias !478
   %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i8 10, ptr %.sroa.47.0..sroa_idx.i.i, align 8, !noalias !483
-  %70 = load i64, ptr %.sroa.4.0.copyload, align 8, !noalias !483, !noundef !3
+  store i8 10, ptr %.sroa.47.0..sroa_idx.i.i, align 8, !noalias !478
+  %70 = load i64, ptr %.sroa.4.0.copyload, align 8, !noalias !478, !noundef !3
   %71 = add i64 %70, -1
-  store i64 %71, ptr %.sroa.4.0.copyload, align 8, !noalias !483
+  store i64 %71, ptr %.sroa.4.0.copyload, align 8, !noalias !478
   %72 = trunc nuw i64 %35 to i1
-  br i1 %72, label %30, label %75, !llvm.loop !489
+  br i1 %72, label %30, label %75
 
 _ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17hb2efaa15e79c2e9eE.exit: ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %74 = load ptr, ptr %73, align 8, !noalias !483, !nonnull !3, !align !7, !noundef !3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !483
+  %74 = load ptr, ptr %73, align 8, !noalias !478, !nonnull !3, !align !5, !noundef !3
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !478
   br label %80
 
 75:                                               ; preds = %"_ZN5wasmi6engine10translator5stack8provider13ProviderStack22preserve_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17hfefc72dce00f06b2E.exit.i"
@@ -24515,8 +24515,8 @@ _ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17hb2efaa15e79
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %75
-  store i64 0, ptr %0, align 8, !alias.scope !490
-  store i64 0, ptr %20, align 8, !alias.scope !490
+  store i64 0, ptr %0, align 8, !alias.scope !484
+  store i64 0, ptr %20, align 8, !alias.scope !484
   br label %80
 
 80:                                               ; preds = %_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17hb2efaa15e79c2e9eE.exit, %75, %79, %3
@@ -24581,348 +24581,345 @@ define hidden noundef align 8 ptr @_ZN5wasmi6engine10translator5stack6locals9Loc
   %28 = load ptr, ptr %1, align 8, !nonnull !3, !align !4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load ptr, ptr %30, align 8, !nonnull !3, !align !7
+  %31 = load ptr, ptr %30, align 8, !nonnull !3, !align !5
   %.sroa.55.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load ptr, ptr %32, align 8, !nonnull !3, !align !7
+  %33 = load ptr, ptr %32, align 8, !nonnull !3, !align !5
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !7
+  %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !5
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %39 = load ptr, ptr %38, align 8, !nonnull !3, !align !7
+  %39 = load ptr, ptr %38, align 8, !nonnull !3, !align !5
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 82
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 78
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 74
-  %.sink170.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink170.sroa.gep171 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink170.sroa.gep172 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sink170.sroa.gep174 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink170.sroa.gep175 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink170.sroa.gep176 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.sink170.sroa.gep178 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink170.sroa.gep179 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink170.sroa.gep180 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink170.sroa.gep182 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink170.sroa.gep183 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink170.sroa.gep184 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  br label %44
+  %.sink171.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink171.sroa.gep172 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink171.sroa.gep173 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.sink171.sroa.gep175 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink171.sroa.gep176 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink171.sroa.gep177 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %.sink171.sroa.gep179 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink171.sroa.gep180 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink171.sroa.gep181 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.sink171.sroa.gep183 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink171.sroa.gep184 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink171.sroa.gep185 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  br label %.loopexit87
 
-44:                                               ; preds = %125, %2
-  %45 = invoke { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03eb4a0c3ad790fdE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %15)
-          to label %46 unwind label %.loopexit.split-lp.loopexit
+.loopexit87:                                      ; preds = %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i", %2
+  %44 = invoke { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h03eb4a0c3ad790fdE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %15)
+          to label %45 unwind label %.loopexit.split-lp.loopexit
 
-46:                                               ; preds = %44
-  %47 = extractvalue { ptr, ptr } %45, 0
-  %.not46 = icmp eq ptr %47, null
-  br i1 %.not46, label %120, label %48
+45:                                               ; preds = %.loopexit87
+  %46 = extractvalue { ptr, ptr } %44, 0
+  %.not46 = icmp eq ptr %46, null
+  br i1 %.not46, label %119, label %47
 
-48:                                               ; preds = %46
-  %49 = extractvalue { ptr, ptr } %45, 1
-  %50 = icmp ne ptr %49, null
-  call void @llvm.assume(i1 %50)
-  %51 = load i16, ptr %47, align 2, !noundef !3
-  %52 = load i64, ptr %49, align 8, !noundef !3
-  call void @llvm.experimental.noalias.scope.decl(metadata !493)
-  %.promoted.i = load i64, ptr %0, align 8, !alias.scope !493, !noalias !496
-  %53 = load i64, ptr %24, align 8, !alias.scope !499, !noalias !502, !noundef !3
-  %54 = load ptr, ptr %25, align 8, !alias.scope !493, !noalias !496, !nonnull !3
-  %.promoted26.i = load i64, ptr %23, align 8, !alias.scope !499, !noalias !502
-  br label %55
+47:                                               ; preds = %45
+  %48 = extractvalue { ptr, ptr } %44, 1
+  %49 = icmp ne ptr %48, null
+  call void @llvm.assume(i1 %49)
+  %50 = load i16, ptr %46, align 2, !noundef !3
+  %51 = load i64, ptr %48, align 8, !noundef !3
+  call void @llvm.experimental.noalias.scope.decl(metadata !487)
+  %.promoted.i = load i64, ptr %0, align 8, !alias.scope !487, !noalias !490
+  %52 = load i64, ptr %24, align 8, !alias.scope !493, !noalias !496, !noundef !3
+  %53 = load ptr, ptr %25, align 8, !alias.scope !487, !noalias !490, !nonnull !3
+  %.promoted26.i = load i64, ptr %23, align 8, !alias.scope !493, !noalias !496
+  br label %54
 
-55:                                               ; preds = %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i", %48
-  %.sroa.3.02527.i = phi i64 [ %.promoted26.i, %48 ], [ %.sroa.3.025.i, %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i" ]
-  %.sroa.3.025.i = phi i64 [ %52, %48 ], [ %66, %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i" ]
-  %56 = phi i64 [ %.promoted.i, %48 ], [ 1, %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i" ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !504)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !505
-  %57 = icmp ult i64 %.sroa.3.025.i, %53
-  br i1 %57, label %58, label %.invoke
+54:                                               ; preds = %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i", %47
+  %.sroa.3.02527.i = phi i64 [ %.promoted26.i, %47 ], [ %.sroa.3.025.i, %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i" ]
+  %.sroa.3.025.i = phi i64 [ %51, %47 ], [ %65, %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i" ]
+  %55 = phi i64 [ %.promoted.i, %47 ], [ 1, %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i" ]
+  call void @llvm.experimental.noalias.scope.decl(metadata !498)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !499
+  %56 = icmp ult i64 %.sroa.3.025.i, %52
+  br i1 %56, label %57, label %.invoke
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %54, i64 %.sroa.3.025.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false), !noalias !505
-  store i64 2, ptr %59, align 8, !noalias !505
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i64 %56, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !505
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store i64 %.sroa.3.02527.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !505
-  %60 = load i64, ptr %13, align 8, !range !413, !noalias !505, !noundef !3
-  %.not.i.i = icmp eq i64 %60, 2
-  br i1 %.not.i.i, label %64, label %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i, !prof !27
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %53, i64 %.sroa.3.025.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %58, i64 24, i1 false), !noalias !499
+  store i64 2, ptr %58, align 8, !noalias !499
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store i64 %55, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !499
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %58, i64 16
+  store i64 %.sroa.3.02527.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !499
+  %59 = load i64, ptr %13, align 8, !range !408, !noalias !499, !noundef !3
+  %.not.i.i = icmp eq i64 %59, 2
+  br i1 %.not.i.i, label %63, label %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i, !prof !22
 
-.invoke:                                          ; preds = %.noexc55, %55
-  %61 = phi i64 [ %.sroa.3.025.i, %55 ], [ %67, %.noexc55 ]
-  %62 = phi i64 [ %53, %55 ], [ %100, %.noexc55 ]
-  %63 = phi ptr [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.853, %55 ], [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.863, %.noexc55 ]
-  invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %61, i64 noundef %62, ptr noalias noundef readonly align 8 dereferenceable(24) %63) #18
+.invoke:                                          ; preds = %.noexc55, %54
+  %60 = phi i64 [ %.sroa.3.025.i, %54 ], [ %66, %.noexc55 ]
+  %61 = phi i64 [ %52, %54 ], [ %99, %.noexc55 ]
+  %62 = phi ptr [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.853, %54 ], [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.863, %.noexc55 ]
+  invoke void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %60, i64 noundef %61, ptr noalias noundef readonly align 8 dereferenceable(24) %62) #18
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-64:                                               ; preds = %58
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !505
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !505
-  store ptr %13, ptr %11, align 8, !noalias !505
+63:                                               ; preds = %57
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %12), !noalias !499
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !499
+  store ptr %13, ptr %11, align 8, !noalias !499
   %.sroa.46.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr @"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE", ptr %.sroa.46.0..sroa_idx.i.i, align 8, !noalias !505
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.855, ptr %12, align 8, !noalias !505
-  br label %.invoke159
+  store ptr @"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE", ptr %.sroa.46.0..sroa_idx.i.i, align 8, !noalias !499
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.855, ptr %12, align 8, !noalias !499
+  br label %.invoke160
 
-.invoke159:                                       ; preds = %78, %96, %64
-  %.sink170.sroa.phi = phi ptr [ %.sink170.sroa.gep, %78 ], [ %.sink170.sroa.gep171, %96 ], [ %.sink170.sroa.gep172, %64 ]
-  %.sink170.sroa.phi173 = phi ptr [ %.sink170.sroa.gep174, %78 ], [ %.sink170.sroa.gep175, %96 ], [ %.sink170.sroa.gep176, %64 ]
-  %.sink170.sroa.phi177 = phi ptr [ %.sink170.sroa.gep178, %78 ], [ %.sink170.sroa.gep179, %96 ], [ %.sink170.sroa.gep180, %64 ]
-  %.sink170.sroa.phi181 = phi ptr [ %.sink170.sroa.gep182, %78 ], [ %.sink170.sroa.gep183, %96 ], [ %.sink170.sroa.gep184, %64 ]
-  %.sink170 = phi ptr [ %6, %78 ], [ %9, %96 ], [ %12, %64 ]
-  %.sink168 = phi i64 [ 2, %78 ], [ 2, %96 ], [ 1, %64 ]
-  %.sink163 = phi ptr [ %5, %78 ], [ %8, %96 ], [ %11, %64 ]
-  %65 = phi ptr [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.888, %78 ], [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.884, %96 ], [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.856, %64 ]
-  store i64 %.sink168, ptr %.sink170.sroa.phi, align 8, !noalias !3
-  store ptr null, ptr %.sink170.sroa.phi173, align 8, !noalias !3
-  store ptr %.sink163, ptr %.sink170.sroa.phi177, align 8, !noalias !3
-  store i64 %.sink168, ptr %.sink170.sroa.phi181, align 8, !noalias !3
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink170, ptr noalias noundef readonly align 8 dereferenceable(24) %65) #18
-          to label %.cont160 unwind label %.loopexit.split-lp.loopexit.split-lp
+.invoke160:                                       ; preds = %77, %95, %63
+  %.sink171.sroa.phi = phi ptr [ %.sink171.sroa.gep, %77 ], [ %.sink171.sroa.gep172, %95 ], [ %.sink171.sroa.gep173, %63 ]
+  %.sink171.sroa.phi174 = phi ptr [ %.sink171.sroa.gep175, %77 ], [ %.sink171.sroa.gep176, %95 ], [ %.sink171.sroa.gep177, %63 ]
+  %.sink171.sroa.phi178 = phi ptr [ %.sink171.sroa.gep179, %77 ], [ %.sink171.sroa.gep180, %95 ], [ %.sink171.sroa.gep181, %63 ]
+  %.sink171.sroa.phi182 = phi ptr [ %.sink171.sroa.gep183, %77 ], [ %.sink171.sroa.gep184, %95 ], [ %.sink171.sroa.gep185, %63 ]
+  %.sink171 = phi ptr [ %6, %77 ], [ %9, %95 ], [ %12, %63 ]
+  %.sink169 = phi i64 [ 2, %77 ], [ 2, %95 ], [ 1, %63 ]
+  %.sink164 = phi ptr [ %5, %77 ], [ %8, %95 ], [ %11, %63 ]
+  %64 = phi ptr [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.888, %77 ], [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.884, %95 ], [ @anon.f1b2ef6443bc9398301f7dcabaecd75d.856, %63 ]
+  store i64 %.sink169, ptr %.sink171.sroa.phi, align 8, !noalias !3
+  store ptr null, ptr %.sink171.sroa.phi174, align 8, !noalias !3
+  store ptr %.sink164, ptr %.sink171.sroa.phi178, align 8, !noalias !3
+  store i64 %.sink169, ptr %.sink171.sroa.phi182, align 8, !noalias !3
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink171, ptr noalias noundef readonly align 8 dereferenceable(24) %64) #18
+          to label %.cont161 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont160:                                         ; preds = %.invoke159
+.cont161:                                         ; preds = %.invoke160
   unreachable
 
-_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i: ; preds = %58
-  %66 = load i64, ptr %26, align 8, !noalias !505
-  %67 = load i64, ptr %27, align 8, !noalias !505, !noundef !3
-  store i64 1, ptr %0, align 8, !alias.scope !499, !noalias !502
-  store i64 %.sroa.3.025.i, ptr %23, align 8, !alias.scope !499, !noalias !502
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !505
-  %68 = load i16, ptr %28, align 2, !range !448, !noalias !506, !noundef !3
-  %69 = trunc nuw i16 %68 to i1
-  br i1 %69, label %70, label %73
+_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i: ; preds = %57
+  %65 = load i64, ptr %26, align 8, !noalias !499
+  %66 = load i64, ptr %27, align 8, !noalias !499, !noundef !3
+  store i64 1, ptr %0, align 8, !alias.scope !493, !noalias !496
+  store i64 %.sroa.3.025.i, ptr %23, align 8, !alias.scope !493, !noalias !496
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !499
+  %67 = load i16, ptr %28, align 2, !range !443, !noalias !500, !noundef !3
+  %68 = trunc nuw i16 %67 to i1
+  br i1 %68, label %69, label %72
 
-70:                                               ; preds = %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i
-  %71 = load i16, ptr %29, align 2, !noalias !506, !noundef !3
-  %72 = icmp eq i16 %71, %51
-  br i1 %72, label %91, label %73
+69:                                               ; preds = %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i
+  %70 = load i16, ptr %29, align 2, !noalias !500, !noundef !3
+  %71 = icmp eq i16 %70, %50
+  br i1 %71, label %90, label %72
 
-73:                                               ; preds = %70, %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !509)
-  %.val.i = load i8, ptr %40, align 2, !range !45, !alias.scope !509, !noalias !512, !noundef !3
-  %74 = icmp eq i8 %.val.i, 1
-  br i1 %74, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i, label %75, !prof !455
+72:                                               ; preds = %69, %_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E.exit.i
+  call void @llvm.experimental.noalias.scope.decl(metadata !503)
+  %.val.i = load i8, ptr %40, align 2, !range !40, !alias.scope !503, !noalias !506, !noundef !3
+  %73 = icmp eq i8 %.val.i, 1
+  br i1 %73, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i, label %74, !prof !450
 
-75:                                               ; preds = %73
+74:                                               ; preds = %72
   invoke void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.870, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.871) #18
           to label %.noexc59 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc59:                                         ; preds = %75
+.noexc59:                                         ; preds = %74
   unreachable
 
-_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i: ; preds = %73
+_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i: ; preds = %72
   invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5clear17h38828d4f5f27c1b4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41)
           to label %.noexc60 unwind label %.loopexit
 
 .noexc60:                                         ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i
-  %76 = invoke noundef i64 @"_ZN11multi_stash19MultiStash$LT$T$GT$3put17hd4516989af2e3329E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %31, i64 noundef 2)
+  %75 = invoke noundef i64 @"_ZN11multi_stash19MultiStash$LT$T$GT$3put17hd4516989af2e3329E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %31, i64 noundef 2)
           to label %.noexc61 unwind label %.loopexit
 
 .noexc61:                                         ; preds = %.noexc60
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !514
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !514
-  store i64 %76, ptr %7, align 8, !noalias !514
-  %77 = icmp ugt i64 %76, 32767
-  br i1 %77, label %78, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf89fe80598b44E.exit.i, !prof !27
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !508
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !508
+  store i64 %75, ptr %7, align 8, !noalias !508
+  %76 = icmp ugt i64 %75, 32767
+  br i1 %76, label %77, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf89fe80598b44E.exit.i, !prof !22
 
-78:                                               ; preds = %.noexc61
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !514
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !514
-  store ptr %7, ptr %5, align 8, !noalias !514
+77:                                               ; preds = %.noexc61
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !508
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !508
+  store ptr %7, ptr %5, align 8, !noalias !508
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hd8f455fd1d89d1b2E", ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !514
-  %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %79, align 8, !noalias !514
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hd8f455fd1d89d1b2E", ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !508
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %3, ptr %78, align 8, !noalias !508
   %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h73e595d62844075fE", ptr %.sroa.47.0..sroa_idx.i.i, align 8, !noalias !514
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.887, ptr %6, align 8, !noalias !514
-  br label %.invoke159
+  store ptr @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h73e595d62844075fE", ptr %.sroa.47.0..sroa_idx.i.i, align 8, !noalias !508
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.887, ptr %6, align 8, !noalias !508
+  br label %.invoke160
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf89fe80598b44E.exit.i: ; preds = %.noexc61
-  %80 = trunc nuw nsw i64 %76 to i16
-  %81 = sub nsw i16 32766, %80
-  %82 = invoke noundef i16 @"_ZN71_$LT$wasmi_ir..index..Reg$u20$as$u20$core..convert..From$LT$i16$GT$$GT$4from17h149375b752cece7bE"(i16 noundef %81)
+  %79 = trunc nuw nsw i64 %75 to i16
+  %80 = sub nsw i16 32766, %79
+  %81 = invoke noundef i16 @"_ZN71_$LT$wasmi_ir..index..Reg$u20$as$u20$core..convert..From$LT$i16$GT$$GT$4from17h149375b752cece7bE"(i16 noundef %80)
           to label %.noexc63 unwind label %.loopexit
 
 .noexc63:                                         ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf89fe80598b44E.exit.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !514
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !514
-  %83 = invoke noundef i16 @_ZN8wasmi_ir5index3Reg4prev17h8eaac36b81e8b9c9E(i16 noundef %82)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !508
+  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !508
+  %82 = invoke noundef i16 @_ZN8wasmi_ir5index3Reg4prev17h8eaac36b81e8b9c9E(i16 noundef %81)
           to label %.noexc64 unwind label %.loopexit
 
 .noexc64:                                         ; preds = %.noexc63
-  call void @llvm.experimental.noalias.scope.decl(metadata !515)
-  %84 = load i16, ptr %42, align 2, !alias.scope !518, !noalias !512, !noundef !3
-  %85 = invoke noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %83)
+  call void @llvm.experimental.noalias.scope.decl(metadata !509)
+  %83 = load i16, ptr %42, align 2, !alias.scope !512, !noalias !506, !noundef !3
+  %84 = invoke noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %82)
           to label %.noexc65 unwind label %.loopexit
 
 .noexc65:                                         ; preds = %.noexc64
-  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i16 @llvm.smin.i16(i16 %85, i16 %84)
-  store i16 %.sroa.0.0.sroa.speculated.i.i.i, ptr %42, align 2, !alias.scope !518, !noalias !512
-  %86 = load i16, ptr %43, align 2, !alias.scope !518, !noalias !512, !noundef !3
-  %87 = icmp eq i16 %86, %.sroa.0.0.sroa.speculated.i.i.i
-  br i1 %87, label %88, label %.noexc52
+  %.sroa.0.0.sroa.speculated.i.i.i = call noundef i16 @llvm.smin.i16(i16 %84, i16 %83)
+  store i16 %.sroa.0.0.sroa.speculated.i.i.i, ptr %42, align 2, !alias.scope !512, !noalias !506
+  %85 = load i16, ptr %43, align 2, !alias.scope !512, !noalias !506, !noundef !3
+  %86 = icmp eq i16 %85, %.sroa.0.0.sroa.speculated.i.i.i
+  br i1 %86, label %87, label %.noexc52
 
-88:                                               ; preds = %.noexc65
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4), !noalias !519
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i64 7, ptr %89, align 4, !noalias !519
-  store i8 21, ptr %4, align 8, !noalias !519
-  %90 = invoke noundef nonnull align 8 ptr @_ZN5wasmi5error5Error9from_kind17h78e8eae103676d38E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %4)
-          to label %124 unwind label %.loopexit.split-lp.loopexit.split-lp
+87:                                               ; preds = %.noexc65
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4), !noalias !513
+  %88 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i64 7, ptr %88, align 4, !noalias !513
+  store i8 21, ptr %4, align 8, !noalias !513
+  %89 = invoke noundef nonnull align 8 ptr @_ZN5wasmi5error5Error9from_kind17h78e8eae103676d38E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %4)
+          to label %123 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-91:                                               ; preds = %70
-  %92 = load i16, ptr %.sroa.55.0..sroa_idx.i.i.i, align 2, !noalias !506, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !520
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10), !noalias !520
-  %93 = invoke noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %92)
+90:                                               ; preds = %69
+  %91 = load i16, ptr %.sroa.55.0..sroa_idx.i.i.i, align 2, !noalias !500, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !514
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10), !noalias !514
+  %92 = invoke noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %91)
           to label %.noexc53 unwind label %.loopexit
 
-.noexc53:                                         ; preds = %91
-  %94 = sub i16 32766, %93
-  store i16 %94, ptr %10, align 2, !noalias !520
-  %95 = icmp sgt i16 %94, -1
-  br i1 %95, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i.i, label %96, !prof !455
+.noexc53:                                         ; preds = %90
+  %93 = sub i16 32766, %92
+  store i16 %93, ptr %10, align 2, !noalias !514
+  %94 = icmp sgt i16 %93, -1
+  br i1 %94, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i.i, label %95, !prof !450
 
-96:                                               ; preds = %.noexc53
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !520
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !520
-  store ptr %10, ptr %8, align 8, !noalias !520
+95:                                               ; preds = %.noexc53
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !514
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !514
+  store ptr %10, ptr %8, align 8, !noalias !514
   %.sroa.43.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i16$GT$3fmt17h0024ddc3d8df93eaE", ptr %.sroa.43.0..sroa_idx.i.i.i.i.i, align 8, !noalias !520
-  %97 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %3, ptr %97, align 8, !noalias !520
+  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i16$GT$3fmt17h0024ddc3d8df93eaE", ptr %.sroa.43.0..sroa_idx.i.i.i.i.i, align 8, !noalias !514
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %3, ptr %96, align 8, !noalias !514
   %.sroa.47.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h73e595d62844075fE", ptr %.sroa.47.0..sroa_idx.i.i.i.i.i, align 8, !noalias !520
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.883, ptr %9, align 8, !noalias !520
-  br label %.invoke159
+  store ptr @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h73e595d62844075fE", ptr %.sroa.47.0..sroa_idx.i.i.i.i.i, align 8, !noalias !514
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.883, ptr %9, align 8, !noalias !514
+  br label %.invoke160
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i.i: ; preds = %.noexc53
-  %98 = zext nneg i16 %94 to i64
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !520
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10), !noalias !520
-  %99 = invoke { i64, i64 } @"_ZN11multi_stash19MultiStash$LT$T$GT$4bump17h98fd3a1b64f925d6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %31, i64 noundef %98, i64 noundef 1)
+  %97 = zext nneg i16 %93 to i64
+  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !514
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10), !noalias !514
+  %98 = invoke { i64, i64 } @"_ZN11multi_stash19MultiStash$LT$T$GT$4bump17h98fd3a1b64f925d6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %31, i64 noundef %97, i64 noundef 1)
           to label %.noexc55 unwind label %.loopexit
 
 .noexc55:                                         ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i.i, %"_ZN5wasmi6engine10translator14FuncTranslator15preserve_locals28_$u7b$$u7b$closure$u7d$$u7d$17h1290354c73bd65e4E.exit.i.i.i"
-  %.sroa.014.0.i.i.i = phi i16 [ %82, %"_ZN5wasmi6engine10translator14FuncTranslator15preserve_locals28_$u7b$$u7b$closure$u7d$$u7d$17h1290354c73bd65e4E.exit.i.i.i" ], [ %92, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i.i ]
-  %100 = load i64, ptr %36, align 8, !noalias !506, !noundef !3
-  %101 = icmp ult i64 %67, %100
-  br i1 %101, label %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i", label %.invoke
+  %.sroa.014.0.i.i.i = phi i16 [ %81, %"_ZN5wasmi6engine10translator14FuncTranslator15preserve_locals28_$u7b$$u7b$closure$u7d$$u7d$17h1290354c73bd65e4E.exit.i.i.i" ], [ %91, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i.i ]
+  %99 = load i64, ptr %36, align 8, !noalias !500, !noundef !3
+  %100 = icmp ult i64 %66, %99
+  br i1 %100, label %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i", label %.invoke
 
 .noexc52:                                         ; preds = %.noexc65
-  store i16 1, ptr %28, align 2, !noalias !506
-  store i16 %51, ptr %29, align 2, !noalias !506
-  store i16 %82, ptr %.sroa.55.0..sroa_idx.i.i.i, align 2, !noalias !506
-  %102 = invoke { i16, i16 } @_ZN5wasmi6engine10translator14PreservedLocal3new17h6568df986754fb44E(i16 noundef %51, i16 noundef %82)
+  store i16 1, ptr %28, align 2, !noalias !500
+  store i16 %50, ptr %29, align 2, !noalias !500
+  store i16 %81, ptr %.sroa.55.0..sroa_idx.i.i.i, align 2, !noalias !500
+  %101 = invoke { i16, i16 } @_ZN5wasmi6engine10translator14PreservedLocal3new17h6568df986754fb44E(i16 noundef %50, i16 noundef %81)
           to label %.noexc56 unwind label %.loopexit
 
 .noexc56:                                         ; preds = %.noexc52
-  %103 = extractvalue { i16, i16 } %102, 0
-  %104 = extractvalue { i16, i16 } %102, 1
-  %.val.i.i.i = load ptr, ptr %33, align 8, !noalias !506, !nonnull !3, !align !7, !noundef !3
-  %105 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 16
-  %106 = load i64, ptr %105, align 8, !alias.scope !523, !noalias !506, !noundef !3
-  %107 = load i64, ptr %.val.i.i.i, align 8, !range !456, !alias.scope !523, !noalias !506, !noundef !3
-  %108 = icmp eq i64 %106, %107
-  br i1 %108, label %109, label %"_ZN5wasmi6engine10translator14FuncTranslator15preserve_locals28_$u7b$$u7b$closure$u7d$$u7d$17h1290354c73bd65e4E.exit.i.i.i"
+  %102 = extractvalue { i16, i16 } %101, 0
+  %103 = extractvalue { i16, i16 } %101, 1
+  %.val.i.i.i = load ptr, ptr %33, align 8, !noalias !500, !nonnull !3, !align !5, !noundef !3
+  %104 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 16
+  %105 = load i64, ptr %104, align 8, !alias.scope !517, !noalias !500, !noundef !3
+  %106 = load i64, ptr %.val.i.i.i, align 8, !range !451, !alias.scope !517, !noalias !500, !noundef !3
+  %107 = icmp eq i64 %105, %106
+  br i1 %107, label %108, label %"_ZN5wasmi6engine10translator14FuncTranslator15preserve_locals28_$u7b$$u7b$closure$u7d$$u7d$17h1290354c73bd65e4E.exit.i.i.i"
 
-109:                                              ; preds = %.noexc56
+108:                                              ; preds = %.noexc56
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h50c134698b61b950E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.893)
           to label %"_ZN5wasmi6engine10translator14FuncTranslator15preserve_locals28_$u7b$$u7b$closure$u7d$$u7d$17h1290354c73bd65e4E.exit.i.i.i" unwind label %.loopexit
 
-"_ZN5wasmi6engine10translator14FuncTranslator15preserve_locals28_$u7b$$u7b$closure$u7d$$u7d$17h1290354c73bd65e4E.exit.i.i.i": ; preds = %109, %.noexc56
-  %110 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 8
-  %111 = load ptr, ptr %110, align 8, !alias.scope !523, !noalias !506, !nonnull !3, !noundef !3
-  %112 = getelementptr inbounds nuw { i16, i16 }, ptr %111, i64 %106
-  store i16 %103, ptr %112, align 2, !noalias !506
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 2
-  store i16 %104, ptr %113, align 2, !noalias !506
-  %114 = add i64 %106, 1
-  store i64 %114, ptr %105, align 8, !alias.scope !523, !noalias !506
+"_ZN5wasmi6engine10translator14FuncTranslator15preserve_locals28_$u7b$$u7b$closure$u7d$$u7d$17h1290354c73bd65e4E.exit.i.i.i": ; preds = %108, %.noexc56
+  %109 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 8
+  %110 = load ptr, ptr %109, align 8, !alias.scope !517, !noalias !500, !nonnull !3, !noundef !3
+  %111 = getelementptr inbounds nuw { i16, i16 }, ptr %110, i64 %105
+  store i16 %102, ptr %111, align 2, !noalias !500
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 2
+  store i16 %103, ptr %112, align 2, !noalias !500
+  %113 = add i64 %105, 1
+  store i64 %113, ptr %104, align 8, !alias.scope !517, !noalias !500
   br label %.noexc55
 
 "_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i": ; preds = %.noexc55
-  %115 = load ptr, ptr %37, align 8, !noalias !506, !nonnull !3, !noundef !3
-  %116 = getelementptr inbounds nuw { [16 x i8], i8, [7 x i8] }, ptr %115, i64 %67
-  store i16 %.sroa.014.0.i.i.i, ptr %116, align 8, !noalias !506
-  %.sroa.412.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i8 10, ptr %.sroa.412.0..sroa_idx.i.i.i, align 8, !noalias !506
-  %117 = load i64, ptr %39, align 8, !noalias !506, !noundef !3
-  %118 = add i64 %117, -1
-  store i64 %118, ptr %39, align 8, !noalias !506
-  %119 = trunc nuw i64 %60 to i1
-  br i1 %119, label %55, label %125, !llvm.loop !526
+  %114 = load ptr, ptr %37, align 8, !noalias !500, !nonnull !3, !noundef !3
+  %115 = getelementptr inbounds nuw { [16 x i8], i8, [7 x i8] }, ptr %114, i64 %66
+  store i16 %.sroa.014.0.i.i.i, ptr %115, align 8, !noalias !500
+  %.sroa.412.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %115, i64 16
+  store i8 10, ptr %.sroa.412.0..sroa_idx.i.i.i, align 8, !noalias !500
+  %116 = load i64, ptr %39, align 8, !noalias !500, !noundef !3
+  %117 = add i64 %116, -1
+  store i64 %117, ptr %39, align 8, !noalias !500
+  %118 = trunc nuw i64 %59 to i1
+  br i1 %118, label %54, label %.loopexit87
 
-120:                                              ; preds = %46
+119:                                              ; preds = %45
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmi_ir..index..Reg$C$usize$GT$$GT$17hab4c6c1705f5f671E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
-          to label %122 unwind label %.thread
+          to label %121 unwind label %.thread
 
-.thread:                                          ; preds = %120
-  %121 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %119
+  %120 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  br label %126
+  br label %124
 
-122:                                              ; preds = %120
+121:                                              ; preds = %119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   call void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5clear17hebc69db483473f02E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17)
-  store i64 0, ptr %0, align 8, !alias.scope !527
-  store i64 0, ptr %24, align 8, !alias.scope !527
-  br label %123
+  store i64 0, ptr %0, align 8, !alias.scope !520
+  store i64 0, ptr %24, align 8, !alias.scope !520
+  br label %122
 
-123:                                              ; preds = %124, %122
-  %.sroa.0.0 = phi ptr [ %90, %124 ], [ null, %122 ]
+122:                                              ; preds = %123, %121
+  %.sroa.0.0 = phi ptr [ %89, %123 ], [ null, %121 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   ret ptr %.sroa.0.0
 
-124:                                              ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4), !noalias !519
+123:                                              ; preds = %87
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4), !noalias !513
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %15)
   call void @"_ZN4core3ptr97drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmi_ir..index..Reg$C$usize$GT$$GT$17hab4c6c1705f5f671E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
-  br label %123
+  br label %122
 
-125:                                              ; preds = %"_ZN5wasmi6engine10translator5stack6locals9LocalRefs9drain_all28_$u7b$$u7b$closure$u7d$$u7d$17h278cc16ffddbccbbE.exit.i"
-  br label %44, !llvm.loop !530
-
-126:                                              ; preds = %.thread, %.loopexit.split-lp
-  %.pn71 = phi { ptr, i32 } [ %121, %.thread ], [ %lpad.phi, %.loopexit.split-lp ]
+124:                                              ; preds = %.thread, %.loopexit.split-lp
+  %.pn71 = phi { ptr, i32 } [ %120, %.thread ], [ %lpad.phi, %.loopexit.split-lp ]
   resume { ptr, i32 } %.pn71
 
-.loopexit:                                        ; preds = %.noexc64, %.noexc63, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf89fe80598b44E.exit.i, %.noexc60, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i, %109, %.noexc52, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i.i, %91
+.loopexit:                                        ; preds = %.noexc64, %.noexc63, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf89fe80598b44E.exit.i, %.noexc60, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i, %108, %.noexc52, %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit.i.i.i, %90
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %44
-  %lpad.loopexit87 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %.loopexit87
+  %lpad.loopexit88 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke159, %.invoke, %75, %88
-  %lpad.loopexit.split-lp88 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke160, %.invoke, %74, %87
+  %lpad.loopexit.split-lp89 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit87, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp88, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit88, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp89, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmi_ir..index..Reg$C$usize$GT$$GT$17hab4c6c1705f5f671E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #19
-          to label %126 unwind label %127
+          to label %124 unwind label %125
 
-127:                                              ; preds = %.loopexit.split-lp
-  %128 = landingpad { ptr, i32 }
+125:                                              ; preds = %.loopexit.split-lp
+  %126 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #20
   unreachable
@@ -24952,7 +24949,7 @@ define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc12
   %4 = alloca [48 x i8], align 8
   %5 = alloca [2 x i8], align 2
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %7 = load i8, ptr %6, align 8, !range !358, !noundef !3
+  %7 = load i8, ptr %6, align 8, !range !353, !noundef !3
   %8 = add nsw i8 %7, -7
   %narrow = tail call i8 @llvm.umin.i8(i8 %8, i8 4)
   switch i8 %narrow, label %default.unreachable [
@@ -24982,41 +24979,41 @@ default.unreachable:                              ; preds = %3
 
 15:                                               ; preds = %3
   %16 = load i16, ptr %2, align 8, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !531)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !523)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 82
-  %.val.i = load i8, ptr %17, align 2, !range !45, !alias.scope !531, !noundef !3
+  %.val.i = load i8, ptr %17, align 2, !range !40, !alias.scope !523, !noundef !3
   %18 = icmp eq i8 %.val.i, 1
-  br i1 %18, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i, label %19, !prof !455
+  br i1 %18, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i, label %19, !prof !450
 
 19:                                               ; preds = %15
-  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.870, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.871) #18, !noalias !531
+  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.870, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.871) #18, !noalias !523
   unreachable
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i: ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.val1.i = load i16, ptr %21, align 8, !alias.scope !534, !noundef !3
-  store i16 %.val1.i, ptr %5, align 2, !noalias !531
-  %22 = load i16, ptr %20, align 2, !alias.scope !531, !noundef !3
+  %.val1.i = load i16, ptr %21, align 8, !alias.scope !526, !noundef !3
+  store i16 %.val1.i, ptr %5, align 2, !noalias !523
+  %22 = load i16, ptr %20, align 2, !alias.scope !523, !noundef !3
   %23 = icmp eq i16 %22, %.val1.i
-  br i1 %23, label %24, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17h69d0a8d39d6ad0faE.exit, !prof !27
+  br i1 %23, label %24, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17h69d0a8d39d6ad0faE.exit, !prof !22
 
 24:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !531
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.873, ptr %4, align 8, !noalias !531
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !523
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.873, ptr %4, align 8, !noalias !523
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !531
+  store i64 1, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !523
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !531
+  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !523
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !531
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i, i8 0, i64 16, i1 false), !noalias !523
   call void @_ZN4core9panicking13assert_failed17h367bd25e741b104fE(i8 noundef 1, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %20, ptr noalias noundef nonnull readonly align 2 dereferenceable(2) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.874) #18
   unreachable
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17h69d0a8d39d6ad0faE.exit: ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit.i
   %25 = add i16 %22, -1
-  store i16 %25, ptr %20, align 2, !alias.scope !531
+  store i16 %25, ptr %20, align 2, !alias.scope !523
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   store i16 %16, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -25045,14 +25042,14 @@ define noundef range(i8 0, 4) i8 @_ZN5wasmi6engine10translator5stack14register_a
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !537)
-  %5 = tail call noundef zeroext i1 @_ZN8wasmi_ir5index3Reg8is_const17h51cf5043f26c23f5E(i16 noundef %1), !noalias !537
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !529)
+  %5 = tail call noundef zeroext i1 @_ZN8wasmi_ir5index3Reg8is_const17h51cf5043f26c23f5E(i16 noundef %1), !noalias !529
   br i1 %5, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc8is_local17h8ddb5e4c3a7d0dccE.exit.thread, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc8is_local17h8ddb5e4c3a7d0dccE.exit
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc8is_local17h8ddb5e4c3a7d0dccE.exit: ; preds = %4
-  %6 = tail call noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %1), !noalias !537
+  %6 = tail call noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %1), !noalias !529
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.val.i = load i16, ptr %7, align 8, !alias.scope !540, !noundef !3
+  %.val.i = load i16, ptr %7, align 8, !alias.scope !532, !noundef !3
   %8 = icmp slt i16 %6, %.val.i
   br i1 %8, label %12, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc8is_local17h8ddb5e4c3a7d0dccE.exit.thread
 
@@ -25094,9 +25091,9 @@ define noundef i16 @_ZN5wasmi6engine10translator5stack14register_alloc13Register
 define noundef align 8 ptr @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals17hf5844d3b15b1b6c5E(ptr noalias noundef align 8 captures(none) dereferenceable(88) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [112 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 82
-  %5 = load i8, ptr %4, align 2, !range !45, !noundef !3
+  %5 = load i8, ptr %4, align 2, !range !40, !noundef !3
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %7, label %17, !prof !455
+  br i1 %6, label %7, label %17, !prof !450
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -25108,7 +25105,7 @@ define noundef align 8 ptr @_ZN5wasmi6engine10translator5stack14register_alloc13
 12:                                               ; preds = %7
   %13 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %9, i16 %11)
   %14 = extractvalue { i16, i1 } %13, 1
-  br i1 %14, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit.thread, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit, !prof !27
+  br i1 %14, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit.thread, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit, !prof !22
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_locals11bump_locals17h7dd734cd47cdf532E.exit: ; preds = %12
   %15 = add nuw i16 %9, %11
@@ -25144,9 +25141,9 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15register_loca
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc22finish_register_locals17h26a06242382986a5E(ptr noalias noundef align 8 captures(none) dereferenceable(88) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 82
-  %3 = load i8, ptr %2, align 2, !range !45, !noundef !3
+  %3 = load i8, ptr %2, align 2, !range !40, !noundef !3
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %5, label %6, !prof !455
+  br i1 %4, label %5, label %6, !prof !450
 
 5:                                                ; preds = %1
   store i8 1, ptr %2, align 2
@@ -25161,9 +25158,9 @@ define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc22
 define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc12push_dynamic17hce91bf30c9d1f34cE(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(88) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [112 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 82
-  %.val = load i8, ptr %4, align 2, !range !45, !noundef !3
+  %.val = load i8, ptr %4, align 2, !range !40, !noundef !3
   %5 = icmp eq i8 %.val, 1
-  br i1 %5, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, label %6, !prof !455
+  br i1 %5, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, label %6, !prof !450
 
 6:                                                ; preds = %2
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.870, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.871) #18
@@ -25210,41 +25207,41 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_
 define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_dynamic_n17hf9458e2a44e61362E(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(88) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [112 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 82
-  %.val = load i8, ptr %5, align 2, !range !45, !noundef !3
+  %.val = load i8, ptr %5, align 2, !range !40, !noundef !3
   %6 = icmp eq i8 %.val, 1
-  br i1 %6, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, label %7, !prof !455
+  br i1 %6, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, label %7, !prof !450
 
 7:                                                ; preds = %3
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.870, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.871) #18
   unreachable
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit: ; preds = %3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !543)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !535)
   %8 = icmp ult i64 %2, 32768
   %9 = trunc nuw nsw i64 %2 to i16
   br i1 %8, label %10, label %25
 
 10:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %12 = load i16, ptr %11, align 2, !alias.scope !543, !noundef !3
+  %12 = load i16, ptr %11, align 2, !alias.scope !535, !noundef !3
   %13 = tail call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %12, i16 %9)
   %14 = extractvalue { i16, i1 } %13, 1
   %15 = extractvalue { i16, i1 } %13, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 78
-  %17 = load i16, ptr %16, align 2, !alias.scope !543
+  %17 = load i16, ptr %16, align 2, !alias.scope !535
   %.not.i = icmp sge i16 %15, %17
   %or.cond.not.i = select i1 %14, i1 true, i1 %.not.i
-  br i1 %or.cond.not.i, label %25, label %18, !prof !546
+  br i1 %or.cond.not.i, label %25, label %18, !prof !538
 
 18:                                               ; preds = %10
-  %19 = tail call noundef i16 @"_ZN71_$LT$wasmi_ir..index..Reg$u20$as$u20$core..convert..From$LT$i16$GT$$GT$4from17h149375b752cece7bE"(i16 noundef %12), !noalias !543
-  %20 = tail call noundef i16 @_ZN8wasmi_ir4span7RegSpan3new17h2e0d12b5ffb4f6ceE(i16 noundef %19), !noalias !543
+  %19 = tail call noundef i16 @"_ZN71_$LT$wasmi_ir..index..Reg$u20$as$u20$core..convert..From$LT$i16$GT$$GT$4from17h149375b752cece7bE"(i16 noundef %12), !noalias !535
+  %20 = tail call noundef i16 @_ZN8wasmi_ir4span7RegSpan3new17h2e0d12b5ffb4f6ceE(i16 noundef %19), !noalias !535
   %21 = add i16 %12, %9
-  store i16 %21, ptr %11, align 2, !alias.scope !543
+  store i16 %21, ptr %11, align 2, !alias.scope !535
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %23 = load i16, ptr %22, align 4, !alias.scope !543, !noundef !3
+  %23 = load i16, ptr %22, align 4, !alias.scope !535, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i16 @llvm.smax.i16(i16 %21, i16 %23)
-  store i16 %.sroa.0.0.sroa.speculated.i.i, ptr %22, align 4, !alias.scope !543
+  store i16 %.sroa.0.0.sroa.speculated.i.i, ptr %22, align 4, !alias.scope !535
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %20, ptr %24, align 2
   br label %29
@@ -25269,9 +25266,9 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc13pop_dynamic_n17he49c00989d62396bE(ptr noalias noundef align 8 captures(none) dereferenceable(88) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 82
-  %.val = load i8, ptr %3, align 2, !range !45, !noundef !3
+  %.val = load i8, ptr %3, align 2, !range !40, !noundef !3
   %4 = icmp eq i8 %.val, 1
-  br i1 %4, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, label %5, !prof !455
+  br i1 %4, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, label %5, !prof !450
 
 5:                                                ; preds = %2
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.870, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.871) #18
@@ -25279,23 +25276,23 @@ define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc13
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit: ; preds = %2
   %6 = icmp ult i64 %1, 32768
-  br i1 %6, label %7, label %17, !prof !547
+  br i1 %6, label %7, label %17, !prof !539
 
 7:                                                ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit
   %8 = trunc nuw nsw i64 %1 to i16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  %10 = load i16, ptr %9, align 2, !alias.scope !548, !noundef !3
+  %10 = load i16, ptr %9, align 2, !alias.scope !540, !noundef !3
   %11 = tail call { i16, i1 } @llvm.ssub.with.overflow.i16(i16 %10, i16 %8)
   %12 = extractvalue { i16, i1 } %11, 0
   %13 = extractvalue { i16, i1 } %11, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.val.i = load i16, ptr %14, align 8, !alias.scope !548
+  %.val.i = load i16, ptr %14, align 8, !alias.scope !540
   %15 = icmp slt i16 %12, %.val.i
   %or.cond.i = select i1 %13, i1 true, i1 %15
-  br i1 %or.cond.i, label %17, label %16, !prof !546
+  br i1 %or.cond.i, label %17, label %16, !prof !538
 
 16:                                               ; preds = %7
-  store i16 %12, ptr %9, align 2, !alias.scope !548
+  store i16 %12, ptr %9, align 2, !alias.scope !540
   ret void
 
 17:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, %7
@@ -25311,9 +25308,9 @@ define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14
   %6 = alloca [48 x i8], align 8
   %7 = alloca [8 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 82
-  %.val = load i8, ptr %8, align 2, !range !45, !noundef !3
+  %.val = load i8, ptr %8, align 2, !range !40, !noundef !3
   %9 = icmp eq i8 %.val, 1
-  br i1 %9, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, label %10, !prof !455
+  br i1 %9, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, label %10, !prof !450
 
 10:                                               ; preds = %2
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.870, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.871) #18
@@ -25327,7 +25324,7 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i64 %12, ptr %7, align 8
   %13 = icmp ugt i64 %12, 32767
-  br i1 %13, label %14, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf89fe80598b44E.exit, !prof !27
+  br i1 %13, label %14, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf89fe80598b44E.exit, !prof !22
 
 14:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
@@ -25358,24 +25355,24 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   %23 = tail call noundef i16 @_ZN8wasmi_ir5index3Reg4prev17h8eaac36b81e8b9c9E(i16 noundef %22)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !551)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !543)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 78
-  %25 = load i16, ptr %24, align 2, !alias.scope !551, !noundef !3
-  %26 = tail call noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %23), !noalias !551
+  %25 = load i16, ptr %24, align 2, !alias.scope !543, !noundef !3
+  %26 = tail call noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %23), !noalias !543
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i16 @llvm.smin.i16(i16 %26, i16 %25)
-  store i16 %.sroa.0.0.sroa.speculated.i.i, ptr %24, align 2, !alias.scope !551
+  store i16 %.sroa.0.0.sroa.speculated.i.i, ptr %24, align 2, !alias.scope !543
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %28 = load i16, ptr %27, align 2, !alias.scope !551, !noundef !3
+  %28 = load i16, ptr %27, align 2, !alias.scope !543, !noundef !3
   %29 = icmp eq i16 %28, %.sroa.0.0.sroa.speculated.i.i
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf89fe80598b44E.exit
-  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4), !noalias !551
+  call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4), !noalias !543
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i64 7, ptr %31, align 4, !noalias !551
-  store i8 21, ptr %4, align 8, !noalias !551
-  %32 = call noundef nonnull align 8 ptr @_ZN5wasmi5error5Error9from_kind17h78e8eae103676d38E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %4), !noalias !551
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4), !noalias !551
+  store i64 7, ptr %31, align 4, !noalias !543
+  store i8 21, ptr %4, align 8, !noalias !543
+  %32 = call noundef nonnull align 8 ptr @_ZN5wasmi5error5Error9from_kind17h78e8eae103676d38E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %4), !noalias !543
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4), !noalias !543
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %32, ptr %33, align 8
   br label %36
@@ -25395,9 +25392,9 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7key2reg17h7caf
 define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc16gc_preservations17h0321933c689daf25E(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #0 {
   %2 = alloca [72 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 82
-  %.val = load i8, ptr %3, align 2, !range !45, !noundef !3
+  %.val = load i8, ptr %3, align 2, !range !40, !noundef !3
   %4 = icmp eq i8 %.val, 1
-  br i1 %4, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, label %5, !prof !455
+  br i1 %4, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, label %5, !prof !450
 
 5:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.870, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.871) #18
@@ -25463,13 +25460,13 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_
 24:                                               ; preds = %19
   %25 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
   %26 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %25, i64 %21
-  %27 = load i64, ptr %26, align 8, !range !308, !noundef !3
+  %27 = load i64, ptr %26, align 8, !range !303, !noundef !3
   %28 = trunc nuw i64 %27 to i1
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %31 = load i64, ptr %30, align 8, !range !554, !noundef !3
+  %31 = load i64, ptr %30, align 8, !range !546, !noundef !3
   %32 = icmp eq i64 %31, 1
   br i1 %32, label %33, label %35
 
@@ -25481,7 +25478,7 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_
   %36 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9d848092776d746fE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
   %37 = extractvalue { ptr, ptr } %36, 0
   %.not38 = icmp eq ptr %37, null
-  br i1 %.not38, label %._crit_edge, label %19, !llvm.loop !555
+  br i1 %.not38, label %._crit_edge, label %19
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -25496,7 +25493,7 @@ define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14
   %8 = sub i16 32766, %7
   store i16 %8, ptr %6, align 2
   %9 = icmp sgt i16 %8, -1
-  br i1 %9, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7reg2key17h0b0d503339c25b31E.exit, label %10, !prof !455
+  br i1 %9, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7reg2key17h0b0d503339c25b31E.exit, label %10, !prof !450
 
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -25539,9 +25536,9 @@ define internal fastcc void @_ZN5wasmi6engine10translator5stack14register_alloc1
   %9 = alloca [2 x i8], align 2
   store i16 %1, ptr %9, align 2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 82
-  %.val = load i8, ptr %10, align 2, !range !45, !noundef !3
+  %.val = load i8, ptr %10, align 2, !range !40, !noundef !3
   %11 = icmp eq i8 %.val, 1
-  br i1 %11, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, label %12, !prof !455
+  br i1 %11, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit, label %12, !prof !450
 
 12:                                               ; preds = %2
   tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.f1b2ef6443bc9398301f7dcabaecd75d.870, i64 noundef 57, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.871) #18
@@ -25554,7 +25551,7 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_
   %14 = sub i16 32766, %13
   store i16 %14, ptr %6, align 2
   %15 = icmp sgt i16 %14, -1
-  br i1 %15, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7reg2key17h0b0d503339c25b31E.exit, label %16, !prof !455
+  br i1 %15, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7reg2key17h0b0d503339c25b31E.exit, label %16, !prof !450
 
 16:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18assert_alloc_phase17he2717f62a7ffa932E.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
@@ -25587,7 +25584,7 @@ _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7reg2key17h0b0d
   %25 = tail call { i64, i64 } @"_ZN11multi_stash19MultiStash$LT$T$GT$8take_one17h1791847ad7d50d85E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %22)
   %26 = extractvalue { i64, i64 } %25, 0
   %27 = trunc nuw i64 %26 to i1
-  br i1 %27, label %28, label %29, !prof !455
+  br i1 %27, label %28, label %29, !prof !450
 
 28:                                               ; preds = %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc7reg2key17h0b0d503339c25b31E.exit
   ret void
@@ -25619,7 +25616,7 @@ define noundef zeroext i1 @_ZN5wasmi6engine10translator5stack14register_alloc13R
 4:                                                ; preds = %2
   %5 = tail call noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %1)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.val = load i16, ptr %6, align 8, !alias.scope !556, !noundef !3
+  %.val = load i16, ptr %6, align 8, !alias.scope !547, !noundef !3
   %7 = icmp slt i16 %5, %.val
   br label %8
 
@@ -25631,9 +25628,9 @@ define noundef zeroext i1 @_ZN5wasmi6engine10translator5stack14register_alloc13R
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14finalize_alloc17h43f8013405d00d5bE(ptr noalias noundef align 8 captures(none) dereferenceable(88) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 82
-  %3 = load i8, ptr %2, align 2, !range !45, !noundef !3
+  %3 = load i8, ptr %2, align 2, !range !40, !noundef !3
   %4 = icmp eq i8 %3, 1
-  br i1 %4, label %5, label %13, !prof !455
+  br i1 %4, label %5, label %13, !prof !450
 
 5:                                                ; preds = %1
   store i8 2, ptr %2, align 2
@@ -25655,9 +25652,9 @@ define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14
 ; Function Attrs: nonlazybind uwtable
 define noundef i16 @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc15defrag_register17h1e8f281e9b0dba2bE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(88) %0, i16 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 82
-  %4 = load i8, ptr %3, align 2, !range !45, !noundef !3
+  %4 = load i8, ptr %3, align 2, !range !40, !noundef !3
   %5 = icmp eq i8 %4, 2
-  br i1 %5, label %6, label %10, !prof !455
+  br i1 %5, label %6, label %10, !prof !450
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 78
@@ -25696,40 +25693,40 @@ define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18
   br i1 %9, label %10, label %22
 
 10:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !559
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6), !noalias !559
-  %11 = tail call noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %1), !noalias !559
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !550
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6), !noalias !550
+  %11 = tail call noundef i16 @"_ZN8wasmi_ir5index81_$LT$impl$u20$core..convert..From$LT$wasmi_ir..index..Reg$GT$$u20$for$u20$i16$GT$4from17hdfd7a2fb09cc9da6E"(i16 noundef %1), !noalias !550
   %12 = sub i16 32766, %11
-  store i16 %12, ptr %6, align 2, !noalias !559
+  store i16 %12, ptr %6, align 2, !noalias !550
   %13 = icmp sgt i16 %12, -1
-  br i1 %13, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit, label %14, !prof !455
+  br i1 %13, label %_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit, label %14, !prof !450
 
 14:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !559
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !559
-  store ptr %6, ptr %4, align 8, !noalias !559
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !550
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !550
+  store ptr %6, ptr %4, align 8, !noalias !550
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i16$GT$3fmt17h0024ddc3d8df93eaE", ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !559
+  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i16$GT$3fmt17h0024ddc3d8df93eaE", ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !550
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %15, align 8, !noalias !559
+  store ptr %3, ptr %15, align 8, !noalias !550
   %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h73e595d62844075fE", ptr %.sroa.47.0..sroa_idx.i.i, align 8, !noalias !559
-  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.883, ptr %5, align 8, !noalias !559
+  store ptr @"_ZN72_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Display$GT$3fmt17h73e595d62844075fE", ptr %.sroa.47.0..sroa_idx.i.i, align 8, !noalias !550
+  store ptr @anon.f1b2ef6443bc9398301f7dcabaecd75d.883, ptr %5, align 8, !noalias !550
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 2, ptr %16, align 8, !noalias !559
+  store i64 2, ptr %16, align 8, !noalias !550
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %17, align 8, !noalias !559
+  store ptr null, ptr %17, align 8, !noalias !550
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %18, align 8, !noalias !559
+  store ptr %4, ptr %18, align 8, !noalias !550
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 2, ptr %19, align 8, !noalias !559
-  call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.884) #18, !noalias !559
+  store i64 2, ptr %19, align 8, !noalias !550
+  call void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f1b2ef6443bc9398301f7dcabaecd75d.884) #18, !noalias !550
   unreachable
 
 _ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E.exit: ; preds = %10
   %20 = zext nneg i16 %12 to i64
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !559
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6), !noalias !559
+  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !550
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6), !noalias !550
   %21 = tail call { i64, i64 } @"_ZN11multi_stash19MultiStash$LT$T$GT$4bump17h98fd3a1b64f925d6E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %20, i64 noundef 1)
   br label %22
 
@@ -25757,7 +25754,7 @@ define void @_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc18
 define void @"_ZN5wasmi6engine10translator5stack98_$LT$impl$u20$wasmi..engine..translator..provider..Provider$LT$wasmi_core..typed..TypedVal$GT$$GT$12into_untyped17h61415946d89cf3b5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 2)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i8, ptr %4, align 8, !range !562, !noundef !3
+  %5 = load i8, ptr %4, align 8, !range !553, !noundef !3
   %.not = icmp eq i8 %5, 7
   br i1 %.not, label %12, label %6
 
@@ -25787,7 +25784,7 @@ define void @"_ZN5wasmi6engine10translator5stack98_$LT$impl$u20$wasmi..engine..t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN5wasmi6engine10translator5stack196_$LT$impl$u20$core..convert..From$LT$wasmi..engine..translator..stack..provider..TaggedProvider$GT$$u20$for$u20$wasmi..engine..translator..provider..Provider$LT$wasmi_core..typed..TypedVal$GT$$GT$4from17h0a66c4c75b6525a4E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 2), (16, 17)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i8, ptr %3, align 8, !range !358, !noundef !3
+  %4 = load i8, ptr %3, align 8, !range !353, !noundef !3
   %5 = add nsw i8 %4, -7
   %switch = icmp ult i8 %5, 4
   br i1 %switch, label %7, label %6
@@ -25810,7 +25807,7 @@ define void @"_ZN5wasmi6engine10translator5stack196_$LT$impl$u20$core..convert..
 ; Function Attrs: nonlazybind uwtable
 define hidden { i16, i16 } @"_ZN5wasmi6engine10translator5utils98_$LT$impl$u20$wasmi..engine..translator..provider..Provider$LT$wasmi_core..typed..TypedVal$GT$$GT$14register_index17h8a4f8d4c9f2f7920E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i8, ptr %2, align 8, !range !562, !noundef !3
+  %3 = load i8, ptr %2, align 8, !range !553, !noundef !3
   %.not = icmp eq i8 %3, 7
   br i1 %.not, label %4, label %7
 
@@ -25974,7 +25971,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN5wasmi6module7element
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN138_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..elements..ElementKind$GT$$GT$4from17h73d7ca81a68f03a2E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #0 {
   %3 = alloca [40 x i8], align 8
-  %4 = load i32, ptr %1, align 8, !range !563, !noundef !3
+  %4 = load i32, ptr %1, align 8, !range !554, !noundef !3
   %5 = add nsw i32 %4, -2
   %6 = icmp ult i32 %5, 3
   %7 = icmp ne i32 %5, 1
@@ -26025,7 +26022,7 @@ define void @"_ZN130_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core.
   %.sroa.052.0.copyload = load i32, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !564)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !555)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %8 = add nsw i32 %.sroa.052.0.copyload, -2
   %9 = icmp ult i32 %8, 3
@@ -26042,7 +26039,7 @@ define void @"_ZN130_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core.
   unreachable
 
 12:                                               ; preds = %2
-  store i32 4, ptr %7, align 8, !alias.scope !564, !noalias !567
+  store i32 4, ptr %7, align 8, !alias.scope !555, !noalias !558
   br label %"_ZN138_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..elements..ElementKind$GT$$GT$4from17h73d7ca81a68f03a2E.exit"
 
 13:                                               ; preds = %2
@@ -26050,20 +26047,20 @@ define void @"_ZN130_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, i64 40, i1 false)
   %14 = trunc i32 %.sroa.052.0.copyload to i1
   %..i = select i1 %14, i32 %.sroa.4.0.copyload, i32 0
-  %15 = tail call noundef i32 @"_ZN82_$LT$wasmi..module..export..TableIdx$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17hacc7fa326f4901ecE"(i32 noundef %..i), !noalias !569
-  call void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5), !noalias !567
+  %15 = tail call noundef i32 @"_ZN82_$LT$wasmi..module..export..TableIdx$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17hacc7fa326f4901ecE"(i32 noundef %..i), !noalias !560
+  call void @_ZN5wasmi6module9init_expr9ConstExpr3new17h19deb4e4eb49a9e0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5), !noalias !558
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %15, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !564, !noalias !567
+  store i32 %15, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !555, !noalias !558
   br label %"_ZN138_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..elements..ElementKind$GT$$GT$4from17h73d7ca81a68f03a2E.exit"
 
 16:                                               ; preds = %2
-  store i32 6, ptr %7, align 8, !alias.scope !564, !noalias !567
+  store i32 6, ptr %7, align 8, !alias.scope !555, !noalias !558
   br label %"_ZN138_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..elements..ElementKind$GT$$GT$4from17h73d7ca81a68f03a2E.exit"
 
 "_ZN138_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..elements..ElementKind$GT$$GT$4from17h73d7ca81a68f03a2E.exit": ; preds = %12, %13, %16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %18 = load i8, ptr %17, align 8, !range !304, !noundef !3
+  %18 = load i8, ptr %17, align 8, !range !299, !noundef !3
   %19 = trunc nuw i8 %18 to i1
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -26086,7 +26083,7 @@ define void @"_ZN130_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core.
 
 26:                                               ; preds = %"_ZN138_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..elements..ElementKind$GT$$GT$4from17h73d7ca81a68f03a2E.exit"
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !570
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !561
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %27, i64 40, i1 false)
   %.sroa.2.0.copyload = load i32, ptr %.sroa.216.0..sroa_idx, align 8
   %.sroa.3.0.copyload = load i32, ptr %.sroa.319.0..sroa_idx, align 4
@@ -26104,7 +26101,7 @@ define void @"_ZN130_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core.
 29:                                               ; preds = %44, %26, %46
   %30 = landingpad { ptr, i32 }
           cleanup
-  %31 = load i32, ptr %7, align 8, !range !421, !alias.scope !573, !noundef !3
+  %31 = load i32, ptr %7, align 8, !range !416, !alias.scope !564, !noundef !3
   %32 = add nsw i32 %31, -4
   %33 = icmp ugt i32 %32, 2
   %34 = icmp ne i32 %32, 1
@@ -26116,7 +26113,7 @@ define void @"_ZN130_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core.
           to label %"_ZN4core3ptr63drop_in_place$LT$wasmi..module..element..ElementSegmentKind$GT$17h095bb30845ccfe9bE.exit" unwind label %53
 
 36:                                               ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !570
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !561
   br label %37
 
 37:                                               ; preds = %51, %36
@@ -26139,11 +26136,11 @@ define void @"_ZN130_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core.
 42:                                               ; preds = %20
   %43 = icmp eq i32 %24, 393216
   %or.cond3 = and i1 %23, %43
-  br i1 %or.cond3, label %44, label %46, !prof !576
+  br i1 %or.cond3, label %44, label %46, !prof !567
 
 44:                                               ; preds = %42, %20
   %.sroa.040.1 = phi i8 [ 5, %20 ], [ 6, %42 ]
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !577
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !568
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false)
   %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 %.sroa.216.0.copyload, ptr %.sroa.457.0..sroa_idx, align 8
@@ -26171,7 +26168,7 @@ define void @"_ZN130_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core.
           to label %52 unwind label %29
 
 51:                                               ; preds = %44
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !577
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !568
   br label %37
 
 52:                                               ; preds = %46
@@ -26195,14 +26192,14 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5wasmi6module7element
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i8 0, 7) i8 @_ZN5wasmi6module7element14ElementSegment2ty17h02c02d0affaed741E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i8, ptr %2, align 8, !range !435, !noundef !3
+  %3 = load i8, ptr %2, align 8, !range !430, !noundef !3
   ret i8 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN5wasmi6module7element14ElementSegment5items17h9f26e8117f878beeE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !7, !noundef !3
+  %3 = load ptr, ptr %2, align 8, !nonnull !3, !align !5, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = insertvalue { ptr, i64 } poison, ptr %3, 0
@@ -26230,7 +26227,7 @@ define void @"_ZN135_$LT$wasmi..table..ty..TableType$u20$as$u20$wasmi..module..u
   %.sroa.09.2.extract.trunc.i = trunc nuw i24 %.sroa.09.2.extract.shift.i to i8
   %13 = or i8 %.sroa.09.1.extract.trunc.i, %.sroa.09.0.extract.trunc.i
   %or.cond.i = icmp eq i8 %13, 0
-  br i1 %or.cond.i, label %19, label %14, !prof !576
+  br i1 %or.cond.i, label %19, label %14, !prof !567
 
 14:                                               ; preds = %19, %2
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5)
@@ -26260,7 +26257,7 @@ define void @"_ZN135_$LT$wasmi..table..ty..TableType$u20$as$u20$wasmi..module..u
   switch i8 %.sroa.09.2.extract.trunc.i, label %14 [
     i8 -118, label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
     i8 -122, label %20
-  ], !prof !580
+  ], !prof !571
 
 20:                                               ; preds = %19
   br label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
@@ -26272,20 +26269,20 @@ define void @"_ZN135_$LT$wasmi..table..ty..TableType$u20$as$u20$wasmi..module..u
   %22 = load i64, ptr %21, align 8, !noundef !3
   store i64 %22, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  %23 = load i64, ptr %1, align 8, !range !308, !noundef !3
+  %23 = load i64, ptr %1, align 8, !range !303, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i64, ptr %24, align 8
   store i64 %23, ptr %10, align 8
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %25, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %28 = load i8, ptr %27, align 8, !range !304, !noundef !3
+  %28 = load i8, ptr %27, align 8, !range !299, !noundef !3
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
   %31 = icmp ugt i64 %22, 4294967295
-  br i1 %31, label %36, label %33, !prof !27
+  br i1 %31, label %36, label %33, !prof !22
 
 32:                                               ; preds = %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
   tail call void @_ZN10wasmi_core5table2ty9TableType5new6417h9c0874ab4f5c3311E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i8 noundef range(i8 0, 7) %.sroa.010.0.i, i64 noundef %22, i64 noundef range(i64 0, 2) %23, i64 %25)
@@ -26316,7 +26313,7 @@ define void @"_ZN135_$LT$wasmi..table..ty..TableType$u20$as$u20$wasmi..module..u
 
 41:                                               ; preds = %33
   %42 = icmp ugt i64 %25, 4294967295
-  br i1 %42, label %44, label %.split, !prof !27
+  br i1 %42, label %44, label %.split, !prof !22
 
 .split21:                                         ; preds = %33
   tail call void @_ZN10wasmi_core5table2ty9TableType3new17h4d91a394573d5758E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i8 noundef range(i8 0, 7) %.sroa.010.0.i, i32 noundef %34, i32 noundef 0, i32 undef)
@@ -26370,7 +26367,7 @@ define { i1, i8 } @"_ZN139_$LT$wasmi_core..global..GlobalType$u20$as$u20$wasmi..
   %.sroa.09.2.extract.trunc.i.i = trunc nuw i48 %sum.shift8 to i8
   %6 = or i8 %.sroa.09.1.extract.trunc.i.i, %.sroa.09.0.extract.trunc.i.i
   %or.cond.i.i = icmp eq i8 %6, 0
-  br i1 %or.cond.i.i, label %12, label %7, !prof !576
+  br i1 %or.cond.i.i, label %12, label %7, !prof !567
 
 7:                                                ; preds = %12, %5
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
@@ -26400,7 +26397,7 @@ define { i1, i8 } @"_ZN139_$LT$wasmi_core..global..GlobalType$u20$as$u20$wasmi..
   switch i8 %.sroa.09.2.extract.trunc.i.i, label %7 [
     i8 -118, label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit"
     i8 -122, label %13
-  ], !prof !580
+  ], !prof !571
 
 13:                                               ; preds = %12
   br label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit"
@@ -26431,7 +26428,7 @@ define hidden noundef range(i8 0, 7) i8 @"_ZN136_$LT$wasmi..func..ty..FuncType$u
   %.sroa.09.2.extract.trunc.i.i = trunc nuw i32 %sum.shift.i to i8
   %6 = or i8 %.sroa.09.1.extract.trunc.i.i, %.sroa.09.0.extract.trunc.i.i
   %or.cond.i.i = icmp eq i8 %6, 0
-  br i1 %or.cond.i.i, label %12, label %7, !prof !576
+  br i1 %or.cond.i.i, label %12, label %7, !prof !567
 
 7:                                                ; preds = %12, %5
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
@@ -26461,7 +26458,7 @@ define hidden noundef range(i8 0, 7) i8 @"_ZN136_$LT$wasmi..func..ty..FuncType$u
   switch i8 %.sroa.09.2.extract.trunc.i.i, label %7 [
     i8 -118, label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit"
     i8 -122, label %13
-  ], !prof !580
+  ], !prof !571
 
 13:                                               ; preds = %12
   br label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..ValType$GT$$GT$4from17ha98e4fbd1b302170E.exit"
@@ -26488,7 +26485,7 @@ define noundef range(i8 5, 7) i8 @"_ZN126_$LT$wasmi..module..utils..WasmiValueTy
   %4 = alloca [8 x i8], align 8
   %5 = and i64 %0, 8589934591
   %or.cond.not = icmp eq i64 %5, 3
-  br i1 %or.cond.not, label %11, label %6, !prof !576
+  br i1 %or.cond.not, label %11, label %6, !prof !567
 
 6:                                                ; preds = %11, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -26516,7 +26513,7 @@ define noundef range(i8 5, 7) i8 @"_ZN126_$LT$wasmi..module..utils..WasmiValueTy
   switch i8 %trunc, label %6 [
     i8 0, label %13
     i8 1, label %12
-  ], !prof !580
+  ], !prof !571
 
 12:                                               ; preds = %11
   br label %13
@@ -26538,7 +26535,7 @@ define noundef range(i8 5, 7) i8 @"_ZN125_$LT$wasmi..module..utils..WasmiValueTy
   %.sroa.09.2.extract.trunc = trunc nuw i24 %.sroa.09.2.extract.shift to i8
   %5 = or i8 %.sroa.09.1.extract.trunc, %.sroa.09.0.extract.trunc
   %or.cond = icmp eq i8 %5, 0
-  br i1 %or.cond, label %11, label %6, !prof !576
+  br i1 %or.cond, label %11, label %6, !prof !567
 
 6:                                                ; preds = %11, %1
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
@@ -26568,7 +26565,7 @@ define noundef range(i8 5, 7) i8 @"_ZN125_$LT$wasmi..module..utils..WasmiValueTy
   switch i8 %.sroa.09.2.extract.trunc, label %6 [
     i8 -118, label %13
     i8 -122, label %12
-  ], !prof !580
+  ], !prof !571
 
 12:                                               ; preds = %11
   br label %13
@@ -26596,7 +26593,7 @@ define noundef range(i8 0, 7) i8 @"_ZN125_$LT$wasmi..module..utils..WasmiValueTy
   %.sroa.09.2.extract.trunc.i = trunc nuw i32 %sum.shift to i8
   %6 = or i8 %.sroa.09.1.extract.trunc.i, %.sroa.09.0.extract.trunc.i
   %or.cond.i = icmp eq i8 %6, 0
-  br i1 %or.cond.i, label %12, label %7, !prof !576
+  br i1 %or.cond.i, label %12, label %7, !prof !567
 
 7:                                                ; preds = %12, %5
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
@@ -26626,7 +26623,7 @@ define noundef range(i8 0, 7) i8 @"_ZN125_$LT$wasmi..module..utils..WasmiValueTy
   switch i8 %.sroa.09.2.extract.trunc.i, label %7 [
     i8 -118, label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
     i8 -122, label %13
-  ], !prof !580
+  ], !prof !571
 
 13:                                               ; preds = %12
   br label %"_ZN125_$LT$wasmi..module..utils..WasmiValueType$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..RefType$GT$$GT$4from17h3ac051b742382b47E.exit"
@@ -26707,7 +26704,7 @@ define internal noundef zeroext i1 @"_ZN90_$LT$wasmi..engine..translator..contro
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN93_$LT$wasmi..engine..translator..control_frame..IfReachability$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ca1158223b488aeE"(ptr noalias noundef readonly align 4 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
-  %4 = load i32, ptr %0, align 4, !range !284, !noundef !3
+  %4 = load i32, ptr %0, align 4, !range !279, !noundef !3
   switch i32 %4, label %default.unreachable1 [
     i32 0, label %5
     i32 1, label %8
@@ -26752,7 +26749,7 @@ define internal noundef zeroext i1 @"_ZN80_$LT$wasmi..engine..translator..labels
 define internal noundef zeroext i1 @"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
-  %5 = load i64, ptr %0, align 8, !range !413, !noundef !3
+  %5 = load i64, ptr %0, align 8, !range !408, !noundef !3
   %.not = icmp eq i64 %5, 2
   br i1 %.not, label %9, label %6
 
@@ -26783,7 +26780,7 @@ define void @"_ZN5wasmi6engine10translator5utils111_$LT$impl$u20$wasmi..engine..
   %5 = alloca [16 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i8, ptr %7, align 8, !range !562, !noundef !3
+  %8 = load i8, ptr %7, align 8, !range !553, !noundef !3
   %.not = icmp eq i8 %8, 7
   br i1 %.not, label %14, label %9
 
@@ -26822,13 +26819,13 @@ define void @"_ZN5wasmi6engine10translator5utils111_$LT$impl$u20$wasmi..engine..
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = extractvalue { i64, i64 } %23, 1
   call void @_ZN5wasmi6engine10translator5stack6consts15FuncLocalConsts5alloc17h3938f6af66c3574bE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %24, i64 noundef %25)
-  %26 = load i16, ptr %5, align 8, !range !448, !noundef !3
+  %26 = load i16, ptr %5, align 8, !range !443, !noundef !3
   %27 = trunc nuw i16 %26 to i1
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %30 = load ptr, ptr %29, align 8, !nonnull !3, !align !7, !noundef !3
+  %30 = load ptr, ptr %29, align 8, !nonnull !3, !align !5, !noundef !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %30, ptr %31, align 8
@@ -26856,7 +26853,7 @@ define void @"_ZN5wasmi6engine10translator5utils111_$LT$impl$u20$wasmi..engine..
   %5 = alloca [16 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i8, ptr %7, align 8, !range !562, !noundef !3
+  %8 = load i8, ptr %7, align 8, !range !553, !noundef !3
   %.not = icmp eq i8 %8, 7
   br i1 %.not, label %14, label %9
 
@@ -26895,13 +26892,13 @@ define void @"_ZN5wasmi6engine10translator5utils111_$LT$impl$u20$wasmi..engine..
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = extractvalue { i64, i64 } %23, 1
   call void @_ZN5wasmi6engine10translator5stack6consts15FuncLocalConsts5alloc17h3938f6af66c3574bE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %22, i64 noundef %24, i64 noundef %25)
-  %26 = load i16, ptr %5, align 8, !range !448, !noundef !3
+  %26 = load i16, ptr %5, align 8, !range !443, !noundef !3
   %27 = trunc nuw i16 %26 to i1
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %30 = load ptr, ptr %29, align 8, !nonnull !3, !align !7, !noundef !3
+  %30 = load ptr, ptr %29, align 8, !nonnull !3, !align !5, !noundef !3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %30, ptr %31, align 8
@@ -26926,7 +26923,7 @@ define void @"_ZN5wasmi6engine10translator5utils111_$LT$impl$u20$wasmi..engine..
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN79_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h52c40def9ff91ebfE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = alloca [8 x i8], align 8
-  %4 = load i32, ptr %0, align 8, !range !421, !noundef !3
+  %4 = load i32, ptr %0, align 8, !range !416, !noundef !3
   %5 = add nsw i32 %4, -4
   %6 = icmp ult i32 %5, 3
   %7 = icmp ne i32 %5, 1
@@ -28354,579 +28351,570 @@ attributes #20 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.89.0-nightly (60dabef95 2025-05-19)"}
 !3 = !{}
 !4 = !{i64 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i64 8}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$15visit_input_reg17hb3190fd69ace05f2E: argument 0"}
-!10 = distinct !{!10, !"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$15visit_input_reg17hb3190fd69ace05f2E"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16defrag_registers28_$u7b$$u7b$closure$u7d$$u7d$17h4571fe70e566b5a2E: argument 0"}
-!13 = distinct !{!13, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16defrag_registers28_$u7b$$u7b$closure$u7d$$u7d$17h4571fe70e566b5a2E"}
-!14 = !{!12, !9}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$15visit_input_reg17hb3190fd69ace05f2E: argument 0"}
-!19 = distinct !{!19, !"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$15visit_input_reg17hb3190fd69ace05f2E"}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16defrag_registers28_$u7b$$u7b$closure$u7d$$u7d$17h4571fe70e566b5a2E: argument 0"}
-!22 = distinct !{!22, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16defrag_registers28_$u7b$$u7b$closure$u7d$$u7d$17h4571fe70e566b5a2E"}
-!23 = !{!21, !18}
-!24 = distinct !{!24, !6}
-!25 = !{i16 0, i16 618}
-!26 = !{!"branch_weights", i32 1, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000}
-!27 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!28 = !{i64 1}
+!5 = !{i64 8}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$15visit_input_reg17hb3190fd69ace05f2E: argument 0"}
+!8 = distinct !{!8, !"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$15visit_input_reg17hb3190fd69ace05f2E"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16defrag_registers28_$u7b$$u7b$closure$u7d$$u7d$17h4571fe70e566b5a2E: argument 0"}
+!11 = distinct !{!11, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16defrag_registers28_$u7b$$u7b$closure$u7d$$u7d$17h4571fe70e566b5a2E"}
+!12 = !{!10, !7}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$15visit_input_reg17hb3190fd69ace05f2E: argument 0"}
+!15 = distinct !{!15, !"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$15visit_input_reg17hb3190fd69ace05f2E"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16defrag_registers28_$u7b$$u7b$closure$u7d$$u7d$17h4571fe70e566b5a2E: argument 0"}
+!18 = distinct !{!18, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16defrag_registers28_$u7b$$u7b$closure$u7d$$u7d$17h4571fe70e566b5a2E"}
+!19 = !{!17, !14}
+!20 = !{i16 0, i16 618}
+!21 = !{!"branch_weights", i32 1, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000}
+!22 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!23 = !{i64 1}
+!24 = !{!25, !27}
+!25 = distinct !{!25, !26, !"_ZN67_$LT$wasmi_core..global..GlobalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h475a2c945ca0b1aeE: argument 0"}
+!26 = distinct !{!26, !"_ZN67_$LT$wasmi_core..global..GlobalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h475a2c945ca0b1aeE"}
+!27 = distinct !{!27, !26, !"_ZN67_$LT$wasmi_core..global..GlobalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h475a2c945ca0b1aeE: argument 1"}
+!28 = !{i64 4}
 !29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"_ZN67_$LT$wasmi_core..global..GlobalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h475a2c945ca0b1aeE: argument 0"}
-!31 = distinct !{!31, !"_ZN67_$LT$wasmi_core..global..GlobalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h475a2c945ca0b1aeE"}
-!32 = distinct !{!32, !31, !"_ZN67_$LT$wasmi_core..global..GlobalType$u20$as$u20$core..fmt..Debug$GT$3fmt17h475a2c945ca0b1aeE: argument 1"}
-!33 = !{i64 4}
-!34 = !{!35, !37}
-!35 = distinct !{!35, !36, !"_ZN81_$LT$wasmparser..readers..core..operators..Ieee32$u20$as$u20$core..fmt..Debug$GT$3fmt17ha24d71fe10183dc8E: argument 0"}
-!36 = distinct !{!36, !"_ZN81_$LT$wasmparser..readers..core..operators..Ieee32$u20$as$u20$core..fmt..Debug$GT$3fmt17ha24d71fe10183dc8E"}
-!37 = distinct !{!37, !36, !"_ZN81_$LT$wasmparser..readers..core..operators..Ieee32$u20$as$u20$core..fmt..Debug$GT$3fmt17ha24d71fe10183dc8E: argument 1"}
-!38 = !{!39, !41}
-!39 = distinct !{!39, !40, !"_ZN64_$LT$wasmi_core..typed..TypedVal$u20$as$u20$core..fmt..Debug$GT$3fmt17h78bfaa64ba8ecf20E: argument 0"}
-!40 = distinct !{!40, !"_ZN64_$LT$wasmi_core..typed..TypedVal$u20$as$u20$core..fmt..Debug$GT$3fmt17h78bfaa64ba8ecf20E"}
-!41 = distinct !{!41, !40, !"_ZN64_$LT$wasmi_core..typed..TypedVal$u20$as$u20$core..fmt..Debug$GT$3fmt17h78bfaa64ba8ecf20E: argument 1"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E: argument 0"}
-!44 = distinct !{!44, !"_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E"}
-!45 = !{i8 0, i8 3}
-!46 = !{!47}
-!47 = distinct !{!47, !44, !"_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E: argument 1"}
-!48 = !{!43, !47}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE: argument 0"}
-!51 = distinct !{!51, !"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE"}
-!52 = !{i8 0, i8 15}
-!53 = !{!54}
-!54 = distinct !{!54, !51, !"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE: argument 1"}
-!55 = !{!50, !54}
-!56 = !{!57, !59}
-!57 = distinct !{!57, !58, !"_ZN69_$LT$wasmi_core..table..ty..TableType$u20$as$u20$core..fmt..Debug$GT$3fmt17h0c087d041760f0b5E: argument 0"}
-!58 = distinct !{!58, !"_ZN69_$LT$wasmi_core..table..ty..TableType$u20$as$u20$core..fmt..Debug$GT$3fmt17h0c087d041760f0b5E"}
-!59 = distinct !{!59, !58, !"_ZN69_$LT$wasmi_core..table..ty..TableType$u20$as$u20$core..fmt..Debug$GT$3fmt17h0c087d041760f0b5E: argument 1"}
-!60 = !{!61, !63}
-!61 = distinct !{!61, !62, !"_ZN102_$LT$wasmi..engine..translator..control_frame..UnreachableControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h32cfca60f841b223E: argument 0"}
-!62 = distinct !{!62, !"_ZN102_$LT$wasmi..engine..translator..control_frame..UnreachableControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h32cfca60f841b223E"}
-!63 = distinct !{!63, !62, !"_ZN102_$LT$wasmi..engine..translator..control_frame..UnreachableControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h32cfca60f841b223E: argument 1"}
-!64 = !{!65, !67}
-!65 = distinct !{!65, !66, !"_ZN72_$LT$wasmi_ir..primitive..BranchOffset16$u20$as$u20$core..fmt..Debug$GT$3fmt17h8de062a0ff351388E: argument 0"}
-!66 = distinct !{!66, !"_ZN72_$LT$wasmi_ir..primitive..BranchOffset16$u20$as$u20$core..fmt..Debug$GT$3fmt17h8de062a0ff351388E"}
-!67 = distinct !{!67, !66, !"_ZN72_$LT$wasmi_ir..primitive..BranchOffset16$u20$as$u20$core..fmt..Debug$GT$3fmt17h8de062a0ff351388E: argument 1"}
-!68 = !{!69, !71}
-!69 = distinct !{!69, !70, !"_ZN59_$LT$wasmi_ir..index..Table$u20$as$u20$core..fmt..Debug$GT$3fmt17he2227e7305f083baE: argument 0"}
-!70 = distinct !{!70, !"_ZN59_$LT$wasmi_ir..index..Table$u20$as$u20$core..fmt..Debug$GT$3fmt17he2227e7305f083baE"}
-!71 = distinct !{!71, !70, !"_ZN59_$LT$wasmi_ir..index..Table$u20$as$u20$core..fmt..Debug$GT$3fmt17he2227e7305f083baE: argument 1"}
-!72 = !{!73, !75, !76, !78}
-!73 = distinct !{!73, !74, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E: argument 0"}
-!74 = distinct !{!74, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E"}
-!75 = distinct !{!75, !74, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E: argument 1"}
-!76 = distinct !{!76, !77, !"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h0e5468c0c946d175E: argument 0"}
-!77 = distinct !{!77, !"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h0e5468c0c946d175E"}
-!78 = distinct !{!78, !77, !"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h0e5468c0c946d175E: argument 1"}
-!79 = !{!73, !76}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17h366d06e39c3ac79bE: argument 0"}
-!82 = distinct !{!82, !"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17h366d06e39c3ac79bE"}
-!83 = !{i32 0, i32 4}
-!84 = !{!85}
-!85 = distinct !{!85, !82, !"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17h366d06e39c3ac79bE: argument 1"}
-!86 = !{!81, !85}
-!87 = !{!88, !90}
-!88 = distinct !{!88, !89, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h723c81cd7a23e2bfE: argument 0"}
-!89 = distinct !{!89, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h723c81cd7a23e2bfE"}
-!90 = distinct !{!90, !89, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h723c81cd7a23e2bfE: argument 1"}
-!91 = !{!92, !94}
-!92 = distinct !{!92, !93, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6312288e927cde83E: argument 0"}
-!93 = distinct !{!93, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6312288e927cde83E"}
-!94 = distinct !{!94, !93, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6312288e927cde83E: argument 1"}
-!95 = !{!96, !98}
-!96 = distinct !{!96, !97, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfb036b6df6fd2628E: argument 0"}
-!97 = distinct !{!97, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfb036b6df6fd2628E"}
-!98 = distinct !{!98, !97, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfb036b6df6fd2628E: argument 1"}
-!99 = !{!100, !102}
-!100 = distinct !{!100, !101, !"_ZN67_$LT$wasmi_ir..span..BoundedRegSpan$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5e090fece19cdfaE: argument 0"}
-!101 = distinct !{!101, !"_ZN67_$LT$wasmi_ir..span..BoundedRegSpan$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5e090fece19cdfaE"}
-!102 = distinct !{!102, !101, !"_ZN67_$LT$wasmi_ir..span..BoundedRegSpan$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5e090fece19cdfaE: argument 1"}
-!103 = !{!104, !106}
-!104 = distinct !{!104, !105, !"_ZN81_$LT$wasmparser..readers..core..operators..Ieee64$u20$as$u20$core..fmt..Debug$GT$3fmt17h3db0e4e34aa2584aE: argument 0"}
-!105 = distinct !{!105, !"_ZN81_$LT$wasmparser..readers..core..operators..Ieee64$u20$as$u20$core..fmt..Debug$GT$3fmt17h3db0e4e34aa2584aE"}
-!106 = distinct !{!106, !105, !"_ZN81_$LT$wasmparser..readers..core..operators..Ieee64$u20$as$u20$core..fmt..Debug$GT$3fmt17h3db0e4e34aa2584aE: argument 1"}
-!107 = !{!108, !110}
-!108 = distinct !{!108, !109, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he633d4f19e0631e7E: argument 0"}
-!109 = distinct !{!109, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he633d4f19e0631e7E"}
-!110 = distinct !{!110, !109, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he633d4f19e0631e7E: argument 1"}
-!111 = !{!112, !114}
-!112 = distinct !{!112, !113, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf7be066381cd16d0E: argument 0"}
-!113 = distinct !{!113, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf7be066381cd16d0E"}
-!114 = distinct !{!114, !113, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf7be066381cd16d0E: argument 1"}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E: argument 0"}
-!117 = distinct !{!117, !"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E"}
-!118 = !{i8 0, i8 6}
-!119 = !{!120}
-!120 = distinct !{!120, !117, !"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E: argument 1"}
-!121 = !{!116, !120}
-!122 = !{!123, !125}
-!123 = distinct !{!123, !124, !"_ZN79_$LT$wasmparser..readers..core..operators..V128$u20$as$u20$core..fmt..Debug$GT$3fmt17hb756a0b82ca2f493E: argument 0"}
-!124 = distinct !{!124, !"_ZN79_$LT$wasmparser..readers..core..operators..V128$u20$as$u20$core..fmt..Debug$GT$3fmt17hb756a0b82ca2f493E"}
-!125 = distinct !{!125, !124, !"_ZN79_$LT$wasmparser..readers..core..operators..V128$u20$as$u20$core..fmt..Debug$GT$3fmt17hb756a0b82ca2f493E: argument 1"}
-!126 = !{!127, !129}
-!127 = distinct !{!127, !128, !"_ZN67_$LT$wasmi_ir..primitive..BlockFuel$u20$as$u20$core..fmt..Debug$GT$3fmt17he4e9c44e634ea779E: argument 0"}
-!128 = distinct !{!128, !"_ZN67_$LT$wasmi_ir..primitive..BlockFuel$u20$as$u20$core..fmt..Debug$GT$3fmt17he4e9c44e634ea779E"}
-!129 = distinct !{!129, !128, !"_ZN67_$LT$wasmi_ir..primitive..BlockFuel$u20$as$u20$core..fmt..Debug$GT$3fmt17he4e9c44e634ea779E: argument 1"}
-!130 = !{!131, !133}
-!131 = distinct !{!131, !132, !"_ZN70_$LT$wasmi_ir..primitive..BranchOffset$u20$as$u20$core..fmt..Debug$GT$3fmt17h6364db865a959963E: argument 0"}
-!132 = distinct !{!132, !"_ZN70_$LT$wasmi_ir..primitive..BranchOffset$u20$as$u20$core..fmt..Debug$GT$3fmt17h6364db865a959963E"}
-!133 = distinct !{!133, !132, !"_ZN70_$LT$wasmi_ir..primitive..BranchOffset$u20$as$u20$core..fmt..Debug$GT$3fmt17h6364db865a959963E: argument 1"}
-!134 = !{!135, !137}
-!135 = distinct !{!135, !136, !"_ZN60_$LT$wasmi_ir..index..Memory$u20$as$u20$core..fmt..Debug$GT$3fmt17h92071693d7a5a0e8E: argument 0"}
-!136 = distinct !{!136, !"_ZN60_$LT$wasmi_ir..index..Memory$u20$as$u20$core..fmt..Debug$GT$3fmt17h92071693d7a5a0e8E"}
-!137 = distinct !{!137, !136, !"_ZN60_$LT$wasmi_ir..index..Memory$u20$as$u20$core..fmt..Debug$GT$3fmt17h92071693d7a5a0e8E: argument 1"}
-!138 = !{!139, !141}
-!139 = distinct !{!139, !140, !"_ZN68_$LT$wasmi_ir..primitive..Offset64Lo$u20$as$u20$core..fmt..Debug$GT$3fmt17h07a58345c752a82dE: argument 0"}
-!140 = distinct !{!140, !"_ZN68_$LT$wasmi_ir..primitive..Offset64Lo$u20$as$u20$core..fmt..Debug$GT$3fmt17h07a58345c752a82dE"}
-!141 = distinct !{!141, !140, !"_ZN68_$LT$wasmi_ir..primitive..Offset64Lo$u20$as$u20$core..fmt..Debug$GT$3fmt17h07a58345c752a82dE: argument 1"}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E: argument 0"}
-!144 = distinct !{!144, !"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E"}
-!145 = !{i32 0, i32 9}
-!146 = !{!147}
-!147 = distinct !{!147, !144, !"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E: argument 1"}
-!148 = !{!143, !147}
-!149 = !{!150, !152}
-!150 = distinct !{!150, !151, !"_ZN66_$LT$wasmi_ir..primitive..Offset16$u20$as$u20$core..fmt..Debug$GT$3fmt17h105964521569d9edE: argument 0"}
-!151 = distinct !{!151, !"_ZN66_$LT$wasmi_ir..primitive..Offset16$u20$as$u20$core..fmt..Debug$GT$3fmt17h105964521569d9edE"}
-!152 = distinct !{!152, !151, !"_ZN66_$LT$wasmi_ir..primitive..Offset16$u20$as$u20$core..fmt..Debug$GT$3fmt17h105964521569d9edE: argument 1"}
-!153 = !{!154, !156}
-!154 = distinct !{!154, !155, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h177f3aab83116cd4E: argument 0"}
-!155 = distinct !{!155, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h177f3aab83116cd4E"}
-!156 = distinct !{!156, !155, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h177f3aab83116cd4E: argument 1"}
-!157 = !{!158, !160}
-!158 = distinct !{!158, !159, !"_ZN67_$LT$wasmi_ir..primitive..Address32$u20$as$u20$core..fmt..Debug$GT$3fmt17h4393796c2afb691dE: argument 0"}
-!159 = distinct !{!159, !"_ZN67_$LT$wasmi_ir..primitive..Address32$u20$as$u20$core..fmt..Debug$GT$3fmt17h4393796c2afb691dE"}
-!160 = distinct !{!160, !159, !"_ZN67_$LT$wasmi_ir..primitive..Address32$u20$as$u20$core..fmt..Debug$GT$3fmt17h4393796c2afb691dE: argument 1"}
-!161 = !{!162, !164}
-!162 = distinct !{!162, !163, !"_ZN58_$LT$wasmi_ir..index..Data$u20$as$u20$core..fmt..Debug$GT$3fmt17h3287bd20b401aefbE: argument 0"}
-!163 = distinct !{!163, !"_ZN58_$LT$wasmi_ir..index..Data$u20$as$u20$core..fmt..Debug$GT$3fmt17h3287bd20b401aefbE"}
-!164 = distinct !{!164, !163, !"_ZN58_$LT$wasmi_ir..index..Data$u20$as$u20$core..fmt..Debug$GT$3fmt17h3287bd20b401aefbE: argument 1"}
-!165 = !{!166, !168}
-!166 = distinct !{!166, !167, !"_ZN71_$LT$wasmi_ir..primitive..Sign$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0f27d042cc6b0d0dE: argument 0"}
-!167 = distinct !{!167, !"_ZN71_$LT$wasmi_ir..primitive..Sign$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0f27d042cc6b0d0dE"}
-!168 = distinct !{!168, !167, !"_ZN71_$LT$wasmi_ir..primitive..Sign$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0f27d042cc6b0d0dE: argument 1"}
-!169 = !{!170, !172}
-!170 = distinct !{!170, !171, !"_ZN68_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$core..fmt..Debug$GT$3fmt17h6973ce13840f724aE: argument 0"}
-!171 = distinct !{!171, !"_ZN68_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$core..fmt..Debug$GT$3fmt17h6973ce13840f724aE"}
-!172 = distinct !{!172, !171, !"_ZN68_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$core..fmt..Debug$GT$3fmt17h6973ce13840f724aE: argument 1"}
-!173 = !{!174, !176}
-!174 = distinct !{!174, !175, !"_ZN86_$LT$wasmparser..readers..core..operators..ResumeTable$u20$as$u20$core..fmt..Debug$GT$3fmt17h02dfb2f031ed10ccE: argument 0"}
-!175 = distinct !{!175, !"_ZN86_$LT$wasmparser..readers..core..operators..ResumeTable$u20$as$u20$core..fmt..Debug$GT$3fmt17h02dfb2f031ed10ccE"}
-!176 = distinct !{!176, !175, !"_ZN86_$LT$wasmparser..readers..core..operators..ResumeTable$u20$as$u20$core..fmt..Debug$GT$3fmt17h02dfb2f031ed10ccE: argument 1"}
-!177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hff0e5abe7095ec83E: argument 0"}
-!179 = distinct !{!179, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hff0e5abe7095ec83E"}
-!180 = !{i32 0, i32 2}
-!181 = !{!182}
-!182 = distinct !{!182, !179, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hff0e5abe7095ec83E: argument 1"}
-!183 = !{!178, !182}
-!184 = !{!185, !187}
-!185 = distinct !{!185, !186, !"_ZN80_$LT$wasmi..engine..translator..labels..LabelRef$u20$as$u20$core..fmt..Debug$GT$3fmt17h0aeb66a231ec5ea0E: argument 0"}
-!186 = distinct !{!186, !"_ZN80_$LT$wasmi..engine..translator..labels..LabelRef$u20$as$u20$core..fmt..Debug$GT$3fmt17h0aeb66a231ec5ea0E"}
-!187 = distinct !{!187, !186, !"_ZN80_$LT$wasmi..engine..translator..labels..LabelRef$u20$as$u20$core..fmt..Debug$GT$3fmt17h0aeb66a231ec5ea0E: argument 1"}
-!188 = !{!189, !191}
-!189 = distinct !{!189, !190, !"_ZN81_$LT$wasmi..engine..translator..labels..LabelUser$u20$as$u20$core..fmt..Debug$GT$3fmt17hc73cb6ad97474fccE: argument 0"}
-!190 = distinct !{!190, !"_ZN81_$LT$wasmi..engine..translator..labels..LabelUser$u20$as$u20$core..fmt..Debug$GT$3fmt17hc73cb6ad97474fccE"}
-!191 = distinct !{!191, !190, !"_ZN81_$LT$wasmi..engine..translator..labels..LabelUser$u20$as$u20$core..fmt..Debug$GT$3fmt17hc73cb6ad97474fccE: argument 1"}
-!192 = !{i32 1, i32 0}
-!193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZN73_$LT$core..num..nonzero..NonZero$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h89bf1109bec4e2f3E: argument 0"}
-!195 = distinct !{!195, !"_ZN73_$LT$core..num..nonzero..NonZero$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h89bf1109bec4e2f3E"}
-!196 = !{!197, !194}
-!197 = distinct !{!197, !198, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17hb70e344456d14689E: argument 1"}
-!198 = distinct !{!198, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17hb70e344456d14689E"}
+!30 = distinct !{!30, !31, !"_ZN81_$LT$wasmparser..readers..core..operators..Ieee32$u20$as$u20$core..fmt..Debug$GT$3fmt17ha24d71fe10183dc8E: argument 0"}
+!31 = distinct !{!31, !"_ZN81_$LT$wasmparser..readers..core..operators..Ieee32$u20$as$u20$core..fmt..Debug$GT$3fmt17ha24d71fe10183dc8E"}
+!32 = distinct !{!32, !31, !"_ZN81_$LT$wasmparser..readers..core..operators..Ieee32$u20$as$u20$core..fmt..Debug$GT$3fmt17ha24d71fe10183dc8E: argument 1"}
+!33 = !{!34, !36}
+!34 = distinct !{!34, !35, !"_ZN64_$LT$wasmi_core..typed..TypedVal$u20$as$u20$core..fmt..Debug$GT$3fmt17h78bfaa64ba8ecf20E: argument 0"}
+!35 = distinct !{!35, !"_ZN64_$LT$wasmi_core..typed..TypedVal$u20$as$u20$core..fmt..Debug$GT$3fmt17h78bfaa64ba8ecf20E"}
+!36 = distinct !{!36, !35, !"_ZN64_$LT$wasmi_core..typed..TypedVal$u20$as$u20$core..fmt..Debug$GT$3fmt17h78bfaa64ba8ecf20E: argument 1"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E: argument 0"}
+!39 = distinct !{!39, !"_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E"}
+!40 = !{i8 0, i8 3}
+!41 = !{!42}
+!42 = distinct !{!42, !39, !"_ZN84_$LT$wasmparser..readers..core..operators..BlockType$u20$as$u20$core..fmt..Debug$GT$3fmt17hf76193cd3566c661E: argument 1"}
+!43 = !{!38, !42}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE: argument 0"}
+!46 = distinct !{!46, !"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE"}
+!47 = !{i8 0, i8 15}
+!48 = !{!49}
+!49 = distinct !{!49, !46, !"_ZN87_$LT$wasmi..engine..translator..error..TranslationError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0063d816f29caffaE: argument 1"}
+!50 = !{!45, !49}
+!51 = !{!52, !54}
+!52 = distinct !{!52, !53, !"_ZN69_$LT$wasmi_core..table..ty..TableType$u20$as$u20$core..fmt..Debug$GT$3fmt17h0c087d041760f0b5E: argument 0"}
+!53 = distinct !{!53, !"_ZN69_$LT$wasmi_core..table..ty..TableType$u20$as$u20$core..fmt..Debug$GT$3fmt17h0c087d041760f0b5E"}
+!54 = distinct !{!54, !53, !"_ZN69_$LT$wasmi_core..table..ty..TableType$u20$as$u20$core..fmt..Debug$GT$3fmt17h0c087d041760f0b5E: argument 1"}
+!55 = !{!56, !58}
+!56 = distinct !{!56, !57, !"_ZN102_$LT$wasmi..engine..translator..control_frame..UnreachableControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h32cfca60f841b223E: argument 0"}
+!57 = distinct !{!57, !"_ZN102_$LT$wasmi..engine..translator..control_frame..UnreachableControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h32cfca60f841b223E"}
+!58 = distinct !{!58, !57, !"_ZN102_$LT$wasmi..engine..translator..control_frame..UnreachableControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h32cfca60f841b223E: argument 1"}
+!59 = !{!60, !62}
+!60 = distinct !{!60, !61, !"_ZN72_$LT$wasmi_ir..primitive..BranchOffset16$u20$as$u20$core..fmt..Debug$GT$3fmt17h8de062a0ff351388E: argument 0"}
+!61 = distinct !{!61, !"_ZN72_$LT$wasmi_ir..primitive..BranchOffset16$u20$as$u20$core..fmt..Debug$GT$3fmt17h8de062a0ff351388E"}
+!62 = distinct !{!62, !61, !"_ZN72_$LT$wasmi_ir..primitive..BranchOffset16$u20$as$u20$core..fmt..Debug$GT$3fmt17h8de062a0ff351388E: argument 1"}
+!63 = !{!64, !66}
+!64 = distinct !{!64, !65, !"_ZN59_$LT$wasmi_ir..index..Table$u20$as$u20$core..fmt..Debug$GT$3fmt17he2227e7305f083baE: argument 0"}
+!65 = distinct !{!65, !"_ZN59_$LT$wasmi_ir..index..Table$u20$as$u20$core..fmt..Debug$GT$3fmt17he2227e7305f083baE"}
+!66 = distinct !{!66, !65, !"_ZN59_$LT$wasmi_ir..index..Table$u20$as$u20$core..fmt..Debug$GT$3fmt17he2227e7305f083baE: argument 1"}
+!67 = !{!68, !70, !71, !73}
+!68 = distinct !{!68, !69, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E: argument 0"}
+!69 = distinct !{!69, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E"}
+!70 = distinct !{!70, !69, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E: argument 1"}
+!71 = distinct !{!71, !72, !"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h0e5468c0c946d175E: argument 0"}
+!72 = distinct !{!72, !"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h0e5468c0c946d175E"}
+!73 = distinct !{!73, !72, !"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h0e5468c0c946d175E: argument 1"}
+!74 = !{!68, !71}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17h366d06e39c3ac79bE: argument 0"}
+!77 = distinct !{!77, !"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17h366d06e39c3ac79bE"}
+!78 = !{i32 0, i32 4}
+!79 = !{!80}
+!80 = distinct !{!80, !77, !"_ZN79_$LT$wasmparser..readers..core..types..HeapType$u20$as$u20$core..fmt..Debug$GT$3fmt17h366d06e39c3ac79bE: argument 1"}
+!81 = !{!76, !80}
+!82 = !{!83, !85}
+!83 = distinct !{!83, !84, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h723c81cd7a23e2bfE: argument 0"}
+!84 = distinct !{!84, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h723c81cd7a23e2bfE"}
+!85 = distinct !{!85, !84, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h723c81cd7a23e2bfE: argument 1"}
+!86 = !{!87, !89}
+!87 = distinct !{!87, !88, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6312288e927cde83E: argument 0"}
+!88 = distinct !{!88, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6312288e927cde83E"}
+!89 = distinct !{!89, !88, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h6312288e927cde83E: argument 1"}
+!90 = !{!91, !93}
+!91 = distinct !{!91, !92, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfb036b6df6fd2628E: argument 0"}
+!92 = distinct !{!92, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfb036b6df6fd2628E"}
+!93 = distinct !{!93, !92, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfb036b6df6fd2628E: argument 1"}
+!94 = !{!95, !97}
+!95 = distinct !{!95, !96, !"_ZN67_$LT$wasmi_ir..span..BoundedRegSpan$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5e090fece19cdfaE: argument 0"}
+!96 = distinct !{!96, !"_ZN67_$LT$wasmi_ir..span..BoundedRegSpan$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5e090fece19cdfaE"}
+!97 = distinct !{!97, !96, !"_ZN67_$LT$wasmi_ir..span..BoundedRegSpan$u20$as$u20$core..fmt..Debug$GT$3fmt17hc5e090fece19cdfaE: argument 1"}
+!98 = !{!99, !101}
+!99 = distinct !{!99, !100, !"_ZN81_$LT$wasmparser..readers..core..operators..Ieee64$u20$as$u20$core..fmt..Debug$GT$3fmt17h3db0e4e34aa2584aE: argument 0"}
+!100 = distinct !{!100, !"_ZN81_$LT$wasmparser..readers..core..operators..Ieee64$u20$as$u20$core..fmt..Debug$GT$3fmt17h3db0e4e34aa2584aE"}
+!101 = distinct !{!101, !100, !"_ZN81_$LT$wasmparser..readers..core..operators..Ieee64$u20$as$u20$core..fmt..Debug$GT$3fmt17h3db0e4e34aa2584aE: argument 1"}
+!102 = !{!103, !105}
+!103 = distinct !{!103, !104, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he633d4f19e0631e7E: argument 0"}
+!104 = distinct !{!104, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he633d4f19e0631e7E"}
+!105 = distinct !{!105, !104, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17he633d4f19e0631e7E: argument 1"}
+!106 = !{!107, !109}
+!107 = distinct !{!107, !108, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf7be066381cd16d0E: argument 0"}
+!108 = distinct !{!108, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf7be066381cd16d0E"}
+!109 = distinct !{!109, !108, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf7be066381cd16d0E: argument 1"}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E: argument 0"}
+!112 = distinct !{!112, !"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E"}
+!113 = !{i8 0, i8 6}
+!114 = !{!115}
+!115 = distinct !{!115, !112, !"_ZN78_$LT$wasmparser..readers..core..types..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17h48c87ea2ab9d1580E: argument 1"}
+!116 = !{!111, !115}
+!117 = !{!118, !120}
+!118 = distinct !{!118, !119, !"_ZN79_$LT$wasmparser..readers..core..operators..V128$u20$as$u20$core..fmt..Debug$GT$3fmt17hb756a0b82ca2f493E: argument 0"}
+!119 = distinct !{!119, !"_ZN79_$LT$wasmparser..readers..core..operators..V128$u20$as$u20$core..fmt..Debug$GT$3fmt17hb756a0b82ca2f493E"}
+!120 = distinct !{!120, !119, !"_ZN79_$LT$wasmparser..readers..core..operators..V128$u20$as$u20$core..fmt..Debug$GT$3fmt17hb756a0b82ca2f493E: argument 1"}
+!121 = !{!122, !124}
+!122 = distinct !{!122, !123, !"_ZN67_$LT$wasmi_ir..primitive..BlockFuel$u20$as$u20$core..fmt..Debug$GT$3fmt17he4e9c44e634ea779E: argument 0"}
+!123 = distinct !{!123, !"_ZN67_$LT$wasmi_ir..primitive..BlockFuel$u20$as$u20$core..fmt..Debug$GT$3fmt17he4e9c44e634ea779E"}
+!124 = distinct !{!124, !123, !"_ZN67_$LT$wasmi_ir..primitive..BlockFuel$u20$as$u20$core..fmt..Debug$GT$3fmt17he4e9c44e634ea779E: argument 1"}
+!125 = !{!126, !128}
+!126 = distinct !{!126, !127, !"_ZN70_$LT$wasmi_ir..primitive..BranchOffset$u20$as$u20$core..fmt..Debug$GT$3fmt17h6364db865a959963E: argument 0"}
+!127 = distinct !{!127, !"_ZN70_$LT$wasmi_ir..primitive..BranchOffset$u20$as$u20$core..fmt..Debug$GT$3fmt17h6364db865a959963E"}
+!128 = distinct !{!128, !127, !"_ZN70_$LT$wasmi_ir..primitive..BranchOffset$u20$as$u20$core..fmt..Debug$GT$3fmt17h6364db865a959963E: argument 1"}
+!129 = !{!130, !132}
+!130 = distinct !{!130, !131, !"_ZN60_$LT$wasmi_ir..index..Memory$u20$as$u20$core..fmt..Debug$GT$3fmt17h92071693d7a5a0e8E: argument 0"}
+!131 = distinct !{!131, !"_ZN60_$LT$wasmi_ir..index..Memory$u20$as$u20$core..fmt..Debug$GT$3fmt17h92071693d7a5a0e8E"}
+!132 = distinct !{!132, !131, !"_ZN60_$LT$wasmi_ir..index..Memory$u20$as$u20$core..fmt..Debug$GT$3fmt17h92071693d7a5a0e8E: argument 1"}
+!133 = !{!134, !136}
+!134 = distinct !{!134, !135, !"_ZN68_$LT$wasmi_ir..primitive..Offset64Lo$u20$as$u20$core..fmt..Debug$GT$3fmt17h07a58345c752a82dE: argument 0"}
+!135 = distinct !{!135, !"_ZN68_$LT$wasmi_ir..primitive..Offset64Lo$u20$as$u20$core..fmt..Debug$GT$3fmt17h07a58345c752a82dE"}
+!136 = distinct !{!136, !135, !"_ZN68_$LT$wasmi_ir..primitive..Offset64Lo$u20$as$u20$core..fmt..Debug$GT$3fmt17h07a58345c752a82dE: argument 1"}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E: argument 0"}
+!139 = distinct !{!139, !"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E"}
+!140 = !{i32 0, i32 9}
+!141 = !{!142}
+!142 = distinct !{!142, !139, !"_ZN87_$LT$wasmi..engine..limits..engine..EnforcedLimitsError$u20$as$u20$core..fmt..Debug$GT$3fmt17hed101457aaff54a6E: argument 1"}
+!143 = !{!138, !142}
+!144 = !{!145, !147}
+!145 = distinct !{!145, !146, !"_ZN66_$LT$wasmi_ir..primitive..Offset16$u20$as$u20$core..fmt..Debug$GT$3fmt17h105964521569d9edE: argument 0"}
+!146 = distinct !{!146, !"_ZN66_$LT$wasmi_ir..primitive..Offset16$u20$as$u20$core..fmt..Debug$GT$3fmt17h105964521569d9edE"}
+!147 = distinct !{!147, !146, !"_ZN66_$LT$wasmi_ir..primitive..Offset16$u20$as$u20$core..fmt..Debug$GT$3fmt17h105964521569d9edE: argument 1"}
+!148 = !{!149, !151}
+!149 = distinct !{!149, !150, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h177f3aab83116cd4E: argument 0"}
+!150 = distinct !{!150, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h177f3aab83116cd4E"}
+!151 = distinct !{!151, !150, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h177f3aab83116cd4E: argument 1"}
+!152 = !{!153, !155}
+!153 = distinct !{!153, !154, !"_ZN67_$LT$wasmi_ir..primitive..Address32$u20$as$u20$core..fmt..Debug$GT$3fmt17h4393796c2afb691dE: argument 0"}
+!154 = distinct !{!154, !"_ZN67_$LT$wasmi_ir..primitive..Address32$u20$as$u20$core..fmt..Debug$GT$3fmt17h4393796c2afb691dE"}
+!155 = distinct !{!155, !154, !"_ZN67_$LT$wasmi_ir..primitive..Address32$u20$as$u20$core..fmt..Debug$GT$3fmt17h4393796c2afb691dE: argument 1"}
+!156 = !{!157, !159}
+!157 = distinct !{!157, !158, !"_ZN58_$LT$wasmi_ir..index..Data$u20$as$u20$core..fmt..Debug$GT$3fmt17h3287bd20b401aefbE: argument 0"}
+!158 = distinct !{!158, !"_ZN58_$LT$wasmi_ir..index..Data$u20$as$u20$core..fmt..Debug$GT$3fmt17h3287bd20b401aefbE"}
+!159 = distinct !{!159, !158, !"_ZN58_$LT$wasmi_ir..index..Data$u20$as$u20$core..fmt..Debug$GT$3fmt17h3287bd20b401aefbE: argument 1"}
+!160 = !{!161, !163}
+!161 = distinct !{!161, !162, !"_ZN71_$LT$wasmi_ir..primitive..Sign$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0f27d042cc6b0d0dE: argument 0"}
+!162 = distinct !{!162, !"_ZN71_$LT$wasmi_ir..primitive..Sign$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0f27d042cc6b0d0dE"}
+!163 = distinct !{!163, !162, !"_ZN71_$LT$wasmi_ir..primitive..Sign$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h0f27d042cc6b0d0dE: argument 1"}
+!164 = !{!165, !167}
+!165 = distinct !{!165, !166, !"_ZN68_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$core..fmt..Debug$GT$3fmt17h6973ce13840f724aE: argument 0"}
+!166 = distinct !{!166, !"_ZN68_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$core..fmt..Debug$GT$3fmt17h6973ce13840f724aE"}
+!167 = distinct !{!167, !166, !"_ZN68_$LT$wasmi_core..untyped..UntypedVal$u20$as$u20$core..fmt..Debug$GT$3fmt17h6973ce13840f724aE: argument 1"}
+!168 = !{!169, !171}
+!169 = distinct !{!169, !170, !"_ZN86_$LT$wasmparser..readers..core..operators..ResumeTable$u20$as$u20$core..fmt..Debug$GT$3fmt17h02dfb2f031ed10ccE: argument 0"}
+!170 = distinct !{!170, !"_ZN86_$LT$wasmparser..readers..core..operators..ResumeTable$u20$as$u20$core..fmt..Debug$GT$3fmt17h02dfb2f031ed10ccE"}
+!171 = distinct !{!171, !170, !"_ZN86_$LT$wasmparser..readers..core..operators..ResumeTable$u20$as$u20$core..fmt..Debug$GT$3fmt17h02dfb2f031ed10ccE: argument 1"}
+!172 = !{!173}
+!173 = distinct !{!173, !174, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hff0e5abe7095ec83E: argument 0"}
+!174 = distinct !{!174, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hff0e5abe7095ec83E"}
+!175 = !{i32 0, i32 2}
+!176 = !{!177}
+!177 = distinct !{!177, !174, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hff0e5abe7095ec83E: argument 1"}
+!178 = !{!173, !177}
+!179 = !{!180, !182}
+!180 = distinct !{!180, !181, !"_ZN80_$LT$wasmi..engine..translator..labels..LabelRef$u20$as$u20$core..fmt..Debug$GT$3fmt17h0aeb66a231ec5ea0E: argument 0"}
+!181 = distinct !{!181, !"_ZN80_$LT$wasmi..engine..translator..labels..LabelRef$u20$as$u20$core..fmt..Debug$GT$3fmt17h0aeb66a231ec5ea0E"}
+!182 = distinct !{!182, !181, !"_ZN80_$LT$wasmi..engine..translator..labels..LabelRef$u20$as$u20$core..fmt..Debug$GT$3fmt17h0aeb66a231ec5ea0E: argument 1"}
+!183 = !{!184, !186}
+!184 = distinct !{!184, !185, !"_ZN81_$LT$wasmi..engine..translator..labels..LabelUser$u20$as$u20$core..fmt..Debug$GT$3fmt17hc73cb6ad97474fccE: argument 0"}
+!185 = distinct !{!185, !"_ZN81_$LT$wasmi..engine..translator..labels..LabelUser$u20$as$u20$core..fmt..Debug$GT$3fmt17hc73cb6ad97474fccE"}
+!186 = distinct !{!186, !185, !"_ZN81_$LT$wasmi..engine..translator..labels..LabelUser$u20$as$u20$core..fmt..Debug$GT$3fmt17hc73cb6ad97474fccE: argument 1"}
+!187 = !{i32 1, i32 0}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZN73_$LT$core..num..nonzero..NonZero$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h89bf1109bec4e2f3E: argument 0"}
+!190 = distinct !{!190, !"_ZN73_$LT$core..num..nonzero..NonZero$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h89bf1109bec4e2f3E"}
+!191 = !{!192, !189}
+!192 = distinct !{!192, !193, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17hb70e344456d14689E: argument 1"}
+!193 = distinct !{!193, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17hb70e344456d14689E"}
+!194 = !{!195}
+!195 = distinct !{!195, !193, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17hb70e344456d14689E: argument 0"}
+!196 = !{!197}
+!197 = distinct !{!197, !198, !"_ZN80_$LT$wasmparser..readers..core..operators..Catch$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb8f6170f4344335E: argument 0"}
+!198 = distinct !{!198, !"_ZN80_$LT$wasmparser..readers..core..operators..Catch$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb8f6170f4344335E"}
 !199 = !{!200}
-!200 = distinct !{!200, !198, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u32$GT$3fmt17hb70e344456d14689E: argument 0"}
-!201 = !{!202}
-!202 = distinct !{!202, !203, !"_ZN80_$LT$wasmparser..readers..core..operators..Catch$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb8f6170f4344335E: argument 0"}
-!203 = distinct !{!203, !"_ZN80_$LT$wasmparser..readers..core..operators..Catch$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb8f6170f4344335E"}
-!204 = !{!205}
-!205 = distinct !{!205, !203, !"_ZN80_$LT$wasmparser..readers..core..operators..Catch$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb8f6170f4344335E: argument 1"}
-!206 = !{!202, !205}
-!207 = !{!208, !210, !211, !213}
-!208 = distinct !{!208, !209, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E: argument 0"}
-!209 = distinct !{!209, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E"}
-!210 = distinct !{!210, !209, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E: argument 1"}
-!211 = distinct !{!211, !212, !"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h7d13ca2d7b9abff7E: argument 0"}
-!212 = distinct !{!212, !"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h7d13ca2d7b9abff7E"}
-!213 = distinct !{!213, !212, !"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h7d13ca2d7b9abff7E: argument 1"}
-!214 = !{!208, !211}
-!215 = !{!216, !218}
-!216 = distinct !{!216, !217, !"_ZN58_$LT$wasmi_ir..index..Elem$u20$as$u20$core..fmt..Debug$GT$3fmt17h676f4f6002f599f2E: argument 0"}
-!217 = distinct !{!217, !"_ZN58_$LT$wasmi_ir..index..Elem$u20$as$u20$core..fmt..Debug$GT$3fmt17h676f4f6002f599f2E"}
-!218 = distinct !{!218, !217, !"_ZN58_$LT$wasmi_ir..index..Elem$u20$as$u20$core..fmt..Debug$GT$3fmt17h676f4f6002f599f2E: argument 1"}
-!219 = !{!220, !222}
-!220 = distinct !{!220, !221, !"_ZN62_$LT$wasmi_ir..index..FuncType$u20$as$u20$core..fmt..Debug$GT$3fmt17h29d24040d5d80e9aE: argument 0"}
-!221 = distinct !{!221, !"_ZN62_$LT$wasmi_ir..index..FuncType$u20$as$u20$core..fmt..Debug$GT$3fmt17h29d24040d5d80e9aE"}
-!222 = distinct !{!222, !221, !"_ZN62_$LT$wasmi_ir..index..FuncType$u20$as$u20$core..fmt..Debug$GT$3fmt17h29d24040d5d80e9aE: argument 1"}
-!223 = !{!224, !226}
-!224 = distinct !{!224, !225, !"_ZN60_$LT$wasmi_ir..index..Global$u20$as$u20$core..fmt..Debug$GT$3fmt17h5859340b8c62d1e5E: argument 0"}
-!225 = distinct !{!225, !"_ZN60_$LT$wasmi_ir..index..Global$u20$as$u20$core..fmt..Debug$GT$3fmt17h5859340b8c62d1e5E"}
-!226 = distinct !{!226, !225, !"_ZN60_$LT$wasmi_ir..index..Global$u20$as$u20$core..fmt..Debug$GT$3fmt17h5859340b8c62d1e5E: argument 1"}
-!227 = !{!228}
-!228 = distinct !{!228, !229, !"_ZN91_$LT$wasmi..engine..translator..control_frame..ControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h78b99b687d01f754E: argument 0"}
-!229 = distinct !{!229, !"_ZN91_$LT$wasmi..engine..translator..control_frame..ControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h78b99b687d01f754E"}
-!230 = !{i32 0, i32 6}
-!231 = !{!232}
-!232 = distinct !{!232, !229, !"_ZN91_$LT$wasmi..engine..translator..control_frame..ControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h78b99b687d01f754E: argument 1"}
-!233 = !{!228, !232}
-!234 = !{!235}
-!235 = distinct !{!235, !236, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f5b7327e46f9166E: argument 0"}
-!236 = distinct !{!236, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f5b7327e46f9166E"}
-!237 = !{i64 0, i64 -9223372036854775807}
-!238 = !{!239}
-!239 = distinct !{!239, !236, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f5b7327e46f9166E: argument 1"}
-!240 = !{!235, !239}
-!241 = !{!242, !244}
-!242 = distinct !{!242, !243, !"_ZN76_$LT$wasmi_core..memory..ty..MemoryTypeInner$u20$as$u20$core..fmt..Debug$GT$3fmt17hb283ca9ec6b23da5E: argument 0"}
-!243 = distinct !{!243, !"_ZN76_$LT$wasmi_core..memory..ty..MemoryTypeInner$u20$as$u20$core..fmt..Debug$GT$3fmt17hb283ca9ec6b23da5E"}
-!244 = distinct !{!244, !243, !"_ZN76_$LT$wasmi_core..memory..ty..MemoryTypeInner$u20$as$u20$core..fmt..Debug$GT$3fmt17hb283ca9ec6b23da5E: argument 1"}
-!245 = !{!246, !248}
-!246 = distinct !{!246, !247, !"_ZN66_$LT$wasmi_ir..index..InternalFunc$u20$as$u20$core..fmt..Debug$GT$3fmt17h2470e724f07b97d3E: argument 0"}
-!247 = distinct !{!247, !"_ZN66_$LT$wasmi_ir..index..InternalFunc$u20$as$u20$core..fmt..Debug$GT$3fmt17h2470e724f07b97d3E"}
-!248 = distinct !{!248, !247, !"_ZN66_$LT$wasmi_ir..index..InternalFunc$u20$as$u20$core..fmt..Debug$GT$3fmt17h2470e724f07b97d3E: argument 1"}
-!249 = !{!250}
-!250 = distinct !{!250, !251, !"_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h37ab53749af90271E: argument 0"}
-!251 = distinct !{!251, !"_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h37ab53749af90271E"}
-!252 = !{!253, !250}
-!253 = distinct !{!253, !254, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E: argument 1"}
-!254 = distinct !{!254, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E"}
-!255 = !{!256}
-!256 = distinct !{!256, !254, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E: argument 0"}
-!257 = !{!258, !260}
-!258 = distinct !{!258, !259, !"_ZN83_$LT$wasmparser..readers..core..operators..TryTable$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc92cfe63d64b3d0E: argument 0"}
-!259 = distinct !{!259, !"_ZN83_$LT$wasmparser..readers..core..operators..TryTable$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc92cfe63d64b3d0E"}
-!260 = distinct !{!260, !259, !"_ZN83_$LT$wasmparser..readers..core..operators..TryTable$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc92cfe63d64b3d0E: argument 1"}
-!261 = !{!262, !264}
-!262 = distinct !{!262, !263, !"_ZN88_$LT$wasmi..engine..translator..stack..locals..LocalRefs$u20$as$u20$core..fmt..Debug$GT$3fmt17hb4d880818918b711E: argument 0"}
-!263 = distinct !{!263, !"_ZN88_$LT$wasmi..engine..translator..stack..locals..LocalRefs$u20$as$u20$core..fmt..Debug$GT$3fmt17hb4d880818918b711E"}
-!264 = distinct !{!264, !263, !"_ZN88_$LT$wasmi..engine..translator..stack..locals..LocalRefs$u20$as$u20$core..fmt..Debug$GT$3fmt17hb4d880818918b711E: argument 1"}
-!265 = !{!266, !268}
-!266 = distinct !{!266, !267, !"_ZN57_$LT$wasmi_ir..index..Reg$u20$as$u20$core..fmt..Debug$GT$3fmt17h89708ff4de07a3e4E: argument 0"}
-!267 = distinct !{!267, !"_ZN57_$LT$wasmi_ir..index..Reg$u20$as$u20$core..fmt..Debug$GT$3fmt17h89708ff4de07a3e4E"}
-!268 = distinct !{!268, !267, !"_ZN57_$LT$wasmi_ir..index..Reg$u20$as$u20$core..fmt..Debug$GT$3fmt17h89708ff4de07a3e4E: argument 1"}
-!269 = !{!270, !272}
-!270 = distinct !{!270, !271, !"_ZN81_$LT$wasmparser..readers..core..operators..MemArg$u20$as$u20$core..fmt..Debug$GT$3fmt17h051b70d11ab4baf5E: argument 0"}
-!271 = distinct !{!271, !"_ZN81_$LT$wasmparser..readers..core..operators..MemArg$u20$as$u20$core..fmt..Debug$GT$3fmt17h051b70d11ab4baf5E"}
-!272 = distinct !{!272, !271, !"_ZN81_$LT$wasmparser..readers..core..operators..MemArg$u20$as$u20$core..fmt..Debug$GT$3fmt17h051b70d11ab4baf5E: argument 1"}
-!273 = !{!274}
-!274 = distinct !{!274, !275, !"_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h137b4170cba3fb38E: argument 0"}
-!275 = distinct !{!275, !"_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h137b4170cba3fb38E"}
-!276 = !{!277, !274}
-!277 = distinct !{!277, !278, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i64$GT$3fmt17h82ab651bb8609ec2E: argument 1"}
-!278 = distinct !{!278, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i64$GT$3fmt17h82ab651bb8609ec2E"}
-!279 = !{!280}
-!280 = distinct !{!280, !278, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i64$GT$3fmt17h82ab651bb8609ec2E: argument 0"}
-!281 = !{!282}
-!282 = distinct !{!282, !283, !"_ZN84_$LT$wasmparser..readers..core..types..UnpackedIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17h358704a9363b3d14E: argument 0"}
-!283 = distinct !{!283, !"_ZN84_$LT$wasmparser..readers..core..types..UnpackedIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17h358704a9363b3d14E"}
-!284 = !{i32 0, i32 3}
-!285 = !{!286}
-!286 = distinct !{!286, !283, !"_ZN84_$LT$wasmparser..readers..core..types..UnpackedIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17h358704a9363b3d14E: argument 1"}
-!287 = !{!282, !286}
-!288 = !{!289, !291}
-!289 = distinct !{!289, !290, !"_ZN84_$LT$wasmi..engine..translator..instr_encoder..Instr$u20$as$u20$core..fmt..Debug$GT$3fmt17h1072a9273d960661E: argument 0"}
-!290 = distinct !{!290, !"_ZN84_$LT$wasmi..engine..translator..instr_encoder..Instr$u20$as$u20$core..fmt..Debug$GT$3fmt17h1072a9273d960661E"}
-!291 = distinct !{!291, !290, !"_ZN84_$LT$wasmi..engine..translator..instr_encoder..Instr$u20$as$u20$core..fmt..Debug$GT$3fmt17h1072a9273d960661E: argument 1"}
-!292 = !{!293}
-!293 = distinct !{!293, !294, !"_ZN77_$LT$wasmi..engine..translator..labels..Label$u20$as$u20$core..fmt..Debug$GT$3fmt17h12011b9f38fbde73E: argument 0"}
-!294 = distinct !{!294, !"_ZN77_$LT$wasmi..engine..translator..labels..Label$u20$as$u20$core..fmt..Debug$GT$3fmt17h12011b9f38fbde73E"}
-!295 = !{!296}
-!296 = distinct !{!296, !294, !"_ZN77_$LT$wasmi..engine..translator..labels..Label$u20$as$u20$core..fmt..Debug$GT$3fmt17h12011b9f38fbde73E: argument 1"}
-!297 = !{!293, !296}
-!298 = !{!299}
-!299 = distinct !{!299, !300, !"_ZN69_$LT$wasmi..module..export..ExternIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h27e67e65c391c6c7E: argument 0"}
-!300 = distinct !{!300, !"_ZN69_$LT$wasmi..module..export..ExternIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h27e67e65c391c6c7E"}
-!301 = !{!302}
-!302 = distinct !{!302, !300, !"_ZN69_$LT$wasmi..module..export..ExternIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h27e67e65c391c6c7E: argument 1"}
-!303 = !{!299, !302}
-!304 = !{i8 0, i8 2}
-!305 = !{!306}
-!306 = distinct !{!306, !307, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9ddec7c2b9691dfE: argument 0"}
-!307 = distinct !{!307, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9ddec7c2b9691dfE"}
-!308 = !{i64 0, i64 2}
-!309 = !{!310}
-!310 = distinct !{!310, !307, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9ddec7c2b9691dfE: argument 1"}
-!311 = !{!306, !310}
-!312 = !{!313, !315}
-!313 = distinct !{!313, !314, !"_ZN68_$LT$wasmi..module..export..TableIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h5873496db91c0793E: argument 0"}
-!314 = distinct !{!314, !"_ZN68_$LT$wasmi..module..export..TableIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h5873496db91c0793E"}
-!315 = distinct !{!315, !314, !"_ZN68_$LT$wasmi..module..export..TableIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h5873496db91c0793E: argument 1"}
-!316 = !{!317, !319}
-!317 = distinct !{!317, !318, !"_ZN95_$LT$wasmi..engine..translator..control_frame..LoopControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8601f1a417c667cE: argument 0"}
-!318 = distinct !{!318, !"_ZN95_$LT$wasmi..engine..translator..control_frame..LoopControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8601f1a417c667cE"}
-!319 = distinct !{!319, !318, !"_ZN95_$LT$wasmi..engine..translator..control_frame..LoopControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8601f1a417c667cE: argument 1"}
-!320 = !{!321, !323}
-!321 = distinct !{!321, !322, !"_ZN94_$LT$wasmi..engine..translator..stack..consts..FuncLocalConsts$u20$as$u20$core..fmt..Debug$GT$3fmt17hb55f37536e4fdd45E: argument 0"}
-!322 = distinct !{!322, !"_ZN94_$LT$wasmi..engine..translator..stack..consts..FuncLocalConsts$u20$as$u20$core..fmt..Debug$GT$3fmt17hb55f37536e4fdd45E"}
-!323 = distinct !{!323, !322, !"_ZN94_$LT$wasmi..engine..translator..stack..consts..FuncLocalConsts$u20$as$u20$core..fmt..Debug$GT$3fmt17hb55f37536e4fdd45E: argument 1"}
-!324 = !{!325, !327}
-!325 = distinct !{!325, !326, !"_ZN60_$LT$wasmi_ir..span..RegSpan$u20$as$u20$core..fmt..Debug$GT$3fmt17hed1ea48084d797cfE: argument 0"}
-!326 = distinct !{!326, !"_ZN60_$LT$wasmi_ir..span..RegSpan$u20$as$u20$core..fmt..Debug$GT$3fmt17hed1ea48084d797cfE"}
-!327 = distinct !{!327, !326, !"_ZN60_$LT$wasmi_ir..span..RegSpan$u20$as$u20$core..fmt..Debug$GT$3fmt17hed1ea48084d797cfE: argument 1"}
-!328 = !{!329}
-!329 = distinct !{!329, !330, !"_ZN81_$LT$wasmparser..readers..core..operators..Handle$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2ccfe776a756855E: argument 0"}
-!330 = distinct !{!330, !"_ZN81_$LT$wasmparser..readers..core..operators..Handle$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2ccfe776a756855E"}
-!331 = !{!332}
-!332 = distinct !{!332, !330, !"_ZN81_$LT$wasmparser..readers..core..operators..Handle$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2ccfe776a756855E: argument 1"}
-!333 = !{!329, !332}
-!334 = !{!335, !337}
-!335 = distinct !{!335, !336, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf17bd7b55a8f521cE: argument 0"}
-!336 = distinct !{!336, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf17bd7b55a8f521cE"}
-!337 = distinct !{!337, !336, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf17bd7b55a8f521cE: argument 1"}
-!338 = !{!339, !341}
-!339 = distinct !{!339, !340, !"_ZN69_$LT$wasmi..module..export..MemoryIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h6e30673a144fab73E: argument 0"}
-!340 = distinct !{!340, !"_ZN69_$LT$wasmi..module..export..MemoryIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h6e30673a144fab73E"}
-!341 = distinct !{!341, !340, !"_ZN69_$LT$wasmi..module..export..MemoryIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h6e30673a144fab73E: argument 1"}
-!342 = !{!343, !345}
-!343 = distinct !{!343, !344, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h204fe300b06b8be4E: argument 0"}
-!344 = distinct !{!344, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h204fe300b06b8be4E"}
-!345 = distinct !{!345, !344, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h204fe300b06b8be4E: argument 1"}
-!346 = !{!347, !349}
-!347 = distinct !{!347, !348, !"_ZN71_$LT$wasmi_ir..primitive..Sign$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h948528c9ea87d77aE: argument 0"}
-!348 = distinct !{!348, !"_ZN71_$LT$wasmi_ir..primitive..Sign$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h948528c9ea87d77aE"}
-!349 = distinct !{!349, !348, !"_ZN71_$LT$wasmi_ir..primitive..Sign$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h948528c9ea87d77aE: argument 1"}
-!350 = !{!351, !353}
-!351 = distinct !{!351, !352, !"_ZN67_$LT$wasmi..module..export..FuncIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cd8175757cb48cE: argument 0"}
-!352 = distinct !{!352, !"_ZN67_$LT$wasmi..module..export..FuncIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cd8175757cb48cE"}
-!353 = distinct !{!353, !352, !"_ZN67_$LT$wasmi..module..export..FuncIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cd8175757cb48cE: argument 1"}
-!354 = !{!355, !357}
-!355 = distinct !{!355, !356, !"_ZN81_$LT$wasmi..module..element..ActiveElementSegment$u20$as$u20$core..fmt..Debug$GT$3fmt17ha7e4a221825675aeE: argument 0"}
-!356 = distinct !{!356, !"_ZN81_$LT$wasmi..module..element..ActiveElementSegment$u20$as$u20$core..fmt..Debug$GT$3fmt17ha7e4a221825675aeE"}
-!357 = distinct !{!357, !356, !"_ZN81_$LT$wasmi..module..element..ActiveElementSegment$u20$as$u20$core..fmt..Debug$GT$3fmt17ha7e4a221825675aeE: argument 1"}
-!358 = !{i8 0, i8 11}
-!359 = !{!360}
-!360 = distinct !{!360, !361, !"_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hecee885ebe8fb815E: argument 0"}
-!361 = distinct !{!361, !"_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hecee885ebe8fb815E"}
-!362 = !{!363, !365}
-!363 = distinct !{!363, !364, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f3d1b4ee186ffabE: argument 0"}
-!364 = distinct !{!364, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f3d1b4ee186ffabE"}
-!365 = distinct !{!365, !364, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f3d1b4ee186ffabE: argument 1"}
-!366 = !{!367, !369}
-!367 = distinct !{!367, !368, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h75594b74811d879cE: argument 0"}
-!368 = distinct !{!368, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h75594b74811d879cE"}
-!369 = distinct !{!369, !368, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h75594b74811d879cE: argument 1"}
-!370 = !{!371, !373}
-!371 = distinct !{!371, !372, !"_ZN71_$LT$wasmi_core..memory..ty..MemoryType$u20$as$u20$core..fmt..Debug$GT$3fmt17hedcbc3564511b291E: argument 0"}
-!372 = distinct !{!372, !"_ZN71_$LT$wasmi_core..memory..ty..MemoryType$u20$as$u20$core..fmt..Debug$GT$3fmt17hedcbc3564511b291E"}
-!373 = distinct !{!373, !372, !"_ZN71_$LT$wasmi_core..memory..ty..MemoryType$u20$as$u20$core..fmt..Debug$GT$3fmt17hedcbc3564511b291E: argument 1"}
+!200 = distinct !{!200, !198, !"_ZN80_$LT$wasmparser..readers..core..operators..Catch$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb8f6170f4344335E: argument 1"}
+!201 = !{!197, !200}
+!202 = !{!203, !205, !206, !208}
+!203 = distinct !{!203, !204, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E: argument 0"}
+!204 = distinct !{!204, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E"}
+!205 = distinct !{!205, !204, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E: argument 1"}
+!206 = distinct !{!206, !207, !"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h7d13ca2d7b9abff7E: argument 0"}
+!207 = distinct !{!207, !"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h7d13ca2d7b9abff7E"}
+!208 = distinct !{!208, !207, !"_ZN4core5array69_$LT$impl$u20$core..fmt..Debug$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$3fmt17h7d13ca2d7b9abff7E: argument 1"}
+!209 = !{!203, !206}
+!210 = !{!211, !213}
+!211 = distinct !{!211, !212, !"_ZN58_$LT$wasmi_ir..index..Elem$u20$as$u20$core..fmt..Debug$GT$3fmt17h676f4f6002f599f2E: argument 0"}
+!212 = distinct !{!212, !"_ZN58_$LT$wasmi_ir..index..Elem$u20$as$u20$core..fmt..Debug$GT$3fmt17h676f4f6002f599f2E"}
+!213 = distinct !{!213, !212, !"_ZN58_$LT$wasmi_ir..index..Elem$u20$as$u20$core..fmt..Debug$GT$3fmt17h676f4f6002f599f2E: argument 1"}
+!214 = !{!215, !217}
+!215 = distinct !{!215, !216, !"_ZN62_$LT$wasmi_ir..index..FuncType$u20$as$u20$core..fmt..Debug$GT$3fmt17h29d24040d5d80e9aE: argument 0"}
+!216 = distinct !{!216, !"_ZN62_$LT$wasmi_ir..index..FuncType$u20$as$u20$core..fmt..Debug$GT$3fmt17h29d24040d5d80e9aE"}
+!217 = distinct !{!217, !216, !"_ZN62_$LT$wasmi_ir..index..FuncType$u20$as$u20$core..fmt..Debug$GT$3fmt17h29d24040d5d80e9aE: argument 1"}
+!218 = !{!219, !221}
+!219 = distinct !{!219, !220, !"_ZN60_$LT$wasmi_ir..index..Global$u20$as$u20$core..fmt..Debug$GT$3fmt17h5859340b8c62d1e5E: argument 0"}
+!220 = distinct !{!220, !"_ZN60_$LT$wasmi_ir..index..Global$u20$as$u20$core..fmt..Debug$GT$3fmt17h5859340b8c62d1e5E"}
+!221 = distinct !{!221, !220, !"_ZN60_$LT$wasmi_ir..index..Global$u20$as$u20$core..fmt..Debug$GT$3fmt17h5859340b8c62d1e5E: argument 1"}
+!222 = !{!223}
+!223 = distinct !{!223, !224, !"_ZN91_$LT$wasmi..engine..translator..control_frame..ControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h78b99b687d01f754E: argument 0"}
+!224 = distinct !{!224, !"_ZN91_$LT$wasmi..engine..translator..control_frame..ControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h78b99b687d01f754E"}
+!225 = !{i32 0, i32 6}
+!226 = !{!227}
+!227 = distinct !{!227, !224, !"_ZN91_$LT$wasmi..engine..translator..control_frame..ControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h78b99b687d01f754E: argument 1"}
+!228 = !{!223, !227}
+!229 = !{!230}
+!230 = distinct !{!230, !231, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f5b7327e46f9166E: argument 0"}
+!231 = distinct !{!231, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f5b7327e46f9166E"}
+!232 = !{i64 0, i64 -9223372036854775807}
+!233 = !{!234}
+!234 = distinct !{!234, !231, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h2f5b7327e46f9166E: argument 1"}
+!235 = !{!230, !234}
+!236 = !{!237, !239}
+!237 = distinct !{!237, !238, !"_ZN76_$LT$wasmi_core..memory..ty..MemoryTypeInner$u20$as$u20$core..fmt..Debug$GT$3fmt17hb283ca9ec6b23da5E: argument 0"}
+!238 = distinct !{!238, !"_ZN76_$LT$wasmi_core..memory..ty..MemoryTypeInner$u20$as$u20$core..fmt..Debug$GT$3fmt17hb283ca9ec6b23da5E"}
+!239 = distinct !{!239, !238, !"_ZN76_$LT$wasmi_core..memory..ty..MemoryTypeInner$u20$as$u20$core..fmt..Debug$GT$3fmt17hb283ca9ec6b23da5E: argument 1"}
+!240 = !{!241, !243}
+!241 = distinct !{!241, !242, !"_ZN66_$LT$wasmi_ir..index..InternalFunc$u20$as$u20$core..fmt..Debug$GT$3fmt17h2470e724f07b97d3E: argument 0"}
+!242 = distinct !{!242, !"_ZN66_$LT$wasmi_ir..index..InternalFunc$u20$as$u20$core..fmt..Debug$GT$3fmt17h2470e724f07b97d3E"}
+!243 = distinct !{!243, !242, !"_ZN66_$LT$wasmi_ir..index..InternalFunc$u20$as$u20$core..fmt..Debug$GT$3fmt17h2470e724f07b97d3E: argument 1"}
+!244 = !{!245}
+!245 = distinct !{!245, !246, !"_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h37ab53749af90271E: argument 0"}
+!246 = distinct !{!246, !"_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h37ab53749af90271E"}
+!247 = !{!248, !245}
+!248 = distinct !{!248, !249, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E: argument 1"}
+!249 = distinct !{!249, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E"}
+!250 = !{!251}
+!251 = distinct !{!251, !249, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u64$GT$3fmt17h4dca074e83c4d4a9E: argument 0"}
+!252 = !{!253, !255}
+!253 = distinct !{!253, !254, !"_ZN83_$LT$wasmparser..readers..core..operators..TryTable$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc92cfe63d64b3d0E: argument 0"}
+!254 = distinct !{!254, !"_ZN83_$LT$wasmparser..readers..core..operators..TryTable$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc92cfe63d64b3d0E"}
+!255 = distinct !{!255, !254, !"_ZN83_$LT$wasmparser..readers..core..operators..TryTable$u20$as$u20$core..fmt..Debug$GT$3fmt17hcc92cfe63d64b3d0E: argument 1"}
+!256 = !{!257, !259}
+!257 = distinct !{!257, !258, !"_ZN88_$LT$wasmi..engine..translator..stack..locals..LocalRefs$u20$as$u20$core..fmt..Debug$GT$3fmt17hb4d880818918b711E: argument 0"}
+!258 = distinct !{!258, !"_ZN88_$LT$wasmi..engine..translator..stack..locals..LocalRefs$u20$as$u20$core..fmt..Debug$GT$3fmt17hb4d880818918b711E"}
+!259 = distinct !{!259, !258, !"_ZN88_$LT$wasmi..engine..translator..stack..locals..LocalRefs$u20$as$u20$core..fmt..Debug$GT$3fmt17hb4d880818918b711E: argument 1"}
+!260 = !{!261, !263}
+!261 = distinct !{!261, !262, !"_ZN57_$LT$wasmi_ir..index..Reg$u20$as$u20$core..fmt..Debug$GT$3fmt17h89708ff4de07a3e4E: argument 0"}
+!262 = distinct !{!262, !"_ZN57_$LT$wasmi_ir..index..Reg$u20$as$u20$core..fmt..Debug$GT$3fmt17h89708ff4de07a3e4E"}
+!263 = distinct !{!263, !262, !"_ZN57_$LT$wasmi_ir..index..Reg$u20$as$u20$core..fmt..Debug$GT$3fmt17h89708ff4de07a3e4E: argument 1"}
+!264 = !{!265, !267}
+!265 = distinct !{!265, !266, !"_ZN81_$LT$wasmparser..readers..core..operators..MemArg$u20$as$u20$core..fmt..Debug$GT$3fmt17h051b70d11ab4baf5E: argument 0"}
+!266 = distinct !{!266, !"_ZN81_$LT$wasmparser..readers..core..operators..MemArg$u20$as$u20$core..fmt..Debug$GT$3fmt17h051b70d11ab4baf5E"}
+!267 = distinct !{!267, !266, !"_ZN81_$LT$wasmparser..readers..core..operators..MemArg$u20$as$u20$core..fmt..Debug$GT$3fmt17h051b70d11ab4baf5E: argument 1"}
+!268 = !{!269}
+!269 = distinct !{!269, !270, !"_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h137b4170cba3fb38E: argument 0"}
+!270 = distinct !{!270, !"_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h137b4170cba3fb38E"}
+!271 = !{!272, !269}
+!272 = distinct !{!272, !273, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i64$GT$3fmt17h82ab651bb8609ec2E: argument 1"}
+!273 = distinct !{!273, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i64$GT$3fmt17h82ab651bb8609ec2E"}
+!274 = !{!275}
+!275 = distinct !{!275, !273, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i64$GT$3fmt17h82ab651bb8609ec2E: argument 0"}
+!276 = !{!277}
+!277 = distinct !{!277, !278, !"_ZN84_$LT$wasmparser..readers..core..types..UnpackedIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17h358704a9363b3d14E: argument 0"}
+!278 = distinct !{!278, !"_ZN84_$LT$wasmparser..readers..core..types..UnpackedIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17h358704a9363b3d14E"}
+!279 = !{i32 0, i32 3}
+!280 = !{!281}
+!281 = distinct !{!281, !278, !"_ZN84_$LT$wasmparser..readers..core..types..UnpackedIndex$u20$as$u20$core..fmt..Debug$GT$3fmt17h358704a9363b3d14E: argument 1"}
+!282 = !{!277, !281}
+!283 = !{!284, !286}
+!284 = distinct !{!284, !285, !"_ZN84_$LT$wasmi..engine..translator..instr_encoder..Instr$u20$as$u20$core..fmt..Debug$GT$3fmt17h1072a9273d960661E: argument 0"}
+!285 = distinct !{!285, !"_ZN84_$LT$wasmi..engine..translator..instr_encoder..Instr$u20$as$u20$core..fmt..Debug$GT$3fmt17h1072a9273d960661E"}
+!286 = distinct !{!286, !285, !"_ZN84_$LT$wasmi..engine..translator..instr_encoder..Instr$u20$as$u20$core..fmt..Debug$GT$3fmt17h1072a9273d960661E: argument 1"}
+!287 = !{!288}
+!288 = distinct !{!288, !289, !"_ZN77_$LT$wasmi..engine..translator..labels..Label$u20$as$u20$core..fmt..Debug$GT$3fmt17h12011b9f38fbde73E: argument 0"}
+!289 = distinct !{!289, !"_ZN77_$LT$wasmi..engine..translator..labels..Label$u20$as$u20$core..fmt..Debug$GT$3fmt17h12011b9f38fbde73E"}
+!290 = !{!291}
+!291 = distinct !{!291, !289, !"_ZN77_$LT$wasmi..engine..translator..labels..Label$u20$as$u20$core..fmt..Debug$GT$3fmt17h12011b9f38fbde73E: argument 1"}
+!292 = !{!288, !291}
+!293 = !{!294}
+!294 = distinct !{!294, !295, !"_ZN69_$LT$wasmi..module..export..ExternIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h27e67e65c391c6c7E: argument 0"}
+!295 = distinct !{!295, !"_ZN69_$LT$wasmi..module..export..ExternIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h27e67e65c391c6c7E"}
+!296 = !{!297}
+!297 = distinct !{!297, !295, !"_ZN69_$LT$wasmi..module..export..ExternIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h27e67e65c391c6c7E: argument 1"}
+!298 = !{!294, !297}
+!299 = !{i8 0, i8 2}
+!300 = !{!301}
+!301 = distinct !{!301, !302, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9ddec7c2b9691dfE: argument 0"}
+!302 = distinct !{!302, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9ddec7c2b9691dfE"}
+!303 = !{i64 0, i64 2}
+!304 = !{!305}
+!305 = distinct !{!305, !302, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf9ddec7c2b9691dfE: argument 1"}
+!306 = !{!301, !305}
+!307 = !{!308, !310}
+!308 = distinct !{!308, !309, !"_ZN68_$LT$wasmi..module..export..TableIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h5873496db91c0793E: argument 0"}
+!309 = distinct !{!309, !"_ZN68_$LT$wasmi..module..export..TableIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h5873496db91c0793E"}
+!310 = distinct !{!310, !309, !"_ZN68_$LT$wasmi..module..export..TableIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h5873496db91c0793E: argument 1"}
+!311 = !{!312, !314}
+!312 = distinct !{!312, !313, !"_ZN95_$LT$wasmi..engine..translator..control_frame..LoopControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8601f1a417c667cE: argument 0"}
+!313 = distinct !{!313, !"_ZN95_$LT$wasmi..engine..translator..control_frame..LoopControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8601f1a417c667cE"}
+!314 = distinct !{!314, !313, !"_ZN95_$LT$wasmi..engine..translator..control_frame..LoopControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17hb8601f1a417c667cE: argument 1"}
+!315 = !{!316, !318}
+!316 = distinct !{!316, !317, !"_ZN94_$LT$wasmi..engine..translator..stack..consts..FuncLocalConsts$u20$as$u20$core..fmt..Debug$GT$3fmt17hb55f37536e4fdd45E: argument 0"}
+!317 = distinct !{!317, !"_ZN94_$LT$wasmi..engine..translator..stack..consts..FuncLocalConsts$u20$as$u20$core..fmt..Debug$GT$3fmt17hb55f37536e4fdd45E"}
+!318 = distinct !{!318, !317, !"_ZN94_$LT$wasmi..engine..translator..stack..consts..FuncLocalConsts$u20$as$u20$core..fmt..Debug$GT$3fmt17hb55f37536e4fdd45E: argument 1"}
+!319 = !{!320, !322}
+!320 = distinct !{!320, !321, !"_ZN60_$LT$wasmi_ir..span..RegSpan$u20$as$u20$core..fmt..Debug$GT$3fmt17hed1ea48084d797cfE: argument 0"}
+!321 = distinct !{!321, !"_ZN60_$LT$wasmi_ir..span..RegSpan$u20$as$u20$core..fmt..Debug$GT$3fmt17hed1ea48084d797cfE"}
+!322 = distinct !{!322, !321, !"_ZN60_$LT$wasmi_ir..span..RegSpan$u20$as$u20$core..fmt..Debug$GT$3fmt17hed1ea48084d797cfE: argument 1"}
+!323 = !{!324}
+!324 = distinct !{!324, !325, !"_ZN81_$LT$wasmparser..readers..core..operators..Handle$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2ccfe776a756855E: argument 0"}
+!325 = distinct !{!325, !"_ZN81_$LT$wasmparser..readers..core..operators..Handle$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2ccfe776a756855E"}
+!326 = !{!327}
+!327 = distinct !{!327, !325, !"_ZN81_$LT$wasmparser..readers..core..operators..Handle$u20$as$u20$core..fmt..Debug$GT$3fmt17hb2ccfe776a756855E: argument 1"}
+!328 = !{!324, !327}
+!329 = !{!330, !332}
+!330 = distinct !{!330, !331, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf17bd7b55a8f521cE: argument 0"}
+!331 = distinct !{!331, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf17bd7b55a8f521cE"}
+!332 = distinct !{!332, !331, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf17bd7b55a8f521cE: argument 1"}
+!333 = !{!334, !336}
+!334 = distinct !{!334, !335, !"_ZN69_$LT$wasmi..module..export..MemoryIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h6e30673a144fab73E: argument 0"}
+!335 = distinct !{!335, !"_ZN69_$LT$wasmi..module..export..MemoryIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h6e30673a144fab73E"}
+!336 = distinct !{!336, !335, !"_ZN69_$LT$wasmi..module..export..MemoryIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17h6e30673a144fab73E: argument 1"}
+!337 = !{!338, !340}
+!338 = distinct !{!338, !339, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h204fe300b06b8be4E: argument 0"}
+!339 = distinct !{!339, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h204fe300b06b8be4E"}
+!340 = distinct !{!340, !339, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h204fe300b06b8be4E: argument 1"}
+!341 = !{!342, !344}
+!342 = distinct !{!342, !343, !"_ZN71_$LT$wasmi_ir..primitive..Sign$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h948528c9ea87d77aE: argument 0"}
+!343 = distinct !{!343, !"_ZN71_$LT$wasmi_ir..primitive..Sign$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h948528c9ea87d77aE"}
+!344 = distinct !{!344, !343, !"_ZN71_$LT$wasmi_ir..primitive..Sign$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h948528c9ea87d77aE: argument 1"}
+!345 = !{!346, !348}
+!346 = distinct !{!346, !347, !"_ZN67_$LT$wasmi..module..export..FuncIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cd8175757cb48cE: argument 0"}
+!347 = distinct !{!347, !"_ZN67_$LT$wasmi..module..export..FuncIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cd8175757cb48cE"}
+!348 = distinct !{!348, !347, !"_ZN67_$LT$wasmi..module..export..FuncIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cd8175757cb48cE: argument 1"}
+!349 = !{!350, !352}
+!350 = distinct !{!350, !351, !"_ZN81_$LT$wasmi..module..element..ActiveElementSegment$u20$as$u20$core..fmt..Debug$GT$3fmt17ha7e4a221825675aeE: argument 0"}
+!351 = distinct !{!351, !"_ZN81_$LT$wasmi..module..element..ActiveElementSegment$u20$as$u20$core..fmt..Debug$GT$3fmt17ha7e4a221825675aeE"}
+!352 = distinct !{!352, !351, !"_ZN81_$LT$wasmi..module..element..ActiveElementSegment$u20$as$u20$core..fmt..Debug$GT$3fmt17ha7e4a221825675aeE: argument 1"}
+!353 = !{i8 0, i8 11}
+!354 = !{!355}
+!355 = distinct !{!355, !356, !"_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hecee885ebe8fb815E: argument 0"}
+!356 = distinct !{!356, !"_ZN75_$LT$wasmi_ir..immeditate..Const32$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hecee885ebe8fb815E"}
+!357 = !{!358, !360}
+!358 = distinct !{!358, !359, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f3d1b4ee186ffabE: argument 0"}
+!359 = distinct !{!359, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f3d1b4ee186ffabE"}
+!360 = distinct !{!360, !359, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f3d1b4ee186ffabE: argument 1"}
+!361 = !{!362, !364}
+!362 = distinct !{!362, !363, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h75594b74811d879cE: argument 0"}
+!363 = distinct !{!363, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h75594b74811d879cE"}
+!364 = distinct !{!364, !363, !"_ZN78_$LT$wasmi_ir..primitive..ShiftAmount$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h75594b74811d879cE: argument 1"}
+!365 = !{!366, !368}
+!366 = distinct !{!366, !367, !"_ZN71_$LT$wasmi_core..memory..ty..MemoryType$u20$as$u20$core..fmt..Debug$GT$3fmt17hedcbc3564511b291E: argument 0"}
+!367 = distinct !{!367, !"_ZN71_$LT$wasmi_core..memory..ty..MemoryType$u20$as$u20$core..fmt..Debug$GT$3fmt17hedcbc3564511b291E"}
+!368 = distinct !{!368, !367, !"_ZN71_$LT$wasmi_core..memory..ty..MemoryType$u20$as$u20$core..fmt..Debug$GT$3fmt17hedcbc3564511b291E: argument 1"}
+!369 = !{!370, !372}
+!370 = distinct !{!370, !371, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h664d480660ccb049E: argument 0"}
+!371 = distinct !{!371, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h664d480660ccb049E"}
+!372 = distinct !{!372, !371, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h664d480660ccb049E: argument 1"}
+!373 = !{!370}
 !374 = !{!375, !377}
-!375 = distinct !{!375, !376, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h664d480660ccb049E: argument 0"}
-!376 = distinct !{!376, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h664d480660ccb049E"}
-!377 = distinct !{!377, !376, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h664d480660ccb049E: argument 1"}
-!378 = !{!375}
-!379 = !{!380, !382}
-!380 = distinct !{!380, !381, !"_ZN75_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b49b140ac9413fcE: argument 0"}
-!381 = distinct !{!381, !"_ZN75_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b49b140ac9413fcE"}
-!382 = distinct !{!382, !381, !"_ZN75_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b49b140ac9413fcE: argument 1"}
-!383 = !{!384, !386}
-!384 = distinct !{!384, !385, !"_ZN96_$LT$wasmi..engine..translator..control_frame..BlockControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h61569523a7be6941E: argument 0"}
-!385 = distinct !{!385, !"_ZN96_$LT$wasmi..engine..translator..control_frame..BlockControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h61569523a7be6941E"}
-!386 = distinct !{!386, !385, !"_ZN96_$LT$wasmi..engine..translator..control_frame..BlockControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h61569523a7be6941E: argument 1"}
-!387 = !{!388}
-!388 = distinct !{!388, !389, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb27390d8dd62220E: argument 0"}
-!389 = distinct !{!389, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb27390d8dd62220E"}
-!390 = !{!391}
-!391 = distinct !{!391, !389, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb27390d8dd62220E: argument 1"}
-!392 = !{!388, !391}
-!393 = !{!394, !396}
-!394 = distinct !{!394, !395, !"_ZN93_$LT$wasmi..engine..translator..control_frame..IfControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h274688653d0df8a1E: argument 0"}
-!395 = distinct !{!395, !"_ZN93_$LT$wasmi..engine..translator..control_frame..IfControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h274688653d0df8a1E"}
-!396 = distinct !{!396, !395, !"_ZN93_$LT$wasmi..engine..translator..control_frame..IfControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h274688653d0df8a1E: argument 1"}
-!397 = !{!398, !400}
-!398 = distinct !{!398, !399, !"_ZN69_$LT$wasmi_ir..immeditate..AnyConst32$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c32e6c03425c6E: argument 0"}
-!399 = distinct !{!399, !"_ZN69_$LT$wasmi_ir..immeditate..AnyConst32$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c32e6c03425c6E"}
-!400 = distinct !{!400, !399, !"_ZN69_$LT$wasmi_ir..immeditate..AnyConst32$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c32e6c03425c6E: argument 1"}
-!401 = !{!402, !404}
-!402 = distinct !{!402, !403, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h72bcc9524b4099cbE: argument 0"}
-!403 = distinct !{!403, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h72bcc9524b4099cbE"}
-!404 = distinct !{!404, !403, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h72bcc9524b4099cbE: argument 1"}
-!405 = !{!406, !408}
-!406 = distinct !{!406, !407, !"_ZN58_$LT$wasmi_ir..index..Func$u20$as$u20$core..fmt..Debug$GT$3fmt17h72879794a92159adE: argument 0"}
-!407 = distinct !{!407, !"_ZN58_$LT$wasmi_ir..index..Func$u20$as$u20$core..fmt..Debug$GT$3fmt17h72879794a92159adE"}
-!408 = distinct !{!408, !407, !"_ZN58_$LT$wasmi_ir..index..Func$u20$as$u20$core..fmt..Debug$GT$3fmt17h72879794a92159adE: argument 1"}
-!409 = !{i8 0, i8 14}
-!410 = !{!411}
-!411 = distinct !{!411, !412, !"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE: argument 0"}
-!412 = distinct !{!412, !"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE"}
-!413 = !{i64 0, i64 3}
-!414 = !{!415}
-!415 = distinct !{!415, !412, !"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE: argument 1"}
-!416 = !{!411, !415}
+!375 = distinct !{!375, !376, !"_ZN75_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b49b140ac9413fcE: argument 0"}
+!376 = distinct !{!376, !"_ZN75_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b49b140ac9413fcE"}
+!377 = distinct !{!377, !376, !"_ZN75_$LT$wasmi..module..element..ElementSegment$u20$as$u20$core..fmt..Debug$GT$3fmt17h9b49b140ac9413fcE: argument 1"}
+!378 = !{!379, !381}
+!379 = distinct !{!379, !380, !"_ZN96_$LT$wasmi..engine..translator..control_frame..BlockControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h61569523a7be6941E: argument 0"}
+!380 = distinct !{!380, !"_ZN96_$LT$wasmi..engine..translator..control_frame..BlockControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h61569523a7be6941E"}
+!381 = distinct !{!381, !380, !"_ZN96_$LT$wasmi..engine..translator..control_frame..BlockControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h61569523a7be6941E: argument 1"}
+!382 = !{!383}
+!383 = distinct !{!383, !384, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb27390d8dd62220E: argument 0"}
+!384 = distinct !{!384, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb27390d8dd62220E"}
+!385 = !{!386}
+!386 = distinct !{!386, !384, !"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hdb27390d8dd62220E: argument 1"}
+!387 = !{!383, !386}
+!388 = !{!389, !391}
+!389 = distinct !{!389, !390, !"_ZN93_$LT$wasmi..engine..translator..control_frame..IfControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h274688653d0df8a1E: argument 0"}
+!390 = distinct !{!390, !"_ZN93_$LT$wasmi..engine..translator..control_frame..IfControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h274688653d0df8a1E"}
+!391 = distinct !{!391, !390, !"_ZN93_$LT$wasmi..engine..translator..control_frame..IfControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h274688653d0df8a1E: argument 1"}
+!392 = !{!393, !395}
+!393 = distinct !{!393, !394, !"_ZN69_$LT$wasmi_ir..immeditate..AnyConst32$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c32e6c03425c6E: argument 0"}
+!394 = distinct !{!394, !"_ZN69_$LT$wasmi_ir..immeditate..AnyConst32$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c32e6c03425c6E"}
+!395 = distinct !{!395, !394, !"_ZN69_$LT$wasmi_ir..immeditate..AnyConst32$u20$as$u20$core..fmt..Debug$GT$3fmt17h054c32e6c03425c6E: argument 1"}
+!396 = !{!397, !399}
+!397 = distinct !{!397, !398, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h72bcc9524b4099cbE: argument 0"}
+!398 = distinct !{!398, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h72bcc9524b4099cbE"}
+!399 = distinct !{!399, !398, !"_ZN75_$LT$wasmi_ir..immeditate..Const16$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h72bcc9524b4099cbE: argument 1"}
+!400 = !{!401, !403}
+!401 = distinct !{!401, !402, !"_ZN58_$LT$wasmi_ir..index..Func$u20$as$u20$core..fmt..Debug$GT$3fmt17h72879794a92159adE: argument 0"}
+!402 = distinct !{!402, !"_ZN58_$LT$wasmi_ir..index..Func$u20$as$u20$core..fmt..Debug$GT$3fmt17h72879794a92159adE"}
+!403 = distinct !{!403, !402, !"_ZN58_$LT$wasmi_ir..index..Func$u20$as$u20$core..fmt..Debug$GT$3fmt17h72879794a92159adE: argument 1"}
+!404 = !{i8 0, i8 14}
+!405 = !{!406}
+!406 = distinct !{!406, !407, !"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE: argument 0"}
+!407 = distinct !{!407, !"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE"}
+!408 = !{i64 0, i64 3}
+!409 = !{!410}
+!410 = distinct !{!410, !407, !"_ZN92_$LT$wasmi..engine..translator..stack..locals..LocalRefEntry$u20$as$u20$core..fmt..Debug$GT$3fmt17h48d5d6a0f6f6332eE: argument 1"}
+!411 = !{!406, !410}
+!412 = !{!413, !415}
+!413 = distinct !{!413, !414, !"_ZN95_$LT$wasmi..engine..translator..stack..locals..LocalRefsEntries$u20$as$u20$core..fmt..Debug$GT$3fmt17h687a371dbf070d32E: argument 0"}
+!414 = distinct !{!414, !"_ZN95_$LT$wasmi..engine..translator..stack..locals..LocalRefsEntries$u20$as$u20$core..fmt..Debug$GT$3fmt17h687a371dbf070d32E"}
+!415 = distinct !{!415, !414, !"_ZN95_$LT$wasmi..engine..translator..stack..locals..LocalRefsEntries$u20$as$u20$core..fmt..Debug$GT$3fmt17h687a371dbf070d32E: argument 1"}
+!416 = !{i32 0, i32 7}
 !417 = !{!418, !420}
-!418 = distinct !{!418, !419, !"_ZN95_$LT$wasmi..engine..translator..stack..locals..LocalRefsEntries$u20$as$u20$core..fmt..Debug$GT$3fmt17h687a371dbf070d32E: argument 0"}
-!419 = distinct !{!419, !"_ZN95_$LT$wasmi..engine..translator..stack..locals..LocalRefsEntries$u20$as$u20$core..fmt..Debug$GT$3fmt17h687a371dbf070d32E"}
-!420 = distinct !{!420, !419, !"_ZN95_$LT$wasmi..engine..translator..stack..locals..LocalRefsEntries$u20$as$u20$core..fmt..Debug$GT$3fmt17h687a371dbf070d32E: argument 1"}
-!421 = !{i32 0, i32 7}
+!418 = distinct !{!418, !419, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E: argument 0"}
+!419 = distinct !{!419, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E"}
+!420 = distinct !{!420, !419, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E: argument 1"}
+!421 = !{!418}
 !422 = !{!423, !425}
-!423 = distinct !{!423, !424, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E: argument 0"}
-!424 = distinct !{!424, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E"}
-!425 = distinct !{!425, !424, !"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..Debug$GT$3fmt17h578fc07e5ae1c289E: argument 1"}
-!426 = !{!423}
-!427 = !{!428, !430}
-!428 = distinct !{!428, !429, !"_ZN67_$LT$wasmi..module..export..FuncIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cd8175757cb48cE: argument 0"}
-!429 = distinct !{!429, !"_ZN67_$LT$wasmi..module..export..FuncIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cd8175757cb48cE"}
-!430 = distinct !{!430, !429, !"_ZN67_$LT$wasmi..module..export..FuncIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cd8175757cb48cE: argument 1"}
-!431 = !{!432, !434}
-!432 = distinct !{!432, !433, !"_ZN102_$LT$wasmi..engine..translator..control_frame..UnreachableControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h32cfca60f841b223E: argument 0"}
-!433 = distinct !{!433, !"_ZN102_$LT$wasmi..engine..translator..control_frame..UnreachableControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h32cfca60f841b223E"}
-!434 = distinct !{!434, !433, !"_ZN102_$LT$wasmi..engine..translator..control_frame..UnreachableControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h32cfca60f841b223E: argument 1"}
-!435 = !{i8 0, i8 7}
-!436 = !{!437}
-!437 = distinct !{!437, !438, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16defrag_registers28_$u7b$$u7b$closure$u7d$$u7d$17h4571fe70e566b5a2E: argument 0"}
-!438 = distinct !{!438, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16defrag_registers28_$u7b$$u7b$closure$u7d$$u7d$17h4571fe70e566b5a2E"}
-!439 = !{!440}
-!440 = distinct !{!440, !441, !"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$16visit_input_regs17h6eadd45651684bcaE: argument 0"}
-!441 = distinct !{!441, !"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$16visit_input_regs17h6eadd45651684bcaE"}
-!442 = !{i16 0, i16 806}
-!443 = !{!444}
-!444 = distinct !{!444, !445, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE: argument 1"}
-!445 = distinct !{!445, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE"}
-!446 = !{!447}
-!447 = distinct !{!447, !445, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE: argument 0"}
-!448 = !{i16 0, i16 2}
-!449 = !{!450}
-!450 = distinct !{!450, !451, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E: argument 0"}
-!451 = distinct !{!451, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E"}
+!423 = distinct !{!423, !424, !"_ZN67_$LT$wasmi..module..export..FuncIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cd8175757cb48cE: argument 0"}
+!424 = distinct !{!424, !"_ZN67_$LT$wasmi..module..export..FuncIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cd8175757cb48cE"}
+!425 = distinct !{!425, !424, !"_ZN67_$LT$wasmi..module..export..FuncIdx$u20$as$u20$core..fmt..Debug$GT$3fmt17hc4cd8175757cb48cE: argument 1"}
+!426 = !{!427, !429}
+!427 = distinct !{!427, !428, !"_ZN102_$LT$wasmi..engine..translator..control_frame..UnreachableControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h32cfca60f841b223E: argument 0"}
+!428 = distinct !{!428, !"_ZN102_$LT$wasmi..engine..translator..control_frame..UnreachableControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h32cfca60f841b223E"}
+!429 = distinct !{!429, !428, !"_ZN102_$LT$wasmi..engine..translator..control_frame..UnreachableControlFrame$u20$as$u20$core..fmt..Debug$GT$3fmt17h32cfca60f841b223E: argument 1"}
+!430 = !{i8 0, i8 7}
+!431 = !{!432}
+!432 = distinct !{!432, !433, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16defrag_registers28_$u7b$$u7b$closure$u7d$$u7d$17h4571fe70e566b5a2E: argument 0"}
+!433 = distinct !{!433, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder16defrag_registers28_$u7b$$u7b$closure$u7d$$u7d$17h4571fe70e566b5a2E"}
+!434 = !{!435}
+!435 = distinct !{!435, !436, !"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$16visit_input_regs17h6eadd45651684bcaE: argument 0"}
+!436 = distinct !{!436, !"_ZN111_$LT$wasmi..engine..translator..visit_register..Visitor$LT$F$GT$$u20$as$u20$wasmi_ir..visit_regs..VisitRegs$GT$16visit_input_regs17h6eadd45651684bcaE"}
+!437 = !{i16 0, i16 806}
+!438 = !{!439}
+!439 = distinct !{!439, !440, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE: argument 1"}
+!440 = distinct !{!440, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE"}
+!441 = !{!442}
+!442 = distinct !{!442, !440, !"_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder21bump_fuel_consumption17h981aefdabda106cbE: argument 0"}
+!443 = !{i16 0, i16 2}
+!444 = !{!445}
+!445 = distinct !{!445, !446, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E: argument 0"}
+!446 = distinct !{!446, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E"}
+!447 = !{!448}
+!448 = distinct !{!448, !449, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12reuse_vacant17hb98ced5cde7f9627E: argument 0"}
+!449 = distinct !{!449, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12reuse_vacant17hb98ced5cde7f9627E"}
+!450 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!451 = !{i64 0, i64 -9223372036854775808}
 !452 = !{!453}
-!453 = distinct !{!453, !454, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12reuse_vacant17hb98ced5cde7f9627E: argument 0"}
-!454 = distinct !{!454, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12reuse_vacant17hb98ced5cde7f9627E"}
-!455 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!456 = !{i64 0, i64 -9223372036854775808}
+!453 = distinct !{!453, !454, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a069d9590901ef9E: argument 0"}
+!454 = distinct !{!454, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a069d9590901ef9E"}
+!455 = !{!456}
+!456 = distinct !{!456, !454, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a069d9590901ef9E: argument 1"}
 !457 = !{!458}
-!458 = distinct !{!458, !459, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a069d9590901ef9E: argument 0"}
-!459 = distinct !{!459, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a069d9590901ef9E"}
+!458 = distinct !{!458, !459, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E: argument 1"}
+!459 = distinct !{!459, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E"}
 !460 = !{!461}
-!461 = distinct !{!461, !459, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2a069d9590901ef9E: argument 1"}
-!462 = !{!463}
-!463 = distinct !{!463, !464, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E: argument 1"}
-!464 = distinct !{!464, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E"}
-!465 = !{!466}
-!466 = distinct !{!466, !464, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E: argument 0"}
-!467 = !{!466, !463}
-!468 = !{!469}
-!469 = distinct !{!469, !470, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E: argument 0"}
-!470 = distinct !{!470, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E"}
-!471 = !{!472}
-!472 = distinct !{!472, !473, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17hb2efaa15e79c2e9eE: argument 0"}
-!473 = distinct !{!473, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17hb2efaa15e79c2e9eE"}
-!474 = !{!475}
-!475 = distinct !{!475, !473, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17hb2efaa15e79c2e9eE: argument 1"}
-!476 = !{!477, !472}
-!477 = distinct !{!477, !478, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E: argument 1"}
-!478 = distinct !{!478, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E"}
-!479 = !{!480, !475}
-!480 = distinct !{!480, !478, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E: argument 0"}
-!481 = !{!477}
-!482 = !{!480, !477, !472, !475}
-!483 = !{!484, !472, !475}
-!484 = distinct !{!484, !485, !"_ZN5wasmi6engine10translator5stack8provider13ProviderStack22preserve_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17hfefc72dce00f06b2E: argument 0"}
-!485 = distinct !{!485, !"_ZN5wasmi6engine10translator5stack8provider13ProviderStack22preserve_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17hfefc72dce00f06b2E"}
-!486 = !{!487, !484, !472, !475}
-!487 = distinct !{!487, !488, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E: argument 0"}
-!488 = distinct !{!488, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E"}
-!489 = distinct !{!489, !6}
-!490 = !{!491}
-!491 = distinct !{!491, !492, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E: argument 0"}
-!492 = distinct !{!492, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E"}
-!493 = !{!494}
-!494 = distinct !{!494, !495, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17h969847331a5bc142E: argument 0"}
-!495 = distinct !{!495, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17h969847331a5bc142E"}
-!496 = !{!497, !498}
-!497 = distinct !{!497, !495, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17h969847331a5bc142E: argument 1"}
-!498 = distinct !{!498, !495, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17h969847331a5bc142E: argument 2"}
-!499 = !{!500, !494}
-!500 = distinct !{!500, !501, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E: argument 1"}
-!501 = distinct !{!501, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E"}
-!502 = !{!503, !497, !498}
-!503 = distinct !{!503, !501, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E: argument 0"}
-!504 = !{!500}
-!505 = !{!503, !500, !494, !497, !498}
-!506 = !{!507, !494, !497, !498}
-!507 = distinct !{!507, !508, !"_ZN5wasmi6engine10translator5stack8provider13ProviderStack26preserve_all_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17h811e1489f1160d68E: argument 0"}
-!508 = distinct !{!508, !"_ZN5wasmi6engine10translator5stack8provider13ProviderStack26preserve_all_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17h811e1489f1160d68E"}
+!461 = distinct !{!461, !459, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E: argument 0"}
+!462 = !{!461, !458}
+!463 = !{!464}
+!464 = distinct !{!464, !465, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E: argument 0"}
+!465 = distinct !{!465, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E"}
+!466 = !{!467}
+!467 = distinct !{!467, !468, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17hb2efaa15e79c2e9eE: argument 0"}
+!468 = distinct !{!468, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17hb2efaa15e79c2e9eE"}
+!469 = !{!470}
+!470 = distinct !{!470, !468, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17hb2efaa15e79c2e9eE: argument 1"}
+!471 = !{!472, !467}
+!472 = distinct !{!472, !473, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E: argument 1"}
+!473 = distinct !{!473, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E"}
+!474 = !{!475, !470}
+!475 = distinct !{!475, !473, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E: argument 0"}
+!476 = !{!472}
+!477 = !{!475, !472, !467, !470}
+!478 = !{!479, !467, !470}
+!479 = distinct !{!479, !480, !"_ZN5wasmi6engine10translator5stack8provider13ProviderStack22preserve_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17hfefc72dce00f06b2E: argument 0"}
+!480 = distinct !{!480, !"_ZN5wasmi6engine10translator5stack8provider13ProviderStack22preserve_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17hfefc72dce00f06b2E"}
+!481 = !{!482, !479, !467, !470}
+!482 = distinct !{!482, !483, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E: argument 0"}
+!483 = distinct !{!483, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E"}
+!484 = !{!485}
+!485 = distinct !{!485, !486, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E: argument 0"}
+!486 = distinct !{!486, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E"}
+!487 = !{!488}
+!488 = distinct !{!488, !489, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17h969847331a5bc142E: argument 0"}
+!489 = distinct !{!489, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17h969847331a5bc142E"}
+!490 = !{!491, !492}
+!491 = distinct !{!491, !489, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17h969847331a5bc142E: argument 1"}
+!492 = distinct !{!492, !489, !"_ZN5wasmi6engine10translator5stack6locals9LocalRefs13drain_list_at17h969847331a5bc142E: argument 2"}
+!493 = !{!494, !488}
+!494 = distinct !{!494, !495, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E: argument 1"}
+!495 = distinct !{!495, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E"}
+!496 = !{!497, !491, !492}
+!497 = distinct !{!497, !495, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries12remove_entry17h519b971356f3fe33E: argument 0"}
+!498 = !{!494}
+!499 = !{!497, !494, !488, !491, !492}
+!500 = !{!501, !488, !491, !492}
+!501 = distinct !{!501, !502, !"_ZN5wasmi6engine10translator5stack8provider13ProviderStack26preserve_all_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17h811e1489f1160d68E: argument 0"}
+!502 = distinct !{!502, !"_ZN5wasmi6engine10translator5stack8provider13ProviderStack26preserve_all_locals_extern28_$u7b$$u7b$closure$u7d$$u7d$17h811e1489f1160d68E"}
+!503 = !{!504}
+!504 = distinct !{!504, !505, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_preserved17ha55181f5a385343eE: argument 1"}
+!505 = distinct !{!505, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_preserved17ha55181f5a385343eE"}
+!506 = !{!507}
+!507 = distinct !{!507, !505, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_preserved17ha55181f5a385343eE: argument 0"}
+!508 = !{!507, !504}
 !509 = !{!510}
-!510 = distinct !{!510, !511, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_preserved17ha55181f5a385343eE: argument 1"}
-!511 = distinct !{!511, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_preserved17ha55181f5a385343eE"}
-!512 = !{!513}
-!513 = distinct !{!513, !511, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_preserved17ha55181f5a385343eE: argument 0"}
-!514 = !{!513, !510}
-!515 = !{!516}
-!516 = distinct !{!516, !517, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc20update_min_preserved17h3e6cabaef737761dE: argument 0"}
-!517 = distinct !{!517, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc20update_min_preserved17h3e6cabaef737761dE"}
-!518 = !{!516, !510}
-!519 = !{!516, !513, !510}
-!520 = !{!521, !507, !494, !497, !498}
-!521 = distinct !{!521, !522, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E: argument 0"}
-!522 = distinct !{!522, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E"}
+!510 = distinct !{!510, !511, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc20update_min_preserved17h3e6cabaef737761dE: argument 0"}
+!511 = distinct !{!511, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc20update_min_preserved17h3e6cabaef737761dE"}
+!512 = !{!510, !504}
+!513 = !{!510, !507, !504}
+!514 = !{!515, !501, !488, !491, !492}
+!515 = distinct !{!515, !516, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E: argument 0"}
+!516 = distinct !{!516, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E"}
+!517 = !{!518}
+!518 = distinct !{!518, !519, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0fb7da3695b98503E: argument 0"}
+!519 = distinct !{!519, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0fb7da3695b98503E"}
+!520 = !{!521}
+!521 = distinct !{!521, !522, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E: argument 0"}
+!522 = distinct !{!522, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E"}
 !523 = !{!524}
-!524 = distinct !{!524, !525, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0fb7da3695b98503E: argument 0"}
-!525 = distinct !{!525, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0fb7da3695b98503E"}
-!526 = distinct !{!526, !6}
-!527 = !{!528}
-!528 = distinct !{!528, !529, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E: argument 0"}
-!529 = distinct !{!529, !"_ZN5wasmi6engine10translator5stack6locals16LocalRefsEntries5reset17hcb6ba781176d48c1E"}
-!530 = distinct !{!530, !6}
-!531 = !{!532}
-!532 = distinct !{!532, !533, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17h69d0a8d39d6ad0faE: argument 0"}
-!533 = distinct !{!533, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17h69d0a8d39d6ad0faE"}
-!534 = !{!535, !532}
-!535 = distinct !{!535, !536, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc10len_locals17h0ad3b4e748038e5eE: argument 0"}
-!536 = distinct !{!536, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc10len_locals17h0ad3b4e748038e5eE"}
-!537 = !{!538}
-!538 = distinct !{!538, !539, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc8is_local17h8ddb5e4c3a7d0dccE: argument 0"}
-!539 = distinct !{!539, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc8is_local17h8ddb5e4c3a7d0dccE"}
-!540 = !{!541, !538}
-!541 = distinct !{!541, !542, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc10len_locals17h0ad3b4e748038e5eE: argument 0"}
-!542 = distinct !{!542, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc10len_locals17h0ad3b4e748038e5eE"}
+!524 = distinct !{!524, !525, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17h69d0a8d39d6ad0faE: argument 0"}
+!525 = distinct !{!525, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc11pop_dynamic17h69d0a8d39d6ad0faE"}
+!526 = !{!527, !524}
+!527 = distinct !{!527, !528, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc10len_locals17h0ad3b4e748038e5eE: argument 0"}
+!528 = distinct !{!528, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc10len_locals17h0ad3b4e748038e5eE"}
+!529 = !{!530}
+!530 = distinct !{!530, !531, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc8is_local17h8ddb5e4c3a7d0dccE: argument 0"}
+!531 = distinct !{!531, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc8is_local17h8ddb5e4c3a7d0dccE"}
+!532 = !{!533, !530}
+!533 = distinct !{!533, !534, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc10len_locals17h0ad3b4e748038e5eE: argument 0"}
+!534 = distinct !{!534, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc10len_locals17h0ad3b4e748038e5eE"}
+!535 = !{!536}
+!536 = distinct !{!536, !537, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_dynamic_n14next_dynamic_n17haa64c87db24db34fE: argument 0"}
+!537 = distinct !{!537, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_dynamic_n14next_dynamic_n17haa64c87db24db34fE"}
+!538 = !{!"branch_weights", i32 2002, i32 2000}
+!539 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!540 = !{!541}
+!541 = distinct !{!541, !542, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc13pop_dynamic_n8pop_impl17h04c958f446510599E: argument 0"}
+!542 = distinct !{!542, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc13pop_dynamic_n8pop_impl17h04c958f446510599E"}
 !543 = !{!544}
-!544 = distinct !{!544, !545, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_dynamic_n14next_dynamic_n17haa64c87db24db34fE: argument 0"}
-!545 = distinct !{!545, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14push_dynamic_n14next_dynamic_n17haa64c87db24db34fE"}
-!546 = !{!"branch_weights", i32 2002, i32 2000}
-!547 = !{!"branch_weights", i32 2146410443, i32 1073205}
-!548 = !{!549}
-!549 = distinct !{!549, !550, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc13pop_dynamic_n8pop_impl17h04c958f446510599E: argument 0"}
-!550 = distinct !{!550, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc13pop_dynamic_n8pop_impl17h04c958f446510599E"}
-!551 = !{!552}
-!552 = distinct !{!552, !553, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc20update_min_preserved17h3e6cabaef737761dE: argument 0"}
-!553 = distinct !{!553, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc20update_min_preserved17h3e6cabaef737761dE"}
-!554 = !{i64 1, i64 0}
-!555 = distinct !{!555, !6}
-!556 = !{!557}
-!557 = distinct !{!557, !558, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc10len_locals17h0ad3b4e748038e5eE: argument 0"}
-!558 = distinct !{!558, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc10len_locals17h0ad3b4e748038e5eE"}
-!559 = !{!560}
-!560 = distinct !{!560, !561, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E: argument 0"}
-!561 = distinct !{!561, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E"}
-!562 = !{i8 0, i8 8}
-!563 = !{i32 0, i32 5}
+!544 = distinct !{!544, !545, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc20update_min_preserved17h3e6cabaef737761dE: argument 0"}
+!545 = distinct !{!545, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc20update_min_preserved17h3e6cabaef737761dE"}
+!546 = !{i64 1, i64 0}
+!547 = !{!548}
+!548 = distinct !{!548, !549, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc10len_locals17h0ad3b4e748038e5eE: argument 0"}
+!549 = distinct !{!549, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc10len_locals17h0ad3b4e748038e5eE"}
+!550 = !{!551}
+!551 = distinct !{!551, !552, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E: argument 0"}
+!552 = distinct !{!552, !"_ZN5wasmi6engine10translator5stack14register_alloc13RegisterAlloc14bump_preserved17h53ac1b43d48e0624E"}
+!553 = !{i8 0, i8 8}
+!554 = !{i32 0, i32 5}
+!555 = !{!556}
+!556 = distinct !{!556, !557, !"_ZN138_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..elements..ElementKind$GT$$GT$4from17h73d7ca81a68f03a2E: argument 0"}
+!557 = distinct !{!557, !"_ZN138_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..elements..ElementKind$GT$$GT$4from17h73d7ca81a68f03a2E"}
+!558 = !{!559}
+!559 = distinct !{!559, !557, !"_ZN138_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..elements..ElementKind$GT$$GT$4from17h73d7ca81a68f03a2E: argument 1"}
+!560 = !{!556, !559}
+!561 = !{!562}
+!562 = distinct !{!562, !563, !"_ZN4core4iter6traits8iterator8Iterator7collect17h8345aa9c1e88692aE: argument 0"}
+!563 = distinct !{!563, !"_ZN4core4iter6traits8iterator8Iterator7collect17h8345aa9c1e88692aE"}
 !564 = !{!565}
-!565 = distinct !{!565, !566, !"_ZN138_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..elements..ElementKind$GT$$GT$4from17h73d7ca81a68f03a2E: argument 0"}
-!566 = distinct !{!566, !"_ZN138_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..elements..ElementKind$GT$$GT$4from17h73d7ca81a68f03a2E"}
-!567 = !{!568}
-!568 = distinct !{!568, !566, !"_ZN138_$LT$wasmi..module..element..ElementSegmentKind$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..elements..ElementKind$GT$$GT$4from17h73d7ca81a68f03a2E: argument 1"}
-!569 = !{!565, !568}
-!570 = !{!571}
-!571 = distinct !{!571, !572, !"_ZN4core4iter6traits8iterator8Iterator7collect17h8345aa9c1e88692aE: argument 0"}
-!572 = distinct !{!572, !"_ZN4core4iter6traits8iterator8Iterator7collect17h8345aa9c1e88692aE"}
-!573 = !{!574}
-!574 = distinct !{!574, !575, !"_ZN4core3ptr63drop_in_place$LT$wasmi..module..element..ElementSegmentKind$GT$17h095bb30845ccfe9bE: argument 0"}
-!575 = distinct !{!575, !"_ZN4core3ptr63drop_in_place$LT$wasmi..module..element..ElementSegmentKind$GT$17h095bb30845ccfe9bE"}
-!576 = !{!"branch_weights", i32 4000000, i32 4001}
-!577 = !{!578}
-!578 = distinct !{!578, !579, !"_ZN4core4iter6traits8iterator8Iterator7collect17hd05939a8f21593bfE: argument 0"}
-!579 = distinct !{!579, !"_ZN4core4iter6traits8iterator8Iterator7collect17hd05939a8f21593bfE"}
-!580 = !{!"branch_weights", i32 1, i32 2000, i32 2000}
+!565 = distinct !{!565, !566, !"_ZN4core3ptr63drop_in_place$LT$wasmi..module..element..ElementSegmentKind$GT$17h095bb30845ccfe9bE: argument 0"}
+!566 = distinct !{!566, !"_ZN4core3ptr63drop_in_place$LT$wasmi..module..element..ElementSegmentKind$GT$17h095bb30845ccfe9bE"}
+!567 = !{!"branch_weights", i32 4000000, i32 4001}
+!568 = !{!569}
+!569 = distinct !{!569, !570, !"_ZN4core4iter6traits8iterator8Iterator7collect17hd05939a8f21593bfE: argument 0"}
+!570 = distinct !{!570, !"_ZN4core4iter6traits8iterator8Iterator7collect17hd05939a8f21593bfE"}
+!571 = !{!"branch_weights", i32 1, i32 2000, i32 2000}

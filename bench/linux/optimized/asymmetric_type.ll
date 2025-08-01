@@ -410,7 +410,7 @@ define internal void @asymmetric_key_free_preparse(ptr noundef readonly captures
   tail call void @kfree(ptr noundef %19) #17
   %20 = add nuw nsw i64 %17, 1
   %21 = icmp eq i64 %20, 3
-  br i1 %21, label %22, label %.preheader, !llvm.loop !13
+  br i1 %21, label %22, label %.preheader, !llvm.loop !12
 
 22:                                               ; preds = %.preheader
   tail call void @kfree(ptr noundef nonnull %5) #17
@@ -577,7 +577,7 @@ define internal void @asymmetric_key_destroy(ptr noundef captures(none) %0) #0 a
   tail call void @kfree(ptr noundef %19) #17
   %20 = add nuw nsw i64 %17, 1
   %21 = icmp eq i64 %20, 3
-  br i1 %21, label %22, label %.preheader, !llvm.loop !14
+  br i1 %21, label %22, label %.preheader, !llvm.loop !12
 
 22:                                               ; preds = %.preheader
   tail call void @kfree(ptr noundef nonnull %6) #17
@@ -695,7 +695,7 @@ define internal ptr @asymmetric_lookup_restriction(ptr noundef %0) #0 align 16 {
 
 33:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
-  store i32 0, ptr %3, align 4, !annotation !15
+  store i32 0, ptr %3, align 4, !annotation !13
   %34 = call ptr @strsep(ptr noundef nonnull %2, ptr noundef nonnull @.str.17) #17
   %35 = load ptr, ptr %2, align 8
   %36 = icmp eq ptr %35, null
@@ -814,7 +814,7 @@ define dso_local noundef range(i32 -17, 1) i32 @register_asymmetric_key_parser(p
   %10 = load ptr, ptr %2, align 8
   %11 = tail call i32 @strcmp(ptr noundef %9, ptr noundef %10) #17
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %3, !llvm.loop !16
+  br i1 %12, label %13, label %3, !llvm.loop !14
 
 13:                                               ; preds = %7
   %14 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.8, ptr noundef %10) #20
@@ -936,7 +936,7 @@ define internal zeroext i1 @asymmetric_key_cmp(ptr noundef readonly captures(non
 27:                                               ; preds = %22, %18, %12
   %28 = phi i1 [ %26, %22 ], [ false, %12 ], [ false, %18 ]
   %29 = or i1 %13, %28
-  br i1 %29, label %.loopexit, label %12, !llvm.loop !17
+  br i1 %29, label %.loopexit, label %12, !llvm.loop !15
 
 .loopexit:                                        ; preds = %27, %2
   %30 = phi i1 [ false, %2 ], [ %28, %27 ]
@@ -985,7 +985,7 @@ define internal zeroext i1 @asymmetric_key_cmp_partial(ptr noundef readonly capt
 29:                                               ; preds = %22, %18, %12
   %30 = phi i1 [ %28, %22 ], [ false, %12 ], [ false, %18 ]
   %31 = or i1 %13, %30
-  br i1 %31, label %.loopexit, label %12, !llvm.loop !18
+  br i1 %31, label %.loopexit, label %12, !llvm.loop !15
 
 .loopexit:                                        ; preds = %29, %2
   %32 = phi i1 [ false, %2 ], [ %30, %29 ]
@@ -1106,13 +1106,10 @@ attributes #20 = { cold nounwind }
 !6 = !{i64 2153834258, i64 2153834067, i64 2153834119, i64 2153834165, i64 2153834193}
 !7 = !{i64 2153834332, i64 2153834361, i64 2153834407, i64 2153834465, i64 2153834519, i64 2153834573, i64 2153834628, i64 2153834659, i64 2153834967, i64 2153834973, i64 2153835020, i64 2153835043, i64 2153835069}
 !8 = !{i64 2153835541, i64 2153835352, i64 2153835402, i64 2153835448, i64 2153835476}
-!9 = distinct !{!9, !10, !11, !12}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !10, !11, !12}
-!14 = distinct !{!14, !10, !11, !12}
-!15 = !{!"auto-init"}
-!16 = distinct !{!16, !10, !11, !12}
-!17 = distinct !{!17, !10, !11, !12}
-!18 = distinct !{!18, !10, !11, !12}
+!12 = distinct !{!12, !10, !11}
+!13 = !{!"auto-init"}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}

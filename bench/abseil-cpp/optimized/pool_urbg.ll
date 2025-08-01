@@ -894,7 +894,7 @@ define internal void @_ZN4absl15random_internal12_GLOBAL__N_112InitPoolURBGEv() 
   %12 = select i1 %8, ptr %5, ptr %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(288) %12, i8 0, i64 288, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
-  store i32 2, ptr %13, align 64, !tbaa !32
+  store i32 2, ptr %13, align 64, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 264
   call void @_ZN4absl15random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %14)
   %15 = getelementptr inbounds nuw [8 x ptr], ptr @_ZN4absl15random_internal12_GLOBAL__N_112shared_poolsE, i64 0, i64 %.08
@@ -942,7 +942,7 @@ _ZSt4copyIPKjPjET0_T_S4_S3_.exit.i:               ; preds = %_ZN4absl13base_inte
 _ZN4absl15random_internal12_GLOBAL__N_115RandenPoolEntry4InitENS_4SpanIKjEE.exit: ; preds = %_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i, %28
   %32 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %32, 8
-  br i1 %exitcond.not, label %4, label %.preheader, !llvm.loop !33
+  br i1 %exitcond.not, label %4, label %.preheader, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1048,8 +1048,7 @@ attributes #19 = { builtin allocsize(0) }
 !26 = !{}
 !27 = !{!22, !12, i64 0}
 !28 = !{!21, !21, i64 0}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!20, !21, i64 0}
-!33 = distinct !{!33, !30, !31}
+!31 = !{!20, !21, i64 0}
+!32 = distinct !{!32, !30}

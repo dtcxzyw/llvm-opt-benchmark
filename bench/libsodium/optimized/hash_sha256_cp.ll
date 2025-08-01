@@ -58,7 +58,7 @@ define dso_local noundef i32 @crypto_hash_sha256_update(ptr noundef nonnull capt
   store i8 %22, ptr %24, align 1
   %25 = add nuw nsw i64 %.147, 1
   %exitcond.not = icmp eq i64 %25, %13
-  br i1 %exitcond.not, label %26, label %.preheader46, !llvm.loop !7
+  br i1 %exitcond.not, label %26, label %.preheader46, !llvm.loop !6
 
 26:                                               ; preds = %.preheader46
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 256
@@ -81,7 +81,7 @@ define dso_local noundef i32 @crypto_hash_sha256_update(ptr noundef nonnull capt
   %31 = getelementptr i8, ptr %.04348, i64 64
   %32 = add i64 %.04249, -64
   %33 = icmp ugt i64 %32, 63
-  br i1 %33, label %.lr.ph, label %.preheader45, !llvm.loop !8
+  br i1 %33, label %.lr.ph, label %.preheader45, !llvm.loop !7
 
 .lr.ph52:                                         ; preds = %.preheader45, %.lr.ph52
   %.251 = phi i64 [ %37, %.lr.ph52 ], [ 0, %.preheader45 ]
@@ -91,7 +91,7 @@ define dso_local noundef i32 @crypto_hash_sha256_update(ptr noundef nonnull capt
   store i8 %35, ptr %36, align 1
   %37 = add nuw nsw i64 %.251, 1
   %exitcond55.not = icmp eq i64 %37, %.042.lcssa
-  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !9
+  br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph52, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph52, %.preheader45
   call void @sodium_memzero(ptr noundef nonnull %4, i64 noundef 288) #7
@@ -134,7 +134,7 @@ define internal fastcc void @SHA256_Transform(ptr noundef nonnull captures(none)
   store i32 %24, ptr %25, align 4
   %26 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %26, 16
-  br i1 %exitcond.not.i, label %be32dec_vect.exit, label %5, !llvm.loop !10
+  br i1 %exitcond.not.i, label %be32dec_vect.exit, label %5, !llvm.loop !9
 
 be32dec_vect.exit:                                ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(32) %0, i64 noundef 32, i1 noundef false) #7
@@ -946,7 +946,7 @@ split:                                            ; preds = %34, %split
   store i32 %773, ptr %771, align 4
   %indvars.iv.next656 = add nuw nsw i64 %indvars.iv655, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next656, 8
-  br i1 %exitcond.not, label %774, label %split, !llvm.loop !11
+  br i1 %exitcond.not, label %774, label %split, !llvm.loop !10
 
 774:                                              ; preds = %split
   ret void
@@ -1052,7 +1052,7 @@ SHA256_Pad.exit:                                  ; preds = %.preheader28.i, %.l
   store i8 %59, ptr %47, align 1
   %60 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %60, 8
-  br i1 %exitcond.not.i, label %be32enc_vect.exit, label %45, !llvm.loop !12
+  br i1 %exitcond.not.i, label %be32enc_vect.exit, label %45, !llvm.loop !11
 
 be32enc_vect.exit:                                ; preds = %45
   call void @sodium_memzero(ptr noundef nonnull %3, i64 noundef 288) #7
@@ -1098,12 +1098,11 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

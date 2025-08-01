@@ -250,7 +250,7 @@ define dso_local void @intel_gt_park_heartbeats(ptr noundef readonly captures(no
 .thread:                                          ; preds = %19, %21, %22, %11, %8, %3
   %23 = add nuw nsw i64 %4, 1
   %24 = icmp eq i64 %23, 27
-  br i1 %24, label %25, label %3, !llvm.loop !12
+  br i1 %24, label %25, label %3, !llvm.loop !11
 
 25:                                               ; preds = %.thread
   ret void
@@ -342,22 +342,22 @@ define internal void @heartbeat(ptr noundef %0) #0 align 16 {
   %37 = getelementptr i8, ptr %0, i64 128
   %38 = load volatile i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %.thread11, label %.lr.ph, !prof !13
+  br i1 %39, label %.thread11, label %.lr.ph, !prof !12
 
 .lr.ph:                                           ; preds = %36, %46
   %40 = phi i32 [ %47, %46 ], [ %38, %36 ]
   %41 = add i32 %40, 1
-  %42 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37, i32 %41, ptr elementtype(i32) %37, i32 %40) #6, !srcloc !14
+  %42 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37, i32 %41, ptr elementtype(i32) %37, i32 %40) #6, !srcloc !13
   %43 = extractvalue { i8, i32 } %42, 0
   %44 = icmp ult i8 %43, 2
   tail call void @llvm.assume(i1 %44)
   %45 = icmp eq i8 %43, 0
-  br i1 %45, label %46, label %49, !prof !15
+  br i1 %45, label %46, label %49, !prof !14
 
 46:                                               ; preds = %.lr.ph
   %47 = extractvalue { i8, i32 } %42, 1
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %.thread11, label %.lr.ph, !prof !16, !llvm.loop !17
+  br i1 %48, label %.thread11, label %.lr.ph, !prof !15, !llvm.loop !16
 
 49:                                               ; preds = %.lr.ph
   %50 = getelementptr i8, ptr %0, i64 -216
@@ -438,9 +438,9 @@ define internal void @heartbeat(ptr noundef %0) #0 align 16 {
   %102 = icmp slt i32 %97, %101
   %103 = select i1 %102, i32 %101, i32 2147483646
   store i32 %103, ptr %2, align 4
-  %104 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !18
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #6, !srcloc !19
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !20
+  %104 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #6, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !19
   %105 = load ptr, ptr %56, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 208
   %107 = load ptr, ptr %106, align 8
@@ -475,7 +475,7 @@ define internal void @heartbeat(ptr noundef %0) #0 align 16 {
 
 123:                                              ; preds = %117
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %125 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %124, i64 %113, ptr nonnull elementtype(i64) %124) #6, !srcloc !21
+  %125 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %124, i64 %113, ptr nonnull elementtype(i64) %124) #6, !srcloc !20
   %126 = icmp eq i64 %125, %113
   br i1 %126, label %127, label %139
 
@@ -505,7 +505,7 @@ define internal void @heartbeat(ptr noundef %0) #0 align 16 {
 139:                                              ; preds = %136, %127, %123, %111, %109, %75, %67, %49
   %140 = load ptr, ptr %3, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 7164
-  %142 = load i8, ptr %141, align 4, !range !22, !noundef !23
+  %142 = load i8, ptr %141, align 4, !range !21, !noundef !22
   %143 = icmp eq i8 %142, 0
   %.pre20 = load ptr, ptr %6, align 8
   br i1 %143, label %next_heartbeat.exit, label %144
@@ -593,22 +593,22 @@ next_heartbeat.exit:                              ; preds = %.next_heartbeat.exi
   %186 = call i32 @__SCT__might_resched() #6
   %187 = load volatile i32, ptr %37, align 4
   %188 = icmp eq i32 %187, 1
-  br i1 %188, label %._crit_edge, label %.lr.ph17, !prof !13
+  br i1 %188, label %._crit_edge, label %.lr.ph17, !prof !12
 
 .lr.ph17:                                         ; preds = %.thread13, %195
   %189 = phi i32 [ %196, %195 ], [ %187, %.thread13 ]
   %190 = add i32 %189, -1
-  %191 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37, i32 %190, ptr elementtype(i32) %37, i32 %189) #6, !srcloc !14
+  %191 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %37, i32 %190, ptr elementtype(i32) %37, i32 %189) #6, !srcloc !13
   %192 = extractvalue { i8, i32 } %191, 0
   %193 = icmp ult i8 %192, 2
   call void @llvm.assume(i1 %193)
   %194 = icmp eq i8 %192, 0
-  br i1 %194, label %195, label %.thread11, !prof !15
+  br i1 %194, label %195, label %.thread11, !prof !14
 
 195:                                              ; preds = %.lr.ph17
   %196 = extractvalue { i8, i32 } %191, 1
   %197 = icmp eq i32 %196, 1
-  br i1 %197, label %._crit_edge, label %.lr.ph17, !prof !16, !llvm.loop !24
+  br i1 %197, label %._crit_edge, label %.lr.ph17, !prof !15, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %195, %.thread13
   call void @__intel_wakeref_put_last(ptr noundef %37, i64 noundef 0) #6
@@ -696,22 +696,22 @@ define dso_local i32 @intel_engine_set_heartbeat(ptr noundef %0, i64 noundef %1)
   %45 = tail call i32 @__SCT__might_resched() #6
   %46 = load volatile i32, ptr %44, align 4
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %._crit_edge, label %.lr.ph, !prof !13
+  br i1 %47, label %._crit_edge, label %.lr.ph, !prof !12
 
 .lr.ph:                                           ; preds = %43, %54
   %48 = phi i32 [ %55, %54 ], [ %46, %43 ]
   %49 = add i32 %48, 1
-  %50 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, i32 %49, ptr nonnull elementtype(i32) %44, i32 %48) #6, !srcloc !14
+  %50 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, i32 %49, ptr nonnull elementtype(i32) %44, i32 %48) #6, !srcloc !13
   %51 = extractvalue { i8, i32 } %50, 0
   %52 = icmp ult i8 %51, 2
   tail call void @llvm.assume(i1 %52)
   %53 = icmp eq i8 %51, 0
-  br i1 %53, label %54, label %.loopexit24, !prof !15
+  br i1 %53, label %54, label %.loopexit24, !prof !14
 
 54:                                               ; preds = %.lr.ph
   %55 = extractvalue { i8, i32 } %50, 1
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %._crit_edge, label %.lr.ph, !prof !16, !llvm.loop !25
+  br i1 %56, label %._crit_edge, label %.lr.ph, !prof !15, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %54, %43
   %57 = tail call i32 @__intel_wakeref_get_first(ptr noundef nonnull %44) #6
@@ -732,7 +732,7 @@ define dso_local i32 @intel_engine_set_heartbeat(ptr noundef %0, i64 noundef %1)
   br i1 %66, label %next_heartbeat.exit15, label %67
 
 67:                                               ; preds = %63
-  %68 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %64, i64 %1, ptr nonnull elementtype(i64) %64) #6, !srcloc !26
+  %68 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %64, i64 %1, ptr nonnull elementtype(i64) %64) #6, !srcloc !23
   br i1 %6, label %103, label %69
 
 69:                                               ; preds = %67
@@ -834,7 +834,7 @@ next_heartbeat.exit:                              ; preds = %114, %116, %98, %88
 
 .thread18:                                        ; preds = %122
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 48
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %126, i64 9) #6, !srcloc !27
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %126, i64 9) #6, !srcloc !24
   call fastcc void @heartbeat_commit(ptr noundef %124, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
   br label %next_heartbeat.exit15
@@ -847,7 +847,7 @@ next_heartbeat.exit:                              ; preds = %114, %116, %98, %88
   br i1 %130, label %next_heartbeat.exit15, label %131
 
 131:                                              ; preds = %127
-  %132 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %64, i64 %68, ptr nonnull elementtype(i64) %64) #6, !srcloc !26
+  %132 = tail call i64 asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %64, i64 %68, ptr nonnull elementtype(i64) %64) #6, !srcloc !23
   %133 = icmp eq i64 %68, 0
   br i1 %133, label %168, label %134
 
@@ -945,22 +945,22 @@ next_heartbeat.exit15:                            ; preds = %179, %181, %163, %1
   %188 = call i32 @__SCT__might_resched() #6
   %189 = load volatile i32, ptr %44, align 4
   %190 = icmp eq i32 %189, 1
-  br i1 %190, label %._crit_edge27, label %.lr.ph26, !prof !13
+  br i1 %190, label %._crit_edge27, label %.lr.ph26, !prof !12
 
 .lr.ph26:                                         ; preds = %186, %197
   %191 = phi i32 [ %198, %197 ], [ %189, %186 ]
   %192 = add i32 %191, -1
-  %193 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, i32 %192, ptr nonnull elementtype(i32) %44, i32 %191) #6, !srcloc !14
+  %193 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, i32 %192, ptr nonnull elementtype(i32) %44, i32 %191) #6, !srcloc !13
   %194 = extractvalue { i8, i32 } %193, 0
   %195 = icmp ult i8 %194, 2
   call void @llvm.assume(i1 %195)
   %196 = icmp eq i8 %194, 0
-  br i1 %196, label %197, label %.loopexit, !prof !15
+  br i1 %196, label %197, label %.loopexit, !prof !14
 
 197:                                              ; preds = %.lr.ph26
   %198 = extractvalue { i8, i32 } %193, 1
   %199 = icmp eq i32 %198, 1
-  br i1 %199, label %._crit_edge27, label %.lr.ph26, !prof !16, !llvm.loop !28
+  br i1 %199, label %._crit_edge27, label %.lr.ph26, !prof !15, !llvm.loop !16
 
 ._crit_edge27:                                    ; preds = %197, %186
   call void @__intel_wakeref_put_last(ptr noundef nonnull %44, i64 noundef 0) #6
@@ -995,22 +995,22 @@ define dso_local i32 @intel_engine_pulse(ptr noundef %0) local_unnamed_addr #0 a
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %11 = load volatile i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.thread5, label %.lr.ph, !prof !13
+  br i1 %12, label %.thread5, label %.lr.ph, !prof !12
 
 .lr.ph:                                           ; preds = %9, %19
   %13 = phi i32 [ %20, %19 ], [ %11, %9 ]
   %14 = add i32 %13, 1
-  %15 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 %14, ptr nonnull elementtype(i32) %10, i32 %13) #6, !srcloc !14
+  %15 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 %14, ptr nonnull elementtype(i32) %10, i32 %13) #6, !srcloc !13
   %16 = extractvalue { i8, i32 } %15, 0
   %17 = icmp ult i8 %16, 2
   tail call void @llvm.assume(i1 %17)
   %18 = icmp eq i8 %16, 0
-  br i1 %18, label %19, label %22, !prof !15
+  br i1 %18, label %19, label %22, !prof !14
 
 19:                                               ; preds = %.lr.ph
   %20 = extractvalue { i8, i32 } %15, 1
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.thread5, label %.lr.ph, !prof !16, !llvm.loop !29
+  br i1 %21, label %.thread5, label %.lr.ph, !prof !15, !llvm.loop !16
 
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -1035,7 +1035,7 @@ define dso_local i32 @intel_engine_pulse(ptr noundef %0) local_unnamed_addr #0 a
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %36, i64 9) #6, !srcloc !27
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %36, i64 9) #6, !srcloc !24
   call fastcc void @heartbeat_commit(ptr noundef %30, ptr noundef nonnull %2)
   br label %37
 
@@ -1053,22 +1053,22 @@ define dso_local i32 @intel_engine_pulse(ptr noundef %0) local_unnamed_addr #0 a
   %43 = call i32 @__SCT__might_resched() #6
   %44 = load volatile i32, ptr %10, align 4
   %45 = icmp eq i32 %44, 1
-  br i1 %45, label %._crit_edge, label %.lr.ph9, !prof !13
+  br i1 %45, label %._crit_edge, label %.lr.ph9, !prof !12
 
 .lr.ph9:                                          ; preds = %41, %52
   %46 = phi i32 [ %53, %52 ], [ %44, %41 ]
   %47 = add i32 %46, -1
-  %48 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 %47, ptr nonnull elementtype(i32) %10, i32 %46) #6, !srcloc !14
+  %48 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 %47, ptr nonnull elementtype(i32) %10, i32 %46) #6, !srcloc !13
   %49 = extractvalue { i8, i32 } %48, 0
   %50 = icmp ult i8 %49, 2
   call void @llvm.assume(i1 %50)
   %51 = icmp eq i8 %49, 0
-  br i1 %51, label %52, label %.thread5, !prof !15
+  br i1 %51, label %52, label %.thread5, !prof !14
 
 52:                                               ; preds = %.lr.ph9
   %53 = extractvalue { i8, i32 } %48, 1
   %54 = icmp eq i32 %53, 1
-  br i1 %54, label %._crit_edge, label %.lr.ph9, !prof !16, !llvm.loop !30
+  br i1 %54, label %._crit_edge, label %.lr.ph9, !prof !15, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %52, %41
   call void @__intel_wakeref_put_last(ptr noundef nonnull %10, i64 noundef 0) #6
@@ -1095,22 +1095,22 @@ define dso_local i32 @intel_engine_flush_barriers(ptr noundef %0) local_unnamed_
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %10 = load volatile i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.thread5, label %.lr.ph, !prof !13
+  br i1 %11, label %.thread5, label %.lr.ph, !prof !12
 
 .lr.ph:                                           ; preds = %8, %18
   %12 = phi i32 [ %19, %18 ], [ %10, %8 ]
   %13 = add i32 %12, 1
-  %14 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 %13, ptr nonnull elementtype(i32) %9, i32 %12) #6, !srcloc !14
+  %14 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 %13, ptr nonnull elementtype(i32) %9, i32 %12) #6, !srcloc !13
   %15 = extractvalue { i8, i32 } %14, 0
   %16 = icmp ult i8 %15, 2
   tail call void @llvm.assume(i1 %16)
   %17 = icmp eq i8 %15, 0
-  br i1 %17, label %18, label %21, !prof !15
+  br i1 %17, label %18, label %21, !prof !14
 
 18:                                               ; preds = %.lr.ph
   %19 = extractvalue { i8, i32 } %14, 1
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.thread5, label %.lr.ph, !prof !16, !llvm.loop !31
+  br i1 %20, label %.thread5, label %.lr.ph, !prof !15, !llvm.loop !16
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 112
@@ -1146,22 +1146,22 @@ define dso_local i32 @intel_engine_flush_barriers(ptr noundef %0) local_unnamed_
   %40 = call i32 @__SCT__might_resched() #6
   %41 = load volatile i32, ptr %9, align 4
   %42 = icmp eq i32 %41, 1
-  br i1 %42, label %._crit_edge, label %.lr.ph9, !prof !13
+  br i1 %42, label %._crit_edge, label %.lr.ph9, !prof !12
 
 .lr.ph9:                                          ; preds = %38, %49
   %43 = phi i32 [ %50, %49 ], [ %41, %38 ]
   %44 = add i32 %43, -1
-  %45 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 %44, ptr nonnull elementtype(i32) %9, i32 %43) #6, !srcloc !14
+  %45 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 %44, ptr nonnull elementtype(i32) %9, i32 %43) #6, !srcloc !13
   %46 = extractvalue { i8, i32 } %45, 0
   %47 = icmp ult i8 %46, 2
   call void @llvm.assume(i1 %47)
   %48 = icmp eq i8 %46, 0
-  br i1 %48, label %49, label %.thread5, !prof !15
+  br i1 %48, label %49, label %.thread5, !prof !14
 
 49:                                               ; preds = %.lr.ph9
   %50 = extractvalue { i8, i32 } %45, 1
   %51 = icmp eq i32 %50, 1
-  br i1 %51, label %._crit_edge, label %.lr.ph9, !prof !16, !llvm.loop !32
+  br i1 %51, label %._crit_edge, label %.lr.ph9, !prof !15, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %49, %38
   call void @__intel_wakeref_put_last(ptr noundef nonnull %9, i64 noundef 0) #6
@@ -1196,22 +1196,22 @@ define internal fastcc ptr @heartbeat_create(ptr noundef %0, i32 noundef range(i
   %17 = tail call i32 @__SCT__might_resched() #6
   %18 = load volatile i32, ptr %16, align 4
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %._crit_edge, label %.lr.ph, !prof !13
+  br i1 %19, label %._crit_edge, label %.lr.ph, !prof !12
 
 .lr.ph:                                           ; preds = %7, %26
   %20 = phi i32 [ %27, %26 ], [ %18, %7 ]
   %21 = add i32 %20, 1
-  %22 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16, i32 %21, ptr nonnull elementtype(i32) %16, i32 %20) #6, !srcloc !14
+  %22 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16, i32 %21, ptr nonnull elementtype(i32) %16, i32 %20) #6, !srcloc !13
   %23 = extractvalue { i8, i32 } %22, 0
   %24 = icmp ult i8 %23, 2
   tail call void @llvm.assume(i1 %24)
   %25 = icmp eq i8 %23, 0
-  br i1 %25, label %26, label %.loopexit6, !prof !15
+  br i1 %25, label %26, label %.loopexit6, !prof !14
 
 26:                                               ; preds = %.lr.ph
   %27 = extractvalue { i8, i32 } %22, 1
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %._crit_edge, label %.lr.ph, !prof !16, !llvm.loop !33
+  br i1 %28, label %._crit_edge, label %.lr.ph, !prof !15, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %26, %7
   %29 = tail call i32 @__intel_wakeref_get_first(ptr noundef nonnull %16) #6
@@ -1238,22 +1238,22 @@ define internal fastcc ptr @heartbeat_create(ptr noundef %0, i32 noundef range(i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 3296
   %42 = load volatile i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 1
-  br i1 %43, label %._crit_edge9, label %.lr.ph8, !prof !13
+  br i1 %43, label %._crit_edge9, label %.lr.ph8, !prof !12
 
 .lr.ph8:                                          ; preds = %36, %50
   %44 = phi i32 [ %51, %50 ], [ %42, %36 ]
   %45 = add i32 %44, -1
-  %46 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %41, i32 %45, ptr nonnull elementtype(i32) %41, i32 %44) #6, !srcloc !14
+  %46 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %41, i32 %45, ptr nonnull elementtype(i32) %41, i32 %44) #6, !srcloc !13
   %47 = extractvalue { i8, i32 } %46, 0
   %48 = icmp ult i8 %47, 2
   tail call void @llvm.assume(i1 %48)
   %49 = icmp eq i8 %47, 0
-  br i1 %49, label %50, label %.loopexit, !prof !15
+  br i1 %49, label %50, label %.loopexit, !prof !14
 
 50:                                               ; preds = %.lr.ph8
   %51 = extractvalue { i8, i32 } %46, 1
   %52 = icmp eq i32 %51, 1
-  br i1 %52, label %._crit_edge9, label %.lr.ph8, !prof !16, !llvm.loop !34
+  br i1 %52, label %._crit_edge9, label %.lr.ph8, !prof !15, !llvm.loop !16
 
 ._crit_edge9:                                     ; preds = %50, %36
   tail call void @__intel_wakeref_put_last(ptr noundef nonnull %41, i64 noundef 1) #6
@@ -1309,9 +1309,9 @@ define internal fastcc void @heartbeat_commit(ptr noundef %0, ptr noundef %1) un
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %26 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 1, ptr nonnull elementtype(i32) %25) #6, !srcloc !35
+  %26 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 1, ptr nonnull elementtype(i32) %25) #6, !srcloc !25
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %32, label %28, !prof !15
+  br i1 %27, label %32, label %28, !prof !14
 
 28:                                               ; preds = %24
   %29 = add i32 %26, 1
@@ -1449,31 +1449,21 @@ attributes #8 = { cold nounwind }
 !5 = !{i64 2148825048, i64 2148825087, i64 2148825108, i64 2148825145, i64 2148825168, i64 2148825177}
 !6 = !{!"branch_weights", i32 2000, i32 1}
 !7 = !{i64 2151302444}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = !{!"branch_weights", i32 1, i32 127}
-!14 = !{i64 2148830755, i64 2148830794, i64 2148830815, i64 2148830852, i64 2148830875, i64 2148830884, i64 2148831182}
-!15 = !{!"branch_weights", i32 1, i32 2000}
-!16 = !{!"branch_weights", i32 127, i32 255873}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = !{i64 2149914414}
-!19 = !{i64 2149400819}
-!20 = !{i64 2149914202}
-!21 = !{i64 2159411393}
-!22 = !{i8 0, i8 2}
-!23 = !{}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = !{i64 2159416559}
-!27 = !{i64 2148483687}
-!28 = distinct !{!28, !9, !10, !11}
-!29 = distinct !{!29, !9, !10, !11}
-!30 = distinct !{!30, !9, !10, !11}
-!31 = distinct !{!31, !9, !10, !11}
-!32 = distinct !{!32, !9, !10, !11}
-!33 = distinct !{!33, !9, !10, !11}
-!34 = distinct !{!34, !9, !10, !11}
-!35 = !{i64 2148822863, i64 2148822902, i64 2148822923, i64 2148822960, i64 2148822983, i64 2148822992}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!"branch_weights", i32 1, i32 127}
+!13 = !{i64 2148830755, i64 2148830794, i64 2148830815, i64 2148830852, i64 2148830875, i64 2148830884, i64 2148831182}
+!14 = !{!"branch_weights", i32 1, i32 2000}
+!15 = !{!"branch_weights", i32 127, i32 255873}
+!16 = distinct !{!16, !9, !10}
+!17 = !{i64 2149914414}
+!18 = !{i64 2149400819}
+!19 = !{i64 2149914202}
+!20 = !{i64 2159411393}
+!21 = !{i8 0, i8 2}
+!22 = !{}
+!23 = !{i64 2159416559}
+!24 = !{i64 2148483687}
+!25 = !{i64 2148822863, i64 2148822902, i64 2148822923, i64 2148822960, i64 2148822983, i64 2148822992}

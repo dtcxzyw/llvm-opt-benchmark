@@ -84,7 +84,7 @@ for.body12:                                       ; preds = %for.cond9.preheader
   %6 = load <8 x i32>, ptr %add.ptr, align 1
   %7 = load atomic i8, ptr @_ZGVZN8facebook5velox4simd6detail15gather8BitsImplIN5xsimd4fma3INS4_4avx2EEEEEhPKvNS4_5batchIiT_EEiRKS6_E9kByteBits acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %7, 0
-  br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIiT_EEiRKSA_.exit, !prof !7
+  br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIiT_EEiRKSA_.exit, !prof !6
 
 init.check.i.i:                                   ; preds = %for.body12
   %8 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8facebook5velox4simd6detail15gather8BitsImplIN5xsimd4fma3INS4_4avx2EEEEEhPKvNS4_5batchIiT_EEiRKS6_E9kByteBits) #7
@@ -111,7 +111,7 @@ _ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIi
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %cmp11 = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 8
-  br i1 %cmp11, label %for.body12, label %for.end24.loopexit, !llvm.loop !8
+  br i1 %cmp11, label %for.body12, label %for.end24.loopexit, !llvm.loop !7
 
 for.end24.loopexit:                               ; preds = %_ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIiT_EEiRKSA_.exit
   %14 = trunc nuw nsw i64 %indvars.iv to i32
@@ -131,7 +131,7 @@ if.then27:                                        ; preds = %for.end24
   %conv36 = sub i32 %16, %i8.0.lcssa
   %17 = load atomic i8, ptr @_ZGVZN8facebook5velox4simd6detail15gather8BitsImplIN5xsimd4fma3INS4_4avx2EEEEEhPKvNS4_5batchIiT_EEiRKS6_E9kByteBits acquire, align 8
   %guard.uninitialized.i.i19 = icmp eq i8 %17, 0
-  br i1 %guard.uninitialized.i.i19, label %init.check.i.i24, label %_ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIiT_EEiRKSA_.exit27, !prof !7
+  br i1 %guard.uninitialized.i.i19, label %init.check.i.i24, label %_ZN8facebook5velox4simd11gather8BitsIN5xsimd4fma3INS3_4avx2EEEEEhPKvNS3_5batchIiT_EEiRKSA_.exit27, !prof !6
 
 init.check.i.i24:                                 ; preds = %if.then27
   %18 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8facebook5velox4simd6detail15gather8BitsImplIN5xsimd4fma3INS4_4avx2EEEEEhPKvNS4_5batchIiT_EEiRKS6_E9kByteBits) #7
@@ -201,7 +201,7 @@ for.inc.i:                                        ; preds = %if.then.i, %for.bod
   %fill.1.i = phi i32 [ %inc.i, %if.then.i ], [ %fill.012.i, %for.body4.i ]
   %inc7.i = add nuw nsw i32 %b.013.i, 1
   %exitcond.not.i = icmp eq i32 %inc7.i, 8
-  br i1 %exitcond.not.i, label %for.cond8.preheader.i, label %for.body4.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %for.cond8.preheader.i, label %for.body4.i, !llvm.loop !8
 
 for.body10.i:                                     ; preds = %for.body10.i, %for.body10.preheader.i
   %indvars.iv.i = phi i64 [ %1, %for.body10.preheader.i ], [ %indvars.iv.next.i, %for.body10.i ]
@@ -211,12 +211,12 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %3 = and i64 %indvars.iv.next.i, 4294967295
   %exitcond19.not.i = icmp eq i64 %3, 8
-  br i1 %exitcond19.not.i, label %for.inc16.i, label %for.body10.i, !llvm.loop !10
+  br i1 %exitcond19.not.i, label %for.inc16.i, label %for.body10.i, !llvm.loop !9
 
 for.inc16.i:                                      ; preds = %for.body10.i, %for.cond8.preheader.i
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 256
-  br i1 %exitcond23.not.i, label %for.body.i2, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond23.not.i, label %for.body.i2, label %for.body.i, !llvm.loop !10
 
 for.body.i2:                                      ; preds = %for.inc16.i, %for.inc19.i
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %for.inc19.i ], [ 0, %for.inc16.i ]
@@ -255,7 +255,7 @@ for.inc.i9:                                       ; preds = %if.then.i7, %for.bo
   %fill.1.i10 = phi i32 [ %inc7.i8, %if.then.i7 ], [ %fill.015.i, %for.body3.i ]
   %inc10.i = add nuw nsw i32 %bit.016.i, 1
   %exitcond.not.i11 = icmp eq i32 %inc10.i, 4
-  br i1 %exitcond.not.i11, label %for.cond11.preheader.i, label %for.body3.i, !llvm.loop !12
+  br i1 %exitcond.not.i11, label %for.cond11.preheader.i, label %for.body3.i, !llvm.loop !11
 
 for.body13.i:                                     ; preds = %for.body13.i, %for.body13.preheader.i
   %indvars.iv.i12 = phi i64 [ %5, %for.body13.preheader.i ], [ %indvars.iv.next.i13, %for.body13.i ]
@@ -265,12 +265,12 @@ for.body13.i:                                     ; preds = %for.body13.i, %for.
   %indvars.iv.next.i13 = add nsw i64 %indvars.iv.i12, 1
   %7 = and i64 %indvars.iv.next.i13, 4294967295
   %exitcond22.not.i = icmp eq i64 %7, 8
-  br i1 %exitcond22.not.i, label %for.inc19.i, label %for.body13.i, !llvm.loop !13
+  br i1 %exitcond22.not.i, label %for.inc19.i, label %for.body13.i, !llvm.loop !12
 
 for.inc19.i:                                      ; preds = %for.body13.i, %for.cond11.preheader.i
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next24.i, 16
-  br i1 %exitcond26.not.i, label %_ZN8facebook5velox4simd12_GLOBAL__N_122initPermute4x64IndicesEv.exit, label %for.body.i2, !llvm.loop !14
+  br i1 %exitcond26.not.i, label %_ZN8facebook5velox4simd12_GLOBAL__N_122initPermute4x64IndicesEv.exit, label %for.body.i2, !llvm.loop !13
 
 _ZN8facebook5velox4simd12_GLOBAL__N_122initPermute4x64IndicesEv.exit: ; preds = %for.inc19.i
   store i1 true, ptr @_ZZN8facebook5velox4simd18initializeSimdUtilEvE6inited, align 1
@@ -326,7 +326,7 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
   store i32 %cond.i.i.i.i, ptr %arrayidx1.i.i.i.i, align 4
   %inc.i.i.i.i = add nuw nsw i64 %i.04.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 8
-  br i1 %exitcond.not.i.i.i.i, label %_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i, label %for.body.i.i.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i, label %_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i, label %for.body.i.i.i.i, !llvm.loop !14
 
 _ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i: ; preds = %for.body.i.i.i.i
   %2 = load <8 x i32>, ptr %buffer.i.i.i.i, align 32
@@ -339,7 +339,7 @@ _ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i: ; pre
   store i8 1, ptr %arrayidx7.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !15
 
 for.end.i.i:                                      ; preds = %_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i.i4.i.i)
@@ -355,7 +355,7 @@ for.body.i.i5.i.i:                                ; preds = %for.body.i.i5.i.i, 
   store i32 %cond.i.i8.i.i, ptr %arrayidx1.i.i9.i.i, align 4
   %inc.i.i10.i.i = add nuw nsw i64 %i.04.i.i6.i.i, 1
   %exitcond.not.i.i11.i.i = icmp eq i64 %inc.i.i10.i.i, 8
-  br i1 %exitcond.not.i.i11.i.i, label %__cxx_global_var_init.exit, label %for.body.i.i5.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i11.i.i, label %__cxx_global_var_init.exit, label %for.body.i.i5.i.i, !llvm.loop !14
 
 __cxx_global_var_init.exit:                       ; preds = %for.body.i.i5.i.i
   %6 = load <8 x i32>, ptr %buffer.i.i4.i.i, align 32
@@ -383,7 +383,7 @@ for.body.i.i.i.i6:                                ; preds = %for.body.i.i.i.i6, 
   store i64 %conv.i.i.i.i, ptr %arrayidx1.i.i.i.i9, align 8
   %inc.i.i.i.i10 = add nuw nsw i64 %i.04.i.i.i.i7, 1
   %exitcond.not.i.i.i.i11 = icmp eq i64 %inc.i.i.i.i10, 4
-  br i1 %exitcond.not.i.i.i.i11, label %_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i, label %for.body.i.i.i.i6, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i.i11, label %_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i, label %for.body.i.i.i.i6, !llvm.loop !16
 
 _ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i: ; preds = %for.body.i.i.i.i6
   %10 = load <4 x i64>, ptr %buffer.i.i.i.i2, align 32
@@ -396,7 +396,7 @@ _ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i: ; pre
   store i8 1, ptr %arrayidx7.i.i13, align 1
   %indvars.iv.next.i.i14 = add nuw nsw i64 %indvars.iv.i.i5, 1
   %exitcond.not.i.i15 = icmp eq i64 %indvars.iv.next.i.i14, 4
-  br i1 %exitcond.not.i.i15, label %for.end.i.i16, label %for.body.i.i4, !llvm.loop !18
+  br i1 %exitcond.not.i.i15, label %for.end.i.i16, label %for.body.i.i4, !llvm.loop !17
 
 for.end.i.i16:                                    ; preds = %_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i.i4.i.i1)
@@ -412,7 +412,7 @@ for.body.i.i5.i.i17:                              ; preds = %for.body.i.i5.i.i17
   store i64 %conv.i.i8.i.i, ptr %arrayidx1.i.i9.i.i20, align 8
   %inc.i.i10.i.i21 = add nuw nsw i64 %i.04.i.i6.i.i18, 1
   %exitcond.not.i.i11.i.i22 = icmp eq i64 %inc.i.i10.i.i21, 4
-  br i1 %exitcond.not.i.i11.i.i22, label %__cxx_global_var_init.1.exit, label %for.body.i.i5.i.i17, !llvm.loop !17
+  br i1 %exitcond.not.i.i11.i.i22, label %__cxx_global_var_init.1.exit, label %for.body.i.i5.i.i17, !llvm.loop !16
 
 __cxx_global_var_init.1.exit:                     ; preds = %for.body.i.i5.i.i17
   %14 = load <4 x i64>, ptr %buffer.i.i4.i.i1, align 32
@@ -439,7 +439,7 @@ for.body4.i.i:                                    ; preds = %for.body4.i.i, %for
   store i8 %frombool.i.i, ptr %arrayidx.i.i26, align 1
   %indvars.iv.next.i.i27 = add nuw nsw i64 %indvars.iv.i.i25, 1
   %exitcond.not.i.i28 = icmp eq i64 %indvars.iv.next.i.i27, 8
-  br i1 %exitcond.not.i.i28, label %for.end.i.i29, label %for.body4.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i28, label %for.end.i.i29, label %for.body4.i.i, !llvm.loop !18
 
 for.end.i.i29:                                    ; preds = %for.body4.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i.i.i.i23)
@@ -455,7 +455,7 @@ for.body.i.i.i.i30:                               ; preds = %for.body.i.i.i.i30,
   store i32 %cond.i.i.i.i33, ptr %arrayidx1.i.i.i.i34, align 4
   %inc.i.i.i.i35 = add nuw nsw i64 %i.04.i.i.i.i31, 1
   %exitcond.not.i.i.i.i36 = icmp eq i64 %inc.i.i.i.i35, 8
-  br i1 %exitcond.not.i.i.i.i36, label %_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i37, label %for.body.i.i.i.i30, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i36, label %_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i37, label %for.body.i.i.i.i30, !llvm.loop !14
 
 _ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i37: ; preds = %for.body.i.i.i.i30
   %22 = load <8 x i32>, ptr %buffer.i.i.i.i23, align 32
@@ -466,7 +466,7 @@ _ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i37: ; p
   store <8 x i32> %23, ptr %arrayidx10.i.i, align 32
   %indvars.iv.next11.i.i = add nuw nsw i64 %indvars.iv10.i.i, 1
   %exitcond13.not.i.i = icmp eq i64 %indvars.iv.next11.i.i, 256
-  br i1 %exitcond13.not.i.i, label %__cxx_global_var_init.2.exit, label %for.cond2.preheader.i.i, !llvm.loop !20
+  br i1 %exitcond13.not.i.i, label %__cxx_global_var_init.2.exit, label %for.cond2.preheader.i.i, !llvm.loop !19
 
 __cxx_global_var_init.2.exit:                     ; preds = %_ZN5xsimd10batch_boolIiNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i.i24)
@@ -488,7 +488,7 @@ for.body4.i.i43:                                  ; preds = %for.body4.i.i43, %f
   store i8 %frombool.i.i46, ptr %arrayidx.i.i45, align 1
   %indvars.iv.next.i.i47 = add nuw nsw i64 %indvars.iv.i.i44, 1
   %exitcond.not.i.i48 = icmp eq i64 %indvars.iv.next.i.i47, 4
-  br i1 %exitcond.not.i.i48, label %for.end.i.i49, label %for.body4.i.i43, !llvm.loop !21
+  br i1 %exitcond.not.i.i48, label %for.end.i.i49, label %for.body4.i.i43, !llvm.loop !20
 
 for.end.i.i49:                                    ; preds = %for.body4.i.i43
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buffer.i.i.i.i39)
@@ -504,7 +504,7 @@ for.body.i.i.i.i50:                               ; preds = %for.body.i.i.i.i50,
   store i64 %conv.i.i.i.i53, ptr %arrayidx1.i.i.i.i54, align 8
   %inc.i.i.i.i55 = add nuw nsw i64 %i.04.i.i.i.i51, 1
   %exitcond.not.i.i.i.i56 = icmp eq i64 %inc.i.i.i.i55, 4
-  br i1 %exitcond.not.i.i.i.i56, label %_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i57, label %for.body.i.i.i.i50, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i.i56, label %_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i57, label %for.body.i.i.i.i50, !llvm.loop !16
 
 _ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i57: ; preds = %for.body.i.i.i.i50
   %30 = load <4 x i64>, ptr %buffer.i.i.i.i39, align 32
@@ -515,7 +515,7 @@ _ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i57: ; p
   store <4 x i64> %xor.i.i.i.i.i.i.i.i.i.i58, ptr %arrayidx10.i.i59, align 32
   %indvars.iv.next11.i.i60 = add nuw nsw i64 %indvars.iv10.i.i42, 1
   %exitcond13.not.i.i61 = icmp eq i64 %indvars.iv.next11.i.i60, 16
-  br i1 %exitcond13.not.i.i61, label %__cxx_global_var_init.3.exit, label %for.cond2.preheader.i.i41, !llvm.loop !22
+  br i1 %exitcond13.not.i.i61, label %__cxx_global_var_init.3.exit, label %for.cond2.preheader.i.i41, !llvm.loop !21
 
 __cxx_global_var_init.3.exit:                     ; preds = %_ZN5xsimd10batch_boolIlNS_4fma3INS_4avx2EEEE14load_unalignedEPKb.exit.i.i57
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i40)
@@ -555,7 +555,7 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for
   %fill.1.i.i.i = phi i32 [ %inc.i.i.i, %if.then.i.i.i ], [ %fill.012.i.i.i, %for.body4.i.i.i ]
   %inc7.i.i.i = add nuw nsw i32 %b.013.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %inc7.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %for.cond8.preheader.i.i.i, label %for.body4.i.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i, label %for.cond8.preheader.i.i.i, label %for.body4.i.i.i, !llvm.loop !8
 
 for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %for.body10.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %33, %for.body10.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.body10.i.i.i ]
@@ -565,12 +565,12 @@ for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
   %35 = and i64 %indvars.iv.next.i.i.i, 4294967295
   %exitcond19.not.i.i.i = icmp eq i64 %35, 8
-  br i1 %exitcond19.not.i.i.i, label %for.inc16.i.i.i, label %for.body10.i.i.i, !llvm.loop !10
+  br i1 %exitcond19.not.i.i.i, label %for.inc16.i.i.i, label %for.body10.i.i.i, !llvm.loop !9
 
 for.inc16.i.i.i:                                  ; preds = %for.body10.i.i.i, %for.cond8.preheader.i.i.i
   %indvars.iv.next21.i.i.i = add nuw nsw i64 %indvars.iv20.i.i.i, 1
   %exitcond23.not.i.i.i = icmp eq i64 %indvars.iv.next21.i.i.i, 256
-  br i1 %exitcond23.not.i.i.i, label %for.body.i2.i.i, label %for.body.i.i.i, !llvm.loop !11
+  br i1 %exitcond23.not.i.i.i, label %for.body.i2.i.i, label %for.body.i.i.i, !llvm.loop !10
 
 for.body.i2.i.i:                                  ; preds = %for.inc16.i.i.i, %for.inc19.i.i.i
   %indvars.iv23.i.i.i = phi i64 [ %indvars.iv.next24.i.i.i, %for.inc19.i.i.i ], [ 0, %for.inc16.i.i.i ]
@@ -609,7 +609,7 @@ for.inc.i9.i.i:                                   ; preds = %if.then.i7.i.i, %fo
   %fill.1.i10.i.i = phi i32 [ %inc7.i8.i.i, %if.then.i7.i.i ], [ %fill.015.i.i.i, %for.body3.i.i.i ]
   %inc10.i.i.i = add nuw nsw i32 %bit.016.i.i.i, 1
   %exitcond.not.i11.i.i = icmp eq i32 %inc10.i.i.i, 4
-  br i1 %exitcond.not.i11.i.i, label %for.cond11.preheader.i.i.i, label %for.body3.i.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i11.i.i, label %for.cond11.preheader.i.i.i, label %for.body3.i.i.i, !llvm.loop !11
 
 for.body13.i.i.i:                                 ; preds = %for.body13.i.i.i, %for.body13.preheader.i.i.i
   %indvars.iv.i12.i.i = phi i64 [ %37, %for.body13.preheader.i.i.i ], [ %indvars.iv.next.i13.i.i, %for.body13.i.i.i ]
@@ -619,12 +619,12 @@ for.body13.i.i.i:                                 ; preds = %for.body13.i.i.i, %
   %indvars.iv.next.i13.i.i = add nsw i64 %indvars.iv.i12.i.i, 1
   %39 = and i64 %indvars.iv.next.i13.i.i, 4294967295
   %exitcond22.not.i.i.i = icmp eq i64 %39, 8
-  br i1 %exitcond22.not.i.i.i, label %for.inc19.i.i.i, label %for.body13.i.i.i, !llvm.loop !13
+  br i1 %exitcond22.not.i.i.i, label %for.inc19.i.i.i, label %for.body13.i.i.i, !llvm.loop !12
 
 for.inc19.i.i.i:                                  ; preds = %for.body13.i.i.i, %for.cond11.preheader.i.i.i
   %indvars.iv.next24.i.i.i = add nuw nsw i64 %indvars.iv23.i.i.i, 1
   %exitcond26.not.i.i.i = icmp eq i64 %indvars.iv.next24.i.i.i, 16
-  br i1 %exitcond26.not.i.i.i, label %_ZN8facebook5velox4simd12_GLOBAL__N_122initPermute4x64IndicesEv.exit.i.i, label %for.body.i2.i.i, !llvm.loop !14
+  br i1 %exitcond26.not.i.i.i, label %_ZN8facebook5velox4simd12_GLOBAL__N_122initPermute4x64IndicesEv.exit.i.i, label %for.body.i2.i.i, !llvm.loop !13
 
 _ZN8facebook5velox4simd12_GLOBAL__N_122initPermute4x64IndicesEv.exit.i.i: ; preds = %for.inc19.i.i.i
   store i1 true, ptr @_ZZN8facebook5velox4simd18initializeSimdUtilEvE6inited, align 1
@@ -655,22 +655,21 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"branch_weights", i32 1, i32 1048575}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
+!6 = !{!"branch_weights", i32 1, i32 1048575}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}

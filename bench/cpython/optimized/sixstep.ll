@@ -80,7 +80,7 @@ define hidden range(i32 0, 2) i32 @six_step_fnt(ptr noundef %0, i64 noundef %1, 
 36:                                               ; preds = %._crit_edge
   %37 = sext i32 %2 to i64
   %38 = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %37
-  %39 = load i64, ptr %38, align 8, !tbaa !6
+  %39 = load i64, ptr %38, align 8, !tbaa !5
   %40 = tail call i64 @_mpd_getkernel(i64 noundef %1, i32 noundef -1, i32 noundef %2) #6
   %.not93 = icmp eq i32 %21, 0
   br i1 %.not93, label %._crit_edge88, label %.lr.ph87
@@ -95,9 +95,9 @@ define hidden range(i32 0, 2) i32 @six_step_fnt(ptr noundef %0, i64 noundef %1, 
 
 43:                                               ; preds = %.lr.ph87, %110
   %.06585 = phi i64 [ 1, %.lr.ph87 ], [ %111, %110 ]
-  store i64 1, ptr %4, align 8, !tbaa !6
+  store i64 1, ptr %4, align 8, !tbaa !5
   %44 = tail call fastcc i64 @x64_powmod(i64 noundef %40, i64 noundef %.06585, i64 noundef %39)
-  store i64 %44, ptr %5, align 8, !tbaa !6
+  store i64 %44, ptr %5, align 8, !tbaa !5
   %45 = zext i64 %44 to i128
   %46 = mul nuw i128 %45, %45
   %47 = lshr i128 %46, 64
@@ -188,37 +188,37 @@ x64_mulmod.exit:                                  ; preds = %50, %62, %75
   %.084 = phi i64 [ 0, %x64_mulmod.exit ], [ %108, %99 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %100 = getelementptr i64, ptr %98, i64 %.084
-  %101 = load i64, ptr %100, align 8, !tbaa !6
-  store i64 %101, ptr %6, align 8, !tbaa !6
+  %101 = load i64, ptr %100, align 8, !tbaa !5
+  store i64 %101, ptr %6, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   %102 = getelementptr i8, ptr %100, i64 8
-  %103 = load i64, ptr %102, align 8, !tbaa !6
-  store i64 %103, ptr %7, align 8, !tbaa !6
-  %104 = load i64, ptr %4, align 8, !tbaa !6
-  %105 = load i64, ptr %5, align 8, !tbaa !6
+  %103 = load i64, ptr %102, align 8, !tbaa !5
+  store i64 %103, ptr %7, align 8, !tbaa !5
+  %104 = load i64, ptr %4, align 8, !tbaa !5
+  %105 = load i64, ptr %5, align 8, !tbaa !5
   call fastcc void @x64_mulmod2(ptr noundef %6, i64 noundef %104, ptr noundef %7, i64 noundef %105, i64 noundef %39)
   call fastcc void @x64_mulmod2c(ptr noundef %4, ptr noundef %5, i64 noundef %spec.select108.i, i64 noundef %39)
-  %106 = load i64, ptr %6, align 8, !tbaa !6
-  store i64 %106, ptr %100, align 8, !tbaa !6
-  %107 = load i64, ptr %7, align 8, !tbaa !6
-  store i64 %107, ptr %102, align 8, !tbaa !6
+  %106 = load i64, ptr %6, align 8, !tbaa !5
+  store i64 %106, ptr %100, align 8, !tbaa !5
+  %107 = load i64, ptr %7, align 8, !tbaa !5
+  store i64 %107, ptr %102, align 8, !tbaa !5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
   %108 = add i64 %.084, 2
   %109 = icmp ult i64 %108, %24
-  br i1 %109, label %99, label %110, !llvm.loop !10
+  br i1 %109, label %99, label %110, !llvm.loop !9
 
 110:                                              ; preds = %99
   %111 = add nuw i64 %.06585, 1
   %exitcond.not = icmp eq i64 %111, %umax
-  br i1 %exitcond.not, label %._crit_edge88, label %43, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge88, label %43, !llvm.loop !10
 
 ._crit_edge88:                                    ; preds = %110, %36
   %.not76 = icmp eq i64 %24, %26
   br i1 %.not76, label %116, label %112
 
 112:                                              ; preds = %._crit_edge88
-  %113 = load ptr, ptr @mpd_free, align 8, !tbaa !12
+  %113 = load ptr, ptr @mpd_free, align 8, !tbaa !11
   tail call void %113(ptr noundef nonnull %29) #6
   %114 = tail call ptr @_mpd_init_fnt_params(i64 noundef %24, i32 noundef -1, i32 noundef %2) #6
   %115 = icmp eq ptr %114, null
@@ -233,12 +233,12 @@ x64_mulmod.exit:                                  ; preds = %50, %62, %75
   tail call void @fnt_dif2(ptr noundef %.189, i64 noundef %24, ptr noundef nonnull %.068) #6
   %117 = getelementptr i64, ptr %.189, i64 %24
   %118 = icmp ult ptr %117, %31
-  br i1 %118, label %.lr.ph91, label %.sink.split, !llvm.loop !14
+  br i1 %118, label %.lr.ph91, label %.sink.split, !llvm.loop !13
 
 .sink.split:                                      ; preds = %.lr.ph91, %116, %._crit_edge
   %.068.sink = phi ptr [ %29, %._crit_edge ], [ %.068, %116 ], [ %.068, %.lr.ph91 ]
   %.066.ph = phi i32 [ 0, %._crit_edge ], [ 1, %116 ], [ 1, %.lr.ph91 ]
-  %119 = load ptr, ptr @mpd_free, align 8, !tbaa !12
+  %119 = load ptr, ptr @mpd_free, align 8, !tbaa !11
   tail call void %119(ptr noundef nonnull %.068.sink) #6
   br label %120
 
@@ -456,7 +456,7 @@ x64_mulmod.exit34:                                ; preds = %67, %79, %92
   %spec.select108.i26 = sub i64 %111, %113
   %114 = lshr i64 %.01136, 1
   %.not = icmp ult i64 %.01136, 2
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %x64_mulmod.exit34, %3
   %.0.lcssa = phi i64 [ 1, %3 ], [ %.1, %x64_mulmod.exit34 ]
@@ -465,7 +465,7 @@ x64_mulmod.exit34:                                ; preds = %67, %79, %92
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @x64_mulmod2(ptr noundef nonnull captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #4 {
-  %6 = load i64, ptr %0, align 8, !tbaa !6
+  %6 = load i64, ptr %0, align 8, !tbaa !5
   %7 = zext i64 %6 to i128
   %8 = zext i64 %1 to i128
   %9 = mul nuw i128 %7, %8
@@ -553,8 +553,8 @@ x64_mulmod.exit:                                  ; preds = %14, %27, %40
   %or.cond70.i = select i1 %.not63.i, i1 %.not64.i, i1 false
   %61 = select i1 %or.cond70.i, i64 0, i64 %4
   %spec.select108.i = sub i64 %59, %61
-  store i64 %spec.select108.i, ptr %0, align 8, !tbaa !6
-  %62 = load i64, ptr %2, align 8, !tbaa !6
+  store i64 %spec.select108.i, ptr %0, align 8, !tbaa !5
+  %62 = load i64, ptr %2, align 8, !tbaa !5
   %63 = zext i64 %62 to i128
   %64 = zext i64 %3 to i128
   %65 = mul nuw i128 %63, %64
@@ -640,13 +640,13 @@ x64_mulmod.exit28:                                ; preds = %69, %82, %95
   %or.cond70.i19 = select i1 %.not63.i17, i1 %.not64.i18, i1 false
   %116 = select i1 %or.cond70.i19, i64 0, i64 %4
   %spec.select108.i20 = sub i64 %114, %116
-  store i64 %spec.select108.i20, ptr %2, align 8, !tbaa !6
+  store i64 %spec.select108.i20, ptr %2, align 8, !tbaa !5
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @x64_mulmod2c(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
-  %5 = load i64, ptr %0, align 8, !tbaa !6
+  %5 = load i64, ptr %0, align 8, !tbaa !5
   %6 = zext i64 %5 to i128
   %7 = zext i64 %2 to i128
   %8 = mul nuw i128 %6, %7
@@ -734,8 +734,8 @@ x64_mulmod.exit:                                  ; preds = %13, %26, %39
   %or.cond70.i = select i1 %.not63.i, i1 %.not64.i, i1 false
   %60 = select i1 %or.cond70.i, i64 0, i64 %3
   %spec.select108.i = sub i64 %58, %60
-  store i64 %spec.select108.i, ptr %0, align 8, !tbaa !6
-  %61 = load i64, ptr %1, align 8, !tbaa !6
+  store i64 %spec.select108.i, ptr %0, align 8, !tbaa !5
+  %61 = load i64, ptr %1, align 8, !tbaa !5
   %62 = zext i64 %61 to i128
   %63 = mul nuw i128 %62, %7
   %64 = lshr i128 %63, 64
@@ -820,7 +820,7 @@ x64_mulmod.exit28:                                ; preds = %67, %80, %93
   %or.cond70.i19 = select i1 %.not63.i17, i1 %.not64.i18, i1 false
   %114 = select i1 %or.cond70.i19, i64 0, i64 %3
   %spec.select108.i20 = sub i64 %112, %114
-  store i64 %spec.select108.i20, ptr %1, align 8, !tbaa !6
+  store i64 %spec.select108.i20, ptr %1, align 8, !tbaa !5
   ret void
 }
 
@@ -886,12 +886,12 @@ define hidden range(i32 0, 2) i32 @inv_six_step_fnt(ptr noundef %0, i64 noundef 
   tail call void @fnt_dif2(ptr noundef %.06782, i64 noundef %24, ptr noundef nonnull %27) #6
   %31 = getelementptr i64, ptr %.06782, i64 %24
   %32 = icmp ult ptr %31, %29
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %33 = sext i32 %2 to i64
   %34 = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %33
-  %35 = load i64, ptr %34, align 8, !tbaa !6
+  %35 = load i64, ptr %34, align 8, !tbaa !5
   %36 = tail call i64 @_mpd_getkernel(i64 noundef %1, i32 noundef 1, i32 noundef %2) #6
   %.not92 = icmp eq i32 %21, 0
   br i1 %.not92, label %._crit_edge87, label %.lr.ph86
@@ -906,9 +906,9 @@ define hidden range(i32 0, 2) i32 @inv_six_step_fnt(ptr noundef %0, i64 noundef 
 
 39:                                               ; preds = %.lr.ph86, %106
   %.06584 = phi i64 [ 1, %.lr.ph86 ], [ %107, %106 ]
-  store i64 1, ptr %4, align 8, !tbaa !6
+  store i64 1, ptr %4, align 8, !tbaa !5
   %40 = tail call fastcc i64 @x64_powmod(i64 noundef %36, i64 noundef %.06584, i64 noundef %35)
-  store i64 %40, ptr %5, align 8, !tbaa !6
+  store i64 %40, ptr %5, align 8, !tbaa !5
   %41 = zext i64 %40 to i128
   %42 = mul nuw i128 %41, %41
   %43 = lshr i128 %42, 64
@@ -999,30 +999,30 @@ x64_mulmod.exit:                                  ; preds = %46, %58, %71
   %.083 = phi i64 [ 0, %x64_mulmod.exit ], [ %104, %95 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %96 = getelementptr i64, ptr %94, i64 %.083
-  %97 = load i64, ptr %96, align 8, !tbaa !6
-  store i64 %97, ptr %6, align 8, !tbaa !6
+  %97 = load i64, ptr %96, align 8, !tbaa !5
+  store i64 %97, ptr %6, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
   %98 = getelementptr i8, ptr %96, i64 8
-  %99 = load i64, ptr %98, align 8, !tbaa !6
-  store i64 %99, ptr %7, align 8, !tbaa !6
-  %100 = load i64, ptr %4, align 8, !tbaa !6
-  %101 = load i64, ptr %5, align 8, !tbaa !6
+  %99 = load i64, ptr %98, align 8, !tbaa !5
+  store i64 %99, ptr %7, align 8, !tbaa !5
+  %100 = load i64, ptr %4, align 8, !tbaa !5
+  %101 = load i64, ptr %5, align 8, !tbaa !5
   call fastcc void @x64_mulmod2(ptr noundef %6, i64 noundef %100, ptr noundef %7, i64 noundef %101, i64 noundef %35)
   call fastcc void @x64_mulmod2c(ptr noundef %4, ptr noundef %5, i64 noundef %spec.select108.i, i64 noundef %35)
-  %102 = load i64, ptr %6, align 8, !tbaa !6
-  store i64 %102, ptr %96, align 8, !tbaa !6
-  %103 = load i64, ptr %7, align 8, !tbaa !6
-  store i64 %103, ptr %98, align 8, !tbaa !6
+  %102 = load i64, ptr %6, align 8, !tbaa !5
+  store i64 %102, ptr %96, align 8, !tbaa !5
+  %103 = load i64, ptr %7, align 8, !tbaa !5
+  store i64 %103, ptr %98, align 8, !tbaa !5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
   %104 = add i64 %.083, 2
   %105 = icmp ult i64 %104, %24
-  br i1 %105, label %95, label %106, !llvm.loop !17
+  br i1 %105, label %95, label %106, !llvm.loop !16
 
 106:                                              ; preds = %95
   %107 = add nuw i64 %.06584, 1
   %exitcond.not = icmp eq i64 %107, %umax
-  br i1 %exitcond.not, label %._crit_edge87, label %39, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge87, label %39, !llvm.loop !17
 
 ._crit_edge87:                                    ; preds = %106, %._crit_edge
   %108 = tail call i32 @transpose_pow2(ptr noundef %0, i64 noundef %26, i64 noundef %24) #6
@@ -1030,7 +1030,7 @@ x64_mulmod.exit:                                  ; preds = %46, %58, %71
   br i1 %.not, label %109, label %111
 
 109:                                              ; preds = %._crit_edge87
-  %110 = load ptr, ptr @mpd_free, align 8, !tbaa !12
+  %110 = load ptr, ptr @mpd_free, align 8, !tbaa !11
   tail call void %110(ptr noundef nonnull %27) #6
   br label %121
 
@@ -1039,7 +1039,7 @@ x64_mulmod.exit:                                  ; preds = %46, %58, %71
   br i1 %.not74, label %116, label %112
 
 112:                                              ; preds = %111
-  %113 = load ptr, ptr @mpd_free, align 8, !tbaa !12
+  %113 = load ptr, ptr @mpd_free, align 8, !tbaa !11
   tail call void %113(ptr noundef nonnull %27) #6
   %114 = tail call ptr @_mpd_init_fnt_params(i64 noundef %26, i32 noundef 1, i32 noundef %2) #6
   %115 = icmp eq ptr %114, null
@@ -1054,10 +1054,10 @@ x64_mulmod.exit:                                  ; preds = %46, %58, %71
   tail call void @fnt_dif2(ptr noundef %.188, i64 noundef %26, ptr noundef nonnull %.068) #6
   %117 = getelementptr i64, ptr %.188, i64 %26
   %118 = icmp ult ptr %117, %29
-  br i1 %118, label %.lr.ph90, label %._crit_edge91, !llvm.loop !19
+  br i1 %118, label %.lr.ph90, label %._crit_edge91, !llvm.loop !18
 
 ._crit_edge91:                                    ; preds = %.lr.ph90, %116
-  %119 = load ptr, ptr @mpd_free, align 8, !tbaa !12
+  %119 = load ptr, ptr @mpd_free, align 8, !tbaa !11
   tail call void %119(ptr noundef nonnull %.068) #6
   %120 = tail call i32 @transpose_pow2(ptr noundef %0, i64 noundef %24, i64 noundef %26) #6
   %.not75 = icmp ne i32 %120, 0
@@ -1087,20 +1087,19 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"long", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"any pointer", !8, i64 0}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"long", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"any pointer", !7, i64 0}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}

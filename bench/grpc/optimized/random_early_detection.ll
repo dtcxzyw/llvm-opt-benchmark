@@ -159,6 +159,5 @@ attributes #7 = { nounwind }
 !19 = !{!11, !11, i64 0}
 !20 = !{!13, !14, i64 16}
 !21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}

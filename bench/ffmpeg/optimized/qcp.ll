@@ -224,7 +224,7 @@ define internal i32 @qcp_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.backedge
-  %11 = load i32, ptr %6, align 4, !tbaa !49
+  %11 = load i32, ptr %6, align 4, !tbaa !48
   %.not45 = icmp eq i32 %11, 0
   br i1 %.not45, label %41, label %12
 
@@ -255,13 +255,13 @@ define internal i32 @qcp_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 25:                                               ; preds = %.loopexit, %15
   %.039 = phi i32 [ %16, %15 ], [ %24, %.loopexit ]
-  %26 = load i32, ptr %6, align 4, !tbaa !49
+  %26 = load i32, ptr %6, align 4, !tbaa !48
   %.not50 = icmp ugt i32 %26, %.039
   br i1 %.not50, label %30, label %27
 
 27:                                               ; preds = %25
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.6) #7
-  %28 = load i32, ptr %6, align 4, !tbaa !49
+  %28 = load i32, ptr %6, align 4, !tbaa !48
   %29 = add i32 %28, -1
   br label %30
 
@@ -281,15 +281,15 @@ define internal i32 @qcp_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 
 35:                                               ; preds = %34, %33
   %.neg = xor i32 %.140, -1
-  %36 = load i32, ptr %6, align 4, !tbaa !49
+  %36 = load i32, ptr %6, align 4, !tbaa !48
   %37 = add i32 %36, %.neg
-  store i32 %37, ptr %6, align 4, !tbaa !49
+  store i32 %37, ptr %6, align 4, !tbaa !48
   br label %.thread
 
 38:                                               ; preds = %17, %19
-  %39 = load i32, ptr %6, align 4, !tbaa !49
+  %39 = load i32, ptr %6, align 4, !tbaa !48
   %40 = add i32 %39, -1
-  store i32 %40, ptr %6, align 4, !tbaa !49
+  store i32 %40, ptr %6, align 4, !tbaa !48
   br label %.backedge
 
 41:                                               ; preds = %10
@@ -329,7 +329,7 @@ define internal i32 @qcp_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   br label %.backedge
 
 55:                                               ; preds = %47
-  store i32 %49, ptr %6, align 4, !tbaa !49
+  store i32 %49, ptr %6, align 4, !tbaa !48
   br label %.backedge
 
 56:                                               ; preds = %47
@@ -340,7 +340,7 @@ define internal i32 @qcp_read_packet(ptr noundef %0, ptr noundef %1) #1 {
 .backedge:                                        ; preds = %53, %55, %56, %38
   %59 = tail call i32 @avio_feof(ptr noundef %4) #7
   %.not = icmp eq i32 %59, 0
-  br i1 %.not, label %10, label %.thread, !llvm.loop !51
+  br i1 %.not, label %10, label %.thread, !llvm.loop !50
 
 .thread:                                          ; preds = %.backedge, %2, %30, %35
   %.2 = phi i32 [ %31, %35 ], [ %31, %30 ], [ -541478725, %2 ], [ -541478725, %.backedge ]
@@ -441,9 +441,8 @@ attributes #7 = { nounwind }
 !43 = !{!36, !10, i64 152}
 !44 = !{!45, !45, i64 0}
 !45 = !{!"short", !8, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!50, !10, i64 0}
-!50 = !{!"QCPContext", !10, i64 0, !8, i64 4}
-!51 = distinct !{!51, !48}
+!48 = !{!49, !10, i64 0}
+!49 = !{!"QCPContext", !10, i64 0, !8, i64 4}
+!50 = distinct !{!50, !47}

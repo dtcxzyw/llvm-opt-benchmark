@@ -187,7 +187,7 @@ define hidden void @ua_keysets_dump() local_unnamed_addr #1 {
   %17 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %16)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %print_hex.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %print_hex.exit, label %.lr.ph.i, !llvm.loop !8
 
 print_hex.exit:                                   ; preds = %.lr.ph.i
   %18 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9)
@@ -211,7 +211,7 @@ print_hex.exit:                                   ; preds = %.lr.ph.i
   %27 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %26)
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %wide.trip.count.i
-  br i1 %exitcond.not.i27, label %print_hex.exit28, label %.lr.ph.i24, !llvm.loop !9
+  br i1 %exitcond.not.i27, label %print_hex.exit28, label %.lr.ph.i24, !llvm.loop !8
 
 print_hex.exit28:                                 ; preds = %.lr.ph.i24, %print_hex.exit
   %28 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9)
@@ -230,7 +230,7 @@ print_hex.exit28:                                 ; preds = %.lr.ph.i24, %print_
   %37 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %36)
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 16
-  br i1 %exitcond.not.i33, label %print_hex.exit34, label %.lr.ph.i30, !llvm.loop !9
+  br i1 %exitcond.not.i33, label %print_hex.exit34, label %.lr.ph.i30, !llvm.loop !8
 
 print_hex.exit34:                                 ; preds = %.lr.ph.i30
   %38 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9)
@@ -254,7 +254,7 @@ print_hex.exit34:                                 ; preds = %.lr.ph.i30
   %47 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef %46)
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i37
-  br i1 %exitcond.not.i41, label %print_hex.exit42, label %.lr.ph.i38, !llvm.loop !9
+  br i1 %exitcond.not.i41, label %print_hex.exit42, label %.lr.ph.i38, !llvm.loop !8
 
 print_hex.exit42:                                 ; preds = %.lr.ph.i38, %print_hex.exit34
   %48 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9)
@@ -265,7 +265,7 @@ print_hex.exit42:                                 ; preds = %.lr.ph.i38, %print_
   %52 = load i32, ptr @g_num_keysets, align 4
   %53 = zext i32 %52 to i64
   %54 = icmp samesign ult i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %print_hex.exit42, %0
   ret void
@@ -299,8 +299,7 @@ attributes #9 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

@@ -212,7 +212,7 @@ ctype_raw.exit:                                   ; preds = %29
 
 35:                                               ; preds = %ctype_raw.exit
   %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !56
+  %37 = load i32, ptr %36, align 4, !tbaa !55
   %38 = zext i32 %37 to i64
   %39 = add nuw nsw i64 %38, 16
   br label %40
@@ -220,12 +220,12 @@ ctype_raw.exit:                                   ; preds = %29
 40:                                               ; preds = %ctype_raw.exit, %35
   %41 = phi i64 [ %39, %35 ], [ 24, %ctype_raw.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load i64, ptr %42, align 8, !tbaa !57
+  %43 = load i64, ptr %42, align 8, !tbaa !56
   %44 = sub i64 %43, %41
-  store i64 %44, ptr %42, align 8, !tbaa !57
-  %45 = load ptr, ptr %0, align 8, !tbaa !58
+  store i64 %44, ptr %42, align 8, !tbaa !56
+  %45 = load ptr, ptr %0, align 8, !tbaa !57
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !59
+  %47 = load ptr, ptr %46, align 8, !tbaa !58
   %48 = tail call ptr %45(ptr noundef %47, ptr noundef nonnull %1, i64 noundef range(i64 0, 4294967312) %41, i64 noundef 0) #4
   br label %69
 
@@ -243,12 +243,12 @@ ctype_raw.exit:                                   ; preds = %29
   %60 = add i32 %56, %59
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %63 = load i64, ptr %62, align 8, !tbaa !57
+  %63 = load i64, ptr %62, align 8, !tbaa !56
   %64 = sub i64 %63, %61
-  store i64 %64, ptr %62, align 8, !tbaa !57
-  %65 = load ptr, ptr %0, align 8, !tbaa !58
+  store i64 %64, ptr %62, align 8, !tbaa !56
+  %65 = load ptr, ptr %0, align 8, !tbaa !57
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !59
+  %67 = load ptr, ptr %66, align 8, !tbaa !58
   %68 = tail call ptr %65(ptr noundef %67, ptr noundef %54, i64 noundef range(i64 0, 4294967312) %61, i64 noundef 0) #4
   br label %69
 
@@ -263,10 +263,10 @@ define hidden void @lj_cdata_setfin(ptr noundef %0, ptr noundef %1, ptr noundef 
   %7 = load i64, ptr %6, align 8, !tbaa !28
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 728
-  %10 = load i64, ptr %9, align 8, !tbaa !60
+  %10 = load i64, ptr %9, align 8, !tbaa !59
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load i64, ptr %12, align 8, !tbaa !61
+  %13 = load i64, ptr %12, align 8, !tbaa !60
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %41, label %14
 
@@ -285,10 +285,10 @@ define hidden void @lj_cdata_setfin(ptr noundef %0, ptr noundef %1, ptr noundef 
   %21 = and i8 %18, -5
   store i8 %21, ptr %17, align 8, !tbaa !47
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %23 = load i64, ptr %22, align 8, !tbaa !63
+  %23 = load i64, ptr %22, align 8, !tbaa !62
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 %23, ptr %24, align 8, !tbaa !64
-  store i64 %10, ptr %22, align 8, !tbaa !63
+  store i64 %23, ptr %24, align 8, !tbaa !63
+  store i64 %10, ptr %22, align 8, !tbaa !62
   br label %25
 
 25:                                               ; preds = %20, %14
@@ -344,7 +344,7 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %17, label %18, label %.preheader250
 
 18:                                               ; preds = %5
-  %19 = load ptr, ptr %9, align 8, !tbaa !65
+  %19 = load ptr, ptr %9, align 8, !tbaa !64
   %20 = and i32 %15, 65535
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw %struct.CType, ptr %12, i64 %21
@@ -373,10 +373,10 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr inbounds nuw i8, ptr %.2105182, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !56
-  %34 = load i32, ptr %4, align 4, !tbaa !66
+  %33 = load i32, ptr %32, align 4, !tbaa !55
+  %34 = load i32, ptr %4, align 4, !tbaa !65
   %35 = or i32 %34, %33
-  store i32 %35, ptr %4, align 4, !tbaa !66
+  store i32 %35, ptr %4, align 4, !tbaa !65
   %.pre = load i32, ptr %.2105182, align 8, !tbaa !51
   br label %36
 
@@ -388,7 +388,7 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
   %41 = load i32, ptr %40, align 8, !tbaa !51
   %42 = lshr i32 %41, 28
   %43 = icmp eq i32 %42, 8
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !67
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %36, %23
   %.2105.lcssa = phi ptr [ %.1104, %23 ], [ %40, %36 ]
@@ -402,7 +402,7 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
 47:                                               ; preds = %._crit_edge
   %48 = bitcast i64 %44 to double
   %49 = fptosi double %48 to i64
-  store i64 %49, ptr %6, align 8, !tbaa !68
+  store i64 %49, ptr %6, align 8, !tbaa !67
   br label %50
 
 50:                                               ; preds = %105, %47
@@ -431,12 +431,12 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %.2105.lcssa, i64 4
-  %65 = load i32, ptr %64, align 4, !tbaa !56
+  %65 = load i32, ptr %64, align 4, !tbaa !55
   %66 = icmp eq i32 %65, 4
   br i1 %66, label %67, label %71
 
 67:                                               ; preds = %63
-  %68 = load i32, ptr %.1101, align 4, !tbaa !66
+  %68 = load i32, ptr %.1101, align 4, !tbaa !65
   %69 = zext i32 %68 to i64
   %70 = inttoptr i64 %69 to ptr
   br label %cdata_getptr.exit
@@ -456,24 +456,24 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not130, label %80, label %77
 
 77:                                               ; preds = %75
-  %78 = load i64, ptr %6, align 8, !tbaa !68
+  %78 = load i64, ptr %6, align 8, !tbaa !67
   %79 = and i64 %78, 1
-  store i64 %79, ptr %6, align 8, !tbaa !68
+  store i64 %79, ptr %6, align 8, !tbaa !67
   br label %80
 
 80:                                               ; preds = %77, %75
-  %81 = load i32, ptr %4, align 4, !tbaa !66
+  %81 = load i32, ptr %4, align 4, !tbaa !65
   %82 = or i32 %81, 33554432
-  store i32 %82, ptr %4, align 4, !tbaa !66
+  store i32 %82, ptr %4, align 4, !tbaa !65
   br label %cdata_getptr.exit
 
 cdata_getptr.exit:                                ; preds = %71, %67, %73, %80
   %.2102 = phi ptr [ %.1101, %80 ], [ %.1101, %73 ], [ %70, %67 ], [ %72, %71 ]
-  %83 = load i64, ptr %6, align 8, !tbaa !68
+  %83 = load i64, ptr %6, align 8, !tbaa !67
   %84 = sext i32 %55 to i64
   %85 = mul nsw i64 %83, %84
   %86 = getelementptr inbounds i8, ptr %.2102, i64 %85
-  store ptr %86, ptr %3, align 8, !tbaa !65
+  store ptr %86, ptr %3, align 8, !tbaa !64
   br label %197
 
 87:                                               ; preds = %._crit_edge
@@ -539,10 +539,10 @@ ctype_raw.exit133:                                ; preds = %94
   br label %.thread
 
 114:                                              ; preds = %112
-  %115 = load i32, ptr %7, align 4, !tbaa !66
+  %115 = load i32, ptr %7, align 4, !tbaa !65
   %116 = zext i32 %115 to i64
   %117 = getelementptr inbounds nuw i8, ptr %.1101, i64 %116
-  store ptr %117, ptr %3, align 8, !tbaa !65
+  store ptr %117, ptr %3, align 8, !tbaa !64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   br label %197
 
@@ -553,14 +553,14 @@ ctype_raw.exit133:                                ; preds = %94
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds nuw i8, ptr %110, i64 20
-  %123 = load i32, ptr %122, align 4, !tbaa !69
+  %123 = load i32, ptr %122, align 4, !tbaa !68
   %124 = icmp eq i32 %123, 2
   br i1 %124, label %125, label %.thread
 
 125:                                              ; preds = %121
-  %126 = load i32, ptr %4, align 4, !tbaa !66
+  %126 = load i32, ptr %4, align 4, !tbaa !65
   %127 = or i32 %126, 33554432
-  store i32 %127, ptr %4, align 4, !tbaa !66
+  store i32 %127, ptr %4, align 4, !tbaa !65
   %128 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %129 = load i8, ptr %128, align 1, !tbaa !47
   switch i8 %129, label %.thread [
@@ -575,7 +575,7 @@ ctype_raw.exit133:                                ; preds = %94
   br i1 %133, label %134, label %.thread
 
 134:                                              ; preds = %130
-  store ptr %.1101, ptr %3, align 8, !tbaa !65
+  store ptr %.1101, ptr %3, align 8, !tbaa !64
   br label %197
 
 135:                                              ; preds = %125
@@ -586,11 +586,11 @@ ctype_raw.exit133:                                ; preds = %94
 
 139:                                              ; preds = %135
   %140 = getelementptr inbounds nuw i8, ptr %.2105.lcssa, i64 4
-  %141 = load i32, ptr %140, align 4, !tbaa !56
+  %141 = load i32, ptr %140, align 4, !tbaa !55
   %142 = lshr i32 %141, 1
   %143 = zext nneg i32 %142 to i64
   %144 = getelementptr inbounds nuw i8, ptr %.1101, i64 %143
-  store ptr %144, ptr %3, align 8, !tbaa !65
+  store ptr %144, ptr %3, align 8, !tbaa !64
   br label %197
 
 145:                                              ; preds = %118
@@ -599,7 +599,7 @@ ctype_raw.exit133:                                ; preds = %94
   br i1 %147, label %148, label %.thread
 
 148:                                              ; preds = %145
-  %149 = load i32, ptr %.1101, align 4, !tbaa !66
+  %149 = load i32, ptr %.1101, align 4, !tbaa !65
   br label %150
 
 150:                                              ; preds = %150, %148
@@ -623,7 +623,7 @@ ctype_raw.exit:                                   ; preds = %150
   %158 = getelementptr inbounds nuw %struct.CType, ptr %24, i64 %157
   %159 = load i32, ptr %158, align 8, !tbaa !51
   %160 = icmp slt i32 %159, -1879048192
-  br i1 %160, label %.preheader162, label %ctype_rawchild.exit, !llvm.loop !70
+  br i1 %160, label %.preheader162, label %ctype_rawchild.exit, !llvm.loop !69
 
 ctype_rawchild.exit:                              ; preds = %.preheader162, %ctype_raw.exit
   %161 = phi i32 [ %151, %ctype_raw.exit ], [ %159, %.preheader162 ]
@@ -670,7 +670,7 @@ ctype_rawchild.exit:                              ; preds = %.preheader162, %cty
   %177 = getelementptr inbounds nuw %struct.CType, ptr %172, i64 %176
   %178 = load i32, ptr %177, align 8, !tbaa !51
   %179 = icmp slt i32 %178, -1879048192
-  br i1 %179, label %173, label %ctype_rawchild.exit139, !llvm.loop !70
+  br i1 %179, label %173, label %ctype_rawchild.exit139, !llvm.loop !69
 
 ctype_rawchild.exit139:                           ; preds = %173
   %.mask127 = and i32 %178, -268435456
@@ -679,12 +679,12 @@ ctype_rawchild.exit139:                           ; preds = %173
 
 181:                                              ; preds = %ctype_rawchild.exit139
   %182 = getelementptr inbounds nuw i8, ptr %.3106, i64 4
-  %183 = load i32, ptr %182, align 4, !tbaa !56
+  %183 = load i32, ptr %182, align 4, !tbaa !55
   %184 = icmp eq i32 %183, 4
   br i1 %184, label %185, label %189
 
 185:                                              ; preds = %181
-  %186 = load i32, ptr %.1101, align 4, !tbaa !66
+  %186 = load i32, ptr %.1101, align 4, !tbaa !65
   %187 = zext i32 %186 to i64
   %188 = inttoptr i64 %187 to ptr
   br label %cdata_getptr.exit136
@@ -698,12 +698,12 @@ cdata_getptr.exit136:                             ; preds = %185, %189
   %191 = and i32 %170, 65535
   %192 = zext nneg i32 %191 to i64
   %193 = getelementptr inbounds nuw %struct.CType, ptr %172, i64 %192
-  br label %23, !llvm.loop !71
+  br label %23
 
 194:                                              ; preds = %ctype_rawchild.exit139, %.thread
-  %195 = load i32, ptr %4, align 4, !tbaa !66
+  %195 = load i32, ptr %4, align 4, !tbaa !65
   %196 = or i32 %195, 1
-  store i32 %196, ptr %4, align 4, !tbaa !66
+  store i32 %196, ptr %4, align 4, !tbaa !65
   br label %197
 
 197:                                              ; preds = %134, %139, %114, %169, %194, %cdata_getptr.exit
@@ -739,7 +739,7 @@ define hidden i32 @lj_cdata_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %12 = and i32 %11, 8388608
   %.not.i = icmp ne i32 %12, 0
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !56
+  %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !55
   %13 = icmp slt i32 %.pre.i, 0
   %or.cond.i = select i1 %.not.i, i1 %13, i1 false
   %14 = uitofp i32 %.pre.i to double
@@ -763,7 +763,7 @@ define hidden i32 @lj_cdata_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %18
-  %27 = load ptr, ptr %3, align 8, !tbaa !65
+  %27 = load ptr, ptr %3, align 8, !tbaa !64
   %28 = and i32 %23, 65535
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds nuw %struct.CType, ptr %20, i64 %29
@@ -785,7 +785,7 @@ define hidden i32 @lj_cdata_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %37 = getelementptr inbounds nuw %struct.CType, ptr %20, i64 %36
   %38 = load i32, ptr %37, align 8, !tbaa !51
   %39 = icmp slt i32 %38, -1879048192
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !72
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %31
   %.1.lcssa = phi ptr [ %.027, %31 ], [ %37, %.lr.ph ]
@@ -831,7 +831,7 @@ define hidden void @lj_cdata_set(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %12
-  %21 = load ptr, ptr %2, align 8, !tbaa !65
+  %21 = load ptr, ptr %2, align 8, !tbaa !64
   %22 = and i32 %17, 65535
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw %struct.CType, ptr %14, i64 %23
@@ -855,7 +855,7 @@ define hidden void @lj_cdata_set(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr inbounds nuw i8, ptr %.12731, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !56
+  %33 = load i32, ptr %32, align 4, !tbaa !55
   %34 = or i32 %33, %.032
   br label %35
 
@@ -866,7 +866,7 @@ define hidden void @lj_cdata_set(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %38 = getelementptr inbounds nuw %struct.CType, ptr %14, i64 %37
   %39 = load i32, ptr %38, align 8, !tbaa !51
   %40 = icmp slt i32 %39, -1879048192
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !73
+  br i1 %40, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %35, %25
   %.127.lcssa = phi ptr [ %.026, %25 ], [ %38, %35 ]
@@ -959,24 +959,21 @@ attributes #5 = { noreturn nounwind }
 !50 = !{!5, !6, i64 0}
 !51 = !{!52, !10, i64 0}
 !52 = !{!"CType", !10, i64 0, !10, i64 4, !21, i64 8, !21, i64 10, !19, i64 16}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = !{!52, !10, i64 4}
-!57 = !{!33, !20, i64 16}
-!58 = !{!33, !7, i64 0}
-!59 = !{!33, !7, i64 8}
-!60 = !{!19, !20, i64 0}
-!61 = !{!62, !20, i64 32}
-!62 = !{!"GCtab", !19, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !30, i64 16, !19, i64 24, !19, i64 32, !30, i64 40, !10, i64 48, !10, i64 52, !30, i64 56}
-!63 = !{!33, !20, i64 64}
-!64 = !{!62, !20, i64 24}
-!65 = !{!39, !39, i64 0}
-!66 = !{!10, !10, i64 0}
-!67 = distinct !{!67, !54, !55}
-!68 = !{!20, !20, i64 0}
-!69 = !{!35, !10, i64 20}
-!70 = distinct !{!70, !54, !55}
-!71 = distinct !{!71, !55}
-!72 = distinct !{!72, !54, !55}
-!73 = distinct !{!73, !55}
+!55 = !{!52, !10, i64 4}
+!56 = !{!33, !20, i64 16}
+!57 = !{!33, !7, i64 0}
+!58 = !{!33, !7, i64 8}
+!59 = !{!19, !20, i64 0}
+!60 = !{!61, !20, i64 32}
+!61 = !{!"GCtab", !19, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !30, i64 16, !19, i64 24, !19, i64 32, !30, i64 40, !10, i64 48, !10, i64 52, !30, i64 56}
+!62 = !{!33, !20, i64 64}
+!63 = !{!61, !20, i64 24}
+!64 = !{!39, !39, i64 0}
+!65 = !{!10, !10, i64 0}
+!66 = distinct !{!66, !54}
+!67 = !{!20, !20, i64 0}
+!68 = !{!35, !10, i64 20}
+!69 = distinct !{!69, !54}
+!70 = distinct !{!70, !54}

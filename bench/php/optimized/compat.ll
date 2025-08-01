@@ -748,13 +748,13 @@ define internal void @start_element_handler(ptr noundef readonly captures(none) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !48
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %30
+  br i1 %7, label %8, label %32
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !53
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %33, label %11
+  br i1 %.not, label %35, label %11
 
 11:                                               ; preds = %8
   %12 = tail call i32 @xmlStrlen(ptr noundef %1) #11
@@ -765,51 +765,48 @@ define internal void @start_element_handler(ptr noundef readonly captures(none) 
 .preheader:                                       ; preds = %11
   %14 = load ptr, ptr %2, align 8, !tbaa !61
   %.not2829 = icmp eq ptr %14, null
-  br i1 %.not2829, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not2829, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %15 = phi ptr [ %14, %.lr.ph.preheader ], [ %23, %.lr.ph ]
-  %.131 = phi ptr [ %13, %.lr.ph.preheader ], [ %20, %.lr.ph ]
+.lr.ph:                                           ; preds = %.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
+  %15 = phi ptr [ %25, %.lr.ph ], [ %14, %.preheader ]
+  %.131 = phi ptr [ %22, %.lr.ph ], [ %13, %.preheader ]
+  %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv
-  %16 = load ptr, ptr %gep, align 8, !tbaa !61
-  %17 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %15, ptr noundef %16) #11
-  %18 = trunc i64 %17 to i32
-  %19 = load ptr, ptr %4, align 8, !tbaa !61
-  %20 = call ptr @xmlStrncat(ptr noundef %.131, ptr noundef %19, i32 noundef %18) #11
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !61
+  %19 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %15, ptr noundef %18) #11
+  %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %4, align 8, !tbaa !61
-  call void @_efree(ptr noundef %21) #11
+  %22 = call ptr @xmlStrncat(ptr noundef %.131, ptr noundef %21, i32 noundef %20) #11
+  %23 = load ptr, ptr %4, align 8, !tbaa !61
+  call void @_efree(ptr noundef %23) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
-  %23 = load ptr, ptr %22, align 8, !tbaa !61
-  %.not28 = icmp eq ptr %23, null
-  br i1 %.not28, label %.loopexit, label %.lr.ph, !llvm.loop !84
+  %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %25 = load ptr, ptr %24, align 8, !tbaa !61
+  %.not28 = icmp eq ptr %25, null
+  br i1 %.not28, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %11
-  %.0 = phi ptr [ %13, %11 ], [ %13, %.preheader ], [ %20, %.lr.ph ]
-  %24 = call ptr @xmlStrncat(ptr noundef %.0, ptr noundef nonnull @.str.6, i32 noundef 1) #11
-  %25 = load ptr, ptr %9, align 8, !tbaa !53
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !47
-  %28 = call i32 @xmlStrlen(ptr noundef %24) #11
-  call void %25(ptr noundef %27, ptr noundef %24, i32 noundef %28) #11
-  %29 = load ptr, ptr @xmlFree, align 8, !tbaa !72
-  call void %29(ptr noundef %24) #11
-  br label %33
+  %.0 = phi ptr [ %13, %11 ], [ %13, %.preheader ], [ %22, %.lr.ph ]
+  %26 = call ptr @xmlStrncat(ptr noundef %.0, ptr noundef nonnull @.str.6, i32 noundef 1) #11
+  %27 = load ptr, ptr %9, align 8, !tbaa !53
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8, !tbaa !47
+  %30 = call i32 @xmlStrlen(ptr noundef %26) #11
+  call void %27(ptr noundef %29, ptr noundef %26, i32 noundef %30) #11
+  %31 = load ptr, ptr @xmlFree, align 8, !tbaa !72
+  call void %31(ptr noundef %26) #11
+  br label %35
 
-30:                                               ; preds = %3
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !47
-  tail call void %6(ptr noundef %32, ptr noundef %1, ptr noundef %2) #11
-  br label %33
+32:                                               ; preds = %3
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !47
+  tail call void %6(ptr noundef %34, ptr noundef %1, ptr noundef %2) #11
+  br label %35
 
-33:                                               ; preds = %8, %.loopexit, %30
+35:                                               ; preds = %8, %.loopexit, %32
   ret void
 }
 
@@ -979,7 +976,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %24 = add nuw nsw i32 %.098145, 1
   %exitcond.not = icmp eq i32 %24, %4
-  br i1 %exitcond.not, label %.loopexit143, label %17, !llvm.loop !86
+  br i1 %exitcond.not, label %.loopexit143, label %17
 
 .loopexit143:                                     ; preds = %17, %13, %9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1047,7 +1044,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
   %54 = add nuw nsw i32 %.0107154, 1
   %exitcond183.not = icmp eq i32 %54, %4
-  br i1 %exitcond183.not, label %.loopexit140, label %.lr.ph156, !llvm.loop !87
+  br i1 %exitcond183.not, label %.loopexit140, label %.lr.ph156
 
 .loopexit140:                                     ; preds = %50, %41
   %.0135 = phi ptr [ %storemerge, %41 ], [ %52, %50 ]
@@ -1097,7 +1094,7 @@ define internal void @start_element_handler_ns(ptr noundef readonly captures(non
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
   %78 = add nuw nsw i32 %.1160, 1
   %exitcond187.not = icmp eq i32 %78, %6
-  br i1 %exitcond187.not, label %.loopexit, label %.lr.ph161, !llvm.loop !88
+  br i1 %exitcond187.not, label %.loopexit, label %.lr.ph161
 
 .loopexit:                                        ; preds = %68, %.loopexit140
   %.2137 = phi ptr [ %.0135, %.loopexit140 ], [ %76, %68 ]
@@ -1197,7 +1194,7 @@ qualify_namespace.exit127:                        ; preds = %116, %110, %118
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 5
   %131 = add nuw nsw i32 %.2148, 1
   %exitcond175.not = icmp eq i32 %131, %6
-  br i1 %exitcond175.not, label %._crit_edge.loopexit, label %102, !llvm.loop !89
+  br i1 %exitcond175.not, label %._crit_edge.loopexit, label %102
 
 ._crit_edge.loopexit:                             ; preds = %qualify_namespace.exit127
   %132 = trunc nuw i64 %indvars.iv.next169 to i32
@@ -1236,7 +1233,7 @@ qualify_namespace.exit127:                        ; preds = %116, %110, %118
   tail call void %139(ptr noundef %141) #11
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count
-  br i1 %exitcond179.not, label %._crit_edge152, label %.lr.ph151, !llvm.loop !90
+  br i1 %exitcond179.not, label %._crit_edge152, label %.lr.ph151
 
 ._crit_edge152:                                   ; preds = %.lr.ph151, %.preheader141
   tail call void @_efree(ptr noundef nonnull %.0) #11
@@ -1471,10 +1468,3 @@ attributes #12 = { nounwind willreturn memory(read) }
 !81 = !{!77, !9, i64 16}
 !82 = !{!77, !9, i64 104}
 !83 = !{!77, !9, i64 96}
-!84 = distinct !{!84, !85}
-!85 = !{!"llvm.loop.estimated_trip_count"}
-!86 = distinct !{!86, !85}
-!87 = distinct !{!87, !85}
-!88 = distinct !{!88, !85}
-!89 = distinct !{!89, !85}
-!90 = distinct !{!90, !85}

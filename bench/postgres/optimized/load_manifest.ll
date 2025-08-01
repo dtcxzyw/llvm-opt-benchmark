@@ -222,7 +222,7 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 0
   %56 = add i32 %.048, 1
-  br i1 %55, label %57, label %51, !llvm.loop !8
+  br i1 %55, label %57, label %51
 
 57:                                               ; preds = %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %45, i64 40, i1 false)
@@ -236,7 +236,7 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   %61 = add i32 %.169, 1
   %62 = zext i32 %61 to i64
   %63 = icmp ugt i64 %3, %62
-  br i1 %63, label %.lr.ph70, label %._crit_edge, !llvm.loop !9
+  br i1 %63, label %.lr.ph70, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %58, %manifest_files_update_parameters.exit
   tail call void @pfree(ptr noundef %5) #22
@@ -287,7 +287,7 @@ define internal fastcc i32 @hash_string(ptr noundef %0) unnamed_addr #6 {
   %24 = xor i64 %23, -9187201950435737472
   %25 = and i64 %24, %22
   %.not.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %5
   %.0.copyload.i.i.i.in = phi i64 [ %6, %5 ], [ %21, %.lr.ph.i.i ]
@@ -401,7 +401,7 @@ fasthash_accum_cstring_aligned.exit.i:            ; preds = %.sink.split.i.i.i, 
 81:                                               ; preds = %78
   %82 = add nuw nsw i64 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %82, 8
-  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %78, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %78, !llvm.loop !8
 
 .critedge.i.i:                                    ; preds = %78
   switch i64 %.014.i.i, label %.sink.split.i.i6.i [
@@ -495,7 +495,7 @@ fasthash_accum.exit.i.i:                          ; preds = %.sink.split.i.i6.i,
   %.0.lcssa20.i.i = phi i64 [ %.0.lcssa23.i.i, %.sink.split.i.i6.i ], [ %.014.i.i, %.critedge.i.i ]
   %132 = getelementptr inbounds nuw i8, ptr %.01216.i.i, i64 %.0.lcssa20.i.i
   %.not.i8.i = icmp eq i8 %131, 0
-  br i1 %.not.i8.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !12
+  br i1 %.not.i8.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !9
 
 fasthash_accum_cstring.exit:                      ; preds = %fasthash_accum.exit.i.i, %fasthash_accum_cstring_aligned.exit.i, %75
   %.sroa.19.4 = phi i64 [ %.sroa.19.3, %fasthash_accum_cstring_aligned.exit.i ], [ -8645972361240307355, %75 ], [ %.sroa.19.1, %fasthash_accum.exit.i.i ]
@@ -530,7 +530,7 @@ define internal fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noun
   %9 = load i32, ptr %5, align 8
   %10 = load i32, ptr %6, align 8
   %.not = icmp ult i32 %9, %10
-  br i1 %.not, label %17, label %11, !prof !13
+  br i1 %.not, label %17, label %11, !prof !10
 
 11:                                               ; preds = %.loopexit
   %12 = load i64, ptr %0, align 8
@@ -645,7 +645,7 @@ manifest_files_distance.exit:                     ; preds = %31, %34
   %63 = getelementptr inbounds nuw %struct.manifest_file, ptr %18, i64 %62
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.279130, ptr noundef nonnull align 8 dereferenceable(40) %63, i64 40, i1 false)
   %.not88 = icmp eq i32 %61, %.071183
-  br i1 %.not88, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not88, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %64 = load i32, ptr %5, align 8
@@ -715,7 +715,7 @@ define dso_local noundef ptr @manifest_files_lookup(ptr noundef readonly capture
   %14 = getelementptr inbounds nuw %struct.manifest_file, ptr %6, i64 %13
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %16, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %11
   %17 = phi ptr [ %14, %11 ], [ %8, %2 ]
@@ -751,7 +751,7 @@ define dso_local noundef ptr @manifest_files_lookup_hash(ptr noundef readonly ca
   %14 = getelementptr inbounds nuw %struct.manifest_file, ptr %6, i64 %13
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %16, label %manifest_files_lookup_hash_internal.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %11
   %17 = phi ptr [ %14, %11 ], [ %8, %3 ]
@@ -829,11 +829,11 @@ define dso_local noundef zeroext i1 @manifest_files_delete(ptr noundef captures(
   %36 = getelementptr inbounds nuw %struct.manifest_file, ptr %34, i64 %35
   %37 = load i32, ptr %36, align 8
   %.not = icmp eq i32 %37, 1
-  br i1 %.not, label %.lr.ph, label %.thread.sink.split, !llvm.loop !16
+  br i1 %.not, label %.lr.ph, label %.thread.sink.split
 
 38:                                               ; preds = %11, %7
   %39 = add i32 %.034, 1
-  br label %7, !llvm.loop !17
+  br label %7
 
 .thread.sink.split:                               ; preds = %.lr.ph, %31, %16
   %.03861.lcssa.sink = phi ptr [ %9, %16 ], [ %25, %31 ], [ %.03861, %.lr.ph ]
@@ -896,7 +896,7 @@ define dso_local void @manifest_files_delete_item(ptr noundef captures(none) %0,
   %32 = getelementptr inbounds nuw %struct.manifest_file, ptr %30, i64 %31
   %33 = load i32, ptr %32, align 8
   %.not = icmp eq i32 %33, 1
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %27, %.lr.ph, %2
   %.025.lcssa = phi ptr [ %1, %2 ], [ %.02536, %.lr.ph ], [ %21, %27 ]
@@ -927,7 +927,7 @@ define dso_local void @manifest_files_start_iterate(ptr noundef readonly capture
   %11 = add i32 %.01315, 1
   %12 = zext i32 %11 to i64
   %13 = icmp ugt i64 %3, %12
-  br i1 %13, label %6, label %._crit_edge, !llvm.loop !19
+  br i1 %13, label %6, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %6, %10, %2
   %.1 = phi i32 [ -1, %2 ], [ -1, %10 ], [ %.01315, %6 ]
@@ -990,7 +990,7 @@ define dso_local ptr @manifest_files_iterate(ptr noundef readonly captures(none)
   %25 = phi i8 [ 1, %23 ], [ 0, %10 ]
   %26 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %26, 1
-  br i1 %.not, label %27, label %7, !llvm.loop !20
+  br i1 %.not, label %27, label %7
 
 27:                                               ; preds = %24, %7
   %.2 = phi ptr [ %14, %24 ], [ null, %7 ]
@@ -1055,7 +1055,7 @@ manifest_files_distance.exit:                     ; preds = %8
   %26 = add i32 %.05970, 1
   %27 = zext i32 %26 to i64
   %28 = icmp ugt i64 %25, %27
-  br i1 %28, label %8, label %.preheader, !llvm.loop !21
+  br i1 %28, label %8, label %.preheader, !llvm.loop !13
 
 .lr.ph78:                                         ; preds = %.preheader, %.lr.ph78
   %29 = phi i64 [ %36, %.lr.ph78 ], [ 0, %.preheader ]
@@ -1073,7 +1073,7 @@ manifest_files_distance.exit:                     ; preds = %8
   %35 = add i32 %.16075, 1
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ugt i64 %25, %36
-  br i1 %37, label %.lr.ph78, label %._crit_edge, !llvm.loop !22
+  br i1 %37, label %.lr.ph78, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph78, %1, %.preheader
   %.0.lcssa90 = phi i32 [ %.1, %.preheader ], [ 0, %1 ], [ %.1, %.lr.ph78 ]
@@ -1130,7 +1130,7 @@ define dso_local ptr @load_backup_manifests(i32 noundef %0, ptr noundef readonly
   store ptr %9, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret ptr %5
@@ -1272,7 +1272,7 @@ define dso_local ptr @load_backup_manifest(ptr noundef %0) local_unnamed_addr #0
   %65 = icmp eq i32 %63, 0
   call void @json_parse_manifest_incremental_chunk(ptr noundef %46, ptr noundef %47, i64 noundef %64, i1 noundef zeroext %65) #22
   %66 = icmp sgt i32 %63, 0
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %62, %44
   call void @json_parse_manifest_incremental_shutdown(ptr noundef %46) #22
@@ -1336,7 +1336,7 @@ define internal void @combinebackup_per_file_cb(ptr noundef readonly captures(no
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc i32 @hash_string(ptr noundef %1)
   %12 = call fastcc noundef ptr @manifest_files_insert_hash_internal(ptr noundef %10, ptr noundef %1, i32 noundef %11, ptr noundef nonnull %7)
-  %13 = load i8, ptr %7, align 1, !range !25, !noundef !26
+  %13 = load i8, ptr %7, align 1, !range !17, !noundef !18
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %16
 
@@ -1488,25 +1488,17 @@ attributes #25 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
-!25 = !{i8 0, i8 2}
-!26 = !{}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = !{i8 0, i8 2}
+!18 = !{}

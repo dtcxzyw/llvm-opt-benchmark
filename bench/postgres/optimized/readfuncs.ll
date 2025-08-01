@@ -479,7 +479,7 @@ define internal fastcc ptr @_readBitmapset() unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   %53 = call ptr @pg_strtok(ptr noundef nonnull %1) #10
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %54, label %._crit_edge, label %.lr.ph
 
 55:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
@@ -1016,7 +1016,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   %321 = getelementptr inbounds nuw i8, ptr %286, i64 36
   store i32 -1, ptr %321, align 4
   %322 = call ptr @pg_strtok(ptr noundef nonnull %6) #10
-  %323 = load i8, ptr %317, align 8, !range !6, !noundef !7
+  %323 = load i8, ptr %317, align 8, !range !4, !noundef !5
   %324 = trunc nuw i8 %323 to i1
   br i1 %324, label %325, label %327
 
@@ -1025,7 +1025,7 @@ _readIntoClause.exit:                             ; preds = %nullable_string.exi
   br label %_readConst.exit
 
 327:                                              ; preds = %285
-  %328 = load i8, ptr %311, align 1, !range !6, !noundef !7
+  %328 = load i8, ptr %311, align 1, !range !4, !noundef !5
   %329 = trunc nuw i8 %328 to i1
   %330 = call i64 @readDatum(i1 noundef zeroext %329)
   %331 = getelementptr inbounds nuw i8, ptr %286, i64 24
@@ -24077,7 +24077,7 @@ define dso_local i64 @readDatum(i1 noundef zeroext %0) local_unnamed_addr #0 {
   store i8 %25, ptr %26, align 1
   %27 = add nuw nsw i64 %.035, 1
   %exitcond36.not = icmp eq i64 %27, 8
-  br i1 %exitcond36.not, label %.loopexit, label %22, !llvm.loop !8
+  br i1 %exitcond36.not, label %.loopexit, label %22, !llvm.loop !6
 
 28:                                               ; preds = %15
   %29 = icmp eq i64 %6, 0
@@ -24096,7 +24096,7 @@ define dso_local i64 @readDatum(i1 noundef zeroext %0) local_unnamed_addr #0 {
   store i8 %35, ptr %36, align 1
   %37 = add nuw nsw i64 %.134, 1
   %exitcond.not = icmp eq i64 %37, %6
-  br i1 %exitcond.not, label %38, label %32, !llvm.loop !10
+  br i1 %exitcond.not, label %38, label %32, !llvm.loop !8
 
 38:                                               ; preds = %32
   %39 = ptrtoint ptr %31 to i64
@@ -24216,7 +24216,7 @@ define dso_local ptr @readAttrNumberCols(i32 noundef %0) local_unnamed_addr #0 {
   store i16 %35, ptr %36, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 37:                                               ; preds = %._crit_edge
   %38 = load i8, ptr %21, align 1
@@ -24315,7 +24315,7 @@ define dso_local ptr @readOidCols(i32 noundef %0) local_unnamed_addr #0 {
   store i32 %35, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 37:                                               ; preds = %._crit_edge
   %38 = load i8, ptr %21, align 1
@@ -24414,7 +24414,7 @@ define dso_local ptr @readIntCols(i32 noundef %0) local_unnamed_addr #0 {
   store i32 %35, ptr %36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 37:                                               ; preds = %._crit_edge
   %38 = load i8, ptr %21, align 1
@@ -24512,7 +24512,7 @@ define dso_local ptr @readBoolCols(i32 noundef %0) local_unnamed_addr #0 {
   store i8 %35, ptr %34, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 36:                                               ; preds = %._crit_edge
   %37 = load i8, ptr %20, align 1
@@ -24587,14 +24587,12 @@ attributes #12 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !9, !5}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !5}
-!11 = distinct !{!11, !9, !5}
-!12 = distinct !{!12, !9, !5}
-!13 = distinct !{!13, !9, !5}
-!14 = distinct !{!14, !9, !5}
+!4 = !{i8 0, i8 2}
+!5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

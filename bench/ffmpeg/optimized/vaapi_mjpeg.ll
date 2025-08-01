@@ -137,7 +137,7 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
 .preheader87:                                     ; preds = %25
   %23 = getelementptr inbounds nuw [4 x [256 x i8]], ptr %13, i64 0, i64 %indvars.iv113
   %.idx85 = mul nuw nsw i64 %indvars.iv113, 208
-  %24 = getelementptr i8, ptr %14, i64 %.idx85
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx85
   br label %31
 
 25:                                               ; preds = %19, %25
@@ -148,11 +148,11 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   store i8 %27, ptr %28, align 1, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader87, label %25, !llvm.loop !59
+  br i1 %exitcond.not, label %.preheader87, label %25, !llvm.loop !58
 
 .preheader86:                                     ; preds = %31
   %29 = getelementptr inbounds nuw [4 x [16 x i8]], ptr %15, i64 0, i64 %indvars.iv113
-  %30 = getelementptr i8, ptr %16, i64 %.idx85
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx85
   br label %37
 
 31:                                               ; preds = %.preheader87, %31
@@ -163,11 +163,11 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   store i8 %33, ptr %34, align 1, !tbaa !49
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next100, 12
-  br i1 %exitcond102.not, label %.preheader86, label %31, !llvm.loop !60
+  br i1 %exitcond102.not, label %.preheader86, label %31, !llvm.loop !59
 
 .preheader:                                       ; preds = %37
   %35 = getelementptr inbounds nuw [4 x [256 x i8]], ptr %17, i64 0, i64 %indvars.iv113
-  %36 = getelementptr i8, ptr %18, i64 %.idx85
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx85
   br label %41
 
 37:                                               ; preds = %.preheader86, %37
@@ -178,7 +178,7 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   store i8 %39, ptr %40, align 1, !tbaa !49
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, 16
-  br i1 %exitcond107.not, label %.preheader, label %37, !llvm.loop !61
+  br i1 %exitcond107.not, label %.preheader, label %37, !llvm.loop !60
 
 41:                                               ; preds = %.preheader, %41
   %indvars.iv109 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next110, %41 ]
@@ -188,10 +188,10 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   store i8 %43, ptr %44, align 1, !tbaa !49
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next110, 162
-  br i1 %exitcond112.not, label %45, label %41, !llvm.loop !62
+  br i1 %exitcond112.not, label %45, label %41, !llvm.loop !61
 
 45:                                               ; preds = %41
-  br i1 %20, label %19, label %46, !llvm.loop !63
+  br i1 %20, label %19, label %46, !llvm.loop !62
 
 46:                                               ; preds = %45
   %47 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef %0, ptr noundef %10, i32 noundef 12, ptr noundef nonnull %4, i64 noundef 436) #4
@@ -221,12 +221,12 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   store i8 %59, ptr %60, align 1, !tbaa !49
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 64
-  br i1 %exitcond119.not, label %61, label %56, !llvm.loop !64
+  br i1 %exitcond119.not, label %61, label %56, !llvm.loop !63
 
 61:                                               ; preds = %56
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, 4
-  br i1 %exitcond123.not, label %62, label %52, !llvm.loop !65
+  br i1 %exitcond123.not, label %62, label %52, !llvm.loop !64
 
 62:                                               ; preds = %61
   %63 = call i32 @ff_vaapi_decode_make_param_buffer(ptr noundef %0, ptr noundef %10, i32 noundef 1, ptr noundef nonnull %5, i64 noundef 276) #4
@@ -239,12 +239,12 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx, i8 0, i64 16, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 2128
-  %67 = load i32, ptr %66, align 16, !tbaa !66
+  %67 = load i32, ptr %66, align 16, !tbaa !65
   %68 = trunc i32 %67 to i16
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 988
-  %70 = load i32, ptr %69, align 4, !tbaa !67
+  %70 = load i32, ptr %69, align 4, !tbaa !66
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 992
-  %72 = load i32, ptr %71, align 16, !tbaa !68
+  %72 = load i32, ptr %71, align 16, !tbaa !67
   %73 = mul nsw i32 %72, %70
   store i32 %2, ptr %6, align 4, !tbaa !50
   %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 34
@@ -255,7 +255,7 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   %75 = load i32, ptr %74, align 4, !tbaa !46
   %76 = trunc i32 %75 to i8
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 %76, ptr %77, align 4, !tbaa !69
+  store i8 %76, ptr %77, align 4, !tbaa !68
   %78 = icmp sgt i32 %75, 0
   br i1 %78, label %.lr.ph, label %._crit_edge
 
@@ -277,20 +277,20 @@ define internal i32 @vaapi_mjpeg_decode_slice(ptr noundef %0, ptr noundef %1, i3
   %89 = load i32, ptr %88, align 4, !tbaa !50
   %90 = trunc i32 %89 to i8
   %91 = getelementptr inbounds nuw [4 x %struct.anon.1], ptr %81, i64 0, i64 %indvars.iv124
-  store i8 %90, ptr %91, align 1, !tbaa !71
+  store i8 %90, ptr %91, align 1, !tbaa !70
   %92 = getelementptr inbounds nuw [4 x i32], ptr %82, i64 0, i64 %indvars.iv124
   %93 = load i32, ptr %92, align 4, !tbaa !50
   %94 = trunc i32 %93 to i8
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 1
-  store i8 %94, ptr %95, align 1, !tbaa !73
+  store i8 %94, ptr %95, align 1, !tbaa !72
   %96 = getelementptr inbounds nuw [4 x i32], ptr %83, i64 0, i64 %indvars.iv124
   %97 = load i32, ptr %96, align 4, !tbaa !50
   %98 = trunc i32 %97 to i8
   %99 = getelementptr inbounds nuw i8, ptr %91, i64 2
-  store i8 %98, ptr %99, align 1, !tbaa !74
+  store i8 %98, ptr %99, align 1, !tbaa !73
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count
-  br i1 %exitcond127.not, label %._crit_edge, label %84, !llvm.loop !75
+  br i1 %exitcond127.not, label %._crit_edge, label %84, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %84, %65
   %100 = zext i32 %2 to i64
@@ -408,23 +408,22 @@ attributes #4 = { nounwind }
 !53 = !{!52, !8, i64 1}
 !54 = !{!52, !8, i64 2}
 !55 = !{!52, !8, i64 3}
-!56 = distinct !{!56, !57, !58}
+!56 = distinct !{!56, !57}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!"llvm.loop.estimated_trip_count"}
-!59 = distinct !{!59, !57, !58}
-!60 = distinct !{!60, !57, !58}
-!61 = distinct !{!61, !57, !58}
-!62 = distinct !{!62, !57, !58}
-!63 = distinct !{!63, !57, !58}
-!64 = distinct !{!64, !57, !58}
-!65 = distinct !{!65, !57, !58}
-!66 = !{!28, !10, i64 2128}
-!67 = !{!28, !10, i64 988}
-!68 = !{!28, !10, i64 992}
-!69 = !{!70, !8, i64 32}
-!70 = !{!"_VASliceParameterBufferJPEGBaseline", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !8, i64 20, !8, i64 32, !48, i64 34, !10, i64 36, !8, i64 40}
-!71 = !{!72, !8, i64 0}
-!72 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
-!73 = !{!72, !8, i64 1}
-!74 = !{!72, !8, i64 2}
-!75 = distinct !{!75, !57, !58}
+!58 = distinct !{!58, !57}
+!59 = distinct !{!59, !57}
+!60 = distinct !{!60, !57}
+!61 = distinct !{!61, !57}
+!62 = distinct !{!62, !57}
+!63 = distinct !{!63, !57}
+!64 = distinct !{!64, !57}
+!65 = !{!28, !10, i64 2128}
+!66 = !{!28, !10, i64 988}
+!67 = !{!28, !10, i64 992}
+!68 = !{!69, !8, i64 32}
+!69 = !{!"_VASliceParameterBufferJPEGBaseline", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !8, i64 20, !8, i64 32, !48, i64 34, !10, i64 36, !8, i64 40}
+!70 = !{!71, !8, i64 0}
+!71 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
+!72 = !{!71, !8, i64 1}
+!73 = !{!71, !8, i64 2}
+!74 = distinct !{!74, !57}

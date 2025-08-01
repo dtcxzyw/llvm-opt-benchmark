@@ -503,7 +503,7 @@ define hidden void @_ZN19pyo3_macros_backend6params7Holders12init_holders17h3c86
 
 63:                                               ; preds = %62
   invoke void @_ZN5quote9__private9push_semi17hf00f37cd883dc110E(ptr nonnull align 8 %11)
-          to label %44 unwind label %.loopexit, !llvm.loop !3
+          to label %44 unwind label %.loopexit
 
 64:                                               ; preds = %43
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %11, ptr nonnull align 1 @anon.27161dca19b793d1c66d33c8aa93d579.17, i64 3)
@@ -555,7 +555,7 @@ define hidden void @_ZN19pyo3_macros_backend6params7Holders12init_holders17h3c86
 
 76:                                               ; preds = %75
   invoke void @_ZN5quote9__private9push_semi17hf00f37cd883dc110E(ptr nonnull align 8 %11)
-          to label %37 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !5
+          to label %37 unwind label %.loopexit.split-lp.loopexit
 
 77:                                               ; preds = %24, %19, %.loopexit.split-lp
   %78 = landingpad { ptr, i32 }
@@ -2140,12 +2140,12 @@ _ZN19pyo3_macros_backend6params17is_forwarded_args17hdc13dd6dfb770acfE.exit: ; p
 439:                                              ; preds = %435
   %440 = add i64 %.sroa.031.0, 1
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h67e26725b1b25feaE"(ptr nonnull align 8 %12)
-          to label %387 unwind label %389, !llvm.loop !6
+          to label %387 unwind label %389
 
 441:                                              ; preds = %443, %372
   %442 = add i64 %.sroa.026.0, 1
   invoke void @"_ZN68_$LT$alloc..string..String$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h5b2cec61e2e98921E"(ptr nonnull align 8 %366, ptr nonnull align 8 %17)
-          to label %365 unwind label %367, !llvm.loop !7
+          to label %365 unwind label %367
 
 443:                                              ; preds = %372
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %17)
@@ -4214,8 +4214,3 @@ attributes #7 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}

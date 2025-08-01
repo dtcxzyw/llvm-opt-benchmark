@@ -4744,7 +4744,7 @@ _ZN7QStringD2Ev.exit984:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %86) #17
   %1306 = add nuw nsw i64 %.0491594, 1
   %exitcond1633.not = icmp eq i64 %1306, 9
-  br i1 %exitcond1633.not, label %1019, label %1151, !llvm.loop !15
+  br i1 %exitcond1633.not, label %1019, label %1151, !llvm.loop !14
 
 1307:                                             ; preds = %1236
   %1308 = landingpad { ptr, i32 }
@@ -6863,7 +6863,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packe
 16:                                               ; preds = %13, %.lr.ph
   %17 = add nuw i64 %.028, 1
   %exitcond.not = icmp eq i64 %17, %10
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %13, %.preheader
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %.028, %13 ]
@@ -7004,7 +7004,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEv
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !17
+  %17 = load ptr, ptr %16, align 8, !nosanitize !16
   br label %_ZN9QtPrivate15FunctionPointerIM7QDialogFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -7102,9 +7102,8 @@ attributes #19 = { cold noreturn nounwind }
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
 !11 = distinct !{!11, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = distinct !{!16, !13, !14}
-!17 = !{}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = !{}

@@ -417,7 +417,7 @@ check_flag.exit167:                               ; preds = %143, %156
   %169 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef nonnull @.str.29, double noundef %167, double noundef %168, double noundef %146, double noundef %152, double noundef %149) #8
   %170 = load double, ptr %21, align 8, !tbaa !14
   %171 = fcmp olt double %170, 5.000000e+00
-  br i1 %171, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %171, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %166, %check_flag.exit160.thread, %check_flag.exit163
   %172 = phi ptr [ %77, %check_flag.exit160.thread ], [ %.pre, %check_flag.exit163 ], [ %153, %166 ]
@@ -887,5 +887,3 @@ attributes #9 = { cold nounwind }
 !17 = !{!"int", !7, i64 0}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"long", !7, i64 0}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}

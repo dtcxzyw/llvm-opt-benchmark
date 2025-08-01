@@ -85,7 +85,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   br i1 %49, label %50, label %166
 
 50:                                               ; preds = %47
-  %51 = load i8, ptr %31, align 8, !range !13, !noundef !14
+  %51 = load i8, ptr %31, align 8, !range !12, !noundef !13
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %166, label %53
 
@@ -96,7 +96,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
 55:                                               ; preds = %39
   %56 = load ptr, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 0, ptr %3, align 8, !annotation !15
+  store i64 0, ptr %3, align 8, !annotation !14
   %57 = getelementptr inbounds nuw i8, ptr %40, i64 7176
   %58 = load i8, ptr %57, align 8
   %59 = icmp ult i8 %58, 8
@@ -126,7 +126,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %67, i64 76
-  %75 = load i8, ptr %74, align 4, !range !13, !noundef !14
+  %75 = load i8, ptr %74, align 4, !range !12, !noundef !13
   %76 = icmp eq i8 %75, 0
   %77 = getelementptr inbounds nuw i8, ptr %67, i64 80
   %78 = getelementptr inbounds nuw i8, ptr %67, i64 84
@@ -152,7 +152,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   %89 = load ptr, ptr %56, align 8
   %90 = zext i32 %88 to i64
   %91 = getelementptr i8, ptr %89, i64 %90
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %79, ptr elementtype(i32) %91) #6, !srcloc !16
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %79, ptr elementtype(i32) %91) #6, !srcloc !15
   br label %92
 
 92:                                               ; preds = %87, %81
@@ -165,7 +165,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   %97 = phi i32 [ %95, %92 ], [ %65, %69 ], [ %65, %63 ]
   %98 = add nuw nsw i64 %64, 1
   %99 = icmp eq i64 %98, 27
-  br i1 %99, label %100, label %63, !llvm.loop !17
+  br i1 %99, label %100, label %63, !llvm.loop !16
 
 100:                                              ; preds = %96
   %101 = icmp eq i32 %97, 0
@@ -184,7 +184,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   %110 = load ptr, ptr %56, align 8
   %111 = zext i32 %109 to i64
   %112 = getelementptr i8, ptr %110, i64 %111
-  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %112) #6, !srcloc !16
+  call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr elementtype(i32) %112) #6, !srcloc !15
   br label %113
 
 113:                                              ; preds = %107, %102, %100
@@ -198,7 +198,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
 
 .lr.ph13:                                         ; preds = %113, %163
   %118 = phi i32 [ %124, %163 ], [ %116, %113 ]
-  %119 = call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %118, i32 -1) #7, !srcloc !18
+  %119 = call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %118, i32 -1) #7, !srcloc !17
   %120 = zext nneg i32 %119 to i64
   %121 = shl nuw i64 1, %120
   %122 = trunc i64 %121 to i32
@@ -208,7 +208,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   %126 = getelementptr [27 x ptr], ptr %33, i64 0, i64 %125
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 76
-  %129 = load i8, ptr %128, align 4, !range !13, !noundef !14
+  %129 = load i8, ptr %128, align 4, !range !12, !noundef !13
   %130 = icmp eq i8 %129, 0
   %131 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %132 = load ptr, ptr %131, align 8
@@ -261,7 +261,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
 
 163:                                              ; preds = %159, %150, %147
   %164 = icmp eq i32 %124, 0
-  br i1 %164, label %._crit_edge, label %.lr.ph13, !llvm.loop !19
+  br i1 %164, label %._crit_edge, label %.lr.ph13, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %163, %113
   call void @intel_uncore_forcewake_put_delayed(ptr noundef %56, i32 noundef 65535) #6
@@ -272,7 +272,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
   br label %166
 
 166:                                              ; preds = %165, %53, %50, %47
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !20
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !19
   %167 = load i32, ptr %8, align 4
   %168 = add i32 %167, 2
   store i32 %168, ptr %8, align 4
@@ -297,7 +297,7 @@ define dso_local void @intel_gt_invalidate_tlb_full(ptr noundef %0, i32 noundef 
 178:                                              ; preds = %.lr.ph15
   %179 = extractvalue { i8, i32 } %174, 1
   %180 = icmp eq i32 %179, 1
-  br i1 %180, label %._crit_edge16, label %.lr.ph15, !prof !8, !llvm.loop !21
+  br i1 %180, label %._crit_edge16, label %.lr.ph15, !prof !8, !llvm.loop !9
 
 ._crit_edge16:                                    ; preds = %178, %169
   call void @__intel_wakeref_put_last(ptr noundef nonnull %15, i64 noundef 1) #6
@@ -399,16 +399,14 @@ attributes #8 = { cold nounwind }
 !6 = !{i64 2148824273, i64 2148824312, i64 2148824333, i64 2148824370, i64 2148824393, i64 2148824402, i64 2148824700}
 !7 = !{!"branch_weights", i32 1, i32 2000}
 !8 = !{!"branch_weights", i32 127, i32 255873}
-!9 = distinct !{!9, !10, !11, !12}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = !{!"auto-init"}
-!16 = !{i64 2154395482}
-!17 = distinct !{!17, !10, !11, !12}
-!18 = !{i64 986341}
-!19 = distinct !{!19, !10, !11, !12}
-!20 = !{i64 2151111728}
-!21 = distinct !{!21, !10, !11, !12}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = !{!"auto-init"}
+!15 = !{i64 2154395482}
+!16 = distinct !{!16, !10, !11}
+!17 = !{i64 986341}
+!18 = distinct !{!18, !10, !11}
+!19 = !{i64 2151111728}

@@ -198,15 +198,15 @@ define hidden noundef nonnull ptr @_ZN5ceres8internal28BlockRandomAccessDenseMat
   %10 = load ptr, ptr %8, align 8, !tbaa !6
   %11 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %10, i64 %9, i32 1
   %12 = load i32, ptr %11, align 4, !tbaa !37
-  store i32 %12, ptr %3, align 4, !tbaa !55
+  store i32 %12, ptr %3, align 4, !tbaa !54
   %13 = sext i32 %2 to i64
   %14 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %10, i64 %13, i32 1
   %15 = load i32, ptr %14, align 4, !tbaa !37
-  store i32 %15, ptr %4, align 4, !tbaa !55
+  store i32 %15, ptr %4, align 4, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4, !tbaa !36
-  store i32 %17, ptr %5, align 4, !tbaa !55
-  store i32 %17, ptr %6, align 4, !tbaa !55
+  store i32 %17, ptr %5, align 4, !tbaa !54
+  store i32 %17, ptr %6, align 4, !tbaa !54
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !11
@@ -404,7 +404,6 @@ attributes #10 = { nounwind }
 !49 = !{!"_ZTSN5ceres8internal8CellInfoE", !27, i64 0, !50, i64 8}
 !50 = !{!"_ZTSSt5mutex", !51, i64 0}
 !51 = !{!"_ZTSSt12__mutex_base", !10, i64 0}
-!52 = distinct !{!52, !53, !54}
+!52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!"llvm.loop.estimated_trip_count"}
-!55 = !{!20, !20, i64 0}
+!54 = !{!20, !20, i64 0}

@@ -2631,7 +2631,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIPP7QActionEET_S4_S4_S4_St26r
   %19 = getelementptr i8, ptr %.079.i, i64 8
   %20 = getelementptr i8, ptr %.010.i, i64 8
   %.not.i = icmp eq ptr %19, %1
-  br i1 %.not.i, label %_ZSt11swap_rangesIPP7QActionS2_ET0_T_S4_S3_.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %_ZSt11swap_rangesIPP7QActionS2_ET0_T_S4_S3_.exit, label %.lr.ph.i, !llvm.loop !13
 
 21:                                               ; preds = %7
   %22 = sub i64 %8, %12
@@ -2694,7 +2694,7 @@ _ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit:         ; preds = %29, %32
   %42 = getelementptr i8, ptr %.055107, i64 8
   %43 = add nuw nsw i64 %.054108, 1
   %exitcond119.not = icmp eq i64 %43, %25
-  br i1 %exitcond119.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !15
+  br i1 %exitcond119.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !14
 
 44:                                               ; preds = %._crit_edge111
   %45 = sub i64 %.083, %38
@@ -2741,7 +2741,7 @@ _ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit: ; preds = %48, %52
   %.086.be = phi i64 [ %.083, %44 ], [ %25, %._crit_edge ]
   %.083.be = phi i64 [ %45, %44 ], [ %62, %._crit_edge ]
   %.058.be = phi ptr [ %.159.lcssa, %44 ], [ %.361.lcssa, %._crit_edge ]
-  br label %24, !llvm.loop !16
+  br label %24, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %57, %.lr.ph
   %.0105 = phi i64 [ %67, %.lr.ph ], [ 0, %57 ]
@@ -2755,7 +2755,7 @@ _ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit: ; preds = %48, %52
   store ptr %65, ptr %64, align 8
   %67 = add nuw nsw i64 %.0105, 1
   %exitcond.not = icmp eq i64 %67, %.083
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 _ZSt11swap_rangesIPP7QActionS2_ET0_T_S4_S3_.exit: ; preds = %._crit_edge, %._crit_edge111, %.lr.ph.i, %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit, %5, %3
   %.053 = phi ptr [ %2, %3 ], [ %0, %5 ], [ %23, %_ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %23, %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit ], [ %1, %.lr.ph.i ], [ %23, %._crit_edge111 ], [ %23, %._crit_edge ]
@@ -2816,10 +2816,9 @@ attributes #21 = { cold noreturn }
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_: argument 0"}
 !10 = distinct !{!10, !"_ZN9QtPrivate21qMakeForeachContainerIR5QListIP7QActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_"}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = distinct !{!15, !12, !13}
-!16 = distinct !{!16, !12, !13}
-!17 = distinct !{!17, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !12}

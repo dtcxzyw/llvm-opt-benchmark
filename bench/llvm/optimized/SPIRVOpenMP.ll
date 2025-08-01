@@ -687,7 +687,7 @@ _ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_range
   %.sroa.0.037.us = phi ptr [ %scevgep43, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.us ], [ %.sroa.024.1.i, %.lr.ph.split.us.preheader ]
   %18 = load ptr, ptr %.sroa.0.037.us, align 8, !tbaa !100
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !104
+  %20 = load ptr, ptr %19, align 8, !tbaa !103
   %.not.i.i.us = icmp eq ptr %20, null
   %spec.select.i.i.us = select i1 %.not.i.i.us, ptr %18, ptr %20
   %21 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.us, i64 44
@@ -705,7 +705,7 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.us: ; preds = %.lr.ph.spli
   %26 = and i64 %25, -8
   %scevgep43 = getelementptr i8, ptr %scevgep, i64 %26
   %.not.us = icmp eq ptr %scevgep43, %10
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !121
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %.thread25.i.i.i, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit, %.lr.ph.split.us, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.us, %.lr.ph.i.i.preheader.i, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit
   %.0.lcssa = phi ptr [ null, %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit ], [ null, %.lr.ph.i.i.preheader.i ], [ %18, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.us ], [ %18, %.lr.ph.split.us ], [ %27, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit ], [ null, %.thread25.i.i.i ]
@@ -715,7 +715,7 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.us: ; preds = %.lr.ph.spli
   %.sroa.0.037 = phi ptr [ %.sroa.0.2, %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit ], [ %.sroa.024.1.i, %.lr.ph ]
   %27 = load ptr, ptr %.sroa.0.037, align 8, !tbaa !100
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !104
+  %29 = load ptr, ptr %28, align 8, !tbaa !103
   %.not.i.i = icmp eq ptr %29, null
   %spec.select.i.i = select i1 %.not.i.i, ptr %27, ptr %29
   %30 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 44
@@ -744,7 +744,7 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit.us: ; preds = %.lr.ph.spli
 _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit: ; preds = %35, %.thread25.i.i, %.lr.ph.split
   %.sroa.0.2 = phi ptr [ %33, %.lr.ph.split ], [ %.sroa.0.1, %35 ], [ %37, %.thread25.i.i ]
   %.not = icmp eq ptr %.sroa.0.2, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !123
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split
 }
 
 declare i64 @_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE(ptr noundef nonnull align 8 dereferenceable(176), ptr, i64) local_unnamed_addr #1
@@ -864,26 +864,24 @@ attributes #8 = { builtin nounwind }
 !98 = distinct !{!98, !99, !"_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_: argument 0"}
 !99 = distinct !{!99, !"_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_"}
 !100 = !{!25, !25, i64 0}
-!101 = distinct !{!101, !102, !103}
+!101 = distinct !{!101, !102}
 !102 = !{!"llvm.loop.mustprogress"}
-!103 = !{!"llvm.loop.estimated_trip_count"}
-!104 = !{!105, !25, i64 16}
-!105 = !{!"_ZTSN4llvm3opt3ArgE", !106, i64 0, !25, i64 16, !109, i64 24, !33, i64 40, !33, i64 44, !33, i64 44, !33, i64 44, !110, i64 48, !115, i64 80}
-!106 = !{!"_ZTSN4llvm3opt6OptionE", !107, i64 0, !108, i64 8}
-!107 = !{!"p1 _ZTSN4llvm3opt8OptTable4InfoE", !8, i64 0}
-!108 = !{!"p1 _ZTSN4llvm3opt8OptTableE", !8, i64 0}
-!109 = !{!"_ZTSN4llvm9StringRefE", !16, i64 0, !17, i64 8}
-!110 = !{!"_ZTSN4llvm11SmallVectorIPKcLj2EEE", !111, i64 0, !114, i64 16}
-!111 = !{!"_ZTSN4llvm15SmallVectorImplIPKcEE", !112, i64 0}
-!112 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKcLb1EEE", !113, i64 0}
-!113 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKcvEE", !32, i64 0}
-!114 = !{!"_ZTSN4llvm18SmallVectorStorageIPKcLj2EEE", !9, i64 0}
-!115 = !{!"_ZTSSt10unique_ptrIN4llvm3opt3ArgESt14default_deleteIS2_EE", !116, i64 0}
-!116 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm3opt3ArgESt14default_deleteIS2_ELb1ELb1EE", !117, i64 0}
-!117 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm3opt3ArgESt14default_deleteIS2_EE", !118, i64 0}
-!118 = !{!"_ZTSSt5tupleIJPN4llvm3opt3ArgESt14default_deleteIS2_EEE", !119, i64 0}
-!119 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm3opt3ArgESt14default_deleteIS2_EEE", !120, i64 0}
-!120 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm3opt3ArgELb0EE", !25, i64 0}
-!121 = distinct !{!121, !103, !122}
-!122 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!123 = distinct !{!123, !103}
+!103 = !{!104, !25, i64 16}
+!104 = !{!"_ZTSN4llvm3opt3ArgE", !105, i64 0, !25, i64 16, !108, i64 24, !33, i64 40, !33, i64 44, !33, i64 44, !33, i64 44, !109, i64 48, !114, i64 80}
+!105 = !{!"_ZTSN4llvm3opt6OptionE", !106, i64 0, !107, i64 8}
+!106 = !{!"p1 _ZTSN4llvm3opt8OptTable4InfoE", !8, i64 0}
+!107 = !{!"p1 _ZTSN4llvm3opt8OptTableE", !8, i64 0}
+!108 = !{!"_ZTSN4llvm9StringRefE", !16, i64 0, !17, i64 8}
+!109 = !{!"_ZTSN4llvm11SmallVectorIPKcLj2EEE", !110, i64 0, !113, i64 16}
+!110 = !{!"_ZTSN4llvm15SmallVectorImplIPKcEE", !111, i64 0}
+!111 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKcLb1EEE", !112, i64 0}
+!112 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKcvEE", !32, i64 0}
+!113 = !{!"_ZTSN4llvm18SmallVectorStorageIPKcLj2EEE", !9, i64 0}
+!114 = !{!"_ZTSSt10unique_ptrIN4llvm3opt3ArgESt14default_deleteIS2_EE", !115, i64 0}
+!115 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm3opt3ArgESt14default_deleteIS2_ELb1ELb1EE", !116, i64 0}
+!116 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm3opt3ArgESt14default_deleteIS2_EE", !117, i64 0}
+!117 = !{!"_ZTSSt5tupleIJPN4llvm3opt3ArgESt14default_deleteIS2_EEE", !118, i64 0}
+!118 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm3opt3ArgESt14default_deleteIS2_EEE", !119, i64 0}
+!119 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm3opt3ArgELb0EE", !25, i64 0}
+!120 = distinct !{!120, !121}
+!121 = !{!"llvm.loop.unswitch.nontrivial.disable"}

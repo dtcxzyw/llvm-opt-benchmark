@@ -229,7 +229,7 @@ define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noun
   %.154 = phi ptr [ %60, %.critedge73 ], [ %.05180, %.critedge73.preheader ]
   %60 = load ptr, ptr %.154, align 8
   %.not69 = icmp eq ptr %60, null
-  br i1 %.not69, label %61, label %.critedge73, !llvm.loop !10
+  br i1 %.not69, label %61, label %.critedge73, !llvm.loop !9
 
 61:                                               ; preds = %.critedge73
   %62 = getelementptr inbounds nuw i8, ptr %.05180, i64 16
@@ -301,7 +301,7 @@ define hidden range(i32 0, 2) i32 @protohierstat_packet(ptr noundef %0, ptr noun
   %98 = getelementptr inbounds nuw i8, ptr %.05279, i64 16
   %99 = load ptr, ptr %98, align 8
   %.not64 = icmp eq ptr %99, null
-  br i1 %.not64, label %.loopexit75, label %12, !llvm.loop !11
+  br i1 %.not64, label %.loopexit75, label %12, !llvm.loop !10
 
 .loopexit75:                                      ; preds = %97, %9, %6, %5
   %.0 = phi i32 [ 0, %5 ], [ 0, %6 ], [ 0, %9 ], [ 1, %97 ]
@@ -477,7 +477,7 @@ define internal fastcc void @phs_draw(ptr noundef readonly captures(address_is_n
   %20 = add i32 %19, %.026.us
   %21 = add nuw nsw i32 %.02225.us, 1
   %exitcond33.not = icmp eq i32 %21, %1
-  br i1 %exitcond33.not, label %..loopexit_crit_edge.us, label %9, !llvm.loop !12
+  br i1 %exitcond33.not, label %..loopexit_crit_edge.us, label %9, !llvm.loop !11
 
 22:                                               ; preds = %9
   %23 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %11, i64 noundef %13, i32 noundef 2, i64 noundef %16, ptr noundef nonnull @.str.13)
@@ -508,7 +508,7 @@ define internal fastcc void @phs_draw(ptr noundef readonly captures(address_is_n
   call fastcc void @phs_draw(ptr noundef %42, i32 noundef %5)
   %43 = load ptr, ptr %.02328.us, align 8
   %.not.us = icmp eq ptr %43, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph29.split.us, !llvm.loop !13
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph29.split.us, !llvm.loop !12
 
 .lr.ph29.split:                                   ; preds = %.lr.ph29, %.loopexit
   %.02328 = phi ptr [ %57, %.loopexit ], [ %0, %.lr.ph29 ]
@@ -532,7 +532,7 @@ define internal fastcc void @phs_draw(ptr noundef readonly captures(address_is_n
   call fastcc void @phs_draw(ptr noundef %56, i32 noundef %5)
   %57 = load ptr, ptr %.02328, align 8
   %.not = icmp eq ptr %57, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph29.split, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph29.split, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph29.split, %.loopexit, %.lr.ph29.split.us, %..loopexit_crit_edge.us, %2
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #11
@@ -572,12 +572,11 @@ attributes #13 = { cold noreturn nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !8}

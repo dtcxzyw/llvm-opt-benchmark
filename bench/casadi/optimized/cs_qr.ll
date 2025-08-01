@@ -207,7 +207,7 @@ define ptr @cs_qr(ptr noundef readonly captures(address_is_null) %0, ptr noundef
   %113 = getelementptr inbounds i32, ptr %41, i64 %indvars.iv.next269
   store i32 %112, ptr %113, align 4, !tbaa !30
   %114 = icmp samesign ugt i64 %indvars.iv270, 1
-  br i1 %114, label %.lr.ph235, label %._crit_edge236.loopexit, !llvm.loop !34
+  br i1 %114, label %.lr.ph235, label %._crit_edge236.loopexit, !llvm.loop !33
 
 ._crit_edge236.loopexit:                          ; preds = %.lr.ph235
   %115 = trunc nsw i64 %indvars.iv.next269 to i32
@@ -248,7 +248,7 @@ define ptr @cs_qr(ptr noundef readonly captures(address_is_null) %0, ptr noundef
   %135 = load i32, ptr %85, align 4, !tbaa !30
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next276, %136
-  br i1 %137, label %.lr.ph242, label %.preheader221, !llvm.loop !35
+  br i1 %137, label %.lr.ph242, label %.preheader221, !llvm.loop !34
 
 .preheader220.loopexit:                           ; preds = %156
   %138 = trunc nsw i64 %indvars.iv.next281 to i32
@@ -297,7 +297,7 @@ define ptr @cs_qr(ptr noundef readonly captures(address_is_null) %0, ptr noundef
   %indvars.iv.next279 = add nsw i64 %indvars.iv278, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next279 to i32
   %exitcond.not = icmp eq i32 %10, %lftr.wideiv
-  br i1 %exitcond.not, label %.preheader220.loopexit, label %.lr.ph248, !llvm.loop !36
+  br i1 %exitcond.not, label %.preheader220.loopexit, label %.lr.ph248, !llvm.loop !35
 
 .lr.ph252:                                        ; preds = %.lr.ph252.preheader, %.lr.ph252
   %indvars.iv285 = phi i64 [ %75, %.lr.ph252.preheader ], [ %indvars.iv.next286, %.lr.ph252 ]
@@ -311,7 +311,7 @@ define ptr @cs_qr(ptr noundef readonly captures(address_is_null) %0, ptr noundef
   store double 0.000000e+00, ptr %160, align 8, !tbaa !24
   %indvars.iv.next286 = add nsw i64 %indvars.iv285, 1
   %exitcond288.not = icmp eq i64 %indvars.iv.next286, %wide.trip.count
-  br i1 %exitcond288.not, label %._crit_edge253, label %.lr.ph252, !llvm.loop !37
+  br i1 %exitcond288.not, label %._crit_edge253, label %.lr.ph252, !llvm.loop !36
 
 ._crit_edge253:                                   ; preds = %.lr.ph252, %.preheader220
   %163 = sext i32 %.1204.lcssa to i64
@@ -326,7 +326,7 @@ define ptr @cs_qr(ptr noundef readonly captures(address_is_null) %0, ptr noundef
   store double %168, ptr %170, align 8, !tbaa !24
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next290, %wide.trip.count292
-  br i1 %exitcond293.not, label %._crit_edge258, label %69, !llvm.loop !38
+  br i1 %exitcond293.not, label %._crit_edge258, label %69, !llvm.loop !37
 
 ._crit_edge258:                                   ; preds = %._crit_edge253, %.preheader222
   %.0203.lcssa = phi i32 [ 0, %.preheader222 ], [ %169, %._crit_edge253 ]
@@ -403,11 +403,10 @@ attributes #3 = { nounwind }
 !28 = !{!26, !27, i64 8}
 !29 = !{!26, !10, i64 24}
 !30 = !{!5, !5, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
-!35 = distinct !{!35, !32, !33}
-!36 = distinct !{!36, !32, !33}
-!37 = distinct !{!37, !32, !33}
-!38 = distinct !{!38, !32, !33}
+!33 = distinct !{!33, !32}
+!34 = distinct !{!34, !32}
+!35 = distinct !{!35, !32}
+!36 = distinct !{!36, !32}
+!37 = distinct !{!37, !32}

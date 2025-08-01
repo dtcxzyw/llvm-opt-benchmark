@@ -159,14 +159,14 @@ define range(i32 -22, 1) i32 @ff_vmafmotion_init(ptr noundef writeonly captures(
 33:                                               ; preds = %.preheader
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %36 = load i32, ptr %35, align 8, !tbaa !33
+  %36 = load i32, ptr %35, align 8, !tbaa !32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr @convolution_x, ptr %37, align 8, !tbaa !35
+  store ptr @convolution_x, ptr %37, align 8, !tbaa !34
   %38 = icmp eq i32 %36, 10
   %39 = select i1 %38, ptr @convolution_y_10bit, ptr @convolution_y_8bit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %39, ptr %40, align 8, !tbaa !36
-  store ptr @image_sad, ptr %34, align 8, !tbaa !37
+  store ptr %39, ptr %40, align 8, !tbaa !35
+  store ptr @image_sad, ptr %34, align 8, !tbaa !36
   br label %41
 
 41:                                               ; preds = %8, %20, %23, %4, %33
@@ -215,9 +215,9 @@ declare void @av_free(ptr noundef) local_unnamed_addr #2
 define internal range(i32 -2147483647, -2147483648) i32 @init(ptr noundef %0) #4 {
   %2 = alloca [64 x i8], align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !38
+  %4 = load ptr, ptr %3, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %6 = load ptr, ptr %5, align 8, !tbaa !49
+  %6 = load ptr, ptr %5, align 8, !tbaa !48
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %22, label %sub_0
 
@@ -233,15 +233,15 @@ sub_0:                                            ; preds = %1
   br i1 %10, label %11, label %.tail.thread
 
 11:                                               ; preds = %.tail
-  %12 = load ptr, ptr @stdout, align 8, !tbaa !52
+  %12 = load ptr, ptr @stdout, align 8, !tbaa !51
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store ptr %12, ptr %13, align 8, !tbaa !53
+  store ptr %12, ptr %13, align 8, !tbaa !52
   br label %22
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
   %14 = tail call ptr @avpriv_fopen_utf8(ptr noundef nonnull %6, ptr noundef nonnull @.str.11) #10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store ptr %14, ptr %15, align 8, !tbaa !53
+  store ptr %14, ptr %15, align 8, !tbaa !52
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %16, label %22
 
@@ -249,7 +249,7 @@ sub_0:                                            ; preds = %1
   %17 = tail call ptr @__errno_location() #11
   %18 = load i32, ptr %17, align 4, !tbaa !19
   %19 = sub nsw i32 0, %18
-  %20 = load ptr, ptr %5, align 8, !tbaa !49
+  %20 = load ptr, ptr %5, align 8, !tbaa !48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %21 = call i32 @av_strerror(i32 noundef range(i32 -2147483647, -2147483648) %19, ptr noundef nonnull %2, i64 noundef 64) #10
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.12, ptr noundef %20, ptr noundef nonnull %2) #10
@@ -263,11 +263,11 @@ sub_0:                                            ; preds = %1
 ; Function Attrs: cold nounwind optsize uwtable
 define internal void @uninit(ptr noundef %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = tail call nsz double @ff_vmafmotion_uninit(ptr noundef nonnull %4)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %7 = load i64, ptr %6, align 8, !tbaa !54
+  %7 = load i64, ptr %6, align 8, !tbaa !53
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %9, label %8
 
@@ -277,7 +277,7 @@ define internal void @uninit(ptr noundef %0) #4 {
 
 9:                                                ; preds = %8, %1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %11 = load ptr, ptr %10, align 8, !tbaa !53
+  %11 = load ptr, ptr %10, align 8, !tbaa !52
   %.not8 = icmp eq ptr %11, null
   %12 = load ptr, ptr @stdout, align 8
   %.not9 = icmp eq ptr %11, %12
@@ -296,7 +296,7 @@ define internal void @uninit(ptr noundef %0) #4 {
 define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store ptr null, ptr %4, align 8, !tbaa !55
+  store ptr null, ptr %4, align 8, !tbaa !54
   %5 = tail call ptr @av_pix_fmt_desc_get(i32 noundef 0) #10
   %.not26 = icmp eq ptr %5, null
   br i1 %.not26, label %._crit_edge, label %.lr.ph
@@ -306,7 +306,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %7 = call ptr @av_pix_fmt_desc_get(i32 noundef %6) #10
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !57
+  %9 = load i64, ptr %8, align 8, !tbaa !56
   %10 = and i64 %9, 46
   %.not20 = icmp eq i64 %10, 0
   br i1 %.not20, label %11, label %24
@@ -318,7 +318,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %15 = load i8, ptr %14, align 8, !tbaa !59
+  %15 = load i8, ptr %14, align 8, !tbaa !58
   %16 = icmp eq i8 %15, 1
   br i1 %16, label %17, label %24
 
@@ -326,7 +326,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   %18 = and i64 %9, 1
   %.not22 = icmp eq i64 %18, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !33
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !32
   br i1 %.not22, label %21, label %19
 
 19:                                               ; preds = %17
@@ -349,10 +349,10 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
   %25 = trunc nuw i64 %indvars.iv.next to i32
   %26 = call ptr @av_pix_fmt_desc_get(i32 noundef %25) #10
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !60
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge.loopexit:                             ; preds = %24
-  %.pre30 = load ptr, ptr %4, align 8, !tbaa !55
+  %.pre30 = load ptr, ptr %4, align 8, !tbaa !54
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
@@ -451,7 +451,7 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
   %56 = add nuw nsw i32 %55, %.098129.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !60
 
 ._crit_edge.us:                                   ; preds = %42
   %57 = lshr i32 %56, 15
@@ -460,7 +460,7 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
   store i16 %58, ptr %59, align 2, !tbaa !28
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %.preheader126, label %.preheader124.us, !llvm.loop !62
+  br i1 %exitcond154.not, label %.preheader126, label %.preheader124.us, !llvm.loop !61
 
 .preheader126:                                    ; preds = %._crit_edge.us, %.preheader127
   br i1 %16, label %.preheader123.lr.ph, label %.preheader125
@@ -493,7 +493,7 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
   %72 = add nuw nsw i32 %71, %.096132.us
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
-  br i1 %exitcond163.not, label %._crit_edge.us134, label %64, !llvm.loop !64
+  br i1 %exitcond163.not, label %._crit_edge.us134, label %64, !llvm.loop !63
 
 ._crit_edge.us134:                                ; preds = %64
   %73 = lshr i32 %72, 15
@@ -502,7 +502,7 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
   store i16 %74, ptr %75, align 2, !tbaa !28
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %26
-  br i1 %exitcond168.not, label %.preheader125, label %.preheader123.us, !llvm.loop !65
+  br i1 %exitcond168.not, label %.preheader125, label %.preheader123.us, !llvm.loop !64
 
 .preheader125:                                    ; preds = %._crit_edge.us134, %.preheader126
   br i1 %17, label %.preheader.lr.ph, label %._crit_edge139
@@ -549,7 +549,7 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
   %96 = add nuw nsw i32 %95, %.095137.us
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
-  br i1 %exitcond177.not, label %._crit_edge.us140, label %82, !llvm.loop !66
+  br i1 %exitcond177.not, label %._crit_edge.us140, label %82, !llvm.loop !65
 
 ._crit_edge.us140:                                ; preds = %82
   %97 = lshr i32 %96, 15
@@ -558,12 +558,12 @@ define internal void @convolution_x(ptr noundef readonly captures(none) %0, i32 
   store i16 %98, ptr %99, align 2, !tbaa !28
   %indvars.iv.next179 = add nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %._crit_edge139, label %.preheader.us, !llvm.loop !67
+  br i1 %exitcond182.not, label %._crit_edge139, label %.preheader.us, !llvm.loop !66
 
 ._crit_edge139:                                   ; preds = %._crit_edge.us140, %.preheader125.thread, %.preheader.preheader, %.preheader125
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond185.not = icmp eq i64 %indvar.next, %wide.trip.count184
-  br i1 %exitcond185.not, label %._crit_edge, label %.preheader127, !llvm.loop !68
+  br i1 %exitcond185.not, label %._crit_edge, label %.preheader127, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %._crit_edge139, %8
   ret void
@@ -601,7 +601,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
 ._crit_edge141.us:                                ; preds = %._crit_edge.us.us
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %.preheader135, label %.preheader136.us.us.preheader, !llvm.loop !69
+  br i1 %exitcond191.not, label %.preheader135, label %.preheader136.us.us.preheader, !llvm.loop !68
 
 .preheader136.us.us:                              ; preds = %.preheader136.us.us.preheader, %._crit_edge.us.us
   %indvars.iv182 = phi i64 [ 0, %.preheader136.us.us.preheader ], [ %indvars.iv.next183, %._crit_edge.us.us ]
@@ -630,7 +630,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   %33 = add nuw nsw i32 %32, %.0103139.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %19, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %19, !llvm.loop !69
 
 ._crit_edge.us.us:                                ; preds = %19
   %34 = lshr i32 %33, 10
@@ -639,7 +639,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   store i16 %35, ptr %36, align 2, !tbaa !28
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
-  br i1 %exitcond186.not, label %._crit_edge141.us, label %.preheader136.us.us, !llvm.loop !71
+  br i1 %exitcond186.not, label %._crit_edge141.us, label %.preheader136.us.us, !llvm.loop !70
 
 .preheader135:                                    ; preds = %._crit_edge141.us, %.preheader137.lr.ph, %8
   %37 = icmp slt i32 %11, %12
@@ -686,7 +686,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   %indvars.iv.next206 = add nsw i64 %indvars.iv205, 1
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond209.not = icmp eq i64 %indvar.next, %wide.trip.count208
-  br i1 %exitcond209.not, label %.preheader132, label %.preheader134.us, !llvm.loop !72
+  br i1 %exitcond209.not, label %.preheader132, label %.preheader134.us, !llvm.loop !71
 
 .preheader133.us.us:                              ; preds = %.preheader133.us.us.preheader, %._crit_edge.us.us158
   %indvars.iv200 = phi i64 [ 0, %.preheader133.us.us.preheader ], [ %indvars.iv.next201, %._crit_edge.us.us158 ]
@@ -708,7 +708,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   %63 = add nuw nsw i32 %62, %.1148.us.us
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %._crit_edge.us.us158, label %54, !llvm.loop !73
+  br i1 %exitcond199.not, label %._crit_edge.us.us158, label %54, !llvm.loop !72
 
 ._crit_edge.us.us158:                             ; preds = %54
   %64 = lshr i32 %63, 10
@@ -717,7 +717,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   store i16 %65, ptr %66, align 2, !tbaa !28
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %44
-  br i1 %exitcond204.not, label %._crit_edge150.us, label %.preheader133.us.us, !llvm.loop !74
+  br i1 %exitcond204.not, label %._crit_edge150.us, label %.preheader133.us.us, !llvm.loop !73
 
 .preheader132:                                    ; preds = %._crit_edge150.us, %.preheader134.lr.ph, %.preheader135
   %67 = icmp slt i32 %12, %5
@@ -764,7 +764,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   %indvar.next211 = add nuw nsw i64 %indvar210, 1
   %lftr.wideiv = trunc i64 %indvar.next211 to i32
   %exitcond229.not = icmp eq i32 %76, %lftr.wideiv
-  br i1 %exitcond229.not, label %._crit_edge, label %.preheader131.us, !llvm.loop !75
+  br i1 %exitcond229.not, label %._crit_edge, label %.preheader131.us, !llvm.loop !74
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.us.us171
   %indvars.iv221 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next222, %._crit_edge.us.us171 ]
@@ -793,7 +793,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   %97 = add nuw nsw i32 %96, %.2161.us.us
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count219
-  br i1 %exitcond220.not, label %._crit_edge.us.us171, label %83, !llvm.loop !76
+  br i1 %exitcond220.not, label %._crit_edge.us.us171, label %83, !llvm.loop !75
 
 ._crit_edge.us.us171:                             ; preds = %83
   %98 = lshr i32 %97, 10
@@ -802,7 +802,7 @@ define internal void @convolution_y_10bit(ptr noundef readonly captures(none) %0
   store i16 %99, ptr %100, align 2, !tbaa !28
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next222, %74
-  br i1 %exitcond225.not, label %._crit_edge163.us, label %.preheader.us.us, !llvm.loop !77
+  br i1 %exitcond225.not, label %._crit_edge163.us, label %.preheader.us.us, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %._crit_edge163.us, %.preheader131.lr.ph, %.preheader132
   ret void
@@ -839,7 +839,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
 ._crit_edge141.us:                                ; preds = %._crit_edge.us.us
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %.preheader135, label %.preheader136.us.us.preheader, !llvm.loop !78
+  br i1 %exitcond191.not, label %.preheader135, label %.preheader136.us.us.preheader, !llvm.loop !77
 
 .preheader136.us.us:                              ; preds = %.preheader136.us.us.preheader, %._crit_edge.us.us
   %indvars.iv182 = phi i64 [ 0, %.preheader136.us.us.preheader ], [ %indvars.iv.next183, %._crit_edge.us.us ]
@@ -862,13 +862,13 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   %27 = sext i32 %.0102.us.us to i64
   %28 = mul nsw i64 %6, %27
   %gep.us.us = getelementptr i8, ptr %invariant.gep.us.us, i64 %28
-  %29 = load i8, ptr %gep.us.us, align 1, !tbaa !79
+  %29 = load i8, ptr %gep.us.us, align 1, !tbaa !78
   %30 = zext i8 %29 to i32
   %31 = mul nuw nsw i32 %30, %26
   %32 = add nuw nsw i32 %31, %.0103139.us.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %18, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %18, !llvm.loop !79
 
 ._crit_edge.us.us:                                ; preds = %18
   %33 = lshr i32 %32, 8
@@ -877,7 +877,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   store i16 %34, ptr %35, align 2, !tbaa !28
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
-  br i1 %exitcond186.not, label %._crit_edge141.us, label %.preheader136.us.us, !llvm.loop !81
+  br i1 %exitcond186.not, label %._crit_edge141.us, label %.preheader136.us.us, !llvm.loop !80
 
 .preheader135:                                    ; preds = %._crit_edge141.us, %.preheader137.lr.ph, %8
   %36 = icmp slt i32 %10, %11
@@ -924,7 +924,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   %indvars.iv.next206 = add nsw i64 %indvars.iv205, 1
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond209.not = icmp eq i64 %indvar.next, %wide.trip.count208
-  br i1 %exitcond209.not, label %.preheader132, label %.preheader134.us, !llvm.loop !82
+  br i1 %exitcond209.not, label %.preheader132, label %.preheader134.us, !llvm.loop !81
 
 .preheader133.us.us:                              ; preds = %.preheader133.us.us.preheader, %._crit_edge.us.us158
   %indvars.iv200 = phi i64 [ 0, %.preheader133.us.us.preheader ], [ %indvars.iv.next201, %._crit_edge.us.us158 ]
@@ -940,13 +940,13 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   %57 = add nsw i64 %indvars.iv195, %52
   %58 = mul nsw i64 %6, %57
   %gep.us.us157 = getelementptr i8, ptr %invariant.gep.us.us156, i64 %58
-  %59 = load i8, ptr %gep.us.us157, align 1, !tbaa !79
+  %59 = load i8, ptr %gep.us.us157, align 1, !tbaa !78
   %60 = zext i8 %59 to i32
   %61 = mul nuw nsw i32 %60, %56
   %62 = add nuw nsw i32 %61, %.1148.us.us
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
-  br i1 %exitcond199.not, label %._crit_edge.us.us158, label %53, !llvm.loop !83
+  br i1 %exitcond199.not, label %._crit_edge.us.us158, label %53, !llvm.loop !82
 
 ._crit_edge.us.us158:                             ; preds = %53
   %63 = lshr i32 %62, 8
@@ -955,7 +955,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   store i16 %64, ptr %65, align 2, !tbaa !28
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %43
-  br i1 %exitcond204.not, label %._crit_edge150.us, label %.preheader133.us.us, !llvm.loop !84
+  br i1 %exitcond204.not, label %._crit_edge150.us, label %.preheader133.us.us, !llvm.loop !83
 
 .preheader132:                                    ; preds = %._crit_edge150.us, %.preheader134.lr.ph, %.preheader135
   %66 = icmp slt i32 %11, %5
@@ -1002,7 +1002,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   %indvar.next211 = add nuw nsw i64 %indvar210, 1
   %lftr.wideiv = trunc i64 %indvar.next211 to i32
   %exitcond229.not = icmp eq i32 %75, %lftr.wideiv
-  br i1 %exitcond229.not, label %._crit_edge, label %.preheader131.us, !llvm.loop !85
+  br i1 %exitcond229.not, label %._crit_edge, label %.preheader131.us, !llvm.loop !84
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.us.us171
   %indvars.iv221 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next222, %._crit_edge.us.us171 ]
@@ -1025,13 +1025,13 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   %91 = sext i32 %.0.us.us to i64
   %92 = mul nsw i64 %6, %91
   %gep.us.us170 = getelementptr i8, ptr %invariant.gep.us.us169, i64 %92
-  %93 = load i8, ptr %gep.us.us170, align 1, !tbaa !79
+  %93 = load i8, ptr %gep.us.us170, align 1, !tbaa !78
   %94 = zext i8 %93 to i32
   %95 = mul nuw nsw i32 %94, %90
   %96 = add nuw nsw i32 %95, %.2161.us.us
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count219
-  br i1 %exitcond220.not, label %._crit_edge.us.us171, label %82, !llvm.loop !86
+  br i1 %exitcond220.not, label %._crit_edge.us.us171, label %82, !llvm.loop !85
 
 ._crit_edge.us.us171:                             ; preds = %82
   %97 = lshr i32 %96, 8
@@ -1040,7 +1040,7 @@ define internal void @convolution_y_8bit(ptr noundef readonly captures(none) %0,
   store i16 %98, ptr %99, align 2, !tbaa !28
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next222, %73
-  br i1 %exitcond225.not, label %._crit_edge163.us, label %.preheader.us.us, !llvm.loop !87
+  br i1 %exitcond225.not, label %._crit_edge163.us, label %.preheader.us.us, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %._crit_edge163.us, %.preheader131.lr.ph, %.preheader132
   ret void
@@ -1081,14 +1081,14 @@ define internal i64 @image_sad(ptr noundef readonly captures(none) %0, ptr nound
   %21 = add i64 %.121.us, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !87
 
 ._crit_edge.us:                                   ; preds = %11
   %22 = getelementptr inbounds nuw i16, ptr %.01924.us, i64 %7
   %23 = getelementptr inbounds nuw i16, ptr %.02023.us, i64 %8
   %24 = add nuw nsw i32 %.01726.us, 1
   %exitcond31.not = icmp eq i32 %24, %3
-  br i1 %exitcond31.not, label %._crit_edge27, label %.preheader.us, !llvm.loop !89
+  br i1 %exitcond31.not, label %._crit_edge27, label %.preheader.us, !llvm.loop !88
 
 ._crit_edge27:                                    ; preds = %._crit_edge.us, %6
   %.018.lcssa = phi i64 [ 0, %6 ], [ %21, %._crit_edge.us ]
@@ -1102,9 +1102,9 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca [128 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !90
+  %5 = load ptr, ptr %4, align 8, !tbaa !89
   %6 = getelementptr i8, ptr %5, i64 72
-  %.val = load ptr, ptr %6, align 8, !tbaa !38
+  %.val = load ptr, ptr %6, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %8 = tail call nsz double @ff_vmafmotion_process(ptr noundef nonnull %7, ptr noundef %1)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 312
@@ -1115,20 +1115,20 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %13 = call i32 @av_dict_set(ptr noundef nonnull %9, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, i32 noundef 0) #10
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #10
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 104
-  %15 = load ptr, ptr %14, align 8, !tbaa !53
+  %15 = load ptr, ptr %14, align 8, !tbaa !52
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %do_vmafmotion.exit, label %16
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 72
-  %18 = load i64, ptr %17, align 8, !tbaa !54
+  %18 = load i64, ptr %17, align 8, !tbaa !53
   %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.4, i64 noundef %18, double noundef %8) #10
   br label %do_vmafmotion.exit
 
 do_vmafmotion.exit:                               ; preds = %2, %16
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %21 = load ptr, ptr %20, align 8, !tbaa !98
-  %22 = load ptr, ptr %21, align 8, !tbaa !99
+  %21 = load ptr, ptr %20, align 8, !tbaa !97
+  %22 = load ptr, ptr %21, align 8, !tbaa !98
   %23 = call i32 @ff_filter_frame(ptr noundef %22, ptr noundef nonnull %1) #10
   ret i32 %23
 }
@@ -1136,19 +1136,19 @@ do_vmafmotion.exit:                               ; preds = %2, %16
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !38
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !101
-  %9 = load ptr, ptr %8, align 8, !tbaa !99
+  %8 = load ptr, ptr %7, align 8, !tbaa !100
+  %9 = load ptr, ptr %8, align 8, !tbaa !98
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %11 = load i32, ptr %10, align 8, !tbaa !102
+  %11 = load i32, ptr %10, align 8, !tbaa !101
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  %13 = load i32, ptr %12, align 4, !tbaa !103
+  %13 = load i32, ptr %12, align 4, !tbaa !102
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %15 = load i32, ptr %14, align 4, !tbaa !104
+  %15 = load i32, ptr %14, align 4, !tbaa !103
   %16 = tail call i32 @ff_vmafmotion_init(ptr noundef nonnull %6, i32 noundef %11, i32 noundef %13, i32 noundef %15)
   ret i32 %16
 }
@@ -1229,78 +1229,77 @@ attributes #11 = { nounwind willreturn memory(none) }
 !27 = !{!"float", !6, i64 0}
 !28 = !{!29, !29, i64 0}
 !29 = !{!"short", !6, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!34, !8, i64 16}
-!34 = !{!"AVComponentDescriptor", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16}
-!35 = !{!13, !11, i64 8}
-!36 = !{!13, !11, i64 16}
-!37 = !{!13, !11, i64 0}
-!38 = !{!39, !11, i64 72}
-!39 = !{!"AVFilterContext", !40, i64 0, !41, i64 8, !15, i64 16, !42, i64 24, !43, i64 32, !8, i64 40, !42, i64 48, !43, i64 56, !8, i64 64, !11, i64 72, !45, i64 80, !8, i64 88, !8, i64 92, !46, i64 96, !15, i64 104, !11, i64 112, !47, i64 120, !8, i64 128, !48, i64 136, !8, i64 144, !8, i64 148}
-!40 = !{!"p1 _ZTS7AVClass", !11, i64 0}
-!41 = !{!"p1 _ZTS8AVFilter", !11, i64 0}
-!42 = !{!"p1 _ZTS11AVFilterPad", !11, i64 0}
-!43 = !{!"p2 _ZTS12AVFilterLink", !44, i64 0}
-!44 = !{!"any p2 pointer", !11, i64 0}
-!45 = !{!"p1 _ZTS13AVFilterGraph", !11, i64 0}
-!46 = !{!"p1 _ZTS15AVFilterCommand", !11, i64 0}
-!47 = !{!"p1 double", !11, i64 0}
-!48 = !{!"p1 _ZTS11AVBufferRef", !11, i64 0}
-!49 = !{!50, !15, i64 112}
-!50 = !{!"VMAFMotionContext", !40, i64 0, !5, i64 8, !51, i64 104, !15, i64 112}
-!51 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!52 = !{!51, !51, i64 0}
-!53 = !{!50, !51, i64 104}
-!54 = !{!50, !9, i64 72}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"p1 _ZTS15AVFilterFormats", !11, i64 0}
-!57 = !{!58, !9, i64 16}
-!58 = !{!"AVPixFmtDescriptor", !15, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !9, i64 16, !6, i64 24, !15, i64 104}
-!59 = !{!58, !6, i64 8}
-!60 = distinct !{!60, !31, !32}
-!61 = distinct !{!61, !31, !32}
-!62 = distinct !{!62, !31, !32, !63}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = distinct !{!64, !31, !32}
-!65 = distinct !{!65, !31, !32, !63}
-!66 = distinct !{!66, !31, !32}
-!67 = distinct !{!67, !31, !32, !63}
-!68 = distinct !{!68, !31, !32}
-!69 = distinct !{!69, !31, !32, !63}
-!70 = distinct !{!70, !31, !32}
-!71 = distinct !{!71, !31, !32, !63}
-!72 = distinct !{!72, !31, !32, !63}
-!73 = distinct !{!73, !31, !32}
-!74 = distinct !{!74, !31, !32, !63}
-!75 = distinct !{!75, !31, !32, !63}
-!76 = distinct !{!76, !31, !32}
-!77 = distinct !{!77, !31, !32, !63}
-!78 = distinct !{!78, !31, !32, !63}
-!79 = !{!6, !6, i64 0}
-!80 = distinct !{!80, !31, !32}
-!81 = distinct !{!81, !31, !32, !63}
-!82 = distinct !{!82, !31, !32, !63}
-!83 = distinct !{!83, !31, !32}
-!84 = distinct !{!84, !31, !32, !63}
-!85 = distinct !{!85, !31, !32, !63}
-!86 = distinct !{!86, !31, !32}
-!87 = distinct !{!87, !31, !32, !63}
-!88 = distinct !{!88, !31, !32}
-!89 = distinct !{!89, !31, !32, !63}
-!90 = !{!91, !92, i64 16}
-!91 = !{!"AVFilterLink", !92, i64 0, !42, i64 8, !92, i64 16, !42, i64 24, !8, i64 32, !8, i64 36, !8, i64 40, !8, i64 44, !93, i64 48, !8, i64 56, !8, i64 60, !8, i64 64, !94, i64 72, !93, i64 96, !95, i64 104, !8, i64 112, !96, i64 120, !96, i64 160}
-!92 = !{!"p1 _ZTS15AVFilterContext", !11, i64 0}
-!93 = !{!"AVRational", !8, i64 0, !8, i64 4}
-!94 = !{!"AVChannelLayout", !8, i64 0, !8, i64 4, !6, i64 8, !11, i64 16}
-!95 = !{!"p2 _ZTS15AVFrameSideData", !44, i64 0}
-!96 = !{!"AVFilterFormatsConfig", !56, i64 0, !56, i64 8, !97, i64 16, !56, i64 24, !56, i64 32}
-!97 = !{!"p1 _ZTS22AVFilterChannelLayouts", !11, i64 0}
-!98 = !{!39, !43, i64 56}
-!99 = !{!100, !100, i64 0}
-!100 = !{!"p1 _ZTS12AVFilterLink", !11, i64 0}
-!101 = !{!39, !43, i64 32}
-!102 = !{!91, !8, i64 40}
-!103 = !{!91, !8, i64 44}
-!104 = !{!91, !8, i64 36}
+!32 = !{!33, !8, i64 16}
+!33 = !{!"AVComponentDescriptor", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !8, i64 16}
+!34 = !{!13, !11, i64 8}
+!35 = !{!13, !11, i64 16}
+!36 = !{!13, !11, i64 0}
+!37 = !{!38, !11, i64 72}
+!38 = !{!"AVFilterContext", !39, i64 0, !40, i64 8, !15, i64 16, !41, i64 24, !42, i64 32, !8, i64 40, !41, i64 48, !42, i64 56, !8, i64 64, !11, i64 72, !44, i64 80, !8, i64 88, !8, i64 92, !45, i64 96, !15, i64 104, !11, i64 112, !46, i64 120, !8, i64 128, !47, i64 136, !8, i64 144, !8, i64 148}
+!39 = !{!"p1 _ZTS7AVClass", !11, i64 0}
+!40 = !{!"p1 _ZTS8AVFilter", !11, i64 0}
+!41 = !{!"p1 _ZTS11AVFilterPad", !11, i64 0}
+!42 = !{!"p2 _ZTS12AVFilterLink", !43, i64 0}
+!43 = !{!"any p2 pointer", !11, i64 0}
+!44 = !{!"p1 _ZTS13AVFilterGraph", !11, i64 0}
+!45 = !{!"p1 _ZTS15AVFilterCommand", !11, i64 0}
+!46 = !{!"p1 double", !11, i64 0}
+!47 = !{!"p1 _ZTS11AVBufferRef", !11, i64 0}
+!48 = !{!49, !15, i64 112}
+!49 = !{!"VMAFMotionContext", !39, i64 0, !5, i64 8, !50, i64 104, !15, i64 112}
+!50 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!51 = !{!50, !50, i64 0}
+!52 = !{!49, !50, i64 104}
+!53 = !{!49, !9, i64 72}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTS15AVFilterFormats", !11, i64 0}
+!56 = !{!57, !9, i64 16}
+!57 = !{!"AVPixFmtDescriptor", !15, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !9, i64 16, !6, i64 24, !15, i64 104}
+!58 = !{!57, !6, i64 8}
+!59 = distinct !{!59, !31}
+!60 = distinct !{!60, !31}
+!61 = distinct !{!61, !31, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !31}
+!64 = distinct !{!64, !31, !62}
+!65 = distinct !{!65, !31}
+!66 = distinct !{!66, !31, !62}
+!67 = distinct !{!67, !31}
+!68 = distinct !{!68, !31, !62}
+!69 = distinct !{!69, !31}
+!70 = distinct !{!70, !31, !62}
+!71 = distinct !{!71, !31, !62}
+!72 = distinct !{!72, !31}
+!73 = distinct !{!73, !31, !62}
+!74 = distinct !{!74, !31, !62}
+!75 = distinct !{!75, !31}
+!76 = distinct !{!76, !31, !62}
+!77 = distinct !{!77, !31, !62}
+!78 = !{!6, !6, i64 0}
+!79 = distinct !{!79, !31}
+!80 = distinct !{!80, !31, !62}
+!81 = distinct !{!81, !31, !62}
+!82 = distinct !{!82, !31}
+!83 = distinct !{!83, !31, !62}
+!84 = distinct !{!84, !31, !62}
+!85 = distinct !{!85, !31}
+!86 = distinct !{!86, !31, !62}
+!87 = distinct !{!87, !31}
+!88 = distinct !{!88, !31, !62}
+!89 = !{!90, !91, i64 16}
+!90 = !{!"AVFilterLink", !91, i64 0, !41, i64 8, !91, i64 16, !41, i64 24, !8, i64 32, !8, i64 36, !8, i64 40, !8, i64 44, !92, i64 48, !8, i64 56, !8, i64 60, !8, i64 64, !93, i64 72, !92, i64 96, !94, i64 104, !8, i64 112, !95, i64 120, !95, i64 160}
+!91 = !{!"p1 _ZTS15AVFilterContext", !11, i64 0}
+!92 = !{!"AVRational", !8, i64 0, !8, i64 4}
+!93 = !{!"AVChannelLayout", !8, i64 0, !8, i64 4, !6, i64 8, !11, i64 16}
+!94 = !{!"p2 _ZTS15AVFrameSideData", !43, i64 0}
+!95 = !{!"AVFilterFormatsConfig", !55, i64 0, !55, i64 8, !96, i64 16, !55, i64 24, !55, i64 32}
+!96 = !{!"p1 _ZTS22AVFilterChannelLayouts", !11, i64 0}
+!97 = !{!38, !42, i64 56}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTS12AVFilterLink", !11, i64 0}
+!100 = !{!38, !42, i64 32}
+!101 = !{!90, !8, i64 40}
+!102 = !{!90, !8, i64 44}
+!103 = !{!90, !8, i64 36}

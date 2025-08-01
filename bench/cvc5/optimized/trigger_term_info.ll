@@ -2387,7 +2387,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58: ; preds = %_ZN4cvc58internal6t
 215:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69
   %216 = getelementptr inbounds nuw i8, ptr %.sroa.080.087, i64 8
   %.not = icmp eq ptr %216, %213
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !73
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 217:                                              ; preds = %200
   %218 = landingpad { ptr, i32 }
@@ -2397,10 +2397,10 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58: ; preds = %_ZN4cvc58internal6t
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %215
   %.sroa.080.087 = phi ptr [ %216, %215 ], [ %spec.select.i.i59, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
-  call void @llvm.experimental.noalias.scope.decl(metadata !75)
-  %219 = load ptr, ptr %.sroa.080.087, align 8, !tbaa !22, !noalias !75
-  store ptr %219, ptr %5, align 8, !tbaa !8, !alias.scope !75
-  %220 = load i64, ptr %219, align 8, !noalias !75
+  call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  %219 = load ptr, ptr %.sroa.080.087, align 8, !tbaa !22, !noalias !73
+  store ptr %219, ptr %5, align 8, !tbaa !8, !alias.scope !73
+  %220 = load i64, ptr %219, align 8, !noalias !73
   %221 = lshr i64 %220, 40
   %222 = trunc nuw nsw i64 %221 to i32
   %223 = and i32 %222, 1048575
@@ -2413,7 +2413,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58: ; preds = %_ZN4cvc58internal6t
   %228 = shl nuw nsw i64 %227, 40
   %229 = and i64 %220, -1152920405095219201
   %230 = or i64 %228, %229
-  store i64 %230, ptr %219, align 8, !noalias !75
+  store i64 %230, ptr %219, align 8, !noalias !73
   br label %235
 
 231:                                              ; preds = %.lr.ph
@@ -2422,7 +2422,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58: ; preds = %_ZN4cvc58internal6t
 
 233:                                              ; preds = %231
   %234 = or i64 %220, 1152920405095219200
-  store i64 %234, ptr %219, align 8, !noalias !75
+  store i64 %234, ptr %219, align 8, !noalias !73
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %219)
           to label %235 unwind label %270
 
@@ -2563,8 +2563,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69: ; preds = %_ZN4cvc58internal12
   %295 = icmp eq i32 %294, 2
   %296 = zext i1 %295 to i64
   %297 = getelementptr inbounds nuw [0 x ptr], ptr %210, i64 0, i64 %296
-  %298 = load ptr, ptr %297, align 8, !tbaa !22, !noalias !78
-  %299 = load i64, ptr %298, align 8, !noalias !78
+  %298 = load ptr, ptr %297, align 8, !tbaa !22, !noalias !76
+  %299 = load i64, ptr %298, align 8, !noalias !76
   %300 = lshr i64 %299, 40
   %301 = trunc nuw nsw i64 %300 to i32
   %302 = and i32 %301, 1048575
@@ -2577,7 +2577,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69: ; preds = %_ZN4cvc58internal12
   %307 = shl nuw nsw i64 %306, 40
   %308 = and i64 %299, -1152920405095219201
   %309 = or i64 %307, %308
-  store i64 %309, ptr %298, align 8, !noalias !78
+  store i64 %309, ptr %298, align 8, !noalias !76
   br label %314
 
 310:                                              ; preds = %.noexc71
@@ -2586,7 +2586,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit69: ; preds = %_ZN4cvc58internal12
 
 312:                                              ; preds = %310
   %313 = or i64 %299, 1152920405095219200
-  store i64 %313, ptr %298, align 8, !noalias !78
+  store i64 %313, ptr %298, align 8, !noalias !76
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %298)
           to label %._crit_edge89 unwind label %331
 
@@ -2903,11 +2903,9 @@ attributes #23 = { builtin nounwind }
 !70 = !{!71}
 !71 = distinct !{!71, !72, !"_ZNK4cvc58internal12NodeTemplateILb1EEixEi: argument 0"}
 !72 = distinct !{!72, !"_ZNK4cvc58internal12NodeTemplateILb1EEixEi"}
-!73 = distinct !{!73, !74}
-!74 = !{!"llvm.loop.estimated_trip_count"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEdeEv: argument 0"}
-!77 = distinct !{!77, !"_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEdeEv"}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZNK4cvc58internal12NodeTemplateILb1EEixEi: argument 0"}
-!80 = distinct !{!80, !"_ZNK4cvc58internal12NodeTemplateILb1EEixEi"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEdeEv: argument 0"}
+!75 = distinct !{!75, !"_ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEdeEv"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZNK4cvc58internal12NodeTemplateILb1EEixEi: argument 0"}
+!78 = distinct !{!78, !"_ZNK4cvc58internal12NodeTemplateILb1EEixEi"}

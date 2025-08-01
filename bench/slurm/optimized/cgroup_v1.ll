@@ -270,7 +270,7 @@ define dso_local noundef i32 @fini() local_unnamed_addr #0 {
   tail call void @common_cgroup_destroy(ptr noundef nonnull %10) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %1, label %4, !llvm.loop !12
+  br i1 %exitcond.not, label %1, label %4, !llvm.loop !11
 
 11:                                               ; preds = %1
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.fini, ptr noundef nonnull @plugin_name) #11
@@ -1221,7 +1221,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %47 = load i8, ptr %46, align 8, !range !13, !noundef !14
+  %47 = load i8, ptr %46, align 8, !range !12, !noundef !13
   %48 = trunc nuw i8 %47 to i1
   %49 = zext nneg i32 %1 to i64
   %50 = getelementptr inbounds nuw [9 x %struct.xcgroup_t], ptr getelementptr inbounds nuw (i8, ptr @int_cg, i64 1080), i64 0, i64 %49
@@ -1258,7 +1258,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
 
 65:                                               ; preds = %57
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %67 = load i8, ptr %66, align 8, !range !13, !noundef !14
+  %67 = load i8, ptr %66, align 8, !range !12, !noundef !13
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %71
 
@@ -1447,7 +1447,7 @@ define dso_local i32 @cgroup_p_step_start_oom_mgr(ptr noundef readnone captures(
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %62, %59
-  br label %.lr.ph.split, !llvm.loop !15
+  br label %.lr.ph.split, !llvm.loop !14
 
 .outer._crit_edge:                                ; preds = %.split.us, %37
   %67 = call i32 @pipe2(ptr noundef nonnull @oom_pipe, i32 noundef 524288) #11
@@ -1679,7 +1679,7 @@ define internal noalias noundef ptr @_oom_event_monitor(ptr noundef %0) #0 {
   br i1 %27, label %28, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.outer.split.i31, %26, %88, %_read_fd.exit33, %75, %18
-  br label %.backedge, !llvm.loop !16
+  br label %.backedge, !llvm.loop !15
 
 28:                                               ; preds = %26
   %29 = load i16, ptr %15, align 2
@@ -1708,7 +1708,7 @@ define internal noalias noundef ptr @_oom_event_monitor(ptr noundef %0) #0 {
   %35 = tail call ptr @__errno_location() #13
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 4
-  br i1 %37, label %.outer.split.i, label %38, !llvm.loop !17
+  br i1 %37, label %.outer.split.i, label %38, !llvm.loop !16
 
 38:                                               ; preds = %34
   %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.103) #11
@@ -1718,7 +1718,7 @@ define internal noalias noundef ptr @_oom_event_monitor(ptr noundef %0) #0 {
   %40 = sub i64 %.012.ph.i45, %33
   %41 = getelementptr inbounds i64, ptr %.011.ph.i46, i64 %33
   %cond.i = icmp eq i64 %40, 0
-  br i1 %cond.i, label %_read_fd.exit, label %.outer.split.i.preheader, !llvm.loop !17
+  br i1 %cond.i, label %_read_fd.exit, label %.outer.split.i.preheader, !llvm.loop !16
 
 _read_fd.exit:                                    ; preds = %.outer.i
   %42 = call i32 @pthread_mutex_lock(ptr noundef nonnull @oom_mutex) #11
@@ -1799,13 +1799,13 @@ _read_fd.exit:                                    ; preds = %.outer.i
   switch i64 %70, label %.outer.i27 [
     i64 0, label %.backedge.backedge
     i64 -1, label %71
-  ], !llvm.loop !16
+  ], !llvm.loop !15
 
 71:                                               ; preds = %.outer.split.i31
   %72 = tail call ptr @__errno_location() #13
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %73, 4
-  br i1 %74, label %.outer.split.i31, label %75, !llvm.loop !17
+  br i1 %74, label %.outer.split.i31, label %75, !llvm.loop !16
 
 75:                                               ; preds = %71
   %76 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.103) #11
@@ -1815,7 +1815,7 @@ _read_fd.exit:                                    ; preds = %.outer.i
   %77 = sub i64 %.012.ph.i2847, %70
   %78 = getelementptr inbounds i64, ptr %.011.ph.i2948, i64 %70
   %cond.i30 = icmp eq i64 %77, 0
-  br i1 %cond.i30, label %_read_fd.exit33, label %.outer.split.i31.preheader, !llvm.loop !17
+  br i1 %cond.i30, label %_read_fd.exit33, label %.outer.split.i31.preheader, !llvm.loop !16
 
 _read_fd.exit33:                                  ; preds = %.outer.i27
   %79 = load i64, ptr %3, align 8
@@ -2193,7 +2193,7 @@ _failcnt.exit68:                                  ; preds = %._crit_edge.i66, %6
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %113, %110
-  br label %.lr.ph.split, !llvm.loop !18
+  br label %.lr.ph.split, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.split.us, %106, %.split75.us
   %114 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -2835,14 +2835,13 @@ attributes #14 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

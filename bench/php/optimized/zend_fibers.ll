@@ -2435,19 +2435,19 @@ zend_get_gc_buffer_add_zval.exit67:               ; preds = %83, %97, %88
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = add i32 %.04670, -1
   %.not63 = icmp eq i32 %106, 0
-  br i1 %.not63, label %.thread, label %83, !llvm.loop !203
+  br i1 %.not63, label %.thread, label %83
 
 .thread:                                          ; preds = %zend_get_gc_buffer_add_zval.exit67, %72, %51, %70, %71
   %.1 = phi ptr [ %.04974, %70 ], [ %.3, %71 ], [ %.04974, %51 ], [ %.3, %72 ], [ %.3, %zend_get_gc_buffer_add_zval.exit67 ]
   %107 = getelementptr inbounds nuw i8, ptr %.05375, i64 48
   %.053 = load ptr, ptr %107, align 8, !tbaa !194
   %.not56 = icmp eq ptr %.053, null
-  br i1 %.not56, label %._crit_edge, label %47, !llvm.loop !205
+  br i1 %.not56, label %._crit_edge, label %47
 
 ._crit_edge:                                      ; preds = %.thread, %44, %zend_get_gc_buffer_add_zval.exit65, %41
   %.045 = phi ptr [ null, %41 ], [ null, %zend_get_gc_buffer_add_zval.exit65 ], [ null, %44 ], [ %.1, %.thread ]
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %109 = load ptr, ptr %108, align 8, !tbaa !206
+  %109 = load ptr, ptr %108, align 8, !tbaa !203
   store ptr %109, ptr %1, align 8, !tbaa !129
   %110 = load ptr, ptr %4, align 8, !tbaa !192
   %111 = ptrtoint ptr %110 to i64
@@ -2464,7 +2464,7 @@ define hidden void @zend_fiber_init() local_unnamed_addr #7 {
   %1 = tail call noalias dereferenceable_or_null(104) ptr @_ecalloc(i64 noundef 1, i64 noundef 104) #27
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 1, ptr %2, align 8, !tbaa !53
-  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1760), align 8, !tbaa !207
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1760), align 8, !tbaa !204
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1768), align 8, !tbaa !60
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1776), align 8, !tbaa !70
   store i32 0, ptr @zend_fiber_switch_blocking, align 4, !tbaa !45
@@ -2476,7 +2476,7 @@ declare noalias ptr @_ecalloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_fiber_shutdown() local_unnamed_addr #7 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1760), align 8, !tbaa !207
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1760), align 8, !tbaa !204
   tail call void @_efree(ptr noundef %1) #22
   %2 = load i32, ptr @zend_fiber_switch_blocking, align 4, !tbaa !45
   %3 = add i32 %2, 1
@@ -2834,8 +2834,5 @@ attributes #27 = { nounwind allocsize(0,1) }
 !200 = !{!100, !20, i64 8}
 !201 = !{!11, !13, i64 24}
 !202 = !{!"branch_weights", i32 2000, i32 2001, i32 4000000}
-!203 = distinct !{!203, !204}
-!204 = !{!"llvm.loop.estimated_trip_count"}
-!205 = distinct !{!205, !204}
-!206 = !{!33, !18, i64 16}
-!207 = !{!5, !34, i64 1760}
+!203 = !{!33, !18, i64 16}
+!204 = !{!5, !34, i64 1760}

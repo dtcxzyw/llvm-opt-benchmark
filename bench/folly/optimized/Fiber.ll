@@ -656,7 +656,7 @@ _ZN5folly6fibers12_GLOBAL__N_115nonMagicInBytesEPhm.exit: ; preds = %.lr.ph.i.i.
   %.sroa.speculated.i = call noundef i64 @llvm.umax.i64(i64 %118, i64 %115)
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 208
   store atomic i64 %.sroa.speculated.i, ptr %119 monotonic, align 8
-  %120 = load ptr, ptr @_ZZN5folly6fibers5Fiber9fiberFuncEvE8vlocal__, align 8, !tbaa !126
+  %120 = load ptr, ptr @_ZZN5folly6fibers5Fiber9fiberFuncEvE8vlocal__, align 8, !tbaa !125
   %121 = load i32, ptr %120, align 4, !tbaa !115
   %122 = icmp sgt i32 %121, 2
   br i1 %122, label %123, label %.critedge16
@@ -765,21 +765,21 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit22: ; preds = %137, %140
   store i8 0, ptr %0, align 64, !tbaa !7
   %151 = load ptr, ptr %25, align 8, !tbaa !37
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  store ptr null, ptr %152, align 8, !tbaa !128
-  %153 = load ptr, ptr %31, align 8, !tbaa !129
+  store ptr null, ptr %152, align 8, !tbaa !127
+  %153 = load ptr, ptr %31, align 8, !tbaa !128
   %154 = call { ptr, ptr } @jump_fcontext(ptr noundef %153, ptr noundef null)
   %155 = extractvalue { ptr, ptr } %154, 0
-  store ptr %155, ptr %31, align 8, !tbaa !129
+  store ptr %155, ptr %31, align 8, !tbaa !128
   %156 = load ptr, ptr %30, align 16, !tbaa !108
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 48
-  %158 = load ptr, ptr %157, align 8, !tbaa !130
+  %158 = load ptr, ptr %157, align 8, !tbaa !129
   %159 = getelementptr inbounds i8, ptr %156, i64 -16
-  store ptr %158, ptr %159, align 8, !tbaa !130
+  store ptr %158, ptr %159, align 8, !tbaa !129
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 56
-  %161 = load ptr, ptr %160, align 8, !tbaa !130
+  %161 = load ptr, ptr %160, align 8, !tbaa !129
   %162 = getelementptr inbounds i8, ptr %156, i64 -8
-  store ptr %161, ptr %162, align 8, !tbaa !130
-  br label %32, !llvm.loop !131
+  store ptr %161, ptr %162, align 8, !tbaa !129
+  br label %32, !llvm.loop !130
 
 163:                                              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit22, %141
   %.pn = phi { ptr, i32 } [ %142, %141 ], [ %138, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit22 ]
@@ -798,16 +798,16 @@ declare ptr @make_fcontext(ptr noundef, i64 noundef, ptr noundef) local_unnamed_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6fibers9FiberImpl9fiberFuncEN5boost7context6detail10transfer_tE(ptr %0, ptr %1) #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %0, ptr %3, align 8, !tbaa !129
+  store ptr %0, ptr %3, align 8, !tbaa !128
   %4 = load ptr, ptr %1, align 16, !tbaa !108
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !130
+  %6 = load ptr, ptr %5, align 8, !tbaa !129
   %7 = getelementptr inbounds i8, ptr %4, i64 -16
-  store ptr %6, ptr %7, align 8, !tbaa !130
+  store ptr %6, ptr %7, align 8, !tbaa !129
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %9 = load ptr, ptr %8, align 8, !tbaa !130
+  %9 = load ptr, ptr %8, align 8, !tbaa !129
   %10 = getelementptr inbounds i8, ptr %4, i64 -8
-  store ptr %9, ptr %10, align 8, !tbaa !130
+  store ptr %9, ptr %10, align 8, !tbaa !129
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load ptr, ptr %12, align 16, !tbaa !106
@@ -971,7 +971,7 @@ _ZN6google12Check_EQImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store i64 -374168149231226868, ptr %.06.i.i.i, align 8, !tbaa !114
   %41 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %41, %40
-  br i1 %.not.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !132
+  br i1 %.not.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !131
 
 _ZSt4fillIPmmEvT_S1_RKT0_.exit.loopexit:          ; preds = %.lr.ph.i.i.i
   %.pre11 = load i64, ptr %27, align 16, !tbaa !103
@@ -979,11 +979,11 @@ _ZSt4fillIPmmEvT_S1_RKT0_.exit.loopexit:          ; preds = %.lr.ph.i.i.i
 
 _ZSt4fillIPmmEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPmmEvT_S1_RKT0_.exit.loopexit, %37
   %42 = phi i64 [ %.pre11, %_ZSt4fillIPmmEvT_S1_RKT0_.exit.loopexit ], [ 0, %37 ]
-  store i8 1, ptr %15, align 1, !tbaa !133
+  store i8 1, ptr %15, align 1, !tbaa !132
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11) #20
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  store ptr %0, ptr %12, align 16, !tbaa !134
+  store ptr %0, ptr %12, align 16, !tbaa !133
   store ptr @"_ZN5folly6detail8function5call_IZNS_6fibers5Fiber4initEbE3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE", ptr %43, align 16, !tbaa !106
   store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %44, align 8, !tbaa !107
   invoke void @_ZN5folly6fibers9FiberImplC2ENS_8FunctionIFvvEEEPhm(ptr noundef nonnull align 16 dereferenceable(96) %11, ptr noundef nonnull %12, ptr noundef %39, i64 noundef %42)
@@ -1105,7 +1105,7 @@ define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringImjEEPNSt7__cxx111
   %4 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2)
-  %5 = load ptr, ptr %4, align 8, !tbaa !135
+  %5 = load ptr, ptr %4, align 8, !tbaa !134
   %6 = load i64, ptr %0, align 8, !tbaa !114
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %6)
           to label %_ZN6google22MakeCheckOpValueStringImEEvPSoRKT_.exit unwind label %15
@@ -1141,7 +1141,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_
 
 ; Function Attrs: mustprogress noreturn uwtable
 define internal void @"_ZN5folly6detail8function5call_IZNS_6fibers5Fiber4initEbE3$_0Lb1ELb0EvJEEET2_DpT3_RNS1_4DataE"(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) #6 {
-  %.val = load ptr, ptr %0, align 16, !tbaa !138
+  %.val = load ptr, ptr %0, align 16, !tbaa !137
   tail call void @_ZN5folly6fibers5Fiber9fiberFuncEv(ptr noundef nonnull align 64 dereferenceable(928) %.val) #21
   unreachable
 }
@@ -1225,7 +1225,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit4:               ; preds = %_ZN5folly8FunctionI
 
 _ZN5folly8FunctionIFvvEED2Ev.exit6:               ; preds = %_ZN5folly8FunctionIFvvEED2Ev.exit4, %35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %39 = load ptr, ptr %38, align 8, !tbaa !140
+  %39 = load ptr, ptr %38, align 8, !tbaa !139
   %.not.i.i7 = icmp eq ptr %39, null
   br i1 %.not.i.i7, label %_ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %40
 
@@ -1237,9 +1237,9 @@ _ZN5folly8FunctionIFvvEED2Ev.exit6:               ; preds = %_ZN5folly8FunctionI
   br i1 %43, label %45, label %53
 
 45:                                               ; preds = %40
-  store i32 0, ptr %41, align 8, !tbaa !141
+  store i32 0, ptr %41, align 8, !tbaa !140
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  store i32 0, ptr %46, align 4, !tbaa !143
+  store i32 0, ptr %46, align 4, !tbaa !142
   %47 = load ptr, ptr %39, align 8, !tbaa !40
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8
@@ -1320,7 +1320,7 @@ define void @_ZN5folly6fibers5Fiber19recordStackPositionEv(ptr noundef nonnull a
   %.sroa.speculated.i = call noundef i64 @llvm.umax.i64(i64 %16, i64 %11)
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 208
   store atomic i64 %.sroa.speculated.i, ptr %17 monotonic, align 8
-  %18 = load ptr, ptr @_ZZN5folly6fibers5Fiber19recordStackPositionEvE8vlocal__, align 8, !tbaa !126
+  %18 = load ptr, ptr @_ZZN5folly6fibers5Fiber19recordStackPositionEvE8vlocal__, align 8, !tbaa !125
   %19 = load i32, ptr %18, align 4, !tbaa !115
   %20 = icmp sgt i32 %19, 3
   br i1 %20, label %21, label %.critedge10
@@ -1404,7 +1404,7 @@ define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringImmEEPNSt7__cxx111
   %4 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2)
-  %5 = load ptr, ptr %4, align 8, !tbaa !135
+  %5 = load ptr, ptr %4, align 8, !tbaa !134
   %6 = load i64, ptr %0, align 8, !tbaa !114
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %6)
           to label %_ZN6google22MakeCheckOpValueStringImEEvPSoRKT_.exit unwind label %14
@@ -1442,15 +1442,15 @@ define void @_ZN5folly6fibers5Fiber7preemptENS1_5StateE(ptr noundef nonnull alig
   %3 = alloca i8, align 1
   %4 = alloca %class.anon.32, align 8
   %5 = alloca %"class.folly::Function", align 16
-  store i8 %1, ptr %3, align 1, !tbaa !144
+  store i8 %1, ptr %3, align 1, !tbaa !143
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
-  store ptr %0, ptr %4, align 8, !tbaa !145
+  store ptr %0, ptr %4, align 8, !tbaa !144
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %3, ptr %6, align 8, !tbaa !130
+  store ptr %3, ptr %6, align 8, !tbaa !129
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 352
-  %10 = load ptr, ptr %9, align 16, !tbaa !147
+  %10 = load ptr, ptr %9, align 16, !tbaa !146
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %26, label %11
 
@@ -1511,10 +1511,10 @@ define internal fastcc void @"_ZZN5folly6fibers5Fiber7preemptENS1_5StateEEN3$_0c
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
   %11 = alloca %"class.google::LogMessageFatal", align 8
-  %12 = load ptr, ptr %0, align 8, !tbaa !145
+  %12 = load ptr, ptr %0, align 8, !tbaa !144
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !148
-  %15 = load i8, ptr %14, align 1, !tbaa !144
+  %14 = load ptr, ptr %13, align 8, !tbaa !147
+  %15 = load i8, ptr %14, align 1, !tbaa !143
   %.not = icmp eq i8 %15, 5
   br i1 %.not, label %53, label %16
 
@@ -1582,17 +1582,17 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit11: ; preds = %.critedge, %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #20
   %35 = load ptr, ptr %17, align 8, !tbaa !37
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 472
-  %37 = load i64, ptr %36, align 8, !tbaa !149
+  %37 = load i64, ptr %36, align 8, !tbaa !148
   store i64 %37, ptr %9, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #20
   %38 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly19uncaught_exceptionsEvE2ct)
-  %39 = load ptr, ptr %38, align 8, !tbaa !126
+  %39 = load ptr, ptr %38, align 8, !tbaa !125
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %40, label %_ZN5folly19uncaught_exceptionsEv.exit, !prof !119
 
 40:                                               ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit11
   %41 = call noundef ptr @_ZN5folly6detail23uncaught_exceptions_ptrEv() #20
-  store ptr %41, ptr %38, align 8, !tbaa !126
+  store ptr %41, ptr %38, align 8, !tbaa !125
   br label %_ZN5folly19uncaught_exceptionsEv.exit
 
 _ZN5folly19uncaught_exceptionsEv.exit:            ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit11, %40
@@ -1676,36 +1676,36 @@ _ZN5folly6fibers12thread_clock3nowEv.exit:        ; preds = %63, %69
   %.sroa.0.0.copyload.i2.i = load i64, ptr %71, align 8, !tbaa !114
   %72 = sub i64 %.sroa.04.0.i, %.sroa.0.0.copyload.i2.i
   %73 = getelementptr inbounds nuw i8, ptr %12, i64 248
-  %74 = load i64, ptr %73, align 8, !tbaa !150
+  %74 = load i64, ptr %73, align 8, !tbaa !149
   %75 = add nsw i64 %72, %74
-  store i64 %75, ptr %73, align 8, !tbaa !150
+  store i64 %75, ptr %73, align 8, !tbaa !149
   store i64 %.sroa.04.0.i, ptr %71, align 16, !tbaa !114
   br label %76
 
 76:                                               ; preds = %_ZN5folly6fibers12thread_clock3nowEv.exit, %53
-  %77 = load ptr, ptr %13, align 8, !tbaa !148
-  %78 = load i8, ptr %77, align 1, !tbaa !144
+  %77 = load ptr, ptr %13, align 8, !tbaa !147
+  %78 = load i8, ptr %77, align 1, !tbaa !143
   store i8 %78, ptr %12, align 64, !tbaa !7
   call void @_ZN5folly6fibers5Fiber19recordStackPositionEv(ptr noundef nonnull align 64 dereferenceable(928) %12)
   %79 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !37
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr null, ptr %81, align 8, !tbaa !128
+  store ptr null, ptr %81, align 8, !tbaa !127
   %82 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %83 = getelementptr inbounds nuw i8, ptr %12, i64 136
-  %84 = load ptr, ptr %83, align 8, !tbaa !129
+  %84 = load ptr, ptr %83, align 8, !tbaa !128
   %85 = call { ptr, ptr } @jump_fcontext(ptr noundef %84, ptr noundef null)
   %86 = extractvalue { ptr, ptr } %85, 0
-  store ptr %86, ptr %83, align 8, !tbaa !129
+  store ptr %86, ptr %83, align 8, !tbaa !128
   %87 = load ptr, ptr %82, align 16, !tbaa !108
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %89 = load ptr, ptr %88, align 8, !tbaa !130
+  %89 = load ptr, ptr %88, align 8, !tbaa !129
   %90 = getelementptr inbounds i8, ptr %87, i64 -16
-  store ptr %89, ptr %90, align 8, !tbaa !130
+  store ptr %89, ptr %90, align 8, !tbaa !129
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 56
-  %92 = load ptr, ptr %91, align 8, !tbaa !130
+  %92 = load ptr, ptr %91, align 8, !tbaa !129
   %93 = getelementptr inbounds i8, ptr %87, i64 -8
-  store ptr %92, ptr %93, align 8, !tbaa !130
+  store ptr %92, ptr %93, align 8, !tbaa !129
   %94 = load i8, ptr %54, align 1, !tbaa !113, !range !99, !noundef !100
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %96, label %111
@@ -1751,7 +1751,7 @@ _ZN5folly6fibers12thread_clock3nowEv.exit16:      ; preds = %102, %108
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN5folly6detail8function5call_ISt17reference_wrapperIZNS_6fibers5Fiber7preemptENS5_5StateEE3$_0ELb1ELb0EvJEEET2_DpT3_RNS1_4DataE"(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %0) #0 {
-  %.val = load ptr, ptr %0, align 16, !tbaa !151
+  %.val = load ptr, ptr %0, align 16, !tbaa !150
   tail call fastcc void @"_ZZN5folly6fibers5Fiber7preemptENS1_5StateEEN3$_0clEv"(ptr noundef nonnull readonly align 8 dereferenceable(16) %.val)
   ret void
 }
@@ -1761,7 +1761,7 @@ define linkonce_odr noundef ptr @_ZN6google17MakeCheckOpStringIliEEPNSt7__cxx111
   %4 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
   call void @_ZN6google4base21CheckOpMessageBuilderC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2)
-  %5 = load ptr, ptr %4, align 8, !tbaa !135
+  %5 = load ptr, ptr %4, align 8, !tbaa !134
   %6 = load i64, ptr %0, align 8, !tbaa !114
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %6)
           to label %_ZN6google22MakeCheckOpValueStringIlEEvPSoRKT_.exit unwind label %14
@@ -1869,13 +1869,13 @@ _ZN5folly6fibers12thread_clock3nowEv.exit:        ; preds = %28, %34
   %.sroa.02.0 = phi i64 [ %38, %_ZN5folly6fibers12thread_clock3nowEv.exit ], [ %10, %13 ], [ %10, %8 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.02.0, ptr %0, align 8, !tbaa !114
-  store i8 1, ptr %40, align 8, !tbaa !153
+  store i8 1, ptr %40, align 8, !tbaa !152
   br label %43
 
 41:                                               ; preds = %2
   store i8 0, ptr %0, align 8, !tbaa !110
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %42, align 8, !tbaa !156
+  store i8 0, ptr %42, align 8, !tbaa !155
   br label %43
 
 43:                                               ; preds = %41, %39
@@ -1885,7 +1885,7 @@ _ZN5folly6fibers12thread_clock3nowEv.exit:        ; preds = %28, %34
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly6fibers5Fiber9LocalDataD2Ev(ptr noundef nonnull align 64 captures(address) dereferenceable(176) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %3 = load ptr, ptr %2, align 8, !tbaa !157
+  %3 = load ptr, ptr %2, align 8, !tbaa !156
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN5folly6fibers5Fiber9LocalData5resetEv.exit, label %4
 
@@ -1918,7 +1918,7 @@ _ZN5folly6fibers5Fiber9LocalData5resetEv.exit:    ; preds = %.noexc, %1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly6fibers5Fiber9LocalData5resetEv(ptr noundef nonnull align 64 captures(address) dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %3 = load ptr, ptr %2, align 8, !tbaa !157
+  %3 = load ptr, ptr %2, align 8, !tbaa !156
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %4
 
@@ -1932,7 +1932,7 @@ define void @_ZN5folly6fibers5Fiber9LocalData5resetEv(ptr noundef nonnull align 
   tail call void %.sink(ptr noundef nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(40) %10, i8 0, i64 40, i1 false)
-  store ptr null, ptr %2, align 8, !tbaa !157
+  store ptr null, ptr %2, align 8, !tbaa !156
   br label %11
 
 11:                                               ; preds = %1, %4
@@ -1948,30 +1948,30 @@ _ZN5folly6fibers5Fiber9LocalData5resetEv.exit.i:
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %7 = load ptr, ptr %6, align 8, !tbaa !157
+  %7 = load ptr, ptr %6, align 8, !tbaa !156
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN5folly6fibers5Fiber9LocalDataaSERKS2_.exit, label %8
 
 8:                                                ; preds = %_ZN5folly6fibers5Fiber9LocalData5resetEv.exit.i
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(40) %2, ptr noundef nonnull readonly align 64 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !158
-  %10 = load ptr, ptr %6, align 8, !tbaa !157
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(40) %2, ptr noundef nonnull readonly align 64 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !157
+  %10 = load ptr, ptr %6, align 8, !tbaa !156
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr %4, align 8, !tbaa !160
+  %13 = load ptr, ptr %4, align 8, !tbaa !159
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 64 dereferenceable(176) %0, ptr noundef %10)
   br label %.sink.split.i
 
 15:                                               ; preds = %8
-  %16 = load ptr, ptr %3, align 8, !tbaa !161
+  %16 = load ptr, ptr %3, align 8, !tbaa !160
   %17 = tail call noundef ptr %16(ptr noundef %10)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %15, %12
   %.sink.i = phi ptr [ %14, %12 ], [ %17, %15 ]
-  store ptr %.sink.i, ptr %5, align 8, !tbaa !157
+  store ptr %.sink.i, ptr %5, align 8, !tbaa !156
   br label %_ZN5folly6fibers5Fiber9LocalDataaSERKS2_.exit
 
 _ZN5folly6fibers5Fiber9LocalDataaSERKS2_.exit:    ; preds = %_ZN5folly6fibers5Fiber9LocalData5resetEv.exit.i, %.sink.split.i
@@ -1981,7 +1981,7 @@ _ZN5folly6fibers5Fiber9LocalDataaSERKS2_.exit:    ; preds = %_ZN5folly6fibers5Fi
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 64 dereferenceable(176) ptr @_ZN5folly6fibers5Fiber9LocalDataaSERKS2_(ptr noundef nonnull returned align 64 dereferenceable(176) %0, ptr noundef nonnull readonly align 64 captures(address) dereferenceable(176) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %4 = load ptr, ptr %3, align 8, !tbaa !157
+  %4 = load ptr, ptr %3, align 8, !tbaa !156
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN5folly6fibers5Fiber9LocalData5resetEv.exit, label %5
 
@@ -1999,33 +1999,33 @@ define noundef nonnull align 64 dereferenceable(176) ptr @_ZN5folly6fibers5Fiber
 
 _ZN5folly6fibers5Fiber9LocalData5resetEv.exit:    ; preds = %2, %5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %13 = load ptr, ptr %12, align 8, !tbaa !157
+  %13 = load ptr, ptr %12, align 8, !tbaa !156
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %27, label %14
 
 14:                                               ; preds = %_ZN5folly6fibers5Fiber9LocalData5resetEv.exit
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(40) %16, ptr noundef nonnull align 64 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !158
-  %17 = load ptr, ptr %12, align 8, !tbaa !157
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(40) %16, ptr noundef nonnull align 64 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !157
+  %17 = load ptr, ptr %12, align 8, !tbaa !156
   %18 = icmp eq ptr %17, %1
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %21 = load ptr, ptr %20, align 8, !tbaa !160
+  %21 = load ptr, ptr %20, align 8, !tbaa !159
   %22 = tail call noundef ptr %21(ptr noundef nonnull %0, ptr noundef %17)
   br label %.sink.split
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %25 = load ptr, ptr %24, align 8, !tbaa !161
+  %25 = load ptr, ptr %24, align 8, !tbaa !160
   %26 = tail call noundef ptr %25(ptr noundef %17)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %19
   %.sink = phi ptr [ %22, %19 ], [ %26, %23 ]
-  store ptr %.sink, ptr %3, align 8, !tbaa !157
+  store ptr %.sink, ptr %3, align 8, !tbaa !156
   br label %27
 
 27:                                               ; preds = %.sink.split, %_ZN5folly6fibers5Fiber9LocalData5resetEv.exit
@@ -2191,42 +2191,41 @@ attributes #23 = { noreturn nounwind }
 !120 = !{!121, !122, i64 0}
 !121 = !{!"_ZTSN6google13CheckOpStringE", !122, i64 0}
 !122 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !15, i64 0}
-!123 = distinct !{!123, !124, !125}
+!123 = distinct !{!123, !124}
 !124 = !{!"llvm.loop.mustprogress"}
-!125 = !{!"llvm.loop.estimated_trip_count"}
-!126 = !{!127, !127, i64 0}
-!127 = !{!"p1 int", !15, i64 0}
-!128 = !{!46, !29, i64 8}
-!129 = !{!18, !15, i64 88}
-!130 = !{!15, !15, i64 0}
-!131 = distinct !{!131, !124, !125}
-!132 = distinct !{!132, !124, !125}
-!133 = !{!8, !13, i64 3}
-!134 = !{!29, !29, i64 0}
-!135 = !{!136, !137, i64 0}
-!136 = !{!"_ZTSN6google4base21CheckOpMessageBuilderE", !137, i64 0}
-!137 = !{!"p1 _ZTSNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE", !15, i64 0}
-!138 = !{!139, !29, i64 0}
-!139 = !{!"_ZTSZN5folly6fibers5Fiber4initEbE3$_0", !29, i64 0}
-!140 = !{!23, !24, i64 0}
-!141 = !{!142, !76, i64 8}
-!142 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !76, i64 8, !76, i64 12}
-!143 = !{!142, !76, i64 12}
-!144 = !{!9, !9, i64 0}
-!145 = !{!146, !29, i64 0}
-!146 = !{!"_ZTSZN5folly6fibers5Fiber7preemptENS1_5StateEE3$_0", !29, i64 0, !15, i64 8}
-!147 = !{!46, !78, i64 352}
-!148 = !{!146, !15, i64 8}
-!149 = !{!46, !16, i64 472}
-!150 = !{!27, !16, i64 0}
-!151 = !{!152, !15, i64 0}
-!152 = !{!"_ZTSSt17reference_wrapperIZN5folly6fibers5Fiber7preemptENS2_5StateEE3$_0E", !15, i64 0}
-!153 = !{!154, !13, i64 8}
-!154 = !{!"_ZTSN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEE", !155, i64 0}
-!155 = !{!"_ZTSN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEE28StorageTriviallyDestructibleE", !10, i64 0, !13, i64 8}
-!156 = !{!155, !13, i64 8}
-!157 = !{!30, !15, i64 168}
-!158 = !{i64 0, i64 8, !159, i64 8, i64 8, !130, i64 16, i64 8, !130, i64 24, i64 8, !130, i64 32, i64 8, !130}
-!159 = !{!32, !32, i64 0}
-!160 = !{!30, !15, i64 152}
-!161 = !{!30, !15, i64 136}
+!125 = !{!126, !126, i64 0}
+!126 = !{!"p1 int", !15, i64 0}
+!127 = !{!46, !29, i64 8}
+!128 = !{!18, !15, i64 88}
+!129 = !{!15, !15, i64 0}
+!130 = distinct !{!130, !124}
+!131 = distinct !{!131, !124}
+!132 = !{!8, !13, i64 3}
+!133 = !{!29, !29, i64 0}
+!134 = !{!135, !136, i64 0}
+!135 = !{!"_ZTSN6google4base21CheckOpMessageBuilderE", !136, i64 0}
+!136 = !{!"p1 _ZTSNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE", !15, i64 0}
+!137 = !{!138, !29, i64 0}
+!138 = !{!"_ZTSZN5folly6fibers5Fiber4initEbE3$_0", !29, i64 0}
+!139 = !{!23, !24, i64 0}
+!140 = !{!141, !76, i64 8}
+!141 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !76, i64 8, !76, i64 12}
+!142 = !{!141, !76, i64 12}
+!143 = !{!9, !9, i64 0}
+!144 = !{!145, !29, i64 0}
+!145 = !{!"_ZTSZN5folly6fibers5Fiber7preemptENS1_5StateEE3$_0", !29, i64 0, !15, i64 8}
+!146 = !{!46, !78, i64 352}
+!147 = !{!145, !15, i64 8}
+!148 = !{!46, !16, i64 472}
+!149 = !{!27, !16, i64 0}
+!150 = !{!151, !15, i64 0}
+!151 = !{!"_ZTSSt17reference_wrapperIZN5folly6fibers5Fiber7preemptENS2_5StateEE3$_0E", !15, i64 0}
+!152 = !{!153, !13, i64 8}
+!153 = !{!"_ZTSN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEE", !154, i64 0}
+!154 = !{!"_ZTSN5folly8OptionalINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEE28StorageTriviallyDestructibleE", !10, i64 0, !13, i64 8}
+!155 = !{!154, !13, i64 8}
+!156 = !{!30, !15, i64 168}
+!157 = !{i64 0, i64 8, !158, i64 8, i64 8, !129, i64 16, i64 8, !129, i64 24, i64 8, !129, i64 32, i64 8, !129}
+!158 = !{!32, !32, i64 0}
+!159 = !{!30, !15, i64 152}
+!160 = !{!30, !15, i64 136}

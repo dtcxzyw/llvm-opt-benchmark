@@ -46,7 +46,7 @@ define noundef zeroext i1 @lv_demos_create(ptr noundef readonly captures(address
 .thread19:                                        ; preds = %2, %12
   %.01421 = phi ptr [ %spec.select, %12 ], [ @demos_entry_info, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %.01421, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !13
+  %15 = load ptr, ptr %14, align 8, !tbaa !12
   %.not17 = icmp eq ptr %15, null
   br i1 %.not17, label %.thread, label %16
 
@@ -95,7 +95,6 @@ attributes #3 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !4, i64 0}
 !9 = !{!"", !4, i64 0, !5, i64 8}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!9, !5, i64 8}
+!12 = !{!9, !5, i64 8}

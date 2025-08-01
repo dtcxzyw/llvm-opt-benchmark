@@ -176,7 +176,7 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr noundef readonl
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   %74 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %73)
   %75 = icmp sgt i32 %74, 0
-  br i1 %75, label %32, label %.loopexit, !llvm.loop !6
+  br i1 %75, label %32, label %.loopexit
 
 .loopexit:                                        ; preds = %61, %25, %.thread80
   %76 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -288,7 +288,7 @@ define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, p
   %33 = add i32 %.1, 1
   %34 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %33)
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.lr.ph, label %.loopexit77, !llvm.loop !8
+  br i1 %35, label %.lr.ph, label %.loopexit77, !llvm.loop !6
 
 .loopexit77:                                      ; preds = %31, %14, %5, %11
   %.170 = phi i32 [ %13, %11 ], [ 0, %5 ], [ %32, %31 ], [ %16, %14 ]
@@ -352,7 +352,7 @@ define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, p
   %71 = add i32 %.4, 1
   %72 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %71)
   %.not76 = icmp eq i32 %72, 0
-  br i1 %.not76, label %.loopexit, label %.lr.ph92, !llvm.loop !10
+  br i1 %.not76, label %.loopexit, label %.lr.ph92, !llvm.loop !8
 
 .loopexit:                                        ; preds = %26, %21, %18, %51, %67, %.loopexit77, %46
   %.0 = phi i32 [ %50, %46 ], [ %3, %.loopexit77 ], [ %42, %51 ], [ %71, %67 ], [ -1, %18 ], [ -1, %21 ], [ -1, %26 ]
@@ -411,7 +411,5 @@ attributes #7 = { allocsize(1) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}

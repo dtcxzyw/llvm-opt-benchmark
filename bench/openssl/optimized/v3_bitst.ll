@@ -114,7 +114,7 @@ define ptr @v2i_ASN1_BIT_STRING(ptr noundef readonly captures(none) %0, ptr read
   %11 = add nuw nsw i32 %.01935, 1
   %12 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #3
   %13 = icmp slt i32 %11, %12
-  br i1 %13, label %14, label %.loopexit, !llvm.loop !18
+  br i1 %13, label %14, label %.loopexit, !llvm.loop !17
 
 14:                                               ; preds = %.lr.ph36, %10
   %.01935 = phi i32 [ 0, %.lr.ph36 ], [ %11, %10 ]
@@ -127,14 +127,14 @@ define ptr @v2i_ASN1_BIT_STRING(ptr noundef readonly captures(none) %0, ptr read
 
 .lr.ph:                                           ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !19
+  %20 = load ptr, ptr %19, align 8, !tbaa !18
   br label %21
 
 21:                                               ; preds = %.lr.ph, %34
   %22 = phi ptr [ %18, %.lr.ph ], [ %37, %34 ]
   %.032 = phi ptr [ %16, %.lr.ph ], [ %35, %34 ]
   %23 = getelementptr inbounds nuw i8, ptr %.032, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !21
+  %24 = load ptr, ptr %23, align 8, !tbaa !20
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %20) #4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %30, label %27
@@ -162,7 +162,7 @@ define ptr @v2i_ASN1_BIT_STRING(ptr noundef readonly captures(none) %0, ptr read
   %36 = getelementptr inbounds nuw i8, ptr %.032, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !11
   %.not = icmp eq ptr %37, null
-  br i1 %.not, label %.thread, label %21, !llvm.loop !22
+  br i1 %.not, label %.thread, label %21, !llvm.loop !21
 
 38:                                               ; preds = %30
   %39 = getelementptr inbounds nuw i8, ptr %.032, i64 8
@@ -174,7 +174,7 @@ define ptr @v2i_ASN1_BIT_STRING(ptr noundef readonly captures(none) %0, ptr read
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 84, ptr noundef nonnull @__func__.v2i_ASN1_BIT_STRING) #3
   %40 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !19
+  %41 = load ptr, ptr %40, align 8, !tbaa !18
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 111, ptr noundef nonnull @.str.1, ptr noundef %41) #3
   tail call void @ASN1_BIT_STRING_free(ptr noundef nonnull %4) #3
   br label %.loopexit
@@ -230,11 +230,10 @@ attributes #4 = { nounwind willreturn memory(read) }
 !12 = !{!"BIT_STRING_BITNAME_st", !10, i64 0, !13, i64 8, !13, i64 16}
 !13 = !{!"p1 omnipotent char", !5, i64 0}
 !14 = !{!12, !10, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
-!19 = !{!20, !13, i64 8}
-!20 = !{!"", !13, i64 0, !13, i64 8, !13, i64 16}
-!21 = !{!12, !13, i64 16}
-!22 = distinct !{!22, !16, !17}
+!17 = distinct !{!17, !16}
+!18 = !{!19, !13, i64 8}
+!19 = !{!"", !13, i64 0, !13, i64 8, !13, i64 16}
+!20 = !{!12, !13, i64 16}
+!21 = distinct !{!21, !16}

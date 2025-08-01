@@ -178,7 +178,7 @@ setdc.exit:                                       ; preds = %.preheader38.i.preh
   %86 = getelementptr inbounds nuw i8, ptr %.141.i11, i64 10
   %87 = add nuw nsw i32 %.03142.i10, 1
   %exitcond46.not.i14 = icmp eq i32 %87, 2
-  br i1 %exitcond46.not.i14, label %.preheader.i15, label %.preheader38.i9, !llvm.loop !18
+  br i1 %exitcond46.not.i14, label %.preheader.i15, label %.preheader38.i9, !llvm.loop !17
 
 .preheader.i15:                                   ; preds = %.preheader38.i9, %.preheader.i15
   %.044.i16 = phi i32 [ %103, %.preheader.i15 ], [ 0, %.preheader38.i9 ]
@@ -203,7 +203,7 @@ setdc.exit:                                       ; preds = %.preheader38.i.preh
   %102 = getelementptr inbounds nuw i8, ptr %.243.i17, i64 8
   %103 = add nuw nsw i32 %.044.i16, 1
   %exitcond47.not.i19 = icmp eq i32 %103, 2
-  br i1 %exitcond47.not.i19, label %setdc.exit20, label %.preheader.i15, !llvm.loop !19
+  br i1 %exitcond47.not.i19, label %setdc.exit20, label %.preheader.i15, !llvm.loop !18
 
 setdc.exit20:                                     ; preds = %.preheader.i15
   ret i32 0
@@ -215,19 +215,19 @@ define internal range(i32 -2147483648, 1) i32 @dv_error_marker_filter(ptr nounde
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = tail call i32 @ff_bsf_get_packet_ref(ptr noundef %0, ptr noundef %1) #6
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 4, !tbaa !19
   %8 = icmp slt i32 %5, 0
   br i1 %8, label %46, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !22
+  %12 = load i32, ptr %11, align 8, !tbaa !21
   %.not4245 = icmp sgt i32 %12, 79
   br i1 %.not4245, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9
-  %13 = load ptr, ptr %10, align 8, !tbaa !28
+  %13 = load ptr, ptr %10, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %15
 
@@ -267,7 +267,7 @@ define internal range(i32 -2147483648, 1) i32 @dv_error_marker_filter(ptr nounde
   br label %46
 
 31:                                               ; preds = %28
-  %32 = load ptr, ptr %10, align 8, !tbaa !28
+  %32 = load ptr, ptr %10, align 8, !tbaa !27
   br label %33
 
 33:                                               ; preds = %31, %27
@@ -276,7 +276,7 @@ define internal range(i32 -2147483648, 1) i32 @dv_error_marker_filter(ptr nounde
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(76) %35, ptr noundef nonnull align 8 dereferenceable(76) %14, i64 76, i1 false)
   %36 = add nsw i32 %.03148, 1
-  %.pre = load i32, ptr %11, align 8, !tbaa !22
+  %.pre = load i32, ptr %11, align 8, !tbaa !21
   br label %37
 
 37:                                               ; preds = %15, %20, %33
@@ -288,12 +288,12 @@ define internal range(i32 -2147483648, 1) i32 @dv_error_marker_filter(ptr nounde
   %39 = add nsw i32 %38, -79
   %40 = sext i32 %39 to i64
   %.not42 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %.not42, label %15, label %._crit_edge, !llvm.loop !29
+  br i1 %.not42, label %15, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %37, %9
   %.031.lcssa = phi i32 [ 0, %9 ], [ %.1, %37 ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !30
+  %42 = load i64, ptr %41, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !14
   %45 = tail call i32 @llvm.bswap.i32(i32 %44)
@@ -349,19 +349,18 @@ attributes #6 = { nounwind }
 !12 = !{!"AVRational", !13, i64 0, !13, i64 4}
 !13 = !{!"int", !8, i64 0}
 !14 = !{!8, !8, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
-!19 = distinct !{!19, !16, !17}
-!20 = !{!21, !13, i64 12}
-!21 = !{!"DVErrorMarkerContext", !6, i64 0, !8, i64 8, !13, i64 12, !8, i64 16}
-!22 = !{!23, !13, i64 32}
-!23 = !{!"AVPacket", !24, i64 0, !25, i64 8, !25, i64 16, !26, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !27, i64 48, !13, i64 56, !25, i64 64, !25, i64 72, !7, i64 80, !24, i64 88, !12, i64 96}
-!24 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!25 = !{!"long", !8, i64 0}
-!26 = !{!"p1 omnipotent char", !7, i64 0}
-!27 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!28 = !{!23, !26, i64 24}
-!29 = distinct !{!29, !16, !17}
-!30 = !{!23, !25, i64 8}
+!17 = distinct !{!17, !16}
+!18 = distinct !{!18, !16}
+!19 = !{!20, !13, i64 12}
+!20 = !{!"DVErrorMarkerContext", !6, i64 0, !8, i64 8, !13, i64 12, !8, i64 16}
+!21 = !{!22, !13, i64 32}
+!22 = !{!"AVPacket", !23, i64 0, !24, i64 8, !24, i64 16, !25, i64 24, !13, i64 32, !13, i64 36, !13, i64 40, !26, i64 48, !13, i64 56, !24, i64 64, !24, i64 72, !7, i64 80, !23, i64 88, !12, i64 96}
+!23 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!24 = !{!"long", !8, i64 0}
+!25 = !{!"p1 omnipotent char", !7, i64 0}
+!26 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!27 = !{!22, !25, i64 24}
+!28 = distinct !{!28, !16}
+!29 = !{!22, !24, i64 8}

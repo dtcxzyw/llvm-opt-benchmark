@@ -63,7 +63,7 @@ _ZN2cvL5traceIfLi4ELi4EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %3
   br i1 %9, label %10, label %32
 
 10:                                               ; preds = %_ZN2cvL5traceIfLi4ELi4EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit
-  %11 = tail call noundef float @sqrtf(float noundef %7) #17, !tbaa !10
+  %11 = tail call noundef float @sqrtf(float noundef %7) #17, !tbaa !9
   %12 = fmul float %11, 2.000000e+00
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load float, ptr %13, align 4, !tbaa !3
@@ -101,7 +101,7 @@ _ZN2cvL5traceIfLi4ELi4EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %3
   %41 = fadd float %33, 1.000000e+00
   %42 = fsub float %41, %35
   %43 = fsub float %42, %38
-  %44 = tail call noundef float @sqrtf(float noundef %43) #17, !tbaa !10
+  %44 = tail call noundef float @sqrtf(float noundef %43) #17, !tbaa !9
   %45 = fmul float %44, 2.000000e+00
   %46 = fmul float %45, 2.500000e-01
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -132,7 +132,7 @@ _ZN2cvL5traceIfLi4ELi4EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %3
   %67 = fadd float %35, 1.000000e+00
   %68 = fsub float %67, %33
   %69 = fsub float %68, %38
-  %70 = tail call noundef float @sqrtf(float noundef %69) #17, !tbaa !10
+  %70 = tail call noundef float @sqrtf(float noundef %69) #17, !tbaa !9
   %71 = fmul float %70, 2.000000e+00
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %73 = load float, ptr %72, align 4, !tbaa !3
@@ -159,7 +159,7 @@ _ZN2cvL5traceIfLi4ELi4EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %3
   %92 = fadd float %38, 1.000000e+00
   %93 = fsub float %92, %33
   %94 = fsub float %93, %35
-  %95 = tail call noundef float @sqrtf(float noundef %94) #17, !tbaa !10
+  %95 = tail call noundef float @sqrtf(float noundef %94) #17, !tbaa !9
   %96 = fmul float %95, 2.000000e+00
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %98 = load float, ptr %97, align 4, !tbaa !3
@@ -284,19 +284,19 @@ declare float @llvm.fmuladd.f32(float, float, float) #5
 define hidden void @_ZN2cv6dynafumlEfRKNS0_10QuaternionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cv::dynafu::Quaternion") align 4 captures(none) %0, float noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) local_unnamed_addr #6 {
   %4 = alloca %"class.cv::Vec", align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   br label %5
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i, %5 ]
   %6 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %indvars.iv.i.i.i
-  %7 = load float, ptr %6, align 4, !tbaa !3, !noalias !12
+  %7 = load float, ptr %6, align 4, !tbaa !3, !noalias !11
   %8 = fmul float %1, %7
   %9 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i
-  store float %8, ptr %9, align 4, !tbaa !3, !alias.scope !12
+  store float %8, ptr %9, align 4, !tbaa !3, !alias.scope !11
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_.exit, label %5, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i, label %_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_.exit, label %5, !llvm.loop !14
 
 _ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_.exit:     ; preds = %5
   %10 = load float, ptr %4, align 4, !tbaa !3
@@ -320,38 +320,38 @@ _ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_.exit:     ; preds = %5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN2cv6dynafumlERKNS0_10QuaternionEf(ptr dead_on_unwind noalias writable writeonly sret(%"class.cv::dynafu::Quaternion") align 4 captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, float noundef %2) local_unnamed_addr #6 {
   %4 = alloca %"class.cv::Vec", align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !15
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   br label %5
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i.i, %5 ]
   %6 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i.i.i.i
-  %7 = load float, ptr %6, align 4, !tbaa !3, !noalias !22
+  %7 = load float, ptr %6, align 4, !tbaa !3, !noalias !21
   %8 = fmul float %2, %7
   %9 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i
-  store float %8, ptr %9, align 4, !tbaa !3, !alias.scope !19, !noalias !16
+  store float %8, ptr %9, align 4, !tbaa !3, !alias.scope !18, !noalias !15
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i, label %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit, label %5, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i, label %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit, label %5, !llvm.loop !14
 
 _ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit:        ; preds = %5
-  %10 = load float, ptr %4, align 4, !tbaa !3, !noalias !16
+  %10 = load float, ptr %4, align 4, !tbaa !3, !noalias !15
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %12 = load float, ptr %11, align 4, !tbaa !3, !noalias !16
+  %12 = load float, ptr %11, align 4, !tbaa !3, !noalias !15
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load float, ptr %13, align 4, !tbaa !3, !noalias !16
+  %14 = load float, ptr %13, align 4, !tbaa !3, !noalias !15
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %16 = load float, ptr %15, align 4, !tbaa !3, !noalias !16
-  store float %10, ptr %0, align 4, !tbaa !3, !alias.scope !16
+  %16 = load float, ptr %15, align 4, !tbaa !3, !noalias !15
+  store float %10, ptr %0, align 4, !tbaa !3, !alias.scope !15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store float %12, ptr %17, align 4, !tbaa !3, !alias.scope !16
+  store float %12, ptr %17, align 4, !tbaa !3, !alias.scope !15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %14, ptr %18, align 4, !tbaa !3, !alias.scope !16
+  store float %14, ptr %18, align 4, !tbaa !3, !alias.scope !15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %16, ptr %19, align 4, !tbaa !3, !alias.scope !16
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !16
+  store float %16, ptr %19, align 4, !tbaa !3, !alias.scope !15
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !15
   ret void
 }
 
@@ -359,20 +359,20 @@ _ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit:        ; preds = %5
 define hidden void @_ZN2cv6dynafudvERKNS0_10QuaternionEf(ptr dead_on_unwind noalias writable writeonly sret(%"class.cv::dynafu::Quaternion") align 4 captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, float noundef %2) local_unnamed_addr #6 {
   %4 = alloca %"class.cv::Vec", align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %5 = fdiv float 1.000000e+00, %2
   br label %6
 
 6:                                                ; preds = %6, %3
   %indvars.iv.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i, %6 ]
   %7 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i.i.i
-  %8 = load float, ptr %7, align 4, !tbaa !3, !noalias !23
+  %8 = load float, ptr %7, align 4, !tbaa !3, !noalias !22
   %9 = fmul float %5, %8
   %10 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i
-  store float %9, ptr %10, align 4, !tbaa !3, !alias.scope !23
+  store float %9, ptr %10, align 4, !tbaa !3, !alias.scope !22
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN2cvdvIfLi4EEENS_3VecIT_XT0_EEERKS3_f.exit, label %6, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i, label %_ZN2cvdvIfLi4EEENS_3VecIT_XT0_EEERKS3_f.exit, label %6, !llvm.loop !14
 
 _ZN2cvdvIfLi4EEENS_3VecIT_XT0_EEERKS3_f.exit:     ; preds = %6
   %11 = load float, ptr %4, align 4, !tbaa !3
@@ -397,21 +397,21 @@ _ZN2cvdvIfLi4EEENS_3VecIT_XT0_EEERKS3_f.exit:     ; preds = %6
 define hidden void @_ZN2cv6dynafuplERKNS0_10QuaternionES3_(ptr dead_on_unwind noalias writable writeonly sret(%"class.cv::dynafu::Quaternion") align 4 captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) local_unnamed_addr #6 {
   %4 = alloca %"class.cv::Vec", align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   br label %5
 
 5:                                                ; preds = %5, %3
   %indvars.iv.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i, %5 ]
   %6 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i.i.i
-  %7 = load float, ptr %6, align 4, !tbaa !3, !noalias !26
+  %7 = load float, ptr %6, align 4, !tbaa !3, !noalias !25
   %8 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %indvars.iv.i.i.i
-  %9 = load float, ptr %8, align 4, !tbaa !3, !noalias !26
+  %9 = load float, ptr %8, align 4, !tbaa !3, !noalias !25
   %10 = fadd float %7, %9
   %11 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i
-  store float %10, ptr %11, align 4, !tbaa !3, !alias.scope !26
+  store float %10, ptr %11, align 4, !tbaa !3, !alias.scope !25
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN2cvplIfLi4EEENS_3VecIT_XT0_EEERKS3_S5_.exit, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i.i.i, label %_ZN2cvplIfLi4EEENS_3VecIT_XT0_EEERKS3_S5_.exit, label %5, !llvm.loop !28
 
 _ZN2cvplIfLi4EEENS_3VecIT_XT0_EEERKS3_S5_.exit:   ; preds = %5
   %12 = load float, ptr %4, align 4, !tbaa !3
@@ -446,7 +446,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @_ZN2cv6dynafupLER
   store float %8, ptr %4, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN2cvpLIffLi4EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit, label %3, !llvm.loop !30
+  br i1 %exitcond.not.i, label %_ZN2cvpLIffLi4EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit, label %3, !llvm.loop !29
 
 _ZN2cvpLIffLi4EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit: ; preds = %3
   ret ptr %0
@@ -465,7 +465,7 @@ define hidden noundef nonnull align 4 dereferenceable(16) ptr @_ZN2cv6dynafudVER
   store float %7, ptr %5, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN2cvdVIfLi4EEERNS_3VecIT_XT0_EEES4_f.exit, label %4, !llvm.loop !31
+  br i1 %exitcond.not.i, label %_ZN2cvdVIfLi4EEERNS_3VecIT_XT0_EEES4_f.exit, label %4, !llvm.loop !30
 
 _ZN2cvdVIfLi4EEERNS_3VecIT_XT0_EEES4_f.exit:      ; preds = %4
   ret ptr %0
@@ -487,11 +487,11 @@ define hidden void @_ZN2cv6dynafu14DualQuaternionC2ERKNS_7Affine3IfEE(ptr nounde
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %6 = load float, ptr %5, align 4, !tbaa !3, !noalias !32
+  %6 = load float, ptr %5, align 4, !tbaa !3, !noalias !31
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %8 = load float, ptr %7, align 4, !tbaa !3, !noalias !32
+  %8 = load float, ptr %7, align 4, !tbaa !3, !noalias !31
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %10 = load float, ptr %9, align 4, !tbaa !3, !noalias !32
+  %10 = load float, ptr %9, align 4, !tbaa !3, !noalias !31
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load float, ptr %11, align 4, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -540,7 +540,7 @@ define hidden void @_ZN2cv6dynafu14DualQuaternionC2ERNS0_10QuaternionES3_(ptr no
   store float %6, ptr %7, align 4, !tbaa !3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN2cv6dynafu10QuaternionC2ERKS1_.exit, label %4, !llvm.loop !35
+  br i1 %exitcond.not.i.i.i, label %_ZN2cv6dynafu10QuaternionC2ERKS1_.exit, label %4, !llvm.loop !34
 
 _ZN2cv6dynafu10QuaternionC2ERKS1_.exit:           ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -554,7 +554,7 @@ _ZN2cv6dynafu10QuaternionC2ERKS1_.exit:           ; preds = %4
   store float %11, ptr %12, align 4, !tbaa !3
   %indvars.iv.next.i.i.i4 = add nuw nsw i64 %indvars.iv.i.i.i3, 1
   %exitcond.not.i.i.i5 = icmp eq i64 %indvars.iv.next.i.i.i4, 4
-  br i1 %exitcond.not.i.i.i5, label %_ZN2cv6dynafu10QuaternionC2ERKS1_.exit6, label %9, !llvm.loop !35
+  br i1 %exitcond.not.i.i.i5, label %_ZN2cv6dynafu10QuaternionC2ERKS1_.exit6, label %9, !llvm.loop !34
 
 _ZN2cv6dynafu10QuaternionC2ERKS1_.exit6:          ; preds = %9
   ret void
@@ -573,10 +573,10 @@ define hidden void @_ZN2cv6dynafu14DualQuaternion9normalizeEv(ptr noundef nonnul
   %6 = tail call double @llvm.fmuladd.f64(double %5, double %5, double %.010.i.i.i)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN2cvL4normIfLi4ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i, label %2, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i, label %_ZN2cvL4normIfLi4ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i, label %2, !llvm.loop !35
 
 _ZN2cvL4normIfLi4ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i: ; preds = %2
-  %7 = tail call noundef double @sqrt(double noundef %6) #17, !tbaa !10
+  %7 = tail call noundef double @sqrt(double noundef %6) #17, !tbaa !9
   %8 = fptrunc double %7 to float
   %9 = fdiv float 1.000000e+00, %8
   br label %10
@@ -589,7 +589,7 @@ _ZN2cvL4normIfLi4ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i: ; preds = %2
   store float %13, ptr %11, align 4, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZN2cv6dynafu10Quaternion9normalizeEv.exit, label %10, !llvm.loop !31
+  br i1 %exitcond.not.i.i, label %_ZN2cv6dynafu10Quaternion9normalizeEv.exit, label %10, !llvm.loop !30
 
 _ZN2cv6dynafu10Quaternion9normalizeEv.exit:       ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -603,7 +603,7 @@ _ZN2cv6dynafu10Quaternion9normalizeEv.exit:       ; preds = %10
   store float %18, ptr %16, align 4, !tbaa !3
   %indvars.iv.next.i.i3 = add nuw nsw i64 %indvars.iv.i.i2, 1
   %exitcond.not.i.i4 = icmp eq i64 %indvars.iv.next.i.i3, 4
-  br i1 %exitcond.not.i.i4, label %_ZN2cv6dynafudVERNS0_10QuaternionEf.exit, label %15, !llvm.loop !31
+  br i1 %exitcond.not.i.i4, label %_ZN2cv6dynafudVERNS0_10QuaternionEf.exit, label %15, !llvm.loop !30
 
 _ZN2cv6dynafudVERNS0_10QuaternionEf.exit:         ; preds = %15
   ret void
@@ -623,7 +623,7 @@ define hidden noundef nonnull align 4 dereferenceable(32) ptr @_ZN2cv6dynafupLER
   store float %8, ptr %4, align 4, !tbaa !3
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit, label %3, !llvm.loop !30
+  br i1 %exitcond.not.i.i, label %_ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit, label %3, !llvm.loop !29
 
 _ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit:     ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -640,7 +640,7 @@ _ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit:     ; preds = %3
   store float %16, ptr %12, align 4, !tbaa !3
   %indvars.iv.next.i.i6 = add nuw nsw i64 %indvars.iv.i.i5, 1
   %exitcond.not.i.i7 = icmp eq i64 %indvars.iv.next.i.i6, 4
-  br i1 %exitcond.not.i.i7, label %_ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit8, label %11, !llvm.loop !30
+  br i1 %exitcond.not.i.i7, label %_ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit8, label %11, !llvm.loop !29
 
 _ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit8:    ; preds = %11
   ret ptr %0
@@ -650,55 +650,55 @@ _ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit8:    ; preds = %11
 define hidden void @_ZN2cv6dynafumlEfRKNS0_14DualQuaternionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cv::dynafu::DualQuaternion") align 4 captures(none) %0, float noundef %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %2) local_unnamed_addr #6 {
   %4 = alloca %"class.cv::Vec", align 4
   %5 = alloca %"class.cv::Vec", align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17, !noalias !37
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17, !noalias !36
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   br label %6
 
 6:                                                ; preds = %6, %3
   %indvars.iv.i.i.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i.i.i, %6 ]
   %7 = getelementptr inbounds nuw [4 x float], ptr %2, i64 0, i64 %indvars.iv.i.i.i.i
-  %8 = load float, ptr %7, align 4, !tbaa !3, !noalias !43
+  %8 = load float, ptr %7, align 4, !tbaa !3, !noalias !42
   %9 = fmul float %1, %8
   %10 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i
-  store float %9, ptr %10, align 4, !tbaa !3, !alias.scope !40, !noalias !37
+  store float %9, ptr %10, align 4, !tbaa !3, !alias.scope !39, !noalias !36
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i, label %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit, label %6, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i, label %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit, label %6, !llvm.loop !14
 
 _ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit:        ; preds = %6
-  %11 = load float, ptr %5, align 4, !tbaa !3, !noalias !37
+  %11 = load float, ptr %5, align 4, !tbaa !3, !noalias !36
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %13 = load float, ptr %12, align 4, !tbaa !3, !noalias !37
+  %13 = load float, ptr %12, align 4, !tbaa !3, !noalias !36
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %15 = load float, ptr %14, align 4, !tbaa !3, !noalias !37
+  %15 = load float, ptr %14, align 4, !tbaa !3, !noalias !36
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %17 = load float, ptr %16, align 4, !tbaa !3, !noalias !37
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17, !noalias !37
+  %17 = load float, ptr %16, align 4, !tbaa !3, !noalias !36
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17, !noalias !36
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !44
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !43
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   br label %19
 
 19:                                               ; preds = %19, %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit
   %indvars.iv.i.i.i.i4 = phi i64 [ 0, %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit ], [ %indvars.iv.next.i.i.i.i5, %19 ]
   %20 = getelementptr inbounds nuw [4 x float], ptr %18, i64 0, i64 %indvars.iv.i.i.i.i4
-  %21 = load float, ptr %20, align 4, !tbaa !3, !noalias !50
+  %21 = load float, ptr %20, align 4, !tbaa !3, !noalias !49
   %22 = fmul float %1, %21
   %23 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i4
-  store float %22, ptr %23, align 4, !tbaa !3, !alias.scope !47, !noalias !44
+  store float %22, ptr %23, align 4, !tbaa !3, !alias.scope !46, !noalias !43
   %indvars.iv.next.i.i.i.i5 = add nuw nsw i64 %indvars.iv.i.i.i.i4, 1
   %exitcond.not.i.i.i.i6 = icmp eq i64 %indvars.iv.next.i.i.i.i5, 4
-  br i1 %exitcond.not.i.i.i.i6, label %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit7, label %19, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i6, label %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit7, label %19, !llvm.loop !14
 
 _ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit7:       ; preds = %19
-  %24 = load float, ptr %4, align 4, !tbaa !3, !noalias !44
+  %24 = load float, ptr %4, align 4, !tbaa !3, !noalias !43
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %26 = load float, ptr %25, align 4, !tbaa !3, !noalias !44
+  %26 = load float, ptr %25, align 4, !tbaa !3, !noalias !43
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %28 = load float, ptr %27, align 4, !tbaa !3, !noalias !44
+  %28 = load float, ptr %27, align 4, !tbaa !3, !noalias !43
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %30 = load float, ptr %29, align 4, !tbaa !3, !noalias !44
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !44
+  %30 = load float, ptr %29, align 4, !tbaa !3, !noalias !43
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !43
   store float %11, ptr %0, align 4, !tbaa !3
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %13, ptr %.sroa.412.0..sroa_idx, align 4, !tbaa !3
@@ -731,36 +731,36 @@ define hidden void @_ZNK2cv6dynafu14DualQuaternion9getAffineEv(ptr dead_on_unwin
   %8 = tail call double @llvm.fmuladd.f64(double %7, double %7, double %.010.i.i.i)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZNK2cv6dynafu10Quaternion4normEv.exit, label %4, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i, label %_ZNK2cv6dynafu10Quaternion4normEv.exit, label %4, !llvm.loop !35
 
 _ZNK2cv6dynafu10Quaternion4normEv.exit:           ; preds = %4
-  %9 = tail call noundef double @sqrt(double noundef %8) #17, !tbaa !10
+  %9 = tail call noundef double @sqrt(double noundef %8) #17, !tbaa !9
   %10 = fptrunc double %9 to float
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17, !noalias !51
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17, !noalias !50
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %11 = fdiv float 1.000000e+00, %10
   br label %12
 
 12:                                               ; preds = %12, %_ZNK2cv6dynafu10Quaternion4normEv.exit
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNK2cv6dynafu10Quaternion4normEv.exit ], [ %indvars.iv.next.i.i.i.i, %12 ]
   %13 = getelementptr inbounds nuw [4 x float], ptr %1, i64 0, i64 %indvars.iv.i.i.i.i
-  %14 = load float, ptr %13, align 4, !tbaa !3, !noalias !57
+  %14 = load float, ptr %13, align 4, !tbaa !3, !noalias !56
   %15 = fmul float %11, %14
   %16 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %indvars.iv.i.i.i.i
-  store float %15, ptr %16, align 4, !tbaa !3, !alias.scope !54, !noalias !51
+  store float %15, ptr %16, align 4, !tbaa !3, !alias.scope !53, !noalias !50
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i, label %_ZN2cv6dynafudvERKNS0_10QuaternionEf.exit, label %12, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i, label %_ZN2cv6dynafudvERKNS0_10QuaternionEf.exit, label %12, !llvm.loop !14
 
 _ZN2cv6dynafudvERKNS0_10QuaternionEf.exit:        ; preds = %12
-  %17 = load float, ptr %3, align 4, !tbaa !3, !noalias !51
+  %17 = load float, ptr %3, align 4, !tbaa !3, !noalias !50
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %19 = load float, ptr %18, align 4, !tbaa !3, !noalias !51
+  %19 = load float, ptr %18, align 4, !tbaa !3, !noalias !50
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = load float, ptr %20, align 4, !tbaa !3, !noalias !51
+  %21 = load float, ptr %20, align 4, !tbaa !3, !noalias !50
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %23 = load float, ptr %22, align 4, !tbaa !3, !noalias !51
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17, !noalias !51
+  %23 = load float, ptr %22, align 4, !tbaa !3, !noalias !50
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17, !noalias !50
   %24 = fmul float %19, %19
   %25 = fmul float %21, %21
   %26 = fadd float %24, %25
@@ -853,11 +853,11 @@ _ZN2cv6dynafudvERKNS0_10QuaternionEf.exit:        ; preds = %12
   %92 = fadd float %83, 0.000000e+00
   %93 = fadd float %90, 0.000000e+00
   %.sroa.4.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store float %91, ptr %.sroa.4.0..sroa_idx4.i, align 4, !alias.scope !58
+  store float %91, ptr %.sroa.4.0..sroa_idx4.i, align 4, !alias.scope !57
   %.sroa.67.0..sroa_idx8.i = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store float %92, ptr %.sroa.67.0..sroa_idx8.i, align 4, !alias.scope !58
+  store float %92, ptr %.sroa.67.0..sroa_idx8.i, align 4, !alias.scope !57
   %.sroa.811.0..sroa_idx12.i = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %93, ptr %.sroa.811.0..sroa_idx12.i, align 4, !alias.scope !58
+  store float %93, ptr %.sroa.811.0..sroa_idx12.i, align 4, !alias.scope !57
   ret void
 }
 
@@ -867,8 +867,8 @@ define hidden void @_ZN2cv6dynafu3DQBERSt6vectorIfSaIfEERS1_INS0_14DualQuaternio
   %5 = alloca %"class.cv::Vec", align 4
   %6 = alloca %"class.cv::dynafu::DualQuaternion", align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !61
-  %9 = load ptr, ptr %1, align 8, !tbaa !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !60
+  %9 = load ptr, ptr %1, align 8, !tbaa !64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %.not = icmp eq ptr %8, %9
   br i1 %.not, label %.preheader.preheader, label %.lr.ph
@@ -881,7 +881,7 @@ define hidden void @_ZN2cv6dynafu3DQBERSt6vectorIfSaIfEERS1_INS0_14DualQuaternio
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 2
-  %14 = load ptr, ptr %2, align 8, !tbaa !66
+  %14 = load ptr, ptr %2, align 8, !tbaa !65
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
@@ -907,10 +907,10 @@ define hidden void @_ZN2cv6dynafu3DQBERSt6vectorIfSaIfEERS1_INS0_14DualQuaternio
   %26 = tail call double @llvm.fmuladd.f64(double %25, double %25, double %.010.i.i.i.i)
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i, label %_ZN2cvL4normIfLi4ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i.i, label %.preheader, !llvm.loop !36
+  br i1 %exitcond.not.i.i.i.i, label %_ZN2cvL4normIfLi4ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i.i, label %.preheader, !llvm.loop !35
 
 _ZN2cvL4normIfLi4ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i.i: ; preds = %.preheader
-  %27 = tail call noundef double @sqrt(double noundef %26) #17, !tbaa !10
+  %27 = tail call noundef double @sqrt(double noundef %26) #17, !tbaa !9
   %28 = fptrunc double %27 to float
   %29 = fdiv float 1.000000e+00, %28
   br label %30
@@ -923,7 +923,7 @@ _ZN2cvL4normIfLi4ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i.i: ; preds = %.prehead
   store float %33, ptr %31, align 4, !tbaa !3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %_ZN2cv6dynafu10Quaternion9normalizeEv.exit.i, label %30, !llvm.loop !31
+  br i1 %exitcond.not.i.i.i, label %_ZN2cv6dynafu10Quaternion9normalizeEv.exit.i, label %30, !llvm.loop !30
 
 _ZN2cv6dynafu10Quaternion9normalizeEv.exit.i:     ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -937,7 +937,7 @@ _ZN2cv6dynafu10Quaternion9normalizeEv.exit.i:     ; preds = %30
   store float %38, ptr %36, align 4, !tbaa !3
   %indvars.iv.next.i.i3.i = add nuw nsw i64 %indvars.iv.i.i2.i, 1
   %exitcond.not.i.i4.i = icmp eq i64 %indvars.iv.next.i.i3.i, 4
-  br i1 %exitcond.not.i.i4.i, label %_ZN2cv6dynafu14DualQuaternion9normalizeEv.exit, label %35, !llvm.loop !31
+  br i1 %exitcond.not.i.i4.i, label %_ZN2cv6dynafu14DualQuaternion9normalizeEv.exit, label %35, !llvm.loop !30
 
 _ZN2cv6dynafu14DualQuaternion9normalizeEv.exit:   ; preds = %35
   ret void
@@ -948,58 +948,58 @@ _ZN2cv6dynafu14DualQuaternion9normalizeEv.exit:   ; preds = %35
   %40 = getelementptr inbounds nuw float, ptr %9, i64 %.010
   %41 = load float, ptr %40, align 4, !tbaa !3
   %42 = getelementptr inbounds nuw %"class.cv::dynafu::DualQuaternion", ptr %14, i64 %.010
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17, !noalias !72
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #17, !noalias !71
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   br label %43
 
 43:                                               ; preds = %43, %39
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i.i.i.i.i, %43 ]
   %44 = getelementptr inbounds nuw [4 x float], ptr %42, i64 0, i64 %indvars.iv.i.i.i.i.i
-  %45 = load float, ptr %44, align 4, !tbaa !3, !noalias !78
+  %45 = load float, ptr %44, align 4, !tbaa !3, !noalias !77
   %46 = fmul float %41, %45
   %47 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv.i.i.i.i.i
-  store float %46, ptr %47, align 4, !tbaa !3, !alias.scope !75, !noalias !72
+  store float %46, ptr %47, align 4, !tbaa !3, !alias.scope !74, !noalias !71
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
-  br i1 %exitcond.not.i.i.i.i.i, label %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit.i, label %43, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i.i, label %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit.i, label %43, !llvm.loop !14
 
 _ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit.i:      ; preds = %43
-  %48 = load float, ptr %5, align 4, !tbaa !3, !noalias !72
-  %49 = load float, ptr %15, align 4, !tbaa !3, !noalias !72
-  %50 = load float, ptr %16, align 4, !tbaa !3, !noalias !72
-  %51 = load float, ptr %17, align 4, !tbaa !3, !noalias !72
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17, !noalias !72
+  %48 = load float, ptr %5, align 4, !tbaa !3, !noalias !71
+  %49 = load float, ptr %15, align 4, !tbaa !3, !noalias !71
+  %50 = load float, ptr %16, align 4, !tbaa !3, !noalias !71
+  %51 = load float, ptr %17, align 4, !tbaa !3, !noalias !71
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #17, !noalias !71
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !79
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !78
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   br label %53
 
 53:                                               ; preds = %53, %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit.i
   %indvars.iv.i.i.i.i4.i = phi i64 [ 0, %_ZN2cv6dynafumlEfRKNS0_10QuaternionE.exit.i ], [ %indvars.iv.next.i.i.i.i5.i, %53 ]
   %54 = getelementptr inbounds nuw [4 x float], ptr %52, i64 0, i64 %indvars.iv.i.i.i.i4.i
-  %55 = load float, ptr %54, align 4, !tbaa !3, !noalias !85
+  %55 = load float, ptr %54, align 4, !tbaa !3, !noalias !84
   %56 = fmul float %41, %55
   %57 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv.i.i.i.i4.i
-  store float %56, ptr %57, align 4, !tbaa !3, !alias.scope !82, !noalias !79
+  store float %56, ptr %57, align 4, !tbaa !3, !alias.scope !81, !noalias !78
   %indvars.iv.next.i.i.i.i5.i = add nuw nsw i64 %indvars.iv.i.i.i.i4.i, 1
   %exitcond.not.i.i.i.i6.i = icmp eq i64 %indvars.iv.next.i.i.i.i5.i, 4
-  br i1 %exitcond.not.i.i.i.i6.i, label %_ZN2cv6dynafumlEfRKNS0_14DualQuaternionE.exit, label %53, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i.i6.i, label %_ZN2cv6dynafumlEfRKNS0_14DualQuaternionE.exit, label %53, !llvm.loop !14
 
 _ZN2cv6dynafumlEfRKNS0_14DualQuaternionE.exit:    ; preds = %53
-  %58 = load float, ptr %4, align 4, !tbaa !3, !noalias !79
-  %59 = load float, ptr %18, align 4, !tbaa !3, !noalias !79
-  %60 = load float, ptr %19, align 4, !tbaa !3, !noalias !79
-  %61 = load float, ptr %20, align 4, !tbaa !3, !noalias !79
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !79
-  store float %48, ptr %6, align 4, !tbaa !3, !alias.scope !69
-  store float %49, ptr %.sroa.412.0..sroa_idx.i, align 4, !tbaa !3, !alias.scope !69
-  store float %50, ptr %.sroa.513.0..sroa_idx.i, align 4, !tbaa !3, !alias.scope !69
-  store float %51, ptr %.sroa.614.0..sroa_idx.i, align 4, !tbaa !3, !alias.scope !69
-  store float %58, ptr %21, align 4, !tbaa !3, !alias.scope !69
-  store float %59, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !3, !alias.scope !69
-  store float %60, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !3, !alias.scope !69
-  store float %61, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !3, !alias.scope !69
+  %58 = load float, ptr %4, align 4, !tbaa !3, !noalias !78
+  %59 = load float, ptr %18, align 4, !tbaa !3, !noalias !78
+  %60 = load float, ptr %19, align 4, !tbaa !3, !noalias !78
+  %61 = load float, ptr %20, align 4, !tbaa !3, !noalias !78
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !78
+  store float %48, ptr %6, align 4, !tbaa !3, !alias.scope !68
+  store float %49, ptr %.sroa.412.0..sroa_idx.i, align 4, !tbaa !3, !alias.scope !68
+  store float %50, ptr %.sroa.513.0..sroa_idx.i, align 4, !tbaa !3, !alias.scope !68
+  store float %51, ptr %.sroa.614.0..sroa_idx.i, align 4, !tbaa !3, !alias.scope !68
+  store float %58, ptr %21, align 4, !tbaa !3, !alias.scope !68
+  store float %59, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !3, !alias.scope !68
+  store float %60, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !3, !alias.scope !68
+  store float %61, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !3, !alias.scope !68
   br label %62
 
 62:                                               ; preds = %62, %_ZN2cv6dynafumlEfRKNS0_14DualQuaternionE.exit
@@ -1012,7 +1012,7 @@ _ZN2cv6dynafumlEfRKNS0_14DualQuaternionE.exit:    ; preds = %53
   store float %67, ptr %63, align 4, !tbaa !3
   %indvars.iv.next.i.i.i8 = add nuw nsw i64 %indvars.iv.i.i.i7, 1
   %exitcond.not.i.i.i9 = icmp eq i64 %indvars.iv.next.i.i.i8, 4
-  br i1 %exitcond.not.i.i.i9, label %_ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit.i, label %62, !llvm.loop !30
+  br i1 %exitcond.not.i.i.i9, label %_ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit.i, label %62, !llvm.loop !29
 
 _ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit.i:   ; preds = %62, %_ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit.i
   %indvars.iv.i.i5.i = phi i64 [ %indvars.iv.next.i.i6.i, %_ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit.i ], [ 0, %62 ]
@@ -1024,13 +1024,13 @@ _ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit.i:   ; preds = %62, %_ZN2cv6dynafup
   store float %72, ptr %68, align 4, !tbaa !3
   %indvars.iv.next.i.i6.i = add nuw nsw i64 %indvars.iv.i.i5.i, 1
   %exitcond.not.i.i7.i = icmp eq i64 %indvars.iv.next.i.i6.i, 4
-  br i1 %exitcond.not.i.i7.i, label %_ZN2cv6dynafupLERNS0_14DualQuaternionERKS1_.exit, label %_ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit.i, !llvm.loop !30
+  br i1 %exitcond.not.i.i7.i, label %_ZN2cv6dynafupLERNS0_14DualQuaternionERKS1_.exit, label %_ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit.i, !llvm.loop !29
 
 _ZN2cv6dynafupLERNS0_14DualQuaternionERKS1_.exit: ; preds = %_ZN2cv6dynafupLERNS0_10QuaternionERKS1_.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #17
   %73 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %73, %13
-  br i1 %exitcond.not, label %.preheader.preheader, label %39, !llvm.loop !86
+  br i1 %exitcond.not, label %.preheader.preheader, label %39, !llvm.loop !85
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1039,8 +1039,8 @@ define hidden void @_ZN2cv6dynafu3DQBERSt6vectorIfSaIfEERS1_INS_7Affine3IfEESaIS
   %5 = alloca %"class.std::vector.4", align 8
   %6 = alloca %"class.cv::dynafu::DualQuaternion", align 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !87
-  %9 = load ptr, ptr %2, align 8, !tbaa !90
+  %8 = load ptr, ptr %7, align 8, !tbaa !86
+  %9 = load ptr, ptr %2, align 8, !tbaa !89
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -1064,14 +1064,14 @@ _ZNSt6vectorIN2cv6dynafu14DualQuaternionESaIS2_EE17_S_check_init_lenEmRKS3_.exit
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIN2cv6dynafu14DualQuaternionESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %15 = ashr exact i64 %12, 1
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #19
-  store ptr %16, ptr %5, align 8, !tbaa !66
+  store ptr %16, ptr %5, align 8, !tbaa !65
   %17 = getelementptr inbounds nuw %"class.cv::dynafu::DualQuaternion", ptr %16, i64 %13
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 0, i64 %15, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %17, ptr %19, align 8, !tbaa !91
-  store ptr %scevgep.i.i.i.i.i, ptr %18, align 8, !tbaa !92
+  store ptr %17, ptr %19, align 8, !tbaa !90
+  store ptr %scevgep.i.i.i.i.i, ptr %18, align 8, !tbaa !91
   %.sroa.5.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.6.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.7.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -1080,19 +1080,19 @@ _ZNSt6vectorIN2cv6dynafu14DualQuaternionESaIS2_EE17_S_check_init_lenEmRKS3_.exit
 20:                                               ; preds = %20, %.lr.ph.i
   %.sroa.012.017.i = phi ptr [ %9, %.lr.ph.i ], [ %46, %20 ]
   %.sroa.09.016.i = phi ptr [ %16, %.lr.ph.i ], [ %47, %20 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !93
-  call void @_ZN2cv6dynafu10QuaternionC2ERKNS_7Affine3IfEE(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(64) %.sroa.012.017.i), !noalias !93
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !92
+  call void @_ZN2cv6dynafu10QuaternionC2ERKNS_7Affine3IfEE(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull readonly align 4 dereferenceable(64) %.sroa.012.017.i), !noalias !92
   %.sroa.0.0.copyload2.i = load float, ptr %4, align 4
   %.sroa.5.0.copyload4.i = load float, ptr %.sroa.5.0..sroa_idx3.i, align 4
   %.sroa.6.0.copyload6.i = load float, ptr %.sroa.6.0..sroa_idx5.i, align 4
   %.sroa.7.0.copyload8.i = load float, ptr %.sroa.7.0..sroa_idx7.i, align 4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !93
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !92
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.012.017.i, i64 12
-  %22 = load float, ptr %21, align 4, !tbaa !3, !noalias !96
+  %22 = load float, ptr %21, align 4, !tbaa !3, !noalias !95
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.012.017.i, i64 28
-  %24 = load float, ptr %23, align 4, !tbaa !3, !noalias !96
+  %24 = load float, ptr %23, align 4, !tbaa !3, !noalias !95
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.012.017.i, i64 44
-  %26 = load float, ptr %25, align 4, !tbaa !3, !noalias !96
+  %26 = load float, ptr %25, align 4, !tbaa !3, !noalias !95
   %27 = fmul float %.sroa.6.0.copyload6.i, %24
   %28 = tail call float @llvm.fmuladd.f32(float %22, float %.sroa.5.0.copyload4.i, float %27)
   %29 = tail call float @llvm.fmuladd.f32(float %26, float %.sroa.7.0.copyload8.i, float %28)
@@ -1130,7 +1130,7 @@ _ZNSt6vectorIN2cv6dynafu14DualQuaternionESaIS2_EE17_S_check_init_lenEmRKS3_.exit
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.012.017.i, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.09.016.i, i64 32
   %.not.i = icmp eq ptr %46, %8
-  br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPN2cv7Affine3IfEESt6vectorIS4_SaIS4_EEEENS1_IPNS2_6dynafu14DualQuaternionES6_ISB_SaISB_EEEEZNSA_3DQBERS6_IfSaIfEERS8_E3$_0ET0_T_SM_SL_T1_.exit", label %20, !llvm.loop !99
+  br i1 %.not.i, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPN2cv7Affine3IfEESt6vectorIS4_SaIS4_EEEENS1_IPNS2_6dynafu14DualQuaternionES6_ISB_SaISB_EEEEZNSA_3DQBERS6_IfSaIfEERS8_E3$_0ET0_T_SM_SL_T1_.exit", label %20, !llvm.loop !98
 
 "_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPN2cv7Affine3IfEESt6vectorIS4_SaIS4_EEEENS1_IPNS2_6dynafu14DualQuaternionES6_ISB_SaISB_EEEEZNSA_3DQBERS6_IfSaIfEERS8_E3$_0ET0_T_SM_SL_T1_.exit": ; preds = %20, %.thread
   %48 = phi ptr [ null, %.thread ], [ %16, %20 ]
@@ -1207,96 +1207,95 @@ attributes #20 = { builtin nounwind }
 !4 = !{!"float", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_: argument 0"}
-!14 = distinct !{!14, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_"}
-!15 = distinct !{!15, !8, !9}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE: argument 0"}
-!18 = distinct !{!18, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_: argument 0"}
-!21 = distinct !{!21, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_"}
-!22 = !{!20, !17}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZN2cvdvIfLi4EEENS_3VecIT_XT0_EEERKS3_f: argument 0"}
-!25 = distinct !{!25, !"_ZN2cvdvIfLi4EEENS_3VecIT_XT0_EEERKS3_f"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN2cvplIfLi4EEENS_3VecIT_XT0_EEERKS3_S5_: argument 0"}
-!28 = distinct !{!28, !"_ZN2cvplIfLi4EEENS_3VecIT_XT0_EEERKS3_S5_"}
-!29 = distinct !{!29, !8, !9}
-!30 = distinct !{!30, !8, !9}
-!31 = distinct !{!31, !8, !9}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZNK2cv7Affine3IfE11translationEv: argument 0"}
-!34 = distinct !{!34, !"_ZNK2cv7Affine3IfE11translationEv"}
-!35 = distinct !{!35, !8, !9}
-!36 = distinct !{!36, !8, !9}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE: argument 0"}
-!39 = distinct !{!39, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_: argument 0"}
-!42 = distinct !{!42, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_"}
-!43 = !{!41, !38}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE: argument 0"}
-!46 = distinct !{!46, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_: argument 0"}
-!49 = distinct !{!49, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_"}
-!50 = !{!48, !45}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN2cv6dynafudvERKNS0_10QuaternionEf: argument 0"}
-!53 = distinct !{!53, !"_ZN2cv6dynafudvERKNS0_10QuaternionEf"}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN2cvdvIfLi4EEENS_3VecIT_XT0_EEERKS3_f: argument 0"}
-!56 = distinct !{!56, !"_ZN2cvdvIfLi4EEENS_3VecIT_XT0_EEERKS3_f"}
-!57 = !{!55, !52}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZNK2cv7Affine3IfE9translateERKNS_3VecIfLi3EEE: argument 0"}
-!60 = distinct !{!60, !"_ZNK2cv7Affine3IfE9translateERKNS_3VecIfLi3EEE"}
-!61 = !{!62, !63, i64 8}
-!62 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !63, i64 0, !63, i64 8, !63, i64 16}
-!63 = !{!"p1 float", !64, i64 0}
-!64 = !{!"any pointer", !5, i64 0}
-!65 = !{!62, !63, i64 0}
-!66 = !{!67, !68, i64 0}
-!67 = !{!"_ZTSNSt12_Vector_baseIN2cv6dynafu14DualQuaternionESaIS2_EE17_Vector_impl_dataE", !68, i64 0, !68, i64 8, !68, i64 16}
-!68 = !{!"p1 _ZTSN2cv6dynafu14DualQuaternionE", !64, i64 0}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN2cv6dynafumlEfRKNS0_14DualQuaternionE: argument 0"}
-!71 = distinct !{!71, !"_ZN2cv6dynafumlEfRKNS0_14DualQuaternionE"}
-!72 = !{!73, !70}
-!73 = distinct !{!73, !74, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE: argument 0"}
-!74 = distinct !{!74, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE"}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_: argument 0"}
-!77 = distinct !{!77, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_"}
-!78 = !{!76, !73, !70}
-!79 = !{!80, !70}
-!80 = distinct !{!80, !81, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE: argument 0"}
-!81 = distinct !{!81, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_: argument 0"}
-!84 = distinct !{!84, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_"}
-!85 = !{!83, !80, !70}
-!86 = distinct !{!86, !8, !9}
-!87 = !{!88, !89, i64 8}
-!88 = !{!"_ZTSNSt12_Vector_baseIN2cv7Affine3IfEESaIS2_EE17_Vector_impl_dataE", !89, i64 0, !89, i64 8, !89, i64 16}
-!89 = !{!"p1 _ZTSN2cv7Affine3IfEE", !64, i64 0}
-!90 = !{!88, !89, i64 0}
-!91 = !{!67, !68, i64 16}
-!92 = !{!67, !68, i64 8}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZZN2cv6dynafu3DQBERSt6vectorIfSaIfEERS1_INS_7Affine3IfEESaIS6_EEENK3$_0clERKS6_: argument 0"}
-!95 = distinct !{!95, !"_ZZN2cv6dynafu3DQBERSt6vectorIfSaIfEERS1_INS_7Affine3IfEESaIS6_EEENK3$_0clERKS6_"}
-!96 = !{!97, !94}
-!97 = distinct !{!97, !98, !"_ZNK2cv7Affine3IfE11translationEv: argument 0"}
-!98 = distinct !{!98, !"_ZNK2cv7Affine3IfE11translationEv"}
-!99 = distinct !{!99, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_: argument 0"}
+!13 = distinct !{!13, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_"}
+!14 = distinct !{!14, !8}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE: argument 0"}
+!17 = distinct !{!17, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_: argument 0"}
+!20 = distinct !{!20, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_"}
+!21 = !{!19, !16}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN2cvdvIfLi4EEENS_3VecIT_XT0_EEERKS3_f: argument 0"}
+!24 = distinct !{!24, !"_ZN2cvdvIfLi4EEENS_3VecIT_XT0_EEERKS3_f"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN2cvplIfLi4EEENS_3VecIT_XT0_EEERKS3_S5_: argument 0"}
+!27 = distinct !{!27, !"_ZN2cvplIfLi4EEENS_3VecIT_XT0_EEERKS3_S5_"}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !8}
+!30 = distinct !{!30, !8}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZNK2cv7Affine3IfE11translationEv: argument 0"}
+!33 = distinct !{!33, !"_ZNK2cv7Affine3IfE11translationEv"}
+!34 = distinct !{!34, !8}
+!35 = distinct !{!35, !8}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE: argument 0"}
+!38 = distinct !{!38, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_: argument 0"}
+!41 = distinct !{!41, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_"}
+!42 = !{!40, !37}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE: argument 0"}
+!45 = distinct !{!45, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_: argument 0"}
+!48 = distinct !{!48, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_"}
+!49 = !{!47, !44}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZN2cv6dynafudvERKNS0_10QuaternionEf: argument 0"}
+!52 = distinct !{!52, !"_ZN2cv6dynafudvERKNS0_10QuaternionEf"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN2cvdvIfLi4EEENS_3VecIT_XT0_EEERKS3_f: argument 0"}
+!55 = distinct !{!55, !"_ZN2cvdvIfLi4EEENS_3VecIT_XT0_EEERKS3_f"}
+!56 = !{!54, !51}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZNK2cv7Affine3IfE9translateERKNS_3VecIfLi3EEE: argument 0"}
+!59 = distinct !{!59, !"_ZNK2cv7Affine3IfE9translateERKNS_3VecIfLi3EEE"}
+!60 = !{!61, !62, i64 8}
+!61 = !{!"_ZTSNSt12_Vector_baseIfSaIfEE17_Vector_impl_dataE", !62, i64 0, !62, i64 8, !62, i64 16}
+!62 = !{!"p1 float", !63, i64 0}
+!63 = !{!"any pointer", !5, i64 0}
+!64 = !{!61, !62, i64 0}
+!65 = !{!66, !67, i64 0}
+!66 = !{!"_ZTSNSt12_Vector_baseIN2cv6dynafu14DualQuaternionESaIS2_EE17_Vector_impl_dataE", !67, i64 0, !67, i64 8, !67, i64 16}
+!67 = !{!"p1 _ZTSN2cv6dynafu14DualQuaternionE", !63, i64 0}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZN2cv6dynafumlEfRKNS0_14DualQuaternionE: argument 0"}
+!70 = distinct !{!70, !"_ZN2cv6dynafumlEfRKNS0_14DualQuaternionE"}
+!71 = !{!72, !69}
+!72 = distinct !{!72, !73, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE: argument 0"}
+!73 = distinct !{!73, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_: argument 0"}
+!76 = distinct !{!76, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_"}
+!77 = !{!75, !72, !69}
+!78 = !{!79, !69}
+!79 = distinct !{!79, !80, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE: argument 0"}
+!80 = distinct !{!80, !"_ZN2cv6dynafumlEfRKNS0_10QuaternionE"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_: argument 0"}
+!83 = distinct !{!83, !"_ZN2cvmlIfLi4EEENS_3VecIT_XT0_EEEfRKS3_"}
+!84 = !{!82, !79, !69}
+!85 = distinct !{!85, !8}
+!86 = !{!87, !88, i64 8}
+!87 = !{!"_ZTSNSt12_Vector_baseIN2cv7Affine3IfEESaIS2_EE17_Vector_impl_dataE", !88, i64 0, !88, i64 8, !88, i64 16}
+!88 = !{!"p1 _ZTSN2cv7Affine3IfEE", !63, i64 0}
+!89 = !{!87, !88, i64 0}
+!90 = !{!66, !67, i64 16}
+!91 = !{!66, !67, i64 8}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZZN2cv6dynafu3DQBERSt6vectorIfSaIfEERS1_INS_7Affine3IfEESaIS6_EEENK3$_0clERKS6_: argument 0"}
+!94 = distinct !{!94, !"_ZZN2cv6dynafu3DQBERSt6vectorIfSaIfEERS1_INS_7Affine3IfEESaIS6_EEENK3$_0clERKS6_"}
+!95 = !{!96, !93}
+!96 = distinct !{!96, !97, !"_ZNK2cv7Affine3IfE11translationEv: argument 0"}
+!97 = distinct !{!97, !"_ZNK2cv7Affine3IfE11translationEv"}
+!98 = distinct !{!98, !8}

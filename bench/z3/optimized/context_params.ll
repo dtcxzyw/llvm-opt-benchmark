@@ -776,7 +776,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %90 = load i8, ptr %89, align 8, !tbaa !30, !range !31, !noundef !32
+  %90 = load i8, ptr %89, align 8, !tbaa !29, !range !30, !noundef !31
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %208, label %.invoke
 
@@ -1222,48 +1222,48 @@ define hidden void @_ZN14context_params11updt_paramsERK10params_ref(ptr noundef 
   %7 = tail call noundef i32 @_ZNK10params_ref8get_uintEPKcj(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.8, i32 noundef %6)
   store i32 %7, ptr %0, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %9 = load i8, ptr %8, align 4, !tbaa !33, !range !31, !noundef !32
+  %9 = load i8, ptr %8, align 4, !tbaa !32, !range !30, !noundef !31
   %10 = trunc nuw i8 %9 to i1
   %11 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.10, i1 noundef zeroext %10)
   %12 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.9, i1 noundef zeroext %11)
   %13 = zext i1 %12 to i8
-  store i8 %13, ptr %8, align 4, !tbaa !33
+  store i8 %13, ptr %8, align 4, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %15 = load i8, ptr %14, align 8, !tbaa !18, !range !31, !noundef !32
+  %15 = load i8, ptr %14, align 8, !tbaa !18, !range !30, !noundef !31
   %16 = trunc nuw i8 %15 to i1
   %17 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.11, i1 noundef zeroext %16)
   %18 = zext i1 %17 to i8
   store i8 %18, ptr %14, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %20 = load i8, ptr %19, align 1, !tbaa !34, !range !31, !noundef !32
+  %20 = load i8, ptr %19, align 1, !tbaa !33, !range !30, !noundef !31
   %21 = trunc nuw i8 %20 to i1
   %22 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.12, i1 noundef zeroext %21)
   %23 = zext i1 %22 to i8
-  store i8 %23, ptr %19, align 1, !tbaa !34
+  store i8 %23, ptr %19, align 1, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 77
-  %25 = load i8, ptr %24, align 1, !tbaa !19, !range !31, !noundef !32
+  %25 = load i8, ptr %24, align 1, !tbaa !19, !range !30, !noundef !31
   %26 = trunc nuw i8 %25 to i1
   %27 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.13, i1 noundef zeroext %26)
   %28 = zext i1 %27 to i8
   store i8 %28, ptr %24, align 1, !tbaa !19
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 78
-  %30 = load i8, ptr %29, align 2, !tbaa !35, !range !31, !noundef !32
+  %30 = load i8, ptr %29, align 2, !tbaa !34, !range !30, !noundef !31
   %31 = trunc nuw i8 %30 to i1
   %32 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.14, i1 noundef zeroext %31)
   %33 = zext i1 %32 to i8
-  store i8 %33, ptr %29, align 2, !tbaa !35
+  store i8 %33, ptr %29, align 2, !tbaa !34
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 79
-  %35 = load i8, ptr %34, align 1, !tbaa !36, !range !31, !noundef !32
+  %35 = load i8, ptr %34, align 1, !tbaa !35, !range !30, !noundef !31
   %36 = trunc nuw i8 %35 to i1
   %37 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.15, i1 noundef zeroext %36)
   %38 = zext i1 %37 to i8
-  store i8 %38, ptr %34, align 1, !tbaa !36
+  store i8 %38, ptr %34, align 1, !tbaa !35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 75
-  %40 = load i8, ptr %39, align 1, !tbaa !37, !range !31, !noundef !32
+  %40 = load i8, ptr %39, align 1, !tbaa !36, !range !30, !noundef !31
   %41 = trunc nuw i8 %40 to i1
   %42 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.17, i1 noundef zeroext %41)
   %43 = zext i1 %42 to i8
-  store i8 %43, ptr %39, align 1, !tbaa !37
+  store i8 %43, ptr %39, align 1, !tbaa !36
   %44 = tail call noundef ptr @_ZNK10params_ref7get_strEPKcS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.31)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1277,31 +1277,31 @@ define hidden void @_ZN14context_params11updt_paramsERK10params_ref(ptr noundef 
   %54 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #22
   %55 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %51, i64 noundef 0, i64 noundef %53, ptr noundef nonnull %50, i64 noundef %54)
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %57 = load i8, ptr %56, align 8, !tbaa !30, !range !31, !noundef !32
+  %57 = load i8, ptr %56, align 8, !tbaa !29, !range !30, !noundef !31
   %58 = trunc nuw i8 %57 to i1
   %59 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.20, i1 noundef zeroext %58)
-  %60 = load i8, ptr %56, align 8, !tbaa !30, !range !31, !noundef !32
+  %60 = load i8, ptr %56, align 8, !tbaa !29, !range !30, !noundef !31
   %61 = zext i1 %59 to i8
   %62 = or i8 %60, %61
-  store i8 %62, ptr %56, align 8, !tbaa !30
+  store i8 %62, ptr %56, align 8, !tbaa !29
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  %64 = load i8, ptr %63, align 2, !tbaa !38, !range !31, !noundef !32
+  %64 = load i8, ptr %63, align 2, !tbaa !37, !range !30, !noundef !31
   %65 = trunc nuw i8 %64 to i1
   %66 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.21, i1 noundef zeroext %65)
   %67 = zext i1 %66 to i8
-  store i8 %67, ptr %63, align 2, !tbaa !38
+  store i8 %67, ptr %63, align 2, !tbaa !37
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %69 = load i8, ptr %68, align 1, !tbaa !39, !range !31, !noundef !32
+  %69 = load i8, ptr %68, align 1, !tbaa !38, !range !30, !noundef !31
   %70 = trunc nuw i8 %69 to i1
   %71 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.22, i1 noundef zeroext %70)
   %72 = zext i1 %71 to i8
-  store i8 %72, ptr %68, align 1, !tbaa !39
+  store i8 %72, ptr %68, align 1, !tbaa !38
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 82
-  %74 = load i8, ptr %73, align 2, !tbaa !40, !range !31, !noundef !32
+  %74 = load i8, ptr %73, align 2, !tbaa !39, !range !30, !noundef !31
   %75 = trunc nuw i8 %74 to i1
   %76 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.16, i1 noundef zeroext %75)
   %77 = zext i1 %76 to i8
-  store i8 %77, ptr %73, align 2, !tbaa !40
+  store i8 %77, ptr %73, align 2, !tbaa !39
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %79 = load ptr, ptr %78, align 8, !tbaa !20
   %80 = tail call noundef ptr @_ZNK10params_ref7get_strEPKcS1_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.23, ptr noundef %79)
@@ -1337,7 +1337,7 @@ define hidden void @_ZN14context_params27collect_solver_param_descrsER12param_de
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14context_params20merge_default_paramsERK10params_ref(ptr dead_on_unwind noalias writable sret(%class.params_ref) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %5 = load i8, ptr %4, align 8, !tbaa !18, !range !31, !noundef !32
+  %5 = load i8, ptr %4, align 8, !tbaa !18, !range !30, !noundef !31
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %12, label %7
 
@@ -1376,25 +1376,25 @@ declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN14context_params17get_solver_paramsER10params_refRbS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %2, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %3, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %7 = load i8, ptr %6, align 1, !tbaa !34, !range !31, !noundef !32
+  %7 = load i8, ptr %6, align 1, !tbaa !33, !range !30, !noundef !31
   %8 = trunc nuw i8 %7 to i1
   %9 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.12, i1 noundef zeroext %8)
-  %10 = load i8, ptr %2, align 1, !tbaa !23, !range !31, !noundef !32
+  %10 = load i8, ptr %2, align 1, !tbaa !23, !range !30, !noundef !31
   %11 = icmp ne i8 %10, 0
   %12 = and i1 %9, %11
   %13 = zext i1 %12 to i8
   store i8 %13, ptr %2, align 1, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 77
-  %15 = load i8, ptr %14, align 1, !tbaa !19, !range !31, !noundef !32
+  %15 = load i8, ptr %14, align 1, !tbaa !19, !range !30, !noundef !31
   %16 = trunc nuw i8 %15 to i1
   %17 = tail call noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.13, i1 noundef zeroext %16)
-  %18 = load i8, ptr %3, align 1, !tbaa !23, !range !31, !noundef !32
+  %18 = load i8, ptr %3, align 1, !tbaa !23, !range !30, !noundef !31
   %19 = icmp ne i8 %18, 0
   %20 = and i1 %17, %19
   %21 = zext i1 %20 to i8
   store i8 %21, ptr %3, align 1, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %23 = load i8, ptr %22, align 8, !tbaa !30, !range !31, !noundef !32
+  %23 = load i8, ptr %22, align 8, !tbaa !29, !range !30, !noundef !31
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %28, label %25
 
@@ -1407,7 +1407,7 @@ define hidden void @_ZN14context_params17get_solver_paramsER10params_refRbS2_S2_
   %29 = phi i8 [ 1, %5 ], [ %27, %25 ]
   store i8 %29, ptr %4, align 1, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %31 = load i8, ptr %30, align 8, !tbaa !18, !range !31, !noundef !32
+  %31 = load i8, ptr %30, align 8, !tbaa !18, !range !30, !noundef !31
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %36, label %33
 
@@ -2031,17 +2031,16 @@ attributes #24 = { builtin allocsize(0) }
 !24 = !{!5, !5, i64 0}
 !25 = !{!10, !10, i64 0}
 !26 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!4, !13, i64 80}
-!31 = !{i8 0, i8 2}
-!32 = !{}
-!33 = !{!4, !13, i64 76}
-!34 = !{!4, !13, i64 73}
-!35 = !{!4, !13, i64 78}
-!36 = !{!4, !13, i64 79}
-!37 = !{!4, !13, i64 75}
-!38 = !{!4, !13, i64 74}
-!39 = !{!4, !13, i64 81}
-!40 = !{!4, !13, i64 82}
+!29 = !{!4, !13, i64 80}
+!30 = !{i8 0, i8 2}
+!31 = !{}
+!32 = !{!4, !13, i64 76}
+!33 = !{!4, !13, i64 73}
+!34 = !{!4, !13, i64 78}
+!35 = !{!4, !13, i64 79}
+!36 = !{!4, !13, i64 75}
+!37 = !{!4, !13, i64 74}
+!38 = !{!4, !13, i64 81}
+!39 = !{!4, !13, i64 82}

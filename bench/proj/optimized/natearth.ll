@@ -100,7 +100,7 @@ define internal { double, double } @_ZL18natearth_s_inverse5PJ_XYP8PJconsts(doub
   br i1 %27, label %.loopexit, label %10
 
 28:                                               ; preds = %10
-  %29 = load ptr, ptr %2, align 8, !tbaa !46
+  %29 = load ptr, ptr %2, align 8, !tbaa !45
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %29, i32 noundef 2050)
   br label %.loopexit
 
@@ -197,7 +197,6 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !40 = !{!4, !13, i64 360}
 !41 = !{!4, !15, i64 380}
 !42 = !{!4, !15, i64 384}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!4, !5, i64 0}
+!45 = !{!4, !5, i64 0}

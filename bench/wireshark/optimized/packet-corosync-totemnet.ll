@@ -188,7 +188,7 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
   %41 = getelementptr ptr, ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %.not33 = icmp eq ptr %42, null
-  br i1 %.not33, label %.critedge, label %.preheader, !llvm.loop !11
+  br i1 %.not33, label %.critedge, label %.preheader, !llvm.loop !10
 
 .critedge:                                        ; preds = %37, %20, %4
   %43 = load ptr, ptr @corosync_totemsrp_handle, align 8
@@ -421,7 +421,6 @@ attributes #7 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

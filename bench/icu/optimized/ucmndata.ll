@@ -204,7 +204,7 @@ define internal noundef ptr @_ZL17offsetTOCLookupFnPK11UDataMemoryPKcPiP10UError
   %21 = icmp eq i8 %17, 0
   %or.cond.i.i = or i1 %21, %20
   %22 = add nuw nsw i32 %.018.i.i, 1
-  br i1 %or.cond.i.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, label %15, !llvm.loop !29
+  br i1 %or.cond.i.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, label %15
 
 _ZL17strcmpAfterPrefixPKcS0_Pi.exit.i:            ; preds = %15
   %23 = icmp eq i8 %17, %19
@@ -231,7 +231,7 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit.i:            ; preds = %15
   %37 = icmp eq i8 %33, 0
   %or.cond.i38.i = or i1 %37, %36
   %38 = add nuw nsw i32 %.018.i35.i, 1
-  br i1 %or.cond.i38.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i, label %31, !llvm.loop !29
+  br i1 %or.cond.i38.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i, label %31
 
 _ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i:          ; preds = %31
   %39 = icmp eq i8 %33, %35
@@ -271,7 +271,7 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i:          ; preds = %31
   %58 = icmp eq i8 %54, 0
   %or.cond.i43.i = or i1 %58, %57
   %59 = add nsw i32 %.018.i40.i, 1
-  br i1 %or.cond.i43.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i, label %52, !llvm.loop !29
+  br i1 %or.cond.i43.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i, label %52
 
 _ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i:          ; preds = %52
   %60 = icmp ult i8 %54, %56
@@ -291,7 +291,7 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i:          ; preds = %52
   %.232.i = phi i32 [ %.03068.i, %63 ], [ %42, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i ]
   %.228.i = phi i32 [ %64, %63 ], [ %.02669.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit44.i ]
   %66 = icmp slt i32 %.228.i, %.232.i
-  br i1 %66, label %.lr.ph.i, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread, !llvm.loop !31
+  br i1 %66, label %.lr.ph.i, label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread, !llvm.loop !29
 
 _ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit: ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit39.i
   %67 = icmp sgt i32 %8, 0
@@ -307,17 +307,17 @@ _ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24: ; 
 
 72:                                               ; preds = %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 12
-  %74 = load i32, ptr %73, align 4, !tbaa !33
+  %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !33
+  %76 = load i32, ptr %75, align 4, !tbaa !31
   %77 = sub i32 %74, %76
   br label %78
 
 78:                                               ; preds = %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24, %72
   %storemerge = phi i32 [ %77, %72 ], [ -1, %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread24 ]
-  store i32 %storemerge, ptr %2, align 4, !tbaa !34
+  store i32 %storemerge, ptr %2, align 4, !tbaa !32
   %79 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !33
+  %80 = load i32, ptr %79, align 4, !tbaa !31
   %81 = zext i32 %80 to i64
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 %81
   br label %_ZL27offsetTOCPrefixBinarySearchPKcS0_PK19UDataOffsetTOCEntryi.exit.thread
@@ -356,13 +356,13 @@ define internal noundef ptr @_ZL18pointerTOCLookupFnPK11UDataMemoryPKcPiP10UErro
   br i1 %.not, label %67, label %7
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr %6, align 8, !tbaa !35
+  %8 = load i32, ptr %6, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = icmp eq i32 %8, 0
   br i1 %10, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %9, align 8, !tbaa !37
+  %12 = load ptr, ptr %9, align 8, !tbaa !35
   br label %13
 
 13:                                               ; preds = %13, %11
@@ -377,7 +377,7 @@ define internal noundef ptr @_ZL18pointerTOCLookupFnPK11UDataMemoryPKcPiP10UErro
   %19 = icmp eq i8 %15, 0
   %or.cond.i.i = or i1 %19, %18
   %20 = add nuw nsw i32 %.018.i.i, 1
-  br i1 %or.cond.i.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, label %13, !llvm.loop !29
+  br i1 %or.cond.i.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, label %13
 
 _ZL17strcmpAfterPrefixPKcS0_Pi.exit.i:            ; preds = %13
   %21 = icmp eq i8 %15, %17
@@ -387,7 +387,7 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit.i:            ; preds = %13
   %23 = add nsw i32 %8, -1
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds %struct.PointerTOCEntry, ptr %9, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !37
+  %26 = load ptr, ptr %25, align 8, !tbaa !35
   br label %27
 
 27:                                               ; preds = %27, %22
@@ -402,7 +402,7 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit.i:            ; preds = %13
   %33 = icmp eq i8 %29, 0
   %or.cond.i35.i = or i1 %33, %32
   %34 = add nuw nsw i32 %.018.i32.i, 1
-  br i1 %or.cond.i35.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit36.i, label %27, !llvm.loop !29
+  br i1 %or.cond.i35.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit36.i, label %27
 
 _ZL17strcmpAfterPrefixPKcS0_Pi.exit36.i:          ; preds = %27
   %35 = icmp eq i8 %29, %31
@@ -422,7 +422,7 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit36.i:          ; preds = %27
   %39 = tail call i32 @llvm.smin.i32(i32 %.05063.i, i32 %.04864.i)
   %40 = zext nneg i32 %38 to i64
   %41 = getelementptr inbounds nuw %struct.PointerTOCEntry, ptr %9, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !37
+  %42 = load ptr, ptr %41, align 8, !tbaa !35
   %43 = sext i32 %39 to i64
   %44 = getelementptr inbounds i8, ptr %1, i64 %43
   %45 = getelementptr inbounds i8, ptr %42, i64 %43
@@ -440,7 +440,7 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit36.i:          ; preds = %27
   %52 = icmp eq i8 %48, 0
   %or.cond.i40.i = or i1 %52, %51
   %53 = add nsw i32 %.018.i37.i, 1
-  br i1 %or.cond.i40.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i, label %46, !llvm.loop !29
+  br i1 %or.cond.i40.i, label %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i, label %46
 
 _ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i:          ; preds = %46
   %54 = icmp ult i8 %48, %50
@@ -460,7 +460,7 @@ _ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i:          ; preds = %46
   %.229.i = phi i32 [ %.02765.i, %57 ], [ %38, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i ]
   %.225.i = phi i32 [ %58, %57 ], [ %.02366.i, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit41.i ]
   %60 = icmp slt i32 %.225.i, %.229.i
-  br i1 %60, label %.lr.ph.i, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread, !llvm.loop !40
+  br i1 %60, label %.lr.ph.i, label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread, !llvm.loop !38
 
 _ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit: ; preds = %_ZL17strcmpAfterPrefixPKcS0_Pi.exit36.i
   %61 = icmp sgt i32 %8, 0
@@ -468,12 +468,12 @@ _ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit: ; preds = %_ZL17s
 
 _ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15: ; preds = %55, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit
   %.0.i17 = phi i32 [ %23, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ 0, %_ZL17strcmpAfterPrefixPKcS0_Pi.exit.i ], [ %38, %55 ]
-  store i32 -1, ptr %2, align 4, !tbaa !34
+  store i32 -1, ptr %2, align 4, !tbaa !32
   %62 = zext nneg i32 %.0.i17 to i64
   %.idx = shl nuw nsw i64 %62, 4
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !41
+  %65 = load ptr, ptr %64, align 8, !tbaa !39
   %66 = tail call ptr @UDataMemory_normalizeDataPointer_77(ptr noundef %65)
   br label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread
 
@@ -495,7 +495,7 @@ define internal noundef i32 @_ZL20pointerTOCEntryCountPK11UDataMemory(ptr nounde
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr %3, align 8, !tbaa !35
+  %5 = load i32, ptr %3, align 8, !tbaa !33
   br label %6
 
 6:                                                ; preds = %1, %4
@@ -550,15 +550,13 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !27 = !{!28, !18, i64 0}
 !28 = !{!"_ZTS19UDataOffsetTOCEntry", !18, i64 0, !18, i64 4}
 !29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = distinct !{!31, !32, !30}
-!32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!28, !18, i64 4}
-!34 = !{!18, !18, i64 0}
-!35 = !{!36, !18, i64 0}
-!36 = !{!"_ZTS10PointerTOC", !18, i64 0, !18, i64 4, !7, i64 8}
-!37 = !{!38, !39, i64 0}
-!38 = !{!"_ZTS15PointerTOCEntry", !39, i64 0, !17, i64 8}
-!39 = !{!"p1 omnipotent char", !17, i64 0}
-!40 = distinct !{!40, !32, !30}
-!41 = !{!38, !17, i64 8}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = !{!28, !18, i64 4}
+!32 = !{!18, !18, i64 0}
+!33 = !{!34, !18, i64 0}
+!34 = !{!"_ZTS10PointerTOC", !18, i64 0, !18, i64 4, !7, i64 8}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"_ZTS15PointerTOCEntry", !37, i64 0, !17, i64 8}
+!37 = !{!"p1 omnipotent char", !17, i64 0}
+!38 = distinct !{!38, !30}
+!39 = !{!36, !17, i64 8}

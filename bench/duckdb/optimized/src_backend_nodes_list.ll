@@ -186,7 +186,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery13list_nth_cellEPKNS_6PGListEi(
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !17
   %10 = icmp sgt i32 %.07, 0
   %11 = add nsw i32 %.07, -1
-  br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !21
+  br i1 %10, label %.preheader, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader, %7
   %.08 = phi ptr [ %9, %7 ], [ %.0, %.preheader ]
@@ -213,7 +213,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery8list_nthEPKNS_6PGListEi(ptr no
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !17
   %10 = icmp sgt i32 %.07.i, 0
   %11 = add nsw i32 %.07.i, -1
-  br i1 %10, label %.preheader.i, label %_ZN17duckdb_libpgquery13list_nth_cellEPKNS_6PGListEi.exit, !llvm.loop !21
+  br i1 %10, label %.preheader.i, label %_ZN17duckdb_libpgquery13list_nth_cellEPKNS_6PGListEi.exit, !llvm.loop !20
 
 _ZN17duckdb_libpgquery13list_nth_cellEPKNS_6PGListEi.exit: ; preds = %.preheader.i, %7
   %.08.i = phi ptr [ %9, %7 ], [ %.0.i, %.preheader.i ]
@@ -240,7 +240,7 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i.i: ; preds = %3
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   tail call void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef nonnull %.011.i.i)
   %.not.i.i = icmp eq ptr %10, null
-  br i1 %.not.i.i, label %_ZN17duckdb_libpgquery9list_freeEPNS_6PGListE.exit, label %.lr.ph.i.i, !llvm.loop !22
+  br i1 %.not.i.i, label %_ZN17duckdb_libpgquery9list_freeEPNS_6PGListE.exit, label %.lr.ph.i.i, !llvm.loop !21
 
 11:                                               ; preds = %3
   %12 = add nsw i32 %5, -1
@@ -284,7 +284,7 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i: ; preds = %1
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   tail call void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef nonnull %.011.i)
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !21
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i
   tail call void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef nonnull %0)
@@ -339,7 +339,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery9list_copyEPKNS_6PGListE(ptr no
   %.020.in = getelementptr inbounds nuw i8, ptr %.02027, i64 8
   %.020 = load ptr, ptr %.020.in, align 8, !tbaa !3
   %.not = icmp eq ptr %.020, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.021.lcssa = phi ptr [ %16, %3 ], [ %18, %.lr.ph ]
@@ -392,7 +392,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery14list_copy_tailEPKNS_6PGListEi
   %.026 = load ptr, ptr %.026.in, align 8, !tbaa !17
   %.not36 = icmp eq i32 %.028, 0
   %18 = add nsw i32 %.028, -1
-  br i1 %.not36, label %19, label %17, !llvm.loop !24
+  br i1 %.not36, label %19, label %17, !llvm.loop !23
 
 19:                                               ; preds = %17
   %20 = load i64, ptr %.026, align 8, !tbaa !16
@@ -414,7 +414,7 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery14list_copy_tailEPKNS_6PGListEi
   %.1.in = getelementptr inbounds nuw i8, ptr %.135, i64 8
   %.1 = load ptr, ptr %.1.in, align 8, !tbaa !3
   %.not30 = icmp eq ptr %.1, null
-  br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %.027.lcssa = phi ptr [ %21, %19 ], [ %22, %.lr.ph ]
@@ -457,11 +457,10 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !15 = !{!10, !7, i64 16}
 !16 = !{!5, !5, i64 0}
 !17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !19, !20}
-!23 = distinct !{!23, !19, !20}
-!24 = distinct !{!24, !19, !20}
-!25 = distinct !{!25, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
+!24 = distinct !{!24, !19}

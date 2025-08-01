@@ -166,11 +166,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef readonly captures(none) %3, i16 noundef zeroext %4) local_unnamed_addr #2 {
-  store ptr null, ptr %0, align 8, !tbaa !16
-  store i64 0, ptr %1, align 8, !tbaa !18
-  store i64 0, ptr %2, align 8, !tbaa !18
+  store ptr null, ptr %0, align 8, !tbaa !15
+  store i64 0, ptr %1, align 8, !tbaa !17
+  store i64 0, ptr %2, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %7 = load i32, ptr %6, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 4, !tbaa !19
   switch i32 %7, label %82 [
     i32 16, label %8
     i32 32, label %10
@@ -185,31 +185,31 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
 
 8:                                                ; preds = %5
   %9 = tail call ptr @EVP_aead_aes_128_gcm() #16
-  store ptr %9, ptr %0, align 8, !tbaa !16
-  store i64 4, ptr %2, align 8, !tbaa !18
+  store ptr %9, ptr %0, align 8, !tbaa !15
+  store i64 4, ptr %2, align 8, !tbaa !17
   br label %82
 
 10:                                               ; preds = %5
   %11 = tail call ptr @EVP_aead_aes_256_gcm() #16
-  store ptr %11, ptr %0, align 8, !tbaa !16
-  store i64 4, ptr %2, align 8, !tbaa !18
+  store ptr %11, ptr %0, align 8, !tbaa !15
+  store i64 4, ptr %2, align 8, !tbaa !17
   br label %82
 
 12:                                               ; preds = %5
   %13 = tail call ptr @EVP_aead_chacha20_poly1305_old() #16
-  store ptr %13, ptr %0, align 8, !tbaa !16
-  store i64 0, ptr %2, align 8, !tbaa !18
+  store ptr %13, ptr %0, align 8, !tbaa !15
+  store i64 0, ptr %2, align 8, !tbaa !17
   br label %82
 
 14:                                               ; preds = %5
   %15 = tail call ptr @EVP_aead_chacha20_poly1305() #16
-  store ptr %15, ptr %0, align 8, !tbaa !16
-  store i64 12, ptr %2, align 8, !tbaa !18
+  store ptr %15, ptr %0, align 8, !tbaa !15
+  store i64 12, ptr %2, align 8, !tbaa !17
   br label %82
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !21
+  %18 = load i32, ptr %17, align 8, !tbaa !20
   switch i32 %18, label %82 [
     i32 1, label %19
     i32 2, label %26
@@ -229,8 +229,8 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
 
 25:                                               ; preds = %23, %21
   %storemerge64 = phi ptr [ %24, %23 ], [ %22, %21 ]
-  store ptr %storemerge64, ptr %0, align 8, !tbaa !16
-  store i64 16, ptr %1, align 8, !tbaa !18
+  store ptr %storemerge64, ptr %0, align 8, !tbaa !15
+  store i64 16, ptr %1, align 8, !tbaa !17
   br label %82
 
 26:                                               ; preds = %16
@@ -247,13 +247,13 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
 
 32:                                               ; preds = %30, %28
   %storemerge63 = phi ptr [ %31, %30 ], [ %29, %28 ]
-  store ptr %storemerge63, ptr %0, align 8, !tbaa !16
-  store i64 20, ptr %1, align 8, !tbaa !18
+  store ptr %storemerge63, ptr %0, align 8, !tbaa !15
+  store i64 20, ptr %1, align 8, !tbaa !17
   br label %82
 
 33:                                               ; preds = %5
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !21
+  %35 = load i32, ptr %34, align 8, !tbaa !20
   switch i32 %35, label %82 [
     i32 2, label %36
     i32 4, label %44
@@ -267,34 +267,34 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
 
 37:                                               ; preds = %36
   %38 = tail call ptr @EVP_aead_aes_128_cbc_sha1_ssl3() #16
-  store ptr %38, ptr %0, align 8, !tbaa !16
-  store i64 16, ptr %2, align 8, !tbaa !18
+  store ptr %38, ptr %0, align 8, !tbaa !15
+  store i64 16, ptr %2, align 8, !tbaa !17
   br label %43
 
 39:                                               ; preds = %36
   %40 = tail call ptr @EVP_aead_aes_128_cbc_sha1_tls_implicit_iv() #16
-  store ptr %40, ptr %0, align 8, !tbaa !16
-  store i64 16, ptr %2, align 8, !tbaa !18
+  store ptr %40, ptr %0, align 8, !tbaa !15
+  store i64 16, ptr %2, align 8, !tbaa !17
   br label %43
 
 41:                                               ; preds = %36
   %42 = tail call ptr @EVP_aead_aes_128_cbc_sha1_tls() #16
-  store ptr %42, ptr %0, align 8, !tbaa !16
+  store ptr %42, ptr %0, align 8, !tbaa !15
   br label %43
 
 43:                                               ; preds = %39, %41, %37
-  store i64 20, ptr %1, align 8, !tbaa !18
+  store i64 20, ptr %1, align 8, !tbaa !17
   br label %82
 
 44:                                               ; preds = %33
   %45 = tail call ptr @EVP_aead_aes_128_cbc_sha256_tls() #16
-  store ptr %45, ptr %0, align 8, !tbaa !16
-  store i64 32, ptr %1, align 8, !tbaa !18
+  store ptr %45, ptr %0, align 8, !tbaa !15
+  store i64 32, ptr %1, align 8, !tbaa !17
   br label %82
 
 46:                                               ; preds = %5
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %48 = load i32, ptr %47, align 8, !tbaa !21
+  %48 = load i32, ptr %47, align 8, !tbaa !20
   switch i32 %48, label %82 [
     i32 2, label %49
     i32 4, label %57
@@ -309,40 +309,40 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
 
 50:                                               ; preds = %49
   %51 = tail call ptr @EVP_aead_aes_256_cbc_sha1_ssl3() #16
-  store ptr %51, ptr %0, align 8, !tbaa !16
-  store i64 16, ptr %2, align 8, !tbaa !18
+  store ptr %51, ptr %0, align 8, !tbaa !15
+  store i64 16, ptr %2, align 8, !tbaa !17
   br label %56
 
 52:                                               ; preds = %49
   %53 = tail call ptr @EVP_aead_aes_256_cbc_sha1_tls_implicit_iv() #16
-  store ptr %53, ptr %0, align 8, !tbaa !16
-  store i64 16, ptr %2, align 8, !tbaa !18
+  store ptr %53, ptr %0, align 8, !tbaa !15
+  store i64 16, ptr %2, align 8, !tbaa !17
   br label %56
 
 54:                                               ; preds = %49
   %55 = tail call ptr @EVP_aead_aes_256_cbc_sha1_tls() #16
-  store ptr %55, ptr %0, align 8, !tbaa !16
+  store ptr %55, ptr %0, align 8, !tbaa !15
   br label %56
 
 56:                                               ; preds = %52, %54, %50
-  store i64 20, ptr %1, align 8, !tbaa !18
+  store i64 20, ptr %1, align 8, !tbaa !17
   br label %82
 
 57:                                               ; preds = %46
   %58 = tail call ptr @EVP_aead_aes_256_cbc_sha256_tls() #16
-  store ptr %58, ptr %0, align 8, !tbaa !16
-  store i64 32, ptr %1, align 8, !tbaa !18
+  store ptr %58, ptr %0, align 8, !tbaa !15
+  store i64 32, ptr %1, align 8, !tbaa !17
   br label %82
 
 59:                                               ; preds = %46
   %60 = tail call ptr @EVP_aead_aes_256_cbc_sha384_tls() #16
-  store ptr %60, ptr %0, align 8, !tbaa !16
-  store i64 48, ptr %1, align 8, !tbaa !18
+  store ptr %60, ptr %0, align 8, !tbaa !15
+  store i64 48, ptr %1, align 8, !tbaa !17
   br label %82
 
 61:                                               ; preds = %5
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %63 = load i32, ptr %62, align 8, !tbaa !21
+  %63 = load i32, ptr %62, align 8, !tbaa !20
   %cond1 = icmp eq i32 %63, 2
   br i1 %cond1, label %64, label %82
 
@@ -354,28 +354,28 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
 
 65:                                               ; preds = %64
   %66 = tail call ptr @EVP_aead_des_ede3_cbc_sha1_ssl3() #16
-  store ptr %66, ptr %0, align 8, !tbaa !16
-  store i64 8, ptr %2, align 8, !tbaa !18
+  store ptr %66, ptr %0, align 8, !tbaa !15
+  store i64 8, ptr %2, align 8, !tbaa !17
   br label %71
 
 67:                                               ; preds = %64
   %68 = tail call ptr @EVP_aead_des_ede3_cbc_sha1_tls_implicit_iv() #16
-  store ptr %68, ptr %0, align 8, !tbaa !16
-  store i64 8, ptr %2, align 8, !tbaa !18
+  store ptr %68, ptr %0, align 8, !tbaa !15
+  store i64 8, ptr %2, align 8, !tbaa !17
   br label %71
 
 69:                                               ; preds = %64
   %70 = tail call ptr @EVP_aead_des_ede3_cbc_sha1_tls() #16
-  store ptr %70, ptr %0, align 8, !tbaa !16
+  store ptr %70, ptr %0, align 8, !tbaa !15
   br label %71
 
 71:                                               ; preds = %67, %69, %65
-  store i64 20, ptr %1, align 8, !tbaa !18
+  store i64 20, ptr %1, align 8, !tbaa !17
   br label %82
 
 72:                                               ; preds = %5
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %74 = load i32, ptr %73, align 8, !tbaa !21
+  %74 = load i32, ptr %73, align 8, !tbaa !20
   %cond = icmp eq i32 %74, 2
   br i1 %cond, label %75, label %82
 
@@ -393,8 +393,8 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_get_evp_aead(ptr noundef writeonly
 
 81:                                               ; preds = %79, %77
   %storemerge = phi ptr [ %80, %79 ], [ %78, %77 ]
-  store ptr %storemerge, ptr %0, align 8, !tbaa !16
-  store i64 20, ptr %1, align 8, !tbaa !18
+  store ptr %storemerge, ptr %0, align 8, !tbaa !15
+  store i64 20, ptr %1, align 8, !tbaa !17
   br label %82
 
 82:                                               ; preds = %5, %72, %61, %46, %33, %16, %81, %71, %59, %57, %56, %44, %43, %32, %25, %14, %12, %10, %8
@@ -505,14 +505,14 @@ define hidden ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0
   %.049.i = phi i64 [ 0, %13 ], [ %.1.i, %23 ]
   %.04348.i = phi i64 [ 0, %13 ], [ %24, %23 ]
   %16 = getelementptr inbounds nuw [40 x %struct.ssl_cipher_st], ptr @kCiphers, i64 0, i64 %.04348.i
-  %17 = load ptr, ptr %14, align 8, !tbaa !22
+  %17 = load ptr, ptr %14, align 8, !tbaa !21
   %18 = tail call i32 %17(ptr noundef nonnull %16) #16
   %.not47.i = icmp eq i32 %18, 0
   br i1 %.not47.i, label %23, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw %struct.cipher_order_st, ptr %10, i64 %.049.i
-  store ptr %16, ptr %20, align 8, !tbaa !24
+  store ptr %16, ptr %20, align 8, !tbaa !23
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = add i64 %.049.i, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
@@ -522,7 +522,7 @@ define hidden ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0
   %.1.i = phi i64 [ %22, %19 ], [ %.049.i, %15 ]
   %24 = add nuw nsw i64 %.04348.i, 1
   %exitcond.not.i = icmp eq i64 %24, 40
-  br i1 %exitcond.not.i, label %25, label %15, !llvm.loop !28
+  br i1 %exitcond.not.i, label %25, label %15, !llvm.loop !27
 
 25:                                               ; preds = %23
   %.not.i = icmp eq i64 %.1.i, 0
@@ -530,14 +530,14 @@ define hidden ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr null, ptr %27, align 8, !tbaa !29
+  store ptr null, ptr %27, align 8, !tbaa !28
   %.not46.i = icmp eq i64 %.1.i, 1
   br i1 %.not46.i, label %ssl_cipher_collect_ciphers.exit, label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %29, ptr %30, align 8, !tbaa !30
+  store ptr %29, ptr %30, align 8, !tbaa !29
   %31 = add i64 %.1.i, -1
   %32 = icmp ugt i64 %31, 1
   br i1 %32, label %.lr.ph.i, label %._crit_edge.i
@@ -547,28 +547,28 @@ define hidden ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0
   %33 = getelementptr %struct.cipher_order_st, ptr %10, i64 %.14450.i
   %34 = getelementptr i8, ptr %33, i64 -32
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr %34, ptr %35, align 8, !tbaa !29
+  store ptr %34, ptr %35, align 8, !tbaa !28
   %36 = add nuw i64 %.14450.i, 1
   %37 = getelementptr inbounds nuw %struct.cipher_order_st, ptr %10, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %37, ptr %38, align 8, !tbaa !30
+  store ptr %37, ptr %38, align 8, !tbaa !29
   %exitcond51.not.i = icmp eq i64 %36, %31
-  br i1 %exitcond51.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond51.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %28
   %39 = getelementptr %struct.cipher_order_st, ptr %10, i64 %.1.i
   %40 = getelementptr i8, ptr %39, i64 -64
   %41 = getelementptr inbounds nuw %struct.cipher_order_st, ptr %10, i64 %31, i32 4
-  store ptr %40, ptr %41, align 8, !tbaa !29
+  store ptr %40, ptr %41, align 8, !tbaa !28
   br label %ssl_cipher_collect_ciphers.exit
 
 ssl_cipher_collect_ciphers.exit:                  ; preds = %26, %._crit_edge.i
   %42 = getelementptr %struct.cipher_order_st, ptr %10, i64 %.1.i
   %43 = getelementptr i8, ptr %42, i64 -32
   %44 = getelementptr i8, ptr %42, i64 -16
-  store ptr null, ptr %44, align 8, !tbaa !30
-  store ptr %10, ptr %5, align 8, !tbaa !32
-  store ptr %43, ptr %6, align 8, !tbaa !32
+  store ptr null, ptr %44, align 8, !tbaa !29
+  store ptr %10, ptr %5, align 8, !tbaa !31
+  store ptr %43, ptr %6, align 8, !tbaa !31
   %45 = icmp eq ptr %43, null
   br i1 %45, label %ssl_cipher_apply_rule.exit, label %.lr.ph.i97
 
@@ -581,30 +581,30 @@ ssl_cipher_collect_ciphers.exit:                  ; preds = %26, %._crit_edge.i
 .lr.ph.split.us.i:                                ; preds = %.backedge.us.i, %.lr.ph.i97
   %.1146.us.i = phi ptr [ %47, %.backedge.us.i ], [ %.1.ph181.i, %.lr.ph.i97 ]
   %46 = getelementptr inbounds nuw i8, ptr %.1146.us.i, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !32
-  %48 = load ptr, ptr %.1146.us.i, align 8, !tbaa !24
+  %47 = load ptr, ptr %46, align 8, !tbaa !31
+  %48 = load ptr, ptr %.1146.us.i, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  %50 = load i32, ptr %49, align 4, !tbaa !33
+  %50 = load i32, ptr %49, align 4, !tbaa !32
   %51 = and i32 %50, 4
   %.not88.us.i = icmp eq i32 %51, 0
   br i1 %.not88.us.i, label %.backedge.us.i, label %52
 
 52:                                               ; preds = %.lr.ph.split.us.i
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %54 = load i32, ptr %53, align 8, !tbaa !34
+  %54 = load i32, ptr %53, align 8, !tbaa !33
   %55 = and i32 %54, 2
   %.not89.us.i = icmp eq i32 %55, 0
   br i1 %.not89.us.i, label %.backedge.us.i, label %56
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 20
-  %58 = load i32, ptr %57, align 4, !tbaa !20
+  %58 = load i32, ptr %57, align 4, !tbaa !19
   %.not90.us.i = icmp eq i32 %58, 0
   br i1 %.not90.us.i, label %.backedge.us.i, label %59
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %61 = load i32, ptr %60, align 8, !tbaa !21
+  %61 = load i32, ptr %60, align 8, !tbaa !20
   %.not91.us.i = icmp eq i32 %61, 0
   br i1 %.not91.us.i, label %.backedge.us.i, label %62
 
@@ -612,7 +612,7 @@ ssl_cipher_collect_ciphers.exit:                  ; preds = %26, %._crit_edge.i
   %63 = getelementptr inbounds nuw i8, ptr %.1146.us.i, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %.1146.us.i, i64 24
   %65 = getelementptr inbounds nuw i8, ptr %.1146.us.i, i64 8
-  %66 = load i32, ptr %65, align 8, !tbaa !35
+  %66 = load i32, ptr %65, align 8, !tbaa !34
   %.not100.i = icmp eq i32 %66, 0
   br i1 %.not100.i, label %69, label %.outer.i
 
@@ -620,7 +620,7 @@ ssl_cipher_collect_ciphers.exit:                  ; preds = %26, %._crit_edge.i
   %67 = icmp eq ptr %.1146.us.i, %43
   %68 = icmp eq ptr %47, null
   %or.cond101.us.i = select i1 %67, i1 true, i1 %68
-  br i1 %or.cond101.us.i, label %ssl_cipher_apply_rule.exit, label %.lr.ph.split.us.i, !llvm.loop !36
+  br i1 %or.cond101.us.i, label %ssl_cipher_apply_rule.exit, label %.lr.ph.split.us.i, !llvm.loop !35
 
 69:                                               ; preds = %62
   %70 = icmp eq ptr %.1146.us.i, %.0.ph179.i
@@ -629,13 +629,13 @@ ssl_cipher_collect_ciphers.exit:                  ; preds = %26, %._crit_edge.i
 71:                                               ; preds = %69
   %72 = icmp eq ptr %.1146.us.i, %.0132.ph177.i
   %..0132.i = select i1 %72, ptr %47, ptr %.0132.ph177.i
-  %73 = load ptr, ptr %64, align 8, !tbaa !29
+  %73 = load ptr, ptr %64, align 8, !tbaa !28
   %.not.i102.i = icmp eq ptr %73, null
   br i1 %.not.i102.i, label %._crit_edge.i.i, label %74
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store ptr %47, ptr %75, align 8, !tbaa !30
+  store ptr %47, ptr %75, align 8, !tbaa !29
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %74, %71
@@ -644,22 +644,22 @@ ssl_cipher_collect_ciphers.exit:                  ; preds = %26, %._crit_edge.i
 
 76:                                               ; preds = %._crit_edge.i.i
   %77 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store ptr %73, ptr %77, align 8, !tbaa !29
+  store ptr %73, ptr %77, align 8, !tbaa !28
   br label %78
 
 78:                                               ; preds = %76, %._crit_edge.i.i
   %79 = getelementptr inbounds nuw i8, ptr %.0.ph179.i, i64 16
-  store ptr %.1146.us.i, ptr %79, align 8, !tbaa !30
-  store ptr %.0.ph179.i, ptr %64, align 8, !tbaa !29
-  store ptr null, ptr %63, align 8, !tbaa !30
+  store ptr %.1146.us.i, ptr %79, align 8, !tbaa !29
+  store ptr %.0.ph179.i, ptr %64, align 8, !tbaa !28
+  store ptr null, ptr %63, align 8, !tbaa !29
   br label %ll_append_tail.exit.i
 
 ll_append_tail.exit.i:                            ; preds = %78, %69
   %.4136.i = phi ptr [ %.0132.ph177.i, %69 ], [ %..0132.i, %78 ]
   %.3.i = phi ptr [ %.0.ph179.i, %69 ], [ %.1146.us.i, %78 ]
-  store i32 1, ptr %65, align 8, !tbaa !35
+  store i32 1, ptr %65, align 8, !tbaa !34
   %80 = getelementptr inbounds nuw i8, ptr %.1146.us.i, i64 12
-  store i32 0, ptr %80, align 4, !tbaa !38
+  store i32 0, ptr %80, align 4, !tbaa !37
   br label %.outer.i
 
 .outer.i:                                         ; preds = %ll_append_tail.exit.i, %62
@@ -668,7 +668,7 @@ ll_append_tail.exit.i:                            ; preds = %78, %69
   %81 = icmp eq ptr %.1146.us.i, %43
   %82 = icmp eq ptr %47, null
   %or.cond101145.i = select i1 %81, i1 true, i1 %82
-  br i1 %or.cond101145.i, label %ssl_cipher_apply_rule.exit, label %.lr.ph.i97, !llvm.loop !39
+  br i1 %or.cond101145.i, label %ssl_cipher_apply_rule.exit, label %.lr.ph.i97
 
 ssl_cipher_apply_rule.exit:                       ; preds = %.outer.i, %.backedge.us.i, %ssl_cipher_collect_ciphers.exit
   %.0132.ph.lcssa.i = phi ptr [ %10, %ssl_cipher_collect_ciphers.exit ], [ %.0132.ph177.i, %.backedge.us.i ], [ %.1133.i, %.outer.i ]
@@ -687,29 +687,29 @@ ssl_cipher_apply_rule.exit:                       ; preds = %.outer.i, %.backedg
 .lr.ph.split.us.i104:                             ; preds = %.backedge.us.i124, %.lr.ph.i100
   %.1146.us.i105 = phi ptr [ %86, %.backedge.us.i124 ], [ %.1.ph181.i101, %.lr.ph.i100 ]
   %85 = getelementptr inbounds nuw i8, ptr %.1146.us.i105, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !32
-  %87 = load ptr, ptr %.1146.us.i105, align 8, !tbaa !24
+  %86 = load ptr, ptr %85, align 8, !tbaa !31
+  %87 = load ptr, ptr %.1146.us.i105, align 8, !tbaa !23
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 12
-  %89 = load i32, ptr %88, align 4, !tbaa !33
+  %89 = load i32, ptr %88, align 4, !tbaa !32
   %90 = and i32 %89, 4
   %.not88.us.i106 = icmp eq i32 %90, 0
   br i1 %.not88.us.i106, label %.backedge.us.i124, label %91
 
 91:                                               ; preds = %.lr.ph.split.us.i104
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %93 = load i32, ptr %92, align 8, !tbaa !34
+  %93 = load i32, ptr %92, align 8, !tbaa !33
   %.not89.us.i107 = icmp eq i32 %93, 0
   br i1 %.not89.us.i107, label %.backedge.us.i124, label %94
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 20
-  %96 = load i32, ptr %95, align 4, !tbaa !20
+  %96 = load i32, ptr %95, align 4, !tbaa !19
   %.not90.us.i108 = icmp eq i32 %96, 0
   br i1 %.not90.us.i108, label %.backedge.us.i124, label %97
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %99 = load i32, ptr %98, align 8, !tbaa !21
+  %99 = load i32, ptr %98, align 8, !tbaa !20
   %.not91.us.i109 = icmp eq i32 %99, 0
   br i1 %.not91.us.i109, label %.backedge.us.i124, label %100
 
@@ -717,7 +717,7 @@ ssl_cipher_apply_rule.exit:                       ; preds = %.outer.i, %.backedg
   %101 = getelementptr inbounds nuw i8, ptr %.1146.us.i105, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %.1146.us.i105, i64 24
   %103 = getelementptr inbounds nuw i8, ptr %.1146.us.i105, i64 8
-  %104 = load i32, ptr %103, align 8, !tbaa !35
+  %104 = load i32, ptr %103, align 8, !tbaa !34
   %.not100.i110 = icmp eq i32 %104, 0
   br i1 %.not100.i110, label %107, label %.outer.i111
 
@@ -725,7 +725,7 @@ ssl_cipher_apply_rule.exit:                       ; preds = %.outer.i, %.backedg
   %105 = icmp eq ptr %.1146.us.i105, %.0.ph.lcssa.i
   %106 = icmp eq ptr %86, null
   %or.cond101.us.i125 = select i1 %105, i1 true, i1 %106
-  br i1 %or.cond101.us.i125, label %ssl_cipher_apply_rule.exit126, label %.lr.ph.split.us.i104, !llvm.loop !36
+  br i1 %or.cond101.us.i125, label %ssl_cipher_apply_rule.exit126, label %.lr.ph.split.us.i104, !llvm.loop !35
 
 107:                                              ; preds = %100
   %108 = icmp eq ptr %.1146.us.i105, %.0.ph179.i102
@@ -734,13 +734,13 @@ ssl_cipher_apply_rule.exit:                       ; preds = %.outer.i, %.backedg
 109:                                              ; preds = %107
   %110 = icmp eq ptr %.1146.us.i105, %.0132.ph177.i103
   %..0132.i117 = select i1 %110, ptr %86, ptr %.0132.ph177.i103
-  %111 = load ptr, ptr %102, align 8, !tbaa !29
+  %111 = load ptr, ptr %102, align 8, !tbaa !28
   %.not.i102.i118 = icmp eq ptr %111, null
   br i1 %.not.i102.i118, label %._crit_edge.i.i119, label %112
 
 112:                                              ; preds = %109
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  store ptr %86, ptr %113, align 8, !tbaa !30
+  store ptr %86, ptr %113, align 8, !tbaa !29
   br label %._crit_edge.i.i119
 
 ._crit_edge.i.i119:                               ; preds = %112, %109
@@ -749,22 +749,22 @@ ssl_cipher_apply_rule.exit:                       ; preds = %.outer.i, %.backedg
 
 114:                                              ; preds = %._crit_edge.i.i119
   %115 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  store ptr %111, ptr %115, align 8, !tbaa !29
+  store ptr %111, ptr %115, align 8, !tbaa !28
   br label %116
 
 116:                                              ; preds = %114, %._crit_edge.i.i119
   %117 = getelementptr inbounds nuw i8, ptr %.0.ph179.i102, i64 16
-  store ptr %.1146.us.i105, ptr %117, align 8, !tbaa !30
-  store ptr %.0.ph179.i102, ptr %102, align 8, !tbaa !29
-  store ptr null, ptr %101, align 8, !tbaa !30
+  store ptr %.1146.us.i105, ptr %117, align 8, !tbaa !29
+  store ptr %.0.ph179.i102, ptr %102, align 8, !tbaa !28
+  store ptr null, ptr %101, align 8, !tbaa !29
   br label %ll_append_tail.exit.i121
 
 ll_append_tail.exit.i121:                         ; preds = %116, %107
   %.4136.i122 = phi ptr [ %.0132.ph177.i103, %107 ], [ %..0132.i117, %116 ]
   %.3.i123 = phi ptr [ %.0.ph179.i102, %107 ], [ %.1146.us.i105, %116 ]
-  store i32 1, ptr %103, align 8, !tbaa !35
+  store i32 1, ptr %103, align 8, !tbaa !34
   %118 = getelementptr inbounds nuw i8, ptr %.1146.us.i105, i64 12
-  store i32 0, ptr %118, align 4, !tbaa !38
+  store i32 0, ptr %118, align 4, !tbaa !37
   br label %.outer.i111
 
 .outer.i111:                                      ; preds = %ll_append_tail.exit.i121, %100
@@ -773,7 +773,7 @@ ll_append_tail.exit.i121:                         ; preds = %116, %107
   %119 = icmp eq ptr %.1146.us.i105, %.0.ph.lcssa.i
   %120 = icmp eq ptr %86, null
   %or.cond101145.i114 = select i1 %119, i1 true, i1 %120
-  br i1 %or.cond101145.i114, label %ssl_cipher_apply_rule.exit126, label %.lr.ph.i100, !llvm.loop !39
+  br i1 %or.cond101145.i114, label %ssl_cipher_apply_rule.exit126, label %.lr.ph.i100
 
 ssl_cipher_apply_rule.exit126:                    ; preds = %.outer.i111, %.backedge.us.i124, %ssl_cipher_apply_rule.exit
   %.0132.ph.lcssa.i115 = phi ptr [ %.0132.ph.lcssa.i, %ssl_cipher_apply_rule.exit ], [ %.0132.ph177.i103, %.backedge.us.i124 ], [ %.1133.i112, %.outer.i111 ]
@@ -792,29 +792,29 @@ ssl_cipher_apply_rule.exit126:                    ; preds = %.outer.i111, %.back
 .lr.ph.split.us.i133:                             ; preds = %.backedge.us.i145, %.lr.ph.i129
   %.1146.us.i134 = phi ptr [ %124, %.backedge.us.i145 ], [ %.1.ph181.i130, %.lr.ph.i129 ]
   %123 = getelementptr inbounds nuw i8, ptr %.1146.us.i134, i64 24
-  %124 = load ptr, ptr %123, align 8, !tbaa !32
-  %125 = load ptr, ptr %.1146.us.i134, align 8, !tbaa !24
+  %124 = load ptr, ptr %123, align 8, !tbaa !31
+  %125 = load ptr, ptr %.1146.us.i134, align 8, !tbaa !23
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 12
-  %127 = load i32, ptr %126, align 4, !tbaa !33
+  %127 = load i32, ptr %126, align 4, !tbaa !32
   %128 = and i32 %127, 4
   %.not88.us.i135 = icmp eq i32 %128, 0
   br i1 %.not88.us.i135, label %.backedge.us.i145, label %129
 
 129:                                              ; preds = %.lr.ph.split.us.i133
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %131 = load i32, ptr %130, align 8, !tbaa !34
+  %131 = load i32, ptr %130, align 8, !tbaa !33
   %.not89.us.i136 = icmp eq i32 %131, 0
   br i1 %.not89.us.i136, label %.backedge.us.i145, label %132
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %125, i64 20
-  %134 = load i32, ptr %133, align 4, !tbaa !20
+  %134 = load i32, ptr %133, align 4, !tbaa !19
   %.not90.us.i137 = icmp eq i32 %134, 0
   br i1 %.not90.us.i137, label %.backedge.us.i145, label %135
 
 135:                                              ; preds = %132
   %136 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  %137 = load i32, ptr %136, align 8, !tbaa !21
+  %137 = load i32, ptr %136, align 8, !tbaa !20
   %.not91.us.i138 = icmp eq i32 %137, 0
   br i1 %.not91.us.i138, label %.backedge.us.i145, label %138
 
@@ -822,7 +822,7 @@ ssl_cipher_apply_rule.exit126:                    ; preds = %.outer.i111, %.back
   %139 = getelementptr inbounds nuw i8, ptr %.1146.us.i134, i64 24
   %140 = getelementptr inbounds nuw i8, ptr %.1146.us.i134, i64 16
   %141 = getelementptr inbounds nuw i8, ptr %.1146.us.i134, i64 8
-  %142 = load i32, ptr %141, align 8, !tbaa !35
+  %142 = load i32, ptr %141, align 8, !tbaa !34
   %.not98.i = icmp eq i32 %142, 0
   br i1 %.not98.i, label %.outer.i139, label %145
 
@@ -830,7 +830,7 @@ ssl_cipher_apply_rule.exit126:                    ; preds = %.outer.i111, %.back
   %143 = icmp eq ptr %.1146.us.i134, %.0132.ph.lcssa.i115
   %144 = icmp eq ptr %124, null
   %or.cond101.us.i146 = select i1 %143, i1 true, i1 %144
-  br i1 %or.cond101.us.i146, label %ssl_cipher_apply_rule.exit147, label %.lr.ph.split.us.i133, !llvm.loop !36
+  br i1 %or.cond101.us.i146, label %ssl_cipher_apply_rule.exit147, label %.lr.ph.split.us.i133, !llvm.loop !35
 
 145:                                              ; preds = %138
   %146 = icmp eq ptr %.1146.us.i134, %.0132.ph177.i132
@@ -839,13 +839,13 @@ ssl_cipher_apply_rule.exit126:                    ; preds = %.outer.i111, %.back
 147:                                              ; preds = %145
   %148 = icmp eq ptr %.1146.us.i134, %.0.ph179.i131
   %..0.i = select i1 %148, ptr %124, ptr %.0.ph179.i131
-  %149 = load ptr, ptr %140, align 8, !tbaa !30
+  %149 = load ptr, ptr %140, align 8, !tbaa !29
   %.not.i109.i = icmp eq ptr %149, null
   br i1 %.not.i109.i, label %._crit_edge.i112.i, label %150
 
 150:                                              ; preds = %147
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 24
-  store ptr %124, ptr %151, align 8, !tbaa !29
+  store ptr %124, ptr %151, align 8, !tbaa !28
   br label %._crit_edge.i112.i
 
 ._crit_edge.i112.i:                               ; preds = %150, %147
@@ -854,22 +854,22 @@ ssl_cipher_apply_rule.exit126:                    ; preds = %.outer.i111, %.back
 
 152:                                              ; preds = %._crit_edge.i112.i
   %153 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  store ptr %149, ptr %153, align 8, !tbaa !30
+  store ptr %149, ptr %153, align 8, !tbaa !29
   br label %154
 
 154:                                              ; preds = %152, %._crit_edge.i112.i
   %155 = getelementptr inbounds nuw i8, ptr %.0132.ph177.i132, i64 24
-  store ptr %.1146.us.i134, ptr %155, align 8, !tbaa !29
-  store ptr %.0132.ph177.i132, ptr %140, align 8, !tbaa !30
-  store ptr null, ptr %139, align 8, !tbaa !29
+  store ptr %.1146.us.i134, ptr %155, align 8, !tbaa !28
+  store ptr %.0132.ph177.i132, ptr %140, align 8, !tbaa !29
+  store ptr null, ptr %139, align 8, !tbaa !28
   br label %ll_append_head.exit.i
 
 ll_append_head.exit.i:                            ; preds = %154, %145
   %.7.i = phi ptr [ %.0132.ph177.i132, %145 ], [ %.1146.us.i134, %154 ]
   %.6.i = phi ptr [ %.0.ph179.i131, %145 ], [ %..0.i, %154 ]
-  store i32 0, ptr %141, align 8, !tbaa !35
+  store i32 0, ptr %141, align 8, !tbaa !34
   %156 = getelementptr inbounds nuw i8, ptr %.1146.us.i134, i64 12
-  store i32 0, ptr %156, align 4, !tbaa !38
+  store i32 0, ptr %156, align 4, !tbaa !37
   br label %.outer.i139
 
 .outer.i139:                                      ; preds = %ll_append_head.exit.i, %138
@@ -878,13 +878,13 @@ ll_append_head.exit.i:                            ; preds = %154, %145
   %157 = icmp eq ptr %.1146.us.i134, %.0132.ph.lcssa.i115
   %158 = icmp eq ptr %124, null
   %or.cond101145.i142 = select i1 %157, i1 true, i1 %158
-  br i1 %or.cond101145.i142, label %ssl_cipher_apply_rule.exit147, label %.lr.ph.i129, !llvm.loop !39
+  br i1 %or.cond101145.i142, label %ssl_cipher_apply_rule.exit147, label %.lr.ph.i129
 
 ssl_cipher_apply_rule.exit147:                    ; preds = %.outer.i139, %.backedge.us.i145, %25, %ssl_cipher_apply_rule.exit126
   %.0132.ph.lcssa.i143 = phi ptr [ %.0132.ph.lcssa.i115, %ssl_cipher_apply_rule.exit126 ], [ null, %25 ], [ %.0132.ph177.i132, %.backedge.us.i145 ], [ %.1133.i140, %.outer.i139 ]
   %.0.ph.lcssa.i144 = phi ptr [ %.0.ph.lcssa.i116, %ssl_cipher_apply_rule.exit126 ], [ null, %25 ], [ %.0.ph179.i131, %.backedge.us.i145 ], [ %.1131.i141, %.outer.i139 ]
-  store ptr %.0132.ph.lcssa.i143, ptr %5, align 8, !tbaa !32
-  store ptr %.0.ph.lcssa.i144, ptr %6, align 8, !tbaa !32
+  store ptr %.0132.ph.lcssa.i143, ptr %5, align 8, !tbaa !31
+  store ptr %.0.ph.lcssa.i144, ptr %6, align 8, !tbaa !31
   %159 = tail call i32 @EVP_has_aes_hardware() #16
   %.not = icmp eq i32 %159, 0
   %160 = icmp eq ptr %.0.ph.lcssa.i144, null
@@ -904,29 +904,29 @@ ssl_cipher_apply_rule.exit147:                    ; preds = %.outer.i139, %.back
 .lr.ph.split.us.i154:                             ; preds = %.backedge.us.i174, %.lr.ph.i150
   %.1146.us.i155 = phi ptr [ %164, %.backedge.us.i174 ], [ %.1.ph181.i151, %.lr.ph.i150 ]
   %163 = getelementptr inbounds nuw i8, ptr %.1146.us.i155, i64 16
-  %164 = load ptr, ptr %163, align 8, !tbaa !32
-  %165 = load ptr, ptr %.1146.us.i155, align 8, !tbaa !24
+  %164 = load ptr, ptr %163, align 8, !tbaa !31
+  %165 = load ptr, ptr %.1146.us.i155, align 8, !tbaa !23
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 12
-  %167 = load i32, ptr %166, align 4, !tbaa !33
+  %167 = load i32, ptr %166, align 4, !tbaa !32
   %.not88.us.i156 = icmp eq i32 %167, 0
   br i1 %.not88.us.i156, label %.backedge.us.i174, label %168
 
 168:                                              ; preds = %.lr.ph.split.us.i154
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  %170 = load i32, ptr %169, align 8, !tbaa !34
+  %170 = load i32, ptr %169, align 8, !tbaa !33
   %.not89.us.i157 = icmp eq i32 %170, 0
   br i1 %.not89.us.i157, label %.backedge.us.i174, label %171
 
 171:                                              ; preds = %168
   %172 = getelementptr inbounds nuw i8, ptr %165, i64 20
-  %173 = load i32, ptr %172, align 4, !tbaa !20
+  %173 = load i32, ptr %172, align 4, !tbaa !19
   %174 = and i32 %173, 16
   %.not90.us.i158 = icmp eq i32 %174, 0
   br i1 %.not90.us.i158, label %.backedge.us.i174, label %175
 
 175:                                              ; preds = %171
   %176 = getelementptr inbounds nuw i8, ptr %165, i64 24
-  %177 = load i32, ptr %176, align 8, !tbaa !21
+  %177 = load i32, ptr %176, align 8, !tbaa !20
   %.not91.us.i159 = icmp eq i32 %177, 0
   br i1 %.not91.us.i159, label %.backedge.us.i174, label %178
 
@@ -934,7 +934,7 @@ ssl_cipher_apply_rule.exit147:                    ; preds = %.outer.i139, %.back
   %179 = getelementptr inbounds nuw i8, ptr %.1146.us.i155, i64 16
   %180 = getelementptr inbounds nuw i8, ptr %.1146.us.i155, i64 24
   %181 = getelementptr inbounds nuw i8, ptr %.1146.us.i155, i64 8
-  %182 = load i32, ptr %181, align 8, !tbaa !35
+  %182 = load i32, ptr %181, align 8, !tbaa !34
   %.not100.i160 = icmp eq i32 %182, 0
   br i1 %.not100.i160, label %185, label %.outer.i161
 
@@ -942,7 +942,7 @@ ssl_cipher_apply_rule.exit147:                    ; preds = %.outer.i139, %.back
   %183 = icmp eq ptr %.1146.us.i155, %.0.ph.lcssa.i144
   %184 = icmp eq ptr %164, null
   %or.cond101.us.i175 = select i1 %183, i1 true, i1 %184
-  br i1 %or.cond101.us.i175, label %ssl_cipher_apply_rule.exit176, label %.lr.ph.split.us.i154, !llvm.loop !36
+  br i1 %or.cond101.us.i175, label %ssl_cipher_apply_rule.exit176, label %.lr.ph.split.us.i154, !llvm.loop !35
 
 185:                                              ; preds = %178
   %186 = icmp eq ptr %.1146.us.i155, %.0.ph179.i152
@@ -951,13 +951,13 @@ ssl_cipher_apply_rule.exit147:                    ; preds = %.outer.i139, %.back
 187:                                              ; preds = %185
   %188 = icmp eq ptr %.1146.us.i155, %.0132.ph177.i153
   %..0132.i167 = select i1 %188, ptr %164, ptr %.0132.ph177.i153
-  %189 = load ptr, ptr %180, align 8, !tbaa !29
+  %189 = load ptr, ptr %180, align 8, !tbaa !28
   %.not.i102.i168 = icmp eq ptr %189, null
   br i1 %.not.i102.i168, label %._crit_edge.i.i169, label %190
 
 190:                                              ; preds = %187
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  store ptr %164, ptr %191, align 8, !tbaa !30
+  store ptr %164, ptr %191, align 8, !tbaa !29
   br label %._crit_edge.i.i169
 
 ._crit_edge.i.i169:                               ; preds = %190, %187
@@ -966,22 +966,22 @@ ssl_cipher_apply_rule.exit147:                    ; preds = %.outer.i139, %.back
 
 192:                                              ; preds = %._crit_edge.i.i169
   %193 = getelementptr inbounds nuw i8, ptr %164, i64 24
-  store ptr %189, ptr %193, align 8, !tbaa !29
+  store ptr %189, ptr %193, align 8, !tbaa !28
   br label %194
 
 194:                                              ; preds = %192, %._crit_edge.i.i169
   %195 = getelementptr inbounds nuw i8, ptr %.0.ph179.i152, i64 16
-  store ptr %.1146.us.i155, ptr %195, align 8, !tbaa !30
-  store ptr %.0.ph179.i152, ptr %180, align 8, !tbaa !29
-  store ptr null, ptr %179, align 8, !tbaa !30
+  store ptr %.1146.us.i155, ptr %195, align 8, !tbaa !29
+  store ptr %.0.ph179.i152, ptr %180, align 8, !tbaa !28
+  store ptr null, ptr %179, align 8, !tbaa !29
   br label %ll_append_tail.exit.i171
 
 ll_append_tail.exit.i171:                         ; preds = %194, %185
   %.4136.i172 = phi ptr [ %.0132.ph177.i153, %185 ], [ %..0132.i167, %194 ]
   %.3.i173 = phi ptr [ %.0.ph179.i152, %185 ], [ %.1146.us.i155, %194 ]
-  store i32 1, ptr %181, align 8, !tbaa !35
+  store i32 1, ptr %181, align 8, !tbaa !34
   %196 = getelementptr inbounds nuw i8, ptr %.1146.us.i155, i64 12
-  store i32 0, ptr %196, align 4, !tbaa !38
+  store i32 0, ptr %196, align 4, !tbaa !37
   br label %.outer.i161
 
 .outer.i161:                                      ; preds = %ll_append_tail.exit.i171, %178
@@ -990,7 +990,7 @@ ll_append_tail.exit.i171:                         ; preds = %194, %185
   %197 = icmp eq ptr %.1146.us.i155, %.0.ph.lcssa.i144
   %198 = icmp eq ptr %164, null
   %or.cond101145.i164 = select i1 %197, i1 true, i1 %198
-  br i1 %or.cond101145.i164, label %ssl_cipher_apply_rule.exit176, label %.lr.ph.i150, !llvm.loop !39
+  br i1 %or.cond101145.i164, label %ssl_cipher_apply_rule.exit176, label %.lr.ph.i150
 
 ssl_cipher_apply_rule.exit176:                    ; preds = %.outer.i161, %.backedge.us.i174, %162
   %.0132.ph.lcssa.i165 = phi ptr [ %.0132.ph.lcssa.i143, %162 ], [ %.0132.ph177.i153, %.backedge.us.i174 ], [ %.1133.i162, %.outer.i161 ]
@@ -1009,29 +1009,29 @@ ssl_cipher_apply_rule.exit176:                    ; preds = %.outer.i161, %.back
 .lr.ph.split.us.i183:                             ; preds = %.backedge.us.i203, %.lr.ph.i179
   %.1146.us.i184 = phi ptr [ %202, %.backedge.us.i203 ], [ %.1.ph181.i180, %.lr.ph.i179 ]
   %201 = getelementptr inbounds nuw i8, ptr %.1146.us.i184, i64 16
-  %202 = load ptr, ptr %201, align 8, !tbaa !32
-  %203 = load ptr, ptr %.1146.us.i184, align 8, !tbaa !24
+  %202 = load ptr, ptr %201, align 8, !tbaa !31
+  %203 = load ptr, ptr %.1146.us.i184, align 8, !tbaa !23
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 12
-  %205 = load i32, ptr %204, align 4, !tbaa !33
+  %205 = load i32, ptr %204, align 4, !tbaa !32
   %.not88.us.i185 = icmp eq i32 %205, 0
   br i1 %.not88.us.i185, label %.backedge.us.i203, label %206
 
 206:                                              ; preds = %.lr.ph.split.us.i183
   %207 = getelementptr inbounds nuw i8, ptr %203, i64 16
-  %208 = load i32, ptr %207, align 8, !tbaa !34
+  %208 = load i32, ptr %207, align 8, !tbaa !33
   %.not89.us.i186 = icmp eq i32 %208, 0
   br i1 %.not89.us.i186, label %.backedge.us.i203, label %209
 
 209:                                              ; preds = %206
   %210 = getelementptr inbounds nuw i8, ptr %203, i64 20
-  %211 = load i32, ptr %210, align 4, !tbaa !20
+  %211 = load i32, ptr %210, align 4, !tbaa !19
   %212 = and i32 %211, 32
   %.not90.us.i187 = icmp eq i32 %212, 0
   br i1 %.not90.us.i187, label %.backedge.us.i203, label %213
 
 213:                                              ; preds = %209
   %214 = getelementptr inbounds nuw i8, ptr %203, i64 24
-  %215 = load i32, ptr %214, align 8, !tbaa !21
+  %215 = load i32, ptr %214, align 8, !tbaa !20
   %.not91.us.i188 = icmp eq i32 %215, 0
   br i1 %.not91.us.i188, label %.backedge.us.i203, label %216
 
@@ -1039,7 +1039,7 @@ ssl_cipher_apply_rule.exit176:                    ; preds = %.outer.i161, %.back
   %217 = getelementptr inbounds nuw i8, ptr %.1146.us.i184, i64 16
   %218 = getelementptr inbounds nuw i8, ptr %.1146.us.i184, i64 24
   %219 = getelementptr inbounds nuw i8, ptr %.1146.us.i184, i64 8
-  %220 = load i32, ptr %219, align 8, !tbaa !35
+  %220 = load i32, ptr %219, align 8, !tbaa !34
   %.not100.i189 = icmp eq i32 %220, 0
   br i1 %.not100.i189, label %223, label %.outer.i190
 
@@ -1047,7 +1047,7 @@ ssl_cipher_apply_rule.exit176:                    ; preds = %.outer.i161, %.back
   %221 = icmp eq ptr %.1146.us.i184, %.0.ph.lcssa.i166
   %222 = icmp eq ptr %202, null
   %or.cond101.us.i204 = select i1 %221, i1 true, i1 %222
-  br i1 %or.cond101.us.i204, label %ssl_cipher_apply_rule.exit205, label %.lr.ph.split.us.i183, !llvm.loop !36
+  br i1 %or.cond101.us.i204, label %ssl_cipher_apply_rule.exit205, label %.lr.ph.split.us.i183, !llvm.loop !35
 
 223:                                              ; preds = %216
   %224 = icmp eq ptr %.1146.us.i184, %.0.ph179.i181
@@ -1056,13 +1056,13 @@ ssl_cipher_apply_rule.exit176:                    ; preds = %.outer.i161, %.back
 225:                                              ; preds = %223
   %226 = icmp eq ptr %.1146.us.i184, %.0132.ph177.i182
   %..0132.i196 = select i1 %226, ptr %202, ptr %.0132.ph177.i182
-  %227 = load ptr, ptr %218, align 8, !tbaa !29
+  %227 = load ptr, ptr %218, align 8, !tbaa !28
   %.not.i102.i197 = icmp eq ptr %227, null
   br i1 %.not.i102.i197, label %._crit_edge.i.i198, label %228
 
 228:                                              ; preds = %225
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 16
-  store ptr %202, ptr %229, align 8, !tbaa !30
+  store ptr %202, ptr %229, align 8, !tbaa !29
   br label %._crit_edge.i.i198
 
 ._crit_edge.i.i198:                               ; preds = %228, %225
@@ -1071,22 +1071,22 @@ ssl_cipher_apply_rule.exit176:                    ; preds = %.outer.i161, %.back
 
 230:                                              ; preds = %._crit_edge.i.i198
   %231 = getelementptr inbounds nuw i8, ptr %202, i64 24
-  store ptr %227, ptr %231, align 8, !tbaa !29
+  store ptr %227, ptr %231, align 8, !tbaa !28
   br label %232
 
 232:                                              ; preds = %230, %._crit_edge.i.i198
   %233 = getelementptr inbounds nuw i8, ptr %.0.ph179.i181, i64 16
-  store ptr %.1146.us.i184, ptr %233, align 8, !tbaa !30
-  store ptr %.0.ph179.i181, ptr %218, align 8, !tbaa !29
-  store ptr null, ptr %217, align 8, !tbaa !30
+  store ptr %.1146.us.i184, ptr %233, align 8, !tbaa !29
+  store ptr %.0.ph179.i181, ptr %218, align 8, !tbaa !28
+  store ptr null, ptr %217, align 8, !tbaa !29
   br label %ll_append_tail.exit.i200
 
 ll_append_tail.exit.i200:                         ; preds = %232, %223
   %.4136.i201 = phi ptr [ %.0132.ph177.i182, %223 ], [ %..0132.i196, %232 ]
   %.3.i202 = phi ptr [ %.0.ph179.i181, %223 ], [ %.1146.us.i184, %232 ]
-  store i32 1, ptr %219, align 8, !tbaa !35
+  store i32 1, ptr %219, align 8, !tbaa !34
   %234 = getelementptr inbounds nuw i8, ptr %.1146.us.i184, i64 12
-  store i32 0, ptr %234, align 4, !tbaa !38
+  store i32 0, ptr %234, align 4, !tbaa !37
   br label %.outer.i190
 
 .outer.i190:                                      ; preds = %ll_append_tail.exit.i200, %216
@@ -1095,7 +1095,7 @@ ll_append_tail.exit.i200:                         ; preds = %232, %223
   %235 = icmp eq ptr %.1146.us.i184, %.0.ph.lcssa.i166
   %236 = icmp eq ptr %202, null
   %or.cond101145.i193 = select i1 %235, i1 true, i1 %236
-  br i1 %or.cond101145.i193, label %ssl_cipher_apply_rule.exit205, label %.lr.ph.i179, !llvm.loop !39
+  br i1 %or.cond101145.i193, label %ssl_cipher_apply_rule.exit205, label %.lr.ph.i179
 
 ssl_cipher_apply_rule.exit205:                    ; preds = %.outer.i190, %.backedge.us.i203, %ssl_cipher_apply_rule.exit176
   %.0132.ph.lcssa.i194 = phi ptr [ %.0132.ph.lcssa.i165, %ssl_cipher_apply_rule.exit176 ], [ %.0132.ph177.i182, %.backedge.us.i203 ], [ %.1133.i191, %.outer.i190 ]
@@ -1114,29 +1114,29 @@ ssl_cipher_apply_rule.exit205:                    ; preds = %.outer.i190, %.back
 .lr.ph.split.us.i212:                             ; preds = %.backedge.us.i232, %.lr.ph.i208
   %.1146.us.i213 = phi ptr [ %240, %.backedge.us.i232 ], [ %.1.ph181.i209, %.lr.ph.i208 ]
   %239 = getelementptr inbounds nuw i8, ptr %.1146.us.i213, i64 16
-  %240 = load ptr, ptr %239, align 8, !tbaa !32
-  %241 = load ptr, ptr %.1146.us.i213, align 8, !tbaa !24
+  %240 = load ptr, ptr %239, align 8, !tbaa !31
+  %241 = load ptr, ptr %.1146.us.i213, align 8, !tbaa !23
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 12
-  %243 = load i32, ptr %242, align 4, !tbaa !33
+  %243 = load i32, ptr %242, align 4, !tbaa !32
   %.not88.us.i214 = icmp eq i32 %243, 0
   br i1 %.not88.us.i214, label %.backedge.us.i232, label %244
 
 244:                                              ; preds = %.lr.ph.split.us.i212
   %245 = getelementptr inbounds nuw i8, ptr %241, i64 16
-  %246 = load i32, ptr %245, align 8, !tbaa !34
+  %246 = load i32, ptr %245, align 8, !tbaa !33
   %.not89.us.i215 = icmp eq i32 %246, 0
   br i1 %.not89.us.i215, label %.backedge.us.i232, label %247
 
 247:                                              ; preds = %244
   %248 = getelementptr inbounds nuw i8, ptr %241, i64 20
-  %249 = load i32, ptr %248, align 4, !tbaa !20
+  %249 = load i32, ptr %248, align 4, !tbaa !19
   %250 = and i32 %249, 256
   %.not90.us.i216 = icmp eq i32 %250, 0
   br i1 %.not90.us.i216, label %.backedge.us.i232, label %251
 
 251:                                              ; preds = %247
   %252 = getelementptr inbounds nuw i8, ptr %241, i64 24
-  %253 = load i32, ptr %252, align 8, !tbaa !21
+  %253 = load i32, ptr %252, align 8, !tbaa !20
   %.not91.us.i217 = icmp eq i32 %253, 0
   br i1 %.not91.us.i217, label %.backedge.us.i232, label %254
 
@@ -1144,7 +1144,7 @@ ssl_cipher_apply_rule.exit205:                    ; preds = %.outer.i190, %.back
   %255 = getelementptr inbounds nuw i8, ptr %.1146.us.i213, i64 16
   %256 = getelementptr inbounds nuw i8, ptr %.1146.us.i213, i64 24
   %257 = getelementptr inbounds nuw i8, ptr %.1146.us.i213, i64 8
-  %258 = load i32, ptr %257, align 8, !tbaa !35
+  %258 = load i32, ptr %257, align 8, !tbaa !34
   %.not100.i218 = icmp eq i32 %258, 0
   br i1 %.not100.i218, label %261, label %.outer.i219
 
@@ -1152,7 +1152,7 @@ ssl_cipher_apply_rule.exit205:                    ; preds = %.outer.i190, %.back
   %259 = icmp eq ptr %.1146.us.i213, %.0.ph.lcssa.i195
   %260 = icmp eq ptr %240, null
   %or.cond101.us.i233 = select i1 %259, i1 true, i1 %260
-  br i1 %or.cond101.us.i233, label %ssl_cipher_apply_rule.exit234, label %.lr.ph.split.us.i212, !llvm.loop !36
+  br i1 %or.cond101.us.i233, label %ssl_cipher_apply_rule.exit234, label %.lr.ph.split.us.i212, !llvm.loop !35
 
 261:                                              ; preds = %254
   %262 = icmp eq ptr %.1146.us.i213, %.0.ph179.i210
@@ -1161,13 +1161,13 @@ ssl_cipher_apply_rule.exit205:                    ; preds = %.outer.i190, %.back
 263:                                              ; preds = %261
   %264 = icmp eq ptr %.1146.us.i213, %.0132.ph177.i211
   %..0132.i225 = select i1 %264, ptr %240, ptr %.0132.ph177.i211
-  %265 = load ptr, ptr %256, align 8, !tbaa !29
+  %265 = load ptr, ptr %256, align 8, !tbaa !28
   %.not.i102.i226 = icmp eq ptr %265, null
   br i1 %.not.i102.i226, label %._crit_edge.i.i227, label %266
 
 266:                                              ; preds = %263
   %267 = getelementptr inbounds nuw i8, ptr %265, i64 16
-  store ptr %240, ptr %267, align 8, !tbaa !30
+  store ptr %240, ptr %267, align 8, !tbaa !29
   br label %._crit_edge.i.i227
 
 ._crit_edge.i.i227:                               ; preds = %266, %263
@@ -1176,22 +1176,22 @@ ssl_cipher_apply_rule.exit205:                    ; preds = %.outer.i190, %.back
 
 268:                                              ; preds = %._crit_edge.i.i227
   %269 = getelementptr inbounds nuw i8, ptr %240, i64 24
-  store ptr %265, ptr %269, align 8, !tbaa !29
+  store ptr %265, ptr %269, align 8, !tbaa !28
   br label %270
 
 270:                                              ; preds = %268, %._crit_edge.i.i227
   %271 = getelementptr inbounds nuw i8, ptr %.0.ph179.i210, i64 16
-  store ptr %.1146.us.i213, ptr %271, align 8, !tbaa !30
-  store ptr %.0.ph179.i210, ptr %256, align 8, !tbaa !29
-  store ptr null, ptr %255, align 8, !tbaa !30
+  store ptr %.1146.us.i213, ptr %271, align 8, !tbaa !29
+  store ptr %.0.ph179.i210, ptr %256, align 8, !tbaa !28
+  store ptr null, ptr %255, align 8, !tbaa !29
   br label %ll_append_tail.exit.i229
 
 ll_append_tail.exit.i229:                         ; preds = %270, %261
   %.4136.i230 = phi ptr [ %.0132.ph177.i211, %261 ], [ %..0132.i225, %270 ]
   %.3.i231 = phi ptr [ %.0.ph179.i210, %261 ], [ %.1146.us.i213, %270 ]
-  store i32 1, ptr %257, align 8, !tbaa !35
+  store i32 1, ptr %257, align 8, !tbaa !34
   %272 = getelementptr inbounds nuw i8, ptr %.1146.us.i213, i64 12
-  store i32 0, ptr %272, align 4, !tbaa !38
+  store i32 0, ptr %272, align 4, !tbaa !37
   br label %.outer.i219
 
 .outer.i219:                                      ; preds = %ll_append_tail.exit.i229, %254
@@ -1200,13 +1200,13 @@ ll_append_tail.exit.i229:                         ; preds = %270, %261
   %273 = icmp eq ptr %.1146.us.i213, %.0.ph.lcssa.i195
   %274 = icmp eq ptr %240, null
   %or.cond101145.i222 = select i1 %273, i1 true, i1 %274
-  br i1 %or.cond101145.i222, label %ssl_cipher_apply_rule.exit234, label %.lr.ph.i208, !llvm.loop !39
+  br i1 %or.cond101145.i222, label %ssl_cipher_apply_rule.exit234, label %.lr.ph.i208
 
 ssl_cipher_apply_rule.exit234:                    ; preds = %.outer.i219, %.backedge.us.i232, %ssl_cipher_apply_rule.exit205
   %.0132.ph.lcssa.i223 = phi ptr [ %.0132.ph.lcssa.i194, %ssl_cipher_apply_rule.exit205 ], [ %.0132.ph177.i211, %.backedge.us.i232 ], [ %.1133.i220, %.outer.i219 ]
   %.0.ph.lcssa.i224 = phi ptr [ %.0.ph.lcssa.i195, %ssl_cipher_apply_rule.exit205 ], [ %.0.ph179.i210, %.backedge.us.i232 ], [ %.1131.i221, %.outer.i219 ]
-  store ptr %.0132.ph.lcssa.i223, ptr %5, align 8, !tbaa !32
-  store ptr %.0.ph.lcssa.i224, ptr %6, align 8, !tbaa !32
+  store ptr %.0132.ph.lcssa.i223, ptr %5, align 8, !tbaa !31
+  store ptr %.0.ph.lcssa.i224, ptr %6, align 8, !tbaa !31
   %275 = icmp eq ptr %.0.ph.lcssa.i224, null
   %276 = icmp eq ptr %.0132.ph.lcssa.i223, null
   %or.cond101145176.i235 = select i1 %275, i1 true, i1 %276
@@ -1221,29 +1221,29 @@ ssl_cipher_apply_rule.exit234:                    ; preds = %.outer.i219, %.back
 .lr.ph.split.us.i241:                             ; preds = %.backedge.us.i261, %.lr.ph.i237
   %.1146.us.i242 = phi ptr [ %278, %.backedge.us.i261 ], [ %.1.ph181.i238, %.lr.ph.i237 ]
   %277 = getelementptr inbounds nuw i8, ptr %.1146.us.i242, i64 16
-  %278 = load ptr, ptr %277, align 8, !tbaa !32
-  %279 = load ptr, ptr %.1146.us.i242, align 8, !tbaa !24
+  %278 = load ptr, ptr %277, align 8, !tbaa !31
+  %279 = load ptr, ptr %.1146.us.i242, align 8, !tbaa !23
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 12
-  %281 = load i32, ptr %280, align 4, !tbaa !33
+  %281 = load i32, ptr %280, align 4, !tbaa !32
   %.not88.us.i243 = icmp eq i32 %281, 0
   br i1 %.not88.us.i243, label %.backedge.us.i261, label %282
 
 282:                                              ; preds = %.lr.ph.split.us.i241
   %283 = getelementptr inbounds nuw i8, ptr %279, i64 16
-  %284 = load i32, ptr %283, align 8, !tbaa !34
+  %284 = load i32, ptr %283, align 8, !tbaa !33
   %.not89.us.i244 = icmp eq i32 %284, 0
   br i1 %.not89.us.i244, label %.backedge.us.i261, label %285
 
 285:                                              ; preds = %282
   %286 = getelementptr inbounds nuw i8, ptr %279, i64 20
-  %287 = load i32, ptr %286, align 4, !tbaa !20
+  %287 = load i32, ptr %286, align 4, !tbaa !19
   %288 = and i32 %287, 64
   %.not90.us.i245 = icmp eq i32 %288, 0
   br i1 %.not90.us.i245, label %.backedge.us.i261, label %289
 
 289:                                              ; preds = %285
   %290 = getelementptr inbounds nuw i8, ptr %279, i64 24
-  %291 = load i32, ptr %290, align 8, !tbaa !21
+  %291 = load i32, ptr %290, align 8, !tbaa !20
   %.not91.us.i246 = icmp eq i32 %291, 0
   br i1 %.not91.us.i246, label %.backedge.us.i261, label %292
 
@@ -1251,7 +1251,7 @@ ssl_cipher_apply_rule.exit234:                    ; preds = %.outer.i219, %.back
   %293 = getelementptr inbounds nuw i8, ptr %.1146.us.i242, i64 16
   %294 = getelementptr inbounds nuw i8, ptr %.1146.us.i242, i64 24
   %295 = getelementptr inbounds nuw i8, ptr %.1146.us.i242, i64 8
-  %296 = load i32, ptr %295, align 8, !tbaa !35
+  %296 = load i32, ptr %295, align 8, !tbaa !34
   %.not100.i247 = icmp eq i32 %296, 0
   br i1 %.not100.i247, label %299, label %.outer.i248
 
@@ -1259,7 +1259,7 @@ ssl_cipher_apply_rule.exit234:                    ; preds = %.outer.i219, %.back
   %297 = icmp eq ptr %.1146.us.i242, %.0.ph.lcssa.i224
   %298 = icmp eq ptr %278, null
   %or.cond101.us.i262 = select i1 %297, i1 true, i1 %298
-  br i1 %or.cond101.us.i262, label %ssl_cipher_apply_rule.exit263, label %.lr.ph.split.us.i241, !llvm.loop !36
+  br i1 %or.cond101.us.i262, label %ssl_cipher_apply_rule.exit263, label %.lr.ph.split.us.i241, !llvm.loop !35
 
 299:                                              ; preds = %292
   %300 = icmp eq ptr %.1146.us.i242, %.0.ph179.i239
@@ -1268,13 +1268,13 @@ ssl_cipher_apply_rule.exit234:                    ; preds = %.outer.i219, %.back
 301:                                              ; preds = %299
   %302 = icmp eq ptr %.1146.us.i242, %.0132.ph177.i240
   %..0132.i254 = select i1 %302, ptr %278, ptr %.0132.ph177.i240
-  %303 = load ptr, ptr %294, align 8, !tbaa !29
+  %303 = load ptr, ptr %294, align 8, !tbaa !28
   %.not.i102.i255 = icmp eq ptr %303, null
   br i1 %.not.i102.i255, label %._crit_edge.i.i256, label %304
 
 304:                                              ; preds = %301
   %305 = getelementptr inbounds nuw i8, ptr %303, i64 16
-  store ptr %278, ptr %305, align 8, !tbaa !30
+  store ptr %278, ptr %305, align 8, !tbaa !29
   br label %._crit_edge.i.i256
 
 ._crit_edge.i.i256:                               ; preds = %304, %301
@@ -1283,22 +1283,22 @@ ssl_cipher_apply_rule.exit234:                    ; preds = %.outer.i219, %.back
 
 306:                                              ; preds = %._crit_edge.i.i256
   %307 = getelementptr inbounds nuw i8, ptr %278, i64 24
-  store ptr %303, ptr %307, align 8, !tbaa !29
+  store ptr %303, ptr %307, align 8, !tbaa !28
   br label %308
 
 308:                                              ; preds = %306, %._crit_edge.i.i256
   %309 = getelementptr inbounds nuw i8, ptr %.0.ph179.i239, i64 16
-  store ptr %.1146.us.i242, ptr %309, align 8, !tbaa !30
-  store ptr %.0.ph179.i239, ptr %294, align 8, !tbaa !29
-  store ptr null, ptr %293, align 8, !tbaa !30
+  store ptr %.1146.us.i242, ptr %309, align 8, !tbaa !29
+  store ptr %.0.ph179.i239, ptr %294, align 8, !tbaa !28
+  store ptr null, ptr %293, align 8, !tbaa !29
   br label %ll_append_tail.exit.i258
 
 ll_append_tail.exit.i258:                         ; preds = %308, %299
   %.4136.i259 = phi ptr [ %.0132.ph177.i240, %299 ], [ %..0132.i254, %308 ]
   %.3.i260 = phi ptr [ %.0.ph179.i239, %299 ], [ %.1146.us.i242, %308 ]
-  store i32 1, ptr %295, align 8, !tbaa !35
+  store i32 1, ptr %295, align 8, !tbaa !34
   %310 = getelementptr inbounds nuw i8, ptr %.1146.us.i242, i64 12
-  store i32 0, ptr %310, align 4, !tbaa !38
+  store i32 0, ptr %310, align 4, !tbaa !37
   br label %.outer.i248
 
 .outer.i248:                                      ; preds = %ll_append_tail.exit.i258, %292
@@ -1307,7 +1307,7 @@ ll_append_tail.exit.i258:                         ; preds = %308, %299
   %311 = icmp eq ptr %.1146.us.i242, %.0.ph.lcssa.i224
   %312 = icmp eq ptr %278, null
   %or.cond101145.i251 = select i1 %311, i1 true, i1 %312
-  br i1 %or.cond101145.i251, label %ssl_cipher_apply_rule.exit263, label %.lr.ph.i237, !llvm.loop !39
+  br i1 %or.cond101145.i251, label %ssl_cipher_apply_rule.exit263, label %.lr.ph.i237
 
 313:                                              ; preds = %ssl_cipher_apply_rule.exit147
   br i1 %or.cond101145176.i264, label %ssl_cipher_apply_rule.exit292, label %.lr.ph.i266
@@ -1321,29 +1321,29 @@ ll_append_tail.exit.i258:                         ; preds = %308, %299
 .lr.ph.split.us.i270:                             ; preds = %.backedge.us.i290, %.lr.ph.i266
   %.1146.us.i271 = phi ptr [ %315, %.backedge.us.i290 ], [ %.1.ph181.i267, %.lr.ph.i266 ]
   %314 = getelementptr inbounds nuw i8, ptr %.1146.us.i271, i64 16
-  %315 = load ptr, ptr %314, align 8, !tbaa !32
-  %316 = load ptr, ptr %.1146.us.i271, align 8, !tbaa !24
+  %315 = load ptr, ptr %314, align 8, !tbaa !31
+  %316 = load ptr, ptr %.1146.us.i271, align 8, !tbaa !23
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 12
-  %318 = load i32, ptr %317, align 4, !tbaa !33
+  %318 = load i32, ptr %317, align 4, !tbaa !32
   %.not88.us.i272 = icmp eq i32 %318, 0
   br i1 %.not88.us.i272, label %.backedge.us.i290, label %319
 
 319:                                              ; preds = %.lr.ph.split.us.i270
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 16
-  %321 = load i32, ptr %320, align 8, !tbaa !34
+  %321 = load i32, ptr %320, align 8, !tbaa !33
   %.not89.us.i273 = icmp eq i32 %321, 0
   br i1 %.not89.us.i273, label %.backedge.us.i290, label %322
 
 322:                                              ; preds = %319
   %323 = getelementptr inbounds nuw i8, ptr %316, i64 20
-  %324 = load i32, ptr %323, align 4, !tbaa !20
+  %324 = load i32, ptr %323, align 4, !tbaa !19
   %325 = and i32 %324, 256
   %.not90.us.i274 = icmp eq i32 %325, 0
   br i1 %.not90.us.i274, label %.backedge.us.i290, label %326
 
 326:                                              ; preds = %322
   %327 = getelementptr inbounds nuw i8, ptr %316, i64 24
-  %328 = load i32, ptr %327, align 8, !tbaa !21
+  %328 = load i32, ptr %327, align 8, !tbaa !20
   %.not91.us.i275 = icmp eq i32 %328, 0
   br i1 %.not91.us.i275, label %.backedge.us.i290, label %329
 
@@ -1351,7 +1351,7 @@ ll_append_tail.exit.i258:                         ; preds = %308, %299
   %330 = getelementptr inbounds nuw i8, ptr %.1146.us.i271, i64 16
   %331 = getelementptr inbounds nuw i8, ptr %.1146.us.i271, i64 24
   %332 = getelementptr inbounds nuw i8, ptr %.1146.us.i271, i64 8
-  %333 = load i32, ptr %332, align 8, !tbaa !35
+  %333 = load i32, ptr %332, align 8, !tbaa !34
   %.not100.i276 = icmp eq i32 %333, 0
   br i1 %.not100.i276, label %336, label %.outer.i277
 
@@ -1359,7 +1359,7 @@ ll_append_tail.exit.i258:                         ; preds = %308, %299
   %334 = icmp eq ptr %.1146.us.i271, %.0.ph.lcssa.i144
   %335 = icmp eq ptr %315, null
   %or.cond101.us.i291 = select i1 %334, i1 true, i1 %335
-  br i1 %or.cond101.us.i291, label %ssl_cipher_apply_rule.exit292, label %.lr.ph.split.us.i270, !llvm.loop !36
+  br i1 %or.cond101.us.i291, label %ssl_cipher_apply_rule.exit292, label %.lr.ph.split.us.i270, !llvm.loop !35
 
 336:                                              ; preds = %329
   %337 = icmp eq ptr %.1146.us.i271, %.0.ph179.i268
@@ -1368,13 +1368,13 @@ ll_append_tail.exit.i258:                         ; preds = %308, %299
 338:                                              ; preds = %336
   %339 = icmp eq ptr %.1146.us.i271, %.0132.ph177.i269
   %..0132.i283 = select i1 %339, ptr %315, ptr %.0132.ph177.i269
-  %340 = load ptr, ptr %331, align 8, !tbaa !29
+  %340 = load ptr, ptr %331, align 8, !tbaa !28
   %.not.i102.i284 = icmp eq ptr %340, null
   br i1 %.not.i102.i284, label %._crit_edge.i.i285, label %341
 
 341:                                              ; preds = %338
   %342 = getelementptr inbounds nuw i8, ptr %340, i64 16
-  store ptr %315, ptr %342, align 8, !tbaa !30
+  store ptr %315, ptr %342, align 8, !tbaa !29
   br label %._crit_edge.i.i285
 
 ._crit_edge.i.i285:                               ; preds = %341, %338
@@ -1383,22 +1383,22 @@ ll_append_tail.exit.i258:                         ; preds = %308, %299
 
 343:                                              ; preds = %._crit_edge.i.i285
   %344 = getelementptr inbounds nuw i8, ptr %315, i64 24
-  store ptr %340, ptr %344, align 8, !tbaa !29
+  store ptr %340, ptr %344, align 8, !tbaa !28
   br label %345
 
 345:                                              ; preds = %343, %._crit_edge.i.i285
   %346 = getelementptr inbounds nuw i8, ptr %.0.ph179.i268, i64 16
-  store ptr %.1146.us.i271, ptr %346, align 8, !tbaa !30
-  store ptr %.0.ph179.i268, ptr %331, align 8, !tbaa !29
-  store ptr null, ptr %330, align 8, !tbaa !30
+  store ptr %.1146.us.i271, ptr %346, align 8, !tbaa !29
+  store ptr %.0.ph179.i268, ptr %331, align 8, !tbaa !28
+  store ptr null, ptr %330, align 8, !tbaa !29
   br label %ll_append_tail.exit.i287
 
 ll_append_tail.exit.i287:                         ; preds = %345, %336
   %.4136.i288 = phi ptr [ %.0132.ph177.i269, %336 ], [ %..0132.i283, %345 ]
   %.3.i289 = phi ptr [ %.0.ph179.i268, %336 ], [ %.1146.us.i271, %345 ]
-  store i32 1, ptr %332, align 8, !tbaa !35
+  store i32 1, ptr %332, align 8, !tbaa !34
   %347 = getelementptr inbounds nuw i8, ptr %.1146.us.i271, i64 12
-  store i32 0, ptr %347, align 4, !tbaa !38
+  store i32 0, ptr %347, align 4, !tbaa !37
   br label %.outer.i277
 
 .outer.i277:                                      ; preds = %ll_append_tail.exit.i287, %329
@@ -1407,7 +1407,7 @@ ll_append_tail.exit.i287:                         ; preds = %345, %336
   %348 = icmp eq ptr %.1146.us.i271, %.0.ph.lcssa.i144
   %349 = icmp eq ptr %315, null
   %or.cond101145.i280 = select i1 %348, i1 true, i1 %349
-  br i1 %or.cond101145.i280, label %ssl_cipher_apply_rule.exit292, label %.lr.ph.i266, !llvm.loop !39
+  br i1 %or.cond101145.i280, label %ssl_cipher_apply_rule.exit292, label %.lr.ph.i266
 
 ssl_cipher_apply_rule.exit292:                    ; preds = %.outer.i277, %.backedge.us.i290, %313
   %.0132.ph.lcssa.i281 = phi ptr [ %.0132.ph.lcssa.i143, %313 ], [ %.0132.ph177.i269, %.backedge.us.i290 ], [ %.1133.i278, %.outer.i277 ]
@@ -1426,29 +1426,29 @@ ssl_cipher_apply_rule.exit292:                    ; preds = %.outer.i277, %.back
 .lr.ph.split.us.i299:                             ; preds = %.backedge.us.i319, %.lr.ph.i295
   %.1146.us.i300 = phi ptr [ %353, %.backedge.us.i319 ], [ %.1.ph181.i296, %.lr.ph.i295 ]
   %352 = getelementptr inbounds nuw i8, ptr %.1146.us.i300, i64 16
-  %353 = load ptr, ptr %352, align 8, !tbaa !32
-  %354 = load ptr, ptr %.1146.us.i300, align 8, !tbaa !24
+  %353 = load ptr, ptr %352, align 8, !tbaa !31
+  %354 = load ptr, ptr %.1146.us.i300, align 8, !tbaa !23
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 12
-  %356 = load i32, ptr %355, align 4, !tbaa !33
+  %356 = load i32, ptr %355, align 4, !tbaa !32
   %.not88.us.i301 = icmp eq i32 %356, 0
   br i1 %.not88.us.i301, label %.backedge.us.i319, label %357
 
 357:                                              ; preds = %.lr.ph.split.us.i299
   %358 = getelementptr inbounds nuw i8, ptr %354, i64 16
-  %359 = load i32, ptr %358, align 8, !tbaa !34
+  %359 = load i32, ptr %358, align 8, !tbaa !33
   %.not89.us.i302 = icmp eq i32 %359, 0
   br i1 %.not89.us.i302, label %.backedge.us.i319, label %360
 
 360:                                              ; preds = %357
   %361 = getelementptr inbounds nuw i8, ptr %354, i64 20
-  %362 = load i32, ptr %361, align 4, !tbaa !20
+  %362 = load i32, ptr %361, align 4, !tbaa !19
   %363 = and i32 %362, 64
   %.not90.us.i303 = icmp eq i32 %363, 0
   br i1 %.not90.us.i303, label %.backedge.us.i319, label %364
 
 364:                                              ; preds = %360
   %365 = getelementptr inbounds nuw i8, ptr %354, i64 24
-  %366 = load i32, ptr %365, align 8, !tbaa !21
+  %366 = load i32, ptr %365, align 8, !tbaa !20
   %.not91.us.i304 = icmp eq i32 %366, 0
   br i1 %.not91.us.i304, label %.backedge.us.i319, label %367
 
@@ -1456,7 +1456,7 @@ ssl_cipher_apply_rule.exit292:                    ; preds = %.outer.i277, %.back
   %368 = getelementptr inbounds nuw i8, ptr %.1146.us.i300, i64 16
   %369 = getelementptr inbounds nuw i8, ptr %.1146.us.i300, i64 24
   %370 = getelementptr inbounds nuw i8, ptr %.1146.us.i300, i64 8
-  %371 = load i32, ptr %370, align 8, !tbaa !35
+  %371 = load i32, ptr %370, align 8, !tbaa !34
   %.not100.i305 = icmp eq i32 %371, 0
   br i1 %.not100.i305, label %374, label %.outer.i306
 
@@ -1464,7 +1464,7 @@ ssl_cipher_apply_rule.exit292:                    ; preds = %.outer.i277, %.back
   %372 = icmp eq ptr %.1146.us.i300, %.0.ph.lcssa.i282
   %373 = icmp eq ptr %353, null
   %or.cond101.us.i320 = select i1 %372, i1 true, i1 %373
-  br i1 %or.cond101.us.i320, label %ssl_cipher_apply_rule.exit321, label %.lr.ph.split.us.i299, !llvm.loop !36
+  br i1 %or.cond101.us.i320, label %ssl_cipher_apply_rule.exit321, label %.lr.ph.split.us.i299, !llvm.loop !35
 
 374:                                              ; preds = %367
   %375 = icmp eq ptr %.1146.us.i300, %.0.ph179.i297
@@ -1473,13 +1473,13 @@ ssl_cipher_apply_rule.exit292:                    ; preds = %.outer.i277, %.back
 376:                                              ; preds = %374
   %377 = icmp eq ptr %.1146.us.i300, %.0132.ph177.i298
   %..0132.i312 = select i1 %377, ptr %353, ptr %.0132.ph177.i298
-  %378 = load ptr, ptr %369, align 8, !tbaa !29
+  %378 = load ptr, ptr %369, align 8, !tbaa !28
   %.not.i102.i313 = icmp eq ptr %378, null
   br i1 %.not.i102.i313, label %._crit_edge.i.i314, label %379
 
 379:                                              ; preds = %376
   %380 = getelementptr inbounds nuw i8, ptr %378, i64 16
-  store ptr %353, ptr %380, align 8, !tbaa !30
+  store ptr %353, ptr %380, align 8, !tbaa !29
   br label %._crit_edge.i.i314
 
 ._crit_edge.i.i314:                               ; preds = %379, %376
@@ -1488,22 +1488,22 @@ ssl_cipher_apply_rule.exit292:                    ; preds = %.outer.i277, %.back
 
 381:                                              ; preds = %._crit_edge.i.i314
   %382 = getelementptr inbounds nuw i8, ptr %353, i64 24
-  store ptr %378, ptr %382, align 8, !tbaa !29
+  store ptr %378, ptr %382, align 8, !tbaa !28
   br label %383
 
 383:                                              ; preds = %381, %._crit_edge.i.i314
   %384 = getelementptr inbounds nuw i8, ptr %.0.ph179.i297, i64 16
-  store ptr %.1146.us.i300, ptr %384, align 8, !tbaa !30
-  store ptr %.0.ph179.i297, ptr %369, align 8, !tbaa !29
-  store ptr null, ptr %368, align 8, !tbaa !30
+  store ptr %.1146.us.i300, ptr %384, align 8, !tbaa !29
+  store ptr %.0.ph179.i297, ptr %369, align 8, !tbaa !28
+  store ptr null, ptr %368, align 8, !tbaa !29
   br label %ll_append_tail.exit.i316
 
 ll_append_tail.exit.i316:                         ; preds = %383, %374
   %.4136.i317 = phi ptr [ %.0132.ph177.i298, %374 ], [ %..0132.i312, %383 ]
   %.3.i318 = phi ptr [ %.0.ph179.i297, %374 ], [ %.1146.us.i300, %383 ]
-  store i32 1, ptr %370, align 8, !tbaa !35
+  store i32 1, ptr %370, align 8, !tbaa !34
   %385 = getelementptr inbounds nuw i8, ptr %.1146.us.i300, i64 12
-  store i32 0, ptr %385, align 4, !tbaa !38
+  store i32 0, ptr %385, align 4, !tbaa !37
   br label %.outer.i306
 
 .outer.i306:                                      ; preds = %ll_append_tail.exit.i316, %367
@@ -1512,7 +1512,7 @@ ll_append_tail.exit.i316:                         ; preds = %383, %374
   %386 = icmp eq ptr %.1146.us.i300, %.0.ph.lcssa.i282
   %387 = icmp eq ptr %353, null
   %or.cond101145.i309 = select i1 %386, i1 true, i1 %387
-  br i1 %or.cond101145.i309, label %ssl_cipher_apply_rule.exit321, label %.lr.ph.i295, !llvm.loop !39
+  br i1 %or.cond101145.i309, label %ssl_cipher_apply_rule.exit321, label %.lr.ph.i295
 
 ssl_cipher_apply_rule.exit321:                    ; preds = %.outer.i306, %.backedge.us.i319, %ssl_cipher_apply_rule.exit292
   %.0132.ph.lcssa.i310 = phi ptr [ %.0132.ph.lcssa.i281, %ssl_cipher_apply_rule.exit292 ], [ %.0132.ph177.i298, %.backedge.us.i319 ], [ %.1133.i307, %.outer.i306 ]
@@ -1531,29 +1531,29 @@ ssl_cipher_apply_rule.exit321:                    ; preds = %.outer.i306, %.back
 .lr.ph.split.us.i328:                             ; preds = %.backedge.us.i348, %.lr.ph.i324
   %.1146.us.i329 = phi ptr [ %391, %.backedge.us.i348 ], [ %.1.ph181.i325, %.lr.ph.i324 ]
   %390 = getelementptr inbounds nuw i8, ptr %.1146.us.i329, i64 16
-  %391 = load ptr, ptr %390, align 8, !tbaa !32
-  %392 = load ptr, ptr %.1146.us.i329, align 8, !tbaa !24
+  %391 = load ptr, ptr %390, align 8, !tbaa !31
+  %392 = load ptr, ptr %.1146.us.i329, align 8, !tbaa !23
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 12
-  %394 = load i32, ptr %393, align 4, !tbaa !33
+  %394 = load i32, ptr %393, align 4, !tbaa !32
   %.not88.us.i330 = icmp eq i32 %394, 0
   br i1 %.not88.us.i330, label %.backedge.us.i348, label %395
 
 395:                                              ; preds = %.lr.ph.split.us.i328
   %396 = getelementptr inbounds nuw i8, ptr %392, i64 16
-  %397 = load i32, ptr %396, align 8, !tbaa !34
+  %397 = load i32, ptr %396, align 8, !tbaa !33
   %.not89.us.i331 = icmp eq i32 %397, 0
   br i1 %.not89.us.i331, label %.backedge.us.i348, label %398
 
 398:                                              ; preds = %395
   %399 = getelementptr inbounds nuw i8, ptr %392, i64 20
-  %400 = load i32, ptr %399, align 4, !tbaa !20
+  %400 = load i32, ptr %399, align 4, !tbaa !19
   %401 = and i32 %400, 16
   %.not90.us.i332 = icmp eq i32 %401, 0
   br i1 %.not90.us.i332, label %.backedge.us.i348, label %402
 
 402:                                              ; preds = %398
   %403 = getelementptr inbounds nuw i8, ptr %392, i64 24
-  %404 = load i32, ptr %403, align 8, !tbaa !21
+  %404 = load i32, ptr %403, align 8, !tbaa !20
   %.not91.us.i333 = icmp eq i32 %404, 0
   br i1 %.not91.us.i333, label %.backedge.us.i348, label %405
 
@@ -1561,7 +1561,7 @@ ssl_cipher_apply_rule.exit321:                    ; preds = %.outer.i306, %.back
   %406 = getelementptr inbounds nuw i8, ptr %.1146.us.i329, i64 16
   %407 = getelementptr inbounds nuw i8, ptr %.1146.us.i329, i64 24
   %408 = getelementptr inbounds nuw i8, ptr %.1146.us.i329, i64 8
-  %409 = load i32, ptr %408, align 8, !tbaa !35
+  %409 = load i32, ptr %408, align 8, !tbaa !34
   %.not100.i334 = icmp eq i32 %409, 0
   br i1 %.not100.i334, label %412, label %.outer.i335
 
@@ -1569,7 +1569,7 @@ ssl_cipher_apply_rule.exit321:                    ; preds = %.outer.i306, %.back
   %410 = icmp eq ptr %.1146.us.i329, %.0.ph.lcssa.i311
   %411 = icmp eq ptr %391, null
   %or.cond101.us.i349 = select i1 %410, i1 true, i1 %411
-  br i1 %or.cond101.us.i349, label %ssl_cipher_apply_rule.exit350, label %.lr.ph.split.us.i328, !llvm.loop !36
+  br i1 %or.cond101.us.i349, label %ssl_cipher_apply_rule.exit350, label %.lr.ph.split.us.i328, !llvm.loop !35
 
 412:                                              ; preds = %405
   %413 = icmp eq ptr %.1146.us.i329, %.0.ph179.i326
@@ -1578,13 +1578,13 @@ ssl_cipher_apply_rule.exit321:                    ; preds = %.outer.i306, %.back
 414:                                              ; preds = %412
   %415 = icmp eq ptr %.1146.us.i329, %.0132.ph177.i327
   %..0132.i341 = select i1 %415, ptr %391, ptr %.0132.ph177.i327
-  %416 = load ptr, ptr %407, align 8, !tbaa !29
+  %416 = load ptr, ptr %407, align 8, !tbaa !28
   %.not.i102.i342 = icmp eq ptr %416, null
   br i1 %.not.i102.i342, label %._crit_edge.i.i343, label %417
 
 417:                                              ; preds = %414
   %418 = getelementptr inbounds nuw i8, ptr %416, i64 16
-  store ptr %391, ptr %418, align 8, !tbaa !30
+  store ptr %391, ptr %418, align 8, !tbaa !29
   br label %._crit_edge.i.i343
 
 ._crit_edge.i.i343:                               ; preds = %417, %414
@@ -1593,22 +1593,22 @@ ssl_cipher_apply_rule.exit321:                    ; preds = %.outer.i306, %.back
 
 419:                                              ; preds = %._crit_edge.i.i343
   %420 = getelementptr inbounds nuw i8, ptr %391, i64 24
-  store ptr %416, ptr %420, align 8, !tbaa !29
+  store ptr %416, ptr %420, align 8, !tbaa !28
   br label %421
 
 421:                                              ; preds = %419, %._crit_edge.i.i343
   %422 = getelementptr inbounds nuw i8, ptr %.0.ph179.i326, i64 16
-  store ptr %.1146.us.i329, ptr %422, align 8, !tbaa !30
-  store ptr %.0.ph179.i326, ptr %407, align 8, !tbaa !29
-  store ptr null, ptr %406, align 8, !tbaa !30
+  store ptr %.1146.us.i329, ptr %422, align 8, !tbaa !29
+  store ptr %.0.ph179.i326, ptr %407, align 8, !tbaa !28
+  store ptr null, ptr %406, align 8, !tbaa !29
   br label %ll_append_tail.exit.i345
 
 ll_append_tail.exit.i345:                         ; preds = %421, %412
   %.4136.i346 = phi ptr [ %.0132.ph177.i327, %412 ], [ %..0132.i341, %421 ]
   %.3.i347 = phi ptr [ %.0.ph179.i326, %412 ], [ %.1146.us.i329, %421 ]
-  store i32 1, ptr %408, align 8, !tbaa !35
+  store i32 1, ptr %408, align 8, !tbaa !34
   %423 = getelementptr inbounds nuw i8, ptr %.1146.us.i329, i64 12
-  store i32 0, ptr %423, align 4, !tbaa !38
+  store i32 0, ptr %423, align 4, !tbaa !37
   br label %.outer.i335
 
 .outer.i335:                                      ; preds = %ll_append_tail.exit.i345, %405
@@ -1617,13 +1617,13 @@ ll_append_tail.exit.i345:                         ; preds = %421, %412
   %424 = icmp eq ptr %.1146.us.i329, %.0.ph.lcssa.i311
   %425 = icmp eq ptr %391, null
   %or.cond101145.i338 = select i1 %424, i1 true, i1 %425
-  br i1 %or.cond101145.i338, label %ssl_cipher_apply_rule.exit350, label %.lr.ph.i324, !llvm.loop !39
+  br i1 %or.cond101145.i338, label %ssl_cipher_apply_rule.exit350, label %.lr.ph.i324
 
 ssl_cipher_apply_rule.exit350:                    ; preds = %.outer.i335, %.backedge.us.i348, %ssl_cipher_apply_rule.exit321
   %.0132.ph.lcssa.i339 = phi ptr [ %.0132.ph.lcssa.i310, %ssl_cipher_apply_rule.exit321 ], [ %.0132.ph177.i327, %.backedge.us.i348 ], [ %.1133.i336, %.outer.i335 ]
   %.0.ph.lcssa.i340 = phi ptr [ %.0.ph.lcssa.i311, %ssl_cipher_apply_rule.exit321 ], [ %.0.ph179.i326, %.backedge.us.i348 ], [ %.1131.i337, %.outer.i335 ]
-  store ptr %.0132.ph.lcssa.i339, ptr %5, align 8, !tbaa !32
-  store ptr %.0.ph.lcssa.i340, ptr %6, align 8, !tbaa !32
+  store ptr %.0132.ph.lcssa.i339, ptr %5, align 8, !tbaa !31
+  store ptr %.0.ph.lcssa.i340, ptr %6, align 8, !tbaa !31
   %426 = icmp eq ptr %.0.ph.lcssa.i340, null
   %427 = icmp eq ptr %.0132.ph.lcssa.i339, null
   %or.cond101145176.i351 = select i1 %426, i1 true, i1 %427
@@ -1638,29 +1638,29 @@ ssl_cipher_apply_rule.exit350:                    ; preds = %.outer.i335, %.back
 .lr.ph.split.us.i357:                             ; preds = %.backedge.us.i377, %.lr.ph.i353
   %.1146.us.i358 = phi ptr [ %429, %.backedge.us.i377 ], [ %.1.ph181.i354, %.lr.ph.i353 ]
   %428 = getelementptr inbounds nuw i8, ptr %.1146.us.i358, i64 16
-  %429 = load ptr, ptr %428, align 8, !tbaa !32
-  %430 = load ptr, ptr %.1146.us.i358, align 8, !tbaa !24
+  %429 = load ptr, ptr %428, align 8, !tbaa !31
+  %430 = load ptr, ptr %.1146.us.i358, align 8, !tbaa !23
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 12
-  %432 = load i32, ptr %431, align 4, !tbaa !33
+  %432 = load i32, ptr %431, align 4, !tbaa !32
   %.not88.us.i359 = icmp eq i32 %432, 0
   br i1 %.not88.us.i359, label %.backedge.us.i377, label %433
 
 433:                                              ; preds = %.lr.ph.split.us.i357
   %434 = getelementptr inbounds nuw i8, ptr %430, i64 16
-  %435 = load i32, ptr %434, align 8, !tbaa !34
+  %435 = load i32, ptr %434, align 8, !tbaa !33
   %.not89.us.i360 = icmp eq i32 %435, 0
   br i1 %.not89.us.i360, label %.backedge.us.i377, label %436
 
 436:                                              ; preds = %433
   %437 = getelementptr inbounds nuw i8, ptr %430, i64 20
-  %438 = load i32, ptr %437, align 4, !tbaa !20
+  %438 = load i32, ptr %437, align 4, !tbaa !19
   %439 = and i32 %438, 32
   %.not90.us.i361 = icmp eq i32 %439, 0
   br i1 %.not90.us.i361, label %.backedge.us.i377, label %440
 
 440:                                              ; preds = %436
   %441 = getelementptr inbounds nuw i8, ptr %430, i64 24
-  %442 = load i32, ptr %441, align 8, !tbaa !21
+  %442 = load i32, ptr %441, align 8, !tbaa !20
   %.not91.us.i362 = icmp eq i32 %442, 0
   br i1 %.not91.us.i362, label %.backedge.us.i377, label %443
 
@@ -1668,7 +1668,7 @@ ssl_cipher_apply_rule.exit350:                    ; preds = %.outer.i335, %.back
   %444 = getelementptr inbounds nuw i8, ptr %.1146.us.i358, i64 16
   %445 = getelementptr inbounds nuw i8, ptr %.1146.us.i358, i64 24
   %446 = getelementptr inbounds nuw i8, ptr %.1146.us.i358, i64 8
-  %447 = load i32, ptr %446, align 8, !tbaa !35
+  %447 = load i32, ptr %446, align 8, !tbaa !34
   %.not100.i363 = icmp eq i32 %447, 0
   br i1 %.not100.i363, label %450, label %.outer.i364
 
@@ -1676,7 +1676,7 @@ ssl_cipher_apply_rule.exit350:                    ; preds = %.outer.i335, %.back
   %448 = icmp eq ptr %.1146.us.i358, %.0.ph.lcssa.i340
   %449 = icmp eq ptr %429, null
   %or.cond101.us.i378 = select i1 %448, i1 true, i1 %449
-  br i1 %or.cond101.us.i378, label %ssl_cipher_apply_rule.exit263, label %.lr.ph.split.us.i357, !llvm.loop !36
+  br i1 %or.cond101.us.i378, label %ssl_cipher_apply_rule.exit263, label %.lr.ph.split.us.i357, !llvm.loop !35
 
 450:                                              ; preds = %443
   %451 = icmp eq ptr %.1146.us.i358, %.0.ph179.i355
@@ -1685,13 +1685,13 @@ ssl_cipher_apply_rule.exit350:                    ; preds = %.outer.i335, %.back
 452:                                              ; preds = %450
   %453 = icmp eq ptr %.1146.us.i358, %.0132.ph177.i356
   %..0132.i370 = select i1 %453, ptr %429, ptr %.0132.ph177.i356
-  %454 = load ptr, ptr %445, align 8, !tbaa !29
+  %454 = load ptr, ptr %445, align 8, !tbaa !28
   %.not.i102.i371 = icmp eq ptr %454, null
   br i1 %.not.i102.i371, label %._crit_edge.i.i372, label %455
 
 455:                                              ; preds = %452
   %456 = getelementptr inbounds nuw i8, ptr %454, i64 16
-  store ptr %429, ptr %456, align 8, !tbaa !30
+  store ptr %429, ptr %456, align 8, !tbaa !29
   br label %._crit_edge.i.i372
 
 ._crit_edge.i.i372:                               ; preds = %455, %452
@@ -1700,22 +1700,22 @@ ssl_cipher_apply_rule.exit350:                    ; preds = %.outer.i335, %.back
 
 457:                                              ; preds = %._crit_edge.i.i372
   %458 = getelementptr inbounds nuw i8, ptr %429, i64 24
-  store ptr %454, ptr %458, align 8, !tbaa !29
+  store ptr %454, ptr %458, align 8, !tbaa !28
   br label %459
 
 459:                                              ; preds = %457, %._crit_edge.i.i372
   %460 = getelementptr inbounds nuw i8, ptr %.0.ph179.i355, i64 16
-  store ptr %.1146.us.i358, ptr %460, align 8, !tbaa !30
-  store ptr %.0.ph179.i355, ptr %445, align 8, !tbaa !29
-  store ptr null, ptr %444, align 8, !tbaa !30
+  store ptr %.1146.us.i358, ptr %460, align 8, !tbaa !29
+  store ptr %.0.ph179.i355, ptr %445, align 8, !tbaa !28
+  store ptr null, ptr %444, align 8, !tbaa !29
   br label %ll_append_tail.exit.i374
 
 ll_append_tail.exit.i374:                         ; preds = %459, %450
   %.4136.i375 = phi ptr [ %.0132.ph177.i356, %450 ], [ %..0132.i370, %459 ]
   %.3.i376 = phi ptr [ %.0.ph179.i355, %450 ], [ %.1146.us.i358, %459 ]
-  store i32 1, ptr %446, align 8, !tbaa !35
+  store i32 1, ptr %446, align 8, !tbaa !34
   %461 = getelementptr inbounds nuw i8, ptr %.1146.us.i358, i64 12
-  store i32 0, ptr %461, align 4, !tbaa !38
+  store i32 0, ptr %461, align 4, !tbaa !37
   br label %.outer.i364
 
 .outer.i364:                                      ; preds = %ll_append_tail.exit.i374, %443
@@ -1724,7 +1724,7 @@ ll_append_tail.exit.i374:                         ; preds = %459, %450
   %462 = icmp eq ptr %.1146.us.i358, %.0.ph.lcssa.i340
   %463 = icmp eq ptr %429, null
   %or.cond101145.i367 = select i1 %462, i1 true, i1 %463
-  br i1 %or.cond101145.i367, label %ssl_cipher_apply_rule.exit263, label %.lr.ph.i353, !llvm.loop !39
+  br i1 %or.cond101145.i367, label %ssl_cipher_apply_rule.exit263, label %.lr.ph.i353
 
 ssl_cipher_apply_rule.exit263:                    ; preds = %.outer.i248, %.backedge.us.i261, %.outer.i364, %.backedge.us.i377, %ssl_cipher_apply_rule.exit350, %ssl_cipher_apply_rule.exit234
   %storemerge608 = phi ptr [ %.0132.ph.lcssa.i223, %ssl_cipher_apply_rule.exit234 ], [ %.0132.ph.lcssa.i339, %ssl_cipher_apply_rule.exit350 ], [ %.0132.ph177.i356, %.backedge.us.i377 ], [ %.1133.i365, %.outer.i364 ], [ %.0132.ph177.i240, %.backedge.us.i261 ], [ %.1133.i249, %.outer.i248 ]
@@ -1743,29 +1743,29 @@ ssl_cipher_apply_rule.exit263:                    ; preds = %.outer.i248, %.back
 .lr.ph.split.us.i386:                             ; preds = %.backedge.us.i406, %.lr.ph.i382
   %.1146.us.i387 = phi ptr [ %467, %.backedge.us.i406 ], [ %.1.ph181.i383, %.lr.ph.i382 ]
   %466 = getelementptr inbounds nuw i8, ptr %.1146.us.i387, i64 16
-  %467 = load ptr, ptr %466, align 8, !tbaa !32
-  %468 = load ptr, ptr %.1146.us.i387, align 8, !tbaa !24
+  %467 = load ptr, ptr %466, align 8, !tbaa !31
+  %468 = load ptr, ptr %.1146.us.i387, align 8, !tbaa !23
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 12
-  %470 = load i32, ptr %469, align 4, !tbaa !33
+  %470 = load i32, ptr %469, align 4, !tbaa !32
   %.not88.us.i388 = icmp eq i32 %470, 0
   br i1 %.not88.us.i388, label %.backedge.us.i406, label %471
 
 471:                                              ; preds = %.lr.ph.split.us.i386
   %472 = getelementptr inbounds nuw i8, ptr %468, i64 16
-  %473 = load i32, ptr %472, align 8, !tbaa !34
+  %473 = load i32, ptr %472, align 8, !tbaa !33
   %.not89.us.i389 = icmp eq i32 %473, 0
   br i1 %.not89.us.i389, label %.backedge.us.i406, label %474
 
 474:                                              ; preds = %471
   %475 = getelementptr inbounds nuw i8, ptr %468, i64 20
-  %476 = load i32, ptr %475, align 4, !tbaa !20
+  %476 = load i32, ptr %475, align 4, !tbaa !19
   %477 = and i32 %476, 4
   %.not90.us.i390 = icmp eq i32 %477, 0
   br i1 %.not90.us.i390, label %.backedge.us.i406, label %478
 
 478:                                              ; preds = %474
   %479 = getelementptr inbounds nuw i8, ptr %468, i64 24
-  %480 = load i32, ptr %479, align 8, !tbaa !21
+  %480 = load i32, ptr %479, align 8, !tbaa !20
   %.not91.us.i391 = icmp eq i32 %480, 0
   br i1 %.not91.us.i391, label %.backedge.us.i406, label %481
 
@@ -1773,7 +1773,7 @@ ssl_cipher_apply_rule.exit263:                    ; preds = %.outer.i248, %.back
   %482 = getelementptr inbounds nuw i8, ptr %.1146.us.i387, i64 16
   %483 = getelementptr inbounds nuw i8, ptr %.1146.us.i387, i64 24
   %484 = getelementptr inbounds nuw i8, ptr %.1146.us.i387, i64 8
-  %485 = load i32, ptr %484, align 8, !tbaa !35
+  %485 = load i32, ptr %484, align 8, !tbaa !34
   %.not100.i392 = icmp eq i32 %485, 0
   br i1 %.not100.i392, label %488, label %.outer.i393
 
@@ -1781,7 +1781,7 @@ ssl_cipher_apply_rule.exit263:                    ; preds = %.outer.i248, %.back
   %486 = icmp eq ptr %.1146.us.i387, %storemerge
   %487 = icmp eq ptr %467, null
   %or.cond101.us.i407 = select i1 %486, i1 true, i1 %487
-  br i1 %or.cond101.us.i407, label %ssl_cipher_apply_rule.exit408, label %.lr.ph.split.us.i386, !llvm.loop !36
+  br i1 %or.cond101.us.i407, label %ssl_cipher_apply_rule.exit408, label %.lr.ph.split.us.i386, !llvm.loop !35
 
 488:                                              ; preds = %481
   %489 = icmp eq ptr %.1146.us.i387, %.0.ph179.i384
@@ -1790,13 +1790,13 @@ ssl_cipher_apply_rule.exit263:                    ; preds = %.outer.i248, %.back
 490:                                              ; preds = %488
   %491 = icmp eq ptr %.1146.us.i387, %.0132.ph177.i385
   %..0132.i399 = select i1 %491, ptr %467, ptr %.0132.ph177.i385
-  %492 = load ptr, ptr %483, align 8, !tbaa !29
+  %492 = load ptr, ptr %483, align 8, !tbaa !28
   %.not.i102.i400 = icmp eq ptr %492, null
   br i1 %.not.i102.i400, label %._crit_edge.i.i401, label %493
 
 493:                                              ; preds = %490
   %494 = getelementptr inbounds nuw i8, ptr %492, i64 16
-  store ptr %467, ptr %494, align 8, !tbaa !30
+  store ptr %467, ptr %494, align 8, !tbaa !29
   br label %._crit_edge.i.i401
 
 ._crit_edge.i.i401:                               ; preds = %493, %490
@@ -1805,22 +1805,22 @@ ssl_cipher_apply_rule.exit263:                    ; preds = %.outer.i248, %.back
 
 495:                                              ; preds = %._crit_edge.i.i401
   %496 = getelementptr inbounds nuw i8, ptr %467, i64 24
-  store ptr %492, ptr %496, align 8, !tbaa !29
+  store ptr %492, ptr %496, align 8, !tbaa !28
   br label %497
 
 497:                                              ; preds = %495, %._crit_edge.i.i401
   %498 = getelementptr inbounds nuw i8, ptr %.0.ph179.i384, i64 16
-  store ptr %.1146.us.i387, ptr %498, align 8, !tbaa !30
-  store ptr %.0.ph179.i384, ptr %483, align 8, !tbaa !29
-  store ptr null, ptr %482, align 8, !tbaa !30
+  store ptr %.1146.us.i387, ptr %498, align 8, !tbaa !29
+  store ptr %.0.ph179.i384, ptr %483, align 8, !tbaa !28
+  store ptr null, ptr %482, align 8, !tbaa !29
   br label %ll_append_tail.exit.i403
 
 ll_append_tail.exit.i403:                         ; preds = %497, %488
   %.4136.i404 = phi ptr [ %.0132.ph177.i385, %488 ], [ %..0132.i399, %497 ]
   %.3.i405 = phi ptr [ %.0.ph179.i384, %488 ], [ %.1146.us.i387, %497 ]
-  store i32 1, ptr %484, align 8, !tbaa !35
+  store i32 1, ptr %484, align 8, !tbaa !34
   %499 = getelementptr inbounds nuw i8, ptr %.1146.us.i387, i64 12
-  store i32 0, ptr %499, align 4, !tbaa !38
+  store i32 0, ptr %499, align 4, !tbaa !37
   br label %.outer.i393
 
 .outer.i393:                                      ; preds = %ll_append_tail.exit.i403, %481
@@ -1829,7 +1829,7 @@ ll_append_tail.exit.i403:                         ; preds = %497, %488
   %500 = icmp eq ptr %.1146.us.i387, %storemerge
   %501 = icmp eq ptr %467, null
   %or.cond101145.i396 = select i1 %500, i1 true, i1 %501
-  br i1 %or.cond101145.i396, label %ssl_cipher_apply_rule.exit408, label %.lr.ph.i382, !llvm.loop !39
+  br i1 %or.cond101145.i396, label %ssl_cipher_apply_rule.exit408, label %.lr.ph.i382
 
 ssl_cipher_apply_rule.exit408:                    ; preds = %.outer.i393, %.backedge.us.i406, %ssl_cipher_apply_rule.exit263
   %.0132.ph.lcssa.i397 = phi ptr [ %storemerge608, %ssl_cipher_apply_rule.exit263 ], [ %.0132.ph177.i385, %.backedge.us.i406 ], [ %.1133.i394, %.outer.i393 ]
@@ -1848,29 +1848,29 @@ ssl_cipher_apply_rule.exit408:                    ; preds = %.outer.i393, %.back
 .lr.ph.split.us.i415:                             ; preds = %.backedge.us.i435, %.lr.ph.i411
   %.1146.us.i416 = phi ptr [ %505, %.backedge.us.i435 ], [ %.1.ph181.i412, %.lr.ph.i411 ]
   %504 = getelementptr inbounds nuw i8, ptr %.1146.us.i416, i64 16
-  %505 = load ptr, ptr %504, align 8, !tbaa !32
-  %506 = load ptr, ptr %.1146.us.i416, align 8, !tbaa !24
+  %505 = load ptr, ptr %504, align 8, !tbaa !31
+  %506 = load ptr, ptr %.1146.us.i416, align 8, !tbaa !23
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 12
-  %508 = load i32, ptr %507, align 4, !tbaa !33
+  %508 = load i32, ptr %507, align 4, !tbaa !32
   %.not88.us.i417 = icmp eq i32 %508, 0
   br i1 %.not88.us.i417, label %.backedge.us.i435, label %509
 
 509:                                              ; preds = %.lr.ph.split.us.i415
   %510 = getelementptr inbounds nuw i8, ptr %506, i64 16
-  %511 = load i32, ptr %510, align 8, !tbaa !34
+  %511 = load i32, ptr %510, align 8, !tbaa !33
   %.not89.us.i418 = icmp eq i32 %511, 0
   br i1 %.not89.us.i418, label %.backedge.us.i435, label %512
 
 512:                                              ; preds = %509
   %513 = getelementptr inbounds nuw i8, ptr %506, i64 20
-  %514 = load i32, ptr %513, align 4, !tbaa !20
+  %514 = load i32, ptr %513, align 4, !tbaa !19
   %515 = and i32 %514, 8
   %.not90.us.i419 = icmp eq i32 %515, 0
   br i1 %.not90.us.i419, label %.backedge.us.i435, label %516
 
 516:                                              ; preds = %512
   %517 = getelementptr inbounds nuw i8, ptr %506, i64 24
-  %518 = load i32, ptr %517, align 8, !tbaa !21
+  %518 = load i32, ptr %517, align 8, !tbaa !20
   %.not91.us.i420 = icmp eq i32 %518, 0
   br i1 %.not91.us.i420, label %.backedge.us.i435, label %519
 
@@ -1878,7 +1878,7 @@ ssl_cipher_apply_rule.exit408:                    ; preds = %.outer.i393, %.back
   %520 = getelementptr inbounds nuw i8, ptr %.1146.us.i416, i64 16
   %521 = getelementptr inbounds nuw i8, ptr %.1146.us.i416, i64 24
   %522 = getelementptr inbounds nuw i8, ptr %.1146.us.i416, i64 8
-  %523 = load i32, ptr %522, align 8, !tbaa !35
+  %523 = load i32, ptr %522, align 8, !tbaa !34
   %.not100.i421 = icmp eq i32 %523, 0
   br i1 %.not100.i421, label %526, label %.outer.i422
 
@@ -1886,7 +1886,7 @@ ssl_cipher_apply_rule.exit408:                    ; preds = %.outer.i393, %.back
   %524 = icmp eq ptr %.1146.us.i416, %.0.ph.lcssa.i398
   %525 = icmp eq ptr %505, null
   %or.cond101.us.i436 = select i1 %524, i1 true, i1 %525
-  br i1 %or.cond101.us.i436, label %ssl_cipher_apply_rule.exit437, label %.lr.ph.split.us.i415, !llvm.loop !36
+  br i1 %or.cond101.us.i436, label %ssl_cipher_apply_rule.exit437, label %.lr.ph.split.us.i415, !llvm.loop !35
 
 526:                                              ; preds = %519
   %527 = icmp eq ptr %.1146.us.i416, %.0.ph179.i413
@@ -1895,13 +1895,13 @@ ssl_cipher_apply_rule.exit408:                    ; preds = %.outer.i393, %.back
 528:                                              ; preds = %526
   %529 = icmp eq ptr %.1146.us.i416, %.0132.ph177.i414
   %..0132.i428 = select i1 %529, ptr %505, ptr %.0132.ph177.i414
-  %530 = load ptr, ptr %521, align 8, !tbaa !29
+  %530 = load ptr, ptr %521, align 8, !tbaa !28
   %.not.i102.i429 = icmp eq ptr %530, null
   br i1 %.not.i102.i429, label %._crit_edge.i.i430, label %531
 
 531:                                              ; preds = %528
   %532 = getelementptr inbounds nuw i8, ptr %530, i64 16
-  store ptr %505, ptr %532, align 8, !tbaa !30
+  store ptr %505, ptr %532, align 8, !tbaa !29
   br label %._crit_edge.i.i430
 
 ._crit_edge.i.i430:                               ; preds = %531, %528
@@ -1910,22 +1910,22 @@ ssl_cipher_apply_rule.exit408:                    ; preds = %.outer.i393, %.back
 
 533:                                              ; preds = %._crit_edge.i.i430
   %534 = getelementptr inbounds nuw i8, ptr %505, i64 24
-  store ptr %530, ptr %534, align 8, !tbaa !29
+  store ptr %530, ptr %534, align 8, !tbaa !28
   br label %535
 
 535:                                              ; preds = %533, %._crit_edge.i.i430
   %536 = getelementptr inbounds nuw i8, ptr %.0.ph179.i413, i64 16
-  store ptr %.1146.us.i416, ptr %536, align 8, !tbaa !30
-  store ptr %.0.ph179.i413, ptr %521, align 8, !tbaa !29
-  store ptr null, ptr %520, align 8, !tbaa !30
+  store ptr %.1146.us.i416, ptr %536, align 8, !tbaa !29
+  store ptr %.0.ph179.i413, ptr %521, align 8, !tbaa !28
+  store ptr null, ptr %520, align 8, !tbaa !29
   br label %ll_append_tail.exit.i432
 
 ll_append_tail.exit.i432:                         ; preds = %535, %526
   %.4136.i433 = phi ptr [ %.0132.ph177.i414, %526 ], [ %..0132.i428, %535 ]
   %.3.i434 = phi ptr [ %.0.ph179.i413, %526 ], [ %.1146.us.i416, %535 ]
-  store i32 1, ptr %522, align 8, !tbaa !35
+  store i32 1, ptr %522, align 8, !tbaa !34
   %537 = getelementptr inbounds nuw i8, ptr %.1146.us.i416, i64 12
-  store i32 0, ptr %537, align 4, !tbaa !38
+  store i32 0, ptr %537, align 4, !tbaa !37
   br label %.outer.i422
 
 .outer.i422:                                      ; preds = %ll_append_tail.exit.i432, %519
@@ -1934,13 +1934,13 @@ ll_append_tail.exit.i432:                         ; preds = %535, %526
   %538 = icmp eq ptr %.1146.us.i416, %.0.ph.lcssa.i398
   %539 = icmp eq ptr %505, null
   %or.cond101145.i425 = select i1 %538, i1 true, i1 %539
-  br i1 %or.cond101145.i425, label %ssl_cipher_apply_rule.exit437, label %.lr.ph.i411, !llvm.loop !39
+  br i1 %or.cond101145.i425, label %ssl_cipher_apply_rule.exit437, label %.lr.ph.i411
 
 ssl_cipher_apply_rule.exit437:                    ; preds = %.outer.i422, %.backedge.us.i435, %ssl_cipher_apply_rule.exit408
   %.0132.ph.lcssa.i426 = phi ptr [ %.0132.ph.lcssa.i397, %ssl_cipher_apply_rule.exit408 ], [ %.0132.ph177.i414, %.backedge.us.i435 ], [ %.1133.i423, %.outer.i422 ]
   %.0.ph.lcssa.i427 = phi ptr [ %.0.ph.lcssa.i398, %ssl_cipher_apply_rule.exit408 ], [ %.0.ph179.i413, %.backedge.us.i435 ], [ %.1131.i424, %.outer.i422 ]
-  store ptr %.0132.ph.lcssa.i426, ptr %5, align 8, !tbaa !32
-  store ptr %.0.ph.lcssa.i427, ptr %6, align 8, !tbaa !32
+  store ptr %.0132.ph.lcssa.i426, ptr %5, align 8, !tbaa !31
+  store ptr %.0.ph.lcssa.i427, ptr %6, align 8, !tbaa !31
   %540 = icmp eq ptr %.0.ph.lcssa.i427, null
   %541 = icmp eq ptr %.0132.ph.lcssa.i426, null
   %or.cond101145176.i438 = select i1 %540, i1 true, i1 %541
@@ -1955,29 +1955,29 @@ ssl_cipher_apply_rule.exit437:                    ; preds = %.outer.i422, %.back
 .lr.ph.split.us.i444:                             ; preds = %.backedge.us.i464, %.lr.ph.i440
   %.1146.us.i445 = phi ptr [ %543, %.backedge.us.i464 ], [ %.1.ph181.i441, %.lr.ph.i440 ]
   %542 = getelementptr inbounds nuw i8, ptr %.1146.us.i445, i64 16
-  %543 = load ptr, ptr %542, align 8, !tbaa !32
-  %544 = load ptr, ptr %.1146.us.i445, align 8, !tbaa !24
+  %543 = load ptr, ptr %542, align 8, !tbaa !31
+  %544 = load ptr, ptr %.1146.us.i445, align 8, !tbaa !23
   %545 = getelementptr inbounds nuw i8, ptr %544, i64 12
-  %546 = load i32, ptr %545, align 4, !tbaa !33
+  %546 = load i32, ptr %545, align 4, !tbaa !32
   %.not88.us.i446 = icmp eq i32 %546, 0
   br i1 %.not88.us.i446, label %.backedge.us.i464, label %547
 
 547:                                              ; preds = %.lr.ph.split.us.i444
   %548 = getelementptr inbounds nuw i8, ptr %544, i64 16
-  %549 = load i32, ptr %548, align 8, !tbaa !34
+  %549 = load i32, ptr %548, align 8, !tbaa !33
   %.not89.us.i447 = icmp eq i32 %549, 0
   br i1 %.not89.us.i447, label %.backedge.us.i464, label %550
 
 550:                                              ; preds = %547
   %551 = getelementptr inbounds nuw i8, ptr %544, i64 20
-  %552 = load i32, ptr %551, align 4, !tbaa !20
+  %552 = load i32, ptr %551, align 4, !tbaa !19
   %553 = and i32 %552, 1
   %.not90.us.i448 = icmp eq i32 %553, 0
   br i1 %.not90.us.i448, label %.backedge.us.i464, label %554
 
 554:                                              ; preds = %550
   %555 = getelementptr inbounds nuw i8, ptr %544, i64 24
-  %556 = load i32, ptr %555, align 8, !tbaa !21
+  %556 = load i32, ptr %555, align 8, !tbaa !20
   %.not91.us.i449 = icmp eq i32 %556, 0
   br i1 %.not91.us.i449, label %.backedge.us.i464, label %557
 
@@ -1985,7 +1985,7 @@ ssl_cipher_apply_rule.exit437:                    ; preds = %.outer.i422, %.back
   %558 = getelementptr inbounds nuw i8, ptr %.1146.us.i445, i64 16
   %559 = getelementptr inbounds nuw i8, ptr %.1146.us.i445, i64 24
   %560 = getelementptr inbounds nuw i8, ptr %.1146.us.i445, i64 8
-  %561 = load i32, ptr %560, align 8, !tbaa !35
+  %561 = load i32, ptr %560, align 8, !tbaa !34
   %.not100.i450 = icmp eq i32 %561, 0
   br i1 %.not100.i450, label %564, label %.outer.i451
 
@@ -1993,7 +1993,7 @@ ssl_cipher_apply_rule.exit437:                    ; preds = %.outer.i422, %.back
   %562 = icmp eq ptr %.1146.us.i445, %.0.ph.lcssa.i427
   %563 = icmp eq ptr %543, null
   %or.cond101.us.i465 = select i1 %562, i1 true, i1 %563
-  br i1 %or.cond101.us.i465, label %ssl_cipher_apply_rule.exit466, label %.lr.ph.split.us.i444, !llvm.loop !36
+  br i1 %or.cond101.us.i465, label %ssl_cipher_apply_rule.exit466, label %.lr.ph.split.us.i444, !llvm.loop !35
 
 564:                                              ; preds = %557
   %565 = icmp eq ptr %.1146.us.i445, %.0.ph179.i442
@@ -2002,13 +2002,13 @@ ssl_cipher_apply_rule.exit437:                    ; preds = %.outer.i422, %.back
 566:                                              ; preds = %564
   %567 = icmp eq ptr %.1146.us.i445, %.0132.ph177.i443
   %..0132.i457 = select i1 %567, ptr %543, ptr %.0132.ph177.i443
-  %568 = load ptr, ptr %559, align 8, !tbaa !29
+  %568 = load ptr, ptr %559, align 8, !tbaa !28
   %.not.i102.i458 = icmp eq ptr %568, null
   br i1 %.not.i102.i458, label %._crit_edge.i.i459, label %569
 
 569:                                              ; preds = %566
   %570 = getelementptr inbounds nuw i8, ptr %568, i64 16
-  store ptr %543, ptr %570, align 8, !tbaa !30
+  store ptr %543, ptr %570, align 8, !tbaa !29
   br label %._crit_edge.i.i459
 
 ._crit_edge.i.i459:                               ; preds = %569, %566
@@ -2017,22 +2017,22 @@ ssl_cipher_apply_rule.exit437:                    ; preds = %.outer.i422, %.back
 
 571:                                              ; preds = %._crit_edge.i.i459
   %572 = getelementptr inbounds nuw i8, ptr %543, i64 24
-  store ptr %568, ptr %572, align 8, !tbaa !29
+  store ptr %568, ptr %572, align 8, !tbaa !28
   br label %573
 
 573:                                              ; preds = %571, %._crit_edge.i.i459
   %574 = getelementptr inbounds nuw i8, ptr %.0.ph179.i442, i64 16
-  store ptr %.1146.us.i445, ptr %574, align 8, !tbaa !30
-  store ptr %.0.ph179.i442, ptr %559, align 8, !tbaa !29
-  store ptr null, ptr %558, align 8, !tbaa !30
+  store ptr %.1146.us.i445, ptr %574, align 8, !tbaa !29
+  store ptr %.0.ph179.i442, ptr %559, align 8, !tbaa !28
+  store ptr null, ptr %558, align 8, !tbaa !29
   br label %ll_append_tail.exit.i461
 
 ll_append_tail.exit.i461:                         ; preds = %573, %564
   %.4136.i462 = phi ptr [ %.0132.ph177.i443, %564 ], [ %..0132.i457, %573 ]
   %.3.i463 = phi ptr [ %.0.ph179.i442, %564 ], [ %.1146.us.i445, %573 ]
-  store i32 1, ptr %560, align 8, !tbaa !35
+  store i32 1, ptr %560, align 8, !tbaa !34
   %575 = getelementptr inbounds nuw i8, ptr %.1146.us.i445, i64 12
-  store i32 0, ptr %575, align 4, !tbaa !38
+  store i32 0, ptr %575, align 4, !tbaa !37
   br label %.outer.i451
 
 .outer.i451:                                      ; preds = %ll_append_tail.exit.i461, %557
@@ -2041,7 +2041,7 @@ ll_append_tail.exit.i461:                         ; preds = %573, %564
   %576 = icmp eq ptr %.1146.us.i445, %.0.ph.lcssa.i427
   %577 = icmp eq ptr %543, null
   %or.cond101145.i454 = select i1 %576, i1 true, i1 %577
-  br i1 %or.cond101145.i454, label %ssl_cipher_apply_rule.exit466, label %.lr.ph.i440, !llvm.loop !39
+  br i1 %or.cond101145.i454, label %ssl_cipher_apply_rule.exit466, label %.lr.ph.i440
 
 ssl_cipher_apply_rule.exit466:                    ; preds = %.outer.i451, %.backedge.us.i464, %ssl_cipher_apply_rule.exit437
   %.0132.ph.lcssa.i455 = phi ptr [ %.0132.ph.lcssa.i426, %ssl_cipher_apply_rule.exit437 ], [ %.0132.ph177.i443, %.backedge.us.i464 ], [ %.1133.i452, %.outer.i451 ]
@@ -2060,29 +2060,29 @@ ssl_cipher_apply_rule.exit466:                    ; preds = %.outer.i451, %.back
 .lr.ph.split.us.i473:                             ; preds = %.backedge.us.i493, %.lr.ph.i469
   %.1146.us.i474 = phi ptr [ %581, %.backedge.us.i493 ], [ %.1.ph181.i470, %.lr.ph.i469 ]
   %580 = getelementptr inbounds nuw i8, ptr %.1146.us.i474, i64 16
-  %581 = load ptr, ptr %580, align 8, !tbaa !32
-  %582 = load ptr, ptr %.1146.us.i474, align 8, !tbaa !24
+  %581 = load ptr, ptr %580, align 8, !tbaa !31
+  %582 = load ptr, ptr %.1146.us.i474, align 8, !tbaa !23
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 12
-  %584 = load i32, ptr %583, align 4, !tbaa !33
+  %584 = load i32, ptr %583, align 4, !tbaa !32
   %.not88.us.i475 = icmp eq i32 %584, 0
   br i1 %.not88.us.i475, label %.backedge.us.i493, label %585
 
 585:                                              ; preds = %.lr.ph.split.us.i473
   %586 = getelementptr inbounds nuw i8, ptr %582, i64 16
-  %587 = load i32, ptr %586, align 8, !tbaa !34
+  %587 = load i32, ptr %586, align 8, !tbaa !33
   %.not89.us.i476 = icmp eq i32 %587, 0
   br i1 %.not89.us.i476, label %.backedge.us.i493, label %588
 
 588:                                              ; preds = %585
   %589 = getelementptr inbounds nuw i8, ptr %582, i64 20
-  %590 = load i32, ptr %589, align 4, !tbaa !20
+  %590 = load i32, ptr %589, align 4, !tbaa !19
   %591 = and i32 %590, 2
   %.not90.us.i477 = icmp eq i32 %591, 0
   br i1 %.not90.us.i477, label %.backedge.us.i493, label %592
 
 592:                                              ; preds = %588
   %593 = getelementptr inbounds nuw i8, ptr %582, i64 24
-  %594 = load i32, ptr %593, align 8, !tbaa !21
+  %594 = load i32, ptr %593, align 8, !tbaa !20
   %.not91.us.i478 = icmp ult i32 %594, 2
   br i1 %.not91.us.i478, label %.backedge.us.i493, label %595
 
@@ -2090,7 +2090,7 @@ ssl_cipher_apply_rule.exit466:                    ; preds = %.outer.i451, %.back
   %596 = getelementptr inbounds nuw i8, ptr %.1146.us.i474, i64 16
   %597 = getelementptr inbounds nuw i8, ptr %.1146.us.i474, i64 24
   %598 = getelementptr inbounds nuw i8, ptr %.1146.us.i474, i64 8
-  %599 = load i32, ptr %598, align 8, !tbaa !35
+  %599 = load i32, ptr %598, align 8, !tbaa !34
   %.not100.i479 = icmp eq i32 %599, 0
   br i1 %.not100.i479, label %602, label %.outer.i480
 
@@ -2098,7 +2098,7 @@ ssl_cipher_apply_rule.exit466:                    ; preds = %.outer.i451, %.back
   %600 = icmp eq ptr %.1146.us.i474, %.0.ph.lcssa.i456
   %601 = icmp eq ptr %581, null
   %or.cond101.us.i494 = select i1 %600, i1 true, i1 %601
-  br i1 %or.cond101.us.i494, label %ssl_cipher_apply_rule.exit495, label %.lr.ph.split.us.i473, !llvm.loop !36
+  br i1 %or.cond101.us.i494, label %ssl_cipher_apply_rule.exit495, label %.lr.ph.split.us.i473, !llvm.loop !35
 
 602:                                              ; preds = %595
   %603 = icmp eq ptr %.1146.us.i474, %.0.ph179.i471
@@ -2107,13 +2107,13 @@ ssl_cipher_apply_rule.exit466:                    ; preds = %.outer.i451, %.back
 604:                                              ; preds = %602
   %605 = icmp eq ptr %.1146.us.i474, %.0132.ph177.i472
   %..0132.i486 = select i1 %605, ptr %581, ptr %.0132.ph177.i472
-  %606 = load ptr, ptr %597, align 8, !tbaa !29
+  %606 = load ptr, ptr %597, align 8, !tbaa !28
   %.not.i102.i487 = icmp eq ptr %606, null
   br i1 %.not.i102.i487, label %._crit_edge.i.i488, label %607
 
 607:                                              ; preds = %604
   %608 = getelementptr inbounds nuw i8, ptr %606, i64 16
-  store ptr %581, ptr %608, align 8, !tbaa !30
+  store ptr %581, ptr %608, align 8, !tbaa !29
   br label %._crit_edge.i.i488
 
 ._crit_edge.i.i488:                               ; preds = %607, %604
@@ -2122,22 +2122,22 @@ ssl_cipher_apply_rule.exit466:                    ; preds = %.outer.i451, %.back
 
 609:                                              ; preds = %._crit_edge.i.i488
   %610 = getelementptr inbounds nuw i8, ptr %581, i64 24
-  store ptr %606, ptr %610, align 8, !tbaa !29
+  store ptr %606, ptr %610, align 8, !tbaa !28
   br label %611
 
 611:                                              ; preds = %609, %._crit_edge.i.i488
   %612 = getelementptr inbounds nuw i8, ptr %.0.ph179.i471, i64 16
-  store ptr %.1146.us.i474, ptr %612, align 8, !tbaa !30
-  store ptr %.0.ph179.i471, ptr %597, align 8, !tbaa !29
-  store ptr null, ptr %596, align 8, !tbaa !30
+  store ptr %.1146.us.i474, ptr %612, align 8, !tbaa !29
+  store ptr %.0.ph179.i471, ptr %597, align 8, !tbaa !28
+  store ptr null, ptr %596, align 8, !tbaa !29
   br label %ll_append_tail.exit.i490
 
 ll_append_tail.exit.i490:                         ; preds = %611, %602
   %.4136.i491 = phi ptr [ %.0132.ph177.i472, %602 ], [ %..0132.i486, %611 ]
   %.3.i492 = phi ptr [ %.0.ph179.i471, %602 ], [ %.1146.us.i474, %611 ]
-  store i32 1, ptr %598, align 8, !tbaa !35
+  store i32 1, ptr %598, align 8, !tbaa !34
   %613 = getelementptr inbounds nuw i8, ptr %.1146.us.i474, i64 12
-  store i32 0, ptr %613, align 4, !tbaa !38
+  store i32 0, ptr %613, align 4, !tbaa !37
   br label %.outer.i480
 
 .outer.i480:                                      ; preds = %ll_append_tail.exit.i490, %595
@@ -2146,7 +2146,7 @@ ll_append_tail.exit.i490:                         ; preds = %611, %602
   %614 = icmp eq ptr %.1146.us.i474, %.0.ph.lcssa.i456
   %615 = icmp eq ptr %581, null
   %or.cond101145.i483 = select i1 %614, i1 true, i1 %615
-  br i1 %or.cond101145.i483, label %ssl_cipher_apply_rule.exit495, label %.lr.ph.i469, !llvm.loop !39
+  br i1 %or.cond101145.i483, label %ssl_cipher_apply_rule.exit495, label %.lr.ph.i469
 
 ssl_cipher_apply_rule.exit495:                    ; preds = %.outer.i480, %.backedge.us.i493, %ssl_cipher_apply_rule.exit466
   %.0132.ph.lcssa.i484 = phi ptr [ %.0132.ph.lcssa.i455, %ssl_cipher_apply_rule.exit466 ], [ %.0132.ph177.i472, %.backedge.us.i493 ], [ %.1133.i481, %.outer.i480 ]
@@ -2165,29 +2165,29 @@ ssl_cipher_apply_rule.exit495:                    ; preds = %.outer.i480, %.back
 .lr.ph.split.us.i502:                             ; preds = %.backedge.us.i522, %.lr.ph.i498
   %.1146.us.i503 = phi ptr [ %619, %.backedge.us.i522 ], [ %.1.ph181.i499, %.lr.ph.i498 ]
   %618 = getelementptr inbounds nuw i8, ptr %.1146.us.i503, i64 16
-  %619 = load ptr, ptr %618, align 8, !tbaa !32
-  %620 = load ptr, ptr %.1146.us.i503, align 8, !tbaa !24
+  %619 = load ptr, ptr %618, align 8, !tbaa !31
+  %620 = load ptr, ptr %.1146.us.i503, align 8, !tbaa !23
   %621 = getelementptr inbounds nuw i8, ptr %620, i64 12
-  %622 = load i32, ptr %621, align 4, !tbaa !33
+  %622 = load i32, ptr %621, align 4, !tbaa !32
   %.not88.us.i504 = icmp eq i32 %622, 0
   br i1 %.not88.us.i504, label %.backedge.us.i522, label %623
 
 623:                                              ; preds = %.lr.ph.split.us.i502
   %624 = getelementptr inbounds nuw i8, ptr %620, i64 16
-  %625 = load i32, ptr %624, align 8, !tbaa !34
+  %625 = load i32, ptr %624, align 8, !tbaa !33
   %.not89.us.i505 = icmp eq i32 %625, 0
   br i1 %.not89.us.i505, label %.backedge.us.i522, label %626
 
 626:                                              ; preds = %623
   %627 = getelementptr inbounds nuw i8, ptr %620, i64 20
-  %628 = load i32, ptr %627, align 4, !tbaa !20
+  %628 = load i32, ptr %627, align 4, !tbaa !19
   %629 = and i32 %628, 2
   %.not90.us.i506 = icmp eq i32 %629, 0
   br i1 %.not90.us.i506, label %.backedge.us.i522, label %630
 
 630:                                              ; preds = %626
   %631 = getelementptr inbounds nuw i8, ptr %620, i64 24
-  %632 = load i32, ptr %631, align 8, !tbaa !21
+  %632 = load i32, ptr %631, align 8, !tbaa !20
   %633 = and i32 %632, 1
   %.not91.us.i507 = icmp eq i32 %633, 0
   br i1 %.not91.us.i507, label %.backedge.us.i522, label %634
@@ -2196,7 +2196,7 @@ ssl_cipher_apply_rule.exit495:                    ; preds = %.outer.i480, %.back
   %635 = getelementptr inbounds nuw i8, ptr %.1146.us.i503, i64 16
   %636 = getelementptr inbounds nuw i8, ptr %.1146.us.i503, i64 24
   %637 = getelementptr inbounds nuw i8, ptr %.1146.us.i503, i64 8
-  %638 = load i32, ptr %637, align 8, !tbaa !35
+  %638 = load i32, ptr %637, align 8, !tbaa !34
   %.not100.i508 = icmp eq i32 %638, 0
   br i1 %.not100.i508, label %641, label %.outer.i509
 
@@ -2204,7 +2204,7 @@ ssl_cipher_apply_rule.exit495:                    ; preds = %.outer.i480, %.back
   %639 = icmp eq ptr %.1146.us.i503, %.0.ph.lcssa.i485
   %640 = icmp eq ptr %619, null
   %or.cond101.us.i523 = select i1 %639, i1 true, i1 %640
-  br i1 %or.cond101.us.i523, label %ssl_cipher_apply_rule.exit524, label %.lr.ph.split.us.i502, !llvm.loop !36
+  br i1 %or.cond101.us.i523, label %ssl_cipher_apply_rule.exit524, label %.lr.ph.split.us.i502, !llvm.loop !35
 
 641:                                              ; preds = %634
   %642 = icmp eq ptr %.1146.us.i503, %.0.ph179.i500
@@ -2213,13 +2213,13 @@ ssl_cipher_apply_rule.exit495:                    ; preds = %.outer.i480, %.back
 643:                                              ; preds = %641
   %644 = icmp eq ptr %.1146.us.i503, %.0132.ph177.i501
   %..0132.i515 = select i1 %644, ptr %619, ptr %.0132.ph177.i501
-  %645 = load ptr, ptr %636, align 8, !tbaa !29
+  %645 = load ptr, ptr %636, align 8, !tbaa !28
   %.not.i102.i516 = icmp eq ptr %645, null
   br i1 %.not.i102.i516, label %._crit_edge.i.i517, label %646
 
 646:                                              ; preds = %643
   %647 = getelementptr inbounds nuw i8, ptr %645, i64 16
-  store ptr %619, ptr %647, align 8, !tbaa !30
+  store ptr %619, ptr %647, align 8, !tbaa !29
   br label %._crit_edge.i.i517
 
 ._crit_edge.i.i517:                               ; preds = %646, %643
@@ -2228,22 +2228,22 @@ ssl_cipher_apply_rule.exit495:                    ; preds = %.outer.i480, %.back
 
 648:                                              ; preds = %._crit_edge.i.i517
   %649 = getelementptr inbounds nuw i8, ptr %619, i64 24
-  store ptr %645, ptr %649, align 8, !tbaa !29
+  store ptr %645, ptr %649, align 8, !tbaa !28
   br label %650
 
 650:                                              ; preds = %648, %._crit_edge.i.i517
   %651 = getelementptr inbounds nuw i8, ptr %.0.ph179.i500, i64 16
-  store ptr %.1146.us.i503, ptr %651, align 8, !tbaa !30
-  store ptr %.0.ph179.i500, ptr %636, align 8, !tbaa !29
-  store ptr null, ptr %635, align 8, !tbaa !30
+  store ptr %.1146.us.i503, ptr %651, align 8, !tbaa !29
+  store ptr %.0.ph179.i500, ptr %636, align 8, !tbaa !28
+  store ptr null, ptr %635, align 8, !tbaa !29
   br label %ll_append_tail.exit.i519
 
 ll_append_tail.exit.i519:                         ; preds = %650, %641
   %.4136.i520 = phi ptr [ %.0132.ph177.i501, %641 ], [ %..0132.i515, %650 ]
   %.3.i521 = phi ptr [ %.0.ph179.i500, %641 ], [ %.1146.us.i503, %650 ]
-  store i32 1, ptr %637, align 8, !tbaa !35
+  store i32 1, ptr %637, align 8, !tbaa !34
   %652 = getelementptr inbounds nuw i8, ptr %.1146.us.i503, i64 12
-  store i32 0, ptr %652, align 4, !tbaa !38
+  store i32 0, ptr %652, align 4, !tbaa !37
   br label %.outer.i509
 
 .outer.i509:                                      ; preds = %ll_append_tail.exit.i519, %634
@@ -2252,13 +2252,13 @@ ll_append_tail.exit.i519:                         ; preds = %650, %641
   %653 = icmp eq ptr %.1146.us.i503, %.0.ph.lcssa.i485
   %654 = icmp eq ptr %619, null
   %or.cond101145.i512 = select i1 %653, i1 true, i1 %654
-  br i1 %or.cond101145.i512, label %ssl_cipher_apply_rule.exit524, label %.lr.ph.i498, !llvm.loop !39
+  br i1 %or.cond101145.i512, label %ssl_cipher_apply_rule.exit524, label %.lr.ph.i498
 
 ssl_cipher_apply_rule.exit524:                    ; preds = %.outer.i509, %.backedge.us.i522, %ssl_cipher_apply_rule.exit495
   %.0132.ph.lcssa.i513 = phi ptr [ %.0132.ph.lcssa.i484, %ssl_cipher_apply_rule.exit495 ], [ %.0132.ph177.i501, %.backedge.us.i522 ], [ %.1133.i510, %.outer.i509 ]
   %.0.ph.lcssa.i514 = phi ptr [ %.0.ph.lcssa.i485, %ssl_cipher_apply_rule.exit495 ], [ %.0.ph179.i500, %.backedge.us.i522 ], [ %.1131.i511, %.outer.i509 ]
-  store ptr %.0132.ph.lcssa.i513, ptr %5, align 8, !tbaa !32
-  store ptr %.0.ph.lcssa.i514, ptr %6, align 8, !tbaa !32
+  store ptr %.0132.ph.lcssa.i513, ptr %5, align 8, !tbaa !31
+  store ptr %.0.ph.lcssa.i514, ptr %6, align 8, !tbaa !31
   %655 = icmp eq ptr %.0.ph.lcssa.i514, null
   %656 = icmp eq ptr %.0132.ph.lcssa.i513, null
   %or.cond101145176.i525 = select i1 %655, i1 true, i1 %656
@@ -2273,28 +2273,28 @@ ssl_cipher_apply_rule.exit524:                    ; preds = %.outer.i509, %.back
 .lr.ph.split.us.i531:                             ; preds = %.backedge.us.i551, %.lr.ph.i527
   %.1146.us.i532 = phi ptr [ %658, %.backedge.us.i551 ], [ %.1.ph181.i528, %.lr.ph.i527 ]
   %657 = getelementptr inbounds nuw i8, ptr %.1146.us.i532, i64 16
-  %658 = load ptr, ptr %657, align 8, !tbaa !32
-  %659 = load ptr, ptr %.1146.us.i532, align 8, !tbaa !24
+  %658 = load ptr, ptr %657, align 8, !tbaa !31
+  %659 = load ptr, ptr %.1146.us.i532, align 8, !tbaa !23
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 12
-  %661 = load i32, ptr %660, align 4, !tbaa !33
+  %661 = load i32, ptr %660, align 4, !tbaa !32
   %.not88.us.i533 = icmp eq i32 %661, 0
   br i1 %.not88.us.i533, label %.backedge.us.i551, label %662
 
 662:                                              ; preds = %.lr.ph.split.us.i531
   %663 = getelementptr inbounds nuw i8, ptr %659, i64 16
-  %664 = load i32, ptr %663, align 8, !tbaa !34
+  %664 = load i32, ptr %663, align 8, !tbaa !33
   %.not89.us.i534 = icmp eq i32 %664, 0
   br i1 %.not89.us.i534, label %.backedge.us.i551, label %665
 
 665:                                              ; preds = %662
   %666 = getelementptr inbounds nuw i8, ptr %659, i64 20
-  %667 = load i32, ptr %666, align 4, !tbaa !20
+  %667 = load i32, ptr %666, align 4, !tbaa !19
   %.not90.us.i535 = icmp eq i32 %667, 0
   br i1 %.not90.us.i535, label %.backedge.us.i551, label %668
 
 668:                                              ; preds = %665
   %669 = getelementptr inbounds nuw i8, ptr %659, i64 24
-  %670 = load i32, ptr %669, align 8, !tbaa !21
+  %670 = load i32, ptr %669, align 8, !tbaa !20
   %.not91.us.i536 = icmp eq i32 %670, 0
   br i1 %.not91.us.i536, label %.backedge.us.i551, label %671
 
@@ -2302,7 +2302,7 @@ ssl_cipher_apply_rule.exit524:                    ; preds = %.outer.i509, %.back
   %672 = getelementptr inbounds nuw i8, ptr %.1146.us.i532, i64 16
   %673 = getelementptr inbounds nuw i8, ptr %.1146.us.i532, i64 24
   %674 = getelementptr inbounds nuw i8, ptr %.1146.us.i532, i64 8
-  %675 = load i32, ptr %674, align 8, !tbaa !35
+  %675 = load i32, ptr %674, align 8, !tbaa !34
   %.not100.i537 = icmp eq i32 %675, 0
   br i1 %.not100.i537, label %678, label %.outer.i538
 
@@ -2310,7 +2310,7 @@ ssl_cipher_apply_rule.exit524:                    ; preds = %.outer.i509, %.back
   %676 = icmp eq ptr %.1146.us.i532, %.0.ph.lcssa.i514
   %677 = icmp eq ptr %658, null
   %or.cond101.us.i552 = select i1 %676, i1 true, i1 %677
-  br i1 %or.cond101.us.i552, label %ssl_cipher_apply_rule.exit553, label %.lr.ph.split.us.i531, !llvm.loop !36
+  br i1 %or.cond101.us.i552, label %ssl_cipher_apply_rule.exit553, label %.lr.ph.split.us.i531, !llvm.loop !35
 
 678:                                              ; preds = %671
   %679 = icmp eq ptr %.1146.us.i532, %.0.ph179.i529
@@ -2319,13 +2319,13 @@ ssl_cipher_apply_rule.exit524:                    ; preds = %.outer.i509, %.back
 680:                                              ; preds = %678
   %681 = icmp eq ptr %.1146.us.i532, %.0132.ph177.i530
   %..0132.i544 = select i1 %681, ptr %658, ptr %.0132.ph177.i530
-  %682 = load ptr, ptr %673, align 8, !tbaa !29
+  %682 = load ptr, ptr %673, align 8, !tbaa !28
   %.not.i102.i545 = icmp eq ptr %682, null
   br i1 %.not.i102.i545, label %._crit_edge.i.i546, label %683
 
 683:                                              ; preds = %680
   %684 = getelementptr inbounds nuw i8, ptr %682, i64 16
-  store ptr %658, ptr %684, align 8, !tbaa !30
+  store ptr %658, ptr %684, align 8, !tbaa !29
   br label %._crit_edge.i.i546
 
 ._crit_edge.i.i546:                               ; preds = %683, %680
@@ -2334,22 +2334,22 @@ ssl_cipher_apply_rule.exit524:                    ; preds = %.outer.i509, %.back
 
 685:                                              ; preds = %._crit_edge.i.i546
   %686 = getelementptr inbounds nuw i8, ptr %658, i64 24
-  store ptr %682, ptr %686, align 8, !tbaa !29
+  store ptr %682, ptr %686, align 8, !tbaa !28
   br label %687
 
 687:                                              ; preds = %685, %._crit_edge.i.i546
   %688 = getelementptr inbounds nuw i8, ptr %.0.ph179.i529, i64 16
-  store ptr %.1146.us.i532, ptr %688, align 8, !tbaa !30
-  store ptr %.0.ph179.i529, ptr %673, align 8, !tbaa !29
-  store ptr null, ptr %672, align 8, !tbaa !30
+  store ptr %.1146.us.i532, ptr %688, align 8, !tbaa !29
+  store ptr %.0.ph179.i529, ptr %673, align 8, !tbaa !28
+  store ptr null, ptr %672, align 8, !tbaa !29
   br label %ll_append_tail.exit.i548
 
 ll_append_tail.exit.i548:                         ; preds = %687, %678
   %.4136.i549 = phi ptr [ %.0132.ph177.i530, %678 ], [ %..0132.i544, %687 ]
   %.3.i550 = phi ptr [ %.0.ph179.i529, %678 ], [ %.1146.us.i532, %687 ]
-  store i32 1, ptr %674, align 8, !tbaa !35
+  store i32 1, ptr %674, align 8, !tbaa !34
   %689 = getelementptr inbounds nuw i8, ptr %.1146.us.i532, i64 12
-  store i32 0, ptr %689, align 4, !tbaa !38
+  store i32 0, ptr %689, align 4, !tbaa !37
   br label %.outer.i538
 
 .outer.i538:                                      ; preds = %ll_append_tail.exit.i548, %671
@@ -2358,7 +2358,7 @@ ll_append_tail.exit.i548:                         ; preds = %687, %678
   %690 = icmp eq ptr %.1146.us.i532, %.0.ph.lcssa.i514
   %691 = icmp eq ptr %658, null
   %or.cond101145.i541 = select i1 %690, i1 true, i1 %691
-  br i1 %or.cond101145.i541, label %ssl_cipher_apply_rule.exit553, label %.lr.ph.i527, !llvm.loop !39
+  br i1 %or.cond101145.i541, label %ssl_cipher_apply_rule.exit553, label %.lr.ph.i527
 
 ssl_cipher_apply_rule.exit553:                    ; preds = %.outer.i538, %.backedge.us.i551, %ssl_cipher_apply_rule.exit524
   %.0132.ph.lcssa.i542 = phi ptr [ %.0132.ph.lcssa.i513, %ssl_cipher_apply_rule.exit524 ], [ %.0132.ph177.i530, %.backedge.us.i551 ], [ %.1133.i539, %.outer.i538 ]
@@ -2377,29 +2377,29 @@ ssl_cipher_apply_rule.exit553:                    ; preds = %.outer.i538, %.back
 .lr.ph.split.us.i560:                             ; preds = %.backedge.us.i572, %.lr.ph.i556
   %.1146.us.i561 = phi ptr [ %695, %.backedge.us.i572 ], [ %.1.ph181.i557, %.lr.ph.i556 ]
   %694 = getelementptr inbounds nuw i8, ptr %.1146.us.i561, i64 16
-  %695 = load ptr, ptr %694, align 8, !tbaa !32
-  %696 = load ptr, ptr %.1146.us.i561, align 8, !tbaa !24
+  %695 = load ptr, ptr %694, align 8, !tbaa !31
+  %696 = load ptr, ptr %.1146.us.i561, align 8, !tbaa !23
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 12
-  %698 = load i32, ptr %697, align 4, !tbaa !33
+  %698 = load i32, ptr %697, align 4, !tbaa !32
   %699 = and i32 %698, -7
   %.not88.us.i562 = icmp eq i32 %699, 0
   br i1 %.not88.us.i562, label %.backedge.us.i572, label %700
 
 700:                                              ; preds = %.lr.ph.split.us.i560
   %701 = getelementptr inbounds nuw i8, ptr %696, i64 16
-  %702 = load i32, ptr %701, align 8, !tbaa !34
+  %702 = load i32, ptr %701, align 8, !tbaa !33
   %.not89.us.i563 = icmp eq i32 %702, 0
   br i1 %.not89.us.i563, label %.backedge.us.i572, label %703
 
 703:                                              ; preds = %700
   %704 = getelementptr inbounds nuw i8, ptr %696, i64 20
-  %705 = load i32, ptr %704, align 4, !tbaa !20
+  %705 = load i32, ptr %704, align 4, !tbaa !19
   %.not90.us.i564 = icmp eq i32 %705, 0
   br i1 %.not90.us.i564, label %.backedge.us.i572, label %706
 
 706:                                              ; preds = %703
   %707 = getelementptr inbounds nuw i8, ptr %696, i64 24
-  %708 = load i32, ptr %707, align 8, !tbaa !21
+  %708 = load i32, ptr %707, align 8, !tbaa !20
   %.not91.us.i565 = icmp eq i32 %708, 0
   br i1 %.not91.us.i565, label %.backedge.us.i572, label %709
 
@@ -2407,7 +2407,7 @@ ssl_cipher_apply_rule.exit553:                    ; preds = %.outer.i538, %.back
   %710 = getelementptr inbounds nuw i8, ptr %.1146.us.i561, i64 16
   %711 = getelementptr inbounds nuw i8, ptr %.1146.us.i561, i64 24
   %712 = getelementptr inbounds nuw i8, ptr %.1146.us.i561, i64 8
-  %713 = load i32, ptr %712, align 8, !tbaa !35
+  %713 = load i32, ptr %712, align 8, !tbaa !34
   %.not99.i = icmp eq i32 %713, 0
   br i1 %.not99.i, label %.outer.i566, label %716
 
@@ -2415,7 +2415,7 @@ ssl_cipher_apply_rule.exit553:                    ; preds = %.outer.i538, %.back
   %714 = icmp eq ptr %.1146.us.i561, %.0.ph.lcssa.i543
   %715 = icmp eq ptr %695, null
   %or.cond101.us.i573 = select i1 %714, i1 true, i1 %715
-  br i1 %or.cond101.us.i573, label %ssl_cipher_apply_rule.exit574, label %.lr.ph.split.us.i560, !llvm.loop !36
+  br i1 %or.cond101.us.i573, label %ssl_cipher_apply_rule.exit574, label %.lr.ph.split.us.i560, !llvm.loop !35
 
 716:                                              ; preds = %709
   %717 = icmp eq ptr %.1146.us.i561, %.0.ph179.i558
@@ -2424,13 +2424,13 @@ ssl_cipher_apply_rule.exit553:                    ; preds = %.outer.i538, %.back
 718:                                              ; preds = %716
   %719 = icmp eq ptr %.1146.us.i561, %.0132.ph177.i559
   %..0132141.i = select i1 %719, ptr %695, ptr %.0132.ph177.i559
-  %720 = load ptr, ptr %711, align 8, !tbaa !29
+  %720 = load ptr, ptr %711, align 8, !tbaa !28
   %.not.i103.i = icmp eq ptr %720, null
   br i1 %.not.i103.i, label %._crit_edge.i106.i, label %721
 
 721:                                              ; preds = %718
   %722 = getelementptr inbounds nuw i8, ptr %720, i64 16
-  store ptr %695, ptr %722, align 8, !tbaa !30
+  store ptr %695, ptr %722, align 8, !tbaa !29
   br label %._crit_edge.i106.i
 
 ._crit_edge.i106.i:                               ; preds = %721, %718
@@ -2439,21 +2439,21 @@ ssl_cipher_apply_rule.exit553:                    ; preds = %.outer.i538, %.back
 
 723:                                              ; preds = %._crit_edge.i106.i
   %724 = getelementptr inbounds nuw i8, ptr %695, i64 24
-  store ptr %720, ptr %724, align 8, !tbaa !29
+  store ptr %720, ptr %724, align 8, !tbaa !28
   br label %725
 
 725:                                              ; preds = %723, %._crit_edge.i106.i
   %726 = getelementptr inbounds nuw i8, ptr %.0.ph179.i558, i64 16
-  store ptr %.1146.us.i561, ptr %726, align 8, !tbaa !30
-  store ptr %.0.ph179.i558, ptr %711, align 8, !tbaa !29
-  store ptr null, ptr %710, align 8, !tbaa !30
+  store ptr %.1146.us.i561, ptr %726, align 8, !tbaa !29
+  store ptr %.0.ph179.i558, ptr %711, align 8, !tbaa !28
+  store ptr null, ptr %710, align 8, !tbaa !29
   br label %ll_append_tail.exit108.i
 
 ll_append_tail.exit108.i:                         ; preds = %725, %716
   %.6138.i = phi ptr [ %.0132.ph177.i559, %716 ], [ %..0132141.i, %725 ]
   %.4.i = phi ptr [ %.0.ph179.i558, %716 ], [ %.1146.us.i561, %725 ]
   %727 = getelementptr inbounds nuw i8, ptr %.1146.us.i561, i64 12
-  store i32 0, ptr %727, align 4, !tbaa !38
+  store i32 0, ptr %727, align 4, !tbaa !37
   br label %.outer.i566
 
 .outer.i566:                                      ; preds = %ll_append_tail.exit108.i, %709
@@ -2462,7 +2462,7 @@ ll_append_tail.exit108.i:                         ; preds = %725, %716
   %728 = icmp eq ptr %.1146.us.i561, %.0.ph.lcssa.i543
   %729 = icmp eq ptr %695, null
   %or.cond101145.i569 = select i1 %728, i1 true, i1 %729
-  br i1 %or.cond101145.i569, label %ssl_cipher_apply_rule.exit574, label %.lr.ph.i556, !llvm.loop !39
+  br i1 %or.cond101145.i569, label %ssl_cipher_apply_rule.exit574, label %.lr.ph.i556
 
 ssl_cipher_apply_rule.exit574:                    ; preds = %.outer.i566, %.backedge.us.i572, %ssl_cipher_apply_rule.exit553
   %.0132.ph.lcssa.i570 = phi ptr [ %.0132.ph.lcssa.i542, %ssl_cipher_apply_rule.exit553 ], [ %.0132.ph177.i559, %.backedge.us.i572 ], [ %.1133.i567, %.outer.i566 ]
@@ -2481,28 +2481,28 @@ ssl_cipher_apply_rule.exit574:                    ; preds = %.outer.i566, %.back
 .lr.ph.split.us.i581:                             ; preds = %.backedge.us.i601, %.lr.ph.i577
   %.1146.us.i582 = phi ptr [ %733, %.backedge.us.i601 ], [ %.1.ph181.i578, %.lr.ph.i577 ]
   %732 = getelementptr inbounds nuw i8, ptr %.1146.us.i582, i64 24
-  %733 = load ptr, ptr %732, align 8, !tbaa !32
-  %734 = load ptr, ptr %.1146.us.i582, align 8, !tbaa !24
+  %733 = load ptr, ptr %732, align 8, !tbaa !31
+  %734 = load ptr, ptr %.1146.us.i582, align 8, !tbaa !23
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 12
-  %736 = load i32, ptr %735, align 4, !tbaa !33
+  %736 = load i32, ptr %735, align 4, !tbaa !32
   %.not88.us.i583 = icmp eq i32 %736, 0
   br i1 %.not88.us.i583, label %.backedge.us.i601, label %737
 
 737:                                              ; preds = %.lr.ph.split.us.i581
   %738 = getelementptr inbounds nuw i8, ptr %734, i64 16
-  %739 = load i32, ptr %738, align 8, !tbaa !34
+  %739 = load i32, ptr %738, align 8, !tbaa !33
   %.not89.us.i584 = icmp eq i32 %739, 0
   br i1 %.not89.us.i584, label %.backedge.us.i601, label %740
 
 740:                                              ; preds = %737
   %741 = getelementptr inbounds nuw i8, ptr %734, i64 20
-  %742 = load i32, ptr %741, align 4, !tbaa !20
+  %742 = load i32, ptr %741, align 4, !tbaa !19
   %.not90.us.i585 = icmp eq i32 %742, 0
   br i1 %.not90.us.i585, label %.backedge.us.i601, label %743
 
 743:                                              ; preds = %740
   %744 = getelementptr inbounds nuw i8, ptr %734, i64 24
-  %745 = load i32, ptr %744, align 8, !tbaa !21
+  %745 = load i32, ptr %744, align 8, !tbaa !20
   %.not91.us.i586 = icmp eq i32 %745, 0
   br i1 %.not91.us.i586, label %.backedge.us.i601, label %746
 
@@ -2510,7 +2510,7 @@ ssl_cipher_apply_rule.exit574:                    ; preds = %.outer.i566, %.back
   %747 = getelementptr inbounds nuw i8, ptr %.1146.us.i582, i64 24
   %748 = getelementptr inbounds nuw i8, ptr %.1146.us.i582, i64 16
   %749 = getelementptr inbounds nuw i8, ptr %.1146.us.i582, i64 8
-  %750 = load i32, ptr %749, align 8, !tbaa !35
+  %750 = load i32, ptr %749, align 8, !tbaa !34
   %.not98.i587 = icmp eq i32 %750, 0
   br i1 %.not98.i587, label %.outer.i595, label %753
 
@@ -2518,7 +2518,7 @@ ssl_cipher_apply_rule.exit574:                    ; preds = %.outer.i566, %.back
   %751 = icmp eq ptr %.1146.us.i582, %.0132.ph.lcssa.i570
   %752 = icmp eq ptr %733, null
   %or.cond101.us.i602 = select i1 %751, i1 true, i1 %752
-  br i1 %or.cond101.us.i602, label %ssl_cipher_apply_rule.exit603, label %.lr.ph.split.us.i581, !llvm.loop !36
+  br i1 %or.cond101.us.i602, label %ssl_cipher_apply_rule.exit603, label %.lr.ph.split.us.i581, !llvm.loop !35
 
 753:                                              ; preds = %746
   %754 = icmp eq ptr %.1146.us.i582, %.0132.ph177.i580
@@ -2527,13 +2527,13 @@ ssl_cipher_apply_rule.exit574:                    ; preds = %.outer.i566, %.back
 755:                                              ; preds = %753
   %756 = icmp eq ptr %.1146.us.i582, %.0.ph179.i579
   %..0.i588 = select i1 %756, ptr %733, ptr %.0.ph179.i579
-  %757 = load ptr, ptr %748, align 8, !tbaa !30
+  %757 = load ptr, ptr %748, align 8, !tbaa !29
   %.not.i109.i589 = icmp eq ptr %757, null
   br i1 %.not.i109.i589, label %._crit_edge.i112.i590, label %758
 
 758:                                              ; preds = %755
   %759 = getelementptr inbounds nuw i8, ptr %757, i64 24
-  store ptr %733, ptr %759, align 8, !tbaa !29
+  store ptr %733, ptr %759, align 8, !tbaa !28
   br label %._crit_edge.i112.i590
 
 ._crit_edge.i112.i590:                            ; preds = %758, %755
@@ -2542,22 +2542,22 @@ ssl_cipher_apply_rule.exit574:                    ; preds = %.outer.i566, %.back
 
 760:                                              ; preds = %._crit_edge.i112.i590
   %761 = getelementptr inbounds nuw i8, ptr %733, i64 16
-  store ptr %757, ptr %761, align 8, !tbaa !30
+  store ptr %757, ptr %761, align 8, !tbaa !29
   br label %762
 
 762:                                              ; preds = %760, %._crit_edge.i112.i590
   %763 = getelementptr inbounds nuw i8, ptr %.0132.ph177.i580, i64 24
-  store ptr %.1146.us.i582, ptr %763, align 8, !tbaa !29
-  store ptr %.0132.ph177.i580, ptr %748, align 8, !tbaa !30
-  store ptr null, ptr %747, align 8, !tbaa !29
+  store ptr %.1146.us.i582, ptr %763, align 8, !tbaa !28
+  store ptr %.0132.ph177.i580, ptr %748, align 8, !tbaa !29
+  store ptr null, ptr %747, align 8, !tbaa !28
   br label %ll_append_head.exit.i592
 
 ll_append_head.exit.i592:                         ; preds = %762, %753
   %.7.i593 = phi ptr [ %.0132.ph177.i580, %753 ], [ %.1146.us.i582, %762 ]
   %.6.i594 = phi ptr [ %.0.ph179.i579, %753 ], [ %..0.i588, %762 ]
-  store i32 0, ptr %749, align 8, !tbaa !35
+  store i32 0, ptr %749, align 8, !tbaa !34
   %764 = getelementptr inbounds nuw i8, ptr %.1146.us.i582, i64 12
-  store i32 0, ptr %764, align 4, !tbaa !38
+  store i32 0, ptr %764, align 4, !tbaa !37
   br label %.outer.i595
 
 .outer.i595:                                      ; preds = %ll_append_head.exit.i592, %746
@@ -2566,13 +2566,13 @@ ll_append_head.exit.i592:                         ; preds = %762, %753
   %765 = icmp eq ptr %.1146.us.i582, %.0132.ph.lcssa.i570
   %766 = icmp eq ptr %733, null
   %or.cond101145.i598 = select i1 %765, i1 true, i1 %766
-  br i1 %or.cond101145.i598, label %ssl_cipher_apply_rule.exit603, label %.lr.ph.i577, !llvm.loop !39
+  br i1 %or.cond101145.i598, label %ssl_cipher_apply_rule.exit603, label %.lr.ph.i577
 
 ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.backedge.us.i601, %ssl_cipher_apply_rule.exit574
   %.0132.ph.lcssa.i599 = phi ptr [ %.0132.ph.lcssa.i570, %ssl_cipher_apply_rule.exit574 ], [ %.0132.ph177.i580, %.backedge.us.i601 ], [ %.1133.i596, %.outer.i595 ]
   %.0.ph.lcssa.i600 = phi ptr [ %.0.ph.lcssa.i571, %ssl_cipher_apply_rule.exit574 ], [ %.0.ph179.i579, %.backedge.us.i601 ], [ %.1131.i597, %.outer.i595 ]
-  store ptr %.0132.ph.lcssa.i599, ptr %5, align 8, !tbaa !32
-  store ptr %.0.ph.lcssa.i600, ptr %6, align 8, !tbaa !32
+  store ptr %.0132.ph.lcssa.i599, ptr %5, align 8, !tbaa !31
+  store ptr %.0.ph.lcssa.i600, ptr %6, align 8, !tbaa !31
   %767 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.1, i64 noundef 7) #18
   %768 = icmp eq i32 %767, 0
   br i1 %768, label %769, label %.thread
@@ -2580,7 +2580,7 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
 769:                                              ; preds = %ssl_cipher_apply_rule.exit603
   %770 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull @.str.2, ptr noundef %5, ptr noundef %6)
   %771 = getelementptr inbounds nuw i8, ptr %3, i64 7
-  %772 = load i8, ptr %771, align 1, !tbaa !40
+  %772 = load i8, ptr %771, align 1, !tbaa !38
   %773 = icmp eq i8 %772, 58
   %774 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %spec.select = select i1 %773, ptr %774, ptr %771
@@ -2609,7 +2609,7 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
   br i1 %.not86, label %.critedge96, label %.preheader
 
 .preheader:                                       ; preds = %780
-  %.061838 = load ptr, ptr %5, align 8, !tbaa !32
+  %.061838 = load ptr, ptr %5, align 8, !tbaa !31
   %.not87839 = icmp eq ptr %.061838, null
   br i1 %.not87839, label %._crit_edge, label %.lr.ph
 
@@ -2617,32 +2617,32 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
   %.061841 = phi ptr [ %.061, %794 ], [ %.061838, %.preheader ]
   %.059840 = phi i32 [ %.1, %794 ], [ 0, %.preheader ]
   %782 = getelementptr inbounds nuw i8, ptr %.061841, i64 8
-  %783 = load i32, ptr %782, align 8, !tbaa !35
+  %783 = load i32, ptr %782, align 8, !tbaa !34
   %.not92 = icmp eq i32 %783, 0
   br i1 %.not92, label %794, label %784
 
 784:                                              ; preds = %.lr.ph
-  %785 = load ptr, ptr %.061841, align 8, !tbaa !24
+  %785 = load ptr, ptr %.061841, align 8, !tbaa !23
   %786 = tail call i64 @sk_push(ptr noundef nonnull %778, ptr noundef %785) #16
   %.not93 = icmp eq i64 %786, 0
   br i1 %.not93, label %.critedge96, label %787
 
 787:                                              ; preds = %784
   %788 = getelementptr inbounds nuw i8, ptr %.061841, i64 12
-  %789 = load i32, ptr %788, align 4, !tbaa !38
+  %789 = load i32, ptr %788, align 4, !tbaa !37
   %790 = trunc i32 %789 to i8
   %791 = add i32 %.059840, 1
   %792 = zext i32 %.059840 to i64
   %793 = getelementptr inbounds nuw i8, ptr %781, i64 %792
-  store i8 %790, ptr %793, align 1, !tbaa !40
+  store i8 %790, ptr %793, align 1, !tbaa !38
   br label %794
 
 794:                                              ; preds = %.lr.ph, %787
   %.1 = phi i32 [ %791, %787 ], [ %.059840, %.lr.ph ]
   %795 = getelementptr inbounds nuw i8, ptr %.061841, i64 16
-  %.061 = load ptr, ptr %795, align 8, !tbaa !32
+  %.061 = load ptr, ptr %795, align 8, !tbaa !31
   %.not87 = icmp eq ptr %.061, null
-  br i1 %.not87, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !41
+  br i1 %.not87, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %794
   %796 = zext i32 %.1 to i64
@@ -2661,17 +2661,17 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
   br i1 %.not88, label %.critedge96, label %801
 
 801:                                              ; preds = %799
-  store ptr %778, ptr %800, align 8, !tbaa !42
+  store ptr %778, ptr %800, align 8, !tbaa !40
   %802 = tail call noalias ptr @malloc(i64 noundef %.059.lcssa) #17
   %803 = getelementptr inbounds nuw i8, ptr %800, i64 8
-  store ptr %802, ptr %803, align 8, !tbaa !45
+  store ptr %802, ptr %803, align 8, !tbaa !43
   %.not89 = icmp eq ptr %802, null
   br i1 %.not89, label %.critedge96, label %804
 
 804:                                              ; preds = %801
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %802, ptr nonnull align 1 %781, i64 %.059.lcssa, i1 false)
   tail call void @free(ptr noundef %781) #16
-  %805 = load ptr, ptr %1, align 8, !tbaa !46
+  %805 = load ptr, ptr %1, align 8, !tbaa !44
   %.not90 = icmp eq ptr %805, null
   br i1 %.not90, label %807, label %806
 
@@ -2680,16 +2680,16 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
   br label %807
 
 807:                                              ; preds = %806, %804
-  store ptr %800, ptr %1, align 8, !tbaa !46
+  store ptr %800, ptr %1, align 8, !tbaa !44
   %.not91 = icmp eq ptr %2, null
   br i1 %.not91, label %812, label %808
 
 808:                                              ; preds = %807
-  %809 = load ptr, ptr %2, align 8, !tbaa !48
+  %809 = load ptr, ptr %2, align 8, !tbaa !46
   tail call void @sk_free(ptr noundef %809) #16
-  store ptr %797, ptr %2, align 8, !tbaa !48
+  store ptr %797, ptr %2, align 8, !tbaa !46
   %810 = tail call ptr @sk_set_cmp_func(ptr noundef nonnull %797, ptr noundef nonnull @ssl_cipher_ptr_id_cmp) #16
-  %811 = load ptr, ptr %2, align 8, !tbaa !48
+  %811 = load ptr, ptr %2, align 8, !tbaa !46
   tail call void @sk_sort(ptr noundef %811) #16
   br label %817
 
@@ -2712,7 +2712,7 @@ ssl_cipher_apply_rule.exit603:                    ; preds = %.outer.i595, %.back
 
 813:                                              ; preds = %.critedge96
   %814 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %815 = load ptr, ptr %814, align 8, !tbaa !45
+  %815 = load ptr, ptr %814, align 8, !tbaa !43
   tail call void @free(ptr noundef %815) #16
   br label %816
 
@@ -2753,8 +2753,8 @@ define internal fastcc void @ssl_cipher_apply_rule(i32 noundef range(i32 5038389
 
 20:                                               ; preds = %15, %11
   %.not = icmp eq i32 %6, 3
-  %21 = load ptr, ptr %9, align 8, !tbaa !32
-  %22 = load ptr, ptr %10, align 8, !tbaa !32
+  %21 = load ptr, ptr %9, align 8, !tbaa !31
+  %22 = load ptr, ptr %10, align 8, !tbaa !31
   %.080 = select i1 %.not, ptr %22, ptr %21
   %.079 = select i1 %.not, ptr %21, ptr %22
   %23 = icmp eq ptr %.079, null
@@ -2778,34 +2778,34 @@ define internal fastcc void @ssl_cipher_apply_rule(i32 noundef range(i32 5038389
   %27 = getelementptr inbounds nuw i8, ptr %.1146.us, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %.1146.us, i64 16
   %.in.us = select i1 %.not, ptr %27, ptr %28
-  %29 = load ptr, ptr %.in.us, align 8, !tbaa !32
-  %30 = load ptr, ptr %.1146.us, align 8, !tbaa !24
+  %29 = load ptr, ptr %.in.us, align 8, !tbaa !31
+  %30 = load ptr, ptr %.1146.us, align 8, !tbaa !23
   br i1 %25, label %51, label %31
 
 31:                                               ; preds = %.lr.ph.split.us
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  %33 = load i32, ptr %32, align 4, !tbaa !33
+  %33 = load i32, ptr %32, align 4, !tbaa !32
   %34 = and i32 %33, %1
   %.not88.us = icmp eq i32 %34, 0
   br i1 %.not88.us, label %.backedge.us, label %35
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %37 = load i32, ptr %36, align 8, !tbaa !34
+  %37 = load i32, ptr %36, align 8, !tbaa !33
   %38 = and i32 %37, %2
   %.not89.us = icmp eq i32 %38, 0
   br i1 %.not89.us, label %.backedge.us, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 20
-  %41 = load i32, ptr %40, align 4, !tbaa !20
+  %41 = load i32, ptr %40, align 4, !tbaa !19
   %42 = and i32 %41, %3
   %.not90.us = icmp eq i32 %42, 0
   br i1 %.not90.us, label %.backedge.us, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %45 = load i32, ptr %44, align 8, !tbaa !21
+  %45 = load i32, ptr %44, align 8, !tbaa !20
   %46 = and i32 %45, %4
   %.not91.us = icmp eq i32 %46, 0
   br i1 %.not91.us, label %.backedge.us, label %47
@@ -2815,7 +2815,7 @@ define internal fastcc void @ssl_cipher_apply_rule(i32 noundef range(i32 5038389
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 28
-  %50 = load i32, ptr %49, align 4, !tbaa !49
+  %50 = load i32, ptr %49, align 4, !tbaa !47
   %.not.i.us = icmp eq i32 %50, 1
   %..i.us = select i1 %.not.i.us, i16 768, i16 771
   %.not93.us = icmp eq i16 %..i.us, %5
@@ -2827,7 +2827,7 @@ define internal fastcc void @ssl_cipher_apply_rule(i32 noundef range(i32 5038389
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %30, i64 20
-  %55 = load i32, ptr %54, align 4, !tbaa !20
+  %55 = load i32, ptr %54, align 4, !tbaa !19
   switch i32 %55, label %58 [
     i32 4, label %SSL_CIPHER_get_bits.exit.us
     i32 16, label %SSL_CIPHER_get_bits.exit.us
@@ -2857,7 +2857,7 @@ SSL_CIPHER_get_bits.exit.us:                      ; preds = %58, %57, %56, %53, 
   %59 = icmp eq ptr %.1146.us, %.079
   %60 = icmp eq ptr %29, null
   %or.cond101.us = select i1 %59, i1 true, i1 %60
-  br i1 %or.cond101.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !36
+  br i1 %or.cond101.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !35
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -2865,8 +2865,8 @@ SSL_CIPHER_get_bits.exit.us:                      ; preds = %58, %57, %56, %53, 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.backedge.us162
   %.1146.us161 = phi ptr [ %62, %.backedge.us162 ], [ %.1.ph181, %.lr.ph.split ]
   %61 = getelementptr inbounds nuw i8, ptr %.1146.us161, i64 24
-  %62 = load ptr, ptr %61, align 8, !tbaa !32
-  %63 = load ptr, ptr %.1146.us161, align 8, !tbaa !24
+  %62 = load ptr, ptr %61, align 8, !tbaa !31
+  %63 = load ptr, ptr %.1146.us161, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i32, ptr %64, align 8, !tbaa !6
   %.not95.us = icmp eq i32 %0, %65
@@ -2876,7 +2876,7 @@ SSL_CIPHER_get_bits.exit.us:                      ; preds = %58, %57, %56, %53, 
   %66 = icmp eq ptr %.1146.us161, %.079
   %67 = icmp eq ptr %62, null
   %or.cond101.us163 = select i1 %66, i1 true, i1 %67
-  br i1 %or.cond101.us163, label %.outer._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !50
+  br i1 %or.cond101.us163, label %.outer._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !48
 
 .split.split.us:                                  ; preds = %.lr.ph.split.split.us
   %68 = getelementptr inbounds nuw i8, ptr %.1146.us161, i64 24
@@ -2886,8 +2886,8 @@ SSL_CIPHER_get_bits.exit.us:                      ; preds = %58, %57, %56, %53, 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.backedge
   %.1146 = phi ptr [ %71, %.backedge ], [ %.1.ph181, %.lr.ph.split ]
   %70 = getelementptr inbounds nuw i8, ptr %.1146, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !32
-  %72 = load ptr, ptr %.1146, align 8, !tbaa !24
+  %71 = load ptr, ptr %70, align 8, !tbaa !31
+  %72 = load ptr, ptr %.1146, align 8, !tbaa !23
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 8, !tbaa !6
   %.not95 = icmp eq i32 %0, %74
@@ -2897,7 +2897,7 @@ SSL_CIPHER_get_bits.exit.us:                      ; preds = %58, %57, %56, %53, 
   %75 = icmp eq ptr %.1146, %.079
   %76 = icmp eq ptr %71, null
   %or.cond101 = select i1 %75, i1 true, i1 %76
-  br i1 %or.cond101, label %.outer._crit_edge, label %.lr.ph.split.split, !llvm.loop !39
+  br i1 %or.cond101, label %.outer._crit_edge, label %.lr.ph.split.split
 
 .split.split:                                     ; preds = %.lr.ph.split.split
   %77 = getelementptr inbounds nuw i8, ptr %.1146, i64 16
@@ -2916,7 +2916,7 @@ SSL_CIPHER_get_bits.exit.us:                      ; preds = %58, %57, %56, %53, 
 
 79:                                               ; preds = %.split.us
   %80 = getelementptr inbounds nuw i8, ptr %.us-phi152, i64 8
-  %81 = load i32, ptr %80, align 8, !tbaa !35
+  %81 = load i32, ptr %80, align 8, !tbaa !34
   %.not100 = icmp eq i32 %81, 0
   br i1 %.not100, label %82, label %.outer
 
@@ -2926,15 +2926,15 @@ SSL_CIPHER_get_bits.exit.us:                      ; preds = %58, %57, %56, %53, 
 
 84:                                               ; preds = %82
   %85 = icmp eq ptr %.us-phi152, %.0132.ph177
-  %86 = load ptr, ptr %.us-phi150, align 8, !tbaa !30
+  %86 = load ptr, ptr %.us-phi150, align 8, !tbaa !29
   %..0132 = select i1 %85, ptr %86, ptr %.0132.ph177
-  %87 = load ptr, ptr %.us-phi, align 8, !tbaa !29
+  %87 = load ptr, ptr %.us-phi, align 8, !tbaa !28
   %.not.i102 = icmp eq ptr %87, null
   br i1 %.not.i102, label %._crit_edge.i, label %88
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  store ptr %86, ptr %89, align 8, !tbaa !30
+  store ptr %86, ptr %89, align 8, !tbaa !29
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %88, %84
@@ -2943,27 +2943,27 @@ SSL_CIPHER_get_bits.exit.us:                      ; preds = %58, %57, %56, %53, 
 
 90:                                               ; preds = %._crit_edge.i
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  store ptr %87, ptr %91, align 8, !tbaa !29
+  store ptr %87, ptr %91, align 8, !tbaa !28
   br label %92
 
 92:                                               ; preds = %90, %._crit_edge.i
   %93 = getelementptr inbounds nuw i8, ptr %.0.ph179, i64 16
-  store ptr %.us-phi152, ptr %93, align 8, !tbaa !30
-  store ptr %.0.ph179, ptr %.us-phi, align 8, !tbaa !29
-  store ptr null, ptr %.us-phi150, align 8, !tbaa !30
+  store ptr %.us-phi152, ptr %93, align 8, !tbaa !29
+  store ptr %.0.ph179, ptr %.us-phi, align 8, !tbaa !28
+  store ptr null, ptr %.us-phi150, align 8, !tbaa !29
   br label %ll_append_tail.exit
 
 ll_append_tail.exit:                              ; preds = %82, %92
   %.4136 = phi ptr [ %.0132.ph177, %82 ], [ %..0132, %92 ]
   %.3 = phi ptr [ %.0.ph179, %82 ], [ %.us-phi152, %92 ]
-  store i32 1, ptr %80, align 8, !tbaa !35
+  store i32 1, ptr %80, align 8, !tbaa !34
   %94 = getelementptr inbounds nuw i8, ptr %.us-phi152, i64 12
-  store i32 %8, ptr %94, align 4, !tbaa !38
+  store i32 %8, ptr %94, align 4, !tbaa !37
   br label %.outer
 
 95:                                               ; preds = %.split.us
   %96 = getelementptr inbounds nuw i8, ptr %.us-phi152, i64 8
-  %97 = load i32, ptr %96, align 8, !tbaa !35
+  %97 = load i32, ptr %96, align 8, !tbaa !34
   %.not99 = icmp eq i32 %97, 0
   br i1 %.not99, label %.outer, label %98
 
@@ -2973,15 +2973,15 @@ ll_append_tail.exit:                              ; preds = %82, %92
 
 100:                                              ; preds = %98
   %101 = icmp eq ptr %.us-phi152, %.0132.ph177
-  %102 = load ptr, ptr %.us-phi150, align 8, !tbaa !30
+  %102 = load ptr, ptr %.us-phi150, align 8, !tbaa !29
   %..0132141 = select i1 %101, ptr %102, ptr %.0132.ph177
-  %103 = load ptr, ptr %.us-phi, align 8, !tbaa !29
+  %103 = load ptr, ptr %.us-phi, align 8, !tbaa !28
   %.not.i103 = icmp eq ptr %103, null
   br i1 %.not.i103, label %._crit_edge.i106, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  store ptr %102, ptr %105, align 8, !tbaa !30
+  store ptr %102, ptr %105, align 8, !tbaa !29
   br label %._crit_edge.i106
 
 ._crit_edge.i106:                                 ; preds = %104, %100
@@ -2990,21 +2990,21 @@ ll_append_tail.exit:                              ; preds = %82, %92
 
 106:                                              ; preds = %._crit_edge.i106
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  store ptr %103, ptr %107, align 8, !tbaa !29
+  store ptr %103, ptr %107, align 8, !tbaa !28
   br label %108
 
 108:                                              ; preds = %106, %._crit_edge.i106
   %109 = getelementptr inbounds nuw i8, ptr %.0.ph179, i64 16
-  store ptr %.us-phi152, ptr %109, align 8, !tbaa !30
-  store ptr %.0.ph179, ptr %.us-phi, align 8, !tbaa !29
-  store ptr null, ptr %.us-phi150, align 8, !tbaa !30
+  store ptr %.us-phi152, ptr %109, align 8, !tbaa !29
+  store ptr %.0.ph179, ptr %.us-phi, align 8, !tbaa !28
+  store ptr null, ptr %.us-phi150, align 8, !tbaa !29
   br label %ll_append_tail.exit108
 
 ll_append_tail.exit108:                           ; preds = %98, %108
   %.6138 = phi ptr [ %.0132.ph177, %98 ], [ %..0132141, %108 ]
   %.4 = phi ptr [ %.0.ph179, %98 ], [ %.us-phi152, %108 ]
   %110 = getelementptr inbounds nuw i8, ptr %.us-phi152, i64 12
-  store i32 0, ptr %110, align 4, !tbaa !38
+  store i32 0, ptr %110, align 4, !tbaa !37
   br label %.outer
 
 111:                                              ; preds = %.split.us
@@ -3012,7 +3012,7 @@ ll_append_tail.exit108:                           ; preds = %98, %108
 
 112:                                              ; preds = %111
   %113 = getelementptr inbounds nuw i8, ptr %.us-phi152, i64 8
-  %114 = load i32, ptr %113, align 8, !tbaa !35
+  %114 = load i32, ptr %113, align 8, !tbaa !34
   %.not98 = icmp eq i32 %114, 0
   br i1 %.not98, label %.outer, label %115
 
@@ -3022,15 +3022,15 @@ ll_append_tail.exit108:                           ; preds = %98, %108
 
 117:                                              ; preds = %115
   %118 = icmp eq ptr %.us-phi152, %.0.ph179
-  %119 = load ptr, ptr %.us-phi, align 8, !tbaa !29
+  %119 = load ptr, ptr %.us-phi, align 8, !tbaa !28
   %..0 = select i1 %118, ptr %119, ptr %.0.ph179
-  %120 = load ptr, ptr %.us-phi150, align 8, !tbaa !30
+  %120 = load ptr, ptr %.us-phi150, align 8, !tbaa !29
   %.not.i109 = icmp eq ptr %120, null
   br i1 %.not.i109, label %._crit_edge.i112, label %121
 
 121:                                              ; preds = %117
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  store ptr %119, ptr %122, align 8, !tbaa !29
+  store ptr %119, ptr %122, align 8, !tbaa !28
   br label %._crit_edge.i112
 
 ._crit_edge.i112:                                 ; preds = %121, %117
@@ -3039,22 +3039,22 @@ ll_append_tail.exit108:                           ; preds = %98, %108
 
 123:                                              ; preds = %._crit_edge.i112
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store ptr %120, ptr %124, align 8, !tbaa !30
+  store ptr %120, ptr %124, align 8, !tbaa !29
   br label %125
 
 125:                                              ; preds = %123, %._crit_edge.i112
   %126 = getelementptr inbounds nuw i8, ptr %.0132.ph177, i64 24
-  store ptr %.us-phi152, ptr %126, align 8, !tbaa !29
-  store ptr %.0132.ph177, ptr %.us-phi150, align 8, !tbaa !30
-  store ptr null, ptr %.us-phi, align 8, !tbaa !29
+  store ptr %.us-phi152, ptr %126, align 8, !tbaa !28
+  store ptr %.0132.ph177, ptr %.us-phi150, align 8, !tbaa !29
+  store ptr null, ptr %.us-phi, align 8, !tbaa !28
   br label %ll_append_head.exit
 
 ll_append_head.exit:                              ; preds = %115, %125
   %.7 = phi ptr [ %.0132.ph177, %115 ], [ %.us-phi152, %125 ]
   %.6 = phi ptr [ %.0.ph179, %115 ], [ %..0, %125 ]
-  store i32 0, ptr %113, align 8, !tbaa !35
+  store i32 0, ptr %113, align 8, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %.us-phi152, i64 12
-  store i32 0, ptr %127, align 4, !tbaa !38
+  store i32 0, ptr %127, align 4, !tbaa !37
   br label %.outer
 
 128:                                              ; preds = %111
@@ -3062,13 +3062,13 @@ ll_append_head.exit:                              ; preds = %115, %125
 
 129:                                              ; preds = %128
   %130 = icmp eq ptr %.0132.ph177, %.us-phi152
-  %131 = load ptr, ptr %.us-phi150, align 8, !tbaa !30
-  %.pre.pre.pre = load ptr, ptr %.us-phi, align 8, !tbaa !29
+  %131 = load ptr, ptr %.us-phi150, align 8, !tbaa !29
+  %.pre.pre.pre = load ptr, ptr %.us-phi, align 8, !tbaa !28
   br i1 %130, label %134, label %132
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %.pre.pre.pre, i64 16
-  store ptr %131, ptr %133, align 8, !tbaa !30
+  store ptr %131, ptr %133, align 8, !tbaa !29
   br label %134
 
 134:                                              ; preds = %129, %132
@@ -3076,13 +3076,13 @@ ll_append_head.exit:                              ; preds = %115, %125
   %135 = icmp eq ptr %.0.ph179, %.us-phi152
   %.2 = select i1 %135, ptr %.pre.pre.pre, ptr %.0.ph179
   %136 = getelementptr inbounds nuw i8, ptr %.us-phi152, i64 8
-  store i32 0, ptr %136, align 8, !tbaa !35
+  store i32 0, ptr %136, align 8, !tbaa !34
   %.not96 = icmp eq ptr %131, null
   br i1 %.not96, label %139, label %137
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  store ptr %.pre.pre.pre, ptr %138, align 8, !tbaa !29
+  store ptr %.pre.pre.pre, ptr %138, align 8, !tbaa !28
   br label %139
 
 139:                                              ; preds = %137, %134
@@ -3091,12 +3091,12 @@ ll_append_head.exit:                              ; preds = %115, %125
 
 140:                                              ; preds = %139
   %141 = getelementptr inbounds nuw i8, ptr %.pre.pre.pre, i64 16
-  store ptr %131, ptr %141, align 8, !tbaa !30
+  store ptr %131, ptr %141, align 8, !tbaa !29
   br label %142
 
 142:                                              ; preds = %140, %139
-  store ptr null, ptr %.us-phi150, align 8, !tbaa !30
-  store ptr null, ptr %.us-phi, align 8, !tbaa !29
+  store ptr null, ptr %.us-phi150, align 8, !tbaa !29
+  store ptr null, ptr %.us-phi, align 8, !tbaa !28
   br label %.outer
 
 .outer:                                           ; preds = %ll_append_tail.exit108, %95, %128, %142, %112, %ll_append_head.exit, %79, %ll_append_tail.exit
@@ -3105,13 +3105,13 @@ ll_append_head.exit:                              ; preds = %115, %125
   %143 = icmp eq ptr %.us-phi152, %.079
   %144 = icmp eq ptr %.us-phi151, null
   %or.cond101145 = select i1 %143, i1 true, i1 %144
-  br i1 %or.cond101145, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %or.cond101145, label %.outer._crit_edge, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.backedge.us162, %.backedge.us, %20
   %.0132.ph.lcssa = phi ptr [ %21, %20 ], [ %.0132.ph177, %.backedge.us ], [ %.0132.ph177, %.backedge.us162 ], [ %.0132.ph177, %.backedge ], [ %.1133, %.outer ]
   %.0.ph.lcssa = phi ptr [ %22, %20 ], [ %.0.ph179, %.backedge.us ], [ %.0.ph179, %.backedge.us162 ], [ %.0.ph179, %.backedge ], [ %.1131, %.outer ]
-  store ptr %.0132.ph.lcssa, ptr %9, align 8, !tbaa !32
-  store ptr %.0.ph.lcssa, ptr %10, align 8, !tbaa !32
+  store ptr %.0132.ph.lcssa, ptr %9, align 8, !tbaa !31
+  store ptr %.0.ph.lcssa, ptr %10, align 8, !tbaa !31
   br label %145
 
 145:                                              ; preds = %15, %.outer._crit_edge
@@ -3125,7 +3125,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #2 {
-  %4 = load i8, ptr %0, align 1, !tbaa !40
+  %4 = load i8, ptr %0, align 1, !tbaa !38
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %.thread19, label %.lr.ph.lr.ph.lr.ph
 
@@ -3194,15 +3194,15 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 
 17:                                               ; preds = %.thread.us, %.thread.us, %.thread.us, %.thread.us
   %18 = getelementptr inbounds nuw i8, ptr %.11844.us, i64 1
-  %19 = load i8, ptr %18, align 1, !tbaa !40
+  %19 = load i8, ptr %18, align 1, !tbaa !38
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %.thread19, label %9, !llvm.loop !51
+  br i1 %20, label %.thread19, label %9
 
 .split.us:                                        ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %.018365.us, i64 1
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !38
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %.outer30._crit_edge.thread288, label %.lr.ph.lr.ph, !llvm.loop !51
+  br i1 %23, label %.outer30._crit_edge.thread288, label %.lr.ph.lr.ph
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %46
   %24 = phi i8 [ %48, %46 ], [ %8, %.lr.ph ]
@@ -3213,21 +3213,21 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
   ]
 
 25:                                               ; preds = %.lr.ph.split
-  %26 = load ptr, ptr %2, align 8, !tbaa !32
+  %26 = load ptr, ptr %2, align 8, !tbaa !31
   %.not215 = icmp eq ptr %26, null
   br i1 %.not215, label %.outer30.backedge, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  store i32 0, ptr %28, align 4, !tbaa !38
+  store i32 0, ptr %28, align 4, !tbaa !37
   br label %.outer30.backedge
 
 .outer30.backedge:                                ; preds = %.lr.ph.split, %25, %27
   %.0162.ph32.be = phi i32 [ 0, %27 ], [ 0, %25 ], [ 1, %.lr.ph.split ]
   %.0183.ph31.be = getelementptr inbounds nuw i8, ptr %.018365, i64 1
-  %29 = load i8, ptr %.0183.ph31.be, align 1, !tbaa !40
+  %29 = load i8, ptr %.0183.ph31.be, align 1, !tbaa !38
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %.outer30._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %30, label %.outer30._crit_edge, label %.lr.ph
 
 31:                                               ; preds = %.lr.ph.split
   %32 = and i8 %24, -33
@@ -3266,7 +3266,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 .preheader28.split109.us:                         ; preds = %.preheader28, %.critedge.us
   %.3186.us = phi ptr [ %44, %.critedge.us ], [ %.11844.us, %.preheader28 ]
   %.0158.us = phi i64 [ %45, %.critedge.us ], [ 0, %.preheader28 ]
-  %.0152.us = load i8, ptr %.3186.us, align 1, !tbaa !40
+  %.0152.us = load i8, ptr %.3186.us, align 1, !tbaa !38
   %36 = add i8 %.0152.us, -65
   %or.cond22.us = icmp ult i8 %36, 26
   %37 = add i8 %.0152.us, -48
@@ -3289,13 +3289,13 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 .critedge.us:                                     ; preds = %38, %.preheader28.split109.us
   %44 = getelementptr inbounds nuw i8, ptr %.3186.us, i64 1
   %45 = add i64 %.0158.us, 1
-  br label %.preheader28.split109.us, !llvm.loop !52
+  br label %.preheader28.split109.us, !llvm.loop !49
 
 46:                                               ; preds = %.thread, %.thread, %.thread, %.thread
   %47 = getelementptr inbounds nuw i8, ptr %.018365, i64 1
-  %48 = load i8, ptr %47, align 1, !tbaa !40
+  %48 = load i8, ptr %47, align 1, !tbaa !38
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %.outer30._crit_edge.thread288, label %.lr.ph.split, !llvm.loop !51
+  br i1 %49, label %.outer30._crit_edge.thread288, label %.lr.ph.split
 
 .preheader28.split109:                            ; preds = %.preheader28.split109.preheader, %97
   %.0198 = phi i32 [ %.2200, %97 ], [ -1, %.preheader28.split109.preheader ]
@@ -3312,7 +3312,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 51:                                               ; preds = %.critedge, %.preheader28.split109
   %.3186 = phi ptr [ %.2185, %.preheader28.split109 ], [ %58, %.critedge ]
   %.0158 = phi i64 [ 0, %.preheader28.split109 ], [ %59, %.critedge ]
-  %.0152 = load i8, ptr %.3186, align 1, !tbaa !40
+  %.0152 = load i8, ptr %.3186, align 1, !tbaa !38
   %52 = add i8 %.0152, -65
   %or.cond22 = icmp ult i8 %52, 26
   %53 = add i8 %.0152, -48
@@ -3331,7 +3331,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 .critedge:                                        ; preds = %51, %54
   %58 = getelementptr inbounds nuw i8, ptr %.3186, i64 1
   %59 = add i64 %.0158, 1
-  br label %51, !llvm.loop !53
+  br label %51, !llvm.loop !50
 
 60:                                               ; preds = %54
   %61 = icmp eq i64 %.0158, 0
@@ -3361,14 +3361,14 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nound
 .preheader26:                                     ; preds = %63, %rule_equals.exit.thread
   %.0159107 = phi i64 [ %74, %rule_equals.exit.thread ], [ 0, %63 ]
   %65 = getelementptr inbounds nuw [40 x %struct.ssl_cipher_st], ptr @kCiphers, i64 0, i64 %.0159107
-  %66 = load ptr, ptr %65, align 16, !tbaa !54
+  %66 = load ptr, ptr %65, align 16, !tbaa !51
   %67 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %66, ptr noundef nonnull readonly dereferenceable(1) %.2185, i64 noundef range(i64 1, 0) %.0158) #18
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %rule_equals.exit, label %rule_equals.exit.thread
 
 rule_equals.exit:                                 ; preds = %.preheader26
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.0158
-  %70 = load i8, ptr %69, align 1, !tbaa !40
+  %70 = load i8, ptr %69, align 1, !tbaa !38
   %.not24 = icmp eq i8 %70, 0
   br i1 %.not24, label %71, label %rule_equals.exit.thread
 
@@ -3380,7 +3380,7 @@ rule_equals.exit:                                 ; preds = %.preheader26
 rule_equals.exit.thread:                          ; preds = %.preheader26, %rule_equals.exit
   %74 = add nuw nsw i64 %.0159107, 1
   %exitcond.not = icmp eq i64 %74, 40
-  br i1 %exitcond.not, label %.loopexit27, label %.preheader26, !llvm.loop !55
+  br i1 %exitcond.not, label %.loopexit27, label %.preheader26, !llvm.loop !52
 
 .loopexit27:                                      ; preds = %rule_equals.exit.thread, %71, %63
   %.2155 = phi i32 [ %73, %71 ], [ %.0153, %63 ], [ %.0153, %rule_equals.exit.thread ]
@@ -3390,33 +3390,33 @@ rule_equals.exit.thread:                          ; preds = %.preheader26, %rule
 .preheader:                                       ; preds = %.loopexit27, %rule_equals.exit223.thread
   %.1160108 = phi i64 [ %96, %rule_equals.exit223.thread ], [ 0, %.loopexit27 ]
   %76 = getelementptr inbounds nuw [37 x %struct.cipher_alias_st], ptr @kCipherAliases, i64 0, i64 %.1160108
-  %77 = load ptr, ptr %76, align 16, !tbaa !56
+  %77 = load ptr, ptr %76, align 16, !tbaa !53
   %78 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %77, ptr noundef nonnull readonly dereferenceable(1) %.2185, i64 noundef range(i64 1, 0) %.0158) #18
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %rule_equals.exit223, label %rule_equals.exit223.thread
 
 rule_equals.exit223:                              ; preds = %.preheader
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 %.0158
-  %81 = load i8, ptr %80, align 1, !tbaa !40
+  %81 = load i8, ptr %80, align 1, !tbaa !38
   %.not25 = icmp eq i8 %81, 0
   br i1 %.not25, label %.loopexit, label %rule_equals.exit223.thread
 
 .loopexit:                                        ; preds = %rule_equals.exit223
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %83 = load i32, ptr %82, align 8, !tbaa !59
+  %83 = load i32, ptr %82, align 8, !tbaa !56
   %84 = and i32 %83, %.0151
   %85 = getelementptr inbounds nuw i8, ptr %76, i64 12
-  %86 = load i32, ptr %85, align 4, !tbaa !60
+  %86 = load i32, ptr %85, align 4, !tbaa !57
   %87 = and i32 %86, %.0178
   %88 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %89 = load i32, ptr %88, align 16, !tbaa !61
+  %89 = load i32, ptr %88, align 16, !tbaa !58
   %90 = and i32 %89, %.0198
   %91 = getelementptr inbounds nuw i8, ptr %76, i64 20
-  %92 = load i32, ptr %91, align 4, !tbaa !62
+  %92 = load i32, ptr %91, align 4, !tbaa !59
   %93 = and i32 %92, %.0193
   %.not210 = icmp eq i16 %.0189, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %.pre = load i16, ptr %.phi.trans.insert, align 8, !tbaa !63
+  %.pre = load i16, ptr %.phi.trans.insert, align 8, !tbaa !60
   %.not211 = icmp eq i16 %.0189, %.pre
   %.3192 = select i1 %.not210, i16 %.pre, i16 %.0189
   %94 = select i1 %.not210, i1 true, i1 %.not211
@@ -3428,7 +3428,7 @@ rule_equals.exit223:                              ; preds = %.preheader
 rule_equals.exit223.thread:                       ; preds = %.preheader, %rule_equals.exit223
   %96 = add i64 %.1160108, 1
   %exitcond199.not = icmp eq i64 %96, 37
-  br i1 %exitcond199.not, label %.loopexit.thread, label %.preheader, !llvm.loop !64
+  br i1 %exitcond199.not, label %.loopexit.thread, label %.preheader, !llvm.loop !61
 
 .loopexit.thread:                                 ; preds = %rule_equals.exit223.thread, %.loopexit, %.loopexit27
   %.2200 = phi i32 [ %.0198, %.loopexit27 ], [ %90, %.loopexit ], [ %.0198, %rule_equals.exit223.thread ]
@@ -3441,7 +3441,7 @@ rule_equals.exit223.thread:                       ; preds = %.preheader, %rule_e
 
 97:                                               ; preds = %.loopexit.thread
   %98 = getelementptr inbounds nuw i8, ptr %.3186, i64 1
-  br label %.preheader28.split109, !llvm.loop !65
+  br label %.preheader28.split109
 
 .loopexit29:                                      ; preds = %.loopexit.thread, %.split.us110
   %.us-phi74208 = phi i1 [ %.us-phi74209, %.split.us110 ], [ false, %.loopexit.thread ]
@@ -3503,7 +3503,7 @@ rule_equals.exit223.thread:                       ; preds = %.preheader, %rule_e
   br i1 %.not213, label %105, label %.thread14
 
 105:                                              ; preds = %103
-  %.046.i = load ptr, ptr %1, align 8, !tbaa !32
+  %.046.i = load ptr, ptr %1, align 8, !tbaa !31
   %.not47.i = icmp eq ptr %.046.i, null
   br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -3511,18 +3511,18 @@ rule_equals.exit223.thread:                       ; preds = %.preheader, %rule_e
   %.049.i = phi ptr [ %.0.i, %SSL_CIPHER_get_bits.exit38.i ], [ %.046.i, %105 ]
   %.02848.i = phi i32 [ %.129.i, %SSL_CIPHER_get_bits.exit38.i ], [ 0, %105 ]
   %106 = getelementptr inbounds nuw i8, ptr %.049.i, i64 8
-  %107 = load i32, ptr %106, align 8, !tbaa !35
+  %107 = load i32, ptr %106, align 8, !tbaa !34
   %.not34.i = icmp eq i32 %107, 0
   br i1 %.not34.i, label %SSL_CIPHER_get_bits.exit38.i, label %108
 
 108:                                              ; preds = %.lr.ph.i
-  %109 = load ptr, ptr %.049.i, align 8, !tbaa !24
+  %109 = load ptr, ptr %.049.i, align 8, !tbaa !23
   %110 = icmp eq ptr %109, null
   br i1 %110, label %SSL_CIPHER_get_bits.exit38.i, label %111
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 20
-  %113 = load i32, ptr %112, align 4, !tbaa !20
+  %113 = load i32, ptr %112, align 4, !tbaa !19
   switch i32 %113, label %SSL_CIPHER_get_bits.exit38.i [
     i32 4, label %SSL_CIPHER_get_bits.exit.i
     i32 16, label %SSL_CIPHER_get_bits.exit.i
@@ -3569,9 +3569,9 @@ SSL_CIPHER_get_bits.exit.i:                       ; preds = %115, %114, %111, %1
 SSL_CIPHER_get_bits.exit38.i:                     ; preds = %120, %119, %118, %117, %117, %117, %SSL_CIPHER_get_bits.exit.i, %111, %108, %.lr.ph.i
   %.129.i = phi i32 [ %.02848.i, %SSL_CIPHER_get_bits.exit.i ], [ %.02848.i, %.lr.ph.i ], [ 0, %120 ], [ 256, %118 ], [ 112, %119 ], [ 128, %117 ], [ 128, %117 ], [ 128, %117 ], [ %.02848.i, %111 ], [ %.02848.i, %108 ]
   %121 = getelementptr inbounds nuw i8, ptr %.049.i, i64 16
-  %.0.i = load ptr, ptr %121, align 8, !tbaa !32
+  %.0.i = load ptr, ptr %121, align 8, !tbaa !31
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !66
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !62
 
 ._crit_edge.i:                                    ; preds = %SSL_CIPHER_get_bits.exit38.i, %105
   %.028.lcssa.i = phi i32 [ 0, %105 ], [ %.129.i, %SSL_CIPHER_get_bits.exit38.i ]
@@ -3596,18 +3596,18 @@ SSL_CIPHER_get_bits.exit38.i:                     ; preds = %120, %119, %118, %1
 .lr.ph54.i:                                       ; preds = %125, %141
   %.152.i = phi ptr [ %.1.i, %141 ], [ %.046.i, %125 ]
   %127 = getelementptr inbounds nuw i8, ptr %.152.i, i64 8
-  %128 = load i32, ptr %127, align 8, !tbaa !35
+  %128 = load i32, ptr %127, align 8, !tbaa !34
   %.not33.i = icmp eq i32 %128, 0
   br i1 %.not33.i, label %141, label %129
 
 129:                                              ; preds = %.lr.ph54.i
-  %130 = load ptr, ptr %.152.i, align 8, !tbaa !24
+  %130 = load ptr, ptr %.152.i, align 8, !tbaa !23
   %131 = icmp eq ptr %130, null
   br i1 %131, label %SSL_CIPHER_get_bits.exit42.i, label %132
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 20
-  %134 = load i32, ptr %133, align 4, !tbaa !20
+  %134 = load i32, ptr %133, align 4, !tbaa !19
   switch i32 %134, label %137 [
     i32 4, label %SSL_CIPHER_get_bits.exit42.i
     i32 16, label %SSL_CIPHER_get_bits.exit42.i
@@ -3631,21 +3631,21 @@ SSL_CIPHER_get_bits.exit38.i:                     ; preds = %120, %119, %118, %1
 SSL_CIPHER_get_bits.exit42.i:                     ; preds = %137, %136, %135, %132, %132, %132, %129
   %.07.i41.i = phi i64 [ 0, %129 ], [ 0, %137 ], [ 256, %135 ], [ 112, %136 ], [ 128, %132 ], [ 128, %132 ], [ 128, %132 ]
   %138 = getelementptr inbounds nuw i32, ptr %calloc.i, i64 %.07.i41.i
-  %139 = load i32, ptr %138, align 4, !tbaa !67
+  %139 = load i32, ptr %138, align 4, !tbaa !63
   %140 = add nsw i32 %139, 1
-  store i32 %140, ptr %138, align 4, !tbaa !67
+  store i32 %140, ptr %138, align 4, !tbaa !63
   br label %141
 
 141:                                              ; preds = %SSL_CIPHER_get_bits.exit42.i, %.lr.ph54.i
   %142 = getelementptr inbounds nuw i8, ptr %.152.i, i64 16
-  %.1.i = load ptr, ptr %142, align 8, !tbaa !32
+  %.1.i = load ptr, ptr %142, align 8, !tbaa !31
   %.not32.i = icmp eq ptr %.1.i, null
-  br i1 %.not32.i, label %.lr.ph56.preheader.i, label %.lr.ph54.i, !llvm.loop !68
+  br i1 %.not32.i, label %.lr.ph56.preheader.i, label %.lr.ph54.i, !llvm.loop !64
 
 .lr.ph56.i:                                       ; preds = %148, %.lr.ph56.preheader.i
   %indvars.iv.i = phi i64 [ %126, %.lr.ph56.preheader.i ], [ %indvars.iv.next.i, %148 ]
   %143 = getelementptr inbounds nuw i32, ptr %calloc.i, i64 %indvars.iv.i
-  %144 = load i32, ptr %143, align 4, !tbaa !67
+  %144 = load i32, ptr %143, align 4, !tbaa !63
   %145 = icmp sgt i32 %144, 0
   br i1 %145, label %146, label %148
 
@@ -3657,7 +3657,7 @@ SSL_CIPHER_get_bits.exit42.i:                     ; preds = %137, %136, %135, %1
 148:                                              ; preds = %146, %.lr.ph56.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %149 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %149, label %.lr.ph56.i, label %150, !llvm.loop !69
+  br i1 %149, label %.lr.ph56.i, label %150, !llvm.loop !65
 
 .thread14:                                        ; preds = %101, %103
   tail call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 158, ptr noundef nonnull @.str, i32 noundef 1347) #16
@@ -3673,7 +3673,7 @@ SSL_CIPHER_get_bits.exit42.i:                     ; preds = %137, %136, %135, %1
 
 153:                                              ; preds = %.critedge222, %151
   %.5188 = phi ptr [ %.4187256273, %151 ], [ %155, %.critedge222 ]
-  %154 = load i8, ptr %.5188, align 1, !tbaa !40
+  %154 = load i8, ptr %.5188, align 1, !tbaa !38
   switch i8 %154, label %.critedge222 [
     i8 0, label %.critedge40
     i8 58, label %.critedge40
@@ -3684,7 +3684,7 @@ SSL_CIPHER_get_bits.exit42.i:                     ; preds = %137, %136, %135, %1
 
 .critedge222:                                     ; preds = %153
   %155 = getelementptr inbounds nuw i8, ptr %.5188, i64 1
-  br label %153, !llvm.loop !70
+  br label %153, !llvm.loop !66
 
 156:                                              ; preds = %.fold.split, %99, %100
   %.4283 = phi i32 [ 4, %99 ], [ 4, %100 ], [ %.1266, %.fold.split ]
@@ -3706,7 +3706,7 @@ SSL_CIPHER_get_bits.exit42.i:                     ; preds = %137, %136, %135, %1
   br label %.critedge40thread-pre-split
 
 .critedge40thread-pre-split:                      ; preds = %157, %156
-  %.pr = load i8, ptr %.4187256274, align 1, !tbaa !40
+  %.pr = load i8, ptr %.4187256274, align 1, !tbaa !38
   br label %.critedge40
 
 .critedge40:                                      ; preds = %153, %153, %153, %153, %153, %.critedge40thread-pre-split
@@ -3715,7 +3715,7 @@ SSL_CIPHER_get_bits.exit42.i:                     ; preds = %137, %136, %135, %1
   %.6 = phi ptr [ %.4187256274, %.critedge40thread-pre-split ], [ %.5188, %153 ], [ %.5188, %153 ], [ %.5188, %153 ], [ %.5188, %153 ], [ %.5188, %153 ]
   %.4170 = phi i32 [ %.2168261271, %.critedge40thread-pre-split ], [ %152, %153 ], [ %152, %153 ], [ %152, %153 ], [ %152, %153 ], [ %152, %153 ]
   %159 = icmp eq i8 %158, 0
-  br i1 %159, label %.outer30._crit_edge, label %.lr.ph.lr.ph.lr.ph, !llvm.loop !51
+  br i1 %159, label %.outer30._crit_edge, label %.lr.ph.lr.ph.lr.ph
 
 .outer30._crit_edge:                              ; preds = %.critedge40, %.outer30.backedge
   %.0166.ph.lcssa64 = phi i32 [ %.0166.ph131, %.outer30.backedge ], [ %.4170, %.critedge40 ]
@@ -3755,8 +3755,8 @@ declare ptr @sk_set_cmp_func(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @ssl_cipher_ptr_id_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !71
-  %4 = load ptr, ptr %1, align 8, !tbaa !71
+  %3 = load ptr, ptr %0, align 8, !tbaa !67
+  %4 = load ptr, ptr %1, align 8, !tbaa !67
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3785,7 +3785,7 @@ define hidden zeroext i16 @ssl_cipher_get_value(ptr noundef readonly captures(no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AES(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = and i32 %3, 60
   %5 = icmp ne i32 %4, 0
   %6 = zext i1 %5 to i32
@@ -3795,7 +3795,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AES(ptr noundef readonly captur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_has_MD5_HMAC(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i32, ptr %2, align 8, !tbaa !21
+  %3 = load i32, ptr %2, align 8, !tbaa !20
   %4 = and i32 %3, 1
   ret i32 %4
 }
@@ -3803,7 +3803,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_has_MD5_HMAC(ptr noundef readonly 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_has_SHA1_HMAC(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i32, ptr %2, align 8, !tbaa !21
+  %3 = load i32, ptr %2, align 8, !tbaa !20
   %4 = lshr i32 %3, 1
   %.lobit = and i32 %4, 1
   ret i32 %.lobit
@@ -3812,7 +3812,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_has_SHA1_HMAC(ptr noundef readonly
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_has_SHA256_HMAC(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i32, ptr %2, align 8, !tbaa !21
+  %3 = load i32, ptr %2, align 8, !tbaa !20
   %4 = lshr i32 %3, 2
   %.lobit = and i32 %4, 1
   ret i32 %.lobit
@@ -3821,7 +3821,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_has_SHA256_HMAC(ptr noundef readon
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AESGCM(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = and i32 %3, 48
   %5 = icmp ne i32 %4, 0
   %6 = zext i1 %5 to i32
@@ -3831,7 +3831,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AESGCM(ptr noundef readonly cap
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AES128GCM(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = lshr i32 %3, 4
   %.lobit = and i32 %4, 1
   ret i32 %.lobit
@@ -3840,7 +3840,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AES128GCM(ptr noundef readonly 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AES128CBC(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = lshr i32 %3, 2
   %.lobit = and i32 %4, 1
   ret i32 %.lobit
@@ -3849,7 +3849,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AES128CBC(ptr noundef readonly 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AES256CBC(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = lshr i32 %3, 3
   %.lobit = and i32 %4, 1
   ret i32 %.lobit
@@ -3858,7 +3858,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_AES256CBC(ptr noundef readonly 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_CHACHA20POLY1305(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = and i32 %3, 320
   %5 = icmp ne i32 %4, 0
   %6 = zext i1 %5 to i32
@@ -3868,7 +3868,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_CHACHA20POLY1305(ptr noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_NULL(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = lshr i32 %3, 7
   %.lobit = and i32 %4, 1
   ret i32 %.lobit
@@ -3877,7 +3877,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_NULL(ptr noundef readonly captu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_RC4(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = lshr i32 %3, 1
   %.lobit = and i32 %4, 1
   ret i32 %.lobit
@@ -3886,14 +3886,14 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_RC4(ptr noundef readonly captur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_block_cipher(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = and i32 %3, 130
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !21
+  %8 = load i32, ptr %7, align 8, !tbaa !20
   %9 = icmp ne i32 %8, 16
   %10 = zext i1 %9 to i32
   br label %11
@@ -3906,7 +3906,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_block_cipher(ptr noundef readon
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_ECDSA(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !34
+  %3 = load i32, ptr %2, align 8, !tbaa !33
   %4 = lshr i32 %3, 1
   %.lobit = and i32 %4, 1
   ret i32 %.lobit
@@ -3915,7 +3915,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_ECDSA(ptr noundef readonly capt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_ECDHE(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !33
+  %3 = load i32, ptr %2, align 4, !tbaa !32
   %4 = lshr i32 %3, 2
   %.lobit = and i32 %4, 1
   ret i32 %.lobit
@@ -3924,7 +3924,7 @@ define hidden range(i32 0, 2) i32 @SSL_CIPHER_is_ECDHE(ptr noundef readonly capt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden zeroext range(i16 768, 772) i16 @SSL_CIPHER_get_min_version(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %3 = load i32, ptr %2, align 4, !tbaa !49
+  %3 = load i32, ptr %2, align 4, !tbaa !47
   %.not = icmp eq i32 %3, 1
   %. = select i1 %.not, i16 768, i16 771
   ret i16 %.
@@ -3936,7 +3936,7 @@ define hidden ptr @SSL_CIPHER_get_name(ptr noundef readonly captures(address_is_
   br i1 %.not, label %4, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !54
+  %3 = load ptr, ptr %0, align 8, !tbaa !51
   br label %4
 
 4:                                                ; preds = %1, %2
@@ -3951,7 +3951,7 @@ define hidden nonnull ptr @SSL_CIPHER_get_kx_name(ptr noundef readonly captures(
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !33
+  %5 = load i32, ptr %4, align 4, !tbaa !32
   switch i32 %5, label %14 [
     i32 1, label %16
     i32 2, label %6
@@ -3961,14 +3961,14 @@ define hidden nonnull ptr @SSL_CIPHER_get_kx_name(ptr noundef readonly captures(
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !34
+  %8 = load i32, ptr %7, align 8, !tbaa !33
   %cond = icmp eq i32 %8, 1
   %.str.6..str.7 = select i1 %cond, ptr @.str.6, ptr @.str.7
   br label %16
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !34
+  %11 = load i32, ptr %10, align 8, !tbaa !33
   %switch.tableidx = add i32 %11, -1
   %12 = icmp ult i32 %switch.tableidx, 4
   br i1 %12, label %switch.lookup, label %16
@@ -3997,7 +3997,7 @@ define hidden noundef ptr @SSL_CIPHER_get_rfc_name(ptr noundef readonly captures
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !33
+  %5 = load i32, ptr %4, align 4, !tbaa !32
   switch i32 %5, label %14 [
     i32 1, label %SSL_CIPHER_get_kx_name.exit
     i32 2, label %6
@@ -4007,14 +4007,14 @@ define hidden noundef ptr @SSL_CIPHER_get_rfc_name(ptr noundef readonly captures
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !34
+  %8 = load i32, ptr %7, align 8, !tbaa !33
   %cond.i = icmp eq i32 %8, 1
   %.str.6..str.7.i = select i1 %cond.i, ptr @.str.6, ptr @.str.7
   br label %SSL_CIPHER_get_kx_name.exit
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !34
+  %11 = load i32, ptr %10, align 8, !tbaa !33
   %switch.tableidx = add i32 %11, -1
   %12 = icmp ult i32 %switch.tableidx, 4
   br i1 %12, label %switch.lookup, label %SSL_CIPHER_get_kx_name.exit
@@ -4034,7 +4034,7 @@ switch.lookup:                                    ; preds = %9
 SSL_CIPHER_get_kx_name.exit:                      ; preds = %9, %switch.lookup, %3, %6, %13, %14
   %.0.i = phi ptr [ @.str.7, %14 ], [ @.str.11, %13 ], [ @.str.5, %3 ], [ %.str.6..str.7.i, %6 ], [ %switch.load, %switch.lookup ], [ @.str.7, %9 ]
   %16 = getelementptr i8, ptr %0, i64 20
-  %.val = load i32, ptr %16, align 4, !tbaa !20
+  %.val = load i32, ptr %16, align 4, !tbaa !19
   switch i32 %.val, label %23 [
     i32 1, label %ssl_cipher_get_enc_name.exit
     i32 2, label %17
@@ -4070,7 +4070,7 @@ SSL_CIPHER_get_kx_name.exit:                      ; preds = %9, %switch.lookup, 
 ssl_cipher_get_enc_name.exit:                     ; preds = %SSL_CIPHER_get_kx_name.exit, %17, %18, %19, %20, %21, %22, %23
   %.0.i40 = phi ptr [ @.str.7, %23 ], [ @.str.89, %17 ], [ @.str.104, %18 ], [ @.str.105, %19 ], [ @.str.106, %20 ], [ @.str.107, %21 ], [ @.str.108, %22 ], [ @.str.103, %SSL_CIPHER_get_kx_name.exit ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %25 = load i32, ptr %24, align 4, !tbaa !49
+  %25 = load i32, ptr %24, align 4, !tbaa !47
   switch i32 %25, label %30 [
     i32 1, label %26
     i32 2, label %ssl_cipher_get_prf_name.exit
@@ -4079,7 +4079,7 @@ ssl_cipher_get_enc_name.exit:                     ; preds = %SSL_CIPHER_get_kx_n
 
 26:                                               ; preds = %ssl_cipher_get_enc_name.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load i32, ptr %27, align 8, !tbaa !21
+  %28 = load i32, ptr %27, align 8, !tbaa !20
   %switch.selectcmp.i = icmp eq i32 %28, 2
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.95, ptr @.str.7
   %switch.selectcmp3.i = icmp eq i32 %28, 1
@@ -4154,7 +4154,7 @@ define hidden range(i32 0, 257) i32 @SSL_CIPHER_get_bits(ptr noundef readonly ca
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !20
+  %6 = load i32, ptr %5, align 4, !tbaa !19
   switch i32 %6, label %9 [
     i32 4, label %10
     i32 16, label %10
@@ -4182,7 +4182,7 @@ define hidden range(i32 0, 257) i32 @SSL_CIPHER_get_bits(ptr noundef readonly ca
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %10
-  store i32 %.06, ptr %1, align 4, !tbaa !67
+  store i32 %.06, ptr %1, align 4, !tbaa !63
   br label %12
 
 12:                                               ; preds = %10, %11, %2
@@ -4193,13 +4193,13 @@ define hidden range(i32 0, 257) i32 @SSL_CIPHER_get_bits(ptr noundef readonly ca
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @SSL_CIPHER_description(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !33
+  %5 = load i32, ptr %4, align 4, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !34
+  %7 = load i32, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %9 = load i32, ptr %8, align 4, !tbaa !20
+  %9 = load i32, ptr %8, align 4, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !21
+  %11 = load i32, ptr %10, align 8, !tbaa !20
   %switch.tableidx = add i32 %5, -1
   %12 = icmp ult i32 %switch.tableidx, 8
   br i1 %12, label %switch.lookup, label %14
@@ -4306,7 +4306,7 @@ switch.lookup29:                                  ; preds = %14
   %.021 = phi i32 [ 128, %35 ], [ %2, %38 ]
   %.020 = phi ptr [ %36, %35 ], [ %1, %38 ]
   %41 = zext nneg i32 %.021 to i64
-  %42 = load ptr, ptr %0, align 8, !tbaa !54
+  %42 = load ptr, ptr %0, align 8, !tbaa !51
   %43 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.020, i64 noundef %41, ptr noundef nonnull @.str.34, ptr noundef %42, ptr noundef nonnull %.022, ptr noundef nonnull %.025, ptr noundef nonnull %.024, ptr noundef nonnull %.023) #16
   br label %44
 
@@ -4340,7 +4340,7 @@ define hidden noalias noundef ptr @SSL_COMP_get_name(ptr noundef readnone captur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 409) i32 @ssl_cipher_get_key_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !34
+  %3 = load i32, ptr %2, align 8, !tbaa !33
   %4 = zext i32 %3 to i64
   %5 = and i64 %4, 2
   %.not = icmp eq i64 %5, 0
@@ -4354,7 +4354,7 @@ define hidden range(i32 0, 409) i32 @ssl_cipher_get_key_type(ptr noundef readonl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @ssl_cipher_has_server_public_key(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !34
+  %3 = load i32, ptr %2, align 8, !tbaa !33
   %4 = lshr i32 %3, 2
   %.lobit = and i32 %4, 1
   %. = xor i32 %.lobit, 1
@@ -4364,7 +4364,7 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_has_server_public_key(ptr noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @ssl_cipher_requires_server_key_exchange(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !33
+  %3 = load i32, ptr %2, align 4, !tbaa !32
   %4 = and i32 %3, 6
   %or.cond = icmp ne i32 %4, 0
   %.0 = zext i1 %or.cond to i32
@@ -4374,7 +4374,7 @@ define hidden range(i32 0, 2) i32 @ssl_cipher_requires_server_key_exchange(ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i64 0, 38) i64 @ssl_cipher_get_record_split_len(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   switch i32 %3, label %14 [
     i32 1, label %5
     i32 4, label %4
@@ -4387,7 +4387,7 @@ define hidden range(i64 0, 38) i64 @ssl_cipher_get_record_split_len(ptr noundef 
 5:                                                ; preds = %1, %4
   %.09 = phi i64 [ 16, %4 ], [ 8, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !21
+  %7 = load i32, ptr %6, align 8, !tbaa !20
   switch i32 %7, label %14 [
     i32 1, label %9
     i32 2, label %8
@@ -4453,62 +4453,58 @@ attributes #18 = { nounwind willreturn memory(read) }
 !10 = !{!"omnipotent char", !11, i64 0}
 !11 = !{!"Simple C/C++ TBAA"}
 !12 = !{!"int", !10, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS11evp_aead_st", !9, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long", !10, i64 0}
-!20 = !{!7, !12, i64 20}
-!21 = !{!7, !12, i64 24}
-!22 = !{!23, !9, i64 88}
-!23 = !{!"ssl_protocol_method_st", !10, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !12, i64 96, !9, i64 104, !9, i64 112}
-!24 = !{!25, !26, i64 0}
-!25 = !{!"cipher_order_st", !26, i64 0, !12, i64 8, !12, i64 12, !27, i64 16, !27, i64 24}
-!26 = !{!"p1 _ZTS13ssl_cipher_st", !9, i64 0}
-!27 = !{!"p1 _ZTS15cipher_order_st", !9, i64 0}
-!28 = distinct !{!28, !14, !15}
-!29 = !{!25, !27, i64 24}
-!30 = !{!25, !27, i64 16}
-!31 = distinct !{!31, !14, !15}
-!32 = !{!27, !27, i64 0}
-!33 = !{!7, !12, i64 12}
-!34 = !{!7, !12, i64 16}
-!35 = !{!25, !12, i64 8}
-!36 = distinct !{!36, !15, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = !{!25, !12, i64 12}
-!39 = distinct !{!39, !15}
-!40 = !{!10, !10, i64 0}
-!41 = distinct !{!41, !14, !15}
-!42 = !{!43, !44, i64 0}
-!43 = !{!"ssl_cipher_preference_list_st", !44, i64 0, !8, i64 8}
-!44 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !9, i64 0}
-!45 = !{!43, !8, i64 8}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"p1 _ZTS29ssl_cipher_preference_list_st", !9, i64 0}
-!48 = !{!44, !44, i64 0}
-!49 = !{!7, !12, i64 28}
-!50 = distinct !{!50, !15, !37}
-!51 = distinct !{!51, !15}
-!52 = distinct !{!52, !14, !15, !37}
-!53 = distinct !{!53, !14, !15}
-!54 = !{!7, !8, i64 0}
-!55 = distinct !{!55, !14, !15}
-!56 = !{!57, !8, i64 0}
-!57 = !{!"cipher_alias_st", !8, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !58, i64 24}
-!58 = !{!"short", !10, i64 0}
-!59 = !{!57, !12, i64 8}
-!60 = !{!57, !12, i64 12}
-!61 = !{!57, !12, i64 16}
-!62 = !{!57, !12, i64 20}
-!63 = !{!57, !58, i64 24}
-!64 = distinct !{!64, !14, !15}
-!65 = distinct !{!65, !15}
-!66 = distinct !{!66, !14, !15}
-!67 = !{!12, !12, i64 0}
-!68 = distinct !{!68, !14, !15}
-!69 = distinct !{!69, !14, !15}
-!70 = distinct !{!70, !14, !15}
-!71 = !{!26, !26, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS11evp_aead_st", !9, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !10, i64 0}
+!19 = !{!7, !12, i64 20}
+!20 = !{!7, !12, i64 24}
+!21 = !{!22, !9, i64 88}
+!22 = !{!"ssl_protocol_method_st", !10, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !12, i64 96, !9, i64 104, !9, i64 112}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"cipher_order_st", !25, i64 0, !12, i64 8, !12, i64 12, !26, i64 16, !26, i64 24}
+!25 = !{!"p1 _ZTS13ssl_cipher_st", !9, i64 0}
+!26 = !{!"p1 _ZTS15cipher_order_st", !9, i64 0}
+!27 = distinct !{!27, !14}
+!28 = !{!24, !26, i64 24}
+!29 = !{!24, !26, i64 16}
+!30 = distinct !{!30, !14}
+!31 = !{!26, !26, i64 0}
+!32 = !{!7, !12, i64 12}
+!33 = !{!7, !12, i64 16}
+!34 = !{!24, !12, i64 8}
+!35 = distinct !{!35, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = !{!24, !12, i64 12}
+!38 = !{!10, !10, i64 0}
+!39 = distinct !{!39, !14}
+!40 = !{!41, !42, i64 0}
+!41 = !{!"ssl_cipher_preference_list_st", !42, i64 0, !8, i64 8}
+!42 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !9, i64 0}
+!43 = !{!41, !8, i64 8}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS29ssl_cipher_preference_list_st", !9, i64 0}
+!46 = !{!42, !42, i64 0}
+!47 = !{!7, !12, i64 28}
+!48 = distinct !{!48, !36}
+!49 = distinct !{!49, !14, !36}
+!50 = distinct !{!50, !14}
+!51 = !{!7, !8, i64 0}
+!52 = distinct !{!52, !14}
+!53 = !{!54, !8, i64 0}
+!54 = !{!"cipher_alias_st", !8, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !55, i64 24}
+!55 = !{!"short", !10, i64 0}
+!56 = !{!54, !12, i64 8}
+!57 = !{!54, !12, i64 12}
+!58 = !{!54, !12, i64 16}
+!59 = !{!54, !12, i64 20}
+!60 = !{!54, !55, i64 24}
+!61 = distinct !{!61, !14}
+!62 = distinct !{!62, !14}
+!63 = !{!12, !12, i64 0}
+!64 = distinct !{!64, !14}
+!65 = distinct !{!65, !14}
+!66 = distinct !{!66, !14}
+!67 = !{!25, !25, i64 0}

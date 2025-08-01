@@ -24,7 +24,7 @@ define void @amd_l_preprocess(i64 noundef %0, ptr noundef readonly captures(none
 
 .loopexit74:                                      ; preds = %26, %.lr.ph80
   %exitcond93.not = icmp eq i64 %12, %0
-  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph80, !llvm.loop !10
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph80, !llvm.loop !9
 
 .lr.ph80:                                         ; preds = %.lr.ph, %.loopexit74
   %.06779 = phi i64 [ %12, %.loopexit74 ], [ 0, %.lr.ph ]
@@ -56,7 +56,7 @@ define void @amd_l_preprocess(i64 noundef %0, ptr noundef readonly captures(none
 26:                                               ; preds = %.lr.ph78, %22
   %27 = add nsw i64 %.077, 1
   %exitcond92.not = icmp eq i64 %27, %14
-  br i1 %exitcond92.not, label %.loopexit74, label %.lr.ph78, !llvm.loop !11
+  br i1 %exitcond92.not, label %.loopexit74, label %.lr.ph78, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit74
   store i64 0, ptr %3, align 8, !tbaa !3
@@ -72,7 +72,7 @@ define void @amd_l_preprocess(i64 noundef %0, ptr noundef readonly captures(none
   %33 = getelementptr inbounds nuw i64, ptr %3, i64 %32
   store i64 %31, ptr %33, align 8, !tbaa !3
   %exitcond94.not = icmp eq i64 %32, %0
-  br i1 %exitcond94.not, label %.lr.ph85, label %.lr.ph83, !llvm.loop !12
+  br i1 %exitcond94.not, label %.lr.ph85, label %.lr.ph83, !llvm.loop !11
 
 .lr.ph85:                                         ; preds = %.lr.ph83, %.lr.ph85
   %.284 = phi i64 [ %38, %.lr.ph85 ], [ 0, %.lr.ph83 ]
@@ -84,11 +84,11 @@ define void @amd_l_preprocess(i64 noundef %0, ptr noundef readonly captures(none
   store i64 -1, ptr %37, align 8, !tbaa !3
   %38 = add nuw nsw i64 %.284, 1
   %exitcond95.not = icmp eq i64 %38, %0
-  br i1 %exitcond95.not, label %.lr.ph90, label %.lr.ph85, !llvm.loop !13
+  br i1 %exitcond95.not, label %.lr.ph90, label %.lr.ph85, !llvm.loop !12
 
 .loopexit:                                        ; preds = %54, %.lr.ph90
   %exitcond97.not = icmp eq i64 %39, %0
-  br i1 %exitcond97.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !14
+  br i1 %exitcond97.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !13
 
 .lr.ph90:                                         ; preds = %.lr.ph85, %.loopexit
   %.16889 = phi i64 [ %39, %.loopexit ], [ 0, %.lr.ph85 ]
@@ -122,7 +122,7 @@ define void @amd_l_preprocess(i64 noundef %0, ptr noundef readonly captures(none
 54:                                               ; preds = %.lr.ph88, %49
   %55 = add nsw i64 %.186, 1
   %exitcond96.not = icmp eq i64 %55, %41
-  br i1 %exitcond96.not, label %.loopexit, label %.lr.ph88, !llvm.loop !15
+  br i1 %exitcond96.not, label %.loopexit, label %.lr.ph88, !llvm.loop !14
 
 ._crit_edge91:                                    ; preds = %.loopexit, %._crit_edge.thread
   ret void
@@ -139,12 +139,11 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"long long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}

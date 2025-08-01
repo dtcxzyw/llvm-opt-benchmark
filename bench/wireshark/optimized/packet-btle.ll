@@ -2561,7 +2561,7 @@ reverse_bits_per_byte.exit.i:                     ; preds = %452
   %508 = zext i16 %507 to i32
   %509 = xor i32 %504, %508
   %.not.i.i109 = icmp eq i8 %485, 0
-  br i1 %.not.i.i109, label %btle_crc.exit.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not.i.i109, label %btle_crc.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 btle_crc.exit.i:                                  ; preds = %.lr.ph.i.i, %482
   %.015.lcssa.i.i = phi i32 [ 5592405, %482 ], [ %509, %.lr.ph.i.i ]
@@ -4824,7 +4824,7 @@ control_proc_complete_if_instant_reached.exit1794: ; preds = %174, %170, %166, %
 
 277:                                              ; preds = %.cont2109
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %273, ptr noundef nonnull @.str.1013)
-  %278 = load i8, ptr @btle_detect_retransmit, align 1, !range !10, !noundef !11
+  %278 = load i8, ptr @btle_detect_retransmit, align 1, !range !9, !noundef !10
   %279 = trunc nuw i8 %278 to i1
   br i1 %279, label %280, label %284
 
@@ -8546,7 +8546,7 @@ control_proc_invalid_collision.exit.thread:       ; preds = %16, %13, %8, %7, %2
 proto_item_set_generated.exit:                    ; preds = %55, %52, %49, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 59:                                               ; preds = %43, %41
   %60 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %3, ptr noundef nonnull @ei_control_proc_overlapping)
@@ -9730,10 +9730,9 @@ attributes #15 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}

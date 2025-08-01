@@ -56,7 +56,7 @@ define dso_local range(i32 -1, 1) i32 @php_random_bytes_ex(ptr noundef nonnull %
 17:                                               ; preds = %12, %12, %15
   %.252 = phi i64 [ %16, %15 ], [ %.05078, %12 ], [ %.05078, %12 ]
   %18 = icmp ult i64 %.252, %1
-  br i1 %18, label %7, label %.thread, !llvm.loop !8
+  br i1 %18, label %7, label %.thread
 
 .thread:                                          ; preds = %17, %12
   %.151.ph = phi i64 [ %.05078, %12 ], [ %.252, %17 ]
@@ -98,7 +98,7 @@ define dso_local range(i32 -1, 1) i32 @php_random_bytes_ex(ptr noundef nonnull %
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %38 = load i32, ptr %37, align 8, !tbaa !10
+  %38 = load i32, ptr %37, align 8, !tbaa !8
   %39 = and i32 %38, 61440
   %40 = icmp eq i32 %39, 8192
   br i1 %40, label %49, label %41
@@ -135,7 +135,7 @@ zend_atomic_int_compare_exchange_ex.exit.thread:  ; preds = %20, %49, %zend_atom
 54:                                               ; preds = %57
   %55 = add i64 %60, %.35381
   %56 = icmp ult i64 %55, %1
-  br i1 %56, label %57, label %.thread.thread85.sink.split, !llvm.loop !14
+  br i1 %56, label %57, label %.thread.thread85.sink.split
 
 57:                                               ; preds = %zend_atomic_int_compare_exchange_ex.exit.thread, %54
   %.35381 = phi i64 [ 0, %zend_atomic_int_compare_exchange_ex.exit.thread ], [ %55, %54 ]
@@ -211,7 +211,7 @@ define dso_local range(i32 -1, 1) i32 @php_random_bytes(ptr noundef nonnull %0, 
   br i1 %or.cond, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !15
+  %8 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !12
   %9 = call ptr @zend_throw_exception(ptr noundef %8, ptr noundef nonnull %4, i64 noundef 0) #9
   br label %10
 
@@ -232,7 +232,7 @@ define dso_local range(i32 -1, 1) i32 @php_random_int(i64 noundef %0, i64 nounde
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %4
-  store i64 %0, ptr %2, align 8, !tbaa !18
+  store i64 %0, ptr %2, align 8, !tbaa !15
   br label %.loopexit
 
 10:                                               ; preds = %4
@@ -244,7 +244,7 @@ define dso_local range(i32 -1, 1) i32 @php_random_int(i64 noundef %0, i64 nounde
   br i1 %or.cond.i, label %php_random_bytes.exit.thread, label %php_random_bytes.exit
 
 php_random_bytes.exit.thread:                     ; preds = %10
-  %14 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !15
+  %14 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !12
   %15 = call ptr @zend_throw_exception(ptr noundef %14, ptr noundef nonnull %6, i64 noundef 0) #9
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #9
   br label %.loopexit
@@ -258,8 +258,8 @@ php_random_bytes.exit:                            ; preds = %10
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %16
-  %19 = load i64, ptr %7, align 8, !tbaa !18
-  store i64 %19, ptr %2, align 8, !tbaa !18
+  %19 = load i64, ptr %7, align 8, !tbaa !15
+  store i64 %19, ptr %2, align 8, !tbaa !15
   br label %.loopexit
 
 20:                                               ; preds = %16
@@ -269,7 +269,7 @@ php_random_bytes.exit:                            ; preds = %10
   br i1 %.not, label %..critedge_crit_edge, label %23
 
 ..critedge_crit_edge:                             ; preds = %20
-  %.pre = load i64, ptr %7, align 8, !tbaa !18
+  %.pre = load i64, ptr %7, align 8, !tbaa !15
   br label %.critedge
 
 23:                                               ; preds = %20
@@ -278,12 +278,12 @@ php_random_bytes.exit:                            ; preds = %10
   br i1 %3, label %.split.preheader, label %.split.us
 
 .split.preheader:                                 ; preds = %23
-  %26 = load i64, ptr %7, align 8, !tbaa !18
+  %26 = load i64, ptr %7, align 8, !tbaa !15
   %.not2335 = icmp ugt i64 %26, %25
   br i1 %.not2335, label %.lr.ph, label %.critedge
 
 .split.us:                                        ; preds = %23, %php_random_bytes.exit25.us
-  %27 = load i64, ptr %7, align 8, !tbaa !18
+  %27 = load i64, ptr %7, align 8, !tbaa !15
   %.not23.us = icmp ugt i64 %27, %25
   br i1 %.not23.us, label %php_random_bytes.exit25.us, label %.critedge
 
@@ -292,7 +292,7 @@ php_random_bytes.exit25.us:                       ; preds = %.split.us
   %28 = call i32 @php_random_bytes_ex(ptr noundef nonnull %7, i64 noundef 8, ptr noundef %5, i64 noundef 128)
   %29 = icmp eq i32 %28, -1
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
-  br i1 %29, label %.loopexit, label %.split.us, !llvm.loop !19
+  br i1 %29, label %.loopexit, label %.split.us, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %.split.preheader, %php_random_bytes.exit25
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #9
@@ -301,22 +301,22 @@ php_random_bytes.exit25.us:                       ; preds = %.split.us
   br i1 %31, label %php_random_bytes.exit25.thread, label %php_random_bytes.exit25
 
 php_random_bytes.exit25.thread:                   ; preds = %.lr.ph
-  %32 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !15
+  %32 = load ptr, ptr @random_ce_Random_RandomException, align 8, !tbaa !12
   %33 = call ptr @zend_throw_exception(ptr noundef %32, ptr noundef nonnull %5, i64 noundef 0) #9
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
   br label %.loopexit
 
 php_random_bytes.exit25:                          ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
-  %34 = load i64, ptr %7, align 8, !tbaa !18
+  %34 = load i64, ptr %7, align 8, !tbaa !15
   %.not23 = icmp ugt i64 %34, %25
-  br i1 %.not23, label %.lr.ph, label %.critedge, !llvm.loop !21
+  br i1 %.not23, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %.split.us, %php_random_bytes.exit25, %.split.preheader, %..critedge_crit_edge
   %35 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %26, %.split.preheader ], [ %34, %php_random_bytes.exit25 ], [ %27, %.split.us ]
   %36 = urem i64 %35, %21
   %37 = add i64 %36, %0
-  store i64 %37, ptr %2, align 8, !tbaa !18
+  store i64 %37, ptr %2, align 8, !tbaa !15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %php_random_bytes.exit25.us, %php_random_bytes.exit25.thread, %php_random_bytes.exit.thread, %php_random_bytes.exit, %.critedge, %18, %9
@@ -362,17 +362,13 @@ attributes #9 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !5, i64 24}
-!11 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !13, i64 72, !13, i64 88, !13, i64 104, !6, i64 120}
-!12 = !{!"long", !6, i64 0}
-!13 = !{!"timespec", !12, i64 0, !12, i64 8}
-!14 = distinct !{!14, !9}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS17_zend_class_entry", !17, i64 0}
-!17 = !{!"any pointer", !6, i64 0}
-!18 = !{!12, !12, i64 0}
-!19 = distinct !{!19, !9, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !9}
+!8 = !{!9, !5, i64 24}
+!9 = !{!"stat", !10, i64 0, !10, i64 8, !10, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !11, i64 72, !11, i64 88, !11, i64 104, !6, i64 120}
+!10 = !{!"long", !6, i64 0}
+!11 = !{!"timespec", !10, i64 0, !10, i64 8}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS17_zend_class_entry", !14, i64 0}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!10, !10, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}

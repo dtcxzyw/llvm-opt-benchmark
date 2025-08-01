@@ -74,14 +74,14 @@ define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr n
 
 9:                                                ; preds = %6
   %10 = mul i64 %5, %4
-  %11 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !11
+  %11 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !10
   %12 = invoke noundef ptr %11(i64 noundef %10)
           to label %13 unwind label %15
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  store i64 1, ptr %14, align 8, !tbaa !13
-  store ptr %12, ptr %7, align 8, !tbaa !11
+  store i64 1, ptr %14, align 8, !tbaa !12
+  store ptr %12, ptr %7, align 8, !tbaa !10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %3, i64 %10, i1 false)
   br label %17
 
@@ -94,7 +94,7 @@ define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr n
   %.sroa.phi = phi ptr [ %.sroa.gep, %13 ], [ %7, %6 ]
   %18 = phi i64 [ 2, %13 ], [ 1, %6 ]
   %.0 = phi ptr [ %12, %13 ], [ %3, %6 ]
-  %19 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !11
+  %19 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !10
   %20 = icmp ugt i64 %4, 4611686018427387903
   %21 = shl i64 %4, 2
   %22 = select i1 %20, i64 -1, i64 %21
@@ -102,7 +102,7 @@ define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr n
           to label %24 unwind label %35
 
 24:                                               ; preds = %17
-  store ptr %23, ptr %.sroa.phi, align 8, !tbaa !11
+  store ptr %23, ptr %.sroa.phi, align 8, !tbaa !10
   tail call void @llvm.memset.p0.i64(ptr align 4 %23, i8 -1, i64 %21, i1 false)
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -121,12 +121,12 @@ define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr n
   br i1 %.not.i, label %_ZN17meshopt_AllocatorD2Ev.exit, label %27
 
 27:                                               ; preds = %26
-  %28 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !11
+  %28 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !10
   %29 = add i64 %.0.i, -1
   %30 = getelementptr inbounds nuw [24 x ptr], ptr %7, i64 0, i64 %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !11
+  %31 = load ptr, ptr %30, align 8, !tbaa !10
   invoke void %28(ptr noundef %31)
-          to label %26 unwind label %32, !llvm.loop !16
+          to label %26 unwind label %32, !llvm.loop !15
 
 32:                                               ; preds = %27
   %33 = landingpad { ptr, i32 }
@@ -172,7 +172,7 @@ _ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %26
   store i32 %51, ptr %37, align 4, !tbaa !4
   %52 = add nuw i64 %.03542, 1
   %exitcond.not = icmp eq i64 %52, %2
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
 53:                                               ; preds = %35, %15
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %16, %15 ]
@@ -189,7 +189,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load i64, ptr %2, align 8, !tbaa !13
+  %3 = load i64, ptr %2, align 8, !tbaa !12
   br label %4
 
 4:                                                ; preds = %6, %1
@@ -201,12 +201,12 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
   ret void
 
 6:                                                ; preds = %4
-  %7 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !11
+  %7 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !10
   %8 = add i64 %.0, -1
   %9 = getelementptr inbounds nuw [24 x ptr], ptr %0, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !11
+  %10 = load ptr, ptr %9, align 8, !tbaa !10
   invoke void %7(ptr noundef %10)
-          to label %4 unwind label %11, !llvm.loop !16
+          to label %4 unwind label %11, !llvm.loop !15
 
 11:                                               ; preds = %6
   %12 = landingpad { ptr, i32 }
@@ -257,13 +257,12 @@ attributes #11 = { noreturn nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"any pointer", !6, i64 0}
-!13 = !{!14, !15, i64 192}
-!14 = !{!"_ZTS17meshopt_Allocator", !6, i64 0, !15, i64 192}
-!15 = !{!"long", !6, i64 0}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"any pointer", !6, i64 0}
+!12 = !{!13, !14, i64 192}
+!13 = !{!"_ZTS17meshopt_Allocator", !6, i64 0, !14, i64 192}
+!14 = !{!"long", !6, i64 0}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

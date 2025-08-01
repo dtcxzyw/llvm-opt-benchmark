@@ -141,7 +141,7 @@ define range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr noundef %1, i64
   %.166 = phi i64 [ %60, %59 ], [ %.065112, %55 ], [ %.065112, %50 ], [ %.065112, %.lr.ph114 ]
   %63 = tail call ptr @Curl_node_next(ptr noundef nonnull %.173111) #5
   %.not97 = icmp eq ptr %63, null
-  br i1 %.not97, label %.critedge, label %.lr.ph114, !llvm.loop !82
+  br i1 %.not97, label %.critedge, label %.lr.ph114, !llvm.loop !81
 
 .loopexit:                                        ; preds = %59, %..loopexit_crit_edge
   %.pre-phi = phi i32 [ %.pre117, %..loopexit_crit_edge ], [ %53, %59 ]
@@ -150,21 +150,21 @@ define range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr noundef %1, i64
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 4744
   %65 = getelementptr inbounds nuw i8, ptr %.162, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !75
-  store ptr %66, ptr %64, align 8, !tbaa !83
+  store ptr %66, ptr %64, align 8, !tbaa !82
   %67 = getelementptr inbounds nuw i8, ptr %.162, i64 40
-  %68 = load ptr, ptr %67, align 8, !tbaa !85
+  %68 = load ptr, ptr %67, align 8, !tbaa !84
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 4752
-  store ptr %68, ptr %69, align 8, !tbaa !86
+  store ptr %68, ptr %69, align 8, !tbaa !85
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 4760
-  store i64 %.164, ptr %70, align 8, !tbaa !87
+  store i64 %.164, ptr %70, align 8, !tbaa !86
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 4768
-  store i64 %2, ptr %71, align 8, !tbaa !88
+  store i64 %2, ptr %71, align 8, !tbaa !87
   %72 = or disjoint i32 %.pre-phi, 134217728
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 4776
-  store i32 %72, ptr %73, align 8, !tbaa !89
+  store i32 %72, ptr %73, align 8, !tbaa !88
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 4784
-  store ptr %.270, ptr %74, align 8, !tbaa !90
-  store ptr %64, ptr %5, align 8, !tbaa !91
+  store ptr %.270, ptr %74, align 8, !tbaa !89
+  store ptr %64, ptr %5, align 8, !tbaa !90
   br label %.critedge
 
 .critedge:                                        ; preds = %62, %20, %44, %40, %._crit_edge, %16, %13, %6, %.loopexit
@@ -203,7 +203,7 @@ define noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %1, i32 nou
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !90
+  %12 = load ptr, ptr %11, align 8, !tbaa !89
   %.not53 = icmp eq ptr %12, null
   br i1 %.not53, label %.thread, label %13
 
@@ -240,7 +240,7 @@ define noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %1, i32 nou
 28:                                               ; preds = %24, %.preheader
   %29 = tail call ptr @Curl_node_next(ptr noundef nonnull %.2) #5
   %.not56 = icmp eq ptr %29, null
-  br i1 %.not56, label %.thread, label %.preheader, !llvm.loop !93
+  br i1 %.not56, label %.thread, label %.preheader, !llvm.loop !92
 
 30:                                               ; preds = %24
   %31 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.2) #5
@@ -288,7 +288,7 @@ define noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %1, i32 nou
   %spec.select62 = select i1 %52, i64 %53, i64 %.04069
   %54 = tail call ptr @Curl_node_next(ptr noundef nonnull %.04367) #5
   %.not58 = icmp eq ptr %54, null
-  br i1 %.not58, label %._crit_edge, label %35, !llvm.loop !94
+  br i1 %.not58, label %._crit_edge, label %35, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %51, %30
   %.041.lcssa = phi i64 [ 0, %30 ], [ %.142, %51 ]
@@ -296,23 +296,23 @@ define noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %1, i32 nou
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 4792
   %56 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %57 = load ptr, ptr %56, align 8, !tbaa !75
-  store ptr %57, ptr %55, align 8, !tbaa !83
+  store ptr %57, ptr %55, align 8, !tbaa !82
   %58 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %59 = load ptr, ptr %58, align 8, !tbaa !85
+  %59 = load ptr, ptr %58, align 8, !tbaa !84
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 4800
-  store ptr %59, ptr %60, align 8, !tbaa !86
+  store ptr %59, ptr %60, align 8, !tbaa !85
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 4808
-  store i64 %.041.lcssa, ptr %61, align 8, !tbaa !87
+  store i64 %.041.lcssa, ptr %61, align 8, !tbaa !86
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 4816
-  store i64 %.040.lcssa, ptr %62, align 8, !tbaa !88
+  store i64 %.040.lcssa, ptr %62, align 8, !tbaa !87
   %63 = getelementptr inbounds nuw i8, ptr %31, i64 52
   %64 = load i8, ptr %63, align 4, !tbaa !77
   %65 = zext i8 %64 to i32
   %66 = or disjoint i32 %65, 134217728
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 4824
-  store i32 %66, ptr %67, align 8, !tbaa !89
+  store i32 %66, ptr %67, align 8, !tbaa !88
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 4832
-  store ptr %.2, ptr %68, align 8, !tbaa !90
+  store ptr %.2, ptr %68, align 8, !tbaa !89
   br label %.thread
 
 .thread:                                          ; preds = %28, %18, %10, %4, %._crit_edge
@@ -322,7 +322,7 @@ define noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %1, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = load i8, ptr %1, align 1, !tbaa !95
+  %4 = load i8, ptr %1, align 1, !tbaa !94
   switch i8 %4, label %5 [
     i8 13, label %.critedge61
     i8 10, label %.critedge61
@@ -350,224 +350,220 @@ define hidden range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nounde
 
 13:                                               ; preds = %9, %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4840
-  %15 = load ptr, ptr %14, align 8, !tbaa !96
+  %15 = load ptr, ptr %14, align 8, !tbaa !95
   %.not57 = icmp eq ptr %15, null
   br i1 %.not57, label %.preheader, label %16
 
 .preheader:                                       ; preds = %13
-  %.not5881 = icmp eq i64 %12, 0
-  br i1 %.not5881, label %.critedge61, label %.lr.ph
+  %.not5883 = icmp eq i64 %12, 0
+  br i1 %.not5883, label %.critedge61, label %.lr.ph
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !85
+  %18 = load ptr, ptr %17, align 8, !tbaa !84
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #6
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 53
   %21 = ptrtoint ptr %18 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
-  %invariant.gep.i = getelementptr i8, ptr %1, i64 -1
   %.not58.i = icmp eq i64 %12, 0
   br i1 %.not58.i, label %.critedge4.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.critedge2.i
-  %.05259.i = phi i64 [ %27, %.critedge2.i ], [ %12, %16 ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.05259.i
-  %24 = load i8, ptr %gep.i, align 1, !tbaa !95
-  switch i8 %24, label %25 [
+  %.05259.i = phi i64 [ %29, %.critedge2.i ], [ %12, %16 ]
+  %24 = getelementptr i8, ptr %1, i64 %.05259.i
+  %25 = getelementptr i8, ptr %24, i64 -1
+  %26 = load i8, ptr %25, align 1, !tbaa !94
+  switch i8 %26, label %27 [
     i8 32, label %.critedge2.i
     i8 9, label %.critedge2.i
   ]
 
-25:                                               ; preds = %.lr.ph.i
-  %26 = add i8 %24, -10
-  %or.cond.i = icmp ult i8 %26, 4
+27:                                               ; preds = %.lr.ph.i
+  %28 = add i8 %26, -10
+  %or.cond.i = icmp ult i8 %28, 4
   br i1 %or.cond.i, label %.critedge2.i, label %.critedge.i
 
-.critedge2.i:                                     ; preds = %25, %.lr.ph.i, %.lr.ph.i
-  %27 = add i64 %.05259.i, -1
-  %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %.critedge4.i, label %.lr.ph.i, !llvm.loop !97
+.critedge2.i:                                     ; preds = %27, %.lr.ph.i, %.lr.ph.i
+  %29 = add i64 %.05259.i, -1
+  %.not.i = icmp eq i64 %29, 0
+  br i1 %.not.i, label %.critedge4.i, label %.lr.ph.i, !llvm.loop !96
 
-.critedge.i:                                      ; preds = %25
-  %28 = icmp ugt i64 %.05259.i, 1
-  br i1 %28, label %.lr.ph64.preheader.i, label %.critedge4.i
+.critedge.i:                                      ; preds = %27
+  %30 = getelementptr i8, ptr %24, i64 -1
+  %31 = icmp ugt i64 %.05259.i, 1
+  br i1 %31, label %.lr.ph64.i, label %.critedge4.i
 
-.lr.ph64.preheader.i:                             ; preds = %.critedge.i
-  %29 = getelementptr i8, ptr %1, i64 %.05259.i
-  %scevgep.i = getelementptr i8, ptr %29, i64 -1
-  br label %.lr.ph64.i
-
-.lr.ph64.i:                                       ; preds = %.critedge6.i, %.lr.ph64.preheader.i
-  %30 = phi i8 [ %33, %.critedge6.i ], [ %4, %.lr.ph64.preheader.i ]
-  %.05163.i = phi ptr [ %32, %.critedge6.i ], [ %1, %.lr.ph64.preheader.i ]
-  %.162.i = phi i64 [ %34, %.critedge6.i ], [ %.05259.i, %.lr.ph64.preheader.i ]
-  switch i8 %30, label %.critedge4.i [
-    i8 32, label %31
-    i8 9, label %31
+.lr.ph64.i:                                       ; preds = %.critedge.i, %.critedge6.i
+  %32 = phi i8 [ %35, %.critedge6.i ], [ %4, %.critedge.i ]
+  %.05163.i = phi ptr [ %34, %.critedge6.i ], [ %1, %.critedge.i ]
+  %.162.i = phi i64 [ %36, %.critedge6.i ], [ %.05259.i, %.critedge.i ]
+  switch i8 %32, label %.critedge4.i [
+    i8 32, label %33
+    i8 9, label %33
   ]
 
-31:                                               ; preds = %.lr.ph64.i, %.lr.ph64.i
-  %32 = getelementptr inbounds nuw i8, ptr %.05163.i, i64 1
-  %33 = load i8, ptr %32, align 1, !tbaa !95
-  switch i8 %33, label %.critedge4.i [
+33:                                               ; preds = %.lr.ph64.i, %.lr.ph64.i
+  %34 = getelementptr inbounds nuw i8, ptr %.05163.i, i64 1
+  %35 = load i8, ptr %34, align 1, !tbaa !94
+  switch i8 %35, label %.critedge4.i [
     i8 32, label %.critedge6.i
     i8 9, label %.critedge6.i
   ]
 
-.critedge6.i:                                     ; preds = %31, %31
-  %34 = add i64 %.162.i, -1
-  %35 = icmp ugt i64 %34, 1
-  br i1 %35, label %.lr.ph64.i, label %.critedge4.i, !llvm.loop !98
+.critedge6.i:                                     ; preds = %33, %33
+  %36 = add i64 %.162.i, -1
+  %37 = icmp ugt i64 %36, 1
+  br i1 %37, label %.lr.ph64.i, label %.critedge4.i, !llvm.loop !97
 
-.critedge4.i:                                     ; preds = %.critedge2.i, %.critedge6.i, %31, %.lr.ph64.i, %.critedge.i, %16
-  %.1.lcssa.i = phi i64 [ 1, %.critedge.i ], [ 0, %16 ], [ 1, %.critedge6.i ], [ %.162.i, %.lr.ph64.i ], [ %.162.i, %31 ], [ 0, %.critedge2.i ]
-  %.051.lcssa.i = phi ptr [ %1, %.critedge.i ], [ %1, %16 ], [ %scevgep.i, %.critedge6.i ], [ %.05163.i, %.lr.ph64.i ], [ %.05163.i, %31 ], [ %1, %.critedge2.i ]
+.critedge4.i:                                     ; preds = %.critedge2.i, %.critedge6.i, %33, %.lr.ph64.i, %.critedge.i, %16
+  %.1.lcssa.i = phi i64 [ 1, %.critedge.i ], [ 0, %16 ], [ 1, %.critedge6.i ], [ %.162.i, %.lr.ph64.i ], [ %.162.i, %33 ], [ 0, %.critedge2.i ]
+  %.051.lcssa.i = phi ptr [ %1, %.critedge.i ], [ %1, %16 ], [ %30, %.critedge6.i ], [ %.05163.i, %.lr.ph64.i ], [ %.05163.i, %33 ], [ %1, %.critedge2.i ]
   tail call void @Curl_node_remove(ptr noundef nonnull %15) #5
-  %36 = add i64 %19, 58
-  %37 = add i64 %36, %23
-  %38 = add i64 %37, %.1.lcssa.i
-  %39 = tail call ptr @Curl_saferealloc(ptr noundef nonnull %15, i64 noundef %38) #5
-  %.not57.i = icmp eq ptr %39, null
-  br i1 %.not57.i, label %.critedge61, label %40
+  %38 = add i64 %19, 58
+  %39 = add i64 %38, %23
+  %40 = add i64 %39, %.1.lcssa.i
+  %41 = tail call ptr @Curl_saferealloc(ptr noundef nonnull %15, i64 noundef %40) #5
+  %.not57.i = icmp eq ptr %41, null
+  br i1 %.not57.i, label %.critedge61, label %42
 
-40:                                               ; preds = %.critedge4.i
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 53
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  store ptr %41, ptr %42, align 8, !tbaa !75
-  %43 = getelementptr inbounds nuw [1 x i8], ptr %41, i64 0, i64 %23
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  store ptr %43, ptr %44, align 8, !tbaa !85
-  %45 = getelementptr i8, ptr %43, i64 %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr align 1 %.051.lcssa.i, i64 %.1.lcssa.i, i1 false)
-  %46 = getelementptr i8, ptr %45, i64 %.1.lcssa.i
-  store i8 0, ptr %46, align 1, !tbaa !95
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 4712
-  tail call void @Curl_llist_append(ptr noundef nonnull %47, ptr noundef nonnull %39, ptr noundef nonnull %39) #5
-  store ptr %39, ptr %14, align 8, !tbaa !96
+42:                                               ; preds = %.critedge4.i
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 53
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  store ptr %43, ptr %44, align 8, !tbaa !75
+  %45 = getelementptr inbounds nuw [1 x i8], ptr %43, i64 0, i64 %23
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  store ptr %45, ptr %46, align 8, !tbaa !84
+  %47 = getelementptr i8, ptr %45, i64 %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %.051.lcssa.i, i64 %.1.lcssa.i, i1 false)
+  %48 = getelementptr i8, ptr %47, i64 %.1.lcssa.i
+  store i8 0, ptr %48, align 1, !tbaa !94
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 4712
+  tail call void @Curl_llist_append(ptr noundef nonnull %49, ptr noundef nonnull %41, ptr noundef nonnull %41) #5
+  store ptr %41, ptr %14, align 8, !tbaa !95
   br label %.critedge61
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge2
-  %.183 = phi i64 [ %50, %.critedge2 ], [ %12, %.preheader ]
-  %.14982 = phi ptr [ %49, %.critedge2 ], [ %1, %.preheader ]
-  %48 = load i8, ptr %.14982, align 1, !tbaa !95
-  switch i8 %48, label %.critedge [
+  %.185 = phi i64 [ %52, %.critedge2 ], [ %12, %.preheader ]
+  %.14984 = phi ptr [ %51, %.critedge2 ], [ %1, %.preheader ]
+  %50 = load i8, ptr %.14984, align 1, !tbaa !94
+  switch i8 %50, label %.critedge [
     i8 32, label %.critedge2
     i8 9, label %.critedge2
   ]
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
-  %49 = getelementptr inbounds nuw i8, ptr %.14982, i64 1
-  %50 = add i64 %.183, -1
-  %.not58 = icmp eq i64 %50, 0
-  br i1 %.not58, label %.critedge61, label %.lr.ph, !llvm.loop !99
+  %51 = getelementptr inbounds nuw i8, ptr %.14984, i64 1
+  %52 = add i64 %.185, -1
+  %.not58 = icmp eq i64 %52, 0
+  br i1 %.not58, label %.critedge61, label %.lr.ph, !llvm.loop !98
 
 .critedge:                                        ; preds = %.lr.ph, %9
-  %.048 = phi ptr [ %1, %9 ], [ %.14982, %.lr.ph ]
-  %.046 = phi i64 [ %12, %9 ], [ %.183, %.lr.ph ]
-  %51 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !100
-  %52 = add i64 %.046, 56
-  %53 = tail call ptr %51(i64 noundef 1, i64 noundef %52) #5
-  %.not59 = icmp eq ptr %53, null
-  br i1 %.not59, label %.critedge61, label %54
+  %.048 = phi ptr [ %1, %9 ], [ %.14984, %.lr.ph ]
+  %.046 = phi i64 [ %12, %9 ], [ %.185, %.lr.ph ]
+  %53 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !99
+  %54 = add i64 %.046, 56
+  %55 = tail call ptr %53(i64 noundef 1, i64 noundef %54) #5
+  %.not59 = icmp eq ptr %55, null
+  br i1 %.not59, label %.critedge61, label %56
 
-54:                                               ; preds = %.critedge
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %55, ptr nonnull align 1 %.048, i64 %.046, i1 false)
-  %56 = getelementptr inbounds nuw [1 x i8], ptr %55, i64 0, i64 %.046
-  store i8 0, ptr %56, align 1, !tbaa !95
-  %57 = icmp eq i8 %2, 16
-  br i1 %57, label %58, label %.preheader99
+56:                                               ; preds = %.critedge
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 53
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull align 1 %.048, i64 %.046, i1 false)
+  %58 = getelementptr inbounds nuw [1 x i8], ptr %57, i64 0, i64 %.046
+  store i8 0, ptr %58, align 1, !tbaa !94
+  %59 = icmp eq i8 %2, 16
+  br i1 %59, label %60, label %.preheader105
 
-58:                                               ; preds = %54
-  %59 = load i8, ptr %55, align 1, !tbaa !95
-  %.not.i68 = icmp eq i8 %59, 58
-  br i1 %.not.i68, label %60, label %namevalue.exit
+60:                                               ; preds = %56
+  %61 = load i8, ptr %57, align 1, !tbaa !94
+  %.not.i68 = icmp eq i8 %61, 58
+  br i1 %.not.i68, label %62, label %namevalue.exit
 
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %53, i64 54
-  br label %.preheader99
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 54
+  br label %.preheader105
 
-.preheader99:                                     ; preds = %60, %54
-  %.1.i.ph = phi ptr [ %55, %54 ], [ %61, %60 ]
-  br label %62
+.preheader105:                                    ; preds = %62, %56
+  %.1.i.ph = phi ptr [ %57, %56 ], [ %63, %62 ]
+  br label %64
 
-62:                                               ; preds = %.preheader99, %64
-  %.1.i = phi ptr [ %65, %64 ], [ %.1.i.ph, %.preheader99 ]
-  %63 = load i8, ptr %.1.i, align 1, !tbaa !95
-  switch i8 %63, label %64 [
+64:                                               ; preds = %.preheader105, %66
+  %.1.i = phi ptr [ %67, %66 ], [ %.1.i.ph, %.preheader105 ]
+  %65 = load i8, ptr %.1.i, align 1, !tbaa !94
+  switch i8 %65, label %66 [
     i8 0, label %namevalue.exit
-    i8 58, label %66
+    i8 58, label %68
   ]
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  br label %62, !llvm.loop !101
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
+  br label %64, !llvm.loop !100
 
-66:                                               ; preds = %62
-  store i8 0, ptr %.1.i, align 1, !tbaa !95
+68:                                               ; preds = %64
+  store i8 0, ptr %.1.i, align 1, !tbaa !94
   br label %.critedge4.i62
 
-.critedge4.i62:                                   ; preds = %.critedge4.i62.backedge, %66
-  %.1.pn.i = phi ptr [ %.1.i, %66 ], [ %.2.i, %.critedge4.i62.backedge ]
+.critedge4.i62:                                   ; preds = %.critedge4.i62.backedge, %68
+  %.1.pn.i = phi ptr [ %.1.i, %68 ], [ %.2.i, %.critedge4.i62.backedge ]
   %.2.i = getelementptr inbounds nuw i8, ptr %.1.pn.i, i64 1
-  %67 = load i8, ptr %.2.i, align 1, !tbaa !95
-  switch i8 %67, label %.critedge2.i63 [
+  %69 = load i8, ptr %.2.i, align 1, !tbaa !94
+  switch i8 %69, label %.critedge2.i63 [
     i8 9, label %.critedge4.i62.backedge
     i8 32, label %.critedge4.i62.backedge
   ]
 
 .critedge4.i62.backedge:                          ; preds = %.critedge4.i62, %.critedge4.i62
-  br label %.critedge4.i62, !llvm.loop !102
+  br label %.critedge4.i62, !llvm.loop !101
 
 .critedge2.i63:                                   ; preds = %.critedge4.i62
-  %.044.i = getelementptr inbounds i8, ptr %56, i64 -1
-  %68 = icmp ugt ptr %.044.i, %.2.i
-  br i1 %68, label %.lr.ph.i65, label %.loopexit
+  %.044.i = getelementptr inbounds i8, ptr %58, i64 -1
+  %70 = icmp ugt ptr %.044.i, %.2.i
+  br i1 %70, label %.lr.ph.i65, label %.loopexit
 
 .lr.ph.i65:                                       ; preds = %.critedge2.i63, %.critedge8.i
   %.045.i = phi ptr [ %.0.i66, %.critedge8.i ], [ %.044.i, %.critedge2.i63 ]
-  %69 = load i8, ptr %.045.i, align 1, !tbaa !95
-  switch i8 %69, label %70 [
+  %71 = load i8, ptr %.045.i, align 1, !tbaa !94
+  switch i8 %71, label %72 [
     i8 32, label %.critedge8.i
     i8 9, label %.critedge8.i
   ]
 
-70:                                               ; preds = %.lr.ph.i65
-  %71 = add i8 %69, -10
-  %or.cond.i67 = icmp ult i8 %71, 4
+72:                                               ; preds = %.lr.ph.i65
+  %73 = add i8 %71, -10
+  %or.cond.i67 = icmp ult i8 %73, 4
   br i1 %or.cond.i67, label %.critedge8.i, label %.loopexit
 
-.critedge8.i:                                     ; preds = %70, %.lr.ph.i65, %.lr.ph.i65
-  store i8 0, ptr %.045.i, align 1, !tbaa !95
+.critedge8.i:                                     ; preds = %72, %.lr.ph.i65, %.lr.ph.i65
+  store i8 0, ptr %.045.i, align 1, !tbaa !94
   %.0.i66 = getelementptr inbounds i8, ptr %.045.i, i64 -1
-  %72 = icmp ugt ptr %.0.i66, %.2.i
-  br i1 %72, label %.lr.ph.i65, label %.loopexit, !llvm.loop !103
+  %74 = icmp ugt ptr %.0.i66, %.2.i
+  br i1 %74, label %.lr.ph.i65, label %.loopexit, !llvm.loop !102
 
-.loopexit:                                        ; preds = %70, %.critedge8.i, %.critedge2.i63
-  %73 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  store ptr %55, ptr %73, align 8, !tbaa !75
-  %74 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  store ptr %.2.i, ptr %74, align 8, !tbaa !85
-  %75 = getelementptr inbounds nuw i8, ptr %53, i64 52
-  store i8 %2, ptr %75, align 4, !tbaa !77
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 3256
-  %77 = load i32, ptr %76, align 8, !tbaa !3
-  %78 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  store i32 %77, ptr %78, align 8, !tbaa !78
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 4712
-  tail call void @Curl_llist_append(ptr noundef nonnull %79, ptr noundef nonnull %53, ptr noundef nonnull %53) #5
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 4840
-  store ptr %53, ptr %80, align 8, !tbaa !96
+.loopexit:                                        ; preds = %72, %.critedge8.i, %.critedge2.i63
+  %75 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  store ptr %57, ptr %75, align 8, !tbaa !75
+  %76 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  store ptr %.2.i, ptr %76, align 8, !tbaa !84
+  %77 = getelementptr inbounds nuw i8, ptr %55, i64 52
+  store i8 %2, ptr %77, align 4, !tbaa !77
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 3256
+  %79 = load i32, ptr %78, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw i8, ptr %55, i64 48
+  store i32 %79, ptr %80, align 8, !tbaa !78
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 4712
+  tail call void @Curl_llist_append(ptr noundef nonnull %81, ptr noundef nonnull %55, ptr noundef nonnull %55) #5
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 4840
+  store ptr %55, ptr %82, align 8, !tbaa !95
   br label %.critedge61
 
-namevalue.exit:                                   ; preds = %62, %58
-  %81 = load ptr, ptr @Curl_cfree, align 8, !tbaa !100
-  tail call void %81(ptr noundef nonnull %53) #5
+namevalue.exit:                                   ; preds = %64, %60
+  %83 = load ptr, ptr @Curl_cfree, align 8, !tbaa !99
+  tail call void %83(ptr noundef nonnull %55) #5
   br label %.critedge61
 
-.critedge61:                                      ; preds = %.critedge2, %.preheader, %40, %.critedge4.i, %.loopexit, %namevalue.exit, %.critedge, %7, %3, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %3 ], [ 8, %7 ], [ 27, %.critedge ], [ 43, %namevalue.exit ], [ 0, %.loopexit ], [ 0, %40 ], [ 27, %.critedge4.i ], [ 8, %.preheader ], [ 8, %.critedge2 ]
+.critedge61:                                      ; preds = %.critedge2, %.preheader, %42, %.critedge4.i, %.loopexit, %namevalue.exit, %.critedge, %7, %3, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %3 ], [ 8, %7 ], [ 27, %.critedge ], [ 43, %namevalue.exit ], [ 0, %.loopexit ], [ 0, %42 ], [ 27, %.critedge4.i ], [ 8, %.preheader ], [ 8, %.critedge2 ]
   ret i32 %.0
 }
 
@@ -584,15 +580,15 @@ define hidden i32 @Curl_headers_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !104
+  %4 = load ptr, ptr %3, align 8, !tbaa !103
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 960
-  %7 = load ptr, ptr %6, align 8, !tbaa !105
+  %7 = load ptr, ptr %6, align 8, !tbaa !104
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 148
-  %9 = load i32, ptr %8, align 4, !tbaa !114
+  %9 = load i32, ptr %8, align 4, !tbaa !113
   %10 = and i32 %9, -1073741821
   %.not13 = icmp eq i32 %10, 0
   br i1 %.not13, label %20, label %11
@@ -608,13 +604,13 @@ define hidden i32 @Curl_headers_init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not15, label %15, label %20
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr %2, align 8, !tbaa !116
+  %16 = load ptr, ptr %2, align 8, !tbaa !115
   %17 = call i32 @Curl_cwriter_add(ptr noundef nonnull %0, ptr noundef %16) #5
   %.not16 = icmp eq i32 %17, 0
   br i1 %.not16, label %20, label %18
 
 18:                                               ; preds = %15
-  %19 = load ptr, ptr %2, align 8, !tbaa !116
+  %19 = load ptr, ptr %2, align 8, !tbaa !115
   call void @Curl_cwriter_free(ptr noundef nonnull %0, ptr noundef %19) #5
   br label %20
 
@@ -643,15 +639,15 @@ define hidden noundef i32 @Curl_headers_cleanup(ptr noundef %0) local_unnamed_ad
   %.08 = phi ptr [ %5, %.lr.ph ], [ %3, %1 ]
   %4 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.08) #5
   %5 = tail call ptr @Curl_node_next(ptr noundef nonnull %.08) #5
-  %6 = load ptr, ptr @Curl_cfree, align 8, !tbaa !100
+  %6 = load ptr, ptr @Curl_cfree, align 8, !tbaa !99
   tail call void %6(ptr noundef %4) #5
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !117
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !116
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @Curl_llist_init(ptr noundef nonnull %2, ptr noundef null) #5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4840
-  store ptr null, ptr %7, align 8, !tbaa !96
+  store ptr null, ptr %7, align 8, !tbaa !95
   ret i32 0
 }
 
@@ -699,13 +695,13 @@ define internal i32 @hds_cw_collect_write(ptr noundef %0, ptr noundef readonly c
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %23 = load ptr, ptr %22, align 8, !tbaa !118
+  %23 = load ptr, ptr %22, align 8, !tbaa !117
   %.not34 = icmp eq ptr %23, null
   br i1 %.not34, label %30, label %24
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !119
+  %26 = load i32, ptr %25, align 8, !tbaa !118
   %27 = icmp sgt i32 %26, 0
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8
   %29 = icmp sgt i32 %28, 0
@@ -713,7 +709,7 @@ define internal i32 @hds_cw_collect_write(ptr noundef %0, ptr noundef readonly c
   br i1 %or.cond, label %31, label %33
 
 30:                                               ; preds = %21
-  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8, !tbaa !119
+  %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_write, i64 8), align 8, !tbaa !118
   %.old1 = icmp sgt i32 %.old, 0
   br i1 %.old1, label %31, label %33
 
@@ -728,7 +724,7 @@ define internal i32 @hds_cw_collect_write(ptr noundef %0, ptr noundef readonly c
 
 34:                                               ; preds = %33, %5
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !121
+  %36 = load ptr, ptr %35, align 8, !tbaa !120
   %37 = tail call i32 @Curl_cwriter_write(ptr noundef %0, ptr noundef %36, i32 noundef %2, ptr noundef %3, i64 noundef %4) #5
   br label %38
 
@@ -834,48 +830,47 @@ attributes #6 = { nounwind willreturn memory(read) }
 !76 = !{!"Curl_header_store", !11, i64 0, !29, i64 32, !29, i64 40, !5, i64 48, !6, i64 52, !6, i64 53}
 !77 = !{!76, !6, i64 52}
 !78 = !{!76, !5, i64 48}
-!79 = distinct !{!79, !80, !81}
+!79 = distinct !{!79, !80}
 !80 = !{!"llvm.loop.mustprogress"}
-!81 = !{!"llvm.loop.estimated_trip_count"}
-!82 = distinct !{!82, !80, !81}
-!83 = !{!84, !29, i64 0}
-!84 = !{!"curl_header", !29, i64 0, !29, i64 8, !8, i64 16, !8, i64 24, !5, i64 32, !10, i64 40}
-!85 = !{!76, !29, i64 40}
-!86 = !{!84, !29, i64 8}
-!87 = !{!84, !8, i64 16}
-!88 = !{!84, !8, i64 24}
-!89 = !{!84, !5, i64 32}
-!90 = !{!84, !10, i64 40}
-!91 = !{!92, !92, i64 0}
-!92 = !{!"p1 _ZTS11curl_header", !10, i64 0}
-!93 = distinct !{!93, !80, !81}
-!94 = distinct !{!94, !80, !81}
-!95 = !{!6, !6, i64 0}
-!96 = !{!4, !65, i64 4840}
-!97 = distinct !{!97, !80, !81}
-!98 = distinct !{!98, !80, !81}
-!99 = distinct !{!99, !80, !81}
-!100 = !{!10, !10, i64 0}
-!101 = distinct !{!101, !80, !81}
-!102 = distinct !{!102, !80, !81}
-!103 = distinct !{!103, !80, !81}
-!104 = !{!4, !9, i64 24}
-!105 = !{!106, !112, i64 960}
-!106 = !{!"connectdata", !11, i64 0, !10, i64 32, !10, i64 40, !8, i64 48, !29, i64 56, !8, i64 64, !59, i64 72, !107, i64 80, !108, i64 88, !29, i64 120, !29, i64 128, !108, i64 136, !109, i64 168, !109, i64 224, !71, i64 280, !71, i64 380, !29, i64 480, !29, i64 488, !29, i64 496, !29, i64 504, !29, i64 512, !23, i64 520, !23, i64 536, !23, i64 552, !6, i64 568, !6, i64 576, !6, i64 592, !6, i64 608, !110, i64 624, !16, i64 664, !42, i64 696, !42, i64 824, !111, i64 952, !112, i64 960, !112, i64 968, !23, i64 976, !5, i64 992, !5, i64 996, !63, i64 1000, !5, i64 1032, !5, i64 1036, !113, i64 1040, !113, i64 1064, !6, i64 1088, !29, i64 1368, !29, i64 1376, !44, i64 1384, !5, i64 1388, !5, i64 1392, !5, i64 1396, !5, i64 1400, !44, i64 1404, !44, i64 1406, !6, i64 1408, !6, i64 1409, !6, i64 1410, !6, i64 1411, !6, i64 1412, !6, i64 1413, !6, i64 1414}
-!107 = !{!"p1 _ZTS16Curl_sockaddr_ex", !10, i64 0}
-!108 = !{!"hostname", !29, i64 0, !29, i64 8, !29, i64 16, !29, i64 24}
-!109 = !{!"proxy_info", !108, i64 0, !5, i64 32, !6, i64 36, !29, i64 40, !29, i64 48}
-!110 = !{!"", !6, i64 0, !5, i64 32}
-!111 = !{!"ConnectBits", !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 2, !5, i64 2, !5, i64 2, !5, i64 2, !5, i64 2, !5, i64 2, !5, i64 2, !5, i64 2, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 4, !5, i64 4}
-!112 = !{!"p1 _ZTS12Curl_handler", !10, i64 0}
-!113 = !{!"ntlmdata", !5, i64 0, !6, i64 4, !5, i64 12, !10, i64 16}
-!114 = !{!115, !5, i64 148}
-!115 = !{!"Curl_handler", !29, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !5, i64 144, !5, i64 148, !5, i64 152, !5, i64 156}
-!116 = !{!24, !24, i64 0}
-!117 = distinct !{!117, !80, !81}
-!118 = !{!4, !66, i64 4864}
-!119 = !{!120, !5, i64 8}
-!120 = !{!"curl_trc_feat", !29, i64 0, !5, i64 8}
-!121 = !{!122, !24, i64 8}
-!122 = !{!"Curl_cwriter", !123, i64 0, !24, i64 8, !10, i64 16, !5, i64 24}
-!123 = !{!"p1 _ZTS11Curl_cwtype", !10, i64 0}
+!81 = distinct !{!81, !80}
+!82 = !{!83, !29, i64 0}
+!83 = !{!"curl_header", !29, i64 0, !29, i64 8, !8, i64 16, !8, i64 24, !5, i64 32, !10, i64 40}
+!84 = !{!76, !29, i64 40}
+!85 = !{!83, !29, i64 8}
+!86 = !{!83, !8, i64 16}
+!87 = !{!83, !8, i64 24}
+!88 = !{!83, !5, i64 32}
+!89 = !{!83, !10, i64 40}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 _ZTS11curl_header", !10, i64 0}
+!92 = distinct !{!92, !80}
+!93 = distinct !{!93, !80}
+!94 = !{!6, !6, i64 0}
+!95 = !{!4, !65, i64 4840}
+!96 = distinct !{!96, !80}
+!97 = distinct !{!97, !80}
+!98 = distinct !{!98, !80}
+!99 = !{!10, !10, i64 0}
+!100 = distinct !{!100, !80}
+!101 = distinct !{!101, !80}
+!102 = distinct !{!102, !80}
+!103 = !{!4, !9, i64 24}
+!104 = !{!105, !111, i64 960}
+!105 = !{!"connectdata", !11, i64 0, !10, i64 32, !10, i64 40, !8, i64 48, !29, i64 56, !8, i64 64, !59, i64 72, !106, i64 80, !107, i64 88, !29, i64 120, !29, i64 128, !107, i64 136, !108, i64 168, !108, i64 224, !71, i64 280, !71, i64 380, !29, i64 480, !29, i64 488, !29, i64 496, !29, i64 504, !29, i64 512, !23, i64 520, !23, i64 536, !23, i64 552, !6, i64 568, !6, i64 576, !6, i64 592, !6, i64 608, !109, i64 624, !16, i64 664, !42, i64 696, !42, i64 824, !110, i64 952, !111, i64 960, !111, i64 968, !23, i64 976, !5, i64 992, !5, i64 996, !63, i64 1000, !5, i64 1032, !5, i64 1036, !112, i64 1040, !112, i64 1064, !6, i64 1088, !29, i64 1368, !29, i64 1376, !44, i64 1384, !5, i64 1388, !5, i64 1392, !5, i64 1396, !5, i64 1400, !44, i64 1404, !44, i64 1406, !6, i64 1408, !6, i64 1409, !6, i64 1410, !6, i64 1411, !6, i64 1412, !6, i64 1413, !6, i64 1414}
+!106 = !{!"p1 _ZTS16Curl_sockaddr_ex", !10, i64 0}
+!107 = !{!"hostname", !29, i64 0, !29, i64 8, !29, i64 16, !29, i64 24}
+!108 = !{!"proxy_info", !107, i64 0, !5, i64 32, !6, i64 36, !29, i64 40, !29, i64 48}
+!109 = !{!"", !6, i64 0, !5, i64 32}
+!110 = !{!"ConnectBits", !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 1, !5, i64 2, !5, i64 2, !5, i64 2, !5, i64 2, !5, i64 2, !5, i64 2, !5, i64 2, !5, i64 2, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 4, !5, i64 4}
+!111 = !{!"p1 _ZTS12Curl_handler", !10, i64 0}
+!112 = !{!"ntlmdata", !5, i64 0, !6, i64 4, !5, i64 12, !10, i64 16}
+!113 = !{!114, !5, i64 148}
+!114 = !{!"Curl_handler", !29, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !5, i64 144, !5, i64 148, !5, i64 152, !5, i64 156}
+!115 = !{!24, !24, i64 0}
+!116 = distinct !{!116, !80}
+!117 = !{!4, !66, i64 4864}
+!118 = !{!119, !5, i64 8}
+!119 = !{!"curl_trc_feat", !29, i64 0, !5, i64 8}
+!120 = !{!121, !24, i64 8}
+!121 = !{!"Curl_cwriter", !122, i64 0, !24, i64 8, !10, i64 16, !5, i64 24}
+!122 = !{!"p1 _ZTS11Curl_cwtype", !10, i64 0}

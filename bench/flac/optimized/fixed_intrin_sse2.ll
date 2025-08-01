@@ -53,10 +53,10 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %30
-  %32 = load <4 x i32>, ptr %7, align 16, !tbaa !10
-  %33 = load <4 x i32>, ptr %6, align 16, !tbaa !10
-  %34 = load <4 x i32>, ptr %5, align 16, !tbaa !10
-  %35 = load <4 x i32>, ptr %4, align 16, !tbaa !10
+  %32 = load <4 x i32>, ptr %7, align 16, !tbaa !9
+  %33 = load <4 x i32>, ptr %6, align 16, !tbaa !9
+  %34 = load <4 x i32>, ptr %5, align 16, !tbaa !9
+  %35 = load <4 x i32>, ptr %4, align 16, !tbaa !9
   %36 = lshr i32 %1, 2
   %37 = shl nuw nsw i32 %36, 1
   %38 = mul nuw nsw i32 %36, 3
@@ -108,7 +108,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
   %70 = add <4 x i32> %69, %47
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count
-  br i1 %exitcond366.not, label %._crit_edge.loopexit, label %42, !llvm.loop !11
+  br i1 %exitcond366.not, label %._crit_edge.loopexit, label %42, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %42
   %71 = shl nuw nsw i32 %8, 2
@@ -212,7 +212,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %124 = trunc nuw i64 %indvars.iv.next368 to i32
   %125 = icmp sgt i32 %1, %124
-  br i1 %125, label %.lr.ph344, label %.loopexit, !llvm.loop !12
+  br i1 %125, label %.lr.ph344, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph344, %._crit_edge
   %.0231 = phi i32 [ %91, %._crit_edge ], [ %123, %.lr.ph344 ]
@@ -260,7 +260,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
 141:                                              ; preds = %133, %.thread
   %.0242308 = phi i32 [ %.0242307, %.thread ], [ 0, %133 ]
   %142 = phi float [ %140, %.thread ], [ 0.000000e+00, %133 ]
-  store float %142, ptr %2, align 4, !tbaa !13
+  store float %142, ptr %2, align 4, !tbaa !12
   %.not254 = icmp eq i32 %.0221, 0
   br i1 %.not254, label %151, label %143
 
@@ -277,7 +277,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
 151:                                              ; preds = %141, %143
   %152 = phi float [ %150, %143 ], [ 0.000000e+00, %141 ]
   %153 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %152, ptr %153, align 4, !tbaa !13
+  store float %152, ptr %153, align 4, !tbaa !12
   %.not255 = icmp eq i32 %.0227, 0
   br i1 %.not255, label %162, label %154
 
@@ -294,7 +294,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
 162:                                              ; preds = %151, %154
   %163 = phi float [ %161, %154 ], [ 0.000000e+00, %151 ]
   %164 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %163, ptr %164, align 4, !tbaa !13
+  store float %163, ptr %164, align 4, !tbaa !12
   %.not256 = icmp eq i32 %.0229, 0
   br i1 %.not256, label %173, label %165
 
@@ -311,7 +311,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
 173:                                              ; preds = %162, %165
   %174 = phi float [ %172, %165 ], [ 0.000000e+00, %162 ]
   %175 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float %174, ptr %175, align 4, !tbaa !13
+  store float %174, ptr %175, align 4, !tbaa !12
   %.not257 = icmp eq i32 %.0231, 0
   br i1 %.not257, label %184, label %176
 
@@ -328,7 +328,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
 184:                                              ; preds = %173, %176
   %185 = phi float [ %183, %176 ], [ 0.000000e+00, %173 ]
   %186 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float %185, ptr %186, align 4, !tbaa !13
+  store float %185, ptr %186, align 4, !tbaa !12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
@@ -369,11 +369,10 @@ attributes #4 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"float", !5, i64 0}
+!9 = !{!5, !5, i64 0}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"float", !5, i64 0}

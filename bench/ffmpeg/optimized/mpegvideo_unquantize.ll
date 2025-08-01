@@ -132,7 +132,7 @@ define internal void @dct_unquantize_h263_inter_c(ptr noundef readonly captures(
 26:                                               ; preds = %18, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %16
-  br i1 %exitcond.not, label %27, label %18, !llvm.loop !50
+  br i1 %exitcond.not, label %27, label %18, !llvm.loop !49
 
 27:                                               ; preds = %26
   ret void
@@ -210,7 +210,7 @@ define internal void @dct_unquantize_mpeg1_intra_c(ptr noundef readonly captures
 48:                                               ; preds = %46, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %48, %4
   ret void
@@ -280,7 +280,7 @@ define internal void @dct_unquantize_mpeg1_inter_c(ptr noundef readonly captures
 42:                                               ; preds = %40, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %42, %4
   ret void
@@ -289,7 +289,7 @@ define internal void @dct_unquantize_mpeg1_inter_c(ptr noundef readonly captures
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @dct_unquantize_mpeg2_intra_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %6 = load i32, ptr %5, align 8, !tbaa !53
+  %6 = load i32, ptr %5, align 8, !tbaa !52
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
 
@@ -372,7 +372,7 @@ define internal void @dct_unquantize_mpeg2_intra_c(ptr noundef readonly captures
 54:                                               ; preds = %52, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %54, %14
   ret void
@@ -381,7 +381,7 @@ define internal void @dct_unquantize_mpeg2_intra_c(ptr noundef readonly captures
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @dct_unquantize_mpeg2_intra_bitexact(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %6 = load i32, ptr %5, align 8, !tbaa !53
+  %6 = load i32, ptr %5, align 8, !tbaa !52
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
 
@@ -469,7 +469,7 @@ define internal void @dct_unquantize_mpeg2_intra_bitexact(ptr noundef readonly c
   %.1 = phi i32 [ %56, %54 ], [ %.03745, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %57, %14
   %.037.lcssa = phi i32 [ %25, %14 ], [ %.1, %57 ]
@@ -485,7 +485,7 @@ define internal void @dct_unquantize_mpeg2_intra_bitexact(ptr noundef readonly c
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @dct_unquantize_mpeg2_inter_c(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %6 = load i32, ptr %5, align 8, !tbaa !53
+  %6 = load i32, ptr %5, align 8, !tbaa !52
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %12, label %7
 
@@ -563,7 +563,7 @@ define internal void @dct_unquantize_mpeg2_inter_c(ptr noundef readonly captures
   %.1 = phi i32 [ %48, %46 ], [ %.03139, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %22, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %22, !llvm.loop !55
 
 ._crit_edge.loopexit:                             ; preds = %49
   %50 = trunc i32 %.1 to i16
@@ -631,13 +631,12 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !44 = !{!37, !37, i64 0}
 !45 = !{!15, !17, i64 16}
 !46 = !{!7, !7, i64 0}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = distinct !{!50, !48, !49}
-!51 = distinct !{!51, !48, !49}
-!52 = distinct !{!52, !48, !49}
-!53 = !{!15, !17, i64 4232}
-!54 = distinct !{!54, !48, !49}
-!55 = distinct !{!55, !48, !49}
-!56 = distinct !{!56, !48, !49}
+!49 = distinct !{!49, !48}
+!50 = distinct !{!50, !48}
+!51 = distinct !{!51, !48}
+!52 = !{!15, !17, i64 4232}
+!53 = distinct !{!53, !48}
+!54 = distinct !{!54, !48}
+!55 = distinct !{!55, !48}

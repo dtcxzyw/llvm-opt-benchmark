@@ -152,7 +152,7 @@ define range(i32 -1, 1) i32 @rename(ptr noundef %0, ptr noundef %1) local_unname
   %79 = load ptr, ptr %78, align 8
   %80 = call i32 %79(ptr noundef nonnull %25, ptr noundef %.2.i, ptr noundef nonnull %8) #6
   %81 = icmp sgt i32 %80, -1
-  br i1 %81, label %59, label %.loopexit.i, !llvm.loop !6
+  br i1 %81, label %59, label %.loopexit.i
 
 82:                                               ; preds = %59
   %83 = load ptr, ptr %34, align 8
@@ -299,7 +299,7 @@ mountptrename.exit:                               ; preds = %33, %102, %104
   store i8 1, ptr %108, align 8
   %140 = call i32 @inode_find(ptr noundef nonnull %3) #6
   %141 = icmp sgt i32 %140, -1
-  br i1 %141, label %.lr.ph.i25, label %.loopexit.i24, !llvm.loop !8
+  br i1 %141, label %.lr.ph.i25, label %.loopexit.i24
 
 142:                                              ; preds = %124
   %143 = call i32 @inode_remove(ptr noundef %.048.i) #6
@@ -461,6 +461,3 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}

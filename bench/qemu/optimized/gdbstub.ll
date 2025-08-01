@@ -249,7 +249,7 @@ define dso_local void @riscv_cpu_register_gdb_regs_for_features(ptr noundef %0) 
   call void (ptr, ptr, ...) @gdb_feature_builder_append_tag(ptr noundef nonnull %3, ptr noundef nonnull @.str.11, i32 noundef %40, ptr noundef %42) #7
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next27.i, 5
-  br i1 %exitcond29.not.i, label %43, label %36, !llvm.loop !10
+  br i1 %exitcond29.not.i, label %43, label %36, !llvm.loop !9
 
 43:                                               ; preds = %36
   call void (ptr, ptr, ...) @gdb_feature_builder_append_tag(ptr noundef nonnull %3, ptr noundef nonnull @.str.12) #7
@@ -261,7 +261,7 @@ define dso_local void @riscv_cpu_register_gdb_regs_for_features(ptr noundef %0) 
   call void @gdb_feature_builder_append_reg(ptr noundef nonnull %3, ptr noundef %45, i32 noundef %25, i32 noundef %.224.i, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #7
   %46 = add nuw nsw i32 %.224.i, 1
   %exitcond30.not.i = icmp eq i32 %46, 32
-  br i1 %exitcond30.not.i, label %ricsv_gen_dynamic_vector_feature.exit, label %44, !llvm.loop !11
+  br i1 %exitcond30.not.i, label %ricsv_gen_dynamic_vector_feature.exit, label %44, !llvm.loop !10
 
 ricsv_gen_dynamic_vector_feature.exit:            ; preds = %44
   call void @gdb_feature_builder_end(ptr noundef nonnull %3) #7
@@ -346,7 +346,7 @@ switch.lookup:                                    ; preds = %47
 86:                                               ; preds = %85, %77, %74, %67
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, 4096
-  br i1 %exitcond.not.i21, label %riscv_gen_dynamic_csr_feature.exit, label %67, !llvm.loop !12
+  br i1 %exitcond.not.i21, label %riscv_gen_dynamic_csr_feature.exit, label %67, !llvm.loop !11
 
 riscv_gen_dynamic_csr_feature.exit:               ; preds = %86
   call void @gdb_feature_builder_end(ptr noundef nonnull %2) #7
@@ -462,7 +462,7 @@ define internal range(i32 -2147483640, -2147483648) i32 @riscv_gdb_get_vector(pt
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   %19 = add nuw nsw i32 %.019, 8
   %20 = icmp samesign ult i32 %19, %9
-  br i1 %20, label %12, label %.loopexit.loopexit, !llvm.loop !13
+  br i1 %20, label %12, label %.loopexit.loopexit, !llvm.loop !12
 
 .loopexit.loopexit:                               ; preds = %12
   %21 = add nsw i32 %9, -1
@@ -506,7 +506,7 @@ define internal range(i32 0, 65536) i32 @riscv_gdb_set_vector(ptr noundef %0, pt
   store i64 %.val, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %19 = icmp samesign ult i64 %indvars.iv.next, %11
-  br i1 %19, label %12, label %.loopexit, !llvm.loop !14
+  br i1 %19, label %12, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %12, %.preheader, %3
   %.014 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %8, %12 ]
@@ -640,11 +640,10 @@ attributes #8 = { noreturn nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = !{!"auto-init"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}

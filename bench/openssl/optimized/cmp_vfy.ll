@@ -813,7 +813,7 @@ define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %0, ptr nounde
 67:                                               ; preds = %.sink.split, %64, %61, %63
   %.081.shrunk = phi i1 [ true, %61 ], [ false, %63 ], [ false, %64 ], [ %66, %.sink.split ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %69 = load i32, ptr %68, align 4, !tbaa !65
+  %69 = load i32, ptr %68, align 4, !tbaa !64
   %.not100 = icmp ne i32 %69, 0
   %70 = icmp sgt i32 %52, 0
   %or.cond125 = select i1 %.not100, i1 %70, i1 false
@@ -826,7 +826,7 @@ define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %0, ptr nounde
   %73 = tail call ptr @OPENSSL_sk_shift(ptr noundef %72) #3
   tail call void @X509_free(ptr noundef %73) #3
   %74 = icmp samesign ugt i32 %.178122, 1
-  br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !66
+  br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.lr.ph, %67
   br i1 %.081.shrunk, label %79, label %75
@@ -876,9 +876,9 @@ define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %0, ptr nounde
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %90 = load ptr, ptr %89, align 8, !tbaa !67
+  %90 = load ptr, ptr %89, align 8, !tbaa !66
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %92 = load ptr, ptr %91, align 8, !tbaa !68
+  %92 = load ptr, ptr %91, align 8, !tbaa !67
   %93 = tail call fastcc i32 @check_transactionID_or_nonce(ptr noundef %90, ptr noundef %92, i32 noundef 152)
   %.not105 = icmp eq i32 %93, 0
   br i1 %.not105, label %.critedge113, label %94
@@ -886,16 +886,16 @@ define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %0, ptr nounde
 94:                                               ; preds = %88
   %95 = tail call i32 @ERR_set_mark() #3
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %97 = load ptr, ptr %96, align 8, !tbaa !69
+  %97 = load ptr, ptr %96, align 8, !tbaa !68
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %99 = load ptr, ptr %98, align 8, !tbaa !70
+  %99 = load ptr, ptr %98, align 8, !tbaa !69
   %100 = tail call fastcc i32 @check_transactionID_or_nonce(ptr noundef %97, ptr noundef %99, i32 noundef 148)
   %.not106 = icmp eq i32 %100, 0
   br i1 %.not106, label %101, label %114
 
 101:                                              ; preds = %94
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %103 = load ptr, ptr %102, align 8, !tbaa !71
+  %103 = load ptr, ptr %102, align 8, !tbaa !70
   %104 = icmp eq ptr %103, null
   br i1 %104, label %112, label %105
 
@@ -905,8 +905,8 @@ define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %0, ptr nounde
   br i1 %107, label %112, label %108
 
 108:                                              ; preds = %105
-  %109 = load ptr, ptr %102, align 8, !tbaa !71
-  %110 = load ptr, ptr %98, align 8, !tbaa !70
+  %109 = load ptr, ptr %102, align 8, !tbaa !70
+  %110 = load ptr, ptr %98, align 8, !tbaa !69
   %111 = tail call fastcc i32 @check_transactionID_or_nonce(ptr noundef %109, ptr noundef %110, i32 noundef 148)
   %.not107 = icmp eq i32 %111, 0
   br i1 %.not107, label %112, label %114
@@ -917,19 +917,19 @@ define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %0, ptr nounde
 
 114:                                              ; preds = %108, %94
   %115 = tail call i32 @ERR_pop_to_mark() #3
-  %116 = load ptr, ptr %89, align 8, !tbaa !67
+  %116 = load ptr, ptr %89, align 8, !tbaa !66
   %117 = icmp eq ptr %116, null
   br i1 %117, label %118, label %121
 
 118:                                              ; preds = %114
-  %119 = load ptr, ptr %91, align 8, !tbaa !68
+  %119 = load ptr, ptr %91, align 8, !tbaa !67
   %120 = tail call i32 @OSSL_CMP_CTX_set1_transactionID(ptr noundef nonnull %0, ptr noundef %119) #3
   %.not108 = icmp eq i32 %120, 0
   br i1 %.not108, label %.critedge113, label %121
 
 121:                                              ; preds = %118, %114
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %123 = load ptr, ptr %122, align 8, !tbaa !72
+  %123 = load ptr, ptr %122, align 8, !tbaa !71
   %124 = tail call i32 @ossl_cmp_ctx_set1_recipNonce(ptr noundef nonnull %0, ptr noundef %123) #3
   %.not109 = icmp eq i32 %124, 0
   br i1 %.not109, label %.critedge113, label %125
@@ -1115,7 +1115,7 @@ define range(i32 0, 2) i32 @ossl_cmp_verify_popo(ptr noundef readonly captures(n
   br i1 %.not17, label %.critedge, label %7, !prof !59
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr %6, align 8, !tbaa !73
+  %8 = load i32, ptr %6, align 8, !tbaa !72
   switch i32 %8, label %26 [
     i32 4, label %9
     i32 0, label %19
@@ -1179,7 +1179,7 @@ declare void @ASN1_BIT_STRING_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @check_msg_all_certs(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %5 = load i32, ptr %4, align 4, !tbaa !75
+  %5 = load i32, ptr %4, align 4, !tbaa !74
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
 
@@ -1303,7 +1303,7 @@ define internal fastcc range(i32 0, 2) i32 @cert_acceptable(ptr noundef nonnull 
   %35 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %34) #3
   %36 = tail call i32 @X509_cmp(ptr noundef %35, ptr noundef nonnull %3) #3
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %already_checked.exit, label %31, !llvm.loop !76
+  br i1 %37, label %already_checked.exit, label %31, !llvm.loop !75
 
 38:                                               ; preds = %31
   %39 = tail call i32 @OPENSSL_sk_num(ptr noundef %5) #3
@@ -1319,7 +1319,7 @@ define internal fastcc range(i32 0, 2) i32 @cert_acceptable(ptr noundef nonnull 
   %44 = tail call ptr @OPENSSL_sk_value(ptr noundef %5, i32 noundef %43) #3
   %45 = tail call i32 @X509_cmp(ptr noundef %44, ptr noundef nonnull %3) #3
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %already_checked.exit, label %40, !llvm.loop !76
+  br i1 %46, label %already_checked.exit, label %40, !llvm.loop !75
 
 already_checked.exit:                             ; preds = %33, %42
   %47 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef nonnull %0, ptr noundef nonnull @__func__.cert_acceptable, ptr noundef nonnull @.str, i32 noundef 270, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.32) #3
@@ -1468,7 +1468,7 @@ verify_cb_cert.exit.thread:                       ; preds = %101, %84, %58, %60,
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @check_cert_path_3gpp(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %5 = load i32, ptr %4, align 4, !tbaa !75
+  %5 = load i32, ptr %4, align 4, !tbaa !74
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %26, label %6
 
@@ -1597,7 +1597,7 @@ check_cert_path.exit.thread.us:                   ; preds = %17
   %23 = add nuw nsw i32 %.03251.us, 1
   %24 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #3
   %25 = icmp slt i32 %23, %24
-  br i1 %25, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !77
+  br i1 %25, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !76
 
 26:                                               ; preds = %7
   %27 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef nonnull %0, ptr noundef nonnull @__func__.check_msg_with_certs, ptr noundef nonnull @.str, i32 noundef 393, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.54, ptr noundef %2) #3
@@ -1631,7 +1631,7 @@ check_cert_path.exit:                             ; preds = %31, %17
   %36 = add nuw nsw i32 %.03251, 1
   %37 = tail call i32 @OPENSSL_sk_num(ptr noundef %1) #3
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !79
+  br i1 %38, label %.lr.ph.split, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %35, %22, %.preheader
   %.033.lcssa = phi i32 [ 0, %.preheader ], [ %.134.ph.us, %22 ], [ %.134.ph, %35 ]
@@ -1743,21 +1743,20 @@ attributes #3 = { nounwind }
 !59 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !60 = !{!4, !14, i64 160}
 !61 = !{!29, !16, i64 24}
-!62 = distinct !{!62, !63, !64}
+!62 = distinct !{!62, !63}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!"llvm.loop.estimated_trip_count"}
-!65 = !{!4, !10, i64 140}
-!66 = distinct !{!66, !63, !64}
-!67 = !{!4, !18, i64 280}
-!68 = !{!34, !18, i64 56}
-!69 = !{!4, !18, i64 288}
-!70 = !{!34, !18, i64 72}
-!71 = !{!4, !18, i64 304}
-!72 = !{!34, !18, i64 64}
-!73 = !{!74, !10, i64 0}
-!74 = !{!"ossl_cmp_pkibody_st", !10, i64 0, !7, i64 8}
-!75 = !{!4, !10, i64 188}
-!76 = distinct !{!76, !63, !64}
-!77 = distinct !{!77, !63, !64, !78}
-!78 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!79 = distinct !{!79, !63, !64}
+!64 = !{!4, !10, i64 140}
+!65 = distinct !{!65, !63}
+!66 = !{!4, !18, i64 280}
+!67 = !{!34, !18, i64 56}
+!68 = !{!4, !18, i64 288}
+!69 = !{!34, !18, i64 72}
+!70 = !{!4, !18, i64 304}
+!71 = !{!34, !18, i64 64}
+!72 = !{!73, !10, i64 0}
+!73 = !{!"ossl_cmp_pkibody_st", !10, i64 0, !7, i64 8}
+!74 = !{!4, !10, i64 188}
+!75 = distinct !{!75, !63}
+!76 = distinct !{!76, !63, !77}
+!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!78 = distinct !{!78, !63}

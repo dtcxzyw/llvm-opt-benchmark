@@ -178,7 +178,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit: ; pr
 46:                                               ; preds = %.lr.ph, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 8
   %.not = icmp eq ptr %47, %6
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -241,10 +241,10 @@ define void @_ZNK9grpc_core19ServiceConfigParser21ParseGlobalParametersERKNS_11C
   br i1 %.not.i.i, label %23, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread: ; preds = %20
-  %21 = load i64, ptr %6, align 8, !tbaa !18
-  store i64 %21, ptr %15, align 8, !tbaa !18
+  %21 = load i64, ptr %6, align 8, !tbaa !16
+  store i64 %21, ptr %15, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %22, ptr %10, align 8, !tbaa !20
+  store ptr %22, ptr %10, align 8, !tbaa !18
   br label %_ZNSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS2_EED2Ev.exit
 
 23:                                               ; preds = %20
@@ -276,24 +276,24 @@ _ZNKSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14
 
 .noexc16:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %26
-  %37 = load i64, ptr %6, align 8, !tbaa !18
-  store i64 %37, ptr %36, align 8, !tbaa !18
-  store ptr null, ptr %6, align 8, !tbaa !18
+  %37 = load i64, ptr %6, align 8, !tbaa !16
+  store i64 %37, ptr %36, align 8, !tbaa !16
+  store ptr null, ptr %6, align 8, !tbaa !16
   %.not10.i.i.i.i = icmp eq ptr %13, %14
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc16, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i ], [ %35, %.noexc16 ]
   %.0911.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %13, %.noexc16 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %38 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !18, !alias.scope !26, !noalias !23
-  store i64 %38, ptr %.012.i.i.i.i, align 8, !tbaa !18, !alias.scope !23, !noalias !26
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !18, !alias.scope !26, !noalias !23
+  call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  %38 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !16, !alias.scope !24, !noalias !21
+  store i64 %38, ptr %.012.i.i.i.i, align 8, !tbaa !16, !alias.scope !21, !noalias !24
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !16, !alias.scope !24, !noalias !21
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %39, %14
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !26
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %.noexc16
   %.0.lcssa.i.i.i.i = phi ptr [ %35, %.noexc16 ], [ %40, %.lr.ph.i.i.i.i ]
@@ -306,11 +306,11 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14d
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %42
-  store ptr %35, ptr %0, align 8, !tbaa !30
-  store ptr %41, ptr %10, align 8, !tbaa !20
+  store ptr %35, ptr %0, align 8, !tbaa !28
+  store ptr %41, ptr %10, align 8, !tbaa !18
   %43 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %35, i64 %33
-  store ptr %43, ptr %11, align 8, !tbaa !31
-  %.pr = load ptr, ptr %6, align 8, !tbaa !18
+  store ptr %43, ptr %11, align 8, !tbaa !29
+  %.pr = load ptr, ptr %6, align 8, !tbaa !16
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser12ParsedConfigEEclEPS2_.exit.i
 
@@ -328,7 +328,7 @@ _ZNSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_del
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.017.022, i64 8
   %.not = icmp eq ptr %50, %9
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %12
 
 51:                                               ; preds = %12
   %52 = landingpad { ptr, i32 }
@@ -347,7 +347,7 @@ _ZNSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_del
 
 53:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %54 = load ptr, ptr %6, align 8, !tbaa !18
+  %54 = load ptr, ptr %6, align 8, !tbaa !16
   %.not.i11 = icmp eq ptr %54, null
   br i1 %.not.i11, label %_ZNSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS2_EED2Ev.exit13, label %_ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser12ParsedConfigEEclEPS2_.exit.i12
 
@@ -367,15 +367,15 @@ _ZNSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_del
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !30
+  %2 = load ptr, ptr %0, align 8, !tbaa !28
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !20
+  %4 = load ptr, ptr %3, align 8, !tbaa !18
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %9, %_ZSt8_DestroyISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EEEvPT_.exit.i.i.i ], [ %2, %1 ]
-  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !18
+  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !16
   %.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EEEvPT_.exit.i.i.i, label %_ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser12ParsedConfigEEclEPS2_.exit.i.i.i.i.i
 
@@ -387,13 +387,13 @@ _ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser12ParsedConfigEEclEPS2_.e
   br label %_ZSt8_DestroyISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EEEvPT_.exit.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EEEvPT_.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser12ParsedConfigEEclEPS2_.exit.i.i.i.i.i, %.lr.ph.i.i.i
-  store ptr null, ptr %.05.i.i.i, align 8, !tbaa !18
+  store ptr null, ptr %.05.i.i.i, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %9, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !33
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !30
 
 _ZSt8_DestroyIPSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !30
+  %.pr = load ptr, ptr %0, align 8, !tbaa !28
   br label %_ZSt8_DestroyIPSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit
 
 _ZSt8_DestroyIPSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split, %1
@@ -403,7 +403,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt1
 
 11:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !31
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %10 to i64
   %16 = sub i64 %14, %15
@@ -450,10 +450,10 @@ define void @_ZNK9grpc_core19ServiceConfigParser24ParsePerMethodParametersERKNS_
   br i1 %.not.i.i, label %23, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit.thread: ; preds = %20
-  %21 = load i64, ptr %6, align 8, !tbaa !18
-  store i64 %21, ptr %15, align 8, !tbaa !18
+  %21 = load i64, ptr %6, align 8, !tbaa !16
+  store i64 %21, ptr %15, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %22, ptr %10, align 8, !tbaa !20
+  store ptr %22, ptr %10, align 8, !tbaa !18
   br label %_ZNSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS2_EED2Ev.exit
 
 23:                                               ; preds = %20
@@ -485,24 +485,24 @@ _ZNKSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14
 
 .noexc16:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %26
-  %37 = load i64, ptr %6, align 8, !tbaa !18
-  store i64 %37, ptr %36, align 8, !tbaa !18
-  store ptr null, ptr %6, align 8, !tbaa !18
+  %37 = load i64, ptr %6, align 8, !tbaa !16
+  store i64 %37, ptr %36, align 8, !tbaa !16
+  store ptr null, ptr %6, align 8, !tbaa !16
   %.not10.i.i.i.i = icmp eq ptr %13, %14
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc16, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i ], [ %35, %.noexc16 ]
   %.0911.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %13, %.noexc16 ]
+  call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %38 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !18, !alias.scope !37, !noalias !34
-  store i64 %38, ptr %.012.i.i.i.i, align 8, !tbaa !18, !alias.scope !34, !noalias !37
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !18, !alias.scope !37, !noalias !34
+  %38 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !16, !alias.scope !34, !noalias !31
+  store i64 %38, ptr %.012.i.i.i.i, align 8, !tbaa !16, !alias.scope !31, !noalias !34
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !16, !alias.scope !34, !noalias !31
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %39, %14
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, label %.lr.ph.i.i.i.i, !llvm.loop !26
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i: ; preds = %.lr.ph.i.i.i.i, %.noexc16
   %.0.lcssa.i.i.i.i = phi ptr [ %35, %.noexc16 ], [ %40, %.lr.ph.i.i.i.i ]
@@ -515,11 +515,11 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14d
   br label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %42
-  store ptr %35, ptr %0, align 8, !tbaa !30
-  store ptr %41, ptr %10, align 8, !tbaa !20
+  store ptr %35, ptr %0, align 8, !tbaa !28
+  store ptr %41, ptr %10, align 8, !tbaa !18
   %43 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %35, i64 %33
-  store ptr %43, ptr %11, align 8, !tbaa !31
-  %.pr = load ptr, ptr %6, align 8, !tbaa !18
+  store ptr %43, ptr %11, align 8, !tbaa !29
+  %.pr = load ptr, ptr %6, align 8, !tbaa !16
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser12ParsedConfigEEclEPS2_.exit.i
 
@@ -537,7 +537,7 @@ _ZNSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_del
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.017.022, i64 8
   %.not = icmp eq ptr %50, %9
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %12
 
 51:                                               ; preds = %12
   %52 = landingpad { ptr, i32 }
@@ -556,7 +556,7 @@ _ZNSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_del
 
 53:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %54 = load ptr, ptr %6, align 8, !tbaa !18
+  %54 = load ptr, ptr %6, align 8, !tbaa !16
   %.not.i11 = icmp eq ptr %54, null
   br i1 %.not.i11, label %_ZNSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS2_EED2Ev.exit13, label %_ZNKSt14default_deleteIN9grpc_core19ServiceConfigParser12ParsedConfigEEclEPS2_.exit.i12
 
@@ -617,7 +617,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %18
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
   %.not = icmp ult i64 %21, %27
-  br i1 %.not, label %.lr.ph, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, !llvm.loop !40
+  br i1 %.not, label %.lr.ph, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit, !llvm.loop !36
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit: ; preds = %20, %18, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %3
   %spec.select = phi i64 [ -1, %3 ], [ %.01013, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.01013, %18 ], [ -1, %20 ]
@@ -670,15 +670,15 @@ _ZNKSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %20, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  %23 = load i64, ptr %.0911.i.i.i, align 8, !tbaa !12, !alias.scope !44, !noalias !41
-  store i64 %23, ptr %.012.i.i.i, align 8, !tbaa !12, !alias.scope !41, !noalias !44
-  store ptr null, ptr %.0911.i.i.i, align 8, !tbaa !12, !alias.scope !44, !noalias !41
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
+  %23 = load i64, ptr %.0911.i.i.i, align 8, !tbaa !12, !alias.scope !40, !noalias !37
+  store i64 %23, ptr %.012.i.i.i, align 8, !tbaa !12, !alias.scope !37, !noalias !40
+  store ptr null, ptr %.0911.i.i.i, align 8, !tbaa !12, !alias.scope !40, !noalias !37
   %24 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %24, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %.lr.ph.i.i.i, !llvm.loop !46
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, label %.lr.ph.i.i.i, !llvm.loop !42
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNKSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE12_M_check_lenEmPKc.exit ], [ %25, %.lr.ph.i.i.i ]
@@ -689,15 +689,15 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %29, %.lr.ph.i.i.i17 ], [ %26, %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
   %.0911.i.i.i19 = phi ptr [ %28, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %27 = load i64, ptr %.0911.i.i.i19, align 8, !tbaa !12, !alias.scope !50, !noalias !47
-  store i64 %27, ptr %.012.i.i.i18, align 8, !tbaa !12, !alias.scope !47, !noalias !50
-  store ptr null, ptr %.0911.i.i.i19, align 8, !tbaa !12, !alias.scope !50, !noalias !47
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  %27 = load i64, ptr %.0911.i.i.i19, align 8, !tbaa !12, !alias.scope !46, !noalias !43
+  store i64 %27, ptr %.012.i.i.i18, align 8, !tbaa !12, !alias.scope !43, !noalias !46
+  store ptr null, ptr %.0911.i.i.i19, align 8, !tbaa !12, !alias.scope !46, !noalias !43
   %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %.not.i.i.i20 = icmp eq ptr %28, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !46
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !42
 
 _ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %26, %_ZNSt6vectorISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit ], [ %29, %.lr.ph.i.i.i17 ]
@@ -797,39 +797,35 @@ attributes #26 = { builtin nounwind }
 !13 = !{!"p1 _ZTSN9grpc_core19ServiceConfigParser6ParserE", !6, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"vtable pointer", !8, i64 0}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTSN9grpc_core19ServiceConfigParser12ParsedConfigE", !6, i64 0}
-!20 = !{!21, !22, i64 8}
-!21 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE17_Vector_impl_dataE", !22, i64 0, !22, i64 8, !22, i64 16}
-!22 = !{!"p1 _ZTSSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS2_EE", !6, i64 0}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
-!25 = distinct !{!25, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
-!26 = !{!27}
-!27 = distinct !{!27, !25, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
-!28 = distinct !{!28, !29, !17}
-!29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!21, !22, i64 0}
-!31 = !{!21, !22, i64 16}
-!32 = distinct !{!32, !17}
-!33 = distinct !{!33, !29, !17}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSN9grpc_core19ServiceConfigParser12ParsedConfigE", !6, i64 0}
+!18 = !{!19, !20, i64 8}
+!19 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EESaIS6_EE17_Vector_impl_dataE", !20, i64 0, !20, i64 8, !20, i64 16}
+!20 = !{!"p1 _ZTSSt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS2_EE", !6, i64 0}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
+!23 = distinct !{!23, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
+!24 = !{!25}
+!25 = distinct !{!25, !23, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.mustprogress"}
+!28 = !{!19, !20, i64 0}
+!29 = !{!19, !20, i64 16}
+!30 = distinct !{!30, !27}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
+!33 = distinct !{!33, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
-!36 = distinct !{!36, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
+!35 = distinct !{!35, !33, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
+!36 = distinct !{!36, !27}
 !37 = !{!38}
-!38 = distinct !{!38, !36, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser12ParsedConfigESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
-!39 = distinct !{!39, !17}
-!40 = distinct !{!40, !29, !17}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
-!43 = distinct !{!43, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
-!44 = !{!45}
-!45 = distinct !{!45, !43, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
-!46 = distinct !{!46, !29, !17}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
-!49 = distinct !{!49, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
-!50 = !{!51}
-!51 = distinct !{!51, !49, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
+!38 = distinct !{!38, !39, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
+!39 = distinct !{!39, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
+!40 = !{!41}
+!41 = distinct !{!41, !39, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}
+!42 = distinct !{!42, !27}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 0"}
+!45 = distinct !{!45, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_"}
+!46 = !{!47}
+!47 = distinct !{!47, !45, !"_ZSt19__relocate_object_aISt10unique_ptrIN9grpc_core19ServiceConfigParser6ParserESt14default_deleteIS3_EES6_SaIS6_EEvPT_PT0_RT1_: argument 1"}

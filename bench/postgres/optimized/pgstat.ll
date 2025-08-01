@@ -410,7 +410,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %pgstat_get_kind_inf
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #17
   %147 = load volatile i32, ptr @InterruptPending, align 4
   %.not75.i = icmp eq i32 %147, 0
-  br i1 %.not75.i, label %149, label %148, !prof !7
+  br i1 %.not75.i, label %149, label %148, !prof !6
 
 148:                                              ; preds = %146
   call void @ProcessInterrupts() #17
@@ -558,7 +558,7 @@ pgstat_get_kind_info.exit82.thread.i:             ; preds = %pgstat_get_kind_inf
   br label %pgstat_get_entry_len.exit.i
 
 224:                                              ; preds = %220
-  %225 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !8, !noundef !8
+  %225 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %226 = zext nneg i32 %188 to i64
   %227 = getelementptr ptr, ptr %225, i64 %226
   %228 = getelementptr i8, ptr %227, i64 -1024
@@ -590,7 +590,7 @@ pgstat_get_entry_len.exit.i:                      ; preds = %224, %221
 239:                                              ; preds = %238, %158
   %240 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 16), align 8
   %241 = call ptr @dshash_find_or_insert(ptr noundef %240, ptr noundef nonnull %6, ptr noundef nonnull %3) #17
-  %242 = load i8, ptr %3, align 1, !range !9, !noundef !8
+  %242 = load i8, ptr %3, align 1, !range !8, !noundef !7
   %243 = trunc nuw i8 %242 to i1
   br i1 %243, label %244, label %252
 
@@ -624,7 +624,7 @@ pgstat_get_entry_len.exit.i:                      ; preds = %224, %221
   br label %pgstat_get_entry_len.exit88.i
 
 263:                                              ; preds = %252
-  %264 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !8, !noundef !8
+  %264 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %265 = sext i32 %256 to i64
   %266 = getelementptr ptr, ptr %264, i64 %265
   %267 = getelementptr i8, ptr %266, i64 -1024
@@ -710,7 +710,7 @@ pgstat_get_entry_len.exit88.i:                    ; preds = %263, %259
   br label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %294, %283, %145
-  br label %.backedge.i, !llvm.loop !10
+  br label %.backedge.i
 
 .thread131.i:                                     ; preds = %pgstat_reset_after_failure.exit97.i, %284
   %295 = call i32 @FreeFile(ptr noundef nonnull %17) #17
@@ -1022,7 +1022,7 @@ pgstat_get_kind_info.exit.i.i:                    ; preds = %.thread.i, %44
   br label %57
 
 54:                                               ; preds = %pgstat_get_kind_info.exit.i.i
-  %55 = load i8, ptr %52, align 1, !range !9, !noundef !8
+  %55 = load i8, ptr %52, align 1, !range !8, !noundef !7
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %pgstat_build_snapshot_fixed.exit.i, label %57
 
@@ -1065,13 +1065,13 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %70, %.thread.i, %44
   %77 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   store i32 %77, ptr %6, align 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 257
-  br i1 %exitcond.not.i, label %31, label %34, !llvm.loop !11
+  br i1 %exitcond.not.i, label %31, label %34, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %31, %150
   %78 = phi ptr [ %151, %150 ], [ %33, %31 ]
   %79 = load volatile i32, ptr @InterruptPending, align 4
   %.not54.i = icmp eq i32 %79, 0
-  br i1 %.not54.i, label %81, label %80, !prof !7
+  br i1 %.not54.i, label %81, label %80, !prof !6
 
 80:                                               ; preds = %.lr.ph.i
   call void @ProcessInterrupts() #17
@@ -1079,9 +1079,9 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %70, %.thread.i, %44
 
 81:                                               ; preds = %80, %.lr.ph.i
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %83 = load i8, ptr %82, align 8, !range !9, !noundef !8
+  %83 = load i8, ptr %82, align 8, !range !8, !noundef !7
   %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %150, label %85, !llvm.loop !12
+  br i1 %84, label %150, label %85, !llvm.loop !10
 
 85:                                               ; preds = %81
   %86 = load i32, ptr %78, align 8
@@ -1094,7 +1094,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %70, %.thread.i, %44
 
 92:                                               ; preds = %85
   %93 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #17
-  br i1 %93, label %94, label %150, !llvm.loop !12
+  br i1 %93, label %94, label %150, !llvm.loop !10
 
 94:                                               ; preds = %92
   %95 = load i32, ptr %78, align 8
@@ -1104,7 +1104,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %70, %.thread.i, %44
   %99 = load i64, ptr %98, align 8
   %100 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.39, i32 noundef %95, i32 noundef %97, i64 noundef %99) #17
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1689, ptr noundef nonnull @__func__.pgstat_write_statsfile) #17
-  br label %150, !llvm.loop !12
+  br label %150, !llvm.loop !10
 
 101:                                              ; preds = %85
   %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
@@ -1122,7 +1122,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %70, %.thread.i, %44
   br label %pgstat_get_kind_info.exit61.i
 
 112:                                              ; preds = %101
-  %113 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !8, !noundef !8
+  %113 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %114 = sext i32 %106 to i64
   %115 = getelementptr ptr, ptr %113, i64 %114
   %116 = getelementptr i8, ptr %115, i64 -1024
@@ -1134,7 +1134,7 @@ pgstat_get_kind_info.exit61.i:                    ; preds = %112, %109
   %118 = load i8, ptr %.0.i60.i, align 8
   %119 = and i8 %118, 4
   %.not55.i = icmp eq i8 %119, 0
-  br i1 %.not55.i, label %150, label %120, !llvm.loop !12
+  br i1 %.not55.i, label %150, label %120, !llvm.loop !10
 
 120:                                              ; preds = %pgstat_get_kind_info.exit61.i
   %121 = getelementptr inbounds nuw i8, ptr %.0.i60.i, i64 64
@@ -1169,7 +1169,7 @@ pgstat_get_kind_info.exit61.i:                    ; preds = %112, %109
   br label %pgstat_get_entry_len.exit.i
 
 138:                                              ; preds = %130
-  %139 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !8, !noundef !8
+  %139 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %140 = sext i32 %131 to i64
   %141 = getelementptr ptr, ptr %139, i64 %140
   %142 = getelementptr i8, ptr %141, i64 -1024
@@ -1192,7 +1192,7 @@ pgstat_get_entry_len.exit.i:                      ; preds = %138, %134
 150:                                              ; preds = %pgstat_get_entry_len.exit.i, %pgstat_get_kind_info.exit61.i, %94, %92, %81
   %151 = call ptr @dshash_seq_next(ptr noundef nonnull %5) #17
   %.not.i = icmp eq ptr %151, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %150, %31
   call void @dshash_seq_term(ptr noundef nonnull %5) #17
@@ -1310,7 +1310,7 @@ pgstat_get_kind_info.exit:                        ; preds = %12
 pgstat_get_kind_info.exit.thread:                 ; preds = %9, %12, %pgstat_get_kind_info.exit, %17, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !14
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %20, %3
   br i1 %.029, label %22, label %24
@@ -1373,7 +1373,7 @@ pgstat_flush_pending_entries.exit.preheader:      ; preds = %82, %38
   br label %pgstat_get_kind_info.exit.i
 
 49:                                               ; preds = %.lr.ph.i
-  %50 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !8, !noundef !8
+  %50 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %51 = sext i32 %.sroa.0.0.copyload.i to i64
   %52 = getelementptr ptr, ptr %50, i64 %51
   %53 = getelementptr i8, ptr %52, i64 -1024
@@ -1403,7 +1403,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %49, %46
   br label %pgstat_get_kind_info.exit.i.i
 
 67:                                               ; preds = %59
-  %68 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !8, !noundef !8
+  %68 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %69 = sext i32 %61 to i64
   %70 = getelementptr ptr, ptr %68, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -1024
@@ -1438,7 +1438,7 @@ pgstat_delete_pending_entry.exit.i:               ; preds = %77, %pgstat_get_kin
   %.1.i = phi i1 [ %.01220.i, %pgstat_delete_pending_entry.exit.i ], [ true, %pgstat_get_kind_info.exit.i ]
   %.not22.i = icmp eq ptr %.114.val.i, null
   %.not.i = or i1 %.not17.i, %.not22.i
-  br i1 %.not.i, label %pgstat_flush_pending_entries.exit.preheader, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %pgstat_flush_pending_entries.exit.preheader, label %.lr.ph.i, !llvm.loop !12
 
 83:                                               ; preds = %pgstat_get_kind_info.exit49.thread
   store i64 %.038, ptr @pgstat_report_stat.last_flush, align 8
@@ -1486,7 +1486,7 @@ pgstat_get_kind_info.exit49.thread:               ; preds = %86, %89, %94, %pgst
   %.137 = phi i1 [ %99, %97 ], [ %.03667, %pgstat_get_kind_info.exit49 ], [ %.03667, %94 ], [ %.03667, %89 ], [ %.03667, %86 ]
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next72, 257
-  br i1 %exitcond73.not, label %83, label %pgstat_flush_pending_entries.exit, !llvm.loop !16
+  br i1 %exitcond73.not, label %83, label %pgstat_flush_pending_entries.exit, !llvm.loop !13
 
 100:                                              ; preds = %83
   %101 = load i64, ptr @pgstat_report_stat.pending_since, align 8
@@ -1550,7 +1550,7 @@ pgstat_get_kind_info.exit.thread.i:               ; preds = %11, %8, %pgstat_get
   %19 = phi ptr [ %.pre, %11 ], [ %3, %8 ], [ %3, %pgstat_get_kind_info.exit.i ], [ null, %.split ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 257
-  br i1 %exitcond.not.i, label %pgstat_init_snapshot_fixed.exit.preheader.preheader, label %.split, !llvm.loop !17
+  br i1 %exitcond.not.i, label %pgstat_init_snapshot_fixed.exit.preheader.preheader, label %.split, !llvm.loop !14
 
 20:                                               ; preds = %pgstat_get_kind_info.exit.thread
   tail call void @before_shmem_exit(ptr noundef nonnull @pgstat_shutdown_hook, i64 noundef 0) #17
@@ -1595,7 +1595,7 @@ pgstat_get_kind_info.exit:                        ; preds = %26
 pgstat_get_kind_info.exit.thread:                 ; preds = %23, %26, %pgstat_get_kind_info.exit, %32, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %20, label %pgstat_init_snapshot_fixed.exit.preheader, !llvm.loop !19
+  br i1 %exitcond.not, label %20, label %pgstat_init_snapshot_fixed.exit.preheader, !llvm.loop !16
 }
 
 declare void @pgstat_attach_shmem() local_unnamed_addr #5
@@ -1897,7 +1897,7 @@ pgstat_get_kind_info.exit:                        ; preds = %10, %13, %16, %19
   %41 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %42 = add nsw i64 %.0711.i.i.i.i, -8
   %.not.i.i.i.i = icmp eq i64 %42, 0
-  br i1 %.not.i.i.i.i, label %pgstat_hash_hash_key.exit.i, label %32, !llvm.loop !20
+  br i1 %.not.i.i.i.i, label %pgstat_hash_hash_key.exit.i, label %32, !llvm.loop !17
 
 pgstat_hash_hash_key.exit.i:                      ; preds = %32
   %43 = lshr i64 %40, 23
@@ -1932,7 +1932,7 @@ pgstat_hash_hash_key.exit.i:                      ; preds = %32
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i8, ptr %64, align 8
   %66 = icmp eq i8 %65, 0
-  br i1 %66, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !21
+  br i1 %66, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %pgstat_hash_hash_key.exit.i, %60
   %67 = phi ptr [ %63, %60 ], [ %56, %pgstat_hash_hash_key.exit.i ]
@@ -1963,7 +1963,7 @@ pgstat_hash_hash_key.exit.i:                      ; preds = %32
 74:                                               ; preds = %71
   %75 = load ptr, ptr %72, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load i8, ptr %76, align 8, !range !9, !noundef !8
+  %77 = load i8, ptr %76, align 8, !range !8, !noundef !7
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %86
 
@@ -2018,7 +2018,7 @@ pgstat_hash_hash_key.exit.i:                      ; preds = %32
   br label %pgstat_get_entry_data.exit
 
 107:                                              ; preds = %100
-  %108 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !8, !noundef !8
+  %108 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %109 = sext i32 %0 to i64
   %110 = getelementptr ptr, ptr %108, i64 %109
   %111 = getelementptr i8, ptr %110, i64 -1024
@@ -2185,13 +2185,13 @@ pgstat_get_kind_info.exit:                        ; preds = %13, %16, %19, %22
   %30 = load i8, ptr %.0.i, align 8
   %31 = and i8 %30, 2
   %.not27 = icmp eq i8 %31, 0
-  br i1 %.not27, label %70, label %32, !llvm.loop !22
+  br i1 %.not27, label %70, label %32, !llvm.loop !18
 
 32:                                               ; preds = %29, %pgstat_get_kind_info.exit
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %34 = load i8, ptr %33, align 8, !range !9, !noundef !8
+  %34 = load i8, ptr %33, align 8, !range !8, !noundef !7
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %70, label %36, !llvm.loop !22
+  br i1 %35, label %70, label %36, !llvm.loop !18
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 8), align 8
@@ -2221,7 +2221,7 @@ pgstat_get_kind_info.exit:                        ; preds = %13, %16, %19, %22
   br label %pgstat_get_entry_data.exit
 
 58:                                               ; preds = %36
-  %59 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !8, !noundef !8
+  %59 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %60 = sext i32 %10 to i64
   %61 = getelementptr ptr, ptr %59, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -1024
@@ -2244,7 +2244,7 @@ pgstat_get_entry_data.exit:                       ; preds = %55, %58
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #17
   %71 = call ptr @dshash_seq_next(ptr noundef nonnull %1) #17
   %.not = icmp eq ptr %71, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %70, %5
   call void @dshash_seq_term(ptr noundef nonnull %1) #17
@@ -2304,7 +2304,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %83, %89
   br label %98
 
 95:                                               ; preds = %pgstat_get_kind_info.exit.i
-  %96 = load i8, ptr %93, align 1, !range !9, !noundef !8
+  %96 = load i8, ptr %93, align 1, !range !8, !noundef !7
   %97 = trunc nuw i8 %96 to i1
   br i1 %97, label %pgstat_build_snapshot_fixed.exit, label %98
 
@@ -2318,7 +2318,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %83, %89
 pgstat_build_snapshot_fixed.exit:                 ; preds = %75, %78, %98, %95, %.thread, %83, %pgstat_get_kind_info.exit29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %72, label %73, !llvm.loop !24
+  br i1 %exitcond.not, label %72, label %73, !llvm.loop !19
 
 101:                                              ; preds = %0, %72
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %1) #17
@@ -2351,7 +2351,7 @@ define internal fastcc noundef ptr @pgstat_snapshot_insert(ptr noundef captures(
   %17 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %18 = add nsw i64 %.0711.i.i.i, -8
   %.not.i.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i.i, label %pgstat_hash_hash_key.exit, label %8, !llvm.loop !20
+  br i1 %.not.i.i.i, label %pgstat_hash_hash_key.exit, label %8, !llvm.loop !17
 
 pgstat_hash_hash_key.exit:                        ; preds = %8
   %19 = lshr i64 %16, 23
@@ -2373,7 +2373,7 @@ pgstat_hash_hash_key.exit:                        ; preds = %8
   %.pre = load i32, ptr %28, align 8
   %.pre78 = load i32, ptr %29, align 8
   %32 = icmp ult i32 %.pre, %.pre78
-  br i1 %32, label %41, label %33, !prof !7
+  br i1 %32, label %41, label %33, !prof !6
 
 .loopexit.loopexit.i:                             ; preds = %108, %86
   store i32 0, ptr %29, align 8
@@ -2382,7 +2382,7 @@ pgstat_hash_hash_key.exit:                        ; preds = %8
 33:                                               ; preds = %.loopexit.loopexit.i, %pgstat_hash_hash_key.exit
   %34 = load i64, ptr %0, align 8
   %35 = icmp eq i64 %34, 4294967296
-  br i1 %35, label %36, label %39, !prof !25
+  br i1 %35, label %36, label %39, !prof !20
 
 36:                                               ; preds = %33
   %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -2440,7 +2440,7 @@ pgstat_hash_hash_key.exit:                        ; preds = %8
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %62 = add nsw i64 %.0711.i.i.i.i.i, -8
   %.not.i.i.i.i.i = icmp eq i64 %62, 0
-  br i1 %.not.i.i.i.i.i, label %pgstat_snapshot_entry_hash.exit.i, label %.preheader104.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i, label %pgstat_snapshot_entry_hash.exit.i, label %.preheader104.i, !llvm.loop !17
 
 pgstat_snapshot_entry_hash.exit.i:                ; preds = %.preheader104.i
   %63 = lshr i64 %60, 23
@@ -2482,7 +2482,7 @@ pgstat_snapshot_distance.exit.i:                  ; preds = %72, %pgstat_snapsho
   %.070.i32 = phi i32 [ %84, %.preheader103.i ], [ 0, %.preheader103.i.preheader ]
   %84 = add i32 %.070.i32, 1
   %85 = icmp sgt i32 %84, 150
-  br i1 %85, label %86, label %.preheader103.i, !prof !25
+  br i1 %85, label %86, label %.preheader103.i, !prof !20
 
 86:                                               ; preds = %.lr.ph33
   %87 = load i32, ptr %28, align 8
@@ -2520,7 +2520,7 @@ pgstat_snapshot_distance.exit.i:                  ; preds = %72, %pgstat_snapsho
   %102 = getelementptr inbounds nuw %struct.PgStat_SnapshotEntry, ptr %42, i64 %101
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.276131.i, ptr noundef nonnull align 8 dereferenceable(32) %102, i64 32, i1 false)
   %.not85.i = icmp eq i32 %100, %.068.i26
-  br i1 %.not85.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not85.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %103 = load i32, ptr %28, align 8
@@ -2533,7 +2533,7 @@ pgstat_snapshot_distance.exit.i:                  ; preds = %72, %pgstat_snapsho
 105:                                              ; preds = %pgstat_snapshot_distance.exit.i
   %106 = add i32 %.080.i25, 1
   %107 = icmp ugt i32 %106, 25
-  br i1 %107, label %108, label %115, !prof !25
+  br i1 %107, label %108, label %115, !prof !20
 
 108:                                              ; preds = %105
   %109 = load i32, ptr %28, align 8
@@ -2627,7 +2627,7 @@ define dso_local zeroext i1 @pgstat_have_entry(i32 noundef %0, i32 noundef %1, i
   br label %pgstat_get_kind_info.exit
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !8, !noundef !8
+  %10 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %11 = sext i32 %0 to i64
   %12 = getelementptr ptr, ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -1024
@@ -2723,7 +2723,7 @@ pgstat_get_kind_info.exit.i:                      ; preds = %21, %18, %15, %12
   br label %32
 
 29:                                               ; preds = %pgstat_get_kind_info.exit.i
-  %30 = load i8, ptr %27, align 1, !range !9, !noundef !8
+  %30 = load i8, ptr %27, align 1, !range !8, !noundef !7
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %pgstat_build_snapshot_fixed.exit, label %32
 
@@ -2742,7 +2742,7 @@ pgstat_build_snapshot_fixed.exit:                 ; preds = %32, %29, %8
 define dso_local ptr @pgstat_prep_pending_entry(i32 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @pgStatPendingContext, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %9, !prof !25
+  br i1 %.not, label %6, label %9, !prof !20
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr @TopMemoryContext, align 8
@@ -2768,7 +2768,7 @@ define dso_local ptr @pgstat_prep_pending_entry(i32 noundef %0, i32 noundef %1, 
   br label %pgstat_get_kind_info.exit
 
 20:                                               ; preds = %14
-  %21 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !8, !noundef !8
+  %21 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %22 = sext i32 %0 to i64
   %23 = getelementptr ptr, ptr %21, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1024
@@ -2846,7 +2846,7 @@ define dso_local void @pgstat_delete_pending_entry(ptr noundef %0) local_unnamed
   br label %pgstat_get_kind_info.exit
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !8, !noundef !8
+  %10 = load ptr, ptr @pgstat_kind_custom_infos, align 8, !nonnull !7, !noundef !7
   %11 = sext i32 %3 to i64
   %12 = getelementptr ptr, ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -1024
@@ -2897,7 +2897,7 @@ define dso_local range(i32 0, 257) i32 @pgstat_get_kind_from_str(ptr noundef %0)
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %8, label %2, !llvm.loop !27
+  br i1 %exitcond.not, label %8, label %2, !llvm.loop !22
 
 8:                                                ; preds = %7
   %9 = load ptr, ptr @pgstat_kind_custom_infos, align 8
@@ -2925,7 +2925,7 @@ define dso_local range(i32 0, 257) i32 @pgstat_get_kind_from_str(ptr noundef %0)
   %20 = phi ptr [ %10, %.preheader ], [ %.pre, %14 ]
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 257
-  br i1 %exitcond48.not, label %.thread31, label %.preheader, !llvm.loop !28
+  br i1 %exitcond48.not, label %.thread31, label %.preheader, !llvm.loop !23
 
 .thread31:                                        ; preds = %19, %8
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -2979,7 +2979,7 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
   unreachable
 
 19:                                               ; preds = %13
-  %20 = load i8, ptr @process_shared_preload_libraries_in_progress, align 1, !range !9, !noundef !8
+  %20 = load i8, ptr @process_shared_preload_libraries_in_progress, align 1, !range !8, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %27, label %22
 
@@ -3091,7 +3091,7 @@ define dso_local void @pgstat_register_kind(i32 noundef %0, ptr noundef %1) loca
   %82 = phi ptr [ %.pre, %70 ], [ %65, %64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %61, label %64, !llvm.loop !29
+  br i1 %exitcond.not, label %61, label %64, !llvm.loop !24
 
 83:                                               ; preds = %61
   %84 = load ptr, ptr %4, align 8
@@ -3143,7 +3143,7 @@ define internal fastcc void @pgstat_snapshot_grow(ptr noundef captures(none) %0,
   %.0.i.i = select i1 %8, i64 %6, i64 %11
   %12 = shl i64 %.0.i.i, 5
   %13 = icmp ugt i64 %12, 9223372036854775806
-  br i1 %13, label %14, label %pgstat_snapshot_compute_size.exit, !prof !25
+  br i1 %13, label %14, label %pgstat_snapshot_compute_size.exit, !prof !20
 
 14:                                               ; preds = %2
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -3165,7 +3165,7 @@ pgstat_snapshot_compute_size.exit:                ; preds = %2
   %.0.i.i.i = select i1 %20, i64 %.0.i.i, i64 %23
   %24 = shl i64 %.0.i.i.i, 5
   %25 = icmp ugt i64 %24, 9223372036854775806
-  br i1 %25, label %26, label %pgstat_snapshot_update_parameters.exit, !prof !25
+  br i1 %25, label %26, label %pgstat_snapshot_update_parameters.exit, !prof !20
 
 26:                                               ; preds = %pgstat_snapshot_compute_size.exit
   %27 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -3214,7 +3214,7 @@ pgstat_snapshot_update_parameters.exit:           ; preds = %pgstat_snapshot_com
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %50 = add nsw i64 %.0711.i.i.i.i, -8
   %.not.i.i.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i.i, label %pgstat_snapshot_entry_hash.exit, label %.preheader67, !llvm.loop !20
+  br i1 %.not.i.i.i.i, label %pgstat_snapshot_entry_hash.exit, label %.preheader67, !llvm.loop !17
 
 pgstat_snapshot_entry_hash.exit:                  ; preds = %.preheader67
   %51 = lshr i64 %48, 23
@@ -3233,7 +3233,7 @@ pgstat_snapshot_entry_hash.exit:                  ; preds = %.preheader67
   %62 = add i32 %.070, 1
   %63 = zext i32 %62 to i64
   %64 = icmp ugt i64 %3, %63
-  br i1 %64, label %.lr.ph, label %.lr.ph79.preheader, !llvm.loop !30
+  br i1 %64, label %.lr.ph, label %.lr.ph79.preheader, !llvm.loop !25
 
 .lr.ph79.preheader:                               ; preds = %61, %.lr.ph, %pgstat_snapshot_entry_hash.exit
   %.05177.ph = phi i32 [ %.070, %pgstat_snapshot_entry_hash.exit ], [ %.070, %.lr.ph ], [ 0, %61 ]
@@ -3264,7 +3264,7 @@ pgstat_snapshot_entry_hash.exit:                  ; preds = %.preheader67
   %78 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i59, i64 8
   %79 = add nsw i64 %.0711.i.i.i.i60, -8
   %.not.i.i.i.i62 = icmp eq i64 %79, 0
-  br i1 %.not.i.i.i.i62, label %pgstat_snapshot_entry_hash.exit63, label %.preheader, !llvm.loop !20
+  br i1 %.not.i.i.i.i62, label %pgstat_snapshot_entry_hash.exit63, label %.preheader, !llvm.loop !17
 
 pgstat_snapshot_entry_hash.exit63:                ; preds = %.preheader
   %80 = lshr i64 %77, 23
@@ -3293,7 +3293,7 @@ pgstat_snapshot_entry_hash.exit63:                ; preds = %.preheader
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i8, ptr %98, align 8
   %100 = icmp eq i8 %99, 0
-  br i1 %100, label %._crit_edge, label %.lr.ph75, !llvm.loop !31
+  br i1 %100, label %._crit_edge, label %.lr.ph75
 
 ._crit_edge:                                      ; preds = %.lr.ph75, %pgstat_snapshot_entry_hash.exit63
   %.lcssa68 = phi ptr [ %90, %pgstat_snapshot_entry_hash.exit63 ], [ %97, %.lr.ph75 ]
@@ -3308,7 +3308,7 @@ pgstat_snapshot_entry_hash.exit63:                ; preds = %.preheader
   %104 = add i32 %.178, 1
   %105 = zext i32 %104 to i64
   %106 = icmp ugt i64 %3, %105
-  br i1 %106, label %.lr.ph79, label %._crit_edge80, !llvm.loop !32
+  br i1 %106, label %.lr.ph79, label %._crit_edge80, !llvm.loop !26
 
 ._crit_edge80:                                    ; preds = %101, %pgstat_snapshot_update_parameters.exit
   tail call void @pfree(ptr noundef %5) #17
@@ -3481,32 +3481,26 @@ attributes #19 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!8 = !{}
-!9 = !{i8 0, i8 2}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!7 = !{}
+!8 = !{i8 0, i8 2}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6, !18}
-!18 = !{!"llvm.loop.unswitch.partial.disable"}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !6}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5, !15}
+!15 = !{!"llvm.loop.unswitch.partial.disable"}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!21 = distinct !{!21, !5}
 !22 = distinct !{!22, !5}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !5, !6}
-!25 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!26 = distinct !{!26, !5, !6}
-!27 = distinct !{!27, !5, !6}
-!28 = distinct !{!28, !5, !6}
-!29 = distinct !{!29, !5, !6}
-!30 = distinct !{!30, !5, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !5, !6}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}

@@ -173,7 +173,7 @@ define void @Ivy_ManStopFanout(ptr noundef captures(none) initializes((192, 196)
 14:                                               ; preds = %12, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !28
+  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !27
 
 .critedge:                                        ; preds = %14, %1
   ret void
@@ -332,7 +332,7 @@ define void @Ivy_ObjCollectFanouts(ptr noundef readnone captures(none) %0, ptr n
 
 .lr.ph:                                           ; preds = %3
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.pre = load i32, ptr %2, align 8, !tbaa !29
+  %.pre = load i32, ptr %2, align 8, !tbaa !28
   br label %6
 
 6:                                                ; preds = %.lr.ph, %Ivy_ObjNextFanout.exit
@@ -366,7 +366,7 @@ define void @Ivy_ObjCollectFanouts(ptr noundef readnone captures(none) %0, ptr n
 Vec_PtrGrow.exit.i:                               ; preds = %16, %14
   %18 = phi ptr [ %15, %14 ], [ %17, %16 ]
   store ptr %18, ptr %.phi.trans.insert.i, align 8, !tbaa !19
-  store i32 16, ptr %2, align 8, !tbaa !29
+  store i32 16, ptr %2, align 8, !tbaa !28
   br label %Ivy_ObjNextFanout.exit
 
 19:                                               ; preds = %10
@@ -388,7 +388,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %16, %14
 28:                                               ; preds = %26, %24
   %29 = phi ptr [ %25, %24 ], [ %27, %26 ]
   store ptr %29, ptr %.phi.trans.insert.i, align 8, !tbaa !19
-  store i32 %20, ptr %2, align 8, !tbaa !29
+  store i32 %20, ptr %2, align 8, !tbaa !28
   br label %Ivy_ObjNextFanout.exit
 
 Ivy_ObjNextFanout.exit:                           ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %28
@@ -410,7 +410,7 @@ Ivy_ObjNextFanout.exit:                           ; preds = %.Vec_PtrGrow.exit11
   %41 = getelementptr inbounds nuw i8, ptr %.09, i64 %..i
   %.0 = load ptr, ptr %41, align 8, !tbaa !23
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %Ivy_ObjNextFanout.exit, %3
   ret void
@@ -444,7 +444,7 @@ Ivy_ObjNextFanout.exit:                           ; preds = %2, %Ivy_ObjNextFano
   %10 = getelementptr inbounds nuw i8, ptr %.059, i64 %..i
   %.05 = load ptr, ptr %10, align 8, !tbaa !23
   %.not = icmp eq ptr %.05, null
-  br i1 %.not, label %._crit_edge, label %Ivy_ObjNextFanout.exit, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %Ivy_ObjNextFanout.exit, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %Ivy_ObjNextFanout.exit, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %4, %Ivy_ObjNextFanout.exit ]
@@ -498,10 +498,9 @@ attributes #9 = { nounwind allocsize(0) }
 !22 = !{!10, !9, i64 32}
 !23 = !{!9, !9, i64 0}
 !24 = !{!10, !9, i64 24}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
-!29 = !{!18, !11, i64 0}
-!30 = distinct !{!30, !26, !27}
-!31 = distinct !{!31, !26, !27}
+!27 = distinct !{!27, !26}
+!28 = !{!18, !11, i64 0}
+!29 = distinct !{!29, !26}
+!30 = distinct !{!30, !26}

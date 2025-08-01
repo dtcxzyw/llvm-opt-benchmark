@@ -1114,7 +1114,7 @@ proto_item_set_generated.exit:                    ; preds = %4, %40, %43
   %60 = add i32 %.0.i, %.01214.i
   %61 = sub nsw i32 %.01115.i, %.0.i
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph.i, label %awdl_add_tagged_parameters.exit, !llvm.loop !9
+  br i1 %62, label %.lr.ph.i, label %awdl_add_tagged_parameters.exit, !llvm.loop !8
 
 awdl_add_tagged_parameters.exit:                  ; preds = %.lr.ph.i, %proto_item_set_generated.exit
   %63 = add i32 %53, 12
@@ -1416,7 +1416,7 @@ thread-pre-split:                                 ; preds = %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
   %.not = icmp eq i32 %50, %49
-  br i1 %.not, label %.loopexit, label %41, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %41
 
 55:                                               ; preds = %4
   %56 = load i32, ptr @hf_awdl_dns_priority, align 4
@@ -1621,14 +1621,14 @@ define internal i32 @awdl_tag_service_params(ptr noundef %0, ptr readnone captur
   %.252 = phi i32 [ %35, %32 ], [ %.15157, %29 ]
   %37 = add nuw nsw i32 %.058, 1
   %exitcond.not = icmp eq i32 %37, 8
-  br i1 %exitcond.not, label %27, label %29, !llvm.loop !11
+  br i1 %exitcond.not, label %27, label %29, !llvm.loop !9
 
 38:                                               ; preds = %.preheader, %27
   %.3 = phi i32 [ %.252, %27 ], [ %.05061, %.preheader ]
   %.2 = phi i32 [ %28, %27 ], [ %.162, %.preheader ]
   %39 = add nuw nsw i32 %.05360, 1
   %exitcond63.not = icmp eq i32 %39, 32
-  br i1 %exitcond63.not, label %17, label %.preheader, !llvm.loop !12
+  br i1 %exitcond63.not, label %17, label %.preheader, !llvm.loop !10
 
 40:                                               ; preds = %17, %4
   %.049 = phi i32 [ %.2, %17 ], [ 9, %4 ]
@@ -1665,7 +1665,7 @@ define internal range(i32 8, 12) i32 @awdl_tag_ht_capabilities(ptr noundef %0, p
 25:                                               ; preds = %26
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.critedge, label %26, !llvm.loop !13
+  br i1 %exitcond.not, label %.critedge, label %26, !llvm.loop !11
 
 26:                                               ; preds = %4, %25
   %indvars.iv = phi i32 [ 0, %4 ], [ %indvars.iv.next, %25 ]
@@ -1978,7 +1978,7 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr noundef reado
   %37 = add nuw i32 %.083102, 1
   %38 = load i32, ptr %5, align 4
   %39 = icmp ult i32 %37, %38
-  br i1 %39, label %.lr.ph103, label %.loopexit, !llvm.loop !14
+  br i1 %39, label %.lr.ph103, label %.loopexit, !llvm.loop !12
 
 40:                                               ; preds = %4
   %41 = load i32, ptr @hf_awdl_channelseq_channel_list, align 4
@@ -2012,7 +2012,7 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr noundef reado
   %60 = add nuw i32 %.08298, 1
   %61 = load i32, ptr %5, align 4
   %62 = icmp ult i32 %60, %61
-  br i1 %62, label %.lr.ph99, label %.loopexit, !llvm.loop !15
+  br i1 %62, label %.lr.ph99, label %.loopexit, !llvm.loop !13
 
 63:                                               ; preds = %4
   %64 = load i32, ptr @hf_awdl_channelseq_channel_list, align 4
@@ -2045,7 +2045,7 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr noundef reado
   %82 = add nuw i32 %.096, 1
   %83 = load i32, ptr %5, align 4
   %84 = icmp ult i32 %82, %83
-  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph99, %.lr.ph103, %63, %40, %26
   %.1 = phi i32 [ 6, %26 ], [ 6, %40 ], [ 6, %63 ], [ %35, %.lr.ph103 ], [ %58, %.lr.ph99 ], [ %80, %.lr.ph ]
@@ -2078,7 +2078,7 @@ define internal range(i32 0, -2147483648) i32 @awdl_tag_sync_tree(ptr noundef %0
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %.08, i32 noundef 6, i32 noundef 0)
   %9 = add i32 %.08, 6
   %.not = icmp sgt i32 %9, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %9, %.lr.ph ]
@@ -2200,7 +2200,7 @@ define internal fastcc i32 @add_awdl_dns_entry(ptr noundef readonly captures(non
 
 41:                                               ; preds = %39, %34
   %42 = icmp slt i32 %.1.i, %19
-  br i1 %42, label %.lr.ph.i, label %add_awdl_dns_name.exit, !llvm.loop !18
+  br i1 %42, label %.lr.ph.i, label %add_awdl_dns_name.exit, !llvm.loop !16
 
 add_awdl_dns_name.exit:                           ; preds = %41, %10
   %.0.lcssa.i = phi i32 [ %7, %10 ], [ %.1.i, %41 ]
@@ -2283,16 +2283,14 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

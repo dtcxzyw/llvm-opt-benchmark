@@ -47,7 +47,7 @@ define range(i32 -1, 1) i32 @sigpending(ptr noundef writeonly captures(address_i
   br i1 %.not.i.i, label %nxsig_pendingset.exit, label %16
 
 16:                                               ; preds = %._crit_edge.i
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   br label %nxsig_pendingset.exit
 
 nxsig_pendingset.exit:                            ; preds = %._crit_edge.i, %16
@@ -97,7 +97,7 @@ define i64 @nxsig_pendingset(ptr noundef readonly captures(address_is_null) %0) 
   br i1 %.not.i, label %up_irq_restore.exit, label %16
 
 16:                                               ; preds = %._crit_edge
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %._crit_edge, %16
@@ -130,7 +130,6 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 192669, i64 192687}
 !7 = !{i64 193288}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 193409}
+!10 = !{i64 193409}

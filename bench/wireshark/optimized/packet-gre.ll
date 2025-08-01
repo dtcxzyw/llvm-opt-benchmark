@@ -485,7 +485,7 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %127 = load i32, ptr @hf_gre_routing_information, align 4
   %128 = call ptr @proto_tree_add_item(ptr noundef %110, i32 noundef %127, ptr noundef %0, i32 noundef %121, i32 noundef %122, i32 noundef 0)
   %129 = add i32 %121, %122
-  br label %.preheader, !llvm.loop !8
+  br label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %104
   %.4 = phi i32 [ %.3, %104 ], [ %121, %.preheader ]
@@ -602,7 +602,7 @@ define internal i32 @dissect_gre(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 206:                                              ; preds = %195, %187, %181, %175, %158
   %207 = add i32 %173, %162
-  br i1 %174, label %dissect_gre_3gpp2_attribs.exit, label %158, !llvm.loop !10
+  br i1 %174, label %dissect_gre_3gpp2_attribs.exit, label %158, !llvm.loop !8
 
 dissect_gre_3gpp2_attribs.exit:                   ; preds = %206
   %208 = sub i32 %207, %.4
@@ -798,6 +798,4 @@ attributes #5 = { nounwind }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !11, !9}
-!11 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.mustprogress"}

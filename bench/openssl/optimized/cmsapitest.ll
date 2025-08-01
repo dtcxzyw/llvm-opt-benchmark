@@ -341,7 +341,7 @@ define internal range(i32 0, 2) i32 @test_d2i_CMS_decode(i32 noundef %0) #1 {
 21:                                               ; preds = %17
   %22 = add nuw nsw i64 %.016, %18
   %23 = icmp samesign ult i32 %15, 256
-  br i1 %23, label %read_all.exit, label %.preheader, !llvm.loop !14
+  br i1 %23, label %read_all.exit, label %.preheader
 
 24:                                               ; preds = %17, %13, %.preheader
   %.1.i = phi ptr [ %.017.i, %.preheader ], [ %11, %13 ], [ %11, %17 ]
@@ -576,5 +576,3 @@ attributes #6 = { nounwind willreturn memory(read) }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS11evp_pkey_st", !6, i64 0}
 !13 = !{!7, !7, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}

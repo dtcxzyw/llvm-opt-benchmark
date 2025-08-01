@@ -35,7 +35,7 @@ select.unfold.i:                                  ; preds = %14, %3
 
 Kit_TruthIsImply.exit:                            ; preds = %select.unfold.i
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !23
+  %23 = load ptr, ptr %22, align 8, !tbaa !22
   br label %select.unfold.i7
 
 select.unfold.i7:                                 ; preds = %26, %Kit_TruthIsImply.exit
@@ -52,7 +52,7 @@ select.unfold.i7:                                 ; preds = %26, %Kit_TruthIsImp
   %31 = load i32, ptr %30, align 4, !tbaa !19
   %32 = and i32 %31, %29
   %.not.i10 = icmp eq i32 %32, 0
-  br i1 %.not.i10, label %select.unfold.i7, label %Kit_TruthIsDisjoint.exit, !llvm.loop !24
+  br i1 %.not.i10, label %select.unfold.i7, label %Kit_TruthIsDisjoint.exit, !llvm.loop !23
 
 Kit_TruthIsDisjoint.exit:                         ; preds = %14, %26, %select.unfold.i7
   %33 = phi i32 [ 1, %select.unfold.i7 ], [ 0, %26 ], [ 0, %14 ]
@@ -61,7 +61,7 @@ Kit_TruthIsDisjoint.exit:                         ; preds = %14, %26, %select.un
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @Bdc_TableLookup(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
-  %3 = load i32, ptr %1, align 8, !tbaa !25
+  %3 = load i32, ptr %1, align 8, !tbaa !24
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %28
 
@@ -88,16 +88,16 @@ select.unfold.i:                                  ; preds = %16, %5
   %18 = getelementptr inbounds nuw i32, ptr %7, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !19
   %.not.i = icmp eq i32 %19, -1
-  br i1 %.not.i, label %select.unfold.i, label %22, !llvm.loop !26
+  br i1 %.not.i, label %select.unfold.i, label %22, !llvm.loop !25
 
 Kit_TruthIsConst1.exit:                           ; preds = %select.unfold.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !27
+  %21 = load ptr, ptr %20, align 8, !tbaa !26
   br label %Bdc_TableCheckContainment.exit
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !27
+  %24 = load ptr, ptr %23, align 8, !tbaa !26
   %25 = ptrtoint ptr %24 to i64
   %26 = xor i64 %25, 1
   %27 = inttoptr i64 %26 to ptr
@@ -105,10 +105,10 @@ Kit_TruthIsConst1.exit:                           ; preds = %select.unfold.i
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = load ptr, ptr %29, align 8, !tbaa !28
+  %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = zext i32 %3 to i64
   %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
-  %.050 = load ptr, ptr %32, align 8, !tbaa !29
+  %.050 = load ptr, ptr %32, align 8, !tbaa !28
   %.not51 = icmp eq ptr %.050, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !3
@@ -117,7 +117,7 @@ Kit_TruthIsConst1.exit:                           ; preds = %select.unfold.i
 ._crit_edge.thread:                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !23
+  %35 = load ptr, ptr %34, align 8, !tbaa !22
   br label %._crit_edge58
 
 .lr.ph:                                           ; preds = %28
@@ -134,7 +134,7 @@ Kit_TruthIsConst1.exit:                           ; preds = %select.unfold.i
 43:                                               ; preds = %.lr.ph, %.loopexit46
   %.052 = phi ptr [ %.050, %.lr.ph ], [ %.0, %.loopexit46 ]
   %44 = getelementptr inbounds nuw i8, ptr %.052, i64 32
-  %45 = load ptr, ptr %44, align 8, !tbaa !30
+  %45 = load ptr, ptr %44, align 8, !tbaa !29
   br label %select.unfold.i.i
 
 select.unfold.i.i:                                ; preds = %48, %43
@@ -155,7 +155,7 @@ select.unfold.i.i:                                ; preds = %48, %43
   br i1 %.not.i.i, label %select.unfold.i.i, label %.loopexit46, !llvm.loop !20
 
 Kit_TruthIsImply.exit.i:                          ; preds = %select.unfold.i.i
-  %56 = load ptr, ptr %42, align 8, !tbaa !23
+  %56 = load ptr, ptr %42, align 8, !tbaa !22
   br label %select.unfold.i7.i
 
 select.unfold.i7.i:                               ; preds = %59, %Kit_TruthIsImply.exit.i
@@ -172,18 +172,18 @@ select.unfold.i7.i:                               ; preds = %59, %Kit_TruthIsImp
   %64 = load i32, ptr %63, align 4, !tbaa !19
   %65 = and i32 %64, %62
   %.not.i10.i = icmp eq i32 %65, 0
-  br i1 %.not.i10.i, label %select.unfold.i7.i, label %.loopexit46, !llvm.loop !24
+  br i1 %.not.i10.i, label %select.unfold.i7.i, label %.loopexit46, !llvm.loop !23
 
 .loopexit46:                                      ; preds = %48, %59
   %66 = getelementptr inbounds nuw i8, ptr %.052, i64 40
-  %.0 = load ptr, ptr %66, align 8, !tbaa !29
+  %.0 = load ptr, ptr %66, align 8, !tbaa !28
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %43, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %43, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.loopexit46
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %69 = load ptr, ptr %68, align 8, !tbaa !23
+  %69 = load ptr, ptr %68, align 8, !tbaa !22
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !10
   %72 = icmp slt i32 %71, 6
@@ -196,7 +196,7 @@ select.unfold.i7.i:                               ; preds = %59, %Kit_TruthIsImp
 76:                                               ; preds = %._crit_edge, %.loopexit
   %.155 = phi ptr [ %.050, %._crit_edge ], [ %.1, %.loopexit ]
   %77 = getelementptr inbounds nuw i8, ptr %.155, i64 32
-  %78 = load ptr, ptr %77, align 8, !tbaa !30
+  %78 = load ptr, ptr %77, align 8, !tbaa !29
   br label %select.unfold.i.i33
 
 select.unfold.i.i33:                              ; preds = %81, %76
@@ -230,7 +230,7 @@ select.unfold.i7.i36:                             ; preds = %select.unfold.i.i33
   %96 = load i32, ptr %95, align 4, !tbaa !19
   %97 = and i32 %96, %94
   %.not.i10.i38 = icmp eq i32 %97, 0
-  br i1 %.not.i10.i38, label %select.unfold.i7.i36, label %.loopexit, !llvm.loop !24
+  br i1 %.not.i10.i38, label %select.unfold.i7.i36, label %.loopexit, !llvm.loop !23
 
 Bdc_TableCheckContainment.exit40:                 ; preds = %select.unfold.i7.i36
   store ptr %.pre, ptr %67, align 8, !tbaa !3
@@ -241,16 +241,16 @@ Bdc_TableCheckContainment.exit40:                 ; preds = %select.unfold.i7.i3
 
 .loopexit:                                        ; preds = %81, %91
   %101 = getelementptr inbounds nuw i8, ptr %.155, i64 40
-  %.1 = load ptr, ptr %101, align 8, !tbaa !29
+  %.1 = load ptr, ptr %101, align 8, !tbaa !28
   %.not28 = icmp eq ptr %.1, null
-  br i1 %.not28, label %._crit_edge58, label %76, !llvm.loop !33
+  br i1 %.not28, label %._crit_edge58, label %76, !llvm.loop !32
 
 ._crit_edge58:                                    ; preds = %.loopexit, %._crit_edge.thread
   %102 = phi ptr [ %35, %._crit_edge.thread ], [ %69, %.loopexit ]
   %103 = phi ptr [ %34, %._crit_edge.thread ], [ %68, %.loopexit ]
   %104 = phi ptr [ %33, %._crit_edge.thread ], [ %67, %.loopexit ]
   store ptr %.pre, ptr %104, align 8, !tbaa !3
-  store ptr %102, ptr %103, align 8, !tbaa !23
+  store ptr %102, ptr %103, align 8, !tbaa !22
   br label %Bdc_TableCheckContainment.exit
 
 Bdc_TableCheckContainment.exit:                   ; preds = %select.unfold.i7.i, %._crit_edge58, %Bdc_TableCheckContainment.exit40, %22, %Kit_TruthIsConst1.exit
@@ -261,27 +261,27 @@ Bdc_TableCheckContainment.exit:                   ; preds = %select.unfold.i7.i,
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Bdc_TableAdd(ptr noundef readonly captures(none) %0, ptr noundef initializes((40, 48)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !34
+  %6 = load i32, ptr %5, align 8, !tbaa !33
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %45
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %13 = load ptr, ptr %12, align 8, !tbaa !35
+  %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !36
-  %16 = load i32, ptr %13, align 8, !tbaa !38
+  %15 = load i32, ptr %14, align 4, !tbaa !35
+  %16 = load i32, ptr %13, align 8, !tbaa !37
   %17 = icmp eq i32 %15, %16
   br i1 %17, label %18, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %11
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !39
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !38
   br label %Vec_IntPush.exit
 
 18:                                               ; preds = %11
@@ -290,7 +290,7 @@ define void @Bdc_TableAdd(ptr noundef readonly captures(none) %0, ptr noundef in
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !39
+  %22 = load ptr, ptr %21, align 8, !tbaa !38
   %.not9.i.i = icmp eq ptr %22, null
   br i1 %.not9.i.i, label %25, label %23
 
@@ -304,14 +304,14 @@ define void @Bdc_TableAdd(ptr noundef readonly captures(none) %0, ptr noundef in
 
 Vec_IntGrow.exit.i:                               ; preds = %25, %23
   %27 = phi ptr [ %24, %23 ], [ %26, %25 ]
-  store ptr %27, ptr %21, align 8, !tbaa !39
-  store i32 16, ptr %13, align 8, !tbaa !38
+  store ptr %27, ptr %21, align 8, !tbaa !38
+  store i32 16, ptr %13, align 8, !tbaa !37
   br label %Vec_IntPush.exit
 
 28:                                               ; preds = %18
   %29 = shl nuw nsw i32 %15, 1
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !39
+  %31 = load ptr, ptr %30, align 8, !tbaa !38
   %.not9.i9.i = icmp eq ptr %31, null
   %32 = zext nneg i32 %29 to i64
   %33 = shl nuw nsw i64 %32, 2
@@ -327,23 +327,23 @@ Vec_IntGrow.exit.i:                               ; preds = %25, %23
 
 38:                                               ; preds = %36, %34
   %39 = phi ptr [ %35, %34 ], [ %37, %36 ]
-  store ptr %39, ptr %30, align 8, !tbaa !39
-  store i32 %29, ptr %13, align 8, !tbaa !38
+  store ptr %39, ptr %30, align 8, !tbaa !38
+  store i32 %29, ptr %13, align 8, !tbaa !37
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10_crit_edge.i, %Vec_IntGrow.exit.i, %38
   %40 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %39, %38 ], [ %27, %Vec_IntGrow.exit.i ]
-  %41 = load i32, ptr %14, align 4, !tbaa !36
+  %41 = load i32, ptr %14, align 4, !tbaa !35
   %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %14, align 4, !tbaa !36
+  store i32 %42, ptr %14, align 4, !tbaa !35
   %43 = sext i32 %41 to i64
   %44 = getelementptr inbounds i32, ptr %40, i64 %43
   store i32 %6, ptr %44, align 4, !tbaa !19
-  %.pre = load ptr, ptr %3, align 8, !tbaa !28
-  %.pre10 = load i32, ptr %5, align 8, !tbaa !34
+  %.pre = load ptr, ptr %3, align 8, !tbaa !27
+  %.pre10 = load i32, ptr %5, align 8, !tbaa !33
   %.phi.trans.insert = zext i32 %.pre10 to i64
   %.phi.trans.insert11 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.phi.trans.insert
-  %.pre12 = load ptr, ptr %.phi.trans.insert11, align 8, !tbaa !29
+  %.pre12 = load ptr, ptr %.phi.trans.insert11, align 8, !tbaa !28
   br label %45
 
 45:                                               ; preds = %Vec_IntPush.exit, %2
@@ -352,25 +352,25 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %47 = phi ptr [ %.pre, %Vec_IntPush.exit ], [ %4, %2 ]
   %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.pre-phi
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr %46, ptr %49, align 8, !tbaa !40
-  store ptr %1, ptr %48, align 8, !tbaa !29
+  store ptr %46, ptr %49, align 8, !tbaa !39
+  store ptr %1, ptr %48, align 8, !tbaa !28
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Bdc_TableClear(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = getelementptr i8, ptr %3, i64 4
-  %.val = load i32, ptr %4, align 4, !tbaa !36
+  %.val = load i32, ptr %4, align 4, !tbaa !35
   %5 = icmp sgt i32 %.val, 0
   br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr i8, ptr %3, i64 8
-  %.val7 = load ptr, ptr %6, align 8, !tbaa !39
+  %.val7 = load ptr, ptr %6, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %9
 
@@ -380,13 +380,13 @@ define void @Bdc_TableClear(ptr noundef readonly captures(none) %0) local_unname
   %11 = load i32, ptr %10, align 4, !tbaa !19
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds ptr, ptr %8, i64 %12
-  store ptr null, ptr %13, align 8, !tbaa !29
+  store ptr null, ptr %13, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !41
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !40
 
 .critedge:                                        ; preds = %9, %1
-  store i32 0, ptr %4, align 4, !tbaa !36
+  store i32 0, ptr %4, align 4, !tbaa !35
   ret void
 }
 
@@ -426,25 +426,24 @@ attributes #6 = { nounwind allocsize(0) }
 !17 = !{!"p1 _ZTS10Bdc_Isf_t_", !9, i64 0}
 !18 = !{!"long", !6, i64 0}
 !19 = !{!5, !5, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!4, !8, i64 16}
-!24 = distinct !{!24, !21, !22}
-!25 = !{!4, !5, i64 0}
-!26 = distinct !{!26, !21, !22}
-!27 = !{!11, !13, i64 24}
-!28 = !{!11, !14, i64 56}
-!29 = !{!13, !13, i64 0}
-!30 = !{!31, !8, i64 32}
-!31 = !{!"Bdc_Fun_t_", !5, i64 0, !13, i64 8, !13, i64 16, !5, i64 24, !8, i64 32, !13, i64 40, !6, i64 48}
-!32 = distinct !{!32, !21, !22}
-!33 = distinct !{!33, !21, !22}
-!34 = !{!31, !5, i64 24}
-!35 = !{!11, !15, i64 72}
-!36 = !{!37, !5, i64 4}
-!37 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !8, i64 8}
-!38 = !{!37, !5, i64 0}
-!39 = !{!37, !8, i64 8}
-!40 = !{!31, !13, i64 40}
-!41 = distinct !{!41, !21, !22}
+!22 = !{!4, !8, i64 16}
+!23 = distinct !{!23, !21}
+!24 = !{!4, !5, i64 0}
+!25 = distinct !{!25, !21}
+!26 = !{!11, !13, i64 24}
+!27 = !{!11, !14, i64 56}
+!28 = !{!13, !13, i64 0}
+!29 = !{!30, !8, i64 32}
+!30 = !{!"Bdc_Fun_t_", !5, i64 0, !13, i64 8, !13, i64 16, !5, i64 24, !8, i64 32, !13, i64 40, !6, i64 48}
+!31 = distinct !{!31, !21}
+!32 = distinct !{!32, !21}
+!33 = !{!30, !5, i64 24}
+!34 = !{!11, !15, i64 72}
+!35 = !{!36, !5, i64 4}
+!36 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !8, i64 8}
+!37 = !{!36, !5, i64 0}
+!38 = !{!36, !8, i64 8}
+!39 = !{!30, !13, i64 40}
+!40 = distinct !{!40, !21}

@@ -31,19 +31,19 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u20$as$u2
   %16 = load i32, ptr %15, align 4, !alias.scope !16, !noalias !19
   %17 = icmp ult i32 %14, %16
   %or.cond.i.i = select i1 %.not.i.i.i, i1 %17, i1 false
-  br i1 %or.cond.i.i, label %7, label %18, !llvm.loop !24
+  br i1 %or.cond.i.i, label %7, label %18
 
 18:                                               ; preds = %10
-  store i8 1, ptr %5, align 1, !alias.scope !8, !noalias !26
+  store i8 1, ptr %5, align 1, !alias.scope !8, !noalias !24
   br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h6bfb3d17b9e413d7E.exit
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h6bfb3d17b9e413d7E.exit: ; preds = %7, %18
   %storemerge.i = phi i64 [ 1, %18 ], [ 0, %7 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.0.i, ptr %19, align 8, !alias.scope !3, !noalias !27
+  store ptr %.sroa.0.0.i, ptr %19, align 8, !alias.scope !3, !noalias !25
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.7.0.i, ptr %20, align 8, !alias.scope !3, !noalias !27
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !3, !noalias !27
+  store ptr %.sroa.7.0.i, ptr %20, align 8, !alias.scope !3, !noalias !25
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !3, !noalias !25
   ret void
 }
 
@@ -91,7 +91,5 @@ attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !21 = distinct !{!21, !18, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb529792b4d47dfdcE: argument 1"}
 !22 = distinct !{!22, !18, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb529792b4d47dfdcE: argument 2"}
 !23 = !{!20, !21, !22, !17, !4, !12, !7, !9}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!20, !21, !22, !17, !4, !11, !12, !7}
-!27 = !{!11, !12, !7, !9}
+!24 = !{!20, !21, !22, !17, !4, !11, !12, !7}
+!25 = !{!11, !12, !7, !9}

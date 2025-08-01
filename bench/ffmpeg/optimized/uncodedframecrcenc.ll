@@ -156,7 +156,7 @@ define internal range(i32 -12, 1) i32 @write_frame(ptr noundef readonly captures
   %69 = getelementptr inbounds nuw [5 x i32], ptr %5, i64 0, i64 %indvars.iv.next.i
   %70 = load i32, ptr %69, align 4, !tbaa !48
   %.not40.i = icmp eq i32 %70, 0
-  br i1 %.not40.i, label %video_frame_cksum.exit, label %43, !llvm.loop !55
+  br i1 %.not40.i, label %video_frame_cksum.exit, label %43, !llvm.loop !54
 
 video_frame_cksum.exit:                           ; preds = %._crit_edge.i, %31, %32, %37
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #8
@@ -165,9 +165,9 @@ video_frame_cksum.exit:                           ; preds = %._crit_edge.i, %31,
 71:                                               ; preds = %8
   %72 = load ptr, ptr %2, align 8, !tbaa !4
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 388
-  %74 = load i32, ptr %73, align 4, !tbaa !56
+  %74 = load i32, ptr %73, align 4, !tbaa !55
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 112
-  %76 = load i32, ptr %75, align 8, !tbaa !57
+  %76 = load i32, ptr %75, align 8, !tbaa !56
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 116
   %78 = load i32, ptr %77, align 4, !tbaa !43
   %79 = call i32 @av_sample_fmt_is_planar(i32 noundef %78) #8
@@ -177,7 +177,7 @@ video_frame_cksum.exit:                           ; preds = %._crit_edge.i, %31,
   %spec.select30.i = select i1 %.not.i17, i32 1, i32 %74
   %81 = load i32, ptr %77, align 4, !tbaa !43
   %82 = call ptr @av_get_sample_fmt_name(i32 noundef %81) #8
-  %83 = load i32, ptr %75, align 8, !tbaa !57
+  %83 = load i32, ptr %75, align 8, !tbaa !56
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, i32 noundef %83) #8
   %.not29.i = icmp eq ptr %82, null
   %84 = select i1 %.not29.i, ptr @.str.4, ptr %82
@@ -193,7 +193,7 @@ video_frame_cksum.exit:                           ; preds = %._crit_edge.i, %31,
 
 87:                                               ; preds = %cksum_line_u8.exit.i, %.lr.ph.i19
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i22, %cksum_line_u8.exit.i ]
-  %88 = load ptr, ptr %86, align 8, !tbaa !58
+  %88 = load ptr, ptr %86, align 8, !tbaa !57
   %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv.i20
   %90 = load ptr, ptr %89, align 8, !tbaa !51
   %91 = load i32, ptr %77, align 4, !tbaa !43
@@ -218,7 +218,7 @@ video_frame_cksum.exit:                           ; preds = %._crit_edge.i, %31,
   %.01218.i.i = phi i32 [ %96, %.lr.ph.i.i ], [ 0, %92 ]
   %.01317.i.i = phi ptr [ %100, %.lr.ph.i.i ], [ %90, %92 ]
   %.01416.i.i = phi i32 [ %99, %.lr.ph.i.i ], [ %spec.select.i, %92 ]
-  %93 = load i8, ptr %.01317.i.i, align 1, !tbaa !59
+  %93 = load i8, ptr %.01317.i.i, align 1, !tbaa !58
   %94 = zext i8 %93 to i32
   %95 = add nuw nsw i32 %.01218.i.i, %94
   %96 = urem i32 %95, 65521
@@ -227,7 +227,7 @@ video_frame_cksum.exit:                           ; preds = %._crit_edge.i, %31,
   %99 = add i32 %.01416.i.i, -1
   %100 = getelementptr inbounds nuw i8, ptr %.01317.i.i, i64 1
   %.not.i.i = icmp eq i32 %99, 0
-  br i1 %.not.i.i, label %cksum_line_u8.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !60
+  br i1 %.not.i.i, label %cksum_line_u8.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !59
 
 cksum_line_u8.exit.loopexit.i:                    ; preds = %.lr.ph.i.i
   %101 = shl nuw i32 %98, 16
@@ -242,7 +242,7 @@ cksum_line_u8.exit.loopexit.i:                    ; preds = %.lr.ph.i.i
   %.01218.i34.i = phi i32 [ %108, %.lr.ph.i32.i ], [ 0, %103 ]
   %.01317.i35.i = phi ptr [ %112, %.lr.ph.i32.i ], [ %90, %103 ]
   %.01416.i36.i = phi i32 [ %111, %.lr.ph.i32.i ], [ %spec.select.i, %103 ]
-  %104 = load i16, ptr %.01317.i35.i, align 2, !tbaa !61
+  %104 = load i16, ptr %.01317.i35.i, align 2, !tbaa !60
   %105 = sext i16 %104 to i32
   %106 = add nuw nsw i32 %.01218.i34.i, 32768
   %107 = add nsw i32 %106, %105
@@ -252,7 +252,7 @@ cksum_line_u8.exit.loopexit.i:                    ; preds = %.lr.ph.i.i
   %111 = add i32 %.01416.i36.i, -1
   %112 = getelementptr inbounds nuw i8, ptr %.01317.i35.i, i64 2
   %.not.i37.i = icmp eq i32 %111, 0
-  br i1 %.not.i37.i, label %cksum_line_s16.exit.loopexit.i, label %.lr.ph.i32.i, !llvm.loop !63
+  br i1 %.not.i37.i, label %cksum_line_s16.exit.loopexit.i, label %.lr.ph.i32.i, !llvm.loop !62
 
 cksum_line_s16.exit.loopexit.i:                   ; preds = %.lr.ph.i32.i
   %113 = shl nuw i32 %110, 16
@@ -276,7 +276,7 @@ cksum_line_s16.exit.loopexit.i:                   ; preds = %.lr.ph.i32.i
   %122 = add i32 %.01416.i45.i, -1
   %123 = getelementptr inbounds nuw i8, ptr %.01317.i44.i, i64 4
   %.not.i46.i = icmp eq i32 %122, 0
-  br i1 %.not.i46.i, label %cksum_line_s32.exit.loopexit.i, label %.lr.ph.i41.i, !llvm.loop !64
+  br i1 %.not.i46.i, label %cksum_line_s32.exit.loopexit.i, label %.lr.ph.i41.i, !llvm.loop !63
 
 cksum_line_s32.exit.loopexit.i:                   ; preds = %.lr.ph.i41.i
   %124 = shl nuw i32 %121, 16
@@ -291,7 +291,7 @@ cksum_line_s32.exit.loopexit.i:                   ; preds = %.lr.ph.i41.i
   %.01218.i52.i = phi i32 [ %131, %.lr.ph.i50.i ], [ 0, %126 ]
   %.01317.i53.i = phi ptr [ %135, %.lr.ph.i50.i ], [ %90, %126 ]
   %.01416.i54.i = phi i32 [ %134, %.lr.ph.i50.i ], [ %spec.select.i, %126 ]
-  %127 = load float, ptr %.01317.i53.i, align 4, !tbaa !65
+  %127 = load float, ptr %.01317.i53.i, align 4, !tbaa !64
   %128 = call nsz float @llvm.fmuladd.f32(float %127, float 0x41E0000000000000, float 0x41E0000000000000)
   %129 = fptoui float %128 to i32
   %130 = add i32 %.01218.i52.i, %129
@@ -301,7 +301,7 @@ cksum_line_s32.exit.loopexit.i:                   ; preds = %.lr.ph.i41.i
   %134 = add i32 %.01416.i54.i, -1
   %135 = getelementptr inbounds nuw i8, ptr %.01317.i53.i, i64 4
   %.not.i55.i = icmp eq i32 %134, 0
-  br i1 %.not.i55.i, label %cksum_line_flt.exit.loopexit.i, label %.lr.ph.i50.i, !llvm.loop !67
+  br i1 %.not.i55.i, label %cksum_line_flt.exit.loopexit.i, label %.lr.ph.i50.i, !llvm.loop !66
 
 cksum_line_flt.exit.loopexit.i:                   ; preds = %.lr.ph.i50.i
   %136 = shl nuw i32 %133, 16
@@ -316,7 +316,7 @@ cksum_line_flt.exit.loopexit.i:                   ; preds = %.lr.ph.i50.i
   %.01218.i61.i = phi i32 [ %143, %.lr.ph.i59.i ], [ 0, %138 ]
   %.01317.i62.i = phi ptr [ %147, %.lr.ph.i59.i ], [ %90, %138 ]
   %.01416.i63.i = phi i32 [ %146, %.lr.ph.i59.i ], [ %spec.select.i, %138 ]
-  %139 = load double, ptr %.01317.i62.i, align 8, !tbaa !68
+  %139 = load double, ptr %.01317.i62.i, align 8, !tbaa !67
   %140 = call nsz double @llvm.fmuladd.f64(double %139, double 0x41E0000000000000, double 0x41E0000000000000)
   %141 = fptoui double %140 to i32
   %142 = add i32 %.01218.i61.i, %141
@@ -326,7 +326,7 @@ cksum_line_flt.exit.loopexit.i:                   ; preds = %.lr.ph.i50.i
   %146 = add i32 %.01416.i63.i, -1
   %147 = getelementptr inbounds nuw i8, ptr %.01317.i62.i, i64 8
   %.not.i64.i = icmp eq i32 %146, 0
-  br i1 %.not.i64.i, label %cksum_line_dbl.exit.loopexit.i, label %.lr.ph.i59.i, !llvm.loop !70
+  br i1 %.not.i64.i, label %cksum_line_dbl.exit.loopexit.i, label %.lr.ph.i59.i, !llvm.loop !69
 
 cksum_line_dbl.exit.loopexit.i:                   ; preds = %.lr.ph.i59.i
   %148 = shl nuw i32 %145, 16
@@ -343,21 +343,21 @@ cksum_line_u8.exit.i:                             ; preds = %cksum_line_dbl.exit
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.7, i32 noundef %.0.i21) #8
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i
-  br i1 %exitcond.not.i23, label %audio_frame_cksum.exit, label %87, !llvm.loop !71
+  br i1 %exitcond.not.i23, label %audio_frame_cksum.exit, label %87, !llvm.loop !70
 
 audio_frame_cksum.exit:                           ; preds = %cksum_line_u8.exit.i, %71, %video_frame_cksum.exit, %8
   call void @av_bprint_chars(ptr noundef nonnull %6, i8 noundef signext 10, i32 noundef 1) #8
   %151 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.val = load i32, ptr %151, align 8, !tbaa !72
+  %.val = load i32, ptr %151, align 8, !tbaa !71
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %.val16 = load i32, ptr %152, align 4, !tbaa !74
+  %.val16 = load i32, ptr %152, align 4, !tbaa !73
   %.not24 = icmp ult i32 %.val, %.val16
   br i1 %.not24, label %153, label %157
 
 153:                                              ; preds = %audio_frame_cksum.exit
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %155 = load ptr, ptr %154, align 8, !tbaa !75
-  %156 = load ptr, ptr %6, align 8, !tbaa !76
+  %155 = load ptr, ptr %154, align 8, !tbaa !74
+  %156 = load ptr, ptr %6, align 8, !tbaa !75
   call void @avio_write(ptr noundef %155, ptr noundef %156, i32 noundef %.val) #8
   br label %157
 
@@ -483,28 +483,27 @@ attributes #10 = { noreturn nounwind }
 !49 = !{!47, !7, i64 8}
 !50 = !{!47, !7, i64 10}
 !51 = !{!30, !30, i64 0}
-!52 = distinct !{!52, !53, !54}
+!52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!"llvm.loop.estimated_trip_count"}
-!55 = distinct !{!55, !53, !54}
-!56 = !{!10, !13, i64 388}
-!57 = !{!10, !13, i64 112}
-!58 = !{!10, !11, i64 96}
-!59 = !{!7, !7, i64 0}
-!60 = distinct !{!60, !53, !54}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"short", !7, i64 0}
-!63 = distinct !{!63, !53, !54}
-!64 = distinct !{!64, !53, !54}
-!65 = !{!66, !66, i64 0}
-!66 = !{!"float", !7, i64 0}
-!67 = distinct !{!67, !53, !54}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"double", !7, i64 0}
-!70 = distinct !{!70, !53, !54}
-!71 = distinct !{!71, !53, !54}
-!72 = !{!73, !13, i64 8}
-!73 = !{!"AVBPrint", !30, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !7, i64 20, !7, i64 21}
-!74 = !{!73, !13, i64 12}
-!75 = !{!22, !26, i64 32}
-!76 = !{!73, !30, i64 0}
+!54 = distinct !{!54, !53}
+!55 = !{!10, !13, i64 388}
+!56 = !{!10, !13, i64 112}
+!57 = !{!10, !11, i64 96}
+!58 = !{!7, !7, i64 0}
+!59 = distinct !{!59, !53}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"short", !7, i64 0}
+!62 = distinct !{!62, !53}
+!63 = distinct !{!63, !53}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"float", !7, i64 0}
+!66 = distinct !{!66, !53}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"double", !7, i64 0}
+!69 = distinct !{!69, !53}
+!70 = distinct !{!70, !53}
+!71 = !{!72, !13, i64 8}
+!72 = !{!"AVBPrint", !30, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !7, i64 20, !7, i64 21}
+!73 = !{!72, !13, i64 12}
+!74 = !{!22, !26, i64 32}
+!75 = !{!72, !30, i64 0}

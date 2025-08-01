@@ -304,7 +304,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_h264_start_frame(ptr nounde
   %200 = phi i32 [ %190, %.lr.ph.i ], [ %209, %.critedge.i ]
   %indvars.iv41.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next42.i, %.critedge.i ]
   %201 = getelementptr inbounds nuw [32 x ptr], ptr %192, i64 0, i64 %indvars.iv41.i
-  %202 = load ptr, ptr %201, align 8, !tbaa !135
+  %202 = load ptr, ptr %201, align 8, !tbaa !134
   %.not30.i = icmp eq ptr %202, null
   br i1 %.not30.i, label %.critedge.i, label %203
 
@@ -328,12 +328,12 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_h264_start_frame(ptr nounde
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %210 = sext i32 %209 to i64
   %211 = icmp slt i64 %indvars.iv.next42.i, %210
-  br i1 %211, label %199, label %.preheader.i, !llvm.loop !136
+  br i1 %211, label %199, label %.preheader.i, !llvm.loop !135
 
 212:                                              ; preds = %.critedge33.i, %.preheader.i
   %indvars.iv44.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next45.i, %.critedge33.i ]
   %213 = getelementptr inbounds nuw [32 x ptr], ptr %198, i64 0, i64 %indvars.iv44.i
-  %214 = load ptr, ptr %213, align 8, !tbaa !135
+  %214 = load ptr, ptr %213, align 8, !tbaa !134
   %.not.i111 = icmp eq ptr %214, null
   br i1 %.not.i111, label %.critedge33.i, label %215
 
@@ -351,7 +351,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_h264_start_frame(ptr nounde
 .critedge33.i:                                    ; preds = %218, %215, %212
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 16
-  br i1 %exitcond47.not.i, label %221, label %212, !llvm.loop !137
+  br i1 %exitcond47.not.i, label %221, label %212, !llvm.loop !136
 
 fill_vaapi_ReferenceFrames.exit.thread:           ; preds = %206, %218
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
@@ -398,15 +398,15 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8, !tbaa !76
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 730728
-  %12 = load ptr, ptr %11, align 8, !tbaa !138
+  %12 = load ptr, ptr %11, align 8, !tbaa !137
   call void @llvm.lifetime.start.p0(i64 3128, ptr nonnull %4) #6
   %13 = getelementptr i8, ptr %12, i64 24
-  %.val = load i32, ptr %13, align 8, !tbaa !139
+  %.val = load i32, ptr %13, align 8, !tbaa !138
   %14 = trunc i32 %.val to i16
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 21036
-  %16 = load i32, ptr %15, align 4, !tbaa !141
+  %16 = load i32, ptr %15, align 4, !tbaa !140
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 731768
-  %18 = load i32, ptr %17, align 8, !tbaa !147
+  %18 = load i32, ptr %17, align 8, !tbaa !146
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %24
 
@@ -424,26 +424,26 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
   %28 = load i32, ptr %27, align 8, !tbaa !83
   %29 = mul nsw i32 %26, %28
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 21032
-  %31 = load i32, ptr %30, align 8, !tbaa !148
+  %31 = load i32, ptr %30, align 8, !tbaa !147
   %32 = add nsw i32 %29, %31
   %33 = trunc i32 %32 to i16
   %34 = tail call i32 @ff_h264_get_slice_type(ptr noundef nonnull %12) #6
   %35 = trunc i32 %34 to i8
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 52
-  %37 = load i32, ptr %36, align 4, !tbaa !149
+  %37 = load i32, ptr %36, align 4, !tbaa !148
   %38 = icmp eq i32 %37, 3
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %24
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 21088
-  %41 = load i32, ptr %40, align 16, !tbaa !150
+  %41 = load i32, ptr %40, align 16, !tbaa !149
   %42 = trunc i32 %41 to i8
   br label %43
 
 43:                                               ; preds = %24, %39
   %44 = phi i8 [ %42, %39 ], [ 0, %24 ]
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 22656
-  %46 = load i32, ptr %45, align 16, !tbaa !151
+  %46 = load i32, ptr %45, align 16, !tbaa !150
   %.not47 = icmp eq i32 %46, 0
   br i1 %.not47, label %.thread, label %47
 
@@ -466,10 +466,10 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
   %57 = phi i8 [ %51, %52 ], [ %51, %47 ], [ 0, %43 ]
   %58 = phi i8 [ %56, %52 ], [ 0, %47 ], [ 0, %43 ]
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 34720
-  %60 = load i32, ptr %59, align 16, !tbaa !152
+  %60 = load i32, ptr %59, align 16, !tbaa !151
   %61 = trunc i32 %60 to i8
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  %63 = load i32, ptr %62, align 16, !tbaa !153
+  %63 = load i32, ptr %62, align 16, !tbaa !152
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 734776
   %65 = load ptr, ptr %64, align 8, !tbaa !77
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
@@ -477,25 +477,25 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
   %68 = sub nsw i32 %63, %67
   %69 = trunc i32 %68 to i8
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 84
-  %71 = load i32, ptr %70, align 4, !tbaa !154
+  %71 = load i32, ptr %70, align 4, !tbaa !153
   %72 = icmp slt i32 %71, 2
   %.not48 = icmp eq i32 %71, 0
   %73 = zext i1 %.not48 to i32
   %74 = select i1 %72, i32 %73, i32 %71
   %75 = trunc i32 %74 to i8
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %77 = load i32, ptr %76, align 8, !tbaa !155
+  %77 = load i32, ptr %76, align 8, !tbaa !154
   %78 = sdiv i32 %77, 2
   %79 = trunc i32 %78 to i8
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 92
-  %81 = load i32, ptr %80, align 4, !tbaa !156
+  %81 = load i32, ptr %80, align 4, !tbaa !155
   %82 = sdiv i32 %81, 2
   %83 = trunc i32 %82 to i8
   %84 = getelementptr inbounds nuw i8, ptr %12, i64 104
-  %85 = load i32, ptr %84, align 8, !tbaa !157
+  %85 = load i32, ptr %84, align 8, !tbaa !156
   %86 = trunc i32 %85 to i8
   %87 = getelementptr inbounds nuw i8, ptr %12, i64 108
-  %88 = load i32, ptr %87, align 4, !tbaa !158
+  %88 = load i32, ptr %87, align 4, !tbaa !157
   %89 = trunc i32 %88 to i8
   store i32 %2, ptr %4, align 4, !tbaa !104
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -558,7 +558,7 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
   %.017.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %128 ]
   %97 = getelementptr inbounds nuw %struct.H264Ref, ptr %91, i64 %indvars.iv.i
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 36
-  %99 = load i32, ptr %98, align 4, !tbaa !159
+  %99 = load i32, ptr %98, align 4, !tbaa !158
   %.not.i = icmp eq i32 %99, 0
   br i1 %.not.i, label %128, label %100
 
@@ -567,7 +567,7 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
   %102 = zext i32 %.017.i to i64
   %103 = getelementptr inbounds nuw %struct._VAPictureH264, ptr %90, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 48
-  %105 = load ptr, ptr %104, align 8, !tbaa !161
+  %105 = load ptr, ptr %104, align 8, !tbaa !160
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 700
   %107 = load i32, ptr %106, align 4, !tbaa !118
   %108 = and i32 %99, 3
@@ -616,7 +616,7 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
   %.1.i = phi i32 [ %101, %100 ], [ %.017.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !162
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !161
 
 .lr.ph19.i:                                       ; preds = %.lr.ph19.i, %.lr.ph19.preheader.i
   %indvars.iv22.i = phi i64 [ %96, %.lr.ph19.preheader.i ], [ %indvars.iv.next23.i, %.lr.ph19.i ]
@@ -631,12 +631,12 @@ define internal i32 @vaapi_h264_decode_slice(ptr noundef %0, ptr noundef %1, i32
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %133 = and i64 %indvars.iv.next23.i, 4294967295
   %exitcond25.not.i = icmp eq i64 %133, 32
-  br i1 %exitcond25.not.i, label %fill_vaapi_RefPicList.exit, label %.lr.ph19.i, !llvm.loop !163
+  br i1 %exitcond25.not.i, label %fill_vaapi_RefPicList.exit, label %.lr.ph19.i, !llvm.loop !162
 
 fill_vaapi_RefPicList.exit:                       ; preds = %.lr.ph19.i, %.preheader.i
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 1180
   %135 = getelementptr inbounds nuw i8, ptr %12, i64 25352
-  %136 = load i32, ptr %45, align 16, !tbaa !151
+  %136 = load i32, ptr %45, align 16, !tbaa !150
   %137 = icmp ugt i32 %136, 1
   br i1 %137, label %138, label %.lr.ph19.preheader.i77
 
@@ -664,7 +664,7 @@ fill_vaapi_RefPicList.exit:                       ; preds = %.lr.ph19.i, %.prehe
   %.017.i58 = phi i32 [ 0, %.lr.ph.preheader.i54 ], [ %.1.i73, %174 ]
   %143 = getelementptr inbounds nuw %struct.H264Ref, ptr %135, i64 %indvars.iv.i57
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 36
-  %145 = load i32, ptr %144, align 4, !tbaa !159
+  %145 = load i32, ptr %144, align 4, !tbaa !158
   %.not.i59 = icmp eq i32 %145, 0
   br i1 %.not.i59, label %174, label %146
 
@@ -673,7 +673,7 @@ fill_vaapi_RefPicList.exit:                       ; preds = %.lr.ph19.i, %.prehe
   %148 = zext i32 %.017.i58 to i64
   %149 = getelementptr inbounds nuw %struct._VAPictureH264, ptr %134, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %143, i64 48
-  %151 = load ptr, ptr %150, align 8, !tbaa !161
+  %151 = load ptr, ptr %150, align 8, !tbaa !160
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 700
   %153 = load i32, ptr %152, align 4, !tbaa !118
   %154 = and i32 %145, 3
@@ -722,7 +722,7 @@ fill_vaapi_RefPicList.exit:                       ; preds = %.lr.ph19.i, %.prehe
   %.1.i73 = phi i32 [ %147, %146 ], [ %.017.i58, %.lr.ph.i56 ]
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i75 = icmp eq i64 %indvars.iv.next.i74, %wide.trip.count.i55
-  br i1 %exitcond.not.i75, label %.preheader.i76, label %.lr.ph.i56, !llvm.loop !162
+  br i1 %exitcond.not.i75, label %.preheader.i76, label %.lr.ph.i56, !llvm.loop !161
 
 .lr.ph19.i79:                                     ; preds = %.lr.ph19.i79, %.lr.ph19.preheader.i77
   %indvars.iv22.i80 = phi i64 [ %142, %.lr.ph19.preheader.i77 ], [ %indvars.iv.next23.i81, %.lr.ph19.i79 ]
@@ -737,7 +737,7 @@ fill_vaapi_RefPicList.exit:                       ; preds = %.lr.ph19.i, %.prehe
   %indvars.iv.next23.i81 = add nuw nsw i64 %indvars.iv22.i80, 1
   %179 = and i64 %indvars.iv.next23.i81, 4294967295
   %exitcond25.not.i82 = icmp eq i64 %179, 32
-  br i1 %exitcond25.not.i82, label %fill_vaapi_RefPicList.exit83, label %.lr.ph19.i79, !llvm.loop !163
+  br i1 %exitcond25.not.i82, label %fill_vaapi_RefPicList.exit83, label %.lr.ph19.i79, !llvm.loop !162
 
 fill_vaapi_RefPicList.exit83:                     ; preds = %.lr.ph19.i79, %.preheader.i76
   %180 = getelementptr inbounds nuw i8, ptr %4, i64 2336
@@ -745,7 +745,7 @@ fill_vaapi_RefPicList.exit83:                     ; preds = %.lr.ph19.i79, %.pre
   %182 = getelementptr inbounds nuw i8, ptr %4, i64 2464
   %183 = getelementptr inbounds nuw i8, ptr %4, i64 2466
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 2594
-  %.val51 = load ptr, ptr %11, align 8, !tbaa !138
+  %.val51 = load ptr, ptr %11, align 8, !tbaa !137
   %185 = getelementptr inbounds nuw i8, ptr %.val51, i64 112
   %186 = load i32, ptr %185, align 4, !tbaa !104
   %187 = trunc i32 %186 to i8
@@ -771,7 +771,7 @@ fill_vaapi_RefPicList.exit83:                     ; preds = %.lr.ph19.i79, %.pre
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i84
   %198 = getelementptr inbounds nuw i8, ptr %.val51, i64 108
-  %199 = load i32, ptr %198, align 4, !tbaa !158
+  %199 = load i32, ptr %198, align 4, !tbaa !157
   %200 = shl nuw i32 1, %199
   %201 = trunc i32 %200 to i16
   %wide.trip.count30.i = zext i32 %192 to i64
@@ -790,7 +790,7 @@ fill_vaapi_RefPicList.exit83:                     ; preds = %.lr.ph19.i79, %.pre
   br label %.split.us.us.i
 
 208:                                              ; preds = %202
-  %209 = load i32, ptr %195, align 8, !tbaa !157
+  %209 = load i32, ptr %195, align 8, !tbaa !156
   %210 = shl nuw i32 1, %209
   br label %.split.us.us.i
 
@@ -812,7 +812,7 @@ fill_vaapi_RefPicList.exit83:                     ; preds = %.lr.ph19.i79, %.pre
   store i16 0, ptr %216, align 4, !tbaa !116
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond31.not.i = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count30.i
-  br i1 %exitcond31.not.i, label %fill_vaapi_plain_pred_weight_table.exit, label %202, !llvm.loop !164
+  br i1 %exitcond31.not.i, label %fill_vaapi_plain_pred_weight_table.exit, label %202, !llvm.loop !163
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i84
   br i1 %.not.i85, label %.lr.ph.split.split.us.i, label %.split.preheader.i
@@ -822,7 +822,7 @@ fill_vaapi_RefPicList.exit83:                     ; preds = %.lr.ph19.i79, %.pre
   br label %.split.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i
-  %217 = load i32, ptr %195, align 8, !tbaa !157
+  %217 = load i32, ptr %195, align 8, !tbaa !156
   %218 = shl nuw i32 1, %217
   %219 = trunc i32 %218 to i16
   %wide.trip.count22.i = zext i32 %192 to i64
@@ -856,7 +856,7 @@ fill_vaapi_RefPicList.exit83:                     ; preds = %.lr.ph19.i79, %.pre
   store i16 %235, ptr %236, align 4, !tbaa !116
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next20.i, %wide.trip.count22.i
-  br i1 %exitcond23.not.i, label %fill_vaapi_plain_pred_weight_table.exit, label %.split.us.i, !llvm.loop !166
+  br i1 %exitcond23.not.i, label %fill_vaapi_plain_pred_weight_table.exit, label %.split.us.i, !llvm.loop !165
 
 .split.i:                                         ; preds = %.split.i, %.split.preheader.i
   %indvars.iv13.i = phi i64 [ 0, %.split.preheader.i ], [ %indvars.iv.next14.i, %.split.i ]
@@ -892,7 +892,7 @@ fill_vaapi_RefPicList.exit83:                     ; preds = %.lr.ph19.i79, %.pre
   store i16 %257, ptr %258, align 4, !tbaa !116
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond.not.i88 = icmp eq i64 %indvars.iv.next14.i, %wide.trip.count.i86
-  br i1 %exitcond.not.i88, label %fill_vaapi_plain_pred_weight_table.exit, label %.split.i, !llvm.loop !167
+  br i1 %exitcond.not.i88, label %fill_vaapi_plain_pred_weight_table.exit, label %.split.i, !llvm.loop !166
 
 fill_vaapi_plain_pred_weight_table.exit:          ; preds = %.split.i, %.split.us.i, %.split.us.us.i, %fill_vaapi_RefPicList.exit83
   %259 = getelementptr inbounds nuw i8, ptr %4, i64 2722
@@ -926,7 +926,7 @@ fill_vaapi_plain_pred_weight_table.exit:          ; preds = %.split.i, %.split.u
 
 .lr.ph.split.us.i113:                             ; preds = %.lr.ph.i90
   %276 = getelementptr inbounds nuw i8, ptr %.val51, i64 108
-  %277 = load i32, ptr %276, align 4, !tbaa !158
+  %277 = load i32, ptr %276, align 4, !tbaa !157
   %278 = shl nuw i32 1, %277
   %279 = trunc i32 %278 to i16
   %wide.trip.count30.i114 = zext i32 %272 to i64
@@ -945,7 +945,7 @@ fill_vaapi_plain_pred_weight_table.exit:          ; preds = %.split.i, %.split.u
   br label %.split.us.us.i117
 
 286:                                              ; preds = %280
-  %287 = load i32, ptr %274, align 8, !tbaa !157
+  %287 = load i32, ptr %274, align 8, !tbaa !156
   %288 = shl nuw i32 1, %287
   br label %.split.us.us.i117
 
@@ -967,7 +967,7 @@ fill_vaapi_plain_pred_weight_table.exit:          ; preds = %.split.i, %.split.u
   store i16 0, ptr %294, align 4, !tbaa !116
   %indvars.iv.next28.i123 = add nuw nsw i64 %indvars.iv27.i115, 1
   %exitcond31.not.i124 = icmp eq i64 %indvars.iv.next28.i123, %wide.trip.count30.i114
-  br i1 %exitcond31.not.i124, label %fill_vaapi_plain_pred_weight_table.exit125, label %280, !llvm.loop !164
+  br i1 %exitcond31.not.i124, label %fill_vaapi_plain_pred_weight_table.exit125, label %280, !llvm.loop !163
 
 .lr.ph.split.i93:                                 ; preds = %.lr.ph.i90
   br i1 %.not.i91, label %.lr.ph.split.split.us.i104, label %.split.preheader.i94
@@ -977,7 +977,7 @@ fill_vaapi_plain_pred_weight_table.exit:          ; preds = %.split.i, %.split.u
   br label %.split.i96
 
 .lr.ph.split.split.us.i104:                       ; preds = %.lr.ph.split.i93
-  %295 = load i32, ptr %274, align 8, !tbaa !157
+  %295 = load i32, ptr %274, align 8, !tbaa !156
   %296 = shl nuw i32 1, %295
   %297 = trunc i32 %296 to i16
   %wide.trip.count22.i105 = zext i32 %272 to i64
@@ -1011,7 +1011,7 @@ fill_vaapi_plain_pred_weight_table.exit:          ; preds = %.split.i, %.split.u
   store i16 %313, ptr %314, align 4, !tbaa !116
   %indvars.iv.next20.i111 = add nuw nsw i64 %indvars.iv19.i107, 1
   %exitcond23.not.i112 = icmp eq i64 %indvars.iv.next20.i111, %wide.trip.count22.i105
-  br i1 %exitcond23.not.i112, label %fill_vaapi_plain_pred_weight_table.exit125, label %.split.us.i106, !llvm.loop !166
+  br i1 %exitcond23.not.i112, label %fill_vaapi_plain_pred_weight_table.exit125, label %.split.us.i106, !llvm.loop !165
 
 .split.i96:                                       ; preds = %.split.i96, %.split.preheader.i94
   %indvars.iv13.i97 = phi i64 [ 0, %.split.preheader.i94 ], [ %indvars.iv.next14.i102, %.split.i96 ]
@@ -1047,7 +1047,7 @@ fill_vaapi_plain_pred_weight_table.exit:          ; preds = %.split.i, %.split.u
   store i16 %335, ptr %336, align 4, !tbaa !116
   %indvars.iv.next14.i102 = add nuw nsw i64 %indvars.iv13.i97, 1
   %exitcond.not.i103 = icmp eq i64 %indvars.iv.next14.i102, %wide.trip.count.i95
-  br i1 %exitcond.not.i103, label %fill_vaapi_plain_pred_weight_table.exit125, label %.split.i96, !llvm.loop !167
+  br i1 %exitcond.not.i103, label %fill_vaapi_plain_pred_weight_table.exit125, label %.split.i96, !llvm.loop !166
 
 fill_vaapi_plain_pred_weight_table.exit125:       ; preds = %.split.i96, %.split.us.i106, %.split.us.us.i117, %fill_vaapi_plain_pred_weight_table.exit
   %337 = zext i32 %2 to i64
@@ -1073,16 +1073,16 @@ define internal i32 @vaapi_h264_end_frame(ptr noundef %0) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %7 = load ptr, ptr %6, align 8, !tbaa !76
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 730728
-  %9 = load ptr, ptr %8, align 8, !tbaa !138
+  %9 = load ptr, ptr %8, align 8, !tbaa !137
   %10 = tail call i32 @ff_vaapi_decode_issue(ptr noundef %0, ptr noundef %7) #6
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %17, label %12
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !168
+  %14 = load ptr, ptr %13, align 8, !tbaa !167
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 116
-  %16 = load i32, ptr %15, align 4, !tbaa !169
+  %16 = load i32, ptr %15, align 4, !tbaa !168
   tail call void @ff_h264_draw_horiz_band(ptr noundef nonnull %3, ptr noundef %9, i32 noundef 0, i32 noundef %16) #6
   br label %17
 
@@ -1199,7 +1199,7 @@ define internal fastcc range(i32 -1, 1) i32 @dpb_add(ptr noundef nonnull capture
   %.1 = phi i32 [ %.02747, %29 ], [ %.02747, %26 ], [ %.02747, %20 ], [ %.02747, %33 ], [ 1, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !170
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !169
 
 ._crit_edge:                                      ; preds = %43
   %44 = icmp eq i32 %.1, 0
@@ -1406,42 +1406,41 @@ attributes #6 = { nounwind }
 !129 = !{!28, !10, i64 736524}
 !130 = !{!120, !10, i64 12}
 !131 = !{!120, !10, i64 16}
-!132 = distinct !{!132, !133, !134}
+!132 = distinct !{!132, !133}
 !133 = !{!"llvm.loop.mustprogress"}
-!134 = !{!"llvm.loop.estimated_trip_count"}
-!135 = !{!35, !35, i64 0}
-!136 = distinct !{!136, !133, !134}
-!137 = distinct !{!137, !133, !134}
-!138 = !{!28, !41, i64 730728}
-!139 = !{!140, !10, i64 16}
-!140 = !{!"GetBitContext", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24}
-!141 = !{!142, !10, i64 21036}
-!142 = !{!"H264SliceContext", !143, i64 0, !140, i64 8, !144, i64 40, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64, !8, i64 68, !10, i64 76, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !145, i64 96, !10, i64 20864, !10, i64 20868, !10, i64 20872, !10, i64 20876, !8, i64 20880, !14, i64 20920, !10, i64 20928, !10, i64 20932, !10, i64 20936, !8, i64 20940, !10, i64 20948, !10, i64 20952, !10, i64 20956, !8, i64 20960, !14, i64 20968, !10, i64 20976, !10, i64 20980, !10, i64 20984, !10, i64 20988, !10, i64 20992, !13, i64 21000, !13, i64 21008, !13, i64 21016, !13, i64 21024, !10, i64 21032, !10, i64 21036, !10, i64 21040, !10, i64 21044, !10, i64 21048, !10, i64 21052, !10, i64 21056, !10, i64 21060, !10, i64 21064, !10, i64 21068, !10, i64 21072, !10, i64 21076, !10, i64 21080, !10, i64 21084, !10, i64 21088, !10, i64 21092, !10, i64 21096, !10, i64 21100, !10, i64 21104, !10, i64 21108, !8, i64 21112, !8, i64 21240, !8, i64 21496, !8, i64 21880, !8, i64 22648, !10, i64 22656, !8, i64 22664, !8, i64 28040, !8, i64 28552, !10, i64 28560, !14, i64 28568, !14, i64 28576, !14, i64 28584, !8, i64 28592, !10, i64 28608, !10, i64 28612, !8, i64 28616, !8, i64 28624, !8, i64 28752, !8, i64 29072, !8, i64 29152, !8, i64 29312, !8, i64 29352, !8, i64 29360, !8, i64 32432, !8, i64 32624, !8, i64 33648, !146, i64 33664, !8, i64 33696, !10, i64 34720, !8, i64 34724, !10, i64 35528, !10, i64 35532, !10, i64 35536, !10, i64 35540, !10, i64 35544, !10, i64 35548, !8, i64 35552, !10, i64 35560, !10, i64 35564}
-!143 = !{!"p1 _ZTS11H264Context", !7, i64 0}
-!144 = !{!"p1 _ZTS9ERContext", !7, i64 0}
-!145 = !{!"H264PredWeightTable", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 800, !8, i64 2336}
-!146 = !{!"CABACContext", !10, i64 0, !10, i64 4, !14, i64 8, !14, i64 16, !14, i64 24}
-!147 = !{!28, !10, i64 731768}
-!148 = !{!142, !10, i64 21032}
-!149 = !{!142, !10, i64 52}
-!150 = !{!142, !10, i64 21088}
-!151 = !{!142, !10, i64 22656}
-!152 = !{!142, !10, i64 34720}
-!153 = !{!142, !10, i64 64}
-!154 = !{!142, !10, i64 84}
-!155 = !{!142, !10, i64 88}
-!156 = !{!142, !10, i64 92}
-!157 = !{!142, !10, i64 104}
-!158 = !{!142, !10, i64 108}
-!159 = !{!160, !10, i64 36}
-!160 = !{!"H264Ref", !8, i64 0, !8, i64 24, !10, i64 36, !10, i64 40, !10, i64 44, !35, i64 48}
-!161 = !{!160, !35, i64 48}
-!162 = distinct !{!162, !133, !134}
-!163 = distinct !{!163, !133, !134}
-!164 = distinct !{!164, !133, !134, !165}
-!165 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!166 = distinct !{!166, !133, !134, !165}
-!167 = distinct !{!167, !133, !134}
-!168 = !{!28, !29, i64 8}
-!169 = !{!5, !10, i64 116}
-!170 = distinct !{!170, !133, !134}
+!134 = !{!35, !35, i64 0}
+!135 = distinct !{!135, !133}
+!136 = distinct !{!136, !133}
+!137 = !{!28, !41, i64 730728}
+!138 = !{!139, !10, i64 16}
+!139 = !{!"GetBitContext", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24}
+!140 = !{!141, !10, i64 21036}
+!141 = !{!"H264SliceContext", !142, i64 0, !139, i64 8, !143, i64 40, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64, !8, i64 68, !10, i64 76, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !144, i64 96, !10, i64 20864, !10, i64 20868, !10, i64 20872, !10, i64 20876, !8, i64 20880, !14, i64 20920, !10, i64 20928, !10, i64 20932, !10, i64 20936, !8, i64 20940, !10, i64 20948, !10, i64 20952, !10, i64 20956, !8, i64 20960, !14, i64 20968, !10, i64 20976, !10, i64 20980, !10, i64 20984, !10, i64 20988, !10, i64 20992, !13, i64 21000, !13, i64 21008, !13, i64 21016, !13, i64 21024, !10, i64 21032, !10, i64 21036, !10, i64 21040, !10, i64 21044, !10, i64 21048, !10, i64 21052, !10, i64 21056, !10, i64 21060, !10, i64 21064, !10, i64 21068, !10, i64 21072, !10, i64 21076, !10, i64 21080, !10, i64 21084, !10, i64 21088, !10, i64 21092, !10, i64 21096, !10, i64 21100, !10, i64 21104, !10, i64 21108, !8, i64 21112, !8, i64 21240, !8, i64 21496, !8, i64 21880, !8, i64 22648, !10, i64 22656, !8, i64 22664, !8, i64 28040, !8, i64 28552, !10, i64 28560, !14, i64 28568, !14, i64 28576, !14, i64 28584, !8, i64 28592, !10, i64 28608, !10, i64 28612, !8, i64 28616, !8, i64 28624, !8, i64 28752, !8, i64 29072, !8, i64 29152, !8, i64 29312, !8, i64 29352, !8, i64 29360, !8, i64 32432, !8, i64 32624, !8, i64 33648, !145, i64 33664, !8, i64 33696, !10, i64 34720, !8, i64 34724, !10, i64 35528, !10, i64 35532, !10, i64 35536, !10, i64 35540, !10, i64 35544, !10, i64 35548, !8, i64 35552, !10, i64 35560, !10, i64 35564}
+!142 = !{!"p1 _ZTS11H264Context", !7, i64 0}
+!143 = !{!"p1 _ZTS9ERContext", !7, i64 0}
+!144 = !{!"H264PredWeightTable", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 800, !8, i64 2336}
+!145 = !{!"CABACContext", !10, i64 0, !10, i64 4, !14, i64 8, !14, i64 16, !14, i64 24}
+!146 = !{!28, !10, i64 731768}
+!147 = !{!141, !10, i64 21032}
+!148 = !{!141, !10, i64 52}
+!149 = !{!141, !10, i64 21088}
+!150 = !{!141, !10, i64 22656}
+!151 = !{!141, !10, i64 34720}
+!152 = !{!141, !10, i64 64}
+!153 = !{!141, !10, i64 84}
+!154 = !{!141, !10, i64 88}
+!155 = !{!141, !10, i64 92}
+!156 = !{!141, !10, i64 104}
+!157 = !{!141, !10, i64 108}
+!158 = !{!159, !10, i64 36}
+!159 = !{!"H264Ref", !8, i64 0, !8, i64 24, !10, i64 36, !10, i64 40, !10, i64 44, !35, i64 48}
+!160 = !{!159, !35, i64 48}
+!161 = distinct !{!161, !133}
+!162 = distinct !{!162, !133}
+!163 = distinct !{!163, !133, !164}
+!164 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!165 = distinct !{!165, !133, !164}
+!166 = distinct !{!166, !133}
+!167 = !{!28, !29, i64 8}
+!168 = !{!5, !10, i64 116}
+!169 = distinct !{!169, !133}

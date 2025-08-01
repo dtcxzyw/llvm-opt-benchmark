@@ -537,7 +537,7 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
   %138 = tail call fastcc i32 @dissect_vuze_dht_value_group(ptr noundef %0, ptr noundef readonly %1, ptr noundef %137, i32 noundef %.01314.i.i, i32 noundef %.090)
   %139 = add nuw nsw i32 %.015.i.i, 1
   %exitcond.not.i30.i = icmp eq i32 %139, %133
-  br i1 %exitcond.not.i30.i, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i29.i, !llvm.loop !9
+  br i1 %exitcond.not.i30.i, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i29.i, !llvm.loop !8
 
 140:                                              ; preds = %dissect_vuze_dht_request_header.exit
   %141 = icmp ugt i8 %.090.in, 5
@@ -628,7 +628,7 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
   %195 = tail call fastcc i32 @dissect_vuze_dht_contact(ptr noundef %0, ptr noundef readonly %1, ptr noundef %194, i32 noundef %.01213.i.i60)
   %196 = add nuw nsw i32 %.014.i.i59, 1
   %exitcond.not.i.i61 = icmp eq i32 %196, %189
-  br i1 %exitcond.not.i.i61, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i.i58, !llvm.loop !10
+  br i1 %exitcond.not.i.i61, label %dissect_vuze_dht_reply_ping.exit, label %.lr.ph.i.i58, !llvm.loop !9
 
 197:                                              ; preds = %dissect_vuze_dht_request_header.exit
   %198 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0)
@@ -694,7 +694,7 @@ dissect_vuze_dht_keys.exit.i:                     ; preds = %112, %101
   %241 = tail call fastcc i32 @dissect_vuze_dht_contact(ptr noundef %0, ptr noundef readonly %1, ptr noundef %240, i32 noundef %.01213.i.i68)
   %242 = add nuw nsw i32 %.014.i.i67, 1
   %exitcond.not.i.i69 = icmp eq i32 %242, %235
-  br i1 %exitcond.not.i.i69, label %dissect_vuze_dht_contacts.exit.i, label %.lr.ph.i.i66, !llvm.loop !10
+  br i1 %exitcond.not.i.i69, label %dissect_vuze_dht_contacts.exit.i, label %.lr.ph.i.i66, !llvm.loop !9
 
 dissect_vuze_dht_contacts.exit.i:                 ; preds = %.lr.ph.i.i66, %231
   %.012.lcssa.i.i70 = phi i32 [ %236, %231 ], [ %241, %.lr.ph.i.i66 ]
@@ -1000,7 +1000,7 @@ dissect_vuze_dht_network_coordinate.exit:         ; preds = %55, %68
   %.0.i = phi i32 [ %67, %55 ], [ %71, %68 ]
   %72 = add nuw nsw i32 %.01920, 1
   %exitcond.not = icmp eq i32 %72, %11
-  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !10
 
 .loopexit:                                        ; preds = %dissect_vuze_dht_network_coordinate.exit, %7, %5
   %.0 = phi i32 [ %3, %5 ], [ %12, %7 ], [ %.0.i, %dissect_vuze_dht_network_coordinate.exit ]
@@ -1099,7 +1099,7 @@ dissect_vuze_dht_value.exit:                      ; preds = %28, %.thread.i
   %.1.i = phi i32 [ %42, %28 ], [ %65, %.thread.i ]
   %66 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %66, %7
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %dissect_vuze_dht_value.exit, %5
   %.019.lcssa = phi i32 [ %14, %5 ], [ %.1.i, %dissect_vuze_dht_value.exit ]
@@ -1147,10 +1147,9 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

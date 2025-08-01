@@ -452,7 +452,7 @@ _slurm_conf_file_exists.exit.i:                   ; preds = %108
   %134 = load ptr, ptr @conf_server, align 8
   %135 = call ptr @fetch_config(ptr noundef %134, i32 noundef 2) #15
   %.not3.i = icmp eq ptr %135, null
-  br i1 %.not3.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  br i1 %.not3.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %129
   %.lcssa.i = phi ptr [ %131, %129 ], [ %135, %.lr.ph.i ]
@@ -625,7 +625,7 @@ _listen_for_reconf.exit:                          ; preds = %166, %164, %153
   br label %.lr.ph.split.i.backedge
 
 .lr.ph.split.i.backedge:                          ; preds = %199, %196
-  br label %.lr.ph.split.i, !llvm.loop !13
+  br label %.lr.ph.split.i, !llvm.loop !12
 
 200:                                              ; preds = %192, %.split27.us.i
   %201 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.68) #15
@@ -1121,7 +1121,7 @@ define internal noalias noundef ptr @_try_to_reconfig(ptr readnone captures(none
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %92, %90
-  br label %.lr.ph, !llvm.loop !14
+  br label %.lr.ph, !llvm.loop !13
 
 .outer._crit_edge:                                ; preds = %.split56.us
   %93 = icmp sgt i32 %89, 2
@@ -1275,7 +1275,7 @@ define internal noundef i32 @_on_msg(ptr noundef %0, ptr noundef %1, i32 noundef
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %13 = load i8, ptr %12, align 4, !range !15, !noundef !16
+  %13 = load i8, ptr %12, align 4, !range !14, !noundef !15
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %21, label %15
 
@@ -1476,12 +1476,11 @@ attributes #19 = { cold }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = !{i8 0, i8 2}
-!16 = !{}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = !{i8 0, i8 2}
+!15 = !{}

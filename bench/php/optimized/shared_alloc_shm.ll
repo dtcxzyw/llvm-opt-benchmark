@@ -27,7 +27,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %9 = icmp samesign ugt i64 %.073, 2097152
   %10 = select i1 %8, i1 %9, i1 false
   %11 = lshr i64 %.073, 1
-  br i1 %10, label %7, label %.preheader83, !llvm.loop !4
+  br i1 %10, label %7, label %.preheader83
 
 .preheader83:                                     ; preds = %7
   %12 = icmp samesign ugt i64 %.073, 2097151
@@ -43,10 +43,10 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 15:                                               ; preds = %.lr.ph
   %16 = lshr i64 %.17486, 1
   %17 = icmp samesign ugt i64 %.17486, 4194303
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15, %.preheader83
-  store ptr @.str, ptr %3, align 8, !tbaa !7
+  store ptr @.str, ptr %3, align 8, !tbaa !4
   br label %.loopexit
 
 18:                                               ; preds = %.lr.ph
@@ -55,16 +55,16 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %21 = lshr i64 %19, %20
   %22 = trunc i64 %21 to i32
   %23 = add i32 %22, 1
-  store i32 %23, ptr %2, align 4, !tbaa !12
+  store i32 %23, ptr %2, align 4, !tbaa !9
   %24 = sext i32 %23 to i64
   %25 = mul nsw i64 %24, 48
   %26 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %25) #7
-  store ptr %26, ptr %1, align 8, !tbaa !14
+  store ptr %26, ptr %1, align 8, !tbaa !11
   %.not80 = icmp eq ptr %26, null
   br i1 %.not80, label %27, label %28
 
 27:                                               ; preds = %18
-  store ptr @.str.1, ptr %3, align 8, !tbaa !7
+  store ptr @.str.1, ptr %3, align 8, !tbaa !4
   br label %.loopexit
 
 28:                                               ; preds = %18
@@ -84,12 +84,12 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
   %indvars.iv = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next, %.lr.ph89 ]
   %33 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %30, i64 %indvars.iv
-  %34 = load ptr, ptr %1, align 8, !tbaa !14
+  %34 = load ptr, ptr %1, align 8, !tbaa !11
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
-  store ptr %33, ptr %35, align 8, !tbaa !14
+  store ptr %33, ptr %35, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph92, label %.lr.ph89, !llvm.loop !15
+  br i1 %exitcond.not, label %.lr.ph92, label %.lr.ph89
 
 36:                                               ; preds = %.lr.ph92, %54
   %indvars.iv99 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next100, %54 ]
@@ -101,11 +101,11 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 38:                                               ; preds = %36
   %39 = call i32 @shmget(i32 noundef 0, i64 noundef %37, i32 noundef 1920) #6
   %40 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %30, i64 %indvars.iv99, i32 1
-  store i32 %39, ptr %40, align 8, !tbaa !16
+  store i32 %39, ptr %40, align 8, !tbaa !12
   br label %42
 
 41:                                               ; preds = %36
-  store i32 %14, ptr %32, align 8, !tbaa !16
+  store i32 %14, ptr %32, align 8, !tbaa !12
   br label %42
 
 42:                                               ; preds = %41, %38
@@ -118,28 +118,28 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 47:                                               ; preds = %42
   %48 = call ptr @shmat(i32 noundef %43, ptr noundef null, i32 noundef 0) #6
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  store ptr %48, ptr %49, align 8, !tbaa !20
+  store ptr %48, ptr %49, align 8, !tbaa !16
   %50 = icmp eq ptr %48, inttoptr (i64 -1 to ptr)
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %47
-  store ptr @.str.2, ptr %3, align 8, !tbaa !7
-  %52 = load i32, ptr %45, align 8, !tbaa !16
+  store ptr @.str.2, ptr %3, align 8, !tbaa !4
+  %52 = load i32, ptr %45, align 8, !tbaa !12
   %53 = call i32 @shmctl(i32 noundef %52, i32 noundef 0, ptr noundef nonnull %5) #6
   br label %.loopexit
 
 54:                                               ; preds = %47
-  %55 = load i32, ptr %45, align 8, !tbaa !16
+  %55 = load i32, ptr %45, align 8, !tbaa !12
   %56 = call i32 @shmctl(i32 noundef %55, i32 noundef 0, ptr noundef nonnull %5) #6
   %57 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i64 0, ptr %57, align 8, !tbaa !21
-  store i64 %37, ptr %44, align 8, !tbaa !22
+  store i64 0, ptr %57, align 8, !tbaa !17
+  store i64 %37, ptr %44, align 8, !tbaa !18
   %58 = sub i64 %.07590, %37
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %59 = load i32, ptr %2, align 4, !tbaa !12
+  %59 = load i32, ptr %2, align 4, !tbaa !9
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next100, %60
-  br i1 %61, label %36, label %.loopexit, !llvm.loop !23
+  br i1 %61, label %36, label %.loopexit
 
 .loopexit:                                        ; preds = %42, %54, %28, %51, %27, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %51 ], [ 0, %27 ], [ 1, %28 ], [ 0, %42 ], [ 1, %54 ]
@@ -150,7 +150,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @detach_segment(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = tail call i32 @shmdt(ptr noundef %3) #6
   ret i32 0
 }
@@ -202,23 +202,18 @@ attributes #7 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !10, i64 0}
-!14 = !{!9, !9, i64 0}
-!15 = distinct !{!15, !5}
-!16 = !{!17, !13, i64 32}
-!17 = !{!"", !18, i64 0, !13, i64 32}
-!18 = !{!"_zend_shared_segment", !19, i64 0, !19, i64 8, !19, i64 16, !9, i64 24}
-!19 = !{!"long", !10, i64 0}
-!20 = !{!17, !9, i64 24}
-!21 = !{!17, !19, i64 16}
-!22 = !{!17, !19, i64 0}
-!23 = distinct !{!23, !5}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 omnipotent char", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !7, i64 0}
+!11 = !{!6, !6, i64 0}
+!12 = !{!13, !10, i64 32}
+!13 = !{!"", !14, i64 0, !10, i64 32}
+!14 = !{!"_zend_shared_segment", !15, i64 0, !15, i64 8, !15, i64 16, !6, i64 24}
+!15 = !{!"long", !7, i64 0}
+!16 = !{!13, !6, i64 24}
+!17 = !{!13, !15, i64 16}
+!18 = !{!13, !15, i64 0}

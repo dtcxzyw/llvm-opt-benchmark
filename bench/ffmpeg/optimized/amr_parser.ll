@@ -134,7 +134,7 @@ define internal i32 @amr_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
 49:                                               ; preds = %.loopexit.thread88, %.loopexit
   %spec.select92 = phi i32 [ 0, %.loopexit.thread88 ], [ %42, %.loopexit ]
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %51 = load i64, ptr %50, align 8, !tbaa !43
+  %51 = load i64, ptr %50, align 8, !tbaa !42
   %52 = sext i32 %spec.select92 to i64
   %53 = xor i64 %52, -1
   %54 = icmp ult i64 %51, %53
@@ -142,15 +142,15 @@ define internal i32 @amr_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
 
 55:                                               ; preds = %49
   %56 = add i64 %51, %52
-  store i64 %56, ptr %50, align 8, !tbaa !43
+  store i64 %56, ptr %50, align 8, !tbaa !42
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %58 = load i64, ptr %57, align 8, !tbaa !44
+  %58 = load i64, ptr %57, align 8, !tbaa !43
   %59 = add i64 %58, 1
-  store i64 %59, ptr %57, align 8, !tbaa !44
+  store i64 %59, ptr %57, align 8, !tbaa !43
   %60 = udiv i64 %56, %59
   %61 = mul i64 %60, 400
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i64 %61, ptr %62, align 8, !tbaa !45
+  store i64 %61, ptr %62, align 8, !tbaa !44
   br label %63
 
 63:                                               ; preds = %.loopexit.thread, %49, %55, %.loopexit
@@ -179,7 +179,7 @@ define internal i32 @amr_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   %72 = icmp eq i32 %71, 73728
   %73 = select i1 %72, i32 160, i32 320
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %73, ptr %74, align 8, !tbaa !46
+  store i32 %73, ptr %74, align 8, !tbaa !45
   store ptr %69, ptr %2, align 8, !tbaa !16
   store i32 %68, ptr %3, align 4, !tbaa !17
   br label %75
@@ -242,10 +242,9 @@ attributes #3 = { nounwind }
 !37 = !{!5, !11, i64 184}
 !38 = !{!13, !11, i64 64}
 !39 = !{!19, !11, i64 24}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!13, !10, i64 48}
-!44 = !{!13, !10, i64 56}
-!45 = !{!19, !10, i64 56}
-!46 = !{!5, !11, i64 296}
+!42 = !{!13, !10, i64 48}
+!43 = !{!13, !10, i64 56}
+!44 = !{!19, !10, i64 56}
+!45 = !{!5, !11, i64 296}

@@ -131,11 +131,11 @@ define hidden range(i32 0, 3) i32 @exr_attr_string_vector_destroy(ptr noundef %0
   %15 = load i32, ptr %1, align 8, !tbaa !27
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 18:                                               ; preds = %._crit_edge
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %20 = load ptr, ptr %19, align 8, !tbaa !33
+  %20 = load ptr, ptr %19, align 8, !tbaa !32
   tail call void %20(ptr noundef nonnull %10) #5
   br label %21
 
@@ -251,12 +251,12 @@ exr_attr_string_vector_init.exit:                 ; preds = %9, %15, %21, %32
   %48 = load ptr, ptr %40, align 8, !tbaa !24
   %49 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %48, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !34
-  %52 = load i32, ptr %49, align 8, !tbaa !35
+  %51 = load ptr, ptr %50, align 8, !tbaa !33
+  %52 = load i32, ptr %49, align 8, !tbaa !34
   %53 = tail call i32 @exr_attr_string_set_with_length(ptr noundef nonnull %0, ptr noundef %47, ptr noundef %51, i32 noundef %52) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cond = icmp eq i32 %53, 0
-  br i1 %cond, label %41, label %._crit_edge, !llvm.loop !36
+  br i1 %cond, label %41, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %45, %exr_attr_string_vector_init.exit
   %.019.lcssa = phi i32 [ %.030.i, %exr_attr_string_vector_init.exit ], [ %53, %45 ]
@@ -288,11 +288,11 @@ exr_attr_string_vector_init.exit:                 ; preds = %9, %15, %21, %32
   %65 = load i32, ptr %1, align 8, !tbaa !27
   %66 = sext i32 %65 to i64
   %67 = icmp slt i64 %indvars.iv.next.i26, %66
-  br i1 %67, label %.lr.ph.i24, label %._crit_edge.i, !llvm.loop !32
+  br i1 %67, label %.lr.ph.i24, label %._crit_edge.i, !llvm.loop !31
 
 68:                                               ; preds = %._crit_edge.i
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %70 = load ptr, ptr %69, align 8, !tbaa !33
+  %70 = load ptr, ptr %69, align 8, !tbaa !32
   tail call void %70(ptr noundef nonnull %60) #5
   br label %71
 
@@ -550,16 +550,16 @@ define hidden i32 @exr_attr_string_vector_add_entry_with_length(ptr noundef %0, 
   %40 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %28, i64 %indvars.iv
   %41 = load ptr, ptr %32, align 8, !tbaa !24
   %42 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %41, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %1, align 8, !tbaa !27
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %39, label %._crit_edge, !llvm.loop !40
+  br i1 %45, label %39, label %._crit_edge, !llvm.loop !39
 
 46:                                               ; preds = %._crit_edge
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %48 = load ptr, ptr %47, align 8, !tbaa !33
+  %48 = load ptr, ptr %47, align 8, !tbaa !32
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !24
   tail call void %48(ptr noundef %50) #5
@@ -657,15 +657,14 @@ attributes #6 = { nounwind willreturn memory(read) }
 !26 = !{!4, !10, i64 56}
 !27 = !{!25, !8, i64 0}
 !28 = !{!25, !8, i64 4}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = distinct !{!32, !30, !31}
-!33 = !{!4, !10, i64 96}
-!34 = !{!7, !9, i64 8}
-!35 = !{!7, !8, i64 0}
-!36 = distinct !{!36, !30, !31}
-!37 = !{i64 0, i64 4, !38, i64 4, i64 4, !38, i64 8, i64 8, !39}
-!38 = !{!8, !8, i64 0}
-!39 = !{!9, !9, i64 0}
-!40 = distinct !{!40, !30, !31}
+!31 = distinct !{!31, !30}
+!32 = !{!4, !10, i64 96}
+!33 = !{!7, !9, i64 8}
+!34 = !{!7, !8, i64 0}
+!35 = distinct !{!35, !30}
+!36 = !{i64 0, i64 4, !37, i64 4, i64 4, !37, i64 8, i64 8, !38}
+!37 = !{!8, !8, i64 0}
+!38 = !{!9, !9, i64 0}
+!39 = distinct !{!39, !30}

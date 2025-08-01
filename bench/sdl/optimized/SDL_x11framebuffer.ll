@@ -548,7 +548,7 @@ define hidden noundef zeroext i1 @X11_UpdateWindowFramebuffer(ptr noundef readno
 90:                                               ; preds = %57, %68, %71, %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %57, !llvm.loop !7
 
 .loopexit:                                        ; preds = %90, %56, %.preheader133, %.preheader
   %91 = load ptr, ptr %8, align 8
@@ -575,7 +575,6 @@ attributes #4 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
+!7 = distinct !{!7, !6}

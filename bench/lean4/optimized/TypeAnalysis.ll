@@ -10634,7 +10634,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit125.backedge:                        ; preds = %72, %74, %84, %83, %81
   %.0101.be = phi ptr [ %76, %74 ], [ %78, %81 ], [ %78, %83 ], [ %78, %84 ], [ inttoptr (i64 1 to ptr), %72 ]
   %.0100.be = phi ptr [ %.1.i198240, %74 ], [ %77, %81 ], [ %77, %83 ], [ %77, %84 ], [ %.1.i198240, %72 ]
-  br label %lean_dec.exit125, !llvm.loop !19
+  br label %lean_dec.exit125
 
 74:                                               ; preds = %72
   %75 = add i64 %49, -2
@@ -26375,7 +26375,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit125.backedge:                        ; preds = %72, %74, %84, %83, %81
   %.0101.be = phi ptr [ %76, %74 ], [ %78, %81 ], [ %78, %83 ], [ %78, %84 ], [ inttoptr (i64 1 to ptr), %72 ]
   %.0100.be = phi ptr [ %.1.i198240, %74 ], [ %77, %81 ], [ %77, %83 ], [ %77, %84 ], [ %.1.i198240, %72 ]
-  br label %lean_dec.exit125, !llvm.loop !21
+  br label %lean_dec.exit125
 
 74:                                               ; preds = %72
   %75 = add i64 %49, -2
@@ -29103,19 +29103,19 @@ lean_inc.exit272.thread:                          ; preds = %177
 
 192:                                              ; preds = %lean_inc.exit272
   %193 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  %194 = load i8, ptr %193, align 1, !tbaa !22
+  %194 = load i8, ptr %193, align 1, !tbaa !19
   %195 = icmp eq i8 %194, 0
   br i1 %195, label %199, label %220
 
 .thread438:                                       ; preds = %lean_inc.exit272.thread
   %196 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  %197 = load i8, ptr %196, align 1, !tbaa !22
+  %197 = load i8, ptr %196, align 1, !tbaa !19
   %198 = icmp eq i8 %197, 0
   br i1 %198, label %199, label %lean_dec.exit250
 
 199:                                              ; preds = %.thread438, %192
   %200 = getelementptr inbounds nuw i8, ptr %48, i64 57
-  %201 = load i8, ptr %200, align 1, !tbaa !22
+  %201 = load i8, ptr %200, align 1, !tbaa !19
   br i1 %.not460, label %202, label %lean_dec.exit252
 
 202:                                              ; preds = %199
@@ -29734,19 +29734,19 @@ lean_inc.exit265.thread:                          ; preds = %411
 
 426:                                              ; preds = %lean_inc.exit265
   %427 = getelementptr inbounds nuw i8, ptr %273, i64 56
-  %428 = load i8, ptr %427, align 1, !tbaa !22
+  %428 = load i8, ptr %427, align 1, !tbaa !19
   %429 = icmp eq i8 %428, 0
   br i1 %429, label %433, label %457
 
 .thread440:                                       ; preds = %lean_inc.exit265.thread
   %430 = getelementptr inbounds nuw i8, ptr %273, i64 56
-  %431 = load i8, ptr %430, align 1, !tbaa !22
+  %431 = load i8, ptr %430, align 1, !tbaa !19
   %432 = icmp eq i8 %431, 0
   br i1 %432, label %433, label %lean_dec.exit233
 
 433:                                              ; preds = %.thread440, %426
   %434 = getelementptr inbounds nuw i8, ptr %273, i64 57
-  %435 = load i8, ptr %434, align 1, !tbaa !22
+  %435 = load i8, ptr %434, align 1, !tbaa !19
   br i1 %.not450, label %436, label %lean_dec.exit235
 
 436:                                              ; preds = %433
@@ -30343,7 +30343,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit61.backedge:                         ; preds = %71, %73, %83, %82, %80
   %.054.be = phi ptr [ %75, %73 ], [ %77, %80 ], [ %77, %82 ], [ %77, %83 ], [ inttoptr (i64 1 to ptr), %71 ]
   %.053.be = phi ptr [ %.1.i90101, %73 ], [ %76, %80 ], [ %76, %82 ], [ %76, %83 ], [ %.1.i90101, %71 ]
-  br label %lean_dec.exit61, !llvm.loop !23
+  br label %lean_dec.exit61
 
 73:                                               ; preds = %71
   %74 = add i64 %48, -2
@@ -33825,7 +33825,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit46.backedge:                         ; preds = %66, %68, %78, %77, %75
   %.039.be = phi ptr [ %70, %68 ], [ %72, %75 ], [ %72, %77 ], [ %72, %78 ], [ inttoptr (i64 1 to ptr), %66 ]
   %.038.be = phi ptr [ %.1.i7584, %68 ], [ %71, %75 ], [ %71, %77 ], [ %71, %78 ], [ %.1.i7584, %66 ]
-  br label %lean_dec.exit46, !llvm.loop !24
+  br label %lean_dec.exit46
 
 68:                                               ; preds = %66
   %69 = add i64 %43, -2
@@ -54179,19 +54179,19 @@ lean_inc.exit278.thread:                          ; preds = %179
 
 194:                                              ; preds = %lean_inc.exit278
   %195 = getelementptr inbounds nuw i8, ptr %50, i64 56
-  %196 = load i8, ptr %195, align 1, !tbaa !22
+  %196 = load i8, ptr %195, align 1, !tbaa !19
   %197 = icmp eq i8 %196, 0
   br i1 %197, label %201, label %222
 
 .thread444:                                       ; preds = %lean_inc.exit278.thread
   %198 = getelementptr inbounds nuw i8, ptr %50, i64 56
-  %199 = load i8, ptr %198, align 1, !tbaa !22
+  %199 = load i8, ptr %198, align 1, !tbaa !19
   %200 = icmp eq i8 %199, 0
   br i1 %200, label %201, label %lean_dec.exit256
 
 201:                                              ; preds = %.thread444, %194
   %202 = getelementptr inbounds nuw i8, ptr %50, i64 57
-  %203 = load i8, ptr %202, align 1, !tbaa !22
+  %203 = load i8, ptr %202, align 1, !tbaa !19
   br i1 %.not466, label %204, label %lean_dec.exit258
 
 204:                                              ; preds = %201
@@ -54810,19 +54810,19 @@ lean_inc.exit271.thread:                          ; preds = %413
 
 428:                                              ; preds = %lean_inc.exit271
   %429 = getelementptr inbounds nuw i8, ptr %275, i64 56
-  %430 = load i8, ptr %429, align 1, !tbaa !22
+  %430 = load i8, ptr %429, align 1, !tbaa !19
   %431 = icmp eq i8 %430, 0
   br i1 %431, label %435, label %459
 
 .thread446:                                       ; preds = %lean_inc.exit271.thread
   %432 = getelementptr inbounds nuw i8, ptr %275, i64 56
-  %433 = load i8, ptr %432, align 1, !tbaa !22
+  %433 = load i8, ptr %432, align 1, !tbaa !19
   %434 = icmp eq i8 %433, 0
   br i1 %434, label %435, label %lean_dec.exit239
 
 435:                                              ; preds = %.thread446, %428
   %436 = getelementptr inbounds nuw i8, ptr %275, i64 57
-  %437 = load i8, ptr %436, align 1, !tbaa !22
+  %437 = load i8, ptr %436, align 1, !tbaa !19
   br i1 %.not456, label %438, label %lean_dec.exit241
 
 438:                                              ; preds = %435
@@ -72281,13 +72281,13 @@ lean_obj_tag.exit:                                ; preds = %12, %15
 
 lean_inc.exit90:                                  ; preds = %29, %28, %26
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %31 = load i8, ptr %30, align 1, !tbaa !22
+  %31 = load i8, ptr %30, align 1, !tbaa !19
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %36, label %62
 
 lean_inc.exit90.thread:                           ; preds = %19
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %34 = load i8, ptr %33, align 1, !tbaa !22
+  %34 = load i8, ptr %33, align 1, !tbaa !19
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %36, label %lean_dec.exit84
 
@@ -112666,9 +112666,4 @@ attributes #5 = { noreturn nounwind }
 !16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!"branch_weights", i32 4000000, i32 4001}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !20}
-!22 = !{!6, !6, i64 0}
-!23 = distinct !{!23, !20}
-!24 = distinct !{!24, !20}
+!19 = !{!6, !6, i64 0}

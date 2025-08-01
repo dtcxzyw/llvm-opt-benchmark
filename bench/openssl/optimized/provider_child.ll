@@ -192,7 +192,7 @@ define internal range(i32 0, 2) i32 @provider_create_child_cb(ptr noundef %0, pt
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %12 = tail call ptr %11(ptr noundef %0) #2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %13, align 8, !tbaa !25
+  store ptr %0, ptr %13, align 8, !tbaa !24
   %14 = tail call ptr @ossl_provider_find(ptr noundef %1, ptr noundef %12, i32 noundef 1) #2
   %.not27 = icmp eq ptr %14, null
   br i1 %.not27, label %17, label %15
@@ -386,7 +386,7 @@ define internal range(i32 0, 2) i32 @ossl_child_provider_init(ptr noundef %0, pt
 9:                                                ; preds = %5, %7
   %.1 = phi ptr [ %.015.val, %7 ], [ %.016, %5 ]
   %10 = getelementptr inbounds nuw i8, ptr %.015, i64 16
-  br label %5, !llvm.loop !26
+  br label %5, !llvm.loop !25
 
 11:                                               ; preds = %5
   %12 = icmp eq ptr %.016, null
@@ -402,14 +402,14 @@ define internal range(i32 0, 2) i32 @ossl_child_provider_init(ptr noundef %0, pt
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %19 = load ptr, ptr %18, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !25
+  %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = tail call ptr %19(ptr noundef %21) #2
-  store ptr %22, ptr %3, align 8, !tbaa !27
+  store ptr %22, ptr %3, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %24 = load ptr, ptr %23, align 8, !tbaa !19
-  %25 = load ptr, ptr %20, align 8, !tbaa !25
+  %25 = load ptr, ptr %20, align 8, !tbaa !24
   %26 = tail call ptr %24(ptr noundef %25) #2
-  store ptr %26, ptr %2, align 8, !tbaa !28
+  store ptr %26, ptr %2, align 8, !tbaa !27
   br label %27
 
 27:                                               ; preds = %13, %11, %17
@@ -457,11 +457,10 @@ attributes #2 = { nounwind }
 !19 = !{!4, !6, i64 64}
 !20 = !{!4, !6, i64 72}
 !21 = !{!4, !6, i64 80}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!4, !5, i64 8}
-!26 = distinct !{!26, !23, !24}
-!27 = !{!6, !6, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTS16ossl_dispatch_st", !6, i64 0}
+!24 = !{!4, !5, i64 8}
+!25 = distinct !{!25, !23}
+!26 = !{!6, !6, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS16ossl_dispatch_st", !6, i64 0}

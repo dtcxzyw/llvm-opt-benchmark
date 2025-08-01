@@ -1783,7 +1783,7 @@ bytes_to_read.exit:                               ; preds = %19, %25
 bytes_to_read.exit47:                             ; preds = %72, %45
   %.124 = phi i32 [ %51, %45 ], [ %.1.i46, %72 ]
   %.not29 = icmp eq i32 %.124, 0
-  br i1 %.not29, label %._crit_edge, label %40, !llvm.loop !6
+  br i1 %.not29, label %._crit_edge, label %40, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %65, %61, %58, %54, %52, %bytes_to_read.exit47, %40, %43
   %78 = and i32 %42, 1
@@ -1899,7 +1899,7 @@ define internal fastcc range(i32 0, 8) i32 @do_write(ptr noundef %0) unnamed_add
 33:                                               ; preds = %.lr.ph.split
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %34 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %34, label %.lr.ph.split, label %.loopexit, !llvm.loop !7
+  br i1 %34, label %.lr.ph.split, label %.loopexit, !llvm.loop !6
 
 35:                                               ; preds = %.lr.ph.split
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1947,7 +1947,7 @@ define internal fastcc range(i32 0, 8) i32 @do_write(ptr noundef %0) unnamed_add
   %65 = zext i1 %64 to i32
   %spec.select = add nsw i32 %37, %65
   %66 = icmp slt i32 %spec.select, %21
-  br i1 %66, label %.lr.ph, label %.loopexit.thread147, !llvm.loop !7
+  br i1 %66, label %.lr.ph, label %.loopexit.thread147, !llvm.loop !6
 
 67:                                               ; preds = %35
   %68 = load ptr, ptr %23, align 8
@@ -2167,13 +2167,13 @@ define internal fastcc range(i32 0, 6) i32 @do_read(ptr noundef %0, i32 noundef 
   %46 = add i64 %.070.us, %45
   %47 = load i64, ptr %18, align 8
   %.not88.us = icmp eq i64 %47, %46
-  br i1 %.not88.us, label %.split131.us, label %19, !llvm.loop !8
+  br i1 %.not88.us, label %.split131.us, label %19, !llvm.loop !7
 
 .split131.us:                                     ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = getelementptr inbounds nuw [2 x %struct.iovec], ptr %3, i64 0, i64 %indvars.iv.next
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread.thread, label %.outer.split.us, !llvm.loop !10
+  br i1 %exitcond.not, label %.thread.thread, label %.outer.split.us, !llvm.loop !9
 
 .split.us:                                        ; preds = %21
   %49 = load ptr, ptr %14, align 8
@@ -2622,11 +2622,11 @@ define internal fastcc void @consider_writing(ptr noundef %0) unnamed_addr #0 {
 
 bufferevent_trigger_nolock_.exit:                 ; preds = %17, %13, %10
   %.not39 = icmp samesign ult i32 %11, 2
-  br i1 %.not39, label %7, label %bufferevent_trigger_nolock_.exit._crit_edge, !llvm.loop !11
+  br i1 %.not39, label %7, label %bufferevent_trigger_nolock_.exit._crit_edge, !llvm.loop !10
 
 bufferevent_trigger_nolock_.exit._crit_edge:      ; preds = %bufferevent_trigger_nolock_.exit
   %.pre = load i8, ptr %4, align 4
-  br label %split, !llvm.loop !11
+  br label %split, !llvm.loop !10
 
 split:                                            ; preds = %7, %bufferevent_trigger_nolock_.exit._crit_edge
   %18 = phi i8 [ %.pre, %bufferevent_trigger_nolock_.exit._crit_edge ], [ %8, %7 ]
@@ -2692,7 +2692,7 @@ split:                                            ; preds = %7, %bufferevent_tri
 44:                                               ; preds = %42, %.critedge2.thread.us, %.critedge2.us
   %45 = tail call fastcc i32 @do_write(ptr noundef nonnull %0)
   %.not49.us = icmp samesign ult i32 %45, 2
-  br i1 %.not49.us, label %.split.us, label %.critedge, !llvm.loop !12
+  br i1 %.not49.us, label %.split.us, label %.critedge, !llvm.loop !11
 
 .split:                                           ; preds = %25, %.critedge2.thread.thread
   %46 = load i16, ptr %30, align 8
@@ -2728,7 +2728,7 @@ split:                                            ; preds = %7, %bufferevent_tri
 .critedge2.thread.thread:                         ; preds = %52, %.critedge2.thread
   %59 = tail call fastcc i32 @do_write(ptr noundef nonnull %0)
   %.not49 = icmp samesign ult i32 %59, 2
-  br i1 %.not49, label %.split, label %.critedge, !llvm.loop !13
+  br i1 %.not49, label %.split, label %.critedge
 
 .critedge:                                        ; preds = %54, %.split, %48, %50, %.critedge2.thread.thread, %.split.us, %37, %39, %44
   %60 = phi ptr [ %33, %44 ], [ %33, %39 ], [ %33, %37 ], [ %33, %.split.us ], [ %30, %.critedge2.thread.thread ], [ %30, %50 ], [ %30, %48 ], [ %30, %.split ], [ %30, %54 ]
@@ -2793,14 +2793,12 @@ attributes #7 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !5, !9}
-!13 = distinct !{!13, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !8}

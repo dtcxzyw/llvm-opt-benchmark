@@ -220,7 +220,7 @@ define dso_local ptr @_kvs_comm_dup() local_unnamed_addr #0 {
   %104 = load i32, ptr @kvs_comm_cnt, align 4
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next56, %105
-  br i1 %106, label %.lr.ph51, label %._crit_edge52, !llvm.loop !12
+  br i1 %106, label %.lr.ph51, label %._crit_edge52, !llvm.loop !11
 
 ._crit_edge52:                                    ; preds = %._crit_edge, %0
   ret ptr %4
@@ -303,7 +303,7 @@ define dso_local noundef i32 @pmi_kvs_put(ptr noundef readonly captures(none) %0
 26:                                               ; preds = %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %27, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.loopexit, label %27, !llvm.loop !12
 
 27:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
@@ -372,7 +372,7 @@ _find_kvs_by_name.exit:                           ; preds = %27
 56:                                               ; preds = %45
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i30
-  br i1 %exitcond.not.i33, label %.loopexit.thread.i, label %45, !llvm.loop !14
+  br i1 %exitcond.not.i33, label %.loopexit.thread.i, label %45, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %54, %49
   %57 = load ptr, ptr %39, align 8
@@ -430,7 +430,7 @@ _find_kvs_by_name.exit:                           ; preds = %27
   %95 = load i32, ptr %32, align 8
   %96 = zext i32 %95 to i64
   %97 = icmp samesign ult i64 %indvars.iv.next61.i, %96
-  br i1 %97, label %40, label %._crit_edge.i, !llvm.loop !15
+  br i1 %97, label %40, label %._crit_edge.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %94, %_find_kvs_by_name.exit
   %98 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -468,7 +468,7 @@ _merge_named_kvs.exit:                            ; preds = %100, %._crit_edge.i
   %116 = load i16, ptr %13, align 8
   %117 = zext i16 %116 to i64
   %118 = icmp samesign ult i64 %indvars.iv.next, %117
-  br i1 %118, label %18, label %._crit_edge, !llvm.loop !16
+  br i1 %118, label %18, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_merge_named_kvs.exit, %.preheader
   store i1 true, ptr @kvs_updated, align 4
@@ -834,7 +834,7 @@ define dso_local void @pmi_kvs_free() local_unnamed_addr #0 {
   %21 = load i32, ptr %12, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
-  br i1 %23, label %16, label %._crit_edge.i, !llvm.loop !17
+  br i1 %23, label %16, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %16, %.preheader.i
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -856,7 +856,7 @@ _free_kvs_comm.exit:                              ; preds = %.lr.ph, %._crit_edg
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = sext i32 %27 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_free_kvs_comm.exit, %.preheader
   call void @slurm_xfree(ptr noundef nonnull @kvs_comm_ptr) #12
@@ -1032,7 +1032,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %69 = trunc nuw i64 %indvars.iv.next228 to i32
   %70 = icmp sgt i32 %68, %69
-  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %67, %53, %34
   %.195 = phi i32 [ 0, %34 ], [ %66, %53 ], [ %.296, %67 ]
@@ -1069,7 +1069,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %83 = load i32, ptr @agent_cnt, align 4
   %84 = load i32, ptr @agent_max_cnt, align 4
   %.not124 = icmp slt i32 %83, %84
-  br i1 %.not124, label %._crit_edge177, label %.lr.ph176, !llvm.loop !20
+  br i1 %.not124, label %._crit_edge177, label %.lr.ph176, !llvm.loop !19
 
 ._crit_edge177:                                   ; preds = %82, %.preheader135
   %.lcssa139 = phi i32 [ %74, %.preheader135 ], [ %83, %82 ]
@@ -1203,7 +1203,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next231.pre-phi, %145
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %146, label %27, label %._crit_edge185.loopexit, !llvm.loop !21
+  br i1 %146, label %27, label %._crit_edge185.loopexit, !llvm.loop !20
 
 ._crit_edge185.loopexit:                          ; preds = %140
   %147 = add nuw nsw i32 %.1101, 1
@@ -1253,7 +1253,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 163:                                              ; preds = %160, %.lr.ph189
   %164 = load i32, ptr @agent_cnt, align 4
   %165 = icmp sgt i32 %164, 0
-  br i1 %165, label %.lr.ph189, label %._crit_edge190, !llvm.loop !22
+  br i1 %165, label %.lr.ph189, label %._crit_edge190, !llvm.loop !21
 
 ._crit_edge190:                                   ; preds = %163, %.preheader134
   %166 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @agent_mutex) #12
@@ -1280,7 +1280,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   call void @slurm_xfree(ptr noundef nonnull %170) #12
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge193.loopexit, label %.lr.ph192, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge193.loopexit, label %.lr.ph192, !llvm.loop !22
 
 ._crit_edge193.loopexit:                          ; preds = %.lr.ph192
   %.pre247 = load ptr, ptr %2, align 8
@@ -1303,7 +1303,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %177 = load i32, ptr %172, align 8
   %178 = sext i32 %177 to i64
   %179 = icmp slt i64 %indvars.iv.next238, %178
-  br i1 %179, label %.lr.ph196, label %._crit_edge197, !llvm.loop !24
+  br i1 %179, label %.lr.ph196, label %._crit_edge197, !llvm.loop !23
 
 ._crit_edge197:                                   ; preds = %.lr.ph196, %._crit_edge193
   call void @slurm_xfree(ptr noundef nonnull %171) #12
@@ -1347,7 +1347,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %205 = load i32, ptr %204, align 8
   %206 = zext i32 %205 to i64
   %207 = icmp samesign ult i64 %indvars.iv.next241, %206
-  br i1 %207, label %.lr.ph200, label %._crit_edge201, !llvm.loop !25
+  br i1 %207, label %.lr.ph200, label %._crit_edge201, !llvm.loop !24
 
 ._crit_edge201:                                   ; preds = %.lr.ph200, %.preheader
   %.lcssa = phi ptr [ %188, %.preheader ], [ %203, %.lr.ph200 ]
@@ -1372,7 +1372,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %221 = load i32, ptr %220, align 8
   %222 = sext i32 %221 to i64
   %223 = icmp slt i64 %indvars.iv.next244, %222
-  br i1 %223, label %.preheader, label %._crit_edge205, !llvm.loop !26
+  br i1 %223, label %.preheader, label %._crit_edge205, !llvm.loop !25
 
 ._crit_edge205:                                   ; preds = %._crit_edge201, %._crit_edge197
   %.lcssa137 = phi ptr [ %180, %._crit_edge197 ], [ %209, %._crit_edge201 ]
@@ -1558,22 +1558,21 @@ attributes #15 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}

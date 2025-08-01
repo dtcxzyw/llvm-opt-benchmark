@@ -109,7 +109,7 @@ rpb_ensure_alloc.exit:                            ; preds = %30, %19, %._crit_ed
   %.not39 = icmp eq i32 %3, 0
   %34 = or disjoint i16 %spec.select, 4
   %spec.select42 = select i1 %.not39, i16 %spec.select, i16 %34
-  store i16 %spec.select42, ptr %33, align 4, !tbaa !19
+  store i16 %spec.select42, ptr %33, align 4, !tbaa !18
   %35 = icmp eq i64 %.030.lcssa, %31
   br i1 %35, label %36, label %rpb_ensure_alloc.exit.thread
 
@@ -141,9 +141,9 @@ define range(i32 0, 2) i32 @ossl_rio_poll_builder_poll(ptr noundef %0, i64 %1) l
 
 10:                                               ; preds = %.split.us
   %11 = tail call ptr @__errno_location() #7
-  %12 = load i32, ptr %11, align 4, !tbaa !20
+  %12 = load i32, ptr %11, align 4, !tbaa !19
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %.split.us, label %.critedge, !llvm.loop !21
+  br i1 %13, label %.split.us, label %.critedge, !llvm.loop !20
 
 .split:                                           ; preds = %2, %22
   %14 = tail call i64 @ossl_time_now() #6
@@ -160,9 +160,9 @@ define range(i32 0, 2) i32 @ossl_rio_poll_builder_poll(ptr noundef %0, i64 %1) l
 
 22:                                               ; preds = %.split
   %23 = tail call ptr @__errno_location() #7
-  %24 = load i32, ptr %23, align 4, !tbaa !20
+  %24 = load i32, ptr %23, align 4, !tbaa !19
   %25 = icmp eq i32 %24, 4
-  br i1 %25, label %.split, label %.critedge, !llvm.loop !23
+  br i1 %25, label %.split, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %22, %.split, %.split.us, %10
   %.us-phi = phi i32 [ %8, %.split.us ], [ -1, %10 ], [ -1, %22 ], [ %20, %.split ]
@@ -213,11 +213,10 @@ attributes #7 = { nounwind willreturn memory(none) }
 !13 = !{!"pollfd", !14, i64 0, !15, i64 4, !15, i64 6}
 !14 = !{!"int", !7, i64 0}
 !15 = !{!"short", !7, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!13, !15, i64 4}
-!20 = !{!14, !14, i64 0}
-!21 = distinct !{!21, !17, !18, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !17, !18}
+!18 = !{!13, !15, i64 4}
+!19 = !{!14, !14, i64 0}
+!20 = distinct !{!20, !17, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !17}

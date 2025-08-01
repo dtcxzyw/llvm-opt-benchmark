@@ -296,7 +296,7 @@ define internal fastcc void @delvacuum_desc(ptr noundef %0, ptr noundef %1, i16 
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 %42
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge42, label %15, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge42, label %15, !llvm.loop !8
 }
 
 declare ptr @XLogRecGetBlockData(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
@@ -332,7 +332,6 @@ attributes #3 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

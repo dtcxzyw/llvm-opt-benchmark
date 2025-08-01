@@ -302,7 +302,7 @@ _ZN18ObjectSampleMarkerD2Ev.exit:                 ; preds = %.lr.ph.i, %82, %21,
   call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.06.i) #8
   call void @_Z8FreeHeapPv(ptr noundef nonnull %.06.i) #8
   %.not.i6 = icmp eq ptr %96, null
-  br i1 %.not.i6, label %._crit_edge.i, label %.lr.ph.i5, !llvm.loop !9
+  br i1 %.not.i6, label %._crit_edge.i, label %.lr.ph.i5, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i5, %_ZN18ObjectSampleMarkerD2Ev.exit
   %97 = load ptr, ptr %9, align 8
@@ -324,7 +324,7 @@ _ZN18ObjectSampleMarkerD2Ev.exit:                 ; preds = %.lr.ph.i, %82, %21,
   %103 = load ptr, ptr %102, align 8
   call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0810.i.i.i) #8
   %.not.i.i.i = icmp eq ptr %103, null
-  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %.pre.i.i.i = load ptr, ptr %9, align 8
@@ -335,7 +335,7 @@ _ZN18ObjectSampleMarkerD2Ev.exit:                 ; preds = %.lr.ph.i, %82, %21,
   %105 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
   %106 = getelementptr inbounds nuw ptr, ptr %104, i64 %99
   %107 = icmp ult ptr %105, %106
-  br i1 %107, label %.lr.ph13.i.i.i, label %_ZN12ObjectBitSetIL8MEMFLAGS16EED2Ev.exit, !llvm.loop !11
+  br i1 %107, label %.lr.ph13.i.i.i, label %_ZN12ObjectBitSetIL8MEMFLAGS16EED2Ev.exit, !llvm.loop !10
 
 _ZN12ObjectBitSetIL8MEMFLAGS16EED2Ev.exit:        ; preds = %._crit_edge.i.i.i, %._crit_edge.i
   %.lcssa.i.i.i = phi ptr [ %97, %._crit_edge.i ], [ %104, %._crit_edge.i.i.i ]
@@ -626,9 +626,8 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

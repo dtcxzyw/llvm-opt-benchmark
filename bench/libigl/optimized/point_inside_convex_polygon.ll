@@ -90,6 +90,5 @@ attributes #3 = { nounwind }
 !14 = distinct !{!14, !"_ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELi2ELi0ELin1ELi2EEEE3rowEl"}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"double", !8, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}

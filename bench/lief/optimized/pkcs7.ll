@@ -390,7 +390,7 @@ pkcs7_free_signer_info.exit:                      ; preds = %.lr.ph.i, %7
 .lr.ph:                                           ; preds = %pkcs7_free_signer_info.exit, %pkcs7_free_signer_info.exit19
   %.021 = phi ptr [ %17, %pkcs7_free_signer_info.exit19 ], [ %11, %pkcs7_free_signer_info.exit ]
   %16 = getelementptr inbounds nuw i8, ptr %.021, i64 192
-  %17 = load ptr, ptr %16, align 8, !tbaa !44
+  %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = getelementptr inbounds nuw i8, ptr %.021, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !39
   %.not8.i15 = icmp eq ptr %19, null
@@ -407,7 +407,7 @@ pkcs7_free_signer_info.exit:                      ; preds = %.lr.ph.i, %7
 pkcs7_free_signer_info.exit19:                    ; preds = %.lr.ph.i16, %.lr.ph
   tail call void @free(ptr noundef nonnull %.021) #9
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %pkcs7_free_signer_info.exit19, %pkcs7_free_signer_info.exit
   store ptr null, ptr %4, align 8, !tbaa !10
@@ -440,10 +440,10 @@ define internal fastcc i32 @mbedtls_pkcs7_data_or_hash_verify(ptr noundef %0, pt
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #9
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !46
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1232
-  %10 = load i32, ptr %9, align 8, !tbaa !49
+  %10 = load i32, ptr %9, align 8, !tbaa !48
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %52, label %12
 
@@ -507,18 +507,18 @@ define internal fastcc i32 @mbedtls_pkcs7_data_or_hash_verify(ptr noundef %0, pt
   %41 = call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %23) #9
   %42 = zext i8 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %.049, i64 184
-  %44 = load ptr, ptr %43, align 8, !tbaa !50
+  %44 = load ptr, ptr %43, align 8, !tbaa !49
   %45 = getelementptr inbounds nuw i8, ptr %.049, i64 176
-  %46 = load i64, ptr %45, align 8, !tbaa !51
+  %46 = load i64, ptr %45, align 8, !tbaa !50
   %47 = call i32 @mbedtls_pk_verify(ptr noundef nonnull %6, i32 noundef %40, ptr noundef nonnull %28, i64 noundef %42, ptr noundef %44, i64 noundef %46) #9
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %.sink.split, label %49
 
 49:                                               ; preds = %39
   %50 = getelementptr inbounds nuw i8, ptr %.049, i64 192
-  %51 = load ptr, ptr %50, align 8, !tbaa !44
+  %51 = load ptr, ptr %50, align 8, !tbaa !43
   %.not46 = icmp eq ptr %51, null
-  br i1 %.not46, label %.sink.split, label %39, !llvm.loop !52
+  br i1 %.not46, label %.sink.split, label %39, !llvm.loop !51
 
 .sink.split:                                      ; preds = %49, %39, %34, %31
   %.032.ph = phi i32 [ -22528, %31 ], [ -22528, %34 ], [ %47, %39 ], [ %47, %49 ]
@@ -585,7 +585,7 @@ define internal fastcc range(i32 -2147483648, 2147462016) i32 @pkcs7_get_content
   br label %23
 
 17:                                               ; preds = %10
-  store i32 6, ptr %3, align 8, !tbaa !53
+  store i32 6, ptr %3, align 8, !tbaa !52
   %18 = load i64, ptr %5, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %18, ptr %19, align 8, !tbaa !33
@@ -706,11 +706,11 @@ define internal fastcc i32 @pkcs7_get_signers_info_set(ptr noundef nonnull %0, p
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %.03875, i64 192
-  store ptr %17, ptr %22, align 8, !tbaa !44
+  store ptr %17, ptr %22, align 8, !tbaa !43
   %23 = add nuw nsw i32 %.04174, 1
   %24 = load ptr, ptr %0, align 8, !tbaa !7
   %.not52 = icmp eq ptr %24, %14
-  br i1 %.not52, label %.loopexit, label %.lr.ph, !llvm.loop !54
+  br i1 %.not52, label %.loopexit, label %.lr.ph
 
 .loopexit68:                                      ; preds = %.lr.ph, %20
   %.043.ph = phi i32 [ %19, %20 ], [ -22400, %.lr.ph ]
@@ -730,14 +730,14 @@ define internal fastcc i32 @pkcs7_get_signers_info_set(ptr noundef nonnull %0, p
 pkcs7_free_signer_info.exit:                      ; preds = %.lr.ph.i, %.loopexit68
   store ptr null, ptr %25, align 8, !tbaa !39
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %30 = load ptr, ptr %29, align 8, !tbaa !44
+  %30 = load ptr, ptr %29, align 8, !tbaa !43
   %.not5576 = icmp eq ptr %30, null
   br i1 %.not5576, label %._crit_edge, label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %pkcs7_free_signer_info.exit, %pkcs7_free_signer_info.exit61
   %.077 = phi ptr [ %32, %pkcs7_free_signer_info.exit61 ], [ %30, %pkcs7_free_signer_info.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %.077, i64 192
-  %32 = load ptr, ptr %31, align 8, !tbaa !44
+  %32 = load ptr, ptr %31, align 8, !tbaa !43
   %33 = getelementptr inbounds nuw i8, ptr %.077, i64 80
   %34 = load ptr, ptr %33, align 8, !tbaa !39
   %.not8.i57 = icmp eq ptr %34, null
@@ -754,10 +754,10 @@ pkcs7_free_signer_info.exit:                      ; preds = %.lr.ph.i, %.loopexi
 pkcs7_free_signer_info.exit61:                    ; preds = %.lr.ph.i58, %.lr.ph78
   call void @free(ptr noundef nonnull %.077) #9
   %.not55 = icmp eq ptr %32, null
-  br i1 %.not55, label %._crit_edge, label %.lr.ph78, !llvm.loop !55
+  br i1 %.not55, label %._crit_edge, label %.lr.ph78, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %pkcs7_free_signer_info.exit61, %pkcs7_free_signer_info.exit
-  store ptr null, ptr %29, align 8, !tbaa !44
+  store ptr null, ptr %29, align 8, !tbaa !43
   br label %.loopexit
 
 .loopexit:                                        ; preds = %21, %.preheader, %._crit_edge, %12, %9, %7
@@ -804,7 +804,7 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
   %17 = load i64, ptr %5, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store ptr %16, ptr %19, align 8, !tbaa !56
+  store ptr %16, ptr %19, align 8, !tbaa !54
   %20 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %0, ptr noundef %18, ptr noundef nonnull %5, i32 noundef 48) #9
   %.not73 = icmp eq i32 %20, 0
   br i1 %.not73, label %21, label %.thread
@@ -820,12 +820,12 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %0, align 8, !tbaa !7
-  %29 = load ptr, ptr %19, align 8, !tbaa !56
+  %29 = load ptr, ptr %19, align 8, !tbaa !54
   %30 = ptrtoint ptr %28 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  store i64 %32, ptr %33, align 8, !tbaa !57
+  store i64 %32, ptr %33, align 8, !tbaa !55
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = call i32 @mbedtls_x509_get_serial(ptr noundef nonnull %0, ptr noundef %18, ptr noundef nonnull %34) #9
   %.not75 = icmp eq i32 %35, 0
@@ -845,14 +845,14 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
   ]
 
 41:                                               ; preds = %38, %38
-  %42 = load i32, ptr %39, align 8, !tbaa !58
-  %43 = load i32, ptr %3, align 8, !tbaa !53
+  %42 = load i32, ptr %39, align 8, !tbaa !56
+  %43 = load i32, ptr %3, align 8, !tbaa !52
   %.not78 = icmp eq i32 %42, %43
   br i1 %.not78, label %44, label %.thread
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %46 = load i64, ptr %45, align 8, !tbaa !59
+  %46 = load i64, ptr %45, align 8, !tbaa !57
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !33
   %.not79 = icmp eq i64 %46, %48
@@ -860,7 +860,7 @@ define internal fastcc range(i32 -2147483648, 2147461504) i32 @pkcs7_get_signer_
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %51 = load ptr, ptr %50, align 8, !tbaa !60
+  %51 = load ptr, ptr %50, align 8, !tbaa !58
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !34
   %bcmp = call i32 @bcmp(ptr %51, ptr %53, i64 %46)
@@ -926,7 +926,7 @@ define internal fastcc i32 @pkcs7_get_signature(ptr noundef nonnull %0, ptr noun
   br i1 %.not, label %6, label %12
 
 6:                                                ; preds = %3
-  store i32 4, ptr %2, align 8, !tbaa !53
+  store i32 4, ptr %2, align 8, !tbaa !52
   %7 = load i64, ptr %4, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %7, ptr %8, align 8, !tbaa !33
@@ -1012,23 +1012,21 @@ attributes #10 = { nounwind allocsize(0,1) }
 !38 = !{!11, !30, i64 1432}
 !39 = !{!29, !17, i64 80}
 !40 = !{!16, !17, i64 48}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = !{!29, !30, i64 192}
-!45 = distinct !{!45, !42, !43}
-!46 = !{i64 0, i64 8, !47, i64 8, i64 8, !48}
-!47 = !{!20, !20, i64 0}
-!48 = !{!9, !9, i64 0}
-!49 = !{!11, !13, i64 1232}
-!50 = !{!29, !8, i64 184}
-!51 = !{!29, !4, i64 176}
-!52 = distinct !{!52, !42, !43}
-!53 = !{!12, !13, i64 0}
-!54 = distinct !{!54, !43}
-!55 = distinct !{!55, !42, !43}
-!56 = !{!29, !8, i64 112}
-!57 = !{!29, !4, i64 104}
-!58 = !{!29, !13, i64 120}
-!59 = !{!29, !4, i64 128}
-!60 = !{!29, !8, i64 136}
+!43 = !{!29, !30, i64 192}
+!44 = distinct !{!44, !42}
+!45 = !{i64 0, i64 8, !46, i64 8, i64 8, !47}
+!46 = !{!20, !20, i64 0}
+!47 = !{!9, !9, i64 0}
+!48 = !{!11, !13, i64 1232}
+!49 = !{!29, !8, i64 184}
+!50 = !{!29, !4, i64 176}
+!51 = distinct !{!51, !42}
+!52 = !{!12, !13, i64 0}
+!53 = distinct !{!53, !42}
+!54 = !{!29, !8, i64 112}
+!55 = !{!29, !4, i64 104}
+!56 = !{!29, !13, i64 120}
+!57 = !{!29, !4, i64 128}
+!58 = !{!29, !8, i64 136}

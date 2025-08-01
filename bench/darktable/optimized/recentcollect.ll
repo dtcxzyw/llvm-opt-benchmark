@@ -153,7 +153,7 @@ define hidden void @_menuitem_preferences(ptr readnone captures(none) %0, ptr no
   %46 = call ptr @g_list_delete_link(ptr noundef %45, ptr noundef nonnull %.049) #10
   store ptr %46, ptr %33, align 8, !tbaa !59
   %.not = icmp eq ptr %44, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !67
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit47:                                      ; preds = %24
   %47 = icmp slt i32 %20, %30
@@ -166,7 +166,7 @@ define hidden void @_menuitem_preferences(ptr readnone captures(none) %0, ptr no
 
 50:                                               ; preds = %.lr.ph51, %68
   %.04350 = phi i32 [ %20, %.lr.ph51 ], [ %69, %68 ]
-  %51 = load ptr, ptr %26, align 8, !tbaa !69
+  %51 = load ptr, ptr %26, align 8, !tbaa !67
   %52 = tail call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %48) #10
   %53 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %.not45 = icmp eq ptr %53, null
@@ -197,7 +197,7 @@ define hidden void @_menuitem_preferences(ptr readnone captures(none) %0, ptr no
 68:                                               ; preds = %54, %50
   %69 = add i32 %.04350, 1
   %exitcond.not = icmp eq i32 %69, %30
-  br i1 %exitcond.not, label %.loopexit, label %50, !llvm.loop !70
+  br i1 %exitcond.not, label %.loopexit, label %50
 
 .loopexit:                                        ; preds = %68, %.lr.ph, %32, %.loopexit47
   call void @_lib_recentcollection_updated(ptr poison, i32 poison, i32 poison, ptr poison, i32 poison, ptr noundef %1)
@@ -298,7 +298,7 @@ define internal void @_button_pressed(ptr noundef readnone captures(address) %0,
   %.1 = add nuw nsw i32 %.023, %16
   %17 = icmp ne ptr %.118, null
   %18 = and i1 %17, %15
-  br i1 %18, label %9, label %._crit_edge, !llvm.loop !71
+  br i1 %18, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
   br i1 %15, label %.critedge, label %19
@@ -360,19 +360,19 @@ define internal void @_lib_recentcollection_updated(ptr readnone captures(none) 
   br i1 %.not40, label %pretty_print.exit, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = load i8, ptr %19, align 1, !tbaa !72
+  %21 = load i8, ptr %19, align 1, !tbaa !68
   %.not41 = icmp eq i8 %21, 0
   br i1 %.not41, label %pretty_print.exit, label %22
 
 22:                                               ; preds = %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %12, i8 0, i64 2048, i1 false)
-  %23 = load i8, ptr %19, align 1, !tbaa !72
+  %23 = load i8, ptr %19, align 1, !tbaa !68
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %pretty_print.exit, label %25
 
 25:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
-  store i32 0, ptr %7, align 4, !tbaa !73
+  store i32 0, ptr %7, align 4, !tbaa !69
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %8) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(400) %8, i8 0, i64 400, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
@@ -382,7 +382,7 @@ define internal void @_lib_recentcollection_updated(ptr readnone captures(none) 
 
 27:                                               ; preds = %29, %25
   %.052.i = phi ptr [ %19, %25 ], [ %30, %29 ]
-  %28 = load i8, ptr %.052.i, align 1, !tbaa !72
+  %28 = load i8, ptr %.052.i, align 1, !tbaa !68
   switch i8 %28, label %29 [
     i8 0, label %.critedge.i
     i8 58, label %.critedge.i
@@ -390,10 +390,10 @@ define internal void @_lib_recentcollection_updated(ptr readnone captures(none) 
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %.052.i, i64 1
-  br label %27, !llvm.loop !74
+  br label %27
 
 .critedge.i:                                      ; preds = %27, %27
-  %31 = load i32, ptr %7, align 4, !tbaa !73
+  %31 = load i32, ptr %7, align 4, !tbaa !69
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph.preheader.i, label %._crit_edge.i
 
@@ -424,7 +424,7 @@ define internal void @_lib_recentcollection_updated(ptr readnone captures(none) 
   br i1 %.not66.i, label %43, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %36
-  %37 = load i32, ptr %9, align 4, !tbaa !73
+  %37 = load i32, ptr %9, align 4, !tbaa !69
   %switch.selectcmp.i = icmp eq i32 %37, 1
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.26, ptr @.str.27
   %switch.selectcmp91.i = icmp eq i32 %37, 0
@@ -445,7 +445,7 @@ define internal void @_lib_recentcollection_updated(ptr readnone captures(none) 
 44:                                               ; preds = %47, %43
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %47 ], [ 0, %43 ]
   %45 = getelementptr inbounds nuw [400 x i8], ptr %8, i64 0, i64 %indvars.iv.i
-  %46 = load i8, ptr %45, align 1, !tbaa !72
+  %46 = load i8, ptr %45, align 1, !tbaa !68
   switch i8 %46, label %47 [
     i8 36, label %48
     i8 0, label %.loopexit.i
@@ -453,21 +453,21 @@ define internal void @_lib_recentcollection_updated(ptr readnone captures(none) 
 
 47:                                               ; preds = %44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %44, !llvm.loop !75
+  br label %44
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw [400 x i8], ptr %8, i64 0, i64 %indvars.iv.i
-  store i8 0, ptr %49, align 1, !tbaa !72
+  store i8 0, ptr %49, align 1, !tbaa !68
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %44, %48
-  %50 = load i32, ptr %10, align 4, !tbaa !73
+  %50 = load i32, ptr %10, align 4, !tbaa !69
   %51 = icmp slt i32 %50, 42
   br i1 %51, label %52, label %.thread.i
 
 52:                                               ; preds = %.loopexit.i
   %53 = call ptr @dt_collection_name(i32 noundef %50) #10
-  %.pr.i = load i32, ptr %10, align 4, !tbaa !73
+  %.pr.i = load i32, ptr %10, align 4, !tbaa !69
   %54 = icmp eq i32 %.pr.i, 0
   br i1 %54, label %55, label %.thread.i
 
@@ -491,7 +491,7 @@ define internal void @_lib_recentcollection_updated(ptr readnone captures(none) 
 
 64:                                               ; preds = %66, %63
   %.3.i = phi ptr [ %.281.i, %63 ], [ %67, %66 ]
-  %65 = load i8, ptr %.3.i, align 1, !tbaa !72
+  %65 = load i8, ptr %.3.i, align 1, !tbaa !68
   switch i8 %65, label %66 [
     i8 36, label %.critedge4.i
     i8 0, label %.critedge4.i
@@ -499,16 +499,16 @@ define internal void @_lib_recentcollection_updated(ptr readnone captures(none) 
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
-  br label %64, !llvm.loop !76
+  br label %64
 
 .critedge4.i:                                     ; preds = %64, %64
   %68 = icmp eq i8 %65, 36
   %spec.select73.idx.i = zext i1 %68 to i64
   %spec.select73.i = getelementptr inbounds nuw i8, ptr %.3.i, i64 %spec.select73.idx.i
   %69 = add nuw nsw i32 %.05380.i, 1
-  %70 = load i32, ptr %7, align 4, !tbaa !73
+  %70 = load i32, ptr %7, align 4, !tbaa !69
   %71 = icmp slt i32 %69, %70
-  br i1 %71, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !77
+  br i1 %71, label %.lr.ph.i, label %._crit_edge.i
 
 pretty_print.exit:                                ; preds = %._crit_edge.i, %22, %20, %.lr.ph
   %72 = load ptr, ptr %17, align 8, !tbaa !65
@@ -545,7 +545,7 @@ pretty_print.exit:                                ; preds = %._crit_edge.i, %22,
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %12) #10
   %90 = add nuw nsw i32 %.03348, 1
   %.not = icmp eq ptr %89, null
-  br i1 %.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !78
+  br i1 %.not, label %.preheader.preheader, label %.lr.ph
 
 .preheader.preheader:                             ; preds = %85, %6
   br label %.preheader
@@ -553,7 +553,7 @@ pretty_print.exit:                                ; preds = %._crit_edge.i, %22,
 .preheader:                                       ; preds = %.preheader.preheader, %122
   %.034 = phi i32 [ %124, %122 ], [ 0, %.preheader.preheader ]
   %.1.in = phi ptr [ %123, %122 ], [ %15, %.preheader.preheader ]
-  %.1 = load ptr, ptr %.1.in, align 8, !tbaa !79
+  %.1 = load ptr, ptr %.1.in, align 8, !tbaa !70
   %91 = call i32 @dt_conf_get_int(ptr noundef nonnull @.str.20) #10
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %93, label %105
@@ -597,7 +597,7 @@ pretty_print.exit:                                ; preds = %._crit_edge.i, %22,
   br i1 %.not38, label %122, label %117
 
 117:                                              ; preds = %111
-  %118 = load i8, ptr %116, align 1, !tbaa !72
+  %118 = load i8, ptr %116, align 1, !tbaa !68
   %.not39 = icmp eq i8 %118, 0
   br i1 %.not39, label %122, label %119
 
@@ -611,7 +611,7 @@ pretty_print.exit:                                ; preds = %._crit_edge.i, %22,
 122:                                              ; preds = %119, %117, %111
   %123 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %124 = add nuw nsw i32 %.034, 1
-  br label %.preheader, !llvm.loop !80
+  br label %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
@@ -664,7 +664,7 @@ define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_add
   %.str.20..str.21.i = select i1 %13, ptr @.str.20, ptr @.str.21
   %14 = call i32 @dt_conf_get_int(ptr noundef nonnull %.str.20..str.21.i) #10
   %15 = icmp slt i32 %10, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !81
+  br i1 %15, label %.lr.ph, label %._crit_edge
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -680,21 +680,21 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %5 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #10
   %6 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store ptr %6, ptr %7, align 8, !tbaa !82
+  store ptr %6, ptr %7, align 8, !tbaa !71
   %8 = tail call i64 @gtk_container_get_type() #11
   %9 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %8) #10
   %10 = tail call ptr @dt_ui_resize_wrap(ptr noundef %5, i32 noundef 50, ptr noundef nonnull @.str.13) #10
   tail call void @gtk_container_add(ptr noundef %9, ptr noundef %10) #10
-  store ptr %5, ptr %2, align 8, !tbaa !69
+  store ptr %5, ptr %2, align 8, !tbaa !67
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %11, align 8, !tbaa !83
+  store i32 0, ptr %11, align 8, !tbaa !72
   %12 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.20) #10
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @_lib_recentcollection_updated(ptr poison, i32 poison, i32 poison, ptr poison, i32 poison, ptr noundef nonnull %0)
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !84
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !73
   %15 = and i32 %14, 2
   %16 = icmp ne i32 %15, 0
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3160), align 8
@@ -731,10 +731,10 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %36 = add nuw nsw i32 %.026, 1
   %37 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.20) #10
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !85
+  br i1 %38, label %.lr.ph, label %._crit_edge
 
 39:                                               ; preds = %._crit_edge
-  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !86
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !74
   %41 = and i32 %40, 1048576
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %43, label %42
@@ -744,11 +744,11 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br label %43
 
 43:                                               ; preds = %39, %42, %._crit_edge
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !87
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !75
   tail call void @dt_control_signal_connect(ptr noundef %44, i32 noundef 7, ptr noundef nonnull @_lib_recentcollection_updated, ptr noundef nonnull %0) #10
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !88
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !76
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 352
-  store ptr %0, ptr %46, align 8, !tbaa !89
+  store ptr %0, ptr %46, align 8, !tbaa !77
   ret void
 }
 
@@ -773,7 +773,7 @@ define void @gui_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = tail call ptr @dt_ui_thumbtable(ptr noundef %3) #10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load i32, ptr %5, align 8, !tbaa !109
+  %6 = load i32, ptr %5, align 8, !tbaa !97
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.19, i32 noundef %6) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %8 = load ptr, ptr %7, align 8, !tbaa !54
@@ -905,50 +905,38 @@ attributes #12 = { nounwind allocsize(0) }
 !64 = !{!"dt_lib_recentcollect_item_t", !52, i64 0, !9, i64 8}
 !65 = !{!64, !52, i64 0}
 !66 = !{!62, !12, i64 8}
-!67 = distinct !{!67, !68}
-!68 = !{!"llvm.loop.estimated_trip_count"}
-!69 = !{!60, !52, i64 0}
-!70 = distinct !{!70, !68}
-!71 = distinct !{!71, !68}
-!72 = !{!10, !10, i64 0}
-!73 = !{!9, !9, i64 0}
-!74 = distinct !{!74, !68}
-!75 = distinct !{!75, !68}
-!76 = distinct !{!76, !68}
-!77 = distinct !{!77, !68}
-!78 = distinct !{!78, !68}
-!79 = !{!12, !12, i64 0}
-!80 = distinct !{!80, !68}
-!81 = distinct !{!81, !68}
-!82 = !{!55, !52, i64 416}
-!83 = !{!60, !9, i64 8}
-!84 = !{!7, !9, i64 3128}
-!85 = distinct !{!85, !68}
-!86 = !{!7, !9, i64 8}
-!87 = !{!7, !20, i64 96}
-!88 = !{!7, !18, i64 80}
-!89 = !{!90, !102, i64 352}
-!90 = !{!"dt_view_manager_t", !12, i64 0, !91, i64 8, !92, i64 16, !93, i64 24, !95, i64 56, !96, i64 88, !96, i64 128, !97, i64 168, !99, i64 216, !52, i64 232, !52, i64 240, !52, i64 248, !52, i64 256, !52, i64 264, !100, i64 272}
-!91 = !{!"p1 _ZTS9dt_view_t", !13, i64 0}
-!92 = !{!"p1 _ZTS7_GSList", !13, i64 0}
-!93 = !{!"dt_history_copy_item_t", !12, i64 0, !94, i64 8, !9, i64 16, !9, i64 20, !9, i64 24}
-!94 = !{!"p1 _ZTS12_GtkTreeView", !13, i64 0}
-!95 = !{!"", !52, i64 0, !52, i64 8, !52, i64 16, !9, i64 24, !9, i64 28}
-!96 = !{!"dt_act_on_cache_t", !12, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !92, i64 24, !9, i64 32, !9, i64 36}
-!97 = !{!"", !98, i64 0, !98, i64 8, !98, i64 16, !98, i64 24, !98, i64 32, !98, i64 40}
-!98 = !{!"p1 _ZTS12sqlite3_stmt", !13, i64 0}
-!99 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8}
-!100 = !{!"", !101, i64 0, !101, i64 16, !103, i64 32, !101, i64 64, !104, i64 80, !105, i64 88, !104, i64 128, !106, i64 136, !107, i64 152, !108, i64 248, !104, i64 280, !106, i64 288}
-!101 = !{!"", !102, i64 0, !13, i64 8}
-!102 = !{!"p1 _ZTS15dt_lib_module_t", !13, i64 0}
-!103 = !{!"", !102, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
-!104 = !{!"", !102, i64 0}
-!105 = !{!"", !102, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32}
-!106 = !{!"", !91, i64 0, !13, i64 8}
-!107 = !{!"", !102, i64 0, !91, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88}
-!108 = !{!"", !91, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
-!109 = !{!110, !9, i64 32}
-!110 = !{!"dt_thumbtable_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !52, i64 16, !12, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !111, i64 64, !112, i64 80, !9, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !9, i64 112, !9, i64 116, !13, i64 120, !9, i64 128, !9, i64 132, !9, i64 136, !12, i64 144, !9, i64 152, !9, i64 156, !9, i64 160, !9, i64 164, !9, i64 168, !9, i64 172, !113, i64 176, !9, i64 180, !9, i64 184}
-!111 = !{!"_cairo_rectangle_int", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
-!112 = !{!"_PangoRectangle", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
-!113 = !{!"float", !10, i64 0}
+!67 = !{!60, !52, i64 0}
+!68 = !{!10, !10, i64 0}
+!69 = !{!9, !9, i64 0}
+!70 = !{!12, !12, i64 0}
+!71 = !{!55, !52, i64 416}
+!72 = !{!60, !9, i64 8}
+!73 = !{!7, !9, i64 3128}
+!74 = !{!7, !9, i64 8}
+!75 = !{!7, !20, i64 96}
+!76 = !{!7, !18, i64 80}
+!77 = !{!78, !90, i64 352}
+!78 = !{!"dt_view_manager_t", !12, i64 0, !79, i64 8, !80, i64 16, !81, i64 24, !83, i64 56, !84, i64 88, !84, i64 128, !85, i64 168, !87, i64 216, !52, i64 232, !52, i64 240, !52, i64 248, !52, i64 256, !52, i64 264, !88, i64 272}
+!79 = !{!"p1 _ZTS9dt_view_t", !13, i64 0}
+!80 = !{!"p1 _ZTS7_GSList", !13, i64 0}
+!81 = !{!"dt_history_copy_item_t", !12, i64 0, !82, i64 8, !9, i64 16, !9, i64 20, !9, i64 24}
+!82 = !{!"p1 _ZTS12_GtkTreeView", !13, i64 0}
+!83 = !{!"", !52, i64 0, !52, i64 8, !52, i64 16, !9, i64 24, !9, i64 28}
+!84 = !{!"dt_act_on_cache_t", !12, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !80, i64 24, !9, i64 32, !9, i64 36}
+!85 = !{!"", !86, i64 0, !86, i64 8, !86, i64 16, !86, i64 24, !86, i64 32, !86, i64 40}
+!86 = !{!"p1 _ZTS12sqlite3_stmt", !13, i64 0}
+!87 = !{!"", !9, i64 0, !9, i64 4, !9, i64 8}
+!88 = !{!"", !89, i64 0, !89, i64 16, !91, i64 32, !89, i64 64, !92, i64 80, !93, i64 88, !92, i64 128, !94, i64 136, !95, i64 152, !96, i64 248, !92, i64 280, !94, i64 288}
+!89 = !{!"", !90, i64 0, !13, i64 8}
+!90 = !{!"p1 _ZTS15dt_lib_module_t", !13, i64 0}
+!91 = !{!"", !90, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
+!92 = !{!"", !90, i64 0}
+!93 = !{!"", !90, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32}
+!94 = !{!"", !79, i64 0, !13, i64 8}
+!95 = !{!"", !90, i64 0, !79, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88}
+!96 = !{!"", !79, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
+!97 = !{!98, !9, i64 32}
+!98 = !{!"dt_thumbtable_t", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !52, i64 16, !12, i64 24, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !99, i64 64, !100, i64 80, !9, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !9, i64 112, !9, i64 116, !13, i64 120, !9, i64 128, !9, i64 132, !9, i64 136, !12, i64 144, !9, i64 152, !9, i64 156, !9, i64 160, !9, i64 164, !9, i64 168, !9, i64 172, !101, i64 176, !9, i64 180, !9, i64 184}
+!99 = !{!"_cairo_rectangle_int", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
+!100 = !{!"_PangoRectangle", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
+!101 = !{!"float", !10, i64 0}

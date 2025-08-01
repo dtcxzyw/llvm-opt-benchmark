@@ -700,7 +700,7 @@ define range(i32 -173, 1) i32 @wc_Md5Final(ptr noundef captures(address_is_null)
   store i32 %10, ptr %0, align 8, !tbaa !10
   %11 = zext nneg i32 %7 to i64
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  store i8 -128, ptr %12, align 1, !tbaa !16
+  store i8 -128, ptr %12, align 1, !tbaa !15
   %13 = icmp samesign ugt i32 %7, 55
   br i1 %13, label %14, label %21
 
@@ -818,7 +818,7 @@ define range(i32 -173, 1) i32 @wc_Md5GetHash(ptr noundef readonly captures(addre
   store i32 %11, ptr %3, align 8, !tbaa !10
   %12 = zext nneg i32 %8 to i64
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
-  store i8 -128, ptr %13, align 1, !tbaa !16
+  store i8 -128, ptr %13, align 1, !tbaa !15
   %14 = icmp samesign ugt i32 %8, 55
   br i1 %14, label %15, label %22
 
@@ -917,7 +917,6 @@ attributes #8 = { nounwind }
 !10 = !{!4, !5, i64 0}
 !11 = !{!4, !5, i64 4}
 !12 = !{!4, !5, i64 8}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!6, !6, i64 0}
+!15 = !{!6, !6, i64 0}

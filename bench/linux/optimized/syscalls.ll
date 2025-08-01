@@ -643,7 +643,7 @@ futex2_setup_timeout.exit:                        ; preds = %37, %53
   store ptr null, ptr %73, align 8
   %74 = add nuw nsw i64 %77, 1
   %75 = icmp eq i64 %74, %58
-  br i1 %75, label %99, label %76, !llvm.loop !17
+  br i1 %75, label %99, label %76, !llvm.loop !13
 
 76:                                               ; preds = %66, %62
   %77 = phi i64 [ 0, %62 ], [ %74, %66 ]
@@ -1143,7 +1143,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_futex_re
   store ptr @futex_wake_mark, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.phi, i64 88
   store ptr null, ptr %48, align 8
-  br i1 %20, label %49, label %19, !llvm.loop !18
+  br i1 %20, label %49, label %19
 
 49:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
@@ -1250,7 +1250,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_get_r
   %25 = load ptr, ptr %24, align 64
   tail call void @__rcu_read_unlock() #10
   %26 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %27 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %12, i32 12, i64 4, i64 %26) #10, !srcloc !19
+  %27 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %12, i32 12, i64 4, i64 %26) #10, !srcloc !16
   %28 = extractvalue { ptr, i64 } %27, 0
   %29 = extractvalue { ptr, i64 } %27, 1
   %30 = ptrtoint ptr %28 to i64
@@ -1263,7 +1263,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_get_r
   %34 = ptrtoint ptr %25 to i64
   %35 = trunc i64 %34 to i32
   %36 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %37 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %11, i32 %35, i64 4, i64 %36) #10, !srcloc !20
+  %37 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %11, i32 %35, i64 4, i64 %36) #10, !srcloc !17
   %38 = extractvalue { ptr, i64 } %37, 0
   %39 = extractvalue { ptr, i64 } %37, 1
   %40 = ptrtoint ptr %38 to i64
@@ -1505,11 +1505,8 @@ attributes #11 = { nounwind allocsize(0) }
 !10 = !{i64 2155724138}
 !11 = !{!"auto-init"}
 !12 = !{!"branch_weights", i32 1, i32 2000}
-!13 = distinct !{!13, !14, !15, !16}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !14, !15, !16}
-!18 = distinct !{!18, !16}
-!19 = !{i64 2155852404}
-!20 = !{i64 2155853488}
+!16 = !{i64 2155852404}
+!17 = !{i64 2155853488}

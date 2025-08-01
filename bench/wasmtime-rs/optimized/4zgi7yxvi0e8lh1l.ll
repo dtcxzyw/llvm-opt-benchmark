@@ -158,7 +158,7 @@ define { i16, i16 } @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$8find_mut17hea18
   store i16 %14, ptr %3, align 2
   %19 = call align 2 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hba7f9baccab12102E"(ptr align 8 %0, ptr nonnull align 2 %3)
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %18, %2, %10
   %.sroa.3.0 = phi i16 [ %11, %10 ], [ undef, %2 ], [ undef, %18 ]
@@ -186,7 +186,7 @@ define { i16, i16 } @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$4find17h05eb2a36
   store i16 %8, ptr %3, align 2
   %9 = call align 2 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hba7f9baccab12102E"(ptr align 8 %0, ptr nonnull align 2 %3)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 10:                                               ; preds = %.lr.ph
   %11 = load i16, ptr %3, align 2, !noundef !4
@@ -367,7 +367,7 @@ define zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3
   store i16 %10, ptr %5, align 2
   %11 = call align 2 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hba7f9baccab12102E"(ptr align 8 %0, ptr nonnull align 2 %5)
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %"_ZN14cranelift_isle21DisjointSets$LT$T$GT$4find17h05eb2a36b8ee1825E.exit", label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %"_ZN14cranelift_isle21DisjointSets$LT$T$GT$4find17h05eb2a36b8ee1825E.exit", label %.lr.ph.i
 
 12:                                               ; preds = %.lr.ph.i
   %13 = load i16, ptr %5, align 2, !noundef !4
@@ -393,7 +393,7 @@ define zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3
   store i16 %18, ptr %4, align 2
   %19 = call align 2 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hba7f9baccab12102E"(ptr align 8 %0, ptr nonnull align 2 %4)
   %.not.i6 = icmp eq ptr %19, null
-  br i1 %.not.i6, label %"_ZN14cranelift_isle21DisjointSets$LT$T$GT$4find17h05eb2a36b8ee1825E.exit9", label %.lr.ph.i5, !llvm.loop !7
+  br i1 %.not.i6, label %"_ZN14cranelift_isle21DisjointSets$LT$T$GT$4find17h05eb2a36b8ee1825E.exit9", label %.lr.ph.i5
 
 20:                                               ; preds = %.lr.ph.i5
   %21 = load i16, ptr %4, align 2, !noundef !4
@@ -500,7 +500,7 @@ define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of17hd81f6a
 
 34:                                               ; preds = %29
   %35 = invoke i48 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h2c661853be7e7fccE"(ptr nonnull align 8 %1, ptr nonnull align 2 %28)
-          to label %27 unwind label %.loopexit, !llvm.loop !8
+          to label %27 unwind label %.loopexit
 
 36:                                               ; preds = %12
   %37 = landingpad { ptr, i32 }
@@ -516,7 +516,7 @@ define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of17hd81f6a
 define zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of28_$u7b$$u7b$closure$u7d$$u7d$17hd4df7233ff2fccbfE"(ptr readonly align 8 captures(none) %0, ptr readonly align 2 captures(none) %1) unnamed_addr #1 {
   %3 = alloca i16, align 2
   %4 = load i16, ptr %1, align 2, !noundef !4
-  %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !9, !noundef !4
+  %5 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %6 = tail call { i16, i16 } @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$8find_mut17hea18070d817f8a30E"(ptr nonnull align 8 %5, i16 %4)
   %7 = extractvalue { i16, i16 } %6, 0
   %8 = icmp eq i16 %7, 0
@@ -530,7 +530,7 @@ define zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of28_
   %11 = extractvalue { i16, i16 } %6, 1
   store i16 %11, ptr %3, align 2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !nonnull !4, !align !10, !noundef !4
+  %13 = load ptr, ptr %12, align 8, !nonnull !4, !align !6, !noundef !4
   %14 = call zeroext i1 @"_ZN78_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h32c0817388e03f85E"(ptr nonnull align 2 %3, ptr nonnull align 2 %13)
   ret i1 %14
 }
@@ -642,9 +642,5 @@ attributes #10 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{i64 0, i64 3}
 !4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = !{i64 8}
-!10 = !{i64 2}
+!5 = !{i64 8}
+!6 = !{i64 2}

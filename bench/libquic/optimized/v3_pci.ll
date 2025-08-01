@@ -169,7 +169,7 @@ select.unfold:                                    ; preds = %33
   %46 = add nuw i64 %.05195, 1
   %47 = call i64 @sk_num(ptr noundef %7) #7
   %48 = icmp ult i64 %46, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %45
   %.pre = load ptr, ptr %4, align 8, !tbaa !23
@@ -389,9 +389,9 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   %64 = load ptr, ptr %3, align 8, !tbaa !24
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !18
-  %67 = load i32, ptr %64, align 8, !tbaa !34
+  %67 = load i32, ptr %64, align 8, !tbaa !33
   %68 = sext i32 %67 to i64
-  %69 = load i64, ptr %5, align 8, !tbaa !35
+  %69 = load i64, ptr %5, align 8, !tbaa !34
   %70 = add nsw i64 %68, 1
   %71 = add i64 %70, %69
   %72 = call ptr @realloc(ptr noundef %66, i64 noundef %71) #9
@@ -403,7 +403,7 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   %74 = load ptr, ptr %3, align 8, !tbaa !24
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr null, ptr %75, align 8, !tbaa !18
-  store i32 0, ptr %74, align 8, !tbaa !34
+  store i32 0, ptr %74, align 8, !tbaa !33
   call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.6, i32 noundef 148) #7
   %76 = load ptr, ptr %0, align 8, !tbaa !29
   %77 = load ptr, ptr %7, align 8, !tbaa !25
@@ -415,14 +415,14 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   %80 = load ptr, ptr %3, align 8, !tbaa !24
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %72, ptr %81, align 8, !tbaa !18
-  %82 = load i32, ptr %80, align 8, !tbaa !34
+  %82 = load i32, ptr %80, align 8, !tbaa !33
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i8, ptr %72, i64 %83
-  %85 = load i64, ptr %5, align 8, !tbaa !35
+  %85 = load i64, ptr %5, align 8, !tbaa !34
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr nonnull align 1 %58, i64 %85, i1 false)
   %86 = trunc i64 %85 to i32
   %87 = add i32 %82, %86
-  store i32 %87, ptr %80, align 8, !tbaa !34
+  store i32 %87, ptr %80, align 8, !tbaa !33
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i8, ptr %72, i64 %88
   store i8 0, ptr %89, align 1, !tbaa !27
@@ -461,13 +461,13 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
 104:                                              ; preds = %102
   %105 = call i32 @BIO_should_retry(ptr noundef nonnull %95) #7
   %.not130 = icmp eq i32 %105, 0
-  br i1 %.not130, label %164, label %.critedge, !llvm.loop !36
+  br i1 %.not130, label %164, label %.critedge, !llvm.loop !35
 
 106:                                              ; preds = %.critedge
   %107 = load ptr, ptr %3, align 8, !tbaa !24
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8, !tbaa !18
-  %110 = load i32, ptr %107, align 8, !tbaa !34
+  %110 = load i32, ptr %107, align 8, !tbaa !33
   %111 = add nuw i32 %100, 1
   %112 = add i32 %111, %110
   %113 = sext i32 %112 to i64
@@ -484,19 +484,19 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   %116 = load ptr, ptr %3, align 8, !tbaa !24
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store ptr %114, ptr %117, align 8, !tbaa !18
-  %118 = load i32, ptr %116, align 8, !tbaa !34
+  %118 = load i32, ptr %116, align 8, !tbaa !33
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds i8, ptr %114, i64 %119
   %121 = zext nneg i32 %100 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr nonnull align 16 %6, i64 %121, i1 false)
-  %122 = load i32, ptr %116, align 8, !tbaa !34
+  %122 = load i32, ptr %116, align 8, !tbaa !33
   %123 = add nsw i32 %122, %100
-  store i32 %123, ptr %116, align 8, !tbaa !34
+  store i32 %123, ptr %116, align 8, !tbaa !33
   %124 = load ptr, ptr %117, align 8, !tbaa !18
   %125 = sext i32 %123 to i64
   %126 = getelementptr inbounds i8, ptr %124, i64 %125
   store i8 0, ptr %126, align 1, !tbaa !27
-  br label %.critedge.outer, !llvm.loop !36
+  br label %.critedge.outer, !llvm.loop !35
 
 .critedge.outer:                                  ; preds = %93, %115
   %.3.ph = phi i1 [ false, %115 ], [ true, %93 ]
@@ -525,7 +525,7 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   %136 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %135) #8
   %137 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !18
-  %139 = load i32, ptr %51, align 8, !tbaa !34
+  %139 = load i32, ptr %51, align 8, !tbaa !33
   %140 = sext i32 %139 to i64
   %141 = add i64 %136, 1
   %142 = add i64 %141, %140
@@ -537,7 +537,7 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
 
 146:                                              ; preds = %134
   store ptr %143, ptr %145, align 8, !tbaa !18
-  %147 = load i32, ptr %144, align 8, !tbaa !34
+  %147 = load i32, ptr %144, align 8, !tbaa !33
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i8, ptr %143, i64 %148
   %150 = load ptr, ptr %52, align 8, !tbaa !28
@@ -545,7 +545,7 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %149, ptr nonnull align 1 %151, i64 %136, i1 false)
   %152 = trunc i64 %136 to i32
   %153 = add i32 %147, %152
-  store i32 %153, ptr %144, align 8, !tbaa !34
+  store i32 %153, ptr %144, align 8, !tbaa !33
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds i8, ptr %143, i64 %154
   store i8 0, ptr %155, align 1, !tbaa !27
@@ -553,7 +553,7 @@ define internal fastcc range(i32 0, 2) i32 @process_pci_value(ptr noundef %0, pt
 
 156:                                              ; preds = %134
   store ptr null, ptr %145, align 8, !tbaa !18
-  store i32 0, ptr %144, align 8, !tbaa !34
+  store i32 0, ptr %144, align 8, !tbaa !33
   tail call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.6, i32 noundef 202) #7
   %157 = load ptr, ptr %0, align 8, !tbaa !29
   %158 = load ptr, ptr %7, align 8, !tbaa !25
@@ -707,10 +707,9 @@ attributes #9 = { nounwind allocsize(1) }
 !27 = !{!10, !10, i64 0}
 !28 = !{!26, !21, i64 16}
 !29 = !{!26, !21, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = distinct !{!33, !31, !32}
-!34 = !{!19, !20, i64 0}
-!35 = !{!22, !22, i64 0}
-!36 = distinct !{!36, !31, !32}
+!32 = distinct !{!32, !31}
+!33 = !{!19, !20, i64 0}
+!34 = !{!22, !22, i64 0}
+!35 = distinct !{!35, !31}

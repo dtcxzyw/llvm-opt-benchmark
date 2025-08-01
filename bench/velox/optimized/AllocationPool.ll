@@ -168,7 +168,7 @@ for.body.i.i.i.i.i3:                              ; preds = %_ZNSt6vectorIN8face
   tail call void @_ZN8facebook5velox6memory20ContiguousAllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i4) #18
   %incdec.ptr.i.i.i.i.i5 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i4, i64 32
   %cmp.not.i.i.i.i.i6 = icmp eq ptr %incdec.ptr.i.i.i.i.i5, %3
-  br i1 %cmp.not.i.i.i.i.i6, label %invoke.cont.i.i7, label %for.body.i.i.i.i.i3, !llvm.loop !7
+  br i1 %cmp.not.i.i.i.i.i6, label %invoke.cont.i.i7, label %for.body.i.i.i.i.i3, !llvm.loop !6
 
 invoke.cont.i.i7:                                 ; preds = %for.body.i.i.i.i.i3
   store ptr %2, ptr %_M_finish.i.i1, align 8
@@ -855,24 +855,24 @@ _ZNSt16allocator_traitsISaIN8facebook5velox6memory20ContiguousAllocationEEE9cons
 for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN8facebook5velox6memory20ContiguousAllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit, %_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i
   %__cur.010.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i ], [ %cond.i10, %_ZNSt16allocator_traitsISaIN8facebook5velox6memory20ContiguousAllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit ]
   %__first.addr.09.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaIN8facebook5velox6memory20ContiguousAllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %data_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i, i64 8
   %size_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i, i64 16
   %maxSize_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i, i64 24
-  %13 = load ptr, ptr %__first.addr.09.i.i.i, align 8, !alias.scope !11, !noalias !8
-  store ptr %13, ptr %__cur.010.i.i.i, align 8, !alias.scope !8, !noalias !11
+  %13 = load ptr, ptr %__first.addr.09.i.i.i, align 8, !alias.scope !10, !noalias !7
+  store ptr %13, ptr %__cur.010.i.i.i, align 8, !alias.scope !7, !noalias !10
   %data_4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i, i64 8
-  %14 = load ptr, ptr %data_4.i.i.i.i.i.i.i, align 8, !alias.scope !11, !noalias !8
-  store ptr %14, ptr %data_.i.i.i.i.i.i.i, align 8, !alias.scope !8, !noalias !11
+  %14 = load ptr, ptr %data_4.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
+  store ptr %14, ptr %data_.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !10
   %size_6.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i, i64 16
-  %15 = load i64, ptr %size_6.i.i.i.i.i.i.i, align 8, !alias.scope !11, !noalias !8
-  store i64 %15, ptr %size_.i.i.i.i.i.i.i, align 8, !alias.scope !8, !noalias !11
+  %15 = load i64, ptr %size_6.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
+  store i64 %15, ptr %size_.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !10
   %maxSize_8.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i, i64 24
-  %16 = load i64, ptr %maxSize_8.i.i.i.i.i.i.i, align 8, !alias.scope !11, !noalias !8
-  store i64 %16, ptr %maxSize_.i.i.i.i.i.i.i, align 8, !alias.scope !8, !noalias !11
+  %16 = load i64, ptr %maxSize_8.i.i.i.i.i.i.i, align 8, !alias.scope !10, !noalias !7
+  store i64 %16, ptr %maxSize_.i.i.i.i.i.i.i, align 8, !alias.scope !7, !noalias !10
   invoke void @_ZN8facebook5velox6memory20ContiguousAllocation5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i)
-          to label %invoke.cont.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !8
+          to label %invoke.cont.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i, !noalias !7
 
 invoke.cont.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %15, 0
@@ -897,15 +897,15 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i
   %18 = landingpad { ptr, i32 }
           catch ptr null
   %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #19, !noalias !8
+  tail call void @__clang_call_terminate(ptr %19) #19, !noalias !7
   unreachable
 
 _ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i
-  tail call void @_ZN8facebook5velox6memory20ContiguousAllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i) #18, !noalias !8
+  tail call void @_ZN8facebook5velox6memory20ContiguousAllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i) #18, !noalias !7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i, i64 32
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !13
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !12
 
 _ZNSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN8facebook5velox6memory20ContiguousAllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt16allocator_traitsISaIN8facebook5velox6memory20ContiguousAllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i ]
@@ -916,24 +916,24 @@ _ZNSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE11_S_relocate
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28
   %__cur.010.i.i.i13 = phi ptr [ %incdec.ptr1.i.i.i30, %_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28 ], [ %incdec.ptr, %_ZNSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   %__first.addr.09.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i29, %_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28 ], [ %__position.coerce, %_ZNSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %data_.i.i.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i13, i64 8
   %size_.i.i.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i13, i64 16
   %maxSize_.i.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i13, i64 24
-  %20 = load ptr, ptr %__first.addr.09.i.i.i14, align 8, !alias.scope !17, !noalias !14
-  store ptr %20, ptr %__cur.010.i.i.i13, align 8, !alias.scope !14, !noalias !17
+  %20 = load ptr, ptr %__first.addr.09.i.i.i14, align 8, !alias.scope !16, !noalias !13
+  store ptr %20, ptr %__cur.010.i.i.i13, align 8, !alias.scope !13, !noalias !16
   %data_4.i.i.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i14, i64 8
-  %21 = load ptr, ptr %data_4.i.i.i.i.i.i.i18, align 8, !alias.scope !17, !noalias !14
-  store ptr %21, ptr %data_.i.i.i.i.i.i.i15, align 8, !alias.scope !14, !noalias !17
+  %21 = load ptr, ptr %data_4.i.i.i.i.i.i.i18, align 8, !alias.scope !16, !noalias !13
+  store ptr %21, ptr %data_.i.i.i.i.i.i.i15, align 8, !alias.scope !13, !noalias !16
   %size_6.i.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i14, i64 16
-  %22 = load i64, ptr %size_6.i.i.i.i.i.i.i19, align 8, !alias.scope !17, !noalias !14
-  store i64 %22, ptr %size_.i.i.i.i.i.i.i16, align 8, !alias.scope !14, !noalias !17
+  %22 = load i64, ptr %size_6.i.i.i.i.i.i.i19, align 8, !alias.scope !16, !noalias !13
+  store i64 %22, ptr %size_.i.i.i.i.i.i.i16, align 8, !alias.scope !13, !noalias !16
   %maxSize_8.i.i.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i14, i64 24
-  %23 = load i64, ptr %maxSize_8.i.i.i.i.i.i.i20, align 8, !alias.scope !17, !noalias !14
-  store i64 %23, ptr %maxSize_.i.i.i.i.i.i.i17, align 8, !alias.scope !14, !noalias !17
+  %23 = load i64, ptr %maxSize_8.i.i.i.i.i.i.i20, align 8, !alias.scope !16, !noalias !13
+  store i64 %23, ptr %maxSize_.i.i.i.i.i.i.i17, align 8, !alias.scope !13, !noalias !16
   invoke void @_ZN8facebook5velox6memory20ContiguousAllocation5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i14)
-          to label %invoke.cont.i.i.i.i.i.i.i22 unwind label %terminate.lpad.i.i.i.i.i.i.i21, !noalias !14
+          to label %invoke.cont.i.i.i.i.i.i.i22 unwind label %terminate.lpad.i.i.i.i.i.i.i21, !noalias !13
 
 invoke.cont.i.i.i.i.i.i.i22:                      ; preds = %for.body.i.i.i12
   %cmp.i.i.i.i.i.i.i.i23 = icmp eq i64 %22, 0
@@ -958,15 +958,15 @@ terminate.lpad.i.i.i.i.i.i.i21:                   ; preds = %for.body.i.i.i12
   %25 = landingpad { ptr, i32 }
           catch ptr null
   %26 = extractvalue { ptr, i32 } %25, 0
-  tail call void @__clang_call_terminate(ptr %26) #19, !noalias !14
+  tail call void @__clang_call_terminate(ptr %26) #19, !noalias !13
   unreachable
 
 _ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28: ; preds = %if.end.i.i.i.i.i.i.i.i25
-  tail call void @_ZN8facebook5velox6memory20ContiguousAllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i14) #18, !noalias !14
+  tail call void @_ZN8facebook5velox6memory20ContiguousAllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.09.i.i.i14) #18, !noalias !13
   %incdec.ptr.i.i.i29 = getelementptr inbounds nuw i8, ptr %__first.addr.09.i.i.i14, i64 32
   %incdec.ptr1.i.i.i30 = getelementptr inbounds nuw i8, ptr %__cur.010.i.i.i13, i64 32
   %cmp.not.i.i.i31 = icmp eq ptr %incdec.ptr.i.i.i29, %0
-  br i1 %cmp.not.i.i.i31, label %_ZNSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit35, label %for.body.i.i.i12, !llvm.loop !13
+  br i1 %cmp.not.i.i.i31, label %_ZNSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit35, label %for.body.i.i.i12, !llvm.loop !12
 
 _ZNSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit35: ; preds = %_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28, %_ZNSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %__cur.0.lcssa.i.i.i32 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN8facebook5velox6memory20ContiguousAllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %incdec.ptr1.i.i.i30, %_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28 ]
@@ -1070,29 +1070,29 @@ _ZNSt16allocator_traitsISaIN8facebook5velox6memory10AllocationEEE9constructIS3_J
 for.body.i.i.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN8facebook5velox6memory10AllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit, %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i
   %__cur.09.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i ], [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN8facebook5velox6memory10AllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit ]
   %__first.addr.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNSt16allocator_traitsISaIN8facebook5velox6memory10AllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %runs_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 8
   %numPages_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 32
-  %9 = load ptr, ptr %__first.addr.08.i.i.i, align 8, !alias.scope !22, !noalias !19
-  store ptr %9, ptr %__cur.09.i.i.i, align 8, !alias.scope !19, !noalias !22
+  %9 = load ptr, ptr %__first.addr.08.i.i.i, align 8, !alias.scope !21, !noalias !18
+  store ptr %9, ptr %__cur.09.i.i.i, align 8, !alias.scope !18, !noalias !21
   %runs_4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i, i64 8
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 16
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 24
-  %10 = load ptr, ptr %runs_4.i.i.i.i.i.i.i, align 8, !alias.scope !22, !noalias !19
-  store ptr %10, ptr %runs_.i.i.i.i.i.i.i, align 8, !alias.scope !19, !noalias !22
+  %10 = load ptr, ptr %runs_4.i.i.i.i.i.i.i, align 8, !alias.scope !21, !noalias !18
+  store ptr %10, ptr %runs_.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !21
   %_M_finish.i2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i, i64 16
-  %11 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !22, !noalias !19
-  store ptr %11, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !19, !noalias !22
+  %11 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !21, !noalias !18
+  store ptr %11, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !21
   %_M_end_of_storage.i4.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i, i64 24
-  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !22, !noalias !19
-  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !19, !noalias !22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %runs_4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !22, !noalias !19
+  %12 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !21, !noalias !18
+  store ptr %12, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !21
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %runs_4.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !alias.scope !21, !noalias !18
   %numPages_6.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i, i64 32
-  %13 = load i32, ptr %numPages_6.i.i.i.i.i.i.i, align 8, !alias.scope !22, !noalias !19
-  store i32 %13, ptr %numPages_.i.i.i.i.i.i.i, align 8, !alias.scope !19, !noalias !22
-  store i32 0, ptr %numPages_6.i.i.i.i.i.i.i, align 8, !alias.scope !22, !noalias !19
-  store ptr null, ptr %__first.addr.08.i.i.i, align 8, !alias.scope !22, !noalias !19
+  %13 = load i32, ptr %numPages_6.i.i.i.i.i.i.i, align 8, !alias.scope !21, !noalias !18
+  store i32 %13, ptr %numPages_.i.i.i.i.i.i.i, align 8, !alias.scope !18, !noalias !21
+  store i32 0, ptr %numPages_6.i.i.i.i.i.i.i, align 8, !alias.scope !21, !noalias !18
+  store ptr null, ptr %__first.addr.08.i.i.i, align 8, !alias.scope !21, !noalias !18
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %11
   %14 = icmp eq i32 %13, 0
   %lnot.i.i.i.i.i.i.i.i = xor i1 %cmp.i.i.i.i.i.i.i.i.i, %14
@@ -1112,11 +1112,11 @@ if.then10.i.i.i.i.i.i.i.i:                        ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 _ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i
-  tail call void @_ZN8facebook5velox6memory10AllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.08.i.i.i) #18, !noalias !19
+  tail call void @_ZN8facebook5velox6memory10AllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.08.i.i.i) #18, !noalias !18
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i, i64 40
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 40
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox6memory10AllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !24
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorIN8facebook5velox6memory10AllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %for.body.i.i.i, !llvm.loop !23
 
 _ZNSt6vectorIN8facebook5velox6memory10AllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaIN8facebook5velox6memory10AllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIN8facebook5velox6memory10AllocationEEE9constructIS3_JS3_EEEvRS4_PT_DpOT0_.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i ]
@@ -1127,29 +1127,29 @@ _ZNSt6vectorIN8facebook5velox6memory10AllocationESaIS3_EE11_S_relocateEPS3_S6_S6
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorIN8facebook5velox6memory10AllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28
   %__cur.09.i.i.i13 = phi ptr [ %incdec.ptr1.i.i.i30, %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28 ], [ %incdec.ptr, %_ZNSt6vectorIN8facebook5velox6memory10AllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   %__first.addr.08.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i29, %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28 ], [ %__position.coerce, %_ZNSt6vectorIN8facebook5velox6memory10AllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %runs_.i.i.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i13, i64 8
   %numPages_.i.i.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i13, i64 32
-  %15 = load ptr, ptr %__first.addr.08.i.i.i14, align 8, !alias.scope !28, !noalias !25
-  store ptr %15, ptr %__cur.09.i.i.i13, align 8, !alias.scope !25, !noalias !28
+  %15 = load ptr, ptr %__first.addr.08.i.i.i14, align 8, !alias.scope !27, !noalias !24
+  store ptr %15, ptr %__cur.09.i.i.i13, align 8, !alias.scope !24, !noalias !27
   %runs_4.i.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i14, i64 8
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i13, i64 16
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i13, i64 24
-  %16 = load ptr, ptr %runs_4.i.i.i.i.i.i.i17, align 8, !alias.scope !28, !noalias !25
-  store ptr %16, ptr %runs_.i.i.i.i.i.i.i15, align 8, !alias.scope !25, !noalias !28
+  %16 = load ptr, ptr %runs_4.i.i.i.i.i.i.i17, align 8, !alias.scope !27, !noalias !24
+  store ptr %16, ptr %runs_.i.i.i.i.i.i.i15, align 8, !alias.scope !24, !noalias !27
   %_M_finish.i2.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i14, i64 16
-  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !28, !noalias !25
-  store ptr %17, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !25, !noalias !28
+  %17 = load ptr, ptr %_M_finish.i2.i.i.i.i.i.i.i.i.i.i20, align 8, !alias.scope !27, !noalias !24
+  store ptr %17, ptr %_M_finish.i.i.i.i.i.i.i.i.i.i.i18, align 8, !alias.scope !24, !noalias !27
   %_M_end_of_storage.i4.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i14, i64 24
-  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i.i.i.i21, align 8, !alias.scope !28, !noalias !25
-  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !25, !noalias !28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %runs_4.i.i.i.i.i.i.i17, i8 0, i64 24, i1 false), !alias.scope !28, !noalias !25
+  %18 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i.i.i.i.i21, align 8, !alias.scope !27, !noalias !24
+  store ptr %18, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i19, align 8, !alias.scope !24, !noalias !27
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %runs_4.i.i.i.i.i.i.i17, i8 0, i64 24, i1 false), !alias.scope !27, !noalias !24
   %numPages_6.i.i.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i14, i64 32
-  %19 = load i32, ptr %numPages_6.i.i.i.i.i.i.i22, align 8, !alias.scope !28, !noalias !25
-  store i32 %19, ptr %numPages_.i.i.i.i.i.i.i16, align 8, !alias.scope !25, !noalias !28
-  store i32 0, ptr %numPages_6.i.i.i.i.i.i.i22, align 8, !alias.scope !28, !noalias !25
-  store ptr null, ptr %__first.addr.08.i.i.i14, align 8, !alias.scope !28, !noalias !25
+  %19 = load i32, ptr %numPages_6.i.i.i.i.i.i.i22, align 8, !alias.scope !27, !noalias !24
+  store i32 %19, ptr %numPages_.i.i.i.i.i.i.i16, align 8, !alias.scope !24, !noalias !27
+  store i32 0, ptr %numPages_6.i.i.i.i.i.i.i22, align 8, !alias.scope !27, !noalias !24
+  store ptr null, ptr %__first.addr.08.i.i.i14, align 8, !alias.scope !27, !noalias !24
   %cmp.i.i.i.i.i.i.i.i.i23 = icmp eq ptr %16, %17
   %20 = icmp eq i32 %19, 0
   %lnot.i.i.i.i.i.i.i.i24 = xor i1 %cmp.i.i.i.i.i.i.i.i.i23, %20
@@ -1169,11 +1169,11 @@ if.then10.i.i.i.i.i.i.i.i33:                      ; preds = %if.end.i.i.i.i.i.i.
   unreachable
 
 _ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28: ; preds = %if.end.i.i.i.i.i.i.i.i25
-  tail call void @_ZN8facebook5velox6memory10AllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.08.i.i.i14) #18, !noalias !25
+  tail call void @_ZN8facebook5velox6memory10AllocationD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %__first.addr.08.i.i.i14) #18, !noalias !24
   %incdec.ptr.i.i.i29 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i14, i64 40
   %incdec.ptr1.i.i.i30 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i13, i64 40
   %cmp.not.i.i.i31 = icmp eq ptr %incdec.ptr.i.i.i29, %0
-  br i1 %cmp.not.i.i.i31, label %_ZNSt6vectorIN8facebook5velox6memory10AllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit35, label %for.body.i.i.i12, !llvm.loop !24
+  br i1 %cmp.not.i.i.i31, label %_ZNSt6vectorIN8facebook5velox6memory10AllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit35, label %for.body.i.i.i12, !llvm.loop !23
 
 _ZNSt6vectorIN8facebook5velox6memory10AllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit35: ; preds = %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28, %_ZNSt6vectorIN8facebook5velox6memory10AllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %__cur.0.lcssa.i.i.i32 = phi ptr [ %incdec.ptr, %_ZNSt6vectorIN8facebook5velox6memory10AllocationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %incdec.ptr1.i.i.i30, %_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_.exit.i.i.i28 ]
@@ -1240,29 +1240,28 @@ attributes #21 = { builtin allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
-!10 = distinct !{!10, !"_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_"}
-!11 = !{!12}
-!12 = distinct !{!12, !10, !"_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
-!13 = distinct !{!13, !5, !6}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
-!16 = distinct !{!16, !"_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_"}
-!17 = !{!18}
-!18 = distinct !{!18, !16, !"_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
-!21 = distinct !{!21, !"_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_"}
-!22 = !{!23}
-!23 = distinct !{!23, !21, !"_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
-!24 = distinct !{!24, !5, !6}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
-!27 = distinct !{!27, !"_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_"}
-!28 = !{!29}
-!29 = distinct !{!29, !27, !"_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
+!6 = distinct !{!6, !5}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
+!9 = distinct !{!9, !"_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_"}
+!10 = !{!11}
+!11 = distinct !{!11, !9, !"_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
+!12 = distinct !{!12, !5}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
+!15 = distinct !{!15, !"_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_"}
+!16 = !{!17}
+!17 = distinct !{!17, !15, !"_ZSt19__relocate_object_aIN8facebook5velox6memory20ContiguousAllocationES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
+!20 = distinct !{!20, !"_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_"}
+!21 = !{!22}
+!22 = distinct !{!22, !20, !"_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}
+!23 = distinct !{!23, !5}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_: %__dest"}
+!26 = distinct !{!26, !"_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_"}
+!27 = !{!28}
+!28 = distinct !{!28, !26, !"_ZSt19__relocate_object_aIN8facebook5velox6memory10AllocationES3_SaIS3_EEvPT_PT0_RT1_: %__orig"}

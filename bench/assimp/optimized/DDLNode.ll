@@ -588,7 +588,7 @@ define hidden void @_ZN10ODDLParser7DDLNode12detachParentEv(ptr noundef nonnull 
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
   %32 = add nsw i64 %.052.i.i.i, -1
   %33 = icmp sgt i64 %.052.i.i.i, 1
-  br i1 %33, label %15, label %._crit_edge.loopexit.i.i.i, !llvm.loop !6
+  br i1 %33, label %15, label %._crit_edge.loopexit.i.i.i, !llvm.loop !5
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %30
   %.pre59.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
@@ -766,7 +766,7 @@ define hidden noundef zeroext i1 @_ZN10ODDLParser7DDLNode11hasPropertyERKNSt7__c
   %16 = getelementptr inbounds nuw i8, ptr %.01119.i, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_ZN10ODDLParser7DDLNode18findPropertyByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %10, !llvm.loop !7
+  br i1 %.not.i, label %_ZN10ODDLParser7DDLNode18findPropertyByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %10, !llvm.loop !6
 
 _ZN10ODDLParser7DDLNode18findPropertyByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %10, %15, %2
   %.010.i = phi i1 [ false, %2 ], [ %.not14.i, %15 ], [ %.not14.i, %10 ]
@@ -801,7 +801,7 @@ define hidden noundef ptr @_ZN10ODDLParser7DDLNode18findPropertyByNameERKNSt7__c
   %16 = getelementptr inbounds nuw i8, ptr %.01119, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.thread, label %10, !llvm.loop !7
+  br i1 %.not, label %.thread, label %10, !llvm.loop !6
 
 .thread:                                          ; preds = %10, %15, %2
   %.010 = phi ptr [ null, %2 ], [ %.01119, %10 ], [ null, %15 ]
@@ -920,7 +920,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 30:                                               ; preds = %28
   invoke void @_ZN10ODDLParser5Value4dumpERNS_12IOStreamBaseE(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %25 unwind label %43, !llvm.loop !8
+          to label %25 unwind label %43, !llvm.loop !7
 
 31:                                               ; preds = %9
   %32 = landingpad { ptr, i32 }
@@ -1175,7 +1175,7 @@ define hidden void @_ZN10ODDLParser7DDLNode12releaseNodesEv() local_unnamed_addr
   %8 = phi ptr [ %4, %.lr.ph ], [ %.pre, %6 ]
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.02.08, i64 8
   %.not6 = icmp eq ptr %9, %8
-  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not6, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 _ZNSt6vectorIPN10ODDLParser7DDLNodeESaIS2_EE5clearEv.exit: ; preds = %3, %._crit_edge, %0
   ret void
@@ -1251,10 +1251,9 @@ attributes #24 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

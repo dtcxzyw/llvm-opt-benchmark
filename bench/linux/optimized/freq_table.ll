@@ -103,7 +103,7 @@ define dso_local range(i32 -22, 1) i32 @cpufreq_frequency_table_cpuinfo(ptr noun
   %20 = phi i32 [ %5, %12 ], [ %5, %3 ], [ %17, %16 ]
   %21 = phi i32 [ %6, %12 ], [ %6, %3 ], [ %18, %16 ]
   %22 = getelementptr i8, ptr %4, i64 12
-  br label %3, !llvm.loop !9
+  br label %3, !llvm.loop !8
 
 23:                                               ; preds = %3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -174,7 +174,7 @@ define dso_local noundef i32 @cpufreq_frequency_table_verify(ptr noundef capture
 28:                                               ; preds = %25, %16
   %29 = phi i32 [ %17, %16 ], [ %spec.select, %25 ]
   %30 = getelementptr i8, ptr %18, i64 12
-  br label %16, !llvm.loop !10
+  br label %16, !llvm.loop !9
 
 31:                                               ; preds = %16
   %32 = icmp ult i32 %17, %5
@@ -241,7 +241,7 @@ define dso_local noundef range(i32 -19, 1) i32 @cpufreq_generic_frequency_table_
 32:                                               ; preds = %28, %19
   %33 = phi i32 [ %20, %19 ], [ %31, %28 ]
   %34 = getelementptr i8, ptr %21, i64 12
-  br label %19, !llvm.loop !11
+  br label %19, !llvm.loop !9
 
 35:                                               ; preds = %19
   %36 = icmp ult i32 %20, %8
@@ -345,7 +345,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
   %47 = phi i32 [ %22, %25 ], [ %22, %28 ], [ %22, %.split.us ], [ %42, %39 ], [ %22, %35 ]
   %48 = getelementptr i8, ptr %18, i64 12
   %49 = add i32 %17, 1
-  br label %.split.us, !llvm.loop !12
+  br label %.split.us, !llvm.loop !10
 
 .split.us17:                                      ; preds = %9, %76
   %50 = phi i32 [ %82, %76 ], [ %2, %9 ]
@@ -398,7 +398,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
   %80 = phi i32 [ %55, %58 ], [ %55, %61 ], [ %55, %.split.us17 ], [ %75, %72 ], [ %55, %68 ]
   %81 = getelementptr i8, ptr %51, i64 12
   %82 = add i32 %50, 1
-  br label %.split.us17, !llvm.loop !14
+  br label %.split.us17, !llvm.loop !12
 
 .split.us26:                                      ; preds = %9, %109
   %83 = phi i32 [ %113, %109 ], [ 0, %9 ]
@@ -451,7 +451,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
   %111 = phi i32 [ %86, %89 ], [ %86, %92 ], [ %99, %108 ], [ %86, %103 ], [ %86, %101 ], [ %86, %.split.us26 ]
   %112 = getelementptr i8, ptr %84, i64 12
   %113 = add i32 %83, 1
-  br label %.split.us26, !llvm.loop !15
+  br label %.split.us26, !llvm.loop !13
 
 .split:                                           ; preds = %9, %125
   %114 = phi i32 [ %127, %125 ], [ 0, %9 ]
@@ -478,7 +478,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
 125:                                              ; preds = %121, %118, %.split
   %126 = getelementptr i8, ptr %115, i64 12
   %127 = add i32 %114, 1
-  br label %.split, !llvm.loop !16
+  br label %.split, !llvm.loop !14
 
 .split13.us:                                      ; preds = %.split.us26, %.split.us17, %.split.us, %.split
   %.us-phi = phi i32 [ %114, %.split ], [ %17, %.split.us ], [ %50, %.split.us17 ], [ %83, %.split.us26 ]
@@ -492,14 +492,14 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
   br i1 %130, label %131, label %.thread
 
 131:                                              ; preds = %129
-  tail call void asm sideeffect "331: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 331b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 331) #9, !srcloc !17
+  tail call void asm sideeffect "331: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 331b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 331) #9, !srcloc !15
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %133 = load i32, ptr %132, align 4
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, i32 noundef %133) #9
-  tail call void asm sideeffect "332: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 332b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 332) #9, !srcloc !18
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 197, i32 2313, i64 12) #9, !srcloc !19
-  tail call void asm sideeffect "333: nop\0A\09.pushsection .discard.instr_end\0A\09.long 333b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 333) #9, !srcloc !20
-  tail call void asm sideeffect "334: nop\0A\09.pushsection .discard.instr_end\0A\09.long 334b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 334) #9, !srcloc !21
+  tail call void asm sideeffect "332: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 332b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 332) #9, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 197, i32 2313, i64 12) #9, !srcloc !17
+  tail call void asm sideeffect "333: nop\0A\09.pushsection .discard.instr_end\0A\09.long 333b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 333) #9, !srcloc !18
+  tail call void asm sideeffect "334: nop\0A\09.pushsection .discard.instr_end\0A\09.long 334b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 334) #9, !srcloc !19
   br label %.thread
 
 .thread:                                          ; preds = %95, %64, %31, %121, %131, %129, %.split13.us
@@ -515,7 +515,7 @@ define dso_local i32 @cpufreq_frequency_table_get_index(ptr noundef readonly cap
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.loopexit, label %.preheader, !prof !22
+  br i1 %5, label %.loopexit, label %.preheader, !prof !20
 
 .preheader:                                       ; preds = %2, %12
   %6 = phi ptr [ %13, %12 ], [ %4, %2 ]
@@ -534,7 +534,7 @@ define dso_local i32 @cpufreq_frequency_table_get_index(ptr noundef readonly cap
 12:                                               ; preds = %10, %.preheader
   %13 = getelementptr i8, ptr %6, i64 12
   %14 = add i32 %7, 1
-  br label %.preheader, !llvm.loop !23
+  br label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %10, %.preheader, %2
   %15 = phi i32 [ -2, %2 ], [ -22, %.preheader ], [ %7, %10 ]
@@ -574,7 +574,7 @@ define internal i64 @scaling_available_frequencies_show(ptr noundef readonly cap
 19:                                               ; preds = %14, %10, %.preheader
   %20 = phi i64 [ %6, %10 ], [ %18, %14 ], [ %6, %.preheader ]
   %21 = getelementptr i8, ptr %7, i64 12
-  br label %.preheader, !llvm.loop !24
+  br label %.preheader, !llvm.loop !22
 
 22:                                               ; preds = %.preheader
   %23 = getelementptr i8, ptr %1, i64 %6
@@ -620,7 +620,7 @@ define internal i64 @scaling_boost_frequencies_show(ptr noundef readonly capture
 19:                                               ; preds = %14, %10, %.preheader
   %20 = phi i64 [ %6, %10 ], [ %18, %14 ], [ %6, %.preheader ]
   %21 = getelementptr i8, ptr %7, i64 12
-  br label %.preheader, !llvm.loop !25
+  br label %.preheader, !llvm.loop !22
 
 22:                                               ; preds = %.preheader
   %23 = getelementptr i8, ptr %1, i64 %6
@@ -676,7 +676,7 @@ define dso_local range(i32 -22, 1) i32 @cpufreq_table_validate_and_sort(ptr noun
   %24 = phi i32 [ %9, %16 ], [ %9, %.preheader ], [ %21, %20 ]
   %25 = phi i32 [ %10, %16 ], [ %10, %.preheader ], [ %22, %20 ]
   %26 = getelementptr i8, ptr %8, i64 12
-  br label %.preheader, !llvm.loop !26
+  br label %.preheader, !llvm.loop !8
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -753,7 +753,7 @@ define dso_local range(i32 -22, 1) i32 @cpufreq_table_validate_and_sort(ptr noun
   %65 = phi i32 [ %41, %40 ], [ %41, %46 ], [ %59, %58 ], [ %63, %62 ]
   %66 = phi ptr [ %42, %40 ], [ %43, %46 ], [ %43, %58 ], [ %43, %62 ]
   %67 = getelementptr i8, ptr %43, i64 12
-  br label %40, !llvm.loop !27
+  br label %40, !llvm.loop !23
 
 68:                                               ; preds = %40
   %69 = icmp slt i32 %41, 1
@@ -803,26 +803,22 @@ attributes #10 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !6, !7, !8, !13}
-!15 = distinct !{!15, !6, !7, !8, !13}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = !{i64 2154471299, i64 2154471108, i64 2154471160, i64 2154471206, i64 2154471234}
-!18 = !{i64 2154471857, i64 2154471666, i64 2154471718, i64 2154471764, i64 2154471792}
-!19 = !{i64 2154471931, i64 2154471960, i64 2154472006, i64 2154472064, i64 2154472118, i64 2154472172, i64 2154472227, i64 2154472258, i64 2154472566, i64 2154472572, i64 2154472619, i64 2154472642, i64 2154472668}
-!20 = !{i64 2154473129, i64 2154472940, i64 2154472990, i64 2154473036, i64 2154473064}
-!21 = !{i64 2154473435, i64 2154473246, i64 2154473296, i64 2154473342, i64 2154473370}
-!22 = !{!"branch_weights", i32 1, i32 2000}
-!23 = distinct !{!23, !6, !7, !8}
-!24 = distinct !{!24, !6, !7, !8}
-!25 = distinct !{!25, !6, !7, !8}
-!26 = distinct !{!26, !6, !7, !8}
-!27 = distinct !{!27, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !6, !7, !11}
+!13 = distinct !{!13, !6, !7, !11}
+!14 = distinct !{!14, !6, !7}
+!15 = !{i64 2154471299, i64 2154471108, i64 2154471160, i64 2154471206, i64 2154471234}
+!16 = !{i64 2154471857, i64 2154471666, i64 2154471718, i64 2154471764, i64 2154471792}
+!17 = !{i64 2154471931, i64 2154471960, i64 2154472006, i64 2154472064, i64 2154472118, i64 2154472172, i64 2154472227, i64 2154472258, i64 2154472566, i64 2154472572, i64 2154472619, i64 2154472642, i64 2154472668}
+!18 = !{i64 2154473129, i64 2154472940, i64 2154472990, i64 2154473036, i64 2154473064}
+!19 = !{i64 2154473435, i64 2154473246, i64 2154473296, i64 2154473342, i64 2154473370}
+!20 = !{!"branch_weights", i32 1, i32 2000}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}

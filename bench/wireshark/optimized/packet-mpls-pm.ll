@@ -500,7 +500,7 @@ switch.lookup:                                    ; preds = %61
   %69 = add nuw nsw i32 %.09294, 8
   %70 = add nuw nsw i8 %.095, 1
   %exitcond.not = icmp eq i8 %70, 5
-  br i1 %exitcond.not, label %.loopexit, label %68, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %68, !llvm.loop !10
 
 .loopexit:                                        ; preds = %68, %4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #3
@@ -864,7 +864,7 @@ define internal fastcc void @dissect_mpls_pm_combined(ptr noundef %0, ptr nounde
   %68 = add nuw nsw i32 %.09396, 8
   %69 = add nuw nsw i8 %.097, 1
   %exitcond.not = icmp eq i8 %69, 5
-  br i1 %exitcond.not, label %.preheader, label %67, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader, label %67, !llvm.loop !11
 
 .preheader:                                       ; preds = %67, %.preheader
   %.199 = phi i8 [ %71, %.preheader ], [ 1, %67 ]
@@ -873,7 +873,7 @@ define internal fastcc void @dissect_mpls_pm_combined(ptr noundef %0, ptr nounde
   %70 = add nuw nsw i32 %.19498, 8
   %71 = add nuw nsw i8 %.199, 1
   %exitcond100.not = icmp eq i8 %71, 5
-  br i1 %exitcond100.not, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond100.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #3
@@ -899,9 +899,8 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

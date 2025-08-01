@@ -64,33 +64,33 @@ define i32 @BN_kronecker(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !6
+  %28 = load i32, ptr %27, align 8, !tbaa !5
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %34, label %30
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr %4, align 8, !tbaa !13
-  %32 = load i64, ptr %31, align 8, !tbaa !14
+  %31 = load ptr, ptr %4, align 8, !tbaa !12
+  %32 = load i64, ptr %31, align 8, !tbaa !13
   %33 = and i64 %32, 7
   br label %34
 
 34:                                               ; preds = %26, %30
   %35 = phi i64 [ %33, %30 ], [ 0, %26 ]
   %36 = getelementptr inbounds nuw [8 x i32], ptr @BN_kronecker.tab, i64 0, i64 %35
-  %37 = load i32, ptr %36, align 4, !tbaa !16
+  %37 = load i32, ptr %36, align 4, !tbaa !15
   br label %38
 
 38:                                               ; preds = %24, %34
   %.166 = phi i32 [ %37, %34 ], [ 1, %24 ]
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %40 = load i32, ptr %39, align 8, !tbaa !17
+  %40 = load i32, ptr %39, align 8, !tbaa !16
   %.not77 = icmp eq i32 %40, 0
   br i1 %.not77, label %45, label %41
 
 41:                                               ; preds = %38
-  store i32 0, ptr %39, align 8, !tbaa !17
+  store i32 0, ptr %39, align 8, !tbaa !16
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %43 = load i32, ptr %42, align 8, !tbaa !17
+  %43 = load i32, ptr %42, align 8, !tbaa !16
   %.not78 = icmp eq i32 %43, 0
   %44 = sub nsw i32 0, %.166
   %spec.select = select i1 %.not78, i32 %.166, i32 %44
@@ -121,7 +121,7 @@ define i32 @BN_kronecker(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   %50 = tail call i32 @BN_is_bit_set(ptr noundef %.06396, i32 noundef %.168) #2
   %.not80 = icmp eq i32 %50, 0
   %51 = add nuw nsw i32 %.168, 1
-  br i1 %.not80, label %49, label %52, !llvm.loop !18
+  br i1 %.not80, label %49, label %52, !llvm.loop !17
 
 52:                                               ; preds = %49
   %53 = tail call i32 @BN_rshift(ptr noundef %.06396, ptr noundef %.06396, i32 noundef %.168) #2
@@ -135,30 +135,30 @@ define i32 @BN_kronecker(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %.06297, i64 8
-  %58 = load i32, ptr %57, align 8, !tbaa !6
+  %58 = load i32, ptr %57, align 8, !tbaa !5
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %64, label %60
 
 60:                                               ; preds = %56
-  %61 = load ptr, ptr %.06297, align 8, !tbaa !13
-  %62 = load i64, ptr %61, align 8, !tbaa !14
+  %61 = load ptr, ptr %.06297, align 8, !tbaa !12
+  %62 = load i64, ptr %61, align 8, !tbaa !13
   %63 = and i64 %62, 7
   br label %64
 
 64:                                               ; preds = %56, %60
   %65 = phi i64 [ %63, %60 ], [ 0, %56 ]
   %66 = getelementptr inbounds nuw [8 x i32], ptr @BN_kronecker.tab, i64 0, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !16
+  %67 = load i32, ptr %66, align 4, !tbaa !15
   %68 = mul nsw i32 %67, %.395
   br label %69
 
 69:                                               ; preds = %64, %54
   %.4 = phi i32 [ %68, %64 ], [ %.395, %54 ]
   %70 = getelementptr inbounds nuw i8, ptr %.06396, i64 16
-  %71 = load i32, ptr %70, align 8, !tbaa !17
+  %71 = load i32, ptr %70, align 8, !tbaa !16
   %.not83 = icmp eq i32 %71, 0
   %72 = getelementptr inbounds nuw i8, ptr %.06396, i64 8
-  %73 = load i32, ptr %72, align 8, !tbaa !6
+  %73 = load i32, ptr %72, align 8, !tbaa !5
   %74 = icmp eq i32 %73, 0
   br i1 %.not83, label %80, label %75
 
@@ -166,8 +166,8 @@ define i32 @BN_kronecker(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br i1 %74, label %84, label %76
 
 76:                                               ; preds = %75
-  %77 = load ptr, ptr %.06396, align 8, !tbaa !13
-  %78 = load i64, ptr %77, align 8, !tbaa !14
+  %77 = load ptr, ptr %.06396, align 8, !tbaa !12
+  %78 = load i64, ptr %77, align 8, !tbaa !13
   %79 = xor i64 %78, -1
   br label %84
 
@@ -175,20 +175,20 @@ define i32 @BN_kronecker(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br i1 %74, label %84, label %81
 
 81:                                               ; preds = %80
-  %82 = load ptr, ptr %.06396, align 8, !tbaa !13
-  %83 = load i64, ptr %82, align 8, !tbaa !14
+  %82 = load ptr, ptr %.06396, align 8, !tbaa !12
+  %83 = load i64, ptr %82, align 8, !tbaa !13
   br label %84
 
 84:                                               ; preds = %76, %75, %81, %80
   %85 = phi i64 [ %83, %81 ], [ 0, %80 ], [ %79, %76 ], [ -1, %75 ]
   %86 = getelementptr inbounds nuw i8, ptr %.06297, i64 8
-  %87 = load i32, ptr %86, align 8, !tbaa !6
+  %87 = load i32, ptr %86, align 8, !tbaa !5
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %92, label %89
 
 89:                                               ; preds = %84
-  %90 = load ptr, ptr %.06297, align 8, !tbaa !13
-  %91 = load i64, ptr %90, align 8, !tbaa !14
+  %90 = load ptr, ptr %.06297, align 8, !tbaa !12
+  %91 = load i64, ptr %90, align 8, !tbaa !13
   br label %92
 
 92:                                               ; preds = %84, %89
@@ -203,10 +203,10 @@ define i32 @BN_kronecker(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   %.not84 = icmp eq i64 %97, 0
   %98 = sub nsw i32 0, %.4
   %spec.select88 = select i1 %.not84, i32 %.4, i32 %98
-  store i32 0, ptr %70, align 8, !tbaa !17
+  store i32 0, ptr %70, align 8, !tbaa !16
   %99 = tail call i32 @BN_is_zero(ptr noundef nonnull %.06297) #2
   %.not79 = icmp eq i32 %99, 0
-  br i1 %.not79, label %.preheader, label %._crit_edge, !llvm.loop !19
+  br i1 %.not79, label %.preheader, label %._crit_edge
 
 .thread:                                          ; preds = %92, %52, %17, %3, %._crit_edge, %13, %22, %9, %7
   %100 = phi i32 [ -2, %7 ], [ -2, %9 ], [ -2, %22 ], [ -2, %3 ], [ %14, %13 ], [ %48, %._crit_edge ], [ 0, %17 ], [ -2, %52 ], [ -2, %92 ]
@@ -245,20 +245,18 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !12, i64 8}
-!7 = !{!"bignum_st", !8, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20}
-!8 = !{!"p1 long", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"int", !10, i64 0}
-!13 = !{!7, !8, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !10, i64 0}
-!16 = !{!12, !12, i64 0}
-!17 = !{!7, !12, i64 16}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !5}
+!5 = !{!6, !11, i64 8}
+!6 = !{!"bignum_st", !7, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20}
+!7 = !{!"p1 long", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"int", !9, i64 0}
+!12 = !{!6, !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !9, i64 0}
+!15 = !{!11, !11, i64 0}
+!16 = !{!6, !11, i64 16}
+!17 = distinct !{!17, !4}

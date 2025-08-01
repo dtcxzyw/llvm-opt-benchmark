@@ -162,8 +162,8 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %22 ], [ 0, %11 ]
   %15 = getelementptr inbounds nuw i32, ptr @int_tests, i64 %indvars.iv93
   %16 = tail call ptr @OPENSSL_LH_retrieve(ptr noundef %3, ptr noundef nonnull %15) #13
-  %17 = load i32, ptr %16, align 4, !tbaa !7
-  %18 = load i32, ptr %15, align 4, !tbaa !7
+  %17 = load i32, ptr %16, align 4, !tbaa !6
+  %18 = load i32, ptr %15, align 4, !tbaa !6
   %19 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 117, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef %17, i32 noundef %18) #13
   %.not64 = icmp eq i32 %19, 0
   br i1 %.not64, label %20, label %22
@@ -176,7 +176,7 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
 22:                                               ; preds = %.preheader72
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 21
-  br i1 %exitcond96.not, label %.preheader71, label %.preheader72, !llvm.loop !11
+  br i1 %exitcond96.not, label %.preheader71, label %.preheader72, !llvm.loop !10
 
 .preheader71:                                     ; preds = %22, %28
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %28 ], [ 0, %22 ]
@@ -194,17 +194,17 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
 28:                                               ; preds = %.preheader71
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 21
-  br i1 %exitcond100.not, label %29, label %.preheader71, !llvm.loop !12
+  br i1 %exitcond100.not, label %29, label %.preheader71, !llvm.loop !11
 
 29:                                               ; preds = %28
-  store i32 1, ptr %1, align 4, !tbaa !7
+  store i32 1, ptr %1, align 4, !tbaa !6
   %30 = call ptr @OPENSSL_LH_retrieve(ptr noundef %3, ptr noundef nonnull %1) #13
   %31 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.5, i32 noundef 127, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef %30, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @int_tests, i64 8)) #13
   %.not53 = icmp eq i32 %31, 0
   br i1 %.not53, label %78, label %32
 
 32:                                               ; preds = %29
-  store i32 13, ptr %1, align 4, !tbaa !7
+  store i32 13, ptr %1, align 4, !tbaa !6
   %33 = call ptr @OPENSSL_LH_insert(ptr noundef %3, ptr noundef nonnull %1) #13
   %34 = call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 132, ptr noundef nonnull @.str.19, ptr noundef %33) #13
   %.not54 = icmp eq i32 %34, 0
@@ -223,9 +223,9 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
 
 40:                                               ; preds = %37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) @int_found, i8 0, i64 42, i1 false)
-  store i16 0, ptr @int_not_found, align 2, !tbaa !13
+  store i16 0, ptr @int_not_found, align 2, !tbaa !12
   call void @OPENSSL_LH_doall(ptr noundef %3, ptr noundef nonnull @int_doall) #13
-  %41 = load i16, ptr @int_not_found, align 2, !tbaa !13
+  %41 = load i16, ptr @int_not_found, align 2, !tbaa !12
   %42 = sext i16 %41 to i32
   %43 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 143, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %42, i32 noundef 0) #13
   %.not57 = icmp eq i32 %43, 0
@@ -238,7 +238,7 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
 .preheader70:                                     ; preds = %40, %51
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %51 ], [ 0, %40 ]
   %45 = getelementptr inbounds nuw [21 x i16], ptr @int_found, i64 0, i64 %indvars.iv101
-  %46 = load i16, ptr %45, align 2, !tbaa !13
+  %46 = load i16, ptr %45, align 2, !tbaa !12
   %47 = sext i16 %46 to i32
   %48 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 148, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef %47, i32 noundef 1) #13
   %.not62 = icmp eq i32 %48, 0
@@ -252,13 +252,13 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
 51:                                               ; preds = %.preheader70
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, 21
-  br i1 %exitcond104.not, label %52, label %.preheader70, !llvm.loop !15
+  br i1 %exitcond104.not, label %52, label %.preheader70, !llvm.loop !14
 
 52:                                               ; preds = %51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) @int_found, i8 0, i64 42, i1 false)
-  store i16 0, ptr @int_not_found, align 2, !tbaa !13
+  store i16 0, ptr @int_not_found, align 2, !tbaa !12
   call void @OPENSSL_LH_doall_arg_thunk(ptr noundef %3, ptr noundef nonnull @lh_int_doall_short_thunk, ptr noundef nonnull @int_doall_arg, ptr noundef nonnull @int_found) #13
-  %53 = load i16, ptr @int_not_found, align 2, !tbaa !13
+  %53 = load i16, ptr @int_not_found, align 2, !tbaa !12
   %54 = sext i16 %53 to i32
   %55 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 157, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %54, i32 noundef 0) #13
   %.not58 = icmp eq i32 %55, 0
@@ -271,7 +271,7 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
 .preheader69:                                     ; preds = %52, %63
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %63 ], [ 0, %52 ]
   %57 = getelementptr inbounds nuw [21 x i16], ptr @int_found, i64 0, i64 %indvars.iv105
-  %58 = load i16, ptr %57, align 2, !tbaa !13
+  %58 = load i16, ptr %57, align 2, !tbaa !12
   %59 = sext i16 %58 to i32
   %60 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 162, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef %59, i32 noundef 1) #13
   %.not61 = icmp eq i32 %60, 0
@@ -285,7 +285,7 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
 63:                                               ; preds = %.preheader69
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 21
-  br i1 %exitcond108.not, label %.preheader, label %.preheader69, !llvm.loop !16
+  br i1 %exitcond108.not, label %.preheader, label %.preheader69, !llvm.loop !15
 
 .preheader:                                       ; preds = %63, %74
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %74 ], [ 0, %63 ]
@@ -294,7 +294,7 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
   %66 = icmp eq ptr %65, null
   %67 = zext i1 %66 to i32
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %69 = load i32, ptr %68, align 4, !tbaa !17
+  %69 = load i32, ptr %68, align 4, !tbaa !16
   %70 = xor i32 %69, %67
   %71 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 170, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.25, i32 noundef %70, i32 noundef 0) #13
   %.not60 = icmp eq i32 %71, 0
@@ -308,7 +308,7 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
 74:                                               ; preds = %.preheader
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next110, 6
-  br i1 %exitcond112.not, label %75, label %.preheader, !llvm.loop !19
+  br i1 %exitcond112.not, label %75, label %.preheader, !llvm.loop !18
 
 75:                                               ; preds = %74
   %76 = call i32 @OPENSSL_LH_error(ptr noundef %3) #13
@@ -347,11 +347,11 @@ define internal range(i32 0, 2) i32 @test_stress() #0 {
 8:                                                ; preds = %.preheader31
   %9 = mul nuw nsw i32 %.02235, 3
   %10 = add nuw nsw i32 %9, 1
-  store i32 %10, ptr %5, align 4, !tbaa !7
+  store i32 %10, ptr %5, align 4, !tbaa !6
   %11 = tail call ptr @OPENSSL_LH_insert(ptr noundef %3, ptr noundef nonnull %5) #13
   %12 = add nuw nsw i32 %.02235, 1
   %exitcond.not = icmp eq i32 %12, 2500000
-  br i1 %exitcond.not, label %13, label %.preheader31, !llvm.loop !20
+  br i1 %exitcond.not, label %13, label %.preheader31, !llvm.loop !19
 
 13:                                               ; preds = %8
   %14 = tail call i64 @OPENSSL_LH_num_items(ptr noundef %3) #13
@@ -368,7 +368,7 @@ define internal range(i32 0, 2) i32 @test_stress() #0 {
   %19 = urem i32 %18, 2500000
   %20 = mul nuw nsw i32 %19, 3
   %21 = add nuw nsw i32 %20, 1
-  store i32 %21, ptr %1, align 4, !tbaa !7
+  store i32 %21, ptr %1, align 4, !tbaa !6
   %22 = call ptr @OPENSSL_LH_delete(ptr noundef %3, ptr noundef nonnull %1) #13
   %23 = call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 375, ptr noundef nonnull @.str.38, ptr noundef %22) #13
   %.not25 = icmp eq i32 %23, 0
@@ -379,8 +379,8 @@ define internal range(i32 0, 2) i32 @test_stress() #0 {
   br label %.thread
 
 25:                                               ; preds = %.preheader
-  %26 = load i32, ptr %22, align 4, !tbaa !7
-  %27 = load i32, ptr %1, align 4, !tbaa !7
+  %26 = load i32, ptr %22, align 4, !tbaa !6
+  %27 = load i32, ptr %1, align 4, !tbaa !6
   %28 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 379, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef %26, i32 noundef %27) #13
   %.not26 = icmp eq i32 %28, 0
   br i1 %.not26, label %29, label %30
@@ -398,7 +398,7 @@ define internal range(i32 0, 2) i32 @test_stress() #0 {
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #13
   %31 = add nuw nsw i32 %.136, 1
   %exitcond40.not = icmp eq i32 %31, 2500000
-  br i1 %exitcond40.not, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %exitcond40.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %30, %.thread, %13, %0, %7
   %.021 = phi i32 [ 0, %7 ], [ 0, %13 ], [ 0, %0 ], [ 0, %.thread ], [ 1, %30 ]
@@ -423,21 +423,21 @@ define internal range(i32 0, 2) i32 @test_int_hashtable() #0 {
 7:                                                ; preds = %0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %8, align 8
-  store i64 8, ptr %3, align 8, !tbaa !22
+  store i64 8, ptr %3, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %9, ptr %10, align 8, !tbaa !29
+  store ptr %9, ptr %10, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %12
 
 12:                                               ; preds = %7, %18
   %.02740 = phi i64 [ 0, %7 ], [ %19, %18 ]
   %13 = getelementptr inbounds nuw [21 x i32], ptr @int_tests, i64 0, i64 %.02740
-  %14 = load i32, ptr %13, align 4, !tbaa !7
-  store i32 %14, ptr %9, align 8, !tbaa !30
+  %14 = load i32, ptr %13, align 4, !tbaa !6
+  store i32 %14, ptr %9, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #13
-  store ptr %13, ptr %1, align 8, !tbaa !31
-  store ptr @test_int_id, ptr %11, align 8, !tbaa !34
+  store ptr %13, ptr %1, align 8, !tbaa !30
+  store ptr @test_int_id, ptr %11, align 8, !tbaa !33
   %15 = call i32 @ossl_ht_insert(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #13
   %16 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 253, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.28, i32 noundef %15, i32 noundef 1) #13
@@ -451,7 +451,7 @@ define internal range(i32 0, 2) i32 @test_int_hashtable() #0 {
 18:                                               ; preds = %12
   %19 = add nuw nsw i64 %.02740, 1
   %exitcond.not = icmp eq i64 %19, 21
-  br i1 %exitcond.not, label %20, label %12, !llvm.loop !35
+  br i1 %exitcond.not, label %20, label %12, !llvm.loop !34
 
 20:                                               ; preds = %18
   %21 = call i64 @ossl_ht_count(ptr noundef nonnull %5) #13
@@ -462,9 +462,9 @@ define internal range(i32 0, 2) i32 @test_int_hashtable() #0 {
 
 24:                                               ; preds = %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) @int_found, i8 0, i64 42, i1 false)
-  store i16 0, ptr @int_not_found, align 2, !tbaa !13
+  store i16 0, ptr @int_not_found, align 2, !tbaa !12
   call void @ossl_ht_foreach_until(ptr noundef nonnull %5, ptr noundef nonnull @int_foreach, ptr noundef null) #13
-  %25 = load i16, ptr @int_not_found, align 2, !tbaa !13
+  %25 = load i16, ptr @int_not_found, align 2, !tbaa !12
   %26 = sext i16 %25 to i32
   %27 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 267, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %26, i32 noundef 0) #13
   %.not30 = icmp eq i32 %27, 0
@@ -477,7 +477,7 @@ define internal range(i32 0, 2) i32 @test_int_hashtable() #0 {
 .preheader:                                       ; preds = %24, %34
   %.141 = phi i64 [ %35, %34 ], [ 0, %24 ]
   %29 = getelementptr inbounds nuw [21 x i16], ptr @int_found, i64 0, i64 %.141
-  %30 = load i16, ptr %29, align 2, !tbaa !13
+  %30 = load i16, ptr %29, align 2, !tbaa !12
   %31 = sext i16 %30 to i32
   %32 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 273, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef %31, i32 noundef 1) #13
   %.not35 = icmp eq i32 %32, 0
@@ -490,11 +490,11 @@ define internal range(i32 0, 2) i32 @test_int_hashtable() #0 {
 34:                                               ; preds = %.preheader
   %35 = add nuw nsw i64 %.141, 1
   %exitcond47.not = icmp eq i64 %35, 21
-  br i1 %exitcond47.not, label %36, label %.preheader, !llvm.loop !36
+  br i1 %exitcond47.not, label %36, label %.preheader, !llvm.loop !35
 
 36:                                               ; preds = %34
   %37 = call ptr @ossl_ht_filter(ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull @int_filter_all, ptr noundef null) #13
-  %38 = load i64, ptr %37, align 8, !tbaa !37
+  %38 = load i64, ptr %37, align 8, !tbaa !36
   %39 = trunc i64 %38 to i32
   %40 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 280, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.10, i32 noundef %39, i32 noundef 21) #13
   %.not31 = icmp eq i32 %40, 0
@@ -507,11 +507,11 @@ define internal range(i32 0, 2) i32 @test_int_hashtable() #0 {
 42:                                               ; preds = %41, %54
   %.242 = phi i64 [ 0, %41 ], [ %55, %54 ]
   %43 = getelementptr inbounds nuw [6 x %struct.anon.0], ptr @test_int_hashtable.dels, i64 0, i64 %.242
-  %44 = load i32, ptr %43, align 8, !tbaa !40
-  store i32 %44, ptr %9, align 8, !tbaa !30
+  %44 = load i32, ptr %43, align 8, !tbaa !39
+  store i32 %44, ptr %9, align 8, !tbaa !29
   %45 = call i32 @ossl_ht_delete(ptr noundef nonnull %5, ptr noundef nonnull %3) #13
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !17
+  %47 = load i32, ptr %46, align 4, !tbaa !16
   %.not32 = icmp eq i32 %47, 0
   br i1 %.not32, label %51, label %48
 
@@ -536,7 +536,7 @@ define internal range(i32 0, 2) i32 @test_int_hashtable() #0 {
 54:                                               ; preds = %48, %51
   %55 = add nuw nsw i64 %.242, 1
   %exitcond48.not = icmp eq i64 %55, 6
-  br i1 %exitcond48.not, label %.loopexit, label %42, !llvm.loop !41
+  br i1 %exitcond48.not, label %.loopexit, label %42, !llvm.loop !40
 
 .loopexit:                                        ; preds = %54, %36, %20, %53, %50, %33, %28, %17
   %.028 = phi i32 [ 0, %17 ], [ 0, %33 ], [ 0, %50 ], [ 0, %53 ], [ 0, %36 ], [ 0, %28 ], [ 0, %20 ], [ 1, %54 ]
@@ -562,7 +562,7 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) @__const.test_hashtable_stress.hash_conf, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 %0, ptr %6, align 4, !tbaa !42
+  store i32 %0, ptr %6, align 4, !tbaa !41
   %7 = call ptr @ossl_ht_new(ptr noundef nonnull %4) #13
   %8 = call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 426, ptr noundef nonnull @.str.6, ptr noundef %7) #13
   %.not = icmp eq i32 %8, 0
@@ -571,10 +571,10 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %10, align 8
-  store i64 8, ptr %5, align 8, !tbaa !22
+  store i64 8, ptr %5, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %11, ptr %12, align 8, !tbaa !29
+  store ptr %11, ptr %12, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %14
 
@@ -592,11 +592,11 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
 18:                                               ; preds = %14
   %19 = mul nuw nsw i32 %.02844, 3
   %20 = add nuw nsw i32 %19, 1
-  store i32 %20, ptr %15, align 4, !tbaa !7
-  store i32 %20, ptr %11, align 8, !tbaa !30
+  store i32 %20, ptr %15, align 4, !tbaa !6
+  store i32 %20, ptr %11, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
-  store ptr %15, ptr %3, align 8, !tbaa !31
-  store ptr @test_int_id, ptr %13, align 8, !tbaa !34
+  store ptr %15, ptr %3, align 8, !tbaa !30
+  store ptr @test_int_id, ptr %13, align 8, !tbaa !33
   %21 = call i32 @ossl_ht_insert(ptr noundef %7, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef null) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
   %22 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 444, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.28, i32 noundef %21, i32 noundef 1) #13
@@ -604,14 +604,14 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
   br i1 %.not35, label %23, label %25
 
 23:                                               ; preds = %18
-  %24 = load i32, ptr %15, align 4, !tbaa !7
+  %24 = load i32, ptr %15, align 4, !tbaa !6
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 445, ptr noundef nonnull @.str.54, i32 noundef %24) #13
   br label %.loopexit
 
 25:                                               ; preds = %18
   %26 = add nuw nsw i32 %.02844, 1
   %exitcond.not = icmp eq i32 %26, 2500000
-  br i1 %exitcond.not, label %27, label %14, !llvm.loop !45
+  br i1 %exitcond.not, label %27, label %14, !llvm.loop !44
 
 27:                                               ; preds = %25
   %28 = call i64 @ossl_ht_count(ptr noundef %7) #13
@@ -627,7 +627,7 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
   ]
 
 .preheader.split.preheader:                       ; preds = %.preheader
-  store i32 7499992, ptr %11, align 8, !tbaa !30
+  store i32 7499992, ptr %11, align 8, !tbaa !29
   br label %.loopexit
 
 .preheader.split.us:                              ; preds = %.preheader, %38
@@ -637,7 +637,7 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
   %33 = urem i32 %32, 2500000
   %34 = mul nuw nsw i32 %33, 3
   %35 = add nuw nsw i32 %34, 1
-  store i32 %35, ptr %11, align 8, !tbaa !30
+  store i32 %35, ptr %11, align 8, !tbaa !29
   %36 = call i32 @ossl_ht_delete(ptr noundef %7, ptr noundef nonnull %5) #13
   %37 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 461, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.28, i32 noundef %36, i32 noundef 1) #13
   %.not33.us = icmp eq i32 %37, 0
@@ -646,7 +646,7 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
 38:                                               ; preds = %.preheader.split.us
   %39 = add nuw nsw i32 %.145.us, 1
   %exitcond63.not = icmp eq i32 %39, 2500000
-  br i1 %exitcond63.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !46
+  br i1 %exitcond63.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !45
 
 .preheader.split.us46:                            ; preds = %.preheader, %59
   %.145.us47 = phi i32 [ %60, %59 ], [ 0, %.preheader ]
@@ -655,10 +655,10 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
   %42 = urem i32 %41, 2500000
   %43 = mul nuw nsw i32 %42, 3
   %44 = add nuw nsw i32 %43, 1
-  store i32 %44, ptr %11, align 8, !tbaa !30
+  store i32 %44, ptr %11, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   %45 = call ptr @ossl_ht_get(ptr noundef %7, ptr noundef nonnull %5) #13
-  store ptr %45, ptr %2, align 8, !tbaa !48
+  store ptr %45, ptr %2, align 8, !tbaa !47
   %46 = icmp eq ptr %45, null
   br i1 %46, label %ossl_ht_test_int_get.exit.us, label %47
 
@@ -669,12 +669,12 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !34
+  %52 = load ptr, ptr %51, align 8, !tbaa !33
   %.not.i.i.us = icmp eq ptr %52, @test_int_id
   br i1 %.not.i.i.us, label %53, label %ossl_ht_test_int_get.exit.us
 
 53:                                               ; preds = %50
-  %54 = load ptr, ptr %48, align 8, !tbaa !31
+  %54 = load ptr, ptr %48, align 8, !tbaa !30
   br label %ossl_ht_test_int_get.exit.us
 
 ossl_ht_test_int_get.exit.us:                     ; preds = %53, %50, %47, %.preheader.split.us46
@@ -685,7 +685,7 @@ ossl_ht_test_int_get.exit.us:                     ; preds = %53, %50, %47, %.pre
   br i1 %.not31.us, label %.split49.us, label %56
 
 56:                                               ; preds = %ossl_ht_test_int_get.exit.us
-  %57 = load i32, ptr %.0.i.us, align 4, !tbaa !7
+  %57 = load i32, ptr %.0.i.us, align 4, !tbaa !6
   %58 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 468, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef %57, i32 noundef %44) #13
   %.not32.us = icmp eq i32 %58, 0
   br i1 %.not32.us, label %.split49.us, label %59
@@ -693,7 +693,7 @@ ossl_ht_test_int_get.exit.us:                     ; preds = %53, %50, %47, %.pre
 59:                                               ; preds = %56
   %60 = add nuw nsw i32 %.145.us47, 1
   %exitcond62.not = icmp eq i32 %60, 2500000
-  br i1 %exitcond62.not, label %.loopexit, label %.preheader.split.us46, !llvm.loop !50
+  br i1 %exitcond62.not, label %.loopexit, label %.preheader.split.us46, !llvm.loop !49
 
 .split.us:                                        ; preds = %.preheader.split.us
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 462, ptr noundef nonnull @.str.57, i32 noundef %35) #13
@@ -722,21 +722,21 @@ define internal range(i32 0, 2) i32 @test_hashtable_multithread() #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) @test_mt_entries, i8 0, i64 2048, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %2, i8 0, i64 128, i1 false)
   %3 = call ptr @ossl_ht_new(ptr noundef nonnull %1) #13
-  store ptr %3, ptr @m_ht, align 8, !tbaa !51
+  store ptr %3, ptr @m_ht, align 8, !tbaa !50
   %4 = call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 667, ptr noundef nonnull @.str.60, ptr noundef %3) #13
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %31, label %5
 
 5:                                                ; preds = %0
   %6 = call ptr @CRYPTO_THREAD_lock_new() #13
-  store ptr %6, ptr @worker_lock, align 8, !tbaa !53
+  store ptr %6, ptr @worker_lock, align 8, !tbaa !52
   %7 = call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 670, ptr noundef nonnull @.str.61, ptr noundef %6) #13
   %.not17 = icmp eq i32 %7, 0
   br i1 %.not17, label %27, label %8
 
 8:                                                ; preds = %5
   %9 = call ptr @CRYPTO_THREAD_lock_new() #13
-  store ptr %9, ptr @testrand_lock, align 8, !tbaa !53
+  store ptr %9, ptr @testrand_lock, align 8, !tbaa !52
   %10 = call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 672, ptr noundef nonnull @.str.62, ptr noundef %9) #13
   %.not18 = icmp eq i32 %10, 0
   br i1 %.not18, label %27, label %.preheader22
@@ -751,7 +751,7 @@ define internal range(i32 0, 2) i32 @test_hashtable_multithread() #0 {
 13:                                               ; preds = %.preheader22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.lr.ph.preheader, label %.preheader22, !llvm.loop !54
+  br i1 %exitcond.not, label %.lr.ph.preheader, label %.preheader22, !llvm.loop !53
 
 14:                                               ; preds = %.preheader22
   %.not38 = icmp eq i64 %indvars.iv, 0
@@ -766,10 +766,10 @@ define internal range(i32 0, 2) i32 @test_hashtable_multithread() #0 {
   %indvars.iv28 = phi i64 [ %15, %.lr.ph.preheader ], [ %indvars.iv.next29, %.lr.ph ]
   %indvars.iv.next29 = add nsw i64 %indvars.iv28, -1
   %16 = getelementptr inbounds nuw [16 x i64], ptr %2, i64 0, i64 %indvars.iv.next29
-  %17 = load i64, ptr %16, align 8, !tbaa !55
+  %17 = load i64, ptr %16, align 8, !tbaa !54
   %18 = call i32 @pthread_join(i64 noundef %17, ptr noundef null) #13
   %19 = icmp samesign ugt i64 %indvars.iv28, 1
-  br i1 %19, label %.lr.ph, label %.preheader.preheader, !llvm.loop !56
+  br i1 %19, label %.lr.ph, label %.preheader.preheader, !llvm.loop !55
 
 .preheader.preheader:                             ; preds = %.lr.ph, %14
   br label %.preheader
@@ -778,7 +778,7 @@ define internal range(i32 0, 2) i32 @test_hashtable_multithread() #0 {
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %24 ], [ 0, %.preheader.preheader ]
   %.21525 = phi i32 [ %.3, %24 ], [ 1, %.preheader.preheader ]
   %20 = getelementptr inbounds nuw [16 x ptr], ptr @worker_exits, i64 0, i64 %indvars.iv31
-  %21 = load ptr, ptr %20, align 8, !tbaa !57
+  %21 = load ptr, ptr %20, align 8, !tbaa !56
   %.not20 = icmp eq ptr %21, null
   br i1 %.not20, label %24, label %22
 
@@ -791,7 +791,7 @@ define internal range(i32 0, 2) i32 @test_hashtable_multithread() #0 {
   %.3 = phi i32 [ 0, %22 ], [ %.21525, %.preheader ]
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, 16
-  br i1 %exitcond34.not, label %25, label %.preheader, !llvm.loop !58
+  br i1 %exitcond34.not, label %25, label %.preheader, !llvm.loop !57
 
 25:                                               ; preds = %24
   %.b = load i1, ptr @free_failure, align 4
@@ -804,11 +804,11 @@ define internal range(i32 0, 2) i32 @test_hashtable_multithread() #0 {
 27:                                               ; preds = %25, %26, %8, %5
   %.114 = phi i32 [ 0, %26 ], [ %.3, %25 ], [ 0, %8 ], [ 0, %5 ]
   store i1 true, ptr @shutting_down, align 4
-  %28 = load ptr, ptr @worker_lock, align 8, !tbaa !53
+  %28 = load ptr, ptr @worker_lock, align 8, !tbaa !52
   call void @CRYPTO_THREAD_lock_free(ptr noundef %28) #13
-  %29 = load ptr, ptr @testrand_lock, align 8, !tbaa !53
+  %29 = load ptr, ptr @testrand_lock, align 8, !tbaa !52
   call void @CRYPTO_THREAD_lock_free(ptr noundef %29) #13
-  %30 = load ptr, ptr @m_ht, align 8, !tbaa !51
+  %30 = load ptr, ptr @m_ht, align 8, !tbaa !50
   call void @ossl_ht_free(ptr noundef %30) #13
   br label %31
 
@@ -824,7 +824,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i64 0, 4) i64 @int_hash(ptr noundef readonly captures(none) %0) #3 {
-  %2 = load i32, ptr %0, align 4, !tbaa !7
+  %2 = load i32, ptr %0, align 4, !tbaa !6
   %3 = and i32 %2, 3
   %4 = zext nneg i32 %3 to i64
   ret i64 %4
@@ -832,8 +832,8 @@ define internal range(i64 0, 4) i64 @int_hash(ptr noundef readonly captures(none
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @int_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
-  %3 = load i32, ptr %0, align 4, !tbaa !7
-  %4 = load i32, ptr %1, align 4, !tbaa !7
+  %3 = load i32, ptr %0, align 4, !tbaa !6
+  %4 = load i32, ptr %1, align 4, !tbaa !6
   %5 = icmp ne i32 %3, %4
   %6 = zext i1 %5 to i32
   ret i32 %6
@@ -854,33 +854,33 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define internal void @int_doall(ptr noundef readonly captures(none) %0) #5 {
-  %2 = load i32, ptr %0, align 4, !tbaa !7
+  %2 = load i32, ptr %0, align 4, !tbaa !6
   br label %3
 
 3:                                                ; preds = %7, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %7 ]
   %4 = getelementptr inbounds nuw [21 x i32], ptr @int_tests, i64 0, i64 %indvars.iv.i
-  %5 = load i32, ptr %4, align 4, !tbaa !7
+  %5 = load i32, ptr %4, align 4, !tbaa !6
   %6 = icmp eq i32 %5, %2
   br i1 %6, label %int_find.exit, label %7
 
 7:                                                ; preds = %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 21
-  br i1 %exitcond.not.i, label %int_find.exit.thread, label %3, !llvm.loop !59
+  br i1 %exitcond.not.i, label %int_find.exit.thread, label %3, !llvm.loop !58
 
 int_find.exit.thread:                             ; preds = %7
-  %8 = load i16, ptr @int_not_found, align 2, !tbaa !13
+  %8 = load i16, ptr @int_not_found, align 2, !tbaa !12
   %9 = add i16 %8, 1
-  store i16 %9, ptr @int_not_found, align 2, !tbaa !13
+  store i16 %9, ptr @int_not_found, align 2, !tbaa !12
   br label %14
 
 int_find.exit:                                    ; preds = %3
   %10 = and i64 %indvars.iv.i, 4294967295
   %11 = getelementptr inbounds nuw [21 x i16], ptr @int_found, i64 0, i64 %10
-  %12 = load i16, ptr %11, align 2, !tbaa !13
+  %12 = load i16, ptr %11, align 2, !tbaa !12
   %13 = add i16 %12, 1
-  store i16 %13, ptr %11, align 2, !tbaa !13
+  store i16 %13, ptr %11, align 2, !tbaa !12
   br label %14
 
 14:                                               ; preds = %int_find.exit, %int_find.exit.thread
@@ -889,33 +889,33 @@ int_find.exit:                                    ; preds = %3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @int_doall_arg(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #6 {
-  %3 = load i32, ptr %0, align 4, !tbaa !7
+  %3 = load i32, ptr %0, align 4, !tbaa !6
   br label %4
 
 4:                                                ; preds = %8, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %8 ]
   %5 = getelementptr inbounds nuw [21 x i32], ptr @int_tests, i64 0, i64 %indvars.iv.i
-  %6 = load i32, ptr %5, align 4, !tbaa !7
+  %6 = load i32, ptr %5, align 4, !tbaa !6
   %7 = icmp eq i32 %6, %3
   br i1 %7, label %int_find.exit, label %8
 
 8:                                                ; preds = %4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 21
-  br i1 %exitcond.not.i, label %int_find.exit.thread, label %4, !llvm.loop !59
+  br i1 %exitcond.not.i, label %int_find.exit.thread, label %4, !llvm.loop !58
 
 int_find.exit.thread:                             ; preds = %8
-  %9 = load i16, ptr @int_not_found, align 2, !tbaa !13
+  %9 = load i16, ptr @int_not_found, align 2, !tbaa !12
   %10 = add i16 %9, 1
-  store i16 %10, ptr @int_not_found, align 2, !tbaa !13
+  store i16 %10, ptr @int_not_found, align 2, !tbaa !12
   br label %15
 
 int_find.exit:                                    ; preds = %4
   %11 = and i64 %indvars.iv.i, 4294967295
   %12 = getelementptr inbounds nuw i16, ptr %1, i64 %11
-  %13 = load i16, ptr %12, align 2, !tbaa !13
+  %13 = load i16, ptr %12, align 2, !tbaa !12
   %14 = add i16 %13, 1
-  store i16 %14, ptr %12, align 2, !tbaa !13
+  store i16 %14, ptr %12, align 2, !tbaa !12
   br label %15
 
 15:                                               ; preds = %int_find.exit, %int_find.exit.thread
@@ -977,7 +977,7 @@ declare void @OPENSSL_LH_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i64 -2147483648, 2147483648) i64 @stress_hash(ptr noundef readonly captures(none) %0) #3 {
-  %2 = load i32, ptr %0, align 4, !tbaa !7
+  %2 = load i32, ptr %0, align 4, !tbaa !6
   %3 = sext i32 %2 to i64
   ret i64 %3
 }
@@ -998,37 +998,37 @@ ossl_ht_test_int_from_value.exit:
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
   %.not.i = icmp eq ptr %4, @test_int_id
   tail call void @llvm.assume(i1 %.not.i)
-  %5 = load ptr, ptr %0, align 8, !tbaa !31
-  %6 = load i32, ptr %5, align 4, !tbaa !7
+  %5 = load ptr, ptr %0, align 8, !tbaa !30
+  %6 = load i32, ptr %5, align 4, !tbaa !6
   br label %7
 
 7:                                                ; preds = %11, %ossl_ht_test_int_from_value.exit
   %indvars.iv.i = phi i64 [ 0, %ossl_ht_test_int_from_value.exit ], [ %indvars.iv.next.i, %11 ]
   %8 = getelementptr inbounds nuw [21 x i32], ptr @int_tests, i64 0, i64 %indvars.iv.i
-  %9 = load i32, ptr %8, align 4, !tbaa !7
+  %9 = load i32, ptr %8, align 4, !tbaa !6
   %10 = icmp eq i32 %9, %6
   br i1 %10, label %int_find.exit, label %11
 
 11:                                               ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 21
-  br i1 %exitcond.not.i, label %int_find.exit.thread, label %7, !llvm.loop !59
+  br i1 %exitcond.not.i, label %int_find.exit.thread, label %7, !llvm.loop !58
 
 int_find.exit.thread:                             ; preds = %11
-  %12 = load i16, ptr @int_not_found, align 2, !tbaa !13
+  %12 = load i16, ptr @int_not_found, align 2, !tbaa !12
   %13 = add i16 %12, 1
-  store i16 %13, ptr @int_not_found, align 2, !tbaa !13
+  store i16 %13, ptr @int_not_found, align 2, !tbaa !12
   br label %18
 
 int_find.exit:                                    ; preds = %7
   %14 = and i64 %indvars.iv.i, 4294967295
   %15 = getelementptr inbounds nuw [21 x i16], ptr @int_found, i64 0, i64 %14
-  %16 = load i16, ptr %15, align 2, !tbaa !13
+  %16 = load i16, ptr %15, align 2, !tbaa !12
   %17 = add i16 %16, 1
-  store i16 %17, ptr %15, align 2, !tbaa !13
+  store i16 %17, ptr %15, align 2, !tbaa !12
   br label %18
 
 18:                                               ; preds = %int_find.exit, %int_find.exit.thread
@@ -1052,14 +1052,14 @@ declare i32 @ossl_ht_insert(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: nounwind uwtable
 define internal void @hashtable_intfree(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !31
+  %2 = load ptr, ptr %0, align 8, !tbaa !30
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.5, i32 noundef 399) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i64 0, 4294967296) i64 @hashtable_hash(ptr noundef readonly captures(none) %0, i64 %1) #3 {
-  %3 = load i32, ptr %0, align 4, !tbaa !7
+  %3 = load i32, ptr %0, align 4, !tbaa !6
   %4 = zext i32 %3 to i64
   ret i64 %4
 }
@@ -1079,20 +1079,20 @@ ossl_ht_mt_TEST_MT_ENTRY_from_value.exit:
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !34
+  %5 = load ptr, ptr %4, align 8, !tbaa !33
   %.not.i = icmp eq ptr %5, @mt_TEST_MT_ENTRY_id
   tail call void @llvm.assume(i1 %.not.i)
-  %6 = load ptr, ptr %0, align 8, !tbaa !31
+  %6 = load ptr, ptr %0, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %8 = load ptr, ptr @worker_lock, align 8, !tbaa !53
+  %8 = load ptr, ptr @worker_lock, align 8, !tbaa !52
   %9 = call i32 @CRYPTO_atomic_load_int(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef %8) #13
   %.b = load i1, ptr @shutting_down, align 4
   br i1 %.b, label %17, label %10
 
 10:                                               ; preds = %ossl_ht_mt_TEST_MT_ENTRY_from_value.exit
-  %11 = load i32, ptr %1, align 4, !tbaa !7
+  %11 = load i32, ptr %1, align 4, !tbaa !6
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %14
 
@@ -1102,7 +1102,7 @@ ossl_ht_mt_TEST_MT_ENTRY_from_value.exit:
   br label %17
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr @worker_lock, align 8, !tbaa !53
+  %15 = load ptr, ptr @worker_lock, align 8, !tbaa !52
   %16 = call i32 @CRYPTO_atomic_add(ptr noundef nonnull %7, i32 noundef -1, ptr noundef nonnull %2, ptr noundef %15) #13
   br label %17
 
@@ -1129,23 +1129,23 @@ define internal void @do_mt_hash_work() #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
-  %9 = load ptr, ptr @worker_lock, align 8, !tbaa !53
+  %9 = load ptr, ptr @worker_lock, align 8, !tbaa !52
   %10 = call i32 @CRYPTO_atomic_add(ptr noundef nonnull @worker_num, i32 noundef 1, ptr noundef nonnull %5, ptr noundef %9) #13
-  %11 = load i32, ptr %5, align 4, !tbaa !7
+  %11 = load i32, ptr %5, align 4, !tbaa !6
   %12 = add nsw i32 %11, -1
-  store i32 %12, ptr %5, align 4, !tbaa !7
+  store i32 %12, ptr %5, align 4, !tbaa !6
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %13, align 8
-  store i64 8, ptr %4, align 8, !tbaa !60
+  store i64 8, ptr %4, align 8, !tbaa !59
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !62
+  store ptr %14, ptr %15, align 8, !tbaa !61
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %17
 
 17:                                               ; preds = %0, %117
   %.046 = phi i64 [ 0, %0 ], [ %118, %117 ]
-  %18 = load ptr, ptr @testrand_lock, align 8, !tbaa !53
+  %18 = load ptr, ptr @testrand_lock, align 8, !tbaa !52
   %19 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %18) #13
   %20 = icmp ne i32 %19, 0
   %21 = zext i1 %20 to i32
@@ -1157,24 +1157,24 @@ define internal void @do_mt_hash_work() #0 {
   %24 = call i32 @test_random() #13
   %25 = and i32 %24, 255
   %26 = call i32 @test_random() #13
-  %27 = load ptr, ptr @testrand_lock, align 8, !tbaa !53
+  %27 = load ptr, ptr @testrand_lock, align 8, !tbaa !52
   %28 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %27) #13
   %29 = zext nneg i32 %25 to i64
   %30 = getelementptr inbounds nuw [256 x %struct.test_mt_entry], ptr @test_mt_entries, i64 0, i64 %29
-  %31 = load ptr, ptr %15, align 8, !tbaa !62
-  %32 = load i64, ptr %4, align 8, !tbaa !60
+  %31 = load ptr, ptr %15, align 8, !tbaa !61
+  %32 = load i64, ptr %4, align 8, !tbaa !59
   call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false)
-  store i32 %25, ptr %14, align 8, !tbaa !63
-  %33 = load ptr, ptr @worker_lock, align 8, !tbaa !53
+  store i32 %25, ptr %14, align 8, !tbaa !62
+  %33 = load ptr, ptr @worker_lock, align 8, !tbaa !52
   %34 = call i32 @CRYPTO_atomic_add(ptr noundef nonnull @global_iteration, i32 noundef 1, ptr noundef nonnull %8, ptr noundef %33) #13
   %.not30 = icmp eq i32 %34, 0
   br i1 %.not30, label %35, label %39
 
 35:                                               ; preds = %23
-  %36 = load i32, ptr %5, align 4, !tbaa !7
+  %36 = load i32, ptr %5, align 4, !tbaa !6
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds [16 x ptr], ptr @worker_exits, i64 0, i64 %37
-  store ptr @.str.67, ptr %38, align 8, !tbaa !57
+  store ptr @.str.67, ptr %38, align 8, !tbaa !56
   br label %.loopexit
 
 39:                                               ; preds = %23
@@ -1187,12 +1187,12 @@ define internal void @do_mt_hash_work() #0 {
   ]
 
 41:                                               ; preds = %39
-  %42 = load ptr, ptr @m_ht, align 8, !tbaa !51
+  %42 = load ptr, ptr @m_ht, align 8, !tbaa !50
   call void @ossl_ht_read_lock(ptr noundef %42) #13
-  %43 = load ptr, ptr @m_ht, align 8, !tbaa !51
+  %43 = load ptr, ptr @m_ht, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   %44 = call ptr @ossl_ht_get(ptr noundef %43, ptr noundef nonnull %4) #13
-  store ptr %44, ptr %3, align 8, !tbaa !48
+  store ptr %44, ptr %3, align 8, !tbaa !47
   %45 = icmp eq ptr %44, null
   br i1 %45, label %ossl_ht_mt_TEST_MT_ENTRY_get.exit.thread, label %46
 
@@ -1203,7 +1203,7 @@ define internal void @do_mt_hash_work() #0 {
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !34
+  %51 = load ptr, ptr %50, align 8, !tbaa !33
   %.not.i.i = icmp eq ptr %51, @mt_TEST_MT_ENTRY_id
   br i1 %.not.i.i, label %ossl_ht_mt_TEST_MT_ENTRY_get.exit, label %ossl_ht_mt_TEST_MT_ENTRY_get.exit.thread
 
@@ -1212,7 +1212,7 @@ ossl_ht_mt_TEST_MT_ENTRY_get.exit.thread:         ; preds = %41, %46, %49
   br label %58
 
 ossl_ht_mt_TEST_MT_ENTRY_get.exit:                ; preds = %49
-  %52 = load ptr, ptr %47, align 8, !tbaa !31
+  %52 = load ptr, ptr %47, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   %.not39 = icmp eq ptr %52, null
   %.not40 = icmp eq ptr %52, %30
@@ -1220,32 +1220,32 @@ ossl_ht_mt_TEST_MT_ENTRY_get.exit:                ; preds = %49
   br i1 %or.cond, label %58, label %53
 
 53:                                               ; preds = %ossl_ht_mt_TEST_MT_ENTRY_get.exit
-  %54 = load i32, ptr %5, align 4, !tbaa !7
+  %54 = load i32, ptr %5, align 4, !tbaa !6
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds [16 x ptr], ptr @worker_exits, i64 0, i64 %55
-  store ptr @.str.68, ptr %56, align 8, !tbaa !57
-  %57 = load i32, ptr %8, align 4, !tbaa !7
+  store ptr @.str.68, ptr %56, align 8, !tbaa !56
+  %57 = load i32, ptr %8, align 4, !tbaa !6
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 581, ptr noundef nonnull @.str.69, i32 noundef %57, ptr noundef nonnull %52, ptr noundef nonnull %30) #13
   br label %58
 
 58:                                               ; preds = %ossl_ht_mt_TEST_MT_ENTRY_get.exit.thread, %53, %ossl_ht_mt_TEST_MT_ENTRY_get.exit
-  %59 = load ptr, ptr @m_ht, align 8, !tbaa !51
+  %59 = load ptr, ptr @m_ht, align 8, !tbaa !50
   call void @ossl_ht_read_unlock(ptr noundef %59) #13
-  %60 = load i32, ptr %5, align 4, !tbaa !7
+  %60 = load i32, ptr %5, align 4, !tbaa !6
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds [16 x ptr], ptr @worker_exits, i64 0, i64 %61
-  %63 = load ptr, ptr %62, align 8, !tbaa !57
+  %63 = load ptr, ptr %62, align 8, !tbaa !56
   %.not41 = icmp eq ptr %63, null
   br i1 %.not41, label %117, label %.loopexit
 
 64:                                               ; preds = %39, %39
-  %65 = load ptr, ptr @m_ht, align 8, !tbaa !51
+  %65 = load ptr, ptr @m_ht, align 8, !tbaa !50
   call void @ossl_ht_write_lock(ptr noundef %65) #13
   %66 = icmp eq i32 %40, 2
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %64
-  %68 = load i32, ptr %30, align 8, !tbaa !64
+  %68 = load i32, ptr %30, align 8, !tbaa !63
   %.not34 = icmp eq i32 %68, 0
   %69 = zext i1 %.not34 to i32
   br label %70
@@ -1253,22 +1253,22 @@ ossl_ht_mt_TEST_MT_ENTRY_get.exit:                ; preds = %49
 70:                                               ; preds = %64, %67
   %.026 = phi ptr [ null, %67 ], [ %6, %64 ]
   %.025 = phi i32 [ %69, %67 ], [ 1, %64 ]
-  %71 = load ptr, ptr @m_ht, align 8, !tbaa !51
+  %71 = load ptr, ptr @m_ht, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
-  store ptr null, ptr %2, align 8, !tbaa !48
-  store ptr %30, ptr %1, align 8, !tbaa !31
-  store ptr @mt_TEST_MT_ENTRY_id, ptr %16, align 8, !tbaa !34
+  store ptr null, ptr %2, align 8, !tbaa !47
+  store ptr %30, ptr %1, align 8, !tbaa !30
+  store ptr @mt_TEST_MT_ENTRY_id, ptr %16, align 8, !tbaa !33
   %72 = icmp eq ptr %.026, null
   %..i = select i1 %72, ptr null, ptr %2
   %73 = call i32 @ossl_ht_insert(ptr noundef %71, ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef %..i) #13
-  %74 = load ptr, ptr %2, align 8, !tbaa !48
+  %74 = load ptr, ptr %2, align 8, !tbaa !47
   %.not.i = icmp eq ptr %74, null
   br i1 %.not.i, label %ossl_ht_mt_TEST_MT_ENTRY_insert.exit, label %75
 
 75:                                               ; preds = %70
-  %76 = load ptr, ptr %74, align 8, !tbaa !31
-  store ptr %76, ptr %.026, align 8, !tbaa !66
+  %76 = load ptr, ptr %74, align 8, !tbaa !30
+  store ptr %76, ptr %.026, align 8, !tbaa !65
   br label %ossl_ht_mt_TEST_MT_ENTRY_insert.exit
 
 ossl_ht_mt_TEST_MT_ENTRY_insert.exit:             ; preds = %70, %75
@@ -1278,16 +1278,16 @@ ossl_ht_mt_TEST_MT_ENTRY_insert.exit:             ; preds = %70, %75
   br i1 %.not35, label %85, label %77
 
 77:                                               ; preds = %ossl_ht_mt_TEST_MT_ENTRY_insert.exit
-  %78 = load i32, ptr %8, align 4, !tbaa !7
+  %78 = load i32, ptr %8, align 4, !tbaa !6
   %79 = select i1 %66, ptr @.str.71, ptr @.str.72
-  %80 = load i32, ptr %30, align 8, !tbaa !64
+  %80 = load i32, ptr %30, align 8, !tbaa !63
   %.not36 = icmp eq i32 %80, 0
   %81 = select i1 %.not36, ptr @.str.74, ptr @.str.73
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 604, ptr noundef nonnull @.str.70, i32 noundef %78, i32 noundef %.025, ptr noundef nonnull %79, i32 noundef %25, ptr noundef nonnull %81) #13
-  %82 = load i32, ptr %5, align 4, !tbaa !7
+  %82 = load i32, ptr %5, align 4, !tbaa !6
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds [16 x ptr], ptr @worker_exits, i64 0, i64 %83
-  store ptr @.str.75, ptr %84, align 8, !tbaa !57
+  store ptr @.str.75, ptr %84, align 8, !tbaa !56
   br label %85
 
 85:                                               ; preds = %77, %ossl_ht_mt_TEST_MT_ENTRY_insert.exit
@@ -1295,58 +1295,58 @@ ossl_ht_mt_TEST_MT_ENTRY_insert.exit:             ; preds = %70, %75
   br i1 %.not37, label %87, label %86
 
 86:                                               ; preds = %85
-  store i32 1, ptr %30, align 8, !tbaa !64
+  store i32 1, ptr %30, align 8, !tbaa !63
   br label %87
 
 87:                                               ; preds = %86, %85
-  %88 = load ptr, ptr @m_ht, align 8, !tbaa !51
+  %88 = load ptr, ptr @m_ht, align 8, !tbaa !50
   call void @ossl_ht_write_unlock(ptr noundef %88) #13
-  %89 = load i32, ptr %5, align 4, !tbaa !7
+  %89 = load i32, ptr %5, align 4, !tbaa !6
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds [16 x ptr], ptr @worker_exits, i64 0, i64 %90
-  %92 = load ptr, ptr %91, align 8, !tbaa !57
+  %92 = load ptr, ptr %91, align 8, !tbaa !56
   %.not38 = icmp eq ptr %92, null
   br i1 %.not38, label %117, label %.loopexit
 
 93:                                               ; preds = %39
-  %94 = load ptr, ptr @m_ht, align 8, !tbaa !51
+  %94 = load ptr, ptr @m_ht, align 8, !tbaa !50
   call void @ossl_ht_write_lock(ptr noundef %94) #13
-  %95 = load i32, ptr %30, align 8, !tbaa !64
+  %95 = load i32, ptr %30, align 8, !tbaa !63
   %96 = icmp eq i32 %95, 1
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %93
-  store i32 0, ptr %30, align 8, !tbaa !64
+  store i32 0, ptr %30, align 8, !tbaa !63
   %98 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %99 = load ptr, ptr @worker_lock, align 8, !tbaa !53
+  %99 = load ptr, ptr @worker_lock, align 8, !tbaa !52
   %100 = call i32 @CRYPTO_atomic_add(ptr noundef nonnull %98, i32 noundef 1, ptr noundef nonnull %7, ptr noundef %99) #13
   br label %101
 
 101:                                              ; preds = %97, %93
-  %102 = load ptr, ptr @m_ht, align 8, !tbaa !51
+  %102 = load ptr, ptr @m_ht, align 8, !tbaa !50
   %103 = call i32 @ossl_ht_delete(ptr noundef %102, ptr noundef nonnull %4) #13
   %.not31 = icmp eq i32 %95, %103
   br i1 %.not31, label %111, label %104
 
 104:                                              ; preds = %101
-  %105 = load i32, ptr %8, align 4, !tbaa !7
-  %106 = load i32, ptr %30, align 8, !tbaa !64
+  %105 = load i32, ptr %8, align 4, !tbaa !6
+  %106 = load i32, ptr %30, align 8, !tbaa !63
   %.not32 = icmp eq i32 %106, 0
   %107 = select i1 %.not32, ptr @.str.74, ptr @.str.73
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 631, ptr noundef nonnull @.str.76, i32 noundef %105, i32 noundef %95, i32 noundef %25, ptr noundef nonnull %107) #13
-  %108 = load i32, ptr %5, align 4, !tbaa !7
+  %108 = load i32, ptr %5, align 4, !tbaa !6
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds [16 x ptr], ptr @worker_exits, i64 0, i64 %109
-  store ptr @.str.77, ptr %110, align 8, !tbaa !57
+  store ptr @.str.77, ptr %110, align 8, !tbaa !56
   br label %111
 
 111:                                              ; preds = %104, %101
-  %112 = load ptr, ptr @m_ht, align 8, !tbaa !51
+  %112 = load ptr, ptr @m_ht, align 8, !tbaa !50
   call void @ossl_ht_write_unlock(ptr noundef %112) #13
-  %113 = load i32, ptr %5, align 4, !tbaa !7
+  %113 = load i32, ptr %5, align 4, !tbaa !6
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds [16 x ptr], ptr @worker_exits, i64 0, i64 %114
-  %116 = load ptr, ptr %115, align 8, !tbaa !57
+  %116 = load ptr, ptr %115, align 8, !tbaa !56
   %.not33 = icmp eq ptr %116, null
   br i1 %.not33, label %117, label %.loopexit
 
@@ -1356,7 +1356,7 @@ default.unreachable47:                            ; preds = %39
 117:                                              ; preds = %58, %87, %111
   %118 = add nuw nsw i64 %.046, 1
   %exitcond.not = icmp eq i64 %118, 1000000
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !68
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !67
 
 .loopexit:                                        ; preds = %117, %111, %87, %58, %17, %35
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
@@ -1427,68 +1427,67 @@ attributes #13 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"int", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"short", !9, i64 0}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = !{!18, !8, i64 4}
-!18 = !{!"", !8, i64 0, !8, i64 4}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = !{!23, !25, i64 0}
-!23 = !{!"intkey_st", !24, i64 0, !28, i64 16}
-!24 = !{!"ht_key_header_st", !25, i64 0, !26, i64 8}
-!25 = !{!"long", !9, i64 0}
-!26 = !{!"p1 omnipotent char", !27, i64 0}
-!27 = !{!"any pointer", !9, i64 0}
-!28 = !{!"", !8, i64 0}
-!29 = !{!23, !26, i64 8}
-!30 = !{!23, !8, i64 16}
-!31 = !{!32, !27, i64 0}
-!32 = !{!"ht_value_st", !27, i64 0, !33, i64 8, !24, i64 16}
-!33 = !{!"p1 long", !27, i64 0}
-!34 = !{!32, !33, i64 8}
-!35 = distinct !{!35, !5, !6}
-!36 = distinct !{!36, !5, !6}
-!37 = !{!38, !25, i64 0}
-!38 = !{!"ht_value_list_st", !25, i64 0, !39, i64 8}
-!39 = !{!"p2 _ZTS11ht_value_st", !27, i64 0}
-!40 = !{!18, !8, i64 0}
-!41 = distinct !{!41, !5, !6}
-!42 = !{!43, !8, i64 36}
-!43 = !{!"ht_config_st", !44, i64 0, !27, i64 8, !27, i64 16, !25, i64 24, !8, i64 32, !8, i64 36}
-!44 = !{!"p1 _ZTS15ossl_lib_ctx_st", !27, i64 0}
-!45 = distinct !{!45, !5, !6}
-!46 = distinct !{!46, !5, !6, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS11ht_value_st", !27, i64 0}
-!50 = distinct !{!50, !5, !6, !47}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"p1 _ZTS14ht_internal_st", !27, i64 0}
-!53 = !{!27, !27, i64 0}
-!54 = distinct !{!54, !5, !6}
-!55 = !{!25, !25, i64 0}
-!56 = distinct !{!56, !5, !6}
-!57 = !{!26, !26, i64 0}
-!58 = distinct !{!58, !5, !6}
-!59 = distinct !{!59, !5, !6}
-!60 = !{!61, !25, i64 0}
-!61 = !{!"mtkey_st", !24, i64 0, !28, i64 16}
-!62 = !{!61, !26, i64 8}
-!63 = !{!61, !8, i64 16}
-!64 = !{!65, !8, i64 0}
-!65 = !{!"test_mt_entry", !8, i64 0, !8, i64 4}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"p1 _ZTS13test_mt_entry", !27, i64 0}
-!68 = distinct !{!68, !5, !6}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"short", !8, i64 0}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = !{!17, !7, i64 4}
+!17 = !{!"", !7, i64 0, !7, i64 4}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = !{!22, !24, i64 0}
+!22 = !{!"intkey_st", !23, i64 0, !27, i64 16}
+!23 = !{!"ht_key_header_st", !24, i64 0, !25, i64 8}
+!24 = !{!"long", !8, i64 0}
+!25 = !{!"p1 omnipotent char", !26, i64 0}
+!26 = !{!"any pointer", !8, i64 0}
+!27 = !{!"", !7, i64 0}
+!28 = !{!22, !25, i64 8}
+!29 = !{!22, !7, i64 16}
+!30 = !{!31, !26, i64 0}
+!31 = !{!"ht_value_st", !26, i64 0, !32, i64 8, !23, i64 16}
+!32 = !{!"p1 long", !26, i64 0}
+!33 = !{!31, !32, i64 8}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = !{!37, !24, i64 0}
+!37 = !{!"ht_value_list_st", !24, i64 0, !38, i64 8}
+!38 = !{!"p2 _ZTS11ht_value_st", !26, i64 0}
+!39 = !{!17, !7, i64 0}
+!40 = distinct !{!40, !5}
+!41 = !{!42, !7, i64 36}
+!42 = !{!"ht_config_st", !43, i64 0, !26, i64 8, !26, i64 16, !24, i64 24, !7, i64 32, !7, i64 36}
+!43 = !{!"p1 _ZTS15ossl_lib_ctx_st", !26, i64 0}
+!44 = distinct !{!44, !5}
+!45 = distinct !{!45, !5, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS11ht_value_st", !26, i64 0}
+!49 = distinct !{!49, !5, !46}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS14ht_internal_st", !26, i64 0}
+!52 = !{!26, !26, i64 0}
+!53 = distinct !{!53, !5}
+!54 = !{!24, !24, i64 0}
+!55 = distinct !{!55, !5}
+!56 = !{!25, !25, i64 0}
+!57 = distinct !{!57, !5}
+!58 = distinct !{!58, !5}
+!59 = !{!60, !24, i64 0}
+!60 = !{!"mtkey_st", !23, i64 0, !27, i64 16}
+!61 = !{!60, !25, i64 8}
+!62 = !{!60, !7, i64 16}
+!63 = !{!64, !7, i64 0}
+!64 = !{!"test_mt_entry", !7, i64 0, !7, i64 4}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTS13test_mt_entry", !26, i64 0}
+!67 = distinct !{!67, !5}

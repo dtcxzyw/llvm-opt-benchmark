@@ -51,34 +51,34 @@ define void @_ZNK7Imf_3_47HalfLut5applyEPN9Imath_3_24halfEii(ptr noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK7Imf_3_47HalfLut5applyERKNS_5SliceERKN9Imath_3_23BoxINS4_4Vec2IiEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !14
+  %5 = load i64, ptr %4, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !22
+  %7 = load i32, ptr %6, align 4, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %9 = load i32, ptr %8, align 4, !tbaa !25
+  %9 = load i32, ptr %8, align 4, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !26
+  %11 = load i32, ptr %10, align 4, !tbaa !25
   %.not32 = icmp sgt i32 %7, %11
   br i1 %.not32, label %._crit_edge37, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !27
-  %15 = load i32, ptr %2, align 4, !tbaa !28
+  %14 = load i64, ptr %13, align 8, !tbaa !26
+  %15 = load i32, ptr %2, align 4, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %17 = load i32, ptr %16, align 8, !tbaa !29
+  %17 = load i32, ptr %16, align 8, !tbaa !28
   %18 = sdiv i32 %15, %17
   %19 = sext i32 %18 to i64
   %20 = mul i64 %14, %19
-  %21 = load i32, ptr %12, align 4, !tbaa !30
+  %21 = load i32, ptr %12, align 4, !tbaa !29
   %.not2829 = icmp sgt i32 %15, %21
   %22 = load ptr, ptr %0, align 8
   br i1 %.not2829, label %._crit_edge37, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph36
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !31
+  %24 = load ptr, ptr %23, align 8, !tbaa !30
   %25 = sdiv i32 %7, %9
   %26 = sext i32 %25 to i64
   %27 = mul i64 %5, %26
@@ -98,7 +98,7 @@ define void @_ZNK7Imf_3_47HalfLut5applyERKNS_5SliceERKN9Imath_3_23BoxINS4_4Vec2I
   %30 = getelementptr inbounds nuw i8, ptr %.034, i64 %5
   %31 = add nsw i32 %.02533, %9
   %.not = icmp sgt i32 %31, %11
-  br i1 %.not, label %._crit_edge37, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge37, label %.lr.ph, !llvm.loop !31
 
 32:                                               ; preds = %.lr.ph, %32
   %.02631 = phi i32 [ %15, %.lr.ph ], [ %36, %32 ]
@@ -111,7 +111,7 @@ define void @_ZNK7Imf_3_47HalfLut5applyERKNS_5SliceERKN9Imath_3_23BoxINS4_4Vec2I
   %35 = getelementptr inbounds nuw i8, ptr %.02730, i64 %14
   %36 = add nsw i32 %.02631, %17
   %.not28 = icmp sgt i32 %36, %21
-  br i1 %.not28, label %._crit_edge, label %32, !llvm.loop !33
+  br i1 %.not28, label %._crit_edge, label %32, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -121,7 +121,7 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull readonl
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !34
+  %6 = load i32, ptr %5, align 8, !tbaa !33
   %7 = and i32 %6, 1
   %.not20 = icmp eq i32 %7, 0
   %8 = load ptr, ptr %0, align 8
@@ -176,7 +176,7 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull readonl
   %28 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us, i64 %12
   %29 = add nsw i32 %.01928.us, -1
   %.not.us = icmp eq i32 %29, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !37
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !36
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not21, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -216,7 +216,7 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull readonl
   %42 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us30, i64 %12
   %43 = add nsw i32 %.01928.us31, -1
   %.not.us36 = icmp eq i32 %43, 0
-  br i1 %.not.us36, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !39
+  br i1 %.not.us36, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !38
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not22, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -250,7 +250,7 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull readonl
   %54 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us37, i64 %12
   %55 = add nsw i32 %.01928.us38, -1
   %.not.us45 = icmp eq i32 %55, 0
-  br i1 %.not.us45, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !40
+  br i1 %.not.us45, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !39
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %.not23, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
@@ -278,7 +278,7 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull readonl
   %64 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029.us46, i64 %12
   %65 = add nsw i32 %.01928.us47, -1
   %.not.us54 = icmp eq i32 %65, 0
-  br i1 %.not.us54, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !41
+  br i1 %.not.us54, label %._crit_edge, label %.lr.ph.split.split.split.split.us, !llvm.loop !40
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.split
   %.029 = phi ptr [ %77, %.lr.ph.split.split.split.split ], [ %1, %.lr.ph.split.split.split ]
@@ -309,7 +309,7 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull readonl
   %77 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.029, i64 %12
   %78 = add nsw i32 %.01928, -1
   %.not = icmp eq i32 %78, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !42
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split.split, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split.split.split, %.lr.ph.split.split.split.split.us, %53, %41, %27, %4
   ret void
@@ -318,21 +318,21 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEii(ptr noundef nonnull readonl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2IiEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !22
+  %7 = load i32, ptr %6, align 4, !tbaa !21
   %8 = mul nsw i32 %7, %3
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %1, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !26
+  %12 = load i32, ptr %11, align 4, !tbaa !25
   %.not63 = icmp sgt i32 %7, %12
   br i1 %.not63, label %._crit_edge68, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load i32, ptr %4, align 4, !tbaa !28
+  %14 = load i32, ptr %4, align 4, !tbaa !27
   %15 = mul nsw i32 %14, %2
   %16 = sext i32 %15 to i64
-  %17 = load i32, ptr %13, align 4, !tbaa !30
+  %17 = load i32, ptr %13, align 4, !tbaa !29
   %.not3644 = icmp sgt i32 %14, %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i32, ptr %18, align 8
@@ -400,13 +400,13 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2I
   %44 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us.us, i64 %23
   %45 = add i32 %.03545.us.us, 1
   %exitcond89.not = icmp eq i32 %.03545.us.us, %17
-  br i1 %exitcond89.not, label %._crit_edge.split.us.us, label %28, !llvm.loop !43
+  br i1 %exitcond89.not, label %._crit_edge.split.us.us, label %28, !llvm.loop !42
 
 ._crit_edge.split.us.us:                          ; preds = %43
   %46 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us69, i64 %24
   %47 = add i32 %.03364.us70, 1
   %exitcond90.not = icmp eq i32 %.03364.us70, %12
-  br i1 %exitcond90.not, label %._crit_edge68, label %.lr.ph.us, !llvm.loop !44
+  br i1 %exitcond90.not, label %._crit_edge68, label %.lr.ph.us, !llvm.loop !43
 
 .lr.ph67.split.split:                             ; preds = %.lr.ph67.split
   br i1 %.not38, label %.lr.ph.us72, label %.lr.ph67.split.split.split
@@ -453,13 +453,13 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2I
   %63 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us47.us, i64 %23
   %64 = add i32 %.03545.us48.us, 1
   %exitcond87.not = icmp eq i32 %.03545.us48.us, %17
-  br i1 %exitcond87.not, label %._crit_edge.split.split.us.us, label %50, !llvm.loop !45
+  br i1 %exitcond87.not, label %._crit_edge.split.split.us.us, label %50, !llvm.loop !44
 
 ._crit_edge.split.split.us.us:                    ; preds = %62
   %65 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us73, i64 %24
   %66 = add i32 %.03364.us74, 1
   %exitcond88.not = icmp eq i32 %.03364.us74, %12
-  br i1 %exitcond88.not, label %._crit_edge68, label %.lr.ph.us72, !llvm.loop !46
+  br i1 %exitcond88.not, label %._crit_edge68, label %.lr.ph.us72, !llvm.loop !45
 
 .lr.ph67.split.split.split:                       ; preds = %.lr.ph67.split.split
   br i1 %.not39, label %.lr.ph.us76, label %.lr.ph
@@ -500,13 +500,13 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2I
   %80 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446.us54.us, i64 %23
   %81 = add i32 %.03545.us55.us, 1
   %exitcond85.not = icmp eq i32 %.03545.us55.us, %17
-  br i1 %exitcond85.not, label %._crit_edge.split.split.split.us.us, label %69, !llvm.loop !47
+  br i1 %exitcond85.not, label %._crit_edge.split.split.split.us.us, label %69, !llvm.loop !46
 
 ._crit_edge.split.split.split.us.us:              ; preds = %79
   %82 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065.us77, i64 %24
   %83 = add i32 %.03364.us78, 1
   %exitcond86.not = icmp eq i32 %.03364.us78, %12
-  br i1 %exitcond86.not, label %._crit_edge68, label %.lr.ph.us76, !llvm.loop !48
+  br i1 %exitcond86.not, label %._crit_edge68, label %.lr.ph.us76, !llvm.loop !47
 
 ._crit_edge68:                                    ; preds = %._crit_edge.split.split.split, %._crit_edge.split.split.split.us.us, %._crit_edge.split.split.us.us, %._crit_edge.split.us.us, %.lr.ph67, %5
   ret void
@@ -522,7 +522,7 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2I
   %86 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.065, i64 %24
   %87 = add i32 %.03364, 1
   %exitcond84.not = icmp eq i32 %.03364, %12
-  br i1 %exitcond84.not, label %._crit_edge68, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond84.not, label %._crit_edge68, label %.lr.ph, !llvm.loop !48
 
 88:                                               ; preds = %.lr.ph, %101
   %.03446 = phi ptr [ %84, %.lr.ph ], [ %102, %101 ]
@@ -559,21 +559,21 @@ define void @_ZNK7Imf_3_47RgbaLut5applyEPNS_4RgbaEiiRKN9Imath_3_23BoxINS3_4Vec2I
   %102 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %.03446, i64 %23
   %103 = add i32 %.03545, 1
   %exitcond.not = icmp eq i32 %.03545, %17
-  br i1 %exitcond.not, label %._crit_edge.split.split.split, label %88, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge.split.split.split, label %88, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress uwtable
 define i16 @_ZN7Imf_3_410round12logEN9Imath_3_24halfE(i16 %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !51
+  %2 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !50
   %3 = zext i16 %0 to i64
   %4 = getelementptr inbounds nuw %union.imath_half_uif, ptr %2, i64 %3
-  %5 = load float, ptr %4, align 4, !tbaa !53
+  %5 = load float, ptr %4, align 4, !tbaa !52
   %6 = fcmp ugt float %5, 0.000000e+00
   br i1 %6, label %7, label %_ZN9Imath_3_24halfC2Ef.exit
 
 7:                                                ; preds = %1
   %8 = fdiv float %5, 0x3FC6A09E60000000
-  %9 = tail call noundef float @logf(float noundef %8) #9, !tbaa !54
+  %9 = tail call noundef float @logf(float noundef %8) #9, !tbaa !53
   %10 = fpext float %9 to double
   %11 = fmul double %10, 2.000000e+02
   %12 = fdiv double %11, 0x3FE62E42FEFA39EF
@@ -598,7 +598,7 @@ define i16 @_ZN7Imf_3_410round12logEN9Imath_3_24halfE(i16 %0) local_unnamed_addr
 
 29:                                               ; preds = %7
   %30 = icmp samesign ugt i32 %24, 2139095039
-  br i1 %30, label %31, label %42, !prof !55
+  br i1 %30, label %31, label %42, !prof !54
 
 31:                                               ; preds = %29
   %32 = or disjoint i16 %27, 31744
@@ -617,7 +617,7 @@ define i16 @_ZN7Imf_3_410round12logEN9Imath_3_24halfE(i16 %0) local_unnamed_addr
 
 42:                                               ; preds = %29
   %43 = icmp samesign ugt i32 %24, 1199566847
-  br i1 %43, label %44, label %46, !prof !55
+  br i1 %43, label %44, label %46, !prof !54
 
 44:                                               ; preds = %42
   %45 = or disjoint i16 %27, 31744
@@ -715,48 +715,47 @@ attributes #9 = { nounwind }
 !8 = !{!"Simple C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"short", !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !18, i64 24}
-!15 = !{!"_ZTSN7Imf_3_45SliceE", !16, i64 0, !17, i64 8, !18, i64 16, !18, i64 24, !19, i64 32, !19, i64 36, !20, i64 40, !21, i64 48, !21, i64 49}
-!16 = !{!"_ZTSN7Imf_3_49PixelTypeE", !7, i64 0}
-!17 = !{!"p1 omnipotent char", !6, i64 0}
-!18 = !{!"long", !7, i64 0}
-!19 = !{!"int", !7, i64 0}
-!20 = !{!"double", !7, i64 0}
-!21 = !{!"bool", !7, i64 0}
-!22 = !{!23, !19, i64 4}
-!23 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !24, i64 0, !24, i64 8}
-!24 = !{!"_ZTSN9Imath_3_24Vec2IiEE", !19, i64 0, !19, i64 4}
-!25 = !{!15, !19, i64 36}
-!26 = !{!23, !19, i64 12}
-!27 = !{!15, !18, i64 16}
-!28 = !{!23, !19, i64 0}
-!29 = !{!15, !19, i64 32}
-!30 = !{!23, !19, i64 8}
-!31 = !{!15, !17, i64 8}
-!32 = distinct !{!32, !12, !13}
-!33 = distinct !{!33, !12, !13}
-!34 = !{!35, !36, i64 8}
-!35 = !{!"_ZTSN7Imf_3_47RgbaLutE", !4, i64 0, !36, i64 8}
-!36 = !{!"_ZTSN7Imf_3_412RgbaChannelsE", !7, i64 0}
-!37 = distinct !{!37, !12, !13, !38}
-!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!39 = distinct !{!39, !12, !13, !38}
-!40 = distinct !{!40, !12, !13, !38}
-!41 = distinct !{!41, !12, !13, !38}
-!42 = distinct !{!42, !12, !13}
-!43 = distinct !{!43, !12, !13, !38}
-!44 = distinct !{!44, !12, !13, !38}
-!45 = distinct !{!45, !12, !13, !38}
-!46 = distinct !{!46, !12, !13, !38}
-!47 = distinct !{!47, !12, !13, !38}
-!48 = distinct !{!48, !12, !13, !38}
-!49 = distinct !{!49, !12, !13}
-!50 = distinct !{!50, !12, !13}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"p1 _ZTS14imath_half_uif", !6, i64 0}
-!53 = !{!7, !7, i64 0}
-!54 = !{!19, !19, i64 0}
-!55 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!13 = !{!14, !17, i64 24}
+!14 = !{!"_ZTSN7Imf_3_45SliceE", !15, i64 0, !16, i64 8, !17, i64 16, !17, i64 24, !18, i64 32, !18, i64 36, !19, i64 40, !20, i64 48, !20, i64 49}
+!15 = !{!"_ZTSN7Imf_3_49PixelTypeE", !7, i64 0}
+!16 = !{!"p1 omnipotent char", !6, i64 0}
+!17 = !{!"long", !7, i64 0}
+!18 = !{!"int", !7, i64 0}
+!19 = !{!"double", !7, i64 0}
+!20 = !{!"bool", !7, i64 0}
+!21 = !{!22, !18, i64 4}
+!22 = !{!"_ZTSN9Imath_3_23BoxINS_4Vec2IiEEEE", !23, i64 0, !23, i64 8}
+!23 = !{!"_ZTSN9Imath_3_24Vec2IiEE", !18, i64 0, !18, i64 4}
+!24 = !{!14, !18, i64 36}
+!25 = !{!22, !18, i64 12}
+!26 = !{!14, !17, i64 16}
+!27 = !{!22, !18, i64 0}
+!28 = !{!14, !18, i64 32}
+!29 = !{!22, !18, i64 8}
+!30 = !{!14, !16, i64 8}
+!31 = distinct !{!31, !12}
+!32 = distinct !{!32, !12}
+!33 = !{!34, !35, i64 8}
+!34 = !{!"_ZTSN7Imf_3_47RgbaLutE", !4, i64 0, !35, i64 8}
+!35 = !{!"_ZTSN7Imf_3_412RgbaChannelsE", !7, i64 0}
+!36 = distinct !{!36, !12, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !12, !37}
+!39 = distinct !{!39, !12, !37}
+!40 = distinct !{!40, !12, !37}
+!41 = distinct !{!41, !12}
+!42 = distinct !{!42, !12, !37}
+!43 = distinct !{!43, !12, !37}
+!44 = distinct !{!44, !12, !37}
+!45 = distinct !{!45, !12, !37}
+!46 = distinct !{!46, !12, !37}
+!47 = distinct !{!47, !12, !37}
+!48 = distinct !{!48, !12}
+!49 = distinct !{!49, !12}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS14imath_half_uif", !6, i64 0}
+!52 = !{!7, !7, i64 0}
+!53 = !{!18, !18, i64 0}
+!54 = !{!"branch_weights", !"expected", i32 1, i32 2000}

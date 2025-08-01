@@ -150,7 +150,7 @@ define internal fastcc ptr @json_get_next_object(ptr noundef readonly %0) unname
   %6 = tail call fastcc ptr @json_get_next_object(ptr noundef %.07)
   %7 = add nuw nsw i32 %.056, 1
   %exitcond.not = icmp eq i32 %7, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi ptr [ %2, %1 ], [ %6, %.lr.ph ]
@@ -209,7 +209,7 @@ define noundef ptr @json_get_array(ptr noundef readonly captures(none) %0, ptr n
   %32 = tail call fastcc ptr @json_get_next_object(ptr noundef %.022)
   %33 = add nuw nsw i32 %.01721, 1
   %exitcond.not = icmp eq i32 %33, %5
-  br i1 %exitcond.not, label %.split.loop.exit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.split.loop.exit, label %.lr.ph, !llvm.loop !9
 
 .split.loop.exit.loopexit.split.loop.exit:        ; preds = %27
   %34 = getelementptr i8, ptr %.022, i64 16
@@ -261,7 +261,7 @@ define ptr @json_get_array_index(ptr noundef readonly %0, i32 noundef %1) local_
   %10 = tail call fastcc ptr @json_get_next_object(ptr noundef %.015)
   %11 = add nuw nsw i32 %.01114, 1
   %exitcond.not = icmp eq i32 %11, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %2, %6
   %.012 = phi ptr [ null, %6 ], [ null, %2 ], [ %9, %.preheader ], [ %10, %.lr.ph ]
@@ -339,7 +339,7 @@ define ptr @json_get_string(ptr noundef %0, ptr noundef readonly %1, ptr noundef
   %46 = tail call fastcc ptr @json_get_next_object(ptr noundef %.026)
   %47 = add nuw nsw i32 %.02225, 1
   %exitcond.not = icmp eq i32 %47, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %45, %3, %31, %41
   %.023 = phi ptr [ %44, %41 ], [ null, %31 ], [ null, %3 ], [ null, %45 ]
@@ -420,7 +420,7 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
   %27 = or i32 %22, %26
   %28 = add nuw nsw i32 %.067108, 1
   %exitcond.not = icmp eq i32 %28, 4
-  br i1 %exitcond.not, label %29, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not, label %29, label %.preheader, !llvm.loop !12
 
 29:                                               ; preds = %24
   %30 = and i32 %27, -1024
@@ -460,7 +460,7 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
   %46 = or i16 %44, %45
   %47 = add nuw nsw i32 %.168110, 1
   %exitcond123.not = icmp eq i32 %47, 4
-  br i1 %exitcond123.not, label %48, label %38, !llvm.loop !14
+  br i1 %exitcond123.not, label %48, label %38, !llvm.loop !13
 
 48:                                               ; preds = %42
   %49 = and i16 %46, -1024
@@ -499,7 +499,7 @@ define noundef zeroext i1 @json_decode_string_inplace(ptr noundef %0) local_unna
   %.274 = phi ptr [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %20, %19 ], [ %63, %62 ], [ %61, %58 ]
   %65 = load i8, ptr %.682, align 1
   %.not = icmp eq i8 %65, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %64, %1
   %.072.lcssa = phi ptr [ %0, %1 ], [ %.274, %64 ]
@@ -580,7 +580,7 @@ define zeroext i1 @json_get_double(ptr noundef %0, ptr noundef readonly %1, ptr 
   %45 = tail call fastcc ptr @json_get_next_object(ptr noundef %.026)
   %46 = add nuw nsw i32 %.02125, 1
   %exitcond.not = icmp eq i32 %46, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %44, %4, %32
   %.022 = phi i1 [ %.not23, %32 ], [ false, %4 ], [ false, %44 ]
@@ -677,7 +677,7 @@ define noundef zeroext i1 @json_get_boolean(ptr noundef readonly captures(none) 
   %52 = tail call fastcc ptr @json_get_next_object(ptr noundef %.035)
   %53 = add nuw nsw i32 %.03134, 1
   %exitcond.not = icmp eq i32 %53, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit.sink.split:                             ; preds = %48, %43
   %.sink = phi i8 [ 1, %43 ], [ 0, %48 ]
@@ -721,15 +721,14 @@ attributes #13 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

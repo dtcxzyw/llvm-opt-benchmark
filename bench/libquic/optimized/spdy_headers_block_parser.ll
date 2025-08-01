@@ -565,7 +565,7 @@ _ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReader
   br i1 %168, label %.critedge101.backedge, label %.loopexit
 
 .critedge101.backedge:                            ; preds = %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge, %158
-  br label %.critedge101, !llvm.loop !35
+  br label %.critedge101
 
 .loopexit:                                        ; preds = %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit, %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge, %127, %114, %100, %155, %.thread92, %75
   %169 = phi i1 [ true, %.thread92 ], [ false, %75 ], [ false, %155 ], [ false, %100 ], [ false, %114 ], [ false, %127 ], [ false, %._ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit.thread90_crit_edge ], [ false, %_ZN3net22SpdyHeadersBlockParser16ParseBlockLengthEPNS_24SpdyPrefixedBufferReaderE.exit ]
@@ -808,5 +808,3 @@ attributes #9 = { builtin nounwind }
 !32 = !{!14, !10, i64 8}
 !33 = !{!11, !11, i64 0}
 !34 = !{!7, !11, i64 36}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.estimated_trip_count"}

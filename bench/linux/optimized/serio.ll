@@ -224,7 +224,7 @@ define dso_local void @__serio_register_port(ptr noundef %0, ptr noundef %1) #0 
   tail call void @__mutex_init(ptr noundef nonnull %10, ptr noundef nonnull @.str.5, ptr noundef nonnull @serio_init_port.__key) #10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 344
   tail call void @device_initialize(ptr noundef nonnull %11) #10
-  %12 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @serio_init_port.serio_no, i32 1, ptr nonnull elementtype(i32) @serio_init_port.serio_no) #10, !srcloc !10
+  %12 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @serio_init_port.serio_no, i32 1, ptr nonnull elementtype(i32) @serio_init_port.serio_no) #10, !srcloc !9
   %13 = add i32 %12, 1
   %14 = sext i32 %13 to i64
   %15 = tail call i32 (ptr, ptr, ...) @dev_set_name(ptr noundef nonnull %11, ptr noundef nonnull @.str.6, i64 noundef %14) #10
@@ -292,7 +292,7 @@ define dso_local void @serio_unregister_port(ptr noundef %0) #0 align 16 {
 
 .preheader.backedge:                              ; preds = %16, %.preheader
   %.be = phi ptr [ %9, %.preheader ], [ %17, %16 ]
-  br label %.preheader, !llvm.loop !11
+  br label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %16, %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -335,7 +335,7 @@ define internal fastcc void @serio_destroy_port(ptr noundef %0) unnamed_addr #0 
 18:                                               ; preds = %12, %7
   %19 = load ptr, ptr %8, align 8
   %20 = icmp eq ptr %19, @serio_event_list
-  br i1 %20, label %.thread, label %7, !llvm.loop !12
+  br i1 %20, label %.thread, label %7, !llvm.loop !11
 
 .thread:                                          ; preds = %.loopexit10, %18, %1
   %21 = phi i64 [ %2, %1 ], [ %6, %18 ], [ %43, %.loopexit10 ]
@@ -378,7 +378,7 @@ define internal fastcc void @serio_destroy_port(ptr noundef %0) unnamed_addr #0 
 
 40:                                               ; preds = %33, %.preheader9
   %41 = icmp eq ptr %29, @serio_event_list
-  br i1 %41, label %.loopexit10, label %.preheader9, !llvm.loop !13
+  br i1 %41, label %.loopexit10, label %.preheader9, !llvm.loop !12
 
 .loopexit10:                                      ; preds = %40, %24
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %25) #10
@@ -387,7 +387,7 @@ define internal fastcc void @serio_destroy_port(ptr noundef %0) unnamed_addr #0 
   %43 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
   %44 = load ptr, ptr @serio_event_list, align 8
   %45 = icmp eq ptr %44, @serio_event_list
-  br i1 %45, label %.thread, label %.preheader11, !llvm.loop !14
+  br i1 %45, label %.thread, label %.preheader11, !llvm.loop !13
 
 .loopexit13:                                      ; preds = %22, %.thread
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -475,7 +475,7 @@ define internal fastcc void @serio_destroy_port(ptr noundef %0) unnamed_addr #0 
 
 91:                                               ; preds = %84, %.preheader
   %92 = icmp eq ptr %80, @serio_event_list
-  br i1 %92, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %92, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %91, %70
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %76) #10
@@ -531,14 +531,14 @@ define dso_local void @serio_unregister_child_port(ptr noundef readonly captures
 
 .preheader.backedge:                              ; preds = %22, %.preheader
   %.be = phi ptr [ %15, %.preheader ], [ %23, %22 ]
-  br label %.preheader, !llvm.loop !16
+  br label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %22, %.preheader3
   %26 = getelementptr i8, ptr %5, i64 80
   tail call void @device_release_driver(ptr noundef %26) #10
   tail call fastcc void @serio_destroy_port(ptr noundef %6)
   %27 = icmp eq ptr %7, %2
-  br i1 %27, label %.loopexit4, label %.preheader3, !llvm.loop !17
+  br i1 %27, label %.loopexit4, label %.preheader3, !llvm.loop !14
 
 .loopexit4:                                       ; preds = %.loopexit, %1
   tail call void @mutex_unlock(ptr noundef nonnull @serio_mutex) #10
@@ -548,7 +548,7 @@ define dso_local void @serio_unregister_child_port(ptr noundef readonly captures
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__serio_register_driver(ptr noundef initializes((88, 112)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i8, ptr %4, align 8, !range !18, !noundef !19
+  %5 = load i8, ptr %4, align 8, !range !15, !noundef !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr @serio_bus, ptr %7, align 8
@@ -629,7 +629,7 @@ define dso_local void @serio_unregister_driver(ptr noundef initializes((16, 17))
 
 18:                                               ; preds = %11, %.preheader5
   %19 = icmp eq ptr %7, @serio_event_list
-  br i1 %19, label %.loopexit6, label %.preheader5, !llvm.loop !20
+  br i1 %19, label %.loopexit6, label %.preheader5, !llvm.loop !12
 
 .loopexit6:                                       ; preds = %18, %1
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %3) #10
@@ -648,7 +648,7 @@ define dso_local void @serio_unregister_driver(ptr noundef initializes((16, 17))
   %27 = phi ptr [ %22, %.lr.ph ], [ @serio_list, %.loopexit ], [ @serio_list, %55 ]
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, @serio_list
-  br i1 %29, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %29, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 30:                                               ; preds = %.lr.ph
   %31 = getelementptr i8, ptr %22, i64 -1072
@@ -685,7 +685,7 @@ define dso_local void @serio_unregister_driver(ptr noundef initializes((16, 17))
 
 .preheader.backedge:                              ; preds = %46, %.preheader
   %.be = phi ptr [ %39, %.preheader ], [ %47, %46 ]
-  br label %.preheader, !llvm.loop !22
+  br label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %46, %30
   %50 = getelementptr i8, ptr %22, i64 -728
@@ -764,7 +764,7 @@ define dso_local i32 @serio_interrupt(ptr noundef %0, i8 noundef zeroext %1, i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %13, label %9, !prof !23
+  br i1 %8, label %13, label %9, !prof !18
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -799,13 +799,13 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define internal noundef range(i32 0, 2) i32 @serio_bus_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -144
-  %4 = load i8, ptr %3, align 8, !range !18, !noundef !19
+  %4 = load i8, ptr %3, align 8, !range !15, !noundef !16
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %1, i64 -64
-  %8 = load i8, ptr %7, align 8, !range !18, !noundef !19
+  %8 = load i8, ptr %7, align 8, !range !15, !noundef !16
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %.loopexit
 
@@ -872,7 +872,7 @@ define internal noundef range(i32 0, 2) i32 @serio_bus_match(ptr noundef readonl
 
 48:                                               ; preds = %45, %38, %31, %24
   %49 = getelementptr i8, ptr %18, i64 4
-  br label %17, !llvm.loop !24
+  br label %17, !llvm.loop !19
 
 .loopexit:                                        ; preds = %45, %41, %20, %6, %2
   %50 = phi i32 [ 0, %6 ], [ 0, %2 ], [ 0, %20 ], [ 1, %41 ], [ 1, %45 ]
@@ -1191,7 +1191,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
 
 .preheader.backedge:                              ; preds = %28, %.preheader
   %.be = phi ptr [ %21, %.preheader ], [ %29, %28 ]
-  br label %.preheader, !llvm.loop !25
+  br label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %28, %13
   tail call void @device_release_driver(ptr noundef %0) #10
@@ -1233,7 +1233,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 280
   %52 = load ptr, ptr %50, align 8
   %53 = icmp eq ptr %52, %51
-  br i1 %53, label %44, label %.loopexit24.split.loop.exit35, !llvm.loop !26
+  br i1 %53, label %44, label %.loopexit24.split.loop.exit35
 
 .loopexit24.split.loop.exit35:                    ; preds = %47
   %54 = getelementptr i8, ptr %52, i64 -264
@@ -1242,7 +1242,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
 .loopexit24:                                      ; preds = %44, %.loopexit24.split.loop.exit35, %42
   %55 = phi ptr [ %43, %42 ], [ %54, %.loopexit24.split.loop.exit35 ], [ %45, %44 ]
   %56 = icmp eq ptr %55, %5
-  br i1 %56, label %.thread, label %.preheader25, !llvm.loop !27
+  br i1 %56, label %.thread, label %.preheader25, !llvm.loop !20
 
 57:                                               ; preds = %32
   %58 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull @.str.19, i64 noundef %3) #10
@@ -1283,7 +1283,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
 
 .preheader28.backedge:                            ; preds = %75, %.preheader28
   %.be46 = phi ptr [ %68, %.preheader28 ], [ %76, %75 ]
-  br label %.preheader28, !llvm.loop !28
+  br label %.preheader28, !llvm.loop !10
 
 .loopexit29:                                      ; preds = %75, %60
   tail call void @device_release_driver(ptr noundef %0) #10
@@ -1335,7 +1335,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
 
 105:                                              ; preds = %99, %.preheader26
   %106 = icmp eq ptr %92, @serio_event_list
-  br i1 %106, label %.loopexit27, label %.preheader26, !llvm.loop !29
+  br i1 %106, label %.loopexit27, label %.preheader26, !llvm.loop !21
 
 .loopexit27:                                      ; preds = %105, %96, %86
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %87) #10
@@ -1384,7 +1384,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
 
 .preheader33.backedge:                            ; preds = %125, %.preheader33
   %.be47 = phi ptr [ %118, %.preheader33 ], [ %126, %125 ]
-  br label %.preheader33, !llvm.loop !30
+  br label %.preheader33, !llvm.loop !10
 
 .loopexit34:                                      ; preds = %125, %110
   tail call void @device_release_driver(ptr noundef %0) #10
@@ -1451,7 +1451,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
 
 167:                                              ; preds = %164, %157, %150, %143
   %168 = getelementptr i8, ptr %137, i64 4
-  br label %136, !llvm.loop !31
+  br label %136, !llvm.loop !19
 
 169:                                              ; preds = %164, %160
   %170 = getelementptr i8, ptr %0, i64 104
@@ -1521,7 +1521,7 @@ define internal i64 @drvctl_store(ptr noundef %0, ptr readnone captures(none) %1
 
 204:                                              ; preds = %198, %.preheader30
   %205 = icmp eq ptr %191, @serio_event_list
-  br i1 %205, label %.loopexit31, label %.preheader30, !llvm.loop !32
+  br i1 %205, label %.loopexit31, label %.preheader30, !llvm.loop !21
 
 .thread:                                          ; preds = %.loopexit24, %.loopexit27, %.loopexit
   tail call void @mutex_unlock(ptr noundef nonnull @serio_mutex) #10
@@ -1611,7 +1611,7 @@ define internal fastcc i32 @serio_reconnect_port(ptr noundef %0) unnamed_addr #0
 
 .preheader.backedge:                              ; preds = %29, %.preheader
   %.be = phi ptr [ %22, %.preheader ], [ %30, %29 ]
-  br label %.preheader, !llvm.loop !33
+  br label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %29, %13
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -1662,7 +1662,7 @@ define internal fastcc void @serio_disconnect_driver(ptr noundef %0) unnamed_add
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @serio_show_bind_mode(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -144
-  %5 = load i8, ptr %4, align 8, !range !18, !noundef !19
+  %5 = load i8, ptr %4, align 8, !range !15, !noundef !16
   %6 = icmp eq i8 %5, 0
   %7 = select i1 %6, ptr @.str.23, ptr @.str.22
   %8 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %7) #10
@@ -1737,7 +1737,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @description_show
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @bind_mode_show(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -64
-  %4 = load i8, ptr %3, align 8, !range !18, !noundef !19
+  %4 = load i8, ptr %3, align 8, !range !15, !noundef !16
   %5 = icmp eq i8 %4, 0
   %6 = select i1 %5, ptr @.str.23, ptr @.str.22
   %7 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %6) #10
@@ -1974,7 +1974,7 @@ define internal void @serio_handle_event(ptr readnone captures(none) %0) #0 alig
 
 .preheader15.backedge:                            ; preds = %65, %.preheader15
   %.be35 = phi ptr [ %58, %.preheader15 ], [ %66, %65 ]
-  br label %.preheader15, !llvm.loop !34
+  br label %.preheader15, !llvm.loop !10
 
 .loopexit16:                                      ; preds = %65, %48
   %69 = getelementptr inbounds nuw i8, ptr %50, i64 344
@@ -2057,7 +2057,7 @@ define internal void @serio_handle_event(ptr readnone captures(none) %0) #0 alig
 
 .preheader.i.backedge:                            ; preds = %110, %.preheader.i
   %.be = phi ptr [ %103, %.preheader.i ], [ %111, %110 ]
-  br label %.preheader.i, !llvm.loop !33
+  br label %.preheader.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %110, %95
   %114 = getelementptr inbounds nuw i8, ptr %83, i64 344
@@ -2099,7 +2099,7 @@ serio_reconnect_port.exit.thread:                 ; preds = %serio_reconnect_por
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 280
   %134 = load ptr, ptr %132, align 8
   %135 = icmp eq ptr %134, %133
-  br i1 %135, label %serio_reconnect_port.exit.thread, label %.loopexit.split.loop.exit20, !llvm.loop !35
+  br i1 %135, label %serio_reconnect_port.exit.thread, label %.loopexit.split.loop.exit20
 
 .loopexit.split.loop.exit20:                      ; preds = %129
   %136 = getelementptr i8, ptr %134, i64 -264
@@ -2108,7 +2108,7 @@ serio_reconnect_port.exit.thread:                 ; preds = %serio_reconnect_por
 .loopexit:                                        ; preds = %serio_reconnect_port.exit.thread, %.loopexit.split.loop.exit20, %125
   %137 = phi ptr [ %126, %125 ], [ %136, %.loopexit.split.loop.exit20 ], [ %127, %serio_reconnect_port.exit.thread ]
   %138 = icmp eq ptr %137, %81
-  br i1 %138, label %.loopexit17, label %82, !llvm.loop !36
+  br i1 %138, label %.loopexit17, label %82, !llvm.loop !20
 
 139:                                              ; preds = %13
   %140 = getelementptr i8, ptr %5, i64 -16
@@ -2162,7 +2162,7 @@ serio_reconnect_port.exit.thread:                 ; preds = %serio_reconnect_por
 
 169:                                              ; preds = %163, %.preheader
   %170 = icmp eq ptr %156, @serio_event_list
-  br i1 %170, label %.loopexit14, label %.preheader, !llvm.loop !37
+  br i1 %170, label %.loopexit14, label %.preheader, !llvm.loop !21
 
 .loopexit14:                                      ; preds = %169, %160, %.loopexit17
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @serio_event_lock, i64 noundef %151) #10
@@ -2173,7 +2173,7 @@ serio_reconnect_port.exit.thread:                 ; preds = %serio_reconnect_por
   %173 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @serio_event_lock) #10
   %174 = load volatile ptr, ptr @serio_event_list, align 8
   %175 = icmp eq ptr %174, @serio_event_list
-  br i1 %175, label %.thread, label %.lr.ph, !llvm.loop !38
+  br i1 %175, label %.thread, label %.lr.ph, !llvm.loop !22
 
 .loopexit18:                                      ; preds = %.lr.ph, %.thread
   tail call void @mutex_unlock(ptr noundef nonnull @serio_mutex) #10
@@ -2214,36 +2214,20 @@ attributes #12 = { cold nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i32 -22, i32 1}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i64 2148839309, i64 2148839348, i64 2148839369, i64 2148839406, i64 2148839429, i64 2148839438}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = distinct !{!14, !7, !8, !9}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = distinct !{!20, !7, !8, !9}
-!21 = distinct !{!21, !7, !8, !9}
-!22 = distinct !{!22, !7, !8, !9}
-!23 = !{!"branch_weights", i32 1, i32 2000}
-!24 = distinct !{!24, !7, !8, !9}
-!25 = distinct !{!25, !7, !8, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !7, !8, !9}
-!28 = distinct !{!28, !7, !8, !9}
-!29 = distinct !{!29, !7, !8, !9}
-!30 = distinct !{!30, !7, !8, !9}
-!31 = distinct !{!31, !7, !8, !9}
-!32 = distinct !{!32, !7, !8, !9}
-!33 = distinct !{!33, !7, !8, !9}
-!34 = distinct !{!34, !7, !8, !9}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !7, !8, !9}
-!37 = distinct !{!37, !7, !8, !9}
-!38 = distinct !{!38, !7, !8, !9}
+!9 = !{i64 2148839309, i64 2148839348, i64 2148839369, i64 2148839406, i64 2148839429, i64 2148839438}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = distinct !{!17, !7, !8}
+!18 = !{!"branch_weights", i32 1, i32 2000}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

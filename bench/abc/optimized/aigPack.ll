@@ -189,10 +189,10 @@ define void @Aig_ManPackPrintCare(ptr noundef readonly captures(none) %0) local_
 define void @Aig_ManPackFree(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i32, ptr %3, align 8, !tbaa !41
+  %4 = load i32, ptr %3, align 8, !tbaa !40
   %5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %7 = load i32, ptr %6, align 4, !tbaa !42
+  %7 = load i32, ptr %6, align 4, !tbaa !41
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %7)
   %9 = load ptr, ptr %0, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -361,7 +361,7 @@ define void @Aig_ManPackSetRandom(ptr noundef readonly captures(none) %0) local_
   %.val = load i32, ptr %22, align 4, !tbaa !24
   %23 = sext i32 %.val to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %8, label %.critedge, !llvm.loop !43
+  br i1 %24, label %8, label %.critedge, !llvm.loop !42
 
 .critedge:                                        ; preds = %8, %1
   ret void
@@ -386,7 +386,7 @@ define void @Aig_ManPackSimulate(ptr noundef readonly captures(none) %0) local_u
 
 .lr.ph:                                           ; preds = %1
   %10 = getelementptr i8, ptr %7, i64 8
-  %.val62 = load ptr, ptr %10, align 8, !tbaa !44
+  %.val62 = load ptr, ptr %10, align 8, !tbaa !43
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   %13 = getelementptr i8, ptr %12, i64 8
@@ -404,16 +404,16 @@ define void @Aig_ManPackSimulate(ptr noundef readonly captures(none) %0) local_u
 
 .lr.ph88:                                         ; preds = %.critedge.preheader
   %18 = getelementptr i8, ptr %15, i64 8
-  %.val61 = load ptr, ptr %18, align 8, !tbaa !44
+  %.val61 = load ptr, ptr %18, align 8, !tbaa !43
   %wide.trip.count95 = zext nneg i32 %.val58 to i64
   br label %32
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %20 = getelementptr inbounds nuw ptr, ptr %.val62, i64 %indvars.iv
-  %21 = load ptr, ptr %20, align 8, !tbaa !45
+  %21 = load ptr, ptr %20, align 8, !tbaa !44
   %22 = getelementptr i8, ptr %21, i64 36
-  %.val71 = load i32, ptr %22, align 4, !tbaa !46
+  %.val71 = load i32, ptr %22, align 4, !tbaa !45
   %23 = getelementptr inbounds nuw i64, ptr %.val66, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8, !tbaa !37
   %25 = sext i32 %.val71 to i64
@@ -421,11 +421,11 @@ define void @Aig_ManPackSimulate(ptr noundef readonly captures(none) %0) local_u
   store i64 %24, ptr %26, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %19, !llvm.loop !47
+  br i1 %exitcond.not, label %.critedge.preheader, label %19, !llvm.loop !46
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !48
+  %28 = load ptr, ptr %27, align 8, !tbaa !47
   %29 = getelementptr i8, ptr %28, i64 4
   %.val = load i32, ptr %29, align 4, !tbaa !24
   %30 = icmp sgt i32 %.val, 0
@@ -433,14 +433,14 @@ define void @Aig_ManPackSimulate(ptr noundef readonly captures(none) %0) local_u
 
 .lr.ph90:                                         ; preds = %.critedge2.preheader
   %31 = getelementptr i8, ptr %28, i64 8
-  %.val60 = load ptr, ptr %31, align 8, !tbaa !44
+  %.val60 = load ptr, ptr %31, align 8, !tbaa !43
   %wide.trip.count100 = zext nneg i32 %.val to i64
   br label %85
 
 32:                                               ; preds = %.lr.ph88, %.critedge
   %indvars.iv92 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next93, %.critedge ]
   %33 = getelementptr inbounds nuw ptr, ptr %.val61, i64 %indvars.iv92
-  %34 = load ptr, ptr %33, align 8, !tbaa !45
+  %34 = load ptr, ptr %33, align 8, !tbaa !44
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.critedge, label %36
 
@@ -455,7 +455,7 @@ define void @Aig_ManPackSimulate(ptr noundef readonly captures(none) %0) local_u
 
 41:                                               ; preds = %36
   %42 = getelementptr i8, ptr %34, i64 8
-  %.val75 = load ptr, ptr %42, align 8, !tbaa !49
+  %.val75 = load ptr, ptr %42, align 8, !tbaa !48
   %.not.i = icmp eq ptr %.val75, null
   br i1 %.not.i, label %Aig_ObjFaninId0.exit, label %43
 
@@ -464,7 +464,7 @@ define void @Aig_ManPackSimulate(ptr noundef readonly captures(none) %0) local_u
   %45 = and i64 %44, -2
   %46 = inttoptr i64 %45 to ptr
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 36
-  %48 = load i32, ptr %47, align 4, !tbaa !46
+  %48 = load i32, ptr %47, align 4, !tbaa !45
   %49 = sext i32 %48 to i64
   br label %Aig_ObjFaninId0.exit
 
@@ -473,7 +473,7 @@ Aig_ObjFaninId0.exit:                             ; preds = %41, %43
   %51 = getelementptr inbounds i64, ptr %.val70, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !37
   %53 = getelementptr i8, ptr %34, i64 16
-  %.val77 = load ptr, ptr %53, align 8, !tbaa !50
+  %.val77 = load ptr, ptr %53, align 8, !tbaa !49
   %.not.i83 = icmp eq ptr %.val77, null
   br i1 %.not.i83, label %Aig_ObjFaninId1.exit, label %54
 
@@ -482,7 +482,7 @@ Aig_ObjFaninId0.exit:                             ; preds = %41, %43
   %56 = and i64 %55, -2
   %57 = inttoptr i64 %56 to ptr
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 36
-  %59 = load i32, ptr %58, align 4, !tbaa !46
+  %59 = load i32, ptr %58, align 4, !tbaa !45
   %60 = sext i32 %59 to i64
   br label %Aig_ObjFaninId1.exit
 
@@ -526,7 +526,7 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
 81:                                               ; preds = %72, %79, %76, %69
   %.052 = phi i64 [ %71, %69 ], [ %74, %72 ], [ %78, %76 ], [ %80, %79 ]
   %82 = getelementptr i8, ptr %34, i64 36
-  %.val72 = load i32, ptr %82, align 4, !tbaa !46
+  %.val72 = load i32, ptr %82, align 4, !tbaa !45
   %83 = sext i32 %.val72 to i64
   %84 = getelementptr inbounds i64, ptr %.val70, i64 %83
   store i64 %.052, ptr %84, align 8, !tbaa !37
@@ -535,14 +535,14 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
 .critedge:                                        ; preds = %81, %36, %32
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %.critedge2.preheader, label %32, !llvm.loop !51
+  br i1 %exitcond96.not, label %.critedge2.preheader, label %32, !llvm.loop !50
 
 85:                                               ; preds = %.lr.ph90, %Aig_ObjFaninId0.exit85
   %indvars.iv97 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next98, %Aig_ObjFaninId0.exit85 ]
   %86 = getelementptr inbounds nuw ptr, ptr %.val60, i64 %indvars.iv97
-  %87 = load ptr, ptr %86, align 8, !tbaa !45
+  %87 = load ptr, ptr %86, align 8, !tbaa !44
   %88 = getelementptr i8, ptr %87, i64 8
-  %.val76 = load ptr, ptr %88, align 8, !tbaa !49
+  %.val76 = load ptr, ptr %88, align 8, !tbaa !48
   %.not.i84 = icmp eq ptr %.val76, null
   %.pre = ptrtoint ptr %.val76 to i64
   br i1 %.not.i84, label %Aig_ObjFaninId0.exit85, label %89
@@ -551,7 +551,7 @@ Aig_ObjFaninId1.exit:                             ; preds = %Aig_ObjFaninId0.exi
   %90 = and i64 %.pre, -2
   %91 = inttoptr i64 %90 to ptr
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 36
-  %93 = load i32, ptr %92, align 4, !tbaa !46
+  %93 = load i32, ptr %92, align 4, !tbaa !45
   %94 = sext i32 %93 to i64
   br label %Aig_ObjFaninId0.exit85
 
@@ -563,13 +563,13 @@ Aig_ObjFaninId0.exit85:                           ; preds = %85, %89
   %sext = sub nsw i64 0, %98
   %99 = xor i64 %97, %sext
   %100 = getelementptr i8, ptr %87, i64 36
-  %.val73 = load i32, ptr %100, align 4, !tbaa !46
+  %.val73 = load i32, ptr %100, align 4, !tbaa !45
   %101 = sext i32 %.val73 to i64
   %102 = getelementptr inbounds i64, ptr %.val70, i64 %101
   store i64 %99, ptr %102, align 8, !tbaa !37
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %.critedge4, label %85, !llvm.loop !52
+  br i1 %exitcond101.not, label %.critedge4, label %85, !llvm.loop !51
 
 .critedge4:                                       ; preds = %Aig_ObjFaninId0.exit85, %.critedge2.preheader
   ret void
@@ -590,7 +590,7 @@ define void @Aig_ManPackPrintStats(ptr noundef readonly captures(none) %0) local
 
 .lr.ph:                                           ; preds = %1
   %8 = getelementptr i8, ptr %5, i64 8
-  %.val27 = load ptr, ptr %8, align 8, !tbaa !44
+  %.val27 = load ptr, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %10
@@ -598,7 +598,7 @@ define void @Aig_ManPackPrintStats(ptr noundef readonly captures(none) %0) local
 10:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %11 = getelementptr inbounds nuw ptr, ptr %.val27, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !45
+  %12 = load ptr, ptr %11, align 8, !tbaa !44
   %13 = icmp eq ptr %12, null
   br i1 %13, label %74, label %14
 
@@ -614,7 +614,7 @@ define void @Aig_ManPackPrintStats(ptr noundef readonly captures(none) %0) local
 19:                                               ; preds = %14
   %20 = load ptr, ptr %9, align 8, !tbaa !31
   %21 = getelementptr i8, ptr %12, i64 36
-  %.val29 = load i32, ptr %21, align 4, !tbaa !46
+  %.val29 = load i32, ptr %21, align 4, !tbaa !45
   %22 = getelementptr i8, ptr %20, i64 8
   %.val28 = load ptr, ptr %22, align 8, !tbaa !29
   %23 = sext i32 %.val29 to i64
@@ -675,7 +675,7 @@ define void @Aig_ManPackPrintStats(ptr noundef readonly captures(none) %0) local
 74:                                               ; preds = %19, %14, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %10, !llvm.loop !53
+  br i1 %exitcond.not, label %.critedge.preheader, label %10, !llvm.loop !52
 
 .critedge.preheader:                              ; preds = %74, %1
   br label %.critedge
@@ -714,7 +714,7 @@ define void @Aig_ManPackPrintStats(ptr noundef readonly captures(none) %0) local
   %putchar = tail call i32 @putchar(i32 10)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 33
-  br i1 %exitcond42.not, label %99, label %.critedge, !llvm.loop !54
+  br i1 %exitcond42.not, label %99, label %.critedge, !llvm.loop !53
 
 99:                                               ; preds = %.critedge
   call void @llvm.lifetime.end.p0(i64 132, ptr nonnull %2) #18
@@ -728,11 +728,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define noalias noundef ptr @Aig_ManPackConstNodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %3, align 4, !tbaa !55
-  store i32 1000, ptr %2, align 8, !tbaa !57
+  store i32 0, ptr %3, align 4, !tbaa !54
+  store i32 1000, ptr %2, align 8, !tbaa !56
   %4 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #17
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %4, ptr %5, align 8, !tbaa !58
+  store ptr %4, ptr %5, align 8, !tbaa !57
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !11
@@ -751,9 +751,9 @@ define noalias noundef ptr @Aig_ManPackConstNodes(ptr noundef readonly captures(
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %15 = phi ptr [ %8, %.lr.ph ], [ %60, %57 ]
   %16 = getelementptr i8, ptr %15, i64 8
-  %.val20 = load ptr, ptr %16, align 8, !tbaa !44
+  %.val20 = load ptr, ptr %16, align 8, !tbaa !43
   %17 = getelementptr inbounds nuw ptr, ptr %.val20, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !44
   %19 = icmp eq ptr %18, null
   br i1 %19, label %57, label %20
 
@@ -769,7 +769,7 @@ define noalias noundef ptr @Aig_ManPackConstNodes(ptr noundef readonly captures(
 25:                                               ; preds = %20
   %26 = load ptr, ptr %11, align 8, !tbaa !31
   %27 = getelementptr i8, ptr %18, i64 36
-  %.val23 = load i32, ptr %27, align 4, !tbaa !46
+  %.val23 = load i32, ptr %27, align 4, !tbaa !45
   %28 = getelementptr i8, ptr %26, i64 8
   %.val21 = load ptr, ptr %28, align 8, !tbaa !29
   %29 = sext i32 %.val23 to i64
@@ -787,8 +787,8 @@ define noalias noundef ptr @Aig_ManPackConstNodes(ptr noundef readonly captures(
   br i1 %or.cond, label %57, label %35
 
 35:                                               ; preds = %25, %25, %32
-  %36 = load i32, ptr %3, align 4, !tbaa !55
-  %37 = load i32, ptr %2, align 8, !tbaa !57
+  %36 = load i32, ptr %3, align 4, !tbaa !54
+  %37 = load i32, ptr %2, align 8, !tbaa !56
   %38 = icmp eq i32 %36, %37
   br i1 %38, label %39, label %Vec_IntPush.exit
 
@@ -826,14 +826,14 @@ define noalias noundef ptr @Aig_ManPackConstNodes(ptr noundef readonly captures(
 Vec_IntPush.exit.sink.split:                      ; preds = %50, %52, %42, %44
   %.sink32 = phi ptr [ %43, %42 ], [ %45, %44 ], [ %51, %50 ], [ %53, %52 ]
   %.sink = phi i32 [ 16, %42 ], [ 16, %44 ], [ %47, %50 ], [ %47, %52 ]
-  store ptr %.sink32, ptr %5, align 8, !tbaa !58
-  store i32 %.sink, ptr %2, align 8, !tbaa !57
+  store ptr %.sink32, ptr %5, align 8, !tbaa !57
+  store i32 %.sink, ptr %2, align 8, !tbaa !56
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %35
   %.pre.i31 = phi ptr [ %14, %35 ], [ %.sink32, %Vec_IntPush.exit.sink.split ]
   %54 = add nsw i32 %36, 1
-  store i32 %54, ptr %3, align 4, !tbaa !55
+  store i32 %54, ptr %3, align 4, !tbaa !54
   %55 = sext i32 %36 to i64
   %56 = getelementptr inbounds i32, ptr %.pre.i31, i64 %55
   store i32 %.val23, ptr %56, align 4, !tbaa !32
@@ -850,7 +850,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %.val = load i32, ptr %61, align 4, !tbaa !24
   %62 = sext i32 %.val to i64
   %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %12, label %.critedge, !llvm.loop !59
+  br i1 %63, label %12, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %57, %1
   ret ptr %2
@@ -859,13 +859,13 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Aig_ManPackAddPatternTry(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 {
   %4 = getelementptr i8, ptr %2, i64 4
-  %.val = load i32, ptr %4, align 4, !tbaa !55
+  %.val = load i32, ptr %4, align 4, !tbaa !54
   %5 = icmp sgt i32 %.val, 0
   br i1 %5, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr i8, ptr %2, i64 8
-  %.val34 = load ptr, ptr %6, align 8, !tbaa !58
+  %.val34 = load ptr, ptr %6, align 8, !tbaa !57
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !34
   %9 = getelementptr i8, ptr %8, i64 8
@@ -881,7 +881,7 @@ define range(i32 0, 2) i32 @Aig_ManPackAddPatternTry(ptr noundef readonly captur
 
 .lr.ph45:                                         ; preds = %43
   %15 = getelementptr i8, ptr %2, i64 8
-  %.val35 = load ptr, ptr %15, align 8, !tbaa !58
+  %.val35 = load ptr, ptr %15, align 8, !tbaa !57
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   %18 = getelementptr i8, ptr %17, i64 8
@@ -926,7 +926,7 @@ define range(i32 0, 2) i32 @Aig_ManPackAddPatternTry(ptr noundef readonly captur
 43:                                               ; preds = %26, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph45, label %26, !llvm.loop !60
+  br i1 %exitcond.not, label %.lr.ph45, label %26, !llvm.loop !59
 
 44:                                               ; preds = %.lr.ph45, %.critedge
   %indvars.iv52 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next53, %.critedge ]
@@ -953,10 +953,10 @@ define range(i32 0, 2) i32 @Aig_ManPackAddPatternTry(ptr noundef readonly captur
 
 .critedge:                                        ; preds = %44, %56
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %.val33 = load i32, ptr %4, align 4, !tbaa !55
+  %.val33 = load i32, ptr %4, align 4, !tbaa !54
   %58 = sext i32 %.val33 to i64
   %59 = icmp slt i64 %indvars.iv.next53, %58
-  br i1 %59, label %44, label %.critedge2, !llvm.loop !61
+  br i1 %59, label %44, label %.critedge2, !llvm.loop !60
 
 .critedge2:                                       ; preds = %33, %.critedge, %3
   %.032 = phi i32 [ 1, %3 ], [ 1, %.critedge ], [ 0, %33 ]
@@ -966,7 +966,7 @@ define range(i32 0, 2) i32 @Aig_ManPackAddPatternTry(ptr noundef readonly captur
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Aig_ManPackAddPattern(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = getelementptr i8, ptr %1, i64 4
-  %.val.i = load i32, ptr %3, align 4, !tbaa !55
+  %.val.i = load i32, ptr %3, align 4, !tbaa !54
   %4 = icmp sgt i32 %.val.i, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %wide.trip.count.i = zext nneg i32 %.val.i to i64
@@ -975,7 +975,7 @@ define void @Aig_ManPackAddPattern(ptr noundef captures(none) %0, ptr noundef re
 .split:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr i8, ptr %1, i64 8
-  %.val34.i = load ptr, ptr %7, align 8, !tbaa !58
+  %.val34.i = load ptr, ptr %7, align 8, !tbaa !57
   %8 = load ptr, ptr %6, align 8, !tbaa !34
   %9 = getelementptr i8, ptr %8, i64 8
   %.val37.i = load ptr, ptr %9, align 8, !tbaa !29
@@ -1025,7 +1025,7 @@ define void @Aig_ManPackAddPattern(ptr noundef captures(none) %0, ptr noundef re
 33:                                               ; preds = %23, %16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.preheader.i, label %16, !llvm.loop !60
+  br i1 %exitcond.not.i, label %.critedge.preheader.i, label %16, !llvm.loop !59
 
 34:                                               ; preds = %.critedge.i, %.critedge.preheader.i
   %indvars.iv52.i = phi i64 [ 0, %.critedge.preheader.i ], [ %indvars.iv.next53.i, %.critedge.i ]
@@ -1052,15 +1052,15 @@ define void @Aig_ManPackAddPattern(ptr noundef captures(none) %0, ptr noundef re
 
 .critedge.i:                                      ; preds = %46, %34
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %.val33.i = load i32, ptr %3, align 4, !tbaa !55
+  %.val33.i = load i32, ptr %3, align 4, !tbaa !54
   %48 = sext i32 %.val33.i to i64
   %49 = icmp slt i64 %indvars.iv.next53.i, %48
-  br i1 %49, label %34, label %Aig_ManPackAddPatternTry.exit.thread, !llvm.loop !61
+  br i1 %49, label %34, label %Aig_ManPackAddPatternTry.exit.thread, !llvm.loop !60
 
 Aig_ManPackAddPatternTry.exit:                    ; preds = %23
   %50 = add nuw nsw i32 %.018, 1
   %exitcond.not = icmp eq i32 %50, 64
-  br i1 %exitcond.not, label %Aig_ManPackAddPatternTry.exit.thread.thread28, label %.lr.ph.i, !llvm.loop !62
+  br i1 %exitcond.not, label %Aig_ManPackAddPatternTry.exit.thread.thread28, label %.lr.ph.i, !llvm.loop !61
 
 Aig_ManPackAddPatternTry.exit.thread:             ; preds = %.critedge.i
   %51 = icmp eq i32 %.018, 64
@@ -1068,16 +1068,16 @@ Aig_ManPackAddPatternTry.exit.thread:             ; preds = %.critedge.i
 
 Aig_ManPackAddPatternTry.exit.thread.thread28:    ; preds = %Aig_ManPackAddPatternTry.exit, %Aig_ManPackAddPatternTry.exit.thread
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %53 = load i32, ptr %52, align 4, !tbaa !42
+  %53 = load i32, ptr %52, align 4, !tbaa !41
   %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %52, align 4, !tbaa !42
+  store i32 %54, ptr %52, align 4, !tbaa !41
   br label %Aig_ManPackAddPatternTry.exit.thread.thread
 
 Aig_ManPackAddPatternTry.exit.thread.thread:      ; preds = %2, %Aig_ManPackAddPatternTry.exit.thread.thread28, %Aig_ManPackAddPatternTry.exit.thread
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %56 = load i32, ptr %55, align 8, !tbaa !41
+  %56 = load i32, ptr %55, align 8, !tbaa !40
   %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %55, align 8, !tbaa !41
+  store i32 %57, ptr %55, align 8, !tbaa !40
   ret void
 }
 
@@ -1116,7 +1116,7 @@ define noalias noundef ptr @Aig_ManPackStart(ptr noundef %0) local_unnamed_addr 
   %.val.i = load i32, ptr %21, align 4, !tbaa !24
   %22 = sext i32 %.val.i to i64
   %23 = icmp slt i64 %indvars.iv.next.i, %22
-  br i1 %23, label %9, label %Aig_ManPackSetRandom.exit, !llvm.loop !43
+  br i1 %23, label %9, label %Aig_ManPackSetRandom.exit, !llvm.loop !42
 
 Aig_ManPackSetRandom.exit:                        ; preds = %9, %1
   tail call void @Aig_ManPackSimulate(ptr noundef nonnull %2)
@@ -1205,28 +1205,27 @@ attributes #19 = { nounwind allocsize(1) }
 !35 = !{!4, !10, i64 32}
 !36 = !{!12, !14, i64 16}
 !37 = !{!23, !23, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!4, !10, i64 40}
-!42 = !{!4, !10, i64 44}
-!43 = distinct !{!43, !39, !40}
-!44 = !{!25, !6, i64 8}
-!45 = !{!6, !6, i64 0}
-!46 = !{!16, !10, i64 36}
-!47 = distinct !{!47, !39, !40}
-!48 = !{!12, !14, i64 24}
-!49 = !{!16, !15, i64 8}
-!50 = !{!16, !15, i64 16}
-!51 = distinct !{!51, !39, !40}
-!52 = distinct !{!52, !39, !40}
-!53 = distinct !{!53, !39, !40}
-!54 = distinct !{!54, !39, !40}
-!55 = !{!56, !10, i64 4}
-!56 = !{!"Vec_Int_t_", !10, i64 0, !10, i64 4, !18, i64 8}
-!57 = !{!56, !10, i64 0}
-!58 = !{!56, !18, i64 8}
-!59 = distinct !{!59, !39, !40}
-!60 = distinct !{!60, !39, !40}
-!61 = distinct !{!61, !39, !40}
-!62 = distinct !{!62, !39, !40}
+!40 = !{!4, !10, i64 40}
+!41 = !{!4, !10, i64 44}
+!42 = distinct !{!42, !39}
+!43 = !{!25, !6, i64 8}
+!44 = !{!6, !6, i64 0}
+!45 = !{!16, !10, i64 36}
+!46 = distinct !{!46, !39}
+!47 = !{!12, !14, i64 24}
+!48 = !{!16, !15, i64 8}
+!49 = !{!16, !15, i64 16}
+!50 = distinct !{!50, !39}
+!51 = distinct !{!51, !39}
+!52 = distinct !{!52, !39}
+!53 = distinct !{!53, !39}
+!54 = !{!55, !10, i64 4}
+!55 = !{!"Vec_Int_t_", !10, i64 0, !10, i64 4, !18, i64 8}
+!56 = !{!55, !10, i64 0}
+!57 = !{!55, !18, i64 8}
+!58 = distinct !{!58, !39}
+!59 = distinct !{!59, !39}
+!60 = distinct !{!60, !39}
+!61 = distinct !{!61, !39}

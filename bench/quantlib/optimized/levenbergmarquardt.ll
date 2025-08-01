@@ -2704,7 +2704,7 @@ for.body.i.i.i.i.i.us.i:                          ; preds = %for.body.i.i.i.i.i.
 invoke.cont9.loopexit.us.i:                       ; preds = %for.body.i.i.i.i.i.us.i
   %add.i.us.i = add nuw i64 %i.020.us.i, 1
   %exitcond.not.i = icmp eq i64 %add.i.us.i, %16
-  br i1 %exitcond.not.i, label %invoke.cont18, label %invoke.cont7.us.i, !llvm.loop !70
+  br i1 %exitcond.not.i, label %invoke.cont18, label %invoke.cont7.us.i, !llvm.loop !69
 
 invoke.cont18:                                    ; preds = %invoke.cont9.loopexit.us.i, %invoke.cont7.lr.ph.i
   br i1 %cmp.not.i.i17, label %invoke.cont24, label %if.then.i.i.i.i.i26
@@ -2773,9 +2773,9 @@ ehcleanup27:                                      ; preds = %_ZNKSt14default_del
 if.else:                                          ; preds = %invoke.cont6
   %initJacobian_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %columns_.i.i39 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %28 = load i64, ptr %columns_.i.i39, align 8, !tbaa !62, !noalias !72
+  %28 = load i64, ptr %columns_.i.i39, align 8, !tbaa !62, !noalias !71
   %rows_.i.i40 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %29 = load i64, ptr %rows_.i.i40, align 8, !tbaa !61, !noalias !72
+  %29 = load i64, ptr %rows_.i.i40, align 8, !tbaa !61, !noalias !71
   %mul.i.i41 = mul i64 %29, %28
   %cmp.not.i.i42 = icmp eq i64 %mul.i.i41, 0
   br i1 %cmp.not.i.i42, label %_ZN8QuantLib6MatrixC2Emm.exit.i44, label %cond.true.i.i43
@@ -2793,7 +2793,7 @@ _ZN8QuantLib6MatrixC2Emm.exit.i44:                ; preds = %cond.true.i.i43, %i
   br i1 %cmp19.not.i48, label %invoke.cont36, label %invoke.cont7.lr.ph.i49
 
 invoke.cont7.lr.ph.i49:                           ; preds = %_ZN8QuantLib6MatrixC2Emm.exit.i44
-  %33 = load ptr, ptr %initJacobian_, align 8, !tbaa !35, !noalias !72
+  %33 = load ptr, ptr %initJacobian_, align 8, !tbaa !35, !noalias !71
   %mul.i13.i50 = shl i64 %28, 3
   %cmp6.i.i.i.i.i.i51 = icmp sgt i64 %28, 0
   br i1 %cmp6.i.i.i.i.i.i51, label %invoke.cont7.us.i52, label %invoke.cont30
@@ -2809,8 +2809,8 @@ for.body.i.i.i.i.i.us.i57:                        ; preds = %for.body.i.i.i.i.i.
   %__n.09.i.i.i.i.i.us.i58 = phi i64 [ %dec.i.i.i.i.i.us.i63, %for.body.i.i.i.i.i.us.i57 ], [ %28, %invoke.cont7.us.i52 ]
   %__first.addr.08.i.i.i.i.i.us.i59 = phi ptr [ %incdec.ptr.i.i.i.i.i.us.i61, %for.body.i.i.i.i.i.us.i57 ], [ %add.ptr.i.us.i55, %invoke.cont7.us.i52 ]
   %__result.sroa.0.07.i.i.i.i.i.us.i60 = phi ptr [ %add.ptr.i.i.i.i.i.i.us.i62, %for.body.i.i.i.i.i.us.i57 ], [ %add.ptr.i17.us.i56, %invoke.cont7.us.i52 ]
-  %34 = load double, ptr %__first.addr.08.i.i.i.i.i.us.i59, align 8, !tbaa !66, !noalias !72
-  store double %34, ptr %__result.sroa.0.07.i.i.i.i.i.us.i60, align 8, !tbaa !66, !noalias !72
+  %34 = load double, ptr %__first.addr.08.i.i.i.i.i.us.i59, align 8, !tbaa !66, !noalias !71
+  store double %34, ptr %__result.sroa.0.07.i.i.i.i.i.us.i60, align 8, !tbaa !66, !noalias !71
   %incdec.ptr.i.i.i.i.i.us.i61 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i59, i64 8
   %add.ptr.i.i.i.i.i.i.us.i62 = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i60, i64 %29
   %dec.i.i.i.i.i.us.i63 = add nsw i64 %__n.09.i.i.i.i.i.us.i58, -1
@@ -2820,7 +2820,7 @@ for.body.i.i.i.i.i.us.i57:                        ; preds = %for.body.i.i.i.i.i.
 invoke.cont9.loopexit.us.i65:                     ; preds = %for.body.i.i.i.i.i.us.i57
   %add.i.us.i66 = add nuw i64 %i.020.us.i53, 1
   %exitcond.not.i67 = icmp eq i64 %add.i.us.i66, %29
-  br i1 %exitcond.not.i67, label %invoke.cont30, label %invoke.cont7.us.i52, !llvm.loop !70
+  br i1 %exitcond.not.i67, label %invoke.cont30, label %invoke.cont7.us.i52, !llvm.loop !69
 
 invoke.cont30:                                    ; preds = %invoke.cont9.loopexit.us.i65, %invoke.cont7.lr.ph.i49
   br i1 %cmp.not.i.i42, label %invoke.cont36, label %if.then.i.i.i.i.i79
@@ -2974,7 +2974,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFviiPdS0_PiEZN8QuantLib18LevenbergMarquardt8minimizeERNS3_7ProblemERKNS3_11EndCriteriaEE3$_0E9_M_invokeERKSt9_Any_dataOiSF_OS0_SG_OS1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args7) #2 align 2 {
 entry:
-  %call.val = load ptr, ptr %__functor, align 8, !tbaa !75
+  %call.val = load ptr, ptr %__functor, align 8, !tbaa !74
   %__args1.val = load i32, ptr %__args1, align 4, !tbaa !41
   %__args3.val = load ptr, ptr %__args3, align 8, !tbaa !35
   %__args5.val = load ptr, ptr %__args5, align 8, !tbaa !35
@@ -3011,7 +3011,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFviiPdS0_PiEZN8QuantLib18LevenbergMarquardt8minimizeERNS3_7ProblemERKNS3_11EndCriteriaEE3$_1E9_M_invokeERKSt9_Any_dataOiSF_OS0_SG_OS1_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args7) #2 align 2 {
 entry:
-  %call.val = load ptr, ptr %__functor, align 8, !tbaa !77
+  %call.val = load ptr, ptr %__functor, align 8, !tbaa !76
   %__args.val = load i32, ptr %__args, align 4, !tbaa !41
   %__args1.val = load i32, ptr %__args1, align 4, !tbaa !41
   %__args3.val = load ptr, ptr %__args3, align 8, !tbaa !35
@@ -3147,15 +3147,14 @@ attributes #24 = { noreturn nounwind }
 !64 = distinct !{!64, !65, !"_ZN8QuantLib9transposeERKNS_6MatrixE: %agg.result"}
 !65 = distinct !{!65, !"_ZN8QuantLib9transposeERKNS_6MatrixE"}
 !66 = !{!21, !21, i64 0}
-!67 = distinct !{!67, !68, !69}
+!67 = distinct !{!67, !68}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = !{!"llvm.loop.estimated_trip_count"}
-!70 = distinct !{!70, !68, !69, !71}
-!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN8QuantLib9transposeERKNS_6MatrixE: %agg.result"}
-!74 = distinct !{!74, !"_ZN8QuantLib9transposeERKNS_6MatrixE"}
-!75 = !{!76, !9, i64 0}
-!76 = !{!"_ZTSZN8QuantLib18LevenbergMarquardt8minimizeERNS_7ProblemERKNS_11EndCriteriaEE3$_0", !9, i64 0}
-!77 = !{!78, !9, i64 0}
-!78 = !{!"_ZTSZN8QuantLib18LevenbergMarquardt8minimizeERNS_7ProblemERKNS_11EndCriteriaEE3$_1", !9, i64 0}
+!69 = distinct !{!69, !68, !70}
+!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZN8QuantLib9transposeERKNS_6MatrixE: %agg.result"}
+!73 = distinct !{!73, !"_ZN8QuantLib9transposeERKNS_6MatrixE"}
+!74 = !{!75, !9, i64 0}
+!75 = !{!"_ZTSZN8QuantLib18LevenbergMarquardt8minimizeERNS_7ProblemERKNS_11EndCriteriaEE3$_0", !9, i64 0}
+!76 = !{!77, !9, i64 0}
+!77 = !{!"_ZTSZN8QuantLib18LevenbergMarquardt8minimizeERNS_7ProblemERKNS_11EndCriteriaEE3$_1", !9, i64 0}

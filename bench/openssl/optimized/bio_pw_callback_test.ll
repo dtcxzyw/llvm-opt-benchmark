@@ -94,11 +94,11 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 3:                                                ; preds = %1
   %4 = tail call ptr @opt_arg() #7
-  store ptr %4, ptr @key_file, align 8, !tbaa !7
+  store ptr %4, ptr @key_file, align 8, !tbaa !6
   br label %.backedge
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr @key_file, align 8, !tbaa !7
+  %6 = load ptr, ptr @key_file, align 8, !tbaa !6
   %7 = tail call ptr @BIO_new_file(ptr noundef %6, ptr noundef nonnull @.str.18) #7
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 372, ptr noundef nonnull @.str.17, ptr noundef %7) #7
   %.not4 = icmp eq i32 %8, 0
@@ -259,7 +259,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @original_pkey, align 8, !tbaa !12
+  %1 = load ptr, ptr @original_pkey, align 8, !tbaa !11
   tail call void @EVP_PKEY_free(ptr noundef %1) #7
   ret void
 }
@@ -278,13 +278,13 @@ define internal fastcc range(i32 0, 2) i32 @full_cycle_test(i32 noundef range(i3
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  store ptr null, ptr %9, align 8, !tbaa !7
+  store ptr null, ptr %9, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
-  store i32 0, ptr %10, align 4, !tbaa !14
-  store i32 %1, ptr @callback_test, align 4, !tbaa !14
+  store i32 0, ptr %10, align 4, !tbaa !13
+  store i32 %1, ptr @callback_test, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
-  store ptr null, ptr %8, align 8, !tbaa !16
+  store ptr null, ptr %8, align 8, !tbaa !15
   %11 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 163, ptr noundef nonnull @.str.36, ptr noundef nonnull %9) #7
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %re_encrypt_key.exit, label %12
@@ -302,11 +302,11 @@ define internal fastcc range(i32 0, 2) i32 @full_cycle_test(i32 noundef range(i3
   br i1 %.not15.i, label %re_encrypt_key.exit, label %18
 
 18:                                               ; preds = %14
-  store i8 112, ptr %7, align 4, !tbaa !18
+  store i8 112, ptr %7, align 4, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 0, ptr %19, align 4, !tbaa !20
+  store i32 0, ptr %19, align 4, !tbaa !19
   %trunc.i = trunc nuw i32 %0 to i1
-  %20 = load ptr, ptr @original_pkey, align 8, !tbaa !12
+  %20 = load ptr, ptr @original_pkey, align 8, !tbaa !11
   %21 = call ptr @EVP_aes_256_cbc() #7
   br i1 %trunc.i, label %24, label %22
 
@@ -325,13 +325,13 @@ define internal fastcc range(i32 0, 2) i32 @full_cycle_test(i32 noundef range(i3
   br i1 %.not16.i, label %re_encrypt_key.exit, label %28
 
 28:                                               ; preds = %26
-  %29 = load i8, ptr %7, align 4, !tbaa !18
+  %29 = load i8, ptr %7, align 4, !tbaa !17
   %30 = call i32 @test_char_eq(ptr noundef nonnull @.str.16, i32 noundef 183, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, i8 noundef signext %29, i8 noundef signext 112) #7
   %.not17.i = icmp eq i32 %30, 0
   br i1 %.not17.i, label %re_encrypt_key.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = load i32, ptr %19, align 4, !tbaa !20
+  %32 = load i32, ptr %19, align 4, !tbaa !19
   %33 = call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 185, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef %32, i32 noundef 1) #7
   %.not18.i = icmp eq i32 %33, 0
   br i1 %.not18.i, label %re_encrypt_key.exit, label %34
@@ -339,27 +339,27 @@ define internal fastcc range(i32 0, 2) i32 @full_cycle_test(i32 noundef range(i3
 34:                                               ; preds = %31
   %35 = call i64 @BIO_ctrl(ptr noundef %16, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %9) #7
   %36 = trunc i64 %35 to i32
-  store i32 %36, ptr %10, align 4, !tbaa !14
+  store i32 %36, ptr %10, align 4, !tbaa !13
   %37 = call i64 @BIO_ctrl(ptr noundef %16, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %8) #7
   %38 = call i64 @BIO_ctrl(ptr noundef %16, i32 noundef 9, i64 noundef 0, ptr noundef null) #7
   %39 = and i64 %38, 4294967295
   %.not19.i = icmp eq i64 %39, 0
-  %.pre.i = load ptr, ptr %8, align 8, !tbaa !16
+  %.pre.i = load ptr, ptr %8, align 8, !tbaa !15
   br i1 %.not19.i, label %re_encrypt_key.exit, label %.critedge
 
 .critedge:                                        ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  store ptr null, ptr %40, align 8, !tbaa !21
+  store ptr null, ptr %40, align 8, !tbaa !20
   call void @BUF_MEM_free(ptr noundef %.pre.i) #7
   %41 = call i32 @BIO_free(ptr noundef %16) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  store i32 %2, ptr @callback_test, align 4, !tbaa !14
-  %42 = load ptr, ptr %9, align 8, !tbaa !7
-  %43 = load i32, ptr %10, align 4, !tbaa !14
+  store i32 %2, ptr @callback_test, align 4, !tbaa !13
+  %42 = load ptr, ptr %9, align 8, !tbaa !6
+  %43 = load i32, ptr %10, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store ptr null, ptr %6, align 8, !tbaa !12
+  store ptr null, ptr %6, align 8, !tbaa !11
   %44 = call ptr @BIO_new_mem_buf(ptr noundef %42, i32 noundef %43) #7
   %45 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 209, ptr noundef nonnull @.str.50, ptr noundef %44) #7
   %.not.i7 = icmp eq i32 %45, 0
@@ -375,9 +375,9 @@ re_encrypt_key.exit:                              ; preds = %4, %12, %14, %26, %
   br label %68
 
 48:                                               ; preds = %.critedge
-  store i8 112, ptr %5, align 4, !tbaa !18
+  store i8 112, ptr %5, align 4, !tbaa !17
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %49, align 4, !tbaa !20
+  store i32 0, ptr %49, align 4, !tbaa !19
   br i1 %trunc.i, label %52, label %50
 
 50:                                               ; preds = %48
@@ -404,13 +404,13 @@ re_encrypt_key.exit:                              ; preds = %4, %12, %14, %26, %
   br i1 %.not11.i, label %decrypt_key.exit, label %59
 
 59:                                               ; preds = %57, %55
-  %60 = load i8, ptr %5, align 4, !tbaa !18
+  %60 = load i8, ptr %5, align 4, !tbaa !17
   %61 = call i32 @test_char_eq(ptr noundef nonnull @.str.16, i32 noundef 228, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, i8 noundef signext %60, i8 noundef signext 112) #7
   %.not13.i = icmp eq i32 %61, 0
   br i1 %.not13.i, label %decrypt_key.exit, label %62
 
 62:                                               ; preds = %59
-  %63 = load i32, ptr %49, align 4, !tbaa !20
+  %63 = load i32, ptr %49, align 4, !tbaa !19
   %64 = call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 230, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i32 noundef %63, i32 noundef 1) #7
   %.fr = freeze i32 %64
   %.not14.i9.not = icmp ne i32 %.fr, 0
@@ -419,7 +419,7 @@ re_encrypt_key.exit:                              ; preds = %4, %12, %14, %26, %
 
 decrypt_key.exit:                                 ; preds = %.critedge, %55, %57, %59, %62
   %.0.i10 = phi i32 [ 0, %59 ], [ 0, %55 ], [ 0, %57 ], [ 0, %.critedge ], [ %65, %62 ]
-  %66 = load ptr, ptr %6, align 8, !tbaa !12
+  %66 = load ptr, ptr %6, align 8, !tbaa !11
   call void @EVP_PKEY_free(ptr noundef %66) #7
   %67 = call i32 @BIO_free(ptr noundef %44) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
@@ -428,7 +428,7 @@ decrypt_key.exit:                                 ; preds = %.critedge, %55, %57
 
 68:                                               ; preds = %re_encrypt_key.exit, %decrypt_key.exit
   %.0 = phi i32 [ 0, %re_encrypt_key.exit ], [ %.0.i10, %decrypt_key.exit ]
-  %69 = load ptr, ptr %9, align 8, !tbaa !7
+  %69 = load ptr, ptr %9, align 8, !tbaa !6
   call void @CRYPTO_free(ptr noundef %69, ptr noundef nonnull @.str.16, i32 noundef 256) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #7
@@ -452,7 +452,7 @@ define internal noundef i32 @write_callback(ptr noundef %0, i32 noundef %1, i32 
   br i1 %.not, label %27, label %6
 
 6:                                                ; preds = %4
-  %7 = load i8, ptr %3, align 4, !tbaa !18
+  %7 = load i8, ptr %3, align 4, !tbaa !17
   %8 = tail call i32 @test_char_eq(ptr noundef nonnull @.str.16, i32 noundef 140, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.42, i8 noundef signext %7, i8 noundef signext 112) #7
   %.not9 = icmp eq i32 %8, 0
   br i1 %.not9, label %27, label %9
@@ -473,7 +473,7 @@ define internal noundef i32 @write_callback(ptr noundef %0, i32 noundef %1, i32 
   br i1 %.not12, label %27, label %15
 
 15:                                               ; preds = %13
-  %16 = load i32, ptr @callback_test, align 4, !tbaa !14
+  %16 = load i32, ptr @callback_test, align 4, !tbaa !13
   switch i32 %16, label %callback_copy_password.exit [
     i32 7, label %24
     i32 1, label %17
@@ -516,7 +516,7 @@ define internal noundef i32 @write_callback(ptr noundef %0, i32 noundef %1, i32 
 callback_copy_password.exit:                      ; preds = %15, %17, %18, %19, %20, %21, %22, %24
   %.0.i = phi i32 [ -1, %15 ], [ 1000000, %24 ], [ 0, %17 ], [ 13, %18 ], [ 16, %19 ], [ 17, %20 ], [ 17, %21 ], [ %1, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %26, align 4, !tbaa !20
+  store i32 1, ptr %26, align 4, !tbaa !19
   br label %27
 
 27:                                               ; preds = %13, %11, %9, %6, %4, %callback_copy_password.exit
@@ -550,7 +550,7 @@ define internal noundef i32 @read_callback(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not, label %27, label %6
 
 6:                                                ; preds = %4
-  %7 = load i8, ptr %3, align 4, !tbaa !18
+  %7 = load i8, ptr %3, align 4, !tbaa !17
   %8 = tail call i32 @test_char_eq(ptr noundef nonnull @.str.16, i32 noundef 118, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.42, i8 noundef signext %7, i8 noundef signext 112) #7
   %.not9 = icmp eq i32 %8, 0
   br i1 %.not9, label %27, label %9
@@ -571,7 +571,7 @@ define internal noundef i32 @read_callback(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not12, label %27, label %15
 
 15:                                               ; preds = %13
-  %16 = load i32, ptr @callback_test, align 4, !tbaa !14
+  %16 = load i32, ptr @callback_test, align 4, !tbaa !13
   switch i32 %16, label %callback_copy_password.exit [
     i32 7, label %24
     i32 1, label %17
@@ -614,7 +614,7 @@ define internal noundef i32 @read_callback(ptr noundef %0, i32 noundef %1, i32 n
 callback_copy_password.exit:                      ; preds = %15, %17, %18, %19, %20, %21, %22, %24
   %.0.i = phi i32 [ -1, %15 ], [ 1000000, %24 ], [ 0, %17 ], [ 13, %18 ], [ 16, %19 ], [ 17, %20 ], [ 17, %21 ], [ %1, %22 ]
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %26, align 4, !tbaa !20
+  store i32 1, ptr %26, align 4, !tbaa !19
   br label %27
 
 27:                                               ; preds = %13, %11, %9, %6, %4, %callback_copy_password.exit
@@ -641,23 +641,22 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !10, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS10buf_mem_st", !9, i64 0}
-!18 = !{!19, !10, i64 0}
-!19 = !{!"CallbackData", !10, i64 0, !15, i64 4}
-!20 = !{!19, !15, i64 4}
-!21 = !{!22, !8, i64 8}
-!22 = !{!"buf_mem_st", !23, i64 0, !8, i64 8, !23, i64 16, !23, i64 24}
-!23 = !{!"long", !10, i64 0}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTS11evp_pkey_st", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS10buf_mem_st", !8, i64 0}
+!17 = !{!18, !9, i64 0}
+!18 = !{!"CallbackData", !9, i64 0, !14, i64 4}
+!19 = !{!18, !14, i64 4}
+!20 = !{!21, !7, i64 8}
+!21 = !{!"buf_mem_st", !22, i64 0, !7, i64 8, !22, i64 16, !22, i64 24}
+!22 = !{!"long", !9, i64 0}

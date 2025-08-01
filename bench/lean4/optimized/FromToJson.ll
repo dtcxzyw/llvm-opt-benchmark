@@ -100471,7 +100471,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %22
   %.027.be = phi ptr [ %.0, %22 ], [ %49, %lean_alloc_ctor.exit ]
-  br label %4, !llvm.loop !22
+  br label %4
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -102980,7 +102980,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %22
   %.027.be = phi ptr [ %.0, %22 ], [ %49, %lean_alloc_ctor.exit ]
-  br label %4, !llvm.loop !24
+  br label %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -112111,6 +112111,3 @@ attributes #6 = { noreturn nounwind }
 !19 = !{!"short", !6, i64 0}
 !20 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
 !21 = !{!6, !6, i64 0}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !23}

@@ -199,7 +199,7 @@ define dso_local ptr @BuildIndexValueDescription(ptr noundef readonly captures(n
 32:                                               ; preds = %.lr.ph37, %46
   %indvars.iv39 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next40, %46 ]
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv39
-  %34 = load i8, ptr %33, align 1, !range !7, !noundef !8
+  %34 = load i8, ptr %33, align 1, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %44, label %36
 
@@ -231,7 +231,7 @@ define dso_local ptr @BuildIndexValueDescription(ptr noundef readonly captures(n
   call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef %.0) #7
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %._crit_edge, label %32, !llvm.loop !9
+  br i1 %exitcond43.not, label %._crit_edge, label %32, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %46, %.loopexit
   call void @appendStringInfoChar(ptr noundef nonnull %4, i8 noundef signext 41) #7
@@ -360,7 +360,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   store i32 %58, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !9
 }
 
 declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #2
@@ -368,7 +368,7 @@ declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %.not = xor i1 %2, true
-  %7 = load i8, ptr @IgnoreSystemIndexes, align 1, !range !7
+  %7 = load i8, ptr @IgnoreSystemIndexes, align 1, !range !6
   %8 = trunc nuw i8 %7 to i1
   %or.cond = select i1 %.not, i1 true, i1 %8
   br i1 %or.cond, label %13, label %9
@@ -423,7 +423,7 @@ define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1,
 32:                                               ; preds = %.loopexit
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge, label %33, !llvm.loop !11
+  br i1 %exitcond72.not, label %._crit_edge, label %33, !llvm.loop !10
 
 33:                                               ; preds = %.lr.ph65, %32
   %indvars.iv68 = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next69, %32 ]
@@ -466,7 +466,7 @@ define dso_local noundef ptr @systable_beginscan(ptr noundef %0, i32 noundef %1,
 53:                                               ; preds = %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %44, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit.thread, label %44, !llvm.loop !11
 
 .loopexit:                                        ; preds = %33, %48
   %.pre-phi = phi i32 [ %39, %33 ], [ %.pre74, %48 ]
@@ -565,7 +565,7 @@ define dso_local ptr @systable_getnext(ptr noundef readonly captures(none) %0) l
   %14 = call ptr @ExecFetchSlotHeapTuple(ptr noundef %13, i1 noundef zeroext false, ptr noundef nonnull %2) #7
   %15 = load ptr, ptr %9, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  %17 = load i8, ptr %16, align 8, !range !7, !noundef !8
+  %17 = load i8, ptr %16, align 8, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %22
 
@@ -590,10 +590,10 @@ define dso_local ptr @systable_getnext(ptr noundef readonly captures(none) %0) l
   store i32 %28, ptr %29, align 8
   %30 = load i32, ptr @CheckXidAlive, align 4
   %31 = icmp eq i32 %30, 0
-  %32 = load i8, ptr @bsysscan, align 1, !range !7
+  %32 = load i8, ptr @bsysscan, align 1, !range !6
   %33 = trunc nuw i8 %32 to i1
   %.not5.i = select i1 %31, i1 true, i1 %33
-  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %34, !prof !13
+  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %34, !prof !12
 
 34:                                               ; preds = %23
   %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
@@ -776,7 +776,7 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
   unreachable
 
 16:                                               ; preds = %5
-  %17 = load i8, ptr @IgnoreSystemIndexes, align 1, !range !7, !noundef !8
+  %17 = load i8, ptr @IgnoreSystemIndexes, align 1, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %26
 
@@ -829,7 +829,7 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
 44:                                               ; preds = %.loopexit
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %._crit_edge, label %45, !llvm.loop !14
+  br i1 %exitcond61.not, label %._crit_edge, label %45, !llvm.loop !13
 
 45:                                               ; preds = %.lr.ph54, %44
   %indvars.iv57 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next58, %44 ]
@@ -872,7 +872,7 @@ define dso_local noundef ptr @systable_beginscan_ordered(ptr noundef %0, ptr nou
 65:                                               ; preds = %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %56, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit.thread, label %56, !llvm.loop !14
 
 .loopexit:                                        ; preds = %45, %60
   %.pre-phi = phi i32 [ %51, %45 ], [ %.pre63, %60 ]
@@ -929,7 +929,7 @@ define dso_local ptr @systable_getnext_ordered(ptr noundef readonly captures(non
 11:                                               ; preds = %8
   %12 = load ptr, ptr %3, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
-  %14 = load i8, ptr %13, align 8, !range !7, !noundef !8
+  %14 = load i8, ptr %13, align 8, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %.thread
 
@@ -1023,7 +1023,7 @@ define dso_local void @systable_inplace_update_begin(ptr noundef %0, i32 noundef
   %.021 = phi i32 [ %17, %24 ], [ 0, %8 ]
   %14 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %16, label %15, !prof !13
+  br i1 %.not, label %16, label %15, !prof !12
 
 15:                                               ; preds = %.preheader
   tail call void @ProcessInterrupts() #7
@@ -1061,7 +1061,7 @@ define dso_local void @systable_inplace_update_begin(ptr noundef %0, i32 noundef
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %31 = load i32, ptr %30, align 8
   %32 = tail call zeroext i1 @heap_inplace_lock(ptr noundef %27, ptr noundef %29, i32 noundef %31, ptr noundef nonnull @systable_endscan, ptr noundef nonnull %22) #7
-  br i1 %32, label %33, label %.preheader, !llvm.loop !16
+  br i1 %32, label %33, label %.preheader, !llvm.loop !15
 
 33:                                               ; preds = %24
   %34 = tail call ptr @heap_copytuple(ptr noundef nonnull %23) #7
@@ -1139,16 +1139,15 @@ attributes #8 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}

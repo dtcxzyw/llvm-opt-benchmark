@@ -492,7 +492,7 @@ land.rhs:                                         ; preds = %do.body
   %call10 = tail call ptr @__errno_location() #20
   %2 = load i32, ptr %call10, align 4
   %cmp11 = icmp eq i32 %2, 4
-  br i1 %cmp11, label %do.body, label %if.then, !llvm.loop !7
+  br i1 %cmp11, label %do.body, label %if.then, !llvm.loop !6
 
 if.then:                                          ; preds = %land.rhs
   %errno_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -896,14 +896,14 @@ land.rhs:                                         ; preds = %do.body
   %call11 = tail call ptr @__errno_location() #20
   %2 = load i32, ptr %call11, align 4
   %cmp12 = icmp eq i32 %2, 4
-  br i1 %cmp12, label %do.body, label %if.then15, !llvm.loop !8
+  br i1 %cmp12, label %do.body, label %if.then15, !llvm.loop !7
 
 do.end:                                           ; preds = %do.body
   %cmp13.not = icmp ne i32 %conv9, 0
   %add = add nuw nsw i32 %total_written.015, %conv9
   %cmp.not = icmp slt i32 %add, %size
   %or.cond = select i1 %cmp13.not, i1 %cmp.not, i1 false
-  br i1 %or.cond, label %do.body.preheader, label %return, !llvm.loop !9
+  br i1 %or.cond, label %do.body.preheader, label %return, !llvm.loop !8
 
 if.then15:                                        ; preds = %land.rhs
   %errno_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1220,7 +1220,7 @@ if.end:                                           ; preds = %while.body
   %dec = add nsw i32 %9, -1
   store i32 %dec, ptr %stream_count_, align 8
   %cmp = icmp sgt i32 %9, 1
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !10
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !9
 
 return:                                           ; preds = %while.body, %if.end, %entry
   %cmp.lcssa = phi i1 [ false, %entry ], [ %call, %if.end ], [ %call, %while.body ]
@@ -1300,7 +1300,7 @@ if.end:                                           ; preds = %while.body
   %dec = add nsw i32 %12, -1
   store i32 %dec, ptr %stream_count_, align 8
   %cmp = icmp sgt i32 %12, 1
-  br i1 %cmp, label %while.body, label %return, !llvm.loop !11
+  br i1 %cmp, label %while.body, label %return, !llvm.loop !10
 
 return:                                           ; preds = %while.body, %if.end, %entry
   %cmp.lcssa = phi i1 [ false, %entry ], [ %call6, %if.end ], [ %call6, %while.body ]
@@ -1470,11 +1470,10 @@ attributes #22 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

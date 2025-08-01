@@ -902,7 +902,7 @@ is_xlogfilename.exit.thread.i.i:                  ; preds = %318, %315, %314, %3
   store i32 0, ptr %219, align 4
   %319 = call ptr @readdir(ptr noundef nonnull %217) #12
   %.not60.i.i = icmp eq ptr %319, null
-  br i1 %.not60.i.i, label %get_destination_dir.exit._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not60.i.i, label %get_destination_dir.exit._crit_edge.loopexit.i.i, label %.lr.ph.i.i
 
 get_destination_dir.exit._crit_edge.loopexit.i.i: ; preds = %is_xlogfilename.exit.thread.i.i
   %320 = xor i8 %.150.i.i, 1
@@ -1070,7 +1070,7 @@ StreamLog.exit:                                   ; preds = %206, %338, %376, %3
 387:                                              ; preds = %385
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.47, i32 noundef 5) #12
   call void @pg_usleep(i64 noundef 5000000) #12
-  br label %203, !llvm.loop !8
+  br label %203
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1369,8 +1369,5 @@ attributes #16 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}

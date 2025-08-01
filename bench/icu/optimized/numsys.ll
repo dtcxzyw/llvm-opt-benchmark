@@ -630,30 +630,30 @@ define noundef ptr @_ZN6icu_7715NumberingSystem20createInstanceByNameEPKcR10UErr
 13:                                               ; preds = %11
   store ptr %12, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !3, !alias.scope !32
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !3, !alias.scope !31
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i16 2, ptr %14, align 8, !tbaa !6, !alias.scope !32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17, !noalias !32
-  store i32 0, ptr %3, align 4, !tbaa !22, !noalias !32
+  store i16 2, ptr %14, align 8, !tbaa !6, !alias.scope !31
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17, !noalias !31
+  store i32 0, ptr %3, align 4, !tbaa !22, !noalias !31
   %15 = invoke ptr @ures_getStringByKey_77(ptr noundef %12, ptr noundef nonnull @_ZN6icu_77L5gDescE, ptr noundef nonnull %3, ptr noundef nonnull %1)
-          to label %16 unwind label %24, !noalias !32
+          to label %16 unwind label %24, !noalias !31
 
 16:                                               ; preds = %13
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %15) #17, !noalias !32, !srcloc !19
-  %17 = load i32, ptr %1, align 4, !tbaa !20, !noalias !32
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %15) #17, !noalias !31, !srcloc !19
+  %17 = load i32, ptr %1, align 4, !tbaa !20, !noalias !31
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %31, label %19
 
 19:                                               ; preds = %16
-  store ptr %15, ptr %4, align 8, !tbaa !15, !noalias !32
-  %20 = load i32, ptr %3, align 4, !tbaa !22, !noalias !32
+  store ptr %15, ptr %4, align 8, !tbaa !15, !noalias !31
+  %20 = load i32, ptr %3, align 4, !tbaa !22, !noalias !31
   %21 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 noundef signext 1, ptr noundef nonnull %4, i32 noundef %20)
           to label %22 unwind label %28
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr %4, align 8, !tbaa !15, !noalias !32
+  %23 = load ptr, ptr %4, align 8, !tbaa !15, !noalias !31
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %23) #17, !srcloc !19
   br label %33
 
@@ -670,7 +670,7 @@ define noundef ptr @_ZN6icu_7715NumberingSystem20createInstanceByNameEPKcR10UErr
 28:                                               ; preds = %19
   %29 = landingpad { ptr, i32 }
           cleanup
-  %30 = load ptr, ptr %4, align 8, !tbaa !15, !noalias !32
+  %30 = load ptr, ptr %4, align 8, !tbaa !15, !noalias !31
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %30) #17, !srcloc !19
   br label %32
 
@@ -680,11 +680,11 @@ define noundef ptr @_ZN6icu_7715NumberingSystem20createInstanceByNameEPKcR10UErr
 
 32:                                               ; preds = %28, %26, %24
   %.pn10.i = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17, !noalias !32
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17, !noalias !31
   br label %.body
 
 33:                                               ; preds = %31, %22
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17, !noalias !32
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17, !noalias !31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %34 = invoke ptr @ures_getByKey_77(ptr noundef %12, ptr noundef nonnull @_ZN6icu_77L6gRadixE, ptr noundef %10, ptr noundef nonnull %1)
           to label %35 unwind label %50
@@ -919,7 +919,7 @@ define noundef signext i8 @_ZNK6icu_7715NumberingSystem13isAlgorithmicEv(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef signext i8 @numSysCleanup_77() #8 personality ptr @__gxx_personality_v0 {
-  %1 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_112gNumsysNamesE, align 8, !tbaa !35
+  %1 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_112gNumsysNamesE, align 8, !tbaa !34
   %2 = icmp eq ptr %1, null
   br i1 %2, label %7, label %3
 
@@ -931,7 +931,7 @@ define noundef signext i8 @numSysCleanup_77() #8 personality ptr @__gxx_personal
   br label %7
 
 7:                                                ; preds = %3, %0
-  store ptr null, ptr @_ZN6icu_7712_GLOBAL__N_112gNumsysNamesE, align 8, !tbaa !35
+  store ptr null, ptr @_ZN6icu_7712_GLOBAL__N_112gNumsysNamesE, align 8, !tbaa !34
   store atomic i32 0, ptr @_ZN6icu_7712_GLOBAL__N_115gNumSysInitOnceE seq_cst, align 4
   ret i8 1
 }
@@ -1075,7 +1075,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %_ZN6icu_7712L
 
 _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %_ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit, %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !37
+  br i1 %.not, label %.critedge, label %.preheader
 
 48:                                               ; preds = %34
   %49 = landingpad { ptr, i32 }
@@ -1113,7 +1113,7 @@ _ZN6icu_7712LocalPointerINS_13UnicodeStringEED2Ev.exit43: ; preds = %_ZN6icu_771
   br i1 %57, label %.thread58.sink.split, label %.thread61
 
 .thread61:                                        ; preds = %55
-  store ptr %4, ptr @_ZN6icu_7712_GLOBAL__N_112gNumsysNamesE, align 8, !tbaa !35
+  store ptr %4, ptr @_ZN6icu_7712_GLOBAL__N_112gNumsysNamesE, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   br label %_ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit
 
@@ -1182,12 +1182,12 @@ define noundef ptr @_ZN6icu_7715NumberingSystem17getAvailableNamesER10UErrorCode
 8:                                                ; preds = %6
   tail call void @initNumsysNames_77(ptr noundef nonnull align 4 dereferenceable(4) %0)
   %9 = load i32, ptr %0, align 4, !tbaa !20
-  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7712_GLOBAL__N_115gNumSysInitOnceE, i64 4), align 4, !tbaa !38
+  store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7712_GLOBAL__N_115gNumSysInitOnceE, i64 4), align 4, !tbaa !36
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7712_GLOBAL__N_115gNumSysInitOnceE)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 10:                                               ; preds = %6, %4
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7712_GLOBAL__N_115gNumSysInitOnceE, i64 4), align 4, !tbaa !38
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7712_GLOBAL__N_115gNumSysInitOnceE, i64 4), align 4, !tbaa !36
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %13
 
@@ -1228,7 +1228,7 @@ define void @_ZN6icu_7721NumsysNameEnumerationC2ER10UErrorCode(ptr noundef nonnu
   tail call void @_ZN6icu_7717StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %0)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7721NumsysNameEnumerationE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 0, ptr %3, align 4, !tbaa !42
+  store i32 0, ptr %3, align 4, !tbaa !40
   ret void
 }
 
@@ -1245,15 +1245,15 @@ define noundef ptr @_ZN6icu_7721NumsysNameEnumeration5snextER10UErrorCode(ptr no
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %9 = load i32, ptr %8, align 4, !tbaa !42
+  %9 = load i32, ptr %8, align 4, !tbaa !40
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !45
+  %11 = load i32, ptr %10, align 8, !tbaa !43
   %12 = icmp slt i32 %9, %11
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %7
   %14 = add nsw i32 %9, 1
-  store i32 %14, ptr %8, align 4, !tbaa !42
+  store i32 %14, ptr %8, align 4, !tbaa !40
   %15 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef %9)
   br label %16
 
@@ -1267,19 +1267,19 @@ declare noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7721NumsysNameEnumeration5resetER10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(120) initializes((116, 120)) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 0, ptr %3, align 4, !tbaa !42
+  store i32 0, ptr %3, align 4, !tbaa !40
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK6icu_7721NumsysNameEnumeration5countER10UErrorCode(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1) unnamed_addr #11 align 2 {
-  %3 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_112gNumsysNamesE, align 8, !tbaa !35
+  %3 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_112gNumsysNamesE, align 8, !tbaa !34
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !45
+  %7 = load i32, ptr %6, align 8, !tbaa !43
   br label %8
 
 8:                                                ; preds = %2, %5
@@ -1399,22 +1399,20 @@ attributes #18 = { noreturn nounwind }
 !26 = !{!27, !28, i64 0}
 !27 = !{!"_ZTSN6icu_7716LocalPointerBaseI15UResourceBundleEE", !28, i64 0}
 !28 = !{!"p1 _ZTS15UResourceBundle", !18, i64 0}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN6icu_7726ures_getUnicodeStringByKeyEPK15UResourceBundlePKcP10UErrorCode: argument 0"}
-!34 = distinct !{!34, !"_ZN6icu_7726ures_getUnicodeStringByKeyEPK15UResourceBundlePKcP10UErrorCode"}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTSN6icu_777UVectorE", !18, i64 0}
-!37 = distinct !{!37, !31}
-!38 = !{!39, !21, i64 4}
-!39 = !{!"_ZTSN6icu_779UInitOnceE", !40, i64 0, !21, i64 4}
-!40 = !{!"_ZTSSt6atomicIiE", !41, i64 0}
-!41 = !{!"_ZTSSt13__atomic_baseIiE", !13, i64 0}
-!42 = !{!43, !13, i64 116}
-!43 = !{!"_ZTSN6icu_7721NumsysNameEnumerationE", !44, i64 0, !13, i64 116}
-!44 = !{!"_ZTSN6icu_7717StringEnumerationE", !10, i64 0, !11, i64 8, !7, i64 72, !25, i64 104, !13, i64 112}
-!45 = !{!46, !13, i64 8}
-!46 = !{!"_ZTSN6icu_777UVectorE", !10, i64 0, !13, i64 8, !13, i64 12, !47, i64 16, !18, i64 24, !18, i64 32}
-!47 = !{!"p1 _ZTS8UElement", !18, i64 0}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN6icu_7726ures_getUnicodeStringByKeyEPK15UResourceBundlePKcP10UErrorCode: argument 0"}
+!33 = distinct !{!33, !"_ZN6icu_7726ures_getUnicodeStringByKeyEPK15UResourceBundlePKcP10UErrorCode"}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSN6icu_777UVectorE", !18, i64 0}
+!36 = !{!37, !21, i64 4}
+!37 = !{!"_ZTSN6icu_779UInitOnceE", !38, i64 0, !21, i64 4}
+!38 = !{!"_ZTSSt6atomicIiE", !39, i64 0}
+!39 = !{!"_ZTSSt13__atomic_baseIiE", !13, i64 0}
+!40 = !{!41, !13, i64 116}
+!41 = !{!"_ZTSN6icu_7721NumsysNameEnumerationE", !42, i64 0, !13, i64 116}
+!42 = !{!"_ZTSN6icu_7717StringEnumerationE", !10, i64 0, !11, i64 8, !7, i64 72, !25, i64 104, !13, i64 112}
+!43 = !{!44, !13, i64 8}
+!44 = !{!"_ZTSN6icu_777UVectorE", !10, i64 0, !13, i64 8, !13, i64 12, !45, i64 16, !18, i64 24, !18, i64 32}
+!45 = !{!"p1 _ZTS8UElement", !18, i64 0}

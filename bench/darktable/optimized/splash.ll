@@ -233,7 +233,7 @@ dt_check_gimpmode.exit34.thread:                  ; preds = %10, %dt_check_gimpm
   call void (...) @dt_gui_process_events() #7
   %102 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %102, 5
-  br i1 %exitcond.not.i, label %_process_all_gui_events.exit, label %101, !llvm.loop !51
+  br i1 %exitcond.not.i, label %_process_all_gui_events.exit, label %101
 
 _process_all_gui_events.exit:                     ; preds = %101, %2, %dt_check_gimpmode.exit, %dt_check_gimpmode.exit34, %dt_check_gimpmode.exit34.thread
   ret void
@@ -356,7 +356,7 @@ define void @darktable_splash_screen_set_progress(ptr noundef %0) local_unnamed_
   tail call void (...) @dt_gui_process_events() #7
   %11 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %11, 5
-  br i1 %exitcond.not.i, label %_process_all_gui_events.exit, label %10, !llvm.loop !51
+  br i1 %exitcond.not.i, label %_process_all_gui_events.exit, label %10
 
 _process_all_gui_events.exit:                     ; preds = %10, %1
   ret void
@@ -422,7 +422,7 @@ define void @darktable_splash_screen_set_progress_percent(ptr noundef %0, double
   tail call void (...) @dt_gui_process_events() #7
   %35 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %35, 5
-  br i1 %exitcond.not.i, label %_process_all_gui_events.exit, label %34, !llvm.loop !51
+  br i1 %exitcond.not.i, label %_process_all_gui_events.exit, label %34
 
 _process_all_gui_events.exit:                     ; preds = %34, %3
   ret void
@@ -528,7 +528,7 @@ dt_check_gimpmode.exit19.thread:                  ; preds = %4, %dt_check_gimpmo
   tail call void (...) @dt_gui_process_events() #7
   %37 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %37, 5
-  br i1 %exitcond.not.i, label %_process_all_gui_events.exit, label %36, !llvm.loop !51
+  br i1 %exitcond.not.i, label %_process_all_gui_events.exit, label %36
 
 _process_all_gui_events.exit:                     ; preds = %36
   %38 = load ptr, ptr @exit_screen, align 8, !tbaa !6
@@ -580,7 +580,7 @@ declare void @gtk_header_bar_set_show_close_button(ptr noundef, i32 noundef) loc
 define internal fastcc noundef ptr @_get_logo() unnamed_addr #0 {
   %1 = tail call i32 @dt_util_get_logo_season() #7
   %2 = icmp eq i32 %1, 0
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3000), align 8, !tbaa !53
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3000), align 8, !tbaa !51
   br i1 %2, label %4, label %6
 
 4:                                                ; preds = %0
@@ -628,7 +628,7 @@ declare void @g_object_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @_get_program_name() unnamed_addr #0 {
-  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3000), align 8, !tbaa !53
+  %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3000), align 8, !tbaa !51
   %2 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.30, ptr noundef %1) #7
   %3 = tail call ptr @gdk_pixbuf_new_from_file_at_size(ptr noundef %2, i32 noundef 480, i32 noundef -1, ptr noundef null) #7
   tail call void @g_free(ptr noundef %2) #7
@@ -717,6 +717,4 @@ attributes #8 = { nounwind willreturn memory(none) }
 !48 = !{!"dt_backthumb_t", !42, i64 0, !42, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28}
 !49 = !{!"dt_gimp_t", !14, i64 0, !40, i64 8, !40, i64 16, !14, i64 24, !14, i64 28}
 !50 = !{!8, !8, i64 0}
-!51 = distinct !{!51, !52}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!12, !40, i64 3000}
+!51 = !{!12, !40, i64 3000}

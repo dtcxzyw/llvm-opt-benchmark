@@ -725,7 +725,7 @@ thread-pre-split.i.i.i:                           ; preds = %313, %312, %296
 
 323:                                              ; preds = %314, %thread-pre-split.i.i.i, %218
   %exitcond212.not.i.i.i = icmp eq i64 %indvars.iv.next210.i.i.i, 3
-  br i1 %exitcond212.not.i.i.i, label %dissect_quake2_client_commands_move.exit.i.i, label %185, !llvm.loop !9
+  br i1 %exitcond212.not.i.i.i, label %dissect_quake2_client_commands_move.exit.i.i, label %185, !llvm.loop !8
 
 dissect_quake2_client_commands_move.exit.i.i:     ; preds = %323, %178
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %5) #3
@@ -748,7 +748,7 @@ dissect_quake2_client_commands_move.exit.i.i:     ; preds = %323, %178
   %333 = add i32 %.028.i.i, %93
   %334 = tail call i32 @tvb_reported_length(ptr noundef %80)
   %.not29.i.i = icmp eq i32 %334, %333
-  br i1 %.not29.i.i, label %dissect_quake2_GamePacket.exit, label %85, !llvm.loop !10
+  br i1 %.not29.i.i, label %dissect_quake2_GamePacket.exit, label %85, !llvm.loop !9
 
 335:                                              ; preds = %79
   %336 = load i32, ptr @ett_quake2_game_svc, align 4
@@ -889,8 +889,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

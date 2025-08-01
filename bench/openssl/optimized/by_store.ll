@@ -70,25 +70,25 @@ by_store.exit:                                    ; preds = %.lr.ph.i
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !6
+  %23 = load ptr, ptr %22, align 8, !tbaa !5
   %24 = tail call i32 @X509_OBJECT_set1_X509(ptr noundef %3, ptr noundef %23) #3
   %.not29 = icmp eq i32 %24, 0
   br i1 %.not29, label %.thread, label %25
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr %22, align 8, !tbaa !6
+  %26 = load ptr, ptr %22, align 8, !tbaa !5
   tail call void @X509_free(ptr noundef %26) #3
   br label %.thread
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !6
+  %29 = load ptr, ptr %28, align 8, !tbaa !5
   %30 = tail call i32 @X509_OBJECT_set1_X509_CRL(ptr noundef %3, ptr noundef %29) #3
   %.not28 = icmp eq i32 %30, 0
   br i1 %.not28, label %.thread, label %31
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr %28, align 8, !tbaa !6
+  %32 = load ptr, ptr %28, align 8, !tbaa !5
   tail call void @X509_CRL_free(ptr noundef %32) #3
   br label %.thread
 
@@ -215,7 +215,7 @@ define internal fastcc noundef i32 @cache_objects(ptr noundef %0, ptr noundef %1
 18:                                               ; preds = %27
   %19 = tail call ptr @OSSL_STORE_load(ptr noundef nonnull %8) #3
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !9
+  br i1 %20, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !8
 
 21:                                               ; preds = %.lr.ph.split.us
   %22 = tail call ptr @OSSL_STORE_INFO_get0_CRL(ptr noundef nonnull %16) #3
@@ -232,12 +232,12 @@ define internal fastcc noundef i32 @cache_objects(ptr noundef %0, ptr noundef %1
   %.2.fr.us = freeze i32 %.2.us
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %16) #3
   %.not36.us = icmp eq i32 %.2.fr.us, 0
-  br i1 %.not36.us, label %..loopexit_crit_edge49, label %18, !llvm.loop !11
+  br i1 %.not36.us, label %.loopexit, label %18
 
 28:                                               ; preds = %42
   %29 = tail call ptr @OSSL_STORE_load(ptr noundef nonnull %8) #3
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit, label %.lr.ph.split, !llvm.loop !11
+  br i1 %30, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %28
   %31 = phi ptr [ %29, %28 ], [ %14, %.lr.ph ]
@@ -273,13 +273,10 @@ define internal fastcc noundef i32 @cache_objects(ptr noundef %0, ptr noundef %1
   %.2.fr = freeze i32 %.2
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %31) #3
   %.not36 = icmp eq i32 %.2.fr, 0
-  br i1 %.not36, label %..loopexit_crit_edge49, label %28, !llvm.loop !11
+  br i1 %.not36, label %.loopexit, label %28
 
-..loopexit_crit_edge49:                           ; preds = %42, %27
-  br label %.loopexit, !llvm.loop !11
-
-.loopexit:                                        ; preds = %28, %18, %13, %..loopexit_crit_edge49, %.thread
-  %.1.ph = phi i32 [ 0, %.thread ], [ 0, %..loopexit_crit_edge49 ], [ 0, %13 ], [ %.2.fr.us, %18 ], [ %.2.fr, %28 ]
+.loopexit:                                        ; preds = %28, %42, %18, %27, %13, %.thread
+  %.1.ph = phi i32 [ 0, %.thread ], [ 0, %13 ], [ %.2.fr.us, %18 ], [ 0, %27 ], [ %.2.fr, %28 ], [ 0, %42 ]
   %43 = tail call i32 @OSSL_STORE_close(ptr noundef nonnull %8) #3
   br label %44
 
@@ -330,12 +327,10 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !5, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !5}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}

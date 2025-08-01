@@ -104,7 +104,7 @@ define linkonce_odr hidden void @_ZN4lean4listIjED2Ev(ptr noundef nonnull align 
 11:                                               ; preds = %8
   %12 = atomicrmw sub ptr %10, i32 1 acq_rel, align 4
   %13 = icmp eq i32 %12, 1
-  br i1 %13, label %8, label %.thread, !llvm.loop !21
+  br i1 %13, label %8, label %.thread
 
 .thread:                                          ; preds = %11, %8, %3, %1
   ret void
@@ -152,7 +152,5 @@ attributes #8 = { builtin nounwind }
 !15 = !{!16, !14, i64 4}
 !16 = !{!"_ZTSN4lean4listIjE4cellE", !17, i64 0, !14, i64 4, !4, i64 8}
 !17 = !{!"_ZTSSt6atomicIjE", !13, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !20}

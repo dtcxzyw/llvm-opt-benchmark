@@ -319,7 +319,7 @@ define void @Java_sun_tools_attach_VirtualMachineImpl_write(ptr noundef %0, ptr 
   %19 = tail call ptr @__errno_location() #12
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 4
-  br i1 %21, label %14, label %.critedge.thread, !llvm.loop !9
+  br i1 %21, label %14, label %.critedge.thread, !llvm.loop !8
 
 .critedge:                                        ; preds = %14
   %22 = icmp sgt i32 %16, 0
@@ -330,7 +330,7 @@ define void @Java_sun_tools_attach_VirtualMachineImpl_write(ptr noundef %0, ptr 
   %25 = and i64 %15, 2147483647
   %26 = sub i64 %.019, %25
   %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %.loopexit, label %9, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %9, !llvm.loop !9
 
 .critedge.thread:                                 ; preds = %.critedge, %18
   call void @JNU_ThrowIOExceptionWithLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #11
@@ -371,8 +371,7 @@ attributes #12 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

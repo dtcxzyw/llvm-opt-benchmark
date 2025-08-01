@@ -210,7 +210,7 @@ define internal i64 @smbios_label_show(ptr noundef readonly captures(none) %0, p
 36:                                               ; preds = %23, %19, %15, %.preheader.i
   %37 = tail call ptr @dmi_find_device(i32 noundef -3, ptr noundef null, ptr noundef nonnull %11) #3
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %find_smbios_instance_string.exit, label %.preheader.i, !llvm.loop !9
+  br i1 %38, label %find_smbios_instance_string.exit, label %.preheader.i, !llvm.loop !5
 
 find_smbios_instance_string.exit:                 ; preds = %36, %3, %31, %34
   %39 = phi i64 [ %33, %31 ], [ %35, %34 ], [ 0, %3 ], [ 0, %36 ]
@@ -278,7 +278,7 @@ define internal i64 @index_show(ptr noundef readonly captures(none) %0, ptr read
 38:                                               ; preds = %23, %19, %15, %.preheader.i
   %39 = tail call ptr @dmi_find_device(i32 noundef -3, ptr noundef null, ptr noundef nonnull %11) #3
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %find_smbios_instance_string.exit, label %.preheader.i, !llvm.loop !9
+  br i1 %40, label %find_smbios_instance_string.exit, label %.preheader.i, !llvm.loop !5
 
 find_smbios_instance_string.exit:                 ; preds = %38, %3, %29, %34
   %41 = phi i64 [ %33, %29 ], [ %37, %34 ], [ 0, %3 ], [ 0, %38 ]
@@ -415,8 +415,6 @@ attributes #3 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}

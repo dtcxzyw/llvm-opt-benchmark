@@ -177,7 +177,7 @@ row_fdct.exit:                                    ; preds = %2, %row_fdct.exit
   %145 = getelementptr inbounds nuw i8, ptr %.07175, i64 2
   %146 = add nsw i32 %.076, -1
   %.not77 = icmp eq i32 %.076, 0
-  br i1 %.not77, label %147, label %row_fdct.exit, !llvm.loop !11
+  br i1 %.not77, label %147, label %row_fdct.exit, !llvm.loop !10
 
 147:                                              ; preds = %row_fdct.exit
   ret void
@@ -348,7 +348,7 @@ row_fdct.exit:                                    ; preds = %2, %row_fdct.exit
   %136 = getelementptr inbounds nuw i8, ptr %.06469, i64 2
   %137 = add nsw i32 %.070, -1
   %.not71 = icmp eq i32 %.070, 0
-  br i1 %.not71, label %138, label %row_fdct.exit, !llvm.loop !12
+  br i1 %.not71, label %138, label %row_fdct.exit, !llvm.loop !11
 
 138:                                              ; preds = %row_fdct.exit
   ret void
@@ -366,8 +366,7 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

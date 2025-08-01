@@ -58,7 +58,7 @@ define noundef ptr @hex_encode(ptr noundef writeonly captures(address, ret: addr
   %16 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %13) #14
   %17 = add nuw i64 %.01317, 1
   %exitcond.not = icmp eq i64 %17, %2
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %8
   ret ptr %9
@@ -78,7 +78,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @ensure_bufsize(ptr noundef captures(ret: address, provenance) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
-  %5 = load i64, ptr %1, align 8, !tbaa !8
+  %5 = load i64, ptr %1, align 8, !tbaa !6
   %6 = sub i64 %5, %2
   %7 = icmp ult i64 %6, %3
   br i1 %7, label %8, label %19
@@ -91,17 +91,17 @@ define noundef ptr @ensure_bufsize(ptr noundef captures(ret: address, provenance
 
 11:                                               ; preds = %8
   %12 = tail call ptr @__errno_location() #16
-  %13 = load i32, ptr %12, align 4, !tbaa !10
+  %13 = load i32, ptr %12, align 4, !tbaa !8
   %14 = tail call ptr @strerror(i32 noundef %13) #14
-  %15 = load i32, ptr %12, align 4, !tbaa !10
+  %15 = load i32, ptr %12, align 4, !tbaa !8
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %14, i32 noundef %15) #14
   tail call void @free(ptr noundef %0) #14
   br label %19
 
 16:                                               ; preds = %8
-  %17 = load i64, ptr %1, align 8, !tbaa !8
+  %17 = load i64, ptr %1, align 8, !tbaa !6
   %18 = add i64 %17, 512
-  store i64 %18, ptr %1, align 8, !tbaa !8
+  store i64 %18, ptr %1, align 8, !tbaa !6
   br label %19
 
 19:                                               ; preds = %4, %16, %11
@@ -127,21 +127,21 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 define ptr @export_stats_to_json(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = alloca [33 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %3) #14
-  %4 = load ptr, ptr %1, align 8, !tbaa !12
+  %4 = load ptr, ptr %1, align 8, !tbaa !10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %12
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %7 = load ptr, ptr %6, align 8, !tbaa !18
+  %7 = load ptr, ptr %6, align 8, !tbaa !16
   %.not201 = icmp eq ptr %7, null
   br i1 %.not201, label %12, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1080
-  %10 = load ptr, ptr %9, align 8, !tbaa !39
+  %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = tail call ptr %7(ptr noundef %10) #14
-  store ptr %11, ptr %1, align 8, !tbaa !12
+  store ptr %11, ptr %1, align 8, !tbaa !10
   br label %12
 
 12:                                               ; preds = %5, %8, %2
@@ -155,7 +155,7 @@ define ptr @export_stats_to_json(ptr noundef readonly captures(none) %0, ptr nou
   %spec.select = select i1 %.not202, ptr @.str.2, ptr %13
   %16 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %spec.select) #14
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !40
+  %18 = load ptr, ptr %17, align 8, !tbaa !38
   %.not204 = icmp eq ptr %18, null
   br i1 %.not204, label %23, label %19
 
@@ -171,7 +171,7 @@ define ptr @export_stats_to_json(ptr noundef readonly captures(none) %0, ptr nou
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %25, ptr noundef nonnull align 1 dereferenceable(15) @.str.5, i64 15, i1 false)
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #17
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.0174512 = load ptr, ptr %27, align 8, !tbaa !41
+  %.0174512 = load ptr, ptr %27, align 8, !tbaa !39
   %.not205513 = icmp eq ptr %.0174512, null
   br i1 %.not205513, label %._crit_edge520, label %.lr.ph519
 
@@ -181,7 +181,7 @@ define ptr @export_stats_to_json(ptr noundef readonly captures(none) %0, ptr nou
   %.0176515 = phi ptr [ %.1177, %284 ], [ %14, %23 ]
   %.0306514 = phi i64 [ %.1307, %284 ], [ 512, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %.0174517, i64 28
-  %29 = load i32, ptr %28, align 4, !tbaa !42
+  %29 = load i32, ptr %28, align 4, !tbaa !40
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %284, label %31
 
@@ -200,7 +200,7 @@ define ptr @export_stats_to_json(ptr noundef readonly captures(none) %0, ptr nou
   %38 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %35) #14
   %39 = add nuw nsw i64 %.01317.i, 1
   %exitcond.not.i = icmp eq i64 %39, 16
-  br i1 %exitcond.not.i, label %hex_encode.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %hex_encode.exit, label %.lr.ph.i
 
 hex_encode.exit:                                  ; preds = %.lr.ph.i
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
@@ -221,9 +221,9 @@ hex_encode.exit:                                  ; preds = %.lr.ph.i
 
 ensure_bufsize.exit.thread:                       ; preds = %44
   %47 = tail call ptr @__errno_location() #16
-  %48 = load i32, ptr %47, align 4, !tbaa !10
+  %48 = load i32, ptr %47, align 4, !tbaa !8
   %49 = call ptr @strerror(i32 noundef %48) #14
-  %50 = load i32, ptr %47, align 4, !tbaa !10
+  %50 = load i32, ptr %47, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %49, i32 noundef %50) #14
   call void @free(ptr noundef %.0176515) #14
   br label %.loopexit
@@ -258,9 +258,9 @@ ensure_bufsize.exit.thread314:                    ; preds = %.ensure_bufsize.exi
 
 ensure_bufsize.exit228:                           ; preds = %59
   %62 = tail call ptr @__errno_location() #16
-  %63 = load i32, ptr %62, align 4, !tbaa !10
+  %63 = load i32, ptr %62, align 4, !tbaa !8
   %64 = call ptr @strerror(i32 noundef %63) #14
-  %65 = load i32, ptr %62, align 4, !tbaa !10
+  %65 = load i32, ptr %62, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %64, i32 noundef %65) #14
   call void @free(ptr noundef nonnull %.010.i319) #14
   br label %.loopexit
@@ -273,7 +273,7 @@ ensure_bufsize.exit228:                           ; preds = %59
   %68 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %67, i64 noundef %.pre-phi612, ptr noundef nonnull @.str.7, ptr noundef nonnull %3) #14
   %69 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #17
   %70 = add i64 %69, %54
-  %71 = load i32, ptr %28, align 4, !tbaa !42
+  %71 = load i32, ptr %28, align 4, !tbaa !40
   %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 33, ptr noundef nonnull @.str.8, i32 noundef %71) #14
   %73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %74 = add i64 %73, 20
@@ -293,9 +293,9 @@ ensure_bufsize.exit228:                           ; preds = %59
 
 ensure_bufsize.exit231:                           ; preds = %77
   %80 = tail call ptr @__errno_location() #16
-  %81 = load i32, ptr %80, align 4, !tbaa !10
+  %81 = load i32, ptr %80, align 4, !tbaa !8
   %82 = call ptr @strerror(i32 noundef %81) #14
-  %83 = load i32, ptr %80, align 4, !tbaa !10
+  %83 = load i32, ptr %80, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %82, i32 noundef %83) #14
   call void @free(ptr noundef nonnull %.010.i226.ph) #14
   br label %.loopexit
@@ -309,7 +309,7 @@ ensure_bufsize.exit231:                           ; preds = %77
   %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #17
   %88 = add i64 %87, %70
   %89 = getelementptr inbounds nuw i8, ptr %.0174517, i64 24
-  %90 = load i32, ptr %89, align 8, !tbaa !46
+  %90 = load i32, ptr %89, align 8, !tbaa !44
   %91 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 33, ptr noundef nonnull @.str.8, i32 noundef %90) #14
   %92 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %93 = add i64 %92, 20
@@ -329,9 +329,9 @@ ensure_bufsize.exit231:                           ; preds = %77
 
 ensure_bufsize.exit234:                           ; preds = %96
   %99 = tail call ptr @__errno_location() #16
-  %100 = load i32, ptr %99, align 4, !tbaa !10
+  %100 = load i32, ptr %99, align 4, !tbaa !8
   %101 = call ptr @strerror(i32 noundef %100) #14
-  %102 = load i32, ptr %99, align 4, !tbaa !10
+  %102 = load i32, ptr %99, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %101, i32 noundef %102) #14
   call void @free(ptr noundef nonnull %.010.i229.ph) #14
   br label %.loopexit
@@ -356,9 +356,9 @@ ensure_bufsize.exit234:                           ; preds = %96
 
 ensure_bufsize.exit237:                           ; preds = %110
   %113 = tail call ptr @__errno_location() #16
-  %114 = load i32, ptr %113, align 4, !tbaa !10
+  %114 = load i32, ptr %113, align 4, !tbaa !8
   %115 = call ptr @strerror(i32 noundef %114) #14
-  %116 = load i32, ptr %113, align 4, !tbaa !10
+  %116 = load i32, ptr %113, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %115, i32 noundef %116) #14
   call void @free(ptr noundef nonnull %.010.i232.ph) #14
   br label %.loopexit
@@ -367,12 +367,12 @@ ensure_bufsize.exit237:                           ; preds = %110
   %.9.ph = phi i64 [ %111, %110 ], [ %.8.ph, %103 ]
   %.010.i235.ph = phi ptr [ %112, %110 ], [ %.010.i232.ph, %103 ]
   %118 = getelementptr inbounds nuw i8, ptr %.0174517, i64 32
-  %119 = load ptr, ptr %118, align 8, !tbaa !47
+  %119 = load ptr, ptr %118, align 8, !tbaa !45
   %.not212 = icmp eq ptr %119, null
   br i1 %.not212, label %233, label %120
 
 120:                                              ; preds = %117
-  %121 = load i64, ptr %119, align 8, !tbaa !48
+  %121 = load i64, ptr %119, align 8, !tbaa !46
   %.not213 = icmp eq i64 %121, 0
   br i1 %.not213, label %233, label %122
 
@@ -393,9 +393,9 @@ ensure_bufsize.exit237:                           ; preds = %110
 
 ensure_bufsize.exit240:                           ; preds = %125
   %128 = tail call ptr @__errno_location() #16
-  %129 = load i32, ptr %128, align 4, !tbaa !10
+  %129 = load i32, ptr %128, align 4, !tbaa !8
   %130 = call ptr @strerror(i32 noundef %129) #14
-  %131 = load i32, ptr %128, align 4, !tbaa !10
+  %131 = load i32, ptr %128, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %130, i32 noundef %131) #14
   call void @free(ptr noundef nonnull %.010.i235.ph) #14
   br label %.loopexit
@@ -408,8 +408,8 @@ ensure_bufsize.exit240:                           ; preds = %125
   %134 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %133, i64 noundef %.pre-phi620, ptr noundef nonnull @.str.11) #14
   %135 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %133) #17
   %136 = add i64 %135, %107
-  %137 = load ptr, ptr %118, align 8, !tbaa !47
-  %138 = load i64, ptr %137, align 8, !tbaa !48
+  %137 = load ptr, ptr %118, align 8, !tbaa !45
+  %138 = load i64, ptr %137, align 8, !tbaa !46
   %.not524 = icmp eq i64 %138, 0
   br i1 %.not524, label %._crit_edge, label %.lr.ph
 
@@ -434,9 +434,9 @@ ensure_bufsize.exit240:                           ; preds = %125
 
 ensure_bufsize.exit243:                           ; preds = %141
   %144 = tail call ptr @__errno_location() #16
-  %145 = load i32, ptr %144, align 4, !tbaa !10
+  %145 = load i32, ptr %144, align 4, !tbaa !8
   %146 = call ptr @strerror(i32 noundef %145) #14
-  %147 = load i32, ptr %144, align 4, !tbaa !10
+  %147 = load i32, ptr %144, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %146, i32 noundef %147) #14
   call void @free(ptr noundef nonnull %.3179496) #14
   br label %.loopexit
@@ -463,9 +463,9 @@ ensure_bufsize.exit243:                           ; preds = %141
 
 ensure_bufsize.exit246:                           ; preds = %156
   %159 = tail call ptr @__errno_location() #16
-  %160 = load i32, ptr %159, align 4, !tbaa !10
+  %160 = load i32, ptr %159, align 4, !tbaa !8
   %161 = call ptr @strerror(i32 noundef %160) #14
-  %162 = load i32, ptr %159, align 4, !tbaa !10
+  %162 = load i32, ptr %159, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %161, i32 noundef %162) #14
   call void @free(ptr noundef nonnull %.010.i241.ph) #14
   br label %.loopexit
@@ -480,9 +480,9 @@ ensure_bufsize.exit246:                           ; preds = %156
   %.0494 = phi i64 [ 0, %163 ], [ %175, %164 ]
   %165 = shl nuw nsw i64 %.0494, 1
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 %165
-  %167 = load ptr, ptr %118, align 8, !tbaa !47
+  %167 = load ptr, ptr %118, align 8, !tbaa !45
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %169 = load ptr, ptr %168, align 8, !tbaa !51
+  %169 = load ptr, ptr %168, align 8, !tbaa !49
   %170 = getelementptr inbounds nuw %struct.cli_section_hash, ptr %169, i64 %.0171498
   %171 = getelementptr inbounds nuw [16 x i8], ptr %170, i64 0, i64 %.0494
   %172 = load i8, ptr %171, align 1, !tbaa !3
@@ -490,7 +490,7 @@ ensure_bufsize.exit246:                           ; preds = %156
   %174 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %173) #14
   %175 = add nuw nsw i64 %.0494, 1
   %exitcond.not = icmp eq i64 %175, 16
-  br i1 %exitcond.not, label %176, label %164, !llvm.loop !52
+  br i1 %exitcond.not, label %176, label %164
 
 176:                                              ; preds = %164
   %177 = getelementptr inbounds nuw i8, ptr %.010.i244.ph, i64 %153
@@ -514,9 +514,9 @@ ensure_bufsize.exit246:                           ; preds = %156
 
 ensure_bufsize.exit249:                           ; preds = %184
   %187 = tail call ptr @__errno_location() #16
-  %188 = load i32, ptr %187, align 4, !tbaa !10
+  %188 = load i32, ptr %187, align 4, !tbaa !8
   %189 = call ptr @strerror(i32 noundef %188) #14
-  %190 = load i32, ptr %187, align 4, !tbaa !10
+  %190 = load i32, ptr %187, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %189, i32 noundef %190) #14
   call void @free(ptr noundef nonnull %.010.i244.ph) #14
   br label %.loopexit
@@ -526,11 +526,11 @@ ensure_bufsize.exit249:                           ; preds = %184
   %.13.ph = phi i64 [ %185, %._crit_edge599 ], [ %.12.ph, %176 ]
   %.010.i247.ph = phi ptr [ %186, %._crit_edge599 ], [ %.010.i244.ph, %176 ]
   %192 = getelementptr inbounds nuw i8, ptr %.010.i247.ph, i64 %181
-  %193 = load ptr, ptr %118, align 8, !tbaa !47
+  %193 = load ptr, ptr %118, align 8, !tbaa !45
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
-  %195 = load ptr, ptr %194, align 8, !tbaa !51
+  %195 = load ptr, ptr %194, align 8, !tbaa !49
   %196 = getelementptr inbounds nuw %struct.cli_section_hash, ptr %195, i64 %.0171498, i32 1
-  %197 = load i64, ptr %196, align 8, !tbaa !53
+  %197 = load i64, ptr %196, align 8, !tbaa !50
   %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %192, i64 noundef %.pre-phi626, ptr noundef nonnull @.str.16, i64 noundef %197) #14
   %199 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %192) #17
   %200 = add i64 %199, %181
@@ -550,9 +550,9 @@ ensure_bufsize.exit249:                           ; preds = %184
 
 ensure_bufsize.exit252:                           ; preds = %203
   %206 = tail call ptr @__errno_location() #16
-  %207 = load i32, ptr %206, align 4, !tbaa !10
+  %207 = load i32, ptr %206, align 4, !tbaa !8
   %208 = call ptr @strerror(i32 noundef %207) #14
-  %209 = load i32, ptr %206, align 4, !tbaa !10
+  %209 = load i32, ptr %206, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %208, i32 noundef %209) #14
   call void @free(ptr noundef nonnull %.010.i247.ph) #14
   br label %.loopexit
@@ -566,10 +566,10 @@ ensure_bufsize.exit252:                           ; preds = %203
   %213 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %211) #17
   %214 = add i64 %213, %200
   %215 = add nuw i64 %.0171498, 1
-  %216 = load ptr, ptr %118, align 8, !tbaa !47
-  %217 = load i64, ptr %216, align 8, !tbaa !48
+  %216 = load ptr, ptr %118, align 8, !tbaa !45
+  %217 = load i64, ptr %216, align 8, !tbaa !46
   %218 = icmp ult i64 %215, %217
-  br i1 %218, label %.lr.ph, label %._crit_edge, !llvm.loop !55
+  br i1 %218, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %210, %132
   %.3309.lcssa = phi i64 [ %.10.ph, %132 ], [ %.14.ph, %210 ]
@@ -591,9 +591,9 @@ ensure_bufsize.exit252:                           ; preds = %203
 
 ensure_bufsize.exit255:                           ; preds = %221
   %224 = tail call ptr @__errno_location() #16
-  %225 = load i32, ptr %224, align 4, !tbaa !10
+  %225 = load i32, ptr %224, align 4, !tbaa !8
   %226 = call ptr @strerror(i32 noundef %225) #14
-  %227 = load i32, ptr %224, align 4, !tbaa !10
+  %227 = load i32, ptr %224, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %226, i32 noundef %227) #14
   call void @free(ptr noundef nonnull %.3179.lcssa) #14
   br label %.loopexit
@@ -617,8 +617,8 @@ ensure_bufsize.exit255:                           ; preds = %221
   %236 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %234, i64 noundef %235, ptr noundef nonnull @.str.19) #14
   %237 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %234) #17
   %238 = add i64 %237, %.2
-  %239 = load ptr, ptr %.0174517, align 8, !tbaa !56
-  %240 = load ptr, ptr %239, align 8, !tbaa !57
+  %239 = load ptr, ptr %.0174517, align 8, !tbaa !52
+  %240 = load ptr, ptr %239, align 8, !tbaa !53
   %.not216501 = icmp eq ptr %240, null
   br i1 %.not216501, label %._crit_edge508, label %.lr.ph507
 
@@ -642,15 +642,15 @@ ensure_bufsize.exit255:                           ; preds = %221
   br i1 %.not.i257, label %ensure_bufsize.exit258, label %._crit_edge596
 
 ._crit_edge596:                                   ; preds = %247
-  %.pre = load ptr, ptr %.0174517, align 8, !tbaa !56
+  %.pre = load ptr, ptr %.0174517, align 8, !tbaa !52
   %.pre597 = sub i64 %248, %.4504
   br label %254
 
 ensure_bufsize.exit258:                           ; preds = %247
   %250 = tail call ptr @__errno_location() #16
-  %251 = load i32, ptr %250, align 4, !tbaa !10
+  %251 = load i32, ptr %250, align 4, !tbaa !8
   %252 = call ptr @strerror(i32 noundef %251) #14
-  %253 = load i32, ptr %250, align 4, !tbaa !10
+  %253 = load i32, ptr %250, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %252, i32 noundef %253) #14
   call void @free(ptr noundef nonnull %.4180503) #14
   br label %.loopexit
@@ -664,16 +664,16 @@ ensure_bufsize.exit258:                           ; preds = %247
   %.not220 = icmp eq i64 %.1505, 0
   %257 = select i1 %.not220, ptr @.str.14, ptr @.str.21
   %258 = getelementptr inbounds nuw ptr, ptr %255, i64 %.1505
-  %259 = load ptr, ptr %258, align 8, !tbaa !57
+  %259 = load ptr, ptr %258, align 8, !tbaa !53
   %260 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %256, i64 noundef %.pre-phi, ptr noundef nonnull @.str.20, ptr noundef nonnull %257, ptr noundef %259) #14
   %261 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %256) #17
   %262 = add i64 %261, %.4504
   %263 = add i64 %.1505, 1
-  %264 = load ptr, ptr %.0174517, align 8, !tbaa !56
+  %264 = load ptr, ptr %.0174517, align 8, !tbaa !52
   %265 = getelementptr inbounds nuw ptr, ptr %264, i64 %263
-  %266 = load ptr, ptr %265, align 8, !tbaa !57
+  %266 = load ptr, ptr %265, align 8, !tbaa !53
   %.not216 = icmp eq ptr %266, null
-  br i1 %.not216, label %._crit_edge508, label %.lr.ph507, !llvm.loop !58
+  br i1 %.not216, label %._crit_edge508, label %.lr.ph507
 
 ._crit_edge508:                                   ; preds = %254, %233
   %.4310.lcssa = phi i64 [ %.2308, %233 ], [ %.16.ph, %254 ]
@@ -695,9 +695,9 @@ ensure_bufsize.exit258:                           ; preds = %247
 
 ensure_bufsize.exit261:                           ; preds = %269
   %272 = tail call ptr @__errno_location() #16
-  %273 = load i32, ptr %272, align 4, !tbaa !10
+  %273 = load i32, ptr %272, align 4, !tbaa !8
   %274 = call ptr @strerror(i32 noundef %273) #14
-  %275 = load i32, ptr %272, align 4, !tbaa !10
+  %275 = load i32, ptr %272, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %274, i32 noundef %275) #14
   call void @free(ptr noundef nonnull %.4180.lcssa) #14
   br label %.loopexit
@@ -708,7 +708,7 @@ ensure_bufsize.exit261:                           ; preds = %269
   %.010.i259.ph = phi ptr [ %271, %._crit_edge603 ], [ %.4180.lcssa, %._crit_edge508 ]
   %277 = getelementptr inbounds nuw i8, ptr %.010.i259.ph, i64 %.4.lcssa
   %278 = getelementptr inbounds nuw i8, ptr %.0174517, i64 48
-  %279 = load ptr, ptr %278, align 8, !tbaa !59
+  %279 = load ptr, ptr %278, align 8, !tbaa !54
   %.not218 = icmp eq ptr %279, null
   %280 = select i1 %.not218, ptr @.str.14, ptr @.str.13
   %281 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %277, i64 noundef %.pre-phi618, ptr noundef nonnull @.str.22, ptr noundef nonnull %280) #14
@@ -721,9 +721,9 @@ ensure_bufsize.exit261:                           ; preds = %269
   %.1177 = phi ptr [ %.0176515, %.lr.ph519 ], [ %.010.i259.ph, %276 ]
   %.1173 = phi i64 [ %.0172516, %.lr.ph519 ], [ %283, %276 ]
   %285 = getelementptr inbounds nuw i8, ptr %.0174517, i64 48
-  %.0174 = load ptr, ptr %285, align 8, !tbaa !41
+  %.0174 = load ptr, ptr %285, align 8, !tbaa !39
   %.not205 = icmp eq ptr %.0174, null
-  br i1 %.not205, label %._crit_edge520, label %.lr.ph519, !llvm.loop !60
+  br i1 %.not205, label %._crit_edge520, label %.lr.ph519
 
 ._crit_edge520:                                   ; preds = %284, %23
   %.0306.lcssa = phi i64 [ 512, %23 ], [ %.1307, %284 ]
@@ -745,9 +745,9 @@ ensure_bufsize.exit261:                           ; preds = %269
 
 ensure_bufsize.exit264.thread:                    ; preds = %288
   %291 = tail call ptr @__errno_location() #16
-  %292 = load i32, ptr %291, align 4, !tbaa !10
+  %292 = load i32, ptr %291, align 4, !tbaa !8
   %293 = call ptr @strerror(i32 noundef %292) #14
-  %294 = load i32, ptr %291, align 4, !tbaa !10
+  %294 = load i32, ptr %291, align 4, !tbaa !8
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.1, ptr noundef %293, i32 noundef %294) #14
   call void @free(ptr noundef %.0176.lcssa) #14
   br label %.loopexit
@@ -808,58 +808,52 @@ attributes #17 = { nounwind willreturn memory(read) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"long", !4, i64 0}
 !8 = !{!9, !9, i64 0}
-!9 = !{!"long", !4, i64 0}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !4, i64 0}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"cli_clamav_intel", !14, i64 0, !14, i64 8, !16, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !9, i64 40, !17, i64 48, !4, i64 56}
-!14 = !{!"p1 omnipotent char", !15, i64 0}
-!15 = !{!"any pointer", !4, i64 0}
-!16 = !{!"p1 _ZTS18cli_flagged_sample", !15, i64 0}
-!17 = !{!"p1 _ZTS9cl_engine", !15, i64 0}
-!18 = !{!19, !15, i64 1144}
-!19 = !{!"cl_engine", !11, i64 0, !11, i64 4, !11, i64 8, !4, i64 12, !11, i64 20, !11, i64 24, !11, i64 28, !14, i64 32, !11, i64 40, !9, i64 48, !11, i64 56, !11, i64 60, !9, i64 64, !9, i64 72, !11, i64 80, !11, i64 84, !11, i64 88, !11, i64 92, !20, i64 96, !21, i64 104, !21, i64 112, !21, i64 120, !21, i64 128, !22, i64 136, !23, i64 144, !23, i64 152, !24, i64 160, !25, i64 168, !26, i64 176, !26, i64 184, !27, i64 192, !21, i64 200, !21, i64 208, !14, i64 216, !28, i64 224, !29, i64 232, !30, i64 240, !9, i64 248, !31, i64 256, !32, i64 264, !15, i64 280, !15, i64 288, !15, i64 296, !15, i64 304, !15, i64 312, !15, i64 320, !15, i64 328, !15, i64 336, !15, i64 344, !15, i64 352, !15, i64 360, !15, i64 368, !15, i64 376, !15, i64 384, !15, i64 392, !15, i64 400, !15, i64 408, !34, i64 416, !4, i64 936, !4, i64 992, !11, i64 1020, !11, i64 1024, !11, i64 1028, !11, i64 1032, !9, i64 1040, !9, i64 1048, !9, i64 1056, !9, i64 1064, !9, i64 1072, !15, i64 1080, !15, i64 1088, !15, i64 1096, !15, i64 1104, !15, i64 1112, !15, i64 1120, !15, i64 1128, !15, i64 1136, !15, i64 1144, !11, i64 1152, !11, i64 1156, !11, i64 1160, !9, i64 1168, !9, i64 1176, !9, i64 1184, !38, i64 1192}
-!20 = !{!"p2 _ZTS11cli_matcher", !15, i64 0}
-!21 = !{!"p1 _ZTS11cli_matcher", !15, i64 0}
-!22 = !{!"p1 _ZTS7cli_cdb", !15, i64 0}
-!23 = !{!"p1 _ZTS13regex_matcher", !15, i64 0}
-!24 = !{!"p1 _ZTS10phishcheck", !15, i64 0}
-!25 = !{!"p1 _ZTS9cli_dconf", !15, i64 0}
-!26 = !{!"p1 _ZTS9cli_ftype", !15, i64 0}
-!27 = !{!"p2 _ZTS8cli_pwdb", !15, i64 0}
-!28 = !{!"p1 _ZTS12icon_matcher", !15, i64 0}
-!29 = !{!"p1 _ZTS5CACHE", !15, i64 0}
-!30 = !{!"p1 _ZTS10cli_dbinfo", !15, i64 0}
-!31 = !{!"p1 _ZTS2MP", !15, i64 0}
-!32 = !{!"", !33, i64 0, !11, i64 8}
-!33 = !{!"p1 _ZTS9cli_crt_t", !15, i64 0}
-!34 = !{!"cli_all_bc", !35, i64 0, !11, i64 8, !36, i64 16, !37, i64 24, !11, i64 516}
-!35 = !{!"p1 _ZTS6cli_bc", !15, i64 0}
-!36 = !{!"p1 _ZTS12cli_bcengine", !15, i64 0}
-!37 = !{!"cli_environment", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !4, i64 28, !4, i64 93, !4, i64 158, !4, i64 223, !4, i64 288, !4, i64 353, !4, i64 418, !4, i64 483, !4, i64 484, !4, i64 485, !4, i64 486, !4, i64 487, !4, i64 488, !4, i64 489, !4, i64 490, !4, i64 491}
-!38 = !{!"p1 _ZTS12_yara_global", !15, i64 0}
-!39 = !{!19, !15, i64 1080}
-!40 = !{!13, !14, i64 8}
-!41 = !{!16, !16, i64 0}
-!42 = !{!43, !11, i64 28}
-!43 = !{!"cli_flagged_sample", !44, i64 0, !4, i64 8, !11, i64 24, !11, i64 28, !45, i64 32, !16, i64 40, !16, i64 48}
-!44 = !{!"p2 omnipotent char", !15, i64 0}
-!45 = !{!"p1 _ZTS18cli_stats_sections", !15, i64 0}
-!46 = !{!43, !11, i64 24}
-!47 = !{!43, !45, i64 32}
-!48 = !{!49, !9, i64 0}
-!49 = !{!"cli_stats_sections", !9, i64 0, !50, i64 8}
-!50 = !{!"p1 _ZTS16cli_section_hash", !15, i64 0}
-!51 = !{!49, !50, i64 8}
-!52 = distinct !{!52, !7}
-!53 = !{!54, !9, i64 16}
-!54 = !{!"cli_section_hash", !4, i64 0, !9, i64 16}
-!55 = distinct !{!55, !7}
-!56 = !{!43, !44, i64 0}
-!57 = !{!14, !14, i64 0}
-!58 = distinct !{!58, !7}
-!59 = !{!43, !16, i64 48}
-!60 = distinct !{!60, !7}
+!9 = !{!"int", !4, i64 0}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"cli_clamav_intel", !12, i64 0, !12, i64 8, !14, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !7, i64 40, !15, i64 48, !4, i64 56}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !4, i64 0}
+!14 = !{!"p1 _ZTS18cli_flagged_sample", !13, i64 0}
+!15 = !{!"p1 _ZTS9cl_engine", !13, i64 0}
+!16 = !{!17, !13, i64 1144}
+!17 = !{!"cl_engine", !9, i64 0, !9, i64 4, !9, i64 8, !4, i64 12, !9, i64 20, !9, i64 24, !9, i64 28, !12, i64 32, !9, i64 40, !7, i64 48, !9, i64 56, !9, i64 60, !7, i64 64, !7, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !18, i64 96, !19, i64 104, !19, i64 112, !19, i64 120, !19, i64 128, !20, i64 136, !21, i64 144, !21, i64 152, !22, i64 160, !23, i64 168, !24, i64 176, !24, i64 184, !25, i64 192, !19, i64 200, !19, i64 208, !12, i64 216, !26, i64 224, !27, i64 232, !28, i64 240, !7, i64 248, !29, i64 256, !30, i64 264, !13, i64 280, !13, i64 288, !13, i64 296, !13, i64 304, !13, i64 312, !13, i64 320, !13, i64 328, !13, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !13, i64 376, !13, i64 384, !13, i64 392, !13, i64 400, !13, i64 408, !32, i64 416, !4, i64 936, !4, i64 992, !9, i64 1020, !9, i64 1024, !9, i64 1028, !9, i64 1032, !7, i64 1040, !7, i64 1048, !7, i64 1056, !7, i64 1064, !7, i64 1072, !13, i64 1080, !13, i64 1088, !13, i64 1096, !13, i64 1104, !13, i64 1112, !13, i64 1120, !13, i64 1128, !13, i64 1136, !13, i64 1144, !9, i64 1152, !9, i64 1156, !9, i64 1160, !7, i64 1168, !7, i64 1176, !7, i64 1184, !36, i64 1192}
+!18 = !{!"p2 _ZTS11cli_matcher", !13, i64 0}
+!19 = !{!"p1 _ZTS11cli_matcher", !13, i64 0}
+!20 = !{!"p1 _ZTS7cli_cdb", !13, i64 0}
+!21 = !{!"p1 _ZTS13regex_matcher", !13, i64 0}
+!22 = !{!"p1 _ZTS10phishcheck", !13, i64 0}
+!23 = !{!"p1 _ZTS9cli_dconf", !13, i64 0}
+!24 = !{!"p1 _ZTS9cli_ftype", !13, i64 0}
+!25 = !{!"p2 _ZTS8cli_pwdb", !13, i64 0}
+!26 = !{!"p1 _ZTS12icon_matcher", !13, i64 0}
+!27 = !{!"p1 _ZTS5CACHE", !13, i64 0}
+!28 = !{!"p1 _ZTS10cli_dbinfo", !13, i64 0}
+!29 = !{!"p1 _ZTS2MP", !13, i64 0}
+!30 = !{!"", !31, i64 0, !9, i64 8}
+!31 = !{!"p1 _ZTS9cli_crt_t", !13, i64 0}
+!32 = !{!"cli_all_bc", !33, i64 0, !9, i64 8, !34, i64 16, !35, i64 24, !9, i64 516}
+!33 = !{!"p1 _ZTS6cli_bc", !13, i64 0}
+!34 = !{!"p1 _ZTS12cli_bcengine", !13, i64 0}
+!35 = !{!"cli_environment", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !4, i64 28, !4, i64 93, !4, i64 158, !4, i64 223, !4, i64 288, !4, i64 353, !4, i64 418, !4, i64 483, !4, i64 484, !4, i64 485, !4, i64 486, !4, i64 487, !4, i64 488, !4, i64 489, !4, i64 490, !4, i64 491}
+!36 = !{!"p1 _ZTS12_yara_global", !13, i64 0}
+!37 = !{!17, !13, i64 1080}
+!38 = !{!11, !12, i64 8}
+!39 = !{!14, !14, i64 0}
+!40 = !{!41, !9, i64 28}
+!41 = !{!"cli_flagged_sample", !42, i64 0, !4, i64 8, !9, i64 24, !9, i64 28, !43, i64 32, !14, i64 40, !14, i64 48}
+!42 = !{!"p2 omnipotent char", !13, i64 0}
+!43 = !{!"p1 _ZTS18cli_stats_sections", !13, i64 0}
+!44 = !{!41, !9, i64 24}
+!45 = !{!41, !43, i64 32}
+!46 = !{!47, !7, i64 0}
+!47 = !{!"cli_stats_sections", !7, i64 0, !48, i64 8}
+!48 = !{!"p1 _ZTS16cli_section_hash", !13, i64 0}
+!49 = !{!47, !48, i64 8}
+!50 = !{!51, !7, i64 16}
+!51 = !{!"cli_section_hash", !4, i64 0, !7, i64 16}
+!52 = !{!41, !42, i64 0}
+!53 = !{!12, !12, i64 0}
+!54 = !{!41, !14, i64 48}

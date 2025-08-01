@@ -330,7 +330,7 @@ define internal i32 @xwma_read_header(ptr noundef %0) #1 {
   %135 = call i64 @avio_skip(ptr noundef nonnull %4, i64 noundef %.1) #7
   %136 = load i32, ptr %113, align 8, !tbaa !57
   %.not188 = icmp eq i32 %136, 0
-  br i1 %.not188, label %.lr.ph230, label %.loopexit, !llvm.loop !63
+  br i1 %.not188, label %.lr.ph230, label %.loopexit
 
 137:                                              ; preds = %.lr.ph230
   %.not193 = icmp eq i32 %116, 0
@@ -343,7 +343,7 @@ define internal i32 @xwma_read_header(ptr noundef %0) #1 {
 
 141:                                              ; preds = %137, %138
   %storemerge = phi i64 [ %140, %138 ], [ 9223372036854775807, %137 ]
-  store i64 %storemerge, ptr %6, align 8, !tbaa !64
+  store i64 %storemerge, ptr %6, align 8, !tbaa !62
   %142 = icmp ne ptr %.0157228, null
   %143 = icmp ne i32 %.0155229, 0
   %or.cond13 = select i1 %142, i1 %143, i1 false
@@ -372,7 +372,7 @@ define internal i32 @xwma_read_header(ptr noundef %0) #1 {
   %158 = udiv i32 %157, %151
   %159 = zext i32 %158 to i64
   %160 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store i64 %159, ptr %160, align 8, !tbaa !66
+  store i64 %159, ptr %160, align 8, !tbaa !64
   %161 = call i64 @avio_seek(ptr noundef nonnull %4, i64 noundef 0, i32 noundef 1) #7
   %wide.trip.count270 = zext nneg i32 %.0155229 to i64
   br label %162
@@ -382,7 +382,7 @@ define internal i32 @xwma_read_header(ptr noundef %0) #1 {
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %163 = load ptr, ptr %17, align 8, !tbaa !27
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 156
-  %165 = load i32, ptr %164, align 4, !tbaa !67
+  %165 = load i32, ptr %164, align 4, !tbaa !65
   %166 = trunc nuw nsw i64 %indvars.iv.next262 to i32
   %167 = mul nsw i32 %165, %166
   %168 = sext i32 %167 to i64
@@ -393,7 +393,7 @@ define internal i32 @xwma_read_header(ptr noundef %0) #1 {
   %173 = zext i32 %172 to i64
   %174 = call i32 @av_add_index_entry(ptr noundef nonnull %15, i64 noundef %169, i64 noundef %173, i32 noundef %165, i32 noundef 0, i32 noundef 1) #7
   %exitcond271.not = icmp eq i64 %indvars.iv.next262, %wide.trip.count270
-  br i1 %exitcond271.not, label %.loopexit, label %162, !llvm.loop !68
+  br i1 %exitcond271.not, label %.loopexit, label %162, !llvm.loop !66
 
 175:                                              ; preds = %141
   %176 = getelementptr inbounds nuw i8, ptr %144, i64 48
@@ -408,7 +408,7 @@ define internal i32 @xwma_read_header(ptr noundef %0) #1 {
   %182 = sext i32 %181 to i64
   %183 = call i64 @av_rescale(i64 noundef %179, i64 noundef %182, i64 noundef %177) #8
   %184 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store i64 %183, ptr %184, align 8, !tbaa !66
+  store i64 %183, ptr %184, align 8, !tbaa !64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit199, %.lr.ph, %162, %110, %152, %178, %175, %119
@@ -427,9 +427,9 @@ define internal i32 @xwma_read_packet(ptr noundef readonly captures(none) %0, pt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !69
-  %7 = load ptr, ptr %6, align 8, !tbaa !70
-  %8 = load i64, ptr %4, align 8, !tbaa !64
+  %6 = load ptr, ptr %5, align 8, !tbaa !67
+  %7 = load ptr, ptr %6, align 8, !tbaa !68
+  %8 = load i64, ptr %4, align 8, !tbaa !62
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !11
   %11 = tail call i64 @avio_seek(ptr noundef %10, i64 noundef 0, i32 noundef 1) #7
@@ -441,7 +441,7 @@ define internal i32 @xwma_read_packet(ptr noundef readonly captures(none) %0, pt
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !27
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 156
-  %18 = load i32, ptr %17, align 4, !tbaa !67
+  %18 = load i32, ptr %17, align 4, !tbaa !65
   %19 = icmp sgt i32 %18, 1
   %narrow = select i1 %19, i32 %18, i32 2230
   %spec.select = zext i32 %narrow to i64
@@ -454,7 +454,7 @@ define internal i32 @xwma_read_packet(ptr noundef readonly captures(none) %0, pt
 
 25:                                               ; preds = %14
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %26, align 4, !tbaa !72
+  store i32 0, ptr %26, align 4, !tbaa !70
   br label %27
 
 27:                                               ; preds = %14, %2, %25
@@ -578,16 +578,14 @@ attributes #8 = { nounwind willreturn memory(none) }
 !57 = !{!58, !10, i64 80}
 !58 = !{!"AVIOContext", !13, i64 0, !6, i64 8, !10, i64 16, !6, i64 24, !6, i64 32, !7, i64 40, !7, i64 48, !7, i64 56, !7, i64 64, !21, i64 72, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !21, i64 104, !6, i64 112, !7, i64 120, !7, i64 128, !7, i64 136, !10, i64 144, !10, i64 148, !6, i64 152, !6, i64 160, !7, i64 168, !10, i64 176, !6, i64 184, !21, i64 192, !21, i64 200}
 !59 = !{!10, !10, i64 0}
-!60 = distinct !{!60, !61, !62}
+!60 = distinct !{!60, !61}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!"llvm.loop.estimated_trip_count"}
-!63 = distinct !{!63, !62}
-!64 = !{!65, !21, i64 0}
-!65 = !{!"XWMAContext", !21, i64 0}
-!66 = !{!28, !21, i64 48}
-!67 = !{!47, !10, i64 156}
-!68 = distinct !{!68, !61, !62}
-!69 = !{!12, !17, i64 48}
-!70 = !{!71, !71, i64 0}
-!71 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!72 = !{!31, !10, i64 36}
+!62 = !{!63, !21, i64 0}
+!63 = !{!"XWMAContext", !21, i64 0}
+!64 = !{!28, !21, i64 48}
+!65 = !{!47, !10, i64 156}
+!66 = distinct !{!66, !61}
+!67 = !{!12, !17, i64 48}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!70 = !{!31, !10, i64 36}

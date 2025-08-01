@@ -188,7 +188,7 @@ avifBitsRead.exit200.i.i.thread:                  ; preds = %avifBitsRead.exit11
   %.sroa.0.158 = select i1 %.not15.i.i121.i.i, i32 %.sroa.0.157, i32 %69
   %73 = select i1 %.not15.i.i121.i.i, i32 %69, i32 1
   %74 = icmp samesign ult i32 %70, 24
-  br i1 %74, label %.thread.i.i, label %.preheader482.preheader, !llvm.loop !7
+  br i1 %74, label %.thread.i.i, label %.preheader482.preheader, !llvm.loop !6
 
 .preheader482.preheader:                          ; preds = %.thread.i.i
   %75 = add nsw i32 %70, -24
@@ -223,7 +223,7 @@ avifBitsRead.exit200.i.i.thread:                  ; preds = %avifBitsRead.exit11
   %.sroa.0.155 = select i1 %.not15.i.i132.i.i, i32 %.sroa.0.154, i32 %77
   %88 = select i1 %.not15.i.i132.i.i, i32 %77, i32 1
   %89 = icmp samesign ult i32 %78, 24
-  br i1 %89, label %.preheader482, label %avifBitsRead.exit134.i.i, !llvm.loop !7
+  br i1 %89, label %.preheader482, label %avifBitsRead.exit134.i.i, !llvm.loop !6
 
 avifBitsRead.exit134.i.i:                         ; preds = %86
   %90 = sub nuw nsw i32 56, %78
@@ -312,7 +312,7 @@ avifBitsRead.exit.i.i.i:                          ; preds = %avifBitsRefill.exit
 120:                                              ; preds = %avifBitsRead.exit.i.i.i
   %121 = add nuw nsw i32 %.0.i.i.i, 1
   %122 = icmp eq i32 %121, 32
-  br i1 %122, label %parseAV1SequenceHeader.exit, label %.preheader481, !llvm.loop !8
+  br i1 %122, label %parseAV1SequenceHeader.exit, label %.preheader481, !llvm.loop !7
 
 123:                                              ; preds = %avifBitsRead.exit.i.i.i
   %.not8.i.i.i = icmp eq i32 %.0.i.i.i, 0
@@ -352,7 +352,7 @@ avifBitsRead.exit.i.i.i:                          ; preds = %avifBitsRefill.exit
   %.sroa.0.151 = select i1 %.not15.i.i17.i.i.i, i32 %.sroa.0.150, i32 %127
   %138 = select i1 %.not15.i.i17.i.i.i, i32 %127, i32 1
   %139 = icmp ugt i32 %.0.i.i.i, %130
-  br i1 %139, label %.preheader480, label %avifBitsRefill.exit.i18.i.i.i, !llvm.loop !7
+  br i1 %139, label %.preheader480, label %avifBitsRefill.exit.i18.i.i.i, !llvm.loop !6
 
 avifBitsRefill.exit.i18.i.i.i:                    ; preds = %136
   %140 = sub i32 56, %128
@@ -500,7 +500,7 @@ avifBitsRead.exit167.i._crit_edge.i:              ; preds = %avifBitsRead.exit16
   %.sroa.0.146 = select i1 %.not15.i.i176.i.i, i32 %.sroa.0.145, i32 %196
   %207 = select i1 %.not15.i.i176.i.i, i32 %196, i32 1
   %208 = icmp samesign ult i32 %197, 24
-  br i1 %208, label %194, label %avifBitsRefill.exit.i177.i.i, !llvm.loop !7
+  br i1 %208, label %194, label %avifBitsRefill.exit.i177.i.i, !llvm.loop !6
 
 avifBitsRefill.exit.i177.i.i:                     ; preds = %205
   %209 = sub nuw nsw i32 56, %197
@@ -550,7 +550,7 @@ avifBitsRead.exit178.i.i:                         ; preds = %avifBitsRefill.exit
   %.sroa.0.143 = select i1 %.not15.i.i187.i.i, i32 %.sroa.0.142, i32 %220
   %231 = select i1 %.not15.i.i187.i.i, i32 %220, i32 1
   %232 = icmp samesign ult i32 %221, 2
-  br i1 %232, label %.preheader479, label %avifBitsRefill.exit.i188.i.i, !llvm.loop !7
+  br i1 %232, label %.preheader479, label %avifBitsRefill.exit.i188.i.i, !llvm.loop !6
 
 avifBitsRefill.exit.i188.i.i:                     ; preds = %229
   %233 = sub nuw nsw i32 56, %221
@@ -701,7 +701,7 @@ avifBitsRead.exit211.i.i:                         ; preds = %avifBitsRefill.exit
   %.sroa.0.139 = select i1 %.not15.i.i220.i.i, i32 %.sroa.0.138, i32 %284
   %295 = select i1 %.not15.i.i220.i.i, i32 %284, i32 1
   %296 = icmp samesign ult i32 %285, 4
-  br i1 %296, label %.preheader478, label %avifBitsRefill.exit.i221.i.i, !llvm.loop !7
+  br i1 %296, label %.preheader478, label %avifBitsRefill.exit.i221.i.i, !llvm.loop !6
 
 avifBitsRefill.exit.i221.i.i:                     ; preds = %293
   %297 = sub nuw nsw i32 56, %285
@@ -888,7 +888,7 @@ avifBitsRead.exit255.i.i:                         ; preds = %avifBitsRefill.exit
   %.sroa.0.133 = select i1 %.not15.i.i264.i.i, i32 %.sroa.0.132, i32 %359
   %370 = select i1 %.not15.i.i264.i.i, i32 %359, i32 1
   %371 = icmp ugt i32 %.057364371.i.i, %362
-  br i1 %371, label %.preheader477, label %avifBitsRefill.exit.i265.i.i, !llvm.loop !7
+  br i1 %371, label %.preheader477, label %avifBitsRefill.exit.i265.i.i, !llvm.loop !6
 
 avifBitsRefill.exit.i265.i.i:                     ; preds = %368
   %372 = sub i32 56, %360
@@ -937,7 +937,7 @@ avifBitsRead.exit266.i.i:                         ; preds = %avifBitsRefill.exit
   %.sroa.0.131 = select i1 %.not15.i.i275.i.i, i32 %.sroa.0.130, i32 %382
   %393 = select i1 %.not15.i.i275.i.i, i32 %382, i32 1
   %394 = icmp ugt i32 %.057364371.i.i, %385
-  br i1 %394, label %.preheader476, label %avifBitsRefill.exit.i276.i.i, !llvm.loop !7
+  br i1 %394, label %.preheader476, label %avifBitsRefill.exit.i276.i.i, !llvm.loop !6
 
 avifBitsRefill.exit.i276.i.i:                     ; preds = %391
   %395 = sub i32 56, %383
@@ -1072,7 +1072,7 @@ avifBitsRead.exit310.i.i:                         ; preds = %avifBitsRefill.exit
   %.sroa.329.18 = phi i32 [ %.sroa.329.17, %415 ], [ 7, %avifBitsRead.exit299.thread.i.i ], [ %442, %avifBitsRead.exit310.i.i ], [ %426, %avifBitsRead.exit299.i.i ]
   %445 = add nuw nsw i32 %.058335.i.i, 1
   %exitcond.i.i = icmp eq i32 %.058335.i.i, %277
-  br i1 %exitcond.i.i, label %parseSequenceHeaderProfile.exit.i, label %281, !llvm.loop !9
+  br i1 %exitcond.i.i, label %parseSequenceHeaderProfile.exit.i, label %281, !llvm.loop !8
 
 parseSequenceHeaderProfile.exit.i:                ; preds = %444
   %.not68.i.not.i = icmp eq i32 %.sroa.0.126, 0
@@ -1220,7 +1220,7 @@ avifBitsRead.exit24.i.i:                          ; preds = %avifBitsRefill.exit
   %.sroa.0.32 = select i1 %.not15.i.i33.i.i, i32 %.sroa.0.31, i32 %502
   %513 = select i1 %.not15.i.i33.i.i, i32 %502, i32 1
   %.not70.i.i = icmp ugt i32 %505, %492
-  br i1 %.not70.i.i, label %avifBitsRefill.exit.i34.i.i, label %.preheader475, !llvm.loop !7
+  br i1 %.not70.i.i, label %avifBitsRefill.exit.i34.i.i, label %.preheader475, !llvm.loop !6
 
 avifBitsRefill.exit.i34.i.i:                      ; preds = %511
   %514 = sub i32 56, %503
@@ -1276,7 +1276,7 @@ avifBitsRead.exit35.i.i:                          ; preds = %avifBitsRefill.exit
   %.sroa.0.35 = select i1 %.not15.i.i44.i.i, i32 %.sroa.0.34, i32 %529
   %540 = select i1 %.not15.i.i44.i.i, i32 %529, i32 1
   %.not72.i.i = icmp ugt i32 %532, %499
-  br i1 %.not72.i.i, label %avifBitsRefill.exit.i45.i.i, label %.preheader, !llvm.loop !7
+  br i1 %.not72.i.i, label %avifBitsRefill.exit.i45.i.i, label %.preheader, !llvm.loop !6
 
 avifBitsRefill.exit.i45.i.i:                      ; preds = %538
   %541 = sub i32 56, %530
@@ -2509,7 +2509,7 @@ avifBitsRefill.exit.i73.i:                        ; preds = %1002
   %1006 = getelementptr inbounds nuw i8, ptr %.sroa.0.0518, i64 %1005
   %1007 = sub i64 %.sroa.4.0519, %1005
   %.not = icmp eq i64 %1007, 0
-  br i1 %.not, label %parseAV1SequenceHeader.exit, label %avifBitsRead.exit, !llvm.loop !10
+  br i1 %.not, label %parseAV1SequenceHeader.exit, label %avifBitsRead.exit, !llvm.loop !9
 
 parseAV1SequenceHeader.exit:                      ; preds = %avifBitsReadUleb128.exit, %32, %1004, %26, %120, %parseSequenceHeaderColorConfig.exit.i.thread, %parseSequenceHeaderProfile.exit.i.thread, %3, %parseSequenceHeaderColorConfig.exit.i, %parseSequenceHeaderEnabledFeatures.exit.thread.i, %parseSequenceHeaderEnabledFeatures.exit.i, %parseSequenceHeaderFrameMaxDimensions.exit.i, %parseSequenceHeaderProfile.exit.i, %avifBitsReadVLC.exit.i.i, %avifBitsRead.exit90.i.i, %avifBitsRead.exit.i.i, %parseSequenceHeaderFrameMaxDimensions.exit.i.thread, %1002, %avifBitsRefill.exit.i73.i, %43
   %.0.shrunk = phi i1 [ false, %43 ], [ false, %parseSequenceHeaderProfile.exit.i ], [ false, %parseSequenceHeaderFrameMaxDimensions.exit.i ], [ false, %parseSequenceHeaderEnabledFeatures.exit.i ], [ false, %parseSequenceHeaderColorConfig.exit.i ], [ false, %avifBitsRead.exit.i.i ], [ false, %avifBitsRead.exit90.i.i ], [ false, %avifBitsReadVLC.exit.i.i ], [ false, %parseSequenceHeaderEnabledFeatures.exit.thread.i ], [ false, %parseSequenceHeaderFrameMaxDimensions.exit.i.thread ], [ %narrow, %avifBitsRefill.exit.i73.i ], [ true, %1002 ], [ false, %3 ], [ false, %parseSequenceHeaderProfile.exit.i.thread ], [ %.not86.i.not.i641, %parseSequenceHeaderColorConfig.exit.i.thread ], [ false, %120 ], [ false, %26 ], [ false, %1004 ], [ false, %32 ], [ false, %avifBitsReadUleb128.exit ]
@@ -2525,10 +2525,9 @@ attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrit
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

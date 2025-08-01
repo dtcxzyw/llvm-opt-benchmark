@@ -49,8 +49,8 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_ev_system_memory_region_setup
 
 23:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store i64 0, ptr %5, align 8, !annotation !9
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #6, !srcloc !10
+  store i64 0, ptr %5, align 8, !annotation !8
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #6, !srcloc !9
   %24 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   %25 = and i64 %24, 512
@@ -143,9 +143,9 @@ define dso_local i32 @acpi_ev_pci_config_region_setup(ptr noundef readonly captu
   br i1 %29, label %.loopexit8, label %30
 
 30:                                               ; preds = %24
-  %31 = tail call zeroext i8 @acpi_ev_is_pci_root_bridge(ptr noundef %27), !range !11
+  %31 = tail call zeroext i8 @acpi_ev_is_pci_root_bridge(ptr noundef %27), !range !10
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %24, label %33, !llvm.loop !12
+  br i1 %32, label %24, label %33, !llvm.loop !11
 
 33:                                               ; preds = %30
   %34 = tail call i32 @acpi_install_address_space_handler(ptr noundef %27, i8 noundef zeroext 2, ptr noundef null, ptr noundef null, ptr noundef null) #6
@@ -168,10 +168,10 @@ define dso_local i32 @acpi_ev_pci_config_region_setup(ptr noundef readonly captu
   br i1 %41, label %42, label %90
 
 42:                                               ; preds = %.loopexit8
-  store i64 0, ptr %6, align 8, !annotation !9
+  store i64 0, ptr %6, align 8, !annotation !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store i64 0, ptr %5, align 8, !annotation !9
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #6, !srcloc !10
+  store i64 0, ptr %5, align 8, !annotation !8
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #6, !srcloc !9
   %43 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   %44 = and i64 %43, 512
@@ -198,7 +198,7 @@ define dso_local i32 @acpi_ev_pci_config_region_setup(ptr noundef readonly captu
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %57, %50
   call void @kfree(ptr noundef nonnull %48) #6
@@ -268,9 +268,9 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ev_is_pci_root_bridge(p
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
-  store ptr null, ptr %2, align 8, !annotation !9
+  store ptr null, ptr %2, align 8, !annotation !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store ptr null, ptr %3, align 8, !annotation !9
+  store ptr null, ptr %3, align 8, !annotation !8
   %4 = call i32 @acpi_ut_execute_HID(ptr noundef %0, ptr noundef nonnull %2) #6
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %37
@@ -302,7 +302,7 @@ define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ev_is_pci_root_bridge(p
   %23 = load i32, ptr %22, align 8
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %21, %24
-  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !14
+  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .preheader:                                       ; preds = %16, %20
   %26 = phi i64 [ %21, %20 ], [ 0, %16 ]
@@ -383,8 +383,8 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_ev_data_table_region_setup(pt
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store i64 0, ptr %5, align 8, !annotation !9
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #6, !srcloc !10
+  store i64 0, ptr %5, align 8, !annotation !8
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #6, !srcloc !9
   %12 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   %13 = and i64 %12, 512
@@ -480,7 +480,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_ev_initialize_region(ptr n
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %36, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %33, %30, %8, %3, %1
   %37 = phi i32 [ 0, %30 ], [ 4097, %1 ], [ 0, %3 ], [ 0, %8 ], [ 0, %33 ]
@@ -527,14 +527,13 @@ attributes #7 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = !{i64 1815000, i64 1815021}
-!11 = !{i8 0, i8 2}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
+!8 = !{!"auto-init"}
+!9 = !{i64 1815000, i64 1815021}
+!10 = !{i8 0, i8 2}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}

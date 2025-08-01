@@ -147,7 +147,7 @@ define void @ff_build_rac_states(ptr noundef captures(none) initializes((16, 528
   %lftr.wideiv.pre-phi = phi i32 [ %.pre74, %._crit_edge ], [ %45, %33 ]
   %indvars.iv.next.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %44, %33 ]
   %exitcond69.not = icmp eq i32 %lftr.wideiv.pre-phi, %29
-  br i1 %exitcond69.not, label %.preheader.preheader, label %30, !llvm.loop !22
+  br i1 %exitcond69.not, label %.preheader.preheader, label %30, !llvm.loop !21
 
 .preheader.preheader:                             ; preds = %47, %26
   br label %.preheader
@@ -162,7 +162,7 @@ define void @ff_build_rac_states(ptr noundef captures(none) initializes((16, 528
   store i8 %51, ptr %52, align 1, !tbaa !17
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 255
-  br i1 %exitcond73.not, label %53, label %.preheader, !llvm.loop !23
+  br i1 %exitcond73.not, label %53, label %.preheader, !llvm.loop !22
 
 53:                                               ; preds = %.preheader
   ret void
@@ -230,7 +230,7 @@ define i32 @ff_rac_terminate(ptr noundef captures(none) %0, i32 noundef %1) loca
   %35 = add nsw i32 %34, -1
   store i32 %35, ptr %28, align 8, !tbaa !15
   %.not.i.i = icmp eq i32 %35, 0
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %31, !llvm.loop !24
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %31, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %31, %14
   %36 = load i32, ptr %0, align 8, !tbaa !13
@@ -294,7 +294,7 @@ put_rac.exit:                                     ; preds = %.put_rac.exit_crit_
   %71 = add nsw i32 %70, -1
   store i32 %71, ptr %64, align 8, !tbaa !15
   %.not.i = icmp eq i32 %71, 0
-  br i1 %.not.i, label %._crit_edge.i, label %67, !llvm.loop !24
+  br i1 %.not.i, label %._crit_edge.i, label %67, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %67, %50
   %72 = load i32, ptr %0, align 8, !tbaa !13
@@ -343,7 +343,7 @@ renorm_encoder.exit:                              ; preds = %._crit_edge.i, %74
   %96 = add nsw i32 %95, -1
   store i32 %96, ptr %91, align 8, !tbaa !15
   %.not.i10 = icmp eq i32 %96, 0
-  br i1 %.not.i10, label %._crit_edge.i11.loopexit, label %.lr.ph.i9, !llvm.loop !24
+  br i1 %.not.i10, label %._crit_edge.i11.loopexit, label %.lr.ph.i9, !llvm.loop !23
 
 ._crit_edge.i11.loopexit:                         ; preds = %.lr.ph.i9
   %.pre16 = load ptr, ptr %84, align 8, !tbaa !4
@@ -406,9 +406,8 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !16 = !{!5, !6, i64 12}
 !17 = !{!7, !7, i64 0}
 !18 = !{!5, !6, i64 552}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = distinct !{!23, !20, !21}
-!24 = distinct !{!24, !20, !21}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}

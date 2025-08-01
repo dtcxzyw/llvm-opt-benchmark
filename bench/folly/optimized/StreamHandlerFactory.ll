@@ -662,7 +662,7 @@ define linkonce_odr void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_trait
   %16 = add i64 %15, %.014.i.i.i
   %.012.add.i.i.i = add nuw nsw i64 %.012.idx13.i.i.i, 8
   %.not.i.i.i = icmp eq i64 %.012.add.i.i.i, 32
-  br i1 %.not.i.i.i, label %_ZN5folly6detail15reserveInTargetIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA36_cPS8_EEEvRKT_RKT0_DpRKT1_.exit.i, label %14, !llvm.loop !50
+  br i1 %.not.i.i.i, label %_ZN5folly6detail15reserveInTargetIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA36_cPS8_EEEvRKT_RKT0_DpRKT1_.exit.i, label %14
 
 _ZN5folly6detail15reserveInTargetIA17_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA36_cPS8_EEEvRKT_RKT0_DpRKT1_.exit.i: ; preds = %14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
@@ -844,5 +844,3 @@ attributes #16 = { noreturn }
 !47 = !{!42, !43, i64 0}
 !48 = !{!49, !49, i64 0}
 !49 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !14, i64 0}
-!50 = distinct !{!50, !51}
-!51 = !{!"llvm.loop.estimated_trip_count"}

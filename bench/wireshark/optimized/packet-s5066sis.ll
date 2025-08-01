@@ -1015,7 +1015,7 @@ dissect_s5066_address.exit.i:                     ; preds = %30
   %371 = add nuw nsw i32 %.18796.i, 1
   %.3.i = add nuw nsw i32 %.398.i, 4
   %exitcond104.not.i = icmp eq i32 %371, %365
-  br i1 %exitcond104.not.i, label %dissect_s5066_21.exit, label %.lr.ph100.i, !llvm.loop !12
+  br i1 %exitcond104.not.i, label %dissect_s5066_21.exit, label %.lr.ph100.i, !llvm.loop !11
 
 dissect_s5066_21.exit:                            ; preds = %.lr.ph100.i, %350, %._crit_edge.i
   %.1.i = phi i32 [ %.0.i, %350 ], [ %.395.i, %._crit_edge.i ], [ %.3.i, %.lr.ph100.i ]
@@ -1212,7 +1212,7 @@ dissect_s5066_address.exit.i137:                  ; preds = %30
   %532 = add nuw nsw i32 %.08691.i149, 1
   %.2.i150 = add nuw nsw i32 %.2.in92.i148, 6
   %exitcond.not.i151 = icmp eq i32 %532, %526
-  br i1 %exitcond.not.i151, label %._crit_edge.i152, label %.lr.ph.i146, !llvm.loop !13
+  br i1 %exitcond.not.i151, label %._crit_edge.i152, label %.lr.ph.i146, !llvm.loop !12
 
 ._crit_edge.i152:                                 ; preds = %.lr.ph.i146, %522
   %.2.in.lcssa.i153 = phi i32 [ %.0.i142, %522 ], [ %529, %.lr.ph.i146 ]
@@ -1237,7 +1237,7 @@ dissect_s5066_address.exit.i137:                  ; preds = %30
   %542 = add nuw nsw i32 %.18796.i160, 1
   %.3.i161 = add nuw nsw i32 %.398.i158, 4
   %exitcond104.not.i162 = icmp eq i32 %542, %536
-  br i1 %exitcond104.not.i162, label %dissect_s5066_25.exit, label %.lr.ph100.i157, !llvm.loop !14
+  br i1 %exitcond104.not.i162, label %dissect_s5066_25.exit, label %.lr.ph100.i157, !llvm.loop !13
 
 dissect_s5066_25.exit:                            ; preds = %.lr.ph100.i157, %521, %._crit_edge.i152
   %.1.i143 = phi i32 [ %.0.i142, %521 ], [ %.395.i155, %._crit_edge.i152 ], [ %.3.i161, %.lr.ph100.i157 ]
@@ -1429,9 +1429,8 @@ attributes #5 = { nounwind memory(none) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = !{i64 2150915089}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}

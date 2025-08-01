@@ -718,7 +718,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 128:                                              ; preds = %129
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %129, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %129, !llvm.loop !8
 
 129:                                              ; preds = %128, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %128 ]
@@ -746,7 +746,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %141 = or i64 %140, %.08617.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count.i
-  br i1 %exitcond37.not.i, label %._crit_edge21.i, label %133, !llvm.loop !10
+  br i1 %exitcond37.not.i, label %._crit_edge21.i, label %133, !llvm.loop !9
 
 .thread50.i:                                      ; preds = %.preheader.i
   %142 = call i32 @XFree(ptr noundef nonnull %121) #14
@@ -792,7 +792,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %162 = getelementptr inbounds nuw i8, ptr %.08525.i, i64 16
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next39.i, 7
-  br i1 %exitcond41.not.i, label %163, label %158, !llvm.loop !11
+  br i1 %exitcond41.not.i, label %163, label %158, !llvm.loop !10
 
 163:                                              ; preds = %158
   %164 = getelementptr inbounds nuw i8, ptr %154, i64 16
@@ -856,7 +856,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 188:                                              ; preds = %184
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %184, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %184, !llvm.loop !11
 
 ._crit_edge.loopexit.split.loop.exit.i.i:         ; preds = %184
   %189 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -3246,14 +3246,14 @@ define internal fastcc void @freeX11InputMethodData(ptr noundef %0, ptr noundef 
 .preheader.i:                                     ; preds = %.lr.ph
   %43 = load ptr, ptr %46, align 8
   %44 = icmp eq ptr %43, %37
-  br i1 %44, label %.preheader.i._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %44, label %.preheader.i._crit_edge, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.preheader.i.preheader, %.preheader.i
   %.018.i30 = phi ptr [ %46, %.preheader.i ], [ %38, %.preheader.i.preheader ]
   %45 = getelementptr inbounds nuw i8, ptr %.018.i30, i64 8
   %46 = load ptr, ptr %45, align 8
   %cond.i = icmp eq ptr %46, null
-  br i1 %cond.i, label %removeX11InputMethodGRefFromList.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %cond.i, label %removeX11InputMethodGRefFromList.exit, label %.preheader.i, !llvm.loop !12
 
 .preheader.i._crit_edge:                          ; preds = %.preheader.i
   %47 = icmp eq ptr %46, %38
@@ -3416,7 +3416,7 @@ getX11InputMethodData.exit.thread:                ; preds = %49, %41, %getX11Inp
 66:                                               ; preds = %getX11InputMethodData.exit.thread, %59, %getX11InputMethodData.exit
   %67 = load ptr, ptr @x11InputMethodGRefListHead, align 8
   %.not33 = icmp eq ptr %67, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %66, %28
   tail call void (...) @awt_output_flush() #14
@@ -3933,7 +3933,7 @@ wcstombsdmp.exit:                                 ; preds = %87
   store i32 %123, ptr %124, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %125 = icmp samesign ult i64 %indvars.iv.next, %117
-  br i1 %125, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %125, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %126 = load ptr, ptr %6, align 8
@@ -4480,13 +4480,12 @@ attributes #18 = { cold }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

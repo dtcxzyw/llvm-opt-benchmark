@@ -47,7 +47,7 @@ define range(i32 0, 65536) i32 @get_digit_count(ptr noundef readonly captures(ad
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = load i16, ptr %0, align 8, !tbaa !9
+  %4 = load i16, ptr %0, align 8, !tbaa !8
   %5 = zext i16 %4 to i32
   br label %6
 
@@ -64,7 +64,7 @@ define i64 @get_digit(ptr noundef readonly captures(address_is_null) %0, i32 nou
   br i1 %or.cond, label %13, label %5
 
 5:                                                ; preds = %2
-  %6 = load i16, ptr %0, align 8, !tbaa !9
+  %6 = load i16, ptr %0, align 8, !tbaa !8
   %7 = zext i16 %6 to i32
   %.not = icmp samesign ult i32 %1, %7
   br i1 %.not, label %8, label %13
@@ -73,7 +73,7 @@ define i64 @get_digit(ptr noundef readonly captures(address_is_null) %0, i32 nou
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = zext nneg i32 %1 to i64
   %11 = getelementptr inbounds nuw [129 x i64], ptr %9, i64 0, i64 %10
-  %12 = load i64, ptr %11, align 8, !tbaa !12
+  %12 = load i64, ptr %11, align 8, !tbaa !11
   br label %13
 
 13:                                               ; preds = %8, %5, %2
@@ -91,7 +91,7 @@ define i32 @mp_cond_copy(ptr noundef readonly captures(address_is_null) %0, i32 
   br i1 %or.cond.not, label %8, label %.thread
 
 8:                                                ; preds = %3
-  %9 = load i16, ptr %0, align 8, !tbaa !9
+  %9 = load i16, ptr %0, align 8, !tbaa !8
   %10 = zext i16 %9 to i32
   %11 = add nuw nsw i32 %10, 1
   %12 = tail call i32 @sp_grow(ptr noundef nonnull %2, i32 noundef %11) #6
@@ -99,20 +99,20 @@ define i32 @mp_cond_copy(ptr noundef readonly captures(address_is_null) %0, i32 
   br i1 %13, label %.preheader45, label %.thread
 
 .preheader45:                                     ; preds = %8
-  %14 = load i16, ptr %0, align 8, !tbaa !9
+  %14 = load i16, ptr %0, align 8, !tbaa !8
   %.not = icmp eq i16 %14, 0
   br i1 %.not, label %.preheader, label %get_digit.exit.lr.ph.split
 
 get_digit.exit.lr.ph.split:                       ; preds = %.preheader45
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %17 = load i16, ptr %2, align 8, !tbaa !9
+  %17 = load i16, ptr %2, align 8, !tbaa !8
   %18 = zext i16 %17 to i64
   %wide.trip.count = zext i16 %14 to i64
   br label %get_digit.exit
 
 .preheader:                                       ; preds = %get_digit.exit, %.preheader45
-  %19 = load i16, ptr %2, align 8, !tbaa !9
+  %19 = load i16, ptr %2, align 8, !tbaa !8
   %20 = icmp ult i16 %14, %19
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -127,19 +127,19 @@ get_digit.exit.lr.ph.split:                       ; preds = %.preheader45
 get_digit.exit:                                   ; preds = %get_digit.exit.lr.ph.split, %get_digit.exit
   %indvars.iv = phi i64 [ 0, %get_digit.exit.lr.ph.split ], [ %indvars.iv.next, %get_digit.exit ]
   %25 = getelementptr inbounds nuw [129 x i64], ptr %15, i64 0, i64 %indvars.iv
-  %26 = load i64, ptr %25, align 8, !tbaa !12
+  %26 = load i64, ptr %25, align 8, !tbaa !11
   %.not.i36 = icmp samesign ult i64 %indvars.iv, %18
   %27 = getelementptr inbounds nuw [129 x i64], ptr %16, i64 0, i64 %indvars.iv
-  %28 = load i64, ptr %27, align 8, !tbaa !12
+  %28 = load i64, ptr %27, align 8, !tbaa !11
   %. = select i1 %.not.i36, i64 %28, i64 0
   %29 = xor i64 %., %26
   %30 = and i64 %29, %5
   %31 = getelementptr inbounds nuw [129 x i64], ptr %16, i64 0, i64 %indvars.iv
   %32 = xor i64 %30, %28
-  store i64 %32, ptr %31, align 8, !tbaa !12
+  store i64 %32, ptr %31, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %get_digit.exit, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader, label %get_digit.exit, !llvm.loop !13
 
 33:                                               ; preds = %.lr.ph, %get_digit.exit44
   %indvars.iv63 = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next64, %get_digit.exit44 ]
@@ -148,27 +148,27 @@ get_digit.exit:                                   ; preds = %get_digit.exit.lr.p
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw [129 x i64], ptr %21, i64 0, i64 %indvars.iv63
-  %36 = load i64, ptr %35, align 8, !tbaa !12
+  %36 = load i64, ptr %35, align 8, !tbaa !11
   br label %get_digit.exit44
 
 get_digit.exit44:                                 ; preds = %34, %33
   %.0.i40 = phi i64 [ %36, %34 ], [ 0, %33 ]
   %37 = getelementptr inbounds nuw [129 x i64], ptr %22, i64 0, i64 %indvars.iv63
-  %38 = load i64, ptr %37, align 8, !tbaa !12
+  %38 = load i64, ptr %37, align 8, !tbaa !11
   %39 = xor i64 %38, %.0.i40
   %40 = and i64 %39, %5
   %41 = xor i64 %40, %38
-  store i64 %41, ptr %37, align 8, !tbaa !12
+  store i64 %41, ptr %37, align 8, !tbaa !11
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %._crit_edge, label %33, !llvm.loop !15
+  br i1 %exitcond67.not, label %._crit_edge, label %33, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %get_digit.exit44, %.preheader
   %42 = xor i16 %19, %14
   %43 = trunc i64 %5 to i16
   %44 = and i16 %42, %43
   %45 = xor i16 %44, %19
-  store i16 %45, ptr %2, align 8, !tbaa !9
+  store i16 %45, ptr %2, align 8, !tbaa !8
   br label %.thread
 
 .thread:                                          ; preds = %3, %._crit_edge, %8
@@ -200,32 +200,32 @@ define i32 @mp_rand(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %11 = load i16, ptr %10, align 2, !tbaa !16
+  %11 = load i16, ptr %10, align 2, !tbaa !15
   %12 = zext i16 %11 to i32
   %13 = icmp samesign ugt i32 %1, %12
   br i1 %13, label %.critedge, label %.critedge30
 
 .critedge30:                                      ; preds = %9
   %14 = trunc nuw i32 %1 to i16
-  store i16 %14, ptr %0, align 8, !tbaa !9
+  store i16 %14, ptr %0, align 8, !tbaa !8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %2, ptr noundef nonnull %15, i32 noundef %4) #6
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %.critedge30, %24
-  %18 = load i16, ptr %0, align 8, !tbaa !9
+  %18 = load i16, ptr %0, align 8, !tbaa !8
   %19 = zext i16 %18 to i64
   %20 = add nsw i64 %19, -1
   %21 = getelementptr inbounds [129 x i64], ptr %15, i64 0, i64 %20
-  %22 = load i64, ptr %21, align 8, !tbaa !12
+  %22 = load i64, ptr %21, align 8, !tbaa !11
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %.critedge
 
 24:                                               ; preds = %.preheader
   %25 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %2, ptr noundef nonnull %21, i32 noundef 8) #6
   %.old2 = icmp eq i32 %25, 0
-  br i1 %.old2, label %.preheader, label %.critedge, !llvm.loop !17
+  br i1 %.old2, label %.preheader, label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %24, %6, %9, %3, %.critedge30
   %.3 = phi i32 [ %16, %.critedge30 ], [ -236, %3 ], [ -173, %9 ], [ -173, %6 ], [ 0, %.preheader ], [ %25, %24 ]
@@ -248,16 +248,16 @@ define i32 @wc_export_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
 
 12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
-  store i32 0, ptr %6, align 4, !tbaa !18
+  store i32 0, ptr %6, align 4, !tbaa !16
   %13 = call i32 @sp_radix_size(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %6) #6
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr %2, align 4, !tbaa !18
-  %17 = load i32, ptr %6, align 4, !tbaa !18
+  %16 = load i32, ptr %2, align 4, !tbaa !16
+  %17 = load i32, ptr %6, align 4, !tbaa !16
   %18 = icmp ult i32 %16, %17
-  store i32 %17, ptr %2, align 4, !tbaa !18
+  store i32 %17, ptr %2, align 4, !tbaa !16
   br i1 %18, label %.critedge, label %19
 
 .critedge:                                        ; preds = %15
@@ -274,9 +274,9 @@ define i32 @wc_export_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   br label %32
 
 22:                                               ; preds = %10
-  %23 = load i32, ptr %2, align 4, !tbaa !18
+  %23 = load i32, ptr %2, align 4, !tbaa !16
   %24 = icmp ult i32 %23, %3
-  store i32 %3, ptr %2, align 4, !tbaa !18
+  store i32 %3, ptr %2, align 4, !tbaa !16
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %22
@@ -321,17 +321,15 @@ attributes #6 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !11, i64 0}
-!10 = !{!"sp_int", !11, i64 0, !11, i64 2, !4, i64 8}
-!11 = !{!"short", !4, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !4, i64 0}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = !{!10, !11, i64 2}
-!17 = distinct !{!17, !8}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !4, i64 0}
+!8 = !{!9, !10, i64 0}
+!9 = !{!"sp_int", !10, i64 0, !10, i64 2, !4, i64 8}
+!10 = !{!"short", !4, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !4, i64 0}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = !{!9, !10, i64 2}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !4, i64 0}

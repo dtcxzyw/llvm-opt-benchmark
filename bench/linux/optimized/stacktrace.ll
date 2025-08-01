@@ -115,7 +115,7 @@ define dso_local noundef range(i32 -22, 1) i32 @arch_stack_walk_reliable(ptr nou
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %17 = load i32, ptr %4, align 8
   %18 = icmp eq i32 %17, 0
-  %19 = load i8, ptr %16, align 8, !range !12
+  %19 = load i8, ptr %16, align 8, !range !11
   %20 = icmp ne i8 %19, 0
   %21 = select i1 %18, i1 true, i1 %20
   br i1 %21, label %.loopexit3, label %22
@@ -149,10 +149,10 @@ define dso_local noundef range(i32 -22, 1) i32 @arch_stack_walk_reliable(ptr nou
   %38 = call zeroext i1 @unwind_next_frame(ptr noundef nonnull %4) #7
   %39 = load i32, ptr %4, align 8
   %40 = icmp eq i32 %39, 0
-  %41 = load i8, ptr %16, align 8, !range !12
+  %41 = load i8, ptr %16, align 8, !range !11
   %42 = icmp ne i8 %41, 0
   %43 = select i1 %40, i1 true, i1 %42
-  br i1 %43, label %.loopexit3, label %24, !llvm.loop !13
+  br i1 %43, label %.loopexit3, label %24, !llvm.loop !12
 
 .loopexit3:                                       ; preds = %37, %14
   %44 = phi i8 [ %19, %14 ], [ %41, %37 ]
@@ -192,9 +192,9 @@ define dso_local void @arch_stack_walk_user(ptr noundef readonly captures(none) 
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
   %20 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %21 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %12, i64 8, i64 %20) #7, !srcloc !15
+  %21 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %12, i64 8, i64 %20) #7, !srcloc !14
   %22 = extractvalue { ptr, i64, i64 } %21, 0
   %23 = extractvalue { ptr, i64, i64 } %21, 1
   %24 = extractvalue { ptr, i64, i64 } %21, 2
@@ -207,7 +207,7 @@ define dso_local void @arch_stack_walk_user(ptr noundef readonly captures(none) 
 28:                                               ; preds = %14
   %29 = tail call i64 @llvm.read_register.i64(metadata !0)
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %31 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %30, i64 8, i64 %29) #7, !srcloc !16
+  %31 = tail call { ptr, i64, i64 } asm sideeffect "call __get_user_nocheck_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %30, i64 8, i64 %29) #7, !srcloc !15
   %32 = extractvalue { ptr, i64, i64 } %31, 0
   %33 = extractvalue { ptr, i64, i64 } %31, 1
   %34 = extractvalue { ptr, i64, i64 } %31, 2
@@ -215,7 +215,7 @@ define dso_local void @arch_stack_walk_user(ptr noundef readonly captures(none) 
   tail call void @llvm.write_register.i64(metadata !0, i64 %34)
   %36 = and i64 %35, 4294967295
   %.not = icmp eq i64 %36, 0
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
   %37 = load i32, ptr %17, align 4
   %38 = add i32 %37, -1
   store i32 %38, ptr %17, align 4
@@ -230,10 +230,10 @@ define dso_local void @arch_stack_walk_user(ptr noundef readonly captures(none) 
 
 44:                                               ; preds = %39
   %45 = tail call zeroext i1 %0(ptr noundef %1, i64 noundef %33) #7
-  br i1 %45, label %11, label %.critedge, !llvm.loop !18
+  br i1 %45, label %11, label %.critedge
 
 .critedge.critedge:                               ; preds = %14
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
   %46 = load i32, ptr %17, align 4
   %47 = add i32 %46, -1
   store i32 %47, ptr %17, align 4
@@ -276,14 +276,12 @@ attributes #8 = { nounwind memory(none) }
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
 !6 = !{i64 2147836232}
 !7 = !{!"auto-init"}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i8 0, i8 2}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = !{i64 2151248952}
-!15 = !{i64 2154640364}
-!16 = !{i64 2154642382}
-!17 = !{i64 2151249155}
-!18 = distinct !{!18, !11}
+!11 = !{i8 0, i8 2}
+!12 = distinct !{!12, !9, !10}
+!13 = !{i64 2151248952}
+!14 = !{i64 2154640364}
+!15 = !{i64 2154642382}
+!16 = !{i64 2151249155}

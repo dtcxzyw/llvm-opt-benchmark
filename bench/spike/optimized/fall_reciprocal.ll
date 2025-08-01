@@ -469,7 +469,7 @@ define i16 @bf16_recip7(i16 %0) local_unnamed_addr #0 {
   %33 = shl i64 %.16268.i, 1
   %34 = and i64 %.16268.i, 32
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.162.lcssa.i = phi i64 [ %28, %.preheader.i ], [ %33, %.lr.ph.i ]
@@ -608,7 +608,7 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
   %33 = shl i64 %.16268.i, 1
   %34 = and i64 %.16268.i, 256
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.162.lcssa.i = phi i64 [ %28, %.preheader.i ], [ %33, %.lr.ph.i ]
@@ -747,7 +747,7 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
   %31 = shl i64 %.16268.i, 1
   %32 = and i64 %.16268.i, 2097152
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %33, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.162.lcssa.i = phi i64 [ %23, %.preheader.i ], [ %31, %.lr.ph.i ]
@@ -885,7 +885,7 @@ define i64 @f64_recip7(i64 %0) local_unnamed_addr #0 {
   %29 = shl i64 %.16268.i, 1
   %30 = and i64 %.16268.i, 1125899906842624
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.162.lcssa.i = phi i64 [ %0, %.preheader.i ], [ %29, %.lr.ph.i ]
@@ -970,7 +970,6 @@ attributes #3 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

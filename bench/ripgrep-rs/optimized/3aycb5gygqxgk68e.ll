@@ -82,7 +82,7 @@ define noundef zeroext i1 @"_ZN57_$LT$grep_matcher..BitSet$u20$as$u20$core..fmt.
 
 20:                                               ; preds = %5, %18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br i1 %6, label %16, label %5, !llvm.loop !5
+  br i1 %6, label %16, label %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -150,5 +150,3 @@ attributes #6 = { noreturn }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.77.1 (7cf61ebde 2024-03-27)"}
 !4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

@@ -459,9 +459,9 @@ define internal ptr @SHA1Type_copy(ptr noundef %0, ptr noundef readonly captures
 
 11:                                               ; preds = %7, %6
   %12 = getelementptr i8, ptr %1, i64 888
-  %.val8 = load ptr, ptr %12, align 8, !tbaa !40
+  %.val8 = load ptr, ptr %12, align 8, !tbaa !39
   %13 = getelementptr i8, ptr %.val8, i64 32
-  %.val8.val = load ptr, ptr %13, align 8, !tbaa !49
+  %.val8.val = load ptr, ptr %13, align 8, !tbaa !48
   %.val8.val.val = load ptr, ptr %.val8.val, align 8, !tbaa !3
   %14 = tail call ptr @_PyObject_GC_New(ptr noundef %.val8.val.val) #3
   %15 = icmp eq ptr %14, null
@@ -474,7 +474,7 @@ define internal ptr @SHA1Type_copy(ptr noundef %0, ptr noundef readonly captures
   store i8 0, ptr %18, align 8, !tbaa !29
   tail call void @PyObject_GC_Track(ptr noundef nonnull %14) #3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i8, ptr %19, align 8, !tbaa !29, !range !52, !noundef !53
+  %20 = load i8, ptr %19, align 8, !tbaa !29, !range !51, !noundef !52
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %_PyMutex_Lock.exit.i
 
@@ -494,7 +494,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %26, %22, %16
   %29 = tail call ptr @python_hashlib_Hacl_Hash_SHA1_copy(ptr noundef %28) #3
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %29, ptr %30, align 8, !tbaa !34
-  %31 = load i8, ptr %19, align 8, !tbaa !29, !range !52, !noundef !53
+  %31 = load i8, ptr %19, align 8, !tbaa !29, !range !51, !noundef !52
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %SHA1Type_copy_impl.exit
 
@@ -518,7 +518,7 @@ define internal ptr @SHA1Type_digest(ptr noundef %0, ptr readnone captures(none)
   %3 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i8, ptr %4, align 8, !tbaa !29, !range !52, !noundef !53
+  %5 = load i8, ptr %4, align 8, !tbaa !29, !range !51, !noundef !52
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_PyMutex_Lock.exit.i
 
@@ -536,7 +536,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !34
   call void @python_hashlib_Hacl_Hash_SHA1_digest(ptr noundef %13, ptr noundef nonnull %3) #3
-  %14 = load i8, ptr %4, align 8, !tbaa !29, !range !52, !noundef !53
+  %14 = load i8, ptr %4, align 8, !tbaa !29, !range !51, !noundef !52
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %SHA1Type_digest_impl.exit
 
@@ -561,7 +561,7 @@ define internal ptr @SHA1Type_hexdigest(ptr noundef %0, ptr readnone captures(no
   %3 = alloca [20 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i8, ptr %4, align 8, !tbaa !29, !range !52, !noundef !53
+  %5 = load i8, ptr %4, align 8, !tbaa !29, !range !51, !noundef !52
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %_PyMutex_Lock.exit.i
 
@@ -579,7 +579,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %11, %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !34
   call void @python_hashlib_Hacl_Hash_SHA1_digest(ptr noundef %13, ptr noundef nonnull %3) #3
-  %14 = load i8, ptr %4, align 8, !tbaa !29, !range !52, !noundef !53
+  %14 = load i8, ptr %4, align 8, !tbaa !29, !range !51, !noundef !52
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %SHA1Type_hexdigest_impl.exit
 
@@ -645,7 +645,7 @@ define internal noundef ptr @SHA1Type_update(ptr noundef %0, ptr noundef %1) #0 
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load i8, ptr %23, align 8, !tbaa !29, !range !52, !noundef !53
+  %24 = load i8, ptr %23, align 8, !tbaa !29, !range !51, !noundef !52
   %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load i64, ptr %26, align 8
@@ -817,20 +817,19 @@ attributes #3 = { nounwind }
 !34 = !{!30, !33, i64 32}
 !35 = !{!27, !14, i64 16}
 !36 = !{!27, !6, i64 0}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!41, !16, i64 888}
-!41 = !{!"_heaptypeobject", !19, i64 0, !42, i64 416, !43, i64 448, !44, i64 736, !45, i64 760, !46, i64 840, !16, i64 856, !16, i64 864, !16, i64 872, !47, i64 880, !16, i64 888, !20, i64 896, !6, i64 904, !48, i64 912}
-!42 = !{!"", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
-!43 = !{!"", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280}
-!44 = !{!"", !6, i64 0, !6, i64 8, !6, i64 16}
-!45 = !{!"", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72}
-!46 = !{!"", !6, i64 0, !6, i64 8}
-!47 = !{!"p1 _ZTS15_dictkeysobject", !6, i64 0}
-!48 = !{!"_specialization_cache", !16, i64 0, !24, i64 8, !16, i64 16}
-!49 = !{!50, !6, i64 32}
-!50 = !{!"", !13, i64 0, !16, i64 16, !51, i64 24, !6, i64 32, !16, i64 40, !16, i64 48}
-!51 = !{!"p1 _ZTS11PyModuleDef", !6, i64 0}
-!52 = !{i8 0, i8 2}
-!53 = !{}
+!39 = !{!40, !16, i64 888}
+!40 = !{!"_heaptypeobject", !19, i64 0, !41, i64 416, !42, i64 448, !43, i64 736, !44, i64 760, !45, i64 840, !16, i64 856, !16, i64 864, !16, i64 872, !46, i64 880, !16, i64 888, !20, i64 896, !6, i64 904, !47, i64 912}
+!41 = !{!"", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
+!42 = !{!"", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !6, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280}
+!43 = !{!"", !6, i64 0, !6, i64 8, !6, i64 16}
+!44 = !{!"", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72}
+!45 = !{!"", !6, i64 0, !6, i64 8}
+!46 = !{!"p1 _ZTS15_dictkeysobject", !6, i64 0}
+!47 = !{!"_specialization_cache", !16, i64 0, !24, i64 8, !16, i64 16}
+!48 = !{!49, !6, i64 32}
+!49 = !{!"", !13, i64 0, !16, i64 16, !50, i64 24, !6, i64 32, !16, i64 40, !16, i64 48}
+!50 = !{!"p1 _ZTS11PyModuleDef", !6, i64 0}
+!51 = !{i8 0, i8 2}
+!52 = !{}

@@ -271,7 +271,7 @@ tcp_listen.exit:                                  ; preds = %61
 96:                                               ; preds = %93
   %97 = call i32 @wolfSSL_get_error(ptr noundef nonnull %74, i32 noundef 0) #14
   %98 = icmp eq i32 %97, -108
-  br i1 %98, label %93, label %99, !llvm.loop !35
+  br i1 %98, label %93, label %99, !llvm.loop !34
 
 99:                                               ; preds = %96
   %100 = and i32 %97, -5
@@ -357,7 +357,7 @@ thread-pre-split:                                 ; preds = %107
 128:                                              ; preds = %125
   %129 = call i32 @wolfSSL_get_error(ptr noundef nonnull %74, i32 noundef 0) #14
   %130 = icmp eq i32 %129, -108
-  br i1 %130, label %125, label %.thread136, !llvm.loop !36
+  br i1 %130, label %125, label %.thread136, !llvm.loop !35
 
 131:                                              ; preds = %125
   %.not105 = icmp eq i32 %126, 130
@@ -375,7 +375,7 @@ thread-pre-split:                                 ; preds = %107
 136:                                              ; preds = %121
   %137 = zext nneg i32 %94 to i64
   %138 = getelementptr inbounds nuw [257 x i8], ptr %7, i64 0, i64 %137
-  store i8 0, ptr %138, align 1, !tbaa !37
+  store i8 0, ptr %138, align 1, !tbaa !36
   %139 = call i32 @fputs(ptr noundef nonnull %7, ptr noundef nonnull %.084)
   %140 = icmp slt i32 %139, 0
   br i1 %140, label %141, label %.preheader
@@ -396,7 +396,7 @@ thread-pre-split:                                 ; preds = %107
 148:                                              ; preds = %.preheader
   %149 = call i32 @wolfSSL_get_error(ptr noundef nonnull %74, i32 noundef 0) #14
   %150 = icmp eq i32 %149, -108
-  br i1 %150, label %.preheader, label %.thread140, !llvm.loop !38
+  br i1 %150, label %.preheader, label %.thread140, !llvm.loop !37
 
 .thread140:                                       ; preds = %.preheader, %148
   %.3142 = phi i32 [ %149, %148 ], [ 0, %.preheader ]
@@ -427,7 +427,7 @@ thread-pre-split:                                 ; preds = %107
   store i32 16, ptr %9, align 4, !tbaa !31
   %158 = call i32 @accept(i32 noundef %43, ptr noundef nonnull %8, ptr noundef nonnull %9) #14
   %159 = icmp slt i32 %158, -1
-  br i1 %159, label %.preheader152._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %159, label %.preheader152._crit_edge, label %.lr.ph
 
 160:                                              ; preds = %114
   %161 = call i32 @fclose(ptr noundef nonnull %.084)
@@ -538,7 +538,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 13:                                               ; preds = %9
   %14 = add nuw nsw i32 %.0820.i, 1
   %exitcond.not.i = icmp eq i32 %14, 6
-  br i1 %exitcond.not.i, label %.loopexit.i, label %7, !llvm.loop !40
+  br i1 %exitcond.not.i, label %.loopexit.i, label %7, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %13, %12
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.41) #15
@@ -667,12 +667,10 @@ attributes #19 = { cold noreturn nounwind }
 !29 = !{!27, !22, i64 2}
 !30 = !{!27, !6, i64 4}
 !31 = !{!6, !6, i64 0}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = distinct !{!35, !33, !34}
-!36 = distinct !{!36, !33, !34}
-!37 = !{!7, !7, i64 0}
-!38 = distinct !{!38, !33, !34}
-!39 = distinct !{!39, !34}
-!40 = distinct !{!40, !33, !34}
+!34 = distinct !{!34, !33}
+!35 = distinct !{!35, !33}
+!36 = !{!7, !7, i64 0}
+!37 = distinct !{!37, !33}
+!38 = distinct !{!38, !33}

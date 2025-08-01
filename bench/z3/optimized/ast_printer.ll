@@ -791,7 +791,7 @@ define linkonce_odr hidden void @_ZN19smt2_pp_environmentD2Ev(ptr noundef nonnul
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV19smt2_pp_environment, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !81
+  %4 = load ptr, ptr %3, align 8, !tbaa !80
   %5 = icmp eq ptr %4, null
   br i1 %5, label %_ZN9table2mapI17default_map_entryI6symbolS1_E16symbol_hash_proc14symbol_eq_procED2Ev.exit.i, label %6
 
@@ -807,8 +807,8 @@ define linkonce_odr hidden void @_ZN19smt2_pp_environmentD2Ev(ptr noundef nonnul
   unreachable
 
 _ZN9table2mapI17default_map_entryI6symbolS1_E16symbol_hash_proc14symbol_eq_procED2Ev.exit.i: ; preds = %6, %1
-  store ptr null, ptr %3, align 8, !tbaa !81
-  %10 = load ptr, ptr %2, align 8, !tbaa !84
+  store ptr null, ptr %3, align 8, !tbaa !80
+  %10 = load ptr, ptr %2, align 8, !tbaa !83
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_ZN12smt_renamingD2Ev.exit, label %12
 
@@ -824,7 +824,7 @@ _ZN9table2mapI17default_map_entryI6symbolS1_E16symbol_hash_proc14symbol_eq_procE
   unreachable
 
 _ZN12smt_renamingD2Ev.exit:                       ; preds = %_ZN9table2mapI17default_map_entryI6symbolS1_E16symbol_hash_proc14symbol_eq_procED2Ev.exit.i, %12
-  store ptr null, ptr %2, align 8, !tbaa !84
+  store ptr null, ptr %2, align 8, !tbaa !83
   ret void
 }
 
@@ -832,7 +832,7 @@ _ZN12smt_renamingD2Ev.exit:                       ; preds = %_ZN9table2mapI17def
 define linkonce_odr hidden void @_ZN23smt2_pp_environment_dbgD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV23smt2_pp_environment_dbg, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %3 = load ptr, ptr %2, align 8, !tbaa !87
+  %3 = load ptr, ptr %2, align 8, !tbaa !86
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN10scoped_ptrI7bv_utilED2Ev.exit.i, label %5
 
@@ -849,7 +849,7 @@ define linkonce_odr hidden void @_ZN23smt2_pp_environment_dbgD2Ev(ptr noundef no
 
 _ZN10scoped_ptrI7bv_utilED2Ev.exit.i:             ; preds = %5, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %10 = load ptr, ptr %9, align 8, !tbaa !90
+  %10 = load ptr, ptr %9, align 8, !tbaa !89
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_ZN7datalog12dl_decl_utilD2Ev.exit, label %12
 
@@ -951,7 +951,7 @@ _ZN8seq_utilD2Ev.exit:                            ; preds = %_ZN15ref_vector_cor
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV19smt2_pp_environment, i64 16), ptr %0, align 8, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !81
+  %52 = load ptr, ptr %51, align 8, !tbaa !80
   %53 = icmp eq ptr %52, null
   br i1 %53, label %_ZN9table2mapI17default_map_entryI6symbolS1_E16symbol_hash_proc14symbol_eq_procED2Ev.exit.i.i, label %54
 
@@ -967,8 +967,8 @@ _ZN8seq_utilD2Ev.exit:                            ; preds = %_ZN15ref_vector_cor
   unreachable
 
 _ZN9table2mapI17default_map_entryI6symbolS1_E16symbol_hash_proc14symbol_eq_procED2Ev.exit.i.i: ; preds = %54, %_ZN8seq_utilD2Ev.exit
-  store ptr null, ptr %51, align 8, !tbaa !81
-  %58 = load ptr, ptr %50, align 8, !tbaa !84
+  store ptr null, ptr %51, align 8, !tbaa !80
+  %58 = load ptr, ptr %50, align 8, !tbaa !83
   %59 = icmp eq ptr %58, null
   br i1 %59, label %_ZN19smt2_pp_environmentD2Ev.exit, label %60
 
@@ -984,7 +984,7 @@ _ZN9table2mapI17default_map_entryI6symbolS1_E16symbol_hash_proc14symbol_eq_procE
   unreachable
 
 _ZN19smt2_pp_environmentD2Ev.exit:                ; preds = %_ZN9table2mapI17default_map_entryI6symbolS1_E16symbol_hash_proc14symbol_eq_procED2Ev.exit.i.i, %60
-  store ptr null, ptr %50, align 8, !tbaa !84
+  store ptr null, ptr %50, align 8, !tbaa !83
   ret void
 }
 
@@ -998,7 +998,7 @@ define linkonce_odr hidden void @_ZN23smt2_pp_environment_dbgD0Ev(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(976) ptr @_ZNK23smt2_pp_environment_dbg11get_managerEv(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8, !tbaa !92
   ret ptr %3
 }
 
@@ -1254,38 +1254,37 @@ attributes #16 = { builtin nounwind }
 !75 = !{!"p1 _ZTS4expr", !8, i64 0}
 !76 = !{!44, !7, i64 0}
 !77 = !{!14, !15, i64 8}
-!78 = distinct !{!78, !79, !80}
+!78 = distinct !{!78, !79}
 !79 = !{!"llvm.loop.mustprogress"}
-!80 = !{!"llvm.loop.estimated_trip_count"}
-!81 = !{!82, !83, i64 0}
-!82 = !{!"_ZTS14core_hashtableI17default_map_entryI6symbolS1_EN9table2mapIS2_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS6_13entry_eq_procEE", !83, i64 0, !15, i64 8, !15, i64 12, !15, i64 16}
-!83 = !{!"p1 _ZTS17default_map_entryI6symbolS0_E", !8, i64 0}
-!84 = !{!85, !86, i64 0}
-!85 = !{!"_ZTS14core_hashtableI17default_map_entryI6symbolN12smt_renaming5sym_bEEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE", !86, i64 0, !15, i64 8, !15, i64 12, !15, i64 16}
-!86 = !{!"p1 _ZTS17default_map_entryI6symbolN12smt_renaming5sym_bEE", !8, i64 0}
-!87 = !{!88, !89, i64 0}
-!88 = !{!"_ZTS10scoped_ptrI7bv_utilE", !89, i64 0}
-!89 = !{!"p1 _ZTS7bv_util", !8, i64 0}
-!90 = !{!91, !92, i64 0}
-!91 = !{!"_ZTS10scoped_ptrI10arith_utilE", !92, i64 0}
-!92 = !{!"p1 _ZTS10arith_util", !8, i64 0}
-!93 = !{!94, !7, i64 56}
-!94 = !{!"_ZTS23smt2_pp_environment_dbg", !95, i64 0, !7, i64 56, !101, i64 64, !103, i64 80, !106, i64 104, !108, i64 120, !36, i64 184, !110, i64 320, !112, i64 344}
-!95 = !{!"_ZTS19smt2_pp_environment", !96, i64 8}
-!96 = !{!"_ZTS12smt_renaming", !97, i64 0, !99, i64 24}
-!97 = !{!"_ZTS3mapI6symbolN12smt_renaming5sym_bE16symbol_hash_proc14symbol_eq_procE", !98, i64 0}
-!98 = !{!"_ZTS9table2mapI17default_map_entryI6symbolN12smt_renaming5sym_bEE16symbol_hash_proc14symbol_eq_procE", !85, i64 0}
-!99 = !{!"_ZTS3mapI6symbolS0_16symbol_hash_proc14symbol_eq_procE", !100, i64 0}
-!100 = !{!"_ZTS9table2mapI17default_map_entryI6symbolS1_E16symbol_hash_proc14symbol_eq_procE", !82, i64 0}
-!101 = !{!"_ZTS10arith_util", !7, i64 0, !102, i64 8}
-!102 = !{!"p1 _ZTS17arith_decl_plugin", !8, i64 0}
-!103 = !{!"_ZTS7bv_util", !104, i64 0, !7, i64 8, !105, i64 16}
-!104 = !{!"_ZTS14bv_recognizers", !15, i64 0}
-!105 = !{!"p1 _ZTS14bv_decl_plugin", !8, i64 0}
-!106 = !{!"_ZTS10array_util", !107, i64 0, !7, i64 8}
-!107 = !{!"_ZTS17array_recognizers", !15, i64 0}
-!108 = !{!"_ZTS8fpa_util", !7, i64 0, !109, i64 8, !15, i64 16, !101, i64 24, !103, i64 40}
-!109 = !{!"p1 _ZTS15fpa_decl_plugin", !8, i64 0}
-!110 = !{!"_ZTSN8datatype4utilE", !7, i64 0, !15, i64 8, !111, i64 16}
-!111 = !{!"p1 _ZTSN8datatype4decl6pluginE", !8, i64 0}
-!112 = !{!"_ZTSN7datalog12dl_decl_utilE", !7, i64 0, !91, i64 8, !88, i64 16, !15, i64 24}
+!80 = !{!81, !82, i64 0}
+!81 = !{!"_ZTS14core_hashtableI17default_map_entryI6symbolS1_EN9table2mapIS2_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS6_13entry_eq_procEE", !82, i64 0, !15, i64 8, !15, i64 12, !15, i64 16}
+!82 = !{!"p1 _ZTS17default_map_entryI6symbolS0_E", !8, i64 0}
+!83 = !{!84, !85, i64 0}
+!84 = !{!"_ZTS14core_hashtableI17default_map_entryI6symbolN12smt_renaming5sym_bEEN9table2mapIS4_16symbol_hash_proc14symbol_eq_procE15entry_hash_procENS8_13entry_eq_procEE", !85, i64 0, !15, i64 8, !15, i64 12, !15, i64 16}
+!85 = !{!"p1 _ZTS17default_map_entryI6symbolN12smt_renaming5sym_bEE", !8, i64 0}
+!86 = !{!87, !88, i64 0}
+!87 = !{!"_ZTS10scoped_ptrI7bv_utilE", !88, i64 0}
+!88 = !{!"p1 _ZTS7bv_util", !8, i64 0}
+!89 = !{!90, !91, i64 0}
+!90 = !{!"_ZTS10scoped_ptrI10arith_utilE", !91, i64 0}
+!91 = !{!"p1 _ZTS10arith_util", !8, i64 0}
+!92 = !{!93, !7, i64 56}
+!93 = !{!"_ZTS23smt2_pp_environment_dbg", !94, i64 0, !7, i64 56, !100, i64 64, !102, i64 80, !105, i64 104, !107, i64 120, !36, i64 184, !109, i64 320, !111, i64 344}
+!94 = !{!"_ZTS19smt2_pp_environment", !95, i64 8}
+!95 = !{!"_ZTS12smt_renaming", !96, i64 0, !98, i64 24}
+!96 = !{!"_ZTS3mapI6symbolN12smt_renaming5sym_bE16symbol_hash_proc14symbol_eq_procE", !97, i64 0}
+!97 = !{!"_ZTS9table2mapI17default_map_entryI6symbolN12smt_renaming5sym_bEE16symbol_hash_proc14symbol_eq_procE", !84, i64 0}
+!98 = !{!"_ZTS3mapI6symbolS0_16symbol_hash_proc14symbol_eq_procE", !99, i64 0}
+!99 = !{!"_ZTS9table2mapI17default_map_entryI6symbolS1_E16symbol_hash_proc14symbol_eq_procE", !81, i64 0}
+!100 = !{!"_ZTS10arith_util", !7, i64 0, !101, i64 8}
+!101 = !{!"p1 _ZTS17arith_decl_plugin", !8, i64 0}
+!102 = !{!"_ZTS7bv_util", !103, i64 0, !7, i64 8, !104, i64 16}
+!103 = !{!"_ZTS14bv_recognizers", !15, i64 0}
+!104 = !{!"p1 _ZTS14bv_decl_plugin", !8, i64 0}
+!105 = !{!"_ZTS10array_util", !106, i64 0, !7, i64 8}
+!106 = !{!"_ZTS17array_recognizers", !15, i64 0}
+!107 = !{!"_ZTS8fpa_util", !7, i64 0, !108, i64 8, !15, i64 16, !100, i64 24, !102, i64 40}
+!108 = !{!"p1 _ZTS15fpa_decl_plugin", !8, i64 0}
+!109 = !{!"_ZTSN8datatype4utilE", !7, i64 0, !15, i64 8, !110, i64 16}
+!110 = !{!"p1 _ZTSN8datatype4decl6pluginE", !8, i64 0}
+!111 = !{!"_ZTSN7datalog12dl_decl_utilE", !7, i64 0, !90, i64 8, !87, i64 16, !15, i64 24}

@@ -78,7 +78,7 @@ define signext i16 @ff_acelp_decode_gain_code(ptr noundef readonly captures(none
   %18 = add nsw i32 %17, %.01516
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %.015.lcssa = phi i32 [ %9, %8 ], [ %18, %.lr.ph ]
@@ -88,7 +88,7 @@ define signext i16 @ff_acelp_decode_gain_code(ptr noundef readonly captures(none
   %22 = fmul nsz double %21, 0x400A934F0979A371
   %23 = tail call nsz double @llvm.exp2.f64(double %22)
   %24 = fmul nsz double %23, %19
-  %25 = load ptr, ptr %0, align 8, !tbaa !12
+  %25 = load ptr, ptr %0, align 8, !tbaa !11
   %26 = tail call i32 %25(ptr noundef %2, ptr noundef %2, i32 noundef %6) #6
   %27 = sitofp i32 %26 to double
   %28 = tail call nsz double @llvm.sqrt.f64(double %27)
@@ -123,7 +123,7 @@ define float @ff_amr_set_fixed_gain(float noundef %0, float noundef %1, ptr noun
   %21 = tail call nsz float @llvm.log10.f32(float %0)
   %22 = fmul nsz float %21, 2.000000e+01
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float %22, ptr %23, align 4, !tbaa !15
+  store float %22, ptr %23, align 4, !tbaa !14
   ret float %19
 }
 
@@ -223,11 +223,11 @@ define void @ff_decode_pitch_lag(ptr noundef writeonly captures(none) initialize
   %.0 = phi i32 [ %15, %14 ], [ %18, %16 ], [ %47, %42 ], [ %53, %48 ], [ %28, %25 ], [ %34, %31 ], [ %38, %35 ]
   %55 = mul nsw i32 %.0, 10923
   %56 = ashr i32 %55, 15
-  store i32 %56, ptr %0, align 4, !tbaa !17
+  store i32 %56, ptr %0, align 4, !tbaa !16
   %.neg = mul nsw i32 %56, -3
   %57 = add i32 %.0, -1
   %58 = add i32 %57, %.neg
-  store i32 %58, ptr %1, align 4, !tbaa !17
+  store i32 %58, ptr %1, align 4, !tbaa !16
   ret void
 }
 
@@ -258,14 +258,13 @@ attributes #6 = { nounwind }
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"AudioDSPContext", !14, i64 0, !14, i64 8, !14, i64 16}
-!14 = !{!"any pointer", !6, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"float", !6, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !6, i64 0}
+!10 = distinct !{!10, !9}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"AudioDSPContext", !13, i64 0, !13, i64 8, !13, i64 16}
+!13 = !{!"any pointer", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"float", !6, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !6, i64 0}

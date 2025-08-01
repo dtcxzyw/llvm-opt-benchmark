@@ -81,11 +81,11 @@ define dso_local ptr @i915_sched_lookup_priolist(ptr noundef %0, i32 noundef %1)
   %39 = load ptr, ptr @slab_priorities, align 8
   %40 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %39, i32 noundef 2080) #10
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %.loopexit, !prof !12
+  br i1 %41, label %42, label %.loopexit, !prof !11
 
 42:                                               ; preds = %38
   store i8 1, ptr %3, align 8
-  br label %10, !llvm.loop !13
+  br label %10
 
 .loopexit:                                        ; preds = %38, %36
   %43 = phi ptr [ %37, %36 ], [ %40, %38 ]
@@ -151,7 +151,7 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %9 = tail call i32 @llvm.smax.i32(i32 %6, i32 %8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #10
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, i8 0, i64 64, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   store ptr %4, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -286,7 +286,7 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
 92:                                               ; preds = %91, %84, %79, %70, %.preheader31
   %93 = load ptr, ptr %59, align 8
   %94 = icmp eq ptr %93, %37
-  br i1 %94, label %.loopexit32, label %.preheader31, !llvm.loop !15
+  br i1 %94, label %.loopexit32, label %.preheader31, !llvm.loop !13
 
 95:                                               ; preds = %42
   call void @__rcu_read_unlock() #10
@@ -295,7 +295,7 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
 .loopexit32:                                      ; preds = %92, %95, %56, %46, %34
   %96 = load ptr, ptr %35, align 8
   %97 = icmp eq ptr %96, %4
-  br i1 %97, label %98, label %34, !llvm.loop !16
+  br i1 %97, label %98, label %34, !llvm.loop !14
 
 98:                                               ; preds = %.loopexit32
   %99 = load i32, ptr %7, align 8
@@ -340,7 +340,7 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 144
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %118, %124
-  br i1 %125, label %.loopexit30, label %.preheader29, !llvm.loop !17
+  br i1 %125, label %.loopexit30, label %.preheader29, !llvm.loop !15
 
 .loopexit30:                                      ; preds = %.preheader29, %108
   %126 = phi ptr [ %112, %108 ], [ %118, %.preheader29 ]
@@ -377,7 +377,7 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 144
   %148 = load ptr, ptr %147, align 8
   %149 = icmp eq ptr %142, %148
-  br i1 %149, label %.loopexit26, label %.preheader25, !llvm.loop !18
+  br i1 %149, label %.loopexit26, label %.preheader25, !llvm.loop !15
 
 .loopexit26:                                      ; preds = %.preheader25, %.preheader27
   %150 = phi ptr [ %131, %.preheader27 ], [ null, %.preheader25 ]
@@ -479,7 +479,7 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %211 = getelementptr inbounds nuw i8, ptr %201, i64 %209
   %212 = load ptr, ptr %211, align 8
   %213 = icmp eq ptr %212, null
-  br i1 %213, label %214, label %.preheader, !llvm.loop !19
+  br i1 %213, label %214, label %.preheader, !llvm.loop !8
 
 214:                                              ; preds = %208
   %215 = getelementptr inbounds nuw i8, ptr %201, i64 %209
@@ -501,11 +501,11 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
   %225 = load ptr, ptr @slab_priorities, align 8
   %226 = call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %225, i32 noundef 2080) #10
   %227 = icmp eq ptr %226, null
-  br i1 %227, label %228, label %.loopexit, !prof !12
+  br i1 %227, label %228, label %.loopexit, !prof !11
 
 228:                                              ; preds = %224
   store i8 1, ptr %189, align 8
-  br label %196, !llvm.loop !20
+  br label %196
 
 .loopexit:                                        ; preds = %224, %222
   %229 = phi ptr [ %223, %222 ], [ %226, %224 ]
@@ -569,7 +569,7 @@ define dso_local void @i915_schedule(ptr noundef %0, ptr noundef readonly captur
 255:                                              ; preds = %254, %253, %248, %178, %164, %155, %.loopexit26
   %256 = phi ptr [ %150, %164 ], [ %249, %248 ], [ %249, %253 ], [ %150, %178 ], [ %150, %.loopexit26 ], [ %150, %155 ], [ %150, %254 ]
   %257 = icmp eq ptr %133, %4
-  br i1 %257, label %.loopexit28, label %.preheader27, !llvm.loop !21
+  br i1 %257, label %.loopexit28, label %.preheader27, !llvm.loop !16
 
 .loopexit28:                                      ; preds = %255, %.loopexit30
   %258 = phi ptr [ %126, %.loopexit30 ], [ %151, %255 ]
@@ -668,7 +668,7 @@ define dso_local noundef zeroext i1 @__i915_sched_node_add_dependency(ptr nounde
   store ptr %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %0, ptr %29, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   store volatile ptr %27, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %27, ptr %30, align 8
@@ -678,7 +678,7 @@ define dso_local noundef zeroext i1 @__i915_sched_node_add_dependency(ptr nounde
   store ptr %33, ptr %31, align 8
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %32, ptr %34, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   store volatile ptr %31, ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %31, ptr %35, align 8
@@ -750,7 +750,7 @@ define dso_local void @i915_sched_node_fini(ptr noundef %0) local_unnamed_addr #
 
 18:                                               ; preds = %15, %.preheader4
   %19 = icmp eq ptr %5, %0
-  br i1 %19, label %.loopexit5, label %.preheader4, !llvm.loop !23
+  br i1 %19, label %.loopexit5, label %.preheader4, !llvm.loop !18
 
 .loopexit5:                                       ; preds = %18, %1
   store volatile ptr %0, ptr %0, align 8
@@ -786,7 +786,7 @@ define dso_local void @i915_sched_node_fini(ptr noundef %0) local_unnamed_addr #
 
 38:                                               ; preds = %35, %.preheader
   %39 = icmp eq ptr %25, %21
-  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %38, %.loopexit5
   store volatile ptr %21, ptr %21, align 8
@@ -865,7 +865,7 @@ define dso_local void @i915_request_show_with_schedule(ptr noundef %0, ptr nound
 48:                                               ; preds = %47, %38, %29
   %49 = load volatile ptr, ptr %30, align 8
   %50 = icmp eq ptr %49, %23
-  br i1 %50, label %.loopexit, label %29, !llvm.loop !25
+  br i1 %50, label %.loopexit, label %29, !llvm.loop !20
 
 .loopexit:                                        ; preds = %48, %22, %9
   tail call void @__rcu_read_unlock() #10
@@ -1020,21 +1020,16 @@ attributes #11 = { nounwind allocsize(2) }
 !5 = !{i8 0, i8 2}
 !6 = !{}
 !7 = !{!"branch_weights", i32 2000, i32 1}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!"branch_weights", i32 1, i32 2000}
-!13 = distinct !{!13, !11}
-!14 = !{!"auto-init"}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = !{i64 2152781461}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
+!11 = !{!"branch_weights", i32 1, i32 2000}
+!12 = !{!"auto-init"}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = !{i64 2152781461}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}

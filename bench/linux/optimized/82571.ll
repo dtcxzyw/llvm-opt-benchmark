@@ -823,7 +823,7 @@ declare dso_local i32 @e1000e_blink_led_generic(ptr noundef) #3
 define internal zeroext i1 @e1000_check_mng_mode_82574(ptr noundef %0) #0 align 16 {
   %2 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
-  store i16 0, ptr %2, align 2, !annotation !12
+  store i16 0, ptr %2, align 2, !annotation !11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %4 = load ptr, ptr %3, align 8
   %5 = call i32 %4(ptr noundef %0, i16 noundef zeroext 15, i16 noundef zeroext 1, ptr noundef nonnull %2) #5
@@ -862,7 +862,7 @@ define internal noundef i32 @e1000_led_on_82574(ptr noundef %0) #0 align 16 {
   %21 = or i32 %20, %14
   %22 = add nuw nsw i32 %13, 1
   %23 = icmp eq i32 %22, 4
-  br i1 %23, label %.loopexit, label %12, !llvm.loop !13
+  br i1 %23, label %.loopexit, label %12, !llvm.loop !12
 
 .loopexit:                                        ; preds = %12, %1
   %24 = phi i32 [ %3, %1 ], [ %21, %12 ]
@@ -916,7 +916,7 @@ define internal noundef range(i32 -2, 1) i32 @e1000_get_hw_semaphore_82574(ptr n
   tail call void @usleep_range_state(i64 noundef 2000, i64 noundef 4000, i32 noundef 2) #5
   %16 = add nuw nsw i32 %8, 1
   %17 = icmp eq i32 %16, 10
-  br i1 %17, label %.thread, label %6, !llvm.loop !14
+  br i1 %17, label %.thread, label %6, !llvm.loop !13
 
 18:                                               ; preds = %6
   %19 = icmp eq i32 %8, 10
@@ -1178,7 +1178,7 @@ define internal void @e1000_clear_vfta_82571(ptr noundef %0) #0 align 16 {
   %29 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28) #5, !srcloc !7
   %30 = add nuw nsw i64 %22, 1
   %31 = icmp eq i64 %30, 128
-  br i1 %31, label %32, label %21, !llvm.loop !15
+  br i1 %31, label %32, label %21, !llvm.loop !14
 
 32:                                               ; preds = %21
   ret void
@@ -1241,7 +1241,7 @@ define internal i32 @e1000_reset_hw_82571(ptr noundef %0) #0 align 16 {
   tail call void @usleep_range_state(i64 noundef 2000, i64 noundef 4000, i32 noundef 2) #5
   %27 = add nuw nsw i32 %19, 1
   %28 = icmp eq i32 %27, 10
-  br i1 %28, label %.thread, label %17, !llvm.loop !16
+  br i1 %28, label %.thread, label %17, !llvm.loop !13
 
 29:                                               ; preds = %17
   %30 = icmp eq i32 %19, 10
@@ -1256,7 +1256,7 @@ define internal i32 @e1000_reset_hw_82571(ptr noundef %0) #0 align 16 {
   br label %37
 
 35:                                               ; preds = %1, %1
-  %36 = tail call i32 @e1000_get_hw_semaphore_82574(ptr noundef %0), !range !17
+  %36 = tail call i32 @e1000_get_hw_semaphore_82574(ptr noundef %0), !range !15
   br label %37
 
 37:                                               ; preds = %35, %.thread, %29, %1
@@ -1571,7 +1571,7 @@ define internal i32 @e1000_init_hw_82571(ptr noundef %0) #0 align 16 {
   %112 = load i16, ptr %105, align 2
   %113 = zext i16 %112 to i64
   %114 = icmp samesign ult i64 %111, %113
-  br i1 %114, label %.preheader, label %.loopexit, !llvm.loop !18
+  br i1 %114, label %.preheader, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %102
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1728,7 +1728,7 @@ define internal noundef range(i32 -1, 1) i32 @e1000_get_hw_semaphore_82571(ptr n
   tail call void @usleep_range_state(i64 noundef 50, i64 noundef 100, i32 noundef 2) #5
   %19 = add nuw nsw i32 %12, 1
   %20 = icmp eq i32 %19, %9
-  br i1 %20, label %.thread, label %11, !llvm.loop !19
+  br i1 %20, label %.thread, label %11, !llvm.loop !17
 
 21:                                               ; preds = %11
   %22 = icmp eq i32 %12, %9
@@ -1761,7 +1761,7 @@ define internal noundef range(i32 -1, 1) i32 @e1000_get_hw_semaphore_82571(ptr n
   tail call void @usleep_range_state(i64 noundef 50, i64 noundef 100, i32 noundef 2) #5
   %37 = add nuw nsw i32 %26, 1
   %38 = icmp eq i32 %26, %4
-  br i1 %38, label %.thread2, label %25, !llvm.loop !20
+  br i1 %38, label %.thread2, label %25, !llvm.loop !18
 
 39:                                               ; preds = %25
   %40 = icmp eq i32 %26, %5
@@ -1807,7 +1807,7 @@ define internal noundef range(i32 -9, 1) i32 @e1000_get_cfg_done_82571(ptr nound
   tail call void @usleep_range_state(i64 noundef 1000, i64 noundef 2000, i32 noundef 2) #5
   %11 = add nsw i32 %4, -1
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %3, !llvm.loop !21
+  br i1 %12, label %13, label %3, !llvm.loop !19
 
 13:                                               ; preds = %10, %3
   %14 = phi i32 [ 0, %3 ], [ -9, %10 ]
@@ -1841,7 +1841,7 @@ declare dso_local i32 @e1000e_phy_hw_reset_generic(ptr noundef) #3
 define internal i32 @e1000_set_d0_lplu_state_82571(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
-  store i16 0, ptr %3, align 2, !annotation !12
+  store i16 0, ptr %3, align 2, !annotation !11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %5 = load ptr, ptr %4, align 8
   %6 = call i32 %5(ptr noundef %0, i32 noundef 25, ptr noundef nonnull %3) #5
@@ -1939,7 +1939,7 @@ declare dso_local i32 @e1000e_write_phy_reg_igp(ptr noundef, i32 noundef, i16 no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @e1000_acquire_nvm_82571(ptr noundef %0) #0 align 16 {
-  %2 = tail call i32 @e1000_get_hw_semaphore_82571(ptr noundef %0), !range !22
+  %2 = tail call i32 @e1000_get_hw_semaphore_82571(ptr noundef %0), !range !20
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %.thread
 
@@ -2015,7 +2015,7 @@ define internal i32 @e1000_update_nvm_checksum_82571(ptr noundef %0) #0 align 16
 17:                                               ; preds = %10
   %18 = add nuw nsw i16 %11, 1
   %19 = icmp eq i16 %18, 2000
-  br i1 %19, label %.thread, label %10, !llvm.loop !23
+  br i1 %19, label %.thread, label %10, !llvm.loop !21
 
 20:                                               ; preds = %10
   %21 = icmp eq i16 %11, 2000
@@ -2058,7 +2058,7 @@ define internal i32 @e1000_update_nvm_checksum_82571(ptr noundef %0) #0 align 16
 44:                                               ; preds = %37
   %45 = add nuw nsw i16 %38, 1
   %46 = icmp eq i16 %45, 2000
-  br i1 %46, label %47, label %37, !llvm.loop !24
+  br i1 %46, label %47, label %37, !llvm.loop !22
 
 47:                                               ; preds = %44, %37
   %48 = phi i16 [ %38, %37 ], [ 2000, %44 ]
@@ -2116,7 +2116,7 @@ define internal i32 @e1000_validate_nvm_checksum_82571(ptr noundef %0) #0 align 
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2) #5
-  store i16 0, ptr %2, align 2, !annotation !12
+  store i16 0, ptr %2, align 2, !annotation !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 %8(ptr noundef %0, i16 noundef zeroext 16, i16 noundef zeroext 1, ptr noundef nonnull %2) #5
@@ -2196,7 +2196,7 @@ define internal i32 @e1000_write_nvm_82571(ptr noundef %0, i16 noundef zeroext %
 16:                                               ; preds = %25
   %17 = add nuw nsw i64 %20, 1
   %18 = icmp eq i64 %17, %15
-  br i1 %18, label %.loopexit, label %19, !llvm.loop !25
+  br i1 %18, label %.loopexit, label %19, !llvm.loop !23
 
 19:                                               ; preds = %16, %13
   %20 = phi i64 [ 0, %13 ], [ %17, %16 ]
@@ -2296,21 +2296,19 @@ attributes #5 = { nounwind }
 !5 = !{i8 0, i8 2}
 !6 = !{}
 !7 = !{i64 2150108885}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!"auto-init"}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = !{i32 -2, i32 1}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = !{i32 -1, i32 1}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
+!11 = !{!"auto-init"}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = !{i32 -2, i32 1}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = !{i32 -1, i32 1}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}

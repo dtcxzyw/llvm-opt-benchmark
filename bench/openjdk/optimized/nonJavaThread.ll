@@ -544,7 +544,7 @@ _ZN13MonitorLocker4waitEl.exit18:                 ; preds = %_ZN13MonitorLocker4
 
 _ZN13MonitorLocker4waitEl.exit18.backedge:        ; preds = %29, %32
   %.014.be = phi i32 [ 0, %29 ], [ %33, %32 ]
-  br label %_ZN13MonitorLocker4waitEl.exit18, !llvm.loop !11
+  br label %_ZN13MonitorLocker4waitEl.exit18, !llvm.loop !10
 
 32:                                               ; preds = %29
   %33 = sub nsw i32 %30, %.013
@@ -595,7 +595,7 @@ define hidden void @_ZN13WatcherThread3runEv(ptr noundef nonnull readonly align 
 .lr.ph2:                                          ; preds = %.preheader, %.lr.ph2
   tail call void @_ZN2os17naked_short_sleepEl(i64 noundef 250) #11
   %11 = tail call noundef zeroext i1 @_ZN7VMError13check_timeoutEv() #11
-  br i1 %11, label %._crit_edge, label %.lr.ph2, !llvm.loop !12
+  br i1 %11, label %._crit_edge, label %.lr.ph2, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %1, %19
   %12 = phi i32 [ %20, %19 ], [ %3, %1 ]
@@ -615,7 +615,7 @@ define hidden void @_ZN13WatcherThread3runEv(ptr noundef nonnull readonly align 
 19:                                               ; preds = %18, %15
   %20 = tail call noundef i32 @_ZNK13WatcherThread5sleepEv(ptr noundef nonnull align 8 dereferenceable(896) %0)
   %21 = tail call noundef zeroext i1 @_ZN7VMError17is_error_reportedEv() #11
-  br i1 %21, label %.preheader, label %.lr.ph, !llvm.loop !13
+  br i1 %21, label %.preheader, label %.lr.ph, !llvm.loop !12
 
 22:                                               ; preds = %.lr.ph
   %23 = load ptr, ptr @Terminator_lock, align 8
@@ -774,7 +774,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLocker4
   %11 = tail call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %8, i64 noundef 0) #11
   %12 = load ptr, ptr @_ZN13WatcherThread15_watcher_threadE, align 8
   %.not2 = icmp eq ptr %12, null
-  br i1 %.not2, label %._crit_edge.thread10, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !14
+  br i1 %.not2, label %._crit_edge.thread10, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !13
 
 ._crit_edge.thread10:                             ; preds = %_ZN13MonitorLocker4waitEl.exit, %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %8) #11
@@ -1022,10 +1022,9 @@ attributes #13 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145409567}
 !7 = !{i64 2145392468}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

@@ -124,7 +124,7 @@ define void @av_aes_ctr_crypt(ptr noundef %0, ptr noundef writeonly captures(non
   store i32 %24, ptr %25, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %26 = icmp samesign ult i64 %indvars.iv, 12
-  br i1 %26, label %19, label %14, !llvm.loop !10
+  br i1 %26, label %19, label %14, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %14, %4
   %.032.lcssa = phi ptr [ %1, %4 ], [ %15, %14 ]
@@ -157,7 +157,7 @@ define void @av_aes_ctr_crypt(ptr noundef %0, ptr noundef writeonly captures(non
   store i8 %41, ptr %42, align 1, !tbaa !4
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !10
 
 .loopexit:                                        ; preds = %36, %._crit_edge
   ret void
@@ -186,8 +186,7 @@ attributes #7 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

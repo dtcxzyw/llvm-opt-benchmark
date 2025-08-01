@@ -637,7 +637,7 @@ define dso_local range(i32 3, 0) i32 @pci_vpd_find_ro_info_keyword(ptr noundef r
   %17 = zext i16 %16 to i32
   %18 = icmp eq i8 %12, -112
   %19 = add i32 %7, %17
-  br i1 %18, label %20, label %5, !llvm.loop !10
+  br i1 %18, label %20, label %5, !llvm.loop !9
 
 20:                                               ; preds = %14
   %21 = icmp slt i32 %7, 0
@@ -682,7 +682,7 @@ define dso_local range(i32 3, 0) i32 @pci_vpd_find_ro_info_keyword(ptr noundef r
   %50 = add i32 %49, %48
   %51 = add i32 %50, 3
   %52 = icmp ugt i32 %51, %26
-  br i1 %52, label %.thread, label %32, !llvm.loop !11
+  br i1 %52, label %.thread, label %32, !llvm.loop !10
 
 53:                                               ; preds = %38
   %54 = icmp slt i32 %33, 0
@@ -735,7 +735,7 @@ define dso_local i32 @pci_vpd_check_csum(ptr noundef readonly captures(none) %0,
   %15 = zext i16 %14 to i32
   %16 = icmp eq i8 %10, -112
   %17 = add i32 %5, %15
-  br i1 %16, label %18, label %3, !llvm.loop !12
+  br i1 %16, label %18, label %3, !llvm.loop !9
 
 18:                                               ; preds = %12
   %19 = icmp slt i32 %5, 0
@@ -774,7 +774,7 @@ define dso_local i32 @pci_vpd_check_csum(ptr noundef readonly captures(none) %0,
   %43 = add i32 %42, %41
   %44 = add i32 %43, 3
   %45 = icmp ugt i32 %44, %24
-  br i1 %45, label %.thread10, label %.preheader, !llvm.loop !13
+  br i1 %45, label %.thread10, label %.preheader, !llvm.loop !10
 
 46:                                               ; preds = %32
   %47 = icmp slt i32 %27, 0
@@ -818,7 +818,7 @@ define dso_local i32 @pci_vpd_check_csum(ptr noundef readonly captures(none) %0,
   %75 = load i8, ptr %74, align 1
   %76 = add i8 %75, %72
   %.not = icmp eq i64 %71, 0
-  br i1 %.not, label %77, label %70, !llvm.loop !14
+  br i1 %.not, label %77, label %70, !llvm.loop !11
 
 77:                                               ; preds = %70
   %78 = icmp eq i8 %76, 0
@@ -1124,7 +1124,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   br label %85
 
 29:                                               ; preds = %27
-  %30 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !15
+  %30 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !12
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1936
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 2004
@@ -1157,7 +1157,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %50, label %.thread12, label %51
 
 51:                                               ; preds = %.critedge
-  %52 = call fastcc i32 @pci_vpd_wait(ptr noundef %0, i1 noundef zeroext true), !range !16
+  %52 = call fastcc i32 @pci_vpd_wait(ptr noundef %0, i1 noundef zeroext true), !range !13
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %.thread12, label %54
 
@@ -1208,7 +1208,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   store i32 %77, ptr %6, align 4
   %78 = add nuw nsw i32 %64, 1
   %79 = icmp eq i32 %78, 4
-  br i1 %79, label %81, label %63, !llvm.loop !17
+  br i1 %79, label %81, label %63, !llvm.loop !14
 
 .thread12:                                        ; preds = %54, %51, %.critedge, %40
   %.ph = phi i32 [ %.fr, %54 ], [ %52, %51 ], [ %49, %.critedge ], [ -4, %40 ]
@@ -1220,7 +1220,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
 81:                                               ; preds = %73
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   %82 = icmp slt i64 %75, %24
-  br i1 %82, label %34, label %.loopexit, !llvm.loop !18
+  br i1 %82, label %34, label %.loopexit
 
 .loopexit:                                        ; preds = %81, %.thread
   call void @mutex_unlock(ptr noundef nonnull %7) #12
@@ -1280,7 +1280,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_vpd_wait(ptr noundef %
   %26 = add nuw nsw i32 %25, 2
   %27 = call i32 @pci_user_read_config_word(ptr noundef %0, i32 noundef %26, ptr noundef nonnull %3) #12
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !15
 
 29:                                               ; preds = %16
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1399,7 +1399,7 @@ define internal fastcc i64 @pci_vpd_write(ptr noundef %0, i64 noundef %1, i64 no
   %66 = add nuw nsw i32 %65, 2
   %67 = call i32 @pci_user_read_config_word(ptr noundef %0, i32 noundef %66, ptr noundef nonnull %6) #12
   %68 = icmp slt i32 %67, 0
-  br i1 %68, label %pci_vpd_wait.exit.thread, label %.preheader.i, !llvm.loop !19
+  br i1 %68, label %pci_vpd_wait.exit.thread, label %.preheader.i, !llvm.loop !15
 
 69:                                               ; preds = %56
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1416,7 +1416,7 @@ pci_vpd_wait.exit:                                ; preds = %.preheader.i
   %71 = getelementptr i8, ptr %29, i64 4
   %72 = add nuw nsw i64 %30, 4
   %73 = icmp slt i64 %72, %8
-  br i1 %73, label %.preheader, label %.loopexit, !llvm.loop !20
+  br i1 %73, label %.preheader, label %.loopexit, !llvm.loop !16
 
 .thread:                                          ; preds = %.preheader, %37, %pci_vpd_wait.exit.thread
   %.ph5 = phi i32 [ %.ph, %pci_vpd_wait.exit.thread ], [ %35, %.preheader ], [ %43, %37 ]
@@ -1464,18 +1464,14 @@ attributes #15 = { nounwind memory(none) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = distinct !{!14, !7, !8, !9}
-!15 = !{i64 2148240579}
-!16 = !{i32 -2147483648, i32 1}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i64 2148240579}
+!13 = !{i32 -2147483648, i32 1}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !7, !8}

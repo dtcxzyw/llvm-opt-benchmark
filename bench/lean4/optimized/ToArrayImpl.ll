@@ -111,7 +111,7 @@ lean_inc.exit12:                                  ; preds = %34, %33, %31, %lean
 
 lean_dec.exit:                                    ; preds = %41, %40, %38, %lean_inc.exit12
   %42 = tail call ptr @lean_array_push(ptr noundef %.011, ptr noundef %16) #3
-  br label %3, !llvm.loop !12
+  br label %3
 }
 
 declare ptr @lean_array_push(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -134,9 +134,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_List_toArrayAux___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 2, ptr %7, align 8, !tbaa !14
+  store i16 2, ptr %7, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !14
+  store i16 0, ptr %8, align 2, !tbaa !12
   ret ptr %2
 }
 
@@ -164,9 +164,9 @@ lean_dec.exit:                                    ; preds = %2
   %14 = or disjoint i32 %13, -167772160
   store i32 %14, ptr %11, align 4
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %15, align 8, !tbaa !16
+  store i64 0, ptr %15, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %7, ptr %16, align 8, !tbaa !16
+  store i64 %7, ptr %16, align 8, !tbaa !14
   %17 = tail call ptr @l_List_toArrayAux___rarg(ptr noundef %1, ptr noundef nonnull %10)
   ret ptr %17
 }
@@ -276,9 +276,7 @@ attributes #4 = { noreturn nounwind }
 !9 = !{!"", !10, i64 0, !10, i64 4, !10, i64 6, !10, i64 7}
 !10 = !{!"int", !6, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"short", !6, i64 0}
 !14 = !{!15, !15, i64 0}
-!15 = !{!"short", !6, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !6, i64 0}
+!15 = !{!"long", !6, i64 0}

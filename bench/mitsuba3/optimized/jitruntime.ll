@@ -229,7 +229,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010JitRuntime4_addEPPvPNS0_10Co
 105:                                              ; preds = %100, %86
   %106 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %107 = icmp eq ptr %106, %39
-  br i1 %107, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %107, label %.loopexit, label %.preheader
 
 108:                                              ; preds = %.loopexit, %23, %14
   %109 = phi i32 [ %16, %14 ], [ %21, %23 ], [ 0, %.loopexit ]
@@ -329,5 +329,3 @@ attributes #7 = { builtin nounwind }
 !36 = !{!34, !33, i64 8}
 !37 = !{!31, !33, i64 24}
 !38 = !{!34, !23, i64 0}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.estimated_trip_count"}

@@ -285,7 +285,7 @@ define void @_ZN5draco17PointCloudBuilder20SetAttributeUniqueIdEij(ptr noundef n
   %8 = getelementptr inbounds nuw %"class.std::unique_ptr.42", ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 60
-  store i32 %2, ptr %10, align 4, !tbaa !73
+  store i32 %2, ptr %10, align 4, !tbaa !72
   ret void
 }
 
@@ -383,7 +383,6 @@ attributes #13 = { builtin nounwind }
 !67 = !{!32, !36, i64 28}
 !68 = !{!32, !7, i64 24}
 !69 = !{!33, !33, i64 0}
-!70 = distinct !{!70, !71, !72}
+!70 = distinct !{!70, !71}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!"llvm.loop.estimated_trip_count"}
-!73 = !{!32, !26, i64 60}
+!72 = !{!32, !26, i64 60}

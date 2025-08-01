@@ -374,7 +374,7 @@ ir_input_edges_count.exit:                        ; preds = %22, %28
   %155 = getelementptr inbounds nuw %struct._ir_block, ptr %.val, i64 %.pn.i, i32 8
   %156 = load i32, ptr %155, align 4, !tbaa !27
   %157 = icmp ugt i32 %156, %145
-  br i1 %157, label %.lr.ph.i, label %ir_check_domination.exit, !llvm.loop !36
+  br i1 %157, label %.lr.ph.i, label %ir_check_domination.exit
 
 ir_check_domination.exit:                         ; preds = %.lr.ph.i
   %158 = icmp eq i32 %140, %154
@@ -510,20 +510,20 @@ ir_check_domination.exit.thread:                  ; preds = %.preheader.i, %150,
 
 .thread348:                                       ; preds = %178, %150, %185, %191, %194, %200, %180, %183, %168, %167, %172, %171, %131, %134, %136, %ir_check_domination.exit, %ir_check_domination.exit.thread, %203
   %.8 = phi i1 [ false, %203 ], [ %.6, %ir_check_domination.exit ], [ false, %ir_check_domination.exit.thread ], [ %.6, %136 ], [ %.6, %134 ], [ %.6, %131 ], [ %.3269, %167 ], [ false, %168 ], [ false, %172 ], [ %.3269, %171 ], [ %.3269, %183 ], [ false, %180 ], [ %.3269, %194 ], [ false, %200 ], [ false, %191 ], [ %.3269, %185 ], [ %.6, %150 ], [ %.3269, %178 ]
-  %228 = load ptr, ptr %10, align 8, !tbaa !38
+  %228 = load ptr, ptr %10, align 8, !tbaa !36
   %.not361 = icmp eq ptr %228, null
   br i1 %.not361, label %ir_check_use_list.exit, label %229
 
 229:                                              ; preds = %.thread348
   %230 = getelementptr inbounds nuw %struct._ir_use_list, ptr %228, i64 %62
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
-  %232 = load i32, ptr %231, align 4, !tbaa !39
+  %232 = load i32, ptr %231, align 4, !tbaa !37
   %233 = icmp sgt i32 %232, 0
   br i1 %233, label %.lr.ph.preheader.i, label %.loopexit362
 
 .lr.ph.preheader.i:                               ; preds = %229
-  %.val342 = load ptr, ptr %11, align 8, !tbaa !41
-  %234 = load i32, ptr %230, align 4, !tbaa !42
+  %.val342 = load ptr, ptr %11, align 8, !tbaa !39
+  %234 = load i32, ptr %230, align 4, !tbaa !40
   %235 = sext i32 %234 to i64
   %236 = getelementptr inbounds i32, ptr %.val342, i64 %235
   br label %.lr.ph.i344
@@ -539,7 +539,7 @@ ir_check_domination.exit.thread:                  ; preds = %.preheader.i, %150,
   %240 = add nuw nsw i32 %.0121.i, 1
   %241 = getelementptr inbounds nuw i8, ptr %.0112.i, i64 4
   %exitcond.not.i = icmp eq i32 %240, %232
-  br i1 %exitcond.not.i, label %.loopexit362, label %.lr.ph.i344, !llvm.loop !43
+  br i1 %exitcond.not.i, label %.loopexit362, label %.lr.ph.i344
 
 .loopexit362:                                     ; preds = %239, %229
   %242 = load ptr, ptr @stderr, align 8, !tbaa !28
@@ -551,7 +551,7 @@ ir_check_use_list.exit:                           ; preds = %.lr.ph.i344, %47, %
   %244 = add nuw nsw i32 %.0263371, 1
   %245 = getelementptr inbounds nuw i8, ptr %.0271369, i64 4
   %exitcond.not = icmp eq i32 %.0263371, %.0.i
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %37, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %37
 
 ._crit_edge.loopexit:                             ; preds = %ir_check_use_list.exit
   %.pre = load i8, ptr %.0274387, align 8, !tbaa !27
@@ -616,7 +616,7 @@ ir_check_use_list.exit:                           ; preds = %.lr.ph.i344, %47, %
 ._crit_edge399:                                   ; preds = %270, %273
   %276 = load ptr, ptr @stderr, align 8, !tbaa !28
   %277 = getelementptr inbounds nuw [14 x ptr], ptr @ir_type_name, i64 0, i64 %272
-  %278 = load ptr, ptr %277, align 8, !tbaa !45
+  %278 = load ptr, ptr %277, align 8, !tbaa !41
   %279 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %276, ptr noundef nonnull @.str.16, i32 noundef %.0262389, ptr noundef %278) #4
   br label %328
 
@@ -634,12 +634,12 @@ ir_check_use_list.exit:                           ; preds = %.lr.ph.i344, %47, %
   %288 = load ptr, ptr @stderr, align 8, !tbaa !28
   %289 = zext i8 %286 to i64
   %290 = getelementptr inbounds nuw [108 x ptr], ptr @ir_op_name, i64 0, i64 %289
-  %291 = load ptr, ptr %290, align 8, !tbaa !45
+  %291 = load ptr, ptr %290, align 8, !tbaa !41
   %292 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %288, ptr noundef nonnull @.str.17, i32 noundef %.0262389, ptr noundef %291) #4
   br label %328
 
 293:                                              ; preds = %._crit_edge
-  %294 = load i32, ptr %13, align 8, !tbaa !46
+  %294 = load i32, ptr %13, align 8, !tbaa !42
   %295 = getelementptr inbounds nuw i8, ptr %.0274387, i64 8
   %296 = load i32, ptr %295, align 8, !tbaa !27
   %.not296 = icmp eq i32 %296, 0
@@ -665,7 +665,7 @@ ir_check_use_list.exit:                           ; preds = %.lr.ph.i344, %47, %
   br label %328
 
 309:                                              ; preds = %._crit_edge
-  %310 = load i32, ptr %13, align 8, !tbaa !46
+  %310 = load i32, ptr %13, align 8, !tbaa !42
   %311 = getelementptr inbounds nuw i8, ptr %.0274387, i64 1
   %312 = load i8, ptr %311, align 1, !tbaa !27
   %313 = zext i8 %312 to i32
@@ -697,7 +697,7 @@ ir_check_use_list.exit:                           ; preds = %.lr.ph.i344, %47, %
 
 328:                                              ; preds = %317, %319, %325, %309, %314, %304, %306, %280, %287, %262, %273, %._crit_edge399, %247, %259, %._crit_edge
   %.10 = phi i1 [ %.2268.lcssa, %._crit_edge ], [ false, %259 ], [ %.2268.lcssa, %247 ], [ false, %._crit_edge399 ], [ %.2268.lcssa, %273 ], [ %.2268.lcssa, %262 ], [ false, %287 ], [ %.2268.lcssa, %280 ], [ false, %306 ], [ %.2268.lcssa, %304 ], [ false, %314 ], [ %.2268.lcssa, %309 ], [ false, %325 ], [ %.2268.lcssa, %319 ], [ %.2268.lcssa, %317 ]
-  %329 = load ptr, ptr %10, align 8, !tbaa !38
+  %329 = load ptr, ptr %10, align 8, !tbaa !36
   %.not302 = icmp eq ptr %329, null
   br i1 %.not302, label %446, label %330
 
@@ -705,13 +705,13 @@ ir_check_use_list.exit:                           ; preds = %.lr.ph.i344, %47, %
   %331 = zext nneg i32 %.0262389 to i64
   %332 = getelementptr inbounds nuw %struct._ir_use_list, ptr %329, i64 %331
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 4
-  %334 = load i32, ptr %333, align 4, !tbaa !39
+  %334 = load i32, ptr %333, align 4, !tbaa !37
   %335 = icmp sgt i32 %334, 0
   br i1 %335, label %.lr.ph376.preheader, label %._crit_edge377
 
 .lr.ph376.preheader:                              ; preds = %330
-  %336 = load ptr, ptr %11, align 8, !tbaa !41
-  %337 = load i32, ptr %332, align 4, !tbaa !42
+  %336 = load ptr, ptr %11, align 8, !tbaa !39
+  %337 = load i32, ptr %332, align 4, !tbaa !40
   %338 = sext i32 %337 to i64
   %339 = getelementptr inbounds i32, ptr %336, i64 %338
   br label %.lr.ph376
@@ -748,7 +748,7 @@ ir_input_edges_count.exit.i:                      ; preds = %350, %.lr.ph376
 354:                                              ; preds = %.lr.ph.i345
   %355 = add nuw nsw i32 %.0113.i, 1
   %exitcond.not.i346 = icmp eq i32 %.0113.i, %.0.i.i
-  br i1 %exitcond.not.i346, label %.loopexit, label %.lr.ph.i345, !llvm.loop !47
+  br i1 %exitcond.not.i346, label %.loopexit, label %.lr.ph.i345
 
 .lr.ph.i345:                                      ; preds = %ir_input_edges_count.exit.i, %354
   %.pn.pn.i = phi ptr [ %.04.i, %354 ], [ %343, %ir_input_edges_count.exit.i ]
@@ -761,7 +761,7 @@ ir_input_edges_count.exit.i:                      ; preds = %350, %.lr.ph376
 .loopexit:                                        ; preds = %354, %ir_input_edges_count.exit.i
   %358 = load ptr, ptr @stderr, align 8, !tbaa !28
   %359 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %358, ptr noundef nonnull @.str.20, i32 noundef %341, i32 noundef %.0262389) #4
-  %.pre398 = load i32, ptr %333, align 4, !tbaa !39
+  %.pre398 = load i32, ptr %333, align 4, !tbaa !37
   br label %ir_check_input_list.exit
 
 ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loopexit
@@ -770,7 +770,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
   %361 = add nuw nsw i32 %.1264374, 1
   %362 = getelementptr inbounds nuw i8, ptr %.1272372, i64 4
   %363 = icmp slt i32 %361, %360
-  br i1 %363, label %.lr.ph376, label %._crit_edge377, !llvm.loop !48
+  br i1 %363, label %.lr.ph376, label %._crit_edge377
 
 ._crit_edge377:                                   ; preds = %ir_check_input_list.exit, %330
   %.12.lcssa = phi i1 [ %.10, %330 ], [ %.13, %ir_check_input_list.exit ]
@@ -815,8 +815,8 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
 
 377:                                              ; preds = %376
   %378 = load ptr, ptr %0, align 8, !tbaa !26
-  %379 = load ptr, ptr %11, align 8, !tbaa !41
-  %380 = load i32, ptr %332, align 4, !tbaa !42
+  %379 = load ptr, ptr %11, align 8, !tbaa !39
+  %380 = load i32, ptr %332, align 4, !tbaa !40
   %381 = sext i32 %380 to i64
   %382 = getelementptr inbounds i32, ptr %379, i64 %381
   %383 = load i32, ptr %382, align 4, !tbaa !30
@@ -834,13 +834,13 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
   %389 = load ptr, ptr @stderr, align 8, !tbaa !28
   %390 = zext nneg i8 %366 to i64
   %391 = getelementptr inbounds nuw [108 x ptr], ptr @ir_op_name, i64 0, i64 %390
-  %392 = load ptr, ptr %391, align 8, !tbaa !45
+  %392 = load ptr, ptr %391, align 8, !tbaa !41
   %393 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %389, ptr noundef nonnull @.str.23, i32 noundef %.0262389, ptr noundef %392, i32 noundef %.lcssa364) #4
   br label %446
 
 394:                                              ; preds = %365
-  %395 = load ptr, ptr %11, align 8, !tbaa !41
-  %396 = load i32, ptr %332, align 4, !tbaa !42
+  %395 = load ptr, ptr %11, align 8, !tbaa !39
+  %396 = load i32, ptr %332, align 4, !tbaa !40
   %397 = sext i32 %396 to i64
   %398 = getelementptr i32, ptr %395, i64 %397
   %399 = icmp sgt i32 %.lcssa364, 0
@@ -868,7 +868,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
   %411 = add nuw nsw i32 %.2265381, 1
   %412 = getelementptr inbounds nuw i8, ptr %.2273380, i64 4
   %exitcond397.not = icmp eq i32 %411, %.lcssa364
-  br i1 %exitcond397.not, label %._crit_edge385, label %401, !llvm.loop !49
+  br i1 %exitcond397.not, label %._crit_edge385, label %401
 
 ._crit_edge385:                                   ; preds = %401
   %.not307 = icmp eq i32 %spec.select, 1
@@ -926,7 +926,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
   %441 = load ptr, ptr @stderr, align 8, !tbaa !28
   %442 = zext i8 %366 to i64
   %443 = getelementptr inbounds nuw [108 x ptr], ptr @ir_op_name, i64 0, i64 %442
-  %444 = load ptr, ptr %443, align 8, !tbaa !45
+  %444 = load ptr, ptr %443, align 8, !tbaa !41
   %445 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %441, ptr noundef nonnull @.str.24, i32 noundef %.0262389, ptr noundef %444, i32 noundef %.2) #4
   br label %446
 
@@ -939,7 +939,7 @@ ir_check_input_list.exit:                         ; preds = %.lr.ph.i345, %.loop
   %451 = getelementptr inbounds nuw %struct._ir_insn, ptr %.0274387, i64 %450
   %452 = load i32, ptr %2, align 8, !tbaa !4
   %453 = icmp slt i32 %449, %452
-  br i1 %453, label %15, label %.loopexit363, !llvm.loop !50
+  br i1 %453, label %15, label %.loopexit363
 
 .loopexit363:                                     ; preds = %446, %1, %18
   %.1267 = phi i1 [ false, %18 ], [ true, %1 ], [ %.11, %446 ]
@@ -996,18 +996,10 @@ attributes #4 = { cold nounwind }
 !33 = !{!5, !10, i64 28}
 !34 = !{!5, !15, i64 120}
 !35 = !{!5, !16, i64 104}
-!36 = distinct !{!36, !37}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!5, !14, i64 72}
-!39 = !{!40, !10, i64 4}
-!40 = !{!"_ir_use_list", !10, i64 0, !10, i64 4}
-!41 = !{!5, !15, i64 80}
-!42 = !{!40, !10, i64 0}
-!43 = distinct !{!43, !37}
-!44 = distinct !{!44, !37}
-!45 = !{!21, !21, i64 0}
-!46 = !{!5, !10, i64 32}
-!47 = distinct !{!47, !37}
-!48 = distinct !{!48, !37}
-!49 = distinct !{!49, !37}
-!50 = distinct !{!50, !37}
+!36 = !{!5, !14, i64 72}
+!37 = !{!38, !10, i64 4}
+!38 = !{!"_ir_use_list", !10, i64 0, !10, i64 4}
+!39 = !{!5, !15, i64 80}
+!40 = !{!38, !10, i64 0}
+!41 = !{!21, !21, i64 0}
+!42 = !{!5, !10, i64 32}

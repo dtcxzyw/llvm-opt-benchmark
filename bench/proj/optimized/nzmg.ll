@@ -103,8 +103,8 @@ define internal { double, double } @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts(double %
   %11 = extractvalue { double, double } %9, 1
   %12 = fsub double %10, %1
   %13 = fsub double %11, %0
-  %14 = load double, ptr %4, align 8, !tbaa !51
-  %15 = load double, ptr %5, align 8, !tbaa !53
+  %14 = load double, ptr %4, align 8, !tbaa !50
+  %15 = load double, ptr %5, align 8, !tbaa !52
   %16 = fmul double %15, %15
   %17 = call double @llvm.fmuladd.f64(double %14, double %14, double %16)
   %18 = fmul double %13, %15
@@ -129,11 +129,11 @@ define internal { double, double } @_ZL14nzmg_e_inverse5PJ_XYP8PJconsts(double %
   %.03040 = phi i32 [ %36, %.preheader ], [ 8, %8 ]
   %.03139 = phi ptr [ %33, %.preheader ], [ getelementptr inbounds nuw (i8, ptr @_ZZL14nzmg_e_inverse5PJ_XYP8PJconstsE4tphi, i64 64), %8 ]
   %33 = getelementptr inbounds i8, ptr %.03139, i64 -8
-  %34 = load double, ptr %33, align 8, !tbaa !54
+  %34 = load double, ptr %33, align 8, !tbaa !53
   %35 = call double @llvm.fmuladd.f64(double %27, double %.sroa.428.041, double %34)
   %36 = add nsw i32 %.03040, -1
   %.not32 = icmp eq i32 %36, 0
-  br i1 %.not32, label %37, label %.preheader, !llvm.loop !55
+  br i1 %.not32, label %37, label %.preheader, !llvm.loop !54
 
 37:                                               ; preds = %.preheader
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 448
@@ -164,11 +164,11 @@ define internal { double, double } @_ZL14nzmg_e_forward5PJ_LPP8PJconsts(double %
   %.017 = phi i32 [ 9, %3 ], [ %12, %8 ]
   %.01516 = phi ptr [ getelementptr inbounds nuw (i8, ptr @_ZZL14nzmg_e_forward5PJ_LPP8PJconstsE4tpsi, i64 72), %3 ], [ %9, %8 ]
   %9 = getelementptr inbounds i8, ptr %.01516, i64 -8
-  %10 = load double, ptr %9, align 8, !tbaa !54
+  %10 = load double, ptr %9, align 8, !tbaa !53
   %11 = tail call double @llvm.fmuladd.f64(double %7, double %.sroa.06.018, double %10)
   %12 = add nsw i32 %.017, -1
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %8, !llvm.loop !56
+  br i1 %.not, label %13, label %8, !llvm.loop !55
 
 13:                                               ; preds = %8
   %14 = fmul double %7, %11
@@ -253,12 +253,11 @@ attributes #5 = { nounwind }
 !45 = !{!4, !13, i64 360}
 !46 = !{!4, !15, i64 380}
 !47 = !{!4, !15, i64 384}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!52, !14, i64 0}
-!52 = !{!"_ZTS7COMPLEX", !14, i64 0, !14, i64 8}
-!53 = !{!52, !14, i64 8}
-!54 = !{!14, !14, i64 0}
-!55 = distinct !{!55, !49, !50}
-!56 = distinct !{!56, !49, !50}
+!50 = !{!51, !14, i64 0}
+!51 = !{!"_ZTS7COMPLEX", !14, i64 0, !14, i64 8}
+!52 = !{!51, !14, i64 8}
+!53 = !{!14, !14, i64 0}
+!54 = distinct !{!54, !49}
+!55 = distinct !{!55, !49}

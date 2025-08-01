@@ -617,7 +617,7 @@ define internal noundef zeroext i1 @SW_QueueDrawPoints(ptr noundef %0, ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %.01520, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %.01719, i64 8
   %exitcond.not = icmp eq i32 %18, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %4
   ret i1 %.not
@@ -666,7 +666,7 @@ define internal noundef zeroext i1 @SW_QueueFillRects(ptr noundef %0, ptr nounde
   %28 = getelementptr inbounds nuw i8, ptr %.02128, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %.02327, i64 16
   %exitcond.not = icmp eq i32 %27, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %4
   ret i1 %.not
@@ -964,7 +964,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
   %117 = getelementptr inbounds nuw i8, ptr %.0127144, i64 20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !7
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %183
   %indvars.iv151 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next152, %183 ]
@@ -1085,7 +1085,7 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
   %188 = getelementptr inbounds nuw i8, ptr %.0129146, i64 12
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
-  br i1 %exitcond155.not, label %.loopexit, label %.lr.ph148, !llvm.loop !9
+  br i1 %exitcond155.not, label %.loopexit, label %.lr.ph148, !llvm.loop !8
 
 .loopexit:                                        ; preds = %112, %183, %.preheader142, %.preheader, %15
   ret i1 %.not141
@@ -1303,7 +1303,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
 
 129:                                              ; preds = %73
   %130 = getelementptr inbounds nuw i8, ptr %.0272365, i64 8
-  %131 = load i8, ptr %130, align 8, !range !10, !noundef !11
+  %131 = load i8, ptr %130, align 8, !range !9, !noundef !10
   %132 = trunc nuw i8 %131 to i1
   %133 = getelementptr inbounds nuw i8, ptr %.0272365, i64 12
   %134 = select i1 %132, ptr %133, ptr null
@@ -1447,7 +1447,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
   store i32 %220, ptr %218, align 4
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond395.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count394
-  br i1 %exitcond395.not, label %.loopexit, label %212, !llvm.loop !12
+  br i1 %exitcond395.not, label %.loopexit, label %212, !llvm.loop !11
 
 .loopexit:                                        ; preds = %212, %210, %206, %190
   %221 = icmp eq i32 %202, 0
@@ -1516,7 +1516,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
   store i32 %257, ptr %255, align 4
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
   %exitcond389.not = icmp eq i64 %indvars.iv.next385, %wide.trip.count388
-  br i1 %exitcond389.not, label %.loopexit337, label %249, !llvm.loop !13
+  br i1 %exitcond389.not, label %.loopexit337, label %249, !llvm.loop !12
 
 .loopexit337:                                     ; preds = %249, %247, %243, %227
   %258 = icmp eq i32 %239, 0
@@ -1585,7 +1585,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
   store i32 %294, ptr %292, align 4
   %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
   %exitcond383.not = icmp eq i64 %indvars.iv.next380, %wide.trip.count382
-  br i1 %exitcond383.not, label %.loopexit338, label %286, !llvm.loop !14
+  br i1 %exitcond383.not, label %.loopexit338, label %286, !llvm.loop !13
 
 .loopexit338:                                     ; preds = %286, %284, %280, %264
   %295 = icmp eq i32 %276, 0
@@ -2481,7 +2481,7 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   store i32 %760, ptr %758, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %754, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %754, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %754, %._crit_edge396
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #9
@@ -2516,7 +2516,7 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   %780 = add nuw nsw i32 %.1343, 3
   %781 = getelementptr inbounds nuw i8, ptr %.0270344, i64 60
   %782 = icmp slt i32 %780, %725
-  br i1 %782, label %765, label %.loopexit339, !llvm.loop !16
+  br i1 %782, label %765, label %.loopexit339, !llvm.loop !15
 
 783:                                              ; preds = %719
   %784 = load ptr, ptr %19, align 8
@@ -2558,7 +2558,7 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   store i32 %798, ptr %796, align 4
   %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
   %exitcond378.not = icmp eq i64 %indvars.iv.next375, %wide.trip.count377
-  br i1 %exitcond378.not, label %._crit_edge350, label %792, !llvm.loop !17
+  br i1 %exitcond378.not, label %._crit_edge350, label %792, !llvm.loop !16
 
 ._crit_edge350:                                   ; preds = %792, %._crit_edge397
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #9
@@ -2583,13 +2583,13 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
   %810 = add nuw nsw i32 %.3351, 3
   %811 = getelementptr inbounds nuw i8, ptr %.0352, i64 36
   %812 = icmp slt i32 %810, %725
-  br i1 %812, label %.lr.ph354, label %.loopexit339, !llvm.loop !18
+  br i1 %812, label %.lr.ph354, label %.loopexit339, !llvm.loop !17
 
 .loopexit339:                                     ; preds = %765, %.lr.ph354, %761, %799, %350, %398, %377, %370, %296, %299, %259, %262, %222, %225, %SW_RenderCopyEx.exit, %183, %129, %127, %123, %73
   %813 = getelementptr inbounds nuw i8, ptr %.0272365, i64 80
   %814 = load ptr, ptr %813, align 8
   %.not = icmp eq ptr %814, null
-  br i1 %.not, label %.loopexit341, label %73, !llvm.loop !19
+  br i1 %.not, label %.loopexit341, label %73, !llvm.loop !18
 
 .loopexit341:                                     ; preds = %.loopexit339, %41, %SW_ActivateRenderer.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #9
@@ -2810,7 +2810,7 @@ declare i32 @SDL_MapSurfaceRGBA_REAL(ptr noundef, i8 noundef zeroext, i8 noundef
 define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.SDL_Rect, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i8, ptr %4, align 8, !range !10, !noundef !11
+  %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %35
 
@@ -3007,20 +3007,19 @@ attributes #12 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}

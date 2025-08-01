@@ -102,7 +102,7 @@ define hidden noundef ptr @Curl_splay(i64 %0, i32 %1, ptr noundef %2) local_unna
   %.246 = phi ptr [ %.044, %28 ], [ %.4, %45 ]
   %.2 = phi ptr [ %.249, %28 ], [ %.043, %45 ]
   %.3 = load ptr, ptr %.3.in, align 8, !tbaa !13
-  br label %7, !llvm.loop !14
+  br label %7
 
 49:                                               ; preds = %14, %23, %30, %40, %29
   %.148.ph = phi ptr [ %.047, %29 ], [ %41, %40 ], [ %.047, %30 ], [ %24, %23 ], [ %.047, %14 ]
@@ -149,16 +149,16 @@ define hidden noundef ptr @Curl_splayinsert(i64 %0, i32 %1, ptr noundef %2, ptr 
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) @Curl_splayinsert.KEY_NOTUSED, i64 16, i1 false), !tbaa.struct !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) @Curl_splayinsert.KEY_NOTUSED, i64 16, i1 false), !tbaa.struct !14
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %6, ptr %15, align 8, !tbaa !19
+  store ptr %6, ptr %15, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !20
+  %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %17, ptr %18, align 8, !tbaa !20
+  store ptr %17, ptr %18, align 8, !tbaa !18
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %3, ptr %19, align 8, !tbaa !19
-  store ptr %3, ptr %16, align 8, !tbaa !20
+  store ptr %3, ptr %19, align 8, !tbaa !17
+  store ptr %3, ptr %16, align 8, !tbaa !18
   br label %36
 
 20:                                               ; preds = %4
@@ -190,13 +190,13 @@ define hidden noundef ptr @Curl_splayinsert(i64 %0, i32 %1, ptr noundef %2, ptr 
 
 32:                                               ; preds = %27, %29, %20
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %0, ptr %33, align 8, !tbaa !17
+  store i64 %0, ptr %33, align 8, !tbaa !15
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 %1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !18
+  store i32 %1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !16
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %3, ptr %34, align 8, !tbaa !19
+  store ptr %3, ptr %34, align 8, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %3, ptr %35, align 8, !tbaa !20
+  store ptr %3, ptr %35, align 8, !tbaa !18
   br label %36
 
 36:                                               ; preds = %32, %13
@@ -224,13 +224,13 @@ define hidden ptr @Curl_splaygetbest(i64 %0, i32 %1, ptr noundef %2, ptr noundef
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  %15 = load ptr, ptr %14, align 8, !tbaa !17
   %.not30 = icmp eq ptr %15, %6
   br i1 %.not30, label %26, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !14
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -238,11 +238,11 @@ define hidden ptr @Curl_splaygetbest(i64 %0, i32 %1, ptr noundef %2, ptr noundef
   %21 = load ptr, ptr %6, align 8, !tbaa !3
   store ptr %21, ptr %15, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !20
+  %23 = load ptr, ptr %22, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr %23, ptr %24, align 8, !tbaa !20
+  store ptr %23, ptr %24, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %15, ptr %25, align 8, !tbaa !19
+  store ptr %15, ptr %25, align 8, !tbaa !17
   br label %29
 
 26:                                               ; preds = %13
@@ -273,19 +273,19 @@ define hidden range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr noundef 
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !19
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %51, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !20
+  %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %13, ptr %18, align 8, !tbaa !19
-  %19 = load ptr, ptr %12, align 8, !tbaa !19
+  store ptr %13, ptr %18, align 8, !tbaa !17
+  %19 = load ptr, ptr %12, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr %17, ptr %20, align 8, !tbaa !20
-  store ptr %1, ptr %12, align 8, !tbaa !19
+  store ptr %17, ptr %20, align 8, !tbaa !18
+  store ptr %1, ptr %12, align 8, !tbaa !17
   br label %.sink.split
 
 21:                                               ; preds = %4
@@ -297,14 +297,14 @@ define hidden range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr noundef 
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !19
+  %27 = load ptr, ptr %26, align 8, !tbaa !17
   %.not45 = icmp eq ptr %27, %1
   br i1 %.not45, label %39, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !14
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -312,11 +312,11 @@ define hidden range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr noundef 
   %34 = load ptr, ptr %24, align 8, !tbaa !3
   store ptr %34, ptr %27, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !20
+  %36 = load ptr, ptr %35, align 8, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr %36, ptr %37, align 8, !tbaa !20
+  store ptr %36, ptr %37, align 8, !tbaa !18
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr %27, ptr %38, align 8, !tbaa !19
+  store ptr %27, ptr %38, align 8, !tbaa !17
   br label %.sink.split
 
 39:                                               ; preds = %25
@@ -352,14 +352,14 @@ define hidden range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr noundef 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @Curl_splayset(ptr noundef writeonly captures(none) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %1, ptr %3, align 8, !tbaa !21
+  store ptr %1, ptr %3, align 8, !tbaa !19
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @Curl_splayget(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !21
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
   ret ptr %3
 }
 
@@ -391,11 +391,9 @@ attributes #7 = { nounwind }
 !11 = !{!"int", !7, i64 0}
 !12 = !{!4, !5, i64 8}
 !13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{i64 0, i64 8, !17, i64 8, i64 4, !18}
-!17 = !{!10, !10, i64 0}
-!18 = !{!11, !11, i64 0}
-!19 = !{!4, !5, i64 16}
-!20 = !{!4, !5, i64 24}
-!21 = !{!4, !6, i64 48}
+!14 = !{i64 0, i64 8, !15, i64 8, i64 4, !16}
+!15 = !{!10, !10, i64 0}
+!16 = !{!11, !11, i64 0}
+!17 = !{!4, !5, i64 16}
+!18 = !{!4, !5, i64 24}
+!19 = !{!4, !6, i64 48}

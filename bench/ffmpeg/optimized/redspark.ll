@@ -65,13 +65,13 @@ define internal range(i32 -1094995529, 1) i32 @redspark_read_header(ptr noundef 
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 69650, ptr %23, align 4, !tbaa !38
-  store i32 1, ptr %10, align 8, !tbaa !41
+  store i32 69650, ptr %23, align 4, !tbaa !37
+  store i32 1, ptr %10, align 8, !tbaa !40
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = tail call i32 @llvm.bswap.i32(i32 %25)
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 152
-  store i32 %26, ptr %27, align 8, !tbaa !42
+  store i32 %26, ptr %27, align 8, !tbaa !41
   %28 = add i32 %26, -96001
   %or.cond = icmp ult i32 %28, -96000
   br i1 %or.cond, label %29, label %30
@@ -87,13 +87,13 @@ define internal range(i32 -1094995529, 1) i32 @redspark_read_header(ptr noundef 
   %34 = mul i32 %33, 14
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i64 %35, ptr %36, align 8, !tbaa !43
-  store i32 0, ptr %6, align 4, !tbaa !44
+  store i64 %35, ptr %36, align 8, !tbaa !42
+  store i32 0, ptr %6, align 4, !tbaa !43
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 78
   %38 = load i8, ptr %37, align 2, !tbaa !11
   %39 = zext i8 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 132
-  store i32 %39, ptr %40, align 4, !tbaa !46
+  store i32 %39, ptr %40, align 4, !tbaa !45
   %.not53 = icmp eq i8 %38, 0
   br i1 %.not53, label %66, label %41
 
@@ -116,7 +116,7 @@ define internal range(i32 -1094995529, 1) i32 @redspark_read_header(ptr noundef 
   br i1 %.not55, label %51, label %66
 
 51:                                               ; preds = %48
-  %52 = load i32, ptr %40, align 4, !tbaa !46
+  %52 = load i32, ptr %40, align 4, !tbaa !45
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph, label %._crit_edge
 
@@ -129,19 +129,19 @@ define internal range(i32 -1094995529, 1) i32 @redspark_read_header(ptr noundef 
 57:                                               ; preds = %.lr.ph, %57
   %indvars.iv75 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next76, %57 ]
   %.sroa.0.072 = phi ptr [ %55, %.lr.ph ], [ %61, %57 ]
-  %58 = load ptr, ptr %56, align 8, !tbaa !47
+  %58 = load ptr, ptr %56, align 8, !tbaa !46
   %59 = shl nsw i64 %indvars.iv75, 5
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %60, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.0.072, i64 32, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 46
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
-  %62 = load i32, ptr %40, align 4, !tbaa !46
+  %62 = load i32, ptr %40, align 4, !tbaa !45
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next76, %63
-  br i1 %64, label %57, label %._crit_edge, !llvm.loop !48
+  br i1 %64, label %57, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %57, %51
-  %65 = load i32, ptr %27, align 8, !tbaa !42
+  %65 = load i32, ptr %27, align 8, !tbaa !41
   tail call void @avpriv_set_pts_info(ptr noundef nonnull %7, i32 noundef 64, i32 noundef 1, i32 noundef %65) #6
   br label %66
 
@@ -154,14 +154,14 @@ define internal range(i32 -1094995529, 1) i32 @redspark_read_header(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -2147483648, 2147483641) i32 @redspark_read_packet(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !49
-  %5 = load ptr, ptr %4, align 8, !tbaa !50
+  %4 = load ptr, ptr %3, align 8, !tbaa !48
+  %5 = load ptr, ptr %4, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 132
-  %11 = load i32, ptr %10, align 4, !tbaa !46
+  %11 = load i32, ptr %10, align 4, !tbaa !45
   %12 = shl nsw i32 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !12
@@ -170,12 +170,12 @@ define internal range(i32 -2147483648, 2147483641) i32 @redspark_read_packet(ptr
   br i1 %.not, label %16, label %32
 
 16:                                               ; preds = %2
-  %17 = load i32, ptr %9, align 4, !tbaa !44
+  %17 = load i32, ptr %9, align 4, !tbaa !43
   %18 = sext i32 %17 to i64
-  %19 = load ptr, ptr %3, align 8, !tbaa !49
-  %20 = load ptr, ptr %19, align 8, !tbaa !50
+  %19 = load ptr, ptr %3, align 8, !tbaa !48
+  %20 = load ptr, ptr %19, align 8, !tbaa !49
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %22 = load i64, ptr %21, align 8, !tbaa !43
+  %22 = load i64, ptr %21, align 8, !tbaa !42
   %23 = icmp eq i64 %22, %18
   br i1 %23, label %32, label %24
 
@@ -187,12 +187,12 @@ define internal range(i32 -2147483648, 2147483641) i32 @redspark_read_packet(ptr
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 14, ptr %28, align 8, !tbaa !52
-  %29 = load i32, ptr %9, align 4, !tbaa !44
+  store i64 14, ptr %28, align 8, !tbaa !51
+  %29 = load i32, ptr %9, align 4, !tbaa !43
   %30 = add i32 %29, 14
-  store i32 %30, ptr %9, align 4, !tbaa !44
+  store i32 %30, ptr %9, align 4, !tbaa !43
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %31, align 4, !tbaa !53
+  store i32 0, ptr %31, align 4, !tbaa !52
   br label %32
 
 32:                                               ; preds = %24, %2, %16, %27
@@ -274,22 +274,21 @@ attributes #6 = { nounwind }
 !32 = !{!"AVPacket", !33, i64 0, !22, i64 8, !22, i64 16, !6, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !34, i64 48, !10, i64 56, !22, i64 64, !22, i64 72, !7, i64 80, !33, i64 88, !31, i64 96}
 !33 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
 !34 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!39, !10, i64 4}
-!39 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !34, i64 32, !10, i64 40, !10, i64 44, !22, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !31, i64 80, !31, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !40, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
-!40 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
-!41 = !{!39, !10, i64 0}
-!42 = !{!39, !10, i64 152}
-!43 = !{!29, !22, i64 48}
-!44 = !{!45, !10, i64 0}
-!45 = !{!"RedSparkContext", !10, i64 0}
-!46 = !{!39, !10, i64 132}
-!47 = !{!39, !6, i64 16}
-!48 = distinct !{!48, !36, !37}
-!49 = !{!13, !18, i64 48}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS8AVStream", !7, i64 0}
-!52 = !{!32, !22, i64 64}
-!53 = !{!32, !10, i64 36}
+!37 = !{!38, !10, i64 4}
+!38 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !34, i64 32, !10, i64 40, !10, i64 44, !22, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !31, i64 80, !31, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !39, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
+!39 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
+!40 = !{!38, !10, i64 0}
+!41 = !{!38, !10, i64 152}
+!42 = !{!29, !22, i64 48}
+!43 = !{!44, !10, i64 0}
+!44 = !{!"RedSparkContext", !10, i64 0}
+!45 = !{!38, !10, i64 132}
+!46 = !{!38, !6, i64 16}
+!47 = distinct !{!47, !36}
+!48 = !{!13, !18, i64 48}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS8AVStream", !7, i64 0}
+!51 = !{!32, !22, i64 64}
+!52 = !{!32, !10, i64 36}

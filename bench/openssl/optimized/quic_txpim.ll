@@ -49,7 +49,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @ossl_quic_txpim_pkt_alloc(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !25
+  %2 = load ptr, ptr %0, align 8, !tbaa !24
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %3, label %17
 
@@ -60,12 +60,12 @@ define noundef ptr @ossl_quic_txpim_pkt_alloc(ptr noundef captures(none) %0) loc
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  store ptr %8, ptr %9, align 8, !tbaa !28
+  store ptr %8, ptr %9, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store ptr null, ptr %10, align 8, !tbaa !9
-  store ptr %4, ptr %7, align 8, !tbaa !27
+  store ptr %4, ptr %7, align 8, !tbaa !26
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %13, label %11
 
@@ -86,7 +86,7 @@ define noundef ptr @ossl_quic_txpim_pkt_alloc(ptr noundef captures(none) %0) loc
 17:                                               ; preds = %1, %13, %16
   %.0.i.ph = phi ptr [ %4, %16 ], [ %4, %13 ], [ %2, %1 ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 152
-  store i64 0, ptr %18, align 8, !tbaa !29
+  store i64 0, ptr %18, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 121
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.0.i.ph, i8 0, i64 120, i1 false)
   %20 = load i8, ptr %19, align 1
@@ -104,14 +104,14 @@ define noundef ptr @ossl_quic_txpim_pkt_alloc(ptr noundef captures(none) %0) loc
 
 27:                                               ; preds = %24, %17
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !27
+  %29 = load ptr, ptr %28, align 8, !tbaa !26
   %30 = icmp eq ptr %29, %.0.i.ph
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 128
-  %32 = load ptr, ptr %31, align 8, !tbaa !28
+  %32 = load ptr, ptr %31, align 8, !tbaa !27
   br i1 %30, label %33, label %._crit_edge.i
 
 33:                                               ; preds = %27
-  store ptr %32, ptr %28, align 8, !tbaa !27
+  store ptr %32, ptr %28, align 8, !tbaa !26
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %33, %27
@@ -131,15 +131,15 @@ define noundef ptr @ossl_quic_txpim_pkt_alloc(ptr noundef captures(none) %0) loc
 
 36:                                               ; preds = %._crit_edge19.i
   %37 = getelementptr inbounds nuw i8, ptr %.pre21.i, i64 128
-  store ptr %32, ptr %37, align 8, !tbaa !28
+  store ptr %32, ptr %37, align 8, !tbaa !27
   br label %list_remove.exit
 
 list_remove.exit:                                 ; preds = %._crit_edge19.i, %36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load i64, ptr %38, align 8, !tbaa !30
+  %39 = load i64, ptr %38, align 8, !tbaa !29
   %40 = add i64 %39, 1
-  store i64 %40, ptr %38, align 8, !tbaa !30
+  store i64 %40, ptr %38, align 8, !tbaa !29
   br label %txpim_get_free.exit
 
 txpim_get_free.exit:                              ; preds = %3, %list_remove.exit
@@ -150,16 +150,16 @@ txpim_get_free.exit:                              ; preds = %3, %list_remove.exi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ossl_quic_txpim_pkt_release(ptr noundef captures(none) %0, ptr noundef initializes((128, 144)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !30
+  %4 = load i64, ptr %3, align 8, !tbaa !29
   %5 = add i64 %4, -1
-  store i64 %5, ptr %3, align 8, !tbaa !30
+  store i64 %5, ptr %3, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store ptr %7, ptr %8, align 8, !tbaa !28
+  store ptr %7, ptr %8, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store ptr null, ptr %9, align 8, !tbaa !9
-  store ptr %1, ptr %6, align 8, !tbaa !27
+  store ptr %1, ptr %6, align 8, !tbaa !26
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %12, label %10
 
@@ -184,18 +184,18 @@ list_insert_tail.exit:                            ; preds = %12, %15
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @ossl_quic_txpim_pkt_add_cfq_item(ptr noundef captures(none) %0, ptr noundef initializes((0, 16)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %4, ptr %5, align 8, !tbaa !32
-  store ptr null, ptr %1, align 8, !tbaa !34
-  store ptr %1, ptr %3, align 8, !tbaa !31
+  store ptr %4, ptr %5, align 8, !tbaa !31
+  store ptr null, ptr %1, align 8, !tbaa !33
+  store ptr %1, ptr %3, align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_quic_txpim_pkt_clear_chunks(ptr noundef writeonly captures(none) initializes((152, 160)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 0, ptr %2, align 8, !tbaa !29
+  store i64 0, ptr %2, align 8, !tbaa !28
   ret void
 }
 
@@ -203,8 +203,8 @@ define void @ossl_quic_txpim_pkt_clear_chunks(ptr noundef writeonly captures(non
 define range(i32 0, 2) i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %5 = load i64, ptr %4, align 8, !tbaa !29
-  %6 = load i64, ptr %3, align 8, !tbaa !35
+  %5 = load i64, ptr %4, align 8, !tbaa !28
+  %6 = load i64, ptr %3, align 8, !tbaa !34
   %7 = icmp eq i64 %5, %6
   br i1 %7, label %8, label %._crit_edge
 
@@ -235,17 +235,17 @@ define range(i32 0, 2) i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef capture
 
 20:                                               ; preds = %.thread
   store ptr %18, ptr %15, align 8, !tbaa !21
-  store i64 %spec.store.select24, ptr %3, align 8, !tbaa !35
-  %.pre22 = load i64, ptr %4, align 8, !tbaa !29
+  store i64 %spec.store.select24, ptr %3, align 8, !tbaa !34
+  %.pre22 = load i64, ptr %4, align 8, !tbaa !28
   br label %21
 
 21:                                               ; preds = %._crit_edge, %20
   %22 = phi i64 [ %5, %._crit_edge ], [ %.pre22, %20 ]
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %18, %20 ]
   %24 = add i64 %22, 1
-  store i64 %24, ptr %4, align 8, !tbaa !29
+  store i64 %24, ptr %4, align 8, !tbaa !28
   %25 = getelementptr inbounds nuw %struct.quic_txpim_chunk_st, ptr %23, i64 %22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !35
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %27 = load i8, ptr %26, align 8
   %28 = or i8 %27, 1
@@ -274,7 +274,7 @@ define ptr @ossl_quic_txpim_pkt_get_chunks(ptr noundef captures(none) %0) local_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %9 = load i64, ptr %8, align 8, !tbaa !29
+  %9 = load i64, ptr %8, align 8, !tbaa !28
   tail call void @qsort(ptr noundef %7, i64 noundef %9, i64 noundef 32, ptr noundef nonnull @compare) #11
   %10 = load i8, ptr %2, align 8
   %11 = and i8 %10, -2
@@ -292,8 +292,8 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
-  %3 = load i64, ptr %0, align 8, !tbaa !39
-  %4 = load i64, ptr %1, align 8, !tbaa !39
+  %3 = load i64, ptr %0, align 8, !tbaa !38
+  %4 = load i64, ptr %1, align 8, !tbaa !38
   %5 = icmp ult i64 %3, %4
   br i1 %5, label %16, label %6
 
@@ -303,9 +303,9 @@ define internal range(i32 -1, 2) i32 @compare(ptr noundef readonly captures(none
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !41
+  %10 = load i64, ptr %9, align 8, !tbaa !40
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !41
+  %12 = load i64, ptr %11, align 8, !tbaa !40
   %13 = icmp ult i64 %10, %12
   br i1 %13, label %16, label %14
 
@@ -322,14 +322,14 @@ define internal range(i32 -1, 2) i32 @compare(ptr noundef readonly captures(none
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_txpim_pkt_get_num_chunks(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %3 = load i64, ptr %2, align 8, !tbaa !29
+  %3 = load i64, ptr %2, align 8, !tbaa !28
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_quic_txpim_get_in_use(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !30
+  %3 = load i64, ptr %2, align 8, !tbaa !29
   ret i64 %3
 }
 
@@ -376,23 +376,22 @@ attributes #11 = { nounwind }
 !19 = !{!"p1 _ZTS12quic_fifd_st", !6, i64 0}
 !20 = !{!"p1 _ZTS19quic_txpim_chunk_st", !6, i64 0}
 !21 = !{!10, !20, i64 144}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!26, !5, i64 0}
-!26 = !{!"quic_txpim_st", !4, i64 0, !13, i64 16}
-!27 = !{!4, !5, i64 8}
-!28 = !{!10, !5, i64 128}
-!29 = !{!10, !13, i64 152}
-!30 = !{!26, !13, i64 16}
-!31 = !{!11, !18, i64 104}
-!32 = !{!33, !18, i64 8}
-!33 = !{!"quic_cfq_item_st", !18, i64 0, !18, i64 8}
-!34 = !{!33, !18, i64 0}
-!35 = !{!10, !13, i64 160}
-!36 = !{i64 0, i64 8, !37, i64 8, i64 8, !37, i64 16, i64 8, !37, i64 24, i64 1, !38}
-!37 = !{!13, !13, i64 0}
-!38 = !{!7, !7, i64 0}
-!39 = !{!40, !13, i64 0}
-!40 = !{!"quic_txpim_chunk_st", !13, i64 0, !13, i64 8, !13, i64 16, !15, i64 24, !15, i64 24, !15, i64 24}
-!41 = !{!40, !13, i64 8}
+!24 = !{!25, !5, i64 0}
+!25 = !{!"quic_txpim_st", !4, i64 0, !13, i64 16}
+!26 = !{!4, !5, i64 8}
+!27 = !{!10, !5, i64 128}
+!28 = !{!10, !13, i64 152}
+!29 = !{!25, !13, i64 16}
+!30 = !{!11, !18, i64 104}
+!31 = !{!32, !18, i64 8}
+!32 = !{!"quic_cfq_item_st", !18, i64 0, !18, i64 8}
+!33 = !{!32, !18, i64 0}
+!34 = !{!10, !13, i64 160}
+!35 = !{i64 0, i64 8, !36, i64 8, i64 8, !36, i64 16, i64 8, !36, i64 24, i64 1, !37}
+!36 = !{!13, !13, i64 0}
+!37 = !{!7, !7, i64 0}
+!38 = !{!39, !13, i64 0}
+!39 = !{!"quic_txpim_chunk_st", !13, i64 0, !13, i64 8, !13, i64 16, !15, i64 24, !15, i64 24, !15, i64 24}
+!40 = !{!39, !13, i64 8}

@@ -133,7 +133,7 @@ define dso_local ptr @v9fs_get_trans_by_name(ptr noundef %0) #0 align 16 {
 31:                                               ; preds = %27, %.preheader
   %32 = load ptr, ptr %22, align 8
   %33 = icmp eq ptr %32, @v9fs_trans_list
-  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !5
 
 .loopexit:                                        ; preds = %31, %27, %18
   %34 = phi ptr [ null, %18 ], [ %22, %27 ], [ null, %31 ]
@@ -171,7 +171,7 @@ define dso_local ptr @v9fs_get_default_trans() #0 align 16 {
 11:                                               ; preds = %7, %.preheader6
   %12 = load ptr, ptr %3, align 8
   %13 = icmp eq ptr %12, @v9fs_trans_list
-  br i1 %13, label %.preheader5.preheader, label %.preheader6, !llvm.loop !10
+  br i1 %13, label %.preheader5.preheader, label %.preheader6, !llvm.loop !8
 
 .loopexit7:                                       ; preds = %7
   %14 = icmp eq ptr %3, null
@@ -198,7 +198,7 @@ define dso_local ptr @v9fs_get_default_trans() #0 align 16 {
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 @try_module_get(ptr noundef %20) #5
-  br i1 %21, label %22, label %.preheader5, !llvm.loop !11
+  br i1 %21, label %22, label %.preheader5, !llvm.loop !9
 
 22:                                               ; preds = %18
   tail call void @_raw_spin_unlock(ptr noundef nonnull @v9fs_trans_lock) #5
@@ -217,7 +217,7 @@ define dso_local ptr @v9fs_get_default_trans() #0 align 16 {
   %29 = icmp eq ptr %27, null
   %30 = icmp samesign ult i64 %24, 5
   %31 = and i1 %30, %29
-  br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %.thread, %22
   %32 = phi ptr [ %16, %22 ], [ %3, %.thread ], [ %27, %.preheader ]
@@ -303,11 +303,9 @@ attributes #6 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}

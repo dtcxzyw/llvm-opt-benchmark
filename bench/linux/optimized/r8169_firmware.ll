@@ -195,7 +195,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @rtl_fw_request_firmware(
   %25 = add i8 %24, %21
   %26 = add nuw i64 %22, 1
   %27 = icmp eq i64 %26, %14
-  br i1 %27, label %28, label %.preheader10, !llvm.loop !9
+  br i1 %27, label %28, label %.preheader10, !llvm.loop !8
 
 28:                                               ; preds = %.preheader10
   %29 = icmp eq i8 %25, 0
@@ -302,7 +302,7 @@ define dso_local noundef range(i32 -2147483648, 1) i32 @rtl_fw_request_firmware(
 84:                                               ; preds = %78, %75, %72, %69, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
   %85 = add nuw i64 %63, 1
   %.not = icmp ult i64 %85, %60
-  br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %.not, label %.preheader, label %.loopexit, !llvm.loop !9
 
 86:                                               ; preds = %69, %72, %75, %78
   %87 = load ptr, ptr %5, align 8
@@ -348,9 +348,8 @@ attributes #4 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}

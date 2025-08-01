@@ -272,7 +272,7 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$alloc..vec..Vec$LT$ruff_pyth
   %21 = getelementptr inbounds nuw { i64, [6 x i64] }, ptr %.val, i64 %.sroa.0.1.i.i
   %22 = add i64 %.sroa.0.1.i.i, 1
   invoke fastcc void @"_ZN4core3ptr60drop_in_place$LT$ruff_python_literal..format..FormatPart$GT$17h9409bf6dd3857871E"(ptr noalias noundef align 8 dereferenceable(56) %21) #5
-          to label %16 unwind label %23, !llvm.loop !40
+          to label %16 unwind label %23
 
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
@@ -311,7 +311,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$ruff_pyth
   %.sroa.0.011.i.i = phi i64 [ %6, %"_ZN4core3ptr63drop_in_place$LT$ruff_python_literal..format..FieldNamePart$GT$17h79fe5445b3f89f04E.exit.i.i" ], [ 0, %1 ]
   %5 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val, i64 %.sroa.0.011.i.i
   %6 = add nuw i64 %.sroa.0.011.i.i, 1
-  %7 = load i64, ptr %5, align 8, !range !28, !alias.scope !42, !noundef !3
+  %7 = load i64, ptr %5, align 8, !range !28, !alias.scope !40, !noundef !3
   %cond.i.i.i = icmp eq i64 %7, 1
   br i1 %cond.i.i.i, label %"_ZN4core3ptr63drop_in_place$LT$ruff_python_literal..format..FieldNamePart$GT$17h79fe5445b3f89f04E.exit.i.i", label %.sink.split.i.i.i
 
@@ -334,7 +334,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$alloc..vec..Vec$LT$ruff_pyth
   %.sroa.0.112.i.i = phi i64 [ %14, %"_ZN4core3ptr63drop_in_place$LT$ruff_python_literal..format..FieldNamePart$GT$17h79fe5445b3f89f04E.exit10.i.i" ], [ %6, %10 ]
   %13 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val, i64 %.sroa.0.112.i.i
   %14 = add i64 %.sroa.0.112.i.i, 1
-  %15 = load i64, ptr %13, align 8, !range !28, !alias.scope !47, !noundef !3
+  %15 = load i64, ptr %13, align 8, !range !28, !alias.scope !45, !noundef !3
   %cond.i7.i.i = icmp eq i64 %15, 1
   br i1 %cond.i7.i.i, label %"_ZN4core3ptr63drop_in_place$LT$ruff_python_literal..format..FieldNamePart$GT$17h79fe5445b3f89f04E.exit10.i.i", label %.sink.split.i8.i.i
 
@@ -492,13 +492,11 @@ attributes #5 = { cold }
 !37 = distinct !{!37, !"_ZN4core3ptr60drop_in_place$LT$ruff_python_literal..format..FormatPart$GT$17h9409bf6dd3857871E"}
 !38 = distinct !{!38, !39, !"_ZN4core3ptr70drop_in_place$LT$$u5b$ruff_python_literal..format..FormatPart$u5d$$GT$17h4c38e72dd8b6addfE: argument 0"}
 !39 = distinct !{!39, !"_ZN4core3ptr70drop_in_place$LT$$u5b$ruff_python_literal..format..FormatPart$u5d$$GT$17h4c38e72dd8b6addfE"}
-!40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"_ZN4core3ptr63drop_in_place$LT$ruff_python_literal..format..FieldNamePart$GT$17h79fe5445b3f89f04E: argument 0"}
-!44 = distinct !{!44, !"_ZN4core3ptr63drop_in_place$LT$ruff_python_literal..format..FieldNamePart$GT$17h79fe5445b3f89f04E"}
-!45 = distinct !{!45, !46, !"_ZN4core3ptr73drop_in_place$LT$$u5b$ruff_python_literal..format..FieldNamePart$u5d$$GT$17hdd04a02800ec87a7E: argument 0"}
-!46 = distinct !{!46, !"_ZN4core3ptr73drop_in_place$LT$$u5b$ruff_python_literal..format..FieldNamePart$u5d$$GT$17hdd04a02800ec87a7E"}
-!47 = !{!48, !45}
-!48 = distinct !{!48, !49, !"_ZN4core3ptr63drop_in_place$LT$ruff_python_literal..format..FieldNamePart$GT$17h79fe5445b3f89f04E: argument 0"}
-!49 = distinct !{!49, !"_ZN4core3ptr63drop_in_place$LT$ruff_python_literal..format..FieldNamePart$GT$17h79fe5445b3f89f04E"}
+!40 = !{!41, !43}
+!41 = distinct !{!41, !42, !"_ZN4core3ptr63drop_in_place$LT$ruff_python_literal..format..FieldNamePart$GT$17h79fe5445b3f89f04E: argument 0"}
+!42 = distinct !{!42, !"_ZN4core3ptr63drop_in_place$LT$ruff_python_literal..format..FieldNamePart$GT$17h79fe5445b3f89f04E"}
+!43 = distinct !{!43, !44, !"_ZN4core3ptr73drop_in_place$LT$$u5b$ruff_python_literal..format..FieldNamePart$u5d$$GT$17hdd04a02800ec87a7E: argument 0"}
+!44 = distinct !{!44, !"_ZN4core3ptr73drop_in_place$LT$$u5b$ruff_python_literal..format..FieldNamePart$u5d$$GT$17hdd04a02800ec87a7E"}
+!45 = !{!46, !43}
+!46 = distinct !{!46, !47, !"_ZN4core3ptr63drop_in_place$LT$ruff_python_literal..format..FieldNamePart$GT$17h79fe5445b3f89f04E: argument 0"}
+!47 = distinct !{!47, !"_ZN4core3ptr63drop_in_place$LT$ruff_python_literal..format..FieldNamePart$GT$17h79fe5445b3f89f04E"}

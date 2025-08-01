@@ -1321,15 +1321,15 @@ define internal fastcc void @print_ca_names(ptr noundef %0) unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.07 = phi i32 [ %14, %.lr.ph ], [ 0, %.preheader ]
-  %9 = load ptr, ptr @bio_err, align 8, !tbaa !83
+  %9 = load ptr, ptr @bio_err, align 8, !tbaa !82
   %10 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.07) #4
   %11 = tail call i32 @X509_NAME_print_ex(ptr noundef %9, ptr noundef %10, i32 noundef 4, i64 noundef 8520479) #4
-  %12 = load ptr, ptr @bio_err, align 8, !tbaa !83
+  %12 = load ptr, ptr @bio_err, align 8, !tbaa !82
   %13 = tail call i32 @BIO_puts(ptr noundef %12, ptr noundef nonnull @.str.108) #4
   %14 = add nuw nsw i32 %.07, 1
   %15 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #4
   %16 = icmp slt i32 %14, %15
-  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !85
+  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %8
   ret void
@@ -1427,9 +1427,8 @@ attributes #4 = { nounwind }
 !77 = !{!14, !15, i64 512}
 !78 = !{!27, !20, i64 136}
 !79 = !{!14, !20, i64 520}
-!80 = distinct !{!80, !81, !82}
+!80 = distinct !{!80, !81}
 !81 = !{!"llvm.loop.mustprogress"}
-!82 = !{!"llvm.loop.estimated_trip_count"}
-!83 = !{!84, !84, i64 0}
-!84 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!85 = distinct !{!85, !81, !82}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!84 = distinct !{!84, !81}

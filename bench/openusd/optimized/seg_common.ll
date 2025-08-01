@@ -58,7 +58,7 @@ define hidden void @av1_calculate_segdata(ptr noundef captures(none) initializes
 20:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond16.not, label %21, label %.preheader, !llvm.loop !7
+  br i1 %exitcond16.not, label %21, label %.preheader, !llvm.loop !6
 
 21:                                               ; preds = %20
   ret void
@@ -117,7 +117,6 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

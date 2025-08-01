@@ -701,7 +701,7 @@ entry:
 for.body.i.i.i:                                   ; preds = %entry, %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i
   %__first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i ], [ %0, %entry ]
   %_M_manager.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 16
-  %2 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !63
+  %2 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8, !tbaa !62
   %tobool.not.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i, label %if.then.i.i.i.i.i
 
@@ -719,7 +719,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
 _ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i:  ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !65
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !64
 
 invoke.contthread-pre-split:                      ; preds = %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %this, align 8, !tbaa !50
@@ -888,7 +888,7 @@ _ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit: ; preds = %_ZNK
   %add.ptr.i = getelementptr inbounds nuw i64, ptr %7, i64 %6
   %8 = load i64, ptr %add.ptr.i, align 8, !tbaa !8
   %cmp.not.i30 = icmp eq ptr %.pre, null
-  br i1 %cmp.not.i30, label %cond.false.i31, label %_ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv.exit33, !prof !66
+  br i1 %cmp.not.i30, label %cond.false.i31, label %_ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv.exit33, !prof !65
 
 cond.false.i31:                                   ; preds = %_ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv, ptr noundef nonnull @.str.10, i64 noundef 784)
@@ -914,12 +914,12 @@ _ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEdeEv.exit: ; preds = %_ZNK
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %__begin1) #22
   call void @_ZNK8QuantLib17FdmLinearOpLayout5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::FdmLinearOpIterator") align 8 %__begin1, ptr noundef nonnull align 8 dereferenceable(56) %12)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %__end1) #22
-  call void @llvm.experimental.noalias.scope.decl(metadata !67)
-  %13 = load i64, ptr %12, align 8, !tbaa !70, !noalias !67
-  store i64 %13, ptr %__end1, align 8, !tbaa !75, !alias.scope !67
+  call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  %13 = load i64, ptr %12, align 8, !tbaa !69, !noalias !66
+  store i64 %13, ptr %__end1, align 8, !tbaa !74, !alias.scope !66
   %dim_.i.i = getelementptr inbounds nuw i8, ptr %__end1, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %dim_.i.i, i8 0, i64 48, i1 false), !alias.scope !67
-  %14 = load i64, ptr %__begin1, align 8, !tbaa !75
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %dim_.i.i, i8 0, i64 48, i1 false), !alias.scope !66
+  %14 = load i64, ptr %__begin1, align 8, !tbaa !74
   %cmp.i.not165 = icmp eq i64 %14, %13
   br i1 %cmp.i.not165, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body.lr.ph
 
@@ -940,7 +940,7 @@ _ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit:       ; preds = %_ZN8QuantLib19FdmLi
 
 if.then.i.i.i.i41:                                ; preds = %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit
   %_M_end_of_storage.i.i.i42 = getelementptr inbounds nuw i8, ptr %__begin1, i64 48
-  %15 = load ptr, ptr %_M_end_of_storage.i.i.i42, align 8, !tbaa !77
+  %15 = load ptr, ptr %_M_end_of_storage.i.i.i42, align 8, !tbaa !76
   %sub.ptr.lhs.cast.i.i.i43 = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i.i44 = ptrtoint ptr %.pre174 to i64
   %sub.ptr.sub.i.i.i45 = sub i64 %sub.ptr.lhs.cast.i.i.i43, %sub.ptr.rhs.cast.i.i.i44
@@ -955,7 +955,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i46:                ; preds = %if.then.i.i.i.i41, 
 
 if.then.i.i.i2.i49:                               ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i46
   %_M_end_of_storage.i.i3.i50 = getelementptr inbounds nuw i8, ptr %__begin1, i64 24
-  %17 = load ptr, ptr %_M_end_of_storage.i.i3.i50, align 8, !tbaa !77
+  %17 = load ptr, ptr %_M_end_of_storage.i.i3.i50, align 8, !tbaa !76
   %sub.ptr.lhs.cast.i.i4.i51 = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i.i5.i52 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i6.i53 = sub i64 %sub.ptr.lhs.cast.i.i4.i51, %sub.ptr.rhs.cast.i.i5.i52
@@ -990,12 +990,12 @@ _ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEdeEv.exit63: ; preds = %_Z
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %__begin132) #22
   call void @_ZNK8QuantLib17FdmLinearOpLayout5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::FdmLinearOpIterator") align 8 %__begin132, ptr noundef nonnull align 8 dereferenceable(56) %21)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %__end133) #22
-  call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  %22 = load i64, ptr %21, align 8, !tbaa !70, !noalias !78
-  store i64 %22, ptr %__end133, align 8, !tbaa !75, !alias.scope !78
+  call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  %22 = load i64, ptr %21, align 8, !tbaa !69, !noalias !77
+  store i64 %22, ptr %__end133, align 8, !tbaa !74, !alias.scope !77
   %dim_.i.i64 = getelementptr inbounds nuw i8, ptr %__end133, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %dim_.i.i64, i8 0, i64 48, i1 false), !alias.scope !78
-  %23 = load i64, ptr %__begin132, align 8, !tbaa !75
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %dim_.i.i64, i8 0, i64 48, i1 false), !alias.scope !77
+  %23 = load i64, ptr %__begin132, align 8, !tbaa !74
   %cmp.i71.not170 = icmp eq i64 %23, %22
   br i1 %cmp.i71.not170, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit87, label %for.body41.lr.ph
 
@@ -1020,7 +1020,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %30 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !8
   %31 = load ptr, ptr %stateEvolveFcts_.i, align 8, !tbaa !50
   %_M_manager.i.i.i = getelementptr inbounds nuw %"class.std::function", ptr %31, i64 %30, i32 0, i32 1
-  %32 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !63
+  %32 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !62
   %tobool.not.i.i.not.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.not.i, label %invoke.cont16, label %if.else.i
 
@@ -1049,9 +1049,9 @@ call6.i.noexc:                                    ; preds = %_ZNK5boost10shared_
   %36 = load ptr, ptr %stateEvolveFcts_.i, align 8, !tbaa !50
   %add.ptr.i4.i = getelementptr inbounds nuw %"class.std::function", ptr %36, i64 %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i.i)
-  store double %call6.i65, ptr %__args.addr.i.i, align 8, !tbaa !81
+  store double %call6.i65, ptr %__args.addr.i.i, align 8, !tbaa !80
   %_M_manager.i.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i4.i, i64 16
-  %37 = load ptr, ptr %_M_manager.i.i5.i, align 8, !tbaa !63
+  %37 = load ptr, ptr %_M_manager.i.i5.i, align 8, !tbaa !62
   %tobool.not.i.i6.i = icmp eq ptr %37, null
   br i1 %tobool.not.i.i6.i, label %if.then.i.i, label %_ZNKSt8functionIFddEEclEd.exit.i
 
@@ -1064,13 +1064,13 @@ if.then.i.i:                                      ; preds = %call6.i.noexc
 
 _ZNKSt8functionIFddEEclEd.exit.i:                 ; preds = %call6.i.noexc
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i4.i, i64 24
-  %38 = load ptr, ptr %_M_invoker.i.i, align 8, !tbaa !82
+  %38 = load ptr, ptr %_M_invoker.i.i, align 8, !tbaa !81
   %call2.i.i67 = invoke noundef double %38(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i4.i, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i.i)
           to label %call2.i.i.noexc unwind label %lpad13.loopexit
 
 call2.i.i.noexc:                                  ; preds = %_ZNKSt8functionIFddEEclEd.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i.i)
-  %.pre172 = load i64, ptr %__begin1, align 8, !tbaa !75
+  %.pre172 = load i64, ptr %__begin1, align 8, !tbaa !74
   br label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %call2.i.i.noexc, %for.body
@@ -1078,12 +1078,12 @@ invoke.cont16:                                    ; preds = %call2.i.i.noexc, %f
   %retval.0.i = phi double [ %call2.i.i67, %call2.i.i.noexc ], [ 0.000000e+00, %for.body ]
   %40 = load ptr, ptr %a, align 8, !tbaa !58
   %arrayidx.i = getelementptr inbounds nuw double, ptr %40, i64 %39
-  %41 = load double, ptr %arrayidx.i, align 8, !tbaa !81
+  %41 = load double, ptr %arrayidx.i, align 8, !tbaa !80
   %add = fadd double %retval.0.i, %41
-  store double %add, ptr %arrayidx.i, align 8, !tbaa !81
+  store double %add, ptr %arrayidx.i, align 8, !tbaa !80
   %inc.i = add i64 %39, 1
-  store i64 %inc.i, ptr %__begin1, align 8, !tbaa !75
-  %42 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !84
+  store i64 %inc.i, ptr %__begin1, align 8, !tbaa !74
+  %42 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !83
   %43 = load ptr, ptr %dim_.i68, align 8, !tbaa !56
   %cmp7.not.i = icmp eq ptr %42, %43
   br i1 %cmp7.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit, label %for.body.lr.ph.i
@@ -1111,16 +1111,16 @@ if.then.i:                                        ; preds = %for.body.i
   store i64 0, ptr %add.ptr.i.i70, align 8, !tbaa !8
   %inc9.i = add nuw i64 %i.08.i, 1
   %exitcond.not.i = icmp eq i64 %inc9.i, %sub.ptr.div.i.i
-  br i1 %exitcond.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, label %for.body.i, !llvm.loop !85
+  br i1 %exitcond.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, label %for.body.i, !llvm.loop !84
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit: ; preds = %if.then.i, %for.body.i
-  %.pre173 = load i64, ptr %__begin1, align 8, !tbaa !75
+  %.pre173 = load i64, ptr %__begin1, align 8, !tbaa !74
   br label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit:       ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, %invoke.cont16
   %47 = phi i64 [ %.pre173, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit ], [ %inc.i, %invoke.cont16 ]
   %cmp.i.not = icmp eq i64 %47, %13
-  br i1 %cmp.i.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body, !llvm.loop !86
+  br i1 %cmp.i.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body
 
 lpad13.loopexit:                                  ; preds = %cond.false.i.i, %_ZNK5boost10shared_ptrIN8QuantLib23FdmInnerValueCalculatorEEptEv.exit.i, %_ZNKSt8functionIFddEEclEd.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1149,7 +1149,7 @@ _ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit87:     ; preds = %_ZN8QuantLib19FdmLi
 
 if.then.i.i.i.i90:                                ; preds = %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit87
   %_M_end_of_storage.i.i.i91 = getelementptr inbounds nuw i8, ptr %__begin132, i64 48
-  %48 = load ptr, ptr %_M_end_of_storage.i.i.i91, align 8, !tbaa !77
+  %48 = load ptr, ptr %_M_end_of_storage.i.i.i91, align 8, !tbaa !76
   %sub.ptr.lhs.cast.i.i.i92 = ptrtoint ptr %48 to i64
   %sub.ptr.rhs.cast.i.i.i93 = ptrtoint ptr %.pre177 to i64
   %sub.ptr.sub.i.i.i94 = sub i64 %sub.ptr.lhs.cast.i.i.i92, %sub.ptr.rhs.cast.i.i.i93
@@ -1164,7 +1164,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i95:                ; preds = %if.then.i.i.i.i90, 
 
 if.then.i.i.i2.i98:                               ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i95
   %_M_end_of_storage.i.i3.i99 = getelementptr inbounds nuw i8, ptr %__begin132, i64 24
-  %50 = load ptr, ptr %_M_end_of_storage.i.i3.i99, align 8, !tbaa !77
+  %50 = load ptr, ptr %_M_end_of_storage.i.i3.i99, align 8, !tbaa !76
   %sub.ptr.lhs.cast.i.i4.i100 = ptrtoint ptr %50 to i64
   %sub.ptr.rhs.cast.i.i5.i101 = ptrtoint ptr %49 to i64
   %sub.ptr.sub.i.i6.i102 = sub i64 %sub.ptr.lhs.cast.i.i4.i100, %sub.ptr.rhs.cast.i.i5.i101
@@ -1190,7 +1190,7 @@ if.then:                                          ; preds = %for.body41
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %if.then
   store ptr null, ptr %x, align 8, !tbaa !58
-  store i64 %9, ptr %n_.i, align 8, !tbaa !87
+  store i64 %9, ptr %n_.i, align 8, !tbaa !85
   br label %for.cond.cleanup54
 
 cond.true.i:                                      ; preds = %if.then
@@ -1199,7 +1199,7 @@ cond.true.i:                                      ; preds = %if.then
 
 for.body55.preheader:                             ; preds = %cond.true.i
   store ptr %call.i107, ptr %x, align 8, !tbaa !58
-  store i64 %9, ptr %n_.i, align 8, !tbaa !87
+  store i64 %9, ptr %n_.i, align 8, !tbaa !85
   br label %for.body55
 
 for.cond.cleanup54:                               ; preds = %invoke.cont65, %_ZN8QuantLib5ArrayC2Em.exit.thread
@@ -1259,13 +1259,13 @@ invoke.cont62:                                    ; preds = %.noexc121, %invoke.
 invoke.cont65:                                    ; preds = %invoke.cont62
   %62 = load ptr, ptr %a, align 8, !tbaa !58
   %arrayidx.i123 = getelementptr inbounds nuw double, ptr %62, i64 %call66
-  %63 = load double, ptr %arrayidx.i123, align 8, !tbaa !81
+  %63 = load double, ptr %arrayidx.i123, align 8, !tbaa !80
   %64 = load ptr, ptr %x, align 8, !tbaa !58
   %arrayidx.i124 = getelementptr inbounds nuw double, ptr %64, i64 %i.0167
-  store double %63, ptr %arrayidx.i124, align 8, !tbaa !81
+  store double %63, ptr %arrayidx.i124, align 8, !tbaa !80
   %inc = add nuw i64 %i.0167, 1
   %exitcond.not = icmp eq i64 %inc, %9
-  br i1 %exitcond.not, label %for.cond.cleanup54, label %for.body55, !llvm.loop !95
+  br i1 %exitcond.not, label %for.cond.cleanup54, label %for.body55, !llvm.loop !93
 
 lpad57:                                           ; preds = %cond.false.i119, %cond.false.i113, %invoke.cont62
   %65 = landingpad { ptr, i32 }
@@ -1319,7 +1319,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib5ArrayD2Ev.exit128:                   ; preds = %for.cond.cleanup88, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %x) #22
-  %.pre175 = load i64, ptr %__begin132, align 8, !tbaa !75
+  %.pre175 = load i64, ptr %__begin132, align 8, !tbaa !74
   br label %if.end
 
 lpad74:                                           ; preds = %cond.false.i109, %invoke.cont75
@@ -1337,7 +1337,7 @@ for.body89:                                       ; preds = %_ZN8QuantLib5ArrayD
   %i85.0169 = phi i64 [ %inc107, %invoke.cont102 ], [ 0, %_ZN8QuantLib5ArrayD2Ev.exit ]
   %76 = load ptr, ptr %x, align 8, !tbaa !58
   %arrayidx.i129 = getelementptr inbounds nuw double, ptr %76, i64 %i85.0169
-  %77 = load double, ptr %arrayidx.i129, align 8, !tbaa !81
+  %77 = load double, ptr %arrayidx.i129, align 8, !tbaa !80
   %78 = load ptr, ptr %mesher_, align 8, !tbaa !48
   %cmp.not.i130 = icmp eq ptr %78, null
   br i1 %cmp.not.i130, label %cond.false.i131, label %invoke.cont94, !prof !53
@@ -1375,10 +1375,10 @@ invoke.cont98:                                    ; preds = %.noexc139, %invoke.
 invoke.cont102:                                   ; preds = %invoke.cont98
   %83 = load ptr, ptr %a, align 8, !tbaa !58
   %arrayidx.i141 = getelementptr inbounds nuw double, ptr %83, i64 %call103
-  store double %77, ptr %arrayidx.i141, align 8, !tbaa !81
+  store double %77, ptr %arrayidx.i141, align 8, !tbaa !80
   %inc107 = add nuw i64 %i85.0169, 1
   %exitcond171.not = icmp eq i64 %inc107, %9
-  br i1 %exitcond171.not, label %for.cond.cleanup88, label %for.body89, !llvm.loop !96
+  br i1 %exitcond171.not, label %for.cond.cleanup88, label %for.body89, !llvm.loop !94
 
 lpad90:                                           ; preds = %cond.false.i137, %cond.false.i131, %invoke.cont98
   %84 = landingpad { ptr, i32 }
@@ -1407,8 +1407,8 @@ ehcleanup112:                                     ; preds = %_ZNKSt14default_del
 if.end:                                           ; preds = %_ZN8QuantLib5ArrayD2Ev.exit128, %for.body41
   %86 = phi i64 [ %.pre175, %_ZN8QuantLib5ArrayD2Ev.exit128 ], [ %51, %for.body41 ]
   %inc.i145 = add i64 %86, 1
-  store i64 %inc.i145, ptr %__begin132, align 8, !tbaa !75
-  %87 = load ptr, ptr %_M_finish.i.i147, align 8, !tbaa !84
+  store i64 %inc.i145, ptr %__begin132, align 8, !tbaa !74
+  %87 = load ptr, ptr %_M_finish.i.i147, align 8, !tbaa !83
   %88 = load ptr, ptr %dim_.i146, align 8, !tbaa !56
   %cmp7.not.i148 = icmp eq ptr %87, %88
   br i1 %cmp7.not.i148, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit164, label %for.body.lr.ph.i149
@@ -1436,16 +1436,16 @@ if.then.i161:                                     ; preds = %for.body.i155
   store i64 0, ptr %add.ptr.i.i157, align 8, !tbaa !8
   %inc9.i162 = add nuw i64 %i.08.i156, 1
   %exitcond.not.i163 = icmp eq i64 %inc9.i162, %sub.ptr.div.i.i153
-  br i1 %exitcond.not.i163, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit164.loopexit, label %for.body.i155, !llvm.loop !85
+  br i1 %exitcond.not.i163, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit164.loopexit, label %for.body.i155, !llvm.loop !84
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit164.loopexit: ; preds = %if.then.i161, %for.body.i155
-  %.pre176 = load i64, ptr %__begin132, align 8, !tbaa !75
+  %.pre176 = load i64, ptr %__begin132, align 8, !tbaa !74
   br label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit164
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit164:    ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit164.loopexit, %if.end
   %92 = phi i64 [ %.pre176, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit164.loopexit ], [ %inc.i145, %if.end ]
   %cmp.i71.not = icmp eq i64 %92, %22
-  br i1 %cmp.i71.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit87, label %for.body41, !llvm.loop !97
+  br i1 %cmp.i71.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit87, label %for.body41
 
 ehcleanup122:                                     ; preds = %ehcleanup112, %lpad13
   %.pn24.pn = phi { ptr, i32 } [ %lpad.phi, %lpad13 ], [ %.pn20.pn, %ehcleanup112 ]
@@ -1457,7 +1457,7 @@ define linkonce_odr void @_ZNK8QuantLib17FdmLinearOpLayout5beginEv(ptr dead_on_u
 entry:
   %dim_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !84
+  %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !83
   %1 = load ptr, ptr %dim_, align 8, !tbaa !56
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -1486,13 +1486,13 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %cond.true.i.i.i.i
 _ZNSt6vectorImSaImEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.thread, %if.then.i.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i28 = phi ptr [ %add.ptr.i.i.i26, %invoke.cont.i.thread ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i ]
   %cond.i.i.i.i27 = phi ptr [ null, %invoke.cont.i.thread ], [ %call5.i.i.i.i2.i6.i, %if.then.i.i.i.i.i.i.i.i.i ]
-  store i64 0, ptr %agg.result, align 8, !tbaa !75
+  store i64 0, ptr %agg.result, align 8, !tbaa !74
   %dim_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %cond.i.i.i.i27, ptr %dim_.i, align 8, !tbaa !56
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store ptr %add.ptr.i.i.i28, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !84
+  store ptr %add.ptr.i.i.i28, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !83
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
-  store ptr %add.ptr.i.i.i28, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !77
+  store ptr %add.ptr.i.i.i28, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !76
   %coordinates_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   %sub.ptr.lhs.cast.i.i1 = ptrtoint ptr %add.ptr.i.i.i28 to i64
   %sub.ptr.rhs.cast.i.i2 = ptrtoint ptr %cond.i.i.i.i27 to i64
@@ -1520,7 +1520,7 @@ call5.i.i.i.i2.i.i.noexc.i:                       ; preds = %if.end.i.i.i.i.i.i.
   store ptr %call5.i.i.i.i2.i.i1.i, ptr %coordinates_.i, align 8, !tbaa !56
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i, i64 %sub.ptr.sub.i.i3
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
-  store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !77
+  store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !76
   %2 = add i64 %sub.ptr.lhs.cast.i.i1, -8
   %3 = sub i64 %2, %sub.ptr.rhs.cast.i.i2
   %4 = and i64 %3, -8
@@ -1541,7 +1541,7 @@ if.then.i.i.i.i:                                  ; preds = %lpad.i
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i, %call5.i.i.i.i2.i.i.noexc.i
   %retval.0.i.i.i.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %call5.i.i.i.i2.i.i.noexc.i ], [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %_M_finish.i.i7.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
-  store ptr %retval.0.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !tbaa !84
+  store ptr %retval.0.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !tbaa !83
   ret void
 
 _ZNSt6vectorImSaImEED2Ev.exit17:                  ; preds = %if.then.i.i.i.i, %lpad.i
@@ -1561,7 +1561,7 @@ entry:
   %stateEvolveFcts_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %3 = load ptr, ptr %stateEvolveFcts_, align 8, !tbaa !50
   %_M_manager.i.i = getelementptr inbounds nuw %"class.std::function", ptr %3, i64 %2, i32 0, i32 1
-  %4 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !63
+  %4 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !62
   %tobool.not.i.i.not = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.not, label %cleanup, label %if.else
 
@@ -1585,9 +1585,9 @@ _ZNK5boost10shared_ptrIN8QuantLib23FdmInnerValueCalculatorEEptEv.exit: ; preds =
   %8 = load ptr, ptr %stateEvolveFcts_, align 8, !tbaa !50
   %add.ptr.i4 = getelementptr inbounds nuw %"class.std::function", ptr %8, i64 %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr.i)
-  store double %call6, ptr %__args.addr.i, align 8, !tbaa !81
+  store double %call6, ptr %__args.addr.i, align 8, !tbaa !80
   %_M_manager.i.i5 = getelementptr inbounds nuw i8, ptr %add.ptr.i4, i64 16
-  %9 = load ptr, ptr %_M_manager.i.i5, align 8, !tbaa !63
+  %9 = load ptr, ptr %_M_manager.i.i5, align 8, !tbaa !62
   %tobool.not.i.i6 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i6, label %if.then.i, label %_ZNKSt8functionIFddEEclEd.exit
 
@@ -1597,7 +1597,7 @@ if.then.i:                                        ; preds = %_ZNK5boost10shared_
 
 _ZNKSt8functionIFddEEclEd.exit:                   ; preds = %_ZNK5boost10shared_ptrIN8QuantLib23FdmInnerValueCalculatorEEptEv.exit
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %add.ptr.i4, i64 24
-  %10 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !82
+  %10 = load ptr, ptr %_M_invoker.i, align 8, !tbaa !81
   %call2.i = call noundef double %10(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i4, ptr noundef nonnull align 8 dereferenceable(8) %__args.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__args.addr.i)
   br label %cleanup
@@ -1617,7 +1617,7 @@ entry:
 
 if.then.i.i.i:                                    ; preds = %entry
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !77
+  %1 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !76
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1632,7 +1632,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 
 if.then.i.i.i2:                                   ; preds = %_ZNSt6vectorImSaImEED2Ev.exit
   %_M_end_of_storage.i.i3 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %3 = load ptr, ptr %_M_end_of_storage.i.i3, align 8, !tbaa !77
+  %3 = load ptr, ptr %_M_end_of_storage.i.i3, align 8, !tbaa !76
   %sub.ptr.lhs.cast.i.i4 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i5 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i6 = sub i64 %sub.ptr.lhs.cast.i.i4, %sub.ptr.rhs.cast.i.i5
@@ -1694,7 +1694,7 @@ entry:
 for.body.i.i.i.i:                                 ; preds = %entry, %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i ], [ %0, %entry ]
   %_M_manager.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 16
-  %2 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !63
+  %2 = load ptr, ptr %_M_manager.i.i.i.i.i.i, align 8, !tbaa !62
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i
 
@@ -1712,7 +1712,7 @@ terminate.lpad.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 _ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !65
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !64
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyISt8functionIFddEEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %stateEvolveFcts_, align 8, !tbaa !50
@@ -1905,8 +1905,8 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef double @"_ZNSt17_Function_handlerIFddEZN8QuantLib19FdmVPPStepConditionC1ERKNS1_25FdmVPPStepConditionParamsEmRKNS1_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS1_23FdmInnerValueCalculatorEEESC_E3$_0E9_M_invokeERKSt9_Any_dataOd"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #18 align 2 {
 entry:
-  %call.val = load ptr, ptr %__functor, align 8, !tbaa !98
-  %__args.val = load double, ptr %__args, align 8, !tbaa !81
+  %call.val = load ptr, ptr %__functor, align 8, !tbaa !95
+  %__args.val = load double, ptr %__args, align 8, !tbaa !80
   %pMin_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val, i64 16
   %0 = load double, ptr %pMin_.i.i.i.i, align 8, !tbaa !31
   %heatRate_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val, i64 8
@@ -1948,8 +1948,8 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef double @"_ZNSt17_Function_handlerIFddEZN8QuantLib19FdmVPPStepConditionC1ERKNS1_25FdmVPPStepConditionParamsEmRKNS1_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS1_23FdmInnerValueCalculatorEEESC_E3$_1E9_M_invokeERKSt9_Any_dataOd"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #18 align 2 {
 entry:
-  %call.val = load ptr, ptr %__functor, align 8, !tbaa !100
-  %__args.val = load double, ptr %__args, align 8, !tbaa !81
+  %call.val = load ptr, ptr %__functor, align 8, !tbaa !97
+  %__args.val = load double, ptr %__args, align 8, !tbaa !80
   %pMax_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val, i64 24
   %0 = load double, ptr %pMax_.i.i.i.i, align 8, !tbaa !33
   %heatRate_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.val, i64 8
@@ -2087,45 +2087,42 @@ attributes #26 = { builtin nounwind }
 !57 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
 !58 = !{!5, !5, i64 0}
 !59 = !{i64 0, i64 16, !12}
-!60 = distinct !{!60, !61, !62}
+!60 = distinct !{!60, !61}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!"llvm.loop.estimated_trip_count"}
-!63 = !{!64, !5, i64 16}
-!64 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
-!65 = distinct !{!65, !61, !62}
-!66 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv: %agg.result"}
-!69 = distinct !{!69, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv"}
-!70 = !{!71, !9, i64 0}
-!71 = !{!"_ZTSN8QuantLib17FdmLinearOpLayoutE", !9, i64 0, !72, i64 8, !72, i64 32}
-!72 = !{!"_ZTSSt6vectorImSaImEE", !73, i64 0}
-!73 = !{!"_ZTSSt12_Vector_baseImSaImEE", !74, i64 0}
-!74 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !57, i64 0}
-!75 = !{!76, !9, i64 0}
-!76 = !{!"_ZTSN8QuantLib19FdmLinearOpIteratorE", !9, i64 0, !72, i64 8, !72, i64 32}
-!77 = !{!57, !5, i64 16}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv: %agg.result"}
-!80 = distinct !{!80, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv"}
-!81 = !{!20, !20, i64 0}
-!82 = !{!83, !5, i64 24}
-!83 = !{!"_ZTSSt8functionIFddEE", !64, i64 0, !5, i64 24}
-!84 = !{!57, !5, i64 8}
-!85 = distinct !{!85, !61, !62}
-!86 = distinct !{!86, !62}
-!87 = !{!88, !9, i64 8}
-!88 = !{!"_ZTSN8QuantLib5ArrayE", !89, i64 0, !9, i64 8}
-!89 = !{!"_ZTSSt10unique_ptrIA_dSt14default_deleteIS0_EE", !90, i64 0}
-!90 = !{!"_ZTSSt15__uniq_ptr_dataIdSt14default_deleteIA_dELb1ELb1EE", !91, i64 0}
-!91 = !{!"_ZTSSt15__uniq_ptr_implIdSt14default_deleteIA_dEE", !92, i64 0}
-!92 = !{!"_ZTSSt5tupleIJPdSt14default_deleteIA_dEEE", !93, i64 0}
-!93 = !{!"_ZTSSt11_Tuple_implILm0EJPdSt14default_deleteIA_dEEE", !94, i64 0}
-!94 = !{!"_ZTSSt10_Head_baseILm0EPdLb0EE", !5, i64 0}
-!95 = distinct !{!95, !61, !62}
-!96 = distinct !{!96, !61, !62}
-!97 = distinct !{!97, !62}
-!98 = !{!99, !5, i64 0}
-!99 = !{!"_ZTSZN8QuantLib19FdmVPPStepConditionC1ERKNS_25FdmVPPStepConditionParamsEmRKNS_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS_23FdmInnerValueCalculatorEEESA_E3$_0", !5, i64 0}
-!100 = !{!101, !5, i64 0}
-!101 = !{!"_ZTSZN8QuantLib19FdmVPPStepConditionC1ERKNS_25FdmVPPStepConditionParamsEmRKNS_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS_23FdmInnerValueCalculatorEEESA_E3$_1", !5, i64 0}
+!62 = !{!63, !5, i64 16}
+!63 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
+!64 = distinct !{!64, !61}
+!65 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv: %agg.result"}
+!68 = distinct !{!68, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv"}
+!69 = !{!70, !9, i64 0}
+!70 = !{!"_ZTSN8QuantLib17FdmLinearOpLayoutE", !9, i64 0, !71, i64 8, !71, i64 32}
+!71 = !{!"_ZTSSt6vectorImSaImEE", !72, i64 0}
+!72 = !{!"_ZTSSt12_Vector_baseImSaImEE", !73, i64 0}
+!73 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !57, i64 0}
+!74 = !{!75, !9, i64 0}
+!75 = !{!"_ZTSN8QuantLib19FdmLinearOpIteratorE", !9, i64 0, !71, i64 8, !71, i64 32}
+!76 = !{!57, !5, i64 16}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv: %agg.result"}
+!79 = distinct !{!79, !"_ZNK8QuantLib17FdmLinearOpLayout3endEv"}
+!80 = !{!20, !20, i64 0}
+!81 = !{!82, !5, i64 24}
+!82 = !{!"_ZTSSt8functionIFddEE", !63, i64 0, !5, i64 24}
+!83 = !{!57, !5, i64 8}
+!84 = distinct !{!84, !61}
+!85 = !{!86, !9, i64 8}
+!86 = !{!"_ZTSN8QuantLib5ArrayE", !87, i64 0, !9, i64 8}
+!87 = !{!"_ZTSSt10unique_ptrIA_dSt14default_deleteIS0_EE", !88, i64 0}
+!88 = !{!"_ZTSSt15__uniq_ptr_dataIdSt14default_deleteIA_dELb1ELb1EE", !89, i64 0}
+!89 = !{!"_ZTSSt15__uniq_ptr_implIdSt14default_deleteIA_dEE", !90, i64 0}
+!90 = !{!"_ZTSSt5tupleIJPdSt14default_deleteIA_dEEE", !91, i64 0}
+!91 = !{!"_ZTSSt11_Tuple_implILm0EJPdSt14default_deleteIA_dEEE", !92, i64 0}
+!92 = !{!"_ZTSSt10_Head_baseILm0EPdLb0EE", !5, i64 0}
+!93 = distinct !{!93, !61}
+!94 = distinct !{!94, !61}
+!95 = !{!96, !5, i64 0}
+!96 = !{!"_ZTSZN8QuantLib19FdmVPPStepConditionC1ERKNS_25FdmVPPStepConditionParamsEmRKNS_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS_23FdmInnerValueCalculatorEEESA_E3$_0", !5, i64 0}
+!97 = !{!98, !5, i64 0}
+!98 = !{!"_ZTSZN8QuantLib19FdmVPPStepConditionC1ERKNS_25FdmVPPStepConditionParamsEmRKNS_25FdmVPPStepConditionMesherEN5boost10shared_ptrINS_23FdmInnerValueCalculatorEEESA_E3$_1", !5, i64 0}

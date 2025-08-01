@@ -608,7 +608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 60:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
-  %62 = load ptr, ptr %61, align 8, !tbaa !38
+  %62 = load ptr, ptr %61, align 8, !tbaa !37
   %63 = load ptr, ptr %62, align 8, !tbaa !14
   %64 = load ptr, ptr %63, align 8
   %65 = call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr noundef nonnull %1, ptr noundef %2)
@@ -781,7 +781,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 60:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
-  %62 = load ptr, ptr %61, align 8, !tbaa !38
+  %62 = load ptr, ptr %61, align 8, !tbaa !37
   %63 = load ptr, ptr %62, align 8, !tbaa !14
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
@@ -798,26 +798,26 @@ define noundef zeroext i1 @_ZN3g2o33HyperGraphElementActionCollection14registerA
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
   %2 = alloca i64, align 8
   %3 = alloca %"struct.std::pair.8", align 8
-  %4 = load ptr, ptr %1, align 8, !tbaa !38
+  %4 = load ptr, ptr %1, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #27
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %7, ptr %3, align 8, !tbaa !20, !alias.scope !43
-  %8 = load ptr, ptr %6, align 8, !tbaa !23, !noalias !43
+  store ptr %7, ptr %3, align 8, !tbaa !20, !alias.scope !42
+  %8 = load ptr, ptr %6, align 8, !tbaa !23, !noalias !42
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !25, !noalias !43
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #27, !noalias !43
-  store i64 %10, ptr %2, align 8, !tbaa !26, !noalias !43
+  %10 = load i64, ptr %9, align 8, !tbaa !25, !noalias !42
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #27, !noalias !42
+  store i64 %10, ptr %2, align 8, !tbaa !26, !noalias !42
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
-  store ptr %12, ptr %3, align 8, !tbaa !23, !alias.scope !43
-  %13 = load i64, ptr %2, align 8, !tbaa !26, !noalias !43
-  store i64 %13, ptr %7, align 8, !tbaa !27, !alias.scope !43
+  store ptr %12, ptr %3, align 8, !tbaa !23, !alias.scope !42
+  %13 = load i64, ptr %2, align 8, !tbaa !26, !noalias !42
+  store i64 %13, ptr %7, align 8, !tbaa !27, !alias.scope !42
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
@@ -837,33 +837,33 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i.i: ; preds = %17, %15, %._crit_edge.i.i.i.i
-  %18 = load i64, ptr %2, align 8, !tbaa !26, !noalias !43
+  %18 = load i64, ptr %2, align 8, !tbaa !26, !noalias !42
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %18, ptr %19, align 8, !tbaa !25, !alias.scope !43
-  %20 = load ptr, ptr %3, align 8, !tbaa !23, !alias.scope !43
+  store i64 %18, ptr %19, align 8, !tbaa !25, !alias.scope !42
+  %20 = load ptr, ptr %3, align 8, !tbaa !23, !alias.scope !42
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store i8 0, ptr %21, align 1, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #27, !noalias !43
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #27, !noalias !42
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %23 = load ptr, ptr %1, align 8, !tbaa !38, !noalias !43
-  store ptr %23, ptr %22, align 8, !tbaa !38, !alias.scope !43
+  %23 = load ptr, ptr %1, align 8, !tbaa !37, !noalias !42
+  store ptr %23, ptr %22, align 8, !tbaa !37, !alias.scope !42
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !46, !noalias !43
-  store ptr %26, ptr %24, align 8, !tbaa !46, !alias.scope !43
+  %26 = load ptr, ptr %25, align 8, !tbaa !45, !noalias !42
+  store ptr %26, ptr %24, align 8, !tbaa !45, !alias.scope !42
   %.not.i.i.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i.i.i, label %_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN3g2o23HyperGraphElementActionEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSF_INSG_IT0_E4typeEE6__typeEEOSH_OSM_.exit, label %27
 
 27:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i.i
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27, !noalias !43
+  %29 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !27, !noalias !42
   %.not.i.i.i.i.i.i = icmp eq i8 %29, 0
   br i1 %.not.i.i.i.i.i.i, label %33, label %30
 
 30:                                               ; preds = %27
-  %31 = load i32, ptr %28, align 4, !tbaa !47
+  %31 = load i32, ptr %28, align 4, !tbaa !46
   %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %28, align 4, !tbaa !47
+  store i32 %32, ptr %28, align 4, !tbaa !46
   br label %_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN3g2o23HyperGraphElementActionEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSF_INSG_IT0_E4typeEE6__typeEEOSH_OSM_.exit
 
 33:                                               ; preds = %27
@@ -875,7 +875,7 @@ _ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10share
           to label %36 unwind label %65
 
 36:                                               ; preds = %_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN3g2o23HyperGraphElementActionEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSF_INSG_IT0_E4typeEE6__typeEEOSH_OSM_.exit
-  %37 = load ptr, ptr %24, align 8, !tbaa !46
+  %37 = load ptr, ptr %24, align 8, !tbaa !45
   %.not.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %38
 
@@ -887,9 +887,9 @@ _ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10share
   br i1 %41, label %43, label %51
 
 43:                                               ; preds = %38
-  store i32 0, ptr %39, align 8, !tbaa !48
+  store i32 0, ptr %39, align 8, !tbaa !47
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  store i32 0, ptr %44, align 4, !tbaa !50
+  store i32 0, ptr %44, align 4, !tbaa !49
   %45 = load ptr, ptr %37, align 8, !tbaa !14
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
@@ -907,7 +907,7 @@ _ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10share
 
 53:                                               ; preds = %51
   %54 = add nsw i32 %42, -1
-  store i32 %54, ptr %39, align 4, !tbaa !47
+  store i32 %54, ptr %39, align 4, !tbaa !46
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 55:                                               ; preds = %51
@@ -917,7 +917,7 @@ _ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10share
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %55, %53
   %.0.i.i.i.i.i = phi i32 [ %42, %53 ], [ %56, %55 ]
   %57 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %57, label %58, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !51
+  br i1 %57, label %58, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !50
 
 58:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %37) #27
@@ -1045,7 +1045,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -1057,9 +1057,9 @@ define linkonce_odr void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsI
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !48
+  store i32 0, ptr %5, align 8, !tbaa !47
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !50
+  store i32 0, ptr %10, align 4, !tbaa !49
   %11 = load ptr, ptr %3, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -1077,7 +1077,7 @@ define linkonce_odr void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsI
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !47
+  store i32 %20, ptr %5, align 4, !tbaa !46
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -1087,7 +1087,7 @@ define linkonce_odr void @_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsI
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   %.0.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !51
+  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !50
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
@@ -1126,13 +1126,13 @@ define noundef zeroext i1 @_ZN3g2o33HyperGraphElementActionCollection16unregiste
   br i1 %.not11.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %7 = load ptr, ptr %1, align 8, !tbaa !38
+  %7 = load ptr, ptr %1, align 8, !tbaa !37
   br label %8
 
 8:                                                ; preds = %.lr.ph, %13
   %.sroa.05.012 = phi ptr [ %5, %.lr.ph ], [ %14, %13 ]
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.012, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !38
+  %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = icmp eq ptr %10, %7
   br i1 %11, label %12, label %13
 
@@ -1143,7 +1143,7 @@ define noundef zeroext i1 @_ZN3g2o33HyperGraphElementActionCollection16unregiste
 13:                                               ; preds = %8
   %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.012) #29
   %.not.not = icmp eq ptr %14, %6
-  br i1 %.not.not, label %.loopexit, label %8, !llvm.loop !52
+  br i1 %.not.not, label %.loopexit, label %8, !llvm.loop !51
 
 .loopexit:                                        ; preds = %13, %2, %12
   %.not9 = phi i1 [ true, %12 ], [ false, %2 ], [ false, %13 ]
@@ -1289,7 +1289,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g
 
 28:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit
   %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
-  %30 = load ptr, ptr %29, align 8, !tbaa !38
+  %30 = load ptr, ptr %29, align 8, !tbaa !37
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.thread: ; preds = %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit, %28
@@ -1302,7 +1302,7 @@ define noundef zeroext i1 @_ZN3g2o23HyperGraphActionLibrary14registerActionERKSt
   %3 = alloca i64, align 8
   %4 = alloca %"struct.std::pair.8", align 8
   %5 = alloca %"class.std::shared_ptr", align 8
-  %6 = load ptr, ptr %1, align 8, !tbaa !38
+  %6 = load ptr, ptr %1, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !8
@@ -1381,7 +1381,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g
 
 _ZN3g2o23HyperGraphActionLibrary12actionByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !38
+  %34 = load ptr, ptr %33, align 8, !tbaa !37
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN3g2o23HyperGraphActionLibrary12actionByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %35
 
@@ -1401,9 +1401,9 @@ _ZN3g2o23HyperGraphActionLibrary12actionByNameERKNSt7__cxx1112basic_stringIcSt11
 
 40:                                               ; preds = %_ZN3g2o23HyperGraphActionLibrary12actionByNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #27
-  %41 = load ptr, ptr %1, align 8, !tbaa !38
+  %41 = load ptr, ptr %1, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #27
-  store ptr %39, ptr %5, align 8, !tbaa !38
+  store ptr %39, ptr %5, align 8, !tbaa !37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %43 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #30
           to label %_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2INS0_33HyperGraphElementActionCollectionEvEEPT_.exit unwind label %44
@@ -1443,21 +1443,21 @@ common.resume:                                    ; preds = %132, %138, %51
 _ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2INS0_33HyperGraphElementActionCollectionEvEEPT_.exit: ; preds = %40
   %57 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i32 1, ptr %58, align 8, !tbaa !48
+  store i32 1, ptr %58, align 8, !tbaa !47
   %59 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  store i32 1, ptr %59, align 4, !tbaa !50
+  store i32 1, ptr %59, align 4, !tbaa !49
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN3g2o33HyperGraphElementActionCollectionELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %43, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store ptr %39, ptr %60, align 8, !tbaa !53
-  store ptr %43, ptr %42, align 8, !tbaa !46
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  store ptr %39, ptr %60, align 8, !tbaa !52
+  store ptr %43, ptr %42, align 8, !tbaa !45
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %61, ptr %4, align 8, !tbaa !20, !alias.scope !56
-  %62 = load ptr, ptr %57, align 8, !tbaa !23, !noalias !56
+  store ptr %61, ptr %4, align 8, !tbaa !20, !alias.scope !55
+  %62 = load ptr, ptr %57, align 8, !tbaa !23, !noalias !55
   %63 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %64 = load i64, ptr %63, align 8, !tbaa !25, !noalias !56
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27, !noalias !56
-  store i64 %64, ptr %3, align 8, !tbaa !26, !noalias !56
+  %64 = load i64, ptr %63, align 8, !tbaa !25, !noalias !55
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27, !noalias !55
+  store i64 %64, ptr %3, align 8, !tbaa !26, !noalias !55
   %65 = icmp ugt i64 %64, 15
   br i1 %65, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -1466,9 +1466,9 @@ _ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2INS0_33HyperGraphElementActi
           to label %.noexc unwind label %134
 
 .noexc:                                           ; preds = %.noexc.i.i.i
-  store ptr %66, ptr %4, align 8, !tbaa !23, !alias.scope !56
-  %67 = load i64, ptr %3, align 8, !tbaa !26, !noalias !56
-  store i64 %67, ptr %61, align 8, !tbaa !27, !alias.scope !56
+  store ptr %66, ptr %4, align 8, !tbaa !23, !alias.scope !55
+  %67 = load i64, ptr %3, align 8, !tbaa !26, !noalias !55
+  store i64 %67, ptr %61, align 8, !tbaa !27, !alias.scope !55
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc, %_ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2INS0_33HyperGraphElementActionCollectionEvEEPT_.exit
@@ -1488,24 +1488,24 @@ _ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2INS0_33HyperGraphElementActi
   br label %72
 
 72:                                               ; preds = %71, %69, %._crit_edge.i.i.i.i
-  %73 = load i64, ptr %3, align 8, !tbaa !26, !noalias !56
+  %73 = load i64, ptr %3, align 8, !tbaa !26, !noalias !55
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %73, ptr %74, align 8, !tbaa !25, !alias.scope !56
-  %75 = load ptr, ptr %4, align 8, !tbaa !23, !alias.scope !56
+  store i64 %73, ptr %74, align 8, !tbaa !25, !alias.scope !55
+  %75 = load ptr, ptr %4, align 8, !tbaa !23, !alias.scope !55
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 %73
   store i8 0, ptr %76, align 1, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27, !noalias !56
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27, !noalias !55
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %39, ptr %77, align 8, !tbaa !38, !alias.scope !56
+  store ptr %39, ptr %77, align 8, !tbaa !37, !alias.scope !55
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr null, ptr %42, align 8, !tbaa !46, !noalias !56
-  store ptr %43, ptr %78, align 8, !tbaa !46, !alias.scope !56
-  store ptr null, ptr %5, align 8, !tbaa !38, !noalias !56
+  store ptr null, ptr %42, align 8, !tbaa !45, !noalias !55
+  store ptr %43, ptr %78, align 8, !tbaa !45, !alias.scope !55
+  store ptr null, ptr %5, align 8, !tbaa !37, !noalias !55
   %79 = invoke { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE6insertISC_IS5_S9_EEENSt9enable_ifIXsr16is_constructibleISE_T_EE5valueESC_ISt17_Rb_tree_iteratorISE_EbEE4typeEOSK_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4)
           to label %80 unwind label %136
 
 80:                                               ; preds = %72
-  %81 = load ptr, ptr %78, align 8, !tbaa !46
+  %81 = load ptr, ptr %78, align 8, !tbaa !45
   %.not.i.i.i = icmp eq ptr %81, null
   br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %82
 
@@ -1517,9 +1517,9 @@ _ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2INS0_33HyperGraphElementActi
   br i1 %85, label %87, label %95
 
 87:                                               ; preds = %82
-  store i32 0, ptr %83, align 8, !tbaa !48
+  store i32 0, ptr %83, align 8, !tbaa !47
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 12
-  store i32 0, ptr %88, align 4, !tbaa !50
+  store i32 0, ptr %88, align 4, !tbaa !49
   %89 = load ptr, ptr %81, align 8, !tbaa !14
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
@@ -1537,7 +1537,7 @@ _ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2INS0_33HyperGraphElementActi
 
 97:                                               ; preds = %95
   %98 = add nsw i32 %86, -1
-  store i32 %98, ptr %83, align 4, !tbaa !47
+  store i32 %98, ptr %83, align 4, !tbaa !46
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 99:                                               ; preds = %95
@@ -1547,7 +1547,7 @@ _ZNSt10shared_ptrIN3g2o23HyperGraphElementActionEEC2INS0_33HyperGraphElementActi
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %99, %97
   %.0.i.i.i.i.i = phi i32 [ %86, %97 ], [ %100, %99 ]
   %101 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %101, label %102, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !51
+  br i1 %101, label %102, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !50
 
 102:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %81) #27
@@ -1571,7 +1571,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEEED2Ev.exit
 
 _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %109 = load ptr, ptr %42, align 8, !tbaa !46
+  %109 = load ptr, ptr %42, align 8, !tbaa !45
   %.not.i.i = icmp eq ptr %109, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %110
 
@@ -1583,9 +1583,9 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3
   br i1 %113, label %115, label %123
 
 115:                                              ; preds = %110
-  store i32 0, ptr %111, align 8, !tbaa !48
+  store i32 0, ptr %111, align 8, !tbaa !47
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 12
-  store i32 0, ptr %116, align 4, !tbaa !50
+  store i32 0, ptr %116, align 4, !tbaa !49
   %117 = load ptr, ptr %109, align 8, !tbaa !14
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
@@ -1603,7 +1603,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3
 
 125:                                              ; preds = %123
   %126 = add nsw i32 %114, -1
-  store i32 %126, ptr %111, align 4, !tbaa !47
+  store i32 %126, ptr %111, align 4, !tbaa !46
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 127:                                              ; preds = %123
@@ -1613,7 +1613,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %127, %125
   %.0.i.i.i.i = phi i32 [ %114, %125 ], [ %128, %127 ]
   %129 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %129, label %130, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !51
+  br i1 %129, label %130, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !50
 
 130:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %109) #27
@@ -1660,7 +1660,7 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #14
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -1672,9 +1672,9 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !48
+  store i32 0, ptr %5, align 8, !tbaa !47
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !50
+  store i32 0, ptr %10, align 4, !tbaa !49
   %11 = load ptr, ptr %3, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -1692,7 +1692,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !47
+  store i32 %20, ptr %5, align 4, !tbaa !46
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -1702,7 +1702,7 @@ define linkonce_odr void @_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !51
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !50
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #27
@@ -1717,10 +1717,10 @@ define noundef zeroext i1 @_ZN3g2o23HyperGraphActionLibrary16unregisterActionERK
   %3 = alloca %"class.std::__cxx11::list", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #27
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %3, ptr %4, align 8, !tbaa !59
-  store ptr %3, ptr %3, align 8, !tbaa !62
+  store ptr %3, ptr %4, align 8, !tbaa !58
+  store ptr %3, ptr %3, align 8, !tbaa !61
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %5, align 8, !tbaa !63
+  store i64 0, ptr %5, align 8, !tbaa !62
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1728,7 +1728,7 @@ define noundef zeroext i1 @_ZN3g2o23HyperGraphActionLibrary16unregisterActionERK
   br i1 %.not2125, label %_ZNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EED2Ev.exit, label %.lr.ph
 
 .preheader:                                       ; preds = %.thread
-  %.sroa.012.027.pre = load ptr, ptr %3, align 8, !tbaa !62
+  %.sroa.012.027.pre = load ptr, ptr %3, align 8, !tbaa !61
   %.not2228 = icmp eq ptr %.sroa.012.027.pre, %3
   br i1 %.not2228, label %._crit_edge, label %.lr.ph30
 
@@ -1741,7 +1741,7 @@ define noundef zeroext i1 @_ZN3g2o23HyperGraphActionLibrary16unregisterActionERK
 .lr.ph:                                           ; preds = %2, %.thread
   %.sroa.017.026 = phi ptr [ %40, %.thread ], [ %7, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.017.026, i64 64
-  %13 = load ptr, ptr %12, align 8, !tbaa !38
+  %13 = load ptr, ptr %12, align 8, !tbaa !37
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
 
@@ -1759,13 +1759,13 @@ define noundef zeroext i1 @_ZN3g2o23HyperGraphActionLibrary16unregisterActionERK
   br i1 %.not11.not.i, label %_ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS_23HyperGraphElementActionEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17
-  %22 = load ptr, ptr %1, align 8, !tbaa !38
+  %22 = load ptr, ptr %1, align 8, !tbaa !37
   br label %23
 
 23:                                               ; preds = %28, %.lr.ph.i
   %.sroa.05.012.i = phi ptr [ %20, %.lr.ph.i ], [ %29, %28 ]
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 64
-  %25 = load ptr, ptr %24, align 8, !tbaa !38
+  %25 = load ptr, ptr %24, align 8, !tbaa !37
   %26 = icmp eq ptr %25, %22
   br i1 %26, label %27, label %28
 
@@ -1776,7 +1776,7 @@ define noundef zeroext i1 @_ZN3g2o23HyperGraphActionLibrary16unregisterActionERK
 28:                                               ; preds = %23
   %29 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.012.i) #29
   %.not.not.i = icmp eq ptr %29, %21
-  br i1 %.not.not.i, label %_ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS_23HyperGraphElementActionEE.exit, label %23, !llvm.loop !52
+  br i1 %.not.not.i, label %_ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS_23HyperGraphElementActionEE.exit, label %23, !llvm.loop !51
 
 _ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS_23HyperGraphElementActionEE.exit: ; preds = %28, %27, %17
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 112
@@ -1790,11 +1790,11 @@ _ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS
 
 _ZNSt7__cxx114listIPN3g2o33HyperGraphElementActionCollectionESaIS3_EE9push_backERKS3_.exit: ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %16, ptr %35, align 8, !tbaa !65
+  store ptr %16, ptr %35, align 8, !tbaa !64
   call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(24) %3) #27
-  %36 = load i64, ptr %5, align 8, !tbaa !66
+  %36 = load i64, ptr %5, align 8, !tbaa !65
   %37 = add i64 %36, 1
-  store i64 %37, ptr %5, align 8, !tbaa !66
+  store i64 %37, ptr %5, align 8, !tbaa !65
   br label %.thread
 
 38:                                               ; preds = %33
@@ -1805,10 +1805,10 @@ _ZNSt7__cxx114listIPN3g2o33HyperGraphElementActionCollectionESaIS3_EE9push_backE
 .thread:                                          ; preds = %.lr.ph, %_ZNSt7__cxx114listIPN3g2o33HyperGraphElementActionCollectionESaIS3_EE9push_backERKS3_.exit, %_ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS_23HyperGraphElementActionEE.exit, %15
   %40 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.017.026) #29
   %.not21 = icmp eq ptr %40, %8
-  br i1 %.not21, label %.preheader, label %.lr.ph, !llvm.loop !69
+  br i1 %.not21, label %.preheader, label %.lr.ph, !llvm.loop !68
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE5eraseERSD_.exit
-  %.pre = load ptr, ptr %3, align 8, !tbaa !62
+  %.pre = load ptr, ptr %3, align 8, !tbaa !61
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -1818,10 +1818,10 @@ _ZNSt7__cxx114listIPN3g2o33HyperGraphElementActionCollectionESaIS3_EE9push_backE
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge, %.lr.ph.i.i
   %.09.i.i = phi ptr [ %42, %.lr.ph.i.i ], [ %41, %._crit_edge ]
-  %42 = load ptr, ptr %.09.i.i, align 8, !tbaa !62
+  %42 = load ptr, ptr %.09.i.i, align 8, !tbaa !61
   call void @_ZdlPvm(ptr noundef nonnull %.09.i.i, i64 noundef 24) #26
   %.not.i.i = icmp eq ptr %42, %3
-  br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !70
+  br i1 %.not.i.i, label %_ZNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !69
 
 _ZNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i, %2, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #27
@@ -1830,7 +1830,7 @@ _ZNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EED2Ev
 43:                                               ; preds = %.lr.ph30, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE5eraseERSD_.exit
   %.sroa.012.029 = phi ptr [ %.sroa.012.027.pre, %.lr.ph30 ], [ %.sroa.012.0, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE5eraseERSD_.exit ]
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.012.029, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !65
+  %45 = load ptr, ptr %44, align 8, !tbaa !64
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11equal_rangeERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %46)
           to label %.noexc unwind label %94
@@ -1873,7 +1873,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   %59 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.sroa.06.09.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 72
-  %62 = load ptr, ptr %61, align 8, !tbaa !46
+  %62 = load ptr, ptr %61, align 8, !tbaa !45
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i.i, label %63
 
@@ -1885,9 +1885,9 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   br i1 %66, label %68, label %76
 
 68:                                               ; preds = %63
-  store i32 0, ptr %64, align 8, !tbaa !48
+  store i32 0, ptr %64, align 8, !tbaa !47
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 12
-  store i32 0, ptr %69, align 4, !tbaa !50
+  store i32 0, ptr %69, align 4, !tbaa !49
   %70 = load ptr, ptr %62, align 8, !tbaa !14
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
@@ -1905,7 +1905,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 
 78:                                               ; preds = %76
   %79 = add nsw i32 %67, -1
-  store i32 %79, ptr %64, align 4, !tbaa !47
+  store i32 %79, ptr %64, align 4, !tbaa !46
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
 80:                                               ; preds = %76
@@ -1915,7 +1915,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %80, %78
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %67, %78 ], [ %81, %80 ]
   %82 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %82, label %83, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i.i, !prof !51
+  br i1 %82, label %83, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i.i, !prof !50
 
 83:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %62) #27
@@ -1946,12 +1946,12 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
   %93 = add i64 %92, -1
   store i64 %93, ptr %9, align 8, !tbaa !31
   %.not.i.i.i = icmp eq ptr %58, %49
-  br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE5eraseERSD_.exit, label %.lr.ph.i.i.i, !llvm.loop !71
+  br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE5eraseERSD_.exit, label %.lr.ph.i.i.i, !llvm.loop !70
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE5eraseERSD_.exit: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISC_E.exit, %.critedge.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE5clearEv.exit.i.i.i
-  %.sroa.012.0 = load ptr, ptr %.sroa.012.029, align 8, !tbaa !62
+  %.sroa.012.0 = load ptr, ptr %.sroa.012.029, align 8, !tbaa !61
   %.not22 = icmp eq ptr %.sroa.012.0, %3
-  br i1 %.not22, label %._crit_edge.loopexit, label %43, !llvm.loop !72
+  br i1 %.not22, label %._crit_edge.loopexit, label %43, !llvm.loop !71
 
 94:                                               ; preds = %43
   %95 = landingpad { ptr, i32 }
@@ -1960,16 +1960,16 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g
 
 96:                                               ; preds = %94, %38
   %.pn = phi { ptr, i32 } [ %39, %38 ], [ %95, %94 ]
-  %97 = load ptr, ptr %3, align 8, !tbaa !62
+  %97 = load ptr, ptr %3, align 8, !tbaa !61
   %.not8.i.i7 = icmp eq ptr %97, %3
   br i1 %.not8.i.i7, label %_ZNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EED2Ev.exit11, label %.lr.ph.i.i8
 
 .lr.ph.i.i8:                                      ; preds = %96, %.lr.ph.i.i8
   %.09.i.i9 = phi ptr [ %98, %.lr.ph.i.i8 ], [ %97, %96 ]
-  %98 = load ptr, ptr %.09.i.i9, align 8, !tbaa !62
+  %98 = load ptr, ptr %.09.i.i9, align 8, !tbaa !61
   call void @_ZdlPvm(ptr noundef nonnull %.09.i.i9, i64 noundef 24) #26
   %.not.i.i10 = icmp eq ptr %98, %3
-  br i1 %.not.i.i10, label %_ZNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EED2Ev.exit11, label %.lr.ph.i.i8, !llvm.loop !70
+  br i1 %.not.i.i10, label %_ZNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EED2Ev.exit11, label %.lr.ph.i.i8, !llvm.loop !69
 
 _ZNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EED2Ev.exit11: ; preds = %.lr.ph.i.i8, %96
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #27
@@ -2116,7 +2116,7 @@ _ZN3g2o23HyperGraphElementActionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZN3g2o23HyperGraphElementActionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr inttoptr (i64 66 to ptr), ptr %24, align 8, !tbaa !73
+  store ptr inttoptr (i64 66 to ptr), ptr %24, align 8, !tbaa !72
   %25 = load ptr, ptr %0, align 8, !tbaa !14
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8
@@ -2125,7 +2125,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZN
 
 29:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr null, ptr %30, align 8, !tbaa !78
+  store ptr null, ptr %30, align 8, !tbaa !77
   ret void
 
 31:                                               ; preds = %_ZN3g2o23HyperGraphElementActionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
@@ -2141,7 +2141,7 @@ define noundef zeroext i1 @_ZN3g2o10DrawAction19refreshPropertyPtrsEPNS_23HyperG
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !73
+  %7 = load ptr, ptr %6, align 8, !tbaa !72
   %8 = icmp ne ptr %7, %1
   br i1 %8, label %9, label %61
 
@@ -2159,26 +2159,26 @@ define noundef zeroext i1 @_ZN3g2o10DrawAction19refreshPropertyPtrsEPNS_23HyperG
   br label %61
 
 13:                                               ; preds = %11
-  store ptr %12, ptr %6, align 8, !tbaa !73
+  store ptr %12, ptr %6, align 8, !tbaa !72
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #27
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %16, ptr %4, align 8, !tbaa !20, !alias.scope !79
-  %17 = load ptr, ptr %15, align 8, !tbaa !23, !noalias !79
+  store ptr %16, ptr %4, align 8, !tbaa !20, !alias.scope !78
+  %17 = load ptr, ptr %15, align 8, !tbaa !23, !noalias !78
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !25, !noalias !79
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27, !noalias !79
-  store i64 %19, ptr %3, align 8, !tbaa !26, !noalias !79
+  %19 = load i64, ptr %18, align 8, !tbaa !25, !noalias !78
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27, !noalias !78
+  store i64 %19, ptr %3, align 8, !tbaa !26, !noalias !78
   %20 = icmp ugt i64 %19, 15
   br i1 %20, label %.noexc.i.i, label %._crit_edge.i.i.i
 
 .noexc.i.i:                                       ; preds = %13
   %21 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %21, ptr %4, align 8, !tbaa !23, !alias.scope !79
-  %22 = load i64, ptr %3, align 8, !tbaa !26, !noalias !79
-  store i64 %22, ptr %16, align 8, !tbaa !27, !alias.scope !79
+  store ptr %21, ptr %4, align 8, !tbaa !23, !alias.scope !78
+  %22 = load i64, ptr %3, align 8, !tbaa !26, !noalias !78
+  store i64 %22, ptr %16, align 8, !tbaa !27, !alias.scope !78
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %.noexc.i.i, %13
@@ -2198,14 +2198,14 @@ define noundef zeroext i1 @_ZN3g2o10DrawAction19refreshPropertyPtrsEPNS_23HyperG
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = %26, %24, %._crit_edge.i.i.i
-  %27 = load i64, ptr %3, align 8, !tbaa !26, !noalias !79
+  %27 = load i64, ptr %3, align 8, !tbaa !26, !noalias !78
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %27, ptr %28, align 8, !tbaa !25, !alias.scope !79
-  %29 = load ptr, ptr %4, align 8, !tbaa !23, !alias.scope !79
+  store i64 %27, ptr %28, align 8, !tbaa !25, !alias.scope !78
+  %29 = load ptr, ptr %4, align 8, !tbaa !23, !alias.scope !78
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   store i8 0, ptr %30, align 1, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27, !noalias !79
-  %31 = load i64, ptr %28, align 8, !tbaa !25, !alias.scope !79
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27, !noalias !78
+  %31 = load i64, ptr %28, align 8, !tbaa !25, !alias.scope !78
   %32 = add i64 %31, -4611686018427387898
   %33 = icmp ult i64 %32, 6
   br i1 %33, label %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -2224,18 +2224,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 36:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i, %34
   %37 = landingpad { ptr, i32 }
           cleanup
-  %38 = load ptr, ptr %4, align 8, !tbaa !23, !alias.scope !79
+  %38 = load ptr, ptr %4, align 8, !tbaa !23, !alias.scope !78
   %39 = icmp eq ptr %38, %16
   br i1 %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %36
-  %40 = load i64, ptr %28, align 8, !tbaa !25, !alias.scope !79
+  %40 = load i64, ptr %28, align 8, !tbaa !25, !alias.scope !78
   %41 = icmp ult i64 %40, 16
   call void @llvm.assume(i1 %41)
   br label %common.resume
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %36
-  %42 = load i64, ptr %16, align 8, !tbaa !27, !alias.scope !79
+  %42 = load i64, ptr %16, align 8, !tbaa !27, !alias.scope !78
   %43 = add i64 %42, 1
   call void @_ZdlPvm(ptr noundef %38, i64 noundef %43) #26
   br label %common.resume
@@ -2246,13 +2246,13 @@ common.resume:                                    ; preds = %_ZNKSt7__cxx1112bas
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #27
-  store i8 1, ptr %5, align 1, !tbaa !82
+  store i8 1, ptr %5, align 1, !tbaa !81
   %44 = invoke noundef ptr @_ZN3g2o11PropertyMap12makePropertyINS_8PropertyIbEEEEPT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS4_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %45 unwind label %53
 
 45:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %44, ptr %46, align 8, !tbaa !84
+  store ptr %44, ptr %46, align 8, !tbaa !83
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #27
   %47 = load ptr, ptr %4, align 8, !tbaa !23
   %48 = icmp eq ptr %47, %16
@@ -2347,7 +2347,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !34
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3g2o12BasePropertyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %10, !llvm.loop !85
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3g2o12BasePropertyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, label %10, !llvm.loop !84
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN3g2o12BasePropertyEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPSt13_Rb_tree_nodeISB_EPSt18_Rb_tree_node_baseRS7_.exit.i.i: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i.i
   %19 = icmp eq ptr %.19.i.i.i, %6
@@ -2387,8 +2387,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BaseProper
 30:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.thread
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3g2o8PropertyIbEE, i64 16), ptr %29, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %32 = load i8, ptr %2, align 1, !tbaa !82, !range !86, !noundef !87
-  store i8 %32, ptr %31, align 8, !tbaa !88
+  %32 = load i8, ptr %2, align 1, !tbaa !81, !range !85, !noundef !86
+  store i8 %32, ptr %31, align 8, !tbaa !87
   %33 = tail call noundef zeroext i1 @_ZN3g2o11PropertyMap11addPropertyEPNS_12BasePropertyE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %29)
   br label %42
 
@@ -2400,7 +2400,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BaseProper
 
 36:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit
   %37 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !91
+  %38 = load ptr, ptr %37, align 8, !tbaa !90
   %39 = icmp eq ptr %38, null
   br i1 %39, label %42, label %40
 
@@ -2417,7 +2417,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BaseProper
 define void @_ZN3g2o10DrawAction26initializeDrawActionsCacheEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load ptr, ptr %3, align 8, !tbaa !78
+  %4 = load ptr, ptr %3, align 8, !tbaa !77
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %38
 
@@ -2522,12 +2522,12 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g
 
 35:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.i
   %36 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
-  %37 = load ptr, ptr %36, align 8, !tbaa !38
+  %37 = load ptr, ptr %36, align 8, !tbaa !37
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN3g2o23HyperGraphActionLibrary8instanceEv.exit.thread, %35, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i, %_ZN3g2o23HyperGraphActionLibrary8instanceEv.exit
   %.0.i = phi ptr [ %37, %35 ], [ null, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit.i ], [ null, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit.i.i.i ], [ null, %_ZN3g2o23HyperGraphActionLibrary8instanceEv.exit ], [ null, %_ZN3g2o23HyperGraphActionLibrary8instanceEv.exit.thread ]
-  store ptr %.0.i, ptr %3, align 8, !tbaa !78
+  store ptr %.0.i, ptr %3, align 8, !tbaa !77
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #27
   br label %38
 
@@ -2554,14 +2554,14 @@ define void @_ZN3g2o10DrawAction9drawCacheEPNS_14CacheContainerEPNS_23HyperGraph
 9:                                                ; preds = %.lr.ph, %9
   %.sroa.06.011 = phi ptr [ %6, %.lr.ph ], [ %16, %9 ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !94
-  %12 = load ptr, ptr %8, align 8, !tbaa !78
+  %11 = load ptr, ptr %10, align 8, !tbaa !93
+  %12 = load ptr, ptr %8, align 8, !tbaa !77
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef %11, ptr noundef %2)
   %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.06.011) #29
   %.not9 = icmp eq ptr %16, %7
-  br i1 %.not9, label %.loopexit, label %9, !llvm.loop !103
+  br i1 %.not9, label %.loopexit, label %9, !llvm.loop !102
 
 .loopexit:                                        ; preds = %9, %4, %3
   ret void
@@ -2575,7 +2575,7 @@ define void @_ZN3g2o10DrawAction12drawUserDataEPNS_10HyperGraph4DataEPNS_23Hyper
 
 .lr.ph:                                           ; preds = %3, %6
   %.08 = phi ptr [ %11, %6 ], [ %1, %3 ]
-  %5 = load ptr, ptr %4, align 8, !tbaa !78
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
   %.not6 = icmp eq ptr %5, null
   br i1 %.not6, label %.critedge, label %6
 
@@ -2584,9 +2584,9 @@ define void @_ZN3g2o10DrawAction12drawUserDataEPNS_10HyperGraph4DataEPNS_23Hyper
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull %.08, ptr noundef %2)
   %10 = getelementptr inbounds nuw i8, ptr %.08, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !104
+  %11 = load ptr, ptr %10, align 8, !tbaa !103
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !109
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !108
 
 .critedge:                                        ; preds = %.lr.ph, %6, %3
   ret void
@@ -2595,7 +2595,7 @@ define void @_ZN3g2o10DrawAction12drawUserDataEPNS_10HyperGraph4DataEPNS_23Hyper
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o11applyActionEPNS_10HyperGraphEPNS_23HyperGraphElementActionEPNS2_10ParametersERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.020.025 = load ptr, ptr %5, align 8, !tbaa !110
+  %.sroa.020.025 = load ptr, ptr %5, align 8, !tbaa !109
   %.not26 = icmp eq ptr %.sroa.020.025, null
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
@@ -2622,7 +2622,7 @@ define void @_ZN3g2o11applyActionEPNS_10HyperGraphEPNS_23HyperGraphElementAction
   br i1 %14, label %27, label %15
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %12, align 8, !tbaa !113
+  %16 = load ptr, ptr %12, align 8, !tbaa !112
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = getelementptr inbounds i8, ptr %17, i64 -8
   %19 = load ptr, ptr %18, align 8
@@ -2637,16 +2637,16 @@ define void @_ZN3g2o11applyActionEPNS_10HyperGraphEPNS_23HyperGraphElementAction
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %15, %11
-  %28 = load ptr, ptr %12, align 8, !tbaa !113
+  %28 = load ptr, ptr %12, align 8, !tbaa !112
   %29 = load ptr, ptr %1, align 8, !tbaa !14
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %28, ptr noundef %2)
   br label %32
 
 32:                                               ; preds = %27, %15
-  %.sroa.020.0 = load ptr, ptr %.sroa.020.027, align 8, !tbaa !110
+  %.sroa.020.0 = load ptr, ptr %.sroa.020.027, align 8, !tbaa !109
   %.not = icmp eq ptr %.sroa.020.0, null
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !116
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !115
 
 ._crit_edge32:                                    ; preds = %54, %._crit_edge
   ret void
@@ -2659,7 +2659,7 @@ define void @_ZN3g2o11applyActionEPNS_10HyperGraphEPNS_23HyperGraphElementAction
   br i1 %36, label %49, label %37
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr %34, align 8, !tbaa !117
+  %38 = load ptr, ptr %34, align 8, !tbaa !116
   %39 = load ptr, ptr %38, align 8, !tbaa !14
   %40 = getelementptr inbounds i8, ptr %39, i64 -8
   %41 = load ptr, ptr %40, align 8
@@ -2674,7 +2674,7 @@ define void @_ZN3g2o11applyActionEPNS_10HyperGraphEPNS_23HyperGraphElementAction
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %37, %33
-  %50 = load ptr, ptr %34, align 8, !tbaa !117
+  %50 = load ptr, ptr %34, align 8, !tbaa !116
   %51 = load ptr, ptr %1, align 8, !tbaa !14
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %50, ptr noundef %2)
@@ -2683,7 +2683,7 @@ define void @_ZN3g2o11applyActionEPNS_10HyperGraphEPNS_23HyperGraphElementAction
 54:                                               ; preds = %49, %37
   %55 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.015.029) #29
   %.not24 = icmp eq ptr %55, %9
-  br i1 %.not24, label %._crit_edge32, label %33, !llvm.loop !119
+  br i1 %.not24, label %._crit_edge32, label %33, !llvm.loop !118
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -2995,13 +2995,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !120
+  %4 = load ptr, ptr %3, align 8, !tbaa !119
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !121
+  %6 = load ptr, ptr %5, align 8, !tbaa !120
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 72
-  %9 = load ptr, ptr %8, align 8, !tbaa !46
+  %9 = load ptr, ptr %8, align 8, !tbaa !45
   %.not.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i, label %10
 
@@ -3013,9 +3013,9 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %13, label %15, label %23
 
 15:                                               ; preds = %10
-  store i32 0, ptr %11, align 8, !tbaa !48
+  store i32 0, ptr %11, align 8, !tbaa !47
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !50
+  store i32 0, ptr %16, align 4, !tbaa !49
   %17 = load ptr, ptr %9, align 8, !tbaa !14
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -3033,7 +3033,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %14, -1
-  store i32 %26, ptr %11, align 4, !tbaa !47
+  store i32 %26, ptr %11, align 4, !tbaa !46
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 27:                                               ; preds = %23
@@ -3043,7 +3043,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %27, %25
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %14, %25 ], [ %28, %27 ]
   %29 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %29, label %30, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i, !prof !51
+  br i1 %29, label %30, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i, !prof !50
 
 30:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #27
@@ -3071,7 +3071,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 80) #26
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit, %2
   ret void
@@ -3089,9 +3089,9 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !47
+  %8 = load i32, ptr %5, align 4, !tbaa !46
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !47
+  store i32 %9, ptr %5, align 4, !tbaa !46
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -3133,7 +3133,7 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE22_M_emplace_hint_uniqueIJS6_IS5_SB_EEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::shared_ptr<g2o::HyperGraphElementAction>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::shared_ptr<g2o::HyperGraphElementAction>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #27
-  store ptr %0, ptr %4, align 8, !tbaa !123
+  store ptr %0, ptr %4, align 8, !tbaa !122
   %5 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -3171,15 +3171,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i8 0, ptr %9, align 8, !tbaa !27
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !38
-  store ptr %24, ptr %22, align 8, !tbaa !38
+  %24 = load ptr, ptr %23, align 8, !tbaa !37
+  store ptr %24, ptr %22, align 8, !tbaa !37
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !46
-  store ptr null, ptr %26, align 8, !tbaa !46
-  store ptr %27, ptr %25, align 8, !tbaa !46
-  store ptr null, ptr %23, align 8, !tbaa !38
-  store ptr %5, ptr %19, align 8, !tbaa !125
+  %27 = load ptr, ptr %26, align 8, !tbaa !45
+  store ptr null, ptr %26, align 8, !tbaa !45
+  store ptr %27, ptr %25, align 8, !tbaa !45
+  store ptr null, ptr %23, align 8, !tbaa !37
+  store ptr %5, ptr %19, align 8, !tbaa !124
   %28 = invoke { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %29 unwind label %50
 
@@ -3241,7 +3241,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   resume { ptr, i32 } %51
 
 52:                                               ; preds = %29
-  %53 = load ptr, ptr %25, align 8, !tbaa !46
+  %53 = load ptr, ptr %25, align 8, !tbaa !45
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i.i, label %54
 
@@ -3253,9 +3253,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %57, label %59, label %67
 
 59:                                               ; preds = %54
-  store i32 0, ptr %55, align 8, !tbaa !48
+  store i32 0, ptr %55, align 8, !tbaa !47
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 12
-  store i32 0, ptr %60, align 4, !tbaa !50
+  store i32 0, ptr %60, align 4, !tbaa !49
   %61 = load ptr, ptr %53, align 8, !tbaa !14
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
@@ -3273,7 +3273,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 69:                                               ; preds = %67
   %70 = add nsw i32 %58, -1
-  store i32 %70, ptr %55, align 4, !tbaa !47
+  store i32 %70, ptr %55, align 4, !tbaa !46
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
 
 71:                                               ; preds = %67
@@ -3283,7 +3283,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds = %71, %69
   %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %58, %69 ], [ %72, %71 ]
   %73 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %73, label %74, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i.i, !prof !51
+  br i1 %73, label %74, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i.i, !prof !50
 
 74:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %53) #27
@@ -3432,7 +3432,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 57:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit27
   %58 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %59 = load ptr, ptr %58, align 8, !tbaa !120
+  %59 = load ptr, ptr %58, align 8, !tbaa !119
   %60 = icmp eq ptr %59, null
   %spec.select = select i1 %60, ptr null, ptr %1
   %spec.select73 = select i1 %60, ptr %47, ptr %1
@@ -3497,7 +3497,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 83:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit45
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %85 = load ptr, ptr %84, align 8, !tbaa !120
+  %85 = load ptr, ptr %84, align 8, !tbaa !119
   %86 = icmp eq ptr %85, null
   %spec.select74 = select i1 %86, ptr null, ptr %73
   %spec.select75 = select i1 %86, ptr %1, ptr %73
@@ -3520,14 +3520,14 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !125
+  %3 = load ptr, ptr %2, align 8, !tbaa !124
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %37, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !46
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
   %.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i, label %8
 
@@ -3539,9 +3539,9 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %11, label %13, label %21
 
 13:                                               ; preds = %8
-  store i32 0, ptr %9, align 8, !tbaa !48
+  store i32 0, ptr %9, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 0, ptr %14, align 4, !tbaa !50
+  store i32 0, ptr %14, align 4, !tbaa !49
   %15 = load ptr, ptr %7, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
@@ -3559,7 +3559,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 23:                                               ; preds = %21
   %24 = add nsw i32 %12, -1
-  store i32 %24, ptr %9, align 4, !tbaa !47
+  store i32 %24, ptr %9, align 4, !tbaa !46
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 25:                                               ; preds = %21
@@ -3569,7 +3569,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %25, %23
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %12, %23 ], [ %26, %25 ]
   %27 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %27, label %28, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i, !prof !51
+  br i1 %27, label %28, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i, !prof !50
 
 28:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
@@ -3649,7 +3649,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.in = getelementptr inbounds nuw i8, ptr %.02933, i64 %.in.v
   %.029 = load ptr, ptr %.in, align 8, !tbaa !34
   %.not = icmp eq ptr %.029, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !128
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
   br i1 %16, label %._crit_edge.thread, label %22
@@ -3721,7 +3721,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   %4 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !46
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
   %.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i, label %8
 
@@ -3733,9 +3733,9 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %11, label %13, label %21
 
 13:                                               ; preds = %8
-  store i32 0, ptr %9, align 8, !tbaa !48
+  store i32 0, ptr %9, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 0, ptr %14, align 4, !tbaa !50
+  store i32 0, ptr %14, align 4, !tbaa !49
   %15 = load ptr, ptr %7, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
@@ -3753,7 +3753,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 
 23:                                               ; preds = %21
   %24 = add nsw i32 %12, -1
-  store i32 %24, ptr %9, align 4, !tbaa !47
+  store i32 %24, ptr %9, align 4, !tbaa !46
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 25:                                               ; preds = %21
@@ -3763,7 +3763,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %25, %23
   %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %12, %23 ], [ %26, %25 ]
   %27 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
-  br i1 %27, label %28, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i, !prof !51
+  br i1 %27, label %28, label %_ZNSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i.i.i.i, !prof !50
 
 28:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #27
@@ -3814,7 +3814,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o33HyperGraphElementAction
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN3g2o33HyperGraphElementActionCollectionELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !52
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
@@ -3906,9 +3906,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 23:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit32
   %24 = getelementptr inbounds nuw i8, ptr %.068, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !121
+  %25 = load ptr, ptr %24, align 8, !tbaa !120
   %26 = getelementptr inbounds nuw i8, ptr %.068, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !120
+  %27 = load ptr, ptr %26, align 8, !tbaa !119
   %.not10.i = icmp eq ptr %25, null
   br i1 %.not10.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %.lr.ph.i
 
@@ -3981,7 +3981,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.1.in.i44 = getelementptr inbounds nuw i8, ptr %.012.i35, i64 %.1.in.v.i43
   %.1.i45 = load ptr, ptr %.1.in.i44, align 8, !tbaa !34
   %.not.i46 = icmp eq ptr %.1.i45, null
-  br i1 %.not.i46, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %.lr.ph.i34, !llvm.loop !129
+  br i1 %.not.i46, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %.lr.ph.i34, !llvm.loop !128
 
 44:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit32, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread57
   %.sink = phi i64 [ 24, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread57 ], [ 24, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread ], [ 24, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ 16, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit32 ]
@@ -3989,7 +3989,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %45 = getelementptr inbounds nuw i8, ptr %.068, i64 %.sink
   %.0 = load ptr, ptr %45, align 8, !tbaa !34
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %8, !llvm.loop !130
+  br i1 %.not, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit, label %8, !llvm.loop !129
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_upper_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit: ; preds = %44, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40, %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit
   %.sroa.055.0 = phi ptr [ %.08.lcssa.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit ], [ %4, %2 ], [ %.08.lcssa.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i40 ], [ %.123, %44 ]
@@ -4025,24 +4025,24 @@ define linkonce_odr void @_ZNK3g2o8PropertyIbE8toStringB5cxx11Ev(ptr dead_on_unw
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %6 = load i8, ptr %5, align 8, !tbaa !88, !range !86, !noundef !87
+  %6 = load i8, ptr %5, align 8, !tbaa !87, !range !85, !noundef !86
   %7 = trunc nuw i8 %6 to i1
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext %7)
           to label %_ZNSolsEb.exit unwind label %57
 
 _ZNSolsEb.exit:                                   ; preds = %2
-  call void @llvm.experimental.noalias.scope.decl(metadata !131)
-  call void @llvm.experimental.noalias.scope.decl(metadata !134)
+  call void @llvm.experimental.noalias.scope.decl(metadata !130)
+  call void @llvm.experimental.noalias.scope.decl(metadata !133)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %9, ptr %0, align 8, !tbaa !20, !alias.scope !137
+  store ptr %9, ptr %0, align 8, !tbaa !20, !alias.scope !136
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %10, align 8, !tbaa !25, !alias.scope !137
-  store i8 0, ptr %9, align 8, !tbaa !27, !alias.scope !137
+  store i64 0, ptr %10, align 8, !tbaa !25, !alias.scope !136
+  store i8 0, ptr %9, align 8, !tbaa !27, !alias.scope !136
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %12 = load ptr, ptr %11, align 8, !tbaa !138, !noalias !137
+  %12 = load ptr, ptr %11, align 8, !tbaa !137, !noalias !136
   %.not.i.not.i.i = icmp eq ptr %12, null
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %14 = load ptr, ptr %13, align 8, !noalias !137
+  %14 = load ptr, ptr %13, align 8, !noalias !136
   %15 = icmp ugt ptr %12, %14
   %.08.i.i.i = select i1 %15, ptr %12, ptr %14
   %.not5.i.i = icmp eq ptr %.08.i.i.i, null
@@ -4051,7 +4051,7 @@ _ZNSolsEb.exit:                                   ; preds = %2
 
 16:                                               ; preds = %_ZNSolsEb.exit
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !142, !noalias !137
+  %18 = load ptr, ptr %17, align 8, !tbaa !141, !noalias !136
   %19 = ptrtoint ptr %.08.i.i.i to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
@@ -4061,18 +4061,18 @@ _ZNSolsEb.exit:                                   ; preds = %2
 23:                                               ; preds = %31, %16
   %24 = landingpad { ptr, i32 }
           cleanup
-  %25 = load ptr, ptr %0, align 8, !tbaa !23, !alias.scope !137
+  %25 = load ptr, ptr %0, align 8, !tbaa !23, !alias.scope !136
   %26 = icmp eq ptr %25, %9
   br i1 %26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %23
-  %27 = load i64, ptr %10, align 8, !tbaa !25, !alias.scope !137
+  %27 = load i64, ptr %10, align 8, !tbaa !25, !alias.scope !136
   %28 = icmp ult i64 %27, 16
   call void @llvm.assume(i1 %28)
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %23
-  %29 = load i64, ptr %9, align 8, !tbaa !27, !alias.scope !137
+  %29 = load i64, ptr %9, align 8, !tbaa !27, !alias.scope !136
   %30 = add i64 %29, 1
   call void @_ZdlPvm(ptr noundef %25, i64 noundef %30) #26
   br label %.body
@@ -4125,7 +4125,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %54 = getelementptr inbounds i8, ptr %3, i64 %53
   store ptr %51, ptr %54, align 8, !tbaa !14
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %55, align 8, !tbaa !143
+  store i64 0, ptr %55, align 8, !tbaa !142
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %56) #27
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #27
@@ -4180,7 +4180,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o13convertStringIbEEbRKNSt7__cxx11
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load i32, ptr %12, align 8, !tbaa !145
+  %13 = load i32, ptr %12, align 8, !tbaa !144
   %14 = and i32 %13, 5
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %29
@@ -4198,7 +4198,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o13convertStringIbEEbRKNSt7__cxx11
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %17, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load i32, ptr %23, align 8, !tbaa !145
+  %24 = load i32, ptr %23, align 8, !tbaa !144
   %25 = and i32 %24, 5
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %29, label %28
@@ -4257,7 +4257,7 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %50 = getelementptr inbounds i8, ptr %4, i64 %49
   store ptr %47, ptr %50, align 8, !tbaa !14
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %51, align 8, !tbaa !143
+  store i64 0, ptr %51, align 8, !tbaa !142
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 120
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %52) #27
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #27
@@ -4375,120 +4375,119 @@ attributes #30 = { builtin allocsize(0) }
 !32 = !{!33, !22, i64 8}
 !33 = !{!"_ZTSSt9type_info", !22, i64 8}
 !34 = !{!12, !12, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!39, !40, i64 0}
-!39 = !{!"_ZTSSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE", !40, i64 0, !41, i64 8}
-!40 = !{!"p1 _ZTSN3g2o23HyperGraphElementActionE", !5, i64 0}
-!41 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !42, i64 0}
-!42 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN3g2o23HyperGraphElementActionEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSF_INSG_IT0_E4typeEE6__typeEEOSH_OSM_: argument 0"}
-!45 = distinct !{!45, !"_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN3g2o23HyperGraphElementActionEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSF_INSG_IT0_E4typeEE6__typeEEOSH_OSM_"}
-!46 = !{!41, !42, i64 0}
-!47 = !{!19, !19, i64 0}
-!48 = !{!49, !19, i64 8}
-!49 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !19, i64 8, !19, i64 12}
-!50 = !{!49, !19, i64 12}
-!51 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!52 = distinct !{!52, !36, !37}
-!53 = !{!54, !55, i64 16}
-!54 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o33HyperGraphElementActionCollectionELN9__gnu_cxx12_Lock_policyE2EE", !49, i64 0, !55, i64 16}
-!55 = !{!"p1 _ZTSN3g2o33HyperGraphElementActionCollectionE", !5, i64 0}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_: argument 0"}
-!58 = distinct !{!58, !"_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_"}
-!59 = !{!60, !61, i64 8}
-!60 = !{!"_ZTSNSt8__detail15_List_node_baseE", !61, i64 0, !61, i64 8}
-!61 = !{!"p1 _ZTSNSt8__detail15_List_node_baseE", !5, i64 0}
-!62 = !{!60, !61, i64 0}
-!63 = !{!64, !13, i64 16}
-!64 = !{!"_ZTSNSt8__detail17_List_node_headerE", !60, i64 0, !13, i64 16}
-!65 = !{!55, !55, i64 0}
-!66 = !{!67, !13, i64 16}
-!67 = !{!"_ZTSNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EEE", !68, i64 0}
-!68 = !{!"_ZTSNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EE10_List_implE", !64, i64 0}
-!69 = distinct !{!69, !36, !37}
-!70 = distinct !{!70, !36, !37}
-!71 = distinct !{!71, !36, !37}
-!72 = distinct !{!72, !36, !37}
-!73 = !{!74, !76, i64 72}
-!74 = !{!"_ZTSN3g2o10DrawActionE", !75, i64 0, !76, i64 72, !77, i64 80, !40, i64 88}
-!75 = !{!"_ZTSN3g2o23HyperGraphElementActionE", !24, i64 8, !24, i64 40}
-!76 = !{!"p1 _ZTSN3g2o10DrawAction10ParametersE", !5, i64 0}
-!77 = !{!"p1 _ZTSN3g2o8PropertyIbEE", !5, i64 0}
-!78 = !{!74, !40, i64 88}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_: argument 0"}
-!81 = distinct !{!81, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_"}
-!82 = !{!83, !83, i64 0}
-!83 = !{!"bool", !6, i64 0}
-!84 = !{!74, !77, i64 80}
-!85 = distinct !{!85, !36, !37}
-!86 = !{i8 0, i8 2}
-!87 = !{}
-!88 = !{!89, !83, i64 40}
-!89 = !{!"_ZTSN3g2o8PropertyIbEE", !90, i64 0, !83, i64 40}
-!90 = !{!"_ZTSN3g2o12BasePropertyE", !24, i64 8}
-!91 = !{!92, !93, i64 32}
-!92 = !{!"_ZTSSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyEE", !24, i64 0, !93, i64 32}
-!93 = !{!"p1 _ZTSN3g2o12BasePropertyE", !5, i64 0}
-!94 = !{!95, !102, i64 56}
-!95 = !{!"_ZTSSt4pairIKN3g2o5Cache8CacheKeyEPS1_E", !96, i64 0, !102, i64 56}
-!96 = !{!"_ZTSN3g2o5Cache8CacheKeyE", !24, i64 0, !97, i64 32}
-!97 = !{!"_ZTSSt6vectorIPN3g2o9ParameterESaIS2_EE", !98, i64 0}
-!98 = !{!"_ZTSSt12_Vector_baseIPN3g2o9ParameterESaIS2_EE", !99, i64 0}
-!99 = !{!"_ZTSNSt12_Vector_baseIPN3g2o9ParameterESaIS2_EE12_Vector_implE", !100, i64 0}
-!100 = !{!"_ZTSNSt12_Vector_baseIPN3g2o9ParameterESaIS2_EE17_Vector_impl_dataE", !101, i64 0, !101, i64 8, !101, i64 16}
-!101 = !{!"p2 _ZTSN3g2o9ParameterE", !5, i64 0}
-!102 = !{!"p1 _ZTSN3g2o5CacheE", !5, i64 0}
-!103 = distinct !{!103, !36, !37}
-!104 = !{!105, !107, i64 8}
-!105 = !{!"_ZTSN3g2o10HyperGraph4DataE", !106, i64 0, !107, i64 8, !108, i64 16}
-!106 = !{!"_ZTSN3g2o10HyperGraph17HyperGraphElementE"}
-!107 = !{!"p1 _ZTSN3g2o10HyperGraph4DataE", !5, i64 0}
-!108 = !{!"p1 _ZTSN3g2o10HyperGraph13DataContainerE", !5, i64 0}
-!109 = distinct !{!109, !36, !37}
-!110 = !{!111, !112, i64 0}
-!111 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !112, i64 0}
-!112 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !5, i64 0}
-!113 = !{!114, !115, i64 8}
-!114 = !{!"_ZTSSt4pairIKiPN3g2o10HyperGraph6VertexEE", !19, i64 0, !115, i64 8}
-!115 = !{!"p1 _ZTSN3g2o10HyperGraph6VertexE", !5, i64 0}
-!116 = distinct !{!116, !36, !37}
-!117 = !{!118, !118, i64 0}
-!118 = !{!"p1 _ZTSN3g2o10HyperGraph4EdgeE", !5, i64 0}
-!119 = distinct !{!119, !36, !37}
-!120 = !{!10, !12, i64 24}
-!121 = !{!10, !12, i64 16}
-!122 = distinct !{!122, !36, !37}
-!123 = !{!124, !124, i64 0}
-!124 = !{!"p1 _ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE", !5, i64 0}
-!125 = !{!126, !127, i64 8}
-!126 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeE", !124, i64 0, !127, i64 8}
-!127 = !{!"p1 _ZTSSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEEEE", !5, i64 0}
-!128 = distinct !{!128, !36, !37}
-!129 = distinct !{!129, !36, !37}
-!130 = distinct !{!130, !36, !37}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!133 = distinct !{!133, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv"}
-!134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
-!136 = distinct !{!136, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
-!137 = !{!135, !132}
-!138 = !{!139, !22, i64 40}
-!139 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !22, i64 8, !22, i64 16, !22, i64 24, !22, i64 32, !22, i64 40, !22, i64 48, !140, i64 56}
-!140 = !{!"_ZTSSt6locale", !141, i64 0}
-!141 = !{!"p1 _ZTSNSt6locale5_ImplE", !5, i64 0}
-!142 = !{!139, !22, i64 32}
-!143 = !{!144, !13, i64 8}
-!144 = !{!"_ZTSSi", !13, i64 8}
-!145 = !{!146, !148, i64 32}
-!146 = !{!"_ZTSSt8ios_base", !13, i64 8, !13, i64 16, !147, i64 24, !148, i64 28, !148, i64 32, !149, i64 40, !150, i64 48, !6, i64 64, !19, i64 192, !151, i64 200, !140, i64 208}
-!147 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
-!148 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
-!149 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !5, i64 0}
-!150 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !13, i64 8}
-!151 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !5, i64 0}
+!37 = !{!38, !39, i64 0}
+!38 = !{!"_ZTSSt12__shared_ptrIN3g2o23HyperGraphElementActionELN9__gnu_cxx12_Lock_policyE2EE", !39, i64 0, !40, i64 8}
+!39 = !{!"p1 _ZTSN3g2o23HyperGraphElementActionE", !5, i64 0}
+!40 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !41, i64 0}
+!41 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN3g2o23HyperGraphElementActionEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSF_INSG_IT0_E4typeEE6__typeEEOSH_OSM_: argument 0"}
+!44 = distinct !{!44, !"_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrIN3g2o23HyperGraphElementActionEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSF_INSG_IT0_E4typeEE6__typeEEOSH_OSM_"}
+!45 = !{!40, !41, i64 0}
+!46 = !{!19, !19, i64 0}
+!47 = !{!48, !19, i64 8}
+!48 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !19, i64 8, !19, i64 12}
+!49 = !{!48, !19, i64 12}
+!50 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!51 = distinct !{!51, !36}
+!52 = !{!53, !54, i64 16}
+!53 = !{!"_ZTSSt15_Sp_counted_ptrIPN3g2o33HyperGraphElementActionCollectionELN9__gnu_cxx12_Lock_policyE2EE", !48, i64 0, !54, i64 16}
+!54 = !{!"p1 _ZTSN3g2o33HyperGraphElementActionCollectionE", !5, i64 0}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_: argument 0"}
+!57 = distinct !{!57, !"_ZSt9make_pairIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENSD_INSE_IT0_E4typeEE6__typeEEOSF_OSK_"}
+!58 = !{!59, !60, i64 8}
+!59 = !{!"_ZTSNSt8__detail15_List_node_baseE", !60, i64 0, !60, i64 8}
+!60 = !{!"p1 _ZTSNSt8__detail15_List_node_baseE", !5, i64 0}
+!61 = !{!59, !60, i64 0}
+!62 = !{!63, !13, i64 16}
+!63 = !{!"_ZTSNSt8__detail17_List_node_headerE", !59, i64 0, !13, i64 16}
+!64 = !{!54, !54, i64 0}
+!65 = !{!66, !13, i64 16}
+!66 = !{!"_ZTSNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EEE", !67, i64 0}
+!67 = !{!"_ZTSNSt7__cxx1110_List_baseIPN3g2o33HyperGraphElementActionCollectionESaIS3_EE10_List_implE", !63, i64 0}
+!68 = distinct !{!68, !36}
+!69 = distinct !{!69, !36}
+!70 = distinct !{!70, !36}
+!71 = distinct !{!71, !36}
+!72 = !{!73, !75, i64 72}
+!73 = !{!"_ZTSN3g2o10DrawActionE", !74, i64 0, !75, i64 72, !76, i64 80, !39, i64 88}
+!74 = !{!"_ZTSN3g2o23HyperGraphElementActionE", !24, i64 8, !24, i64 40}
+!75 = !{!"p1 _ZTSN3g2o10DrawAction10ParametersE", !5, i64 0}
+!76 = !{!"p1 _ZTSN3g2o8PropertyIbEE", !5, i64 0}
+!77 = !{!73, !39, i64 88}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_: argument 0"}
+!80 = distinct !{!80, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_"}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"bool", !6, i64 0}
+!83 = !{!73, !76, i64 80}
+!84 = distinct !{!84, !36}
+!85 = !{i8 0, i8 2}
+!86 = !{}
+!87 = !{!88, !82, i64 40}
+!88 = !{!"_ZTSN3g2o8PropertyIbEE", !89, i64 0, !82, i64 40}
+!89 = !{!"_ZTSN3g2o12BasePropertyE", !24, i64 8}
+!90 = !{!91, !92, i64 32}
+!91 = !{!"_ZTSSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3g2o12BasePropertyEE", !24, i64 0, !92, i64 32}
+!92 = !{!"p1 _ZTSN3g2o12BasePropertyE", !5, i64 0}
+!93 = !{!94, !101, i64 56}
+!94 = !{!"_ZTSSt4pairIKN3g2o5Cache8CacheKeyEPS1_E", !95, i64 0, !101, i64 56}
+!95 = !{!"_ZTSN3g2o5Cache8CacheKeyE", !24, i64 0, !96, i64 32}
+!96 = !{!"_ZTSSt6vectorIPN3g2o9ParameterESaIS2_EE", !97, i64 0}
+!97 = !{!"_ZTSSt12_Vector_baseIPN3g2o9ParameterESaIS2_EE", !98, i64 0}
+!98 = !{!"_ZTSNSt12_Vector_baseIPN3g2o9ParameterESaIS2_EE12_Vector_implE", !99, i64 0}
+!99 = !{!"_ZTSNSt12_Vector_baseIPN3g2o9ParameterESaIS2_EE17_Vector_impl_dataE", !100, i64 0, !100, i64 8, !100, i64 16}
+!100 = !{!"p2 _ZTSN3g2o9ParameterE", !5, i64 0}
+!101 = !{!"p1 _ZTSN3g2o5CacheE", !5, i64 0}
+!102 = distinct !{!102, !36}
+!103 = !{!104, !106, i64 8}
+!104 = !{!"_ZTSN3g2o10HyperGraph4DataE", !105, i64 0, !106, i64 8, !107, i64 16}
+!105 = !{!"_ZTSN3g2o10HyperGraph17HyperGraphElementE"}
+!106 = !{!"p1 _ZTSN3g2o10HyperGraph4DataE", !5, i64 0}
+!107 = !{!"p1 _ZTSN3g2o10HyperGraph13DataContainerE", !5, i64 0}
+!108 = distinct !{!108, !36}
+!109 = !{!110, !111, i64 0}
+!110 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !111, i64 0}
+!111 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !5, i64 0}
+!112 = !{!113, !114, i64 8}
+!113 = !{!"_ZTSSt4pairIKiPN3g2o10HyperGraph6VertexEE", !19, i64 0, !114, i64 8}
+!114 = !{!"p1 _ZTSN3g2o10HyperGraph6VertexE", !5, i64 0}
+!115 = distinct !{!115, !36}
+!116 = !{!117, !117, i64 0}
+!117 = !{!"p1 _ZTSN3g2o10HyperGraph4EdgeE", !5, i64 0}
+!118 = distinct !{!118, !36}
+!119 = !{!10, !12, i64 24}
+!120 = !{!10, !12, i64 16}
+!121 = distinct !{!121, !36}
+!122 = !{!123, !123, i64 0}
+!123 = !{!"p1 _ZTSSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE", !5, i64 0}
+!124 = !{!125, !126, i64 8}
+!125 = !{!"_ZTSNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_Auto_nodeE", !123, i64 0, !126, i64 8}
+!126 = !{!"p1 _ZTSSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3g2o23HyperGraphElementActionEEEE", !5, i64 0}
+!127 = distinct !{!127, !36}
+!128 = distinct !{!128, !36}
+!129 = distinct !{!129, !36}
+!130 = !{!131}
+!131 = distinct !{!131, !132, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!132 = distinct !{!132, !"_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!133 = !{!134}
+!134 = distinct !{!134, !135, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!135 = distinct !{!135, !"_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!136 = !{!134, !131}
+!137 = !{!138, !22, i64 40}
+!138 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !22, i64 8, !22, i64 16, !22, i64 24, !22, i64 32, !22, i64 40, !22, i64 48, !139, i64 56}
+!139 = !{!"_ZTSSt6locale", !140, i64 0}
+!140 = !{!"p1 _ZTSNSt6locale5_ImplE", !5, i64 0}
+!141 = !{!138, !22, i64 32}
+!142 = !{!143, !13, i64 8}
+!143 = !{!"_ZTSSi", !13, i64 8}
+!144 = !{!145, !147, i64 32}
+!145 = !{!"_ZTSSt8ios_base", !13, i64 8, !13, i64 16, !146, i64 24, !147, i64 28, !147, i64 32, !148, i64 40, !149, i64 48, !6, i64 64, !19, i64 192, !150, i64 200, !139, i64 208}
+!146 = !{!"_ZTSSt13_Ios_Fmtflags", !6, i64 0}
+!147 = !{!"_ZTSSt12_Ios_Iostate", !6, i64 0}
+!148 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !5, i64 0}
+!149 = !{!"_ZTSNSt8ios_base6_WordsE", !5, i64 0, !13, i64 8}
+!150 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !5, i64 0}

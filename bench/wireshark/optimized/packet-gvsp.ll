@@ -1497,7 +1497,7 @@ status_with_payload.exit.thread.i132:             ; preds = %status_with_payload
 360:                                              ; preds = %346, %333, %320, %297
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, %269
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 361:                                              ; preds = %137
   %362 = load i32, ptr @hf_gvsp_payloaddata, align 4
@@ -2384,12 +2384,12 @@ define internal fastcc void @dissect_packet_leader(ptr noundef %0, ptr noundef %
   %150 = tail call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %147, ptr noundef %1, i32 noundef %149, i32 noundef 4, i32 noundef 0)
   %151 = add nuw nsw i32 %.0851.i, 1
   %exitcond.not.i = icmp eq i32 %151, 6
-  br i1 %exitcond.not.i, label %.loopexit.i, label %146, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.loopexit.i, label %146, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %146, %136, %117
   %152 = add nuw nsw i32 %.02.i, 1
   %exitcond3.not.i = icmp eq i32 %152, %63
-  br i1 %exitcond3.not.i, label %dissect_multi_part_leader.exit, label %79, !llvm.loop !11
+  br i1 %exitcond3.not.i, label %dissect_multi_part_leader.exit, label %79, !llvm.loop !10
 
 153:                                              ; preds = %3
   %154 = load i32, ptr @hf_gvsp_payloadtype, align 4
@@ -2521,7 +2521,7 @@ define internal fastcc void @dissect_packet_trailer(ptr noundef %0, ptr noundef 
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %66, ptr noundef %1, i32 noundef %.reass, i32 noundef 4, i32 noundef 0)
   %68 = add nuw nsw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %68, %45
-  br i1 %exitcond.not.i, label %dissect_multi_part_trailer.exit, label %52, !llvm.loop !12
+  br i1 %exitcond.not.i, label %dissect_multi_part_trailer.exit, label %52, !llvm.loop !11
 
 dissect_multi_part_trailer.exit:                  ; preds = %.loopexit.i, %42
   %69 = shl nsw i32 %45, 4
@@ -2761,10 +2761,9 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

@@ -39,13 +39,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define hidden i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store ptr null, ptr %3, align 8, !tbaa !16
+  store ptr null, ptr %3, align 8, !tbaa !15
   %6 = call i32 @getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5) #8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.preheader, label %59
 
 .preheader:                                       ; preds = %4
-  %.06098 = load ptr, ptr %5, align 8, !tbaa !17
+  %.06098 = load ptr, ptr %5, align 8, !tbaa !16
   %.not7599 = icmp eq ptr %.06098, null
   br i1 %.not7599, label %.thread, label %.lr.ph
 
@@ -54,7 +54,7 @@ define hidden i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr nound
   %.061101 = phi ptr [ %.162.ph, %52 ], [ null, %.preheader ]
   %.063100 = phi ptr [ %.265.ph, %52 ], [ null, %.preheader ]
   %7 = getelementptr inbounds nuw i8, ptr %.060102, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !19
+  %8 = load ptr, ptr %7, align 8, !tbaa !18
   %.not76 = icmp eq ptr %8, null
   br i1 %.not76, label %12, label %9
 
@@ -66,7 +66,7 @@ define hidden i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr nound
 12:                                               ; preds = %.lr.ph, %9
   %13 = phi i64 [ %11, %9 ], [ 0, %.lr.ph ]
   %14 = getelementptr inbounds nuw i8, ptr %.060102, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !21
+  %15 = load i32, ptr %14, align 4, !tbaa !20
   switch i32 %15, label %52 [
     i32 2, label %17
     i32 10, label %16
@@ -78,13 +78,13 @@ define hidden i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr nound
 17:                                               ; preds = %12, %16
   %.059 = phi i64 [ 28, %16 ], [ 16, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %.060102, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !22
+  %19 = load ptr, ptr %18, align 8, !tbaa !21
   %.not77 = icmp eq ptr %19, null
   br i1 %.not77, label %52, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %.060102, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !23
+  %22 = load i32, ptr %21, align 8, !tbaa !22
   %.not78 = icmp eq i32 %22, 0
   %23 = zext i32 %22 to i64
   %24 = icmp samesign ugt i64 %.059, %23
@@ -100,36 +100,36 @@ define hidden i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not79, label %._crit_edge.thread123, label %30
 
 30:                                               ; preds = %25
-  %31 = load i32, ptr %.060102, align 8, !tbaa !24
-  store i32 %31, ptr %29, align 8, !tbaa !25
-  %32 = load i32, ptr %14, align 4, !tbaa !21
+  %31 = load i32, ptr %.060102, align 8, !tbaa !23
+  store i32 %31, ptr %29, align 8, !tbaa !24
+  %32 = load i32, ptr %14, align 4, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i32 %32, ptr %33, align 4, !tbaa !26
+  store i32 %32, ptr %33, align 4, !tbaa !25
   %34 = getelementptr inbounds nuw i8, ptr %.060102, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !27
+  %35 = load i32, ptr %34, align 8, !tbaa !26
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i32 %35, ptr %36, align 8, !tbaa !28
+  store i32 %35, ptr %36, align 8, !tbaa !27
   %37 = getelementptr inbounds nuw i8, ptr %.060102, i64 12
-  %38 = load i32, ptr %37, align 4, !tbaa !29
+  %38 = load i32, ptr %37, align 4, !tbaa !28
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  store i32 %38, ptr %39, align 4, !tbaa !30
+  store i32 %38, ptr %39, align 4, !tbaa !29
   %40 = trunc nuw nsw i64 %.059 to i32
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i32 %40, ptr %41, align 8, !tbaa !31
+  store i32 %40, ptr %41, align 8, !tbaa !30
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)
-  store ptr %44, ptr %42, align 8, !tbaa !32
-  %45 = load ptr, ptr %18, align 8, !tbaa !22
+  store ptr %44, ptr %42, align 8, !tbaa !31
+  %45 = load ptr, ptr %18, align 8, !tbaa !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %44, ptr noundef nonnull align 2 dereferenceable(1) %45, i64 %.059, i1 false)
   %.not80 = icmp eq i64 %13, 0
   br i1 %.not80, label %49, label %46
 
 46:                                               ; preds = %30
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 %.059
-  store ptr %47, ptr %43, align 8, !tbaa !33
-  %48 = load ptr, ptr %7, align 8, !tbaa !19
+  store ptr %47, ptr %43, align 8, !tbaa !32
+  %48 = load ptr, ptr %7, align 8, !tbaa !18
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr align 1 %48, i64 %13, i1 false)
   br label %49
 
@@ -148,17 +148,17 @@ define hidden i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr nound
   %.265.ph = phi ptr [ %spec.select, %49 ], [ %spec.select, %50 ], [ %.063100, %17 ], [ %.063100, %20 ], [ %.063100, %12 ]
   %.162.ph = phi ptr [ %29, %49 ], [ %29, %50 ], [ %.061101, %17 ], [ %.061101, %20 ], [ %.061101, %12 ]
   %53 = getelementptr inbounds nuw i8, ptr %.060102, i64 40
-  %.060 = load ptr, ptr %53, align 8, !tbaa !17
+  %.060 = load ptr, ptr %53, align 8, !tbaa !16
   %.not75 = icmp eq ptr %.060, null
-  br i1 %.not75, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not75, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %52
-  %.pre = load ptr, ptr %5, align 8, !tbaa !17
+  %.pre = load ptr, ptr %5, align 8, !tbaa !16
   %.not83 = icmp eq ptr %.pre, null
   br i1 %.not83, label %.thread, label %54
 
 ._crit_edge.thread123:                            ; preds = %25
-  %.pre127 = load ptr, ptr %5, align 8, !tbaa !17
+  %.pre127 = load ptr, ptr %5, align 8, !tbaa !16
   %.not83128 = icmp eq ptr %.pre127, null
   br i1 %.not83128, label %55, label %.thread133
 
@@ -192,7 +192,7 @@ define hidden i32 @Curl_getaddrinfo_ex(ptr noundef %0, ptr noundef %1, ptr nound
 Curl_freeaddrinfo.exit:                           ; preds = %.lr.ph.i, %55, %.thread
   %.4 = phi ptr [ %.063.lcssa114120, %.thread ], [ null, %55 ], [ null, %.lr.ph.i ]
   %.3 = phi i32 [ %spec.select87, %.thread ], [ -10, %55 ], [ -10, %.lr.ph.i ]
-  store ptr %.4, ptr %3, align 8, !tbaa !16
+  store ptr %.4, ptr %3, align 8, !tbaa !15
   br label %59
 
 59:                                               ; preds = %4, %Curl_freeaddrinfo.exit
@@ -236,18 +236,18 @@ define hidden ptr @Curl_ip2addr(i32 noundef %0, ptr noundef readonly captures(no
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr %14, ptr %15, align 8, !tbaa !32
+  store ptr %14, ptr %15, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %.035
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr %16, ptr %17, align 8, !tbaa !33
+  store ptr %16, ptr %17, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %2, i64 %6, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 %0, ptr %18, align 4, !tbaa !26
+  store i32 %0, ptr %18, align 4, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 1, ptr %19, align 8, !tbaa !28
+  store i32 1, ptr %19, align 8, !tbaa !27
   %20 = trunc nuw nsw i64 %.035 to i32
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 %20, ptr %21, align 8, !tbaa !31
+  store i32 %20, ptr %21, align 8, !tbaa !30
   switch i32 %0, label %29 [
     i32 2, label %22
     i32 10, label %25
@@ -266,11 +266,11 @@ define hidden ptr @Curl_ip2addr(i32 noundef %0, ptr noundef readonly captures(no
 
 .sink.split:                                      ; preds = %25, %22
   %.sink = phi i16 [ 2, %22 ], [ 10, %25 ]
-  store i16 %.sink, ptr %14, align 4, !tbaa !35
+  store i16 %.sink, ptr %14, align 4, !tbaa !34
   %27 = trunc i32 %3 to i16
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %27)
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 50
-  store i16 %rev.i, ptr %28, align 2, !tbaa !35
+  store i16 %rev.i, ptr %28, align 2, !tbaa !34
   br label %29
 
 29:                                               ; preds = %.sink.split, %13, %8, %4
@@ -299,25 +299,25 @@ define hidden ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %13 = add i64 %8, 1
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr %14, ptr %15, align 8, !tbaa !32
+  store ptr %14, ptr %15, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %16, ptr %17, align 8, !tbaa !33
+  store ptr %16, ptr %17, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %0, i64 %13, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 2, ptr %18, align 4, !tbaa !26
+  store i32 2, ptr %18, align 4, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 1, ptr %19, align 8, !tbaa !28
+  store i32 1, ptr %19, align 8, !tbaa !27
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 16, ptr %20, align 8, !tbaa !31
+  store i32 16, ptr %20, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %22 = load i32, ptr %3, align 4
   store i32 %22, ptr %21, align 4
-  store i16 2, ptr %14, align 4, !tbaa !35
+  store i16 2, ptr %14, align 4, !tbaa !34
   %23 = trunc i32 %1 to i16
   %rev.i.i = call noundef i16 @llvm.bswap.i16(i16 %23)
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 50
-  store i16 %rev.i.i, ptr %24, align 2, !tbaa !35
+  store i16 %rev.i.i, ptr %24, align 2, !tbaa !34
   br label %Curl_ip2addr.exit
 
 25:                                               ; preds = %2
@@ -338,24 +338,24 @@ define hidden ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %34 = add i64 %29, 1
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  store ptr %35, ptr %36, align 8, !tbaa !32
+  store ptr %35, ptr %36, align 8, !tbaa !31
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 76
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr %37, ptr %38, align 8, !tbaa !33
+  store ptr %37, ptr %38, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %0, i64 %34, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 10, ptr %39, align 4, !tbaa !26
+  store i32 10, ptr %39, align 4, !tbaa !25
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 1, ptr %40, align 8, !tbaa !28
+  store i32 1, ptr %40, align 8, !tbaa !27
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store i32 28, ptr %41, align 8, !tbaa !31
+  store i32 28, ptr %41, align 8, !tbaa !30
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, ptr noundef nonnull readonly align 4 dereferenceable(16) %4, i64 16, i1 false)
-  store i16 10, ptr %35, align 4, !tbaa !35
+  store i16 10, ptr %35, align 4, !tbaa !34
   %43 = trunc i32 %1 to i16
   %rev.i.i9 = call noundef i16 @llvm.bswap.i16(i16 %43)
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 50
-  store i16 %rev.i.i9, ptr %44, align 2, !tbaa !35
+  store i16 %rev.i.i9, ptr %44, align 2, !tbaa !34
   br label %Curl_ip2addr.exit11
 
 Curl_ip2addr.exit11:                              ; preds = %33, %28, %25
@@ -374,7 +374,7 @@ declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @Curl_unix2addr(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  store i8 0, ptr %1, align 1, !tbaa !37
+  store i8 0, ptr %1, align 1, !tbaa !36
   %4 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !12
   %5 = tail call ptr %4(i64 noundef 1, i64 noundef 158) #8
   %.not = icmp eq ptr %5, null
@@ -383,8 +383,8 @@ define hidden ptr @Curl_unix2addr(ptr noundef readonly captures(none) %0, ptr no
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %7, ptr %8, align 8, !tbaa !32
-  store i16 1, ptr %7, align 2, !tbaa !39
+  store ptr %7, ptr %8, align 8, !tbaa !31
+  store i16 1, ptr %7, align 2, !tbaa !38
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %10 = add i64 %9, 1
   %11 = icmp ugt i64 %10, 108
@@ -393,18 +393,18 @@ define hidden ptr @Curl_unix2addr(ptr noundef readonly captures(none) %0, ptr no
 12:                                               ; preds = %6
   %13 = load ptr, ptr @Curl_cfree, align 8, !tbaa !12
   tail call void %13(ptr noundef nonnull %5) #8
-  store i8 1, ptr %1, align 1, !tbaa !37
+  store i8 1, ptr %1, align 1, !tbaa !36
   br label %24
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 1, ptr %15, align 4, !tbaa !26
+  store i32 1, ptr %15, align 4, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1, ptr %16, align 8, !tbaa !28
+  store i32 1, ptr %16, align 8, !tbaa !27
   %17 = trunc nsw i64 %9 to i32
   %18 = add nsw i32 %17, 3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %18, ptr %19, align 8, !tbaa !31
+  store i32 %18, ptr %19, align 8, !tbaa !30
   br i1 %2, label %20, label %22
 
 20:                                               ; preds = %14
@@ -454,31 +454,30 @@ attributes #9 = { nounwind willreturn memory(read) }
 !10 = !{!"p1 _ZTS8sockaddr", !9, i64 0}
 !11 = !{!"p1 _ZTS13Curl_addrinfo", !9, i64 0}
 !12 = !{!9, !9, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!11, !11, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS8addrinfo", !9, i64 0}
-!19 = !{!20, !8, i64 32}
-!20 = !{!"addrinfo", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !10, i64 24, !8, i64 32, !18, i64 40}
-!21 = !{!20, !5, i64 4}
-!22 = !{!20, !10, i64 24}
-!23 = !{!20, !5, i64 16}
-!24 = !{!20, !5, i64 0}
-!25 = !{!4, !5, i64 0}
-!26 = !{!4, !5, i64 4}
-!27 = !{!20, !5, i64 8}
-!28 = !{!4, !5, i64 8}
-!29 = !{!20, !5, i64 12}
-!30 = !{!4, !5, i64 12}
-!31 = !{!4, !5, i64 16}
-!32 = !{!4, !10, i64 32}
-!33 = !{!4, !8, i64 24}
-!34 = distinct !{!34, !14, !15}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"short", !6, i64 0}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"_Bool", !6, i64 0}
-!39 = !{!40, !36, i64 0}
-!40 = !{!"sockaddr_un", !36, i64 0, !6, i64 2}
+!15 = !{!11, !11, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8addrinfo", !9, i64 0}
+!18 = !{!19, !8, i64 32}
+!19 = !{!"addrinfo", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !10, i64 24, !8, i64 32, !17, i64 40}
+!20 = !{!19, !5, i64 4}
+!21 = !{!19, !10, i64 24}
+!22 = !{!19, !5, i64 16}
+!23 = !{!19, !5, i64 0}
+!24 = !{!4, !5, i64 0}
+!25 = !{!4, !5, i64 4}
+!26 = !{!19, !5, i64 8}
+!27 = !{!4, !5, i64 8}
+!28 = !{!19, !5, i64 12}
+!29 = !{!4, !5, i64 12}
+!30 = !{!4, !5, i64 16}
+!31 = !{!4, !10, i64 32}
+!32 = !{!4, !8, i64 24}
+!33 = distinct !{!33, !14}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"short", !6, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"_Bool", !6, i64 0}
+!38 = !{!39, !35, i64 0}
+!39 = !{!"sockaddr_un", !35, i64 0, !6, i64 2}

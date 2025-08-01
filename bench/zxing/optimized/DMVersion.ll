@@ -40,7 +40,7 @@ define noundef ptr @_ZN5ZXing10DataMatrix20VersionForDimensionsEii(i32 noundef %
 16:                                               ; preds = %.preheader, %12
   %.020.add = add nuw nsw i64 %.020.idx26, 40
   %.not22 = icmp eq i64 %.020.add, 1920
-  br i1 %.not22, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %.not22, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %16, %12, %2, %4
   %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %.020.ptr27, %12 ], [ null, %16 ]
@@ -62,5 +62,3 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!"_ZTSN5ZXing10DataMatrix7Version8ECBlocksE", !5, i64 0, !6, i64 4}
 !9 = !{!4, !5, i64 8}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}

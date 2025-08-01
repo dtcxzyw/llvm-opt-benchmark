@@ -109,7 +109,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit16
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %18, ptr %42, align 8, !tbaa !4
   %43 = tail call ptr @lean_array_push(ptr noundef %.0, ptr noundef nonnull %37) #3
-  br label %3, !llvm.loop !12
+  br label %3
 }
 
 declare ptr @lean_array_push(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -132,9 +132,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Meta_Grind_Arith_mkLetOfMap___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 2, ptr %7, align 8, !tbaa !14
+  store i16 2, ptr %7, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !14
+  store i16 0, ptr %8, align 2, !tbaa !12
   ret ptr %2
 }
 
@@ -353,16 +353,16 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_Grind_Arith_mkLetOfMap___spec__2___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !14
+  store i16 3, ptr %7, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !14
+  store i16 0, ptr %8, align 2, !tbaa !12
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_Grind_Arith_mkLetOfMap___spec__2___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %4, align 8, !tbaa !16
+  %.val = load i64, ptr %4, align 8, !tbaa !14
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -388,7 +388,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Meta_Grind_Arith_mkLetOfMap___spec_
 
 lean_dec.exit7:                                   ; preds = %13, %12, %10, %3
   %14 = getelementptr i8, ptr %1, i64 8
-  %.val10 = load i64, ptr %14, align 8, !tbaa !16
+  %.val10 = load i64, ptr %14, align 8, !tbaa !14
   %15 = ptrtoint ptr %1 to i64
   %16 = and i64 %15, 1
   %.not11 = icmp eq i64 %16, 0
@@ -747,7 +747,7 @@ lean_inc.exit97:                                  ; preds = %127, %126, %124, %l
 
 lean_inc.exit96:                                  ; preds = %134, %133, %131, %lean_inc.exit97
   %135 = tail call ptr @l_Lean_Expr_letE___override(ptr noundef %121, ptr noundef %1, ptr noundef %128, ptr noundef %81, i8 noundef zeroext 0) #3
-  br i1 %.not179, label %141, label %136, !prof !18
+  br i1 %.not179, label %141, label %136, !prof !16
 
 136:                                              ; preds = %lean_inc.exit96
   %137 = icmp ult ptr %91, inttoptr (i64 2 to ptr)
@@ -994,7 +994,7 @@ lean_inc.exit90:                                  ; preds = %213, %212, %210, %l
 
 lean_inc.exit:                                    ; preds = %220, %219, %217, %lean_inc.exit90
   %221 = tail call ptr @l_Lean_Expr_letE___override(ptr noundef %207, ptr noundef %1, ptr noundef %214, ptr noundef %167, i8 noundef zeroext 0) #3
-  br i1 %.not187, label %227, label %222, !prof !18
+  br i1 %.not187, label %227, label %222, !prof !16
 
 222:                                              ; preds = %lean_inc.exit
   %223 = icmp ult ptr %177, inttoptr (i64 2 to ptr)
@@ -1086,9 +1086,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_Grind_Arith_mkLetOfMap___spec__3___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 18, ptr %7, align 8, !tbaa !14
+  store i16 18, ptr %7, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !14
+  store i16 0, ptr %8, align 2, !tbaa !12
   ret ptr %2
 }
 
@@ -1130,7 +1130,7 @@ define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_Grind_Arith_mkLe
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %36 = load ptr, ptr %35, align 8, !tbaa !4
   %37 = getelementptr i8, ptr %14, i64 8
-  %.val = load i64, ptr %37, align 8, !tbaa !16
+  %.val = load i64, ptr %37, align 8, !tbaa !14
   %38 = ptrtoint ptr %14 to i64
   %39 = and i64 %38, 1
   %.not = icmp eq i64 %39, 0
@@ -1156,7 +1156,7 @@ define noalias ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_Grind_Arith_mkLe
 
 lean_dec.exit62:                                  ; preds = %46, %45, %43, %1
   %47 = getelementptr i8, ptr %16, i64 8
-  %.val87 = load i64, ptr %47, align 8, !tbaa !16
+  %.val87 = load i64, ptr %47, align 8, !tbaa !14
   %48 = ptrtoint ptr %16 to i64
   %49 = and i64 %48, 1
   %.not88 = icmp eq i64 %49, 0
@@ -1538,16 +1538,16 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_Grind_Arith_mkLetOfMap___spec__4___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !14
+  store i16 4, ptr %7, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !14
+  store i16 0, ptr %8, align 2, !tbaa !12
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_Grind_Arith_mkLetOfMap___spec__4___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %5, align 8, !tbaa !16
+  %.val = load i64, ptr %5, align 8, !tbaa !14
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -1573,7 +1573,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_Grind_Arith_mkLetOfMap___sp
 
 lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   %15 = getelementptr i8, ptr %2, i64 8
-  %.val15 = load i64, ptr %15, align 8, !tbaa !16
+  %.val15 = load i64, ptr %15, align 8, !tbaa !14
   %16 = ptrtoint ptr %2 to i64
   %17 = and i64 %16, 1
   %.not17 = icmp eq i64 %17, 0
@@ -1698,7 +1698,7 @@ define ptr @l_Lean_Meta_Grind_Arith_mkLetOfMap___rarg(ptr noundef readonly captu
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, 1
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %lean_nat_eq.exit, label %lean_nat_eq.exit.thread, !prof !18
+  br i1 %.not, label %lean_nat_eq.exit, label %lean_nat_eq.exit.thread, !prof !16
 
 lean_nat_eq.exit:                                 ; preds = %14
   %19 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %16, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
@@ -1724,13 +1724,13 @@ lean_nat_lt.exit:                                 ; preds = %lean_nat_eq.exit.th
   %28 = or disjoint i32 %27, -167772160
   store i32 %28, ptr %25, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 0, ptr %29, align 8, !tbaa !16
+  store i64 0, ptr %29, align 8, !tbaa !14
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i64 %21, ptr %30, align 8, !tbaa !16
+  store i64 %21, ptr %30, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   %33 = getelementptr i8, ptr %32, i64 8
-  %.val136 = load i64, ptr %33, align 8, !tbaa !16
+  %.val136 = load i64, ptr %33, align 8, !tbaa !14
   %.mask = and i64 %.val136, 9223372036854775807
   %.not161 = icmp eq i64 %.mask, 0
   br i1 %.not161, label %lean_dec.exit107, label %.lr.ph.i
@@ -1799,7 +1799,7 @@ lean_array_uget.exit.i:                           ; preds = %35
 lean_dec.exit107:                                 ; preds = %55, %lean_nat_lt.exit
   %.090 = phi ptr [ %24, %lean_nat_lt.exit ], [ %56, %55 ]
   %58 = getelementptr i8, ptr %.090, i64 8
-  %.090.val = load i64, ptr %58, align 8, !tbaa !16
+  %.090.val = load i64, ptr %58, align 8, !tbaa !14
   %59 = ptrtoint ptr %.090 to i64
   %60 = and i64 %59, 1
   %.not162 = icmp eq i64 %60, 0
@@ -1874,7 +1874,7 @@ lean_dec.exit104:                                 ; preds = %77, %76, %74, %lean
   br label %lean_dec.exit103
 
 lean_dec.exit103:                                 ; preds = %86, %85, %83, %lean_dec.exit104
-  %.090.val135 = load i64, ptr %58, align 8, !tbaa !16
+  %.090.val135 = load i64, ptr %58, align 8, !tbaa !14
   %87 = tail call ptr @l_Array_reverse___rarg(ptr noundef nonnull %.090) #3
   tail call void @lean_inc_heartbeat() #3
   %88 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #3
@@ -1897,7 +1897,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit103
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr %93, ptr %96, align 8, !tbaa !4
   %97 = getelementptr i8, ptr %87, i64 8
-  %.val134 = load i64, ptr %97, align 8, !tbaa !16
+  %.val134 = load i64, ptr %97, align 8, !tbaa !14
   %98 = tail call ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Meta_Grind_Arith_mkLetOfMap___spec__3___rarg(ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nonnull poison, ptr poison, ptr noundef %87, i64 noundef %.val134, i64 noundef 0, ptr noundef nonnull %88, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr poison, ptr noundef %13)
   %99 = ptrtoint ptr %87 to i64
   %100 = and i64 %99, 1
@@ -2242,9 +2242,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_Meta_Grind_Arith_mkLetOfMap___rarg___boxed, ptr %8, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 14, ptr %9, align 8, !tbaa !14
+  store i16 14, ptr %9, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !14
+  store i16 0, ptr %10, align 2, !tbaa !12
   ret ptr %4
 }
 
@@ -2488,9 +2488,9 @@ l_Lean_Meta_Grind_Arith_mkLetOfMap.exit:          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l_Lean_Meta_Grind_Arith_mkLetOfMap___rarg___boxed, ptr %8, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 14, ptr %9, align 8, !tbaa !14
+  store i16 14, ptr %9, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 0, ptr %10, align 2, !tbaa !14
+  store i16 0, ptr %10, align 2, !tbaa !12
   %11 = ptrtoint ptr %2 to i64
   %12 = and i64 %11, 1
   %.not = icmp eq i64 %12, 0
@@ -2651,10 +2651,8 @@ attributes #4 = { noreturn nounwind }
 !9 = !{!"", !10, i64 0, !10, i64 4, !10, i64 6, !10, i64 7}
 !10 = !{!"int", !6, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"short", !6, i64 0}
 !14 = !{!15, !15, i64 0}
-!15 = !{!"short", !6, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}

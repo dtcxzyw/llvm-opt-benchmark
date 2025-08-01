@@ -514,7 +514,7 @@ xact_desc_relations.exit.i:                       ; preds = %29, %20
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %45) #10
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %indvars.iv.next.i17.i, %wide.trip.count.i15.i
-  br i1 %exitcond.not.i18.i, label %xact_desc_subxacts.exit.i, label %43, !llvm.loop !7
+  br i1 %exitcond.not.i18.i, label %xact_desc_subxacts.exit.i, label %43, !llvm.loop !6
 
 xact_desc_subxacts.exit.i:                        ; preds = %43, %xact_desc_relations.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -540,7 +540,7 @@ xact_desc_subxacts.exit.i:                        ; preds = %43, %xact_desc_rela
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %56, i32 noundef %58, i64 noundef %55) #10
   %indvars.iv.next.i21.i = add nuw nsw i64 %indvars.iv.i20.i, 1
   %exitcond.not.i22.i = icmp eq i64 %indvars.iv.next.i21.i, %wide.trip.count.i19.i
-  br i1 %exitcond.not.i22.i, label %xact_desc_stats.exit.i, label %52, !llvm.loop !8
+  br i1 %exitcond.not.i22.i, label %xact_desc_stats.exit.i, label %52, !llvm.loop !7
 
 xact_desc_stats.exit.i:                           ; preds = %52, %xact_desc_subxacts.exit.i
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -664,7 +664,7 @@ xact_desc_relations.exit.i38:                     ; preds = %105, %96
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %121) #10
   %indvars.iv.next.i12.i = add nuw nsw i64 %indvars.iv.i11.i, 1
   %exitcond.not.i13.i = icmp eq i64 %indvars.iv.next.i12.i, %wide.trip.count.i10.i
-  br i1 %exitcond.not.i13.i, label %xact_desc_subxacts.exit.i39, label %119, !llvm.loop !7
+  br i1 %exitcond.not.i13.i, label %xact_desc_subxacts.exit.i39, label %119, !llvm.loop !6
 
 xact_desc_subxacts.exit.i39:                      ; preds = %119, %xact_desc_relations.exit.i38
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -710,7 +710,7 @@ xact_desc_subxacts.exit.i39:                      ; preds = %119, %xact_desc_rel
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %146, i32 noundef %148, i64 noundef %145) #10
   %indvars.iv.next.i16.i = add nuw nsw i64 %indvars.iv.i15.i, 1
   %exitcond.not.i17.i = icmp eq i64 %indvars.iv.next.i16.i, %wide.trip.count.i14.i
-  br i1 %exitcond.not.i17.i, label %xact_desc_abort.exit, label %142, !llvm.loop !8
+  br i1 %exitcond.not.i17.i, label %xact_desc_abort.exit, label %142, !llvm.loop !7
 
 xact_desc_abort.exit:                             ; preds = %142, %135
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #10
@@ -881,7 +881,7 @@ xact_desc_relations.exit17.i:                     ; preds = %237, %xact_desc_rel
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %254, i32 noundef %256, i64 noundef %253) #10
   %indvars.iv.next.i20.i = add nuw nsw i64 %indvars.iv.i19.i, 1
   %exitcond.not.i21.i = icmp eq i64 %indvars.iv.next.i20.i, %wide.trip.count.i18.i
-  br i1 %exitcond.not.i21.i, label %xact_desc_stats.exit.i46, label %250, !llvm.loop !8
+  br i1 %exitcond.not.i21.i, label %xact_desc_stats.exit.i46, label %250, !llvm.loop !7
 
 xact_desc_stats.exit.i46:                         ; preds = %250, %xact_desc_relations.exit17.i
   %257 = getelementptr inbounds nuw i8, ptr %3, i64 296
@@ -906,7 +906,7 @@ xact_desc_stats.exit.i46:                         ; preds = %250, %xact_desc_rel
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %266, i32 noundef %268, i64 noundef %265) #10
   %indvars.iv.next.i24.i = add nuw nsw i64 %indvars.iv.i23.i, 1
   %exitcond.not.i25.i = icmp eq i64 %indvars.iv.next.i24.i, %wide.trip.count.i22.i
-  br i1 %exitcond.not.i25.i, label %xact_desc_stats.exit26.i, label %262, !llvm.loop !8
+  br i1 %exitcond.not.i25.i, label %xact_desc_stats.exit26.i, label %262, !llvm.loop !7
 
 xact_desc_stats.exit26.i:                         ; preds = %262, %xact_desc_stats.exit.i46
   %269 = load i32, ptr %170, align 4
@@ -926,7 +926,7 @@ xact_desc_stats.exit26.i:                         ; preds = %262, %xact_desc_sta
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %275) #10
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i28.i, 1
   %exitcond.not.i30.i = icmp eq i64 %indvars.iv.next.i29.i, %wide.trip.count.i27.i
-  br i1 %exitcond.not.i30.i, label %xact_desc_subxacts.exit.i47, label %273, !llvm.loop !7
+  br i1 %exitcond.not.i30.i, label %xact_desc_subxacts.exit.i47, label %273, !llvm.loop !6
 
 xact_desc_subxacts.exit.i47:                      ; preds = %273, %xact_desc_stats.exit26.i
   %276 = load i32, ptr %179, align 8
@@ -935,7 +935,7 @@ xact_desc_subxacts.exit.i47:                      ; preds = %273, %xact_desc_sta
   %279 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %280 = load i32, ptr %279, align 8
   %281 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  %282 = load i8, ptr %281, align 4, !range !9, !noundef !10
+  %282 = load i8, ptr %281, align 4, !range !8, !noundef !9
   %283 = trunc nuw i8 %282 to i1
   call void @standby_desc_invalidations(ptr noundef %0, i32 noundef %276, ptr noundef %277, i32 noundef %278, i32 noundef %280, i1 noundef zeroext %283) #10
   %.not.i48 = icmp eq i16 %151, 0
@@ -978,7 +978,7 @@ xact_desc_prepare.exit:                           ; preds = %xact_desc_subxacts.
   %301 = load i32, ptr %294, align 4
   %302 = sext i32 %301 to i64
   %303 = icmp slt i64 %indvars.iv.next.i, %302
-  br i1 %303, label %298, label %xact_desc_assignment.exit, !llvm.loop !11
+  br i1 %303, label %298, label %xact_desc_assignment.exit, !llvm.loop !10
 
 304:                                              ; preds = %2
   %305 = load i32, ptr %9, align 4
@@ -1035,11 +1035,10 @@ attributes #11 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5}

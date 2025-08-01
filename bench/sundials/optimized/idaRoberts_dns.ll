@@ -260,7 +260,7 @@ check_retval.exit99:                              ; preds = %97, %100
   %109 = zext i1 %107 to i32
   %.1 = add nuw nsw i32 %.053, %109
   %110 = icmp eq i32 %.1, 12
-  br i1 %110, label %111, label %check_retval.exit95, !llvm.loop !16
+  br i1 %110, label %111, label %check_retval.exit95
 
 111:                                              ; preds = %106
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -398,10 +398,10 @@ declare i32 @IDASetJacFn(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local noundef i32 @jacrob(double %0, double noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef readonly captures(none) %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9) #0 {
   %11 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #7
   %12 = fsub double -4.000000e-02, %1
-  %13 = load ptr, ptr %5, align 8, !tbaa !18
+  %13 = load ptr, ptr %5, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !21
-  %16 = load ptr, ptr %15, align 8, !tbaa !26
+  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  %16 = load ptr, ptr %15, align 8, !tbaa !24
   store double %12, ptr %16, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store double 4.000000e-02, ptr %17, align 8, !tbaa !11
@@ -411,7 +411,7 @@ define dso_local noundef i32 @jacrob(double %0, double noundef %1, ptr noundef %
   %20 = load double, ptr %19, align 8, !tbaa !11
   %21 = fmul double %20, 1.000000e+04
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !26
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
   store double %21, ptr %23, align 8, !tbaa !11
   %24 = load double, ptr %19, align 8, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -426,7 +426,7 @@ define dso_local noundef i32 @jacrob(double %0, double noundef %1, ptr noundef %
   %32 = load double, ptr %25, align 8, !tbaa !11
   %33 = fmul double %32, 1.000000e+04
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !26
+  %35 = load ptr, ptr %34, align 8, !tbaa !24
   store double %33, ptr %35, align 8, !tbaa !11
   %36 = load double, ptr %25, align 8, !tbaa !11
   %37 = fmul double %36, -1.000000e+04
@@ -487,7 +487,7 @@ check_retval.exit11:                              ; preds = %check_retval.exit9,
   %25 = load double, ptr %24, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %27 = load double, ptr %26, align 8, !tbaa !11
-  %28 = load i64, ptr %5, align 8, !tbaa !27
+  %28 = load i64, ptr %5, align 8, !tbaa !25
   %29 = load i32, ptr %4, align 4, !tbaa !14
   %30 = load double, ptr %6, align 8, !tbaa !11
   %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %1, double noundef %23, double noundef %25, double noundef %27, i64 noundef %28, i32 noundef %29, double noundef %30)
@@ -514,9 +514,9 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 define internal fastcc range(i32 -1, 2) i32 @check_ans(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @N_VClone(ptr noundef %0) #7
   %4 = tail call ptr @N_VClone(ptr noundef %0) #7
-  %5 = load ptr, ptr %3, align 8, !tbaa !28
+  %5 = load ptr, ptr %3, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !31
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
   store double 0x3E6BF64C567623ED, ptr %7, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double 0x3D4D5205238BB03E, ptr %8, align 8, !tbaa !11
@@ -631,20 +631,18 @@ attributes #9 = { cold }
 !13 = !{!6, !6, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"int", !7, i64 0}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !6, i64 0}
-!19 = !{!"_generic_SUNMatrix", !6, i64 0, !20, i64 8, !10, i64 16}
-!20 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
-!21 = !{!22, !25, i64 32}
-!22 = !{!"_SUNMatrixContent_Dense", !23, i64 0, !23, i64 8, !24, i64 16, !23, i64 24, !25, i64 32}
-!23 = !{!"long", !7, i64 0}
-!24 = !{!"p1 double", !6, i64 0}
-!25 = !{!"p2 double", !6, i64 0}
-!26 = !{!24, !24, i64 0}
-!27 = !{!23, !23, i64 0}
-!28 = !{!29, !6, i64 0}
-!29 = !{!"_generic_N_Vector", !6, i64 0, !30, i64 8, !10, i64 16}
-!30 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !6, i64 0}
-!31 = !{!32, !24, i64 16}
-!32 = !{!"_N_VectorContent_Serial", !23, i64 0, !15, i64 8, !24, i64 16}
+!16 = !{!17, !6, i64 0}
+!17 = !{!"_generic_SUNMatrix", !6, i64 0, !18, i64 8, !10, i64 16}
+!18 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
+!19 = !{!20, !23, i64 32}
+!20 = !{!"_SUNMatrixContent_Dense", !21, i64 0, !21, i64 8, !22, i64 16, !21, i64 24, !23, i64 32}
+!21 = !{!"long", !7, i64 0}
+!22 = !{!"p1 double", !6, i64 0}
+!23 = !{!"p2 double", !6, i64 0}
+!24 = !{!22, !22, i64 0}
+!25 = !{!21, !21, i64 0}
+!26 = !{!27, !6, i64 0}
+!27 = !{!"_generic_N_Vector", !6, i64 0, !28, i64 8, !10, i64 16}
+!28 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !6, i64 0}
+!29 = !{!30, !22, i64 16}
+!30 = !{!"_N_VectorContent_Serial", !21, i64 0, !15, i64 8, !22, i64 16}

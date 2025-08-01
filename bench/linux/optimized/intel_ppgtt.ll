@@ -242,7 +242,7 @@ define dso_local noundef zeroext i1 @release_pd_entry(ptr noundef %0, i16 nounde
 ._crit_edge:                                      ; preds = %14, %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_raw_spin_lock(ptr noundef nonnull %17) #8
-  %18 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #8, !srcloc !20
+  %18 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #8, !srcloc !19
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
   %20 = icmp ne i8 %18, 0
@@ -329,20 +329,20 @@ define dso_local ptr @i915_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
 
 14:                                               ; preds = %11
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_ppgtt_create, i64 8), i32 2) #8
-          to label %35 [label %15], !srcloc !21
+          to label %35 [label %15], !srcloc !20
 
 15:                                               ; preds = %14
-  %16 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !22
+  %16 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !21
   %17 = zext i32 %16 to i64
-  %18 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %17) #8, !srcloc !23
+  %18 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %17) #8, !srcloc !22
   %19 = icmp ult i8 %18, 2
   tail call void @llvm.assume(i1 %19)
   %20 = icmp eq i8 %18, 0
   br i1 %20, label %35, label %21
 
 21:                                               ; preds = %15
-  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !24
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !25
+  tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !24
   %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_i915_ppgtt_create, i64 72), align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %28, label %24
@@ -354,8 +354,8 @@ define dso_local ptr @i915_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
   br label %28
 
 28:                                               ; preds = %24, %21
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !26
-  %29 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !27
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !25
+  %29 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #8, !srcloc !26
   %30 = icmp ult i8 %29, 2
   tail call void @llvm.assume(i1 %30)
   %31 = icmp eq i8 %29, 0
@@ -363,7 +363,7 @@ define dso_local ptr @i915_ppgtt_create(ptr noundef %0, i64 noundef %1) local_un
 
 32:                                               ; preds = %28
   %33 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %34 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %33) #8, !srcloc !28
+  %34 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %33) #8, !srcloc !27
   tail call void @llvm.write_register.i64(metadata !0, i64 %34)
   br label %35
 
@@ -400,7 +400,7 @@ define dso_local void @ppgtt_bind_vma(ptr noundef %0, ptr noundef %1, ptr nounde
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %23) #8
-  tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !29
+  tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !28
   ret void
 }
 
@@ -579,7 +579,7 @@ alloc_pd.exit:                                    ; preds = %63
   %79 = add nuw nsw i32 %46, 1
   %80 = zext i8 %78 to i32
   %81 = icmp samesign ult i32 %79, %80
-  br i1 %81, label %43, label %.loopexit, !llvm.loop !30
+  br i1 %81, label %43, label %.loopexit, !llvm.loop !29
 
 .loopexit.sink.split:                             ; preds = %.thread.sink.split.i, %.thread7.loopexit, %33, %.thread6.loopexit
   %.ph32 = phi i32 [ -12, %33 ], [ %39, %.thread6.loopexit ], [ -12, %.thread.sink.split.i ], [ %73, %.thread7.loopexit ]
@@ -637,7 +637,7 @@ define dso_local void @i915_vm_free_pt_stash(ptr readnone captures(none) %0, ptr
   tail call void @kfree(ptr noundef nonnull %9) #8
   %21 = load ptr, ptr %6, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.loopexit, label %.preheader.split.us, !llvm.loop !31
+  br i1 %22, label %.loopexit, label %.preheader.split.us, !llvm.loop !30
 
 .preheader.split:                                 ; preds = %.preheader, %.thread
   %23 = phi ptr [ %37, %.thread ], [ %7, %.preheader ]
@@ -673,10 +673,10 @@ define dso_local void @i915_vm_free_pt_stash(ptr readnone captures(none) %0, ptr
   tail call void @kfree(ptr noundef nonnull %23) #8
   %37 = load ptr, ptr %6, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.loopexit, label %.preheader.split, !llvm.loop !33
+  br i1 %38, label %.loopexit, label %.preheader.split, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %3
-  br i1 %4, label %3, label %39, !llvm.loop !34
+  br i1 %4, label %3, label %39, !llvm.loop !33
 
 39:                                               ; preds = %.loopexit
   ret void
@@ -698,7 +698,7 @@ define dso_local i32 @i915_vm_map_pt_stash(ptr noundef %0, ptr noundef readonly 
   %10 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit3, label %.preheader, !llvm.loop !35
+  br i1 %12, label %.loopexit3, label %.preheader, !llvm.loop !34
 
 .preheader:                                       ; preds = %3, %9
   %13 = phi ptr [ %11, %9 ], [ %7, %3 ]
@@ -708,7 +708,7 @@ define dso_local i32 @i915_vm_map_pt_stash(ptr noundef %0, ptr noundef readonly 
   br i1 %16, label %9, label %.loopexit
 
 .loopexit3:                                       ; preds = %9, %3
-  br i1 %4, label %3, label %.loopexit, !llvm.loop !36
+  br i1 %4, label %3, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.loopexit3, %.preheader
   %17 = phi i32 [ %15, %.preheader ], [ 0, %.loopexit3 ]
@@ -825,24 +825,23 @@ attributes #9 = { nounwind allocsize(0) }
 !13 = !{!"branch_weights", i32 1, i32 127}
 !14 = !{i64 2148890957, i64 2148890996, i64 2148891017, i64 2148891054, i64 2148891077, i64 2148891086, i64 2148891384}
 !15 = !{!"branch_weights", i32 127, i32 255873}
-!16 = distinct !{!16, !17, !18, !19}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
 !18 = !{!"llvm.loop.unroll.disable"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{i64 2148874689, i64 2148874728, i64 2148874749, i64 2148874786, i64 2148874809, i64 2148874818, i64 2148874892}
-!21 = !{i64 594323, i64 594367, i64 2148081342, i64 2148081363, i64 2148081389, i64 2148081422, i64 2148081456, i64 2148081480}
-!22 = !{i64 2159143045}
-!23 = !{i64 2148402487, i64 2148402561}
-!24 = !{i64 2147947970}
-!25 = !{i64 2159145909}
-!26 = !{i64 2159152432}
-!27 = !{i64 2147952326, i64 2147952419}
-!28 = !{i64 2159152591}
-!29 = !{i64 2159376133}
-!30 = distinct !{!30, !17, !18, !19}
-!31 = distinct !{!31, !17, !18, !19, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = distinct !{!33, !17, !18, !19}
-!34 = distinct !{!34, !17, !18, !19}
-!35 = distinct !{!35, !17, !18, !19}
-!36 = distinct !{!36, !17, !18, !19}
+!19 = !{i64 2148874689, i64 2148874728, i64 2148874749, i64 2148874786, i64 2148874809, i64 2148874818, i64 2148874892}
+!20 = !{i64 594323, i64 594367, i64 2148081342, i64 2148081363, i64 2148081389, i64 2148081422, i64 2148081456, i64 2148081480}
+!21 = !{i64 2159143045}
+!22 = !{i64 2148402487, i64 2148402561}
+!23 = !{i64 2147947970}
+!24 = !{i64 2159145909}
+!25 = !{i64 2159152432}
+!26 = !{i64 2147952326, i64 2147952419}
+!27 = !{i64 2159152591}
+!28 = !{i64 2159376133}
+!29 = distinct !{!29, !17, !18}
+!30 = distinct !{!30, !17, !18, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !17, !18}
+!33 = distinct !{!33, !17, !18}
+!34 = distinct !{!34, !17, !18}
+!35 = distinct !{!35, !17, !18}

@@ -56,7 +56,7 @@ define hidden void @handleSignEndianConversion(ptr noundef readonly captures(non
   %20 = getelementptr inbounds nuw i8, ptr %.172, i64 2
   %21 = getelementptr inbounds nuw i8, ptr %.15371, i64 2
   %22 = icmp samesign ugt i32 %.15770, 1
-  br i1 %22, label %.lr.ph73, label %.loopexit, !llvm.loop !9
+  br i1 %22, label %.lr.ph73, label %.loopexit, !llvm.loop !8
 
 23:                                               ; preds = %4
   %24 = icmp sgt i32 %2, 2
@@ -84,7 +84,7 @@ define hidden void @handleSignEndianConversion(ptr noundef readonly captures(non
   %34 = getelementptr inbounds nuw i8, ptr %.25467, i64 3
   %35 = add nsw i32 %.25866, -1
   %36 = icmp samesign ugt i32 %.25866, 1
-  br i1 %36, label %.lr.ph69, label %.loopexit, !llvm.loop !10
+  br i1 %36, label %.lr.ph69, label %.loopexit, !llvm.loop !9
 
 37:                                               ; preds = %4
   %38 = icmp sgt i32 %2, 3
@@ -116,7 +116,7 @@ define hidden void @handleSignEndianConversion(ptr noundef readonly captures(non
   %51 = getelementptr inbounds nuw i8, ptr %.365, i64 4
   %52 = add nsw i32 %.35963, -1
   %53 = icmp samesign ugt i32 %.35963, 1
-  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph69, %.lr.ph73, %.lr.ph77, %37, %23, %12, %.preheader, %4
   ret void
@@ -234,7 +234,7 @@ MAP_ClipAndConvertToUByte.exit:                   ; preds = %.lr.ph1252, %54, %5
   %61 = getelementptr inbounds nuw i8, ptr %.07321251, i64 1
   %62 = add nsw i32 %.07801249, -1
   %63 = icmp sgt i32 %.07801249, 1
-  br i1 %63, label %.lr.ph1252, label %.loopexit, !llvm.loop !12
+  br i1 %63, label %.lr.ph1252, label %.loopexit, !llvm.loop !11
 
 .lr.ph1248:                                       ; preds = %.preheader968, %.lr.ph1248
   %.17331247 = phi ptr [ %75, %.lr.ph1248 ], [ %2, %.preheader968 ]
@@ -255,7 +255,7 @@ MAP_ClipAndConvertToUByte.exit:                   ; preds = %.lr.ph1252, %54, %5
   %75 = getelementptr inbounds nuw i8, ptr %.17331247, i64 1
   %76 = add nsw i32 %.17811245, -1
   %77 = icmp samesign ugt i32 %.17811245, 1
-  br i1 %77, label %.lr.ph1248, label %.loopexit, !llvm.loop !13
+  br i1 %77, label %.lr.ph1248, label %.loopexit, !llvm.loop !12
 
 78:                                               ; preds = %23
   %79 = fcmp ogt float %4, 1.000000e+00
@@ -298,7 +298,7 @@ MAP_ClipAndConvertToByte.exit:                    ; preds = %.lr.ph1244, %89, %9
   %95 = getelementptr inbounds nuw i8, ptr %.27341243, i64 1
   %96 = add nsw i32 %.27821241, -1
   %97 = icmp sgt i32 %.27821241, 1
-  br i1 %97, label %.lr.ph1244, label %.loopexit, !llvm.loop !14
+  br i1 %97, label %.lr.ph1244, label %.loopexit, !llvm.loop !13
 
 .lr.ph1240:                                       ; preds = %.preheader972, %.lr.ph1240
   %.37351239 = phi ptr [ %108, %.lr.ph1240 ], [ %2, %.preheader972 ]
@@ -318,7 +318,7 @@ MAP_ClipAndConvertToByte.exit:                    ; preds = %.lr.ph1244, %89, %9
   %108 = getelementptr inbounds nuw i8, ptr %.37351239, i64 1
   %109 = add nsw i32 %.37831237, -1
   %110 = icmp samesign ugt i32 %.37831237, 1
-  br i1 %110, label %.lr.ph1240, label %.loopexit, !llvm.loop !15
+  br i1 %110, label %.lr.ph1240, label %.loopexit, !llvm.loop !14
 
 111:                                              ; preds = %23
   %112 = fcmp ogt float %4, 1.000000e+00
@@ -361,7 +361,7 @@ MAP_ClipAndConvertToUByte.exit828:                ; preds = %.lr.ph1236, %121, %
   %128 = getelementptr inbounds nuw i8, ptr %.47361235, i64 1
   %129 = add nsw i32 %.47841233, -1
   %130 = icmp sgt i32 %.47841233, 1
-  br i1 %130, label %.lr.ph1236, label %.loopexit, !llvm.loop !16
+  br i1 %130, label %.lr.ph1236, label %.loopexit, !llvm.loop !15
 
 .lr.ph1232:                                       ; preds = %.preheader976, %.lr.ph1232
   %.57371231 = phi ptr [ %141, %.lr.ph1232 ], [ %2, %.preheader976 ]
@@ -381,7 +381,7 @@ MAP_ClipAndConvertToUByte.exit828:                ; preds = %.lr.ph1236, %121, %
   %141 = getelementptr inbounds nuw i8, ptr %.57371231, i64 1
   %142 = add nsw i32 %.57851229, -1
   %143 = icmp samesign ugt i32 %.57851229, 1
-  br i1 %143, label %.lr.ph1232, label %.loopexit, !llvm.loop !17
+  br i1 %143, label %.lr.ph1232, label %.loopexit, !llvm.loop !16
 
 144:                                              ; preds = %23
   %145 = fcmp ogt float %4, 1.000000e+00
@@ -423,7 +423,7 @@ MAP_ClipAndConvertToByte.exit830:                 ; preds = %.lr.ph1228, %154, %
   %160 = getelementptr inbounds nuw i8, ptr %.67381227, i64 1
   %161 = add nsw i32 %.67861225, -1
   %162 = icmp sgt i32 %.67861225, 1
-  br i1 %162, label %.lr.ph1228, label %.loopexit, !llvm.loop !18
+  br i1 %162, label %.lr.ph1228, label %.loopexit, !llvm.loop !17
 
 .lr.ph1224:                                       ; preds = %.preheader980, %.lr.ph1224
   %.77391223 = phi ptr [ %172, %.lr.ph1224 ], [ %2, %.preheader980 ]
@@ -442,7 +442,7 @@ MAP_ClipAndConvertToByte.exit830:                 ; preds = %.lr.ph1228, %154, %
   %172 = getelementptr inbounds nuw i8, ptr %.77391223, i64 1
   %173 = add nsw i32 %.77871221, -1
   %174 = icmp samesign ugt i32 %.77871221, 1
-  br i1 %174, label %.lr.ph1224, label %.loopexit, !llvm.loop !19
+  br i1 %174, label %.lr.ph1224, label %.loopexit, !llvm.loop !18
 
 175:                                              ; preds = %23
   %176 = fcmp ogt float %4, 1.000000e+00
@@ -515,7 +515,7 @@ MAP_ClipAndConvertToUByte.exit834:                ; preds = %MAP_ClipAndConvertT
   %211 = getelementptr inbounds nuw i8, ptr %.87401219, i64 2
   %212 = add nsw i32 %.87881217, -1
   %213 = icmp sgt i32 %.87881217, 1
-  br i1 %213, label %.lr.ph1220, label %.loopexit, !llvm.loop !20
+  br i1 %213, label %.lr.ph1220, label %.loopexit, !llvm.loop !19
 
 .lr.ph1216:                                       ; preds = %.preheader984, %MAP_ClipAndConvertToUByte.exit836
   %.97411215 = phi ptr [ %241, %MAP_ClipAndConvertToUByte.exit836 ], [ %2, %.preheader984 ]
@@ -561,7 +561,7 @@ MAP_ClipAndConvertToUByte.exit836:                ; preds = %.lr.ph1216, %222, %
   %241 = getelementptr inbounds nuw i8, ptr %.97411215, i64 2
   %242 = add nsw i32 %.97891213, -1
   %243 = icmp sgt i32 %.97891213, 1
-  br i1 %243, label %.lr.ph1216, label %.loopexit, !llvm.loop !21
+  br i1 %243, label %.lr.ph1216, label %.loopexit, !llvm.loop !20
 
 244:                                              ; preds = %175
   br i1 %177, label %.preheader986, label %.preheader988
@@ -616,7 +616,7 @@ MAP_ClipAndConvertToUByte.exit838:                ; preds = %.lr.ph1212, %265, %
   %272 = getelementptr inbounds nuw i8, ptr %.107421211, i64 2
   %273 = add nsw i32 %.107901209, -1
   %274 = icmp sgt i32 %.107901209, 1
-  br i1 %274, label %.lr.ph1212, label %.loopexit, !llvm.loop !22
+  br i1 %274, label %.lr.ph1212, label %.loopexit, !llvm.loop !21
 
 .lr.ph1208:                                       ; preds = %.preheader988, %.lr.ph1208
   %.117431207 = phi ptr [ %298, %.lr.ph1208 ], [ %2, %.preheader988 ]
@@ -650,7 +650,7 @@ MAP_ClipAndConvertToUByte.exit838:                ; preds = %.lr.ph1212, %265, %
   %298 = getelementptr inbounds nuw i8, ptr %.117431207, i64 2
   %299 = add nsw i32 %.117911205, -1
   %300 = icmp samesign ugt i32 %.117911205, 1
-  br i1 %300, label %.lr.ph1208, label %.loopexit, !llvm.loop !23
+  br i1 %300, label %.lr.ph1208, label %.loopexit, !llvm.loop !22
 
 301:                                              ; preds = %23
   %302 = fcmp ogt float %4, 1.000000e+00
@@ -721,7 +721,7 @@ MAP_ClipAndConvertToByte.exit842:                 ; preds = %MAP_ClipAndConvertT
   %335 = getelementptr inbounds nuw i8, ptr %.127441203, i64 2
   %336 = add nsw i32 %.127921201, -1
   %337 = icmp sgt i32 %.127921201, 1
-  br i1 %337, label %.lr.ph1204, label %.loopexit, !llvm.loop !24
+  br i1 %337, label %.lr.ph1204, label %.loopexit, !llvm.loop !23
 
 .lr.ph1200:                                       ; preds = %.preheader992, %MAP_ClipAndConvertToByte.exit844
   %.137451199 = phi ptr [ %363, %MAP_ClipAndConvertToByte.exit844 ], [ %2, %.preheader992 ]
@@ -765,7 +765,7 @@ MAP_ClipAndConvertToByte.exit844:                 ; preds = %.lr.ph1200, %346, %
   %363 = getelementptr inbounds nuw i8, ptr %.137451199, i64 2
   %364 = add nsw i32 %.137931197, -1
   %365 = icmp sgt i32 %.137931197, 1
-  br i1 %365, label %.lr.ph1200, label %.loopexit, !llvm.loop !25
+  br i1 %365, label %.lr.ph1200, label %.loopexit, !llvm.loop !24
 
 366:                                              ; preds = %301
   br i1 %303, label %.preheader994, label %.preheader996
@@ -818,7 +818,7 @@ MAP_ClipAndConvertToByte.exit846:                 ; preds = %.lr.ph1196, %386, %
   %392 = getelementptr inbounds nuw i8, ptr %.147461195, i64 2
   %393 = add nsw i32 %.147941193, -1
   %394 = icmp sgt i32 %.147941193, 1
-  br i1 %394, label %.lr.ph1196, label %.loopexit, !llvm.loop !26
+  br i1 %394, label %.lr.ph1196, label %.loopexit, !llvm.loop !25
 
 .lr.ph1192:                                       ; preds = %.preheader996, %.lr.ph1192
   %.157471191 = phi ptr [ %416, %.lr.ph1192 ], [ %2, %.preheader996 ]
@@ -850,7 +850,7 @@ MAP_ClipAndConvertToByte.exit846:                 ; preds = %.lr.ph1196, %386, %
   %416 = getelementptr inbounds nuw i8, ptr %.157471191, i64 2
   %417 = add nsw i32 %.157951189, -1
   %418 = icmp samesign ugt i32 %.157951189, 1
-  br i1 %418, label %.lr.ph1192, label %.loopexit, !llvm.loop !27
+  br i1 %418, label %.lr.ph1192, label %.loopexit, !llvm.loop !26
 
 419:                                              ; preds = %23
   %420 = fcmp ogt float %4, 1.000000e+00
@@ -921,7 +921,7 @@ MAP_ClipAndConvertToUByte.exit850:                ; preds = %MAP_ClipAndConvertT
   %453 = getelementptr inbounds nuw i8, ptr %.167481187, i64 2
   %454 = add nsw i32 %.167961185, -1
   %455 = icmp sgt i32 %.167961185, 1
-  br i1 %455, label %.lr.ph1188, label %.loopexit, !llvm.loop !28
+  br i1 %455, label %.lr.ph1188, label %.loopexit, !llvm.loop !27
 
 .lr.ph1184:                                       ; preds = %.preheader1000, %MAP_ClipAndConvertToUByte.exit852
   %.177491183 = phi ptr [ %481, %MAP_ClipAndConvertToUByte.exit852 ], [ %2, %.preheader1000 ]
@@ -965,7 +965,7 @@ MAP_ClipAndConvertToUByte.exit852:                ; preds = %.lr.ph1184, %463, %
   %481 = getelementptr inbounds nuw i8, ptr %.177491183, i64 2
   %482 = add nsw i32 %.177971181, -1
   %483 = icmp sgt i32 %.177971181, 1
-  br i1 %483, label %.lr.ph1184, label %.loopexit, !llvm.loop !29
+  br i1 %483, label %.lr.ph1184, label %.loopexit, !llvm.loop !28
 
 484:                                              ; preds = %419
   br i1 %421, label %.preheader1002, label %.preheader1004
@@ -1018,7 +1018,7 @@ MAP_ClipAndConvertToUByte.exit854:                ; preds = %.lr.ph1180, %503, %
   %510 = getelementptr inbounds nuw i8, ptr %.187501179, i64 2
   %511 = add nsw i32 %.187981177, -1
   %512 = icmp sgt i32 %.187981177, 1
-  br i1 %512, label %.lr.ph1180, label %.loopexit, !llvm.loop !30
+  br i1 %512, label %.lr.ph1180, label %.loopexit, !llvm.loop !29
 
 .lr.ph1176:                                       ; preds = %.preheader1004, %.lr.ph1176
   %.197511175 = phi ptr [ %534, %.lr.ph1176 ], [ %2, %.preheader1004 ]
@@ -1050,7 +1050,7 @@ MAP_ClipAndConvertToUByte.exit854:                ; preds = %.lr.ph1180, %503, %
   %534 = getelementptr inbounds nuw i8, ptr %.197511175, i64 2
   %535 = add nsw i32 %.197991173, -1
   %536 = icmp samesign ugt i32 %.197991173, 1
-  br i1 %536, label %.lr.ph1176, label %.loopexit, !llvm.loop !31
+  br i1 %536, label %.lr.ph1176, label %.loopexit, !llvm.loop !30
 
 537:                                              ; preds = %23
   %538 = fcmp ogt float %4, 1.000000e+00
@@ -1119,7 +1119,7 @@ MAP_ClipAndConvertToByte.exit858:                 ; preds = %MAP_ClipAndConvertT
   %569 = getelementptr inbounds nuw i8, ptr %.207521171, i64 2
   %570 = add nsw i32 %.208001169, -1
   %571 = icmp sgt i32 %.208001169, 1
-  br i1 %571, label %.lr.ph1172, label %.loopexit, !llvm.loop !32
+  br i1 %571, label %.lr.ph1172, label %.loopexit, !llvm.loop !31
 
 .lr.ph1168:                                       ; preds = %.preheader1008, %MAP_ClipAndConvertToByte.exit860
   %.217531167 = phi ptr [ %595, %MAP_ClipAndConvertToByte.exit860 ], [ %2, %.preheader1008 ]
@@ -1161,7 +1161,7 @@ MAP_ClipAndConvertToByte.exit860:                 ; preds = %.lr.ph1168, %579, %
   %595 = getelementptr inbounds nuw i8, ptr %.217531167, i64 2
   %596 = add nsw i32 %.218011165, -1
   %597 = icmp sgt i32 %.218011165, 1
-  br i1 %597, label %.lr.ph1168, label %.loopexit, !llvm.loop !33
+  br i1 %597, label %.lr.ph1168, label %.loopexit, !llvm.loop !32
 
 598:                                              ; preds = %537
   br i1 %539, label %.preheader1010, label %.preheader1012
@@ -1212,7 +1212,7 @@ MAP_ClipAndConvertToByte.exit862:                 ; preds = %.lr.ph1164, %616, %
   %622 = getelementptr inbounds nuw i8, ptr %.227541163, i64 2
   %623 = add nsw i32 %.228021161, -1
   %624 = icmp sgt i32 %.228021161, 1
-  br i1 %624, label %.lr.ph1164, label %.loopexit, !llvm.loop !34
+  br i1 %624, label %.lr.ph1164, label %.loopexit, !llvm.loop !33
 
 .lr.ph1160:                                       ; preds = %.preheader1012, %.lr.ph1160
   %.237551159 = phi ptr [ %644, %.lr.ph1160 ], [ %2, %.preheader1012 ]
@@ -1242,7 +1242,7 @@ MAP_ClipAndConvertToByte.exit862:                 ; preds = %.lr.ph1164, %616, %
   %644 = getelementptr inbounds nuw i8, ptr %.237551159, i64 2
   %645 = add nsw i32 %.238031157, -1
   %646 = icmp samesign ugt i32 %.238031157, 1
-  br i1 %646, label %.lr.ph1160, label %.loopexit, !llvm.loop !35
+  br i1 %646, label %.lr.ph1160, label %.loopexit, !llvm.loop !34
 
 647:                                              ; preds = %23
   %648 = fcmp ogt float %4, 1.000000e+00
@@ -1268,7 +1268,7 @@ MAP_ClipAndConvertToByte.exit862:                 ; preds = %.lr.ph1164, %616, %
   %655 = getelementptr inbounds nuw i8, ptr %.07071155, i64 2
   %656 = add nsw i32 %.241153, -1
   %657 = icmp samesign ugt i32 %.241153, 1
-  br i1 %657, label %.lr.ph1156, label %.loopexit, !llvm.loop !36
+  br i1 %657, label %.lr.ph1156, label %.loopexit, !llvm.loop !35
 
 .lr.ph1152:                                       ; preds = %.preheader1016, %.lr.ph1152
   %.11151 = phi ptr [ %664, %.lr.ph1152 ], [ %2, %.preheader1016 ]
@@ -1284,7 +1284,7 @@ MAP_ClipAndConvertToByte.exit862:                 ; preds = %.lr.ph1164, %616, %
   %664 = getelementptr inbounds nuw i8, ptr %.11151, i64 2
   %665 = add nsw i32 %.251149, -1
   %666 = icmp samesign ugt i32 %.251149, 1
-  br i1 %666, label %.lr.ph1152, label %.loopexit, !llvm.loop !37
+  br i1 %666, label %.lr.ph1152, label %.loopexit, !llvm.loop !36
 
 667:                                              ; preds = %23
   %668 = fcmp ogt float %4, 1.000000e+00
@@ -1324,7 +1324,7 @@ MAP_ClipAndConvertToShort_Swapped.exit:           ; preds = %.lr.ph1148, %675, %
   %679 = getelementptr inbounds nuw i8, ptr %.21147, i64 2
   %680 = add nsw i32 %.261145, -1
   %681 = icmp sgt i32 %.261145, 1
-  br i1 %681, label %.lr.ph1148, label %.loopexit, !llvm.loop !38
+  br i1 %681, label %.lr.ph1148, label %.loopexit, !llvm.loop !37
 
 .lr.ph1144:                                       ; preds = %.preheader1020, %.lr.ph1144
   %.31143 = phi ptr [ %687, %.lr.ph1144 ], [ %2, %.preheader1020 ]
@@ -1341,7 +1341,7 @@ MAP_ClipAndConvertToShort_Swapped.exit:           ; preds = %.lr.ph1148, %675, %
   %687 = getelementptr inbounds nuw i8, ptr %.31143, i64 2
   %688 = add nsw i32 %.271141, -1
   %689 = icmp samesign ugt i32 %.271141, 1
-  br i1 %689, label %.lr.ph1144, label %.loopexit, !llvm.loop !39
+  br i1 %689, label %.lr.ph1144, label %.loopexit, !llvm.loop !38
 
 690:                                              ; preds = %23
   %691 = fcmp ogt float %4, 1.000000e+00
@@ -1368,7 +1368,7 @@ MAP_ClipAndConvertToShort_Swapped.exit:           ; preds = %.lr.ph1148, %675, %
   %698 = getelementptr inbounds nuw i8, ptr %.41139, i64 2
   %699 = add nsw i32 %.281137, -1
   %700 = icmp samesign ugt i32 %.281137, 1
-  br i1 %700, label %.lr.ph1140, label %.loopexit, !llvm.loop !40
+  br i1 %700, label %.lr.ph1140, label %.loopexit, !llvm.loop !39
 
 .lr.ph1136:                                       ; preds = %.preheader1024, %.lr.ph1136
   %.51135 = phi ptr [ %707, %.lr.ph1136 ], [ %2, %.preheader1024 ]
@@ -1385,7 +1385,7 @@ MAP_ClipAndConvertToShort_Swapped.exit:           ; preds = %.lr.ph1148, %675, %
   %707 = getelementptr inbounds nuw i8, ptr %.51135, i64 2
   %708 = add nsw i32 %.291133, -1
   %709 = icmp samesign ugt i32 %.291133, 1
-  br i1 %709, label %.lr.ph1136, label %.loopexit, !llvm.loop !41
+  br i1 %709, label %.lr.ph1136, label %.loopexit, !llvm.loop !40
 
 710:                                              ; preds = %23
   %711 = fcmp ogt float %4, 1.000000e+00
@@ -1426,7 +1426,7 @@ MAP_ClipAndConvertToShort_Swapped.exit875:        ; preds = %.lr.ph1132, %718, %
   %722 = getelementptr inbounds nuw i8, ptr %.61131, i64 2
   %723 = add nsw i32 %.301129, -1
   %724 = icmp sgt i32 %.301129, 1
-  br i1 %724, label %.lr.ph1132, label %.loopexit, !llvm.loop !42
+  br i1 %724, label %.lr.ph1132, label %.loopexit, !llvm.loop !41
 
 .lr.ph1128:                                       ; preds = %.preheader1028, %.lr.ph1128
   %.71127 = phi ptr [ %730, %.lr.ph1128 ], [ %2, %.preheader1028 ]
@@ -1444,7 +1444,7 @@ MAP_ClipAndConvertToShort_Swapped.exit875:        ; preds = %.lr.ph1132, %718, %
   %730 = getelementptr inbounds nuw i8, ptr %.71127, i64 2
   %731 = add nsw i32 %.311125, -1
   %732 = icmp samesign ugt i32 %.311125, 1
-  br i1 %732, label %.lr.ph1128, label %.loopexit, !llvm.loop !43
+  br i1 %732, label %.lr.ph1128, label %.loopexit, !llvm.loop !42
 
 733:                                              ; preds = %23
   %734 = fcmp ogt float %4, 1.000000e+00
@@ -1481,7 +1481,7 @@ MAP_ClipAndConvertToShort_Swapped.exit875:        ; preds = %.lr.ph1132, %718, %
   %749 = getelementptr inbounds nuw i8, ptr %.81123, i64 4
   %750 = add nsw i32 %.321121, -1
   %751 = icmp samesign ugt i32 %.321121, 1
-  br i1 %751, label %.lr.ph1124, label %.loopexit, !llvm.loop !44
+  br i1 %751, label %.lr.ph1124, label %.loopexit, !llvm.loop !43
 
 .lr.ph1120:                                       ; preds = %.preheader1032, %.lr.ph1120
   %.91119 = phi ptr [ %764, %.lr.ph1120 ], [ %2, %.preheader1032 ]
@@ -1504,7 +1504,7 @@ MAP_ClipAndConvertToShort_Swapped.exit875:        ; preds = %.lr.ph1132, %718, %
   %764 = getelementptr inbounds nuw i8, ptr %.91119, i64 4
   %765 = add nsw i32 %.331117, -1
   %766 = icmp samesign ugt i32 %.331117, 1
-  br i1 %766, label %.lr.ph1120, label %.loopexit, !llvm.loop !45
+  br i1 %766, label %.lr.ph1120, label %.loopexit, !llvm.loop !44
 
 767:                                              ; preds = %733
   br i1 %735, label %.preheader1034, label %.preheader1036
@@ -1536,7 +1536,7 @@ MAP_ClipAndConvertToShort_Swapped.exit875:        ; preds = %.lr.ph1132, %718, %
   %780 = getelementptr inbounds nuw i8, ptr %.101115, i64 4
   %781 = add nsw i32 %.341113, -1
   %782 = icmp samesign ugt i32 %.341113, 1
-  br i1 %782, label %.lr.ph1116, label %.loopexit, !llvm.loop !46
+  br i1 %782, label %.lr.ph1116, label %.loopexit, !llvm.loop !45
 
 .lr.ph1112:                                       ; preds = %.preheader1036, %.lr.ph1112
   %.111111 = phi ptr [ %796, %.lr.ph1112 ], [ %2, %.preheader1036 ]
@@ -1560,7 +1560,7 @@ MAP_ClipAndConvertToShort_Swapped.exit875:        ; preds = %.lr.ph1132, %718, %
   %796 = getelementptr inbounds nuw i8, ptr %.111111, i64 4
   %797 = add nsw i32 %.351109, -1
   %798 = icmp samesign ugt i32 %.351109, 1
-  br i1 %798, label %.lr.ph1112, label %.loopexit, !llvm.loop !47
+  br i1 %798, label %.lr.ph1112, label %.loopexit, !llvm.loop !46
 
 799:                                              ; preds = %23
   %800 = fcmp ogt float %4, 1.000000e+00
@@ -1625,7 +1625,7 @@ MAP_ClipAndConvertToShort_Swapped.exit891:        ; preds = %MAP_ClipAndConvertT
   %823 = getelementptr inbounds nuw i8, ptr %.121107, i64 4
   %824 = add nsw i32 %.361105, -1
   %825 = icmp sgt i32 %.361105, 1
-  br i1 %825, label %.lr.ph1108, label %.loopexit, !llvm.loop !48
+  br i1 %825, label %.lr.ph1108, label %.loopexit, !llvm.loop !47
 
 .lr.ph1104:                                       ; preds = %.preheader1040, %MAP_ClipAndConvertToShort_Swapped.exit895
   %.131103 = phi ptr [ %841, %MAP_ClipAndConvertToShort_Swapped.exit895 ], [ %2, %.preheader1040 ]
@@ -1663,7 +1663,7 @@ MAP_ClipAndConvertToShort_Swapped.exit895:        ; preds = %.lr.ph1104, %831, %
   %841 = getelementptr inbounds nuw i8, ptr %.131103, i64 4
   %842 = add nsw i32 %.371101, -1
   %843 = icmp sgt i32 %.371101, 1
-  br i1 %843, label %.lr.ph1104, label %.loopexit, !llvm.loop !49
+  br i1 %843, label %.lr.ph1104, label %.loopexit, !llvm.loop !48
 
 844:                                              ; preds = %799
   br i1 %801, label %.preheader1042, label %.preheader1044
@@ -1710,7 +1710,7 @@ MAP_ClipAndConvertToShort_Swapped.exit903:        ; preds = %.lr.ph1100, %856, %
   %860 = getelementptr inbounds nuw i8, ptr %.141099, i64 4
   %861 = add nsw i32 %.381097, -1
   %862 = icmp sgt i32 %.381097, 1
-  br i1 %862, label %.lr.ph1100, label %.loopexit, !llvm.loop !50
+  br i1 %862, label %.lr.ph1100, label %.loopexit, !llvm.loop !49
 
 .lr.ph1096:                                       ; preds = %.preheader1044, %.lr.ph1096
   %.151095 = phi ptr [ %874, %.lr.ph1096 ], [ %2, %.preheader1044 ]
@@ -1736,7 +1736,7 @@ MAP_ClipAndConvertToShort_Swapped.exit903:        ; preds = %.lr.ph1100, %856, %
   %874 = getelementptr inbounds nuw i8, ptr %.151095, i64 4
   %875 = add nsw i32 %.391093, -1
   %876 = icmp samesign ugt i32 %.391093, 1
-  br i1 %876, label %.lr.ph1096, label %.loopexit, !llvm.loop !51
+  br i1 %876, label %.lr.ph1096, label %.loopexit, !llvm.loop !50
 
 877:                                              ; preds = %23
   %878 = fcmp ogt float %4, 1.000000e+00
@@ -1775,7 +1775,7 @@ MAP_ClipAndConvertToShort_Swapped.exit903:        ; preds = %.lr.ph1100, %856, %
   %893 = getelementptr inbounds nuw i8, ptr %.161091, i64 4
   %894 = add nsw i32 %.401089, -1
   %895 = icmp samesign ugt i32 %.401089, 1
-  br i1 %895, label %.lr.ph1092, label %.loopexit, !llvm.loop !52
+  br i1 %895, label %.lr.ph1092, label %.loopexit, !llvm.loop !51
 
 .lr.ph1088:                                       ; preds = %.preheader1048, %.lr.ph1088
   %.171087 = phi ptr [ %908, %.lr.ph1088 ], [ %2, %.preheader1048 ]
@@ -1800,7 +1800,7 @@ MAP_ClipAndConvertToShort_Swapped.exit903:        ; preds = %.lr.ph1100, %856, %
   %908 = getelementptr inbounds nuw i8, ptr %.171087, i64 4
   %909 = add nsw i32 %.411085, -1
   %910 = icmp samesign ugt i32 %.411085, 1
-  br i1 %910, label %.lr.ph1088, label %.loopexit, !llvm.loop !53
+  br i1 %910, label %.lr.ph1088, label %.loopexit, !llvm.loop !52
 
 911:                                              ; preds = %877
   br i1 %879, label %.preheader1050, label %.preheader1052
@@ -1834,7 +1834,7 @@ MAP_ClipAndConvertToShort_Swapped.exit903:        ; preds = %.lr.ph1100, %856, %
   %924 = getelementptr inbounds nuw i8, ptr %.181083, i64 4
   %925 = add nsw i32 %.421081, -1
   %926 = icmp samesign ugt i32 %.421081, 1
-  br i1 %926, label %.lr.ph1084, label %.loopexit, !llvm.loop !54
+  br i1 %926, label %.lr.ph1084, label %.loopexit, !llvm.loop !53
 
 .lr.ph1080:                                       ; preds = %.preheader1052, %.lr.ph1080
   %.191079 = phi ptr [ %940, %.lr.ph1080 ], [ %2, %.preheader1052 ]
@@ -1860,7 +1860,7 @@ MAP_ClipAndConvertToShort_Swapped.exit903:        ; preds = %.lr.ph1100, %856, %
   %940 = getelementptr inbounds nuw i8, ptr %.191079, i64 4
   %941 = add nsw i32 %.431077, -1
   %942 = icmp samesign ugt i32 %.431077, 1
-  br i1 %942, label %.lr.ph1080, label %.loopexit, !llvm.loop !55
+  br i1 %942, label %.lr.ph1080, label %.loopexit, !llvm.loop !54
 
 943:                                              ; preds = %23
   %944 = fcmp ogt float %4, 1.000000e+00
@@ -1927,7 +1927,7 @@ MAP_ClipAndConvertToShort_Swapped.exit939:        ; preds = %MAP_ClipAndConvertT
   %967 = getelementptr inbounds nuw i8, ptr %.201075, i64 4
   %968 = add nsw i32 %.441073, -1
   %969 = icmp sgt i32 %.441073, 1
-  br i1 %969, label %.lr.ph1076, label %.loopexit, !llvm.loop !56
+  br i1 %969, label %.lr.ph1076, label %.loopexit, !llvm.loop !55
 
 .lr.ph1072:                                       ; preds = %.preheader1056, %MAP_ClipAndConvertToShort_Swapped.exit945
   %.211071 = phi ptr [ %985, %MAP_ClipAndConvertToShort_Swapped.exit945 ], [ %2, %.preheader1056 ]
@@ -1967,7 +1967,7 @@ MAP_ClipAndConvertToShort_Swapped.exit945:        ; preds = %.lr.ph1072, %975, %
   %985 = getelementptr inbounds nuw i8, ptr %.211071, i64 4
   %986 = add nsw i32 %.451069, -1
   %987 = icmp sgt i32 %.451069, 1
-  br i1 %987, label %.lr.ph1072, label %.loopexit, !llvm.loop !57
+  br i1 %987, label %.lr.ph1072, label %.loopexit, !llvm.loop !56
 
 988:                                              ; preds = %943
   br i1 %945, label %.preheader1058, label %.preheader1060
@@ -2016,7 +2016,7 @@ MAP_ClipAndConvertToShort_Swapped.exit959:        ; preds = %.lr.ph1068, %1000, 
   %1004 = getelementptr inbounds nuw i8, ptr %.221067, i64 4
   %1005 = add nsw i32 %.461065, -1
   %1006 = icmp sgt i32 %.461065, 1
-  br i1 %1006, label %.lr.ph1068, label %.loopexit, !llvm.loop !58
+  br i1 %1006, label %.lr.ph1068, label %.loopexit, !llvm.loop !57
 
 .lr.ph:                                           ; preds = %.preheader1060, %.lr.ph
   %.231064 = phi ptr [ %1018, %.lr.ph ], [ %2, %.preheader1060 ]
@@ -2044,7 +2044,7 @@ MAP_ClipAndConvertToShort_Swapped.exit959:        ; preds = %.lr.ph1068, %1000, 
   %1018 = getelementptr inbounds nuw i8, ptr %.231064, i64 4
   %1019 = add nsw i32 %.471062, -1
   %1020 = icmp samesign ugt i32 %.471062, 1
-  br i1 %1020, label %.lr.ph, label %.loopexit, !llvm.loop !59
+  br i1 %1020, label %.lr.ph, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.lr.ph, %MAP_ClipAndConvertToShort_Swapped.exit959, %MAP_ClipAndConvertToShort_Swapped.exit945, %MAP_ClipAndConvertToShort_Swapped.exit939, %.lr.ph1080, %.lr.ph1084, %.lr.ph1088, %.lr.ph1092, %.lr.ph1096, %MAP_ClipAndConvertToShort_Swapped.exit903, %MAP_ClipAndConvertToShort_Swapped.exit895, %MAP_ClipAndConvertToShort_Swapped.exit891, %.lr.ph1112, %.lr.ph1116, %.lr.ph1120, %.lr.ph1124, %.lr.ph1128, %MAP_ClipAndConvertToShort_Swapped.exit875, %.lr.ph1136, %.lr.ph1140, %.lr.ph1144, %MAP_ClipAndConvertToShort_Swapped.exit, %.lr.ph1152, %.lr.ph1156, %.lr.ph1160, %MAP_ClipAndConvertToByte.exit862, %MAP_ClipAndConvertToByte.exit860, %MAP_ClipAndConvertToByte.exit858, %.lr.ph1176, %MAP_ClipAndConvertToUByte.exit854, %MAP_ClipAndConvertToUByte.exit852, %MAP_ClipAndConvertToUByte.exit850, %.lr.ph1192, %MAP_ClipAndConvertToByte.exit846, %MAP_ClipAndConvertToByte.exit844, %MAP_ClipAndConvertToByte.exit842, %.lr.ph1208, %MAP_ClipAndConvertToUByte.exit838, %MAP_ClipAndConvertToUByte.exit836, %MAP_ClipAndConvertToUByte.exit834, %.lr.ph1224, %MAP_ClipAndConvertToByte.exit830, %.lr.ph1232, %MAP_ClipAndConvertToUByte.exit828, %.lr.ph1240, %MAP_ClipAndConvertToByte.exit, %.lr.ph1248, %MAP_ClipAndConvertToUByte.exit, %.preheader1060, %.preheader1058, %.preheader1056, %.preheader1054, %.preheader1052, %.preheader1050, %.preheader1048, %.preheader1046, %.preheader1044, %.preheader1042, %.preheader1040, %.preheader1038, %.preheader1036, %.preheader1034, %.preheader1032, %.preheader1030, %.preheader1028, %.preheader1026, %.preheader1024, %.preheader1022, %.preheader1020, %.preheader1018, %.preheader1016, %.preheader1014, %.preheader1012, %.preheader1010, %.preheader1008, %.preheader1006, %.preheader1004, %.preheader1002, %.preheader1000, %.preheader998, %.preheader996, %.preheader994, %.preheader992, %.preheader990, %.preheader988, %.preheader986, %.preheader984, %.preheader982, %.preheader980, %.preheader978, %.preheader976, %.preheader974, %.preheader972, %.preheader970, %.preheader968, %.preheader, %23, %19
   ret void
@@ -2414,7 +2414,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nWrite(ptr noundef %0, pt
   %88 = getelementptr inbounds nuw i8, ptr %.172.i, i64 2
   %89 = getelementptr inbounds nuw i8, ptr %.15371.i, i64 2
   %90 = icmp samesign ugt i32 %.15770.i, 1
-  br i1 %90, label %.lr.ph73.i, label %handleSignEndianConversion.exit, !llvm.loop !9
+  br i1 %90, label %.lr.ph73.i, label %handleSignEndianConversion.exit, !llvm.loop !8
 
 91:                                               ; preds = %72
   %92 = icmp sgt i32 %5, 2
@@ -2442,7 +2442,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nWrite(ptr noundef %0, pt
   %102 = getelementptr inbounds nuw i8, ptr %.25467.i, i64 3
   %103 = add nsw i32 %.25866.i, -1
   %104 = icmp samesign ugt i32 %.25866.i, 1
-  br i1 %104, label %.lr.ph69.i, label %handleSignEndianConversion.exit, !llvm.loop !10
+  br i1 %104, label %.lr.ph69.i, label %handleSignEndianConversion.exit, !llvm.loop !9
 
 105:                                              ; preds = %72
   %106 = icmp sgt i32 %5, 3
@@ -2474,7 +2474,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nWrite(ptr noundef %0, pt
   %119 = getelementptr inbounds nuw i8, ptr %.365.i, i64 4
   %120 = add nsw i32 %.35963.i, -1
   %121 = icmp samesign ugt i32 %.35963.i, 1
-  br i1 %121, label %.lr.ph.i, label %handleSignEndianConversion.exit, !llvm.loop !11
+  br i1 %121, label %.lr.ph.i, label %handleSignEndianConversion.exit, !llvm.loop !10
 
 122:                                              ; preds = %71, %71
   call void @handleGainAndConversion(ptr noundef nonnull %11, ptr noundef nonnull %26, ptr noundef %.1, i32 noundef %5, float noundef %7, float noundef %8, i32 noundef %6)
@@ -2573,7 +2573,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nRead(ptr noundef %0, ptr
   %37 = add nsw i32 %.15770.i, -1
   %38 = getelementptr i8, ptr %.172.i, i64 2
   %39 = icmp samesign ugt i32 %.15770.i, 1
-  br i1 %39, label %.lr.ph73.i, label %handleSignEndianConversion.exit, !llvm.loop !9
+  br i1 %39, label %.lr.ph73.i, label %handleSignEndianConversion.exit, !llvm.loop !8
 
 40:                                               ; preds = %24
   %41 = icmp sgt i32 %5, 2
@@ -2594,7 +2594,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nRead(ptr noundef %0, ptr
   %46 = getelementptr i8, ptr %.268.i, i64 3
   %47 = add nsw i32 %.25866.i, -1
   %48 = icmp samesign ugt i32 %.25866.i, 1
-  br i1 %48, label %.lr.ph69.i, label %handleSignEndianConversion.exit, !llvm.loop !10
+  br i1 %48, label %.lr.ph69.i, label %handleSignEndianConversion.exit, !llvm.loop !9
 
 49:                                               ; preds = %24
   %50 = icmp sgt i32 %5, 3
@@ -2621,7 +2621,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDevice_nRead(ptr noundef %0, ptr
   %59 = getelementptr i8, ptr %.365.i, i64 4
   %60 = add nsw i32 %.35963.i, -1
   %61 = icmp samesign ugt i32 %.35963.i, 1
-  br i1 %61, label %.lr.ph.i, label %handleSignEndianConversion.exit, !llvm.loop !11
+  br i1 %61, label %.lr.ph.i, label %handleSignEndianConversion.exit, !llvm.loop !10
 
 handleSignEndianConversion.exit:                  ; preds = %.lr.ph.i, %.lr.ph69.i, %.lr.ph73.i, %.lr.ph77.i, %49, %40, %31, %.preheader.i, %24, %18
   %62 = load ptr, ptr %0, align 8
@@ -2845,57 +2845,56 @@ attributes #8 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !7, !8}
-!42 = distinct !{!42, !7, !8}
-!43 = distinct !{!43, !7, !8}
-!44 = distinct !{!44, !7, !8}
-!45 = distinct !{!45, !7, !8}
-!46 = distinct !{!46, !7, !8}
-!47 = distinct !{!47, !7, !8}
-!48 = distinct !{!48, !7, !8}
-!49 = distinct !{!49, !7, !8}
-!50 = distinct !{!50, !7, !8}
-!51 = distinct !{!51, !7, !8}
-!52 = distinct !{!52, !7, !8}
-!53 = distinct !{!53, !7, !8}
-!54 = distinct !{!54, !7, !8}
-!55 = distinct !{!55, !7, !8}
-!56 = distinct !{!56, !7, !8}
-!57 = distinct !{!57, !7, !8}
-!58 = distinct !{!58, !7, !8}
-!59 = distinct !{!59, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}
+!46 = distinct !{!46, !7}
+!47 = distinct !{!47, !7}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}
+!50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7}
+!52 = distinct !{!52, !7}
+!53 = distinct !{!53, !7}
+!54 = distinct !{!54, !7}
+!55 = distinct !{!55, !7}
+!56 = distinct !{!56, !7}
+!57 = distinct !{!57, !7}
+!58 = distinct !{!58, !7}

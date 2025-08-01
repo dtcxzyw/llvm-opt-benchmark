@@ -26,7 +26,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %8, ptr %0, align 8
   %9 = call zeroext i1 @"_ZN20migrations_internals29valid_sql_migration_directory28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he7380b2c075757d0E"(ptr nonnull align 1 %2, ptr nonnull align 8 %6)
-  br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35ae973b08d3e3d5E.exit", label %4, !llvm.loop !4
+  br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35ae973b08d3e3d5E.exit", label %4
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h35ae973b08d3e3d5E.exit": ; preds = %4, %7
   ret i1 %.not.not.not.not.not
@@ -68,5 +68,3 @@ attributes #3 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !3 = !{}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}

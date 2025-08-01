@@ -168,7 +168,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv255
   %96 = load ptr, ptr %95, align 8, !tbaa !38
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %98 = load i32, ptr %97, align 8, !tbaa !46
+  %98 = load i32, ptr %97, align 8, !tbaa !45
   %99 = icmp ult i32 %98, 5
   br i1 %99, label %104, label %100
 
@@ -207,7 +207,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv255
   %119 = load ptr, ptr %118, align 8, !tbaa !38
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %121 = load i32, ptr %120, align 8, !tbaa !46
+  %121 = load i32, ptr %120, align 8, !tbaa !45
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %.lr.ph224, label %._crit_edge225
 
@@ -230,7 +230,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
   %134 = load ptr, ptr %133, align 8, !tbaa !37
   %135 = getelementptr inbounds nuw i32, ptr %134, i64 %indvars.iv252
-  %136 = load i32, ptr %135, align 4, !tbaa !47
+  %136 = load i32, ptr %135, align 4, !tbaa !46
   %137 = lshr i32 %136, 16
   %138 = and i32 %137, 255
   %139 = lshr i32 %136, 8
@@ -279,10 +279,10 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv255
   %174 = load ptr, ptr %173, align 8, !tbaa !38
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  %176 = load i32, ptr %175, align 8, !tbaa !46
+  %176 = load i32, ptr %175, align 8, !tbaa !45
   %177 = sext i32 %176 to i64
   %178 = icmp slt i64 %indvars.iv.next253, %177
-  br i1 %178, label %125, label %._crit_edge225, !llvm.loop !48
+  br i1 %178, label %125, label %._crit_edge225, !llvm.loop !47
 
 ._crit_edge225:                                   ; preds = %125, %108
   %179 = phi ptr [ %116, %108 ], [ %171, %125 ]
@@ -297,7 +297,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv255
   %188 = load ptr, ptr %187, align 8, !tbaa !38
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  %190 = load i32, ptr %189, align 8, !tbaa !46
+  %190 = load i32, ptr %189, align 8, !tbaa !45
   %.neg178 = mul i32 %190, -6
   %.neg179 = add nsw i32 %.2150227, -6
   %191 = add i32 %.neg179, %.neg178
@@ -305,7 +305,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %192 = load i32, ptr %8, align 4, !tbaa !27
   %193 = zext i32 %192 to i64
   %194 = icmp samesign ult i64 %indvars.iv.next256, %193
-  br i1 %194, label %92, label %._crit_edge229, !llvm.loop !49
+  br i1 %194, label %92, label %._crit_edge229, !llvm.loop !48
 
 ._crit_edge229:                                   ; preds = %._crit_edge225
   %195 = mul i32 %192, 22
@@ -327,7 +327,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %201 = getelementptr inbounds nuw ptr, ptr %200, i64 %indvars.iv258
   %202 = load ptr, ptr %201, align 8, !tbaa !38
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %204 = load i32, ptr %203, align 8, !tbaa !46
+  %204 = load i32, ptr %203, align 8, !tbaa !45
   %205 = icmp slt i32 %204, 5
   br i1 %205, label %210, label %206
 
@@ -363,7 +363,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %223 = getelementptr inbounds nuw ptr, ptr %222, i64 %indvars.iv258
   %224 = load ptr, ptr %223, align 8, !tbaa !38
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  %226 = load i32, ptr %225, align 8, !tbaa !50
+  %226 = load i32, ptr %225, align 8, !tbaa !49
   %227 = trunc i32 %226 to i16
   %228 = tail call i16 @llvm.bswap.i16(i16 %227)
   store i16 %228, ptr %221, align 1, !tbaa !34
@@ -372,7 +372,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %indvars.iv258
   %232 = load ptr, ptr %231, align 8, !tbaa !38
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 12
-  %234 = load i32, ptr %233, align 4, !tbaa !51
+  %234 = load i32, ptr %233, align 4, !tbaa !50
   %235 = trunc i32 %234 to i16
   %236 = tail call i16 @llvm.bswap.i16(i16 %235)
   store i16 %236, ptr %229, align 1, !tbaa !34
@@ -403,7 +403,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %249 = load i32, ptr %8, align 4, !tbaa !27
   %250 = zext i32 %249 to i64
   %251 = icmp samesign ult i64 %indvars.iv.next259, %250
-  br i1 %251, label %198, label %._crit_edge233, !llvm.loop !52
+  br i1 %251, label %198, label %._crit_edge233, !llvm.loop !51
 
 ._crit_edge233:                                   ; preds = %210
   %.neg175 = mul i32 %249, -22
@@ -426,7 +426,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %258 = getelementptr inbounds nuw ptr, ptr %257, i64 %indvars.iv261
   %259 = load ptr, ptr %258, align 8, !tbaa !38
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
-  %261 = load i32, ptr %260, align 8, !tbaa !46
+  %261 = load i32, ptr %260, align 8, !tbaa !45
   %262 = icmp slt i32 %261, 5
   br i1 %262, label %267, label %263
 
@@ -477,12 +477,12 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 24
   %292 = load ptr, ptr %291, align 8, !tbaa !37
   %293 = getelementptr inbounds nuw i8, ptr %290, i64 8
-  %294 = load i32, ptr %293, align 8, !tbaa !50
+  %294 = load i32, ptr %293, align 8, !tbaa !49
   %295 = shl nsw i32 %294, 1
   %296 = getelementptr inbounds nuw i8, ptr %290, i64 12
-  %297 = load i32, ptr %296, align 4, !tbaa !51
+  %297 = load i32, ptr %296, align 4, !tbaa !50
   %298 = ashr i32 %297, 1
-  %299 = call i32 %.0152(ptr noundef nonnull %5, i32 noundef %287, ptr noundef %292, i32 noundef %295, i32 noundef %294, i32 noundef %298) #4, !callees !53
+  %299 = call i32 %.0152(ptr noundef nonnull %5, i32 noundef %287, ptr noundef %292, i32 noundef %295, i32 noundef %294, i32 noundef %298) #4, !callees !52
   %300 = icmp slt i32 %299, 0
   br i1 %300, label %.thread208, label %301
 
@@ -495,14 +495,14 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 24
   %308 = load ptr, ptr %307, align 8, !tbaa !37
   %309 = getelementptr inbounds nuw i8, ptr %306, i64 8
-  %310 = load i32, ptr %309, align 8, !tbaa !50
+  %310 = load i32, ptr %309, align 8, !tbaa !49
   %311 = sext i32 %310 to i64
   %312 = getelementptr inbounds i8, ptr %308, i64 %311
   %313 = shl nsw i32 %310, 1
   %314 = getelementptr inbounds nuw i8, ptr %306, i64 12
-  %315 = load i32, ptr %314, align 4, !tbaa !51
+  %315 = load i32, ptr %314, align 4, !tbaa !50
   %316 = ashr i32 %315, 1
-  %317 = call i32 %.0152(ptr noundef nonnull %5, i32 noundef %302, ptr noundef %312, i32 noundef %313, i32 noundef %310, i32 noundef %316) #4, !callees !53
+  %317 = call i32 %.0152(ptr noundef nonnull %5, i32 noundef %302, ptr noundef %312, i32 noundef %313, i32 noundef %310, i32 noundef %316) #4, !callees !52
   %318 = icmp slt i32 %317, 0
   br i1 %318, label %.thread208, label %319
 
@@ -532,7 +532,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %338 = load i32, ptr %8, align 4, !tbaa !27
   %339 = zext i32 %338 to i64
   %340 = icmp samesign ult i64 %indvars.iv.next262, %339
-  br i1 %340, label %254, label %.loopexit, !llvm.loop !54
+  br i1 %340, label %254, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %319, %.preheader, %._crit_edge233, %._crit_edge
   %.1149 = phi i32 [ %90, %._crit_edge ], [ %252, %._crit_edge233 ], [ %191, %.preheader ], [ %320, %319 ]
@@ -646,7 +646,7 @@ define internal i32 @dvb_encode_rle2(ptr noundef captures(none) %0, i32 noundef 
   %30 = add i32 %.0251431.us, %29
   %31 = add nuw nsw i32 %.0224432.us, 1
   %exitcond441.not = icmp eq i32 %31, %5
-  br i1 %exitcond441.not, label %._crit_edge435, label %.lr.ph434.split.us, !llvm.loop !55
+  br i1 %exitcond441.not, label %._crit_edge435, label %.lr.ph434.split.us, !llvm.loop !54
 
 32:                                               ; preds = %.lr.ph.us, %.thread391.us
   %.0225426.us = phi i32 [ 0, %.lr.ph.us ], [ %247, %.thread391.us ]
@@ -672,7 +672,7 @@ define internal i32 @dvb_encode_rle2(ptr noundef captures(none) %0, i32 noundef 
   %42 = getelementptr inbounds i8, ptr %.0276429.us, i64 %indvars.iv.next
   %43 = load i8, ptr %42, align 1, !tbaa !34
   %44 = icmp eq i8 %43, %35
-  br i1 %44, label %39, label %.critedge.us.split.loop.exit, !llvm.loop !57
+  br i1 %44, label %39, label %.critedge.us.split.loop.exit, !llvm.loop !56
 
 .critedge.us.split.loop.exit:                     ; preds = %41
   %45 = trunc nsw i64 %indvars.iv.next to i32
@@ -1076,7 +1076,7 @@ define internal i32 @dvb_encode_rle2(ptr noundef captures(none) %0, i32 noundef 
   %.0223.us = phi i32 [ 2, %242 ], [ 2, %236 ], [ %46, %213 ], [ %46, %207 ], [ %46, %184 ], [ %46, %178 ], [ %72, %142 ], [ %72, %137 ], [ 1, %66 ], [ 1, %61 ], [ 1, %60 ], [ 2, %.thread311.us ], [ %46, %.thread325.us ], [ %46, %.thread348.us ], [ %72, %.thread380.us ], [ 1, %.thread384.us ]
   %247 = add nuw nsw i32 %.0223.us, %.0225426.us
   %248 = icmp slt i32 %247, %4
-  br i1 %248, label %32, label %._crit_edge.us, !llvm.loop !58
+  br i1 %248, label %32, label %._crit_edge.us, !llvm.loop !57
 
 ._crit_edge.us:                                   ; preds = %.thread391.us
   %249 = icmp samesign ult i32 %.3.us, 2
@@ -1100,7 +1100,7 @@ define internal i32 @dvb_encode_rle2(ptr noundef captures(none) %0, i32 noundef 
   %255 = add i32 %.0251431, -3
   %256 = add nuw nsw i32 %.0224432, 1
   %exitcond.not = icmp eq i32 %256, %5
-  br i1 %exitcond.not, label %._crit_edge435, label %.lr.ph434.split, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge435, label %.lr.ph434.split, !llvm.loop !58
 
 ._crit_edge435:                                   ; preds = %.thread409, %24, %6
   %.0252.lcssa = phi ptr [ %7, %6 ], [ %25, %24 ], [ %254, %.thread409 ]
@@ -1167,7 +1167,7 @@ define internal i32 @dvb_encode_rle4(ptr noundef captures(none) %0, i32 noundef 
   %24 = add i32 %.0188337.us, %23
   %25 = add nuw nsw i32 %.0191336.us, 1
   %exitcond346.not = icmp eq i32 %25, %5
-  br i1 %exitcond346.not, label %._crit_edge340, label %.lr.ph339.split.us, !llvm.loop !60
+  br i1 %exitcond346.not, label %._crit_edge340, label %.lr.ph339.split.us, !llvm.loop !59
 
 26:                                               ; preds = %.lr.ph.us, %.thread312.us
   %.0192331.us = phi i32 [ 0, %.lr.ph.us ], [ %133, %.thread312.us ]
@@ -1193,7 +1193,7 @@ define internal i32 @dvb_encode_rle4(ptr noundef captures(none) %0, i32 noundef 
   %36 = getelementptr inbounds i8, ptr %.0211335.us, i64 %indvars.iv.next
   %37 = load i8, ptr %36, align 1, !tbaa !34
   %38 = icmp eq i8 %37, %29
-  br i1 %38, label %33, label %.critedge.us.split.loop.exit, !llvm.loop !61
+  br i1 %38, label %33, label %.critedge.us.split.loop.exit, !llvm.loop !60
 
 .critedge.us.split.loop.exit:                     ; preds = %35
   %39 = trunc nsw i64 %indvars.iv.next to i32
@@ -1376,7 +1376,7 @@ define internal i32 @dvb_encode_rle4(ptr noundef captures(none) %0, i32 noundef 
   %.0190.us = phi i32 [ 2, %130 ], [ 2, %128 ], [ %40, %120 ], [ %40, %115 ], [ %40, %106 ], [ %40, %100 ], [ %40, %92 ], [ %40, %86 ], [ %64, %74 ], [ %64, %68 ], [ 1, %59 ], [ 1, %58 ], [ 1, %.thread305.us ]
   %133 = add nuw nsw i32 %.0190.us, %.0192331.us
   %134 = icmp slt i32 %133, %4
-  br i1 %134, label %26, label %._crit_edge.us, !llvm.loop !62
+  br i1 %134, label %26, label %._crit_edge.us, !llvm.loop !61
 
 ._crit_edge.us:                                   ; preds = %.thread312.us
   %.not = icmp eq i32 %.2.us, 0
@@ -1401,7 +1401,7 @@ define internal i32 @dvb_encode_rle4(ptr noundef captures(none) %0, i32 noundef 
   %141 = add i32 %.0188337, -3
   %142 = add nuw nsw i32 %.0191336, 1
   %exitcond.not = icmp eq i32 %142, %5
-  br i1 %exitcond.not, label %._crit_edge340, label %.lr.ph339.split, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge340, label %.lr.ph339.split, !llvm.loop !62
 
 ._crit_edge340:                                   ; preds = %.thread321, %.thread321.us, %6
   %.0212.lcssa = phi ptr [ %7, %6 ], [ %19, %.thread321.us ], [ %140, %.thread321 ]
@@ -1469,7 +1469,7 @@ define internal i32 @dvb_encode_rle8(ptr noundef captures(none) %0, i32 noundef 
   %25 = getelementptr inbounds i8, ptr %.06775.us, i64 %indvars.iv.next
   %26 = load i8, ptr %25, align 1, !tbaa !34
   %27 = icmp eq i8 %26, %20
-  br i1 %27, label %22, label %.critedge.us.split.loop.exit, !llvm.loop !64
+  br i1 %27, label %22, label %.critedge.us.split.loop.exit, !llvm.loop !63
 
 .critedge.us.split.loop.exit:                     ; preds = %24
   %28 = trunc nsw i64 %indvars.iv.next to i32
@@ -1531,7 +1531,7 @@ define internal i32 @dvb_encode_rle8(ptr noundef captures(none) %0, i32 noundef 
   %.062.us = phi i32 [ 1, %51 ], [ %48, %47 ], [ %42, %41 ], [ 2, %39 ], [ 1, %37 ]
   %54 = add nsw i32 %.062.us, %.06474.us
   %55 = icmp slt i32 %54, %4
-  br i1 %55, label %17, label %._crit_edge.us, !llvm.loop !65
+  br i1 %55, label %17, label %._crit_edge.us, !llvm.loop !64
 
 ._crit_edge.us:                                   ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %.2.us, i64 1
@@ -1546,7 +1546,7 @@ define internal i32 @dvb_encode_rle8(ptr noundef captures(none) %0, i32 noundef 
   %62 = add i32 %.06577.us, %61
   %63 = add nuw nsw i32 %.06378.us, 1
   %exitcond87.not = icmp eq i32 %63, %5
-  br i1 %exitcond87.not, label %._crit_edge81, label %.lr.ph80.split.us, !llvm.loop !66
+  br i1 %exitcond87.not, label %._crit_edge81, label %.lr.ph80.split.us, !llvm.loop !65
 
 .lr.ph80.split:                                   ; preds = %.lr.ph80, %66
   %.06378 = phi i32 [ %71, %66 ], [ 0, %.lr.ph80 ]
@@ -1566,7 +1566,7 @@ define internal i32 @dvb_encode_rle8(ptr noundef captures(none) %0, i32 noundef 
   %70 = add i32 %.06577, -3
   %71 = add nuw nsw i32 %.06378, 1
   %exitcond.not = icmp eq i32 %71, %5
-  br i1 %exitcond.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge81, label %.lr.ph80.split, !llvm.loop !66
 
 ._crit_edge81:                                    ; preds = %66, %._crit_edge.us, %6
   %.066.lcssa = phi ptr [ %7, %6 ], [ %57, %._crit_edge.us ], [ %69, %66 ]
@@ -1646,28 +1646,27 @@ attributes #4 = { nounwind }
 !40 = !{!41, !10, i64 0}
 !41 = !{!"AVSubtitleRect", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !8, i64 24, !8, i64 56, !10, i64 72, !10, i64 76, !14, i64 80, !14, i64 88}
 !42 = !{!41, !10, i64 4}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!41, !10, i64 16}
-!47 = !{!10, !10, i64 0}
-!48 = distinct !{!48, !44, !45}
-!49 = distinct !{!49, !44, !45}
-!50 = !{!41, !10, i64 8}
-!51 = !{!41, !10, i64 12}
-!52 = distinct !{!52, !44, !45}
-!53 = !{ptr @dvb_encode_rle2, ptr @dvb_encode_rle4, ptr @dvb_encode_rle8}
-!54 = distinct !{!54, !44, !45}
-!55 = distinct !{!55, !44, !45, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = distinct !{!57, !44, !45}
-!58 = distinct !{!58, !44, !45}
-!59 = distinct !{!59, !44, !45}
-!60 = distinct !{!60, !44, !45, !56}
-!61 = distinct !{!61, !44, !45}
-!62 = distinct !{!62, !44, !45}
-!63 = distinct !{!63, !44, !45}
-!64 = distinct !{!64, !44, !45}
-!65 = distinct !{!65, !44, !45}
-!66 = distinct !{!66, !44, !45, !56}
-!67 = distinct !{!67, !44, !45}
+!45 = !{!41, !10, i64 16}
+!46 = !{!10, !10, i64 0}
+!47 = distinct !{!47, !44}
+!48 = distinct !{!48, !44}
+!49 = !{!41, !10, i64 8}
+!50 = !{!41, !10, i64 12}
+!51 = distinct !{!51, !44}
+!52 = !{ptr @dvb_encode_rle2, ptr @dvb_encode_rle4, ptr @dvb_encode_rle8}
+!53 = distinct !{!53, !44}
+!54 = distinct !{!54, !44, !55}
+!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!56 = distinct !{!56, !44}
+!57 = distinct !{!57, !44}
+!58 = distinct !{!58, !44}
+!59 = distinct !{!59, !44, !55}
+!60 = distinct !{!60, !44}
+!61 = distinct !{!61, !44}
+!62 = distinct !{!62, !44}
+!63 = distinct !{!63, !44}
+!64 = distinct !{!64, !44}
+!65 = distinct !{!65, !44, !55}
+!66 = distinct !{!66, !44}

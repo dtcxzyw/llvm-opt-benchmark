@@ -172,7 +172,7 @@ define internal range(i32 0, 2) i32 @test_rsa_oaep(i32 noundef %0) #0 {
 24:                                               ; preds = %.lr.ph23
   %25 = add nsw i32 %.122, 1
   %exitcond28.not = icmp eq i32 %25, %8
-  br i1 %exitcond28.not, label %.loopexit, label %.lr.ph23, !llvm.loop !15
+  br i1 %exitcond28.not, label %.loopexit, label %.lr.ph23, !llvm.loop !14
 
 .lr.ph23:                                         ; preds = %.preheader, %24
   %.122 = phi i32 [ %25, %24 ], [ -1, %.preheader ]
@@ -197,9 +197,9 @@ define internal range(i32 0, 2) i32 @test_rsa_security_bit(i32 noundef %0) #0 {
   %3 = tail call ptr @RSA_new() #5
   %4 = sext i32 %0 to i64
   %5 = getelementptr inbounds [17 x %struct.anon], ptr @rsa_security_bits_cases, i64 0, i64 %4
-  %6 = load i32, ptr %5, align 8, !tbaa !16
+  %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !18
+  %8 = load i32, ptr %7, align 4, !tbaa !17
   %9 = add nsw i32 %6, 7
   %10 = sdiv i32 %9, 8
   call void @llvm.lifetime.start.p0(i64 2000, ptr nonnull %2) #5
@@ -366,7 +366,7 @@ define internal range(i32 0, 2) i32 @test_EVP_rsa_legacy_key() #0 {
   %7 = alloca [129 x i8], align 16
   %8 = alloca [129 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
-  store i64 384, ptr %1, align 8, !tbaa !19
+  store i64 384, ptr %1, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2) #5
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #5
   call void @llvm.lifetime.start.p0(i64 257, ptr nonnull %4) #5
@@ -753,12 +753,11 @@ attributes #5 = { nounwind }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !7, i64 0}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = !{!17, !10, i64 0}
-!17 = !{!"", !10, i64 0, !10, i64 4}
-!18 = !{!17, !10, i64 4}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !7, i64 0}
+!14 = distinct !{!14, !13}
+!15 = !{!16, !10, i64 0}
+!16 = !{!"", !10, i64 0, !10, i64 4}
+!17 = !{!16, !10, i64 4}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !7, i64 0}

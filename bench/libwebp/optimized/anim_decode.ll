@@ -501,12 +501,12 @@ FindBlendRangeAtRow.exit.thread:                  ; preds = %149, %155, %FindBle
   %173 = add nuw nsw i32 %.0102142, 1
   %174 = load i32, ptr %76, align 4, !tbaa !45
   %175 = icmp slt i32 %173, %174
-  br i1 %175, label %136, label %.loopexit, !llvm.loop !59
+  br i1 %175, label %136, label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %172, %121, %.preheader140, %.preheader, %100
   store i32 %26, ptr %22, align 8, !tbaa !36
   call void @WebPDemuxReleaseIterator(ptr noundef nonnull %27) #9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false), !tbaa.struct !60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false), !tbaa.struct !59
   store i32 %.0.i114126, ptr %28, align 8, !tbaa !41
   %176 = load ptr, ptr %95, align 8, !tbaa !34
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -523,17 +523,17 @@ FindBlendRangeAtRow.exit.thread:                  ; preds = %149, %155, %FindBle
 
 186:                                              ; preds = %.loopexit
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 340
-  %188 = load i32, ptr %187, align 4, !tbaa !64
+  %188 = load i32, ptr %187, align 4, !tbaa !63
   %189 = icmp sgt i32 %188, 0
   br i1 %189, label %.lr.ph.i, label %ZeroFillFrameRect.exit
 
 .lr.ph.i:                                         ; preds = %186
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %191 = load i32, ptr %190, align 8, !tbaa !65
+  %191 = load i32, ptr %190, align 8, !tbaa !64
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 332
-  %193 = load i32, ptr %192, align 4, !tbaa !66
+  %193 = load i32, ptr %192, align 4, !tbaa !65
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %195 = load i32, ptr %194, align 8, !tbaa !67
+  %195 = load i32, ptr %194, align 8, !tbaa !66
   %196 = load ptr, ptr %177, align 8, !tbaa !35
   %197 = mul nsw i32 %193, %73
   %198 = shl nsw i32 %195, 2
@@ -552,14 +552,14 @@ FindBlendRangeAtRow.exit.thread:                  ; preds = %149, %155, %FindBle
   %206 = getelementptr inbounds i8, ptr %.01011.i, i64 %204
   %207 = add nuw nsw i32 %.012.i, 1
   %exitcond.not.i = icmp eq i32 %207, %188
-  br i1 %exitcond.not.i, label %ZeroFillFrameRect.exit, label %205, !llvm.loop !68
+  br i1 %exitcond.not.i, label %ZeroFillFrameRect.exit, label %205, !llvm.loop !67
 
 ZeroFillFrameRect.exit:                           ; preds = %205, %186, %.loopexit
   %208 = load i32, ptr %8, align 4, !tbaa !37
   %209 = add nsw i32 %208, 1
   store i32 %209, ptr %8, align 4, !tbaa !37
   %210 = load ptr, ptr %95, align 8, !tbaa !34
-  store ptr %210, ptr %1, align 8, !tbaa !61
+  store ptr %210, ptr %1, align 8, !tbaa !60
   store i32 %26, ptr %2, align 4, !tbaa !15
   br label %212
 
@@ -693,7 +693,7 @@ BlendPixelNonPremult.exit:                        ; preds = %7, %11
 50:                                               ; preds = %BlendPixelNonPremult.exit, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %50, %3
   ret void
@@ -736,7 +736,7 @@ define internal void @BlendPixelRowPremult(ptr noundef captures(none) %0, ptr no
 22:                                               ; preds = %7, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %22, %3
   ret void
@@ -815,18 +815,17 @@ attributes #9 = { nounwind }
 !53 = !{!52, !13, i64 16}
 !54 = !{!52, !11, i64 0}
 !55 = !{!17, !5, i64 348}
-!56 = distinct !{!56, !57, !58}
+!56 = distinct !{!56, !57}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!"llvm.loop.estimated_trip_count"}
-!59 = distinct !{!59, !57, !58}
-!60 = !{i64 0, i64 4, !15, i64 4, i64 4, !15, i64 8, i64 4, !15, i64 12, i64 4, !15, i64 16, i64 4, !15, i64 20, i64 4, !15, i64 24, i64 4, !15, i64 28, i64 4, !15, i64 32, i64 4, !15, i64 40, i64 8, !61, i64 48, i64 8, !62, i64 56, i64 4, !15, i64 60, i64 4, !15, i64 64, i64 8, !39, i64 72, i64 8, !63}
-!61 = !{!11, !11, i64 0}
-!62 = !{!13, !13, i64 0}
-!63 = !{!12, !12, i64 0}
-!64 = !{!17, !5, i64 340}
-!65 = !{!17, !5, i64 336}
-!66 = !{!17, !5, i64 332}
-!67 = !{!17, !5, i64 328}
-!68 = distinct !{!68, !57, !58}
-!69 = distinct !{!69, !57, !58}
-!70 = distinct !{!70, !57, !58}
+!58 = distinct !{!58, !57}
+!59 = !{i64 0, i64 4, !15, i64 4, i64 4, !15, i64 8, i64 4, !15, i64 12, i64 4, !15, i64 16, i64 4, !15, i64 20, i64 4, !15, i64 24, i64 4, !15, i64 28, i64 4, !15, i64 32, i64 4, !15, i64 40, i64 8, !60, i64 48, i64 8, !61, i64 56, i64 4, !15, i64 60, i64 4, !15, i64 64, i64 8, !39, i64 72, i64 8, !62}
+!60 = !{!11, !11, i64 0}
+!61 = !{!13, !13, i64 0}
+!62 = !{!12, !12, i64 0}
+!63 = !{!17, !5, i64 340}
+!64 = !{!17, !5, i64 336}
+!65 = !{!17, !5, i64 332}
+!66 = !{!17, !5, i64 328}
+!67 = distinct !{!67, !57}
+!68 = distinct !{!68, !57}
+!69 = distinct !{!69, !57}

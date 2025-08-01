@@ -1040,7 +1040,7 @@ define dso_local void @inet_twsk_purge(ptr noundef readonly captures(none) %0, i
   br i1 %75, label %.thread6.backedge, label %76, !prof !7
 
 .thread6.backedge:                                ; preds = %74, %76, %.loopexit, %88
-  br label %.thread6, !llvm.loop !33
+  br label %.thread6
 
 76:                                               ; preds = %74
   tail call void @refcount_warn_saturate(ptr noundef %42, i32 noundef 3) #6
@@ -1075,9 +1075,9 @@ define dso_local void @inet_twsk_purge(ptr noundef readonly captures(none) %0, i
 
 91:                                               ; preds = %65
   tail call void @__rcu_read_unlock() #6
-  %92 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !34
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #6, !srcloc !35
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !36
+  %92 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !32
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #6, !srcloc !33
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !34
   %93 = getelementptr i8, ptr %16, i64 56
   %94 = tail call i32 @timer_delete_sync(ptr noundef nonnull %93) #6
   %95 = icmp eq i32 %94, 0
@@ -1129,14 +1129,14 @@ define dso_local void @inet_twsk_purge(ptr noundef readonly captures(none) %0, i
 
 inet_twsk_deschedule_put.exit:                    ; preds = %100, %102, %114
   tail call void @__local_bh_enable_ip(i64 noundef %92, i32 noundef 512) #6
-  br label %10, !llvm.loop !37
+  br label %10
 
 117:                                              ; preds = %58, %35, %30, %27, %24, %21
   %118 = load volatile ptr, ptr %16, align 8
   %119 = ptrtoint ptr %118 to i64
   %120 = and i64 %119, 1
   %121 = icmp eq i64 %120, 0
-  br i1 %121, label %.preheader7, label %.loopexit, !llvm.loop !38
+  br i1 %121, label %.preheader7, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %117, %.thread6
   %122 = phi i64 [ %13, %.thread6 ], [ %119, %117 ]
@@ -1149,7 +1149,7 @@ inet_twsk_deschedule_put.exit:                    ; preds = %100, %102, %114
   %126 = add i32 %6, 1
   %127 = load i32, ptr %3, align 16
   %128 = icmp ugt i32 %126, %127
-  br i1 %128, label %129, label %5, !llvm.loop !39
+  br i1 %128, label %129, label %5, !llvm.loop !36
 
 129:                                              ; preds = %125
   ret void
@@ -1231,14 +1231,11 @@ attributes #7 = { nounwind memory(none) }
 !26 = !{i8 0, i8 2}
 !27 = !{}
 !28 = !{i64 2148893921, i64 2148893960, i64 2148893981, i64 2148894018, i64 2148894041, i64 2148894050, i64 2148894348}
-!29 = distinct !{!29, !30, !31, !32}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
 !31 = !{!"llvm.loop.unroll.disable"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = distinct !{!33, !32}
-!34 = !{i64 2149498260}
-!35 = !{i64 2148296779}
-!36 = !{i64 2149498048}
-!37 = distinct !{!37, !32}
-!38 = distinct !{!38, !30, !31, !32}
-!39 = distinct !{!39, !30, !31, !32}
+!32 = !{i64 2149498260}
+!33 = !{i64 2148296779}
+!34 = !{i64 2149498048}
+!35 = distinct !{!35, !30, !31}
+!36 = distinct !{!36, !30, !31}

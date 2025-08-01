@@ -52,20 +52,20 @@ define hidden ptr @RotatingTree_Get(ptr noundef captures(none) %0, ptr noundef r
   br label %_PyMutex_Lock.exit.i
 
 _PyMutex_Lock.exit.i:                             ; preds = %5, %2
-  %6 = load i32, ptr @random_stream, align 4, !tbaa !13
+  %6 = load i32, ptr @random_stream, align 4, !tbaa !12
   %7 = icmp ult i32 %6, 8
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %_PyMutex_Lock.exit.i
-  %9 = load i32, ptr @random_value, align 4, !tbaa !13
+  %9 = load i32, ptr @random_value, align 4, !tbaa !12
   %10 = mul i32 %9, 1082527
-  store i32 %10, ptr @random_value, align 4, !tbaa !13
+  store i32 %10, ptr @random_value, align 4, !tbaa !12
   br label %11
 
 11:                                               ; preds = %8, %_PyMutex_Lock.exit.i
   %12 = phi i32 [ %10, %8 ], [ %6, %_PyMutex_Lock.exit.i ]
   %13 = lshr i32 %12, 3
-  store i32 %13, ptr @random_stream, align 4, !tbaa !13
+  store i32 %13, ptr @random_stream, align 4, !tbaa !12
   %14 = cmpxchg ptr @random_mutex, i8 1, i8 0 seq_cst seq_cst, align 1
   %15 = extractvalue { i8, i1 } %14, 1
   br i1 %15, label %randombits.exit, label %16
@@ -96,7 +96,7 @@ randombits.exit:                                  ; preds = %11, %16
   %.143.in = getelementptr inbounds nuw i8, ptr %.04259, i64 %.143.in.v
   %.042 = load ptr, ptr %.143.in, align 8, !tbaa !3
   %.not51 = icmp eq ptr %.042, null
-  br i1 %.not51, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not51, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 24:                                               ; preds = %randombits.exit
   br i1 %19, label %.loopexit, label %.preheader
@@ -118,20 +118,20 @@ randombits.exit:                                  ; preds = %11, %16
   br label %_PyMutex_Lock.exit.i52
 
 _PyMutex_Lock.exit.i52:                           ; preds = %29, %.lr.ph64
-  %30 = load i32, ptr @random_stream, align 4, !tbaa !13
+  %30 = load i32, ptr @random_stream, align 4, !tbaa !12
   %31 = icmp ult i32 %30, 2
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %_PyMutex_Lock.exit.i52
-  %33 = load i32, ptr @random_value, align 4, !tbaa !13
+  %33 = load i32, ptr @random_value, align 4, !tbaa !12
   %34 = mul i32 %33, 1082527
-  store i32 %34, ptr @random_value, align 4, !tbaa !13
+  store i32 %34, ptr @random_value, align 4, !tbaa !12
   br label %35
 
 35:                                               ; preds = %32, %_PyMutex_Lock.exit.i52
   %36 = phi i32 [ %34, %32 ], [ %30, %_PyMutex_Lock.exit.i52 ]
   %37 = lshr i32 %36, 1
-  store i32 %37, ptr @random_stream, align 4, !tbaa !13
+  store i32 %37, ptr @random_stream, align 4, !tbaa !12
   %38 = cmpxchg ptr @random_mutex, i8 1, i8 0 seq_cst seq_cst, align 1
   %39 = extractvalue { i8, i1 } %38, 1
   br i1 %39, label %randombits.exit53, label %40
@@ -149,7 +149,7 @@ randombits.exit53:                                ; preds = %35, %40
 
 44:                                               ; preds = %randombits.exit53
   %45 = getelementptr inbounds nuw i8, ptr %.03963, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !16
+  %46 = load ptr, ptr %45, align 8, !tbaa !15
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.loopexit, label %48
 
@@ -158,14 +158,14 @@ randombits.exit53:                                ; preds = %35, %40
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !17
-  store ptr %51, ptr %45, align 8, !tbaa !16
-  store ptr %.03963, ptr %50, align 8, !tbaa !17
+  %51 = load ptr, ptr %50, align 8, !tbaa !16
+  store ptr %51, ptr %45, align 8, !tbaa !15
+  store ptr %.03963, ptr %50, align 8, !tbaa !16
   br label %.sink.split
 
 52:                                               ; preds = %randombits.exit53
   %53 = getelementptr inbounds nuw i8, ptr %.03963, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !17
+  %54 = load ptr, ptr %53, align 8, !tbaa !16
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.loopexit, label %56
 
@@ -174,9 +174,9 @@ randombits.exit53:                                ; preds = %35, %40
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !16
-  store ptr %59, ptr %53, align 8, !tbaa !17
-  store ptr %.03963, ptr %58, align 8, !tbaa !16
+  %59 = load ptr, ptr %58, align 8, !tbaa !15
+  store ptr %59, ptr %53, align 8, !tbaa !16
+  store ptr %.03963, ptr %58, align 8, !tbaa !15
   br label %.sink.split
 
 .sink.split:                                      ; preds = %49, %57
@@ -189,7 +189,7 @@ randombits.exit53:                                ; preds = %35, %40
   %.038 = phi ptr [ %46, %48 ], [ %54, %56 ], [ %.sink, %.sink.split ]
   %61 = load ptr, ptr %.038, align 8, !tbaa !8
   %62 = icmp eq ptr %61, %1
-  br i1 %62, label %.loopexit, label %.lr.ph64, !llvm.loop !18
+  br i1 %62, label %.loopexit, label %.lr.ph64
 
 .loopexit:                                        ; preds = %22, %.lr.ph, %52, %44, %60, %.preheader54, %.preheader, %24
   %.1 = phi ptr [ null, %24 ], [ %18, %.preheader ], [ null, %.preheader54 ], [ null, %52 ], [ null, %44 ], [ %.038, %60 ], [ null, %22 ], [ %.04259, %.lr.ph ]
@@ -207,17 +207,17 @@ define hidden i32 @RotatingTree_Enum(ptr noundef %0, ptr noundef readonly captur
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %.013, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !16
+  %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = tail call i32 @RotatingTree_Enum(ptr noundef %7, ptr noundef %1, ptr noundef %2)
   %.not16 = icmp eq i32 %8, 0
   br i1 %.not16, label %9, label %13
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %.013, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !17
+  %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = tail call i32 %1(ptr noundef nonnull %.013, ptr noundef %2) #4
   %.not17 = icmp eq i32 %12, 0
-  br i1 %.not17, label %4, label %13, !llvm.loop !19
+  br i1 %.not17, label %4, label %13, !llvm.loop !17
 
 13:                                               ; preds = %4, %9, %5
   %.0 = phi i32 [ %8, %5 ], [ %12, %9 ], [ 0, %4 ]
@@ -249,13 +249,11 @@ attributes #4 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !5, i64 0}
 !9 = !{!"rotating_node_s", !5, i64 0, !4, i64 8, !4, i64 16}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !6, i64 0}
-!15 = distinct !{!15, !11, !12}
-!16 = !{!9, !4, i64 8}
-!17 = !{!9, !4, i64 16}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !11, !12}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = distinct !{!14, !11}
+!15 = !{!9, !4, i64 8}
+!16 = !{!9, !4, i64 16}
+!17 = distinct !{!17, !11}

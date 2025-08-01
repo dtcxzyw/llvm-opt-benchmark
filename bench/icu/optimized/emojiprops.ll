@@ -152,7 +152,7 @@ define noundef ptr @_ZN6icu_7710EmojiProps12getSingletonER10UErrorCode(ptr nound
   br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %34, !llvm.loop !17
 
 44:                                               ; preds = %11
-  store ptr null, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !20
+  store ptr null, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !19
   store i32 7, ptr %0, align 4, !tbaa !11
   br label %48
 
@@ -163,14 +163,14 @@ define noundef ptr @_ZN6icu_7710EmojiProps12getSingletonER10UErrorCode(ptr nound
   resume { ptr, i32 } %46
 
 .loopexit.i:                                      ; preds = %34
-  store ptr %12, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !20
+  store ptr %12, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !19
   br label %48
 
 47:                                               ; preds = %.noexc10.i, %24, %.noexc.i
-  store ptr %12, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !20
+  store ptr %12, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !19
   tail call void @_ZN6icu_7710EmojiPropsD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #10
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %12) #10
-  store ptr null, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !20
+  store ptr null, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !19
   br label %48
 
 48:                                               ; preds = %47, %.loopexit.i, %44
@@ -180,12 +180,12 @@ define noundef ptr @_ZN6icu_7710EmojiProps12getSingletonER10UErrorCode(ptr nound
 
 _ZN6icu_7712_GLOBAL__N_113initSingletonER10UErrorCode.exit: ; preds = %8, %48
   %49 = phi i32 [ %9, %8 ], [ %.pre, %48 ]
-  store i32 %49, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7712_GLOBAL__N_113emojiInitOnceE, i64 4), align 4, !tbaa !22
+  store i32 %49, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7712_GLOBAL__N_113emojiInitOnceE, i64 4), align 4, !tbaa !21
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZN6icu_7712_GLOBAL__N_113emojiInitOnceE)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 50:                                               ; preds = %6, %4
-  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7712_GLOBAL__N_113emojiInitOnceE, i64 4), align 4, !tbaa !22
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6icu_7712_GLOBAL__N_113emojiInitOnceE, i64 4), align 4, !tbaa !21
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %53
 
@@ -194,7 +194,7 @@ _ZN6icu_7712_GLOBAL__N_113initSingletonER10UErrorCode.exit: ; preds = %8, %48
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %_ZN6icu_7712_GLOBAL__N_113initSingletonER10UErrorCode.exit, %50, %53
-  %54 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !20
+  %54 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !19
   br label %55
 
 55:                                               ; preds = %1, %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
@@ -204,7 +204,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710EmojiProps12isAcceptableEPvPKcS3_PK9UDataInfo(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #5 align 2 {
-  %5 = load i16, ptr %3, align 2, !tbaa !26
+  %5 = load i16, ptr %3, align 2, !tbaa !25
   %6 = icmp ugt i16 %5, 19
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %8 = load i8, ptr %7, align 2
@@ -324,14 +324,14 @@ define void @_ZNK6icu_7710EmojiProps17addPropertyStartsEPK9USetAdderR10UErrorCod
 10:                                               ; preds = %.lr.ph, %10
   %11 = phi i32 [ %7, %.lr.ph ], [ %16, %10 ]
   %.06 = phi i32 [ 0, %.lr.ph ], [ %14, %10 ]
-  %12 = load ptr, ptr %9, align 8, !tbaa !29
-  %13 = load ptr, ptr %1, align 8, !tbaa !32
+  %12 = load ptr, ptr %9, align 8, !tbaa !28
+  %13 = load ptr, ptr %1, align 8, !tbaa !31
   call void %12(ptr noundef %13, i32 noundef %.06)
   %14 = add nuw nsw i32 %11, 1
   %15 = load ptr, ptr %5, align 8, !tbaa !10
   %16 = call i32 @ucptrie_getRange_77(ptr noundef %15, i32 noundef %14, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull %4)
   %17 = icmp sgt i32 %16, -1
-  br i1 %17, label %10, label %._crit_edge, !llvm.loop !33
+  br i1 %17, label %10, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %10, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
@@ -357,7 +357,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710EmojiProps17hasBinaryPrope
   %9 = add nsw i32 %1, -57
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds nuw [15 x i8], ptr @_ZZNK6icu_7710EmojiProps21hasBinaryPropertyImplEi9UPropertyE8bitFlags, i64 0, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !34
+  %12 = load i8, ptr %11, align 1, !tbaa !33
   %13 = shl nuw nsw i64 1, %10
   %14 = and i64 %13, 15968
   %.not.i = icmp eq i64 %14, 0
@@ -367,16 +367,16 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710EmojiProps17hasBinaryPrope
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !34
+  %19 = load ptr, ptr %18, align 8, !tbaa !33
   %20 = icmp ult i32 %0, 65536
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %15
-  %22 = load ptr, ptr %17, align 8, !tbaa !35
+  %22 = load ptr, ptr %17, align 8, !tbaa !34
   %23 = lshr i32 %0, 6
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw i16, ptr %22, i64 %24
-  %26 = load i16, ptr %25, align 2, !tbaa !38
+  %26 = load i16, ptr %25, align 2, !tbaa !37
   %27 = zext i16 %26 to i32
   %28 = and i32 %0, 63
   %29 = add nuw nsw i32 %28, %27
@@ -388,13 +388,13 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710EmojiProps17hasBinaryPrope
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %34 = load i32, ptr %33, align 8, !tbaa !39
+  %34 = load i32, ptr %33, align 8, !tbaa !38
   %.not18.i = icmp slt i32 %0, %34
   br i1 %.not18.i, label %39, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %37 = load i32, ptr %36, align 4, !tbaa !40
+  %37 = load i32, ptr %36, align 4, !tbaa !39
   %38 = add nsw i32 %37, -2
   br label %45
 
@@ -404,7 +404,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710EmojiProps17hasBinaryPrope
 
 41:                                               ; preds = %30
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  %43 = load i32, ptr %42, align 4, !tbaa !40
+  %43 = load i32, ptr %42, align 4, !tbaa !39
   %44 = add nsw i32 %43, -1
   br label %45
 
@@ -412,7 +412,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7710EmojiProps17hasBinaryPrope
   %46 = phi i32 [ %29, %21 ], [ %44, %41 ], [ %38, %35 ], [ %40, %39 ]
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i8, ptr %19, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !34
+  %49 = load i8, ptr %48, align 1, !tbaa !33
   %50 = zext i8 %49 to i32
   %51 = zext nneg i8 %12 to i32
   %52 = lshr i32 %50, %51
@@ -436,7 +436,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
   %6 = add nsw i32 %2, -57
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw [15 x i8], ptr @_ZZNK6icu_7710EmojiProps21hasBinaryPropertyImplEi9UPropertyE8bitFlags, i64 0, i64 %7
-  %9 = load i8, ptr %8, align 1, !tbaa !34
+  %9 = load i8, ptr %8, align 1, !tbaa !33
   %10 = shl nuw nsw i64 1, %7
   %11 = and i64 %10, 15968
   %.not = icmp eq i64 %11, 0
@@ -446,16 +446,16 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !34
+  %16 = load ptr, ptr %15, align 8, !tbaa !33
   %17 = icmp ult i32 %1, 65536
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %12
-  %19 = load ptr, ptr %14, align 8, !tbaa !35
+  %19 = load ptr, ptr %14, align 8, !tbaa !34
   %20 = lshr i32 %1, 6
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw i16, ptr %19, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !38
+  %23 = load i16, ptr %22, align 2, !tbaa !37
   %24 = zext i16 %23 to i32
   %25 = and i32 %1, 63
   %26 = add nuw nsw i32 %25, %24
@@ -467,13 +467,13 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %31 = load i32, ptr %30, align 8, !tbaa !39
+  %31 = load i32, ptr %30, align 8, !tbaa !38
   %.not18 = icmp slt i32 %1, %31
   br i1 %.not18, label %36, label %32
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  %34 = load i32, ptr %33, align 4, !tbaa !40
+  %34 = load i32, ptr %33, align 4, !tbaa !39
   %35 = add nsw i32 %34, -2
   br label %42
 
@@ -483,7 +483,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
 
 38:                                               ; preds = %27
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  %40 = load i32, ptr %39, align 4, !tbaa !40
+  %40 = load i32, ptr %39, align 4, !tbaa !39
   %41 = add nsw i32 %40, -1
   br label %42
 
@@ -491,7 +491,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
   %43 = phi i32 [ %26, %18 ], [ %41, %38 ], [ %35, %32 ], [ %37, %36 ]
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i8, ptr %16, i64 %44
-  %46 = load i8, ptr %45, align 1, !tbaa !34
+  %46 = load i8, ptr %45, align 1, !tbaa !33
   %47 = zext i8 %46 to i32
   %48 = zext nneg i8 %9 to i32
   %49 = lshr i32 %47, %48
@@ -544,7 +544,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
   br i1 %12, label %._crit_edge, label %13
 
 13:                                               ; preds = %11
-  %14 = load i16, ptr %1, align 2, !tbaa !41
+  %14 = load i16, ptr %1, align 2, !tbaa !40
   %15 = icmp eq i16 %14, 0
   %16 = add i32 %3, -72
   %or.cond5 = icmp ult i32 %16, -7
@@ -583,18 +583,18 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
 
 31:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !tbaa !43
-  store ptr %30, ptr %21, align 8, !tbaa !45
-  store ptr %30, ptr %22, align 8, !tbaa !46
-  store i32 -1, ptr %23, align 8, !tbaa !47
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %30) #10, !srcloc !48
-  store ptr %1, ptr %6, align 8, !tbaa !49
+  store ptr null, ptr %5, align 8, !tbaa !42
+  store ptr %30, ptr %21, align 8, !tbaa !44
+  store ptr %30, ptr %22, align 8, !tbaa !45
+  store i32 -1, ptr %23, align 8, !tbaa !46
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %30) #10, !srcloc !47
+  store ptr %1, ptr %6, align 8, !tbaa !48
   %32 = invoke noundef i32 @_ZN6icu_7710UCharsTrie4nextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef nonnull %6, i32 noundef %2)
           to label %33 unwind label %36
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr %6, align 8, !tbaa !49
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #10, !srcloc !48
+  %34 = load ptr, ptr %6, align 8, !tbaa !48
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #10, !srcloc !47
   %35 = icmp slt i32 %32, 2
   call void @_ZN6icu_7710UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %5) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
@@ -603,8 +603,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
 36:                                               ; preds = %31
   %37 = landingpad { ptr, i32 }
           cleanup
-  %38 = load ptr, ptr %6, align 8, !tbaa !49
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %38) #10, !srcloc !48
+  %38 = load ptr, ptr %6, align 8, !tbaa !48
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %38) #10, !srcloc !47
   call void @_ZN6icu_7710UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %5) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
   resume { ptr, i32 } %37
@@ -612,7 +612,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710EmojiProps21hasBinaryProp
 .critedge:                                        ; preds = %33, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp sgt i32 %spec.select, %26
-  br i1 %.not, label %25, label %._crit_edge, !llvm.loop !51
+  br i1 %.not, label %25, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %33, %.critedge, %18, %17, %11, %13, %4
   %.0 = phi i8 [ 0, %4 ], [ 0, %13 ], [ 0, %11 ], [ 0, %17 ], [ 0, %18 ], [ 1, %33 ], [ 0, %.critedge ]
@@ -664,13 +664,13 @@ define void @_ZNK6icu_7710EmojiProps10addStringsEPK9USetAdder9UPropertyR10UError
 
 25:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #10
-  store ptr %24, ptr %6, align 8, !tbaa !49
+  store ptr %24, ptr %6, align 8, !tbaa !48
   invoke void @_ZN6icu_7710UCharsTrie8IteratorC1ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %26 unwind label %43
 
 26:                                               ; preds = %25
-  %27 = load ptr, ptr %6, align 8, !tbaa !49
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %27) #10, !srcloc !48
+  %27 = load ptr, ptr %6, align 8, !tbaa !48
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %27) #10, !srcloc !47
   br label %28
 
 28:                                               ; preds = %31, %26
@@ -682,9 +682,9 @@ define void @_ZNK6icu_7710EmojiProps10addStringsEPK9USetAdder9UPropertyR10UError
   br i1 %.not31, label %50, label %31
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr %13, align 8, !tbaa !52
-  %33 = load ptr, ptr %1, align 8, !tbaa !32
-  %34 = load i16, ptr %14, align 8, !tbaa !34
+  %32 = load ptr, ptr %13, align 8, !tbaa !51
+  %33 = load ptr, ptr %1, align 8, !tbaa !31
+  %34 = load i16, ptr %14, align 8, !tbaa !33
   %35 = and i16 %34, 17
   %.not.i = icmp eq i16 %35, 0
   %36 = and i16 %34, 2
@@ -698,13 +698,13 @@ define void @_ZNK6icu_7710EmojiProps10addStringsEPK9USetAdder9UPropertyR10UError
   %41 = load i32, ptr %17, align 4
   %42 = select i1 %38, i32 %41, i32 %40
   invoke void %32(ptr noundef %33, ptr noundef %.0.i, i32 noundef %42)
-          to label %28 unwind label %48, !llvm.loop !53
+          to label %28 unwind label %48, !llvm.loop !52
 
 43:                                               ; preds = %25
   %44 = landingpad { ptr, i32 }
           cleanup
-  %45 = load ptr, ptr %6, align 8, !tbaa !49
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %45) #10, !srcloc !48
+  %45 = load ptr, ptr %6, align 8, !tbaa !48
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %45) #10, !srcloc !47
   br label %52
 
 46:                                               ; preds = %28
@@ -735,7 +735,7 @@ define void @_ZNK6icu_7710EmojiProps10addStringsEPK9USetAdder9UPropertyR10UError
 53:                                               ; preds = %50, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not29.not = icmp sgt i32 %spec.select, %20
-  br i1 %.not29.not, label %19, label %.loopexit, !llvm.loop !54
+  br i1 %.not29.not, label %19, label %.loopexit, !llvm.loop !53
 
 .loopexit:                                        ; preds = %53, %10, %4
   ret void
@@ -762,7 +762,7 @@ declare void @ucln_common_registerCleanup_77(i32 noundef, ptr noundef) local_unn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef signext i8 @_ZN6icu_7712_GLOBAL__N_118emojiprops_cleanupEv() #0 {
-  %1 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !20
+  %1 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !19
   %2 = icmp eq ptr %1, null
   br i1 %2, label %4, label %3
 
@@ -772,7 +772,7 @@ define internal noundef signext i8 @_ZN6icu_7712_GLOBAL__N_118emojiprops_cleanup
   br label %4
 
 4:                                                ; preds = %3, %0
-  store ptr null, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !20
+  store ptr null, ptr @_ZN6icu_7712_GLOBAL__N_19singletonE, align 8, !tbaa !19
   store atomic i32 0, ptr @_ZN6icu_7712_GLOBAL__N_113emojiInitOnceE seq_cst, align 4
   ret i8 1
 }
@@ -811,41 +811,40 @@ attributes #10 = { nounwind }
 !14 = !{!"int", !7, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 char16_t", !6, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTSN6icu_7710EmojiPropsE", !6, i64 0}
-!22 = !{!23, !12, i64 4}
-!23 = !{!"_ZTSN6icu_779UInitOnceE", !24, i64 0, !12, i64 4}
-!24 = !{!"_ZTSSt6atomicIiE", !25, i64 0}
-!25 = !{!"_ZTSSt13__atomic_baseIiE", !14, i64 0}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"_ZTS9UDataInfo", !28, i64 0, !28, i64 2, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7, !7, i64 8, !7, i64 12, !7, i64 16}
-!28 = !{!"short", !7, i64 0}
-!29 = !{!30, !6, i64 8}
-!30 = !{!"_ZTS9USetAdder", !31, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}
-!31 = !{!"p1 _ZTS4USet", !6, i64 0}
-!32 = !{!30, !31, i64 0}
-!33 = distinct !{!33, !18, !19}
-!34 = !{!7, !7, i64 0}
-!35 = !{!36, !37, i64 0}
-!36 = !{!"_ZTS7UCPTrie", !37, i64 0, !7, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !28, i64 28, !7, i64 30, !7, i64 31, !14, i64 32, !28, i64 36, !28, i64 38, !14, i64 40, !14, i64 44}
-!37 = !{!"p1 short", !6, i64 0}
-!38 = !{!28, !28, i64 0}
-!39 = !{!36, !14, i64 24}
-!40 = !{!36, !14, i64 20}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"char16_t", !7, i64 0}
-!43 = !{!44, !16, i64 0}
-!44 = !{!"_ZTSN6icu_7710UCharsTrieE", !16, i64 0, !16, i64 8, !16, i64 16, !14, i64 24}
-!45 = !{!44, !16, i64 8}
-!46 = !{!44, !16, i64 16}
-!47 = !{!44, !14, i64 24}
-!48 = !{i64 2149037513}
-!49 = !{!50, !16, i64 0}
-!50 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !16, i64 0}
-!51 = distinct !{!51, !18, !19}
-!52 = !{!30, !6, i64 24}
-!53 = distinct !{!53, !18, !19}
-!54 = distinct !{!54, !18, !19}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTSN6icu_7710EmojiPropsE", !6, i64 0}
+!21 = !{!22, !12, i64 4}
+!22 = !{!"_ZTSN6icu_779UInitOnceE", !23, i64 0, !12, i64 4}
+!23 = !{!"_ZTSSt6atomicIiE", !24, i64 0}
+!24 = !{!"_ZTSSt13__atomic_baseIiE", !14, i64 0}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"_ZTS9UDataInfo", !27, i64 0, !27, i64 2, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7, !7, i64 8, !7, i64 12, !7, i64 16}
+!27 = !{!"short", !7, i64 0}
+!28 = !{!29, !6, i64 8}
+!29 = !{!"_ZTS9USetAdder", !30, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}
+!30 = !{!"p1 _ZTS4USet", !6, i64 0}
+!31 = !{!29, !30, i64 0}
+!32 = distinct !{!32, !18}
+!33 = !{!7, !7, i64 0}
+!34 = !{!35, !36, i64 0}
+!35 = !{!"_ZTS7UCPTrie", !36, i64 0, !7, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !27, i64 28, !7, i64 30, !7, i64 31, !14, i64 32, !27, i64 36, !27, i64 38, !14, i64 40, !14, i64 44}
+!36 = !{!"p1 short", !6, i64 0}
+!37 = !{!27, !27, i64 0}
+!38 = !{!35, !14, i64 24}
+!39 = !{!35, !14, i64 20}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"char16_t", !7, i64 0}
+!42 = !{!43, !16, i64 0}
+!43 = !{!"_ZTSN6icu_7710UCharsTrieE", !16, i64 0, !16, i64 8, !16, i64 16, !14, i64 24}
+!44 = !{!43, !16, i64 8}
+!45 = !{!43, !16, i64 16}
+!46 = !{!43, !14, i64 24}
+!47 = !{i64 2149037513}
+!48 = !{!49, !16, i64 0}
+!49 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !16, i64 0}
+!50 = distinct !{!50, !18}
+!51 = !{!29, !6, i64 24}
+!52 = distinct !{!52, !18}
+!53 = distinct !{!53, !18}

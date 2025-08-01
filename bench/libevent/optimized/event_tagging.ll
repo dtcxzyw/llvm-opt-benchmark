@@ -120,7 +120,7 @@ define void @evtag_encode_int64(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %18 = lshr i64 %.02124.i, 4
   %19 = add nuw nsw i32 %.02025.i, 1
   %.not.i = icmp ult i64 %.02124.i, 16
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %17
   %.pre.i = load i8, ptr %3, align 1
@@ -164,7 +164,7 @@ define range(i32 -2147483647, -2147483648) i32 @evtag_encode_tag(ptr noundef %0,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv
   store i8 %.0, ptr %8, align 1
-  br i1 %.not, label %9, label %4, !llvm.loop !7
+  br i1 %.not, label %9, label %4, !llvm.loop !6
 
 9:                                                ; preds = %4
   %.not14 = icmp eq ptr %0, null
@@ -262,7 +262,7 @@ define void @evtag_marshal(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 n
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %11 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %indvars.iv.i
   store i8 %.0.i, ptr %11, align 1
-  br i1 %.not.i, label %12, label %7, !llvm.loop !7
+  br i1 %.not.i, label %12, label %7, !llvm.loop !6
 
 12:                                               ; preds = %7
   %.not14.i = icmp eq ptr %0, null
@@ -357,7 +357,7 @@ define void @evtag_marshal_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   store i8 %.0.i, ptr %10, align 1
-  br i1 %.not.i, label %11, label %6, !llvm.loop !7
+  br i1 %.not.i, label %11, label %6, !llvm.loop !6
 
 11:                                               ; preds = %6
   %.not14.i = icmp eq ptr %0, null
@@ -512,7 +512,7 @@ encode_int_internal.exit:                         ; preds = %3, %._crit_edge.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   store i8 %.0.i, ptr %35, align 1
-  br i1 %.not.i6, label %36, label %31, !llvm.loop !7
+  br i1 %.not.i6, label %36, label %31, !llvm.loop !6
 
 36:                                               ; preds = %31
   %.not14.i = icmp eq ptr %0, null
@@ -622,7 +622,7 @@ define void @evtag_marshal_int64(ptr noundef %0, i32 noundef %1, i64 noundef %2)
   %21 = lshr i64 %.02124.i, 4
   %22 = add nuw nsw i32 %.02025.i, 1
   %.not.i = icmp ult i64 %.02124.i, 16
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %20
   %.pre.i = load i8, ptr %6, align 1
@@ -657,7 +657,7 @@ encode_int64_internal.exit:                       ; preds = %3, %._crit_edge.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   store i8 %.0.i, ptr %35, align 1
-  br i1 %.not.i6, label %36, label %31, !llvm.loop !7
+  br i1 %.not.i6, label %36, label %31, !llvm.loop !6
 
 36:                                               ; preds = %31
   %.not14.i = icmp eq ptr %0, null
@@ -909,7 +909,7 @@ define range(i32 -1, 1) i32 @evtag_decode_int(ptr noundef writeonly captures(non
   %.1.i = or disjoint i32 %19, %.pn.i
   %27 = add nsw i32 %.039.i, -1
   %28 = icmp samesign ugt i32 %.039.i, 1
-  br i1 %28, label %.preheader.i, label %29, !llvm.loop !8
+  br i1 %28, label %.preheader.i, label %29, !llvm.loop !7
 
 29:                                               ; preds = %.preheader.i
   store i32 %.1.i, ptr %0, align 4
@@ -967,7 +967,7 @@ define range(i32 -1, 1) i32 @evtag_decode_int64(ptr noundef writeonly captures(n
   %.1.i = or disjoint i64 %17, %.pn.i
   %25 = add nsw i32 %.039.i, -1
   %26 = icmp samesign ugt i32 %.039.i, 1
-  br i1 %26, label %.preheader.i, label %27, !llvm.loop !9
+  br i1 %26, label %.preheader.i, label %27, !llvm.loop !8
 
 27:                                               ; preds = %.preheader.i
   store i64 %.1.i, ptr %0, align 8
@@ -1124,7 +1124,7 @@ decode_tag_internal.exit:                         ; preds = %13
   %.1.i = or disjoint i32 %38, %.pn.i
   %46 = add nsw i32 %.039.i, -1
   %47 = icmp samesign ugt i32 %.039.i, 1
-  br i1 %47, label %.preheader.i12, label %48, !llvm.loop !8
+  br i1 %47, label %.preheader.i12, label %48, !llvm.loop !7
 
 48:                                               ; preds = %.preheader.i12
   %49 = add nuw nsw i32 %31, %16
@@ -1224,7 +1224,7 @@ decode_tag_internal.exit:                         ; preds = %13
   %.1.i = or disjoint i32 %37, %.pn.i
   %45 = add nsw i32 %.039.i, -1
   %46 = icmp samesign ugt i32 %.039.i, 1
-  br i1 %46, label %.preheader.i8, label %decode_int_internal.exit, !llvm.loop !8
+  br i1 %46, label %.preheader.i8, label %decode_int_internal.exit, !llvm.loop !7
 
 decode_int_internal.exit:                         ; preds = %.preheader.i8
   store i32 %.1.i, ptr %1, align 4
@@ -1449,7 +1449,7 @@ decode_tag_internal.exit:                         ; preds = %15
   %.1.i = or disjoint i32 %47, %.pn.i
   %55 = add nsw i32 %.039.i, -1
   %56 = icmp samesign ugt i32 %.039.i, 1
-  br i1 %56, label %.preheader.i14, label %57, !llvm.loop !8
+  br i1 %56, label %.preheader.i14, label %57, !llvm.loop !7
 
 57:                                               ; preds = %.preheader.i14
   store i32 %.1.i, ptr %2, align 4
@@ -1571,7 +1571,7 @@ decode_tag_internal.exit:                         ; preds = %15
   %.1.i = or disjoint i64 %45, %.pn.i
   %53 = add nsw i32 %.039.i, -1
   %54 = icmp samesign ugt i32 %.039.i, 1
-  br i1 %54, label %.preheader.i14, label %55, !llvm.loop !9
+  br i1 %54, label %.preheader.i14, label %55, !llvm.loop !8
 
 55:                                               ; preds = %.preheader.i14
   store i64 %.1.i, ptr %2, align 8
@@ -1719,7 +1719,7 @@ define range(i32 -1, 1) i32 @evtag_unmarshal_timeval(ptr noundef %0, i32 noundef
   %.1.i = or disjoint i32 %26, %.pn.i
   %34 = add nsw i32 %.039.i, -1
   %35 = icmp samesign ugt i32 %.039.i, 1
-  br i1 %35, label %.preheader.i, label %decode_int_internal.exit, !llvm.loop !8
+  br i1 %35, label %.preheader.i, label %decode_int_internal.exit, !llvm.loop !7
 
 decode_int_internal.exit:                         ; preds = %.preheader.i
   %36 = zext i32 %.1.i to i64
@@ -1776,7 +1776,7 @@ decode_int_internal.exit:                         ; preds = %.preheader.i
   %.1.i26 = or disjoint i32 %59, %.pn.i25
   %67 = add nsw i32 %.039.i21, -1
   %68 = icmp samesign ugt i32 %.039.i21, 1
-  br i1 %68, label %.preheader.i20, label %decode_int_internal.exit28, !llvm.loop !8
+  br i1 %68, label %.preheader.i20, label %decode_int_internal.exit28, !llvm.loop !7
 
 decode_int_internal.exit28:                       ; preds = %.preheader.i20
   %69 = zext i32 %.1.i26 to i64
@@ -1817,10 +1817,9 @@ attributes #8 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}

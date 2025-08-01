@@ -1709,7 +1709,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store i8 0, ptr %38, align 1, !tbaa !42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %3, ptr %39, align 8, !tbaa !126
+  store i32 %3, ptr %39, align 8, !tbaa !125
   ret void
 
 40:                                               ; preds = %.noexc.i6
@@ -1746,7 +1746,7 @@ _ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE15_M_allocate_mapE
   %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 5)
   %.sroa.speculated = add nuw nsw i64 %4, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !129
+  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !128
   %6 = shl nuw nsw i64 %.sroa.speculated, 3
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #20
   store ptr %7, ptr %0, align 8, !tbaa !121
@@ -1766,7 +1766,7 @@ _ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE16_M_allocate_node
   store ptr %12, ptr %.011.i, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %14 = icmp ult ptr %13, %11
-  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE15_M_create_nodesEPPS3_S7_.exit, !llvm.loop !130
+  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE15_M_create_nodesEPPS3_S7_.exit, !llvm.loop !129
 
 15:                                               ; preds = %.lr.ph.i
   %16 = landingpad { ptr, i32 }
@@ -1842,7 +1842,7 @@ _ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE15_M_create_nodesE
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 512
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %46, ptr %47, align 8, !tbaa !111
-  store ptr %37, ptr %35, align 8, !tbaa !131
+  store ptr %37, ptr %35, align 8, !tbaa !130
   %48 = and i64 %1, 127
   %49 = getelementptr inbounds nuw i32, ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !107
@@ -1913,7 +1913,7 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML14EmitFromEvents5State5valueESaIS3_E
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !129
+  %36 = load i64, ptr %35, align 8, !tbaa !128
   %37 = load ptr, ptr %0, align 8, !tbaa !121
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %9, %38
@@ -1963,7 +1963,7 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML14EmitFromEvents5State5valueESaIS3_E
   %12 = add nsw i64 %11, 1
   %13 = add i64 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !129
+  %15 = load i64, ptr %14, align 8, !tbaa !128
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %18, label %39
@@ -2007,7 +2007,7 @@ define linkonce_odr void @_ZNSt5dequeIN4YAML14EmitFromEvents5State5valueESaIS3_E
   %40 = add i64 %15, 2
   %41 = add i64 %40, %.sroa.speculated
   %42 = icmp ugt i64 %41, 1152921504606846975
-  br i1 %42, label %43, label %_ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE15_M_allocate_mapEm.exit, !prof !132
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseIN4YAML14EmitFromEvents5State5valueESaIS3_EE15_M_allocate_mapEm.exit, !prof !131
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %41, 2305843009213693951
@@ -2043,7 +2043,7 @@ _ZSt4copyIPPN4YAML14EmitFromEvents5State5valueES5_ET0_T_S7_S6_.exit26: ; preds =
   %56 = load ptr, ptr %0, align 8, !tbaa !121
   tail call void @_ZdlPv(ptr noundef %56) #18
   store ptr %46, ptr %0, align 8, !tbaa !121
-  store i64 %41, ptr %14, align 8, !tbaa !129
+  store i64 %41, ptr %14, align 8, !tbaa !128
   br label %_ZSt4copyIPPN4YAML14EmitFromEvents5State5valueES5_ET0_T_S7_S6_.exit
 
 _ZSt4copyIPPN4YAML14EmitFromEvents5State5valueES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN4YAML14EmitFromEvents5State5valueES5_ET0_T_S7_S6_.exit26
@@ -2230,13 +2230,12 @@ attributes #21 = { noreturn }
 !120 = distinct !{!120, !"_ZNSt5dequeIN4YAML14EmitFromEvents5State5valueESaIS3_EE3endEv"}
 !121 = !{!28, !12, i64 0}
 !122 = !{!28, !12, i64 40}
-!123 = distinct !{!123, !124, !125}
+!123 = distinct !{!123, !124}
 !124 = !{!"llvm.loop.mustprogress"}
-!125 = !{!"llvm.loop.estimated_trip_count"}
-!126 = !{!127, !128, i64 64}
-!127 = !{!"_ZTSN4YAML4_TagE", !41, i64 0, !41, i64 32, !128, i64 64}
-!128 = !{!"_ZTSN4YAML4_Tag4Type5valueE", !9, i64 0}
-!129 = !{!28, !29, i64 8}
-!130 = distinct !{!130, !124, !125}
-!131 = !{!28, !8, i64 16}
-!132 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!125 = !{!126, !127, i64 64}
+!126 = !{!"_ZTSN4YAML4_TagE", !41, i64 0, !41, i64 32, !127, i64 64}
+!127 = !{!"_ZTSN4YAML4_Tag4Type5valueE", !9, i64 0}
+!128 = !{!28, !29, i64 8}
+!129 = distinct !{!129, !124}
+!130 = !{!28, !8, i64 16}
+!131 = !{!"branch_weights", !"expected", i32 1, i32 2000}

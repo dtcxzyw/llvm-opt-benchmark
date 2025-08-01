@@ -1299,13 +1299,13 @@ ossl_decoder_instance_free.exit48.i.us:           ; preds = %119, %117
 collect_extra_decoder.exit.us:                    ; preds = %54, %126, %ossl_decoder_instance_free.exit48.i.us, %114, %ossl_decoder_instance_free.exit.us, %ossl_decoder_instance_free.exit.i.us, %._crit_edge.i.us, %42
   %129 = add nuw i64 %.02229.us, 1
   %exitcond.not = icmp eq i64 %129, %16
-  br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge.us, label %42, !llvm.loop !68
 
 ._crit_edge.us:                                   ; preds = %collect_extra_decoder.exit.us
   %130 = add nuw i64 %.02330.us, 1
   %131 = load i64, ptr %22, align 8, !tbaa !60
   %132 = icmp ult i64 %130, %131
-  br i1 %132, label %.lr.ph32.split.us, label %._crit_edge33, !llvm.loop !70
+  br i1 %132, label %.lr.ph32.split.us, label %._crit_edge33, !llvm.loop !69
 
 .lr.ph32.split:                                   ; preds = %.lr.ph32, %OSSL_DECODER_INSTANCE_get_input_type.exit
   %.02330 = phi i64 [ %140, %OSSL_DECODER_INSTANCE_get_input_type.exit ], [ %33, %.lr.ph32 ]
@@ -1327,7 +1327,7 @@ OSSL_DECODER_INSTANCE_get_input_type.exit:        ; preds = %.lr.ph32.split, %13
   %140 = add nuw i64 %.02330, 1
   %141 = load i64, ptr %22, align 8, !tbaa !60
   %142 = icmp ult i64 %140, %141
-  br i1 %142, label %.lr.ph32.split, label %._crit_edge33, !llvm.loop !72
+  br i1 %142, label %.lr.ph32.split, label %._crit_edge33, !llvm.loop !71
 
 ._crit_edge33:                                    ; preds = %._crit_edge.us, %OSSL_DECODER_INSTANCE_get_input_type.exit, %.split
   %143 = phi i64 [ %32, %.split ], [ %141, %OSSL_DECODER_INSTANCE_get_input_type.exit ], [ %131, %._crit_edge.us ]
@@ -1335,7 +1335,7 @@ OSSL_DECODER_INSTANCE_get_input_type.exit:        ; preds = %.lr.ph32.split, %13
   %145 = add i32 %144, 1
   store i32 %145, ptr %25, align 4, !tbaa !63
   %146 = icmp ult i32 %145, 2
-  br i1 %146, label %.split, label %.split35, !llvm.loop !73
+  br i1 %146, label %.split, label %.split35, !llvm.loop !72
 
 .split35:                                         ; preds = %._crit_edge33
   %.pre = load i64, ptr %23, align 8, !tbaa !61
@@ -1346,7 +1346,7 @@ OSSL_DECODER_INSTANCE_get_input_type.exit:        ; preds = %.lr.ph32.split, %13
   %148 = icmp ne i64 %.pre, %.pre39
   %149 = icmp samesign ult i64 %.024, 10
   %150 = select i1 %148, i1 %149, i1 false
-  br i1 %150, label %28, label %.loopexit, !llvm.loop !75
+  br i1 %150, label %28, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %.split35, %.split35.thread
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %11, ptr noundef nonnull @OSSL_DECODER_free) #8
@@ -1449,7 +1449,7 @@ define range(i32 0, 2) i32 @OSSL_DECODER_CTX_set_cleanup(ptr noundef writeonly c
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %5, align 8, !tbaa !76
+  store ptr %1, ptr %5, align 8, !tbaa !75
   br label %6
 
 6:                                                ; preds = %4, %3
@@ -1494,7 +1494,7 @@ define ptr @OSSL_DECODER_CTX_get_cleanup(ptr noundef readonly captures(address_i
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !76
+  %5 = load ptr, ptr %4, align 8, !tbaa !75
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -1511,7 +1511,7 @@ define i32 @OSSL_DECODER_export(ptr noundef readonly captures(address_is_null) %
   %or.cond19 = or i1 %or.cond, %.not17
   %.not18 = icmp eq ptr %4, null
   %or.cond20 = or i1 %or.cond19, %.not18
-  br i1 %or.cond20, label %6, label %OSSL_DECODER_INSTANCE_get_decoder_ctx.exit, !prof !77
+  br i1 %or.cond20, label %6, label %OSSL_DECODER_INSTANCE_get_decoder_ctx.exit, !prof !76
 
 6:                                                ; preds = %5
   tail call void @ERR_new() #8
@@ -1524,7 +1524,7 @@ OSSL_DECODER_INSTANCE_get_decoder_ctx.exit:       ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %11 = load ptr, ptr %10, align 8, !tbaa !78
+  %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = tail call i32 %11(ptr noundef %9, ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   br label %13
 
@@ -1695,15 +1695,14 @@ attributes #8 = { nounwind }
 !64 = !{!58, !5, i64 8}
 !65 = !{!58, !9, i64 16}
 !66 = !{!38, !41, i64 24}
-!67 = distinct !{!67, !36, !68}
-!68 = !{!"llvm.loop.estimated_trip_count"}
-!69 = distinct !{!69, !36, !68}
-!70 = distinct !{!70, !36, !68, !71}
-!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!72 = distinct !{!72, !36, !68}
-!73 = distinct !{!73, !36, !68, !74}
-!74 = !{!"llvm.loop.unswitch.partial.disable"}
-!75 = distinct !{!75, !36, !68}
-!76 = !{!4, !6, i64 40}
-!77 = !{!"branch_weights", i32 7818360, i32 -388717296}
-!78 = !{!38, !6, i64 112}
+!67 = distinct !{!67, !36}
+!68 = distinct !{!68, !36}
+!69 = distinct !{!69, !36, !70}
+!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!71 = distinct !{!71, !36}
+!72 = distinct !{!72, !36, !73}
+!73 = !{!"llvm.loop.unswitch.partial.disable"}
+!74 = distinct !{!74, !36}
+!75 = !{!4, !6, i64 40}
+!76 = !{!"branch_weights", i32 7818360, i32 -388717296}
+!77 = !{!38, !6, i64 112}

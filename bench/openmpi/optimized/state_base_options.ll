@@ -280,7 +280,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
 110:                                              ; preds = %2
   %111 = call ptr @PMIx_Argv_split(ptr noundef nonnull %1, i32 noundef 44) #8
   store i32 0, ptr %3, align 4, !tbaa !21
-  %112 = load ptr, ptr %111, align 8, !tbaa !49
+  %112 = load ptr, ptr %111, align 8, !tbaa !48
   %.not109121 = icmp eq ptr %112, null
   br i1 %.not109121, label %._crit_edge, label %.lr.ph122
 
@@ -296,9 +296,9 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   br i1 %.not110, label %128, label %118
 
 118:                                              ; preds = %115
-  store i8 0, ptr %117, align 1, !tbaa !50
+  store i8 0, ptr %117, align 1, !tbaa !49
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 1
-  %120 = load i8, ptr %119, align 1, !tbaa !50
+  %120 = load i8, ptr %119, align 1, !tbaa !49
   %121 = icmp eq i8 %120, 0
   br i1 %121, label %122, label %128
 
@@ -306,7 +306,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %123 = load i32, ptr %3, align 4, !tbaa !21
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds ptr, ptr %111, i64 %124
-  %126 = load ptr, ptr %125, align 8, !tbaa !49
+  %126 = load ptr, ptr %125, align 8, !tbaa !48
   %127 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %126, ptr noundef nonnull @.str.3) #8
   call void @PMIx_Argv_free(ptr noundef nonnull %111) #8
   br label %389
@@ -317,7 +317,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %130 = load i32, ptr %3, align 4, !tbaa !21
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds ptr, ptr %111, i64 %131
-  %133 = load ptr, ptr %132, align 8, !tbaa !49
+  %133 = load ptr, ptr %132, align 8, !tbaa !48
   %134 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %133, ptr noundef nonnull @.str.4)
   br i1 %134, label %135, label %140
 
@@ -333,7 +333,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %141 = load i32, ptr %3, align 4, !tbaa !21
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds ptr, ptr %111, i64 %142
-  %144 = load ptr, ptr %143, align 8, !tbaa !49
+  %144 = load ptr, ptr %143, align 8, !tbaa !48
   %145 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %144, ptr noundef nonnull @.str.5)
   br i1 %145, label %146, label %157
 
@@ -357,7 +357,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %158 = load i32, ptr %3, align 4, !tbaa !21
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds ptr, ptr %111, i64 %159
-  %161 = load ptr, ptr %160, align 8, !tbaa !49
+  %161 = load ptr, ptr %160, align 8, !tbaa !48
   %162 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %161, ptr noundef nonnull @.str.6)
   br i1 %162, label %163, label %168
 
@@ -373,7 +373,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %169 = load i32, ptr %3, align 4, !tbaa !21
   %170 = sext i32 %169 to i64
   %171 = getelementptr inbounds ptr, ptr %111, i64 %170
-  %172 = load ptr, ptr %171, align 8, !tbaa !49
+  %172 = load ptr, ptr %171, align 8, !tbaa !48
   %173 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %172, ptr noundef nonnull @.str.7)
   br i1 %173, label %174, label %179
 
@@ -389,7 +389,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %180 = load i32, ptr %3, align 4, !tbaa !21
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds ptr, ptr %111, i64 %181
-  %183 = load ptr, ptr %182, align 8, !tbaa !49
+  %183 = load ptr, ptr %182, align 8, !tbaa !48
   %184 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %183, ptr noundef nonnull @.str.8)
   br i1 %184, label %185, label %190
 
@@ -405,7 +405,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %191 = load i32, ptr %3, align 4, !tbaa !21
   %192 = sext i32 %191 to i64
   %193 = getelementptr inbounds ptr, ptr %111, i64 %192
-  %194 = load ptr, ptr %193, align 8, !tbaa !49
+  %194 = load ptr, ptr %193, align 8, !tbaa !48
   %195 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %194, ptr noundef nonnull @.str.9)
   br i1 %195, label %196, label %201
 
@@ -421,7 +421,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %202 = load i32, ptr %3, align 4, !tbaa !21
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds ptr, ptr %111, i64 %203
-  %205 = load ptr, ptr %204, align 8, !tbaa !49
+  %205 = load ptr, ptr %204, align 8, !tbaa !48
   %206 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %205, ptr noundef nonnull @.str.10)
   br i1 %206, label %207, label %212
 
@@ -437,12 +437,12 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %213 = load i32, ptr %3, align 4, !tbaa !21
   %214 = sext i32 %213 to i64
   %215 = getelementptr inbounds ptr, ptr %111, i64 %214
-  %216 = load ptr, ptr %215, align 8, !tbaa !49
+  %216 = load ptr, ptr %215, align 8, !tbaa !48
   %217 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %216, ptr noundef nonnull @.str.11)
   br i1 %217, label %218, label %251
 
 218:                                              ; preds = %212
-  %219 = load i8, ptr %.099, align 1, !tbaa !50
+  %219 = load i8, ptr %.099, align 1, !tbaa !49
   %220 = icmp eq i8 %219, 0
   br i1 %220, label %221, label %227
 
@@ -450,7 +450,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph124, %99, %10
   %222 = load i32, ptr %3, align 4, !tbaa !21
   %223 = sext i32 %222 to i64
   %224 = getelementptr inbounds ptr, ptr %111, i64 %223
-  %225 = load ptr, ptr %224, align 8, !tbaa !49
+  %225 = load ptr, ptr %224, align 8, !tbaa !48
   %226 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %225, ptr noundef nonnull @.str.3) #8
   call void @PMIx_Argv_free(ptr noundef nonnull %111) #8
   br label %389
@@ -496,13 +496,13 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %248 = getelementptr inbounds nuw i8, ptr %245, i64 128
   %249 = load i32, ptr %248, align 8, !tbaa !40
   %250 = icmp slt i32 %247, %249
-  br i1 %250, label %.lr.ph, label %.loopexit119, !llvm.loop !51
+  br i1 %250, label %.lr.ph, label %.loopexit119, !llvm.loop !50
 
 251:                                              ; preds = %212
   %252 = load i32, ptr %3, align 4, !tbaa !21
   %253 = sext i32 %252 to i64
   %254 = getelementptr inbounds ptr, ptr %111, i64 %253
-  %255 = load ptr, ptr %254, align 8, !tbaa !49
+  %255 = load ptr, ptr %254, align 8, !tbaa !48
   %256 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %255, ptr noundef nonnull @.str.12)
   br i1 %256, label %257, label %259
 
@@ -514,7 +514,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %260 = load i32, ptr %3, align 4, !tbaa !21
   %261 = sext i32 %260 to i64
   %262 = getelementptr inbounds ptr, ptr %111, i64 %261
-  %263 = load ptr, ptr %262, align 8, !tbaa !49
+  %263 = load ptr, ptr %262, align 8, !tbaa !48
   %264 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %263, ptr noundef nonnull @.str.13)
   br i1 %264, label %265, label %266
 
@@ -526,7 +526,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %267 = load i32, ptr %3, align 4, !tbaa !21
   %268 = sext i32 %267 to i64
   %269 = getelementptr inbounds ptr, ptr %111, i64 %268
-  %270 = load ptr, ptr %269, align 8, !tbaa !49
+  %270 = load ptr, ptr %269, align 8, !tbaa !48
   %271 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %270, ptr noundef nonnull @.str.14)
   br i1 %271, label %272, label %279
 
@@ -549,7 +549,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %280 = load i32, ptr %3, align 4, !tbaa !21
   %281 = sext i32 %280 to i64
   %282 = getelementptr inbounds ptr, ptr %111, i64 %281
-  %283 = load ptr, ptr %282, align 8, !tbaa !49
+  %283 = load ptr, ptr %282, align 8, !tbaa !48
   %284 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %283, ptr noundef nonnull @.str.15)
   br i1 %284, label %285, label %294
 
@@ -574,7 +574,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %295 = load i32, ptr %3, align 4, !tbaa !21
   %296 = sext i32 %295 to i64
   %297 = getelementptr inbounds ptr, ptr %111, i64 %296
-  %298 = load ptr, ptr %297, align 8, !tbaa !49
+  %298 = load ptr, ptr %297, align 8, !tbaa !48
   %299 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %298, ptr noundef nonnull @.str.17)
   br i1 %299, label %300, label %309
 
@@ -599,7 +599,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %310 = load i32, ptr %3, align 4, !tbaa !21
   %311 = sext i32 %310 to i64
   %312 = getelementptr inbounds ptr, ptr %111, i64 %311
-  %313 = load ptr, ptr %312, align 8, !tbaa !49
+  %313 = load ptr, ptr %312, align 8, !tbaa !48
   %314 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %313, ptr noundef nonnull @.str.19)
   br i1 %314, label %315, label %318
 
@@ -613,7 +613,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %319 = load i32, ptr %3, align 4, !tbaa !21
   %320 = sext i32 %319 to i64
   %321 = getelementptr inbounds ptr, ptr %111, i64 %320
-  %322 = load ptr, ptr %321, align 8, !tbaa !49
+  %322 = load ptr, ptr %321, align 8, !tbaa !48
   %323 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %322, ptr noundef nonnull @.str.20)
   br i1 %323, label %324, label %327
 
@@ -627,7 +627,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %328 = load i32, ptr %3, align 4, !tbaa !21
   %329 = sext i32 %328 to i64
   %330 = getelementptr inbounds ptr, ptr %111, i64 %329
-  %331 = load ptr, ptr %330, align 8, !tbaa !49
+  %331 = load ptr, ptr %330, align 8, !tbaa !48
   %332 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %331, ptr noundef nonnull @.str.21)
   br i1 %332, label %333, label %338
 
@@ -643,7 +643,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %339 = load i32, ptr %3, align 4, !tbaa !21
   %340 = sext i32 %339 to i64
   %341 = getelementptr inbounds ptr, ptr %111, i64 %340
-  %342 = load ptr, ptr %341, align 8, !tbaa !49
+  %342 = load ptr, ptr %341, align 8, !tbaa !48
   %343 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %342, ptr noundef nonnull @.str.22)
   br i1 %343, label %344, label %349
 
@@ -659,7 +659,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %350 = load i32, ptr %3, align 4, !tbaa !21
   %351 = sext i32 %350 to i64
   %352 = getelementptr inbounds ptr, ptr %111, i64 %351
-  %353 = load ptr, ptr %352, align 8, !tbaa !49
+  %353 = load ptr, ptr %352, align 8, !tbaa !48
   %354 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %353, ptr noundef nonnull @.str.23)
   br i1 %354, label %355, label %360
 
@@ -675,7 +675,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   %361 = load i32, ptr %3, align 4, !tbaa !21
   %362 = sext i32 %361 to i64
   %363 = getelementptr inbounds ptr, ptr %111, i64 %362
-  %364 = load ptr, ptr %363, align 8, !tbaa !49
+  %364 = load ptr, ptr %363, align 8, !tbaa !48
   %365 = call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %364, ptr noundef nonnull @.str.24)
   br i1 %365, label %366, label %374
 
@@ -684,7 +684,7 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   br i1 %367, label %371, label %368
 
 368:                                              ; preds = %366
-  %369 = load i8, ptr %.099, align 1, !tbaa !50
+  %369 = load i8, ptr %.099, align 1, !tbaa !49
   %370 = icmp eq i8 %369, 0
   br i1 %370, label %371, label %372
 
@@ -706,9 +706,9 @@ pmix_pointer_array_get_item.exit116.thread:       ; preds = %.lr.ph, %pmix_point
   store i32 %377, ptr %3, align 4, !tbaa !21
   %378 = sext i32 %377 to i64
   %379 = getelementptr inbounds ptr, ptr %111, i64 %378
-  %380 = load ptr, ptr %379, align 8, !tbaa !49
+  %380 = load ptr, ptr %379, align 8, !tbaa !48
   %.not109 = icmp eq ptr %380, null
-  br i1 %.not109, label %._crit_edge, label %115, !llvm.loop !52
+  br i1 %.not109, label %._crit_edge, label %115, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.loopexit119, %110
   call void @PMIx_Argv_free(ptr noundef nonnull %111) #8
@@ -782,7 +782,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   br i1 %11, label %13, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %12 = load ptr, ptr %7, align 8, !tbaa !49
+  %12 = load ptr, ptr %7, align 8, !tbaa !48
   %.not4751 = icmp eq ptr %12, null
   br i1 %.not4751, label %.critedge, label %.lr.ph
 
@@ -795,7 +795,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   %14 = phi ptr [ %26, %23 ], [ %12, %.preheader ]
   %.04352 = phi i64 [ %24, %23 ], [ 0, %.preheader ]
   %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %.04352
-  %16 = load ptr, ptr %15, align 8, !tbaa !49
+  %16 = load ptr, ptr %15, align 8, !tbaa !48
   %.not48 = icmp eq ptr %16, null
   br i1 %.not48, label %.critedge.loopexit, label %17
 
@@ -810,9 +810,9 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
 23:                                               ; preds = %17
   %24 = add i64 %.04352, 1
   %25 = getelementptr inbounds nuw ptr, ptr %7, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !49
+  %26 = load ptr, ptr %25, align 8, !tbaa !48
   %.not47 = icmp eq ptr %26, null
-  br i1 %.not47, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !53
+  br i1 %.not47, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !52
 
 27:                                               ; preds = %17
   tail call void @PMIx_Argv_free(ptr noundef nonnull %7) #8
@@ -863,7 +863,7 @@ define internal fastcc i32 @pmix_convert_string_to_time(ptr noundef %0) unnamed_
   %4 = sext i32 %3 to i64
   %5 = getelementptr ptr, ptr %2, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -8
-  %7 = load ptr, ptr %6, align 8, !tbaa !49
+  %7 = load ptr, ptr %6, align 8, !tbaa !48
   %8 = tail call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #8
   %9 = icmp sgt i32 %3, 1
   br i1 %9, label %10, label %.thread32
@@ -872,7 +872,7 @@ define internal fastcc i32 @pmix_convert_string_to_time(ptr noundef %0) unnamed_
   %11 = zext nneg i32 %3 to i64
   %12 = getelementptr ptr, ptr %2, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -16
-  %14 = load ptr, ptr %13, align 8, !tbaa !49
+  %14 = load ptr, ptr %13, align 8, !tbaa !48
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %19, label %15
 
@@ -889,7 +889,7 @@ define internal fastcc i32 @pmix_convert_string_to_time(ptr noundef %0) unnamed_
 
 20:                                               ; preds = %19
   %21 = getelementptr i8, ptr %12, i64 -24
-  %22 = load ptr, ptr %21, align 8, !tbaa !49
+  %22 = load ptr, ptr %21, align 8, !tbaa !48
   %.not29 = icmp eq ptr %22, null
   br i1 %.not29, label %27, label %23
 
@@ -906,7 +906,7 @@ define internal fastcc i32 @pmix_convert_string_to_time(ptr noundef %0) unnamed_
 
 29:                                               ; preds = %27
   %30 = getelementptr i8, ptr %12, i64 -32
-  %31 = load ptr, ptr %30, align 8, !tbaa !49
+  %31 = load ptr, ptr %30, align 8, !tbaa !48
   %.not30 = icmp eq ptr %31, null
   br i1 %.not30, label %.thread32, label %32
 
@@ -996,11 +996,10 @@ attributes #9 = { nounwind willreturn memory(read) }
 !43 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !44 = !{!41, !5, i64 152}
 !45 = !{!5, !5, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!31, !31, i64 0}
-!50 = !{!6, !6, i64 0}
-!51 = distinct !{!51, !47, !48}
-!52 = distinct !{!52, !47, !48}
-!53 = distinct !{!53, !47, !48}
+!48 = !{!31, !31, i64 0}
+!49 = !{!6, !6, i64 0}
+!50 = distinct !{!50, !47}
+!51 = distinct !{!51, !47}
+!52 = distinct !{!52, !47}

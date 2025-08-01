@@ -38914,7 +38914,7 @@ lean_string_dec_eq.exit53.thread55:               ; preds = %lean_dec.exit39, %l
 
 lean_dec.exit40.backedge:                         ; preds = %lean_string_dec_eq.exit53.thread55, %77, %79, %80, %lean_string_dec_eq.exit.thread54, %33, %35, %36, %lean_alloc_ctor.exit, %lean_string_dec_eq.exit.thread
   %.034.be = phi ptr [ %.0, %lean_string_dec_eq.exit.thread ], [ %68, %lean_alloc_ctor.exit ], [ %.034, %36 ], [ %.034, %35 ], [ %.034, %33 ], [ %.034, %lean_string_dec_eq.exit.thread54 ], [ %.034, %80 ], [ %.034, %79 ], [ %.034, %77 ], [ %.034, %lean_string_dec_eq.exit53.thread55 ]
-  br label %lean_dec.exit40, !llvm.loop !15
+  br label %lean_dec.exit40
 
 74:                                               ; preds = %lean_string_dec_eq.exit53.thread55
   %75 = load i32, ptr %17, align 4, !tbaa !8
@@ -47644,9 +47644,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store ptr @l_Lean_Widget_withGoalCtx___rarg___lambda__1, ptr %112, align 8, !tbaa !4
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  store i16 5, ptr %113, align 8, !tbaa !17
+  store i16 5, ptr %113, align 8, !tbaa !15
   %114 = getelementptr inbounds nuw i8, ptr %108, i64 18
-  store i16 4, ptr %114, align 2, !tbaa !17
+  store i16 4, ptr %114, align 2, !tbaa !15
   %115 = getelementptr inbounds nuw i8, ptr %108, i64 24
   store ptr %92, ptr %115, align 8, !tbaa !4
   %116 = getelementptr inbounds nuw i8, ptr %108, i64 32
@@ -47786,9 +47786,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr @l_Lean_Widget_withGoalCtx___rarg___lambda__2, ptr %48, align 8, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i16 8, ptr %49, align 8, !tbaa !17
+  store i16 8, ptr %49, align 8, !tbaa !15
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 18
-  store i16 7, ptr %50, align 2, !tbaa !17
+  store i16 7, ptr %50, align 2, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %6, ptr %51, align 8, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -47825,9 +47825,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Widget_withGoalCtx___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 8, ptr %7, align 8, !tbaa !17
+  store i16 8, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -71023,9 +71023,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Elab_CommandContextInfo_saveNoFileMap___at_Lean_Widget_goalToInteractive___spec__7___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !17
+  store i16 4, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -72160,9 +72160,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_throwError___at_Lean_Widget_goalToInteractive___spec__9___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 6, ptr %7, align 8, !tbaa !17
+  store i16 6, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -73316,9 +73316,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Widget_withGoalCtx___at_Lean_Widget_goalToInteractive___spec__8___rarg, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 7, ptr %7, align 8, !tbaa !17
+  store i16 7, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !15
   ret ptr %2
 }
 
@@ -76620,9 +76620,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %54 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr @l_Lean_Widget_goalToInteractive___lambda__1___boxed, ptr %54, align 8, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i16 11, ptr %55, align 8, !tbaa !17
+  store i16 11, ptr %55, align 8, !tbaa !15
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 18
-  store i16 4, ptr %56, align 2, !tbaa !17
+  store i16 4, ptr %56, align 2, !tbaa !15
   %57 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %52, ptr %57, align 8, !tbaa !4
   %58 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -78261,9 +78261,9 @@ l_Lean_Elab_CommandContextInfo_saveNoFileMap___at_Lean_Widget_goalToInteractive_
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lean_Elab_CommandContextInfo_saveNoFileMap___at_Lean_Widget_goalToInteractive___spec__7___rarg___boxed, ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 4, ptr %7, align 8, !tbaa !17
+  store i16 4, ptr %7, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !17
+  store i16 0, ptr %8, align 2, !tbaa !15
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
@@ -78636,9 +78636,9 @@ _init_l___private_Lean_Widget_InteractiveGoal_0__Lean_Widget_fromJsonRpcEncodabl
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr @l___private_Lean_Widget_InteractiveGoal_0__Lean_Widget_fromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_176____lambda__1___boxed, ptr %102, align 8, !tbaa !4
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  store i16 1, ptr %103, align 8, !tbaa !17
+  store i16 1, ptr %103, align 8, !tbaa !15
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 18
-  store i16 0, ptr %104, align 2, !tbaa !17
+  store i16 0, ptr %104, align 2, !tbaa !15
   store ptr %98, ptr @l___private_Lean_Widget_InteractiveGoal_0__Lean_Widget_fromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_176____closed__17, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %98) #6
   %105 = load ptr, ptr @l___private_Lean_Widget_InteractiveGoal_0__Lean_Widget_fromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_176____closed__16, align 8, !tbaa !4
@@ -78861,9 +78861,9 @@ _init_l_Lean_Widget_instFromJsonRpcEncodablePacket____x40_Lean_Widget_Interactiv
   %217 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store ptr @l___private_Lean_Widget_InteractiveGoal_0__Lean_Widget_fromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_176_, ptr %217, align 8, !tbaa !4
   %218 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  store i16 1, ptr %218, align 8, !tbaa !17
+  store i16 1, ptr %218, align 8, !tbaa !15
   %219 = getelementptr inbounds nuw i8, ptr %213, i64 18
-  store i16 0, ptr %219, align 2, !tbaa !17
+  store i16 0, ptr %219, align 2, !tbaa !15
   store ptr %213, ptr @l_Lean_Widget_instFromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_657____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %213) #6
   %220 = load ptr, ptr @l_Lean_Widget_instFromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_657____closed__1, align 8, !tbaa !4
@@ -78888,9 +78888,9 @@ _init_l_Lean_Widget_instToJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveG
   %226 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store ptr @l___private_Lean_Widget_InteractiveGoal_0__Lean_Widget_toJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_660____boxed, ptr %226, align 8, !tbaa !4
   %227 = getelementptr inbounds nuw i8, ptr %222, i64 16
-  store i16 1, ptr %227, align 8, !tbaa !17
+  store i16 1, ptr %227, align 8, !tbaa !15
   %228 = getelementptr inbounds nuw i8, ptr %222, i64 18
-  store i16 0, ptr %228, align 2, !tbaa !17
+  store i16 0, ptr %228, align 2, !tbaa !15
   store ptr %222, ptr @l_Lean_Widget_instToJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_743____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %222) #6
   %229 = load ptr, ptr @l_Lean_Widget_instToJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_743____closed__1, align 8, !tbaa !4
@@ -78912,9 +78912,9 @@ _init_l_Lean_Widget_instRpcEncodableInteractiveHypothesisBundle_enc____x40_Lean_
   %234 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store ptr @l_Lean_Widget_instRpcEncodableSubexprInfo_enc____x40_Lean_Widget_InteractiveCode___hyg_292_, ptr %234, align 8, !tbaa !4
   %235 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  store i16 2, ptr %235, align 8, !tbaa !17
+  store i16 2, ptr %235, align 8, !tbaa !15
   %236 = getelementptr inbounds nuw i8, ptr %230, i64 18
-  store i16 0, ptr %236, align 2, !tbaa !17
+  store i16 0, ptr %236, align 2, !tbaa !15
   store ptr %230, ptr @l_Lean_Widget_instRpcEncodableInteractiveHypothesisBundle_enc____x40_Lean_Widget_InteractiveGoal___hyg_5____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %230) #6
   tail call void @lean_inc_heartbeat() #6
@@ -78933,9 +78933,9 @@ _init_l_Lean_Widget_instRpcEncodableInteractiveHypothesisBundle_dec____x40_Lean_
   %241 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store ptr @l_Lean_Widget_instRpcEncodableSubexprInfo_dec____x40_Lean_Widget_InteractiveCode___hyg_292_, ptr %241, align 8, !tbaa !4
   %242 = getelementptr inbounds nuw i8, ptr %237, i64 16
-  store i16 2, ptr %242, align 8, !tbaa !17
+  store i16 2, ptr %242, align 8, !tbaa !15
   %243 = getelementptr inbounds nuw i8, ptr %237, i64 18
-  store i16 0, ptr %243, align 2, !tbaa !17
+  store i16 0, ptr %243, align 2, !tbaa !15
   store ptr %237, ptr @l_Lean_Widget_instRpcEncodableInteractiveHypothesisBundle_dec____x40_Lean_Widget_InteractiveGoal___hyg_5____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %237) #6
   tail call void @lean_inc_heartbeat() #6
@@ -78954,9 +78954,9 @@ _init_l_Lean_Widget_instRpcEncodableInteractiveHypothesisBundle___closed__1.exit
   %248 = getelementptr inbounds nuw i8, ptr %244, i64 8
   store ptr @l_Lean_Widget_instRpcEncodableInteractiveHypothesisBundle_enc____x40_Lean_Widget_InteractiveGoal___hyg_5_, ptr %248, align 8, !tbaa !4
   %249 = getelementptr inbounds nuw i8, ptr %244, i64 16
-  store i16 2, ptr %249, align 8, !tbaa !17
+  store i16 2, ptr %249, align 8, !tbaa !15
   %250 = getelementptr inbounds nuw i8, ptr %244, i64 18
-  store i16 0, ptr %250, align 2, !tbaa !17
+  store i16 0, ptr %250, align 2, !tbaa !15
   store ptr %244, ptr @l_Lean_Widget_instRpcEncodableInteractiveHypothesisBundle___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %244) #6
   tail call void @lean_inc_heartbeat() #6
@@ -78975,9 +78975,9 @@ _init_l_Lean_Widget_instRpcEncodableInteractiveHypothesisBundle___closed__2.exit
   %255 = getelementptr inbounds nuw i8, ptr %251, i64 8
   store ptr @l_Lean_Widget_instRpcEncodableInteractiveHypothesisBundle_dec____x40_Lean_Widget_InteractiveGoal___hyg_5_, ptr %255, align 8, !tbaa !4
   %256 = getelementptr inbounds nuw i8, ptr %251, i64 16
-  store i16 2, ptr %256, align 8, !tbaa !17
+  store i16 2, ptr %256, align 8, !tbaa !15
   %257 = getelementptr inbounds nuw i8, ptr %251, i64 18
-  store i16 0, ptr %257, align 2, !tbaa !17
+  store i16 0, ptr %257, align 2, !tbaa !15
   store ptr %251, ptr @l_Lean_Widget_instRpcEncodableInteractiveHypothesisBundle___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %251) #6
   %258 = load ptr, ptr @l_Lean_Widget_instRpcEncodableInteractiveHypothesisBundle___closed__1, align 8, !tbaa !4
@@ -79177,9 +79177,9 @@ _init_l_Lean_Widget_instFromJsonRpcEncodablePacket____x40_Lean_Widget_Interactiv
   %358 = getelementptr inbounds nuw i8, ptr %354, i64 8
   store ptr @l___private_Lean_Widget_InteractiveGoal_0__Lean_Widget_fromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_1277_, ptr %358, align 8, !tbaa !4
   %359 = getelementptr inbounds nuw i8, ptr %354, i64 16
-  store i16 1, ptr %359, align 8, !tbaa !17
+  store i16 1, ptr %359, align 8, !tbaa !15
   %360 = getelementptr inbounds nuw i8, ptr %354, i64 18
-  store i16 0, ptr %360, align 2, !tbaa !17
+  store i16 0, ptr %360, align 2, !tbaa !15
   store ptr %354, ptr @l_Lean_Widget_instFromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_1758____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %354) #6
   %361 = load ptr, ptr @l_Lean_Widget_instFromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_1758____closed__1, align 8, !tbaa !4
@@ -79201,9 +79201,9 @@ _init_l_Lean_Widget_instToJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveG
   %366 = getelementptr inbounds nuw i8, ptr %362, i64 8
   store ptr @l___private_Lean_Widget_InteractiveGoal_0__Lean_Widget_toJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_1761____boxed, ptr %366, align 8, !tbaa !4
   %367 = getelementptr inbounds nuw i8, ptr %362, i64 16
-  store i16 1, ptr %367, align 8, !tbaa !17
+  store i16 1, ptr %367, align 8, !tbaa !15
   %368 = getelementptr inbounds nuw i8, ptr %362, i64 18
-  store i16 0, ptr %368, align 2, !tbaa !17
+  store i16 0, ptr %368, align 2, !tbaa !15
   store ptr %362, ptr @l_Lean_Widget_instToJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_1864____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %362) #6
   %369 = load ptr, ptr @l_Lean_Widget_instToJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_1864____closed__1, align 8, !tbaa !4
@@ -79225,9 +79225,9 @@ _init_l_Lean_Widget_instRpcEncodableInteractiveGoal___closed__1.exit: ; preds = 
   %374 = getelementptr inbounds nuw i8, ptr %370, i64 8
   store ptr @l_Lean_Widget_instRpcEncodableInteractiveGoal_enc____x40_Lean_Widget_InteractiveGoal___hyg_1148_, ptr %374, align 8, !tbaa !4
   %375 = getelementptr inbounds nuw i8, ptr %370, i64 16
-  store i16 2, ptr %375, align 8, !tbaa !17
+  store i16 2, ptr %375, align 8, !tbaa !15
   %376 = getelementptr inbounds nuw i8, ptr %370, i64 18
-  store i16 0, ptr %376, align 2, !tbaa !17
+  store i16 0, ptr %376, align 2, !tbaa !15
   store ptr %370, ptr @l_Lean_Widget_instRpcEncodableInteractiveGoal___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %370) #6
   tail call void @lean_inc_heartbeat() #6
@@ -79246,9 +79246,9 @@ _init_l_Lean_Widget_instRpcEncodableInteractiveGoal___closed__2.exit: ; preds = 
   %381 = getelementptr inbounds nuw i8, ptr %377, i64 8
   store ptr @l_Lean_Widget_instRpcEncodableInteractiveGoal_dec____x40_Lean_Widget_InteractiveGoal___hyg_1148_, ptr %381, align 8, !tbaa !4
   %382 = getelementptr inbounds nuw i8, ptr %377, i64 16
-  store i16 2, ptr %382, align 8, !tbaa !17
+  store i16 2, ptr %382, align 8, !tbaa !15
   %383 = getelementptr inbounds nuw i8, ptr %377, i64 18
-  store i16 0, ptr %383, align 2, !tbaa !17
+  store i16 0, ptr %383, align 2, !tbaa !15
   store ptr %377, ptr @l_Lean_Widget_instRpcEncodableInteractiveGoal___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %377) #6
   %384 = load ptr, ptr @l_Lean_Widget_instRpcEncodableInteractiveGoal___closed__1, align 8, !tbaa !4
@@ -79379,9 +79379,9 @@ _init_l_Lean_Widget_instFromJsonRpcEncodablePacket____x40_Lean_Widget_Interactiv
   %447 = getelementptr inbounds nuw i8, ptr %443, i64 8
   store ptr @l___private_Lean_Widget_InteractiveGoal_0__Lean_Widget_fromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_2301_, ptr %447, align 8, !tbaa !4
   %448 = getelementptr inbounds nuw i8, ptr %443, i64 16
-  store i16 1, ptr %448, align 8, !tbaa !17
+  store i16 1, ptr %448, align 8, !tbaa !15
   %449 = getelementptr inbounds nuw i8, ptr %443, i64 18
-  store i16 0, ptr %449, align 2, !tbaa !17
+  store i16 0, ptr %449, align 2, !tbaa !15
   store ptr %443, ptr @l_Lean_Widget_instFromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_2611____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %443) #6
   %450 = load ptr, ptr @l_Lean_Widget_instFromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_2611____closed__1, align 8, !tbaa !4
@@ -79403,9 +79403,9 @@ _init_l_Lean_Widget_instToJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveG
   %455 = getelementptr inbounds nuw i8, ptr %451, i64 8
   store ptr @l___private_Lean_Widget_InteractiveGoal_0__Lean_Widget_toJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_2614____boxed, ptr %455, align 8, !tbaa !4
   %456 = getelementptr inbounds nuw i8, ptr %451, i64 16
-  store i16 1, ptr %456, align 8, !tbaa !17
+  store i16 1, ptr %456, align 8, !tbaa !15
   %457 = getelementptr inbounds nuw i8, ptr %451, i64 18
-  store i16 0, ptr %457, align 2, !tbaa !17
+  store i16 0, ptr %457, align 2, !tbaa !15
   store ptr %451, ptr @l_Lean_Widget_instToJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_2705____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %451) #6
   %458 = load ptr, ptr @l_Lean_Widget_instToJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_2705____closed__1, align 8, !tbaa !4
@@ -79427,9 +79427,9 @@ _init_l_Lean_Widget_instRpcEncodableInteractiveTermGoal___closed__1.exit: ; pred
   %463 = getelementptr inbounds nuw i8, ptr %459, i64 8
   store ptr @l_Lean_Widget_instRpcEncodableInteractiveTermGoal_enc____x40_Lean_Widget_InteractiveGoal___hyg_2227_, ptr %463, align 8, !tbaa !4
   %464 = getelementptr inbounds nuw i8, ptr %459, i64 16
-  store i16 2, ptr %464, align 8, !tbaa !17
+  store i16 2, ptr %464, align 8, !tbaa !15
   %465 = getelementptr inbounds nuw i8, ptr %459, i64 18
-  store i16 0, ptr %465, align 2, !tbaa !17
+  store i16 0, ptr %465, align 2, !tbaa !15
   store ptr %459, ptr @l_Lean_Widget_instRpcEncodableInteractiveTermGoal___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %459) #6
   tail call void @lean_inc_heartbeat() #6
@@ -79448,9 +79448,9 @@ _init_l_Lean_Widget_instRpcEncodableInteractiveTermGoal___closed__2.exit: ; pred
   %470 = getelementptr inbounds nuw i8, ptr %466, i64 8
   store ptr @l_Lean_Widget_instRpcEncodableInteractiveTermGoal_dec____x40_Lean_Widget_InteractiveGoal___hyg_2227_, ptr %470, align 8, !tbaa !4
   %471 = getelementptr inbounds nuw i8, ptr %466, i64 16
-  store i16 2, ptr %471, align 8, !tbaa !17
+  store i16 2, ptr %471, align 8, !tbaa !15
   %472 = getelementptr inbounds nuw i8, ptr %466, i64 18
-  store i16 0, ptr %472, align 2, !tbaa !17
+  store i16 0, ptr %472, align 2, !tbaa !15
   store ptr %466, ptr @l_Lean_Widget_instRpcEncodableInteractiveTermGoal___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %466) #6
   %473 = load ptr, ptr @l_Lean_Widget_instRpcEncodableInteractiveTermGoal___closed__1, align 8, !tbaa !4
@@ -79664,9 +79664,9 @@ _init_l_Lean_Widget_instFromJsonRpcEncodablePacket____x40_Lean_Widget_Interactiv
   %551 = getelementptr inbounds nuw i8, ptr %547, i64 8
   store ptr @l___private_Lean_Widget_InteractiveGoal_0__Lean_Widget_fromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_3365_, ptr %551, align 8, !tbaa !4
   %552 = getelementptr inbounds nuw i8, ptr %547, i64 16
-  store i16 1, ptr %552, align 8, !tbaa !17
+  store i16 1, ptr %552, align 8, !tbaa !15
   %553 = getelementptr inbounds nuw i8, ptr %547, i64 18
-  store i16 0, ptr %553, align 2, !tbaa !17
+  store i16 0, ptr %553, align 2, !tbaa !15
   store ptr %547, ptr @l_Lean_Widget_instFromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_3447____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %547) #6
   %554 = load ptr, ptr @l_Lean_Widget_instFromJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_3447____closed__1, align 8, !tbaa !4
@@ -79688,9 +79688,9 @@ _init_l_Lean_Widget_instToJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveG
   %559 = getelementptr inbounds nuw i8, ptr %555, i64 8
   store ptr @l___private_Lean_Widget_InteractiveGoal_0__Lean_Widget_toJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_3450_, ptr %559, align 8, !tbaa !4
   %560 = getelementptr inbounds nuw i8, ptr %555, i64 16
-  store i16 1, ptr %560, align 8, !tbaa !17
+  store i16 1, ptr %560, align 8, !tbaa !15
   %561 = getelementptr inbounds nuw i8, ptr %555, i64 18
-  store i16 0, ptr %561, align 2, !tbaa !17
+  store i16 0, ptr %561, align 2, !tbaa !15
   store ptr %555, ptr @l_Lean_Widget_instToJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_3485____closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %555) #6
   %562 = load ptr, ptr @l_Lean_Widget_instToJsonRpcEncodablePacket____x40_Lean_Widget_InteractiveGoal___hyg_3485____closed__1, align 8, !tbaa !4
@@ -79712,9 +79712,9 @@ _init_l_Lean_Widget_instRpcEncodableInteractiveGoals___closed__1.exit: ; preds =
   %567 = getelementptr inbounds nuw i8, ptr %563, i64 8
   store ptr @l_Lean_Widget_instRpcEncodableInteractiveGoals_enc____x40_Lean_Widget_InteractiveGoal___hyg_3339_, ptr %567, align 8, !tbaa !4
   %568 = getelementptr inbounds nuw i8, ptr %563, i64 16
-  store i16 2, ptr %568, align 8, !tbaa !17
+  store i16 2, ptr %568, align 8, !tbaa !15
   %569 = getelementptr inbounds nuw i8, ptr %563, i64 18
-  store i16 0, ptr %569, align 2, !tbaa !17
+  store i16 0, ptr %569, align 2, !tbaa !15
   store ptr %563, ptr @l_Lean_Widget_instRpcEncodableInteractiveGoals___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %563) #6
   tail call void @lean_inc_heartbeat() #6
@@ -79733,9 +79733,9 @@ _init_l_Lean_Widget_instRpcEncodableInteractiveGoals___closed__2.exit: ; preds =
   %574 = getelementptr inbounds nuw i8, ptr %570, i64 8
   store ptr @l_Lean_Widget_instRpcEncodableInteractiveGoals_dec____x40_Lean_Widget_InteractiveGoal___hyg_3339_, ptr %574, align 8, !tbaa !4
   %575 = getelementptr inbounds nuw i8, ptr %570, i64 16
-  store i16 2, ptr %575, align 8, !tbaa !17
+  store i16 2, ptr %575, align 8, !tbaa !15
   %576 = getelementptr inbounds nuw i8, ptr %570, i64 18
-  store i16 0, ptr %576, align 2, !tbaa !17
+  store i16 0, ptr %576, align 2, !tbaa !15
   store ptr %570, ptr @l_Lean_Widget_instRpcEncodableInteractiveGoals___closed__2, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %570) #6
   %577 = load ptr, ptr @l_Lean_Widget_instRpcEncodableInteractiveGoals___closed__1, align 8, !tbaa !4
@@ -79778,9 +79778,9 @@ _init_l_Lean_Widget_instAppendInteractiveGoals___closed__1.exit: ; preds = %_ini
   %590 = getelementptr inbounds nuw i8, ptr %586, i64 8
   store ptr @l_Lean_Widget_InteractiveGoals_append___boxed, ptr %590, align 8, !tbaa !4
   %591 = getelementptr inbounds nuw i8, ptr %586, i64 16
-  store i16 2, ptr %591, align 8, !tbaa !17
+  store i16 2, ptr %591, align 8, !tbaa !15
   %592 = getelementptr inbounds nuw i8, ptr %586, i64 18
-  store i16 0, ptr %592, align 2, !tbaa !17
+  store i16 0, ptr %592, align 2, !tbaa !15
   store ptr %586, ptr @l_Lean_Widget_instAppendInteractiveGoals___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %586) #6
   %593 = load ptr, ptr @l_Lean_Widget_instAppendInteractiveGoals___closed__1, align 8, !tbaa !4
@@ -79805,9 +79805,9 @@ _init_l_Lean_Widget_addInteractiveHypothesisBundle___lambda__1___closed__1.exit:
   %599 = getelementptr inbounds nuw i8, ptr %595, i64 8
   store ptr @l_Lean_PrettyPrinter_Delaborator_delab, ptr %599, align 8, !tbaa !4
   %600 = getelementptr inbounds nuw i8, ptr %595, i64 16
-  store i16 7, ptr %600, align 8, !tbaa !17
+  store i16 7, ptr %600, align 8, !tbaa !15
   %601 = getelementptr inbounds nuw i8, ptr %595, i64 18
-  store i16 0, ptr %601, align 2, !tbaa !17
+  store i16 0, ptr %601, align 2, !tbaa !15
   store ptr %595, ptr @l_Lean_Widget_addInteractiveHypothesisBundle___lambda__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %595) #6
   tail call void @lean_inc_heartbeat() #6
@@ -80011,7 +80011,5 @@ attributes #7 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
 !14 = !{!6, !6, i64 0}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !6, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"short", !6, i64 0}

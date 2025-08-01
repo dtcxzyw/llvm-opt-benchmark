@@ -774,7 +774,7 @@ proto_item_set_generated.exit620:                 ; preds = %proto_item_set_gene
   %185 = load i32, ptr @hf_source_id, align 4
   %186 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %185, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0)
   %187 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12)
-  %188 = load i8, ptr @use_relative_msgid, align 1, !range !9, !noundef !10
+  %188 = load i8, ptr @use_relative_msgid, align 1, !range !8, !noundef !9
   %189 = trunc nuw i8 %188 to i1
   br i1 %189, label %190, label %199
 
@@ -921,7 +921,7 @@ proto_item_set_generated.exit620:                 ; preds = %proto_item_set_gene
 
 262:                                              ; preds = %258, %245
   %.4563 = phi i32 [ %261, %258 ], [ %257, %245 ]
-  %263 = load i8, ptr @use_seq_ack_analysis, align 1, !range !9, !noundef !10
+  %263 = load i8, ptr @use_seq_ack_analysis, align 1, !range !8, !noundef !9
   %264 = trunc nuw i8 %263 to i1
   br i1 %264, label %265, label %266
 
@@ -931,11 +931,11 @@ proto_item_set_generated.exit620:                 ; preds = %proto_item_set_gene
 
 266:                                              ; preds = %262, %265
   %exitcond793.not = icmp eq i32 %247, %237
-  br i1 %exitcond793.not, label %._crit_edge785, label %245, !llvm.loop !11
+  br i1 %exitcond793.not, label %._crit_edge785, label %245, !llvm.loop !10
 
 ._crit_edge785:                                   ; preds = %266, %228
   %.3562.lcssa = phi i32 [ %236, %228 ], [ %.4563, %266 ]
-  %267 = load i8, ptr @use_seq_ack_analysis, align 1, !range !9
+  %267 = load i8, ptr @use_seq_ack_analysis, align 1, !range !8
   %268 = trunc nuw i8 %267 to i1
   %or.cond16 = select i1 %.not791, i1 %268, i1 false
   br i1 %or.cond16, label %269, label %270
@@ -1004,7 +1004,7 @@ proto_item_set_generated.exit620:                 ; preds = %proto_item_set_gene
   %303 = call ptr @proto_tree_add_item(ptr noundef %293, i32 noundef %302, ptr noundef %0, i32 noundef %296, i32 noundef 4, i32 noundef 0)
   %304 = add i32 %.6775, 6
   %305 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %304)
-  %306 = load i8, ptr @use_relative_msgid, align 1, !range !9, !noundef !10
+  %306 = load i8, ptr @use_relative_msgid, align 1, !range !8, !noundef !9
   %307 = trunc nuw i8 %306 to i1
   br i1 %307, label %308, label %317
 
@@ -1136,13 +1136,13 @@ proto_item_set_generated.exit620:                 ; preds = %proto_item_set_gene
   %.1552 = phi i16 [ %340, %358 ], [ 0, %365 ], [ %329, %369 ], [ %329, %370 ]
   %373 = add nsw i32 %.3567, 1
   %374 = icmp slt i32 %373, %326
-  br i1 %374, label %328, label %.loopexit, !llvm.loop !12
+  br i1 %374, label %328, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %372, %324, %320
   %.2570 = phi i32 [ %.1569773, %320 ], [ %.1569773, %324 ], [ %.6574, %372 ]
   %.1565 = phi i32 [ %.0564774, %320 ], [ 0, %324 ], [ %373, %372 ]
   %.7 = phi i32 [ %321, %320 ], [ %321, %324 ], [ %.9, %372 ]
-  %375 = load i8, ptr @use_seq_ack_analysis, align 1, !range !9, !noundef !10
+  %375 = load i8, ptr @use_seq_ack_analysis, align 1, !range !8, !noundef !9
   %376 = trunc nuw i8 %375 to i1
   br i1 %376, label %377, label %378
 
@@ -1152,7 +1152,7 @@ proto_item_set_generated.exit620:                 ; preds = %proto_item_set_gene
 
 378:                                              ; preds = %.loopexit, %377
   %exitcond792.not = icmp eq i32 %290, %282
-  br i1 %exitcond792.not, label %._crit_edge, label %286, !llvm.loop !13
+  br i1 %exitcond792.not, label %._crit_edge, label %286, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %378, %279
   %.1569.lcssa = phi i32 [ 0, %279 ], [ %.2570, %378 ]
@@ -1223,7 +1223,7 @@ proto_item_set_generated.exit629:                 ; preds = %392, %395, %398
   %410 = add nuw nsw i32 %.2577762, 1
   %.11 = add nuw nsw i32 %.11763, 4
   %exitcond.not = icmp eq i32 %410, %407
-  br i1 %exitcond.not, label %.thread847, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.thread847, label %.lr.ph, !llvm.loop !13
 
 .thread655:                                       ; preds = %227, %227, %227
   %411 = load i32, ptr @hf_mc_group, align 4
@@ -1246,7 +1246,7 @@ proto_item_set_generated.exit629:                 ; preds = %392, %395, %398
   %.0553 = phi i32 [ 0, %227 ], [ 0, %270 ], [ %274, %271 ], [ 0, %proto_item_set_generated.exit629 ], [ 0, %391 ], [ 0, %403 ]
   %.0548 = phi i32 [ 0, %227 ], [ %237, %270 ], [ 0, %271 ], [ 0, %proto_item_set_generated.exit629 ], [ 0, %391 ], [ 0, %403 ]
   %.2 = phi i32 [ %.0, %227 ], [ %.0, %270 ], [ %.0, %271 ], [ %.3.lcssa, %proto_item_set_generated.exit629 ], [ %.3.lcssa, %391 ], [ %.0, %403 ]
-  %416 = load i8, ptr @use_seq_ack_analysis, align 1, !range !9, !noundef !10
+  %416 = load i8, ptr @use_seq_ack_analysis, align 1, !range !8, !noundef !9
   %417 = trunc nuw i8 %416 to i1
   %418 = icmp samesign ult i8 %13, 4
   %419 = icmp ne i8 %13, 1
@@ -1715,13 +1715,13 @@ add_seq_analysis.exit:                            ; preds = %424, %.thread.i, %5
   %.5650672693753 = phi i32 [ %.5650673, %616 ], [ %.5650673, %617 ], [ %.5650673, %619 ], [ %.5650672693755, %614 ]
   %.0553652668701749 = phi i32 [ %.0553652669, %616 ], [ %.0553652669, %617 ], [ %.0553652669, %619 ], [ %.0553652668701751, %614 ]
   %.2654664707747 = phi i32 [ %.2654665, %616 ], [ %.2654665, %617 ], [ %.2654665, %619 ], [ %.2654664707746, %614 ]
-  %623 = load i8, ptr @p_mul_reassemble, align 1, !range !9, !noundef !10
+  %623 = load i8, ptr @p_mul_reassemble, align 1, !range !8, !noundef !9
   %624 = trunc nuw i8 %623 to i1
   br i1 %624, label %625, label %648
 
 625:                                              ; preds = %622
   %626 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %627 = load i8, ptr %626, align 8, !range !9, !noundef !10
+  %627 = load i8, ptr %626, align 8, !range !8, !noundef !9
   %628 = icmp ne i32 %.0578, 0
   %or.cond49 = and i1 %204, %628
   br i1 %or.cond49, label %629, label %631
@@ -2967,12 +2967,11 @@ attributes #17 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

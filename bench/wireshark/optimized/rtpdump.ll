@@ -203,7 +203,7 @@ g_string_append_c_inline.exit:                    ; preds = %71, %65, %42
 89:                                               ; preds = %82
   %90 = load i64, ptr %10, align 8
   %91 = trunc i64 %90 to i32
-  %92 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %91) #9, !srcloc !9
+  %92 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %91) #9, !srcloc !8
   %93 = zext i32 %92 to i64
   store i64 %93, ptr %10, align 8
   %94 = load ptr, ptr %0, align 8
@@ -219,7 +219,7 @@ g_string_append_c_inline.exit:                    ; preds = %71, %65, %42
 
 101:                                              ; preds = %89
   %102 = load i32, ptr %95, align 8
-  %103 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %102) #9, !srcloc !10
+  %103 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %102) #9, !srcloc !9
   %104 = mul i32 %103, 1000
   store i32 %104, ptr %95, align 8
   %105 = load ptr, ptr %0, align 8
@@ -463,7 +463,7 @@ define internal fastcc zeroext i1 @rtpdump_read_packet(ptr %.96.val, ptr noundef
 
 17:                                               ; preds = %14
   %18 = load i32, ptr %8, align 4
-  %19 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18) #9, !srcloc !11
+  %19 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %18) #9, !srcloc !10
   store i32 %19, ptr %8, align 4
   %20 = load i16, ptr %6, align 2
   %21 = add i16 %20, -8
@@ -578,9 +578,8 @@ attributes #10 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2149964630}
-!10 = !{i64 2149965563}
-!11 = !{i64 2149968314}
+!8 = !{i64 2149964630}
+!9 = !{i64 2149965563}
+!10 = !{i64 2149968314}

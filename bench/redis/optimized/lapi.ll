@@ -144,30 +144,30 @@ define dso_local void @lua_xmove(ptr noundef captures(address) %0, ptr noundef c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @lua_setlevel(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((96, 98)) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %4 = load i16, ptr %3, align 8, !tbaa !29
+  %4 = load i16, ptr %3, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i16 %4, ptr %5, align 8, !tbaa !29
+  store i16 %4, ptr %5, align 8, !tbaa !28
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @lua_atpanic(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  %6 = load ptr, ptr %5, align 8, !tbaa !31
-  store ptr %1, ptr %5, align 8, !tbaa !31
+  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  store ptr %1, ptr %5, align 8, !tbaa !30
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @lua_newthread(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %5 = load i64, ptr %4, align 8, !tbaa !39
+  %5 = load i64, ptr %4, align 8, !tbaa !38
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %7 = load i64, ptr %6, align 8, !tbaa !40
+  %7 = load i64, ptr %6, align 8, !tbaa !39
   %.not = icmp ult i64 %5, %7
   br i1 %.not, label %9, label %8
 
@@ -227,7 +227,7 @@ define dso_local void @lua_settop(ptr noundef captures(none) %0, i32 noundef %1)
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %12, align 8, !tbaa !20
   %13 = icmp ult ptr %11, %8
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %4, align 8, !tbaa !4
@@ -279,7 +279,7 @@ define dso_local void @lua_remove(ptr noundef captures(address) %0, i32 noundef 
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -287,7 +287,7 @@ define dso_local void @lua_remove(ptr noundef captures(address) %0, i32 noundef 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -305,7 +305,7 @@ define dso_local void @lua_remove(ptr noundef captures(address) %0, i32 noundef 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -339,7 +339,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %61 = load ptr, ptr %51, align 8, !tbaa !4
   %62 = icmp ult ptr %60, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !43
+  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %index2adr.exit
   %.lcssa = phi ptr [ %53, %index2adr.exit ], [ %61, %.lr.ph ]
@@ -385,7 +385,7 @@ define dso_local void @lua_insert(ptr noundef captures(address) %0, i32 noundef 
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -393,7 +393,7 @@ define dso_local void @lua_insert(ptr noundef captures(address) %0, i32 noundef 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -411,7 +411,7 @@ define dso_local void @lua_insert(ptr noundef captures(address) %0, i32 noundef 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -442,7 +442,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   %58 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   store i32 %57, ptr %58, align 8, !tbaa !20
   %59 = icmp ugt ptr %54, %.1.i
-  br i1 %59, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !44
+  br i1 %59, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !43
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %51, align 8, !tbaa !4
@@ -468,7 +468,7 @@ define dso_local void @lua_replace(ptr noundef %0, i32 noundef %1) local_unnamed
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = load ptr, ptr %7, align 8, !tbaa !45
+  %8 = load ptr, ptr %7, align 8, !tbaa !44
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %10, label %.thread33
 
@@ -512,7 +512,7 @@ define dso_local void @lua_replace(ptr noundef %0, i32 noundef %1) local_unnamed
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !30
+  %31 = load ptr, ptr %30, align 8, !tbaa !29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 160
   br label %.thread37
 
@@ -524,7 +524,7 @@ define dso_local void @lua_replace(ptr noundef %0, i32 noundef %1) local_unnamed
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !23
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !42
+  %38 = load ptr, ptr %37, align 8, !tbaa !41
   %39 = load ptr, ptr %38, align 8, !tbaa !19
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -532,7 +532,7 @@ define dso_local void @lua_replace(ptr noundef %0, i32 noundef %1) local_unnamed
   store ptr %42, ptr %40, align 8, !tbaa !19
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 5, ptr %43, align 8, !tbaa !20
-  %44 = load ptr, ptr %37, align 8, !tbaa !42
+  %44 = load ptr, ptr %37, align 8, !tbaa !41
   %45 = load ptr, ptr %44, align 8, !tbaa !19
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !4
@@ -583,7 +583,7 @@ define dso_local void @lua_replace(ptr noundef %0, i32 noundef %1) local_unnamed
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %75 = load ptr, ptr %74, align 8, !tbaa !23
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !42
+  %77 = load ptr, ptr %76, align 8, !tbaa !41
   %78 = load ptr, ptr %77, align 8, !tbaa !19
   %79 = sub nuw nsw i32 -10002, %1
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 11
@@ -622,7 +622,7 @@ define dso_local void @lua_replace(ptr noundef %0, i32 noundef %1) local_unnamed
 105:                                              ; preds = %99
   %106 = load ptr, ptr %74, align 8, !tbaa !23
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !42
+  %108 = load ptr, ptr %107, align 8, !tbaa !41
   %109 = load ptr, ptr %108, align 8, !tbaa !19
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 9
   %111 = load i8, ptr %110, align 1, !tbaa !19
@@ -683,7 +683,7 @@ define dso_local void @lua_pushvalue(ptr noundef captures(none) %0, i32 noundef 
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -691,7 +691,7 @@ define dso_local void @lua_pushvalue(ptr noundef captures(none) %0, i32 noundef 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -709,7 +709,7 @@ define dso_local void @lua_pushvalue(ptr noundef captures(none) %0, i32 noundef 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -775,7 +775,7 @@ define dso_local i32 @lua_type(ptr noundef captures(address) %0, i32 noundef %1)
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -783,7 +783,7 @@ define dso_local i32 @lua_type(ptr noundef captures(address) %0, i32 noundef %1)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -801,7 +801,7 @@ define dso_local i32 @lua_type(ptr noundef captures(address) %0, i32 noundef %1)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -837,7 +837,7 @@ define dso_local ptr @lua_typename(ptr noundef readnone captures(none) %0, i32 n
 4:                                                ; preds = %2
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [0 x ptr], ptr @luaT_typenames, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !46
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
   br label %8
 
 8:                                                ; preds = %2, %4
@@ -882,7 +882,7 @@ define dso_local range(i32 0, 2) i32 @lua_iscfunction(ptr noundef captures(none)
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -890,7 +890,7 @@ define dso_local range(i32 0, 2) i32 @lua_iscfunction(ptr noundef captures(none)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -908,7 +908,7 @@ define dso_local range(i32 0, 2) i32 @lua_iscfunction(ptr noundef captures(none)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -981,7 +981,7 @@ define dso_local range(i32 0, 2) i32 @lua_isnumber(ptr noundef %0, i32 noundef %
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %index2adr.exit
 
@@ -989,7 +989,7 @@ define dso_local range(i32 0, 2) i32 @lua_isnumber(ptr noundef %0, i32 noundef %
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -1007,7 +1007,7 @@ define dso_local range(i32 0, 2) i32 @lua_isnumber(ptr noundef %0, i32 noundef %
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nuw nsw i32 -10002, %1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 11
@@ -1078,7 +1078,7 @@ define dso_local range(i32 0, 2) i32 @lua_isstring(ptr noundef captures(address)
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit.i
 
@@ -1086,7 +1086,7 @@ define dso_local range(i32 0, 2) i32 @lua_isstring(ptr noundef captures(address)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -1104,7 +1104,7 @@ define dso_local range(i32 0, 2) i32 @lua_isstring(ptr noundef captures(address)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -1172,7 +1172,7 @@ define dso_local range(i32 0, 2) i32 @lua_isuserdata(ptr noundef captures(none) 
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -1180,7 +1180,7 @@ define dso_local range(i32 0, 2) i32 @lua_isuserdata(ptr noundef captures(none) 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -1198,7 +1198,7 @@ define dso_local range(i32 0, 2) i32 @lua_isuserdata(ptr noundef captures(none) 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -1260,7 +1260,7 @@ define dso_local i32 @lua_rawequal(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %index2adr.exit
 
@@ -1268,7 +1268,7 @@ define dso_local i32 @lua_rawequal(ptr noundef %0, i32 noundef %1, i32 noundef %
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -1286,7 +1286,7 @@ define dso_local i32 @lua_rawequal(ptr noundef %0, i32 noundef %1, i32 noundef %
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nuw nsw i32 -10002, %1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 11
@@ -1337,7 +1337,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !30
+  %71 = load ptr, ptr %70, align 8, !tbaa !29
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 160
   br label %index2adr.exit13
 
@@ -1345,7 +1345,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %75 = load ptr, ptr %74, align 8, !tbaa !23
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !42
+  %77 = load ptr, ptr %76, align 8, !tbaa !41
   %78 = load ptr, ptr %77, align 8, !tbaa !19
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 24
@@ -1363,7 +1363,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %87 = load ptr, ptr %86, align 8, !tbaa !23
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !42
+  %89 = load ptr, ptr %88, align 8, !tbaa !41
   %90 = load ptr, ptr %89, align 8, !tbaa !19
   %91 = sub nuw nsw i32 -10002, %2
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 11
@@ -1432,7 +1432,7 @@ define dso_local range(i32 0, 2) i32 @lua_equal(ptr noundef %0, i32 noundef %1, 
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %index2adr.exit
 
@@ -1440,7 +1440,7 @@ define dso_local range(i32 0, 2) i32 @lua_equal(ptr noundef %0, i32 noundef %1, 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -1458,7 +1458,7 @@ define dso_local range(i32 0, 2) i32 @lua_equal(ptr noundef %0, i32 noundef %1, 
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nuw nsw i32 -10002, %1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 11
@@ -1509,7 +1509,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !30
+  %71 = load ptr, ptr %70, align 8, !tbaa !29
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 160
   br label %index2adr.exit17
 
@@ -1517,7 +1517,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %75 = load ptr, ptr %74, align 8, !tbaa !23
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !42
+  %77 = load ptr, ptr %76, align 8, !tbaa !41
   %78 = load ptr, ptr %77, align 8, !tbaa !19
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 24
@@ -1535,7 +1535,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %87 = load ptr, ptr %86, align 8, !tbaa !23
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !42
+  %89 = load ptr, ptr %88, align 8, !tbaa !41
   %90 = load ptr, ptr %89, align 8, !tbaa !19
   %91 = sub nuw nsw i32 -10002, %2
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 11
@@ -1614,7 +1614,7 @@ define dso_local i32 @lua_lessthan(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %index2adr.exit
 
@@ -1622,7 +1622,7 @@ define dso_local i32 @lua_lessthan(ptr noundef %0, i32 noundef %1, i32 noundef %
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -1640,7 +1640,7 @@ define dso_local i32 @lua_lessthan(ptr noundef %0, i32 noundef %1, i32 noundef %
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nuw nsw i32 -10002, %1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 11
@@ -1691,7 +1691,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %71 = load ptr, ptr %70, align 8, !tbaa !30
+  %71 = load ptr, ptr %70, align 8, !tbaa !29
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 160
   br label %index2adr.exit15
 
@@ -1699,7 +1699,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %75 = load ptr, ptr %74, align 8, !tbaa !23
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !42
+  %77 = load ptr, ptr %76, align 8, !tbaa !41
   %78 = load ptr, ptr %77, align 8, !tbaa !19
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 24
@@ -1717,7 +1717,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %87 = load ptr, ptr %86, align 8, !tbaa !23
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !42
+  %89 = load ptr, ptr %88, align 8, !tbaa !41
   %90 = load ptr, ptr %89, align 8, !tbaa !19
   %91 = sub nuw nsw i32 -10002, %2
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 11
@@ -1788,7 +1788,7 @@ define dso_local double @lua_tonumber(ptr noundef %0, i32 noundef %1) local_unna
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %index2adr.exit
 
@@ -1796,7 +1796,7 @@ define dso_local double @lua_tonumber(ptr noundef %0, i32 noundef %1) local_unna
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -1814,7 +1814,7 @@ define dso_local double @lua_tonumber(ptr noundef %0, i32 noundef %1) local_unna
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nuw nsw i32 -10002, %1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 11
@@ -1890,7 +1890,7 @@ define dso_local i64 @lua_tointeger(ptr noundef %0, i32 noundef %1) local_unname
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %index2adr.exit
 
@@ -1898,7 +1898,7 @@ define dso_local i64 @lua_tointeger(ptr noundef %0, i32 noundef %1) local_unname
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -1916,7 +1916,7 @@ define dso_local i64 @lua_tointeger(ptr noundef %0, i32 noundef %1) local_unname
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nuw nsw i32 -10002, %1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 11
@@ -1991,7 +1991,7 @@ define dso_local range(i32 0, 2) i32 @lua_toboolean(ptr noundef captures(none) %
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -1999,7 +1999,7 @@ define dso_local range(i32 0, 2) i32 @lua_toboolean(ptr noundef captures(none) %
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -2017,7 +2017,7 @@ define dso_local range(i32 0, 2) i32 @lua_toboolean(ptr noundef captures(none) %
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -2091,7 +2091,7 @@ define dso_local ptr @lua_tolstring(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %index2adr.exit
 
@@ -2099,7 +2099,7 @@ define dso_local ptr @lua_tolstring(ptr noundef %0, i32 noundef %1, ptr noundef 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -2117,7 +2117,7 @@ define dso_local ptr @lua_tolstring(ptr noundef %0, i32 noundef %1, ptr noundef 
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nuw nsw i32 -10002, %1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 11
@@ -2148,16 +2148,16 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   br i1 %.not18, label %120, label %58
 
 58:                                               ; preds = %57
-  store i64 0, ptr %2, align 8, !tbaa !47
+  store i64 0, ptr %2, align 8, !tbaa !46
   br label %120
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !30
+  %61 = load ptr, ptr %60, align 8, !tbaa !29
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 120
-  %63 = load i64, ptr %62, align 8, !tbaa !39
+  %63 = load i64, ptr %62, align 8, !tbaa !38
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 112
-  %65 = load i64, ptr %64, align 8, !tbaa !40
+  %65 = load i64, ptr %64, align 8, !tbaa !39
   %.not19 = icmp ult i64 %63, %65
   br i1 %.not19, label %67, label %66
 
@@ -2199,7 +2199,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   ]
 
 84:                                               ; preds = %83
-  %85 = load ptr, ptr %60, align 8, !tbaa !30
+  %85 = load ptr, ptr %60, align 8, !tbaa !29
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 160
   br label %index2adr.exit25
 
@@ -2207,7 +2207,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %89 = load ptr, ptr %88, align 8, !tbaa !23
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8, !tbaa !42
+  %91 = load ptr, ptr %90, align 8, !tbaa !41
   %92 = load ptr, ptr %91, align 8, !tbaa !19
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 24
@@ -2225,7 +2225,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = load ptr, ptr %100, align 8, !tbaa !23
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %103 = load ptr, ptr %102, align 8, !tbaa !42
+  %103 = load ptr, ptr %102, align 8, !tbaa !41
   %104 = load ptr, ptr %103, align 8, !tbaa !19
   %105 = sub nuw nsw i32 -10002, %1
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 11
@@ -2248,7 +2248,7 @@ index2adr.exit25:                                 ; preds = %99, %97, %87, %84, 
 114:                                              ; preds = %index2adr.exit25
   %115 = getelementptr inbounds nuw i8, ptr %.pre26, i64 16
   %116 = load i64, ptr %115, align 8, !tbaa !19
-  store i64 %116, ptr %2, align 8, !tbaa !47
+  store i64 %116, ptr %2, align 8, !tbaa !46
   %.pre = load ptr, ptr %.0, align 8, !tbaa !19
   br label %117
 
@@ -2301,7 +2301,7 @@ define dso_local i64 @lua_objlen(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -2309,7 +2309,7 @@ define dso_local i64 @lua_objlen(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -2327,7 +2327,7 @@ define dso_local i64 @lua_objlen(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -2425,7 +2425,7 @@ define dso_local ptr @lua_tocfunction(ptr noundef captures(none) %0, i32 noundef
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -2433,7 +2433,7 @@ define dso_local ptr @lua_tocfunction(ptr noundef captures(none) %0, i32 noundef
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -2451,7 +2451,7 @@ define dso_local ptr @lua_tocfunction(ptr noundef captures(none) %0, i32 noundef
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -2526,7 +2526,7 @@ define dso_local ptr @lua_touserdata(ptr noundef captures(none) %0, i32 noundef 
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -2534,7 +2534,7 @@ define dso_local ptr @lua_touserdata(ptr noundef captures(none) %0, i32 noundef 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -2552,7 +2552,7 @@ define dso_local ptr @lua_touserdata(ptr noundef captures(none) %0, i32 noundef 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -2626,7 +2626,7 @@ define dso_local ptr @lua_tothread(ptr noundef captures(none) %0, i32 noundef %1
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -2634,7 +2634,7 @@ define dso_local ptr @lua_tothread(ptr noundef captures(none) %0, i32 noundef %1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -2652,7 +2652,7 @@ define dso_local ptr @lua_tothread(ptr noundef captures(none) %0, i32 noundef %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -2719,7 +2719,7 @@ define dso_local ptr @lua_topointer(ptr noundef captures(none) %0, i32 noundef %
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -2727,7 +2727,7 @@ define dso_local ptr @lua_topointer(ptr noundef captures(none) %0, i32 noundef %
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -2745,7 +2745,7 @@ define dso_local ptr @lua_topointer(ptr noundef captures(none) %0, i32 noundef %
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -2818,7 +2818,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
 
 76:                                               ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %78 = load ptr, ptr %77, align 8, !tbaa !30
+  %78 = load ptr, ptr %77, align 8, !tbaa !29
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 160
   br label %index2adr.exit.i
 
@@ -2826,7 +2826,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %82 = load ptr, ptr %81, align 8, !tbaa !23
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !42
+  %84 = load ptr, ptr %83, align 8, !tbaa !41
   %85 = load ptr, ptr %84, align 8, !tbaa !19
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 24
@@ -2844,7 +2844,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %94 = load ptr, ptr %93, align 8, !tbaa !23
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !42
+  %96 = load ptr, ptr %95, align 8, !tbaa !41
   %97 = load ptr, ptr %96, align 8, !tbaa !19
   %98 = sub nuw nsw i32 -10002, %1
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 11
@@ -2922,11 +2922,11 @@ define dso_local void @lua_pushinteger(ptr noundef captures(none) %0, i64 nounde
 ; Function Attrs: nounwind uwtable
 define dso_local void @lua_pushlstring(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load i64, ptr %6, align 8, !tbaa !39
+  %7 = load i64, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %9 = load i64, ptr %8, align 8, !tbaa !40
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %11, label %10
 
@@ -2966,11 +2966,11 @@ define dso_local void @lua_pushstring(ptr noundef %0, ptr noundef %1) local_unna
 9:                                                ; preds = %2
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %12 = load ptr, ptr %11, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
-  %14 = load i64, ptr %13, align 8, !tbaa !39
+  %14 = load i64, ptr %13, align 8, !tbaa !38
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 112
-  %16 = load i64, ptr %15, align 8, !tbaa !40
+  %16 = load i64, ptr %15, align 8, !tbaa !39
   %.not.i = icmp ult i64 %14, %16
   br i1 %.not.i, label %lua_pushlstring.exit, label %17
 
@@ -3000,11 +3000,11 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @lua_pushvfstring(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load i64, ptr %6, align 8, !tbaa !39
+  %7 = load i64, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %9 = load i64, ptr %8, align 8, !tbaa !40
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %11, label %10
 
@@ -3024,11 +3024,11 @@ define dso_local ptr @lua_pushfstring(ptr noundef %0, ptr noundef %1, ...) local
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load i64, ptr %6, align 8, !tbaa !39
+  %7 = load i64, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %9 = load i64, ptr %8, align 8, !tbaa !40
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %11, label %10
 
@@ -3053,11 +3053,11 @@ declare void @llvm.va_end.p0(ptr) #12
 ; Function Attrs: nounwind uwtable
 define dso_local void @lua_pushcclosure(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load i64, ptr %6, align 8, !tbaa !39
+  %7 = load i64, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %9 = load i64, ptr %8, align 8, !tbaa !40
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %11, label %10
 
@@ -3069,7 +3069,7 @@ define dso_local void @lua_pushcclosure(ptr noundef %0, ptr noundef %1, i32 noun
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %15 = load ptr, ptr %14, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !44
   %16 = icmp eq ptr %13, %15
   br i1 %16, label %17, label %19
 
@@ -3079,7 +3079,7 @@ define dso_local void @lua_pushcclosure(ptr noundef %0, ptr noundef %1, i32 noun
 
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !42
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   br label %getcurrenv.exit
@@ -3116,7 +3116,7 @@ getcurrenv.exit:                                  ; preds = %17, %19
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %38, ptr %39, align 8, !tbaa !20
   %.not23 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not23, label %._crit_edge.loopexit, label %32, !llvm.loop !48
+  br i1 %.not23, label %._crit_edge.loopexit, label %32, !llvm.loop !47
 
 ._crit_edge.loopexit:                             ; preds = %32
   %.pre = load ptr, ptr %26, align 8, !tbaa !4
@@ -3174,9 +3174,9 @@ define dso_local range(i32 0, 2) i32 @lua_pushthread(ptr noundef %0) local_unnam
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %2, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !30
+  %8 = load ptr, ptr %7, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 176
-  %10 = load ptr, ptr %9, align 8, !tbaa !49
+  %10 = load ptr, ptr %9, align 8, !tbaa !48
   %11 = icmp eq ptr %10, %0
   %12 = zext i1 %11 to i32
   ret i32 %12
@@ -3219,7 +3219,7 @@ define dso_local void @lua_gettable(ptr noundef %0, i32 noundef %1) local_unname
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -3227,7 +3227,7 @@ define dso_local void @lua_gettable(ptr noundef %0, i32 noundef %1) local_unname
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -3245,7 +3245,7 @@ define dso_local void @lua_gettable(ptr noundef %0, i32 noundef %1) local_unname
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -3309,7 +3309,7 @@ define dso_local void @lua_getfield(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !30
+  %24 = load ptr, ptr %23, align 8, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 160
   br label %index2adr.exit
 
@@ -3317,7 +3317,7 @@ define dso_local void @lua_getfield(ptr noundef %0, i32 noundef %1, ptr noundef 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !42
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
   %31 = load ptr, ptr %30, align 8, !tbaa !19
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -3335,7 +3335,7 @@ define dso_local void @lua_getfield(ptr noundef %0, i32 noundef %1, ptr noundef 
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !23
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !42
+  %42 = load ptr, ptr %41, align 8, !tbaa !41
   %43 = load ptr, ptr %42, align 8, !tbaa !19
   %44 = sub nuw nsw i32 -10002, %1
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 11
@@ -3403,7 +3403,7 @@ define dso_local void @lua_rawget(ptr noundef captures(none) %0, i32 noundef %1)
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -3411,7 +3411,7 @@ define dso_local void @lua_rawget(ptr noundef captures(none) %0, i32 noundef %1)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -3429,7 +3429,7 @@ define dso_local void @lua_rawget(ptr noundef captures(none) %0, i32 noundef %1)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -3500,7 +3500,7 @@ define dso_local void @lua_rawgeti(ptr noundef captures(none) %0, i32 noundef %1
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %index2adr.exit
 
@@ -3508,7 +3508,7 @@ define dso_local void @lua_rawgeti(ptr noundef captures(none) %0, i32 noundef %1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -3526,7 +3526,7 @@ define dso_local void @lua_rawgeti(ptr noundef captures(none) %0, i32 noundef %1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nuw nsw i32 -10002, %1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 11
@@ -3563,11 +3563,11 @@ declare hidden ptr @luaH_getnum(ptr noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @lua_createtable(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %7 = load i64, ptr %6, align 8, !tbaa !39
+  %7 = load i64, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %9 = load i64, ptr %8, align 8, !tbaa !40
+  %9 = load i64, ptr %8, align 8, !tbaa !39
   %.not = icmp ult i64 %7, %9
   br i1 %.not, label %11, label %10
 
@@ -3627,7 +3627,7 @@ define dso_local range(i32 0, 2) i32 @lua_getmetatable(ptr noundef captures(none
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -3635,7 +3635,7 @@ define dso_local range(i32 0, 2) i32 @lua_getmetatable(ptr noundef captures(none
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -3653,7 +3653,7 @@ define dso_local range(i32 0, 2) i32 @lua_getmetatable(ptr noundef captures(none
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -3688,7 +3688,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
 
 59:                                               ; preds = %index2adr.exit
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !30
+  %61 = load ptr, ptr %60, align 8, !tbaa !29
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 224
   %63 = sext i32 %52 to i64
   %64 = getelementptr inbounds [9 x ptr], ptr %62, i64 0, i64 %63
@@ -3753,7 +3753,7 @@ define dso_local void @lua_getfenv(ptr noundef captures(none) %0, i32 noundef %1
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -3761,7 +3761,7 @@ define dso_local void @lua_getfenv(ptr noundef captures(none) %0, i32 noundef %1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -3779,7 +3779,7 @@ define dso_local void @lua_getfenv(ptr noundef captures(none) %0, i32 noundef %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -3886,7 +3886,7 @@ define dso_local void @lua_settable(ptr noundef %0, i32 noundef %1) local_unname
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -3894,7 +3894,7 @@ define dso_local void @lua_settable(ptr noundef %0, i32 noundef %1) local_unname
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -3912,7 +3912,7 @@ define dso_local void @lua_settable(ptr noundef %0, i32 noundef %1) local_unname
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -3980,7 +3980,7 @@ define dso_local void @lua_setfield(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !30
+  %24 = load ptr, ptr %23, align 8, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 160
   br label %index2adr.exit
 
@@ -3988,7 +3988,7 @@ define dso_local void @lua_setfield(ptr noundef %0, i32 noundef %1, ptr noundef 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !42
+  %30 = load ptr, ptr %29, align 8, !tbaa !41
   %31 = load ptr, ptr %30, align 8, !tbaa !19
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -4006,7 +4006,7 @@ define dso_local void @lua_setfield(ptr noundef %0, i32 noundef %1, ptr noundef 
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !23
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !42
+  %42 = load ptr, ptr %41, align 8, !tbaa !41
   %43 = load ptr, ptr %42, align 8, !tbaa !19
   %44 = sub nuw nsw i32 -10002, %1
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 11
@@ -4075,7 +4075,7 @@ define dso_local void @lua_rawset(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -4083,7 +4083,7 @@ define dso_local void @lua_rawset(ptr noundef %0, i32 noundef %1) local_unnamed_
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -4101,7 +4101,7 @@ define dso_local void @lua_rawset(ptr noundef %0, i32 noundef %1) local_unnamed_
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -4217,7 +4217,7 @@ define dso_local void @lua_rawseti(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %index2adr.exit
 
@@ -4225,7 +4225,7 @@ define dso_local void @lua_rawseti(ptr noundef %0, i32 noundef %1, i32 noundef %
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -4243,7 +4243,7 @@ define dso_local void @lua_rawseti(ptr noundef %0, i32 noundef %1, i32 noundef %
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nuw nsw i32 -10002, %1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 11
@@ -4356,7 +4356,7 @@ define dso_local noundef i32 @lua_setmetatable(ptr noundef %0, i32 noundef %1) l
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -4364,7 +4364,7 @@ define dso_local noundef i32 @lua_setmetatable(ptr noundef %0, i32 noundef %1) l
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -4382,7 +4382,7 @@ define dso_local noundef i32 @lua_setmetatable(ptr noundef %0, i32 noundef %1) l
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -4485,11 +4485,11 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
 
 93:                                               ; preds = %59
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %95 = load ptr, ptr %94, align 8, !tbaa !30
+  %95 = load ptr, ptr %94, align 8, !tbaa !29
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 224
   %97 = sext i32 %61 to i64
   %98 = getelementptr inbounds [9 x ptr], ptr %96, i64 0, i64 %97
-  store ptr %.0, ptr %98, align 8, !tbaa !50
+  store ptr %.0, ptr %98, align 8, !tbaa !49
   br label %99
 
 99:                                               ; preds = %80, %92, %87, %83, %67, %79, %74, %70, %93
@@ -4536,7 +4536,7 @@ define dso_local range(i32 0, 2) i32 @lua_setfenv(ptr noundef %0, i32 noundef %1
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -4544,7 +4544,7 @@ define dso_local range(i32 0, 2) i32 @lua_setfenv(ptr noundef %0, i32 noundef %1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -4562,7 +4562,7 @@ define dso_local range(i32 0, 2) i32 @lua_setfenv(ptr noundef %0, i32 noundef %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -4689,7 +4689,7 @@ define dso_local i32 @lua_pcall(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 ._crit_edge:                                      ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !52
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !51
   %.pre18 = ptrtoint ptr %.pre to i64
   br label %61
 
@@ -4729,7 +4729,7 @@ define dso_local i32 @lua_pcall(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !30
+  %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 160
   br label %index2adr.exit
 
@@ -4737,7 +4737,7 @@ define dso_local i32 @lua_pcall(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !23
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !42
+  %33 = load ptr, ptr %32, align 8, !tbaa !41
   %34 = load ptr, ptr %33, align 8, !tbaa !19
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 24
@@ -4755,7 +4755,7 @@ define dso_local i32 @lua_pcall(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !42
+  %45 = load ptr, ptr %44, align 8, !tbaa !41
   %46 = load ptr, ptr %45, align 8, !tbaa !19
   %47 = sub nuw nsw i32 -10002, %3
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 11
@@ -4772,7 +4772,7 @@ define dso_local i32 @lua_pcall(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 index2adr.exit:                                   ; preds = %9, %19, %25, %29, %39, %41
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %9 ], [ %23, %19 ], [ %55, %41 ], [ %28, %25 ], [ %35, %29 ], [ %40, %39 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %57 = load ptr, ptr %56, align 8, !tbaa !52
+  %57 = load ptr, ptr %56, align 8, !tbaa !51
   %58 = ptrtoint ptr %.1.i to i64
   %59 = ptrtoint ptr %57 to i64
   %60 = sub i64 %58, %59
@@ -4786,9 +4786,9 @@ index2adr.exit:                                   ; preds = %9, %19, %25, %29, %
   %narrow = xor i32 %1, -1
   %64 = sext i32 %narrow to i64
   %65 = getelementptr inbounds %struct.lua_TValue, ptr %63, i64 %64
-  store ptr %65, ptr %5, align 8, !tbaa !53
+  store ptr %65, ptr %5, align 8, !tbaa !52
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %2, ptr %66, align 8, !tbaa !55
+  store i32 %2, ptr %66, align 8, !tbaa !54
   %67 = ptrtoint ptr %65 to i64
   %68 = sub i64 %67, %.pre-phi
   %69 = call i32 @luaD_pcall(ptr noundef nonnull %0, ptr noundef nonnull @f_call, ptr noundef nonnull %5, i64 noundef %68, i64 noundef %.0) #14
@@ -4817,9 +4817,9 @@ declare hidden i32 @luaD_pcall(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @f_call(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !53
+  %3 = load ptr, ptr %1, align 8, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !55
+  %5 = load i32, ptr %4, align 8, !tbaa !54
   tail call void @luaD_call(ptr noundef %0, ptr noundef %3, i32 noundef %5) #14
   ret void
 }
@@ -4828,13 +4828,13 @@ define internal void @f_call(ptr noundef %0, ptr noundef readonly captures(none)
 define dso_local i32 @lua_cpcall(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca %struct.CCallS, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  store ptr %1, ptr %4, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %2, ptr %5, align 8, !tbaa !58
+  store ptr %2, ptr %5, align 8, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !52
+  %9 = load ptr, ptr %8, align 8, !tbaa !51
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -4848,7 +4848,7 @@ define internal void @f_Ccall(ptr noundef %0, ptr noundef readonly captures(none
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !45
+  %6 = load ptr, ptr %5, align 8, !tbaa !44
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %8, label %10
 
@@ -4858,7 +4858,7 @@ define internal void @f_Ccall(ptr noundef %0, ptr noundef readonly captures(none
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !42
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %getcurrenv.exit
@@ -4867,7 +4867,7 @@ getcurrenv.exit:                                  ; preds = %8, %10
   %.0.in.i = phi ptr [ %9, %8 ], [ %14, %10 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !19
   %15 = tail call ptr @luaF_newCclosure(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %.0.i) #14
-  %16 = load ptr, ptr %1, align 8, !tbaa !56
+  %16 = load ptr, ptr %1, align 8, !tbaa !55
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %16, ptr %17, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4879,7 +4879,7 @@ getcurrenv.exit:                                  ; preds = %8, %10
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %22, ptr %18, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !58
+  %24 = load ptr, ptr %23, align 8, !tbaa !57
   store ptr %24, ptr %22, align 8, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i32 2, ptr %25, align 8, !tbaa !20
@@ -4940,7 +4940,7 @@ declare hidden i32 @luaU_dump(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 256) i32 @lua_status(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %3 = load i8, ptr %2, align 2, !tbaa !59
+  %3 = load i8, ptr %2, align 2, !tbaa !58
   %4 = zext i8 %3 to i32
   ret i32 %4
 }
@@ -4948,7 +4948,7 @@ define dso_local range(i32 0, 256) i32 @lua_status(ptr noundef readonly captures
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lua_gc(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   switch i32 %1, label %.loopexit [
     i32 0, label %6
     i32 1, label %8
@@ -4962,14 +4962,14 @@ define dso_local i32 @lua_gc(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store i64 -3, ptr %7, align 8, !tbaa !40
+  store i64 -3, ptr %7, align 8, !tbaa !39
   br label %.loopexit
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %10 = load i64, ptr %9, align 8, !tbaa !39
+  %10 = load i64, ptr %9, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store i64 %10, ptr %11, align 8, !tbaa !40
+  store i64 %10, ptr %11, align 8, !tbaa !39
   br label %.loopexit
 
 12:                                               ; preds = %3
@@ -4978,14 +4978,14 @@ define dso_local i32 @lua_gc(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %15 = load i64, ptr %14, align 8, !tbaa !39
+  %15 = load i64, ptr %14, align 8, !tbaa !38
   %16 = lshr i64 %15, 10
   %17 = trunc i64 %16 to i32
   br label %.loopexit
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %20 = load i64, ptr %19, align 8, !tbaa !39
+  %20 = load i64, ptr %19, align 8, !tbaa !38
   %21 = trunc i64 %20 to i32
   %22 = and i32 %21, 1023
   br label %.loopexit
@@ -4994,35 +4994,35 @@ define dso_local i32 @lua_gc(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %24 = sext i32 %2 to i64
   %25 = shl nsw i64 %24, 10
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %27 = load i64, ptr %26, align 8, !tbaa !39
+  %27 = load i64, ptr %26, align 8, !tbaa !38
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %27, i64 %25)
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store i64 %spec.select, ptr %28, align 8, !tbaa !40
+  store i64 %spec.select, ptr %28, align 8, !tbaa !39
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 33
   br label %30
 
 30:                                               ; preds = %33, %23
-  %31 = load i64, ptr %28, align 8, !tbaa !40
-  %32 = load i64, ptr %26, align 8, !tbaa !39
+  %31 = load i64, ptr %28, align 8, !tbaa !39
+  %32 = load i64, ptr %26, align 8, !tbaa !38
   %.not27 = icmp ugt i64 %31, %32
   br i1 %.not27, label %.loopexit, label %33
 
 33:                                               ; preds = %30
   tail call void @luaC_step(ptr noundef %0) #14
-  %34 = load i8, ptr %29, align 1, !tbaa !60
+  %34 = load i8, ptr %29, align 1, !tbaa !59
   %35 = icmp eq i8 %34, 0
-  br i1 %35, label %.loopexit, label %30, !llvm.loop !61
+  br i1 %35, label %.loopexit, label %30, !llvm.loop !60
 
 36:                                               ; preds = %3
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  %38 = load i32, ptr %37, align 8, !tbaa !62
-  store i32 %2, ptr %37, align 8, !tbaa !62
+  %38 = load i32, ptr %37, align 8, !tbaa !61
+  store i32 %2, ptr %37, align 8, !tbaa !61
   br label %.loopexit
 
 39:                                               ; preds = %3
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 148
-  %41 = load i32, ptr %40, align 4, !tbaa !63
-  store i32 %2, ptr %40, align 4, !tbaa !63
+  %41 = load i32, ptr %40, align 4, !tbaa !62
+  store i32 %2, ptr %40, align 4, !tbaa !62
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %33, %3, %39, %36, %18, %13, %12, %8, %6
@@ -5077,7 +5077,7 @@ define dso_local i32 @lua_next(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -5085,7 +5085,7 @@ define dso_local i32 @lua_next(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -5103,7 +5103,7 @@ define dso_local i32 @lua_next(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -5141,11 +5141,11 @@ define dso_local void @lua_concat(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %8 = load i64, ptr %7, align 8, !tbaa !39
+  %8 = load i64, ptr %7, align 8, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %10 = load i64, ptr %9, align 8, !tbaa !40
+  %10 = load i64, ptr %9, align 8, !tbaa !39
   %.not = icmp ult i64 %8, %10
   br i1 %.not, label %12, label %11
 
@@ -5202,39 +5202,39 @@ define dso_local ptr @lua_getallocf(ptr noundef readonly captures(none) %0, ptr 
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !64
-  store ptr %7, ptr %1, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !63
+  store ptr %7, ptr %1, align 8, !tbaa !64
   br label %8
 
 8:                                                ; preds = %3, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  %12 = load ptr, ptr %11, align 8, !tbaa !65
   ret ptr %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @lua_setallocf(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !30
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %2, ptr %6, align 8, !tbaa !64
+  store ptr %2, ptr %6, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %7, align 8, !tbaa !66
+  store ptr %1, ptr %7, align 8, !tbaa !65
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local nonnull ptr @lua_newuserdata(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %6 = load i64, ptr %5, align 8, !tbaa !39
+  %6 = load i64, ptr %5, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %8 = load i64, ptr %7, align 8, !tbaa !40
+  %8 = load i64, ptr %7, align 8, !tbaa !39
   %.not = icmp ult i64 %6, %8
   br i1 %.not, label %10, label %9
 
@@ -5246,7 +5246,7 @@ define dso_local nonnull ptr @lua_newuserdata(ptr noundef %0, i64 noundef %1) lo
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !44
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %16, label %18
 
@@ -5256,7 +5256,7 @@ define dso_local nonnull ptr @lua_newuserdata(ptr noundef %0, i64 noundef %1) lo
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !42
+  %20 = load ptr, ptr %19, align 8, !tbaa !41
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   br label %getcurrenv.exit
@@ -5316,7 +5316,7 @@ define dso_local ptr @lua_getupvalue(ptr noundef captures(none) %0, i32 noundef 
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %index2adr.exit
 
@@ -5324,7 +5324,7 @@ define dso_local ptr @lua_getupvalue(ptr noundef captures(none) %0, i32 noundef 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -5342,7 +5342,7 @@ define dso_local ptr @lua_getupvalue(ptr noundef captures(none) %0, i32 noundef 
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nuw nsw i32 -10002, %1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 11
@@ -5396,7 +5396,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 72
-  %76 = load i32, ptr %75, align 8, !tbaa !67
+  %76 = load i32, ptr %75, align 8, !tbaa !66
   %.not19.i = icmp sgt i32 %2, %76
   br i1 %.not19.i, label %aux_upvalue.exit.thread, label %77
 
@@ -5407,11 +5407,11 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %81 = getelementptr inbounds nuw [1 x ptr], ptr %78, i64 0, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !19
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !73
+  %84 = load ptr, ptr %83, align 8, !tbaa !72
   %85 = getelementptr inbounds nuw i8, ptr %72, i64 56
-  %86 = load ptr, ptr %85, align 8, !tbaa !74
+  %86 = load ptr, ptr %85, align 8, !tbaa !73
   %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %80
-  %88 = load ptr, ptr %87, align 8, !tbaa !75
+  %88 = load ptr, ptr %87, align 8, !tbaa !74
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   br label %aux_upvalue.exit
 
@@ -5473,7 +5473,7 @@ define dso_local ptr @lua_setupvalue(ptr noundef %0, i32 noundef %1, i32 noundef
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %index2adr.exit
 
@@ -5481,7 +5481,7 @@ define dso_local ptr @lua_setupvalue(ptr noundef %0, i32 noundef %1, i32 noundef
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -5499,7 +5499,7 @@ define dso_local ptr @lua_setupvalue(ptr noundef %0, i32 noundef %1, i32 noundef
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nuw nsw i32 -10002, %1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 11
@@ -5553,7 +5553,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 72
-  %76 = load i32, ptr %75, align 8, !tbaa !67
+  %76 = load i32, ptr %75, align 8, !tbaa !66
   %.not19.i = icmp sgt i32 %2, %76
   br i1 %.not19.i, label %aux_upvalue.exit.thread, label %77
 
@@ -5564,11 +5564,11 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %81 = getelementptr inbounds nuw [1 x ptr], ptr %78, i64 0, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !19
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !73
+  %84 = load ptr, ptr %83, align 8, !tbaa !72
   %85 = getelementptr inbounds nuw i8, ptr %72, i64 56
-  %86 = load ptr, ptr %85, align 8, !tbaa !74
+  %86 = load ptr, ptr %85, align 8, !tbaa !73
   %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %80
-  %88 = load ptr, ptr %87, align 8, !tbaa !75
+  %88 = load ptr, ptr %87, align 8, !tbaa !74
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   br label %aux_upvalue.exit
 
@@ -5653,7 +5653,7 @@ define dso_local void @lua_enablereadonlytable(ptr noundef captures(none) %0, i3
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !30
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   br label %index2adr.exit
 
@@ -5661,7 +5661,7 @@ define dso_local void @lua_enablereadonlytable(ptr noundef captures(none) %0, i3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !42
+  %29 = load ptr, ptr %28, align 8, !tbaa !41
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -5679,7 +5679,7 @@ define dso_local void @lua_enablereadonlytable(ptr noundef captures(none) %0, i3
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   %43 = sub nuw nsw i32 -10002, %1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 11
@@ -5697,7 +5697,7 @@ index2adr.exit:                                   ; preds = %5, %15, %21, %25, %
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %5 ], [ %19, %15 ], [ %51, %37 ], [ %24, %21 ], [ %31, %25 ], [ %36, %35 ]
   %52 = load ptr, ptr %.1.i, align 8, !tbaa !19
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
-  store i32 %2, ptr %53, align 4, !tbaa !76
+  store i32 %2, ptr %53, align 4, !tbaa !75
   ret void
 }
 
@@ -5738,7 +5738,7 @@ define dso_local i32 @lua_isreadonlytable(ptr noundef captures(none) %0, i32 nou
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 160
   br label %index2adr.exit
 
@@ -5746,7 +5746,7 @@ define dso_local i32 @lua_isreadonlytable(ptr noundef captures(none) %0, i32 nou
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %29 = load ptr, ptr %28, align 8, !tbaa !19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -5764,7 +5764,7 @@ define dso_local i32 @lua_isreadonlytable(ptr noundef captures(none) %0, i32 nou
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !42
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   %41 = load ptr, ptr %40, align 8, !tbaa !19
   %42 = sub nuw nsw i32 -10002, %1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 11
@@ -5782,7 +5782,7 @@ index2adr.exit:                                   ; preds = %4, %14, %20, %24, %
   %.1.i = phi ptr [ %.luaO_nilobject_.i, %4 ], [ %18, %14 ], [ %50, %36 ], [ %23, %20 ], [ %30, %24 ], [ %35, %34 ]
   %51 = load ptr, ptr %.1.i, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
-  %53 = load i32, ptr %52, align 4, !tbaa !76
+  %53 = load i32, ptr %52, align 4, !tbaa !75
   ret i32 %53
 }
 
@@ -5834,56 +5834,55 @@ attributes #15 = { nounwind willreturn memory(read) }
 !23 = !{!5, !12, i64 40}
 !24 = !{!25, !10, i64 16}
 !25 = !{!"CallInfo", !10, i64 0, !10, i64 8, !10, i64 16, !13, i64 24, !14, i64 32, !14, i64 36}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!5, !15, i64 96}
-!30 = !{!5, !11, i64 32}
-!31 = !{!32, !7, i64 152}
-!32 = !{!"global_State", !33, i64 0, !7, i64 16, !7, i64 24, !8, i64 32, !8, i64 33, !14, i64 36, !6, i64 40, !34, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !35, i64 88, !18, i64 112, !18, i64 120, !18, i64 128, !18, i64 136, !14, i64 144, !14, i64 148, !7, i64 152, !16, i64 160, !37, i64 176, !38, i64 184, !8, i64 224, !8, i64 296}
-!33 = !{!"stringtable", !34, i64 0, !14, i64 8, !14, i64 12}
-!34 = !{!"p2 _ZTS8GCObject", !7, i64 0}
-!35 = !{!"Mbuffer", !36, i64 0, !18, i64 8, !18, i64 16}
-!36 = !{!"p1 omnipotent char", !7, i64 0}
-!37 = !{!"p1 _ZTS9lua_State", !7, i64 0}
-!38 = !{!"UpVal", !6, i64 0, !8, i64 8, !8, i64 9, !10, i64 16, !8, i64 24}
-!39 = !{!32, !18, i64 120}
-!40 = !{!32, !18, i64 112}
-!41 = distinct !{!41, !27, !28}
-!42 = !{!25, !10, i64 8}
-!43 = distinct !{!43, !27, !28}
-!44 = distinct !{!44, !27, !28}
-!45 = !{!5, !12, i64 80}
-!46 = !{!36, !36, i64 0}
-!47 = !{!18, !18, i64 0}
-!48 = distinct !{!48, !27, !28}
-!49 = !{!32, !37, i64 176}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS5Table", !7, i64 0}
-!52 = !{!5, !10, i64 64}
-!53 = !{!54, !10, i64 0}
-!54 = !{!"CallS", !10, i64 0, !14, i64 8}
-!55 = !{!54, !14, i64 8}
-!56 = !{!57, !7, i64 0}
-!57 = !{!"CCallS", !7, i64 0, !7, i64 8}
-!58 = !{!57, !7, i64 8}
-!59 = !{!5, !8, i64 10}
-!60 = !{!32, !8, i64 33}
-!61 = distinct !{!61, !27, !28}
-!62 = !{!32, !14, i64 144}
-!63 = !{!32, !14, i64 148}
-!64 = !{!32, !7, i64 24}
-!65 = !{!7, !7, i64 0}
-!66 = !{!32, !7, i64 16}
-!67 = !{!68, !14, i64 72}
-!68 = !{!"Proto", !6, i64 0, !8, i64 8, !8, i64 9, !10, i64 16, !13, i64 24, !69, i64 32, !13, i64 40, !70, i64 48, !71, i64 56, !72, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !6, i64 104, !8, i64 112, !8, i64 113, !8, i64 114, !8, i64 115}
-!69 = !{!"p2 _ZTS5Proto", !7, i64 0}
-!70 = !{!"p1 _ZTS6LocVar", !7, i64 0}
-!71 = !{!"p2 _ZTS7TString", !7, i64 0}
-!72 = !{!"p1 _ZTS7TString", !7, i64 0}
-!73 = !{!38, !10, i64 16}
-!74 = !{!68, !71, i64 56}
-!75 = !{!72, !72, i64 0}
-!76 = !{!77, !14, i64 12}
-!77 = !{!"Table", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !14, i64 12, !8, i64 16, !51, i64 24, !10, i64 32, !78, i64 40, !78, i64 48, !6, i64 56, !14, i64 64}
-!78 = !{!"p1 _ZTS4Node", !7, i64 0}
+!28 = !{!5, !15, i64 96}
+!29 = !{!5, !11, i64 32}
+!30 = !{!31, !7, i64 152}
+!31 = !{!"global_State", !32, i64 0, !7, i64 16, !7, i64 24, !8, i64 32, !8, i64 33, !14, i64 36, !6, i64 40, !33, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !34, i64 88, !18, i64 112, !18, i64 120, !18, i64 128, !18, i64 136, !14, i64 144, !14, i64 148, !7, i64 152, !16, i64 160, !36, i64 176, !37, i64 184, !8, i64 224, !8, i64 296}
+!32 = !{!"stringtable", !33, i64 0, !14, i64 8, !14, i64 12}
+!33 = !{!"p2 _ZTS8GCObject", !7, i64 0}
+!34 = !{!"Mbuffer", !35, i64 0, !18, i64 8, !18, i64 16}
+!35 = !{!"p1 omnipotent char", !7, i64 0}
+!36 = !{!"p1 _ZTS9lua_State", !7, i64 0}
+!37 = !{!"UpVal", !6, i64 0, !8, i64 8, !8, i64 9, !10, i64 16, !8, i64 24}
+!38 = !{!31, !18, i64 120}
+!39 = !{!31, !18, i64 112}
+!40 = distinct !{!40, !27}
+!41 = !{!25, !10, i64 8}
+!42 = distinct !{!42, !27}
+!43 = distinct !{!43, !27}
+!44 = !{!5, !12, i64 80}
+!45 = !{!35, !35, i64 0}
+!46 = !{!18, !18, i64 0}
+!47 = distinct !{!47, !27}
+!48 = !{!31, !36, i64 176}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS5Table", !7, i64 0}
+!51 = !{!5, !10, i64 64}
+!52 = !{!53, !10, i64 0}
+!53 = !{!"CallS", !10, i64 0, !14, i64 8}
+!54 = !{!53, !14, i64 8}
+!55 = !{!56, !7, i64 0}
+!56 = !{!"CCallS", !7, i64 0, !7, i64 8}
+!57 = !{!56, !7, i64 8}
+!58 = !{!5, !8, i64 10}
+!59 = !{!31, !8, i64 33}
+!60 = distinct !{!60, !27}
+!61 = !{!31, !14, i64 144}
+!62 = !{!31, !14, i64 148}
+!63 = !{!31, !7, i64 24}
+!64 = !{!7, !7, i64 0}
+!65 = !{!31, !7, i64 16}
+!66 = !{!67, !14, i64 72}
+!67 = !{!"Proto", !6, i64 0, !8, i64 8, !8, i64 9, !10, i64 16, !13, i64 24, !68, i64 32, !13, i64 40, !69, i64 48, !70, i64 56, !71, i64 64, !14, i64 72, !14, i64 76, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !14, i64 96, !14, i64 100, !6, i64 104, !8, i64 112, !8, i64 113, !8, i64 114, !8, i64 115}
+!68 = !{!"p2 _ZTS5Proto", !7, i64 0}
+!69 = !{!"p1 _ZTS6LocVar", !7, i64 0}
+!70 = !{!"p2 _ZTS7TString", !7, i64 0}
+!71 = !{!"p1 _ZTS7TString", !7, i64 0}
+!72 = !{!37, !10, i64 16}
+!73 = !{!67, !70, i64 56}
+!74 = !{!71, !71, i64 0}
+!75 = !{!76, !14, i64 12}
+!76 = !{!"Table", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !14, i64 12, !8, i64 16, !50, i64 24, !10, i64 32, !77, i64 40, !77, i64 48, !6, i64 56, !14, i64 64}
+!77 = !{!"p1 _ZTS4Node", !7, i64 0}

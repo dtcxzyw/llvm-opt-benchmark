@@ -100,10 +100,10 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   br i1 %.not42.i, label %26, label %.preheader, !llvm.loop !14
 
 26:                                               ; preds = %.preheader
-  store i64 %24, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8, !tbaa !17
+  store i64 %24, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8, !tbaa !16
   %27 = shl i64 %24, 3
   %28 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %27, ptr noundef nonnull @.str.1, i32 noundef 483) #8
-  store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %.not43.i = icmp eq ptr %28, null
   br i1 %.not43.i, label %29, label %30
 
@@ -115,7 +115,7 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8, !tbaa !13
   %32 = lshr i64 %31, 3
   %33 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %32, ptr noundef nonnull @.str.1, i32 noundef 488) #8
-  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   %.not44.i = icmp eq ptr %33, null
   br i1 %.not44.i, label %34, label %35
 
@@ -127,7 +127,7 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 72), align 8, !tbaa !13
   %37 = lshr i64 %36, 3
   %38 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef %37, ptr noundef nonnull @.str.1, i32 noundef 493) #8
-  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !20
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   %.not45.i = icmp eq ptr %38, null
   br i1 %.not45.i, label %39, label %40
 
@@ -142,25 +142,25 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
   %reass.add.i = shl i64 %..i, 1
   %44 = add i64 %reass.add.i, %43
-  store i64 %44, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8, !tbaa !21
+  store i64 %44, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8, !tbaa !20
   %45 = tail call ptr @mmap(ptr noundef null, i64 noundef %44, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
-  store ptr %45, ptr @sh, align 8, !tbaa !22
+  store ptr %45, ptr @sh, align 8, !tbaa !21
   %46 = icmp eq ptr %45, inttoptr (i64 -1 to ptr)
   br i1 %46, label %._crit_edge.i, label %47
 
 ._crit_edge.i:                                    ; preds = %40
-  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   br label %78
 
 47:                                               ; preds = %40
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 %..i
-  store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
-  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   tail call fastcc void @sh_setbit(ptr noundef nonnull %48, i32 noundef 0, ptr noundef %49)
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
-  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   tail call fastcc void @sh_add_to_list(ptr noundef %50, ptr noundef %51)
-  %52 = load ptr, ptr @sh, align 8, !tbaa !22
+  %52 = load ptr, ptr @sh, align 8, !tbaa !21
   %53 = tail call i32 @mprotect(ptr noundef %52, i64 noundef %..i, i32 noundef 0) #8
   %54 = icmp slt i32 %53, 0
   %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
@@ -168,13 +168,13 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
   %57 = add i64 %56, %55
   %58 = sub nsw i64 0, %..i
   %59 = and i64 %57, %58
-  %60 = load ptr, ptr @sh, align 8, !tbaa !22
+  %60 = load ptr, ptr @sh, align 8, !tbaa !21
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %59
   %62 = tail call i32 @mprotect(ptr noundef %61, i64 noundef %..i, i32 noundef 0) #8
   %63 = icmp slt i32 %62, 0
   %64 = select i1 %63, i1 true, i1 %54
   %.1.i = select i1 %64, i32 2, i32 1
-  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
   %67 = tail call i64 (i64, ...) @syscall(i64 noundef 325, ptr noundef %65, i64 noundef %66, i32 noundef 1) #8
   %68 = icmp slt i64 %67, 0
@@ -182,12 +182,12 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
 
 69:                                               ; preds = %47
   %70 = tail call ptr @__errno_location() #10
-  %71 = load i32, ptr %70, align 4, !tbaa !24
+  %71 = load i32, ptr %70, align 4, !tbaa !23
   %72 = icmp eq i32 %71, 38
   br i1 %72, label %73, label %sh_init.exit
 
 73:                                               ; preds = %69
-  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %75 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
   %76 = tail call i32 @mlock(ptr noundef %74, i64 noundef %75) #8
   %77 = icmp slt i32 %76, 0
@@ -197,11 +197,11 @@ define range(i32 0, 3) i32 @CRYPTO_secure_malloc_init(i64 noundef %0, i64 nounde
 78:                                               ; preds = %._crit_edge.i, %18
   %79 = phi ptr [ %.pre.i, %._crit_edge.i ], [ null, %18 ]
   tail call void @CRYPTO_free(ptr noundef %79, ptr noundef nonnull @.str.1, i32 noundef 600) #8
-  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   tail call void @CRYPTO_free(ptr noundef %80, ptr noundef nonnull @.str.1, i32 noundef 601) #8
-  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !20
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   tail call void @CRYPTO_free(ptr noundef %81, ptr noundef nonnull @.str.1, i32 noundef 602) #8
-  %82 = load ptr, ptr @sh, align 8, !tbaa !22
+  %82 = load ptr, ptr @sh, align 8, !tbaa !21
   %83 = icmp ne ptr %82, inttoptr (i64 -1 to ptr)
   %84 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8
   %85 = icmp ne i64 %84, 0
@@ -221,7 +221,7 @@ sh_init.exit.thread:                              ; preds = %78, %86
 
 sh_init.exit:                                     ; preds = %47, %69, %73
   %.2.i = phi i32 [ %.1.i, %47 ], [ %spec.select46.i, %73 ], [ 2, %69 ]
-  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
   %91 = tail call i32 @madvise(ptr noundef %89, i64 noundef %90, i32 noundef 16) #8
   %92 = icmp slt i32 %91, 0
@@ -240,18 +240,18 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CRYPTO_secure_malloc_done() local_unnamed_addr #0 {
-  %1 = load i64, ptr @secure_mem_used, align 8, !tbaa !26
+  %1 = load i64, ptr @secure_mem_used, align 8, !tbaa !25
   %2 = icmp eq i64 %1, 0
   br i1 %2, label %3, label %14
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef 600) #8
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 601) #8
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !20
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.1, i32 noundef 602) #8
-  %7 = load ptr, ptr @sh, align 8, !tbaa !22
+  %7 = load ptr, ptr @sh, align 8, !tbaa !21
   %8 = icmp ne ptr %7, inttoptr (i64 -1 to ptr)
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 8), align 8
   %10 = icmp ne i64 %9, 0
@@ -303,7 +303,7 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
   br i1 %11, label %sh_malloc.exit.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8, !tbaa !17
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8, !tbaa !16
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 48), align 8, !tbaa !12
   br label %15
 
@@ -313,20 +313,20 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
   %.056.i = add nsw i64 %.056.in.i, -1
   %16 = icmp ult i64 %.054.i, %0
   %17 = shl i64 %.054.i, 1
-  br i1 %16, label %15, label %18, !llvm.loop !27
+  br i1 %16, label %15, label %18, !llvm.loop !26
 
 18:                                               ; preds = %15
   %19 = icmp sgt i64 %.056.in.i, 0
   br i1 %19, label %.lr.ph.i, label %sh_malloc.exit.thread
 
 .lr.ph.i:                                         ; preds = %18
-  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   br label %21
 
 21:                                               ; preds = %24, %.lr.ph.i
   %.05597.i = phi i64 [ %.056.i, %.lr.ph.i ], [ %25, %24 ]
   %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %.05597.i
-  %23 = load ptr, ptr %22, align 8, !tbaa !28
+  %23 = load ptr, ptr %22, align 8, !tbaa !27
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %24, label %.preheader.i.preheader
 
@@ -335,21 +335,21 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
   br i1 %.not62.i64, label %.preheader.i.preheader..preheader.i._crit_edge_crit_edge, label %.lr.ph.preheader
 
 .preheader.i.preheader..preheader.i._crit_edge_crit_edge: ; preds = %.preheader.i.preheader
-  %.pre75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  %.pre75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   br label %.preheader.i._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader.i.preheader
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !20
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   br label %.lr.ph
 
 24:                                               ; preds = %21
   %25 = add nsw i64 %.05597.i, -1
   %26 = icmp sgt i64 %.05597.i, 0
-  br i1 %26, label %21, label %sh_malloc.exit.thread, !llvm.loop !29
+  br i1 %26, label %21, label %sh_malloc.exit.thread, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %sh_find_my_buddy.exit.i
   %.not62.i = icmp eq i64 %84, %.056.i
-  br i1 %.not62.i, label %.preheader.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %.not62.i, label %.preheader.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.preheader.i
   %27 = phi ptr [ %188, %.preheader.i ], [ %.pre, %.lr.ph.preheader ]
@@ -369,7 +369,7 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
   unreachable
 
 36:                                               ; preds = %.lr.ph
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %38 = ptrtoint ptr %28 to i64
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
@@ -400,7 +400,7 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
 sh_testbit.exit.i:                                ; preds = %46
   %53 = lshr i64 %49, 3
   %54 = getelementptr inbounds nuw i8, ptr %27, i64 %53
-  %55 = load i8, ptr %54, align 1, !tbaa !31
+  %55 = load i8, ptr %54, align 1, !tbaa !30
   %56 = zext i8 %55 to i64
   %57 = and i64 %49, 7
   %58 = shl nuw nsw i64 1, %57
@@ -413,29 +413,29 @@ sh_testbit.exit.i:                                ; preds = %46
   unreachable
 
 61:                                               ; preds = %sh_testbit.exit.i
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   tail call fastcc void @sh_clearbit(ptr noundef %28, i32 noundef %30, ptr noundef %62)
-  %63 = load ptr, ptr %28, align 8, !tbaa !32
+  %63 = load ptr, ptr %28, align 8, !tbaa !31
   %.not.i71.i = icmp eq ptr %63, null
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !36
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !35
   br i1 %.not.i71.i, label %._crit_edge.i.i, label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %.pre.i.i, ptr %65, align 8, !tbaa !36
+  store ptr %.pre.i.i, ptr %65, align 8, !tbaa !35
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %64, %61
-  store ptr %63, ptr %.pre.i.i, align 8, !tbaa !37
-  %66 = load ptr, ptr %28, align 8, !tbaa !32
+  store ptr %63, ptr %.pre.i.i, align 8, !tbaa !36
+  %66 = load ptr, ptr %28, align 8, !tbaa !31
   %67 = icmp eq ptr %66, null
-  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %.pre.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   br i1 %67, label %sh_remove_from_list.exit.i, label %68
 
 68:                                               ; preds = %._crit_edge.i.i
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !36
+  %70 = load ptr, ptr %69, align 8, !tbaa !35
   %.not17.i.i = icmp uge ptr %70, %.pre.i
   %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %72 = getelementptr inbounds ptr, ptr %.pre.i, i64 %71
@@ -444,7 +444,7 @@ sh_testbit.exit.i:                                ; preds = %46
   br i1 %or.cond.i72.i, label %sh_remove_from_list.exit.i, label %74
 
 74:                                               ; preds = %68
-  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %.not18.i.i = icmp uge ptr %70, %75
   %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 %76
@@ -458,7 +458,7 @@ sh_testbit.exit.i:                                ; preds = %46
 
 sh_remove_from_list.exit.i:                       ; preds = %74, %68, %._crit_edge.i.i
   %80 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.1.i65
-  %81 = load ptr, ptr %80, align 8, !tbaa !28
+  %81 = load ptr, ptr %80, align 8, !tbaa !27
   %.not66.i = icmp eq ptr %28, %81
   br i1 %.not66.i, label %82, label %83
 
@@ -469,7 +469,7 @@ sh_remove_from_list.exit.i:                       ; preds = %74, %68, %._crit_ed
 83:                                               ; preds = %sh_remove_from_list.exit.i
   %84 = add nuw nsw i64 %.1.i65, 1
   %85 = trunc i64 %84 to i32
-  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !20
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   %87 = icmp sgt i32 %85, -1
   %88 = and i64 %84, 4294967295
   %89 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
@@ -482,7 +482,7 @@ sh_remove_from_list.exit.i:                       ; preds = %74, %68, %._crit_ed
   unreachable
 
 92:                                               ; preds = %83
-  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %94 = ptrtoint ptr %93 to i64
   %95 = sub i64 %38, %94
   %96 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
@@ -513,7 +513,7 @@ sh_remove_from_list.exit.i:                       ; preds = %74, %68, %._crit_ed
 sh_testbit.exit76.i:                              ; preds = %102
   %109 = lshr i64 %105, 3
   %110 = getelementptr inbounds nuw i8, ptr %86, i64 %109
-  %111 = load i8, ptr %110, align 1, !tbaa !31
+  %111 = load i8, ptr %110, align 1, !tbaa !30
   %112 = zext i8 %111 to i64
   %113 = and i64 %105, 7
   %114 = shl nuw nsw i64 1, %113
@@ -526,14 +526,14 @@ sh_testbit.exit76.i:                              ; preds = %102
   unreachable
 
 117:                                              ; preds = %sh_testbit.exit76.i
-  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   tail call fastcc void @sh_setbit(ptr noundef nonnull %28, i32 noundef %85, ptr noundef %118)
-  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %84
   tail call fastcc void @sh_add_to_list(ptr noundef nonnull %120, ptr noundef nonnull %28)
-  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %84
-  %123 = load ptr, ptr %122, align 8, !tbaa !28
+  %123 = load ptr, ptr %122, align 8, !tbaa !27
   %124 = icmp eq ptr %123, %28
   br i1 %124, label %126, label %125
 
@@ -545,7 +545,7 @@ sh_testbit.exit76.i:                              ; preds = %102
   %127 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
   %128 = lshr i64 %127, %84
   %129 = getelementptr inbounds nuw i8, ptr %28, i64 %128
-  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !20
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   %131 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %132 = icmp sgt i64 %131, %88
   br i1 %132, label %134, label %133
@@ -555,7 +555,7 @@ sh_testbit.exit76.i:                              ; preds = %102
   unreachable
 
 134:                                              ; preds = %126
-  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %136 = ptrtoint ptr %129 to i64
   %137 = ptrtoint ptr %135 to i64
   %138 = sub i64 %136, %137
@@ -585,7 +585,7 @@ sh_testbit.exit76.i:                              ; preds = %102
 sh_testbit.exit80.i:                              ; preds = %144
   %150 = lshr i64 %146, 3
   %151 = getelementptr inbounds nuw i8, ptr %130, i64 %150
-  %152 = load i8, ptr %151, align 1, !tbaa !31
+  %152 = load i8, ptr %151, align 1, !tbaa !30
   %153 = zext i8 %152 to i64
   %154 = and i64 %146, 7
   %155 = shl nuw nsw i64 1, %154
@@ -598,14 +598,14 @@ sh_testbit.exit80.i:                              ; preds = %144
   unreachable
 
 158:                                              ; preds = %sh_testbit.exit80.i
-  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   tail call fastcc void @sh_setbit(ptr noundef nonnull %129, i32 noundef %85, ptr noundef %159)
-  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %84
   tail call fastcc void @sh_add_to_list(ptr noundef nonnull %161, ptr noundef nonnull %129)
-  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %84
-  %164 = load ptr, ptr %163, align 8, !tbaa !28
+  %164 = load ptr, ptr %163, align 8, !tbaa !27
   %165 = icmp eq ptr %164, %129
   br i1 %165, label %167, label %166
 
@@ -618,17 +618,17 @@ sh_testbit.exit80.i:                              ; preds = %144
   %169 = lshr i64 %168, %84
   %170 = sub nsw i64 0, %169
   %171 = getelementptr inbounds i8, ptr %129, i64 %170
-  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %173 = ptrtoint ptr %172 to i64
   %174 = sub i64 %136, %173
   %175 = lshr i64 %168, %88
   %176 = udiv i64 %174, %175
   %177 = add i64 %176, %103
   %178 = xor i64 %177, 1
-  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   %180 = lshr i64 %177, 3
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 %180
-  %182 = load i8, ptr %181, align 1, !tbaa !31
+  %182 = load i8, ptr %181, align 1, !tbaa !30
   %183 = zext i8 %182 to i64
   %184 = and i64 %178, 7
   %185 = shl nuw nsw i64 1, %184
@@ -637,9 +637,9 @@ sh_testbit.exit80.i:                              ; preds = %144
   br i1 %.not.i81.i, label %.critedge.i, label %187
 
 187:                                              ; preds = %167
-  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !20
+  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 %180
-  %190 = load i8, ptr %189, align 1, !tbaa !31
+  %190 = load i8, ptr %189, align 1, !tbaa !30
   %191 = zext i8 %190 to i64
   %192 = and i64 %185, %191
   %.not11.i.i = icmp eq i64 %192, 0
@@ -651,7 +651,7 @@ sh_find_my_buddy.exit.i:                          ; preds = %187
   %195 = mul i64 %194, %175
   %196 = getelementptr inbounds nuw i8, ptr %172, i64 %195
   %197 = icmp eq ptr %171, %196
-  br i1 %197, label %.preheader.i, label %.critedge.i, !llvm.loop !30
+  br i1 %197, label %.preheader.i, label %.critedge.i, !llvm.loop !29
 
 .critedge.i:                                      ; preds = %sh_find_my_buddy.exit.i, %187, %167
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.1, i32 noundef 680) #9
@@ -667,7 +667,7 @@ sh_find_my_buddy.exit.i:                          ; preds = %187
   %.lcssa43 = phi i64 [ %10, %.preheader.i.preheader..preheader.i._crit_edge_crit_edge ], [ %168, %.preheader.i._crit_edge.loopexit ]
   %.lcssa = phi ptr [ %20, %.preheader.i.preheader..preheader.i._crit_edge_crit_edge ], [ %162, %.preheader.i._crit_edge.loopexit ]
   %200 = getelementptr inbounds nuw ptr, ptr %.lcssa, i64 %.056.i
-  %201 = load ptr, ptr %200, align 8, !tbaa !28
+  %201 = load ptr, ptr %200, align 8, !tbaa !27
   %202 = trunc i64 %.056.i to i32
   %203 = icmp sgt i32 %202, -1
   %204 = and i64 %.056.i, 4294967295
@@ -680,7 +680,7 @@ sh_find_my_buddy.exit.i:                          ; preds = %187
   unreachable
 
 207:                                              ; preds = %.preheader.i._crit_edge
-  %208 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %208 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %209 = ptrtoint ptr %201 to i64
   %210 = ptrtoint ptr %208 to i64
   %211 = sub i64 %209, %210
@@ -711,7 +711,7 @@ sh_find_my_buddy.exit.i:                          ; preds = %187
 sh_testbit.exit85.i:                              ; preds = %217
   %224 = lshr i64 %220, 3
   %225 = getelementptr inbounds nuw i8, ptr %199, i64 %224
-  %226 = load i8, ptr %225, align 1, !tbaa !31
+  %226 = load i8, ptr %225, align 1, !tbaa !30
   %227 = zext i8 %226 to i64
   %228 = and i64 %220, 7
   %229 = shl nuw nsw i64 1, %228
@@ -724,40 +724,40 @@ sh_testbit.exit85.i:                              ; preds = %217
   unreachable
 
 232:                                              ; preds = %sh_testbit.exit85.i
-  %233 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !20
+  %233 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   tail call fastcc void @sh_setbit(ptr noundef %201, i32 noundef %202, ptr noundef %233)
-  %234 = load ptr, ptr %201, align 8, !tbaa !32
+  %234 = load ptr, ptr %201, align 8, !tbaa !31
   %.not.i86.i = icmp eq ptr %234, null
   %.phi.trans.insert.i87.i = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %.pre.i88.i = load ptr, ptr %.phi.trans.insert.i87.i, align 8, !tbaa !36
+  %.pre.i88.i = load ptr, ptr %.phi.trans.insert.i87.i, align 8, !tbaa !35
   br i1 %.not.i86.i, label %._crit_edge.i89.i, label %235
 
 235:                                              ; preds = %232
   %236 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  store ptr %.pre.i88.i, ptr %236, align 8, !tbaa !36
+  store ptr %.pre.i88.i, ptr %236, align 8, !tbaa !35
   br label %._crit_edge.i89.i
 
 ._crit_edge.i89.i:                                ; preds = %235, %232
-  store ptr %234, ptr %.pre.i88.i, align 8, !tbaa !37
-  %237 = load ptr, ptr %201, align 8, !tbaa !32
+  store ptr %234, ptr %.pre.i88.i, align 8, !tbaa !36
+  %237 = load ptr, ptr %201, align 8, !tbaa !31
   %238 = icmp eq ptr %237, null
   br i1 %238, label %._crit_edge.i89.sh_remove_from_list.exit94_crit_edge.i, label %239
 
 ._crit_edge.i89.sh_remove_from_list.exit94_crit_edge.i: ; preds = %._crit_edge.i89.i
-  %.pre100.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %.pre100.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %.pre102.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   br label %sh_remove_from_list.exit94.i
 
 239:                                              ; preds = %._crit_edge.i89.i
   %240 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  %241 = load ptr, ptr %240, align 8, !tbaa !36
-  %242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %241 = load ptr, ptr %240, align 8, !tbaa !35
+  %242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %.not17.i90.i = icmp uge ptr %241, %242
   %243 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %244 = getelementptr inbounds ptr, ptr %242, i64 %243
   %245 = icmp ult ptr %241, %244
   %or.cond.i91.i = select i1 %.not17.i90.i, i1 %245, i1 false
-  %.pre101.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %.pre101.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %.pre103.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   br i1 %or.cond.i91.i, label %sh_remove_from_list.exit94.i, label %246
 
@@ -793,9 +793,9 @@ sh_remove_from_list.exit94.i:                     ; preds = %246, %239, %._crit_
 sh_malloc.exit.thread:                            ; preds = %24, %18, %9, %255
   %.0.i21 = phi ptr [ %201, %255 ], [ null, %9 ], [ null, %18 ], [ null, %24 ]
   %257 = phi i64 [ %256, %255 ], [ 0, %9 ], [ 0, %18 ], [ 0, %24 ]
-  %258 = load i64, ptr @secure_mem_used, align 8, !tbaa !26
+  %258 = load i64, ptr @secure_mem_used, align 8, !tbaa !25
   %259 = add i64 %258, %257
-  store i64 %259, ptr @secure_mem_used, align 8, !tbaa !26
+  store i64 %259, ptr @secure_mem_used, align 8, !tbaa !25
   %260 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
   %261 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %260) #8
   %262 = icmp eq ptr %.0.i21, null
@@ -825,7 +825,7 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @sh_actual_size(ptr noundef %0) unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %.not = icmp uge ptr %0, %2
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 %3
@@ -838,7 +838,7 @@ define internal fastcc i64 @sh_actual_size(ptr noundef %0) unnamed_addr #0 {
   unreachable
 
 7:                                                ; preds = %1
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8, !tbaa !17
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %2 to i64
@@ -846,7 +846,7 @@ define internal fastcc i64 @sh_actual_size(ptr noundef %0) unnamed_addr #0 {
   %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 48), align 8, !tbaa !12
   %.0710.i = add nsw i64 %8, -1
   %.not11.i = icmp ugt i64 %13, %12
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   br i1 %.not11.i, label %sh_getlist.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
@@ -857,14 +857,14 @@ define internal fastcc i64 @sh_actual_size(ptr noundef %0) unnamed_addr #0 {
   %16 = lshr exact i64 %.012.i, 1
   %.07.i = add nsw i64 %.0713.i, -1
   %.not.i = icmp eq i64 %.012.i, 0
-  br i1 %.not.i, label %sh_getlist.exit, label %17, !llvm.loop !38
+  br i1 %.not.i, label %sh_getlist.exit, label %17, !llvm.loop !37
 
 17:                                               ; preds = %15, %.lr.ph.i
   %.0713.i = phi i64 [ %.0710.i, %.lr.ph.i ], [ %.07.i, %15 ]
   %.012.i = phi i64 [ %14, %.lr.ph.i ], [ %16, %15 ]
   %18 = lshr i64 %.012.i, 3
   %19 = getelementptr inbounds nuw i8, ptr %.pre, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !31
+  %20 = load i8, ptr %19, align 1, !tbaa !30
   %21 = zext i8 %20 to i64
   %22 = and i64 %.012.i, 7
   %23 = shl nuw nsw i64 1, %22
@@ -924,7 +924,7 @@ sh_getlist.exit:                                  ; preds = %15, %17, %7
 sh_testbit.exit:                                  ; preds = %42
   %49 = lshr i64 %45, 3
   %50 = getelementptr inbounds nuw i8, ptr %.pre, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !31
+  %51 = load i8, ptr %50, align 1, !tbaa !30
   %52 = zext i8 %51 to i64
   %53 = and i64 %45, 7
   %54 = shl nuw nsw i64 1, %53
@@ -980,7 +980,7 @@ define void @CRYPTO_secure_free(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   br i1 %.b.i, label %CRYPTO_secure_allocated.exit, label %CRYPTO_secure_allocated.exit.thread
 
 CRYPTO_secure_allocated.exit:                     ; preds = %5
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %7 = icmp ult ptr %0, %6
   %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
@@ -1001,9 +1001,9 @@ CRYPTO_secure_allocated.exit.thread:              ; preds = %5, %CRYPTO_secure_a
 14:                                               ; preds = %11
   %15 = tail call fastcc i64 @sh_actual_size(ptr noundef nonnull %0)
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %0, i64 noundef %15) #8
-  %16 = load i64, ptr @secure_mem_used, align 8, !tbaa !26
+  %16 = load i64, ptr @secure_mem_used, align 8, !tbaa !25
   %17 = sub i64 %16, %15
-  store i64 %17, ptr @secure_mem_used, align 8, !tbaa !26
+  store i64 %17, ptr @secure_mem_used, align 8, !tbaa !25
   tail call fastcc void @sh_free(ptr noundef %0)
   %18 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
   %19 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %18) #8
@@ -1019,7 +1019,7 @@ define range(i32 0, 2) i32 @CRYPTO_secure_allocated(ptr noundef readnone capture
   br i1 %.b, label %2, label %10
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %4 = icmp uge ptr %0, %3
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %5
@@ -1039,7 +1039,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sh_free(ptr noundef nonnull %0) unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %.not = icmp uge ptr %0, %2
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 %3
@@ -1052,7 +1052,7 @@ define internal fastcc void @sh_free(ptr noundef nonnull %0) unnamed_addr #0 {
   unreachable
 
 7:                                                ; preds = %1
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8, !tbaa !17
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %3
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %2 to i64
@@ -1060,7 +1060,7 @@ define internal fastcc void @sh_free(ptr noundef nonnull %0) unnamed_addr #0 {
   %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 48), align 8, !tbaa !12
   %.0710.i = add nsw i64 %8, -1
   %.not11.i = icmp ugt i64 %13, %12
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   br i1 %.not11.i, label %sh_getlist.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
@@ -1071,14 +1071,14 @@ define internal fastcc void @sh_free(ptr noundef nonnull %0) unnamed_addr #0 {
   %16 = lshr exact i64 %.012.i, 1
   %.07.i = add nsw i64 %.0713.i, -1
   %.not.i = icmp eq i64 %.012.i, 0
-  br i1 %.not.i, label %sh_getlist.exit, label %17, !llvm.loop !38
+  br i1 %.not.i, label %sh_getlist.exit, label %17, !llvm.loop !37
 
 17:                                               ; preds = %15, %.lr.ph.i
   %.0713.i = phi i64 [ %.0710.i, %.lr.ph.i ], [ %.07.i, %15 ]
   %.012.i = phi i64 [ %14, %.lr.ph.i ], [ %16, %15 ]
   %18 = lshr i64 %.012.i, 3
   %19 = getelementptr inbounds nuw i8, ptr %.pre, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !31
+  %20 = load i8, ptr %19, align 1, !tbaa !30
   %21 = zext i8 %20 to i64
   %22 = and i64 %.012.i, 7
   %23 = shl nuw nsw i64 1, %22
@@ -1138,7 +1138,7 @@ sh_getlist.exit:                                  ; preds = %15, %17, %7
 sh_testbit.exit:                                  ; preds = %42
   %49 = lshr i64 %45, 3
   %50 = getelementptr inbounds nuw i8, ptr %.pre, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !31
+  %51 = load i8, ptr %50, align 1, !tbaa !30
   %52 = zext i8 %51 to i64
   %53 = and i64 %45, 7
   %54 = shl nuw nsw i64 1, %53
@@ -1151,9 +1151,9 @@ sh_testbit.exit:                                  ; preds = %42
   unreachable
 
 57:                                               ; preds = %sh_testbit.exit
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !20
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   tail call fastcc void @sh_clearbit(ptr noundef nonnull %0, i32 noundef %29, ptr noundef %58)
-  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %.07.lcssa.i
   tail call fastcc void @sh_add_to_list(ptr noundef %60, ptr noundef nonnull %0)
   br label %61
@@ -1164,7 +1164,7 @@ sh_testbit.exit:                                  ; preds = %42
   %62 = trunc i64 %.043 to i32
   %63 = and i64 %.043, 4294967295
   %64 = shl nuw i64 1, %63
-  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %66 = ptrtoint ptr %.0 to i64
   %67 = ptrtoint ptr %65 to i64
   %68 = sub i64 %66, %67
@@ -1173,10 +1173,10 @@ sh_testbit.exit:                                  ; preds = %42
   %71 = udiv i64 %68, %70
   %72 = add i64 %71, %64
   %73 = xor i64 %72, 1
-  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   %75 = lshr i64 %72, 3
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
-  %77 = load i8, ptr %76, align 1, !tbaa !31
+  %77 = load i8, ptr %76, align 1, !tbaa !30
   %78 = zext i8 %77 to i64
   %79 = and i64 %73, 7
   %80 = shl nuw nsw i64 1, %79
@@ -1185,9 +1185,9 @@ sh_testbit.exit:                                  ; preds = %42
   br i1 %.not.i55, label %sh_find_my_buddy.exit.thread, label %82
 
 82:                                               ; preds = %61
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !20
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %75
-  %85 = load i8, ptr %84, align 1, !tbaa !31
+  %85 = load i8, ptr %84, align 1, !tbaa !30
   %86 = zext i8 %85 to i64
   %87 = and i64 %80, %86
   %.not11.i56 = icmp eq i64 %87, 0
@@ -1207,7 +1207,7 @@ sh_find_my_buddy.exit:                            ; preds = %82
   %95 = xor i64 %94, 1
   %96 = lshr i64 %94, 3
   %97 = getelementptr inbounds nuw i8, ptr %74, i64 %96
-  %98 = load i8, ptr %97, align 1, !tbaa !31
+  %98 = load i8, ptr %97, align 1, !tbaa !30
   %99 = zext i8 %98 to i64
   %100 = and i64 %95, 7
   %101 = shl nuw nsw i64 1, %100
@@ -1217,7 +1217,7 @@ sh_find_my_buddy.exit:                            ; preds = %82
 
 103:                                              ; preds = %92
   %104 = getelementptr inbounds nuw i8, ptr %83, i64 %96
-  %105 = load i8, ptr %104, align 1, !tbaa !31
+  %105 = load i8, ptr %104, align 1, !tbaa !30
   %106 = zext i8 %105 to i64
   %107 = and i64 %101, %106
   %.not11.i58 = icmp eq i64 %107, 0
@@ -1277,28 +1277,28 @@ sh_testbit.exit64:                                ; preds = %121
 
 129:                                              ; preds = %sh_testbit.exit64
   tail call fastcc void @sh_clearbit(ptr noundef nonnull %.0, i32 noundef %62, ptr noundef nonnull %74)
-  %130 = load ptr, ptr %.0, align 8, !tbaa !32
+  %130 = load ptr, ptr %.0, align 8, !tbaa !31
   %.not.i65 = icmp eq ptr %130, null
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !36
+  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !35
   br i1 %.not.i65, label %._crit_edge.i, label %131
 
 131:                                              ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store ptr %.pre.i, ptr %132, align 8, !tbaa !36
+  store ptr %.pre.i, ptr %132, align 8, !tbaa !35
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %131, %129
-  store ptr %130, ptr %.pre.i, align 8, !tbaa !37
-  %133 = load ptr, ptr %.0, align 8, !tbaa !32
+  store ptr %130, ptr %.pre.i, align 8, !tbaa !36
+  %133 = load ptr, ptr %.0, align 8, !tbaa !31
   %134 = icmp eq ptr %133, null
   %.pre86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   br i1 %134, label %sh_remove_from_list.exit, label %135
 
 135:                                              ; preds = %._crit_edge.i
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %137 = load ptr, ptr %136, align 8, !tbaa !36
-  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %137 = load ptr, ptr %136, align 8, !tbaa !35
+  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %.not17.i = icmp uge ptr %137, %138
   %139 = getelementptr inbounds ptr, ptr %138, i64 %.pre86
   %140 = icmp ult ptr %137, %139
@@ -1306,7 +1306,7 @@ sh_testbit.exit64:                                ; preds = %121
   br i1 %or.cond.i66, label %sh_remove_from_list.exit, label %141
 
 141:                                              ; preds = %135
-  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %.not18.i = icmp uge ptr %137, %142
   %143 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 %143
@@ -1319,7 +1319,7 @@ sh_testbit.exit64:                                ; preds = %121
   unreachable
 
 sh_remove_from_list.exit:                         ; preds = %._crit_edge.i, %135, %141
-  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !20
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   %148 = icmp sgt i64 %.pre86, %63
   br i1 %148, label %150, label %149
 
@@ -1328,7 +1328,7 @@ sh_remove_from_list.exit:                         ; preds = %._crit_edge.i, %135
   unreachable
 
 150:                                              ; preds = %sh_remove_from_list.exit
-  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %152 = ptrtoint ptr %151 to i64
   %153 = sub i64 %66, %152
   %154 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8, !tbaa !7
@@ -1358,7 +1358,7 @@ sh_remove_from_list.exit:                         ; preds = %._crit_edge.i, %135
 sh_testbit.exit70:                                ; preds = %160
   %166 = lshr i64 %162, 3
   %167 = getelementptr inbounds nuw i8, ptr %147, i64 %166
-  %168 = load i8, ptr %167, align 1, !tbaa !31
+  %168 = load i8, ptr %167, align 1, !tbaa !30
   %169 = zext i8 %168 to i64
   %170 = and i64 %162, 7
   %171 = shl nuw nsw i64 1, %170
@@ -1371,30 +1371,30 @@ sh_testbit.exit70:                                ; preds = %160
   unreachable
 
 174:                                              ; preds = %sh_testbit.exit70
-  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   tail call fastcc void @sh_clearbit(ptr noundef nonnull %91, i32 noundef %62, ptr noundef %175)
-  %176 = load ptr, ptr %91, align 8, !tbaa !32
+  %176 = load ptr, ptr %91, align 8, !tbaa !31
   %.not.i71 = icmp eq ptr %176, null
   %.phi.trans.insert.i72 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %.pre.i73 = load ptr, ptr %.phi.trans.insert.i72, align 8, !tbaa !36
+  %.pre.i73 = load ptr, ptr %.phi.trans.insert.i72, align 8, !tbaa !35
   br i1 %.not.i71, label %._crit_edge.i74, label %177
 
 177:                                              ; preds = %174
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store ptr %.pre.i73, ptr %178, align 8, !tbaa !36
+  store ptr %.pre.i73, ptr %178, align 8, !tbaa !35
   br label %._crit_edge.i74
 
 ._crit_edge.i74:                                  ; preds = %177, %174
-  store ptr %176, ptr %.pre.i73, align 8, !tbaa !37
-  %179 = load ptr, ptr %91, align 8, !tbaa !32
+  store ptr %176, ptr %.pre.i73, align 8, !tbaa !36
+  %179 = load ptr, ptr %91, align 8, !tbaa !31
   %180 = icmp eq ptr %179, null
   %.pre87 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   br i1 %180, label %sh_remove_from_list.exit79, label %181
 
 181:                                              ; preds = %._crit_edge.i74
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  %183 = load ptr, ptr %182, align 8, !tbaa !36
-  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %183 = load ptr, ptr %182, align 8, !tbaa !35
+  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %.not17.i75 = icmp uge ptr %183, %184
   %185 = getelementptr inbounds ptr, ptr %184, i64 %.pre87
   %186 = icmp ult ptr %183, %185
@@ -1402,7 +1402,7 @@ sh_testbit.exit70:                                ; preds = %160
   br i1 %or.cond.i76, label %sh_remove_from_list.exit79, label %187
 
 187:                                              ; preds = %181
-  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %.not18.i77 = icmp uge ptr %183, %188
   %189 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 %189
@@ -1421,7 +1421,7 @@ sh_remove_from_list.exit79:                       ; preds = %._crit_edge.i74, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %195, i8 0, i64 16, i1 false)
   %spec.select = select i1 %194, ptr %91, ptr %.0
   %196 = trunc i64 %193 to i32
-  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !20
+  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   %198 = icmp sgt i32 %196, -1
   %199 = and i64 %193, 4294967295
   %200 = icmp sgt i64 %.pre87, %199
@@ -1433,7 +1433,7 @@ sh_remove_from_list.exit79:                       ; preds = %._crit_edge.i74, %1
   unreachable
 
 202:                                              ; preds = %sh_remove_from_list.exit79
-  %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %204 = ptrtoint ptr %spec.select to i64
   %205 = ptrtoint ptr %203 to i64
   %206 = sub i64 %204, %205
@@ -1465,7 +1465,7 @@ sh_remove_from_list.exit79:                       ; preds = %._crit_edge.i74, %1
 sh_testbit.exit83:                                ; preds = %213
   %220 = lshr i64 %216, 3
   %221 = getelementptr inbounds nuw i8, ptr %197, i64 %220
-  %222 = load i8, ptr %221, align 1, !tbaa !31
+  %222 = load i8, ptr %221, align 1, !tbaa !30
   %223 = zext i8 %222 to i64
   %224 = and i64 %216, 7
   %225 = shl nuw nsw i64 1, %224
@@ -1478,16 +1478,16 @@ sh_testbit.exit83:                                ; preds = %213
   unreachable
 
 228:                                              ; preds = %sh_testbit.exit83
-  %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !19
+  %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   tail call fastcc void @sh_setbit(ptr noundef nonnull %spec.select, i32 noundef %196, ptr noundef %229)
-  %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %193
   tail call fastcc void @sh_add_to_list(ptr noundef %231, ptr noundef nonnull %spec.select)
-  %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %193
-  %234 = load ptr, ptr %233, align 8, !tbaa !28
+  %234 = load ptr, ptr %233, align 8, !tbaa !27
   %235 = icmp eq ptr %234, %spec.select
-  br i1 %235, label %61, label %236, !llvm.loop !39
+  br i1 %235, label %61, label %236, !llvm.loop !38
 
 236:                                              ; preds = %228
   tail call void @OPENSSL_die(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 734) #9
@@ -1507,7 +1507,7 @@ define void @CRYPTO_secure_clear_free(ptr noundef %0, i64 noundef %1, ptr nounde
   br i1 %.b.i, label %CRYPTO_secure_allocated.exit, label %CRYPTO_secure_allocated.exit.thread
 
 CRYPTO_secure_allocated.exit:                     ; preds = %6
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %8 = icmp ult ptr %0, %7
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 %9
@@ -1529,9 +1529,9 @@ CRYPTO_secure_allocated.exit.thread:              ; preds = %6, %CRYPTO_secure_a
 15:                                               ; preds = %12
   %16 = tail call fastcc i64 @sh_actual_size(ptr noundef nonnull %0)
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %0, i64 noundef %16) #8
-  %17 = load i64, ptr @secure_mem_used, align 8, !tbaa !26
+  %17 = load i64, ptr @secure_mem_used, align 8, !tbaa !25
   %18 = sub i64 %17, %16
-  store i64 %18, ptr @secure_mem_used, align 8, !tbaa !26
+  store i64 %18, ptr @secure_mem_used, align 8, !tbaa !25
   tail call fastcc void @sh_free(ptr noundef %0)
   %19 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
   %20 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %19) #8
@@ -1549,7 +1549,7 @@ define i64 @CRYPTO_secure_used() local_unnamed_addr #0 {
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %0
-  %4 = load i64, ptr @secure_mem_used, align 8, !tbaa !26
+  %4 = load i64, ptr @secure_mem_used, align 8, !tbaa !25
   %5 = load ptr, ptr @sec_malloc_lock, align 8, !tbaa !3
   %6 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %5) #8
   br label %7
@@ -1605,7 +1605,7 @@ define internal fastcc void @sh_setbit(ptr noundef %0, i32 noundef %1, ptr nound
   unreachable
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %11 = ptrtoint ptr %0 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -1637,7 +1637,7 @@ define internal fastcc void @sh_setbit(ptr noundef %0, i32 noundef %1, ptr nound
 27:                                               ; preds = %20
   %28 = lshr i64 %23, 3
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !31
+  %30 = load i8, ptr %29, align 1, !tbaa !30
   %31 = zext i8 %30 to i64
   %32 = and i64 %23, 7
   %33 = shl nuw nsw i64 1, %32
@@ -1652,13 +1652,13 @@ define internal fastcc void @sh_setbit(ptr noundef %0, i32 noundef %1, ptr nound
 36:                                               ; preds = %27
   %37 = trunc nuw i64 %33 to i8
   %38 = or i8 %30, %37
-  store i8 %38, ptr %29, align 1, !tbaa !31
+  store i8 %38, ptr %29, align 1, !tbaa !30
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sh_add_to_list(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !18
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %.not = icmp uge ptr %0, %3
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
   %5 = getelementptr inbounds ptr, ptr %3, i64 %4
@@ -1671,7 +1671,7 @@ define internal fastcc void @sh_add_to_list(ptr noundef %0, ptr noundef %1) unna
   unreachable
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %.not25 = icmp uge ptr %1, %9
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 24), align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
@@ -1684,14 +1684,14 @@ define internal fastcc void @sh_add_to_list(ptr noundef %0, ptr noundef %1) unna
   unreachable
 
 14:                                               ; preds = %8
-  %15 = load ptr, ptr %0, align 8, !tbaa !37
-  store ptr %15, ptr %1, align 8, !tbaa !32
+  %15 = load ptr, ptr %0, align 8, !tbaa !36
+  store ptr %15, ptr %1, align 8, !tbaa !31
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %18
 
 .thread:                                          ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %0, ptr %17, align 8, !tbaa !36
+  store ptr %0, ptr %17, align 8, !tbaa !35
   br label %28
 
 18:                                               ; preds = %14
@@ -1706,9 +1706,9 @@ define internal fastcc void @sh_add_to_list(ptr noundef %0, ptr noundef %1) unna
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %0, ptr %22, align 8, !tbaa !36
+  store ptr %0, ptr %22, align 8, !tbaa !35
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %24 = load ptr, ptr %23, align 8, !tbaa !35
   %25 = icmp eq ptr %24, %0
   br i1 %25, label %27, label %26
 
@@ -1717,11 +1717,11 @@ define internal fastcc void @sh_add_to_list(ptr noundef %0, ptr noundef %1) unna
   unreachable
 
 27:                                               ; preds = %21
-  store ptr %1, ptr %23, align 8, !tbaa !36
+  store ptr %1, ptr %23, align 8, !tbaa !35
   br label %28
 
 28:                                               ; preds = %.thread, %27
-  store ptr %1, ptr %0, align 8, !tbaa !28
+  store ptr %1, ptr %0, align 8, !tbaa !27
   ret void
 }
 
@@ -1757,7 +1757,7 @@ define internal fastcc void @sh_clearbit(ptr noundef %0, i32 noundef %1, ptr nou
   unreachable
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !23
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
   %11 = ptrtoint ptr %0 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -1789,7 +1789,7 @@ define internal fastcc void @sh_clearbit(ptr noundef %0, i32 noundef %1, ptr nou
 27:                                               ; preds = %20
   %28 = lshr i64 %23, 3
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !31
+  %30 = load i8, ptr %29, align 1, !tbaa !30
   %31 = zext i8 %30 to i64
   %32 = and i64 %23, 7
   %33 = shl nuw nsw i64 1, %32
@@ -1805,7 +1805,7 @@ define internal fastcc void @sh_clearbit(ptr noundef %0, i32 noundef %1, ptr nou
   %37 = trunc nuw i64 %33 to i8
   %38 = xor i8 %37, -1
   %39 = and i8 %30, %38
-  store i8 %39, ptr %29, align 1, !tbaa !31
+  store i8 %39, ptr %29, align 1, !tbaa !30
   ret void
 }
 
@@ -1843,29 +1843,28 @@ attributes #10 = { nounwind willreturn memory(none) }
 !11 = !{!"p2 omnipotent char", !4, i64 0}
 !12 = !{!8, !10, i64 48}
 !13 = !{!8, !10, i64 72}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!8, !10, i64 40}
-!18 = !{!8, !11, i64 32}
-!19 = !{!8, !9, i64 56}
-!20 = !{!8, !9, i64 64}
-!21 = !{!8, !10, i64 8}
-!22 = !{!8, !9, i64 0}
-!23 = !{!8, !9, i64 16}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"int", !5, i64 0}
-!26 = !{!10, !10, i64 0}
-!27 = distinct !{!27, !15, !16}
-!28 = !{!9, !9, i64 0}
-!29 = distinct !{!29, !15, !16}
-!30 = distinct !{!30, !15, !16}
-!31 = !{!5, !5, i64 0}
-!32 = !{!33, !34, i64 0}
-!33 = !{!"sh_list_st", !34, i64 0, !35, i64 8}
-!34 = !{!"p1 _ZTS10sh_list_st", !4, i64 0}
-!35 = !{!"p2 _ZTS10sh_list_st", !4, i64 0}
-!36 = !{!33, !35, i64 8}
-!37 = !{!34, !34, i64 0}
-!38 = distinct !{!38, !15, !16}
-!39 = distinct !{!39, !15, !16}
+!16 = !{!8, !10, i64 40}
+!17 = !{!8, !11, i64 32}
+!18 = !{!8, !9, i64 56}
+!19 = !{!8, !9, i64 64}
+!20 = !{!8, !10, i64 8}
+!21 = !{!8, !9, i64 0}
+!22 = !{!8, !9, i64 16}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"int", !5, i64 0}
+!25 = !{!10, !10, i64 0}
+!26 = distinct !{!26, !15}
+!27 = !{!9, !9, i64 0}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !15}
+!30 = !{!5, !5, i64 0}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"sh_list_st", !33, i64 0, !34, i64 8}
+!33 = !{!"p1 _ZTS10sh_list_st", !4, i64 0}
+!34 = !{!"p2 _ZTS10sh_list_st", !4, i64 0}
+!35 = !{!32, !34, i64 8}
+!36 = !{!33, !33, i64 0}
+!37 = distinct !{!37, !15}
+!38 = distinct !{!38, !15}

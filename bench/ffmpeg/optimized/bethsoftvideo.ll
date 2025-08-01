@@ -151,7 +151,7 @@ set_palette.exit.thread:                          ; preds = %set_palette.exit.th
   %74 = phi i32 [ %.pre, %set_palette.exit.thread.loopexit ], [ %32, %38 ], [ %32, %29 ]
   %75 = load ptr, ptr %30, align 8, !tbaa !39
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %77 = load i32, ptr %76, align 4, !tbaa !51
+  %77 = load i32, ptr %76, align 4, !tbaa !50
   %78 = mul nsw i32 %77, %74
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i8, ptr %75, i64 %79
@@ -311,7 +311,7 @@ bytestream2_get_byte.exit97:                      ; preds = %bytestream2_get_byt
   %162 = getelementptr inbounds i8, ptr %.282.us, i64 %161
   %163 = load i32, ptr %7, align 8, !tbaa !32
   %164 = icmp eq ptr %162, %80
-  br i1 %164, label %.thread, label %.split.us, !llvm.loop !52
+  br i1 %164, label %.thread, label %.split.us, !llvm.loop !51
 
 .split:                                           ; preds = %143
   br i1 %139, label %.split.split.us, label %.split.split
@@ -346,7 +346,7 @@ bytestream2_peek_byte.exit.us:                    ; preds = %173, %166
   %179 = getelementptr inbounds i8, ptr %.282.us131, i64 %178
   %180 = load i32, ptr %7, align 8, !tbaa !32
   %181 = icmp eq ptr %179, %80
-  br i1 %181, label %.thread, label %.split.split.us, !llvm.loop !54
+  br i1 %181, label %.thread, label %.split.split.us, !llvm.loop !53
 
 .split.split:                                     ; preds = %.split, %183
   %.184 = phi i32 [ %188, %183 ], [ %.083139, %.split ]
@@ -362,7 +362,7 @@ bytestream2_peek_byte.exit.us:                    ; preds = %173, %166
   %187 = getelementptr inbounds i8, ptr %.282, i64 %186
   %188 = load i32, ptr %7, align 8, !tbaa !32
   %189 = icmp eq ptr %187, %80
-  br i1 %189, label %.thread, label %.split.split, !llvm.loop !55
+  br i1 %189, label %.thread, label %.split.split, !llvm.loop !54
 
 .split127.us:                                     ; preds = %.split.split, %.split.split.us, %.split.us
   %.us-phi = phi i32 [ %.184.us, %.split.us ], [ %.184.us130, %.split.split.us ], [ %.184, %.split.split ]
@@ -532,11 +532,10 @@ attributes #8 = { noreturn nounwind }
 !45 = !{!"AVPacketSideData", !14, i64 0, !13, i64 8, !10, i64 16}
 !46 = !{!45, !13, i64 8}
 !47 = !{!45, !14, i64 0}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!5, !10, i64 116}
-!52 = distinct !{!52, !49, !50, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = distinct !{!54, !49, !50, !53}
-!55 = distinct !{!55, !49, !50}
+!50 = !{!5, !10, i64 116}
+!51 = distinct !{!51, !49, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !49, !52}
+!54 = distinct !{!54, !49}

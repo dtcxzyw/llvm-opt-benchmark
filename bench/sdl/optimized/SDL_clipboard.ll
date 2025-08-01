@@ -191,7 +191,7 @@ SDL_FreeClipboardMimeTypes.exit:                  ; preds = %2, %._crit_edge.i
   %spec.select = add i64 %.147, %28
   %29 = add nuw i64 %.02348, 1
   %exitcond.not = icmp eq i64 %29, %1
-  br i1 %exitcond.not, label %30, label %.preheader, !llvm.loop !6
+  br i1 %exitcond.not, label %30, label %.preheader, !llvm.loop !5
 
 30:                                               ; preds = %.preheader
   %31 = icmp ult i64 %spec.select, %1
@@ -396,7 +396,7 @@ tailrecurse:                                      ; preds = %SDL_CancelClipboard
 .thread:                                          ; preds = %63, %57
   %75 = add nuw i64 %.071149, 1
   %exitcond.not = icmp eq i64 %75, %.tr119145
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %57, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %57, !llvm.loop !6
 
 ._crit_edge.loopexit:                             ; preds = %.thread
   %.pre = load ptr, ptr %53, align 8
@@ -443,7 +443,7 @@ SDL_CopyClipboardMimeTypes.exit.thread102:        ; preds = %._crit_edge.i
   %86 = add i64 %85, %84
   %87 = add nuw i64 %.03134.i, 1
   %exitcond.not.i = icmp eq i64 %87, %.tr119145
-  br i1 %exitcond.not.i, label %._crit_edge.i.thread, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i.thread, label %.lr.ph.i, !llvm.loop !7
 
 .lr.ph39.preheader.i:                             ; preds = %._crit_edge.i.thread
   %88 = shl i64 %.tr119145, 3
@@ -468,12 +468,12 @@ SDL_CopyClipboardMimeTypes.exit.thread102:        ; preds = %._crit_edge.i
   %97 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   store i8 %96, ptr %.2.i, align 1
   %.not33.i = icmp eq i8 %96, 0
-  br i1 %.not33.i, label %98, label %94, !llvm.loop !9
+  br i1 %.not33.i, label %98, label %94, !llvm.loop !8
 
 98:                                               ; preds = %94
   %99 = add nuw i64 %.02837.i, 1
   %exitcond44.not.i = icmp eq i64 %99, %.tr119145
-  br i1 %exitcond44.not.i, label %SDL_CopyClipboardMimeTypes.exit, label %.lr.ph39.i, !llvm.loop !10
+  br i1 %exitcond44.not.i, label %SDL_CopyClipboardMimeTypes.exit, label %.lr.ph39.i, !llvm.loop !9
 
 SDL_CopyClipboardMimeTypes.exit:                  ; preds = %98
   %100 = getelementptr inbounds nuw ptr, ptr %81, i64 %.tr119145
@@ -536,7 +536,7 @@ define hidden ptr @SDL_CopyClipboardMimeTypes(ptr noundef readonly captures(none
   %8 = add i64 %7, %6
   %9 = add nuw i64 %.03134, 1
   %exitcond.not = icmp eq i64 %9, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 10:                                               ; preds = %._crit_edge
   %11 = tail call ptr @SDL_AllocateTemporaryMemory(i64 noundef %.029.lcssa) #6
@@ -582,12 +582,12 @@ define hidden ptr @SDL_CopyClipboardMimeTypes(ptr noundef readonly captures(none
   %26 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i8 %25, ptr %.2, align 1
   %.not33 = icmp eq i8 %25, 0
-  br i1 %.not33, label %27, label %23, !llvm.loop !9
+  br i1 %.not33, label %27, label %23, !llvm.loop !8
 
 27:                                               ; preds = %23
   %28 = add nuw i64 %.02837, 1
   %exitcond44.not = icmp eq i64 %28, %1
-  br i1 %exitcond44.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !10
+  br i1 %exitcond44.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !9
 
 29:                                               ; preds = %14, %._crit_edge40
   ret ptr %.030
@@ -742,7 +742,7 @@ define hidden noundef zeroext i1 @SDL_HasInternalClipboardData(ptr noundef reado
   %7 = add nuw i64 %.07, 1
   %8 = load i64, ptr %4, align 8
   %9 = icmp ult i64 %7, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %2, %6
   %.07 = phi i64 [ %7, %6 ], [ 0, %2 ]
@@ -815,7 +815,7 @@ define hidden zeroext i1 @SDL_HasClipboardData_REAL(ptr noundef %0) local_unname
   %27 = add nuw i64 %.07.i, 1
   %28 = load i64, ptr %24, align 8
   %29 = icmp ult i64 %27, %28
-  br i1 %29, label %.lr.ph.i, label %SDL_HasInternalClipboardData.exit, !llvm.loop !11
+  br i1 %29, label %.lr.ph.i, label %SDL_HasInternalClipboardData.exit, !llvm.loop !10
 
 .lr.ph.i:                                         ; preds = %22, %26
   %.07.i = phi i64 [ %27, %26 ], [ 0, %22 ]
@@ -890,7 +890,7 @@ define hidden ptr @SDL_GetClipboardMimeTypes_REAL(ptr noundef writeonly captures
   %19 = add i64 %18, %17
   %20 = add nuw i64 %.03134.i, 1
   %exitcond.not.i = icmp eq i64 %20, %10
-  br i1 %exitcond.not.i, label %._crit_edge.i.thread, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i.thread, label %.lr.ph.i, !llvm.loop !7
 
 .lr.ph39.preheader.i:                             ; preds = %._crit_edge.i.thread
   %21 = shl i64 %10, 3
@@ -921,12 +921,12 @@ define hidden ptr @SDL_GetClipboardMimeTypes_REAL(ptr noundef writeonly captures
   %32 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   store i8 %31, ptr %.2.i, align 1
   %.not33.i = icmp eq i8 %31, 0
-  br i1 %.not33.i, label %33, label %29, !llvm.loop !9
+  br i1 %.not33.i, label %33, label %29, !llvm.loop !8
 
 33:                                               ; preds = %29
   %34 = add nuw i64 %.02837.i, 1
   %exitcond44.not.i = icmp eq i64 %34, %10
-  br i1 %exitcond44.not.i, label %._crit_edge40.i, label %.lr.ph39.i, !llvm.loop !10
+  br i1 %exitcond44.not.i, label %._crit_edge40.i, label %.lr.ph39.i, !llvm.loop !9
 
 SDL_CopyClipboardMimeTypes.exit:                  ; preds = %._crit_edge40.i, %._crit_edge.i, %._crit_edge.i.thread, %4
   %.0 = phi ptr [ null, %4 ], [ null, %._crit_edge.i.thread ], [ null, %._crit_edge.i ], [ %24, %._crit_edge40.i ]
@@ -1041,7 +1041,7 @@ SDL_GetTextMimeTypes.exit:                        ; preds = %7
   %13 = add nuw i64 %.01318, 1
   %14 = load i64, ptr %1, align 8
   %15 = icmp ult i64 %13, %14
-  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %.01318 = phi i64 [ %13, %12 ], [ 0, %.lr.ph.preheader ]
@@ -1098,7 +1098,7 @@ SDL_GetTextMimeTypes.exit:                        ; preds = %5
   %11 = add nuw i64 %.068, 1
   %12 = load i64, ptr %1, align 8
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %.068 = phi i64 [ %11, %10 ], [ 0, %.lr.ph.preheader ]
@@ -1175,7 +1175,7 @@ SDL_CopyClipboardMimeTypes.exit.thread29:         ; preds = %._crit_edge.i
   %25 = add i64 %24, %23
   %26 = add nuw i64 %.03134.i, 1
   %exitcond.not.i = icmp eq i64 %26, %18
-  br i1 %exitcond.not.i, label %._crit_edge.i.thread, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i.thread, label %.lr.ph.i, !llvm.loop !7
 
 .lr.ph39.preheader.i:                             ; preds = %._crit_edge.i.thread
   %27 = shl i64 %18, 3
@@ -1200,12 +1200,12 @@ SDL_CopyClipboardMimeTypes.exit.thread29:         ; preds = %._crit_edge.i
   %36 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   store i8 %35, ptr %.2.i, align 1
   %.not33.i = icmp eq i8 %35, 0
-  br i1 %.not33.i, label %37, label %33, !llvm.loop !9
+  br i1 %.not33.i, label %37, label %33, !llvm.loop !8
 
 37:                                               ; preds = %33
   %38 = add nuw i64 %.02837.i, 1
   %exitcond44.not.i = icmp eq i64 %38, %18
-  br i1 %exitcond44.not.i, label %SDL_CopyClipboardMimeTypes.exit, label %.lr.ph39.i, !llvm.loop !10
+  br i1 %exitcond44.not.i, label %SDL_CopyClipboardMimeTypes.exit, label %.lr.ph39.i, !llvm.loop !9
 
 SDL_CopyClipboardMimeTypes.exit:                  ; preds = %37
   %39 = getelementptr inbounds nuw ptr, ptr %20, i64 %18
@@ -1316,14 +1316,13 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}

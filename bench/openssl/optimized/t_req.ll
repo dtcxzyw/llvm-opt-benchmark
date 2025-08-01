@@ -308,10 +308,10 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
 
 113:                                              ; preds = %112, %112, %112, %112, %112
   %114 = getelementptr inbounds nuw i8, ptr %.0112175, i64 8
-  %115 = load ptr, ptr %114, align 8, !tbaa !15
-  %116 = load i32, ptr %.0112175, align 8, !tbaa !19
+  %115 = load ptr, ptr %114, align 8, !tbaa !14
+  %116 = load i32, ptr %.0112175, align 8, !tbaa !18
   %117 = call i32 @BIO_write(ptr noundef %0, ptr noundef %115, i32 noundef %116) #4
-  %118 = load i32, ptr %.0112175, align 8, !tbaa !19
+  %118 = load i32, ptr %.0112175, align 8, !tbaa !18
   %.not131 = icmp eq i32 %117, %118
   br i1 %.not131, label %119, label %.sink.split
 
@@ -333,7 +333,7 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
   %128 = add nuw nsw i32 %.0100162, 1
   %129 = call i32 @X509_REQ_get_attr_count(ptr noundef %1) #4
   %130 = icmp slt i32 %128, %129
-  br i1 %130, label %.lr.ph163, label %.loopexit, !llvm.loop !20
+  br i1 %130, label %.lr.ph163, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %127, %.preheader158, %79, %69
   %131 = and i64 %3, 256
@@ -359,7 +359,7 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
   %140 = add nuw nsw i32 %.1101164, 1
   %141 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %133) #4
   %142 = icmp slt i32 %140, %141
-  br i1 %142, label %.lr.ph165, label %._crit_edge166, !llvm.loop !21
+  br i1 %142, label %.lr.ph165, label %._crit_edge166, !llvm.loop !20
 
 .lr.ph165:                                        ; preds = %.preheader, %139
   %.1101164 = phi i32 [ %140, %139 ], [ 0, %.preheader ]
@@ -416,8 +416,8 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   call void @X509_REQ_get0_signature(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %6) #4
-  %170 = load ptr, ptr %6, align 8, !tbaa !22
-  %171 = load ptr, ptr %7, align 8, !tbaa !24
+  %170 = load ptr, ptr %6, align 8, !tbaa !21
+  %171 = load ptr, ptr %7, align 8, !tbaa !23
   %172 = call i32 @X509_signature_print(ptr noundef %0, ptr noundef %170, ptr noundef %171) #4
   %.not138 = icmp eq i32 %172, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
@@ -522,17 +522,16 @@ attributes #4 = { nounwind }
 !9 = !{!"asn1_type_st", !10, i64 0, !6, i64 8}
 !10 = !{!"int", !6, i64 0}
 !11 = !{!6, !6, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !17, i64 8}
-!16 = !{!"asn1_string_st", !10, i64 0, !10, i64 4, !17, i64 8, !18, i64 16}
-!17 = !{!"p1 omnipotent char", !5, i64 0}
-!18 = !{!"long", !6, i64 0}
-!19 = !{!16, !10, i64 0}
-!20 = distinct !{!20, !13, !14}
-!21 = distinct !{!21, !13, !14}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS13X509_algor_st", !5, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 _ZTS14asn1_string_st", !5, i64 0}
+!14 = !{!15, !16, i64 8}
+!15 = !{!"asn1_string_st", !10, i64 0, !10, i64 4, !16, i64 8, !17, i64 16}
+!16 = !{!"p1 omnipotent char", !5, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = !{!15, !10, i64 0}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS13X509_algor_st", !5, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS14asn1_string_st", !5, i64 0}

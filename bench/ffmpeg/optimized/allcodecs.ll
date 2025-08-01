@@ -819,22 +819,22 @@ av_codec_iterate.exit.i:                          ; preds = %2
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 67108864
   %.not13.i.not = icmp eq i32 %11, 0
-  br i1 %.not13.i.not, label %12, label %2, !llvm.loop !28
+  br i1 %.not13.i.not, label %12, label %2, !llvm.loop !27
 
 12:                                               ; preds = %av_codec_iterate.exit.i
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !29
+  %14 = load i32, ptr %13, align 4, !tbaa !28
   %15 = icmp eq i32 %14, %0
-  br i1 %15, label %16, label %.outer.i, !llvm.loop !28
+  br i1 %15, label %16, label %.outer.i, !llvm.loop !27
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !30
+  %18 = load i32, ptr %17, align 8, !tbaa !29
   %19 = and i32 %18, 512
   %20 = icmp eq i32 %19, 0
   %21 = icmp ne ptr %.0.ph.i.ph, null
   %or.cond.i = select i1 %20, i1 true, i1 %21
-  br i1 %or.cond.i, label %find_codec.exit, label %.outer.i.outer, !llvm.loop !28
+  br i1 %or.cond.i, label %find_codec.exit, label %.outer.i.outer, !llvm.loop !27
 
 find_codec.exit:                                  ; preds = %16, %2
   %.011.i = phi ptr [ %.0.ph.i.ph, %2 ], [ %5, %16 ]
@@ -870,22 +870,22 @@ av_codec_iterate.exit.i:                          ; preds = %2
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 67108864
   %.not13.i = icmp eq i32 %11, 0
-  br i1 %.not13.i, label %2, label %12, !llvm.loop !28
+  br i1 %.not13.i, label %2, label %12, !llvm.loop !27
 
 12:                                               ; preds = %av_codec_iterate.exit.i
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !29
+  %14 = load i32, ptr %13, align 4, !tbaa !28
   %15 = icmp eq i32 %14, %0
-  br i1 %15, label %16, label %.outer.i, !llvm.loop !28
+  br i1 %15, label %16, label %.outer.i, !llvm.loop !27
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !30
+  %18 = load i32, ptr %17, align 8, !tbaa !29
   %19 = and i32 %18, 512
   %20 = icmp eq i32 %19, 0
   %21 = icmp ne ptr %.0.ph.i.ph, null
   %or.cond.i = select i1 %20, i1 true, i1 %21
-  br i1 %or.cond.i, label %find_codec.exit, label %.outer.i.outer, !llvm.loop !28
+  br i1 %or.cond.i, label %find_codec.exit, label %.outer.i.outer, !llvm.loop !27
 
 find_codec.exit:                                  ; preds = %16, %2
   %.011.i = phi ptr [ %.0.ph.i.ph, %2 ], [ %5, %16 ]
@@ -916,10 +916,10 @@ av_codec_iterate.exit.i:                          ; preds = %.backedge.i, %.preh
   %10 = load ptr, ptr %9, align 8, !tbaa !8
   %11 = tail call i32 @pthread_once(ptr noundef nonnull @av_codec_static_init, ptr noundef nonnull @av_codec_init_static) #4
   %.not.i.i = icmp eq i64 %5, 696
-  br i1 %.not.i.i, label %find_codec_by_name.exit, label %av_codec_iterate.exit.i, !llvm.loop !31
+  br i1 %.not.i.i, label %find_codec_by_name.exit, label %av_codec_iterate.exit.i, !llvm.loop !30
 
 12:                                               ; preds = %av_codec_iterate.exit.i
-  %13 = load ptr, ptr %3, align 8, !tbaa !32
+  %13 = load ptr, ptr %3, align 8, !tbaa !31
   %14 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %13) #5
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %find_codec_by_name.exit, label %.backedge.i
@@ -953,10 +953,10 @@ av_codec_iterate.exit.i:                          ; preds = %.backedge.i, %.preh
   %10 = load ptr, ptr %9, align 8, !tbaa !8
   %11 = tail call i32 @pthread_once(ptr noundef nonnull @av_codec_static_init, ptr noundef nonnull @av_codec_init_static) #4
   %.not.i.i = icmp eq i64 %5, 696
-  br i1 %.not.i.i, label %find_codec_by_name.exit, label %av_codec_iterate.exit.i, !llvm.loop !31
+  br i1 %.not.i.i, label %find_codec_by_name.exit, label %av_codec_iterate.exit.i, !llvm.loop !30
 
 12:                                               ; preds = %av_codec_iterate.exit.i
-  %13 = load ptr, ptr %3, align 8, !tbaa !32
+  %13 = load ptr, ptr %3, align 8, !tbaa !31
   %14 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %13) #5
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %find_codec_by_name.exit, label %.backedge.i
@@ -1003,11 +1003,10 @@ attributes #5 = { nounwind willreturn memory(read) }
 !22 = !{!"any p2 pointer", !5, i64 0}
 !23 = !{!11, !14, i64 16}
 !24 = !{!11, !5, i64 40}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
-!29 = !{!12, !14, i64 20}
-!30 = !{!12, !14, i64 24}
-!31 = distinct !{!31, !26, !27}
-!32 = !{!12, !13, i64 0}
+!27 = distinct !{!27, !26}
+!28 = !{!12, !14, i64 20}
+!29 = !{!12, !14, i64 24}
+!30 = distinct !{!30, !26}
+!31 = !{!12, !13, i64 0}

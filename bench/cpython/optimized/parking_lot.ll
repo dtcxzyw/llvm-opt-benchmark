@@ -525,7 +525,7 @@ _PyRawMutex_Lock.exit:                            ; preds = %1, %9
 
 25:                                               ; preds = %17, %13
   %.not.i = icmp eq ptr %.01519.i, %10
-  br i1 %.not.i, label %dequeue_all.exit, label %13, !llvm.loop !34
+  br i1 %.not.i, label %dequeue_all.exit, label %13, !llvm.loop !33
 
 dequeue_all.exit:                                 ; preds = %25, %_PyRawMutex_Lock.exit
   %26 = cmpxchg ptr %6, i64 1, i64 0 seq_cst seq_cst, align 8
@@ -560,7 +560,7 @@ _PySemaphore_Wakeup.exit:                         ; preds = %31, %_PyRawMutex_Un
   %35 = getelementptr i8, ptr %.0, i64 -32
   %36 = call i32 @sem_post(ptr noundef %35) #10
   %.not.i14 = icmp eq i32 %36, 0
-  br i1 %.not.i14, label %_PySemaphore_Wakeup.exit, label %37, !llvm.loop !35
+  br i1 %.not.i14, label %_PySemaphore_Wakeup.exit, label %37, !llvm.loop !34
 
 37:                                               ; preds = %31
   call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PySemaphore_Wakeup, ptr noundef nonnull @.str.1) #11
@@ -583,7 +583,7 @@ define dso_local void @_PyParkingLot_AfterFork() local_unnamed_addr #6 {
   store ptr %3, ptr %4, align 16, !tbaa !23
   %5 = add nuw nsw i64 %.03, 1
   %exitcond.not = icmp eq i64 %5, 257
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !36
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !35
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -659,9 +659,8 @@ attributes #12 = { nounwind willreturn memory(none) }
 !28 = !{!14, !18, i64 64}
 !29 = !{i8 0, i8 2}
 !30 = !{}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
-!35 = distinct !{!35, !32, !33}
-!36 = distinct !{!36, !32, !33}
+!33 = distinct !{!33, !32}
+!34 = distinct !{!34, !32}
+!35 = distinct !{!35, !32}

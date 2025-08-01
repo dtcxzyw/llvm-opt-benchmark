@@ -768,7 +768,7 @@ define dso_local void @_ZN6icu_779ExtraData12rangeHandlerEiiRNS_4NormE(ptr nound
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !61
+  %12 = load ptr, ptr %11, align 8, !tbaa !60
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %17, label %13
 
@@ -1247,7 +1247,6 @@ attributes #15 = { builtin nounwind }
 !55 = !{!56, !22, i64 4}
 !56 = !{!"_ZTSN6icu_7715CompositionPairE", !22, i64 0, !22, i64 4}
 !57 = !{!56, !22, i64 0}
-!58 = distinct !{!58, !59, !60}
+!58 = distinct !{!58, !59}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!"llvm.loop.estimated_trip_count"}
-!61 = !{!28, !33, i64 56}
+!60 = !{!28, !33, i64 56}

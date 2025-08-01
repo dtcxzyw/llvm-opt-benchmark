@@ -1625,7 +1625,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
   %237 = load i32, ptr %236, align 4
   %238 = sext i32 %237 to i64
   %239 = icmp slt i64 %indvars.iv.next, %238
-  br i1 %239, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %239, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %217
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1821,7 +1821,7 @@ switch.lookup:                                    ; preds = %323
   %334 = load i32, ptr %333, align 4
   %335 = sext i32 %334 to i64
   %336 = icmp slt i64 %indvars.iv.next76, %335
-  br i1 %336, label %.lr.ph71, label %._crit_edge72, !llvm.loop !9
+  br i1 %336, label %.lr.ph71, label %._crit_edge72, !llvm.loop !8
 
 ._crit_edge72:                                    ; preds = %331, %311
   %337 = phi i32 [ %314, %311 ], [ %334, %331 ]
@@ -2214,8 +2214,7 @@ attributes #14 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

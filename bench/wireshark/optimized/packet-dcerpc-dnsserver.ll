@@ -1551,7 +1551,7 @@ define hidden i32 @dnsserver_dissect_struct_DNS_RPC_SERVER_INFO_DOTNET(ptr nound
   %125 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %124, i32 noundef 0)
   %126 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %126, 4
-  br i1 %exitcond.not.i, label %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit, label %123, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit, label %123, !llvm.loop !10
 
 dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit: ; preds = %123
   %127 = load i32, ptr @hf_dnsserver_DNS_RPC_SERVER_INFO_DOTNET_AutoReverseZones, align 4
@@ -1589,7 +1589,7 @@ dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array.exit: ; preds
   %155 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i390, ptr noundef %2, ptr noundef %.0379, ptr noundef %4, ptr noundef %5, i32 noundef %154, i32 noundef 0)
   %156 = add nuw nsw i32 %.010.i389, 1
   %exitcond.not.i391 = icmp eq i32 %156, 15
-  br i1 %exitcond.not.i391, label %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2.exit, label %153, !llvm.loop !12
+  br i1 %exitcond.not.i391, label %dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2.exit, label %153, !llvm.loop !11
 
 dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_reserve_array2.exit: ; preds = %153
   %157 = sub i32 %155, %.0
@@ -2623,8 +2623,7 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

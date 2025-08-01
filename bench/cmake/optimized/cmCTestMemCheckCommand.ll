@@ -775,7 +775,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %26, %24, %20, %16, 
   store i8 %50, ptr %53, align 1, !tbaa !34
   %54 = add i32 %.01819.i.i, -2
   %55 = icmp ugt i32 %.020.i.i, 9999
-  br i1 %55, label %.lr.ph.i11.i, label %._crit_edge.i.i, !llvm.loop !77
+  br i1 %55, label %.lr.ph.i11.i, label %._crit_edge.i.i, !llvm.loop !76
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i11.i, %33
   %.0.lcssa.i.i = phi i32 [ %13, %33 ], [ %41, %.lr.ph.i11.i ]
@@ -877,7 +877,7 @@ define dso_local noundef zeroext i1 @_ZNK22cmCTestMemCheckCommand11InitialPassER
   %8 = alloca %class.cmArgumentParser, align 8
   %9 = load atomic i8, ptr @_ZGVZNK22cmCTestMemCheckCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser acquire, align 8
   %10 = icmp eq i8 %9, 0
-  br i1 %10, label %11, label %18, !prof !78
+  br i1 %10, label %11, label %18, !prof !77
 
 11:                                               ; preds = %3
   %12 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK22cmCTestMemCheckCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser) #22
@@ -919,16 +919,16 @@ _ZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEEC2ERKS2_.exi
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %4, ptr %7, align 8, !tbaa !79
+  store ptr %4, ptr %7, align 8, !tbaa !78
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %6, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !80
-  store ptr @"_ZNSt17_Function_handlerIFbvEZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS3_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESF_SH_T0_EUlvE_E9_M_invokeERKSt9_Any_data", ptr %22, align 8, !tbaa !82
-  store ptr @"_ZNSt17_Function_handlerIFbvEZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS3_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESF_SH_T0_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation", ptr %21, align 8, !tbaa !85
+  store ptr %6, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !79
+  store ptr @"_ZNSt17_Function_handlerIFbvEZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS3_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESF_SH_T0_EUlvE_E9_M_invokeERKSt9_Any_data", ptr %22, align 8, !tbaa !81
+  store ptr @"_ZNSt17_Function_handlerIFbvEZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS3_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESF_SH_T0_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation", ptr %21, align 8, !tbaa !84
   %23 = invoke noundef zeroext i1 @_ZNK21cmCTestHandlerCommand10InvokeImplERNS_14BasicArgumentsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EER17cmExecutionStatusSt8functionIFbvEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %7)
           to label %24 unwind label %61
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr %21, align 8, !tbaa !85
+  %25 = load ptr, ptr %21, align 8, !tbaa !84
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %_ZNSt14_Function_baseD2Ev.exit.i, label %26
 
@@ -966,9 +966,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZN22cmCTestMemCheckCommand17MemCheckArgumentsD2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @_ZN18cmCTestTestCommand13TestArgumentsD2Ev(ptr noundef nonnull align 8 dereferenceable(896) %6) #22
   call void @llvm.lifetime.end.p0(i64 896, ptr nonnull %6) #22
-  %40 = load ptr, ptr %5, align 8, !tbaa !86
+  %40 = load ptr, ptr %5, align 8, !tbaa !85
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !87
+  %42 = load ptr, ptr %41, align 8, !tbaa !86
   %.not4.i.i.i.i.i = icmp eq ptr %40, %42
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -995,10 +995,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
   %51 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %51, %42
-  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !88
+  br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !87
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %5, align 8, !tbaa !86
+  %.pr.i.i = load ptr, ptr %5, align 8, !tbaa !85
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i.i, %_ZN22cmCTestMemCheckCommand17MemCheckArgumentsD2Ev.exit.i
@@ -1008,7 +1008,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 53:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !89
+  %55 = load ptr, ptr %54, align 8, !tbaa !88
   %56 = ptrtoint ptr %55 to i64
   %57 = ptrtoint ptr %52 to i64
   %58 = sub i64 %56, %57
@@ -1023,7 +1023,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 61:                                               ; preds = %20
   %62 = landingpad { ptr, i32 }
           cleanup
-  %63 = load ptr, ptr %21, align 8, !tbaa !85
+  %63 = load ptr, ptr %21, align 8, !tbaa !84
   %.not.i7.i = icmp eq ptr %63, null
   br i1 %.not.i7.i, label %_ZNSt14_Function_baseD2Ev.exit8.i, label %64
 
@@ -1111,13 +1111,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %25, align 8
   store i64 240, ptr %21, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %24, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %23, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %24, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %23, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 5, ptr nonnull @.str.16, ptr noundef nonnull %21)
           to label %26 unwind label %33
 
 26:                                               ; preds = %1
-  %27 = load ptr, ptr %23, align 8, !tbaa !85
+  %27 = load ptr, ptr %23, align 8, !tbaa !84
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %41, label %28
 
@@ -1135,7 +1135,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 33:                                               ; preds = %1
   %34 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %23, align 8, !tbaa !85
+  %35 = load ptr, ptr %23, align 8, !tbaa !84
   %.not.i5.i = icmp eq ptr %35, null
   br i1 %.not.i5.i, label %.body, label %36
 
@@ -1158,13 +1158,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 0, ptr %44, align 8
   store i64 272, ptr %20, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %43, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %42, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %43, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %42, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 3, ptr nonnull @.str.17, ptr noundef nonnull %20)
           to label %45 unwind label %52
 
 45:                                               ; preds = %41
-  %46 = load ptr, ptr %42, align 8, !tbaa !85
+  %46 = load ptr, ptr %42, align 8, !tbaa !84
   %.not.i.i41 = icmp eq ptr %46, null
   br i1 %.not.i.i41, label %60, label %47
 
@@ -1182,7 +1182,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 52:                                               ; preds = %41
   %53 = landingpad { ptr, i32 }
           cleanup
-  %54 = load ptr, ptr %42, align 8, !tbaa !85
+  %54 = load ptr, ptr %42, align 8, !tbaa !84
   %.not.i5.i39 = icmp eq ptr %54, null
   br i1 %.not.i5.i39, label %.body, label %55
 
@@ -1205,13 +1205,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %63 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %63, align 8
   store i64 304, ptr %19, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %62, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %61, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %62, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %61, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 6, ptr nonnull @.str.18, ptr noundef nonnull %19)
           to label %64 unwind label %71
 
 64:                                               ; preds = %60
-  %65 = load ptr, ptr %61, align 8, !tbaa !85
+  %65 = load ptr, ptr %61, align 8, !tbaa !84
   %.not.i.i47 = icmp eq ptr %65, null
   br i1 %.not.i.i47, label %79, label %66
 
@@ -1229,7 +1229,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 71:                                               ; preds = %60
   %72 = landingpad { ptr, i32 }
           cleanup
-  %73 = load ptr, ptr %61, align 8, !tbaa !85
+  %73 = load ptr, ptr %61, align 8, !tbaa !84
   %.not.i5.i45 = icmp eq ptr %73, null
   br i1 %.not.i5.i45, label %.body, label %74
 
@@ -1252,13 +1252,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %82 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 0, ptr %82, align 8
   store i64 336, ptr %18, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %81, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %80, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %81, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %80, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 7, ptr nonnull @.str.19, ptr noundef nonnull %18)
           to label %83 unwind label %90
 
 83:                                               ; preds = %79
-  %84 = load ptr, ptr %80, align 8, !tbaa !85
+  %84 = load ptr, ptr %80, align 8, !tbaa !84
   %.not.i.i53 = icmp eq ptr %84, null
   br i1 %.not.i.i53, label %98, label %85
 
@@ -1276,7 +1276,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 90:                                               ; preds = %79
   %91 = landingpad { ptr, i32 }
           cleanup
-  %92 = load ptr, ptr %80, align 8, !tbaa !85
+  %92 = load ptr, ptr %80, align 8, !tbaa !84
   %.not.i5.i51 = icmp eq ptr %92, null
   br i1 %.not.i5.i51, label %.body, label %93
 
@@ -1299,13 +1299,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %101 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %101, align 8
   store i64 368, ptr %17, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %100, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %99, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %100, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %99, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 7, ptr nonnull @.str.20, ptr noundef nonnull %17)
           to label %102 unwind label %109
 
 102:                                              ; preds = %98
-  %103 = load ptr, ptr %99, align 8, !tbaa !85
+  %103 = load ptr, ptr %99, align 8, !tbaa !84
   %.not.i.i59 = icmp eq ptr %103, null
   br i1 %.not.i.i59, label %117, label %104
 
@@ -1323,7 +1323,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 109:                                              ; preds = %98
   %110 = landingpad { ptr, i32 }
           cleanup
-  %111 = load ptr, ptr %99, align 8, !tbaa !85
+  %111 = load ptr, ptr %99, align 8, !tbaa !84
   %.not.i5.i57 = icmp eq ptr %111, null
   br i1 %.not.i5.i57, label %.body, label %112
 
@@ -1346,13 +1346,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %120 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 0, ptr %120, align 8
   store i64 400, ptr %16, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %119, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %118, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %119, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %118, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 13, ptr nonnull @.str.21, ptr noundef nonnull %16)
           to label %121 unwind label %128
 
 121:                                              ; preds = %117
-  %122 = load ptr, ptr %118, align 8, !tbaa !85
+  %122 = load ptr, ptr %118, align 8, !tbaa !84
   %.not.i.i65 = icmp eq ptr %122, null
   br i1 %.not.i.i65, label %136, label %123
 
@@ -1370,7 +1370,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 128:                                              ; preds = %117
   %129 = landingpad { ptr, i32 }
           cleanup
-  %130 = load ptr, ptr %118, align 8, !tbaa !85
+  %130 = load ptr, ptr %118, align 8, !tbaa !84
   %.not.i5.i63 = icmp eq ptr %130, null
   br i1 %.not.i5.i63, label %.body, label %131
 
@@ -1393,13 +1393,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %139 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %139, align 8
   store i64 432, ptr %15, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %138, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %137, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %138, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %137, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 13, ptr nonnull @.str.22, ptr noundef nonnull %15)
           to label %140 unwind label %147
 
 140:                                              ; preds = %136
-  %141 = load ptr, ptr %137, align 8, !tbaa !85
+  %141 = load ptr, ptr %137, align 8, !tbaa !84
   %.not.i.i71 = icmp eq ptr %141, null
   br i1 %.not.i.i71, label %155, label %142
 
@@ -1417,7 +1417,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 147:                                              ; preds = %136
   %148 = landingpad { ptr, i32 }
           cleanup
-  %149 = load ptr, ptr %137, align 8, !tbaa !85
+  %149 = load ptr, ptr %137, align 8, !tbaa !84
   %.not.i5.i69 = icmp eq ptr %149, null
   br i1 %.not.i5.i69, label %.body, label %150
 
@@ -1440,13 +1440,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %158 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %158, align 8
   store i64 496, ptr %14, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %157, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %156, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %157, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %156, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 17, ptr nonnull @.str.23, ptr noundef nonnull %14)
           to label %159 unwind label %166
 
 159:                                              ; preds = %155
-  %160 = load ptr, ptr %156, align 8, !tbaa !85
+  %160 = load ptr, ptr %156, align 8, !tbaa !84
   %.not.i.i77 = icmp eq ptr %160, null
   br i1 %.not.i.i77, label %174, label %161
 
@@ -1464,7 +1464,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 166:                                              ; preds = %155
   %167 = landingpad { ptr, i32 }
           cleanup
-  %168 = load ptr, ptr %156, align 8, !tbaa !85
+  %168 = load ptr, ptr %156, align 8, !tbaa !84
   %.not.i5.i75 = icmp eq ptr %168, null
   br i1 %.not.i5.i75, label %.body, label %169
 
@@ -1487,13 +1487,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %177 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %177, align 8
   store i64 464, ptr %13, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %176, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %175, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %176, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %175, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 17, ptr nonnull @.str.24, ptr noundef nonnull %13)
           to label %178 unwind label %185
 
 178:                                              ; preds = %174
-  %179 = load ptr, ptr %175, align 8, !tbaa !85
+  %179 = load ptr, ptr %175, align 8, !tbaa !84
   %.not.i.i83 = icmp eq ptr %179, null
   br i1 %.not.i.i83, label %193, label %180
 
@@ -1511,7 +1511,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 185:                                              ; preds = %174
   %186 = landingpad { ptr, i32 }
           cleanup
-  %187 = load ptr, ptr %175, align 8, !tbaa !85
+  %187 = load ptr, ptr %175, align 8, !tbaa !84
   %.not.i5.i81 = icmp eq ptr %187, null
   br i1 %.not.i5.i81, label %.body, label %188
 
@@ -1534,13 +1534,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %196 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 0, ptr %196, align 8
   store i64 528, ptr %12, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %195, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %194, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %195, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %194, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 15, ptr nonnull @.str.25, ptr noundef nonnull %12)
           to label %197 unwind label %204
 
 197:                                              ; preds = %193
-  %198 = load ptr, ptr %194, align 8, !tbaa !85
+  %198 = load ptr, ptr %194, align 8, !tbaa !84
   %.not.i.i89 = icmp eq ptr %198, null
   br i1 %.not.i.i89, label %212, label %199
 
@@ -1558,7 +1558,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 204:                                              ; preds = %193
   %205 = landingpad { ptr, i32 }
           cleanup
-  %206 = load ptr, ptr %194, align 8, !tbaa !85
+  %206 = load ptr, ptr %194, align 8, !tbaa !84
   %.not.i5.i87 = icmp eq ptr %206, null
   br i1 %.not.i5.i87, label %.body, label %207
 
@@ -1581,13 +1581,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %215 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %215, align 8
   store i64 560, ptr %11, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %214, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %213, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %214, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %213, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 21, ptr nonnull @.str.26, ptr noundef nonnull %11)
           to label %216 unwind label %223
 
 216:                                              ; preds = %212
-  %217 = load ptr, ptr %213, align 8, !tbaa !85
+  %217 = load ptr, ptr %213, align 8, !tbaa !84
   %.not.i.i95 = icmp eq ptr %217, null
   br i1 %.not.i.i95, label %231, label %218
 
@@ -1605,7 +1605,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 223:                                              ; preds = %212
   %224 = landingpad { ptr, i32 }
           cleanup
-  %225 = load ptr, ptr %213, align 8, !tbaa !85
+  %225 = load ptr, ptr %213, align 8, !tbaa !84
   %.not.i5.i93 = icmp eq ptr %225, null
   br i1 %.not.i5.i93, label %.body, label %226
 
@@ -1628,13 +1628,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %234 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %234, align 8
   store i64 592, ptr %10, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %233, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %232, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %233, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %232, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 23, ptr nonnull @.str.27, ptr noundef nonnull %10)
           to label %235 unwind label %242
 
 235:                                              ; preds = %231
-  %236 = load ptr, ptr %232, align 8, !tbaa !85
+  %236 = load ptr, ptr %232, align 8, !tbaa !84
   %.not.i.i101 = icmp eq ptr %236, null
   br i1 %.not.i.i101, label %250, label %237
 
@@ -1652,7 +1652,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 242:                                              ; preds = %231
   %243 = landingpad { ptr, i32 }
           cleanup
-  %244 = load ptr, ptr %232, align 8, !tbaa !85
+  %244 = load ptr, ptr %232, align 8, !tbaa !84
   %.not.i5.i99 = icmp eq ptr %244, null
   br i1 %.not.i5.i99, label %.body, label %245
 
@@ -1675,13 +1675,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %253 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %253, align 8
   store i64 624, ptr %9, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESA_SK_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %252, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESA_SK_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %251, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESA_SK_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %252, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESA_SK_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation, ptr %251, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 14, ptr nonnull @.str.28, ptr noundef nonnull %9)
           to label %254 unwind label %261
 
 254:                                              ; preds = %250
-  %255 = load ptr, ptr %251, align 8, !tbaa !85
+  %255 = load ptr, ptr %251, align 8, !tbaa !84
   %.not.i.i107 = icmp eq ptr %255, null
   br i1 %.not.i.i107, label %269, label %256
 
@@ -1699,7 +1699,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 261:                                              ; preds = %250
   %262 = landingpad { ptr, i32 }
           cleanup
-  %263 = load ptr, ptr %251, align 8, !tbaa !85
+  %263 = load ptr, ptr %251, align 8, !tbaa !84
   %.not.i5.i105 = icmp eq ptr %263, null
   br i1 %.not.i5.i105, label %.body, label %264
 
@@ -1722,13 +1722,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %272 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %272, align 8
   store i64 664, ptr %8, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %271, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %270, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %271, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %270, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 6, ptr nonnull @.str.29, ptr noundef nonnull %8)
           to label %273 unwind label %280
 
 273:                                              ; preds = %269
-  %274 = load ptr, ptr %270, align 8, !tbaa !85
+  %274 = load ptr, ptr %270, align 8, !tbaa !84
   %.not.i.i112 = icmp eq ptr %274, null
   br i1 %.not.i.i112, label %288, label %275
 
@@ -1746,7 +1746,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 280:                                              ; preds = %269
   %281 = landingpad { ptr, i32 }
           cleanup
-  %282 = load ptr, ptr %270, align 8, !tbaa !85
+  %282 = load ptr, ptr %270, align 8, !tbaa !84
   %.not.i5.i110 = icmp eq ptr %282, null
   br i1 %.not.i5.i110, label %.body, label %283
 
@@ -1769,13 +1769,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %291 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %291, align 8
   store i64 696, ptr %7, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %290, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %289, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %290, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %289, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 15, ptr nonnull @.str.30, ptr noundef nonnull %7)
           to label %292 unwind label %299
 
 292:                                              ; preds = %288
-  %293 = load ptr, ptr %289, align 8, !tbaa !85
+  %293 = load ptr, ptr %289, align 8, !tbaa !84
   %.not.i.i118 = icmp eq ptr %293, null
   br i1 %.not.i.i118, label %307, label %294
 
@@ -1793,7 +1793,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 299:                                              ; preds = %288
   %300 = landingpad { ptr, i32 }
           cleanup
-  %301 = load ptr, ptr %289, align 8, !tbaa !85
+  %301 = load ptr, ptr %289, align 8, !tbaa !84
   %.not.i5.i116 = icmp eq ptr %301, null
   br i1 %.not.i5.i116, label %.body, label %302
 
@@ -1816,13 +1816,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %310 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %310, align 8
   store i64 728, ptr %6, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %309, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %308, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %309, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %308, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 9, ptr nonnull @.str.31, ptr noundef nonnull %6)
           to label %311 unwind label %318
 
 311:                                              ; preds = %307
-  %312 = load ptr, ptr %308, align 8, !tbaa !85
+  %312 = load ptr, ptr %308, align 8, !tbaa !84
   %.not.i.i124 = icmp eq ptr %312, null
   br i1 %.not.i.i124, label %326, label %313
 
@@ -1840,7 +1840,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 318:                                              ; preds = %307
   %319 = landingpad { ptr, i32 }
           cleanup
-  %320 = load ptr, ptr %308, align 8, !tbaa !85
+  %320 = load ptr, ptr %308, align 8, !tbaa !84
   %.not.i5.i122 = icmp eq ptr %320, null
   br i1 %.not.i5.i122, label %.body, label %321
 
@@ -1863,13 +1863,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %329 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %329, align 8
   store i64 760, ptr %5, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %328, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %327, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %328, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %327, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 9, ptr nonnull @.str.32, ptr noundef nonnull %5)
           to label %330 unwind label %337
 
 330:                                              ; preds = %326
-  %331 = load ptr, ptr %327, align 8, !tbaa !85
+  %331 = load ptr, ptr %327, align 8, !tbaa !84
   %.not.i.i130 = icmp eq ptr %331, null
   br i1 %.not.i.i130, label %345, label %332
 
@@ -1887,7 +1887,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 337:                                              ; preds = %326
   %338 = landingpad { ptr, i32 }
           cleanup
-  %339 = load ptr, ptr %327, align 8, !tbaa !85
+  %339 = load ptr, ptr %327, align 8, !tbaa !84
   %.not.i5.i128 = icmp eq ptr %339, null
   br i1 %.not.i5.i128, label %.body, label %340
 
@@ -1910,13 +1910,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %348 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %348, align 8
   store i64 792, ptr %4, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %347, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %346, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %347, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %346, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 18, ptr nonnull @.str.33, ptr noundef nonnull %4)
           to label %349 unwind label %356
 
 349:                                              ; preds = %345
-  %350 = load ptr, ptr %346, align 8, !tbaa !85
+  %350 = load ptr, ptr %346, align 8, !tbaa !84
   %.not.i.i136 = icmp eq ptr %350, null
   br i1 %.not.i.i136, label %364, label %351
 
@@ -1934,7 +1934,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 356:                                              ; preds = %345
   %357 = landingpad { ptr, i32 }
           cleanup
-  %358 = load ptr, ptr %346, align 8, !tbaa !85
+  %358 = load ptr, ptr %346, align 8, !tbaa !84
   %.not.i5.i134 = icmp eq ptr %358, null
   br i1 %.not.i5.i134, label %.body, label %359
 
@@ -1957,13 +1957,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %367 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %367, align 8
   store i64 856, ptr %3, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %366, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %365, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %366, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %365, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 15, ptr nonnull @.str.34, ptr noundef nonnull %3)
           to label %368 unwind label %375
 
 368:                                              ; preds = %364
-  %369 = load ptr, ptr %365, align 8, !tbaa !85
+  %369 = load ptr, ptr %365, align 8, !tbaa !84
   %.not.i.i142 = icmp eq ptr %369, null
   br i1 %.not.i.i142, label %383, label %370
 
@@ -1981,7 +1981,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 375:                                              ; preds = %364
   %376 = landingpad { ptr, i32 }
           cleanup
-  %377 = load ptr, ptr %365, align 8, !tbaa !85
+  %377 = load ptr, ptr %365, align 8, !tbaa !84
   %.not.i5.i140 = icmp eq ptr %377, null
   br i1 %.not.i5.i140, label %.body, label %378
 
@@ -2004,13 +2004,13 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
   %386 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %386, align 8
   store i64 824, ptr %2, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %385, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %384, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %385, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %384, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 12, ptr nonnull @.str.35, ptr noundef nonnull %2)
           to label %387 unwind label %394
 
 387:                                              ; preds = %383
-  %388 = load ptr, ptr %384, align 8, !tbaa !85
+  %388 = load ptr, ptr %384, align 8, !tbaa !84
   %.not.i.i147 = icmp eq ptr %388, null
   br i1 %.not.i.i147, label %402, label %389
 
@@ -2028,7 +2028,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommand14MakeTestParserIN22c
 394:                                              ; preds = %383
   %395 = landingpad { ptr, i32 }
           cleanup
-  %396 = load ptr, ptr %384, align 8, !tbaa !85
+  %396 = load ptr, ptr %384, align 8, !tbaa !84
   %.not.i5.i145 = icmp eq ptr %396, null
   br i1 %.not.i5.i145, label %.body, label %397
 
@@ -2073,13 +2073,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(112) ptr @
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %8, align 8
   store i64 %3, ptr %5, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SE_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %7, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SE_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation, ptr %6, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SE_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %7, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SE_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation, ptr %6, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %1, ptr %2, ptr noundef nonnull %5)
           to label %9 unwind label %16
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %6, align 8, !tbaa !85
+  %10 = load ptr, ptr %6, align 8, !tbaa !84
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %11
 
@@ -2100,7 +2100,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %9, %11
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %6, align 8, !tbaa !85
+  %18 = load ptr, ptr %6, align 8, !tbaa !84
   %.not.i5 = icmp eq ptr %18, null
   br i1 %.not.i5, label %_ZNSt14_Function_baseD2Ev.exit6, label %19
 
@@ -2179,8 +2179,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZN14ArgumentParser9ActionMapC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !92
-  %5 = load ptr, ptr %1, align 8, !tbaa !95
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
+  %5 = load ptr, ptr %1, align 8, !tbaa !94
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -2191,7 +2191,7 @@ define linkonce_odr dso_local void @_ZN14ArgumentParser9ActionMapC2ERKS0_(ptr no
 9:                                                ; preds = %2
   %10 = sdiv exact i64 %8, 48
   %11 = icmp ugt i64 %10, 192153584101141162
-  br i1 %11, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEE8allocateERSC_m.exit.i.i.i.i.i, !prof !96
+  br i1 %11, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEE8allocateERSC_m.exit.i.i.i.i.i, !prof !95
 
 .noexc.i.i.i:                                     ; preds = %9
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #24
@@ -2203,26 +2203,26 @@ _ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8
 
 13:                                               ; preds = %_ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEE8allocateERSC_m.exit.i.i.i.i.i, %2
   %14 = phi ptr [ null, %2 ], [ %12, %_ZNSt16allocator_traitsISaISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEE8allocateERSC_m.exit.i.i.i.i.i ]
-  store ptr %14, ptr %0, align 8, !tbaa !95
+  store ptr %14, ptr %0, align 8, !tbaa !94
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !92
+  store ptr %14, ptr %15, align 8, !tbaa !91
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %16, ptr %17, align 8, !tbaa !97
-  %18 = load ptr, ptr %1, align 8, !tbaa !98
-  %19 = load ptr, ptr %3, align 8, !tbaa !98
+  store ptr %16, ptr %17, align 8, !tbaa !96
+  %18 = load ptr, ptr %1, align 8, !tbaa !97
+  %19 = load ptr, ptr %3, align 8, !tbaa !97
   %20 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESt6vectorISD_SaISD_EEEEPSD_ET0_T_SM_SL_(ptr %18, ptr %19, ptr noundef %14)
           to label %_ZN14ArgumentParser16KeywordActionMapC2ERKS0_.exit unwind label %21
 
 21:                                               ; preds = %13
   %22 = landingpad { ptr, i32 }
           cleanup
-  %23 = load ptr, ptr %0, align 8, !tbaa !95
+  %23 = load ptr, ptr %0, align 8, !tbaa !94
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %common.resume, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %17, align 8, !tbaa !97
+  %25 = load ptr, ptr %17, align 8, !tbaa !96
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %23 to i64
   %28 = sub i64 %26, %27
@@ -2234,13 +2234,13 @@ common.resume:                                    ; preds = %21, %24, %.body
   resume { ptr, i32 } %common.resume.op
 
 _ZN14ArgumentParser16KeywordActionMapC2ERKS0_.exit: ; preds = %13
-  store ptr %20, ptr %15, align 8, !tbaa !92
+  store ptr %20, ptr %15, align 8, !tbaa !91
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
-  %33 = load ptr, ptr %32, align 8, !tbaa !85
+  %33 = load ptr, ptr %32, align 8, !tbaa !84
   %.not.i.i.not.i = icmp eq ptr %33, null
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS8_.exit, label %34
 
@@ -2251,16 +2251,16 @@ _ZN14ArgumentParser16KeywordActionMapC2ERKS0_.exit: ; preds = %13
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %39 = load ptr, ptr %38, align 8, !tbaa !99
-  store ptr %39, ptr %31, align 8, !tbaa !99
-  %40 = load ptr, ptr %32, align 8, !tbaa !85
-  store ptr %40, ptr %30, align 8, !tbaa !85
+  %39 = load ptr, ptr %38, align 8, !tbaa !98
+  store ptr %39, ptr %31, align 8, !tbaa !98
+  %40 = load ptr, ptr %32, align 8, !tbaa !84
+  store ptr %40, ptr %30, align 8, !tbaa !84
   br label %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS8_.exit
 
 41:                                               ; preds = %34
   %42 = landingpad { ptr, i32 }
           cleanup
-  %43 = load ptr, ptr %30, align 8, !tbaa !85
+  %43 = load ptr, ptr %30, align 8, !tbaa !84
   %.not.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i, label %.body, label %44
 
@@ -2281,7 +2281,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_tra
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false)
-  %53 = load ptr, ptr %52, align 8, !tbaa !85
+  %53 = load ptr, ptr %52, align 8, !tbaa !84
   %.not.i.i.not.i10 = icmp eq ptr %53, null
   br i1 %.not.i.i.not.i10, label %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS8_.exit15, label %54
 
@@ -2292,16 +2292,16 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_tra
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %59 = load ptr, ptr %58, align 8, !tbaa !99
-  store ptr %59, ptr %51, align 8, !tbaa !99
-  %60 = load ptr, ptr %52, align 8, !tbaa !85
-  store ptr %60, ptr %50, align 8, !tbaa !85
+  %59 = load ptr, ptr %58, align 8, !tbaa !98
+  store ptr %59, ptr %51, align 8, !tbaa !98
+  %60 = load ptr, ptr %52, align 8, !tbaa !84
+  store ptr %60, ptr %50, align 8, !tbaa !84
   br label %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS8_.exit15
 
 61:                                               ; preds = %54
   %62 = landingpad { ptr, i32 }
           cleanup
-  %63 = load ptr, ptr %50, align 8, !tbaa !85
+  %63 = load ptr, ptr %50, align 8, !tbaa !84
   %.not.i.i11 = icmp eq ptr %63, null
   br i1 %.not.i.i11, label %.body13, label %64
 
@@ -2320,8 +2320,8 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_tra
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %72 = load ptr, ptr %71, align 8, !tbaa !101
-  %73 = load ptr, ptr %70, align 8, !tbaa !104
+  %72 = load ptr, ptr %71, align 8, !tbaa !100
+  %73 = load ptr, ptr %70, align 8, !tbaa !103
   %74 = ptrtoint ptr %72 to i64
   %75 = ptrtoint ptr %73 to i64
   %76 = sub i64 %74, %75
@@ -2332,7 +2332,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_tra
 77:                                               ; preds = %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS8_.exit15
   %78 = sdiv exact i64 %76, 40
   %79 = icmp ugt i64 %78, 230584300921369395
-  br i1 %79, label %.noexc.i.i.i18, label %_ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEE8allocateERSC_m.exit.i.i.i.i.i, !prof !96
+  br i1 %79, label %.noexc.i.i.i18, label %_ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEE8allocateERSC_m.exit.i.i.i.i.i, !prof !95
 
 .noexc.i.i.i18:                                   ; preds = %77
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #24
@@ -2347,26 +2347,26 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
 
 .noexc19:                                         ; preds = %_ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEE8allocateERSC_m.exit.i.i.i.i.i, %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS8_.exit15
   %81 = phi ptr [ null, %_ZNSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEEC2ERKS8_.exit15 ], [ %80, %_ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEE8allocateERSC_m.exit.i.i.i.i.i ]
-  store ptr %81, ptr %69, align 8, !tbaa !104
+  store ptr %81, ptr %69, align 8, !tbaa !103
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %81, ptr %82, align 8, !tbaa !101
+  store ptr %81, ptr %82, align 8, !tbaa !100
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 %76
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %83, ptr %84, align 8, !tbaa !105
-  %85 = load ptr, ptr %70, align 8, !tbaa !106
-  %86 = load ptr, ptr %71, align 8, !tbaa !106
+  store ptr %83, ptr %84, align 8, !tbaa !104
+  %85 = load ptr, ptr %70, align 8, !tbaa !105
+  %86 = load ptr, ptr %71, align 8, !tbaa !105
   %87 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESt6vectorISD_SaISD_EEEEPSD_ET0_T_SM_SL_(ptr %85, ptr %86, ptr noundef %81)
           to label %96 unwind label %88
 
 88:                                               ; preds = %.noexc19
   %89 = landingpad { ptr, i32 }
           cleanup
-  %90 = load ptr, ptr %69, align 8, !tbaa !104
+  %90 = load ptr, ptr %69, align 8, !tbaa !103
   %.not.i.i.i.i17 = icmp eq ptr %90, null
   br i1 %.not.i.i.i.i17, label %.body20, label %91
 
 91:                                               ; preds = %88
-  %92 = load ptr, ptr %84, align 8, !tbaa !105
+  %92 = load ptr, ptr %84, align 8, !tbaa !104
   %93 = ptrtoint ptr %92 to i64
   %94 = ptrtoint ptr %90 to i64
   %95 = sub i64 %93, %94
@@ -2374,7 +2374,7 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
   br label %.body20
 
 96:                                               ; preds = %.noexc19
-  store ptr %87, ptr %82, align 8, !tbaa !101
+  store ptr %87, ptr %82, align 8, !tbaa !100
   ret void
 
 97:                                               ; preds = %_ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEE8allocateERSC_m.exit.i.i.i.i.i, %.noexc.i.i.i18
@@ -2384,7 +2384,7 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
 
 .body20:                                          ; preds = %88, %91, %97
   %eh.lpad-body21 = phi { ptr, i32 } [ %98, %97 ], [ %89, %91 ], [ %89, %88 ]
-  %99 = load ptr, ptr %50, align 8, !tbaa !85
+  %99 = load ptr, ptr %50, align 8, !tbaa !84
   %.not.i = icmp eq ptr %99, null
   br i1 %.not.i, label %.body13, label %100
 
@@ -2401,7 +2401,7 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
 
 .body13:                                          ; preds = %100, %.body20, %64, %61
   %.pn = phi { ptr, i32 } [ %62, %64 ], [ %62, %61 ], [ %eh.lpad-body21, %.body20 ], [ %eh.lpad-body21, %100 ]
-  %105 = load ptr, ptr %30, align 8, !tbaa !85
+  %105 = load ptr, ptr %30, align 8, !tbaa !84
   %.not.i22 = icmp eq ptr %105, null
   br i1 %.not.i22, label %.body, label %106
 
@@ -2424,16 +2424,16 @@ _ZNSt16allocator_traitsISaISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !95
+  %2 = load ptr, ptr %0, align 8, !tbaa !94
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !92
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %13, %_ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !85
+  %6 = load ptr, ptr %5, align 8, !tbaa !84
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i.i.i, label %7
 
@@ -2452,10 +2452,10 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt4pairISt17basic_string_viewIc
 _ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i.i.i: ; preds = %7, %.lr.ph.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 48
   %.not.i.i.i = icmp eq ptr %13, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !107
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !106
 
 _ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !95
+  %.pr = load ptr, ptr %0, align 8, !tbaa !94
   br label %_ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exit
 
 _ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split, %1
@@ -2465,7 +2465,7 @@ _ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvR
 
 15:                                               ; preds = %_ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !97
+  %17 = load ptr, ptr %16, align 8, !tbaa !96
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -2490,13 +2490,13 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEJRKSB_EEvPT_DpOT0_.exit
   %.015 = phi ptr [ %25, %_ZSt10_ConstructISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEJRKSB_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.sroa.08.014 = phi ptr [ %24, %_ZSt10_ConstructISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEJRKSB_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.015, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.08.014, i64 16, i1 false), !tbaa.struct !108
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.015, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.08.014, i64 16, i1 false), !tbaa.struct !107
   %4 = getelementptr inbounds nuw i8, ptr %.015, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %.015, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %.015, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  %8 = load ptr, ptr %7, align 8, !tbaa !85
+  %8 = load ptr, ptr %7, align 8, !tbaa !84
   %.not.i.i.not.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.not.i.i.i, label %_ZSt10_ConstructISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEJRKSB_EEvPT_DpOT0_.exit, label %9
 
@@ -2507,16 +2507,16 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !90
-  store ptr %14, ptr %6, align 8, !tbaa !90
-  %15 = load ptr, ptr %7, align 8, !tbaa !85
-  store ptr %15, ptr %5, align 8, !tbaa !85
+  %14 = load ptr, ptr %13, align 8, !tbaa !89
+  store ptr %14, ptr %6, align 8, !tbaa !89
+  %15 = load ptr, ptr %7, align 8, !tbaa !84
+  store ptr %15, ptr %5, align 8, !tbaa !84
   br label %_ZSt10_ConstructISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEJRKSB_EEvPT_DpOT0_.exit
 
 16:                                               ; preds = %9
   %17 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = load ptr, ptr %5, align 8, !tbaa !85
+  %18 = load ptr, ptr %5, align 8, !tbaa !84
   %.not.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i, label %.body, label %19
 
@@ -2535,7 +2535,7 @@ _ZSt10_ConstructISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIF
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %.015, i64 48
   %.not = icmp eq ptr %24, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !110
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
 
 .body:                                            ; preds = %16, %19
   %26 = extractvalue { ptr, i32 } %17, 0
@@ -2579,7 +2579,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPSt4pairISt17basic_string_view
 .lr.ph.i:                                         ; preds = %2, %_ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i
   %.05.i = phi ptr [ %11, %_ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i ], [ %0, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.05.i, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !85
+  %4 = load ptr, ptr %3, align 8, !tbaa !84
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i, label %5
 
@@ -2598,7 +2598,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPSt4pairISt17basic_string_view
 _ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i: ; preds = %5, %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %.05.i, i64 48
   %.not.i = icmp eq ptr %11, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEEvT_SF_.exit, label %.lr.ph.i, !llvm.loop !107
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEEvT_SF_.exit, label %.lr.ph.i, !llvm.loop !106
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEEvT_SF_.exit: ; preds = %_ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i, %2
   ret void
@@ -2622,14 +2622,14 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 .lr.ph:                                           ; preds = %3, %_ZSt10_ConstructISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEJRKSB_EEvPT_DpOT0_.exit
   %.015 = phi ptr [ %26, %_ZSt10_ConstructISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEJRKSB_EEvPT_DpOT0_.exit ], [ %2, %3 ]
   %.sroa.08.014 = phi ptr [ %25, %_ZSt10_ConstructISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEJRKSB_EEvPT_DpOT0_.exit ], [ %0, %3 ]
-  %4 = load i64, ptr %.sroa.08.014, align 8, !tbaa !111
-  store i64 %4, ptr %.015, align 8, !tbaa !111
+  %4 = load i64, ptr %.sroa.08.014, align 8, !tbaa !110
+  store i64 %4, ptr %.015, align 8, !tbaa !110
   %5 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %.015, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %.015, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %9 = load ptr, ptr %8, align 8, !tbaa !85
+  %9 = load ptr, ptr %8, align 8, !tbaa !84
   %.not.i.i.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.not.i.i.i, label %_ZSt10_ConstructISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEJRKSB_EEvPT_DpOT0_.exit, label %10
 
@@ -2640,16 +2640,16 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !114
-  store ptr %15, ptr %7, align 8, !tbaa !114
-  %16 = load ptr, ptr %8, align 8, !tbaa !85
-  store ptr %16, ptr %6, align 8, !tbaa !85
+  %15 = load ptr, ptr %14, align 8, !tbaa !113
+  store ptr %15, ptr %7, align 8, !tbaa !113
+  %16 = load ptr, ptr %8, align 8, !tbaa !84
+  store ptr %16, ptr %6, align 8, !tbaa !84
   br label %_ZSt10_ConstructISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEJRKSB_EEvPT_DpOT0_.exit
 
 17:                                               ; preds = %10
   %18 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = load ptr, ptr %6, align 8, !tbaa !85
+  %19 = load ptr, ptr %6, align 8, !tbaa !84
   %.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i, label %.body, label %20
 
@@ -2668,7 +2668,7 @@ _ZSt10_ConstructISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_s
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 40
   %26 = getelementptr inbounds nuw i8, ptr %.015, i64 40
   %.not = icmp eq ptr %25, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !115
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
 .body:                                            ; preds = %17, %20
   %27 = extractvalue { ptr, i32 } %18, 0
@@ -2712,7 +2712,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPSt4pairImSt8functionIFvRN14Ar
 .lr.ph.i:                                         ; preds = %2, %_ZSt8_DestroyISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEvPT_.exit.i
   %.05.i = phi ptr [ %11, %_ZSt8_DestroyISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEvPT_.exit.i ], [ %0, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.05.i, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !85
+  %4 = load ptr, ptr %3, align 8, !tbaa !84
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEvPT_.exit.i, label %5
 
@@ -2731,7 +2731,7 @@ define linkonce_odr dso_local void @_ZSt8_DestroyIPSt4pairImSt8functionIFvRN14Ar
 _ZSt8_DestroyISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEvPT_.exit.i: ; preds = %5, %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %.05.i, i64 40
   %.not.i = icmp eq ptr %11, %1
-  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEEvT_SF_.exit, label %.lr.ph.i, !llvm.loop !116
+  br i1 %.not.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEEvT_SF_.exit, label %.lr.ph.i, !llvm.loop !115
 
 _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEEvT_SF_.exit: ; preds = %_ZSt8_DestroyISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEvPT_.exit.i, %2
   ret void
@@ -2740,16 +2740,16 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairImSt8functionIFvRN14ArgumentParser8I
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14ArgumentParser9ActionMapD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !104
+  %3 = load ptr, ptr %2, align 8, !tbaa !103
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !101
+  %5 = load ptr, ptr %4, align 8, !tbaa !100
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESB_EvT_SD_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %_ZSt8_DestroyISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %14, %_ZSt8_DestroyISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEvPT_.exit.i.i.i.i ], [ %3, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !85
+  %7 = load ptr, ptr %6, align 8, !tbaa !84
   %.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEvPT_.exit.i.i.i.i, label %8
 
@@ -2768,10 +2768,10 @@ define linkonce_odr dso_local void @_ZN14ArgumentParser9ActionMapD2Ev(ptr nounde
 _ZSt8_DestroyISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEvPT_.exit.i.i.i.i: ; preds = %8, %.lr.ph.i.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 40
   %.not.i.i.i.i = icmp eq ptr %14, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !116
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !115
 
 _ZSt8_DestroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8, !tbaa !104
+  %.pr.i = load ptr, ptr %2, align 8, !tbaa !103
   br label %_ZSt8_DestroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESB_EvT_SD_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESB_EvT_SD_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i, %1
@@ -2781,7 +2781,7 @@ _ZSt8_DestroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_str
 
 16:                                               ; preds = %_ZSt8_DestroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESB_EvT_SD_RSaIT0_E.exit.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %18 = load ptr, ptr %17, align 8, !tbaa !105
+  %18 = load ptr, ptr %17, align 8, !tbaa !104
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
@@ -2790,7 +2790,7 @@ _ZSt8_DestroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_str
 
 _ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESaISB_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESB_EvT_SD_RSaIT0_E.exit.i, %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %23 = load ptr, ptr %22, align 8, !tbaa !85
+  %23 = load ptr, ptr %22, align 8, !tbaa !84
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %24
 
@@ -2808,7 +2808,7 @@ _ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_strin
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt6vectorISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESaISB_EED2Ev.exit, %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load ptr, ptr %30, align 8, !tbaa !85
+  %31 = load ptr, ptr %30, align 8, !tbaa !84
   %.not.i1 = icmp eq ptr %31, null
   br i1 %.not.i1, label %_ZNSt14_Function_baseD2Ev.exit2, label %32
 
@@ -2825,16 +2825,16 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt6vectorISt4pai
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit2:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %32
-  %38 = load ptr, ptr %0, align 8, !tbaa !95
+  %38 = load ptr, ptr %0, align 8, !tbaa !94
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !92
+  %40 = load ptr, ptr %39, align 8, !tbaa !91
   %.not4.i.i.i.i3 = icmp eq ptr %38, %40
   br i1 %.not4.i.i.i.i3, label %_ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i4
 
 .lr.ph.i.i.i.i4:                                  ; preds = %_ZNSt14_Function_baseD2Ev.exit2, %_ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i5 = phi ptr [ %49, %_ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i.i.i.i ], [ %38, %_ZNSt14_Function_baseD2Ev.exit2 ]
   %41 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i5, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !85
+  %42 = load ptr, ptr %41, align 8, !tbaa !84
   %.not.i.i.i.i.i.i.i6 = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i.i.i.i6, label %_ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i.i.i.i, label %43
 
@@ -2853,10 +2853,10 @@ _ZNSt14_Function_baseD2Ev.exit2:                  ; preds = %_ZNSt14_Function_ba
 _ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i.i.i.i: ; preds = %43, %.lr.ph.i.i.i.i4
   %49 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i5, i64 48
   %.not.i.i.i.i7 = icmp eq ptr %49, %40
-  br i1 %.not.i.i.i.i7, label %_ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i4, !llvm.loop !107
+  br i1 %.not.i.i.i.i7, label %_ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i4, !llvm.loop !106
 
 _ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEEEvPT_.exit.i.i.i.i
-  %.pr.i8 = load ptr, ptr %0, align 8, !tbaa !95
+  %.pr.i8 = load ptr, ptr %0, align 8, !tbaa !94
   br label %_ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exitthread-pre-split.i, %_ZNSt14_Function_baseD2Ev.exit2
@@ -2866,7 +2866,7 @@ _ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvR
 
 51:                                               ; preds = %_ZSt8_DestroyIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESB_EvT_SD_RSaIT0_E.exit.i
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !97
+  %53 = load ptr, ptr %52, align 8, !tbaa !96
   %54 = ptrtoint ptr %53 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub i64 %54, %55
@@ -2901,13 +2901,13 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand17MakeHandlerParse
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %11, align 8
   store i64 104, ptr %7, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %10, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %9, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %10, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %9, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %8, i64 6, ptr nonnull @.str.36, ptr noundef nonnull %7)
           to label %12 unwind label %19
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %9, align 8, !tbaa !85
+  %13 = load ptr, ptr %9, align 8, !tbaa !84
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %27, label %14
 
@@ -2925,7 +2925,7 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand17MakeHandlerParse
 19:                                               ; preds = %1
   %20 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %9, align 8, !tbaa !85
+  %21 = load ptr, ptr %9, align 8, !tbaa !84
   %.not.i5.i = icmp eq ptr %21, null
   br i1 %.not.i5.i, label %.body, label %22
 
@@ -2948,13 +2948,13 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand17MakeHandlerParse
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %30, align 8
   store i64 105, ptr %6, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %29, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %28, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %29, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %28, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %8, i64 5, ptr nonnull @.str.37, ptr noundef nonnull %6)
           to label %31 unwind label %38
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr %28, align 8, !tbaa !85
+  %32 = load ptr, ptr %28, align 8, !tbaa !84
   %.not.i.i13 = icmp eq ptr %32, null
   br i1 %.not.i.i13, label %46, label %33
 
@@ -2972,7 +2972,7 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand17MakeHandlerParse
 38:                                               ; preds = %27
   %39 = landingpad { ptr, i32 }
           cleanup
-  %40 = load ptr, ptr %28, align 8, !tbaa !85
+  %40 = load ptr, ptr %28, align 8, !tbaa !84
   %.not.i5.i11 = icmp eq ptr %40, null
   br i1 %.not.i5.i11, label %.body, label %41
 
@@ -2995,13 +2995,13 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand17MakeHandlerParse
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %49, align 8
   store i64 112, ptr %5, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %48, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %47, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %48, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %47, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %8, i64 12, ptr nonnull @.str.38, ptr noundef nonnull %5)
           to label %50 unwind label %57
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr %47, align 8, !tbaa !85
+  %51 = load ptr, ptr %47, align 8, !tbaa !84
   %.not.i.i19 = icmp eq ptr %51, null
   br i1 %.not.i.i19, label %65, label %52
 
@@ -3019,7 +3019,7 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand17MakeHandlerParse
 57:                                               ; preds = %46
   %58 = landingpad { ptr, i32 }
           cleanup
-  %59 = load ptr, ptr %47, align 8, !tbaa !85
+  %59 = load ptr, ptr %47, align 8, !tbaa !84
   %.not.i5.i17 = icmp eq ptr %59, null
   br i1 %.not.i5.i17, label %.body, label %60
 
@@ -3042,13 +3042,13 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand17MakeHandlerParse
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %68, align 8
   store i64 176, ptr %4, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %67, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %66, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %67, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %66, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %8, i64 6, ptr nonnull @.str.39, ptr noundef nonnull %4)
           to label %69 unwind label %76
 
 69:                                               ; preds = %65
-  %70 = load ptr, ptr %66, align 8, !tbaa !85
+  %70 = load ptr, ptr %66, align 8, !tbaa !84
   %.not.i.i24 = icmp eq ptr %70, null
   br i1 %.not.i.i24, label %84, label %71
 
@@ -3066,7 +3066,7 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand17MakeHandlerParse
 76:                                               ; preds = %65
   %77 = landingpad { ptr, i32 }
           cleanup
-  %78 = load ptr, ptr %66, align 8, !tbaa !85
+  %78 = load ptr, ptr %66, align 8, !tbaa !84
   %.not.i5.i22 = icmp eq ptr %78, null
   br i1 %.not.i5.i22, label %.body, label %79
 
@@ -3089,13 +3089,13 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand17MakeHandlerParse
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %87, align 8
   store i64 144, ptr %3, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %86, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %85, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %86, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %85, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %8, i64 5, ptr nonnull @.str.40, ptr noundef nonnull %3)
           to label %88 unwind label %95
 
 88:                                               ; preds = %84
-  %89 = load ptr, ptr %85, align 8, !tbaa !85
+  %89 = load ptr, ptr %85, align 8, !tbaa !84
   %.not.i.i30 = icmp eq ptr %89, null
   br i1 %.not.i.i30, label %103, label %90
 
@@ -3113,7 +3113,7 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand17MakeHandlerParse
 95:                                               ; preds = %84
   %96 = landingpad { ptr, i32 }
           cleanup
-  %97 = load ptr, ptr %85, align 8, !tbaa !85
+  %97 = load ptr, ptr %85, align 8, !tbaa !84
   %.not.i5.i28 = icmp eq ptr %97, null
   br i1 %.not.i5.i28, label %.body, label %98
 
@@ -3136,13 +3136,13 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand17MakeHandlerParse
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %106, align 8
   store i64 208, ptr %2, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %105, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %104, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %105, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %104, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %8, i64 12, ptr nonnull @.str.41, ptr noundef nonnull %2)
           to label %107 unwind label %114
 
 107:                                              ; preds = %103
-  %108 = load ptr, ptr %104, align 8, !tbaa !85
+  %108 = load ptr, ptr %104, align 8, !tbaa !84
   %.not.i.i36 = icmp eq ptr %108, null
   br i1 %.not.i.i36, label %122, label %109
 
@@ -3160,7 +3160,7 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand17MakeHandlerParse
 114:                                              ; preds = %103
   %115 = landingpad { ptr, i32 }
           cleanup
-  %116 = load ptr, ptr %104, align 8, !tbaa !85
+  %116 = load ptr, ptr %104, align 8, !tbaa !84
   %.not.i5.i34 = icmp eq ptr %116, null
   br i1 %.not.i5.i34, label %.body, label %117
 
@@ -3210,13 +3210,13 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand15MakeBasicParserI
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %7, align 8
   store i64 48, ptr %3, align 8, !tbaa !34
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand14BasicArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %6, align 8, !tbaa !90
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand14BasicArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %5, align 8, !tbaa !85
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand14BasicArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %6, align 8, !tbaa !89
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand14BasicArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation, ptr %5, align 8, !tbaa !84
   invoke void @_ZN14ArgumentParser4Base4BindESt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRNS_8InstanceEEE(ptr noundef nonnull align 8 dereferenceable(112) %4, i64 19, ptr nonnull @.str.42, ptr noundef nonnull %3)
           to label %8 unwind label %15
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %5, align 8, !tbaa !85
+  %9 = load ptr, ptr %5, align 8, !tbaa !84
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %23, label %10
 
@@ -3234,7 +3234,7 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand15MakeBasicParserI
 15:                                               ; preds = %1
   %16 = landingpad { ptr, i32 }
           cleanup
-  %17 = load ptr, ptr %5, align 8, !tbaa !85
+  %17 = load ptr, ptr %5, align 8, !tbaa !84
   %.not.i5.i = icmp eq ptr %17, null
   br i1 %.not.i5.i, label %.body, label %18
 
@@ -3254,19 +3254,19 @@ define linkonce_odr dso_local void @_ZN21cmCTestHandlerCommand15MakeBasicParserI
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 56
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #22
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 16, i1 false), !tbaa.struct !117
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 16, i1 false), !tbaa.struct !116
   store i64 80, ptr %24, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %28 = load ptr, ptr %27, align 8, !tbaa !79
-  store ptr %28, ptr %26, align 8, !tbaa !79
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMSA_St6vectorIS6_SaIS6_EEEUlS2_S6_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %27, align 8, !tbaa !79
+  %28 = load ptr, ptr %27, align 8, !tbaa !78
+  store ptr %28, ptr %26, align 8, !tbaa !78
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMSA_St6vectorIS6_SaIS6_EEEUlS2_S6_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation, ptr %27, align 8, !tbaa !78
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %30 = load ptr, ptr %29, align 8, !tbaa !79
-  store ptr %30, ptr %25, align 8, !tbaa !79
-  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMSA_St6vectorIS6_SaIS6_EEEUlS2_S6_E_E9_M_invokeERKSt9_Any_dataS2_OS6_, ptr %29, align 8, !tbaa !79
+  %30 = load ptr, ptr %29, align 8, !tbaa !78
+  store ptr %30, ptr %25, align 8, !tbaa !78
+  store ptr @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMSA_St6vectorIS6_SaIS6_EEEUlS2_S6_E_E9_M_invokeERKSt9_Any_dataS2_OS6_, ptr %29, align 8, !tbaa !78
   %.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i, label %36, label %31
 
@@ -3310,10 +3310,10 @@ define linkonce_odr dso_local void @_ZN14ArgumentParser4Base4BindESt17basic_stri
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false)
-  %9 = load ptr, ptr %8, align 8, !tbaa !90
-  store ptr %9, ptr %7, align 8, !tbaa !90
+  %9 = load ptr, ptr %8, align 8, !tbaa !89
+  store ptr %9, ptr %7, align 8, !tbaa !89
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !85
+  %11 = load ptr, ptr %10, align 8, !tbaa !84
   %.not.i.i.not.i = icmp eq ptr %11, null
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.thread, label %14
 
@@ -3321,20 +3321,20 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.thread: ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
-  store ptr %9, ptr %12, align 8, !tbaa !90
+  store ptr %9, ptr %12, align 8, !tbaa !89
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %_ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i
 
 14:                                               ; preds = %4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !117
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 16, i1 false), !tbaa.struct !116
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %9, ptr %15, align 8, !tbaa !90
+  store ptr %9, ptr %15, align 8, !tbaa !89
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  store ptr %11, ptr %17, align 8, !tbaa !85
+  store ptr %11, ptr %17, align 8, !tbaa !84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br label %_ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i
 
@@ -3345,7 +3345,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i: ; preds = %_ZNSt8
 
 20:                                               ; preds = %_ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !85
+  %22 = load ptr, ptr %21, align 8, !tbaa !84
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %.thread, label %23
 
@@ -3368,7 +3368,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i: ; preds = %_ZNSt8
   %29 = landingpad { ptr, i32 }
           cleanup
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !85
+  %31 = load ptr, ptr %30, align 8, !tbaa !84
   %.not.i7.i = icmp eq ptr %31, null
   br i1 %.not.i7.i, label %_ZNSt14_Function_baseD2Ev.exit5, label %32
 
@@ -3384,7 +3384,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEEEC2EOS4_.exit.i: ; preds = %_ZNSt8
   unreachable
 
 37:                                               ; preds = %23
-  %.pre6 = load ptr, ptr %18, align 8, !tbaa !85
+  %.pre6 = load ptr, ptr %18, align 8, !tbaa !84
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %.not.i = icmp eq ptr %.pre6, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %38
@@ -3404,7 +3404,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %.thread, %37, %38
   ret void
 
 .body:                                            ; preds = %32
-  %.pre = load ptr, ptr %18, align 8, !tbaa !85
+  %.pre = load ptr, ptr %18, align 8, !tbaa !84
   %.not.i4 = icmp eq ptr %.pre, null
   br i1 %.not.i4, label %_ZNSt14_Function_baseD2Ev.exit5, label %43
 
@@ -3428,8 +3428,8 @@ declare { ptr, i8 } @_ZN14ArgumentParser16KeywordActionMap7EmplaceESt17basic_str
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand14BasicArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(97) %1) #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !118
-  %5 = load i64, ptr %0, align 8, !tbaa !125
+  %4 = load ptr, ptr %3, align 8, !tbaa !117
+  %5 = load i64, ptr %0, align 8, !tbaa !124
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   tail call void @_ZN14ArgumentParser8Instance4BindERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
   ret void
@@ -3444,11 +3444,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN1
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand14BasicArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SB_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_, ptr %0, align 8, !tbaa !127
+  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand14BasicArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SB_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_, ptr %0, align 8, !tbaa !126
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand14BasicArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_SD_vvEERS4_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !79
+  store ptr %1, ptr %0, align 8, !tbaa !78
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand14BasicArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_SD_vvEERS4_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
@@ -3466,28 +3466,28 @@ declare void @_ZN14ArgumentParser8Instance4BindERNSt7__cxx1112basic_stringIcSt11
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMSA_St6vectorIS6_SaIS6_EEEUlS2_S6_E_E9_M_invokeERKSt9_Any_dataS2_OS6_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.copyload.i.i = load i64, ptr %2, align 8, !tbaa !32
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !109
+  %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !108
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !118
-  %6 = load i64, ptr %0, align 8, !tbaa !129
+  %5 = load ptr, ptr %4, align 8, !tbaa !117
+  %6 = load i64, ptr %0, align 8, !tbaa !128
   %7 = getelementptr inbounds i8, ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !131
+  %9 = load ptr, ptr %8, align 8, !tbaa !130
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !132
+  %11 = load ptr, ptr %10, align 8, !tbaa !131
   %.not.i.i.i.i = icmp eq ptr %9, %11
   br i1 %.not.i.i.i.i, label %14, label %12
 
 12:                                               ; preds = %3
   store i64 %.sroa.0.0.copyload.i.i, ptr %9, align 8, !tbaa !32
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %.sroa.2.0.copyload.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !tbaa !109
+  store ptr %.sroa.2.0.copyload.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !tbaa !108
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %13, ptr %8, align 8, !tbaa !131
+  store ptr %13, ptr %8, align 8, !tbaa !130
   br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMS2_St6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS8_EEEUlRN14ArgumentParser8InstanceES8_E_JSE_S8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit
 
 14:                                               ; preds = %3
-  %15 = load ptr, ptr %7, align 8, !tbaa !133
+  %15 = load ptr, ptr %7, align 8, !tbaa !132
   %16 = ptrtoint ptr %9 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
@@ -3512,18 +3512,18 @@ _ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEm
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %18
   store i64 %.sroa.0.0.copyload.i.i, ptr %28, align 8, !tbaa !32
   %.sroa.3.0..sroa_idx3.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %.sroa.2.0.copyload.i.i, ptr %.sroa.3.0..sroa_idx3.i.i.i, align 8, !tbaa !109
+  store ptr %.sroa.2.0.copyload.i.i, ptr %.sroa.3.0..sroa_idx3.i.i.i, align 8, !tbaa !108
   %.not10.i.i.i.i.i.i.i.i = icmp eq ptr %15, %9
   br i1 %.not10.i.i.i.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i.i.i.i.i ], [ %27, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ]
   %.0911.i.i.i.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i.i.i.i ], [ %15, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !108, !alias.scope !134
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !107, !alias.scope !133
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i.i, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %29, %9
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !138
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !137
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %27, %_ZNKSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %30, %.lr.ph.i.i.i.i.i.i.i.i ]
@@ -3536,10 +3536,10 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i: ; preds = %32, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i
-  store ptr %27, ptr %7, align 8, !tbaa !133
-  store ptr %31, ptr %8, align 8, !tbaa !131
+  store ptr %27, ptr %7, align 8, !tbaa !132
+  store ptr %31, ptr %8, align 8, !tbaa !130
   %33 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %27, i64 %25
-  store ptr %33, ptr %10, align 8, !tbaa !132
+  store ptr %33, ptr %10, align 8, !tbaa !131
   br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMS2_St6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS8_EEEUlRN14ArgumentParser8InstanceES8_E_JSE_S8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit
 
 _ZSt10__invoke_rIvRZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMS2_St6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS8_EEEUlRN14ArgumentParser8InstanceES8_E_JSE_S8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit: ; preds = %12, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i
@@ -3555,11 +3555,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN1
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMS1_St6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS7_EEEUlRN14ArgumentParser8InstanceES7_E_, ptr %0, align 8, !tbaa !127
+  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMS1_St6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS7_EEEUlRN14ArgumentParser8InstanceES7_E_, ptr %0, align 8, !tbaa !126
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMS3_St6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS9_EEEUlRN14ArgumentParser8InstanceES9_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !79
+  store ptr %1, ptr %0, align 8, !tbaa !78
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMS3_St6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS9_EEEUlRN14ArgumentParser8InstanceES9_E_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
@@ -3577,8 +3577,8 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(97) %1) #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !118
-  %5 = load i64, ptr %0, align 8, !tbaa !139
+  %4 = load ptr, ptr %3, align 8, !tbaa !117
+  %5 = load i64, ptr %0, align 8, !tbaa !138
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   tail call void @_ZN14ArgumentParser8Instance4BindERb(ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
   ret void
@@ -3593,11 +3593,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN1
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbS5_bvvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_, ptr %0, align 8, !tbaa !127
+  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbS5_bvvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_, ptr %0, align 8, !tbaa !126
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbS7_bvvEERS4_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !79
+  store ptr %1, ptr %0, align 8, !tbaa !78
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbS7_bvvEERS4_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
@@ -3614,8 +3614,8 @@ declare void @_ZN14ArgumentParser8Instance4BindERb(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(97) %1) #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !118
-  %5 = load i64, ptr %0, align 8, !tbaa !141
+  %4 = load ptr, ptr %3, align 8, !tbaa !117
+  %5 = load i64, ptr %0, align 8, !tbaa !140
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   tail call void @_ZN14ArgumentParser8Instance4BindERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
   ret void
@@ -3630,11 +3630,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN1
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SB_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_, ptr %0, align 8, !tbaa !127
+  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SB_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_, ptr %0, align 8, !tbaa !126
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_SD_vvEERS4_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !79
+  store ptr %1, ptr %0, align 8, !tbaa !78
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_SD_vvEERS4_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
@@ -3649,8 +3649,8 @@ _ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckComm
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SG_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(97) %1) #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !118
-  %5 = load i64, ptr %0, align 8, !tbaa !143
+  %4 = load ptr, ptr %3, align 8, !tbaa !117
+  %5 = load i64, ptr %0, align 8, !tbaa !142
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   tail call void @_ZN14ArgumentParser8Instance4BindERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
   ret void
@@ -3665,11 +3665,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN1
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SB_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_, ptr %0, align 8, !tbaa !127
+  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SB_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_, ptr %0, align 8, !tbaa !126
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_SD_vvEERS4_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !79
+  store ptr %1, ptr %0, align 8, !tbaa !78
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_SD_vvEERS4_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
@@ -3684,11 +3684,11 @@ _ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckComm
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalINS0_5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESA_SK_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(97) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !118
-  %5 = load i64, ptr %0, align 8, !tbaa !145
+  %4 = load ptr, ptr %3, align 8, !tbaa !117
+  %5 = load i64, ptr %0, align 8, !tbaa !144
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load i8, ptr %7, align 8, !tbaa !147, !range !54, !noundef !55
+  %8 = load i8, ptr %7, align 8, !tbaa !146, !range !54, !noundef !55
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %_ZSt10__invoke_rIvRZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES6_SH_vvEERS3_N2cm18static_string_viewET_EUlRNS8_8InstanceEE_JSO_EENSt9enable_ifIX16is_invocable_r_vISM_T0_DpT1_EESM_E4typeEOSS_DpOST_.exit, label %_ZNSt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
 
@@ -3698,7 +3698,7 @@ _ZNSt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %10, ptr %6, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %11, align 8, !tbaa !35
-  store i8 1, ptr %7, align 8, !tbaa !147
+  store i8 1, ptr %7, align 8, !tbaa !146
   br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES6_SH_vvEERS3_N2cm18static_string_viewET_EUlRNS8_8InstanceEE_JSO_EENSt9enable_ifIX16is_invocable_r_vISM_T0_DpT1_EESM_E4typeEOSS_DpOST_.exit
 
 _ZSt10__invoke_rIvRZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES6_SH_vvEERS3_N2cm18static_string_viewET_EUlRNS8_8InstanceEE_JSO_EENSt9enable_ifIX16is_invocable_r_vISM_T0_DpT1_EESM_E4typeEOSS_DpOST_.exit: ; preds = %2, %_ZNSt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7emplaceIJEEENSt9enable_ifIX18is_constructible_vIS8_DpT_EERS8_E4typeEDpOSC_.exit.i.i.i.i
@@ -3715,11 +3715,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN1
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES5_SG_vvEERS2_N2cm18static_string_viewET_EUlRNS7_8InstanceEE_, ptr %0, align 8, !tbaa !127
+  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES5_SG_vvEERS2_N2cm18static_string_viewET_EUlRNS7_8InstanceEE_, ptr %0, align 8, !tbaa !126
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_SI_vvEERS4_N2cm18static_string_viewET_EUlRNS9_8InstanceEE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !79
+  store ptr %1, ptr %0, align 8, !tbaa !78
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_SI_vvEERS4_N2cm18static_string_viewET_EUlRNS9_8InstanceEE_E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
@@ -3736,8 +3736,8 @@ declare void @_ZN14ArgumentParser8Instance4BindERNS_5MaybeINSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsEbSA_bvvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(97) %1) #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !118
-  %5 = load i64, ptr %0, align 8, !tbaa !149
+  %4 = load ptr, ptr %3, align 8, !tbaa !117
+  %5 = load i64, ptr %0, align 8, !tbaa !148
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   tail call void @_ZN14ArgumentParser8Instance4BindERb(ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull align 1 dereferenceable(1) %6)
   ret void
@@ -3752,11 +3752,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN1
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsEbS5_bvvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_, ptr %0, align 8, !tbaa !127
+  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsEbS5_bvvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_, ptr %0, align 8, !tbaa !126
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsEbS7_bvvEERS4_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !79
+  store ptr %1, ptr %0, align 8, !tbaa !78
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsEbS7_bvvEERS4_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_E10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
@@ -3771,8 +3771,8 @@ _ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckComm
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt17_Function_handlerIFvRN14ArgumentParser8InstanceEEZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMS6_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SE_vvEERS7_N2cm18static_string_viewET_EUlS2_E_E9_M_invokeERKSt9_Any_dataS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(97) %1) #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !118
-  %5 = load i64, ptr %0, align 8, !tbaa !151
+  %4 = load ptr, ptr %3, align 8, !tbaa !117
+  %5 = load i64, ptr %0, align 8, !tbaa !150
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   tail call void @_ZN14ArgumentParser8Instance4BindERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(97) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
   ret void
@@ -3787,11 +3787,11 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFvRN1
   ]
 
 4:                                                ; preds = %3
-  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_S9_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_, ptr %0, align 8, !tbaa !127
+  store ptr @_ZTIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_S9_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_, ptr %0, align 8, !tbaa !126
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_SB_vvEERS4_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !79
+  store ptr %1, ptr %0, align 8, !tbaa !78
   br label %_ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_SB_vvEERS4_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit
 
 6:                                                ; preds = %3
@@ -3806,15 +3806,15 @@ _ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN22cmCTestMemCheckComm
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE5ParseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEES1_RKT_PSC_m(ptr dead_on_unwind noalias writable sret(%"struct.cmCTestMemCheckCommand::MemCheckArguments") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %6, align 8, !tbaa !153
+  store i32 0, ptr %6, align 8, !tbaa !152
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %7, align 8, !tbaa !154
+  store ptr null, ptr %7, align 8, !tbaa !153
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %6, ptr %8, align 8, !tbaa !155
+  store ptr %6, ptr %8, align 8, !tbaa !154
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %6, ptr %9, align 8, !tbaa !156
+  store ptr %6, ptr %9, align 8, !tbaa !155
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 0, ptr %10, align 8, !tbaa !157
+  store i64 0, ptr %10, align 8, !tbaa !156
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %12, ptr %11, align 8, !tbaa !31
@@ -3920,7 +3920,7 @@ define linkonce_odr dso_local void @_ZNK16cmArgumentParserIN22cmCTestMemCheckCom
   store i64 0, ptr %62, align 8, !tbaa !35
   store i8 0, ptr %61, align 8, !tbaa !34
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  store i8 0, ptr %63, align 8, !tbaa !147
+  store i8 0, ptr %63, align 8, !tbaa !146
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store ptr %65, ptr %64, align 8, !tbaa !31
@@ -3958,7 +3958,7 @@ define linkonce_odr dso_local void @_ZNK16cmArgumentParserIN22cmCTestMemCheckCom
   store i64 0, ptr %81, align 8, !tbaa !35
   store i8 0, ptr %80, align 8, !tbaa !34
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 856
-  store i8 0, ptr %82, align 8, !tbaa !158
+  store i8 0, ptr %82, align 8, !tbaa !157
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 880
   store ptr %84, ptr %83, align 8, !tbaa !31
@@ -4008,9 +4008,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !86
+  %2 = load ptr, ptr %0, align 8, !tbaa !85
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !86
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -4037,10 +4037,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
   %13 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %13, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !88
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !87
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !86
+  %.pr = load ptr, ptr %0, align 8, !tbaa !85
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, %1
@@ -4050,7 +4050,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 15:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !89
+  %17 = load ptr, ptr %16, align 8, !tbaa !88
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -4065,18 +4065,18 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE5ParseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEEbRS1_RKT_PSC_m(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(896) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.ArgumentParser::Instance", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #22
-  store ptr %0, ptr %6, align 8, !tbaa !164
+  store ptr %0, ptr %6, align 8, !tbaa !163
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %7, align 8, !tbaa !165
+  store ptr %1, ptr %7, align 8, !tbaa !164
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %3, ptr %8, align 8, !tbaa !166
+  store ptr %3, ptr %8, align 8, !tbaa !165
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %1, ptr %9, align 8, !tbaa !118
+  store ptr %1, ptr %9, align 8, !tbaa !117
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %10, i8 0, i64 65, i1 false)
-  %11 = load ptr, ptr %2, align 8, !tbaa !167
+  %11 = load ptr, ptr %2, align 8, !tbaa !166
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !167
+  %13 = load ptr, ptr %12, align 8, !tbaa !166
   %.not8.i = icmp eq ptr %11, %13
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -4097,13 +4097,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK16cmArgumentParserIN22cmCT
   %17 = add i64 %.010.i, 1
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 32
   %.not.i = icmp eq ptr %18, %13
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !168
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 19:                                               ; preds = %._crit_edge.i
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %21 = load i64, ptr %20, align 8, !tbaa !157
+  %21 = load i64, ptr %20, align 8, !tbaa !156
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %23 = load ptr, ptr %22, align 8, !tbaa !85
+  %23 = load ptr, ptr %22, align 8, !tbaa !84
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %_ZN14ArgumentParser8InstanceD2Ev.exit, label %24
 
@@ -4137,7 +4137,7 @@ _ZN14ArgumentParser8InstanceD2Ev.exit:            ; preds = %19, %24
 31:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %33 = load ptr, ptr %32, align 8, !tbaa !85
+  %33 = load ptr, ptr %32, align 8, !tbaa !84
   %.not.i.i11 = icmp eq ptr %33, null
   br i1 %.not.i.i11, label %_ZN14ArgumentParser8InstanceD2Ev.exit12, label %34
 
@@ -4164,12 +4164,12 @@ declare void @_ZN14ArgumentParser8Instance13FinishKeywordEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS3_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESF_SH_T0_EUlvE_E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #4 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !169
+  %.val = load ptr, ptr %0, align 8, !tbaa !167
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val1 = load ptr, ptr %2, align 8, !tbaa !171
-  %.val.val = load ptr, ptr %.val, align 8, !tbaa !172
+  %.val1 = load ptr, ptr %2, align 8, !tbaa !169
+  %.val.val = load ptr, ptr %.val, align 8, !tbaa !170
   %3 = getelementptr i8, ptr %.val, i64 8
-  %.val.val2 = load ptr, ptr %3, align 8, !tbaa !176
+  %.val.val2 = load ptr, ptr %3, align 8, !tbaa !174
   %4 = tail call noundef zeroext i1 @_ZNK21cmCTestHandlerCommand21ExecuteHandlerCommandERNS_16HandlerArgumentsER17cmExecutionStatus(ptr noundef nonnull align 8 dereferenceable(16) %.val.val, ptr noundef nonnull align 8 dereferenceable(896) %.val1, ptr noundef nonnull align 8 dereferenceable(80) %.val.val2)
   ret i1 %4
 }
@@ -4183,15 +4183,15 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZNK21cmCTestHa
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS1_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESD_SF_T0_EUlvE_", ptr %0, align 8, !tbaa !127
+  store ptr @"_ZTIZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS1_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESD_SF_T0_EUlvE_", ptr %0, align 8, !tbaa !126
   br label %"_ZNSt14_Function_base13_Base_managerIZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS3_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESF_SH_T0_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !79
+  store ptr %1, ptr %0, align 8, !tbaa !78
   br label %"_ZNSt14_Function_base13_Base_managerIZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS3_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESF_SH_T0_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !177
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !175
   br label %"_ZNSt14_Function_base13_Base_managerIZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS3_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESF_SH_T0_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS3_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESF_SH_T0_EUlvE_E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -4323,13 +4323,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %57 = load i8, ptr %56, align 8, !tbaa !147, !range !54, !noundef !55
+  %57 = load i8, ptr %56, align 8, !tbaa !146, !range !54, !noundef !55
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %59, label %_ZNSt14_Optional_baseIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELb0ELb0EED2Ev.exit
 
 59:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i8 0, ptr %56, align 8, !tbaa !147
+  store i8 0, ptr %56, align 8, !tbaa !146
   %61 = load ptr, ptr %60, align 8, !tbaa !33
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %63 = icmp eq ptr %61, %62
@@ -4676,13 +4676,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i7
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %39 = load ptr, ptr %38, align 8, !tbaa !133
+  %39 = load ptr, ptr %38, align 8, !tbaa !132
   %.not.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit.i, label %40
 
 40:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %42 = load ptr, ptr %41, align 8, !tbaa !132
+  %42 = load ptr, ptr %41, align 8, !tbaa !131
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %39 to i64
   %45 = sub i64 %43, %44
@@ -4711,7 +4711,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !154
+  %56 = load ptr, ptr %55, align 8, !tbaa !153
   invoke void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_NSt7__cxx1112basic_stringIcS2_SaIcEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %56)
           to label %_ZN21cmCTestHandlerCommand14BasicArgumentsD2Ev.exit unwind label %57
 
@@ -4734,10 +4734,10 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11ch
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_NSt7__cxx1112basic_stringIcS2_SaIcEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_NSt7__cxx1112basic_stringIcS2_SaIcEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !178
+  %4 = load ptr, ptr %3, align 8, !tbaa !176
   tail call void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_NSt7__cxx1112basic_stringIcS2_SaIcEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !179
+  %6 = load ptr, ptr %5, align 8, !tbaa !177
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 64
@@ -4760,7 +4760,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_NSt7__cxx1112basic_stringIcS2_SaIcEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 80) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !180
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_NSt7__cxx1112basic_stringIcS2_SaIcEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISA_E.exit, %2
   ret void
@@ -4772,19 +4772,19 @@ define internal void @_GLOBAL__sub_I_cmCTestMemCheckCommand.cxx() #16 section ".
   tail call void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5cmsysL26SystemToolsManagerInstanceE)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #22
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #22
-  store i32 0, ptr %1, align 4, !tbaa !181
+  store i32 0, ptr %1, align 4, !tbaa !179
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %3, align 4, !tbaa !181
+  store i32 1, ptr %3, align 4, !tbaa !179
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %4, align 4, !tbaa !181
-  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !183
+  store i32 2, ptr %4, align 4, !tbaa !179
+  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !181
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i, %0
   %.09.i.i.idx.i = phi i64 [ %.09.i.i.add.i, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %5 = phi i64 [ %11, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %.09.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.09.i.i.idx.i
-  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !181
+  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !179
   %7 = zext i32 %6 to i64
   %8 = icmp ugt i32 %6, 31
   br i1 %8, label %9, label %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
@@ -4799,7 +4799,7 @@ _ZNSt6bitsetILm32EE3setEmb.exit.i.i.i:            ; preds = %.lr.ph.i.i.i
   store i64 %11, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !32
   %.09.i.i.add.i = add nuw nsw i64 %.09.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.09.i.i.add.i, 12
-  br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i, !llvm.loop !185
+  br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #22
@@ -4924,115 +4924,112 @@ attributes #24 = { noreturn }
 !71 = !{!72}
 !72 = distinct !{!72, !73, !"_ZNSt7__cxx119to_stringEi: argument 0"}
 !73 = distinct !{!73, !"_ZNSt7__cxx119to_stringEi"}
-!74 = distinct !{!74, !75, !76}
+!74 = distinct !{!74, !75}
 !75 = !{!"llvm.loop.mustprogress"}
-!76 = !{!"llvm.loop.estimated_trip_count"}
-!77 = distinct !{!77, !75, !76}
-!78 = !{!"branch_weights", i32 1, i32 1048575}
-!79 = !{!7, !7, i64 0}
-!80 = !{!81, !81, i64 0}
-!81 = !{!"p1 _ZTSN22cmCTestMemCheckCommand17MemCheckArgumentsE", !7, i64 0}
-!82 = !{!83, !7, i64 24}
-!83 = !{!"_ZTSSt8functionIFbvEE", !84, i64 0, !7, i64 24}
-!84 = !{!"_ZTSSt14_Function_base", !8, i64 0, !7, i64 16}
-!85 = !{!84, !7, i64 16}
-!86 = !{!22, !23, i64 0}
-!87 = !{!22, !23, i64 8}
-!88 = distinct !{!88, !75, !76}
-!89 = !{!22, !23, i64 16}
-!90 = !{!91, !7, i64 24}
-!91 = !{!"_ZTSSt8functionIFvRN14ArgumentParser8InstanceEEE", !84, i64 0, !7, i64 24}
-!92 = !{!93, !94, i64 8}
-!93 = !{!"_ZTSNSt12_Vector_baseISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE17_Vector_impl_dataE", !94, i64 0, !94, i64 8, !94, i64 16}
-!94 = !{!"p1 _ZTSSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEE", !7, i64 0}
-!95 = !{!93, !94, i64 0}
-!96 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!97 = !{!93, !94, i64 16}
-!98 = !{!94, !94, i64 0}
-!99 = !{!100, !7, i64 24}
-!100 = !{!"_ZTSSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEE", !84, i64 0, !7, i64 24}
-!101 = !{!102, !103, i64 8}
-!102 = !{!"_ZTSNSt12_Vector_baseISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESaISB_EE17_Vector_impl_dataE", !103, i64 0, !103, i64 8, !103, i64 16}
-!103 = !{!"p1 _ZTSSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEE", !7, i64 0}
-!104 = !{!102, !103, i64 0}
-!105 = !{!102, !103, i64 16}
-!106 = !{!103, !103, i64 0}
-!107 = distinct !{!107, !75, !76}
-!108 = !{i64 0, i64 8, !32, i64 8, i64 8, !109}
-!109 = !{!12, !12, i64 0}
-!110 = distinct !{!110, !75, !76}
-!111 = !{!112, !13, i64 0}
-!112 = !{!"_ZTSSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEE", !13, i64 0, !113, i64 8}
-!113 = !{!"_ZTSSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEE", !84, i64 0, !7, i64 24}
-!114 = !{!113, !7, i64 24}
-!115 = distinct !{!115, !75, !76}
-!116 = distinct !{!116, !75, !76}
-!117 = !{i64 0, i64 16, !34}
-!118 = !{!119, !7, i64 24}
-!119 = !{!"_ZTSN14ArgumentParser8InstanceE", !120, i64 0, !121, i64 8, !122, i64 16, !7, i64 24, !123, i64 32, !13, i64 48, !13, i64 56, !124, i64 64, !14, i64 96}
-!120 = !{!"p1 _ZTSN14ArgumentParser9ActionMapE", !7, i64 0}
-!121 = !{!"p1 _ZTSN14ArgumentParser11ParseResultE", !7, i64 0}
-!122 = !{!"p1 _ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !7, i64 0}
-!123 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !13, i64 0, !12, i64 8}
-!124 = !{!"_ZTSSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEE", !84, i64 0, !7, i64 24}
-!125 = !{!126, !8, i64 0}
-!126 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand14BasicArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SB_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_", !8, i64 0}
-!127 = !{!128, !128, i64 0}
-!128 = !{!"p1 _ZTSSt9type_info", !7, i64 0}
-!129 = !{!130, !8, i64 0}
-!130 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMS1_St6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS7_EEEUlRN14ArgumentParser8InstanceES7_E_", !8, i64 0}
-!131 = !{!52, !53, i64 8}
-!132 = !{!52, !53, i64 16}
-!133 = !{!52, !53, i64 0}
-!134 = !{!135, !137}
-!135 = distinct !{!135, !136, !"_ZSt19__relocate_object_aISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!136 = distinct !{!136, !"_ZSt19__relocate_object_aISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_EEvPT_PT0_RT1_"}
-!137 = distinct !{!137, !136, !"_ZSt19__relocate_object_aISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!138 = distinct !{!138, !75, !76}
-!139 = !{!140, !8, i64 0}
-!140 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbS5_bvvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_", !8, i64 0}
-!141 = !{!142, !8, i64 0}
-!142 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SB_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_", !8, i64 0}
-!143 = !{!144, !8, i64 0}
-!144 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SB_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_", !8, i64 0}
-!145 = !{!146, !8, i64 0}
-!146 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES5_SG_vvEERS2_N2cm18static_string_viewET_EUlRNS7_8InstanceEE_", !8, i64 0}
-!147 = !{!148, !14, i64 32}
-!148 = !{!"_ZTSSt22_Optional_payload_baseIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE", !8, i64 0, !14, i64 32}
-!149 = !{!150, !8, i64 0}
-!150 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsEbS5_bvvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_", !8, i64 0}
-!151 = !{!152, !8, i64 0}
-!152 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_S9_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_", !8, i64 0}
-!153 = !{!45, !47, i64 0}
-!154 = !{!45, !48, i64 8}
-!155 = !{!45, !48, i64 16}
-!156 = !{!45, !48, i64 24}
-!157 = !{!45, !13, i64 32}
-!158 = !{!159, !14, i64 856}
-!159 = !{!"_ZTSN18cmCTestTestCommand13TestArgumentsE", !37, i64 0, !10, i64 240, !10, i64 272, !10, i64 304, !10, i64 336, !10, i64 368, !10, i64 400, !10, i64 432, !10, i64 464, !10, i64 496, !10, i64 528, !10, i64 560, !10, i64 592, !160, i64 624, !10, i64 664, !10, i64 696, !10, i64 728, !10, i64 760, !10, i64 792, !10, i64 824, !14, i64 856}
-!160 = !{!"_ZTSSt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE", !161, i64 0}
-!161 = !{!"_ZTSSt14_Optional_baseIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELb0ELb0EE", !162, i64 0}
-!162 = !{!"_ZTSSt17_Optional_payloadIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELb0ELb0ELb0EE", !163, i64 0}
-!163 = !{!"_ZTSSt17_Optional_payloadIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELb1ELb0ELb0EE", !148, i64 0}
-!164 = !{!120, !120, i64 0}
-!165 = !{!119, !121, i64 8}
-!166 = !{!119, !122, i64 16}
-!167 = !{!23, !23, i64 0}
-!168 = distinct !{!168, !76}
-!169 = !{!170, !7, i64 0}
-!170 = !{!"_ZTSZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS1_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESD_SF_T0_EUlvE_", !7, i64 0, !81, i64 8}
-!171 = !{!170, !81, i64 8}
-!172 = !{!173, !174, i64 0}
-!173 = !{!"_ZTSZNK22cmCTestMemCheckCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE3$_0", !174, i64 0, !175, i64 8}
-!174 = !{!"p1 _ZTS22cmCTestMemCheckCommand", !7, i64 0}
-!175 = !{!"p1 _ZTS17cmExecutionStatus", !7, i64 0}
-!176 = !{!173, !175, i64 8}
-!177 = !{i64 0, i64 8, !79, i64 8, i64 8, !80}
-!178 = !{!46, !48, i64 24}
-!179 = !{!46, !48, i64 16}
-!180 = distinct !{!180, !75, !76}
-!181 = !{!182, !182, i64 0}
-!182 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
-!183 = !{!184, !13, i64 0}
-!184 = !{!"_ZTSSt12_Base_bitsetILm1EE", !13, i64 0}
-!185 = distinct !{!185, !76}
+!76 = distinct !{!76, !75}
+!77 = !{!"branch_weights", i32 1, i32 1048575}
+!78 = !{!7, !7, i64 0}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTSN22cmCTestMemCheckCommand17MemCheckArgumentsE", !7, i64 0}
+!81 = !{!82, !7, i64 24}
+!82 = !{!"_ZTSSt8functionIFbvEE", !83, i64 0, !7, i64 24}
+!83 = !{!"_ZTSSt14_Function_base", !8, i64 0, !7, i64 16}
+!84 = !{!83, !7, i64 16}
+!85 = !{!22, !23, i64 0}
+!86 = !{!22, !23, i64 8}
+!87 = distinct !{!87, !75}
+!88 = !{!22, !23, i64 16}
+!89 = !{!90, !7, i64 24}
+!90 = !{!"_ZTSSt8functionIFvRN14ArgumentParser8InstanceEEE", !83, i64 0, !7, i64 24}
+!91 = !{!92, !93, i64 8}
+!92 = !{!"_ZTSNSt12_Vector_baseISt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEESaISB_EE17_Vector_impl_dataE", !93, i64 0, !93, i64 8, !93, i64 16}
+!93 = !{!"p1 _ZTSSt4pairISt17basic_string_viewIcSt11char_traitsIcEESt8functionIFvRN14ArgumentParser8InstanceEEEE", !7, i64 0}
+!94 = !{!92, !93, i64 0}
+!95 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!96 = !{!92, !93, i64 16}
+!97 = !{!93, !93, i64 0}
+!98 = !{!99, !7, i64 24}
+!99 = !{!"_ZTSSt8functionIFvRN14ArgumentParser8InstanceESt17basic_string_viewIcSt11char_traitsIcEEEE", !83, i64 0, !7, i64 24}
+!100 = !{!101, !102, i64 8}
+!101 = !{!"_ZTSNSt12_Vector_baseISt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEESaISB_EE17_Vector_impl_dataE", !102, i64 0, !102, i64 8, !102, i64 16}
+!102 = !{!"p1 _ZTSSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEE", !7, i64 0}
+!103 = !{!101, !102, i64 0}
+!104 = !{!101, !102, i64 16}
+!105 = !{!102, !102, i64 0}
+!106 = distinct !{!106, !75}
+!107 = !{i64 0, i64 8, !32, i64 8, i64 8, !108}
+!108 = !{!12, !12, i64 0}
+!109 = distinct !{!109, !75}
+!110 = !{!111, !13, i64 0}
+!111 = !{!"_ZTSSt4pairImSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEEE", !13, i64 0, !112, i64 8}
+!112 = !{!"_ZTSSt8functionIFvRN14ArgumentParser8InstanceEmSt17basic_string_viewIcSt11char_traitsIcEEEE", !83, i64 0, !7, i64 24}
+!113 = !{!112, !7, i64 24}
+!114 = distinct !{!114, !75}
+!115 = distinct !{!115, !75}
+!116 = !{i64 0, i64 16, !34}
+!117 = !{!118, !7, i64 24}
+!118 = !{!"_ZTSN14ArgumentParser8InstanceE", !119, i64 0, !120, i64 8, !121, i64 16, !7, i64 24, !122, i64 32, !13, i64 48, !13, i64 56, !123, i64 64, !14, i64 96}
+!119 = !{!"p1 _ZTSN14ArgumentParser9ActionMapE", !7, i64 0}
+!120 = !{!"p1 _ZTSN14ArgumentParser11ParseResultE", !7, i64 0}
+!121 = !{!"p1 _ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !7, i64 0}
+!122 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !13, i64 0, !12, i64 8}
+!123 = !{!"_ZTSSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEE", !83, i64 0, !7, i64 24}
+!124 = !{!125, !8, i64 0}
+!125 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand14BasicArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SB_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_", !8, i64 0}
+!126 = !{!127, !127, i64 0}
+!127 = !{!"p1 _ZTSSt9type_info", !7, i64 0}
+!128 = !{!129, !8, i64 0}
+!129 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMS1_St6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS7_EEEUlRN14ArgumentParser8InstanceES7_E_", !8, i64 0}
+!130 = !{!52, !53, i64 8}
+!131 = !{!52, !53, i64 16}
+!132 = !{!52, !53, i64 0}
+!133 = !{!134, !136}
+!134 = distinct !{!134, !135, !"_ZSt19__relocate_object_aISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!135 = distinct !{!135, !"_ZSt19__relocate_object_aISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_EEvPT_PT0_RT1_"}
+!136 = distinct !{!136, !135, !"_ZSt19__relocate_object_aISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!137 = distinct !{!137, !75}
+!138 = !{!139, !8, i64 0}
+!139 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsEbS5_bvvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_", !8, i64 0}
+!140 = !{!141, !8, i64 0}
+!141 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN21cmCTestHandlerCommand16HandlerArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SB_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_", !8, i64 0}
+!142 = !{!143, !8, i64 0}
+!143 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SB_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_", !8, i64 0}
+!144 = !{!145, !8, i64 0}
+!145 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsESt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES5_SG_vvEERS2_N2cm18static_string_viewET_EUlRNS7_8InstanceEE_", !8, i64 0}
+!146 = !{!147, !14, i64 32}
+!147 = !{!"_ZTSSt22_Optional_payload_baseIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE", !8, i64 0, !14, i64 32}
+!148 = !{!149, !8, i64 0}
+!149 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMN18cmCTestTestCommand13TestArgumentsEbS5_bvvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_", !8, i64 0}
+!150 = !{!151, !8, i64 0}
+!151 = !{!"_ZTSZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE4BindIMS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_S9_vvEERS2_N2cm18static_string_viewET_EUlRN14ArgumentParser8InstanceEE_", !8, i64 0}
+!152 = !{!45, !47, i64 0}
+!153 = !{!45, !48, i64 8}
+!154 = !{!45, !48, i64 16}
+!155 = !{!45, !48, i64 24}
+!156 = !{!45, !13, i64 32}
+!157 = !{!158, !14, i64 856}
+!158 = !{!"_ZTSN18cmCTestTestCommand13TestArgumentsE", !37, i64 0, !10, i64 240, !10, i64 272, !10, i64 304, !10, i64 336, !10, i64 368, !10, i64 400, !10, i64 432, !10, i64 464, !10, i64 496, !10, i64 528, !10, i64 560, !10, i64 592, !159, i64 624, !10, i64 664, !10, i64 696, !10, i64 728, !10, i64 760, !10, i64 792, !10, i64 824, !14, i64 856}
+!159 = !{!"_ZTSSt8optionalIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE", !160, i64 0}
+!160 = !{!"_ZTSSt14_Optional_baseIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELb0ELb0EE", !161, i64 0}
+!161 = !{!"_ZTSSt17_Optional_payloadIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELb0ELb0ELb0EE", !162, i64 0}
+!162 = !{!"_ZTSSt17_Optional_payloadIN14ArgumentParser5MaybeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELb1ELb0ELb0EE", !147, i64 0}
+!163 = !{!119, !119, i64 0}
+!164 = !{!118, !120, i64 8}
+!165 = !{!118, !121, i64 16}
+!166 = !{!23, !23, i64 0}
+!167 = !{!168, !7, i64 0}
+!168 = !{!"_ZTSZNK21cmCTestHandlerCommand6InvokeIN22cmCTestMemCheckCommand17MemCheckArgumentsEZNKS1_11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EER17cmExecutionStatusE3$_0EEbRK16cmArgumentParserIT_ESD_SF_T0_EUlvE_", !7, i64 0, !80, i64 8}
+!169 = !{!168, !80, i64 8}
+!170 = !{!171, !172, i64 0}
+!171 = !{!"_ZTSZNK22cmCTestMemCheckCommand11InitialPassERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE3$_0", !172, i64 0, !173, i64 8}
+!172 = !{!"p1 _ZTS22cmCTestMemCheckCommand", !7, i64 0}
+!173 = !{!"p1 _ZTS17cmExecutionStatus", !7, i64 0}
+!174 = !{!171, !173, i64 8}
+!175 = !{i64 0, i64 8, !78, i64 8, i64 8, !79}
+!176 = !{!46, !48, i64 24}
+!177 = !{!46, !48, i64 16}
+!178 = distinct !{!178, !75}
+!179 = !{!180, !180, i64 0}
+!180 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
+!181 = !{!182, !13, i64 0}
+!182 = !{!"_ZTSSt12_Base_bitsetILm1EE", !13, i64 0}

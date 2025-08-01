@@ -674,7 +674,7 @@ hex_ascii_to_binary.exit16:                       ; preds = %hex_ascii_to_binary
   store i8 %56, ptr %58, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %59 = icmp samesign ult i64 %indvars.iv, 30
-  br i1 %59, label %check_valid_key_string.exit.preheader, label %check_valid_key_string.exit.thread, !llvm.loop !9
+  br i1 %59, label %check_valid_key_string.exit.preheader, label %check_valid_key_string.exit.thread, !llvm.loop !8
 
 check_valid_key_string.exit.thread:               ; preds = %hex_ascii_to_binary.exit16, %.sink.split.i, %10
   %storemerge = phi i8 [ 0, %10 ], [ 0, %.sink.split.i ], [ 1, %hex_ascii_to_binary.exit16 ]
@@ -802,7 +802,7 @@ define hidden void @set_pdcp_lte_up_ciphering_key(i16 noundef zeroext %0, ptr no
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @set_pdcp_lte_security_algorithms(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load i8, ptr @global_pdcp_ignore_sec, align 1, !range !10, !noundef !11
+  %3 = load i8, ptr @global_pdcp_ignore_sec, align 1, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %40, label %5
 
@@ -953,17 +953,17 @@ define hidden void @pdcp_lte_reset_ue_bearers(ptr noundef readonly captures(none
   br label %29
 
 29:                                               ; preds = %26, %17
-  br i1 %18, label %17, label %.split.us.us, !llvm.loop !12
+  br i1 %18, label %17, label %.split.us.us, !llvm.loop !11
 
 .split.us.us:                                     ; preds = %29
   %30 = add nuw nsw i32 %.02444.us, 1
   %exitcond50.not = icmp eq i32 %30, 33
-  br i1 %exitcond50.not, label %.loopexit, label %.preheader.us, !llvm.loop !14
+  br i1 %exitcond50.not, label %.loopexit, label %.preheader.us, !llvm.loop !13
 
 31:                                               ; preds = %45
   %32 = add nuw nsw i32 %.02640, 1
   %exitcond.not = icmp eq i32 %32, 3
-  br i1 %exitcond.not, label %13, label %.preheader36, !llvm.loop !15
+  br i1 %exitcond.not, label %13, label %.preheader36, !llvm.loop !14
 
 33:                                               ; preds = %.preheader36, %45
   %34 = phi i1 [ true, %.preheader36 ], [ false, %45 ]
@@ -988,7 +988,7 @@ define hidden void @pdcp_lte_reset_ue_bearers(ptr noundef readonly captures(none
   br label %45
 
 45:                                               ; preds = %33, %42
-  br i1 %34, label %33, label %31, !llvm.loop !16
+  br i1 %34, label %33, label %31, !llvm.loop !15
 
 .preheader:                                       ; preds = %13, %.split
   %.02444 = phi i32 [ %48, %.split ], [ 1, %13 ]
@@ -1000,7 +1000,7 @@ define hidden void @pdcp_lte_reset_ue_bearers(ptr noundef readonly captures(none
 .split:                                           ; preds = %64
   %48 = add nuw nsw i32 %.02444, 1
   %exitcond49.not = icmp eq i32 %48, 33
-  br i1 %exitcond49.not, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %exitcond49.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 49:                                               ; preds = %.preheader, %64
   %50 = phi i1 [ true, %.preheader ], [ false, %64 ]
@@ -1030,7 +1030,7 @@ define hidden void @pdcp_lte_reset_ue_bearers(ptr noundef readonly captures(none
   br label %64
 
 64:                                               ; preds = %49, %61, %58
-  br i1 %50, label %49, label %.split, !llvm.loop !18
+  br i1 %50, label %49, label %.split, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.split, %.split.us.us, %3
   ret void
@@ -1446,7 +1446,7 @@ proto_item_set_generated.exit89.i:                ; preds = %109, %106, %102, %p
 115:                                              ; preds = %proto_item_set_generated.exit89.i
   %116 = load i32, ptr @hf_pdcp_lte_no_header_pdu, align 4
   %117 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %118 = load i8, ptr %117, align 8, !range !10, !noundef !11
+  %118 = load i8, ptr %117, align 8, !range !9, !noundef !10
   %119 = zext nneg i8 %118 to i32
   %120 = tail call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %116, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %119)
   %.not.i90.i = icmp eq ptr %120, null
@@ -1466,7 +1466,7 @@ proto_item_set_generated.exit89.i:                ; preds = %109, %106, %102, %p
   br label %proto_item_set_generated.exit92.i
 
 proto_item_set_generated.exit92.i:                ; preds = %124, %121, %115
-  %128 = load i8, ptr %117, align 8, !range !10, !noundef !11
+  %128 = load i8, ptr %117, align 8, !range !9, !noundef !10
   %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %proto_item_set_generated.exit95.i, label %130
 
@@ -1494,7 +1494,7 @@ proto_item_set_generated.exit92.i:                ; preds = %124, %121, %115
 
 proto_item_set_generated.exit95.i:                ; preds = %139, %136, %130, %proto_item_set_generated.exit92.i, %proto_item_set_generated.exit89.i
   %143 = load i32, ptr @hf_pdcp_lte_rohc_compression, align 4
-  %144 = load i8, ptr %45, align 8, !range !10, !noundef !11
+  %144 = load i8, ptr %45, align 8, !range !9, !noundef !10
   %145 = zext nneg i8 %144 to i64
   %146 = tail call ptr @proto_tree_add_boolean(ptr noundef %53, i32 noundef %143, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %145)
   %.not.i96.i = icmp eq ptr %146, null
@@ -1514,7 +1514,7 @@ proto_item_set_generated.exit95.i:                ; preds = %139, %136, %130, %p
   br label %proto_item_set_generated.exit98.i
 
 proto_item_set_generated.exit98.i:                ; preds = %150, %147, %proto_item_set_generated.exit95.i
-  %154 = load i8, ptr %45, align 8, !range !10, !noundef !11
+  %154 = load i8, ptr %45, align 8, !range !9, !noundef !10
   %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %156, label %proto_item_set_generated.exit116.i
 
@@ -1541,7 +1541,7 @@ proto_item_set_generated.exit98.i:                ; preds = %150, %147, %proto_i
 proto_item_set_generated.exit101.i:               ; preds = %163, %160, %156
   %167 = load i32, ptr @hf_pdcp_lte_rohc_rnd, align 4
   %168 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %169 = load i8, ptr %168, align 8, !range !10, !noundef !11
+  %169 = load i8, ptr %168, align 8, !range !9, !noundef !10
   %170 = zext nneg i8 %169 to i32
   %171 = tail call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %167, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %170)
   %.not.i102.i = icmp eq ptr %171, null
@@ -1563,7 +1563,7 @@ proto_item_set_generated.exit101.i:               ; preds = %163, %160, %156
 proto_item_set_generated.exit104.i:               ; preds = %175, %172, %proto_item_set_generated.exit101.i
   %179 = load i32, ptr @hf_pdcp_lte_rohc_udp_checksum_present, align 4
   %180 = getelementptr inbounds nuw i8, ptr %23, i64 41
-  %181 = load i8, ptr %180, align 1, !range !10, !noundef !11
+  %181 = load i8, ptr %180, align 1, !range !9, !noundef !10
   %182 = zext nneg i8 %181 to i32
   %183 = tail call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %179, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %182)
   %.not.i105.i = icmp eq ptr %183, null
@@ -1607,7 +1607,7 @@ proto_item_set_generated.exit107.i:               ; preds = %187, %184, %proto_i
 proto_item_set_generated.exit110.i:               ; preds = %199, %196, %proto_item_set_generated.exit107.i
   %203 = load i32, ptr @hf_pdcp_lte_cid_inclusion_info, align 4
   %204 = getelementptr inbounds nuw i8, ptr %23, i64 34
-  %205 = load i8, ptr %204, align 2, !range !10, !noundef !11
+  %205 = load i8, ptr %204, align 2, !range !9, !noundef !10
   %206 = zext nneg i8 %205 to i32
   %207 = tail call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %203, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %206)
   %.not.i111.i = icmp eq ptr %207, null
@@ -1629,7 +1629,7 @@ proto_item_set_generated.exit110.i:               ; preds = %199, %196, %proto_i
 proto_item_set_generated.exit113.i:               ; preds = %211, %208, %proto_item_set_generated.exit110.i
   %215 = load i32, ptr @hf_pdcp_lte_large_cid_present, align 4
   %216 = getelementptr inbounds nuw i8, ptr %23, i64 35
-  %217 = load i8, ptr %216, align 1, !range !10, !noundef !11
+  %217 = load i8, ptr %216, align 1, !range !9, !noundef !10
   %218 = zext nneg i8 %217 to i32
   %219 = tail call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %215, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %218)
   %.not.i114.i = icmp eq ptr %219, null
@@ -1655,7 +1655,7 @@ proto_item_set_generated.exit116.i:               ; preds = %223, %220, %proto_i
   %230 = load i32, ptr %66, align 4
   %231 = tail call ptr @val_to_str_const(i32 noundef %230, ptr noundef nonnull @pdcp_plane_vals, ptr noundef nonnull @.str.271)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %51, ptr noundef nonnull @.str.293, ptr noundef %229, ptr noundef %231)
-  %232 = load i8, ptr %45, align 8, !range !10, !noundef !11
+  %232 = load i8, ptr %45, align 8, !range !9, !noundef !10
   %233 = trunc nuw i8 %232 to i1
   br i1 %233, label %234, label %243
 
@@ -1701,7 +1701,7 @@ show_pdcp_config.exit:                            ; preds = %243, %244, %247
   %256 = phi ptr [ %36, %.thread ], [ %45, %show_pdcp_config.exit ], [ %45, %40 ]
   %.0346538 = phi ptr [ null, %.thread ], [ %44, %show_pdcp_config.exit ], [ null, %40 ]
   %.0347537 = phi ptr [ null, %.thread ], [ %42, %show_pdcp_config.exit ], [ %42, %40 ]
-  %257 = load i8, ptr %256, align 8, !range !10, !noundef !11
+  %257 = load i8, ptr %256, align 8, !range !9, !noundef !10
   %258 = trunc nuw i8 %257 to i1
   br i1 %258, label %259, label %263
 
@@ -1891,7 +1891,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
 361:                                              ; preds = %proto_item_set_generated.exit444, %300
   %.0350 = phi ptr [ %311, %proto_item_set_generated.exit444 ], [ null, %300 ]
   %362 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %363 = load i8, ptr %362, align 8, !range !10, !noundef !11
+  %363 = load i8, ptr %362, align 8, !range !9, !noundef !10
   %364 = trunc nuw i8 %363 to i1
   br i1 %364, label %596, label %365
 
@@ -2080,7 +2080,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   %455 = add i32 %.0361585.us, 8
   %456 = add nuw i32 %.0367584.us, 1
   %exitcond607.not = icmp eq i32 %456, %450
-  br i1 %exitcond607.not, label %._crit_edge, label %.split.us.us, !llvm.loop !19
+  br i1 %exitcond607.not, label %._crit_edge, label %.split.us.us, !llvm.loop !18
 
 457:                                              ; preds = %457, %.split.us.us
   %.0363571.us.us = phi i32 [ 0, %.split.us.us ], [ %461, %457 ]
@@ -2092,7 +2092,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   %spec.select = add i32 %.2371569.us.us, %460
   %461 = add nuw nsw i32 %.0363571.us.us, 1
   %exitcond606.not = icmp eq i32 %461, 8
-  br i1 %exitcond606.not, label %454, label %457, !llvm.loop !20
+  br i1 %exitcond606.not, label %454, label %457, !llvm.loop !19
 
 .split:                                           ; preds = %.lr.ph, %.split573.split
   %.0361585 = phi i32 [ %492, %.split573.split ], [ %451, %.lr.ph ]
@@ -2141,7 +2141,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   %.2366 = phi i32 [ %481, %473 ], [ %485, %482 ]
   %488 = add nuw nsw i32 %.0363571, 1
   %exitcond.not = icmp eq i32 %488, 8
-  br i1 %exitcond.not, label %.split573.split, label %466, !llvm.loop !21
+  br i1 %exitcond.not, label %.split573.split, label %466, !llvm.loop !20
 
 .split573.split:                                  ; preds = %487
   %489 = load i32, ptr @hf_pdcp_lte_bitmap_byte, align 4
@@ -2150,7 +2150,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   %492 = add i32 %.0361585, 8
   %493 = add nuw i32 %.0367584, 1
   %exitcond601.not = icmp eq i32 %493, %450
-  br i1 %exitcond601.not, label %._crit_edge, label %.split, !llvm.loop !22
+  br i1 %exitcond601.not, label %._crit_edge, label %.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.split573.split, %454, %442
   %.1370.lcssa = phi i32 [ 0, %442 ], [ %spec.select, %454 ], [ %.3372, %.split573.split ]
@@ -2375,7 +2375,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
 
 597:                                              ; preds = %.critedge432.thread
   %598 = getelementptr inbounds nuw i8, ptr %306, i64 4
-  %599 = load i8, ptr %598, align 4, !range !10, !noundef !11
+  %599 = load i8, ptr %598, align 4, !range !9, !noundef !10
   %600 = icmp ne i8 %599, 0
   br label %601
 
@@ -2387,7 +2387,7 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
 
 605:                                              ; preds = %601
   %606 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %607 = load i8, ptr %606, align 8, !range !10, !noundef !11
+  %607 = load i8, ptr %606, align 8, !range !9, !noundef !10
   %608 = trunc nuw i8 %607 to i1
   %cond.i = icmp eq i32 %603, 2
   %or.cond69.i = and i1 %cond.i, %608
@@ -2397,14 +2397,14 @@ proto_item_set_generated.exit444:                 ; preds = %proto_item_set_gene
   %610 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %611 = load i32, ptr %610, align 4
   %612 = icmp ne i32 %611, 1
-  %613 = load i8, ptr @global_pdcp_decipher_signalling, align 1, !range !10
+  %613 = load i8, ptr @global_pdcp_decipher_signalling, align 1, !range !9
   %614 = trunc nuw i8 %613 to i1
   %or.cond.i = select i1 %612, i1 true, i1 %614
   br i1 %or.cond.i, label %615, label %decipher_payload.exit.thread
 
 615:                                              ; preds = %609
   %616 = icmp ne i32 %611, 2
-  %617 = load i8, ptr @global_pdcp_decipher_userplane, align 1, !range !10
+  %617 = load i8, ptr @global_pdcp_decipher_userplane, align 1, !range !9
   %618 = trunc nuw i8 %617 to i1
   %or.cond3.i = select i1 %616, i1 true, i1 %618
   br i1 %or.cond3.i, label %619, label %decipher_payload.exit.thread
@@ -2538,7 +2538,7 @@ decipher_payload.exit.thread:                     ; preds = %605, %609, %615, %6
   %685 = icmp eq i32 %684, 1
   %.neg = select i1 %685, i32 -4, i32 0
   %686 = add i32 %.neg, %682
-  %687 = load i8, ptr @global_pdcp_check_integrity, align 1, !range !10, !noundef !11
+  %687 = load i8, ptr @global_pdcp_check_integrity, align 1, !range !9, !noundef !10
   %688 = trunc nuw i8 %687 to i1
   %brmerge.not = select i1 %688, i1 %685, i1 false
   br i1 %brmerge.not, label %689, label %calculate_digest.exit
@@ -2552,9 +2552,9 @@ decipher_payload.exit.thread:                     ; preds = %605, %609, %615, %6
 
 694:                                              ; preds = %689
   %695 = getelementptr inbounds nuw i8, ptr %12, i64 25
-  %696 = load i8, ptr %695, align 1, !range !10, !noundef !11
+  %696 = load i8, ptr %695, align 1, !range !9, !noundef !10
   %697 = trunc nuw i8 %696 to i1
-  %698 = load i8, ptr @global_pdcp_check_integrity, align 1, !range !10
+  %698 = load i8, ptr @global_pdcp_check_integrity, align 1, !range !9
   %699 = trunc nuw i8 %698 to i1
   %or.cond.i445 = select i1 %697, i1 %699, i1 false
   %cond.i446 = icmp eq i32 %692, 2
@@ -2669,7 +2669,7 @@ decipher_payload.exit.thread:                     ; preds = %605, %609, %615, %6
 calculate_digest.exit:                            ; preds = %766, %694, %689, %681
   %.0526 = phi i1 [ false, %681 ], [ %.1527, %766 ], [ false, %694 ], [ true, %689 ]
   %.0348 = phi i32 [ 0, %681 ], [ %.1.i, %766 ], [ 0, %694 ], [ 0, %689 ]
-  %767 = load i8, ptr @global_pdcp_dissect_signalling_plane_as_rrc, align 1, !range !10, !noundef !11
+  %767 = load i8, ptr @global_pdcp_dissect_signalling_plane_as_rrc, align 1, !range !9, !noundef !10
   %768 = trunc nuw i8 %767 to i1
   br i1 %768, label %769, label %825
 
@@ -2685,7 +2685,7 @@ calculate_digest.exit:                            ; preds = %766, %694, %689, %6
 
 774:                                              ; preds = %770
   %775 = getelementptr inbounds nuw i8, ptr %306, i64 4
-  %776 = load i8, ptr %775, align 4, !range !10, !noundef !11
+  %776 = load i8, ptr %775, align 4, !range !9, !noundef !10
   %777 = trunc nuw i8 %776 to i1
   br i1 %777, label %825, label %778
 
@@ -2785,7 +2785,7 @@ lookup_rrc_dissector_handle.exit.thread:          ; preds = %794, %783, %778, %l
 
 817:                                              ; preds = %810
   %818 = getelementptr inbounds nuw i8, ptr %.0349, i64 4
-  %819 = load i8, ptr %818, align 4, !range !10, !noundef !11
+  %819 = load i8, ptr %818, align 4, !range !9, !noundef !10
   %820 = trunc nuw i8 %819 to i1
   br i1 %820, label %828, label %821
 
@@ -2849,7 +2849,7 @@ lookup_rrc_dissector_handle.exit.thread:          ; preds = %794, %783, %778, %l
   br i1 %.not425, label %916, label %848
 
 848:                                              ; preds = %846
-  %849 = load i8, ptr %256, align 8, !range !10, !noundef !11
+  %849 = load i8, ptr %256, align 8, !range !9, !noundef !10
   %850 = trunc nuw i8 %849 to i1
   br i1 %850, label %895, label %851
 
@@ -2864,7 +2864,7 @@ lookup_rrc_dissector_handle.exit.thread:          ; preds = %794, %783, %778, %l
   br i1 %856, label %857, label %889
 
 857:                                              ; preds = %854
-  %858 = load i8, ptr @global_pdcp_dissect_user_plane_as_ip, align 1, !range !10, !noundef !11
+  %858 = load i8, ptr @global_pdcp_dissect_user_plane_as_ip, align 1, !range !9, !noundef !10
   %859 = trunc nuw i8 %858 to i1
   br i1 %859, label %860, label %886
 
@@ -2939,7 +2939,7 @@ lookup_rrc_dissector_handle.exit.thread:          ; preds = %794, %783, %778, %l
   br label %.critedge432
 
 895:                                              ; preds = %848
-  %896 = load i8, ptr @global_pdcp_dissect_rohc, align 1, !range !10, !noundef !11
+  %896 = load i8, ptr @global_pdcp_dissect_rohc, align 1, !range !9, !noundef !10
   %897 = trunc nuw i8 %896 to i1
   br i1 %897, label %904, label %898
 
@@ -3363,7 +3363,7 @@ define internal noundef zeroext i1 @dissect_pdcp_lte_heur(ptr noundef %0, ptr no
   %.sink = phi i32 [ 3, %.split213.us ], [ 3, %.split208.us ], [ 3, %.split203.us ], [ 2, %.split198.us ], [ 2, %.split193.us ], [ 2, %.split188.us ], [ 2, %.split183.us ], [ 2, %.split178.us ], [ 3, %.split174.us ], [ 2, %.split169.us ], [ 2, %.split164.us ], [ 2, %.split159.us ], [ 2, %.split154.us ]
   %.1 = phi i8 [ %.0.ph228, %.split213.us ], [ %.0.ph228, %.split208.us ], [ %.0.ph228, %.split203.us ], [ %.0.ph228, %.split198.us ], [ %.0.ph228, %.split193.us ], [ %.0.ph228, %.split188.us ], [ %.0.ph228, %.split183.us ], [ %.0.ph228, %.split178.us ], [ %.0.ph228, %.split174.us ], [ %.0.ph228, %.split169.us ], [ %.0.ph228, %.split164.us ], [ %.0.ph228, %.split159.us ], [ 1, %.split154.us ]
   %71 = add i32 %.0101.ph227, %.sink
-  br label %.lr.ph, !llvm.loop !23
+  br label %.lr.ph, !llvm.loop !22
 
 .outer._crit_edge:                                ; preds = %.lr.ph
   %72 = getelementptr inbounds nuw i8, ptr %16, i64 58
@@ -4123,7 +4123,7 @@ proto_item_set_generated.exit157:                 ; preds = %108, %115, %118
   ]
 
 157:                                              ; preds = %155
-  %158 = load i8, ptr %146, align 8, !range !10, !noundef !11
+  %158 = load i8, ptr %146, align 8, !range !9, !noundef !10
   %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %184, label %160
 
@@ -4134,12 +4134,12 @@ proto_item_set_generated.exit157:                 ; preds = %108, %115, %118
   %163 = getelementptr inbounds nuw i8, ptr %151, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %148, ptr noundef nonnull align 1 dereferenceable(16) %163, i64 noundef 16, i1 noundef false) #15
   %164 = getelementptr inbounds nuw i8, ptr %151, i64 32
-  %165 = load i8, ptr %164, align 8, !range !10, !noundef !11
+  %165 = load i8, ptr %164, align 8, !range !9, !noundef !10
   store i8 %165, ptr %146, align 8
   br label %.sink.split.i
 
 166:                                              ; preds = %155
-  %167 = load i8, ptr %143, align 2, !range !10, !noundef !11
+  %167 = load i8, ptr %143, align 2, !range !9, !noundef !10
   %168 = trunc nuw i8 %167 to i1
   br i1 %168, label %184, label %169
 
@@ -4150,12 +4150,12 @@ proto_item_set_generated.exit157:                 ; preds = %108, %115, %118
   %172 = getelementptr inbounds nuw i8, ptr %151, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %145, ptr noundef nonnull align 1 dereferenceable(16) %172, i64 noundef 16, i1 noundef false) #15
   %173 = getelementptr inbounds nuw i8, ptr %151, i64 32
-  %174 = load i8, ptr %173, align 8, !range !10, !noundef !11
+  %174 = load i8, ptr %173, align 8, !range !9, !noundef !10
   store i8 %174, ptr %143, align 2
   br label %.sink.split.i
 
 175:                                              ; preds = %155
-  %176 = load i8, ptr %140, align 1, !range !10, !noundef !11
+  %176 = load i8, ptr %140, align 1, !range !9, !noundef !10
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %184, label %178
 
@@ -4166,7 +4166,7 @@ proto_item_set_generated.exit157:                 ; preds = %108, %115, %118
   %181 = getelementptr inbounds nuw i8, ptr %151, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %142, ptr noundef nonnull align 1 dereferenceable(16) %181, i64 noundef 16, i1 noundef false) #15
   %182 = getelementptr inbounds nuw i8, ptr %151, i64 32
-  %183 = load i8, ptr %182, align 8, !range !10, !noundef !11
+  %183 = load i8, ptr %182, align 8, !range !9, !noundef !10
   store i8 %183, ptr %140, align 1
   br label %.sink.split.i
 
@@ -4177,12 +4177,12 @@ proto_item_set_generated.exit157:                 ; preds = %108, %115, %118
 
 184:                                              ; preds = %.sink.split.i, %175, %166, %157, %155, %150
   %185 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %185, label %150, label %look_up_keys_record.exit, !llvm.loop !24
+  br i1 %185, label %150, label %look_up_keys_record.exit, !llvm.loop !23
 
 186:                                              ; preds = %187
   %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %look_up_keys_record.exit.thread, label %187, !llvm.loop !25
+  br i1 %exitcond.not.i, label %look_up_keys_record.exit.thread, label %187, !llvm.loop !24
 
 187:                                              ; preds = %186, %.lr.ph51.i
   %indvars.iv57.i = phi i64 [ 0, %.lr.ph51.i ], [ %indvars.iv.next58.i, %186 ]
@@ -4204,7 +4204,7 @@ look_up_keys_record.exit:                         ; preds = %184, %187, %134
 
 195:                                              ; preds = %191
   %196 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  %197 = load i8, ptr %196, align 8, !range !10, !noundef !11
+  %197 = load i8, ptr %196, align 8, !range !9, !noundef !10
   %198 = trunc nuw i8 %197 to i1
   br i1 %198, label %199, label %205
 
@@ -4221,7 +4221,7 @@ look_up_keys_record.exit:                         ; preds = %184, %187, %134
 205:                                              ; preds = %199, %195
   %.0126 = phi ptr [ %201, %199 ], [ null, %195 ]
   %206 = getelementptr inbounds nuw i8, ptr %.0.i, i64 82
-  %207 = load i8, ptr %206, align 2, !range !10, !noundef !11
+  %207 = load i8, ptr %206, align 2, !range !9, !noundef !10
   %208 = trunc nuw i8 %207 to i1
   br i1 %208, label %209, label %225
 
@@ -4237,7 +4237,7 @@ look_up_keys_record.exit:                         ; preds = %184, %187, %134
 
 215:                                              ; preds = %191
   %216 = getelementptr inbounds nuw i8, ptr %.0.i, i64 65
-  %217 = load i8, ptr %216, align 1, !range !10, !noundef !11
+  %217 = load i8, ptr %216, align 1, !range !9, !noundef !10
   %218 = trunc nuw i8 %217 to i1
   br i1 %218, label %219, label %proto_item_set_generated.exit164
 
@@ -4576,23 +4576,22 @@ attributes #18 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7, !8, !13}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8, !13}
-!20 = distinct !{!20, !7, !8, !13}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !12}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7, !12}
+!19 = distinct !{!19, !7, !12}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

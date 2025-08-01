@@ -221,7 +221,7 @@ define internal fastcc range(i32 0, 2) i32 @hdr_generate_mask(ptr noundef readon
   %5 = alloca i32, align 4
   %6 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
-  store i32 0, ptr %5, align 4, !tbaa !27
+  store i32 0, ptr %5, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8, !tbaa !16
@@ -338,7 +338,7 @@ define range(i32 0, 2) i32 @ossl_quic_hdr_protector_encrypt(ptr noundef readonly
   %22 = xor i8 %21, %19
   store i8 %22, ptr %20, align 1, !tbaa !23
   %exitcond.i = icmp eq i64 %17, %wide.trip.count.i
-  br i1 %exitcond.i, label %23, label %16, !llvm.loop !28
+  br i1 %exitcond.i, label %23, label %16, !llvm.loop !27
 
 23:                                               ; preds = %16
   %24 = load i8, ptr %3, align 1, !tbaa !23
@@ -381,7 +381,7 @@ define range(i32 0, 2) i32 @ossl_quic_hdr_protector_encrypt_fields(ptr noundef r
   %18 = xor i8 %17, %15
   store i8 %18, ptr %16, align 1, !tbaa !23
   %exitcond = icmp eq i64 %13, %wide.trip.count
-  br i1 %exitcond, label %19, label %12, !llvm.loop !28
+  br i1 %exitcond, label %19, label %12, !llvm.loop !27
 
 19:                                               ; preds = %12
   %20 = load i8, ptr %6, align 1, !tbaa !23
@@ -404,12 +404,12 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef captures(n
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %10, align 8, !tbaa !29
+  %.val = load i64, ptr %10, align 8, !tbaa !28
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %11
 
 11:                                               ; preds = %7
-  store i64 1, ptr %6, align 8, !tbaa !31
+  store i64 1, ptr %6, align 8, !tbaa !30
   br label %12
 
 12:                                               ; preds = %11, %7
@@ -417,7 +417,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef captures(n
   br i1 %.not169, label %15, label %13
 
 13:                                               ; preds = %12
-  %.val197 = load ptr, ptr %0, align 8, !tbaa !32
+  %.val197 = load ptr, ptr %0, align 8, !tbaa !31
   store ptr %.val197, ptr %5, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
@@ -428,18 +428,18 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef captures(n
   br i1 %16, label %.critedge192, label %17
 
 17:                                               ; preds = %15
-  %.val.i.i = load i64, ptr %10, align 8, !tbaa !29
+  %.val.i.i = load i64, ptr %10, align 8, !tbaa !28
   %.not.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not.i.i, label %.critedge192, label %18
 
 18:                                               ; preds = %17
-  %19 = load ptr, ptr %0, align 8, !tbaa !32
+  %19 = load ptr, ptr %0, align 8, !tbaa !31
   %20 = load i8, ptr %19, align 1, !tbaa !23
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  store ptr %22, ptr %0, align 8, !tbaa !32
+  store ptr %22, ptr %0, align 8, !tbaa !31
   %23 = add i64 %.val.i.i, -1
-  store i64 %23, ptr %10, align 8, !tbaa !29
+  store i64 %23, ptr %10, align 8, !tbaa !28
   %24 = load i32, ptr %4, align 8
   %25 = shl i32 %2, 14
   %26 = and i32 %25, 16384
@@ -489,30 +489,30 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef captures(n
 55:                                               ; preds = %43, %41
   %storemerge = phi i32 [ %54, %43 ], [ %42, %41 ]
   store i32 %storemerge, ptr %4, align 8
-  %.val.i.i206 = load i64, ptr %10, align 8, !tbaa !29
+  %.val.i.i206 = load i64, ptr %10, align 8, !tbaa !28
   %56 = icmp ult i64 %.val.i.i206, %1
   br i1 %56, label %.critedge192, label %57
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %59 = load ptr, ptr %0, align 8, !tbaa !32
+  %59 = load ptr, ptr %0, align 8, !tbaa !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr align 1 %59, i64 range(i64 0, 21) %1, i1 false)
-  %60 = load ptr, ptr %0, align 8, !tbaa !32
+  %60 = load ptr, ptr %0, align 8, !tbaa !31
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %1
-  store ptr %61, ptr %0, align 8, !tbaa !32
-  %62 = load i64, ptr %10, align 8, !tbaa !29
+  store ptr %61, ptr %0, align 8, !tbaa !31
+  %62 = load i64, ptr %10, align 8, !tbaa !28
   %63 = sub i64 %62, %1
-  store i64 %63, ptr %10, align 8, !tbaa !29
+  store i64 %63, ptr %10, align 8, !tbaa !28
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %65 = trunc nuw nsw i64 %1 to i8
-  store i8 %65, ptr %64, align 8, !tbaa !33
+  store i8 %65, ptr %64, align 8, !tbaa !32
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 50
   store i32 0, ptr %66, align 2
-  %.val198 = load ptr, ptr %0, align 8, !tbaa !32
+  %.val198 = load ptr, ptr %0, align 8, !tbaa !31
   br i1 %.not185, label %71, label %67
 
 67:                                               ; preds = %57
-  %.val.i = load i64, ptr %10, align 8, !tbaa !29
+  %.val.i = load i64, ptr %10, align 8, !tbaa !28
   %68 = icmp ult i64 %.val.i, 4
   br i1 %68, label %.critedge192, label %PACKET_forward.exit
 
@@ -526,15 +526,15 @@ PACKET_forward.exit:                              ; preds = %67
   %73 = lshr i32 %72, 10
   %74 = and i32 %73, 15
   %75 = zext nneg i32 %74 to i64
-  %.val.i.i209 = load i64, ptr %10, align 8, !tbaa !29
+  %.val.i.i209 = load i64, ptr %10, align 8, !tbaa !28
   %76 = icmp ult i64 %.val.i.i209, %75
   br i1 %76, label %.critedge192, label %PACKET_copy_bytes.exit211
 
 PACKET_copy_bytes.exit211:                        ; preds = %71
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr align 1 %.val198, i64 range(i64 0, 21) %75, i1 false)
-  %77 = load ptr, ptr %0, align 8, !tbaa !32
+  %77 = load ptr, ptr %0, align 8, !tbaa !31
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %75
-  %79 = load i64, ptr %10, align 8, !tbaa !29
+  %79 = load i64, ptr %10, align 8, !tbaa !28
   %80 = sub i64 %79, %75
   br label %PACKET_forward.exit214
 
@@ -542,27 +542,27 @@ PACKET_forward.exit214:                           ; preds = %PACKET_copy_bytes.e
   %.val199 = phi ptr [ %69, %PACKET_forward.exit ], [ %78, %PACKET_copy_bytes.exit211 ]
   %storemerge307 = phi i64 [ %70, %PACKET_forward.exit ], [ %80, %PACKET_copy_bytes.exit211 ]
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %81, align 4, !tbaa !36
+  store i32 0, ptr %81, align 4, !tbaa !35
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 29
-  store i8 0, ptr %82, align 1, !tbaa !37
+  store i8 0, ptr %82, align 1, !tbaa !36
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
-  store i64 %storemerge307, ptr %84, align 8, !tbaa !38
+  store i64 %storemerge307, ptr %84, align 8, !tbaa !37
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %.val199, ptr %85, align 8, !tbaa !39
+  store ptr %.val199, ptr %85, align 8, !tbaa !38
   %86 = getelementptr inbounds nuw i8, ptr %.val199, i64 %storemerge307
-  store ptr %86, ptr %0, align 8, !tbaa !32
-  store i64 0, ptr %10, align 8, !tbaa !29
+  store ptr %86, ptr %0, align 8, !tbaa !31
+  store i64 0, ptr %10, align 8, !tbaa !28
   br label %263
 
 87:                                               ; preds = %18
-  %.val.i.i215 = load i64, ptr %10, align 8, !tbaa !29
+  %.val.i.i215 = load i64, ptr %10, align 8, !tbaa !28
   %88 = icmp ult i64 %.val.i.i215, 4
   br i1 %88, label %.critedge192, label %89
 
 89:                                               ; preds = %87
-  %90 = load ptr, ptr %0, align 8, !tbaa !32
+  %90 = load ptr, ptr %0, align 8, !tbaa !31
   %91 = load i8, ptr %90, align 1, !tbaa !23
   %92 = zext i8 %91 to i64
   %93 = shl nuw nsw i64 %92, 24
@@ -581,9 +581,9 @@ PACKET_forward.exit214:                           ; preds = %PACKET_copy_bytes.e
   %106 = zext i8 %105 to i64
   %107 = or disjoint i64 %103, %106
   %108 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  store ptr %108, ptr %0, align 8, !tbaa !32
+  store ptr %108, ptr %0, align 8, !tbaa !31
   %109 = add i64 %.val.i.i215, -4
-  store i64 %109, ptr %10, align 8, !tbaa !29
+  store i64 %109, ptr %10, align 8, !tbaa !28
   %.not172 = icmp ne i64 %107, 0
   %110 = and i32 %21, 64
   %111 = icmp eq i32 %110, 0
@@ -595,9 +595,9 @@ PACKET_forward.exit214:                           ; preds = %PACKET_copy_bytes.e
 PACKET_get_1.exit220:                             ; preds = %89
   %112 = load i8, ptr %108, align 1, !tbaa !23
   %113 = getelementptr inbounds nuw i8, ptr %90, i64 5
-  store ptr %113, ptr %0, align 8, !tbaa !32
+  store ptr %113, ptr %0, align 8, !tbaa !31
   %114 = add i64 %.val.i.i215, -5
-  store i64 %114, ptr %10, align 8, !tbaa !29
+  store i64 %114, ptr %10, align 8, !tbaa !28
   %115 = icmp ugt i8 %112, 20
   br i1 %115, label %.critedge192, label %116
 
@@ -610,21 +610,21 @@ PACKET_get_1.exit220:                             ; preds = %89
 120:                                              ; preds = %116
   %121 = getelementptr inbounds nuw i8, ptr %4, i64 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %121, ptr nonnull align 1 %113, i64 range(i64 0, 21) %118, i1 false)
-  %122 = load ptr, ptr %0, align 8, !tbaa !32
+  %122 = load ptr, ptr %0, align 8, !tbaa !31
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 %118
-  store ptr %123, ptr %0, align 8, !tbaa !32
-  %124 = load i64, ptr %10, align 8, !tbaa !29
+  store ptr %123, ptr %0, align 8, !tbaa !31
+  %124 = load i64, ptr %10, align 8, !tbaa !28
   %125 = sub i64 %124, %118
-  store i64 %125, ptr %10, align 8, !tbaa !29
+  store i64 %125, ptr %10, align 8, !tbaa !28
   %.not.i.i225 = icmp eq i64 %124, %118
   br i1 %.not.i.i225, label %.critedge192, label %PACKET_get_1.exit227
 
 PACKET_get_1.exit227:                             ; preds = %120
   %126 = load i8, ptr %123, align 1, !tbaa !23
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 1
-  store ptr %127, ptr %0, align 8, !tbaa !32
+  store ptr %127, ptr %0, align 8, !tbaa !31
   %128 = add i64 %125, -1
-  store i64 %128, ptr %10, align 8, !tbaa !29
+  store i64 %128, ptr %10, align 8, !tbaa !28
   %129 = icmp ugt i8 %126, 20
   br i1 %129, label %.critedge192, label %130
 
@@ -636,18 +636,18 @@ PACKET_get_1.exit227:                             ; preds = %120
 133:                                              ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 30
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %134, ptr nonnull align 1 %127, i64 range(i64 0, 21) %131, i1 false)
-  %135 = load ptr, ptr %0, align 8, !tbaa !32
+  %135 = load ptr, ptr %0, align 8, !tbaa !31
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 %131
-  store ptr %136, ptr %0, align 8, !tbaa !32
-  %137 = load i64, ptr %10, align 8, !tbaa !29
+  store ptr %136, ptr %0, align 8, !tbaa !31
+  %137 = load i64, ptr %10, align 8, !tbaa !28
   %138 = sub i64 %137, %131
-  store i64 %138, ptr %10, align 8, !tbaa !29
+  store i64 %138, ptr %10, align 8, !tbaa !28
   %139 = getelementptr inbounds nuw i8, ptr %4, i64 29
   %140 = trunc nuw i64 %107 to i32
   %141 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %140, ptr %141, align 4, !tbaa !36
-  store i8 %112, ptr %117, align 8, !tbaa !33
-  store i8 %126, ptr %139, align 1, !tbaa !37
+  store i32 %140, ptr %141, align 4, !tbaa !35
+  store i8 %112, ptr %117, align 8, !tbaa !32
+  store i8 %126, ptr %139, align 1, !tbaa !36
   switch i32 %140, label %160 [
     i32 0, label %142
     i32 1, label %164
@@ -661,12 +661,12 @@ PACKET_get_1.exit227:                             ; preds = %120
   %147 = or disjoint i32 %145, %146
   %148 = or disjoint i32 %147, 6
   store i32 %148, ptr %4, align 8
-  %.val200 = load ptr, ptr %0, align 8, !tbaa !32
+  %.val200 = load ptr, ptr %0, align 8, !tbaa !31
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %.val200, ptr %149, align 8, !tbaa !39
-  %.val194 = load i64, ptr %10, align 8, !tbaa !29
+  store ptr %.val200, ptr %149, align 8, !tbaa !38
+  %.val194 = load i64, ptr %10, align 8, !tbaa !28
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i64 %.val194, ptr %150, align 8, !tbaa !38
+  store i64 %.val194, ptr %150, align 8, !tbaa !37
   %151 = and i64 %.val194, 3
   %.not183 = icmp eq i64 %151, 0
   br i1 %.not183, label %152, label %.critedge192
@@ -678,25 +678,25 @@ PACKET_get_1.exit227:                             ; preds = %120
   %155 = getelementptr inbounds nuw i8, ptr %4, i64 50
   store i32 0, ptr %155, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %154, i8 0, i64 16, i1 false)
-  %.val.i231 = load i64, ptr %10, align 8, !tbaa !29
+  %.val.i231 = load i64, ptr %10, align 8, !tbaa !28
   %156 = icmp ult i64 %.val.i231, %.val194
   br i1 %156, label %.critedge192, label %PACKET_forward.exit233
 
 PACKET_forward.exit233:                           ; preds = %152
-  %157 = load ptr, ptr %0, align 8, !tbaa !32
+  %157 = load ptr, ptr %0, align 8, !tbaa !31
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 %.val194
-  store ptr %158, ptr %0, align 8, !tbaa !32
+  store ptr %158, ptr %0, align 8, !tbaa !31
   %159 = sub nuw i64 %.val.i231, %.val194
-  store i64 %159, ptr %10, align 8, !tbaa !29
+  store i64 %159, ptr %10, align 8, !tbaa !28
   br label %263
 
 160:                                              ; preds = %133
   br i1 %.not, label %.critedge192, label %161
 
 161:                                              ; preds = %160
-  %162 = load i64, ptr %6, align 8, !tbaa !31
+  %162 = load i64, ptr %6, align 8, !tbaa !30
   %163 = or i64 %162, 2
-  store i64 %163, ptr %6, align 8, !tbaa !31
+  store i64 %163, ptr %6, align 8, !tbaa !30
   br label %.critedge192
 
 164:                                              ; preds = %133
@@ -744,24 +744,24 @@ default.unreachable315:                           ; preds = %166
 181:                                              ; preds = %178
   %182 = load i64, ptr %8, align 8
   %183 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %.val.i.i234 = load i64, ptr %10, align 8, !tbaa !29
+  %.val.i.i234 = load i64, ptr %10, align 8, !tbaa !28
   %184 = icmp ult i64 %.val.i.i234, %182
   br i1 %184, label %.critedge, label %185
 
 185:                                              ; preds = %181
-  %186 = load ptr, ptr %0, align 8, !tbaa !32
-  store ptr %186, ptr %183, align 8, !tbaa !40
+  %186 = load ptr, ptr %0, align 8, !tbaa !31
+  store ptr %186, ptr %183, align 8, !tbaa !39
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 %182
-  store ptr %187, ptr %0, align 8, !tbaa !32
+  store ptr %187, ptr %0, align 8, !tbaa !31
   %188 = sub nuw i64 %.val.i.i234, %182
-  store i64 %188, ptr %10, align 8, !tbaa !29
+  store i64 %188, ptr %10, align 8, !tbaa !28
   %189 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i64 %182, ptr %189, align 8, !tbaa !41
+  store i64 %182, ptr %189, align 8, !tbaa !40
   %190 = icmp eq i64 %182, 0
   br i1 %190, label %191, label %192
 
 191:                                              ; preds = %185
-  store ptr null, ptr %183, align 8, !tbaa !42
+  store ptr null, ptr %183, align 8, !tbaa !41
   br label %192
 
 192:                                              ; preds = %185, %191
@@ -781,12 +781,12 @@ default.unreachable315:                           ; preds = %166
   br i1 %198, label %199, label %211
 
 199:                                              ; preds = %195
-  %.val201 = load ptr, ptr %0, align 8, !tbaa !32
+  %.val201 = load ptr, ptr %0, align 8, !tbaa !31
   %200 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %.val201, ptr %200, align 8, !tbaa !39
-  %.val195 = load i64, ptr %10, align 8, !tbaa !29
+  store ptr %.val201, ptr %200, align 8, !tbaa !38
+  %.val195 = load i64, ptr %10, align 8, !tbaa !28
   %201 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i64 %.val195, ptr %201, align 8, !tbaa !38
+  store i64 %.val195, ptr %201, align 8, !tbaa !37
   %202 = shl nuw nsw i32 %21, 16
   %203 = and i32 %202, 983040
   %204 = and i32 %196, -999676
@@ -794,16 +794,16 @@ default.unreachable315:                           ; preds = %166
   store i32 %205, ptr %4, align 8
   %206 = getelementptr inbounds nuw i8, ptr %4, i64 50
   store i32 0, ptr %206, align 2
-  %.val.i236 = load i64, ptr %10, align 8, !tbaa !29
+  %.val.i236 = load i64, ptr %10, align 8, !tbaa !28
   %207 = icmp ult i64 %.val.i236, %.val195
   br i1 %207, label %.critedge192, label %PACKET_forward.exit238
 
 PACKET_forward.exit238:                           ; preds = %199
-  %208 = load ptr, ptr %0, align 8, !tbaa !32
+  %208 = load ptr, ptr %0, align 8, !tbaa !31
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 %.val195
-  store ptr %209, ptr %0, align 8, !tbaa !32
+  store ptr %209, ptr %0, align 8, !tbaa !31
   %210 = sub nuw i64 %.val.i236, %.val195
-  store i64 %210, ptr %10, align 8, !tbaa !29
+  store i64 %210, ptr %10, align 8, !tbaa !28
   br label %263
 
 211:                                              ; preds = %195
@@ -831,27 +831,27 @@ PACKET_forward.exit238:                           ; preds = %199
   br i1 %.not178, label %226, label %228
 
 226:                                              ; preds = %225
-  %.val196 = load i64, ptr %10, align 8, !tbaa !29
+  %.val196 = load i64, ptr %10, align 8, !tbaa !28
   %227 = icmp ugt i64 %223, %.val196
   br i1 %227, label %.thread, label %228
 
 228:                                              ; preds = %226, %225
-  %.val202 = load ptr, ptr %0, align 8, !tbaa !32
+  %.val202 = load ptr, ptr %0, align 8, !tbaa !31
   %229 = getelementptr inbounds nuw i8, ptr %4, i64 50
   store i32 0, ptr %229, align 2
   br i1 %.not177, label %237, label %230
 
 230:                                              ; preds = %228
-  %.val.i239 = load i64, ptr %10, align 8, !tbaa !29
+  %.val.i239 = load i64, ptr %10, align 8, !tbaa !28
   %231 = icmp ult i64 %.val.i239, 4
   br i1 %231, label %.thread, label %232
 
 232:                                              ; preds = %230
-  %233 = load ptr, ptr %0, align 8, !tbaa !32
+  %233 = load ptr, ptr %0, align 8, !tbaa !31
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
-  store ptr %234, ptr %0, align 8, !tbaa !32
+  store ptr %234, ptr %0, align 8, !tbaa !31
   %235 = add i64 %.val.i239, -4
-  store i64 %235, ptr %10, align 8, !tbaa !29
+  store i64 %235, ptr %10, align 8, !tbaa !28
   %236 = add i64 %223, -4
   br label %254
 
@@ -860,19 +860,19 @@ PACKET_forward.exit238:                           ; preds = %199
   %239 = lshr i32 %238, 10
   %240 = and i32 %239, 15
   %241 = zext nneg i32 %240 to i64
-  %.val.i.i242 = load i64, ptr %10, align 8, !tbaa !29
+  %.val.i.i242 = load i64, ptr %10, align 8, !tbaa !28
   %242 = icmp ult i64 %.val.i.i242, %241
   br i1 %242, label %.thread, label %243
 
 243:                                              ; preds = %237
-  %244 = load ptr, ptr %0, align 8, !tbaa !32
+  %244 = load ptr, ptr %0, align 8, !tbaa !31
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %229, ptr align 1 %244, i64 range(i64 0, 21) %241, i1 false)
-  %245 = load ptr, ptr %0, align 8, !tbaa !32
+  %245 = load ptr, ptr %0, align 8, !tbaa !31
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 %241
-  store ptr %246, ptr %0, align 8, !tbaa !32
-  %247 = load i64, ptr %10, align 8, !tbaa !29
+  store ptr %246, ptr %0, align 8, !tbaa !31
+  %247 = load i64, ptr %10, align 8, !tbaa !28
   %248 = sub i64 %247, %241
-  store i64 %248, ptr %10, align 8, !tbaa !29
+  store i64 %248, ptr %10, align 8, !tbaa !28
   %249 = load i32, ptr %4, align 8
   %250 = lshr i32 %249, 10
   %251 = and i32 %250, 15
@@ -885,24 +885,24 @@ PACKET_forward.exit238:                           ; preds = %199
   %.val.i245 = phi i64 [ %248, %243 ], [ %235, %232 ]
   %.val203 = phi ptr [ %246, %243 ], [ %234, %232 ]
   %255 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i64 %.sink316, ptr %255, align 8, !tbaa !38
+  store i64 %.sink316, ptr %255, align 8, !tbaa !37
   %256 = getelementptr inbounds nuw i8, ptr %4, i64 80
   br i1 %.not178, label %258, label %257
 
 257:                                              ; preds = %254
-  store ptr null, ptr %256, align 8, !tbaa !39
+  store ptr null, ptr %256, align 8, !tbaa !38
   br label %262
 
 258:                                              ; preds = %254
-  store ptr %.val203, ptr %256, align 8, !tbaa !39
+  store ptr %.val203, ptr %256, align 8, !tbaa !38
   %259 = icmp ult i64 %.val.i245, %.sink316
   br i1 %259, label %.thread, label %PACKET_forward.exit247
 
 PACKET_forward.exit247:                           ; preds = %258
   %260 = getelementptr inbounds nuw i8, ptr %.val203, i64 %.sink316
-  store ptr %260, ptr %0, align 8, !tbaa !32
+  store ptr %260, ptr %0, align 8, !tbaa !31
   %261 = sub nuw i64 %.val.i245, %.sink316
-  store i64 %261, ptr %10, align 8, !tbaa !29
+  store i64 %261, ptr %10, align 8, !tbaa !28
   br label %262
 
 .thread:                                          ; preds = %211, %226, %230, %237, %258
@@ -947,9 +947,9 @@ PACKET_forward.exit247:                           ; preds = %258
   br i1 %.not, label %.critedge192, label %275
 
 275:                                              ; preds = %274
-  %276 = load i64, ptr %6, align 8, !tbaa !31
+  %276 = load i64, ptr %6, align 8, !tbaa !30
   %277 = and i64 %276, -2
-  store i64 %277, ptr %6, align 8, !tbaa !31
+  store i64 %277, ptr %6, align 8, !tbaa !30
   br label %.critedge192
 
 .critedge192:                                     ; preds = %89, %199, %152, %130, %120, %116, %87, %71, %67, %55, %17, %PACKET_get_1.exit227, %PACKET_get_1.exit220, %142, %161, %160, %164, %.critedge, %.thread, %274, %275, %32, %30, %15
@@ -963,12 +963,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @PACKET_get_quic_vlint(ptr noundef captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val9 = load i64, ptr %3, align 8, !tbaa !29
+  %.val9 = load i64, ptr %3, align 8, !tbaa !28
   %4 = icmp eq i64 %.val9, 0
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !32
+  %6 = load ptr, ptr %0, align 8, !tbaa !31
   %7 = load i8, ptr %6, align 1, !tbaa !23
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i32
@@ -979,13 +979,13 @@ define internal fastcc range(i32 0, 2) i32 @PACKET_get_quic_vlint(ptr noundef ca
 
 13:                                               ; preds = %5
   %14 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %6) #10
-  store i64 %14, ptr %1, align 8, !tbaa !31
-  %15 = load ptr, ptr %0, align 8, !tbaa !32
+  store i64 %14, ptr %1, align 8, !tbaa !30
+  %15 = load ptr, ptr %0, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %11
-  store ptr %16, ptr %0, align 8, !tbaa !32
-  %17 = load i64, ptr %3, align 8, !tbaa !29
+  store ptr %16, ptr %0, align 8, !tbaa !31
+  %17 = load i64, ptr %3, align 8, !tbaa !28
   %18 = sub i64 %17, %11
-  store i64 %18, ptr %3, align 8, !tbaa !29
+  store i64 %18, ptr %3, align 8, !tbaa !28
   br label %19
 
 19:                                               ; preds = %5, %2, %13
@@ -1010,9 +1010,9 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !43
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
   %.not116 = icmp eq ptr %12, null
-  br i1 %.not116, label %.thread150, label %13, !prof !47
+  br i1 %.not116, label %.thread150, label %13, !prof !46
 
 13:                                               ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -1028,7 +1028,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
   %18 = and i32 %15, 255
   %19 = icmp eq i32 %18, 5
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = load i8, ptr %20, align 8, !tbaa !33
+  %21 = load i8, ptr %20, align 8, !tbaa !32
   br i1 %19, label %22, label %54
 
 22:                                               ; preds = %17
@@ -1090,7 +1090,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 29
-  %58 = load i8, ptr %57, align 1, !tbaa !37
+  %58 = load i8, ptr %57, align 1, !tbaa !36
   %59 = icmp ugt i8 %58, 20
   br i1 %59, label %.thread150, label %60
 
@@ -1118,7 +1118,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
 
 67:                                               ; preds = %66
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %69 = load i32, ptr %68, align 4, !tbaa !36
+  %69 = load i32, ptr %68, align 4, !tbaa !35
   %.not120 = icmp eq i32 %69, 0
   br i1 %.not120, label %73, label %.thread150
 
@@ -1166,14 +1166,14 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
 
 94:                                               ; preds = %86
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %96 = load i32, ptr %95, align 4, !tbaa !36
+  %96 = load i32, ptr %95, align 4, !tbaa !35
   %97 = zext i32 %96 to i64
   %98 = call i32 @WPACKET_put_bytes__(ptr noundef %0, i64 noundef %97, i64 noundef 4) #10
   %.not125 = icmp eq i32 %98, 0
   br i1 %.not125, label %.thread150, label %99
 
 99:                                               ; preds = %94
-  %100 = load i8, ptr %20, align 8, !tbaa !33
+  %100 = load i8, ptr %20, align 8, !tbaa !32
   %101 = zext i8 %100 to i64
   %102 = call i32 @WPACKET_put_bytes__(ptr noundef %0, i64 noundef %101, i64 noundef 1) #10
   %.not126 = icmp eq i32 %102, 0
@@ -1181,14 +1181,14 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %105 = load i8, ptr %20, align 8, !tbaa !33
+  %105 = load i8, ptr %20, align 8, !tbaa !32
   %106 = zext i8 %105 to i64
   %107 = call i32 @WPACKET_memcpy(ptr noundef %0, ptr noundef nonnull %104, i64 noundef %106) #10
   %.not127 = icmp eq i32 %107, 0
   br i1 %.not127, label %.thread150, label %108
 
 108:                                              ; preds = %103
-  %109 = load i8, ptr %57, align 1, !tbaa !37
+  %109 = load i8, ptr %57, align 1, !tbaa !36
   %110 = zext i8 %109 to i64
   %111 = call i32 @WPACKET_put_bytes__(ptr noundef %0, i64 noundef %110, i64 noundef 1) #10
   %.not128 = icmp eq i32 %111, 0
@@ -1196,7 +1196,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %114 = load i8, ptr %57, align 1, !tbaa !37
+  %114 = load i8, ptr %57, align 1, !tbaa !36
   %115 = zext i8 %114 to i64
   %116 = call i32 @WPACKET_memcpy(ptr noundef %0, ptr noundef nonnull %113, i64 noundef %115) #10
   %.not129 = icmp eq i32 %116, 0
@@ -1212,7 +1212,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
 
 119:                                              ; preds = %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %121 = load i64, ptr %120, align 8, !tbaa !38
+  %121 = load i64, ptr %120, align 8, !tbaa !37
   %.not136 = icmp eq i64 %121, 0
   br i1 %.not136, label %124, label %122
 
@@ -1226,15 +1226,15 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
 
 125:                                              ; preds = %117
   %126 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %127 = load i64, ptr %126, align 8, !tbaa !41
+  %127 = load i64, ptr %126, align 8, !tbaa !40
   %128 = call i32 @WPACKET_quic_write_vlint(ptr noundef %0, i64 noundef %127) #10
   %.not130 = icmp eq i32 %128, 0
   br i1 %.not130, label %.thread150, label %129
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %131 = load ptr, ptr %130, align 8, !tbaa !42
-  %132 = load i64, ptr %126, align 8, !tbaa !41
+  %131 = load ptr, ptr %130, align 8, !tbaa !41
+  %132 = load i64, ptr %126, align 8, !tbaa !40
   %133 = call i32 @WPACKET_memcpy(ptr noundef %0, ptr noundef %131, i64 noundef %132) #10
   %.not131 = icmp eq i32 %133, 0
   br i1 %.not131, label %.thread150, label %._crit_edge
@@ -1251,16 +1251,16 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
 
 138:                                              ; preds = %134
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %140 = load ptr, ptr %139, align 8, !tbaa !42
+  %140 = load ptr, ptr %139, align 8, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %142 = load i64, ptr %141, align 8, !tbaa !41
+  %142 = load i64, ptr %141, align 8, !tbaa !40
   %143 = call i32 @WPACKET_memcpy(ptr noundef %0, ptr noundef %140, i64 noundef %142) #10
   %.not135 = icmp ne i32 %143, 0
   br label %.thread150
 
 144:                                              ; preds = %134
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %146 = load i64, ptr %145, align 8, !tbaa !38
+  %146 = load i64, ptr %145, align 8, !tbaa !37
   %147 = lshr i32 %135, 10
   %148 = and i32 %147, 15
   %149 = zext nneg i32 %148 to i64
@@ -1286,7 +1286,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
 
 161:                                              ; preds = %154, %47
   %162 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %163 = load i64, ptr %162, align 8, !tbaa !38
+  %163 = load i64, ptr %162, align 8, !tbaa !37
   %.not143 = icmp eq i64 %163, 0
   br i1 %.not143, label %166, label %164
 
@@ -1301,16 +1301,16 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
   br i1 %.not115, label %.thread150, label %167
 
 167:                                              ; preds = %164, %166
-  %168 = load i64, ptr %6, align 8, !tbaa !31
+  %168 = load i64, ptr %6, align 8, !tbaa !30
   %169 = add i64 %168, 4
   store ptr %7, ptr %3, align 8, !tbaa !21
-  %170 = load i64, ptr %5, align 8, !tbaa !31
+  %170 = load i64, ptr %5, align 8, !tbaa !30
   %171 = sub i64 %169, %170
   %172 = getelementptr inbounds nuw i8, ptr %7, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %172, ptr %173, align 8, !tbaa !17
   %174 = call ptr @WPACKET_get_curr(ptr noundef %0) #10
-  %175 = load i64, ptr %162, align 8, !tbaa !38
+  %175 = load i64, ptr %162, align 8, !tbaa !37
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 %175
   %177 = load ptr, ptr %173, align 8, !tbaa !17
   %178 = ptrtoint ptr %176 to i64
@@ -1318,8 +1318,8 @@ define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef %0, i64 no
   %180 = sub i64 %178, %179
   %181 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %180, ptr %181, align 8, !tbaa !20
-  %182 = load i64, ptr %6, align 8, !tbaa !31
-  %183 = load i64, ptr %5, align 8, !tbaa !31
+  %182 = load i64, ptr %6, align 8, !tbaa !30
+  %183 = load i64, ptr %5, align 8, !tbaa !30
   %184 = sub i64 %182, %183
   %185 = getelementptr inbounds nuw i8, ptr %7, i64 %184
   %186 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1357,7 +1357,7 @@ define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %0, ptr noundef r
   %6 = and i32 %3, 255
   %7 = icmp eq i32 %6, 5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i8, ptr %8, align 8, !tbaa !33
+  %9 = load i8, ptr %8, align 8, !tbaa !32
   br i1 %7, label %10, label %21
 
 10:                                               ; preds = %5
@@ -1386,7 +1386,7 @@ define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %0, ptr noundef r
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %25 = load i8, ptr %24, align 1, !tbaa !37
+  %25 = load i8, ptr %24, align 1, !tbaa !36
   %26 = icmp ugt i8 %25, 20
   br i1 %26, label %ossl_quic_vlint_encode_len.exit, label %27
 
@@ -1413,7 +1413,7 @@ define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %0, ptr noundef r
 
 37:                                               ; preds = %.thread
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %39 = load i64, ptr %38, align 8, !tbaa !41
+  %39 = load i64, ptr %38, align 8, !tbaa !40
   %40 = icmp ult i64 %39, 64
   br i1 %40, label %.thread59, label %41
 
@@ -1438,7 +1438,7 @@ define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %0, ptr noundef r
 .thread71:                                        ; preds = %.thread, %.thread59
   %.163 = phi i64 [ %48, %.thread59 ], [ %35, %.thread ]
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %50 = load i64, ptr %49, align 8, !tbaa !38
+  %50 = load i64, ptr %49, align 8, !tbaa !37
   %51 = lshr i32 %3, 10
   %52 = and i32 %51, 15
   %53 = zext nneg i32 %52 to i64
@@ -1542,7 +1542,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr noundef r
   %.sink = phi i8 [ %36, %35 ], [ %26, %24 ]
   %.sink44 = phi i64 [ 1, %35 ], [ 6, %24 ]
   %.sink43 = phi i64 [ %2, %35 ], [ %27, %24 ]
-  store i8 %.sink, ptr %3, align 1, !tbaa !48
+  store i8 %.sink, ptr %3, align 1, !tbaa !47
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink44
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %38, i64 %.sink43, i1 false)
@@ -1646,7 +1646,7 @@ define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr noundef readonl
 
 .sink.split:                                      ; preds = %60, %58
   %.sink = phi i64 [ %59, %58 ], [ %spec.select, %60 ]
-  store i64 %.sink, ptr %3, align 8, !tbaa !31
+  store i64 %.sink, ptr %3, align 8, !tbaa !30
   br label %64
 
 64:                                               ; preds = %.sink.split, %4
@@ -1729,7 +1729,7 @@ define range(i32 0, 2) i32 @ossl_quic_validate_retry_integrity_tag(ptr noundef %
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %9 = load i64, ptr %8, align 8, !tbaa !38
+  %9 = load i64, ptr %8, align 8, !tbaa !37
   %10 = icmp ult i64 %9, 16
   br i1 %10, label %21, label %11
 
@@ -1740,8 +1740,8 @@ define range(i32 0, 2) i32 @ossl_quic_validate_retry_integrity_tag(ptr noundef %
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %15 = load ptr, ptr %14, align 8, !tbaa !39
-  %16 = load i64, ptr %8, align 8, !tbaa !38
+  %15 = load ptr, ptr %14, align 8, !tbaa !38
+  %16 = load i64, ptr %8, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -16
   %19 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %5, ptr noundef nonnull %18, i64 noundef 16) #10
@@ -1764,14 +1764,14 @@ define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef 
   %10 = alloca %struct.quic_pkt_hdr_st, align 8
   %11 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
-  store i32 0, ptr %6, align 4, !tbaa !27
+  store i32 0, ptr %6, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
-  store i32 0, ptr %7, align 4, !tbaa !27
+  store i32 0, ptr %7, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
-  store i64 0, ptr %11, align 8, !tbaa !31
+  store i64 0, ptr %11, align 8, !tbaa !30
   %12 = load i32, ptr %2, align 8
   %13 = and i32 %12, 255
   %.not = icmp eq i32 %13, 4
@@ -1779,19 +1779,19 @@ define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef 
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !36
+  %16 = load i32, ptr %15, align 4, !tbaa !35
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %31, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %20 = load i64, ptr %19, align 8, !tbaa !38
+  %20 = load i64, ptr %19, align 8, !tbaa !37
   %21 = icmp ult i64 %20, 16
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %24 = load ptr, ptr %23, align 8, !tbaa !39
+  %24 = load ptr, ptr %23, align 8, !tbaa !38
   %25 = icmp eq ptr %24, null
   %26 = icmp eq ptr %3, null
   %or.cond = or i1 %26, %25
@@ -1800,7 +1800,7 @@ define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef 
   br i1 %or.cond3, label %31, label %28
 
 28:                                               ; preds = %22
-  %29 = load i8, ptr %3, align 1, !tbaa !48
+  %29 = load i8, ptr %3, align 1, !tbaa !47
   %30 = icmp ugt i8 %29, 20
   br i1 %30, label %31, label %32
 
@@ -1811,9 +1811,9 @@ define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef 
   br label %83
 
 32:                                               ; preds = %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false), !tbaa.struct !48
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  store i64 0, ptr %33, align 8, !tbaa !38
+  store i64 0, ptr %33, align 8, !tbaa !37
   %34 = call i32 @WPACKET_init_static_len(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef 128, i64 noundef 0) #10
   %.not36 = icmp eq i32 %34, 0
   br i1 %.not36, label %35, label %36
@@ -1825,7 +1825,7 @@ define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef 
   br label %83
 
 36:                                               ; preds = %32
-  %37 = load i8, ptr %3, align 1, !tbaa !48
+  %37 = load i8, ptr %3, align 1, !tbaa !47
   %38 = zext i8 %37 to i64
   %39 = call i32 @WPACKET_put_bytes__(ptr noundef nonnull %8, i64 noundef %38, i64 noundef 1) #10
   %.not37 = icmp eq i32 %39, 0
@@ -1833,7 +1833,7 @@ define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef 
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %42 = load i8, ptr %3, align 1, !tbaa !48
+  %42 = load i8, ptr %3, align 1, !tbaa !47
   %43 = zext i8 %42 to i64
   %44 = call i32 @WPACKET_memcpy(ptr noundef nonnull %8, ptr noundef nonnull %41, i64 noundef %43) #10
   %.not38 = icmp eq i32 %44, 0
@@ -1847,7 +1847,7 @@ define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef 
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %48 = load i8, ptr %47, align 8, !tbaa !33
+  %48 = load i8, ptr %47, align 8, !tbaa !32
   %49 = zext i8 %48 to i64
   %50 = call i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef nonnull %8, i64 noundef %49, ptr noundef nonnull %10, ptr noundef null)
   %.not39 = icmp eq i32 %50, 0
@@ -1898,7 +1898,7 @@ define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef 
   br label %83
 
 65:                                               ; preds = %62
-  %66 = load i64, ptr %11, align 8, !tbaa !31
+  %66 = load i64, ptr %11, align 8, !tbaa !30
   %67 = trunc i64 %66 to i32
   %68 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %59, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %9, i32 noundef %67) #10
   %.not42 = icmp eq i32 %68, 1
@@ -1911,8 +1911,8 @@ define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef 
   br label %83
 
 70:                                               ; preds = %65
-  %71 = load ptr, ptr %23, align 8, !tbaa !39
-  %72 = load i64, ptr %19, align 8, !tbaa !38
+  %71 = load ptr, ptr %23, align 8, !tbaa !38
+  %72 = load i64, ptr %19, align 8, !tbaa !37
   %73 = trunc i64 %72 to i32
   %74 = add i32 %73, -16
   %75 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %59, ptr noundef null, ptr noundef nonnull %6, ptr noundef %71, i32 noundef %74) #10
@@ -2022,29 +2022,28 @@ attributes #10 = { nounwind }
 !21 = !{!18, !9, i64 0}
 !22 = !{!18, !9, i64 24}
 !23 = !{!7, !7, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!12, !12, i64 0}
-!28 = distinct !{!28, !25, !26}
-!29 = !{!30, !19, i64 8}
-!30 = !{!"", !9, i64 0, !19, i64 8}
-!31 = !{!19, !19, i64 0}
-!32 = !{!30, !9, i64 0}
-!33 = !{!34, !7, i64 8}
-!34 = !{!"quic_pkt_hdr_st", !12, i64 0, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 2, !12, i64 2, !12, i64 4, !35, i64 8, !35, i64 29, !7, i64 50, !9, i64 56, !19, i64 64, !19, i64 72, !9, i64 80}
-!35 = !{!"quic_conn_id_st", !7, i64 0, !7, i64 1}
-!36 = !{!34, !12, i64 4}
-!37 = !{!34, !7, i64 29}
-!38 = !{!34, !19, i64 72}
-!39 = !{!34, !9, i64 80}
-!40 = !{!9, !9, i64 0}
-!41 = !{!34, !19, i64 64}
-!42 = !{!34, !9, i64 56}
-!43 = !{!44, !9, i64 8}
-!44 = !{!"wpacket_st", !45, i64 0, !9, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !46, i64 40, !12, i64 48}
-!45 = !{!"p1 _ZTS10buf_mem_st", !6, i64 0}
-!46 = !{!"p1 _ZTS11wpacket_sub", !6, i64 0}
-!47 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!48 = !{!35, !7, i64 0}
-!49 = !{i64 0, i64 4, !23, i64 4, i64 4, !27, i64 8, i64 1, !23, i64 9, i64 20, !23, i64 29, i64 1, !23, i64 30, i64 20, !23, i64 50, i64 4, !23, i64 56, i64 8, !40, i64 64, i64 8, !31, i64 72, i64 8, !31, i64 80, i64 8, !40}
+!26 = !{!12, !12, i64 0}
+!27 = distinct !{!27, !25}
+!28 = !{!29, !19, i64 8}
+!29 = !{!"", !9, i64 0, !19, i64 8}
+!30 = !{!19, !19, i64 0}
+!31 = !{!29, !9, i64 0}
+!32 = !{!33, !7, i64 8}
+!33 = !{!"quic_pkt_hdr_st", !12, i64 0, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 1, !12, i64 2, !12, i64 2, !12, i64 4, !34, i64 8, !34, i64 29, !7, i64 50, !9, i64 56, !19, i64 64, !19, i64 72, !9, i64 80}
+!34 = !{!"quic_conn_id_st", !7, i64 0, !7, i64 1}
+!35 = !{!33, !12, i64 4}
+!36 = !{!33, !7, i64 29}
+!37 = !{!33, !19, i64 72}
+!38 = !{!33, !9, i64 80}
+!39 = !{!9, !9, i64 0}
+!40 = !{!33, !19, i64 64}
+!41 = !{!33, !9, i64 56}
+!42 = !{!43, !9, i64 8}
+!43 = !{!"wpacket_st", !44, i64 0, !9, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !45, i64 40, !12, i64 48}
+!44 = !{!"p1 _ZTS10buf_mem_st", !6, i64 0}
+!45 = !{!"p1 _ZTS11wpacket_sub", !6, i64 0}
+!46 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!47 = !{!34, !7, i64 0}
+!48 = !{i64 0, i64 4, !23, i64 4, i64 4, !26, i64 8, i64 1, !23, i64 9, i64 20, !23, i64 29, i64 1, !23, i64 30, i64 20, !23, i64 50, i64 4, !23, i64 56, i64 8, !39, i64 64, i64 8, !30, i64 72, i64 8, !30, i64 80, i64 8, !39}

@@ -5098,7 +5098,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %21
   %.033.be = phi ptr [ %.0, %21 ], [ %58, %lean_alloc_ctor.exit ]
-  br label %3, !llvm.loop !17
+  br label %3
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #3
@@ -10291,10 +10291,10 @@ lean_inc.exit147:                                 ; preds = %119, %118, %116, %l
   br label %lean_dec.exit136
 
 lean_dec.exit136:                                 ; preds = %126, %125, %123, %lean_inc.exit147
-  br i1 %.not290, label %lean_nat_sub.exit117, label %127, !prof !19
+  br i1 %.not290, label %lean_nat_sub.exit117, label %127, !prof !17
 
 127:                                              ; preds = %lean_dec.exit136
-  br i1 %.not277, label %lean_nat_sub.exit117.thread267, label %129, !prof !19
+  br i1 %.not277, label %lean_nat_sub.exit117.thread267, label %129, !prof !17
 
 lean_nat_sub.exit117.thread267:                   ; preds = %127
   %128 = tail call ptr @lean_nat_big_sub(ptr noundef %101, ptr noundef %17) #6
@@ -10364,7 +10364,7 @@ lean_dec.exit135.thread:                          ; preds = %129, %133, %lean_de
   %154 = ptrtoint ptr %.1.i116266269 to i64
   %155 = and i64 %154, 1
   %.not293 = icmp eq i64 %155, 0
-  br i1 %.not293, label %164, label %156, !prof !19
+  br i1 %.not293, label %164, label %156, !prof !17
 
 156:                                              ; preds = %lean_dec.exit135.thread
   %157 = lshr i64 %154, 1
@@ -11608,6 +11608,4 @@ attributes #7 = { noreturn nounwind }
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !6, i64 0}
 !16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}

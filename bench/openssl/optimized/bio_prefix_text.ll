@@ -313,7 +313,7 @@ setup_bio_chain.exit.thread62.i:                  ; preds = %36, %setup_bio_chai
   br label %setup.exit.thread
 
 setup_bio_chain.exit.i:                           ; preds = %49, %119, %86
-  br label %.preheader.i, !llvm.loop !21
+  br label %.preheader.i, !llvm.loop !20
 
 setup.exit.thread:                                ; preds = %.preheader.i, %28, %33, %setup_bio_chain.exit.thread62.i, %58, %68, %77, %82, %92, %98, %108, %115, %125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
@@ -353,7 +353,7 @@ setup.exit.thread:                                ; preds = %.preheader.i, %28, 
   %143 = load i64, ptr %5, align 8
   %144 = add i64 %143, %.06.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  br i1 %.not11.not.i, label %.critedge.i, label %.preheader.i2, !llvm.loop !22
+  br i1 %.not11.not.i, label %.critedge.i, label %.preheader.i2, !llvm.loop !21
 
 145:                                              ; preds = %.preheader.i2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
@@ -361,7 +361,7 @@ setup.exit.thread:                                ; preds = %.preheader.i, %28, 
   %147 = call i64 @BIO_ctrl(ptr noundef %146, i32 noundef 2, i64 noundef 0, ptr noundef null) #7
   %148 = and i64 %147, 4294967295
   %.not.i3 = icmp eq i64 %148, 0
-  br i1 %.not.i3, label %.lr.ph.i, label %run_pipe.exit, !llvm.loop !23
+  br i1 %.not.i3, label %.lr.ph.i, label %run_pipe.exit, !llvm.loop !22
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %136
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
@@ -470,9 +470,8 @@ attributes #9 = { nounwind willreturn memory(read) }
 !15 = !{!7, !7, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"p2 _ZTS6bio_st", !6, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !19, !20}
-!23 = distinct !{!23, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}

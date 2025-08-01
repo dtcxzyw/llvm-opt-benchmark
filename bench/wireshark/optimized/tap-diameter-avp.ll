@@ -96,7 +96,7 @@ define internal void @diameteravp_init(ptr noundef %0, ptr readnone captures(non
   %32 = tail call ptr @g_string_append(ptr noundef %6, ptr noundef %26)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %31, %13, %24
   tail call void @g_strfreev(ptr noundef %7)
@@ -196,7 +196,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
 
 24:                                               ; preds = %20, %18
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %26 = load i8, ptr %25, align 8, !range !11, !noundef !12
+  %26 = load i8, ptr %25, align 8, !range !10, !noundef !11
   %27 = trunc nuw i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load i32, ptr %28, align 8
@@ -304,7 +304,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
 .thread.us:                                       ; preds = %88, %62, %59, %57, %.lr.ph.split.us
   %.1.us = phi i32 [ %89, %88 ], [ %.05068.us, %62 ], [ %.05068.us, %59 ], [ %.05068.us, %57 ], [ %.05068.us, %.lr.ph.split.us ]
   %.not60.us = icmp eq ptr %54, null
-  br i1 %.not60.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %.not60.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
   %.04969 = phi ptr [ %91, %.thread ], [ %45, %.lr.ph ]
@@ -377,7 +377,7 @@ define internal noundef i32 @diameteravp_packet(ptr noundef %0, ptr noundef %1, 
 .thread:                                          ; preds = %.lr.ph.split, %130, %99, %96, %94
   %.1 = phi i32 [ %131, %130 ], [ %.05068, %99 ], [ %.05068, %96 ], [ %.05068, %94 ], [ %.05068, %.lr.ph.split ]
   %.not60 = icmp eq ptr %91, null
-  br i1 %.not60, label %.loopexit, label %.lr.ph.split, !llvm.loop !15
+  br i1 %.not60, label %.loopexit, label %.lr.ph.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %43, %40, %5, %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
@@ -435,7 +435,7 @@ define internal fastcc noundef zeroext i1 @tree_traverse_pre_order(ptr noundef n
   %8 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call fastcc zeroext i1 @tree_traverse_pre_order(ptr noundef %.012, ptr noundef %1)
-  br i1 %10, label %.loopexit, label %6, !llvm.loop !16
+  br i1 %10, label %.loopexit, label %6, !llvm.loop !15
 
 .loopexit:                                        ; preds = %6, %7, %2
   %.0 = phi i1 [ true, %2 ], [ %.not.not.not, %7 ], [ %.not.not.not, %6 ]
@@ -546,13 +546,12 @@ attributes #10 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !8, !9, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}

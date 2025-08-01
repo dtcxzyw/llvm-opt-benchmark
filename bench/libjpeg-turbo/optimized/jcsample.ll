@@ -210,7 +210,7 @@ define void @jinit_downsampler(ptr noundef %0) local_unnamed_addr #0 {
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
   store i32 99, ptr %106, align 8, !tbaa !28
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !56
+  %108 = load ptr, ptr %107, align 8, !tbaa !55
   tail call void %108(ptr noundef nonnull %0, i32 noundef 0) #5
   br label %._crit_edge.thread
 
@@ -243,10 +243,10 @@ define internal void @sep_downsample(ptr noundef %0, ptr noundef readonly captur
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.01819 = phi ptr [ %10, %.lr.ph ], [ %28, %15 ]
   %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %17 = load ptr, ptr %16, align 8, !tbaa !57
+  %17 = load ptr, ptr %16, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
   %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !57
+  %20 = load ptr, ptr %19, align 8, !tbaa !56
   %21 = getelementptr inbounds nuw i8, ptr %.01819, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !49
   %23 = mul i32 %22, %4
@@ -260,7 +260,7 @@ define internal void @sep_downsample(ptr noundef %0, ptr noundef readonly captur
   %29 = load i32, ptr %6, align 4, !tbaa !44
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %15, label %._crit_edge, !llvm.loop !58
+  br i1 %31, label %15, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %15, %5
   ret void
@@ -274,14 +274,14 @@ define internal void @fullsize_smooth_downsample(ptr noundef readonly captures(n
   %8 = load i32, ptr %7, align 8, !tbaa !24
   %.not = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %10 = load i32, ptr %9, align 4, !tbaa !59
+  %10 = load i32, ptr %9, align 4, !tbaa !58
   %11 = select i1 %.not, i32 3, i32 0
   %12 = shl i32 %10, %11
   %13 = getelementptr inbounds i8, ptr %2, i64 -8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %15 = load i32, ptr %14, align 4, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i32, ptr %16, align 8, !tbaa !60
+  %17 = load i32, ptr %16, align 8, !tbaa !59
   %18 = sub i32 %12, %17
   %19 = icmp sgt i32 %18, 0
   %20 = icmp sgt i32 %15, -2
@@ -298,14 +298,14 @@ define internal void @fullsize_smooth_downsample(ptr noundef readonly captures(n
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
   %24 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
-  %25 = load ptr, ptr %24, align 8, !tbaa !61
+  %25 = load ptr, ptr %24, align 8, !tbaa !60
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %22
   %27 = getelementptr inbounds i8, ptr %26, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr align 1 %26, i8 %28, i64 %23, i1 false), !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %expand_right_edge.exit, label %.lr.ph.us.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %expand_right_edge.exit, label %.lr.ph.us.i, !llvm.loop !62
 
 expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -328,14 +328,14 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
 .lr.ph94.split.us:                                ; preds = %.lr.ph94, %.lr.ph94.split.us
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.lr.ph94.split.us ], [ 0, %.lr.ph94 ]
   %40 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv99
-  %41 = load ptr, ptr %40, align 8, !tbaa !61
+  %41 = load ptr, ptr %40, align 8, !tbaa !60
   %42 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv99
-  %43 = load ptr, ptr %42, align 8, !tbaa !61
+  %43 = load ptr, ptr %42, align 8, !tbaa !60
   %44 = getelementptr i8, ptr %42, i64 -8
-  %45 = load ptr, ptr %44, align 8, !tbaa !61
+  %45 = load ptr, ptr %44, align 8, !tbaa !60
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next100
-  %47 = load ptr, ptr %46, align 8, !tbaa !61
+  %47 = load ptr, ptr %46, align 8, !tbaa !60
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 1
   %49 = load i8, ptr %45, align 1, !tbaa !32
   %50 = zext i8 %49 to i32
@@ -385,19 +385,19 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %89 = load i32, ptr %36, align 4, !tbaa !49
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next100, %90
-  br i1 %91, label %.lr.ph94.split.us, label %._crit_edge95, !llvm.loop !65
+  br i1 %91, label %.lr.ph94.split.us, label %._crit_edge95, !llvm.loop !64
 
 .lr.ph:                                           ; preds = %.lr.ph94, %._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.lr.ph94 ]
   %92 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %93 = load ptr, ptr %92, align 8, !tbaa !61
+  %93 = load ptr, ptr %92, align 8, !tbaa !60
   %94 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %95 = load ptr, ptr %94, align 8, !tbaa !61
+  %95 = load ptr, ptr %94, align 8, !tbaa !60
   %96 = getelementptr i8, ptr %94, i64 -8
-  %97 = load ptr, ptr %96, align 8, !tbaa !61
+  %97 = load ptr, ptr %96, align 8, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
-  %99 = load ptr, ptr %98, align 8, !tbaa !61
+  %99 = load ptr, ptr %98, align 8, !tbaa !60
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 1
   %101 = load i8, ptr %97, align 1, !tbaa !32
   %102 = zext i8 %101 to i32
@@ -470,7 +470,7 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %156 = add i32 %.07286, -1
   %.073 = getelementptr inbounds nuw i8, ptr %.07389, i64 1
   %.not77 = icmp eq i32 %156, 0
-  br i1 %.not77, label %._crit_edge, label %130, !llvm.loop !66
+  br i1 %.not77, label %._crit_edge, label %130, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %130
   %157 = load i8, ptr %131, align 1, !tbaa !32
@@ -489,7 +489,7 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %168 = load i32, ptr %36, align 4, !tbaa !49
   %169 = sext i32 %168 to i64
   %170 = icmp slt i64 %indvars.iv.next, %169
-  br i1 %170, label %.lr.ph, label %._crit_edge95, !llvm.loop !67
+  br i1 %170, label %.lr.ph, label %._crit_edge95, !llvm.loop !66
 
 ._crit_edge95:                                    ; preds = %._crit_edge, %.lr.ph94.split.us, %expand_right_edge.exit
   ret void
@@ -505,12 +505,12 @@ define internal void @fullsize_downsample(ptr noundef readonly captures(none) %0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %10 = load i32, ptr %9, align 4, !tbaa !50
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load i32, ptr %11, align 8, !tbaa !60
+  %12 = load i32, ptr %11, align 8, !tbaa !59
   tail call void @jcopy_sample_rows(ptr noundef %2, i32 noundef 0, ptr noundef %3, i32 noundef 0, i32 noundef %10, i32 noundef %12) #5
   %13 = load i32, ptr %9, align 4, !tbaa !50
-  %14 = load i32, ptr %11, align 8, !tbaa !60
+  %14 = load i32, ptr %11, align 8, !tbaa !59
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !59
+  %16 = load i32, ptr %15, align 4, !tbaa !58
   %17 = select i1 %.not, i32 3, i32 0
   %18 = shl i32 %16, %17
   %19 = sub i32 %18, %14
@@ -528,14 +528,14 @@ define internal void @fullsize_downsample(ptr noundef readonly captures(none) %0
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
   %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
-  %25 = load ptr, ptr %24, align 8, !tbaa !61
+  %25 = load ptr, ptr %24, align 8, !tbaa !60
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %22
   %27 = getelementptr inbounds i8, ptr %26, i64 -1
   %28 = load i8, ptr %27, align 1, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr align 1 %26, i8 %28, i64 %23, i1 false), !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %expand_right_edge.exit, label %.lr.ph.us.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %expand_right_edge.exit, label %.lr.ph.us.i, !llvm.loop !62
 
 expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   ret void
@@ -553,13 +553,13 @@ define internal void @h2v1_downsample(ptr noundef readonly captures(none) %0, pt
   %8 = load i32, ptr %7, align 8, !tbaa !24
   %.not = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %10 = load i32, ptr %9, align 4, !tbaa !59
+  %10 = load i32, ptr %9, align 4, !tbaa !58
   %11 = select i1 %.not, i32 3, i32 0
   %12 = shl i32 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %14 = load i32, ptr %13, align 4, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load i32, ptr %15, align 8, !tbaa !60
+  %16 = load i32, ptr %15, align 8, !tbaa !59
   %17 = shl i32 %12, 1
   %18 = sub i32 %17, %16
   %19 = icmp sgt i32 %18, 0
@@ -576,14 +576,14 @@ define internal void @h2v1_downsample(ptr noundef readonly captures(none) %0, pt
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
   %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
-  %24 = load ptr, ptr %23, align 8, !tbaa !61
+  %24 = load ptr, ptr %23, align 8, !tbaa !60
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %21
   %26 = getelementptr inbounds i8, ptr %25, i64 -1
   %27 = load i8, ptr %26, align 1, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr align 1 %25, i8 %27, i64 %22, i1 false), !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %expand_right_edge.exit, label %.lr.ph.us.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %expand_right_edge.exit, label %.lr.ph.us.i, !llvm.loop !62
 
 expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -596,9 +596,9 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
 .lr.ph.us:                                        ; preds = %expand_right_edge.exit, %._crit_edge.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %expand_right_edge.exit ]
   %31 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %32 = load ptr, ptr %31, align 8, !tbaa !61
+  %32 = load ptr, ptr %31, align 8, !tbaa !60
   %33 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %34 = load ptr, ptr %33, align 8, !tbaa !61
+  %34 = load ptr, ptr %33, align 8, !tbaa !60
   br label %35
 
 35:                                               ; preds = %.lr.ph.us, %35
@@ -621,14 +621,14 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %47 = getelementptr inbounds nuw i8, ptr %.02327.us, i64 2
   %48 = add nuw i32 %.02526.us, 1
   %exitcond.not = icmp eq i32 %48, %12
-  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge.us, label %35, !llvm.loop !67
 
 ._crit_edge.us:                                   ; preds = %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %28, align 4, !tbaa !49
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %.lr.ph.us, label %._crit_edge32, !llvm.loop !69
+  br i1 %51, label %.lr.ph.us, label %._crit_edge32, !llvm.loop !68
 
 ._crit_edge32:                                    ; preds = %._crit_edge.us, %expand_right_edge.exit
   ret void
@@ -642,14 +642,14 @@ define internal void @h2v2_smooth_downsample(ptr noundef readonly captures(none)
   %8 = load i32, ptr %7, align 8, !tbaa !24
   %.not = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %10 = load i32, ptr %9, align 4, !tbaa !59
+  %10 = load i32, ptr %9, align 4, !tbaa !58
   %11 = select i1 %.not, i32 3, i32 0
   %12 = shl i32 %10, %11
   %13 = getelementptr inbounds i8, ptr %2, i64 -8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %15 = load i32, ptr %14, align 4, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i32, ptr %16, align 8, !tbaa !60
+  %17 = load i32, ptr %16, align 8, !tbaa !59
   %18 = shl i32 %12, 1
   %19 = sub i32 %18, %17
   %20 = icmp sgt i32 %19, 0
@@ -667,14 +667,14 @@ define internal void @h2v2_smooth_downsample(ptr noundef readonly captures(none)
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
   %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
-  %26 = load ptr, ptr %25, align 8, !tbaa !61
+  %26 = load ptr, ptr %25, align 8, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %23
   %28 = getelementptr inbounds i8, ptr %27, i64 -1
   %29 = load i8, ptr %28, align 1, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 %29, i64 %24, i1 false), !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %expand_right_edge.exit, label %.lr.ph.us.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %expand_right_edge.exit, label %.lr.ph.us.i, !llvm.loop !62
 
 expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -698,16 +698,16 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %indvars.iv136 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next137, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next, %._crit_edge ]
   %41 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv136
-  %42 = load ptr, ptr %41, align 8, !tbaa !61
+  %42 = load ptr, ptr %41, align 8, !tbaa !60
   %43 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %44 = load ptr, ptr %43, align 8, !tbaa !61
+  %44 = load ptr, ptr %43, align 8, !tbaa !60
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !61
+  %46 = load ptr, ptr %45, align 8, !tbaa !60
   %47 = getelementptr i8, ptr %43, i64 -8
-  %48 = load ptr, ptr %47, align 8, !tbaa !61
+  %48 = load ptr, ptr %47, align 8, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %49 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
-  %50 = load ptr, ptr %49, align 8, !tbaa !61
+  %50 = load ptr, ptr %49, align 8, !tbaa !60
   %51 = load i8, ptr %44, align 1, !tbaa !32
   %52 = zext i8 %51 to i32
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 1
@@ -844,7 +844,7 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %172 = add i32 %.0114118, -1
   %.0109 = getelementptr inbounds nuw i8, ptr %.0109123, i64 1
   %.not115 = icmp eq i32 %172, 0
-  br i1 %.not115, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %.not115, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %40
   %.0113.lcssa = phi ptr [ %75, %40 ], [ %136, %.lr.ph ]
@@ -912,7 +912,7 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %228 = load i32, ptr %36, align 4, !tbaa !49
   %229 = sext i32 %228 to i64
   %230 = icmp slt i64 %indvars.iv.next137, %229
-  br i1 %230, label %40, label %._crit_edge131, !llvm.loop !71
+  br i1 %230, label %40, label %._crit_edge131, !llvm.loop !70
 
 ._crit_edge131:                                   ; preds = %._crit_edge, %expand_right_edge.exit
   ret void
@@ -930,13 +930,13 @@ define internal void @h2v2_downsample(ptr noundef readonly captures(none) %0, pt
   %8 = load i32, ptr %7, align 8, !tbaa !24
   %.not = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %10 = load i32, ptr %9, align 4, !tbaa !59
+  %10 = load i32, ptr %9, align 4, !tbaa !58
   %11 = select i1 %.not, i32 3, i32 0
   %12 = shl i32 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %14 = load i32, ptr %13, align 4, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load i32, ptr %15, align 8, !tbaa !60
+  %16 = load i32, ptr %15, align 8, !tbaa !59
   %17 = shl i32 %12, 1
   %18 = sub i32 %17, %16
   %19 = icmp sgt i32 %18, 0
@@ -953,14 +953,14 @@ define internal void @h2v2_downsample(ptr noundef readonly captures(none) %0, pt
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
   %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
-  %24 = load ptr, ptr %23, align 8, !tbaa !61
+  %24 = load ptr, ptr %23, align 8, !tbaa !60
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %21
   %26 = getelementptr inbounds i8, ptr %25, i64 -1
   %27 = load i8, ptr %26, align 1, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr align 1 %25, i8 %27, i64 %22, i1 false), !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %expand_right_edge.exit, label %.lr.ph.us.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %expand_right_edge.exit, label %.lr.ph.us.i, !llvm.loop !62
 
 expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -974,11 +974,11 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %._crit_edge.us ], [ 0, %expand_right_edge.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %expand_right_edge.exit ]
   %31 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv45
-  %32 = load ptr, ptr %31, align 8, !tbaa !61
+  %32 = load ptr, ptr %31, align 8, !tbaa !60
   %33 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %34 = load ptr, ptr %33, align 8, !tbaa !61
+  %34 = load ptr, ptr %33, align 8, !tbaa !60
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !61
+  %36 = load ptr, ptr %35, align 8, !tbaa !60
   br label %37
 
 37:                                               ; preds = %.lr.ph.us, %37
@@ -1010,7 +1010,7 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %57 = getelementptr inbounds nuw i8, ptr %.02936.us, i64 2
   %58 = add nuw i32 %.03334.us, 1
   %exitcond.not = icmp eq i32 %58, %12
-  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !71
 
 ._crit_edge.us:                                   ; preds = %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
@@ -1018,7 +1018,7 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %59 = load i32, ptr %28, align 4, !tbaa !49
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next46, %60
-  br i1 %61, label %.lr.ph.us, label %._crit_edge42, !llvm.loop !73
+  br i1 %61, label %.lr.ph.us, label %._crit_edge42, !llvm.loop !72
 
 ._crit_edge42:                                    ; preds = %._crit_edge.us, %expand_right_edge.exit
   ret void
@@ -1032,7 +1032,7 @@ define internal void @int_downsample(ptr noundef readonly captures(none) %0, ptr
   %8 = load i32, ptr %7, align 8, !tbaa !24
   %.not = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %10 = load i32, ptr %9, align 4, !tbaa !59
+  %10 = load i32, ptr %9, align 4, !tbaa !58
   %11 = select i1 %.not, i32 3, i32 0
   %12 = shl i32 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -1048,7 +1048,7 @@ define internal void @int_downsample(ptr noundef readonly captures(none) %0, ptr
   %23 = mul nsw i32 %22, %17
   %24 = sdiv i32 %23, 2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load i32, ptr %25, align 8, !tbaa !60
+  %26 = load i32, ptr %25, align 8, !tbaa !59
   %27 = mul i32 %17, %12
   %28 = sub i32 %27, %26
   %29 = icmp sgt i32 %28, 0
@@ -1065,14 +1065,14 @@ define internal void @int_downsample(ptr noundef readonly captures(none) %0, ptr
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
   %33 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
-  %34 = load ptr, ptr %33, align 8, !tbaa !61
+  %34 = load ptr, ptr %33, align 8, !tbaa !60
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %31
   %36 = getelementptr inbounds i8, ptr %35, i64 -1
   %37 = load i8, ptr %36, align 1, !tbaa !32
   tail call void @llvm.memset.p0.i64(ptr align 1 %35, i8 %37, i64 %32, i1 false), !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %expand_right_edge.exit.loopexit, label %.lr.ph.us.i, !llvm.loop !63
+  br i1 %exitcond.not.i, label %expand_right_edge.exit.loopexit, label %.lr.ph.us.i, !llvm.loop !62
 
 expand_right_edge.exit.loopexit:                  ; preds = %.lr.ph.us.i
   %.pre = load i32, ptr %20, align 4, !tbaa !49
@@ -1101,7 +1101,7 @@ expand_right_edge.exit:                           ; preds = %expand_right_edge.e
   %indvars.iv83 = phi i64 [ 0, %.preheader.lr.ph.us.preheader ], [ %indvars.iv.next84, %._crit_edge.us ]
   %indvars.iv81 = phi i64 [ 0, %.preheader.lr.ph.us.preheader ], [ %indvars.iv.next82, %._crit_edge.us ]
   %46 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv83
-  %47 = load ptr, ptr %46, align 8, !tbaa !61
+  %47 = load ptr, ptr %46, align 8, !tbaa !60
   br i1 %40, label %.preheader.us.us.preheader, label %.preheader.lr.ph.split.us73
 
 .preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph.us
@@ -1120,7 +1120,7 @@ expand_right_edge.exit:                           ; preds = %expand_right_edge.e
   %50 = load i32, ptr %20, align 4, !tbaa !49
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next84, %51
-  br i1 %52, label %.preheader.lr.ph.us, label %._crit_edge67, !llvm.loop !74
+  br i1 %52, label %.preheader.lr.ph.us, label %._crit_edge67, !llvm.loop !73
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge56.us.us
   %.04260.us.us = phi ptr [ %57, %._crit_edge56.us.us ], [ %47, %.preheader.us.us.preheader ]
@@ -1139,13 +1139,13 @@ expand_right_edge.exit:                           ; preds = %expand_right_edge.e
   %58 = add nuw i32 %.04758.us.us, 1
   %59 = add i32 %.04659.us.us, %17
   %exitcond80.not = icmp eq i32 %58, %12
-  br i1 %exitcond80.not, label %._crit_edge.us, label %.preheader.us.us, !llvm.loop !75
+  br i1 %exitcond80.not, label %._crit_edge.us, label %.preheader.us.us, !llvm.loop !74
 
 .lr.ph.us.us.us:                                  ; preds = %.preheader.us.us, %._crit_edge.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %.054.us.us.us = phi i64 [ %66, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
-  %60 = load ptr, ptr %gep, align 8, !tbaa !61
+  %60 = load ptr, ptr %gep, align 8, !tbaa !60
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %53
   br label %62
 
@@ -1159,12 +1159,12 @@ expand_right_edge.exit:                           ; preds = %expand_right_edge.e
   %66 = add nsw i64 %.152.us.us.us, %65
   %67 = add nuw nsw i32 %.04950.us.us.us, 1
   %exitcond.not = icmp eq i32 %67, %17
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %62, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %62, !llvm.loop !75
 
 ._crit_edge.us.us.us:                             ; preds = %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond79.not, label %._crit_edge56.us.us, label %.lr.ph.us.us.us, !llvm.loop !77
+  br i1 %exitcond79.not, label %._crit_edge56.us.us, label %.lr.ph.us.us.us, !llvm.loop !76
 
 ._crit_edge67:                                    ; preds = %._crit_edge.us, %.lr.ph, %expand_right_edge.exit
   ret void
@@ -1237,28 +1237,27 @@ attributes #5 = { nounwind }
 !50 = !{!4, !11, i64 316}
 !51 = !{!4, !11, i64 272}
 !52 = !{!6, !6, i64 0}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = !{!29, !6, i64 8}
-!57 = !{!31, !31, i64 0}
-!58 = distinct !{!58, !54, !55}
-!59 = !{!47, !11, i64 28}
-!60 = !{!4, !11, i64 48}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 omnipotent char", !6, i64 0}
-!63 = distinct !{!63, !54, !55, !64}
-!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!65 = distinct !{!65, !54, !55, !64}
-!66 = distinct !{!66, !54, !55}
-!67 = distinct !{!67, !54, !55}
-!68 = distinct !{!68, !54, !55}
-!69 = distinct !{!69, !54, !55, !64}
-!70 = distinct !{!70, !54, !55}
-!71 = distinct !{!71, !54, !55}
-!72 = distinct !{!72, !54, !55}
-!73 = distinct !{!73, !54, !55, !64}
-!74 = distinct !{!74, !54, !55, !64}
-!75 = distinct !{!75, !54, !55, !64}
-!76 = distinct !{!76, !54, !55}
-!77 = distinct !{!77, !54, !55, !64}
+!55 = !{!29, !6, i64 8}
+!56 = !{!31, !31, i64 0}
+!57 = distinct !{!57, !54}
+!58 = !{!47, !11, i64 28}
+!59 = !{!4, !11, i64 48}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 omnipotent char", !6, i64 0}
+!62 = distinct !{!62, !54, !63}
+!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!64 = distinct !{!64, !54, !63}
+!65 = distinct !{!65, !54}
+!66 = distinct !{!66, !54}
+!67 = distinct !{!67, !54}
+!68 = distinct !{!68, !54, !63}
+!69 = distinct !{!69, !54}
+!70 = distinct !{!70, !54}
+!71 = distinct !{!71, !54}
+!72 = distinct !{!72, !54, !63}
+!73 = distinct !{!73, !54, !63}
+!74 = distinct !{!74, !54, !63}
+!75 = distinct !{!75, !54}
+!76 = distinct !{!76, !54, !63}

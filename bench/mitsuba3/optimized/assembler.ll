@@ -585,7 +585,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedDataArra
   %103 = getelementptr inbounds i8, ptr %102, i64 %31
   %104 = add i64 %95, 8
   %105 = icmp eq i64 %104, %70
-  br i1 %105, label %.loopexit6, label %93, !llvm.loop !66
+  br i1 %105, label %.loopexit6, label %93, !llvm.loop !65
 
 106:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %6) #12
@@ -649,7 +649,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedConstPoo
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 248
-  %18 = load i64, ptr %17, align 8, !tbaa !68
+  %18 = load i64, ptr %17, align 8, !tbaa !67
   %19 = trunc i64 %18 to i32
   %20 = load ptr, ptr %0, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
@@ -668,7 +668,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedConstPoo
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %33 = load i64, ptr %32, align 8, !tbaa !70
+  %33 = load i64, ptr %32, align 8, !tbaa !69
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %112, label %35
 
@@ -734,8 +734,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedConstPoo
 
 76:                                               ; preds = %60
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %78 = load i64, ptr %77, align 8, !tbaa !71
-  %79 = tail call i64 @llvm.cttz.i64(i64 %78, i1 true), !range !72
+  %78 = load i64, ptr %77, align 8, !tbaa !70
+  %79 = tail call i64 @llvm.cttz.i64(i64 %78, i1 true), !range !71
   %80 = trunc nuw nsw i64 %79 to i32
   %81 = tail call noundef i32 @llvm.umin.i32(i32 %80, i32 3)
   %82 = shl nuw nsw i32 1, %81
@@ -754,7 +754,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler14embedConstPoo
   %89 = load i8, ptr %88, align 8, !tbaa !62
   %90 = zext nneg i32 %82 to i64
   %91 = getelementptr inbounds nuw [9 x i8], ptr @_ZN6asmjit9_abi_1_10L16dataTypeIdBySizeE, i64 0, i64 %90
-  %92 = load i8, ptr %91, align 1, !tbaa !73
+  %92 = load i8, ptr %91, align 1, !tbaa !72
   %93 = zext nneg i32 %81 to i64
   %94 = lshr i64 %33, %93
   %95 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter10formatDataERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %87, i8 noundef zeroext %89, i8 noundef zeroext %92, ptr noundef %61, i64 noundef %94, i64 noundef 1) #12
@@ -815,7 +815,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !42
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %27, !prof !75
+  br i1 %24, label %25, label %27, !prof !74
 
 25:                                               ; preds = %18, %12
   %26 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 12, ptr noundef null)
@@ -829,7 +829,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %32 = icmp eq i8 %31, 0
   %33 = select i1 %32, i64 8, i64 4
   %34 = select i1 %28, i64 %33, i64 %2
-  %35 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %34), !range !72
+  %35 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %34), !range !71
   %36 = icmp eq i64 %35, 1
   %37 = icmp ult i64 %34, 9
   %38 = and i1 %37, %36
@@ -900,7 +900,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %77 = load i32, ptr %76, align 4, !tbaa !57
   %78 = load i8, ptr %29, align 8, !tbaa !62
   %79 = getelementptr inbounds nuw [9 x i8], ptr @_ZN6asmjit9_abi_1_10L16dataTypeIdBySizeE, i64 0, i64 %34
-  %80 = load i8, ptr %79, align 1, !tbaa !73
+  %80 = load i8, ptr %79, align 1, !tbaa !72
   %81 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter14formatDataTypeERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdE(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %77, i8 noundef zeroext %78, i8 noundef zeroext %80) #12
   %82 = call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, i8 noundef signext 32) #12
   %83 = load i32, ptr %13, align 4, !tbaa !52
@@ -940,7 +940,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %110 = load i32, ptr %109, align 8, !tbaa !36
   %111 = load ptr, ptr %4, align 8, !tbaa !42
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  store i32 %110, ptr %112, align 8, !tbaa !76
+  store i32 %110, ptr %112, align 8, !tbaa !75
   %113 = load ptr, ptr %42, align 8, !tbaa !34
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %115 = load ptr, ptr %114, align 8, !tbaa !35
@@ -948,57 +948,57 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
   %119 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  store i64 %118, ptr %119, align 8, !tbaa !81
+  store i64 %118, ptr %119, align 8, !tbaa !80
   %120 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store i8 1, ptr %120, align 1, !tbaa !82
+  store i8 1, ptr %120, align 1, !tbaa !81
   %121 = getelementptr inbounds nuw i8, ptr %111, i64 9
-  store i8 0, ptr %121, align 1, !tbaa !83
+  store i8 0, ptr %121, align 1, !tbaa !82
   %122 = trunc nuw nsw i64 %34 to i8
   %123 = getelementptr inbounds nuw i8, ptr %111, i64 10
-  store i8 %122, ptr %123, align 1, !tbaa !84
+  store i8 %122, ptr %123, align 1, !tbaa !83
   %124 = getelementptr inbounds nuw i8, ptr %111, i64 11
-  store i8 %122, ptr %124, align 1, !tbaa !85
+  store i8 %122, ptr %124, align 1, !tbaa !84
   %125 = getelementptr inbounds nuw i8, ptr %111, i64 12
-  store i8 0, ptr %125, align 1, !tbaa !86
+  store i8 0, ptr %125, align 1, !tbaa !85
   %126 = shl nuw nsw i8 %122, 3
   %127 = getelementptr inbounds nuw i8, ptr %111, i64 13
-  store i8 %126, ptr %127, align 1, !tbaa !87
+  store i8 %126, ptr %127, align 1, !tbaa !86
   %128 = getelementptr inbounds nuw i8, ptr %111, i64 14
-  store i8 0, ptr %128, align 1, !tbaa !88
+  store i8 0, ptr %128, align 1, !tbaa !87
   %129 = getelementptr inbounds nuw i8, ptr %111, i64 15
-  store i8 0, ptr %129, align 1, !tbaa !89
+  store i8 0, ptr %129, align 1, !tbaa !88
   %130 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  %131 = load ptr, ptr %130, align 8, !tbaa !90
+  %131 = load ptr, ptr %130, align 8, !tbaa !89
   %132 = icmp eq ptr %131, null
   br i1 %132, label %139, label %133
 
 133:                                              ; preds = %107
   %134 = load i32, ptr %131, align 8, !tbaa !36
   %135 = getelementptr inbounds nuw i8, ptr %111, i64 20
-  store i32 %134, ptr %135, align 4, !tbaa !94
+  store i32 %134, ptr %135, align 4, !tbaa !93
   %136 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %137 = load i64, ptr %136, align 8, !tbaa !95
+  %137 = load i64, ptr %136, align 8, !tbaa !94
   %138 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  store i64 %137, ptr %138, align 8, !tbaa !96
+  store i64 %137, ptr %138, align 8, !tbaa !95
   br label %156
 
 139:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  store i8 1, ptr %6, align 1, !tbaa !82
+  store i8 1, ptr %6, align 1, !tbaa !81
   %140 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 0, ptr %140, align 1, !tbaa !83
+  store i8 0, ptr %140, align 1, !tbaa !82
   %141 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  store i8 %122, ptr %141, align 1, !tbaa !84
+  store i8 %122, ptr %141, align 1, !tbaa !83
   %142 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  store i8 %122, ptr %142, align 1, !tbaa !85
+  store i8 %122, ptr %142, align 1, !tbaa !84
   %143 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i8 0, ptr %143, align 1, !tbaa !86
+  store i8 0, ptr %143, align 1, !tbaa !85
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  store i8 %126, ptr %144, align 1, !tbaa !87
+  store i8 %126, ptr %144, align 1, !tbaa !86
   %145 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  store i8 0, ptr %145, align 1, !tbaa !88
+  store i8 0, ptr %145, align 1, !tbaa !87
   %146 = getelementptr inbounds nuw i8, ptr %6, i64 7
-  store i8 0, ptr %146, align 1, !tbaa !89
+  store i8 0, ptr %146, align 1, !tbaa !88
   %147 = load ptr, ptr %7, align 8, !tbaa !6
   %148 = call noundef ptr @_ZN6asmjit9_abi_1_1010CodeHolder12newLabelLinkEPNS0_10LabelEntryEjmlRKNS0_12OffsetFormatE(ptr noundef nonnull align 8 dereferenceable(336) %147, ptr noundef nonnull %23, i32 noundef %110, i64 noundef %118, i64 noundef 0, ptr noundef nonnull align 1 dereferenceable(8) %6) #12
   %149 = icmp eq ptr %148, null
@@ -1011,9 +1011,9 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
 
 152:                                              ; preds = %139
   %153 = load ptr, ptr %4, align 8, !tbaa !42
-  %154 = load i32, ptr %153, align 8, !tbaa !97
+  %154 = load i32, ptr %153, align 8, !tbaa !96
   %155 = getelementptr inbounds nuw i8, ptr %148, i64 12
-  store i32 %154, ptr %155, align 4, !tbaa !98
+  store i32 %154, ptr %155, align 4, !tbaa !97
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   br label %156
 
@@ -1099,7 +1099,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %35 = icmp eq ptr %25, null
   %36 = icmp eq ptr %34, null
   %37 = or i1 %35, %36
-  br i1 %37, label %38, label %40, !prof !75
+  br i1 %37, label %38, label %40, !prof !74
 
 38:                                               ; preds = %29, %24
   %39 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 12, ptr noundef null)
@@ -1113,7 +1113,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %45 = icmp eq i8 %44, 0
   %46 = select i1 %45, i64 8, i64 4
   %47 = select i1 %41, i64 %46, i64 %3
-  %48 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %47), !range !72
+  %48 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %47), !range !71
   %49 = icmp eq i64 %48, 1
   %50 = icmp ult i64 %47, 9
   %51 = and i1 %50, %49
@@ -1184,7 +1184,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %90 = load i32, ptr %89, align 4, !tbaa !57
   %91 = load i8, ptr %42, align 8, !tbaa !62
   %92 = getelementptr inbounds nuw [9 x i8], ptr @_ZN6asmjit9_abi_1_10L16dataTypeIdBySizeE, i64 0, i64 %47
-  %93 = load i8, ptr %92, align 1, !tbaa !73
+  %93 = load i8, ptr %92, align 1, !tbaa !72
   %94 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter14formatDataTypeERNS0_6StringENS0_11FormatFlagsENS0_4ArchENS0_6TypeIdE(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %90, i8 noundef zeroext %91, i8 noundef zeroext %93) #12
   %95 = call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 1, ptr noundef nonnull @.str.1, i64 noundef -1) #12
   %96 = load i32, ptr %13, align 4, !tbaa !52
@@ -1213,21 +1213,21 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
 
 117:                                              ; preds = %83, %78
   %118 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %119 = load ptr, ptr %118, align 8, !tbaa !90
+  %119 = load ptr, ptr %118, align 8, !tbaa !89
   %120 = icmp eq ptr %119, null
   br i1 %120, label %141, label %121
 
 121:                                              ; preds = %117
   %122 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %123 = load ptr, ptr %122, align 8, !tbaa !90
+  %123 = load ptr, ptr %122, align 8, !tbaa !89
   %124 = icmp eq ptr %119, %123
   br i1 %124, label %125, label %141
 
 125:                                              ; preds = %121
   %126 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %127 = load i64, ptr %126, align 8, !tbaa !95
+  %127 = load i64, ptr %126, align 8, !tbaa !94
   %128 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %129 = load i64, ptr %128, align 8, !tbaa !95
+  %129 = load i64, ptr %128, align 8, !tbaa !94
   %130 = sub i64 %127, %129
   br label %131
 
@@ -1242,7 +1242,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %138 = add i32 %133, 1
   %139 = zext i32 %138 to i64
   %140 = icmp samesign ugt i64 %47, %139
-  br i1 %140, label %131, label %.loopexit, !llvm.loop !100
+  br i1 %140, label %131, label %.loopexit, !llvm.loop !99
 
 141:                                              ; preds = %121, %117
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
@@ -1254,13 +1254,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
 145:                                              ; preds = %141
   %146 = load ptr, ptr %7, align 8, !tbaa !6
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 64
-  %148 = load ptr, ptr %147, align 8, !tbaa !101
+  %148 = load ptr, ptr %147, align 8, !tbaa !100
   %149 = ptrtoint ptr %148 to i64
   %150 = add i64 %149, 7
   %151 = and i64 %150, -8
   %152 = inttoptr i64 %151 to ptr
   %153 = getelementptr inbounds nuw i8, ptr %146, i64 72
-  %154 = load ptr, ptr %153, align 8, !tbaa !103
+  %154 = load ptr, ptr %153, align 8, !tbaa !102
   %155 = icmp ule ptr %154, %152
   %156 = ptrtoint ptr %154 to i64
   %157 = sub i64 %156, %151
@@ -1274,7 +1274,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
 
 162:                                              ; preds = %145
   %163 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  store ptr %163, ptr %147, align 8, !tbaa !101
+  store ptr %163, ptr %147, align 8, !tbaa !100
   br label %164
 
 164:                                              ; preds = %162, %160
@@ -1296,28 +1296,28 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   store ptr %34, ptr %172, align 8, !tbaa !56
   %173 = load ptr, ptr %6, align 8, !tbaa !42
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i8 0, ptr %174, align 1, !tbaa !82
+  store i8 0, ptr %174, align 1, !tbaa !81
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 9
-  store i8 0, ptr %175, align 1, !tbaa !83
+  store i8 0, ptr %175, align 1, !tbaa !82
   %176 = trunc nuw nsw i64 %47 to i8
   %177 = getelementptr inbounds nuw i8, ptr %173, i64 10
-  store i8 %176, ptr %177, align 1, !tbaa !84
+  store i8 %176, ptr %177, align 1, !tbaa !83
   %178 = getelementptr inbounds nuw i8, ptr %173, i64 11
-  store i8 %176, ptr %178, align 1, !tbaa !85
+  store i8 %176, ptr %178, align 1, !tbaa !84
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 12
-  store i8 0, ptr %179, align 1, !tbaa !86
+  store i8 0, ptr %179, align 1, !tbaa !85
   %180 = shl nuw nsw i8 %176, 3
   %181 = getelementptr inbounds nuw i8, ptr %173, i64 13
-  store i8 %180, ptr %181, align 1, !tbaa !87
+  store i8 %180, ptr %181, align 1, !tbaa !86
   %182 = getelementptr inbounds nuw i8, ptr %173, i64 14
-  store i8 0, ptr %182, align 1, !tbaa !88
+  store i8 0, ptr %182, align 1, !tbaa !87
   %183 = getelementptr inbounds nuw i8, ptr %173, i64 15
-  store i8 0, ptr %183, align 1, !tbaa !89
+  store i8 0, ptr %183, align 1, !tbaa !88
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %185 = load ptr, ptr %184, align 8, !tbaa !29
   %186 = load i32, ptr %185, align 8, !tbaa !36
   %187 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  store i32 %186, ptr %187, align 8, !tbaa !76
+  store i32 %186, ptr %187, align 8, !tbaa !75
   %188 = load ptr, ptr %55, align 8, !tbaa !34
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %190 = load ptr, ptr %189, align 8, !tbaa !35
@@ -1325,10 +1325,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %192 = ptrtoint ptr %190 to i64
   %193 = sub i64 %191, %192
   %194 = getelementptr inbounds nuw i8, ptr %173, i64 24
-  store i64 %193, ptr %194, align 8, !tbaa !81
+  store i64 %193, ptr %194, align 8, !tbaa !80
   %195 = ptrtoint ptr %165 to i64
   %196 = getelementptr inbounds nuw i8, ptr %173, i64 32
-  store i64 %195, ptr %196, align 8, !tbaa !96
+  store i64 %195, ptr %196, align 8, !tbaa !95
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %79, i8 0, i64 %47, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   br label %.loopexit
@@ -1357,7 +1357,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler7commentEPKcm(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %5 = load i8, ptr %4, align 1, !tbaa !104
+  %5 = load i8, ptr %4, align 1, !tbaa !103
   %6 = and i8 %5, 8
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %13
@@ -1578,45 +1578,44 @@ attributes #13 = { noreturn nounwind }
 !60 = !{!"_ZTSN6asmjit9_abi_1_107Support5ArrayIhLm4EEE", !9, i64 0}
 !61 = !{!"_ZTSN6asmjit9_abi_1_107Support5ArrayItLm2EEE", !9, i64 0}
 !62 = !{!18, !19, i64 0}
-!63 = distinct !{!63, !64, !65}
+!63 = distinct !{!63, !64}
 !64 = !{!"llvm.loop.unroll.disable"}
-!65 = !{!"llvm.loop.estimated_trip_count"}
-!66 = distinct !{!66, !67, !65}
-!67 = !{!"llvm.loop.mustprogress"}
-!68 = !{!69, !13, i64 248}
-!69 = !{!"_ZTSN6asmjit9_abi_1_109ConstPoolE", !17, i64 0, !9, i64 8, !9, i64 176, !17, i64 232, !13, i64 240, !13, i64 248, !13, i64 256}
-!70 = !{!69, !13, i64 240}
-!71 = !{!69, !13, i64 256}
-!72 = !{i64 0, i64 65}
-!73 = !{!74, !74, i64 0}
-!74 = !{!"_ZTSN6asmjit9_abi_1_106TypeIdE", !9, i64 0}
-!75 = !{!"branch_weights", i32 0, i32 -2147483648}
-!76 = !{!77, !16, i64 16}
-!77 = !{!"_ZTSN6asmjit9_abi_1_1010RelocEntryE", !16, i64 0, !78, i64 4, !79, i64 8, !16, i64 16, !16, i64 20, !13, i64 24, !13, i64 32}
-!78 = !{!"_ZTSN6asmjit9_abi_1_109RelocTypeE", !9, i64 0}
-!79 = !{!"_ZTSN6asmjit9_abi_1_1012OffsetFormatE", !80, i64 0, !9, i64 1, !9, i64 2, !9, i64 3, !9, i64 4, !9, i64 5, !9, i64 6, !9, i64 7}
-!80 = !{!"_ZTSN6asmjit9_abi_1_1010OffsetTypeE", !9, i64 0}
-!81 = !{!77, !13, i64 24}
-!82 = !{!79, !80, i64 0}
-!83 = !{!79, !9, i64 1}
-!84 = !{!79, !9, i64 2}
-!85 = !{!79, !9, i64 3}
-!86 = !{!79, !9, i64 4}
-!87 = !{!79, !9, i64 5}
-!88 = !{!79, !9, i64 6}
-!89 = !{!79, !9, i64 7}
-!90 = !{!91, !17, i64 32}
-!91 = !{!"_ZTSN6asmjit9_abi_1_1010LabelEntryE", !50, i64 0, !92, i64 16, !9, i64 17, !16, i64 20, !13, i64 24, !17, i64 32, !17, i64 40, !93, i64 48}
-!92 = !{!"_ZTSN6asmjit9_abi_1_109LabelTypeE", !9, i64 0}
-!93 = !{!"_ZTSN6asmjit9_abi_1_1010ZoneStringILm16EEE", !9, i64 0}
-!94 = !{!77, !16, i64 20}
-!95 = !{!91, !13, i64 24}
-!96 = !{!77, !13, i64 32}
-!97 = !{!77, !16, i64 0}
-!98 = !{!99, !16, i64 12}
-!99 = !{!"_ZTSN6asmjit9_abi_1_109LabelLinkE", !17, i64 0, !16, i64 8, !16, i64 12, !13, i64 16, !13, i64 24, !79, i64 32}
-!100 = distinct !{!100, !67, !65}
-!101 = !{!102, !17, i64 0}
-!102 = !{!"_ZTSN6asmjit9_abi_1_104ZoneE", !17, i64 0, !17, i64 8, !17, i64 16, !9, i64 24}
-!103 = !{!102, !17, i64 8}
-!104 = !{!7, !10, i64 9}
+!65 = distinct !{!65, !66}
+!66 = !{!"llvm.loop.mustprogress"}
+!67 = !{!68, !13, i64 248}
+!68 = !{!"_ZTSN6asmjit9_abi_1_109ConstPoolE", !17, i64 0, !9, i64 8, !9, i64 176, !17, i64 232, !13, i64 240, !13, i64 248, !13, i64 256}
+!69 = !{!68, !13, i64 240}
+!70 = !{!68, !13, i64 256}
+!71 = !{i64 0, i64 65}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"_ZTSN6asmjit9_abi_1_106TypeIdE", !9, i64 0}
+!74 = !{!"branch_weights", i32 0, i32 -2147483648}
+!75 = !{!76, !16, i64 16}
+!76 = !{!"_ZTSN6asmjit9_abi_1_1010RelocEntryE", !16, i64 0, !77, i64 4, !78, i64 8, !16, i64 16, !16, i64 20, !13, i64 24, !13, i64 32}
+!77 = !{!"_ZTSN6asmjit9_abi_1_109RelocTypeE", !9, i64 0}
+!78 = !{!"_ZTSN6asmjit9_abi_1_1012OffsetFormatE", !79, i64 0, !9, i64 1, !9, i64 2, !9, i64 3, !9, i64 4, !9, i64 5, !9, i64 6, !9, i64 7}
+!79 = !{!"_ZTSN6asmjit9_abi_1_1010OffsetTypeE", !9, i64 0}
+!80 = !{!76, !13, i64 24}
+!81 = !{!78, !79, i64 0}
+!82 = !{!78, !9, i64 1}
+!83 = !{!78, !9, i64 2}
+!84 = !{!78, !9, i64 3}
+!85 = !{!78, !9, i64 4}
+!86 = !{!78, !9, i64 5}
+!87 = !{!78, !9, i64 6}
+!88 = !{!78, !9, i64 7}
+!89 = !{!90, !17, i64 32}
+!90 = !{!"_ZTSN6asmjit9_abi_1_1010LabelEntryE", !50, i64 0, !91, i64 16, !9, i64 17, !16, i64 20, !13, i64 24, !17, i64 32, !17, i64 40, !92, i64 48}
+!91 = !{!"_ZTSN6asmjit9_abi_1_109LabelTypeE", !9, i64 0}
+!92 = !{!"_ZTSN6asmjit9_abi_1_1010ZoneStringILm16EEE", !9, i64 0}
+!93 = !{!76, !16, i64 20}
+!94 = !{!90, !13, i64 24}
+!95 = !{!76, !13, i64 32}
+!96 = !{!76, !16, i64 0}
+!97 = !{!98, !16, i64 12}
+!98 = !{!"_ZTSN6asmjit9_abi_1_109LabelLinkE", !17, i64 0, !16, i64 8, !16, i64 12, !13, i64 16, !13, i64 24, !78, i64 32}
+!99 = distinct !{!99, !66}
+!100 = !{!101, !17, i64 0}
+!101 = !{!"_ZTSN6asmjit9_abi_1_104ZoneE", !17, i64 0, !17, i64 8, !17, i64 16, !9, i64 24}
+!102 = !{!101, !17, i64 8}
+!103 = !{!7, !10, i64 9}

@@ -107,7 +107,7 @@ define hidden noundef ptr @get_sctp_assoc_info(i16 noundef zeroext %0) local_unn
   %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %9 = load ptr, ptr %8, align 8
   %.old1.not.i = icmp eq ptr %9, null
-  br i1 %.old1.not.i, label %find_assoc.exit, label %.preheader.i, !llvm.loop !8
+  br i1 %.old1.not.i, label %find_assoc.exit, label %.preheader.i
 
 find_assoc.exit:                                  ; preds = %.preheader.i, %7, %1
   %.010.i = phi ptr [ null, %1 ], [ %4, %.preheader.i ], [ null, %7 ]
@@ -343,7 +343,7 @@ free_address.exit81:                              ; preds = %free_address.exit, 
   %91 = getelementptr inbounds nuw i8, ptr %.083, i64 8
   %92 = load ptr, ptr %91, align 8
   %.not = icmp eq ptr %92, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %free_address.exit81, %1
   %93 = load ptr, ptr %2, align 8
@@ -490,7 +490,7 @@ copy_address.exit1579:                            ; preds = %39, %33, %45
   %83 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %84 = load ptr, ptr %83, align 8
   %.old1.not.i = icmp eq ptr %84, null
-  br i1 %.old1.not.i, label %find_assoc.exit.thread, label %.preheader.i, !llvm.loop !8
+  br i1 %.old1.not.i, label %find_assoc.exit.thread, label %.preheader.i
 
 find_assoc.exit:                                  ; preds = %.preheader.i
   %.not = icmp eq ptr %79, null
@@ -933,7 +933,7 @@ copy_address.exit1585:                            ; preds = %copy_address.exit15
   %323 = load i32, ptr %85, align 8
   %324 = zext i32 %323 to i64
   %325 = icmp samesign ult i64 %indvars.iv.next1685, %324
-  br i1 %325, label %.lr.ph1668, label %._crit_edge1669, !llvm.loop !12
+  br i1 %325, label %.lr.ph1668, label %._crit_edge1669, !llvm.loop !10
 
 ._crit_edge1669:                                  ; preds = %322, %295
   %326 = load ptr, ptr %63, align 8
@@ -1523,7 +1523,7 @@ copy_address.exit1585:                            ; preds = %copy_address.exit15
   %653 = load i32, ptr %85, align 8
   %654 = zext i32 %653 to i64
   %655 = icmp samesign ult i64 %indvars.iv.next1683, %654
-  br i1 %655, label %442, label %.loopexit1644.loopexit, !llvm.loop !13
+  br i1 %655, label %442, label %.loopexit1644.loopexit, !llvm.loop !11
 
 .loopexit1644.loopexit:                           ; preds = %652
   %656 = trunc nuw i8 %.21422 to i1
@@ -1664,7 +1664,7 @@ copy_address.exit1587:                            ; preds = %copy_address.exit15
   %728 = load i32, ptr %85, align 8
   %729 = zext i32 %728 to i64
   %730 = icmp samesign ult i64 %indvars.iv.next1688, %729
-  br i1 %730, label %.lr.ph1671, label %.loopexit, !llvm.loop !14
+  br i1 %730, label %.lr.ph1671, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph1671, %.preheader, %716
   %731 = getelementptr inbounds nuw i8, ptr %709, i64 208
@@ -2192,7 +2192,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   %1007 = load i32, ptr %990, align 8
   %1008 = zext i32 %1007 to i64
   %1009 = icmp samesign ult i64 %indvars.iv.next1677, %1008
-  br i1 %1009, label %.lr.ph1654, label %._crit_edge, !llvm.loop !15
+  br i1 %1009, label %.lr.ph1654, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %1006, %968
   %1010 = load i16, ptr %736, align 8
@@ -3219,7 +3219,7 @@ copy_address.exit1593:                            ; preds = %898, %901
   %1576 = load i32, ptr %1162, align 8
   %1577 = zext i32 %1576 to i64
   %1578 = icmp samesign ult i64 %indvars.iv.next, %1577
-  br i1 %1578, label %1210, label %.loopexit1645, !llvm.loop !16
+  br i1 %1578, label %1210, label %.loopexit1645, !llvm.loop !14
 
 .loopexit1645:                                    ; preds = %1575
   %1579 = trunc nuw i8 %.51425 to i1
@@ -3839,7 +3839,7 @@ addresses_equal.exit:                             ; preds = %22, %15, %11
   %34 = getelementptr inbounds nuw i8, ptr %.125, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %addresses_equal.exit, %3
   br i1 %4, label %36, label %40
@@ -3945,7 +3945,7 @@ addresses_equal.exit:                             ; preds = %26, %19, %14, %10
   %.1.in = getelementptr inbounds nuw i8, ptr %.07478, i64 8
   %.1 = load ptr, ptr %.1.in, align 8
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %addresses_equal.exit, %4
   %49 = tail call noalias dereferenceable_or_null(1056) ptr @g_malloc(i64 noundef 1056) #11
@@ -4066,13 +4066,11 @@ attributes #11 = { allocsize(0) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !11, !9}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11, !9}
-!13 = distinct !{!13, !11, !9}
-!14 = distinct !{!14, !11, !9}
-!15 = distinct !{!15, !11, !9}
-!16 = distinct !{!16, !11, !9}
-!17 = distinct !{!17, !11, !9}
-!18 = distinct !{!18, !11, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

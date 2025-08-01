@@ -77,15 +77,15 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_set_wait_fd(ptr noundef captures(none
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %4, ptr %11, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 1, ptr %12, align 8, !tbaa !21
+  store i32 1, ptr %12, align 8, !tbaa !20
   %13 = load ptr, ptr %0, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %13, ptr %14, align 8, !tbaa !17
   store ptr %6, ptr %0, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !22
+  %16 = load i64, ptr %15, align 8, !tbaa !21
   %17 = add i64 %16, 1
-  store i64 %17, ptr %15, align 8, !tbaa !22
+  store i64 %17, ptr %15, align 8, !tbaa !21
   br label %18
 
 18:                                               ; preds = %5, %8
@@ -95,7 +95,7 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_set_wait_fd(ptr noundef captures(none
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_fd(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
-  %.014 = load ptr, ptr %0, align 8, !tbaa !23
+  %.014 = load ptr, ptr %0, align 8, !tbaa !22
   %.not15 = icmp eq ptr %.014, null
   br i1 %.not15, label %.loopexit, label %.lr.ph
 
@@ -108,9 +108,9 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_fd(ptr noundef readonly captures(
 
 .backedge:                                        ; preds = %7, %.lr.ph
   %.0.in.be = getelementptr inbounds nuw i8, ptr %.016, i64 40
-  %.0 = load ptr, ptr %.0.in.be, align 8, !tbaa !23
+  %.0 = load ptr, ptr %.0.in.be, align 8, !tbaa !22
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 7:                                                ; preds = %.lr.ph
   %8 = load ptr, ptr %.016, align 8, !tbaa !14
@@ -120,10 +120,10 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_fd(ptr noundef readonly captures(
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !15
-  store i32 %12, ptr %2, align 4, !tbaa !25
+  store i32 %12, ptr %2, align 4, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %.016, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !16
-  store ptr %14, ptr %3, align 8, !tbaa !26
+  store ptr %14, ptr %3, align 8, !tbaa !25
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %4, %10
@@ -134,7 +134,7 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_fd(ptr noundef readonly captures(
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
-  store i64 0, ptr %2, align 8, !tbaa !27
+  store i64 0, ptr %2, align 8, !tbaa !26
   %.not1517 = icmp eq ptr %4, null
   br i1 %.not1517, label %.outer._crit_edge, label %.lr.ph
 
@@ -155,7 +155,7 @@ define noundef i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef readonly captures(non
   %10 = getelementptr inbounds nuw i8, ptr %.016, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !28
+  br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !27
 
 12:                                               ; preds = %6
   %.not13 = icmp eq ptr %.011.ph18, null
@@ -164,18 +164,18 @@ define noundef i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef readonly captures(non
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !15
-  store i32 %15, ptr %.011.ph18, align 4, !tbaa !25
+  store i32 %15, ptr %.011.ph18, align 4, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %.011.ph18, i64 4
   br label %.outer
 
 .outer:                                           ; preds = %13, %12
   %.1 = phi ptr [ %16, %13 ], [ null, %12 ]
   %17 = add i64 %5, 1
-  store i64 %17, ptr %2, align 8, !tbaa !27
+  store i64 %17, ptr %2, align 8, !tbaa !26
   %18 = getelementptr inbounds nuw i8, ptr %.016, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %.not15 = icmp eq ptr %19, null
-  br i1 %.not15, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not15, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !27
 
 .outer._crit_edge:                                ; preds = %.outer, %9, %3
   ret i32 1
@@ -184,18 +184,18 @@ define noundef i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef readonly captures(non
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(address) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !22
-  store i64 %7, ptr %2, align 8, !tbaa !27
+  %7 = load i64, ptr %6, align 8, !tbaa !21
+  store i64 %7, ptr %2, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !29
-  store i64 %9, ptr %4, align 8, !tbaa !27
+  %9 = load i64, ptr %8, align 8, !tbaa !28
+  store i64 %9, ptr %4, align 8, !tbaa !26
   %10 = icmp eq ptr %1, null
   %11 = icmp eq ptr %3, null
   %or.cond = and i1 %10, %11
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %.032 = load ptr, ptr %0, align 8, !tbaa !23
+  %.032 = load ptr, ptr %0, align 8, !tbaa !22
   %.not33 = icmp eq ptr %.032, null
   br i1 %.not33, label %.loopexit, label %.lr.ph
 
@@ -210,7 +210,7 @@ define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef readonly captures
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.036, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !21
+  %16 = load i32, ptr %15, align 8, !tbaa !20
   %17 = icmp eq i32 %16, 0
   %18 = icmp ne ptr %.02735, null
   %or.cond3 = select i1 %17, i1 %18, i1 false
@@ -219,14 +219,14 @@ define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef readonly captures
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %.036, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !15
-  store i32 %21, ptr %.02735, align 4, !tbaa !25
+  store i32 %21, ptr %.02735, align 4, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %.02735, i64 4
   br label %23
 
 23:                                               ; preds = %19, %14, %.lr.ph
   %.1 = phi ptr [ %22, %19 ], [ %.02735, %14 ], [ %.02735, %.lr.ph ]
   %24 = getelementptr inbounds nuw i8, ptr %.036, i64 32
-  %25 = load i32, ptr %24, align 8, !tbaa !21
+  %25 = load i32, ptr %24, align 8, !tbaa !20
   %.not31 = icmp eq i32 %25, 0
   br i1 %.not31, label %34, label %26
 
@@ -240,16 +240,16 @@ define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef readonly captures
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %.036, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !15
-  store i32 %32, ptr %.02834, align 4, !tbaa !25
+  store i32 %32, ptr %.02834, align 4, !tbaa !24
   %33 = getelementptr inbounds nuw i8, ptr %.02834, i64 4
   br label %34
 
 34:                                               ; preds = %30, %26, %23
   %.129 = phi ptr [ %33, %30 ], [ %.02834, %26 ], [ %.02834, %23 ]
   %35 = getelementptr inbounds nuw i8, ptr %.036, i64 40
-  %.0 = load ptr, ptr %35, align 8, !tbaa !23
+  %.0 = load ptr, ptr %35, align 8, !tbaa !22
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %34, %.preheader, %5
   ret i32 1
@@ -257,7 +257,7 @@ define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef readonly captures
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_clear_fd(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
-  %.02024 = load ptr, ptr %0, align 8, !tbaa !23
+  %.02024 = load ptr, ptr %0, align 8, !tbaa !22
   %.not25 = icmp eq ptr %.02024, null
   br i1 %.not25, label %.loopexit, label %.lr.ph
 
@@ -271,9 +271,9 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_clear_fd(ptr noundef captures(none) %
 
 .backedge:                                        ; preds = %6, %.lr.ph
   %.020.in.be = getelementptr inbounds nuw i8, ptr %.02027, i64 40
-  %.020 = load ptr, ptr %.020.in.be, align 8, !tbaa !23
+  %.020 = load ptr, ptr %.020.in.be, align 8, !tbaa !22
   %.not = icmp eq ptr %.020, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 6:                                                ; preds = %.lr.ph
   %7 = load ptr, ptr %.02027, align 8, !tbaa !14
@@ -282,7 +282,7 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_clear_fd(ptr noundef captures(none) %
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %.02027, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !21
+  %11 = load i32, ptr %10, align 8, !tbaa !20
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %21
 
@@ -314,9 +314,9 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_clear_fd(ptr noundef captures(none) %
   %.sink37 = phi i64 [ 16, %21 ], [ 8, %20 ]
   %.sink36 = phi i64 [ 1, %21 ], [ -1, %20 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink37
-  %24 = load i64, ptr %23, align 8, !tbaa !27
+  %24 = load i64, ptr %23, align 8, !tbaa !26
   %25 = add i64 %24, %.sink36
-  store i64 %25, ptr %23, align 8, !tbaa !27
+  store i64 %25, ptr %23, align 8, !tbaa !26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.loopexit.sink.split, %2
@@ -331,9 +331,9 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_set_callback(ptr noundef writeonly ca
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %6, align 8, !tbaa !32
+  store ptr %1, ptr %6, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %2, ptr %7, align 8, !tbaa !33
+  store ptr %2, ptr %7, align 8, !tbaa !32
   br label %8
 
 8:                                                ; preds = %3, %5
@@ -344,15 +344,15 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_set_callback(ptr noundef writeonly ca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_callback(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = icmp eq ptr %5, null
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %3
-  store ptr %5, ptr %1, align 8, !tbaa !26
+  store ptr %5, ptr %1, align 8, !tbaa !25
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !33
-  store ptr %9, ptr %2, align 8, !tbaa !26
+  %9 = load ptr, ptr %8, align 8, !tbaa !32
+  store ptr %9, ptr %2, align 8, !tbaa !25
   br label %10
 
 10:                                               ; preds = %3, %7
@@ -363,14 +363,14 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_callback(ptr noundef readonly cap
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @ASYNC_WAIT_CTX_set_status(ptr noundef writeonly captures(none) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %1, ptr %3, align 8, !tbaa !34
+  store i32 %1, ptr %3, align 8, !tbaa !33
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ASYNC_WAIT_CTX_get_status(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 8, !tbaa !34
+  %3 = load i32, ptr %2, align 8, !tbaa !33
   ret i32 %3
 }
 
@@ -378,7 +378,7 @@ define i32 @ASYNC_WAIT_CTX_get_status(ptr noundef readonly captures(none) %0) lo
 define void @async_wait_ctx_reset_counts(ptr noundef captures(none) initializes((8, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %.0182225 = load ptr, ptr %0, align 8, !tbaa !23
+  %.0182225 = load ptr, ptr %0, align 8, !tbaa !22
   %.not2326 = icmp eq ptr %.0182225, null
   br i1 %.not2326, label %.outer._crit_edge, label %.lr.ph
 
@@ -403,9 +403,9 @@ define void @async_wait_ctx_reset_counts(ptr noundef captures(none) initializes(
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   store ptr %9, ptr %0, align 8, !tbaa !3
   tail call void @CRYPTO_free(ptr noundef nonnull %.01824.us, ptr noundef nonnull @.str, i32 noundef 234) #8
-  %.018.us = load ptr, ptr %.1.in, align 8, !tbaa !23
+  %.018.us = load ptr, ptr %.1.in, align 8, !tbaa !22
   %.not.us = icmp eq ptr %.018.us, null
-  br i1 %.not.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !35
+  br i1 %.not.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !34
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %12
   %.01824 = phi ptr [ %.018, %12 ], [ %.0182228, %.lr.ph ]
@@ -419,26 +419,26 @@ define void @async_wait_ctx_reset_counts(ptr noundef captures(none) initializes(
   %14 = load ptr, ptr %13, align 8, !tbaa !17
   store ptr %14, ptr %4, align 8, !tbaa !17
   tail call void @CRYPTO_free(ptr noundef nonnull %.01824, ptr noundef nonnull @.str, i32 noundef 234) #8
-  %.018 = load ptr, ptr %4, align 8, !tbaa !23
+  %.018 = load ptr, ptr %4, align 8, !tbaa !22
   %.not = icmp eq ptr %.018, null
-  br i1 %.not, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !37
+  br i1 %.not, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !36
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi ptr [ %.01824.us, %.lr.ph.split.us ], [ %.01824, %.lr.ph.split ]
   %15 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !21
+  %16 = load i32, ptr %15, align 8, !tbaa !20
   %.not20 = icmp eq i32 %16, 0
   br i1 %.not20, label %.outer, label %17
 
 17:                                               ; preds = %.split.us
-  store i32 0, ptr %15, align 8, !tbaa !21
+  store i32 0, ptr %15, align 8, !tbaa !20
   br label %.outer
 
 .outer:                                           ; preds = %17, %.split.us
   %18 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 40
-  %.01822 = load ptr, ptr %18, align 8, !tbaa !23
+  %.01822 = load ptr, ptr %18, align 8, !tbaa !22
   %.not23 = icmp eq ptr %.01822, null
-  br i1 %.not23, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not23, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !36
 
 .outer._crit_edge:                                ; preds = %.outer, %12, %7, %1
   ret void
@@ -477,23 +477,22 @@ attributes #8 = { nounwind }
 !15 = !{!12, !10, i64 8}
 !16 = !{!12, !6, i64 16}
 !17 = !{!12, !5, i64 40}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!12, !10, i64 32}
-!22 = !{!4, !9, i64 8}
-!23 = !{!5, !5, i64 0}
-!24 = distinct !{!24, !19, !20}
-!25 = !{!10, !10, i64 0}
-!26 = !{!6, !6, i64 0}
-!27 = !{!9, !9, i64 0}
-!28 = distinct !{!28, !19, !20}
-!29 = !{!4, !9, i64 16}
-!30 = distinct !{!30, !19, !20}
-!31 = distinct !{!31, !19, !20}
-!32 = !{!4, !6, i64 24}
-!33 = !{!4, !6, i64 32}
-!34 = !{!4, !10, i64 40}
-!35 = distinct !{!35, !19, !20, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = distinct !{!37, !19, !20}
+!20 = !{!12, !10, i64 32}
+!21 = !{!4, !9, i64 8}
+!22 = !{!5, !5, i64 0}
+!23 = distinct !{!23, !19}
+!24 = !{!10, !10, i64 0}
+!25 = !{!6, !6, i64 0}
+!26 = !{!9, !9, i64 0}
+!27 = distinct !{!27, !19}
+!28 = !{!4, !9, i64 16}
+!29 = distinct !{!29, !19}
+!30 = distinct !{!30, !19}
+!31 = !{!4, !6, i64 24}
+!32 = !{!4, !6, i64 32}
+!33 = !{!4, !10, i64 40}
+!34 = distinct !{!34, !19, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !19}

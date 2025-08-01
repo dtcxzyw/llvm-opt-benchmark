@@ -392,7 +392,7 @@ define internal void @pppdump_close(ptr noundef readonly captures(none) %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.pr = load ptr, ptr %8, align 8
   %.not13 = icmp eq ptr %.pr, null
-  br i1 %.not13, label %.critedge, label %.preheader, !llvm.loop !9
+  br i1 %.not13, label %.critedge, label %.preheader, !llvm.loop !8
 
 .critedge:                                        ; preds = %15, %.preheader
   %.lcssa = phi ptr [ null, %15 ], [ %10, %.preheader ]
@@ -499,7 +499,7 @@ define internal fastcc noundef zeroext i1 @collate(ptr noundef %0, ptr noundef %
     i32 7, label %75
     i32 5, label %94
     i32 6, label %122
-  ], !llvm.loop !10
+  ], !llvm.loop !9
 
 38:                                               ; preds = %35, %35
   %39 = icmp eq i32 %34, 1
@@ -539,7 +539,7 @@ define internal fastcc noundef zeroext i1 @collate(ptr noundef %0, ptr noundef %
 
 60:                                               ; preds = %57, %49
   %61 = icmp eq i32 %53, 0
-  br i1 %61, label %33, label %.preheader, !llvm.loop !10
+  br i1 %61, label %33, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %60
   %.not110126 = icmp eq i64 %.097.ph.ph, 0
@@ -562,7 +562,7 @@ define internal fastcc noundef zeroext i1 @collate(ptr noundef %0, ptr noundef %
   store i64 %68, ptr %27, align 8
   %69 = add i64 %.1127, -1
   %.not110 = icmp eq i64 %69, 0
-  br i1 %.not110, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not110, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %66, %.preheader
   %.096.lcssa = phi i32 [ %53, %.preheader ], [ %63, %66 ]
@@ -572,7 +572,7 @@ define internal fastcc noundef zeroext i1 @collate(ptr noundef %0, ptr noundef %
 
 72:                                               ; preds = %._crit_edge
   %.not111 = icmp eq i32 %70, 0
-  br i1 %.not111, label %.outer.outer, label %73, !llvm.loop !10
+  br i1 %.not111, label %.outer.outer, label %73, !llvm.loop !9
 
 73:                                               ; preds = %72
   store i32 %70, ptr %5, align 4
@@ -679,7 +679,7 @@ define internal fastcc noundef zeroext i1 @collate(ptr noundef %0, ptr noundef %
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %35, %35, %.loopexit115.sink.split, %124, %96
-  br label %.outer, !llvm.loop !10
+  br label %.outer, !llvm.loop !9
 
 .loopexit:                                        ; preds = %33, %44, %38, %.lr.ph
   %140 = call i32 @file_error(ptr noundef %1, ptr noundef %3)
@@ -807,7 +807,7 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr noundef capture
   br label %.loopexit
 
 53:                                               ; preds = %20
-  %54 = load i8, ptr %11, align 8, !range !12, !noundef !13
+  %54 = load i8, ptr %11, align 8, !range !11, !noundef !12
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %.thread, label %56
 
@@ -816,7 +816,7 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr noundef capture
   br label %72
 
 57:                                               ; preds = %20
-  %.pre = load i8, ptr %11, align 8, !range !12
+  %.pre = load i8, ptr %11, align 8, !range !11
   %58 = trunc nuw i8 %.pre to i1
   br i1 %58, label %.thread, label %60
 
@@ -851,7 +851,7 @@ define internal fastcc range(i32 -1, 8193) i32 @process_data(ptr noundef capture
 72:                                               ; preds = %56, %67, %23
   %73 = add nsw i32 %.05569, -1
   %74 = icmp sgt i32 %.05569, 1
-  br i1 %74, label %14, label %.loopexit, !llvm.loop !14
+  br i1 %74, label %14, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %72, %8, %63, %49, %28, %17
   %.0 = phi i32 [ -1, %17 ], [ -1, %63 ], [ -1, %28 ], [ %24, %49 ], [ 0, %8 ], [ 0, %72 ]
@@ -901,12 +901,11 @@ attributes #9 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7}

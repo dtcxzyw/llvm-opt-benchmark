@@ -121,7 +121,7 @@ _posixshmem_shm_open_impl.exit:                   ; preds = %.preheader.i
 define internal ptr @_posixshmem_shm_unlink(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %4, align 8, !tbaa !15
+  %.val = load ptr, ptr %4, align 8, !tbaa !14
   %5 = tail call i64 @PyType_GetFlags(ptr noundef %.val) #5
   %6 = and i64 %5, 268435456
   %.not = icmp eq i64 %6, 0
@@ -165,7 +165,7 @@ define internal ptr @_posixshmem_shm_unlink(ptr readnone captures(none) %0, ptr 
 25:                                               ; preds = %21
   %26 = call i32 @PyErr_CheckSignals() #5
   %.not11.i = icmp eq i32 %26, 0
-  br i1 %.not11.i, label %.preheader.i, label %_posixshmem_shm_unlink_impl.exit, !llvm.loop !18
+  br i1 %.not11.i, label %.preheader.i, label %_posixshmem_shm_unlink_impl.exit, !llvm.loop !17
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !7
@@ -249,10 +249,9 @@ attributes #7 = { nounwind willreturn memory(none) }
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !17, i64 8}
-!16 = !{!"_object", !5, i64 0, !17, i64 8}
-!17 = !{!"p1 _ZTS11_typeobject", !9, i64 0}
-!18 = distinct !{!18, !13, !14}
+!14 = !{!15, !16, i64 8}
+!15 = !{!"_object", !5, i64 0, !16, i64 8}
+!16 = !{!"p1 _ZTS11_typeobject", !9, i64 0}
+!17 = distinct !{!17, !13}

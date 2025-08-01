@@ -191,9 +191,9 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !9
-  store i32 0, ptr %7, align 4, !annotation !9
-  store i16 0, ptr %8, align 2, !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !8
+  store i32 0, ptr %7, align 4, !annotation !8
+  store i16 0, ptr %8, align 2, !annotation !8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -201,7 +201,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %15 = add i32 %1, %14
   %16 = sub i32 %12, %15
   %17 = icmp slt i32 %16, 20
-  br i1 %17, label %18, label %23, !prof !10
+  br i1 %17, label %18, label %23, !prof !9
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %0, null
@@ -210,7 +210,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 20:                                               ; preds = %18
   %21 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %6, i32 noundef 20) #11
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %.thread, label %..thread21_crit_edge, !prof !10
+  br i1 %22, label %.thread, label %..thread21_crit_edge, !prof !9
 
 ..thread21_crit_edge:                             ; preds = %20
   %.pre = load i32, ptr %11, align 8
@@ -246,7 +246,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %44 = add i32 %36, %43
   %45 = sub i32 %42, %44
   %46 = icmp slt i32 %45, %40
-  br i1 %46, label %52, label %47, !prof !10
+  br i1 %46, label %52, label %47, !prof !9
 
 47:                                               ; preds = %38
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -262,7 +262,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 54:                                               ; preds = %52
   %55 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %36, ptr noundef %41, i32 noundef %40) #11
   %56 = icmp slt i32 %55, 0
-  br i1 %56, label %.thread24, label %57, !prof !10
+  br i1 %56, label %.thread24, label %57, !prof !9
 
 57:                                               ; preds = %54, %47
   %58 = phi ptr [ %51, %47 ], [ %41, %54 ]
@@ -288,7 +288,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 67:                                               ; preds = %.preheader37, %.preheader37, %.preheader37
   %68 = getelementptr i8, ptr %65, i64 1
   %69 = icmp eq ptr %68, %63
-  br i1 %69, label %.loopexit38, label %.preheader37, !llvm.loop !11
+  br i1 %69, label %.loopexit38, label %.preheader37, !llvm.loop !10
 
 70:                                               ; preds = %.preheader37
   %71 = call i32 @strncasecmp(ptr noundef nonnull @.str.5, ptr noundef %65, i64 noundef 8)
@@ -328,7 +328,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 .backedge:                                        ; preds = %88, %82
   %.be = phi ptr [ %89, %88 ], [ %190, %82 ]
-  br label %84, !llvm.loop !12
+  br label %84, !llvm.loop !11
 
 91:                                               ; preds = %84
   %92 = getelementptr i8, ptr %85, i64 2
@@ -374,18 +374,18 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 
 117:                                              ; preds = %107
   %118 = icmp ugt ptr %109, %79
-  br i1 %118, label %.thread26, label %107, !llvm.loop !13
+  br i1 %118, label %.thread26, label %107, !llvm.loop !12
 
 119:                                              ; preds = %.preheader32
   %120 = load i8, ptr %123, align 1
   %121 = icmp eq i8 %120, 10
-  br i1 %121, label %.loopexit34, label %.preheader32, !llvm.loop !14
+  br i1 %121, label %.loopexit34, label %.preheader32, !llvm.loop !13
 
 .preheader32:                                     ; preds = %114, %119
   %122 = phi ptr [ %123, %119 ], [ %109, %114 ]
   %123 = getelementptr i8, ptr %122, i64 1
   %124 = icmp ugt ptr %123, %62
-  br i1 %124, label %.thread26, label %119, !llvm.loop !15
+  br i1 %124, label %.thread26, label %119, !llvm.loop !13
 
 .loopexit34:                                      ; preds = %119, %114
   %125 = call i64 @simple_strtoul(ptr noundef %109, ptr noundef nonnull %5, i32 noundef 10) #11
@@ -407,7 +407,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   store ptr %134, ptr %5, align 8
   %135 = load i8, ptr %134, align 1
   %136 = icmp eq i8 %135, 32
-  br i1 %136, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %136, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .thread26:                                        ; preds = %117, %.preheader32, %.preheader, %112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -502,7 +502,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %190 = phi ptr [ %106, %151 ], [ %106, %154 ], [ %99, %97 ], [ %106, %.thread26 ]
   %191 = add nuw nsw i64 %98, 1
   %192 = icmp eq i64 %191, 5
-  br i1 %192, label %82, label %97, !llvm.loop !17
+  br i1 %192, label %82, label %97, !llvm.loop !15
 
 .thread24:                                        ; preds = %91, %82, %88, %54, %52, %187, %161, %.loopexit38, %70, %57
   %193 = phi i32 [ 1, %57 ], [ 1, %70 ], [ 0, %161 ], [ %188, %187 ], [ 1, %.loopexit38 ], [ 1, %52 ], [ 1, %54 ], [ 1, %88 ], [ 1, %82 ], [ 1, %91 ]
@@ -599,16 +599,14 @@ attributes #13 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = !{!"branch_weights", i32 1, i32 2000}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
+!8 = !{!"auto-init"}
+!9 = !{!"branch_weights", i32 1, i32 2000}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
 !15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}

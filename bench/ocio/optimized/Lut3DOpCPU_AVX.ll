@@ -457,8 +457,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.0.vec.extract.i72.i = extractelement <8 x i32> %333, i64 0
   %339 = zext i32 %.sroa.0.0.vec.extract.i72.i to i64
   %340 = getelementptr inbounds nuw float, ptr %0, i64 %339
-  %.val.i73.i = load <4 x float>, ptr %338, align 1, !tbaa !3, !noalias !12
-  %.val217.i74.i = load <4 x float>, ptr %340, align 1, !tbaa !3, !noalias !12
+  %.val.i73.i = load <4 x float>, ptr %338, align 1, !tbaa !3, !noalias !11
+  %.val217.i74.i = load <4 x float>, ptr %340, align 1, !tbaa !3, !noalias !11
   %341 = shufflevector <4 x float> %.val217.i74.i, <4 x float> %.val.i73.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %.sroa.0.20.vec.extract287.i75.i = extractelement <8 x i32> %333, i64 5
   %342 = zext i32 %.sroa.0.20.vec.extract287.i75.i to i64
@@ -466,8 +466,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.4.vec.extract263.i76.i = extractelement <8 x i32> %333, i64 1
   %344 = zext i32 %.sroa.0.4.vec.extract263.i76.i to i64
   %345 = getelementptr inbounds nuw float, ptr %0, i64 %344
-  %.val218.i77.i = load <4 x float>, ptr %343, align 1, !tbaa !3, !noalias !12
-  %.val219.i78.i = load <4 x float>, ptr %345, align 1, !tbaa !3, !noalias !12
+  %.val218.i77.i = load <4 x float>, ptr %343, align 1, !tbaa !3, !noalias !11
+  %.val219.i78.i = load <4 x float>, ptr %345, align 1, !tbaa !3, !noalias !11
   %346 = shufflevector <4 x float> %.val219.i78.i, <4 x float> %.val218.i77.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %.sroa.0.24.vec.extract293.i79.i = extractelement <8 x i32> %333, i64 6
   %347 = zext i32 %.sroa.0.24.vec.extract293.i79.i to i64
@@ -475,8 +475,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.8.vec.extract269.i80.i = extractelement <8 x i32> %333, i64 2
   %349 = zext i32 %.sroa.0.8.vec.extract269.i80.i to i64
   %350 = getelementptr inbounds nuw float, ptr %0, i64 %349
-  %.val220.i81.i = load <4 x float>, ptr %348, align 1, !tbaa !3, !noalias !12
-  %.val221.i82.i = load <4 x float>, ptr %350, align 1, !tbaa !3, !noalias !12
+  %.val220.i81.i = load <4 x float>, ptr %348, align 1, !tbaa !3, !noalias !11
+  %.val221.i82.i = load <4 x float>, ptr %350, align 1, !tbaa !3, !noalias !11
   %351 = shufflevector <4 x float> %.val221.i82.i, <4 x float> %.val220.i81.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %.sroa.0.28.vec.extract299.i83.i = extractelement <8 x i32> %333, i64 7
   %352 = zext i32 %.sroa.0.28.vec.extract299.i83.i to i64
@@ -484,8 +484,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.12.vec.extract275.i84.i = extractelement <8 x i32> %333, i64 3
   %354 = zext i32 %.sroa.0.12.vec.extract275.i84.i to i64
   %355 = getelementptr inbounds nuw float, ptr %0, i64 %354
-  %.val222.i85.i = load <4 x float>, ptr %353, align 1, !tbaa !3, !noalias !12
-  %.val223.i86.i = load <4 x float>, ptr %355, align 1, !tbaa !3, !noalias !12
+  %.val222.i85.i = load <4 x float>, ptr %353, align 1, !tbaa !3, !noalias !11
+  %.val223.i86.i = load <4 x float>, ptr %355, align 1, !tbaa !3, !noalias !11
   %356 = shufflevector <4 x float> %.val223.i86.i, <4 x float> %.val222.i85.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %357 = shufflevector <8 x float> %341, <8 x float> %346, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %358 = shufflevector <8 x float> %351, <8 x float> %356, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
@@ -504,8 +504,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.0.vec.extract253.i88.i = extractelement <8 x i32> %334, i64 0
   %370 = zext i32 %.sroa.0.0.vec.extract253.i88.i to i64
   %371 = getelementptr inbounds nuw float, ptr %0, i64 %370
-  %.val224.i89.i = load <4 x float>, ptr %369, align 1, !tbaa !3, !noalias !12
-  %.val225.i90.i = load <4 x float>, ptr %371, align 1, !tbaa !3, !noalias !12
+  %.val224.i89.i = load <4 x float>, ptr %369, align 1, !tbaa !3, !noalias !11
+  %.val225.i90.i = load <4 x float>, ptr %371, align 1, !tbaa !3, !noalias !11
   %372 = shufflevector <4 x float> %.val225.i90.i, <4 x float> %.val224.i89.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %.sroa.0.20.vec.extract285.i91.i = extractelement <8 x i32> %334, i64 5
   %373 = zext i32 %.sroa.0.20.vec.extract285.i91.i to i64
@@ -513,8 +513,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.4.vec.extract261.i92.i = extractelement <8 x i32> %334, i64 1
   %375 = zext i32 %.sroa.0.4.vec.extract261.i92.i to i64
   %376 = getelementptr inbounds nuw float, ptr %0, i64 %375
-  %.val226.i93.i = load <4 x float>, ptr %374, align 1, !tbaa !3, !noalias !12
-  %.val227.i94.i = load <4 x float>, ptr %376, align 1, !tbaa !3, !noalias !12
+  %.val226.i93.i = load <4 x float>, ptr %374, align 1, !tbaa !3, !noalias !11
+  %.val227.i94.i = load <4 x float>, ptr %376, align 1, !tbaa !3, !noalias !11
   %377 = shufflevector <4 x float> %.val227.i94.i, <4 x float> %.val226.i93.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %.sroa.0.24.vec.extract291.i95.i = extractelement <8 x i32> %334, i64 6
   %378 = zext i32 %.sroa.0.24.vec.extract291.i95.i to i64
@@ -522,8 +522,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.8.vec.extract267.i96.i = extractelement <8 x i32> %334, i64 2
   %380 = zext i32 %.sroa.0.8.vec.extract267.i96.i to i64
   %381 = getelementptr inbounds nuw float, ptr %0, i64 %380
-  %.val228.i97.i = load <4 x float>, ptr %379, align 1, !tbaa !3, !noalias !12
-  %.val229.i98.i = load <4 x float>, ptr %381, align 1, !tbaa !3, !noalias !12
+  %.val228.i97.i = load <4 x float>, ptr %379, align 1, !tbaa !3, !noalias !11
+  %.val229.i98.i = load <4 x float>, ptr %381, align 1, !tbaa !3, !noalias !11
   %382 = shufflevector <4 x float> %.val229.i98.i, <4 x float> %.val228.i97.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %.sroa.0.28.vec.extract297.i99.i = extractelement <8 x i32> %334, i64 7
   %383 = zext i32 %.sroa.0.28.vec.extract297.i99.i to i64
@@ -531,8 +531,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.12.vec.extract273.i100.i = extractelement <8 x i32> %334, i64 3
   %385 = zext i32 %.sroa.0.12.vec.extract273.i100.i to i64
   %386 = getelementptr inbounds nuw float, ptr %0, i64 %385
-  %.val230.i101.i = load <4 x float>, ptr %384, align 1, !tbaa !3, !noalias !12
-  %.val231.i102.i = load <4 x float>, ptr %386, align 1, !tbaa !3, !noalias !12
+  %.val230.i101.i = load <4 x float>, ptr %384, align 1, !tbaa !3, !noalias !11
+  %.val231.i102.i = load <4 x float>, ptr %386, align 1, !tbaa !3, !noalias !11
   %387 = shufflevector <4 x float> %.val231.i102.i, <4 x float> %.val230.i101.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %388 = shufflevector <8 x float> %372, <8 x float> %377, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %389 = shufflevector <8 x float> %382, <8 x float> %387, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
@@ -554,8 +554,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.0.vec.extract255.i104.i = extractelement <8 x i32> %335, i64 0
   %404 = zext i32 %.sroa.0.0.vec.extract255.i104.i to i64
   %405 = getelementptr inbounds nuw float, ptr %0, i64 %404
-  %.val232.i105.i = load <4 x float>, ptr %403, align 1, !tbaa !3, !noalias !12
-  %.val233.i106.i = load <4 x float>, ptr %405, align 1, !tbaa !3, !noalias !12
+  %.val232.i105.i = load <4 x float>, ptr %403, align 1, !tbaa !3, !noalias !11
+  %.val233.i106.i = load <4 x float>, ptr %405, align 1, !tbaa !3, !noalias !11
   %406 = shufflevector <4 x float> %.val233.i106.i, <4 x float> %.val232.i105.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %.sroa.0.20.vec.extract283.i107.i = extractelement <8 x i32> %335, i64 5
   %407 = zext i32 %.sroa.0.20.vec.extract283.i107.i to i64
@@ -563,8 +563,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.4.vec.extract259.i108.i = extractelement <8 x i32> %335, i64 1
   %409 = zext i32 %.sroa.0.4.vec.extract259.i108.i to i64
   %410 = getelementptr inbounds nuw float, ptr %0, i64 %409
-  %.val234.i109.i = load <4 x float>, ptr %408, align 1, !tbaa !3, !noalias !12
-  %.val235.i110.i = load <4 x float>, ptr %410, align 1, !tbaa !3, !noalias !12
+  %.val234.i109.i = load <4 x float>, ptr %408, align 1, !tbaa !3, !noalias !11
+  %.val235.i110.i = load <4 x float>, ptr %410, align 1, !tbaa !3, !noalias !11
   %411 = shufflevector <4 x float> %.val235.i110.i, <4 x float> %.val234.i109.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %.sroa.0.24.vec.extract289.i111.i = extractelement <8 x i32> %335, i64 6
   %412 = zext i32 %.sroa.0.24.vec.extract289.i111.i to i64
@@ -572,8 +572,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.8.vec.extract265.i112.i = extractelement <8 x i32> %335, i64 2
   %414 = zext i32 %.sroa.0.8.vec.extract265.i112.i to i64
   %415 = getelementptr inbounds nuw float, ptr %0, i64 %414
-  %.val236.i113.i = load <4 x float>, ptr %413, align 1, !tbaa !3, !noalias !12
-  %.val237.i114.i = load <4 x float>, ptr %415, align 1, !tbaa !3, !noalias !12
+  %.val236.i113.i = load <4 x float>, ptr %413, align 1, !tbaa !3, !noalias !11
+  %.val237.i114.i = load <4 x float>, ptr %415, align 1, !tbaa !3, !noalias !11
   %416 = shufflevector <4 x float> %.val237.i114.i, <4 x float> %.val236.i113.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %.sroa.0.28.vec.extract295.i115.i = extractelement <8 x i32> %335, i64 7
   %417 = zext i32 %.sroa.0.28.vec.extract295.i115.i to i64
@@ -581,8 +581,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.12.vec.extract271.i116.i = extractelement <8 x i32> %335, i64 3
   %419 = zext i32 %.sroa.0.12.vec.extract271.i116.i to i64
   %420 = getelementptr inbounds nuw float, ptr %0, i64 %419
-  %.val238.i117.i = load <4 x float>, ptr %418, align 1, !tbaa !3, !noalias !12
-  %.val239.i118.i = load <4 x float>, ptr %420, align 1, !tbaa !3, !noalias !12
+  %.val238.i117.i = load <4 x float>, ptr %418, align 1, !tbaa !3, !noalias !11
+  %.val239.i118.i = load <4 x float>, ptr %420, align 1, !tbaa !3, !noalias !11
   %421 = shufflevector <4 x float> %.val239.i118.i, <4 x float> %.val238.i117.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %422 = shufflevector <8 x float> %406, <8 x float> %411, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %423 = shufflevector <8 x float> %416, <8 x float> %421, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
@@ -604,8 +604,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.0.vec.extract257.i120.i = extractelement <8 x i32> %336, i64 0
   %438 = zext i32 %.sroa.0.0.vec.extract257.i120.i to i64
   %439 = getelementptr inbounds nuw float, ptr %0, i64 %438
-  %.val240.i121.i = load <4 x float>, ptr %437, align 1, !tbaa !3, !noalias !12
-  %.val241.i122.i = load <4 x float>, ptr %439, align 1, !tbaa !3, !noalias !12
+  %.val240.i121.i = load <4 x float>, ptr %437, align 1, !tbaa !3, !noalias !11
+  %.val241.i122.i = load <4 x float>, ptr %439, align 1, !tbaa !3, !noalias !11
   %440 = shufflevector <4 x float> %.val241.i122.i, <4 x float> %.val240.i121.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %.sroa.0.20.vec.extract.i123.i = extractelement <8 x i32> %336, i64 5
   %441 = zext i32 %.sroa.0.20.vec.extract.i123.i to i64
@@ -613,8 +613,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.4.vec.extract.i124.i = extractelement <8 x i32> %336, i64 1
   %443 = zext i32 %.sroa.0.4.vec.extract.i124.i to i64
   %444 = getelementptr inbounds nuw float, ptr %0, i64 %443
-  %.val242.i125.i = load <4 x float>, ptr %442, align 1, !tbaa !3, !noalias !12
-  %.val243.i126.i = load <4 x float>, ptr %444, align 1, !tbaa !3, !noalias !12
+  %.val242.i125.i = load <4 x float>, ptr %442, align 1, !tbaa !3, !noalias !11
+  %.val243.i126.i = load <4 x float>, ptr %444, align 1, !tbaa !3, !noalias !11
   %445 = shufflevector <4 x float> %.val243.i126.i, <4 x float> %.val242.i125.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %.sroa.0.24.vec.extract.i127.i = extractelement <8 x i32> %336, i64 6
   %446 = zext i32 %.sroa.0.24.vec.extract.i127.i to i64
@@ -622,8 +622,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.8.vec.extract.i128.i = extractelement <8 x i32> %336, i64 2
   %448 = zext i32 %.sroa.0.8.vec.extract.i128.i to i64
   %449 = getelementptr inbounds nuw float, ptr %0, i64 %448
-  %.val244.i129.i = load <4 x float>, ptr %447, align 1, !tbaa !3, !noalias !12
-  %.val245.i130.i = load <4 x float>, ptr %449, align 1, !tbaa !3, !noalias !12
+  %.val244.i129.i = load <4 x float>, ptr %447, align 1, !tbaa !3, !noalias !11
+  %.val245.i130.i = load <4 x float>, ptr %449, align 1, !tbaa !3, !noalias !11
   %450 = shufflevector <4 x float> %.val245.i130.i, <4 x float> %.val244.i129.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %.sroa.0.28.vec.extract.i131.i = extractelement <8 x i32> %336, i64 7
   %451 = zext i32 %.sroa.0.28.vec.extract.i131.i to i64
@@ -631,8 +631,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %.sroa.0.12.vec.extract.i132.i = extractelement <8 x i32> %336, i64 3
   %453 = zext i32 %.sroa.0.12.vec.extract.i132.i to i64
   %454 = getelementptr inbounds nuw float, ptr %0, i64 %453
-  %.val246.i133.i = load <4 x float>, ptr %452, align 1, !tbaa !3, !noalias !12
-  %.val247.i134.i = load <4 x float>, ptr %454, align 1, !tbaa !3, !noalias !12
+  %.val246.i133.i = load <4 x float>, ptr %452, align 1, !tbaa !3, !noalias !11
+  %.val247.i134.i = load <4 x float>, ptr %454, align 1, !tbaa !3, !noalias !11
   %455 = shufflevector <4 x float> %.val247.i134.i, <4 x float> %.val246.i133.i, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %456 = shufflevector <8 x float> %440, <8 x float> %445, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %457 = shufflevector <8 x float> %450, <8 x float> %455, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
@@ -671,28 +671,28 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
 .lr.ph208.i:                                      ; preds = %.lr.ph208.i, %.lr.ph208.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph208.preheader.i ], [ %indvars.iv.next.i, %.lr.ph208.i ]
   %.1205.i = phi ptr [ %.066.lcssa.i, %.lr.ph208.preheader.i ], [ %495, %.lr.ph208.i ]
-  %481 = load float, ptr %.1205.i, align 4, !tbaa !15
+  %481 = load float, ptr %.1205.i, align 4, !tbaa !14
   %482 = getelementptr inbounds nuw [32 x float], ptr %6, i64 0, i64 %indvars.iv.i
-  store float %481, ptr %482, align 16, !tbaa !15
+  store float %481, ptr %482, align 16, !tbaa !14
   %483 = getelementptr inbounds nuw i8, ptr %.1205.i, i64 4
-  %484 = load float, ptr %483, align 4, !tbaa !15
+  %484 = load float, ptr %483, align 4, !tbaa !14
   %485 = or disjoint i64 %indvars.iv.i, 1
   %486 = getelementptr inbounds nuw [32 x float], ptr %6, i64 0, i64 %485
-  store float %484, ptr %486, align 4, !tbaa !15
+  store float %484, ptr %486, align 4, !tbaa !14
   %487 = getelementptr inbounds nuw i8, ptr %.1205.i, i64 8
-  %488 = load float, ptr %487, align 4, !tbaa !15
+  %488 = load float, ptr %487, align 4, !tbaa !14
   %489 = or disjoint i64 %indvars.iv.i, 2
   %490 = getelementptr inbounds nuw [32 x float], ptr %6, i64 0, i64 %489
-  store float %488, ptr %490, align 8, !tbaa !15
+  store float %488, ptr %490, align 8, !tbaa !14
   %491 = getelementptr inbounds nuw i8, ptr %.1205.i, i64 12
-  %492 = load float, ptr %491, align 4, !tbaa !15
+  %492 = load float, ptr %491, align 4, !tbaa !14
   %493 = or disjoint i64 %indvars.iv.i, 3
   %494 = getelementptr inbounds nuw [32 x float], ptr %6, i64 0, i64 %493
-  store float %492, ptr %494, align 4, !tbaa !15
+  store float %492, ptr %494, align 4, !tbaa !14
   %495 = getelementptr inbounds nuw i8, ptr %.1205.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %496 = icmp samesign ult i64 %indvars.iv.next.i, %256
-  br i1 %496, label %.lr.ph208.i, label %._crit_edge209.loopexit.i, !llvm.loop !17
+  br i1 %496, label %.lr.ph208.i, label %._crit_edge209.loopexit.i, !llvm.loop !16
 
 ._crit_edge215.i:                                 ; preds = %.lr.ph214.i, %._crit_edge209.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #8
@@ -703,27 +703,27 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr
   %indvars.iv218.i = phi i64 [ 0, %.lr.ph214.preheader.i ], [ %indvars.iv.next219.i, %.lr.ph214.i ]
   %.168211.i = phi ptr [ %.067.lcssa.i, %.lr.ph214.preheader.i ], [ %511, %.lr.ph214.i ]
   %497 = getelementptr inbounds nuw [32 x float], ptr %7, i64 0, i64 %indvars.iv218.i
-  %498 = load float, ptr %497, align 16, !tbaa !15
-  store float %498, ptr %.168211.i, align 4, !tbaa !15
+  %498 = load float, ptr %497, align 16, !tbaa !14
+  store float %498, ptr %.168211.i, align 4, !tbaa !14
   %499 = or disjoint i64 %indvars.iv218.i, 1
   %500 = getelementptr inbounds nuw [32 x float], ptr %7, i64 0, i64 %499
-  %501 = load float, ptr %500, align 4, !tbaa !15
+  %501 = load float, ptr %500, align 4, !tbaa !14
   %502 = getelementptr inbounds nuw i8, ptr %.168211.i, i64 4
-  store float %501, ptr %502, align 4, !tbaa !15
+  store float %501, ptr %502, align 4, !tbaa !14
   %503 = or disjoint i64 %indvars.iv218.i, 2
   %504 = getelementptr inbounds nuw [32 x float], ptr %7, i64 0, i64 %503
-  %505 = load float, ptr %504, align 8, !tbaa !15
+  %505 = load float, ptr %504, align 8, !tbaa !14
   %506 = getelementptr inbounds nuw i8, ptr %.168211.i, i64 8
-  store float %505, ptr %506, align 4, !tbaa !15
+  store float %505, ptr %506, align 4, !tbaa !14
   %507 = or disjoint i64 %indvars.iv218.i, 3
   %508 = getelementptr inbounds nuw [32 x float], ptr %7, i64 0, i64 %507
-  %509 = load float, ptr %508, align 4, !tbaa !15
+  %509 = load float, ptr %508, align 4, !tbaa !14
   %510 = getelementptr inbounds nuw i8, ptr %.168211.i, i64 12
-  store float %509, ptr %510, align 4, !tbaa !15
+  store float %509, ptr %510, align 4, !tbaa !14
   %511 = getelementptr inbounds nuw i8, ptr %.168211.i, i64 16
   %indvars.iv.next219.i = add nuw nsw i64 %indvars.iv218.i, 4
   %512 = icmp samesign ult i64 %indvars.iv.next219.i, %480
-  br i1 %512, label %.lr.ph214.i, label %._crit_edge215.i, !llvm.loop !18
+  br i1 %512, label %.lr.ph214.i, label %._crit_edge215.i, !llvm.loop !17
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_123applyTetrahedralAVXFuncILNS_8BitDepthE8ELS2_8EEEvPKfiS4_Pfi.exit: ; preds = %._crit_edge.i, %._crit_edge215.i
   ret void
@@ -781,13 +781,12 @@ attributes #8 = { nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_: argument 0"}
 !8 = distinct !{!8, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_: argument 0"}
-!14 = distinct !{!14, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"float", !4, i64 0}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_: argument 0"}
+!13 = distinct !{!13, !"_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"float", !4, i64 0}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}

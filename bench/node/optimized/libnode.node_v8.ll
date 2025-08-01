@@ -943,7 +943,7 @@ if.end.i.i.i.i.i.i:                               ; preds = %if.end15.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %lor.lhs.false.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %heap_statistics_buffer, %9
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then8.i.i, label %if.end3.i.i.i.i.i.i, !llvm.loop !11
 
 if.end3.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i
   %__p.010.i.i.i.i.i.i = phi ptr [ %8, %for.cond.i.i.i.i.i.i ], [ %6, %if.end.i.i.i.i.i.i ]
@@ -957,10 +957,10 @@ lor.lhs.false.i.i.i.i.i.i:                        ; preds = %if.end3.i.i.i.i.i.i
   %10 = ptrtoint ptr %9 to i64
   %rem.i.i.i.i.i.i.i.i.i = urem i64 %10, %3
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i, %rem.i.i.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i, !llvm.loop !11
 
 lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i: ; preds = %lor.lhs.false.i.i.i.i.i.i
-  br label %if.else.i.i, !llvm.loop !12
+  br label %if.else.i.i, !llvm.loop !11
 
 if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.i, %for.body.i.i.i.i, %if.end.i.i.i.i.i.i
   %retval.sroa.0.1.i.i.i.i = phi ptr [ %6, %if.end.i.i.i.i.i.i ], [ %retval.sroa.0.0.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.cond.i.i.i.i.i.i ]
@@ -975,13 +975,13 @@ if.then8.i.i:                                     ; preds = %for.cond.i.i.i.i.i.
 
 if.end.i.i.i:                                     ; preds = %if.then8.i.i
   %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 72
-  %14 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !13
+  %14 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !12
   %cmp.i.i.i1.i.i.i = icmp eq ptr %12, %14
   br i1 %cmp.i.i.i1.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt5stackIPN4node18MemoryRetainerNodeESt5dequeIS2_SaIS2_EEE3topEv.exit.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 88
-  %15 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !13
+  %15 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !12
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 -8
   %16 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 512
@@ -1050,7 +1050,7 @@ if.end.i.i.i.i.i.i11:                             ; preds = %if.end15.i.i.i.i5
 
 for.cond.i.i.i.i.i.i23:                           ; preds = %lor.lhs.false.i.i.i.i.i.i17
   %cmp.i.i.i.i.i.i.i.i.i24 = icmp eq ptr %heap_space_statistics_buffer, %30
-  br i1 %cmp.i.i.i.i.i.i.i.i.i24, label %if.then8.i.i25, label %if.end3.i.i.i.i.i.i14, !llvm.loop !12
+  br i1 %cmp.i.i.i.i.i.i.i.i.i24, label %if.then8.i.i25, label %if.end3.i.i.i.i.i.i14, !llvm.loop !11
 
 if.end3.i.i.i.i.i.i14:                            ; preds = %if.end.i.i.i.i.i.i11, %for.cond.i.i.i.i.i.i23
   %__p.010.i.i.i.i.i.i15 = phi ptr [ %29, %for.cond.i.i.i.i.i.i23 ], [ %27, %if.end.i.i.i.i.i.i11 ]
@@ -1064,10 +1064,10 @@ lor.lhs.false.i.i.i.i.i.i17:                      ; preds = %if.end3.i.i.i.i.i.i
   %31 = ptrtoint ptr %30 to i64
   %rem.i.i.i.i.i.i.i.i.i19 = urem i64 %31, %24
   %cmp.not.i.i.i.i.i.i20 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i19, %rem.i.i.i.i.i.i.i8
-  br i1 %cmp.not.i.i.i.i.i.i20, label %for.cond.i.i.i.i.i.i23, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i21, !llvm.loop !12
+  br i1 %cmp.not.i.i.i.i.i.i20, label %for.cond.i.i.i.i.i.i23, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i21, !llvm.loop !11
 
 lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i21: ; preds = %lor.lhs.false.i.i.i.i.i.i17
-  br label %if.else.i.i22, !llvm.loop !12
+  br label %if.else.i.i22, !llvm.loop !11
 
 if.then8.i.i25:                                   ; preds = %for.cond.i.i.i.i.i.i23, %for.body.i.i.i.i51, %if.end.i.i.i.i.i.i11
   %retval.sroa.0.1.i.i.i.i26 = phi ptr [ %27, %if.end.i.i.i.i.i.i11 ], [ %retval.sroa.0.0.i.i.i.i49, %for.body.i.i.i.i51 ], [ %29, %for.cond.i.i.i.i.i.i23 ]
@@ -1082,13 +1082,13 @@ if.then8.i.i25:                                   ; preds = %for.cond.i.i.i.i.i.
 
 if.end.i.i.i31:                                   ; preds = %if.then8.i.i25
   %_M_first3.i.i.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %tracker, i64 72
-  %35 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i32, align 8, !noalias !16
+  %35 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i32, align 8, !noalias !15
   %cmp.i.i.i1.i.i.i33 = icmp eq ptr %33, %35
   br i1 %cmp.i.i.i1.i.i.i33, label %if.then.i.i.i.i.i.i41, label %_ZNKSt5stackIPN4node18MemoryRetainerNodeESt5dequeIS2_SaIS2_EEE3topEv.exit.i.i.i34
 
 if.then.i.i.i.i.i.i41:                            ; preds = %if.end.i.i.i31
   %_M_node5.i.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %tracker, i64 88
-  %36 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i42, align 8, !noalias !16
+  %36 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i42, align 8, !noalias !15
   %add.ptr.i.i.i.i.i.i43 = getelementptr inbounds i8, ptr %36, i64 -8
   %37 = load ptr, ptr %add.ptr.i.i.i.i.i.i43, align 8
   %add.ptr.i.i.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %37, i64 512
@@ -1157,7 +1157,7 @@ if.end.i.i.i.i.i.i63:                             ; preds = %if.end15.i.i.i.i57
 
 for.cond.i.i.i.i.i.i75:                           ; preds = %lor.lhs.false.i.i.i.i.i.i69
   %cmp.i.i.i.i.i.i.i.i.i76 = icmp eq ptr %heap_code_statistics_buffer, %51
-  br i1 %cmp.i.i.i.i.i.i.i.i.i76, label %if.then8.i.i77, label %if.end3.i.i.i.i.i.i66, !llvm.loop !12
+  br i1 %cmp.i.i.i.i.i.i.i.i.i76, label %if.then8.i.i77, label %if.end3.i.i.i.i.i.i66, !llvm.loop !11
 
 if.end3.i.i.i.i.i.i66:                            ; preds = %if.end.i.i.i.i.i.i63, %for.cond.i.i.i.i.i.i75
   %__p.010.i.i.i.i.i.i67 = phi ptr [ %50, %for.cond.i.i.i.i.i.i75 ], [ %48, %if.end.i.i.i.i.i.i63 ]
@@ -1171,10 +1171,10 @@ lor.lhs.false.i.i.i.i.i.i69:                      ; preds = %if.end3.i.i.i.i.i.i
   %52 = ptrtoint ptr %51 to i64
   %rem.i.i.i.i.i.i.i.i.i71 = urem i64 %52, %45
   %cmp.not.i.i.i.i.i.i72 = icmp eq i64 %rem.i.i.i.i.i.i.i.i.i71, %rem.i.i.i.i.i.i.i60
-  br i1 %cmp.not.i.i.i.i.i.i72, label %for.cond.i.i.i.i.i.i75, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i73, !llvm.loop !12
+  br i1 %cmp.not.i.i.i.i.i.i72, label %for.cond.i.i.i.i.i.i75, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i73, !llvm.loop !11
 
 lor.lhs.false.return.loopexit_crit_edge.i.i.i.i.i.i73: ; preds = %lor.lhs.false.i.i.i.i.i.i69
-  br label %if.else.i.i74, !llvm.loop !12
+  br label %if.else.i.i74, !llvm.loop !11
 
 if.then8.i.i77:                                   ; preds = %for.cond.i.i.i.i.i.i75, %for.body.i.i.i.i103, %if.end.i.i.i.i.i.i63
   %retval.sroa.0.1.i.i.i.i78 = phi ptr [ %48, %if.end.i.i.i.i.i.i63 ], [ %retval.sroa.0.0.i.i.i.i101, %for.body.i.i.i.i103 ], [ %50, %for.cond.i.i.i.i.i.i75 ]
@@ -1189,13 +1189,13 @@ if.then8.i.i77:                                   ; preds = %for.cond.i.i.i.i.i.
 
 if.end.i.i.i83:                                   ; preds = %if.then8.i.i77
   %_M_first3.i.i.i.i.i.i.i84 = getelementptr inbounds nuw i8, ptr %tracker, i64 72
-  %56 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i84, align 8, !noalias !19
+  %56 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i84, align 8, !noalias !18
   %cmp.i.i.i1.i.i.i85 = icmp eq ptr %54, %56
   br i1 %cmp.i.i.i1.i.i.i85, label %if.then.i.i.i.i.i.i93, label %_ZNKSt5stackIPN4node18MemoryRetainerNodeESt5dequeIS2_SaIS2_EEE3topEv.exit.i.i.i86
 
 if.then.i.i.i.i.i.i93:                            ; preds = %if.end.i.i.i83
   %_M_node5.i.i.i.i.i.i.i94 = getelementptr inbounds nuw i8, ptr %tracker, i64 88
-  %57 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i94, align 8, !noalias !19
+  %57 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i94, align 8, !noalias !18
   %add.ptr.i.i.i.i.i.i95 = getelementptr inbounds i8, ptr %57, i64 -8
   %58 = load ptr, ptr %add.ptr.i.i.i.i.i.i95, align 8
   %add.ptr.i.i.i.i.i.i.i96 = getelementptr inbounds nuw i8, ptr %58, i64 512
@@ -2015,7 +2015,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %inc.i.i = add nuw nsw i32 %i.03.i.i, 1
   %31 = load i32, ptr %indent_.i.i, align 4
   %cmp.i.i16 = icmp slt i32 %inc.i.i, %31
-  br i1 %cmp.i.i16, label %for.body.i.i, label %_ZN4node10JSONWriter10json_startEv.exit, !llvm.loop !22
+  br i1 %cmp.i.i16, label %for.body.i.i, label %_ZN4node10JSONWriter10json_startEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter10json_startEv.exit:          ; preds = %for.body.i.i, %_ZN4node10JSONWriter14write_new_lineEv.exit.i, %for.cond.preheader.i.i
   %32 = load ptr, ptr %writer_.i, align 8
@@ -2105,7 +2105,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -2174,7 +2174,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -2241,7 +2241,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -2308,7 +2308,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -2388,7 +2388,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   %inc.i.i = add nuw nsw i32 %i.03.i.i, 1
   %8 = load i32, ptr %indent_.i.i, align 4
   %cmp.i.i = icmp slt i32 %inc.i.i, %8
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZN4node10JSONWriter10json_startEv.exit, !llvm.loop !22
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZN4node10JSONWriter10json_startEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter10json_startEv.exit:          ; preds = %for.body.i.i, %_ZN4node10JSONWriter14write_new_lineEv.exit.i, %for.cond.preheader.i.i
   %9 = load ptr, ptr %writer_.i, align 8
@@ -2450,7 +2450,7 @@ for.body.i.i18:                                   ; preds = %_ZN4node10JSONWrite
   %inc.i.i20 = add nuw nsw i32 %i.03.i.i19, 1
   %16 = load i32, ptr %indent_.i4.i, align 4
   %cmp.i.i21 = icmp slt i32 %inc.i.i20, %16
-  br i1 %cmp.i.i21, label %for.body.i.i18, label %_ZN4node10JSONWriter7advanceEv.exit.i, !llvm.loop !22
+  br i1 %cmp.i.i21, label %for.body.i.i18, label %_ZN4node10JSONWriter7advanceEv.exit.i, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit.i:            ; preds = %for.body.i.i18, %_ZN4node10JSONWriter14write_new_lineEv.exit.i14
   %17 = load ptr, ptr %writer_.i, align 8
@@ -2532,7 +2532,7 @@ for.body.i.i:                                     ; preds = %_ZN4node10JSONWrite
   %inc.i.i = add nuw nsw i32 %i.03.i.i, 1
   %7 = load i32, ptr %indent_.i.i, align 4
   %cmp.i.i = icmp slt i32 %inc.i.i, %7
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZN4node10JSONWriter7advanceEv.exit.i, !llvm.loop !22
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZN4node10JSONWriter7advanceEv.exit.i, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit.i:            ; preds = %for.body.i.i, %_ZN4node10JSONWriter14write_new_lineEv.exit.i
   %8 = load ptr, ptr %writer_.i, align 8
@@ -2576,7 +2576,7 @@ for.body.i.i20:                                   ; preds = %_ZN4node10JSONWrite
   %inc.i.i23 = add nuw nsw i32 %i.03.i.i21, 1
   %16 = load i32, ptr %indent_.i.i, align 4
   %cmp.i.i24 = icmp slt i32 %inc.i.i23, %16
-  br i1 %cmp.i.i24, label %for.body.i.i20, label %_ZN4node10JSONWriter8json_endEv.exit, !llvm.loop !22
+  br i1 %cmp.i.i24, label %for.body.i.i20, label %_ZN4node10JSONWriter8json_endEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter8json_endEv.exit:             ; preds = %for.body.i.i20, %_ZN4node10JSONWriter14write_new_lineEv.exit.i14
   %17 = load ptr, ptr %writer_.i, align 8
@@ -2696,7 +2696,7 @@ for.body.i.i:                                     ; preds = %_ZN4node10JSONWrite
   %inc.i.i = add nuw nsw i32 %i.03.i.i, 1
   %29 = load i32, ptr %indent_.i.i, align 4
   %cmp.i.i18 = icmp slt i32 %inc.i.i, %29
-  br i1 %cmp.i.i18, label %for.body.i.i, label %_ZN4node10JSONWriter13json_arrayendEv.exit, !llvm.loop !22
+  br i1 %cmp.i.i18, label %for.body.i.i, label %_ZN4node10JSONWriter13json_arrayendEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter13json_arrayendEv.exit:       ; preds = %for.body.i.i, %_ZN4node10JSONWriter14write_new_lineEv.exit.i
   %30 = load ptr, ptr %writer_.i, align 8
@@ -2752,7 +2752,7 @@ for.body.i.i33:                                   ; preds = %_ZN4node10JSONWrite
   %inc.i.i36 = add nuw nsw i32 %i.03.i.i34, 1
   %38 = load i32, ptr %indent_.i.i, align 4
   %cmp.i.i37 = icmp slt i32 %inc.i.i36, %38
-  br i1 %cmp.i.i37, label %for.body.i.i33, label %_ZN4node10JSONWriter8json_endEv.exit, !llvm.loop !22
+  br i1 %cmp.i.i37, label %for.body.i.i33, label %_ZN4node10JSONWriter8json_endEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter8json_endEv.exit:             ; preds = %for.body.i.i33, %_ZN4node10JSONWriter14write_new_lineEv.exit.i27
   %39 = load ptr, ptr %writer_.i, align 8
@@ -2835,7 +2835,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -2975,7 +2975,7 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit: ; preds = %_
   store ptr %call63, ptr %arrayidx.i, align 8
   %inc = add nuw i64 %i.0231, 1
   %exitcond.not = icmp eq i64 %inc, %call55
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEC2Em.exit
   %18 = load ptr, ptr %isolate_.i, align 8
@@ -3491,25 +3491,25 @@ return:                                           ; preds = %if.then.i229, %_ZNK
 define linkonce_odr dso_local noundef ptr @_ZN4node5Realm14AddBindingDataINS_8v8_utils11BindingDataEJEEEPT_N2v85LocalINS6_6ObjectEEEDpOT0_(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr %target.coerce) local_unnamed_addr #3 comdat align 2 {
 entry:
   %item = alloca %"class.node::BaseObjectPtrImpl.344", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
-  %call.i = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #23, !noalias !24
-  tail call void @_ZN4node8v8_utils11BindingDataC2EPNS_5RealmEN2v85LocalINS4_6ObjectEEEPNS1_17InternalFieldInfoE(ptr noundef nonnull align 8 dereferenceable(216) %call.i, ptr noundef nonnull %this, ptr %target.coerce, ptr noundef null), !noalias !24
-  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #20, !noalias !24
-  %call.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #20, !noalias !24
-  store ptr %call.i.i, ptr %item, align 8, !alias.scope !24
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  %call.i = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #23, !noalias !23
+  tail call void @_ZN4node8v8_utils11BindingDataC2EPNS_5RealmEN2v85LocalINS4_6ObjectEEEPNS1_17InternalFieldInfoE(ptr noundef nonnull align 8 dereferenceable(216) %call.i, ptr noundef nonnull %this, ptr %target.coerce, ptr noundef null), !noalias !23
+  tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #20, !noalias !23
+  %call.i.i = tail call noundef ptr @_ZN4node10BaseObject12pointer_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %call.i) #20, !noalias !23
+  store ptr %call.i.i, ptr %item, align 8, !alias.scope !23
   %cmp3.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp3.not.i.i, label %do.body7.i.i, label %_ZN4node18MakeWeakBaseObjectINS_8v8_utils11BindingDataEJPNS_5RealmERN2v85LocalINS5_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb1EEEDpOT0_.exit
 
 do.body7.i.i:                                     ; preds = %entry
-  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node17BaseObjectPtrImplINS_8v8_utils11BindingDataELb1EEC1EPS2_E4args) #20, !noalias !24
-  tail call void @abort() #21, !noalias !24
+  tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node17BaseObjectPtrImplINS_8v8_utils11BindingDataELb1EEC1EPS2_E4args) #20, !noalias !23
+  tail call void @abort() #21, !noalias !23
   unreachable
 
 _ZN4node18MakeWeakBaseObjectINS_8v8_utils11BindingDataEJPNS_5RealmERN2v85LocalINS5_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb1EEEDpOT0_.exit: ; preds = %entry
   %weak_ptr_count.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
-  %0 = load i32, ptr %weak_ptr_count.i.i, align 4, !noalias !24
+  %0 = load i32, ptr %weak_ptr_count.i.i, align 4, !noalias !23
   %inc.i.i = add i32 %0, 1
-  store i32 %inc.i.i, ptr %weak_ptr_count.i.i, align 4, !noalias !24
+  store i32 %inc.i.i, ptr %weak_ptr_count.i.i, align 4, !noalias !23
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 728
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %1, null
@@ -4485,7 +4485,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %retainer, %10
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !11
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
   %__p.010.i.i.i.i = phi ptr [ %9, %for.cond.i.i.i.i ], [ %7, %if.end.i.i.i.i ]
@@ -4499,10 +4499,10 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   %11 = ptrtoint ptr %10 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %11, %4
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, !llvm.loop !11
 
 lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i.i
-  br label %if.end12, !llvm.loop !12
+  br label %if.end12, !llvm.loop !11
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %7, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %9, %for.cond.i.i.i.i ]
@@ -4515,13 +4515,13 @@ if.then:                                          ; preds = %for.cond.i.i.i.i, %
 
 if.end.i:                                         ; preds = %if.then
   %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %14 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !27
+  %14 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !26
   %cmp.i.i.i1.i = icmp eq ptr %12, %14
   br i1 %cmp.i.i.i1.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %15 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !27
+  %15 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !26
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 -8
   %16 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 504
@@ -4537,7 +4537,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
 
 if.then.i.i.i.i13:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %19 = load ptr, ptr %_M_node5.i.i.i.i.i14, align 8, !noalias !30
+  %19 = load ptr, ptr %_M_node5.i.i.i.i.i14, align 8, !noalias !29
   %add.ptr.i.i.i.i15 = getelementptr inbounds i8, ptr %19, i64 -8
   %20 = load ptr, ptr %add.ptr.i.i.i.i15, align 8
   %add.ptr.i.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %20, i64 512
@@ -4597,13 +4597,13 @@ _ZN4node13MemoryTracker8PushNodeEPKNS_14MemoryRetainerEPKc.exit: ; preds = %if.t
 
 if.end.i22:                                       ; preds = %_ZN4node13MemoryTracker8PushNodeEPKNS_14MemoryRetainerEPKc.exit
   %_M_first3.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %33 = load ptr, ptr %_M_first3.i.i.i.i.i23, align 8, !noalias !33
+  %33 = load ptr, ptr %_M_first3.i.i.i.i.i23, align 8, !noalias !32
   %cmp.i.i.i1.i24 = icmp eq ptr %31, %33
   br i1 %cmp.i.i.i1.i24, label %if.then.i.i.i.i28, label %_ZNKSt5stackIPN4node18MemoryRetainerNodeESt5dequeIS2_SaIS2_EEE3topEv.exit.i25
 
 if.then.i.i.i.i28:                                ; preds = %if.end.i22
   %_M_node5.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %34 = load ptr, ptr %_M_node5.i.i.i.i.i29, align 8, !noalias !33
+  %34 = load ptr, ptr %_M_node5.i.i.i.i.i29, align 8, !noalias !32
   %add.ptr.i.i.i.i30 = getelementptr inbounds i8, ptr %34, i64 -8
   %35 = load ptr, ptr %add.ptr.i.i.i.i30, align 8
   %add.ptr.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %35, i64 512
@@ -4717,7 +4717,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end15.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %lor.lhs.false.i.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %retainer, %9
-  br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.i.i.i.i.i.i.i, label %if.then, label %if.end3.i.i.i.i, !llvm.loop !11
 
 if.end3.i.i.i.i:                                  ; preds = %if.end.i.i.i.i, %for.cond.i.i.i.i
   %__p.010.i.i.i.i = phi ptr [ %8, %for.cond.i.i.i.i ], [ %6, %if.end.i.i.i.i ]
@@ -4731,10 +4731,10 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   %10 = ptrtoint ptr %9 to i64
   %rem.i.i.i.i.i.i.i = urem i64 %10, %3
   %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i.i.i.i.i.i, %rem.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i.i.i, !llvm.loop !11
 
 lor.lhs.false.return.loopexit_crit_edge.i.i.i.i:  ; preds = %lor.lhs.false.i.i.i.i
-  br label %if.end, !llvm.loop !12
+  br label %if.end, !llvm.loop !11
 
 if.then:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i
   %retval.sroa.0.1.i.i = phi ptr [ %6, %if.end.i.i.i.i ], [ %retval.sroa.0.0.i.i, %for.body.i.i ], [ %8, %for.cond.i.i.i.i ]
@@ -4776,13 +4776,13 @@ _ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit: ; 
 
 if.end.i:                                         ; preds = %_ZNSt10unique_ptrIN2v813EmbedderGraph4NodeESt14default_deleteIS2_EED2Ev.exit
   %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %18 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !36
+  %18 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !35
   %cmp.i.i.i1.i = icmp eq ptr %16, %18
   br i1 %cmp.i.i.i1.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit:     ; preds = %if.end.i
   %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %19 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !36
+  %19 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !35
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 -8
   %20 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 504
@@ -4798,7 +4798,7 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread: ; preds = %if.end.i
 
 if.then.i.i.i.i19:                                ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit
   %_M_node5.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %23 = load ptr, ptr %_M_node5.i.i.i.i.i20, align 8, !noalias !39
+  %23 = load ptr, ptr %_M_node5.i.i.i.i.i20, align 8, !noalias !38
   %add.ptr.i.i.i.i21 = getelementptr inbounds i8, ptr %23, i64 -8
   %24 = load ptr, ptr %add.ptr.i.i.i.i21, align 8
   %add.ptr.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %24, i64 512
@@ -5028,7 +5028,7 @@ if.end.i.i:                                       ; preds = %entry
 
 for.cond.i.i:                                     ; preds = %lor.lhs.false.i.i
   %cmp.i.i.i.i.i = icmp eq ptr %0, %8
-  br i1 %cmp.i.i.i.i.i, label %return, label %if.end3.i.i, !llvm.loop !12
+  br i1 %cmp.i.i.i.i.i, label %return, label %if.end3.i.i, !llvm.loop !11
 
 if.end3.i.i:                                      ; preds = %if.end.i.i, %for.cond.i.i
   %__p.010.i.i = phi ptr [ %7, %for.cond.i.i ], [ %5, %if.end.i.i ]
@@ -5042,10 +5042,10 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   %9 = ptrtoint ptr %8 to i64
   %rem.i.i.i.i.i = urem i64 %9, %2
   %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i.i, %rem.i.i.i
-  br i1 %cmp.not.i.i, label %for.cond.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i, label %for.cond.i.i, label %lor.lhs.false.return.loopexit_crit_edge.i.i, !llvm.loop !11
 
 lor.lhs.false.return.loopexit_crit_edge.i.i:      ; preds = %lor.lhs.false.i.i
-  br label %if.end, !llvm.loop !12
+  br label %if.end, !llvm.loop !11
 
 if.end:                                           ; preds = %if.end3.i.i, %entry, %lor.lhs.false.return.loopexit_crit_edge.i.i
   %call5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -5205,7 +5205,7 @@ if.else:                                          ; preds = %while.body
 if.end22:                                         ; preds = %if.then, %if.then15, %if.else
   %__bbegin_bkt.1 = phi i64 [ %__bbegin_bkt.021, %if.else ], [ %rem.i.i, %if.then15 ], [ %rem.i.i, %if.then ]
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !42
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !41
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIPKN4node14MemoryRetainerESt4pairIKS3_PNS0_18MemoryRetainerNodeEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
@@ -5479,7 +5479,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -5546,7 +5546,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -5669,7 +5669,7 @@ for.body.i.i:                                     ; preds = %_ZN4node10JSONWrite
   %inc.i.i = add nuw nsw i32 %i.03.i.i, 1
   %16 = load i32, ptr %indent_.i.i, align 4
   %cmp.i.i = icmp slt i32 %inc.i.i, %16
-  br i1 %cmp.i.i, label %for.body.i.i, label %_ZN4node10JSONWriter7advanceEv.exit.i, !llvm.loop !22
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZN4node10JSONWriter7advanceEv.exit.i, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit.i:            ; preds = %for.body.i.i, %_ZN4node10JSONWriter14write_new_lineEv.exit.i
   %17 = load ptr, ptr %writer, align 8
@@ -5741,7 +5741,7 @@ for.body.i.i39:                                   ; preds = %for.cond.preheader.
   %inc.i.i41 = add nuw nsw i32 %i.03.i.i40, 1
   %27 = load i32, ptr %indent_.i.i, align 4
   %cmp.i.i42 = icmp slt i32 %inc.i.i41, %27
-  br i1 %cmp.i.i42, label %for.body.i.i39, label %_ZN4node10JSONWriter10json_startEv.exit, !llvm.loop !22
+  br i1 %cmp.i.i42, label %for.body.i.i39, label %_ZN4node10JSONWriter10json_startEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter10json_startEv.exit:          ; preds = %for.body.i.i39, %_ZN4node10JSONWriter14write_new_lineEv.exit.i33, %for.cond.preheader.i.i
   %28 = load ptr, ptr %writer, align 8
@@ -5792,7 +5792,7 @@ for.body.i.i56:                                   ; preds = %_ZN4node10JSONWrite
   %inc.i.i59 = add nuw nsw i32 %i.03.i.i57, 1
   %40 = load i32, ptr %indent_.i.i, align 4
   %cmp.i.i60 = icmp slt i32 %inc.i.i59, %40
-  br i1 %cmp.i.i60, label %for.body.i.i56, label %_ZN4node10JSONWriter8json_endEv.exit, !llvm.loop !22
+  br i1 %cmp.i.i60, label %for.body.i.i56, label %_ZN4node10JSONWriter8json_endEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter8json_endEv.exit:             ; preds = %for.body.i.i56, %_ZN4node10JSONWriter14write_new_lineEv.exit.i50
   %41 = load ptr, ptr %writer, align 8
@@ -5800,7 +5800,7 @@ _ZN4node10JSONWriter8json_endEv.exit:             ; preds = %for.body.i.i56, %_Z
   store i32 1, ptr %state_.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !43
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !42
 
 for.end:                                          ; preds = %_ZN4node10JSONWriter8json_endEv.exit, %_ZN4node10JSONWriter14json_objectendEv.exit
   %42 = load i8, ptr %compact_.i.i, align 8
@@ -5830,7 +5830,7 @@ for.body.i.i75:                                   ; preds = %_ZN4node10JSONWrite
   %inc.i.i78 = add nuw nsw i32 %i.03.i.i76, 1
   %47 = load i32, ptr %indent_.i.i, align 4
   %cmp.i.i79 = icmp slt i32 %inc.i.i78, %47
-  br i1 %cmp.i.i79, label %for.body.i.i75, label %_ZN4node10JSONWriter13json_arrayendEv.exit, !llvm.loop !22
+  br i1 %cmp.i.i79, label %for.body.i.i75, label %_ZN4node10JSONWriter13json_arrayendEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter13json_arrayendEv.exit:       ; preds = %for.body.i.i75, %_ZN4node10JSONWriter14write_new_lineEv.exit.i69
   %48 = load ptr, ptr %writer, align 8
@@ -5867,7 +5867,7 @@ switch.early.test.i:                              ; preds = %for.body.i
 for.inc.i:                                        ; preds = %switch.early.test.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.010.i, i64 1
   %cmp.not.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.not.i, label %if.else, label %for.body.i, !llvm.loop !44
+  br i1 %cmp.not.not.i, label %if.else, label %for.body.i
 
 if.then:                                          ; preds = %for.body.i, %switch.early.test.i, %switch.early.test.i
   %2 = load ptr, ptr %this, align 8
@@ -5936,7 +5936,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -6003,7 +6003,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -6070,7 +6070,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -6137,7 +6137,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -6204,7 +6204,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -6271,7 +6271,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -6338,7 +6338,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -6405,7 +6405,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -6472,7 +6472,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -6539,7 +6539,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -6608,7 +6608,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %inc.i = add nuw nsw i32 %i.03.i, 1
   %7 = load i32, ptr %indent_.i, align 4
   %cmp.i = icmp slt i32 %inc.i, %7
-  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !22
+  br i1 %cmp.i, label %for.body.i, label %_ZN4node10JSONWriter7advanceEv.exit, !llvm.loop !21
 
 _ZN4node10JSONWriter7advanceEv.exit:              ; preds = %for.body.i, %_ZN4node10JSONWriter14write_new_lineEv.exit, %for.cond.preheader.i
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #20
@@ -6713,13 +6713,13 @@ if.then.i.i:                                      ; preds = %_ZN2v89LocalBaseINS
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %_M_first3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 72
-  %8 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !45
+  %8 = load ptr, ptr %_M_first3.i.i.i.i.i.i.i, align 8, !noalias !43
   %cmp.i.i.i1.i.i.i = icmp eq ptr %6, %8
   br i1 %cmp.i.i.i1.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNKSt5stackIPN4node18MemoryRetainerNodeESt5dequeIS2_SaIS2_EEE3topEv.exit.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   %_M_node5.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tracker, i64 88
-  %9 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !45
+  %9 = load ptr, ptr %_M_node5.i.i.i.i.i.i.i, align 8, !noalias !43
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 -8
   %10 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 512
@@ -7029,42 +7029,40 @@ attributes #25 = { nounwind allocsize(1) }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN4node18MakeWeakBaseObjectINS_8v8_utils11BindingDataEJPNS_5RealmERN2v85LocalINS5_6ObjectEEERPNS2_17InternalFieldInfoEEEENS_17BaseObjectPtrImplIT_Lb1EEEDpOT0_: %agg.result"}
 !8 = distinct !{!8, !"_ZN4node18MakeWeakBaseObjectINS_8v8_utils11BindingDataEJPNS_5RealmERN2v85LocalINS5_6ObjectEEERPNS2_17InternalFieldInfoEEEENS_17BaseObjectPtrImplIT_Lb1EEEDpOT0_"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!15 = distinct !{!15, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!18 = distinct !{!18, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!21 = distinct !{!21, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!22 = distinct !{!22, !10, !11}
-!23 = distinct !{!23, !10, !11}
-!24 = !{!25}
-!25 = distinct !{!25, !26, !"_ZN4node18MakeWeakBaseObjectINS_8v8_utils11BindingDataEJPNS_5RealmERN2v85LocalINS5_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb1EEEDpOT0_: %agg.result"}
-!26 = distinct !{!26, !"_ZN4node18MakeWeakBaseObjectINS_8v8_utils11BindingDataEJPNS_5RealmERN2v85LocalINS5_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb1EEEDpOT0_"}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!29 = distinct !{!29, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!32 = distinct !{!32, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!35 = distinct !{!35, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!38 = distinct !{!38, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!41 = distinct !{!41, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
-!42 = distinct !{!42, !10, !11}
-!43 = distinct !{!43, !10, !11}
-!44 = distinct !{!44, !11}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
-!47 = distinct !{!47, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!11 = distinct !{!11, !10}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!14 = distinct !{!14, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!17 = distinct !{!17, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!20 = distinct !{!20, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"_ZN4node18MakeWeakBaseObjectINS_8v8_utils11BindingDataEJPNS_5RealmERN2v85LocalINS5_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb1EEEDpOT0_: %agg.result"}
+!25 = distinct !{!25, !"_ZN4node18MakeWeakBaseObjectINS_8v8_utils11BindingDataEJPNS_5RealmERN2v85LocalINS5_6ObjectEEEEEENS_17BaseObjectPtrImplIT_Lb1EEEDpOT0_"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!28 = distinct !{!28, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!31 = distinct !{!31, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!34 = distinct !{!34, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!37 = distinct !{!37, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!40 = distinct !{!40, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}
+!41 = distinct !{!41, !10}
+!42 = distinct !{!42, !10}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv: %agg.result"}
+!45 = distinct !{!45, !"_ZNKSt5dequeIPN4node18MemoryRetainerNodeESaIS2_EE3endEv"}

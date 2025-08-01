@@ -1601,7 +1601,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %.0810.i.i.i.i.i.i.add = add nuw nsw i64 %.0810.i.i.i.i.i.i.idx, 8
   %512 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq i64 %.0810.i.i.i.i.i.i.add, 264
-  br i1 %.not.i.i.i.i.i.i, label %513, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i.i.i.i, label %513, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
 
 513:                                              ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %514 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -1625,7 +1625,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %515, %521
   %525 = icmp eq ptr %517, %2
-  br i1 %525, label %526, label %515, !llvm.loop !8
+  br i1 %525, label %526, label %515
 
 526:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   ret void
@@ -1812,7 +1812,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %515, %521
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit171: ; preds = %592, %598
   %602 = icmp eq ptr %594, %2
-  br i1 %602, label %603, label %592, !llvm.loop !9
+  br i1 %602, label %603, label %592
 
 603:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit171
   %604 = load ptr, ptr %65, align 8
@@ -2984,9 +2984,6 @@ attributes #14 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!6 = distinct !{!6, !5}

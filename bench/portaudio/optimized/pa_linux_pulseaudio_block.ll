@@ -140,7 +140,7 @@ declare i32 @usleep(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 -9992, 1) i32 @PaPulseAudio_WriteStreamBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %5 = load i32, ptr %4, align 8, !tbaa !34
+  %5 = load i32, ptr %4, align 8, !tbaa !33
   %6 = sext i32 %5 to i64
   %7 = mul i64 %2, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -341,7 +341,7 @@ define range(i32 -9992, 1) i32 @PaPulseAudio_WriteStreamBlock(ptr noundef %0, pt
   %101 = tail call i32 @usleep(i32 noundef 100) #3
   %102 = tail call i32 @pa_operation_get_state(ptr noundef nonnull %60) #3
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %100, %.preheader
   %104 = load ptr, ptr %15, align 8, !tbaa !30
@@ -358,7 +358,7 @@ define range(i32 -9992, 1) i32 @PaPulseAudio_WriteStreamBlock(ptr noundef %0, pt
   %.1123 = phi i64 [ %107, %._crit_edge ], [ %.0127, %50 ]
   %.166121 = phi ptr [ %106, %._crit_edge ], [ %.065126, %50 ]
   %110 = tail call i32 @usleep(i32 noundef 100) #3
-  br label %16, !llvm.loop !36
+  br label %16, !llvm.loop !35
 
 ._crit_edge130:                                   ; preds = %._crit_edge, %3
   tail call void @PaUtil_EndCpuLoadMeasurement(ptr noundef nonnull %8, i64 noundef %2) #3
@@ -447,9 +447,8 @@ attributes #3 = { nounwind }
 !28 = !{!4, !12, i64 648}
 !29 = !{!4, !12, i64 652}
 !30 = !{!4, !18, i64 424}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!4, !12, i64 552}
-!35 = distinct !{!35, !32, !33}
-!36 = distinct !{!36, !32, !33}
+!33 = !{!4, !12, i64 552}
+!34 = distinct !{!34, !32}
+!35 = distinct !{!35, !32}

@@ -189,7 +189,7 @@ define i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17h8b
   %.020.i = select i1 %11, i64 %.01922.i, i64 %8
   %13 = sub i64 %.020.i, %.021.i
   %14 = icmp ult i64 %.021.i, %.020.i
-  br i1 %14, label %6, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h3993bca22041a38bE.exit", !llvm.loop !7
+  br i1 %14, label %6, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h3993bca22041a38bE.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h3993bca22041a38bE.exit": ; preds = %6, %3
   %.018.lcssa.i = phi i64 [ 0, %3 ], [ %.021.i, %6 ]
@@ -242,7 +242,7 @@ define { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_sear
   %.020 = select i1 %13, i64 %.01922, i64 %10
   %15 = sub i64 %.020, %.021
   %16 = icmp ult i64 %.021, %.020
-  br i1 %16, label %8, label %._crit_edge, !llvm.loop !7
+  br i1 %16, label %8, label %._crit_edge
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -380,11 +380,11 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut_checke
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h42fae609d8a4cdc6E"(ptr align 8 captures(none) %0, i64 %1, i64 %2, i64 %3, ptr align 8 %4) unnamed_addr #1 {
   %6 = icmp ult i64 %2, %1
-  br i1 %6, label %7, label %9, !prof !9
+  br i1 %6, label %7, label %9, !prof !7
 
 7:                                                ; preds = %5
   %8 = icmp ult i64 %3, %1
-  br i1 %8, label %10, label %14, !prof !9
+  br i1 %8, label %10, label %14, !prof !7
 
 9:                                                ; preds = %5
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %2, i64 %1, ptr align 8 %4) #6
@@ -422,13 +422,13 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h1581df4c99
 .lr.ph.i:                                         ; preds = %2, %18
   %.012.i = phi i64 [ %23, %18 ], [ 0, %2 ]
   %exitcond.not.i = icmp eq i64 %.012.i, %9
-  br i1 %exitcond.not.i, label %17, label %13, !prof !10
+  br i1 %exitcond.not.i, label %17, label %13, !prof !8
 
 13:                                               ; preds = %.lr.ph.i
   %14 = xor i64 %.012.i, -1
   %15 = add nsw i64 %3, %14
   %16 = icmp ult i64 %15, %12
-  br i1 %16, label %18, label %24, !prof !9
+  br i1 %16, label %18, label %24, !prof !7
 
 17:                                               ; preds = %.lr.ph.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %9, i64 %9, ptr nonnull align 8 @anon.595cd7921e8e9d5700c9d9f06e74d584.14) #6
@@ -443,7 +443,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h1581df4c99
   store i64 %21, ptr %20, align 8
   %23 = add nuw nsw i64 %.012.i, 1
   %exitcond16.not.i = icmp eq i64 %23, %3
-  br i1 %exitcond16.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hacaa24cd38adeef2E.exit", label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond16.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hacaa24cd38adeef2E.exit", label %.lr.ph.i
 
 24:                                               ; preds = %13
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %15, i64 %12, ptr nonnull align 8 @anon.595cd7921e8e9d5700c9d9f06e74d584.15) #6
@@ -470,13 +470,13 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h07
 .lr.ph:                                           ; preds = %5, %17
   %.012 = phi i64 [ %20, %17 ], [ 0, %5 ]
   %exitcond.not = icmp eq i64 %.012, %8
-  br i1 %exitcond.not, label %16, label %12, !prof !10
+  br i1 %exitcond.not, label %16, label %12, !prof !8
 
 12:                                               ; preds = %.lr.ph
   %13 = xor i64 %.012, -1
   %14 = add i64 %4, %13
   %15 = icmp ult i64 %14, %11
-  br i1 %15, label %17, label %21, !prof !9
+  br i1 %15, label %17, label %21, !prof !7
 
 16:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %8, i64 %8, ptr nonnull align 8 @anon.595cd7921e8e9d5700c9d9f06e74d584.14) #6
@@ -488,7 +488,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h07
   tail call void @_ZN4core3ptr19swap_nonoverlapping17h6a2289ba635eb9a3E(ptr %18, ptr %19, i64 1)
   %20 = add nuw i64 %.012, 1
   %exitcond16.not = icmp eq i64 %20, %4
-  br i1 %exitcond16.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond16.not, label %._crit_edge, label %.lr.ph
 
 21:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %14, i64 %11, ptr nonnull align 8 @anon.595cd7921e8e9d5700c9d9f06e74d584.15) #6
@@ -512,13 +512,13 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hac
 .lr.ph:                                           ; preds = %5, %17
   %.012 = phi i64 [ %22, %17 ], [ 0, %5 ]
   %exitcond.not = icmp eq i64 %.012, %8
-  br i1 %exitcond.not, label %16, label %12, !prof !10
+  br i1 %exitcond.not, label %16, label %12, !prof !8
 
 12:                                               ; preds = %.lr.ph
   %13 = xor i64 %.012, -1
   %14 = add i64 %4, %13
   %15 = icmp ult i64 %14, %11
-  br i1 %15, label %17, label %23, !prof !9
+  br i1 %15, label %17, label %23, !prof !7
 
 16:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %8, i64 %8, ptr nonnull align 8 @anon.595cd7921e8e9d5700c9d9f06e74d584.14) #6
@@ -533,7 +533,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hac
   store i64 %20, ptr %19, align 8
   %22 = add nuw i64 %.012, 1
   %exitcond16.not = icmp eq i64 %22, %4
-  br i1 %exitcond16.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond16.not, label %._crit_edge, label %.lr.ph
 
 23:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %14, i64 %11, ptr nonnull align 8 @anon.595cd7921e8e9d5700c9d9f06e74d584.15) #6
@@ -557,13 +557,13 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hc3
 .lr.ph:                                           ; preds = %5, %17
   %.012 = phi i64 [ %20, %17 ], [ 0, %5 ]
   %exitcond.not = icmp eq i64 %.012, %8
-  br i1 %exitcond.not, label %16, label %12, !prof !10
+  br i1 %exitcond.not, label %16, label %12, !prof !8
 
 12:                                               ; preds = %.lr.ph
   %13 = xor i64 %.012, -1
   %14 = add i64 %4, %13
   %15 = icmp ult i64 %14, %11
-  br i1 %15, label %17, label %21, !prof !9
+  br i1 %15, label %17, label %21, !prof !7
 
 16:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %8, i64 %8, ptr nonnull align 8 @anon.595cd7921e8e9d5700c9d9f06e74d584.14) #6
@@ -575,7 +575,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hc3
   tail call void @_ZN4core3ptr19swap_nonoverlapping17ha7968700cae4e198E(ptr %18, ptr %19, i64 1)
   %20 = add nuw i64 %.012, 1
   %exitcond16.not = icmp eq i64 %20, %4
-  br i1 %exitcond16.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond16.not, label %._crit_edge, label %.lr.ph
 
 21:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %14, i64 %11, ptr nonnull align 8 @anon.595cd7921e8e9d5700c9d9f06e74d584.15) #6
@@ -599,13 +599,13 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hc8
 .lr.ph:                                           ; preds = %5, %17
   %.012 = phi i64 [ %20, %17 ], [ 0, %5 ]
   %exitcond.not = icmp eq i64 %.012, %8
-  br i1 %exitcond.not, label %16, label %12, !prof !10
+  br i1 %exitcond.not, label %16, label %12, !prof !8
 
 12:                                               ; preds = %.lr.ph
   %13 = xor i64 %.012, -1
   %14 = add i64 %4, %13
   %15 = icmp ult i64 %14, %11
-  br i1 %15, label %17, label %21, !prof !9
+  br i1 %15, label %17, label %21, !prof !7
 
 16:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %8, i64 %8, ptr nonnull align 8 @anon.595cd7921e8e9d5700c9d9f06e74d584.14) #6
@@ -617,7 +617,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hc8
   tail call void @_ZN4core3ptr19swap_nonoverlapping17h5f6669615bc43c87E(ptr %18, ptr %19, i64 1)
   %20 = add nuw i64 %.012, 1
   %exitcond16.not = icmp eq i64 %20, %4
-  br i1 %exitcond16.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond16.not, label %._crit_edge, label %.lr.ph
 
 21:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %14, i64 %11, ptr nonnull align 8 @anon.595cd7921e8e9d5700c9d9f06e74d584.15) #6
@@ -641,13 +641,13 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hf5
 .lr.ph:                                           ; preds = %5, %17
   %.012 = phi i64 [ %22, %17 ], [ 0, %5 ]
   %exitcond.not = icmp eq i64 %.012, %8
-  br i1 %exitcond.not, label %16, label %12, !prof !10
+  br i1 %exitcond.not, label %16, label %12, !prof !8
 
 12:                                               ; preds = %.lr.ph
   %13 = xor i64 %.012, -1
   %14 = add i64 %4, %13
   %15 = icmp ult i64 %14, %11
-  br i1 %15, label %17, label %23, !prof !9
+  br i1 %15, label %17, label %23, !prof !7
 
 16:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %8, i64 %8, ptr nonnull align 8 @anon.595cd7921e8e9d5700c9d9f06e74d584.14) #6
@@ -662,7 +662,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17hf5
   store i16 %20, ptr %19, align 2
   %22 = add nuw i64 %.012, 1
   %exitcond16.not = icmp eq i64 %22, %4
-  br i1 %exitcond16.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond16.not, label %._crit_edge, label %.lr.ph
 
 23:                                               ; preds = %12
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %14, i64 %11, ptr nonnull align 8 @anon.595cd7921e8e9d5700c9d9f06e74d584.15) #6
@@ -838,12 +838,5 @@ attributes #6 = { noreturn }
 !4 = !{i64 8}
 !5 = !{i64 1}
 !6 = !{i8 -1, i8 2}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!7 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!8 = !{!"branch_weights", !"expected", i32 1, i32 2000}

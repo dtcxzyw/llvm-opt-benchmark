@@ -373,7 +373,7 @@ proto_item_set_hidden.exit:                       ; preds = %67, %75, %78
 120:                                              ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread419, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %.thread419, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %.preheader.preheader, %120
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %120 ]
@@ -1035,7 +1035,7 @@ imap_match_request.exit:                          ; preds = %proto_item_set_gene
   %.1310 = phi i32 [ %.2311, %.thread446 ], [ %89, %.thread429 ], [ %.2311, %430 ], [ %.2311, %431 ], [ %.2311, %435 ], [ %.2311, %436 ], [ %.2311, %.thread76.i ], [ %.2311, %.thread69.i ], [ %.2311, %.thread79.i ], [ %.2311, %455 ], [ %.2311, %458 ], [ %.2311, %461 ], [ %.2311, %.thread73.i ], [ %.2311, %proto_item_set_generated.exit62.i ]
   %486 = load i32, ptr %7, align 4
   %487 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %486)
-  br i1 %487, label %88, label %._crit_edge, !llvm.loop !12
+  br i1 %487, label %88, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %imap_match_request.exit
   %488 = trunc nuw i8 %.4393 to i1
@@ -1314,8 +1314,7 @@ attributes #11 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

@@ -100,12 +100,12 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   %36 = sub nuw i64 %.sroa.5.062, %.0.sroa.speculated.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.052.061, i64 %.0.sroa.speculated.i.i, i1 false)
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %.critedge35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit", !llvm.loop !11
+  br i1 %37, label %.critedge35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit"
 
 .critedge35:                                      ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h3d69ab78bce8e7d4E.exit", %20
   call void @llvm.lifetime.start.p0(i64 8096, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8096) %6, ptr noundef nonnull align 1 dereferenceable(8096) %7, i64 8096, i1 false)
-  call void asm sideeffect "", "r,~{memory}"(ptr nonnull %6) #6, !srcloc !13
+  call void asm sideeffect "", "r,~{memory}"(ptr nonnull %6) #6, !srcloc !11
   call void @llvm.lifetime.end.p0(i64 8096, ptr nonnull %6)
   %38 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hd6ff06cf4e1ed23bE monotonic, align 8
   %39 = icmp ult i64 %38, 6
@@ -140,15 +140,15 @@ define hidden void @_ZN6memory8mmap_ops19prefault_mmap_pages17h10751c99dc8e66afE
   store ptr %3, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr @"_ZN57_$LT$core..time..Duration$u20$as$u20$core..fmt..Debug$GT$3fmt17h47b16190160c2128E", ptr %50, align 8
-  store ptr @anon.616088ef07ca1b37bebf04047481bb24.29, ptr %5, align 8, !alias.scope !14, !noalias !17
+  store ptr @anon.616088ef07ca1b37bebf04047481bb24.29, ptr %5, align 8, !alias.scope !12, !noalias !15
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 3, ptr %51, align 8, !alias.scope !14, !noalias !17
+  store i64 3, ptr %51, align 8, !alias.scope !12, !noalias !15
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %52, align 8, !alias.scope !14, !noalias !17
+  store ptr null, ptr %52, align 8, !alias.scope !12, !noalias !15
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %53, align 8, !alias.scope !14, !noalias !17
+  store ptr %4, ptr %53, align 8, !alias.scope !12, !noalias !15
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 3, ptr %54, align 8, !alias.scope !14, !noalias !17
+  store i64 3, ptr %54, align 8, !alias.scope !12, !noalias !15
   call void @_ZN3log13__private_api8log_impl17h6f2172fcba2687bdE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, i64 noundef 5, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.616088ef07ca1b37bebf04047481bb24.26, i32 noundef 92, ptr noalias noundef readonly align 8 null, i64 undef)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -217,12 +217,10 @@ attributes #6 = { nounwind }
 !8 = !{!9, !10}
 !9 = distinct !{!9, !7, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E: argument 1"}
 !10 = distinct !{!10, !7, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E: argument 2"}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{i32 727600}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E: argument 0"}
-!16 = distinct !{!16, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E"}
-!17 = !{!18, !19}
-!18 = distinct !{!18, !16, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E: argument 1"}
-!19 = distinct !{!19, !16, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E: argument 2"}
+!11 = !{i32 727600}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E: argument 0"}
+!14 = distinct !{!14, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E"}
+!15 = !{!16, !17}
+!16 = distinct !{!16, !14, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E: argument 1"}
+!17 = distinct !{!17, !14, !"_ZN4core3fmt9Arguments6new_v117h139fe40277550836E: argument 2"}

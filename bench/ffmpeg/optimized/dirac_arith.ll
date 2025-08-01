@@ -34,12 +34,12 @@ define void @ff_dirac_init_arith_tables() local_unnamed_addr #0 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @ff_dirac_init_arith_decoder(ptr noundef writeonly captures(none) initializes((0, 4), (8, 24)) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %1, i64 16
-  %.val.i = load i32, ptr %4, align 8, !tbaa !11
+  %.val.i = load i32, ptr %4, align 8, !tbaa !10
   %5 = sub nsw i32 0, %.val.i
   %6 = and i32 %5, 7
   %.not.i = icmp eq i32 %6, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !16
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !15
   br i1 %.not.i, label %align_get_bits.exit, label %7
 
 7:                                                ; preds = %3
@@ -51,9 +51,9 @@ define void @ff_dirac_init_arith_decoder(ptr noundef writeonly captures(none) in
 align_get_bits.exit:                              ; preds = %3, %7
   %.pre-phi = phi i32 [ %.pre43, %7 ], [ %5, %3 ]
   %.val31 = phi i32 [ %9, %7 ], [ %.val.i, %3 ]
-  %10 = load ptr, ptr %1, align 8, !tbaa !17
+  %10 = load ptr, ptr %1, align 8, !tbaa !16
   %11 = getelementptr i8, ptr %1, i64 20
-  %.val32 = load i32, ptr %11, align 4, !tbaa !18
+  %.val32 = load i32, ptr %11, align 4, !tbaa !17
   %12 = sub nsw i32 %.val32, %.val31
   %13 = sdiv i32 %12, 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %13)
@@ -61,18 +61,18 @@ align_get_bits.exit:                              ; preds = %3, %7
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %10, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %16, ptr %17, align 8, !tbaa !19
+  store ptr %16, ptr %17, align 8, !tbaa !18
   %18 = sext i32 %spec.select to i64
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %19, ptr %20, align 8, !tbaa !21
+  store ptr %19, ptr %20, align 8, !tbaa !20
   %21 = shl nsw i32 %spec.select, 3
   %22 = sub nsw i32 %.pre, %.val31
   %23 = icmp slt i32 %21, %.pre-phi
   %..i.i = tail call i32 @llvm.smin.i32(i32 range(i32 -2147483648, 2147483641) %21, i32 %22)
   %.0.i.i = select i1 %23, i32 %.pre-phi, i32 %..i.i
   %24 = add nsw i32 %.0.i.i, %.val31
-  store i32 %24, ptr %4, align 8, !tbaa !11
+  store i32 %24, ptr %4, align 8, !tbaa !10
   br label %25
 
 25:                                               ; preds = %align_get_bits.exit, %33
@@ -80,14 +80,14 @@ align_get_bits.exit:                              ; preds = %3, %7
   %storemerge3537 = phi i32 [ 0, %align_get_bits.exit ], [ %35, %33 ]
   %26 = phi ptr [ %16, %align_get_bits.exit ], [ %34, %33 ]
   %27 = shl i32 %storemerge3537, 8
-  store i32 %27, ptr %0, align 8, !tbaa !22
+  store i32 %27, ptr %0, align 8, !tbaa !21
   %28 = icmp ult ptr %26, %19
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store ptr %30, ptr %17, align 8, !tbaa !19
-  %31 = load i8, ptr %26, align 1, !tbaa !23
+  store ptr %30, ptr %17, align 8, !tbaa !18
+  %31 = load i8, ptr %26, align 1, !tbaa !22
   %32 = zext i8 %31 to i32
   br label %33
 
@@ -95,20 +95,20 @@ align_get_bits.exit:                              ; preds = %3, %7
   %.sink = phi i32 [ %32, %29 ], [ 255, %25 ]
   %34 = phi ptr [ %30, %29 ], [ %26, %25 ]
   %35 = or disjoint i32 %27, %.sink
-  store i32 %35, ptr %0, align 8, !tbaa !22
+  store i32 %35, ptr %0, align 8, !tbaa !21
   %36 = add nuw nsw i32 %.038, 1
   %exitcond.not = icmp eq i32 %36, 4
-  br i1 %exitcond.not, label %37, label %25, !llvm.loop !24
+  br i1 %exitcond.not, label %37, label %25, !llvm.loop !23
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i16 -16, ptr %38, align 2, !tbaa !25
+  store i16 -16, ptr %38, align 2, !tbaa !24
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i16 -1, ptr %39, align 4, !tbaa !26
+  store i16 -1, ptr %39, align 4, !tbaa !25
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 0, ptr %40, align 4, !tbaa !27
+  store i32 0, ptr %40, align 4, !tbaa !26
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %41, align 8, !tbaa !28
+  store i32 0, ptr %41, align 8, !tbaa !27
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %43
 
@@ -118,7 +118,7 @@ align_get_bits.exit:                              ; preds = %3, %7
   store i16 -32768, ptr %44, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next, 22
-  br i1 %exitcond41.not, label %45, label %43, !llvm.loop !29
+  br i1 %exitcond41.not, label %45, label %43, !llvm.loop !28
 
 45:                                               ; preds = %43
   ret void
@@ -144,25 +144,24 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !15, i64 16}
-!12 = !{!"GetBitContext", !13, i64 0, !13, i64 8, !15, i64 16, !15, i64 20, !15, i64 24}
-!13 = !{!"p1 omnipotent char", !14, i64 0}
-!14 = !{!"any pointer", !6, i64 0}
-!15 = !{!"int", !6, i64 0}
-!16 = !{!12, !15, i64 24}
-!17 = !{!12, !13, i64 0}
-!18 = !{!12, !15, i64 20}
-!19 = !{!20, !13, i64 8}
-!20 = !{!"", !15, i64 0, !5, i64 4, !5, i64 6, !13, i64 8, !13, i64 16, !6, i64 24, !15, i64 68, !15, i64 72}
-!21 = !{!20, !13, i64 16}
-!22 = !{!20, !15, i64 0}
-!23 = !{!6, !6, i64 0}
-!24 = distinct !{!24, !9, !10}
-!25 = !{!20, !5, i64 6}
-!26 = !{!20, !5, i64 4}
-!27 = !{!20, !15, i64 68}
-!28 = !{!20, !15, i64 72}
-!29 = distinct !{!29, !9, !10}
+!10 = !{!11, !14, i64 16}
+!11 = !{!"GetBitContext", !12, i64 0, !12, i64 8, !14, i64 16, !14, i64 20, !14, i64 24}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !6, i64 0}
+!14 = !{!"int", !6, i64 0}
+!15 = !{!11, !14, i64 24}
+!16 = !{!11, !12, i64 0}
+!17 = !{!11, !14, i64 20}
+!18 = !{!19, !12, i64 8}
+!19 = !{!"", !14, i64 0, !5, i64 4, !5, i64 6, !12, i64 8, !12, i64 16, !6, i64 24, !14, i64 68, !14, i64 72}
+!20 = !{!19, !12, i64 16}
+!21 = !{!19, !14, i64 0}
+!22 = !{!6, !6, i64 0}
+!23 = distinct !{!23, !9}
+!24 = !{!19, !5, i64 6}
+!25 = !{!19, !5, i64 4}
+!26 = !{!19, !14, i64 68}
+!27 = !{!19, !14, i64 72}
+!28 = distinct !{!28, !9}

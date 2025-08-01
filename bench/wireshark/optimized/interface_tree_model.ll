@@ -1288,7 +1288,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i: ; preds = %_ZN5QListIiED2
 _ZNSt8_Rb_treeI7QStringSt4pairIKS0_5QListIiEESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit: ; preds = %_ZN5QListIiED2Ev.exit.i.i.i.i.i, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i, %15
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 80) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeI7QStringSt4pairIKS0_5QListIiEESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit, %2
   ret void
@@ -1330,7 +1330,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM18InterfaceTreeModelFvvENS
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !19
+  %17 = load ptr, ptr %16, align 8, !nosanitize !18
   br label %_ZN9QtPrivate15FunctionPointerIM18InterfaceTreeModelFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -1410,8 +1410,7 @@ attributes #18 = { builtin nounwind }
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZNK18InterfaceTreeModel4dataERK11QModelIndexi: argument 0"}
 !14 = distinct !{!14, !"_ZNK18InterfaceTreeModel4dataERK11QModelIndexi"}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
-!19 = !{}
+!17 = distinct !{!17, !16}
+!18 = !{}

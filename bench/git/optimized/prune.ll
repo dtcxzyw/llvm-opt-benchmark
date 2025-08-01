@@ -301,7 +301,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #5 {
-  %2 = load i8, ptr %0, align 1, !tbaa !28
+  %2 = load i8, ptr %0, align 1, !tbaa !27
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
@@ -362,7 +362,7 @@ is_object_reachable.exit.thread:                  ; preds = %3, %is_object_reach
 
 12:                                               ; preds = %is_object_reachable.exit.thread
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %14 = load i64, ptr %13, align 8, !tbaa !29
+  %14 = load i64, ptr %13, align 8, !tbaa !28
   %15 = load i64, ptr @expire, align 8, !tbaa !21
   %16 = icmp ugt i64 %14, %15
   br i1 %16, label %33, label %17
@@ -413,7 +413,7 @@ define internal noundef i32 @prune_cruft(ptr noundef %0, ptr noundef %1, ptr rea
   br label %9
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr @stderr, align 8, !tbaa !32
+  %7 = load ptr, ptr @stderr, align 8, !tbaa !31
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.20, ptr noundef %1) #14
   br label %9
 
@@ -455,7 +455,7 @@ define internal fastcc void @remove_temporary_files(ptr noundef %0) unnamed_addr
   br i1 %.not9, label %19, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !32
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !31
   %9 = tail call ptr @strerror(i32 noundef %6) #12
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.23, ptr noundef %0, ptr noundef %9) #14
   br label %19
@@ -475,7 +475,7 @@ define internal fastcc void @remove_temporary_files(ptr noundef %0) unnamed_addr
 16:                                               ; preds = %14, %.lr.ph
   %17 = tail call ptr @readdir64(ptr noundef nonnull %2) #12
   %.not10 = icmp eq ptr %17, null
-  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not10, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %16, %.preheader
   %18 = tail call i32 @closedir(ptr noundef nonnull %2)
@@ -496,7 +496,7 @@ declare i32 @is_repository_shallow(ptr noundef) local_unnamed_addr #2
 define internal fastcc void @perform_reachability_traversal(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store ptr null, ptr %2, align 8, !tbaa !35
+  store ptr null, ptr %2, align 8, !tbaa !34
   %.b = load i1, ptr @perform_reachability_traversal.initialized, align 4
   br i1 %.b, label %17, label %3
 
@@ -518,7 +518,7 @@ define internal fastcc void @perform_reachability_traversal(ptr noundef %0) unna
 _.exit:                                           ; preds = %5, %8
   %.0.i = phi ptr [ %9, %8 ], [ @.str.26, %5 ]
   %10 = tail call ptr @start_delayed_progress(ptr noundef %6, ptr noundef %.0.i, i64 noundef 0) #12
-  store ptr %10, ptr %2, align 8, !tbaa !35
+  store ptr %10, ptr %2, align 8, !tbaa !34
   br label %11
 
 11:                                               ; preds = %_.exit, %3
@@ -586,14 +586,14 @@ define internal fastcc void @prune_tmp_file(ptr noundef %0) unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %9 = load i64, ptr %8, align 8, !tbaa !29
+  %9 = load i64, ptr %8, align 8, !tbaa !28
   %10 = load i64, ptr @expire, align 8, !tbaa !21
   %11 = icmp ugt i64 %9, %10
   br i1 %11, label %30, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !37
+  %14 = load i32, ptr %13, align 8, !tbaa !36
   %15 = and i32 %14, 61440
   %16 = icmp eq i32 %15, 16384
   %17 = load i32, ptr @show_only, align 4, !tbaa !4
@@ -724,16 +724,15 @@ attributes #16 = { nounwind willreturn memory(read) }
 !22 = !{!23, !23, i64 0}
 !23 = !{!"p1 _ZTS10repository", !11, i64 0}
 !24 = !{!10, !10, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!6, !6, i64 0}
-!29 = !{!30, !12, i64 88}
-!30 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !31, i64 72, !31, i64 88, !31, i64 104, !6, i64 120}
-!31 = !{!"timespec", !12, i64 0, !12, i64 8}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
-!34 = distinct !{!34, !26, !27}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS8progress", !11, i64 0}
-!37 = !{!30, !5, i64 24}
+!27 = !{!6, !6, i64 0}
+!28 = !{!29, !12, i64 88}
+!29 = !{!"stat", !12, i64 0, !12, i64 8, !12, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !30, i64 72, !30, i64 88, !30, i64 104, !6, i64 120}
+!30 = !{!"timespec", !12, i64 0, !12, i64 8}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!33 = distinct !{!33, !26}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS8progress", !11, i64 0}
+!36 = !{!29, !5, i64 24}

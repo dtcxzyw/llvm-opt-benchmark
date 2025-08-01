@@ -408,7 +408,7 @@ get_reconstructed_area.exit:                      ; preds = %67
   %83 = add nsw i32 %..1, %.07090
   %84 = sub nsw i32 %.189, %..1
   %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %62, label %.critedge, !llvm.loop !94
+  br i1 %85, label %62, label %.critedge, !llvm.loop !93
 
 .critedge:                                        ; preds = %get_reconstructed_area.exit, %63, %80, %45
   %.07088 = phi i32 [ %1, %45 ], [ %.07090, %80 ], [ %.07090, %63 ], [ %83, %get_reconstructed_area.exit ]
@@ -445,14 +445,14 @@ define i32 @ff_vvc_get_left_available(ptr noundef readonly captures(none) %0, i3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4547736
   %26 = load ptr, ptr %25, align 8, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !95
+  %28 = load i32, ptr %27, align 8, !tbaa !94
   %29 = ashr i32 %28, %21
   %30 = add nsw i32 %29, 1
   %31 = shl i32 %30, %21
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 1936
   %33 = load ptr, ptr %32, align 8, !tbaa !82
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %35 = load i16, ptr %34, align 8, !tbaa !96
+  %35 = load i16, ptr %34, align 8, !tbaa !95
   %36 = zext i16 %35 to i32
   %. = tail call i32 @llvm.smin.i32(i32 %31, i32 %36)
   %37 = ashr i32 %., %18
@@ -460,7 +460,7 @@ define i32 @ff_vvc_get_left_available(ptr noundef readonly captures(none) %0, i3
   br i1 %.not, label %38, label %42
 
 38:                                               ; preds = %5
-  %39 = load i8, ptr %0, align 16, !tbaa !97
+  %39 = load i8, ptr %0, align 16, !tbaa !96
   %.not61 = icmp eq i8 %39, 0
   br i1 %.not61, label %78, label %.thread
 
@@ -530,7 +530,7 @@ get_reconstructed_area.exit:                      ; preds = %58
   %74 = add nsw i32 %..055, %.05469
   %75 = sub nsw i32 %.05568, %..055
   %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %53, label %.critedge, !llvm.loop !98
+  br i1 %76, label %53, label %.critedge, !llvm.loop !97
 
 .critedge:                                        ; preds = %get_reconstructed_area.exit, %54, %71, %42
   %.05467 = phi i32 [ %2, %42 ], [ %.05469, %71 ], [ %.05469, %54 ], [ %74, %get_reconstructed_area.exit ]
@@ -569,7 +569,7 @@ define range(i32 0, 2) i32 @ff_vvc_ref_filter_flag_derive(i32 noundef %0) local_
   %.118.i = phi i64 [ %.01720.i, %9 ], [ %3, %.lr.ph.i ]
   %.1.i = phi i64 [ %10, %9 ], [ %.01621.i, %.lr.ph.i ]
   %12 = icmp ult i64 %.1.i, %.118.i
-  br i1 %12, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !99
+  br i1 %12, label %.lr.ph.i, label %bsearch.exit, !llvm.loop !98
 
 bsearch.exit:                                     ; preds = %8, %11
   %.0.i = phi i32 [ 0, %11 ], [ 1, %8 ]
@@ -579,7 +579,7 @@ bsearch.exit:                                     ; preds = %8, %11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @ff_vvc_wide_angle_mode_mapping(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load i32, ptr %6, align 8, !tbaa !100
+  %7 = load i32, ptr %6, align 8, !tbaa !99
   %8 = icmp eq i32 %7, 0
   %9 = icmp ne i32 %3, 0
   %or.cond = or i1 %9, %8
@@ -587,9 +587,9 @@ define i32 @ff_vvc_wide_angle_mode_mapping(ptr noundef readonly captures(none) %
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !101
+  %12 = load i32, ptr %11, align 4, !tbaa !100
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !102
+  %14 = load i32, ptr %13, align 8, !tbaa !101
   br label %15
 
 15:                                               ; preds = %5, %10
@@ -772,15 +772,14 @@ attributes #9 = { noreturn nounwind }
 !88 = !{!87, !8, i64 8}
 !89 = !{!87, !8, i64 4}
 !90 = !{!87, !8, i64 12}
-!91 = distinct !{!91, !92, !93}
+!91 = distinct !{!91, !92}
 !92 = !{!"llvm.loop.mustprogress"}
-!93 = !{!"llvm.loop.estimated_trip_count"}
-!94 = distinct !{!94, !92, !93}
-!95 = !{!62, !8, i64 8}
-!96 = !{!84, !59, i64 32}
-!97 = !{!10, !5, i64 0}
-!98 = distinct !{!98, !92, !93}
-!99 = distinct !{!99, !92, !93}
-!100 = !{!62, !8, i64 48}
-!101 = !{!62, !8, i64 12}
-!102 = !{!62, !8, i64 16}
+!93 = distinct !{!93, !92}
+!94 = !{!62, !8, i64 8}
+!95 = !{!84, !59, i64 32}
+!96 = !{!10, !5, i64 0}
+!97 = distinct !{!97, !92}
+!98 = distinct !{!98, !92}
+!99 = !{!62, !8, i64 48}
+!100 = !{!62, !8, i64 12}
+!101 = !{!62, !8, i64 16}

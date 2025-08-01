@@ -1272,7 +1272,7 @@ frsrpc_dissect_element_CommPktChunk_data.exit:    ; preds = %25, %frsrpc_dissect
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %308 = load ptr, ptr %307, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 23
-  br i1 %exitcond, label %309, label %301, !llvm.loop !11
+  br i1 %exitcond, label %309, label %301, !llvm.loop !10
 
 309:                                              ; preds = %301
   %.not44 = icmp eq ptr %spec.select, null
@@ -1951,7 +1951,7 @@ define hidden i32 @frsrpc_dissect_struct_CommPktDataExtensionChecksum(ptr nounde
   %27 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.035, ptr noundef %4, ptr noundef %5, i32 noundef %26, i32 noundef 0)
   %28 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %28, 16
-  br i1 %exitcond.not.i, label %frsrpc_dissect_element_CommPktDataExtensionChecksum_data.exit, label %25, !llvm.loop !12
+  br i1 %exitcond.not.i, label %frsrpc_dissect_element_CommPktDataExtensionChecksum_data.exit, label %25, !llvm.loop !11
 
 frsrpc_dissect_element_CommPktDataExtensionChecksum_data.exit: ; preds = %25
   %29 = sub i32 %27, %.0
@@ -2536,7 +2536,7 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_ctr_(ptr noundef %
   %35 = call i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %24, i32 noundef %.125.i.i, ptr noundef %2, ptr noundef %32, ptr noundef %4, ptr noundef %5, i32 noundef %34, i32 poison)
   %36 = call i32 @tvb_reported_length_remaining(ptr noundef %24, i32 noundef %35)
   %.not24.i.i = icmp eq i32 %36, 0
-  br i1 %.not24.i.i, label %37, label %33, !llvm.loop !13
+  br i1 %.not24.i.i, label %37, label %33, !llvm.loop !12
 
 37:                                               ; preds = %33
   store i8 %28, ptr %27, align 2
@@ -3132,9 +3132,8 @@ attributes #6 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

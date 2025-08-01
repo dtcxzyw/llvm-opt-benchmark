@@ -422,7 +422,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -453,7 +453,7 @@ while.body.i.i.i37:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i41 = lshr i64 %value.addr.i.09.i.i38, 7
   %incdec.ptr.i.i.i42 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i39, i64 1
   %cmp.i.i.i43 = icmp ugt i64 %value.addr.i.09.i.i38, 16383
-  br i1 %cmp.i.i.i43, label %while.body.i.i.i37, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit, !llvm.loop !8
+  br i1 %cmp.i.i.i43, label %while.body.i.i.i37, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit, !llvm.loop !7
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit: ; preds = %while.body.i.i.i37, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i30
   %ptr.addr.i.0.lcssa.i.i33 = phi ptr [ %retval.0.i.i31, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i30 ], [ %incdec.ptr.i.i.i42, %while.body.i.i.i37 ]
@@ -511,7 +511,7 @@ while.body.i.i.i59:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i63 = lshr i32 %value.addr.i.09.i.i60, 7
   %incdec.ptr.i.i.i64 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i61, i64 1
   %cmp.i.i.i65 = icmp ugt i32 %value.addr.i.09.i.i60, 16383
-  br i1 %cmp.i.i.i65, label %while.body.i.i.i59, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit66, !llvm.loop !7
+  br i1 %cmp.i.i.i65, label %while.body.i.i.i59, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit66, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit66: ; preds = %while.body.i.i.i59, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i52
   %ptr.addr.i.0.lcssa.i.i55 = phi ptr [ %retval.0.i.i53, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i52 ], [ %incdec.ptr.i.i.i64, %while.body.i.i.i59 ]
@@ -587,7 +587,7 @@ while.body.i.i.i92:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i96 = lshr i32 %value.addr.i.09.i.i93, 7
   %incdec.ptr.i.i.i97 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i94, i64 1
   %cmp.i.i.i98 = icmp ugt i32 %value.addr.i.09.i.i93, 16383
-  br i1 %cmp.i.i.i98, label %while.body.i.i.i92, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit99, !llvm.loop !7
+  br i1 %cmp.i.i.i98, label %while.body.i.i.i92, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit99, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit99: ; preds = %while.body.i.i.i92, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i85
   %ptr.addr.i.0.lcssa.i.i88 = phi ptr [ %retval.0.i.i86, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i85 ], [ %incdec.ptr.i.i.i97, %while.body.i.i.i92 ]
@@ -618,7 +618,7 @@ while.body.i.i.i111:                              ; preds = %_ZN6google8protobuf
   %shr.i.i.i115 = lshr i32 %value.addr.i.09.i.i112, 7
   %incdec.ptr.i.i.i116 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i113, i64 1
   %cmp.i.i.i117 = icmp ugt i32 %value.addr.i.09.i.i112, 16383
-  br i1 %cmp.i.i.i117, label %while.body.i.i.i111, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit118, !llvm.loop !7
+  br i1 %cmp.i.i.i117, label %while.body.i.i.i111, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit118, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit118: ; preds = %while.body.i.i.i111, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i104
   %ptr.addr.i.0.lcssa.i.i107 = phi ptr [ %retval.0.i.i105, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i104 ], [ %incdec.ptr.i.i.i116, %while.body.i.i.i111 ]
@@ -698,7 +698,7 @@ while.body.i.i.i135:                              ; preds = %_ZN6google8protobuf
   %shr.i.i.i139 = lshr i32 %value.addr.i.09.i.i136, 7
   %incdec.ptr.i.i.i140 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i137, i64 1
   %cmp.i.i.i141 = icmp ugt i32 %value.addr.i.09.i.i136, 16383
-  br i1 %cmp.i.i.i141, label %while.body.i.i.i135, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit142, !llvm.loop !7
+  br i1 %cmp.i.i.i141, label %while.body.i.i.i135, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit142, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit142: ; preds = %while.body.i.i.i135, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i128
   %ptr.addr.i.0.lcssa.i.i131 = phi ptr [ %retval.0.i.i129, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i128 ], [ %incdec.ptr.i.i.i140, %while.body.i.i.i135 ]
@@ -776,7 +776,7 @@ while.body.i.i.i204:                              ; preds = %_ZN6google8protobuf
   %shr.i.i.i208 = lshr i32 %value.addr.i.09.i.i205, 7
   %incdec.ptr.i.i.i209 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i206, i64 1
   %cmp.i.i.i210 = icmp ugt i32 %value.addr.i.09.i.i205, 16383
-  br i1 %cmp.i.i.i210, label %while.body.i.i.i204, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit211, !llvm.loop !7
+  br i1 %cmp.i.i.i210, label %while.body.i.i.i204, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit211, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit211: ; preds = %while.body.i.i.i204, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i197
   %ptr.addr.i.0.lcssa.i.i200 = phi ptr [ %retval.0.i.i198, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i197 ], [ %incdec.ptr.i.i.i209, %while.body.i.i.i204 ]
@@ -789,7 +789,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit211: ; preds = %w
 
 if.end4.i:                                        ; preds = %if.end.i146
   %call5.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9SkipFieldEPNS0_2io16CodedInputStreamEjPNS3_17CodedOutputStreamE(ptr noundef nonnull %input, i32 noundef %retval.i.0.i, ptr noundef nonnull %output)
-  br i1 %call5.i, label %while.body.i, label %return, !llvm.loop !9
+  br i1 %call5.i, label %while.body.i, label %return, !llvm.loop !8
 
 if.end24:                                         ; preds = %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit211
   %39 = load i32, ptr %recursion_budget_.i, align 4
@@ -856,7 +856,7 @@ while.body.i.i.i178:                              ; preds = %_ZN6google8protobuf
   %shr.i.i.i182 = lshr i32 %value.addr.i.09.i.i179, 7
   %incdec.ptr.i.i.i183 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i180, i64 1
   %cmp.i.i.i184 = icmp ugt i32 %value.addr.i.09.i.i179, 16383
-  br i1 %cmp.i.i.i184, label %while.body.i.i.i178, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit185, !llvm.loop !7
+  br i1 %cmp.i.i.i184, label %while.body.i.i.i178, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit185, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit185: ; preds = %while.body.i.i.i178, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i171
   %ptr.addr.i.0.lcssa.i.i174 = phi ptr [ %retval.0.i.i172, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i171 ], [ %incdec.ptr.i.i.i183, %while.body.i.i.i178 ]
@@ -961,7 +961,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -974,7 +974,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %whil
 
 if.end4:                                          ; preds = %if.end
   %call5 = tail call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9SkipFieldEPNS0_2io16CodedInputStreamEjPNS3_17CodedOutputStreamE(ptr noundef nonnull %input, i32 noundef %retval.i.0, ptr noundef %output)
-  br i1 %call5, label %while.body, label %return, !llvm.loop !9
+  br i1 %call5, label %while.body, label %return, !llvm.loop !8
 
 return:                                           ; preds = %if.end4, %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
   %retval.0 = phi i1 [ true, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit ], [ %cmp, %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit ], [ %cmp, %if.end4 ]
@@ -1116,7 +1116,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit.i, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit.i, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit.i: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -1129,7 +1129,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit.i: ; preds = %wh
 
 if.end4.i:                                        ; preds = %if.end.i
   %call5.i = tail call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9SkipFieldEPNS0_2io16CodedInputStreamEjPNS3_17CodedOutputStreamE(ptr noundef nonnull %input, i32 noundef %retval.i.0.i, ptr noundef %0)
-  br i1 %call5.i, label %while.body.i, label %_ZN6google8protobuf8internal14WireFormatLite11SkipMessageEPNS0_2io16CodedInputStreamEPNS3_17CodedOutputStreamE.exit, !llvm.loop !9
+  br i1 %call5.i, label %while.body.i, label %_ZN6google8protobuf8internal14WireFormatLite11SkipMessageEPNS0_2io16CodedInputStreamEPNS3_17CodedOutputStreamE.exit, !llvm.loop !8
 
 _ZN6google8protobuf8internal14WireFormatLite11SkipMessageEPNS0_2io16CodedInputStreamEPNS3_17CodedOutputStreamE.exit: ; preds = %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i, %if.end4.i, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit.i
   %retval.0.i = phi i1 [ true, %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit.i ], [ %cmp.i, %if.end4.i ], [ %cmp.i, %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i ]
@@ -1165,7 +1165,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -1200,7 +1200,7 @@ while.body.i.i.i12:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i16 = lshr i64 %value.addr.i.09.i.i13, 7
   %incdec.ptr.i.i.i17 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i14, i64 1
   %cmp.i.i.i18 = icmp ugt i64 %value.addr.i.09.i.i13, 16383
-  br i1 %cmp.i.i.i18, label %while.body.i.i.i12, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit, !llvm.loop !8
+  br i1 %cmp.i.i.i18, label %while.body.i.i.i12, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit, !llvm.loop !7
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit: ; preds = %while.body.i.i.i12, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i5
   %ptr.addr.i.0.lcssa.i.i8 = phi ptr [ %retval.0.i.i6, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i5 ], [ %incdec.ptr.i.i.i17, %while.body.i.i.i12 ]
@@ -1313,7 +1313,7 @@ _ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.us: ; preds = %if.then.i25.us, 
   tail call void @llvm.assume(i1 %cmp13.i.us)
   %call2.us = tail call noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr noundef nonnull align 8 dereferenceable(80) %input)
   %cmp.us = icmp sgt i32 %call2.us, 0
-  br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !10
+  br i1 %cmp.us, label %while.body.us, label %while.end, !llvm.loop !9
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end10
   %13 = load ptr, ptr %input, align 8
@@ -1400,7 +1400,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -1431,7 +1431,7 @@ while.body.i.i.i37:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i41 = lshr i32 %value.addr.i.09.i.i38, 7
   %incdec.ptr.i.i.i42 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i39, i64 1
   %cmp.i.i.i43 = icmp ugt i32 %value.addr.i.09.i.i38, 16383
-  br i1 %cmp.i.i.i43, label %while.body.i.i.i37, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit44, !llvm.loop !7
+  br i1 %cmp.i.i.i43, label %while.body.i.i.i37, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit44, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit44: ; preds = %while.body.i.i.i37, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i30
   %ptr.addr.i.0.lcssa.i.i33 = phi ptr [ %retval.0.i.i31, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i30 ], [ %incdec.ptr.i.i.i42, %while.body.i.i.i37 ]
@@ -1445,7 +1445,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit44: ; preds = %wh
 if.end10:                                         ; preds = %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit44, %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit
   %call2 = tail call noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr noundef nonnull align 8 dereferenceable(80) %input)
   %cmp = icmp sgt i32 %call2, 0
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !12
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end10, %_ZN6google8protobuf13RepeatedFieldIiE3AddEi.exit.us, %if.end
   tail call void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr noundef nonnull align 8 dereferenceable(80) %input, i32 noundef %call1)
@@ -1699,7 +1699,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -1731,7 +1731,7 @@ while.body.i.i.i.i13:                             ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i17 = lshr i64 %value.addr.i.09.i.i.i14, 7
   %incdec.ptr.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i15, i64 1
   %cmp.i.i.i.i19 = icmp ugt i64 %value.addr.i.09.i.i.i14, 16383
-  br i1 %cmp.i.i.i.i19, label %while.body.i.i.i.i13, label %_ZN6google8protobuf2io17CodedOutputStream25WriteVarint32SignExtendedEi.exit, !llvm.loop !8
+  br i1 %cmp.i.i.i.i19, label %while.body.i.i.i.i13, label %_ZN6google8protobuf2io17CodedOutputStream25WriteVarint32SignExtendedEi.exit, !llvm.loop !7
 
 _ZN6google8protobuf2io17CodedOutputStream25WriteVarint32SignExtendedEi.exit: ; preds = %while.body.i.i.i.i13, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i6
   %ptr.addr.i.0.lcssa.i.i.i9 = phi ptr [ %retval.0.i.i.i7, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i6 ], [ %incdec.ptr.i.i.i.i18, %while.body.i.i.i.i13 ]
@@ -1771,7 +1771,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -1802,7 +1802,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i64 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i64 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit, !llvm.loop !8
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit, !llvm.loop !7
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -1842,7 +1842,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -1873,7 +1873,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -1913,7 +1913,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -1944,7 +1944,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i64 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i64 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit, !llvm.loop !8
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit, !llvm.loop !7
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -1984,7 +1984,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2018,7 +2018,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -2058,7 +2058,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2092,7 +2092,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i64 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i64 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit, !llvm.loop !8
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit, !llvm.loop !7
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint64Em.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -2133,7 +2133,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2187,7 +2187,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2241,7 +2241,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2295,7 +2295,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2349,7 +2349,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2403,7 +2403,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2456,7 +2456,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2510,7 +2510,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2542,7 +2542,7 @@ while.body.i.i.i.i13:                             ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i17 = lshr i64 %value.addr.i.09.i.i.i14, 7
   %incdec.ptr.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i15, i64 1
   %cmp.i.i.i.i19 = icmp ugt i64 %value.addr.i.09.i.i.i14, 16383
-  br i1 %cmp.i.i.i.i19, label %while.body.i.i.i.i13, label %_ZN6google8protobuf2io17CodedOutputStream25WriteVarint32SignExtendedEi.exit, !llvm.loop !8
+  br i1 %cmp.i.i.i.i19, label %while.body.i.i.i.i13, label %_ZN6google8protobuf2io17CodedOutputStream25WriteVarint32SignExtendedEi.exit, !llvm.loop !7
 
 _ZN6google8protobuf2io17CodedOutputStream25WriteVarint32SignExtendedEi.exit: ; preds = %while.body.i.i.i.i13, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i6
   %ptr.addr.i.0.lcssa.i.i.i9 = phi ptr [ %retval.0.i.i.i7, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i6 ], [ %incdec.ptr.i.i.i.i18, %while.body.i.i.i.i13 ]
@@ -2584,7 +2584,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2632,7 +2632,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -2712,7 +2712,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2760,7 +2760,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -2841,7 +2841,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -2889,7 +2889,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -2957,7 +2957,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -3005,7 +3005,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -3082,7 +3082,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -3118,7 +3118,7 @@ while.body.i.i.i.i18:                             ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i22 = lshr i32 %value.addr.i.09.i.i.i19, 7
   %incdec.ptr.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i20, i64 1
   %cmp.i.i.i.i24 = icmp ugt i32 %value.addr.i.09.i.i.i19, 16383
-  br i1 %cmp.i.i.i.i24, label %while.body.i.i.i.i18, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit25, !llvm.loop !7
+  br i1 %cmp.i.i.i.i24, label %while.body.i.i.i.i18, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit25, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit25: ; preds = %while.body.i.i.i.i18, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i11
   %ptr.addr.i.0.lcssa.i.i.i14 = phi ptr [ %retval.0.i.i.i12, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i11 ], [ %incdec.ptr.i.i.i.i23, %while.body.i.i.i.i18 ]
@@ -3159,7 +3159,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -3192,7 +3192,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -3238,7 +3238,7 @@ while.body.i.i:                                   ; preds = %_ZN6google8protobuf
   %shr.i.i = lshr i32 %value.addr.i.09.i, 7
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i, i64 1
   %cmp.i.i = icmp ugt i32 %value.addr.i.09.i, 16383
-  br i1 %cmp.i.i, label %while.body.i.i, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, !llvm.loop !7
+  br i1 %cmp.i.i, label %while.body.i.i, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; preds = %while.body.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   %ptr.addr.i.0.lcssa.i = phi ptr [ %retval.0.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %incdec.ptr.i.i, %while.body.i.i ]
@@ -3272,7 +3272,7 @@ while.body.i.i22:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i26 = lshr i32 %value.addr.i.09.i23, 7
   %incdec.ptr.i.i27 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i24, i64 1
   %cmp.i.i28 = icmp ugt i32 %value.addr.i.09.i23, 16383
-  br i1 %cmp.i.i28, label %while.body.i.i22, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit29, !llvm.loop !7
+  br i1 %cmp.i.i28, label %while.body.i.i22, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit29, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit29: ; preds = %while.body.i.i22, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit14
   %ptr.addr.i.0.lcssa.i18 = phi ptr [ %retval.0.i13, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit14 ], [ %incdec.ptr.i.i27, %while.body.i.i22 ]
@@ -3310,7 +3310,7 @@ while.body.i.i:                                   ; preds = %_ZN6google8protobuf
   %shr.i.i = lshr i32 %value.addr.i.09.i, 7
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i, i64 1
   %cmp.i.i = icmp ugt i32 %value.addr.i.09.i, 16383
-  br i1 %cmp.i.i, label %while.body.i.i, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, !llvm.loop !7
+  br i1 %cmp.i.i, label %while.body.i.i, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; preds = %while.body.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   %ptr.addr.i.0.lcssa.i = phi ptr [ %retval.0.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %incdec.ptr.i.i, %while.body.i.i ]
@@ -3330,7 +3330,7 @@ while.body.i.i12:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i16 = lshr i32 %value.addr.i.09.i13, 7
   %incdec.ptr.i.i17 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i14, i64 1
   %cmp.i.i18 = icmp ugt i32 %value.addr.i.09.i13, 16383
-  br i1 %cmp.i.i18, label %while.body.i.i12, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit19, !llvm.loop !7
+  br i1 %cmp.i.i18, label %while.body.i.i12, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit19, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit19: ; preds = %while.body.i.i12, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit
   %ptr.addr.i.0.lcssa.i8 = phi ptr [ %incdec.ptr2.i.i, %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit ], [ %incdec.ptr.i.i17, %while.body.i.i12 ]
@@ -3387,7 +3387,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -3425,7 +3425,7 @@ while.body.i.i.i.i19:                             ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i23 = lshr i32 %value.addr.i.09.i.i.i20, 7
   %incdec.ptr.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i21, i64 1
   %cmp.i.i.i.i25 = icmp ugt i32 %value.addr.i.09.i.i.i20, 16383
-  br i1 %cmp.i.i.i.i25, label %while.body.i.i.i.i19, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit26, !llvm.loop !7
+  br i1 %cmp.i.i.i.i25, label %while.body.i.i.i.i19, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit26, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit26: ; preds = %while.body.i.i.i.i19, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i12
   %ptr.addr.i.0.lcssa.i.i.i15 = phi ptr [ %retval.0.i.i.i13, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i12 ], [ %incdec.ptr.i.i.i.i24, %while.body.i.i.i.i19 ]
@@ -3466,7 +3466,7 @@ while.body.i.i.i.i:                               ; preds = %_ZN6google8protobuf
   %shr.i.i.i.i = lshr i32 %value.addr.i.09.i.i.i, 7
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i.i, i64 1
   %cmp.i.i.i.i = icmp ugt i32 %value.addr.i.09.i.i.i, 16383
-  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream8WriteTagEj.exit: ; preds = %while.body.i.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i
   %ptr.addr.i.0.lcssa.i.i.i = phi ptr [ %retval.0.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i ], [ %incdec.ptr.i.i.i.i, %while.body.i.i.i.i ]
@@ -3499,7 +3499,7 @@ while.body.i.i.i:                                 ; preds = %_ZN6google8protobuf
   %shr.i.i.i = lshr i32 %value.addr.i.09.i.i, 7
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %ptr.addr.i.08.i.i, i64 1
   %cmp.i.i.i = icmp ugt i32 %value.addr.i.09.i.i, 16383
-  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !7
+  br i1 %cmp.i.i.i, label %while.body.i.i.i, label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit, !llvm.loop !6
 
 _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %while.body.i.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   %ptr.addr.i.0.lcssa.i.i = phi ptr [ %retval.0.i.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
@@ -3650,25 +3650,25 @@ if.then:                                          ; preds = %invoke.cont
 
 invoke.cont15:                                    ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp.i)
-  store i64 2, ptr %ref.tmp.i, align 8, !noalias !13
+  store i64 2, ptr %ref.tmp.i, align 8, !noalias !12
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
-  store ptr @.str.3, ptr %1, align 8, !noalias !13
+  store ptr @.str.3, ptr %1, align 8, !noalias !12
   %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
-  store i64 %message_name.coerce0, ptr %arrayinit.element.i, align 8, !noalias !13
+  store i64 %message_name.coerce0, ptr %arrayinit.element.i, align 8, !noalias !12
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
-  store ptr %message_name.coerce1, ptr %2, align 8, !noalias !13
+  store ptr %message_name.coerce1, ptr %2, align 8, !noalias !12
   %arrayinit.element2.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 32
-  store i64 1, ptr %arrayinit.element2.i, align 8, !noalias !13
+  store i64 1, ptr %arrayinit.element2.i, align 8, !noalias !12
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 40
-  store ptr @.str.4, ptr %3, align 8, !noalias !13
+  store ptr @.str.4, ptr %3, align 8, !noalias !12
   %arrayinit.element4.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 48
-  store i64 %field_name.coerce0, ptr %arrayinit.element4.i, align 8, !noalias !13
+  store i64 %field_name.coerce0, ptr %arrayinit.element4.i, align 8, !noalias !12
   %4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 56
-  store ptr %field_name.coerce1, ptr %4, align 8, !noalias !13
+  store ptr %field_name.coerce1, ptr %4, align 8, !noalias !12
   %arrayinit.element6.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 64
-  store i64 1, ptr %arrayinit.element6.i, align 8, !noalias !13
+  store i64 1, ptr %arrayinit.element6.i, align 8, !noalias !12
   %5 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 72
-  store ptr @.str.5, ptr %5, align 8, !noalias !13
+  store ptr @.str.5, ptr %5, align 8, !noalias !12
   invoke void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp3, ptr nonnull %ref.tmp.i, i64 5)
           to label %invoke.cont16 unwind label %lpad5
 
@@ -3724,32 +3724,32 @@ cond.true.i.i:                                    ; preds = %invoke.cont34
 invoke.cont38:                                    ; preds = %invoke.cont34, %cond.true.i.i
   %retval.sroa.0.0.i.i = phi i64 [ %call.i.i.i.i15, %cond.true.i.i ], [ 0, %invoke.cont34 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp.i19)
-  store i64 12, ptr %ref.tmp.i19, align 8, !noalias !16
+  store i64 12, ptr %ref.tmp.i19, align 8, !noalias !15
   %12 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 8
-  store ptr @.str.6, ptr %12, align 8, !noalias !16
+  store ptr @.str.6, ptr %12, align 8, !noalias !15
   %arrayinit.element.i23 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 16
-  store i64 %10, ptr %arrayinit.element.i23, align 8, !noalias !16
+  store i64 %10, ptr %arrayinit.element.i23, align 8, !noalias !15
   %13 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 24
-  store ptr %11, ptr %13, align 8, !noalias !16
+  store ptr %11, ptr %13, align 8, !noalias !15
   %arrayinit.element2.i27 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 32
-  store i64 34, ptr %arrayinit.element2.i27, align 8, !noalias !16
+  store i64 34, ptr %arrayinit.element2.i27, align 8, !noalias !15
   %14 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 40
-  store ptr @.str.7, ptr %14, align 8, !noalias !16
+  store ptr @.str.7, ptr %14, align 8, !noalias !15
   %arrayinit.element4.i31 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 48
-  store i64 %retval.sroa.0.0.i.i, ptr %arrayinit.element4.i31, align 8, !noalias !16
+  store i64 %retval.sroa.0.0.i.i, ptr %arrayinit.element4.i31, align 8, !noalias !15
   %15 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 56
-  store ptr %operation_str, ptr %15, align 8, !noalias !16
+  store ptr %operation_str, ptr %15, align 8, !noalias !15
   %arrayinit.element6.i35 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 64
-  store i64 74, ptr %arrayinit.element6.i35, align 8, !noalias !16
+  store i64 74, ptr %arrayinit.element6.i35, align 8, !noalias !15
   %16 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 72
-  store ptr @.str.8, ptr %16, align 8, !noalias !16
+  store ptr @.str.8, ptr %16, align 8, !noalias !15
   %arrayinit.element8.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 80
-  %call.i.i39 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %stacktrace) #22, !noalias !16
+  %call.i.i39 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %stacktrace) #22, !noalias !15
   %17 = extractvalue { i64, ptr } %call.i.i39, 0
   %18 = extractvalue { i64, ptr } %call.i.i39, 1
-  store i64 %17, ptr %arrayinit.element8.i, align 8, !noalias !16
+  store i64 %17, ptr %arrayinit.element8.i, align 8, !noalias !15
   %19 = getelementptr inbounds nuw i8, ptr %ref.tmp.i19, i64 88
-  store ptr %18, ptr %19, align 8, !noalias !16
+  store ptr %18, ptr %19, align 8, !noalias !15
   invoke void @_ZN4absl12lts_2023080216strings_internal9CatPiecesB5cxx11ESt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %error_message, ptr nonnull %ref.tmp.i19, i64 6)
           to label %invoke.cont39 unwind label %lpad5
 
@@ -3875,7 +3875,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %sum.4.i = add i32 %sum.3.i, %inc12.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !18
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %3 = mul i32 %add.i, 5
@@ -3921,7 +3921,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %sum.4.i = add i32 %sum.3.i, %inc12.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit, label %for.body.i, !llvm.loop !19
 
 _ZN6google8protobuf8internalL10VarintSizeILb0ELb0EjEEmPKT1_i.exit: ; preds = %for.body.i, %entry
   %sum.0.lcssa.i = phi i32 [ %1, %entry ], [ %sum.4.i, %for.body.i ]
@@ -3964,7 +3964,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %sum.4.i = add i32 %sum.3.i, %inc12.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb1ELb0EiEEmPKT1_i.exit, label %for.body.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internalL10VarintSizeILb1ELb0EiEEmPKT1_i.exit, label %for.body.i, !llvm.loop !20
 
 _ZN6google8protobuf8internalL10VarintSizeILb1ELb0EiEEmPKT1_i.exit: ; preds = %for.body.i, %entry
   %sum.0.lcssa.i = phi i32 [ %1, %entry ], [ %sum.4.i, %for.body.i ]
@@ -4007,7 +4007,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %sum.4.i = add i32 %sum.3.i, %inc12.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !18
 
 for.end.loopexit.i:                               ; preds = %for.body.i
   %3 = mul i32 %add.i, 5
@@ -4048,7 +4048,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i64 %div1.i.i, %out.06
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %entry
   %out.0.lcssa = phi i64 [ 0, %entry ], [ %add, %for.body ]
@@ -4082,7 +4082,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i64 %div1.i.i, %out.06
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !22
 
 for.end:                                          ; preds = %for.body, %entry
   %out.0.lcssa = phi i64 [ 0, %entry ], [ %add, %for.body ]
@@ -4119,7 +4119,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i64 %div1.i.i, %out.06
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body, %entry
   %out.0.lcssa = phi i64 [ 0, %entry ], [ %add, %for.body ]
@@ -4506,24 +4506,23 @@ attributes #28 = { allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !5, !6}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
-!15 = distinct !{!15, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN4absl12lts_202308026StrCatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_RKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
-!18 = distinct !{!18, !"_ZN4absl12lts_202308026StrCatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_RKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !5}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
+!14 = distinct !{!14, !"_ZN4absl12lts_202308026StrCatIJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZN4absl12lts_202308026StrCatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_RKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_: %agg.result"}
+!17 = distinct !{!17, !"_ZN4absl12lts_202308026StrCatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_RKNS0_8AlphaNumESA_SA_SA_SA_DpRKT_"}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}

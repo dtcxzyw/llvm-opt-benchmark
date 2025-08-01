@@ -230,16 +230,16 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
   %12 = getelementptr inbounds nuw i8, ptr %.0294449, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %.not38 = icmp eq ptr %13, null
-  br i1 %.not38, label %._crit_edge52, label %14, !llvm.loop !23
+  br i1 %.not38, label %._crit_edge52, label %14, !llvm.loop !22
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.0294449, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !19
   %.not47 = icmp eq i64 %16, %11
-  br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge52:                                    ; preds = %.lr.ph
-  br label %._crit_edge, !llvm.loop !23
+  br label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %14, %._crit_edge52, %.preheader
   %.not47.lcssa = phi i1 [ false, %._crit_edge52 ], [ true, %.preheader ], [ true, %14 ]
@@ -253,16 +253,16 @@ define dso_local i32 @tool_setopt_SSLVERSION(ptr noundef %0, ptr noundef readonl
   %19 = getelementptr inbounds nuw i8, ptr %.0284655, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !17
   %.not39 = icmp eq ptr %20, null
-  br i1 %.not39, label %._crit_edge60, label %21, !llvm.loop !24
+  br i1 %.not39, label %._crit_edge60, label %21, !llvm.loop !23
 
 21:                                               ; preds = %.lr.ph57
   %22 = getelementptr inbounds nuw i8, ptr %.0284655, i64 24
   %23 = load i64, ptr %22, align 8, !tbaa !19
   %24 = icmp eq i64 %23, %17
-  br i1 %24, label %._crit_edge58, label %.lr.ph57, !llvm.loop !24
+  br i1 %24, label %._crit_edge58, label %.lr.ph57, !llvm.loop !23
 
 ._crit_edge60:                                    ; preds = %.lr.ph57
-  br label %._crit_edge58, !llvm.loop !24
+  br label %._crit_edge58, !llvm.loop !23
 
 ._crit_edge58:                                    ; preds = %21, %._crit_edge60, %._crit_edge
   %.lcssa = phi ptr [ null, %._crit_edge60 ], [ @.str.32, %._crit_edge ], [ %20, %21 ]
@@ -302,7 +302,7 @@ define dso_local i32 @tool_setopt_bitmask(ptr noundef %0, ptr noundef readonly c
 13:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #8
   %14 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull @.str.61, ptr noundef %2) #8
-  %15 = load ptr, ptr %4, align 8, !tbaa !25
+  %15 = load ptr, ptr %4, align 8, !tbaa !24
   %.not4353 = icmp eq ptr %15, null
   br i1 %.not4353, label %._crit_edge.thread, label %.lr.ph
 
@@ -311,7 +311,7 @@ define dso_local i32 @tool_setopt_bitmask(ptr noundef %0, ptr noundef readonly c
   %.02855 = phi ptr [ %33, %32 ], [ %4, %13 ]
   %.02954 = phi i64 [ %.2, %32 ], [ %5, %13 ]
   %17 = getelementptr inbounds nuw i8, ptr %.02855, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !27
+  %18 = load i64, ptr %17, align 8, !tbaa !26
   %19 = xor i64 %.02954, -1
   %20 = and i64 %18, %19
   %21 = icmp eq i64 %20, 0
@@ -338,9 +338,9 @@ define dso_local i32 @tool_setopt_bitmask(ptr noundef %0, ptr noundef readonly c
 32:                                               ; preds = %.lr.ph, %28
   %.2 = phi i64 [ %24, %28 ], [ %.02954, %.lr.ph ]
   %33 = getelementptr inbounds nuw i8, ptr %.02855, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !25
+  %34 = load ptr, ptr %33, align 8, !tbaa !24
   %.not43 = icmp eq ptr %34, null
-  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not43, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %32
   %.not46 = icmp eq i64 %.2, 0
@@ -386,15 +386,15 @@ define dso_local i32 @tool_setopt_mimepost(ptr noundef %0, ptr noundef readonly 
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 968
-  %15 = load ptr, ptr %14, align 8, !tbaa !30
+  %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = call fastcc i32 @libcurl_generate_mime(ptr noundef %15, ptr noundef %6)
   %.not13 = icmp eq i32 %16, 0
   br i1 %.not13, label %17, label %20
 
 17:                                               ; preds = %11
-  %18 = load i32, ptr %6, align 4, !tbaa !40
+  %18 = load i32, ptr %6, align 4, !tbaa !39
   %19 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.68, ptr noundef %2, i32 noundef %18) #8
   br label %20
 
@@ -406,53 +406,53 @@ define dso_local i32 @tool_setopt_mimepost(ptr noundef %0, ptr noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @libcurl_generate_mime(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) initializes((0, 4)) %1) unnamed_addr #0 {
-  %3 = load i32, ptr @easysrc_mime_count, align 4, !tbaa !40
+  %3 = load i32, ptr @easysrc_mime_count, align 4, !tbaa !39
   %4 = add nsw i32 %3, 1
-  store i32 %4, ptr @easysrc_mime_count, align 4, !tbaa !40
-  store i32 %4, ptr %1, align 4, !tbaa !40
+  store i32 %4, ptr @easysrc_mime_count, align 4, !tbaa !39
+  store i32 %4, ptr %1, align 4, !tbaa !39
   %5 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_decl, ptr noundef nonnull @.str.79, i32 noundef %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %28
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr %1, align 4, !tbaa !40
+  %7 = load i32, ptr %1, align 4, !tbaa !39
   %8 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_data, ptr noundef nonnull @.str.80, i32 noundef %7) #8
   %.not24 = icmp eq i32 %8, 0
   br i1 %.not24, label %9, label %28
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %1, align 4, !tbaa !40
+  %10 = load i32, ptr %1, align 4, !tbaa !39
   %11 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.81, i32 noundef %10) #8
   %.not25 = icmp eq i32 %11, 0
   br i1 %.not25, label %12, label %28
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %1, align 4, !tbaa !40
+  %13 = load i32, ptr %1, align 4, !tbaa !39
   %14 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_clean, ptr noundef nonnull @.str.82, i32 noundef %13) #8
   %.not26 = icmp eq i32 %14, 0
   br i1 %.not26, label %15, label %28
 
 15:                                               ; preds = %12
-  %16 = load i32, ptr %1, align 4, !tbaa !40
+  %16 = load i32, ptr %1, align 4, !tbaa !39
   %17 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_clean, ptr noundef nonnull @.str.80, i32 noundef %16) #8
   %.not27 = icmp eq i32 %17, 0
   br i1 %.not27, label %18, label %28
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %20 = load ptr, ptr %19, align 8, !tbaa !41
+  %20 = load ptr, ptr %19, align 8, !tbaa !40
   %.not28 = icmp eq ptr %20, null
   br i1 %.not28, label %28, label %21
 
 21:                                               ; preds = %18
-  %22 = load i32, ptr %1, align 4, !tbaa !40
+  %22 = load i32, ptr %1, align 4, !tbaa !39
   %23 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_decl, ptr noundef nonnull @.str.83, i32 noundef %22) #8
   %.not29 = icmp eq i32 %23, 0
   br i1 %.not29, label %24, label %28
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %19, align 8, !tbaa !41
-  %26 = load i32, ptr %1, align 4, !tbaa !40
+  %25 = load ptr, ptr %19, align 8, !tbaa !40
+  %26 = load i32, ptr %1, align 4, !tbaa !39
   %27 = tail call fastcc i32 @libcurl_generate_mime_part(ptr noundef %25, i32 noundef %26)
   br label %28
 
@@ -481,7 +481,7 @@ define dso_local i32 @tool_setopt_slist(ptr noundef %0, ptr noundef readonly cap
   br i1 %.not, label %15, label %18
 
 15:                                               ; preds = %13
-  %16 = load i32, ptr %6, align 4, !tbaa !40
+  %16 = load i32, ptr %6, align 4, !tbaa !39
   %17 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.69, ptr noundef %2, i32 noundef %16) #8
   br label %18
 
@@ -497,28 +497,28 @@ define dso_local i32 @tool_setopt_slist(ptr noundef %0, ptr noundef readonly cap
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @libcurl_generate_slist(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) initializes((0, 4)) %1) unnamed_addr #0 {
-  %3 = load i32, ptr @easysrc_slist_count, align 4, !tbaa !40
+  %3 = load i32, ptr @easysrc_slist_count, align 4, !tbaa !39
   %4 = add nsw i32 %3, 1
-  store i32 %4, ptr @easysrc_slist_count, align 4, !tbaa !40
-  store i32 %4, ptr %1, align 4, !tbaa !40
+  store i32 %4, ptr @easysrc_slist_count, align 4, !tbaa !39
+  store i32 %4, ptr %1, align 4, !tbaa !39
   %5 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_decl, ptr noundef nonnull @.str.98, i32 noundef %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %.loopexit36
 
 6:                                                ; preds = %2
-  %7 = load i32, ptr %1, align 4, !tbaa !40
+  %7 = load i32, ptr %1, align 4, !tbaa !39
   %8 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_data, ptr noundef nonnull @.str.97, i32 noundef %7) #8
   %.not32 = icmp eq i32 %8, 0
   br i1 %.not32, label %9, label %.loopexit36
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %1, align 4, !tbaa !40
+  %10 = load i32, ptr %1, align 4, !tbaa !39
   %11 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_clean, ptr noundef nonnull @.str.99, i32 noundef %10) #8
   %.not33 = icmp eq i32 %11, 0
   br i1 %.not33, label %12, label %.loopexit36
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %1, align 4, !tbaa !40
+  %13 = load i32, ptr %1, align 4, !tbaa !39
   %14 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_clean, ptr noundef nonnull @.str.97, i32 noundef %13) #8
   %15 = icmp eq i32 %14, 0
   %16 = icmp ne ptr %0, null
@@ -529,22 +529,22 @@ define internal fastcc i32 @libcurl_generate_slist(ptr noundef readonly captures
   %.023 = phi ptr [ %24, %22 ], [ %0, %12 ]
   %.0 = phi ptr [ %18, %22 ], [ null, %12 ]
   tail call void @free(ptr noundef %.0) #8
-  %17 = load ptr, ptr %.023, align 8, !tbaa !43
+  %17 = load ptr, ptr %.023, align 8, !tbaa !42
   %18 = tail call fastcc ptr @c_escape(ptr noundef %17, i64 noundef -1)
   %.not34 = icmp eq ptr %18, null
   br i1 %.not34, label %.loopexit, label %19
 
 19:                                               ; preds = %.preheader
-  %20 = load i32, ptr %1, align 4, !tbaa !40
+  %20 = load i32, ptr %1, align 4, !tbaa !39
   %21 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_data, ptr noundef nonnull @.str.100, i32 noundef %20, i32 noundef %20, ptr noundef nonnull %18) #8
   %.not35 = icmp eq i32 %21, 0
   br i1 %.not35, label %22, label %.loopexit36
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %.023, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !45
+  %24 = load ptr, ptr %23, align 8, !tbaa !44
   %.old1.not = icmp eq ptr %24, null
-  br i1 %.old1.not, label %.loopexit36, label %.preheader, !llvm.loop !46
+  br i1 %.old1.not, label %.loopexit36, label %.preheader
 
 .loopexit36:                                      ; preds = %19, %22, %2, %6, %9, %12
   %.021 = phi i32 [ %5, %2 ], [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ 0, %22 ], [ %21, %19 ]
@@ -590,7 +590,7 @@ define dso_local i32 @tool_setopt(ptr noundef %0, i1 noundef zeroext %1, ptr nou
 
 23:                                               ; preds = %19, %13
   %24 = phi ptr [ %17, %13 ], [ %21, %19 ]
-  %25 = load i64, ptr %24, align 8, !tbaa !47
+  %25 = load i64, ptr %24, align 8, !tbaa !45
   br label %26
 
 26:                                               ; preds = %23, %32
@@ -609,7 +609,7 @@ define dso_local i32 @tool_setopt(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   %33 = getelementptr inbounds nuw i8, ptr %.06498, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !17
   %.not88 = icmp eq ptr %34, null
-  br i1 %.not88, label %.loopexit, label %26, !llvm.loop !48
+  br i1 %.not88, label %.loopexit, label %26, !llvm.loop !46
 
 .loopexit:                                        ; preds = %32, %29
   %.065 = phi i64 [ %31, %29 ], [ 0, %32 ]
@@ -645,7 +645,7 @@ define dso_local i32 @tool_setopt(ptr noundef %0, i1 noundef zeroext %1, ptr nou
 
 53:                                               ; preds = %49, %43
   %54 = phi ptr [ %47, %43 ], [ %51, %49 ]
-  %55 = load ptr, ptr %54, align 8, !tbaa !49
+  %55 = load ptr, ptr %54, align 8, !tbaa !47
   %56 = icmp samesign ugt i32 %5, 19999
   br i1 %56, label %57, label %58
 
@@ -700,7 +700,7 @@ define dso_local i32 @tool_setopt(ptr noundef %0, i1 noundef zeroext %1, ptr nou
 
 78:                                               ; preds = %74, %68
   %79 = phi ptr [ %72, %68 ], [ %76, %74 ]
-  %80 = load i64, ptr %79, align 8, !tbaa !47
+  %80 = load i64, ptr %79, align 8, !tbaa !45
   %81 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %8, i64 noundef 256, ptr noundef nonnull @.str.73, i64 noundef %80) #8
   %82 = call i32 (ptr, i32, ...) @curl_easy_setopt(ptr noundef %0, i32 noundef %5, i64 noundef %80) #8
   %.not86 = icmp eq i64 %80, 0
@@ -727,7 +727,7 @@ define dso_local i32 @tool_setopt(ptr noundef %0, i1 noundef zeroext %1, ptr nou
 
 94:                                               ; preds = %90, %84
   %95 = phi ptr [ %88, %84 ], [ %92, %90 ]
-  %96 = load ptr, ptr %95, align 8, !tbaa !49
+  %96 = load ptr, ptr %95, align 8, !tbaa !47
   %.not = icmp eq ptr %96, null
   %..str.74 = select i1 %.not, ptr null, ptr @.str.74
   %.263 = xor i1 %.not, true
@@ -753,7 +753,7 @@ define dso_local i32 @tool_setopt(ptr noundef %0, i1 noundef zeroext %1, ptr nou
   br i1 %.061, label %104, label %109
 
 104:                                              ; preds = %103
-  %105 = load i8, ptr %.060, align 1, !tbaa !50
+  %105 = load i8, ptr %.060, align 1, !tbaa !48
   %106 = icmp eq i8 %105, 111
   %107 = select i1 %106, ptr @.str.76, ptr @.str.66
   %108 = call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_toohard, ptr noundef nonnull @.str.75, ptr noundef %4, ptr noundef nonnull %107, ptr noundef nonnull %.060) #8
@@ -835,7 +835,7 @@ define internal fastcc ptr @c_escape(ptr noundef %0, i64 noundef %1) unnamed_add
   %.066 = phi ptr [ %.1, %52 ], [ %0, %.lr.ph.preheader ]
   %.03865 = phi ptr [ %53, %52 ], [ %0, %.lr.ph.preheader ]
   %.24164 = phi i64 [ %54, %52 ], [ %spec.select, %.lr.ph.preheader ]
-  %12 = load i8, ptr %.03865, align 1, !tbaa !50
+  %12 = load i8, ptr %.03865, align 1, !tbaa !48
   %13 = sext i8 %12 to i32
   %memchr = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @c_escape.from, i32 %13, i64 7)
   %.not51 = icmp eq ptr %memchr, null
@@ -868,7 +868,7 @@ define internal fastcc ptr @c_escape(ptr noundef %0, i64 noundef %1) unnamed_add
   br i1 %.not5359, label %.thread60, label %.critedge
 
 .thread60:                                        ; preds = %.thread
-  %28 = load i8, ptr %memchr, align 1, !tbaa !50
+  %28 = load i8, ptr %memchr, align 1, !tbaa !48
   %.not54 = icmp eq i8 %28, 0
   br i1 %.not54, label %35, label %29
 
@@ -886,7 +886,7 @@ define internal fastcc ptr @c_escape(ptr noundef %0, i64 noundef %1) unnamed_add
   br i1 %37, label %38, label %47
 
 38:                                               ; preds = %35
-  %39 = load i8, ptr %36, align 1, !tbaa !50
+  %39 = load i8, ptr %36, align 1, !tbaa !48
   %40 = add i8 %39, -48
   %or.cond57 = icmp ult i8 %40, 10
   %41 = add i8 %39, -97
@@ -905,7 +905,7 @@ define internal fastcc ptr @c_escape(ptr noundef %0, i64 noundef %1) unnamed_add
 
 47:                                               ; preds = %38, %44, %42, %35
   %48 = phi ptr [ @.str.110, %35 ], [ @.str.110, %42 ], [ %46, %44 ], [ @.str.109, %38 ]
-  %49 = load i8, ptr %.03865, align 1, !tbaa !50
+  %49 = load i8, ptr %.03865, align 1, !tbaa !48
   %50 = zext i8 %49 to i32
   %51 = call i32 (ptr, ptr, ...) @curlx_dyn_addf(ptr noundef nonnull %3, ptr noundef nonnull %48, i32 noundef %50) #8
   br label %52
@@ -918,7 +918,7 @@ define internal fastcc ptr @c_escape(ptr noundef %0, i64 noundef %1) unnamed_add
   %.not = icmp eq i32 %.136, 0
   %55 = icmp ne i64 %54, 0
   %56 = select i1 %.not, i1 %55, i1 false
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %52, %7
   %.038.lcssa = phi ptr [ %0, %7 ], [ %53, %52 ]
@@ -953,9 +953,9 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !52
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !53
+  %8 = load ptr, ptr %7, align 8, !tbaa !51
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 
@@ -970,7 +970,7 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   br i1 %.not141, label %13, label %.critedge
 
 13:                                               ; preds = %11
-  %14 = load i32, ptr %0, align 8, !tbaa !54
+  %14 = load i32, ptr %0, align 8, !tbaa !52
   switch i32 %14, label %45 [
     i32 1, label %15
     i32 2, label %22
@@ -986,7 +986,7 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   br i1 %.not150, label %17, label %.critedge
 
 17:                                               ; preds = %15
-  %18 = load i32, ptr %3, align 4, !tbaa !40
+  %18 = load i32, ptr %3, align 4, !tbaa !39
   %19 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.85, i32 noundef %1, i32 noundef %18) #8
   %.not151 = icmp eq i32 %19, 0
   br i1 %.not151, label %20, label %.critedge
@@ -998,7 +998,7 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !55
+  %24 = load ptr, ptr %23, align 8, !tbaa !53
   %25 = tail call fastcc ptr @c_escape(ptr noundef %24, i64 noundef -1)
   %.not148 = icmp eq ptr %25, null
   br i1 %.not148, label %.critedge, label %26
@@ -1010,7 +1010,7 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
 
 28:                                               ; preds = %13, %13
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !55
+  %30 = load ptr, ptr %29, align 8, !tbaa !53
   %31 = tail call fastcc ptr @c_escape(ptr noundef %30, i64 noundef -1)
   %.not145 = icmp eq ptr %31, null
   br i1 %.not145, label %.critedge, label %32
@@ -1021,7 +1021,7 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   br i1 %.not146, label %34, label %.critedge
 
 34:                                               ; preds = %32
-  %35 = load i32, ptr %0, align 8, !tbaa !54
+  %35 = load i32, ptr %0, align 8, !tbaa !52
   %36 = icmp ne i32 %35, 4
   %37 = icmp ne ptr %6, null
   %or.cond = select i1 %36, i1 true, i1 %37
@@ -1052,13 +1052,13 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   %.089.ph = phi ptr [ null, %43 ], [ %31, %38 ], [ %31, %34 ], [ %25, %26 ], [ null, %20 ], [ null, %13 ]
   %.088.ph = phi ptr [ %.1, %43 ], [ null, %38 ], [ %6, %34 ], [ %6, %26 ], [ %6, %20 ], [ %6, %13 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %47 = load ptr, ptr %46, align 8, !tbaa !56
+  %47 = load ptr, ptr %46, align 8, !tbaa !54
   %.not154 = icmp eq ptr %47, null
   br i1 %.not154, label %53, label %48
 
 48:                                               ; preds = %45
   tail call void @free(ptr noundef %.089.ph) #8
-  %49 = load ptr, ptr %46, align 8, !tbaa !56
+  %49 = load ptr, ptr %46, align 8, !tbaa !54
   %50 = tail call fastcc ptr @c_escape(ptr noundef %49, i64 noundef -1)
   %.not155 = icmp eq ptr %50, null
   br i1 %.not155, label %.critedge, label %51
@@ -1087,13 +1087,13 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
 58:                                               ; preds = %56, %53
   %.2.ph = phi ptr [ %.190, %53 ], [ %55, %56 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %60 = load ptr, ptr %59, align 8, !tbaa !57
+  %60 = load ptr, ptr %59, align 8, !tbaa !55
   %.not160 = icmp eq ptr %60, null
   br i1 %.not160, label %66, label %61
 
 61:                                               ; preds = %58
   tail call void @free(ptr noundef %.2.ph) #8
-  %62 = load ptr, ptr %59, align 8, !tbaa !57
+  %62 = load ptr, ptr %59, align 8, !tbaa !55
   %63 = tail call fastcc ptr @c_escape(ptr noundef %62, i64 noundef -1)
   %.not161 = icmp eq ptr %63, null
   br i1 %.not161, label %.critedge, label %64
@@ -1106,13 +1106,13 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
 66:                                               ; preds = %64, %58
   %.3.ph = phi ptr [ %.2.ph, %58 ], [ %63, %64 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = load ptr, ptr %67, align 8, !tbaa !58
+  %68 = load ptr, ptr %67, align 8, !tbaa !56
   %.not164 = icmp eq ptr %68, null
   br i1 %.not164, label %74, label %69
 
 69:                                               ; preds = %66
   tail call void @free(ptr noundef %.3.ph) #8
-  %70 = load ptr, ptr %67, align 8, !tbaa !58
+  %70 = load ptr, ptr %67, align 8, !tbaa !56
   %71 = tail call fastcc ptr @c_escape(ptr noundef %70, i64 noundef -1)
   %.not165 = icmp eq ptr %71, null
   br i1 %.not165, label %.critedge, label %72
@@ -1125,7 +1125,7 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
 74:                                               ; preds = %66, %72
   %.4 = phi ptr [ %71, %72 ], [ %.3.ph, %66 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %76 = load ptr, ptr %75, align 8, !tbaa !59
+  %76 = load ptr, ptr %75, align 8, !tbaa !57
   %.not167 = icmp eq ptr %76, null
   br i1 %.not167, label %.critedge, label %77
 
@@ -1136,7 +1136,7 @@ define internal fastcc i32 @libcurl_generate_mime_part(ptr noundef readonly capt
   br i1 %.not168, label %79, label %84
 
 79:                                               ; preds = %77
-  %80 = load i32, ptr %4, align 4, !tbaa !40
+  %80 = load i32, ptr %4, align 4, !tbaa !39
   %81 = tail call i32 (ptr, ptr, ...) @easysrc_addf(ptr noundef nonnull @easysrc_code, ptr noundef nonnull @.str.96, i32 noundef %1, i32 noundef %80) #8
   %.not169 = icmp eq i32 %81, 0
   br i1 %.not169, label %82, label %84
@@ -1211,43 +1211,41 @@ attributes #9 = { nounwind willreturn memory(read) }
 !17 = !{!18, !9, i64 0}
 !18 = !{!"NameValue", !9, i64 0, !13, i64 8}
 !19 = !{!18, !13, i64 8}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !21, !22}
-!24 = distinct !{!24, !21, !22}
-!25 = !{!26, !9, i64 0}
-!26 = !{!"NameValueUnsigned", !9, i64 0, !13, i64 8}
-!27 = !{!26, !13, i64 8}
-!28 = distinct !{!28, !21, !22}
-!29 = !{!5, !16, i64 104}
-!30 = !{!31, !35, i64 968}
-!31 = !{!"OperationConfig", !6, i64 0, !9, i64 8, !32, i64 16, !9, i64 24, !32, i64 32, !9, i64 40, !9, i64 48, !6, i64 56, !6, i64 57, !6, i64 58, !13, i64 64, !6, i64 72, !6, i64 73, !6, i64 74, !6, i64 75, !6, i64 76, !9, i64 80, !6, i64 88, !9, i64 96, !6, i64 104, !9, i64 112, !13, i64 120, !9, i64 128, !33, i64 136, !9, i64 168, !9, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !13, i64 248, !13, i64 256, !14, i64 264, !9, i64 272, !13, i64 280, !13, i64 288, !13, i64 296, !13, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !9, i64 368, !9, i64 376, !9, i64 384, !9, i64 392, !9, i64 400, !9, i64 408, !9, i64 416, !12, i64 424, !9, i64 432, !9, i64 440, !32, i64 448, !9, i64 456, !6, i64 464, !9, i64 472, !6, i64 480, !6, i64 481, !6, i64 482, !6, i64 483, !6, i64 484, !6, i64 485, !6, i64 486, !6, i64 487, !6, i64 488, !6, i64 489, !6, i64 490, !6, i64 491, !6, i64 492, !6, i64 493, !9, i64 496, !34, i64 504, !34, i64 512, !34, i64 520, !34, i64 528, !34, i64 536, !13, i64 544, !9, i64 552, !9, i64 560, !9, i64 568, !9, i64 576, !9, i64 584, !9, i64 592, !9, i64 600, !9, i64 608, !9, i64 616, !9, i64 624, !9, i64 632, !9, i64 640, !9, i64 648, !9, i64 656, !9, i64 664, !9, i64 672, !9, i64 680, !9, i64 688, !9, i64 696, !9, i64 704, !9, i64 712, !9, i64 720, !9, i64 728, !9, i64 736, !9, i64 744, !9, i64 752, !9, i64 760, !9, i64 768, !9, i64 776, !9, i64 784, !6, i64 792, !9, i64 800, !9, i64 808, !9, i64 816, !9, i64 824, !13, i64 832, !6, i64 840, !6, i64 841, !6, i64 842, !6, i64 843, !6, i64 844, !6, i64 845, !6, i64 846, !6, i64 847, !6, i64 848, !6, i64 849, !6, i64 850, !6, i64 851, !6, i64 852, !6, i64 853, !6, i64 854, !6, i64 855, !6, i64 856, !6, i64 857, !6, i64 858, !6, i64 859, !9, i64 864, !32, i64 872, !32, i64 880, !32, i64 888, !13, i64 896, !13, i64 904, !13, i64 912, !13, i64 920, !13, i64 928, !12, i64 936, !13, i64 944, !32, i64 952, !32, i64 960, !35, i64 968, !35, i64 976, !36, i64 984, !32, i64 992, !32, i64 1000, !32, i64 1008, !12, i64 1016, !13, i64 1024, !13, i64 1032, !6, i64 1040, !6, i64 1041, !6, i64 1042, !6, i64 1043, !12, i64 1044, !9, i64 1048, !6, i64 1056, !13, i64 1064, !9, i64 1072, !9, i64 1080, !6, i64 1088, !6, i64 1089, !13, i64 1096, !6, i64 1104, !6, i64 1105, !13, i64 1112, !13, i64 1120, !9, i64 1128, !9, i64 1136, !12, i64 1144, !13, i64 1152, !13, i64 1160, !6, i64 1168, !6, i64 1169, !6, i64 1170, !6, i64 1171, !6, i64 1172, !6, i64 1173, !6, i64 1174, !6, i64 1175, !13, i64 1176, !13, i64 1184, !6, i64 1192, !12, i64 1196, !6, i64 1200, !13, i64 1208, !6, i64 1216, !6, i64 1217, !6, i64 1218, !6, i64 1219, !6, i64 1220, !6, i64 1221, !6, i64 1222, !6, i64 1223, !6, i64 1224, !9, i64 1232, !6, i64 1240, !9, i64 1248, !6, i64 1256, !6, i64 1257, !6, i64 1258, !13, i64 1264, !6, i64 1272, !6, i64 1273, !6, i64 1274, !13, i64 1280, !6, i64 1288, !9, i64 1296, !6, i64 1304, !9, i64 1312, !12, i64 1320, !6, i64 1324, !37, i64 1328, !16, i64 1336, !16, i64 1344, !38, i64 1352, !6, i64 1432, !6, i64 1433, !9, i64 1440, !9, i64 1448, !9, i64 1456}
-!32 = !{!"p1 _ZTS10curl_slist", !10, i64 0}
-!33 = !{!"dynbuf", !9, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
-!34 = !{!"p1 _ZTS6getout", !10, i64 0}
-!35 = !{!"p1 _ZTS9tool_mime", !10, i64 0}
-!36 = !{!"p1 _ZTS9curl_mime", !10, i64 0}
-!37 = !{!"p1 _ZTS12GlobalConfig", !10, i64 0}
-!38 = !{!"State", !34, i64 0, !39, i64 8, !39, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72}
-!39 = !{!"p1 _ZTS7URLGlob", !10, i64 0}
-!40 = !{!12, !12, i64 0}
-!41 = !{!42, !35, i64 72}
-!42 = !{!"tool_mime", !12, i64 0, !35, i64 8, !35, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !32, i64 64, !35, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !37, i64 104}
-!43 = !{!44, !9, i64 0}
-!44 = !{!"curl_slist", !9, i64 0, !32, i64 8}
-!45 = !{!44, !32, i64 8}
-!46 = distinct !{!46, !22}
-!47 = !{!13, !13, i64 0}
-!48 = distinct !{!48, !21, !22}
-!49 = !{!10, !10, i64 0}
-!50 = !{!7, !7, i64 0}
-!51 = distinct !{!51, !21, !22}
-!52 = !{!42, !9, i64 40}
-!53 = !{!42, !35, i64 16}
-!54 = !{!42, !12, i64 0}
-!55 = !{!42, !9, i64 24}
-!56 = !{!42, !9, i64 56}
-!57 = !{!42, !9, i64 32}
-!58 = !{!42, !9, i64 48}
-!59 = !{!42, !32, i64 64}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21}
+!24 = !{!25, !9, i64 0}
+!25 = !{!"NameValueUnsigned", !9, i64 0, !13, i64 8}
+!26 = !{!25, !13, i64 8}
+!27 = distinct !{!27, !21}
+!28 = !{!5, !16, i64 104}
+!29 = !{!30, !34, i64 968}
+!30 = !{!"OperationConfig", !6, i64 0, !9, i64 8, !31, i64 16, !9, i64 24, !31, i64 32, !9, i64 40, !9, i64 48, !6, i64 56, !6, i64 57, !6, i64 58, !13, i64 64, !6, i64 72, !6, i64 73, !6, i64 74, !6, i64 75, !6, i64 76, !9, i64 80, !6, i64 88, !9, i64 96, !6, i64 104, !9, i64 112, !13, i64 120, !9, i64 128, !32, i64 136, !9, i64 168, !9, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !9, i64 240, !13, i64 248, !13, i64 256, !14, i64 264, !9, i64 272, !13, i64 280, !13, i64 288, !13, i64 296, !13, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !9, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !9, i64 368, !9, i64 376, !9, i64 384, !9, i64 392, !9, i64 400, !9, i64 408, !9, i64 416, !12, i64 424, !9, i64 432, !9, i64 440, !31, i64 448, !9, i64 456, !6, i64 464, !9, i64 472, !6, i64 480, !6, i64 481, !6, i64 482, !6, i64 483, !6, i64 484, !6, i64 485, !6, i64 486, !6, i64 487, !6, i64 488, !6, i64 489, !6, i64 490, !6, i64 491, !6, i64 492, !6, i64 493, !9, i64 496, !33, i64 504, !33, i64 512, !33, i64 520, !33, i64 528, !33, i64 536, !13, i64 544, !9, i64 552, !9, i64 560, !9, i64 568, !9, i64 576, !9, i64 584, !9, i64 592, !9, i64 600, !9, i64 608, !9, i64 616, !9, i64 624, !9, i64 632, !9, i64 640, !9, i64 648, !9, i64 656, !9, i64 664, !9, i64 672, !9, i64 680, !9, i64 688, !9, i64 696, !9, i64 704, !9, i64 712, !9, i64 720, !9, i64 728, !9, i64 736, !9, i64 744, !9, i64 752, !9, i64 760, !9, i64 768, !9, i64 776, !9, i64 784, !6, i64 792, !9, i64 800, !9, i64 808, !9, i64 816, !9, i64 824, !13, i64 832, !6, i64 840, !6, i64 841, !6, i64 842, !6, i64 843, !6, i64 844, !6, i64 845, !6, i64 846, !6, i64 847, !6, i64 848, !6, i64 849, !6, i64 850, !6, i64 851, !6, i64 852, !6, i64 853, !6, i64 854, !6, i64 855, !6, i64 856, !6, i64 857, !6, i64 858, !6, i64 859, !9, i64 864, !31, i64 872, !31, i64 880, !31, i64 888, !13, i64 896, !13, i64 904, !13, i64 912, !13, i64 920, !13, i64 928, !12, i64 936, !13, i64 944, !31, i64 952, !31, i64 960, !34, i64 968, !34, i64 976, !35, i64 984, !31, i64 992, !31, i64 1000, !31, i64 1008, !12, i64 1016, !13, i64 1024, !13, i64 1032, !6, i64 1040, !6, i64 1041, !6, i64 1042, !6, i64 1043, !12, i64 1044, !9, i64 1048, !6, i64 1056, !13, i64 1064, !9, i64 1072, !9, i64 1080, !6, i64 1088, !6, i64 1089, !13, i64 1096, !6, i64 1104, !6, i64 1105, !13, i64 1112, !13, i64 1120, !9, i64 1128, !9, i64 1136, !12, i64 1144, !13, i64 1152, !13, i64 1160, !6, i64 1168, !6, i64 1169, !6, i64 1170, !6, i64 1171, !6, i64 1172, !6, i64 1173, !6, i64 1174, !6, i64 1175, !13, i64 1176, !13, i64 1184, !6, i64 1192, !12, i64 1196, !6, i64 1200, !13, i64 1208, !6, i64 1216, !6, i64 1217, !6, i64 1218, !6, i64 1219, !6, i64 1220, !6, i64 1221, !6, i64 1222, !6, i64 1223, !6, i64 1224, !9, i64 1232, !6, i64 1240, !9, i64 1248, !6, i64 1256, !6, i64 1257, !6, i64 1258, !13, i64 1264, !6, i64 1272, !6, i64 1273, !6, i64 1274, !13, i64 1280, !6, i64 1288, !9, i64 1296, !6, i64 1304, !9, i64 1312, !12, i64 1320, !6, i64 1324, !36, i64 1328, !16, i64 1336, !16, i64 1344, !37, i64 1352, !6, i64 1432, !6, i64 1433, !9, i64 1440, !9, i64 1448, !9, i64 1456}
+!31 = !{!"p1 _ZTS10curl_slist", !10, i64 0}
+!32 = !{!"dynbuf", !9, i64 0, !13, i64 8, !13, i64 16, !13, i64 24}
+!33 = !{!"p1 _ZTS6getout", !10, i64 0}
+!34 = !{!"p1 _ZTS9tool_mime", !10, i64 0}
+!35 = !{!"p1 _ZTS9curl_mime", !10, i64 0}
+!36 = !{!"p1 _ZTS12GlobalConfig", !10, i64 0}
+!37 = !{!"State", !33, i64 0, !38, i64 8, !38, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72}
+!38 = !{!"p1 _ZTS7URLGlob", !10, i64 0}
+!39 = !{!12, !12, i64 0}
+!40 = !{!41, !34, i64 72}
+!41 = !{!"tool_mime", !12, i64 0, !34, i64 8, !34, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !31, i64 64, !34, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !36, i64 104}
+!42 = !{!43, !9, i64 0}
+!43 = !{!"curl_slist", !9, i64 0, !31, i64 8}
+!44 = !{!43, !31, i64 8}
+!45 = !{!13, !13, i64 0}
+!46 = distinct !{!46, !21}
+!47 = !{!10, !10, i64 0}
+!48 = !{!7, !7, i64 0}
+!49 = distinct !{!49, !21}
+!50 = !{!41, !9, i64 40}
+!51 = !{!41, !34, i64 16}
+!52 = !{!41, !12, i64 0}
+!53 = !{!41, !9, i64 24}
+!54 = !{!41, !9, i64 56}
+!55 = !{!41, !9, i64 32}
+!56 = !{!41, !9, i64 48}
+!57 = !{!41, !31, i64 64}

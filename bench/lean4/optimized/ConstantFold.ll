@@ -167929,7 +167929,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #6
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20, !llvm.loop !20
+  br i1 %19, label %3, label %20
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -168252,7 +168252,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3, !llvm.loop !22
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -169012,7 +169012,7 @@ lean_obj_tag.exit.i:                              ; preds = %86, %83
   %94 = load ptr, ptr %93, align 8, !tbaa !9
   %95 = tail call zeroext i8 @lean_name_eq(ptr noundef %92, ptr noundef %1) #6
   %96 = icmp eq i8 %95, 0
-  br i1 %96, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__6.exit, !llvm.loop !20
+  br i1 %96, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__6.exit
 
 97:                                               ; preds = %lean_obj_tag.exit.i
   %98 = ptrtoint ptr %58 to i64
@@ -169479,7 +169479,7 @@ lean_obj_tag.exit.i447:                           ; preds = %282, %279
   %290 = load ptr, ptr %289, align 8, !tbaa !9
   %291 = tail call zeroext i8 @lean_name_eq(ptr noundef %288, ptr noundef %1) #6
   %292 = icmp eq i8 %291, 0
-  br i1 %292, label %lean_array_uget.exit444, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__6.exit451, !llvm.loop !20
+  br i1 %292, label %lean_array_uget.exit444, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__6.exit451
 
 293:                                              ; preds = %lean_obj_tag.exit.i447
   br i1 %.not579, label %304, label %294, !prof !17
@@ -170124,7 +170124,7 @@ lean_obj_tag.exit.i508:                           ; preds = %544, %541
   %552 = load ptr, ptr %551, align 8, !tbaa !9
   %553 = tail call zeroext i8 @lean_name_eq(ptr noundef %550, ptr noundef %1) #6
   %554 = icmp eq i8 %553, 0
-  br i1 %554, label %lean_array_uget.exit505, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__6.exit512, !llvm.loop !20
+  br i1 %554, label %lean_array_uget.exit505, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__6.exit512
 
 555:                                              ; preds = %lean_obj_tag.exit.i508
   br i1 %.not571, label %566, label %556, !prof !17
@@ -170760,7 +170760,7 @@ lean_inc.exit:                                    ; preds = %61, %60, %58, %lean
 
 lean_dec.exit:                                    ; preds = %68, %67, %65, %lean_inc.exit
   %69 = tail call ptr @l_Lean_SMap_insert___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__1(ptr noundef %.0, ptr noundef %43, ptr noundef %53)
-  br label %3, !llvm.loop !23
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -170935,7 +170935,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #6
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__6.exit, !llvm.loop !20
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__6.exit
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__6.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -172682,7 +172682,7 @@ lean_inc.exit:                                    ; preds = %126, %125, %123, %1
 lean_dec.exit:                                    ; preds = %lean_inc.exit, %130, %132, %133, %lean_alloc_closure.exit
   %.sink = phi ptr [ %108, %lean_alloc_closure.exit ], [ %118, %133 ], [ %118, %132 ], [ %118, %130 ], [ %118, %lean_inc.exit ]
   %134 = tail call ptr @l_Lean_SMap_insert___at_Lean_Compiler_LCNF_Simp_ConstantFold_builtinFolders___spec__1(ptr noundef %.0, ptr noundef %71, ptr noundef %.sink)
-  br label %5, !llvm.loop !24
+  br label %5
 }
 
 ; Function Attrs: nounwind uwtable
@@ -184485,8 +184485,3 @@ attributes #7 = { noreturn nounwind }
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!7, !7, i64 0}
 !19 = !{!6, !6, i64 0}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = distinct !{!24, !21}

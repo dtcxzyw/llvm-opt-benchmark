@@ -152,7 +152,7 @@ define hidden ptr @X509at_add1_attr(ptr noundef captures(address_is_null) %0, pt
   br label %20
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %0, align 8, !tbaa !16
+  %5 = load ptr, ptr %0, align 8, !tbaa !15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %10
 
@@ -177,12 +177,12 @@ define hidden ptr @X509at_add1_attr(ptr noundef captures(address_is_null) %0, pt
   br i1 %.not, label %.thread37, label %15
 
 15:                                               ; preds = %13
-  %16 = load ptr, ptr %0, align 8, !tbaa !16
+  %16 = load ptr, ptr %0, align 8, !tbaa !15
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
-  store ptr %.2, ptr %0, align 8, !tbaa !16
+  store ptr %.2, ptr %0, align 8, !tbaa !15
   br label %20
 
 .thread37:                                        ; preds = %13
@@ -258,7 +258,7 @@ define hidden ptr @X509_ATTRIBUTE_create_by_OBJ(ptr noundef captures(address_is_
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !18
+  %8 = load ptr, ptr %0, align 8, !tbaa !17
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %14
 
@@ -293,19 +293,19 @@ X509_ATTRIBUTE_set1_object.exit:                  ; preds = %14
   br i1 %6, label %28, label %21
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !18
+  %22 = load ptr, ptr %0, align 8, !tbaa !17
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %21
-  store ptr %.0, ptr %0, align 8, !tbaa !18
+  store ptr %.0, ptr %0, align 8, !tbaa !17
   br label %28
 
 X509_ATTRIBUTE_set1_object.exit.thread:           ; preds = %14, %18, %X509_ATTRIBUTE_set1_object.exit
   br i1 %6, label %27, label %25
 
 25:                                               ; preds = %X509_ATTRIBUTE_set1_object.exit.thread
-  %26 = load ptr, ptr %0, align 8, !tbaa !18
+  %26 = load ptr, ptr %0, align 8, !tbaa !17
   %.not23 = icmp eq ptr %.0, %26
   br i1 %.not23, label %28, label %27
 
@@ -537,10 +537,10 @@ X509at_get_attr.exit:                             ; preds = %X509at_get_attr_by_
 
 39:                                               ; preds = %X509at_get_attr.exit
   %40 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !20
+  %41 = load i32, ptr %40, align 8, !tbaa !19
   %.not.i24 = icmp eq i32 %41, 0
   %42 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !21
+  %43 = load ptr, ptr %42, align 8, !tbaa !20
   br i1 %.not.i24, label %44, label %X509_ATTRIBUTE_count.exit
 
 44:                                               ; preds = %39
@@ -559,10 +559,10 @@ X509_ATTRIBUTE_count.exit:                        ; preds = %39
 
 .thread:                                          ; preds = %44, %X509_ATTRIBUTE_count.exit, %48
   %50 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 8
-  %51 = load i32, ptr %50, align 8, !tbaa !20
+  %51 = load i32, ptr %50, align 8, !tbaa !19
   %.not.i.i.i = icmp eq i32 %51, 0
   %52 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !21
+  %53 = load ptr, ptr %52, align 8, !tbaa !20
   br i1 %.not.i.i.i, label %54, label %X509_ATTRIBUTE_count.exit.i.i
 
 54:                                               ; preds = %.thread
@@ -576,9 +576,9 @@ X509_ATTRIBUTE_count.exit.i.i:                    ; preds = %.thread
   br i1 %.not3.i.i.i.not, label %X509_ATTRIBUTE_get0_data.exit, label %58
 
 58:                                               ; preds = %54, %X509_ATTRIBUTE_count.exit.i.i
-  %59 = load i32, ptr %50, align 8, !tbaa !20
+  %59 = load i32, ptr %50, align 8, !tbaa !19
   %.not9.i.i = icmp eq i32 %59, 0
-  %60 = load ptr, ptr %52, align 8, !tbaa !21
+  %60 = load ptr, ptr %52, align 8, !tbaa !20
   br i1 %.not9.i.i, label %61, label %X509_ATTRIBUTE_get0_type.exit.i
 
 61:                                               ; preds = %58
@@ -601,7 +601,7 @@ X509_ATTRIBUTE_get0_type.exit.i:                  ; preds = %61, %58
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !21
+  %68 = load ptr, ptr %67, align 8, !tbaa !20
   br label %X509_ATTRIBUTE_get0_data.exit
 
 X509_ATTRIBUTE_get0_data.exit:                    ; preds = %10, %54, %44, %4, %66, %65, %X509_ATTRIBUTE_get0_type.exit.i, %X509_ATTRIBUTE_count.exit.i.i, %48, %X509_ATTRIBUTE_count.exit, %X509at_get_attr_by_OBJ.exit22, %X509at_get_attr_by_OBJ.exit
@@ -612,10 +612,10 @@ X509_ATTRIBUTE_get0_data.exit:                    ; preds = %10, %54, %44, %4, %
 ; Function Attrs: nounwind uwtable
 define hidden i32 @X509_ATTRIBUTE_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !20
+  %3 = load i32, ptr %2, align 8, !tbaa !19
   %.not = icmp eq i32 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %1
@@ -640,10 +640,10 @@ define hidden ptr @X509_ATTRIBUTE_get0_data(ptr noundef readonly captures(addres
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !20
+  %8 = load i32, ptr %7, align 8, !tbaa !19
   %.not.i.i = icmp eq i32 %8, 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   br i1 %.not.i.i, label %11, label %14
 
 11:                                               ; preds = %6
@@ -662,9 +662,9 @@ X509_ATTRIBUTE_count.exit.i:                      ; preds = %14, %11
   br i1 %.not.i, label %15, label %X509_ATTRIBUTE_get0_type.exit.thread
 
 15:                                               ; preds = %X509_ATTRIBUTE_count.exit.i
-  %16 = load i32, ptr %7, align 8, !tbaa !20
+  %16 = load i32, ptr %7, align 8, !tbaa !19
   %.not9.i = icmp eq i32 %16, 0
-  %17 = load ptr, ptr %9, align 8, !tbaa !21
+  %17 = load ptr, ptr %9, align 8, !tbaa !20
   br i1 %.not9.i, label %18, label %X509_ATTRIBUTE_get0_type.exit
 
 18:                                               ; preds = %15
@@ -688,7 +688,7 @@ X509_ATTRIBUTE_get0_type.exit:                    ; preds = %15, %18
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !21
+  %26 = load ptr, ptr %25, align 8, !tbaa !20
   br label %X509_ATTRIBUTE_get0_type.exit.thread
 
 X509_ATTRIBUTE_get0_type.exit.thread:             ; preds = %X509_ATTRIBUTE_count.exit.i, %4, %X509_ATTRIBUTE_get0_type.exit, %24, %23
@@ -742,7 +742,7 @@ define hidden range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef captures
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !22
+  %14 = load i32, ptr %13, align 4, !tbaa !21
   br label %20
 
 15:                                               ; preds = %5
@@ -764,13 +764,13 @@ define hidden range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef captures
   %.0 = phi i32 [ %14, %12 ], [ 0, %15 ], [ %1, %18 ]
   %21 = tail call ptr @sk_new_null() #4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %21, ptr %22, align 8, !tbaa !21
+  store ptr %21, ptr %22, align 8, !tbaa !20
   %.not40 = icmp eq ptr %21, null
   br i1 %.not40, label %36, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %24, align 8, !tbaa !20
+  store i32 0, ptr %24, align 8, !tbaa !19
   %25 = icmp eq i32 %1, 0
   br i1 %25, label %37, label %26
 
@@ -794,7 +794,7 @@ define hidden range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef captures
   br label %33
 
 33:                                               ; preds = %30, %32
-  %34 = load ptr, ptr %22, align 8, !tbaa !21
+  %34 = load ptr, ptr %22, align 8, !tbaa !20
   %35 = tail call i64 @sk_push(ptr noundef %34, ptr noundef nonnull %27) #4
   %.not43 = icmp eq i64 %35, 0
   br i1 %.not43, label %36, label %37
@@ -851,10 +851,10 @@ define hidden ptr @X509_ATTRIBUTE_get0_type(ptr noundef readonly captures(addres
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !20
+  %6 = load i32, ptr %5, align 8, !tbaa !19
   %.not.i = icmp eq i32 %6, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   br i1 %.not.i, label %9, label %12
 
 9:                                                ; preds = %4
@@ -873,9 +873,9 @@ X509_ATTRIBUTE_count.exit:                        ; preds = %9, %12
   br i1 %.not, label %13, label %19
 
 13:                                               ; preds = %X509_ATTRIBUTE_count.exit
-  %14 = load i32, ptr %5, align 8, !tbaa !20
+  %14 = load i32, ptr %5, align 8, !tbaa !19
   %.not9 = icmp eq i32 %14, 0
-  %15 = load ptr, ptr %7, align 8, !tbaa !21
+  %15 = load ptr, ptr %7, align 8, !tbaa !20
   br i1 %.not9, label %16, label %19
 
 16:                                               ; preds = %13
@@ -914,16 +914,15 @@ attributes #4 = { nounwind }
 !10 = !{!"omnipotent char", !11, i64 0}
 !11 = !{!"Simple C/C++ TBAA"}
 !12 = !{!"int", !10, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !9, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS18x509_attributes_st", !9, i64 0}
-!20 = !{!7, !12, i64 8}
-!21 = !{!10, !10, i64 0}
-!22 = !{!23, !12, i64 4}
-!23 = !{!"asn1_string_st", !12, i64 0, !12, i64 4, !24, i64 8, !25, i64 16}
-!24 = !{!"p1 omnipotent char", !9, i64 0}
-!25 = !{!"long", !10, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !9, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS18x509_attributes_st", !9, i64 0}
+!19 = !{!7, !12, i64 8}
+!20 = !{!10, !10, i64 0}
+!21 = !{!22, !12, i64 4}
+!22 = !{!"asn1_string_st", !12, i64 0, !12, i64 4, !23, i64 8, !24, i64 16}
+!23 = !{!"p1 omnipotent char", !9, i64 0}
+!24 = !{!"long", !10, i64 0}

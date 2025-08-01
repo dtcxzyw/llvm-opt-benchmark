@@ -114,7 +114,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %35 = zext nneg i8 %30 to i32
   %36 = add i32 %33, %switch.load
   %37 = add i32 %36, %35
-  br label %.preheader, !llvm.loop !9
+  br label %.preheader, !llvm.loop !8
 
 38:                                               ; preds = %7
   br label %.loopexit
@@ -129,7 +129,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not36, label %41, label %40
 
 40:                                               ; preds = %.loopexit
-  store ptr %.028, ptr %1, align 8, !tbaa !10
+  store ptr %.028, ptr %1, align 8, !tbaa !9
   br label %41
 
 41:                                               ; preds = %40, %.loopexit
@@ -146,10 +146,9 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !4, i64 0}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}

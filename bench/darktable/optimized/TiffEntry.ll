@@ -1274,9 +1274,9 @@ _ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28: ; preds = %41
 _ZSt4findIPKhcET_S2_S2_RKT0_.exit:                ; preds = %30, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit26, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28, %50, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i, %61
   %.028.i.i.i = phi ptr [ %25, %61 ], [ %.029.lcssa.i.i.i, %50 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %.2.i.i.i, %._crit_edge._crit_edge52.i.i.i ], [ %62, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit ], [ %63, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit26 ], [ %64, %_ZSt4findIPKhcET_S2_S2_RKT0_.exit.loopexit.split.loop.exit28 ], [ %.02946.i.i.i, %30 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %65, ptr %0, align 8, !tbaa !45
+  store ptr %65, ptr %0, align 8, !tbaa !44
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %66, align 8, !tbaa !47
+  store i64 0, ptr %66, align 8, !tbaa !46
   %67 = ptrtoint ptr %.028.i.i.i to i64
   %68 = sub i64 %67, %27
   %69 = icmp ugt i64 %68, 15
@@ -1293,7 +1293,7 @@ _ZSt4findIPKhcET_S2_S2_RKT0_.exit:                ; preds = %30, %_ZSt4findIPKhc
 72:                                               ; preds = %70
   %73 = add nuw i64 %68, 1
   %74 = icmp slt i64 %73, 0
-  br i1 %74, label %.noexc4.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i, !prof !50
+  br i1 %74, label %.noexc4.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i, !prof !49
 
 .noexc4.i:                                        ; preds = %72
   tail call void @_ZSt17__throw_bad_allocv() #23
@@ -1301,7 +1301,7 @@ _ZSt4findIPKhcET_S2_S2_RKT0_.exit:                ; preds = %30, %_ZSt4findIPKhc
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; preds = %72
   %75 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %73) #24
-  store ptr %75, ptr %0, align 8, !tbaa !51
+  store ptr %75, ptr %0, align 8, !tbaa !50
   store i64 %68, ptr %65, align 8, !tbaa !41
   br label %._crit_edge.i.i
 
@@ -1322,7 +1322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
   br label %80
 
 80:                                               ; preds = %79, %77, %._crit_edge.i.i
-  store i64 %68, ptr %66, align 8, !tbaa !47
+  store i64 %68, ptr %66, align 8, !tbaa !46
   %81 = getelementptr inbounds nuw i8, ptr %76, i64 %68
   store i8 0, ptr %81, align 1, !tbaa !41
   ret void
@@ -1331,7 +1331,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i: ; 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, i64 } @_ZNK8rawspeed9TiffEntry14getRootIfdDataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.0717 = load ptr, ptr %2, align 8, !tbaa !52
+  %.0717 = load ptr, ptr %2, align 8, !tbaa !51
   %.not18 = icmp eq ptr %.0717, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
@@ -1343,9 +1343,9 @@ define hidden { ptr, i64 } @_ZNK8rawspeed9TiffEntry14getRootIfdDataEv(ptr nounde
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.0719, i64 16
-  %.07 = load ptr, ptr %5, align 8, !tbaa !52
+  %.07 = load ptr, ptr %5, align 8, !tbaa !51
   %.not = icmp eq ptr %.07, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %4, %1
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19TiffParserExceptionEEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed9TiffEntry14getRootIfdDataEv) #16
@@ -1598,15 +1598,14 @@ attributes #26 = { cold }
 !39 = !{!38, !17, i64 0}
 !40 = !{!38, !17, i64 8}
 !41 = !{!13, !13, i64 0}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = !{!46, !17, i64 0}
-!46 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !17, i64 0}
-!47 = !{!48, !49, i64 8}
-!48 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !46, i64 0, !49, i64 8, !13, i64 16}
-!49 = !{!"long", !13, i64 0}
-!50 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!51 = !{!48, !17, i64 0}
-!52 = !{!11, !11, i64 0}
-!53 = distinct !{!53, !43, !44}
+!44 = !{!45, !17, i64 0}
+!45 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !17, i64 0}
+!46 = !{!47, !48, i64 8}
+!47 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !45, i64 0, !48, i64 8, !13, i64 16}
+!48 = !{!"long", !13, i64 0}
+!49 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!50 = !{!47, !17, i64 0}
+!51 = !{!11, !11, i64 0}
+!52 = distinct !{!52, !43}

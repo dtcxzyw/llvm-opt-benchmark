@@ -1333,13 +1333,13 @@ table_iter_seek_start.exit:                       ; preds = %reader_offsets_for.
   store i64 %53, ptr %21, align 8, !tbaa !68
   store i32 0, ptr %22, align 8, !tbaa !69
   call void @block_iter_seek_start(ptr noundef nonnull %15, ptr noundef nonnull %19) #12
-  br label %44, !llvm.loop !76
+  br label %44
 
 60:                                               ; preds = %.thread28, %table_iter_seek_start.exit
   %.2 = phi i32 [ %38, %table_iter_seek_start.exit ], [ %56, %.thread28 ]
   %61 = add nuw nsw i64 %.01236, 1
   %exitcond.not = icmp eq i64 %61, 3
-  br i1 %exitcond.not, label %table_iter_next_block.exit, label %26, !llvm.loop !78
+  br i1 %exitcond.not, label %table_iter_next_block.exit, label %26, !llvm.loop !76
 
 table_iter_next_block.exit:                       ; preds = %60, %table_iter_seek_start.exit, %58, %7
   %.0.ph = phi i32 [ %8, %7 ], [ %56, %58 ], [ %38, %table_iter_seek_start.exit ], [ %.2, %60 ]
@@ -1484,7 +1484,7 @@ reader_offsets_for.exit.i.i:                      ; preds = %8, %7, %2
   %.sink.i = phi i64 [ 104, %8 ], [ 128, %7 ], [ 80, %2 ]
   %.sink.i.i.i = phi i64 [ 88, %8 ], [ 112, %7 ], [ 64, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink.i
-  %.in.in.i = load i64, ptr %9, align 8, !tbaa !80
+  %.in.in.i = load i64, ptr %9, align 8, !tbaa !78
   %.in.not.i = icmp eq i64 %.in.in.i, 0
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink.i.i.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1493,7 +1493,7 @@ reader_offsets_for.exit.i.i:                      ; preds = %8, %7, %2
 
 13:                                               ; preds = %reader_offsets_for.exit.i.i
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !80
+  %15 = load i64, ptr %14, align 8, !tbaa !78
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %table_iter_seek_start.exit.thread.i, label %17
 
@@ -1522,7 +1522,7 @@ table_iter_seek_start.exit.i:                     ; preds = %17
   br i1 %26, label %table_iter_seek.exit, label %table_iter_seek_start.exit.thread.i
 
 table_iter_seek_start.exit.thread.i:              ; preds = %table_iter_seek_start.exit.i, %20, %13
-  %27 = load i64, ptr %9, align 8, !tbaa !80
+  %27 = load i64, ptr %9, align 8, !tbaa !78
   %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %55, label %28
 
@@ -1582,7 +1582,7 @@ table_iter_seek_start.exit.thread.i:              ; preds = %table_iter_seek_sta
 
 54:                                               ; preds = %51
   %.not20.i.i = icmp eq i8 %52, 105
-  br i1 %.not20.i.i, label %41, label %table_iter_seek_indexed.exit.i, !llvm.loop !81
+  br i1 %.not20.i.i, label %41, label %table_iter_seek_indexed.exit.i
 
 table_iter_seek_indexed.exit.i:                   ; preds = %54, %51, %47, %43, %41, %32, %28
   %.0.i15.i = phi i32 [ %30, %28 ], [ %33, %32 ], [ %46, %43 ], [ -3, %54 ], [ 0, %51 ], [ %49, %47 ], [ %42, %41 ]
@@ -1645,7 +1645,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @table_iter_seek_linear(ptr
 
 19:                                               ; preds = %.preheader, %table_iter_next_block.exit
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %6) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %0, i64 208, i1 false), !tbaa.struct !82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %0, i64 208, i1 false), !tbaa.struct !79
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %20 = load i64, ptr %12, align 8, !tbaa !68
@@ -1688,7 +1688,7 @@ table_iter_next_block.exit.thread27:              ; preds = %29, %28
 table_iter_next_block.exit:                       ; preds = %32
   call void @block_reader_release(ptr noundef nonnull %17) #12
   call void @block_iter_reset(ptr noundef nonnull %18) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %6, i64 208, i1 false), !tbaa.struct !82
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %6, i64 208, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6) #12
   br label %19
 
@@ -1777,7 +1777,7 @@ table_iter_next_in_block.exit:                    ; preds = %11
   tail call void @block_iter_seek_start(ptr noundef nonnull %7, ptr noundef nonnull %9) #12
   %33 = load i32, ptr %5, align 8, !tbaa !69
   %.not15 = icmp eq i32 %33, 0
-  br i1 %.not15, label %11, label %.thread, !llvm.loop !88
+  br i1 %.not15, label %11, label %.thread
 
 .thread:                                          ; preds = %32, %table_iter_next_in_block.exit, %.preheader, %16, %14, %.loopexit, %2
   %.012 = phi i32 [ -6, %2 ], [ %31, %.loopexit ], [ 0, %14 ], [ 0, %16 ], [ 1, %.preheader ], [ 1, %32 ], [ %12, %table_iter_next_in_block.exit ]
@@ -1930,15 +1930,11 @@ attributes #13 = { noreturn nounwind }
 !74 = !{!34, !38, i64 112}
 !75 = !{!34, !22, i64 116}
 !76 = distinct !{!76, !77}
-!77 = !{!"llvm.loop.estimated_trip_count"}
-!78 = distinct !{!78, !79, !77}
-!79 = !{!"llvm.loop.mustprogress"}
-!80 = !{!23, !21, i64 16}
-!81 = distinct !{!81, !77}
-!82 = !{i64 0, i64 8, !45, i64 8, i64 1, !30, i64 16, i64 8, !83, i64 24, i64 4, !84, i64 32, i64 8, !85, i64 40, i64 8, !83, i64 48, i64 8, !15, i64 56, i64 8, !16, i64 64, i64 4, !84, i64 72, i64 8, !86, i64 80, i64 8, !85, i64 88, i64 8, !83, i64 96, i64 4, !84, i64 104, i64 8, !85, i64 112, i64 2, !87, i64 116, i64 4, !84, i64 120, i64 4, !84, i64 128, i64 8, !85, i64 136, i64 8, !83, i64 144, i64 4, !84, i64 152, i64 8, !83, i64 160, i64 8, !83, i64 168, i64 8, !85, i64 176, i64 8, !83, i64 184, i64 8, !83, i64 192, i64 8, !85, i64 200, i64 4, !84}
-!83 = !{!21, !21, i64 0}
-!84 = !{!22, !22, i64 0}
-!85 = !{!20, !20, i64 0}
-!86 = !{!37, !37, i64 0}
-!87 = !{!38, !38, i64 0}
-!88 = distinct !{!88, !77}
+!77 = !{!"llvm.loop.mustprogress"}
+!78 = !{!23, !21, i64 16}
+!79 = !{i64 0, i64 8, !45, i64 8, i64 1, !30, i64 16, i64 8, !80, i64 24, i64 4, !81, i64 32, i64 8, !82, i64 40, i64 8, !80, i64 48, i64 8, !15, i64 56, i64 8, !16, i64 64, i64 4, !81, i64 72, i64 8, !83, i64 80, i64 8, !82, i64 88, i64 8, !80, i64 96, i64 4, !81, i64 104, i64 8, !82, i64 112, i64 2, !84, i64 116, i64 4, !81, i64 120, i64 4, !81, i64 128, i64 8, !82, i64 136, i64 8, !80, i64 144, i64 4, !81, i64 152, i64 8, !80, i64 160, i64 8, !80, i64 168, i64 8, !82, i64 176, i64 8, !80, i64 184, i64 8, !80, i64 192, i64 8, !82, i64 200, i64 4, !81}
+!80 = !{!21, !21, i64 0}
+!81 = !{!22, !22, i64 0}
+!82 = !{!20, !20, i64 0}
+!83 = !{!37, !37, i64 0}
+!84 = !{!38, !38, i64 0}

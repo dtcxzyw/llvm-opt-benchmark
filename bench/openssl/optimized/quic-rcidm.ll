@@ -435,6 +435,5 @@ attributes #4 = { nounwind }
 !8 = !{!"quic_conn_id_st", !5, i64 0, !5, i64 1}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"long", !5, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}

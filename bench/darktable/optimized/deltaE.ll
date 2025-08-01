@@ -23,7 +23,7 @@ define dso_local float @dt_colorspaces_deltaE_1976(ptr noundef readonly captures
   %12 = fadd reassoc nsz arcp contract afn float %11, %.011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %3, label %5, !llvm.loop !11
+  br i1 %exitcond.not, label %3, label %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -256,5 +256,3 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !8 = !{!"float", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C/C++ TBAA"}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}

@@ -161,7 +161,7 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef captures(addr
 .split.i:                                         ; preds = %55, %40
   %57 = call ptr @fts_read(ptr noundef nonnull %35) #9
   %.not17.i = icmp eq ptr %57, null
-  br i1 %.not17.i, label %104, label %40, !llvm.loop !23
+  br i1 %.not17.i, label %104, label %40
 
 58:                                               ; preds = %27
   %59 = and i8 %25, 2
@@ -266,13 +266,13 @@ onas_scan_thread_handle_file.exit52:              ; preds = %79, %94
 
 95:                                               ; preds = %77
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %97 = load ptr, ptr %96, align 1, !tbaa !25
+  %97 = load ptr, ptr %96, align 1, !tbaa !23
   %.not39 = icmp eq ptr %97, null
   br i1 %.not39, label %.thread, label %98
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %100 = load i32, ptr %99, align 8, !tbaa !26
+  %100 = load i32, ptr %99, align 8, !tbaa !24
   %101 = icmp sgt i32 %100, -1
   br i1 %101, label %102, label %.thread
 
@@ -302,7 +302,7 @@ onas_scan_thread_handle_file.exit52:              ; preds = %79, %94
 
 109:                                              ; preds = %108, %.thread
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %111 = load ptr, ptr %110, align 1, !tbaa !25
+  %111 = load ptr, ptr %110, align 1, !tbaa !23
   %.not45 = icmp eq ptr %111, null
   br i1 %.not45, label %113, label %112
 
@@ -339,7 +339,7 @@ define dso_local range(i32 0, 3) i32 @onas_map_context_info_to_event_data(ptr no
   br i1 %or.cond, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !29
+  %6 = load ptr, ptr %1, align 8, !tbaa !27
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
@@ -349,33 +349,33 @@ define dso_local range(i32 0, 3) i32 @onas_map_context_info_to_event_data(ptr no
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 59
-  %12 = load i32, ptr %11, align 1, !tbaa !31
+  %12 = load i32, ptr %11, align 1, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 45
-  store i32 %12, ptr %13, align 1, !tbaa !34
+  store i32 %12, ptr %13, align 1, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 71
-  %15 = load i32, ptr %14, align 1, !tbaa !35
+  %15 = load i32, ptr %14, align 1, !tbaa !33
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 57
-  store i64 %16, ptr %17, align 1, !tbaa !36
+  store i64 %16, ptr %17, align 1, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %19 = load i32, ptr %18, align 1, !tbaa !37
+  %19 = load i32, ptr %18, align 1, !tbaa !35
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 49
-  store i64 %20, ptr %21, align 1, !tbaa !38
+  store i64 %20, ptr %21, align 1, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %23 = load i32, ptr %22, align 1, !tbaa !39
+  %23 = load i32, ptr %22, align 1, !tbaa !37
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %23, ptr %24, align 1, !tbaa !40
+  store i32 %23, ptr %24, align 1, !tbaa !38
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  %26 = load i64, ptr %25, align 1, !tbaa !41
+  %26 = load i64, ptr %25, align 1, !tbaa !39
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 37
   store i64 %26, ptr %27, align 1, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %29 = load i8, ptr %28, align 1, !tbaa !42
+  %29 = load i8, ptr %28, align 1, !tbaa !40
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i8 %29, ptr %30, align 1, !tbaa !43
+  store i8 %29, ptr %30, align 1, !tbaa !41
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %32 = load i8, ptr %31, align 1, !tbaa !44
+  %32 = load i8, ptr %31, align 1, !tbaa !42
   %.not = icmp eq i8 %32, 0
   br i1 %.not, label %37, label %33
 
@@ -388,7 +388,7 @@ define dso_local range(i32 0, 3) i32 @onas_map_context_info_to_event_data(ptr no
 
 37:                                               ; preds = %33, %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %39 = load i8, ptr %38, align 1, !tbaa !45
+  %39 = load i8, ptr %38, align 1, !tbaa !43
   %.not31 = icmp eq i8 %39, 0
   br i1 %.not31, label %44, label %40
 
@@ -401,7 +401,7 @@ define dso_local range(i32 0, 3) i32 @onas_map_context_info_to_event_data(ptr no
 
 44:                                               ; preds = %40, %37
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 63
-  %46 = load i32, ptr %45, align 1, !tbaa !46
+  %46 = load i32, ptr %45, align 1, !tbaa !44
   %.not32 = icmp eq i32 %46, 0
   br i1 %.not32, label %60, label %47
 
@@ -411,26 +411,26 @@ define dso_local range(i32 0, 3) i32 @onas_map_context_info_to_event_data(ptr no
   %50 = or i8 %49, -128
   store i8 %50, ptr %48, align 1, !tbaa !13
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %52 = load ptr, ptr %51, align 1, !tbaa !47
+  %52 = load ptr, ptr %51, align 1, !tbaa !45
   %53 = tail call ptr @optget(ptr noundef %52, ptr noundef nonnull @.str.7) #9
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !48
-  %56 = load ptr, ptr %1, align 8, !tbaa !29
-  store ptr %55, ptr %56, align 1, !tbaa !51
+  %55 = load ptr, ptr %54, align 8, !tbaa !46
+  %56 = load ptr, ptr %1, align 8, !tbaa !27
+  store ptr %55, ptr %56, align 1, !tbaa !49
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 75
-  %58 = load i64, ptr %57, align 1, !tbaa !52
+  %58 = load i64, ptr %57, align 1, !tbaa !50
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i64 %58, ptr %59, align 1, !tbaa !53
+  store i64 %58, ptr %59, align 1, !tbaa !51
   br label %67
 
 60:                                               ; preds = %44
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %62 = load ptr, ptr %61, align 1, !tbaa !47
+  %62 = load ptr, ptr %61, align 1, !tbaa !45
   %63 = tail call ptr @optget(ptr noundef %62, ptr noundef nonnull @.str.8) #9
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !48
-  %66 = load ptr, ptr %1, align 8, !tbaa !29
-  store ptr %65, ptr %66, align 1, !tbaa !51
+  %65 = load ptr, ptr %64, align 8, !tbaa !46
+  %66 = load ptr, ptr %1, align 8, !tbaa !27
+  store ptr %65, ptr %66, align 1, !tbaa !49
   br label %67
 
 67:                                               ; preds = %47, %60, %8
@@ -469,12 +469,12 @@ define internal fastcc void @onas_scan_thread_scanfile(ptr noundef nonnull reado
 
 .thread:                                          ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %19 = load ptr, ptr %18, align 1, !tbaa !25
+  %19 = load ptr, ptr %18, align 1, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load i32, ptr %20, align 8, !tbaa !26
-  store i32 %21, ptr %8, align 4, !tbaa !54
+  %21 = load i32, ptr %20, align 8, !tbaa !24
+  store i32 %21, ptr %8, align 4, !tbaa !52
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 1, ptr %22, align 4, !tbaa !56
+  store i32 1, ptr %22, align 4, !tbaa !54
   %23 = and i8 %14, 16
   %.not5258 = icmp eq i8 %23, 0
   br i1 %.not5258, label %90, label %onas_scan_safe.exit.i
@@ -485,15 +485,15 @@ onas_scan_safe.exit.i:                            ; preds = %.thread, %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(144) %2, i64 144, i1 false)
   %24 = and i8 %14, 32
   %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @onas_scan_lock) #9
-  %26 = load ptr, ptr %0, align 1, !tbaa !51
+  %26 = load ptr, ptr %0, align 1, !tbaa !49
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load i64, ptr %27, align 1, !tbaa !53
+  %28 = load i64, ptr %27, align 1, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 45
-  %30 = load i32, ptr %29, align 1, !tbaa !34
+  %30 = load i32, ptr %29, align 1, !tbaa !32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %32 = load i64, ptr %31, align 1, !tbaa !38
+  %32 = load i64, ptr %31, align 1, !tbaa !36
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %34 = load i64, ptr %33, align 1, !tbaa !36
+  %34 = load i64, ptr %33, align 1, !tbaa !34
   %35 = tail call i32 @onas_client_scan(ptr noundef %26, i64 noundef %28, i32 noundef %30, i64 noundef %32, ptr noundef nonnull %1, i32 noundef %.0.i.i, i64 noundef %34, ptr noundef nonnull byval(%struct.stat) align 8 %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_scan_lock) #9
   %37 = load i32, ptr %4, align 4, !tbaa !14
@@ -543,19 +543,19 @@ onas_scan_safe.exit.i:                            ; preds = %.thread, %16
   br i1 %.not.i27.i, label %onas_scan_safe.exit29.i, label %55
 
 55:                                               ; preds = %52
-  %56 = load ptr, ptr %50, align 1, !tbaa !25
+  %56 = load ptr, ptr %50, align 1, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load i32, ptr %57, align 8, !tbaa !26
+  %58 = load i32, ptr %57, align 8, !tbaa !24
   br label %onas_scan_safe.exit29.i
 
 onas_scan_safe.exit29.i:                          ; preds = %55, %52
   %.0.i28.i = phi i32 [ %58, %55 ], [ -1, %52 ]
   %59 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @onas_scan_lock) #9
-  %60 = load ptr, ptr %0, align 1, !tbaa !51
-  %61 = load i64, ptr %27, align 1, !tbaa !53
-  %62 = load i32, ptr %29, align 1, !tbaa !34
-  %63 = load i64, ptr %31, align 1, !tbaa !38
-  %64 = load i64, ptr %33, align 1, !tbaa !36
+  %60 = load ptr, ptr %0, align 1, !tbaa !49
+  %61 = load i64, ptr %27, align 1, !tbaa !51
+  %62 = load i32, ptr %29, align 1, !tbaa !32
+  %63 = load i64, ptr %31, align 1, !tbaa !36
+  %64 = load i64, ptr %33, align 1, !tbaa !34
   %65 = tail call i32 @onas_client_scan(ptr noundef %60, i64 noundef %61, i32 noundef %62, i64 noundef %63, ptr noundef nonnull %1, i32 noundef %.0.i28.i, i64 noundef %64, ptr noundef nonnull byval(%struct.stat) align 8 %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %66 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_scan_lock) #9
   %67 = load i32, ptr %4, align 4, !tbaa !14
@@ -564,10 +564,10 @@ onas_scan_safe.exit29.i:                          ; preds = %55, %52
 
 68:                                               ; preds = %onas_scan_safe.exit29.i
   %69 = add nuw nsw i32 %.02331.i, 1
-  %70 = load i8, ptr %51, align 1, !tbaa !43
+  %70 = load i8, ptr %51, align 1, !tbaa !41
   %71 = zext i8 %70 to i32
   %72 = icmp eq i32 %69, %71
-  br i1 %72, label %73, label %52, !llvm.loop !57
+  br i1 %72, label %73, label %52
 
 73:                                               ; preds = %68
   store i32 0, ptr %4, align 4, !tbaa !14
@@ -615,21 +615,21 @@ onas_scan.exit:                                   ; preds = %46
 
 88:                                               ; preds = %81, %86
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 2, ptr %89, align 4, !tbaa !56
+  store i32 2, ptr %89, align 4, !tbaa !54
   br label %90
 
 90:                                               ; preds = %.thread, %88, %86
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %92 = load ptr, ptr %91, align 1, !tbaa !25
+  %92 = load ptr, ptr %91, align 1, !tbaa !23
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load i64, ptr %93, align 8, !tbaa !58
+  %94 = load i64, ptr %93, align 8, !tbaa !55
   %95 = and i64 %94, 196608
   %.not57 = icmp eq i64 %95, 0
   br i1 %.not57, label %109, label %96
 
 96:                                               ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %98 = load i32, ptr %97, align 1, !tbaa !40
+  %98 = load i32, ptr %97, align 1, !tbaa !38
   %99 = call i64 @write(i32 noundef %98, ptr noundef nonnull %8, i64 noundef 8) #9
   %100 = and i64 %99, 4294967295
   %101 = icmp eq i64 %100, 4294967295
@@ -647,17 +647,17 @@ onas_scan.exit:                                   ; preds = %46
   br label %109
 
 109:                                              ; preds = %102, %90, %107, %96
-  %110 = load ptr, ptr %91, align 1, !tbaa !25
+  %110 = load ptr, ptr %91, align 1, !tbaa !23
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %112 = load i32, ptr %111, align 8, !tbaa !26
+  %112 = load i32, ptr %111, align 8, !tbaa !24
   %113 = tail call i32 @close(i32 noundef %112) #9
   %114 = icmp eq i32 %113, -1
   br i1 %114, label %115, label %.thread72
 
 115:                                              ; preds = %109
-  %116 = load ptr, ptr %91, align 1, !tbaa !25
+  %116 = load ptr, ptr %91, align 1, !tbaa !23
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %118 = load i32, ptr %117, align 8, !tbaa !26
+  %118 = load i32, ptr %117, align 8, !tbaa !24
   %119 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.14, i32 noundef %118) #9
   %120 = tail call ptr @__errno_location() #10
   %121 = load i32, ptr %120, align 4, !tbaa !14
@@ -733,39 +733,36 @@ attributes #10 = { nounwind willreturn memory(none) }
 !20 = !{!"p1 _ZTS4stat", !7, i64 0}
 !21 = !{!17, !6, i64 48}
 !22 = !{!5, !10, i64 37}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!5, !12, i64 28}
-!26 = !{!27, !11, i64 16}
-!27 = !{!"fanotify_event_metadata", !11, i64 0, !8, i64 4, !8, i64 5, !19, i64 6, !28, i64 8, !11, i64 16, !11, i64 20}
-!28 = !{!"long long", !8, i64 0}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTS15onas_scan_event", !7, i64 0}
-!31 = !{!32, !11, i64 59}
-!32 = !{!"onas_context", !33, i64 0, !33, i64 8, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !10, i64 32, !8, i64 40, !8, i64 41, !8, i64 42, !10, i64 43, !10, i64 51, !11, i64 59, !11, i64 63, !11, i64 67, !11, i64 71, !10, i64 75, !11, i64 83}
-!33 = !{!"p1 _ZTS9optstruct", !7, i64 0}
-!34 = !{!5, !11, i64 45}
-!35 = !{!32, !11, i64 71}
-!36 = !{!5, !10, i64 57}
-!37 = !{!32, !11, i64 20}
-!38 = !{!5, !10, i64 49}
-!39 = !{!32, !11, i64 28}
-!40 = !{!5, !11, i64 24}
-!41 = !{!32, !10, i64 43}
-!42 = !{!32, !8, i64 41}
-!43 = !{!5, !8, i64 36}
-!44 = !{!32, !8, i64 40}
-!45 = !{!32, !8, i64 42}
-!46 = !{!32, !11, i64 63}
-!47 = !{!32, !33, i64 8}
-!48 = !{!49, !6, i64 16}
-!49 = !{!"optstruct", !6, i64 0, !6, i64 8, !6, i64 16, !28, i64 24, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !33, i64 48, !33, i64 56, !50, i64 64}
-!50 = !{!"p2 omnipotent char", !7, i64 0}
-!51 = !{!5, !6, i64 0}
-!52 = !{!32, !10, i64 75}
-!53 = !{!5, !10, i64 8}
-!54 = !{!55, !11, i64 0}
-!55 = !{!"fanotify_response", !11, i64 0, !11, i64 4}
-!56 = !{!55, !11, i64 4}
-!57 = distinct !{!57, !24}
-!58 = !{!27, !28, i64 8}
+!23 = !{!5, !12, i64 28}
+!24 = !{!25, !11, i64 16}
+!25 = !{!"fanotify_event_metadata", !11, i64 0, !8, i64 4, !8, i64 5, !19, i64 6, !26, i64 8, !11, i64 16, !11, i64 20}
+!26 = !{!"long long", !8, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS15onas_scan_event", !7, i64 0}
+!29 = !{!30, !11, i64 59}
+!30 = !{!"onas_context", !31, i64 0, !31, i64 8, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !10, i64 32, !8, i64 40, !8, i64 41, !8, i64 42, !10, i64 43, !10, i64 51, !11, i64 59, !11, i64 63, !11, i64 67, !11, i64 71, !10, i64 75, !11, i64 83}
+!31 = !{!"p1 _ZTS9optstruct", !7, i64 0}
+!32 = !{!5, !11, i64 45}
+!33 = !{!30, !11, i64 71}
+!34 = !{!5, !10, i64 57}
+!35 = !{!30, !11, i64 20}
+!36 = !{!5, !10, i64 49}
+!37 = !{!30, !11, i64 28}
+!38 = !{!5, !11, i64 24}
+!39 = !{!30, !10, i64 43}
+!40 = !{!30, !8, i64 41}
+!41 = !{!5, !8, i64 36}
+!42 = !{!30, !8, i64 40}
+!43 = !{!30, !8, i64 42}
+!44 = !{!30, !11, i64 63}
+!45 = !{!30, !31, i64 8}
+!46 = !{!47, !6, i64 16}
+!47 = !{!"optstruct", !6, i64 0, !6, i64 8, !6, i64 16, !26, i64 24, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !31, i64 48, !31, i64 56, !48, i64 64}
+!48 = !{!"p2 omnipotent char", !7, i64 0}
+!49 = !{!5, !6, i64 0}
+!50 = !{!30, !10, i64 75}
+!51 = !{!5, !10, i64 8}
+!52 = !{!53, !11, i64 0}
+!53 = !{!"fanotify_response", !11, i64 0, !11, i64 4}
+!54 = !{!53, !11, i64 4}
+!55 = !{!25, !26, i64 8}

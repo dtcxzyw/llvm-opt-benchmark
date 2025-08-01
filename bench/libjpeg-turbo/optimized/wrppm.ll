@@ -387,7 +387,7 @@ define internal void @put_cmyk(ptr noundef readonly captures(none) %0, ptr nound
   store i8 %39, ptr %41, align 1, !tbaa !35
   %43 = add i32 %.02125, -1
   %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !68
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %12, %3
   %44 = load ptr, ptr %4, align 8, !tbaa !48
@@ -422,7 +422,7 @@ define internal void @copy_pixel_rows(ptr readnone captures(none) %0, ptr nounde
 ; Function Attrs: nofree nounwind uwtable
 define internal void @put_demapped_gray(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %5 = load ptr, ptr %4, align 8, !tbaa !69
+  %5 = load ptr, ptr %4, align 8, !tbaa !68
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load ptr, ptr %7, align 8, !tbaa !48
@@ -450,7 +450,7 @@ define internal void @put_demapped_gray(ptr noundef readonly captures(none) %0, 
   store i8 %18, ptr %.01216, align 1, !tbaa !35
   %20 = add i32 %.017, -1
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !70
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %7, align 8, !tbaa !48
@@ -469,7 +469,7 @@ define internal void @put_demapped_gray(ptr noundef readonly captures(none) %0, 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @put_demapped_rgb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %5 = load ptr, ptr %4, align 8, !tbaa !69
+  %5 = load ptr, ptr %4, align 8, !tbaa !68
   %6 = load ptr, ptr %5, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !63
@@ -509,7 +509,7 @@ define internal void @put_demapped_rgb(ptr noundef readonly captures(none) %0, p
   store i8 %28, ptr %26, align 1, !tbaa !35
   %30 = add i32 %.026, -1
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !71
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %11, align 8, !tbaa !48
@@ -628,10 +628,9 @@ attributes #7 = { nounwind }
 !62 = !{!41, !12, i64 96}
 !63 = !{!19, !19, i64 0}
 !64 = !{!12, !12, i64 0}
-!65 = distinct !{!65, !66, !67}
+!65 = distinct !{!65, !66}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!"llvm.loop.estimated_trip_count"}
-!68 = distinct !{!68, !66, !67}
-!69 = !{!5, !15, i64 160}
-!70 = distinct !{!70, !66, !67}
-!71 = distinct !{!71, !66, !67}
+!67 = distinct !{!67, !66}
+!68 = !{!5, !15, i64 160}
+!69 = distinct !{!69, !66}
+!70 = distinct !{!70, !66}

@@ -164,9 +164,9 @@ cpool_get_live_conn.exit.i:                       ; preds = %.lr.ph.i.i
 
 37:                                               ; preds = %35
   %38 = getelementptr i8, ptr %.064.i, i64 56
-  %.val.i.i = load ptr, ptr %38, align 8, !tbaa !97
+  %.val.i.i = load ptr, ptr %38, align 8, !tbaa !96
   %39 = getelementptr i8, ptr %.064.i, i64 64
-  %.val17.i.i = load i64, ptr %39, align 8, !tbaa !106
+  %.val17.i.i = load i64, ptr %39, align 8, !tbaa !105
   %40 = call ptr @Curl_hash_pick(ptr noundef nonnull %0, ptr noundef %.val.i.i, i64 noundef %.val17.i.i) #7
   %41 = icmp eq ptr %36, %40
   br i1 %41, label %42, label %cpool_remove_conn.exit.i
@@ -184,7 +184,7 @@ cpool_get_live_conn.exit.i:                       ; preds = %.lr.ph.i.i
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %50 = load i64, ptr %49, align 8, !tbaa !107
+  %50 = load i64, ptr %49, align 8, !tbaa !106
   %51 = call i32 @Curl_hash_delete(ptr noundef nonnull %0, ptr noundef nonnull %48, i64 noundef %50) #7
   br label %52
 
@@ -192,9 +192,9 @@ cpool_get_live_conn.exit.i:                       ; preds = %.lr.ph.i.i
   %53 = load i64, ptr %43, align 8
   %54 = and i64 %53, -4294967297
   store i64 %54, ptr %43, align 8
-  %55 = load i64, ptr %34, align 8, !tbaa !109
+  %55 = load i64, ptr %34, align 8, !tbaa !108
   %56 = add i64 %55, -1
-  store i64 %56, ptr %34, align 8, !tbaa !109
+  store i64 %56, ptr %34, align 8, !tbaa !108
   br label %cpool_remove_conn.exit.i
 
 cpool_remove_conn.exit.i:                         ; preds = %52, %37, %35
@@ -204,7 +204,7 @@ cpool_remove_conn.exit.i:                         ; preds = %52, %37, %35
   %60 = trunc i64 %59 to i32
   %61 = lshr i32 %60, 30
   %62 = and i32 %61, 1
-  %63 = load i8, ptr %15, align 8, !tbaa !85, !range !110, !noundef !111
+  %63 = load i8, ptr %15, align 8, !tbaa !85, !range !109, !noundef !110
   %64 = zext nneg i8 %63 to i32
   %.not.i36.i = icmp eq i32 %62, %64
   br i1 %.not.i36.i, label %sigpipe_apply.exit.i, label %65
@@ -231,8 +231,8 @@ sigpipe_restore.exit.i.i:                         ; preds = %67, %65
 74:                                               ; preds = %sigpipe_restore.exit.i.i
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #7
   %75 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %10) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull align 8 dereferenceable(152) %10, i64 152, i1 false), !tbaa.struct !112
-  store ptr inttoptr (i64 1 to ptr), ptr %8, align 8, !tbaa !113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull align 8 dereferenceable(152) %10, i64 152, i1 false), !tbaa.struct !111
+  store ptr inttoptr (i64 1 to ptr), ptr %8, align 8, !tbaa !112
   %76 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %8, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %8) #7
   br label %sigpipe_apply.exit.i
@@ -268,7 +268,7 @@ cpool_get_live_conn.exit43.i:                     ; preds = %.lr.ph.i38.i
   %84 = call ptr @Curl_node_elem(ptr noundef nonnull %81) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #7
   %.not32.i = icmp eq ptr %84, null
-  br i1 %.not32.i, label %._crit_edge.i, label %35, !llvm.loop !115
+  br i1 %.not32.i, label %._crit_edge.i, label %35, !llvm.loop !114
 
 ._crit_edge.i:                                    ; preds = %cpool_get_live_conn.exit43.i, %cpool_get_live_conn.exit43.thread.i, %cpool_get_live_conn.exit.i, %cpool_get_live_conn.exit.thread.i
   %85 = load i8, ptr %24, align 8
@@ -297,7 +297,7 @@ cpool_get_live_conn.exit43.i:                     ; preds = %.lr.ph.i38.i
   %99 = trunc i64 %98 to i32
   %100 = lshr i32 %99, 30
   %101 = and i32 %100, 1
-  %102 = load i8, ptr %15, align 8, !tbaa !85, !range !110, !noundef !111
+  %102 = load i8, ptr %15, align 8, !tbaa !85, !range !109, !noundef !110
   %103 = zext nneg i8 %102 to i32
   %.not.i44.i = icmp eq i32 %101, %103
   br i1 %.not.i44.i, label %sigpipe_apply.exit48.i, label %104
@@ -324,8 +324,8 @@ sigpipe_restore.exit.i46.i:                       ; preds = %106, %104
 113:                                              ; preds = %sigpipe_restore.exit.i46.i
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #7
   %114 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %10) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %10, i64 152, i1 false), !tbaa.struct !112
-  store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !tbaa !113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %10, i64 152, i1 false), !tbaa.struct !111
+  store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !tbaa !112
   %115 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %6, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6) #7
   br label %sigpipe_apply.exit48.i
@@ -390,9 +390,9 @@ cpool_get_live_conn.exit.i.i:                     ; preds = %.lr.ph.i.i.i
 
 134:                                              ; preds = %132
   %135 = getelementptr i8, ptr %.046.i.i, i64 56
-  %.val.i.i.i = load ptr, ptr %135, align 8, !tbaa !97
+  %.val.i.i.i = load ptr, ptr %135, align 8, !tbaa !96
   %136 = getelementptr i8, ptr %.046.i.i, i64 64
-  %.val17.i.i.i = load i64, ptr %136, align 8, !tbaa !106
+  %.val17.i.i.i = load i64, ptr %136, align 8, !tbaa !105
   %137 = call ptr @Curl_hash_pick(ptr noundef nonnull %0, ptr noundef %.val.i.i.i, i64 noundef %.val17.i.i.i) #7
   %138 = icmp eq ptr %133, %137
   br i1 %138, label %139, label %cpool_remove_conn.exit.i.i
@@ -410,7 +410,7 @@ cpool_get_live_conn.exit.i.i:                     ; preds = %.lr.ph.i.i.i
 144:                                              ; preds = %139
   %145 = getelementptr inbounds nuw i8, ptr %137, i64 40
   %146 = getelementptr inbounds nuw i8, ptr %137, i64 32
-  %147 = load i64, ptr %146, align 8, !tbaa !107
+  %147 = load i64, ptr %146, align 8, !tbaa !106
   %148 = call i32 @Curl_hash_delete(ptr noundef nonnull %0, ptr noundef nonnull %145, i64 noundef %147) #7
   br label %149
 
@@ -418,9 +418,9 @@ cpool_get_live_conn.exit.i.i:                     ; preds = %.lr.ph.i.i.i
   %150 = load i64, ptr %140, align 8
   %151 = and i64 %150, -4294967297
   store i64 %151, ptr %140, align 8
-  %152 = load i64, ptr %128, align 8, !tbaa !109
+  %152 = load i64, ptr %128, align 8, !tbaa !108
   %153 = add i64 %152, -1
-  store i64 %153, ptr %128, align 8, !tbaa !109
+  store i64 %153, ptr %128, align 8, !tbaa !108
   br label %cpool_remove_conn.exit.i.i
 
 cpool_remove_conn.exit.i.i:                       ; preds = %149, %134, %132
@@ -452,7 +452,7 @@ cpool_get_live_conn.exit34.i.i:                   ; preds = %.lr.ph.i29.i.i
   %160 = call ptr @Curl_node_elem(ptr noundef nonnull %157) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #7
   %.not23.i.i = icmp eq ptr %160, null
-  br i1 %.not23.i.i, label %.preheader.i.i, label %132, !llvm.loop !116
+  br i1 %.not23.i.i, label %.preheader.i.i, label %132, !llvm.loop !115
 
 161:                                              ; preds = %171, %.lr.ph48.i.i
   call fastcc void @cpool_perform(ptr noundef nonnull %0)
@@ -485,8 +485,8 @@ cpool_shutdown_wait.exit.i.i:                     ; preds = %169
 171:                                              ; preds = %169
   %172 = trunc i64 %167 to i32
   %173 = sub nsw i32 0, %172
-  %174 = load ptr, ptr %3, align 8, !tbaa !117
-  %175 = load i32, ptr %131, align 8, !tbaa !120
+  %174 = load ptr, ptr %3, align 8, !tbaa !116
+  %175 = load i32, ptr %131, align 8, !tbaa !119
   %176 = call i32 @llvm.smin.i32(i32 range(i32 -2147483647, -2147483648) %173, i32 1000)
   %177 = sext i32 %176 to i64
   %178 = call i32 @Curl_poll(ptr noundef %174, i32 noundef %175, i64 noundef %177) #7
@@ -495,7 +495,7 @@ cpool_shutdown_wait.exit.i.i:                     ; preds = %169
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #7
   %179 = call ptr @Curl_llist_head(ptr noundef nonnull %129) #7
   %.not24.i.i = icmp eq ptr %179, null
-  br i1 %.not24.i.i, label %.thread.i.i, label %161, !llvm.loop !121
+  br i1 %.not24.i.i, label %.thread.i.i, label %161
 
 .thread.i.i:                                      ; preds = %171, %163, %161, %cpool_shutdown_wait.exit.i.i, %.preheader.i.i
   %180 = call ptr @Curl_llist_head(ptr noundef nonnull %129) #7
@@ -509,7 +509,7 @@ cpool_shutdown_wait.exit.i.i:                     ; preds = %169
   call fastcc void @cpool_close_and_destroy(ptr noundef nonnull %0, ptr noundef %181, ptr noundef null, i1 noundef zeroext false)
   %182 = call ptr @Curl_llist_head(ptr noundef nonnull %129) #7
   %.not9.i37.i.i = icmp eq ptr %182, null
-  br i1 %.not9.i37.i.i, label %cpool_shutdown_all.exit.i, label %.preheader.i.i.i, !llvm.loop !122
+  br i1 %.not9.i37.i.i, label %cpool_shutdown_all.exit.i, label %.preheader.i.i.i, !llvm.loop !120
 
 cpool_shutdown_all.exit.i:                        ; preds = %.preheader.i.i.i, %.thread.i.i, %sigpipe_apply.exit48.i
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -524,14 +524,14 @@ cpool_shutdown_all.exit.i:                        ; preds = %.preheader.i.i.i, %
   call fastcc void @cpool_close_and_destroy(ptr noundef nonnull %0, ptr noundef %185, ptr noundef null, i1 noundef zeroext false)
   %186 = call ptr @Curl_llist_head(ptr noundef nonnull %183) #7
   %.not9.i54.i = icmp eq ptr %186, null
-  br i1 %.not9.i54.i, label %cpool_shutdown_discard_all.exit.i, label %.preheader.i53.i, !llvm.loop !122
+  br i1 %.not9.i54.i, label %cpool_shutdown_discard_all.exit.i, label %.preheader.i53.i, !llvm.loop !120
 
 cpool_shutdown_discard_all.exit.i:                ; preds = %.preheader.i53.i, %cpool_shutdown_all.exit.i
   %187 = load ptr, ptr %12, align 8, !tbaa !4
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 192
-  %189 = load ptr, ptr %188, align 8, !tbaa !123
+  %189 = load ptr, ptr %188, align 8, !tbaa !121
   call void @Curl_hostcache_clean(ptr noundef %187, ptr noundef %189) #7
-  %190 = load i8, ptr %15, align 8, !tbaa !85, !range !110, !noundef !111
+  %190 = load i8, ptr %15, align 8, !tbaa !85, !range !109, !noundef !110
   %191 = trunc nuw i8 %190 to i1
   br i1 %191, label %cpool_close_and_destroy_all.exit, label %192
 
@@ -587,7 +587,7 @@ define dso_local void @Curl_cpool_xfer_init(ptr noundef captures(address_is_null
 
 11:                                               ; preds = %5, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %13 = load ptr, ptr %12, align 8, !tbaa !124
+  %13 = load ptr, ptr %12, align 8, !tbaa !122
   %.not15.i = icmp eq ptr %13, null
   br i1 %.not15.i, label %16, label %14
 
@@ -628,31 +628,31 @@ define dso_local void @Curl_cpool_xfer_init(ptr noundef captures(address_is_null
   %34 = or i8 %33, 1
   store i8 %34, ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 64
-  %36 = load i64, ptr %35, align 8, !tbaa !125
+  %36 = load i64, ptr %35, align 8, !tbaa !123
   %37 = add nsw i64 %36, 1
-  store i64 %37, ptr %35, align 8, !tbaa !125
+  store i64 %37, ptr %35, align 8, !tbaa !123
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %36, ptr %38, align 8, !tbaa !126
+  store i64 %36, ptr %38, align 8, !tbaa !124
   %39 = icmp slt i64 %36, 0
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %31
-  store i64 0, ptr %35, align 8, !tbaa !125
+  store i64 0, ptr %35, align 8, !tbaa !123
   br label %41
 
 41:                                               ; preds = %40, %31
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 3024
-  store i64 -1, ptr %42, align 8, !tbaa !127
+  store i64 -1, ptr %42, align 8, !tbaa !125
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %44 = load i32, ptr %43, align 8, !tbaa !128
+  %44 = load i32, ptr %43, align 8, !tbaa !126
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 120
   %46 = load ptr, ptr %45, align 8, !tbaa !4
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 752
-  store i32 %44, ptr %47, align 8, !tbaa !128
+  store i32 %44, ptr %47, align 8, !tbaa !126
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 764
-  %49 = load i32, ptr %48, align 4, !tbaa !129
+  %49 = load i32, ptr %48, align 4, !tbaa !127
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 764
-  store i32 %49, ptr %50, align 4, !tbaa !129
+  store i32 %49, ptr %50, align 4, !tbaa !127
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %52 = load i64, ptr %51, align 2
   %53 = and i64 %52, 1073741824
@@ -682,9 +682,9 @@ define dso_local void @Curl_cpool_xfer_init(ptr noundef captures(address_is_null
 
 cpool_get_instance.exit:                          ; preds = %16, %1
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %68, align 8, !tbaa !126
+  store i64 0, ptr %68, align 8, !tbaa !124
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 3024
-  store i64 -1, ptr %69, align 8, !tbaa !127
+  store i64 -1, ptr %69, align 8, !tbaa !125
   br label %70
 
 70:                                               ; preds = %65, %61, %41, %cpool_get_instance.exit
@@ -725,7 +725,7 @@ define dso_local range(i32 0, 3) i32 @Curl_cpool_check_limits(ptr noundef %0, pt
 
 12:                                               ; preds = %6, %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %14 = load ptr, ptr %13, align 8, !tbaa !124
+  %14 = load ptr, ptr %13, align 8, !tbaa !122
   %.not15.i = icmp eq ptr %14, null
   br i1 %.not15.i, label %17, label %15
 
@@ -749,9 +749,9 @@ define dso_local range(i32 0, 3) i32 @Curl_cpool_check_limits(ptr noundef %0, pt
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 544
-  %26 = load i64, ptr %25, align 8, !tbaa !130
+  %26 = load i64, ptr %25, align 8, !tbaa !128
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 552
-  %28 = load i64, ptr %27, align 8, !tbaa !132
+  %28 = load i64, ptr %27, align 8, !tbaa !130
   br label %29
 
 29:                                               ; preds = %24, %21
@@ -790,9 +790,9 @@ define dso_local range(i32 0, 3) i32 @Curl_cpool_check_limits(ptr noundef %0, pt
 
 47:                                               ; preds = %43
   %48 = getelementptr i8, ptr %1, i64 56
-  %.val = load ptr, ptr %48, align 8, !tbaa !97
+  %.val = load ptr, ptr %48, align 8, !tbaa !96
   %49 = getelementptr i8, ptr %1, i64 64
-  %.val76 = load i64, ptr %49, align 8, !tbaa !106
+  %.val76 = load i64, ptr %49, align 8, !tbaa !105
   %50 = tail call ptr @Curl_hash_pick(ptr noundef nonnull %.0.i.ph, ptr noundef %.val, i64 noundef %.val76) #7
   %.not63102 = icmp eq ptr %50, null
   br i1 %.not63102, label %.critedge.thread, label %.lr.ph
@@ -837,7 +837,7 @@ define dso_local range(i32 0, 3) i32 @Curl_cpool_check_limits(ptr noundef %0, pt
   %.1.i = phi i64 [ %.01220.i, %.lr.ph.i ], [ %spec.select17.i, %60 ]
   %68 = tail call ptr @Curl_node_next(ptr noundef nonnull %.021.i) #7
   %.not.i80 = icmp eq ptr %68, null
-  br i1 %.not.i80, label %cpool_bundle_get_oldest_idle.exit, label %.lr.ph.i, !llvm.loop !133
+  br i1 %.not.i80, label %cpool_bundle_get_oldest_idle.exit, label %.lr.ph.i, !llvm.loop !131
 
 cpool_bundle_get_oldest_idle.exit:                ; preds = %67
   %.not65 = icmp eq ptr %.114.i, null
@@ -845,11 +845,11 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %67
 
 69:                                               ; preds = %cpool_bundle_get_oldest_idle.exit
   tail call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef nonnull %.114.i, i1 noundef zeroext false)
-  %.val77 = load ptr, ptr %48, align 8, !tbaa !97
-  %.val78 = load i64, ptr %49, align 8, !tbaa !106
+  %.val77 = load ptr, ptr %48, align 8, !tbaa !96
+  %.val78 = load i64, ptr %49, align 8, !tbaa !105
   %70 = tail call ptr @Curl_hash_pick(ptr noundef nonnull %.0.i.ph, ptr noundef %.val77, i64 noundef %.val78) #7
   %.not63 = icmp eq ptr %70, null
-  br i1 %.not63, label %.critedge.thread, label %.lr.ph, !llvm.loop !134
+  br i1 %.not63, label %.critedge.thread, label %.lr.ph
 
 .critedge.thread92:                               ; preds = %cpool_bundle_get_oldest_idle.exit, %52, %.lr.ph
   %71 = tail call i64 @Curl_llist_count(ptr noundef nonnull %.050103) #7
@@ -864,7 +864,7 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %67
 
 .preheader:                                       ; preds = %.critedge.thread, %.critedge.thread92
   %72 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 48
-  %73 = load i64, ptr %72, align 8, !tbaa !109
+  %73 = load i64, ptr %72, align 8, !tbaa !108
   %.not68104 = icmp ult i64 %73, %.048
   br i1 %.not68104, label %.thread98, label %.lr.ph105
 
@@ -874,16 +874,16 @@ cpool_bundle_get_oldest_idle.exit:                ; preds = %67
   br i1 %.not69, label %.lr.ph105..thread98.loopexit_crit_edge, label %77
 
 .lr.ph105..thread98.loopexit_crit_edge:           ; preds = %.lr.ph105
-  %.pre.pre = load i64, ptr %72, align 8, !tbaa !109
+  %.pre.pre = load i64, ptr %72, align 8, !tbaa !108
   %75 = icmp ult i64 %.pre.pre, %.048
   %76 = select i1 %75, i32 0, i32 2
   br label %.thread98
 
 77:                                               ; preds = %.lr.ph105
   tail call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef nonnull %74, i1 noundef zeroext false)
-  %78 = load i64, ptr %72, align 8, !tbaa !109
+  %78 = load i64, ptr %72, align 8, !tbaa !108
   %.not68 = icmp ult i64 %78, %.048
-  br i1 %.not68, label %.thread98, label %.lr.ph105, !llvm.loop !135
+  br i1 %.not68, label %.thread98, label %.lr.ph105
 
 .thread98:                                        ; preds = %77, %.preheader, %.lr.ph105..thread98.loopexit_crit_edge, %.critedge.thread, %.critedge.thread92
   %.047 = phi i32 [ 0, %.critedge.thread ], [ %.mux, %.critedge.thread92 ], [ 0, %.preheader ], [ %76, %.lr.ph105..thread98.loopexit_crit_edge ], [ 0, %77 ]
@@ -938,7 +938,7 @@ define dso_local void @Curl_cpool_disconnect(ptr noundef %0, ptr noundef %1, i1 
 
 13:                                               ; preds = %7, %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %15 = load ptr, ptr %14, align 8, !tbaa !124
+  %15 = load ptr, ptr %14, align 8, !tbaa !122
   %.not15.i = icmp eq ptr %15, null
   br i1 %.not15.i, label %18, label %16
 
@@ -1008,9 +1008,9 @@ define dso_local void @Curl_cpool_disconnect(ptr noundef %0, ptr noundef %1, i1 
 
 50:                                               ; preds = %48
   %51 = getelementptr i8, ptr %1, i64 56
-  %.val.i = load ptr, ptr %51, align 8, !tbaa !97
+  %.val.i = load ptr, ptr %51, align 8, !tbaa !96
   %52 = getelementptr i8, ptr %1, i64 64
-  %.val17.i = load i64, ptr %52, align 8, !tbaa !106
+  %.val17.i = load i64, ptr %52, align 8, !tbaa !105
   %53 = tail call ptr @Curl_hash_pick(ptr noundef nonnull %.0.i.ph, ptr noundef %.val.i, i64 noundef %.val17.i) #7
   %54 = icmp eq ptr %49, %53
   br i1 %54, label %55, label %cpool_remove_conn.exit
@@ -1027,7 +1027,7 @@ define dso_local void @Curl_cpool_disconnect(ptr noundef %0, ptr noundef %1, i1 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %61 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %62 = load i64, ptr %61, align 8, !tbaa !107
+  %62 = load i64, ptr %61, align 8, !tbaa !106
   %63 = tail call i32 @Curl_hash_delete(ptr noundef nonnull %.0.i.ph, ptr noundef nonnull %60, i64 noundef %62) #7
   br label %64
 
@@ -1036,9 +1036,9 @@ define dso_local void @Curl_cpool_disconnect(ptr noundef %0, ptr noundef %1, i1 
   %66 = and i64 %65, -4294967297
   store i64 %66, ptr %45, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 48
-  %68 = load i64, ptr %67, align 8, !tbaa !109
+  %68 = load i64, ptr %67, align 8, !tbaa !108
   %69 = add i64 %68, -1
-  store i64 %69, ptr %67, align 8, !tbaa !109
+  store i64 %69, ptr %67, align 8, !tbaa !108
   br label %cpool_remove_conn.exit
 
 cpool_remove_conn.exit:                           ; preds = %64, %50, %48, %44
@@ -1059,20 +1059,20 @@ cpool_remove_conn.exit:                           ; preds = %64, %50, %48, %44
 
 79:                                               ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 4712
-  %81 = load ptr, ptr %80, align 8, !tbaa !136
+  %81 = load ptr, ptr %80, align 8, !tbaa !132
   %.not65 = icmp eq ptr %81, null
   br i1 %.not65, label %86, label %82
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %84 = load i32, ptr %83, align 8, !tbaa !137
+  %84 = load i32, ptr %83, align 8, !tbaa !133
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %82, %79
   %87 = select i1 %72, ptr @.str.2, ptr @.str.3
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %89 = load i64, ptr %88, align 8, !tbaa !139
+  %89 = load i64, ptr %88, align 8, !tbaa !135
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %87, i64 noundef %89) #7
   %.pre73 = load ptr, ptr %73, align 8, !tbaa !21
   br label %90
@@ -1088,19 +1088,19 @@ cpool_remove_conn.exit:                           ; preds = %64, %50, %48, %44
 
 94:                                               ; preds = %93
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 4712
-  %96 = load ptr, ptr %95, align 8, !tbaa !136
+  %96 = load ptr, ptr %95, align 8, !tbaa !132
   %.not62 = icmp eq ptr %96, null
   br i1 %.not62, label %101, label %97
 
 97:                                               ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %99 = load i32, ptr %98, align 8, !tbaa !137
+  %99 = load i32, ptr %98, align 8, !tbaa !133
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %101, label %104
 
 101:                                              ; preds = %97, %94
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %103 = load i64, ptr %102, align 8, !tbaa !139
+  %103 = load i64, ptr %102, align 8, !tbaa !135
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i64 noundef %103) #7
   br label %104
 
@@ -1179,7 +1179,7 @@ define internal fastcc ptr @cpool_get_oldest_idle(ptr noundef nonnull %0) unname
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 1373
-  %19 = load i8, ptr %18, align 1, !tbaa !140
+  %19 = load i8, ptr %18, align 1, !tbaa !136
   %.not26 = icmp eq i8 %19, 0
   br i1 %.not26, label %20, label %27
 
@@ -1199,14 +1199,14 @@ define internal fastcc ptr @cpool_get_oldest_idle(ptr noundef nonnull %0) unname
   %.2 = phi ptr [ %.130, %.lr.ph ], [ %.130, %13 ], [ %.130, %17 ], [ %spec.select27, %20 ]
   %28 = call ptr @Curl_node_next(ptr noundef nonnull %.031) #7
   %.not23 = icmp eq ptr %28, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !141
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %27, %.lr.ph38
   %.120.lcssa = phi i64 [ %.01934, %.lr.ph38 ], [ %.221, %27 ]
   %.1.lcssa = phi ptr [ %.01835, %.lr.ph38 ], [ %.2, %27 ]
   %29 = call ptr @Curl_hash_next_element(ptr noundef nonnull %2) #7
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !142
+  br i1 %.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !138
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %1
   %.018.lcssa = phi ptr [ null, %1 ], [ %.1.lcssa, %._crit_edge ]
@@ -1238,7 +1238,7 @@ define dso_local range(i32 0, 28) i32 @Curl_cpool_add_conn(ptr noundef readonly 
 
 12:                                               ; preds = %6, %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %14 = load ptr, ptr %13, align 8, !tbaa !124
+  %14 = load ptr, ptr %13, align 8, !tbaa !122
   %.not15.i = icmp eq ptr %14, null
   br i1 %.not15.i, label %17, label %15
 
@@ -1279,16 +1279,16 @@ define dso_local range(i32 0, 28) i32 @Curl_cpool_add_conn(ptr noundef readonly 
   %35 = or i8 %34, 1
   store i8 %35, ptr %33, align 8
   %36 = getelementptr i8, ptr %1, i64 56
-  %.val = load ptr, ptr %36, align 8, !tbaa !97
+  %.val = load ptr, ptr %36, align 8, !tbaa !96
   %37 = getelementptr i8, ptr %1, i64 64
-  %.val37 = load i64, ptr %37, align 8, !tbaa !106
+  %.val37 = load i64, ptr %37, align 8, !tbaa !105
   %38 = tail call ptr @Curl_hash_pick(ptr noundef nonnull %.0.i.ph, ptr noundef %.val, i64 noundef %.val37) #7
   %.not33 = icmp eq ptr %38, null
   br i1 %.not33, label %39, label %cpool_add_bundle.exit
 
 39:                                               ; preds = %32
-  %.val38 = load ptr, ptr %36, align 8, !tbaa !97
-  %.val39 = load i64, ptr %37, align 8, !tbaa !106
+  %.val38 = load ptr, ptr %36, align 8, !tbaa !96
+  %.val39 = load i64, ptr %37, align 8, !tbaa !105
   %40 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !84
   %41 = add i64 %.val39, 48
   %42 = tail call ptr %40(i64 noundef 1, i64 noundef %41) #7
@@ -1298,7 +1298,7 @@ define dso_local range(i32 0, 28) i32 @Curl_cpool_add_conn(ptr noundef readonly 
 43:                                               ; preds = %39
   tail call void @Curl_llist_init(ptr noundef nonnull %42, ptr noundef null) #7
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store i64 %.val39, ptr %44, align 8, !tbaa !107
+  store i64 %.val39, ptr %44, align 8, !tbaa !106
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr readonly align 1 %.val38, i64 %.val39, i1 false)
   %46 = tail call ptr @Curl_hash_add(ptr noundef nonnull %.0.i.ph, ptr noundef nonnull %45, i64 noundef %.val39, ptr noundef nonnull %42) #7
@@ -1318,15 +1318,15 @@ cpool_add_bundle.exit:                            ; preds = %43, %32
   %51 = or i64 %50, 4294967296
   store i64 %51, ptr %49, align 8
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 56
-  %53 = load i64, ptr %52, align 8, !tbaa !143
+  %53 = load i64, ptr %52, align 8, !tbaa !139
   %54 = add nsw i64 %53, 1
-  store i64 %54, ptr %52, align 8, !tbaa !143
+  store i64 %54, ptr %52, align 8, !tbaa !139
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i64 %53, ptr %55, align 8, !tbaa !139
+  store i64 %53, ptr %55, align 8, !tbaa !135
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 48
-  %57 = load i64, ptr %56, align 8, !tbaa !109
+  %57 = load i64, ptr %56, align 8, !tbaa !108
   %58 = add i64 %57, 1
-  store i64 %58, ptr %56, align 8, !tbaa !109
+  store i64 %58, ptr %56, align 8, !tbaa !108
   br label %cpool_add_bundle.exit.thread
 
 cpool_add_bundle.exit.thread:                     ; preds = %39, %47, %cpool_add_bundle.exit
@@ -1361,13 +1361,13 @@ define dso_local zeroext i1 @Curl_cpool_conn_now_idle(ptr noundef %0, ptr nounde
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 620
-  %6 = load i32, ptr %5, align 4, !tbaa !144
+  %6 = load i32, ptr %5, align 4, !tbaa !140
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %11
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !145
+  %9 = load i32, ptr %8, align 4, !tbaa !141
   %10 = shl i32 %9, 2
   br label %11
 
@@ -1391,7 +1391,7 @@ define dso_local zeroext i1 @Curl_cpool_conn_now_idle(ptr noundef %0, ptr nounde
 
 21:                                               ; preds = %15, %11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %23 = load ptr, ptr %22, align 8, !tbaa !124
+  %23 = load ptr, ptr %22, align 8, !tbaa !122
   %.not15.i = icmp eq ptr %23, null
   br i1 %.not15.i, label %26, label %24
 
@@ -1409,9 +1409,9 @@ cpool_get_instance.exit:                          ; preds = %19, %24, %26
   %29 = tail call { i64, i32 } @Curl_now() #7
   %30 = extractvalue { i64, i32 } %29, 0
   %31 = extractvalue { i64, i32 } %29, 1
-  store i64 %30, ptr %28, align 8, !tbaa !146
+  store i64 %30, ptr %28, align 8, !tbaa !142
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 560
-  store i32 %31, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !114
+  store i32 %31, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !113
   %.not56 = icmp eq i32 %12, 0
   br i1 %.not56, label %87, label %32
 
@@ -1450,7 +1450,7 @@ cpool_get_instance.exit:                          ; preds = %19, %24, %26
 
 50:                                               ; preds = %47, %32
   %51 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
-  %52 = load i64, ptr %51, align 8, !tbaa !109
+  %52 = load i64, ptr %51, align 8, !tbaa !108
   %53 = zext i32 %12 to i64
   %54 = icmp ugt i64 %52, %53
   br i1 %54, label %55, label %73
@@ -1464,13 +1464,13 @@ cpool_get_instance.exit:                          ; preds = %19, %24, %26
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 4712
-  %61 = load ptr, ptr %60, align 8, !tbaa !136
+  %61 = load ptr, ptr %60, align 8, !tbaa !132
   %.not52 = icmp eq ptr %61, null
   br i1 %.not52, label %66, label %62
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %64 = load i32, ptr %63, align 8, !tbaa !137
+  %64 = load i32, ptr %63, align 8, !tbaa !133
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %66, label %67
 
@@ -1552,7 +1552,7 @@ define dso_local zeroext i1 @Curl_cpool_find(ptr noundef readonly captures(addre
 
 16:                                               ; preds = %10, %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %18 = load ptr, ptr %17, align 8, !tbaa !124
+  %18 = load ptr, ptr %17, align 8, !tbaa !122
   %.not15.i = icmp eq ptr %18, null
   br i1 %.not15.i, label %21, label %19
 
@@ -1609,7 +1609,7 @@ define dso_local zeroext i1 @Curl_cpool_find(ptr noundef readonly captures(addre
   %45 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.029) #7
   %46 = tail call ptr @Curl_node_next(ptr noundef nonnull %.029) #7
   %47 = tail call zeroext i1 %3(ptr noundef %45, ptr noundef %5) #7
-  br i1 %47, label %.loopexit, label %43, !llvm.loop !147
+  br i1 %47, label %.loopexit, label %43
 
 .loopexit:                                        ; preds = %44, %43, %36
   %.031 = phi i8 [ 0, %36 ], [ 0, %43 ], [ 1, %44 ]
@@ -1676,7 +1676,7 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 1373
-  %14 = load i8, ptr %13, align 1, !tbaa !140
+  %14 = load i8, ptr %13, align 1, !tbaa !136
   %.not = icmp ne i8 %14, 0
   %spec.select = or i1 %3, %.not
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 920
@@ -1691,7 +1691,7 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
   tail call void @Curl_attach_connection(ptr noundef %1, ptr noundef nonnull %2) #7
   call fastcc void @cpool_run_conn_shutdown(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %8)
   tail call void @Curl_detach_connection(ptr noundef %1) #7
-  %.pre = load i8, ptr %8, align 1, !tbaa !148, !range !110
+  %.pre = load i8, ptr %8, align 1, !tbaa !143, !range !109
   %21 = trunc nuw i8 %.pre to i1
   br i1 %21, label %.thread41, label %22
 
@@ -1707,7 +1707,7 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 560
-  %27 = load i64, ptr %26, align 8, !tbaa !149
+  %27 = load i64, ptr %26, align 8, !tbaa !144
   %28 = icmp sgt i64 %27, 0
   br i1 %28, label %29, label %cpool_shutdown_destroy_oldest.exit
 
@@ -1741,15 +1741,15 @@ define internal fastcc void @cpool_discard_conn(ptr noundef %0, ptr noundef %1, 
   store i8 0, ptr %36, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6) #7
   %43 = call i32 @sigaction(i32 noundef 13, ptr noundef null, ptr noundef nonnull %7) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %7, i64 152, i1 false), !tbaa.struct !112
-  store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !tbaa !113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef nonnull align 8 dereferenceable(152) %7, i64 152, i1 false), !tbaa.struct !111
+  store ptr inttoptr (i64 1 to ptr), ptr %6, align 8, !tbaa !112
   %44 = call i32 @sigaction(i32 noundef 13, ptr noundef nonnull %6, ptr noundef null) #7
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6) #7
   br label %sigpipe_apply.exit.i
 
 sigpipe_apply.exit.i:                             ; preds = %42, %34
   call fastcc void @cpool_close_and_destroy(ptr noundef nonnull %0, ptr noundef %35, ptr noundef null, i1 noundef zeroext false)
-  %45 = load i8, ptr %36, align 8, !tbaa !85, !range !110, !noundef !111
+  %45 = load i8, ptr %36, align 8, !tbaa !85, !range !109, !noundef !110
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %sigpipe_restore.exit.i, label %47
 
@@ -1768,7 +1768,7 @@ cpool_shutdown_destroy_oldest.exit:               ; preds = %sigpipe_restore.exi
 
 49:                                               ; preds = %cpool_shutdown_destroy_oldest.exit
   %50 = getelementptr inbounds nuw i8, ptr %.pr, i64 152
-  %51 = load ptr, ptr %50, align 8, !tbaa !150
+  %51 = load ptr, ptr %50, align 8, !tbaa !145
   %.not37 = icmp eq ptr %51, null
   br i1 %.not37, label %cpool_shutdown_destroy_oldest.exit.thread, label %52
 
@@ -1830,7 +1830,7 @@ define internal fastcc void @cpool_close_and_destroy(ptr noundef readonly captur
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %15 = load ptr, ptr %14, align 8, !tbaa !151
+  %15 = load ptr, ptr %14, align 8, !tbaa !146
   %.not13.i = icmp eq ptr %15, null
   br i1 %.not13.i, label %17, label %16
 
@@ -1841,13 +1841,13 @@ define internal fastcc void @cpool_close_and_destroy(ptr noundef readonly captur
 17:                                               ; preds = %16, %13
   tail call void @Curl_http_auth_cleanup_ntlm(ptr noundef nonnull %1) #7
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 928
-  %19 = load ptr, ptr %18, align 8, !tbaa !152
+  %19 = load ptr, ptr %18, align 8, !tbaa !147
   %.not14.i = icmp eq ptr %19, null
   br i1 %.not14.i, label %28, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  %22 = load ptr, ptr %21, align 8, !tbaa !153
+  %22 = load ptr, ptr %21, align 8, !tbaa !148
   %.not15.i = icmp eq ptr %22, null
   br i1 %.not15.i, label %28, label %23
 
@@ -1978,7 +1978,7 @@ define internal fastcc i32 @cpool_add_pollfds(ptr noundef %0, ptr noundef %1) un
 16:                                               ; preds = %9
   %17 = call ptr @Curl_node_next(ptr noundef nonnull %.01522) #7
   %.not19 = icmp eq ptr %17, null
-  br i1 %.not19, label %.loopexit, label %9, !llvm.loop !155
+  br i1 %.not19, label %.loopexit, label %9, !llvm.loop !150
 
 .loopexit:                                        ; preds = %16, %6, %15
   %.1 = phi i32 [ %14, %15 ], [ 0, %6 ], [ 0, %16 ]
@@ -2055,7 +2055,7 @@ define dso_local i32 @Curl_cpool_add_waitfds(ptr noundef %0, ptr noundef %1) loc
 31:                                               ; preds = %25
   %32 = call ptr @Curl_node_next(ptr noundef nonnull %.02440) #7
   %.not35 = icmp eq ptr %32, null
-  br i1 %.not35, label %._crit_edge, label %25, !llvm.loop !156
+  br i1 %.not35, label %._crit_edge, label %25, !llvm.loop !151
 
 ._crit_edge:                                      ; preds = %25, %31, %22
   %.1 = phi i32 [ 0, %22 ], [ 0, %31 ], [ %30, %25 ]
@@ -2105,7 +2105,7 @@ declare i32 @Curl_waitfds_add_ps(ptr noundef, ptr noundef) local_unnamed_addr #1
 define dso_local void @Curl_cpool_multi_perform(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %4 = load ptr, ptr %3, align 8, !tbaa !157
+  %4 = load ptr, ptr %3, align 8, !tbaa !152
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %5
 
@@ -2118,7 +2118,7 @@ define dso_local void @Curl_cpool_multi_perform(ptr noundef %0) local_unnamed_ad
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %11 = load ptr, ptr %10, align 8, !tbaa !158
+  %11 = load ptr, ptr %10, align 8, !tbaa !153
   %12 = tail call i32 @Curl_share_lock(ptr noundef %11, i32 noundef 5, i32 noundef 2) #7
   br label %13
 
@@ -2131,7 +2131,7 @@ define dso_local void @Curl_cpool_multi_perform(ptr noundef %0) local_unnamed_ad
   %17 = load i8, ptr %14, align 8
   %18 = and i8 %17, -2
   store i8 %18, ptr %14, align 8
-  %19 = load ptr, ptr %3, align 8, !tbaa !157
+  %19 = load ptr, ptr %3, align 8, !tbaa !152
   %.not13 = icmp eq ptr %19, null
   br i1 %.not13, label %28, label %20
 
@@ -2144,7 +2144,7 @@ define dso_local void @Curl_cpool_multi_perform(ptr noundef %0) local_unnamed_ad
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %26 = load ptr, ptr %25, align 8, !tbaa !158
+  %26 = load ptr, ptr %25, align 8, !tbaa !153
   %27 = tail call i32 @Curl_share_unlock(ptr noundef %26, i32 noundef 5) #7
   br label %28
 
@@ -2178,7 +2178,7 @@ define internal fastcc void @cpool_perform(ptr noundef %0) unnamed_addr #0 {
   call void @Curl_attach_connection(ptr noundef %5, ptr noundef %10) #7
   call fastcc void @cpool_run_conn_shutdown(ptr noundef %5, ptr noundef %10, ptr noundef %3)
   call void @Curl_detach_connection(ptr noundef %5) #7
-  %11 = load i8, ptr %3, align 1, !tbaa !148, !range !110, !noundef !111
+  %11 = load i8, ptr %3, align 1, !tbaa !143, !range !109, !noundef !110
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %14
 
@@ -2195,8 +2195,8 @@ define internal fastcc void @cpool_perform(ptr noundef %0) unnamed_addr #0 {
   %16 = call { i64, i32 } @Curl_now() #7
   %17 = extractvalue { i64, i32 } %16, 0
   %18 = extractvalue { i64, i32 } %16, 1
-  store i64 %17, ptr %2, align 8, !tbaa !146
-  store i32 %18, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !114
+  store i64 %17, ptr %2, align 8, !tbaa !142
+  store i32 %18, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !113
   br label %19
 
 19:                                               ; preds = %15, %14
@@ -2211,7 +2211,7 @@ define internal fastcc void @cpool_perform(ptr noundef %0) unnamed_addr #0 {
   %.126 = phi i64 [ %.02533, %13 ], [ %spec.select, %19 ]
   %.1 = phi ptr [ %.02434, %13 ], [ %.2, %19 ]
   %.not29 = icmp eq ptr %9, null
-  br i1 %.not29, label %23, label %8, !llvm.loop !159
+  br i1 %.not29, label %23, label %8, !llvm.loop !154
 
 23:                                               ; preds = %22
   %.not30 = icmp eq i64 %.126, 0
@@ -2265,13 +2265,13 @@ define dso_local void @Curl_cpool_multi_socket(ptr noundef %0, i32 noundef %1, i
   %.040 = phi ptr [ %39, %38 ], [ %22, %17 ]
   %23 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.040) #7
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 568
-  %25 = load i32, ptr %24, align 8, !tbaa !114
+  %25 = load i32, ptr %24, align 8, !tbaa !113
   %26 = icmp eq i32 %1, %25
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %.lr.ph
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 572
-  %29 = load i32, ptr %28, align 4, !tbaa !114
+  %29 = load i32, ptr %28, align 4, !tbaa !113
   %30 = icmp eq i32 %1, %29
   br i1 %30, label %31, label %38
 
@@ -2279,7 +2279,7 @@ define dso_local void @Curl_cpool_multi_socket(ptr noundef %0, i32 noundef %1, i
   tail call void @Curl_attach_connection(ptr noundef %8, ptr noundef nonnull %23) #7
   call fastcc void @cpool_run_conn_shutdown(ptr noundef %8, ptr noundef nonnull %23, ptr noundef %5)
   tail call void @Curl_detach_connection(ptr noundef %8) #7
-  %32 = load i8, ptr %5, align 1, !tbaa !148, !range !110, !noundef !111
+  %32 = load i8, ptr %5, align 1, !tbaa !143, !range !109, !noundef !110
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %37, label %34
 
@@ -2311,7 +2311,7 @@ cpool_update_shutdown_ev.exit:                    ; preds = %34
 38:                                               ; preds = %27
   %39 = tail call ptr @Curl_node_next(ptr noundef nonnull %.040) #7
   %.not34 = icmp eq ptr %39, null
-  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !160
+  br i1 %.not34, label %.loopexit, label %.lr.ph, !llvm.loop !155
 
 .loopexit:                                        ; preds = %38, %17, %cpool_update_shutdown_ev.exit.thread, %37
   %40 = load i8, ptr %18, align 8
@@ -2352,7 +2352,7 @@ define internal fastcc void @cpool_run_conn_shutdown(ptr noundef %0, ptr noundef
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !151
+  %11 = load ptr, ptr %10, align 8, !tbaa !146
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %13, label %12
 
@@ -2363,13 +2363,13 @@ define internal fastcc void @cpool_run_conn_shutdown(ptr noundef %0, ptr noundef
 13:                                               ; preds = %12, %9
   tail call void @Curl_http_auth_cleanup_ntlm(ptr noundef nonnull %1) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 928
-  %15 = load ptr, ptr %14, align 8, !tbaa !152
+  %15 = load ptr, ptr %14, align 8, !tbaa !147
   %.not14.i = icmp eq ptr %15, null
   br i1 %.not14.i, label %24, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  %18 = load ptr, ptr %17, align 8, !tbaa !153
+  %18 = load ptr, ptr %17, align 8, !tbaa !148
   %.not15.i = icmp eq ptr %18, null
   br i1 %.not15.i, label %24, label %19
 
@@ -2393,12 +2393,12 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
   br i1 %.not, label %30, label %29
 
 29:                                               ; preds = %cpool_run_conn_shutdown_handler.exit
-  store i8 1, ptr %2, align 1, !tbaa !148
+  store i8 1, ptr %2, align 1, !tbaa !143
   br label %58
 
 30:                                               ; preds = %cpool_run_conn_shutdown_handler.exit
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 1373
-  %32 = load i8, ptr %31, align 1, !tbaa !140
+  %32 = load i8, ptr %31, align 1, !tbaa !136
   %.not16 = icmp eq i8 %32, 0
   br i1 %.not16, label %33, label %38
 
@@ -2412,12 +2412,12 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
   br label %39
 
 38:                                               ; preds = %33, %30
-  store i8 1, ptr %4, align 1, !tbaa !148
+  store i8 1, ptr %4, align 1, !tbaa !143
   br label %39
 
 39:                                               ; preds = %38, %35
   %.015 = phi i1 [ false, %38 ], [ %37, %35 ]
-  %40 = load i8, ptr %31, align 1, !tbaa !140
+  %40 = load i8, ptr %31, align 1, !tbaa !136
   %.not17 = icmp eq i8 %40, 0
   br i1 %.not17, label %41, label %46
 
@@ -2431,7 +2431,7 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
   br label %47
 
 46:                                               ; preds = %41, %39
-  store i8 1, ptr %5, align 1, !tbaa !148
+  store i8 1, ptr %5, align 1, !tbaa !143
   br label %47
 
 47:                                               ; preds = %46, %43
@@ -2440,17 +2440,17 @@ cpool_run_conn_shutdown_handler.exit:             ; preds = %3, %24
   br i1 %or.cond, label %.critedge, label %48
 
 48:                                               ; preds = %47
-  %49 = load i8, ptr %4, align 1, !tbaa !148, !range !110, !noundef !111
+  %49 = load i8, ptr %4, align 1, !tbaa !143, !range !109, !noundef !110
   %50 = trunc nuw i8 %49 to i1
-  %51 = load i8, ptr %5, align 1, !range !110
+  %51 = load i8, ptr %5, align 1, !range !109
   %52 = trunc nuw i8 %51 to i1
   %53 = select i1 %50, i1 %52, i1 false
   %54 = zext i1 %53 to i8
-  store i8 %54, ptr %2, align 1, !tbaa !148
+  store i8 %54, ptr %2, align 1, !tbaa !143
   br i1 %53, label %55, label %58
 
 .critedge:                                        ; preds = %47
-  store i8 1, ptr %2, align 1, !tbaa !148
+  store i8 1, ptr %2, align 1, !tbaa !143
   br label %55
 
 55:                                               ; preds = %.critedge, %48
@@ -2493,7 +2493,7 @@ define dso_local void @Curl_cpool_prune_dead(ptr noundef %0) local_unnamed_addr 
 
 13:                                               ; preds = %7, %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %15 = load ptr, ptr %14, align 8, !tbaa !124
+  %15 = load ptr, ptr %14, align 8, !tbaa !122
   %.not15.i = icmp eq ptr %15, null
   br i1 %.not15.i, label %18, label %16
 
@@ -2518,9 +2518,9 @@ cpool_get_instance.exit:                          ; preds = %18, %1
   %23 = tail call { i64, i32 } @Curl_now() #7
   %24 = extractvalue { i64, i32 } %23, 0
   %25 = extractvalue { i64, i32 } %23, 1
-  store i64 %24, ptr %3, align 8, !tbaa !146
+  store i64 %24, ptr %3, align 8, !tbaa !142
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %25, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !114
+  store i32 %25, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !113
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 136
   %27 = load ptr, ptr %26, align 8, !tbaa !82
   %.not18 = icmp eq ptr %27, null
@@ -2565,7 +2565,7 @@ cpool_get_instance.exit:                          ; preds = %18, %1
 
 .lr.ph.i.backedge:                                ; preds = %.critedge.loopexit.i, %cpool_foreach.exit
   %.01525.i.be = phi ptr [ %49, %.critedge.loopexit.i ], [ %55, %cpool_foreach.exit ]
-  br label %.lr.ph.i, !llvm.loop !161
+  br label %.lr.ph.i, !llvm.loop !156
 
 .lr.ph.i:                                         ; preds = %.preheader, %.lr.ph.i.backedge
   %.01525.i = phi ptr [ %.01525.i.be, %.lr.ph.i.backedge ], [ %46, %.preheader ]
@@ -2584,7 +2584,7 @@ cpool_reap_dead_cb.exit:                          ; preds = %51, %.lr.ph.i
   %52 = call ptr @Curl_node_elem(ptr noundef nonnull %.016.i) #7
   %53 = call ptr @Curl_node_next(ptr noundef nonnull %.016.i) #7
   %54 = call zeroext i1 @Curl_conn_seems_dead(ptr noundef %52, ptr noundef nonnull %0, ptr noundef nonnull %3) #7
-  br i1 %54, label %cpool_foreach.exit, label %cpool_reap_dead_cb.exit, !llvm.loop !162
+  br i1 %54, label %cpool_foreach.exit, label %cpool_reap_dead_cb.exit, !llvm.loop !157
 
 cpool_foreach.exit:                               ; preds = %51
   call void @Curl_cpool_disconnect(ptr noundef nonnull %0, ptr noundef %52, i1 noundef zeroext false)
@@ -2597,7 +2597,7 @@ cpool_foreach.exit:                               ; preds = %51
 
 .loopexit:                                        ; preds = %cpool_foreach.exit, %.critedge.loopexit.i, %.preheader
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !163
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !158
   br label %56
 
 56:                                               ; preds = %.loopexit, %36
@@ -2654,7 +2654,7 @@ define dso_local noundef i32 @Curl_cpool_upkeep(ptr noundef %0) local_unnamed_ad
 
 13:                                               ; preds = %7, %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %15 = load ptr, ptr %14, align 8, !tbaa !124
+  %15 = load ptr, ptr %14, align 8, !tbaa !122
   %.not15.i = icmp eq ptr %15, null
   br i1 %.not15.i, label %18, label %16
 
@@ -2714,7 +2714,7 @@ cpool_get_instance.exit:                          ; preds = %18, %1, %11, %16
 
 .critedge.loopexit.i:                             ; preds = %.lr.ph, %.lr.ph.i
   %.not.not.i = icmp eq ptr %44, null
-  br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i, !llvm.loop !164
+  br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %37, %.critedge.loopexit.i
   %.01525.i = phi ptr [ %44, %.critedge.loopexit.i ], [ %41, %37 ]
@@ -2731,7 +2731,7 @@ cpool_get_instance.exit:                          ; preds = %18, %1, %11, %16
   %47 = call ptr @Curl_node_next(ptr noundef nonnull %.016.i21) #7
   %48 = call i32 @Curl_conn_upkeep(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %3) #7
   %.not20.i = icmp eq ptr %47, null
-  br i1 %.not20.i, label %.critedge.loopexit.i, label %.lr.ph, !llvm.loop !162
+  br i1 %.not20.i, label %.critedge.loopexit.i, label %.lr.ph, !llvm.loop !157
 
 cpool_foreach.exit:                               ; preds = %.critedge.loopexit.i, %37
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #7
@@ -2785,7 +2785,7 @@ define dso_local ptr @Curl_cpool_get_conn(ptr noundef readonly captures(address_
 
 13:                                               ; preds = %7, %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %15 = load ptr, ptr %14, align 8, !tbaa !124
+  %15 = load ptr, ptr %14, align 8, !tbaa !122
   %.not15.i = icmp eq ptr %15, null
   br i1 %.not15.i, label %18, label %16
 
@@ -2834,7 +2834,7 @@ define dso_local ptr @Curl_cpool_get_conn(ptr noundef readonly captures(address_
 
 .critedge.loopexit.i:                             ; preds = %43, %.lr.ph.i
   %.not.not.i = icmp eq ptr %41, null
-  br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i, !llvm.loop !164
+  br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33, %.critedge.loopexit.i
   %.01525.i = phi ptr [ %41, %.critedge.loopexit.i ], [ %38, %33 ]
@@ -2847,16 +2847,16 @@ define dso_local ptr @Curl_cpool_get_conn(ptr noundef readonly captures(address_
 
 43:                                               ; preds = %cpool_find_conn.exit
   %.not20.i = icmp eq ptr %45, null
-  br i1 %.not20.i, label %.critedge.loopexit.i, label %cpool_find_conn.exit, !llvm.loop !162
+  br i1 %.not20.i, label %.critedge.loopexit.i, label %cpool_find_conn.exit, !llvm.loop !157
 
 cpool_find_conn.exit:                             ; preds = %.lr.ph.i, %43
   %.016.i32 = phi ptr [ %45, %43 ], [ %42, %.lr.ph.i ]
   %44 = call ptr @Curl_node_elem(ptr noundef nonnull %.016.i32) #7
   %45 = call ptr @Curl_node_next(ptr noundef nonnull %.016.i32) #7
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 48
-  %47 = load i64, ptr %46, align 8, !tbaa !139
+  %47 = load i64, ptr %46, align 8, !tbaa !135
   %48 = icmp eq i64 %47, %1
-  br i1 %48, label %cpool_foreach.exit, label %43, !llvm.loop !164
+  br i1 %48, label %cpool_foreach.exit, label %43, !llvm.loop !159
 
 cpool_foreach.exit:                               ; preds = %.critedge.loopexit.i, %cpool_find_conn.exit, %33
   %.sroa.4.2 = phi ptr [ null, %33 ], [ %44, %cpool_find_conn.exit ], [ null, %.critedge.loopexit.i ]
@@ -2910,7 +2910,7 @@ define dso_local void @Curl_cpool_do_by_id(ptr noundef %0, i64 noundef %1, ptr n
 
 15:                                               ; preds = %9, %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %17 = load ptr, ptr %16, align 8, !tbaa !124
+  %17 = load ptr, ptr %16, align 8, !tbaa !122
   %.not15.i = icmp eq ptr %17, null
   br i1 %.not15.i, label %20, label %18
 
@@ -2958,7 +2958,7 @@ define dso_local void @Curl_cpool_do_by_id(ptr noundef %0, i64 noundef %1, ptr n
 
 .critedge.loopexit.i:                             ; preds = %cpool_do_conn.exit
   %.not.not.i = icmp eq ptr %42, null
-  br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i, !llvm.loop !164
+  br i1 %.not.not.i, label %cpool_foreach.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35, %.critedge.loopexit.i
   %.01525.i = phi ptr [ %42, %.critedge.loopexit.i ], [ %39, %35 ]
@@ -2977,13 +2977,13 @@ cpool_do_conn.exit:                               ; preds = %44, %.lr.ph.i
   %45 = call ptr @Curl_node_elem(ptr noundef nonnull %.016.i) #7
   %46 = call ptr @Curl_node_next(ptr noundef nonnull %.016.i) #7
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %48 = load i64, ptr %47, align 8, !tbaa !139
+  %48 = load i64, ptr %47, align 8, !tbaa !135
   %49 = icmp eq i64 %48, %1
-  br i1 %49, label %50, label %cpool_do_conn.exit, !llvm.loop !162
+  br i1 %49, label %50, label %cpool_do_conn.exit, !llvm.loop !157
 
 50:                                               ; preds = %44
   call void %2(ptr noundef nonnull %45, ptr noundef nonnull %0, ptr noundef %3) #7
-  br label %cpool_foreach.exit, !llvm.loop !164
+  br label %cpool_foreach.exit, !llvm.loop !159
 
 cpool_foreach.exit:                               ; preds = %.critedge.loopexit.i, %35, %50
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
@@ -3035,7 +3035,7 @@ define dso_local void @Curl_cpool_do_locked(ptr noundef %0, ptr noundef %1, ptr 
 
 14:                                               ; preds = %8, %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %16 = load ptr, ptr %15, align 8, !tbaa !124
+  %16 = load ptr, ptr %15, align 8, !tbaa !122
   %.not15.i = icmp eq ptr %16, null
   br i1 %.not15.i, label %19, label %17
 
@@ -3267,74 +3267,69 @@ attributes #7 = { nounwind }
 !91 = !{!"Curl_share", !13, i64 0, !13, i64 4, !13, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !5, i64 40, !6, i64 200, !56, i64 248, !57, i64 256, !63, i64 264, !11, i64 272, !11, i64 280}
 !92 = !{!93, !8, i64 32}
 !93 = !{!"Curl_hash_element", !24, i64 0, !8, i64 32, !8, i64 40, !11, i64 48, !9, i64 56}
-!94 = distinct !{!94, !95, !96}
+!94 = distinct !{!94, !95}
 !95 = !{!"llvm.loop.mustprogress"}
-!96 = !{!"llvm.loop.estimated_trip_count"}
-!97 = !{!98, !36, i64 56}
-!98 = !{!"connectdata", !24, i64 0, !8, i64 32, !8, i64 40, !11, i64 48, !36, i64 56, !11, i64 64, !67, i64 72, !99, i64 80, !100, i64 88, !36, i64 120, !36, i64 128, !100, i64 136, !101, i64 168, !101, i64 224, !78, i64 280, !78, i64 380, !36, i64 480, !36, i64 488, !36, i64 496, !36, i64 504, !36, i64 512, !12, i64 520, !12, i64 536, !12, i64 552, !9, i64 568, !9, i64 576, !9, i64 592, !9, i64 608, !102, i64 624, !27, i64 664, !50, i64 696, !50, i64 808, !103, i64 920, !104, i64 928, !104, i64 936, !12, i64 944, !13, i64 960, !13, i64 964, !14, i64 968, !13, i64 1000, !13, i64 1004, !105, i64 1008, !105, i64 1032, !9, i64 1056, !36, i64 1336, !40, i64 1344, !13, i64 1348, !13, i64 1352, !13, i64 1356, !13, i64 1360, !40, i64 1364, !40, i64 1366, !9, i64 1368, !9, i64 1369, !9, i64 1370, !9, i64 1371, !9, i64 1372, !9, i64 1373, !9, i64 1374}
-!99 = !{!"p1 _ZTS16Curl_sockaddr_ex", !8, i64 0}
-!100 = !{!"hostname", !36, i64 0, !36, i64 8, !36, i64 16, !36, i64 24}
-!101 = !{!"proxy_info", !100, i64 0, !13, i64 32, !9, i64 36, !36, i64 40, !36, i64 48}
-!102 = !{!"", !9, i64 0, !13, i64 32}
-!103 = !{!"ConnectBits", !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 4}
-!104 = !{!"p1 _ZTS12Curl_handler", !8, i64 0}
-!105 = !{!"ntlmdata", !13, i64 0, !9, i64 4, !13, i64 12, !8, i64 16}
-!106 = !{!98, !11, i64 64}
-!107 = !{!108, !11, i64 32}
-!108 = !{!"cpool_bundle", !14, i64 0, !11, i64 32, !9, i64 40}
-!109 = !{!5, !11, i64 48}
-!110 = !{i8 0, i8 2}
-!111 = !{}
-!112 = !{i64 0, i64 8, !113, i64 8, i64 128, !113, i64 136, i64 4, !114, i64 144, i64 8, !84}
-!113 = !{!9, !9, i64 0}
-!114 = !{!13, !13, i64 0}
-!115 = distinct !{!115, !95, !96}
-!116 = distinct !{!116, !95, !96}
-!117 = !{!118, !119, i64 0}
-!118 = !{!"curl_pollfds", !119, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
-!119 = !{!"p1 _ZTS6pollfd", !8, i64 0}
-!120 = !{!118, !13, i64 8}
-!121 = distinct !{!121, !96}
-!122 = distinct !{!122, !95, !96}
-!123 = !{!22, !29, i64 192}
-!124 = !{!22, !17, i64 216}
-!125 = !{!5, !11, i64 64}
-!126 = !{!22, !11, i64 8}
-!127 = !{!22, !11, i64 3024}
-!128 = !{!22, !13, i64 752}
-!129 = !{!22, !13, i64 764}
-!130 = !{!131, !11, i64 544}
-!131 = !{!"Curl_multi", !13, i64 0, !13, i64 4, !13, i64 8, !14, i64 16, !14, i64 48, !14, i64 80, !14, i64 112, !11, i64 144, !8, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !6, i64 184, !70, i64 232, !36, i64 240, !11, i64 248, !36, i64 256, !11, i64 264, !36, i64 272, !11, i64 280, !6, i64 288, !6, i64 336, !5, i64 384, !11, i64 544, !11, i64 552, !11, i64 560, !8, i64 568, !8, i64 576, !11, i64 584, !12, i64 592, !9, i64 608, !13, i64 616, !13, i64 620, !9, i64 624, !13, i64 625, !13, i64 625, !13, i64 625, !13, i64 625, !13, i64 625, !13, i64 625, !13, i64 625, !13, i64 625}
-!132 = !{!131, !11, i64 552}
-!133 = distinct !{!133, !95, !96}
-!134 = distinct !{!134, !96}
-!135 = distinct !{!135, !96}
-!136 = !{!22, !73, i64 4712}
-!137 = !{!138, !13, i64 8}
-!138 = !{!"curl_trc_feat", !36, i64 0, !13, i64 8}
-!139 = !{!98, !11, i64 48}
-!140 = !{!98, !9, i64 1373}
-!141 = distinct !{!141, !95, !96}
-!142 = distinct !{!142, !95, !96}
-!143 = !{!5, !11, i64 56}
-!144 = !{!131, !13, i64 620}
-!145 = !{!131, !13, i64 4}
-!146 = !{!11, !11, i64 0}
-!147 = distinct !{!147, !96}
-!148 = !{!89, !89, i64 0}
-!149 = !{!131, !11, i64 560}
-!150 = !{!131, !8, i64 152}
-!151 = !{!98, !67, i64 72}
-!152 = !{!98, !104, i64 928}
-!153 = !{!154, !8, i64 96}
-!154 = !{!"Curl_handler", !36, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !13, i64 136, !13, i64 140, !13, i64 144, !13, i64 148}
-!155 = distinct !{!155, !95, !96}
-!156 = distinct !{!156, !95, !96}
-!157 = !{!131, !18, i64 520}
-!158 = !{!131, !16, i64 504}
-!159 = distinct !{!159, !95, !96}
-!160 = distinct !{!160, !95, !96}
-!161 = distinct !{!161, !95, !96}
-!162 = distinct !{!162, !95, !96}
-!163 = !{i64 0, i64 8, !146, i64 8, i64 4, !114}
-!164 = distinct !{!164, !96}
+!96 = !{!97, !36, i64 56}
+!97 = !{!"connectdata", !24, i64 0, !8, i64 32, !8, i64 40, !11, i64 48, !36, i64 56, !11, i64 64, !67, i64 72, !98, i64 80, !99, i64 88, !36, i64 120, !36, i64 128, !99, i64 136, !100, i64 168, !100, i64 224, !78, i64 280, !78, i64 380, !36, i64 480, !36, i64 488, !36, i64 496, !36, i64 504, !36, i64 512, !12, i64 520, !12, i64 536, !12, i64 552, !9, i64 568, !9, i64 576, !9, i64 592, !9, i64 608, !101, i64 624, !27, i64 664, !50, i64 696, !50, i64 808, !102, i64 920, !103, i64 928, !103, i64 936, !12, i64 944, !13, i64 960, !13, i64 964, !14, i64 968, !13, i64 1000, !13, i64 1004, !104, i64 1008, !104, i64 1032, !9, i64 1056, !36, i64 1336, !40, i64 1344, !13, i64 1348, !13, i64 1352, !13, i64 1356, !13, i64 1360, !40, i64 1364, !40, i64 1366, !9, i64 1368, !9, i64 1369, !9, i64 1370, !9, i64 1371, !9, i64 1372, !9, i64 1373, !9, i64 1374}
+!98 = !{!"p1 _ZTS16Curl_sockaddr_ex", !8, i64 0}
+!99 = !{!"hostname", !36, i64 0, !36, i64 8, !36, i64 16, !36, i64 24}
+!100 = !{!"proxy_info", !99, i64 0, !13, i64 32, !9, i64 36, !36, i64 40, !36, i64 48}
+!101 = !{!"", !9, i64 0, !13, i64 32}
+!102 = !{!"ConnectBits", !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 0, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 1, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 2, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 3, !13, i64 4}
+!103 = !{!"p1 _ZTS12Curl_handler", !8, i64 0}
+!104 = !{!"ntlmdata", !13, i64 0, !9, i64 4, !13, i64 12, !8, i64 16}
+!105 = !{!97, !11, i64 64}
+!106 = !{!107, !11, i64 32}
+!107 = !{!"cpool_bundle", !14, i64 0, !11, i64 32, !9, i64 40}
+!108 = !{!5, !11, i64 48}
+!109 = !{i8 0, i8 2}
+!110 = !{}
+!111 = !{i64 0, i64 8, !112, i64 8, i64 128, !112, i64 136, i64 4, !113, i64 144, i64 8, !84}
+!112 = !{!9, !9, i64 0}
+!113 = !{!13, !13, i64 0}
+!114 = distinct !{!114, !95}
+!115 = distinct !{!115, !95}
+!116 = !{!117, !118, i64 0}
+!117 = !{!"curl_pollfds", !118, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
+!118 = !{!"p1 _ZTS6pollfd", !8, i64 0}
+!119 = !{!117, !13, i64 8}
+!120 = distinct !{!120, !95}
+!121 = !{!22, !29, i64 192}
+!122 = !{!22, !17, i64 216}
+!123 = !{!5, !11, i64 64}
+!124 = !{!22, !11, i64 8}
+!125 = !{!22, !11, i64 3024}
+!126 = !{!22, !13, i64 752}
+!127 = !{!22, !13, i64 764}
+!128 = !{!129, !11, i64 544}
+!129 = !{!"Curl_multi", !13, i64 0, !13, i64 4, !13, i64 8, !14, i64 16, !14, i64 48, !14, i64 80, !14, i64 112, !11, i64 144, !8, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !6, i64 184, !70, i64 232, !36, i64 240, !11, i64 248, !36, i64 256, !11, i64 264, !36, i64 272, !11, i64 280, !6, i64 288, !6, i64 336, !5, i64 384, !11, i64 544, !11, i64 552, !11, i64 560, !8, i64 568, !8, i64 576, !11, i64 584, !12, i64 592, !9, i64 608, !13, i64 616, !13, i64 620, !9, i64 624, !13, i64 625, !13, i64 625, !13, i64 625, !13, i64 625, !13, i64 625, !13, i64 625, !13, i64 625, !13, i64 625}
+!130 = !{!129, !11, i64 552}
+!131 = distinct !{!131, !95}
+!132 = !{!22, !73, i64 4712}
+!133 = !{!134, !13, i64 8}
+!134 = !{!"curl_trc_feat", !36, i64 0, !13, i64 8}
+!135 = !{!97, !11, i64 48}
+!136 = !{!97, !9, i64 1373}
+!137 = distinct !{!137, !95}
+!138 = distinct !{!138, !95}
+!139 = !{!5, !11, i64 56}
+!140 = !{!129, !13, i64 620}
+!141 = !{!129, !13, i64 4}
+!142 = !{!11, !11, i64 0}
+!143 = !{!89, !89, i64 0}
+!144 = !{!129, !11, i64 560}
+!145 = !{!129, !8, i64 152}
+!146 = !{!97, !67, i64 72}
+!147 = !{!97, !103, i64 928}
+!148 = !{!149, !8, i64 96}
+!149 = !{!"Curl_handler", !36, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !8, i64 104, !8, i64 112, !8, i64 120, !8, i64 128, !13, i64 136, !13, i64 140, !13, i64 144, !13, i64 148}
+!150 = distinct !{!150, !95}
+!151 = distinct !{!151, !95}
+!152 = !{!129, !18, i64 520}
+!153 = !{!129, !16, i64 504}
+!154 = distinct !{!154, !95}
+!155 = distinct !{!155, !95}
+!156 = distinct !{!156, !95}
+!157 = distinct !{!157, !95}
+!158 = !{i64 0, i64 8, !142, i64 8, i64 4, !113}
+!159 = distinct !{!159, !95}

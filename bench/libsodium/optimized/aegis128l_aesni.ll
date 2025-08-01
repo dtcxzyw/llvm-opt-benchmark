@@ -103,7 +103,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %64 = xor <2 x i64> %58, %44
   %65 = add i64 %36, 64
   %.not = icmp ugt i64 %65, %6
-  br i1 %.not, label %.preheader, label %aegis128l_init.exit, !llvm.loop !7
+  br i1 %.not, label %.preheader, label %aegis128l_init.exit, !llvm.loop !6
 
 .lr.ph153:                                        ; preds = %.preheader, %.lr.ph153
   %66 = phi i64 [ %79, %.lr.ph153 ], [ %35, %.preheader ]
@@ -132,7 +132,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %78 = xor <2 x i64> %72, %.val46
   %79 = add i64 %66, 32
   %.not40 = icmp ugt i64 %79, %6
-  br i1 %.not40, label %._crit_edge, label %.lr.ph153, !llvm.loop !8
+  br i1 %.not40, label %._crit_edge, label %.lr.ph153, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph153, %.preheader
   %.sroa.106.1.lcssa = phi <2 x i64> [ %.sroa.106.0.lcssa, %.preheader ], [ %69, %.lr.ph153 ]
@@ -151,7 +151,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
 81:                                               ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %10, i8 noundef 0, i64 noundef 32, i1 noundef false) #8
   %82 = getelementptr i8, ptr %5, i64 %.1.lcssa
-  %83 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %82, i64 noundef range(i64 1, 32) %80, i64 noundef 32) #8, !alias.scope !9
+  %83 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %82, i64 noundef range(i64 1, 32) %80, i64 noundef 32) #8, !alias.scope !8
   %.val47 = load <2 x i64>, ptr %10, align 32
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.val48 = load <2 x i64>, ptr %84, align 16
@@ -218,7 +218,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %118 = xor <2 x i64> %112, %.val50
   %119 = add i64 %96, 32
   %.not42 = icmp ugt i64 %119, %4
-  br i1 %.not42, label %._crit_edge175, label %.lr.ph174, !llvm.loop !13
+  br i1 %.not42, label %._crit_edge175, label %.lr.ph174, !llvm.loop !12
 
 ._crit_edge175:                                   ; preds = %.lr.ph174, %95
   %.sroa.106.3.lcssa = phi <2 x i64> [ %.sroa.106.2, %95 ], [ %109, %.lr.ph174 ]
@@ -237,7 +237,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
 121:                                              ; preds = %._crit_edge175
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %10, i8 noundef 0, i64 noundef 32, i1 noundef false) #8
   %122 = getelementptr i8, ptr %3, i64 %.2.lcssa
-  %123 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %122, i64 noundef range(i64 1, 32) %120, i64 noundef 32) #8, !alias.scope !14
+  %123 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull %122, i64 noundef range(i64 1, 32) %120, i64 noundef 32) #8, !alias.scope !13
   %.val51 = load <2 x i64>, ptr %10, align 32
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.val52 = load <2 x i64>, ptr %124, align 16
@@ -304,7 +304,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %168 = xor <2 x i64> %162, %149
   %169 = add nuw nsw i32 %.054.i, 1
   %exitcond.not.i53 = icmp eq i32 %169, 7
-  br i1 %exitcond.not.i53, label %170, label %150, !llvm.loop !18
+  br i1 %exitcond.not.i53, label %170, label %150, !llvm.loop !17
 
 170:                                              ; preds = %150
   switch i64 %2, label %186 [
@@ -445,7 +445,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %67 = xor <2 x i64> %61, %47
   %68 = add i64 %39, 64
   %.not = icmp ugt i64 %68, %6
-  br i1 %.not, label %.preheader166, label %aegis128l_init.exit, !llvm.loop !19
+  br i1 %.not, label %.preheader166, label %aegis128l_init.exit, !llvm.loop !18
 
 .lr.ph210:                                        ; preds = %.preheader166, %.lr.ph210
   %69 = phi i64 [ %82, %.lr.ph210 ], [ %38, %.preheader166 ]
@@ -474,7 +474,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %81 = xor <2 x i64> %75, %.val71
   %82 = add i64 %69, 32
   %.not64 = icmp ugt i64 %82, %6
-  br i1 %.not64, label %._crit_edge, label %.lr.ph210, !llvm.loop !20
+  br i1 %.not64, label %._crit_edge, label %.lr.ph210, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph210, %.preheader166
   %.sroa.144.1.lcssa = phi <2 x i64> [ %.sroa.144.0.lcssa, %.preheader166 ], [ %72, %.lr.ph210 ]
@@ -493,7 +493,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
 84:                                               ; preds = %._crit_edge
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %12, i8 noundef 0, i64 noundef 32, i1 noundef false) #8
   %85 = getelementptr i8, ptr %5, i64 %.1.lcssa
-  %86 = call ptr @__memcpy_chk(ptr noundef nonnull %12, ptr noundef nonnull %85, i64 noundef range(i64 1, 32) %83, i64 noundef 32) #8, !alias.scope !21
+  %86 = call ptr @__memcpy_chk(ptr noundef nonnull %12, ptr noundef nonnull %85, i64 noundef range(i64 1, 32) %83, i64 noundef 32) #8, !alias.scope !20
   %.val72 = load <2 x i64>, ptr %12, align 32
   %87 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.val73 = load <2 x i64>, ptr %87, align 16
@@ -567,7 +567,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %122 = xor <2 x i64> %116, %111
   %123 = add i64 %100, 32
   %.not67 = icmp ugt i64 %123, %2
-  br i1 %.not67, label %.loopexit, label %.lr.ph253, !llvm.loop !25
+  br i1 %.not67, label %.loopexit, label %.lr.ph253, !llvm.loop !24
 
 .lr.ph231:                                        ; preds = %.preheader164, %.lr.ph231
   %124 = phi i64 [ %145, %.lr.ph231 ], [ 32, %.preheader164 ]
@@ -604,7 +604,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %144 = xor <2 x i64> %138, %134
   %145 = add i64 %124, 32
   %.not66 = icmp ugt i64 %145, %2
-  br i1 %.not66, label %..loopexit165_crit_edge, label %.lr.ph231, !llvm.loop !26
+  br i1 %.not66, label %..loopexit165_crit_edge, label %.lr.ph231, !llvm.loop !25
 
 ..loopexit165_crit_edge:                          ; preds = %.lr.ph231
   %146 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -646,7 +646,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %151 = getelementptr i8, ptr %1, i64 %.3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, i8 noundef 0, i64 noundef 32, i1 noundef false) #8
-  %152 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull readonly %151, i64 noundef range(i64 1, 32) %147, i64 noundef 32) #8, !alias.scope !27
+  %152 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull readonly %151, i64 noundef range(i64 1, 32) %147, i64 noundef 32) #8, !alias.scope !26
   %153 = load <2 x i64>, ptr %11, align 16
   %154 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %155 = load <2 x i64>, ptr %154, align 16
@@ -683,7 +683,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %178 = getelementptr i8, ptr %1, i64 %.4.lcssa
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, i8 noundef 0, i64 noundef 32, i1 noundef false) #8
-  %179 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull readonly %178, i64 noundef range(i64 1, 32) %148, i64 noundef 32) #8, !alias.scope !31
+  %179 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull readonly %178, i64 noundef range(i64 1, 32) %148, i64 noundef 32) #8, !alias.scope !30
   %180 = load <2 x i64>, ptr %10, align 16
   %181 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %182 = load <2 x i64>, ptr %181, align 16
@@ -700,7 +700,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %191 = getelementptr i8, ptr %10, i64 %148
   %192 = sub nuw nsw i64 32, %148
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %191, i8 noundef 0, i64 noundef %192, i1 noundef false) #8
-  %193 = call ptr @__memcpy_chk(ptr noundef nonnull %13, ptr noundef nonnull %10, i64 noundef range(i64 1, 32) %148, i64 noundef 32) #8, !alias.scope !35
+  %193 = call ptr @__memcpy_chk(ptr noundef nonnull %13, ptr noundef nonnull %10, i64 noundef range(i64 1, 32) %148, i64 noundef 32) #8, !alias.scope !34
   %194 = load <2 x i64>, ptr %10, align 16
   %195 = load <2 x i64>, ptr %181, align 16
   %196 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.122.5.lcssa, <2 x i64> %.sroa.144.5.lcssa)
@@ -754,7 +754,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %230 = xor <2 x i64> %224, %211
   %231 = add nuw nsw i32 %.054.i, 1
   %exitcond.not.i78 = icmp eq i32 %231, 7
-  br i1 %exitcond.not.i78, label %232, label %212, !llvm.loop !18
+  br i1 %exitcond.not.i78, label %232, label %212, !llvm.loop !17
 
 232:                                              ; preds = %212
   switch i64 %4, label %aegis128l_mac.exit [
@@ -848,38 +848,37 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
-!11 = distinct !{!11, !"memcpy.inline"}
-!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
-!13 = distinct !{!13, !5, !6}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
-!16 = distinct !{!16, !"memcpy.inline"}
-!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
-!23 = distinct !{!23, !"memcpy.inline"}
-!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !5, !6}
-!27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"memcpy.inline: argument 0"}
-!29 = distinct !{!29, !"memcpy.inline"}
-!30 = distinct !{!30, !29, !"memcpy.inline: argument 1"}
-!31 = !{!32, !34}
-!32 = distinct !{!32, !33, !"memcpy.inline: argument 0"}
-!33 = distinct !{!33, !"memcpy.inline"}
-!34 = distinct !{!34, !33, !"memcpy.inline: argument 1"}
-!35 = !{!36, !38}
-!36 = distinct !{!36, !37, !"memcpy.inline: argument 0"}
-!37 = distinct !{!37, !"memcpy.inline"}
-!38 = distinct !{!38, !37, !"memcpy.inline: argument 1"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{!9, !11}
+!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
+!10 = distinct !{!10, !"memcpy.inline"}
+!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
+!12 = distinct !{!12, !5}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
+!22 = distinct !{!22, !"memcpy.inline"}
+!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = !{!27, !29}
+!27 = distinct !{!27, !28, !"memcpy.inline: argument 0"}
+!28 = distinct !{!28, !"memcpy.inline"}
+!29 = distinct !{!29, !28, !"memcpy.inline: argument 1"}
+!30 = !{!31, !33}
+!31 = distinct !{!31, !32, !"memcpy.inline: argument 0"}
+!32 = distinct !{!32, !"memcpy.inline"}
+!33 = distinct !{!33, !32, !"memcpy.inline: argument 1"}
+!34 = !{!35, !37}
+!35 = distinct !{!35, !36, !"memcpy.inline: argument 0"}
+!36 = distinct !{!36, !"memcpy.inline"}
+!37 = distinct !{!37, !36, !"memcpy.inline: argument 1"}

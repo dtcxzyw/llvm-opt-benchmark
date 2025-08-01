@@ -413,7 +413,7 @@ dissect_wsmp_v3.exit:                             ; preds = %dissect_wsmp_length
   %130 = zext i16 %.1 to i32
   %131 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %130)
   %or.cond5 = icmp sgt i8 %131, -126
-  br i1 %or.cond5, label %.lr.ph, label %.critedge, !llvm.loop !9
+  br i1 %or.cond5, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %129, %..critedge_crit_edge
   %.pre-phi = phi i32 [ %.pre, %..critedge_crit_edge ], [ %130, %129 ]
@@ -440,7 +440,7 @@ dissect_wsmp_v3.exit:                             ; preds = %dissect_wsmp_length
   %144 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %143)
   %145 = add i32 %.0103110, 1
   %.not = icmp sgt i8 %144, -1
-  br i1 %.not, label %146, label %142, !llvm.loop !10
+  br i1 %.not, label %146, label %142, !llvm.loop !9
 
 146:                                              ; preds = %142
   %147 = load i32, ptr @hf_wsmp_WSMP_S_data, align 4
@@ -656,8 +656,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

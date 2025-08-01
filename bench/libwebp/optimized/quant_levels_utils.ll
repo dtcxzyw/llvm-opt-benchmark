@@ -80,10 +80,10 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %42 = fdiv double %41, %37
   %43 = fadd double %42, %33
   %44 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv
-  store double %43, ptr %44, align 8, !tbaa !11
+  store double %43, ptr %44, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond177.not, label %._crit_edge148, label %38, !llvm.loop !13
+  br i1 %exitcond177.not, label %._crit_edge148, label %38, !llvm.loop !12
 
 ._crit_edge148:                                   ; preds = %38
   %45 = zext nneg i32 %spec.select to i64
@@ -126,13 +126,13 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %indvars.iv178
-  %60 = load double, ptr %59, align 8, !tbaa !11
+  %60 = load double, ptr %59, align 8, !tbaa !10
   %indvars.iv.next179 = add nsw i64 %indvars.iv178, 1
   %61 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %indvars.iv.next179
-  %62 = load double, ptr %61, align 8, !tbaa !11
+  %62 = load double, ptr %61, align 8, !tbaa !10
   %63 = fadd double %60, %62
   %64 = fcmp olt double %63, %54
-  br i1 %64, label %56, label %.critedge.split.loop.exit208, !llvm.loop !14
+  br i1 %64, label %56, label %.critedge.split.loop.exit208, !llvm.loop !13
 
 .critedge.split.loop.exit208:                     ; preds = %58
   %65 = trunc nsw i64 %indvars.iv178 to i32
@@ -151,14 +151,14 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %72 = sitofp i32 %71 to double
   %73 = sext i32 %.1110.lcssa to i64
   %74 = getelementptr inbounds [256 x double], ptr %9, i64 0, i64 %73
-  %75 = load double, ptr %74, align 8, !tbaa !11
+  %75 = load double, ptr %74, align 8, !tbaa !10
   %76 = fadd double %75, %72
-  store double %76, ptr %74, align 8, !tbaa !11
+  store double %76, ptr %74, align 8, !tbaa !10
   %77 = uitofp nneg i32 %67 to double
   %78 = getelementptr inbounds [256 x double], ptr %10, i64 0, i64 %73
-  %79 = load double, ptr %78, align 8, !tbaa !11
+  %79 = load double, ptr %78, align 8, !tbaa !10
   %80 = fadd double %79, %77
-  store double %80, ptr %78, align 8, !tbaa !11
+  store double %80, ptr %78, align 8, !tbaa !10
   br label %81
 
 81:                                               ; preds = %69, %.critedge
@@ -166,7 +166,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   store i32 %.1110.lcssa, ptr %82, align 4, !tbaa !6
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
-  br i1 %exitcond185.not, label %._crit_edge152, label %.preheader136, !llvm.loop !15
+  br i1 %exitcond185.not, label %._crit_edge152, label %.preheader136, !llvm.loop !14
 
 ._crit_edge152:                                   ; preds = %81
   br i1 %49, label %.lr.ph159.preheader, label %.lr.ph154
@@ -174,22 +174,22 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
 .lr.ph154:                                        ; preds = %._crit_edge152, %91
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %91 ], [ 1, %._crit_edge152 ]
   %83 = getelementptr inbounds nuw [256 x double], ptr %10, i64 0, i64 %indvars.iv186
-  %84 = load double, ptr %83, align 8, !tbaa !11
+  %84 = load double, ptr %83, align 8, !tbaa !10
   %85 = fcmp ogt double %84, 0.000000e+00
   br i1 %85, label %86, label %91
 
 86:                                               ; preds = %.lr.ph154
   %87 = getelementptr inbounds nuw [256 x double], ptr %9, i64 0, i64 %indvars.iv186
-  %88 = load double, ptr %87, align 8, !tbaa !11
+  %88 = load double, ptr %87, align 8, !tbaa !10
   %89 = fdiv double %88, %84
   %90 = getelementptr inbounds nuw [256 x double], ptr %8, i64 0, i64 %indvars.iv186
-  store double %89, ptr %90, align 8, !tbaa !11
+  store double %89, ptr %90, align 8, !tbaa !10
   br label %91
 
 91:                                               ; preds = %86, %.lr.ph154
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %.lr.ph159.preheader, label %.lr.ph154, !llvm.loop !16
+  br i1 %exitcond190.not, label %.lr.ph159.preheader, label %.lr.ph154, !llvm.loop !15
 
 .lr.ph159.preheader:                              ; preds = %91, %._crit_edge152
   br label %.lr.ph159
@@ -203,7 +203,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %95 = load i32, ptr %94, align 4, !tbaa !6
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %96
-  %98 = load double, ptr %97, align 8, !tbaa !11
+  %98 = load double, ptr %97, align 8, !tbaa !10
   %99 = fsub double %93, %98
   %100 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv191
   %101 = load i32, ptr %100, align 4, !tbaa !6
@@ -212,7 +212,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %104 = tail call double @llvm.fmuladd.f64(double %103, double %99, double %.3156)
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
-  br i1 %exitcond195.not, label %._crit_edge160, label %.lr.ph159, !llvm.loop !17
+  br i1 %exitcond195.not, label %._crit_edge160, label %.lr.ph159, !llvm.loop !16
 
 ._crit_edge160:                                   ; preds = %.lr.ph159
   %105 = fsub double %.0119163, %104
@@ -222,7 +222,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %107 = add nuw nsw i32 %.0121162, 1
   %exitcond196.not = icmp eq i32 %107, 6
   %or.cond210 = select i1 %106, i1 true, i1 %exitcond196.not
-  br i1 %or.cond210, label %.lr.ph167.preheader, label %52, !llvm.loop !18
+  br i1 %or.cond210, label %.lr.ph167.preheader, label %52, !llvm.loop !17
 
 .lr.ph167.preheader:                              ; preds = %._crit_edge160
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #5
@@ -235,14 +235,14 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %109 = load i32, ptr %108, align 4, !tbaa !6
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds [256 x double], ptr %8, i64 0, i64 %110
-  %112 = load double, ptr %111, align 8, !tbaa !11
+  %112 = load double, ptr %111, align 8, !tbaa !10
   %113 = fadd double %112, 5.000000e-01
   %114 = fptoui double %113 to i8
   %115 = getelementptr inbounds nuw [256 x i8], ptr %11, i64 0, i64 %indvars.iv197
   store i8 %114, ptr %115, align 1, !tbaa !3
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count200
-  br i1 %exitcond201.not, label %.lr.ph169, label %.lr.ph167, !llvm.loop !19
+  br i1 %exitcond201.not, label %.lr.ph169, label %.lr.ph167, !llvm.loop !18
 
 .lr.ph169:                                        ; preds = %.lr.ph167, %.lr.ph169
   %.0104168 = phi i64 [ %121, %.lr.ph169 ], [ 0, %.lr.ph167 ]
@@ -254,7 +254,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   store i8 %120, ptr %116, align 1, !tbaa !3
   %121 = add nuw i64 %.0104168, 1
   %exitcond203.not = icmp eq i64 %121, %13
-  br i1 %exitcond203.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !20
+  br i1 %exitcond203.not, label %._crit_edge170, label %.lr.ph169, !llvm.loop !19
 
 ._crit_edge170:                                   ; preds = %.lr.ph169
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #5
@@ -267,7 +267,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   br i1 %.not134, label %124, label %123
 
 123:                                              ; preds = %._crit_edge.thread
-  store i64 %.0116, ptr %4, align 8, !tbaa !21
+  store i64 %.0116, ptr %4, align 8, !tbaa !20
   br label %124
 
 124:                                              ; preds = %._crit_edge.thread, %123, %17, %5
@@ -316,18 +316,17 @@ attributes #5 = { nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"double", !4, i64 0}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"long", !4, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"double", !4, i64 0}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !4, i64 0}

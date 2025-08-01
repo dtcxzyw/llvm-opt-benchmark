@@ -316,7 +316,7 @@ _ZN15ClassListWriter6has_idEPK13InstanceKlass.exit: ; preds = %48, %29
 _ZN15ClassListWriter6has_idEPK13InstanceKlass.exit58: ; preds = %74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN15ClassListWriter6has_idEPK13InstanceKlass.exit58, %_ZN15ClassListWriter6has_idEPK13InstanceKlass.exit
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 164
@@ -557,7 +557,7 @@ _ZN15ClassListWriter6get_idEPK13InstanceKlass.exit67: ; preds = %_ZN21ResourceHa
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.13, i32 noundef %208) #11
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
-  br i1 %exitcond97.not, label %.loopexit, label %162, !llvm.loop !10
+  br i1 %exitcond97.not, label %.loopexit, label %162, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZN15ClassListWriter6get_idEPK13InstanceKlass.exit67, %151
   %209 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1000,7 +1000,7 @@ _ZN13GrowableArrayIbEC2EiiRKb.exit:               ; preds = %.lr.ph.preheader.i.
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 %indvars.iv
   %73 = load volatile i8, ptr %72, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %cond = icmp eq i8 %73, 7
   br i1 %cond, label %74, label %95
 
@@ -1009,7 +1009,7 @@ _ZN13GrowableArrayIbEC2EiiRKb.exit:               ; preds = %.lr.ph.preheader.i.
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv
   %78 = load volatile i8, ptr %77, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %79 = icmp eq i8 %78, 7
   br i1 %79, label %_ZNK12ConstantPool17resolved_klass_atEi.exit, label %80
 
@@ -1028,7 +1028,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
   %87 = zext nneg i32 %84 to i64
   %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %87
   %89 = load volatile ptr, ptr %88, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %91 = load i32, ptr %90, align 4
   %92 = icmp slt i32 %91, 5
@@ -1045,7 +1045,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
   %96 = load i32, ptr %60, align 4
   %97 = sext i32 %96 to i64
   %98 = icmp slt i64 %indvars.iv.next, %97
-  br i1 %98, label %69, label %._crit_edge, !llvm.loop !12
+  br i1 %98, label %69, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %95, %_ZN13GrowableArrayIbEC2EiiRKb.exit
   %.049.lcssa = phi i1 [ false, %_ZN13GrowableArrayIbEC2EiiRKb.exit ], [ %.1, %95 ]
@@ -1075,14 +1075,14 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
   %108 = getelementptr inbounds nuw %class.ResolvedFieldEntry, ptr %106, i64 %indvars.iv95
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 18
   %110 = load volatile i8, ptr %109, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %.0.i57 = icmp eq i8 %110, -76
   br i1 %.0.i57, label %114, label %111
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 19
   %113 = load volatile i8, ptr %112, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %.0.i59 = icmp eq i8 %113, -75
   br i1 %.0.i59, label %114, label %119
 
@@ -1100,7 +1100,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
   %120 = load i32, ptr %103, align 8
   %121 = sext i32 %120 to i64
   %122 = icmp slt i64 %indvars.iv.next96, %121
-  br i1 %122, label %107, label %.loopexit79.loopexit, !llvm.loop !13
+  br i1 %122, label %107, label %.loopexit79.loopexit, !llvm.loop !12
 
 .loopexit79.loopexit:                             ; preds = %119
   %.pre = load ptr, ptr %99, align 8
@@ -1129,20 +1129,20 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
   %130 = getelementptr inbounds nuw %class.ResolvedMethodEntry, ptr %128, i64 %indvars.iv97
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 23
   %132 = load volatile i8, ptr %131, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %133 = icmp eq i8 %132, -74
   br i1 %133, label %141, label %134
 
 134:                                              ; preds = %129
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 22
   %136 = load volatile i8, ptr %135, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %137 = icmp eq i8 %136, -73
   br i1 %137, label %141, label %138
 
 138:                                              ; preds = %134
   %139 = load volatile i8, ptr %135, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %140 = icmp eq i8 %139, -71
   br i1 %140, label %141, label %146
 
@@ -1160,7 +1160,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
   %147 = load i32, ptr %125, align 8
   %148 = sext i32 %147 to i64
   %149 = icmp slt i64 %indvars.iv.next98, %148
-  br i1 %149, label %129, label %.loopexit, !llvm.loop !14
+  br i1 %149, label %129, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %146, %.preheader, %.loopexit79, %._crit_edge
   %.2 = phi i1 [ %.3, %.loopexit79 ], [ %.049.lcssa, %._crit_edge ], [ %.3, %.preheader ], [ %.7, %146 ]
@@ -1190,7 +1190,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv99
   %163 = load volatile i8, ptr %162, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %164 = trunc nuw nsw i64 %indvars.iv99 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %151, ptr noundef nonnull @.str.13, i32 noundef %164) #11
   br label %165
@@ -1198,7 +1198,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
 165:                                              ; preds = %155, %159
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge94, label %155, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge94, label %155, !llvm.loop !14
 
 ._crit_edge94:                                    ; preds = %165, %150
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %151) #11
@@ -1392,7 +1392,7 @@ define linkonce_odr hidden void @_ZN15ClassListWriter31WriteResolveConstantsCLDC
   %10 = getelementptr inbounds nuw i8, ptr %.07, i64 144
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %9, %2
   ret void
@@ -1444,14 +1444,13 @@ attributes #13 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i64 2145392468}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i64 2145392468}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

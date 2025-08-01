@@ -223,7 +223,7 @@ define internal noundef i32 @do_despill_slice(ptr noundef readonly captures(none
   %106 = phi i32 [ %48, %.lr.ph126.split ], [ %103, %102 ]
   %107 = add nsw i32 %.0106124, 1
   %exitcond.not = icmp eq i32 %107, %21
-  br i1 %exitcond.not, label %._crit_edge127, label %.lr.ph126.split, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge127, label %.lr.ph126.split, !llvm.loop !54
 
 ._crit_edge127:                                   ; preds = %._crit_edge, %.lr.ph126, %4
   ret i32 0
@@ -239,26 +239,26 @@ declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: cold nounwind optsize uwtable
 define internal noundef i32 @config_output(ptr noundef readonly captures(none) %0) #5 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !57
+  %2 = load ptr, ptr %0, align 8, !tbaa !56
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !58
+  %6 = load i32, ptr %5, align 4, !tbaa !57
   %7 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %6) #8
-  %8 = getelementptr i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %10
 
 10:                                               ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %11 = getelementptr i8, ptr %8, i64 %.idx
-  %12 = load i32, ptr %11, align 4, !tbaa !59
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
+  %12 = load i32, ptr %11, align 4, !tbaa !58
   %13 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %12, ptr %13, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %14, label %10, !llvm.loop !61
+  br i1 %exitcond.not, label %14, label %10, !llvm.loop !60
 
 14:                                               ; preds = %10
   ret i32 0
@@ -335,13 +335,12 @@ attributes #8 = { nounwind }
 !49 = !{!8, !8, i64 0}
 !50 = !{!40, !11, i64 28}
 !51 = !{!40, !11, i64 24}
-!52 = distinct !{!52, !53, !54}
+!52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!"llvm.loop.estimated_trip_count"}
-!55 = distinct !{!55, !53, !54, !56}
-!56 = !{!"llvm.loop.unswitch.partial.disable"}
-!57 = !{!5, !6, i64 0}
-!58 = !{!5, !11, i64 36}
-!59 = !{!60, !11, i64 8}
-!60 = !{!"AVComponentDescriptor", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16}
-!61 = distinct !{!61, !53, !54}
+!54 = distinct !{!54, !53, !55}
+!55 = !{!"llvm.loop.unswitch.partial.disable"}
+!56 = !{!5, !6, i64 0}
+!57 = !{!5, !11, i64 36}
+!58 = !{!59, !11, i64 8}
+!59 = !{!"AVComponentDescriptor", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16}
+!60 = distinct !{!60, !53}

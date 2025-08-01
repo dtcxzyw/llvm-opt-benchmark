@@ -519,20 +519,20 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br i1 %.b41, label %24, label %.thread
 
 .thread:                                          ; preds = %23
-  store i32 0, ptr @is_fips_3_0_0, align 4, !tbaa !7
+  store i32 0, ptr @is_fips_3_0_0, align 4, !tbaa !6
   br label %34
 
 24:                                               ; preds = %23
-  %25 = load ptr, ptr @testctx, align 8, !tbaa !11
+  %25 = load ptr, ptr @testctx, align 8, !tbaa !10
   %26 = tail call i32 @fips_provider_version_eq(ptr noundef %25, i32 noundef 3, i32 noundef 0, i32 noundef 0) #8
   %27 = icmp ne i32 %26, 0
   %28 = zext i1 %27 to i32
   %.b40.pr = load i1, ptr @is_fips, align 4
-  store i32 %28, ptr @is_fips_3_0_0, align 4, !tbaa !7
+  store i32 %28, ptr @is_fips_3_0_0, align 4, !tbaa !6
   br i1 %.b40.pr, label %29, label %34
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr @testctx, align 8, !tbaa !11
+  %30 = load ptr, ptr @testctx, align 8, !tbaa !10
   %31 = tail call i32 @fips_provider_version_lt(ptr noundef %30, i32 noundef 3, i32 noundef 5, i32 noundef 0) #8
   %32 = icmp ne i32 %31, 0
   %33 = zext i1 %32 to i32
@@ -540,115 +540,115 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 34:                                               ; preds = %.thread, %29, %24
   %35 = phi i32 [ 0, %24 ], [ %33, %29 ], [ 0, %.thread ]
-  store i32 %35, ptr @is_fips_lt_3_5, align 4, !tbaa !7
-  %36 = load ptr, ptr @testctx, align 8, !tbaa !11
+  store i32 %35, ptr @is_fips_lt_3_5, align 4, !tbaa !6
+  %36 = load ptr, ptr @testctx, align 8, !tbaa !10
   %37 = tail call i32 @OSSL_PROVIDER_add_builtin(ptr noundef %36, ptr noundef nonnull @.str.29, ptr noundef nonnull @ossl_legacy_provider_init) #8
   %.not44 = icmp eq i32 %37, 0
   br i1 %.not44, label %.loopexit, label %38
 
 38:                                               ; preds = %34
   %39 = tail call ptr @OSSL_LIB_CTX_new() #8
-  store ptr %39, ptr @keyctx, align 8, !tbaa !11
+  store ptr %39, ptr @keyctx, align 8, !tbaa !10
   %40 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1387, ptr noundef nonnull @.str.31, ptr noundef %39) #8
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %.loopexit, label %41
 
 41:                                               ; preds = %38
-  %42 = load ptr, ptr @keyctx, align 8, !tbaa !11
+  %42 = load ptr, ptr @keyctx, align 8, !tbaa !10
   %43 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %42, ptr noundef nonnull @.str.24) #8
-  store ptr %43, ptr @keyprov, align 8, !tbaa !14
+  store ptr %43, ptr @keyprov, align 8, !tbaa !13
   %44 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1389, ptr noundef nonnull @.str.32, ptr noundef %43) #8
   %.not46 = icmp eq i32 %44, 0
   br i1 %.not46, label %.loopexit, label %45
 
 45:                                               ; preds = %41
-  %46 = load ptr, ptr @testctx, align 8, !tbaa !11
+  %46 = load ptr, ptr @testctx, align 8, !tbaa !10
   %47 = tail call ptr @BN_CTX_new_ex(ptr noundef %46) #8
-  store ptr %47, ptr @bnctx, align 8, !tbaa !16
+  store ptr %47, ptr @bnctx, align 8, !tbaa !15
   %48 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1393, ptr noundef nonnull @.str.33, ptr noundef %47) #8
   %.not47 = icmp eq i32 %48, 0
   br i1 %.not47, label %.loopexit, label %49
 
 49:                                               ; preds = %45
   %50 = tail call ptr @OSSL_PARAM_BLD_new() #8
-  store ptr %50, ptr @bld_prime_nc, align 8, !tbaa !18
+  store ptr %50, ptr @bld_prime_nc, align 8, !tbaa !17
   %51 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1394, ptr noundef nonnull @.str.34, ptr noundef %50) #8
   %.not48 = icmp eq i32 %51, 0
   br i1 %.not48, label %.loopexit, label %52
 
 52:                                               ; preds = %49
   %53 = tail call ptr @OSSL_PARAM_BLD_new() #8
-  store ptr %53, ptr @bld_prime, align 8, !tbaa !18
+  store ptr %53, ptr @bld_prime, align 8, !tbaa !17
   %54 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1395, ptr noundef nonnull @.str.35, ptr noundef %53) #8
   %.not49 = icmp eq i32 %54, 0
   br i1 %.not49, label %.loopexit, label %55
 
 55:                                               ; preds = %52
-  %56 = load ptr, ptr @bld_prime_nc, align 8, !tbaa !18
+  %56 = load ptr, ptr @bld_prime_nc, align 8, !tbaa !17
   %57 = tail call fastcc range(i32 0, 2) i32 @do_create_ec_explicit_prime_params(ptr noundef %56, ptr noundef nonnull @create_ec_explicit_prime_params_namedcurve.prime256v1_gen)
   %.not50 = icmp eq i32 %57, 0
   br i1 %.not50, label %.loopexit, label %58
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr @bld_prime, align 8, !tbaa !18
+  %59 = load ptr, ptr @bld_prime, align 8, !tbaa !17
   %60 = tail call fastcc range(i32 0, 2) i32 @do_create_ec_explicit_prime_params(ptr noundef %59, ptr noundef nonnull @create_ec_explicit_prime_params.prime256v1_gen2)
   %.not51 = icmp eq i32 %60, 0
   br i1 %.not51, label %.loopexit, label %61
 
 61:                                               ; preds = %58
-  %62 = load ptr, ptr @bld_prime_nc, align 8, !tbaa !18
+  %62 = load ptr, ptr @bld_prime_nc, align 8, !tbaa !17
   %63 = tail call ptr @OSSL_PARAM_BLD_to_param(ptr noundef %62) #8
-  store ptr %63, ptr @ec_explicit_prime_params_nc, align 8, !tbaa !20
+  store ptr %63, ptr @ec_explicit_prime_params_nc, align 8, !tbaa !19
   %64 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1398, ptr noundef nonnull @.str.36, ptr noundef %63) #8
   %.not52 = icmp eq i32 %64, 0
   br i1 %.not52, label %.loopexit, label %65
 
 65:                                               ; preds = %61
-  %66 = load ptr, ptr @bld_prime, align 8, !tbaa !18
+  %66 = load ptr, ptr @bld_prime, align 8, !tbaa !17
   %67 = tail call ptr @OSSL_PARAM_BLD_to_param(ptr noundef %66) #8
-  store ptr %67, ptr @ec_explicit_prime_params_explicit, align 8, !tbaa !20
+  store ptr %67, ptr @ec_explicit_prime_params_explicit, align 8, !tbaa !19
   %68 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1399, ptr noundef nonnull @.str.37, ptr noundef %67) #8
   %.not53 = icmp eq i32 %68, 0
   br i1 %.not53, label %.loopexit, label %69
 
 69:                                               ; preds = %65
   %70 = tail call ptr @OSSL_PARAM_BLD_new() #8
-  store ptr %70, ptr @bld_tri_nc, align 8, !tbaa !18
+  store ptr %70, ptr @bld_tri_nc, align 8, !tbaa !17
   %71 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1401, ptr noundef nonnull @.str.38, ptr noundef %70) #8
   %.not54 = icmp eq i32 %71, 0
   br i1 %.not54, label %.loopexit, label %72
 
 72:                                               ; preds = %69
   %73 = tail call ptr @OSSL_PARAM_BLD_new() #8
-  store ptr %73, ptr @bld_tri, align 8, !tbaa !18
+  store ptr %73, ptr @bld_tri, align 8, !tbaa !17
   %74 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1402, ptr noundef nonnull @.str.39, ptr noundef %73) #8
   %.not55 = icmp eq i32 %74, 0
   br i1 %.not55, label %.loopexit, label %75
 
 75:                                               ; preds = %72
-  %76 = load ptr, ptr @bld_tri_nc, align 8, !tbaa !18
+  %76 = load ptr, ptr @bld_tri_nc, align 8, !tbaa !17
   %77 = tail call fastcc range(i32 0, 2) i32 @do_create_ec_explicit_trinomial_params(ptr noundef %76, ptr noundef nonnull @create_ec_explicit_trinomial_params_namedcurve.gen)
   %.not56 = icmp eq i32 %77, 0
   br i1 %.not56, label %.loopexit, label %78
 
 78:                                               ; preds = %75
-  %79 = load ptr, ptr @bld_tri, align 8, !tbaa !18
+  %79 = load ptr, ptr @bld_tri, align 8, !tbaa !17
   %80 = tail call fastcc range(i32 0, 2) i32 @do_create_ec_explicit_trinomial_params(ptr noundef %79, ptr noundef nonnull @create_ec_explicit_trinomial_params.gen2)
   %.not57 = icmp eq i32 %80, 0
   br i1 %.not57, label %.loopexit, label %81
 
 81:                                               ; preds = %78
-  %82 = load ptr, ptr @bld_tri_nc, align 8, !tbaa !18
+  %82 = load ptr, ptr @bld_tri_nc, align 8, !tbaa !17
   %83 = tail call ptr @OSSL_PARAM_BLD_to_param(ptr noundef %82) #8
-  store ptr %83, ptr @ec_explicit_tri_params_nc, align 8, !tbaa !20
+  store ptr %83, ptr @ec_explicit_tri_params_nc, align 8, !tbaa !19
   %84 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1405, ptr noundef nonnull @.str.40, ptr noundef %83) #8
   %.not58 = icmp eq i32 %84, 0
   br i1 %.not58, label %.loopexit, label %85
 
 85:                                               ; preds = %81
-  %86 = load ptr, ptr @bld_tri, align 8, !tbaa !18
+  %86 = load ptr, ptr @bld_tri, align 8, !tbaa !17
   %87 = tail call ptr @OSSL_PARAM_BLD_to_param(ptr noundef %86) #8
-  store ptr %87, ptr @ec_explicit_tri_params_explicit, align 8, !tbaa !20
+  store ptr %87, ptr @ec_explicit_tri_params_explicit, align 8, !tbaa !19
   %88 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1406, ptr noundef nonnull @.str.41, ptr noundef %87) #8
   %.not59 = icmp eq i32 %88, 0
   br i1 %.not59, label %.loopexit, label %89
@@ -657,30 +657,30 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.30, i32 noundef 1412, ptr noundef nonnull @.str.42) #8
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.30, i32 noundef 1415, ptr noundef nonnull @.str.43) #8
   %90 = tail call fastcc ptr @make_template(ptr noundef nonnull @.str.45, ptr noundef null)
-  store ptr %90, ptr @template_DH, align 8, !tbaa !22
+  store ptr %90, ptr @template_DH, align 8, !tbaa !21
   %91 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1416, ptr noundef nonnull @.str.44, ptr noundef %90) #8
   %.not60 = icmp eq i32 %91, 0
   br i1 %.not60, label %.critedge75, label %92
 
 92:                                               ; preds = %89
-  %93 = load ptr, ptr @template_DH, align 8, !tbaa !22
+  %93 = load ptr, ptr @template_DH, align 8, !tbaa !21
   %94 = tail call fastcc ptr @make_key(ptr noundef nonnull @.str.45, ptr noundef %93)
-  store ptr %94, ptr @key_DH, align 8, !tbaa !22
+  store ptr %94, ptr @key_DH, align 8, !tbaa !21
   %95 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1416, ptr noundef nonnull @.str.46, ptr noundef %94) #8
   %.not101 = icmp eq i32 %95, 0
   br i1 %.not101, label %.critedge75, label %96
 
 96:                                               ; preds = %92
   %97 = tail call fastcc ptr @make_template(ptr noundef nonnull @.str.48, ptr noundef null)
-  store ptr %97, ptr @template_DHX, align 8, !tbaa !22
+  store ptr %97, ptr @template_DHX, align 8, !tbaa !21
   %98 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1417, ptr noundef nonnull @.str.47, ptr noundef %97) #8
   %.not61 = icmp eq i32 %98, 0
   br i1 %.not61, label %.critedge75, label %.critedge
 
 .critedge:                                        ; preds = %96
-  %99 = load ptr, ptr @template_DHX, align 8, !tbaa !22
+  %99 = load ptr, ptr @template_DHX, align 8, !tbaa !21
   %100 = tail call fastcc ptr @make_key(ptr noundef nonnull @.str.48, ptr noundef %99)
-  store ptr %100, ptr @key_DHX, align 8, !tbaa !22
+  store ptr %100, ptr @key_DHX, align 8, !tbaa !21
   %101 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1417, ptr noundef nonnull @.str.49, ptr noundef %100) #8
   %.not102 = icmp eq i32 %101, 0
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.30, i32 noundef 1420, ptr noundef nonnull @.str.50) #8
@@ -688,15 +688,15 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 102:                                              ; preds = %.critedge
   %103 = call fastcc ptr @make_template(ptr noundef nonnull @.str.52, ptr noundef nonnull %1)
-  store ptr %103, ptr @template_DSA, align 8, !tbaa !22
+  store ptr %103, ptr @template_DSA, align 8, !tbaa !21
   %104 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1421, ptr noundef nonnull @.str.51, ptr noundef %103) #8
   %.not62 = icmp eq i32 %104, 0
   br i1 %.not62, label %.critedge77, label %105
 
 105:                                              ; preds = %102
-  %106 = load ptr, ptr @template_DSA, align 8, !tbaa !22
+  %106 = load ptr, ptr @template_DSA, align 8, !tbaa !21
   %107 = call fastcc ptr @make_key(ptr noundef nonnull @.str.52, ptr noundef %106)
-  store ptr %107, ptr @key_DSA, align 8, !tbaa !22
+  store ptr %107, ptr @key_DSA, align 8, !tbaa !21
   %108 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1421, ptr noundef nonnull @.str.53, ptr noundef %107) #8
   %.not103 = icmp eq i32 %108, 0
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.30, i32 noundef 1424, ptr noundef nonnull @.str.54) #8
@@ -708,15 +708,15 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 109:                                              ; preds = %105
   %110 = call fastcc ptr @make_template(ptr noundef nonnull @.str.56, ptr noundef nonnull %2)
-  store ptr %110, ptr @template_EC, align 8, !tbaa !22
+  store ptr %110, ptr @template_EC, align 8, !tbaa !21
   %111 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1425, ptr noundef nonnull @.str.55, ptr noundef %110) #8
   %.not63 = icmp eq i32 %111, 0
   br i1 %.not63, label %.critedge95.sink.split, label %112
 
 112:                                              ; preds = %109
-  %113 = load ptr, ptr @template_EC, align 8, !tbaa !22
+  %113 = load ptr, ptr @template_EC, align 8, !tbaa !21
   %114 = call fastcc ptr @make_key(ptr noundef nonnull @.str.56, ptr noundef %113)
-  store ptr %114, ptr @key_EC, align 8, !tbaa !22
+  store ptr %114, ptr @key_EC, align 8, !tbaa !21
   %115 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1425, ptr noundef nonnull @.str.57, ptr noundef %114) #8
   %.not104 = icmp eq i32 %115, 0
   br i1 %.not104, label %.critedge95.sink.split, label %116
@@ -726,103 +726,103 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br label %.critedge95.sink.split
 
 116:                                              ; preds = %112
-  %117 = load ptr, ptr @ec_explicit_prime_params_nc, align 8, !tbaa !20
+  %117 = load ptr, ptr @ec_explicit_prime_params_nc, align 8, !tbaa !19
   %118 = call fastcc ptr @make_template(ptr noundef nonnull @.str.56, ptr noundef %117)
-  store ptr %118, ptr @template_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  store ptr %118, ptr @template_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   %119 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1426, ptr noundef nonnull @.str.58, ptr noundef %118) #8
   %.not64 = icmp eq i32 %119, 0
   br i1 %.not64, label %.critedge95.sink.split, label %.critedge79
 
 .critedge79:                                      ; preds = %116
-  %120 = load ptr, ptr @template_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  %120 = load ptr, ptr @template_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   %121 = call fastcc ptr @make_key(ptr noundef nonnull @.str.56, ptr noundef %120)
-  store ptr %121, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  store ptr %121, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   %122 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1426, ptr noundef nonnull @.str.59, ptr noundef %121) #8
   %.not105 = icmp eq i32 %122, 0
   br i1 %.not105, label %.critedge95.sink.split, label %123
 
 123:                                              ; preds = %.critedge79
-  %124 = load ptr, ptr @ec_explicit_prime_params_explicit, align 8, !tbaa !20
+  %124 = load ptr, ptr @ec_explicit_prime_params_explicit, align 8, !tbaa !19
   %125 = call fastcc ptr @make_template(ptr noundef nonnull @.str.56, ptr noundef %124)
-  store ptr %125, ptr @template_ECExplicitPrime2G, align 8, !tbaa !22
+  store ptr %125, ptr @template_ECExplicitPrime2G, align 8, !tbaa !21
   %126 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1427, ptr noundef nonnull @.str.60, ptr noundef %125) #8
   %.not65 = icmp eq i32 %126, 0
   br i1 %.not65, label %.critedge95.sink.split, label %.critedge80
 
 .critedge80:                                      ; preds = %123
-  %127 = load ptr, ptr @template_ECExplicitPrime2G, align 8, !tbaa !22
+  %127 = load ptr, ptr @template_ECExplicitPrime2G, align 8, !tbaa !21
   %128 = call fastcc ptr @make_key(ptr noundef nonnull @.str.56, ptr noundef %127)
-  store ptr %128, ptr @key_ECExplicitPrime2G, align 8, !tbaa !22
+  store ptr %128, ptr @key_ECExplicitPrime2G, align 8, !tbaa !21
   %129 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1427, ptr noundef nonnull @.str.61, ptr noundef %128) #8
   %.not106 = icmp eq i32 %129, 0
   br i1 %.not106, label %.critedge95.sink.split, label %130
 
 130:                                              ; preds = %.critedge80
-  %131 = load ptr, ptr @ec_explicit_tri_params_nc, align 8, !tbaa !20
+  %131 = load ptr, ptr @ec_explicit_tri_params_nc, align 8, !tbaa !19
   %132 = call fastcc ptr @make_template(ptr noundef nonnull @.str.56, ptr noundef %131)
-  store ptr %132, ptr @template_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  store ptr %132, ptr @template_ECExplicitTriNamedCurve, align 8, !tbaa !21
   %133 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1429, ptr noundef nonnull @.str.62, ptr noundef %132) #8
   %.not66 = icmp eq i32 %133, 0
   br i1 %.not66, label %.critedge95.sink.split, label %.critedge81
 
 .critedge81:                                      ; preds = %130
-  %134 = load ptr, ptr @template_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  %134 = load ptr, ptr @template_ECExplicitTriNamedCurve, align 8, !tbaa !21
   %135 = call fastcc ptr @make_key(ptr noundef nonnull @.str.56, ptr noundef %134)
-  store ptr %135, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  store ptr %135, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !21
   %136 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1429, ptr noundef nonnull @.str.63, ptr noundef %135) #8
   %.not107 = icmp eq i32 %136, 0
   br i1 %.not107, label %.critedge95.sink.split, label %137
 
 137:                                              ; preds = %.critedge81
-  %138 = load ptr, ptr @ec_explicit_tri_params_explicit, align 8, !tbaa !20
+  %138 = load ptr, ptr @ec_explicit_tri_params_explicit, align 8, !tbaa !19
   %139 = call fastcc ptr @make_template(ptr noundef nonnull @.str.56, ptr noundef %138)
-  store ptr %139, ptr @template_ECExplicitTri2G, align 8, !tbaa !22
+  store ptr %139, ptr @template_ECExplicitTri2G, align 8, !tbaa !21
   %140 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1430, ptr noundef nonnull @.str.64, ptr noundef %139) #8
   %.not67 = icmp eq i32 %140, 0
   br i1 %.not67, label %.critedge95.sink.split, label %.critedge82
 
 .critedge82:                                      ; preds = %137
-  %141 = load ptr, ptr @template_ECExplicitTri2G, align 8, !tbaa !22
+  %141 = load ptr, ptr @template_ECExplicitTri2G, align 8, !tbaa !21
   %142 = call fastcc ptr @make_key(ptr noundef nonnull @.str.56, ptr noundef %141)
-  store ptr %142, ptr @key_ECExplicitTri2G, align 8, !tbaa !22
+  store ptr %142, ptr @key_ECExplicitTri2G, align 8, !tbaa !21
   %143 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1430, ptr noundef nonnull @.str.65, ptr noundef %142) #8
   %.not108 = icmp eq i32 %143, 0
   br i1 %.not108, label %.critedge95.sink.split, label %.critedge83
 
 .critedge83:                                      ; preds = %.critedge82
   %144 = call fastcc ptr @make_key(ptr noundef nonnull @.str.67, ptr noundef null)
-  store ptr %144, ptr @key_SM2, align 8, !tbaa !22
+  store ptr %144, ptr @key_SM2, align 8, !tbaa !21
   %145 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1433, ptr noundef nonnull @.str.66, ptr noundef %144) #8
   %.not109 = icmp eq i32 %145, 0
   br i1 %.not109, label %.critedge95.sink.split, label %.critedge84
 
 .critedge84:                                      ; preds = %.critedge83
   %146 = call fastcc ptr @make_key(ptr noundef nonnull @.str.69, ptr noundef null)
-  store ptr %146, ptr @key_ED25519, align 8, !tbaa !22
+  store ptr %146, ptr @key_ED25519, align 8, !tbaa !21
   %147 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1437, ptr noundef nonnull @.str.68, ptr noundef %146) #8
   %.not110 = icmp eq i32 %147, 0
   br i1 %.not110, label %.critedge95.sink.split, label %.critedge85
 
 .critedge85:                                      ; preds = %.critedge84
   %148 = call fastcc ptr @make_key(ptr noundef nonnull @.str.71, ptr noundef null)
-  store ptr %148, ptr @key_ED448, align 8, !tbaa !22
+  store ptr %148, ptr @key_ED448, align 8, !tbaa !21
   %149 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1438, ptr noundef nonnull @.str.70, ptr noundef %148) #8
   %.not111 = icmp eq i32 %149, 0
   br i1 %.not111, label %.critedge95.sink.split, label %.critedge86
 
 .critedge86:                                      ; preds = %.critedge85
   %150 = call fastcc ptr @make_key(ptr noundef nonnull @.str.73, ptr noundef null)
-  store ptr %150, ptr @key_X25519, align 8, !tbaa !22
+  store ptr %150, ptr @key_X25519, align 8, !tbaa !21
   %151 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1439, ptr noundef nonnull @.str.72, ptr noundef %150) #8
   %.not112 = icmp eq i32 %151, 0
   br i1 %.not112, label %.critedge95.sink.split, label %.critedge87
 
 .critedge87:                                      ; preds = %.critedge86
   %152 = call fastcc ptr @make_key(ptr noundef nonnull @.str.75, ptr noundef null)
-  store ptr %152, ptr @key_X448, align 8, !tbaa !22
+  store ptr %152, ptr @key_X448, align 8, !tbaa !21
   %153 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1440, ptr noundef nonnull @.str.74, ptr noundef %152) #8
   %154 = icmp ne i32 %153, 0
-  %155 = load i32, ptr @is_fips_lt_3_5, align 4, !tbaa !7
+  %155 = load i32, ptr @is_fips_lt_3_5, align 4, !tbaa !6
   %.not68 = icmp eq i32 %155, 0
   %brmerge.not = select i1 %.not68, i1 %154, i1 false
   %not..not68 = xor i1 %.not68, true
@@ -831,28 +831,28 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 156:                                              ; preds = %.critedge87
   %157 = call fastcc ptr @make_key(ptr noundef nonnull @.str.77, ptr noundef null)
-  store ptr %157, ptr @key_ML_DSA_44, align 8, !tbaa !22
+  store ptr %157, ptr @key_ML_DSA_44, align 8, !tbaa !21
   %158 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1444, ptr noundef nonnull @.str.76, ptr noundef %157) #8
   %.not = icmp eq i32 %158, 0
   br i1 %.not, label %.critedge90thread-pre-split, label %.critedge89
 
 .critedge89:                                      ; preds = %156
   %159 = call fastcc ptr @make_key(ptr noundef nonnull @.str.79, ptr noundef null)
-  store ptr %159, ptr @key_ML_DSA_65, align 8, !tbaa !22
+  store ptr %159, ptr @key_ML_DSA_65, align 8, !tbaa !21
   %160 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1445, ptr noundef nonnull @.str.78, ptr noundef %159) #8
   %.not113 = icmp eq i32 %160, 0
   br i1 %.not113, label %.critedge90thread-pre-split, label %161
 
 161:                                              ; preds = %.critedge89
   %162 = call fastcc ptr @make_key(ptr noundef nonnull @.str.81, ptr noundef null)
-  store ptr %162, ptr @key_ML_DSA_87, align 8, !tbaa !22
+  store ptr %162, ptr @key_ML_DSA_87, align 8, !tbaa !21
   %163 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1446, ptr noundef nonnull @.str.80, ptr noundef %162) #8
   %164 = icmp ne i32 %163, 0
   br label %.critedge90thread-pre-split
 
 .critedge90thread-pre-split:                      ; preds = %156, %161, %.critedge89
   %.030.shrunk.ph = phi i1 [ false, %156 ], [ %164, %161 ], [ false, %.critedge89 ]
-  %.pr = load i32, ptr @is_fips_lt_3_5, align 4, !tbaa !7
+  %.pr = load i32, ptr @is_fips_lt_3_5, align 4, !tbaa !6
   br label %.critedge90
 
 .critedge90:                                      ; preds = %.critedge90thread-pre-split, %.critedge87
@@ -866,21 +866,21 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 167:                                              ; preds = %166
   %168 = call fastcc ptr @make_key(ptr noundef nonnull @.str.83, ptr noundef null)
-  store ptr %168, ptr @key_ML_KEM_512, align 8, !tbaa !22
+  store ptr %168, ptr @key_ML_KEM_512, align 8, !tbaa !21
   %169 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1451, ptr noundef nonnull @.str.82, ptr noundef %168) #8
   %.not114 = icmp eq i32 %169, 0
   br i1 %.not114, label %.critedge95.sink.split, label %.critedge92
 
 .critedge92:                                      ; preds = %167
   %170 = call fastcc ptr @make_key(ptr noundef nonnull @.str.85, ptr noundef null)
-  store ptr %170, ptr @key_ML_KEM_768, align 8, !tbaa !22
+  store ptr %170, ptr @key_ML_KEM_768, align 8, !tbaa !21
   %171 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1452, ptr noundef nonnull @.str.84, ptr noundef %170) #8
   %.not115 = icmp eq i32 %171, 0
   br i1 %.not115, label %.critedge95.sink.split, label %172
 
 172:                                              ; preds = %.critedge92
   %173 = call fastcc ptr @make_key(ptr noundef nonnull @.str.87, ptr noundef null)
-  store ptr %173, ptr @key_ML_KEM_1024, align 8, !tbaa !22
+  store ptr %173, ptr @key_ML_KEM_1024, align 8, !tbaa !21
   %174 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1453, ptr noundef nonnull @.str.86, ptr noundef %173) #8
   %.not141 = icmp eq i32 %174, 0
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.30, i32 noundef 1457, ptr noundef nonnull @.str.88) #8
@@ -891,18 +891,18 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   br i1 %.030.shrunk, label %175, label %.critedge95
 
 175:                                              ; preds = %172, %.critedge93
-  %176 = load ptr, ptr @keyctx, align 8, !tbaa !11
+  %176 = load ptr, ptr @keyctx, align 8, !tbaa !10
   %177 = call ptr @load_pkey_pem(ptr noundef %.037, ptr noundef %176) #8
-  store ptr %177, ptr @key_RSA, align 8, !tbaa !22
+  store ptr %177, ptr @key_RSA, align 8, !tbaa !21
   %178 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1458, ptr noundef nonnull @.str.89, ptr noundef %177) #8
   %.not116 = icmp eq i32 %178, 0
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.30, i32 noundef 1459, ptr noundef nonnull @.str.90) #8
   br i1 %.not116, label %.critedge97, label %179
 
 179:                                              ; preds = %175
-  %180 = load ptr, ptr @keyctx, align 8, !tbaa !11
+  %180 = load ptr, ptr @keyctx, align 8, !tbaa !10
   %181 = call ptr @load_pkey_pem(ptr noundef %.035, ptr noundef %180) #8
-  store ptr %181, ptr @key_RSA_PSS, align 8, !tbaa !22
+  store ptr %181, ptr @key_RSA_PSS, align 8, !tbaa !21
   %182 = call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1460, ptr noundef nonnull @.str.91, ptr noundef %181) #8
   %.not117 = icmp eq i32 %182, 0
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.30, i32 noundef 1461, ptr noundef nonnull @.str.92) #8
@@ -989,7 +989,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   call void @add_test(ptr noundef nonnull @.str.162, ptr noundef nonnull @test_public_ECExplicitTri2G_via_PEM) #8
   call void @add_test(ptr noundef nonnull @.str.163, ptr noundef nonnull @test_unprotected_ECExplicitTri2G_via_legacy_PEM) #8
   call void @add_test(ptr noundef nonnull @.str.164, ptr noundef nonnull @test_protected_ECExplicitTri2G_via_legacy_PEM) #8
-  %184 = load i32, ptr @is_fips_3_0_0, align 4, !tbaa !7
+  %184 = load i32, ptr @is_fips_3_0_0, align 4, !tbaa !6
   %.not72 = icmp eq i32 %184, 0
   br i1 %.not72, label %185, label %186
 
@@ -1027,7 +1027,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   call void @add_test(ptr noundef nonnull @.str.192, ptr noundef nonnull @test_protected_X448_via_PEM) #8
   call void @add_test(ptr noundef nonnull @.str.193, ptr noundef nonnull @test_public_X448_via_DER) #8
   call void @add_test(ptr noundef nonnull @.str.194, ptr noundef nonnull @test_public_X448_via_PEM) #8
-  %187 = load i32, ptr @is_fips_lt_3_5, align 4, !tbaa !7
+  %187 = load i32, ptr @is_fips_lt_3_5, align 4, !tbaa !6
   %.not73 = icmp eq i32 %187, 0
   br i1 %.not73, label %188, label %189
 
@@ -1071,7 +1071,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   call void @add_test(ptr noundef nonnull @.str.228, ptr noundef nonnull @test_public_RSA_via_MSBLOB) #8
   call void @add_test(ptr noundef nonnull @.str.229, ptr noundef nonnull @test_unprotected_RSA_via_PVK) #8
   call void @add_test(ptr noundef nonnull @.str.230, ptr noundef nonnull @test_protected_RSA_via_PVK) #8
-  %190 = load i32, ptr @is_fips_lt_3_5, align 4, !tbaa !7
+  %190 = load i32, ptr @is_fips_lt_3_5, align 4, !tbaa !6
   %.not74 = icmp eq i32 %190, 0
   br i1 %.not74, label %191, label %.loopexit
 
@@ -1149,7 +1149,7 @@ define internal fastcc ptr @make_template(ptr noundef %0, ptr noundef %1) unname
 sub_0:
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
-  store ptr null, ptr %2, align 8, !tbaa !22
+  store ptr null, ptr %2, align 8, !tbaa !21
   %3 = load i8, ptr %0, align 1
   %.not12 = icmp eq i8 %3, 68
   br i1 %.not12, label %sub_1, label %.tail.thread
@@ -1167,14 +1167,14 @@ sub_1:                                            ; preds = %sub_0
   br i1 %8, label %9, label %.tail.thread
 
 9:                                                ; preds = %.tail
-  %10 = load ptr, ptr @keyctx, align 8, !tbaa !11
+  %10 = load ptr, ptr @keyctx, align 8, !tbaa !10
   %11 = tail call ptr @get_dh512(ptr noundef %10) #8
   br label %31
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.48) #9
   %13 = icmp eq i32 %12, 0
-  %14 = load ptr, ptr @keyctx, align 8, !tbaa !11
+  %14 = load ptr, ptr @keyctx, align 8, !tbaa !10
   br i1 %13, label %15, label %17
 
 15:                                               ; preds = %.tail.thread
@@ -1206,7 +1206,7 @@ sub_1:                                            ; preds = %sub_0
 
 29:                                               ; preds = %27, %24, %19, %17
   call void @EVP_PKEY_CTX_free(ptr noundef %18) #8
-  %30 = load ptr, ptr %2, align 8, !tbaa !22
+  %30 = load ptr, ptr %2, align 8, !tbaa !21
   br label %31
 
 31:                                               ; preds = %29, %15, %9
@@ -1219,9 +1219,9 @@ sub_1:                                            ; preds = %sub_0
 define internal fastcc ptr @make_key(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr null, ptr %3, align 8, !tbaa !22
+  store ptr null, ptr %3, align 8, !tbaa !21
   %.not = icmp eq ptr %1, null
-  %4 = load ptr, ptr @keyctx, align 8, !tbaa !11
+  %4 = load ptr, ptr @keyctx, align 8, !tbaa !10
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -1248,7 +1248,7 @@ define internal fastcc ptr @make_key(ptr noundef %0, ptr noundef %1) unnamed_add
 
 16:                                               ; preds = %14, %11, %9
   call void @EVP_PKEY_CTX_free(ptr noundef %10) #8
-  %17 = load ptr, ptr %3, align 8, !tbaa !22
+  %17 = load ptr, ptr %3, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret ptr %17
 }
@@ -1259,168 +1259,168 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_DH_via_DER() #1 {
-  %1 = load ptr, ptr @key_DH, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DH, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.45, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_DH_via_PEM() #1 {
-  %1 = load ptr, ptr @key_DH, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DH, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.45, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_DH_via_DER() #1 {
-  %1 = load ptr, ptr @key_DH, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DH, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.45, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_DH_via_PEM() #1 {
-  %1 = load ptr, ptr @key_DH, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DH, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.45, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_DH_via_DER() #1 {
-  %1 = load ptr, ptr @key_DH, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DH, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.45, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_DH_via_PEM() #1 {
-  %1 = load ptr, ptr @key_DH, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DH, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.45, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_params_DH_via_DER() #1 {
-  %1 = load ptr, ptr @key_DH, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DH, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 633, ptr noundef nonnull @.str.45, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_params_DER, ptr noundef nonnull @dump_der, i32 noundef 1)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_params_DH_via_PEM() #1 {
-  %1 = load ptr, ptr @key_DH, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DH, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 642, ptr noundef nonnull @.str.45, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_params_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_DHX_via_DER() #1 {
-  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.48, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_DHX_via_PEM() #1 {
-  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.48, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_DHX_via_DER() #1 {
-  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.48, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_DHX_via_PEM() #1 {
-  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.48, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_DHX_via_DER() #1 {
-  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.48, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_DHX_via_PEM() #1 {
-  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.48, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_params_DHX_via_DER() #1 {
-  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 633, ptr noundef nonnull @.str.48, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_params_DER, ptr noundef nonnull @dump_der, i32 noundef 1)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_params_DHX_via_PEM() #1 {
-  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DHX, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 642, ptr noundef nonnull @.str.48, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_params_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_DSA_via_DER() #1 {
-  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_DSA_via_PEM() #1 {
-  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_DSA_via_DER() #1 {
-  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_DSA_via_PEM() #1 {
-  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_DSA_via_DER() #1 {
-  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_DSA_via_PEM() #1 {
-  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_params_DSA_via_DER() #1 {
-  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 633, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_params_DER, ptr noundef nonnull @dump_der, i32 noundef 1)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_params_DSA_via_PEM() #1 {
-  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 642, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_params_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
@@ -1437,7 +1437,7 @@ define internal i32 @test_unprotected_DSA_via_legacy_PEM() #1 {
   br label %test_unprotected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 668, ptr noundef nonnull @.str.52, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_unprotected_via_legacy_PEM.exit
 
@@ -1458,7 +1458,7 @@ define internal i32 @test_protected_DSA_via_legacy_PEM() #1 {
   br label %test_protected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 789, ptr noundef nonnull @.str.52, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_protected_via_legacy_PEM.exit
 
@@ -1469,29 +1469,29 @@ test_protected_via_legacy_PEM.exit:               ; preds = %1, %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_DSA_via_MSBLOB() #1 {
-  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 690, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.338, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_MSBLOB, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_MSBLOB, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_DSA_via_MSBLOB() #1 {
-  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 875, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef 6, ptr noundef nonnull @.str.338, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_MSBLOB, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_MSBLOB, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_DSA_via_PVK() #1 {
-  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 711, ptr noundef nonnull @.str.52, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.341, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_PVK, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_PVK, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_protected_DSA_via_PVK() #1 {
-  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !22
-  %2 = load ptr, ptr @testctx, align 8, !tbaa !11
+  %1 = load ptr, ptr @key_DSA, align 8, !tbaa !21
+  %2 = load ptr, ptr @testctx, align 8, !tbaa !10
   %3 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %2, ptr noundef nonnull @.str.29) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -1512,56 +1512,56 @@ test_protected_via_PVK.exit:                      ; preds = %5, %7
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_EC_via_DER() #1 {
-  %1 = load ptr, ptr @key_EC, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_EC, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_EC_via_PEM() #1 {
-  %1 = load ptr, ptr @key_EC, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_EC, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_EC_via_DER() #1 {
-  %1 = load ptr, ptr @key_EC, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_EC, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_EC_via_PEM() #1 {
-  %1 = load ptr, ptr @key_EC, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_EC, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_EC_via_DER() #1 {
-  %1 = load ptr, ptr @key_EC, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_EC, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_EC_via_PEM() #1 {
-  %1 = load ptr, ptr @key_EC, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_EC, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_params_EC_via_DER() #1 {
-  %1 = load ptr, ptr @key_EC, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_EC, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 633, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_params_DER, ptr noundef nonnull @dump_der, i32 noundef 1)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_params_EC_via_PEM() #1 {
-  %1 = load ptr, ptr @key_EC, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_EC, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 642, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 4, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_params_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
@@ -1578,7 +1578,7 @@ define internal i32 @test_unprotected_EC_via_legacy_PEM() #1 {
   br label %test_unprotected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_EC, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_EC, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 668, ptr noundef nonnull @.str.56, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_unprotected_via_legacy_PEM.exit
 
@@ -1599,7 +1599,7 @@ define internal i32 @test_protected_EC_via_legacy_PEM() #1 {
   br label %test_protected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_EC, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_EC, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 789, ptr noundef nonnull @.str.56, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_protected_via_legacy_PEM.exit
 
@@ -1610,42 +1610,42 @@ test_protected_via_legacy_PEM.exit:               ; preds = %1, %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ECExplicitPrimeNamedCurve_via_DER() #1 {
-  %1 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ECExplicitPrimeNamedCurve_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ECExplicitPrimeNamedCurve_via_DER() #1 {
-  %1 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ECExplicitPrimeNamedCurve_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ECExplicitPrimeNamedCurve_via_DER() #1 {
-  %1 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ECExplicitPrimeNamedCurve_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
@@ -1662,7 +1662,7 @@ define internal i32 @test_unprotected_ECExplicitPrimeNamedCurve_via_legacy_PEM()
   br label %test_unprotected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 668, ptr noundef nonnull @.str.56, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_unprotected_via_legacy_PEM.exit
 
@@ -1683,7 +1683,7 @@ define internal i32 @test_protected_ECExplicitPrimeNamedCurve_via_legacy_PEM() #
   br label %test_protected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 789, ptr noundef nonnull @.str.56, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_protected_via_legacy_PEM.exit
 
@@ -1694,42 +1694,42 @@ test_protected_via_legacy_PEM.exit:               ; preds = %1, %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ECExplicitPrime2G_via_DER() #1 {
-  %1 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ECExplicitPrime2G_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ECExplicitPrime2G_via_DER() #1 {
-  %1 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ECExplicitPrime2G_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ECExplicitPrime2G_via_DER() #1 {
-  %1 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ECExplicitPrime2G_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %2
 }
@@ -1746,7 +1746,7 @@ define internal i32 @test_unprotected_ECExplicitPrime2G_via_legacy_PEM() #1 {
   br label %test_unprotected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 668, ptr noundef nonnull @.str.56, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_unprotected_via_legacy_PEM.exit
 
@@ -1767,7 +1767,7 @@ define internal i32 @test_protected_ECExplicitPrime2G_via_legacy_PEM() #1 {
   br label %test_protected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 789, ptr noundef nonnull @.str.56, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_protected_via_legacy_PEM.exit
 
@@ -1778,42 +1778,42 @@ test_protected_via_legacy_PEM.exit:               ; preds = %1, %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ECExplicitTriNamedCurve_via_DER() #1 {
-  %1 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ECExplicitTriNamedCurve_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ECExplicitTriNamedCurve_via_DER() #1 {
-  %1 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ECExplicitTriNamedCurve_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ECExplicitTriNamedCurve_via_DER() #1 {
-  %1 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ECExplicitTriNamedCurve_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
@@ -1830,7 +1830,7 @@ define internal i32 @test_unprotected_ECExplicitTriNamedCurve_via_legacy_PEM() #
   br label %test_unprotected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 668, ptr noundef nonnull @.str.56, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_unprotected_via_legacy_PEM.exit
 
@@ -1851,7 +1851,7 @@ define internal i32 @test_protected_ECExplicitTriNamedCurve_via_legacy_PEM() #1 
   br label %test_protected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 789, ptr noundef nonnull @.str.56, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_protected_via_legacy_PEM.exit
 
@@ -1862,42 +1862,42 @@ test_protected_via_legacy_PEM.exit:               ; preds = %1, %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ECExplicitTri2G_via_DER() #1 {
-  %1 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ECExplicitTri2G_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ECExplicitTri2G_via_DER() #1 {
-  %1 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ECExplicitTri2G_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ECExplicitTri2G_via_DER() #1 {
-  %1 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ECExplicitTri2G_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.56, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %2
 }
@@ -1914,7 +1914,7 @@ define internal i32 @test_unprotected_ECExplicitTri2G_via_legacy_PEM() #1 {
   br label %test_unprotected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 668, ptr noundef nonnull @.str.56, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_unprotected_via_legacy_PEM.exit
 
@@ -1935,7 +1935,7 @@ define internal i32 @test_protected_ECExplicitTri2G_via_legacy_PEM() #1 {
   br label %test_protected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 789, ptr noundef nonnull @.str.56, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_protected_via_legacy_PEM.exit
 
@@ -1946,378 +1946,378 @@ test_protected_via_legacy_PEM.exit:               ; preds = %1, %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_SM2_via_DER() #1 {
-  %1 = load ptr, ptr @key_SM2, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_SM2, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.67, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_SM2_via_PEM() #1 {
-  %1 = load ptr, ptr @key_SM2, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_SM2, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.67, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_SM2_via_DER() #1 {
-  %1 = load ptr, ptr @key_SM2, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_SM2, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.67, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_SM2_via_PEM() #1 {
-  %1 = load ptr, ptr @key_SM2, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_SM2, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.67, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_SM2_via_DER() #1 {
-  %1 = load ptr, ptr @key_SM2, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_SM2, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.67, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_SM2_via_PEM() #1 {
-  %1 = load ptr, ptr @key_SM2, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_SM2, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.67, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 2)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ED25519_via_DER() #1 {
-  %1 = load ptr, ptr @key_ED25519, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ED25519, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.69, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ED25519_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ED25519, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ED25519, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.69, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ED25519_via_DER() #1 {
-  %1 = load ptr, ptr @key_ED25519, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ED25519, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.69, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ED25519_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ED25519, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ED25519, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.69, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ED25519_via_DER() #1 {
-  %1 = load ptr, ptr @key_ED25519, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ED25519, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.69, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ED25519_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ED25519, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ED25519, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.69, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ED448_via_DER() #1 {
-  %1 = load ptr, ptr @key_ED448, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ED448, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.71, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ED448_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ED448, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ED448, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.71, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ED448_via_DER() #1 {
-  %1 = load ptr, ptr @key_ED448, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ED448, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.71, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ED448_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ED448, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ED448, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.71, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ED448_via_DER() #1 {
-  %1 = load ptr, ptr @key_ED448, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ED448, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.71, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ED448_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ED448, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ED448, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.71, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_X25519_via_DER() #1 {
-  %1 = load ptr, ptr @key_X25519, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_X25519, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.73, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_X25519_via_PEM() #1 {
-  %1 = load ptr, ptr @key_X25519, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_X25519, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.73, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_X25519_via_DER() #1 {
-  %1 = load ptr, ptr @key_X25519, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_X25519, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.73, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_X25519_via_PEM() #1 {
-  %1 = load ptr, ptr @key_X25519, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_X25519, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.73, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_X25519_via_DER() #1 {
-  %1 = load ptr, ptr @key_X25519, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_X25519, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.73, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_X25519_via_PEM() #1 {
-  %1 = load ptr, ptr @key_X25519, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_X25519, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.73, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_X448_via_DER() #1 {
-  %1 = load ptr, ptr @key_X448, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_X448, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.75, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_X448_via_PEM() #1 {
-  %1 = load ptr, ptr @key_X448, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_X448, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.75, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_X448_via_DER() #1 {
-  %1 = load ptr, ptr @key_X448, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_X448, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.75, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_X448_via_PEM() #1 {
-  %1 = load ptr, ptr @key_X448, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_X448, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.75, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_X448_via_DER() #1 {
-  %1 = load ptr, ptr @key_X448, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_X448, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.75, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_X448_via_PEM() #1 {
-  %1 = load ptr, ptr @key_X448, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_X448, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.75, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ML_KEM_512_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.83, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ML_KEM_512_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.83, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ML_KEM_512_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.83, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ML_KEM_512_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.83, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ML_KEM_512_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.83, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ML_KEM_512_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.83, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ML_KEM_768_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.85, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ML_KEM_768_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.85, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ML_KEM_768_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.85, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ML_KEM_768_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.85, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ML_KEM_768_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.85, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ML_KEM_768_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.85, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ML_KEM_1024_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.87, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ML_KEM_1024_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.87, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ML_KEM_1024_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.87, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ML_KEM_1024_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.87, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ML_KEM_1024_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.87, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ML_KEM_1024_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.87, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_RSA_via_DER() #1 {
-  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.345, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_RSA_via_PEM() #1 {
-  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.345, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_RSA_via_DER() #1 {
-  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.345, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_RSA_via_PEM() #1 {
-  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.345, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_RSA_via_DER() #1 {
-  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.345, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_RSA_via_PEM() #1 {
-  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.345, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
@@ -2334,7 +2334,7 @@ define internal i32 @test_unprotected_RSA_via_legacy_PEM() #1 {
   br label %test_unprotected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_RSA, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_RSA, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 668, ptr noundef nonnull @.str.345, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_unprotected_via_legacy_PEM.exit
 
@@ -2355,7 +2355,7 @@ define internal i32 @test_protected_RSA_via_legacy_PEM() #1 {
   br label %test_protected_via_legacy_PEM.exit
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @key_RSA, align 8, !tbaa !22
+  %4 = load ptr, ptr @key_RSA, align 8, !tbaa !21
   %5 = tail call fastcc i32 @test_encode_decode(i32 noundef 789, ptr noundef nonnull @.str.345, ptr noundef %4, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_legacy_PEM, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_legacy_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   br label %test_protected_via_legacy_PEM.exit
 
@@ -2366,71 +2366,71 @@ test_protected_via_legacy_PEM.exit:               ; preds = %1, %3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_RSA_PSS_via_DER() #1 {
-  %1 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.346, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_RSA_PSS_via_PEM() #1 {
-  %1 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.346, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_RSA_PSS_via_DER() #1 {
-  %1 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.346, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_RSA_PSS_via_PEM() #1 {
-  %1 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.346, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_RSA_PSS_via_DER() #1 {
-  %1 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.346, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_RSA_PSS_via_PEM() #1 {
-  %1 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.346, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_RSA_via_MSBLOB() #1 {
-  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 690, ptr noundef nonnull @.str.345, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.338, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_MSBLOB, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_MSBLOB, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_RSA_via_MSBLOB() #1 {
-  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 875, ptr noundef nonnull @.str.345, ptr noundef %1, i32 noundef 6, ptr noundef nonnull @.str.338, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_MSBLOB, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_MSBLOB, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_RSA_via_PVK() #1 {
-  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 711, ptr noundef nonnull @.str.345, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.341, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_PVK, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_PVK, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @test_protected_RSA_via_PVK() #1 {
-  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !22
-  %2 = load ptr, ptr @testctx, align 8, !tbaa !11
+  %1 = load ptr, ptr @key_RSA, align 8, !tbaa !21
+  %2 = load ptr, ptr @testctx, align 8, !tbaa !10
   %3 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %2, ptr noundef nonnull @.str.29) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -2451,126 +2451,126 @@ test_protected_via_PVK.exit:                      ; preds = %5, %7
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ML_DSA_44_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.77, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ML_DSA_44_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.77, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ML_DSA_44_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.77, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ML_DSA_44_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.77, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ML_DSA_44_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.77, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ML_DSA_44_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.77, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ML_DSA_65_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.79, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ML_DSA_65_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.79, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ML_DSA_65_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.79, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ML_DSA_65_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.79, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ML_DSA_65_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.79, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ML_DSA_65_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.79, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ML_DSA_87_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 560, ptr noundef nonnull @.str.81, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_unprotected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_unprotected_ML_DSA_87_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 582, ptr noundef nonnull @.str.81, ptr noundef %1, i32 noundef 135, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.282, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_unprotected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ML_DSA_87_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 737, ptr noundef nonnull @.str.81, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_protected_PKCS8_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_protected_ML_DSA_87_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 760, ptr noundef nonnull @.str.81, ptr noundef %1, i32 noundef 7, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.324, ptr noundef nonnull @.str.325, ptr noundef nonnull @.str.326, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_protected_PKCS8_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ML_DSA_87_via_DER() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 830, ptr noundef nonnull @.str.81, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.281, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_mem, ptr noundef nonnull @check_public_DER, ptr noundef nonnull @dump_der, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_public_ML_DSA_87_via_PEM() #1 {
-  %1 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !22
+  %1 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !21
   %2 = tail call fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef 852, ptr noundef nonnull @.str.81, ptr noundef %1, i32 noundef 134, ptr noundef nonnull @.str.306, ptr noundef nonnull @.str.328, ptr noundef null, ptr noundef null, ptr noundef nonnull @encode_EVP_PKEY_prov, ptr noundef nonnull @test_text, ptr noundef nonnull @check_public_PEM, ptr noundef nonnull @dump_pem, i32 noundef 0)
   ret i32 %2
 }
@@ -2580,107 +2580,107 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @ec_explicit_prime_params_nc, align 8, !tbaa !20
+  %1 = load ptr, ptr @ec_explicit_prime_params_nc, align 8, !tbaa !19
   tail call void @OSSL_PARAM_free(ptr noundef %1) #8
-  %2 = load ptr, ptr @ec_explicit_prime_params_explicit, align 8, !tbaa !20
+  %2 = load ptr, ptr @ec_explicit_prime_params_explicit, align 8, !tbaa !19
   tail call void @OSSL_PARAM_free(ptr noundef %2) #8
-  %3 = load ptr, ptr @bld_prime_nc, align 8, !tbaa !18
+  %3 = load ptr, ptr @bld_prime_nc, align 8, !tbaa !17
   tail call void @OSSL_PARAM_BLD_free(ptr noundef %3) #8
-  %4 = load ptr, ptr @bld_prime, align 8, !tbaa !18
+  %4 = load ptr, ptr @bld_prime, align 8, !tbaa !17
   tail call void @OSSL_PARAM_BLD_free(ptr noundef %4) #8
-  %5 = load ptr, ptr @ec_explicit_tri_params_nc, align 8, !tbaa !20
+  %5 = load ptr, ptr @ec_explicit_tri_params_nc, align 8, !tbaa !19
   tail call void @OSSL_PARAM_free(ptr noundef %5) #8
-  %6 = load ptr, ptr @ec_explicit_tri_params_explicit, align 8, !tbaa !20
+  %6 = load ptr, ptr @ec_explicit_tri_params_explicit, align 8, !tbaa !19
   tail call void @OSSL_PARAM_free(ptr noundef %6) #8
-  %7 = load ptr, ptr @bld_tri_nc, align 8, !tbaa !18
+  %7 = load ptr, ptr @bld_tri_nc, align 8, !tbaa !17
   tail call void @OSSL_PARAM_BLD_free(ptr noundef %7) #8
-  %8 = load ptr, ptr @bld_tri, align 8, !tbaa !18
+  %8 = load ptr, ptr @bld_tri, align 8, !tbaa !17
   tail call void @OSSL_PARAM_BLD_free(ptr noundef %8) #8
-  %9 = load ptr, ptr @bnctx, align 8, !tbaa !16
+  %9 = load ptr, ptr @bnctx, align 8, !tbaa !15
   tail call void @BN_CTX_free(ptr noundef %9) #8
-  %10 = load ptr, ptr @template_DH, align 8, !tbaa !22
+  %10 = load ptr, ptr @template_DH, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %10) #8
-  %11 = load ptr, ptr @key_DH, align 8, !tbaa !22
+  %11 = load ptr, ptr @key_DH, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %11) #8
-  %12 = load ptr, ptr @template_DHX, align 8, !tbaa !22
+  %12 = load ptr, ptr @template_DHX, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %12) #8
-  %13 = load ptr, ptr @key_DHX, align 8, !tbaa !22
+  %13 = load ptr, ptr @key_DHX, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %13) #8
-  %14 = load ptr, ptr @template_DSA, align 8, !tbaa !22
+  %14 = load ptr, ptr @template_DSA, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %14) #8
-  %15 = load ptr, ptr @key_DSA, align 8, !tbaa !22
+  %15 = load ptr, ptr @key_DSA, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %15) #8
-  %16 = load ptr, ptr @template_EC, align 8, !tbaa !22
+  %16 = load ptr, ptr @template_EC, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %16) #8
-  %17 = load ptr, ptr @key_EC, align 8, !tbaa !22
+  %17 = load ptr, ptr @key_EC, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %17) #8
-  %18 = load ptr, ptr @template_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  %18 = load ptr, ptr @template_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %18) #8
-  %19 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !22
+  %19 = load ptr, ptr @key_ECExplicitPrimeNamedCurve, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %19) #8
-  %20 = load ptr, ptr @template_ECExplicitPrime2G, align 8, !tbaa !22
+  %20 = load ptr, ptr @template_ECExplicitPrime2G, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %20) #8
-  %21 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !22
+  %21 = load ptr, ptr @key_ECExplicitPrime2G, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %21) #8
-  %22 = load ptr, ptr @template_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  %22 = load ptr, ptr @template_ECExplicitTriNamedCurve, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %22) #8
-  %23 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !22
+  %23 = load ptr, ptr @key_ECExplicitTriNamedCurve, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %23) #8
-  %24 = load ptr, ptr @template_ECExplicitTri2G, align 8, !tbaa !22
+  %24 = load ptr, ptr @template_ECExplicitTri2G, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %24) #8
-  %25 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !22
+  %25 = load ptr, ptr @key_ECExplicitTri2G, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %25) #8
-  %26 = load ptr, ptr @key_SM2, align 8, !tbaa !22
+  %26 = load ptr, ptr @key_SM2, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %26) #8
-  %27 = load ptr, ptr @key_ED25519, align 8, !tbaa !22
+  %27 = load ptr, ptr @key_ED25519, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %27) #8
-  %28 = load ptr, ptr @key_ED448, align 8, !tbaa !22
+  %28 = load ptr, ptr @key_ED448, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %28) #8
-  %29 = load ptr, ptr @key_X25519, align 8, !tbaa !22
+  %29 = load ptr, ptr @key_X25519, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %29) #8
-  %30 = load ptr, ptr @key_X448, align 8, !tbaa !22
+  %30 = load ptr, ptr @key_X448, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %30) #8
-  %31 = load i32, ptr @is_fips_lt_3_5, align 4, !tbaa !7
+  %31 = load i32, ptr @is_fips_lt_3_5, align 4, !tbaa !6
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %32, label %36
 
 32:                                               ; preds = %0
-  %33 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !22
+  %33 = load ptr, ptr @key_ML_KEM_512, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %33) #8
-  %34 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !22
+  %34 = load ptr, ptr @key_ML_KEM_768, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %34) #8
-  %35 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !22
+  %35 = load ptr, ptr @key_ML_KEM_1024, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %35) #8
   br label %36
 
 36:                                               ; preds = %32, %0
-  %37 = load ptr, ptr @key_RSA, align 8, !tbaa !22
+  %37 = load ptr, ptr @key_RSA, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %37) #8
-  %38 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !22
+  %38 = load ptr, ptr @key_RSA_PSS, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %38) #8
-  %39 = load i32, ptr @is_fips_lt_3_5, align 4, !tbaa !7
+  %39 = load i32, ptr @is_fips_lt_3_5, align 4, !tbaa !6
   %.not1 = icmp eq i32 %39, 0
   br i1 %.not1, label %40, label %44
 
 40:                                               ; preds = %36
-  %41 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !22
+  %41 = load ptr, ptr @key_ML_DSA_44, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %41) #8
-  %42 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !22
+  %42 = load ptr, ptr @key_ML_DSA_65, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %42) #8
-  %43 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !22
+  %43 = load ptr, ptr @key_ML_DSA_87, align 8, !tbaa !21
   tail call void @EVP_PKEY_free(ptr noundef %43) #8
   br label %44
 
 44:                                               ; preds = %40, %36
-  %45 = load ptr, ptr @nullprov, align 8, !tbaa !14
+  %45 = load ptr, ptr @nullprov, align 8, !tbaa !13
   %46 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %45) #8
-  %47 = load ptr, ptr @deflprov, align 8, !tbaa !14
+  %47 = load ptr, ptr @deflprov, align 8, !tbaa !13
   %48 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %47) #8
-  %49 = load ptr, ptr @keyprov, align 8, !tbaa !14
+  %49 = load ptr, ptr @keyprov, align 8, !tbaa !13
   %50 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %49) #8
-  %51 = load ptr, ptr @testctx, align 8, !tbaa !11
+  %51 = load ptr, ptr @testctx, align 8, !tbaa !10
   tail call void @OSSL_LIB_CTX_free(ptr noundef %51) #8
-  %52 = load ptr, ptr @keyctx, align 8, !tbaa !11
+  %52 = load ptr, ptr @keyctx, align 8, !tbaa !10
   tail call void @OSSL_LIB_CTX_free(ptr noundef %52) #8
   ret void
 }
@@ -2699,28 +2699,28 @@ declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @do_create_ec_explicit_prime_params(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
-  %3 = load ptr, ptr @bnctx, align 8, !tbaa !16
+  %3 = load ptr, ptr @bnctx, align 8, !tbaa !15
   %4 = tail call ptr @BN_CTX_get(ptr noundef %3) #8
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1135, ptr noundef nonnull @.str.249, ptr noundef %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %73, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr @bnctx, align 8, !tbaa !16
+  %7 = load ptr, ptr @bnctx, align 8, !tbaa !15
   %8 = tail call ptr @BN_CTX_get(ptr noundef %7) #8
   %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1136, ptr noundef nonnull @.str.250, ptr noundef %8) #8
   %.not17 = icmp eq i32 %9, 0
   br i1 %.not17, label %73, label %10
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr @bnctx, align 8, !tbaa !16
+  %11 = load ptr, ptr @bnctx, align 8, !tbaa !15
   %12 = tail call ptr @BN_CTX_get(ptr noundef %11) #8
   %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1137, ptr noundef nonnull @.str.251, ptr noundef %12) #8
   %.not18 = icmp eq i32 %13, 0
   br i1 %.not18, label %73, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr @bnctx, align 8, !tbaa !16
+  %15 = load ptr, ptr @bnctx, align 8, !tbaa !15
   %16 = tail call ptr @BN_CTX_get(ptr noundef %15) #8
   %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1138, ptr noundef nonnull @.str.252, ptr noundef %16) #8
   %.not19 = icmp eq i32 %17, 0
@@ -2837,35 +2837,35 @@ declare ptr @BN_value_one() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @do_create_ec_explicit_trinomial_params(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
-  %3 = load ptr, ptr @bnctx, align 8, !tbaa !16
+  %3 = load ptr, ptr @bnctx, align 8, !tbaa !15
   %4 = tail call ptr @BN_CTX_get(ptr noundef %3) #8
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1224, ptr noundef nonnull @.str.249, ptr noundef %4) #8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %74, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr @bnctx, align 8, !tbaa !16
+  %7 = load ptr, ptr @bnctx, align 8, !tbaa !15
   %8 = tail call ptr @BN_CTX_get(ptr noundef %7) #8
   %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1225, ptr noundef nonnull @.str.250, ptr noundef %8) #8
   %.not18 = icmp eq i32 %9, 0
   br i1 %.not18, label %74, label %10
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr @bnctx, align 8, !tbaa !16
+  %11 = load ptr, ptr @bnctx, align 8, !tbaa !15
   %12 = tail call ptr @BN_CTX_get(ptr noundef %11) #8
   %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1226, ptr noundef nonnull @.str.273, ptr noundef %12) #8
   %.not19 = icmp eq i32 %13, 0
   br i1 %.not19, label %74, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr @bnctx, align 8, !tbaa !16
+  %15 = load ptr, ptr @bnctx, align 8, !tbaa !15
   %16 = tail call ptr @BN_CTX_get(ptr noundef %15) #8
   %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1227, ptr noundef nonnull @.str.252, ptr noundef %16) #8
   %.not20 = icmp eq i32 %17, 0
   br i1 %.not20, label %74, label %18
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr @bnctx, align 8, !tbaa !16
+  %19 = load ptr, ptr @bnctx, align 8, !tbaa !15
   %20 = tail call ptr @BN_CTX_get(ptr noundef %19) #8
   %21 = tail call i32 @test_ptr(ptr noundef nonnull @.str.30, i32 noundef 1228, ptr noundef nonnull @.str.274, ptr noundef %20) #8
   %.not21 = icmp eq i32 %21, 0
@@ -2992,18 +2992,18 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
   %18 = alloca ptr, align 8
   %19 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #8
-  store ptr null, ptr %14, align 8, !tbaa !24
+  store ptr null, ptr %14, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #8
-  store i64 0, ptr %15, align 8, !tbaa !25
+  store i64 0, ptr %15, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #8
-  store ptr null, ptr %16, align 8, !tbaa !22
+  store ptr null, ptr %16, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #8
-  store ptr null, ptr %17, align 8, !tbaa !22
+  store ptr null, ptr %17, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #8
-  store ptr null, ptr %18, align 8, !tbaa !24
+  store ptr null, ptr %18, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #8
-  store i64 0, ptr %19, align 8, !tbaa !25
-  %20 = call i32 %8(ptr noundef nonnull @.str.30, i32 noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #8, !callees !27
+  store i64 0, ptr %19, align 8, !tbaa !24
+  %20 = call i32 %8(ptr noundef nonnull @.str.30, i32 noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #8, !callees !26
   %21 = icmp ne i32 %20, 0
   %22 = zext i1 %21 to i32
   %23 = call i32 @test_true(ptr noundef nonnull @.str.30, i32 noundef 181, ptr noundef nonnull @.str.283, i32 noundef %22) #8
@@ -3017,8 +3017,8 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
   %26 = load i32, ptr @is_fips_3_0_0, align 4
   %27 = icmp eq i32 %26, 0
   %or.cond3.not = select i1 %or.cond, i1 %27, i1 false
-  %28 = load ptr, ptr %14, align 8, !tbaa !24
-  %29 = load i64, ptr %15, align 8, !tbaa !25
+  %28 = load ptr, ptr %14, align 8, !tbaa !23
+  %29 = load i64, ptr %15, align 8, !tbaa !24
   br i1 %or.cond3.not, label %84, label %30
 
 30:                                               ; preds = %24
@@ -3030,8 +3030,8 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
   br i1 %.not82, label %.thread, label %35
 
 35:                                               ; preds = %30
-  %36 = load ptr, ptr %14, align 8, !tbaa !24
-  %37 = load i64, ptr %15, align 8, !tbaa !25
+  %36 = load ptr, ptr %14, align 8, !tbaa !23
+  %37 = load i64, ptr %15, align 8, !tbaa !24
   %38 = and i32 %12, 1
   %.not83 = icmp eq i32 %38, 0
   %39 = select i1 %.not83, ptr null, ptr %1
@@ -3050,16 +3050,16 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
   br i1 %.not85, label %51, label %46
 
 46:                                               ; preds = %44, %42
-  %47 = load ptr, ptr %14, align 8, !tbaa !24
-  %48 = load i64, ptr %15, align 8, !tbaa !25
+  %47 = load ptr, ptr %14, align 8, !tbaa !23
+  %48 = load i64, ptr %15, align 8, !tbaa !24
   %49 = call fastcc i32 @decode_EVP_PKEY_prov(ptr noundef nonnull @.str.30, i32 noundef %0, ptr noundef nonnull %17, ptr noundef %47, i64 noundef %48, ptr noundef %4, ptr noundef %5, ptr noundef %39, i32 noundef 0, ptr noundef %6)
   %50 = call i32 @test_true(ptr noundef nonnull @.str.30, i32 noundef 203, ptr noundef nonnull @.str.287, i32 noundef %49) #8
   %.not86 = icmp eq i32 %50, 0
   br i1 %.not86, label %.thread, label %51
 
 51:                                               ; preds = %46, %44
-  %52 = load ptr, ptr %16, align 8, !tbaa !22
-  %53 = call i32 %8(ptr noundef nonnull @.str.30, i32 noundef %0, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef %52, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #8, !callees !27
+  %52 = load ptr, ptr %16, align 8, !tbaa !21
+  %53 = call i32 %8(ptr noundef nonnull @.str.30, i32 noundef %0, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef %52, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #8, !callees !26
   %54 = icmp ne i32 %53, 0
   %55 = zext i1 %54 to i32
   %56 = call i32 @test_true(ptr noundef nonnull @.str.30, i32 noundef 205, ptr noundef nonnull @.str.288, i32 noundef %55) #8
@@ -3077,7 +3077,7 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
   br i1 %.not91, label %.thread, label %62
 
 62:                                               ; preds = %59
-  %63 = load ptr, ptr %17, align 8, !tbaa !22
+  %63 = load ptr, ptr %17, align 8, !tbaa !21
   %.not92 = icmp eq ptr %63, null
   br i1 %.not92, label %75, label %64
 
@@ -3094,7 +3094,7 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
   br i1 %.not88, label %.thread, label %70
 
 70:                                               ; preds = %67
-  %71 = load ptr, ptr %17, align 8, !tbaa !22
+  %71 = load ptr, ptr %17, align 8, !tbaa !21
   %.not89 = icmp eq ptr %71, null
   br i1 %.not89, label %75, label %72
 
@@ -3111,11 +3111,11 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
   br i1 %or.cond5, label %78, label %.thread5
 
 78:                                               ; preds = %75
-  %79 = load ptr, ptr %14, align 8, !tbaa !24
-  %80 = load i64, ptr %15, align 8, !tbaa !25
-  %81 = load ptr, ptr %18, align 8, !tbaa !24
-  %82 = load i64, ptr %19, align 8, !tbaa !25
-  %83 = call i32 %9(ptr noundef nonnull @.str.30, i32 noundef %0, ptr noundef %79, i64 noundef %80, ptr noundef %81, i64 noundef %82) #8, !callees !28
+  %79 = load ptr, ptr %14, align 8, !tbaa !23
+  %80 = load i64, ptr %15, align 8, !tbaa !24
+  %81 = load ptr, ptr %18, align 8, !tbaa !23
+  %82 = load i64, ptr %19, align 8, !tbaa !24
+  %83 = call i32 %9(ptr noundef nonnull @.str.30, i32 noundef %0, ptr noundef %79, i64 noundef %80, ptr noundef %81, i64 noundef %82) #8, !callees !27
   %.not94 = icmp eq i32 %83, 0
   br i1 %.not94, label %.thread, label %.thread5
 
@@ -3126,7 +3126,7 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
   br i1 %.not81, label %.thread, label %.thread5
 
 .thread:                                          ; preds = %13, %30, %35, %46, %51, %67, %72, %59, %64, %78, %84
-  %87 = load ptr, ptr %14, align 8, !tbaa !24
+  %87 = load ptr, ptr %14, align 8, !tbaa !23
   %88 = icmp ne ptr %87, null
   %89 = load i64, ptr %15, align 8
   %90 = icmp ne i64 %89, 0
@@ -3134,11 +3134,11 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
   br i1 %or.cond7, label %91, label %92
 
 91:                                               ; preds = %.thread
-  call void %11(ptr noundef nonnull @.str.294, ptr noundef nonnull %87, i64 noundef %89) #8, !callees !29
+  call void %11(ptr noundef nonnull @.str.294, ptr noundef nonnull %87, i64 noundef %89) #8, !callees !28
   br label %92
 
 92:                                               ; preds = %91, %.thread
-  %93 = load ptr, ptr %18, align 8, !tbaa !24
+  %93 = load ptr, ptr %18, align 8, !tbaa !23
   %94 = icmp ne ptr %93, null
   %95 = load i64, ptr %19, align 8
   %96 = icmp ne i64 %95, 0
@@ -3146,18 +3146,18 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
   br i1 %or.cond9, label %97, label %.thread5
 
 97:                                               ; preds = %92
-  call void %11(ptr noundef nonnull @.str.295, ptr noundef nonnull %93, i64 noundef %95) #8, !callees !29
+  call void %11(ptr noundef nonnull @.str.295, ptr noundef nonnull %93, i64 noundef %95) #8, !callees !28
   br label %.thread5
 
 .thread5:                                         ; preds = %78, %75, %92, %97, %84
   %.03 = phi i32 [ 0, %92 ], [ 0, %97 ], [ 1, %84 ], [ 1, %75 ], [ 1, %78 ]
-  %98 = load ptr, ptr %14, align 8, !tbaa !24
+  %98 = load ptr, ptr %14, align 8, !tbaa !23
   call void @CRYPTO_free(ptr noundef %98, ptr noundef nonnull @.str.30, i32 noundef 238) #8
-  %99 = load ptr, ptr %18, align 8, !tbaa !24
+  %99 = load ptr, ptr %18, align 8, !tbaa !23
   call void @CRYPTO_free(ptr noundef %99, ptr noundef nonnull @.str.30, i32 noundef 239) #8
-  %100 = load ptr, ptr %16, align 8, !tbaa !22
+  %100 = load ptr, ptr %16, align 8, !tbaa !21
   call void @EVP_PKEY_free(ptr noundef %100) #8
-  %101 = load ptr, ptr %17, align 8, !tbaa !22
+  %101 = load ptr, ptr %17, align 8, !tbaa !21
   call void @EVP_PKEY_free(ptr noundef %101) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
@@ -3172,7 +3172,7 @@ define internal fastcc range(i32 0, 2) i32 @test_encode_decode(i32 noundef range
 define internal range(i32 0, 2) i32 @encode_EVP_PKEY_prov(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #1 {
   %11 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  store ptr null, ptr %11, align 8, !tbaa !30
+  store ptr null, ptr %11, align 8, !tbaa !29
   %12 = tail call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null) #8
   %13 = tail call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.296, ptr noundef %12) #8
   %.not = icmp eq i32 %13, 0
@@ -3233,24 +3233,24 @@ define internal range(i32 0, 2) i32 @encode_EVP_PKEY_prov(ptr noundef %0, i32 no
   br i1 %.not49, label %55, label %44
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %11, align 8, !tbaa !30
+  %45 = load ptr, ptr %11, align 8, !tbaa !29
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !32
-  store ptr %47, ptr %2, align 8, !tbaa !24
+  %47 = load ptr, ptr %46, align 8, !tbaa !31
+  store ptr %47, ptr %2, align 8, !tbaa !23
   %48 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.304, ptr noundef %47) #8
   %.not50 = icmp eq i32 %48, 0
   br i1 %.not50, label %55, label %49
 
 49:                                               ; preds = %44
-  %50 = load ptr, ptr %11, align 8, !tbaa !30
-  %51 = load i64, ptr %50, align 8, !tbaa !35
-  store i64 %51, ptr %3, align 8, !tbaa !25
+  %50 = load ptr, ptr %11, align 8, !tbaa !29
+  %51 = load i64, ptr %50, align 8, !tbaa !34
+  store i64 %51, ptr %3, align 8, !tbaa !24
   %52 = call i32 @test_long_gt(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.305, ptr noundef nonnull @.str.298, i64 noundef %51, i64 noundef 0) #8
   %.not51 = icmp eq i32 %52, 0
   br i1 %.not51, label %55, label %53
 
 53:                                               ; preds = %49
-  %54 = load ptr, ptr %11, align 8, !tbaa !30
+  %54 = load ptr, ptr %11, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   br label %55
 
@@ -3267,7 +3267,7 @@ define internal range(i32 0, 2) i32 @encode_EVP_PKEY_prov(ptr noundef %0, i32 no
 define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9) unnamed_addr #1 {
   %11 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  store ptr null, ptr %11, align 8, !tbaa !22
+  store ptr null, ptr %11, align 8, !tbaa !21
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(4) @.str.281) #9
   %13 = icmp eq i32 %12, 0
   %.str.306..str.281 = select i1 %13, ptr @.str.306, ptr @.str.281
@@ -3289,7 +3289,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %0,
   %20 = icmp eq i32 %.04970, 1
   %21 = select i1 %20, ptr null, ptr %.str.306..str.281
   %22 = select i1 %19, ptr %5, ptr %21
-  %23 = load ptr, ptr @testctx, align 8, !tbaa !11
+  %23 = load ptr, ptr @testctx, align 8, !tbaa !10
   %24 = call ptr @OSSL_DECODER_CTX_new_for_pkey(ptr noundef nonnull %11, ptr noundef %22, ptr noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %23, ptr noundef null) #8
   %25 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.308, ptr noundef %24) #8
   %.not56 = icmp eq i32 %25, 0
@@ -3324,15 +3324,15 @@ define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %0,
   br i1 %19, label %40, label %42
 
 40:                                               ; preds = %39
-  %41 = load ptr, ptr %11, align 8, !tbaa !22
-  store ptr null, ptr %11, align 8, !tbaa !22
+  %41 = load ptr, ptr %11, align 8, !tbaa !21
+  store ptr null, ptr %11, align 8, !tbaa !21
   br label %51
 
 42:                                               ; preds = %39
   br i1 %20, label %43, label %51
 
 43:                                               ; preds = %42
-  %44 = load ptr, ptr %11, align 8, !tbaa !22
+  %44 = load ptr, ptr %11, align 8, !tbaa !21
   br i1 %17, label %45, label %48
 
 45:                                               ; preds = %43
@@ -3351,10 +3351,10 @@ define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %0,
   %.3 = phi ptr [ %41, %40 ], [ %.169, %45 ], [ %.169, %48 ], [ %.169, %42 ]
   %52 = add nuw nsw i32 %.04970, 1
   %exitcond.not = icmp eq i32 %52, 3
-  br i1 %exitcond.not, label %53, label %18, !llvm.loop !36
+  br i1 %exitcond.not, label %53, label %18, !llvm.loop !35
 
 53:                                               ; preds = %51
-  store ptr %.3, ptr %2, align 8, !tbaa !24
+  store ptr %.3, ptr %2, align 8, !tbaa !23
   br label %.thread
 
 .thread:                                          ; preds = %48, %45, %18, %27, %30, %34, %10, %53
@@ -3362,7 +3362,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %0,
   %.051 = phi ptr [ null, %53 ], [ null, %10 ], [ %.169, %34 ], [ %.169, %30 ], [ %.169, %27 ], [ %.169, %18 ], [ %.169, %45 ], [ %.169, %48 ]
   %.050 = phi i32 [ 1, %53 ], [ 0, %10 ], [ 0, %34 ], [ 0, %30 ], [ 0, %27 ], [ 0, %18 ], [ 0, %45 ], [ 0, %48 ]
   call void @EVP_PKEY_free(ptr noundef %.051) #8
-  %54 = load ptr, ptr %11, align 8, !tbaa !22
+  %54 = load ptr, ptr %11, align 8, !tbaa !21
   call void @EVP_PKEY_free(ptr noundef %54) #8
   %55 = call i32 @BIO_free(ptr noundef %15) #8
   call void @OSSL_DECODER_CTX_free(ptr noundef %.052) #8
@@ -3381,17 +3381,17 @@ define internal range(i32 0, 2) i32 @check_unprotected_PKCS8_DER(ptr noundef %0,
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr %3, ptr %6, align 8, !tbaa !37
+  store ptr %3, ptr %6, align 8, !tbaa !36
   %8 = call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef nonnull %6, i64 noundef %4) #8
   %9 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.316, ptr noundef %8) #8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %35, label %10
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr @testctx, align 8, !tbaa !11
+  %11 = load ptr, ptr @testctx, align 8, !tbaa !10
   %12 = call ptr @EVP_PKCS82PKEY_ex(ptr noundef %8, ptr noundef %11, ptr noundef null) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  store ptr null, ptr %7, align 8, !tbaa !37
+  store ptr null, ptr %7, align 8, !tbaa !36
   %13 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.317, ptr noundef %12) #8
   %.not22 = icmp eq i32 %13, 0
   br i1 %.not22, label %34, label %14
@@ -3406,13 +3406,13 @@ define internal range(i32 0, 2) i32 @check_unprotected_PKCS8_DER(ptr noundef %0,
 
 19:                                               ; preds = %14
   %20 = call i32 @EVP_PKEY_type_names_do_all(ptr noundef %12, ptr noundef nonnull @collect_name, ptr noundef nonnull %7) #8
-  %21 = load ptr, ptr %7, align 8, !tbaa !37
+  %21 = load ptr, ptr %7, align 8, !tbaa !36
   %.not24 = icmp eq ptr %21, null
   br i1 %.not24, label %23, label %22
 
 22:                                               ; preds = %19
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.319, ptr noundef %2, ptr noundef nonnull %21) #8
-  %.pre = load ptr, ptr %7, align 8, !tbaa !37
+  %.pre = load ptr, ptr %7, align 8, !tbaa !36
   br label %23
 
 23:                                               ; preds = %22, %19
@@ -3422,7 +3422,7 @@ define internal range(i32 0, 2) i32 @check_unprotected_PKCS8_DER(ptr noundef %0,
 
 .critedge:                                        ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 96
-  %26 = load ptr, ptr %25, align 8, !tbaa !38
+  %26 = load ptr, ptr %25, align 8, !tbaa !37
   %27 = icmp ne ptr %26, null
   %28 = zext i1 %27 to i32
   %29 = call i32 @test_true(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.320, i32 noundef %28) #8
@@ -3513,7 +3513,7 @@ declare i32 @EVP_PKEY_type_names_do_all(ptr noundef, ptr noundef, ptr noundef) l
 ; Function Attrs: nounwind uwtable
 define internal void @collect_name(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
-  %4 = load ptr, ptr %1, align 8, !tbaa !37
+  %4 = load ptr, ptr %1, align 8, !tbaa !36
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
@@ -3531,7 +3531,7 @@ define internal void @collect_name(ptr noundef readonly captures(none) %0, ptr n
   br i1 %12, label %20, label %13
 
 13:                                               ; preds = %9
-  %14 = load ptr, ptr %1, align 8, !tbaa !37
+  %14 = load ptr, ptr %1, align 8, !tbaa !36
   %.not18 = icmp eq ptr %14, null
   br i1 %.not18, label %17, label %15
 
@@ -3547,7 +3547,7 @@ define internal void @collect_name(ptr noundef readonly captures(none) %0, ptr n
   br label %19
 
 19:                                               ; preds = %17, %15
-  store ptr %11, ptr %1, align 8, !tbaa !37
+  store ptr %11, ptr %1, align 8, !tbaa !36
   br label %20
 
 20:                                               ; preds = %9, %19
@@ -3595,7 +3595,7 @@ declare void @test_output_string(ptr noundef, ptr noundef, i64 noundef) local_un
 define internal i32 @check_protected_PKCS8_DER(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4) #1 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr %3, ptr %6, align 8, !tbaa !37
+  store ptr %3, ptr %6, align 8, !tbaa !36
   %7 = call ptr @d2i_X509_SIG(ptr noundef null, ptr noundef nonnull %6, i64 noundef %4) #8
   %8 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.327, ptr noundef %7) #8
   call void @X509_SIG_free(ptr noundef %7) #8
@@ -3617,8 +3617,8 @@ define internal i32 @check_protected_PKCS8_PEM(ptr noundef %0, i32 noundef %1, p
 define internal range(i32 0, 2) i32 @check_public_DER(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) #1 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr %3, ptr %6, align 8, !tbaa !37
-  %7 = load ptr, ptr @testctx, align 8, !tbaa !11
+  store ptr %3, ptr %6, align 8, !tbaa !36
+  %7 = load ptr, ptr @testctx, align 8, !tbaa !10
   %8 = call ptr @d2i_PUBKEY_ex(ptr noundef null, ptr noundef nonnull %6, i64 noundef %4, ptr noundef %7, ptr noundef null) #8
   %9 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.317, ptr noundef %8) #8
   %.not = icmp eq i32 %9, 0
@@ -3653,7 +3653,7 @@ define internal range(i32 0, 2) i32 @check_params_DER(ptr readnone captures(none
 sub_0:
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store ptr %3, ptr %5, align 8, !tbaa !37
+  store ptr %3, ptr %5, align 8, !tbaa !36
   %6 = load i8, ptr %2, align 1
   %.not20 = icmp eq i8 %6, 68
   br i1 %.not20, label %sub_1, label %.tail.thread
@@ -3739,7 +3739,7 @@ declare i32 @test_skip(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed
 define internal range(i32 0, 2) i32 @encode_EVP_PKEY_legacy_PEM(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i32 %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8, ptr noundef %9) #1 {
   %11 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  store ptr null, ptr %11, align 8, !tbaa !30
+  store ptr null, ptr %11, align 8, !tbaa !29
   %12 = icmp ne ptr %9, null
   %13 = icmp ne ptr %8, null
   %or.cond = and i1 %13, %12
@@ -3747,7 +3747,7 @@ define internal range(i32 0, 2) i32 @encode_EVP_PKEY_legacy_PEM(ptr noundef %0, 
 
 14:                                               ; preds = %10
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #9
-  %16 = load ptr, ptr @testctx, align 8, !tbaa !11
+  %16 = load ptr, ptr @testctx, align 8, !tbaa !10
   %17 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %16, ptr noundef nonnull %9, ptr noundef null) #8
   %18 = tail call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.332, ptr noundef %17) #8
   %.not = icmp eq i32 %18, 0
@@ -3780,24 +3780,24 @@ define internal range(i32 0, 2) i32 @encode_EVP_PKEY_legacy_PEM(ptr noundef %0, 
   br i1 %.not36, label %45, label %34
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %11, align 8, !tbaa !30
+  %35 = load ptr, ptr %11, align 8, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !32
-  store ptr %37, ptr %2, align 8, !tbaa !24
+  %37 = load ptr, ptr %36, align 8, !tbaa !31
+  store ptr %37, ptr %2, align 8, !tbaa !23
   %38 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.304, ptr noundef %37) #8
   %.not37 = icmp eq i32 %38, 0
   br i1 %.not37, label %45, label %39
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr %11, align 8, !tbaa !30
-  %41 = load i64, ptr %40, align 8, !tbaa !35
-  store i64 %41, ptr %3, align 8, !tbaa !25
+  %40 = load ptr, ptr %11, align 8, !tbaa !29
+  %41 = load i64, ptr %40, align 8, !tbaa !34
+  store i64 %41, ptr %3, align 8, !tbaa !24
   %42 = call i32 @test_long_gt(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.305, ptr noundef nonnull @.str.298, i64 noundef %41, i64 noundef 0) #8
   %.not38 = icmp eq i32 %42, 0
   br i1 %.not38, label %45, label %43
 
 43:                                               ; preds = %39
-  %44 = load ptr, ptr %11, align 8, !tbaa !30
+  %44 = load ptr, ptr %11, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   br label %45
 
@@ -3868,7 +3868,7 @@ declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr 
 define internal range(i32 0, 2) i32 @encode_EVP_PKEY_MSBLOB(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i32 noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr readnone captures(none) %8, ptr readnone captures(none) %9) #1 {
   %11 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  store ptr null, ptr %11, align 8, !tbaa !30
+  store ptr null, ptr %11, align 8, !tbaa !29
   %12 = tail call ptr @BIO_s_mem() #8
   %13 = tail call ptr @BIO_new(ptr noundef %12) #8
   %14 = tail call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.301, ptr noundef %13) #8
@@ -3901,24 +3901,24 @@ define internal range(i32 0, 2) i32 @encode_EVP_PKEY_MSBLOB(ptr noundef %0, i32 
   br i1 %.not25, label %39, label %28
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %11, align 8, !tbaa !30
+  %29 = load ptr, ptr %11, align 8, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !32
-  store ptr %31, ptr %2, align 8, !tbaa !24
+  %31 = load ptr, ptr %30, align 8, !tbaa !31
+  store ptr %31, ptr %2, align 8, !tbaa !23
   %32 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.304, ptr noundef %31) #8
   %.not26 = icmp eq i32 %32, 0
   br i1 %.not26, label %39, label %33
 
 33:                                               ; preds = %28
-  %34 = load ptr, ptr %11, align 8, !tbaa !30
-  %35 = load i64, ptr %34, align 8, !tbaa !35
-  store i64 %35, ptr %3, align 8, !tbaa !25
+  %34 = load ptr, ptr %11, align 8, !tbaa !29
+  %35 = load i64, ptr %34, align 8, !tbaa !34
+  store i64 %35, ptr %3, align 8, !tbaa !24
   %36 = call i32 @test_long_gt(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.305, ptr noundef nonnull @.str.298, i64 noundef %35, i64 noundef 0) #8
   %.not27 = icmp eq i32 %36, 0
   br i1 %.not27, label %39, label %37
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr %11, align 8, !tbaa !30
+  %38 = load ptr, ptr %11, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   br label %39
 
@@ -3933,7 +3933,7 @@ define internal range(i32 0, 2) i32 @encode_EVP_PKEY_MSBLOB(ptr noundef %0, i32 
 define internal i32 @check_MSBLOB(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4) #1 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr %3, ptr %6, align 8, !tbaa !37
+  store ptr %3, ptr %6, align 8, !tbaa !36
   %7 = call ptr @b2i_PrivateKey(ptr noundef nonnull %6, i64 noundef %4) #8
   %8 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.317, ptr noundef %7) #8
   call void @EVP_PKEY_free(ptr noundef %7) #8
@@ -3953,7 +3953,7 @@ declare ptr @b2i_PrivateKey(ptr noundef, i64 noundef) local_unnamed_addr #4
 define internal i32 @check_public_MSBLOB(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4) #1 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr %3, ptr %6, align 8, !tbaa !37
+  store ptr %3, ptr %6, align 8, !tbaa !36
   %7 = call ptr @b2i_PublicKey(ptr noundef nonnull %6, i64 noundef %4) #8
   %8 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.317, ptr noundef %7) #8
   call void @EVP_PKEY_free(ptr noundef %7) #8
@@ -3967,7 +3967,7 @@ declare ptr @b2i_PublicKey(ptr noundef, i64 noundef) local_unnamed_addr #4
 define internal range(i32 0, 2) i32 @encode_EVP_PKEY_PVK(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, i32 noundef %5, ptr readnone captures(none) %6, ptr readnone captures(none) %7, ptr noundef %8, ptr readnone captures(none) %9) #1 {
   %11 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  store ptr null, ptr %11, align 8, !tbaa !30
+  store ptr null, ptr %11, align 8, !tbaa !29
   %12 = icmp ne ptr %8, null
   %13 = zext i1 %12 to i32
   %14 = and i32 %5, 1
@@ -3983,7 +3983,7 @@ define internal range(i32 0, 2) i32 @encode_EVP_PKEY_PVK(ptr noundef %0, i32 nou
   br i1 %.not24, label %40, label %20
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr @testctx, align 8, !tbaa !11
+  %21 = load ptr, ptr @testctx, align 8, !tbaa !10
   %22 = tail call i32 @i2b_PVK_bio_ex(ptr noundef %18, ptr noundef %4, i32 noundef %13, ptr noundef nonnull @pass_pw, ptr noundef %8, ptr noundef %21, ptr noundef null) #8
   %23 = tail call i32 @test_int_ge(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.343, ptr noundef nonnull @.str.298, i32 noundef %22, i32 noundef 0) #8
   %.not25 = icmp eq i32 %23, 0
@@ -3998,24 +3998,24 @@ define internal range(i32 0, 2) i32 @encode_EVP_PKEY_PVK(ptr noundef %0, i32 nou
   br i1 %.not26, label %40, label %29
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr %11, align 8, !tbaa !30
+  %30 = load ptr, ptr %11, align 8, !tbaa !29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !32
-  store ptr %32, ptr %2, align 8, !tbaa !24
+  %32 = load ptr, ptr %31, align 8, !tbaa !31
+  store ptr %32, ptr %2, align 8, !tbaa !23
   %33 = call i32 @test_ptr(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.304, ptr noundef %32) #8
   %.not27 = icmp eq i32 %33, 0
   br i1 %.not27, label %40, label %34
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %11, align 8, !tbaa !30
-  %36 = load i64, ptr %35, align 8, !tbaa !35
-  store i64 %36, ptr %3, align 8, !tbaa !25
+  %35 = load ptr, ptr %11, align 8, !tbaa !29
+  %36 = load i64, ptr %35, align 8, !tbaa !34
+  store i64 %36, ptr %3, align 8, !tbaa !24
   %37 = call i32 @test_long_gt(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.305, ptr noundef nonnull @.str.298, i64 noundef %36, i64 noundef 0) #8
   %.not28 = icmp eq i32 %37, 0
   br i1 %.not28, label %40, label %38
 
 38:                                               ; preds = %34
-  %39 = load ptr, ptr %11, align 8, !tbaa !30
+  %39 = load ptr, ptr %11, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   br label %40
 
@@ -4033,11 +4033,11 @@ define internal i32 @check_PVK(ptr readnone captures(none) %0, i32 %1, ptr readn
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr %3, ptr %6, align 8, !tbaa !37
+  store ptr %3, ptr %6, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  store i32 0, ptr %7, align 4, !tbaa !7
+  store i32 0, ptr %7, align 4, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  store i32 0, ptr %8, align 4, !tbaa !7
+  store i32 0, ptr %8, align 4, !tbaa !6
   %9 = trunc i64 %4 to i32
   %10 = call i32 @ossl_do_PVK_header(ptr noundef nonnull %6, i32 noundef %9, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
@@ -4081,48 +4081,47 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"int", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS15ossl_lib_ctx_st", !13, i64 0}
-!13 = !{!"any pointer", !9, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS16ossl_provider_st", !13, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS10bignum_ctx", !13, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS17ossl_param_bld_st", !13, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS13ossl_param_st", !13, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS11evp_pkey_st", !13, i64 0}
-!24 = !{!13, !13, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"long", !9, i64 0}
-!27 = !{ptr @encode_EVP_PKEY_MSBLOB, ptr @encode_EVP_PKEY_PVK, ptr @encode_EVP_PKEY_legacy_PEM, ptr @encode_EVP_PKEY_prov}
-!28 = !{ptr @test_mem, ptr @test_text}
-!29 = !{ptr @dump_der, ptr @dump_pem}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 _ZTS10buf_mem_st", !13, i64 0}
-!32 = !{!33, !34, i64 8}
-!33 = !{!"buf_mem_st", !26, i64 0, !34, i64 8, !26, i64 16, !26, i64 24}
-!34 = !{!"p1 omnipotent char", !13, i64 0}
-!35 = !{!33, !26, i64 0}
-!36 = distinct !{!36, !5, !6}
-!37 = !{!34, !34, i64 0}
-!38 = !{!39, !46, i64 96}
-!39 = !{!"evp_pkey_st", !8, i64 0, !8, i64 4, !40, i64 8, !41, i64 16, !41, i64 24, !9, i64 32, !9, i64 40, !42, i64 48, !13, i64 56, !43, i64 64, !8, i64 72, !8, i64 76, !44, i64 80, !46, i64 96, !13, i64 104, !26, i64 112, !47, i64 120, !26, i64 128, !48, i64 136}
-!40 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !13, i64 0}
-!41 = !{!"p1 _ZTS9engine_st", !13, i64 0}
-!42 = !{!"", !9, i64 0}
-!43 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !13, i64 0}
-!44 = !{!"crypto_ex_data_st", !12, i64 0, !45, i64 8}
-!45 = !{!"p1 _ZTS13stack_st_void", !13, i64 0}
-!46 = !{!"p1 _ZTS14evp_keymgmt_st", !13, i64 0}
-!47 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !13, i64 0}
-!48 = !{!"", !8, i64 0, !8, i64 4, !8, i64 8}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"int", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C/C++ TBAA"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS15ossl_lib_ctx_st", !12, i64 0}
+!12 = !{!"any pointer", !8, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS16ossl_provider_st", !12, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS10bignum_ctx", !12, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS17ossl_param_bld_st", !12, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS13ossl_param_st", !12, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS11evp_pkey_st", !12, i64 0}
+!23 = !{!12, !12, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"long", !8, i64 0}
+!26 = !{ptr @encode_EVP_PKEY_MSBLOB, ptr @encode_EVP_PKEY_PVK, ptr @encode_EVP_PKEY_legacy_PEM, ptr @encode_EVP_PKEY_prov}
+!27 = !{ptr @test_mem, ptr @test_text}
+!28 = !{ptr @dump_der, ptr @dump_pem}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS10buf_mem_st", !12, i64 0}
+!31 = !{!32, !33, i64 8}
+!32 = !{!"buf_mem_st", !25, i64 0, !33, i64 8, !25, i64 16, !25, i64 24}
+!33 = !{!"p1 omnipotent char", !12, i64 0}
+!34 = !{!32, !25, i64 0}
+!35 = distinct !{!35, !5}
+!36 = !{!33, !33, i64 0}
+!37 = !{!38, !45, i64 96}
+!38 = !{!"evp_pkey_st", !7, i64 0, !7, i64 4, !39, i64 8, !40, i64 16, !40, i64 24, !8, i64 32, !8, i64 40, !41, i64 48, !12, i64 56, !42, i64 64, !7, i64 72, !7, i64 76, !43, i64 80, !45, i64 96, !12, i64 104, !25, i64 112, !46, i64 120, !25, i64 128, !47, i64 136}
+!39 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !12, i64 0}
+!40 = !{!"p1 _ZTS9engine_st", !12, i64 0}
+!41 = !{!"", !8, i64 0}
+!42 = !{!"p1 _ZTS23stack_st_X509_ATTRIBUTE", !12, i64 0}
+!43 = !{!"crypto_ex_data_st", !11, i64 0, !44, i64 8}
+!44 = !{!"p1 _ZTS13stack_st_void", !12, i64 0}
+!45 = !{!"p1 _ZTS14evp_keymgmt_st", !12, i64 0}
+!46 = !{!"p1 _ZTS22stack_st_OP_CACHE_ELEM", !12, i64 0}
+!47 = !{!"", !7, i64 0, !7, i64 4, !7, i64 8}

@@ -130,24 +130,24 @@ define i32 @pmix_tsd_key_create(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 5:                                                ; preds = %2
   %6 = tail call i64 @pthread_self() #12
-  %7 = load i64, ptr @pmix_main_thread, align 8, !tbaa !26
+  %7 = load i64, ptr @pmix_main_thread, align 8, !tbaa !25
   %8 = icmp eq i64 %6, %7
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr @pmix_tsd_key_values, align 8, !tbaa !27
+  %10 = load ptr, ptr @pmix_tsd_key_values, align 8, !tbaa !26
   %11 = load i32, ptr @pmix_tsd_key_values_count, align 4, !tbaa !17
   %12 = add nsw i32 %11, 1
   %13 = sext i32 %12 to i64
   %14 = shl nsw i64 %13, 4
   %15 = tail call ptr @realloc(ptr noundef %10, i64 noundef %14) #14
-  store ptr %15, ptr @pmix_tsd_key_values, align 8, !tbaa !27
+  store ptr %15, ptr @pmix_tsd_key_values, align 8, !tbaa !26
   %16 = load i32, ptr %0, align 4, !tbaa !17
   %17 = sext i32 %11 to i64
   %18 = getelementptr inbounds %struct.pmix_tsd_key_value, ptr %15, i64 %17
-  store i32 %16, ptr %18, align 8, !tbaa !29
+  store i32 %16, ptr %18, align 8, !tbaa !28
   %19 = getelementptr inbounds %struct.pmix_tsd_key_value, ptr %15, i64 %17, i32 1
-  store ptr %1, ptr %19, align 8, !tbaa !31
+  store ptr %1, ptr %19, align 8, !tbaa !30
   store i32 %12, ptr @pmix_tsd_key_values_count, align 4, !tbaa !17
   br label %20
 
@@ -168,28 +168,28 @@ define noundef i32 @pmix_tsd_keys_destruct() local_unnamed_addr #1 {
   br i1 %2, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %0
-  %.pre11 = load ptr, ptr @pmix_tsd_key_values, align 8, !tbaa !27
+  %.pre11 = load ptr, ptr @pmix_tsd_key_values, align 8, !tbaa !26
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %3 = phi ptr [ %.pre11, %.lr.ph.preheader ], [ %16, %15 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
   %4 = getelementptr inbounds nuw %struct.pmix_tsd_key_value, ptr %3, i64 %indvars.iv
-  %5 = load i32, ptr %4, align 8, !tbaa !29
+  %5 = load i32, ptr %4, align 8, !tbaa !28
   %6 = tail call ptr @pthread_getspecific(i32 noundef %5) #11
-  %7 = load ptr, ptr @pmix_tsd_key_values, align 8, !tbaa !27
+  %7 = load ptr, ptr @pmix_tsd_key_values, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw %struct.pmix_tsd_key_value, ptr %7, i64 %indvars.iv, i32 1
-  %9 = load ptr, ptr %8, align 8, !tbaa !31
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %.lr.ph
   tail call void %9(ptr noundef %6) #11
-  %11 = load ptr, ptr @pmix_tsd_key_values, align 8, !tbaa !27
+  %11 = load ptr, ptr @pmix_tsd_key_values, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw %struct.pmix_tsd_key_value, ptr %11, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 8, !tbaa !29
+  %13 = load i32, ptr %12, align 8, !tbaa !28
   %14 = tail call i32 @pthread_setspecific(i32 noundef %13, ptr noundef null) #11
-  %.pre = load ptr, ptr @pmix_tsd_key_values, align 8, !tbaa !27
+  %.pre = load ptr, ptr @pmix_tsd_key_values, align 8, !tbaa !26
   br label %15
 
 15:                                               ; preds = %10, %.lr.ph
@@ -198,14 +198,14 @@ define noundef i32 @pmix_tsd_keys_destruct() local_unnamed_addr #1 {
   %17 = load i32, ptr @pmix_tsd_key_values_count, align 4, !tbaa !17
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %15
   %20 = icmp sgt i32 %17, 0
   br i1 %20, label %21, label %._crit_edge.thread
 
 21:                                               ; preds = %._crit_edge
-  %22 = load ptr, ptr @pmix_tsd_key_values, align 8, !tbaa !27
+  %22 = load ptr, ptr @pmix_tsd_key_values, align 8, !tbaa !26
   tail call void @free(ptr noundef %22) #11
   store i32 0, ptr @pmix_tsd_key_values_count, align 4, !tbaa !17
   br label %._crit_edge.thread
@@ -220,7 +220,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @pmix_thread_set_main() local_unnamed_addr #8 {
   %1 = tail call i64 @pthread_self() #12
-  store i64 %1, ptr @pmix_main_thread, align 8, !tbaa !26
+  store i64 %1, ptr @pmix_main_thread, align 8, !tbaa !25
   ret void
 }
 
@@ -282,13 +282,12 @@ attributes #14 = { nounwind allocsize(1) }
 !20 = !{!5, !10, i64 48}
 !21 = !{!15, !9, i64 40}
 !22 = !{!9, !9, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!12, !12, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS18pmix_tsd_key_value", !9, i64 0}
-!29 = !{!30, !10, i64 0}
-!30 = !{!"pmix_tsd_key_value", !10, i64 0, !9, i64 8}
-!31 = !{!30, !9, i64 8}
-!32 = distinct !{!32, !24, !25}
+!25 = !{!12, !12, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS18pmix_tsd_key_value", !9, i64 0}
+!28 = !{!29, !10, i64 0}
+!29 = !{!"pmix_tsd_key_value", !10, i64 0, !9, i64 8}
+!30 = !{!29, !9, i64 8}
+!31 = distinct !{!31, !24}

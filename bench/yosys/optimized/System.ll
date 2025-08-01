@@ -92,7 +92,7 @@ define noundef double @_ZN7Minisat11memUsedPeakEb(i1 noundef zeroext %0) local_u
 .critedge2.i:                                     ; preds = %12, %.preheader.i
   %14 = call i32 @feof(ptr noundef nonnull %6) #9
   %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !13
+  br i1 %.not.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %.critedge2.i, %.lr.ph.i, %8
   %15 = call i32 @fclose(ptr noundef nonnull %6)
@@ -135,12 +135,12 @@ define void @_ZN7Minisat11limitMemoryEm(i64 noundef %0) local_unnamed_addr #3 {
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
   %5 = call i32 @getrlimit(i32 noundef 9, ptr noundef nonnull %2) #9
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !14
+  %7 = load i64, ptr %6, align 8, !tbaa !13
   %8 = icmp ult i64 %4, %7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
-  store i64 %4, ptr %2, align 8, !tbaa !17
+  store i64 %4, ptr %2, align 8, !tbaa !16
   %10 = call i32 @setrlimit(i32 noundef 9, ptr noundef nonnull %2) #9
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %13
@@ -173,13 +173,13 @@ define void @_ZN7Minisat9limitTimeEj(i32 noundef %0) local_unnamed_addr #3 {
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #9
   %4 = call i32 @getrlimit(i32 noundef 0, ptr noundef nonnull %2) #9
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !14
+  %6 = load i64, ptr %5, align 8, !tbaa !13
   %7 = zext i32 %0 to i64
   %8 = icmp ugt i64 %6, %7
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %3
-  store i64 %7, ptr %2, align 8, !tbaa !17
+  store i64 %7, ptr %2, align 8, !tbaa !16
   %10 = call i32 @setrlimit(i32 noundef 0, ptr noundef nonnull %2) #9
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %13
@@ -258,11 +258,10 @@ attributes #11 = { nounwind willreturn memory(none) }
 !7 = !{!"int", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = !{!15, !16, i64 8}
-!15 = !{!"_ZTS6rlimit", !16, i64 0, !16, i64 8}
-!16 = !{!"long", !8, i64 0}
-!17 = !{!15, !16, i64 0}
+!12 = distinct !{!12, !11}
+!13 = !{!14, !15, i64 8}
+!14 = !{!"_ZTS6rlimit", !15, i64 0, !15, i64 8}
+!15 = !{!"long", !8, i64 0}
+!16 = !{!14, !15, i64 0}

@@ -90,7 +90,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.pre
   %.1 = phi i32 [ %.02751, %8 ], [ %.02751, %12 ], [ %.02751, %.preheader ], [ %.02751, %Aig_ManObj.exit.lr.ph ], [ %.3, %Aig_ManObj.exit ]
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %.critedge, label %8, !llvm.loop !33
+  br i1 %exitcond62.not, label %.critedge, label %8, !llvm.loop !32
 
 .critedge:                                        ; preds = %.critedge2, %1
   %.028.lcssa = phi i32 [ 0, %1 ], [ %.129, %.critedge2 ]
@@ -111,7 +111,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define void @Cnf_ManTransferCuts(ptr noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !34
+  %3 = load ptr, ptr %2, align 8, !tbaa !33
   tail call void @Aig_MmFlexRestart(ptr noundef %3) #5
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -150,7 +150,7 @@ define void @Cnf_ManTransferCuts(ptr noundef %0) local_unnamed_addr #3 {
 .sink.split:                                      ; preds = %14, %20
   %.sink = phi ptr [ %21, %20 ], [ null, %14 ]
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr %.sink, ptr %22, align 8, !tbaa !35
+  store ptr %.sink, ptr %22, align 8, !tbaa !34
   br label %23
 
 23:                                               ; preds = %.sink.split, %.lr.ph
@@ -162,7 +162,7 @@ define void @Cnf_ManTransferCuts(ptr noundef %0) local_unnamed_addr #3 {
   %.val = load i32, ptr %27, align 4, !tbaa !25
   %28 = sext i32 %.val to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %.critedge, !llvm.loop !36
+  br i1 %29, label %.lr.ph, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %23, %1
   ret void
@@ -195,13 +195,13 @@ define void @Cnf_ManFreeCuts(ptr noundef readonly captures(none) %0) local_unnam
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !35
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %13
   tail call void @Cnf_CutFree(ptr noundef nonnull %15) #5
-  store ptr null, ptr %14, align 8, !tbaa !35
+  store ptr null, ptr %14, align 8, !tbaa !34
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
   br label %17
 
@@ -214,7 +214,7 @@ define void @Cnf_ManFreeCuts(ptr noundef readonly captures(none) %0) local_unnam
   %.val = load i32, ptr %21, align 4, !tbaa !25
   %22 = sext i32 %.val to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !37
+  br i1 %23, label %.lr.ph, label %.critedge, !llvm.loop !36
 
 .critedge:                                        ; preds = %17, %1
   ret void
@@ -260,9 +260,9 @@ define void @Cnf_ManPostprocess(ptr noundef %0) local_unnamed_addr #3 {
 
 21:                                               ; preds = %14
   %22 = getelementptr i8, ptr %12, i64 40
-  %.val87 = load ptr, ptr %22, align 8, !tbaa !35
+  %.val87 = load ptr, ptr %22, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %.val87, i64 24
-  %24 = load i8, ptr %.val87, align 8, !tbaa !38
+  %24 = load i8, ptr %.val87, align 8, !tbaa !37
   %25 = sext i8 %24 to i32
   %26 = icmp sgt i8 %24, 0
   br i1 %26, label %Aig_ManObj.exit.preheader, label %.critedge4
@@ -295,9 +295,9 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.pre
 
 39:                                               ; preds = %32
   %40 = getelementptr i8, ptr %31, i64 40
-  %.val88 = load ptr, ptr %40, align 8, !tbaa !35
+  %.val88 = load ptr, ptr %40, align 8, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %.val88, i64 1
-  %42 = load i8, ptr %41, align 1, !tbaa !41
+  %42 = load i8, ptr %41, align 1, !tbaa !40
   %43 = sext i8 %42 to i32
   br label %44
 
@@ -307,7 +307,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.pre
   store i32 %45, ptr %46, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %Aig_ManObj.exit, !llvm.loop !42
+  br i1 %exitcond.not, label %.critedge2, label %Aig_ManObj.exit, !llvm.loop !41
 
 .critedge2:                                       ; preds = %Aig_ManObj.exit, %44
   %.not = icmp eq i8 %24, 1
@@ -348,11 +348,11 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.pre
   %61 = phi i32 [ %54, %48 ], [ %49, %58 ]
   %.1.us = phi i32 [ %.0104.us, %48 ], [ 1, %58 ]
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %._crit_edge.us, label %48, !llvm.loop !43
+  br i1 %exitcond118.not, label %._crit_edge.us, label %48, !llvm.loop !42
 
 ._crit_edge.us:                                   ; preds = %60
   %.not73.us = icmp eq i32 %.1.us, 0
-  br i1 %.not73.us, label %.lr.ph, label %.lr.ph.us, !llvm.loop !44
+  br i1 %.not73.us, label %.lr.ph, label %.lr.ph.us, !llvm.loop !43
 
 .lr.ph:                                           ; preds = %._crit_edge.us, %.critedge2
   %62 = getelementptr inbounds nuw i8, ptr %.val87, i64 1
@@ -394,25 +394,25 @@ Aig_ManObj.exit93:                                ; preds = %63
 
 80:                                               ; preds = %75
   %81 = getelementptr i8, ptr %74, i64 40
-  %.val89 = load ptr, ptr %81, align 8, !tbaa !35
+  %.val89 = load ptr, ptr %81, align 8, !tbaa !34
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 36
-  %83 = load i32, ptr %82, align 4, !tbaa !46
+  %83 = load i32, ptr %82, align 4, !tbaa !45
   %84 = tail call ptr @Cnf_CutCompose(ptr noundef nonnull %0, ptr noundef nonnull %.val87, ptr noundef %.val89, i32 noundef %83) #5
   %cond = icmp eq ptr %84, null
   br i1 %cond, label %101, label %85
 
 85:                                               ; preds = %80
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 1
-  %87 = load i8, ptr %86, align 1, !tbaa !41
+  %87 = load i8, ptr %86, align 1, !tbaa !40
   %88 = icmp eq i8 %87, 127
   br i1 %88, label %98, label %89
 
 89:                                               ; preds = %85
   %90 = sext i8 %87 to i32
-  %91 = load i8, ptr %62, align 1, !tbaa !41
+  %91 = load i8, ptr %62, align 1, !tbaa !40
   %92 = sext i8 %91 to i32
   %93 = getelementptr inbounds nuw i8, ptr %.val89, i64 1
-  %94 = load i8, ptr %93, align 1, !tbaa !41
+  %94 = load i8, ptr %93, align 1, !tbaa !40
   %95 = sext i8 %94 to i32
   %96 = add nsw i32 %95, %92
   %97 = icmp slt i32 %96, %90
@@ -424,8 +424,8 @@ Aig_ManObj.exit93:                                ; preds = %63
 
 99:                                               ; preds = %89
   %100 = getelementptr i8, ptr %74, i64 40
-  store ptr %84, ptr %22, align 8, !tbaa !35
-  store ptr null, ptr %100, align 8, !tbaa !35
+  store ptr %84, ptr %22, align 8, !tbaa !34
+  store ptr null, ptr %100, align 8, !tbaa !34
   tail call void @Cnf_CutUpdateRefs(ptr noundef nonnull %0, ptr noundef nonnull %.val87, ptr noundef nonnull %.val89, ptr noundef nonnull %84) #5
   tail call void @Cnf_CutFree(ptr noundef nonnull %.val87) #5
   tail call void @Cnf_CutFree(ptr noundef nonnull %.val89) #5
@@ -433,10 +433,10 @@ Aig_ManObj.exit93:                                ; preds = %63
 
 101:                                              ; preds = %80, %98, %75
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %102 = load i8, ptr %.val87, align 8, !tbaa !38
+  %102 = load i8, ptr %.val87, align 8, !tbaa !37
   %103 = sext i8 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next120, %103
-  br i1 %104, label %63, label %.critedge4, !llvm.loop !47
+  br i1 %104, label %63, label %.critedge4, !llvm.loop !46
 
 .critedge4:                                       ; preds = %Aig_ManObj.exit93, %101, %63, %21, %14, %.lr.ph111, %99
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
@@ -447,7 +447,7 @@ Aig_ManObj.exit93:                                ; preds = %63
   %.val = load i32, ptr %108, align 4, !tbaa !25
   %109 = sext i32 %.val to i64
   %110 = icmp slt i64 %indvars.iv.next123, %109
-  br i1 %110, label %.lr.ph111, label %.critedge, !llvm.loop !48
+  br i1 %110, label %.lr.ph111, label %.critedge, !llvm.loop !47
 
 .critedge:                                        ; preds = %.critedge4, %1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #5
@@ -498,22 +498,21 @@ attributes #5 = { nounwind }
 !27 = !{!26, !6, i64 8}
 !28 = !{!6, !6, i64 0}
 !29 = !{!11, !11, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = distinct !{!33, !31, !32}
-!34 = !{!4, !12, i64 32}
-!35 = !{!7, !7, i64 0}
-!36 = distinct !{!36, !31, !32}
-!37 = distinct !{!37, !31, !32}
-!38 = !{!39, !7, i64 0}
-!39 = !{!"Cnf_Cut_t_", !7, i64 0, !7, i64 1, !40, i64 2, !7, i64 8, !7, i64 24}
-!40 = !{!"short", !7, i64 0}
-!41 = !{!39, !7, i64 1}
-!42 = distinct !{!42, !31, !32}
-!43 = distinct !{!43, !31, !32}
-!44 = distinct !{!44, !31, !32, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!46 = !{!19, !11, i64 36}
-!47 = distinct !{!47, !31, !32}
-!48 = distinct !{!48, !31, !32}
+!32 = distinct !{!32, !31}
+!33 = !{!4, !12, i64 32}
+!34 = !{!7, !7, i64 0}
+!35 = distinct !{!35, !31}
+!36 = distinct !{!36, !31}
+!37 = !{!38, !7, i64 0}
+!38 = !{!"Cnf_Cut_t_", !7, i64 0, !7, i64 1, !39, i64 2, !7, i64 8, !7, i64 24}
+!39 = !{!"short", !7, i64 0}
+!40 = !{!38, !7, i64 1}
+!41 = distinct !{!41, !31}
+!42 = distinct !{!42, !31}
+!43 = distinct !{!43, !31, !44}
+!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!45 = !{!19, !11, i64 36}
+!46 = distinct !{!46, !31}
+!47 = distinct !{!47, !31}

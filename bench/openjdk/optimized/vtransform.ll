@@ -202,7 +202,7 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit.i: ; preds = %.loopexit.i
   store ptr %56, ptr %54, align 8
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i27, %45
-  br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i25, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i25, !llvm.loop !8
 
 _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE4pushERKS1_.exit.i: ; preds = %.loopexit.i, %.lr.ph19.preheader.i, %.preheader16.i
   %.sroa.19.6 = phi i32 [ %.0.i.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i.i.i, %.preheader16.i ], [ %.sroa.19.5, %.loopexit.i ]
@@ -221,7 +221,7 @@ _ZNK14VTransformNode21has_req_or_dependencyEv.exit.i: ; preds = %32, %_ZN26Growa
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next.i, %60
-  br i1 %61, label %21, label %_ZNK15VTransformGraph39collect_nodes_without_req_or_dependencyER13GrowableArrayIP14VTransformNodeE.exit, !llvm.loop !10
+  br i1 %61, label %21, label %_ZNK15VTransformGraph39collect_nodes_without_req_or_dependencyER13GrowableArrayIP14VTransformNodeE.exit, !llvm.loop !9
 
 _ZNK15VTransformGraph39collect_nodes_without_req_or_dependencyER13GrowableArrayIP14VTransformNodeE.exit: ; preds = %_ZNK14VTransformNode21has_req_or_dependencyEv.exit.i
   %62 = icmp eq i32 %.sroa.0.5, 0
@@ -388,7 +388,7 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit.i29: ; preds = %_ZNK9Vecto
   store ptr %148, ptr %146, align 8
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next.i42, %137
-  br i1 %exitcond125.not, label %.preheader16.i31, label %.lr.ph.i40, !llvm.loop !9
+  br i1 %exitcond125.not, label %.preheader16.i31, label %.lr.ph.i40, !llvm.loop !8
 
 _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %.lr.ph19.preheader.i36, %.preheader16.i31, %_ZNK9VectorSet4testEj.exit16.thread
   %.sroa.19.9 = phi i32 [ %.sroa.19.2110, %_ZNK9VectorSet4testEj.exit16.thread ], [ %.0.i.i.i.i.i, %.preheader16.i31 ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i36 ]
@@ -409,7 +409,7 @@ _ZNK9VectorSet4testEj.exit:                       ; preds = %_ZNK9VectorSet4test
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next, %153
-  br i1 %154, label %103, label %_ZNK9VectorSet4testEj.exit._crit_edge, !llvm.loop !11
+  br i1 %154, label %103, label %_ZNK9VectorSet4testEj.exit._crit_edge, !llvm.loop !10
 
 _ZNK9VectorSet4testEj.exit._crit_edge:            ; preds = %_ZNK9VectorSet4testEj.exit
   br i1 %.1, label %_ZNK9VectorSet4testEj.exit._crit_edge.thread, label %192
@@ -479,7 +479,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %_ZNK9VectorSet4test
   store ptr null, ptr %185, align 8
   %indvars.iv.next.i22 = add nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %183, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %183, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %183, %179
   %186 = add nsw i32 %.07120, 1
@@ -503,7 +503,7 @@ _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_g
   %.sroa.30.1 = phi ptr [ %.sroa.30.0119, %190 ], [ %.sroa.30.2.lcssa137, %_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit ], [ %.sroa.30.3, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.sroa.30.0119, %_ZN9VectorSet8test_setEj.exit ]
   %.18 = phi i32 [ %.07120, %190 ], [ %167, %_ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit ], [ %.07120, %_ZNK9VectorSet4testEj.exit._crit_edge ], [ %.07120, %_ZN9VectorSet8test_setEj.exit ]
   %193 = icmp eq i32 %.sroa.0.1, 0
-  br i1 %193, label %_ZN13GrowableArrayIP14VTransformNodeED2Ev.exit, label %69, !llvm.loop !13
+  br i1 %193, label %_ZN13GrowableArrayIP14VTransformNodeED2Ev.exit, label %69, !llvm.loop !12
 
 _ZN13GrowableArrayIP14VTransformNodeED2Ev.exit:   ; preds = %192, %_ZNK9VectorSet4testEj.exit16, %1, %_ZNK15VTransformGraph39collect_nodes_without_req_or_dependencyER13GrowableArrayIP14VTransformNodeE.exit
   %194 = phi i1 [ true, %_ZNK15VTransformGraph39collect_nodes_without_req_or_dependencyER13GrowableArrayIP14VTransformNodeE.exit ], [ true, %1 ], [ false, %_ZNK9VectorSet4testEj.exit16 ], [ true, %192 ]
@@ -611,7 +611,7 @@ _ZNK14VTransformNode21has_req_or_dependencyEv.exit: ; preds = %20, %_ZN26Growabl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %9, label %._crit_edge, !llvm.loop !10
+  br i1 %41, label %9, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZNK14VTransformNode21has_req_or_dependencyEv.exit, %2
   ret void
@@ -725,7 +725,7 @@ _ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i: ; preds = %
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
   %.not7.i.i.i = icmp eq ptr %34, null
-  br i1 %.not7.i.i.i, label %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i, label %35, !llvm.loop !14
+  br i1 %.not7.i.i.i, label %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i, label %35, !llvm.loop !13
 
 35:                                               ; preds = %_ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 44
@@ -1366,7 +1366,7 @@ _ZN4NodenwEm.exit:                                ; preds = %84, %86
   %140 = load i32, ptr %4, align 8
   %141 = sext i32 %140 to i64
   %142 = icmp slt i64 %indvars.iv.next.i, %141
-  br i1 %142, label %132, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit, !llvm.loop !15
+  br i1 %142, label %132, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit, !llvm.loop !14
 
 _ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit: ; preds = %132, %124
   %143 = getelementptr inbounds nuw i8, ptr %.0, i64 56
@@ -1441,7 +1441,7 @@ define hidden void @_ZNK20VTransformVectorNode61register_new_node_from_vectoriza
   %21 = load i32, ptr %6, align 8
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %13, label %._crit_edge, !llvm.loop !15
+  br i1 %23, label %13, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %13, %3
   ret void
@@ -1579,7 +1579,7 @@ _ZN4NodenwEm.exit:                                ; preds = %77, %79
   %101 = load i32, ptr %4, align 8
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next.i, %102
-  br i1 %103, label %93, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit, !llvm.loop !15
+  br i1 %103, label %93, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit, !llvm.loop !14
 
 _ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit: ; preds = %93, %85
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
@@ -1668,7 +1668,7 @@ define hidden { ptr, i64 } @_ZNK29VTransformReductionVectorNode5applyERK13VLoopA
   %55 = load i32, ptr %4, align 8
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next.i, %56
-  br i1 %57, label %47, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit, !llvm.loop !15
+  br i1 %57, label %47, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit, !llvm.loop !14
 
 _ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit: ; preds = %47, %3
   %58 = load ptr, ptr %39, align 8
@@ -1833,7 +1833,7 @@ _ZNK8VPointer9not_equalERKS_.exit.i:              ; preds = %93, %83
   %103 = load i32, ptr %6, align 8
   %104 = sext i32 %103 to i64
   %105 = icmp slt i64 %indvars.iv.next.i, %104
-  br i1 %105, label %.lr.ph.i, label %.loopexit, !llvm.loop !16
+  br i1 %105, label %.lr.ph.i, label %.loopexit, !llvm.loop !15
 
 _ZNK8VPointer28overlap_possible_with_any_inERK13GrowableArrayIP4NodeE.exit.thread: ; preds = %.lr.ph.i, %66, %70, %75, %79, %93
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
@@ -1849,7 +1849,7 @@ _ZNK8VPointer28overlap_possible_with_any_inERK13GrowableArrayIP4NodeE.exit.threa
   %111 = load i32, ptr %110, align 4
   %112 = and i32 %111, 255
   %113 = icmp eq i32 %112, 208
-  br i1 %113, label %57, label %.loopexit27, !llvm.loop !17
+  br i1 %113, label %57, label %.loopexit27, !llvm.loop !16
 
 .loopexit27:                                      ; preds = %.loopexit, %3, %_ZNK8VPointer28overlap_possible_with_any_inERK13GrowableArrayIP4NodeE.exit.thread
   %.029 = phi ptr [ %.030, %_ZNK8VPointer28overlap_possible_with_any_inERK13GrowableArrayIP4NodeE.exit.thread ], [ %15, %3 ], [ %109, %.loopexit ]
@@ -1883,7 +1883,7 @@ _ZNK8VPointer28overlap_possible_with_any_inERK13GrowableArrayIP4NodeE.exit.threa
   %131 = load i32, ptr %6, align 8
   %132 = sext i32 %131 to i64
   %133 = icmp slt i64 %indvars.iv.next.i25, %132
-  br i1 %133, label %123, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit, !llvm.loop !15
+  br i1 %133, label %123, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit, !llvm.loop !14
 
 _ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit: ; preds = %123, %.loopexit27
   %134 = load ptr, ptr %115, align 8
@@ -1964,7 +1964,7 @@ define hidden { ptr, i64 } @_ZNK25VTransformStoreVectorNode5applyERK13VLoopAnaly
   %50 = load i32, ptr %4, align 8
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next.i, %51
-  br i1 %52, label %42, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit, !llvm.loop !15
+  br i1 %52, label %42, label %_ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit, !llvm.loop !14
 
 _ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_scalar_nodesERK13VLoopAnalyzerP4Node.exit: ; preds = %42, %3
   %53 = load ptr, ptr %34, align 8
@@ -2265,7 +2265,7 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !9
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !8
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2281,7 +2281,7 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !18
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -2335,16 +2335,15 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

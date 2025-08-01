@@ -204,7 +204,7 @@ _ZN26GrowableArrayWithAllocatorI15BytecodeCPEntry13GrowableArrayIS0_EE6appendERK
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next, %100
-  br i1 %101, label %12, label %._crit_edge, !llvm.loop !10
+  br i1 %101, label %12, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.thread, %1
   ret void
@@ -484,7 +484,7 @@ _ZN12ConstantPool10copy_cp_toEiiRK18constantPoolHandleiP10JavaThread.exit: ; pre
 
 .lr.ph.i.i.i:                                     ; preds = %104, %84
   %.in = phi ptr [ %105, %104 ], [ %92, %84 ]
-  %93 = load ptr, ptr %.in, align 8, !nonnull !11, !noundef !11
+  %93 = load ptr, ptr %.in, align 8, !nonnull !10, !noundef !10
   %94 = load i32, ptr %93, align 8
   %95 = icmp eq i32 %94, %90
   br i1 %95, label %96, label %104
@@ -580,7 +580,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256E15BytecodeCPEn
   %142 = load i32, ptr %5, align 8
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next, %143
-  br i1 %144, label %84, label %._crit_edge, !llvm.loop !12
+  br i1 %144, label %84, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %141, %74
   %145 = load ptr, ptr %0, align 8
@@ -1598,7 +1598,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !13
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !12
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1614,7 +1614,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !14
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !13
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1715,7 +1715,7 @@ _ZN13GrowableArrayI15BytecodeCPEntryE8allocateEv.exit: ; preds = %7, %11, %15
   %29 = load i32, ptr %0, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !15
+  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !14
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1733,7 +1733,7 @@ _ZN13GrowableArrayI15BytecodeCPEntryE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !16
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !15
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1814,7 +1814,7 @@ _ZN13GrowableArrayIhE8allocateEv.exit:            ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !17
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1830,7 +1830,7 @@ _ZN13GrowableArrayIhE8allocateEv.exit:            ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !18
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1876,15 +1876,14 @@ attributes #9 = { noreturn nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = !{}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}

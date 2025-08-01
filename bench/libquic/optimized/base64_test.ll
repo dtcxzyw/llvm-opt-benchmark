@@ -64,7 +64,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
   br i1 %exitcond.i, label %18, label %4, !llvm.loop !13
 
 _ZL10TestEncodev.exit:                            ; preds = %4, %12
-  %15 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !15
   %16 = trunc i64 %8 to i32
   %17 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.1, ptr noundef nonnull %6, i32 noundef %16, ptr noundef nonnull %3, ptr noundef nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %3) #7
@@ -78,7 +78,7 @@ _ZL10TestEncodev.exit:                            ; preds = %4, %12
 19:                                               ; preds = %59
   %20 = add nuw nsw i64 %.03062.i, 1
   %exitcond.i4 = icmp eq i64 %20, 7
-  br i1 %exitcond.i4, label %.critedge48.i, label %21, !llvm.loop !18
+  br i1 %exitcond.i4, label %.critedge48.i, label %21, !llvm.loop !17
 
 21:                                               ; preds = %19, %18
   %.03062.i = phi i64 [ 0, %18 ], [ %20, %19 ]
@@ -93,12 +93,12 @@ _ZL10TestEncodev.exit:                            ; preds = %4, %12
   br i1 %.not.i1, label %29, label %32
 
 29:                                               ; preds = %21
-  %30 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !15
   %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.15, ptr noundef nonnull %26) #9
   br label %_ZL10TestDecodev.exit.thread
 
 32:                                               ; preds = %21
-  %33 = load i64, ptr %2, align 8, !tbaa !19
+  %33 = load i64, ptr %2, align 8, !tbaa !18
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #8
   %.not38.i = icmp eq i64 %33, %34
   br i1 %.not38.i, label %35, label %36
@@ -109,7 +109,7 @@ _ZL10TestEncodev.exit:                            ; preds = %4, %12
   br i1 %.not39.i, label %40, label %36
 
 36:                                               ; preds = %35, %32
-  %37 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !15
   %38 = trunc i64 %33 to i32
   %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.16, ptr noundef nonnull %26, i32 noundef %38, ptr noundef nonnull %1, ptr noundef nonnull %23) #9
   br label %_ZL10TestDecodev.exit.thread
@@ -121,7 +121,7 @@ _ZL10TestEncodev.exit:                            ; preds = %4, %12
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %40
-  %45 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !15
   %46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.15, ptr noundef nonnull %26) #9
   br label %_ZL10TestDecodev.exit.thread
 
@@ -131,7 +131,7 @@ _ZL10TestEncodev.exit:                            ; preds = %4, %12
   br i1 %.not40.i, label %52, label %49
 
 49:                                               ; preds = %47
-  %50 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %50 = load ptr, ptr @stderr, align 8, !tbaa !15
   %51 = call i64 @fwrite(ptr nonnull @.str.17, i64 39, i64 1, ptr %50) #10
   br label %_ZL10TestDecodev.exit.thread
 
@@ -153,7 +153,7 @@ _ZL10TestEncodev.exit:                            ; preds = %4, %12
   br i1 %.not44.i, label %19, label %60
 
 60:                                               ; preds = %59, %52
-  %61 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %61 = load ptr, ptr @stderr, align 8, !tbaa !15
   %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %61, ptr noundef nonnull @.str.16, ptr noundef nonnull %26, i32 noundef %.0.i, ptr noundef nonnull %1, ptr noundef nonnull %23) #9
   br label %_ZL10TestDecodev.exit.thread
 
@@ -163,7 +163,7 @@ _ZL10TestEncodev.exit:                            ; preds = %4, %12
   br i1 %.not45.i, label %67, label %64
 
 64:                                               ; preds = %.critedge48.i
-  %65 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %65 = load ptr, ptr @stderr, align 8, !tbaa !15
   %66 = call i64 @fwrite(ptr nonnull @.str.19, i64 51, i64 1, ptr %65) #10
   br label %_ZL10TestDecodev.exit.thread
 
@@ -173,7 +173,7 @@ _ZL10TestEncodev.exit:                            ; preds = %4, %12
   br i1 %.not46.i, label %72, label %69
 
 69:                                               ; preds = %67
-  %70 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %70 = load ptr, ptr @stderr, align 8, !tbaa !15
   %71 = call i64 @fwrite(ptr nonnull @.str.19, i64 51, i64 1, ptr %70) #10
   br label %_ZL10TestDecodev.exit.thread
 
@@ -183,7 +183,7 @@ _ZL10TestEncodev.exit:                            ; preds = %4, %12
   br i1 %.not47.i, label %77, label %74
 
 74:                                               ; preds = %72
-  %75 = load ptr, ptr @stderr, align 8, !tbaa !16
+  %75 = load ptr, ptr @stderr, align 8, !tbaa !15
   %76 = call i64 @fwrite(ptr nonnull @.str.22, i64 39, i64 1, ptr %75) #10
   br label %_ZL10TestDecodev.exit.thread
 
@@ -259,11 +259,10 @@ attributes #10 = { cold }
 !10 = !{!"omnipotent char", !11, i64 0}
 !11 = !{!"Simple C++ TBAA"}
 !12 = !{!7, !8, i64 8}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!18 = distinct !{!18, !14, !15}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !10, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!17 = distinct !{!17, !14}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !10, i64 0}

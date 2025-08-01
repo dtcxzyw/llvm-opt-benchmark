@@ -3659,7 +3659,7 @@ define internal void @camel_stat_reset(ptr noundef %0) #0 {
   %6 = add nuw i32 %.08, 1
   %7 = load i32, ptr %2, align 4
   %8 = icmp ult i32 %6, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -3836,7 +3836,7 @@ define internal noundef i32 @camelstat_packet(ptr noundef readonly captures(none
 29:                                               ; preds = %8, %11, %16, %19, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %30, label %8, !llvm.loop !12
+  br i1 %exitcond.not, label %30, label %8, !llvm.loop !11
 
 30:                                               ; preds = %29
   ret i32 1
@@ -3854,7 +3854,7 @@ define internal void @camelstat_init(ptr readnone captures(none) %0, ptr noundef
   tail call void @wmem_free(ptr noundef null, ptr noundef %5)
   %6 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %6, 10
-  br i1 %exitcond.not, label %7, label %4, !llvm.loop !13
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !12
 
 7:                                                ; preds = %4
   ret void
@@ -5889,7 +5889,7 @@ define internal noundef i32 @dissect_camel_DateAndTime(i1 zeroext %0, ptr nounde
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 2
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %29, label %9, !llvm.loop !14
+  br i1 %exitcond.not, label %29, label %9, !llvm.loop !13
 
 29:                                               ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -7803,10 +7803,9 @@ attributes #14 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

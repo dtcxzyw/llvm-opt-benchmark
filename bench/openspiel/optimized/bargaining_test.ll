@@ -2842,7 +2842,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i62:                ; preds = %1102, %_ZNSt6vector
 1113:                                             ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit.i62
   %1114 = add nuw nsw i32 %.031.i, 1
   %exitcond.not.i = icmp eq i32 %1114, 8
-  br i1 %exitcond.not.i, label %1115, label %1022, !llvm.loop !11
+  br i1 %exitcond.not.i, label %1115, label %1022, !llvm.loop !10
 
 1115:                                             ; preds = %1113
   %1116 = load ptr, ptr %35, align 8
@@ -3358,7 +3358,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i98:                ; preds = %1316, %_ZNSt6vector
 1327:                                             ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit.i98
   %1328 = add nuw nsw i32 %.035.i, 1
   %exitcond.not.i99 = icmp eq i32 %1328, 6
-  br i1 %exitcond.not.i99, label %1329, label %1236, !llvm.loop !12
+  br i1 %exitcond.not.i99, label %1329, label %1236, !llvm.loop !11
 
 1329:                                             ; preds = %1327
   %1330 = load ptr, ptr %8, align 8
@@ -4486,8 +4486,7 @@ attributes #19 = { noreturn }
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZN4absl7debian211UnparseFlagIbEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
 !7 = distinct !{!7, !"_ZN4absl7debian211UnparseFlagIbEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

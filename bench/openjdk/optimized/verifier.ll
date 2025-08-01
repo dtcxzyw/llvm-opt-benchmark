@@ -1082,7 +1082,7 @@ _ZN13ClassVerifierD2Ev.exit:                      ; preds = %.lr.ph.i, %154, %.p
   %203 = getelementptr inbounds nuw i8, ptr %.088, i64 120
   %204 = load ptr, ptr %203, align 8
   %.not68 = icmp eq ptr %204, null
-  br i1 %.not68, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not68, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %202, %198
   %.not69 = icmp eq ptr %.163, null
@@ -1337,7 +1337,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %37, %43
 61:                                               ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit, %26, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %21, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %21, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %61
   %.pre = load ptr, ptr %10, align 8
@@ -1497,7 +1497,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %47, %51
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull %3) #20
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %56) #20
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 1092
   store volatile i32 4, ptr %57, align 4
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 960
@@ -1511,14 +1511,14 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %47, %51
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %_ZNK5Klass11java_mirrorEv.exit
-  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !12
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
+  call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   br label %66
 
 66:                                               ; preds = %65, %_ZNK5Klass11java_mirrorEv.exit
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 1096
   %68 = load volatile i64, ptr %67, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   %69 = and i64 %68, 1
   %.not.i.i.i.i = icmp eq i64 %69, 0
   br i1 %.not.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %70
@@ -2252,7 +2252,7 @@ _ZN14ExceptionTableC2EPK6Method.exit._ZN14ExceptionTableC2EPK6Method.exit.thread
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str.48, i32 noundef %24, i32 noundef %27, i32 noundef %30) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %31, label %20, !llvm.loop !13
+  br i1 %exitcond.not, label %31, label %20, !llvm.loop !12
 
 31:                                               ; preds = %20
   %32 = load i32, ptr %5, align 8
@@ -2568,7 +2568,7 @@ _ZNK15stack_map_frame12offset_deltaEv.exit:       ; preds = %_ZNK15stack_map_fra
   %137 = getelementptr inbounds nuw i8, ptr %.078.i.i.i.i, i64 %..i.i.i.i.i.i
   %138 = add nuw nsw i32 %.010.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %.010.i.i.i.i, %133
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
 139:                                              ; preds = %129
   %.not40.i.i = icmp eq i8 %88, -1
@@ -2599,7 +2599,7 @@ _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %140
   %149 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 %..i.i.i.i.i
   %150 = add nuw nsw i32 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %150, %144
-  br i1 %exitcond.not.i.i, label %.lr.ph.i4.preheader.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.lr.ph.i4.preheader.i, label %.lr.ph.i.i, !llvm.loop !14
 
 .lr.ph.i4.preheader.i:                            ; preds = %.lr.ph.i.i
   %.0.i.i.i.i3.i = load i16, ptr %149, align 1
@@ -2631,7 +2631,7 @@ _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %140
   %158 = getelementptr inbounds nuw i8, ptr %.01523.i.i, i64 %..i.i.i.i34
   %159 = add nuw nsw i32 %.01424.i.i, 1
   %exitcond.not.i5.i = icmp eq i32 %159, %144
-  br i1 %exitcond.not.i5.i, label %.preheader.i.i.loopexit, label %.lr.ph.i4.i, !llvm.loop !16
+  br i1 %exitcond.not.i5.i, label %.preheader.i.i.loopexit, label %.lr.ph.i4.i, !llvm.loop !15
 
 .lr.ph28.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph28.i.i
   %.027.i.i = phi i32 [ %164, %.lr.ph28.i.i ], [ 0, %.preheader.i.i ]
@@ -2645,7 +2645,7 @@ _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %140
   %163 = getelementptr inbounds nuw i8, ptr %.126.i.i, i64 %..i.i19.i.i
   %164 = add nuw nsw i32 %.027.i.i, 1
   %exitcond31.not.i.i = icmp eq i32 %164, %154
-  br i1 %exitcond31.not.i.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph28.i.i, !llvm.loop !17
+  br i1 %exitcond31.not.i.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph28.i.i, !llvm.loop !16
 
 _ZNK15stack_map_frame4nextEv.exit:                ; preds = %.lr.ph.i.i.i.i, %.lr.ph28.i.i, %.preheader.i.i, %.thread44, %_ZNK15stack_map_frame12offset_deltaEv.exit, %106, %117, %.thread47.thread, %139
   %165 = phi i32 [ %109, %106 ], [ %120, %117 ], [ %125, %139 ], [ %105, %_ZNK15stack_map_frame12offset_deltaEv.exit ], [ %125, %.thread47.thread ], [ %95, %.thread44 ], [ %125, %.preheader.i.i ], [ %125, %.lr.ph28.i.i ], [ %125, %.lr.ph.i.i.i.i ]
@@ -2655,7 +2655,7 @@ _ZNK15stack_map_frame4nextEv.exit:                ; preds = %.lr.ph.i.i.i.i, %.l
   %.0.i.i.i.i = load i16, ptr %17, align 1
   %168 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i)
   %169 = icmp ult i16 %167, %168
-  br i1 %169, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %169, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %_ZNK15stack_map_frame4nextEv.exit, %9, %_ZNK15stack_map_frame6verifyEPhS0_.exit.thread39
   %170 = load i32, ptr %10, align 8
@@ -2965,13 +2965,13 @@ define hidden void @_ZN13ClassVerifier7ref_ctxEPKc(ptr dead_on_unwind noalias wr
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #22
   %5 = trunc i64 %4 to i32
   %6 = tail call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %1, ptr noundef nonnull %2, i32 noundef %5)
-  store i32 6, ptr %0, align 8, !alias.scope !19
+  store i32 6, ptr %0, align 8, !alias.scope !18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %7, align 4, !alias.scope !19
+  store i32 0, ptr %7, align 4, !alias.scope !18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %8, align 8, !alias.scope !19
+  store ptr null, ptr %8, align 8, !alias.scope !18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %9, align 8, !alias.scope !19
+  store ptr %6, ptr %9, align 8, !alias.scope !18
   ret void
 }
 
@@ -3437,25 +3437,25 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %81, %_ZN26Gro
   ]
 
 237:                                              ; preds = %236
-  store i32 %206, ptr %21, align 8, !alias.scope !22
+  store i32 %206, ptr %21, align 8, !alias.scope !21
   %238 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 0, ptr %238, align 4, !alias.scope !22
+  store i32 0, ptr %238, align 4, !alias.scope !21
   %239 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 9, ptr %239, align 8, !alias.scope !22
+  store i32 9, ptr %239, align 8, !alias.scope !21
   %240 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  store i32 0, ptr %240, align 4, !alias.scope !22
+  store i32 0, ptr %240, align 4, !alias.scope !21
   %241 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr null, ptr %241, align 8, !alias.scope !22
+  store ptr null, ptr %241, align 8, !alias.scope !21
   %242 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %242, align 8, !alias.scope !22
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %242, align 8, !alias.scope !21
   %243 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i32 9, ptr %243, align 8, !alias.scope !22
+  store i32 9, ptr %243, align 8, !alias.scope !21
   %244 = getelementptr inbounds nuw i8, ptr %21, i64 36
-  store i32 0, ptr %244, align 4, !alias.scope !22
+  store i32 0, ptr %244, align 4, !alias.scope !21
   %245 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store ptr null, ptr %245, align 8, !alias.scope !22
+  store ptr null, ptr %245, align 8, !alias.scope !21
   %246 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %246, align 8, !alias.scope !22
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %246, align 8, !alias.scope !21
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %21, ptr noundef nonnull @.str.55)
   br label %.loopexit
 
@@ -4063,7 +4063,7 @@ _ZNK16VerificationType12is_int_arrayEv.exit:      ; preds = %_ZNK16VerificationT
 
 _ZNK16VerificationType12is_int_arrayEv.exit.thread: ; preds = %488, %490, %_ZNK16VerificationType8is_arrayEv.exit.i.i, %_ZNK16VerificationType12is_int_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %23, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %500 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.56, i32 noundef 2), !noalias !25
+  %500 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.56, i32 noundef 2), !noalias !24
   %501 = getelementptr inbounds nuw i8, ptr %22, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %501, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   %502 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -4074,9 +4074,9 @@ _ZNK16VerificationType12is_int_arrayEv.exit.thread: ; preds = %488, %490, %_ZNK1
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 48
   store ptr %500, ptr %.sroa.6.0..sroa_idx, align 8
-  store i32 %206, ptr %22, align 8, !alias.scope !28
+  store i32 %206, ptr %22, align 8, !alias.scope !27
   %503 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 1, ptr %503, align 4, !alias.scope !28
+  store i32 1, ptr %503, align 4, !alias.scope !27
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %22, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58)
   br label %.loopexit
 
@@ -4158,17 +4158,17 @@ _ZNK16VerificationType13is_byte_arrayEv.exit.thread: ; preds = %523, %535, %_ZNK
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %25, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
   %545 = getelementptr inbounds nuw i8, ptr %24, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %545, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
-  store i32 %206, ptr %24, align 8, !alias.scope !31
+  store i32 %206, ptr %24, align 8, !alias.scope !30
   %546 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store i32 1, ptr %546, align 4, !alias.scope !31
+  store i32 1, ptr %546, align 4, !alias.scope !30
   %547 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i32 9, ptr %547, align 8, !alias.scope !31
+  store i32 9, ptr %547, align 8, !alias.scope !30
   %548 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  store i32 0, ptr %548, align 4, !alias.scope !31
+  store i32 0, ptr %548, align 4, !alias.scope !30
   %549 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store ptr null, ptr %549, align 8, !alias.scope !31
+  store ptr null, ptr %549, align 8, !alias.scope !30
   %550 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %550, align 8, !alias.scope !31
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %550, align 8, !alias.scope !30
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %24, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.59)
   br label %.loopexit
 
@@ -4230,7 +4230,7 @@ _ZNK16VerificationType13is_char_arrayEv.exit:     ; preds = %_ZNK16VerificationT
 
 _ZNK16VerificationType13is_char_arrayEv.exit.thread: ; preds = %570, %572, %_ZNK16VerificationType8is_arrayEv.exit.i.i991, %_ZNK16VerificationType13is_char_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %27, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %582 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.60, i32 noundef 2), !noalias !34
+  %582 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.60, i32 noundef 2), !noalias !33
   %583 = getelementptr inbounds nuw i8, ptr %26, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %583, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
   %584 = getelementptr inbounds nuw i8, ptr %26, i64 32
@@ -4241,9 +4241,9 @@ _ZNK16VerificationType13is_char_arrayEv.exit.thread: ; preds = %570, %572, %_ZNK
   store ptr null, ptr %.sroa.51133.0..sroa_idx, align 8
   %.sroa.61134.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 48
   store ptr %582, ptr %.sroa.61134.0..sroa_idx, align 8
-  store i32 %206, ptr %26, align 8, !alias.scope !37
+  store i32 %206, ptr %26, align 8, !alias.scope !36
   %585 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 1, ptr %585, align 4, !alias.scope !37
+  store i32 1, ptr %585, align 4, !alias.scope !36
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %26, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.61)
   br label %.loopexit
 
@@ -4305,7 +4305,7 @@ _ZNK16VerificationType14is_short_arrayEv.exit:    ; preds = %_ZNK16VerificationT
 
 _ZNK16VerificationType14is_short_arrayEv.exit.thread: ; preds = %605, %607, %_ZNK16VerificationType8is_arrayEv.exit.i.i993, %_ZNK16VerificationType14is_short_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %29, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %617 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.62, i32 noundef 2), !noalias !40
+  %617 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.62, i32 noundef 2), !noalias !39
   %618 = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %618, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
   %619 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -4316,9 +4316,9 @@ _ZNK16VerificationType14is_short_arrayEv.exit.thread: ; preds = %605, %607, %_ZN
   store ptr null, ptr %.sroa.51137.0..sroa_idx, align 8
   %.sroa.61138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 48
   store ptr %617, ptr %.sroa.61138.0..sroa_idx, align 8
-  store i32 %206, ptr %28, align 8, !alias.scope !43
+  store i32 %206, ptr %28, align 8, !alias.scope !42
   %620 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  store i32 1, ptr %620, align 4, !alias.scope !43
+  store i32 1, ptr %620, align 4, !alias.scope !42
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %28, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.63)
   br label %.loopexit
 
@@ -4380,7 +4380,7 @@ _ZNK16VerificationType13is_long_arrayEv.exit:     ; preds = %_ZNK16VerificationT
 
 _ZNK16VerificationType13is_long_arrayEv.exit.thread: ; preds = %640, %642, %_ZNK16VerificationType8is_arrayEv.exit.i.i995, %_ZNK16VerificationType13is_long_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %31, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %652 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.64, i32 noundef 2), !noalias !46
+  %652 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.64, i32 noundef 2), !noalias !45
   %653 = getelementptr inbounds nuw i8, ptr %30, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %653, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
   %654 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -4391,9 +4391,9 @@ _ZNK16VerificationType13is_long_arrayEv.exit.thread: ; preds = %640, %642, %_ZNK
   store ptr null, ptr %.sroa.51141.0..sroa_idx, align 8
   %.sroa.61142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 48
   store ptr %652, ptr %.sroa.61142.0..sroa_idx, align 8
-  store i32 %206, ptr %30, align 8, !alias.scope !49
+  store i32 %206, ptr %30, align 8, !alias.scope !48
   %655 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i32 1, ptr %655, align 4, !alias.scope !49
+  store i32 1, ptr %655, align 4, !alias.scope !48
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %30, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.65)
   br label %.loopexit
 
@@ -4455,7 +4455,7 @@ _ZNK16VerificationType14is_float_arrayEv.exit:    ; preds = %_ZNK16VerificationT
 
 _ZNK16VerificationType14is_float_arrayEv.exit.thread: ; preds = %675, %677, %_ZNK16VerificationType8is_arrayEv.exit.i.i997, %_ZNK16VerificationType14is_float_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %33, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %687 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.66, i32 noundef 2), !noalias !52
+  %687 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.66, i32 noundef 2), !noalias !51
   %688 = getelementptr inbounds nuw i8, ptr %32, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %688, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
   %689 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -4466,9 +4466,9 @@ _ZNK16VerificationType14is_float_arrayEv.exit.thread: ; preds = %675, %677, %_ZN
   store ptr null, ptr %.sroa.51145.0..sroa_idx, align 8
   %.sroa.61146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 48
   store ptr %687, ptr %.sroa.61146.0..sroa_idx, align 8
-  store i32 %206, ptr %32, align 8, !alias.scope !55
+  store i32 %206, ptr %32, align 8, !alias.scope !54
   %690 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 1, ptr %690, align 4, !alias.scope !55
+  store i32 1, ptr %690, align 4, !alias.scope !54
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %32, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.67)
   br label %.loopexit
 
@@ -4530,7 +4530,7 @@ _ZNK16VerificationType15is_double_arrayEv.exit:   ; preds = %_ZNK16VerificationT
 
 _ZNK16VerificationType15is_double_arrayEv.exit.thread: ; preds = %710, %712, %_ZNK16VerificationType8is_arrayEv.exit.i.i999, %_ZNK16VerificationType15is_double_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %35, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %722 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.68, i32 noundef 2), !noalias !58
+  %722 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.68, i32 noundef 2), !noalias !57
   %723 = getelementptr inbounds nuw i8, ptr %34, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %723, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
   %724 = getelementptr inbounds nuw i8, ptr %34, i64 32
@@ -4541,9 +4541,9 @@ _ZNK16VerificationType15is_double_arrayEv.exit.thread: ; preds = %710, %712, %_Z
   store ptr null, ptr %.sroa.51149.0..sroa_idx, align 8
   %.sroa.61150.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 48
   store ptr %722, ptr %.sroa.61150.0..sroa_idx, align 8
-  store i32 %206, ptr %34, align 8, !alias.scope !61
+  store i32 %206, ptr %34, align 8, !alias.scope !60
   %725 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 1, ptr %725, align 4, !alias.scope !61
+  store i32 1, ptr %725, align 4, !alias.scope !60
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %34, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.69)
   br label %.loopexit
 
@@ -4591,9 +4591,9 @@ _ZNK16VerificationType15is_double_arrayEv.exit.thread1197: ; preds = %708, %_ZNK
   store ptr null, ptr %.sroa.51153.0..sroa_idx, align 8
   %.sroa.61154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 48
   store ptr inttoptr (i64 3 to ptr), ptr %.sroa.61154.0..sroa_idx, align 8
-  store i32 %206, ptr %36, align 8, !alias.scope !64
+  store i32 %206, ptr %36, align 8, !alias.scope !63
   %747 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  store i32 1, ptr %747, align 4, !alias.scope !64
+  store i32 1, ptr %747, align 4, !alias.scope !63
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %36, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.70)
   br label %.loopexit
 
@@ -4904,7 +4904,7 @@ _ZNK16VerificationType12is_int_arrayEv.exit1012:  ; preds = %_ZNK16VerificationT
 
 _ZNK16VerificationType12is_int_arrayEv.exit1012.thread: ; preds = %928, %930, %_ZNK16VerificationType8is_arrayEv.exit.i.i1011, %_ZNK16VerificationType12is_int_arrayEv.exit1012
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %39, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %940 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.56, i32 noundef 2), !noalias !67
+  %940 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.56, i32 noundef 2), !noalias !66
   %941 = getelementptr inbounds nuw i8, ptr %38, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %941, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   %942 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -4915,9 +4915,9 @@ _ZNK16VerificationType12is_int_arrayEv.exit1012.thread: ; preds = %928, %930, %_
   store ptr null, ptr %.sroa.51157.0..sroa_idx, align 8
   %.sroa.61158.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 48
   store ptr %940, ptr %.sroa.61158.0..sroa_idx, align 8
-  store i32 %206, ptr %38, align 8, !alias.scope !70
+  store i32 %206, ptr %38, align 8, !alias.scope !69
   %943 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  store i32 1, ptr %943, align 4, !alias.scope !70
+  store i32 1, ptr %943, align 4, !alias.scope !69
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %38, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.71)
   br label %.loopexit
 
@@ -4999,17 +4999,17 @@ _ZNK16VerificationType13is_byte_arrayEv.exit1018.thread: ; preds = %965, %977, %
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %41, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
   %987 = getelementptr inbounds nuw i8, ptr %40, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %987, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
-  store i32 %206, ptr %40, align 8, !alias.scope !73
+  store i32 %206, ptr %40, align 8, !alias.scope !72
   %988 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  store i32 1, ptr %988, align 4, !alias.scope !73
+  store i32 1, ptr %988, align 4, !alias.scope !72
   %989 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store i32 9, ptr %989, align 8, !alias.scope !73
+  store i32 9, ptr %989, align 8, !alias.scope !72
   %990 = getelementptr inbounds nuw i8, ptr %40, i64 36
-  store i32 0, ptr %990, align 4, !alias.scope !73
+  store i32 0, ptr %990, align 4, !alias.scope !72
   %991 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  store ptr null, ptr %991, align 8, !alias.scope !73
+  store ptr null, ptr %991, align 8, !alias.scope !72
   %992 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %992, align 8, !alias.scope !73
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %992, align 8, !alias.scope !72
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %40, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.72)
   br label %.loopexit
 
@@ -5071,7 +5071,7 @@ _ZNK16VerificationType13is_char_arrayEv.exit1021: ; preds = %_ZNK16VerificationT
 
 _ZNK16VerificationType13is_char_arrayEv.exit1021.thread: ; preds = %1014, %1016, %_ZNK16VerificationType8is_arrayEv.exit.i.i1020, %_ZNK16VerificationType13is_char_arrayEv.exit1021
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %43, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1026 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.60, i32 noundef 2), !noalias !76
+  %1026 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.60, i32 noundef 2), !noalias !75
   %1027 = getelementptr inbounds nuw i8, ptr %42, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1027, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false)
   %1028 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -5082,9 +5082,9 @@ _ZNK16VerificationType13is_char_arrayEv.exit1021.thread: ; preds = %1014, %1016,
   store ptr null, ptr %.sroa.51161.0..sroa_idx, align 8
   %.sroa.61162.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 48
   store ptr %1026, ptr %.sroa.61162.0..sroa_idx, align 8
-  store i32 %206, ptr %42, align 8, !alias.scope !79
+  store i32 %206, ptr %42, align 8, !alias.scope !78
   %1029 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  store i32 1, ptr %1029, align 4, !alias.scope !79
+  store i32 1, ptr %1029, align 4, !alias.scope !78
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %42, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.73)
   br label %.loopexit
 
@@ -5146,7 +5146,7 @@ _ZNK16VerificationType14is_short_arrayEv.exit1024: ; preds = %_ZNK16Verification
 
 _ZNK16VerificationType14is_short_arrayEv.exit1024.thread: ; preds = %1051, %1053, %_ZNK16VerificationType8is_arrayEv.exit.i.i1023, %_ZNK16VerificationType14is_short_arrayEv.exit1024
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %45, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1063 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.62, i32 noundef 2), !noalias !82
+  %1063 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.62, i32 noundef 2), !noalias !81
   %1064 = getelementptr inbounds nuw i8, ptr %44, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1064, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
   %1065 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -5157,9 +5157,9 @@ _ZNK16VerificationType14is_short_arrayEv.exit1024.thread: ; preds = %1051, %1053
   store ptr null, ptr %.sroa.51165.0..sroa_idx, align 8
   %.sroa.61166.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 48
   store ptr %1063, ptr %.sroa.61166.0..sroa_idx, align 8
-  store i32 %206, ptr %44, align 8, !alias.scope !85
+  store i32 %206, ptr %44, align 8, !alias.scope !84
   %1066 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i32 1, ptr %1066, align 4, !alias.scope !85
+  store i32 1, ptr %1066, align 4, !alias.scope !84
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %44, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.74)
   br label %.loopexit
 
@@ -5221,7 +5221,7 @@ _ZNK16VerificationType13is_long_arrayEv.exit1027: ; preds = %_ZNK16VerificationT
 
 _ZNK16VerificationType13is_long_arrayEv.exit1027.thread: ; preds = %1087, %1089, %_ZNK16VerificationType8is_arrayEv.exit.i.i1026, %_ZNK16VerificationType13is_long_arrayEv.exit1027
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %47, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1099 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.64, i32 noundef 2), !noalias !88
+  %1099 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.64, i32 noundef 2), !noalias !87
   %1100 = getelementptr inbounds nuw i8, ptr %46, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1100, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
   %1101 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -5232,9 +5232,9 @@ _ZNK16VerificationType13is_long_arrayEv.exit1027.thread: ; preds = %1087, %1089,
   store ptr null, ptr %.sroa.51169.0..sroa_idx, align 8
   %.sroa.61170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 48
   store ptr %1099, ptr %.sroa.61170.0..sroa_idx, align 8
-  store i32 %206, ptr %46, align 8, !alias.scope !91
+  store i32 %206, ptr %46, align 8, !alias.scope !90
   %1102 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i32 1, ptr %1102, align 4, !alias.scope !91
+  store i32 1, ptr %1102, align 4, !alias.scope !90
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %46, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.75)
   br label %.loopexit
 
@@ -5296,7 +5296,7 @@ _ZNK16VerificationType14is_float_arrayEv.exit1030: ; preds = %_ZNK16Verification
 
 _ZNK16VerificationType14is_float_arrayEv.exit1030.thread: ; preds = %1124, %1126, %_ZNK16VerificationType8is_arrayEv.exit.i.i1029, %_ZNK16VerificationType14is_float_arrayEv.exit1030
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %49, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1136 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.66, i32 noundef 2), !noalias !94
+  %1136 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.66, i32 noundef 2), !noalias !93
   %1137 = getelementptr inbounds nuw i8, ptr %48, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1137, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false)
   %1138 = getelementptr inbounds nuw i8, ptr %48, i64 32
@@ -5307,9 +5307,9 @@ _ZNK16VerificationType14is_float_arrayEv.exit1030.thread: ; preds = %1124, %1126
   store ptr null, ptr %.sroa.51173.0..sroa_idx, align 8
   %.sroa.61174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 48
   store ptr %1136, ptr %.sroa.61174.0..sroa_idx, align 8
-  store i32 %206, ptr %48, align 8, !alias.scope !97
+  store i32 %206, ptr %48, align 8, !alias.scope !96
   %1139 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i32 1, ptr %1139, align 4, !alias.scope !97
+  store i32 1, ptr %1139, align 4, !alias.scope !96
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %48, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.76)
   br label %.loopexit
 
@@ -5371,7 +5371,7 @@ _ZNK16VerificationType15is_double_arrayEv.exit1033: ; preds = %_ZNK16Verificatio
 
 _ZNK16VerificationType15is_double_arrayEv.exit1033.thread: ; preds = %1160, %1162, %_ZNK16VerificationType8is_arrayEv.exit.i.i1032, %_ZNK16VerificationType15is_double_arrayEv.exit1033
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %51, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1172 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.68, i32 noundef 2), !noalias !100
+  %1172 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.68, i32 noundef 2), !noalias !99
   %1173 = getelementptr inbounds nuw i8, ptr %50, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1173, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   %1174 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -5382,9 +5382,9 @@ _ZNK16VerificationType15is_double_arrayEv.exit1033.thread: ; preds = %1160, %116
   store ptr null, ptr %.sroa.51177.0..sroa_idx, align 8
   %.sroa.61178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 48
   store ptr %1172, ptr %.sroa.61178.0..sroa_idx, align 8
-  store i32 %206, ptr %50, align 8, !alias.scope !103
+  store i32 %206, ptr %50, align 8, !alias.scope !102
   %1175 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 1, ptr %1175, align 4, !alias.scope !103
+  store i32 1, ptr %1175, align 4, !alias.scope !102
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %50, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.77)
   br label %.loopexit
 
@@ -5433,9 +5433,9 @@ _ZNK16VerificationType15is_double_arrayEv.exit1033.thread: ; preds = %1160, %116
   store ptr null, ptr %.sroa.51181.0..sroa_idx, align 8
   %.sroa.61182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 48
   store ptr inttoptr (i64 3 to ptr), ptr %.sroa.61182.0..sroa_idx, align 8
-  store i32 %206, ptr %52, align 8, !alias.scope !106
+  store i32 %206, ptr %52, align 8, !alias.scope !105
   %1200 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  store i32 1, ptr %1200, align 4, !alias.scope !106
+  store i32 1, ptr %1200, align 4, !alias.scope !105
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %52, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.78)
   br label %.loopexit
 
@@ -5490,17 +5490,17 @@ _ZNK16VerificationType15is_double_arrayEv.exit1033.thread: ; preds = %1160, %116
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %55, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
   %1232 = getelementptr inbounds nuw i8, ptr %54, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1232, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
-  store i32 %206, ptr %54, align 8, !alias.scope !109
+  store i32 %206, ptr %54, align 8, !alias.scope !108
   %1233 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  store i32 1, ptr %1233, align 4, !alias.scope !109
+  store i32 1, ptr %1233, align 4, !alias.scope !108
   %1234 = getelementptr inbounds nuw i8, ptr %54, i64 32
-  store i32 9, ptr %1234, align 8, !alias.scope !109
+  store i32 9, ptr %1234, align 8, !alias.scope !108
   %1235 = getelementptr inbounds nuw i8, ptr %54, i64 36
-  store i32 0, ptr %1235, align 4, !alias.scope !109
+  store i32 0, ptr %1235, align 4, !alias.scope !108
   %1236 = getelementptr inbounds nuw i8, ptr %54, i64 40
-  store ptr null, ptr %1236, align 8, !alias.scope !109
+  store ptr null, ptr %1236, align 8, !alias.scope !108
   %1237 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1237, align 8, !alias.scope !109
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1237, align 8, !alias.scope !108
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %54, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.79)
   br label %.loopexit
 
@@ -5627,17 +5627,17 @@ _ZNK16VerificationType15is_double_arrayEv.exit1033.thread: ; preds = %1160, %116
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %57, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
   %1312 = getelementptr inbounds nuw i8, ptr %56, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1312, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
-  store i32 %206, ptr %56, align 8, !alias.scope !112
+  store i32 %206, ptr %56, align 8, !alias.scope !111
   %1313 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  store i32 1, ptr %1313, align 4, !alias.scope !112
+  store i32 1, ptr %1313, align 4, !alias.scope !111
   %1314 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  store i32 9, ptr %1314, align 8, !alias.scope !112
+  store i32 9, ptr %1314, align 8, !alias.scope !111
   %1315 = getelementptr inbounds nuw i8, ptr %56, i64 36
-  store i32 0, ptr %1315, align 4, !alias.scope !112
+  store i32 0, ptr %1315, align 4, !alias.scope !111
   %1316 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  store ptr null, ptr %1316, align 8, !alias.scope !112
+  store ptr null, ptr %1316, align 8, !alias.scope !111
   %1317 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1317, align 8, !alias.scope !112
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1317, align 8, !alias.scope !111
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.80)
   br label %.loopexit
 
@@ -5720,17 +5720,17 @@ _ZNK16VerificationType15is_double_arrayEv.exit1033.thread: ; preds = %1160, %116
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %59, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
   %1363 = getelementptr inbounds nuw i8, ptr %58, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1363, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false)
-  store i32 %206, ptr %58, align 8, !alias.scope !115
+  store i32 %206, ptr %58, align 8, !alias.scope !114
   %1364 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  store i32 1, ptr %1364, align 4, !alias.scope !115
+  store i32 1, ptr %1364, align 4, !alias.scope !114
   %1365 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  store i32 9, ptr %1365, align 8, !alias.scope !115
+  store i32 9, ptr %1365, align 8, !alias.scope !114
   %1366 = getelementptr inbounds nuw i8, ptr %58, i64 36
-  store i32 0, ptr %1366, align 4, !alias.scope !115
+  store i32 0, ptr %1366, align 4, !alias.scope !114
   %1367 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  store ptr null, ptr %1367, align 8, !alias.scope !115
+  store ptr null, ptr %1367, align 8, !alias.scope !114
   %1368 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1368, align 8, !alias.scope !115
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1368, align 8, !alias.scope !114
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %58, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.81)
   br label %.loopexit
 
@@ -5813,17 +5813,17 @@ _ZNK16VerificationType15is_double_arrayEv.exit1033.thread: ; preds = %1160, %116
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %61, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
   %1414 = getelementptr inbounds nuw i8, ptr %60, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1414, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false)
-  store i32 %206, ptr %60, align 8, !alias.scope !118
+  store i32 %206, ptr %60, align 8, !alias.scope !117
   %1415 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store i32 1, ptr %1415, align 4, !alias.scope !118
+  store i32 1, ptr %1415, align 4, !alias.scope !117
   %1416 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store i32 9, ptr %1416, align 8, !alias.scope !118
+  store i32 9, ptr %1416, align 8, !alias.scope !117
   %1417 = getelementptr inbounds nuw i8, ptr %60, i64 36
-  store i32 0, ptr %1417, align 4, !alias.scope !118
+  store i32 0, ptr %1417, align 4, !alias.scope !117
   %1418 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  store ptr null, ptr %1418, align 8, !alias.scope !118
+  store ptr null, ptr %1418, align 8, !alias.scope !117
   %1419 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1419, align 8, !alias.scope !118
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1419, align 8, !alias.scope !117
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %60, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.82)
   br label %.loopexit
 
@@ -5924,17 +5924,17 @@ _ZNK16VerificationType15is_double_arrayEv.exit1033.thread: ; preds = %1160, %116
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %63, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
   %1476 = getelementptr inbounds nuw i8, ptr %62, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1476, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
-  store i32 %206, ptr %62, align 8, !alias.scope !121
+  store i32 %206, ptr %62, align 8, !alias.scope !120
   %1477 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  store i32 1, ptr %1477, align 4, !alias.scope !121
+  store i32 1, ptr %1477, align 4, !alias.scope !120
   %1478 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  store i32 9, ptr %1478, align 8, !alias.scope !121
+  store i32 9, ptr %1478, align 8, !alias.scope !120
   %1479 = getelementptr inbounds nuw i8, ptr %62, i64 36
-  store i32 0, ptr %1479, align 4, !alias.scope !121
+  store i32 0, ptr %1479, align 4, !alias.scope !120
   %1480 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  store ptr null, ptr %1480, align 8, !alias.scope !121
+  store ptr null, ptr %1480, align 8, !alias.scope !120
   %1481 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1481, align 8, !alias.scope !121
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1481, align 8, !alias.scope !120
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %62, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.83)
   br label %.loopexit
 
@@ -5981,17 +5981,17 @@ _ZNK16VerificationType15is_double_arrayEv.exit1033.thread: ; preds = %1160, %116
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %65, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
   %1507 = getelementptr inbounds nuw i8, ptr %64, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1507, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
-  store i32 %206, ptr %64, align 8, !alias.scope !124
+  store i32 %206, ptr %64, align 8, !alias.scope !123
   %1508 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  store i32 1, ptr %1508, align 4, !alias.scope !124
+  store i32 1, ptr %1508, align 4, !alias.scope !123
   %1509 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  store i32 9, ptr %1509, align 8, !alias.scope !124
+  store i32 9, ptr %1509, align 8, !alias.scope !123
   %1510 = getelementptr inbounds nuw i8, ptr %64, i64 36
-  store i32 0, ptr %1510, align 4, !alias.scope !124
+  store i32 0, ptr %1510, align 4, !alias.scope !123
   %1511 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  store ptr null, ptr %1511, align 8, !alias.scope !124
+  store ptr null, ptr %1511, align 8, !alias.scope !123
   %1512 = getelementptr inbounds nuw i8, ptr %64, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1512, align 8, !alias.scope !124
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1512, align 8, !alias.scope !123
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %64, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.83)
   br label %.loopexit
 
@@ -6787,25 +6787,25 @@ _ZNK18BaseBytecodeStream6dest_wEv.exit:           ; preds = %1894, %1903
   br i1 %.not1686, label %1995, label %1985
 
 1985:                                             ; preds = %1984
-  store i32 %206, ptr %66, align 8, !alias.scope !127
+  store i32 %206, ptr %66, align 8, !alias.scope !126
   %1986 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  store i32 0, ptr %1986, align 4, !alias.scope !127
+  store i32 0, ptr %1986, align 4, !alias.scope !126
   %1987 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i32 9, ptr %1987, align 8, !alias.scope !127
+  store i32 9, ptr %1987, align 8, !alias.scope !126
   %1988 = getelementptr inbounds nuw i8, ptr %66, i64 12
-  store i32 0, ptr %1988, align 4, !alias.scope !127
+  store i32 0, ptr %1988, align 4, !alias.scope !126
   %1989 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store ptr null, ptr %1989, align 8, !alias.scope !127
+  store ptr null, ptr %1989, align 8, !alias.scope !126
   %1990 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1990, align 8, !alias.scope !127
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1990, align 8, !alias.scope !126
   %1991 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  store i32 9, ptr %1991, align 8, !alias.scope !127
+  store i32 9, ptr %1991, align 8, !alias.scope !126
   %1992 = getelementptr inbounds nuw i8, ptr %66, i64 36
-  store i32 0, ptr %1992, align 4, !alias.scope !127
+  store i32 0, ptr %1992, align 4, !alias.scope !126
   %1993 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  store ptr null, ptr %1993, align 8, !alias.scope !127
+  store ptr null, ptr %1993, align 8, !alias.scope !126
   %1994 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1994, align 8, !alias.scope !127
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1994, align 8, !alias.scope !126
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %66, ptr noundef nonnull @.str.84)
   br label %.loopexit
 
@@ -6832,25 +6832,25 @@ _ZNK18BaseBytecodeStream6dest_wEv.exit:           ; preds = %1894, %1903
   br i1 %.not1687, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %2012
 
 2012:                                             ; preds = %2009
-  store i32 %206, ptr %67, align 8, !alias.scope !130
+  store i32 %206, ptr %67, align 8, !alias.scope !129
   %2013 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  store i32 0, ptr %2013, align 4, !alias.scope !130
+  store i32 0, ptr %2013, align 4, !alias.scope !129
   %2014 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store i32 9, ptr %2014, align 8, !alias.scope !130
+  store i32 9, ptr %2014, align 8, !alias.scope !129
   %2015 = getelementptr inbounds nuw i8, ptr %67, i64 12
-  store i32 0, ptr %2015, align 4, !alias.scope !130
+  store i32 0, ptr %2015, align 4, !alias.scope !129
   %2016 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store ptr null, ptr %2016, align 8, !alias.scope !130
+  store ptr null, ptr %2016, align 8, !alias.scope !129
   %2017 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %2017, align 8, !alias.scope !130
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %2017, align 8, !alias.scope !129
   %2018 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  store i32 9, ptr %2018, align 8, !alias.scope !130
+  store i32 9, ptr %2018, align 8, !alias.scope !129
   %2019 = getelementptr inbounds nuw i8, ptr %67, i64 36
-  store i32 0, ptr %2019, align 4, !alias.scope !130
+  store i32 0, ptr %2019, align 4, !alias.scope !129
   %2020 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  store ptr null, ptr %2020, align 8, !alias.scope !130
+  store ptr null, ptr %2020, align 8, !alias.scope !129
   %2021 = getelementptr inbounds nuw i8, ptr %67, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %2021, align 8, !alias.scope !130
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %2021, align 8, !alias.scope !129
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %67, ptr noundef nonnull @.str.85)
   br label %.loopexit
 
@@ -6951,17 +6951,17 @@ _ZNK16VerificationType9is_objectEv.exit.thread:   ; preds = %2066, %2071, %_ZNK1
   store ptr null, ptr %.sroa.51185.0..sroa_idx, align 8
   %.sroa.61186.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 24
   store ptr %2061, ptr %.sroa.61186.0..sroa_idx, align 8
-  store i32 %206, ptr %68, align 8, !alias.scope !133
+  store i32 %206, ptr %68, align 8, !alias.scope !132
   %2077 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store i32 1, ptr %2077, align 4, !alias.scope !133
+  store i32 1, ptr %2077, align 4, !alias.scope !132
   %2078 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  store i32 9, ptr %2078, align 8, !alias.scope !133
+  store i32 9, ptr %2078, align 8, !alias.scope !132
   %2079 = getelementptr inbounds nuw i8, ptr %68, i64 36
-  store i32 0, ptr %2079, align 4, !alias.scope !133
+  store i32 0, ptr %2079, align 4, !alias.scope !132
   %2080 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  store ptr null, ptr %2080, align 8, !alias.scope !133
+  store ptr null, ptr %2080, align 8, !alias.scope !132
   %2081 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %2081, align 8, !alias.scope !133
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %2081, align 8, !alias.scope !132
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %68, ptr noundef nonnull @.str.86)
   br label %.loopexit
 
@@ -7084,12 +7084,12 @@ _ZNK16VerificationType8is_arrayEv.exit:           ; preds = %2151
 _ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %2148, %2151, %_ZNK16VerificationType8is_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %70, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %192, ptr noundef nonnull align 8 dereferenceable(24) %70, i64 24, i1 false)
-  store i32 %206, ptr %69, align 8, !alias.scope !136
-  store i32 1, ptr %193, align 4, !alias.scope !136
-  store i32 9, ptr %194, align 8, !alias.scope !136
-  store i32 0, ptr %195, align 4, !alias.scope !136
-  store ptr null, ptr %196, align 8, !alias.scope !136
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %197, align 8, !alias.scope !136
+  store i32 %206, ptr %69, align 8, !alias.scope !135
+  store i32 1, ptr %193, align 4, !alias.scope !135
+  store i32 9, ptr %194, align 8, !alias.scope !135
+  store i32 0, ptr %195, align 4, !alias.scope !135
+  store ptr null, ptr %196, align 8, !alias.scope !135
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %197, align 8, !alias.scope !135
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %69, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.87)
   br label %2158
 
@@ -7259,17 +7259,17 @@ _ZNK16VerificationType8is_arrayEv.exit1047.thread: ; preds = %2253, %2258, %_ZNK
   store ptr null, ptr %.sroa.51189.0..sroa_idx, align 8
   %.sroa.61190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %2248, ptr %.sroa.61190.0..sroa_idx, align 8
-  store i32 %206, ptr %71, align 8, !alias.scope !139
+  store i32 %206, ptr %71, align 8, !alias.scope !138
   %2266 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  store i32 1, ptr %2266, align 4, !alias.scope !139
+  store i32 1, ptr %2266, align 4, !alias.scope !138
   %2267 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  store i32 9, ptr %2267, align 8, !alias.scope !139
+  store i32 9, ptr %2267, align 8, !alias.scope !138
   %2268 = getelementptr inbounds nuw i8, ptr %71, i64 36
-  store i32 0, ptr %2268, align 4, !alias.scope !139
+  store i32 0, ptr %2268, align 4, !alias.scope !138
   %2269 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  store ptr null, ptr %2269, align 8, !alias.scope !139
+  store ptr null, ptr %2269, align 8, !alias.scope !138
   %2270 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %2270, align 8, !alias.scope !139
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %2270, align 8, !alias.scope !138
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %71, ptr noundef nonnull @.str.88)
   br label %.loopexit
 
@@ -7284,7 +7284,7 @@ _ZNK16VerificationType8is_arrayEv.exit1047.thread: ; preds = %2253, %2258, %_ZNK
   %2275 = load i8, ptr %2274, align 1
   %2276 = icmp eq i8 %2275, 91
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %2276, label %.preheader1947, label %_ZNK16VerificationType10dimensionsEv.exit, !llvm.loop !142
+  br i1 %2276, label %.preheader1947, label %_ZNK16VerificationType10dimensionsEv.exit, !llvm.loop !141
 
 _ZNK16VerificationType10dimensionsEv.exit:        ; preds = %.preheader1947
   %2277 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -7292,32 +7292,32 @@ _ZNK16VerificationType10dimensionsEv.exit:        ; preds = %.preheader1947
   br i1 %2278, label %2279, label %.preheader
 
 2279:                                             ; preds = %_ZNK16VerificationType10dimensionsEv.exit, %2271
-  store i32 %206, ptr %72, align 8, !alias.scope !143
+  store i32 %206, ptr %72, align 8, !alias.scope !142
   %2280 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 0, ptr %2280, align 4, !alias.scope !143
+  store i32 0, ptr %2280, align 4, !alias.scope !142
   %2281 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 9, ptr %2281, align 8, !alias.scope !143
+  store i32 9, ptr %2281, align 8, !alias.scope !142
   %2282 = getelementptr inbounds nuw i8, ptr %72, i64 12
-  store i32 0, ptr %2282, align 4, !alias.scope !143
+  store i32 0, ptr %2282, align 4, !alias.scope !142
   %2283 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store ptr null, ptr %2283, align 8, !alias.scope !143
+  store ptr null, ptr %2283, align 8, !alias.scope !142
   %2284 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %2284, align 8, !alias.scope !143
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %2284, align 8, !alias.scope !142
   %2285 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  store i32 9, ptr %2285, align 8, !alias.scope !143
+  store i32 9, ptr %2285, align 8, !alias.scope !142
   %2286 = getelementptr inbounds nuw i8, ptr %72, i64 36
-  store i32 0, ptr %2286, align 4, !alias.scope !143
+  store i32 0, ptr %2286, align 4, !alias.scope !142
   %2287 = getelementptr inbounds nuw i8, ptr %72, i64 40
-  store ptr null, ptr %2287, align 8, !alias.scope !143
+  store ptr null, ptr %2287, align 8, !alias.scope !142
   %2288 = getelementptr inbounds nuw i8, ptr %72, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %2288, align 8, !alias.scope !143
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %2288, align 8, !alias.scope !142
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %72, ptr noundef nonnull @.str.89, i32 noundef %2272)
   br label %.loopexit
 
 2289:                                             ; preds = %.preheader
   %2290 = add nuw nsw i32 %.09651796, 1
   %exitcond.not = icmp eq i32 %2290, %2272
-  br i1 %exitcond.not, label %2296, label %.preheader, !llvm.loop !146
+  br i1 %exitcond.not, label %2296, label %.preheader, !llvm.loop !145
 
 .preheader:                                       ; preds = %_ZNK16VerificationType10dimensionsEv.exit, %2289
   %.09651796 = phi i32 [ %2290, %2289 ], [ 0, %_ZNK16VerificationType10dimensionsEv.exit ]
@@ -7349,25 +7349,25 @@ _ZNK16VerificationType10dimensionsEv.exit:        ; preds = %.preheader1947
   br i1 %or.cond1668, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
 2308:                                             ; preds = %268
-  store i32 %206, ptr %73, align 8, !alias.scope !147
+  store i32 %206, ptr %73, align 8, !alias.scope !146
   %2309 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  store i32 0, ptr %2309, align 4, !alias.scope !147
+  store i32 0, ptr %2309, align 4, !alias.scope !146
   %2310 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i32 9, ptr %2310, align 8, !alias.scope !147
+  store i32 9, ptr %2310, align 8, !alias.scope !146
   %2311 = getelementptr inbounds nuw i8, ptr %73, i64 12
-  store i32 0, ptr %2311, align 4, !alias.scope !147
+  store i32 0, ptr %2311, align 4, !alias.scope !146
   %2312 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store ptr null, ptr %2312, align 8, !alias.scope !147
+  store ptr null, ptr %2312, align 8, !alias.scope !146
   %2313 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %2313, align 8, !alias.scope !147
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %2313, align 8, !alias.scope !146
   %2314 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  store i32 9, ptr %2314, align 8, !alias.scope !147
+  store i32 9, ptr %2314, align 8, !alias.scope !146
   %2315 = getelementptr inbounds nuw i8, ptr %73, i64 36
-  store i32 0, ptr %2315, align 4, !alias.scope !147
+  store i32 0, ptr %2315, align 4, !alias.scope !146
   %2316 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  store ptr null, ptr %2316, align 8, !alias.scope !147
+  store ptr null, ptr %2316, align 8, !alias.scope !146
   %2317 = getelementptr inbounds nuw i8, ptr %73, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %2317, align 8, !alias.scope !147
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %2317, align 8, !alias.scope !146
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %73, ptr noundef nonnull @.str.90, i32 noundef %205)
   br label %.loopexit
 
@@ -7405,32 +7405,32 @@ _ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198: ; preds = %2301, %22
   %2334 = load i32, ptr %178, align 4
   %2335 = load i32, ptr %179, align 8
   %.not1677 = icmp slt i32 %2334, %2335
-  br i1 %.not1677, label %199, label %._crit_edge, !llvm.loop !150
+  br i1 %.not1677, label %199, label %._crit_edge, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %2333
   %2336 = trunc nuw i8 %.1 to i1
   br i1 %2336, label %.loopexit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %176, %._crit_edge
-  store i32 %120, ptr %74, align 8, !alias.scope !151
+  store i32 %120, ptr %74, align 8, !alias.scope !150
   %2337 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  store i32 0, ptr %2337, align 4, !alias.scope !151
+  store i32 0, ptr %2337, align 4, !alias.scope !150
   %2338 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i32 9, ptr %2338, align 8, !alias.scope !151
+  store i32 9, ptr %2338, align 8, !alias.scope !150
   %2339 = getelementptr inbounds nuw i8, ptr %74, i64 12
-  store i32 0, ptr %2339, align 4, !alias.scope !151
+  store i32 0, ptr %2339, align 4, !alias.scope !150
   %2340 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store ptr null, ptr %2340, align 8, !alias.scope !151
+  store ptr null, ptr %2340, align 8, !alias.scope !150
   %2341 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %2341, align 8, !alias.scope !151
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %2341, align 8, !alias.scope !150
   %2342 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  store i32 9, ptr %2342, align 8, !alias.scope !151
+  store i32 9, ptr %2342, align 8, !alias.scope !150
   %2343 = getelementptr inbounds nuw i8, ptr %74, i64 36
-  store i32 0, ptr %2343, align 4, !alias.scope !151
+  store i32 0, ptr %2343, align 4, !alias.scope !150
   %2344 = getelementptr inbounds nuw i8, ptr %74, i64 40
-  store ptr null, ptr %2344, align 8, !alias.scope !151
+  store ptr null, ptr %2344, align 8, !alias.scope !150
   %2345 = getelementptr inbounds nuw i8, ptr %74, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %2345, align 8, !alias.scope !151
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %2345, align 8, !alias.scope !150
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %74, ptr noundef nonnull @.str.91)
   br label %.loopexit
 
@@ -7463,7 +7463,7 @@ define hidden void @_ZN13ClassVerifier19translate_signatureEP6SymbolP25sig_as_ve
   store ptr inttoptr (i64 4294901761 to ptr), ptr %.ptr, align 8
   %.add = add nuw nsw i64 %.idx, 8
   %7 = icmp eq i64 %.add, 16
-  br i1 %7, label %8, label %6, !llvm.loop !154
+  br i1 %7, label %8, label %6
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7610,7 +7610,7 @@ _ZN13GrowableArrayI16VerificationTypeE8allocateEv.exit.i: ; preds = %53, %49, %4
   %66 = load i32, ptr %10, align 8
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next.i, %67
-  br i1 %68, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !155
+  br i1 %68, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !153
 
 .preheader.i:                                     ; preds = %.lr.ph19.i, %.preheader16.i
   %69 = load ptr, ptr %18, align 8
@@ -7625,7 +7625,7 @@ _ZN13GrowableArrayI16VerificationTypeE8allocateEv.exit.i: ; preds = %53, %49, %4
   %71 = load i32, ptr %16, align 4
   %72 = trunc nuw i64 %indvars.iv.next22.i to i32
   %73 = icmp sgt i32 %71, %72
-  br i1 %73, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !156
+  br i1 %73, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !154
 
 74:                                               ; preds = %.preheader.i
   %75 = load i64, ptr %17, align 8
@@ -7653,14 +7653,14 @@ _ZN26GrowableArrayWithAllocatorI16VerificationType13GrowableArrayIS0_EE4pushERKS
   store i64 %83, ptr %82, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %84, label %30, !llvm.loop !157
+  br i1 %exitcond.not, label %84, label %30, !llvm.loop !155
 
 84:                                               ; preds = %_ZN26GrowableArrayWithAllocatorI16VerificationType13GrowableArrayIS0_EE4pushERKS0_.exit
   %85 = add nuw nsw i32 %.0.i, %.01628
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #20
   %86 = load i32, ptr %11, align 4
   %87 = icmp eq i32 %86, 3
-  br i1 %87, label %._crit_edge, label %19, !llvm.loop !158
+  br i1 %87, label %._crit_edge, label %19, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %84, %8
   %.016.lcssa = phi i32 [ 0, %8 ], [ %85, %84 ]
@@ -7752,7 +7752,7 @@ _ZN26GrowableArrayWithAllocatorI16VerificationType13GrowableArrayIS0_EE4pushERKS
   store i64 %121, ptr %120, align 8
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %.0.i20
-  br i1 %exitcond35.not, label %.loopexit, label %103, !llvm.loop !159
+  br i1 %exitcond35.not, label %.loopexit, label %103, !llvm.loop !157
 
 .loopexit:                                        ; preds = %_ZN26GrowableArrayWithAllocatorI16VerificationType13GrowableArrayIS0_EE4pushERKS0_.exit25, %._crit_edge
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #20
@@ -7857,7 +7857,7 @@ define hidden void @_ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verifi
   %26 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !160
+  br i1 %.not.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.loopexit, label %.lr.ph.i.i, !llvm.loop !158
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.i: ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 8
@@ -7976,28 +7976,28 @@ _ZN17RawBytecodeStream8raw_nextEv.exit._crit_edge: ; preds = %_ZN17RawBytecodeSt
   %44 = load i32, ptr %10, align 4
   %45 = load i32, ptr %11, align 8
   %.not12 = icmp slt i32 %44, %45
-  br i1 %.not12, label %18, label %.loopexit, !llvm.loop !161
+  br i1 %.not12, label %18, label %.loopexit, !llvm.loop !159
 
 46:                                               ; preds = %_ZN17RawBytecodeStream8raw_nextEv.exit
-  store i32 %.pre, ptr %6, align 8, !alias.scope !162
+  store i32 %.pre, ptr %6, align 8, !alias.scope !160
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %47, align 4, !alias.scope !162
+  store i32 0, ptr %47, align 4, !alias.scope !160
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 9, ptr %48, align 8, !alias.scope !162
+  store i32 9, ptr %48, align 8, !alias.scope !160
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %49, align 4, !alias.scope !162
+  store i32 0, ptr %49, align 4, !alias.scope !160
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr null, ptr %50, align 8, !alias.scope !162
+  store ptr null, ptr %50, align 8, !alias.scope !160
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %51, align 8, !alias.scope !162
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %51, align 8, !alias.scope !160
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 9, ptr %52, align 8, !alias.scope !162
+  store i32 9, ptr %52, align 8, !alias.scope !160
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i32 0, ptr %53, align 4, !alias.scope !162
+  store i32 0, ptr %53, align 4, !alias.scope !160
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr null, ptr %54, align 8, !alias.scope !162
+  store ptr null, ptr %54, align 8, !alias.scope !160
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %55, align 8, !alias.scope !162
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %55, align 8, !alias.scope !160
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %6, ptr noundef nonnull @.str.92)
   br label %.loopexit
 
@@ -8318,9 +8318,9 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   store ptr null, ptr %.sroa.571.0..sroa_idx, align 8
   %.sroa.672.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %.sroa.0.0.copyload, ptr %.sroa.672.0..sroa_idx, align 8
-  store i32 %79, ptr %11, align 8, !alias.scope !165
+  store i32 %79, ptr %11, align 8, !alias.scope !163
   %161 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 1, ptr %161, align 4, !alias.scope !165
+  store i32 1, ptr %161, align 4, !alias.scope !163
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %11, ptr noundef nonnull @.str.96, i32 noundef %79)
   br label %.loopexit
 
@@ -8346,7 +8346,7 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
 171:                                              ; preds = %167, %170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !168
+  br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !166
 
 .loopexit:                                        ; preds = %90, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, %171, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %.thread, %85, %77, %67
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
@@ -8416,7 +8416,7 @@ define hidden void @_ZN13ClassVerifier27verify_local_variable_tableEjPcP10JavaTh
 37:                                               ; preds = %27, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !169
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !167
 
 .loopexit:                                        ; preds = %37, %36, %26, %4
   ret void
@@ -8517,25 +8517,25 @@ define hidden noundef zeroext i16 @_ZN13ClassVerifier21verify_stackmap_tableEtiP
   br i1 %or.cond, label %23, label %33
 
 23:                                               ; preds = %15
-  store i32 %2, ptr %8, align 8, !alias.scope !170
+  store i32 %2, ptr %8, align 8, !alias.scope !168
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 9, ptr %24, align 4, !alias.scope !170
+  store i32 9, ptr %24, align 4, !alias.scope !168
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 9, ptr %25, align 8, !alias.scope !170
+  store i32 9, ptr %25, align 8, !alias.scope !168
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %26, align 4, !alias.scope !170
+  store i32 0, ptr %26, align 4, !alias.scope !168
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr null, ptr %27, align 8, !alias.scope !170
+  store ptr null, ptr %27, align 8, !alias.scope !168
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %28, align 8, !alias.scope !170
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %28, align 8, !alias.scope !168
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 9, ptr %29, align 8, !alias.scope !170
+  store i32 9, ptr %29, align 8, !alias.scope !168
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 0, ptr %30, align 4, !alias.scope !170
+  store i32 0, ptr %30, align 4, !alias.scope !168
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr null, ptr %31, align 8, !alias.scope !170
+  store ptr null, ptr %31, align 8, !alias.scope !168
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %32, align 8, !alias.scope !170
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %32, align 8, !alias.scope !168
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %8, ptr noundef nonnull @.str.99)
   br label %71
 
@@ -8597,25 +8597,25 @@ define hidden noundef zeroext i16 @_ZN13ClassVerifier21verify_stackmap_tableEtiP
   br i1 %5, label %61, label %71
 
 61:                                               ; preds = %60
-  store i32 %2, ptr %10, align 8, !alias.scope !173
+  store i32 %2, ptr %10, align 8, !alias.scope !171
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 0, ptr %62, align 4, !alias.scope !173
+  store i32 0, ptr %62, align 4, !alias.scope !171
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 9, ptr %63, align 8, !alias.scope !173
+  store i32 9, ptr %63, align 8, !alias.scope !171
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %64, align 4, !alias.scope !173
+  store i32 0, ptr %64, align 4, !alias.scope !171
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr null, ptr %65, align 8, !alias.scope !173
+  store ptr null, ptr %65, align 8, !alias.scope !171
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %66, align 8, !alias.scope !173
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %66, align 8, !alias.scope !171
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i32 9, ptr %67, align 8, !alias.scope !173
+  store i32 9, ptr %67, align 8, !alias.scope !171
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i32 0, ptr %68, align 4, !alias.scope !173
+  store i32 0, ptr %68, align 4, !alias.scope !171
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store ptr null, ptr %69, align 8, !alias.scope !173
+  store ptr null, ptr %69, align 8, !alias.scope !171
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %70, align 8, !alias.scope !173
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %70, align 8, !alias.scope !171
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %10, ptr noundef nonnull @.str.99)
   br label %71
 
@@ -8851,19 +8851,19 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %_ZN18constantPoolHa
   %106 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %107 = load ptr, ptr %106, align 8
   %108 = load i32, ptr %89, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !176)
-  %109 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !179
-  call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %109, ptr noundef nonnull align 8 dereferenceable(48) %89), !noalias !179
-  store i32 %108, ptr %8, align 8, !alias.scope !176
-  store i32 7, ptr %53, align 4, !alias.scope !176
-  store i32 8, ptr %54, align 8, !alias.scope !176
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !176
-  store ptr %109, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !176
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !176
-  store i32 9, ptr %55, align 8, !alias.scope !176
-  store i32 0, ptr %56, align 4, !alias.scope !176
-  store ptr null, ptr %57, align 8, !alias.scope !176
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %58, align 8, !alias.scope !176
+  call void @llvm.experimental.noalias.scope.decl(metadata !174)
+  %109 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !177
+  call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %109, ptr noundef nonnull align 8 dereferenceable(48) %89), !noalias !177
+  store i32 %108, ptr %8, align 8, !alias.scope !174
+  store i32 7, ptr %53, align 4, !alias.scope !174
+  store i32 8, ptr %54, align 8, !alias.scope !174
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !174
+  store ptr %109, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !174
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !174
+  store i32 9, ptr %55, align 8, !alias.scope !174
+  store i32 0, ptr %56, align 4, !alias.scope !174
+  store ptr null, ptr %57, align 8, !alias.scope !174
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %58, align 8, !alias.scope !174
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %107, ptr noundef nonnull byval(%class.ErrorContext) align 8 %8, ptr noundef nonnull @.str.181)
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
 
@@ -8901,19 +8901,19 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
   %128 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %129 = load ptr, ptr %128, align 8
   %130 = load i32, ptr %89, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !182)
-  %131 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !185
-  call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef nonnull align 8 dereferenceable(48) %89), !noalias !185
-  store i32 %130, ptr %7, align 8, !alias.scope !182
-  store i32 7, ptr %59, align 4, !alias.scope !182
-  store i32 8, ptr %60, align 8, !alias.scope !182
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i45, align 4, !alias.scope !182
-  store ptr %131, ptr %.sroa.5.0..sroa_idx.i.i46, align 8, !alias.scope !182
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i47, align 8, !alias.scope !182
-  store i32 9, ptr %61, align 8, !alias.scope !182
-  store i32 0, ptr %62, align 4, !alias.scope !182
-  store ptr null, ptr %63, align 8, !alias.scope !182
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %64, align 8, !alias.scope !182
+  call void @llvm.experimental.noalias.scope.decl(metadata !180)
+  %131 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !183
+  call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %131, ptr noundef nonnull align 8 dereferenceable(48) %89), !noalias !183
+  store i32 %130, ptr %7, align 8, !alias.scope !180
+  store i32 7, ptr %59, align 4, !alias.scope !180
+  store i32 8, ptr %60, align 8, !alias.scope !180
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i45, align 4, !alias.scope !180
+  store ptr %131, ptr %.sroa.5.0..sroa_idx.i.i46, align 8, !alias.scope !180
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i47, align 8, !alias.scope !180
+  store i32 9, ptr %61, align 8, !alias.scope !180
+  store i32 0, ptr %62, align 4, !alias.scope !180
+  store ptr null, ptr %63, align 8, !alias.scope !180
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %64, align 8, !alias.scope !180
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %129, ptr noundef nonnull byval(%class.ErrorContext) align 8 %7, ptr noundef nonnull @.str.181)
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit48
 
@@ -8966,7 +8966,7 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit48: ; preds =
 151:                                              ; preds = %74, %149
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %74, !llvm.loop !188
+  br i1 %exitcond.not, label %.loopexit, label %74, !llvm.loop !186
 
 .loopexit:                                        ; preds = %90, %95, %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit, %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit48, %142, %151, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %_ZN14ExceptionTableC2EPK6Method.exit, %150
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
@@ -8988,28 +8988,28 @@ define linkonce_odr hidden void @_ZN13StackMapFrame10push_stackE16VerificationTy
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %0, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
-  %14 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !192
-  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %0), !noalias !192
-  store i32 %13, ptr %4, align 8, !alias.scope !189
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
+  %14 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !190
+  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %0), !noalias !190
+  store i32 %13, ptr %4, align 8, !alias.scope !187
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 7, ptr %15, align 4, !alias.scope !189
+  store i32 7, ptr %15, align 4, !alias.scope !187
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 8, ptr %16, align 8, !alias.scope !189
+  store i32 8, ptr %16, align 8, !alias.scope !187
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !189
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !187
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %14, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !189
+  store ptr %14, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !187
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !189
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !187
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 9, ptr %17, align 8, !alias.scope !189
+  store i32 9, ptr %17, align 8, !alias.scope !187
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 0, ptr %18, align 4, !alias.scope !189
+  store i32 0, ptr %18, align 4, !alias.scope !187
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr null, ptr %19, align 8, !alias.scope !189
+  store ptr null, ptr %19, align 8, !alias.scope !187
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %20, align 8, !alias.scope !189
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %20, align 8, !alias.scope !187
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %12, ptr noundef nonnull byval(%class.ErrorContext) align 8 %4, ptr noundef nonnull @.str.181)
   br label %27
 
@@ -9043,28 +9043,28 @@ define linkonce_odr hidden void @_ZN13StackMapFrame12push_stack_2E16Verification
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %0, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
-  %16 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !198
-  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %0), !noalias !198
-  store i32 %15, ptr %5, align 8, !alias.scope !195
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
+  %16 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !196
+  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %0), !noalias !196
+  store i32 %15, ptr %5, align 8, !alias.scope !193
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 7, ptr %17, align 4, !alias.scope !195
+  store i32 7, ptr %17, align 4, !alias.scope !193
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 8, ptr %18, align 8, !alias.scope !195
+  store i32 8, ptr %18, align 8, !alias.scope !193
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !195
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !193
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %16, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !195
+  store ptr %16, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !193
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !195
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !193
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 9, ptr %19, align 8, !alias.scope !195
+  store i32 9, ptr %19, align 8, !alias.scope !193
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 0, ptr %20, align 4, !alias.scope !195
+  store i32 0, ptr %20, align 4, !alias.scope !193
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %21, align 8, !alias.scope !195
+  store ptr null, ptr %21, align 8, !alias.scope !193
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %22, align 8, !alias.scope !195
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %22, align 8, !alias.scope !193
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %14, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.181)
   br label %34
 
@@ -9108,25 +9108,25 @@ define hidden void @_ZN13ClassVerifier10verify_ldcEitP13StackMapFrameRK18constan
   br i1 %or.cond.i, label %_ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit, label %19
 
 19:                                               ; preds = %7
-  store i32 %5, ptr %10, align 8, !alias.scope !201
+  store i32 %5, ptr %10, align 8, !alias.scope !199
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 3, ptr %20, align 4, !alias.scope !201
+  store i32 3, ptr %20, align 4, !alias.scope !199
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 7, ptr %21, align 8, !alias.scope !201
+  store i32 7, ptr %21, align 8, !alias.scope !199
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %17, ptr %.sroa.43.0..sroa_idx.i.i, align 4, !alias.scope !201
+  store i32 %17, ptr %.sroa.43.0..sroa_idx.i.i, align 4, !alias.scope !199
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr null, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !201
+  store ptr null, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !199
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !201
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !199
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i32 9, ptr %22, align 8, !alias.scope !201
+  store i32 9, ptr %22, align 8, !alias.scope !199
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i32 0, ptr %23, align 4, !alias.scope !201
+  store i32 0, ptr %23, align 4, !alias.scope !199
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store ptr null, ptr %24, align 8, !alias.scope !201
+  store ptr null, ptr %24, align 8, !alias.scope !199
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %25, align 8, !alias.scope !201
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %25, align 8, !alias.scope !199
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %27) #20
@@ -9154,7 +9154,7 @@ _ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit: 
   %39 = zext i16 %2 to i64
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 %39
   %41 = load volatile i8, ptr %40, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   %42 = and i32 %1, -2
   %or.cond = icmp eq i32 %42, 18
   br i1 %or.cond, label %43, label %49
@@ -9205,28 +9205,28 @@ _ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit: 
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %64 = load ptr, ptr %63, align 8
   %65 = load i32, ptr %3, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
-  %66 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !207
-  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 8 dereferenceable(48) %3), !noalias !207
-  store i32 %65, ptr %9, align 8, !alias.scope !204
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
+  %66 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !205
+  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %66, ptr noundef nonnull align 8 dereferenceable(48) %3), !noalias !205
+  store i32 %65, ptr %9, align 8, !alias.scope !202
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 7, ptr %67, align 4, !alias.scope !204
+  store i32 7, ptr %67, align 4, !alias.scope !202
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 8, ptr %68, align 8, !alias.scope !204
+  store i32 8, ptr %68, align 8, !alias.scope !202
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !204
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !202
   %.sroa.5.0..sroa_idx.i.i82 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %66, ptr %.sroa.5.0..sroa_idx.i.i82, align 8, !alias.scope !204
+  store ptr %66, ptr %.sroa.5.0..sroa_idx.i.i82, align 8, !alias.scope !202
   %.sroa.6.0..sroa_idx.i.i83 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i83, align 8, !alias.scope !204
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i83, align 8, !alias.scope !202
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 9, ptr %69, align 8, !alias.scope !204
+  store i32 9, ptr %69, align 8, !alias.scope !202
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 0, ptr %70, align 4, !alias.scope !204
+  store i32 0, ptr %70, align 4, !alias.scope !202
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr null, ptr %71, align 8, !alias.scope !204
+  store ptr null, ptr %71, align 8, !alias.scope !202
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %72, align 8, !alias.scope !204
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %72, align 8, !alias.scope !202
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %64, ptr noundef nonnull byval(%class.ErrorContext) align 8 %9, ptr noundef nonnull @.str.181)
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
 
@@ -9273,28 +9273,28 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %3, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
-  %90 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !213
-  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef nonnull align 8 dereferenceable(48) %3), !noalias !213
-  store i32 %89, ptr %8, align 8, !alias.scope !210
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
+  %90 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !211
+  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %90, ptr noundef nonnull align 8 dereferenceable(48) %3), !noalias !211
+  store i32 %89, ptr %8, align 8, !alias.scope !208
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 7, ptr %91, align 4, !alias.scope !210
+  store i32 7, ptr %91, align 4, !alias.scope !208
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 8, ptr %92, align 8, !alias.scope !210
+  store i32 8, ptr %92, align 8, !alias.scope !208
   %.sroa.42.0..sroa_idx.i.i86 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i86, align 4, !alias.scope !210
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i86, align 4, !alias.scope !208
   %.sroa.5.0..sroa_idx.i.i87 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %90, ptr %.sroa.5.0..sroa_idx.i.i87, align 8, !alias.scope !210
+  store ptr %90, ptr %.sroa.5.0..sroa_idx.i.i87, align 8, !alias.scope !208
   %.sroa.6.0..sroa_idx.i.i88 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i88, align 8, !alias.scope !210
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i88, align 8, !alias.scope !208
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 9, ptr %93, align 8, !alias.scope !210
+  store i32 9, ptr %93, align 8, !alias.scope !208
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 0, ptr %94, align 4, !alias.scope !210
+  store i32 0, ptr %94, align 4, !alias.scope !208
   %95 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr null, ptr %95, align 8, !alias.scope !210
+  store ptr null, ptr %95, align 8, !alias.scope !208
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %96, align 8, !alias.scope !210
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %96, align 8, !alias.scope !208
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %88, ptr noundef nonnull byval(%class.ErrorContext) align 8 %8, ptr noundef nonnull @.str.181)
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit89
 
@@ -9376,32 +9376,32 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit89: ; preds =
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond130 = select i1 %or.cond112, i1 true, i1 %exitcond.not
-  br i1 %or.cond130, label %.loopexit, label %.lr.ph, !llvm.loop !216
+  br i1 %or.cond130, label %.loopexit, label %.lr.ph, !llvm.loop !214
 
 .loopexit:                                        ; preds = %.lr.ph, %117
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #20
   br label %135
 
 128:                                              ; preds = %.thread102
-  store i32 %5, ptr %13, align 8, !alias.scope !217
+  store i32 %5, ptr %13, align 8, !alias.scope !215
   %129 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 3, ptr %129, align 4, !alias.scope !217
+  store i32 3, ptr %129, align 4, !alias.scope !215
   %130 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 7, ptr %130, align 8, !alias.scope !217
+  store i32 7, ptr %130, align 8, !alias.scope !215
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i32 %17, ptr %.sroa.43.0..sroa_idx.i, align 4, !alias.scope !217
+  store i32 %17, ptr %.sroa.43.0..sroa_idx.i, align 4, !alias.scope !215
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !217
+  store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !215
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !217
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !215
   %131 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i32 9, ptr %131, align 8, !alias.scope !217
+  store i32 9, ptr %131, align 8, !alias.scope !215
   %132 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  store i32 0, ptr %132, align 4, !alias.scope !217
+  store i32 0, ptr %132, align 4, !alias.scope !215
   %133 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store ptr null, ptr %133, align 8, !alias.scope !217
+  store ptr null, ptr %133, align 8, !alias.scope !215
   %134 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %134, align 8, !alias.scope !217
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %134, align 8, !alias.scope !215
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %13, ptr noundef nonnull @.str.109)
   br label %135
 
@@ -9436,28 +9436,28 @@ define hidden void @_ZN13ClassVerifier12verify_iloadEiP13StackMapFrameP10JavaThr
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %2, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
-  %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !223
-  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !223
-  store i32 %20, ptr %5, align 8, !alias.scope !220
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
+  %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !221
+  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !221
+  store i32 %20, ptr %5, align 8, !alias.scope !218
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 7, ptr %22, align 4, !alias.scope !220
+  store i32 7, ptr %22, align 4, !alias.scope !218
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 8, ptr %23, align 8, !alias.scope !220
+  store i32 8, ptr %23, align 8, !alias.scope !218
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !220
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !218
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %21, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !220
+  store ptr %21, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !218
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !220
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !218
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 9, ptr %24, align 8, !alias.scope !220
+  store i32 9, ptr %24, align 8, !alias.scope !218
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 0, ptr %25, align 4, !alias.scope !220
+  store i32 0, ptr %25, align 4, !alias.scope !218
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %26, align 8, !alias.scope !220
+  store ptr null, ptr %26, align 8, !alias.scope !218
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %27, align 8, !alias.scope !220
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %27, align 8, !alias.scope !218
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %19, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.181)
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
 
@@ -9507,28 +9507,28 @@ define hidden void @_ZN13ClassVerifier12verify_lloadEiP13StackMapFrameP10JavaThr
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %2, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
-  %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !229
-  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !229
-  store i32 %20, ptr %5, align 8, !alias.scope !226
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
+  %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !227
+  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !227
+  store i32 %20, ptr %5, align 8, !alias.scope !224
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 7, ptr %22, align 4, !alias.scope !226
+  store i32 7, ptr %22, align 4, !alias.scope !224
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 8, ptr %23, align 8, !alias.scope !226
+  store i32 8, ptr %23, align 8, !alias.scope !224
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !226
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !224
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %21, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !226
+  store ptr %21, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !224
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !226
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !224
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 9, ptr %24, align 8, !alias.scope !226
+  store i32 9, ptr %24, align 8, !alias.scope !224
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 0, ptr %25, align 4, !alias.scope !226
+  store i32 0, ptr %25, align 4, !alias.scope !224
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %26, align 8, !alias.scope !226
+  store ptr null, ptr %26, align 8, !alias.scope !224
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %27, align 8, !alias.scope !226
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %27, align 8, !alias.scope !224
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %19, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.181)
   br label %_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread.exit
 
@@ -9584,28 +9584,28 @@ define hidden void @_ZN13ClassVerifier12verify_floadEiP13StackMapFrameP10JavaThr
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %2, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
-  %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !235
-  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !235
-  store i32 %20, ptr %5, align 8, !alias.scope !232
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
+  %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !233
+  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !233
+  store i32 %20, ptr %5, align 8, !alias.scope !230
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 7, ptr %22, align 4, !alias.scope !232
+  store i32 7, ptr %22, align 4, !alias.scope !230
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 8, ptr %23, align 8, !alias.scope !232
+  store i32 8, ptr %23, align 8, !alias.scope !230
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !232
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !230
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %21, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !232
+  store ptr %21, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !230
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !232
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !230
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 9, ptr %24, align 8, !alias.scope !232
+  store i32 9, ptr %24, align 8, !alias.scope !230
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 0, ptr %25, align 4, !alias.scope !232
+  store i32 0, ptr %25, align 4, !alias.scope !230
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %26, align 8, !alias.scope !232
+  store ptr null, ptr %26, align 8, !alias.scope !230
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %27, align 8, !alias.scope !232
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %27, align 8, !alias.scope !230
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %19, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.181)
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
 
@@ -9655,28 +9655,28 @@ define hidden void @_ZN13ClassVerifier12verify_dloadEiP13StackMapFrameP10JavaThr
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %2, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !238)
-  %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !241
-  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !241
-  store i32 %20, ptr %5, align 8, !alias.scope !238
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
+  %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !239
+  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !239
+  store i32 %20, ptr %5, align 8, !alias.scope !236
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 7, ptr %22, align 4, !alias.scope !238
+  store i32 7, ptr %22, align 4, !alias.scope !236
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 8, ptr %23, align 8, !alias.scope !238
+  store i32 8, ptr %23, align 8, !alias.scope !236
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !238
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !236
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %21, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !238
+  store ptr %21, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !236
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !238
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !236
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 9, ptr %24, align 8, !alias.scope !238
+  store i32 9, ptr %24, align 8, !alias.scope !236
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 0, ptr %25, align 4, !alias.scope !238
+  store i32 0, ptr %25, align 4, !alias.scope !236
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %26, align 8, !alias.scope !238
+  store ptr null, ptr %26, align 8, !alias.scope !236
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %27, align 8, !alias.scope !238
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %27, align 8, !alias.scope !236
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %19, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.181)
   br label %_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread.exit
 
@@ -9732,28 +9732,28 @@ define hidden void @_ZN13ClassVerifier12verify_aloadEiP13StackMapFrameP10JavaThr
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %2, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
-  %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !247
-  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !247
-  store i32 %20, ptr %5, align 8, !alias.scope !244
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
+  %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !245
+  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !245
+  store i32 %20, ptr %5, align 8, !alias.scope !242
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 7, ptr %22, align 4, !alias.scope !244
+  store i32 7, ptr %22, align 4, !alias.scope !242
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 8, ptr %23, align 8, !alias.scope !244
+  store i32 8, ptr %23, align 8, !alias.scope !242
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !244
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !242
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %21, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !244
+  store ptr %21, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !242
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !244
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !242
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 9, ptr %24, align 8, !alias.scope !244
+  store i32 9, ptr %24, align 8, !alias.scope !242
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 0, ptr %25, align 4, !alias.scope !244
+  store i32 0, ptr %25, align 4, !alias.scope !242
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %26, align 8, !alias.scope !244
+  store ptr null, ptr %26, align 8, !alias.scope !242
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %27, align 8, !alias.scope !244
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %27, align 8, !alias.scope !242
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %19, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.181)
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
 
@@ -10348,28 +10348,28 @@ define linkonce_odr hidden ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %0, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
-  %11 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !253
-  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %0), !noalias !253
-  store i32 %10, ptr %3, align 8, !alias.scope !250
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
+  %11 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !251
+  tail call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 8 dereferenceable(48) %0), !noalias !251
+  store i32 %10, ptr %3, align 8, !alias.scope !248
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 8, ptr %12, align 4, !alias.scope !250
+  store i32 8, ptr %12, align 4, !alias.scope !248
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 8, ptr %13, align 8, !alias.scope !250
+  store i32 8, ptr %13, align 8, !alias.scope !248
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !250
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !248
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %11, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !250
+  store ptr %11, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !248
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !250
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !248
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 9, ptr %14, align 8, !alias.scope !250
+  store i32 9, ptr %14, align 8, !alias.scope !248
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 0, ptr %15, align 4, !alias.scope !250
+  store i32 0, ptr %15, align 4, !alias.scope !248
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr null, ptr %16, align 8, !alias.scope !250
+  store ptr null, ptr %16, align 8, !alias.scope !248
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %17, align 8, !alias.scope !250
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %17, align 8, !alias.scope !248
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %9, ptr noundef nonnull byval(%class.ErrorContext) align 8 %3, ptr noundef nonnull @.str.182)
   br label %24
 
@@ -10472,7 +10472,7 @@ define hidden void @_ZN13ClassVerifier13verify_switchEP17RawBytecodeStreamjPcP13
   %34 = zext i16 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 %34
   %36 = icmp ult ptr %35, %26
-  br i1 %36, label %.lr.ph, label %.loopexit84, !llvm.loop !256
+  br i1 %36, label %.lr.ph, label %.loopexit84, !llvm.loop !254
 
 .lr.ph:                                           ; preds = %7, %32
   %37 = phi ptr [ %35, %32 ], [ %22, %7 ]
@@ -10482,25 +10482,25 @@ define hidden void @_ZN13ClassVerifier13verify_switchEP17RawBytecodeStreamjPcP13
   br i1 %.not68, label %32, label %39
 
 39:                                               ; preds = %.lr.ph
-  store i32 %14, ptr %8, align 8, !alias.scope !257
+  store i32 %14, ptr %8, align 8, !alias.scope !255
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 0, ptr %40, align 4, !alias.scope !257
+  store i32 0, ptr %40, align 4, !alias.scope !255
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 9, ptr %41, align 8, !alias.scope !257
+  store i32 9, ptr %41, align 8, !alias.scope !255
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 0, ptr %42, align 4, !alias.scope !257
+  store i32 0, ptr %42, align 4, !alias.scope !255
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr null, ptr %43, align 8, !alias.scope !257
+  store ptr null, ptr %43, align 8, !alias.scope !255
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %44, align 8, !alias.scope !257
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %44, align 8, !alias.scope !255
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 9, ptr %45, align 8, !alias.scope !257
+  store i32 9, ptr %45, align 8, !alias.scope !255
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 0, ptr %46, align 4, !alias.scope !257
+  store i32 0, ptr %46, align 4, !alias.scope !255
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr null, ptr %47, align 8, !alias.scope !257
+  store ptr null, ptr %47, align 8, !alias.scope !255
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %48, align 8, !alias.scope !257
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %48, align 8, !alias.scope !255
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %8, ptr noundef nonnull @.str.110)
   br label %.loopexit
 
@@ -10569,25 +10569,25 @@ _ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_Z
   br i1 %80, label %81, label %91
 
 81:                                               ; preds = %77
-  store i32 %14, ptr %9, align 8, !alias.scope !260
+  store i32 %14, ptr %9, align 8, !alias.scope !258
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 0, ptr %82, align 4, !alias.scope !260
+  store i32 0, ptr %82, align 4, !alias.scope !258
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 9, ptr %83, align 8, !alias.scope !260
+  store i32 9, ptr %83, align 8, !alias.scope !258
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %84, align 4, !alias.scope !260
+  store i32 0, ptr %84, align 4, !alias.scope !258
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr null, ptr %85, align 8, !alias.scope !260
+  store ptr null, ptr %85, align 8, !alias.scope !258
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %86, align 8, !alias.scope !260
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %86, align 8, !alias.scope !258
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 9, ptr %87, align 8, !alias.scope !260
+  store i32 9, ptr %87, align 8, !alias.scope !258
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 0, ptr %88, align 4, !alias.scope !260
+  store i32 0, ptr %88, align 4, !alias.scope !258
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr null, ptr %89, align 8, !alias.scope !260
+  store ptr null, ptr %89, align 8, !alias.scope !258
   %90 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %90, align 8, !alias.scope !260
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %90, align 8, !alias.scope !258
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %9, ptr noundef nonnull @.str.111)
   br label %.loopexit
 
@@ -10599,25 +10599,25 @@ _ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_Z
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %91
-  store i32 %14, ptr %10, align 8, !alias.scope !263
+  store i32 %14, ptr %10, align 8, !alias.scope !261
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 0, ptr %97, align 4, !alias.scope !263
+  store i32 0, ptr %97, align 4, !alias.scope !261
   %98 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 9, ptr %98, align 8, !alias.scope !263
+  store i32 9, ptr %98, align 8, !alias.scope !261
   %99 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 0, ptr %99, align 4, !alias.scope !263
+  store i32 0, ptr %99, align 4, !alias.scope !261
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr null, ptr %100, align 8, !alias.scope !263
+  store ptr null, ptr %100, align 8, !alias.scope !261
   %101 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %101, align 8, !alias.scope !263
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %101, align 8, !alias.scope !261
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i32 9, ptr %102, align 8, !alias.scope !263
+  store i32 9, ptr %102, align 8, !alias.scope !261
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 36
-  store i32 0, ptr %103, align 4, !alias.scope !263
+  store i32 0, ptr %103, align 4, !alias.scope !261
   %104 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store ptr null, ptr %104, align 8, !alias.scope !263
+  store ptr null, ptr %104, align 8, !alias.scope !261
   %105 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %105, align 8, !alias.scope !263
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %105, align 8, !alias.scope !261
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %10, ptr noundef nonnull @.str.112)
   br label %.loopexit
 
@@ -10640,32 +10640,32 @@ _ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_Z
   br label %.lr.ph87
 
 113:                                              ; preds = %109
-  store i32 %14, ptr %11, align 8, !alias.scope !266
+  store i32 %14, ptr %11, align 8, !alias.scope !264
   %114 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 0, ptr %114, align 4, !alias.scope !266
+  store i32 0, ptr %114, align 4, !alias.scope !264
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 9, ptr %115, align 8, !alias.scope !266
+  store i32 9, ptr %115, align 8, !alias.scope !264
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 0, ptr %116, align 4, !alias.scope !266
+  store i32 0, ptr %116, align 4, !alias.scope !264
   %117 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr null, ptr %117, align 8, !alias.scope !266
+  store ptr null, ptr %117, align 8, !alias.scope !264
   %118 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %118, align 8, !alias.scope !266
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %118, align 8, !alias.scope !264
   %119 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 9, ptr %119, align 8, !alias.scope !266
+  store i32 9, ptr %119, align 8, !alias.scope !264
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  store i32 0, ptr %120, align 4, !alias.scope !266
+  store i32 0, ptr %120, align 4, !alias.scope !264
   %121 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr null, ptr %121, align 8, !alias.scope !266
+  store ptr null, ptr %121, align 8, !alias.scope !264
   %122 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %122, align 8, !alias.scope !266
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %122, align 8, !alias.scope !264
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %11, ptr noundef nonnull @.str.113)
   br label %.loopexit
 
 123:                                              ; preds = %.lr.ph87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit82, label %.lr.ph87, !llvm.loop !269
+  br i1 %exitcond.not, label %.loopexit82, label %.lr.ph87, !llvm.loop !267
 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %123
   %indvars.iv = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next, %123 ]
@@ -10685,25 +10685,25 @@ _ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_Z
   br i1 %.not, label %123, label %134
 
 134:                                              ; preds = %.lr.ph87
-  store i32 %14, ptr %12, align 8, !alias.scope !270
+  store i32 %14, ptr %12, align 8, !alias.scope !268
   %135 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 0, ptr %135, align 4, !alias.scope !270
+  store i32 0, ptr %135, align 4, !alias.scope !268
   %136 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 9, ptr %136, align 8, !alias.scope !270
+  store i32 9, ptr %136, align 8, !alias.scope !268
   %137 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 0, ptr %137, align 4, !alias.scope !270
+  store i32 0, ptr %137, align 4, !alias.scope !268
   %138 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr null, ptr %138, align 8, !alias.scope !270
+  store ptr null, ptr %138, align 8, !alias.scope !268
   %139 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %139, align 8, !alias.scope !270
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %139, align 8, !alias.scope !268
   %140 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i32 9, ptr %140, align 8, !alias.scope !270
+  store i32 9, ptr %140, align 8, !alias.scope !268
   %141 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  store i32 0, ptr %141, align 4, !alias.scope !270
+  store i32 0, ptr %141, align 4, !alias.scope !268
   %142 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr null, ptr %142, align 8, !alias.scope !270
+  store ptr null, ptr %142, align 8, !alias.scope !268
   %143 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %143, align 8, !alias.scope !270
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %143, align 8, !alias.scope !268
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %12, ptr noundef nonnull @.str.114)
   br label %.loopexit
 
@@ -10756,7 +10756,7 @@ _ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_Z
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
   %or.cond = select i1 %or.cond78, i1 true, i1 %exitcond102.not
-  br i1 %or.cond, label %.loopexit, label %150, !llvm.loop !273
+  br i1 %or.cond, label %.loopexit, label %150, !llvm.loop !271
 
 .loopexit:                                        ; preds = %150, %.loopexit82, %68, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit, %134, %113, %96, %81, %39
   ret void
@@ -10789,9 +10789,9 @@ define hidden void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %1, ptr %.sroa.6.0..sroa_idx, align 8
-  store i32 %3, ptr %9, align 8, !alias.scope !274
+  store i32 %3, ptr %9, align 8, !alias.scope !272
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 1, ptr %18, align 4, !alias.scope !274
+  store i32 1, ptr %18, align 4, !alias.scope !272
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %9, ptr noundef nonnull @.str.142)
   br label %54
 
@@ -10877,9 +10877,9 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   store ptr null, ptr %.sroa.519.0..sroa_idx, align 8
   %.sroa.620.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %.sroa.0.0.copyload, ptr %.sroa.620.0..sroa_idx, align 8
-  store i32 %3, ptr %11, align 8, !alias.scope !277
+  store i32 %3, ptr %11, align 8, !alias.scope !275
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 1, ptr %53, align 4, !alias.scope !277
+  store i32 1, ptr %53, align 4, !alias.scope !275
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %11, ptr noundef nonnull @.str.143)
   br label %54
 
@@ -10997,17 +10997,17 @@ _ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %68, %63, %.thread, 
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %58, ptr %.sroa.6.0..sroa_idx, align 8
-  store i32 %77, ptr %9, align 8, !alias.scope !280
+  store i32 %77, ptr %9, align 8, !alias.scope !278
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 1, ptr %79, align 4, !alias.scope !280
+  store i32 1, ptr %79, align 4, !alias.scope !278
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 9, ptr %80, align 8, !alias.scope !280
+  store i32 9, ptr %80, align 8, !alias.scope !278
   %81 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 0, ptr %81, align 4, !alias.scope !280
+  store i32 0, ptr %81, align 4, !alias.scope !278
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr null, ptr %82, align 8, !alias.scope !280
+  store ptr null, ptr %82, align 8, !alias.scope !278
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %83, align 8, !alias.scope !280
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %83, align 8, !alias.scope !278
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8160
   %85 = load ptr, ptr %84, align 8
   %86 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %85) #20
@@ -11107,19 +11107,19 @@ _ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16Verifica
 119:                                              ; preds = %114
   %120 = load ptr, ptr %106, align 8
   %121 = load i32, ptr %2, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !283)
-  %122 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !286
-  call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !286
-  store i32 %121, ptr %8, align 8, !alias.scope !283
-  store i32 7, ptr %107, align 4, !alias.scope !283
-  store i32 8, ptr %108, align 8, !alias.scope !283
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !283
-  store ptr %122, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !283
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !283
-  store i32 9, ptr %109, align 8, !alias.scope !283
-  store i32 0, ptr %110, align 4, !alias.scope !283
-  store ptr null, ptr %111, align 8, !alias.scope !283
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %112, align 8, !alias.scope !283
+  call void @llvm.experimental.noalias.scope.decl(metadata !281)
+  %122 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !284
+  call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !284
+  store i32 %121, ptr %8, align 8, !alias.scope !281
+  store i32 7, ptr %107, align 4, !alias.scope !281
+  store i32 8, ptr %108, align 8, !alias.scope !281
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !281
+  store ptr %122, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !281
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !281
+  store i32 9, ptr %109, align 8, !alias.scope !281
+  store i32 0, ptr %110, align 4, !alias.scope !281
+  store ptr null, ptr %111, align 8, !alias.scope !281
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %112, align 8, !alias.scope !281
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %120, ptr noundef nonnull byval(%class.ErrorContext) align 8 %8, ptr noundef nonnull @.str.181)
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
 
@@ -11142,7 +11142,7 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %.0.i
   %or.cond215 = select i1 %or.cond157, i1 true, i1 %exitcond209.not
-  br i1 %or.cond215, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %114, !llvm.loop !289
+  br i1 %or.cond215, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %114, !llvm.loop !287
 
 .preheader178:                                    ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit, %133
   %indvars.iv202 = phi i64 [ %indvars.iv.next203, %133 ], [ %.0.i, %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit ]
@@ -11159,7 +11159,7 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
   %138 = load ptr, ptr %34, align 8
   %139 = icmp ne ptr %138, null
   %or.cond159 = select i1 %137, i1 true, i1 %139
-  br i1 %or.cond159, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %.preheader178, !llvm.loop !290
+  br i1 %or.cond159, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %.preheader178, !llvm.loop !288
 
 140:                                              ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
   %141 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull %58, ptr noundef nonnull %5)
@@ -11187,7 +11187,7 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
   %153 = load ptr, ptr %34, align 8
   %154 = icmp ne ptr %153, null
   %or.cond163 = select i1 %152, i1 true, i1 %154
-  br i1 %or.cond163, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %.preheader184, !llvm.loop !291
+  br i1 %or.cond163, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %.preheader184, !llvm.loop !289
 
 155:                                              ; preds = %.preheader184
   %156 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %5)
@@ -11249,9 +11249,9 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
   store ptr null, ptr %.sroa.5145.0..sroa_idx, align 8
   %.sroa.6146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %.sroa.010.0.copyload, ptr %.sroa.6146.0..sroa_idx, align 8
-  store i32 %101, ptr %15, align 8, !alias.scope !292
+  store i32 %101, ptr %15, align 8, !alias.scope !290
   %182 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 1, ptr %182, align 4, !alias.scope !292
+  store i32 1, ptr %182, align 4, !alias.scope !290
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %15, ptr noundef nonnull @.str.116)
   br label %.critedge115
 
@@ -11293,7 +11293,7 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next195, %.0.i
   %or.cond216 = select i1 %or.cond169, i1 true, i1 %exitcond.not
-  br i1 %or.cond216, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %.preheader182, !llvm.loop !295
+  br i1 %or.cond216, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %.preheader182, !llvm.loop !293
 
 201:                                              ; preds = %189
   %202 = load ptr, ptr %3, align 8
@@ -11314,7 +11314,7 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
   %209 = getelementptr inbounds nuw i8, ptr %.0.i119, i64 24
   %210 = load ptr, ptr %209, align 8
   %211 = icmp eq ptr %210, %205
-  br i1 %211, label %212, label %207, !llvm.loop !296
+  br i1 %211, label %212, label %207, !llvm.loop !294
 
 212:                                              ; preds = %208
   %213 = call noundef ptr @_ZN13ClassVerifier10load_classEP6SymbolP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %205, ptr noundef nonnull %5)
@@ -11354,9 +11354,9 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %
   store ptr null, ptr %.sroa.5149.0..sroa_idx, align 8
   %.sroa.6150.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %.sroa.0.0.copyload.i121, ptr %.sroa.6150.0..sroa_idx, align 8
-  store i32 %101, ptr %18, align 8, !alias.scope !297
+  store i32 %101, ptr %18, align 8, !alias.scope !295
   %228 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 1, ptr %228, align 4, !alias.scope !297
+  store i32 1, ptr %228, align 4, !alias.scope !295
   %.str.118..str.119 = select i1 %.1, ptr @.str.118, ptr @.str.119
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %18, ptr noundef nonnull @.str.117, ptr noundef nonnull %.str.118..str.119)
   br label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152
@@ -11400,19 +11400,19 @@ _ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %207
 246:                                              ; preds = %241
   %247 = load ptr, ptr %233, align 8
   %248 = load i32, ptr %2, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !300)
-  %249 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !303
-  call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %249, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !303
-  store i32 %248, ptr %7, align 8, !alias.scope !300
-  store i32 7, ptr %234, align 4, !alias.scope !300
-  store i32 8, ptr %235, align 8, !alias.scope !300
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i123, align 4, !alias.scope !300
-  store ptr %249, ptr %.sroa.5.0..sroa_idx.i.i124, align 8, !alias.scope !300
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i125, align 8, !alias.scope !300
-  store i32 9, ptr %236, align 8, !alias.scope !300
-  store i32 0, ptr %237, align 4, !alias.scope !300
-  store ptr null, ptr %238, align 8, !alias.scope !300
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %239, align 8, !alias.scope !300
+  call void @llvm.experimental.noalias.scope.decl(metadata !298)
+  %249 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !301
+  call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %249, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !301
+  store i32 %248, ptr %7, align 8, !alias.scope !298
+  store i32 7, ptr %234, align 4, !alias.scope !298
+  store i32 8, ptr %235, align 8, !alias.scope !298
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i123, align 4, !alias.scope !298
+  store ptr %249, ptr %.sroa.5.0..sroa_idx.i.i124, align 8, !alias.scope !298
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i125, align 8, !alias.scope !298
+  store i32 9, ptr %236, align 8, !alias.scope !298
+  store i32 0, ptr %237, align 4, !alias.scope !298
+  store ptr null, ptr %238, align 8, !alias.scope !298
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %239, align 8, !alias.scope !298
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %247, ptr noundef nonnull byval(%class.ErrorContext) align 8 %7, ptr noundef nonnull @.str.181)
   br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit126
 
@@ -11435,7 +11435,7 @@ _ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit126: ; preds 
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next198, %.0.i
   %or.cond217 = select i1 %or.cond173, i1 true, i1 %exitcond201.not
-  br i1 %or.cond217, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %241, !llvm.loop !306
+  br i1 %or.cond217, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %241, !llvm.loop !304
 
 .critedge115:                                     ; preds = %.critedge, %179
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %163) #20
@@ -11600,7 +11600,7 @@ define hidden void @_ZN13ClassVerifier26verify_invoke_instructionsEP17RawBytecod
   %113 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %114 = load ptr, ptr %113, align 8
   %.not.i.i.i = icmp eq ptr %114, null
-  br i1 %.not.i.i.i, label %.loopexit188, label %.lr.ph.i.i.i, !llvm.loop !160
+  br i1 %.not.i.i.i, label %.loopexit188, label %.lr.ph.i.i.i, !llvm.loop !158
 
 115:                                              ; preds = %108
   %116 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -11623,7 +11623,7 @@ define hidden void @_ZN13ClassVerifier26verify_invoke_instructionsEP17RawBytecod
   store ptr inttoptr (i64 4294901761 to ptr), ptr %122, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 10
-  br i1 %exitcond.not.i.i, label %_ZN13GrowableArrayI16VerificationTypeEC2Ei.exit, label %.lr.ph.i.i, !llvm.loop !307
+  br i1 %exitcond.not.i.i, label %_ZN13GrowableArrayI16VerificationTypeEC2Ei.exit, label %.lr.ph.i.i, !llvm.loop !305
 
 _ZN13GrowableArrayI16VerificationTypeEC2Ei.exit:  ; preds = %.lr.ph.i.i
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 16
@@ -11661,7 +11661,7 @@ _ZN13GrowableArrayI16VerificationTypeEC2Ei.exit:  ; preds = %.lr.ph.i.i
   %142 = getelementptr inbounds nuw i8, ptr %.pr.i.i, i64 16
   %143 = load ptr, ptr %142, align 8
   %.not.i.i.i145 = icmp eq ptr %143, null
-  br i1 %.not.i.i.i145, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i.loopexit, label %.lr.ph.i.i.i144, !llvm.loop !160
+  br i1 %.not.i.i.i145, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i.loopexit, label %.lr.ph.i.i.i144, !llvm.loop !158
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.i.i: ; preds = %137
   %144 = getelementptr inbounds nuw i8, ptr %.pr.i.i, i64 8
@@ -11711,25 +11711,25 @@ _ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit: 
   br i1 %.not137, label %177, label %167
 
 167:                                              ; preds = %156
-  store i32 %154, ptr %12, align 8, !alias.scope !308
+  store i32 %154, ptr %12, align 8, !alias.scope !306
   %168 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 0, ptr %168, align 4, !alias.scope !308
+  store i32 0, ptr %168, align 4, !alias.scope !306
   %169 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 9, ptr %169, align 8, !alias.scope !308
+  store i32 9, ptr %169, align 8, !alias.scope !306
   %170 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 0, ptr %170, align 4, !alias.scope !308
+  store i32 0, ptr %170, align 4, !alias.scope !306
   %171 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr null, ptr %171, align 8, !alias.scope !308
+  store ptr null, ptr %171, align 8, !alias.scope !306
   %172 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %172, align 8, !alias.scope !308
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %172, align 8, !alias.scope !306
   %173 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i32 9, ptr %173, align 8, !alias.scope !308
+  store i32 9, ptr %173, align 8, !alias.scope !306
   %174 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  store i32 0, ptr %174, align 4, !alias.scope !308
+  store i32 0, ptr %174, align 4, !alias.scope !306
   %175 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr null, ptr %175, align 8, !alias.scope !308
+  store ptr null, ptr %175, align 8, !alias.scope !306
   %176 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %176, align 8, !alias.scope !308
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %176, align 8, !alias.scope !306
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %12, ptr noundef nonnull @.str.128)
   br label %.loopexit
 
@@ -11740,25 +11740,25 @@ _ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit: 
   br i1 %.not138, label %.thread, label %180
 
 180:                                              ; preds = %177
-  store i32 %154, ptr %13, align 8, !alias.scope !311
+  store i32 %154, ptr %13, align 8, !alias.scope !309
   %181 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 0, ptr %181, align 4, !alias.scope !311
+  store i32 0, ptr %181, align 4, !alias.scope !309
   %182 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 9, ptr %182, align 8, !alias.scope !311
+  store i32 9, ptr %182, align 8, !alias.scope !309
   %183 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i32 0, ptr %183, align 4, !alias.scope !311
+  store i32 0, ptr %183, align 4, !alias.scope !309
   %184 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr null, ptr %184, align 8, !alias.scope !311
+  store ptr null, ptr %184, align 8, !alias.scope !309
   %185 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %185, align 8, !alias.scope !311
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %185, align 8, !alias.scope !309
   %186 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i32 9, ptr %186, align 8, !alias.scope !311
+  store i32 9, ptr %186, align 8, !alias.scope !309
   %187 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  store i32 0, ptr %187, align 4, !alias.scope !311
+  store i32 0, ptr %187, align 4, !alias.scope !309
   %188 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store ptr null, ptr %188, align 8, !alias.scope !311
+  store ptr null, ptr %188, align 8, !alias.scope !309
   %189 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %189, align 8, !alias.scope !311
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %189, align 8, !alias.scope !309
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %13, ptr noundef nonnull @.str.129)
   br label %.loopexit
 
@@ -11784,25 +11784,25 @@ _ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit: 
   br i1 %.not140, label %.thread, label %203
 
 203:                                              ; preds = %200, %191
-  store i32 %154, ptr %14, align 8, !alias.scope !314
+  store i32 %154, ptr %14, align 8, !alias.scope !312
   %204 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i32 0, ptr %204, align 4, !alias.scope !314
+  store i32 0, ptr %204, align 4, !alias.scope !312
   %205 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 9, ptr %205, align 8, !alias.scope !314
+  store i32 9, ptr %205, align 8, !alias.scope !312
   %206 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store i32 0, ptr %206, align 4, !alias.scope !314
+  store i32 0, ptr %206, align 4, !alias.scope !312
   %207 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr null, ptr %207, align 8, !alias.scope !314
+  store ptr null, ptr %207, align 8, !alias.scope !312
   %208 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %208, align 8, !alias.scope !314
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %208, align 8, !alias.scope !312
   %209 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 9, ptr %209, align 8, !alias.scope !314
+  store i32 9, ptr %209, align 8, !alias.scope !312
   %210 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  store i32 0, ptr %210, align 4, !alias.scope !314
+  store i32 0, ptr %210, align 4, !alias.scope !312
   %211 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr null, ptr %211, align 8, !alias.scope !314
+  store ptr null, ptr %211, align 8, !alias.scope !312
   %212 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %212, align 8, !alias.scope !314
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %212, align 8, !alias.scope !312
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %14, ptr noundef nonnull @.str.130)
   br label %.loopexit
 
@@ -11822,25 +11822,25 @@ _ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit: 
   br i1 %.not142, label %.critedge, label %219
 
 219:                                              ; preds = %217, %216
-  store i32 %154, ptr %15, align 8, !alias.scope !317
+  store i32 %154, ptr %15, align 8, !alias.scope !315
   %220 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 0, ptr %220, align 4, !alias.scope !317
+  store i32 0, ptr %220, align 4, !alias.scope !315
   %221 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 9, ptr %221, align 8, !alias.scope !317
+  store i32 9, ptr %221, align 8, !alias.scope !315
   %222 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  store i32 0, ptr %222, align 4, !alias.scope !317
+  store i32 0, ptr %222, align 4, !alias.scope !315
   %223 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr null, ptr %223, align 8, !alias.scope !317
+  store ptr null, ptr %223, align 8, !alias.scope !315
   %224 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %224, align 8, !alias.scope !317
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %224, align 8, !alias.scope !315
   %225 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store i32 9, ptr %225, align 8, !alias.scope !317
+  store i32 9, ptr %225, align 8, !alias.scope !315
   %226 = getelementptr inbounds nuw i8, ptr %15, i64 36
-  store i32 0, ptr %226, align 4, !alias.scope !317
+  store i32 0, ptr %226, align 4, !alias.scope !315
   %227 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr null, ptr %227, align 8, !alias.scope !317
+  store ptr null, ptr %227, align 8, !alias.scope !315
   %228 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %228, align 8, !alias.scope !317
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %228, align 8, !alias.scope !315
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %15, ptr noundef nonnull @.str.131)
   br label %.loopexit
 
@@ -11875,7 +11875,7 @@ _ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit: 
 241:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit187, label %.lr.ph.i, !llvm.loop !320
+  br i1 %exitcond.not.i, label %.loopexit187, label %.lr.ph.i, !llvm.loop !318
 
 .lr.ph.i:                                         ; preds = %241, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %241 ]
@@ -11902,7 +11902,7 @@ _ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit: 
   %257 = zext i16 %34 to i64
   %258 = getelementptr inbounds nuw i8, ptr %256, i64 %257
   %259 = load volatile i8, ptr %258, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   %260 = icmp eq i8 %259, 11
   %.sroa.0.0.copyload.i148 = load ptr, ptr %233, align 8
   store ptr %.sroa.0.0.copyload.i148, ptr %16, align 8
@@ -11918,25 +11918,25 @@ _ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit: 
   br i1 %261, label %277, label %267
 
 267:                                              ; preds = %266
-  store i32 %154, ptr %17, align 8, !alias.scope !321
+  store i32 %154, ptr %17, align 8, !alias.scope !319
   %268 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 0, ptr %268, align 4, !alias.scope !321
+  store i32 0, ptr %268, align 4, !alias.scope !319
   %269 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i32 9, ptr %269, align 8, !alias.scope !321
+  store i32 9, ptr %269, align 8, !alias.scope !319
   %270 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  store i32 0, ptr %270, align 4, !alias.scope !321
+  store i32 0, ptr %270, align 4, !alias.scope !319
   %271 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr null, ptr %271, align 8, !alias.scope !321
+  store ptr null, ptr %271, align 8, !alias.scope !319
   %272 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %272, align 8, !alias.scope !321
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %272, align 8, !alias.scope !319
   %273 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i32 9, ptr %273, align 8, !alias.scope !321
+  store i32 9, ptr %273, align 8, !alias.scope !319
   %274 = getelementptr inbounds nuw i8, ptr %17, i64 36
-  store i32 0, ptr %274, align 4, !alias.scope !321
+  store i32 0, ptr %274, align 4, !alias.scope !319
   %275 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  store ptr null, ptr %275, align 8, !alias.scope !321
+  store ptr null, ptr %275, align 8, !alias.scope !319
   %276 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %276, align 8, !alias.scope !321
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %276, align 8, !alias.scope !319
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %17, ptr noundef nonnull @.str.132)
   br label %.loopexit
 
@@ -11944,25 +11944,25 @@ _ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit: 
   br i1 %260, label %278, label %.critedge
 
 278:                                              ; preds = %277
-  store i32 %154, ptr %18, align 8, !alias.scope !324
+  store i32 %154, ptr %18, align 8, !alias.scope !322
   %279 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 0, ptr %279, align 4, !alias.scope !324
+  store i32 0, ptr %279, align 4, !alias.scope !322
   %280 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 9, ptr %280, align 8, !alias.scope !324
+  store i32 9, ptr %280, align 8, !alias.scope !322
   %281 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  store i32 0, ptr %281, align 4, !alias.scope !324
+  store i32 0, ptr %281, align 4, !alias.scope !322
   %282 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr null, ptr %282, align 8, !alias.scope !324
+  store ptr null, ptr %282, align 8, !alias.scope !322
   %283 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %283, align 8, !alias.scope !324
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %283, align 8, !alias.scope !322
   %284 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store i32 9, ptr %284, align 8, !alias.scope !324
+  store i32 9, ptr %284, align 8, !alias.scope !322
   %285 = getelementptr inbounds nuw i8, ptr %18, i64 36
-  store i32 0, ptr %285, align 4, !alias.scope !324
+  store i32 0, ptr %285, align 4, !alias.scope !322
   %286 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store ptr null, ptr %286, align 8, !alias.scope !324
+  store ptr null, ptr %286, align 8, !alias.scope !322
   %287 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %287, align 8, !alias.scope !324
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %287, align 8, !alias.scope !322
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %18, ptr noundef nonnull @.str.133)
   br label %.loopexit
 
@@ -11990,7 +11990,7 @@ _ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit: 
   %302 = load ptr, ptr %50, align 8
   %303 = icmp ne ptr %302, null
   %or.cond168 = select i1 %301, i1 true, i1 %303
-  br i1 %or.cond168, label %.loopexit, label %292, !llvm.loop !327
+  br i1 %or.cond168, label %.loopexit, label %292, !llvm.loop !325
 
 304:                                              ; preds = %292
   %305 = and i32 %36, -3
@@ -12084,7 +12084,7 @@ _ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit: 
   %351 = getelementptr inbounds nuw i8, ptr %.0.i151, i64 24
   %352 = load ptr, ptr %351, align 8
   %353 = icmp eq ptr %352, %347
-  br i1 %353, label %354, label %349, !llvm.loop !296
+  br i1 %353, label %354, label %349, !llvm.loop !294
 
 354:                                              ; preds = %350
   %355 = call noundef ptr @_ZN13ClassVerifier10load_classEP6SymbolP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %347, ptr noundef nonnull %9)
@@ -12154,9 +12154,9 @@ _ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %364, %368, %375, %_
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 48
   store ptr %.sroa.0.0.copyload.i153, ptr %.sroa.6.0..sroa_idx, align 8
-  store i32 %154, ptr %21, align 8, !alias.scope !328
+  store i32 %154, ptr %21, align 8, !alias.scope !326
   %387 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 1, ptr %387, align 4, !alias.scope !328
+  store i32 1, ptr %387, align 4, !alias.scope !326
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %21, ptr noundef nonnull @.str.134)
   br label %.loopexit
 
@@ -12186,25 +12186,25 @@ _ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %349
   br label %410
 
 400:                                              ; preds = %396
-  store i32 %154, ptr %23, align 8, !alias.scope !331
+  store i32 %154, ptr %23, align 8, !alias.scope !329
   %401 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store i32 0, ptr %401, align 4, !alias.scope !331
+  store i32 0, ptr %401, align 4, !alias.scope !329
   %402 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i32 9, ptr %402, align 8, !alias.scope !331
+  store i32 9, ptr %402, align 8, !alias.scope !329
   %403 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  store i32 0, ptr %403, align 4, !alias.scope !331
+  store i32 0, ptr %403, align 4, !alias.scope !329
   %404 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr null, ptr %404, align 8, !alias.scope !331
+  store ptr null, ptr %404, align 8, !alias.scope !329
   %405 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %405, align 8, !alias.scope !331
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %405, align 8, !alias.scope !329
   %406 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i32 9, ptr %406, align 8, !alias.scope !331
+  store i32 9, ptr %406, align 8, !alias.scope !329
   %407 = getelementptr inbounds nuw i8, ptr %23, i64 36
-  store i32 0, ptr %407, align 4, !alias.scope !331
+  store i32 0, ptr %407, align 4, !alias.scope !329
   %408 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store ptr null, ptr %408, align 8, !alias.scope !331
+  store ptr null, ptr %408, align 8, !alias.scope !329
   %409 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %409, align 8, !alias.scope !331
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %409, align 8, !alias.scope !329
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %23, ptr noundef nonnull @.str.135)
   br label %.loopexit
 
@@ -12222,7 +12222,7 @@ _ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %349
   %indvars.iv.next201 = add nsw i64 %indvars.iv200, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count
   %or.cond208 = select i1 %or.cond180, i1 true, i1 %exitcond.not
-  br i1 %or.cond208, label %.loopexit, label %410, !llvm.loop !334
+  br i1 %or.cond208, label %.loopexit, label %410, !llvm.loop !332
 
 .loopexit:                                        ; preds = %295, %410, %388, %_ZNK16VerificationType8is_arrayEv.exit.thread, %354, %337, %328, %321, %314, %309, %252, %82, %49, %45, %400, %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, %384, %278, %267, %219, %203, %180, %167, %76
   ret void
@@ -12243,25 +12243,25 @@ define hidden void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolH
   br i1 %or.cond.i, label %_ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit, label %13
 
 13:                                               ; preds = %5
-  store i32 %1, ptr %6, align 8, !alias.scope !335
+  store i32 %1, ptr %6, align 8, !alias.scope !333
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 3, ptr %14, align 4, !alias.scope !335
+  store i32 3, ptr %14, align 4, !alias.scope !333
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 7, ptr %15, align 8, !alias.scope !335
+  store i32 7, ptr %15, align 8, !alias.scope !333
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %11, ptr %.sroa.43.0..sroa_idx.i.i, align 4, !alias.scope !335
+  store i32 %11, ptr %.sroa.43.0..sroa_idx.i.i, align 4, !alias.scope !333
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr null, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !335
+  store ptr null, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !333
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !335
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !333
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 9, ptr %16, align 8, !alias.scope !335
+  store i32 9, ptr %16, align 8, !alias.scope !333
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i32 0, ptr %17, align 4, !alias.scope !335
+  store i32 0, ptr %17, align 4, !alias.scope !333
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr null, ptr %18, align 8, !alias.scope !335
+  store ptr null, ptr %18, align 8, !alias.scope !333
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %19, align 8, !alias.scope !335
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %19, align 8, !alias.scope !333
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %21) #20
@@ -12287,7 +12287,7 @@ _ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit: 
   %34 = zext i16 %2 to i64
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
   %36 = load volatile i8, ptr %35, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   switch i8 %36, label %37 [
     i8 7, label %48
     i8 103, label %48
@@ -12295,25 +12295,25 @@ _ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit: 
   ]
 
 37:                                               ; preds = %29
-  store i32 %1, ptr %7, align 8, !alias.scope !338
+  store i32 %1, ptr %7, align 8, !alias.scope !336
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 3, ptr %38, align 4, !alias.scope !338
+  store i32 3, ptr %38, align 4, !alias.scope !336
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 7, ptr %39, align 8, !alias.scope !338
+  store i32 7, ptr %39, align 8, !alias.scope !336
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %11, ptr %.sroa.43.0..sroa_idx.i, align 4, !alias.scope !338
+  store i32 %11, ptr %.sroa.43.0..sroa_idx.i, align 4, !alias.scope !336
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !338
+  store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !336
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !338
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !336
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 9, ptr %40, align 8, !alias.scope !338
+  store i32 9, ptr %40, align 8, !alias.scope !336
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i32 0, ptr %41, align 4, !alias.scope !338
+  store i32 0, ptr %41, align 4, !alias.scope !336
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr null, ptr %42, align 8, !alias.scope !338
+  store ptr null, ptr %42, align 8, !alias.scope !336
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %43, align 8, !alias.scope !338
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %43, align 8, !alias.scope !336
   %44 = load ptr, ptr %3, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
@@ -12333,25 +12333,25 @@ define hidden noundef ptr @_ZN13ClassVerifier17get_newarray_typeEtiP10JavaThread
   br i1 %or.cond, label %7, label %17
 
 7:                                                ; preds = %4
-  store i32 %2, ptr %5, align 8, !alias.scope !341
+  store i32 %2, ptr %5, align 8, !alias.scope !339
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %8, align 4, !alias.scope !341
+  store i32 0, ptr %8, align 4, !alias.scope !339
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 9, ptr %9, align 8, !alias.scope !341
+  store i32 9, ptr %9, align 8, !alias.scope !339
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %10, align 4, !alias.scope !341
+  store i32 0, ptr %10, align 4, !alias.scope !339
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr null, ptr %11, align 8, !alias.scope !341
+  store ptr null, ptr %11, align 8, !alias.scope !339
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %12, align 8, !alias.scope !341
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %12, align 8, !alias.scope !339
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 9, ptr %13, align 8, !alias.scope !341
+  store i32 9, ptr %13, align 8, !alias.scope !339
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 0, ptr %14, align 4, !alias.scope !341
+  store i32 0, ptr %14, align 4, !alias.scope !339
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr null, ptr %15, align 8, !alias.scope !341
+  store ptr null, ptr %15, align 8, !alias.scope !339
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %16, align 8, !alias.scope !341
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %16, align 8, !alias.scope !339
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %5, ptr noundef nonnull @.str.138)
   br label %22
 
@@ -12469,25 +12469,25 @@ _ZNK16VerificationType8is_arrayEv.exit:           ; preds = %49
   br i1 %64, label %65, label %75
 
 65:                                               ; preds = %61
-  store i32 %1, ptr %7, align 8, !alias.scope !344
+  store i32 %1, ptr %7, align 8, !alias.scope !342
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 0, ptr %66, align 4, !alias.scope !344
+  store i32 0, ptr %66, align 4, !alias.scope !342
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 9, ptr %67, align 8, !alias.scope !344
+  store i32 9, ptr %67, align 8, !alias.scope !342
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 0, ptr %68, align 4, !alias.scope !344
+  store i32 0, ptr %68, align 4, !alias.scope !342
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr null, ptr %69, align 8, !alias.scope !344
+  store ptr null, ptr %69, align 8, !alias.scope !342
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %70, align 8, !alias.scope !344
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %70, align 8, !alias.scope !342
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 9, ptr %71, align 8, !alias.scope !344
+  store i32 9, ptr %71, align 8, !alias.scope !342
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i32 0, ptr %72, align 4, !alias.scope !344
+  store i32 0, ptr %72, align 4, !alias.scope !342
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr null, ptr %73, align 8, !alias.scope !344
+  store ptr null, ptr %73, align 8, !alias.scope !342
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %74, align 8, !alias.scope !344
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %74, align 8, !alias.scope !342
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %7, ptr noundef nonnull @.str.139)
   br label %75
 
@@ -12646,25 +12646,25 @@ define hidden void @_ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandlet
   br i1 %or.cond, label %22, label %12
 
 12:                                               ; preds = %5
-  store i32 %1, ptr %6, align 8, !alias.scope !347
+  store i32 %1, ptr %6, align 8, !alias.scope !345
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 3, ptr %13, align 4, !alias.scope !347
+  store i32 3, ptr %13, align 4, !alias.scope !345
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 7, ptr %14, align 8, !alias.scope !347
+  store i32 7, ptr %14, align 8, !alias.scope !345
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %10, ptr %.sroa.43.0..sroa_idx.i, align 4, !alias.scope !347
+  store i32 %10, ptr %.sroa.43.0..sroa_idx.i, align 4, !alias.scope !345
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !347
+  store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !345
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !347
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !345
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 9, ptr %15, align 8, !alias.scope !347
+  store i32 9, ptr %15, align 8, !alias.scope !345
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  store i32 0, ptr %16, align 4, !alias.scope !347
+  store i32 0, ptr %16, align 4, !alias.scope !345
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr null, ptr %17, align 8, !alias.scope !347
+  store ptr null, ptr %17, align 8, !alias.scope !345
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %18, align 8, !alias.scope !347
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %18, align 8, !alias.scope !345
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %20) #20
@@ -12702,25 +12702,25 @@ define hidden void @_ZN13ClassVerifier14verify_cp_typeEitRK18constantPoolHandlej
   br i1 %or.cond.i, label %_ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit, label %20
 
 20:                                               ; preds = %15
-  store i32 %1, ptr %7, align 8, !alias.scope !350
+  store i32 %1, ptr %7, align 8, !alias.scope !348
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 3, ptr %21, align 4, !alias.scope !350
+  store i32 3, ptr %21, align 4, !alias.scope !348
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 7, ptr %22, align 8, !alias.scope !350
+  store i32 7, ptr %22, align 8, !alias.scope !348
   %.sroa.43.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %18, ptr %.sroa.43.0..sroa_idx.i.i, align 4, !alias.scope !350
+  store i32 %18, ptr %.sroa.43.0..sroa_idx.i.i, align 4, !alias.scope !348
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr null, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !350
+  store ptr null, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !348
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !350
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !348
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 9, ptr %23, align 8, !alias.scope !350
+  store i32 9, ptr %23, align 8, !alias.scope !348
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i32 0, ptr %24, align 4, !alias.scope !350
+  store i32 0, ptr %24, align 4, !alias.scope !348
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr null, ptr %25, align 8, !alias.scope !350
+  store ptr null, ptr %25, align 8, !alias.scope !348
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %26, align 8, !alias.scope !350
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %26, align 8, !alias.scope !348
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %28) #20
@@ -12746,7 +12746,7 @@ _ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit: 
   %41 = zext i16 %2 to i64
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 %41
   %43 = load volatile i8, ptr %42, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   %44 = zext nneg i8 %43 to i32
   %45 = shl nuw i32 1, %44
   %46 = and i32 %45, %4
@@ -12754,25 +12754,25 @@ _ZN13ClassVerifier15verify_cp_indexEiRK18constantPoolHandletP10JavaThread.exit: 
   br i1 %47, label %48, label %59
 
 48:                                               ; preds = %36
-  store i32 %1, ptr %8, align 8, !alias.scope !353
+  store i32 %1, ptr %8, align 8, !alias.scope !351
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 3, ptr %49, align 4, !alias.scope !353
+  store i32 3, ptr %49, align 4, !alias.scope !351
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 7, ptr %50, align 8, !alias.scope !353
+  store i32 7, ptr %50, align 8, !alias.scope !351
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %18, ptr %.sroa.43.0..sroa_idx.i, align 4, !alias.scope !353
+  store i32 %18, ptr %.sroa.43.0..sroa_idx.i, align 4, !alias.scope !351
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !353
+  store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !351
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !353
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !351
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 9, ptr %51, align 8, !alias.scope !353
+  store i32 9, ptr %51, align 8, !alias.scope !351
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 0, ptr %52, align 4, !alias.scope !353
+  store i32 0, ptr %52, align 4, !alias.scope !351
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr null, ptr %53, align 8, !alias.scope !353
+  store ptr null, ptr %53, align 8, !alias.scope !351
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %54, align 8, !alias.scope !353
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %54, align 8, !alias.scope !351
   %55 = load ptr, ptr %3, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8
@@ -13015,7 +13015,7 @@ define hidden noundef zeroext i1 @_ZN13ClassVerifier14name_in_supersEP6SymbolP13
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %1
-  br i1 %8, label %9, label %4, !llvm.loop !296
+  br i1 %8, label %9, label %4, !llvm.loop !294
 
 9:                                                ; preds = %4, %5
   ret i1 %.not.not.not.not.not.not
@@ -13072,7 +13072,7 @@ define hidden void @_ZN13ClassVerifier13push_handlersEP14ExceptionTableP13Growab
 29:                                               ; preds = %30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %30, !llvm.loop !356
+  br i1 %exitcond.not.i, label %.loopexit, label %30, !llvm.loop !354
 
 30:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
@@ -13094,7 +13094,7 @@ define hidden void @_ZN13ClassVerifier13push_handlersEP14ExceptionTableP13Growab
 37:                                               ; preds = %38
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %38, !llvm.loop !356
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %38, !llvm.loop !354
 
 38:                                               ; preds = %37, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %37 ]
@@ -13166,7 +13166,7 @@ _ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE6appendERKj.exit: ; preds = 
 _ZNK17GrowableArrayViewIjE8containsERKj.exit:     ; preds = %30, %12, %17, %_ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE6appendERKj.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !357
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !355
 
 ._crit_edge:                                      ; preds = %_ZNK17GrowableArrayViewIjE8containsERKj.exit, %5
   ret void
@@ -13379,7 +13379,7 @@ _ZN17RawBytecodeStream8raw_nextEv.exit:           ; preds = %105, %_ZN9Bytecodes
   ]
 
 .backedge:                                        ; preds = %_ZN17RawBytecodeStream8raw_nextEv.exit, %400, %412, %_ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE6appendERKj.exit98, %282, %270, %_ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE6appendERKj.exit, %149, %137, %387
-  br label %68, !llvm.loop !358
+  br label %68, !llvm.loop !356
 
 109:                                              ; preds = %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit, %_ZN17RawBytecodeStream8raw_nextEv.exit
   %110 = load i32, ptr %32, align 8
@@ -13415,7 +13415,7 @@ _ZNK18BaseBytecodeStream4destEv.exit:             ; preds = %109, %118
 127:                                              ; preds = %128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %128, !llvm.loop !356
+  br i1 %exitcond.not.i, label %.loopexit, label %128, !llvm.loop !354
 
 128:                                              ; preds = %127, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %127 ]
@@ -13647,7 +13647,7 @@ _ZNK18BaseBytecodeStream6dest_wEv.exit:           ; preds = %241, %250
 260:                                              ; preds = %261
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i90
-  br i1 %exitcond.not.i93, label %.loopexit126, label %261, !llvm.loop !356
+  br i1 %exitcond.not.i93, label %.loopexit126, label %261, !llvm.loop !354
 
 261:                                              ; preds = %260, %.lr.ph.i89
   %indvars.iv.i91 = phi i64 [ 0, %.lr.ph.i89 ], [ %indvars.iv.next.i92, %260 ]
@@ -13864,7 +13864,7 @@ _ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE4pushERKj.exit110: ; preds =
   store i32 %367, ptr %385, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %361, !llvm.loop !359
+  br i1 %exitcond.not, label %._crit_edge, label %361, !llvm.loop !357
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE4pushERKj.exit110, %_ZN26GrowableArrayWithAllocatorIj13GrowableArrayIjEE4pushERKj.exit105
   %386 = icmp sgt i32 %331, %24
@@ -14063,9 +14063,9 @@ _ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_Z
   store ptr null, ptr %.sroa.5139.0..sroa_idx, align 8
   %.sroa.6140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %.sroa.0.0.copyload.i87, ptr %.sroa.6140.0..sroa_idx, align 8
-  store i32 %22, ptr %12, align 8, !alias.scope !360
+  store i32 %22, ptr %12, align 8, !alias.scope !358
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 1, ptr %64, align 4, !alias.scope !360
+  store i32 1, ptr %64, align 4, !alias.scope !358
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %12, ptr noundef nonnull @.str.120)
   br label %275
 
@@ -14116,25 +14116,25 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %66
   br i1 %90, label %101, label %91
 
 91:                                               ; preds = %86
-  store i32 %22, ptr %13, align 8, !alias.scope !363
+  store i32 %22, ptr %13, align 8, !alias.scope !361
   %92 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 0, ptr %92, align 4, !alias.scope !363
+  store i32 0, ptr %92, align 4, !alias.scope !361
   %93 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 9, ptr %93, align 8, !alias.scope !363
+  store i32 9, ptr %93, align 8, !alias.scope !361
   %94 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i32 0, ptr %94, align 4, !alias.scope !363
+  store i32 0, ptr %94, align 4, !alias.scope !361
   %95 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr null, ptr %95, align 8, !alias.scope !363
+  store ptr null, ptr %95, align 8, !alias.scope !361
   %96 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %96, align 8, !alias.scope !363
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %96, align 8, !alias.scope !361
   %97 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i32 9, ptr %97, align 8, !alias.scope !363
+  store i32 9, ptr %97, align 8, !alias.scope !361
   %98 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  store i32 0, ptr %98, align 4, !alias.scope !363
+  store i32 0, ptr %98, align 4, !alias.scope !361
   %99 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store ptr null, ptr %99, align 8, !alias.scope !363
+  store ptr null, ptr %99, align 8, !alias.scope !361
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %100, align 8, !alias.scope !363
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %100, align 8, !alias.scope !361
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %13, ptr noundef nonnull @.str.121)
   br label %275
 
@@ -14189,7 +14189,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %66
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %124, %122, %78, %101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !366
+  br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !364
 
 ._crit_edge:                                      ; preds = %_ZN12ResourceMarkD2Ev.exit, %66, %_ZN14ExceptionTableC2EPK6Method.exit
   %125 = load ptr, ptr %51, align 8
@@ -14247,25 +14247,25 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %124, %122, %78, %10
   br i1 %.not, label %169, label %159
 
 159:                                              ; preds = %157, %138
-  store i32 %152, ptr %14, align 8, !alias.scope !367
+  store i32 %152, ptr %14, align 8, !alias.scope !365
   %160 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i32 0, ptr %160, align 4, !alias.scope !367
+  store i32 0, ptr %160, align 4, !alias.scope !365
   %161 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 9, ptr %161, align 8, !alias.scope !367
+  store i32 9, ptr %161, align 8, !alias.scope !365
   %162 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store i32 0, ptr %162, align 4, !alias.scope !367
+  store i32 0, ptr %162, align 4, !alias.scope !365
   %163 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr null, ptr %163, align 8, !alias.scope !367
+  store ptr null, ptr %163, align 8, !alias.scope !365
   %164 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %164, align 8, !alias.scope !367
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %164, align 8, !alias.scope !365
   %165 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 9, ptr %165, align 8, !alias.scope !367
+  store i32 9, ptr %165, align 8, !alias.scope !365
   %166 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  store i32 0, ptr %166, align 4, !alias.scope !367
+  store i32 0, ptr %166, align 4, !alias.scope !365
   %167 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr null, ptr %167, align 8, !alias.scope !367
+  store ptr null, ptr %167, align 8, !alias.scope !365
   %168 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %168, align 8, !alias.scope !367
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %168, align 8, !alias.scope !365
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %14, ptr noundef nonnull @.str.123)
   br label %275
 
@@ -14323,9 +14323,9 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %124, %122, %78, %10
   store ptr null, ptr %.sroa.5147.0..sroa_idx, align 8
   %.sroa.6148.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %3, ptr %.sroa.6148.0..sroa_idx, align 8
-  store i32 %22, ptr %15, align 8, !alias.scope !370
+  store i32 %22, ptr %15, align 8, !alias.scope !368
   %196 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 1, ptr %196, align 4, !alias.scope !370
+  store i32 1, ptr %196, align 4, !alias.scope !368
   tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %15, ptr noundef nonnull @.str.124)
   br label %275
 
@@ -14346,7 +14346,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %124, %122, %78, %10
   %202 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %203 = load ptr, ptr %202, align 8
   %204 = icmp eq ptr %203, %3
-  br i1 %204, label %205, label %200, !llvm.loop !296
+  br i1 %204, label %205, label %200, !llvm.loop !294
 
 205:                                              ; preds = %201
   %206 = tail call noundef ptr @_ZN13ClassVerifier10load_classEP6SymbolP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %3, ptr noundef nonnull %10)
@@ -14436,9 +14436,9 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %124, %122, %78, %10
   store ptr null, ptr %.sroa.5155.0..sroa_idx, align 8
   %.sroa.6156.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %.sroa.0.0.copyload.i91, ptr %.sroa.6156.0..sroa_idx, align 8
-  store i32 %22, ptr %18, align 8, !alias.scope !373
+  store i32 %22, ptr %18, align 8, !alias.scope !371
   %254 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i32 1, ptr %254, align 4, !alias.scope !373
+  store i32 1, ptr %254, align 4, !alias.scope !371
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %18, ptr noundef nonnull @.str.125)
   br label %275
 
@@ -14472,17 +14472,17 @@ _ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %200
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %20, ptr noundef nonnull align 8 dereferenceable(48) %4) #20
   %269 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %269, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
-  store i32 %22, ptr %19, align 8, !alias.scope !376
+  store i32 %22, ptr %19, align 8, !alias.scope !374
   %270 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 1, ptr %270, align 4, !alias.scope !376
+  store i32 1, ptr %270, align 4, !alias.scope !374
   %271 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i32 9, ptr %271, align 8, !alias.scope !376
+  store i32 9, ptr %271, align 8, !alias.scope !374
   %272 = getelementptr inbounds nuw i8, ptr %19, i64 36
-  store i32 0, ptr %272, align 4, !alias.scope !376
+  store i32 0, ptr %272, align 4, !alias.scope !374
   %273 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store ptr null, ptr %273, align 8, !alias.scope !376
+  store ptr null, ptr %273, align 8, !alias.scope !374
   %274 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %274, align 8, !alias.scope !376
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %274, align 8, !alias.scope !374
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %19, ptr noundef nonnull @.str.126)
   br label %275
 
@@ -14532,7 +14532,7 @@ define hidden noundef zeroext i1 @_ZN13ClassVerifier27is_same_or_direct_interfac
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %16, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !320
+  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !318
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %6, %4
   %.0 = phi i1 [ true, %4 ], [ false, %6 ], [ false, %.preheader ], [ %16, %.lr.ph ]
@@ -14784,7 +14784,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not23.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #20, !srcloc !379
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #20, !srcloc !377
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
@@ -14807,7 +14807,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %8, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %6
-  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #20, !srcloc !379
+  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #20, !srcloc !377
   %10 = icmp eq i64 %9, %3
   br i1 %10, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -14819,9 +14819,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #20, !srcloc !379
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #20, !srcloc !377
   %14 = icmp eq i64 %13, %phi.call9.i.i.i.i.i
-  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !380
+  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !378
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %6
   %15 = inttoptr i64 %7 to ptr
@@ -14854,7 +14854,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 769
   %9 = load volatile i8, ptr %8, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   %10 = and i8 %9, 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %11
@@ -14889,7 +14889,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 769
   %33 = load volatile i8, ptr %32, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   %34 = and i8 %33, 4
   %.not14 = icmp eq i8 %34, 0
   br i1 %.not14, label %_ZN22ShenandoahEvacOOMScopeD2Ev.exit, label %35
@@ -14919,7 +14919,7 @@ define linkonce_odr hidden noundef ptr @_ZN20ShenandoahBarrierSet22load_referenc
 49:                                               ; preds = %45
   %50 = tail call noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull align 8 dereferenceable(80) %39, ptr noundef nonnull %37) #20
   %51 = load volatile i32, ptr %50, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   %52 = load i32, ptr @_ZN24ShenandoahEvacOOMCounter15OOM_MARKER_MASKE, align 4
   %53 = and i32 %52, %51
   %.not.i.i.i13 = icmp eq i32 %53, 0
@@ -15072,7 +15072,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
   %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
-  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #20, !srcloc !379
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #20, !srcloc !377
   %61 = icmp eq i64 %60, %.0.i16.i
   br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
@@ -15080,7 +15080,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !381
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !379
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -15120,7 +15120,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not23.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #20, !srcloc !379
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #20, !srcloc !377
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
@@ -15143,7 +15143,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %8, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %6
-  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #20, !srcloc !379
+  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #20, !srcloc !377
   %10 = icmp eq i64 %9, %3
   br i1 %10, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -15155,9 +15155,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #20, !srcloc !379
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #20, !srcloc !377
   %14 = icmp eq i64 %13, %phi.call9.i.i.i.i.i
-  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !380
+  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !378
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %6
   %15 = inttoptr i64 %7 to ptr
@@ -15269,7 +15269,7 @@ define linkonce_odr hidden void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull a
   %42 = load i16, ptr %13, align 8
   %43 = zext i16 %42 to i64
   %44 = icmp samesign ult i64 %indvars.iv.next, %43
-  br i1 %44, label %28, label %._crit_edge, !llvm.loop !382
+  br i1 %44, label %28, label %._crit_edge, !llvm.loop !380
 
 ._crit_edge:                                      ; preds = %41, %2
   %45 = load i32, ptr %7, align 8
@@ -15315,7 +15315,7 @@ define linkonce_odr hidden void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull a
   %68 = load i16, ptr %16, align 2
   %69 = zext i16 %68 to i64
   %70 = icmp samesign ult i64 %indvars.iv.next32, %69
-  br i1 %70, label %56, label %._crit_edge28, !llvm.loop !383
+  br i1 %70, label %56, label %._crit_edge28, !llvm.loop !381
 
 ._crit_edge28:                                    ; preds = %67, %._crit_edge
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -15365,7 +15365,7 @@ _ZN22verification_type_info6verifyEPhS0_.exit.thread: ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %.02438, i64 %..i.i.i
   %16 = add nuw nsw i32 %.02339, 1
   %exitcond.not = icmp eq i32 %16, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !384
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !382
 
 ._crit_edge:                                      ; preds = %_ZN22verification_type_info6verifyEPhS0_.exit.thread, %5
   %.024.lcssa = phi ptr [ %4, %5 ], [ %15, %_ZN22verification_type_info6verifyEPhS0_.exit.thread ]
@@ -15404,7 +15404,7 @@ _ZN22verification_type_info6verifyEPhS0_.exit31.thread: ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %.140, i64 %..i.i.i33
   %29 = add nuw nsw i32 %.041, 1
   %exitcond52.not = icmp eq i32 %29, %21
-  br i1 %exitcond52.not, label %_ZN22verification_type_info6verifyEPhS0_.exit.thread34, label %.lr.ph43, !llvm.loop !385
+  br i1 %exitcond52.not, label %_ZN22verification_type_info6verifyEPhS0_.exit.thread34, label %.lr.ph43, !llvm.loop !383
 
 _ZN22verification_type_info6verifyEPhS0_.exit.thread34: ; preds = %.lr.ph, %11, %_ZN22verification_type_info6verifyEPhS0_.exit31.thread, %.lr.ph43, %24, %19, %._crit_edge, %3
   %.022 = phi i1 [ false, %3 ], [ false, %._crit_edge ], [ true, %19 ], [ true, %_ZN22verification_type_info6verifyEPhS0_.exit31.thread ], [ false, %.lr.ph43 ], [ false, %24 ], [ false, %11 ], [ false, %.lr.ph ]
@@ -15454,7 +15454,7 @@ define linkonce_odr hidden void @_ZNK12append_frame8print_onEP12outputStreami(pt
   %20 = add nuw nsw i32 %.012, 1
   %21 = add nsw i32 %.pre-phi, -251
   %22 = icmp slt i32 %20, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !386
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !384
 
 ._crit_edge:                                      ; preds = %16, %3
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.163) #20
@@ -15503,7 +15503,7 @@ define linkonce_odr hidden void @_ZNK10full_frame8print_onEP12outputStreami(ptr 
   %18 = getelementptr inbounds nuw i8, ptr %.02334, i64 %..i.i.i
   %19 = add nuw nsw i32 %.02433, 1
   %20 = icmp samesign ult i32 %19, %.pre-phi44
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !387
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !385
 
 ._crit_edge:                                      ; preds = %15, %3
   %.023.lcssa = phi ptr [ %9, %3 ], [ %18, %15 ]
@@ -15538,7 +15538,7 @@ define linkonce_odr hidden void @_ZNK10full_frame8print_onEP12outputStreami(ptr 
   %30 = getelementptr inbounds nuw i8, ptr %.135, i64 %..i.i.i31
   %31 = add nuw nsw i32 %.036, 1
   %exitcond.not = icmp eq i32 %31, %22
-  br i1 %exitcond.not, label %._crit_edge39, label %25, !llvm.loop !388
+  br i1 %exitcond.not, label %._crit_edge39, label %25, !llvm.loop !386
 
 ._crit_edge39:                                    ; preds = %27, %._crit_edge
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.179) #20
@@ -15677,7 +15677,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !389
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !387
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15693,7 +15693,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !390
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !388
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -15890,7 +15890,7 @@ _ZN13GrowableArrayIP6SymbolE8allocateEv.exit:     ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !391
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !389
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15906,7 +15906,7 @@ _ZN13GrowableArrayIP6SymbolE8allocateEv.exit:     ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !392
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !390
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -16036,7 +16036,7 @@ _ZN13GrowableArrayI16VerificationTypeE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !155
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !153
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16052,7 +16052,7 @@ _ZN13GrowableArrayI16VerificationTypeE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !156
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !154
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -16133,7 +16133,7 @@ _ZN13GrowableArrayIjE8allocateEv.exit:            ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !393
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !391
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16149,7 +16149,7 @@ _ZN13GrowableArrayIjE8allocateEv.exit:            ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !394
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !392
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -16216,392 +16216,390 @@ attributes #22 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i64 2145392468}
-!12 = !{i64 2145392998}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN10TypeOrigin8implicitE16VerificationType: argument 0"}
-!21 = distinct !{!21, !"_ZN10TypeOrigin8implicitE16VerificationType"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!24 = distinct !{!24, !"_ZN12ErrorContext8bad_codeEi"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
-!27 = distinct !{!27, !"_ZN13ClassVerifier7ref_ctxEPKc"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!30 = distinct !{!30, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!33 = distinct !{!33, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
-!36 = distinct !{!36, !"_ZN13ClassVerifier7ref_ctxEPKc"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!39 = distinct !{!39, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
-!42 = distinct !{!42, !"_ZN13ClassVerifier7ref_ctxEPKc"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!45 = distinct !{!45, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
-!48 = distinct !{!48, !"_ZN13ClassVerifier7ref_ctxEPKc"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!51 = distinct !{!51, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
-!54 = distinct !{!54, !"_ZN13ClassVerifier7ref_ctxEPKc"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!57 = distinct !{!57, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
-!60 = distinct !{!60, !"_ZN13ClassVerifier7ref_ctxEPKc"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!63 = distinct !{!63, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!66 = distinct !{!66, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
-!69 = distinct !{!69, !"_ZN13ClassVerifier7ref_ctxEPKc"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!72 = distinct !{!72, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!75 = distinct !{!75, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
-!78 = distinct !{!78, !"_ZN13ClassVerifier7ref_ctxEPKc"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!81 = distinct !{!81, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
-!84 = distinct !{!84, !"_ZN13ClassVerifier7ref_ctxEPKc"}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!87 = distinct !{!87, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
-!90 = distinct !{!90, !"_ZN13ClassVerifier7ref_ctxEPKc"}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!93 = distinct !{!93, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
-!96 = distinct !{!96, !"_ZN13ClassVerifier7ref_ctxEPKc"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!99 = distinct !{!99, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
-!102 = distinct !{!102, !"_ZN13ClassVerifier7ref_ctxEPKc"}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!105 = distinct !{!105, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!108 = distinct !{!108, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!111 = distinct !{!111, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!114 = distinct !{!114, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!117 = distinct !{!117, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!120 = distinct !{!120, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!123 = distinct !{!123, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!126 = distinct !{!126, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!129 = distinct !{!129, !"_ZN12ErrorContext8bad_codeEi"}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!132 = distinct !{!132, !"_ZN12ErrorContext8bad_codeEi"}
-!133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!135 = distinct !{!135, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!138 = distinct !{!138, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!141 = distinct !{!141, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!142 = distinct !{!142, !7, !8}
-!143 = !{!144}
-!144 = distinct !{!144, !145, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!145 = distinct !{!145, !"_ZN12ErrorContext8bad_codeEi"}
-!146 = distinct !{!146, !7, !8}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!149 = distinct !{!149, !"_ZN12ErrorContext8bad_codeEi"}
-!150 = distinct !{!150, !7, !8}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!153 = distinct !{!153, !"_ZN12ErrorContext8bad_codeEi"}
-!154 = distinct !{!154, !8}
-!155 = distinct !{!155, !7, !8}
-!156 = distinct !{!156, !7, !8}
-!157 = distinct !{!157, !7, !8}
-!158 = distinct !{!158, !7, !8}
-!159 = distinct !{!159, !7, !8}
-!160 = distinct !{!160, !7, !8}
-!161 = distinct !{!161, !7, !8}
-!162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!164 = distinct !{!164, !"_ZN12ErrorContext8bad_codeEi"}
-!165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!167 = distinct !{!167, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!168 = distinct !{!168, !7, !8}
-!169 = distinct !{!169, !7, !8}
-!170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZN12ErrorContext16missing_stackmapEi: argument 0"}
-!172 = distinct !{!172, !"_ZN12ErrorContext16missing_stackmapEi"}
-!173 = !{!174}
-!174 = distinct !{!174, !175, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!175 = distinct !{!175, !"_ZN12ErrorContext8bad_codeEi"}
-!176 = !{!177}
-!177 = distinct !{!177, !178, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!178 = distinct !{!178, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!179 = !{!180, !177}
-!180 = distinct !{!180, !181, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!181 = distinct !{!181, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!182 = !{!183}
-!183 = distinct !{!183, !184, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!184 = distinct !{!184, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!185 = !{!186, !183}
-!186 = distinct !{!186, !187, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!187 = distinct !{!187, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!188 = distinct !{!188, !7, !8}
-!189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!191 = distinct !{!191, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!192 = !{!193, !190}
-!193 = distinct !{!193, !194, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!194 = distinct !{!194, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!197 = distinct !{!197, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!198 = !{!199, !196}
-!199 = distinct !{!199, !200, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!200 = distinct !{!200, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!201 = !{!202}
-!202 = distinct !{!202, !203, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
-!203 = distinct !{!203, !"_ZN12ErrorContext12bad_cp_indexEii"}
-!204 = !{!205}
-!205 = distinct !{!205, !206, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!206 = distinct !{!206, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!207 = !{!208, !205}
-!208 = distinct !{!208, !209, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!209 = distinct !{!209, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!210 = !{!211}
-!211 = distinct !{!211, !212, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!212 = distinct !{!212, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!213 = !{!214, !211}
-!214 = distinct !{!214, !215, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!215 = distinct !{!215, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!216 = distinct !{!216, !7, !8}
-!217 = !{!218}
-!218 = distinct !{!218, !219, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
-!219 = distinct !{!219, !"_ZN12ErrorContext12bad_cp_indexEii"}
-!220 = !{!221}
-!221 = distinct !{!221, !222, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!222 = distinct !{!222, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!223 = !{!224, !221}
-!224 = distinct !{!224, !225, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!225 = distinct !{!225, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!226 = !{!227}
-!227 = distinct !{!227, !228, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!228 = distinct !{!228, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!229 = !{!230, !227}
-!230 = distinct !{!230, !231, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!231 = distinct !{!231, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!232 = !{!233}
-!233 = distinct !{!233, !234, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!234 = distinct !{!234, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!235 = !{!236, !233}
-!236 = distinct !{!236, !237, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!237 = distinct !{!237, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!238 = !{!239}
-!239 = distinct !{!239, !240, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!240 = distinct !{!240, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!241 = !{!242, !239}
-!242 = distinct !{!242, !243, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!243 = distinct !{!243, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!244 = !{!245}
-!245 = distinct !{!245, !246, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!246 = distinct !{!246, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!247 = !{!248, !245}
-!248 = distinct !{!248, !249, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!249 = distinct !{!249, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!250 = !{!251}
-!251 = distinct !{!251, !252, !"_ZN12ErrorContext15stack_underflowEiP13StackMapFrame: argument 0"}
-!252 = distinct !{!252, !"_ZN12ErrorContext15stack_underflowEiP13StackMapFrame"}
-!253 = !{!254, !251}
-!254 = distinct !{!254, !255, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!255 = distinct !{!255, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!256 = distinct !{!256, !7, !8}
-!257 = !{!258}
-!258 = distinct !{!258, !259, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!259 = distinct !{!259, !"_ZN12ErrorContext8bad_codeEi"}
-!260 = !{!261}
-!261 = distinct !{!261, !262, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!262 = distinct !{!262, !"_ZN12ErrorContext8bad_codeEi"}
-!263 = !{!264}
-!264 = distinct !{!264, !265, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!265 = distinct !{!265, !"_ZN12ErrorContext8bad_codeEi"}
-!266 = !{!267}
-!267 = distinct !{!267, !268, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!268 = distinct !{!268, !"_ZN12ErrorContext8bad_codeEi"}
-!269 = distinct !{!269, !7, !8}
-!270 = !{!271}
-!271 = distinct !{!271, !272, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!272 = distinct !{!272, !"_ZN12ErrorContext8bad_codeEi"}
-!273 = distinct !{!273, !7, !8}
-!274 = !{!275}
-!275 = distinct !{!275, !276, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!276 = distinct !{!276, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!277 = !{!278}
-!278 = distinct !{!278, !279, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!279 = distinct !{!279, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!280 = !{!281}
-!281 = distinct !{!281, !282, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!282 = distinct !{!282, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!283 = !{!284}
-!284 = distinct !{!284, !285, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!285 = distinct !{!285, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!286 = !{!287, !284}
-!287 = distinct !{!287, !288, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!288 = distinct !{!288, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!289 = distinct !{!289, !7, !8}
-!290 = distinct !{!290, !7, !8}
-!291 = distinct !{!291, !7, !8}
-!292 = !{!293}
-!293 = distinct !{!293, !294, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!294 = distinct !{!294, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!295 = distinct !{!295, !7, !8}
-!296 = distinct !{!296, !7, !8}
-!297 = !{!298}
-!298 = distinct !{!298, !299, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!299 = distinct !{!299, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!300 = !{!301}
-!301 = distinct !{!301, !302, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
-!302 = distinct !{!302, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
-!303 = !{!304, !301}
-!304 = distinct !{!304, !305, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
-!305 = distinct !{!305, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
-!306 = distinct !{!306, !7, !8}
-!307 = distinct !{!307, !7, !8}
-!308 = !{!309}
-!309 = distinct !{!309, !310, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!310 = distinct !{!310, !"_ZN12ErrorContext8bad_codeEi"}
-!311 = !{!312}
-!312 = distinct !{!312, !313, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!313 = distinct !{!313, !"_ZN12ErrorContext8bad_codeEi"}
-!314 = !{!315}
-!315 = distinct !{!315, !316, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!316 = distinct !{!316, !"_ZN12ErrorContext8bad_codeEi"}
-!317 = !{!318}
-!318 = distinct !{!318, !319, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!319 = distinct !{!319, !"_ZN12ErrorContext8bad_codeEi"}
-!320 = distinct !{!320, !7, !8}
-!321 = !{!322}
-!322 = distinct !{!322, !323, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!323 = distinct !{!323, !"_ZN12ErrorContext8bad_codeEi"}
-!324 = !{!325}
-!325 = distinct !{!325, !326, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!326 = distinct !{!326, !"_ZN12ErrorContext8bad_codeEi"}
-!327 = distinct !{!327, !7, !8}
-!328 = !{!329}
-!329 = distinct !{!329, !330, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!330 = distinct !{!330, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!331 = !{!332}
-!332 = distinct !{!332, !333, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!333 = distinct !{!333, !"_ZN12ErrorContext8bad_codeEi"}
-!334 = distinct !{!334, !7, !8}
-!335 = !{!336}
-!336 = distinct !{!336, !337, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
-!337 = distinct !{!337, !"_ZN12ErrorContext12bad_cp_indexEii"}
-!338 = !{!339}
-!339 = distinct !{!339, !340, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
-!340 = distinct !{!340, !"_ZN12ErrorContext12bad_cp_indexEii"}
-!341 = !{!342}
-!342 = distinct !{!342, !343, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!343 = distinct !{!343, !"_ZN12ErrorContext8bad_codeEi"}
-!344 = !{!345}
-!345 = distinct !{!345, !346, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!346 = distinct !{!346, !"_ZN12ErrorContext8bad_codeEi"}
-!347 = !{!348}
-!348 = distinct !{!348, !349, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
-!349 = distinct !{!349, !"_ZN12ErrorContext12bad_cp_indexEii"}
-!350 = !{!351}
-!351 = distinct !{!351, !352, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
-!352 = distinct !{!352, !"_ZN12ErrorContext12bad_cp_indexEii"}
-!353 = !{!354}
-!354 = distinct !{!354, !355, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
-!355 = distinct !{!355, !"_ZN12ErrorContext12bad_cp_indexEii"}
-!356 = distinct !{!356, !7, !8}
-!357 = distinct !{!357, !7, !8}
-!358 = distinct !{!358, !7, !8}
-!359 = distinct !{!359, !7, !8}
-!360 = !{!361}
-!361 = distinct !{!361, !362, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!362 = distinct !{!362, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!363 = !{!364}
-!364 = distinct !{!364, !365, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!365 = distinct !{!365, !"_ZN12ErrorContext8bad_codeEi"}
-!366 = distinct !{!366, !7, !8}
-!367 = !{!368}
-!368 = distinct !{!368, !369, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
-!369 = distinct !{!369, !"_ZN12ErrorContext8bad_codeEi"}
-!370 = !{!371}
-!371 = distinct !{!371, !372, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!372 = distinct !{!372, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!373 = !{!374}
-!374 = distinct !{!374, !375, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
-!375 = distinct !{!375, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
-!376 = !{!377}
-!377 = distinct !{!377, !378, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
-!378 = distinct !{!378, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
-!379 = !{i64 2145412694}
-!380 = distinct !{!380, !7, !8}
-!381 = distinct !{!381, !7, !8}
-!382 = distinct !{!382, !7, !8}
-!383 = distinct !{!383, !7, !8}
-!384 = distinct !{!384, !7, !8}
-!385 = distinct !{!385, !7, !8}
-!386 = distinct !{!386, !7, !8}
-!387 = distinct !{!387, !7, !8}
-!388 = distinct !{!388, !7, !8}
-!389 = distinct !{!389, !7, !8}
-!390 = distinct !{!390, !7, !8}
-!391 = distinct !{!391, !7, !8}
-!392 = distinct !{!392, !7, !8}
-!393 = distinct !{!393, !7, !8}
-!394 = distinct !{!394, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i64 2145392468}
+!11 = !{i64 2145392998}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZN10TypeOrigin8implicitE16VerificationType: argument 0"}
+!20 = distinct !{!20, !"_ZN10TypeOrigin8implicitE16VerificationType"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!23 = distinct !{!23, !"_ZN12ErrorContext8bad_codeEi"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
+!26 = distinct !{!26, !"_ZN13ClassVerifier7ref_ctxEPKc"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!29 = distinct !{!29, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!32 = distinct !{!32, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
+!35 = distinct !{!35, !"_ZN13ClassVerifier7ref_ctxEPKc"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!38 = distinct !{!38, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
+!41 = distinct !{!41, !"_ZN13ClassVerifier7ref_ctxEPKc"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!44 = distinct !{!44, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
+!47 = distinct !{!47, !"_ZN13ClassVerifier7ref_ctxEPKc"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!50 = distinct !{!50, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
+!53 = distinct !{!53, !"_ZN13ClassVerifier7ref_ctxEPKc"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!56 = distinct !{!56, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
+!59 = distinct !{!59, !"_ZN13ClassVerifier7ref_ctxEPKc"}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!62 = distinct !{!62, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!65 = distinct !{!65, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
+!68 = distinct !{!68, !"_ZN13ClassVerifier7ref_ctxEPKc"}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!71 = distinct !{!71, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!74 = distinct !{!74, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
+!77 = distinct !{!77, !"_ZN13ClassVerifier7ref_ctxEPKc"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!80 = distinct !{!80, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
+!83 = distinct !{!83, !"_ZN13ClassVerifier7ref_ctxEPKc"}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!86 = distinct !{!86, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
+!89 = distinct !{!89, !"_ZN13ClassVerifier7ref_ctxEPKc"}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!92 = distinct !{!92, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
+!95 = distinct !{!95, !"_ZN13ClassVerifier7ref_ctxEPKc"}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!98 = distinct !{!98, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"_ZN13ClassVerifier7ref_ctxEPKc: argument 0"}
+!101 = distinct !{!101, !"_ZN13ClassVerifier7ref_ctxEPKc"}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!104 = distinct !{!104, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!107 = distinct !{!107, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!110 = distinct !{!110, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!111 = !{!112}
+!112 = distinct !{!112, !113, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!113 = distinct !{!113, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!116 = distinct !{!116, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!117 = !{!118}
+!118 = distinct !{!118, !119, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!119 = distinct !{!119, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!120 = !{!121}
+!121 = distinct !{!121, !122, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!122 = distinct !{!122, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!125 = distinct !{!125, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!128 = distinct !{!128, !"_ZN12ErrorContext8bad_codeEi"}
+!129 = !{!130}
+!130 = distinct !{!130, !131, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!131 = distinct !{!131, !"_ZN12ErrorContext8bad_codeEi"}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!134 = distinct !{!134, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!135 = !{!136}
+!136 = distinct !{!136, !137, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!137 = distinct !{!137, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!140 = distinct !{!140, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!141 = distinct !{!141, !7}
+!142 = !{!143}
+!143 = distinct !{!143, !144, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!144 = distinct !{!144, !"_ZN12ErrorContext8bad_codeEi"}
+!145 = distinct !{!145, !7}
+!146 = !{!147}
+!147 = distinct !{!147, !148, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!148 = distinct !{!148, !"_ZN12ErrorContext8bad_codeEi"}
+!149 = distinct !{!149, !7}
+!150 = !{!151}
+!151 = distinct !{!151, !152, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!152 = distinct !{!152, !"_ZN12ErrorContext8bad_codeEi"}
+!153 = distinct !{!153, !7}
+!154 = distinct !{!154, !7}
+!155 = distinct !{!155, !7}
+!156 = distinct !{!156, !7}
+!157 = distinct !{!157, !7}
+!158 = distinct !{!158, !7}
+!159 = distinct !{!159, !7}
+!160 = !{!161}
+!161 = distinct !{!161, !162, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!162 = distinct !{!162, !"_ZN12ErrorContext8bad_codeEi"}
+!163 = !{!164}
+!164 = distinct !{!164, !165, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!165 = distinct !{!165, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!166 = distinct !{!166, !7}
+!167 = distinct !{!167, !7}
+!168 = !{!169}
+!169 = distinct !{!169, !170, !"_ZN12ErrorContext16missing_stackmapEi: argument 0"}
+!170 = distinct !{!170, !"_ZN12ErrorContext16missing_stackmapEi"}
+!171 = !{!172}
+!172 = distinct !{!172, !173, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!173 = distinct !{!173, !"_ZN12ErrorContext8bad_codeEi"}
+!174 = !{!175}
+!175 = distinct !{!175, !176, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!176 = distinct !{!176, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!177 = !{!178, !175}
+!178 = distinct !{!178, !179, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!179 = distinct !{!179, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!180 = !{!181}
+!181 = distinct !{!181, !182, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!182 = distinct !{!182, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!183 = !{!184, !181}
+!184 = distinct !{!184, !185, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!185 = distinct !{!185, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!186 = distinct !{!186, !7}
+!187 = !{!188}
+!188 = distinct !{!188, !189, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!189 = distinct !{!189, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!190 = !{!191, !188}
+!191 = distinct !{!191, !192, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!192 = distinct !{!192, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!193 = !{!194}
+!194 = distinct !{!194, !195, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!195 = distinct !{!195, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!196 = !{!197, !194}
+!197 = distinct !{!197, !198, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!198 = distinct !{!198, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!199 = !{!200}
+!200 = distinct !{!200, !201, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
+!201 = distinct !{!201, !"_ZN12ErrorContext12bad_cp_indexEii"}
+!202 = !{!203}
+!203 = distinct !{!203, !204, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!204 = distinct !{!204, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!205 = !{!206, !203}
+!206 = distinct !{!206, !207, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!207 = distinct !{!207, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!208 = !{!209}
+!209 = distinct !{!209, !210, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!210 = distinct !{!210, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!211 = !{!212, !209}
+!212 = distinct !{!212, !213, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!213 = distinct !{!213, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!214 = distinct !{!214, !7}
+!215 = !{!216}
+!216 = distinct !{!216, !217, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
+!217 = distinct !{!217, !"_ZN12ErrorContext12bad_cp_indexEii"}
+!218 = !{!219}
+!219 = distinct !{!219, !220, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!220 = distinct !{!220, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!221 = !{!222, !219}
+!222 = distinct !{!222, !223, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!223 = distinct !{!223, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!224 = !{!225}
+!225 = distinct !{!225, !226, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!226 = distinct !{!226, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!227 = !{!228, !225}
+!228 = distinct !{!228, !229, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!229 = distinct !{!229, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!230 = !{!231}
+!231 = distinct !{!231, !232, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!232 = distinct !{!232, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!233 = !{!234, !231}
+!234 = distinct !{!234, !235, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!235 = distinct !{!235, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!236 = !{!237}
+!237 = distinct !{!237, !238, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!238 = distinct !{!238, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!239 = !{!240, !237}
+!240 = distinct !{!240, !241, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!241 = distinct !{!241, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!242 = !{!243}
+!243 = distinct !{!243, !244, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!244 = distinct !{!244, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!245 = !{!246, !243}
+!246 = distinct !{!246, !247, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!247 = distinct !{!247, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!248 = !{!249}
+!249 = distinct !{!249, !250, !"_ZN12ErrorContext15stack_underflowEiP13StackMapFrame: argument 0"}
+!250 = distinct !{!250, !"_ZN12ErrorContext15stack_underflowEiP13StackMapFrame"}
+!251 = !{!252, !249}
+!252 = distinct !{!252, !253, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!253 = distinct !{!253, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!254 = distinct !{!254, !7}
+!255 = !{!256}
+!256 = distinct !{!256, !257, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!257 = distinct !{!257, !"_ZN12ErrorContext8bad_codeEi"}
+!258 = !{!259}
+!259 = distinct !{!259, !260, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!260 = distinct !{!260, !"_ZN12ErrorContext8bad_codeEi"}
+!261 = !{!262}
+!262 = distinct !{!262, !263, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!263 = distinct !{!263, !"_ZN12ErrorContext8bad_codeEi"}
+!264 = !{!265}
+!265 = distinct !{!265, !266, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!266 = distinct !{!266, !"_ZN12ErrorContext8bad_codeEi"}
+!267 = distinct !{!267, !7}
+!268 = !{!269}
+!269 = distinct !{!269, !270, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!270 = distinct !{!270, !"_ZN12ErrorContext8bad_codeEi"}
+!271 = distinct !{!271, !7}
+!272 = !{!273}
+!273 = distinct !{!273, !274, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!274 = distinct !{!274, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!275 = !{!276}
+!276 = distinct !{!276, !277, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!277 = distinct !{!277, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!278 = !{!279}
+!279 = distinct !{!279, !280, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!280 = distinct !{!280, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!281 = !{!282}
+!282 = distinct !{!282, !283, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!283 = distinct !{!283, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!284 = !{!285, !282}
+!285 = distinct !{!285, !286, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!286 = distinct !{!286, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!287 = distinct !{!287, !7}
+!288 = distinct !{!288, !7}
+!289 = distinct !{!289, !7}
+!290 = !{!291}
+!291 = distinct !{!291, !292, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!292 = distinct !{!292, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!293 = distinct !{!293, !7}
+!294 = distinct !{!294, !7}
+!295 = !{!296}
+!296 = distinct !{!296, !297, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!297 = distinct !{!297, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!298 = !{!299}
+!299 = distinct !{!299, !300, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame: argument 0"}
+!300 = distinct !{!300, !"_ZN12ErrorContext14stack_overflowEiP13StackMapFrame"}
+!301 = !{!302, !299}
+!302 = distinct !{!302, !303, !"_ZN10TypeOrigin5frameEP13StackMapFrame: argument 0"}
+!303 = distinct !{!303, !"_ZN10TypeOrigin5frameEP13StackMapFrame"}
+!304 = distinct !{!304, !7}
+!305 = distinct !{!305, !7}
+!306 = !{!307}
+!307 = distinct !{!307, !308, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!308 = distinct !{!308, !"_ZN12ErrorContext8bad_codeEi"}
+!309 = !{!310}
+!310 = distinct !{!310, !311, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!311 = distinct !{!311, !"_ZN12ErrorContext8bad_codeEi"}
+!312 = !{!313}
+!313 = distinct !{!313, !314, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!314 = distinct !{!314, !"_ZN12ErrorContext8bad_codeEi"}
+!315 = !{!316}
+!316 = distinct !{!316, !317, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!317 = distinct !{!317, !"_ZN12ErrorContext8bad_codeEi"}
+!318 = distinct !{!318, !7}
+!319 = !{!320}
+!320 = distinct !{!320, !321, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!321 = distinct !{!321, !"_ZN12ErrorContext8bad_codeEi"}
+!322 = !{!323}
+!323 = distinct !{!323, !324, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!324 = distinct !{!324, !"_ZN12ErrorContext8bad_codeEi"}
+!325 = distinct !{!325, !7}
+!326 = !{!327}
+!327 = distinct !{!327, !328, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!328 = distinct !{!328, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!329 = !{!330}
+!330 = distinct !{!330, !331, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!331 = distinct !{!331, !"_ZN12ErrorContext8bad_codeEi"}
+!332 = distinct !{!332, !7}
+!333 = !{!334}
+!334 = distinct !{!334, !335, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
+!335 = distinct !{!335, !"_ZN12ErrorContext12bad_cp_indexEii"}
+!336 = !{!337}
+!337 = distinct !{!337, !338, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
+!338 = distinct !{!338, !"_ZN12ErrorContext12bad_cp_indexEii"}
+!339 = !{!340}
+!340 = distinct !{!340, !341, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!341 = distinct !{!341, !"_ZN12ErrorContext8bad_codeEi"}
+!342 = !{!343}
+!343 = distinct !{!343, !344, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!344 = distinct !{!344, !"_ZN12ErrorContext8bad_codeEi"}
+!345 = !{!346}
+!346 = distinct !{!346, !347, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
+!347 = distinct !{!347, !"_ZN12ErrorContext12bad_cp_indexEii"}
+!348 = !{!349}
+!349 = distinct !{!349, !350, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
+!350 = distinct !{!350, !"_ZN12ErrorContext12bad_cp_indexEii"}
+!351 = !{!352}
+!352 = distinct !{!352, !353, !"_ZN12ErrorContext12bad_cp_indexEii: argument 0"}
+!353 = distinct !{!353, !"_ZN12ErrorContext12bad_cp_indexEii"}
+!354 = distinct !{!354, !7}
+!355 = distinct !{!355, !7}
+!356 = distinct !{!356, !7}
+!357 = distinct !{!357, !7}
+!358 = !{!359}
+!359 = distinct !{!359, !360, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!360 = distinct !{!360, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!361 = !{!362}
+!362 = distinct !{!362, !363, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!363 = distinct !{!363, !"_ZN12ErrorContext8bad_codeEi"}
+!364 = distinct !{!364, !7}
+!365 = !{!366}
+!366 = distinct !{!366, !367, !"_ZN12ErrorContext8bad_codeEi: argument 0"}
+!367 = distinct !{!367, !"_ZN12ErrorContext8bad_codeEi"}
+!368 = !{!369}
+!369 = distinct !{!369, !370, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!370 = distinct !{!370, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!371 = !{!372}
+!372 = distinct !{!372, !373, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_: argument 0"}
+!373 = distinct !{!373, !"_ZN12ErrorContext8bad_typeEi10TypeOriginS0_"}
+!374 = !{!375}
+!375 = distinct !{!375, !376, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin: argument 0"}
+!376 = distinct !{!376, !"_ZN12ErrorContext8bad_typeEi10TypeOrigin"}
+!377 = !{i64 2145412694}
+!378 = distinct !{!378, !7}
+!379 = distinct !{!379, !7}
+!380 = distinct !{!380, !7}
+!381 = distinct !{!381, !7}
+!382 = distinct !{!382, !7}
+!383 = distinct !{!383, !7}
+!384 = distinct !{!384, !7}
+!385 = distinct !{!385, !7}
+!386 = distinct !{!386, !7}
+!387 = distinct !{!387, !7}
+!388 = distinct !{!388, !7}
+!389 = distinct !{!389, !7}
+!390 = distinct !{!390, !7}
+!391 = distinct !{!391, !7}
+!392 = distinct !{!392, !7}

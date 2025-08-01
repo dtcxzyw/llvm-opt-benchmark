@@ -418,7 +418,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %58 = call i32 @ff_codec_get_id(ptr noundef nonnull @ff_swf_codec_tags, i32 noundef %57) #9
   %59 = load ptr, ptr %55, align 8, !tbaa !44
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  store i32 %58, ptr %60, align 4, !tbaa !58
+  store i32 %58, ptr %60, align 4, !tbaa !57
   %61 = load i32, ptr %17, align 4, !tbaa !37
   call void @avpriv_set_pts_info(ptr noundef nonnull %52, i32 noundef 16, i32 noundef 256, i32 noundef %61) #9
   %62 = add nsw i32 %.13399, -10
@@ -453,7 +453,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 77:                                               ; preds = %66, %73
   %indvars.iv.next673 = add nuw nsw i64 %indvars.iv672, 1
   %exitcond676.not = icmp eq i64 %indvars.iv.next673, %wide.trip.count675
-  br i1 %exitcond676.not, label %._crit_edge523, label %66, !llvm.loop !59
+  br i1 %exitcond676.not, label %._crit_edge523, label %66, !llvm.loop !58
 
 ._crit_edge523:                                   ; preds = %77, %63
   %78 = call i32 @avio_r8(ptr noundef %spec.select) #9
@@ -480,9 +480,9 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %92 = call i32 @ff_codec_get_id(ptr noundef nonnull @swf_audio_codec_tags, i32 noundef %91) #9
   %93 = load ptr, ptr %84, align 8, !tbaa !44
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  store i32 %92, ptr %94, align 4, !tbaa !58
+  store i32 %92, ptr %94, align 4, !tbaa !57
   %95 = getelementptr inbounds nuw i8, ptr %81, i64 808
-  store i32 1, ptr %95, align 8, !tbaa !60
+  store i32 1, ptr %95, align 8, !tbaa !59
   %96 = lshr i32 %79, 2
   %97 = and i32 %96, 3
   %98 = and i32 %79, 2
@@ -492,14 +492,14 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br i1 %or.cond.i, label %100, label %101
 
 100:                                              ; preds = %82
-  store i32 65541, ptr %94, align 4, !tbaa !58
+  store i32 65541, ptr %94, align 4, !tbaa !57
   br label %101
 
 101:                                              ; preds = %100, %82
   %102 = xor i32 %97, 3
   %103 = lshr i32 44100, %102
   %104 = getelementptr inbounds nuw i8, ptr %93, i64 152
-  store i32 %103, ptr %104, align 8, !tbaa !72
+  store i32 %103, ptr %104, align 8, !tbaa !71
   call void @avpriv_set_pts_info(ptr noundef nonnull %81, i32 noundef 64, i32 noundef 1, i32 noundef %103) #9
   %105 = add nsw i32 %.13399, -4
   br label %.thread
@@ -534,7 +534,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 121:                                              ; preds = %110, %117
   %indvars.iv.next668 = add nuw nsw i64 %indvars.iv667, 1
   %exitcond671.not = icmp eq i64 %indvars.iv.next668, %wide.trip.count670
-  br i1 %exitcond671.not, label %._crit_edge, label %110, !llvm.loop !73
+  br i1 %exitcond671.not, label %._crit_edge, label %110, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %106, %121
   %122 = call i32 @avio_r8(ptr noundef %spec.select) #9
@@ -558,9 +558,9 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %134 = call i32 @ff_codec_get_id(ptr noundef nonnull @swf_audio_codec_tags, i32 noundef %133) #9
   %135 = load ptr, ptr %126, align 8, !tbaa !44
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
-  store i32 %134, ptr %136, align 4, !tbaa !58
+  store i32 %134, ptr %136, align 4, !tbaa !57
   %137 = getelementptr inbounds nuw i8, ptr %123, i64 808
-  store i32 1, ptr %137, align 8, !tbaa !60
+  store i32 1, ptr %137, align 8, !tbaa !59
   %138 = lshr i32 %122, 2
   %139 = and i32 %138, 3
   %140 = and i32 %122, 2
@@ -570,19 +570,19 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br i1 %or.cond.i366, label %142, label %143
 
 142:                                              ; preds = %124
-  store i32 65541, ptr %136, align 4, !tbaa !58
+  store i32 65541, ptr %136, align 4, !tbaa !57
   br label %143
 
 143:                                              ; preds = %142, %124
   %144 = xor i32 %139, 3
   %145 = lshr i32 44100, %144
   %146 = getelementptr inbounds nuw i8, ptr %135, i64 152
-  store i32 %145, ptr %146, align 8, !tbaa !72
+  store i32 %145, ptr %146, align 8, !tbaa !71
   call void @avpriv_set_pts_info(ptr noundef nonnull %123, i32 noundef 64, i32 noundef 1, i32 noundef %145) #9
   %147 = call i32 @avio_rl32(ptr noundef %spec.select) #9
   %148 = zext i32 %147 to i64
   %149 = getelementptr inbounds nuw i8, ptr %123, i64 48
-  store i64 %148, ptr %149, align 8, !tbaa !74
+  store i64 %148, ptr %149, align 8, !tbaa !73
   %150 = and i32 %122, 240
   %151 = icmp eq i32 %150, 32
   br i1 %151, label %152, label %156
@@ -590,7 +590,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 152:                                              ; preds = %143
   %153 = call i32 @avio_rl16(ptr noundef %spec.select) #9
   %154 = getelementptr inbounds nuw i8, ptr %123, i64 360
-  store i32 %153, ptr %154, align 8, !tbaa !75
+  store i32 %153, ptr %154, align 8, !tbaa !74
   %155 = add nsw i32 %.13399, -2
   br label %156
 
@@ -603,13 +603,13 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 160:                                              ; preds = %156
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %19, ptr %161, align 8, !tbaa !76
+  store i64 %19, ptr %161, align 8, !tbaa !75
   %162 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %163 = load i32, ptr %162, align 8, !tbaa !77
+  %163 = load i32, ptr %162, align 8, !tbaa !76
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %163, ptr %164, align 4, !tbaa !78
+  store i32 %163, ptr %164, align 4, !tbaa !77
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %166 = load i32, ptr %165, align 8, !tbaa !79
+  %166 = load i32, ptr %165, align 8, !tbaa !78
   br label %.thread437
 
 167:                                              ; preds = %30
@@ -650,7 +650,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %188 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %189 = load ptr, ptr %188, align 8, !tbaa !44
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 4
-  %191 = load i32, ptr %190, align 4, !tbaa !58
+  %191 = load i32, ptr %190, align 4, !tbaa !57
   %192 = icmp eq i32 %191, 86
   br i1 %192, label %193, label %.split.loop.exit543
 
@@ -675,26 +675,26 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 202:                                              ; preds = %.split.loop.exit543
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %19, ptr %203, align 8, !tbaa !76
+  store i64 %19, ptr %203, align 8, !tbaa !75
   %204 = sext i32 %184 to i64
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %204, ptr %205, align 8, !tbaa !80
+  store i64 %204, ptr %205, align 8, !tbaa !79
   %206 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  %207 = load i32, ptr %206, align 8, !tbaa !77
+  %207 = load i32, ptr %206, align 8, !tbaa !76
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %207, ptr %208, align 4, !tbaa !78
+  store i32 %207, ptr %208, align 4, !tbaa !77
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %210 = load i32, ptr %209, align 8, !tbaa !81
+  %210 = load i32, ptr %209, align 8, !tbaa !80
   %211 = or i32 %210, %.0309
-  store i32 %211, ptr %209, align 8, !tbaa !81
+  store i32 %211, ptr %209, align 8, !tbaa !80
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %213 = load i32, ptr %212, align 8, !tbaa !79
+  %213 = load i32, ptr %212, align 8, !tbaa !78
   br label %.thread437
 
 214:                                              ; preds = %172, %179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %172, !llvm.loop !82
+  br i1 %exitcond.not, label %.thread, label %172, !llvm.loop !81
 
 215:                                              ; preds = %30
   %216 = icmp eq i32 %22, 36
@@ -728,9 +728,9 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 221:                                              ; preds = %215, %215
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store ptr null, ptr %4, align 8, !tbaa !83
+  store ptr null, ptr %4, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  store ptr null, ptr %5, align 8, !tbaa !83
+  store ptr null, ptr %5, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   %222 = select i1 %216, i32 4, i32 3
@@ -792,7 +792,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 249:                                              ; preds = %244
   %250 = add nsw i32 %245, %246
   %251 = sext i32 %250 to i64
-  store i64 %251, ptr %3, align 8, !tbaa !84
+  store i64 %251, ptr %3, align 8, !tbaa !83
   %252 = sext i32 %.8394 to i64
   %253 = mul nsw i64 %252, 17373
   %254 = icmp slt i64 %253, %251
@@ -800,7 +800,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 255:                                              ; preds = %249
   %256 = call noalias ptr @av_malloc(i64 noundef %252) #9
-  store ptr %256, ptr %5, align 8, !tbaa !83
+  store ptr %256, ptr %5, align 8, !tbaa !82
   %.not350 = icmp eq ptr %256, null
   br i1 %.not350, label %.loopexit, label %257
 
@@ -810,14 +810,14 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br i1 %259, label %.thread423, label %260
 
 260:                                              ; preds = %257
-  %261 = load i64, ptr %3, align 8, !tbaa !84
+  %261 = load i64, ptr %3, align 8, !tbaa !83
   %262 = call noalias ptr @av_malloc(i64 noundef %261) #9
-  store ptr %262, ptr %4, align 8, !tbaa !83
+  store ptr %262, ptr %4, align 8, !tbaa !82
   %.not351 = icmp eq ptr %262, null
   br i1 %.not351, label %.loopexit, label %263
 
 263:                                              ; preds = %260
-  %264 = load ptr, ptr %5, align 8, !tbaa !83
+  %264 = load ptr, ptr %5, align 8, !tbaa !82
   %265 = zext nneg i32 %258 to i64
   %266 = call i32 @uncompress(ptr noundef nonnull %262, ptr noundef nonnull %3, ptr noundef %264, i64 noundef %265) #9
   %.not352 = icmp eq i32 %266, 0
@@ -844,7 +844,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 16
   %274 = load ptr, ptr %273, align 8, !tbaa !44
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 4
-  %276 = load i32, ptr %275, align 4, !tbaa !58
+  %276 = load i32, ptr %275, align 4, !tbaa !57
   %277 = icmp eq i32 %276, 13
   br i1 %277, label %278, label %282
 
@@ -857,7 +857,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 282:                                              ; preds = %270, %278
   %indvars.iv.next693 = add nuw nsw i64 %indvars.iv692, 1
   %exitcond696.not = icmp eq i64 %indvars.iv.next693, %wide.trip.count695
-  br i1 %exitcond696.not, label %._crit_edge568.thread, label %270, !llvm.loop !85
+  br i1 %exitcond696.not, label %._crit_edge568.thread, label %270, !llvm.loop !84
 
 ._crit_edge568:                                   ; preds = %278
   %283 = trunc nuw nsw i64 %indvars.iv692 to i32
@@ -876,14 +876,14 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %289 = load ptr, ptr %288, align 8, !tbaa !44
   store i32 0, ptr %289, align 8, !tbaa !51
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 4
-  store i32 13, ptr %290, align 4, !tbaa !58
+  store i32 13, ptr %290, align 4, !tbaa !57
   %291 = load i32, ptr %17, align 4, !tbaa !37
   call void @avpriv_set_pts_info(ptr noundef nonnull %285, i32 noundef 64, i32 noundef 256, i32 noundef %291) #9
   br label %292
 
 292:                                              ; preds = %286, %._crit_edge568
   %.13 = phi ptr [ %285, %286 ], [ %272, %._crit_edge568 ]
-  %293 = load i64, ptr %3, align 8, !tbaa !84
+  %293 = load i64, ptr %3, align 8, !tbaa !83
   %294 = sext i32 %246 to i64
   %295 = trunc i64 %293 to i32
   %296 = sub i32 %295, %246
@@ -895,19 +895,19 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %300 = getelementptr inbounds nuw i8, ptr %.13, i64 16
   %301 = load ptr, ptr %300, align 8, !tbaa !44
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 72
-  %303 = load i32, ptr %302, align 8, !tbaa !86
+  %303 = load i32, ptr %302, align 8, !tbaa !85
   %.not354 = icmp eq i32 %303, 0
   br i1 %.not354, label %304, label %308
 
 304:                                              ; preds = %299
   %305 = getelementptr inbounds nuw i8, ptr %301, i64 76
-  %306 = load i32, ptr %305, align 4, !tbaa !87
+  %306 = load i32, ptr %305, align 4, !tbaa !86
   %.not355 = icmp eq i32 %306, 0
   br i1 %.not355, label %307, label %308
 
 307:                                              ; preds = %304
-  store i32 %225, ptr %302, align 8, !tbaa !86
-  store i32 %226, ptr %305, align 4, !tbaa !87
+  store i32 %225, ptr %302, align 8, !tbaa !85
+  store i32 %226, ptr %305, align 4, !tbaa !86
   br label %310
 
 308:                                              ; preds = %304, %299
@@ -916,13 +916,13 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 310:                                              ; preds = %308, %307
   %311 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %19, ptr %311, align 8, !tbaa !76
+  store i64 %19, ptr %311, align 8, !tbaa !75
   %312 = getelementptr inbounds nuw i8, ptr %.13, i64 8
-  %313 = load i32, ptr %312, align 8, !tbaa !77
+  %313 = load i32, ptr %312, align 8, !tbaa !76
   %314 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %313, ptr %314, align 4, !tbaa !78
+  store i32 %313, ptr %314, align 4, !tbaa !77
   %315 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %316 = load i32, ptr %315, align 8, !tbaa !79
+  %316 = load i32, ptr %315, align 8, !tbaa !78
   %317 = icmp sgt i32 %245, %316
   br i1 %317, label %.loopexit, label %318
 
@@ -971,10 +971,10 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %339 = or disjoint i32 %338, %334
   %340 = or disjoint i32 %339, %337
   %341 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv703
-  store i32 %340, ptr %341, align 4, !tbaa !88
+  store i32 %340, ptr %341, align 4, !tbaa !87
   %indvars.iv.next704 = add nuw nsw i64 %indvars.iv703, 1
   %exitcond708.not = icmp eq i64 %indvars.iv.next704, %wide.trip.count707
-  br i1 %exitcond708.not, label %._crit_edge578, label %325, !llvm.loop !89
+  br i1 %exitcond708.not, label %._crit_edge578, label %325, !llvm.loop !88
 
 .lr.ph577.split:                                  ; preds = %.lr.ph577.split.preheader, %.lr.ph577.split
   %indvars.iv697 = phi i64 [ 0, %.lr.ph577.split.preheader ], [ %indvars.iv.next698, %.lr.ph577.split ]
@@ -994,10 +994,10 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %355 = or disjoint i32 %354, %353
   %356 = or disjoint i32 %355, -16777216
   %357 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv697
-  store i32 %356, ptr %357, align 4, !tbaa !88
+  store i32 %356, ptr %357, align 4, !tbaa !87
   %indvars.iv.next698 = add nuw nsw i64 %indvars.iv697, 1
   %exitcond702.not = icmp eq i64 %indvars.iv.next698, %wide.trip.count701
-  br i1 %exitcond702.not, label %._crit_edge578, label %.lr.ph577.split, !llvm.loop !91
+  br i1 %exitcond702.not, label %._crit_edge578, label %.lr.ph577.split, !llvm.loop !90
 
 ._crit_edge578:                                   ; preds = %.lr.ph577.split, %325, %.preheader
   %358 = call ptr @av_packet_new_side_data(ptr noundef nonnull %1, i32 noundef 0, i64 noundef 1024) #9
@@ -1021,7 +1021,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %.0 = phi i32 [ 11, %359 ], [ %361, %360 ], [ 39, %318 ]
   %364 = load ptr, ptr %300, align 8, !tbaa !44
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 44
-  %366 = load i32, ptr %365, align 4, !tbaa !92
+  %366 = load i32, ptr %365, align 4, !tbaa !91
   %.not357 = icmp eq i32 %366, -1
   %.not358 = icmp eq i32 %366, %.0
   %or.cond = or i1 %.not357, %.not358
@@ -1032,17 +1032,17 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   br label %369
 
 368:                                              ; preds = %363
-  store i32 %.0, ptr %365, align 4, !tbaa !92
+  store i32 %.0, ptr %365, align 4, !tbaa !91
   br label %369
 
 369:                                              ; preds = %368, %367
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %371 = load ptr, ptr %370, align 8, !tbaa !93
-  %372 = load ptr, ptr %4, align 8, !tbaa !83
+  %371 = load ptr, ptr %370, align 8, !tbaa !92
+  %372 = load ptr, ptr %4, align 8, !tbaa !82
   %373 = getelementptr inbounds i8, ptr %372, i64 %294
   %374 = sext i32 %245 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %371, ptr align 1 %373, i64 %374, i1 false)
-  %375 = load i32, ptr %315, align 8, !tbaa !79
+  %375 = load i32, ptr %315, align 8, !tbaa !78
   br label %.loopexit
 
 .thread423:                                       ; preds = %236, %248, %269, %249, %257
@@ -1083,7 +1083,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 387:                                              ; preds = %383
   %388 = getelementptr inbounds nuw i8, ptr %380, i64 4
-  %389 = load i32, ptr %388, align 4, !tbaa !58
+  %389 = load i32, ptr %388, align 4, !tbaa !57
   %390 = icmp eq i32 %389, 86017
   br i1 %390, label %391, label %398
 
@@ -1109,19 +1109,19 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 403:                                              ; preds = %400, %395
   %404 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %19, ptr %404, align 8, !tbaa !76
+  store i64 %19, ptr %404, align 8, !tbaa !75
   %405 = getelementptr inbounds nuw i8, ptr %378, i64 8
-  %406 = load i32, ptr %405, align 8, !tbaa !77
+  %406 = load i32, ptr %405, align 8, !tbaa !76
   %407 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %406, ptr %407, align 4, !tbaa !78
+  store i32 %406, ptr %407, align 4, !tbaa !77
   %408 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %409 = load i32, ptr %408, align 8, !tbaa !79
+  %409 = load i32, ptr %408, align 8, !tbaa !78
   br label %.thread437
 
 410:                                              ; preds = %376, %383
   %indvars.iv.next688 = add nuw nsw i64 %indvars.iv687, 1
   %exitcond691.not = icmp eq i64 %indvars.iv.next688, %wide.trip.count690
-  br i1 %exitcond691.not, label %.thread, label %376, !llvm.loop !94
+  br i1 %exitcond691.not, label %.thread, label %376, !llvm.loop !93
 
 411:                                              ; preds = %.lr.ph531, %423
   %indvars.iv682 = phi i64 [ 0, %.lr.ph531 ], [ %indvars.iv.next683, %423 ]
@@ -1130,7 +1130,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 16
   %415 = load ptr, ptr %414, align 8, !tbaa !44
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 4
-  %417 = load i32, ptr %416, align 4, !tbaa !58
+  %417 = load i32, ptr %416, align 4, !tbaa !57
   %418 = icmp eq i32 %417, 7
   br i1 %418, label %419, label %423
 
@@ -1143,7 +1143,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 423:                                              ; preds = %411, %419
   %indvars.iv.next683 = add nuw nsw i64 %indvars.iv682, 1
   %exitcond686.not = icmp eq i64 %indvars.iv.next683, %wide.trip.count685
-  br i1 %exitcond686.not, label %._crit_edge532.thread, label %411, !llvm.loop !95
+  br i1 %exitcond686.not, label %._crit_edge532.thread, label %411, !llvm.loop !94
 
 ._crit_edge532:                                   ; preds = %419
   %424 = trunc nuw nsw i64 %indvars.iv682 to i32
@@ -1162,7 +1162,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %430 = load ptr, ptr %429, align 8, !tbaa !44
   store i32 0, ptr %430, align 8, !tbaa !51
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 4
-  store i32 7, ptr %431, align 4, !tbaa !58
+  store i32 7, ptr %431, align 4, !tbaa !57
   %432 = load i32, ptr %17, align 4, !tbaa !37
   call void @avpriv_set_pts_info(ptr noundef nonnull %426, i32 noundef 64, i32 noundef 256, i32 noundef %432) #9
   br label %433
@@ -1181,13 +1181,13 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 440:                                              ; preds = %437
   %441 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %442 = load ptr, ptr %441, align 8, !tbaa !93
+  %442 = load ptr, ptr %441, align 8, !tbaa !92
   %443 = call i32 @avio_read(ptr noundef %spec.select, ptr noundef %442, i32 noundef 4) #9
   %.not346 = icmp eq i32 %443, 4
   br i1 %.not346, label %444, label %.thread437
 
 444:                                              ; preds = %440
-  %445 = load ptr, ptr %441, align 8, !tbaa !93
+  %445 = load ptr, ptr %441, align 8, !tbaa !92
   %446 = load i32, ptr %445, align 1, !tbaa !12
   %447 = call i32 @llvm.bswap.i32(i32 %446)
   switch i32 %447, label %457 [
@@ -1197,21 +1197,21 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 448:                                              ; preds = %444, %444
   %449 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %450 = load i32, ptr %449, align 8, !tbaa !79
+  %450 = load i32, ptr %449, align 8, !tbaa !78
   %451 = add nsw i32 %450, -4
-  store i32 %451, ptr %449, align 8, !tbaa !79
+  store i32 %451, ptr %449, align 8, !tbaa !78
   %452 = sext i32 %451 to i64
   %453 = getelementptr inbounds i8, ptr %445, i64 %452
   store i32 0, ptr %453, align 1
-  %454 = load ptr, ptr %441, align 8, !tbaa !93
-  %455 = load i32, ptr %449, align 8, !tbaa !79
+  %454 = load ptr, ptr %441, align 8, !tbaa !92
+  %455 = load i32, ptr %449, align 8, !tbaa !78
   %456 = call i32 @avio_read(ptr noundef %spec.select, ptr noundef %454, i32 noundef %455) #9
   br label %465
 
 457:                                              ; preds = %444
   %458 = getelementptr inbounds nuw i8, ptr %445, i64 4
   %459 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %460 = load i32, ptr %459, align 8, !tbaa !79
+  %460 = load i32, ptr %459, align 8, !tbaa !78
   %461 = add nsw i32 %460, -4
   %462 = call i32 @avio_read(ptr noundef %spec.select, ptr noundef nonnull %458, i32 noundef %461) #9
   %463 = add nuw nsw i32 %462, 4
@@ -1222,7 +1222,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 465:                                              ; preds = %457, %448
   %.1308 = phi i32 [ %456, %448 ], [ %spec.select362, %457 ]
   %466 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %467 = load i32, ptr %466, align 8, !tbaa !79
+  %467 = load i32, ptr %466, align 8, !tbaa !78
   %.not347 = icmp eq i32 %.1308, %467
   br i1 %.not347, label %471, label %468
 
@@ -1232,17 +1232,17 @@ get_swf_tag.exit:                                 ; preds = %18, %24
 
 470:                                              ; preds = %468
   call void @av_shrink_packet(ptr noundef nonnull %1, i32 noundef %.1308) #9
-  %.pre = load i32, ptr %466, align 8, !tbaa !79
+  %.pre = load i32, ptr %466, align 8, !tbaa !78
   br label %471
 
 471:                                              ; preds = %470, %465
   %472 = phi i32 [ %.pre, %470 ], [ %.1308, %465 ]
   %473 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i64 %19, ptr %473, align 8, !tbaa !76
+  store i64 %19, ptr %473, align 8, !tbaa !75
   %474 = getelementptr inbounds nuw i8, ptr %.18, i64 8
-  %475 = load i32, ptr %474, align 8, !tbaa !77
+  %475 = load i32, ptr %474, align 8, !tbaa !76
   %476 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %475, ptr %476, align 4, !tbaa !78
+  store i32 %475, ptr %476, align 4, !tbaa !77
   br label %.thread437
 
 477:                                              ; preds = %215
@@ -1266,7 +1266,7 @@ get_swf_tag.exit:                                 ; preds = %18, %24
   %483 = call i64 @avio_seek(ptr noundef %spec.select, i64 noundef 0, i32 noundef 1) #9
   %484 = call i32 @avio_feof(ptr noundef %spec.select) #9
   %.not.i = icmp eq i32 %484, 0
-  br i1 %.not.i, label %18, label %.thread437, !llvm.loop !96
+  br i1 %.not.i, label %18, label %.thread437
 
 .thread437:                                       ; preds = %get_swf_tag.exit, %._crit_edge532.thread, %._crit_edge528, %.thread429, %._crit_edge523, %2, %.split.loop.exit543, %202, %._crit_edge, %160, %156, %468, %440, %437, %400, %395, %471, %403, %.loopexit, %29
   %.1443 = phi i32 [ %.1308, %468 ], [ -1094995529, %440 ], [ %438, %437 ], [ %401, %400 ], [ %396, %395 ], [ %472, %471 ], [ %409, %403 ], [ %.0307, %.loopexit ], [ -1094995529, %29 ], [ %158, %156 ], [ %166, %160 ], [ -12, %._crit_edge ], [ %200, %.split.loop.exit543 ], [ %213, %202 ], [ -541478725, %2 ], [ %22, %get_swf_tag.exit ], [ -12, %._crit_edge532.thread ], [ -12, %._crit_edge528 ], [ -541478725, %.thread429 ], [ -12, %._crit_edge523 ]
@@ -1319,7 +1319,7 @@ define internal range(i32 1, 0) i32 @zlib_refill(ptr noundef readonly captures(n
   br label %12
 
 12:                                               ; preds = %22, %3
-  %13 = load i32, ptr %7, align 8, !tbaa !97
+  %13 = load i32, ptr %7, align 8, !tbaa !95
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %20
 
@@ -1332,13 +1332,13 @@ define internal range(i32 1, 0) i32 @zlib_refill(ptr noundef readonly captures(n
 
 .thread:                                          ; preds = %14
   %19 = load ptr, ptr %9, align 8, !tbaa !29
-  store ptr %19, ptr %6, align 8, !tbaa !98
-  store i32 %17, ptr %7, align 8, !tbaa !97
+  store ptr %19, ptr %6, align 8, !tbaa !96
+  store i32 %17, ptr %7, align 8, !tbaa !95
   br label %20
 
 20:                                               ; preds = %.thread, %12
-  store ptr %1, ptr %10, align 8, !tbaa !99
-  store i32 %2, ptr %11, align 8, !tbaa !100
+  store ptr %1, ptr %10, align 8, !tbaa !97
+  store i32 %2, ptr %11, align 8, !tbaa !98
   %21 = tail call i32 @inflate(ptr noundef nonnull %6, i32 noundef 0) #9
   switch i32 %21, label %.loopexit [
     i32 1, label %.loopexit.loopexit
@@ -1346,10 +1346,10 @@ define internal range(i32 1, 0) i32 @zlib_refill(ptr noundef readonly captures(n
   ]
 
 22:                                               ; preds = %20
-  %23 = load i32, ptr %11, align 8, !tbaa !100
+  %23 = load i32, ptr %11, align 8, !tbaa !98
   %24 = sub i32 %2, %23
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %12, label %.loopexit, !llvm.loop !101
+  br i1 %25, label %12, label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %20
   br label %.loopexit
@@ -1489,50 +1489,47 @@ attributes #11 = { noreturn nounwind }
 !52 = !{!"AVCodecParameters", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !10, i64 24, !50, i64 32, !10, i64 40, !10, i64 44, !23, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !47, i64 80, !47, i64 88, !10, i64 96, !10, i64 100, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !53, i64 128, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172}
 !53 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
 !54 = !{!45, !10, i64 12}
-!55 = distinct !{!55, !56, !57}
+!55 = distinct !{!55, !56}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!"llvm.loop.estimated_trip_count"}
-!58 = !{!52, !10, i64 4}
-!59 = distinct !{!59, !56, !57}
-!60 = !{!61, !10, i64 808}
-!61 = !{!"FFStream", !45, i64 0, !62, i64 216, !10, i64 224, !63, i64 232, !10, i64 240, !64, i64 248, !10, i64 256, !65, i64 264, !10, i64 280, !10, i64 284, !66, i64 288, !67, i64 312, !68, i64 320, !10, i64 328, !10, i64 332, !23, i64 336, !23, i64 344, !10, i64 352, !10, i64 356, !10, i64 360, !23, i64 368, !23, i64 376, !23, i64 384, !10, i64 392, !23, i64 400, !23, i64 408, !23, i64 416, !10, i64 424, !10, i64 428, !8, i64 432, !8, i64 568, !8, i64 592, !23, i64 728, !8, i64 736, !8, i64 737, !47, i64 740, !5, i64 752, !69, i64 784, !23, i64 792, !10, i64 800, !10, i64 804, !10, i64 808, !70, i64 816, !10, i64 824, !10, i64 828, !23, i64 832, !23, i64 840, !71, i64 848, !47, i64 856}
-!62 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
-!63 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
-!64 = !{!"p1 _ZTS14AVCodecContext", !7, i64 0}
-!65 = !{!"", !63, i64 0, !10, i64 8}
-!66 = !{!"FFFrac", !23, i64 0, !23, i64 8, !23, i64 16}
-!67 = !{!"p1 _ZTS12FFStreamInfo", !7, i64 0}
-!68 = !{!"p1 _ZTS12AVIndexEntry", !7, i64 0}
-!69 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
-!70 = !{!"p1 _ZTS20AVCodecParserContext", !7, i64 0}
-!71 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
-!72 = !{!52, !10, i64 152}
-!73 = distinct !{!73, !56, !57}
-!74 = !{!45, !23, i64 48}
-!75 = !{!61, !10, i64 360}
-!76 = !{!48, !23, i64 72}
-!77 = !{!45, !10, i64 8}
-!78 = !{!48, !10, i64 36}
-!79 = !{!48, !10, i64 32}
-!80 = !{!48, !23, i64 8}
-!81 = !{!48, !10, i64 40}
-!82 = distinct !{!82, !56, !57}
-!83 = !{!6, !6, i64 0}
-!84 = !{!23, !23, i64 0}
-!85 = distinct !{!85, !56, !57}
-!86 = !{!52, !10, i64 72}
-!87 = !{!52, !10, i64 76}
-!88 = !{!10, !10, i64 0}
-!89 = distinct !{!89, !56, !57, !90}
-!90 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!91 = distinct !{!91, !56, !57}
-!92 = !{!52, !10, i64 44}
-!93 = !{!48, !6, i64 24}
-!94 = distinct !{!94, !56, !57}
-!95 = distinct !{!95, !56, !57}
-!96 = distinct !{!96, !57}
-!97 = !{!31, !10, i64 8}
-!98 = !{!31, !6, i64 0}
-!99 = !{!31, !6, i64 24}
-!100 = !{!31, !10, i64 32}
-!101 = distinct !{!101, !57}
+!57 = !{!52, !10, i64 4}
+!58 = distinct !{!58, !56}
+!59 = !{!60, !10, i64 808}
+!60 = !{!"FFStream", !45, i64 0, !61, i64 216, !10, i64 224, !62, i64 232, !10, i64 240, !63, i64 248, !10, i64 256, !64, i64 264, !10, i64 280, !10, i64 284, !65, i64 288, !66, i64 312, !67, i64 320, !10, i64 328, !10, i64 332, !23, i64 336, !23, i64 344, !10, i64 352, !10, i64 356, !10, i64 360, !23, i64 368, !23, i64 376, !23, i64 384, !10, i64 392, !23, i64 400, !23, i64 408, !23, i64 416, !10, i64 424, !10, i64 428, !8, i64 432, !8, i64 568, !8, i64 592, !23, i64 728, !8, i64 736, !8, i64 737, !47, i64 740, !5, i64 752, !68, i64 784, !23, i64 792, !10, i64 800, !10, i64 804, !10, i64 808, !69, i64 816, !10, i64 824, !10, i64 828, !23, i64 832, !23, i64 840, !70, i64 848, !47, i64 856}
+!61 = !{!"p1 _ZTS15AVFormatContext", !7, i64 0}
+!62 = !{!"p1 _ZTS12AVBSFContext", !7, i64 0}
+!63 = !{!"p1 _ZTS14AVCodecContext", !7, i64 0}
+!64 = !{!"", !62, i64 0, !10, i64 8}
+!65 = !{!"FFFrac", !23, i64 0, !23, i64 8, !23, i64 16}
+!66 = !{!"p1 _ZTS12FFStreamInfo", !7, i64 0}
+!67 = !{!"p1 _ZTS12AVIndexEntry", !7, i64 0}
+!68 = !{!"p1 _ZTS15PacketListEntry", !7, i64 0}
+!69 = !{!"p1 _ZTS20AVCodecParserContext", !7, i64 0}
+!70 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
+!71 = !{!52, !10, i64 152}
+!72 = distinct !{!72, !56}
+!73 = !{!45, !23, i64 48}
+!74 = !{!60, !10, i64 360}
+!75 = !{!48, !23, i64 72}
+!76 = !{!45, !10, i64 8}
+!77 = !{!48, !10, i64 36}
+!78 = !{!48, !10, i64 32}
+!79 = !{!48, !23, i64 8}
+!80 = !{!48, !10, i64 40}
+!81 = distinct !{!81, !56}
+!82 = !{!6, !6, i64 0}
+!83 = !{!23, !23, i64 0}
+!84 = distinct !{!84, !56}
+!85 = !{!52, !10, i64 72}
+!86 = !{!52, !10, i64 76}
+!87 = !{!10, !10, i64 0}
+!88 = distinct !{!88, !56, !89}
+!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!90 = distinct !{!90, !56}
+!91 = !{!52, !10, i64 44}
+!92 = !{!48, !6, i64 24}
+!93 = distinct !{!93, !56}
+!94 = distinct !{!94, !56}
+!95 = !{!31, !10, i64 8}
+!96 = !{!31, !6, i64 0}
+!97 = !{!31, !6, i64 24}
+!98 = !{!31, !10, i64 32}

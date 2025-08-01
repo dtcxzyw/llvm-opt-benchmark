@@ -1246,7 +1246,7 @@ define ptr @ossl_rand_drbg_new(ptr noundef %0, ptr noundef %1, ptr noundef reado
 
 find_call.exit:                                   ; preds = %.lr.ph.i
   %30 = getelementptr i8, ptr %.0611.i, i64 8
-  %.val = load ptr, ptr %30, align 8, !tbaa !55
+  %.val = load ptr, ptr %30, align 8, !tbaa !54
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr %.val, ptr %31, align 8, !tbaa !49
   br label %.lr.ph.i79.preheader
@@ -1268,7 +1268,7 @@ find_call.exit:                                   ; preds = %.lr.ph.i
 
 find_call.exit83:                                 ; preds = %.lr.ph.i79
   %37 = getelementptr i8, ptr %.0611.i80, i64 8
-  %.val70 = load ptr, ptr %37, align 8, !tbaa !55
+  %.val70 = load ptr, ptr %37, align 8, !tbaa !54
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr %.val70, ptr %38, align 8, !tbaa !44
   br label %.lr.ph.i87.preheader
@@ -1290,7 +1290,7 @@ find_call.exit83:                                 ; preds = %.lr.ph.i79
 
 find_call.exit91:                                 ; preds = %.lr.ph.i87
   %44 = getelementptr i8, ptr %.0611.i88, i64 8
-  %.val71 = load ptr, ptr %44, align 8, !tbaa !55
+  %.val71 = load ptr, ptr %44, align 8, !tbaa !54
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 72
   store ptr %.val71, ptr %45, align 8, !tbaa !45
   br label %.lr.ph.i95.preheader
@@ -1312,7 +1312,7 @@ find_call.exit91:                                 ; preds = %.lr.ph.i87
 
 find_call.exit99:                                 ; preds = %.lr.ph.i95
   %51 = getelementptr i8, ptr %.0611.i96, i64 8
-  %.val72 = load ptr, ptr %51, align 8, !tbaa !55
+  %.val72 = load ptr, ptr %51, align 8, !tbaa !54
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 80
   store ptr %.val72, ptr %52, align 8, !tbaa !48
   br label %.lr.ph.i103.preheader
@@ -1334,7 +1334,7 @@ find_call.exit99:                                 ; preds = %.lr.ph.i95
 
 find_call.exit107:                                ; preds = %.lr.ph.i103
   %58 = getelementptr i8, ptr %.0611.i104, i64 8
-  %.val73 = load ptr, ptr %58, align 8, !tbaa !55
+  %.val73 = load ptr, ptr %58, align 8, !tbaa !54
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 88
   store ptr %.val73, ptr %59, align 8, !tbaa !35
   br label %.lr.ph.i111.preheader
@@ -1356,7 +1356,7 @@ find_call.exit107:                                ; preds = %.lr.ph.i103
 
 find_call.exit115:                                ; preds = %.lr.ph.i111
   %65 = getelementptr i8, ptr %.0611.i112, i64 8
-  %.val74 = load ptr, ptr %65, align 8, !tbaa !55
+  %.val74 = load ptr, ptr %65, align 8, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store ptr %.val74, ptr %66, align 8, !tbaa !42
   br label %.lr.ph.i119.preheader
@@ -1378,7 +1378,7 @@ find_call.exit115:                                ; preds = %.lr.ph.i111
 
 find_call.exit123:                                ; preds = %.lr.ph.i119
   %72 = getelementptr i8, ptr %.0611.i120, i64 8
-  %.val75 = load ptr, ptr %72, align 8, !tbaa !55
+  %.val75 = load ptr, ptr %72, align 8, !tbaa !54
   %73 = getelementptr inbounds nuw i8, ptr %13, i64 104
   store ptr %.val75, ptr %73, align 8, !tbaa !46
   br label %find_call.exit123.thread
@@ -1395,7 +1395,7 @@ find_call.exit123.thread:                         ; preds = %69, %.preheader.i, 
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 184
   store i32 1, ptr %78, align 8, !tbaa !23
   %79 = getelementptr inbounds nuw i8, ptr %13, i64 208
-  store atomic i32 1, ptr %79 seq_cst, align 4, !tbaa !56
+  store atomic i32 1, ptr %79 seq_cst, align 4, !tbaa !55
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 188
   store i32 256, ptr %80, align 4, !tbaa !22
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 200
@@ -1712,7 +1712,7 @@ define range(i32 0, 2) i32 @ossl_drbg_get_ctx_params_no_lock(ptr noundef readonl
 17:                                               ; preds = %15, %9
   %.1 = phi i64 [ %16, %15 ], [ %.015, %9 ]
   %18 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %1, i64 %.1
-  %19 = load ptr, ptr %18, align 8, !tbaa !57
+  %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = icmp eq ptr %19, null
   %. = zext i1 %20 to i32
   store i32 %., ptr %2, align 4, !tbaa !43
@@ -1729,7 +1729,7 @@ define range(i32 0, 2) i32 @ossl_drbg_set_ctx_params(ptr noundef %0, ptr noundef
   br i1 %3, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %4 = load ptr, ptr %1, align 8, !tbaa !57
+  %4 = load ptr, ptr %1, align 8, !tbaa !56
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %5
 
@@ -1878,10 +1878,9 @@ attributes #8 = { nounwind }
 !49 = !{!9, !5, i64 56}
 !50 = !{!51, !11, i64 0}
 !51 = !{!"ossl_dispatch_st", !11, i64 0, !5, i64 8}
-!52 = distinct !{!52, !53, !54}
+!52 = distinct !{!52, !53}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!"llvm.loop.estimated_trip_count"}
-!55 = !{!51, !5, i64 8}
-!56 = !{!9, !6, i64 208}
-!57 = !{!58, !15, i64 0}
-!58 = !{!"ossl_param_st", !15, i64 0, !11, i64 8, !5, i64 16, !13, i64 24, !13, i64 32}
+!54 = !{!51, !5, i64 8}
+!55 = !{!9, !6, i64 208}
+!56 = !{!57, !15, i64 0}
+!57 = !{!"ossl_param_st", !15, i64 0, !11, i64 8, !5, i64 16, !13, i64 24, !13, i64 32}

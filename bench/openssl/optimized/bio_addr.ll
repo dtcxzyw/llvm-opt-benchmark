@@ -860,7 +860,7 @@ define range(i32 0, 2) i32 @BIO_lookup_ex(ptr noundef %0, ptr noundef %1, i32 no
 10:                                               ; preds = %7
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16
   %12 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 48, ptr noundef nonnull @.str, i32 noundef 607) #15
-  store ptr %12, ptr %6, align 8, !tbaa !29
+  store ptr %12, ptr %6, align 8, !tbaa !28
   %13 = icmp eq ptr %12, null
   br i1 %13, label %43, label %14
 
@@ -876,7 +876,7 @@ define range(i32 0, 2) i32 @BIO_lookup_ex(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %19, label %.BIO_ADDR_new.exit.thread_crit_edge.i, label %20
 
 .BIO_ADDR_new.exit.thread_crit_edge.i:            ; preds = %14
-  %.pre.i = load ptr, ptr %6, align 8, !tbaa !29
+  %.pre.i = load ptr, ptr %6, align 8, !tbaa !28
   br label %BIO_ADDR_new.exit.thread.i
 
 20:                                               ; preds = %14
@@ -894,7 +894,7 @@ define range(i32 0, 2) i32 @BIO_lookup_ex(ptr noundef %0, ptr noundef %1, i32 no
   br label %BIO_ADDR_rawmake.exit.i
 
 BIO_ADDR_rawmake.exit.i:                          ; preds = %23, %20
-  %27 = load ptr, ptr %6, align 8, !tbaa !29
+  %27 = load ptr, ptr %6, align 8, !tbaa !28
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %18, ptr %28, align 8, !tbaa !25
   br label %BIO_ADDR_new.exit.thread.i
@@ -903,7 +903,7 @@ BIO_ADDR_new.exit.thread.i:                       ; preds = %BIO_ADDR_rawmake.ex
   %29 = phi ptr [ %.pre.i, %.BIO_ADDR_new.exit.thread_crit_edge.i ], [ %27, %BIO_ADDR_rawmake.exit.i ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store ptr null, ptr %30, align 8, !tbaa !17
-  %31 = load ptr, ptr %6, align 8, !tbaa !29
+  %31 = load ptr, ptr %6, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !25
   %34 = icmp eq ptr %33, null
@@ -931,7 +931,7 @@ BIO_ADDR_new.exit.thread.i:                       ; preds = %BIO_ADDR_rawmake.ex
   br i1 %.not9.i.i, label %BIO_ADDRINFO_free.exit.i, label %.preheader.i.i, !llvm.loop !26
 
 BIO_ADDRINFO_free.exit.i:                         ; preds = %.preheader.i.i, %38
-  store ptr null, ptr %6, align 8, !tbaa !29
+  store ptr null, ptr %6, align 8, !tbaa !28
   br label %43
 
 43:                                               ; preds = %BIO_ADDRINFO_free.exit.i, %10
@@ -969,7 +969,7 @@ BIO_ADDRINFO_free.exit.i:                         ; preds = %.preheader.i.i, %38
 .sink.split:                                      ; preds = %66, %53
   %simplifycfg.merge.sink = phi i32 [ %simplifycfg.merge, %53 ], [ %68, %66 ]
   %.0.ph = phi i32 [ 0, %53 ], [ %56, %66 ]
-  store i32 %simplifycfg.merge.sink, ptr %8, align 8, !tbaa !30
+  store i32 %simplifycfg.merge.sink, ptr %8, align 8, !tbaa !29
   br label %55
 
 55:                                               ; preds = %.sink.split, %46
@@ -1000,7 +1000,7 @@ BIO_ADDRINFO_free.exit.i:                         ; preds = %.preheader.i.i, %38
   br label %.loopexit.sink.split
 
 63:                                               ; preds = %55
-  %64 = load i32, ptr %8, align 8, !tbaa !30
+  %64 = load i32, ptr %8, align 8, !tbaa !29
   %65 = and i32 %64, 32
   %.not30 = icmp eq i32 %65, 0
   br i1 %.not30, label %69, label %66
@@ -1008,7 +1008,7 @@ BIO_ADDRINFO_free.exit.i:                         ; preds = %.preheader.i.i, %38
 66:                                               ; preds = %63
   %67 = and i32 %64, -37
   %68 = or disjoint i32 %67, 4
-  br label %.sink.split, !llvm.loop !31
+  br label %.sink.split
 
 69:                                               ; preds = %63
   call void @ERR_new() #15
@@ -1097,9 +1097,7 @@ attributes #17 = { nounwind willreturn memory(none) }
 !23 = !{!18, !10, i64 12}
 !24 = !{!18, !10, i64 16}
 !25 = !{!18, !19, i64 24}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!20, !20, i64 0}
-!30 = !{!18, !10, i64 0}
-!31 = distinct !{!31, !28}
+!28 = !{!20, !20, i64 0}
+!29 = !{!18, !10, i64 0}

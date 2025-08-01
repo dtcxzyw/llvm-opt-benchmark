@@ -852,20 +852,20 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
 33:                                               ; preds = %.critedge, %9
   %.043 = phi i32 [ %27, %.critedge ], [ 0, %9 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 152992
-  %35 = load i32, ptr %34, align 8, !tbaa !75
+  %35 = load i32, ptr %34, align 8, !tbaa !74
   %36 = add i32 %35, %21
   br label %37
 
 37:                                               ; preds = %33, %97
   %indvars.iv79 = phi i64 [ 0, %33 ], [ %indvars.iv.next80, %97 ]
   %38 = getelementptr inbounds nuw [792 x %struct.anon], ptr @_ZZN6LibRaw11adobe_coeffEjPKciE5table, i64 0, i64 %indvars.iv79
-  %39 = load i32, ptr %38, align 8, !tbaa !76
+  %39 = load i32, ptr %38, align 8, !tbaa !75
   %40 = icmp eq i32 %39, %1
   br i1 %40, label %41, label %97
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !78
+  %43 = load ptr, ptr %42, align 8, !tbaa !77
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #10
   %.not52 = icmp eq i64 %44, 0
   br i1 %.not52, label %47, label %45
@@ -877,13 +877,13 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
 
 47:                                               ; preds = %45, %41
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %49 = load i32, ptr %48, align 4, !tbaa !79
+  %49 = load i32, ptr %48, align 4, !tbaa !78
   %.not54 = icmp eq i32 %49, 0
   br i1 %.not54, label %50, label %67
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !80
+  %52 = load i32, ptr %51, align 8, !tbaa !79
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.sink.split, label %54
 
@@ -901,20 +901,20 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
 .sink.split:                                      ; preds = %50, %58
   %.sink94 = phi i32 [ %59, %58 ], [ %52, %50 ]
   %60 = and i32 %.sink94, 65535
-  store i32 %60, ptr %34, align 8, !tbaa !75
+  store i32 %60, ptr %34, align 8, !tbaa !74
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16416) %10, i8 0, i64 16416, i1 false)
   br label %61
 
 61:                                               ; preds = %.sink.split, %54
   %62 = getelementptr inbounds nuw i8, ptr %38, i64 20
-  %63 = load i32, ptr %62, align 4, !tbaa !81
+  %63 = load i32, ptr %62, align 4, !tbaa !80
   %.not55 = icmp eq i32 %63, 0
   br i1 %.not55, label %67, label %64
 
 64:                                               ; preds = %61
   %65 = and i32 %63, 65535
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 153000
-  store i32 %65, ptr %66, align 8, !tbaa !82
+  store i32 %65, ptr %66, align 8, !tbaa !81
   br label %67
 
 67:                                               ; preds = %61, %64, %47
@@ -925,7 +925,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 381484
-  store i32 0, ptr %71, align 4, !tbaa !83
+  store i32 0, ptr %71, align 4, !tbaa !82
   %.not58 = icmp eq i32 %3, 0
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 153352
   br i1 %.not58, label %.split.us, label %.split
@@ -943,13 +943,13 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   %80 = urem i8 %.lhs.trunc.us, 3
   %81 = zext nneg i8 %80 to i64
   %82 = getelementptr inbounds nuw [3 x float], ptr %79, i64 0, i64 %81
-  store float %76, ptr %82, align 4, !tbaa !84
+  store float %76, ptr %82, align 4, !tbaa !83
   %83 = fpext reassoc nsz arcp contract afn float %76 to double
   %84 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv87
-  store double %83, ptr %84, align 8, !tbaa !85
+  store double %83, ptr %84, align 8, !tbaa !84
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 12
-  br i1 %exitcond90.not, label %95, label %.split.us, !llvm.loop !86
+  br i1 %exitcond90.not, label %95, label %.split.us, !llvm.loop !85
 
 .split:                                           ; preds = %70, %.split
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.split ], [ 0, %70 ]
@@ -964,10 +964,10 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   %92 = urem i8 %.lhs.trunc64, 3
   %93 = zext nneg i8 %92 to i64
   %94 = getelementptr inbounds nuw [3 x float], ptr %91, i64 0, i64 %93
-  store float %88, ptr %94, align 4, !tbaa !84
+  store float %88, ptr %94, align 4, !tbaa !83
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 12
-  br i1 %exitcond86.not, label %.critedge61, label %.split, !llvm.loop !88
+  br i1 %exitcond86.not, label %.critedge61, label %.split, !llvm.loop !87
 
 95:                                               ; preds = %.split.us
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 153304
@@ -977,7 +977,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
 97:                                               ; preds = %45, %37
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 792
-  br i1 %exitcond82.not, label %.critedge61, label %37, !llvm.loop !89
+  br i1 %exitcond82.not, label %.critedge61, label %37, !llvm.loop !88
 
 .critedge61:                                      ; preds = %97, %.split, %67, %95, %4
   %.0 = phi i32 [ 1, %4 ], [ 1, %67 ], [ 1, %95 ], [ 1, %.split ], [ 0, %97 ]
@@ -1005,7 +1005,7 @@ declare void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN6LibRaw12simple_coeffEi(ptr noundef nonnull align 8 captures(none) dereferenceable(767680) initializes((381484, 381488)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 381484
-  store i32 0, ptr %3, align 4, !tbaa !83
+  store i32 0, ptr %3, align 4, !tbaa !82
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %5 = load i32, ptr %4, align 4, !tbaa !6
   %6 = icmp sgt i32 %5, 0
@@ -1021,20 +1021,20 @@ define void @_ZN6LibRaw12simple_coeffEi(ptr noundef nonnull align 8 captures(non
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 2
   %15 = add nuw nsw i64 %14, 4
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 153304
   %16 = getelementptr i8, ptr @_ZZN6LibRaw12simple_coeffEiE5table, i64 %9
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %.preheader.us
   %indvar = phi i64 [ 0, %.preheader.us.preheader ], [ %indvar.next, %.preheader.us ]
   %17 = shl nuw nsw i64 %indvar, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %17
-  %18 = mul nuw nsw i64 %indvar, %11
-  %scevgep17 = getelementptr i8, ptr %16, i64 %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %gep, ptr noundef nonnull align 4 dereferenceable(1) %scevgep17, i64 %15, i1 false), !tbaa !84
+  %18 = getelementptr nuw i8, ptr %0, i64 %17
+  %scevgep = getelementptr nuw i8, ptr %18, i64 153304
+  %19 = mul nuw nsw i64 %indvar, %11
+  %scevgep17 = getelementptr i8, ptr %16, i64 %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, ptr noundef nonnull align 4 dereferenceable(1) %scevgep17, i64 %15, i1 false), !tbaa !83
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, 3
-  br i1 %exitcond.not, label %.split15.us, label %.preheader.us, !llvm.loop !90
+  br i1 %exitcond.not, label %.split15.us, label %.preheader.us, !llvm.loop !89
 
 .split15.us:                                      ; preds = %.preheader.us, %2
   ret void
@@ -1132,22 +1132,21 @@ attributes #10 = { nounwind willreturn memory(read) }
 !69 = !{!"_ZTS13libraw_memmgr", !10, i64 0, !15, i64 8}
 !70 = !{!"_ZTS18libraw_callbacks_t", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128}
 !71 = !{!15, !15, i64 0}
-!72 = distinct !{!72, !73, !74}
+!72 = distinct !{!72, !73}
 !73 = !{!"llvm.loop.mustprogress"}
-!74 = !{!"llvm.loop.estimated_trip_count"}
-!75 = !{!7, !15, i64 152992}
-!76 = !{!77, !15, i64 0}
-!77 = !{!"_ZTSZN6LibRaw11adobe_coeffEjPKciE3$_0", !15, i64 0, !18, i64 8, !15, i64 16, !15, i64 20, !11, i64 24}
-!78 = !{!77, !18, i64 8}
-!79 = !{!7, !15, i64 532}
-!80 = !{!77, !15, i64 16}
-!81 = !{!77, !15, i64 20}
-!82 = !{!7, !15, i64 153000}
-!83 = !{!7, !15, i64 381484}
-!84 = !{!20, !20, i64 0}
-!85 = !{!16, !16, i64 0}
-!86 = distinct !{!86, !73, !74, !87}
-!87 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!88 = distinct !{!88, !73, !74}
-!89 = distinct !{!89, !73, !74}
-!90 = distinct !{!90, !73, !74, !87}
+!74 = !{!7, !15, i64 152992}
+!75 = !{!76, !15, i64 0}
+!76 = !{!"_ZTSZN6LibRaw11adobe_coeffEjPKciE3$_0", !15, i64 0, !18, i64 8, !15, i64 16, !15, i64 20, !11, i64 24}
+!77 = !{!76, !18, i64 8}
+!78 = !{!7, !15, i64 532}
+!79 = !{!76, !15, i64 16}
+!80 = !{!76, !15, i64 20}
+!81 = !{!7, !15, i64 153000}
+!82 = !{!7, !15, i64 381484}
+!83 = !{!20, !20, i64 0}
+!84 = !{!16, !16, i64 0}
+!85 = distinct !{!85, !73, !86}
+!86 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!87 = distinct !{!87, !73}
+!88 = distinct !{!88, !73}
+!89 = distinct !{!89, !73, !86}

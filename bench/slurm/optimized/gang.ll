@@ -523,12 +523,12 @@ define internal fastcc void @_scan_slurm_job_list() unnamed_addr #0 {
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 392
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, %51
-  br i1 %63, label %_find_job_index.exit.backedge, label %64, !llvm.loop !12
+  br i1 %63, label %_find_job_index.exit.backedge, label %64, !llvm.loop !11
 
 64:                                               ; preds = %56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %56, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %56, !llvm.loop !12
 
 _find_job_index.exit.thread:                      ; preds = %64, %49
   %65 = tail call fastcc zeroext i16 @_add_job_to_part(ptr noundef %47, ptr noundef nonnull %18)
@@ -537,7 +537,7 @@ _find_job_index.exit.thread:                      ; preds = %64, %49
 _find_job_index.exit.backedge:                    ; preds = %56, %_find_job_index.exit.thread, %68, %25, %32, %48, %67, %28
   %66 = tail call ptr @list_next(ptr noundef %16) #7
   %.not32 = icmp eq ptr %66, null
-  br i1 %.not32, label %_find_job_index.exit._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not32, label %_find_job_index.exit._crit_edge, label %.lr.ph, !llvm.loop !11
 
 67:                                               ; preds = %45
   br i1 %.not38, label %_find_job_index.exit.backedge, label %68
@@ -563,7 +563,7 @@ _find_job_index.exit._crit_edge:                  ; preds = %_find_job_index.exi
   tail call fastcc void @_update_active_row(ptr noundef %75, i32 noundef 1)
   %76 = tail call ptr @list_next(ptr noundef %73) #7
   %.not.i40 = icmp eq ptr %76, null
-  br i1 %.not.i40, label %_update_all_active_rows.exit, label %.lr.ph.i39, !llvm.loop !14
+  br i1 %.not.i40, label %_update_all_active_rows.exit, label %.lr.ph.i39, !llvm.loop !13
 
 _update_all_active_rows.exit:                     ; preds = %.lr.ph.i39, %_find_job_index.exit._crit_edge
   tail call void @list_iterator_destroy(ptr noundef %73) #7
@@ -870,7 +870,7 @@ define dso_local void @gs_job_start(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @_update_active_row(ptr noundef %37, i32 noundef 1)
   %38 = tail call ptr @list_next(ptr noundef %35) #7
   %.not.i = icmp eq ptr %38, null
-  br i1 %.not.i, label %_update_all_active_rows.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %_update_all_active_rows.exit, label %.lr.ph.i, !llvm.loop !13
 
 _update_all_active_rows.exit:                     ; preds = %.lr.ph.i, %32
   tail call void @list_iterator_destroy(ptr noundef %35) #7
@@ -985,7 +985,7 @@ define internal fastcc zeroext i16 @_add_job_to_part(ptr noundef nonnull %0, ptr
 30:                                               ; preds = %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %22, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %22, !llvm.loop !12
 
 _find_job_index.exit:                             ; preds = %22
   %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -1142,7 +1142,7 @@ define internal fastcc void @_preempt_job_dequeue() unnamed_addr #0 {
 
 8:                                                ; preds = %.lr.ph
   %9 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.60, ptr noundef nonnull @__func__._preempt_job_dequeue, i32 noundef %5) #7
-  br label %.critedge, !llvm.loop !15
+  br label %.critedge, !llvm.loop !14
 
 10:                                               ; preds = %.lr.ph
   %11 = call zeroext i16 @slurm_job_preempt_mode(ptr noundef nonnull %6) #7
@@ -1215,7 +1215,7 @@ define internal fastcc void @_preempt_job_dequeue() unnamed_addr #0 {
 
 42:                                               ; preds = %10
   %43 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.64, i32 noundef 0, ptr noundef nonnull %6) #7
-  br label %.critedge, !llvm.loop !15
+  br label %.critedge, !llvm.loop !14
 
 .critedge39:                                      ; preds = %21, %24, %27, %14, %39, %10, %12
   %44 = call i32 @job_signal(ptr noundef nonnull %6, i16 noundef zeroext 9, i16 noundef zeroext 0, i32 noundef 0, i1 noundef zeroext true) #7
@@ -1244,7 +1244,7 @@ define internal fastcc void @_preempt_job_dequeue() unnamed_addr #0 {
   %54 = call ptr @list_pop(ptr noundef %53) #7
   store ptr %54, ptr %1, align 8
   %.not = icmp eq ptr %54, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.critedge, %0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
@@ -1299,7 +1299,7 @@ define dso_local void @gs_wake_jobs() local_unnamed_addr #0 {
 .backedge:                                        ; preds = %8, %13, %20, %.lr.ph
   %21 = tail call ptr @list_next(ptr noundef %3) #7
   %.not8 = icmp eq ptr %21, null
-  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.backedge, %2
   tail call void @list_iterator_destroy(ptr noundef %3) #7
@@ -1467,7 +1467,7 @@ define dso_local void @gs_job_fini(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @_update_active_row(ptr noundef %46, i32 noundef 1)
   %47 = tail call ptr @list_next(ptr noundef %44) #7
   %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %_update_all_active_rows.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %_update_all_active_rows.exit, label %.lr.ph.i, !llvm.loop !13
 
 _update_all_active_rows.exit:                     ; preds = %.lr.ph.i, %39
   tail call void @list_iterator_destroy(ptr noundef %44) #7
@@ -1533,7 +1533,7 @@ define internal fastcc void @_remove_job_from_part(i32 noundef %0, ptr noundef n
 18:                                               ; preds = %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %10, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %10, !llvm.loop !12
 
 _find_job_index.exit:                             ; preds = %10
   %19 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1577,7 +1577,7 @@ _find_job_index.exit:                             ; preds = %10
   %40 = load i32, ptr %6, align 4
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
   %.0.lcssa = phi i64 [ %indvars.iv.i, %32 ], [ %indvars.iv.next, %.lr.ph ]
@@ -1705,10 +1705,10 @@ _get_gr_type.exit:                                ; preds = %14, %21, %24
   br i1 %.not4356, label %._crit_edge, label %.lr.ph57
 
 ..loopexit_crit_edge:                             ; preds = %55
-  br label %.backedge, !llvm.loop !19
+  br label %.backedge, !llvm.loop !17
 
 ..loopexit52_crit_edge:                           ; preds = %80
-  br label %.backedge, !llvm.loop !19
+  br label %.backedge, !llvm.loop !17
 
 .lr.ph57:                                         ; preds = %_get_gr_type.exit, %.backedge
   %28 = phi ptr [ %60, %.backedge ], [ %27, %_get_gr_type.exit ]
@@ -1722,11 +1722,11 @@ _get_gr_type.exit:                                ; preds = %14, %21, %24
   br i1 %.not47, label %.preheader, label %59
 
 .preheader:                                       ; preds = %.lr.ph57
-  br i1 %.not59, label %.backedge, label %.lr.ph55, !llvm.loop !19
+  br i1 %.not59, label %.backedge, label %.lr.ph55, !llvm.loop !17
 
 .lr.ph55:                                         ; preds = %.preheader
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  br label %35, !llvm.loop !19
+  br label %35, !llvm.loop !17
 
 35:                                               ; preds = %.lr.ph55, %55
   %36 = phi i32 [ %33, %.lr.ph55 ], [ %56, %55 ]
@@ -1769,7 +1769,7 @@ _get_gr_type.exit:                                ; preds = %14, %21, %24
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %57 = zext i32 %56 to i64
   %58 = icmp samesign ult i64 %indvars.iv.next62, %57
-  br i1 %58, label %35, label %..loopexit_crit_edge, !llvm.loop !20
+  br i1 %58, label %35, label %..loopexit_crit_edge, !llvm.loop !18
 
 59:                                               ; preds = %.lr.ph57
   br i1 %.not59, label %.backedge, label %.lr.ph
@@ -1777,11 +1777,11 @@ _get_gr_type.exit:                                ; preds = %14, %21, %24
 .backedge:                                        ; preds = %..loopexit52_crit_edge, %.preheader, %..loopexit_crit_edge, %59
   %60 = tail call ptr @list_next(ptr noundef %26) #7
   %.not43 = icmp eq ptr %60, null
-  br i1 %.not43, label %._crit_edge, label %.lr.ph57, !llvm.loop !19
+  br i1 %.not43, label %._crit_edge, label %.lr.ph57, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  br label %62, !llvm.loop !19
+  br label %62, !llvm.loop !17
 
 62:                                               ; preds = %.lr.ph, %80
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
@@ -1820,7 +1820,7 @@ _get_gr_type.exit:                                ; preds = %14, %21, %24
   %81 = load i32, ptr %32, align 4
   %82 = zext i32 %81 to i64
   %83 = icmp samesign ult i64 %indvars.iv.next, %82
-  br i1 %83, label %62, label %..loopexit52_crit_edge, !llvm.loop !21
+  br i1 %83, label %62, label %..loopexit52_crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.backedge, %_get_gr_type.exit
   tail call void @list_iterator_destroy(ptr noundef %26) #7
@@ -1893,7 +1893,7 @@ define internal void @_destroy_parts(ptr noundef %0) #0 {
   %9 = load i32, ptr %3, align 4
   %10 = zext i32 %9 to i64
   %11 = icmp samesign ult i64 %indvars.iv.next, %10
-  br i1 %11, label %6, label %._crit_edge, !llvm.loop !22
+  br i1 %11, label %6, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %6, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2161,7 +2161,7 @@ _slice_sleep.exit:                                ; preds = %36
   %102 = zext i32 %101 to i64
   %103 = icmp samesign ult i64 %indvars.iv.next85.i, %102
   %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
-  br i1 %103, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %103, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %93
   %.058.lcssa.in.i = phi i64 [ %indvars.iv86.i, %93 ], [ %indvars.iv84.i, %.lr.ph.i ]
@@ -2169,7 +2169,7 @@ _slice_sleep.exit:                                ; preds = %36
   %105 = and i64 %.058.lcssa.in.i, 4294967295
   %106 = getelementptr inbounds nuw ptr, ptr %104, i64 %105
   store ptr %90, ptr %106, align 8
-  br label %87, !llvm.loop !24
+  br label %87, !llvm.loop !22
 
 107:                                              ; preds = %87
   store i16 5, ptr %91, align 2
@@ -2180,7 +2180,7 @@ _slice_sleep.exit:                                ; preds = %36
   %109 = zext i32 %108 to i64
   %110 = icmp samesign ult i64 %indvars.iv.next87.i, %109
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %110, label %.preheader67.i, label %._crit_edge71.i, !llvm.loop !25
+  br i1 %110, label %.preheader67.i, label %._crit_edge71.i, !llvm.loop !23
 
 ._crit_edge71.i:                                  ; preds = %.loopexit.i, %84
   %111 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -2248,7 +2248,7 @@ _slice_sleep.exit:                                ; preds = %36
   %137 = load i32, ptr %73, align 4
   %138 = zext i32 %137 to i64
   %139 = icmp samesign ult i64 %indvars.iv.next.i.i, %138
-  br i1 %139, label %131, label %.preheader.i.i, !llvm.loop !26
+  br i1 %139, label %131, label %.preheader.i.i, !llvm.loop !24
 
 140:                                              ; preds = %154, %.lr.ph23.i.i
   %indvars.iv27.i.i = phi i64 [ 0, %.lr.ph23.i.i ], [ %indvars.iv.next28.i.i, %154 ]
@@ -2279,7 +2279,7 @@ _slice_sleep.exit:                                ; preds = %36
   %155 = load i32, ptr %71, align 4
   %156 = zext i32 %155 to i64
   %157 = icmp samesign ult i64 %indvars.iv.next28.i.i, %156
-  br i1 %157, label %140, label %._crit_edge.i.i, !llvm.loop !27
+  br i1 %157, label %140, label %._crit_edge.i.i, !llvm.loop !25
 
 ._crit_edge.i.i:                                  ; preds = %154, %.preheader.i.i
   %158 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -2467,7 +2467,7 @@ _suspend_job.exit:                                ; preds = %206, %215, %217, %2
 238:                                              ; preds = %.lr.ph.i33
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i32
-  br i1 %exitcond.not.i36, label %.backedge.i37, label %.lr.ph.i33, !llvm.loop !28
+  br i1 %exitcond.not.i36, label %.backedge.i37, label %.lr.ph.i33, !llvm.loop !26
 
 239:                                              ; preds = %.lr.ph.i33
   %240 = trunc nuw nsw i64 %indvars.iv.i34 to i32
@@ -2491,7 +2491,7 @@ _suspend_job.exit:                                ; preds = %206, %215, %217, %2
   %247 = load i32, ptr %233, align 4
   %248 = zext i32 %247 to i64
   %249 = icmp samesign ult i64 %indvars.iv.next42.i, %248
-  br i1 %249, label %.lr.ph31.i, label %._crit_edge.loopexit.i, !llvm.loop !29
+  br i1 %249, label %.lr.ph31.i, label %._crit_edge.loopexit.i, !llvm.loop !27
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph31.i
   %.pre.i40 = load ptr, ptr %231, align 8
@@ -2507,7 +2507,7 @@ _suspend_job.exit:                                ; preds = %206, %215, %217, %2
 .backedge.i37:                                    ; preds = %238, %._crit_edge.i39, %.preheader.i30, %.lr.ph34.i
   %252 = call ptr @list_next(ptr noundef %228) #7
   %.not.i38 = icmp eq ptr %252, null
-  br i1 %.not.i38, label %_clear_shadow.exit, label %.lr.ph34.i, !llvm.loop !30
+  br i1 %.not.i38, label %_clear_shadow.exit, label %.lr.ph34.i, !llvm.loop !28
 
 _clear_shadow.exit:                               ; preds = %.backedge.i37, %226
   call void @list_iterator_destroy(ptr noundef %228) #7
@@ -2519,7 +2519,7 @@ _clear_shadow.exit:                               ; preds = %.backedge.i37, %226
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
   %255 = zext i32 %254 to i64
   %256 = icmp samesign ult i64 %indvars.iv.next95.i, %255
-  br i1 %256, label %174, label %.preheader.i, !llvm.loop !31
+  br i1 %256, label %174, label %.preheader.i, !llvm.loop !29
 
 257:                                              ; preds = %335, %.lr.ph77.i
   %258 = phi i32 [ %254, %.lr.ph77.i ], [ %336, %335 ]
@@ -2650,7 +2650,7 @@ _resume_job.exit:                                 ; preds = %281, %290, %292, %2
 314:                                              ; preds = %.lr.ph.i26
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i27, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i28, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread.i, label %.lr.ph.i26, !llvm.loop !32
+  br i1 %exitcond.not.i, label %.thread.i, label %.lr.ph.i26, !llvm.loop !30
 
 .lr.ph.i26:                                       ; preds = %314, %.lr.ph.preheader.i
   %indvars.iv.i27 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i28, %314 ]
@@ -2693,7 +2693,7 @@ _resume_job.exit:                                 ; preds = %281, %290, %292, %2
 .backedge.i:                                      ; preds = %.lr.ph.i26, %329, %.lr.ph30.i
   %334 = call ptr @list_next(ptr noundef %301) #7
   %.not.i23 = icmp eq ptr %334, null
-  br i1 %.not.i23, label %_cast_shadow.exit, label %.lr.ph30.i, !llvm.loop !33
+  br i1 %.not.i23, label %_cast_shadow.exit, label %.lr.ph30.i, !llvm.loop !31
 
 _cast_shadow.exit:                                ; preds = %.backedge.i, %_resume_job.exit
   call void @list_iterator_destroy(ptr noundef %301) #7
@@ -2705,7 +2705,7 @@ _cast_shadow.exit:                                ; preds = %.backedge.i, %_resu
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
   %337 = zext i32 %336 to i64
   %338 = icmp samesign ult i64 %indvars.iv.next98.i, %337
-  br i1 %338, label %257, label %._crit_edge78.i, !llvm.loop !34
+  br i1 %338, label %257, label %._crit_edge78.i, !llvm.loop !32
 
 ._crit_edge78.i:                                  ; preds = %335, %.preheader.i, %170
   %339 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -2725,7 +2725,7 @@ _cast_shadow.exit:                                ; preds = %.backedge.i, %_resu
 _cycle_job_list.exit:                             ; preds = %344, %341, %._crit_edge78.i, %68
   %345 = call ptr @list_next(ptr noundef %54) #7
   %.not19 = icmp eq ptr %345, null
-  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %_cycle_job_list.exit, %52
   call void @list_iterator_destroy(ptr noundef %54) #7
@@ -2743,7 +2743,7 @@ _cycle_job_list.exit:                             ; preds = %344, %341, %._crit_
   call fastcc void @_preempt_job_dequeue()
   call void @unlock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._timeslicer_thread.job_write_lock) #7
   %.b1415 = load i1, ptr @thread_shutdown, align 1
-  br i1 %.b1415, label %_slice_sleep.exit._crit_edge, label %19, !llvm.loop !36
+  br i1 %.b1415, label %_slice_sleep.exit._crit_edge, label %19, !llvm.loop !34
 
 _slice_sleep.exit._crit_edge:                     ; preds = %349, %_slice_sleep.exit, %12
   store i64 0, ptr @timeslicer_thread_id, align 8
@@ -2863,7 +2863,7 @@ _print_flag.exit28:                               ; preds = %_print_flag.exit, %
   %38 = load i32, ptr %14, align 4
   %39 = zext i32 %38 to i64
   %40 = icmp samesign ult i64 %indvars.iv.next, %39
-  br i1 %40, label %20, label %.preheader, !llvm.loop !37
+  br i1 %40, label %20, label %.preheader, !llvm.loop !35
 
 41:                                               ; preds = %.lr.ph35, %58
   %indvars.iv39 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next40, %58 ]
@@ -2911,7 +2911,7 @@ _print_flag.exit32:                               ; preds = %_print_flag.exit30,
   %59 = load i32, ptr %17, align 4
   %60 = zext i32 %59 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next40, %60
-  br i1 %61, label %41, label %._crit_edge, !llvm.loop !38
+  br i1 %61, label %41, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %58, %.preheader
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3028,7 +3028,7 @@ define internal fastcc void @_clear_shadow(ptr noundef readnone captures(address
 13:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.backedge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.backedge, label %.lr.ph, !llvm.loop !26
 
 14:                                               ; preds = %.lr.ph
   %15 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3052,7 +3052,7 @@ define internal fastcc void @_clear_shadow(ptr noundef readnone captures(address
   %22 = load i32, ptr %8, align 4
   %23 = zext i32 %22 to i64
   %24 = icmp samesign ult i64 %indvars.iv.next42, %23
-  br i1 %24, label %.lr.ph31, label %._crit_edge.loopexit, !llvm.loop !29
+  br i1 %24, label %.lr.ph31, label %._crit_edge.loopexit, !llvm.loop !27
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph31
   %.pre = load ptr, ptr %6, align 8
@@ -3068,7 +3068,7 @@ define internal fastcc void @_clear_shadow(ptr noundef readnone captures(address
 .backedge:                                        ; preds = %13, %.preheader, %._crit_edge, %.lr.ph34
   %27 = tail call ptr @list_next(ptr noundef %3) #7
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !30
+  br i1 %.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !28
 
 ._crit_edge35:                                    ; preds = %.backedge, %1
   tail call void @list_iterator_destroy(ptr noundef %3) #7
@@ -3118,7 +3118,7 @@ define internal fastcc void @_cast_shadow(ptr noundef %0, i16 noundef zeroext %1
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
@@ -3159,7 +3159,7 @@ define internal fastcc void @_cast_shadow(ptr noundef %0, i16 noundef zeroext %1
 .backedge:                                        ; preds = %.lr.ph, %32, %.lr.ph30
   %38 = tail call ptr @list_next(ptr noundef %4) #7
   %.not = icmp eq ptr %38, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph30, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph30, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.backedge, %2
   tail call void @list_iterator_destroy(ptr noundef %4) #7
@@ -3290,7 +3290,7 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
   %50 = add i32 %.065.i, %49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader60.i, label %46, !llvm.loop !39
+  br i1 %exitcond.not.i, label %.preheader60.i, label %46, !llvm.loop !37
 
 .lr.ph74.i:                                       ; preds = %.loopexit.i, %.lr.ph74.preheader.i
   %indvars.iv81.i = phi i64 [ %45, %.lr.ph74.preheader.i ], [ %indvars.iv.next82.i, %.loopexit.i ]
@@ -3339,7 +3339,7 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
 75:                                               ; preds = %.lr.ph67.i
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %76 = icmp samesign ult i64 %indvars.iv.next78.i, %74
-  br i1 %76, label %.lr.ph67.i, label %.critedge.i, !llvm.loop !40
+  br i1 %76, label %.lr.ph67.i, label %.critedge.i, !llvm.loop !38
 
 .lr.ph67.i:                                       ; preds = %75, %.lr.ph67.preheader.i
   %indvars.iv77.i = phi i64 [ %73, %.lr.ph67.preheader.i ], [ %indvars.iv.next78.i, %75 ]
@@ -3358,13 +3358,13 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
 .critedge.i:                                      ; preds = %75, %79, %.preheader.i
   %83 = add nuw i16 %.04869.i, 1
   %exitcond80.not.i = icmp eq i16 %83, %68
-  br i1 %exitcond80.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !41
+  br i1 %exitcond80.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !39
 
 .loopexit.i:                                      ; preds = %.critedge.i, %58
   %.2.i = phi i32 [ %60, %58 ], [ %71, %.critedge.i ]
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %84 = icmp samesign ult i64 %indvars.iv81.i, %sext
-  br i1 %84, label %.lr.ph74.i, label %_fill_sockets.exit.thread, !llvm.loop !42
+  br i1 %84, label %.lr.ph74.i, label %_fill_sockets.exit.thread, !llvm.loop !40
 
 _get_part_gr_type.exit.thread77:                  ; preds = %14, %_get_part_gr_type.exit
   %.0.i79 = phi i16 [ %19, %_get_part_gr_type.exit ], [ 3, %14 ]
@@ -3511,7 +3511,7 @@ _fill_sockets.exit:                               ; preds = %94, %118, %109
   store i16 %.sink, ptr %153, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond94.not, label %_fill_sockets.exit.thread, label %142, !llvm.loop !43
+  br i1 %exitcond94.not, label %_fill_sockets.exit.thread, label %142, !llvm.loop !41
 
 154:                                              ; preds = %.lr.ph, %179
   %.185 = phi i32 [ 0, %.lr.ph ], [ %180, %179 ]
@@ -3556,7 +3556,7 @@ _fill_sockets.exit:                               ; preds = %94, %118, %109
   %.3 = phi i32 [ %.284, %154 ], [ %166, %178 ], [ %166, %158 ]
   %180 = add nuw i32 %.185, 1
   %exitcond.not = icmp eq i32 %180, %127
-  br i1 %exitcond.not, label %_fill_sockets.exit.thread, label %154, !llvm.loop !44
+  br i1 %exitcond.not, label %_fill_sockets.exit.thread, label %154, !llvm.loop !42
 
 _fill_sockets.exit.thread:                        ; preds = %.loopexit.i, %179, %151, %.preheader81, %.preheader, %.preheader60.i, %32, %29, %27, %_fill_sockets.exit
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -3726,7 +3726,7 @@ _get_part_gr_type.exit.thread25:                  ; preds = %24, %_get_part_gr_t
   %80 = load ptr, ptr %59, align 8
   %81 = call ptr @next_node_bitmap(ptr noundef %80, ptr noundef nonnull %3) #7
   %.not16.i = icmp eq ptr %81, null
-  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not16.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %78, %.lr.ph.i, %58
   %.not16.lcssa.i = phi i32 [ 1, %58 ], [ 1, %78 ], [ 0, %.lr.ph.i ]
@@ -3813,7 +3813,7 @@ define internal fastcc void @_update_active_row(ptr noundef nonnull initializes(
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %12, align 8
   %.not83 = icmp eq ptr %20, null
-  br i1 %.not83, label %.critedge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not83, label %.critedge, label %.lr.ph, !llvm.loop !44
 
 .critedge:                                        ; preds = %.lr.ph, %17, %10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -3903,7 +3903,7 @@ define internal fastcc void @_update_active_row(ptr noundef nonnull initializes(
   %62 = load i32, ptr %21, align 4
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ult i64 %indvars.iv.next109, %63
-  br i1 %64, label %30, label %.preheader94, !llvm.loop !47
+  br i1 %64, label %30, label %.preheader94, !llvm.loop !45
 
 65:                                               ; preds = %.lr.ph101, %96
   %indvars.iv111 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next112, %96 ]
@@ -3971,7 +3971,7 @@ define internal fastcc void @_update_active_row(ptr noundef nonnull initializes(
   %97 = load i32, ptr %21, align 4
   %98 = zext i32 %97 to i64
   %99 = icmp samesign ult i64 %indvars.iv.next112, %98
-  br i1 %99, label %65, label %._crit_edge.loopexit, !llvm.loop !48
+  br i1 %99, label %65, label %._crit_edge.loopexit, !llvm.loop !46
 
 ._crit_edge.loopexit:                             ; preds = %96
   %100 = icmp eq i32 %97, 0
@@ -4033,7 +4033,7 @@ define internal fastcc void @_update_active_row(ptr noundef nonnull initializes(
   %126 = load i32, ptr %21, align 4
   %127 = zext i32 %126 to i64
   %128 = icmp samesign ult i64 %indvars.iv.next115, %127
-  br i1 %128, label %103, label %.loopexit, !llvm.loop !49
+  br i1 %128, label %103, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %125, %._crit_edge
   ret void
@@ -4066,45 +4066,43 @@ attributes #9 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
 !15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !9, !10, !11}
-!27 = distinct !{!27, !9, !10, !11}
-!28 = distinct !{!28, !9, !10, !11}
-!29 = distinct !{!29, !9, !10, !11}
-!30 = distinct !{!30, !9, !10, !11}
-!31 = distinct !{!31, !9, !10, !11}
-!32 = distinct !{!32, !9, !10, !11}
-!33 = distinct !{!33, !9, !10, !11}
-!34 = distinct !{!34, !9, !10, !11}
-!35 = distinct !{!35, !9, !10, !11}
-!36 = distinct !{!36, !9, !10, !11}
-!37 = distinct !{!37, !9, !10, !11}
-!38 = distinct !{!38, !9, !10, !11}
-!39 = distinct !{!39, !9, !10, !11}
-!40 = distinct !{!40, !9, !10, !11}
-!41 = distinct !{!41, !9, !10, !11}
-!42 = distinct !{!42, !9, !10, !11}
-!43 = distinct !{!43, !9, !10, !11}
-!44 = distinct !{!44, !9, !10, !11}
-!45 = distinct !{!45, !9, !10, !11}
-!46 = distinct !{!46, !9, !10, !11}
-!47 = distinct !{!47, !9, !10, !11}
-!48 = distinct !{!48, !9, !10, !11}
-!49 = distinct !{!49, !9, !10, !11}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}
+!39 = distinct !{!39, !9, !10}
+!40 = distinct !{!40, !9, !10}
+!41 = distinct !{!41, !9, !10}
+!42 = distinct !{!42, !9, !10}
+!43 = distinct !{!43, !9, !10}
+!44 = distinct !{!44, !9, !10}
+!45 = distinct !{!45, !9, !10}
+!46 = distinct !{!46, !9, !10}
+!47 = distinct !{!47, !9, !10}

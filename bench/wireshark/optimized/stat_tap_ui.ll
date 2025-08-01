@@ -216,7 +216,7 @@ define void @start_requested_stats() local_unnamed_addr #0 {
   tail call void @g_free(ptr noundef %3)
   %14 = load ptr, ptr @stats_requested, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -352,7 +352,7 @@ define noundef ptr @stat_tap_find_table(ptr noundef readonly captures(none) %0, 
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ult i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %.preheader ]
@@ -438,7 +438,7 @@ define void @stat_tap_init_table_row(ptr noundef captures(none) %0, i32 noundef 
   %24 = load i32, ptr %5, align 4
   %25 = zext i32 %24 to i64
   %26 = icmp samesign ult i64 %indvars.iv.next, %25
-  br i1 %26, label %18, label %.loopexit, !llvm.loop !11
+  br i1 %26, label %18, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %18, %7, %4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -524,7 +524,7 @@ define void @reset_stat_table(ptr noundef readonly captures(none) %0) local_unna
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !12
+  br i1 %20, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %15, %.lr.ph, %1
   ret void
@@ -600,7 +600,7 @@ define void @free_stat_tables(ptr noundef readonly captures(none) %0) local_unna
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = zext i32 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !14
+  br i1 %31, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %28, %.lr.ph, %.preheader
   %32 = load ptr, ptr %15, align 8
@@ -611,7 +611,7 @@ define void @free_stat_tables(ptr noundef readonly captures(none) %0) local_unna
   %35 = load i32, ptr %12, align 4
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next42, %36
-  br i1 %37, label %.preheader, label %._crit_edge30, !llvm.loop !15
+  br i1 %37, label %.preheader, label %._crit_edge30, !llvm.loop !14
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %7
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -624,7 +624,7 @@ define void @free_stat_tables(ptr noundef readonly captures(none) %0) local_unna
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
   %44 = icmp samesign ult i64 %indvars.iv.next45, %43
-  br i1 %44, label %7, label %._crit_edge34, !llvm.loop !16
+  br i1 %44, label %7, label %._crit_edge34, !llvm.loop !15
 
 ._crit_edge34:                                    ; preds = %._crit_edge30, %1
   %.lcssa = phi ptr [ %3, %1 ], [ %40, %._crit_edge30 ]
@@ -665,14 +665,13 @@ attributes #14 = { allocsize(0,1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8, !13}
-!13 = !{!"llvm.loop.unswitch.partial.disable"}
-!14 = distinct !{!14, !7, !8, !13}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.unswitch.partial.disable"}
+!13 = distinct !{!13, !7, !12}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

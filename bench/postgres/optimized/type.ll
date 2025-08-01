@@ -251,7 +251,7 @@ ECPGmake_struct_member.exit:                      ; preds = %79, %.critedge.i
   %84 = getelementptr inbounds nuw i8, ptr %.02228, i64 16
   %85 = load ptr, ptr %84, align 8
   %.not = icmp eq ptr %85, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %ECPGmake_struct_member.exit, %1
   %.025.lcssa = phi ptr [ null, %1 ], [ %.1, %ECPGmake_struct_member.exit ]
@@ -928,7 +928,7 @@ define internal fastcc void @ECPGdump_a_struct(ptr noundef %0, ptr noundef %1, p
   %66 = getelementptr inbounds nuw i8, ptr %.06382, i64 16
   %.063 = load ptr, ptr %66, align 8
   %.not73 = icmp eq ptr %.063, null
-  br i1 %.not73, label %._crit_edge, label %46, !llvm.loop !8
+  br i1 %.not73, label %._crit_edge, label %46, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %65, %42
   %.1.lcssa = phi ptr [ %.062, %42 ], [ %.2, %65 ]
@@ -1316,7 +1316,7 @@ define dso_local void @ECPGfree_struct_member(ptr noundef captures(address_is_nu
   tail call void @ECPGfree_type(ptr noundef %6)
   tail call void @free(ptr noundef nonnull %.07) #7
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1394,7 +1394,7 @@ define dso_local void @ECPGfree_type(ptr noundef captures(none) %0) local_unname
   tail call void @ECPGfree_type(ptr noundef %23)
   tail call void @free(ptr noundef nonnull %.0.i23) #7
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %ECPGfree_struct_member.exit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not.i, label %ECPGfree_struct_member.exit, label %.lr.ph, !llvm.loop !8
 
 24:                                               ; preds = %4
   tail call void (i32, i32, ptr, ...) @mmerror(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.14, i32 noundef %2) #7
@@ -1470,9 +1470,8 @@ attributes #9 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

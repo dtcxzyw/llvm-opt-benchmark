@@ -572,22 +572,22 @@ entry:
   store i32 %4, ptr %3, align 4
   %legacy_closed_enum_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %legacy_closed_enum_5 = getelementptr inbounds nuw i8, ptr %other, i64 24
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %__first2.addr.07.i.i = phi ptr [ %incdec.ptr1.i.i, %for.body.i.i ], [ %legacy_closed_enum_5, %entry ]
   %__first1.addr.06.i.idx.i = phi i64 [ %__first1.addr.06.i.add.i, %for.body.i.i ], [ 0, %entry ]
   %__first1.addr.06.i.ptr.i = getelementptr inbounds nuw i8, ptr %legacy_closed_enum_, i64 %__first1.addr.06.i.idx.i
-  %6 = load i8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !7, !noalias !10
-  %7 = load i8, ptr %__first2.addr.07.i.i, align 1, !alias.scope !10, !noalias !7
-  store i8 %7, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !7, !noalias !10
-  store i8 %6, ptr %__first2.addr.07.i.i, align 1, !alias.scope !10, !noalias !7
+  %6 = load i8, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !6, !noalias !9
+  %7 = load i8, ptr %__first2.addr.07.i.i, align 1, !alias.scope !9, !noalias !6
+  store i8 %7, ptr %__first1.addr.06.i.ptr.i, align 1, !alias.scope !6, !noalias !9
+  store i8 %6, ptr %__first2.addr.07.i.i, align 1, !alias.scope !9, !noalias !6
   %__first1.addr.06.i.add.i = add nuw nsw i64 %__first1.addr.06.i.idx.i, 1
   %incdec.ptr1.i.i = getelementptr inbounds nuw i8, ptr %__first2.addr.07.i.i, i64 1
   %cmp.not.i.i = icmp eq i64 %__first1.addr.06.i.add.i, 8
-  br i1 %cmp.not.i.i, label %_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_.exit, label %for.body.i.i, !llvm.loop !12
+  br i1 %cmp.not.i.i, label %_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_.exit, label %for.body.i.i, !llvm.loop !11
 
 _ZN6google8protobuf8internal7memswapILm8EEEvPcS3_.exit: ; preds = %for.body.i.i
   ret void
@@ -690,12 +690,11 @@ attributes #19 = { allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_: %a"}
-!9 = distinct !{!9, !"_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_"}
-!10 = !{!11}
-!11 = distinct !{!11, !9, !"_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_: %b"}
-!12 = distinct !{!12, !5, !6}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_: %a"}
+!8 = distinct !{!8, !"_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_"}
+!9 = !{!10}
+!10 = distinct !{!10, !8, !"_ZN6google8protobuf8internal7memswapILm8EEEvPcS3_: %b"}
+!11 = distinct !{!11, !5}

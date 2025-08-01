@@ -504,7 +504,7 @@ define dso_local i32 @tty_signal_session_leader(ptr noundef %0, i32 noundef %1) 
   %72 = getelementptr i8, ptr %70, i64 -1472
   %73 = icmp eq ptr %72, null
   %74 = or i1 %71, %73
-  br i1 %74, label %75, label %16, !llvm.loop !16
+  br i1 %74, label %75, label %16, !llvm.loop !15
 
 .thread9:                                         ; preds = %2, %7
   tail call void @_raw_read_unlock(ptr noundef nonnull @tasklist_lock) #8
@@ -778,7 +778,7 @@ define dso_local void @disassociate_ctty(i32 noundef %0) local_unnamed_addr #0 a
   %128 = getelementptr i8, ptr %126, i64 -1472
   %129 = icmp eq ptr %128, null
   %130 = or i1 %127, %129
-  br i1 %130, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %130, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %109, %97
   tail call void @_raw_read_unlock(ptr noundef nonnull @tasklist_lock) #8
@@ -953,7 +953,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
   %69 = getelementptr i8, ptr %67, i64 -1472
   %70 = icmp eq ptr %69, null
   %71 = or i1 %68, %70
-  br i1 %71, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %71, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %50, %47, %40
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -1023,7 +1023,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %96, i64 noundef %97) #8
   %110 = tail call i32 @pid_vnr(ptr noundef %98) #8
   %111 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %112 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %6, i32 %110, i64 4, i64 %111) #8, !srcloc !19
+  %112 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %6, i32 %110, i64 4, i64 %111) #8, !srcloc !16
   %113 = extractvalue { ptr, i64 } %112, 0
   %114 = extractvalue { ptr, i64 } %112, 1
   %115 = ptrtoint ptr %113 to i64
@@ -1045,7 +1045,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
 
 121:                                              ; preds = %118
   %122 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %123 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %6, i64 4, i64 %122) #8, !srcloc !20
+  %123 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %6, i64 4, i64 %122) #8, !srcloc !17
   %124 = extractvalue { ptr, i32, i64 } %123, 0
   %125 = extractvalue { ptr, i32, i64 } %123, 1
   %126 = extractvalue { ptr, i32, i64 } %123, 2
@@ -1144,7 +1144,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr n
   %186 = tail call i32 @pid_vnr(ptr noundef nonnull %183) #8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %180, i64 noundef %181) #8
   %187 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %188 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %6, i32 %186, i64 4, i64 %187) #8, !srcloc !21
+  %188 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %6, i32 %186, i64 4, i64 %187) #8, !srcloc !18
   %189 = extractvalue { ptr, i64 } %188, 0
   %190 = extractvalue { ptr, i64 } %188, 1
   %191 = ptrtoint ptr %189 to i64
@@ -1257,13 +1257,10 @@ attributes #9 = { cold nounwind }
 !9 = !{i64 2148371274, i64 2148371313, i64 2148371334, i64 2148371371, i64 2148371394, i64 2148371403}
 !10 = !{!"branch_weights", i32 1, i32 2000}
 !11 = !{!"branch_weights", i32 2000, i32 1}
-!12 = distinct !{!12, !13, !14, !15}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
 !14 = !{!"llvm.loop.unroll.disable"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !13, !14, !15}
-!17 = distinct !{!17, !13, !14, !15}
-!18 = distinct !{!18, !13, !14, !15}
-!19 = !{i64 2154864382}
-!20 = !{i64 2154865238}
-!21 = !{i64 2154867692}
+!15 = distinct !{!15, !13, !14}
+!16 = !{i64 2154864382}
+!17 = !{i64 2154865238}
+!18 = !{i64 2154867692}

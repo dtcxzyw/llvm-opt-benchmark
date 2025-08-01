@@ -78,28 +78,28 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   %.077100.i.i = phi <16 x float> [ %41, %.lr.ph104.i.i ], [ zeroinitializer, %.preheader96.i.i ]
   %.199.i.i = phi i64 [ %57, %.lr.ph104.i.i ], [ 0, %.preheader96.i.i ]
   %37 = getelementptr inbounds nuw float, ptr %33, i64 %.199.i.i
-  %38 = load <8 x i64>, ptr %37, align 64, !tbaa !12
+  %38 = load <8 x i64>, ptr %37, align 64, !tbaa !11
   %39 = and <8 x i64> %38, splat (i64 9223372034707292159)
   %40 = bitcast <8 x i64> %39 to <16 x float>
   %41 = fadd <16 x float> %.077100.i.i, %40
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 64
-  %43 = load <8 x i64>, ptr %42, align 64, !tbaa !12
+  %43 = load <8 x i64>, ptr %42, align 64, !tbaa !11
   %44 = and <8 x i64> %43, splat (i64 9223372034707292159)
   %45 = bitcast <8 x i64> %44 to <16 x float>
   %46 = fadd <16 x float> %.076101.i.i, %45
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 128
-  %48 = load <8 x i64>, ptr %47, align 64, !tbaa !12
+  %48 = load <8 x i64>, ptr %47, align 64, !tbaa !11
   %49 = and <8 x i64> %48, splat (i64 9223372034707292159)
   %50 = bitcast <8 x i64> %49 to <16 x float>
   %51 = fadd <16 x float> %.075102.i.i, %50
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 192
-  %53 = load <8 x i64>, ptr %52, align 64, !tbaa !12
+  %53 = load <8 x i64>, ptr %52, align 64, !tbaa !11
   %54 = and <8 x i64> %53, splat (i64 9223372034707292159)
   %55 = bitcast <8 x i64> %54 to <16 x float>
   %56 = fadd <16 x float> %.074103.i.i, %55
   %57 = add nuw nsw i64 %.199.i.i, 64
   %58 = icmp samesign ult i64 %57, %35
-  br i1 %58, label %.lr.ph104.i.i, label %._crit_edge105.loopexit.i.i, !llvm.loop !13
+  br i1 %58, label %.lr.ph104.i.i, label %._crit_edge105.loopexit.i.i, !llvm.loop !12
 
 ._crit_edge105.loopexit.i.i:                      ; preds = %.lr.ph104.i.i
   %59 = fadd <16 x float> %41, %46
@@ -132,18 +132,18 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   %.073111.i.i = phi <4 x float> [ %75, %.lr.ph113.i.i ], [ zeroinitializer, %.preheader.i.i ]
   %.2110.i.i = phi i64 [ %81, %.lr.ph113.i.i ], [ %69, %.preheader.i.i ]
   %71 = getelementptr inbounds nuw float, ptr %.07894138.i.i, i64 %.2110.i.i
-  %72 = load <2 x i64>, ptr %71, align 1, !tbaa !12
+  %72 = load <2 x i64>, ptr %71, align 1, !tbaa !11
   %73 = and <2 x i64> %72, splat (i64 9223372034707292159)
   %74 = bitcast <2 x i64> %73 to <4 x float>
   %75 = fadd <4 x float> %.073111.i.i, %74
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %77 = load <2 x i64>, ptr %76, align 1, !tbaa !12
+  %77 = load <2 x i64>, ptr %76, align 1, !tbaa !11
   %78 = and <2 x i64> %77, splat (i64 9223372034707292159)
   %79 = bitcast <2 x i64> %78 to <4 x float>
   %80 = fadd <4 x float> %.072112.i.i, %79
   %81 = add nuw nsw i64 %.2110.i.i, 8
   %82 = icmp samesign ult i64 %81, %68
-  br i1 %82, label %.lr.ph113.i.i, label %._crit_edge114.loopexit.i.i, !llvm.loop !14
+  br i1 %82, label %.lr.ph113.i.i, label %._crit_edge114.loopexit.i.i, !llvm.loop !13
 
 ._crit_edge114.loopexit.i.i:                      ; preds = %.lr.ph113.i.i
   %83 = fadd <4 x float> %75, %80
@@ -176,7 +176,7 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   %97 = fadd float %.4117.i.i, %96
   %98 = add nuw nsw i64 %.3118.i.i, 1
   %exitcond131.not.i.i = icmp eq i64 %98, %.095136.i.i
-  br i1 %exitcond131.not.i.i, label %asum_compute.exit, label %.lr.ph120.i.i, !llvm.loop !15
+  br i1 %exitcond131.not.i.i, label %asum_compute.exit, label %.lr.ph120.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i:                               ; preds = %16
   %99 = mul nuw nsw i64 %2, %0
@@ -193,7 +193,7 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   %105 = fadd float %.136.i, %104
   %106 = add nuw nsw i64 %.02135.i, %2
   %107 = icmp slt i64 %106, %99
-  br i1 %107, label %.lr.ph.i, label %asum_compute.exit, !llvm.loop !16
+  br i1 %107, label %.lr.ph.i, label %asum_compute.exit, !llvm.loop !15
 
 108:                                              ; preds = %8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #7
@@ -210,7 +210,7 @@ define float @sasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unna
   %113 = getelementptr inbounds nuw i8, ptr %.040, i64 16
   %114 = add nuw nsw i32 %.02239, 1
   %exitcond.not = icmp eq i32 %114, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %108
   %.1.lcssa = phi float [ 0.000000e+00, %108 ], [ %112, %.lr.ph ]
@@ -284,28 +284,28 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   %.077100.i.i = phi <16 x float> [ %38, %.lr.ph104.i.i ], [ zeroinitializer, %.preheader96.i.i ]
   %.199.i.i = phi i64 [ %54, %.lr.ph104.i.i ], [ 0, %.preheader96.i.i ]
   %34 = getelementptr inbounds nuw float, ptr %30, i64 %.199.i.i
-  %35 = load <8 x i64>, ptr %34, align 64, !tbaa !12
+  %35 = load <8 x i64>, ptr %34, align 64, !tbaa !11
   %36 = and <8 x i64> %35, splat (i64 9223372034707292159)
   %37 = bitcast <8 x i64> %36 to <16 x float>
   %38 = fadd <16 x float> %.077100.i.i, %37
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  %40 = load <8 x i64>, ptr %39, align 64, !tbaa !12
+  %40 = load <8 x i64>, ptr %39, align 64, !tbaa !11
   %41 = and <8 x i64> %40, splat (i64 9223372034707292159)
   %42 = bitcast <8 x i64> %41 to <16 x float>
   %43 = fadd <16 x float> %.076101.i.i, %42
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 128
-  %45 = load <8 x i64>, ptr %44, align 64, !tbaa !12
+  %45 = load <8 x i64>, ptr %44, align 64, !tbaa !11
   %46 = and <8 x i64> %45, splat (i64 9223372034707292159)
   %47 = bitcast <8 x i64> %46 to <16 x float>
   %48 = fadd <16 x float> %.075102.i.i, %47
   %49 = getelementptr inbounds nuw i8, ptr %34, i64 192
-  %50 = load <8 x i64>, ptr %49, align 64, !tbaa !12
+  %50 = load <8 x i64>, ptr %49, align 64, !tbaa !11
   %51 = and <8 x i64> %50, splat (i64 9223372034707292159)
   %52 = bitcast <8 x i64> %51 to <16 x float>
   %53 = fadd <16 x float> %.074103.i.i, %52
   %54 = add nuw nsw i64 %.199.i.i, 64
   %55 = icmp samesign ult i64 %54, %32
-  br i1 %55, label %.lr.ph104.i.i, label %._crit_edge105.loopexit.i.i, !llvm.loop !13
+  br i1 %55, label %.lr.ph104.i.i, label %._crit_edge105.loopexit.i.i, !llvm.loop !12
 
 ._crit_edge105.loopexit.i.i:                      ; preds = %.lr.ph104.i.i
   %56 = fadd <16 x float> %38, %43
@@ -338,18 +338,18 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   %.073111.i.i = phi <4 x float> [ %72, %.lr.ph113.i.i ], [ zeroinitializer, %.preheader.i.i ]
   %.2110.i.i = phi i64 [ %78, %.lr.ph113.i.i ], [ %66, %.preheader.i.i ]
   %68 = getelementptr inbounds nuw float, ptr %.07894138.i.i, i64 %.2110.i.i
-  %69 = load <2 x i64>, ptr %68, align 1, !tbaa !12
+  %69 = load <2 x i64>, ptr %68, align 1, !tbaa !11
   %70 = and <2 x i64> %69, splat (i64 9223372034707292159)
   %71 = bitcast <2 x i64> %70 to <4 x float>
   %72 = fadd <4 x float> %.073111.i.i, %71
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %74 = load <2 x i64>, ptr %73, align 1, !tbaa !12
+  %74 = load <2 x i64>, ptr %73, align 1, !tbaa !11
   %75 = and <2 x i64> %74, splat (i64 9223372034707292159)
   %76 = bitcast <2 x i64> %75 to <4 x float>
   %77 = fadd <4 x float> %.072112.i.i, %76
   %78 = add nuw nsw i64 %.2110.i.i, 8
   %79 = icmp samesign ult i64 %78, %65
-  br i1 %79, label %.lr.ph113.i.i, label %._crit_edge114.loopexit.i.i, !llvm.loop !14
+  br i1 %79, label %.lr.ph113.i.i, label %._crit_edge114.loopexit.i.i, !llvm.loop !13
 
 ._crit_edge114.loopexit.i.i:                      ; preds = %.lr.ph113.i.i
   %80 = fadd <4 x float> %72, %77
@@ -382,7 +382,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   %94 = fadd float %.4117.i.i, %93
   %95 = add nuw nsw i64 %.3118.i.i, 1
   %exitcond131.not.i.i = icmp eq i64 %95, %.095136.i.i
-  br i1 %exitcond131.not.i.i, label %asum_compute.exit, label %.lr.ph120.i.i, !llvm.loop !15
+  br i1 %exitcond131.not.i.i, label %asum_compute.exit, label %.lr.ph120.i.i, !llvm.loop !14
 
 .lr.ph.preheader.i:                               ; preds = %13
   %96 = mul nuw nsw i64 %5, %0
@@ -399,7 +399,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   %102 = fadd float %.136.i, %101
   %103 = add nuw nsw i64 %.02135.i, %5
   %104 = icmp slt i64 %103, %96
-  br i1 %104, label %.lr.ph.i, label %asum_compute.exit, !llvm.loop !16
+  br i1 %104, label %.lr.ph.i, label %asum_compute.exit, !llvm.loop !15
 
 asum_compute.exit:                                ; preds = %.lr.ph.i, %.lr.ph120.i.i, %10, %86
   %.022.i = phi float [ 0.000000e+00, %10 ], [ %.383.i.i, %86 ], [ %94, %.lr.ph120.i.i ], [ %102, %.lr.ph.i ]
@@ -439,12 +439,11 @@ attributes #7 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"float", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
+!11 = !{!5, !5, i64 0}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}

@@ -122,7 +122,7 @@ define noalias noundef ptr @pmix_argv_join_range(ptr noundef %0, i64 noundef %1,
   %25 = icmp ne ptr %24, null
   %26 = icmp ult i64 %23, %2
   %27 = select i1 %25, i1 %26, i1 false
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %28 = icmp eq i64 %21, 0
@@ -136,7 +136,7 @@ define noalias noundef ptr @pmix_argv_join_range(ptr noundef %0, i64 noundef %1,
 32:                                               ; preds = %29
   %33 = add i64 %.03444, %19
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 %33
-  store i8 0, ptr %34, align 1, !tbaa !16
+  store i8 0, ptr %34, align 1, !tbaa !15
   %.not51 = icmp eq i64 %33, 0
   br i1 %.not51, label %.loopexit, label %.lr.ph50
 
@@ -148,13 +148,13 @@ define noalias noundef ptr @pmix_argv_join_range(ptr noundef %0, i64 noundef %1,
   %.148 = phi i64 [ 0, %.lr.ph50 ], [ %47, %46 ]
   %.03647 = phi ptr [ %14, %.lr.ph50 ], [ %.137, %46 ]
   %.13946 = phi ptr [ %13, %.lr.ph50 ], [ %.2, %46 ]
-  %37 = load i8, ptr %.03647, align 1, !tbaa !16
+  %37 = load i8, ptr %.03647, align 1, !tbaa !15
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 %.148
-  store i8 %35, ptr %40, align 1, !tbaa !16
+  store i8 %35, ptr %40, align 1, !tbaa !15
   %41 = getelementptr inbounds nuw i8, ptr %.13946, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !10
   br label %46
@@ -162,7 +162,7 @@ define noalias noundef ptr @pmix_argv_join_range(ptr noundef %0, i64 noundef %1,
 43:                                               ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %.03647, i64 1
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 %.148
-  store i8 %37, ptr %45, align 1, !tbaa !16
+  store i8 %37, ptr %45, align 1, !tbaa !15
   br label %46
 
 46:                                               ; preds = %39, %43
@@ -170,7 +170,7 @@ define noalias noundef ptr @pmix_argv_join_range(ptr noundef %0, i64 noundef %1,
   %.137 = phi ptr [ %42, %39 ], [ %44, %43 ]
   %47 = add nuw i64 %.148, 1
   %exitcond.not = icmp eq i64 %47, %33
-  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !16
 
 .loopexit.sink.split:                             ; preds = %._crit_edge, %12, %4, %6, %9
   %48 = tail call noalias dereferenceable_or_null(1) ptr @strdup(ptr noundef nonnull @.str) #10
@@ -210,7 +210,7 @@ define i64 @pmix_argv_len(ptr noundef readonly captures(address_is_null) %0) loc
   %8 = getelementptr inbounds nuw i8, ptr %.0712, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   %.08 = phi i64 [ 0, %1 ], [ 8, %.preheader ], [ %7, %.lr.ph ]
@@ -236,19 +236,19 @@ define noalias ptr @pmix_argv_copy_strip(ptr noundef readonly captures(address_i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread33 ], [ 0, %4 ]
   %7 = phi ptr [ %29, %.thread33 ], [ %6, %4 ]
   %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %9 = load i8, ptr %7, align 1, !tbaa !16
+  %9 = load i8, ptr %7, align 1, !tbaa !15
   %10 = icmp eq i8 %9, 34
   %spec.select.idx = zext i1 %10 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %7, i64 %spec.select.idx
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #11
   %12 = add i64 %11, -1
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !16
+  %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = icmp eq i8 %14, 34
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %.lr.ph
-  store i8 0, ptr %13, align 1, !tbaa !16
+  store i8 0, ptr %13, align 1, !tbaa !15
   %17 = call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %2, ptr noundef nonnull %spec.select) #10
   %.not31 = icmp eq i32 %17, 0
   br i1 %.not31, label %25, label %21
@@ -268,13 +268,13 @@ define noalias ptr @pmix_argv_copy_strip(ptr noundef readonly captures(address_i
   call void @PMIx_Argv_free(ptr noundef %22) #10
   %23 = load ptr, ptr %8, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %12
-  store i8 34, ptr %24, align 1, !tbaa !16
+  store i8 34, ptr %24, align 1, !tbaa !15
   br label %._crit_edge
 
 25:                                               ; preds = %16
   %26 = load ptr, ptr %8, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %12
-  store i8 34, ptr %27, align 1, !tbaa !16
+  store i8 34, ptr %27, align 1, !tbaa !15
   br label %.thread33
 
 .thread33:                                        ; preds = %.thread, %25
@@ -282,7 +282,7 @@ define noalias ptr @pmix_argv_copy_strip(ptr noundef readonly captures(address_i
   %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %.thread33
   %.pre = load ptr, ptr %2, align 8, !tbaa !3
@@ -351,7 +351,7 @@ define range(i32 -27, 1) i32 @pmix_argv_delete(ptr noundef captures(none) %0, pt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = trunc nuw i64 %indvars.iv.next to i32
   %or.cond50 = icmp sgt i32 %invariant.smin, %25
-  br i1 %or.cond50, label %.lr.ph, label %.critedge.preheader, !llvm.loop !20
+  br i1 %or.cond50, label %.lr.ph, label %.critedge.preheader, !llvm.loop !19
 
 .critedge:                                        ; preds = %.lr.ph54, %.critedge
   %indvars.iv58 = phi i64 [ %20, %.lr.ph54 ], [ %indvars.iv.next59, %.critedge ]
@@ -362,7 +362,7 @@ define range(i32 -27, 1) i32 @pmix_argv_delete(ptr noundef captures(none) %0, pt
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %28 = trunc nuw i64 %indvars.iv.next59 to i32
   %29 = icmp sgt i32 %19, %28
-  br i1 %29, label %.critedge, label %.critedge._crit_edge, !llvm.loop !21
+  br i1 %29, label %.critedge, label %.critedge._crit_edge, !llvm.loop !20
 
 .critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
   %.1.lcssa = phi i32 [ %2, %.critedge.preheader ], [ %28, %.critedge ]
@@ -443,7 +443,7 @@ define range(i32 -27, 1) i32 @pmix_argv_insert(ptr noundef %0, i32 noundef %1, p
 pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph55, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph55, !llvm.loop !21
 
 22:                                               ; preds = %11
   %23 = load ptr, ptr %0, align 8, !tbaa !3
@@ -475,7 +475,7 @@ pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
   store ptr %37, ptr %gep66, align 8, !tbaa !10
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %36, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %36, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %36, %22
   %38 = sext i32 %24 to i64
@@ -499,7 +499,7 @@ pmix_argv_append.exit:                            ; preds = %.lr.ph55, %19
   store ptr %46, ptr %47, align 8, !tbaa !10
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %48 = icmp samesign ult i64 %indvars.iv.next59, %42
-  br i1 %48, label %.lr.ph53, label %.loopexit, !llvm.loop !24
+  br i1 %48, label %.lr.ph53, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph53, %pmix_argv_append.exit, %._crit_edge, %.preheader, %9, %3, %5
   %.0 = phi i32 [ -27, %5 ], [ -27, %3 ], [ 0, %9 ], [ 0, %.preheader ], [ 0, %._crit_edge ], [ 0, %pmix_argv_append.exit ], [ 0, %.lr.ph53 ]
@@ -559,28 +559,28 @@ define range(i32 -27, 1) i32 @pmix_argv_insert_element(ptr noundef %0, i32 nound
   %invariant.gep = getelementptr ptr, ptr %24, i64 %29
   %30 = zext nneg i32 %1 to i64
   %invariant.gep35 = getelementptr ptr, ptr %24, i64 %30
-  %invariant.gep37 = getelementptr i8, ptr %invariant.gep35, i64 8
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ %28, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %32 = load ptr, ptr %gep, align 8, !tbaa !10
-  %gep38 = getelementptr ptr, ptr %invariant.gep37, i64 %indvars.iv
-  store ptr %32, ptr %gep38, align 8, !tbaa !10
+  %gep36 = getelementptr ptr, ptr %invariant.gep35, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %gep36, i64 8
+  store ptr %32, ptr %33, align 8, !tbaa !10
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %31, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %31, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %31, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %29, %31 ]
-  %33 = zext nneg i32 %12 to i64
-  %34 = getelementptr ptr, ptr %24, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 8
-  store ptr null, ptr %35, align 8, !tbaa !10
-  %36 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #10
-  %37 = getelementptr inbounds nuw ptr, ptr %24, i64 %.pre-phi
-  store ptr %36, ptr %37, align 8, !tbaa !10
+  %34 = zext nneg i32 %12 to i64
+  %35 = getelementptr ptr, ptr %24, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 8
+  store ptr null, ptr %36, align 8, !tbaa !10
+  %37 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #10
+  %38 = getelementptr inbounds nuw ptr, ptr %24, i64 %.pre-phi
+  store ptr %37, ptr %38, align 8, !tbaa !10
   br label %pmix_argv_append.exit
 
 pmix_argv_append.exit:                            ; preds = %16, %14, %9, %3, %5, %._crit_edge
@@ -623,17 +623,16 @@ attributes #13 = { nounwind allocsize(1) }
 !9 = !{!"int", !6, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"p1 omnipotent char", !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = !{!6, !6, i64 0}
-!17 = distinct !{!17, !13, !14}
-!18 = distinct !{!18, !13, !14}
-!19 = distinct !{!19, !13, !14}
-!20 = distinct !{!20, !13, !14}
-!21 = distinct !{!21, !13, !14}
-!22 = distinct !{!22, !13, !14}
-!23 = distinct !{!23, !13, !14}
-!24 = distinct !{!24, !13, !14}
-!25 = distinct !{!25, !13, !14}
+!14 = distinct !{!14, !13}
+!15 = !{!6, !6, i64 0}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13}
+!21 = distinct !{!21, !13}
+!22 = distinct !{!22, !13}
+!23 = distinct !{!23, !13}
+!24 = distinct !{!24, !13}

@@ -329,12 +329,12 @@ X509V3_EXT_get_nid.exit:                          ; preds = %8, %12
   br i1 %21, label %X509V3_EXT_add.exit, label %22
 
 22:                                               ; preds = %19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %20, ptr noundef nonnull align 8 dereferenceable(104) %.0.i, i64 104, i1 false), !tbaa.struct !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %20, ptr noundef nonnull align 8 dereferenceable(104) %.0.i, i64 104, i1 false), !tbaa.struct !15
   store i32 %0, ptr %20, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %24 = load i32, ptr %23, align 4, !tbaa !19
+  %24 = load i32, ptr %23, align 4, !tbaa !18
   %25 = or i32 %24, 1
-  store i32 %25, ptr %23, align 4, !tbaa !19
+  store i32 %25, ptr %23, align 4, !tbaa !18
   %26 = load ptr, ptr @ext_list, align 8, !tbaa !3
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %31
@@ -385,7 +385,7 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define internal void @ext_list_free(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !19
+  %3 = load i32, ptr %2, align 4, !tbaa !18
   %4 = and i32 %3, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
@@ -414,10 +414,10 @@ define ptr @X509V3_EXT_d2i(ptr noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %1
   %6 = tail call ptr @X509_EXTENSION_get_data(ptr noundef %0) #7
   %7 = tail call ptr @ASN1_STRING_get0_data(ptr noundef %6) #7
-  store ptr %7, ptr %2, align 8, !tbaa !20
+  store ptr %7, ptr %2, align 8, !tbaa !19
   %8 = tail call i32 @ASN1_STRING_length(ptr noundef %6) #7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %15, label %11
 
@@ -429,7 +429,7 @@ define ptr @X509V3_EXT_d2i(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %17 = load ptr, ptr %16, align 8, !tbaa !23
+  %17 = load ptr, ptr %16, align 8, !tbaa !22
   %18 = sext i32 %8 to i64
   %19 = call ptr %17(ptr noundef null, ptr noundef nonnull %2, i64 noundef %18) #7
   br label %20
@@ -459,7 +459,7 @@ define ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   br i1 %.not44, label %8, label %7
 
 7:                                                ; preds = %6
-  store i32 -1, ptr %3, align 4, !tbaa !17
+  store i32 -1, ptr %3, align 4, !tbaa !16
   br label %8
 
 8:                                                ; preds = %7, %6
@@ -467,7 +467,7 @@ define ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   br i1 %.not45, label %60, label %9
 
 9:                                                ; preds = %8
-  store i32 -1, ptr %2, align 4, !tbaa !17
+  store i32 -1, ptr %2, align 4, !tbaa !16
   br label %60
 
 10:                                               ; preds = %4
@@ -479,7 +479,7 @@ define ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   br i1 %13, label %.lr.ph.split.us, label %._crit_edge.thread
 
 .thread69:                                        ; preds = %10
-  %14 = load i32, ptr %3, align 4, !tbaa !17
+  %14 = load i32, ptr %3, align 4, !tbaa !16
   %15 = tail call i32 @llvm.smax.i32(i32 %14, i32 -1)
   %16 = add nsw i32 %15, 1
   %17 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
@@ -504,7 +504,7 @@ define ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   %25 = add nuw nsw i32 %.03461.us, 1
   %26 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !24
+  br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.thread69, %33
   %.03461 = phi i32 [ %34, %33 ], [ %16, %.thread69 ]
@@ -519,21 +519,21 @@ define ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   br i1 %.not48, label %60, label %32
 
 32:                                               ; preds = %.split.us
-  store i32 -2, ptr %2, align 4, !tbaa !17
+  store i32 -2, ptr %2, align 4, !tbaa !16
   br label %60
 
 33:                                               ; preds = %.lr.ph.split
   %34 = add nuw nsw i32 %.03461, 1
   %35 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #7
   %36 = icmp slt i32 %34, %35
-  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !26
+  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %24
   %.not49 = icmp eq ptr %.2.us, null
   br i1 %.not49, label %._crit_edge.thread, label %37
 
 .thread:                                          ; preds = %.lr.ph.split
-  store i32 %.03461, ptr %3, align 4, !tbaa !17
+  store i32 %.03461, ptr %3, align 4, !tbaa !16
   %.not4953 = icmp eq ptr %28, null
   br i1 %.not4953, label %.thread55, label %37
 
@@ -544,7 +544,7 @@ define ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
 
 38:                                               ; preds = %37
   %39 = tail call i32 @X509_EXTENSION_get_critical(ptr noundef nonnull %.154) #7
-  store i32 %39, ptr %2, align 4, !tbaa !17
+  store i32 %39, ptr %2, align 4, !tbaa !16
   br label %40
 
 40:                                               ; preds = %38, %37
@@ -556,10 +556,10 @@ define ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
 43:                                               ; preds = %40
   %44 = tail call ptr @X509_EXTENSION_get_data(ptr noundef nonnull %.154) #7
   %45 = tail call ptr @ASN1_STRING_get0_data(ptr noundef %44) #7
-  store ptr %45, ptr %5, align 8, !tbaa !20
+  store ptr %45, ptr %5, align 8, !tbaa !19
   %46 = tail call i32 @ASN1_STRING_length(ptr noundef %44) #7
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !22
+  %48 = load ptr, ptr %47, align 8, !tbaa !21
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %53, label %49
 
@@ -571,7 +571,7 @@ define ptr @X509V3_get_d2i(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
 
 53:                                               ; preds = %43
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %55 = load ptr, ptr %54, align 8, !tbaa !23
+  %55 = load ptr, ptr %54, align 8, !tbaa !22
   %56 = sext i32 %46 to i64
   %57 = call ptr %55(ptr noundef null, ptr noundef nonnull %5, i64 noundef %56) #7
   br label %X509V3_EXT_d2i.exit
@@ -585,7 +585,7 @@ X509V3_EXT_d2i.exit:                              ; preds = %40, %49, %53
   br i1 %.not44, label %58, label %.thread55
 
 .thread55:                                        ; preds = %.thread69, %.thread, %._crit_edge.thread
-  store i32 -1, ptr %3, align 4, !tbaa !17
+  store i32 -1, ptr %3, align 4, !tbaa !16
   br label %58
 
 58:                                               ; preds = %.thread55, %._crit_edge.thread
@@ -593,7 +593,7 @@ X509V3_EXT_d2i.exit:                              ; preds = %40, %49, %53
   br i1 %.not50, label %60, label %59
 
 59:                                               ; preds = %58
-  store i32 -1, ptr %2, align 4, !tbaa !17
+  store i32 -1, ptr %2, align 4, !tbaa !16
   br label %60
 
 60:                                               ; preds = %58, %59, %.split.us, %32, %8, %9, %X509V3_EXT_d2i.exit
@@ -612,7 +612,7 @@ define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %0, i32 
   br i1 %.not, label %.thread57, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !27
+  %8 = load ptr, ptr %0, align 8, !tbaa !26
   %9 = tail call i32 @X509v3_get_ext_by_NID(ptr noundef %8, i32 noundef %1, i32 noundef -1) #7
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %11, label %17
@@ -625,7 +625,7 @@ define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %0, i32 
   ]
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr %0, align 8, !tbaa !27
+  %13 = load ptr, ptr %0, align 8, !tbaa !26
   %14 = tail call ptr @OPENSSL_sk_delete(ptr noundef %13, i32 noundef %9) #7
   %15 = icmp eq ptr %14, null
   br i1 %15, label %44, label %16
@@ -662,10 +662,10 @@ define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %0, i32 
   br label %44
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr %0, align 8, !tbaa !27
+  %24 = load ptr, ptr %0, align 8, !tbaa !26
   %25 = tail call ptr @OPENSSL_sk_value(ptr noundef %24, i32 noundef %9) #7
   tail call void @X509_EXTENSION_free(ptr noundef %25) #7
-  %26 = load ptr, ptr %0, align 8, !tbaa !27
+  %26 = load ptr, ptr %0, align 8, !tbaa !26
   %27 = tail call ptr @OPENSSL_sk_set(ptr noundef %26, i32 noundef %9, ptr noundef nonnull %19) #7
   %.not50 = icmp eq ptr %27, null
   %. = select i1 %.not50, i32 -1, i32 1
@@ -673,7 +673,7 @@ define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %0, i32 
 
 .thread61:                                        ; preds = %.thread, %.thread57
   %28 = phi ptr [ %21, %.thread57 ], [ %20, %.thread ]
-  %29 = load ptr, ptr %0, align 8, !tbaa !27
+  %29 = load ptr, ptr %0, align 8, !tbaa !26
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %34
 
@@ -689,12 +689,12 @@ define range(i32 -1, 2) i32 @X509V3_add1_i2d(ptr noundef captures(none) %0, i32 
   br i1 %.not48, label %37, label %36
 
 36:                                               ; preds = %34
-  store ptr %.038, ptr %0, align 8, !tbaa !27
+  store ptr %.038, ptr %0, align 8, !tbaa !26
   br label %44
 
 37:                                               ; preds = %34, %31
   %.1 = phi ptr [ null, %31 ], [ %.038, %34 ]
-  %38 = load ptr, ptr %0, align 8, !tbaa !27
+  %38 = load ptr, ptr %0, align 8, !tbaa !26
   %.not49 = icmp eq ptr %.1, %38
   br i1 %.not49, label %40, label %39
 
@@ -778,19 +778,18 @@ attributes #7 = { nounwind }
 !10 = !{!11, !12, i64 0}
 !11 = !{!"v3_ext_method", !12, i64 0, !12, i64 4, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96}
 !12 = !{!"int", !6, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{i64 0, i64 4, !17, i64 4, i64 4, !17, i64 8, i64 8, !18, i64 16, i64 8, !18, i64 24, i64 8, !18, i64 32, i64 8, !18, i64 40, i64 8, !18, i64 48, i64 8, !18, i64 56, i64 8, !18, i64 64, i64 8, !18, i64 72, i64 8, !18, i64 80, i64 8, !18, i64 88, i64 8, !18, i64 96, i64 8, !18}
-!17 = !{!12, !12, i64 0}
-!18 = !{!5, !5, i64 0}
-!19 = !{!11, !12, i64 4}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 omnipotent char", !5, i64 0}
-!22 = !{!11, !5, i64 8}
-!23 = !{!11, !5, i64 32}
-!24 = distinct !{!24, !14, !15, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !14, !15}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !5, i64 0}
+!15 = !{i64 0, i64 4, !16, i64 4, i64 4, !16, i64 8, i64 8, !17, i64 16, i64 8, !17, i64 24, i64 8, !17, i64 32, i64 8, !17, i64 40, i64 8, !17, i64 48, i64 8, !17, i64 56, i64 8, !17, i64 64, i64 8, !17, i64 72, i64 8, !17, i64 80, i64 8, !17, i64 88, i64 8, !17, i64 96, i64 8, !17}
+!16 = !{!12, !12, i64 0}
+!17 = !{!5, !5, i64 0}
+!18 = !{!11, !12, i64 4}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 omnipotent char", !5, i64 0}
+!21 = !{!11, !5, i64 8}
+!22 = !{!11, !5, i64 32}
+!23 = distinct !{!23, !14, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !14}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !5, i64 0}

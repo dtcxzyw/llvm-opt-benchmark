@@ -423,10 +423,10 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
   %9 = tail call i64 @rb_io_taint_check(i64 noundef %0) #16
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
   tail call void @rb_io_check_closed(ptr noundef %12) #16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !28
+  %14 = load i32, ptr %13, align 8, !tbaa !27
   %15 = tail call i32 @listen(i32 noundef %14, i32 noundef %8) #16
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %20
@@ -454,7 +454,7 @@ define range(i32 0, 268) i32 @rsock_sockaddr_len(ptr noundef readonly captures(a
   br i1 %2, label %sockaddr_len.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = load i16, ptr %0, align 2, !tbaa !36
+  %4 = load i16, ptr %0, align 2, !tbaa !35
   switch i16 %4, label %12 [
     i16 2, label %sockaddr_len.exit
     i16 10, label %5
@@ -470,7 +470,7 @@ define range(i32 0, 268) i32 @rsock_sockaddr_len(ptr noundef readonly captures(a
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %9 = load i8, ptr %8, align 1, !tbaa !39
+  %9 = load i8, ptr %8, align 1, !tbaa !38
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %10, 12
   br label %sockaddr_len.exit
@@ -489,7 +489,7 @@ define i64 @rsock_sockaddr_obj(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %3, label %sockaddr_obj.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = load i16, ptr %0, align 2, !tbaa !36
+  %5 = load i16, ptr %0, align 2, !tbaa !35
   switch i16 %5, label %13 [
     i16 2, label %sockaddr_len.exit.i
     i16 10, label %6
@@ -505,7 +505,7 @@ define i64 @rsock_sockaddr_obj(ptr noundef %0, i32 noundef %1) local_unnamed_add
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %10 = load i8, ptr %9, align 1, !tbaa !39
+  %10 = load i8, ptr %9, align 1, !tbaa !38
   %11 = zext i8 %10 to i32
   %12 = add nuw nsw i32 %11, 12
   br label %sockaddr_len.exit.i
@@ -765,7 +765,7 @@ define internal range(i64 1, 4294967296) i64 @sock_connect(i64 noundef %0, i64 n
   %7 = call i64 @rb_str_new_frozen(i64 noundef %6) #16
   store i64 %7, ptr %3, align 8, !tbaa !10
   %8 = inttoptr i64 %7 to ptr
-  %9 = load i64, ptr %8, align 8, !tbaa !12, !noalias !41
+  %9 = load i64, ptr %8, align 8, !tbaa !12, !noalias !40
   %10 = and i64 %9, 8192
   %.not.i.i = icmp eq i64 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -822,14 +822,14 @@ define internal i64 @sock_connect_nonblock(i64 noundef %0, i64 noundef %1, i64 n
   %9 = call i64 @rb_io_taint_check(i64 noundef %0) #16
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
   call void @rb_io_check_closed(ptr noundef %12) #16
   call void @rb_io_set_nonblock(ptr noundef %12) #16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !28
+  %14 = load i32, ptr %13, align 8, !tbaa !27
   %15 = load i64, ptr %4, align 8, !tbaa !10
   %16 = inttoptr i64 %15 to ptr
-  %17 = load i64, ptr %16, align 8, !tbaa !12, !noalias !44
+  %17 = load i64, ptr %16, align 8, !tbaa !12, !noalias !43
   %18 = and i64 %17, 8192
   %.not.i.i = icmp eq i64 %18, 0
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -909,13 +909,13 @@ define internal noundef i64 @sock_bind(i64 noundef %0, i64 noundef %1) #0 {
   %6 = call i64 @rb_io_taint_check(i64 noundef %0) #16
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !25
+  %9 = load ptr, ptr %8, align 8, !tbaa !24
   call void @rb_io_check_closed(ptr noundef %9) #16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !28
+  %11 = load i32, ptr %10, align 8, !tbaa !27
   %12 = load i64, ptr %3, align 8, !tbaa !10
   %13 = inttoptr i64 %12 to ptr
-  %14 = load i64, ptr %13, align 8, !tbaa !12, !noalias !47
+  %14 = load i64, ptr %13, align 8, !tbaa !12, !noalias !46
   %15 = and i64 %14, 8192
   %.not.i.i = icmp eq i64 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -981,7 +981,7 @@ define internal i64 @sock_accept_nonblock(i64 noundef %0, i64 noundef %1) #0 {
   %5 = tail call i64 @rb_io_taint_check(i64 noundef %0) #16
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !25
+  %8 = load ptr, ptr %7, align 8, !tbaa !24
   tail call void @rb_io_check_closed(ptr noundef %8) #16
   %9 = load i64, ptr @rb_cSocket, align 8, !tbaa !10
   %10 = call i64 @rsock_s_accept_nonblock(i64 noundef %9, i64 noundef %1, ptr noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %4) #16
@@ -1055,7 +1055,7 @@ define internal i64 @sock_gethostname(i64 %0) #0 {
 
 5:                                                ; preds = %15, %1
   %.0 = phi i64 [ 1025, %1 ], [ %16, %15 ]
-  %6 = load i64, ptr %3, align 8, !tbaa !12, !noalias !50
+  %6 = load i64, ptr %3, align 8, !tbaa !12, !noalias !49
   %7 = and i64 %6, 8192
   %.not.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %8
@@ -1085,10 +1085,10 @@ RSTRING_PTR.exit:                                 ; preds = %5, %8
 15:                                               ; preds = %11, %11
   tail call void @rb_str_modify_expand(i64 noundef %2, i64 noundef %.0) #16
   %16 = shl nsw i64 %.0, 1
-  br label %5, !llvm.loop !53
+  br label %5, !llvm.loop !52
 
 17:                                               ; preds = %RSTRING_PTR.exit
-  %18 = load i64, ptr %3, align 8, !tbaa !12, !noalias !54
+  %18 = load i64, ptr %3, align 8, !tbaa !12, !noalias !53
   %19 = and i64 %18, 8192
   %.not.i.i13 = icmp eq i64 %19, 0
   br i1 %.not.i.i13, label %RSTRING_PTR.exit16, label %20
@@ -1163,7 +1163,7 @@ rb_scan_args_set.exit:                            ; preds = %7
 23:                                               ; preds = %17, %15
   %.pre-phi = phi ptr [ %19, %17 ], [ %.pre44, %15 ]
   %.0 = phi i32 [ %spec.select, %17 ], [ %16, %15 ]
-  %24 = load i64, ptr %.pre-phi, align 8, !tbaa !12, !noalias !57
+  %24 = load i64, ptr %.pre-phi, align 8, !tbaa !12, !noalias !56
   %25 = and i64 %24, 8192
   %.not.i.i = icmp eq i64 %25, 0
   %26 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 24
@@ -1198,18 +1198,18 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
 
 37:                                               ; preds = %RSTRING_LENINT.exit
   %38 = call i64 @rb_ary_new() #16
-  %39 = load ptr, ptr %33, align 8, !tbaa !60
+  %39 = load ptr, ptr %33, align 8, !tbaa !59
   %40 = call i64 @rb_str_new_cstr(ptr noundef %39) #16
   %41 = call i64 @rb_ary_push(i64 noundef %38, i64 noundef %40) #16
   %42 = call i64 @rb_ary_new() #16
   %43 = call i64 @rb_ary_push(i64 noundef %38, i64 noundef %42) #16
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !63
+  %45 = load ptr, ptr %44, align 8, !tbaa !62
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %37
-  %46 = load ptr, ptr %45, align 8, !tbaa !64
+  %46 = load ptr, ptr %45, align 8, !tbaa !63
   %.not2736 = icmp eq ptr %46, null
   br i1 %.not2736, label %.loopexit, label %.lr.ph
 
@@ -1219,20 +1219,20 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
   %48 = call i64 @rb_str_new_cstr(ptr noundef nonnull %47) #16
   %49 = call i64 @rb_ary_push(i64 noundef %42, i64 noundef %48) #16
   %50 = getelementptr inbounds nuw i8, ptr %.02237, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !64
+  %51 = load ptr, ptr %50, align 8, !tbaa !63
   %.not27 = icmp eq ptr %51, null
-  br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !65
+  br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !64
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %37
   %52 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %53 = load i32, ptr %52, align 8, !tbaa !66
+  %53 = load i32, ptr %52, align 8, !tbaa !65
   %54 = sext i32 %53 to i64
   %55 = shl nsw i64 %54, 1
   %56 = or disjoint i64 %55, 1
   %57 = call i64 @rb_ary_push(i64 noundef %38, i64 noundef %56) #16
   %58 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %59 = load ptr, ptr %58, align 8, !tbaa !67
-  %60 = load ptr, ptr %59, align 8, !tbaa !64
+  %59 = load ptr, ptr %58, align 8, !tbaa !66
+  %60 = load ptr, ptr %59, align 8, !tbaa !63
   %.not2838 = icmp eq ptr %60, null
   br i1 %.not2838, label %._crit_edge, label %.lr.ph40
 
@@ -1243,14 +1243,14 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
 62:                                               ; preds = %.lr.ph40, %62
   %63 = phi ptr [ %60, %.lr.ph40 ], [ %69, %62 ]
   %.139 = phi ptr [ %59, %.lr.ph40 ], [ %68, %62 ]
-  %64 = load i32, ptr %61, align 4, !tbaa !68
+  %64 = load i32, ptr %61, align 4, !tbaa !67
   %65 = sext i32 %64 to i64
   %66 = call i64 @rb_str_new(ptr noundef nonnull %63, i64 noundef %65) #16
   %67 = call i64 @rb_ary_push(i64 noundef %38, i64 noundef %66) #16
   %68 = getelementptr inbounds nuw i8, ptr %.139, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !64
+  %69 = load ptr, ptr %68, align 8, !tbaa !63
   %.not28 = icmp eq ptr %69, null
-  br i1 %.not28, label %._crit_edge, label %62, !llvm.loop !69
+  br i1 %.not28, label %._crit_edge, label %62, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %62, %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
@@ -1316,7 +1316,7 @@ rb_scan_args_set.exit:                            ; preds = %9
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !70
+  %27 = load i32, ptr %26, align 8, !tbaa !69
   %28 = trunc i32 %27 to i16
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %28)
   %29 = zext i16 %rev.i to i64
@@ -1325,8 +1325,8 @@ rb_scan_args_set.exit:                            ; preds = %9
 30:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   %31 = call i64 @ruby_strtoul(ptr noundef %18, ptr noundef nonnull %6, i32 noundef 0) #16
-  %32 = load ptr, ptr %6, align 8, !tbaa !64
-  %33 = load i8, ptr %32, align 1, !tbaa !72
+  %32 = load ptr, ptr %6, align 8, !tbaa !63
+  %33 = load i8, ptr %32, align 1, !tbaa !71
   %.not11 = icmp eq i8 %33, 0
   br i1 %.not11, label %36, label %34
 
@@ -1429,7 +1429,7 @@ rb_num2long_inline.exit:                          ; preds = %17, %19
   unreachable
 
 35:                                               ; preds = %29
-  %36 = load ptr, ptr %31, align 8, !tbaa !73
+  %36 = load ptr, ptr %31, align 8, !tbaa !72
   %37 = call i64 @rb_str_new_cstr(ptr noundef %36) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   ret i64 %37
@@ -1524,7 +1524,7 @@ define internal i64 @sock_s_getaddrinfo(i32 noundef %0, ptr noundef readonly cap
 39:                                               ; preds = %38, %37, %35
   %.286.i = phi i32 [ %36, %35 ], [ %.185.i16, %38 ], [ %.185.i16, %37 ]
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 7
-  br i1 %exitcond27.not, label %40, label %.preheader, !llvm.loop !74
+  br i1 %exitcond27.not, label %40, label %.preheader, !llvm.loop !73
 
 40:                                               ; preds = %39
   %41 = icmp eq i32 %.286.i, %0
@@ -1547,7 +1547,7 @@ rb_scan_args_set.exit:                            ; preds = %40
 47:                                               ; preds = %rb_scan_args_set.exit, %45
   %48 = phi i32 [ %46, %45 ], [ 0, %rb_scan_args_set.exit ]
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 %48, ptr %49, align 4, !tbaa !75
+  store i32 %48, ptr %49, align 4, !tbaa !74
   %50 = load i64, ptr %7, align 8, !tbaa !10
   %51 = icmp eq i64 %50, 4
   br i1 %51, label %55, label %52
@@ -1555,7 +1555,7 @@ rb_scan_args_set.exit:                            ; preds = %40
 52:                                               ; preds = %47
   %53 = call i32 @rsock_socktype_arg(i64 noundef %50) #16
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %53, ptr %54, align 8, !tbaa !79
+  store i32 %53, ptr %54, align 8, !tbaa !78
   br label %55
 
 55:                                               ; preds = %52, %47
@@ -1580,7 +1580,7 @@ rb_num2int_inline.exit:                           ; preds = %60, %62
   %.0.i5 = phi i64 [ %61, %60 ], [ %63, %62 ]
   %64 = trunc i64 %.0.i5 to i32
   %65 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 %64, ptr %65, align 4, !tbaa !80
+  store i32 %64, ptr %65, align 4, !tbaa !79
   br label %66
 
 66:                                               ; preds = %rb_num2int_inline.exit, %55
@@ -1604,7 +1604,7 @@ rb_num2int_inline.exit:                           ; preds = %60, %62
 rb_num2int_inline.exit8:                          ; preds = %71, %73
   %.0.i7 = phi i64 [ %72, %71 ], [ %74, %73 ]
   %75 = trunc i64 %.0.i7 to i32
-  store i32 %75, ptr %11, align 8, !tbaa !81
+  store i32 %75, ptr %11, align 8, !tbaa !80
   br label %76
 
 76:                                               ; preds = %rb_num2int_inline.exit8, %66
@@ -1637,19 +1637,19 @@ rb_num2int_inline.exit8:                          ; preds = %71, %73
 
 91:                                               ; preds = %83
   %92 = call i64 @rb_ary_new() #16
-  %.021.i = load ptr, ptr %86, align 8, !tbaa !82
+  %.021.i = load ptr, ptr %86, align 8, !tbaa !81
   %.not22.i = icmp eq ptr %.021.i, null
   br i1 %.not22.i, label %make_addrinfo.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %91, %109
   %.023.i = phi ptr [ %.0.i9, %109 ], [ %.021.i, %91 ]
   %93 = getelementptr inbounds nuw i8, ptr %.023.i, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !83
+  %94 = load ptr, ptr %93, align 8, !tbaa !82
   %95 = getelementptr inbounds nuw i8, ptr %.023.i, i64 16
-  %96 = load i32, ptr %95, align 8, !tbaa !84
+  %96 = load i32, ptr %95, align 8, !tbaa !83
   %97 = call i64 @rsock_ipaddr(ptr noundef %94, i32 noundef %96, i32 noundef %87) #16
   %98 = getelementptr inbounds nuw i8, ptr %.023.i, i64 32
-  %99 = load ptr, ptr %98, align 8, !tbaa !85
+  %99 = load ptr, ptr %98, align 8, !tbaa !84
   %.not20.i = icmp eq ptr %99, null
   br i1 %.not20.i, label %109, label %100
 
@@ -1674,28 +1674,28 @@ RARRAY_ASET.exit.i:                               ; preds = %108, %100
 
 109:                                              ; preds = %RARRAY_ASET.exit.i, %.lr.ph.i
   %110 = getelementptr inbounds nuw i8, ptr %.023.i, i64 4
-  %111 = load i32, ptr %110, align 4, !tbaa !75
+  %111 = load i32, ptr %110, align 4, !tbaa !74
   %112 = sext i32 %111 to i64
   %113 = shl nsw i64 %112, 1
   %114 = or disjoint i64 %113, 1
   %115 = call i64 @rb_ary_push(i64 noundef %97, i64 noundef %114) #16
   %116 = getelementptr inbounds nuw i8, ptr %.023.i, i64 8
-  %117 = load i32, ptr %116, align 8, !tbaa !79
+  %117 = load i32, ptr %116, align 8, !tbaa !78
   %118 = sext i32 %117 to i64
   %119 = shl nsw i64 %118, 1
   %120 = or disjoint i64 %119, 1
   %121 = call i64 @rb_ary_push(i64 noundef %97, i64 noundef %120) #16
   %122 = getelementptr inbounds nuw i8, ptr %.023.i, i64 12
-  %123 = load i32, ptr %122, align 4, !tbaa !80
+  %123 = load i32, ptr %122, align 4, !tbaa !79
   %124 = sext i32 %123 to i64
   %125 = shl nsw i64 %124, 1
   %126 = or disjoint i64 %125, 1
   %127 = call i64 @rb_ary_push(i64 noundef %97, i64 noundef %126) #16
   %128 = call i64 @rb_ary_push(i64 noundef %92, i64 noundef %97) #16
   %129 = getelementptr inbounds nuw i8, ptr %.023.i, i64 40
-  %.0.i9 = load ptr, ptr %129, align 8, !tbaa !82
+  %.0.i9 = load ptr, ptr %129, align 8, !tbaa !81
   %.not.i10 = icmp eq ptr %.0.i9, null
-  br i1 %.not.i10, label %make_addrinfo.exit, label %.lr.ph.i, !llvm.loop !86
+  br i1 %.not.i10, label %make_addrinfo.exit, label %.lr.ph.i, !llvm.loop !85
 
 make_addrinfo.exit:                               ; preds = %109, %91
   call void @rb_freeaddrinfo(ptr noundef nonnull %86) #16
@@ -1782,7 +1782,7 @@ rb_scan_args_set.exit.thread:                     ; preds = %.preheader, %rb_num
   unreachable
 
 34:                                               ; preds = %27
-  %35 = load i64, ptr %28, align 8, !tbaa !12, !noalias !87
+  %35 = load i64, ptr %28, align 8, !tbaa !12, !noalias !86
   %36 = and i64 %35, 8192
   %.not.i.i = icmp eq i64 %36, 0
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -1798,7 +1798,7 @@ RSTRING_PTR.exit:                                 ; preds = %34, %38
   br i1 %.not.i56, label %.thread92, label %39
 
 39:                                               ; preds = %RSTRING_PTR.exit
-  %40 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef nonnull readonly %.sroa.2.0.i, i64 noundef range(i64 1, 0) %30, i64 noundef 2048) #16, !alias.scope !90
+  %40 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef nonnull readonly %.sroa.2.0.i, i64 noundef range(i64 1, 0) %30, i64 noundef 2048) #16, !alias.scope !89
   br label %.thread92
 
 41:                                               ; preds = %rb_scan_args_set.exit.thread
@@ -1816,7 +1816,7 @@ RSTRING_PTR.exit:                                 ; preds = %34, %38
 
 rb_array_len.exit:                                ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !72
+  %49 = load i64, ptr %48, align 8, !tbaa !71
   %50 = icmp eq i64 %49, 3
   br i1 %50, label %56, label %64
 
@@ -1833,7 +1833,7 @@ rb_array_len.exit.thread:                         ; preds = %44
 
 56:                                               ; preds = %rb_array_len.exit
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %58 = load ptr, ptr %57, align 8, !tbaa !72
+  %58 = load ptr, ptr %57, align 8, !tbaa !71
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   br label %RARRAY_AREF.exit67
 
@@ -1856,7 +1856,7 @@ RARRAY_AREF.exit67:                               ; preds = %.thread, %56
 
 RARRAY_AREF.exit76:                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %68 = load ptr, ptr %67, align 8, !tbaa !72
+  %68 = load ptr, ptr %67, align 8, !tbaa !71
   %69 = load i64, ptr %68, align 8, !tbaa !10
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !10
@@ -1887,7 +1887,7 @@ RARRAY_AREF.exit79:                               ; preds = %RARRAY_AREF.exit76,
   %87 = phi i64 [ %80, %RARRAY_AREF.exit76.thread ], [ %73, %RARRAY_AREF.exit76 ]
   %88 = phi i64 [ %76, %RARRAY_AREF.exit76.thread ], [ %69, %RARRAY_AREF.exit76 ]
   %89 = phi i64 [ %78, %RARRAY_AREF.exit76.thread ], [ %71, %RARRAY_AREF.exit76 ]
-  store i32 4, ptr %6, align 8, !tbaa !81
+  store i32 4, ptr %6, align 8, !tbaa !80
   br label %92
 
 90:                                               ; preds = %.thread84, %64
@@ -1904,7 +1904,7 @@ RARRAY_AREF.exit79:                               ; preds = %RARRAY_AREF.exit76,
   %.not = icmp eq i32 %93, 0
   %94 = select i1 %.not, i32 1, i32 2
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %94, ptr %95, align 8, !tbaa !79
+  store i32 %94, ptr %95, align 8, !tbaa !78
   %96 = icmp eq i64 %.044, 4
   br i1 %96, label %101, label %97
 
@@ -1920,13 +1920,13 @@ RARRAY_AREF.exit79:                               ; preds = %RARRAY_AREF.exit76,
 101:                                              ; preds = %97, %92
   %102 = phi i32 [ %98, %97 ], [ 0, %92 ]
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %102, ptr %103, align 4, !tbaa !75
+  store i32 %102, ptr %103, align 4, !tbaa !74
   %104 = call ptr @rsock_getaddrinfo(i64 noundef %.043, i64 noundef %.042, ptr noundef nonnull %6, i32 noundef 0) #16
-  %105 = load ptr, ptr %104, align 8, !tbaa !94
+  %105 = load ptr, ptr %104, align 8, !tbaa !93
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  %107 = load ptr, ptr %106, align 8, !tbaa !83
+  %107 = load ptr, ptr %106, align 8, !tbaa !82
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %109 = load i32, ptr %108, align 8, !tbaa !84
+  %109 = load i32, ptr %108, align 8, !tbaa !83
   %110 = call i32 @rb_getnameinfo(ptr noundef %107, i32 noundef %109, ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull %5, i64 noundef 1024, i32 noundef %.041) #16
   %.not47 = icmp eq i32 %110, 0
   br i1 %.not47, label %115, label %.thread109
@@ -1943,9 +1943,9 @@ RARRAY_AREF.exit79:                               ; preds = %RARRAY_AREF.exit76,
   br label %132
 
 115:                                              ; preds = %101
-  %116 = load ptr, ptr %104, align 8, !tbaa !94
+  %116 = load ptr, ptr %104, align 8, !tbaa !93
   %.039.in123 = getelementptr inbounds nuw i8, ptr %116, i64 40
-  %.039124 = load ptr, ptr %.039.in123, align 8, !tbaa !96
+  %.039124 = load ptr, ptr %.039.in123, align 8, !tbaa !95
   %.not49125 = icmp eq ptr %.039124, null
   br i1 %.not49125, label %._crit_edge, label %.lr.ph
 
@@ -1954,9 +1954,9 @@ RARRAY_AREF.exit79:                               ; preds = %RARRAY_AREF.exit76,
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #16
   %117 = getelementptr inbounds nuw i8, ptr %.039126, i64 24
-  %118 = load ptr, ptr %117, align 8, !tbaa !83
+  %118 = load ptr, ptr %117, align 8, !tbaa !82
   %119 = getelementptr inbounds nuw i8, ptr %.039126, i64 16
-  %120 = load i32, ptr %119, align 8, !tbaa !84
+  %120 = load i32, ptr %119, align 8, !tbaa !83
   %121 = call i32 @rb_getnameinfo(ptr noundef %118, i32 noundef %120, ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull %9, i64 noundef 1024, i32 noundef %.041) #16
   %.not50 = icmp eq i32 %121, 0
   br i1 %.not50, label %122, label %129
@@ -1981,7 +1981,7 @@ RARRAY_AREF.exit79:                               ; preds = %RARRAY_AREF.exit76,
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #16
   %.039.in = getelementptr inbounds nuw i8, ptr %.039126, i64 40
-  %.039 = load ptr, ptr %.039.in, align 8, !tbaa !96
+  %.039 = load ptr, ptr %.039.in, align 8, !tbaa !95
   %.not49 = icmp eq ptr %.039, null
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
@@ -2023,11 +2023,11 @@ RARRAY_AREF.exit79:                               ; preds = %RARRAY_AREF.exit76,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @sock_s_pack_sockaddr_in(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = tail call ptr @rsock_addrinfo(i64 noundef %2, i64 noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
-  %5 = load ptr, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %4, align 8, !tbaa !93
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !83
+  %7 = load ptr, ptr %6, align 8, !tbaa !82
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !84
+  %9 = load i32, ptr %8, align 8, !tbaa !83
   %10 = zext i32 %9 to i64
   %11 = tail call i64 @rb_str_new(ptr noundef %7, i64 noundef %10) #16
   tail call void @rb_freeaddrinfo(ptr noundef nonnull %4) #16
@@ -2052,7 +2052,7 @@ define internal i64 @sock_s_unpack_sockaddr_in(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 12:                                               ; preds = %2
-  %13 = load i16, ptr %4, align 2, !tbaa !36
+  %13 = load i16, ptr %4, align 2, !tbaa !35
   switch i16 %13, label %14 [
     i16 2, label %16
     i16 10, label %16
@@ -2075,7 +2075,7 @@ RSTRING_LENINT.exit:                              ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %19 = trunc nuw nsw i64 %8 to i32
   %20 = call i64 @rsock_make_ipaddr(ptr noundef nonnull %4, i32 noundef %19) #16
-  %21 = load i16, ptr %18, align 2, !tbaa !97
+  %21 = load i16, ptr %18, align 2, !tbaa !96
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %21)
   %22 = zext i16 %rev.i to i64
   %23 = shl nuw nsw i64 %22, 1
@@ -2093,7 +2093,7 @@ define internal i64 @sock_s_pack_sockaddr_un(i64 %0, i64 noundef %1) #0 {
   %5 = call i64 @rb_string_value(ptr noundef nonnull %3) #16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %6, i8 noundef 0, i64 noundef 108, i1 noundef false) #16
-  store i16 1, ptr %4, align 2, !tbaa !100
+  store i16 1, ptr %4, align 2, !tbaa !99
   %7 = load i64, ptr %3, align 8, !tbaa !10
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -2108,7 +2108,7 @@ define internal i64 @sock_s_pack_sockaddr_un(i64 %0, i64 noundef %1) #0 {
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %16 = load i64, ptr %8, align 8, !tbaa !12, !noalias !102
+  %16 = load i64, ptr %8, align 8, !tbaa !12, !noalias !101
   %17 = and i64 %16, 8192
   %.not.i.i = icmp eq i64 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2124,7 +2124,7 @@ RSTRING_PTR.exit:                                 ; preds = %14, %19
   br i1 %.not.i, label %ruby_nonempty_memcpy.exit, label %20
 
 20:                                               ; preds = %RSTRING_PTR.exit
-  %21 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef nonnull readonly %.sroa.2.0.i, i64 noundef range(i64 1, 0) %10, i64 noundef 108) #16, !alias.scope !105
+  %21 = call ptr @__memcpy_chk(ptr noundef nonnull %15, ptr noundef nonnull readonly %.sroa.2.0.i, i64 noundef range(i64 1, 0) %10, i64 noundef 108) #16, !alias.scope !104
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %RSTRING_PTR.exit, %20
@@ -2153,7 +2153,7 @@ define internal i64 @sock_s_unpack_sockaddr_un(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 12:                                               ; preds = %2
-  %13 = load i16, ptr %4, align 2, !tbaa !36
+  %13 = load i16, ptr %4, align 2, !tbaa !35
   %.not = icmp eq i16 %13, 1
   br i1 %.not, label %16, label %14
 
@@ -2181,7 +2181,7 @@ RSTRING_LENINT.exit:                              ; preds = %16
 define internal i64 @socket_s_ip_address_list(i64 %0) #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
-  store ptr null, ptr %2, align 8, !tbaa !109
+  store ptr null, ptr %2, align 8, !tbaa !108
   %3 = call i32 @getifaddrs(ptr noundef nonnull %2) #16
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %8
@@ -2194,19 +2194,19 @@ define internal i64 @socket_s_ip_address_list(i64 %0) #0 {
 
 8:                                                ; preds = %1
   %9 = call i64 @rb_ary_new() #16
-  %.015 = load ptr, ptr %2, align 8, !tbaa !109
+  %.015 = load ptr, ptr %2, align 8, !tbaa !108
   %.not16 = icmp eq ptr %.015, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %18
   %.017 = phi ptr [ %.0, %18 ], [ %.015, %8 ]
   %10 = getelementptr inbounds nuw i8, ptr %.017, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !111
+  %11 = load ptr, ptr %10, align 8, !tbaa !110
   %.not13 = icmp eq ptr %11, null
   br i1 %.not13, label %18, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = load i16, ptr %11, align 2, !tbaa !36
+  %13 = load i16, ptr %11, align 2, !tbaa !35
   switch i16 %13, label %18 [
     i16 2, label %sockaddr_obj.exit
     i16 10, label %14
@@ -2223,12 +2223,12 @@ sockaddr_obj.exit:                                ; preds = %12, %14
   br label %18
 
 18:                                               ; preds = %12, %.lr.ph, %sockaddr_obj.exit
-  %.0 = load ptr, ptr %.017, align 8, !tbaa !109
+  %.0 = load ptr, ptr %.017, align 8, !tbaa !108
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !113
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !112
 
 ._crit_edge.loopexit:                             ; preds = %18
-  %.pre = load ptr, ptr %2, align 8, !tbaa !109
+  %.pre = load ptr, ptr %2, align 8, !tbaa !108
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
@@ -2277,7 +2277,7 @@ define internal i64 @io_call_close(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.38, i64 noundef 5) #16
   store i64 %2, ptr @io_call_close.rbimpl_id, align 8, !tbaa !10
   %.not.i = icmp eq i64 %2, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !114
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !113
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %1
   %.lcssa.i = phi i64 [ %.pr.i, %1 ], [ %2, %.lr.ph.i ]
@@ -2343,7 +2343,7 @@ declare i64 @rsock_make_hostent(i64 noundef, ptr noundef, ptr noundef) local_unn
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @sock_sockaddr(ptr noundef %0, i32 %1) #0 {
-  %3 = load i16, ptr %0, align 2, !tbaa !36
+  %3 = load i16, ptr %0, align 2, !tbaa !35
   switch i16 %3, label %5 [
     i16 2, label %8
     i16 10, label %4
@@ -2478,96 +2478,95 @@ attributes #21 = { cold nounwind }
 !19 = !{!20, !20, i64 0}
 !20 = !{!"p1 long", !21, i64 0}
 !21 = !{!"any pointer", !8, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!26, !27, i64 16}
-!26 = !{!"RFile", !13, i64 0, !27, i64 16}
-!27 = !{!"p1 _ZTS5rb_io", !21, i64 0}
-!28 = !{!29, !7, i64 16}
-!29 = !{!"rb_io", !11, i64 0, !30, i64 8, !7, i64 16, !7, i64 20, !7, i64 24, !7, i64 28, !11, i64 32, !21, i64 40, !31, i64 48, !31, i64 68, !11, i64 88, !33, i64 96, !35, i64 128, !31, i64 136, !35, i64 160, !11, i64 168, !7, i64 176, !7, i64 180, !11, i64 184, !11, i64 192, !11, i64 200}
-!30 = !{!"p1 _ZTS8_IO_FILE", !21, i64 0}
-!31 = !{!"rb_io_internal_buffer", !32, i64 0, !7, i64 8, !7, i64 12, !7, i64 16}
-!32 = !{!"p1 omnipotent char", !21, i64 0}
-!33 = !{!"rb_io_encoding", !34, i64 0, !34, i64 8, !7, i64 16, !11, i64 24}
-!34 = !{!"p1 _ZTS18OnigEncodingTypeST", !21, i64 0}
-!35 = !{!"p1 _ZTS10rb_econv_t", !21, i64 0}
-!36 = !{!37, !38, i64 0}
-!37 = !{!"sockaddr", !38, i64 0, !8, i64 2}
-!38 = !{!"short", !8, i64 0}
-!39 = !{!40, !8, i64 11}
-!40 = !{!"sockaddr_ll", !38, i64 0, !38, i64 2, !7, i64 4, !38, i64 8, !8, i64 10, !8, i64 11, !8, i64 12}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"rbimpl_rstring_getmem: argument 0"}
-!43 = distinct !{!43, !"rbimpl_rstring_getmem"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"rbimpl_rstring_getmem: argument 0"}
-!46 = distinct !{!46, !"rbimpl_rstring_getmem"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"rbimpl_rstring_getmem: argument 0"}
-!49 = distinct !{!49, !"rbimpl_rstring_getmem"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"rbimpl_rstring_getmem: argument 0"}
-!52 = distinct !{!52, !"rbimpl_rstring_getmem"}
-!53 = distinct !{!53, !23, !24}
-!54 = !{!55}
-!55 = distinct !{!55, !56, !"rbimpl_rstring_getmem: argument 0"}
-!56 = distinct !{!56, !"rbimpl_rstring_getmem"}
-!57 = !{!58}
-!58 = distinct !{!58, !59, !"rbimpl_rstring_getmem: argument 0"}
-!59 = distinct !{!59, !"rbimpl_rstring_getmem"}
-!60 = !{!61, !32, i64 0}
-!61 = !{!"hostent", !32, i64 0, !62, i64 8, !7, i64 16, !7, i64 20, !62, i64 24}
-!62 = !{!"p2 omnipotent char", !21, i64 0}
-!63 = !{!61, !62, i64 8}
-!64 = !{!32, !32, i64 0}
-!65 = distinct !{!65, !23, !24}
-!66 = !{!61, !7, i64 16}
-!67 = !{!61, !62, i64 24}
-!68 = !{!61, !7, i64 20}
-!69 = distinct !{!69, !23, !24}
-!70 = !{!71, !7, i64 16}
-!71 = !{!"servent", !32, i64 0, !62, i64 8, !7, i64 16, !32, i64 24}
-!72 = !{!8, !8, i64 0}
-!73 = !{!71, !32, i64 0}
-!74 = distinct !{!74, !23, !24}
-!75 = !{!76, !7, i64 4}
-!76 = !{!"addrinfo", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !7, i64 16, !77, i64 24, !32, i64 32, !78, i64 40}
-!77 = !{!"p1 _ZTS8sockaddr", !21, i64 0}
-!78 = !{!"p1 _ZTS8addrinfo", !21, i64 0}
-!79 = !{!76, !7, i64 8}
-!80 = !{!76, !7, i64 12}
-!81 = !{!76, !7, i64 0}
-!82 = !{!78, !78, i64 0}
-!83 = !{!76, !77, i64 24}
-!84 = !{!76, !7, i64 16}
-!85 = !{!76, !32, i64 32}
-!86 = distinct !{!86, !23, !24}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"rbimpl_rstring_getmem: argument 0"}
-!89 = distinct !{!89, !"rbimpl_rstring_getmem"}
-!90 = !{!91, !93}
-!91 = distinct !{!91, !92, !"memcpy.inline: argument 0"}
-!92 = distinct !{!92, !"memcpy.inline"}
-!93 = distinct !{!93, !92, !"memcpy.inline: argument 1"}
-!94 = !{!95, !78, i64 0}
-!95 = !{!"rb_addrinfo", !78, i64 0, !7, i64 8}
-!96 = !{!76, !78, i64 40}
-!97 = !{!98, !38, i64 2}
-!98 = !{!"sockaddr_in", !38, i64 0, !38, i64 2, !99, i64 4, !8, i64 8}
-!99 = !{!"in_addr", !7, i64 0}
-!100 = !{!101, !38, i64 0}
-!101 = !{!"sockaddr_un", !38, i64 0, !8, i64 2}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"rbimpl_rstring_getmem: argument 0"}
-!104 = distinct !{!104, !"rbimpl_rstring_getmem"}
-!105 = !{!106, !108}
-!106 = distinct !{!106, !107, !"memcpy.inline: argument 0"}
-!107 = distinct !{!107, !"memcpy.inline"}
-!108 = distinct !{!108, !107, !"memcpy.inline: argument 1"}
-!109 = !{!110, !110, i64 0}
-!110 = !{!"p1 _ZTS7ifaddrs", !21, i64 0}
-!111 = !{!112, !77, i64 24}
-!112 = !{!"ifaddrs", !110, i64 0, !32, i64 8, !7, i64 16, !77, i64 24, !77, i64 32, !8, i64 40, !21, i64 48}
-!113 = distinct !{!113, !23, !24}
-!114 = distinct !{!114, !23, !24}
+!24 = !{!25, !26, i64 16}
+!25 = !{!"RFile", !13, i64 0, !26, i64 16}
+!26 = !{!"p1 _ZTS5rb_io", !21, i64 0}
+!27 = !{!28, !7, i64 16}
+!28 = !{!"rb_io", !11, i64 0, !29, i64 8, !7, i64 16, !7, i64 20, !7, i64 24, !7, i64 28, !11, i64 32, !21, i64 40, !30, i64 48, !30, i64 68, !11, i64 88, !32, i64 96, !34, i64 128, !30, i64 136, !34, i64 160, !11, i64 168, !7, i64 176, !7, i64 180, !11, i64 184, !11, i64 192, !11, i64 200}
+!29 = !{!"p1 _ZTS8_IO_FILE", !21, i64 0}
+!30 = !{!"rb_io_internal_buffer", !31, i64 0, !7, i64 8, !7, i64 12, !7, i64 16}
+!31 = !{!"p1 omnipotent char", !21, i64 0}
+!32 = !{!"rb_io_encoding", !33, i64 0, !33, i64 8, !7, i64 16, !11, i64 24}
+!33 = !{!"p1 _ZTS18OnigEncodingTypeST", !21, i64 0}
+!34 = !{!"p1 _ZTS10rb_econv_t", !21, i64 0}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"sockaddr", !37, i64 0, !8, i64 2}
+!37 = !{!"short", !8, i64 0}
+!38 = !{!39, !8, i64 11}
+!39 = !{!"sockaddr_ll", !37, i64 0, !37, i64 2, !7, i64 4, !37, i64 8, !8, i64 10, !8, i64 11, !8, i64 12}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"rbimpl_rstring_getmem: argument 0"}
+!42 = distinct !{!42, !"rbimpl_rstring_getmem"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"rbimpl_rstring_getmem: argument 0"}
+!45 = distinct !{!45, !"rbimpl_rstring_getmem"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"rbimpl_rstring_getmem: argument 0"}
+!48 = distinct !{!48, !"rbimpl_rstring_getmem"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"rbimpl_rstring_getmem: argument 0"}
+!51 = distinct !{!51, !"rbimpl_rstring_getmem"}
+!52 = distinct !{!52, !23}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"rbimpl_rstring_getmem: argument 0"}
+!55 = distinct !{!55, !"rbimpl_rstring_getmem"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"rbimpl_rstring_getmem: argument 0"}
+!58 = distinct !{!58, !"rbimpl_rstring_getmem"}
+!59 = !{!60, !31, i64 0}
+!60 = !{!"hostent", !31, i64 0, !61, i64 8, !7, i64 16, !7, i64 20, !61, i64 24}
+!61 = !{!"p2 omnipotent char", !21, i64 0}
+!62 = !{!60, !61, i64 8}
+!63 = !{!31, !31, i64 0}
+!64 = distinct !{!64, !23}
+!65 = !{!60, !7, i64 16}
+!66 = !{!60, !61, i64 24}
+!67 = !{!60, !7, i64 20}
+!68 = distinct !{!68, !23}
+!69 = !{!70, !7, i64 16}
+!70 = !{!"servent", !31, i64 0, !61, i64 8, !7, i64 16, !31, i64 24}
+!71 = !{!8, !8, i64 0}
+!72 = !{!70, !31, i64 0}
+!73 = distinct !{!73, !23}
+!74 = !{!75, !7, i64 4}
+!75 = !{!"addrinfo", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !7, i64 16, !76, i64 24, !31, i64 32, !77, i64 40}
+!76 = !{!"p1 _ZTS8sockaddr", !21, i64 0}
+!77 = !{!"p1 _ZTS8addrinfo", !21, i64 0}
+!78 = !{!75, !7, i64 8}
+!79 = !{!75, !7, i64 12}
+!80 = !{!75, !7, i64 0}
+!81 = !{!77, !77, i64 0}
+!82 = !{!75, !76, i64 24}
+!83 = !{!75, !7, i64 16}
+!84 = !{!75, !31, i64 32}
+!85 = distinct !{!85, !23}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"rbimpl_rstring_getmem: argument 0"}
+!88 = distinct !{!88, !"rbimpl_rstring_getmem"}
+!89 = !{!90, !92}
+!90 = distinct !{!90, !91, !"memcpy.inline: argument 0"}
+!91 = distinct !{!91, !"memcpy.inline"}
+!92 = distinct !{!92, !91, !"memcpy.inline: argument 1"}
+!93 = !{!94, !77, i64 0}
+!94 = !{!"rb_addrinfo", !77, i64 0, !7, i64 8}
+!95 = !{!75, !77, i64 40}
+!96 = !{!97, !37, i64 2}
+!97 = !{!"sockaddr_in", !37, i64 0, !37, i64 2, !98, i64 4, !8, i64 8}
+!98 = !{!"in_addr", !7, i64 0}
+!99 = !{!100, !37, i64 0}
+!100 = !{!"sockaddr_un", !37, i64 0, !8, i64 2}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"rbimpl_rstring_getmem: argument 0"}
+!103 = distinct !{!103, !"rbimpl_rstring_getmem"}
+!104 = !{!105, !107}
+!105 = distinct !{!105, !106, !"memcpy.inline: argument 0"}
+!106 = distinct !{!106, !"memcpy.inline"}
+!107 = distinct !{!107, !106, !"memcpy.inline: argument 1"}
+!108 = !{!109, !109, i64 0}
+!109 = !{!"p1 _ZTS7ifaddrs", !21, i64 0}
+!110 = !{!111, !76, i64 24}
+!111 = !{!"ifaddrs", !109, i64 0, !31, i64 8, !7, i64 16, !76, i64 24, !76, i64 32, !8, i64 40, !21, i64 48}
+!112 = distinct !{!112, !23}
+!113 = distinct !{!113, !23}

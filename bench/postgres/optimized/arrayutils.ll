@@ -70,7 +70,7 @@ define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0
 5:                                                ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %18, label %.preheader, !llvm.loop !7
+  br i1 %exitcond.not, label %18, label %.preheader, !llvm.loop !6
 
 .preheader:                                       ; preds = %.preheader.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %5 ]
@@ -138,7 +138,7 @@ define dso_local void @ArrayCheckBounds(i32 noundef %0, ptr noundef readonly cap
 5:                                                ; preds = %.critedge.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ArrayCheckBoundsSafe.exit, label %.critedge.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %ArrayCheckBoundsSafe.exit, label %.critedge.i, !llvm.loop !7
 
 .critedge.i:                                      ; preds = %5, %.critedge.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.critedge.preheader.i ], [ %indvars.iv.next.i, %5 ]
@@ -178,7 +178,7 @@ define dso_local noundef zeroext i1 @ArrayCheckBoundsSafe(i32 noundef %0, ptr no
 6:                                                ; preds = %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %.critedge.preheader, %6
   %indvars.iv = phi i64 [ 0, %.critedge.preheader ], [ %indvars.iv.next, %6 ]
@@ -228,7 +228,7 @@ define dso_local void @mda_get_range(i32 noundef %0, ptr noundef writeonly captu
   store i32 %11, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -262,7 +262,7 @@ define dso_local void @mda_get_prod(i32 noundef %0, ptr noundef readonly capture
   store i32 %16, ptr %17, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -313,13 +313,13 @@ define dso_local void @mda_get_offset_values(i32 noundef %0, ptr noundef writeon
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next27 to i32
   %exitcond.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph24
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, -1
   %26 = icmp sgt i64 %indvars.iv29, 0
   %indvars.iv.next = add i32 %indvars.iv, -1
-  br i1 %26, label %.lr.ph24, label %._crit_edge25, !llvm.loop !12
+  br i1 %26, label %.lr.ph24, label %._crit_edge25, !llvm.loop !11
 
 ._crit_edge25:                                    ; preds = %._crit_edge, %4
   ret void
@@ -360,7 +360,7 @@ define dso_local range(i32 -1, 2147483647) i32 @mda_next_tuple(i32 noundef %0, p
   %24 = srem i32 %21, %23
   store i32 %24, ptr %19, align 4
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %.critedge24, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %.critedge24, label %.lr.ph, !llvm.loop !12
 
 .critedge24:                                      ; preds = %16, %5
   %25 = load i32, ptr %1, align 4
@@ -439,7 +439,7 @@ define dso_local ptr @ArrayGetIntegerTypmods(ptr noundef %0, ptr noundef %1) loc
   %36 = load i32, ptr %1, align 4
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %39 = load ptr, ptr %3, align 8
@@ -486,14 +486,13 @@ attributes #9 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

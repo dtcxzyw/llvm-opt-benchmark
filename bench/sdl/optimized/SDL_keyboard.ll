@@ -323,7 +323,7 @@ define hidden noalias ptr @SDL_GetKeyboards_REAL(ptr noundef writeonly captures(
   store i32 %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %12, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %12, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %12
   %16 = zext nneg i32 %.pre to i64
@@ -398,7 +398,7 @@ define hidden void @SDL_ResetKeyboard_REAL() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %8
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %8 ]
   %2 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 522), i64 0, i64 %indvars.iv
-  %3 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %3 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %8
 
@@ -410,7 +410,7 @@ define hidden void @SDL_ResetKeyboard_REAL() local_unnamed_addr #0 {
 8:                                                ; preds = %1, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %9, label %1, !llvm.loop !9
+  br i1 %exitcond.not, label %9, label %1, !llvm.loop !8
 
 9:                                                ; preds = %8
   ret void
@@ -430,7 +430,7 @@ define hidden ptr @SDL_GetCurrentKeymap() local_unnamed_addr #8 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %4 = load i8, ptr %3, align 4, !range !7, !noundef !8
+  %4 = load i8, ptr %3, align 4, !range !6, !noundef !7
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %13, label %6
 
@@ -442,7 +442,7 @@ define hidden ptr @SDL_GetCurrentKeymap() local_unnamed_addr #8 {
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 19
-  %11 = load i8, ptr %10, align 1, !range !7, !noundef !8
+  %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %.thread, label %13
 
@@ -462,7 +462,7 @@ define hidden void @SDL_SetKeymap(ptr noundef %0, i1 noundef zeroext %1) local_u
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %6 = load i8, ptr %5, align 8, !range !7, !noundef !8
+  %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %9
 
@@ -477,7 +477,7 @@ define hidden void @SDL_SetKeymap(ptr noundef %0, i1 noundef zeroext %1) local_u
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %12 = load i8, ptr %11, align 1, !range !7, !noundef !8
+  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %.critedge, label %14
 
@@ -490,7 +490,7 @@ define hidden void @SDL_SetKeymap(ptr noundef %0, i1 noundef zeroext %1) local_u
 16:                                               ; preds = %21
   %17 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %17, 40
-  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !9
 
 18:                                               ; preds = %14, %16
   %.037 = phi i32 [ 30, %14 ], [ %17, %16 ]
@@ -519,7 +519,7 @@ define hidden void @SDL_SetKeymap(ptr noundef %0, i1 noundef zeroext %1) local_u
 27:                                               ; preds = %33
   %28 = add nuw nsw i32 %.02938, 1
   %exitcond39.not = icmp eq i32 %28, 8
-  br i1 %exitcond39.not, label %.critedge, label %29, !llvm.loop !11
+  br i1 %exitcond39.not, label %.critedge, label %29, !llvm.loop !10
 
 29:                                               ; preds = %.loopexit, %27
   %.02938 = phi i32 [ 4, %.loopexit ], [ %28, %27 ]
@@ -578,7 +578,7 @@ define hidden zeroext i1 @SDL_SetKeyboardFocus(ptr noundef %0) local_unnamed_add
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 271
-  %8 = load i8, ptr %7, align 1, !range !7, !noundef !8
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %.thread
 
@@ -594,7 +594,7 @@ define hidden zeroext i1 @SDL_SetKeyboardFocus(ptr noundef %0) local_unnamed_add
 .preheader:                                       ; preds = %12, %21
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %21 ], [ 0, %12 ]
   %15 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 522), i64 0, i64 %indvars.iv.i
-  %16 = load i8, ptr %15, align 1, !range !7, !noundef !8
+  %16 = load i8, ptr %15, align 1, !range !6, !noundef !7
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %21
 
@@ -606,11 +606,11 @@ define hidden zeroext i1 @SDL_SetKeyboardFocus(ptr noundef %0) local_unnamed_add
 21:                                               ; preds = %18, %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %SDL_ResetKeyboard_REAL.exit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not.i, label %SDL_ResetKeyboard_REAL.exit, label %.preheader, !llvm.loop !8
 
 SDL_ResetKeyboard_REAL.exit:                      ; preds = %21
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 185
-  %23 = load i8, ptr %22, align 1, !range !7, !noundef !8
+  %23 = load i8, ptr %22, align 1, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %.thread
 
@@ -727,7 +727,7 @@ define hidden i32 @SDL_GetKeyFromScancode_REAL(i32 noundef %0, i16 noundef zeroe
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %8 = load i8, ptr %7, align 4, !range !7, !noundef !8
+  %8 = load i8, ptr %7, align 4, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %SDL_GetCurrentKeymap.exit.thread34, label %10
 
@@ -738,7 +738,7 @@ define hidden i32 @SDL_GetKeyFromScancode_REAL(i32 noundef %0, i16 noundef zeroe
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 19
-  %14 = load i8, ptr %13, align 1, !range !7, !noundef !8
+  %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %SDL_GetCurrentKeymap.exit, label %SDL_GetCurrentKeymap.exit.thread34
 
@@ -749,7 +749,7 @@ SDL_GetCurrentKeymap.exit:                        ; preds = %10, %12
 
 17:                                               ; preds = %SDL_GetCurrentKeymap.exit
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  %19 = load i8, ptr %18, align 2, !range !7, !noundef !8
+  %19 = load i8, ptr %18, align 2, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
   %21 = add i32 %0, -30
   %22 = icmp ult i32 %21, 10
@@ -1040,7 +1040,7 @@ define internal fastcc zeroext i1 @SDL_SendKeyboardKeyInternal(i64 noundef %0, i
 11:                                               ; preds = %6
   %12 = zext nneg i32 %4 to i64
   %13 = getelementptr inbounds nuw [512 x i8], ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 522), i64 0, i64 %12
-  %14 = load i8, ptr %13, align 1, !range !7, !noundef !8
+  %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %5, label %16, label %28
 
@@ -1312,7 +1312,7 @@ define hidden zeroext i1 @SDL_SendKeyboardKeyAutoRelease(i64 noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SDL_ReleaseAutoReleaseKeys() local_unnamed_addr #0 {
-  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 1052), align 4, !range !7, !noundef !8
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 1052), align 4, !range !6, !noundef !7
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %.preheader, label %11
 
@@ -1331,7 +1331,7 @@ define hidden void @SDL_ReleaseAutoReleaseKeys() local_unnamed_addr #0 {
 9:                                                ; preds = %.preheader, %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !11
 
 10:                                               ; preds = %9
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @SDL_keyboard, i64 1052), align 4
@@ -1366,7 +1366,7 @@ define hidden zeroext i1 @SDL_HardwareKeyboardKeyPressed() local_unnamed_addr #9
 1:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %6, label %2, !llvm.loop !13
+  br i1 %exitcond.not, label %6, label %2, !llvm.loop !12
 
 2:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
@@ -1564,7 +1564,7 @@ define hidden void @SDL_SendEditingTextCandidates(ptr noundef readonly captures(
   %30 = add i64 %29, %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %31, label %25, !llvm.loop !14
+  br i1 %exitcond.not.i, label %31, label %25, !llvm.loop !13
 
 31:                                               ; preds = %25
   %32 = tail call ptr @SDL_AllocateTemporaryMemory(i64 noundef %30) #13
@@ -1589,7 +1589,7 @@ define hidden void @SDL_SendEditingTextCandidates(ptr noundef readonly captures(
   %42 = getelementptr inbounds nuw i8, ptr %.03136.i, i64 %39
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count.i
-  br i1 %exitcond44.not.i, label %43, label %35, !llvm.loop !15
+  br i1 %exitcond44.not.i, label %43, label %35, !llvm.loop !14
 
 43:                                               ; preds = %35
   %44 = getelementptr inbounds nuw ptr, ptr %32, i64 %wide.trip.count.i
@@ -1695,11 +1695,11 @@ SDL_RemoveKeyboard.exit:                          ; preds = %14, %.lr.ph.split, 
   %29 = phi i32 [ %6, %.lr.ph.split ], [ %20, %28 ], [ %6, %14 ]
   %30 = phi ptr [ %7, %.lr.ph.split ], [ %.pre, %28 ], [ %7, %14 ]
   %.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
 
 31:                                               ; preds = %._crit_edge
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %33 = load i8, ptr %32, align 8, !range !7, !noundef !8
+  %33 = load i8, ptr %32, align 8, !range !6, !noundef !7
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %36
 
@@ -1793,18 +1793,17 @@ attributes #14 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5, !17}
-!17 = !{!"llvm.loop.unswitch.partial.disable"}
+!5 = distinct !{!5, !4}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4, !16}
+!16 = !{!"llvm.loop.unswitch.partial.disable"}

@@ -222,7 +222,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetAttributeValue(ptr no
   %53 = icmp ult i64 %52, %51
   %54 = icmp slt i64 %.168.idx, 80
   %55 = select i1 %53, i1 %54, i1 false
-  br i1 %55, label %.lr.ph91, label %._crit_edge92, !llvm.loop !9
+  br i1 %55, label %.lr.ph91, label %._crit_edge92, !llvm.loop !8
 
 ._crit_edge92:                                    ; preds = %50, %.preheader81
   %56 = call i64 @ckAssertReturnValueOK2(ptr noundef nonnull %0, i64 noundef %30, ptr noundef nonnull %35) #5
@@ -265,7 +265,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetAttributeValue(ptr no
   %75 = add nuw i64 %.293, 1
   %76 = load i64, ptr %7, align 8
   %77 = icmp ult i64 %75, %76
-  br i1 %77, label %.lr.ph94, label %._crit_edge95, !llvm.loop !10
+  br i1 %77, label %.lr.ph94, label %._crit_edge95, !llvm.loop !9
 
 ._crit_edge95:                                    ; preds = %73, %.preheader80
   %.lcssa = phi i64 [ 0, %.preheader80 ], [ %76, %73 ]
@@ -282,7 +282,7 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1GetAttributeValue(ptr no
 85:                                               ; preds = %96
   %86 = add nuw i64 %.397, 1
   %87 = icmp ult i64 %86, %105
-  br i1 %87, label %.lr.ph98, label %.loopexit, !llvm.loop !11
+  br i1 %87, label %.lr.ph98, label %.loopexit, !llvm.loop !10
 
 .lr.ph98:                                         ; preds = %._crit_edge95, %85
   %.397 = phi i64 [ %86, %85 ], [ 0, %._crit_edge95 ]
@@ -490,9 +490,8 @@ attributes #6 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

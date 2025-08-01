@@ -119,7 +119,7 @@ define void @_ZN4pkpy5BytesC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nou
   %12 = load i32, ptr %6, align 8
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -153,7 +153,7 @@ define void @_ZN4pkpy5BytesC2ERKS0_(ptr noundef nonnull align 8 captures(none) d
   %15 = load i32, ptr %8, align 8
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -288,8 +288,7 @@ attributes #16 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

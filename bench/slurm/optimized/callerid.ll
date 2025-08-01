@@ -203,7 +203,7 @@ define internal fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef 
   switch i32 %23, label %24 [
     i32 -1, label %.loopexit
     i32 0, label %20
-  ], !llvm.loop !11
+  ]
 
 24:                                               ; preds = %22
   %25 = call i32 @inet_nsap_addr(ptr noundef nonnull %6, ptr noundef nonnull %15, i32 noundef %14) #11
@@ -222,13 +222,13 @@ define internal fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef 
   store i32 %33, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %34, label %27, !llvm.loop !12
+  br i1 %exitcond.not, label %34, label %27, !llvm.loop !10
 
 34:                                               ; preds = %27
   %35 = load i64, ptr %9, align 8
-  %36 = call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, i64 noundef %35, i32 noundef %2) #11, !callees !14
+  %36 = call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, i64 noundef %35, i32 noundef %2) #11, !callees !12
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %.outer, !llvm.loop !11
+  br i1 %37, label %38, label %.outer, !llvm.loop !13
 
 38:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %11) #11
@@ -420,7 +420,7 @@ define dso_local range(i32 -1, 1) i32 @find_pid_by_inode(ptr noundef writeonly c
 .backedge:                                        ; preds = %.backedge.sink.split, %13
   %22 = call ptr @readdir(ptr noundef nonnull %6) #11
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %.loopexit, label %13, !llvm.loop !15
+  br i1 %.not, label %.loopexit, label %13, !llvm.loop !14
 
 23:                                               ; preds = %13
   %24 = call i64 @strtol(ptr noundef nonnull captures(none) %16, ptr noundef null, i32 noundef 10) #11
@@ -452,7 +452,7 @@ define dso_local range(i32 -1, 1) i32 @find_pid_by_inode(ptr noundef writeonly c
 .backedge.i:                                      ; preds = %39, %36, %.lr.ph.i
   %35 = call ptr @readdir(ptr noundef nonnull %29) #11
   %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 36:                                               ; preds = %.lr.ph.i
   %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.7, ptr noundef nonnull %3, ptr noundef nonnull %33) #11
@@ -580,12 +580,11 @@ attributes #12 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !13, !9, !10}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = !{ptr @_match_conn, ptr @_match_inode}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
+!10 = distinct !{!10, !11, !9}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{ptr @_match_conn, ptr @_match_inode}
+!13 = distinct !{!13, !11, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}

@@ -158,7 +158,7 @@ define hidden noundef i32 @_ZN7Imf_3_43Zip8compressEPKciPc(ptr noundef nonnull r
   store i8 %28, ptr %.02837, align 1, !tbaa !13
   %.028 = getelementptr inbounds nuw i8, ptr %.02837, i64 1
   %29 = icmp ult ptr %.028, %24
-  br i1 %29, label %.lr.ph39, label %._crit_edge40.loopexit, !llvm.loop !17
+  br i1 %29, label %.lr.ph39, label %._crit_edge40.loopexit, !llvm.loop !16
 
 ._crit_edge40.loopexit:                           ; preds = %.lr.ph39
   %.pre41 = load ptr, ptr %6, align 8, !tbaa !11
@@ -192,7 +192,7 @@ define hidden noundef i32 @_ZN7Imf_3_43Zip8compressEPKciPc(ptr noundef nonnull r
   resume { ptr, i32 } %40
 
 41:                                               ; preds = %._crit_edge40
-  %42 = load i64, ptr %5, align 8, !tbaa !18
+  %42 = load i64, ptr %5, align 8, !tbaa !17
   %43 = trunc i64 %42 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   ret i32 %43
@@ -224,7 +224,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 define hidden noundef i32 @_ZN7Imf_3_43Zip10uncompressEPKciPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  store i64 0, ptr %5, align 8, !tbaa !18
+  store i64 0, ptr %5, align 8, !tbaa !17
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !11
@@ -250,7 +250,7 @@ define hidden noundef i32 @_ZN7Imf_3_43Zip10uncompressEPKciPc(ptr noundef nonnul
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %4
-  %17 = load i64, ptr %5, align 8, !tbaa !18
+  %17 = load i64, ptr %5, align 8, !tbaa !17
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %32, label %19
 
@@ -274,19 +274,19 @@ define hidden noundef i32 @_ZN7Imf_3_43Zip10uncompressEPKciPc(ptr noundef nonnul
   store i8 %25, ptr %.011.i, align 1, !tbaa !13
   %.0.i = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
   %26 = icmp ult ptr %.0.i, %21
-  br i1 %26, label %.lr.ph.i, label %_ZN7Imf_3_412_GLOBAL__N_118reconstruct_scalarEPcm.exit.loopexit, !llvm.loop !19
+  br i1 %26, label %.lr.ph.i, label %_ZN7Imf_3_412_GLOBAL__N_118reconstruct_scalarEPcm.exit.loopexit, !llvm.loop !18
 
 _ZN7Imf_3_412_GLOBAL__N_118reconstruct_scalarEPcm.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %7, align 8, !tbaa !11
-  %.pre8 = load i64, ptr %5, align 8, !tbaa !18
+  %.pre8 = load i64, ptr %5, align 8, !tbaa !17
   br label %_ZN7Imf_3_412_GLOBAL__N_118reconstruct_scalarEPcm.exit
 
 _ZN7Imf_3_412_GLOBAL__N_118reconstruct_scalarEPcm.exit: ; preds = %_ZN7Imf_3_412_GLOBAL__N_118reconstruct_scalarEPcm.exit.loopexit, %19
   %27 = phi i64 [ %.pre8, %_ZN7Imf_3_412_GLOBAL__N_118reconstruct_scalarEPcm.exit.loopexit ], [ 1, %19 ]
   %28 = phi ptr [ %.pre, %_ZN7Imf_3_412_GLOBAL__N_118reconstruct_scalarEPcm.exit.loopexit ], [ %20, %19 ]
-  %29 = load ptr, ptr @_ZN7Imf_3_412_GLOBAL__N_110interleaveE, align 8, !tbaa !20
-  call void %29(ptr noundef %28, i64 noundef %27, ptr noundef %3), !callees !21
-  %30 = load i64, ptr %5, align 8, !tbaa !18
+  %29 = load ptr, ptr @_ZN7Imf_3_412_GLOBAL__N_110interleaveE, align 8, !tbaa !19
+  call void %29(ptr noundef %28, i64 noundef %27, ptr noundef %3), !callees !20
+  %30 = load i64, ptr %5, align 8, !tbaa !17
   %31 = trunc i64 %30 to i32
   br label %32
 
@@ -308,12 +308,12 @@ define hidden void @_ZN7Imf_3_43Zip15initializeFuncsEv() local_unnamed_addr #0 a
   %1 = alloca %"class.Imf_3_4::CpuId", align 1
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %1) #14
   call void @_ZN7Imf_3_45CpuIdC1Ev(ptr noundef nonnull align 1 dereferenceable(7) %1)
-  %2 = load i8, ptr %1, align 1, !tbaa !22, !range !25, !noundef !26
+  %2 = load i8, ptr %1, align 1, !tbaa !21, !range !24, !noundef !25
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %0
-  store ptr @_ZN7Imf_3_412_GLOBAL__N_115interleave_sse2EPKcmPc, ptr @_ZN7Imf_3_412_GLOBAL__N_110interleaveE, align 8, !tbaa !20
+  store ptr @_ZN7Imf_3_412_GLOBAL__N_115interleave_sse2EPKcmPc, ptr @_ZN7Imf_3_412_GLOBAL__N_110interleaveE, align 8, !tbaa !19
   br label %5
 
 5:                                                ; preds = %4, %0
@@ -357,7 +357,7 @@ define internal void @_ZN7Imf_3_412_GLOBAL__N_115interleave_sse2EPKcmPc(ptr noun
   store <16 x i8> %14, ptr %15, align 1, !tbaa !13
   %17 = add nuw nsw i64 %.03537, 1
   %exitcond.not = icmp eq i64 %17, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge49:                                    ; preds = %.lr.ph48, %._crit_edge
   ret void
@@ -378,7 +378,7 @@ define internal void @_ZN7Imf_3_412_GLOBAL__N_115interleave_sse2EPKcmPc(ptr noun
   store i8 %19, ptr %.02845, align 1, !tbaa !13
   %21 = add nuw i64 %.046, 1
   %22 = icmp ult i64 %21, %1
-  br i1 %22, label %.lr.ph48, label %._crit_edge49, !llvm.loop !28
+  br i1 %22, label %.lr.ph48, label %._crit_edge49, !llvm.loop !27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -410,7 +410,7 @@ define internal void @_ZN7Imf_3_412_GLOBAL__N_117interleave_scalarEPKcmPc(ptr no
   %15 = getelementptr inbounds nuw i8, ptr %.01318, i64 2
   store i8 %14, ptr %9, align 1, !tbaa !13
   %16 = icmp ult ptr %15, %4
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph, %3
   ret void
@@ -461,19 +461,18 @@ attributes #16 = { builtin nounwind }
 !11 = !{!4, !8, i64 8}
 !12 = !{!4, !10, i64 16}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !15, !16}
-!20 = !{!9, !9, i64 0}
-!21 = !{ptr @_ZN7Imf_3_412_GLOBAL__N_115interleave_sse2EPKcmPc, ptr @_ZN7Imf_3_412_GLOBAL__N_117interleave_scalarEPKcmPc}
-!22 = !{!23, !24, i64 0}
-!23 = !{!"_ZTSN7Imf_3_45CpuIdE", !24, i64 0, !24, i64 1, !24, i64 2, !24, i64 3, !24, i64 4, !24, i64 5, !24, i64 6}
-!24 = !{!"bool", !6, i64 0}
-!25 = !{i8 0, i8 2}
-!26 = !{}
-!27 = distinct !{!27, !15, !16}
-!28 = distinct !{!28, !15, !16}
-!29 = distinct !{!29, !15, !16}
+!16 = distinct !{!16, !15}
+!17 = !{!5, !5, i64 0}
+!18 = distinct !{!18, !15}
+!19 = !{!9, !9, i64 0}
+!20 = !{ptr @_ZN7Imf_3_412_GLOBAL__N_115interleave_sse2EPKcmPc, ptr @_ZN7Imf_3_412_GLOBAL__N_117interleave_scalarEPKcmPc}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"_ZTSN7Imf_3_45CpuIdE", !23, i64 0, !23, i64 1, !23, i64 2, !23, i64 3, !23, i64 4, !23, i64 5, !23, i64 6}
+!23 = !{!"bool", !6, i64 0}
+!24 = !{i8 0, i8 2}
+!25 = !{}
+!26 = distinct !{!26, !15}
+!27 = distinct !{!27, !15}
+!28 = distinct !{!28, !15}

@@ -457,7 +457,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5zxing12ErrorHandler7ErrCodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !44
+  %3 = load i32, ptr %2, align 4, !tbaa !43
   ret i32 %3
 }
 
@@ -564,7 +564,6 @@ attributes #12 = { builtin nounwind }
 !38 = !{!"vtable pointer", !8, i64 0}
 !39 = !{!40, !6, i64 8}
 !40 = !{!"_ZTSN5zxing12ErrorHandlerE", !6, i64 8, !6, i64 12, !28, i64 16}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = !{!40, !6, i64 12}
+!43 = !{!40, !6, i64 12}

@@ -282,7 +282,7 @@ define dso_local i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %
   %172 = phi i32 [ %162, %._crit_edge28 ], [ %169, %163 ]
   %173 = load i32, ptr %171, align 1
   %174 = lshr i32 %173, %172
-  br label %38, !llvm.loop !11
+  br label %38
 
 .thread19:                                        ; preds = %150, %143, %.loopexit
   %175 = phi ptr [ %75, %.loopexit ], [ %111, %143 ], [ %111, %150 ]
@@ -408,7 +408,7 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr noundef writeonly captu
   %67 = or i32 %66, -2147483648
   %68 = tail call i32 @llvm.cttz.i32(i32 %67, i1 true), !range !5
   %69 = icmp samesign ugt i32 %68, 23
-  br i1 %69, label %.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %69, label %.preheader, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %61, %42
   %70 = phi ptr [ %34, %42 ], [ %62, %61 ]
@@ -549,7 +549,7 @@ define internal fastcc i64 @FSE_readNCount_body_bmi2(ptr noundef writeonly captu
   %167 = phi i32 [ %157, %._crit_edge28 ], [ %164, %158 ]
   %168 = load i32, ptr %166, align 1
   %169 = lshr i32 %168, %167
-  br label %33, !llvm.loop !13
+  br label %33
 
 .thread19:                                        ; preds = %145, %138, %.loopexit
   %170 = phi ptr [ %70, %.loopexit ], [ %106, %138 ], [ %106, %145 ]
@@ -594,7 +594,7 @@ define dso_local i64 @FSE_readNCount(ptr noundef writeonly captures(none) %0, pt
 define dso_local i64 @HUF_readStats(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, i64 noundef %6) local_unnamed_addr #1 align 16 {
   %8 = alloca [218 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 872, ptr nonnull %8) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(872) %8, i8 0, i64 872, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(872) %8, i8 0, i64 872, i1 false), !annotation !10
   %9 = call i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %8, i64 noundef 872, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 872, ptr nonnull %8) #10
   ret i64 %9
@@ -659,7 +659,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr nou
   store i8 %37, ptr %38, align 1
   %39 = add nuw nsw i64 %30, 2
   %40 = icmp ult i64 %39, %21
-  br i1 %40, label %.preheader11, label %.loopexit, !llvm.loop !15
+  br i1 %40, label %.preheader11, label %.loopexit, !llvm.loop !11
 
 41:                                               ; preds = %16
   %42 = icmp ugt i64 %6, %18
@@ -702,7 +702,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr nou
   %67 = add i32 %53, 1
   %68 = zext i32 %67 to i64
   %69 = icmp ugt i64 %49, %68
-  br i1 %69, label %.preheader, label %70, !llvm.loop !16
+  br i1 %69, label %.preheader, label %70, !llvm.loop !12
 
 70:                                               ; preds = %57
   %71 = icmp eq i32 %66, 0
@@ -803,7 +803,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   store i8 %32, ptr %33, align 1
   %34 = add nuw nsw i64 %25, 2
   %35 = icmp ult i64 %34, %16
-  br i1 %35, label %.preheader11, label %.loopexit, !llvm.loop !17
+  br i1 %35, label %.preheader11, label %.loopexit, !llvm.loop !11
 
 36:                                               ; preds = %11
   %37 = icmp ugt i64 %6, %13
@@ -846,7 +846,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   %62 = add i32 %48, 1
   %63 = zext i32 %62 to i64
   %64 = icmp ugt i64 %44, %63
-  br i1 %64, label %.preheader, label %65, !llvm.loop !18
+  br i1 %64, label %.preheader, label %65, !llvm.loop !12
 
 65:                                               ; preds = %52
   %66 = icmp eq i32 %61, 0
@@ -935,15 +935,9 @@ attributes #10 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i32 0, i32 33}
 !6 = !{!"branch_weights", i32 1, i32 2000}
-!7 = distinct !{!7, !8, !9, !10}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !8, !9, !10}
-!13 = distinct !{!13, !10}
-!14 = !{!"auto-init"}
-!15 = distinct !{!15, !8, !9, !10}
-!16 = distinct !{!16, !8, !9, !10}
-!17 = distinct !{!17, !8, !9, !10}
-!18 = distinct !{!18, !8, !9, !10}
+!10 = !{!"auto-init"}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}

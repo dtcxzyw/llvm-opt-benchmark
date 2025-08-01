@@ -303,7 +303,7 @@ BN_reciprocal.exit:                               ; preds = %29, %33, %35
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %75 = load i32, ptr %74, align 8, !tbaa !13
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %77 = load i32, ptr %76, align 8, !tbaa !17
+  %77 = load i32, ptr %76, align 8, !tbaa !16
   %78 = xor i32 %77, %75
   store i32 %78, ptr %51, align 8, !tbaa !13
   br label %.loopexit
@@ -387,7 +387,6 @@ attributes #4 = { nounwind }
 !11 = !{!4, !10, i64 48}
 !12 = !{!4, !10, i64 52}
 !13 = !{!5, !10, i64 16}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!4, !10, i64 16}
+!16 = !{!4, !10, i64 16}

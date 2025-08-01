@@ -435,7 +435,7 @@ _set_sort.exit.backedge:                          ; preds = %103, %102, %98, %94
   %.not33 = icmp eq ptr %119, null
   %120 = select i1 %.not32, i32 2, i32 1
   %.1 = select i1 %.not33, i32 %spec.select, i32 %120
-  %121 = load i8, ptr @local_flag, align 1, !range !12, !noundef !13
+  %121 = load i8, ptr @local_flag, align 1, !range !11, !noundef !12
   %122 = zext nneg i8 %121 to i32
   %.2 = add nuw nsw i32 %.1, %122
   %123 = icmp samesign ugt i32 %.2, 1
@@ -450,7 +450,7 @@ _set_sort.exit.backedge:                          ; preds = %103, %102, %98, %94
 127:                                              ; preds = %117
   %128 = call ptr @slurmdb_connection_get(ptr noundef nonnull %9) #17
   store ptr %128, ptr @db_conn, align 8
-  %129 = load i8, ptr @federation_flag, align 1, !range !12, !noundef !13
+  %129 = load i8, ptr @federation_flag, align 1, !range !11, !noundef !12
   %130 = trunc nuw i8 %129 to i1
   %.not = xor i1 %130, true
   %131 = load i32, ptr @all_clusters_flag, align 4
@@ -459,7 +459,7 @@ _set_sort.exit.backedge:                          ; preds = %103, %102, %98, %94
   %133 = load ptr, ptr @cluster_flag, align 8
   %134 = icmp ne ptr %133, null
   %or.cond3 = select i1 %or.cond, i1 true, i1 %134
-  %135 = load i8, ptr @local_flag, align 1, !range !12
+  %135 = load i8, ptr @local_flag, align 1, !range !11
   %136 = trunc nuw i8 %135 to i1
   %or.cond5 = select i1 %or.cond3, i1 true, i1 %136
   br i1 %or.cond5, label %157, label %137
@@ -635,7 +635,7 @@ _build_cluster_string.exit:                       ; preds = %154, %155
   call void @list_append(ptr noundef %198, ptr noundef %197) #17
   %199 = call ptr @list_next(ptr noundef %194) #17
   %.not31.i = icmp eq ptr %199, null
-  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph38.i, !llvm.loop !14
+  br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph38.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph38.i, %191
   call void @list_iterator_destroy(ptr noundef %194) #17
@@ -675,7 +675,7 @@ _build_cluster_string.exit:                       ; preds = %154, %155
 .critedge.i:                                      ; preds = %209, %200
   %212 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef nonnull %3) #17
   %.not28.i = icmp eq ptr %212, null
-  br i1 %.not28.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not28.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %.critedge.i, %._crit_edge.i, %185
   %213 = load ptr, ptr @tres_list, align 8
@@ -849,7 +849,7 @@ _get_command.exit.thread:                         ; preds = %257
   %.1.i = phi i1 [ %.069.i, %270 ], [ %273, %272 ], [ %.069.i, %274 ], [ false, %275 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %245
-  br i1 %exitcond.not.i, label %.loopexit.i41, label %.lr.ph.i42, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.loopexit.i41, label %.lr.ph.i42, !llvm.loop !15
 
 .loopexit.loopexit.split.loop.exit.i:             ; preds = %.lr.ph.i42
   %285 = trunc nsw i64 %indvars.iv.i to i32
@@ -860,7 +860,7 @@ _get_command.exit.thread:                         ; preds = %257
   %.146.ph.i = phi i32 [ %283, %281 ], [ %285, %.loopexit.loopexit.split.loop.exit.i ], [ %.267.i, %262 ], [ %.04573.i, %250 ], [ %.044.i, %284 ]
   %286 = add nsw i32 %.146.ph.i, 1
   %287 = icmp slt i32 %286, %.044.i
-  br i1 %287, label %.lr.ph74.i, label %_get_command.exit, !llvm.loop !17
+  br i1 %287, label %.lr.ph74.i, label %_get_command.exit, !llvm.loop !16
 
 _get_command.exit:                                ; preds = %.lr.ph74.i, %.loopexit.i41, %230, %243
   %.245.ph = phi i32 [ 0, %243 ], [ 0, %230 ], [ %.0, %.lr.ph74.i ], [ %.144, %.loopexit.i41 ]
@@ -872,7 +872,7 @@ _get_command.exit:                                ; preds = %.lr.ph74.i, %.loope
   call fastcc void @_process_command(i32 noundef %.245.ph, ptr noundef %223)
   %289 = load i32, ptr @exit_flag, align 4
   %290 = icmp eq i32 %289, 0
-  br i1 %290, label %224, label %.loopexit, !llvm.loop !18
+  br i1 %290, label %224, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %288, %_get_command.exit, %_get_command.exit.thread67, %_get_command.exit.thread
   call void @slurm_xfree(ptr noundef nonnull %10) #17
@@ -1893,14 +1893,13 @@ attributes #23 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

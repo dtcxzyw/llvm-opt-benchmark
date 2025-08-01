@@ -303,7 +303,7 @@ ginInsertBAEntry.exit:                            ; preds = %38, %68
 ._crit_edge:                                      ; preds = %ginInsertBAEntry.exit, %32
   %79 = lshr i32 %.02831, 1
   %.not = icmp samesign ult i32 %.02831, 2
-  br i1 %.not, label %.loopexit, label %32, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %32, !llvm.loop !8
 
 .loopexit:                                        ; preds = %._crit_edge, %6
   ret void
@@ -454,7 +454,6 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

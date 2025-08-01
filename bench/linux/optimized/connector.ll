@@ -176,7 +176,7 @@ define dso_local i32 @cn_netlink_send_mult(ptr noundef %0, i16 noundef zeroext %
 57:                                               ; preds = %51, %45
   %58 = phi i32 [ %56, %51 ], [ 0, %45 ]
   %59 = icmp slt i32 %58, %42
-  br i1 %59, label %.thread, label %60, !prof !9
+  br i1 %59, label %.thread, label %60, !prof !8
 
 60:                                               ; preds = %57
   %61 = tail call ptr @__nlmsg_put(ptr noundef nonnull %43, i32 noundef 0, i32 noundef %47, i32 noundef 3, i32 noundef %39, i32 noundef 0) #4
@@ -369,15 +369,15 @@ define internal void @cn_rx_skb(ptr noundef %0) #0 align 16 {
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %17 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16, i32 1, ptr nonnull elementtype(i32) %16) #4, !srcloc !10
+  %17 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %16, i32 1, ptr nonnull elementtype(i32) %16) #4, !srcloc !9
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %23, label %19, !prof !9
+  br i1 %18, label %23, label %19, !prof !8
 
 19:                                               ; preds = %15
   %20 = add i32 %17, 1
   %21 = or i32 %20, %17
   %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %25, label %23, !prof !11
+  br i1 %22, label %25, label %23, !prof !10
 
 23:                                               ; preds = %19, %15
   %24 = phi i32 [ 2, %15 ], [ 1, %19 ]
@@ -422,19 +422,19 @@ define internal void @cn_rx_skb(ptr noundef %0) #0 align 16 {
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %50 = tail call i32 @cn_cb_equal(ptr noundef nonnull %49, ptr noundef %27) #4
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %41, label %52, !llvm.loop !12
+  br i1 %51, label %41, label %52, !llvm.loop !11
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %54 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, i32 1, ptr nonnull elementtype(i32) %53) #4, !srcloc !10
+  %54 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %53, i32 1, ptr nonnull elementtype(i32) %53) #4, !srcloc !9
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %60, label %56, !prof !9
+  br i1 %55, label %60, label %56, !prof !8
 
 56:                                               ; preds = %52
   %57 = add i32 %54, 1
   %58 = or i32 %57, %54
   %59 = icmp sgt i32 %58, -1
-  br i1 %59, label %62, label %60, !prof !11
+  br i1 %59, label %62, label %60, !prof !10
 
 60:                                               ; preds = %56, %52
   %61 = phi i32 [ 2, %52 ], [ 1, %56 ]
@@ -540,7 +540,7 @@ define internal noundef i32 @cn_proc_show(ptr noundef %0, ptr readnone captures(
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %9, i32 noundef %11, i32 noundef %13) #4
   %14 = load ptr, ptr %8, align 8
   %15 = icmp eq ptr %14, %5
-  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %2
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull %4) #4
@@ -584,12 +584,11 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"branch_weights", i32 1, i32 2000}
-!10 = !{i64 2148824443, i64 2148824482, i64 2148824503, i64 2148824540, i64 2148824563, i64 2148824572}
-!11 = !{!"branch_weights", i32 2000, i32 1}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
+!8 = !{!"branch_weights", i32 1, i32 2000}
+!9 = !{i64 2148824443, i64 2148824482, i64 2148824503, i64 2148824540, i64 2148824563, i64 2148824572}
+!10 = !{!"branch_weights", i32 2000, i32 1}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}

@@ -1460,12 +1460,12 @@ define hidden void @zend_build_dfg(ptr noundef readonly captures(none) %0, ptr n
 _zend_dfg_add_use_def_op.exit:                    ; preds = %468, %.thread, %.lr.ph
   %481 = getelementptr inbounds nuw i8, ptr %.0148191, i64 32
   %482 = icmp ult ptr %481, %40
-  br i1 %482, label %.lr.ph, label %.loopexit188, !llvm.loop !49
+  br i1 %482, label %.lr.ph, label %.loopexit188
 
 .loopexit188:                                     ; preds = %_zend_dfg_add_use_def_op.exit, %31, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %26
 
 ._crit_edge:                                      ; preds = %.loopexit188, %.._crit_edge_crit_edge
   %.pre-phi224 = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %wide.trip.count, %.loopexit188 ]
@@ -1473,7 +1473,7 @@ _zend_dfg_add_use_def_op.exit:                    ; preds = %468, %.thread, %.lr
   %484 = lshr i64 %483, 6
   %485 = shl nuw nsw i64 %484, 3
   %486 = icmp ugt i32 %7, 262144
-  br i1 %486, label %487, label %489, !prof !52
+  br i1 %486, label %487, label %489, !prof !49
 
 487:                                              ; preds = %._crit_edge
   %488 = tail call noalias ptr @_emalloc(i64 noundef %485) #7
@@ -1512,7 +1512,7 @@ _zend_dfg_add_use_def_op.exit:                    ; preds = %468, %.thread, %.lr
   store i64 %504, ptr %502, align 8, !tbaa !11
   %505 = add nuw nsw i32 %.1147197, 1
   %exitcond212.not = icmp eq i32 %505, %7
-  br i1 %exitcond212.not, label %.lr.ph.i.preheader.lr.ph, label %.lr.ph199, !llvm.loop !53
+  br i1 %exitcond212.not, label %.lr.ph.i.preheader.lr.ph, label %.lr.ph199
 
 506:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1521,7 +1521,7 @@ _zend_dfg_add_use_def_op.exit:                    ; preds = %468, %.thread, %.lr
 
 .lr.ph.i.backedge:                                ; preds = %.lr.ph205, %506, %zend_bitset_union_with_difference.exit, %575, %zend_bitset_last.exit
   %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %506 ], [ 0, %zend_bitset_union_with_difference.exit ], [ 0, %575 ], [ 0, %zend_bitset_last.exit ], [ 0, %.lr.ph205 ]
-  br label %.lr.ph.i, !llvm.loop !54
+  br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i.preheader.lr.ph ], [ %indvars.iv.i.be, %.lr.ph.i.backedge ]
@@ -1540,7 +1540,7 @@ zend_bitset_empty.exit:                           ; preds = %.lr.ph.i, %509
   %511 = getelementptr inbounds nuw i64, ptr %492, i64 %510
   %512 = load i64, ptr %511, align 8, !tbaa !11
   %.not16.i = icmp eq i64 %512, 0
-  br i1 %.not16.i, label %zend_bitset_empty.exit, label %513, !llvm.loop !55
+  br i1 %.not16.i, label %zend_bitset_empty.exit, label %513
 
 513:                                              ; preds = %509
   %514 = trunc i64 %510 to i32
@@ -1554,7 +1554,7 @@ zend_bitset_empty.exit:                           ; preds = %.lr.ph.i, %509
   %518 = lshr i64 %.021.i, 1
   %519 = add nsw i32 %.01220.i, 1
   %.not17.i = icmp ult i64 %.021.i, 2
-  br i1 %.not17.i, label %zend_bitset_last.exit, label %517, !llvm.loop !56
+  br i1 %.not17.i, label %zend_bitset_last.exit, label %517
 
 zend_bitset_last.exit:                            ; preds = %zend_bitset_empty.exit, %517
   %.014.i = phi i32 [ %519, %517 ], [ -1, %zend_bitset_empty.exit ]
@@ -1577,7 +1577,7 @@ zend_bitset_last.exit:                            ; preds = %zend_bitset_empty.e
 
 534:                                              ; preds = %zend_bitset_last.exit
   %535 = getelementptr inbounds nuw i8, ptr %530, i64 20
-  %536 = load i32, ptr %535, align 4, !tbaa !57
+  %536 = load i32, ptr %535, align 4, !tbaa !50
   %.not = icmp eq i32 %536, 0
   %537 = mul nsw i32 %.014.i, %9
   %538 = sext i32 %537 to i64
@@ -1585,18 +1585,18 @@ zend_bitset_last.exit:                            ; preds = %zend_bitset_empty.e
   br i1 %.not, label %559, label %540
 
 540:                                              ; preds = %534
-  %541 = load ptr, ptr %530, align 8, !tbaa !58
-  %542 = load i32, ptr %541, align 4, !tbaa !59
+  %541 = load ptr, ptr %530, align 8, !tbaa !51
+  %542 = load i32, ptr %541, align 4, !tbaa !52
   %543 = mul nsw i32 %542, %9
   %544 = sext i32 %543 to i64
   %545 = getelementptr inbounds i64, ptr %17, i64 %544
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %539, ptr readonly align 8 %545, i64 %495, i1 false)
-  %546 = load i32, ptr %535, align 4, !tbaa !57
+  %546 = load i32, ptr %535, align 4, !tbaa !50
   %547 = icmp sgt i32 %546, 1
   br i1 %547, label %.lr.ph202, label %.loopexit186
 
 .lr.ph202:                                        ; preds = %540
-  %548 = load ptr, ptr %530, align 8, !tbaa !58
+  %548 = load ptr, ptr %530, align 8, !tbaa !51
   br i1 %.not.i155, label %zend_bitset_union_with_difference.exit, label %.lr.ph.i158.preheader.preheader
 
 .lr.ph.i158.preheader.preheader:                  ; preds = %.lr.ph202
@@ -1606,7 +1606,7 @@ zend_bitset_last.exit:                            ; preds = %zend_bitset_empty.e
 .lr.ph.i158.preheader:                            ; preds = %.lr.ph.i158.preheader.preheader, %zend_bitset_union.exit.loopexit
   %indvars.iv213 = phi i64 [ 1, %.lr.ph.i158.preheader.preheader ], [ %indvars.iv.next214, %zend_bitset_union.exit.loopexit ]
   %549 = getelementptr inbounds nuw i32, ptr %548, i64 %indvars.iv213
-  %550 = load i32, ptr %549, align 4, !tbaa !59
+  %550 = load i32, ptr %549, align 4, !tbaa !52
   %551 = mul nsw i32 %550, %9
   %552 = sext i32 %551 to i64
   %553 = getelementptr inbounds i64, ptr %17, i64 %552
@@ -1622,12 +1622,12 @@ zend_bitset_last.exit:                            ; preds = %zend_bitset_empty.e
   store i64 %558, ptr %556, align 8, !tbaa !11
   %indvars.iv.next.i160 = add nuw nsw i64 %indvars.iv.i159, 1
   %exitcond.not.i161 = icmp eq i64 %indvars.iv.next.i160, %494
-  br i1 %exitcond.not.i161, label %zend_bitset_union.exit.loopexit, label %.lr.ph.i158, !llvm.loop !60
+  br i1 %exitcond.not.i161, label %zend_bitset_union.exit.loopexit, label %.lr.ph.i158
 
 zend_bitset_union.exit.loopexit:                  ; preds = %.lr.ph.i158
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %exitcond217.not = icmp eq i64 %indvars.iv.next214, %wide.trip.count216
-  br i1 %exitcond217.not, label %.loopexit186, label %.lr.ph.i158.preheader, !llvm.loop !61
+  br i1 %exitcond217.not, label %.loopexit186, label %.lr.ph.i158.preheader
 
 559:                                              ; preds = %534
   tail call void @llvm.memset.p0.i64(ptr align 8 %539, i8 0, i64 %495, i1 false)
@@ -1654,7 +1654,7 @@ zend_bitset_union.exit.loopexit:                  ; preds = %.lr.ph.i158
   store i64 %571, ptr %572, align 8, !tbaa !11
   %indvars.iv.next.i167 = add nuw nsw i64 %indvars.iv.i166, 1
   %exitcond.not.i168 = icmp eq i64 %indvars.iv.next.i167, %494
-  br i1 %exitcond.not.i168, label %zend_bitset_union_with_difference.exit, label %.lr.ph.i165, !llvm.loop !62
+  br i1 %exitcond.not.i168, label %zend_bitset_union_with_difference.exit, label %.lr.ph.i165
 
 zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i165, %.lr.ph202, %.loopexit186
   %573 = getelementptr inbounds i64, ptr %17, i64 %538
@@ -1664,13 +1664,13 @@ zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i165, %.lr.p
 
 575:                                              ; preds = %zend_bitset_union_with_difference.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %573, ptr readonly align 8 %11, i64 %495, i1 false)
-  %576 = load ptr, ptr %496, align 8, !tbaa !63
+  %576 = load ptr, ptr %496, align 8, !tbaa !53
   %577 = getelementptr inbounds nuw i8, ptr %530, i64 28
-  %578 = load i32, ptr %577, align 4, !tbaa !64
+  %578 = load i32, ptr %577, align 4, !tbaa !54
   %579 = sext i32 %578 to i64
   %580 = getelementptr inbounds i32, ptr %576, i64 %579
   %581 = getelementptr inbounds nuw i8, ptr %530, i64 24
-  %582 = load i32, ptr %581, align 8, !tbaa !65
+  %582 = load i32, ptr %581, align 8, !tbaa !55
   %583 = icmp sgt i32 %582, 0
   br i1 %583, label %.lr.ph205.preheader, label %.lr.ph.i.backedge
 
@@ -1681,7 +1681,7 @@ zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i165, %.lr.p
 .lr.ph205:                                        ; preds = %.lr.ph205.preheader, %.lr.ph205
   %indvars.iv218 = phi i64 [ 0, %.lr.ph205.preheader ], [ %indvars.iv.next219, %.lr.ph205 ]
   %584 = getelementptr inbounds nuw i32, ptr %580, i64 %indvars.iv218
-  %585 = load i32, ptr %584, align 4, !tbaa !59
+  %585 = load i32, ptr %584, align 4, !tbaa !52
   %586 = and i32 %585, 63
   %587 = zext nneg i32 %586 to i64
   %588 = shl nuw i64 1, %587
@@ -1693,10 +1693,10 @@ zend_bitset_union_with_difference.exit:           ; preds = %.lr.ph.i165, %.lr.p
   store i64 %593, ptr %591, align 8, !tbaa !11
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count221
-  br i1 %exitcond222.not, label %.lr.ph.i.backedge, label %.lr.ph205, !llvm.loop !66
+  br i1 %exitcond222.not, label %.lr.ph.i.backedge, label %.lr.ph205
 
 594:                                              ; preds = %506
-  br i1 %486, label %595, label %.thread170, !prof !67
+  br i1 %486, label %595, label %.thread170, !prof !56
 
 595:                                              ; preds = %594
   call void @_efree(ptr noundef nonnull %492) #8
@@ -1781,22 +1781,11 @@ attributes #8 = { nounwind }
 !46 = !{!18, !25, i64 104}
 !47 = !{!45, !9, i64 12}
 !48 = !{!45, !9, i64 16}
-!49 = distinct !{!49, !50}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = distinct !{!51, !50}
-!52 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!53 = distinct !{!53, !50}
-!54 = distinct !{!54, !50}
-!55 = distinct !{!55, !50}
-!56 = distinct !{!56, !50}
-!57 = !{!45, !9, i64 20}
-!58 = !{!45, !27, i64 0}
-!59 = !{!9, !9, i64 0}
-!60 = distinct !{!60, !50}
-!61 = distinct !{!61, !50}
-!62 = distinct !{!62, !50}
-!63 = !{!33, !27, i64 16}
-!64 = !{!45, !9, i64 28}
-!65 = !{!45, !9, i64 24}
-!66 = distinct !{!66, !50}
-!67 = !{!"branch_weights", !"expected", i32 1143561, i32 2146340087}
+!49 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!50 = !{!45, !9, i64 20}
+!51 = !{!45, !27, i64 0}
+!52 = !{!9, !9, i64 0}
+!53 = !{!33, !27, i64 16}
+!54 = !{!45, !9, i64 28}
+!55 = !{!45, !9, i64 24}
+!56 = !{!"branch_weights", !"expected", i32 1143561, i32 2146340087}

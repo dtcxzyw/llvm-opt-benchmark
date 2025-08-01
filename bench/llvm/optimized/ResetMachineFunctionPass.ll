@@ -403,9 +403,9 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit: ; preds =
 
 _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread: ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %46 = load i32, ptr %45, align 4, !tbaa !165
+  %46 = load i32, ptr %45, align 4, !tbaa !164
   %.not.i.i.not.i = icmp ult i32 %6, %46
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKvLb1EE9push_backES2_.exit, label %47, !prof !166
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKvLb1EE9push_backES2_.exit, label %47, !prof !165
 
 47:                                               ; preds = %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread
   %48 = add nuw nsw i64 %7, 1
@@ -463,10 +463,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #5 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !167
+  %3 = load ptr, ptr %2, align 8, !tbaa !166
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !169
-  %6 = load ptr, ptr %5, align 8, !tbaa !170
+  %5 = load ptr, ptr %4, align 8, !tbaa !168
+  %6 = load ptr, ptr %5, align 8, !tbaa !169
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #11
   ret void
 }
@@ -653,14 +653,13 @@ attributes #14 = { builtin nounwind }
 !159 = !{!40, !45, i64 32}
 !160 = !{!64, !4, i64 0}
 !161 = !{!64, !58, i64 8}
-!162 = distinct !{!162, !163, !164}
+!162 = distinct !{!162, !163}
 !163 = !{!"llvm.loop.mustprogress"}
-!164 = !{!"llvm.loop.estimated_trip_count"}
-!165 = !{!64, !58, i64 12}
-!166 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!167 = !{!168, !4, i64 0}
-!168 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0, !8, i64 8}
-!169 = !{!168, !8, i64 8}
-!170 = !{!171, !172, i64 0}
-!171 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !172, i64 0}
-!172 = !{!"p1 _ZTSN4llvm12PassRegistryE", !4, i64 0}
+!164 = !{!64, !58, i64 12}
+!165 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!166 = !{!167, !4, i64 0}
+!167 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0, !8, i64 8}
+!168 = !{!167, !8, i64 8}
+!169 = !{!170, !171, i64 0}
+!170 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !171, i64 0}
+!171 = !{!"p1 _ZTSN4llvm12PassRegistryE", !4, i64 0}

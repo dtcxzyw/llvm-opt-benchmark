@@ -176,7 +176,7 @@ define range(i32 -1, 4) i32 @av_stereo3d_view_from_name(ptr noundef %0) local_un
 6:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !20
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !19
 
 .split.loop.exit9:                                ; preds = %2
   %7 = trunc nuw nsw i64 %indvars.iv to i32
@@ -218,7 +218,7 @@ define range(i32 -1, 3) i32 @av_stereo3d_primary_eye_from_name(ptr noundef %0) l
 6:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !21
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !20
 
 .split.loop.exit9:                                ; preds = %2
   %7 = trunc nuw nsw i64 %indvars.iv to i32
@@ -254,8 +254,7 @@ attributes #4 = { nounwind }
 !14 = !{!"p1 _ZTS12AVDictionary", !13, i64 0}
 !15 = !{!"p1 _ZTS11AVBufferRef", !13, i64 0}
 !16 = !{!12, !12, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
-!21 = distinct !{!21, !18, !19}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}

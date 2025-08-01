@@ -2646,7 +2646,7 @@ if.end:                                           ; preds = %while.body
 while.cond.backedge:                              ; preds = %if.end, %while.body
   %9 = load ptr, ptr %queue, align 8
   %cmp.i.not = icmp eq ptr %queue, %9
-  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !5
+  br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.cond.backedge, %entry, %uv__queue_move.exit
   ret void
@@ -2734,7 +2734,7 @@ sw.epilog.us:                                     ; preds = %for.body.us, %switc
   %call44.us = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %spec.select, ptr noundef nonnull @.str.186, i32 noundef %conv.us, i32 noundef %conv35.us, i32 noundef %conv43.us, ptr noundef nonnull %type.0.us, ptr noundef nonnull %add.ptr.us)
   %q.0.us = load ptr, ptr %q.013.us, align 8
   %cmp5.not.us = icmp eq ptr %q.0.us, %handle_queue
-  br i1 %cmp5.not.us, label %for.end, label %for.body.us, !llvm.loop !7
+  br i1 %cmp5.not.us, label %for.end, label %for.body.us, !llvm.loop !5
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %q.013 = phi ptr [ %q.0, %for.inc ], [ %q.011, %for.body.lr.ph ]
@@ -2780,7 +2780,7 @@ sw.epilog:                                        ; preds = %if.end8, %switch.lo
 for.inc:                                          ; preds = %for.body, %sw.epilog
   %q.0 = load ptr, ptr %q.013, align 8
   %cmp5.not = icmp eq ptr %q.0, %handle_queue
-  br i1 %cmp5.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %cmp5.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %sw.epilog.us, %if.end
   ret void
@@ -2895,7 +2895,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add = add i64 %0, %bytes.06
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
+  br i1 %exitcond.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   %bytes.0.lcssa = phi i64 [ 0, %entry ], [ %add, %for.body ]
@@ -2986,7 +2986,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call void @free(ptr noundef %5) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp4 = icmp samesign ult i64 %indvars.iv.next, %4
-  br i1 %cmp4, label %for.body, label %if.end6, !llvm.loop !11
+  br i1 %cmp4, label %for.body, label %if.end6
 
 if.end6:                                          ; preds = %for.body, %if.then, %entry
   %ptr7 = getelementptr inbounds nuw i8, ptr %req, i64 96
@@ -3132,7 +3132,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %6 = load i64, ptr %result, align 8
   %cmp7 = icmp sgt i64 %6, %indvars.iv.next
-  br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp7, label %for.body, label %for.end
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader, %if.end, %entry
   ret void
@@ -3222,7 +3222,7 @@ for.body:                                         ; preds = %for.cond
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 16
   %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %return, label %for.cond, !llvm.loop !13
+  br i1 %tobool.not, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond
   tail call void @uv__loop_close(ptr noundef %loop) #26
@@ -3265,7 +3265,7 @@ for.body.i:                                       ; preds = %for.cond.i
   %2 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %2, 16
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %uv_loop_close.exit, label %for.cond.i, !llvm.loop !13
+  br i1 %tobool.not.i, label %uv_loop_close.exit, label %for.cond.i
 
 for.end.i:                                        ; preds = %for.cond.i
   tail call void @uv__loop_close(ptr noundef %loop) #26
@@ -3352,7 +3352,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store i32 %.pre, ptr %call.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   %2 = load i32, ptr %call.i, align 4
@@ -3560,12 +3560,4 @@ attributes #27 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -405,7 +405,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @getdest(ptr noundef reado
   %28 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef %27, ptr noundef nonnull %6, i32 noundef %.027) #11
   %29 = add nuw nsw i32 %.027, 1
   %exitcond.not = icmp eq i32 %29, 1000
-  br i1 %exitcond.not, label %30, label %17, !llvm.loop !21
+  br i1 %exitcond.not, label %30, label %17
 
 30:                                               ; preds = %22, %25
   tail call void @free(ptr noundef %3) #11
@@ -575,7 +575,7 @@ define internal fastcc range(i32 -1, 1) i32 @traverse_to(ptr noundef nonnull rea
   %.2 = phi i32 [ %.162, %.preheader ], [ %25, %27 ]
   %32 = add nuw i64 %.03261, 1
   %exitcond.not = icmp eq i64 %32, %18
-  br i1 %exitcond.not, label %33, label %.preheader, !llvm.loop !23
+  br i1 %exitcond.not, label %33, label %.preheader
 
 33:                                               ; preds = %31
   store i32 %.2, ptr %1, align 4, !tbaa !20
@@ -654,6 +654,3 @@ attributes #14 = { nounwind allocsize(0) }
 !18 = !{!"timespec", !17, i64 0, !17, i64 8}
 !19 = !{!6, !6, i64 0}
 !20 = !{!10, !10, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !22}

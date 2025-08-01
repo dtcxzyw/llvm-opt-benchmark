@@ -87,7 +87,7 @@ define internal void @_ZL20collect_features_useP21hb_ot_shape_planner_t(ptr noun
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %9, i32 noundef 0, i32 noundef 1)
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 4
-  br i1 %exitcond35.not, label %10, label %7, !llvm.loop !9
+  br i1 %exitcond35.not, label %10, label %7, !llvm.loop !8
 
 10:                                               ; preds = %7
   tail call void @_ZN19hb_ot_map_builder_t9add_pauseEjPFbPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tE(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef 0, ptr noundef null)
@@ -100,7 +100,7 @@ define internal void @_ZL20collect_features_useP21hb_ot_shape_planner_t(ptr noun
   tail call void @_ZN19hb_ot_map_builder_t11add_featureEj25hb_ot_map_feature_flags_tj(ptr noundef nonnull align 8 dereferenceable(128) %2, i32 noundef %13, i32 noundef 9, i32 noundef 1)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 5
-  br i1 %exitcond39.not, label %14, label %11, !llvm.loop !10
+  br i1 %exitcond39.not, label %14, label %11, !llvm.loop !9
 
 14:                                               ; preds = %11
   ret void
@@ -152,7 +152,7 @@ define internal noalias noundef ptr @_ZL15data_create_usePK18hb_ot_shape_plan_t(
   %.121.i.i.i.i.i.i = phi i32 [ %17, %16 ], [ %.0202.i.i.i.i.i.i, %19 ]
   %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %16 ], [ %20, %19 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
-  br i1 %.not.not.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.not.i.i.i.i.i.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
 _ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i: ; preds = %18
   %22 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %5, i64 %11, i32 5
@@ -353,7 +353,7 @@ _ZL19hb_use_get_categoryj.exit:                   ; preds = %.lr.ph, %22
   store i8 %65, ptr %66, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZL19hb_use_get_categoryj.exit, %11
   ret void
@@ -412,7 +412,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %.sroa.81197.sroa.0.0.i = phi i32 [ %30, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i ], [ %27, %3 ]
   %.sroa.81197.sroa.4.0.i = phi i32 [ %29, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i ], [ 0, %3 ]
   %28 = getelementptr i8, ptr %.sroa.5.0.i, i64 18
-  %.val.i.i.i.i = load i8, ptr %28, align 2, !noalias !13
+  %.val.i.i.i.i = load i8, ptr %28, align 2, !noalias !12
   switch i8 %.val.i.i.i.i, label %"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE24hb_filter_iter_factory_tIZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISR_Efp_EEEOSR_OSW_.exit.i" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i
@@ -423,7 +423,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   %30 = add i32 %.sroa.81197.sroa.0.0.i, -1
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.i, i64 20
   %.not.i.i.i.i = icmp eq i32 %30, 0
-  br i1 %.not.i.i.i.i, label %"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE24hb_filter_iter_factory_tIZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISR_Efp_EEEOSR_OSW_.exit.i", label %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE24hb_filter_iter_factory_tIZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISR_Efp_EEEOSR_OSW_.exit.i", label %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i, !llvm.loop !17
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i
   %.sroa.61202.0.i = phi ptr [ %.sroa.5.0.i, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i ], [ %46, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i ]
@@ -442,13 +442,13 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   %35 = zext i32 %.0.i.i.i.i.i.i.i.i.i to i64
   %36 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %25, i64 %35
   %37 = getelementptr i8, ptr %36, i64 18
-  %.val.i.i.i.i.i.i.i.i.i = load i8, ptr %37, align 2, !noalias !19
+  %.val.i.i.i.i.i.i.i.i.i = load i8, ptr %37, align 2, !noalias !18
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %32, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %32, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i": ; preds = %34
   %38 = getelementptr i8, ptr %36, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i = load i16, ptr %38, align 4, !noalias !19
+  %.val6.i.i.i.i.i.i.i.i.i = load i16, ptr %38, align 4, !noalias !18
   %39 = and i16 %.val6.i.i.i.i.i.i.i.i.i, 31
   %40 = zext nneg i16 %39 to i32
   %41 = shl nuw i32 1, %40
@@ -470,7 +470,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %47 = add i32 %43, 1
   %48 = add i32 %44, 1
   %49 = getelementptr i8, ptr %.promoted6.i.i18.i.i.i.i, i64 38
-  %.val.i.i.i.i.i.i = load i8, ptr %49, align 2, !noalias !19
+  %.val.i.i.i.i.i.i = load i8, ptr %49, align 2, !noalias !18
   switch i8 %.val.i.i.i.i.i.i, label %"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE24hb_filter_iter_factory_tIZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISR_Efp_EEEOSR_OSW_.exit.i" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i
@@ -508,7 +508,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr @_ZL11hb_identity, ptr %.sroa.9.0..sroa_idx.i, align 8
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store i8 0, ptr %52, align 8, !alias.scope !25
+  store i8 0, ptr %52, align 8, !alias.scope !24
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 12
   %.not37.i.i.i.i.i.i.i = icmp eq i32 %.sroa.101203.sroa.0.1.i, 0
   br i1 %.not37.i.i.i.i.i.i.i, label %.thread, label %.preheader.i.i.i.i.i.i.i
@@ -537,14 +537,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 20
   %57 = add i32 %54, 1
   %58 = getelementptr i8, ptr %53, i64 38
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i = load i8, ptr %58, align 2, !noalias !30
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i = load i8, ptr %58, align 2, !noalias !29
   switch i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI16hb_filter_iter_tIS0_I13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EESI_IjRS5_EEppEi.exit.i.i.i.i.i.i.i" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.backedge
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   ]
 
 _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.backedge: ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i.i"
-  br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !33
+  br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !32
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i:         ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, %60
   %.0.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %60 ], [ %57, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i.i ]
@@ -556,13 +556,13 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   %61 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
   %62 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %25, i64 %61
   %63 = getelementptr i8, ptr %62, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i8, ptr %63, align 2, !noalias !30
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i8, ptr %63, align 2, !noalias !29
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %60
   %64 = getelementptr i8, ptr %62, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i16, ptr %64, align 4, !noalias !30
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i16, ptr %64, align 4, !noalias !29
   %65 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 31
   %66 = zext nneg i16 %65 to i32
   %67 = shl nuw i32 1, %66
@@ -601,14 +601,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 20
   %77 = add i32 %74, 1
   %78 = getelementptr i8, ptr %73, i64 38
-  %.val.i.i.i.i.i.i.i.i.i.i.i205.i = load i8, ptr %78, align 2, !noalias !34
+  %.val.i.i.i.i.i.i.i.i.i.i.i205.i = load i8, ptr %78, align 2, !noalias !33
   switch i8 %.val.i.i.i.i.i.i.i.i.i.i.i205.i, label %"_ZNR9hb_iter_tI16hb_filter_iter_tIS0_I13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EESI_IjRS5_EEppEv.exit.i.i.i.i.i.i.i.i" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i.backedge
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i206.i
   ]
 
 _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i.backedge: ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i204.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i211.i"
-  br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i, !llvm.loop !33
+  br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i, !llvm.loop !32
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i206.i:      ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i204.i, %80
   %.0.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i207.i = phi i32 [ %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i208.i, %80 ], [ %77, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i204.i ]
@@ -620,13 +620,13 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   %81 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i208.i to i64
   %82 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %25, i64 %81
   %83 = getelementptr i8, ptr %82, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i209.i = load i8, ptr %83, align 2, !noalias !34
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i209.i = load i8, ptr %83, align 2, !noalias !33
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i210.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i209.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i210.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i206.i, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i211.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i210.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i206.i, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i211.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i211.i": ; preds = %80
   %84 = getelementptr i8, ptr %82, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i212.i = load i16, ptr %84, align 4, !noalias !34
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i212.i = load i16, ptr %84, align 4, !noalias !33
   %85 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i212.i, 31
   %86 = zext nneg i16 %85 to i32
   %87 = shl nuw i32 1, %86
@@ -636,7 +636,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tIS0_I13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EESI_IjRS5_EEppEv.exit.i.i.i.i.i.i.i.i": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i211.i", %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i204.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i206.i
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %72, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit.i.thread, label %.lr.ph.i.i3.i.i.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.loopexit.i.thread, label %.lr.ph.i.i3.i.i.i.i.i.i, !llvm.loop !36
 
 .loopexit.i.thread:                               ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tIS0_I13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EESI_IjRS5_EEppEv.exit.i.i.i.i.i.i.i.i", %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE3lenEv.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
@@ -648,26 +648,26 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   br label %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit.i"
 
 .loopexit.i:                                      ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i, %.thread
-  %.sroa.18.0..sroa_idx2461.i5368 = phi ptr [ %.sroa.18.0..sroa_idx2458.i, %.thread ], [ %.sroa.18.0..sroa_idx.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i ]
-  %.sroa.6.0..sroa_idx2460.i5566 = phi ptr [ %.sroa.6.0..sroa_idx2457.i, %.thread ], [ %.sroa.6.0..sroa_idx.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i ]
-  %.sroa.01173.0.i5764 = phi i32 [ 0, %.thread ], [ %70, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i ]
+  %.sroa.18.0..sroa_idx2461.i4560 = phi ptr [ %.sroa.18.0..sroa_idx2458.i, %.thread ], [ %.sroa.18.0..sroa_idx.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i ]
+  %.sroa.6.0..sroa_idx2460.i4758 = phi ptr [ %.sroa.6.0..sroa_idx2457.i, %.thread ], [ %.sroa.6.0..sroa_idx.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i ]
+  %.sroa.01173.0.i4956 = phi i32 [ 0, %.thread ], [ %70, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i201.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 72
   store i8 1, ptr %91, align 8
   store i8 1, ptr %92, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !37
   br label %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit.i"
 
 "_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit.i": ; preds = %.loopexit.i.thread, %.loopexit.i
-  %.sroa.18.0..sroa_idx2461.i5367 = phi ptr [ %.sroa.18.0..sroa_idx2461.i5368, %.loopexit.i ], [ %.sroa.18.0..sroa_idx.i, %.loopexit.i.thread ]
-  %.sroa.6.0..sroa_idx2460.i5565 = phi ptr [ %.sroa.6.0..sroa_idx2460.i5566, %.loopexit.i ], [ %.sroa.6.0..sroa_idx.i, %.loopexit.i.thread ]
-  %.sroa.01173.0.i5763 = phi i32 [ %.sroa.01173.0.i5764, %.loopexit.i ], [ %70, %.loopexit.i.thread ]
-  %.not.i.i.i.i.i.i.i.i.i.i6.i.i5961 = phi i1 [ true, %.loopexit.i ], [ false, %.loopexit.i.thread ]
+  %.sroa.18.0..sroa_idx2461.i4559 = phi ptr [ %.sroa.18.0..sroa_idx2461.i4560, %.loopexit.i ], [ %.sroa.18.0..sroa_idx.i, %.loopexit.i.thread ]
+  %.sroa.6.0..sroa_idx2460.i4757 = phi ptr [ %.sroa.6.0..sroa_idx2460.i4758, %.loopexit.i ], [ %.sroa.6.0..sroa_idx.i, %.loopexit.i.thread ]
+  %.sroa.01173.0.i4955 = phi i32 [ %.sroa.01173.0.i4956, %.loopexit.i ], [ %70, %.loopexit.i.thread ]
+  %.not.i.i.i.i.i.i.i.i.i.i6.i.i5153 = phi i1 [ true, %.loopexit.i ], [ false, %.loopexit.i.thread ]
   %93 = phi ptr [ %91, %.loopexit.i ], [ %89, %.loopexit.i.thread ]
   %94 = phi ptr [ %92, %.loopexit.i ], [ %90, %.loopexit.i.thread ]
-  %95 = icmp eq i32 %.sroa.01173.0.i5763, 0
+  %95 = icmp eq i32 %.sroa.01173.0.i4955, 0
   br i1 %95, label %1449, label %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.thread.i"
 
 "_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.thread.i": ; preds = %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.i", %"_ZNR9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEppEv.exit.i", %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit.i"
@@ -682,7 +682,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 100:                                              ; preds = %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.thread.i"
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %8, ptr noundef nonnull align 8 dereferenceable(73) %7)
-  %.pre.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !43
+  %.pre.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !42
   br label %101
 
 101:                                              ; preds = %100, %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.thread.i"
@@ -702,13 +702,13 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit.i", label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit.thread.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit.i": ; preds = %101
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !42
   %114 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_hb_CrapPool, i64 18), align 2
   %.not190.i = icmp ugt i8 %113, %114
   br i1 %.not190.i, label %126, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit221.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit.thread.i": ; preds = %101
-  %115 = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !43
+  %115 = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !42
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 18
   %117 = load i8, ptr %116, align 2
   %.not1901216.i = icmp ugt i8 %113, %117
@@ -773,36 +773,36 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   ]
 
 138:                                              ; preds = %131
-  call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  call void @llvm.experimental.noalias.scope.decl(metadata !55)
+  call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  call void @llvm.experimental.noalias.scope.decl(metadata !54)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %10, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %139 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %140 = load i8, ptr %52, align 8, !noalias !58
+  %140 = load i8, ptr %52, align 8, !noalias !57
   %141 = and i8 %140, 1
-  store i8 %141, ptr %139, align 8, !alias.scope !58
+  store i8 %141, ptr %139, align 8, !alias.scope !57
   %142 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %143 = load i32, ptr %142, align 4, !alias.scope !52
-  %.promoted.i.i.i.i.i.i.i229.i = load i32, ptr %10, align 8, !alias.scope !52
+  %143 = load i32, ptr %142, align 4, !alias.scope !51
+  %.promoted.i.i.i.i.i.i.i229.i = load i32, ptr %10, align 8, !alias.scope !51
   %144 = add i32 %.promoted.i.i.i.i.i.i.i229.i, %143
-  store i32 %144, ptr %10, align 8, !alias.scope !52
+  store i32 %144, ptr %10, align 8, !alias.scope !51
   %145 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %146 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.promoted.i.i2.i.i.i.i.i230.i = load i32, ptr %146, align 8, !alias.scope !52
+  %.promoted.i.i2.i.i.i.i.i230.i = load i32, ptr %146, align 8, !alias.scope !51
   %.not215.i.i.i.i.i.i.i231.i = icmp eq i32 %.promoted.i.i2.i.i.i.i.i230.i, 0
   br i1 %.not215.i.i.i.i.i.i.i231.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.i", label %.lr.ph.i.i3.i.i.i.i.i232.i
 
 .lr.ph.i.i3.i.i.i.i.i232.i:                       ; preds = %138
   %147 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %148 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %149 = load i32, ptr %148, align 4, !alias.scope !52
+  %149 = load i32, ptr %148, align 4, !alias.scope !51
   %150 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %151 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %.val3.i.i.i.i.i.i.i.i.i233.i = load ptr, ptr %151, align 8, !alias.scope !52
+  %.val3.i.i.i.i.i.i.i.i.i233.i = load ptr, ptr %151, align 8, !alias.scope !51
   %152 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %.val2.i.i.i.i.i.i.i.i.i234.i = load ptr, ptr %152, align 8, !alias.scope !52
-  %.promoted.i.i.pre.i.i.i.i.i.i.i235.i = load i32, ptr %145, align 8, !alias.scope !52
-  %.promoted14.i.i.pre.i.i.i.i.i.i.i236.i = load ptr, ptr %147, align 8, !alias.scope !52
-  %.promoted15.i.i.pre.i.i.i.i.i.i.i237.i = load i32, ptr %150, align 4, !alias.scope !52
+  %.val2.i.i.i.i.i.i.i.i.i234.i = load ptr, ptr %152, align 8, !alias.scope !51
+  %.promoted.i.i.pre.i.i.i.i.i.i.i235.i = load i32, ptr %145, align 8, !alias.scope !51
+  %.promoted14.i.i.pre.i.i.i.i.i.i.i236.i = load ptr, ptr %147, align 8, !alias.scope !51
+  %.promoted15.i.i.pre.i.i.i.i.i.i.i237.i = load i32, ptr %150, align 4, !alias.scope !51
   br label %153
 
 153:                                              ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i255.i", %.lr.ph.i.i3.i.i.i.i.i232.i
@@ -826,16 +826,16 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %162 = add i32 %157, 1
   %163 = add i32 %159, %149
   %164 = getelementptr i8, ptr %158, i64 38
-  %.val.i.i.i.i.i.i.i.i.i.i.i247.i = load i8, ptr %164, align 2, !noalias !52
+  %.val.i.i.i.i.i.i.i.i.i.i.i247.i = load i8, ptr %164, align 2, !noalias !51
   switch i8 %.val.i.i.i.i.i.i.i.i.i.i.i247.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.i.sink.split" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i243.i
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i248.i
   ]
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i248.i:      ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i246.i
-  %165 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i234.i, align 8, !noalias !52
+  %165 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i234.i, align 8, !noalias !51
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 88
-  %167 = load i32, ptr %166, align 8, !noalias !52
+  %167 = load i32, ptr %166, align 8, !noalias !51
   br label %168
 
 168:                                              ; preds = %170, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i248.i
@@ -845,23 +845,23 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %169, label %170, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.i.sink.split"
 
 170:                                              ; preds = %168
-  %171 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i233.i, align 8, !noalias !52
+  %171 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i233.i, align 8, !noalias !51
   %172 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i250.i to i64
   %173 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %171, i64 %172
   %174 = getelementptr i8, ptr %173, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i253.i = load i8, ptr %174, align 2, !noalias !52
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i253.i = load i8, ptr %174, align 2, !noalias !51
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i254.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i253.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i254.i, label %168, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i255.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i254.i, label %168, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i255.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i255.i": ; preds = %170
   %175 = getelementptr i8, ptr %173, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i256.i = load i16, ptr %175, align 4, !noalias !52
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i256.i = load i16, ptr %175, align 4, !noalias !51
   %176 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i256.i, 31
   %177 = zext nneg i16 %176 to i32
   %178 = shl nuw i32 1, %177
   %179 = and i32 %178, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i257.i = icmp eq i32 %179, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i257.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.i.sink.split", label %153, !llvm.loop !33
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i257.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.i.sink.split", label %153, !llvm.loop !32
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.loopexit.i": ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i243.i
   %180 = mul i32 %.lcssa19021914.i, %149
@@ -870,11 +870,11 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.i.sink.split"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.i.sink.split": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i255.i", %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i246.i, %168, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.loopexit.i"
-  %.sink1613 = phi i32 [ %181, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.loopexit.i" ], [ %163, %168 ], [ %163, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i246.i ], [ %163, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i255.i" ]
-  %.sink1612 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.loopexit.i" ], [ %160, %168 ], [ %160, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i246.i ], [ %160, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i255.i" ]
+  %.sink1605 = phi i32 [ %181, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.loopexit.i" ], [ %163, %168 ], [ %163, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i246.i ], [ %163, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i255.i" ]
+  %.sink1604 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.loopexit.i" ], [ %160, %168 ], [ %160, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i246.i ], [ %160, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i255.i" ]
   %.sink = phi i32 [ %182, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.loopexit.i" ], [ %162, %168 ], [ %162, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i246.i ], [ %162, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i255.i" ]
-  store i32 %.sink1613, ptr %145, align 8
-  store i32 %.sink1612, ptr %146, align 8
+  store i32 %.sink1605, ptr %145, align 8
+  store i32 %.sink1604, ptr %146, align 8
   store i32 %.sink, ptr %150, align 4
   store ptr %161, ptr %147, align 8
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit258.i"
@@ -884,36 +884,36 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %1409
 
 183:                                              ; preds = %131
-  call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  call void @llvm.experimental.noalias.scope.decl(metadata !61)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %11, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %184 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %185 = load i8, ptr %52, align 8, !noalias !65
+  %185 = load i8, ptr %52, align 8, !noalias !64
   %186 = and i8 %185, 1
-  store i8 %186, ptr %184, align 8, !alias.scope !65
+  store i8 %186, ptr %184, align 8, !alias.scope !64
   %187 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %188 = load i32, ptr %187, align 4, !alias.scope !59
-  %.promoted.i.i.i.i.i.i.i260.i = load i32, ptr %11, align 8, !alias.scope !59
+  %188 = load i32, ptr %187, align 4, !alias.scope !58
+  %.promoted.i.i.i.i.i.i.i260.i = load i32, ptr %11, align 8, !alias.scope !58
   %189 = add i32 %.promoted.i.i.i.i.i.i.i260.i, %188
-  store i32 %189, ptr %11, align 8, !alias.scope !59
+  store i32 %189, ptr %11, align 8, !alias.scope !58
   %190 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %191 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.promoted.i.i2.i.i.i.i.i261.i = load i32, ptr %191, align 8, !alias.scope !59
+  %.promoted.i.i2.i.i.i.i.i261.i = load i32, ptr %191, align 8, !alias.scope !58
   %.not215.i.i.i.i.i.i.i262.i = icmp eq i32 %.promoted.i.i2.i.i.i.i.i261.i, 0
   br i1 %.not215.i.i.i.i.i.i.i262.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.i", label %.lr.ph.i.i3.i.i.i.i.i263.i
 
 .lr.ph.i.i3.i.i.i.i.i263.i:                       ; preds = %183
   %192 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %193 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %194 = load i32, ptr %193, align 4, !alias.scope !59
+  %194 = load i32, ptr %193, align 4, !alias.scope !58
   %195 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %196 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %.val3.i.i.i.i.i.i.i.i.i264.i = load ptr, ptr %196, align 8, !alias.scope !59
+  %.val3.i.i.i.i.i.i.i.i.i264.i = load ptr, ptr %196, align 8, !alias.scope !58
   %197 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %.val2.i.i.i.i.i.i.i.i.i265.i = load ptr, ptr %197, align 8, !alias.scope !59
-  %.promoted.i.i.pre.i.i.i.i.i.i.i266.i = load i32, ptr %190, align 8, !alias.scope !59
-  %.promoted14.i.i.pre.i.i.i.i.i.i.i267.i = load ptr, ptr %192, align 8, !alias.scope !59
-  %.promoted15.i.i.pre.i.i.i.i.i.i.i268.i = load i32, ptr %195, align 4, !alias.scope !59
+  %.val2.i.i.i.i.i.i.i.i.i265.i = load ptr, ptr %197, align 8, !alias.scope !58
+  %.promoted.i.i.pre.i.i.i.i.i.i.i266.i = load i32, ptr %190, align 8, !alias.scope !58
+  %.promoted14.i.i.pre.i.i.i.i.i.i.i267.i = load ptr, ptr %192, align 8, !alias.scope !58
+  %.promoted15.i.i.pre.i.i.i.i.i.i.i268.i = load i32, ptr %195, align 4, !alias.scope !58
   br label %198
 
 198:                                              ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i286.i", %.lr.ph.i.i3.i.i.i.i.i263.i
@@ -937,16 +937,16 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %207 = add i32 %202, 1
   %208 = add i32 %204, %194
   %209 = getelementptr i8, ptr %203, i64 38
-  %.val.i.i.i.i.i.i.i.i.i.i.i278.i = load i8, ptr %209, align 2, !noalias !59
+  %.val.i.i.i.i.i.i.i.i.i.i.i278.i = load i8, ptr %209, align 2, !noalias !58
   switch i8 %.val.i.i.i.i.i.i.i.i.i.i.i278.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.i.sink.split" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i274.i
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i279.i
   ]
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i279.i:      ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i277.i
-  %210 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i265.i, align 8, !noalias !59
+  %210 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i265.i, align 8, !noalias !58
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 88
-  %212 = load i32, ptr %211, align 8, !noalias !59
+  %212 = load i32, ptr %211, align 8, !noalias !58
   br label %213
 
 213:                                              ; preds = %215, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i279.i
@@ -956,23 +956,23 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %214, label %215, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.i.sink.split"
 
 215:                                              ; preds = %213
-  %216 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i264.i, align 8, !noalias !59
+  %216 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i264.i, align 8, !noalias !58
   %217 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i281.i to i64
   %218 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %216, i64 %217
   %219 = getelementptr i8, ptr %218, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i284.i = load i8, ptr %219, align 2, !noalias !59
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i284.i = load i8, ptr %219, align 2, !noalias !58
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i285.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i284.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i285.i, label %213, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i286.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i285.i, label %213, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i286.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i286.i": ; preds = %215
   %220 = getelementptr i8, ptr %218, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i287.i = load i16, ptr %220, align 4, !noalias !59
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i287.i = load i16, ptr %220, align 4, !noalias !58
   %221 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i287.i, 31
   %222 = zext nneg i16 %221 to i32
   %223 = shl nuw i32 1, %222
   %224 = and i32 %223, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i288.i = icmp eq i32 %224, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i288.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.i.sink.split", label %198, !llvm.loop !33
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i288.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.i.sink.split", label %198, !llvm.loop !32
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.loopexit.i": ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i274.i
   %225 = mul i32 %.lcssa18621874.i, %194
@@ -981,26 +981,26 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.i.sink.split"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.i.sink.split": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i286.i", %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i277.i, %213, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.loopexit.i"
-  %.sink1616 = phi i32 [ %226, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.loopexit.i" ], [ %208, %213 ], [ %208, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i277.i ], [ %208, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i286.i" ]
-  %.sink1615 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.loopexit.i" ], [ %205, %213 ], [ %205, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i277.i ], [ %205, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i286.i" ]
-  %.sink1614 = phi i32 [ %227, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.loopexit.i" ], [ %207, %213 ], [ %207, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i277.i ], [ %207, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i286.i" ]
-  store i32 %.sink1616, ptr %190, align 8
-  store i32 %.sink1615, ptr %191, align 8
-  store i32 %.sink1614, ptr %195, align 4
+  %.sink1608 = phi i32 [ %226, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.loopexit.i" ], [ %208, %213 ], [ %208, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i277.i ], [ %208, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i286.i" ]
+  %.sink1607 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.loopexit.i" ], [ %205, %213 ], [ %205, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i277.i ], [ %205, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i286.i" ]
+  %.sink1606 = phi i32 [ %227, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.loopexit.i" ], [ %207, %213 ], [ %207, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i277.i ], [ %207, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i286.i" ]
+  store i32 %.sink1608, ptr %190, align 8
+  store i32 %.sink1607, ptr %191, align 8
+  store i32 %.sink1606, ptr %195, align 4
   store ptr %206, ptr %192, align 8
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.i"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.i": ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.i.sink.split", %183
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %11)
   %228 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i291.i = load i32, ptr %228, align 8, !noalias !66
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i291.i = load i32, ptr %228, align 8, !noalias !65
   %229 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %230 = load i32, ptr %229, align 8, !noalias !66
+  %230 = load i32, ptr %229, align 8, !noalias !65
   %.not.i.i.i.i.i.i.i.i.i.i.i.i292.i = icmp eq i32 %230, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i292.i, label %231, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit295.i"
 
 231:                                              ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !65
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit295.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit295.i": ; preds = %231, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit289.i"
@@ -1009,8 +1009,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %.2.tr189.i = trunc i32 %.2.i to i8
   %234 = shl i8 %.2.tr189.i, 4
   %235 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i291.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i297.i = load i32, ptr %232, align 8, !noalias !75
-  %236 = load i32, ptr %233, align 8, !noalias !75
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i297.i = load i32, ptr %232, align 8, !noalias !74
+  %236 = load i32, ptr %233, align 8, !noalias !74
   %.not.i.i.i.i.i.i.i.i.i.i.i.i298.i = icmp eq i32 %236, 0
   %237 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i297.i to i64
   br label %238
@@ -1020,7 +1020,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i298.i, label %239, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit301.i"
 
 239:                                              ; preds = %238
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !75
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !74
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit301.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit301.i": ; preds = %239, %238
@@ -1033,7 +1033,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 3
   store i8 %234, ptr %244, align 1
   %indvars.iv.next2446.i = add nuw nsw i64 %indvars.iv2445.i, 1
-  br label %238, !llvm.loop !84
+  br label %238, !llvm.loop !83
 
 245:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit301.i"
   %246 = add i32 %.2.i, 1
@@ -1042,36 +1042,36 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %1409
 
 248:                                              ; preds = %131
-  call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  call void @llvm.experimental.noalias.scope.decl(metadata !88)
+  call void @llvm.experimental.noalias.scope.decl(metadata !84)
+  call void @llvm.experimental.noalias.scope.decl(metadata !87)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %12, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %249 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %250 = load i8, ptr %52, align 8, !noalias !91
+  %250 = load i8, ptr %52, align 8, !noalias !90
   %251 = and i8 %250, 1
-  store i8 %251, ptr %249, align 8, !alias.scope !91
+  store i8 %251, ptr %249, align 8, !alias.scope !90
   %252 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %253 = load i32, ptr %252, align 4, !alias.scope !85
-  %.promoted.i.i.i.i.i.i.i303.i = load i32, ptr %12, align 8, !alias.scope !85
+  %253 = load i32, ptr %252, align 4, !alias.scope !84
+  %.promoted.i.i.i.i.i.i.i303.i = load i32, ptr %12, align 8, !alias.scope !84
   %254 = add i32 %.promoted.i.i.i.i.i.i.i303.i, %253
-  store i32 %254, ptr %12, align 8, !alias.scope !85
+  store i32 %254, ptr %12, align 8, !alias.scope !84
   %255 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %256 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.promoted.i.i2.i.i.i.i.i304.i = load i32, ptr %256, align 8, !alias.scope !85
+  %.promoted.i.i2.i.i.i.i.i304.i = load i32, ptr %256, align 8, !alias.scope !84
   %.not215.i.i.i.i.i.i.i305.i = icmp eq i32 %.promoted.i.i2.i.i.i.i.i304.i, 0
   br i1 %.not215.i.i.i.i.i.i.i305.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.i", label %.lr.ph.i.i3.i.i.i.i.i306.i
 
 .lr.ph.i.i3.i.i.i.i.i306.i:                       ; preds = %248
   %257 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %258 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %259 = load i32, ptr %258, align 4, !alias.scope !85
+  %259 = load i32, ptr %258, align 4, !alias.scope !84
   %260 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %261 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %.val3.i.i.i.i.i.i.i.i.i307.i = load ptr, ptr %261, align 8, !alias.scope !85
+  %.val3.i.i.i.i.i.i.i.i.i307.i = load ptr, ptr %261, align 8, !alias.scope !84
   %262 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %.val2.i.i.i.i.i.i.i.i.i308.i = load ptr, ptr %262, align 8, !alias.scope !85
-  %.promoted.i.i.pre.i.i.i.i.i.i.i309.i = load i32, ptr %255, align 8, !alias.scope !85
-  %.promoted14.i.i.pre.i.i.i.i.i.i.i310.i = load ptr, ptr %257, align 8, !alias.scope !85
-  %.promoted15.i.i.pre.i.i.i.i.i.i.i311.i = load i32, ptr %260, align 4, !alias.scope !85
+  %.val2.i.i.i.i.i.i.i.i.i308.i = load ptr, ptr %262, align 8, !alias.scope !84
+  %.promoted.i.i.pre.i.i.i.i.i.i.i309.i = load i32, ptr %255, align 8, !alias.scope !84
+  %.promoted14.i.i.pre.i.i.i.i.i.i.i310.i = load ptr, ptr %257, align 8, !alias.scope !84
+  %.promoted15.i.i.pre.i.i.i.i.i.i.i311.i = load i32, ptr %260, align 4, !alias.scope !84
   br label %263
 
 263:                                              ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i329.i", %.lr.ph.i.i3.i.i.i.i.i306.i
@@ -1095,16 +1095,16 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %272 = add i32 %267, 1
   %273 = add i32 %269, %259
   %274 = getelementptr i8, ptr %268, i64 38
-  %.val.i.i.i.i.i.i.i.i.i.i.i321.i = load i8, ptr %274, align 2, !noalias !85
+  %.val.i.i.i.i.i.i.i.i.i.i.i321.i = load i8, ptr %274, align 2, !noalias !84
   switch i8 %.val.i.i.i.i.i.i.i.i.i.i.i321.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.i.sink.split" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i317.i
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i322.i
   ]
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i322.i:      ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i320.i
-  %275 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i308.i, align 8, !noalias !85
+  %275 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i308.i, align 8, !noalias !84
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 88
-  %277 = load i32, ptr %276, align 8, !noalias !85
+  %277 = load i32, ptr %276, align 8, !noalias !84
   br label %278
 
 278:                                              ; preds = %280, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i322.i
@@ -1114,23 +1114,23 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %279, label %280, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.i.sink.split"
 
 280:                                              ; preds = %278
-  %281 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i307.i, align 8, !noalias !85
+  %281 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i307.i, align 8, !noalias !84
   %282 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i324.i to i64
   %283 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %281, i64 %282
   %284 = getelementptr i8, ptr %283, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i327.i = load i8, ptr %284, align 2, !noalias !85
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i327.i = load i8, ptr %284, align 2, !noalias !84
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i328.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i327.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i328.i, label %278, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i329.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i328.i, label %278, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i329.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i329.i": ; preds = %280
   %285 = getelementptr i8, ptr %283, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i330.i = load i16, ptr %285, align 4, !noalias !85
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i330.i = load i16, ptr %285, align 4, !noalias !84
   %286 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i330.i, 31
   %287 = zext nneg i16 %286 to i32
   %288 = shl nuw i32 1, %287
   %289 = and i32 %288, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i331.i = icmp eq i32 %289, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i331.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.i.sink.split", label %263, !llvm.loop !33
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i331.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.i.sink.split", label %263, !llvm.loop !32
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.loopexit.i": ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i317.i
   %290 = mul i32 %.lcssa18221834.i, %259
@@ -1139,26 +1139,26 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.i.sink.split"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.i.sink.split": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i329.i", %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i320.i, %278, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.loopexit.i"
-  %.sink1619 = phi i32 [ %291, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.loopexit.i" ], [ %273, %278 ], [ %273, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i320.i ], [ %273, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i329.i" ]
-  %.sink1618 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.loopexit.i" ], [ %270, %278 ], [ %270, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i320.i ], [ %270, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i329.i" ]
-  %.sink1617 = phi i32 [ %292, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.loopexit.i" ], [ %272, %278 ], [ %272, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i320.i ], [ %272, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i329.i" ]
-  store i32 %.sink1619, ptr %255, align 8
-  store i32 %.sink1618, ptr %256, align 8
-  store i32 %.sink1617, ptr %260, align 4
+  %.sink1611 = phi i32 [ %291, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.loopexit.i" ], [ %273, %278 ], [ %273, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i320.i ], [ %273, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i329.i" ]
+  %.sink1610 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.loopexit.i" ], [ %270, %278 ], [ %270, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i320.i ], [ %270, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i329.i" ]
+  %.sink1609 = phi i32 [ %292, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.loopexit.i" ], [ %272, %278 ], [ %272, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i320.i ], [ %272, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i329.i" ]
+  store i32 %.sink1611, ptr %255, align 8
+  store i32 %.sink1610, ptr %256, align 8
+  store i32 %.sink1609, ptr %260, align 4
   store ptr %271, ptr %257, align 8
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.i"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.i": ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.i.sink.split", %248
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %12)
   %293 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i334.i = load i32, ptr %293, align 8, !noalias !92
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i334.i = load i32, ptr %293, align 8, !noalias !91
   %294 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %295 = load i32, ptr %294, align 8, !noalias !92
+  %295 = load i32, ptr %294, align 8, !noalias !91
   %.not.i.i.i.i.i.i.i.i.i.i.i.i335.i = icmp eq i32 %295, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i335.i, label %296, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit338.i"
 
 296:                                              ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !92
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !91
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit338.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit338.i": ; preds = %296, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit332.i"
@@ -1168,8 +1168,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %299 = shl i8 %.2.tr188.i, 4
   %300 = or disjoint i8 %299, 1
   %301 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i334.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i340.i = load i32, ptr %297, align 8, !noalias !101
-  %302 = load i32, ptr %298, align 8, !noalias !101
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i340.i = load i32, ptr %297, align 8, !noalias !100
+  %302 = load i32, ptr %298, align 8, !noalias !100
   %.not.i.i.i.i.i.i.i.i.i.i.i.i341.i = icmp eq i32 %302, 0
   %303 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i340.i to i64
   br label %304
@@ -1179,7 +1179,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i341.i, label %305, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit344.i"
 
 305:                                              ; preds = %304
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !101
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !100
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit344.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit344.i": ; preds = %305, %304
@@ -1192,7 +1192,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 3
   store i8 %300, ptr %310, align 1
   %indvars.iv.next2443.i = add nuw nsw i64 %indvars.iv2442.i, 1
-  br label %304, !llvm.loop !110
+  br label %304, !llvm.loop !109
 
 311:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit344.i"
   %312 = add i32 %.2.i, 1
@@ -1201,36 +1201,36 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %1409
 
 314:                                              ; preds = %131
-  call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  call void @llvm.experimental.noalias.scope.decl(metadata !114)
+  call void @llvm.experimental.noalias.scope.decl(metadata !110)
+  call void @llvm.experimental.noalias.scope.decl(metadata !113)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %13, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %315 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %316 = load i8, ptr %52, align 8, !noalias !117
+  %316 = load i8, ptr %52, align 8, !noalias !116
   %317 = and i8 %316, 1
-  store i8 %317, ptr %315, align 8, !alias.scope !117
+  store i8 %317, ptr %315, align 8, !alias.scope !116
   %318 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %319 = load i32, ptr %318, align 4, !alias.scope !111
-  %.promoted.i.i.i.i.i.i.i346.i = load i32, ptr %13, align 8, !alias.scope !111
+  %319 = load i32, ptr %318, align 4, !alias.scope !110
+  %.promoted.i.i.i.i.i.i.i346.i = load i32, ptr %13, align 8, !alias.scope !110
   %320 = add i32 %.promoted.i.i.i.i.i.i.i346.i, %319
-  store i32 %320, ptr %13, align 8, !alias.scope !111
+  store i32 %320, ptr %13, align 8, !alias.scope !110
   %321 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %322 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.promoted.i.i2.i.i.i.i.i347.i = load i32, ptr %322, align 8, !alias.scope !111
+  %.promoted.i.i2.i.i.i.i.i347.i = load i32, ptr %322, align 8, !alias.scope !110
   %.not215.i.i.i.i.i.i.i348.i = icmp eq i32 %.promoted.i.i2.i.i.i.i.i347.i, 0
   br i1 %.not215.i.i.i.i.i.i.i348.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.i", label %.lr.ph.i.i3.i.i.i.i.i349.i
 
 .lr.ph.i.i3.i.i.i.i.i349.i:                       ; preds = %314
   %323 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %324 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %325 = load i32, ptr %324, align 4, !alias.scope !111
+  %325 = load i32, ptr %324, align 4, !alias.scope !110
   %326 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %327 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %.val3.i.i.i.i.i.i.i.i.i350.i = load ptr, ptr %327, align 8, !alias.scope !111
+  %.val3.i.i.i.i.i.i.i.i.i350.i = load ptr, ptr %327, align 8, !alias.scope !110
   %328 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %.val2.i.i.i.i.i.i.i.i.i351.i = load ptr, ptr %328, align 8, !alias.scope !111
-  %.promoted.i.i.pre.i.i.i.i.i.i.i352.i = load i32, ptr %321, align 8, !alias.scope !111
-  %.promoted14.i.i.pre.i.i.i.i.i.i.i353.i = load ptr, ptr %323, align 8, !alias.scope !111
-  %.promoted15.i.i.pre.i.i.i.i.i.i.i354.i = load i32, ptr %326, align 4, !alias.scope !111
+  %.val2.i.i.i.i.i.i.i.i.i351.i = load ptr, ptr %328, align 8, !alias.scope !110
+  %.promoted.i.i.pre.i.i.i.i.i.i.i352.i = load i32, ptr %321, align 8, !alias.scope !110
+  %.promoted14.i.i.pre.i.i.i.i.i.i.i353.i = load ptr, ptr %323, align 8, !alias.scope !110
+  %.promoted15.i.i.pre.i.i.i.i.i.i.i354.i = load i32, ptr %326, align 4, !alias.scope !110
   br label %329
 
 329:                                              ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i372.i", %.lr.ph.i.i3.i.i.i.i.i349.i
@@ -1254,16 +1254,16 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %338 = add i32 %333, 1
   %339 = add i32 %335, %325
   %340 = getelementptr i8, ptr %334, i64 38
-  %.val.i.i.i.i.i.i.i.i.i.i.i364.i = load i8, ptr %340, align 2, !noalias !111
+  %.val.i.i.i.i.i.i.i.i.i.i.i364.i = load i8, ptr %340, align 2, !noalias !110
   switch i8 %.val.i.i.i.i.i.i.i.i.i.i.i364.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.i.sink.split" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i360.i
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i365.i
   ]
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i365.i:      ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i363.i
-  %341 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i351.i, align 8, !noalias !111
+  %341 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i351.i, align 8, !noalias !110
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 88
-  %343 = load i32, ptr %342, align 8, !noalias !111
+  %343 = load i32, ptr %342, align 8, !noalias !110
   br label %344
 
 344:                                              ; preds = %346, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i365.i
@@ -1273,23 +1273,23 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %345, label %346, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.i.sink.split"
 
 346:                                              ; preds = %344
-  %347 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i350.i, align 8, !noalias !111
+  %347 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i350.i, align 8, !noalias !110
   %348 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i367.i to i64
   %349 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %347, i64 %348
   %350 = getelementptr i8, ptr %349, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i370.i = load i8, ptr %350, align 2, !noalias !111
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i370.i = load i8, ptr %350, align 2, !noalias !110
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i371.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i370.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i371.i, label %344, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i372.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i371.i, label %344, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i372.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i372.i": ; preds = %346
   %351 = getelementptr i8, ptr %349, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i373.i = load i16, ptr %351, align 4, !noalias !111
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i373.i = load i16, ptr %351, align 4, !noalias !110
   %352 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i373.i, 31
   %353 = zext nneg i16 %352 to i32
   %354 = shl nuw i32 1, %353
   %355 = and i32 %354, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i374.i = icmp eq i32 %355, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i374.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.i.sink.split", label %329, !llvm.loop !33
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i374.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.i.sink.split", label %329, !llvm.loop !32
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.loopexit.i": ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i360.i
   %356 = mul i32 %.lcssa17821794.i, %325
@@ -1298,26 +1298,26 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.i.sink.split"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.i.sink.split": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i372.i", %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i363.i, %344, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.loopexit.i"
-  %.sink1622 = phi i32 [ %357, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.loopexit.i" ], [ %339, %344 ], [ %339, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i363.i ], [ %339, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i372.i" ]
-  %.sink1621 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.loopexit.i" ], [ %336, %344 ], [ %336, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i363.i ], [ %336, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i372.i" ]
-  %.sink1620 = phi i32 [ %358, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.loopexit.i" ], [ %338, %344 ], [ %338, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i363.i ], [ %338, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i372.i" ]
-  store i32 %.sink1622, ptr %321, align 8
-  store i32 %.sink1621, ptr %322, align 8
-  store i32 %.sink1620, ptr %326, align 4
+  %.sink1614 = phi i32 [ %357, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.loopexit.i" ], [ %339, %344 ], [ %339, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i363.i ], [ %339, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i372.i" ]
+  %.sink1613 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.loopexit.i" ], [ %336, %344 ], [ %336, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i363.i ], [ %336, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i372.i" ]
+  %.sink1612 = phi i32 [ %358, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.loopexit.i" ], [ %338, %344 ], [ %338, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i363.i ], [ %338, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i372.i" ]
+  store i32 %.sink1614, ptr %321, align 8
+  store i32 %.sink1613, ptr %322, align 8
+  store i32 %.sink1612, ptr %326, align 4
   store ptr %337, ptr %323, align 8
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.i"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.i": ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.i.sink.split", %314
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %13)
   %359 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i377.i = load i32, ptr %359, align 8, !noalias !118
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i377.i = load i32, ptr %359, align 8, !noalias !117
   %360 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %361 = load i32, ptr %360, align 8, !noalias !118
+  %361 = load i32, ptr %360, align 8, !noalias !117
   %.not.i.i.i.i.i.i.i.i.i.i.i.i378.i = icmp eq i32 %361, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i378.i, label %362, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit381.i"
 
 362:                                              ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !117
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit381.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit381.i": ; preds = %362, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit375.i"
@@ -1327,8 +1327,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %365 = shl i8 %.2.tr187.i, 4
   %366 = or disjoint i8 %365, 2
   %367 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i377.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i383.i = load i32, ptr %363, align 8, !noalias !127
-  %368 = load i32, ptr %364, align 8, !noalias !127
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i383.i = load i32, ptr %363, align 8, !noalias !126
+  %368 = load i32, ptr %364, align 8, !noalias !126
   %.not.i.i.i.i.i.i.i.i.i.i.i.i384.i = icmp eq i32 %368, 0
   %369 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i383.i to i64
   br label %370
@@ -1338,7 +1338,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i384.i, label %371, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit387.i"
 
 371:                                              ; preds = %370
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !127
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !126
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit387.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit387.i": ; preds = %371, %370
@@ -1351,7 +1351,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 3
   store i8 %366, ptr %376, align 1
   %indvars.iv.next2440.i = add nuw nsw i64 %indvars.iv2439.i, 1
-  br label %370, !llvm.loop !136
+  br label %370, !llvm.loop !135
 
 377:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit387.i"
   %378 = add i32 %.2.i, 1
@@ -1360,36 +1360,36 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %1409
 
 380:                                              ; preds = %131
-  call void @llvm.experimental.noalias.scope.decl(metadata !137)
-  call void @llvm.experimental.noalias.scope.decl(metadata !140)
+  call void @llvm.experimental.noalias.scope.decl(metadata !136)
+  call void @llvm.experimental.noalias.scope.decl(metadata !139)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %14, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %381 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %382 = load i8, ptr %52, align 8, !noalias !143
+  %382 = load i8, ptr %52, align 8, !noalias !142
   %383 = and i8 %382, 1
-  store i8 %383, ptr %381, align 8, !alias.scope !143
+  store i8 %383, ptr %381, align 8, !alias.scope !142
   %384 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %385 = load i32, ptr %384, align 4, !alias.scope !137
-  %.promoted.i.i.i.i.i.i.i389.i = load i32, ptr %14, align 8, !alias.scope !137
+  %385 = load i32, ptr %384, align 4, !alias.scope !136
+  %.promoted.i.i.i.i.i.i.i389.i = load i32, ptr %14, align 8, !alias.scope !136
   %386 = add i32 %.promoted.i.i.i.i.i.i.i389.i, %385
-  store i32 %386, ptr %14, align 8, !alias.scope !137
+  store i32 %386, ptr %14, align 8, !alias.scope !136
   %387 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %388 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %.promoted.i.i2.i.i.i.i.i390.i = load i32, ptr %388, align 8, !alias.scope !137
+  %.promoted.i.i2.i.i.i.i.i390.i = load i32, ptr %388, align 8, !alias.scope !136
   %.not215.i.i.i.i.i.i.i391.i = icmp eq i32 %.promoted.i.i2.i.i.i.i.i390.i, 0
   br i1 %.not215.i.i.i.i.i.i.i391.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.i", label %.lr.ph.i.i3.i.i.i.i.i392.i
 
 .lr.ph.i.i3.i.i.i.i.i392.i:                       ; preds = %380
   %389 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %390 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %391 = load i32, ptr %390, align 4, !alias.scope !137
+  %391 = load i32, ptr %390, align 4, !alias.scope !136
   %392 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %393 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %.val3.i.i.i.i.i.i.i.i.i393.i = load ptr, ptr %393, align 8, !alias.scope !137
+  %.val3.i.i.i.i.i.i.i.i.i393.i = load ptr, ptr %393, align 8, !alias.scope !136
   %394 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %.val2.i.i.i.i.i.i.i.i.i394.i = load ptr, ptr %394, align 8, !alias.scope !137
-  %.promoted.i.i.pre.i.i.i.i.i.i.i395.i = load i32, ptr %387, align 8, !alias.scope !137
-  %.promoted14.i.i.pre.i.i.i.i.i.i.i396.i = load ptr, ptr %389, align 8, !alias.scope !137
-  %.promoted15.i.i.pre.i.i.i.i.i.i.i397.i = load i32, ptr %392, align 4, !alias.scope !137
+  %.val2.i.i.i.i.i.i.i.i.i394.i = load ptr, ptr %394, align 8, !alias.scope !136
+  %.promoted.i.i.pre.i.i.i.i.i.i.i395.i = load i32, ptr %387, align 8, !alias.scope !136
+  %.promoted14.i.i.pre.i.i.i.i.i.i.i396.i = load ptr, ptr %389, align 8, !alias.scope !136
+  %.promoted15.i.i.pre.i.i.i.i.i.i.i397.i = load i32, ptr %392, align 4, !alias.scope !136
   br label %395
 
 395:                                              ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i415.i", %.lr.ph.i.i3.i.i.i.i.i392.i
@@ -1413,16 +1413,16 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %404 = add i32 %399, 1
   %405 = add i32 %401, %391
   %406 = getelementptr i8, ptr %400, i64 38
-  %.val.i.i.i.i.i.i.i.i.i.i.i407.i = load i8, ptr %406, align 2, !noalias !137
+  %.val.i.i.i.i.i.i.i.i.i.i.i407.i = load i8, ptr %406, align 2, !noalias !136
   switch i8 %.val.i.i.i.i.i.i.i.i.i.i.i407.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.i.sink.split" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i403.i
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i408.i
   ]
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i408.i:      ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i406.i
-  %407 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i394.i, align 8, !noalias !137
+  %407 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i394.i, align 8, !noalias !136
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 88
-  %409 = load i32, ptr %408, align 8, !noalias !137
+  %409 = load i32, ptr %408, align 8, !noalias !136
   br label %410
 
 410:                                              ; preds = %412, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i408.i
@@ -1432,23 +1432,23 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %411, label %412, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.i.sink.split"
 
 412:                                              ; preds = %410
-  %413 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i393.i, align 8, !noalias !137
+  %413 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i393.i, align 8, !noalias !136
   %414 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i410.i to i64
   %415 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %413, i64 %414
   %416 = getelementptr i8, ptr %415, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i413.i = load i8, ptr %416, align 2, !noalias !137
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i413.i = load i8, ptr %416, align 2, !noalias !136
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i414.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i413.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i414.i, label %410, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i415.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i414.i, label %410, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i415.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i415.i": ; preds = %412
   %417 = getelementptr i8, ptr %415, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i416.i = load i16, ptr %417, align 4, !noalias !137
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i416.i = load i16, ptr %417, align 4, !noalias !136
   %418 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i416.i, 31
   %419 = zext nneg i16 %418 to i32
   %420 = shl nuw i32 1, %419
   %421 = and i32 %420, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i417.i = icmp eq i32 %421, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i417.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.i.sink.split", label %395, !llvm.loop !33
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i417.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.i.sink.split", label %395, !llvm.loop !32
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.loopexit.i": ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i403.i
   %422 = mul i32 %.lcssa17421754.i, %391
@@ -1457,26 +1457,26 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.i.sink.split"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.i.sink.split": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i415.i", %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i406.i, %410, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.loopexit.i"
-  %.sink1625 = phi i32 [ %423, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.loopexit.i" ], [ %405, %410 ], [ %405, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i406.i ], [ %405, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i415.i" ]
-  %.sink1624 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.loopexit.i" ], [ %402, %410 ], [ %402, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i406.i ], [ %402, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i415.i" ]
-  %.sink1623 = phi i32 [ %424, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.loopexit.i" ], [ %404, %410 ], [ %404, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i406.i ], [ %404, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i415.i" ]
-  store i32 %.sink1625, ptr %387, align 8
-  store i32 %.sink1624, ptr %388, align 8
-  store i32 %.sink1623, ptr %392, align 4
+  %.sink1617 = phi i32 [ %423, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.loopexit.i" ], [ %405, %410 ], [ %405, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i406.i ], [ %405, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i415.i" ]
+  %.sink1616 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.loopexit.i" ], [ %402, %410 ], [ %402, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i406.i ], [ %402, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i415.i" ]
+  %.sink1615 = phi i32 [ %424, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.loopexit.i" ], [ %404, %410 ], [ %404, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i406.i ], [ %404, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i415.i" ]
+  store i32 %.sink1617, ptr %387, align 8
+  store i32 %.sink1616, ptr %388, align 8
+  store i32 %.sink1615, ptr %392, align 4
   store ptr %403, ptr %389, align 8
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.i"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.i": ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.i.sink.split", %380
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %14)
   %425 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i420.i = load i32, ptr %425, align 8, !noalias !144
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i420.i = load i32, ptr %425, align 8, !noalias !143
   %426 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %427 = load i32, ptr %426, align 8, !noalias !144
+  %427 = load i32, ptr %426, align 8, !noalias !143
   %.not.i.i.i.i.i.i.i.i.i.i.i.i421.i = icmp eq i32 %427, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i421.i, label %428, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit424.i"
 
 428:                                              ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !143
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit424.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit424.i": ; preds = %428, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit418.i"
@@ -1486,8 +1486,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %431 = shl i8 %.2.tr186.i, 4
   %432 = or disjoint i8 %431, 3
   %433 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i420.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i426.i = load i32, ptr %429, align 8, !noalias !153
-  %434 = load i32, ptr %430, align 8, !noalias !153
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i426.i = load i32, ptr %429, align 8, !noalias !152
+  %434 = load i32, ptr %430, align 8, !noalias !152
   %.not.i.i.i.i.i.i.i.i.i.i.i.i427.i = icmp eq i32 %434, 0
   %435 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i426.i to i64
   br label %436
@@ -1497,7 +1497,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i427.i, label %437, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit430.i"
 
 437:                                              ; preds = %436
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !153
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !152
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit430.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit430.i": ; preds = %437, %436
@@ -1510,7 +1510,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 3
   store i8 %432, ptr %442, align 1
   %indvars.iv.next2437.i = add nuw nsw i64 %indvars.iv2436.i, 1
-  br label %436, !llvm.loop !162
+  br label %436, !llvm.loop !161
 
 443:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit430.i"
   %444 = add i32 %.2.i, 1
@@ -1519,36 +1519,36 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %1409
 
 446:                                              ; preds = %131
-  call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  call void @llvm.experimental.noalias.scope.decl(metadata !166)
+  call void @llvm.experimental.noalias.scope.decl(metadata !162)
+  call void @llvm.experimental.noalias.scope.decl(metadata !165)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %15, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %447 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %448 = load i8, ptr %52, align 8, !noalias !169
+  %448 = load i8, ptr %52, align 8, !noalias !168
   %449 = and i8 %448, 1
-  store i8 %449, ptr %447, align 8, !alias.scope !169
+  store i8 %449, ptr %447, align 8, !alias.scope !168
   %450 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %451 = load i32, ptr %450, align 4, !alias.scope !163
-  %.promoted.i.i.i.i.i.i.i432.i = load i32, ptr %15, align 8, !alias.scope !163
+  %451 = load i32, ptr %450, align 4, !alias.scope !162
+  %.promoted.i.i.i.i.i.i.i432.i = load i32, ptr %15, align 8, !alias.scope !162
   %452 = add i32 %.promoted.i.i.i.i.i.i.i432.i, %451
-  store i32 %452, ptr %15, align 8, !alias.scope !163
+  store i32 %452, ptr %15, align 8, !alias.scope !162
   %453 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %454 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %.promoted.i.i2.i.i.i.i.i433.i = load i32, ptr %454, align 8, !alias.scope !163
+  %.promoted.i.i2.i.i.i.i.i433.i = load i32, ptr %454, align 8, !alias.scope !162
   %.not215.i.i.i.i.i.i.i434.i = icmp eq i32 %.promoted.i.i2.i.i.i.i.i433.i, 0
   br i1 %.not215.i.i.i.i.i.i.i434.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.i", label %.lr.ph.i.i3.i.i.i.i.i435.i
 
 .lr.ph.i.i3.i.i.i.i.i435.i:                       ; preds = %446
   %455 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %456 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %457 = load i32, ptr %456, align 4, !alias.scope !163
+  %457 = load i32, ptr %456, align 4, !alias.scope !162
   %458 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %459 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.val3.i.i.i.i.i.i.i.i.i436.i = load ptr, ptr %459, align 8, !alias.scope !163
+  %.val3.i.i.i.i.i.i.i.i.i436.i = load ptr, ptr %459, align 8, !alias.scope !162
   %460 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %.val2.i.i.i.i.i.i.i.i.i437.i = load ptr, ptr %460, align 8, !alias.scope !163
-  %.promoted.i.i.pre.i.i.i.i.i.i.i438.i = load i32, ptr %453, align 8, !alias.scope !163
-  %.promoted14.i.i.pre.i.i.i.i.i.i.i439.i = load ptr, ptr %455, align 8, !alias.scope !163
-  %.promoted15.i.i.pre.i.i.i.i.i.i.i440.i = load i32, ptr %458, align 4, !alias.scope !163
+  %.val2.i.i.i.i.i.i.i.i.i437.i = load ptr, ptr %460, align 8, !alias.scope !162
+  %.promoted.i.i.pre.i.i.i.i.i.i.i438.i = load i32, ptr %453, align 8, !alias.scope !162
+  %.promoted14.i.i.pre.i.i.i.i.i.i.i439.i = load ptr, ptr %455, align 8, !alias.scope !162
+  %.promoted15.i.i.pre.i.i.i.i.i.i.i440.i = load i32, ptr %458, align 4, !alias.scope !162
   br label %461
 
 461:                                              ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i458.i", %.lr.ph.i.i3.i.i.i.i.i435.i
@@ -1572,16 +1572,16 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %470 = add i32 %465, 1
   %471 = add i32 %467, %457
   %472 = getelementptr i8, ptr %466, i64 38
-  %.val.i.i.i.i.i.i.i.i.i.i.i450.i = load i8, ptr %472, align 2, !noalias !163
+  %.val.i.i.i.i.i.i.i.i.i.i.i450.i = load i8, ptr %472, align 2, !noalias !162
   switch i8 %.val.i.i.i.i.i.i.i.i.i.i.i450.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.i.sink.split" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i446.i
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i451.i
   ]
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i451.i:      ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i449.i
-  %473 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i437.i, align 8, !noalias !163
+  %473 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i437.i, align 8, !noalias !162
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 88
-  %475 = load i32, ptr %474, align 8, !noalias !163
+  %475 = load i32, ptr %474, align 8, !noalias !162
   br label %476
 
 476:                                              ; preds = %478, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i451.i
@@ -1591,23 +1591,23 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %477, label %478, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.i.sink.split"
 
 478:                                              ; preds = %476
-  %479 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i436.i, align 8, !noalias !163
+  %479 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i436.i, align 8, !noalias !162
   %480 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i453.i to i64
   %481 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %479, i64 %480
   %482 = getelementptr i8, ptr %481, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i456.i = load i8, ptr %482, align 2, !noalias !163
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i456.i = load i8, ptr %482, align 2, !noalias !162
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i457.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i456.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i457.i, label %476, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i458.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i457.i, label %476, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i458.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i458.i": ; preds = %478
   %483 = getelementptr i8, ptr %481, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i459.i = load i16, ptr %483, align 4, !noalias !163
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i459.i = load i16, ptr %483, align 4, !noalias !162
   %484 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i459.i, 31
   %485 = zext nneg i16 %484 to i32
   %486 = shl nuw i32 1, %485
   %487 = and i32 %486, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i460.i = icmp eq i32 %487, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i460.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.i.sink.split", label %461, !llvm.loop !33
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i460.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.i.sink.split", label %461, !llvm.loop !32
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.loopexit.i": ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i446.i
   %488 = mul i32 %.lcssa17021714.i, %457
@@ -1616,26 +1616,26 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.i.sink.split"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.i.sink.split": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i458.i", %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i449.i, %476, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.loopexit.i"
-  %.sink1628 = phi i32 [ %489, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.loopexit.i" ], [ %471, %476 ], [ %471, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i449.i ], [ %471, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i458.i" ]
-  %.sink1627 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.loopexit.i" ], [ %468, %476 ], [ %468, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i449.i ], [ %468, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i458.i" ]
-  %.sink1626 = phi i32 [ %490, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.loopexit.i" ], [ %470, %476 ], [ %470, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i449.i ], [ %470, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i458.i" ]
-  store i32 %.sink1628, ptr %453, align 8
-  store i32 %.sink1627, ptr %454, align 8
-  store i32 %.sink1626, ptr %458, align 4
+  %.sink1620 = phi i32 [ %489, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.loopexit.i" ], [ %471, %476 ], [ %471, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i449.i ], [ %471, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i458.i" ]
+  %.sink1619 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.loopexit.i" ], [ %468, %476 ], [ %468, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i449.i ], [ %468, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i458.i" ]
+  %.sink1618 = phi i32 [ %490, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.loopexit.i" ], [ %470, %476 ], [ %470, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i449.i ], [ %470, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i458.i" ]
+  store i32 %.sink1620, ptr %453, align 8
+  store i32 %.sink1619, ptr %454, align 8
+  store i32 %.sink1618, ptr %458, align 4
   store ptr %469, ptr %455, align 8
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.i"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.i": ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.i.sink.split", %446
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %15)
   %491 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i463.i = load i32, ptr %491, align 8, !noalias !170
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i463.i = load i32, ptr %491, align 8, !noalias !169
   %492 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %493 = load i32, ptr %492, align 8, !noalias !170
+  %493 = load i32, ptr %492, align 8, !noalias !169
   %.not.i.i.i.i.i.i.i.i.i.i.i.i464.i = icmp eq i32 %493, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i464.i, label %494, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit467.i"
 
 494:                                              ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !170
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !169
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit467.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit467.i": ; preds = %494, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit461.i"
@@ -1645,8 +1645,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %497 = shl i8 %.2.tr185.i, 4
   %498 = or disjoint i8 %497, 4
   %499 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i463.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i469.i = load i32, ptr %495, align 8, !noalias !179
-  %500 = load i32, ptr %496, align 8, !noalias !179
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i469.i = load i32, ptr %495, align 8, !noalias !178
+  %500 = load i32, ptr %496, align 8, !noalias !178
   %.not.i.i.i.i.i.i.i.i.i.i.i.i470.i = icmp eq i32 %500, 0
   %501 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i469.i to i64
   br label %502
@@ -1656,7 +1656,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i470.i, label %503, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit473.i"
 
 503:                                              ; preds = %502
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !179
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !178
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit473.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit473.i": ; preds = %503, %502
@@ -1669,7 +1669,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 3
   store i8 %498, ptr %508, align 1
   %indvars.iv.next2434.i = add nuw nsw i64 %indvars.iv2433.i, 1
-  br label %502, !llvm.loop !188
+  br label %502, !llvm.loop !187
 
 509:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit473.i"
   %510 = add i32 %.2.i, 1
@@ -1678,36 +1678,36 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %1409
 
 512:                                              ; preds = %131
-  call void @llvm.experimental.noalias.scope.decl(metadata !189)
-  call void @llvm.experimental.noalias.scope.decl(metadata !192)
+  call void @llvm.experimental.noalias.scope.decl(metadata !188)
+  call void @llvm.experimental.noalias.scope.decl(metadata !191)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %16, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %513 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  %514 = load i8, ptr %52, align 8, !noalias !195
+  %514 = load i8, ptr %52, align 8, !noalias !194
   %515 = and i8 %514, 1
-  store i8 %515, ptr %513, align 8, !alias.scope !195
+  store i8 %515, ptr %513, align 8, !alias.scope !194
   %516 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %517 = load i32, ptr %516, align 4, !alias.scope !189
-  %.promoted.i.i.i.i.i.i.i475.i = load i32, ptr %16, align 8, !alias.scope !189
+  %517 = load i32, ptr %516, align 4, !alias.scope !188
+  %.promoted.i.i.i.i.i.i.i475.i = load i32, ptr %16, align 8, !alias.scope !188
   %518 = add i32 %.promoted.i.i.i.i.i.i.i475.i, %517
-  store i32 %518, ptr %16, align 8, !alias.scope !189
+  store i32 %518, ptr %16, align 8, !alias.scope !188
   %519 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %520 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %.promoted.i.i2.i.i.i.i.i476.i = load i32, ptr %520, align 8, !alias.scope !189
+  %.promoted.i.i2.i.i.i.i.i476.i = load i32, ptr %520, align 8, !alias.scope !188
   %.not215.i.i.i.i.i.i.i477.i = icmp eq i32 %.promoted.i.i2.i.i.i.i.i476.i, 0
   br i1 %.not215.i.i.i.i.i.i.i477.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.i", label %.lr.ph.i.i3.i.i.i.i.i478.i
 
 .lr.ph.i.i3.i.i.i.i.i478.i:                       ; preds = %512
   %521 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %522 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  %523 = load i32, ptr %522, align 4, !alias.scope !189
+  %523 = load i32, ptr %522, align 4, !alias.scope !188
   %524 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %525 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %.val3.i.i.i.i.i.i.i.i.i479.i = load ptr, ptr %525, align 8, !alias.scope !189
+  %.val3.i.i.i.i.i.i.i.i.i479.i = load ptr, ptr %525, align 8, !alias.scope !188
   %526 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %.val2.i.i.i.i.i.i.i.i.i480.i = load ptr, ptr %526, align 8, !alias.scope !189
-  %.promoted.i.i.pre.i.i.i.i.i.i.i481.i = load i32, ptr %519, align 8, !alias.scope !189
-  %.promoted14.i.i.pre.i.i.i.i.i.i.i482.i = load ptr, ptr %521, align 8, !alias.scope !189
-  %.promoted15.i.i.pre.i.i.i.i.i.i.i483.i = load i32, ptr %524, align 4, !alias.scope !189
+  %.val2.i.i.i.i.i.i.i.i.i480.i = load ptr, ptr %526, align 8, !alias.scope !188
+  %.promoted.i.i.pre.i.i.i.i.i.i.i481.i = load i32, ptr %519, align 8, !alias.scope !188
+  %.promoted14.i.i.pre.i.i.i.i.i.i.i482.i = load ptr, ptr %521, align 8, !alias.scope !188
+  %.promoted15.i.i.pre.i.i.i.i.i.i.i483.i = load i32, ptr %524, align 4, !alias.scope !188
   br label %527
 
 527:                                              ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i501.i", %.lr.ph.i.i3.i.i.i.i.i478.i
@@ -1731,16 +1731,16 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %536 = add i32 %531, 1
   %537 = add i32 %533, %523
   %538 = getelementptr i8, ptr %532, i64 38
-  %.val.i.i.i.i.i.i.i.i.i.i.i493.i = load i8, ptr %538, align 2, !noalias !189
+  %.val.i.i.i.i.i.i.i.i.i.i.i493.i = load i8, ptr %538, align 2, !noalias !188
   switch i8 %.val.i.i.i.i.i.i.i.i.i.i.i493.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.i.sink.split" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i489.i
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i494.i
   ]
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i494.i:      ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i492.i
-  %539 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i480.i, align 8, !noalias !189
+  %539 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i480.i, align 8, !noalias !188
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 88
-  %541 = load i32, ptr %540, align 8, !noalias !189
+  %541 = load i32, ptr %540, align 8, !noalias !188
   br label %542
 
 542:                                              ; preds = %544, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i494.i
@@ -1750,23 +1750,23 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %543, label %544, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.i.sink.split"
 
 544:                                              ; preds = %542
-  %545 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i479.i, align 8, !noalias !189
+  %545 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i479.i, align 8, !noalias !188
   %546 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i496.i to i64
   %547 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %545, i64 %546
   %548 = getelementptr i8, ptr %547, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i499.i = load i8, ptr %548, align 2, !noalias !189
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i499.i = load i8, ptr %548, align 2, !noalias !188
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i500.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i499.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i500.i, label %542, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i501.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i500.i, label %542, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i501.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i501.i": ; preds = %544
   %549 = getelementptr i8, ptr %547, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i502.i = load i16, ptr %549, align 4, !noalias !189
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i502.i = load i16, ptr %549, align 4, !noalias !188
   %550 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i502.i, 31
   %551 = zext nneg i16 %550 to i32
   %552 = shl nuw i32 1, %551
   %553 = and i32 %552, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i503.i = icmp eq i32 %553, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i503.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.i.sink.split", label %527, !llvm.loop !33
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i503.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.i.sink.split", label %527, !llvm.loop !32
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.loopexit.i": ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i489.i
   %554 = mul i32 %.lcssa16621674.i, %523
@@ -1775,26 +1775,26 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.i.sink.split"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.i.sink.split": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i501.i", %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i492.i, %542, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.loopexit.i"
-  %.sink1631 = phi i32 [ %555, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.loopexit.i" ], [ %537, %542 ], [ %537, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i492.i ], [ %537, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i501.i" ]
-  %.sink1630 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.loopexit.i" ], [ %534, %542 ], [ %534, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i492.i ], [ %534, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i501.i" ]
-  %.sink1629 = phi i32 [ %556, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.loopexit.i" ], [ %536, %542 ], [ %536, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i492.i ], [ %536, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i501.i" ]
-  store i32 %.sink1631, ptr %519, align 8
-  store i32 %.sink1630, ptr %520, align 8
-  store i32 %.sink1629, ptr %524, align 4
+  %.sink1623 = phi i32 [ %555, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.loopexit.i" ], [ %537, %542 ], [ %537, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i492.i ], [ %537, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i501.i" ]
+  %.sink1622 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.loopexit.i" ], [ %534, %542 ], [ %534, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i492.i ], [ %534, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i501.i" ]
+  %.sink1621 = phi i32 [ %556, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.loopexit.i" ], [ %536, %542 ], [ %536, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i492.i ], [ %536, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i501.i" ]
+  store i32 %.sink1623, ptr %519, align 8
+  store i32 %.sink1622, ptr %520, align 8
+  store i32 %.sink1621, ptr %524, align 4
   store ptr %535, ptr %521, align 8
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.i"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.i": ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.i.sink.split", %512
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %16)
   %557 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i506.i = load i32, ptr %557, align 8, !noalias !196
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i506.i = load i32, ptr %557, align 8, !noalias !195
   %558 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %559 = load i32, ptr %558, align 8, !noalias !196
+  %559 = load i32, ptr %558, align 8, !noalias !195
   %.not.i.i.i.i.i.i.i.i.i.i.i.i507.i = icmp eq i32 %559, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i507.i, label %560, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit510.i"
 
 560:                                              ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !196
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !195
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit510.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit510.i": ; preds = %560, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit504.i"
@@ -1804,8 +1804,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %563 = shl i8 %.2.tr184.i, 4
   %564 = or disjoint i8 %563, 5
   %565 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i506.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i512.i = load i32, ptr %561, align 8, !noalias !205
-  %566 = load i32, ptr %562, align 8, !noalias !205
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i512.i = load i32, ptr %561, align 8, !noalias !204
+  %566 = load i32, ptr %562, align 8, !noalias !204
   %.not.i.i.i.i.i.i.i.i.i.i.i.i513.i = icmp eq i32 %566, 0
   %567 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i512.i to i64
   br label %568
@@ -1815,7 +1815,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i513.i, label %569, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit516.i"
 
 569:                                              ; preds = %568
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !204
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit516.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit516.i": ; preds = %569, %568
@@ -1828,7 +1828,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %574 = getelementptr inbounds nuw i8, ptr %573, i64 3
   store i8 %564, ptr %574, align 1
   %indvars.iv.next2431.i = add nuw nsw i64 %indvars.iv2430.i, 1
-  br label %568, !llvm.loop !214
+  br label %568, !llvm.loop !213
 
 575:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit516.i"
   %576 = add i32 %.2.i, 1
@@ -1837,36 +1837,36 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %1409
 
 578:                                              ; preds = %131
-  call void @llvm.experimental.noalias.scope.decl(metadata !215)
-  call void @llvm.experimental.noalias.scope.decl(metadata !218)
+  call void @llvm.experimental.noalias.scope.decl(metadata !214)
+  call void @llvm.experimental.noalias.scope.decl(metadata !217)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %17, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %579 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  %580 = load i8, ptr %52, align 8, !noalias !221
+  %580 = load i8, ptr %52, align 8, !noalias !220
   %581 = and i8 %580, 1
-  store i8 %581, ptr %579, align 8, !alias.scope !221
+  store i8 %581, ptr %579, align 8, !alias.scope !220
   %582 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %583 = load i32, ptr %582, align 4, !alias.scope !215
-  %.promoted.i.i.i.i.i.i.i518.i = load i32, ptr %17, align 8, !alias.scope !215
+  %583 = load i32, ptr %582, align 4, !alias.scope !214
+  %.promoted.i.i.i.i.i.i.i518.i = load i32, ptr %17, align 8, !alias.scope !214
   %584 = add i32 %.promoted.i.i.i.i.i.i.i518.i, %583
-  store i32 %584, ptr %17, align 8, !alias.scope !215
+  store i32 %584, ptr %17, align 8, !alias.scope !214
   %585 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %586 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %.promoted.i.i2.i.i.i.i.i519.i = load i32, ptr %586, align 8, !alias.scope !215
+  %.promoted.i.i2.i.i.i.i.i519.i = load i32, ptr %586, align 8, !alias.scope !214
   %.not215.i.i.i.i.i.i.i520.i = icmp eq i32 %.promoted.i.i2.i.i.i.i.i519.i, 0
   br i1 %.not215.i.i.i.i.i.i.i520.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.i", label %.lr.ph.i.i3.i.i.i.i.i521.i
 
 .lr.ph.i.i3.i.i.i.i.i521.i:                       ; preds = %578
   %587 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %588 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %589 = load i32, ptr %588, align 4, !alias.scope !215
+  %589 = load i32, ptr %588, align 4, !alias.scope !214
   %590 = getelementptr inbounds nuw i8, ptr %17, i64 28
   %591 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %.val3.i.i.i.i.i.i.i.i.i522.i = load ptr, ptr %591, align 8, !alias.scope !215
+  %.val3.i.i.i.i.i.i.i.i.i522.i = load ptr, ptr %591, align 8, !alias.scope !214
   %592 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %.val2.i.i.i.i.i.i.i.i.i523.i = load ptr, ptr %592, align 8, !alias.scope !215
-  %.promoted.i.i.pre.i.i.i.i.i.i.i524.i = load i32, ptr %585, align 8, !alias.scope !215
-  %.promoted14.i.i.pre.i.i.i.i.i.i.i525.i = load ptr, ptr %587, align 8, !alias.scope !215
-  %.promoted15.i.i.pre.i.i.i.i.i.i.i526.i = load i32, ptr %590, align 4, !alias.scope !215
+  %.val2.i.i.i.i.i.i.i.i.i523.i = load ptr, ptr %592, align 8, !alias.scope !214
+  %.promoted.i.i.pre.i.i.i.i.i.i.i524.i = load i32, ptr %585, align 8, !alias.scope !214
+  %.promoted14.i.i.pre.i.i.i.i.i.i.i525.i = load ptr, ptr %587, align 8, !alias.scope !214
+  %.promoted15.i.i.pre.i.i.i.i.i.i.i526.i = load i32, ptr %590, align 4, !alias.scope !214
   br label %593
 
 593:                                              ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i544.i", %.lr.ph.i.i3.i.i.i.i.i521.i
@@ -1890,16 +1890,16 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %602 = add i32 %597, 1
   %603 = add i32 %599, %589
   %604 = getelementptr i8, ptr %598, i64 38
-  %.val.i.i.i.i.i.i.i.i.i.i.i536.i = load i8, ptr %604, align 2, !noalias !215
+  %.val.i.i.i.i.i.i.i.i.i.i.i536.i = load i8, ptr %604, align 2, !noalias !214
   switch i8 %.val.i.i.i.i.i.i.i.i.i.i.i536.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.i.sink.split" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i532.i
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i537.i
   ]
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i537.i:      ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i535.i
-  %605 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i523.i, align 8, !noalias !215
+  %605 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i523.i, align 8, !noalias !214
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 88
-  %607 = load i32, ptr %606, align 8, !noalias !215
+  %607 = load i32, ptr %606, align 8, !noalias !214
   br label %608
 
 608:                                              ; preds = %610, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i537.i
@@ -1909,23 +1909,23 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %609, label %610, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.i.sink.split"
 
 610:                                              ; preds = %608
-  %611 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i522.i, align 8, !noalias !215
+  %611 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i522.i, align 8, !noalias !214
   %612 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i539.i to i64
   %613 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %611, i64 %612
   %614 = getelementptr i8, ptr %613, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i542.i = load i8, ptr %614, align 2, !noalias !215
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i542.i = load i8, ptr %614, align 2, !noalias !214
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i543.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i542.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i543.i, label %608, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i544.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i543.i, label %608, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i544.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i544.i": ; preds = %610
   %615 = getelementptr i8, ptr %613, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i545.i = load i16, ptr %615, align 4, !noalias !215
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i545.i = load i16, ptr %615, align 4, !noalias !214
   %616 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i545.i, 31
   %617 = zext nneg i16 %616 to i32
   %618 = shl nuw i32 1, %617
   %619 = and i32 %618, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i546.i = icmp eq i32 %619, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i546.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.i.sink.split", label %593, !llvm.loop !33
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i546.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.i.sink.split", label %593, !llvm.loop !32
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.loopexit.i": ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i532.i
   %620 = mul i32 %.lcssa16221634.i, %589
@@ -1934,26 +1934,26 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.i.sink.split"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.i.sink.split": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i544.i", %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i535.i, %608, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.loopexit.i"
-  %.sink1634 = phi i32 [ %621, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.loopexit.i" ], [ %603, %608 ], [ %603, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i535.i ], [ %603, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i544.i" ]
-  %.sink1633 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.loopexit.i" ], [ %600, %608 ], [ %600, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i535.i ], [ %600, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i544.i" ]
-  %.sink1632 = phi i32 [ %622, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.loopexit.i" ], [ %602, %608 ], [ %602, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i535.i ], [ %602, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i544.i" ]
-  store i32 %.sink1634, ptr %585, align 8
-  store i32 %.sink1633, ptr %586, align 8
-  store i32 %.sink1632, ptr %590, align 4
+  %.sink1626 = phi i32 [ %621, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.loopexit.i" ], [ %603, %608 ], [ %603, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i535.i ], [ %603, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i544.i" ]
+  %.sink1625 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.loopexit.i" ], [ %600, %608 ], [ %600, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i535.i ], [ %600, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i544.i" ]
+  %.sink1624 = phi i32 [ %622, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.loopexit.i" ], [ %602, %608 ], [ %602, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i535.i ], [ %602, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i544.i" ]
+  store i32 %.sink1626, ptr %585, align 8
+  store i32 %.sink1625, ptr %586, align 8
+  store i32 %.sink1624, ptr %590, align 4
   store ptr %601, ptr %587, align 8
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.i"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.i": ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.i.sink.split", %578
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %17)
   %623 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i549.i = load i32, ptr %623, align 8, !noalias !222
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i549.i = load i32, ptr %623, align 8, !noalias !221
   %624 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %625 = load i32, ptr %624, align 8, !noalias !222
+  %625 = load i32, ptr %624, align 8, !noalias !221
   %.not.i.i.i.i.i.i.i.i.i.i.i.i550.i = icmp eq i32 %625, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i550.i, label %626, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit553.i"
 
 626:                                              ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !222
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !221
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit553.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit553.i": ; preds = %626, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit547.i"
@@ -1963,8 +1963,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %629 = shl i8 %.2.tr183.i, 4
   %630 = or disjoint i8 %629, 6
   %631 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i549.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i555.i = load i32, ptr %627, align 8, !noalias !231
-  %632 = load i32, ptr %628, align 8, !noalias !231
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i555.i = load i32, ptr %627, align 8, !noalias !230
+  %632 = load i32, ptr %628, align 8, !noalias !230
   %.not.i.i.i.i.i.i.i.i.i.i.i.i556.i = icmp eq i32 %632, 0
   %633 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i555.i to i64
   br label %634
@@ -1974,7 +1974,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i556.i, label %635, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit559.i"
 
 635:                                              ; preds = %634
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !231
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !230
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit559.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit559.i": ; preds = %635, %634
@@ -1987,7 +1987,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %640 = getelementptr inbounds nuw i8, ptr %639, i64 3
   store i8 %630, ptr %640, align 1
   %indvars.iv.next2428.i = add nuw nsw i64 %indvars.iv2427.i, 1
-  br label %634, !llvm.loop !240
+  br label %634, !llvm.loop !239
 
 641:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit559.i"
   %642 = add i32 %.2.i, 1
@@ -1996,36 +1996,36 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %1409
 
 644:                                              ; preds = %131
-  call void @llvm.experimental.noalias.scope.decl(metadata !241)
-  call void @llvm.experimental.noalias.scope.decl(metadata !244)
+  call void @llvm.experimental.noalias.scope.decl(metadata !240)
+  call void @llvm.experimental.noalias.scope.decl(metadata !243)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %18, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %645 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %646 = load i8, ptr %52, align 8, !noalias !247
+  %646 = load i8, ptr %52, align 8, !noalias !246
   %647 = and i8 %646, 1
-  store i8 %647, ptr %645, align 8, !alias.scope !247
+  store i8 %647, ptr %645, align 8, !alias.scope !246
   %648 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %649 = load i32, ptr %648, align 4, !alias.scope !241
-  %.promoted.i.i.i.i.i.i.i561.i = load i32, ptr %18, align 8, !alias.scope !241
+  %649 = load i32, ptr %648, align 4, !alias.scope !240
+  %.promoted.i.i.i.i.i.i.i561.i = load i32, ptr %18, align 8, !alias.scope !240
   %650 = add i32 %.promoted.i.i.i.i.i.i.i561.i, %649
-  store i32 %650, ptr %18, align 8, !alias.scope !241
+  store i32 %650, ptr %18, align 8, !alias.scope !240
   %651 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %652 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %.promoted.i.i2.i.i.i.i.i562.i = load i32, ptr %652, align 8, !alias.scope !241
+  %.promoted.i.i2.i.i.i.i.i562.i = load i32, ptr %652, align 8, !alias.scope !240
   %.not215.i.i.i.i.i.i.i563.i = icmp eq i32 %.promoted.i.i2.i.i.i.i.i562.i, 0
   br i1 %.not215.i.i.i.i.i.i.i563.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.i", label %.lr.ph.i.i3.i.i.i.i.i564.i
 
 .lr.ph.i.i3.i.i.i.i.i564.i:                       ; preds = %644
   %653 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %654 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %655 = load i32, ptr %654, align 4, !alias.scope !241
+  %655 = load i32, ptr %654, align 4, !alias.scope !240
   %656 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %657 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %.val3.i.i.i.i.i.i.i.i.i565.i = load ptr, ptr %657, align 8, !alias.scope !241
+  %.val3.i.i.i.i.i.i.i.i.i565.i = load ptr, ptr %657, align 8, !alias.scope !240
   %658 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %.val2.i.i.i.i.i.i.i.i.i566.i = load ptr, ptr %658, align 8, !alias.scope !241
-  %.promoted.i.i.pre.i.i.i.i.i.i.i567.i = load i32, ptr %651, align 8, !alias.scope !241
-  %.promoted14.i.i.pre.i.i.i.i.i.i.i568.i = load ptr, ptr %653, align 8, !alias.scope !241
-  %.promoted15.i.i.pre.i.i.i.i.i.i.i569.i = load i32, ptr %656, align 4, !alias.scope !241
+  %.val2.i.i.i.i.i.i.i.i.i566.i = load ptr, ptr %658, align 8, !alias.scope !240
+  %.promoted.i.i.pre.i.i.i.i.i.i.i567.i = load i32, ptr %651, align 8, !alias.scope !240
+  %.promoted14.i.i.pre.i.i.i.i.i.i.i568.i = load ptr, ptr %653, align 8, !alias.scope !240
+  %.promoted15.i.i.pre.i.i.i.i.i.i.i569.i = load i32, ptr %656, align 4, !alias.scope !240
   br label %659
 
 659:                                              ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i587.i", %.lr.ph.i.i3.i.i.i.i.i564.i
@@ -2049,16 +2049,16 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %668 = add i32 %663, 1
   %669 = add i32 %665, %655
   %670 = getelementptr i8, ptr %664, i64 38
-  %.val.i.i.i.i.i.i.i.i.i.i.i579.i = load i8, ptr %670, align 2, !noalias !241
+  %.val.i.i.i.i.i.i.i.i.i.i.i579.i = load i8, ptr %670, align 2, !noalias !240
   switch i8 %.val.i.i.i.i.i.i.i.i.i.i.i579.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.i.sink.split" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i575.i
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i580.i
   ]
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i580.i:      ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i578.i
-  %671 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i566.i, align 8, !noalias !241
+  %671 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i566.i, align 8, !noalias !240
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 88
-  %673 = load i32, ptr %672, align 8, !noalias !241
+  %673 = load i32, ptr %672, align 8, !noalias !240
   br label %674
 
 674:                                              ; preds = %676, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i580.i
@@ -2068,23 +2068,23 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %675, label %676, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.i.sink.split"
 
 676:                                              ; preds = %674
-  %677 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i565.i, align 8, !noalias !241
+  %677 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i565.i, align 8, !noalias !240
   %678 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i582.i to i64
   %679 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %677, i64 %678
   %680 = getelementptr i8, ptr %679, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i585.i = load i8, ptr %680, align 2, !noalias !241
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i585.i = load i8, ptr %680, align 2, !noalias !240
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i586.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i585.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i586.i, label %674, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i587.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i586.i, label %674, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i587.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i587.i": ; preds = %676
   %681 = getelementptr i8, ptr %679, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i588.i = load i16, ptr %681, align 4, !noalias !241
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i588.i = load i16, ptr %681, align 4, !noalias !240
   %682 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i588.i, 31
   %683 = zext nneg i16 %682 to i32
   %684 = shl nuw i32 1, %683
   %685 = and i32 %684, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i589.i = icmp eq i32 %685, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i589.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.i.sink.split", label %659, !llvm.loop !33
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i589.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.i.sink.split", label %659, !llvm.loop !32
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.loopexit.i": ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i575.i
   %686 = mul i32 %.lcssa15821594.i, %655
@@ -2093,26 +2093,26 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.i.sink.split"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.i.sink.split": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i587.i", %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i578.i, %674, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.loopexit.i"
-  %.sink1637 = phi i32 [ %687, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.loopexit.i" ], [ %669, %674 ], [ %669, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i578.i ], [ %669, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i587.i" ]
-  %.sink1636 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.loopexit.i" ], [ %666, %674 ], [ %666, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i578.i ], [ %666, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i587.i" ]
-  %.sink1635 = phi i32 [ %688, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.loopexit.i" ], [ %668, %674 ], [ %668, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i578.i ], [ %668, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i587.i" ]
-  store i32 %.sink1637, ptr %651, align 8
-  store i32 %.sink1636, ptr %652, align 8
-  store i32 %.sink1635, ptr %656, align 4
+  %.sink1629 = phi i32 [ %687, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.loopexit.i" ], [ %669, %674 ], [ %669, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i578.i ], [ %669, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i587.i" ]
+  %.sink1628 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.loopexit.i" ], [ %666, %674 ], [ %666, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i578.i ], [ %666, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i587.i" ]
+  %.sink1627 = phi i32 [ %688, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.loopexit.i" ], [ %668, %674 ], [ %668, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i578.i ], [ %668, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i587.i" ]
+  store i32 %.sink1629, ptr %651, align 8
+  store i32 %.sink1628, ptr %652, align 8
+  store i32 %.sink1627, ptr %656, align 4
   store ptr %667, ptr %653, align 8
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.i"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.i": ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.i.sink.split", %644
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %18)
   %689 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i592.i = load i32, ptr %689, align 8, !noalias !248
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i592.i = load i32, ptr %689, align 8, !noalias !247
   %690 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %691 = load i32, ptr %690, align 8, !noalias !248
+  %691 = load i32, ptr %690, align 8, !noalias !247
   %.not.i.i.i.i.i.i.i.i.i.i.i.i593.i = icmp eq i32 %691, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i593.i, label %692, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit596.i"
 
 692:                                              ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !248
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !247
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit596.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit596.i": ; preds = %692, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit590.i"
@@ -2122,8 +2122,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %695 = shl i8 %.2.tr182.i, 4
   %696 = or disjoint i8 %695, 7
   %697 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i592.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i598.i = load i32, ptr %693, align 8, !noalias !257
-  %698 = load i32, ptr %694, align 8, !noalias !257
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i598.i = load i32, ptr %693, align 8, !noalias !256
+  %698 = load i32, ptr %694, align 8, !noalias !256
   %.not.i.i.i.i.i.i.i.i.i.i.i.i599.i = icmp eq i32 %698, 0
   %699 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i598.i to i64
   br label %700
@@ -2133,7 +2133,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i599.i, label %701, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit602.i"
 
 701:                                              ; preds = %700
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !257
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !256
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit602.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit602.i": ; preds = %701, %700
@@ -2146,7 +2146,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %706 = getelementptr inbounds nuw i8, ptr %705, i64 3
   store i8 %696, ptr %706, align 1
   %indvars.iv.next2425.i = add nuw nsw i64 %indvars.iv2424.i, 1
-  br label %700, !llvm.loop !266
+  br label %700, !llvm.loop !265
 
 707:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit602.i"
   %708 = add i32 %.2.i, 1
@@ -2160,36 +2160,36 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %1409
 
 714:                                              ; preds = %131
-  call void @llvm.experimental.noalias.scope.decl(metadata !267)
-  call void @llvm.experimental.noalias.scope.decl(metadata !270)
+  call void @llvm.experimental.noalias.scope.decl(metadata !266)
+  call void @llvm.experimental.noalias.scope.decl(metadata !269)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %19, ptr noundef nonnull readonly align 8 dereferenceable(73) %7, i64 72, i1 false)
   %715 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %716 = load i8, ptr %52, align 8, !noalias !273
+  %716 = load i8, ptr %52, align 8, !noalias !272
   %717 = and i8 %716, 1
-  store i8 %717, ptr %715, align 8, !alias.scope !273
+  store i8 %717, ptr %715, align 8, !alias.scope !272
   %718 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %719 = load i32, ptr %718, align 4, !alias.scope !267
-  %.promoted.i.i.i.i.i.i.i604.i = load i32, ptr %19, align 8, !alias.scope !267
+  %719 = load i32, ptr %718, align 4, !alias.scope !266
+  %.promoted.i.i.i.i.i.i.i604.i = load i32, ptr %19, align 8, !alias.scope !266
   %720 = add i32 %.promoted.i.i.i.i.i.i.i604.i, %719
-  store i32 %720, ptr %19, align 8, !alias.scope !267
+  store i32 %720, ptr %19, align 8, !alias.scope !266
   %721 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %722 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.promoted.i.i2.i.i.i.i.i605.i = load i32, ptr %722, align 8, !alias.scope !267
+  %.promoted.i.i2.i.i.i.i.i605.i = load i32, ptr %722, align 8, !alias.scope !266
   %.not215.i.i.i.i.i.i.i606.i = icmp eq i32 %.promoted.i.i2.i.i.i.i.i605.i, 0
   br i1 %.not215.i.i.i.i.i.i.i606.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.i", label %.lr.ph.i.i3.i.i.i.i.i607.i
 
 .lr.ph.i.i3.i.i.i.i.i607.i:                       ; preds = %714
   %723 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %724 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %725 = load i32, ptr %724, align 4, !alias.scope !267
+  %725 = load i32, ptr %724, align 4, !alias.scope !266
   %726 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %727 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %.val3.i.i.i.i.i.i.i.i.i608.i = load ptr, ptr %727, align 8, !alias.scope !267
+  %.val3.i.i.i.i.i.i.i.i.i608.i = load ptr, ptr %727, align 8, !alias.scope !266
   %728 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %.val2.i.i.i.i.i.i.i.i.i609.i = load ptr, ptr %728, align 8, !alias.scope !267
-  %.promoted.i.i.pre.i.i.i.i.i.i.i610.i = load i32, ptr %721, align 8, !alias.scope !267
-  %.promoted14.i.i.pre.i.i.i.i.i.i.i611.i = load ptr, ptr %723, align 8, !alias.scope !267
-  %.promoted15.i.i.pre.i.i.i.i.i.i.i612.i = load i32, ptr %726, align 4, !alias.scope !267
+  %.val2.i.i.i.i.i.i.i.i.i609.i = load ptr, ptr %728, align 8, !alias.scope !266
+  %.promoted.i.i.pre.i.i.i.i.i.i.i610.i = load i32, ptr %721, align 8, !alias.scope !266
+  %.promoted14.i.i.pre.i.i.i.i.i.i.i611.i = load ptr, ptr %723, align 8, !alias.scope !266
+  %.promoted15.i.i.pre.i.i.i.i.i.i.i612.i = load i32, ptr %726, align 4, !alias.scope !266
   br label %729
 
 729:                                              ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i630.i", %.lr.ph.i.i3.i.i.i.i.i607.i
@@ -2213,16 +2213,16 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %738 = add i32 %733, 1
   %739 = add i32 %735, %725
   %740 = getelementptr i8, ptr %734, i64 38
-  %.val.i.i.i.i.i.i.i.i.i.i.i622.i = load i8, ptr %740, align 2, !noalias !267
+  %.val.i.i.i.i.i.i.i.i.i.i.i622.i = load i8, ptr %740, align 2, !noalias !266
   switch i8 %.val.i.i.i.i.i.i.i.i.i.i.i622.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.i.sink.split" [
     i8 6, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i618.i
     i8 14, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i623.i
   ]
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i623.i:      ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i621.i
-  %741 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i609.i, align 8, !noalias !267
+  %741 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i609.i, align 8, !noalias !266
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 88
-  %743 = load i32, ptr %742, align 8, !noalias !267
+  %743 = load i32, ptr %742, align 8, !noalias !266
   br label %744
 
 744:                                              ; preds = %746, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i623.i
@@ -2232,23 +2232,23 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %745, label %746, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.i.sink.split"
 
 746:                                              ; preds = %744
-  %747 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i608.i, align 8, !noalias !267
+  %747 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i608.i, align 8, !noalias !266
   %748 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i625.i to i64
   %749 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %747, i64 %748
   %750 = getelementptr i8, ptr %749, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i628.i = load i8, ptr %750, align 2, !noalias !267
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i628.i = load i8, ptr %750, align 2, !noalias !266
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i629.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i628.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i629.i, label %744, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i630.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i629.i, label %744, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i630.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i630.i": ; preds = %746
   %751 = getelementptr i8, ptr %749, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i631.i = load i16, ptr %751, align 4, !noalias !267
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i631.i = load i16, ptr %751, align 4, !noalias !266
   %752 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i631.i, 31
   %753 = zext nneg i16 %752 to i32
   %754 = shl nuw i32 1, %753
   %755 = and i32 %754, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i632.i = icmp eq i32 %755, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i632.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.i.sink.split", label %729, !llvm.loop !33
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i632.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.i.sink.split", label %729, !llvm.loop !32
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.loopexit.i": ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.i.i.i618.i
   %756 = mul i32 %.lcssa15441555.i, %725
@@ -2257,26 +2257,26 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.i.sink.split"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.i.sink.split": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i630.i", %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i621.i, %744, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.loopexit.i"
-  %.sink1640 = phi i32 [ %757, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.loopexit.i" ], [ %739, %744 ], [ %739, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i621.i ], [ %739, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i630.i" ]
-  %.sink1639 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.loopexit.i" ], [ %736, %744 ], [ %736, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i621.i ], [ %736, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i630.i" ]
-  %.sink1638 = phi i32 [ %758, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.loopexit.i" ], [ %738, %744 ], [ %738, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i621.i ], [ %738, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i630.i" ]
-  store i32 %.sink1640, ptr %721, align 8
-  store i32 %.sink1639, ptr %722, align 8
-  store i32 %.sink1638, ptr %726, align 4
+  %.sink1632 = phi i32 [ %757, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.loopexit.i" ], [ %739, %744 ], [ %739, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i621.i ], [ %739, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i630.i" ]
+  %.sink1631 = phi i32 [ 0, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.loopexit.i" ], [ %736, %744 ], [ %736, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i621.i ], [ %736, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i630.i" ]
+  %.sink1630 = phi i32 [ %758, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.loopexit.i" ], [ %738, %744 ], [ %738, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i621.i ], [ %738, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i630.i" ]
+  store i32 %.sink1632, ptr %721, align 8
+  store i32 %.sink1631, ptr %722, align 8
+  store i32 %.sink1630, ptr %726, align 4
   store ptr %737, ptr %723, align 8
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.i"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.i": ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.i.sink.split", %714
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %19)
   %759 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i635.i = load i32, ptr %759, align 8, !noalias !274
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i635.i = load i32, ptr %759, align 8, !noalias !273
   %760 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %761 = load i32, ptr %760, align 8, !noalias !274
+  %761 = load i32, ptr %760, align 8, !noalias !273
   %.not.i.i.i.i.i.i.i.i.i.i.i.i636.i = icmp eq i32 %761, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i636.i, label %762, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit639.i"
 
 762:                                              ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !274
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !273
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit639.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit639.i": ; preds = %762, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj.exit633.i"
@@ -2286,8 +2286,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %765 = shl i8 %.2.tr181.i, 4
   %766 = or disjoint i8 %765, 8
   %767 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i635.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i641.i = load i32, ptr %763, align 8, !noalias !283
-  %768 = load i32, ptr %764, align 8, !noalias !283
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i641.i = load i32, ptr %763, align 8, !noalias !282
+  %768 = load i32, ptr %764, align 8, !noalias !282
   %.not.i.i.i.i.i.i.i.i.i.i.i.i642.i = icmp eq i32 %768, 0
   %769 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i641.i to i64
   br label %770
@@ -2297,7 +2297,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i642.i, label %771, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit645.i"
 
 771:                                              ; preds = %770
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !283
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !282
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit645.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit645.i": ; preds = %771, %770
@@ -2310,7 +2310,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 3
   store i8 %766, ptr %776, align 1
   %indvars.iv.next2422.i = add nuw nsw i64 %indvars.iv2421.i, 1
-  br label %770, !llvm.loop !292
+  br label %770, !llvm.loop !291
 
 777:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit645.i"
   %778 = add i32 %.2.i, 1
@@ -2320,39 +2320,39 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 780:                                              ; preds = %131
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %7)
-  %781 = load i32, ptr %.sroa.6.0..sroa_idx2460.i5565, align 4, !noalias !293
-  %782 = load i32, ptr %7, align 8, !noalias !293
+  %781 = load i32, ptr %.sroa.6.0..sroa_idx2460.i4757, align 4, !noalias !292
+  %782 = load i32, ptr %7, align 8, !noalias !292
   %783 = sub i32 %782, %781
-  store i32 %783, ptr %7, align 8, !noalias !293
-  %784 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !293
-  %.promoted.i.i.i.i.i.i.i646.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !293
-  %.promoted10.i.i.i.i.i.i.i.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !293
-  %.promoted11.i.i.i.i.i.i.i.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !293
-  %.promoted15.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !293
-  %.val3.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !293
-  %.val2.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !293
+  store i32 %783, ptr %7, align 8, !noalias !292
+  %784 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !292
+  %.promoted.i.i.i.i.i.i.i646.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !292
+  %.promoted10.i.i.i.i.i.i.i.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !292
+  %.promoted11.i.i.i.i.i.i.i.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !292
+  %.promoted15.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !292
+  %.val3.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !292
+  %.val2.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !292
   br label %785
 
-785:                                              ; preds = %.backedge1935, %780
-  %786 = phi ptr [ %.promoted15.i.i.i.i.i.i.i.i, %780 ], [ %797, %.backedge1935 ]
-  %.val12.i.i.i.i.i.i.i.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i.i, %780 ], [ %.val14.i.i.i.i.i.i.i.i, %.backedge1935 ]
-  %787 = phi i32 [ %.promoted10.i.i.i.i.i.i.i.i, %780 ], [ %798, %.backedge1935 ]
-  %788 = phi ptr [ %.promoted15.i.i.i.i.i.i.i.i, %780 ], [ %.be1938, %.backedge1935 ]
-  %789 = phi i32 [ %.promoted11.i.i.i.i.i.i.i.i, %780 ], [ %.be1939, %.backedge1935 ]
-  %790 = phi i32 [ %.promoted10.i.i.i.i.i.i.i.i, %780 ], [ %.be1940, %.backedge1935 ]
-  %791 = phi i32 [ %.promoted.i.i.i.i.i.i.i646.i, %780 ], [ %792, %.backedge1935 ]
+785:                                              ; preds = %.backedge1927, %780
+  %786 = phi ptr [ %.promoted15.i.i.i.i.i.i.i.i, %780 ], [ %797, %.backedge1927 ]
+  %.val12.i.i.i.i.i.i.i.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i.i, %780 ], [ %.val14.i.i.i.i.i.i.i.i, %.backedge1927 ]
+  %787 = phi i32 [ %.promoted10.i.i.i.i.i.i.i.i, %780 ], [ %798, %.backedge1927 ]
+  %788 = phi ptr [ %.promoted15.i.i.i.i.i.i.i.i, %780 ], [ %.be1930, %.backedge1927 ]
+  %789 = phi i32 [ %.promoted11.i.i.i.i.i.i.i.i, %780 ], [ %.be1931, %.backedge1927 ]
+  %790 = phi i32 [ %.promoted10.i.i.i.i.i.i.i.i, %780 ], [ %.be1932, %.backedge1927 ]
+  %791 = phi i32 [ %.promoted.i.i.i.i.i.i.i646.i, %780 ], [ %792, %.backedge1927 ]
   %792 = sub i32 %791, %784
-  store i32 %792, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !293
+  store i32 %792, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !292
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %790, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i, label %793
 
 793:                                              ; preds = %785
   %794 = add i32 %789, 1
-  store i32 %794, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !293
+  store i32 %794, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !292
   %795 = add i32 %790, -1
-  store i32 %795, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !293
+  store i32 %795, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !292
   %796 = getelementptr inbounds i8, ptr %788, i64 -20
-  store ptr %796, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !293
+  store ptr %796, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !292
   br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %793, %785
@@ -2367,15 +2367,15 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i
   %802 = getelementptr i8, ptr %799, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i = load i8, ptr %802, align 2, !noalias !293
+  %.val.i.i.i.i.i.i.i.i.i.i = load i8, ptr %802, align 2, !noalias !292
   %.not3.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i, 6
-  br i1 %.not3.i.i.i.i.i.i.i.i.i.i, label %.backedge1935, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i.i"
+  br i1 %.not3.i.i.i.i.i.i.i.i.i.i, label %.backedge1927, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i.i"
 
-.backedge1935:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i"
-  %.be1938 = phi ptr [ %799, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %797, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i" ]
-  %.be1939 = phi i32 [ %800, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %.val14.i.i.i.i.i.i.i.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i" ]
-  %.be1940 = phi i32 [ %801, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %798, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i" ]
-  br label %785, !llvm.loop !296
+.backedge1927:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i"
+  %.be1930 = phi ptr [ %799, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %797, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i" ]
+  %.be1931 = phi i32 [ %800, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %.val14.i.i.i.i.i.i.i.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i" ]
+  %.be1932 = phi i32 [ %801, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i ], [ %798, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i" ]
+  br label %785, !llvm.loop !295
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i.i": ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i
   %.not.i.i.i.i.i.i.i647.i = icmp eq i32 %.val14.i.i.i.i.i.i.i.i, 0
@@ -2383,14 +2383,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 "_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i.i"
   %803 = getelementptr i8, ptr %797, i64 18
-  %.val5.val.i.i.i.i.i.i.i.i = load i8, ptr %803, align 2, !noalias !293
+  %.val5.val.i.i.i.i.i.i.i.i = load i8, ptr %803, align 2, !noalias !292
   %804 = icmp eq i8 %.val5.val.i.i.i.i.i.i.i.i, 14
   br i1 %804, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit.i"
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i.i"
-  %805 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i, align 8, !noalias !293
+  %805 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i, align 8, !noalias !292
   %806 = getelementptr inbounds nuw i8, ptr %805, i64 88
-  %807 = load i32, ptr %806, align 8, !noalias !293
+  %807 = load i32, ptr %806, align 8, !noalias !292
   br label %808
 
 808:                                              ; preds = %810, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i
@@ -2400,34 +2400,34 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %809, label %810, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit.i"
 
 810:                                              ; preds = %808
-  %811 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i, align 8, !noalias !293
+  %811 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i, align 8, !noalias !292
   %812 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i648.i to i64
   %813 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %811, i64 %812
   %814 = getelementptr i8, ptr %813, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i649.i = load i8, ptr %814, align 2, !noalias !293
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i649.i = load i8, ptr %814, align 2, !noalias !292
   %.not.i.i.i.i.i.i.i.i.i.i.i.i650.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i649.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i650.i, label %808, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i650.i, label %808, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i": ; preds = %810
   %815 = getelementptr i8, ptr %813, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i = load i16, ptr %815, align 4, !noalias !293
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i = load i16, ptr %815, align 4, !noalias !292
   %816 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i, 31
   %817 = zext nneg i16 %816 to i32
   %818 = shl nuw i32 1, %817
   %819 = and i32 %818, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %819, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit.i", label %.backedge1935
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit.i", label %.backedge1927
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit.i": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i", %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i.i", %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i.i", %808
   %820 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i652.i = load i32, ptr %820, align 8, !noalias !297
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i652.i = load i32, ptr %820, align 8, !noalias !296
   %821 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %822 = load i32, ptr %821, align 8, !noalias !297
+  %822 = load i32, ptr %821, align 8, !noalias !296
   %.not.i.i.i.i.i.i.i.i.i.i.i.i653.i = icmp eq i32 %822, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i653.i, label %823, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit656.i"
 
 823:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !297
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !296
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit656.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit656.i": ; preds = %823, %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit.i"
@@ -2436,8 +2436,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %.2.tr180.i = trunc i32 %.2.i to i8
   %826 = shl i8 %.2.tr180.i, 4
   %827 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i652.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i658.i = load i32, ptr %824, align 8, !noalias !306
-  %828 = load i32, ptr %825, align 8, !noalias !306
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i658.i = load i32, ptr %824, align 8, !noalias !305
+  %828 = load i32, ptr %825, align 8, !noalias !305
   %.not.i.i.i.i.i.i.i.i.i.i.i.i659.i = icmp eq i32 %828, 0
   %829 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i658.i to i64
   br label %830
@@ -2447,7 +2447,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i659.i, label %831, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit662.i"
 
 831:                                              ; preds = %830
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !306
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !305
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit662.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit662.i": ; preds = %831, %830
@@ -2460,7 +2460,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %836 = getelementptr inbounds nuw i8, ptr %835, i64 3
   store i8 %826, ptr %836, align 1
   %indvars.iv.next2419.i = add nuw nsw i64 %indvars.iv2418.i, 1
-  br label %830, !llvm.loop !315
+  br label %830, !llvm.loop !314
 
 837:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit662.i"
   %838 = add i32 %.2.i, 1
@@ -2470,39 +2470,39 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 840:                                              ; preds = %131
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %7)
-  %841 = load i32, ptr %.sroa.6.0..sroa_idx2460.i5565, align 4, !noalias !316
-  %842 = load i32, ptr %7, align 8, !noalias !316
+  %841 = load i32, ptr %.sroa.6.0..sroa_idx2460.i4757, align 4, !noalias !315
+  %842 = load i32, ptr %7, align 8, !noalias !315
   %843 = sub i32 %842, %841
-  store i32 %843, ptr %7, align 8, !noalias !316
-  %844 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !316
-  %.promoted.i.i.i.i.i.i.i663.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !316
-  %.promoted10.i.i.i.i.i.i.i664.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !316
-  %.promoted11.i.i.i.i.i.i.i665.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !316
-  %.promoted15.i.i.i.i.i.i.i666.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !316
-  %.val3.i.i.i.i.i.i.i667.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !316
-  %.val2.i.i.i.i.i.i.i668.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !316
+  store i32 %843, ptr %7, align 8, !noalias !315
+  %844 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !315
+  %.promoted.i.i.i.i.i.i.i663.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !315
+  %.promoted10.i.i.i.i.i.i.i664.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !315
+  %.promoted11.i.i.i.i.i.i.i665.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !315
+  %.promoted15.i.i.i.i.i.i.i666.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !315
+  %.val3.i.i.i.i.i.i.i667.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !315
+  %.val2.i.i.i.i.i.i.i668.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !315
   br label %845
 
-845:                                              ; preds = %.backedge1944, %840
-  %846 = phi ptr [ %.promoted15.i.i.i.i.i.i.i666.i, %840 ], [ %857, %.backedge1944 ]
-  %.val12.i.i.i.i.i.i.i670.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i665.i, %840 ], [ %.val14.i.i.i.i.i.i.i673.i, %.backedge1944 ]
-  %847 = phi i32 [ %.promoted10.i.i.i.i.i.i.i664.i, %840 ], [ %858, %.backedge1944 ]
-  %848 = phi ptr [ %.promoted15.i.i.i.i.i.i.i666.i, %840 ], [ %.be1947, %.backedge1944 ]
-  %849 = phi i32 [ %.promoted11.i.i.i.i.i.i.i665.i, %840 ], [ %.be1948, %.backedge1944 ]
-  %850 = phi i32 [ %.promoted10.i.i.i.i.i.i.i664.i, %840 ], [ %.be1949, %.backedge1944 ]
-  %851 = phi i32 [ %.promoted.i.i.i.i.i.i.i663.i, %840 ], [ %852, %.backedge1944 ]
+845:                                              ; preds = %.backedge1936, %840
+  %846 = phi ptr [ %.promoted15.i.i.i.i.i.i.i666.i, %840 ], [ %857, %.backedge1936 ]
+  %.val12.i.i.i.i.i.i.i670.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i665.i, %840 ], [ %.val14.i.i.i.i.i.i.i673.i, %.backedge1936 ]
+  %847 = phi i32 [ %.promoted10.i.i.i.i.i.i.i664.i, %840 ], [ %858, %.backedge1936 ]
+  %848 = phi ptr [ %.promoted15.i.i.i.i.i.i.i666.i, %840 ], [ %.be1939, %.backedge1936 ]
+  %849 = phi i32 [ %.promoted11.i.i.i.i.i.i.i665.i, %840 ], [ %.be1940, %.backedge1936 ]
+  %850 = phi i32 [ %.promoted10.i.i.i.i.i.i.i664.i, %840 ], [ %.be1941, %.backedge1936 ]
+  %851 = phi i32 [ %.promoted.i.i.i.i.i.i.i663.i, %840 ], [ %852, %.backedge1936 ]
   %852 = sub i32 %851, %844
-  store i32 %852, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !316
+  store i32 %852, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !315
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i671.i = icmp eq i32 %850, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i671.i, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i672.i, label %853
 
 853:                                              ; preds = %845
   %854 = add i32 %849, 1
-  store i32 %854, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !316
+  store i32 %854, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !315
   %855 = add i32 %850, -1
-  store i32 %855, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !316
+  store i32 %855, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !315
   %856 = getelementptr inbounds i8, ptr %848, i64 -20
-  store ptr %856, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !316
+  store ptr %856, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !315
   br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i672.i
 
 _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i672.i: ; preds = %853, %845
@@ -2517,15 +2517,15 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i675.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i672.i
   %862 = getelementptr i8, ptr %859, i64 18
-  %.val.i.i.i.i.i.i.i.i.i676.i = load i8, ptr %862, align 2, !noalias !316
+  %.val.i.i.i.i.i.i.i.i.i676.i = load i8, ptr %862, align 2, !noalias !315
   %.not3.i.i.i.i.i.i.i.i.i677.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i676.i, 6
-  br i1 %.not3.i.i.i.i.i.i.i.i.i677.i, label %.backedge1944, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i678.i"
+  br i1 %.not3.i.i.i.i.i.i.i.i.i677.i, label %.backedge1936, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i678.i"
 
-.backedge1944:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i675.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i687.i"
-  %.be1947 = phi ptr [ %859, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i675.i ], [ %857, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i687.i" ]
-  %.be1948 = phi i32 [ %860, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i675.i ], [ %.val14.i.i.i.i.i.i.i673.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i687.i" ]
-  %.be1949 = phi i32 [ %861, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i675.i ], [ %858, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i687.i" ]
-  br label %845, !llvm.loop !296
+.backedge1936:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i675.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i687.i"
+  %.be1939 = phi ptr [ %859, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i675.i ], [ %857, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i687.i" ]
+  %.be1940 = phi i32 [ %860, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i675.i ], [ %.val14.i.i.i.i.i.i.i673.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i687.i" ]
+  %.be1941 = phi i32 [ %861, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i675.i ], [ %858, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i687.i" ]
+  br label %845, !llvm.loop !295
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i678.i": ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i675.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i672.i
   %.not.i.i.i.i.i.i.i679.i = icmp eq i32 %.val14.i.i.i.i.i.i.i673.i, 0
@@ -2533,14 +2533,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 "_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i680.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i678.i"
   %863 = getelementptr i8, ptr %857, i64 18
-  %.val5.val.i.i.i.i.i.i.i681.i = load i8, ptr %863, align 2, !noalias !316
+  %.val5.val.i.i.i.i.i.i.i681.i = load i8, ptr %863, align 2, !noalias !315
   %864 = icmp eq i8 %.val5.val.i.i.i.i.i.i.i681.i, 14
   br i1 %864, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i682.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit690.i"
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i682.i:          ; preds = %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i680.i"
-  %865 = load ptr, ptr %.val2.i.i.i.i.i.i.i668.i, align 8, !noalias !316
+  %865 = load ptr, ptr %.val2.i.i.i.i.i.i.i668.i, align 8, !noalias !315
   %866 = getelementptr inbounds nuw i8, ptr %865, i64 88
-  %867 = load i32, ptr %866, align 8, !noalias !316
+  %867 = load i32, ptr %866, align 8, !noalias !315
   br label %868
 
 868:                                              ; preds = %870, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i682.i
@@ -2550,34 +2550,34 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %869, label %870, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit690.i"
 
 870:                                              ; preds = %868
-  %871 = load ptr, ptr %.val3.i.i.i.i.i.i.i667.i, align 8, !noalias !316
+  %871 = load ptr, ptr %.val3.i.i.i.i.i.i.i667.i, align 8, !noalias !315
   %872 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i684.i to i64
   %873 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %871, i64 %872
   %874 = getelementptr i8, ptr %873, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i685.i = load i8, ptr %874, align 2, !noalias !316
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i685.i = load i8, ptr %874, align 2, !noalias !315
   %.not.i.i.i.i.i.i.i.i.i.i.i.i686.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i685.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i686.i, label %868, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i687.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i686.i, label %868, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i687.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i687.i": ; preds = %870
   %875 = getelementptr i8, ptr %873, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i688.i = load i16, ptr %875, align 4, !noalias !316
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i688.i = load i16, ptr %875, align 4, !noalias !315
   %876 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i688.i, 31
   %877 = zext nneg i16 %876 to i32
   %878 = shl nuw i32 1, %877
   %879 = and i32 %878, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i689.i = icmp eq i32 %879, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i689.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit690.i", label %.backedge1944
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i689.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit690.i", label %.backedge1936
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit690.i": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i687.i", %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i680.i", %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i678.i", %868
   %880 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i692.i = load i32, ptr %880, align 8, !noalias !319
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i692.i = load i32, ptr %880, align 8, !noalias !318
   %881 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %882 = load i32, ptr %881, align 8, !noalias !319
+  %882 = load i32, ptr %881, align 8, !noalias !318
   %.not.i.i.i.i.i.i.i.i.i.i.i.i693.i = icmp eq i32 %882, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i693.i, label %883, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit696.i"
 
 883:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit690.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !319
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !318
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit696.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit696.i": ; preds = %883, %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit690.i"
@@ -2587,8 +2587,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %886 = shl i8 %.2.tr179.i, 4
   %887 = or disjoint i8 %886, 1
   %888 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i692.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i698.i = load i32, ptr %884, align 8, !noalias !328
-  %889 = load i32, ptr %885, align 8, !noalias !328
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i698.i = load i32, ptr %884, align 8, !noalias !327
+  %889 = load i32, ptr %885, align 8, !noalias !327
   %.not.i.i.i.i.i.i.i.i.i.i.i.i699.i = icmp eq i32 %889, 0
   %890 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i698.i to i64
   br label %891
@@ -2598,7 +2598,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i699.i, label %892, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit702.i"
 
 892:                                              ; preds = %891
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !328
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !327
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit702.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit702.i": ; preds = %892, %891
@@ -2611,7 +2611,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %897 = getelementptr inbounds nuw i8, ptr %896, i64 3
   store i8 %887, ptr %897, align 1
   %indvars.iv.next2416.i = add nuw nsw i64 %indvars.iv2415.i, 1
-  br label %891, !llvm.loop !337
+  br label %891, !llvm.loop !336
 
 898:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit702.i"
   %899 = add i32 %.2.i, 1
@@ -2621,39 +2621,39 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 901:                                              ; preds = %131
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %7)
-  %902 = load i32, ptr %.sroa.6.0..sroa_idx2460.i5565, align 4, !noalias !338
-  %903 = load i32, ptr %7, align 8, !noalias !338
+  %902 = load i32, ptr %.sroa.6.0..sroa_idx2460.i4757, align 4, !noalias !337
+  %903 = load i32, ptr %7, align 8, !noalias !337
   %904 = sub i32 %903, %902
-  store i32 %904, ptr %7, align 8, !noalias !338
-  %905 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !338
-  %.promoted.i.i.i.i.i.i.i703.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !338
-  %.promoted10.i.i.i.i.i.i.i704.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !338
-  %.promoted11.i.i.i.i.i.i.i705.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !338
-  %.promoted15.i.i.i.i.i.i.i706.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !338
-  %.val3.i.i.i.i.i.i.i707.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !338
-  %.val2.i.i.i.i.i.i.i708.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !338
+  store i32 %904, ptr %7, align 8, !noalias !337
+  %905 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !337
+  %.promoted.i.i.i.i.i.i.i703.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !337
+  %.promoted10.i.i.i.i.i.i.i704.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !337
+  %.promoted11.i.i.i.i.i.i.i705.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !337
+  %.promoted15.i.i.i.i.i.i.i706.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !337
+  %.val3.i.i.i.i.i.i.i707.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !337
+  %.val2.i.i.i.i.i.i.i708.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !337
   br label %906
 
-906:                                              ; preds = %.backedge1953, %901
-  %907 = phi ptr [ %.promoted15.i.i.i.i.i.i.i706.i, %901 ], [ %918, %.backedge1953 ]
-  %.val12.i.i.i.i.i.i.i710.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i705.i, %901 ], [ %.val14.i.i.i.i.i.i.i713.i, %.backedge1953 ]
-  %908 = phi i32 [ %.promoted10.i.i.i.i.i.i.i704.i, %901 ], [ %919, %.backedge1953 ]
-  %909 = phi ptr [ %.promoted15.i.i.i.i.i.i.i706.i, %901 ], [ %.be1956, %.backedge1953 ]
-  %910 = phi i32 [ %.promoted11.i.i.i.i.i.i.i705.i, %901 ], [ %.be1957, %.backedge1953 ]
-  %911 = phi i32 [ %.promoted10.i.i.i.i.i.i.i704.i, %901 ], [ %.be1958, %.backedge1953 ]
-  %912 = phi i32 [ %.promoted.i.i.i.i.i.i.i703.i, %901 ], [ %913, %.backedge1953 ]
+906:                                              ; preds = %.backedge1945, %901
+  %907 = phi ptr [ %.promoted15.i.i.i.i.i.i.i706.i, %901 ], [ %918, %.backedge1945 ]
+  %.val12.i.i.i.i.i.i.i710.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i705.i, %901 ], [ %.val14.i.i.i.i.i.i.i713.i, %.backedge1945 ]
+  %908 = phi i32 [ %.promoted10.i.i.i.i.i.i.i704.i, %901 ], [ %919, %.backedge1945 ]
+  %909 = phi ptr [ %.promoted15.i.i.i.i.i.i.i706.i, %901 ], [ %.be1948, %.backedge1945 ]
+  %910 = phi i32 [ %.promoted11.i.i.i.i.i.i.i705.i, %901 ], [ %.be1949, %.backedge1945 ]
+  %911 = phi i32 [ %.promoted10.i.i.i.i.i.i.i704.i, %901 ], [ %.be1950, %.backedge1945 ]
+  %912 = phi i32 [ %.promoted.i.i.i.i.i.i.i703.i, %901 ], [ %913, %.backedge1945 ]
   %913 = sub i32 %912, %905
-  store i32 %913, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !338
+  store i32 %913, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !337
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i711.i = icmp eq i32 %911, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i711.i, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i712.i, label %914
 
 914:                                              ; preds = %906
   %915 = add i32 %910, 1
-  store i32 %915, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !338
+  store i32 %915, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !337
   %916 = add i32 %911, -1
-  store i32 %916, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !338
+  store i32 %916, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !337
   %917 = getelementptr inbounds i8, ptr %909, i64 -20
-  store ptr %917, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !338
+  store ptr %917, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !337
   br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i712.i
 
 _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i712.i: ; preds = %914, %906
@@ -2668,15 +2668,15 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i715.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i712.i
   %923 = getelementptr i8, ptr %920, i64 18
-  %.val.i.i.i.i.i.i.i.i.i716.i = load i8, ptr %923, align 2, !noalias !338
+  %.val.i.i.i.i.i.i.i.i.i716.i = load i8, ptr %923, align 2, !noalias !337
   %.not3.i.i.i.i.i.i.i.i.i717.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i716.i, 6
-  br i1 %.not3.i.i.i.i.i.i.i.i.i717.i, label %.backedge1953, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i718.i"
+  br i1 %.not3.i.i.i.i.i.i.i.i.i717.i, label %.backedge1945, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i718.i"
 
-.backedge1953:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i715.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i727.i"
-  %.be1956 = phi ptr [ %920, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i715.i ], [ %918, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i727.i" ]
-  %.be1957 = phi i32 [ %921, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i715.i ], [ %.val14.i.i.i.i.i.i.i713.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i727.i" ]
-  %.be1958 = phi i32 [ %922, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i715.i ], [ %919, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i727.i" ]
-  br label %906, !llvm.loop !296
+.backedge1945:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i715.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i727.i"
+  %.be1948 = phi ptr [ %920, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i715.i ], [ %918, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i727.i" ]
+  %.be1949 = phi i32 [ %921, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i715.i ], [ %.val14.i.i.i.i.i.i.i713.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i727.i" ]
+  %.be1950 = phi i32 [ %922, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i715.i ], [ %919, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i727.i" ]
+  br label %906, !llvm.loop !295
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i718.i": ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i715.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i712.i
   %.not.i.i.i.i.i.i.i719.i = icmp eq i32 %.val14.i.i.i.i.i.i.i713.i, 0
@@ -2684,14 +2684,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 "_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i720.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i718.i"
   %924 = getelementptr i8, ptr %918, i64 18
-  %.val5.val.i.i.i.i.i.i.i721.i = load i8, ptr %924, align 2, !noalias !338
+  %.val5.val.i.i.i.i.i.i.i721.i = load i8, ptr %924, align 2, !noalias !337
   %925 = icmp eq i8 %.val5.val.i.i.i.i.i.i.i721.i, 14
   br i1 %925, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i722.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit730.i"
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i722.i:          ; preds = %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i720.i"
-  %926 = load ptr, ptr %.val2.i.i.i.i.i.i.i708.i, align 8, !noalias !338
+  %926 = load ptr, ptr %.val2.i.i.i.i.i.i.i708.i, align 8, !noalias !337
   %927 = getelementptr inbounds nuw i8, ptr %926, i64 88
-  %928 = load i32, ptr %927, align 8, !noalias !338
+  %928 = load i32, ptr %927, align 8, !noalias !337
   br label %929
 
 929:                                              ; preds = %931, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i722.i
@@ -2701,34 +2701,34 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %930, label %931, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit730.i"
 
 931:                                              ; preds = %929
-  %932 = load ptr, ptr %.val3.i.i.i.i.i.i.i707.i, align 8, !noalias !338
+  %932 = load ptr, ptr %.val3.i.i.i.i.i.i.i707.i, align 8, !noalias !337
   %933 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i724.i to i64
   %934 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %932, i64 %933
   %935 = getelementptr i8, ptr %934, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i725.i = load i8, ptr %935, align 2, !noalias !338
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i725.i = load i8, ptr %935, align 2, !noalias !337
   %.not.i.i.i.i.i.i.i.i.i.i.i.i726.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i725.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i726.i, label %929, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i727.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i726.i, label %929, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i727.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i727.i": ; preds = %931
   %936 = getelementptr i8, ptr %934, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i728.i = load i16, ptr %936, align 4, !noalias !338
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i728.i = load i16, ptr %936, align 4, !noalias !337
   %937 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i728.i, 31
   %938 = zext nneg i16 %937 to i32
   %939 = shl nuw i32 1, %938
   %940 = and i32 %939, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i729.i = icmp eq i32 %940, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i729.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit730.i", label %.backedge1953
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i729.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit730.i", label %.backedge1945
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit730.i": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i727.i", %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i720.i", %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i718.i", %929
   %941 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i732.i = load i32, ptr %941, align 8, !noalias !341
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i732.i = load i32, ptr %941, align 8, !noalias !340
   %942 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %943 = load i32, ptr %942, align 8, !noalias !341
+  %943 = load i32, ptr %942, align 8, !noalias !340
   %.not.i.i.i.i.i.i.i.i.i.i.i.i733.i = icmp eq i32 %943, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i733.i, label %944, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit736.i"
 
 944:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit730.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !341
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !340
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit736.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit736.i": ; preds = %944, %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit730.i"
@@ -2738,8 +2738,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %947 = shl i8 %.2.tr178.i, 4
   %948 = or disjoint i8 %947, 2
   %949 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i732.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i738.i = load i32, ptr %945, align 8, !noalias !350
-  %950 = load i32, ptr %946, align 8, !noalias !350
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i738.i = load i32, ptr %945, align 8, !noalias !349
+  %950 = load i32, ptr %946, align 8, !noalias !349
   %.not.i.i.i.i.i.i.i.i.i.i.i.i739.i = icmp eq i32 %950, 0
   %951 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i738.i to i64
   br label %952
@@ -2749,7 +2749,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i739.i, label %953, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit742.i"
 
 953:                                              ; preds = %952
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !350
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !349
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit742.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit742.i": ; preds = %953, %952
@@ -2762,7 +2762,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %958 = getelementptr inbounds nuw i8, ptr %957, i64 3
   store i8 %948, ptr %958, align 1
   %indvars.iv.next2413.i = add nuw nsw i64 %indvars.iv2412.i, 1
-  br label %952, !llvm.loop !359
+  br label %952, !llvm.loop !358
 
 959:                                              ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit742.i"
   %960 = add i32 %.2.i, 1
@@ -2772,39 +2772,39 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 962:                                              ; preds = %131
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %7)
-  %963 = load i32, ptr %.sroa.6.0..sroa_idx2460.i5565, align 4, !noalias !360
-  %964 = load i32, ptr %7, align 8, !noalias !360
+  %963 = load i32, ptr %.sroa.6.0..sroa_idx2460.i4757, align 4, !noalias !359
+  %964 = load i32, ptr %7, align 8, !noalias !359
   %965 = sub i32 %964, %963
-  store i32 %965, ptr %7, align 8, !noalias !360
-  %966 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !360
-  %.promoted.i.i.i.i.i.i.i743.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !360
-  %.promoted10.i.i.i.i.i.i.i744.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !360
-  %.promoted11.i.i.i.i.i.i.i745.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !360
-  %.promoted15.i.i.i.i.i.i.i746.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !360
-  %.val3.i.i.i.i.i.i.i747.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !360
-  %.val2.i.i.i.i.i.i.i748.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !360
+  store i32 %965, ptr %7, align 8, !noalias !359
+  %966 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !359
+  %.promoted.i.i.i.i.i.i.i743.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !359
+  %.promoted10.i.i.i.i.i.i.i744.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !359
+  %.promoted11.i.i.i.i.i.i.i745.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !359
+  %.promoted15.i.i.i.i.i.i.i746.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !359
+  %.val3.i.i.i.i.i.i.i747.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !359
+  %.val2.i.i.i.i.i.i.i748.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !359
   br label %967
 
-967:                                              ; preds = %.backedge1962, %962
-  %968 = phi ptr [ %.promoted15.i.i.i.i.i.i.i746.i, %962 ], [ %979, %.backedge1962 ]
-  %.val12.i.i.i.i.i.i.i750.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i745.i, %962 ], [ %.val14.i.i.i.i.i.i.i753.i, %.backedge1962 ]
-  %969 = phi i32 [ %.promoted10.i.i.i.i.i.i.i744.i, %962 ], [ %980, %.backedge1962 ]
-  %970 = phi ptr [ %.promoted15.i.i.i.i.i.i.i746.i, %962 ], [ %.be1965, %.backedge1962 ]
-  %971 = phi i32 [ %.promoted11.i.i.i.i.i.i.i745.i, %962 ], [ %.be1966, %.backedge1962 ]
-  %972 = phi i32 [ %.promoted10.i.i.i.i.i.i.i744.i, %962 ], [ %.be1967, %.backedge1962 ]
-  %973 = phi i32 [ %.promoted.i.i.i.i.i.i.i743.i, %962 ], [ %974, %.backedge1962 ]
+967:                                              ; preds = %.backedge1954, %962
+  %968 = phi ptr [ %.promoted15.i.i.i.i.i.i.i746.i, %962 ], [ %979, %.backedge1954 ]
+  %.val12.i.i.i.i.i.i.i750.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i745.i, %962 ], [ %.val14.i.i.i.i.i.i.i753.i, %.backedge1954 ]
+  %969 = phi i32 [ %.promoted10.i.i.i.i.i.i.i744.i, %962 ], [ %980, %.backedge1954 ]
+  %970 = phi ptr [ %.promoted15.i.i.i.i.i.i.i746.i, %962 ], [ %.be1957, %.backedge1954 ]
+  %971 = phi i32 [ %.promoted11.i.i.i.i.i.i.i745.i, %962 ], [ %.be1958, %.backedge1954 ]
+  %972 = phi i32 [ %.promoted10.i.i.i.i.i.i.i744.i, %962 ], [ %.be1959, %.backedge1954 ]
+  %973 = phi i32 [ %.promoted.i.i.i.i.i.i.i743.i, %962 ], [ %974, %.backedge1954 ]
   %974 = sub i32 %973, %966
-  store i32 %974, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !360
+  store i32 %974, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !359
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i751.i = icmp eq i32 %972, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i751.i, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i752.i, label %975
 
 975:                                              ; preds = %967
   %976 = add i32 %971, 1
-  store i32 %976, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !360
+  store i32 %976, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !359
   %977 = add i32 %972, -1
-  store i32 %977, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !360
+  store i32 %977, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !359
   %978 = getelementptr inbounds i8, ptr %970, i64 -20
-  store ptr %978, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !360
+  store ptr %978, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !359
   br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i752.i
 
 _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i752.i: ; preds = %975, %967
@@ -2819,15 +2819,15 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i755.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i752.i
   %984 = getelementptr i8, ptr %981, i64 18
-  %.val.i.i.i.i.i.i.i.i.i756.i = load i8, ptr %984, align 2, !noalias !360
+  %.val.i.i.i.i.i.i.i.i.i756.i = load i8, ptr %984, align 2, !noalias !359
   %.not3.i.i.i.i.i.i.i.i.i757.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i756.i, 6
-  br i1 %.not3.i.i.i.i.i.i.i.i.i757.i, label %.backedge1962, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i758.i"
+  br i1 %.not3.i.i.i.i.i.i.i.i.i757.i, label %.backedge1954, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i758.i"
 
-.backedge1962:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i755.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i767.i"
-  %.be1965 = phi ptr [ %981, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i755.i ], [ %979, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i767.i" ]
-  %.be1966 = phi i32 [ %982, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i755.i ], [ %.val14.i.i.i.i.i.i.i753.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i767.i" ]
-  %.be1967 = phi i32 [ %983, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i755.i ], [ %980, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i767.i" ]
-  br label %967, !llvm.loop !296
+.backedge1954:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i755.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i767.i"
+  %.be1957 = phi ptr [ %981, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i755.i ], [ %979, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i767.i" ]
+  %.be1958 = phi i32 [ %982, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i755.i ], [ %.val14.i.i.i.i.i.i.i753.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i767.i" ]
+  %.be1959 = phi i32 [ %983, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i755.i ], [ %980, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i767.i" ]
+  br label %967, !llvm.loop !295
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i758.i": ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i755.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i752.i
   %.not.i.i.i.i.i.i.i759.i = icmp eq i32 %.val14.i.i.i.i.i.i.i753.i, 0
@@ -2835,14 +2835,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 "_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i760.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i758.i"
   %985 = getelementptr i8, ptr %979, i64 18
-  %.val5.val.i.i.i.i.i.i.i761.i = load i8, ptr %985, align 2, !noalias !360
+  %.val5.val.i.i.i.i.i.i.i761.i = load i8, ptr %985, align 2, !noalias !359
   %986 = icmp eq i8 %.val5.val.i.i.i.i.i.i.i761.i, 14
   br i1 %986, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i762.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit770.i"
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i762.i:          ; preds = %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i760.i"
-  %987 = load ptr, ptr %.val2.i.i.i.i.i.i.i748.i, align 8, !noalias !360
+  %987 = load ptr, ptr %.val2.i.i.i.i.i.i.i748.i, align 8, !noalias !359
   %988 = getelementptr inbounds nuw i8, ptr %987, i64 88
-  %989 = load i32, ptr %988, align 8, !noalias !360
+  %989 = load i32, ptr %988, align 8, !noalias !359
   br label %990
 
 990:                                              ; preds = %992, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i762.i
@@ -2852,34 +2852,34 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %991, label %992, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit770.i"
 
 992:                                              ; preds = %990
-  %993 = load ptr, ptr %.val3.i.i.i.i.i.i.i747.i, align 8, !noalias !360
+  %993 = load ptr, ptr %.val3.i.i.i.i.i.i.i747.i, align 8, !noalias !359
   %994 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i764.i to i64
   %995 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %993, i64 %994
   %996 = getelementptr i8, ptr %995, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i765.i = load i8, ptr %996, align 2, !noalias !360
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i765.i = load i8, ptr %996, align 2, !noalias !359
   %.not.i.i.i.i.i.i.i.i.i.i.i.i766.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i765.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i766.i, label %990, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i767.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i766.i, label %990, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i767.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i767.i": ; preds = %992
   %997 = getelementptr i8, ptr %995, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i768.i = load i16, ptr %997, align 4, !noalias !360
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i768.i = load i16, ptr %997, align 4, !noalias !359
   %998 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i768.i, 31
   %999 = zext nneg i16 %998 to i32
   %1000 = shl nuw i32 1, %999
   %1001 = and i32 %1000, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i769.i = icmp eq i32 %1001, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i769.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit770.i", label %.backedge1962
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i769.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit770.i", label %.backedge1954
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit770.i": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i767.i", %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i760.i", %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i758.i", %990
   %1002 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i772.i = load i32, ptr %1002, align 8, !noalias !363
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i772.i = load i32, ptr %1002, align 8, !noalias !362
   %1003 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %1004 = load i32, ptr %1003, align 8, !noalias !363
+  %1004 = load i32, ptr %1003, align 8, !noalias !362
   %.not.i.i.i.i.i.i.i.i.i.i.i.i773.i = icmp eq i32 %1004, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i773.i, label %1005, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit776.i"
 
 1005:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit770.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !363
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !362
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit776.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit776.i": ; preds = %1005, %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit770.i"
@@ -2889,8 +2889,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1008 = shl i8 %.2.tr177.i, 4
   %1009 = or disjoint i8 %1008, 3
   %1010 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i772.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i778.i = load i32, ptr %1006, align 8, !noalias !372
-  %1011 = load i32, ptr %1007, align 8, !noalias !372
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i778.i = load i32, ptr %1006, align 8, !noalias !371
+  %1011 = load i32, ptr %1007, align 8, !noalias !371
   %.not.i.i.i.i.i.i.i.i.i.i.i.i779.i = icmp eq i32 %1011, 0
   %1012 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i778.i to i64
   br label %1013
@@ -2900,7 +2900,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i779.i, label %1014, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit782.i"
 
 1014:                                             ; preds = %1013
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !372
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !371
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit782.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit782.i": ; preds = %1014, %1013
@@ -2913,7 +2913,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 3
   store i8 %1009, ptr %1019, align 1
   %indvars.iv.next2410.i = add nuw nsw i64 %indvars.iv2409.i, 1
-  br label %1013, !llvm.loop !381
+  br label %1013, !llvm.loop !380
 
 1020:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit782.i"
   %1021 = add i32 %.2.i, 1
@@ -2923,39 +2923,39 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 1023:                                             ; preds = %131
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %7)
-  %1024 = load i32, ptr %.sroa.6.0..sroa_idx2460.i5565, align 4, !noalias !382
-  %1025 = load i32, ptr %7, align 8, !noalias !382
+  %1024 = load i32, ptr %.sroa.6.0..sroa_idx2460.i4757, align 4, !noalias !381
+  %1025 = load i32, ptr %7, align 8, !noalias !381
   %1026 = sub i32 %1025, %1024
-  store i32 %1026, ptr %7, align 8, !noalias !382
-  %1027 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !382
-  %.promoted.i.i.i.i.i.i.i783.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !382
-  %.promoted10.i.i.i.i.i.i.i784.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !382
-  %.promoted11.i.i.i.i.i.i.i785.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !382
-  %.promoted15.i.i.i.i.i.i.i786.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !382
-  %.val3.i.i.i.i.i.i.i787.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !382
-  %.val2.i.i.i.i.i.i.i788.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !382
+  store i32 %1026, ptr %7, align 8, !noalias !381
+  %1027 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !381
+  %.promoted.i.i.i.i.i.i.i783.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !381
+  %.promoted10.i.i.i.i.i.i.i784.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !381
+  %.promoted11.i.i.i.i.i.i.i785.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !381
+  %.promoted15.i.i.i.i.i.i.i786.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !381
+  %.val3.i.i.i.i.i.i.i787.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !381
+  %.val2.i.i.i.i.i.i.i788.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !381
   br label %1028
 
-1028:                                             ; preds = %.backedge1971, %1023
-  %1029 = phi ptr [ %.promoted15.i.i.i.i.i.i.i786.i, %1023 ], [ %1040, %.backedge1971 ]
-  %.val12.i.i.i.i.i.i.i790.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i785.i, %1023 ], [ %.val14.i.i.i.i.i.i.i793.i, %.backedge1971 ]
-  %1030 = phi i32 [ %.promoted10.i.i.i.i.i.i.i784.i, %1023 ], [ %1041, %.backedge1971 ]
-  %1031 = phi ptr [ %.promoted15.i.i.i.i.i.i.i786.i, %1023 ], [ %.be1974, %.backedge1971 ]
-  %1032 = phi i32 [ %.promoted11.i.i.i.i.i.i.i785.i, %1023 ], [ %.be1975, %.backedge1971 ]
-  %1033 = phi i32 [ %.promoted10.i.i.i.i.i.i.i784.i, %1023 ], [ %.be1976, %.backedge1971 ]
-  %1034 = phi i32 [ %.promoted.i.i.i.i.i.i.i783.i, %1023 ], [ %1035, %.backedge1971 ]
+1028:                                             ; preds = %.backedge1963, %1023
+  %1029 = phi ptr [ %.promoted15.i.i.i.i.i.i.i786.i, %1023 ], [ %1040, %.backedge1963 ]
+  %.val12.i.i.i.i.i.i.i790.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i785.i, %1023 ], [ %.val14.i.i.i.i.i.i.i793.i, %.backedge1963 ]
+  %1030 = phi i32 [ %.promoted10.i.i.i.i.i.i.i784.i, %1023 ], [ %1041, %.backedge1963 ]
+  %1031 = phi ptr [ %.promoted15.i.i.i.i.i.i.i786.i, %1023 ], [ %.be1966, %.backedge1963 ]
+  %1032 = phi i32 [ %.promoted11.i.i.i.i.i.i.i785.i, %1023 ], [ %.be1967, %.backedge1963 ]
+  %1033 = phi i32 [ %.promoted10.i.i.i.i.i.i.i784.i, %1023 ], [ %.be1968, %.backedge1963 ]
+  %1034 = phi i32 [ %.promoted.i.i.i.i.i.i.i783.i, %1023 ], [ %1035, %.backedge1963 ]
   %1035 = sub i32 %1034, %1027
-  store i32 %1035, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !382
+  store i32 %1035, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !381
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i791.i = icmp eq i32 %1033, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i791.i, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i792.i, label %1036
 
 1036:                                             ; preds = %1028
   %1037 = add i32 %1032, 1
-  store i32 %1037, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !382
+  store i32 %1037, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !381
   %1038 = add i32 %1033, -1
-  store i32 %1038, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !382
+  store i32 %1038, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !381
   %1039 = getelementptr inbounds i8, ptr %1031, i64 -20
-  store ptr %1039, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !382
+  store ptr %1039, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !381
   br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i792.i
 
 _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i792.i: ; preds = %1036, %1028
@@ -2970,15 +2970,15 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i795.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i792.i
   %1045 = getelementptr i8, ptr %1042, i64 18
-  %.val.i.i.i.i.i.i.i.i.i796.i = load i8, ptr %1045, align 2, !noalias !382
+  %.val.i.i.i.i.i.i.i.i.i796.i = load i8, ptr %1045, align 2, !noalias !381
   %.not3.i.i.i.i.i.i.i.i.i797.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i796.i, 6
-  br i1 %.not3.i.i.i.i.i.i.i.i.i797.i, label %.backedge1971, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i798.i"
+  br i1 %.not3.i.i.i.i.i.i.i.i.i797.i, label %.backedge1963, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i798.i"
 
-.backedge1971:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i795.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i807.i"
-  %.be1974 = phi ptr [ %1042, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i795.i ], [ %1040, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i807.i" ]
-  %.be1975 = phi i32 [ %1043, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i795.i ], [ %.val14.i.i.i.i.i.i.i793.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i807.i" ]
-  %.be1976 = phi i32 [ %1044, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i795.i ], [ %1041, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i807.i" ]
-  br label %1028, !llvm.loop !296
+.backedge1963:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i795.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i807.i"
+  %.be1966 = phi ptr [ %1042, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i795.i ], [ %1040, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i807.i" ]
+  %.be1967 = phi i32 [ %1043, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i795.i ], [ %.val14.i.i.i.i.i.i.i793.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i807.i" ]
+  %.be1968 = phi i32 [ %1044, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i795.i ], [ %1041, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i807.i" ]
+  br label %1028, !llvm.loop !295
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i798.i": ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i795.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i792.i
   %.not.i.i.i.i.i.i.i799.i = icmp eq i32 %.val14.i.i.i.i.i.i.i793.i, 0
@@ -2986,14 +2986,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 "_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i800.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i798.i"
   %1046 = getelementptr i8, ptr %1040, i64 18
-  %.val5.val.i.i.i.i.i.i.i801.i = load i8, ptr %1046, align 2, !noalias !382
+  %.val5.val.i.i.i.i.i.i.i801.i = load i8, ptr %1046, align 2, !noalias !381
   %1047 = icmp eq i8 %.val5.val.i.i.i.i.i.i.i801.i, 14
   br i1 %1047, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i802.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit810.i"
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i802.i:          ; preds = %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i800.i"
-  %1048 = load ptr, ptr %.val2.i.i.i.i.i.i.i788.i, align 8, !noalias !382
+  %1048 = load ptr, ptr %.val2.i.i.i.i.i.i.i788.i, align 8, !noalias !381
   %1049 = getelementptr inbounds nuw i8, ptr %1048, i64 88
-  %1050 = load i32, ptr %1049, align 8, !noalias !382
+  %1050 = load i32, ptr %1049, align 8, !noalias !381
   br label %1051
 
 1051:                                             ; preds = %1053, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i802.i
@@ -3003,34 +3003,34 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %1052, label %1053, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit810.i"
 
 1053:                                             ; preds = %1051
-  %1054 = load ptr, ptr %.val3.i.i.i.i.i.i.i787.i, align 8, !noalias !382
+  %1054 = load ptr, ptr %.val3.i.i.i.i.i.i.i787.i, align 8, !noalias !381
   %1055 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i804.i to i64
   %1056 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1054, i64 %1055
   %1057 = getelementptr i8, ptr %1056, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i805.i = load i8, ptr %1057, align 2, !noalias !382
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i805.i = load i8, ptr %1057, align 2, !noalias !381
   %.not.i.i.i.i.i.i.i.i.i.i.i.i806.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i805.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i806.i, label %1051, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i807.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i806.i, label %1051, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i807.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i807.i": ; preds = %1053
   %1058 = getelementptr i8, ptr %1056, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i808.i = load i16, ptr %1058, align 4, !noalias !382
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i808.i = load i16, ptr %1058, align 4, !noalias !381
   %1059 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i808.i, 31
   %1060 = zext nneg i16 %1059 to i32
   %1061 = shl nuw i32 1, %1060
   %1062 = and i32 %1061, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i809.i = icmp eq i32 %1062, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i809.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit810.i", label %.backedge1971
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i809.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit810.i", label %.backedge1963
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit810.i": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i807.i", %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i800.i", %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i798.i", %1051
   %1063 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i812.i = load i32, ptr %1063, align 8, !noalias !385
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i812.i = load i32, ptr %1063, align 8, !noalias !384
   %1064 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %1065 = load i32, ptr %1064, align 8, !noalias !385
+  %1065 = load i32, ptr %1064, align 8, !noalias !384
   %.not.i.i.i.i.i.i.i.i.i.i.i.i813.i = icmp eq i32 %1065, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i813.i, label %1066, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit816.i"
 
 1066:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit810.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !385
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !384
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit816.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit816.i": ; preds = %1066, %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit810.i"
@@ -3040,8 +3040,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1069 = shl i8 %.2.tr176.i, 4
   %1070 = or disjoint i8 %1069, 4
   %1071 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i812.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i818.i = load i32, ptr %1067, align 8, !noalias !394
-  %1072 = load i32, ptr %1068, align 8, !noalias !394
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i818.i = load i32, ptr %1067, align 8, !noalias !393
+  %1072 = load i32, ptr %1068, align 8, !noalias !393
   %.not.i.i.i.i.i.i.i.i.i.i.i.i819.i = icmp eq i32 %1072, 0
   %1073 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i818.i to i64
   br label %1074
@@ -3051,7 +3051,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i819.i, label %1075, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit822.i"
 
 1075:                                             ; preds = %1074
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !394
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !393
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit822.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit822.i": ; preds = %1075, %1074
@@ -3064,7 +3064,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1080 = getelementptr inbounds nuw i8, ptr %1079, i64 3
   store i8 %1070, ptr %1080, align 1
   %indvars.iv.next2407.i = add nuw nsw i64 %indvars.iv2406.i, 1
-  br label %1074, !llvm.loop !403
+  br label %1074, !llvm.loop !402
 
 1081:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit822.i"
   %1082 = add i32 %.2.i, 1
@@ -3074,39 +3074,39 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 1084:                                             ; preds = %131
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %7)
-  %1085 = load i32, ptr %.sroa.6.0..sroa_idx2460.i5565, align 4, !noalias !404
-  %1086 = load i32, ptr %7, align 8, !noalias !404
+  %1085 = load i32, ptr %.sroa.6.0..sroa_idx2460.i4757, align 4, !noalias !403
+  %1086 = load i32, ptr %7, align 8, !noalias !403
   %1087 = sub i32 %1086, %1085
-  store i32 %1087, ptr %7, align 8, !noalias !404
-  %1088 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !404
-  %.promoted.i.i.i.i.i.i.i823.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !404
-  %.promoted10.i.i.i.i.i.i.i824.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !404
-  %.promoted11.i.i.i.i.i.i.i825.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !404
-  %.promoted15.i.i.i.i.i.i.i826.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !404
-  %.val3.i.i.i.i.i.i.i827.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !404
-  %.val2.i.i.i.i.i.i.i828.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !404
+  store i32 %1087, ptr %7, align 8, !noalias !403
+  %1088 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !403
+  %.promoted.i.i.i.i.i.i.i823.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !403
+  %.promoted10.i.i.i.i.i.i.i824.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !403
+  %.promoted11.i.i.i.i.i.i.i825.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !403
+  %.promoted15.i.i.i.i.i.i.i826.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !403
+  %.val3.i.i.i.i.i.i.i827.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !403
+  %.val2.i.i.i.i.i.i.i828.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !403
   br label %1089
 
-1089:                                             ; preds = %.backedge1980, %1084
-  %1090 = phi ptr [ %.promoted15.i.i.i.i.i.i.i826.i, %1084 ], [ %1101, %.backedge1980 ]
-  %.val12.i.i.i.i.i.i.i830.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i825.i, %1084 ], [ %.val14.i.i.i.i.i.i.i833.i, %.backedge1980 ]
-  %1091 = phi i32 [ %.promoted10.i.i.i.i.i.i.i824.i, %1084 ], [ %1102, %.backedge1980 ]
-  %1092 = phi ptr [ %.promoted15.i.i.i.i.i.i.i826.i, %1084 ], [ %.be1983, %.backedge1980 ]
-  %1093 = phi i32 [ %.promoted11.i.i.i.i.i.i.i825.i, %1084 ], [ %.be1984, %.backedge1980 ]
-  %1094 = phi i32 [ %.promoted10.i.i.i.i.i.i.i824.i, %1084 ], [ %.be1985, %.backedge1980 ]
-  %1095 = phi i32 [ %.promoted.i.i.i.i.i.i.i823.i, %1084 ], [ %1096, %.backedge1980 ]
+1089:                                             ; preds = %.backedge1972, %1084
+  %1090 = phi ptr [ %.promoted15.i.i.i.i.i.i.i826.i, %1084 ], [ %1101, %.backedge1972 ]
+  %.val12.i.i.i.i.i.i.i830.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i825.i, %1084 ], [ %.val14.i.i.i.i.i.i.i833.i, %.backedge1972 ]
+  %1091 = phi i32 [ %.promoted10.i.i.i.i.i.i.i824.i, %1084 ], [ %1102, %.backedge1972 ]
+  %1092 = phi ptr [ %.promoted15.i.i.i.i.i.i.i826.i, %1084 ], [ %.be1975, %.backedge1972 ]
+  %1093 = phi i32 [ %.promoted11.i.i.i.i.i.i.i825.i, %1084 ], [ %.be1976, %.backedge1972 ]
+  %1094 = phi i32 [ %.promoted10.i.i.i.i.i.i.i824.i, %1084 ], [ %.be1977, %.backedge1972 ]
+  %1095 = phi i32 [ %.promoted.i.i.i.i.i.i.i823.i, %1084 ], [ %1096, %.backedge1972 ]
   %1096 = sub i32 %1095, %1088
-  store i32 %1096, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !404
+  store i32 %1096, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !403
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i831.i = icmp eq i32 %1094, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i831.i, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i832.i, label %1097
 
 1097:                                             ; preds = %1089
   %1098 = add i32 %1093, 1
-  store i32 %1098, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !404
+  store i32 %1098, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !403
   %1099 = add i32 %1094, -1
-  store i32 %1099, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !404
+  store i32 %1099, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !403
   %1100 = getelementptr inbounds i8, ptr %1092, i64 -20
-  store ptr %1100, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !404
+  store ptr %1100, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !403
   br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i832.i
 
 _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i832.i: ; preds = %1097, %1089
@@ -3121,15 +3121,15 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i835.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i832.i
   %1106 = getelementptr i8, ptr %1103, i64 18
-  %.val.i.i.i.i.i.i.i.i.i836.i = load i8, ptr %1106, align 2, !noalias !404
+  %.val.i.i.i.i.i.i.i.i.i836.i = load i8, ptr %1106, align 2, !noalias !403
   %.not3.i.i.i.i.i.i.i.i.i837.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i836.i, 6
-  br i1 %.not3.i.i.i.i.i.i.i.i.i837.i, label %.backedge1980, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i838.i"
+  br i1 %.not3.i.i.i.i.i.i.i.i.i837.i, label %.backedge1972, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i838.i"
 
-.backedge1980:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i835.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i847.i"
-  %.be1983 = phi ptr [ %1103, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i835.i ], [ %1101, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i847.i" ]
-  %.be1984 = phi i32 [ %1104, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i835.i ], [ %.val14.i.i.i.i.i.i.i833.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i847.i" ]
-  %.be1985 = phi i32 [ %1105, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i835.i ], [ %1102, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i847.i" ]
-  br label %1089, !llvm.loop !296
+.backedge1972:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i835.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i847.i"
+  %.be1975 = phi ptr [ %1103, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i835.i ], [ %1101, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i847.i" ]
+  %.be1976 = phi i32 [ %1104, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i835.i ], [ %.val14.i.i.i.i.i.i.i833.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i847.i" ]
+  %.be1977 = phi i32 [ %1105, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i835.i ], [ %1102, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i847.i" ]
+  br label %1089, !llvm.loop !295
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i838.i": ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i835.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i832.i
   %.not.i.i.i.i.i.i.i839.i = icmp eq i32 %.val14.i.i.i.i.i.i.i833.i, 0
@@ -3137,14 +3137,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 "_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i840.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i838.i"
   %1107 = getelementptr i8, ptr %1101, i64 18
-  %.val5.val.i.i.i.i.i.i.i841.i = load i8, ptr %1107, align 2, !noalias !404
+  %.val5.val.i.i.i.i.i.i.i841.i = load i8, ptr %1107, align 2, !noalias !403
   %1108 = icmp eq i8 %.val5.val.i.i.i.i.i.i.i841.i, 14
   br i1 %1108, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i842.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit850.i"
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i842.i:          ; preds = %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i840.i"
-  %1109 = load ptr, ptr %.val2.i.i.i.i.i.i.i828.i, align 8, !noalias !404
+  %1109 = load ptr, ptr %.val2.i.i.i.i.i.i.i828.i, align 8, !noalias !403
   %1110 = getelementptr inbounds nuw i8, ptr %1109, i64 88
-  %1111 = load i32, ptr %1110, align 8, !noalias !404
+  %1111 = load i32, ptr %1110, align 8, !noalias !403
   br label %1112
 
 1112:                                             ; preds = %1114, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i842.i
@@ -3154,34 +3154,34 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %1113, label %1114, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit850.i"
 
 1114:                                             ; preds = %1112
-  %1115 = load ptr, ptr %.val3.i.i.i.i.i.i.i827.i, align 8, !noalias !404
+  %1115 = load ptr, ptr %.val3.i.i.i.i.i.i.i827.i, align 8, !noalias !403
   %1116 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i844.i to i64
   %1117 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1115, i64 %1116
   %1118 = getelementptr i8, ptr %1117, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i845.i = load i8, ptr %1118, align 2, !noalias !404
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i845.i = load i8, ptr %1118, align 2, !noalias !403
   %.not.i.i.i.i.i.i.i.i.i.i.i.i846.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i845.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i846.i, label %1112, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i847.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i846.i, label %1112, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i847.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i847.i": ; preds = %1114
   %1119 = getelementptr i8, ptr %1117, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i848.i = load i16, ptr %1119, align 4, !noalias !404
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i848.i = load i16, ptr %1119, align 4, !noalias !403
   %1120 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i848.i, 31
   %1121 = zext nneg i16 %1120 to i32
   %1122 = shl nuw i32 1, %1121
   %1123 = and i32 %1122, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i849.i = icmp eq i32 %1123, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i849.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit850.i", label %.backedge1980
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i849.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit850.i", label %.backedge1972
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit850.i": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i847.i", %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i840.i", %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i838.i", %1112
   %1124 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i852.i = load i32, ptr %1124, align 8, !noalias !407
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i852.i = load i32, ptr %1124, align 8, !noalias !406
   %1125 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %1126 = load i32, ptr %1125, align 8, !noalias !407
+  %1126 = load i32, ptr %1125, align 8, !noalias !406
   %.not.i.i.i.i.i.i.i.i.i.i.i.i853.i = icmp eq i32 %1126, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i853.i, label %1127, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit856.i"
 
 1127:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit850.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !407
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !406
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit856.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit856.i": ; preds = %1127, %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit850.i"
@@ -3191,8 +3191,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1130 = shl i8 %.2.tr175.i, 4
   %1131 = or disjoint i8 %1130, 5
   %1132 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i852.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i858.i = load i32, ptr %1128, align 8, !noalias !416
-  %1133 = load i32, ptr %1129, align 8, !noalias !416
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i858.i = load i32, ptr %1128, align 8, !noalias !415
+  %1133 = load i32, ptr %1129, align 8, !noalias !415
   %.not.i.i.i.i.i.i.i.i.i.i.i.i859.i = icmp eq i32 %1133, 0
   %1134 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i858.i to i64
   br label %1135
@@ -3202,7 +3202,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i859.i, label %1136, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit862.i"
 
 1136:                                             ; preds = %1135
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !416
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !415
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit862.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit862.i": ; preds = %1136, %1135
@@ -3215,7 +3215,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1141 = getelementptr inbounds nuw i8, ptr %1140, i64 3
   store i8 %1131, ptr %1141, align 1
   %indvars.iv.next2404.i = add nuw nsw i64 %indvars.iv2403.i, 1
-  br label %1135, !llvm.loop !425
+  br label %1135, !llvm.loop !424
 
 1142:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit862.i"
   %1143 = add i32 %.2.i, 1
@@ -3225,39 +3225,39 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 1145:                                             ; preds = %131
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %7)
-  %1146 = load i32, ptr %.sroa.6.0..sroa_idx2460.i5565, align 4, !noalias !426
-  %1147 = load i32, ptr %7, align 8, !noalias !426
+  %1146 = load i32, ptr %.sroa.6.0..sroa_idx2460.i4757, align 4, !noalias !425
+  %1147 = load i32, ptr %7, align 8, !noalias !425
   %1148 = sub i32 %1147, %1146
-  store i32 %1148, ptr %7, align 8, !noalias !426
-  %1149 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !426
-  %.promoted.i.i.i.i.i.i.i863.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !426
-  %.promoted10.i.i.i.i.i.i.i864.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !426
-  %.promoted11.i.i.i.i.i.i.i865.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !426
-  %.promoted15.i.i.i.i.i.i.i866.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !426
-  %.val3.i.i.i.i.i.i.i867.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !426
-  %.val2.i.i.i.i.i.i.i868.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !426
+  store i32 %1148, ptr %7, align 8, !noalias !425
+  %1149 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !425
+  %.promoted.i.i.i.i.i.i.i863.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !425
+  %.promoted10.i.i.i.i.i.i.i864.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !425
+  %.promoted11.i.i.i.i.i.i.i865.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !425
+  %.promoted15.i.i.i.i.i.i.i866.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !425
+  %.val3.i.i.i.i.i.i.i867.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !425
+  %.val2.i.i.i.i.i.i.i868.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !425
   br label %1150
 
-1150:                                             ; preds = %.backedge1989, %1145
-  %1151 = phi ptr [ %.promoted15.i.i.i.i.i.i.i866.i, %1145 ], [ %1162, %.backedge1989 ]
-  %.val12.i.i.i.i.i.i.i870.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i865.i, %1145 ], [ %.val14.i.i.i.i.i.i.i873.i, %.backedge1989 ]
-  %1152 = phi i32 [ %.promoted10.i.i.i.i.i.i.i864.i, %1145 ], [ %1163, %.backedge1989 ]
-  %1153 = phi ptr [ %.promoted15.i.i.i.i.i.i.i866.i, %1145 ], [ %.be1992, %.backedge1989 ]
-  %1154 = phi i32 [ %.promoted11.i.i.i.i.i.i.i865.i, %1145 ], [ %.be1993, %.backedge1989 ]
-  %1155 = phi i32 [ %.promoted10.i.i.i.i.i.i.i864.i, %1145 ], [ %.be1994, %.backedge1989 ]
-  %1156 = phi i32 [ %.promoted.i.i.i.i.i.i.i863.i, %1145 ], [ %1157, %.backedge1989 ]
+1150:                                             ; preds = %.backedge1981, %1145
+  %1151 = phi ptr [ %.promoted15.i.i.i.i.i.i.i866.i, %1145 ], [ %1162, %.backedge1981 ]
+  %.val12.i.i.i.i.i.i.i870.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i865.i, %1145 ], [ %.val14.i.i.i.i.i.i.i873.i, %.backedge1981 ]
+  %1152 = phi i32 [ %.promoted10.i.i.i.i.i.i.i864.i, %1145 ], [ %1163, %.backedge1981 ]
+  %1153 = phi ptr [ %.promoted15.i.i.i.i.i.i.i866.i, %1145 ], [ %.be1984, %.backedge1981 ]
+  %1154 = phi i32 [ %.promoted11.i.i.i.i.i.i.i865.i, %1145 ], [ %.be1985, %.backedge1981 ]
+  %1155 = phi i32 [ %.promoted10.i.i.i.i.i.i.i864.i, %1145 ], [ %.be1986, %.backedge1981 ]
+  %1156 = phi i32 [ %.promoted.i.i.i.i.i.i.i863.i, %1145 ], [ %1157, %.backedge1981 ]
   %1157 = sub i32 %1156, %1149
-  store i32 %1157, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !426
+  store i32 %1157, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !425
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i871.i = icmp eq i32 %1155, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i871.i, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i872.i, label %1158
 
 1158:                                             ; preds = %1150
   %1159 = add i32 %1154, 1
-  store i32 %1159, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !426
+  store i32 %1159, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !425
   %1160 = add i32 %1155, -1
-  store i32 %1160, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !426
+  store i32 %1160, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !425
   %1161 = getelementptr inbounds i8, ptr %1153, i64 -20
-  store ptr %1161, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !426
+  store ptr %1161, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !425
   br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i872.i
 
 _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i872.i: ; preds = %1158, %1150
@@ -3272,15 +3272,15 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i875.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i872.i
   %1167 = getelementptr i8, ptr %1164, i64 18
-  %.val.i.i.i.i.i.i.i.i.i876.i = load i8, ptr %1167, align 2, !noalias !426
+  %.val.i.i.i.i.i.i.i.i.i876.i = load i8, ptr %1167, align 2, !noalias !425
   %.not3.i.i.i.i.i.i.i.i.i877.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i876.i, 6
-  br i1 %.not3.i.i.i.i.i.i.i.i.i877.i, label %.backedge1989, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i878.i"
+  br i1 %.not3.i.i.i.i.i.i.i.i.i877.i, label %.backedge1981, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i878.i"
 
-.backedge1989:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i875.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i887.i"
-  %.be1992 = phi ptr [ %1164, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i875.i ], [ %1162, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i887.i" ]
-  %.be1993 = phi i32 [ %1165, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i875.i ], [ %.val14.i.i.i.i.i.i.i873.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i887.i" ]
-  %.be1994 = phi i32 [ %1166, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i875.i ], [ %1163, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i887.i" ]
-  br label %1150, !llvm.loop !296
+.backedge1981:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i875.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i887.i"
+  %.be1984 = phi ptr [ %1164, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i875.i ], [ %1162, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i887.i" ]
+  %.be1985 = phi i32 [ %1165, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i875.i ], [ %.val14.i.i.i.i.i.i.i873.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i887.i" ]
+  %.be1986 = phi i32 [ %1166, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i875.i ], [ %1163, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i887.i" ]
+  br label %1150, !llvm.loop !295
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i878.i": ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i875.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i872.i
   %.not.i.i.i.i.i.i.i879.i = icmp eq i32 %.val14.i.i.i.i.i.i.i873.i, 0
@@ -3288,14 +3288,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 "_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i880.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i878.i"
   %1168 = getelementptr i8, ptr %1162, i64 18
-  %.val5.val.i.i.i.i.i.i.i881.i = load i8, ptr %1168, align 2, !noalias !426
+  %.val5.val.i.i.i.i.i.i.i881.i = load i8, ptr %1168, align 2, !noalias !425
   %1169 = icmp eq i8 %.val5.val.i.i.i.i.i.i.i881.i, 14
   br i1 %1169, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i882.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit890.i"
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i882.i:          ; preds = %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i880.i"
-  %1170 = load ptr, ptr %.val2.i.i.i.i.i.i.i868.i, align 8, !noalias !426
+  %1170 = load ptr, ptr %.val2.i.i.i.i.i.i.i868.i, align 8, !noalias !425
   %1171 = getelementptr inbounds nuw i8, ptr %1170, i64 88
-  %1172 = load i32, ptr %1171, align 8, !noalias !426
+  %1172 = load i32, ptr %1171, align 8, !noalias !425
   br label %1173
 
 1173:                                             ; preds = %1175, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i882.i
@@ -3305,34 +3305,34 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %1174, label %1175, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit890.i"
 
 1175:                                             ; preds = %1173
-  %1176 = load ptr, ptr %.val3.i.i.i.i.i.i.i867.i, align 8, !noalias !426
+  %1176 = load ptr, ptr %.val3.i.i.i.i.i.i.i867.i, align 8, !noalias !425
   %1177 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i884.i to i64
   %1178 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1176, i64 %1177
   %1179 = getelementptr i8, ptr %1178, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i885.i = load i8, ptr %1179, align 2, !noalias !426
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i885.i = load i8, ptr %1179, align 2, !noalias !425
   %.not.i.i.i.i.i.i.i.i.i.i.i.i886.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i885.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i886.i, label %1173, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i887.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i886.i, label %1173, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i887.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i887.i": ; preds = %1175
   %1180 = getelementptr i8, ptr %1178, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i888.i = load i16, ptr %1180, align 4, !noalias !426
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i888.i = load i16, ptr %1180, align 4, !noalias !425
   %1181 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i888.i, 31
   %1182 = zext nneg i16 %1181 to i32
   %1183 = shl nuw i32 1, %1182
   %1184 = and i32 %1183, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i889.i = icmp eq i32 %1184, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i889.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit890.i", label %.backedge1989
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i889.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit890.i", label %.backedge1981
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit890.i": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i887.i", %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i880.i", %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i878.i", %1173
   %1185 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i892.i = load i32, ptr %1185, align 8, !noalias !429
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i892.i = load i32, ptr %1185, align 8, !noalias !428
   %1186 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %1187 = load i32, ptr %1186, align 8, !noalias !429
+  %1187 = load i32, ptr %1186, align 8, !noalias !428
   %.not.i.i.i.i.i.i.i.i.i.i.i.i893.i = icmp eq i32 %1187, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i893.i, label %1188, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit896.i"
 
 1188:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit890.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !429
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !428
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit896.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit896.i": ; preds = %1188, %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit890.i"
@@ -3342,8 +3342,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1191 = shl i8 %.2.tr174.i, 4
   %1192 = or disjoint i8 %1191, 6
   %1193 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i892.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i898.i = load i32, ptr %1189, align 8, !noalias !438
-  %1194 = load i32, ptr %1190, align 8, !noalias !438
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i898.i = load i32, ptr %1189, align 8, !noalias !437
+  %1194 = load i32, ptr %1190, align 8, !noalias !437
   %.not.i.i.i.i.i.i.i.i.i.i.i.i899.i = icmp eq i32 %1194, 0
   %1195 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i898.i to i64
   br label %1196
@@ -3353,7 +3353,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i899.i, label %1197, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit902.i"
 
 1197:                                             ; preds = %1196
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !438
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !437
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit902.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit902.i": ; preds = %1197, %1196
@@ -3366,7 +3366,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1202 = getelementptr inbounds nuw i8, ptr %1201, i64 3
   store i8 %1192, ptr %1202, align 1
   %indvars.iv.next2401.i = add nuw nsw i64 %indvars.iv2400.i, 1
-  br label %1196, !llvm.loop !447
+  br label %1196, !llvm.loop !446
 
 1203:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit902.i"
   %1204 = add i32 %.2.i, 1
@@ -3376,39 +3376,39 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 1206:                                             ; preds = %131
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %7)
-  %1207 = load i32, ptr %.sroa.6.0..sroa_idx2460.i5565, align 4, !noalias !448
-  %1208 = load i32, ptr %7, align 8, !noalias !448
+  %1207 = load i32, ptr %.sroa.6.0..sroa_idx2460.i4757, align 4, !noalias !447
+  %1208 = load i32, ptr %7, align 8, !noalias !447
   %1209 = sub i32 %1208, %1207
-  store i32 %1209, ptr %7, align 8, !noalias !448
-  %1210 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !448
-  %.promoted.i.i.i.i.i.i.i903.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !448
-  %.promoted10.i.i.i.i.i.i.i904.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !448
-  %.promoted11.i.i.i.i.i.i.i905.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !448
-  %.promoted15.i.i.i.i.i.i.i906.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !448
-  %.val3.i.i.i.i.i.i.i907.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !448
-  %.val2.i.i.i.i.i.i.i908.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !448
+  store i32 %1209, ptr %7, align 8, !noalias !447
+  %1210 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !447
+  %.promoted.i.i.i.i.i.i.i903.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !447
+  %.promoted10.i.i.i.i.i.i.i904.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !447
+  %.promoted11.i.i.i.i.i.i.i905.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !447
+  %.promoted15.i.i.i.i.i.i.i906.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !447
+  %.val3.i.i.i.i.i.i.i907.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !447
+  %.val2.i.i.i.i.i.i.i908.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !447
   br label %1211
 
-1211:                                             ; preds = %.backedge1998, %1206
-  %1212 = phi ptr [ %.promoted15.i.i.i.i.i.i.i906.i, %1206 ], [ %1223, %.backedge1998 ]
-  %.val12.i.i.i.i.i.i.i910.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i905.i, %1206 ], [ %.val14.i.i.i.i.i.i.i913.i, %.backedge1998 ]
-  %1213 = phi i32 [ %.promoted10.i.i.i.i.i.i.i904.i, %1206 ], [ %1224, %.backedge1998 ]
-  %1214 = phi ptr [ %.promoted15.i.i.i.i.i.i.i906.i, %1206 ], [ %.be2001, %.backedge1998 ]
-  %1215 = phi i32 [ %.promoted11.i.i.i.i.i.i.i905.i, %1206 ], [ %.be2002, %.backedge1998 ]
-  %1216 = phi i32 [ %.promoted10.i.i.i.i.i.i.i904.i, %1206 ], [ %.be2003, %.backedge1998 ]
-  %1217 = phi i32 [ %.promoted.i.i.i.i.i.i.i903.i, %1206 ], [ %1218, %.backedge1998 ]
+1211:                                             ; preds = %.backedge1990, %1206
+  %1212 = phi ptr [ %.promoted15.i.i.i.i.i.i.i906.i, %1206 ], [ %1223, %.backedge1990 ]
+  %.val12.i.i.i.i.i.i.i910.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i905.i, %1206 ], [ %.val14.i.i.i.i.i.i.i913.i, %.backedge1990 ]
+  %1213 = phi i32 [ %.promoted10.i.i.i.i.i.i.i904.i, %1206 ], [ %1224, %.backedge1990 ]
+  %1214 = phi ptr [ %.promoted15.i.i.i.i.i.i.i906.i, %1206 ], [ %.be1993, %.backedge1990 ]
+  %1215 = phi i32 [ %.promoted11.i.i.i.i.i.i.i905.i, %1206 ], [ %.be1994, %.backedge1990 ]
+  %1216 = phi i32 [ %.promoted10.i.i.i.i.i.i.i904.i, %1206 ], [ %.be1995, %.backedge1990 ]
+  %1217 = phi i32 [ %.promoted.i.i.i.i.i.i.i903.i, %1206 ], [ %1218, %.backedge1990 ]
   %1218 = sub i32 %1217, %1210
-  store i32 %1218, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !448
+  store i32 %1218, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !447
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i911.i = icmp eq i32 %1216, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i911.i, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i912.i, label %1219
 
 1219:                                             ; preds = %1211
   %1220 = add i32 %1215, 1
-  store i32 %1220, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !448
+  store i32 %1220, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !447
   %1221 = add i32 %1216, -1
-  store i32 %1221, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !448
+  store i32 %1221, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !447
   %1222 = getelementptr inbounds i8, ptr %1214, i64 -20
-  store ptr %1222, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !448
+  store ptr %1222, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !447
   br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i912.i
 
 _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i912.i: ; preds = %1219, %1211
@@ -3423,15 +3423,15 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i915.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i912.i
   %1228 = getelementptr i8, ptr %1225, i64 18
-  %.val.i.i.i.i.i.i.i.i.i916.i = load i8, ptr %1228, align 2, !noalias !448
+  %.val.i.i.i.i.i.i.i.i.i916.i = load i8, ptr %1228, align 2, !noalias !447
   %.not3.i.i.i.i.i.i.i.i.i917.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i916.i, 6
-  br i1 %.not3.i.i.i.i.i.i.i.i.i917.i, label %.backedge1998, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i918.i"
+  br i1 %.not3.i.i.i.i.i.i.i.i.i917.i, label %.backedge1990, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i918.i"
 
-.backedge1998:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i915.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i927.i"
-  %.be2001 = phi ptr [ %1225, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i915.i ], [ %1223, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i927.i" ]
-  %.be2002 = phi i32 [ %1226, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i915.i ], [ %.val14.i.i.i.i.i.i.i913.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i927.i" ]
-  %.be2003 = phi i32 [ %1227, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i915.i ], [ %1224, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i927.i" ]
-  br label %1211, !llvm.loop !296
+.backedge1990:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i915.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i927.i"
+  %.be1993 = phi ptr [ %1225, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i915.i ], [ %1223, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i927.i" ]
+  %.be1994 = phi i32 [ %1226, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i915.i ], [ %.val14.i.i.i.i.i.i.i913.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i927.i" ]
+  %.be1995 = phi i32 [ %1227, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i915.i ], [ %1224, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i927.i" ]
+  br label %1211, !llvm.loop !295
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i918.i": ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i915.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i912.i
   %.not.i.i.i.i.i.i.i919.i = icmp eq i32 %.val14.i.i.i.i.i.i.i913.i, 0
@@ -3439,14 +3439,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 "_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i920.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i918.i"
   %1229 = getelementptr i8, ptr %1223, i64 18
-  %.val5.val.i.i.i.i.i.i.i921.i = load i8, ptr %1229, align 2, !noalias !448
+  %.val5.val.i.i.i.i.i.i.i921.i = load i8, ptr %1229, align 2, !noalias !447
   %1230 = icmp eq i8 %.val5.val.i.i.i.i.i.i.i921.i, 14
   br i1 %1230, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i922.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit930.i"
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i922.i:          ; preds = %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i920.i"
-  %1231 = load ptr, ptr %.val2.i.i.i.i.i.i.i908.i, align 8, !noalias !448
+  %1231 = load ptr, ptr %.val2.i.i.i.i.i.i.i908.i, align 8, !noalias !447
   %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 88
-  %1233 = load i32, ptr %1232, align 8, !noalias !448
+  %1233 = load i32, ptr %1232, align 8, !noalias !447
   br label %1234
 
 1234:                                             ; preds = %1236, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i922.i
@@ -3456,34 +3456,34 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %1235, label %1236, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit930.i"
 
 1236:                                             ; preds = %1234
-  %1237 = load ptr, ptr %.val3.i.i.i.i.i.i.i907.i, align 8, !noalias !448
+  %1237 = load ptr, ptr %.val3.i.i.i.i.i.i.i907.i, align 8, !noalias !447
   %1238 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i924.i to i64
   %1239 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1237, i64 %1238
   %1240 = getelementptr i8, ptr %1239, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i925.i = load i8, ptr %1240, align 2, !noalias !448
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i925.i = load i8, ptr %1240, align 2, !noalias !447
   %.not.i.i.i.i.i.i.i.i.i.i.i.i926.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i925.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i926.i, label %1234, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i927.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i926.i, label %1234, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i927.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i927.i": ; preds = %1236
   %1241 = getelementptr i8, ptr %1239, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i928.i = load i16, ptr %1241, align 4, !noalias !448
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i928.i = load i16, ptr %1241, align 4, !noalias !447
   %1242 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i928.i, 31
   %1243 = zext nneg i16 %1242 to i32
   %1244 = shl nuw i32 1, %1243
   %1245 = and i32 %1244, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i929.i = icmp eq i32 %1245, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i929.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit930.i", label %.backedge1998
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i929.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit930.i", label %.backedge1990
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit930.i": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i927.i", %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i920.i", %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i918.i", %1234
   %1246 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i932.i = load i32, ptr %1246, align 8, !noalias !451
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i932.i = load i32, ptr %1246, align 8, !noalias !450
   %1247 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %1248 = load i32, ptr %1247, align 8, !noalias !451
+  %1248 = load i32, ptr %1247, align 8, !noalias !450
   %.not.i.i.i.i.i.i.i.i.i.i.i.i933.i = icmp eq i32 %1248, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i933.i, label %1249, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit936.i"
 
 1249:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit930.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !451
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !450
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit936.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit936.i": ; preds = %1249, %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit930.i"
@@ -3493,8 +3493,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1252 = shl i8 %.2.tr173.i, 4
   %1253 = or disjoint i8 %1252, 7
   %1254 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i932.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i938.i = load i32, ptr %1250, align 8, !noalias !460
-  %1255 = load i32, ptr %1251, align 8, !noalias !460
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i938.i = load i32, ptr %1250, align 8, !noalias !459
+  %1255 = load i32, ptr %1251, align 8, !noalias !459
   %.not.i.i.i.i.i.i.i.i.i.i.i.i939.i = icmp eq i32 %1255, 0
   %1256 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i938.i to i64
   br label %1257
@@ -3504,7 +3504,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i939.i, label %1258, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit942.i"
 
 1258:                                             ; preds = %1257
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !460
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !459
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit942.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit942.i": ; preds = %1258, %1257
@@ -3517,7 +3517,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1263 = getelementptr inbounds nuw i8, ptr %1262, i64 3
   store i8 %1253, ptr %1263, align 1
   %indvars.iv.next2398.i = add nuw nsw i64 %indvars.iv2397.i, 1
-  br label %1257, !llvm.loop !469
+  br label %1257, !llvm.loop !468
 
 1264:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit942.i"
   %1265 = add i32 %.2.i, 1
@@ -3532,39 +3532,39 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 1271:                                             ; preds = %131
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %9, ptr noundef nonnull align 8 dereferenceable(73) %7)
-  %1272 = load i32, ptr %.sroa.6.0..sroa_idx2460.i5565, align 4, !noalias !470
-  %1273 = load i32, ptr %7, align 8, !noalias !470
+  %1272 = load i32, ptr %.sroa.6.0..sroa_idx2460.i4757, align 4, !noalias !469
+  %1273 = load i32, ptr %7, align 8, !noalias !469
   %1274 = sub i32 %1273, %1272
-  store i32 %1274, ptr %7, align 8, !noalias !470
-  %1275 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !470
-  %.promoted.i.i.i.i.i.i.i943.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !470
-  %.promoted10.i.i.i.i.i.i.i944.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !470
-  %.promoted11.i.i.i.i.i.i.i945.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !470
-  %.promoted15.i.i.i.i.i.i.i946.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !470
-  %.val3.i.i.i.i.i.i.i947.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !470
-  %.val2.i.i.i.i.i.i.i948.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !470
+  store i32 %1274, ptr %7, align 8, !noalias !469
+  %1275 = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 4, !noalias !469
+  %.promoted.i.i.i.i.i.i.i943.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !469
+  %.promoted10.i.i.i.i.i.i.i944.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !469
+  %.promoted11.i.i.i.i.i.i.i945.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !469
+  %.promoted15.i.i.i.i.i.i.i946.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !469
+  %.val3.i.i.i.i.i.i.i947.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8, !noalias !469
+  %.val2.i.i.i.i.i.i.i948.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !469
   br label %1276
 
-1276:                                             ; preds = %.backedge2007, %1271
-  %1277 = phi ptr [ %.promoted15.i.i.i.i.i.i.i946.i, %1271 ], [ %1288, %.backedge2007 ]
-  %.val12.i.i.i.i.i.i.i950.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i945.i, %1271 ], [ %.val14.i.i.i.i.i.i.i953.i, %.backedge2007 ]
-  %1278 = phi i32 [ %.promoted10.i.i.i.i.i.i.i944.i, %1271 ], [ %1289, %.backedge2007 ]
-  %1279 = phi ptr [ %.promoted15.i.i.i.i.i.i.i946.i, %1271 ], [ %.be2010, %.backedge2007 ]
-  %1280 = phi i32 [ %.promoted11.i.i.i.i.i.i.i945.i, %1271 ], [ %.be2011, %.backedge2007 ]
-  %1281 = phi i32 [ %.promoted10.i.i.i.i.i.i.i944.i, %1271 ], [ %.be2012, %.backedge2007 ]
-  %1282 = phi i32 [ %.promoted.i.i.i.i.i.i.i943.i, %1271 ], [ %1283, %.backedge2007 ]
+1276:                                             ; preds = %.backedge1999, %1271
+  %1277 = phi ptr [ %.promoted15.i.i.i.i.i.i.i946.i, %1271 ], [ %1288, %.backedge1999 ]
+  %.val12.i.i.i.i.i.i.i950.i = phi i32 [ %.promoted11.i.i.i.i.i.i.i945.i, %1271 ], [ %.val14.i.i.i.i.i.i.i953.i, %.backedge1999 ]
+  %1278 = phi i32 [ %.promoted10.i.i.i.i.i.i.i944.i, %1271 ], [ %1289, %.backedge1999 ]
+  %1279 = phi ptr [ %.promoted15.i.i.i.i.i.i.i946.i, %1271 ], [ %.be2002, %.backedge1999 ]
+  %1280 = phi i32 [ %.promoted11.i.i.i.i.i.i.i945.i, %1271 ], [ %.be2003, %.backedge1999 ]
+  %1281 = phi i32 [ %.promoted10.i.i.i.i.i.i.i944.i, %1271 ], [ %.be2004, %.backedge1999 ]
+  %1282 = phi i32 [ %.promoted.i.i.i.i.i.i.i943.i, %1271 ], [ %1283, %.backedge1999 ]
   %1283 = sub i32 %1282, %1275
-  store i32 %1283, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !470
+  store i32 %1283, ptr %.sroa.21209.0..sroa_idx.i, align 8, !noalias !469
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i951.i = icmp eq i32 %1281, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i951.i, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i952.i, label %1284
 
 1284:                                             ; preds = %1276
   %1285 = add i32 %1280, 1
-  store i32 %1285, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !470
+  store i32 %1285, ptr %.sroa.41211.0..sroa_idx.i, align 8, !noalias !469
   %1286 = add i32 %1281, -1
-  store i32 %1286, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4, !noalias !470
+  store i32 %1286, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4, !noalias !469
   %1287 = getelementptr inbounds i8, ptr %1279, i64 -20
-  store ptr %1287, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !470
+  store ptr %1287, ptr %.sroa.31210.0..sroa_idx.i, align 8, !noalias !469
   br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i952.i
 
 _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i952.i: ; preds = %1284, %1276
@@ -3579,15 +3579,15 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i955.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i952.i
   %1293 = getelementptr i8, ptr %1290, i64 18
-  %.val.i.i.i.i.i.i.i.i.i956.i = load i8, ptr %1293, align 2, !noalias !470
+  %.val.i.i.i.i.i.i.i.i.i956.i = load i8, ptr %1293, align 2, !noalias !469
   %.not3.i.i.i.i.i.i.i.i.i957.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i956.i, 6
-  br i1 %.not3.i.i.i.i.i.i.i.i.i957.i, label %.backedge2007, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i958.i"
+  br i1 %.not3.i.i.i.i.i.i.i.i.i957.i, label %.backedge1999, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i958.i"
 
-.backedge2007:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i955.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i967.i"
-  %.be2010 = phi ptr [ %1290, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i955.i ], [ %1288, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i967.i" ]
-  %.be2011 = phi i32 [ %1291, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i955.i ], [ %.val14.i.i.i.i.i.i.i953.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i967.i" ]
-  %.be2012 = phi i32 [ %1292, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i955.i ], [ %1289, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i967.i" ]
-  br label %1276, !llvm.loop !296
+.backedge1999:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i955.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i967.i"
+  %.be2002 = phi ptr [ %1290, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i955.i ], [ %1288, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i967.i" ]
+  %.be2003 = phi i32 [ %1291, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i955.i ], [ %.val14.i.i.i.i.i.i.i953.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i967.i" ]
+  %.be2004 = phi i32 [ %1292, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i955.i ], [ %1289, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i967.i" ]
+  br label %1276, !llvm.loop !295
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i958.i": ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i955.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i952.i
   %.not.i.i.i.i.i.i.i959.i = icmp eq i32 %.val14.i.i.i.i.i.i.i953.i, 0
@@ -3595,14 +3595,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 "_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i960.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i958.i"
   %1294 = getelementptr i8, ptr %1288, i64 18
-  %.val5.val.i.i.i.i.i.i.i961.i = load i8, ptr %1294, align 2, !noalias !470
+  %.val5.val.i.i.i.i.i.i.i961.i = load i8, ptr %1294, align 2, !noalias !469
   %1295 = icmp eq i8 %.val5.val.i.i.i.i.i.i.i961.i, 14
   br i1 %1295, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i962.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit970.i"
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i962.i:          ; preds = %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i960.i"
-  %1296 = load ptr, ptr %.val2.i.i.i.i.i.i.i948.i, align 8, !noalias !470
+  %1296 = load ptr, ptr %.val2.i.i.i.i.i.i.i948.i, align 8, !noalias !469
   %1297 = getelementptr inbounds nuw i8, ptr %1296, i64 88
-  %1298 = load i32, ptr %1297, align 8, !noalias !470
+  %1298 = load i32, ptr %1297, align 8, !noalias !469
   br label %1299
 
 1299:                                             ; preds = %1301, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i962.i
@@ -3612,34 +3612,34 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %1300, label %1301, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit970.i"
 
 1301:                                             ; preds = %1299
-  %1302 = load ptr, ptr %.val3.i.i.i.i.i.i.i947.i, align 8, !noalias !470
+  %1302 = load ptr, ptr %.val3.i.i.i.i.i.i.i947.i, align 8, !noalias !469
   %1303 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i964.i to i64
   %1304 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1302, i64 %1303
   %1305 = getelementptr i8, ptr %1304, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i965.i = load i8, ptr %1305, align 2, !noalias !470
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i965.i = load i8, ptr %1305, align 2, !noalias !469
   %.not.i.i.i.i.i.i.i.i.i.i.i.i966.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i965.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i966.i, label %1299, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i967.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i966.i, label %1299, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i967.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i967.i": ; preds = %1301
   %1306 = getelementptr i8, ptr %1304, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i968.i = load i16, ptr %1306, align 4, !noalias !470
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i968.i = load i16, ptr %1306, align 4, !noalias !469
   %1307 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i968.i, 31
   %1308 = zext nneg i16 %1307 to i32
   %1309 = shl nuw i32 1, %1308
   %1310 = and i32 %1309, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i969.i = icmp eq i32 %1310, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i969.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit970.i", label %.backedge2007
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i969.i, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit970.i", label %.backedge1999
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit970.i": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i967.i", %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i960.i", %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i958.i", %1299
   %1311 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i972.i = load i32, ptr %1311, align 8, !noalias !473
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i972.i = load i32, ptr %1311, align 8, !noalias !472
   %1312 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %1313 = load i32, ptr %1312, align 8, !noalias !473
+  %1313 = load i32, ptr %1312, align 8, !noalias !472
   %.not.i.i.i.i.i.i.i.i.i.i.i.i973.i = icmp eq i32 %1313, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i973.i, label %1314, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit976.i"
 
 1314:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit970.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !473
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !472
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit976.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit976.i": ; preds = %1314, %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi.exit970.i"
@@ -3649,8 +3649,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1317 = shl i8 %.2.tr172.i, 4
   %1318 = or disjoint i8 %1317, 8
   %1319 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i972.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i978.i = load i32, ptr %1315, align 8, !noalias !482
-  %1320 = load i32, ptr %1316, align 8, !noalias !482
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i978.i = load i32, ptr %1315, align 8, !noalias !481
+  %1320 = load i32, ptr %1316, align 8, !noalias !481
   %.not.i.i.i.i.i.i.i.i.i.i.i.i979.i = icmp eq i32 %1320, 0
   %1321 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i978.i to i64
   br label %1322
@@ -3660,7 +3660,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i979.i, label %1323, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit982.i"
 
 1323:                                             ; preds = %1322
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !482
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !481
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit982.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit982.i": ; preds = %1323, %1322
@@ -3673,7 +3673,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1328 = getelementptr inbounds nuw i8, ptr %1327, i64 3
   store i8 %1318, ptr %1328, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %1322, !llvm.loop !491
+  br label %1322, !llvm.loop !490
 
 1329:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit982.i"
   %1330 = add i32 %.2.i, 1
@@ -3682,49 +3682,49 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %1409
 
 1332:                                             ; preds = %131
-  call void @llvm.experimental.noalias.scope.decl(metadata !492)
-  call void @llvm.experimental.noalias.scope.decl(metadata !495)
+  call void @llvm.experimental.noalias.scope.decl(metadata !491)
+  call void @llvm.experimental.noalias.scope.decl(metadata !494)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(73) %20, ptr noundef nonnull readonly align 8 dereferenceable(73) %9, i64 72, i1 false)
   %1333 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %1334 = load i8, ptr %94, align 8, !noalias !498
+  %1334 = load i8, ptr %94, align 8, !noalias !497
   %1335 = and i8 %1334, 1
-  store i8 %1335, ptr %1333, align 8, !alias.scope !498
+  store i8 %1335, ptr %1333, align 8, !alias.scope !497
   %1336 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %1337 = load i32, ptr %1336, align 4, !alias.scope !492
-  %.promoted.i.i.i.i.i.i.i983.i = load i32, ptr %20, align 8, !alias.scope !492
+  %1337 = load i32, ptr %1336, align 4, !alias.scope !491
+  %.promoted.i.i.i.i.i.i.i983.i = load i32, ptr %20, align 8, !alias.scope !491
   %1338 = sub i32 %.promoted.i.i.i.i.i.i.i983.i, %1337
-  store i32 %1338, ptr %20, align 8, !alias.scope !492
+  store i32 %1338, ptr %20, align 8, !alias.scope !491
   %1339 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %1340 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %.promoted.i.i2.i.i.i.i.i984.i = load i32, ptr %1340, align 8, !alias.scope !492
+  %.promoted.i.i2.i.i.i.i.i984.i = load i32, ptr %1340, align 8, !alias.scope !491
   %.not210.i.i.i.i.i.i.i.i = icmp eq i32 %.promoted.i.i2.i.i.i.i.i984.i, 0
   br i1 %.not210.i.i.i.i.i.i.i.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj.exit.i", label %.lr.ph.i.i3.i.i.i.i.i985.i
 
 .lr.ph.i.i3.i.i.i.i.i985.i:                       ; preds = %1332
   %1341 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %1342 = load i32, ptr %1341, align 4, !alias.scope !492
+  %1342 = load i32, ptr %1341, align 4, !alias.scope !491
   %1343 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %1344 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %1345 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  %.val3.i.i.i.i.i.i.i.i.i986.i = load ptr, ptr %1345, align 8, !alias.scope !492
+  %.val3.i.i.i.i.i.i.i.i.i986.i = load ptr, ptr %1345, align 8, !alias.scope !491
   %1346 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %.val2.i.i.i.i.i.i.i.i.i987.i = load ptr, ptr %1346, align 8, !alias.scope !492
-  %.promoted.i.i.pre.i.i.i.i.i.i.i988.i = load i32, ptr %1339, align 8, !alias.scope !492
-  %.promoted10.i.i.pre.i.i.i.i.i.i.i.i = load i32, ptr %1343, align 4, !alias.scope !492
-  %.promoted15.i.i.pre.i.i.i.i.i.i.i989.i = load ptr, ptr %1344, align 8, !alias.scope !492
+  %.val2.i.i.i.i.i.i.i.i.i987.i = load ptr, ptr %1346, align 8, !alias.scope !491
+  %.promoted.i.i.pre.i.i.i.i.i.i.i988.i = load i32, ptr %1339, align 8, !alias.scope !491
+  %.promoted10.i.i.pre.i.i.i.i.i.i.i.i = load i32, ptr %1343, align 4, !alias.scope !491
+  %.promoted15.i.i.pre.i.i.i.i.i.i.i989.i = load ptr, ptr %1344, align 8, !alias.scope !491
   br label %1347
 
-1347:                                             ; preds = %.backedge1647, %.lr.ph.i.i3.i.i.i.i.i985.i
-  %1348 = phi ptr [ %.promoted15.i.i.pre.i.i.i.i.i.i.i989.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %1362, %.backedge1647 ]
-  %1349 = phi i32 [ %.promoted10.i.i.pre.i.i.i.i.i.i.i.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %1363, %.backedge1647 ]
-  %1350 = phi i32 [ %.promoted.i.i2.i.i.i.i.i984.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %1364, %.backedge1647 ]
-  %1351 = phi ptr [ %.promoted15.i.i.pre.i.i.i.i.i.i.i989.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %1365, %.backedge1647 ]
-  %.val12.i.i.i.i.i.i.i.i.i990.i = phi i32 [ %.promoted.i.i2.i.i.i.i.i984.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %.val14.i.i.i.i.i.i.i.i.i.i, %.backedge1647 ]
-  %1352 = phi i32 [ %.promoted10.i.i.pre.i.i.i.i.i.i.i.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %1366, %.backedge1647 ]
-  %1353 = phi ptr [ %.promoted15.i.i.pre.i.i.i.i.i.i.i989.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %.be, %.backedge1647 ]
-  %1354 = phi i32 [ %.promoted.i.i2.i.i.i.i.i984.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %.be1648, %.backedge1647 ]
-  %1355 = phi i32 [ %.promoted10.i.i.pre.i.i.i.i.i.i.i.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %.be1649, %.backedge1647 ]
-  %1356 = phi i32 [ %.promoted.i.i.pre.i.i.i.i.i.i.i988.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %1357, %.backedge1647 ]
+1347:                                             ; preds = %.backedge1639, %.lr.ph.i.i3.i.i.i.i.i985.i
+  %1348 = phi ptr [ %.promoted15.i.i.pre.i.i.i.i.i.i.i989.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %1362, %.backedge1639 ]
+  %1349 = phi i32 [ %.promoted10.i.i.pre.i.i.i.i.i.i.i.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %1363, %.backedge1639 ]
+  %1350 = phi i32 [ %.promoted.i.i2.i.i.i.i.i984.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %1364, %.backedge1639 ]
+  %1351 = phi ptr [ %.promoted15.i.i.pre.i.i.i.i.i.i.i989.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %1365, %.backedge1639 ]
+  %.val12.i.i.i.i.i.i.i.i.i990.i = phi i32 [ %.promoted.i.i2.i.i.i.i.i984.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %.val14.i.i.i.i.i.i.i.i.i.i, %.backedge1639 ]
+  %1352 = phi i32 [ %.promoted10.i.i.pre.i.i.i.i.i.i.i.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %1366, %.backedge1639 ]
+  %1353 = phi ptr [ %.promoted15.i.i.pre.i.i.i.i.i.i.i989.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %.be, %.backedge1639 ]
+  %1354 = phi i32 [ %.promoted.i.i2.i.i.i.i.i984.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %.be1640, %.backedge1639 ]
+  %1355 = phi i32 [ %.promoted10.i.i.pre.i.i.i.i.i.i.i.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %.be1641, %.backedge1639 ]
+  %1356 = phi i32 [ %.promoted.i.i.pre.i.i.i.i.i.i.i988.i, %.lr.ph.i.i3.i.i.i.i.i985.i ], [ %1357, %.backedge1639 ]
   %1357 = sub i32 %1356, %1342
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %1355, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i.i.i, label %1358
@@ -3750,15 +3750,15 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i992.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
   %1370 = getelementptr i8, ptr %1367, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i993.i = load i8, ptr %1370, align 2, !noalias !492
+  %.val.i.i.i.i.i.i.i.i.i.i.i993.i = load i8, ptr %1370, align 2, !noalias !491
   %.not3.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i993.i, 6
-  br i1 %.not3.i.i.i.i.i.i.i.i.i.i.i.i, label %.backedge1647, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i"
+  br i1 %.not3.i.i.i.i.i.i.i.i.i.i.i.i, label %.backedge1639, label %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i"
 
-.backedge1647:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i992.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i1000.i"
+.backedge1639:                                    ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i992.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i1000.i"
   %.be = phi ptr [ %1367, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i992.i ], [ %1365, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i1000.i" ]
-  %.be1648 = phi i32 [ %1368, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i992.i ], [ %.val14.i.i.i.i.i.i.i.i.i.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i1000.i" ]
-  %.be1649 = phi i32 [ %1369, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i992.i ], [ %1366, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i1000.i" ]
-  br label %1347, !llvm.loop !296
+  %.be1640 = phi i32 [ %1368, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i992.i ], [ %.val14.i.i.i.i.i.i.i.i.i.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i1000.i" ]
+  %.be1641 = phi i32 [ %1369, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i992.i ], [ %1366, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i1000.i" ]
+  br label %1347, !llvm.loop !295
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i.i992.i, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
   store i32 %1364, ptr %1340, align 8
@@ -3769,14 +3769,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
 
 "_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i"
   %1371 = getelementptr i8, ptr %1365, i64 18
-  %.val5.val.i.i.i.i.i.i.i.i.i.i = load i8, ptr %1371, align 2, !noalias !492
+  %.val5.val.i.i.i.i.i.i.i.i.i.i = load i8, ptr %1371, align 2, !noalias !491
   %1372 = icmp eq i8 %.val5.val.i.i.i.i.i.i.i.i.i.i, 14
   br i1 %1372, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i995.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj.exit.sink.split.i"
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i995.i:      ; preds = %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i"
-  %1373 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i987.i, align 8, !noalias !492
+  %1373 = load ptr, ptr %.val2.i.i.i.i.i.i.i.i.i987.i, align 8, !noalias !491
   %1374 = getelementptr inbounds nuw i8, ptr %1373, i64 88
-  %1375 = load i32, ptr %1374, align 8, !noalias !492
+  %1375 = load i32, ptr %1374, align 8, !noalias !491
   br label %1376
 
 1376:                                             ; preds = %1378, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i995.i
@@ -3786,39 +3786,39 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %1377, label %1378, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj.exit.sink.split.i"
 
 1378:                                             ; preds = %1376
-  %1379 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i986.i, align 8, !noalias !492
+  %1379 = load ptr, ptr %.val3.i.i.i.i.i.i.i.i.i986.i, align 8, !noalias !491
   %1380 = zext i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i997.i to i64
   %1381 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1379, i64 %1380
   %1382 = getelementptr i8, ptr %1381, i64 18
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i998.i = load i8, ptr %1382, align 2, !noalias !492
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i998.i = load i8, ptr %1382, align 2, !noalias !491
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i999.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i998.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i999.i, label %1376, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i1000.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i999.i, label %1376, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i1000.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i1000.i": ; preds = %1378
   %1383 = getelementptr i8, ptr %1381, i64 16
-  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i1001.i = load i16, ptr %1383, align 4, !noalias !492
+  %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i1001.i = load i16, ptr %1383, align 4, !noalias !491
   %1384 = and i16 %.val6.i.i.i.i.i.i.i.i.i.i.i.i.i.i1001.i, 31
   %1385 = zext nneg i16 %1384 to i32
   %1386 = shl nuw i32 1, %1385
   %1387 = and i32 %1386, 7168
   %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i1002.i = icmp eq i32 %1387, 0
-  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i1002.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj.exit.sink.split.i", label %.backedge1647
+  br i1 %.not1.i.i.i.i.i.i.i.i.i.i.i.i.i.i1002.i, label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj.exit.sink.split.i", label %.backedge1639
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj.exit.sink.split.i": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i.i.i1000.i", %"_ZN9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEdeEv.exit.i.i.i.i.i.i.i.i.i.i", %"_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i.i.i.i.i", %1376
-  store i32 %1357, ptr %1339, align 8, !alias.scope !492
+  store i32 %1357, ptr %1339, align 8, !alias.scope !491
   br label %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj.exit.i"
 
 "_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj.exit.i": ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj.exit.sink.split.i", %1332
   call fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEaSERKSQ_"(ptr noundef nonnull align 8 dereferenceable(73) %7, ptr noundef nonnull align 8 dereferenceable(73) %20)
   %1388 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i1004.i = load i32, ptr %1388, align 8, !noalias !499
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i1004.i = load i32, ptr %1388, align 8, !noalias !498
   %1389 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %1390 = load i32, ptr %1389, align 8, !noalias !499
+  %1390 = load i32, ptr %1389, align 8, !noalias !498
   %.not.i.i.i.i.i.i.i.i.i.i.i.i1005.i = icmp eq i32 %1390, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i1005.i, label %1391, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit1008.i"
 
 1391:                                             ; preds = %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj.exit.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !499
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !498
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit1008.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit1008.i": ; preds = %1391, %"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj.exit.i"
@@ -3828,8 +3828,8 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1394 = shl i8 %.2.tr.i, 4
   %1395 = or disjoint i8 %1394, 5
   %1396 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i1004.i to i64
-  %.val.i.i.i.i.i.i.i.i.i.i.i.i1010.i = load i32, ptr %1392, align 8, !noalias !508
-  %1397 = load i32, ptr %1393, align 8, !noalias !508
+  %.val.i.i.i.i.i.i.i.i.i.i.i.i1010.i = load i32, ptr %1392, align 8, !noalias !507
+  %1397 = load i32, ptr %1393, align 8, !noalias !507
   %.not.i.i.i.i.i.i.i.i.i.i.i.i1011.i = icmp eq i32 %1397, 0
   %1398 = zext i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i1010.i to i64
   br label %1399
@@ -3839,7 +3839,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i1011.i, label %1400, label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit1014.i"
 
 1400:                                             ; preds = %1399
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !508
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !507
   br label %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit1014.i"
 
 "_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit1014.i": ; preds = %1400, %1399
@@ -3852,7 +3852,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1405 = getelementptr inbounds nuw i8, ptr %1404, i64 3
   store i8 %1395, ptr %1405, align 1
   %indvars.iv.next2449.i = add nuw nsw i64 %indvars.iv2448.i, 1
-  br label %1399, !llvm.loop !517
+  br label %1399, !llvm.loop !516
 
 1406:                                             ; preds = %"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv.exit1014.i"
   %1407 = add i32 %.2.i, 1
@@ -3873,7 +3873,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br label %1414
 
 1414:                                             ; preds = %1413, %1409
-  %1415 = load i32, ptr %.sroa.6.0..sroa_idx2460.i5565, align 4
+  %1415 = load i32, ptr %.sroa.6.0..sroa_idx2460.i4757, align 4
   %1416 = load i32, ptr %7, align 8
   %1417 = add i32 %1416, %1415
   store i32 %1417, ptr %7, align 8
@@ -3881,7 +3881,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %.promoted.i.i.i.i.i.i.i = load i32, ptr %.sroa.21209.0..sroa_idx.i, align 8
   %.promoted10.i.i.i.i.i.i.i = load i32, ptr %.sroa.41211.0..sroa_idx.i, align 8
   %.promoted14.i.i.i.i.i.i.i = load ptr, ptr %.sroa.31210.0..sroa_idx.i, align 8
-  %.promoted15.i.i.i.i.i.i.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4
+  %.promoted15.i.i.i.i.i.i.i = load i32, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4
   %.val3.i.i.i.i.i.i.i = load ptr, ptr %.sroa.81214.0..sroa_idx.i, align 8
   %.val2.i.i.i.i.i.i.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8
   br label %1419
@@ -3900,7 +3900,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   %1424 = add i32 %.val11.i.i.i.i.i.i.i, -1
   store i32 %1424, ptr %.sroa.41211.0..sroa_idx.i, align 8
   %1425 = add i32 %1420, 1
-  store i32 %1425, ptr %.sroa.18.0..sroa_idx2461.i5367, align 4
+  store i32 %1425, ptr %.sroa.18.0..sroa_idx2461.i4559, align 4
   %1426 = getelementptr inbounds nuw i8, ptr %1421, i64 20
   store ptr %1426, ptr %.sroa.31210.0..sroa_idx.i, align 8
   %.not.i.i.i.i.i.i.i.i1016.i = icmp eq i32 %1424, 0
@@ -3915,7 +3915,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   ]
 
 .backedge:                                        ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i"
-  br label %1419, !llvm.loop !33
+  br label %1419, !llvm.loop !32
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i.i
   %1428 = load ptr, ptr %.val2.i.i.i.i.i.i.i, align 8
@@ -3936,7 +3936,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %1437 = getelementptr i8, ptr %1436, i64 18
   %.val.i.i.i.i.i.i.i.i.i.i.i1018.i = load i8, ptr %1437, align 2
   %.not.i.i.i.i.i.i.i.i.i.i.i1019.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i1018.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i1019.i, label %1431, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i1019.i, label %1431, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i.i": ; preds = %1433
   %1438 = getelementptr i8, ptr %1436, i64 16
@@ -3959,18 +3959,18 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i1021.i, label %1447, label %"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit.i.i.i"
 
 1447:                                             ; preds = %1446
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !518
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !517
   br label %"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit.i.i.i"
 
 "_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit.i.i.i": ; preds = %1447, %1446
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i6.i.i5961, label %1448, label %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.i"
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i6.i.i5153, label %1448, label %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.i"
 
 1448:                                             ; preds = %"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit.i.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !523
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !522
   br label %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.i"
 
 "_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.i": ; preds = %1448, %"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit.i.i.i"
-  %.not1223.i = icmp eq i32 %1417, %.sroa.01173.0.i5763
+  %.not1223.i = icmp eq i32 %1417, %.sroa.01173.0.i4955
   br i1 %.not1223.i, label %1449, label %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.thread.i"
 
 1449:                                             ; preds = %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEneERKSQ_.exit.i", %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit.i"
@@ -3986,14 +3986,14 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i1025.i, label %1454, label %"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit.i1026.i"
 
 1454:                                             ; preds = %1453
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !528
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !527
   br label %"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit.i1026.i"
 
 "_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit.i1026.i": ; preds = %1454, %1453
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i6.i.i5961, label %1455, label %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit1030.i"
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i6.i.i5153, label %1455, label %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit1030.i"
 
 1455:                                             ; preds = %"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit.i1026.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !533
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !532
   br label %"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit1030.i"
 
 "_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEEeqERKSQ_.exit1030.i": ; preds = %1455, %"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit.i1026.i"
@@ -4031,7 +4031,7 @@ _ZL18find_syllables_useP11hb_buffer_t.exit:       ; preds = %1449, %"_ZNK15machi
 
 1463:                                             ; preds = %_ZL18find_syllables_useP11hb_buffer_t.exit
   %.val17 = load ptr, ptr %24, align 8
-  %1464 = getelementptr i8, ptr %.val17, i64 15
+  %1464 = getelementptr inbounds nuw i8, ptr %.val17, i64 15
   %1465 = load i8, ptr %1464, align 1
   %1466 = add i32 %1462, -1
   %wide.trip.count = zext i32 %1466 to i64
@@ -4044,127 +4044,125 @@ _ZL18find_syllables_useP11hb_buffer_t.exit:       ; preds = %1449, %"_ZNK15machi
 
 1468:                                             ; preds = %1467
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %gep.idx.i = mul nuw nsw i64 %indvars.iv.next, 20
-  %gep.i = getelementptr i8, ptr %1464, i64 %gep.idx.i
-  %1469 = load i8, ptr %gep.i, align 1
-  %1470 = icmp eq i8 %1465, %1469
-  br i1 %1470, label %1467, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !538
+  %1469 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val17, i64 %indvars.iv.next, i32 3
+  %1470 = getelementptr inbounds nuw i8, ptr %1469, i64 3
+  %1471 = load i8, ptr %1470, align 1
+  %1472 = icmp eq i8 %1465, %1471
+  br i1 %1472, label %1467, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !537
 
 _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %1468
-  %1471 = trunc nuw i64 %indvars.iv.next to i32
+  %1473 = trunc nuw i64 %indvars.iv.next to i32
   br label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1467, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit
-  %.0457.ph = phi i32 [ %1471, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit ], [ %1462, %1467 ]
+  %.0449.ph = phi i32 [ %1473, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit ], [ %1462, %1467 ]
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26
-  %.0457 = phi i32 [ %.lcssa.i23, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26 ], [ %.0457.ph, %.lr.ph.preheader ]
-  %.016456 = phi i32 [ %.0457, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26 ], [ 0, %.lr.ph.preheader ]
-  call void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef 3, i32 noundef %.016456, i32 noundef %.0457, i1 noundef zeroext true, i1 noundef zeroext false)
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit24
+  %.0449 = phi i32 [ %.lcssa.i23, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit24 ], [ %.0449.ph, %.lr.ph.preheader ]
+  %.016448 = phi i32 [ %.0449, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit24 ], [ 0, %.lr.ph.preheader ]
+  call void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef 3, i32 noundef %.016448, i32 noundef %.0449, i1 noundef zeroext true, i1 noundef zeroext false)
   %.val18 = load i32, ptr %26, align 8
   %.val19 = load ptr, ptr %24, align 8
-  %1472 = zext i32 %.0457 to i64
-  %1473 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val19, i64 %1472, i32 3
-  %1474 = getelementptr inbounds nuw i8, ptr %1473, i64 3
-  %1475 = load i8, ptr %1474, align 1
-  %1476 = add i32 %.0457, 1
-  %umax.i21 = call i32 @llvm.umax.i32(i32 %.val18, i32 %1476)
-  %1477 = getelementptr i8, ptr %.val19, i64 15
-  %1478 = add i32 %umax.i21, -1
-  br label %1479
+  %1474 = zext i32 %.0449 to i64
+  %1475 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val19, i64 %1474, i32 3
+  %1476 = getelementptr inbounds nuw i8, ptr %1475, i64 3
+  %1477 = load i8, ptr %1476, align 1
+  %1478 = add i32 %.0449, 1
+  %umax.i21 = call i32 @llvm.umax.i32(i32 %.val18, i32 %1478)
+  %1479 = add i32 %umax.i21, -1
+  br label %1480
 
-1479:                                             ; preds = %1480, %.lr.ph
-  %.0.i22 = phi i32 [ %.0457, %.lr.ph ], [ %1481, %1480 ]
-  %exitcond843.not = icmp eq i32 %.0.i22, %1478
-  br i1 %exitcond843.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26, label %1480
+1480:                                             ; preds = %1481, %.lr.ph
+  %.0.i22 = phi i32 [ %.0449, %.lr.ph ], [ %1482, %1481 ]
+  %exitcond835.not = icmp eq i32 %.0.i22, %1479
+  br i1 %exitcond835.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit24, label %1481
 
-1480:                                             ; preds = %1479
-  %1481 = add i32 %.0.i22, 1
-  %1482 = zext i32 %1481 to i64
-  %gep.idx.i24 = mul nuw nsw i64 %1482, 20
-  %gep.i25 = getelementptr i8, ptr %1477, i64 %gep.idx.i24
-  %1483 = load i8, ptr %gep.i25, align 1
-  %1484 = icmp eq i8 %1475, %1483
-  br i1 %1484, label %1479, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26, !llvm.loop !538
+1481:                                             ; preds = %1480
+  %1482 = add i32 %.0.i22, 1
+  %1483 = zext i32 %1482 to i64
+  %1484 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val19, i64 %1483, i32 3
+  %1485 = getelementptr inbounds nuw i8, ptr %1484, i64 3
+  %1486 = load i8, ptr %1485, align 1
+  %1487 = icmp eq i8 %1477, %1486
+  br i1 %1487, label %1480, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit24, !llvm.loop !537
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit26:     ; preds = %1479, %1480
-  %.lcssa.i23 = phi i32 [ %umax.i21, %1479 ], [ %1481, %1480 ]
-  %1485 = icmp ult i32 %.0457, %1462
-  br i1 %1485, label %.lr.ph, label %._crit_edge, !llvm.loop !539
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit24:     ; preds = %1480, %1481
+  %.lcssa.i23 = phi i32 [ %umax.i21, %1480 ], [ %1482, %1481 ]
+  %1488 = icmp ult i32 %.0449, %1462
+  br i1 %1488, label %.lr.ph, label %._crit_edge, !llvm.loop !538
 
-._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26, %_ZL18find_syllables_useP11hb_buffer_t.exit
-  %1486 = phi i32 [ 0, %_ZL18find_syllables_useP11hb_buffer_t.exit ], [ %.val18, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26 ]
-  %1487 = getelementptr i8, ptr %0, i64 136
-  %.val20 = load ptr, ptr %1487, align 8
+._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit24, %_ZL18find_syllables_useP11hb_buffer_t.exit
+  %1489 = phi i32 [ 0, %_ZL18find_syllables_useP11hb_buffer_t.exit ], [ %.val18, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit24 ]
+  %1490 = getelementptr i8, ptr %0, i64 136
+  %.val20 = load ptr, ptr %1490, align 8
   %.val20.val = load i32, ptr %.val20, align 8
-  %.not.i27 = icmp eq i32 %.val20.val, 0
-  br i1 %.not.i27, label %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, label %1488
+  %.not.i25 = icmp eq i32 %.val20.val, 0
+  br i1 %.not.i25, label %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, label %1491
 
-1488:                                             ; preds = %._crit_edge
-  %1489 = load ptr, ptr %24, align 8
-  %.not26.i = icmp eq i32 %1486, 0
-  br i1 %.not26.i, label %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, label %1490
+1491:                                             ; preds = %._crit_edge
+  %1492 = load ptr, ptr %24, align 8
+  %.not26.i = icmp eq i32 %1489, 0
+  br i1 %.not26.i, label %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, label %1493
 
-1490:                                             ; preds = %1488
-  %1491 = getelementptr i8, ptr %1489, i64 15
-  %1492 = load i8, ptr %1491, align 1
-  %1493 = add i32 %1486, -1
-  %wide.trip.count.i = zext i32 %1493 to i64
-  br label %1494
+1493:                                             ; preds = %1491
+  %1494 = getelementptr inbounds nuw i8, ptr %1492, i64 15
+  %1495 = load i8, ptr %1494, align 1
+  %1496 = add i32 %1489, -1
+  %wide.trip.count.i = zext i32 %1496 to i64
+  br label %1497
 
-1494:                                             ; preds = %1495, %1490
-  %indvars.iv.i28 = phi i64 [ %indvars.iv.next.i29, %1495 ], [ 0, %1490 ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i28, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.i, label %1495
+1497:                                             ; preds = %1498, %1493
+  %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i27, %1498 ], [ 0, %1493 ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i26, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.lr.ph7.i.preheader, label %1498
 
-1495:                                             ; preds = %1494
-  %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
-  %gep.idx.i.i = mul nuw nsw i64 %indvars.iv.next.i29, 20
-  %gep.i.i = getelementptr i8, ptr %1491, i64 %gep.idx.i.i
-  %1496 = load i8, ptr %gep.i.i, align 1
-  %1497 = icmp eq i8 %1492, %1496
-  br i1 %1497, label %1494, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i, !llvm.loop !538
+1498:                                             ; preds = %1497
+  %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
+  %1499 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1492, i64 %indvars.iv.next.i27, i32 3
+  %1500 = getelementptr inbounds nuw i8, ptr %1499, i64 3
+  %1501 = load i8, ptr %1500, align 1
+  %1502 = icmp eq i8 %1495, %1501
+  br i1 %1502, label %1497, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i, !llvm.loop !537
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i: ; preds = %1495
-  %1498 = trunc nuw i64 %indvars.iv.next.i29 to i32
-  br label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.i
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i: ; preds = %1498
+  %1503 = trunc nuw i64 %indvars.iv.next.i27 to i32
+  br label %.lr.ph7.i.preheader
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit.i:     ; preds = %1494, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i
-  %1499 = phi i32 [ %1498, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i ], [ %1486, %1494 ]
-  %1500 = getelementptr i8, ptr %1489, i64 18
+.lr.ph7.i.preheader:                              ; preds = %1497, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i
+  %.0245.i.ph = phi i32 [ %1503, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i ], [ %1489, %1497 ]
   br label %.lr.ph7.i
 
-.lr.ph7.i:                                        ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit35.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.i
-  %.val2718.i = phi ptr [ %.val27.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit35.i ], [ %1489, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.i ]
-  %.val16.i = phi i32 [ %.val.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit35.i ], [ %1486, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.i ]
-  %.0236.i = phi i32 [ %.0245.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit35.i ], [ 0, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.i ]
-  %.0245.i = phi i32 [ %.lcssa.i32.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit35.i ], [ %1499, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.i ]
-  %1501 = zext i32 %.0236.i to i64
-  %gep.idx.i30 = mul nuw nsw i64 %1501, 20
-  %gep.i31 = getelementptr i8, ptr %1500, i64 %gep.idx.i30
-  %1502 = load i8, ptr %gep.i31, align 2
-  %1503 = icmp eq i8 %1502, 18
-  %1504 = sub i32 %.0245.i, %.0236.i
-  %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %1504, i32 3)
-  %1505 = select i1 %1503, i32 1, i32 %.sroa.speculated.i
-  %1506 = add i32 %1505, %.0236.i
-  %1507 = icmp ult i32 %.0236.i, %1506
-  br i1 %1507, label %.lr.ph.preheader.i, label %._crit_edge.i
+.lr.ph7.i:                                        ; preds = %.lr.ph7.i.preheader, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit33.i
+  %.val2718.i = phi ptr [ %.val27.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit33.i ], [ %1492, %.lr.ph7.i.preheader ]
+  %.val16.i = phi i32 [ %.val.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit33.i ], [ %1489, %.lr.ph7.i.preheader ]
+  %.0236.i = phi i32 [ %.0245.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit33.i ], [ 0, %.lr.ph7.i.preheader ]
+  %.0245.i = phi i32 [ %.lcssa.i32.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit33.i ], [ %.0245.i.ph, %.lr.ph7.i.preheader ]
+  %1504 = zext i32 %.0236.i to i64
+  %1505 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1492, i64 %1504, i32 4
+  %1506 = getelementptr inbounds nuw i8, ptr %1505, i64 2
+  %1507 = load i8, ptr %1506, align 2
+  %1508 = icmp eq i8 %1507, 18
+  %1509 = sub i32 %.0245.i, %.0236.i
+  %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %1509, i32 3)
+  %1510 = select i1 %1508, i32 1, i32 %.sroa.speculated.i
+  %1511 = add i32 %1510, %.0236.i
+  %1512 = icmp ult i32 %.0236.i, %1511
+  br i1 %1512, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph7.i
-  %wide.trip.count13.i = zext i32 %1506 to i64
+  %wide.trip.count13.i = zext i32 %1511 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv10.i = phi i64 [ %1501, %.lr.ph.preheader.i ], [ %indvars.iv.next11.i, %.lr.ph.i ]
-  %1508 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1489, i64 %indvars.iv10.i, i32 1
-  %1509 = load i32, ptr %1508, align 4
-  %1510 = or i32 %1509, %.val20.val
-  store i32 %1510, ptr %1508, align 4
+  %indvars.iv10.i = phi i64 [ %1504, %.lr.ph.preheader.i ], [ %indvars.iv.next11.i, %.lr.ph.i ]
+  %1513 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1492, i64 %indvars.iv10.i, i32 1
+  %1514 = load i32, ptr %1513, align 4
+  %1515 = or i32 %1514, %.val20.val
+  store i32 %1515, ptr %1513, align 4
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
   %exitcond14.not.i = icmp eq i64 %indvars.iv.next11.i, %wide.trip.count13.i
-  br i1 %exitcond14.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !540
+  br i1 %exitcond14.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !539
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.val.pre.i = load i32, ptr %26, align 8
@@ -4174,261 +4172,259 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.i:     ; preds = %1494, %_ZL17_hb_nex
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph7.i
   %.val27.i = phi ptr [ %.val27.pre.i, %._crit_edge.loopexit.i ], [ %.val2718.i, %.lr.ph7.i ]
   %.val.i = phi i32 [ %.val.pre.i, %._crit_edge.loopexit.i ], [ %.val16.i, %.lr.ph7.i ]
-  %1511 = zext i32 %.0245.i to i64
-  %1512 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val27.i, i64 %1511, i32 3
-  %1513 = getelementptr inbounds nuw i8, ptr %1512, i64 3
-  %1514 = load i8, ptr %1513, align 1
-  %1515 = add i32 %.0245.i, 1
-  %umax.i30.i = call i32 @llvm.umax.i32(i32 %.val.i, i32 %1515)
-  %1516 = getelementptr i8, ptr %.val27.i, i64 15
-  %1517 = add i32 %umax.i30.i, -1
-  br label %1518
+  %1516 = zext i32 %.0245.i to i64
+  %1517 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val27.i, i64 %1516, i32 3
+  %1518 = getelementptr inbounds nuw i8, ptr %1517, i64 3
+  %1519 = load i8, ptr %1518, align 1
+  %1520 = add i32 %.0245.i, 1
+  %umax.i30.i = call i32 @llvm.umax.i32(i32 %.val.i, i32 %1520)
+  %1521 = add i32 %umax.i30.i, -1
+  br label %1522
 
-1518:                                             ; preds = %1519, %._crit_edge.i
-  %.0.i31.i = phi i32 [ %.0245.i, %._crit_edge.i ], [ %1520, %1519 ]
-  %exitcond15.not.i = icmp eq i32 %.0.i31.i, %1517
-  br i1 %exitcond15.not.i, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit35.i, label %1519
+1522:                                             ; preds = %1523, %._crit_edge.i
+  %.0.i31.i = phi i32 [ %.0245.i, %._crit_edge.i ], [ %1524, %1523 ]
+  %exitcond15.not.i = icmp eq i32 %.0.i31.i, %1521
+  br i1 %exitcond15.not.i, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit33.i, label %1523
 
-1519:                                             ; preds = %1518
-  %1520 = add i32 %.0.i31.i, 1
-  %1521 = zext i32 %1520 to i64
-  %gep.idx.i33.i = mul nuw nsw i64 %1521, 20
-  %gep.i34.i = getelementptr i8, ptr %1516, i64 %gep.idx.i33.i
-  %1522 = load i8, ptr %gep.i34.i, align 1
-  %1523 = icmp eq i8 %1514, %1522
-  br i1 %1523, label %1518, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit35.i, !llvm.loop !538
+1523:                                             ; preds = %1522
+  %1524 = add i32 %.0.i31.i, 1
+  %1525 = zext i32 %1524 to i64
+  %1526 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val27.i, i64 %1525, i32 3
+  %1527 = getelementptr inbounds nuw i8, ptr %1526, i64 3
+  %1528 = load i8, ptr %1527, align 1
+  %1529 = icmp eq i8 %1519, %1528
+  br i1 %1529, label %1522, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit33.i, !llvm.loop !537
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit35.i:   ; preds = %1519, %1518
-  %.lcssa.i32.i = phi i32 [ %umax.i30.i, %1518 ], [ %1520, %1519 ]
-  %1524 = icmp ult i32 %.0245.i, %1486
-  br i1 %1524, label %.lr.ph7.i, label %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit, !llvm.loop !541
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit33.i:   ; preds = %1523, %1522
+  %.lcssa.i32.i = phi i32 [ %umax.i30.i, %1522 ], [ %1524, %1523 ]
+  %1530 = icmp ult i32 %.0245.i, %1489
+  br i1 %1530, label %.lr.ph7.i, label %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit, !llvm.loop !540
 
-_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit: ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit35.i
-  %.pre = load ptr, ptr %1487, align 8
+_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit: ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit33.i
+  %.pre = load ptr, ptr %1490, align 8
   br label %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit
 
-_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit: ; preds = %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit, %._crit_edge, %1488
-  %1525 = phi i32 [ %.val.i, %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit ], [ %1486, %._crit_edge ], [ 0, %1488 ]
-  %1526 = phi ptr [ %.pre, %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit ], [ %.val20, %._crit_edge ], [ %.val20, %1488 ]
+_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit: ; preds = %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit, %._crit_edge, %1491
+  %1531 = phi i32 [ %.val.i, %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit ], [ %1489, %._crit_edge ], [ 0, %1491 ]
+  %1532 = phi ptr [ %.pre, %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit.loopexit ], [ %.val20, %._crit_edge ], [ %.val20, %1491 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %1527 = getelementptr inbounds nuw i8, ptr %1526, i64 8
-  %1528 = load ptr, ptr %1527, align 8
-  %.not.i33 = icmp eq ptr %1528, null
-  br i1 %.not.i33, label %.preheader.i, label %_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit
+  %1533 = getelementptr inbounds nuw i8, ptr %1532, i64 8
+  %1534 = load ptr, ptr %1533, align 8
+  %.not.i29 = icmp eq ptr %1534, null
+  br i1 %.not.i29, label %.preheader.i, label %_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit
 
 .preheader.i:                                     ; preds = %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit
-  %1529 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %1530 = load ptr, ptr %1529, align 8
-  %1531 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %1532 = load i32, ptr %1531, align 4
-  %.not1.i.i.i.i.i.i.i = icmp sgt i32 %1532, 0
-  %1533 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %1534 = load i32, ptr %1533, align 4
-  %1535 = add nsw i32 %1532, -1
+  %1535 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %1536 = load ptr, ptr %1535, align 8
+  %1537 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %1538 = load i32, ptr %1537, align 4
+  %.not1.i.i.i.i.i.i.i = icmp sgt i32 %1538, 0
+  %1539 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %1540 = load i32, ptr %1539, align 4
+  %1541 = add nsw i32 %1538, -1
   br i1 %.not1.i.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.us.i, label %_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit
 
 .lr.ph.preheader.i.i.i.i.i.i.us.i:                ; preds = %.preheader.i, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i
-  %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i35, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i ], [ 0, %.preheader.i ]
-  %.05274.us.i = phi i32 [ %1556, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i ], [ 0, %.preheader.i ]
-  %1536 = getelementptr inbounds nuw [4 x i32], ptr @_ZL26use_topographical_features, i64 0, i64 %indvars.iv.i34
-  %1537 = load i32, ptr %1536, align 4
+  %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i ], [ 0, %.preheader.i ]
+  %.05272.us.i = phi i32 [ %1562, %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i ], [ 0, %.preheader.i ]
+  %1542 = getelementptr inbounds nuw [4 x i32], ptr @_ZL26use_topographical_features, i64 0, i64 %indvars.iv.i30
+  %1543 = load i32, ptr %1542, align 4
   br label %.lr.ph.i.i.i.i.i.i.us.i
 
-.lr.ph.i.i.i.i.i.i.us.i:                          ; preds = %1552, %.lr.ph.preheader.i.i.i.i.i.i.us.i
-  %.0193.i.i.i.i.i.i.us.i = phi i32 [ %.1.i.i.i.i.i.i.us.i, %1552 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.us.i ]
-  %.0202.i.i.i.i.i.i.us.i = phi i32 [ %.121.i.i.i.i.i.i.us.i, %1552 ], [ %1535, %.lr.ph.preheader.i.i.i.i.i.i.us.i ]
-  %1538 = add i32 %.0202.i.i.i.i.i.i.us.i, %.0193.i.i.i.i.i.i.us.i
-  %1539 = lshr i32 %1538, 1
-  %1540 = zext nneg i32 %1539 to i64
-  %1541 = mul nuw nsw i64 %1540, 36
-  %1542 = getelementptr inbounds nuw i8, ptr %1530, i64 %1541
-  %1543 = load i32, ptr %1542, align 4
-  %1544 = icmp ult i32 %1537, %1543
-  br i1 %1544, label %1550, label %1545
-
-1545:                                             ; preds = %.lr.ph.i.i.i.i.i.i.us.i
-  %.not23.i.i.i.i.i.i.us.i = icmp eq i32 %1537, %1543
-  br i1 %.not23.i.i.i.i.i.i.us.i, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i, label %1546
-
-1546:                                             ; preds = %1545
-  %1547 = add nuw nsw i32 %1539, 1
-  br label %1552
-
-_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i: ; preds = %1545
-  %1548 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %1530, i64 %1540, i32 5
+.lr.ph.i.i.i.i.i.i.us.i:                          ; preds = %1558, %.lr.ph.preheader.i.i.i.i.i.i.us.i
+  %.0193.i.i.i.i.i.i.us.i = phi i32 [ %.1.i.i.i.i.i.i.us.i, %1558 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i.us.i ]
+  %.0202.i.i.i.i.i.i.us.i = phi i32 [ %.121.i.i.i.i.i.i.us.i, %1558 ], [ %1541, %.lr.ph.preheader.i.i.i.i.i.i.us.i ]
+  %1544 = add i32 %.0202.i.i.i.i.i.i.us.i, %.0193.i.i.i.i.i.i.us.i
+  %1545 = lshr i32 %1544, 1
+  %1546 = zext nneg i32 %1545 to i64
+  %1547 = mul nuw nsw i64 %1546, 36
+  %1548 = getelementptr inbounds nuw i8, ptr %1536, i64 %1547
   %1549 = load i32, ptr %1548, align 4
+  %1550 = icmp ult i32 %1543, %1549
+  br i1 %1550, label %1556, label %1551
+
+1551:                                             ; preds = %.lr.ph.i.i.i.i.i.i.us.i
+  %.not23.i.i.i.i.i.i.us.i = icmp eq i32 %1543, %1549
+  br i1 %.not23.i.i.i.i.i.i.us.i, label %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i, label %1552
+
+1552:                                             ; preds = %1551
+  %1553 = add nuw nsw i32 %1545, 1
+  br label %1558
+
+_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i: ; preds = %1551
+  %1554 = getelementptr inbounds nuw %"struct.hb_ot_map_t::feature_map_t", ptr %1536, i64 %1546, i32 5
+  %1555 = load i32, ptr %1554, align 4
   br label %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i
 
-1550:                                             ; preds = %.lr.ph.i.i.i.i.i.i.us.i
-  %1551 = add nsw i32 %1539, -1
-  br label %1552
+1556:                                             ; preds = %.lr.ph.i.i.i.i.i.i.us.i
+  %1557 = add nsw i32 %1545, -1
+  br label %1558
 
-1552:                                             ; preds = %1550, %1546
-  %.121.i.i.i.i.i.i.us.i = phi i32 [ %1551, %1550 ], [ %.0202.i.i.i.i.i.i.us.i, %1546 ]
-  %.1.i.i.i.i.i.i.us.i = phi i32 [ %.0193.i.i.i.i.i.i.us.i, %1550 ], [ %1547, %1546 ]
+1558:                                             ; preds = %1556, %1552
+  %.121.i.i.i.i.i.i.us.i = phi i32 [ %1557, %1556 ], [ %.0202.i.i.i.i.i.i.us.i, %1552 ]
+  %.1.i.i.i.i.i.i.us.i = phi i32 [ %.0193.i.i.i.i.i.i.us.i, %1556 ], [ %1553, %1552 ]
   %.not.not.i.i.i.i.i.i.us.i = icmp sgt i32 %.1.i.i.i.i.i.i.us.i, %.121.i.i.i.i.i.i.us.i
-  br i1 %.not.not.i.i.i.i.i.i.us.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i, label %.lr.ph.i.i.i.i.i.i.us.i, !llvm.loop !11
+  br i1 %.not.not.i.i.i.i.i.i.us.i, label %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i, label %.lr.ph.i.i.i.i.i.i.us.i, !llvm.loop !10
 
-_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i:        ; preds = %1552, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i
-  %1553 = phi i32 [ %1549, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i ], [ 0, %1552 ]
-  %1554 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv.i34
-  %1555 = icmp eq i32 %1553, %1534
-  %spec.store.select.us.i = select i1 %1555, i32 0, i32 %1553
-  store i32 %spec.store.select.us.i, ptr %1554, align 4
-  %1556 = or i32 %spec.store.select.us.i, %.05274.us.i
-  %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
-  %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, 4
-  br i1 %exitcond.not.i36, label %.split.us.i, label %.lr.ph.preheader.i.i.i.i.i.i.us.i, !llvm.loop !542
+_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i:        ; preds = %1558, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i
+  %1559 = phi i32 [ %1555, %_ZNK11hb_vector_tIN11hb_ot_map_t13feature_map_tELb1EE7bsearchIjLb1ETnPN12hb_enable_ifIXT0_EvE4typeELPv0EEEPKS1_RKT_SA_.exit.i.us.i ], [ 0, %1558 ]
+  %1560 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv.i30
+  %1561 = icmp eq i32 %1559, %1540
+  %spec.store.select.us.i = select i1 %1561, i32 0, i32 %1559
+  store i32 %spec.store.select.us.i, ptr %1560, align 4
+  %1562 = or i32 %spec.store.select.us.i, %.05272.us.i
+  %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
+  %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, 4
+  br i1 %exitcond.not.i32, label %.split.us.i, label %.lr.ph.preheader.i.i.i.i.i.i.us.i, !llvm.loop !541
 
 .split.us.i:                                      ; preds = %_ZNK11hb_ot_map_t10get_1_maskEj.exit.us.i
-  %.not58.i = icmp eq i32 %1556, 0
-  br i1 %.not58.i, label %_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, label %1557
+  %.not58.i = icmp eq i32 %1562, 0
+  br i1 %.not58.i, label %_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, label %1563
 
-1557:                                             ; preds = %.split.us.i
-  %1558 = xor i32 %1556, -1
-  %1559 = load ptr, ptr %24, align 8
-  %.not59.i = icmp eq i32 %1525, 0
-  br i1 %.not59.i, label %_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, label %1560
+1563:                                             ; preds = %.split.us.i
+  %1564 = xor i32 %1562, -1
+  %1565 = load ptr, ptr %24, align 8
+  %.not59.i = icmp eq i32 %1531, 0
+  br i1 %.not59.i, label %_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, label %1566
 
-1560:                                             ; preds = %1557
-  %1561 = getelementptr i8, ptr %1559, i64 15
-  %1562 = load i8, ptr %1561, align 1
-  %1563 = add i32 %1525, -1
-  %wide.trip.count.i37 = zext i32 %1563 to i64
-  br label %1564
+1566:                                             ; preds = %1563
+  %1567 = getelementptr inbounds nuw i8, ptr %1565, i64 15
+  %1568 = load i8, ptr %1567, align 1
+  %1569 = add i32 %1531, -1
+  %wide.trip.count.i33 = zext i32 %1569 to i64
+  br label %1570
 
-1564:                                             ; preds = %1565, %1560
-  %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %1565 ], [ 0, %1560 ]
-  %exitcond92.not.i = icmp eq i64 %indvars.iv89.i, %wide.trip.count.i37
-  br i1 %exitcond92.not.i, label %.lr.ph82.i.preheader, label %1565
+1570:                                             ; preds = %1571, %1566
+  %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %1571 ], [ 0, %1566 ]
+  %exitcond90.not.i = icmp eq i64 %indvars.iv87.i, %wide.trip.count.i33
+  br i1 %exitcond90.not.i, label %.lr.ph80.i.preheader, label %1571
 
-1565:                                             ; preds = %1564
-  %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
-  %gep.idx.i.i38 = mul nuw nsw i64 %indvars.iv.next90.i, 20
-  %gep.i.i39 = getelementptr i8, ptr %1561, i64 %gep.idx.i.i38
-  %1566 = load i8, ptr %gep.i.i39, align 1
-  %1567 = icmp eq i8 %1562, %1566
-  br i1 %1567, label %1564, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i40, !llvm.loop !538
+1571:                                             ; preds = %1570
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
+  %1572 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1565, i64 %indvars.iv.next88.i, i32 3
+  %1573 = getelementptr inbounds nuw i8, ptr %1572, i64 3
+  %1574 = load i8, ptr %1573, align 1
+  %1575 = icmp eq i8 %1568, %1574
+  br i1 %1575, label %1570, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i34, !llvm.loop !537
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i40: ; preds = %1565
-  %1568 = trunc nuw i64 %indvars.iv.next90.i to i32
-  br label %.lr.ph82.i.preheader
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i34: ; preds = %1571
+  %1576 = trunc nuw i64 %indvars.iv.next88.i to i32
+  br label %.lr.ph80.i.preheader
 
-.lr.ph82.i.preheader:                             ; preds = %1564, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i40
-  %.05481.i.ph = phi i32 [ %1568, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i40 ], [ %1525, %1564 ]
-  br label %.lr.ph82.i
+.lr.ph80.i.preheader:                             ; preds = %1570, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i34
+  %.05479.i.ph = phi i32 [ %1576, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit.i34 ], [ %1531, %1570 ]
+  br label %.lr.ph80.i
 
-.lr.ph82.i:                                       ; preds = %.lr.ph82.i.preheader, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit68.i
-  %.05481.i = phi i32 [ %.lcssa.i65.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit68.i ], [ %.05481.i.ph, %.lr.ph82.i.preheader ]
-  %.05580.i = phi i32 [ %.05481.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit68.i ], [ 0, %.lr.ph82.i.preheader ]
-  %.05679.i = phi i32 [ %.05580.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit68.i ], [ 0, %.lr.ph82.i.preheader ]
-  %.05778.i = phi i32 [ %.1.i45, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit68.i ], [ 4, %.lr.ph82.i.preheader ]
-  %1569 = zext i32 %.05580.i to i64
-  %gep.idx.i42 = mul nuw nsw i64 %1569, 20
-  %gep.i43 = getelementptr i8, ptr %1561, i64 %gep.idx.i42
-  %1570 = load i8, ptr %gep.i43, align 1
-  %1571 = and i8 %1570, 15
-  switch i8 %1571, label %.loopexit.i44 [
-    i8 6, label %1572
-    i8 8, label %1572
-    i8 0, label %1573
-    i8 1, label %1573
-    i8 2, label %1573
-    i8 3, label %1573
-    i8 4, label %1573
-    i8 5, label %1573
-    i8 7, label %1573
+.lr.ph80.i:                                       ; preds = %.lr.ph80.i.preheader, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit66.i
+  %.05479.i = phi i32 [ %.lcssa.i65.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit66.i ], [ %.05479.i.ph, %.lr.ph80.i.preheader ]
+  %.05578.i = phi i32 [ %.05479.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit66.i ], [ 0, %.lr.ph80.i.preheader ]
+  %.05677.i = phi i32 [ %.05578.i, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit66.i ], [ 0, %.lr.ph80.i.preheader ]
+  %.05776.i = phi i32 [ %.1.i37, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit66.i ], [ 4, %.lr.ph80.i.preheader ]
+  %1577 = zext i32 %.05578.i to i64
+  %1578 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1565, i64 %1577, i32 3
+  %1579 = getelementptr inbounds nuw i8, ptr %1578, i64 3
+  %1580 = load i8, ptr %1579, align 1
+  %1581 = and i8 %1580, 15
+  switch i8 %1581, label %.loopexit.i36 [
+    i8 6, label %1582
+    i8 8, label %1582
+    i8 0, label %1583
+    i8 1, label %1583
+    i8 2, label %1583
+    i8 3, label %1583
+    i8 4, label %1583
+    i8 5, label %1583
+    i8 7, label %1583
   ]
 
-1572:                                             ; preds = %.lr.ph82.i, %.lr.ph82.i
-  br label %.loopexit.i44
+1582:                                             ; preds = %.lr.ph80.i, %.lr.ph80.i
+  br label %.loopexit.i36
 
-1573:                                             ; preds = %.lr.ph82.i, %.lr.ph82.i, %.lr.ph82.i, %.lr.ph82.i, %.lr.ph82.i, %.lr.ph82.i, %.lr.ph82.i
-  %1574 = icmp eq i32 %.05778.i, 3
-  switch i32 %.05778.i, label %.loopexit70.i [
-    i32 3, label %1575
-    i32 0, label %1575
+1583:                                             ; preds = %.lr.ph80.i, %.lr.ph80.i, %.lr.ph80.i, %.lr.ph80.i, %.lr.ph80.i, %.lr.ph80.i, %.lr.ph80.i
+  %1584 = icmp eq i32 %.05776.i, 3
+  switch i32 %.05776.i, label %.loopexit68.i [
+    i32 3, label %1585
+    i32 0, label %1585
   ]
 
-1575:                                             ; preds = %1573, %1573
-  %1576 = icmp ult i32 %.05679.i, %.05580.i
-  br i1 %1576, label %.lr.ph.i47, label %.loopexit70.i
+1585:                                             ; preds = %1583, %1583
+  %1586 = icmp ult i32 %.05677.i, %.05578.i
+  br i1 %1586, label %.lr.ph.i39, label %.loopexit68.i
 
-.lr.ph.i47:                                       ; preds = %1575
-  %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %1574, i64 8, i64 4
+.lr.ph.i39:                                       ; preds = %1585
+  %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %1584, i64 8, i64 4
   %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %1577 = load i32, ptr %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
-  %1578 = zext i32 %.05679.i to i64
-  br label %1579
-
-1579:                                             ; preds = %1579, %.lr.ph.i47
-  %indvars.iv93.i = phi i64 [ %1578, %.lr.ph.i47 ], [ %indvars.iv.next94.i, %1579 ]
-  %1580 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1559, i64 %indvars.iv93.i, i32 1
-  %1581 = load i32, ptr %1580, align 4
-  %1582 = and i32 %1581, %1558
-  %1583 = or i32 %1582, %1577
-  store i32 %1583, ptr %1580, align 4
-  %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
-  %exitcond97.not.i = icmp eq i64 %indvars.iv.next94.i, %1569
-  br i1 %exitcond97.not.i, label %.loopexit70.i, label %1579, !llvm.loop !544
-
-.loopexit70.i:                                    ; preds = %1579, %1575, %1573
-  %1584 = phi i32 [ 0, %1573 ], [ 3, %1575 ], [ 3, %1579 ]
-  %1585 = icmp ult i32 %.05580.i, %.05481.i
-  br i1 %1585, label %.lr.ph77.i, label %.loopexit.i44
-
-.lr.ph77.i:                                       ; preds = %.loopexit70.i
-  %1586 = zext nneg i32 %1584 to i64
-  %1587 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %1586
-  %1588 = load i32, ptr %1587, align 4
-  %wide.trip.count101.i = zext i32 %.05481.i to i64
+  %1587 = load i32, ptr %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %1588 = zext i32 %.05677.i to i64
   br label %1589
 
-1589:                                             ; preds = %1589, %.lr.ph77.i
-  %indvars.iv98.i = phi i64 [ %1569, %.lr.ph77.i ], [ %indvars.iv.next99.i, %1589 ]
-  %1590 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1559, i64 %indvars.iv98.i, i32 1
+1589:                                             ; preds = %1589, %.lr.ph.i39
+  %indvars.iv91.i = phi i64 [ %1588, %.lr.ph.i39 ], [ %indvars.iv.next92.i, %1589 ]
+  %1590 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1565, i64 %indvars.iv91.i, i32 1
   %1591 = load i32, ptr %1590, align 4
-  %1592 = and i32 %1591, %1558
-  %1593 = or i32 %1592, %1588
+  %1592 = and i32 %1591, %1564
+  %1593 = or i32 %1592, %1587
   store i32 %1593, ptr %1590, align 4
-  %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
-  %exitcond102.not.i = icmp eq i64 %indvars.iv.next99.i, %wide.trip.count101.i
-  br i1 %exitcond102.not.i, label %.loopexit.i44, label %1589, !llvm.loop !545
+  %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
+  %exitcond95.not.i = icmp eq i64 %indvars.iv.next92.i, %1577
+  br i1 %exitcond95.not.i, label %.loopexit68.i, label %1589, !llvm.loop !543
 
-.loopexit.i44:                                    ; preds = %1589, %.loopexit70.i, %1572, %.lr.ph82.i
-  %.1.i45 = phi i32 [ %.05778.i, %.lr.ph82.i ], [ 4, %1572 ], [ %1584, %.loopexit70.i ], [ %1584, %1589 ]
-  %.val.i46 = load i32, ptr %26, align 8
+.loopexit68.i:                                    ; preds = %1589, %1585, %1583
+  %1594 = phi i32 [ 0, %1583 ], [ 3, %1585 ], [ 3, %1589 ]
+  %1595 = icmp ult i32 %.05578.i, %.05479.i
+  br i1 %1595, label %.lr.ph75.i, label %.loopexit.i36
+
+.lr.ph75.i:                                       ; preds = %.loopexit68.i
+  %1596 = zext nneg i32 %1594 to i64
+  %1597 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %1596
+  %1598 = load i32, ptr %1597, align 4
+  %wide.trip.count99.i = zext i32 %.05479.i to i64
+  br label %1599
+
+1599:                                             ; preds = %1599, %.lr.ph75.i
+  %indvars.iv96.i = phi i64 [ %1577, %.lr.ph75.i ], [ %indvars.iv.next97.i, %1599 ]
+  %1600 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1565, i64 %indvars.iv96.i, i32 1
+  %1601 = load i32, ptr %1600, align 4
+  %1602 = and i32 %1601, %1564
+  %1603 = or i32 %1602, %1598
+  store i32 %1603, ptr %1600, align 4
+  %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
+  %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %wide.trip.count99.i
+  br i1 %exitcond100.not.i, label %.loopexit.i36, label %1599, !llvm.loop !544
+
+.loopexit.i36:                                    ; preds = %1599, %.loopexit68.i, %1582, %.lr.ph80.i
+  %.1.i37 = phi i32 [ %.05776.i, %.lr.ph80.i ], [ 4, %1582 ], [ %1594, %.loopexit68.i ], [ %1594, %1599 ]
+  %.val.i38 = load i32, ptr %26, align 8
   %.val60.i = load ptr, ptr %24, align 8
-  %1594 = zext i32 %.05481.i to i64
-  %1595 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val60.i, i64 %1594, i32 3
-  %1596 = getelementptr inbounds nuw i8, ptr %1595, i64 3
-  %1597 = load i8, ptr %1596, align 1
-  %1598 = add i32 %.05481.i, 1
-  %umax.i63.i = call i32 @llvm.umax.i32(i32 %.val.i46, i32 %1598)
-  %1599 = getelementptr i8, ptr %.val60.i, i64 15
-  %1600 = add i32 %umax.i63.i, -1
-  br label %1601
+  %1604 = zext i32 %.05479.i to i64
+  %1605 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val60.i, i64 %1604, i32 3
+  %1606 = getelementptr inbounds nuw i8, ptr %1605, i64 3
+  %1607 = load i8, ptr %1606, align 1
+  %1608 = add i32 %.05479.i, 1
+  %umax.i63.i = call i32 @llvm.umax.i32(i32 %.val.i38, i32 %1608)
+  %1609 = add i32 %umax.i63.i, -1
+  br label %1610
 
-1601:                                             ; preds = %1602, %.loopexit.i44
-  %.0.i64.i = phi i32 [ %.05481.i, %.loopexit.i44 ], [ %1603, %1602 ]
-  %exitcond103.not.i = icmp eq i32 %.0.i64.i, %1600
-  br i1 %exitcond103.not.i, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit68.i, label %1602
+1610:                                             ; preds = %1611, %.loopexit.i36
+  %.0.i64.i = phi i32 [ %.05479.i, %.loopexit.i36 ], [ %1612, %1611 ]
+  %exitcond101.not.i = icmp eq i32 %.0.i64.i, %1609
+  br i1 %exitcond101.not.i, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit66.i, label %1611
 
-1602:                                             ; preds = %1601
-  %1603 = add i32 %.0.i64.i, 1
-  %1604 = zext i32 %1603 to i64
-  %gep.idx.i66.i = mul nuw nsw i64 %1604, 20
-  %gep.i67.i = getelementptr i8, ptr %1599, i64 %gep.idx.i66.i
-  %1605 = load i8, ptr %gep.i67.i, align 1
-  %1606 = icmp eq i8 %1597, %1605
-  br i1 %1606, label %1601, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit68.i, !llvm.loop !538
+1611:                                             ; preds = %1610
+  %1612 = add i32 %.0.i64.i, 1
+  %1613 = zext i32 %1612 to i64
+  %1614 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val60.i, i64 %1613, i32 3
+  %1615 = getelementptr inbounds nuw i8, ptr %1614, i64 3
+  %1616 = load i8, ptr %1615, align 1
+  %1617 = icmp eq i8 %1607, %1616
+  br i1 %1617, label %1610, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit66.i, !llvm.loop !537
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit68.i:   ; preds = %1602, %1601
-  %.lcssa.i65.i = phi i32 [ %umax.i63.i, %1601 ], [ %1603, %1602 ]
-  %1607 = icmp ult i32 %.05481.i, %1525
-  br i1 %1607, label %.lr.ph82.i, label %_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, !llvm.loop !546
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit66.i:   ; preds = %1611, %1610
+  %.lcssa.i65.i = phi i32 [ %umax.i63.i, %1610 ], [ %1612, %1611 ]
+  %1618 = icmp ult i32 %.05479.i, %1531
+  br i1 %1618, label %.lr.ph80.i, label %_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, !llvm.loop !545
 
-_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit: ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit68.i, %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, %.preheader.i, %.split.us.i, %1557
+_ZL25setup_topographical_masksPK18hb_ot_shape_plan_tP11hb_buffer_t.exit: ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit66.i, %_ZL15setup_rphf_maskPK18hb_ot_shape_plan_tP11hb_buffer_t.exit, %.preheader.i, %.split.us.i, %1563
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret i1 false
 }
@@ -4454,7 +4450,7 @@ define internal noundef zeroext i1 @_ZL28_hb_clear_substitution_flagsPK18hb_ot_s
   store i16 %10, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !547
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !546
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret i1 false
@@ -4479,7 +4475,7 @@ define internal noundef zeroext i1 @_ZL15record_rphf_usePK18hb_ot_shape_plan_tP9
   br i1 %.not27, label %.loopexit, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr i8, ptr %9, i64 15
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 15
   %14 = load i8, ptr %13, align 1
   %15 = add i32 %11, -1
   %wide.trip.count = zext i32 %15 to i64
@@ -4492,94 +4488,93 @@ define internal noundef zeroext i1 @_ZL15record_rphf_usePK18hb_ot_shape_plan_tP9
 
 17:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %gep.idx.i = mul nuw nsw i64 %indvars.iv.next, 20
-  %gep.i = getelementptr i8, ptr %13, i64 %gep.idx.i
-  %18 = load i8, ptr %gep.i, align 1
-  %19 = icmp eq i8 %14, %18
-  br i1 %19, label %16, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !538
+  %18 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %9, i64 %indvars.iv.next, i32 3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 3
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %14, %20
+  br i1 %21, label %16, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !537
 
 _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %17
-  %20 = trunc nuw i64 %indvars.iv.next to i32
+  %22 = trunc nuw i64 %indvars.iv.next to i32
   br label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %16, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit
-  %.02343.ph = phi i32 [ %20, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit ], [ %11, %16 ]
+  %.02341.ph = phi i32 [ %22, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit ], [ %11, %16 ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit38
-  %.val3154 = phi ptr [ %.val31, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit38 ], [ %9, %.preheader.preheader ]
-  %.val3052 = phi i32 [ %.val30, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit38 ], [ %11, %.preheader.preheader ]
-  %.02343 = phi i32 [ %.lcssa.i35, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit38 ], [ %.02343.ph, %.preheader.preheader ]
-  %.02442 = phi i32 [ %.02343, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit38 ], [ 0, %.preheader.preheader ]
-  %21 = icmp ult i32 %.02442, %.02343
-  br i1 %21, label %.lr.ph.preheader, label %.critedge
+.preheader:                                       ; preds = %.preheader.preheader, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit36
+  %.val3152 = phi ptr [ %.val31, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit36 ], [ %9, %.preheader.preheader ]
+  %.val3050 = phi i32 [ %.val30, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit36 ], [ %11, %.preheader.preheader ]
+  %.02341 = phi i32 [ %.lcssa.i35, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit36 ], [ %.02341.ph, %.preheader.preheader ]
+  %.02440 = phi i32 [ %.02341, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit36 ], [ 0, %.preheader.preheader ]
+  %23 = icmp ult i32 %.02440, %.02341
+  br i1 %23, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %22 = zext i32 %.02442 to i64
+  %24 = zext i32 %.02440 to i64
   br label %.lr.ph
 
-23:                                               ; preds = %28
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next48 to i32
-  %exitcond50.not = icmp eq i32 %.02343, %lftr.wideiv
-  br i1 %exitcond50.not, label %.critedge, label %.lr.ph, !llvm.loop !548
+25:                                               ; preds = %30
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next46 to i32
+  %exitcond48.not = icmp eq i32 %.02341, %lftr.wideiv
+  br i1 %exitcond48.not, label %.critedge, label %.lr.ph, !llvm.loop !547
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
-  %indvars.iv47 = phi i64 [ %22, %.lr.ph.preheader ], [ %indvars.iv.next48, %23 ]
-  %24 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %9, i64 %indvars.iv47
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %26 = load i32, ptr %25, align 4
-  %27 = and i32 %26, %6
-  %.not28 = icmp eq i32 %27, 0
-  br i1 %.not28, label %.critedge, label %28
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
+  %indvars.iv45 = phi i64 [ %24, %.lr.ph.preheader ], [ %indvars.iv.next46, %25 ]
+  %26 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %9, i64 %indvars.iv45
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %28 = load i32, ptr %27, align 4
+  %29 = and i32 %28, %6
+  %.not28 = icmp eq i32 %29, 0
+  br i1 %.not28, label %.critedge, label %30
 
-28:                                               ; preds = %.lr.ph
-  %29 = getelementptr i8, ptr %24, i64 12
-  %.val32 = load i16, ptr %29, align 4
-  %30 = and i16 %.val32, 16
-  %.not39 = icmp eq i16 %30, 0
-  br i1 %.not39, label %23, label %31
+30:                                               ; preds = %.lr.ph
+  %31 = getelementptr i8, ptr %26, i64 12
+  %.val32 = load i16, ptr %31, align 4
+  %32 = and i16 %.val32, 16
+  %.not37 = icmp eq i16 %32, 0
+  br i1 %.not37, label %25, label %33
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 18
-  store i8 18, ptr %32, align 2
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 18
+  store i8 18, ptr %34, align 2
   %.val30.pre = load i32, ptr %10, align 8
   %.val31.pre = load ptr, ptr %8, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %23, %.lr.ph, %.preheader, %31
-  %.val31 = phi ptr [ %.val3154, %.preheader ], [ %.val31.pre, %31 ], [ %.val3154, %.lr.ph ], [ %.val3154, %23 ]
-  %.val30 = phi i32 [ %.val3052, %.preheader ], [ %.val30.pre, %31 ], [ %.val3052, %.lr.ph ], [ %.val3052, %23 ]
-  %33 = zext i32 %.02343 to i64
-  %34 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val31, i64 %33, i32 3
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 3
-  %36 = load i8, ptr %35, align 1
-  %37 = add i32 %.02343, 1
-  %umax.i33 = tail call i32 @llvm.umax.i32(i32 %.val30, i32 %37)
-  %38 = getelementptr i8, ptr %.val31, i64 15
-  %39 = add i32 %umax.i33, -1
-  br label %40
+.critedge:                                        ; preds = %25, %.lr.ph, %.preheader, %33
+  %.val31 = phi ptr [ %.val3152, %.preheader ], [ %.val31.pre, %33 ], [ %.val3152, %.lr.ph ], [ %.val3152, %25 ]
+  %.val30 = phi i32 [ %.val3050, %.preheader ], [ %.val30.pre, %33 ], [ %.val3050, %.lr.ph ], [ %.val3050, %25 ]
+  %35 = zext i32 %.02341 to i64
+  %36 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val31, i64 %35, i32 3
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 3
+  %38 = load i8, ptr %37, align 1
+  %39 = add i32 %.02341, 1
+  %umax.i33 = tail call i32 @llvm.umax.i32(i32 %.val30, i32 %39)
+  %40 = add i32 %umax.i33, -1
+  br label %41
 
-40:                                               ; preds = %41, %.critedge
-  %.0.i34 = phi i32 [ %.02343, %.critedge ], [ %42, %41 ]
-  %exitcond51.not = icmp eq i32 %.0.i34, %39
-  br i1 %exitcond51.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit38, label %41
+41:                                               ; preds = %42, %.critedge
+  %.0.i34 = phi i32 [ %.02341, %.critedge ], [ %43, %42 ]
+  %exitcond49.not = icmp eq i32 %.0.i34, %40
+  br i1 %exitcond49.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit36, label %42
 
-41:                                               ; preds = %40
-  %42 = add i32 %.0.i34, 1
-  %43 = zext i32 %42 to i64
-  %gep.idx.i36 = mul nuw nsw i64 %43, 20
-  %gep.i37 = getelementptr i8, ptr %38, i64 %gep.idx.i36
-  %44 = load i8, ptr %gep.i37, align 1
-  %45 = icmp eq i8 %36, %44
-  br i1 %45, label %40, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit38, !llvm.loop !538
+42:                                               ; preds = %41
+  %43 = add i32 %.0.i34, 1
+  %44 = zext i32 %43 to i64
+  %45 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val31, i64 %44, i32 3
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 3
+  %47 = load i8, ptr %46, align 1
+  %48 = icmp eq i8 %38, %47
+  br i1 %48, label %41, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit36, !llvm.loop !537
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit38:     ; preds = %40, %41
-  %.lcssa.i35 = phi i32 [ %umax.i33, %40 ], [ %42, %41 ]
-  %46 = icmp ult i32 %.02343, %11
-  br i1 %46, label %.preheader, label %.loopexit, !llvm.loop !549
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit36:     ; preds = %41, %42
+  %.lcssa.i35 = phi i32 [ %umax.i33, %41 ], [ %43, %42 ]
+  %49 = icmp ult i32 %.02341, %11
+  br i1 %49, label %.preheader, label %.loopexit, !llvm.loop !548
 
-.loopexit:                                        ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit38, %7, %3
+.loopexit:                                        ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit36, %7, %3
   ret i1 false
 }
 
@@ -4593,7 +4588,7 @@ define internal noundef zeroext i1 @_ZL15record_pref_usePK18hb_ot_shape_plan_tP9
   br i1 %.not, label %._crit_edge, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr i8, ptr %5, i64 15
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 15
   %10 = load i8, ptr %9, align 1
   %11 = add i32 %7, -1
   %wide.trip.count = zext i32 %11 to i64
@@ -4606,87 +4601,86 @@ define internal noundef zeroext i1 @_ZL15record_pref_usePK18hb_ot_shape_plan_tP9
 
 13:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %gep.idx.i = mul nuw nsw i64 %indvars.iv.next, 20
-  %gep.i = getelementptr i8, ptr %9, i64 %gep.idx.i
-  %14 = load i8, ptr %gep.i, align 1
-  %15 = icmp eq i8 %10, %14
-  br i1 %15, label %12, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !538
+  %14 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %5, i64 %indvars.iv.next, i32 3
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 3
+  %16 = load i8, ptr %15, align 1
+  %17 = icmp eq i8 %10, %16
+  br i1 %17, label %12, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !537
 
 _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %13
-  %16 = trunc nuw i64 %indvars.iv.next to i32
+  %18 = trunc nuw i64 %indvars.iv.next to i32
   br label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %12, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit
-  %.01631.ph = phi i32 [ %16, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit ], [ %7, %12 ]
+  %.01629.ph = phi i32 [ %18, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit ], [ %7, %12 ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit27
-  %.val2042 = phi ptr [ %.val20, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit27 ], [ %5, %.preheader.preheader ]
-  %.val1940 = phi i32 [ %.val19, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit27 ], [ %7, %.preheader.preheader ]
-  %.01631 = phi i32 [ %.lcssa.i24, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit27 ], [ %.01631.ph, %.preheader.preheader ]
-  %.01730 = phi i32 [ %.01631, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit27 ], [ 0, %.preheader.preheader ]
-  %17 = icmp ult i32 %.01730, %.01631
-  br i1 %17, label %.lr.ph.preheader, label %.loopexit
+.preheader:                                       ; preds = %.preheader.preheader, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit25
+  %.val2040 = phi ptr [ %.val20, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit25 ], [ %5, %.preheader.preheader ]
+  %.val1938 = phi i32 [ %.val19, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit25 ], [ %7, %.preheader.preheader ]
+  %.01629 = phi i32 [ %.lcssa.i24, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit25 ], [ %.01629.ph, %.preheader.preheader ]
+  %.01728 = phi i32 [ %.01629, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit25 ], [ 0, %.preheader.preheader ]
+  %19 = icmp ult i32 %.01728, %.01629
+  br i1 %19, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %18 = zext i32 %.01730 to i64
+  %20 = zext i32 %.01728 to i64
   br label %.lr.ph
 
-19:                                               ; preds = %.lr.ph
-  %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next36 to i32
-  %exitcond38.not = icmp eq i32 %.01631, %lftr.wideiv
-  br i1 %exitcond38.not, label %.loopexit, label %.lr.ph, !llvm.loop !550
+21:                                               ; preds = %.lr.ph
+  %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next34 to i32
+  %exitcond36.not = icmp eq i32 %.01629, %lftr.wideiv
+  br i1 %exitcond36.not, label %.loopexit, label %.lr.ph, !llvm.loop !549
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
-  %indvars.iv35 = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next36, %19 ]
-  %20 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %5, i64 %indvars.iv35
-  %21 = getelementptr i8, ptr %20, i64 12
-  %.val21 = load i16, ptr %21, align 4
-  %22 = and i16 %.val21, 16
-  %.not28 = icmp eq i16 %22, 0
-  br i1 %.not28, label %19, label %23
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
+  %indvars.iv33 = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next34, %21 ]
+  %22 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %5, i64 %indvars.iv33
+  %23 = getelementptr i8, ptr %22, i64 12
+  %.val21 = load i16, ptr %23, align 4
+  %24 = and i16 %.val21, 16
+  %.not26 = icmp eq i16 %24, 0
+  br i1 %.not26, label %21, label %25
 
-23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 18
-  store i8 22, ptr %24, align 2
+25:                                               ; preds = %.lr.ph
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 18
+  store i8 22, ptr %26, align 2
   %.val19.pre = load i32, ptr %6, align 8
   %.val20.pre = load ptr, ptr %4, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %19, %.preheader, %23
-  %.val20 = phi ptr [ %.val2042, %.preheader ], [ %.val20.pre, %23 ], [ %.val2042, %19 ]
-  %.val19 = phi i32 [ %.val1940, %.preheader ], [ %.val19.pre, %23 ], [ %.val1940, %19 ]
-  %25 = zext i32 %.01631 to i64
-  %26 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val20, i64 %25, i32 3
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 3
-  %28 = load i8, ptr %27, align 1
-  %29 = add i32 %.01631, 1
-  %umax.i22 = tail call i32 @llvm.umax.i32(i32 %.val19, i32 %29)
-  %30 = getelementptr i8, ptr %.val20, i64 15
-  %31 = add i32 %umax.i22, -1
-  br label %32
+.loopexit:                                        ; preds = %21, %.preheader, %25
+  %.val20 = phi ptr [ %.val2040, %.preheader ], [ %.val20.pre, %25 ], [ %.val2040, %21 ]
+  %.val19 = phi i32 [ %.val1938, %.preheader ], [ %.val19.pre, %25 ], [ %.val1938, %21 ]
+  %27 = zext i32 %.01629 to i64
+  %28 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val20, i64 %27, i32 3
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 3
+  %30 = load i8, ptr %29, align 1
+  %31 = add i32 %.01629, 1
+  %umax.i22 = tail call i32 @llvm.umax.i32(i32 %.val19, i32 %31)
+  %32 = add i32 %umax.i22, -1
+  br label %33
 
-32:                                               ; preds = %33, %.loopexit
-  %.0.i23 = phi i32 [ %.01631, %.loopexit ], [ %34, %33 ]
-  %exitcond39.not = icmp eq i32 %.0.i23, %31
-  br i1 %exitcond39.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit27, label %33
+33:                                               ; preds = %34, %.loopexit
+  %.0.i23 = phi i32 [ %.01629, %.loopexit ], [ %35, %34 ]
+  %exitcond37.not = icmp eq i32 %.0.i23, %32
+  br i1 %exitcond37.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit25, label %34
 
-33:                                               ; preds = %32
-  %34 = add i32 %.0.i23, 1
-  %35 = zext i32 %34 to i64
-  %gep.idx.i25 = mul nuw nsw i64 %35, 20
-  %gep.i26 = getelementptr i8, ptr %30, i64 %gep.idx.i25
-  %36 = load i8, ptr %gep.i26, align 1
-  %37 = icmp eq i8 %28, %36
-  br i1 %37, label %32, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit27, !llvm.loop !538
+34:                                               ; preds = %33
+  %35 = add i32 %.0.i23, 1
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val20, i64 %36, i32 3
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 3
+  %39 = load i8, ptr %38, align 1
+  %40 = icmp eq i8 %30, %39
+  br i1 %40, label %33, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit25, !llvm.loop !537
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit27:     ; preds = %32, %33
-  %.lcssa.i24 = phi i32 [ %umax.i22, %32 ], [ %34, %33 ]
-  %38 = icmp ult i32 %.01631, %7
-  br i1 %38, label %.preheader, label %._crit_edge, !llvm.loop !551
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit25:     ; preds = %33, %34
+  %.lcssa.i24 = phi i32 [ %umax.i22, %33 ], [ %35, %34 ]
+  %41 = icmp ult i32 %.01629, %7
+  br i1 %41, label %.preheader, label %._crit_edge, !llvm.loop !550
 
-._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit27, %3
+._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit25, %3
   ret i1 false
 }
 
@@ -4695,7 +4689,7 @@ define internal noundef zeroext i1 @_ZL11reorder_usePK18hb_ot_shape_plan_tP9hb_f
   %4 = alloca %struct.hb_glyph_info_t, align 4
   %5 = alloca %struct.hb_glyph_info_t, align 4
   %6 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str)
-  br i1 %6, label %7, label %125
+  br i1 %6, label %7, label %128
 
 7:                                                ; preds = %3
   %8 = tail call noundef zeroext i1 @_Z33hb_syllabic_insert_dotted_circlesP9hb_font_tP11hb_buffer_tjjii(ptr noundef %1, ptr noundef nonnull %2, i32 noundef 7, i32 noundef 1, i32 noundef 18, i32 noundef -1)
@@ -4707,7 +4701,7 @@ define internal noundef zeroext i1 @_ZL11reorder_usePK18hb_ot_shape_plan_tP9hb_f
 11:                                               ; preds = %7
   %12 = getelementptr i8, ptr %2, i64 104
   %.val20 = load ptr, ptr %12, align 8
-  %13 = getelementptr i8, ptr %.val20, i64 15
+  %13 = getelementptr inbounds nuw i8, ptr %.val20, i64 15
   %14 = load i8, ptr %13, align 1
   %15 = add i32 %10, -1
   %wide.trip.count = zext i32 %15 to i64
@@ -4720,259 +4714,258 @@ define internal noundef zeroext i1 @_ZL11reorder_usePK18hb_ot_shape_plan_tP9hb_f
 
 17:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %gep.idx.i = mul nuw nsw i64 %indvars.iv.next, 20
-  %gep.i = getelementptr i8, ptr %13, i64 %gep.idx.i
-  %18 = load i8, ptr %gep.i, align 1
-  %19 = icmp eq i8 %14, %18
-  br i1 %19, label %16, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !538
+  %18 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val20, i64 %indvars.iv.next, i32 3
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 3
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %14, %20
+  br i1 %21, label %16, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit, !llvm.loop !537
 
 _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %17
-  %20 = trunc nuw i64 %indvars.iv.next to i32
+  %22 = trunc nuw i64 %indvars.iv.next to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit
-  %21 = phi i32 [ %20, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit ], [ %10, %16 ]
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %.pre = load ptr, ptr %22, align 8
-  br label %23
+  %23 = phi i32 [ %22, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit ], [ %10, %16 ]
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %.pre = load ptr, ptr %24, align 8
+  br label %25
 
-23:                                               ; preds = %.lr.ph, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28
-  %24 = phi ptr [ %.pre, %.lr.ph ], [ %.val22, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28 ]
-  %.033 = phi i32 [ %21, %.lr.ph ], [ %.lcssa.i25, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28 ]
-  %.01832 = phi i32 [ 0, %.lr.ph ], [ %.033, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28 ]
+25:                                               ; preds = %.lr.ph, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26
+  %26 = phi ptr [ %.pre, %.lr.ph ], [ %.val22, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26 ]
+  %.031 = phi i32 [ %23, %.lr.ph ], [ %.lcssa.i25, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26 ]
+  %.01830 = phi i32 [ 0, %.lr.ph ], [ %.031, %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
-  %25 = zext i32 %.01832 to i64
-  %26 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %24, i64 %25
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 15
-  %28 = load i8, ptr %27, align 1
-  %29 = and i8 %28, 15
-  %30 = zext nneg i8 %29 to i32
-  %31 = shl nuw nsw i32 1, %30
-  %32 = and i32 %31, 167
-  %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %_ZL20reorder_syllable_useP11hb_buffer_tjj.exit, label %33
+  %27 = zext i32 %.01830 to i64
+  %28 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %27
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 15
+  %30 = load i8, ptr %29, align 1
+  %31 = and i8 %30, 15
+  %32 = zext nneg i8 %31 to i32
+  %33 = shl nuw nsw i32 1, %32
+  %34 = and i32 %33, 167
+  %.not.i = icmp eq i32 %34, 0
+  br i1 %.not.i, label %_ZL20reorder_syllable_useP11hb_buffer_tjj.exit, label %35
 
-33:                                               ; preds = %23
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 18
-  %35 = load i8, ptr %34, align 2
-  %36 = icmp eq i8 %35, 18
-  %37 = sub i32 %.033, %.01832
-  %38 = icmp ugt i32 %37, 1
-  %or.cond.i = and i1 %38, %36
-  br i1 %or.cond.i, label %39, label %.loopexit88.i
+35:                                               ; preds = %25
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 18
+  %37 = load i8, ptr %36, align 2
+  %38 = icmp eq i8 %37, 18
+  %39 = sub i32 %.031, %.01830
+  %40 = icmp ugt i32 %39, 1
+  %or.cond.i = and i1 %40, %38
+  br i1 %or.cond.i, label %41, label %.loopexit88.i
 
-39:                                               ; preds = %33
-  %40 = add nuw i32 %.01832, 1
-  %41 = icmp ult i32 %40, %.033
-  br i1 %41, label %.lr.ph.i, label %.loopexit88.i
+41:                                               ; preds = %35
+  %42 = add nuw i32 %.01830, 1
+  %43 = icmp ult i32 %42, %.031
+  br i1 %43, label %.lr.ph.i, label %.loopexit88.i
 
-.lr.ph.i:                                         ; preds = %39
-  %42 = add i32 %.033, -1
-  %43 = zext i32 %40 to i64
-  %44 = zext i32 %42 to i64
-  br label %45
+.lr.ph.i:                                         ; preds = %41
+  %44 = add i32 %.031, -1
+  %45 = zext i32 %42 to i64
+  %46 = zext i32 %44 to i64
+  br label %47
 
-45:                                               ; preds = %76, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %43, %.lr.ph.i ], [ %indvars.iv.next.i, %76 ]
-  %46 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %24, i64 %indvars.iv.i
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 18
-  %48 = load i8, ptr %47, align 2
-  %49 = icmp ugt i8 %48, 63
-  %50 = zext nneg i8 %48 to i64
-  %51 = shl nuw i64 1, %50
-  %52 = and i64 %51, 247314950127616
-  %53 = icmp eq i64 %52, 0
-  %.not72.i = select i1 %49, i1 true, i1 %53
-  br i1 %.not72.i, label %56, label %.thread.i
+47:                                               ; preds = %78, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %45, %.lr.ph.i ], [ %indvars.iv.next.i, %78 ]
+  %48 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 18
+  %50 = load i8, ptr %49, align 2
+  %51 = icmp ugt i8 %50, 63
+  %52 = zext nneg i8 %50 to i64
+  %53 = shl nuw i64 1, %52
+  %54 = and i64 %53, 247314950127616
+  %55 = icmp eq i64 %54, 0
+  %.not72.i = select i1 %51, i1 true, i1 %55
+  br i1 %.not72.i, label %58, label %.thread.i
 
-.thread.i:                                        ; preds = %45
-  %54 = trunc nuw i64 %indvars.iv.i to i32
-  %55 = add i32 %54, -1
-  br label %64
+.thread.i:                                        ; preds = %47
+  %56 = trunc nuw i64 %indvars.iv.i to i32
+  %57 = add i32 %56, -1
+  br label %66
 
-56:                                               ; preds = %45
-  switch i8 %48, label %_ZL13is_halant_useRK15hb_glyph_info_t.exit.i [
-    i8 12, label %57
-    i8 53, label %57
-    i8 44, label %57
+58:                                               ; preds = %47
+  switch i8 %50, label %_ZL13is_halant_useRK15hb_glyph_info_t.exit.i [
+    i8 12, label %59
+    i8 53, label %59
+    i8 44, label %59
   ]
 
-57:                                               ; preds = %56, %56, %56
-  %58 = getelementptr i8, ptr %46, i64 12
-  %.val.i = load i16, ptr %58, align 4
+59:                                               ; preds = %58, %58, %58
+  %60 = getelementptr i8, ptr %48, i64 12
+  %.val.i = load i16, ptr %60, align 4
   %.val.fr.i = freeze i16 %.val.i
-  %59 = and i16 %.val.fr.i, 32
-  %.not.i.i = icmp eq i16 %59, 0
+  %61 = and i16 %.val.fr.i, 32
+  %.not.i.i = icmp eq i16 %61, 0
   br label %_ZL13is_halant_useRK15hb_glyph_info_t.exit.i
 
-_ZL13is_halant_useRK15hb_glyph_info_t.exit.i:     ; preds = %57, %56
-  %cond.fr.i = phi i1 [ %.not.i.i, %57 ], [ false, %56 ]
-  %60 = icmp eq i64 %indvars.iv.i, %44
-  %or.cond76.i = or i1 %60, %cond.fr.i
-  br i1 %or.cond76.i, label %61, label %76
+_ZL13is_halant_useRK15hb_glyph_info_t.exit.i:     ; preds = %59, %58
+  %cond.fr.i = phi i1 [ %.not.i.i, %59 ], [ false, %58 ]
+  %62 = icmp eq i64 %indvars.iv.i, %46
+  %or.cond76.i = or i1 %62, %cond.fr.i
+  br i1 %or.cond76.i, label %63, label %78
 
-61:                                               ; preds = %_ZL13is_halant_useRK15hb_glyph_info_t.exit.i
-  %62 = trunc nuw i64 %indvars.iv.i to i32
-  %63 = sext i1 %cond.fr.i to i32
-  %spec.select.i = add i32 %63, %62
-  br label %64
+63:                                               ; preds = %_ZL13is_halant_useRK15hb_glyph_info_t.exit.i
+  %64 = trunc nuw i64 %indvars.iv.i to i32
+  %65 = sext i1 %cond.fr.i to i32
+  %spec.select.i = add i32 %65, %64
+  br label %66
 
-64:                                               ; preds = %61, %.thread.i
-  %65 = phi i32 [ %55, %.thread.i ], [ %spec.select.i, %61 ]
-  %66 = add i32 %65, 1
-  %67 = sub i32 %66, %.01832
-  %68 = icmp ult i32 %67, 2
-  br i1 %68, label %_ZN11hb_buffer_t14merge_clustersEjj.exit.i, label %69
+66:                                               ; preds = %63, %.thread.i
+  %67 = phi i32 [ %57, %.thread.i ], [ %spec.select.i, %63 ]
+  %68 = add i32 %67, 1
+  %69 = sub i32 %68, %.01830
+  %70 = icmp ult i32 %69, 2
+  br i1 %70, label %_ZN11hb_buffer_t14merge_clustersEjj.exit.i, label %71
 
-69:                                               ; preds = %64
-  tail call void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef %.01832, i32 noundef %66)
+71:                                               ; preds = %66
+  tail call void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef %.01830, i32 noundef %68)
   br label %_ZN11hb_buffer_t14merge_clustersEjj.exit.i
 
-_ZN11hb_buffer_t14merge_clustersEjj.exit.i:       ; preds = %69, %64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %26, i64 20, i1 false)
-  %70 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %24, i64 %43
-  %71 = sub i32 %65, %.01832
-  %72 = zext i32 %71 to i64
-  %73 = mul nuw nsw i64 %72, 20
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %26, ptr nonnull align 4 %70, i64 %73, i1 false)
-  %74 = zext i32 %65 to i64
-  %75 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %24, i64 %74
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %75, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
+_ZN11hb_buffer_t14merge_clustersEjj.exit.i:       ; preds = %71, %66
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %28, i64 20, i1 false)
+  %72 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %45
+  %73 = sub i32 %67, %.01830
+  %74 = zext i32 %73 to i64
+  %75 = mul nuw nsw i64 %74, 20
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %28, ptr nonnull align 4 %72, i64 %75, i1 false)
+  %76 = zext i32 %67 to i64
+  %77 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %76
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %77, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false)
   br label %.loopexit88.i
 
-76:                                               ; preds = %_ZL13is_halant_useRK15hb_glyph_info_t.exit.i
+78:                                               ; preds = %_ZL13is_halant_useRK15hb_glyph_info_t.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i = icmp eq i32 %.033, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %.loopexit88.i, label %45, !llvm.loop !552
+  %exitcond.not.i = icmp eq i32 %.031, %lftr.wideiv.i
+  br i1 %exitcond.not.i, label %.loopexit88.i, label %47, !llvm.loop !551
 
-.loopexit88.i:                                    ; preds = %76, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i, %39, %33
-  %77 = icmp ult i32 %.01832, %.033
-  br i1 %77, label %.lr.ph94.preheader.i, label %_ZL20reorder_syllable_useP11hb_buffer_tjj.exit
+.loopexit88.i:                                    ; preds = %78, %_ZN11hb_buffer_t14merge_clustersEjj.exit.i, %41, %35
+  %79 = icmp ult i32 %.01830, %.031
+  br i1 %79, label %.lr.ph94.preheader.i, label %_ZL20reorder_syllable_useP11hb_buffer_tjj.exit
 
 .lr.ph94.preheader.i:                             ; preds = %.loopexit88.i
-  %wide.trip.count.i = zext i32 %.033 to i64
+  %wide.trip.count.i = zext i32 %.031 to i64
   br label %.lr.ph94.i
 
-.lr.ph94.i:                                       ; preds = %109, %.lr.ph94.preheader.i
-  %indvars.iv99.i = phi i64 [ %25, %.lr.ph94.preheader.i ], [ %indvars.iv.next100.i, %109 ]
-  %.06792.i = phi i32 [ %.01832, %.lr.ph94.preheader.i ], [ %.168.i, %109 ]
+.lr.ph94.i:                                       ; preds = %111, %.lr.ph94.preheader.i
+  %indvars.iv99.i = phi i64 [ %27, %.lr.ph94.preheader.i ], [ %indvars.iv.next100.i, %111 ]
+  %.06792.i = phi i32 [ %.01830, %.lr.ph94.preheader.i ], [ %.168.i, %111 ]
   %indvars101.i = trunc i64 %indvars.iv99.i to i32
-  %78 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %24, i64 %indvars.iv99.i
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 18
-  %80 = load i8, ptr %79, align 2
-  %81 = icmp ugt i8 %80, 31
-  %82 = zext nneg i8 %80 to i32
-  %83 = shl nuw i32 1, %82
-  %84 = and i32 %83, 12582912
-  %85 = icmp eq i32 %84, 0
-  %.not73.i = select i1 %81, i1 true, i1 %85
-  switch i8 %80, label %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.thread.i [
+  %80 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %indvars.iv99.i
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 18
+  %82 = load i8, ptr %81, align 2
+  %83 = icmp ugt i8 %82, 31
+  %84 = zext nneg i8 %82 to i32
+  %85 = shl nuw i32 1, %84
+  %86 = and i32 %85, 12582912
+  %87 = icmp eq i32 %86, 0
+  %.not73.i = select i1 %83, i1 true, i1 %87
+  switch i8 %82, label %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.thread.i [
     i8 12, label %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.i
     i8 53, label %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.i
     i8 44, label %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.i
   ]
 
 _ZL13is_halant_useRK15hb_glyph_info_t.exit83.i:   ; preds = %.lr.ph94.i, %.lr.ph94.i, %.lr.ph94.i
-  %86 = getelementptr i8, ptr %78, i64 12
-  %.val79.i = load i16, ptr %86, align 4
-  %87 = and i16 %.val79.i, 32
-  %.not.i82.i = icmp eq i16 %87, 0
-  br i1 %.not.i82.i, label %88, label %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.thread.i
+  %88 = getelementptr i8, ptr %80, i64 12
+  %.val79.i = load i16, ptr %88, align 4
+  %89 = and i16 %.val79.i, 32
+  %.not.i82.i = icmp eq i16 %89, 0
+  br i1 %.not.i82.i, label %90, label %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.thread.i
 
-88:                                               ; preds = %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.i
-  %89 = add i32 %indvars101.i, 1
-  br label %109
+90:                                               ; preds = %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.i
+  %91 = add i32 %indvars101.i, 1
+  br label %111
 
 _ZL13is_halant_useRK15hb_glyph_info_t.exit83.thread.i: ; preds = %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.i, %.lr.ph94.i
-  br i1 %.not73.i, label %109, label %90
+  br i1 %.not73.i, label %111, label %92
 
-90:                                               ; preds = %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.thread.i
-  %91 = getelementptr i8, ptr %78, i64 14
-  %.val81.i = load i8, ptr %91, align 2
-  %92 = and i8 %.val81.i, 16
-  %.not.i84.i = icmp ne i8 %92, 0
-  %93 = and i8 %.val81.i, 15
-  %94 = icmp eq i8 %93, 0
-  %95 = or i1 %.not.i84.i, %94
-  %96 = zext i32 %.06792.i to i64
-  %97 = icmp samesign ugt i64 %indvars.iv99.i, %96
-  %or.cond77.i = select i1 %95, i1 %97, i1 false
-  br i1 %or.cond77.i, label %98, label %109
+92:                                               ; preds = %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.thread.i
+  %93 = getelementptr i8, ptr %80, i64 14
+  %.val81.i = load i8, ptr %93, align 2
+  %94 = and i8 %.val81.i, 16
+  %.not.i84.i = icmp ne i8 %94, 0
+  %95 = and i8 %.val81.i, 15
+  %96 = icmp eq i8 %95, 0
+  %97 = or i1 %.not.i84.i, %96
+  %98 = zext i32 %.06792.i to i64
+  %99 = icmp samesign ugt i64 %indvars.iv99.i, %98
+  %or.cond77.i = select i1 %97, i1 %99, i1 false
+  br i1 %or.cond77.i, label %100, label %111
 
-98:                                               ; preds = %90
-  %99 = add nuw i32 %indvars101.i, 1
-  %100 = sub i32 %99, %.06792.i
-  %101 = icmp ult i32 %100, 2
-  br i1 %101, label %_ZN11hb_buffer_t14merge_clustersEjj.exit85.i, label %102
+100:                                              ; preds = %92
+  %101 = add nuw i32 %indvars101.i, 1
+  %102 = sub i32 %101, %.06792.i
+  %103 = icmp ult i32 %102, 2
+  br i1 %103, label %_ZN11hb_buffer_t14merge_clustersEjj.exit85.i, label %104
 
-102:                                              ; preds = %98
-  tail call void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef %.06792.i, i32 noundef %99)
+104:                                              ; preds = %100
+  tail call void @_ZN11hb_buffer_t19merge_clusters_implEjj(ptr noundef nonnull align 8 dereferenceable(220) %2, i32 noundef %.06792.i, i32 noundef %101)
   br label %_ZN11hb_buffer_t14merge_clustersEjj.exit85.i
 
-_ZN11hb_buffer_t14merge_clustersEjj.exit85.i:     ; preds = %102, %98
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %78, i64 20, i1 false)
-  %103 = add nuw i32 %.06792.i, 1
-  %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %24, i64 %104
-  %106 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %24, i64 %96
-  %107 = sub nuw nsw i64 %indvars.iv99.i, %96
-  %108 = mul nuw nsw i64 %107, 20
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %105, ptr align 4 %106, i64 %108, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %106, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
-  br label %109
+_ZN11hb_buffer_t14merge_clustersEjj.exit85.i:     ; preds = %104, %100
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %80, i64 20, i1 false)
+  %105 = add nuw i32 %.06792.i, 1
+  %106 = zext i32 %105 to i64
+  %107 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %106
+  %108 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %98
+  %109 = sub nuw nsw i64 %indvars.iv99.i, %98
+  %110 = mul nuw nsw i64 %109, 20
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %107, ptr align 4 %108, i64 %110, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %108, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
+  br label %111
 
-109:                                              ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit85.i, %90, %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.thread.i, %88
-  %.168.i = phi i32 [ %89, %88 ], [ %.06792.i, %_ZN11hb_buffer_t14merge_clustersEjj.exit85.i ], [ %.06792.i, %90 ], [ %.06792.i, %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.thread.i ]
+111:                                              ; preds = %_ZN11hb_buffer_t14merge_clustersEjj.exit85.i, %92, %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.thread.i, %90
+  %.168.i = phi i32 [ %91, %90 ], [ %.06792.i, %_ZN11hb_buffer_t14merge_clustersEjj.exit85.i ], [ %.06792.i, %92 ], [ %.06792.i, %_ZL13is_halant_useRK15hb_glyph_info_t.exit83.thread.i ]
   %indvars.iv.next100.i = add nuw nsw i64 %indvars.iv99.i, 1
   %exitcond102.not.i = icmp eq i64 %indvars.iv.next100.i, %wide.trip.count.i
-  br i1 %exitcond102.not.i, label %_ZL20reorder_syllable_useP11hb_buffer_tjj.exit, label %.lr.ph94.i, !llvm.loop !553
+  br i1 %exitcond102.not.i, label %_ZL20reorder_syllable_useP11hb_buffer_tjj.exit, label %.lr.ph94.i, !llvm.loop !552
 
-_ZL20reorder_syllable_useP11hb_buffer_tjj.exit:   ; preds = %109, %23, %.loopexit88.i
+_ZL20reorder_syllable_useP11hb_buffer_tjj.exit:   ; preds = %111, %25, %.loopexit88.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   %.val21 = load i32, ptr %9, align 8
-  %.val22 = load ptr, ptr %22, align 8
-  %110 = zext i32 %.033 to i64
-  %111 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val22, i64 %110, i32 3
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 3
-  %113 = load i8, ptr %112, align 1
-  %114 = add i32 %.033, 1
-  %umax.i23 = tail call i32 @llvm.umax.i32(i32 %.val21, i32 %114)
-  %115 = getelementptr i8, ptr %.val22, i64 15
-  %116 = add i32 %umax.i23, -1
-  br label %117
+  %.val22 = load ptr, ptr %24, align 8
+  %112 = zext i32 %.031 to i64
+  %113 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val22, i64 %112, i32 3
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 3
+  %115 = load i8, ptr %114, align 1
+  %116 = add i32 %.031, 1
+  %umax.i23 = tail call i32 @llvm.umax.i32(i32 %.val21, i32 %116)
+  %117 = add i32 %umax.i23, -1
+  br label %118
 
-117:                                              ; preds = %118, %_ZL20reorder_syllable_useP11hb_buffer_tjj.exit
-  %.0.i24 = phi i32 [ %.033, %_ZL20reorder_syllable_useP11hb_buffer_tjj.exit ], [ %119, %118 ]
-  %exitcond39.not = icmp eq i32 %.0.i24, %116
-  br i1 %exitcond39.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28, label %118
+118:                                              ; preds = %119, %_ZL20reorder_syllable_useP11hb_buffer_tjj.exit
+  %.0.i24 = phi i32 [ %.031, %_ZL20reorder_syllable_useP11hb_buffer_tjj.exit ], [ %120, %119 ]
+  %exitcond37.not = icmp eq i32 %.0.i24, %117
+  br i1 %exitcond37.not, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26, label %119
 
-118:                                              ; preds = %117
-  %119 = add i32 %.0.i24, 1
-  %120 = zext i32 %119 to i64
-  %gep.idx.i26 = mul nuw nsw i64 %120, 20
-  %gep.i27 = getelementptr i8, ptr %115, i64 %gep.idx.i26
-  %121 = load i8, ptr %gep.i27, align 1
-  %122 = icmp eq i8 %113, %121
-  br i1 %122, label %117, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28, !llvm.loop !538
+119:                                              ; preds = %118
+  %120 = add i32 %.0.i24, 1
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %.val22, i64 %121, i32 3
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 3
+  %124 = load i8, ptr %123, align 1
+  %125 = icmp eq i8 %115, %124
+  br i1 %125, label %118, label %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26, !llvm.loop !537
 
-_ZL17_hb_next_syllableP11hb_buffer_tj.exit28:     ; preds = %117, %118
-  %.lcssa.i25 = phi i32 [ %umax.i23, %117 ], [ %119, %118 ]
-  %123 = icmp ult i32 %.033, %10
-  br i1 %123, label %23, label %._crit_edge, !llvm.loop !554
+_ZL17_hb_next_syllableP11hb_buffer_tj.exit26:     ; preds = %118, %119
+  %.lcssa.i25 = phi i32 [ %umax.i23, %118 ], [ %120, %119 ]
+  %126 = icmp ult i32 %.031, %10
+  br i1 %126, label %25, label %._crit_edge, !llvm.loop !553
 
-._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit28, %7
-  %124 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.3)
-  br label %125
+._crit_edge:                                      ; preds = %_ZL17_hb_next_syllableP11hb_buffer_tj.exit26, %7
+  %127 = tail call noundef zeroext i1 (ptr, ptr, ptr, ...) @_ZN11hb_buffer_t7messageEP9hb_font_tPKcz(ptr noundef nonnull align 8 dereferenceable(220) %2, ptr noundef %1, ptr noundef nonnull @.str.3)
+  br label %128
 
-125:                                              ; preds = %._crit_edge, %3
+128:                                              ; preds = %._crit_edge, %3
   %.019 = phi i1 [ %8, %._crit_edge ], [ false, %3 ]
-  %126 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %127 = load i8, ptr %126, align 8
-  %128 = and i8 %127, -65
-  store i8 %128, ptr %126, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 176
+  %130 = load i8, ptr %129, align 8
+  %131 = and i8 %130, -65
+  store i8 %131, ptr %129, align 8
   ret i1 %.019
 }
 
@@ -4987,26 +4980,26 @@ define internal fastcc void @"_ZN15machine_index_tI13hb_zip_iter_tI14hb_iota_ite
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = and i8 %4, 1
   store i8 %6, ptr %5, align 8
-  %.val.i.i.i.i = load i32, ptr %0, align 8, !noalias !555
+  %.val.i.i.i.i = load i32, ptr %0, align 8, !noalias !554
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i32, ptr %8, align 8, !noalias !555
+  %9 = load i32, ptr %8, align 8, !noalias !554
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %9, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %10, label %"_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit"
 
 10:                                               ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !555
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !554
   br label %"_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit"
 
 "_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit": ; preds = %2, %10
-  %.val.i.i.i.i12 = load i32, ptr %1, align 8, !noalias !560
+  %.val.i.i.i.i12 = load i32, ptr %1, align 8, !noalias !559
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load i32, ptr %11, align 8, !noalias !560
+  %12 = load i32, ptr %11, align 8, !noalias !559
   %.not.i.i.i.i.i.i.i.i.i.i14 = icmp eq i32 %12, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i14, label %13, label %"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit"
 
 13:                                               ; preds = %"_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit"
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !560
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(20) @_hb_NullPool, i64 20, i1 false), !noalias !559
   br label %"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit"
 
 "_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit": ; preds = %"_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit", %13
@@ -5071,7 +5064,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   ]
 
 _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i.backedge: ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i"
-  br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i, !llvm.loop !33
+  br label %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i, !llvm.loop !32
 
 .preheader.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i
   %37 = load ptr, ptr %.val2.i.i.i.i.i.i, align 8
@@ -5092,7 +5085,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
   %46 = getelementptr i8, ptr %45, i64 18
   %.val.i.i.i.i.i.i.i.i.i.i.i = load i8, ptr %46, align 2
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %40, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %40, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i": ; preds = %42
   %47 = getelementptr i8, ptr %45, i64 16
@@ -5106,7 +5099,7 @@ _ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tIS0_I13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EESI_IjRS5_EEppEv.exit.i.i.i.i": ; preds = %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i", %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i, %40
   %.not.i.i.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i.i.i.i, label %"_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEpLEj.exit", label %26, !llvm.loop !37
+  br i1 %.not.i.i.i.i, label %"_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEpLEj.exit", label %26, !llvm.loop !36
 
 52:                                               ; preds = %"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv.exit"
   %53 = icmp ugt i32 %.val.i.i.i.i, %.val.i.i.i.i12
@@ -5193,7 +5186,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %.be = phi ptr [ %84, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i29 ], [ %82, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i37" ]
   %.be190 = phi i32 [ %85, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i29 ], [ %.val14.i.i.i.i.i.i, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i37" ]
   %.be191 = phi i32 [ %86, %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i29 ], [ %83, %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i37" ]
-  br label %68, !llvm.loop !296
+  br label %68, !llvm.loop !295
 
 "_ZNR9hb_iter_tI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE9hb_pair_tIjRS5_EEmmEv.exit.i.i.i.i.i.i": ; preds = %_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEdeEv.exit.i.i.i.i.i.i.i.i29, %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEmmEv.exit.i.i.i.i.i.i.i.i
   %.not.i.i.i.i.i.i = icmp eq i32 %.val14.i.i.i.i.i.i, 0
@@ -5224,7 +5217,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %99 = getelementptr i8, ptr %98, i64 18
   %.val.i.i.i.i.i.i.i.i.i.i.i35 = load i8, ptr %99, align 2
   %.not.i.i.i.i.i.i.i.i.i.i.i36 = icmp eq i8 %.val.i.i.i.i.i.i.i.i.i.i.i35, 6
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i36, label %93, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i37", !llvm.loop !24
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i36, label %93, label %"_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i37", !llvm.loop !23
 
 "_ZNK4$_13clIRZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_S3_IjRS4_EEEN10_hb_head_tIbJDTcl4implclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_Ecv11hb_priorityILj16EE_EEEEE4typeEOSD_OSE_.exit.i.i.i.i.i.i37": ; preds = %95
   %100 = getelementptr i8, ptr %98, i64 16
@@ -5240,7 +5233,7 @@ _ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_t
   %.not2.i.i4.i.i = icmp eq i32 %81, 0
   %.not.i.i.i.i31 = icmp eq i32 %67, 0
   %or.cond.i.i.i.i = select i1 %.not2.i.i4.i.i, i1 true, i1 %.not.i.i.i.i31
-  br i1 %or.cond.i.i.i.i, label %"_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEpLEj.exit", label %65, !llvm.loop !565
+  br i1 %or.cond.i.i.i.i, label %"_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEpLEj.exit", label %65, !llvm.loop !564
 
 "_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEpLEj.exit": ; preds = %"_ZNR9hb_iter_tI16hb_filter_iter_tIS0_I13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EESI_IjRS5_EEmmEv.exit.i.i.i.i", %"_ZNR9hb_iter_tI16hb_filter_iter_tIS0_I13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EESI_IjRS5_EEppEv.exit.i.i.i.i", %_ZNR9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE9hb_pair_tIjRS4_EEppEv.exit.i.i.i.i.i.i.i.i, %_ZNR9hb_iter_tI14hb_iota_iter_tIjjEjEmIEj.exit.i.i, %_ZNR9hb_iter_tI14hb_iota_iter_tIjjEjEpLEj.exit.i.i, %52
   ret void
@@ -5294,7 +5287,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   store i32 %26, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %22, !llvm.loop !566
+  br i1 %exitcond.not, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %22, !llvm.loop !565
 
 27:                                               ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -5325,7 +5318,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   %.sroa.speculated22.i = tail call i32 @llvm.umin.i32(i32 %.02729.i, i32 %38)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit139.thread, label %.lr.ph.i, !llvm.loop !567
+  br i1 %exitcond.not.i, label %.loopexit139.thread, label %.lr.ph.i, !llvm.loop !566
 
 39:                                               ; preds = %31
   %40 = zext i32 %2 to i64
@@ -5378,7 +5371,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
 65:                                               ; preds = %59, %55
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next71.i, %wide.trip.count.i40
-  br i1 %exitcond73.not.i, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %55, !llvm.loop !568
+  br i1 %exitcond73.not.i, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %55, !llvm.loop !567
 
 66:                                               ; preds = %39
   %67 = icmp ult i32 %2, %.sroa.speculated
@@ -5412,7 +5405,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   %79 = or i32 %78, %1
   store i32 %79, ptr %77, align 4
   %.wide.i = icmp ugt i64 %70, %40
-  br i1 %.wide.i, label %69, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, !llvm.loop !569
+  br i1 %.wide.i, label %69, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, !llvm.loop !568
 
 .lr.ph.i41:                                       ; preds = %.preheader55.i, %83
   %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i43, %83 ], [ %40, %.preheader55.i ]
@@ -5433,7 +5426,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i43 to i32
   %exitcond.not.i44 = icmp eq i32 %.sroa.speculated, %lftr.wideiv.i
-  br i1 %exitcond.not.i44, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %.lr.ph.i41, !llvm.loop !570
+  br i1 %exitcond.not.i44, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %.lr.ph.i41, !llvm.loop !569
 
 89:                                               ; preds = %11
   br i1 %4, label %113, label %.preheader
@@ -5460,7 +5453,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   %100 = load i32, ptr %90, align 4
   %101 = zext i32 %100 to i64
   %102 = icmp samesign ult i64 %indvars.iv.next159, %101
-  br i1 %102, label %95, label %._crit_edge, !llvm.loop !571
+  br i1 %102, label %95, label %._crit_edge, !llvm.loop !570
 
 ._crit_edge:                                      ; preds = %95, %.preheader
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -5483,7 +5476,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   store i32 %112, ptr %110, align 4
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
-  br i1 %exitcond165.not, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %108, !llvm.loop !572
+  br i1 %exitcond165.not, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %108, !llvm.loop !571
 
 113:                                              ; preds = %89
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -5516,7 +5509,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb(ptr no
   %.sroa.speculated22.i53 = tail call i32 @llvm.umin.i32(i32 %.02729.i52, i32 %126)
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i49
-  br i1 %exitcond.not.i55, label %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, label %.lr.ph.i50, !llvm.loop !567
+  br i1 %exitcond.not.i55, label %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, label %.lr.ph.i50, !llvm.loop !566
 
 127:                                              ; preds = %119
   %128 = zext i32 %117 to i64
@@ -5561,7 +5554,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   %.sroa.speculated22.i64 = tail call i32 @llvm.umin.i32(i32 %.02729.i63, i32 %148)
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i60
-  br i1 %exitcond.not.i66, label %.loopexit.thread, label %.lr.ph.i61, !llvm.loop !567
+  br i1 %exitcond.not.i66, label %.loopexit.thread, label %.lr.ph.i61, !llvm.loop !566
 
 149:                                              ; preds = %141
   %150 = zext i32 %2 to i64
@@ -5615,7 +5608,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
 175:                                              ; preds = %169, %165
   %indvars.iv.next71.i75 = add nuw nsw i64 %indvars.iv70.i73, 1
   %exitcond73.not.i76 = icmp eq i64 %indvars.iv.next71.i75, %wide.trip.count.i72
-  br i1 %exitcond73.not.i76, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %165, !llvm.loop !568
+  br i1 %exitcond73.not.i76, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %165, !llvm.loop !567
 
 176:                                              ; preds = %149
   %177 = icmp ult i32 %2, %139
@@ -5649,7 +5642,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   %189 = or i32 %188, %1
   store i32 %189, ptr %187, align 4
   %.wide.i88 = icmp ugt i64 %180, %150
-  br i1 %.wide.i88, label %179, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, !llvm.loop !569
+  br i1 %.wide.i88, label %179, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, !llvm.loop !568
 
 .lr.ph.i78:                                       ; preds = %.preheader55.i77, %193
   %indvars.iv.i79 = phi i64 [ %indvars.iv.next.i81, %193 ], [ %150, %.preheader55.i77 ]
@@ -5670,7 +5663,7 @@ _ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56: ; preds
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i79, 1
   %lftr.wideiv.i82 = trunc i64 %indvars.iv.next.i81 to i32
   %exitcond.not.i83 = icmp eq i32 %139, %lftr.wideiv.i82
-  br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !570
+  br i1 %exitcond.not.i83, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, label %.lr.ph.i78, !llvm.loop !569
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds = %.lr.ph.i78, %193, %179, %184, %175, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56, %.loopexit.thread, %.preheader55.i77, %.preheader.i84
   %.013.i57129 = phi i32 [ %.013.i57.ph175, %.loopexit.thread ], [ %.sroa.speculated.i, %.preheader55.i77 ], [ %.sroa.speculated.i, %.preheader.i84 ], [ %.013.i46, %_ZN11hb_buffer_t23_infos_find_min_clusterEPK15hb_glyph_info_tjjj.exit56 ], [ %.013.i57.ph175, %175 ], [ %.sroa.speculated.i, %184 ], [ %.sroa.speculated.i, %179 ], [ %.sroa.speculated.i, %193 ], [ %.sroa.speculated.i, %.lr.ph.i78 ]
@@ -5727,7 +5720,7 @@ _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds 
 226:                                              ; preds = %220, %216
   %indvars.iv.next71.i97 = add nuw nsw i64 %indvars.iv70.i95, 1
   %exitcond73.not.i98 = icmp eq i64 %indvars.iv.next71.i97, %wide.trip.count.i94
-  br i1 %exitcond73.not.i98, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %216, !llvm.loop !568
+  br i1 %exitcond73.not.i98, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %216, !llvm.loop !567
 
 227:                                              ; preds = %211
   %228 = icmp ult i32 %200, %.sroa.speculated
@@ -5761,7 +5754,7 @@ _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds 
   %240 = or i32 %239, %1
   store i32 %240, ptr %238, align 4
   %.wide.i110 = icmp ugt i64 %231, %203
-  br i1 %.wide.i110, label %230, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, !llvm.loop !569
+  br i1 %.wide.i110, label %230, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, !llvm.loop !568
 
 .lr.ph.i100:                                      ; preds = %.preheader55.i99, %244
   %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i103, %244 ], [ %203, %.preheader55.i99 ]
@@ -5782,7 +5775,7 @@ _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89: ; preds 
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i101, 1
   %lftr.wideiv.i104 = trunc i64 %indvars.iv.next.i103 to i32
   %exitcond.not.i105 = icmp eq i32 %.sroa.speculated, %lftr.wideiv.i104
-  br i1 %exitcond.not.i105, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %.lr.ph.i100, !llvm.loop !570
+  br i1 %exitcond.not.i105, label %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit, label %.lr.ph.i100, !llvm.loop !569
 
 _ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit: ; preds = %22, %83, %.lr.ph.i41, %74, %69, %65, %108, %244, %.lr.ph.i100, %235, %230, %226, %.preheader140, %._crit_edge, %.preheader.i106, %.preheader55.i99, %214, %_ZN11hb_buffer_t22_infos_set_glyph_flagsEP15hb_glyph_info_tjjjj.exit89, %.preheader.i45, %.preheader55.i, %.loopexit139.thread, %27, %6
   ret void
@@ -5872,570 +5865,569 @@ attributes #11 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"_ZN24hb_filter_iter_factory_tIZL18find_syllables_useP11hb_buffer_tEUlRK15hb_glyph_info_tE_RK4$_31EclI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIS2_EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSI_6item_tEEE5valueEvE4typeELPv0EEE16hb_filter_iter_tISI_S5_S8_LDnEESI_: argument 0"}
-!15 = distinct !{!15, !"_ZN24hb_filter_iter_factory_tIZL18find_syllables_useP11hb_buffer_tEUlRK15hb_glyph_info_tE_RK4$_31EclI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIS2_EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSI_6item_tEEE5valueEvE4typeELPv0EEE16hb_filter_iter_tISI_S5_S8_LDnEESI_"}
-!16 = distinct !{!16, !17, !"_ZorI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE24hb_filter_iter_factory_tIZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSI_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISI_Efp_EEEOSI_OSO_: argument 0"}
-!17 = distinct !{!17, !"_ZorI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE24hb_filter_iter_factory_tIZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSI_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISI_Efp_EEEOSI_OSO_"}
-!18 = distinct !{!18, !7, !8}
-!19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"_ZN24hb_filter_iter_factory_tIZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_RK3$_9EclI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIS3_EEZL18find_syllables_useS1_EUlS5_E_RK4$_31LPv0EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSO_0EEESD_ISR_S7_SA_LDnEESR_: argument 0"}
-!21 = distinct !{!21, !"_ZN24hb_filter_iter_factory_tIZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_RK3$_9EclI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIS3_EEZL18find_syllables_useS1_EUlS5_E_RK4$_31LPv0EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSO_0EEESD_ISR_S7_SA_LDnEESR_"}
-!22 = distinct !{!22, !23, !"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE24hb_filter_iter_factory_tIZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISR_Efp_EEEOSR_OSW_: argument 0"}
-!23 = distinct !{!23, !"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE24hb_filter_iter_factory_tIZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISR_Efp_EEEOSR_OSW_"}
-!24 = distinct !{!24, !7, !8}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"_ZNK4$_32clI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEETnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSH_0EEE15machine_index_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISS_EEE4iterEEEOSS_: argument 0"}
-!27 = distinct !{!27, !"_ZNK4$_32clI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEETnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSH_0EEE15machine_index_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISS_EEE4iterEEEOSS_"}
-!28 = distinct !{!28, !29, !"_ZorI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEERK4$_32TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSU_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISU_Efp_EEEOSU_OSZ_: argument 0"}
-!29 = distinct !{!29, !"_ZorI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEERK4$_32TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSU_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISU_Efp_EEEOSU_OSZ_"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZN9hb_iter_tI16hb_filter_iter_tIS0_I13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EESI_IjRS5_EEppEi: argument 0"}
-!32 = distinct !{!32, !"_ZN9hb_iter_tI16hb_filter_iter_tIS0_I13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EESI_IjRS5_EEppEi"}
-!33 = distinct !{!33, !7, !8}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
-!36 = distinct !{!36, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
-!37 = distinct !{!37, !7, !8}
-!38 = !{!39, !41}
-!39 = distinct !{!39, !40, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!40 = distinct !{!40, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!41 = distinct !{!41, !42, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!42 = distinct !{!42, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!43 = !{!44, !46, !48, !50}
-!44 = distinct !{!44, !45, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!45 = distinct !{!45, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!46 = distinct !{!46, !47, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!47 = distinct !{!47, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!48 = distinct !{!48, !49, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!49 = distinct !{!49, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!50 = distinct !{!50, !51, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!51 = distinct !{!51, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
-!54 = distinct !{!54, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
-!57 = distinct !{!57, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
-!58 = !{!56, !53}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
-!61 = distinct !{!61, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
-!64 = distinct !{!64, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
-!65 = !{!63, !60}
-!66 = !{!67, !69, !71, !73}
-!67 = distinct !{!67, !68, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!68 = distinct !{!68, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!69 = distinct !{!69, !70, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!70 = distinct !{!70, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!71 = distinct !{!71, !72, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!72 = distinct !{!72, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!73 = distinct !{!73, !74, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!74 = distinct !{!74, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!75 = !{!76, !78, !80, !82}
-!76 = distinct !{!76, !77, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!77 = distinct !{!77, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!78 = distinct !{!78, !79, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!79 = distinct !{!79, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!80 = distinct !{!80, !81, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!81 = distinct !{!81, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!82 = distinct !{!82, !83, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!83 = distinct !{!83, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!84 = distinct !{!84, !7, !8}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
-!87 = distinct !{!87, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
-!90 = distinct !{!90, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
-!91 = !{!89, !86}
-!92 = !{!93, !95, !97, !99}
-!93 = distinct !{!93, !94, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!94 = distinct !{!94, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!95 = distinct !{!95, !96, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!96 = distinct !{!96, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!97 = distinct !{!97, !98, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!98 = distinct !{!98, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!99 = distinct !{!99, !100, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!100 = distinct !{!100, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!101 = !{!102, !104, !106, !108}
-!102 = distinct !{!102, !103, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!103 = distinct !{!103, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!104 = distinct !{!104, !105, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!105 = distinct !{!105, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!106 = distinct !{!106, !107, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!107 = distinct !{!107, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!108 = distinct !{!108, !109, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!109 = distinct !{!109, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!110 = distinct !{!110, !7, !8}
-!111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
-!113 = distinct !{!113, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
-!116 = distinct !{!116, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
-!117 = !{!115, !112}
-!118 = !{!119, !121, !123, !125}
-!119 = distinct !{!119, !120, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!120 = distinct !{!120, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!121 = distinct !{!121, !122, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!122 = distinct !{!122, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!123 = distinct !{!123, !124, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!124 = distinct !{!124, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!125 = distinct !{!125, !126, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!126 = distinct !{!126, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!127 = !{!128, !130, !132, !134}
-!128 = distinct !{!128, !129, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!129 = distinct !{!129, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!130 = distinct !{!130, !131, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!131 = distinct !{!131, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!132 = distinct !{!132, !133, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!133 = distinct !{!133, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!134 = distinct !{!134, !135, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!135 = distinct !{!135, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!136 = distinct !{!136, !7, !8}
-!137 = !{!138}
-!138 = distinct !{!138, !139, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
-!139 = distinct !{!139, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
-!140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
-!142 = distinct !{!142, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
-!143 = !{!141, !138}
-!144 = !{!145, !147, !149, !151}
-!145 = distinct !{!145, !146, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!146 = distinct !{!146, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!147 = distinct !{!147, !148, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!148 = distinct !{!148, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!149 = distinct !{!149, !150, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!150 = distinct !{!150, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!151 = distinct !{!151, !152, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!152 = distinct !{!152, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!153 = !{!154, !156, !158, !160}
-!154 = distinct !{!154, !155, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!155 = distinct !{!155, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!156 = distinct !{!156, !157, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!157 = distinct !{!157, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!158 = distinct !{!158, !159, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!159 = distinct !{!159, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!160 = distinct !{!160, !161, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!161 = distinct !{!161, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!162 = distinct !{!162, !7, !8}
-!163 = !{!164}
-!164 = distinct !{!164, !165, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
-!165 = distinct !{!165, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
-!166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
-!168 = distinct !{!168, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
-!169 = !{!167, !164}
-!170 = !{!171, !173, !175, !177}
-!171 = distinct !{!171, !172, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!172 = distinct !{!172, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!173 = distinct !{!173, !174, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!174 = distinct !{!174, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!175 = distinct !{!175, !176, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!176 = distinct !{!176, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!177 = distinct !{!177, !178, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!178 = distinct !{!178, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!179 = !{!180, !182, !184, !186}
-!180 = distinct !{!180, !181, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!181 = distinct !{!181, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!182 = distinct !{!182, !183, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!183 = distinct !{!183, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!184 = distinct !{!184, !185, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!185 = distinct !{!185, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!186 = distinct !{!186, !187, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!187 = distinct !{!187, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!188 = distinct !{!188, !7, !8}
-!189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
-!191 = distinct !{!191, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
-!194 = distinct !{!194, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
-!195 = !{!193, !190}
-!196 = !{!197, !199, !201, !203}
-!197 = distinct !{!197, !198, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!198 = distinct !{!198, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!199 = distinct !{!199, !200, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!200 = distinct !{!200, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!201 = distinct !{!201, !202, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!202 = distinct !{!202, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!203 = distinct !{!203, !204, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!204 = distinct !{!204, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!205 = !{!206, !208, !210, !212}
-!206 = distinct !{!206, !207, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!207 = distinct !{!207, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!208 = distinct !{!208, !209, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!209 = distinct !{!209, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!210 = distinct !{!210, !211, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!211 = distinct !{!211, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!212 = distinct !{!212, !213, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!213 = distinct !{!213, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!214 = distinct !{!214, !7, !8}
-!215 = !{!216}
-!216 = distinct !{!216, !217, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
-!217 = distinct !{!217, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
-!218 = !{!219}
-!219 = distinct !{!219, !220, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
-!220 = distinct !{!220, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
-!221 = !{!219, !216}
-!222 = !{!223, !225, !227, !229}
-!223 = distinct !{!223, !224, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!224 = distinct !{!224, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!225 = distinct !{!225, !226, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!226 = distinct !{!226, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!227 = distinct !{!227, !228, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!228 = distinct !{!228, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!229 = distinct !{!229, !230, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!230 = distinct !{!230, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!231 = !{!232, !234, !236, !238}
-!232 = distinct !{!232, !233, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!233 = distinct !{!233, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!234 = distinct !{!234, !235, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!235 = distinct !{!235, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!236 = distinct !{!236, !237, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!237 = distinct !{!237, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!238 = distinct !{!238, !239, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!239 = distinct !{!239, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!240 = distinct !{!240, !7, !8}
-!241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
-!243 = distinct !{!243, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
-!244 = !{!245}
-!245 = distinct !{!245, !246, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
-!246 = distinct !{!246, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
-!247 = !{!245, !242}
-!248 = !{!249, !251, !253, !255}
-!249 = distinct !{!249, !250, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!250 = distinct !{!250, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!251 = distinct !{!251, !252, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!252 = distinct !{!252, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!253 = distinct !{!253, !254, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!254 = distinct !{!254, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!255 = distinct !{!255, !256, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!256 = distinct !{!256, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!257 = !{!258, !260, !262, !264}
-!258 = distinct !{!258, !259, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!259 = distinct !{!259, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!260 = distinct !{!260, !261, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!261 = distinct !{!261, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!262 = distinct !{!262, !263, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!263 = distinct !{!263, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!264 = distinct !{!264, !265, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!265 = distinct !{!265, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!266 = distinct !{!266, !7, !8}
-!267 = !{!268}
-!268 = distinct !{!268, !269, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
-!269 = distinct !{!269, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
-!270 = !{!271}
-!271 = distinct !{!271, !272, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
-!272 = distinct !{!272, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
-!273 = !{!271, !268}
-!274 = !{!275, !277, !279, !281}
-!275 = distinct !{!275, !276, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!276 = distinct !{!276, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!277 = distinct !{!277, !278, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!278 = distinct !{!278, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!279 = distinct !{!279, !280, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!280 = distinct !{!280, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!281 = distinct !{!281, !282, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!282 = distinct !{!282, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!283 = !{!284, !286, !288, !290}
-!284 = distinct !{!284, !285, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!285 = distinct !{!285, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!286 = distinct !{!286, !287, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!287 = distinct !{!287, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!288 = distinct !{!288, !289, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!289 = distinct !{!289, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!290 = distinct !{!290, !291, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!291 = distinct !{!291, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!292 = distinct !{!292, !7, !8}
-!293 = !{!294}
-!294 = distinct !{!294, !295, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
-!295 = distinct !{!295, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
-!296 = distinct !{!296, !7, !8}
-!297 = !{!298, !300, !302, !304}
-!298 = distinct !{!298, !299, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!299 = distinct !{!299, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!300 = distinct !{!300, !301, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!301 = distinct !{!301, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!302 = distinct !{!302, !303, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!303 = distinct !{!303, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!304 = distinct !{!304, !305, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!305 = distinct !{!305, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!306 = !{!307, !309, !311, !313}
-!307 = distinct !{!307, !308, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!308 = distinct !{!308, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!309 = distinct !{!309, !310, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!310 = distinct !{!310, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!311 = distinct !{!311, !312, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!312 = distinct !{!312, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!313 = distinct !{!313, !314, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!314 = distinct !{!314, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!315 = distinct !{!315, !7, !8}
-!316 = !{!317}
-!317 = distinct !{!317, !318, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
-!318 = distinct !{!318, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
-!319 = !{!320, !322, !324, !326}
-!320 = distinct !{!320, !321, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!321 = distinct !{!321, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!322 = distinct !{!322, !323, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!323 = distinct !{!323, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!324 = distinct !{!324, !325, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!325 = distinct !{!325, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!326 = distinct !{!326, !327, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!327 = distinct !{!327, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!328 = !{!329, !331, !333, !335}
-!329 = distinct !{!329, !330, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!330 = distinct !{!330, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!331 = distinct !{!331, !332, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!332 = distinct !{!332, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!333 = distinct !{!333, !334, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!334 = distinct !{!334, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!335 = distinct !{!335, !336, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!336 = distinct !{!336, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!337 = distinct !{!337, !7, !8}
-!338 = !{!339}
-!339 = distinct !{!339, !340, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
-!340 = distinct !{!340, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
-!341 = !{!342, !344, !346, !348}
-!342 = distinct !{!342, !343, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!343 = distinct !{!343, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!344 = distinct !{!344, !345, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!345 = distinct !{!345, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!346 = distinct !{!346, !347, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!347 = distinct !{!347, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!348 = distinct !{!348, !349, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!349 = distinct !{!349, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!350 = !{!351, !353, !355, !357}
-!351 = distinct !{!351, !352, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!352 = distinct !{!352, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!353 = distinct !{!353, !354, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!354 = distinct !{!354, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!355 = distinct !{!355, !356, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!356 = distinct !{!356, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!357 = distinct !{!357, !358, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!358 = distinct !{!358, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!359 = distinct !{!359, !7, !8}
-!360 = !{!361}
-!361 = distinct !{!361, !362, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
-!362 = distinct !{!362, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
-!363 = !{!364, !366, !368, !370}
-!364 = distinct !{!364, !365, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!365 = distinct !{!365, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!366 = distinct !{!366, !367, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!367 = distinct !{!367, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!368 = distinct !{!368, !369, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!369 = distinct !{!369, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!370 = distinct !{!370, !371, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!371 = distinct !{!371, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!372 = !{!373, !375, !377, !379}
-!373 = distinct !{!373, !374, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!374 = distinct !{!374, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!375 = distinct !{!375, !376, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!376 = distinct !{!376, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!377 = distinct !{!377, !378, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!378 = distinct !{!378, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!379 = distinct !{!379, !380, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!380 = distinct !{!380, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!381 = distinct !{!381, !7, !8}
-!382 = !{!383}
-!383 = distinct !{!383, !384, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
-!384 = distinct !{!384, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
-!385 = !{!386, !388, !390, !392}
-!386 = distinct !{!386, !387, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!387 = distinct !{!387, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!388 = distinct !{!388, !389, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!389 = distinct !{!389, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!390 = distinct !{!390, !391, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!391 = distinct !{!391, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!392 = distinct !{!392, !393, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!393 = distinct !{!393, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!394 = !{!395, !397, !399, !401}
-!395 = distinct !{!395, !396, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!396 = distinct !{!396, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!397 = distinct !{!397, !398, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!398 = distinct !{!398, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!399 = distinct !{!399, !400, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!400 = distinct !{!400, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!401 = distinct !{!401, !402, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!402 = distinct !{!402, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!403 = distinct !{!403, !7, !8}
-!404 = !{!405}
-!405 = distinct !{!405, !406, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
-!406 = distinct !{!406, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
-!407 = !{!408, !410, !412, !414}
-!408 = distinct !{!408, !409, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!409 = distinct !{!409, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!410 = distinct !{!410, !411, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!411 = distinct !{!411, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!412 = distinct !{!412, !413, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!413 = distinct !{!413, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!414 = distinct !{!414, !415, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!415 = distinct !{!415, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!416 = !{!417, !419, !421, !423}
-!417 = distinct !{!417, !418, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!418 = distinct !{!418, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!419 = distinct !{!419, !420, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!420 = distinct !{!420, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!421 = distinct !{!421, !422, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!422 = distinct !{!422, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!423 = distinct !{!423, !424, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!424 = distinct !{!424, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!425 = distinct !{!425, !7, !8}
-!426 = !{!427}
-!427 = distinct !{!427, !428, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
-!428 = distinct !{!428, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
-!429 = !{!430, !432, !434, !436}
-!430 = distinct !{!430, !431, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!431 = distinct !{!431, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!432 = distinct !{!432, !433, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!433 = distinct !{!433, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!434 = distinct !{!434, !435, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!435 = distinct !{!435, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!436 = distinct !{!436, !437, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!437 = distinct !{!437, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!438 = !{!439, !441, !443, !445}
-!439 = distinct !{!439, !440, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!440 = distinct !{!440, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!441 = distinct !{!441, !442, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!442 = distinct !{!442, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!443 = distinct !{!443, !444, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!444 = distinct !{!444, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!445 = distinct !{!445, !446, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!446 = distinct !{!446, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!447 = distinct !{!447, !7, !8}
-!448 = !{!449}
-!449 = distinct !{!449, !450, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
-!450 = distinct !{!450, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
-!451 = !{!452, !454, !456, !458}
-!452 = distinct !{!452, !453, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!453 = distinct !{!453, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!454 = distinct !{!454, !455, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!455 = distinct !{!455, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!456 = distinct !{!456, !457, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!457 = distinct !{!457, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!458 = distinct !{!458, !459, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!459 = distinct !{!459, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!460 = !{!461, !463, !465, !467}
-!461 = distinct !{!461, !462, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!462 = distinct !{!462, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!463 = distinct !{!463, !464, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!464 = distinct !{!464, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!465 = distinct !{!465, !466, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!466 = distinct !{!466, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!467 = distinct !{!467, !468, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!468 = distinct !{!468, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!469 = distinct !{!469, !7, !8}
-!470 = !{!471}
-!471 = distinct !{!471, !472, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
-!472 = distinct !{!472, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
-!473 = !{!474, !476, !478, !480}
-!474 = distinct !{!474, !475, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!475 = distinct !{!475, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!476 = distinct !{!476, !477, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!477 = distinct !{!477, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!478 = distinct !{!478, !479, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!479 = distinct !{!479, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!480 = distinct !{!480, !481, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!481 = distinct !{!481, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!482 = !{!483, !485, !487, !489}
-!483 = distinct !{!483, !484, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!484 = distinct !{!484, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!485 = distinct !{!485, !486, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!486 = distinct !{!486, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!487 = distinct !{!487, !488, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!488 = distinct !{!488, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!489 = distinct !{!489, !490, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!490 = distinct !{!490, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!491 = distinct !{!491, !7, !8}
-!492 = !{!493}
-!493 = distinct !{!493, !494, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj: argument 0"}
-!494 = distinct !{!494, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj"}
-!495 = !{!496}
-!496 = distinct !{!496, !497, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
-!497 = distinct !{!497, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
-!498 = !{!496, !493}
-!499 = !{!500, !502, !504, !506}
-!500 = distinct !{!500, !501, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!501 = distinct !{!501, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!502 = distinct !{!502, !503, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!503 = distinct !{!503, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!504 = distinct !{!504, !505, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!505 = distinct !{!505, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!506 = distinct !{!506, !507, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!507 = distinct !{!507, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!508 = !{!509, !511, !513, !515}
-!509 = distinct !{!509, !510, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!510 = distinct !{!510, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!511 = distinct !{!511, !512, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!512 = distinct !{!512, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!513 = distinct !{!513, !514, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
-!514 = distinct !{!514, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
-!515 = distinct !{!515, !516, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
-!516 = distinct !{!516, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
-!517 = distinct !{!517, !7, !8}
-!518 = !{!519, !521}
-!519 = distinct !{!519, !520, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!520 = distinct !{!520, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!521 = distinct !{!521, !522, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!522 = distinct !{!522, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!523 = !{!524, !526}
-!524 = distinct !{!524, !525, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!525 = distinct !{!525, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!526 = distinct !{!526, !527, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!527 = distinct !{!527, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!528 = !{!529, !531}
-!529 = distinct !{!529, !530, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!530 = distinct !{!530, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!531 = distinct !{!531, !532, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!532 = distinct !{!532, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!533 = !{!534, !536}
-!534 = distinct !{!534, !535, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!535 = distinct !{!535, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!536 = distinct !{!536, !537, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!537 = distinct !{!537, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!538 = distinct !{!538, !7, !8}
-!539 = distinct !{!539, !7, !8}
-!540 = distinct !{!540, !7, !8}
-!541 = distinct !{!541, !7, !8}
-!542 = distinct !{!542, !7, !8, !543}
-!543 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!544 = distinct !{!544, !7, !8}
-!545 = distinct !{!545, !7, !8}
-!546 = distinct !{!546, !7, !8}
-!547 = distinct !{!547, !7, !8}
-!548 = distinct !{!548, !7, !8}
-!549 = distinct !{!549, !7, !8}
-!550 = distinct !{!550, !7, !8}
-!551 = distinct !{!551, !7, !8}
-!552 = distinct !{!552, !7, !8}
-!553 = distinct !{!553, !7, !8}
-!554 = distinct !{!554, !7, !8}
-!555 = !{!556, !558}
-!556 = distinct !{!556, !557, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!557 = distinct !{!557, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!558 = distinct !{!558, !559, !"_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!559 = distinct !{!559, !"_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!560 = !{!561, !563}
-!561 = distinct !{!561, !562, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
-!562 = distinct !{!562, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
-!563 = distinct !{!563, !564, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
-!564 = distinct !{!564, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
-!565 = distinct !{!565, !7, !8}
-!566 = distinct !{!566, !7, !8}
-!567 = distinct !{!567, !7, !8}
-!568 = distinct !{!568, !7, !8}
-!569 = distinct !{!569, !7, !8}
-!570 = distinct !{!570, !7, !8}
-!571 = distinct !{!571, !7, !8}
-!572 = distinct !{!572, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{!13, !15}
+!13 = distinct !{!13, !14, !"_ZN24hb_filter_iter_factory_tIZL18find_syllables_useP11hb_buffer_tEUlRK15hb_glyph_info_tE_RK4$_31EclI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIS2_EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSI_6item_tEEE5valueEvE4typeELPv0EEE16hb_filter_iter_tISI_S5_S8_LDnEESI_: argument 0"}
+!14 = distinct !{!14, !"_ZN24hb_filter_iter_factory_tIZL18find_syllables_useP11hb_buffer_tEUlRK15hb_glyph_info_tE_RK4$_31EclI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIS2_EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSI_6item_tEEE5valueEvE4typeELPv0EEE16hb_filter_iter_tISI_S5_S8_LDnEESI_"}
+!15 = distinct !{!15, !16, !"_ZorI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE24hb_filter_iter_factory_tIZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSI_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISI_Efp_EEEOSI_OSO_: argument 0"}
+!16 = distinct !{!16, !"_ZorI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEE24hb_filter_iter_factory_tIZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSI_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISI_Efp_EEEOSI_OSO_"}
+!17 = distinct !{!17, !7}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"_ZN24hb_filter_iter_factory_tIZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_RK3$_9EclI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIS3_EEZL18find_syllables_useS1_EUlS5_E_RK4$_31LPv0EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSO_0EEESD_ISR_S7_SA_LDnEESR_: argument 0"}
+!20 = distinct !{!20, !"_ZN24hb_filter_iter_factory_tIZL18find_syllables_useP11hb_buffer_tEUl9hb_pair_tIjRK15hb_glyph_info_tEE_RK3$_9EclI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tIS3_EEZL18find_syllables_useS1_EUlS5_E_RK4$_31LPv0EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSO_0EEESD_ISR_S7_SA_LDnEESR_"}
+!21 = distinct !{!21, !22, !"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE24hb_filter_iter_factory_tIZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISR_Efp_EEEOSR_OSW_: argument 0"}
+!22 = distinct !{!22, !"_ZorI16hb_filter_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EE24hb_filter_iter_factory_tIZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSR_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISR_Efp_EEEOSR_OSW_"}
+!23 = distinct !{!23, !7}
+!24 = !{!25, !27}
+!25 = distinct !{!25, !26, !"_ZNK4$_32clI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEETnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSH_0EEE15machine_index_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISS_EEE4iterEEEOSS_: argument 0"}
+!26 = distinct !{!26, !"_ZNK4$_32clI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEETnPN12hb_enable_ifIXsr14hb_is_iterableIT_EE5valueEvE4typeELSH_0EEE15machine_index_tIDTcldtclL_ZL8hb_derefEcl10hb_declvalISS_EEE4iterEEEOSS_"}
+!27 = distinct !{!27, !28, !"_ZorI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEERK4$_32TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSU_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISU_Efp_EEEOSU_OSZ_: argument 0"}
+!28 = distinct !{!28, !"_ZorI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEERK4$_32TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSU_6item_tEEE5valueEvE4typeELSG_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISU_Efp_EEEOSU_OSZ_"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN9hb_iter_tI16hb_filter_iter_tIS0_I13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EESI_IjRS5_EEppEi: argument 0"}
+!31 = distinct !{!31, !"_ZN9hb_iter_tI16hb_filter_iter_tIS0_I13hb_zip_iter_tI14hb_iota_iter_tIjjE10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EESI_IjRS5_EEppEi"}
+!32 = distinct !{!32, !7}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
+!35 = distinct !{!35, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
+!36 = distinct !{!36, !7}
+!37 = !{!38, !40}
+!38 = distinct !{!38, !39, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!39 = distinct !{!39, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!40 = distinct !{!40, !41, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!41 = distinct !{!41, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!42 = !{!43, !45, !47, !49}
+!43 = distinct !{!43, !44, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!44 = distinct !{!44, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!45 = distinct !{!45, !46, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!46 = distinct !{!46, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!47 = distinct !{!47, !48, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!48 = distinct !{!48, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!49 = distinct !{!49, !50, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!50 = distinct !{!50, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
+!53 = distinct !{!53, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
+!56 = distinct !{!56, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
+!57 = !{!55, !52}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
+!60 = distinct !{!60, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
+!63 = distinct !{!63, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
+!64 = !{!62, !59}
+!65 = !{!66, !68, !70, !72}
+!66 = distinct !{!66, !67, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!67 = distinct !{!67, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!68 = distinct !{!68, !69, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!69 = distinct !{!69, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!70 = distinct !{!70, !71, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!71 = distinct !{!71, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!72 = distinct !{!72, !73, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!73 = distinct !{!73, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!74 = !{!75, !77, !79, !81}
+!75 = distinct !{!75, !76, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!76 = distinct !{!76, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!77 = distinct !{!77, !78, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!78 = distinct !{!78, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!79 = distinct !{!79, !80, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!80 = distinct !{!80, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!81 = distinct !{!81, !82, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!82 = distinct !{!82, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!83 = distinct !{!83, !7}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
+!86 = distinct !{!86, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
+!89 = distinct !{!89, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
+!90 = !{!88, !85}
+!91 = !{!92, !94, !96, !98}
+!92 = distinct !{!92, !93, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!93 = distinct !{!93, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!94 = distinct !{!94, !95, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!95 = distinct !{!95, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!96 = distinct !{!96, !97, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!97 = distinct !{!97, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!98 = distinct !{!98, !99, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!99 = distinct !{!99, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!100 = !{!101, !103, !105, !107}
+!101 = distinct !{!101, !102, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!102 = distinct !{!102, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!103 = distinct !{!103, !104, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!104 = distinct !{!104, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!105 = distinct !{!105, !106, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!106 = distinct !{!106, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!107 = distinct !{!107, !108, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!108 = distinct !{!108, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!109 = distinct !{!109, !7}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
+!112 = distinct !{!112, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
+!115 = distinct !{!115, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
+!116 = !{!114, !111}
+!117 = !{!118, !120, !122, !124}
+!118 = distinct !{!118, !119, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!119 = distinct !{!119, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!120 = distinct !{!120, !121, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!121 = distinct !{!121, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!122 = distinct !{!122, !123, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!123 = distinct !{!123, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!124 = distinct !{!124, !125, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!125 = distinct !{!125, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!126 = !{!127, !129, !131, !133}
+!127 = distinct !{!127, !128, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!128 = distinct !{!128, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!129 = distinct !{!129, !130, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!130 = distinct !{!130, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!131 = distinct !{!131, !132, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!132 = distinct !{!132, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!133 = distinct !{!133, !134, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!134 = distinct !{!134, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!135 = distinct !{!135, !7}
+!136 = !{!137}
+!137 = distinct !{!137, !138, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
+!138 = distinct !{!138, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
+!139 = !{!140}
+!140 = distinct !{!140, !141, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
+!141 = distinct !{!141, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
+!142 = !{!140, !137}
+!143 = !{!144, !146, !148, !150}
+!144 = distinct !{!144, !145, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!145 = distinct !{!145, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!146 = distinct !{!146, !147, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!147 = distinct !{!147, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!148 = distinct !{!148, !149, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!149 = distinct !{!149, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!150 = distinct !{!150, !151, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!151 = distinct !{!151, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!152 = !{!153, !155, !157, !159}
+!153 = distinct !{!153, !154, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!154 = distinct !{!154, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!155 = distinct !{!155, !156, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!156 = distinct !{!156, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!157 = distinct !{!157, !158, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!158 = distinct !{!158, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!159 = distinct !{!159, !160, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!160 = distinct !{!160, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!161 = distinct !{!161, !7}
+!162 = !{!163}
+!163 = distinct !{!163, !164, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
+!164 = distinct !{!164, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
+!165 = !{!166}
+!166 = distinct !{!166, !167, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
+!167 = distinct !{!167, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
+!168 = !{!166, !163}
+!169 = !{!170, !172, !174, !176}
+!170 = distinct !{!170, !171, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!171 = distinct !{!171, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!172 = distinct !{!172, !173, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!173 = distinct !{!173, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!174 = distinct !{!174, !175, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!175 = distinct !{!175, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!176 = distinct !{!176, !177, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!177 = distinct !{!177, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!178 = !{!179, !181, !183, !185}
+!179 = distinct !{!179, !180, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!180 = distinct !{!180, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!181 = distinct !{!181, !182, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!182 = distinct !{!182, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!183 = distinct !{!183, !184, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!184 = distinct !{!184, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!185 = distinct !{!185, !186, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!186 = distinct !{!186, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!187 = distinct !{!187, !7}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
+!190 = distinct !{!190, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
+!191 = !{!192}
+!192 = distinct !{!192, !193, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
+!193 = distinct !{!193, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
+!194 = !{!192, !189}
+!195 = !{!196, !198, !200, !202}
+!196 = distinct !{!196, !197, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!197 = distinct !{!197, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!198 = distinct !{!198, !199, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!199 = distinct !{!199, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!200 = distinct !{!200, !201, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!201 = distinct !{!201, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!202 = distinct !{!202, !203, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!203 = distinct !{!203, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!204 = !{!205, !207, !209, !211}
+!205 = distinct !{!205, !206, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!206 = distinct !{!206, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!207 = distinct !{!207, !208, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!208 = distinct !{!208, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!209 = distinct !{!209, !210, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!210 = distinct !{!210, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!211 = distinct !{!211, !212, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!212 = distinct !{!212, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!213 = distinct !{!213, !7}
+!214 = !{!215}
+!215 = distinct !{!215, !216, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
+!216 = distinct !{!216, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
+!217 = !{!218}
+!218 = distinct !{!218, !219, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
+!219 = distinct !{!219, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
+!220 = !{!218, !215}
+!221 = !{!222, !224, !226, !228}
+!222 = distinct !{!222, !223, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!223 = distinct !{!223, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!224 = distinct !{!224, !225, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!225 = distinct !{!225, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!226 = distinct !{!226, !227, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!227 = distinct !{!227, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!228 = distinct !{!228, !229, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!229 = distinct !{!229, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!230 = !{!231, !233, !235, !237}
+!231 = distinct !{!231, !232, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!232 = distinct !{!232, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!233 = distinct !{!233, !234, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!234 = distinct !{!234, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!235 = distinct !{!235, !236, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!236 = distinct !{!236, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!237 = distinct !{!237, !238, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!238 = distinct !{!238, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!239 = distinct !{!239, !7}
+!240 = !{!241}
+!241 = distinct !{!241, !242, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
+!242 = distinct !{!242, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
+!243 = !{!244}
+!244 = distinct !{!244, !245, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
+!245 = distinct !{!245, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
+!246 = !{!244, !241}
+!247 = !{!248, !250, !252, !254}
+!248 = distinct !{!248, !249, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!249 = distinct !{!249, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!250 = distinct !{!250, !251, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!251 = distinct !{!251, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!252 = distinct !{!252, !253, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!253 = distinct !{!253, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!254 = distinct !{!254, !255, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!255 = distinct !{!255, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!256 = !{!257, !259, !261, !263}
+!257 = distinct !{!257, !258, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!258 = distinct !{!258, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!259 = distinct !{!259, !260, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!260 = distinct !{!260, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!261 = distinct !{!261, !262, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!262 = distinct !{!262, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!263 = distinct !{!263, !264, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!264 = distinct !{!264, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!265 = distinct !{!265, !7}
+!266 = !{!267}
+!267 = distinct !{!267, !268, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj: argument 0"}
+!268 = distinct !{!268, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEplEj"}
+!269 = !{!270}
+!270 = distinct !{!270, !271, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
+!271 = distinct !{!271, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
+!272 = !{!270, !267}
+!273 = !{!274, !276, !278, !280}
+!274 = distinct !{!274, !275, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!275 = distinct !{!275, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!276 = distinct !{!276, !277, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!277 = distinct !{!277, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!278 = distinct !{!278, !279, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!279 = distinct !{!279, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!280 = distinct !{!280, !281, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!281 = distinct !{!281, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!282 = !{!283, !285, !287, !289}
+!283 = distinct !{!283, !284, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!284 = distinct !{!284, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!285 = distinct !{!285, !286, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!286 = distinct !{!286, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!287 = distinct !{!287, !288, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!288 = distinct !{!288, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!289 = distinct !{!289, !290, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!290 = distinct !{!290, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!291 = distinct !{!291, !7}
+!292 = !{!293}
+!293 = distinct !{!293, !294, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
+!294 = distinct !{!294, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
+!295 = distinct !{!295, !7}
+!296 = !{!297, !299, !301, !303}
+!297 = distinct !{!297, !298, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!298 = distinct !{!298, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!299 = distinct !{!299, !300, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!300 = distinct !{!300, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!301 = distinct !{!301, !302, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!302 = distinct !{!302, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!303 = distinct !{!303, !304, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!304 = distinct !{!304, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!305 = !{!306, !308, !310, !312}
+!306 = distinct !{!306, !307, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!307 = distinct !{!307, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!308 = distinct !{!308, !309, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!309 = distinct !{!309, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!310 = distinct !{!310, !311, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!311 = distinct !{!311, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!312 = distinct !{!312, !313, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!313 = distinct !{!313, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!314 = distinct !{!314, !7}
+!315 = !{!316}
+!316 = distinct !{!316, !317, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
+!317 = distinct !{!317, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
+!318 = !{!319, !321, !323, !325}
+!319 = distinct !{!319, !320, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!320 = distinct !{!320, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!321 = distinct !{!321, !322, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!322 = distinct !{!322, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!323 = distinct !{!323, !324, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!324 = distinct !{!324, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!325 = distinct !{!325, !326, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!326 = distinct !{!326, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!327 = !{!328, !330, !332, !334}
+!328 = distinct !{!328, !329, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!329 = distinct !{!329, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!330 = distinct !{!330, !331, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!331 = distinct !{!331, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!332 = distinct !{!332, !333, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!333 = distinct !{!333, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!334 = distinct !{!334, !335, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!335 = distinct !{!335, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!336 = distinct !{!336, !7}
+!337 = !{!338}
+!338 = distinct !{!338, !339, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
+!339 = distinct !{!339, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
+!340 = !{!341, !343, !345, !347}
+!341 = distinct !{!341, !342, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!342 = distinct !{!342, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!343 = distinct !{!343, !344, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!344 = distinct !{!344, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!345 = distinct !{!345, !346, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!346 = distinct !{!346, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!347 = distinct !{!347, !348, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!348 = distinct !{!348, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!349 = !{!350, !352, !354, !356}
+!350 = distinct !{!350, !351, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!351 = distinct !{!351, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!352 = distinct !{!352, !353, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!353 = distinct !{!353, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!354 = distinct !{!354, !355, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!355 = distinct !{!355, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!356 = distinct !{!356, !357, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!357 = distinct !{!357, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!358 = distinct !{!358, !7}
+!359 = !{!360}
+!360 = distinct !{!360, !361, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
+!361 = distinct !{!361, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
+!362 = !{!363, !365, !367, !369}
+!363 = distinct !{!363, !364, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!364 = distinct !{!364, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!365 = distinct !{!365, !366, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!366 = distinct !{!366, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!367 = distinct !{!367, !368, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!368 = distinct !{!368, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!369 = distinct !{!369, !370, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!370 = distinct !{!370, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!371 = !{!372, !374, !376, !378}
+!372 = distinct !{!372, !373, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!373 = distinct !{!373, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!374 = distinct !{!374, !375, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!375 = distinct !{!375, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!376 = distinct !{!376, !377, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!377 = distinct !{!377, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!378 = distinct !{!378, !379, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!379 = distinct !{!379, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!380 = distinct !{!380, !7}
+!381 = !{!382}
+!382 = distinct !{!382, !383, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
+!383 = distinct !{!383, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
+!384 = !{!385, !387, !389, !391}
+!385 = distinct !{!385, !386, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!386 = distinct !{!386, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!387 = distinct !{!387, !388, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!388 = distinct !{!388, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!389 = distinct !{!389, !390, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!390 = distinct !{!390, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!391 = distinct !{!391, !392, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!392 = distinct !{!392, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!393 = !{!394, !396, !398, !400}
+!394 = distinct !{!394, !395, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!395 = distinct !{!395, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!396 = distinct !{!396, !397, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!397 = distinct !{!397, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!398 = distinct !{!398, !399, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!399 = distinct !{!399, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!400 = distinct !{!400, !401, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!401 = distinct !{!401, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!402 = distinct !{!402, !7}
+!403 = !{!404}
+!404 = distinct !{!404, !405, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
+!405 = distinct !{!405, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
+!406 = !{!407, !409, !411, !413}
+!407 = distinct !{!407, !408, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!408 = distinct !{!408, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!409 = distinct !{!409, !410, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!410 = distinct !{!410, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!411 = distinct !{!411, !412, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!412 = distinct !{!412, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!413 = distinct !{!413, !414, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!414 = distinct !{!414, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!415 = !{!416, !418, !420, !422}
+!416 = distinct !{!416, !417, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!417 = distinct !{!417, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!418 = distinct !{!418, !419, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!419 = distinct !{!419, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!420 = distinct !{!420, !421, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!421 = distinct !{!421, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!422 = distinct !{!422, !423, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!423 = distinct !{!423, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!424 = distinct !{!424, !7}
+!425 = !{!426}
+!426 = distinct !{!426, !427, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
+!427 = distinct !{!427, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
+!428 = !{!429, !431, !433, !435}
+!429 = distinct !{!429, !430, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!430 = distinct !{!430, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!431 = distinct !{!431, !432, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!432 = distinct !{!432, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!433 = distinct !{!433, !434, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!434 = distinct !{!434, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!435 = distinct !{!435, !436, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!436 = distinct !{!436, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!437 = !{!438, !440, !442, !444}
+!438 = distinct !{!438, !439, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!439 = distinct !{!439, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!440 = distinct !{!440, !441, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!441 = distinct !{!441, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!442 = distinct !{!442, !443, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!443 = distinct !{!443, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!444 = distinct !{!444, !445, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!445 = distinct !{!445, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!446 = distinct !{!446, !7}
+!447 = !{!448}
+!448 = distinct !{!448, !449, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
+!449 = distinct !{!449, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
+!450 = !{!451, !453, !455, !457}
+!451 = distinct !{!451, !452, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!452 = distinct !{!452, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!453 = distinct !{!453, !454, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!454 = distinct !{!454, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!455 = distinct !{!455, !456, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!456 = distinct !{!456, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!457 = distinct !{!457, !458, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!458 = distinct !{!458, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!459 = !{!460, !462, !464, !466}
+!460 = distinct !{!460, !461, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!461 = distinct !{!461, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!462 = distinct !{!462, !463, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!463 = distinct !{!463, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!464 = distinct !{!464, !465, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!465 = distinct !{!465, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!466 = distinct !{!466, !467, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!467 = distinct !{!467, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!468 = distinct !{!468, !7}
+!469 = !{!470}
+!470 = distinct !{!470, !471, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi: argument 0"}
+!471 = distinct !{!471, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmmEi"}
+!472 = !{!473, !475, !477, !479}
+!473 = distinct !{!473, !474, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!474 = distinct !{!474, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!475 = distinct !{!475, !476, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!476 = distinct !{!476, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!477 = distinct !{!477, !478, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!478 = distinct !{!478, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!479 = distinct !{!479, !480, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!480 = distinct !{!480, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!481 = !{!482, !484, !486, !488}
+!482 = distinct !{!482, !483, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!483 = distinct !{!483, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!484 = distinct !{!484, !485, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!485 = distinct !{!485, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!486 = distinct !{!486, !487, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!487 = distinct !{!487, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!488 = distinct !{!488, !489, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!489 = distinct !{!489, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!490 = distinct !{!490, !7}
+!491 = !{!492}
+!492 = distinct !{!492, !493, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj: argument 0"}
+!493 = distinct !{!493, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEmiEj"}
+!494 = !{!495}
+!495 = distinct !{!495, !496, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv: argument 0"}
+!496 = distinct !{!496, !"_ZNK9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEE4iterEv"}
+!497 = !{!495, !492}
+!498 = !{!499, !501, !503, !505}
+!499 = distinct !{!499, !500, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!500 = distinct !{!500, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!501 = distinct !{!501, !502, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!502 = distinct !{!502, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!503 = distinct !{!503, !504, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!504 = distinct !{!504, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!505 = distinct !{!505, !506, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!506 = distinct !{!506, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!507 = !{!508, !510, !512, !514}
+!508 = distinct !{!508, !509, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!509 = distinct !{!509, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!510 = distinct !{!510, !511, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!511 = distinct !{!511, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!512 = distinct !{!512, !513, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev: argument 0"}
+!513 = distinct !{!513, !"_ZNK15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEEE8__item__Ev"}
+!514 = distinct !{!514, !515, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv: argument 0"}
+!515 = distinct !{!515, !"_ZN9hb_iter_tI15machine_index_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS4_IS1_IS3_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS6_E_RK4$_31LPv0EEZL18find_syllables_useSA_EUl9hb_pair_tIjSC_EE_RK3$_9LSH_0EEEESJ_IjSJ_IjRS6_EEEdeEv"}
+!516 = distinct !{!516, !7}
+!517 = !{!518, !520}
+!518 = distinct !{!518, !519, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!519 = distinct !{!519, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!520 = distinct !{!520, !521, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!521 = distinct !{!521, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!522 = !{!523, !525}
+!523 = distinct !{!523, !524, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!524 = distinct !{!524, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!525 = distinct !{!525, !526, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!526 = distinct !{!526, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!527 = !{!528, !530}
+!528 = distinct !{!528, !529, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!529 = distinct !{!529, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!530 = distinct !{!530, !531, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!531 = distinct !{!531, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!532 = !{!533, !535}
+!533 = distinct !{!533, !534, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!534 = distinct !{!534, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!535 = distinct !{!535, !536, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!536 = distinct !{!536, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!537 = distinct !{!537, !7}
+!538 = distinct !{!538, !7}
+!539 = distinct !{!539, !7}
+!540 = distinct !{!540, !7}
+!541 = distinct !{!541, !7, !542}
+!542 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!543 = distinct !{!543, !7}
+!544 = distinct !{!544, !7}
+!545 = distinct !{!545, !7}
+!546 = distinct !{!546, !7}
+!547 = distinct !{!547, !7}
+!548 = distinct !{!548, !7}
+!549 = distinct !{!549, !7}
+!550 = distinct !{!550, !7}
+!551 = distinct !{!551, !7}
+!552 = distinct !{!552, !7}
+!553 = distinct !{!553, !7}
+!554 = !{!555, !557}
+!555 = distinct !{!555, !556, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!556 = distinct !{!556, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!557 = distinct !{!557, !558, !"_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!558 = distinct !{!558, !"_ZN9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!559 = !{!560, !562}
+!560 = distinct !{!560, !561, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev: argument 0"}
+!561 = distinct !{!561, !"_ZNK13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS2_IS_IS1_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS4_E_RK4$_31LPv0EEZL18find_syllables_useS8_EUl9hb_pair_tIjSA_EE_RK3$_9LSF_0EEE8__item__Ev"}
+!562 = distinct !{!562, !563, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv: argument 0"}
+!563 = distinct !{!563, !"_ZNK9hb_iter_tI13hb_zip_iter_tI14hb_iota_iter_tIjjE16hb_filter_iter_tIS3_IS0_IS2_10hb_array_tI15hb_glyph_info_tEEZL18find_syllables_useP11hb_buffer_tEUlRKS5_E_RK4$_31LPv0EEZL18find_syllables_useS9_EUl9hb_pair_tIjSB_EE_RK3$_9LSG_0EEESI_IjSI_IjRS5_EEEdeEv"}
+!564 = distinct !{!564, !7}
+!565 = distinct !{!565, !7}
+!566 = distinct !{!566, !7}
+!567 = distinct !{!567, !7}
+!568 = distinct !{!568, !7}
+!569 = distinct !{!569, !7}
+!570 = distinct !{!570, !7}
+!571 = distinct !{!571, !7}

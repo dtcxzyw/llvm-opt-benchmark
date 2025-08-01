@@ -189,7 +189,7 @@ _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE1
   %.sroa.15.11 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i69.pn, i64 24
   %75 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0154.0307) #16
   %.not203 = icmp eq ptr %75, %42
-  br i1 %.not203, label %.loopexit212, label %44, !llvm.loop !40
+  br i1 %.not203, label %.loopexit212, label %44
 
 .loopexit213:                                     ; preds = %_ZNKSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE12_M_check_lenEmPKc.exit.i60
   %lpad.loopexit215 = landingpad { ptr, i32 }
@@ -302,18 +302,18 @@ _ZNKSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE
 .lr.ph.i.i.i.i84:                                 ; preds = %.noexc99, %.lr.ph.i.i.i.i84
   %.012.i.i.i.i85 = phi ptr [ %123, %.lr.ph.i.i.i.i84 ], [ %111, %.noexc99 ]
   %.0911.i.i.i.i86 = phi ptr [ %122, %.lr.ph.i.i.i.i84 ], [ %.sroa.0160.5320, %.noexc99 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !41)
-  call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  %115 = load i64, ptr %.0911.i.i.i.i86, align 8, !tbaa !10, !alias.scope !44, !noalias !41
-  store i64 %115, ptr %.012.i.i.i.i85, align 8, !tbaa !10, !alias.scope !41, !noalias !44
+  call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  %115 = load i64, ptr %.0911.i.i.i.i86, align 8, !tbaa !10, !alias.scope !42, !noalias !39
+  store i64 %115, ptr %.012.i.i.i.i85, align 8, !tbaa !10, !alias.scope !39, !noalias !42
   %116 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i85, i64 8
   %117 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i86, i64 8
-  %118 = load i64, ptr %117, align 8, !tbaa !9, !alias.scope !44, !noalias !41
-  store i64 %118, ptr %116, align 8, !tbaa !9, !alias.scope !41, !noalias !44
+  %118 = load i64, ptr %117, align 8, !tbaa !9, !alias.scope !42, !noalias !39
+  store i64 %118, ptr %116, align 8, !tbaa !9, !alias.scope !39, !noalias !42
   %119 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i85, i64 16
   %120 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i86, i64 16
-  %121 = load i64, ptr %120, align 8, !tbaa !9, !alias.scope !44, !noalias !41
-  store i64 %121, ptr %119, align 8, !tbaa !9, !alias.scope !41, !noalias !44
+  %121 = load i64, ptr %120, align 8, !tbaa !9, !alias.scope !42, !noalias !39
+  store i64 %121, ptr %119, align 8, !tbaa !9, !alias.scope !39, !noalias !42
   %122 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i86, i64 24
   %123 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i85, i64 24
   %.not.i.i.i.i87 = icmp eq ptr %122, %.sroa.15.4319
@@ -347,7 +347,7 @@ _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE1
   %.sroa.0160.6 = phi ptr [ %.sroa.0160.5320, %92 ], [ %111, %.noexc51 ], [ %.sroa.0160.5320, %95 ]
   %128 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0139.0317) #16
   %.not205 = icmp eq ptr %128, %78
-  br i1 %.not205, label %._crit_edge323, label %84, !llvm.loop !46
+  br i1 %.not205, label %._crit_edge323, label %84, !llvm.loop !44
 
 ._crit_edge323:                                   ; preds = %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE12emplace_backIJS6_S6_mEEERS7_DpOT_.exit, %80
   %.sroa.39.5.lcssa = phi ptr [ %.sroa.39.4329, %80 ], [ %.sroa.39.6, %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE12emplace_backIJS6_S6_mEEERS7_DpOT_.exit ]
@@ -355,7 +355,7 @@ _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE1
   %.sroa.0160.5.lcssa = phi ptr [ %.sroa.0160.4331, %80 ], [ %.sroa.0160.6, %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE12emplace_backIJS6_S6_mEEERS7_DpOT_.exit ]
   %129 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0145.0328) #16
   %.not204 = icmp eq ptr %129, %78
-  br i1 %.not204, label %.loopexit211, label %80, !llvm.loop !47
+  br i1 %.not204, label %.loopexit211, label %80, !llvm.loop !45
 
 130:                                              ; preds = %36
   %131 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -392,7 +392,7 @@ _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE1
   %.sroa.0160.8.lcssa = phi ptr [ %.sroa.0160.7298, %.lr.ph300.split ], [ %.sroa.0160.9, %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE12emplace_backIJS6_S6_mEEERS7_DpOT_.exit55 ]
   %142 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0129.0295) #16
   %.not201 = icmp eq ptr %142, %133
-  br i1 %.not201, label %.loopexit211, label %.lr.ph300.split, !llvm.loop !48
+  br i1 %.not201, label %.loopexit211, label %.lr.ph300.split, !llvm.loop !46
 
 143:                                              ; preds = %.lr.ph, %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE12emplace_backIJS6_S6_mEEERS7_DpOT_.exit55
   %.sroa.0160.8291 = phi ptr [ %.sroa.0160.7298, %.lr.ph ], [ %.sroa.0160.9, %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE12emplace_backIJS6_S6_mEEERS7_DpOT_.exit55 ]
@@ -467,18 +467,18 @@ _ZNKSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE
 .lr.ph.i.i.i.i104:                                ; preds = %.noexc119, %.lr.ph.i.i.i.i104
   %.012.i.i.i.i105 = phi ptr [ %182, %.lr.ph.i.i.i.i104 ], [ %170, %.noexc119 ]
   %.0911.i.i.i.i106 = phi ptr [ %181, %.lr.ph.i.i.i.i104 ], [ %.sroa.0160.8291, %.noexc119 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %174 = load i64, ptr %.0911.i.i.i.i106, align 8, !tbaa !10, !alias.scope !53, !noalias !50
-  store i64 %174, ptr %.012.i.i.i.i105, align 8, !tbaa !10, !alias.scope !50, !noalias !53
+  call void @llvm.experimental.noalias.scope.decl(metadata !48)
+  call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  %174 = load i64, ptr %.0911.i.i.i.i106, align 8, !tbaa !10, !alias.scope !51, !noalias !48
+  store i64 %174, ptr %.012.i.i.i.i105, align 8, !tbaa !10, !alias.scope !48, !noalias !51
   %175 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i105, i64 8
   %176 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i106, i64 8
-  %177 = load i64, ptr %176, align 8, !tbaa !9, !alias.scope !53, !noalias !50
-  store i64 %177, ptr %175, align 8, !tbaa !9, !alias.scope !50, !noalias !53
+  %177 = load i64, ptr %176, align 8, !tbaa !9, !alias.scope !51, !noalias !48
+  store i64 %177, ptr %175, align 8, !tbaa !9, !alias.scope !48, !noalias !51
   %178 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i105, i64 16
   %179 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i106, i64 16
-  %180 = load i64, ptr %179, align 8, !tbaa !9, !alias.scope !53, !noalias !50
-  store i64 %180, ptr %178, align 8, !tbaa !9, !alias.scope !50, !noalias !53
+  %180 = load i64, ptr %179, align 8, !tbaa !9, !alias.scope !51, !noalias !48
+  store i64 %180, ptr %178, align 8, !tbaa !9, !alias.scope !48, !noalias !51
   %181 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i106, i64 24
   %182 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i105, i64 24
   %.not.i.i.i.i107 = icmp eq ptr %181, %.sroa.15.7290
@@ -512,14 +512,14 @@ _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE1
   %.sroa.0160.9 = phi ptr [ %.sroa.0160.8291, %151 ], [ %170, %.noexc54 ], [ %.sroa.0160.8291, %154 ]
   %187 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0125.0288) #16
   %.not202 = icmp eq ptr %187, %135
-  br i1 %.not202, label %._crit_edge, label %143, !llvm.loop !55
+  br i1 %.not202, label %._crit_edge, label %143
 
 .loopexit211:                                     ; preds = %._crit_edge, %._crit_edge323, %.lr.ph300, %130, %.loopexit212, %22, %21
   %.sroa.39.10 = phi ptr [ %.sroa.39.0, %21 ], [ %.sroa.39.0, %22 ], [ %.sroa.39.2, %.loopexit212 ], [ %.sroa.39.0, %130 ], [ %.sroa.39.0, %.lr.ph300 ], [ %.sroa.39.5.lcssa, %._crit_edge323 ], [ %.sroa.39.8.lcssa, %._crit_edge ]
   %.sroa.15.9 = phi ptr [ %14, %21 ], [ %14, %22 ], [ %.sroa.15.1, %.loopexit212 ], [ %14, %130 ], [ %14, %.lr.ph300 ], [ %.sroa.15.4.lcssa, %._crit_edge323 ], [ %.sroa.15.7.lcssa, %._crit_edge ]
   %.sroa.0160.10 = phi ptr [ %.sroa.0160.0, %21 ], [ %.sroa.0160.0, %22 ], [ %.sroa.0160.2, %.loopexit212 ], [ %.sroa.0160.0, %130 ], [ %.sroa.0160.0, %.lr.ph300 ], [ %.sroa.0160.5.lcssa, %._crit_edge323 ], [ %.sroa.0160.8.lcssa, %._crit_edge ]
   %188 = icmp eq ptr %.sroa.0160.10, %.sroa.15.9
-  br i1 %188, label %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EED2Ev.exit, label %13, !llvm.loop !56
+  br i1 %188, label %_ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EED2Ev.exit, label %13, !llvm.loop !53
 
 _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EED2Ev.exit: ; preds = %.loopexit211
   %189 = ptrtoint ptr %.sroa.39.10 to i64
@@ -633,23 +633,20 @@ attributes #17 = { nounwind }
 !34 = distinct !{!34, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_"}
 !35 = !{!36}
 !36 = distinct !{!36, !34, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!37 = distinct !{!37, !38, !39}
+!37 = distinct !{!37, !38}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = distinct !{!40, !39}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
-!43 = distinct !{!43, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_"}
-!44 = !{!45}
-!45 = distinct !{!45, !43, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!46 = distinct !{!46, !38, !39}
-!47 = distinct !{!47, !38, !39}
-!48 = distinct !{!48, !39, !49}
-!49 = !{!"llvm.loop.unswitch.partial.disable"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
-!52 = distinct !{!52, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_"}
-!53 = !{!54}
-!54 = distinct !{!54, !52, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!55 = distinct !{!55, !39}
-!56 = distinct !{!56, !38, !39}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!41 = distinct !{!41, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_"}
+!42 = !{!43}
+!43 = distinct !{!43, !41, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
+!44 = distinct !{!44, !38}
+!45 = distinct !{!45, !38}
+!46 = distinct !{!46, !47}
+!47 = !{!"llvm.loop.unswitch.partial.disable"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!50 = distinct !{!50, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_"}
+!51 = !{!52}
+!52 = distinct !{!52, !50, !"_ZSt19__relocate_object_aISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
+!53 = distinct !{!53, !38}

@@ -178,7 +178,7 @@ for.body39:                                       ; preds = %for.body39.preheade
   store i8 %14, ptr %destPtr.491, align 1
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %for.end45, label %for.body39, !llvm.loop !7
+  br i1 %exitcond129.not, label %for.end45, label %for.body39, !llvm.loop !6
 
 for.end45:                                        ; preds = %for.body39
   store i8 46, ptr %incdec.ptr42, align 1
@@ -200,7 +200,7 @@ for.body50:                                       ; preds = %for.body50.preheade
   %destPtr.5 = getelementptr inbounds nuw i8, ptr %destPtr.597, i64 1
   %17 = trunc nuw i64 %indvars.iv.next132 to i32
   %cmp49 = icmp slt i32 %17, %conv
-  br i1 %cmp49, label %for.body50, label %if.end141, !llvm.loop !8
+  br i1 %cmp49, label %for.body50, label %if.end141, !llvm.loop !7
 
 if.else57:                                        ; preds = %if.else
   %18 = add i32 %3, 5
@@ -233,7 +233,7 @@ for.body68:                                       ; preds = %if.then61, %for.bod
   %19 = load i32, ptr %n, align 4
   %sub66 = sub nsw i32 0, %19
   %cmp67 = icmp slt i32 %inc71, %sub66
-  br i1 %cmp67, label %for.body68, label %for.cond74.preheader, !llvm.loop !9
+  br i1 %cmp67, label %for.body68, label %for.cond74.preheader, !llvm.loop !8
 
 for.body76:                                       ; preds = %for.body76.preheader, %for.body76
   %indvars.iv120 = phi i64 [ 0, %for.body76.preheader ], [ %indvars.iv.next121, %for.body76 ]
@@ -244,7 +244,7 @@ for.body76:                                       ; preds = %for.body76.preheade
   store i8 %20, ptr %destPtr.787, align 1
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
-  br i1 %exitcond124.not, label %if.end141, label %for.body76, !llvm.loop !10
+  br i1 %exitcond124.not, label %if.end141, label %for.body76, !llvm.loop !9
 
 if.else83:                                        ; preds = %if.else57
   %cmp84 = icmp eq i32 %conv, 1
@@ -295,7 +295,7 @@ for.body116:                                      ; preds = %for.body116.prehead
   store i8 %28, ptr %destPtr.971, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end122, label %for.body116, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end122, label %for.body116, !llvm.loop !10
 
 for.end122:                                       ; preds = %for.body116, %if.else104
   %destPtr.9.lcssa = phi ptr [ %incdec.ptr90, %if.else104 ], [ %incdec.ptr119, %for.body116 ]
@@ -322,7 +322,7 @@ for.body131:                                      ; preds = %for.body131.prehead
   store i8 %30, ptr %destPtr.1074, align 1
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
-  br i1 %exitcond116.not, label %if.end141, label %for.body131, !llvm.loop !12
+  br i1 %exitcond116.not, label %if.end141, label %for.body131, !llvm.loop !11
 
 if.end141:                                        ; preds = %for.body131, %for.body76, %for.body50, %for.body97.preheader, %for.body27.preheader, %for.end122, %if.then85, %for.cond74.preheader, %for.end45, %for.cond25.preheader
   %destPtr.3 = phi ptr [ %destPtr.1.lcssa, %for.cond25.preheader ], [ %destPtr.594, %for.end45 ], [ %destPtr.6.lcssa, %for.cond74.preheader ], [ %incdec.ptr93, %if.then85 ], [ %incdec.ptr127, %for.end122 ], [ %scevgep139, %for.body27.preheader ], [ %scevgep, %for.body97.preheader ], [ %destPtr.5, %for.body50 ], [ %incdec.ptr79, %for.body76 ], [ %incdec.ptr134, %for.body131 ]
@@ -386,12 +386,11 @@ attributes #7 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

@@ -182,17 +182,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
   %48 = load ptr, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, align 8
-  store ptr %48, ptr %3, align 8, !tbaa !30
+  store ptr %48, ptr %3, align 8, !tbaa !29
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 64), align 8
   %50 = getelementptr i8, ptr %48, i64 -24
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %3, i64 %51
-  store ptr %49, ptr %52, align 8, !tbaa !30
+  store ptr %49, ptr %52, align 8, !tbaa !29
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 72), align 8
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %53, ptr %54, align 8, !tbaa !30
+  store ptr %53, ptr %54, align 8, !tbaa !29
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %55, align 8, !tbaa !30
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %55, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %57 = load ptr, ptr %56, align 8, !tbaa !26
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -213,18 +213,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
-  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %55, align 8, !tbaa !30
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %55, align 8, !tbaa !29
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #15
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 16), align 8
-  store ptr %66, ptr %3, align 8, !tbaa !30
+  store ptr %66, ptr %3, align 8, !tbaa !29
   %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
   %68 = getelementptr i8, ptr %66, i64 -24
   %69 = load i64, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %3, i64 %69
-  store ptr %67, ptr %70, align 8, !tbaa !30
+  store ptr %67, ptr %70, align 8, !tbaa !29
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %71, align 8, !tbaa !32
+  store i64 0, ptr %71, align 8, !tbaa !31
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %72) #15
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %3) #15
@@ -382,7 +382,7 @@ define hidden void @_ZN4cvc58internal7Sampler12pickFpBiasedEjj(ptr dead_on_unwin
 _ZN4cvc58internal6Random9getRandomEv.exit:        ; preds = %3, %46
   %47 = tail call noundef nonnull align 8 dereferenceable(16) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4cvc58internal6Random9getRandomEvE9s_current)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #15
-  store i32 1, ptr %4, align 8, !tbaa !34
+  store i32 1, ptr %4, align 8, !tbaa !33
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %48) #15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
@@ -391,16 +391,16 @@ _ZN4cvc58internal6Random9getRandomEv.exit:        ; preds = %3, %46
 
 49:                                               ; preds = %_ZN4cvc58internal6Random9getRandomEv.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
-  store i32 1, ptr %6, align 8, !tbaa !34
+  store i32 1, ptr %6, align 8, !tbaa !33
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %50) #15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
-  store i32 %1, ptr %7, align 8, !tbaa !34
+  store i32 %1, ptr %7, align 8, !tbaa !33
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %51) #15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #15
   %52 = add i32 %2, -1
-  store i32 %52, ptr %8, align 8, !tbaa !34
+  store i32 %52, ptr %8, align 8, !tbaa !33
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @__gmpz_init(ptr noundef nonnull align 8 dereferenceable(16) %53) #15
   %54 = invoke noundef zeroext i1 @_ZN4cvc58internal6Random12pickWithProbEd(ptr noundef nonnull align 8 dereferenceable(16) %47, double noundef 2.000000e-01)
@@ -446,8 +446,8 @@ _ZN4cvc58internal6Random9getRandomEv.exit:        ; preds = %3, %46
   br label %584
 
 65:                                               ; preds = %58
-  %66 = load i32, ptr %5, align 8, !tbaa !34
-  store i32 %66, ptr %6, align 8, !tbaa !34
+  %66 = load i32, ptr %5, align 8, !tbaa !33
+  store i32 %66, ptr %6, align 8, !tbaa !33
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %68 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %67)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit unwind label %63
@@ -458,8 +458,8 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit:         ; preds = %65
           to label %69 unwind label %83
 
 69:                                               ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit
-  %70 = load i32, ptr %9, align 8, !tbaa !34
-  store i32 %70, ptr %7, align 8, !tbaa !34
+  %70 = load i32, ptr %9, align 8, !tbaa !33
+  store i32 %70, ptr %7, align 8, !tbaa !33
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %72 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %71)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit142 unwind label %85
@@ -482,8 +482,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %_ZN4cvc58internal9B
           to label %76 unwind label %90
 
 76:                                               ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit
-  %77 = load i32, ptr %10, align 8, !tbaa !34
-  store i32 %77, ptr %8, align 8, !tbaa !34
+  %77 = load i32, ptr %10, align 8, !tbaa !33
+  store i32 %77, ptr %8, align 8, !tbaa !33
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %79 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %78)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit143 unwind label %92
@@ -550,8 +550,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit146:          ; preds = %92, %90
   br label %584
 
 97:                                               ; preds = %58
-  %98 = load i32, ptr %5, align 8, !tbaa !34
-  store i32 %98, ptr %6, align 8, !tbaa !34
+  %98 = load i32, ptr %5, align 8, !tbaa !33
+  store i32 %98, ptr %6, align 8, !tbaa !33
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %100 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %99)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit147 unwind label %63
@@ -562,8 +562,8 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit147:      ; preds = %97, %58
           to label %101 unwind label %108
 
 101:                                              ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit147
-  %102 = load i32, ptr %11, align 8, !tbaa !34
-  store i32 %102, ptr %7, align 8, !tbaa !34
+  %102 = load i32, ptr %11, align 8, !tbaa !33
+  store i32 %102, ptr %7, align 8, !tbaa !33
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %104 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %103)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit148 unwind label %110
@@ -607,15 +607,15 @@ _ZN4cvc58internal9BitVectorD2Ev.exit150:          ; preds = %110, %108
   br label %584
 
 115:                                              ; preds = %58
-  %116 = load i32, ptr %5, align 8, !tbaa !34
-  store i32 %116, ptr %6, align 8, !tbaa !34
+  %116 = load i32, ptr %5, align 8, !tbaa !33
+  store i32 %116, ptr %6, align 8, !tbaa !33
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %118 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %117)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit151 unwind label %63
 
 119:                                              ; preds = %58
-  %120 = load i32, ptr %5, align 8, !tbaa !34
-  store i32 %120, ptr %6, align 8, !tbaa !34
+  %120 = load i32, ptr %5, align 8, !tbaa !33
+  store i32 %120, ptr %6, align 8, !tbaa !33
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %122 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %121)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit152 unwind label %63
@@ -626,8 +626,8 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit152:      ; preds = %119, %58
           to label %123 unwind label %130
 
 123:                                              ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit152
-  %124 = load i32, ptr %12, align 8, !tbaa !34
-  store i32 %124, ptr %8, align 8, !tbaa !34
+  %124 = load i32, ptr %12, align 8, !tbaa !33
+  store i32 %124, ptr %8, align 8, !tbaa !33
   %125 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %126 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %125)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit153 unwind label %132
@@ -671,8 +671,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit155:          ; preds = %132, %130
   br label %584
 
 137:                                              ; preds = %58
-  %138 = load i32, ptr %5, align 8, !tbaa !34
-  store i32 %138, ptr %6, align 8, !tbaa !34
+  %138 = load i32, ptr %5, align 8, !tbaa !33
+  store i32 %138, ptr %6, align 8, !tbaa !33
   %139 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %140 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %139)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit156 unwind label %63
@@ -683,8 +683,8 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit156:      ; preds = %137, %58
           to label %141 unwind label %148
 
 141:                                              ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit156
-  %142 = load i32, ptr %13, align 8, !tbaa !34
-  store i32 %142, ptr %8, align 8, !tbaa !34
+  %142 = load i32, ptr %13, align 8, !tbaa !33
+  store i32 %142, ptr %8, align 8, !tbaa !33
   %143 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %144 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %143)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit157 unwind label %150
@@ -728,8 +728,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit159:          ; preds = %150, %148
   br label %584
 
 155:                                              ; preds = %58
-  %156 = load i32, ptr %5, align 8, !tbaa !34
-  store i32 %156, ptr %6, align 8, !tbaa !34
+  %156 = load i32, ptr %5, align 8, !tbaa !33
+  store i32 %156, ptr %6, align 8, !tbaa !33
   %157 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %158 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %157)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit160 unwind label %63
@@ -750,8 +750,8 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit160:      ; preds = %155, %58
           to label %161 unwind label %187
 
 161:                                              ; preds = %160
-  %162 = load i32, ptr %14, align 8, !tbaa !34
-  store i32 %162, ptr %7, align 8, !tbaa !34
+  %162 = load i32, ptr %14, align 8, !tbaa !33
+  store i32 %162, ptr %7, align 8, !tbaa !33
   %163 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %164 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %163)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit161 unwind label %189
@@ -800,8 +800,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit164:          ; preds = %_ZN4cvc58internal9B
           to label %176 unwind label %202
 
 176:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit164
-  %177 = load i32, ptr %17, align 8, !tbaa !34
-  store i32 %177, ptr %8, align 8, !tbaa !34
+  %177 = load i32, ptr %17, align 8, !tbaa !33
+  store i32 %177, ptr %8, align 8, !tbaa !33
   %178 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %179 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %178)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit165 unwind label %204
@@ -906,8 +906,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit170:          ; preds = %204, %202
   br label %584
 
 209:                                              ; preds = %58
-  %210 = load i32, ptr %5, align 8, !tbaa !34
-  store i32 %210, ptr %6, align 8, !tbaa !34
+  %210 = load i32, ptr %5, align 8, !tbaa !33
+  store i32 %210, ptr %6, align 8, !tbaa !33
   %211 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %212 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %211)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit171 unwind label %63
@@ -918,8 +918,8 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit171:      ; preds = %209, %58
           to label %213 unwind label %220
 
 213:                                              ; preds = %_ZN4cvc58internal9BitVectoraSERKS1_.exit171
-  %214 = load i32, ptr %18, align 8, !tbaa !34
-  store i32 %214, ptr %7, align 8, !tbaa !34
+  %214 = load i32, ptr %18, align 8, !tbaa !33
+  store i32 %214, ptr %7, align 8, !tbaa !33
   %215 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %216 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %215)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit172 unwind label %222
@@ -999,8 +999,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit174:          ; preds = %222, %220
   br i1 %238, label %240, label %_ZN4cvc58internal9BitVectoraSERKS1_.exit175
 
 240:                                              ; preds = %239
-  %241 = load i32, ptr %5, align 8, !tbaa !34
-  store i32 %241, ptr %6, align 8, !tbaa !34
+  %241 = load i32, ptr %5, align 8, !tbaa !33
+  store i32 %241, ptr %6, align 8, !tbaa !33
   %242 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %243 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %242)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit175 unwind label %61
@@ -1036,8 +1036,8 @@ _ZN4cvc58internal9BitVectoraSERKS1_.exit175:      ; preds = %240, %239
           to label %251 unwind label %271
 
 251:                                              ; preds = %250
-  %252 = load i32, ptr %20, align 8, !tbaa !34
-  store i32 %252, ptr %7, align 8, !tbaa !34
+  %252 = load i32, ptr %20, align 8, !tbaa !33
+  store i32 %252, ptr %7, align 8, !tbaa !33
   %253 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %254 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %253)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit176 unwind label %273
@@ -1073,8 +1073,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit178:          ; preds = %_ZN4cvc58internal9B
           to label %262 unwind label %282
 
 262:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit178
-  %263 = load i32, ptr %22, align 8, !tbaa !34
-  store i32 %263, ptr %8, align 8, !tbaa !34
+  %263 = load i32, ptr %22, align 8, !tbaa !33
+  store i32 %263, ptr %8, align 8, !tbaa !33
   %264 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %265 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %264)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit179 unwind label %284
@@ -1171,8 +1171,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit183:          ; preds = %284, %282
           to label %292 unwind label %305
 
 292:                                              ; preds = %291
-  %293 = load i32, ptr %23, align 8, !tbaa !34
-  store i32 %293, ptr %7, align 8, !tbaa !34
+  %293 = load i32, ptr %23, align 8, !tbaa !33
+  store i32 %293, ptr %7, align 8, !tbaa !33
   %294 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %295 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %294)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit184 unwind label %307
@@ -1264,8 +1264,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit188:          ; preds = %_ZN4cvc58internal9B
           to label %320 unwind label %346
 
 320:                                              ; preds = %319
-  %321 = load i32, ptr %25, align 8, !tbaa !34
-  store i32 %321, ptr %7, align 8, !tbaa !34
+  %321 = load i32, ptr %25, align 8, !tbaa !33
+  store i32 %321, ptr %7, align 8, !tbaa !33
   %322 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %323 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %322)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit189 unwind label %348
@@ -1314,8 +1314,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit192:          ; preds = %_ZN4cvc58internal9B
           to label %335 unwind label %361
 
 335:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit192
-  %336 = load i32, ptr %28, align 8, !tbaa !34
-  store i32 %336, ptr %8, align 8, !tbaa !34
+  %336 = load i32, ptr %28, align 8, !tbaa !33
+  store i32 %336, ptr %8, align 8, !tbaa !33
   %337 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %338 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %337)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit193 unwind label %363
@@ -1431,8 +1431,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit198:          ; preds = %363, %361
           to label %371 unwind label %391
 
 371:                                              ; preds = %370
-  %372 = load i32, ptr %29, align 8, !tbaa !34
-  store i32 %372, ptr %7, align 8, !tbaa !34
+  %372 = load i32, ptr %29, align 8, !tbaa !33
+  store i32 %372, ptr %7, align 8, !tbaa !33
   %373 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %374 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %373)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit199 unwind label %393
@@ -1468,8 +1468,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit201:          ; preds = %_ZN4cvc58internal9B
           to label %382 unwind label %402
 
 382:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit201
-  %383 = load i32, ptr %31, align 8, !tbaa !34
-  store i32 %383, ptr %8, align 8, !tbaa !34
+  %383 = load i32, ptr %31, align 8, !tbaa !33
+  store i32 %383, ptr %8, align 8, !tbaa !33
   %384 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %385 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %384)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit202 unwind label %404
@@ -1571,8 +1571,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit206:          ; preds = %404, %402
           to label %413 unwind label %439
 
 413:                                              ; preds = %412
-  %414 = load i32, ptr %32, align 8, !tbaa !34
-  store i32 %414, ptr %7, align 8, !tbaa !34
+  %414 = load i32, ptr %32, align 8, !tbaa !33
+  store i32 %414, ptr %7, align 8, !tbaa !33
   %415 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %416 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %415)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit207 unwind label %441
@@ -1621,8 +1621,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit210:          ; preds = %_ZN4cvc58internal9B
           to label %428 unwind label %454
 
 428:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit210
-  %429 = load i32, ptr %35, align 8, !tbaa !34
-  store i32 %429, ptr %8, align 8, !tbaa !34
+  %429 = load i32, ptr %35, align 8, !tbaa !33
+  store i32 %429, ptr %8, align 8, !tbaa !33
   %430 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %431 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %430)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit211 unwind label %456
@@ -1756,8 +1756,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit216:          ; preds = %456, %454
           to label %472 unwind label %506
 
 472:                                              ; preds = %471
-  %473 = load i32, ptr %38, align 8, !tbaa !34
-  store i32 %473, ptr %7, align 8, !tbaa !34
+  %473 = load i32, ptr %38, align 8, !tbaa !33
+  store i32 %473, ptr %7, align 8, !tbaa !33
   %474 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %475 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %474)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit217 unwind label %508
@@ -1793,8 +1793,8 @@ _ZN4cvc58internal9BitVectorD2Ev.exit219:          ; preds = %_ZN4cvc58internal9B
           to label %483 unwind label %517
 
 483:                                              ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit219
-  %484 = load i32, ptr %40, align 8, !tbaa !34
-  store i32 %484, ptr %8, align 8, !tbaa !34
+  %484 = load i32, ptr %40, align 8, !tbaa !33
+  store i32 %484, ptr %8, align 8, !tbaa !33
   %485 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %486 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %485)
           to label %_ZN4cvc58internal9BitVectoraSERKS1_.exit220 unwind label %519
@@ -2199,7 +2199,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit242:          ; preds = %_ZN4cvc58internal9B
 define linkonce_odr hidden void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN4cvc58internal7IntegerC2Ej.exit:
   %3 = alloca %"class.cvc5::internal::Integer", align 8
-  store i32 %1, ptr %0, align 8, !tbaa !34
+  store i32 %1, ptr %0, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %2 to i64
   tail call void @__gmpz_init_set_ui(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %5)
@@ -2380,15 +2380,14 @@ attributes #17 = { noreturn nounwind }
 !24 = !{!"p1 _ZTSNSt6locale5_ImplE", !13, i64 0}
 !25 = !{!22, !12, i64 32}
 !26 = !{!18, !12, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"vtable pointer", !15, i64 0}
-!32 = !{!33, !19, i64 8}
-!33 = !{!"_ZTSSi", !19, i64 8}
-!34 = !{!35, !36, i64 0}
-!35 = !{!"_ZTSN4cvc58internal9BitVectorE", !36, i64 0, !37, i64 8}
-!36 = !{!"int", !14, i64 0}
-!37 = !{!"_ZTSN4cvc58internal7IntegerE", !38, i64 0}
-!38 = !{!"_ZTS10__gmp_exprIA1_12__mpz_structS1_E", !14, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"vtable pointer", !15, i64 0}
+!31 = !{!32, !19, i64 8}
+!32 = !{!"_ZTSSi", !19, i64 8}
+!33 = !{!34, !35, i64 0}
+!34 = !{!"_ZTSN4cvc58internal9BitVectorE", !35, i64 0, !36, i64 8}
+!35 = !{!"int", !14, i64 0}
+!36 = !{!"_ZTSN4cvc58internal7IntegerE", !37, i64 0}
+!37 = !{!"_ZTS10__gmp_exprIA1_12__mpz_structS1_E", !14, i64 0}

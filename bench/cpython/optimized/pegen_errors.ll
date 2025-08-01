@@ -1013,7 +1013,7 @@ define hidden void @_Pypegen_set_syntax_error(ptr noundef %0, ptr noundef readon
   br label %19
 
 19:                                               ; preds = %16, %12
-  %20 = load i32, ptr %1, align 8, !tbaa !53
+  %20 = load i32, ptr %1, align 8, !tbaa !52
   %21 = icmp eq i32 %20, 64
   br i1 %21, label %22, label %49
 
@@ -1096,7 +1096,7 @@ define internal fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(p
   %5 = alloca %struct.token, align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 496
-  %8 = load ptr, ptr %7, align 8, !tbaa !54
+  %8 = load ptr, ptr %7, align 8, !tbaa !53
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %84
 
@@ -1135,7 +1135,7 @@ define internal fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(p
   switch i32 %27, label %25 [
     i32 64, label %28
     i32 0, label %.loopexit
-  ], !llvm.loop !55
+  ]
 
 28:                                               ; preds = %25
   %29 = call ptr @PyErr_Occurred() #7
@@ -1181,7 +1181,7 @@ define internal fastcc void @_PyPegen_tokenize_full_source_to_check_for_errors(p
 53:                                               ; preds = %.loopexit
   %54 = load ptr, ptr %0, align 8, !tbaa !19
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 17256
-  %56 = load i32, ptr %55, align 8, !tbaa !56
+  %56 = load i32, ptr %55, align 8, !tbaa !54
   %57 = icmp slt i32 %56, 1
   br i1 %57, label %58, label %80
 
@@ -1356,10 +1356,8 @@ attributes #8 = { nounwind willreturn memory(read) }
 !47 = !{!21, !23, i64 72}
 !48 = !{!22, !22, i64 0}
 !49 = !{!11, !13, i64 88}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!35, !13, i64 0}
-!54 = !{!21, !22, i64 496}
-!55 = distinct !{!55, !52}
-!56 = !{!21, !13, i64 17256}
+!52 = !{!35, !13, i64 0}
+!53 = !{!21, !22, i64 496}
+!54 = !{!21, !13, i64 17256}

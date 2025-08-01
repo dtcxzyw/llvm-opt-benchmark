@@ -6306,7 +6306,7 @@ define internal fastcc i64 @vfs_readv(ptr noundef %0, ptr noundef %1, i64 nounde
   call void @iov_iter_advance(ptr noundef nonnull %8, i64 noundef %79) #12
   %95 = load i64, ptr %21, align 8
   %96 = icmp eq i64 %95, 0
-  br i1 %96, label %.thread13, label %.lr.ph, !llvm.loop !43
+  br i1 %96, label %.thread13, label %.lr.ph
 
 .thread13:                                        ; preds = %94, %83, %81, %55, %45
   %97 = phi i64 [ %47, %45 ], [ %56, %55 ], [ %64, %81 ], [ %84, %83 ], [ %84, %94 ]
@@ -6647,7 +6647,7 @@ define internal fastcc i64 @vfs_writev(ptr noundef %0, ptr noundef %1, i64 nound
   call void @iov_iter_advance(ptr noundef nonnull %8, i64 noundef %103) #12
   %119 = load i64, ptr %21, align 8
   %120 = icmp eq i64 %119, 0
-  br i1 %120, label %.thread13, label %.lr.ph, !llvm.loop !45
+  br i1 %120, label %.thread13, label %.lr.ph
 
 .thread13:                                        ; preds = %118, %107, %105, %79
   %121 = phi i64 [ %80, %79 ], [ %88, %105 ], [ %108, %107 ], [ %108, %118 ]
@@ -7152,6 +7152,3 @@ attributes #14 = { cold nounwind }
 !40 = !{i64 2156594472}
 !41 = !{i64 2156607385}
 !42 = !{!"branch_weights", i32 -2147483648, i32 0}
-!43 = distinct !{!43, !44}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = distinct !{!45, !44}

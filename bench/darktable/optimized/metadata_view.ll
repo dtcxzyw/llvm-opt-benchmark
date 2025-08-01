@@ -391,7 +391,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
 109:                                              ; preds = %99, %103
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 44
-  br i1 %exitcond.not, label %.loopexit350, label %96, !llvm.loop !85
+  br i1 %exitcond.not, label %.loopexit350, label %96
 
 .loopexit350:                                     ; preds = %109, %91
   %110 = load ptr, ptr %9, align 8, !tbaa !82
@@ -418,7 +418,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %123 = load ptr, ptr %10, align 8, !tbaa !82
   %124 = call i32 @sqlite3_step(ptr noundef %123) #13
   %125 = icmp eq i32 %124, 100
-  br i1 %125, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !87
+  br i1 %125, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %126 = icmp eq i32 %.1240, 0
@@ -443,14 +443,14 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %.1342 = phi i32 [ %.0232, %._crit_edge ], [ %.0232, %56 ], [ %.1.ph, %.thread ]
   %.1236 = phi ptr [ %.2, %._crit_edge ], [ %28, %56 ], [ null, %.thread ]
   call void @g_free(ptr noundef %.1236) #13
-  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !88
+  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !85
   %135 = call ptr @dt_image_cache_get(ptr noundef %134, i32 noundef %.1342, i8 noundef signext 114) #13
   %.not274 = icmp eq ptr %135, null
   br i1 %.not274, label %.preheader394, label %136
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 1424
-  %138 = load i32, ptr %137, align 16, !tbaa !89
+  %138 = load i32, ptr %137, align 16, !tbaa !86
   %139 = icmp eq i32 %138, -1
   br i1 %139, label %175, label %.preheader348
 
@@ -493,7 +493,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   br label %179
 
 175:                                              ; preds = %136
-  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !88
+  %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !85
   call void @dt_image_cache_read_release(ptr noundef %176, ptr noundef nonnull %135) #13
   br label %.preheader394
 
@@ -501,7 +501,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   br label %623
 
 177:                                              ; preds = %622
-  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !88
+  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !85
   call void @dt_image_cache_read_release(ptr noundef %178, ptr noundef %135) #13
   br label %.loopexit
 
@@ -520,25 +520,25 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   ]
 
 185:                                              ; preds = %183
-  %.val = load ptr, ptr %167, align 8, !tbaa !90
+  %.val = load ptr, ptr %167, align 8, !tbaa !87
   br label %186
 
 186:                                              ; preds = %187, %185
   %.pn.i.i = phi ptr [ %.val, %185 ], [ %.014.i.i, %187 ]
   %.014.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
-  %.014.i.i = load ptr, ptr %.014.in.i.i, align 8, !tbaa !95
+  %.014.i.i = load ptr, ptr %.014.in.i.i, align 8, !tbaa !92
   %.not.i.i = icmp eq ptr %.014.i.i, null
   br i1 %.not.i.i, label %.split, label %187
 
 187:                                              ; preds = %186
-  %188 = load ptr, ptr %.014.i.i, align 8, !tbaa !96
-  %189 = load i32, ptr %188, align 8, !tbaa !98
+  %188 = load ptr, ptr %.014.i.i, align 8, !tbaa !93
+  %189 = load i32, ptr %188, align 8, !tbaa !95
   %.not15.i.i = icmp eq i32 %189, 11
-  br i1 %.not15.i.i, label %_get_metadata_per_index.exit.i, label %186, !llvm.loop !100
+  br i1 %.not15.i.i, label %_get_metadata_per_index.exit.i, label %186
 
 _get_metadata_per_index.exit.i:                   ; preds = %187
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  %191 = load ptr, ptr %190, align 8, !tbaa !101
+  %191 = load ptr, ptr %190, align 8, !tbaa !97
   %.not7.i = icmp eq ptr %191, null
   br i1 %.not7.i, label %193, label %192
 
@@ -548,36 +548,36 @@ _get_metadata_per_index.exit.i:                   ; preds = %187
 
 193:                                              ; preds = %192, %_get_metadata_per_index.exit.i
   %194 = call noalias ptr @g_strdup(ptr noundef null) #13
-  store ptr %194, ptr %190, align 8, !tbaa !101
+  store ptr %194, ptr %190, align 8, !tbaa !97
   br label %.split
 
 .split:                                           ; preds = %186, %193, %183
   %195 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #13
   call fastcc void @_metadata_update_value(i32 noundef %184, ptr noundef %195, ptr noundef %0)
-  %.val302 = load ptr, ptr %167, align 8, !tbaa !90
+  %.val302 = load ptr, ptr %167, align 8, !tbaa !87
   call fastcc void @_metadata_update_markup(i32 noundef %184, ptr %.val302)
   br label %622
 
 .split248:                                        ; preds = %183
-  %.val299 = load ptr, ptr %167, align 8, !tbaa !90
+  %.val299 = load ptr, ptr %167, align 8, !tbaa !87
   br label %196
 
 196:                                              ; preds = %197, %.split248
   %.pn.i.i304 = phi ptr [ %.val299, %.split248 ], [ %.014.i.i306, %197 ]
   %.014.in.i.i305 = getelementptr inbounds nuw i8, ptr %.pn.i.i304, i64 8
-  %.014.i.i306 = load ptr, ptr %.014.in.i.i305, align 8, !tbaa !95
+  %.014.i.i306 = load ptr, ptr %.014.in.i.i305, align 8, !tbaa !92
   %.not.i.i307 = icmp eq ptr %.014.i.i306, null
   br i1 %.not.i.i307, label %_metadata_update_tooltip.exit311, label %197
 
 197:                                              ; preds = %196
-  %198 = load ptr, ptr %.014.i.i306, align 8, !tbaa !96
-  %199 = load i32, ptr %198, align 8, !tbaa !98
+  %198 = load ptr, ptr %.014.i.i306, align 8, !tbaa !93
+  %199 = load i32, ptr %198, align 8, !tbaa !95
   %.not15.i.i308 = icmp eq i32 %199, 0
-  br i1 %.not15.i.i308, label %_get_metadata_per_index.exit.i309, label %196, !llvm.loop !100
+  br i1 %.not15.i.i308, label %_get_metadata_per_index.exit.i309, label %196
 
 _get_metadata_per_index.exit.i309:                ; preds = %197
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 24
-  %201 = load ptr, ptr %200, align 8, !tbaa !101
+  %201 = load ptr, ptr %200, align 8, !tbaa !97
   %.not7.i310 = icmp eq ptr %201, null
   br i1 %.not7.i310, label %203, label %202
 
@@ -587,13 +587,13 @@ _get_metadata_per_index.exit.i309:                ; preds = %197
 
 203:                                              ; preds = %202, %_get_metadata_per_index.exit.i309
   %204 = call noalias ptr @g_strdup(ptr noundef null) #13
-  store ptr %204, ptr %200, align 8, !tbaa !101
+  store ptr %204, ptr %200, align 8, !tbaa !97
   br label %_metadata_update_tooltip.exit311
 
 _metadata_update_tooltip.exit311:                 ; preds = %196, %203
   %205 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #13
   call fastcc void @_metadata_update_value(i32 noundef 0, ptr noundef %205, ptr noundef %0)
-  %.val303 = load ptr, ptr %167, align 8, !tbaa !90
+  %.val303 = load ptr, ptr %167, align 8, !tbaa !87
   call fastcc void @_metadata_update_markup(i32 noundef 0, ptr %.val303)
   br label %622
 
@@ -647,25 +647,25 @@ _metadata_update_tooltip.exit311:                 ; preds = %196, %203
   call void @dt_image_film_roll(ptr noundef %135, ptr noundef nonnull %11, i64 noundef 4096) #13
   %209 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef 5) #13
   %210 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 300, ptr noundef %209, ptr noundef nonnull %11) #13
-  %.val300 = load ptr, ptr %167, align 8, !tbaa !90
+  %.val300 = load ptr, ptr %167, align 8, !tbaa !87
   br label %211
 
 211:                                              ; preds = %212, %208
   %.pn.i.i312 = phi ptr [ %.val300, %208 ], [ %.014.i.i314, %212 ]
   %.014.in.i.i313 = getelementptr inbounds nuw i8, ptr %.pn.i.i312, i64 8
-  %.014.i.i314 = load ptr, ptr %.014.in.i.i313, align 8, !tbaa !95
+  %.014.i.i314 = load ptr, ptr %.014.in.i.i313, align 8, !tbaa !92
   %.not.i.i315 = icmp eq ptr %.014.i.i314, null
   br i1 %.not.i.i315, label %_metadata_update_tooltip.exit319, label %212
 
 212:                                              ; preds = %211
-  %213 = load ptr, ptr %.014.i.i314, align 8, !tbaa !96
-  %214 = load i32, ptr %213, align 8, !tbaa !98
+  %213 = load ptr, ptr %.014.i.i314, align 8, !tbaa !93
+  %214 = load i32, ptr %213, align 8, !tbaa !95
   %.not15.i.i316 = icmp eq i32 %214, 0
-  br i1 %.not15.i.i316, label %_get_metadata_per_index.exit.i317, label %211, !llvm.loop !100
+  br i1 %.not15.i.i316, label %_get_metadata_per_index.exit.i317, label %211
 
 _get_metadata_per_index.exit.i317:                ; preds = %212
   %215 = getelementptr inbounds nuw i8, ptr %213, i64 24
-  %216 = load ptr, ptr %215, align 8, !tbaa !101
+  %216 = load ptr, ptr %215, align 8, !tbaa !97
   %.not7.i318 = icmp eq ptr %216, null
   br i1 %.not7.i318, label %218, label %217
 
@@ -675,7 +675,7 @@ _get_metadata_per_index.exit.i317:                ; preds = %212
 
 218:                                              ; preds = %217, %_get_metadata_per_index.exit.i317
   %219 = call noalias ptr @g_strdup(ptr noundef nonnull %12) #13
-  store ptr %219, ptr %215, align 8, !tbaa !101
+  store ptr %219, ptr %215, align 8, !tbaa !97
   br label %_metadata_update_tooltip.exit319
 
 _metadata_update_tooltip.exit319:                 ; preds = %211, %218
@@ -684,13 +684,13 @@ _metadata_update_tooltip.exit319:                 ; preds = %211, %218
   br label %594
 
 220:                                              ; preds = %206
-  %221 = load i32, ptr %140, align 8, !tbaa !102
+  %221 = load i32, ptr %140, align 8, !tbaa !98
   %222 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %11, i64 noundef 4096, ptr noundef nonnull @.str.10, i32 noundef %221) #13
   call fastcc void @_metadata_update_value(i32 noundef 1, ptr noundef nonnull %11, ptr noundef %0)
   br label %.thread344
 
 223:                                              ; preds = %206
-  %224 = load i32, ptr %174, align 4, !tbaa !103
+  %224 = load i32, ptr %174, align 4, !tbaa !99
   %225 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %11, i64 noundef 4096, ptr noundef nonnull @.str.10, i32 noundef %224) #13
   call fastcc void @_metadata_update_value(i32 noundef 2, ptr noundef nonnull %11, ptr noundef %0)
   br label %.thread344
@@ -700,19 +700,19 @@ _metadata_update_tooltip.exit319:                 ; preds = %211, %218
   br label %.thread344
 
 227:                                              ; preds = %206
-  %228 = load i32, ptr %172, align 4, !tbaa !104
+  %228 = load i32, ptr %172, align 4, !tbaa !100
   %229 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %11, i64 noundef 4096, ptr noundef nonnull @.str.10, i32 noundef %228) #13
   call fastcc void @_metadata_update_value(i32 noundef 4, ptr noundef nonnull %11, ptr noundef %0)
   br label %.thread344
 
 230:                                              ; preds = %206
-  %231 = load i32, ptr %140, align 8, !tbaa !102
+  %231 = load i32, ptr %140, align 8, !tbaa !98
   call void @dt_image_full_path(i32 noundef %231, ptr noundef nonnull %11, i64 noundef 4096, ptr noundef null) #13
   call fastcc void @_metadata_update_value(i32 noundef 5, ptr noundef nonnull %11, ptr noundef %0)
   br label %.thread344
 
 232:                                              ; preds = %206
-  %233 = load i32, ptr %164, align 4, !tbaa !105
+  %233 = load i32, ptr %164, align 4, !tbaa !101
   %234 = and i32 %233, 2048
   %.not294 = icmp eq i32 %234, 0
   %.str.12..str.11 = select i1 %.not294, ptr @.str.12, ptr @.str.11
@@ -722,7 +722,7 @@ _metadata_update_tooltip.exit319:                 ; preds = %211, %218
   br label %.thread344
 
 237:                                              ; preds = %206
-  %238 = load i64, ptr %171, align 16, !tbaa !106
+  %238 = load i64, ptr %171, align 16, !tbaa !102
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #13
   %.not.i = icmp eq i64 %238, 0
   br i1 %.not.i, label %_metadata_update_timestamp.exit, label %239
@@ -740,7 +740,7 @@ _metadata_update_timestamp.exit:                  ; preds = %237, %239
   br label %.thread344
 
 243:                                              ; preds = %206
-  %244 = load i64, ptr %170, align 8, !tbaa !107
+  %244 = load i64, ptr %170, align 8, !tbaa !103
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #13
   %.not.i320 = icmp eq i64 %244, 0
   br i1 %.not.i320, label %_metadata_update_timestamp.exit322, label %245
@@ -758,7 +758,7 @@ _metadata_update_timestamp.exit322:               ; preds = %243, %245
   br label %.thread344
 
 249:                                              ; preds = %206
-  %250 = load i64, ptr %169, align 16, !tbaa !108
+  %250 = load i64, ptr %169, align 16, !tbaa !104
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #13
   %.not.i323 = icmp eq i64 %250, 0
   br i1 %.not.i323, label %_metadata_update_timestamp.exit325, label %251
@@ -776,7 +776,7 @@ _metadata_update_timestamp.exit325:               ; preds = %249, %251
   br label %.thread344
 
 255:                                              ; preds = %206
-  %256 = load i64, ptr %168, align 8, !tbaa !109
+  %256 = load i64, ptr %168, align 8, !tbaa !105
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #13
   %.not.i326 = icmp eq i64 %256, 0
   br i1 %.not.i326, label %_metadata_update_timestamp.exit328, label %257
@@ -799,20 +799,20 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(120) %2, i8 0, i64 120, i1 false)
   %262 = call noalias ptr @g_strnfill(i64 noundef 15, i8 noundef signext 46) #13
-  %263 = load i32, ptr %164, align 4, !tbaa !105
+  %263 = load i32, ptr %164, align 4, !tbaa !101
   %264 = and i32 %263, 7
   %265 = icmp eq i32 %264, 6
   br i1 %265, label %266, label %268
 
 266:                                              ; preds = %261
-  store i8 120, ptr %262, align 1, !tbaa !110
+  store i8 120, ptr %262, align 1, !tbaa !106
   %267 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.71, i32 noundef 5) #13
   br label %274
 
 268:                                              ; preds = %261
   %269 = trunc nuw nsw i32 %264 to i8
   %270 = or disjoint i8 %269, 48
-  store i8 %270, ptr %262, align 1, !tbaa !110
+  store i8 %270, ptr %262, align 1, !tbaa !106
   %271 = zext nneg i32 %264 to i64
   %272 = call ptr @dcngettext(ptr noundef null, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.73, i64 noundef %271, i32 noundef 5) #13
   %273 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %272, i32 noundef %264) #13
@@ -821,22 +821,22 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
 274:                                              ; preds = %268, %266
   %storemerge.i = phi ptr [ %273, %268 ], [ %267, %266 ]
   %.060.i = phi ptr [ %273, %268 ], [ null, %266 ]
-  store ptr %storemerge.i, ptr %2, align 16, !tbaa !111
-  %275 = load i32, ptr %164, align 4, !tbaa !105
+  store ptr %storemerge.i, ptr %2, align 16, !tbaa !107
+  %275 = load i32, ptr %164, align 4, !tbaa !101
   %276 = and i32 %275, 8
   %.not.i329 = icmp eq i32 %276, 0
   %277 = getelementptr inbounds nuw i8, ptr %262, i64 1
   br i1 %.not.i329, label %280, label %278
 
 278:                                              ; preds = %274
-  store i8 33, ptr %277, align 1, !tbaa !110
+  store i8 33, ptr %277, align 1, !tbaa !106
   %279 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.60, i32 noundef 5) #13
-  store ptr %279, ptr %165, align 8, !tbaa !111
-  %.pre.i = load i32, ptr %164, align 4, !tbaa !105
+  store ptr %279, ptr %165, align 8, !tbaa !107
+  %.pre.i = load i32, ptr %164, align 4, !tbaa !101
   br label %281
 
 280:                                              ; preds = %274
-  store i8 46, ptr %277, align 1, !tbaa !110
+  store i8 46, ptr %277, align 1, !tbaa !106
   br label %281
 
 281:                                              ; preds = %280, %278
@@ -848,17 +848,17 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
   br i1 %.not63.i, label %290, label %285
 
 285:                                              ; preds = %281
-  store i8 33, ptr %284, align 1, !tbaa !110
+  store i8 33, ptr %284, align 1, !tbaa !106
   %286 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #13
   %287 = add nuw nsw i32 %.1.i, 1
   %288 = zext nneg i32 %.1.i to i64
   %289 = getelementptr inbounds nuw [15 x ptr], ptr %2, i64 0, i64 %288
-  store ptr %286, ptr %289, align 8, !tbaa !111
-  %.pre73.i = load i32, ptr %164, align 4, !tbaa !105
+  store ptr %286, ptr %289, align 8, !tbaa !107
+  %.pre73.i = load i32, ptr %164, align 4, !tbaa !101
   br label %291
 
 290:                                              ; preds = %281
-  store i8 46, ptr %284, align 1, !tbaa !110
+  store i8 46, ptr %284, align 1, !tbaa !106
   br label %291
 
 291:                                              ; preds = %290, %285
@@ -870,13 +870,13 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
 
 294:                                              ; preds = %291
   %295 = getelementptr inbounds nuw i8, ptr %262, i64 3
-  store i8 108, ptr %295, align 1, !tbaa !110
+  store i8 108, ptr %295, align 1, !tbaa !106
   %296 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.62, i32 noundef 5) #13
   %297 = add nuw nsw i32 %.2.i, 1
   %298 = zext nneg i32 %.2.i to i64
   %299 = getelementptr inbounds nuw [15 x ptr], ptr %2, i64 0, i64 %298
-  store ptr %296, ptr %299, align 8, !tbaa !111
-  %.pre74.i = load i32, ptr %164, align 4, !tbaa !105
+  store ptr %296, ptr %299, align 8, !tbaa !107
+  %.pre74.i = load i32, ptr %164, align 4, !tbaa !101
   br label %300
 
 300:                                              ; preds = %294, %291
@@ -888,13 +888,13 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
 
 303:                                              ; preds = %300
   %304 = getelementptr inbounds nuw i8, ptr %262, i64 4
-  store i8 114, ptr %304, align 1, !tbaa !110
+  store i8 114, ptr %304, align 1, !tbaa !106
   %305 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.63, i32 noundef 5) #13
   %306 = add nuw nsw i32 %.3.i, 1
   %307 = zext nneg i32 %.3.i to i64
   %308 = getelementptr inbounds nuw [15 x ptr], ptr %2, i64 0, i64 %307
-  store ptr %305, ptr %308, align 8, !tbaa !111
-  %.pre75.i = load i32, ptr %164, align 4, !tbaa !105
+  store ptr %305, ptr %308, align 8, !tbaa !107
+  %.pre75.i = load i32, ptr %164, align 4, !tbaa !101
   br label %309
 
 309:                                              ; preds = %303, %300
@@ -906,13 +906,13 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
 
 312:                                              ; preds = %309
   %313 = getelementptr inbounds nuw i8, ptr %262, i64 5
-  store i8 104, ptr %313, align 1, !tbaa !110
+  store i8 104, ptr %313, align 1, !tbaa !106
   %314 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.64, i32 noundef 5) #13
   %315 = add nuw nsw i32 %.4.i, 1
   %316 = zext nneg i32 %.4.i to i64
   %317 = getelementptr inbounds nuw [15 x ptr], ptr %2, i64 0, i64 %316
-  store ptr %314, ptr %317, align 8, !tbaa !111
-  %.pre76.i = load i32, ptr %164, align 4, !tbaa !105
+  store ptr %314, ptr %317, align 8, !tbaa !107
+  %.pre76.i = load i32, ptr %164, align 4, !tbaa !101
   br label %318
 
 318:                                              ; preds = %312, %309
@@ -924,13 +924,13 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
 
 321:                                              ; preds = %318
   %322 = getelementptr inbounds nuw i8, ptr %262, i64 6
-  store i8 100, ptr %322, align 1, !tbaa !110
+  store i8 100, ptr %322, align 1, !tbaa !106
   %323 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.65, i32 noundef 5) #13
   %324 = add nuw nsw i32 %.5.i, 1
   %325 = zext nneg i32 %.5.i to i64
   %326 = getelementptr inbounds nuw [15 x ptr], ptr %2, i64 0, i64 %325
-  store ptr %323, ptr %326, align 8, !tbaa !111
-  %.pre77.i = load i32, ptr %164, align 4, !tbaa !105
+  store ptr %323, ptr %326, align 8, !tbaa !107
+  %.pre77.i = load i32, ptr %164, align 4, !tbaa !101
   br label %327
 
 327:                                              ; preds = %321, %318
@@ -942,13 +942,13 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
 
 330:                                              ; preds = %327
   %331 = getelementptr inbounds nuw i8, ptr %262, i64 7
-  store i8 97, ptr %331, align 1, !tbaa !110
+  store i8 97, ptr %331, align 1, !tbaa !106
   %332 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.66, i32 noundef 5) #13
   %333 = add nuw nsw i32 %.6.i, 1
   %334 = zext nneg i32 %.6.i to i64
   %335 = getelementptr inbounds nuw [15 x ptr], ptr %2, i64 0, i64 %334
-  store ptr %332, ptr %335, align 8, !tbaa !111
-  %.pre78.i = load i32, ptr %164, align 4, !tbaa !105
+  store ptr %332, ptr %335, align 8, !tbaa !107
+  %.pre78.i = load i32, ptr %164, align 4, !tbaa !101
   br label %336
 
 336:                                              ; preds = %330, %327
@@ -960,13 +960,13 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
 
 339:                                              ; preds = %336
   %340 = getelementptr inbounds nuw i8, ptr %262, i64 8
-  store i8 99, ptr %340, align 1, !tbaa !110
+  store i8 99, ptr %340, align 1, !tbaa !106
   %341 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.67, i32 noundef 5) #13
   %342 = add nuw nsw i32 %.7.i, 1
   %343 = zext nneg i32 %.7.i to i64
   %344 = getelementptr inbounds nuw [15 x ptr], ptr %2, i64 0, i64 %343
-  store ptr %341, ptr %344, align 8, !tbaa !111
-  %.pre79.i = load i32, ptr %164, align 4, !tbaa !105
+  store ptr %341, ptr %344, align 8, !tbaa !107
+  %.pre79.i = load i32, ptr %164, align 4, !tbaa !101
   br label %345
 
 345:                                              ; preds = %339, %336
@@ -978,13 +978,13 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
 
 348:                                              ; preds = %345
   %349 = getelementptr inbounds nuw i8, ptr %262, i64 9
-  store i8 116, ptr %349, align 1, !tbaa !110
+  store i8 116, ptr %349, align 1, !tbaa !106
   %350 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.68, i32 noundef 5) #13
   %351 = add nuw nsw i32 %.8.i, 1
   %352 = zext nneg i32 %.8.i to i64
   %353 = getelementptr inbounds nuw [15 x ptr], ptr %2, i64 0, i64 %352
-  store ptr %350, ptr %353, align 8, !tbaa !111
-  %.pre80.i = load i32, ptr %164, align 4, !tbaa !105
+  store ptr %350, ptr %353, align 8, !tbaa !107
+  %.pre80.i = load i32, ptr %164, align 4, !tbaa !101
   br label %354
 
 354:                                              ; preds = %348, %345
@@ -996,12 +996,12 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
 
 357:                                              ; preds = %354
   %358 = getelementptr inbounds nuw i8, ptr %262, i64 10
-  store i8 119, ptr %358, align 1, !tbaa !110
+  store i8 119, ptr %358, align 1, !tbaa !106
   %359 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.69, i32 noundef 5) #13
   %360 = add nuw nsw i32 %.9.i, 1
   %361 = zext nneg i32 %.9.i to i64
   %362 = getelementptr inbounds nuw [15 x ptr], ptr %2, i64 0, i64 %361
-  store ptr %359, ptr %362, align 8, !tbaa !111
+  store ptr %359, ptr %362, align 8, !tbaa !107
   br label %363
 
 363:                                              ; preds = %357, %354
@@ -1012,34 +1012,34 @@ _metadata_update_timestamp.exit328:               ; preds = %255, %257
 
 365:                                              ; preds = %363
   %366 = getelementptr inbounds nuw i8, ptr %262, i64 11
-  store i8 109, ptr %366, align 1, !tbaa !110
+  store i8 109, ptr %366, align 1, !tbaa !106
   %367 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.70, i32 noundef 5) #13
   %368 = add nuw nsw i32 %.10.i, 1
   %369 = zext nneg i32 %.10.i to i64
   %370 = getelementptr inbounds nuw [15 x ptr], ptr %2, i64 0, i64 %369
-  store ptr %367, ptr %370, align 8, !tbaa !111
+  store ptr %367, ptr %370, align 8, !tbaa !107
   br label %_metadata_get_flags.exit
 
 _metadata_get_flags.exit:                         ; preds = %363, %365
   %.11.i = phi i32 [ %368, %365 ], [ %.10.i, %363 ]
-  %371 = load i32, ptr %166, align 16, !tbaa !112
+  %371 = load i32, ptr %166, align 16, !tbaa !108
   %372 = icmp ult i32 %371, 18
   %narrow.i = select i1 %372, i32 %371, i32 0
   %spec.select.i = zext i32 %narrow.i to i64
   %373 = getelementptr inbounds nuw [18 x %struct.anon.14], ptr @loaders_info, i64 0, i64 %spec.select.i
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 8
-  %375 = load i8, ptr %374, align 8, !tbaa !113
+  %375 = load i8, ptr %374, align 8, !tbaa !109
   %376 = getelementptr inbounds nuw i8, ptr %262, i64 12
-  store i8 %375, ptr %376, align 1, !tbaa !110
+  store i8 %375, ptr %376, align 1, !tbaa !106
   %377 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.74, i32 noundef 5) #13
-  %378 = load ptr, ptr %373, align 16, !tbaa !115
+  %378 = load ptr, ptr %373, align 16, !tbaa !111
   %379 = call ptr @dcgettext(ptr noundef null, ptr noundef %378, i32 noundef 5) #13
   %380 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %377, ptr noundef %379) #13
   %381 = zext nneg i32 %.11.i to i64
   %382 = getelementptr inbounds nuw [15 x ptr], ptr %2, i64 0, i64 %381
-  store ptr %380, ptr %382, align 8, !tbaa !111
+  store ptr %380, ptr %382, align 8, !tbaa !107
   %383 = getelementptr inbounds nuw i8, ptr %262, i64 13
-  store i8 0, ptr %383, align 1, !tbaa !110
+  store i8 0, ptr %383, align 1, !tbaa !106
   %384 = call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.75, ptr noundef nonnull %2) #13
   call void @g_free(ptr noundef %380) #13
   %385 = call i64 @g_strlcpy(ptr noundef nonnull %11, ptr noundef nonnull %262, i64 noundef 15) #13
@@ -1048,25 +1048,25 @@ _metadata_get_flags.exit:                         ; preds = %363, %365
   call void @g_free(ptr noundef %.060.i) #13
   call void @g_free(ptr noundef %384) #13
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #13
-  %.val301 = load ptr, ptr %167, align 8, !tbaa !90
+  %.val301 = load ptr, ptr %167, align 8, !tbaa !87
   br label %387
 
 387:                                              ; preds = %388, %_metadata_get_flags.exit
   %.pn.i.i330 = phi ptr [ %.val301, %_metadata_get_flags.exit ], [ %.014.i.i332, %388 ]
   %.014.in.i.i331 = getelementptr inbounds nuw i8, ptr %.pn.i.i330, i64 8
-  %.014.i.i332 = load ptr, ptr %.014.in.i.i331, align 8, !tbaa !95
+  %.014.i.i332 = load ptr, ptr %.014.in.i.i331, align 8, !tbaa !92
   %.not.i.i333 = icmp eq ptr %.014.i.i332, null
   br i1 %.not.i.i333, label %_metadata_update_tooltip.exit337, label %388
 
 388:                                              ; preds = %387
-  %389 = load ptr, ptr %.014.i.i332, align 8, !tbaa !96
-  %390 = load i32, ptr %389, align 8, !tbaa !98
+  %389 = load ptr, ptr %.014.i.i332, align 8, !tbaa !93
+  %390 = load i32, ptr %389, align 8, !tbaa !95
   %.not15.i.i334 = icmp eq i32 %390, 11
-  br i1 %.not15.i.i334, label %_get_metadata_per_index.exit.i335, label %387, !llvm.loop !100
+  br i1 %.not15.i.i334, label %_get_metadata_per_index.exit.i335, label %387
 
 _get_metadata_per_index.exit.i335:                ; preds = %388
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 24
-  %392 = load ptr, ptr %391, align 8, !tbaa !101
+  %392 = load ptr, ptr %391, align 8, !tbaa !97
   %.not7.i336 = icmp eq ptr %392, null
   br i1 %.not7.i336, label %394, label %393
 
@@ -1076,7 +1076,7 @@ _get_metadata_per_index.exit.i335:                ; preds = %388
 
 394:                                              ; preds = %393, %_get_metadata_per_index.exit.i335
   %395 = call noalias ptr @g_strdup(ptr noundef nonnull %13) #13
-  store ptr %395, ptr %391, align 8, !tbaa !101
+  store ptr %395, ptr %391, align 8, !tbaa !97
   br label %_metadata_update_tooltip.exit337
 
 _metadata_update_tooltip.exit337:                 ; preds = %387, %394
@@ -1097,14 +1097,14 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   br label %.thread344
 
 399:                                              ; preds = %206
-  %400 = load float, ptr %160, align 16, !tbaa !116
+  %400 = load float, ptr %160, align 16, !tbaa !112
   %401 = fpext reassoc nsz arcp contract afn float %400 to double
   %402 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %11, i64 noundef 4096, ptr noundef nonnull @.str.13, double noundef %401) #13
   call fastcc void @_metadata_update_value(i32 noundef 15, ptr noundef nonnull %11, ptr noundef %0)
   br label %.thread344
 
 403:                                              ; preds = %206
-  %404 = load float, ptr %159, align 8, !tbaa !117
+  %404 = load float, ptr %159, align 8, !tbaa !113
   %405 = call ptr @dt_util_format_exposure(float noundef %404) #13
   call fastcc void @_metadata_update_value(i32 noundef 16, ptr noundef %405, ptr noundef %0)
   call void @g_free(ptr noundef %405) #13
@@ -1112,13 +1112,13 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 
 406:                                              ; preds = %206
   %407 = call i64 @g_strlcpy(ptr noundef nonnull %11, ptr noundef nonnull @.str.14, i64 noundef 4096) #13
-  %408 = load float, ptr %158, align 4, !tbaa !118
+  %408 = load float, ptr %158, align 4, !tbaa !114
   %409 = fcmp reassoc nsz arcp contract afn une float %408, 0xC7EFFFFFE0000000
   br i1 %409, label %410, label %415
 
 410:                                              ; preds = %406
   %411 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #13
-  %412 = load float, ptr %158, align 4, !tbaa !118
+  %412 = load float, ptr %158, align 4, !tbaa !114
   %413 = fpext reassoc nsz arcp contract afn float %412 to double
   %414 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %11, i64 noundef 4096, ptr noundef %411, double noundef %413) #13
   br label %415
@@ -1145,14 +1145,14 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 
 420:                                              ; preds = %206
   %421 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.16, i32 noundef 5) #13
-  %422 = load float, ptr %153, align 8, !tbaa !119
+  %422 = load float, ptr %153, align 8, !tbaa !115
   %423 = fpext reassoc nsz arcp contract afn float %422 to double
   %424 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %11, i64 noundef 4096, ptr noundef %421, double noundef %423) #13
   call fastcc void @_metadata_update_value(i32 noundef 22, ptr noundef nonnull %11, ptr noundef %0)
   br label %.thread344
 
 425:                                              ; preds = %206
-  %426 = load float, ptr %152, align 16, !tbaa !120
+  %426 = load float, ptr %152, align 16, !tbaa !116
   %427 = fcmp reassoc nsz arcp contract afn une float %426, 0.000000e+00
   br i1 %427, label %429, label %428
 
@@ -1166,15 +1166,15 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   br i1 %430, label %432, label %438
 
 432:                                              ; preds = %429
-  %433 = load float, ptr %152, align 16, !tbaa !120
+  %433 = load float, ptr %152, align 16, !tbaa !116
   %434 = fpext reassoc nsz arcp contract afn float %433 to double
-  %435 = load float, ptr %153, align 8, !tbaa !119
+  %435 = load float, ptr %153, align 8, !tbaa !115
   %436 = fpext reassoc nsz arcp contract afn float %435 to double
   %437 = fmul reassoc nsz arcp contract afn double %436, %434
   br label %441
 
 438:                                              ; preds = %429
-  %439 = load float, ptr %153, align 8, !tbaa !119
+  %439 = load float, ptr %153, align 8, !tbaa !115
   %440 = fpext reassoc nsz arcp contract afn float %439 to double
   br label %441
 
@@ -1185,13 +1185,13 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   br label %.thread344
 
 443:                                              ; preds = %206
-  %444 = load float, ptr %152, align 16, !tbaa !120
+  %444 = load float, ptr %152, align 16, !tbaa !116
   %445 = fcmp reassoc nsz arcp contract afn une float %444, 0.000000e+00
   br i1 %445, label %446, label %451
 
 446:                                              ; preds = %443
   %447 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #13
-  %448 = load float, ptr %152, align 16, !tbaa !120
+  %448 = load float, ptr %152, align 16, !tbaa !116
   %449 = fpext reassoc nsz arcp contract afn float %448 to double
   %450 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %11, i64 noundef 4096, ptr noundef %447, double noundef %449) #13
   call fastcc void @_metadata_update_value(i32 noundef 24, ptr noundef nonnull %11, ptr noundef %0)
@@ -1203,7 +1203,7 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 
 452:                                              ; preds = %206
   %453 = call i64 @g_strlcpy(ptr noundef nonnull %11, ptr noundef nonnull @.str.14, i64 noundef 4096) #13
-  %454 = load float, ptr %151, align 4, !tbaa !121
+  %454 = load float, ptr %151, align 4, !tbaa !117
   %455 = fcmp reassoc nsz arcp contract afn ult float %454, 0x41EFFFFFE0000000
   br i1 %455, label %459, label %456
 
@@ -1218,7 +1218,7 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 
 460:                                              ; preds = %459
   %461 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #13
-  %462 = load float, ptr %151, align 4, !tbaa !121
+  %462 = load float, ptr %151, align 4, !tbaa !117
   %463 = fpext reassoc nsz arcp contract afn float %462 to double
   %464 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %11, i64 noundef 4096, ptr noundef %461, double noundef %463) #13
   br label %.critedge
@@ -1228,7 +1228,7 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   br label %.thread344
 
 465:                                              ; preds = %206
-  %466 = load float, ptr %150, align 4, !tbaa !122
+  %466 = load float, ptr %150, align 4, !tbaa !118
   %467 = fpext reassoc nsz arcp contract afn float %466 to double
   %468 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %11, i64 noundef 4096, ptr noundef nonnull @.str.20, double noundef %467) #13
   call fastcc void @_metadata_update_value(i32 noundef 26, ptr noundef nonnull %11, ptr noundef %0)
@@ -1245,9 +1245,9 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   br label %.thread344
 
 473:                                              ; preds = %206
-  %474 = load i32, ptr %148, align 4, !tbaa !123
+  %474 = load i32, ptr %148, align 4, !tbaa !119
   %.not290 = icmp eq i32 %474, 0
-  %.pre377 = load i32, ptr %149, align 4, !tbaa !124
+  %.pre377 = load i32, ptr %149, align 4, !tbaa !120
   %.not291 = icmp eq i32 %474, %.pre377
   %or.cond381 = select i1 %.not290, i1 true, i1 %.not291
   br i1 %or.cond381, label %477, label %475
@@ -1263,9 +1263,9 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   br label %.thread344
 
 479:                                              ; preds = %206
-  %480 = load i32, ptr %146, align 16, !tbaa !125
+  %480 = load i32, ptr %146, align 16, !tbaa !121
   %.not288 = icmp eq i32 %480, 0
-  %.pre = load i32, ptr %147, align 16, !tbaa !126
+  %.pre = load i32, ptr %147, align 16, !tbaa !122
   %.not289 = icmp eq i32 %480, %.pre
   %or.cond382 = select i1 %.not288, i1 true, i1 %.not289
   br i1 %or.cond382, label %483, label %481
@@ -1282,7 +1282,7 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 
 485:                                              ; preds = %206
   %486 = call i64 @g_strlcpy(ptr noundef nonnull %11, ptr noundef nonnull @.str.14, i64 noundef 4096) #13
-  %487 = load i32, ptr %145, align 4, !tbaa !127
+  %487 = load i32, ptr %145, align 4, !tbaa !123
   %488 = icmp sgt i32 %487, 0
   br i1 %488, label %489, label %491
 
@@ -1296,7 +1296,7 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 
 492:                                              ; preds = %206
   %493 = call i64 @g_strlcpy(ptr noundef nonnull %11, ptr noundef nonnull @.str.14, i64 noundef 4096) #13
-  %494 = load i32, ptr %144, align 8, !tbaa !128
+  %494 = load i32, ptr %144, align 8, !tbaa !124
   %495 = icmp sgt i32 %494, 0
   br i1 %495, label %496, label %498
 
@@ -1309,7 +1309,7 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   br label %.thread344
 
 499:                                              ; preds = %206
-  %500 = load double, ptr %143, align 8, !tbaa !129
+  %500 = load double, ptr %143, align 8, !tbaa !125
   %501 = fcmp uno double %500, 0.000000e+00
   br i1 %501, label %502, label %503
 
@@ -1320,7 +1320,7 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 503:                                              ; preds = %499
   %504 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.23) #13
   %.not287 = icmp eq i32 %504, 0
-  %505 = load double, ptr %143, align 8, !tbaa !129
+  %505 = load double, ptr %143, align 8, !tbaa !125
   br i1 %.not287, label %509, label %506
 
 506:                                              ; preds = %503
@@ -1339,7 +1339,7 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   br label %.thread344
 
 514:                                              ; preds = %206
-  %515 = load double, ptr %142, align 16, !tbaa !130
+  %515 = load double, ptr %142, align 16, !tbaa !126
   %516 = fcmp uno double %515, 0.000000e+00
   br i1 %516, label %517, label %518
 
@@ -1350,7 +1350,7 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 518:                                              ; preds = %514
   %519 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.23) #13
   %.not286 = icmp eq i32 %519, 0
-  %520 = load double, ptr %142, align 16, !tbaa !130
+  %520 = load double, ptr %142, align 16, !tbaa !126
   br i1 %.not286, label %524, label %521
 
 521:                                              ; preds = %518
@@ -1369,7 +1369,7 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   br label %.thread344
 
 529:                                              ; preds = %206
-  %530 = load double, ptr %141, align 16, !tbaa !131
+  %530 = load double, ptr %141, align 16, !tbaa !127
   %531 = fcmp uno double %530, 0.000000e+00
   br i1 %531, label %532, label %533
 
@@ -1380,7 +1380,7 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 533:                                              ; preds = %529
   %534 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.23) #13
   %.not285 = icmp eq i32 %534, 0
-  %535 = load double, ptr %141, align 16, !tbaa !131
+  %535 = load double, ptr %141, align 16, !tbaa !127
   br i1 %.not285, label %539, label %536
 
 536:                                              ; preds = %533
@@ -1398,34 +1398,34 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 
 542:                                              ; preds = %206, %206
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #13
-  store ptr null, ptr %15, align 8, !tbaa !95
+  store ptr null, ptr %15, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #13
-  store ptr null, ptr %16, align 8, !tbaa !111
+  store ptr null, ptr %16, align 8, !tbaa !107
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #13
-  store ptr null, ptr %17, align 8, !tbaa !111
-  %543 = load i32, ptr %140, align 8, !tbaa !102
+  store ptr null, ptr %17, align 8, !tbaa !107
+  %543 = load i32, ptr %140, align 8, !tbaa !98
   %544 = call i32 @dt_tag_get_attached(i32 noundef %543, ptr noundef nonnull %15, i32 noundef 1) #13
   %.not275 = icmp eq i32 %544, 0
   br i1 %.not275, label %588, label %.preheader
 
 .preheader:                                       ; preds = %542
-  %.0244358 = load ptr, ptr %15, align 8, !tbaa !95
+  %.0244358 = load ptr, ptr %15, align 8, !tbaa !92
   %.not276359 = icmp eq ptr %.0244358, null
   br i1 %.not276359, label %._crit_edge364, label %.lr.ph363
 
 ._crit_edge364:                                   ; preds = %582, %.preheader
-  %545 = load ptr, ptr %16, align 8, !tbaa !111
+  %545 = load ptr, ptr %16, align 8, !tbaa !107
   %.not277 = icmp eq ptr %545, null
   br i1 %.not277, label %588, label %584
 
 .lr.ph363:                                        ; preds = %.preheader, %582
   %.0244361 = phi ptr [ %.0244, %582 ], [ %.0244358, %.preheader ]
   %.0245360 = phi i64 [ %.1246, %582 ], [ 0, %.preheader ]
-  %546 = load ptr, ptr %.0244361, align 8, !tbaa !96
+  %546 = load ptr, ptr %.0244361, align 8, !tbaa !93
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 16
-  %548 = load ptr, ptr %547, align 8, !tbaa !132
+  %548 = load ptr, ptr %547, align 8, !tbaa !128
   %549 = getelementptr inbounds nuw i8, ptr %546, i64 40
-  %550 = load i32, ptr %549, align 8, !tbaa !134
+  %550 = load i32, ptr %549, align 8, !tbaa !130
   %551 = and i32 %550, 1
   %.not280 = icmp eq i32 %551, 0
   br i1 %.not280, label %552, label %561
@@ -1449,34 +1449,34 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 
 561:                                              ; preds = %.lr.ph363
   %562 = getelementptr inbounds nuw i8, ptr %546, i64 8
-  %563 = load ptr, ptr %562, align 8, !tbaa !135
+  %563 = load ptr, ptr %562, align 8, !tbaa !131
   %564 = call noalias ptr @g_strdup(ptr noundef %563) #13
   %565 = call ptr @g_strrstr(ptr noundef %564, ptr noundef nonnull @.str.30) #13
   %.not281 = icmp eq ptr %565, null
   br i1 %.not281, label %575, label %566
 
 566:                                              ; preds = %561
-  store i8 0, ptr %565, align 1, !tbaa !110
+  store i8 0, ptr %565, align 1, !tbaa !106
   %567 = call ptr @g_strrstr(ptr noundef %564, ptr noundef nonnull @.str.30) #13
   %.not283 = icmp eq ptr %567, null
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 1
   %569 = select i1 %.not283, ptr %564, ptr %568
-  %570 = load ptr, ptr %17, align 8, !tbaa !111
+  %570 = load ptr, ptr %17, align 8, !tbaa !107
   %.not284 = icmp eq ptr %570, null
   %571 = select i1 %.not284, ptr @.str.32, ptr @.str.31
-  %572 = load ptr, ptr %.0244361, align 8, !tbaa !96
+  %572 = load ptr, ptr %.0244361, align 8, !tbaa !93
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 16
-  %574 = load ptr, ptr %573, align 8, !tbaa !132
+  %574 = load ptr, ptr %573, align 8, !tbaa !128
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %17, ptr noundef nonnull %571, ptr noundef %569, ptr noundef %574) #13
   br label %581
 
 575:                                              ; preds = %561
-  %576 = load ptr, ptr %17, align 8, !tbaa !111
+  %576 = load ptr, ptr %17, align 8, !tbaa !107
   %.not282 = icmp eq ptr %576, null
   %577 = select i1 %.not282, ptr @.str.34, ptr @.str.33
-  %578 = load ptr, ptr %.0244361, align 8, !tbaa !96
+  %578 = load ptr, ptr %.0244361, align 8, !tbaa !93
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 16
-  %580 = load ptr, ptr %579, align 8, !tbaa !132
+  %580 = load ptr, ptr %579, align 8, !tbaa !128
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %17, ptr noundef nonnull %577, ptr noundef %580) #13
   br label %581
 
@@ -1487,15 +1487,15 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 582:                                              ; preds = %557, %558, %581
   %.1246 = phi i64 [ %.0245360, %581 ], [ %555, %557 ], [ %560, %558 ]
   %583 = getelementptr inbounds nuw i8, ptr %.0244361, i64 8
-  %.0244 = load ptr, ptr %583, align 8, !tbaa !95
+  %.0244 = load ptr, ptr %583, align 8, !tbaa !92
   %.not276 = icmp eq ptr %.0244, null
-  br i1 %.not276, label %._crit_edge364, label %.lr.ph363, !llvm.loop !136
+  br i1 %.not276, label %._crit_edge364, label %.lr.ph363
 
 584:                                              ; preds = %._crit_edge364
   %585 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %545) #15
   %586 = getelementptr i8, ptr %545, i64 %585
   %587 = getelementptr i8, ptr %586, i64 -2
-  store i8 0, ptr %587, align 1, !tbaa !110
+  store i8 0, ptr %587, align 1, !tbaa !106
   br label %588
 
 588:                                              ; preds = %._crit_edge364, %584, %542
@@ -1507,9 +1507,9 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   %.not278 = icmp eq ptr %590, null
   %591 = select i1 %.not278, ptr @.str.14, ptr %590
   call fastcc void @_metadata_update_value(i32 noundef %.388, ptr noundef nonnull %591, ptr noundef %0)
-  %592 = load ptr, ptr %16, align 8, !tbaa !111
+  %592 = load ptr, ptr %16, align 8, !tbaa !107
   call void @g_free(ptr noundef %592) #13
-  %593 = load ptr, ptr %17, align 8, !tbaa !111
+  %593 = load ptr, ptr %17, align 8, !tbaa !107
   call void @g_free(ptr noundef %593) #13
   call void @dt_tag_free_result(ptr noundef nonnull %15) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #13
@@ -1532,13 +1532,13 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 
 602:                                              ; preds = %597
   %603 = call ptr @dt_metadata_get_key(i32 noundef %599) #13
-  %604 = load i32, ptr %140, align 8, !tbaa !102
+  %604 = load i32, ptr %140, align 8, !tbaa !98
   %605 = call ptr @dt_metadata_get(i32 noundef %604, ptr noundef %603, ptr noundef null) #13
   %.not295 = icmp eq ptr %605, null
   br i1 %.not295, label %621, label %606
 
 606:                                              ; preds = %602
-  %607 = load ptr, ptr %605, align 8, !tbaa !96
+  %607 = load ptr, ptr %605, align 8, !tbaa !93
   %608 = call i64 @g_strlcpy(ptr noundef nonnull %11, ptr noundef %607, i64 noundef 4096) #13
   %609 = call i32 @g_utf8_validate(ptr noundef nonnull %11, i64 noundef -1, ptr noundef null) #13
   %.not.i338 = icmp ne i32 %609, 0
@@ -1556,17 +1556,17 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   br i1 %or.cond.i, label %613, label %614
 
 613:                                              ; preds = %.lr.ph.i
-  store i8 46, ptr %.0911.i, align 1, !tbaa !110
+  store i8 46, ptr %.0911.i, align 1, !tbaa !106
   br label %614
 
 614:                                              ; preds = %613, %.lr.ph.i
   %615 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 1
   %616 = add nuw nsw i32 %.012.i, 1
-  %617 = load i8, ptr %615, align 1, !tbaa !110
+  %617 = load i8, ptr %615, align 1, !tbaa !106
   %618 = icmp ne i8 %617, 0
   %619 = icmp samesign ult i32 %.012.i, 4095
   %620 = select i1 %618, i1 %619, i1 false
-  br i1 %620, label %.lr.ph.i, label %_filter_non_printable.exit, !llvm.loop !137
+  br i1 %620, label %.lr.ph.i, label %_filter_non_printable.exit
 
 _filter_non_printable.exit:                       ; preds = %614, %606
   call void @g_list_free_full(ptr noundef nonnull %605, ptr noundef nonnull @g_free) #13
@@ -1583,14 +1583,14 @@ _filter_non_printable.exit:                       ; preds = %614, %606
 622:                                              ; preds = %_metadata_update_tooltip.exit311, %.split, %.thread344
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
   %exitcond375.not = icmp eq i64 %indvars.iv.next373, 46
-  br i1 %exitcond375.not, label %177, label %179, !llvm.loop !138
+  br i1 %exitcond375.not, label %177, label %179
 
 623:                                              ; preds = %.preheader394, %623
   %.0367 = phi i32 [ %624, %623 ], [ 0, %.preheader394 ]
   call fastcc void @_metadata_update_value(i32 noundef %.0367, ptr noundef nonnull @.str.14, ptr noundef %0)
   %624 = add nuw nsw i32 %.0367, 1
   %exitcond376.not = icmp eq i32 %624, 46
-  br i1 %exitcond376.not, label %.loopexit, label %623, !llvm.loop !139
+  br i1 %exitcond376.not, label %.loopexit, label %623
 
 .loopexit:                                        ; preds = %623, %177
   ret void
@@ -1639,29 +1639,29 @@ declare void @dt_image_cache_read_release(ptr noundef, ptr noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_metadata_update_value(i32 noundef range(i32 -2147483648, 46) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
-  %5 = load ptr, ptr %4, align 8, !tbaa !90
+  %5 = load ptr, ptr %4, align 8, !tbaa !87
   %6 = tail call i32 @g_utf8_validate(ptr noundef %1, i64 noundef -1, ptr noundef null) #13
   %.not = icmp eq i32 %6, 0
   %7 = select i1 %.not, ptr @.str.14, ptr %1
-  %.val = load ptr, ptr %4, align 8, !tbaa !90
+  %.val = load ptr, ptr %4, align 8, !tbaa !87
   br label %8
 
 8:                                                ; preds = %9, %3
   %.pn.i = phi ptr [ %.val, %3 ], [ %.014.i, %9 ]
   %.014.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
-  %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !95
+  %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !92
   %.not.i = icmp eq ptr %.014.i, null
   br i1 %.not.i, label %_get_metadata_per_index.exit.thread, label %9
 
 9:                                                ; preds = %8
-  %10 = load ptr, ptr %.014.i, align 8, !tbaa !96
-  %11 = load i32, ptr %10, align 8, !tbaa !98
+  %10 = load ptr, ptr %.014.i, align 8, !tbaa !93
+  %11 = load i32, ptr %10, align 8, !tbaa !95
   %.not15.i = icmp eq i32 %11, %0
-  br i1 %.not15.i, label %_get_metadata_per_index.exit, label %8, !llvm.loop !100
+  br i1 %.not15.i, label %_get_metadata_per_index.exit, label %8
 
 _get_metadata_per_index.exit:                     ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !140
+  %13 = load ptr, ptr %12, align 8, !tbaa !132
   %.not22 = icmp eq ptr %13, null
   br i1 %.not22, label %15, label %14
 
@@ -1671,23 +1671,23 @@ _get_metadata_per_index.exit:                     ; preds = %9
 
 15:                                               ; preds = %14, %_get_metadata_per_index.exit
   %16 = tail call noalias ptr @g_strdup(ptr noundef %7) #13
-  store ptr %16, ptr %12, align 8, !tbaa !140
-  %17 = load ptr, ptr %5, align 8, !tbaa !141
+  store ptr %16, ptr %12, align 8, !tbaa !132
+  %17 = load ptr, ptr %5, align 8, !tbaa !133
   %18 = tail call i64 @gtk_grid_get_type() #16
   %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #13
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %21 = load i32, ptr %20, align 4, !tbaa !144
+  %21 = load i32, ptr %20, align 4, !tbaa !136
   %22 = tail call ptr @gtk_grid_get_child_at(ptr noundef %19, i32 noundef 1, i32 noundef %21) #13
   %23 = tail call i64 @gtk_label_get_type() #16
   %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %22, i64 noundef %23) #13
   tail call void @gtk_label_set_text(ptr noundef %24, ptr noundef %7) #13
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !101
+  %26 = load ptr, ptr %25, align 8, !tbaa !97
   %.not23 = icmp eq ptr %26, null
   br i1 %.not23, label %27, label %29
 
 27:                                               ; preds = %15
-  %28 = load ptr, ptr %12, align 8, !tbaa !140
+  %28 = load ptr, ptr %12, align 8, !tbaa !132
   br label %29
 
 29:                                               ; preds = %15, %27
@@ -1708,23 +1708,23 @@ define internal fastcc void @_metadata_update_markup(i32 noundef range(i32 -2147
 2:                                                ; preds = %3, %1
   %.pn.i = phi ptr [ %.280.val, %1 ], [ %.014.i, %3 ]
   %.014.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
-  %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !95
+  %.014.i = load ptr, ptr %.014.in.i, align 8, !tbaa !92
   %.not.i = icmp eq ptr %.014.i, null
   br i1 %.not.i, label %_get_metadata_per_index.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %.014.i, align 8, !tbaa !96
-  %5 = load i32, ptr %4, align 8, !tbaa !98
+  %4 = load ptr, ptr %.014.i, align 8, !tbaa !93
+  %5 = load i32, ptr %4, align 8, !tbaa !95
   %.not15.i = icmp eq i32 %5, %0
-  br i1 %.not15.i, label %_get_metadata_per_index.exit, label %2, !llvm.loop !100
+  br i1 %.not15.i, label %_get_metadata_per_index.exit, label %2
 
 _get_metadata_per_index.exit:                     ; preds = %2, %3
   %spec.select.i = phi ptr [ %4, %3 ], [ null, %2 ]
-  %6 = load ptr, ptr %.280.val, align 8, !tbaa !141
+  %6 = load ptr, ptr %.280.val, align 8, !tbaa !133
   %7 = tail call i64 @gtk_grid_get_type() #16
   %8 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %7) #13
   %9 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !144
+  %10 = load i32, ptr %9, align 4, !tbaa !136
   %11 = tail call ptr @gtk_grid_get_child_at(ptr noundef %8, i32 noundef 1, i32 noundef %10) #13
   %12 = tail call i64 @gtk_label_get_type() #16
   %13 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %12) #13
@@ -1790,9 +1790,9 @@ define hidden void @_menuitem_preferences(ptr readnone captures(none) %0, ptr no
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %7 = load ptr, ptr %6, align 8, !tbaa !90
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !145
-  %9 = load ptr, ptr %8, align 8, !tbaa !146
+  %7 = load ptr, ptr %6, align 8, !tbaa !87
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !137
+  %9 = load ptr, ptr %8, align 8, !tbaa !138
   %10 = tail call ptr @dt_ui_main_window(ptr noundef %9) #13
   %11 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.35, i32 noundef 5) #13
   %12 = tail call i64 @gtk_window_get_type() #16
@@ -1808,9 +1808,9 @@ define hidden void @_menuitem_preferences(ptr readnone captures(none) %0, ptr no
   %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #13
   %22 = tail call ptr @gtk_dialog_get_content_area(ptr noundef %21) #13
   %23 = tail call ptr @gtk_scrolled_window_new(ptr noundef null, ptr noundef null) #13
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !145
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !137
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1424
-  %26 = load double, ptr %25, align 8, !tbaa !151
+  %26 = load double, ptr %25, align 8, !tbaa !143
   %27 = fmul reassoc nsz arcp contract afn double %26, 6.000000e+02
   %28 = fptosi double %27 to i32
   tail call void @gtk_widget_set_size_request(ptr noundef %23, i32 noundef -1, i32 noundef %28) #13
@@ -1827,9 +1827,9 @@ define hidden void @_menuitem_preferences(ptr readnone captures(none) %0, ptr no
   %36 = tail call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %35) #13
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #13
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !152
+  %38 = load ptr, ptr %37, align 8, !tbaa !144
   %39 = tail call ptr @g_list_sort(ptr noundef %38, ptr noundef nonnull @_lib_metadata_sort_order) #13
-  store ptr %39, ptr %37, align 8, !tbaa !152
+  store ptr %39, ptr %37, align 8, !tbaa !144
   %.not103 = icmp eq ptr %39, null
   br i1 %.not103, label %._crit_edge, label %.lr.ph
 
@@ -1864,12 +1864,12 @@ define hidden void @_menuitem_preferences(ptr readnone captures(none) %0, ptr no
   %61 = call ptr @g_type_check_instance_cast(ptr noundef %23, i64 noundef %60) #13
   call void @gtk_container_add(ptr noundef %61, ptr noundef %40) #13
   call void @gtk_widget_show_all(ptr noundef %17) #13
-  br label %76
+  br label %._crit_edge109
 
 .lr.ph:                                           ; preds = %2, %73
   %.0104 = phi ptr [ %75, %73 ], [ %39, %2 ]
-  %62 = load ptr, ptr %.0104, align 8, !tbaa !96
-  %63 = load i32, ptr %62, align 8, !tbaa !98
+  %62 = load ptr, ptr %.0104, align 8, !tbaa !93
+  %63 = load i32, ptr %62, align 8, !tbaa !95
   %64 = add i32 %63, -32
   %or.cond.i = icmp ult i32 %64, 9
   br i1 %or.cond.i, label %_is_metadata_ui.exit, label %_is_metadata_ui.exit.thread
@@ -1882,130 +1882,130 @@ _is_metadata_ui.exit:                             ; preds = %.lr.ph
 
 _is_metadata_ui.exit.thread:                      ; preds = %.lr.ph, %_is_metadata_ui.exit
   call void @gtk_list_store_append(ptr noundef %34, ptr noundef nonnull %3) #13
-  %67 = load i32, ptr %62, align 8, !tbaa !98
+  %67 = load i32, ptr %62, align 8, !tbaa !95
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !153
+  %69 = load ptr, ptr %68, align 8, !tbaa !145
   %70 = call ptr @dcgettext(ptr noundef null, ptr noundef %69, i32 noundef 5) #13
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %72 = load i32, ptr %71, align 8, !tbaa !154
+  %72 = load i32, ptr %71, align 8, !tbaa !146
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %34, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %67, i32 noundef 1, ptr noundef %70, i32 noundef 2, i32 noundef %72, i32 noundef -1) #13
   br label %73
 
 73:                                               ; preds = %_is_metadata_ui.exit, %_is_metadata_ui.exit.thread
   %74 = getelementptr inbounds nuw i8, ptr %.0104, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !155
+  %75 = load ptr, ptr %74, align 8, !tbaa !147
   %.not = icmp eq ptr %75, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !156
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-76:                                               ; preds = %._crit_edge109, %._crit_edge
-  %77 = call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #13
-  %78 = call i32 @gtk_dialog_run(ptr noundef %77) #13
-  switch i32 %78, label %.loopexit102 [
-    i32 -8, label %79
-    i32 -3, label %96
+._crit_edge109:                                   ; preds = %._crit_edge109.backedge, %._crit_edge
+  %76 = call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #13
+  %77 = call i32 @gtk_dialog_run(ptr noundef %76) #13
+  switch i32 %77, label %.loopexit102 [
+    i32 -8, label %78
+    i32 -3, label %95
   ]
 
-79:                                               ; preds = %76
-  %80 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %36, ptr noundef nonnull %3) #13
-  %81 = load ptr, ptr %37, align 8, !tbaa !152
-  %82 = call ptr @g_list_sort(ptr noundef %81, ptr noundef nonnull @_lib_metadata_sort_index) #13
-  store ptr %82, ptr %37, align 8, !tbaa !152
-  %.not89105 = icmp eq ptr %82, null
-  br i1 %.not89105, label %._crit_edge109, label %.lr.ph108
+78:                                               ; preds = %._crit_edge109
+  %79 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %36, ptr noundef nonnull %3) #13
+  %80 = load ptr, ptr %37, align 8, !tbaa !144
+  %81 = call ptr @g_list_sort(ptr noundef %80, ptr noundef nonnull @_lib_metadata_sort_index) #13
+  store ptr %81, ptr %37, align 8, !tbaa !144
+  %.not89105 = icmp eq ptr %81, null
+  br i1 %.not89105, label %._crit_edge109.backedge, label %.lr.ph108
 
-._crit_edge109:                                   ; preds = %93, %79
-  br label %76, !llvm.loop !157
+._crit_edge109.backedge:                          ; preds = %92, %78
+  br label %._crit_edge109
 
-.lr.ph108:                                        ; preds = %79, %93
-  %.084106 = phi ptr [ %95, %93 ], [ %82, %79 ]
-  %83 = load ptr, ptr %.084106, align 8, !tbaa !96
-  %84 = load i32, ptr %83, align 8, !tbaa !98
-  %85 = add i32 %84, -32
-  %or.cond.i93 = icmp ult i32 %85, 9
+.lr.ph108:                                        ; preds = %78, %92
+  %.084106 = phi ptr [ %94, %92 ], [ %81, %78 ]
+  %82 = load ptr, ptr %.084106, align 8, !tbaa !93
+  %83 = load i32, ptr %82, align 8, !tbaa !95
+  %84 = add i32 %83, -32
+  %or.cond.i93 = icmp ult i32 %84, 9
   br i1 %or.cond.i93, label %_is_metadata_ui.exit95, label %_is_metadata_ui.exit95.thread
 
 _is_metadata_ui.exit95:                           ; preds = %.lr.ph108
-  %86 = call i32 @dt_metadata_get_keyid_by_display_order(i32 noundef %85) #13
-  %87 = call i32 @dt_metadata_get_type(i32 noundef %86) #13
-  %.not101 = icmp eq i32 %87, 2
-  br i1 %.not101, label %93, label %_is_metadata_ui.exit95._is_metadata_ui.exit95.thread_crit_edge
+  %85 = call i32 @dt_metadata_get_keyid_by_display_order(i32 noundef %84) #13
+  %86 = call i32 @dt_metadata_get_type(i32 noundef %85) #13
+  %.not101 = icmp eq i32 %86, 2
+  br i1 %.not101, label %92, label %_is_metadata_ui.exit95._is_metadata_ui.exit95.thread_crit_edge
 
 _is_metadata_ui.exit95._is_metadata_ui.exit95.thread_crit_edge: ; preds = %_is_metadata_ui.exit95
-  %.pre = load i32, ptr %83, align 8, !tbaa !98
+  %.pre = load i32, ptr %82, align 8, !tbaa !95
   br label %_is_metadata_ui.exit95.thread
 
 _is_metadata_ui.exit95.thread:                    ; preds = %_is_metadata_ui.exit95._is_metadata_ui.exit95.thread_crit_edge, %.lr.ph108
-  %88 = phi i32 [ %.pre, %_is_metadata_ui.exit95._is_metadata_ui.exit95.thread_crit_edge ], [ %84, %.lr.ph108 ]
-  %89 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !153
-  %91 = call ptr @dcgettext(ptr noundef null, ptr noundef %90, i32 noundef 5) #13
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %34, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %88, i32 noundef 1, ptr noundef %91, i32 noundef 2, i32 noundef 1, i32 noundef -1) #13
-  %92 = call i32 @gtk_tree_model_iter_next(ptr noundef %36, ptr noundef nonnull %3) #13
-  br label %93
+  %87 = phi i32 [ %.pre, %_is_metadata_ui.exit95._is_metadata_ui.exit95.thread_crit_edge ], [ %83, %.lr.ph108 ]
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !145
+  %90 = call ptr @dcgettext(ptr noundef null, ptr noundef %89, i32 noundef 5) #13
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %34, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %87, i32 noundef 1, ptr noundef %90, i32 noundef 2, i32 noundef 1, i32 noundef -1) #13
+  %91 = call i32 @gtk_tree_model_iter_next(ptr noundef %36, ptr noundef nonnull %3) #13
+  br label %92
 
-93:                                               ; preds = %_is_metadata_ui.exit95, %_is_metadata_ui.exit95.thread
-  %94 = getelementptr inbounds nuw i8, ptr %.084106, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !155
-  %.not89 = icmp eq ptr %95, null
-  br i1 %.not89, label %._crit_edge109, label %.lr.ph108, !llvm.loop !158
+92:                                               ; preds = %_is_metadata_ui.exit95, %_is_metadata_ui.exit95.thread
+  %93 = getelementptr inbounds nuw i8, ptr %.084106, i64 8
+  %94 = load ptr, ptr %93, align 8, !tbaa !147
+  %.not89 = icmp eq ptr %94, null
+  br i1 %.not89, label %._crit_edge109.backedge, label %.lr.ph108
 
-96:                                               ; preds = %76
-  %97 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %36, ptr noundef nonnull %3) #13
-  %.not86113 = icmp eq i32 %97, 0
+95:                                               ; preds = %._crit_edge109
+  %96 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %36, ptr noundef nonnull %3) #13
+  %.not86113 = icmp eq i32 %96, 0
   br i1 %.not86113, label %._crit_edge117, label %.lr.ph116
 
-.lr.ph116:                                        ; preds = %96, %.loopexit
-  %.082114 = phi i32 [ %107, %.loopexit ], [ 0, %96 ]
+.lr.ph116:                                        ; preds = %95, %.loopexit
+  %.082114 = phi i32 [ %106, %.loopexit ], [ 0, %95 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %36, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull %4, i32 noundef -1) #13
-  %.080110 = load ptr, ptr %37, align 8, !tbaa !95
+  %.080110 = load ptr, ptr %37, align 8, !tbaa !92
   %.not87111 = icmp eq ptr %.080110, null
   br i1 %.not87111, label %.loopexit, label %.critedge.lr.ph
 
 .critedge.lr.ph:                                  ; preds = %.lr.ph116
-  %98 = load i32, ptr %5, align 4, !tbaa !84
+  %97 = load i32, ptr %5, align 4, !tbaa !84
   br label %.critedge
 
-99:                                               ; preds = %.critedge
-  %100 = getelementptr inbounds nuw i8, ptr %.080112, i64 8
-  %.080 = load ptr, ptr %100, align 8, !tbaa !95
+98:                                               ; preds = %.critedge
+  %99 = getelementptr inbounds nuw i8, ptr %.080112, i64 8
+  %.080 = load ptr, ptr %99, align 8, !tbaa !92
   %.not87 = icmp eq ptr %.080, null
-  br i1 %.not87, label %.loopexit, label %.critedge, !llvm.loop !159
+  br i1 %.not87, label %.loopexit, label %.critedge
 
-.critedge:                                        ; preds = %.critedge.lr.ph, %99
-  %.080112 = phi ptr [ %.080110, %.critedge.lr.ph ], [ %.080, %99 ]
-  %101 = load ptr, ptr %.080112, align 8, !tbaa !96
-  %102 = load i32, ptr %101, align 8, !tbaa !98
-  %.not88 = icmp eq i32 %102, %98
-  br i1 %.not88, label %103, label %99
+.critedge:                                        ; preds = %.critedge.lr.ph, %98
+  %.080112 = phi ptr [ %.080110, %.critedge.lr.ph ], [ %.080, %98 ]
+  %100 = load ptr, ptr %.080112, align 8, !tbaa !93
+  %101 = load i32, ptr %100, align 8, !tbaa !95
+  %.not88 = icmp eq i32 %101, %97
+  br i1 %.not88, label %102, label %98
 
-103:                                              ; preds = %.critedge
-  %104 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  store i32 %.082114, ptr %104, align 4, !tbaa !144
-  %105 = load i32, ptr %4, align 4, !tbaa !84
-  %106 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  store i32 %105, ptr %106, align 8, !tbaa !154
+102:                                              ; preds = %.critedge
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
+  store i32 %.082114, ptr %103, align 4, !tbaa !136
+  %104 = load i32, ptr %4, align 4, !tbaa !84
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 32
+  store i32 %104, ptr %105, align 8, !tbaa !146
   br label %.loopexit
 
-.loopexit:                                        ; preds = %99, %.lr.ph116, %103
-  %107 = add nuw nsw i32 %.082114, 1
-  %108 = call i32 @gtk_tree_model_iter_next(ptr noundef %36, ptr noundef nonnull %3) #13
+.loopexit:                                        ; preds = %98, %.lr.ph116, %102
+  %106 = add nuw nsw i32 %.082114, 1
+  %107 = call i32 @gtk_tree_model_iter_next(ptr noundef %36, ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  %.not86 = icmp eq i32 %108, 0
-  br i1 %.not86, label %._crit_edge117, label %.lr.ph116, !llvm.loop !160
+  %.not86 = icmp eq i32 %107, 0
+  br i1 %.not86, label %._crit_edge117, label %.lr.ph116
 
-._crit_edge117:                                   ; preds = %.loopexit, %96
-  %.val = load ptr, ptr %6, align 8, !tbaa !90
+._crit_edge117:                                   ; preds = %.loopexit, %95
+  %.val = load ptr, ptr %6, align 8, !tbaa !87
   call fastcc void @_lib_metadata_refill_grid(ptr %.val)
-  %.val92 = load ptr, ptr %6, align 8, !tbaa !90
-  %109 = call fastcc ptr @_get_current_configuration(ptr %.val92)
-  call void @dt_conf_set_string(ptr noundef nonnull @.str.50, ptr noundef %109) #13
-  call void @g_free(ptr noundef %109) #13
+  %.val92 = load ptr, ptr %6, align 8, !tbaa !87
+  %108 = call fastcc ptr @_get_current_configuration(ptr %.val92)
+  call void @dt_conf_set_string(ptr noundef nonnull @.str.50, ptr noundef %108) #13
+  call void @g_free(ptr noundef %108) #13
   br label %.loopexit102
 
-.loopexit102:                                     ; preds = %76, %._crit_edge117
+.loopexit102:                                     ; preds = %._crit_edge109, %._crit_edge117
   call void @gtk_widget_destroy(ptr noundef %17) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
   ret void
@@ -2057,9 +2057,9 @@ declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @_lib_metadata_sort_order(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !144
+  %4 = load i32, ptr %3, align 4, !tbaa !136
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !144
+  %6 = load i32, ptr %5, align 4, !tbaa !136
   %7 = sub nsw i32 %4, %6
   ret i32 %7
 }
@@ -2137,8 +2137,8 @@ declare i32 @gtk_tree_model_get_iter_first(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @_lib_metadata_sort_index(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
-  %3 = load i32, ptr %0, align 8, !tbaa !98
-  %4 = load i32, ptr %1, align 8, !tbaa !98
+  %3 = load i32, ptr %0, align 8, !tbaa !95
+  %4 = load i32, ptr %1, align 8, !tbaa !95
   %5 = sub nsw i32 %3, %4
   ret i32 %5
 }
@@ -2150,9 +2150,9 @@ declare void @gtk_tree_model_get(ptr noundef, ptr noundef, ...) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_lib_metadata_refill_grid(ptr captures(none) %.280.val) unnamed_addr #1 {
   %1 = getelementptr inbounds nuw i8, ptr %.280.val, i64 8
-  %2 = load ptr, ptr %1, align 8, !tbaa !152
+  %2 = load ptr, ptr %1, align 8, !tbaa !144
   %3 = tail call ptr @g_list_sort(ptr noundef %2, ptr noundef nonnull @_lib_metadata_sort_order) #13
-  store ptr %3, ptr %1, align 8, !tbaa !152
+  store ptr %3, ptr %1, align 8, !tbaa !144
   %.not1 = icmp eq ptr %3, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -2167,41 +2167,41 @@ define internal fastcc void @_lib_metadata_refill_grid(ptr captures(none) %.280.
 6:                                                ; preds = %.lr.ph, %54
   %.03 = phi i32 [ 0, %.lr.ph ], [ %58, %54 ]
   %.0512 = phi ptr [ %3, %.lr.ph ], [ %60, %54 ]
-  %7 = load ptr, ptr %.0512, align 8, !tbaa !96
+  %7 = load ptr, ptr %.0512, align 8, !tbaa !93
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %.03, ptr %8, align 4, !tbaa !144
-  %9 = load ptr, ptr %.280.val, align 8, !tbaa !141
+  store i32 %.03, ptr %8, align 4, !tbaa !136
+  %9 = load ptr, ptr %.280.val, align 8, !tbaa !133
   %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %9, i64 noundef %4) #13
   %11 = tail call ptr @gtk_grid_get_child_at(ptr noundef %10, i32 noundef 0, i32 noundef %.03) #13
   %12 = tail call i64 @gtk_label_get_type() #16
   %13 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %12) #13
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !153
+  %15 = load ptr, ptr %14, align 8, !tbaa !145
   %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %15, i32 noundef 5) #13
   tail call void @gtk_label_set_text(ptr noundef %13, ptr noundef %16) #13
-  %17 = load ptr, ptr %14, align 8, !tbaa !153
+  %17 = load ptr, ptr %14, align 8, !tbaa !145
   %18 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %17, i32 noundef 5) #13
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %11, ptr noundef %18) #13
-  %19 = load ptr, ptr %.280.val, align 8, !tbaa !141
+  %19 = load ptr, ptr %.280.val, align 8, !tbaa !133
   %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %4) #13
   %21 = tail call ptr @gtk_grid_get_child_at(ptr noundef %20, i32 noundef 1, i32 noundef %.03) #13
   %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %21, i64 noundef %12) #13
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !140
+  %24 = load ptr, ptr %23, align 8, !tbaa !132
   tail call void @gtk_label_set_text(ptr noundef %22, ptr noundef %24) #13
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !101
+  %26 = load ptr, ptr %25, align 8, !tbaa !97
   %.not56 = icmp eq ptr %26, null
   br i1 %.not56, label %27, label %29
 
 27:                                               ; preds = %6
-  %28 = load ptr, ptr %23, align 8, !tbaa !140
+  %28 = load ptr, ptr %23, align 8, !tbaa !132
   br label %29
 
 29:                                               ; preds = %6, %27
   %30 = phi ptr [ %28, %27 ], [ %26, %6 ]
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %21, ptr noundef %30) #13
-  %31 = load i32, ptr %7, align 8, !tbaa !98
+  %31 = load i32, ptr %7, align 8, !tbaa !95
   %32 = tail call ptr @g_type_check_instance_cast(ptr noundef %21, i64 noundef %12) #13
   %33 = and i32 %31, -3
   %or.cond = icmp eq i32 %33, 12
@@ -2213,18 +2213,18 @@ define internal fastcc void @_lib_metadata_refill_grid(ptr captures(none) %.280.
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %29
-  %39 = load ptr, ptr %5, align 8, !tbaa !161
+  %39 = load ptr, ptr %5, align 8, !tbaa !148
   %.not57 = icmp eq ptr %39, null
   br i1 %.not57, label %50, label %40
 
 40:                                               ; preds = %38
   %41 = tail call i64 @gtk_widget_get_type() #16
-  %42 = load ptr, ptr %39, align 8, !tbaa !162
+  %42 = load ptr, ptr %39, align 8, !tbaa !149
   %.not58 = icmp eq ptr %42, null
   br i1 %.not58, label %46, label %43
 
 43:                                               ; preds = %40
-  %44 = load i64, ptr %42, align 8, !tbaa !165
+  %44 = load i64, ptr %42, align 8, !tbaa !152
   %45 = icmp eq i64 %44, %41
   br i1 %45, label %.critedge, label %46
 
@@ -2241,20 +2241,20 @@ define internal fastcc void @_lib_metadata_refill_grid(ptr captures(none) %.280.
   %51 = tail call ptr @g_type_check_instance_cast(ptr noundef %21, i64 noundef 80) #13
   %52 = tail call i64 @g_signal_connect_data(ptr noundef %51, ptr noundef nonnull @.str.95, ptr noundef nonnull @_filmroll_clicked, ptr noundef null, ptr noundef null, i32 noundef 0) #13
   %53 = tail call ptr @g_type_check_instance_cast(ptr noundef %21, i64 noundef 80) #13
-  store ptr %53, ptr %5, align 8, !tbaa !161
+  store ptr %53, ptr %5, align 8, !tbaa !148
   br label %54
 
 54:                                               ; preds = %50, %29
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %56 = load i32, ptr %55, align 8, !tbaa !154
+  %56 = load i32, ptr %55, align 8, !tbaa !146
   tail call void @gtk_widget_set_visible(ptr noundef %11, i32 noundef %56) #13
-  %57 = load i32, ptr %55, align 8, !tbaa !154
+  %57 = load i32, ptr %55, align 8, !tbaa !146
   tail call void @gtk_widget_set_visible(ptr noundef %21, i32 noundef %57) #13
   %58 = add nuw nsw i32 %.03, 1
   %59 = getelementptr inbounds nuw i8, ptr %.0512, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !155
+  %60 = load ptr, ptr %59, align 8, !tbaa !147
   %.not = icmp eq ptr %60, null
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !167
+  br i1 %.not, label %._crit_edge, label %6
 }
 
 declare void @gtk_widget_destroy(ptr noundef) local_unnamed_addr #4
@@ -2282,7 +2282,7 @@ declare i64 @gtk_menu_shell_get_type() local_unnamed_addr #9
 define ptr @get_params(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 {
   store i32 0, ptr %1, align 4, !tbaa !84
   %3 = getelementptr i8, ptr %0, i64 280
-  %.val = load ptr, ptr %3, align 8, !tbaa !90
+  %.val = load ptr, ptr %3, align 8, !tbaa !87
   %4 = tail call fastcc ptr @_get_current_configuration(ptr %.val)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -2302,23 +2302,23 @@ define ptr @get_params(ptr noundef readonly captures(none) %0, ptr noundef write
 define internal fastcc ptr @_get_current_configuration(ptr captures(none) %.280.val) unnamed_addr #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
-  store ptr null, ptr %1, align 8, !tbaa !111
+  store ptr null, ptr %1, align 8, !tbaa !107
   %2 = getelementptr inbounds nuw i8, ptr %.280.val, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !152
+  %3 = load ptr, ptr %2, align 8, !tbaa !144
   %4 = tail call ptr @g_list_sort(ptr noundef %3, ptr noundef nonnull @_lib_metadata_sort_order) #13
-  store ptr %4, ptr %2, align 8, !tbaa !152
+  store ptr %4, ptr %2, align 8, !tbaa !144
   %.not4 = icmp eq ptr %4, null
   br i1 %.not4, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %15
-  %.pre = load ptr, ptr %1, align 8, !tbaa !111
+  %.pre = load ptr, ptr %1, align 8, !tbaa !107
   %.not12 = icmp eq ptr %.pre, null
   br i1 %.not12, label %._crit_edge.thread, label %18
 
 .lr.ph:                                           ; preds = %0, %15
   %.05 = phi ptr [ %17, %15 ], [ %4, %0 ]
-  %5 = load ptr, ptr %.05, align 8, !tbaa !96
-  %6 = load i32, ptr %5, align 8, !tbaa !98
+  %5 = load ptr, ptr %.05, align 8, !tbaa !93
+  %6 = load i32, ptr %5, align 8, !tbaa !95
   %7 = add i32 %6, -32
   %or.cond.i = icmp ult i32 %7, 9
   br i1 %or.cond.i, label %_is_metadata_ui.exit, label %_is_metadata_ui.exit.thread
@@ -2331,26 +2331,26 @@ _is_metadata_ui.exit:                             ; preds = %.lr.ph
 
 _is_metadata_ui.exit.thread:                      ; preds = %.lr.ph, %_is_metadata_ui.exit
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !154
+  %11 = load i32, ptr %10, align 8, !tbaa !146
   %.not14 = icmp eq i32 %11, 0
   %12 = select i1 %.not14, ptr @.str.30, ptr @.str.99
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !153
+  %14 = load ptr, ptr %13, align 8, !tbaa !145
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %1, ptr noundef nonnull @.str.98, ptr noundef nonnull %12, ptr noundef %14) #13
   br label %15
 
 15:                                               ; preds = %_is_metadata_ui.exit.thread, %_is_metadata_ui.exit
   %16 = getelementptr inbounds nuw i8, ptr %.05, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !155
+  %17 = load ptr, ptr %16, align 8, !tbaa !147
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !168
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 18:                                               ; preds = %._crit_edge
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre) #15
   %20 = getelementptr i8, ptr %.pre, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -1
-  store i8 0, ptr %21, align 1, !tbaa !110
-  %.pre6 = load ptr, ptr %1, align 8, !tbaa !111
+  store i8 0, ptr %21, align 1, !tbaa !106
+  %.pre6 = load ptr, ptr %1, align 8, !tbaa !107
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %0, %18, %._crit_edge
@@ -2367,7 +2367,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef readonly captures(none) %0, p
 4:                                                ; preds = %3
   tail call fastcc void @_apply_preferences(ptr noundef nonnull %1, ptr noundef %0)
   %5 = getelementptr i8, ptr %0, i64 280
-  %.val = load ptr, ptr %5, align 8, !tbaa !90
+  %.val = load ptr, ptr %5, align 8, !tbaa !87
   %6 = tail call fastcc ptr @_get_current_configuration(ptr %.val)
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.50, ptr noundef %6) #13
   tail call void @g_free(ptr noundef %6) #13
@@ -2384,32 +2384,32 @@ define internal fastcc void @_apply_preferences(ptr noundef %0, ptr noundef read
   br i1 %.not, label %25, label %3
 
 3:                                                ; preds = %2
-  %4 = load i8, ptr %0, align 1, !tbaa !110
+  %4 = load i8, ptr %0, align 1, !tbaa !106
   %.not34 = icmp eq i8 %4, 0
   br i1 %.not34, label %25, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %7 = load ptr, ptr %6, align 8, !tbaa !90
+  %7 = load ptr, ptr %6, align 8, !tbaa !87
   %8 = tail call ptr @dt_util_str_to_glist(ptr noundef nonnull @.str.100, ptr noundef nonnull %0) #13
   %.not3540 = icmp eq ptr %8, null
   br i1 %.not3540, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %22, %5
   tail call void @g_list_free_full(ptr noundef %8, ptr noundef nonnull @g_free) #13
-  %.val = load ptr, ptr %6, align 8, !tbaa !90
+  %.val = load ptr, ptr %6, align 8, !tbaa !87
   tail call fastcc void @_lib_metadata_refill_grid(ptr %.val)
   br label %25
 
 .lr.ph:                                           ; preds = %5, %22
   %.042 = phi i32 [ %.1, %22 ], [ 0, %5 ]
   %.03141 = phi ptr [ %24, %22 ], [ %8, %5 ]
-  %9 = load ptr, ptr %.03141, align 8, !tbaa !96
+  %9 = load ptr, ptr %.03141, align 8, !tbaa !93
   %.not36 = icmp eq ptr %9, null
   br i1 %.not36, label %22, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = load i8, ptr %9, align 1, !tbaa !110
+  %11 = load i8, ptr %9, align 1, !tbaa !106
   %12 = icmp eq i8 %11, 124
   %spec.select.idx = zext i1 %12 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %9, i64 %spec.select.idx
@@ -2420,23 +2420,23 @@ define internal fastcc void @_apply_preferences(ptr noundef %0, ptr noundef read
 .critedge:                                        ; preds = %13, %10
   %.pn = phi ptr [ %7, %10 ], [ %.027, %13 ]
   %.027.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %.027 = load ptr, ptr %.027.in, align 8, !tbaa !95
+  %.027 = load ptr, ptr %.027.in, align 8, !tbaa !92
   %.not37 = icmp eq ptr %.027, null
   br i1 %.not37, label %.loopexit, label %13
 
 13:                                               ; preds = %.critedge
-  %14 = load ptr, ptr %.027, align 8, !tbaa !96
+  %14 = load ptr, ptr %.027, align 8, !tbaa !93
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !153
+  %16 = load ptr, ptr %15, align 8, !tbaa !145
   %17 = tail call i32 @g_strcmp0(ptr noundef nonnull %spec.select, ptr noundef %16) #13
   %.not38.not = icmp eq i32 %17, 0
-  br i1 %.not38.not, label %18, label %.critedge, !llvm.loop !169
+  br i1 %.not38.not, label %18, label %.critedge
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i32 %.042, ptr %19, align 4, !tbaa !144
+  store i32 %.042, ptr %19, align 4, !tbaa !136
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 %spec.select39, ptr %20, align 8, !tbaa !154
+  store i32 %spec.select39, ptr %20, align 8, !tbaa !146
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %18
@@ -2446,9 +2446,9 @@ define internal fastcc void @_apply_preferences(ptr noundef %0, ptr noundef read
 22:                                               ; preds = %.lr.ph, %.loopexit
   %.1 = phi i32 [ %21, %.loopexit ], [ %.042, %.lr.ph ]
   %23 = getelementptr inbounds nuw i8, ptr %.03141, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !155
+  %24 = load ptr, ptr %23, align 8, !tbaa !147
   %.not35 = icmp eq ptr %24, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !170
+  br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 25:                                               ; preds = %2, %3, %._crit_edge
   ret void
@@ -2458,9 +2458,9 @@ define internal fastcc void @_apply_preferences(ptr noundef %0, ptr noundef read
 define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store ptr %2, ptr %3, align 8, !tbaa !90
+  store ptr %2, ptr %3, align 8, !tbaa !87
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !152
+  store ptr null, ptr %4, align 8, !tbaa !144
   br label %5
 
 5:                                                ; preds = %28, %1
@@ -2482,19 +2482,19 @@ define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw [46 x ptr], ptr @_labels, i64 0, i64 %indvars.iv.i
-  %15 = load ptr, ptr %14, align 8, !tbaa !111
+  %15 = load ptr, ptr %14, align 8, !tbaa !107
   br label %_get_label.exit.i
 
 _get_label.exit.i:                                ; preds = %13, %10
   %.0.i.i = phi ptr [ %12, %10 ], [ %15, %13 ]
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %.0.i.i, ptr %16, align 8, !tbaa !153
+  store ptr %.0.i.i, ptr %16, align 8, !tbaa !145
   %17 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.14) #13
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %17, ptr %18, align 8, !tbaa !140
+  store ptr %17, ptr %18, align 8, !tbaa !132
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %8, ptr %19, align 4, !tbaa !144
-  store i32 %8, ptr %6, align 8, !tbaa !98
+  store i32 %8, ptr %19, align 4, !tbaa !136
+  store i32 %8, ptr %6, align 8, !tbaa !95
   br i1 %or.cond.i.i, label %20, label %_is_metadata_ui.exit.i
 
 20:                                               ; preds = %_get_label.exit.i
@@ -2507,51 +2507,51 @@ _get_label.exit.i:                                ; preds = %13, %10
 _is_metadata_ui.exit.i:                           ; preds = %20, %_get_label.exit.i
   %.0.i17.i = phi i32 [ %24, %20 ], [ 1, %_get_label.exit.i ]
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 %.0.i17.i, ptr %25, align 8, !tbaa !154
-  %26 = load ptr, ptr %4, align 8, !tbaa !152
+  store i32 %.0.i17.i, ptr %25, align 8, !tbaa !146
+  %26 = load ptr, ptr %4, align 8, !tbaa !144
   %27 = tail call ptr @g_list_prepend(ptr noundef %26, ptr noundef nonnull %6) #13
-  store ptr %27, ptr %4, align 8, !tbaa !152
+  store ptr %27, ptr %4, align 8, !tbaa !144
   br label %28
 
 28:                                               ; preds = %_is_metadata_ui.exit.i, %5
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not3.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not3.i, label %_lib_metadata_init_queue.exit, label %5, !llvm.loop !171
+  br i1 %.not3.i, label %_lib_metadata_init_queue.exit, label %5
 
 _lib_metadata_init_queue.exit:                    ; preds = %28
   %29 = tail call ptr @gtk_grid_new() #13
-  store ptr %29, ptr %2, align 8, !tbaa !141
+  store ptr %29, ptr %2, align 8, !tbaa !133
   %30 = tail call i64 @gtk_grid_get_type() #16
   %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %30) #13
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !145
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !137
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1424
-  %34 = load double, ptr %33, align 8, !tbaa !151
+  %34 = load double, ptr %33, align 8, !tbaa !143
   %35 = fmul reassoc nsz arcp contract afn double %34, 5.000000e+00
   %36 = fptoui double %35 to i32
   tail call void @gtk_grid_set_column_spacing(ptr noundef %31, i32 noundef %36) #13
   %37 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #13
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store ptr %37, ptr %38, align 8, !tbaa !172
+  store ptr %37, ptr %38, align 8, !tbaa !154
   %39 = tail call i64 @gtk_container_get_type() #16
   %40 = tail call ptr @g_type_check_instance_cast(ptr noundef %37, i64 noundef %39) #13
   %41 = tail call ptr @dt_ui_resize_wrap(ptr noundef %29, i32 noundef 200, ptr noundef nonnull @.str.49) #13
   tail call void @gtk_container_add(ptr noundef %40, ptr noundef %41) #13
-  %42 = load ptr, ptr %2, align 8, !tbaa !141
+  %42 = load ptr, ptr %2, align 8, !tbaa !133
   tail call void @gtk_widget_show_all(ptr noundef %42) #13
-  %43 = load ptr, ptr %2, align 8, !tbaa !141
+  %43 = load ptr, ptr %2, align 8, !tbaa !133
   tail call void @gtk_widget_set_no_show_all(ptr noundef %43, i32 noundef 1) #13
-  %.val41 = load ptr, ptr %3, align 8, !tbaa !90
+  %.val41 = load ptr, ptr %3, align 8, !tbaa !87
   %.023.in1.i = getelementptr inbounds nuw i8, ptr %.val41, i64 8
-  %.0232.i = load ptr, ptr %.023.in1.i, align 8, !tbaa !95
+  %.0232.i = load ptr, ptr %.023.in1.i, align 8, !tbaa !92
   %.not3.i42 = icmp eq ptr %.0232.i, null
   br i1 %.not3.i42, label %_lib_metadata_setup_grid.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_lib_metadata_init_queue.exit, %.lr.ph.i
   %.0235.i = phi ptr [ %.023.i, %.lr.ph.i ], [ %.0232.i, %_lib_metadata_init_queue.exit ]
   %.04.i = phi i32 [ %63, %.lr.ph.i ], [ 0, %_lib_metadata_init_queue.exit ]
-  %44 = load ptr, ptr %.0235.i, align 8, !tbaa !96
+  %44 = load ptr, ptr %.0235.i, align 8, !tbaa !93
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !153
+  %46 = load ptr, ptr %45, align 8, !tbaa !145
   %47 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %46, i32 noundef 5) #13
   %48 = tail call ptr @gtk_label_new(ptr noundef %47) #13
   tail call void @gtk_widget_set_halign(ptr noundef %48, i32 noundef 1) #13
@@ -2560,11 +2560,11 @@ _lib_metadata_init_queue.exit:                    ; preds = %28
   tail call void @gtk_label_set_xalign(ptr noundef %50, float noundef 0.000000e+00) #13
   %51 = tail call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef %49) #13
   tail call void @gtk_label_set_ellipsize(ptr noundef %51, i32 noundef 3) #13
-  %52 = load ptr, ptr %45, align 8, !tbaa !153
+  %52 = load ptr, ptr %45, align 8, !tbaa !145
   %53 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %52, i32 noundef 5) #13
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %48, ptr noundef %53) #13
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !140
+  %55 = load ptr, ptr %54, align 8, !tbaa !132
   %56 = tail call ptr @gtk_label_new(ptr noundef %55) #13
   tail call void @gtk_widget_set_name(ptr noundef %56, ptr noundef nonnull @.str.137) #13
   %57 = tail call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %49) #13
@@ -2572,17 +2572,17 @@ _lib_metadata_init_queue.exit:                    ; preds = %28
   tail call void @gtk_widget_set_halign(ptr noundef %56, i32 noundef 0) #13
   %58 = tail call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %49) #13
   tail call void @gtk_label_set_xalign(ptr noundef %58, float noundef 0.000000e+00) #13
-  %59 = load ptr, ptr %.val41, align 8, !tbaa !141
+  %59 = load ptr, ptr %.val41, align 8, !tbaa !133
   %60 = tail call ptr @g_type_check_instance_cast(ptr noundef %59, i64 noundef %30) #13
   tail call void @gtk_grid_attach(ptr noundef %60, ptr noundef %48, i32 noundef 0, i32 noundef %.04.i, i32 noundef 1, i32 noundef 1) #13
-  %61 = load ptr, ptr %.val41, align 8, !tbaa !141
+  %61 = load ptr, ptr %.val41, align 8, !tbaa !133
   %62 = tail call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %30) #13
   tail call void @gtk_grid_attach(ptr noundef %62, ptr noundef %56, i32 noundef 1, i32 noundef %.04.i, i32 noundef 1, i32 noundef 1) #13
   %63 = add nuw nsw i32 %.04.i, 1
   %.023.in.i = getelementptr inbounds nuw i8, ptr %.0235.i, i64 8
-  %.023.i = load ptr, ptr %.023.in.i, align 8, !tbaa !95
+  %.023.i = load ptr, ptr %.023.in.i, align 8, !tbaa !92
   %.not.i43 = icmp eq ptr %.023.i, null
-  br i1 %.not.i43, label %_lib_metadata_setup_grid.exit, label %.lr.ph.i, !llvm.loop !173
+  br i1 %.not.i43, label %_lib_metadata_setup_grid.exit, label %.lr.ph.i
 
 _lib_metadata_setup_grid.exit:                    ; preds = %.lr.ph.i, %_lib_metadata_init_queue.exit
   %64 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.50) #13
@@ -2591,22 +2591,22 @@ _lib_metadata_setup_grid.exit:                    ; preds = %.lr.ph.i, %_lib_met
   br i1 %.not, label %65, label %77
 
 65:                                               ; preds = %_lib_metadata_setup_grid.exit
-  %66 = load ptr, ptr %3, align 8, !tbaa !90
+  %66 = load ptr, ptr %3, align 8, !tbaa !87
   %.0.in11.i = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %.012.i = load ptr, ptr %.0.in11.i, align 8, !tbaa !95
+  %.012.i = load ptr, ptr %.0.in11.i, align 8, !tbaa !92
   %.not13.i = icmp eq ptr %.012.i, null
   br i1 %.not13.i, label %_display_default.exit, label %.lr.ph.i44
 
 ._crit_edge.loopexit.i:                           ; preds = %_is_metadata_ui.exit.i46
-  %.val.pre.i = load ptr, ptr %3, align 8, !tbaa !90
+  %.val.pre.i = load ptr, ptr %3, align 8, !tbaa !87
   br label %_display_default.exit
 
 .lr.ph.i44:                                       ; preds = %65, %_is_metadata_ui.exit.i46
   %.014.i = phi ptr [ %.0.i, %_is_metadata_ui.exit.i46 ], [ %.012.i, %65 ]
-  %67 = load ptr, ptr %.014.i, align 8, !tbaa !96
-  %68 = load i32, ptr %67, align 8, !tbaa !98
+  %67 = load ptr, ptr %.014.i, align 8, !tbaa !93
+  %68 = load i32, ptr %67, align 8, !tbaa !95
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  store i32 %68, ptr %69, align 4, !tbaa !144
+  store i32 %68, ptr %69, align 4, !tbaa !136
   %70 = add i32 %68, -32
   %or.cond.i.i45 = icmp ult i32 %70, 9
   br i1 %or.cond.i.i45, label %71, label %_is_metadata_ui.exit.i46
@@ -2621,11 +2621,11 @@ _lib_metadata_setup_grid.exit:                    ; preds = %.lr.ph.i, %_lib_met
 _is_metadata_ui.exit.i46:                         ; preds = %71, %.lr.ph.i44
   %.0.i.i47 = phi i32 [ %75, %71 ], [ 1, %.lr.ph.i44 ]
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  store i32 %.0.i.i47, ptr %76, align 8, !tbaa !154
+  store i32 %.0.i.i47, ptr %76, align 8, !tbaa !146
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
-  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !95
+  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !92
   %.not.i48 = icmp eq ptr %.0.i, null
-  br i1 %.not.i48, label %._crit_edge.loopexit.i, label %.lr.ph.i44, !llvm.loop !174
+  br i1 %.not.i48, label %._crit_edge.loopexit.i, label %.lr.ph.i44
 
 _display_default.exit:                            ; preds = %65, %._crit_edge.loopexit.i
   %.val.i = phi ptr [ %.val.pre.i, %._crit_edge.loopexit.i ], [ %66, %65 ]
@@ -2634,7 +2634,7 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
 
 77:                                               ; preds = %_display_default.exit, %_lib_metadata_setup_grid.exit
   tail call fastcc void @_apply_preferences(ptr noundef nonnull %64, ptr noundef nonnull %0)
-  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !175
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !155
   %79 = and i32 %78, 2
   %80 = icmp ne i32 %79, 0
   %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3132), align 4
@@ -2653,9 +2653,9 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
   br label %87
 
 87:                                               ; preds = %83, %86, %77
-  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !176
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !156
   tail call void @dt_control_signal_connect(ptr noundef %88, i32 noundef 0, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef nonnull %0) #13
-  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !175
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !155
   %90 = and i32 %89, 2
   %91 = icmp ne i32 %90, 0
   %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3164), align 4
@@ -2674,9 +2674,9 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
   br label %98
 
 98:                                               ; preds = %94, %97, %87
-  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !176
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !156
   tail call void @dt_control_signal_connect(ptr noundef %99, i32 noundef 8, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef nonnull %0) #13
-  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !175
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !155
   %101 = and i32 %100, 2
   %102 = icmp ne i32 %101, 0
   %103 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3248), align 8
@@ -2695,9 +2695,9 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
   br label %109
 
 109:                                              ; preds = %105, %108, %98
-  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !176
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !156
   tail call void @dt_control_signal_connect(ptr noundef %110, i32 noundef 29, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef nonnull %0) #13
-  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !175
+  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !155
   %112 = and i32 %111, 2
   %113 = icmp ne i32 %112, 0
   %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3208), align 8
@@ -2716,9 +2716,9 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
   br label %120
 
 120:                                              ; preds = %116, %119, %109
-  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !176
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !156
   tail call void @dt_control_signal_connect(ptr noundef %121, i32 noundef 19, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef nonnull %0) #13
-  %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !175
+  %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !155
   %123 = and i32 %122, 2
   %124 = icmp ne i32 %123, 0
   %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
@@ -2737,9 +2737,9 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
   br label %131
 
 131:                                              ; preds = %127, %130, %120
-  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !176
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !156
   tail call void @dt_control_signal_connect(ptr noundef %132, i32 noundef 9, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef nonnull %0) #13
-  %133 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !175
+  %133 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !155
   %134 = and i32 %133, 2
   %135 = icmp ne i32 %134, 0
   %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3304), align 8
@@ -2758,7 +2758,7 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
   br label %142
 
 142:                                              ; preds = %138, %141, %131
-  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !176
+  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !156
   tail call void @dt_control_signal_connect(ptr noundef %143, i32 noundef 43, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef nonnull %0) #13
   %144 = tail call ptr @dt_action_register(ptr noundef nonnull %0, ptr noundef nonnull @.str.59, ptr noundef nonnull @_jump_to_accel, i32 noundef 106, i32 noundef 4) #13
   ret void
@@ -2809,20 +2809,20 @@ define internal void @_jump_to_accel(ptr readnone captures(none) %0) #1 {
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !87
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !152
+  %5 = load ptr, ptr %4, align 8, !tbaa !144
   tail call void @g_list_free_full(ptr noundef %5, ptr noundef nonnull @_free_metadata_queue) #13
-  %6 = load ptr, ptr %2, align 8, !tbaa !90
+  %6 = load ptr, ptr %2, align 8, !tbaa !87
   tail call void @g_free(ptr noundef %6) #13
-  store ptr null, ptr %2, align 8, !tbaa !90
+  store ptr null, ptr %2, align 8, !tbaa !87
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_free_metadata_queue(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !140
+  %3 = load ptr, ptr %2, align 8, !tbaa !132
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -2832,7 +2832,7 @@ define internal void @_free_metadata_queue(ptr noundef %0) #1 {
 
 5:                                                ; preds = %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !101
+  %7 = load ptr, ptr %6, align 8, !tbaa !97
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %9, label %8
 
@@ -2848,20 +2848,20 @@ define internal void @_free_metadata_queue(ptr noundef %0) #1 {
 ; Function Attrs: nounwind uwtable
 define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %3 = load ptr, ptr %2, align 8, !tbaa !90
+  %3 = load ptr, ptr %2, align 8, !tbaa !87
   %.0.in13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.014 = load ptr, ptr %.0.in13, align 8, !tbaa !95
+  %.014 = load ptr, ptr %.0.in13, align 8, !tbaa !92
   %.not15 = icmp eq ptr %.014, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_is_metadata_ui.exit
-  %.val.pre = load ptr, ptr %2, align 8, !tbaa !90
+  %.val.pre = load ptr, ptr %2, align 8, !tbaa !87
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
   %.val = phi ptr [ %.val.pre, %._crit_edge.loopexit ], [ %3, %1 ]
   tail call fastcc void @_lib_metadata_refill_grid(ptr %.val)
-  %.val12 = load ptr, ptr %2, align 8, !tbaa !90
+  %.val12 = load ptr, ptr %2, align 8, !tbaa !87
   %4 = tail call fastcc ptr @_get_current_configuration(ptr %.val12)
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.50, ptr noundef %4) #13
   tail call void @g_free(ptr noundef %4) #13
@@ -2869,10 +2869,10 @@ define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_add
 
 .lr.ph:                                           ; preds = %1, %_is_metadata_ui.exit
   %.016 = phi ptr [ %.0, %_is_metadata_ui.exit ], [ %.014, %1 ]
-  %5 = load ptr, ptr %.016, align 8, !tbaa !96
-  %6 = load i32, ptr %5, align 8, !tbaa !98
+  %5 = load ptr, ptr %.016, align 8, !tbaa !93
+  %6 = load i32, ptr %5, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %6, ptr %7, align 4, !tbaa !144
+  store i32 %6, ptr %7, align 4, !tbaa !136
   %8 = add i32 %6, -32
   %or.cond.i = icmp ult i32 %8, 9
   br i1 %or.cond.i, label %9, label %_is_metadata_ui.exit
@@ -2887,11 +2887,11 @@ define void @gui_reset(ptr noundef readonly captures(none) %0) local_unnamed_add
 _is_metadata_ui.exit:                             ; preds = %.lr.ph, %9
   %.0.i = phi i32 [ %13, %9 ], [ 1, %.lr.ph ]
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %.0.i, ptr %14, align 8, !tbaa !154
+  store i32 %.0.i, ptr %14, align 8, !tbaa !146
   %.0.in = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !95
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !92
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !177
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 declare i32 @g_utf8_validate(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
@@ -2936,7 +2936,7 @@ declare i32 @g_signal_handlers_disconnect_matched(ptr noundef, i32 noundef, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_filmroll_clicked(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #1 {
-  %4 = load i32, ptr %1, align 8, !tbaa !178
+  %4 = load i32, ptr %1, align 8, !tbaa !157
   %.not = icmp eq i32 %4, 5
   br i1 %.not, label %5, label %6
 
@@ -3009,10 +3009,10 @@ define internal fastcc void @_jump_to() unnamed_addr #1 {
 .thread:                                          ; preds = %0, %26
   %.09 = phi i32 [ %27, %26 ], [ %4, %0 ]
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %2) #13
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !88
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !85
   %32 = call ptr @dt_image_cache_get(ptr noundef %31, i32 noundef %.09, i8 noundef signext 114) #13
   call void @dt_image_film_roll_directory(ptr noundef %32, ptr noundef nonnull %2, i64 noundef 512) #13
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !88
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !85
   call void @dt_image_cache_read_release(ptr noundef %33, ptr noundef %32) #13
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #13
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 1024, ptr noundef nonnull @.str.97, ptr noundef nonnull %2) #13
@@ -3161,101 +3161,80 @@ attributes #17 = { nounwind allocsize(0) }
 !82 = !{!83, !83, i64 0}
 !83 = !{!"p1 _ZTS12sqlite3_stmt", !13, i64 0}
 !84 = !{!9, !9, i64 0}
-!85 = distinct !{!85, !86}
-!86 = !{!"llvm.loop.estimated_trip_count"}
-!87 = distinct !{!87, !86}
-!88 = !{!7, !23, i64 120}
-!89 = !{!52, !9, i64 1424}
-!90 = !{!91, !13, i64 280}
-!91 = !{!"dt_lib_module_t", !92, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !94, i64 272, !13, i64 280, !10, i64 288, !72, i64 416, !72, i64 424, !9, i64 432, !72, i64 440, !72, i64 448, !72, i64 456, !9, i64 464}
-!92 = !{!"dt_action_t", !9, i64 0, !38, i64 8, !38, i64 16, !13, i64 24, !93, i64 32, !93, i64 40}
-!93 = !{!"p1 _ZTS11dt_action_t", !13, i64 0}
-!94 = !{!"p1 _ZTS8_GModule", !13, i64 0}
-!95 = !{!12, !12, i64 0}
-!96 = !{!97, !13, i64 0}
-!97 = !{!"_GList", !13, i64 0, !12, i64 8, !12, i64 16}
-!98 = !{!99, !9, i64 0}
-!99 = !{!"dt_lib_metadata_info_t", !9, i64 0, !9, i64 4, !38, i64 8, !38, i64 16, !38, i64 24, !9, i64 32}
-!100 = distinct !{!100, !86}
-!101 = !{!99, !38, i64 24}
-!102 = !{!52, !9, i64 1432}
-!103 = !{!52, !9, i64 1436}
-!104 = !{!52, !9, i64 1428}
-!105 = !{!52, !9, i64 1420}
-!106 = !{!52, !44, i64 1440}
-!107 = !{!52, !44, i64 1448}
-!108 = !{!52, !44, i64 1456}
-!109 = !{!52, !44, i64 1464}
-!110 = !{!10, !10, i64 0}
-!111 = !{!38, !38, i64 0}
-!112 = !{!52, !9, i64 1472}
-!113 = !{!114, !10, i64 8}
-!114 = !{!"", !38, i64 0, !10, i64 8}
-!115 = !{!114, !38, i64 0}
-!116 = !{!52, !53, i64 16}
-!117 = !{!52, !53, i64 8}
-!118 = !{!52, !53, i64 12}
-!119 = !{!52, !53, i64 24}
-!120 = !{!52, !53, i64 32}
-!121 = !{!52, !53, i64 28}
-!122 = !{!52, !53, i64 20}
-!123 = !{!52, !9, i64 1388}
-!124 = !{!52, !9, i64 1372}
-!125 = !{!52, !9, i64 1392}
-!126 = !{!52, !9, i64 1376}
-!127 = !{!52, !9, i64 1380}
-!128 = !{!52, !9, i64 1384}
-!129 = !{!52, !40, i64 1688}
-!130 = !{!52, !40, i64 1680}
-!131 = !{!52, !40, i64 1696}
-!132 = !{!133, !38, i64 16}
-!133 = !{!"dt_tag_t", !9, i64 0, !38, i64 8, !38, i64 16, !38, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
-!134 = !{!133, !9, i64 40}
-!135 = !{!133, !38, i64 8}
-!136 = distinct !{!136, !86}
-!137 = distinct !{!137, !86}
-!138 = distinct !{!138, !86}
-!139 = distinct !{!139, !86}
-!140 = !{!99, !38, i64 16}
-!141 = !{!142, !72, i64 0}
-!142 = !{!"dt_lib_metadata_view_t", !72, i64 0, !12, i64 8, !143, i64 16}
-!143 = !{!"p1 _ZTS8_GObject", !13, i64 0}
-!144 = !{!99, !9, i64 4}
-!145 = !{!7, !21, i64 104}
-!146 = !{!147, !148, i64 0}
-!147 = !{!"dt_gui_gtk_t", !148, i64 0, !149, i64 8, !150, i64 56, !9, i64 80, !38, i64 88, !9, i64 96, !10, i64 104, !9, i64 1352, !9, i64 1356, !9, i64 1360, !9, i64 1364, !9, i64 1368, !40, i64 1376, !40, i64 1384, !40, i64 1392, !40, i64 1400, !72, i64 1408, !40, i64 1416, !40, i64 1424, !40, i64 1432, !40, i64 1440, !9, i64 1448, !9, i64 1452, !10, i64 1456, !9, i64 5552, !9, i64 5556, !9, i64 5560, !37, i64 5568}
-!148 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
-!149 = !{!"dt_gui_widgets_t", !72, i64 0, !72, i64 8, !72, i64 16, !72, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
-!150 = !{!"dt_gui_scrollbars_t", !72, i64 0, !72, i64 8, !9, i64 16}
-!151 = !{!147, !40, i64 1424}
-!152 = !{!142, !12, i64 8}
-!153 = !{!99, !38, i64 8}
-!154 = !{!99, !9, i64 32}
-!155 = !{!97, !12, i64 8}
-!156 = distinct !{!156, !86}
-!157 = distinct !{!157, !86}
-!158 = distinct !{!158, !86}
-!159 = distinct !{!159, !86}
-!160 = distinct !{!160, !86}
-!161 = !{!142, !143, i64 16}
-!162 = !{!163, !164, i64 0}
-!163 = !{!"_GTypeInstance", !164, i64 0}
-!164 = !{!"p1 _ZTS11_GTypeClass", !13, i64 0}
-!165 = !{!166, !44, i64 0}
-!166 = !{!"_GTypeClass", !44, i64 0}
-!167 = distinct !{!167, !86}
-!168 = distinct !{!168, !86}
-!169 = distinct !{!169, !86}
-!170 = distinct !{!170, !86}
-!171 = distinct !{!171, !86}
-!172 = !{!91, !72, i64 416}
-!173 = distinct !{!173, !86}
-!174 = distinct !{!174, !86}
-!175 = !{!7, !9, i64 3128}
-!176 = !{!7, !20, i64 96}
-!177 = distinct !{!177, !86}
-!178 = !{!179, !9, i64 0}
-!179 = !{!"_GdkEventButton", !9, i64 0, !180, i64 8, !10, i64 16, !9, i64 20, !40, i64 24, !40, i64 32, !181, i64 40, !9, i64 48, !9, i64 52, !182, i64 56, !40, i64 64, !40, i64 72}
-!180 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
-!181 = !{!"p1 double", !13, i64 0}
-!182 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
+!85 = !{!7, !23, i64 120}
+!86 = !{!52, !9, i64 1424}
+!87 = !{!88, !13, i64 280}
+!88 = !{!"dt_lib_module_t", !89, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !13, i64 208, !13, i64 216, !13, i64 224, !13, i64 232, !13, i64 240, !13, i64 248, !13, i64 256, !13, i64 264, !91, i64 272, !13, i64 280, !10, i64 288, !72, i64 416, !72, i64 424, !9, i64 432, !72, i64 440, !72, i64 448, !72, i64 456, !9, i64 464}
+!89 = !{!"dt_action_t", !9, i64 0, !38, i64 8, !38, i64 16, !13, i64 24, !90, i64 32, !90, i64 40}
+!90 = !{!"p1 _ZTS11dt_action_t", !13, i64 0}
+!91 = !{!"p1 _ZTS8_GModule", !13, i64 0}
+!92 = !{!12, !12, i64 0}
+!93 = !{!94, !13, i64 0}
+!94 = !{!"_GList", !13, i64 0, !12, i64 8, !12, i64 16}
+!95 = !{!96, !9, i64 0}
+!96 = !{!"dt_lib_metadata_info_t", !9, i64 0, !9, i64 4, !38, i64 8, !38, i64 16, !38, i64 24, !9, i64 32}
+!97 = !{!96, !38, i64 24}
+!98 = !{!52, !9, i64 1432}
+!99 = !{!52, !9, i64 1436}
+!100 = !{!52, !9, i64 1428}
+!101 = !{!52, !9, i64 1420}
+!102 = !{!52, !44, i64 1440}
+!103 = !{!52, !44, i64 1448}
+!104 = !{!52, !44, i64 1456}
+!105 = !{!52, !44, i64 1464}
+!106 = !{!10, !10, i64 0}
+!107 = !{!38, !38, i64 0}
+!108 = !{!52, !9, i64 1472}
+!109 = !{!110, !10, i64 8}
+!110 = !{!"", !38, i64 0, !10, i64 8}
+!111 = !{!110, !38, i64 0}
+!112 = !{!52, !53, i64 16}
+!113 = !{!52, !53, i64 8}
+!114 = !{!52, !53, i64 12}
+!115 = !{!52, !53, i64 24}
+!116 = !{!52, !53, i64 32}
+!117 = !{!52, !53, i64 28}
+!118 = !{!52, !53, i64 20}
+!119 = !{!52, !9, i64 1388}
+!120 = !{!52, !9, i64 1372}
+!121 = !{!52, !9, i64 1392}
+!122 = !{!52, !9, i64 1376}
+!123 = !{!52, !9, i64 1380}
+!124 = !{!52, !9, i64 1384}
+!125 = !{!52, !40, i64 1688}
+!126 = !{!52, !40, i64 1680}
+!127 = !{!52, !40, i64 1696}
+!128 = !{!129, !38, i64 16}
+!129 = !{!"dt_tag_t", !9, i64 0, !38, i64 8, !38, i64 16, !38, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
+!130 = !{!129, !9, i64 40}
+!131 = !{!129, !38, i64 8}
+!132 = !{!96, !38, i64 16}
+!133 = !{!134, !72, i64 0}
+!134 = !{!"dt_lib_metadata_view_t", !72, i64 0, !12, i64 8, !135, i64 16}
+!135 = !{!"p1 _ZTS8_GObject", !13, i64 0}
+!136 = !{!96, !9, i64 4}
+!137 = !{!7, !21, i64 104}
+!138 = !{!139, !140, i64 0}
+!139 = !{!"dt_gui_gtk_t", !140, i64 0, !141, i64 8, !142, i64 56, !9, i64 80, !38, i64 88, !9, i64 96, !10, i64 104, !9, i64 1352, !9, i64 1356, !9, i64 1360, !9, i64 1364, !9, i64 1368, !40, i64 1376, !40, i64 1384, !40, i64 1392, !40, i64 1400, !72, i64 1408, !40, i64 1416, !40, i64 1424, !40, i64 1432, !40, i64 1440, !9, i64 1448, !9, i64 1452, !10, i64 1456, !9, i64 5552, !9, i64 5556, !9, i64 5560, !37, i64 5568}
+!140 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
+!141 = !{!"dt_gui_widgets_t", !72, i64 0, !72, i64 8, !72, i64 16, !72, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
+!142 = !{!"dt_gui_scrollbars_t", !72, i64 0, !72, i64 8, !9, i64 16}
+!143 = !{!139, !40, i64 1424}
+!144 = !{!134, !12, i64 8}
+!145 = !{!96, !38, i64 8}
+!146 = !{!96, !9, i64 32}
+!147 = !{!94, !12, i64 8}
+!148 = !{!134, !135, i64 16}
+!149 = !{!150, !151, i64 0}
+!150 = !{!"_GTypeInstance", !151, i64 0}
+!151 = !{!"p1 _ZTS11_GTypeClass", !13, i64 0}
+!152 = !{!153, !44, i64 0}
+!153 = !{!"_GTypeClass", !44, i64 0}
+!154 = !{!88, !72, i64 416}
+!155 = !{!7, !9, i64 3128}
+!156 = !{!7, !20, i64 96}
+!157 = !{!158, !9, i64 0}
+!158 = !{!"_GdkEventButton", !9, i64 0, !159, i64 8, !10, i64 16, !9, i64 20, !40, i64 24, !40, i64 32, !160, i64 40, !9, i64 48, !9, i64 52, !161, i64 56, !40, i64 64, !40, i64 72}
+!159 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
+!160 = !{!"p1 double", !13, i64 0}
+!161 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}

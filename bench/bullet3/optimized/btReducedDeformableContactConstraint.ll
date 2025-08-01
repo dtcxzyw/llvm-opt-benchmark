@@ -1020,8 +1020,8 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintC2EP23b
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTV45btReducedDeformableNodeRigidContactConstraint, i64 16), ptr %0, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 848
-  %41 = load ptr, ptr %40, align 8, !tbaa !112
-  store ptr %41, ptr %39, align 8, !tbaa !114
+  %41 = load ptr, ptr %40, align 8, !tbaa !111
+  store ptr %41, ptr %39, align 8, !tbaa !113
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 196
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !24
@@ -1040,11 +1040,11 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintC2EP23b
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %52, align 4
   %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 220
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.52.0..sroa_idx, align 4, !tbaa !25
-  %53 = load ptr, ptr %40, align 8, !tbaa !112
+  %53 = load ptr, ptr %40, align 8, !tbaa !111
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 136
   %55 = load i32, ptr %54, align 8, !tbaa !28
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 932
-  %57 = load i32, ptr %56, align 4, !tbaa !116
+  %57 = load i32, ptr %56, align 4, !tbaa !115
   %58 = icmp slt i32 %55, %57
   br i1 %58, label %65, label %59
 
@@ -1052,7 +1052,7 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintC2EP23b
   %60 = getelementptr inbounds nuw i8, ptr %41, i64 136
   %61 = load i32, ptr %60, align 8, !tbaa !28
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 3136
-  %63 = load i32, ptr %62, align 8, !tbaa !119
+  %63 = load i32, ptr %62, align 8, !tbaa !118
   %64 = sub nsw i32 %61, %63
   br label %65
 
@@ -1147,48 +1147,48 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintC2EP23b
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr dead_on_unwind nonnull writable sret(%class.btMatrix3x3) align 4 %7, ptr noundef nonnull align 8 dereferenceable(3176) %107, i32 noundef %108)
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %113 = load float, ptr %7, align 4, !tbaa !35, !noalias !203
-  %114 = load float, ptr %112, align 8, !tbaa !35, !noalias !203
+  %113 = load float, ptr %7, align 4, !tbaa !35, !noalias !202
+  %114 = load float, ptr %112, align 8, !tbaa !35, !noalias !202
   %115 = fadd float %113, %114
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %117 = load float, ptr %116, align 4, !tbaa !35, !noalias !203
+  %117 = load float, ptr %116, align 4, !tbaa !35, !noalias !202
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %119 = load float, ptr %118, align 4, !tbaa !35, !noalias !203
+  %119 = load float, ptr %118, align 4, !tbaa !35, !noalias !202
   %120 = fadd float %117, %119
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %122 = load float, ptr %121, align 4, !tbaa !35, !noalias !203
+  %122 = load float, ptr %121, align 4, !tbaa !35, !noalias !202
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %124 = load float, ptr %123, align 8, !tbaa !35, !noalias !203
+  %124 = load float, ptr %123, align 8, !tbaa !35, !noalias !202
   %125 = fadd float %122, %124
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %127 = load float, ptr %126, align 4, !tbaa !35, !noalias !203
+  %127 = load float, ptr %126, align 4, !tbaa !35, !noalias !202
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %129 = load float, ptr %128, align 8, !tbaa !35, !noalias !203
+  %129 = load float, ptr %128, align 8, !tbaa !35, !noalias !202
   %130 = fadd float %127, %129
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %132 = load float, ptr %131, align 4, !tbaa !35, !noalias !203
+  %132 = load float, ptr %131, align 4, !tbaa !35, !noalias !202
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 84
-  %134 = load float, ptr %133, align 4, !tbaa !35, !noalias !203
+  %134 = load float, ptr %133, align 4, !tbaa !35, !noalias !202
   %135 = fadd float %132, %134
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %137 = load float, ptr %136, align 4, !tbaa !35, !noalias !203
+  %137 = load float, ptr %136, align 4, !tbaa !35, !noalias !202
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %139 = load float, ptr %138, align 8, !tbaa !35, !noalias !203
+  %139 = load float, ptr %138, align 8, !tbaa !35, !noalias !202
   %140 = fadd float %137, %139
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %142 = load float, ptr %141, align 4, !tbaa !35, !noalias !203
+  %142 = load float, ptr %141, align 4, !tbaa !35, !noalias !202
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %144 = load float, ptr %143, align 8, !tbaa !35, !noalias !203
+  %144 = load float, ptr %143, align 8, !tbaa !35, !noalias !202
   %145 = fadd float %142, %144
   %146 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  %147 = load float, ptr %146, align 4, !tbaa !35, !noalias !203
+  %147 = load float, ptr %146, align 4, !tbaa !35, !noalias !202
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 100
-  %149 = load float, ptr %148, align 4, !tbaa !35, !noalias !203
+  %149 = load float, ptr %148, align 4, !tbaa !35, !noalias !202
   %150 = fadd float %147, %149
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %152 = load float, ptr %151, align 4, !tbaa !35, !noalias !203
+  %152 = load float, ptr %151, align 4, !tbaa !35, !noalias !202
   %153 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %154 = load float, ptr %153, align 8, !tbaa !35, !noalias !203
+  %154 = load float, ptr %153, align 8, !tbaa !35, !noalias !202
   %155 = fadd float %152, %154
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store float %115, ptr %156, align 4
@@ -1247,7 +1247,7 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraintC2EP23b
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store float %185, ptr %186, align 8, !tbaa !92
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store float 0.000000e+00, ptr %187, align 4, !tbaa !206
+  store float 0.000000e+00, ptr %187, align 4, !tbaa !205
   %188 = load ptr, ptr %0, align 8, !tbaa !16
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 88
   %190 = load ptr, ptr %189, align 8
@@ -1310,7 +1310,7 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraint12warmS
 41:                                               ; preds = %1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store float 0.000000e+00, ptr %43, align 4, !tbaa !206
+  store float 0.000000e+00, ptr %43, align 4, !tbaa !205
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store float 0.000000e+00, ptr %44, align 4, !tbaa !93
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, i8 0, i64 16, i1 false)
@@ -1367,12 +1367,12 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraint12warmS
   %84 = tail call float @llvm.fmuladd.f32(float %64, float %51, float %83)
   %85 = tail call noundef float @llvm.fmuladd.f32(float %82, float %53, float %84)
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store float %85, ptr %86, align 4, !tbaa !206
+  store float %85, ptr %86, align 4, !tbaa !205
   %87 = fdiv float 1.000000e+00, %85
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store float %87, ptr %88, align 4, !tbaa !93
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store float 0.000000e+00, ptr %89, align 8, !tbaa !207
+  store float 0.000000e+00, ptr %89, align 8, !tbaa !206
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store float 0.000000e+00, ptr %90, align 8, !tbaa !95
   br label %156
@@ -1422,7 +1422,7 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraint12warmS
   %131 = tail call float @llvm.fmuladd.f32(float %111, float %100, float %130)
   %132 = tail call noundef float @llvm.fmuladd.f32(float %129, float %110, float %131)
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store float %132, ptr %133, align 4, !tbaa !206
+  store float %132, ptr %133, align 4, !tbaa !205
   %134 = fdiv float 1.000000e+00, %132
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store float %134, ptr %135, align 4, !tbaa !93
@@ -1444,7 +1444,7 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraint12warmS
   %151 = tail call float @llvm.fmuladd.f32(float %143, float %136, float %150)
   %152 = tail call noundef float @llvm.fmuladd.f32(float %149, float %142, float %151)
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store float %152, ptr %153, align 8, !tbaa !207
+  store float %152, ptr %153, align 8, !tbaa !206
   %154 = fdiv float 1.000000e+00, %152
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store float %154, ptr %155, align 8, !tbaa !95
@@ -1456,7 +1456,7 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraint12warmS
   %159 = phi float [ %52, %49 ], [ %104, %91 ], [ 0.000000e+00, %41 ]
   %160 = phi float [ %51, %49 ], [ %100, %91 ], [ 0.000000e+00, %41 ]
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %162 = load float, ptr %161, align 8, !tbaa !208
+  %162 = load float, ptr %161, align 8, !tbaa !207
   %163 = fcmp ogt float %162, 0.000000e+00
   br i1 %163, label %164, label %169
 
@@ -1521,7 +1521,7 @@ define dso_local void @_ZN45btReducedDeformableNodeRigidContactConstraint12warmS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint5getVbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %3 = load ptr, ptr %2, align 8, !tbaa !114
+  %3 = load ptr, ptr %2, align 8, !tbaa !113
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %.sroa.0.0.copyload = load <2 x float>, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -1652,7 +1652,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
   %86 = tail call float @llvm.fmuladd.f32(float %83, float %85, float %.08688)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph93.preheader, label %.lr.ph, !llvm.loop !209
+  br i1 %exitcond.not, label %.lr.ph93.preheader, label %.lr.ph, !llvm.loop !208
 
 ._crit_edge94:                                    ; preds = %.lr.ph93, %._crit_edge
   %87 = phi float [ %72, %._crit_edge ], [ %81, %.lr.ph93 ]
@@ -1688,7 +1688,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
   %106 = tail call float @llvm.fmuladd.f32(float %103, float %105, float %.190)
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count109
-  br i1 %exitcond110.not, label %._crit_edge94, label %.lr.ph93, !llvm.loop !210
+  br i1 %exitcond110.not, label %._crit_edge94, label %.lr.ph93, !llvm.loop !209
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %._crit_edge94
   %.2.lcssa = phi float [ 0.000000e+00, %._crit_edge94 ], [ %124, %.lr.ph99 ]
@@ -1719,7 +1719,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
   %124 = tail call float @llvm.fmuladd.f32(float %121, float %123, float %.296)
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count115
-  br i1 %exitcond116.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !211
+  br i1 %exitcond116.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !210
 
 125:                                              ; preds = %42, %._crit_edge100, %9, %1
   %.sroa.062.0 = phi <2 x float> [ zeroinitializer, %1 ], [ zeroinitializer, %42 ], [ %.sroa.062.4.vec.insert77, %._crit_edge100 ], [ %.sroa.0.4.vec.insert.i31, %9 ]
@@ -1743,7 +1743,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigidContactConstraint10getSplitVbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %3 = load ptr, ptr %2, align 8, !tbaa !114
+  %3 = load ptr, ptr %2, align 8, !tbaa !113
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 140
   %.sroa.0.0.copyload = load <2 x float>, ptr %4, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 148
@@ -1843,10 +1843,10 @@ define dso_local void @_ZN45btReducedDeformableFaceRigidContactConstraintC2EP23b
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTV45btReducedDeformableFaceRigidContactConstraint, i64 16), ptr %0, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 848
-  %41 = load ptr, ptr %40, align 8, !tbaa !212
-  store ptr %41, ptr %39, align 8, !tbaa !214
+  %41 = load ptr, ptr %40, align 8, !tbaa !211
+  store ptr %41, ptr %39, align 8, !tbaa !213
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store i8 %7, ptr %42, align 8, !tbaa !216
+  store i8 %7, ptr %42, align 8, !tbaa !215
   ret void
 }
 
@@ -1855,9 +1855,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigi
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !58
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %5 = load ptr, ptr %4, align 8, !tbaa !214
+  %5 = load ptr, ptr %4, align 8, !tbaa !213
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !217
+  %7 = load ptr, ptr %6, align 8, !tbaa !216
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 872
   %10 = load float, ptr %8, align 4, !tbaa !35
@@ -1870,7 +1870,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigi
   %17 = load float, ptr %16, align 4, !tbaa !35
   %18 = fmul float %11, %17
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !217
+  %20 = load ptr, ptr %19, align 8, !tbaa !216
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 876
   %23 = load float, ptr %21, align 4, !tbaa !35
@@ -1886,7 +1886,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigi
   %33 = fadd float %15, %28
   %34 = fadd float %18, %31
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !217
+  %36 = load ptr, ptr %35, align 8, !tbaa !216
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 880
   %39 = load float, ptr %37, align 4, !tbaa !35
@@ -1914,9 +1914,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigi
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !58
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %5 = load ptr, ptr %4, align 8, !tbaa !214
+  %5 = load ptr, ptr %4, align 8, !tbaa !213
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !217
+  %7 = load ptr, ptr %6, align 8, !tbaa !216
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 140
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 872
   %10 = load float, ptr %8, align 4, !tbaa !35
@@ -1929,7 +1929,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigi
   %17 = load float, ptr %16, align 4, !tbaa !35
   %18 = fmul float %11, %17
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !217
+  %20 = load ptr, ptr %19, align 8, !tbaa !216
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 140
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 876
   %23 = load float, ptr %21, align 4, !tbaa !35
@@ -1945,7 +1945,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigi
   %33 = fadd float %15, %28
   %34 = fadd float %18, %31
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !217
+  %36 = load ptr, ptr %35, align 8, !tbaa !216
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 140
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 880
   %39 = load float, ptr %37, align 4, !tbaa !35
@@ -1985,15 +1985,15 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableFaceRigi
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load ptr, ptr %15, align 8, !tbaa !58
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %18 = load ptr, ptr %17, align 8, !tbaa !214
+  %18 = load ptr, ptr %17, align 8, !tbaa !213
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !217
+  %20 = load ptr, ptr %19, align 8, !tbaa !216
   %21 = icmp eq ptr %20, %1
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !217
+  %24 = load ptr, ptr %23, align 8, !tbaa !216
   %25 = icmp eq ptr %24, %1
   %. = select i1 %25, i64 892, i64 896
   br label %26
@@ -2063,9 +2063,9 @@ define linkonce_odr dso_local void @_ZN41btReducedDeformableRigidContactConstrai
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN34btDeformableRigidContactConstraint19setPenetrationScaleEf(ptr noundef nonnull align 8 dereferenceable(96) %0, float noundef %1) unnamed_addr #14 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load float, ptr %3, align 8, !tbaa !208
+  %4 = load float, ptr %3, align 8, !tbaa !207
   %5 = fmul float %1, %4
-  store float %5, ptr %3, align 8, !tbaa !208
+  store float %5, ptr %3, align 8, !tbaa !207
   ret void
 }
 
@@ -2255,112 +2255,111 @@ attributes #22 = { noreturn nounwind }
 !106 = !{!"_ZTS20btAlignedObjectArrayI15btMultibodyLinkE", !107, i64 0, !34, i64 4, !34, i64 8, !108, i64 16, !6, i64 24}
 !107 = !{!"_ZTS18btAlignedAllocatorI15btMultibodyLinkLj16EE"}
 !108 = !{!"p1 _ZTS15btMultibodyLink", !10, i64 0}
-!109 = distinct !{!109, !110, !111}
+!109 = distinct !{!109, !110}
 !110 = !{!"llvm.loop.mustprogress"}
-!111 = !{!"llvm.loop.estimated_trip_count"}
-!112 = !{!113, !15, i64 848}
-!113 = !{!"_ZTSN10btSoftBody26DeformableNodeRigidContactE", !60, i64 0, !15, i64 848}
-!114 = !{!115, !15, i64 440}
-!115 = !{!"_ZTS45btReducedDeformableNodeRigidContactConstraint", !39, i64 0, !15, i64 440}
-!116 = !{!117, !34, i64 4}
-!117 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4NodeEE", !118, i64 0, !34, i64 4, !34, i64 8, !15, i64 16, !6, i64 24}
-!118 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4NodeELj16EE"}
-!119 = !{!120, !34, i64 3136}
-!120 = !{!"_ZTS23btReducedDeformableBody", !121, i64 0, !6, i64 2064, !6, i64 2065, !21, i64 2068, !21, i64 2072, !200, i64 2080, !200, i64 2112, !64, i64 2144, !64, i64 2176, !67, i64 2208, !11, i64 2240, !11, i64 2256, !64, i64 2272, !11, i64 2304, !11, i64 2320, !11, i64 2336, !21, i64 2352, !21, i64 2356, !11, i64 2360, !11, i64 2376, !21, i64 2392, !21, i64 2396, !11, i64 2400, !11, i64 2416, !22, i64 2432, !76, i64 2480, !22, i64 2544, !22, i64 2592, !22, i64 2640, !11, i64 2688, !21, i64 2704, !21, i64 2708, !34, i64 2712, !34, i64 2716, !200, i64 2720, !64, i64 2752, !64, i64 2784, !64, i64 2816, !64, i64 2848, !64, i64 2880, !64, i64 2912, !64, i64 2944, !64, i64 2976, !64, i64 3008, !67, i64 3040, !64, i64 3072, !197, i64 3104, !34, i64 3136, !197, i64 3144}
-!121 = !{!"_ZTS10btSoftBody", !75, i64 0, !79, i64 376, !122, i64 408, !123, i64 416, !129, i64 624, !130, i64 648, !10, i64 880, !131, i64 888, !132, i64 896, !117, i64 928, !135, i64 960, !138, i64 992, !141, i64 1024, !144, i64 1056, !147, i64 1088, !150, i64 1120, !150, i64 1152, !153, i64 1184, !156, i64 1216, !159, i64 1248, !162, i64 1280, !165, i64 1312, !168, i64 1344, !165, i64 1376, !171, i64 1408, !174, i64 1440, !177, i64 1472, !21, i64 1504, !7, i64 1508, !6, i64 1540, !180, i64 1544, !180, i64 1608, !184, i64 1672, !180, i64 1680, !185, i64 1744, !21, i64 1776, !21, i64 1780, !21, i64 1784, !67, i64 1792, !21, i64 1824, !21, i64 1828, !6, i64 1832, !67, i64 1840, !188, i64 1872, !191, i64 1904, !64, i64 1936, !6, i64 1968, !6, i64 1969, !194, i64 1976, !11, i64 2008, !21, i64 2024, !6, i64 2028, !197, i64 2032}
-!122 = !{!"p1 _ZTS16btSoftBodySolver", !10, i64 0}
-!123 = !{!"_ZTSN10btSoftBody6ConfigE", !124, i64 0, !21, i64 4, !21, i64 8, !21, i64 12, !21, i64 16, !21, i64 20, !21, i64 24, !21, i64 28, !21, i64 32, !21, i64 36, !21, i64 40, !21, i64 44, !21, i64 48, !21, i64 52, !21, i64 56, !21, i64 60, !21, i64 64, !21, i64 68, !21, i64 72, !21, i64 76, !21, i64 80, !34, i64 84, !34, i64 88, !34, i64 92, !34, i64 96, !34, i64 100, !125, i64 104, !127, i64 136, !127, i64 168, !21, i64 200, !21, i64 204}
-!124 = !{!"_ZTSN10btSoftBody10eAeroModel1_E", !7, i64 0}
-!125 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody8eVSolver1_EE", !126, i64 0, !34, i64 4, !34, i64 8, !10, i64 16, !6, i64 24}
-!126 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody8eVSolver1_ELj16EE"}
-!127 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody8ePSolver1_EE", !128, i64 0, !34, i64 4, !34, i64 8, !10, i64 16, !6, i64 24}
-!128 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody8ePSolver1_ELj16EE"}
-!129 = !{!"_ZTSN10btSoftBody11SolverStateE", !21, i64 0, !21, i64 4, !21, i64 8, !21, i64 12, !21, i64 16}
-!130 = !{!"_ZTSN10btSoftBody4PoseE", !6, i64 0, !6, i64 1, !21, i64 4, !67, i64 8, !64, i64 40, !11, i64 72, !22, i64 88, !22, i64 136, !22, i64 184}
-!131 = !{!"p1 _ZTS19btSoftBodyWorldInfo", !10, i64 0}
-!132 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4NoteEE", !133, i64 0, !34, i64 4, !34, i64 8, !134, i64 16, !6, i64 24}
-!133 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4NoteELj16EE"}
-!134 = !{!"p1 _ZTSN10btSoftBody4NoteE", !10, i64 0}
-!135 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody10RenderNodeEE", !136, i64 0, !34, i64 4, !34, i64 8, !137, i64 16, !6, i64 24}
-!136 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody10RenderNodeELj16EE"}
-!137 = !{!"p1 _ZTSN10btSoftBody10RenderNodeE", !10, i64 0}
-!138 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4LinkEE", !139, i64 0, !34, i64 4, !34, i64 8, !140, i64 16, !6, i64 24}
-!139 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4LinkELj16EE"}
-!140 = !{!"p1 _ZTSN10btSoftBody4LinkE", !10, i64 0}
-!141 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4FaceEE", !142, i64 0, !34, i64 4, !34, i64 8, !143, i64 16, !6, i64 24}
-!142 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4FaceELj16EE"}
-!143 = !{!"p1 _ZTSN10btSoftBody4FaceE", !10, i64 0}
-!144 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody10RenderFaceEE", !145, i64 0, !34, i64 4, !34, i64 8, !146, i64 16, !6, i64 24}
-!145 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody10RenderFaceELj16EE"}
-!146 = !{!"p1 _ZTSN10btSoftBody10RenderFaceE", !10, i64 0}
-!147 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody5TetraEE", !148, i64 0, !34, i64 4, !34, i64 8, !149, i64 16, !6, i64 24}
-!148 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody5TetraELj16EE"}
-!149 = !{!"p1 _ZTSN10btSoftBody5TetraE", !10, i64 0}
-!150 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody12TetraScratchEE", !151, i64 0, !34, i64 4, !34, i64 8, !152, i64 16, !6, i64 24}
-!151 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody12TetraScratchELj16EE"}
-!152 = !{!"p1 _ZTSN10btSoftBody12TetraScratchE", !10, i64 0}
-!153 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody6AnchorEE", !154, i64 0, !34, i64 4, !34, i64 8, !155, i64 16, !6, i64 24}
-!154 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody6AnchorELj16EE"}
-!155 = !{!"p1 _ZTSN10btSoftBody6AnchorE", !10, i64 0}
-!156 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEE", !157, i64 0, !34, i64 4, !34, i64 8, !158, i64 16, !6, i64 24}
-!157 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody25DeformableNodeRigidAnchorELj16EE"}
-!158 = !{!"p1 _ZTSN10btSoftBody25DeformableNodeRigidAnchorE", !10, i64 0}
-!159 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody8RContactEE", !160, i64 0, !34, i64 4, !34, i64 8, !161, i64 16, !6, i64 24}
-!160 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody8RContactELj16EE"}
-!161 = !{!"p1 _ZTSN10btSoftBody8RContactE", !10, i64 0}
-!162 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEE", !163, i64 0, !34, i64 4, !34, i64 8, !164, i64 16, !6, i64 24}
-!163 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody26DeformableNodeRigidContactELj16EE"}
-!164 = !{!"p1 _ZTSN10btSoftBody26DeformableNodeRigidContactE", !10, i64 0}
-!165 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE", !166, i64 0, !34, i64 4, !34, i64 8, !167, i64 16, !6, i64 24}
-!166 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody25DeformableFaceNodeContactELj16EE"}
-!167 = !{!"p1 _ZTSN10btSoftBody25DeformableFaceNodeContactE", !10, i64 0}
-!168 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEE", !169, i64 0, !34, i64 4, !34, i64 8, !170, i64 16, !6, i64 24}
-!169 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody26DeformableFaceRigidContactELj16EE"}
-!170 = !{!"p1 _ZTSN10btSoftBody26DeformableFaceRigidContactE", !10, i64 0}
-!171 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody8SContactEE", !172, i64 0, !34, i64 4, !34, i64 8, !173, i64 16, !6, i64 24}
-!172 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody8SContactELj16EE"}
-!173 = !{!"p1 _ZTSN10btSoftBody8SContactE", !10, i64 0}
-!174 = !{!"_ZTS20btAlignedObjectArrayIPN10btSoftBody5JointEE", !175, i64 0, !34, i64 4, !34, i64 8, !176, i64 16, !6, i64 24}
-!175 = !{!"_ZTS18btAlignedAllocatorIPN10btSoftBody5JointELj16EE"}
-!176 = !{!"p2 _ZTSN10btSoftBody5JointE", !10, i64 0}
-!177 = !{!"_ZTS20btAlignedObjectArrayIPN10btSoftBody8MaterialEE", !178, i64 0, !34, i64 4, !34, i64 8, !179, i64 16, !6, i64 24}
-!178 = !{!"_ZTS18btAlignedAllocatorIPN10btSoftBody8MaterialELj16EE"}
-!179 = !{!"p2 _ZTSN10btSoftBody8MaterialE", !10, i64 0}
-!180 = !{!"_ZTS6btDbvt", !33, i64 0, !33, i64 8, !34, i64 16, !34, i64 20, !34, i64 24, !181, i64 32}
-!181 = !{!"_ZTS20btAlignedObjectArrayIN6btDbvt6sStkNNEE", !182, i64 0, !34, i64 4, !34, i64 8, !183, i64 16, !6, i64 24}
-!182 = !{!"_ZTS18btAlignedAllocatorIN6btDbvt6sStkNNELj16EE"}
-!183 = !{!"p1 _ZTSN6btDbvt6sStkNNE", !10, i64 0}
-!184 = !{!"p1 _ZTS11btDbvntNode", !10, i64 0}
-!185 = !{!"_ZTS20btAlignedObjectArrayIPN10btSoftBody7ClusterEE", !186, i64 0, !34, i64 4, !34, i64 8, !187, i64 16, !6, i64 24}
-!186 = !{!"_ZTS18btAlignedAllocatorIPN10btSoftBody7ClusterELj16EE"}
-!187 = !{!"p2 _ZTSN10btSoftBody7ClusterE", !10, i64 0}
-!188 = !{!"_ZTS20btAlignedObjectArrayI9btVector4E", !189, i64 0, !34, i64 4, !34, i64 8, !190, i64 16, !6, i64 24}
-!189 = !{!"_ZTS18btAlignedAllocatorI9btVector4Lj16EE"}
-!190 = !{!"p1 _ZTS9btVector4", !10, i64 0}
-!191 = !{!"_ZTS20btAlignedObjectArrayIS_IPKN10btSoftBody4NodeEEE", !192, i64 0, !34, i64 4, !34, i64 8, !193, i64 16, !6, i64 24}
-!192 = !{!"_ZTS18btAlignedAllocatorI20btAlignedObjectArrayIPKN10btSoftBody4NodeEELj16EE"}
-!193 = !{!"p1 _ZTS20btAlignedObjectArrayIPKN10btSoftBody4NodeEE", !10, i64 0}
-!194 = !{!"_ZTS20btAlignedObjectArrayIbE", !195, i64 0, !34, i64 4, !34, i64 8, !196, i64 16, !6, i64 24}
-!195 = !{!"_ZTS18btAlignedAllocatorIbLj16EE"}
-!196 = !{!"p1 bool", !10, i64 0}
-!197 = !{!"_ZTS20btAlignedObjectArrayIiE", !198, i64 0, !34, i64 4, !34, i64 8, !199, i64 16, !6, i64 24}
-!198 = !{!"_ZTS18btAlignedAllocatorIiLj16EE"}
-!199 = !{!"p1 int", !10, i64 0}
-!200 = !{!"_ZTS20btAlignedObjectArrayIS_IfEE", !201, i64 0, !34, i64 4, !34, i64 8, !202, i64 16, !6, i64 24}
-!201 = !{!"_ZTS18btAlignedAllocatorI20btAlignedObjectArrayIfELj16EE"}
-!202 = !{!"p1 _ZTS20btAlignedObjectArrayIfE", !10, i64 0}
-!203 = !{!204}
-!204 = distinct !{!204, !205, !"_ZplRK11btMatrix3x3S1_: argument 0"}
-!205 = distinct !{!205, !"_ZplRK11btMatrix3x3S1_"}
-!206 = !{!39, !21, i64 148}
-!207 = !{!39, !21, i64 152}
-!208 = !{!40, !21, i64 72}
-!209 = distinct !{!209, !110, !111}
-!210 = distinct !{!210, !110, !111}
-!211 = distinct !{!211, !110, !111}
-!212 = !{!213, !143, i64 848}
-!213 = !{!"_ZTSN10btSoftBody26DeformableFaceRigidContactE", !60, i64 0, !143, i64 848, !11, i64 856, !11, i64 872, !11, i64 888}
-!214 = !{!215, !143, i64 440}
-!215 = !{!"_ZTS45btReducedDeformableFaceRigidContactConstraint", !39, i64 0, !143, i64 440, !6, i64 448}
-!216 = !{!215, !6, i64 448}
-!217 = !{!15, !15, i64 0}
+!111 = !{!112, !15, i64 848}
+!112 = !{!"_ZTSN10btSoftBody26DeformableNodeRigidContactE", !60, i64 0, !15, i64 848}
+!113 = !{!114, !15, i64 440}
+!114 = !{!"_ZTS45btReducedDeformableNodeRigidContactConstraint", !39, i64 0, !15, i64 440}
+!115 = !{!116, !34, i64 4}
+!116 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4NodeEE", !117, i64 0, !34, i64 4, !34, i64 8, !15, i64 16, !6, i64 24}
+!117 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4NodeELj16EE"}
+!118 = !{!119, !34, i64 3136}
+!119 = !{!"_ZTS23btReducedDeformableBody", !120, i64 0, !6, i64 2064, !6, i64 2065, !21, i64 2068, !21, i64 2072, !199, i64 2080, !199, i64 2112, !64, i64 2144, !64, i64 2176, !67, i64 2208, !11, i64 2240, !11, i64 2256, !64, i64 2272, !11, i64 2304, !11, i64 2320, !11, i64 2336, !21, i64 2352, !21, i64 2356, !11, i64 2360, !11, i64 2376, !21, i64 2392, !21, i64 2396, !11, i64 2400, !11, i64 2416, !22, i64 2432, !76, i64 2480, !22, i64 2544, !22, i64 2592, !22, i64 2640, !11, i64 2688, !21, i64 2704, !21, i64 2708, !34, i64 2712, !34, i64 2716, !199, i64 2720, !64, i64 2752, !64, i64 2784, !64, i64 2816, !64, i64 2848, !64, i64 2880, !64, i64 2912, !64, i64 2944, !64, i64 2976, !64, i64 3008, !67, i64 3040, !64, i64 3072, !196, i64 3104, !34, i64 3136, !196, i64 3144}
+!120 = !{!"_ZTS10btSoftBody", !75, i64 0, !79, i64 376, !121, i64 408, !122, i64 416, !128, i64 624, !129, i64 648, !10, i64 880, !130, i64 888, !131, i64 896, !116, i64 928, !134, i64 960, !137, i64 992, !140, i64 1024, !143, i64 1056, !146, i64 1088, !149, i64 1120, !149, i64 1152, !152, i64 1184, !155, i64 1216, !158, i64 1248, !161, i64 1280, !164, i64 1312, !167, i64 1344, !164, i64 1376, !170, i64 1408, !173, i64 1440, !176, i64 1472, !21, i64 1504, !7, i64 1508, !6, i64 1540, !179, i64 1544, !179, i64 1608, !183, i64 1672, !179, i64 1680, !184, i64 1744, !21, i64 1776, !21, i64 1780, !21, i64 1784, !67, i64 1792, !21, i64 1824, !21, i64 1828, !6, i64 1832, !67, i64 1840, !187, i64 1872, !190, i64 1904, !64, i64 1936, !6, i64 1968, !6, i64 1969, !193, i64 1976, !11, i64 2008, !21, i64 2024, !6, i64 2028, !196, i64 2032}
+!121 = !{!"p1 _ZTS16btSoftBodySolver", !10, i64 0}
+!122 = !{!"_ZTSN10btSoftBody6ConfigE", !123, i64 0, !21, i64 4, !21, i64 8, !21, i64 12, !21, i64 16, !21, i64 20, !21, i64 24, !21, i64 28, !21, i64 32, !21, i64 36, !21, i64 40, !21, i64 44, !21, i64 48, !21, i64 52, !21, i64 56, !21, i64 60, !21, i64 64, !21, i64 68, !21, i64 72, !21, i64 76, !21, i64 80, !34, i64 84, !34, i64 88, !34, i64 92, !34, i64 96, !34, i64 100, !124, i64 104, !126, i64 136, !126, i64 168, !21, i64 200, !21, i64 204}
+!123 = !{!"_ZTSN10btSoftBody10eAeroModel1_E", !7, i64 0}
+!124 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody8eVSolver1_EE", !125, i64 0, !34, i64 4, !34, i64 8, !10, i64 16, !6, i64 24}
+!125 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody8eVSolver1_ELj16EE"}
+!126 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody8ePSolver1_EE", !127, i64 0, !34, i64 4, !34, i64 8, !10, i64 16, !6, i64 24}
+!127 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody8ePSolver1_ELj16EE"}
+!128 = !{!"_ZTSN10btSoftBody11SolverStateE", !21, i64 0, !21, i64 4, !21, i64 8, !21, i64 12, !21, i64 16}
+!129 = !{!"_ZTSN10btSoftBody4PoseE", !6, i64 0, !6, i64 1, !21, i64 4, !67, i64 8, !64, i64 40, !11, i64 72, !22, i64 88, !22, i64 136, !22, i64 184}
+!130 = !{!"p1 _ZTS19btSoftBodyWorldInfo", !10, i64 0}
+!131 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4NoteEE", !132, i64 0, !34, i64 4, !34, i64 8, !133, i64 16, !6, i64 24}
+!132 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4NoteELj16EE"}
+!133 = !{!"p1 _ZTSN10btSoftBody4NoteE", !10, i64 0}
+!134 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody10RenderNodeEE", !135, i64 0, !34, i64 4, !34, i64 8, !136, i64 16, !6, i64 24}
+!135 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody10RenderNodeELj16EE"}
+!136 = !{!"p1 _ZTSN10btSoftBody10RenderNodeE", !10, i64 0}
+!137 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4LinkEE", !138, i64 0, !34, i64 4, !34, i64 8, !139, i64 16, !6, i64 24}
+!138 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4LinkELj16EE"}
+!139 = !{!"p1 _ZTSN10btSoftBody4LinkE", !10, i64 0}
+!140 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4FaceEE", !141, i64 0, !34, i64 4, !34, i64 8, !142, i64 16, !6, i64 24}
+!141 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4FaceELj16EE"}
+!142 = !{!"p1 _ZTSN10btSoftBody4FaceE", !10, i64 0}
+!143 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody10RenderFaceEE", !144, i64 0, !34, i64 4, !34, i64 8, !145, i64 16, !6, i64 24}
+!144 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody10RenderFaceELj16EE"}
+!145 = !{!"p1 _ZTSN10btSoftBody10RenderFaceE", !10, i64 0}
+!146 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody5TetraEE", !147, i64 0, !34, i64 4, !34, i64 8, !148, i64 16, !6, i64 24}
+!147 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody5TetraELj16EE"}
+!148 = !{!"p1 _ZTSN10btSoftBody5TetraE", !10, i64 0}
+!149 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody12TetraScratchEE", !150, i64 0, !34, i64 4, !34, i64 8, !151, i64 16, !6, i64 24}
+!150 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody12TetraScratchELj16EE"}
+!151 = !{!"p1 _ZTSN10btSoftBody12TetraScratchE", !10, i64 0}
+!152 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody6AnchorEE", !153, i64 0, !34, i64 4, !34, i64 8, !154, i64 16, !6, i64 24}
+!153 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody6AnchorELj16EE"}
+!154 = !{!"p1 _ZTSN10btSoftBody6AnchorE", !10, i64 0}
+!155 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody25DeformableNodeRigidAnchorEE", !156, i64 0, !34, i64 4, !34, i64 8, !157, i64 16, !6, i64 24}
+!156 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody25DeformableNodeRigidAnchorELj16EE"}
+!157 = !{!"p1 _ZTSN10btSoftBody25DeformableNodeRigidAnchorE", !10, i64 0}
+!158 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody8RContactEE", !159, i64 0, !34, i64 4, !34, i64 8, !160, i64 16, !6, i64 24}
+!159 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody8RContactELj16EE"}
+!160 = !{!"p1 _ZTSN10btSoftBody8RContactE", !10, i64 0}
+!161 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEE", !162, i64 0, !34, i64 4, !34, i64 8, !163, i64 16, !6, i64 24}
+!162 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody26DeformableNodeRigidContactELj16EE"}
+!163 = !{!"p1 _ZTSN10btSoftBody26DeformableNodeRigidContactE", !10, i64 0}
+!164 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE", !165, i64 0, !34, i64 4, !34, i64 8, !166, i64 16, !6, i64 24}
+!165 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody25DeformableFaceNodeContactELj16EE"}
+!166 = !{!"p1 _ZTSN10btSoftBody25DeformableFaceNodeContactE", !10, i64 0}
+!167 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEE", !168, i64 0, !34, i64 4, !34, i64 8, !169, i64 16, !6, i64 24}
+!168 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody26DeformableFaceRigidContactELj16EE"}
+!169 = !{!"p1 _ZTSN10btSoftBody26DeformableFaceRigidContactE", !10, i64 0}
+!170 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody8SContactEE", !171, i64 0, !34, i64 4, !34, i64 8, !172, i64 16, !6, i64 24}
+!171 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody8SContactELj16EE"}
+!172 = !{!"p1 _ZTSN10btSoftBody8SContactE", !10, i64 0}
+!173 = !{!"_ZTS20btAlignedObjectArrayIPN10btSoftBody5JointEE", !174, i64 0, !34, i64 4, !34, i64 8, !175, i64 16, !6, i64 24}
+!174 = !{!"_ZTS18btAlignedAllocatorIPN10btSoftBody5JointELj16EE"}
+!175 = !{!"p2 _ZTSN10btSoftBody5JointE", !10, i64 0}
+!176 = !{!"_ZTS20btAlignedObjectArrayIPN10btSoftBody8MaterialEE", !177, i64 0, !34, i64 4, !34, i64 8, !178, i64 16, !6, i64 24}
+!177 = !{!"_ZTS18btAlignedAllocatorIPN10btSoftBody8MaterialELj16EE"}
+!178 = !{!"p2 _ZTSN10btSoftBody8MaterialE", !10, i64 0}
+!179 = !{!"_ZTS6btDbvt", !33, i64 0, !33, i64 8, !34, i64 16, !34, i64 20, !34, i64 24, !180, i64 32}
+!180 = !{!"_ZTS20btAlignedObjectArrayIN6btDbvt6sStkNNEE", !181, i64 0, !34, i64 4, !34, i64 8, !182, i64 16, !6, i64 24}
+!181 = !{!"_ZTS18btAlignedAllocatorIN6btDbvt6sStkNNELj16EE"}
+!182 = !{!"p1 _ZTSN6btDbvt6sStkNNE", !10, i64 0}
+!183 = !{!"p1 _ZTS11btDbvntNode", !10, i64 0}
+!184 = !{!"_ZTS20btAlignedObjectArrayIPN10btSoftBody7ClusterEE", !185, i64 0, !34, i64 4, !34, i64 8, !186, i64 16, !6, i64 24}
+!185 = !{!"_ZTS18btAlignedAllocatorIPN10btSoftBody7ClusterELj16EE"}
+!186 = !{!"p2 _ZTSN10btSoftBody7ClusterE", !10, i64 0}
+!187 = !{!"_ZTS20btAlignedObjectArrayI9btVector4E", !188, i64 0, !34, i64 4, !34, i64 8, !189, i64 16, !6, i64 24}
+!188 = !{!"_ZTS18btAlignedAllocatorI9btVector4Lj16EE"}
+!189 = !{!"p1 _ZTS9btVector4", !10, i64 0}
+!190 = !{!"_ZTS20btAlignedObjectArrayIS_IPKN10btSoftBody4NodeEEE", !191, i64 0, !34, i64 4, !34, i64 8, !192, i64 16, !6, i64 24}
+!191 = !{!"_ZTS18btAlignedAllocatorI20btAlignedObjectArrayIPKN10btSoftBody4NodeEELj16EE"}
+!192 = !{!"p1 _ZTS20btAlignedObjectArrayIPKN10btSoftBody4NodeEE", !10, i64 0}
+!193 = !{!"_ZTS20btAlignedObjectArrayIbE", !194, i64 0, !34, i64 4, !34, i64 8, !195, i64 16, !6, i64 24}
+!194 = !{!"_ZTS18btAlignedAllocatorIbLj16EE"}
+!195 = !{!"p1 bool", !10, i64 0}
+!196 = !{!"_ZTS20btAlignedObjectArrayIiE", !197, i64 0, !34, i64 4, !34, i64 8, !198, i64 16, !6, i64 24}
+!197 = !{!"_ZTS18btAlignedAllocatorIiLj16EE"}
+!198 = !{!"p1 int", !10, i64 0}
+!199 = !{!"_ZTS20btAlignedObjectArrayIS_IfEE", !200, i64 0, !34, i64 4, !34, i64 8, !201, i64 16, !6, i64 24}
+!200 = !{!"_ZTS18btAlignedAllocatorI20btAlignedObjectArrayIfELj16EE"}
+!201 = !{!"p1 _ZTS20btAlignedObjectArrayIfE", !10, i64 0}
+!202 = !{!203}
+!203 = distinct !{!203, !204, !"_ZplRK11btMatrix3x3S1_: argument 0"}
+!204 = distinct !{!204, !"_ZplRK11btMatrix3x3S1_"}
+!205 = !{!39, !21, i64 148}
+!206 = !{!39, !21, i64 152}
+!207 = !{!40, !21, i64 72}
+!208 = distinct !{!208, !110}
+!209 = distinct !{!209, !110}
+!210 = distinct !{!210, !110}
+!211 = !{!212, !142, i64 848}
+!212 = !{!"_ZTSN10btSoftBody26DeformableFaceRigidContactE", !60, i64 0, !142, i64 848, !11, i64 856, !11, i64 872, !11, i64 888}
+!213 = !{!214, !142, i64 440}
+!214 = !{!"_ZTS45btReducedDeformableFaceRigidContactConstraint", !39, i64 0, !142, i64 440, !6, i64 448}
+!215 = !{!214, !6, i64 448}
+!216 = !{!15, !15, i64 0}

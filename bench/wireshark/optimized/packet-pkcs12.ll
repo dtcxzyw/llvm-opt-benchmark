@@ -539,7 +539,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   %31 = getelementptr i8, ptr %.05976, i64 1
   store i8 %29, ptr %.05976, align 1
   %exitcond.not = icmp eq i64 %30, 64
-  br i1 %exitcond.not, label %32, label %.preheader74, !llvm.loop !11
+  br i1 %exitcond.not, label %32, label %.preheader74, !llvm.loop !10
 
 32:                                               ; preds = %.preheader74
   br i1 %21, label %43, label %.preheader72
@@ -561,7 +561,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   %spec.store.select = select i1 %40, i32 0, i32 %38
   %41 = add nuw nsw i32 %.15680, 2
   %42 = icmp samesign ult i32 %.15680, 62
-  br i1 %42, label %.preheader72, label %.loopexit73, !llvm.loop !12
+  br i1 %42, label %.preheader72, label %.loopexit73, !llvm.loop !11
 
 43:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(64) %31, i8 noundef 0, i64 noundef 64, i1 noundef false) #9
@@ -584,7 +584,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   %50 = call i32 @gcry_md_open(ptr noundef nonnull %8, i32 noundef 2, i32 noundef 0)
   %51 = and i32 %50, 65535
   %.not65 = icmp eq i32 %51, 0
-  br i1 %.not65, label %.preheader70, label %.loopexit71, !llvm.loop !13
+  br i1 %.not65, label %.preheader70, label %.loopexit71
 
 .preheader70:                                     ; preds = %.preheader70.lr.ph, %.loopexit
   %.05390 = phi i64 [ 0, %.preheader70.lr.ph ], [ %.154.lcssa, %.loopexit ]
@@ -599,7 +599,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #9
   %54 = add nuw nsw i32 %.25781, 1
   %exitcond95.not = icmp eq i32 %54, 64
-  br i1 %exitcond95.not, label %55, label %52, !llvm.loop !14
+  br i1 %exitcond95.not, label %55, label %52, !llvm.loop !12
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %8, align 8
@@ -633,7 +633,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   call void @gcry_md_hash_buffer(i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull %10, i64 noundef 20)
   %68 = add nuw i32 %.35882, 1
   %exitcond96.not = icmp eq i32 %68, %3
-  br i1 %exitcond96.not, label %.preheader69, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond96.not, label %.preheader69, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph85.preheader, %.preheader69
   %.154.lcssa = phi i64 [ %.05390, %.preheader69 ], [ %67, %.lr.ph85.preheader ]
@@ -656,7 +656,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   store i8 %75, ptr %76, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond100.not, label %77, label %.preheader, !llvm.loop !16
+  br i1 %exitcond100.not, label %77, label %.preheader, !llvm.loop !14
 
 77:                                               ; preds = %.preheader
   store i64 64, ptr %13, align 8
@@ -694,7 +694,7 @@ define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef reado
   %90 = load ptr, ptr %15, align 8
   call void @gcry_mpi_release(ptr noundef %90)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #9
-  br i1 %82, label %81, label %.loopexit, !llvm.loop !17
+  br i1 %82, label %81, label %.loopexit, !llvm.loop !15
 
 91:                                               ; preds = %84, %81
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #9
@@ -1498,13 +1498,11 @@ attributes #11 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}

@@ -252,7 +252,7 @@ define hidden void @proto_reg_handoff_grpc() local_unnamed_addr #0 {
   tail call void @dissector_add_string(ptr noundef nonnull @.str.41, ptr noundef %7, ptr noundef %9)
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %.not15 = icmp eq i64 %indvars.iv.next23, 2
-  br i1 %.not15, label %.preheader, label %.preheader17, !llvm.loop !9
+  br i1 %.not15, label %.preheader, label %.preheader17, !llvm.loop !8
 
 .preheader:                                       ; preds = %.preheader17, %.preheader
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 0, %.preheader17 ]
@@ -264,7 +264,7 @@ define hidden void @proto_reg_handoff_grpc() local_unnamed_addr #0 {
   tail call void @dissector_add_string(ptr noundef nonnull @.str.41, ptr noundef %11, ptr noundef %13)
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %.not16 = icmp eq i64 %indvars.iv.next26, 2
-  br i1 %.not16, label %14, label %.preheader, !llvm.loop !10
+  br i1 %.not16, label %14, label %.preheader, !llvm.loop !9
 
 14:                                               ; preds = %.preheader
   %15 = tail call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.42)
@@ -387,7 +387,7 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @grpc_protocol_type_vals, ptr noundef nonnull @.str.16)
-  %14 = load i8, ptr @grpc_embedded_under_http2, align 1, !range !11, !noundef !12
+  %14 = load i8, ptr @grpc_embedded_under_http2, align 1, !range !10, !noundef !11
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %20, label %16
 
@@ -476,7 +476,7 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
   br i1 %.not75, label %62, label %58
 
 58:                                               ; preds = %52
-  %59 = load i8, ptr %3, align 8, !range !11, !noundef !12
+  %59 = load i8, ptr %3, align 8, !range !10, !noundef !11
   %60 = trunc nuw i8 %59 to i1
   %61 = select i1 %60, ptr @.str.65, ptr @.str.66
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %54, ptr noundef nonnull @.str.64, ptr noundef nonnull %57, ptr noundef nonnull %61)
@@ -589,7 +589,7 @@ dissect_grpc_message.exit:                        ; preds = %72, %dissect_body_d
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   %114 = icmp ult i32 %.0.i, %8
-  br i1 %114, label %24, label %.loopexit, !llvm.loop !13
+  br i1 %114, label %24, label %.loopexit, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %39, %27
   %.sink = phi i32 [ 5, %27 ], [ %37, %39 ]
@@ -709,7 +709,7 @@ define internal fastcc void @dissect_body_data(ptr noundef %0, ptr noundef %1, p
 
 25:                                               ; preds = %21
   %26 = tail call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %3, i32 noundef %4)
-  %27 = load i8, ptr @grpc_detect_json_automatically, align 1, !range !11, !noundef !12
+  %27 = load i8, ptr @grpc_detect_json_automatically, align 1, !range !10, !noundef !11
   %28 = trunc nuw i8 %27 to i1
   %29 = icmp sgt i32 %4, 3
   %or.cond = and i1 %29, %28
@@ -743,7 +743,7 @@ define internal fastcc void @dissect_body_data(ptr noundef %0, ptr noundef %1, p
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %22, align 8
-  %48 = load i8, ptr %7, align 8, !range !11, !noundef !12
+  %48 = load i8, ptr %7, align 8, !range !10, !noundef !11
   %49 = trunc nuw i8 %48 to i1
   %50 = select i1 %49, ptr @.str.79, ptr @.str.80
   %51 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %46, ptr noundef %.0, ptr noundef nonnull @.str.78, ptr noundef %47, ptr noundef nonnull @.str.78, ptr noundef nonnull %50, ptr noundef null)
@@ -811,11 +811,10 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7}

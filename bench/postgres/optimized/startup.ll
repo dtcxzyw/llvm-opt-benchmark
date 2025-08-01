@@ -779,7 +779,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %250
 
 243:                                              ; preds = %238
-  %244 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !7, !noundef !8
+  %244 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !6, !noundef !7
   %245 = trunc nuw i8 %244 to i1
   br i1 %245, label %250, label %246
 
@@ -799,14 +799,14 @@ sub_1.i:                                          ; preds = %sub_0.i
   store i32 %252, ptr @optind, align 4
   %253 = sub i32 %0, %252
   %254 = icmp sgt i32 %253, 0
-  br i1 %254, label %.lr.ph.i, label %parse_psql_options.exit, !llvm.loop !9
+  br i1 %254, label %.lr.ph.i, label %parse_psql_options.exit, !llvm.loop !8
 
 parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   %.sroa.11.4 = phi ptr [ %.sroa.11.0, %.preheader.i ], [ %.sroa.11.3, %250 ]
   %.sroa.0.4 = phi ptr [ %.sroa.0.0, %.preheader.i ], [ %.sroa.0.3, %250 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
   %255 = icmp eq ptr %.sroa.30124.1, null
-  %256 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8, !range !7
+  %256 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8, !range !6
   %257 = trunc nuw i8 %256 to i1
   %or.cond = select i1 %255, i1 %257, i1 false
   br i1 %or.cond, label %258, label %.cont131
@@ -847,7 +847,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   %.sroa.30124.0140 = phi ptr [ %259, %.cont131.thread ], [ %.sroa.30124.0, %.cont131 ]
   %269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 96), align 8
   %270 = icmp ne ptr %269, null
-  %271 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 104), align 8, !range !7
+  %271 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 104), align 8, !range !6
   %272 = trunc nuw i8 %271 to i1
   %or.cond7 = select i1 %270, i1 true, i1 %272
   br i1 %or.cond7, label %275, label %273
@@ -861,7 +861,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 275:                                              ; preds = %273, %266
   %276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 112), align 8
   %277 = icmp ne ptr %276, null
-  %278 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 120), align 8, !range !7
+  %278 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 120), align 8, !range !6
   %279 = trunc nuw i8 %278 to i1
   %or.cond9 = select i1 %277, i1 true, i1 %279
   br i1 %or.cond9, label %282, label %280
@@ -917,7 +917,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   store ptr %302, ptr %303, align 8
   %304 = getelementptr inbounds nuw i8, ptr %291, i64 48
   store ptr @.str.34, ptr %304, align 8
-  %305 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8, !range !7, !noundef !8
+  %305 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 312), align 8, !range !6, !noundef !7
   %306 = trunc nuw i8 %305 to i1
   br i1 %306, label %310, label %307
 
@@ -980,7 +980,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   call void @PQfinish(ptr noundef %336) #15
   %337 = call ptr @simple_prompt(ptr noundef %.088, i1 noundef zeroext false) #15
   call void @free(ptr noundef %.088) #15
-  br label %290, !llvm.loop !10
+  br label %290, !llvm.loop !9
 
 .critedge:                                        ; preds = %310, %319
   %338 = load ptr, ptr @pset, align 8
@@ -1060,7 +1060,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   br i1 %368, label %369, label %372
 
 369:                                              ; preds = %366
-  %370 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 401), align 1, !range !7, !noundef !8
+  %370 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 401), align 1, !range !6, !noundef !7
   %371 = trunc nuw i8 %370 to i1
   br i1 %371, label %437, label %373
 
@@ -1142,7 +1142,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 410:                                              ; preds = %.lr.ph, %395, %406, %383
   %.3 = phi i32 [ %387, %383 ], [ %405, %395 ], [ %409, %406 ], [ %.1236, %.lr.ph ]
   %411 = icmp ne i32 %.3, 0
-  %412 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 401), align 1, !range !7
+  %412 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 401), align 1, !range !6
   %413 = trunc nuw i8 %412 to i1
   %or.cond18 = select i1 %411, i1 %413, i1 false
   br i1 %or.cond18, label %._crit_edge, label %414
@@ -1150,7 +1150,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 414:                                              ; preds = %410
   %415 = load ptr, ptr %.086235, align 8
   %.not110 = icmp eq ptr %415, null
-  br i1 %.not110, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not110, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %414, %410, %373
   %.2 = phi i32 [ 0, %373 ], [ %.3, %410 ], [ %.3, %414 ]
@@ -1158,7 +1158,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 
 416:                                              ; preds = %._crit_edge
   %417 = icmp ne i32 %.2, 0
-  %418 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 401), align 1, !range !7
+  %418 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 401), align 1, !range !6
   %419 = trunc nuw i8 %418 to i1
   %420 = select i1 %417, i1 %419, i1 false
   %421 = select i1 %420, ptr @.str.42, ptr @.str.43
@@ -1167,7 +1167,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
   br i1 %423, label %424, label %427
 
 424:                                              ; preds = %416
-  %425 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 401), align 1, !range !7, !noundef !8
+  %425 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 401), align 1, !range !6, !noundef !7
   %426 = trunc nuw i8 %425 to i1
   %spec.select = select i1 %426, i32 3, i32 %.2
   br label %437
@@ -1179,7 +1179,7 @@ parse_psql_options.exit:                          ; preds = %250, %.preheader.i
 428:                                              ; preds = %364
   call void @pg_logging_config(i32 noundef 1) #15
   call void @connection_warnings(i1 noundef zeroext true) #15
-  %429 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !7, !noundef !8
+  %429 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !6, !noundef !7
   %430 = trunc nuw i8 %429 to i1
   br i1 %430, label %433, label %431
 
@@ -1743,7 +1743,7 @@ define internal noundef zeroext i1 @echo_hidden_hook(ptr noundef %0) #0 {
   br i1 %7, label %.thread, label %10
 
 .thread:                                          ; preds = %6
-  %8 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %8 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %9 = zext nneg i8 %8 to i32
   store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 424), align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #15
@@ -1776,7 +1776,7 @@ define internal noundef zeroext i1 @on_error_rollback_hook(ptr noundef %0) #0 {
   br i1 %7, label %.thread, label %11
 
 .thread:                                          ; preds = %6
-  %8 = load i8, ptr %2, align 1, !range !7, !noundef !8
+  %8 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %9 = shl nuw nsw i8 %8, 1
   %10 = zext nneg i8 %9 to i32
   store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 428), align 4
@@ -2100,11 +2100,10 @@ attributes #18 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

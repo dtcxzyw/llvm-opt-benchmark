@@ -1341,7 +1341,7 @@ define internal fastcc void @dissect_fcdns_gidnn(ptr noundef %0, ptr noundef %1,
   %11 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 3, i32 noundef 0)
   %12 = add i32 %.0, 4
   %.not12 = icmp sgt i8 %8, -1
-  br i1 %.not12, label %.preheader, label %.loopexit, !llvm.loop !9
+  br i1 %.not12, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %5, %3
   ret void
@@ -1371,7 +1371,7 @@ define internal fastcc void @dissect_fcdns_gpnnn(ptr noundef %0, ptr noundef %1,
   %14 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 8, i32 noundef 0)
   %15 = add i32 %.0, 16
   %.not15 = icmp sgt i8 %8, -1
-  br i1 %.not15, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %.not15, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %5, %3
   ret void
@@ -1445,7 +1445,7 @@ define internal fastcc void @dissect_fcdns_gidft(ptr noundef %0, ptr noundef %1,
   %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 3, i32 noundef 0)
   %16 = add i32 %.0, 4
   %.not18 = icmp sgt i8 %12, -1
-  br i1 %.not18, label %.preheader, label %.loopexit, !llvm.loop !11
+  br i1 %.not18, label %.preheader, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %5, %3
   ret void
@@ -1479,7 +1479,7 @@ define internal fastcc void @dissect_fcdns_gpnft(ptr noundef %0, ptr noundef %1,
   %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %16, ptr noundef %0, i32 noundef %17, i32 noundef 8, i32 noundef 0)
   %19 = add i32 %.0, 16
   %.not21 = icmp sgt i8 %12, -1
-  br i1 %.not21, label %.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %.not21, label %.preheader, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %5, %3
   ret void
@@ -1513,7 +1513,7 @@ define internal fastcc void @dissect_fcdns_gnnft(ptr noundef %0, ptr noundef %1,
   %18 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %16, ptr noundef %0, i32 noundef %17, i32 noundef 8, i32 noundef 0)
   %19 = add i32 %.0, 16
   %.not21 = icmp sgt i8 %12, -1
-  br i1 %.not21, label %.preheader, label %.loopexit, !llvm.loop !13
+  br i1 %.not21, label %.preheader, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %5, %3
   ret void
@@ -1544,7 +1544,7 @@ define internal fastcc void @dissect_fcdns_gidpt(ptr noundef %0, ptr noundef %1,
   %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 3, i32 noundef 0)
   %16 = add i32 %.0, 4
   %.not18 = icmp sgt i8 %12, -1
-  br i1 %.not18, label %.preheader, label %.loopexit, !llvm.loop !14
+  br i1 %.not18, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %5, %3
   ret void
@@ -1571,7 +1571,7 @@ define internal fastcc void @dissect_fcdns_gidipp(ptr noundef %0, ptr noundef %1
   %11 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %9, ptr noundef %0, i32 noundef %10, i32 noundef 3, i32 noundef 0)
   %12 = add i32 %.0, 4
   %.not12 = icmp sgt i8 %8, -1
-  br i1 %.not12, label %.preheader, label %.loopexit, !llvm.loop !15
+  br i1 %.not12, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %5, %3
   ret void
@@ -1617,7 +1617,7 @@ dissect_fc4features_and_type.exit:                ; preds = %13, %16
   %23 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef 3, i32 noundef 0)
   %24 = add i32 %.0, 4
   %.not18 = icmp sgt i8 %20, -1
-  br i1 %.not18, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %.not18, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %dissect_fc4features_and_type.exit, %3
   ret void
@@ -1765,7 +1765,7 @@ define internal fastcc void @dissect_fcdns_rfdid(ptr noundef %0, ptr noundef %1,
   %15 = add nuw i32 %.01920, 256
   %16 = add nsw i32 %.021, -256
   %17 = icmp samesign ugt i32 %.021, 256
-  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !17
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %3
   ret void
@@ -2330,7 +2330,7 @@ define internal fastcc void @dissect_fcdns_swils_entries(ptr noundef %0, ptr nou
   %.3 = phi i32 [ %96, %95 ], [ %70, %48 ]
   %98 = add nuw nsw i32 %.0101108, 1
   %exitcond.not = icmp eq i32 %98, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %97, %3, %2
   ret void
@@ -2368,16 +2368,15 @@ attributes #7 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

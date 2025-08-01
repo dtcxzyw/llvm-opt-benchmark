@@ -201,7 +201,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   store ptr %12, ptr %prev.i5.i.i, align 8
   %17 = load ptr, ptr %write_queue.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %write_queue.i.i, %17
-  br i1 %cmp.i.not.i.i, label %uv__stream_flush_write_queue.exit.i, label %while.body.i.i, !llvm.loop !5
+  br i1 %cmp.i.not.i.i, label %uv__stream_flush_write_queue.exit.i, label %while.body.i.i
 
 uv__stream_flush_write_queue.exit.i:              ; preds = %while.body.i.i, %if.then23.i
   call fastcc void @uv__write_callbacks(ptr noundef nonnull %add.ptr)
@@ -305,7 +305,7 @@ land.rhs18.i:                                     ; preds = %do.body.i
   %call19.i = tail call ptr @__errno_location() #13
   %33 = load i32, ptr %call19.i, align 4
   %cmp20.i = icmp eq i32 %33, 4
-  br i1 %cmp20.i, label %do.body.i, label %if.then37.i, !llvm.loop !7
+  br i1 %cmp20.i, label %do.body.i, label %if.then37.i
 
 if.else.i25:                                      ; preds = %if.end.i22
   store i32 0, ptr %msg_flags.i, align 8
@@ -327,7 +327,7 @@ land.rhs29.i:                                     ; preds = %do.body23.i
   %call30.i = tail call ptr @__errno_location() #13
   %35 = load i32, ptr %call30.i, align 4
   %cmp31.i = icmp eq i32 %35, 4
-  br i1 %cmp31.i, label %do.body23.i, label %if.then37.i, !llvm.loop !8
+  br i1 %cmp31.i, label %do.body23.i, label %if.then37.i
 
 if.then37.i:                                      ; preds = %land.rhs18.i, %land.rhs29.i
   %36 = phi i32 [ %35, %land.rhs29.i ], [ %33, %land.rhs18.i ]
@@ -537,7 +537,7 @@ for.body14.i.i:                                   ; preds = %uv__stream_queue_fd
   %call15.i.i = call i32 @uv__close(i32 noundef %fd.0.copyload.i.i) #12
   %inc.i.i = add nuw nsw i64 %i.132.i.i, 1
   %exitcond36.not.i.i = icmp eq i64 %inc.i.i, %div19.i.i
-  br i1 %exitcond36.not.i.i, label %if.then99.i, label %for.body14.i.i, !llvm.loop !9
+  br i1 %exitcond36.not.i.i, label %if.then99.i, label %for.body14.i.i
 
 if.else.i.i:                                      ; preds = %for.body6.i.i
   store i32 %fd.0.copyload.i.i, ptr %accepted_fd.i.i, align 4
@@ -546,12 +546,12 @@ if.else.i.i:                                      ; preds = %for.body6.i.i
 for.inc19.i.i:                                    ; preds = %if.else.i.i, %uv__stream_queue_fd.exit.thread.i.i
   %inc20.i.i = add nuw nsw i64 %i.025.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc20.i.i, %umax.i.i
-  br i1 %exitcond.not.i.i, label %for.inc22.i.i, label %for.body6.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %for.inc22.i.i, label %for.body6.i.i
 
 for.inc22.i.i:                                    ; preds = %for.inc19.i.i, %if.end.i44.i, %if.then.i.i
   %call23.i.i = call ptr @__cmsg_nxthdr(ptr noundef nonnull %msg.i, ptr noundef nonnull %cmsg.029.i.i) #12
   %cmp1.not.i.i = icmp eq ptr %call23.i.i, null
-  br i1 %cmp1.not.i.i, label %if.end103.i, label %for.body.i.i, !llvm.loop !11
+  br i1 %cmp1.not.i.i, label %if.end103.i, label %for.body.i.i
 
 if.then99.i:                                      ; preds = %for.body14.i.i, %uv__stream_queue_fd.exit.i.i
   %64 = load ptr, ptr %read_cb.i, align 8
@@ -562,7 +562,7 @@ if.end103.i:                                      ; preds = %for.inc22.i.i, %if.
   %65 = load ptr, ptr %read_cb.i, align 8
   call void %65(ptr noundef nonnull %add.ptr, i64 noundef %nread.0.i, ptr noundef nonnull %buf.i) #12
   %cmp105.i = icmp slt i64 %nread.0.i, %53
-  br i1 %cmp105.i, label %if.then107.i, label %while.cond.i, !llvm.loop !12
+  br i1 %cmp105.i, label %if.then107.i, label %while.cond.i
 
 if.then107.i:                                     ; preds = %if.end103.i
   %66 = load i32, ptr %flags.i, align 8
@@ -757,7 +757,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store ptr %1, ptr %prev.i5, align 8
   %6 = load ptr, ptr %write_queue, align 8
   %cmp.i.not = icmp eq ptr %write_queue, %6
-  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !5
+  br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -814,7 +814,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store ptr %6, ptr %prev.i5.i, align 8
   %11 = load ptr, ptr %write_queue.i, align 8
   %cmp.i.not.i = icmp eq ptr %write_queue.i, %11
-  br i1 %cmp.i.not.i, label %uv__stream_flush_write_queue.exit, label %while.body.i, !llvm.loop !5
+  br i1 %cmp.i.not.i, label %uv__stream_flush_write_queue.exit, label %while.body.i
 
 uv__stream_flush_write_queue.exit:                ; preds = %while.body.i, %if.end
   tail call fastcc void @uv__write_callbacks(ptr noundef nonnull %stream)
@@ -912,7 +912,7 @@ if.then15:                                        ; preds = %if.end13
 if.end17:                                         ; preds = %if.then15, %if.end13
   %17 = load ptr, ptr %pq, align 8
   %cmp.i15.not = icmp eq ptr %pq, %17
-  br i1 %cmp.i15.not, label %while.end, label %while.body, !llvm.loop !13
+  br i1 %cmp.i15.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %if.end17, %if.else.i, %entry
   ret void
@@ -1027,7 +1027,7 @@ if.then6.i:                                       ; preds = %do.body.i
 do.cond.i:                                        ; preds = %if.then6.i, %do.body.i
   %cmp10.i = icmp eq i32 %call4.i, -4
   %3 = or i1 %cmp5.i, %cmp10.i
-  br i1 %3, label %do.body.i, label %do.end.i, !llvm.loop !14
+  br i1 %3, label %do.body.i, label %do.end.i
 
 do.end.i:                                         ; preds = %do.cond.i
   %call11.i = tail call i32 @uv__open_cloexec(ptr noundef nonnull @.str.1, i32 noundef 0) #12
@@ -1530,7 +1530,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   %add.ptr9.i = getelementptr inbounds nuw %struct.uv_buf_t, ptr %buf.0.i, i64 %idx.ext8.i
   %sub10.i = sub i64 %n.addr.0.i, %n.addr.0..i
   %cmp11.not.i = icmp eq i64 %sub10.i, 0
-  br i1 %cmp11.not.i, label %uv__write_req_update.exit, label %do.body.i, !llvm.loop !15
+  br i1 %cmp11.not.i, label %uv__write_req_update.exit, label %do.body.i
 
 uv__write_req_update.exit:                        ; preds = %do.body.i
   %10 = load ptr, ptr %bufs, align 8
@@ -1587,7 +1587,7 @@ uv__write_req_finish.exit:                        ; preds = %if.then10, %if.end.
   tail call void @uv__io_feed(ptr noundef %19, ptr noundef nonnull %io_watcher.i) #12
   %dec = add nsw i32 %count.0.ph, -1
   %cmp11.not = icmp eq i32 %count.0.ph, 0
-  br i1 %cmp11.not, label %return, label %for.cond.outer, !llvm.loop !16
+  br i1 %cmp11.not, label %return, label %for.cond.outer
 
 if.else:                                          ; preds = %if.end
   %cmp16.not = icmp eq i32 %call4, -11
@@ -1597,7 +1597,7 @@ if.end20:                                         ; preds = %if.else, %uv__write
   %20 = load i32, ptr %flags, align 8
   %and = and i32 %20, 1048576
   %tobool21.not = icmp eq i32 %and, 0
-  br i1 %tobool21.not, label %if.end23, label %for.cond, !llvm.loop !16
+  br i1 %tobool21.not, label %if.end23, label %for.cond
 
 if.end23:                                         ; preds = %if.end20
   %loop = getelementptr inbounds nuw i8, ptr %stream, i64 8
@@ -1765,7 +1765,7 @@ land.rhs21.us:                                    ; preds = %do.body13.us
   %call22.us = tail call ptr @__errno_location() #13
   %3 = load i32, ptr %call22.us, align 4
   %cmp23.us = icmp eq i32 %3, 4
-  br i1 %cmp23.us, label %do.body13.us, label %if.end32, !llvm.loop !17
+  br i1 %cmp23.us, label %do.body13.us, label %if.end32, !llvm.loop !5
 
 if.then2:                                         ; preds = %entry
   %flags = getelementptr inbounds nuw i8, ptr %send_handle, i64 88
@@ -1830,7 +1830,7 @@ land.rhs:                                         ; preds = %do.body
   %call10 = tail call ptr @__errno_location() #13
   %9 = load i32, ptr %call10, align 4
   %cmp11 = icmp eq i32 %9, 4
-  br i1 %cmp11, label %do.body, label %if.end32, !llvm.loop !19
+  br i1 %cmp11, label %do.body, label %if.end32
 
 do.body13:                                        ; preds = %do.body13.preheader, %land.rhs21
   %10 = load i32, ptr %fd15, align 8
@@ -1842,7 +1842,7 @@ land.rhs21:                                       ; preds = %do.body13
   %call22 = tail call ptr @__errno_location() #13
   %11 = load i32, ptr %call22, align 4
   %cmp23 = icmp eq i32 %11, 4
-  br i1 %cmp23, label %do.body13, label %if.end32, !llvm.loop !20
+  br i1 %cmp23, label %do.body13, label %if.end32
 
 if.end27:                                         ; preds = %do.body, %do.body13, %do.body13.us
   %n.0 = phi i64 [ %call.i.us, %do.body13.us ], [ %call1.i, %do.body13 ], [ %call7, %do.body ]
@@ -2103,7 +2103,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %15 = load i32, ptr %offset, align 4
   %16 = zext i32 %15 to i64
   %cmp37 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %cmp37, label %for.body, label %for.end.loopexit, !llvm.loop !21
+  br i1 %cmp37, label %for.body, label %for.end.loopexit
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre28 = load ptr, ptr %queued_fds33, align 8
@@ -2206,19 +2206,4 @@ attributes #14 = { cold }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}

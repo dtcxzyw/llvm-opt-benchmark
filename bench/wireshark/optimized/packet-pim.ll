@@ -887,7 +887,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %218 = load i32, ptr %9, align 4
   %219 = add i32 %218, %.0624
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
-  br i1 %217, label %212, label %.loopexit, !llvm.loop !9
+  br i1 %217, label %212, label %.loopexit
 
 220:                                              ; preds = %.lr.ph709
   %.not643 = icmp eq i16 %140, 0
@@ -905,7 +905,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   %226 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %225)
   %227 = icmp sgt i32 %226, 1
-  br i1 %227, label %.lr.ph709, label %._crit_edge710, !llvm.loop !11
+  br i1 %227, label %.lr.ph709, label %._crit_edge710, !llvm.loop !9
 
 ._crit_edge710:                                   ; preds = %.loopexit, %.preheader
   %.0623.lcssa = phi i32 [ 0, %.preheader ], [ %137, %.loopexit ]
@@ -1080,7 +1080,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %332 = add i32 %331, %.0627690
   %333 = add nuw nsw i32 %.0621691, 1
   %exitcond728.not = icmp eq i32 %333, %318
-  br i1 %exitcond728.not, label %._crit_edge694, label %.lr.ph693, !llvm.loop !13
+  br i1 %exitcond728.not, label %._crit_edge694, label %.lr.ph693, !llvm.loop !11
 
 ._crit_edge694:                                   ; preds = %330, %314
   %.0627.lcssa = phi i32 [ %326, %314 ], [ %332, %330 ]
@@ -1104,13 +1104,13 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %343 = add i32 %342, %.1628696
   %344 = add nuw nsw i32 %.1622697, 1
   %exitcond729.not = icmp eq i32 %344, %321
-  br i1 %exitcond729.not, label %._crit_edge700, label %.lr.ph699, !llvm.loop !14
+  br i1 %exitcond729.not, label %._crit_edge700, label %.lr.ph699, !llvm.loop !12
 
 ._crit_edge700:                                   ; preds = %341, %._crit_edge694
   %.1628.lcssa = phi i32 [ %.0627.lcssa, %._crit_edge694 ], [ %343, %341 ]
   %345 = add nuw nsw i32 %.0626702, 1
   %exitcond730.not = icmp eq i32 %345, %296
-  br i1 %exitcond730.not, label %.loopexit649, label %304, !llvm.loop !15
+  br i1 %exitcond730.not, label %.loopexit649, label %304, !llvm.loop !13
 
 .loopexit649:                                     ; preds = %._crit_edge700, %304, %.lr.ph693, %.lr.ph699, %289, %285
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
@@ -1192,14 +1192,14 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %397 = add nuw nsw i32 %.0618679, 1
   %.3 = add i32 %388, 4
   %exitcond727.not = icmp eq i32 %397, %378
-  br i1 %exitcond727.not, label %._crit_edge683, label %.lr.ph682, !llvm.loop !16
+  br i1 %exitcond727.not, label %._crit_edge683, label %.lr.ph682, !llvm.loop !14
 
 ._crit_edge683:                                   ; preds = %386, %368
   %.3.lcssa = phi i32 [ %.3678, %368 ], [ %.3, %386 ]
   %398 = add i32 %.0619685, 1
   %399 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3.lcssa)
   %400 = icmp sgt i32 %399, 0
-  br i1 %400, label %362, label %.loopexit652, !llvm.loop !17
+  br i1 %400, label %362, label %.loopexit652, !llvm.loop !15
 
 .loopexit652:                                     ; preds = %._crit_edge683, %362, %.lr.ph682, %356, %346
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #4
@@ -1275,7 +1275,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %445 = add i32 %444, %.4674
   %446 = add nuw nsw i32 %.0616673, 1
   %exitcond726.not = icmp eq i32 %446, %424
-  br i1 %exitcond726.not, label %.loopexit654, label %437, !llvm.loop !18
+  br i1 %exitcond726.not, label %.loopexit654, label %437, !llvm.loop !16
 
 .loopexit654:                                     ; preds = %443, %437, %422
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #4
@@ -1467,7 +1467,7 @@ define internal i32 @dissect_pim(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %577 = add i32 %576, %.7667
   %578 = add i16 %.0612666, -1
   %.not640 = icmp eq i16 %578, 0
-  br i1 %.not640, label %select.unfold, label %.lr.ph668, !llvm.loop !19
+  br i1 %.not640, label %select.unfold, label %.lr.ph668, !llvm.loop !17
 
 .thread:                                          ; preds = %.lr.ph668
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #4
@@ -1491,7 +1491,7 @@ select.unfold:                                    ; preds = %575, %562, %583, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #4
   %585 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.8)
   %586 = icmp sgt i32 %585, 1
-  br i1 %586, label %.lr.ph671, label %._crit_edge, !llvm.loop !20
+  br i1 %586, label %.lr.ph671, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %select.unfold, %535
   %.0615.lcssa = phi i32 [ 0, %535 ], [ %540, %select.unfold ]
@@ -1544,7 +1544,7 @@ select.unfold:                                    ; preds = %575, %562, %583, %5
   %611 = load i32, ptr %20, align 4
   %612 = add i32 %611, %606
   %exitcond.not = icmp eq i32 %595, %591
-  br i1 %exitcond.not, label %.loopexit655, label %593, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit655, label %593, !llvm.loop !18
 
 .loopexit655:                                     ; preds = %593, %604, %610, %589, %588
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #4
@@ -1811,7 +1811,7 @@ define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %
   %161 = add i32 %.0250257, 6
   %162 = add nuw nsw i32 %.0247258, 1
   %exitcond.not = icmp eq i32 %162, %146
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %130
   %.0250.lcssa = phi i32 [ %154, %130 ], [ %161, %.lr.ph ]
@@ -1835,13 +1835,13 @@ define internal i32 @dissect_pimv1(ptr noundef %0, ptr noundef %1, ptr noundef %
   %173 = add i32 %.1251259, 6
   %174 = add nuw nsw i32 %.1260, 1
   %exitcond274.not = icmp eq i32 %174, %149
-  br i1 %exitcond274.not, label %._crit_edge263, label %.lr.ph262, !llvm.loop !23
+  br i1 %exitcond274.not, label %._crit_edge263, label %.lr.ph262, !llvm.loop !20
 
 ._crit_edge263:                                   ; preds = %.lr.ph262, %._crit_edge
   %.1251.lcssa = phi i32 [ %.0250.lcssa, %._crit_edge ], [ %173, %.lr.ph262 ]
   %175 = add nuw nsw i32 %.0249266, 1
   %exitcond275.not = icmp eq i32 %175, %126
-  br i1 %exitcond275.not, label %.loopexit, label %130, !llvm.loop !24
+  br i1 %exitcond275.not, label %.loopexit, label %130, !llvm.loop !21
 
 176:                                              ; preds = %59
   %177 = load i32, ptr @hf_pim_group_address_ip4, align 4
@@ -2059,7 +2059,7 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   %56 = add i32 %76, %62
   %57 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %56)
   %58 = icmp sgt i32 %57, 1
-  br i1 %58, label %.lr.ph437, label %.critedge, !llvm.loop !25
+  br i1 %58, label %.lr.ph437, label %.critedge, !llvm.loop !22
 
 .lr.ph437:                                        ; preds = %49, %55
   %.0369421436 = phi i32 [ %56, %55 ], [ %51, %49 ]
@@ -2130,10 +2130,10 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   %105 = add i32 %63, %.0422435
   %106 = and i8 %67, 64
   %.not399.not = icmp eq i8 %106, 0
-  br i1 %.not399.not, label %55, label %..critedge_crit_edge, !llvm.loop !25
+  br i1 %.not399.not, label %55, label %..critedge_crit_edge, !llvm.loop !22
 
 ..critedge_crit_edge:                             ; preds = %104
-  br label %.critedge, !llvm.loop !25
+  br label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %55, %..critedge_crit_edge, %49
   %.1375.lcssa = phi ptr [ %64, %..critedge_crit_edge ], [ %.0374, %49 ], [ %64, %55 ]
@@ -2323,7 +2323,7 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   %210 = add i32 %230, %216
   %211 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %210)
   %212 = icmp sgt i32 %211, 1
-  br i1 %212, label %.lr.ph, label %.critedge7, !llvm.loop !26
+  br i1 %212, label %.lr.ph, label %.critedge7, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %203, %209
   %.1370418430 = phi i32 [ %210, %209 ], [ %205, %203 ]
@@ -2413,10 +2413,10 @@ define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly
   %267 = add i32 %217, %.2419429
   %268 = and i8 %221, 64
   %.not394.not = icmp eq i8 %268, 0
-  br i1 %.not394.not, label %209, label %..critedge7.loopexit_crit_edge, !llvm.loop !26
+  br i1 %.not394.not, label %209, label %..critedge7.loopexit_crit_edge, !llvm.loop !23
 
 ..critedge7.loopexit_crit_edge:                   ; preds = %266
-  br label %.critedge7, !llvm.loop !26
+  br label %.critedge7, !llvm.loop !23
 
 .critedge7:                                       ; preds = %209, %203, %..critedge7.loopexit_crit_edge, %187
   %.9 = phi ptr [ %.6, %187 ], [ %218, %..critedge7.loopexit_crit_edge ], [ %.6, %203 ], [ %218, %209 ]
@@ -2519,20 +2519,17 @@ attributes #6 = { noreturn }
 !7 = !{}
 !8 = !{i64 2150922507}
 !9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !12, !10}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12, !10}
-!14 = distinct !{!14, !12, !10}
-!15 = distinct !{!15, !12, !10}
-!16 = distinct !{!16, !12, !10}
-!17 = distinct !{!17, !12, !10}
-!18 = distinct !{!18, !12, !10}
-!19 = distinct !{!19, !12, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
 !20 = distinct !{!20, !10}
-!21 = distinct !{!21, !12, !10}
-!22 = distinct !{!22, !12, !10}
-!23 = distinct !{!23, !12, !10}
-!24 = distinct !{!24, !12, !10}
-!25 = distinct !{!25, !12, !10}
-!26 = distinct !{!26, !12, !10}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10}

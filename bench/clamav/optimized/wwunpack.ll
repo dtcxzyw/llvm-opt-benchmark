@@ -1119,7 +1119,7 @@ default.unreachable:                              ; preds = %254
   %.41 = phi i32 [ %.39, %485 ], [ 1, %500 ], [ %.39, %497 ]
   %502 = add nuw nsw i8 %.0920, 1
   %.not1305 = icmp sgt i32 %.35982, -1
-  br i1 %.not1305, label %.preheader1458, label %503, !llvm.loop !10
+  br i1 %.not1305, label %.preheader1458, label %503
 
 503:                                              ; preds = %.preheader1458, %501
   %.201059 = phi i8 [ %.211060, %501 ], [ %.191058, %.preheader1458 ]
@@ -1256,7 +1256,7 @@ default.unreachable:                              ; preds = %254
   store i8 %560, ptr %.610381488, align 1, !tbaa !9
   %561 = getelementptr inbounds nuw i8, ptr %.610381488, i64 1
   %.not1318 = icmp eq i32 %558, 0
-  br i1 %.not1318, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not1318, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %213, %93
   %.21041 = phi i8 [ %.11040, %93 ], [ %.51044, %213 ], [ %.231062, %.lr.ph ]
@@ -1288,7 +1288,7 @@ default.unreachable:                              ; preds = %254
   %565 = getelementptr inbounds nuw i8, ptr %.0989, i64 17
   %566 = load i8, ptr %45, align 1, !tbaa !9
   %.not1335 = icmp eq i8 %566, 0
-  br i1 %.not1335, label %.loopexit1459, label %.split, !llvm.loop !13
+  br i1 %.not1335, label %.loopexit1459, label %.split
 
 .loopexit1459.sink.split:                         ; preds = %59, %29, %.split, %20, %.split.us, %.split1506
   %.str.1.sink = phi ptr [ @.str.2, %.split1506 ], [ @.str.1, %.split.us ], [ @.str.1, %20 ], [ @.str.1, %.split ], [ @.str.1, %29 ], [ @.str.4, %59 ]
@@ -1363,7 +1363,7 @@ default.unreachable:                              ; preds = %254
   %607 = getelementptr inbounds nuw i8, ptr %0, i64 %606
   %608 = load i32, ptr %607, align 1, !tbaa !9
   %609 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %610 = load i32, ptr %609, align 4, !tbaa !14
+  %610 = load i32, ptr %609, align 4, !tbaa !10
   %611 = sub i32 %608, %610
   store i32 %611, ptr %607, align 1, !tbaa !9
   %612 = add i32 %5, 20
@@ -1408,13 +1408,13 @@ default.unreachable:                              ; preds = %254
 627:                                              ; preds = %622
   %628 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %indvars.iv
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 4
-  %630 = load i32, ptr %629, align 4, !tbaa !14
+  %630 = load i32, ptr %629, align 4, !tbaa !10
   %631 = getelementptr inbounds nuw i8, ptr %.19901509, i64 8
   store i32 %630, ptr %631, align 1, !tbaa !9
   %632 = load i32, ptr %628, align 4, !tbaa !8
   %633 = getelementptr inbounds nuw i8, ptr %.19901509, i64 12
   store i32 %632, ptr %633, align 1, !tbaa !9
-  %634 = load i32, ptr %629, align 4, !tbaa !14
+  %634 = load i32, ptr %629, align 4, !tbaa !10
   %635 = getelementptr inbounds nuw i8, ptr %.19901509, i64 16
   store i32 %634, ptr %635, align 1, !tbaa !9
   %636 = load i32, ptr %628, align 4, !tbaa !8
@@ -1423,7 +1423,7 @@ default.unreachable:                              ; preds = %254
   %638 = getelementptr inbounds nuw i8, ptr %.19901509, i64 40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph1511.split, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph1511.split
 
 ._crit_edge:                                      ; preds = %627, %588
   %.1990.lcssa = phi ptr [ %620, %588 ], [ %638, %627 ]
@@ -1492,9 +1492,4 @@ attributes #5 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!4, !5, i64 0}
 !9 = !{!6, !6, i64 0}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = !{!4, !5, i64 4}
-!15 = distinct !{!15, !11}
+!10 = !{!4, !5, i64 4}

@@ -350,9 +350,9 @@ define hidden void @ff_mpa_synth_filter_float(ptr noundef readonly captures(none
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds float, ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !13
+  %13 = load ptr, ptr %12, align 8, !tbaa !12
   tail call void %13(ptr noundef %11, ptr noundef %7) #10
-  %14 = load ptr, ptr %0, align 8, !tbaa !16
+  %14 = load ptr, ptr %0, align 8, !tbaa !15
   tail call void %14(ptr noundef %11, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) #10
   %15 = add i32 %9, 480
   %16 = and i32 %15, 511
@@ -405,7 +405,7 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
   store float %18, ptr %14, align 4, !tbaa !8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %19 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %19, label %13, label %.preheader164.preheader.i, !llvm.loop !17
+  br i1 %19, label %13, label %.preheader164.preheader.i, !llvm.loop !16
 
 .preheader164.preheader.i:                        ; preds = %13
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.01820, i64 68
@@ -422,7 +422,7 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
   %24 = fadd nsz float %20, %22
   store float %24, ptr %23, align 4, !tbaa !8
   %25 = icmp samesign ugt i64 %indvars.iv.next172.i, 2
-  br i1 %25, label %.preheader164.i, label %.preheader163.i, !llvm.loop !18
+  br i1 %25, label %.preheader164.i, label %.preheader163.i, !llvm.loop !17
 
 .preheader163.i:                                  ; preds = %.preheader164.i, %.preheader163.i
   %26 = phi i1 [ false, %.preheader163.i ], [ true, %.preheader164.i ]
@@ -498,7 +498,7 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
   %86 = fsub nsz float %85, %77
   %87 = getelementptr inbounds nuw i8, ptr %indvars.iv174.i.sroa.phi, i64 32
   store float %86, ptr %87, align 4, !tbaa !8
-  br i1 %26, label %.preheader163.i, label %.preheader.i.preheader, !llvm.loop !19
+  br i1 %26, label %.preheader163.i, label %.preheader.i.preheader, !llvm.loop !18
 
 .preheader.i.preheader:                           ; preds = %.preheader163.i
   %88 = icmp samesign ult i32 %.01721, 2
@@ -600,7 +600,7 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
   %indvars.iv.next178.i = add nuw nsw i64 %indvars.iv177.i, 4
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next180.i, 4
-  br i1 %exitcond.not.i, label %imdct36.exit, label %.preheader.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %imdct36.exit, label %.preheader.i, !llvm.loop !19
 
 imdct36.exit:                                     ; preds = %.preheader.i
   %162 = load float, ptr %10, align 16, !tbaa !8
@@ -639,7 +639,7 @@ imdct36.exit:                                     ; preds = %.preheader.i
   %189 = getelementptr inbounds nuw i8, ptr %.023, i64 4
   %190 = add nuw nsw i32 %.01721, 1
   %exitcond.not = icmp eq i32 %190, %3
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %imdct36.exit, %6
   ret void
@@ -673,57 +673,59 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #9 {
 12:                                               ; preds = %7, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %.preheader2, label %1, !llvm.loop !22
+  br i1 %exitcond.not, label %.preheader2, label %1, !llvm.loop !21
 
-.preheader2:                                      ; preds = %12, %19
-  %indvars.iv15 = phi i64 [ %indvars.iv.next16, %19 ], [ 0, %12 ]
-  %13 = shl nuw nsw i64 %indvars.iv15, 6
+.preheader2:                                      ; preds = %12, %20
+  %indvars.iv14 = phi i64 [ %indvars.iv.next15, %20 ], [ 0, %12 ]
+  %13 = shl nuw nsw i64 %indvars.iv14, 6
   %14 = or disjoint i64 %13, 32
-  %gep.idx = shl nuw nsw i64 %indvars.iv15, 6
-  %invariant.gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @ff_mpa_synth_window_float, i64 2048), i64 %gep.idx
+  %.idx = shl nuw nsw i64 %indvars.iv14, 6
+  %invariant.gep = getelementptr inbounds nuw i8, ptr @ff_mpa_synth_window_float, i64 %.idx
   br label %15
 
 15:                                               ; preds = %.preheader2, %15
-  %indvars.iv11 = phi i64 [ 0, %.preheader2 ], [ %indvars.iv.next12, %15 ]
-  %16 = sub nuw nsw i64 %14, %indvars.iv11
+  %indvars.iv10 = phi i64 [ 0, %.preheader2 ], [ %indvars.iv.next11, %15 ]
+  %16 = sub nuw nsw i64 %14, %indvars.iv10
   %17 = getelementptr inbounds nuw float, ptr @ff_mpa_synth_window_float, i64 %16
   %18 = load float, ptr %17, align 4, !tbaa !8
-  %gep27 = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv11
-  store float %18, ptr %gep27, align 4, !tbaa !8
-  %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
-  %exitcond14.not = icmp eq i64 %indvars.iv.next12, 16
-  br i1 %exitcond14.not, label %19, label %15, !llvm.loop !23
+  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv10
+  %19 = getelementptr inbounds nuw i8, ptr %gep, i64 2048
+  store float %18, ptr %19, align 4, !tbaa !8
+  %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
+  %exitcond13.not = icmp eq i64 %indvars.iv.next11, 16
+  br i1 %exitcond13.not, label %20, label %15, !llvm.loop !22
 
-19:                                               ; preds = %15
-  %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
-  %exitcond18.not = icmp eq i64 %indvars.iv.next16, 8
-  br i1 %exitcond18.not, label %.preheader, label %.preheader2, !llvm.loop !24
+20:                                               ; preds = %15
+  %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
+  %exitcond17.not = icmp eq i64 %indvars.iv.next15, 8
+  br i1 %exitcond17.not, label %.preheader, label %.preheader2, !llvm.loop !23
 
-.preheader:                                       ; preds = %19, %26
-  %indvars.iv23 = phi i64 [ %indvars.iv.next24, %26 ], [ 0, %19 ]
-  %20 = shl nuw nsw i64 %indvars.iv23, 6
-  %21 = or disjoint i64 %20, 48
-  %gep7.idx = shl nuw nsw i64 %indvars.iv23, 6
-  %invariant.gep28 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @ff_mpa_synth_window_float, i64 2560), i64 %gep7.idx
-  br label %22
+.preheader:                                       ; preds = %20, %28
+  %indvars.iv22 = phi i64 [ %indvars.iv.next23, %28 ], [ 0, %20 ]
+  %21 = shl nuw nsw i64 %indvars.iv22, 6
+  %22 = or disjoint i64 %21, 48
+  %.idx26 = shl nuw nsw i64 %indvars.iv22, 6
+  %invariant.gep27 = getelementptr inbounds nuw i8, ptr @ff_mpa_synth_window_float, i64 %.idx26
+  br label %23
 
-22:                                               ; preds = %.preheader, %22
-  %indvars.iv19 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next20, %22 ]
-  %23 = sub nuw nsw i64 %21, %indvars.iv19
-  %24 = getelementptr inbounds nuw float, ptr @ff_mpa_synth_window_float, i64 %23
-  %25 = load float, ptr %24, align 4, !tbaa !8
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep28, i64 %indvars.iv19
-  store float %25, ptr %gep, align 4, !tbaa !8
-  %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
-  %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %26, label %22, !llvm.loop !25
+23:                                               ; preds = %.preheader, %23
+  %indvars.iv18 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next19, %23 ]
+  %24 = sub nuw nsw i64 %22, %indvars.iv18
+  %25 = getelementptr inbounds nuw float, ptr @ff_mpa_synth_window_float, i64 %24
+  %26 = load float, ptr %25, align 4, !tbaa !8
+  %gep28 = getelementptr inbounds nuw float, ptr %invariant.gep27, i64 %indvars.iv18
+  %27 = getelementptr inbounds nuw i8, ptr %gep28, i64 2560
+  store float %26, ptr %27, align 4, !tbaa !8
+  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
+  %exitcond21.not = icmp eq i64 %indvars.iv.next19, 16
+  br i1 %exitcond21.not, label %28, label %23, !llvm.loop !24
 
-26:                                               ; preds = %22
-  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %exitcond26.not = icmp eq i64 %indvars.iv.next24, 8
-  br i1 %exitcond26.not, label %27, label %.preheader, !llvm.loop !26
+28:                                               ; preds = %23
+  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
+  %exitcond25.not = icmp eq i64 %indvars.iv.next23, 8
+  br i1 %exitcond25.not, label %29, label %.preheader, !llvm.loop !25
 
-27:                                               ; preds = %26
+29:                                               ; preds = %28
   ret void
 }
 
@@ -752,20 +754,19 @@ attributes #11 = { cold }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"float", !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !15, i64 16}
-!14 = !{!"MPADSPContext", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40}
-!15 = !{!"any pointer", !6, i64 0}
-!16 = !{!14, !15, i64 0}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
-!20 = distinct !{!20, !11, !12}
-!21 = distinct !{!21, !11, !12}
-!22 = distinct !{!22, !11, !12}
-!23 = distinct !{!23, !11, !12}
-!24 = distinct !{!24, !11, !12}
-!25 = distinct !{!25, !11, !12}
-!26 = distinct !{!26, !11, !12}
+!12 = !{!13, !14, i64 16}
+!13 = !{!"MPADSPContext", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!13, !14, i64 0}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11}
+!21 = distinct !{!21, !11}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !11}
+!24 = distinct !{!24, !11}
+!25 = distinct !{!25, !11}

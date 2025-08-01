@@ -296,7 +296,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @file_write(ptr noundef 
   %10 = tail call ptr @__errno_location() #10
   %11 = load i32, ptr %10, align 4, !tbaa !7
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %5, label %13, !llvm.loop !25
+  br i1 %12, label %5, label %13
 
 13:                                               ; preds = %9
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %11, ptr noundef nonnull @.str.7) #8
@@ -411,5 +411,3 @@ attributes #10 = { nounwind willreturn memory(none) }
 !22 = !{!"timespec", !15, i64 0, !15, i64 8}
 !23 = !{!21, !15, i64 0}
 !24 = !{!21, !15, i64 8}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.estimated_trip_count"}

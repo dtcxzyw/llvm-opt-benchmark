@@ -376,7 +376,7 @@ define hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase8CloseGapE
   %24 = load i32, ptr %23, align 8, !tbaa !14
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 27:                                               ; preds = %3, %._crit_edge
   ret void
@@ -505,33 +505,33 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %51
 _ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3NewEv.exit: ; preds = %61
   %63 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #13
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i64 0, ptr %64, align 8, !tbaa !23
+  store i64 0, ptr %64, align 8, !tbaa !22
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %63, align 8, !tbaa !17
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  store ptr %66, ptr %65, align 8, !tbaa !26
+  store ptr %66, ptr %65, align 8, !tbaa !25
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  store i64 0, ptr %67, align 8, !tbaa !29
-  store i8 0, ptr %66, align 1, !tbaa !31
+  store i64 0, ptr %67, align 8, !tbaa !28
+  store i8 0, ptr %66, align 1, !tbaa !30
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit
 
 68:                                               ; preds = %61
   %69 = tail call { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %55, i64 noundef 48, ptr noundef nonnull @_ZTIN6google8protobuf8internal19ImplicitWeakMessageE)
   %70 = extractvalue { ptr, ptr } %69, 0
   %71 = extractvalue { ptr, ptr } %69, 1
-  store ptr %70, ptr %71, align 8, !tbaa !32
+  store ptr %70, ptr %71, align 8, !tbaa !31
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_19ImplicitWeakMessageEEEvPv, ptr %72, align 8, !tbaa !34
+  store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_19ImplicitWeakMessageEEEvPv, ptr %72, align 8, !tbaa !33
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %74 = ptrtoint ptr %55 to i64
-  store i64 %74, ptr %73, align 8, !tbaa !23
+  store i64 %74, ptr %73, align 8, !tbaa !22
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %70, align 8, !tbaa !17
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  store ptr %76, ptr %75, align 8, !tbaa !26
+  store ptr %76, ptr %75, align 8, !tbaa !25
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store i64 0, ptr %77, align 8, !tbaa !29
-  store i8 0, ptr %76, align 1, !tbaa !31
+  store i64 0, ptr %77, align 8, !tbaa !28
+  store i8 0, ptr %76, align 1, !tbaa !30
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit
 
 _ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit: ; preds = %68, %_ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3NewEv.exit, %56
@@ -610,19 +610,18 @@ attributes #13 = { builtin allocsize(0) }
 !16 = !{!6, !6, i64 0}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"vtable pointer", !8, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = !{!24, !25, i64 0}
-!24 = !{!"_ZTSN6google8protobuf8internal16InternalMetadataE", !25, i64 0}
-!25 = !{!"long", !7, i64 0}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !28, i64 0}
-!28 = !{!"p1 omnipotent char", !6, i64 0}
-!29 = !{!30, !25, i64 8}
-!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !27, i64 0, !25, i64 8, !7, i64 16}
-!31 = !{!7, !7, i64 0}
-!32 = !{!33, !6, i64 0}
-!33 = !{!"_ZTSN6google8protobuf8internal11SerialArena11CleanupNodeE", !6, i64 0, !6, i64 8}
-!34 = !{!33, !6, i64 8}
+!21 = distinct !{!21, !20}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"_ZTSN6google8protobuf8internal16InternalMetadataE", !24, i64 0}
+!24 = !{!"long", !7, i64 0}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !27, i64 0}
+!27 = !{!"p1 omnipotent char", !6, i64 0}
+!28 = !{!29, !24, i64 8}
+!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !26, i64 0, !24, i64 8, !7, i64 16}
+!30 = !{!7, !7, i64 0}
+!31 = !{!32, !6, i64 0}
+!32 = !{!"_ZTSN6google8protobuf8internal11SerialArena11CleanupNodeE", !6, i64 0, !6, i64 8}
+!33 = !{!32, !6, i64 8}

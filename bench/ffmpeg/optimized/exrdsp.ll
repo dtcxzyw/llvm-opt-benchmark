@@ -84,7 +84,7 @@ define internal void @predictor_scalar(ptr noundef captures(none) %0, i64 nounde
   store i8 %22, ptr %14, align 1, !tbaa !10
   %23 = add nuw nsw i64 %.01921, 2
   %24 = icmp slt i64 %23, %.020
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 }
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -103,7 +103,6 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!5, !6, i64 8}
 !10 = !{!7, !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
+!13 = distinct !{!13, !12}

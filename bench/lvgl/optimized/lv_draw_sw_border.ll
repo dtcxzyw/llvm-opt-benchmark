@@ -462,7 +462,7 @@ draw_border_simple.exit:                          ; preds = %98, %102
   %245 = add nsw i32 %.1202.i, 1
   %246 = load i32, ptr %130, align 4, !tbaa !18
   %247 = icmp slt i32 %245, %246
-  br i1 %247, label %242, label %.loopexit201.i, !llvm.loop !32
+  br i1 %247, label %242, label %.loopexit201.i, !llvm.loop !31
 
 .loopexit201.i:                                   ; preds = %242, %234, %233
   %or.cond19.i = select i1 %145, i1 true, i1 %142
@@ -493,7 +493,7 @@ draw_border_simple.exit:                          ; preds = %98, %102
   call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
   %258 = load i32, ptr %250, align 4, !tbaa !20
   %.not192.not.i = icmp slt i32 %.2.i, %258
-  br i1 %.not192.not.i, label %255, label %.loopexit200.i, !llvm.loop !33
+  br i1 %.not192.not.i, label %255, label %.loopexit200.i, !llvm.loop !32
 
 .loopexit200.i:                                   ; preds = %255, %248, %.loopexit201.i, %226
   %259 = load i32, ptr %4, align 4, !tbaa !16
@@ -536,7 +536,7 @@ draw_border_simple.exit:                          ; preds = %98, %102
   %278 = add nsw i32 %.3206.i, 1
   %279 = load i32, ptr %130, align 4, !tbaa !18
   %280 = icmp slt i32 %278, %279
-  br i1 %280, label %275, label %.loopexit199.i, !llvm.loop !34
+  br i1 %280, label %275, label %.loopexit199.i, !llvm.loop !33
 
 .loopexit199.i:                                   ; preds = %275, %267, %266
   %or.cond23.i = select i1 %148, i1 true, i1 %142
@@ -567,7 +567,7 @@ draw_border_simple.exit:                          ; preds = %98, %102
   call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
   %291 = load i32, ptr %283, align 4, !tbaa !20
   %.not193.not.i = icmp slt i32 %.4.i, %291
-  br i1 %.not193.not.i, label %288, label %.loopexit.i, !llvm.loop !35
+  br i1 %.not193.not.i, label %288, label %.loopexit.i, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %288, %224, %281, %.loopexit199.i, %.loopexit200.i, %197
   call void @lv_draw_sw_mask_free_param(ptr noundef nonnull %7) #5
@@ -672,10 +672,9 @@ attributes #5 = { nounwind }
 !26 = !{!7, !7, i64 0}
 !27 = !{!22, !7, i64 56}
 !28 = !{!22, !10, i64 48}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = distinct !{!32, !30, !31}
-!33 = distinct !{!33, !30, !31}
-!34 = distinct !{!34, !30, !31}
-!35 = distinct !{!35, !30, !31}
+!31 = distinct !{!31, !30}
+!32 = distinct !{!32, !30}
+!33 = distinct !{!33, !30}
+!34 = distinct !{!34, !30}

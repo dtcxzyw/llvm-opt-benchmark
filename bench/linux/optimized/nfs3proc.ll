@@ -186,7 +186,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr noundef readonl
   br label %30
 
 30:                                               ; preds = %.thread, %3
-  store i64 0, ptr %8, align 8, !annotation !8
+  store i64 0, ptr %8, align 8, !annotation !9
   call void @nfs_fattr_init(ptr noundef %1) #10
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %32 = load ptr, ptr %31, align 8
@@ -222,7 +222,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_setattr(ptr noundef readonl
   br i1 %50, label %.critedge.backedge, label %.thread3
 
 .critedge.backedge:                               ; preds = %46, %38
-  br label %.critedge, !llvm.loop !9
+  br label %.critedge, !llvm.loop !6
 
 51:                                               ; preds = %.critedge
   call void @nfs_setattr_update_inode(ptr noundef %7, ptr noundef %2, ptr noundef %1) #10
@@ -311,7 +311,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_access(ptr noundef %0, ptr 
   %6 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %7, align 8, !annotation !8
+  store i64 0, ptr %7, align 8, !annotation !9
   %8 = getelementptr i8, ptr %0, i64 -424
   store ptr %8, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -319,7 +319,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_access(ptr noundef %0, ptr 
   %11 = load i32, ptr %10, align 8
   store i32 %11, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 192), ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -368,7 +368,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_access(ptr noundef %0, ptr 
 .critedge.backedge:                               ; preds = %35, %30
   %39 = call i32 @rpc_call_sync(ptr noundef %23, ptr noundef nonnull %6, i32 noundef 0) #10
   %40 = icmp eq i32 %39, -528
-  br i1 %40, label %30, label %.critedge._crit_edge, !llvm.loop !11
+  br i1 %40, label %30, label %.critedge._crit_edge, !llvm.loop !6
 
 .thread:                                          ; preds = %35
   %41 = load ptr, ptr %5, align 8
@@ -464,7 +464,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readlink(ptr noundef %0, pt
 .critedge.backedge:                               ; preds = %35, %30
   %39 = call i32 @rpc_call_sync(ptr noundef %23, ptr noundef nonnull %7, i32 noundef 0) #10
   %40 = icmp eq i32 %39, -528
-  br i1 %40, label %30, label %._crit_edge, !llvm.loop !12
+  br i1 %40, label %30, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.critedge.backedge, %35, %16
   %41 = phi i32 [ %24, %16 ], [ -512, %35 ], [ %39, %.critedge.backedge ]
@@ -484,9 +484,9 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !annotation !8
+  store ptr null, ptr %5, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store ptr null, ptr %6, align 8, !annotation !8
+  store ptr null, ptr %6, align 8, !annotation !9
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(688) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 688) #12
   %9 = icmp eq ptr %8, null
@@ -583,7 +583,7 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @nfs_fattr_init(ptr noundef %58) #10
   %59 = load ptr, ptr %18, align 8
   call void @nfs_fattr_init(ptr noundef %59) #10
-  br label %.preheader, !llvm.loop !13
+  br label %.preheader, !llvm.loop !11
 
 60:                                               ; preds = %.preheader
   %61 = icmp eq ptr %47, null
@@ -639,20 +639,20 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %92, label %.thread, label %93
 
 93:                                               ; preds = %.loopexit
-  %94 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %91, i32 -1, ptr nonnull elementtype(i32) %91) #10, !srcloc !15
+  %94 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %91, i32 -1, ptr nonnull elementtype(i32) %91) #10, !srcloc !12
   %95 = icmp eq i32 %94, 1
   br i1 %95, label %99, label %96
 
 96:                                               ; preds = %93
   %97 = icmp sgt i32 %94, 0
-  br i1 %97, label %.thread, label %98, !prof !16
+  br i1 %97, label %.thread, label %98, !prof !13
 
 98:                                               ; preds = %96
   call void @refcount_warn_saturate(ptr noundef nonnull %91, i32 noundef 3) #10
   br label %.thread
 
 99:                                               ; preds = %93
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 8
   call void @kvfree_call_rcu(ptr noundef nonnull %100, ptr noundef nonnull %91) #10
   br label %.thread
@@ -663,20 +663,20 @@ define internal i32 @nfs3_proc_create(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %102, label %.thread8, label %103
 
 103:                                              ; preds = %.thread
-  %104 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %101, i32 -1, ptr nonnull elementtype(i32) %101) #10, !srcloc !15
+  %104 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %101, i32 -1, ptr nonnull elementtype(i32) %101) #10, !srcloc !12
   %105 = icmp eq i32 %104, 1
   br i1 %105, label %109, label %106
 
 106:                                              ; preds = %103
   %107 = icmp sgt i32 %104, 0
-  br i1 %107, label %.thread8, label %108, !prof !16
+  br i1 %107, label %.thread8, label %108, !prof !13
 
 108:                                              ; preds = %106
   call void @refcount_warn_saturate(ptr noundef nonnull %101, i32 noundef 3) #10
   br label %.thread8
 
 109:                                              ; preds = %103
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   %110 = getelementptr inbounds nuw i8, ptr %101, i64 8
   call void @kvfree_call_rcu(ptr noundef nonnull %110, ptr noundef nonnull %101) #10
   br label %.thread8
@@ -703,7 +703,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_remove(ptr noundef %0, ptr 
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 576), ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -753,7 +753,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_remove(ptr noundef %0, ptr 
 .critedge.backedge:                               ; preds = %34, %29
   %38 = call i32 @rpc_call_sync(ptr noundef %22, ptr noundef nonnull %5, i32 noundef 0) #10
   %39 = icmp eq i32 %38, -528
-  br i1 %39, label %29, label %._crit_edge, !llvm.loop !18
+  br i1 %39, label %29, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.critedge.backedge, %34, %16
   %40 = phi i32 [ %23, %16 ], [ -512, %34 ], [ %38, %.critedge.backedge ]
@@ -798,7 +798,7 @@ define internal noundef range(i32 0, 2) i32 @nfs3_proc_unlink_done(ptr noundef %
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 256
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %13, ptr elementtype(i64) %13) #10, !srcloc !19
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %13, ptr elementtype(i64) %13) #10, !srcloc !15
   store i32 0, ptr %3, align 4
   %14 = tail call i32 @rpc_restart_call(ptr noundef %0) #10
   tail call void @rpc_delay(ptr noundef %0, i64 noundef 5000) #10
@@ -844,7 +844,7 @@ define internal noundef range(i32 0, 2) i32 @nfs3_proc_rename_done(ptr noundef %
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 256
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, ptr elementtype(i64) %14) #10, !srcloc !19
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %14, ptr elementtype(i64) %14) #10, !srcloc !15
   store i32 0, ptr %4, align 4
   %15 = tail call i32 @rpc_restart_call(ptr noundef %0) #10
   tail call void @rpc_delay(ptr noundef %0, i64 noundef 5000) #10
@@ -873,7 +873,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_link(ptr noundef %0, ptr no
   %6 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %7, align 8, !annotation !8
+  store i64 0, ptr %7, align 8, !annotation !9
   %8 = getelementptr i8, ptr %0, i64 -424
   store ptr %8, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -888,7 +888,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_link(ptr noundef %0, ptr no
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
   store ptr getelementptr (i8, ptr @nfs3_procedures, i64 720), ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -943,7 +943,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_link(ptr noundef %0, ptr no
 .critedge.backedge:                               ; preds = %45, %40
   %49 = call i32 @rpc_call_sync(ptr noundef %33, ptr noundef nonnull %6, i32 noundef 0) #10
   %50 = icmp eq i32 %49, -528
-  br i1 %50, label %40, label %._crit_edge, !llvm.loop !20
+  br i1 %50, label %40, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.critedge.backedge, %45, %27
   %51 = phi i32 [ %34, %27 ], [ -512, %45 ], [ %49, %.critedge.backedge ]
@@ -1042,9 +1042,9 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store ptr null, ptr %4, align 8, !annotation !8
+  store ptr null, ptr %4, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !annotation !8
+  store ptr null, ptr %5, align 8, !annotation !9
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(688) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 688) #12
   %8 = icmp eq ptr %7, null
@@ -1113,20 +1113,20 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %49, label %.thread, label %50
 
 50:                                               ; preds = %46
-  %51 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %48, i32 -1, ptr nonnull elementtype(i32) %48) #10, !srcloc !15
+  %51 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %48, i32 -1, ptr nonnull elementtype(i32) %48) #10, !srcloc !12
   %52 = icmp eq i32 %51, 1
   br i1 %52, label %56, label %53
 
 53:                                               ; preds = %50
   %54 = icmp sgt i32 %51, 0
-  br i1 %54, label %.thread, label %55, !prof !16
+  br i1 %54, label %.thread, label %55, !prof !13
 
 55:                                               ; preds = %53
   call void @refcount_warn_saturate(ptr noundef nonnull %48, i32 noundef 3) #10
   br label %.thread
 
 56:                                               ; preds = %50
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
   call void @kvfree_call_rcu(ptr noundef nonnull %57, ptr noundef nonnull %48) #10
   br label %.thread
@@ -1137,20 +1137,20 @@ define internal i32 @nfs3_proc_mkdir(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %59, label %.thread8, label %60
 
 60:                                               ; preds = %.thread
-  %61 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, i32 -1, ptr nonnull elementtype(i32) %58) #10, !srcloc !15
+  %61 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, i32 -1, ptr nonnull elementtype(i32) %58) #10, !srcloc !12
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %66, label %63
 
 63:                                               ; preds = %60
   %64 = icmp sgt i32 %61, 0
-  br i1 %64, label %.thread8, label %65, !prof !16
+  br i1 %64, label %.thread8, label %65, !prof !13
 
 65:                                               ; preds = %63
   call void @refcount_warn_saturate(ptr noundef nonnull %58, i32 noundef 3) #10
   br label %.thread8
 
 66:                                               ; preds = %60
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 8
   call void @kvfree_call_rcu(ptr noundef nonnull %67, ptr noundef nonnull %58) #10
   br label %.thread8
@@ -1169,7 +1169,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_rmdir(ptr noundef %0, ptr n
   %4 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %5, align 8, !annotation !8
+  store i64 0, ptr %5, align 8, !annotation !9
   %6 = getelementptr i8, ptr %0, i64 -424
   store ptr %6, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1227,7 +1227,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_rmdir(ptr noundef %0, ptr n
 .critedge.backedge:                               ; preds = %36, %31
   %40 = call i32 @rpc_call_sync(ptr noundef %24, ptr noundef nonnull %4, i32 noundef 0) #10
   %41 = icmp eq i32 %40, -528
-  br i1 %41, label %31, label %._crit_edge, !llvm.loop !21
+  br i1 %41, label %31, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.critedge.backedge, %36, %17
   %42 = phi i32 [ %25, %17 ], [ -512, %36 ], [ %40, %.critedge.backedge ]
@@ -1252,7 +1252,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readdir(ptr noundef readonl
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #10
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 0, ptr %9, align 8, !annotation !8
+  store i64 0, ptr %9, align 8, !annotation !9
   %10 = getelementptr i8, ptr %8, i64 -424
   store ptr %10, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1263,7 +1263,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readdir(ptr noundef readonl
   store i64 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %17 = load i8, ptr %16, align 4, !range !22, !noundef !23
+  %17 = load i8, ptr %16, align 4, !range !16, !noundef !17
   store i8 %17, ptr %15, align 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1349,7 +1349,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_readdir(ptr noundef readonl
 .critedge.backedge:                               ; preds = %61, %56
   %65 = call i32 @rpc_call_sync(ptr noundef %49, ptr noundef nonnull %5, i32 noundef 0) #10
   %66 = icmp eq i32 %65, -528
-  br i1 %66, label %56, label %._crit_edge, !llvm.loop !24
+  br i1 %66, label %56, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.critedge.backedge, %61, %43
   %67 = phi i32 [ %50, %43 ], [ -512, %61 ], [ %65, %.critedge.backedge ]
@@ -1373,9 +1373,9 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !annotation !8
+  store ptr null, ptr %5, align 8, !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store ptr null, ptr %6, align 8, !annotation !8
+  store ptr null, ptr %6, align 8, !annotation !9
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %8 = tail call noalias noundef align 8 dereferenceable_or_null(688) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 688) #12
   %9 = icmp eq ptr %8, null
@@ -1468,20 +1468,20 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %59, label %.thread, label %60
 
 60:                                               ; preds = %56
-  %61 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, i32 -1, ptr nonnull elementtype(i32) %58) #10, !srcloc !15
+  %61 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, i32 -1, ptr nonnull elementtype(i32) %58) #10, !srcloc !12
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %66, label %63
 
 63:                                               ; preds = %60
   %64 = icmp sgt i32 %61, 0
-  br i1 %64, label %.thread, label %65, !prof !16
+  br i1 %64, label %.thread, label %65, !prof !13
 
 65:                                               ; preds = %63
   call void @refcount_warn_saturate(ptr noundef nonnull %58, i32 noundef 3) #10
   br label %.thread
 
 66:                                               ; preds = %60
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 8
   call void @kvfree_call_rcu(ptr noundef nonnull %67, ptr noundef nonnull %58) #10
   br label %.thread
@@ -1492,20 +1492,20 @@ define internal i32 @nfs3_proc_mknod(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %69, label %.thread8, label %70
 
 70:                                               ; preds = %.thread
-  %71 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %68, i32 -1, ptr nonnull elementtype(i32) %68) #10, !srcloc !15
+  %71 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %68, i32 -1, ptr nonnull elementtype(i32) %68) #10, !srcloc !12
   %72 = icmp eq i32 %71, 1
   br i1 %72, label %76, label %73
 
 73:                                               ; preds = %70
   %74 = icmp sgt i32 %71, 0
-  br i1 %74, label %.thread8, label %75, !prof !16
+  br i1 %74, label %.thread8, label %75, !prof !13
 
 75:                                               ; preds = %73
   call void @refcount_warn_saturate(ptr noundef nonnull %68, i32 noundef 3) #10
   br label %.thread8
 
 76:                                               ; preds = %70
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   %77 = getelementptr inbounds nuw i8, ptr %68, i64 8
   call void @kvfree_call_rcu(ptr noundef nonnull %77, ptr noundef nonnull %68) #10
   br label %.thread8
@@ -1561,7 +1561,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_statfs(ptr noundef readonly
 .critedge.backedge:                               ; preds = %22, %17
   %26 = call i32 @rpc_call_sync(ptr noundef %10, ptr noundef nonnull %4, i32 noundef 0) #10
   %27 = icmp eq i32 %26, -528
-  br i1 %27, label %17, label %._crit_edge, !llvm.loop !25
+  br i1 %27, label %17, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.critedge.backedge, %22, %3
   %28 = phi i32 [ %11, %3 ], [ -512, %22 ], [ %26, %.critedge.backedge ]
@@ -1613,7 +1613,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr noundef readonly
 .critedge.backedge:                               ; preds = %23, %18
   %27 = call i32 @rpc_call_sync(ptr noundef %7, ptr noundef nonnull %5, i32 noundef 0) #10
   %28 = icmp eq i32 %27, -528
-  br i1 %28, label %18, label %.critedge._crit_edge, !llvm.loop !26
+  br i1 %28, label %18, label %.critedge._crit_edge, !llvm.loop !6
 
 .thread:                                          ; preds = %23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
@@ -1673,7 +1673,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_fsinfo(ptr noundef readonly
 .critedge5.backedge:                              ; preds = %53, %48
   %57 = call i32 @rpc_call_sync(ptr noundef %34, ptr noundef nonnull %4, i32 noundef 0) #10
   %58 = icmp eq i32 %57, -528
-  br i1 %58, label %48, label %._crit_edge, !llvm.loop !27
+  br i1 %58, label %48, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.critedge5.backedge, %53, %37
   %59 = phi i32 [ %42, %37 ], [ -512, %53 ], [ %57, %.critedge5.backedge ]
@@ -1728,7 +1728,7 @@ define internal range(i32 -527, -528) i32 @nfs3_proc_pathconf(ptr noundef readon
 .critedge.backedge:                               ; preds = %22, %17
   %26 = call i32 @rpc_call_sync(ptr noundef %10, ptr noundef nonnull %4, i32 noundef 0) #10
   %27 = icmp eq i32 %26, -528
-  br i1 %27, label %17, label %._crit_edge, !llvm.loop !28
+  br i1 %27, label %17, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.critedge.backedge, %22, %3
   %28 = phi i32 [ %11, %3 ], [ -512, %22 ], [ %26, %.critedge.backedge ]
@@ -1786,7 +1786,7 @@ define internal i32 @nfs3_read_done(ptr noundef %0, ptr noundef %1) #0 align 16 
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 256
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %20, ptr elementtype(i64) %20) #10, !srcloc !19
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %20, ptr elementtype(i64) %20) #10, !srcloc !15
   store i32 0, ptr %14, align 4
   %21 = tail call i32 @rpc_restart_call(ptr noundef %0) #10
   tail call void @rpc_delay(ptr noundef %0, i64 noundef 5000) #10
@@ -1805,7 +1805,7 @@ define internal i32 @nfs3_read_done(ptr noundef %0, ptr noundef %1) #0 align 16 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 760
   %30 = load i32, ptr %29, align 8
-  %31 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 %30, i32 0, ptr nonnull elementtype(i32) %25) #10, !srcloc !29
+  %31 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 %30, i32 0, ptr nonnull elementtype(i32) %25) #10, !srcloc !18
   br label %32
 
 32:                                               ; preds = %28, %24, %22
@@ -1851,7 +1851,7 @@ define internal i32 @nfs3_write_done(ptr noundef %0, ptr noundef %1) #0 align 16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 256
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %20, ptr elementtype(i64) %20) #10, !srcloc !19
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %20, ptr elementtype(i64) %20) #10, !srcloc !15
   store i32 0, ptr %9, align 4
   %21 = tail call i32 @rpc_restart_call(ptr noundef %0) #10
   tail call void @rpc_delay(ptr noundef %0, i64 noundef 5000) #10
@@ -1909,7 +1909,7 @@ define internal i32 @nfs3_commit_done(ptr noundef %0, ptr noundef %1) #0 align 1
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 256
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %21, ptr elementtype(i64) %21) #10, !srcloc !19
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %21, ptr elementtype(i64) %21) #10, !srcloc !15
   store i32 0, ptr %10, align 4
   %22 = tail call i32 @rpc_restart_call(ptr noundef %0) #10
   tail call void @rpc_delay(ptr noundef %0, i64 noundef 5000) #10
@@ -1945,7 +1945,7 @@ define internal i32 @nfs3_proc_lock(ptr noundef readonly captures(none) %0, i32 
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i32 8, ptr nonnull elementtype(i8) %16) #10, !srcloc !30
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i32 8, ptr nonnull elementtype(i8) %16) #10, !srcloc !19
   br label %17
 
 17:                                               ; preds = %15, %12, %3
@@ -2171,7 +2171,7 @@ define internal fastcc range(i32 -527, -528) i32 @do_proc_get_root(ptr noundef %
   br i1 %22, label %.critedge.backedge, label %.thread
 
 .critedge.backedge:                               ; preds = %18, %10
-  br label %.critedge, !llvm.loop !31
+  br label %.critedge, !llvm.loop !6
 
 23:                                               ; preds = %.critedge
   %24 = load ptr, ptr %2, align 8
@@ -2211,7 +2211,7 @@ define internal fastcc range(i32 -527, -528) i32 @do_proc_get_root(ptr noundef %
 .critedge4.backedge:                              ; preds = %40, %35
   %44 = call i32 @rpc_call_sync(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 0) #10
   %45 = icmp eq i32 %44, -528
-  br i1 %45, label %35, label %.thread, !llvm.loop !32
+  br i1 %45, label %35, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %.critedge, %18, %.critedge4.backedge, %40, %28, %23
   %46 = phi i32 [ 0, %23 ], [ %29, %28 ], [ %44, %.critedge4.backedge ], [ -512, %40 ], [ %9, %.critedge ], [ -512, %18 ]
@@ -2244,7 +2244,7 @@ define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef
   %9 = alloca %struct.rpc_message, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 0, ptr %10, align 8, !annotation !8
+  store i64 0, ptr %10, align 8, !annotation !9
   %11 = getelementptr i8, ptr %0, i64 -424
   store ptr %11, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2308,7 +2308,7 @@ define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef
 .critedge.backedge:                               ; preds = %41, %36
   %45 = call i32 @rpc_call_sync(ptr noundef %28, ptr noundef nonnull %9, i32 noundef %29) #10
   %46 = icmp eq i32 %45, -528
-  br i1 %46, label %36, label %.critedge._crit_edge, !llvm.loop !33
+  br i1 %46, label %36, label %.critedge._crit_edge, !llvm.loop !6
 
 .thread:                                          ; preds = %41
   %47 = load ptr, ptr %8, align 8
@@ -2365,7 +2365,7 @@ define internal fastcc range(i32 -527, -528) i32 @__nfs3_proc_lookup(ptr noundef
 .critedge4.backedge:                              ; preds = %73, %68
   %77 = call i32 @rpc_call_sync(ptr noundef %61, ptr noundef nonnull %9, i32 noundef %29) #10
   %78 = icmp eq i32 %77, -528
-  br i1 %78, label %68, label %.loopexit, !llvm.loop !34
+  br i1 %78, label %68, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.critedge4.backedge, %73, %56, %.thread, %52, %.critedge._crit_edge
   %79 = phi i32 [ %.lcssa, %52 ], [ %.lcssa, %.critedge._crit_edge ], [ -512, %.thread ], [ %62, %56 ], [ %77, %.critedge4.backedge ], [ -512, %73 ]
@@ -2435,7 +2435,7 @@ define internal fastcc ptr @nfs3_do_create(ptr noundef %0, ptr noundef %1, ptr n
 .critedge.backedge:                               ; preds = %21, %16
   %25 = tail call i32 @rpc_call_sync(ptr noundef %9, ptr noundef nonnull %2, i32 noundef 0) #10
   %26 = icmp eq i32 %25, -528
-  br i1 %26, label %16, label %.critedge._crit_edge, !llvm.loop !35
+  br i1 %26, label %16, label %.critedge._crit_edge, !llvm.loop !6
 
 .thread:                                          ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -2534,33 +2534,17 @@ attributes #12 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 2148184784}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!"auto-init"}
-!9 = distinct !{!9, !7}
+!6 = distinct !{!6, !7, !8}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.unroll.disable"}
+!9 = !{!"auto-init"}
 !10 = !{i32 -527, i32 -528}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !14, !7}
-!14 = !{!"llvm.loop.unroll.disable"}
-!15 = !{i64 2149012171, i64 2149012210, i64 2149012231, i64 2149012268, i64 2149012291, i64 2149012300}
-!16 = !{!"branch_weights", i32 2000, i32 1}
-!17 = !{i64 2150379231}
-!18 = distinct !{!18, !7}
-!19 = !{i64 2158653964}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = !{i8 0, i8 2}
-!23 = !{}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = !{i64 2158764288, i64 2158764327, i64 2158764348, i64 2158764385, i64 2158764408, i64 2158764417}
-!30 = !{i64 2148515796, i64 2148515835, i64 2148515856, i64 2148515893, i64 2148515916, i64 2148515786}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
+!11 = distinct !{!11, !8}
+!12 = !{i64 2149012171, i64 2149012210, i64 2149012231, i64 2149012268, i64 2149012291, i64 2149012300}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = !{i64 2150379231}
+!15 = !{i64 2158653964}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = !{i64 2158764288, i64 2158764327, i64 2158764348, i64 2158764385, i64 2158764408, i64 2158764417}
+!19 = !{i64 2148515796, i64 2148515835, i64 2148515856, i64 2148515893, i64 2148515916, i64 2148515786}

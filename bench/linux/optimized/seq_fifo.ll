@@ -214,7 +214,7 @@ define dso_local void @snd_seq_fifo_clear(ptr noundef %0) local_unnamed_addr #0 
   tail call void @snd_seq_cell_free(ptr noundef nonnull %12) #6
   %21 = load ptr, ptr %5, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.loopexit, label %11, !llvm.loop !9
+  br i1 %22, label %.loopexit, label %11, !llvm.loop !5
 
 .loopexit:                                        ; preds = %18, %1
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %4) #6
@@ -241,9 +241,9 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_fifo_event_in(ptr nounde
   br i1 %4, label %41, label %5
 
 5:                                                ; preds = %2
-  store ptr null, ptr %3, align 8, !annotation !10
+  store ptr null, ptr %3, align 8, !annotation !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, ptr nonnull elementtype(i32) %6) #6, !srcloc !11
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, ptr nonnull elementtype(i32) %6) #6, !srcloc !9
   %7 = load ptr, ptr %0, align 8
   %8 = call i32 @snd_seq_event_dup(ptr noundef %7, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 1, ptr noundef null, ptr noundef null) #6
   %9 = icmp slt i32 %8, 0
@@ -256,11 +256,11 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_fifo_event_in(ptr nounde
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, ptr nonnull elementtype(i32) %14) #6, !srcloc !11
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %14, ptr nonnull elementtype(i32) %14) #6, !srcloc !9
   br label %15
 
 15:                                               ; preds = %13, %10
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, ptr nonnull elementtype(i32) %6) #6, !srcloc !12
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, ptr nonnull elementtype(i32) %6) #6, !srcloc !10
   br label %41
 
 16:                                               ; preds = %5
@@ -307,7 +307,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_fifo_event_in(ptr nounde
   br label %40
 
 40:                                               ; preds = %37, %29
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, ptr nonnull elementtype(i32) %6) #6, !srcloc !12
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %6, ptr nonnull elementtype(i32) %6) #6, !srcloc !10
   br label %41
 
 41:                                               ; preds = %40, %15, %2
@@ -330,9 +330,9 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_fifo_cell_out(ptr nound
   br i1 %5, label %43, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !8
   store ptr null, ptr %1, align 8
-  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !13
+  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !11
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %9, align 8
@@ -355,7 +355,7 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_fifo_cell_out(ptr nound
   br i1 %21, label %22, label %.split9.us
 
 22:                                               ; preds = %.split.us
-  %23 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, i32 1, ptr nonnull elementtype(i32) %17) #6, !srcloc !14
+  %23 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %17, i32 1, ptr nonnull elementtype(i32) %17) #6, !srcloc !12
   call void @add_wait_queue(ptr noundef nonnull %18, ptr noundef nonnull %4) #6
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %11, i64 noundef %19) #6
   call void @schedule() #6
@@ -364,13 +364,13 @@ define dso_local noundef range(i32 -512, 1) i32 @snd_seq_fifo_cell_out(ptr nound
   %25 = load volatile i64, ptr %8, align 8
   %26 = and i64 %25, 131072
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %.critedge, !prof !15
+  br i1 %27, label %28, label %.critedge, !prof !13
 
 28:                                               ; preds = %22
   %29 = load volatile i64, ptr %8, align 8
   %30 = and i64 %29, 4
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.split.us, label %.critedge, !llvm.loop !16
+  br i1 %31, label %.split.us, label %.critedge, !llvm.loop !14
 
 .split:                                           ; preds = %6
   %32 = load ptr, ptr %13, align 8
@@ -504,7 +504,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_fifo_resize(ptr noundef 
   br i1 %11, label %29, label %12
 
 12:                                               ; preds = %9
-  store ptr null, ptr %4, align 8, !annotation !10
+  store ptr null, ptr %4, align 8, !annotation !8
   %13 = tail call i32 @snd_seq_pool_init(ptr noundef nonnull %10) #6
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %.loopexit, label %15
@@ -531,7 +531,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_fifo_resize(ptr noundef 
   %24 = load ptr, ptr %23, align 8
   tail call void @snd_seq_cell_free(ptr noundef nonnull %22) #6
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %15, %12
   %26 = phi ptr [ %3, %12 ], [ %4, %15 ], [ %4, %.preheader ]
@@ -553,7 +553,7 @@ define dso_local i32 @snd_seq_fifo_unused_cells(ptr noundef %0) local_unnamed_ad
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, ptr nonnull elementtype(i32) %4) #6, !srcloc !11
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, ptr nonnull elementtype(i32) %4) #6, !srcloc !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %5) #6
   %7 = load ptr, ptr %0, align 8
@@ -571,7 +571,7 @@ define dso_local i32 @snd_seq_fifo_unused_cells(ptr noundef %0) local_unnamed_ad
 15:                                               ; preds = %9, %3
   %16 = phi i32 [ %14, %9 ], [ 0, %3 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %5, i64 noundef %6) #6
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, ptr nonnull elementtype(i32) %4) #6, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %4, ptr nonnull elementtype(i32) %4) #6, !srcloc !10
   br label %17
 
 17:                                               ; preds = %15, %1
@@ -610,17 +610,15 @@ attributes #7 = { nounwind memory(none) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = !{!"auto-init"}
-!11 = !{i64 2148756259, i64 2148756298, i64 2148756319, i64 2148756356, i64 2148756379, i64 2148756249}
-!12 = !{i64 2148756622, i64 2148756661, i64 2148756682, i64 2148756719, i64 2148756742, i64 2148756612}
-!13 = !{i64 2147955581}
-!14 = !{i64 2154165262}
-!15 = !{!"branch_weights", i32 2000, i32 1}
-!16 = distinct !{!16, !6, !7, !8, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !6, !7, !8}
+!8 = !{!"auto-init"}
+!9 = !{i64 2148756259, i64 2148756298, i64 2148756319, i64 2148756356, i64 2148756379, i64 2148756249}
+!10 = !{i64 2148756622, i64 2148756661, i64 2148756682, i64 2148756719, i64 2148756742, i64 2148756612}
+!11 = !{i64 2147955581}
+!12 = !{i64 2154165262}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = distinct !{!14, !6, !7, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !6, !7}

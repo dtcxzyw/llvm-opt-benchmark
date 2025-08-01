@@ -132,7 +132,7 @@ define internal range(i32 0, 2) i32 @test_tbl_standard() #0 {
   %14 = add nuw nsw i64 %.123, 1
   %15 = getelementptr inbounds nuw i8, ptr %.11622, i64 40
   %exitcond24.not = icmp eq i64 %14, 28
-  br i1 %exitcond24.not, label %.loopexit, label %11, !llvm.loop !13
+  br i1 %exitcond24.not, label %.loopexit, label %11, !llvm.loop !12
 
 .loopexit:                                        ; preds = %11, %9
   %.017 = phi i32 [ 1, %9 ], [ 0, %11 ]
@@ -148,17 +148,17 @@ define internal range(i32 0, 2) i32 @test_standard_methods() #0 {
   %.02134 = phi i64 [ 0, %0 ], [ %18, %17 ]
   %.02333 = phi i32 [ -1, %0 ], [ %3, %17 ]
   %.02532 = phi ptr [ @standard_methods, %0 ], [ %19, %17 ]
-  %2 = load ptr, ptr %.02532, align 8, !tbaa !14
-  %3 = load i32, ptr %2, align 8, !tbaa !17
+  %2 = load ptr, ptr %.02532, align 8, !tbaa !13
+  %3 = load i32, ptr %2, align 8, !tbaa !16
   %4 = icmp slt i32 %3, %.02333
   br i1 %4, label %20, label %.thread
 
 .thread:                                          ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = icmp ne ptr %6, null
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !21
+  %9 = load i64, ptr %8, align 8, !tbaa !20
   %10 = trunc i64 %9 to i32
   %spec.select = and i32 %10, 1
   %11 = zext i1 %7 to i32
@@ -168,7 +168,7 @@ define internal range(i32 0, 2) i32 @test_standard_methods() #0 {
   br i1 %.not30, label %14, label %17
 
 14:                                               ; preds = %.thread
-  %15 = load i32, ptr %2, align 8, !tbaa !17
+  %15 = load i32, ptr %2, align 8, !tbaa !16
   %16 = tail call ptr @OBJ_nid2sn(i32 noundef %15) #4
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.14, i64 noundef %.02134, i32 noundef %15, ptr noundef %16) #4
   br label %17
@@ -178,7 +178,7 @@ define internal range(i32 0, 2) i32 @test_standard_methods() #0 {
   %18 = add nuw nsw i64 %.02134, 1
   %19 = getelementptr inbounds nuw i8, ptr %.02532, i64 8
   %exitcond.not = icmp eq i64 %18, 15
-  br i1 %exitcond.not, label %20, label %1, !llvm.loop !22
+  br i1 %exitcond.not, label %20, label %1, !llvm.loop !21
 
 20:                                               ; preds = %1, %17
   %.0.lcssa = phi i32 [ %.035, %1 ], [ %.1, %17 ]
@@ -198,14 +198,14 @@ define internal range(i32 0, 2) i32 @test_standard_methods() #0 {
 24:                                               ; preds = %23, %24
   %.12237 = phi i64 [ 0, %23 ], [ %28, %24 ]
   %.12636 = phi ptr [ @standard_methods, %23 ], [ %29, %24 ]
-  %25 = load ptr, ptr %.12636, align 8, !tbaa !14
-  %26 = load i32, ptr %25, align 8, !tbaa !17
+  %25 = load ptr, ptr %.12636, align 8, !tbaa !13
+  %26 = load i32, ptr %25, align 8, !tbaa !16
   %27 = tail call ptr @OBJ_nid2sn(i32 noundef %26) #4
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.14, i64 noundef %.12237, i32 noundef %26, ptr noundef %27) #4
   %28 = add nuw nsw i64 %.12237, 1
   %29 = getelementptr inbounds nuw i8, ptr %.12636, i64 8
   %exitcond38.not = icmp eq i64 %28, 15
-  br i1 %exitcond38.not, label %.loopexit, label %24, !llvm.loop !23
+  br i1 %exitcond38.not, label %.loopexit, label %24, !llvm.loop !22
 
 .loopexit:                                        ; preds = %24, %22
   %.027 = phi i32 [ %.0.lcssa, %22 ], [ 0, %24 ]
@@ -276,7 +276,7 @@ define internal range(i32 0, 2) i32 @test_unicode_range() #0 {
   %spec.select.i = select i1 %.not.i, i32 0, i32 %.09.i
   %.078.i.add = add nuw nsw i64 %.078.i.idx, 4
   %5 = icmp samesign ult i64 %.078.i.idx, 12
-  br i1 %5, label %.lr.ph.i, label %.lr.ph.i2, !llvm.loop !24
+  br i1 %5, label %.lr.ph.i, label %.lr.ph.i2, !llvm.loop !23
 
 .lr.ph.i2:                                        ; preds = %.lr.ph.i, %.lr.ph.i2
   %.09.i3 = phi i32 [ %spec.select.i6, %.lr.ph.i2 ], [ 1, %.lr.ph.i ]
@@ -288,7 +288,7 @@ define internal range(i32 0, 2) i32 @test_unicode_range() #0 {
   %spec.select.i6 = select i1 %.not.i5, i32 0, i32 %.09.i3
   %.078.i4.add = add nuw nsw i64 %.078.i4.idx, 4
   %8 = icmp samesign ult i64 %.078.i4.idx, 16
-  br i1 %8, label %.lr.ph.i2, label %test_unicode.exit7, !llvm.loop !24
+  br i1 %8, label %.lr.ph.i2, label %test_unicode.exit7, !llvm.loop !23
 
 test_unicode.exit7:                               ; preds = %.lr.ph.i2
   %.not1 = icmp eq i32 %spec.select.i6, 0
@@ -683,18 +683,17 @@ attributes #4 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"long", !7, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !16, i64 0}
-!16 = !{!"any pointer", !7, i64 0}
-!17 = !{!18, !6, i64 0}
-!18 = !{!"evp_pkey_asn1_method_st", !6, i64 0, !6, i64 4, !9, i64 8, !19, i64 16, !19, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !16, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !16, i64 104, !16, i64 112, !16, i64 120, !16, i64 128, !16, i64 136, !16, i64 144, !16, i64 152, !16, i64 160, !16, i64 168, !16, i64 176, !16, i64 184, !16, i64 192, !16, i64 200, !16, i64 208, !16, i64 216, !16, i64 224, !16, i64 232, !16, i64 240, !16, i64 248, !16, i64 256, !16, i64 264, !16, i64 272, !16, i64 280, !16, i64 288, !16, i64 296, !16, i64 304, !16, i64 312}
-!19 = !{!"p1 omnipotent char", !16, i64 0}
-!20 = !{!18, !19, i64 16}
-!21 = !{!18, !9, i64 8}
-!22 = distinct !{!22, !11, !12}
-!23 = distinct !{!23, !11, !12}
-!24 = distinct !{!24, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS23evp_pkey_asn1_method_st", !15, i64 0}
+!15 = !{!"any pointer", !7, i64 0}
+!16 = !{!17, !6, i64 0}
+!17 = !{!"evp_pkey_asn1_method_st", !6, i64 0, !6, i64 4, !9, i64 8, !18, i64 16, !18, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64, !15, i64 72, !15, i64 80, !15, i64 88, !15, i64 96, !15, i64 104, !15, i64 112, !15, i64 120, !15, i64 128, !15, i64 136, !15, i64 144, !15, i64 152, !15, i64 160, !15, i64 168, !15, i64 176, !15, i64 184, !15, i64 192, !15, i64 200, !15, i64 208, !15, i64 216, !15, i64 224, !15, i64 232, !15, i64 240, !15, i64 248, !15, i64 256, !15, i64 264, !15, i64 272, !15, i64 280, !15, i64 288, !15, i64 296, !15, i64 304, !15, i64 312}
+!18 = !{!"p1 omnipotent char", !15, i64 0}
+!19 = !{!17, !18, i64 16}
+!20 = !{!17, !9, i64 8}
+!21 = distinct !{!21, !11}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !11}

@@ -98,13 +98,13 @@ define void @LAPACKE_str_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
 42:                                               ; preds = %.lr.ph88, %42
   %indvars.iv99 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next100, %42 ]
   %gep115 = getelementptr float, ptr %invariant.gep114, i64 %indvars.iv99
-  %43 = load float, ptr %gep115, align 4, !tbaa !6
+  %43 = load float, ptr %gep115, align 4, !tbaa !5
   %44 = mul nsw i64 %indvars.iv99, %35
   %gep117 = getelementptr float, ptr %invariant.gep116, i64 %44
-  store float %43, ptr %gep117, align 4, !tbaa !6
+  store float %43, ptr %gep117, align 4, !tbaa !5
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count104
-  br i1 %exitcond105.not, label %.loopexit, label %42, !llvm.loop !10
+  br i1 %exitcond105.not, label %.loopexit, label %42, !llvm.loop !9
 
 45:                                               ; preds = %.lr.ph86, %._crit_edge
   %indvars.iv94 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next95, %._crit_edge ]
@@ -121,19 +121,19 @@ define void @LAPACKE_str_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv91 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next92, %48 ]
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv91
-  %49 = load float, ptr %gep, align 4, !tbaa !6
+  %49 = load float, ptr %gep, align 4, !tbaa !5
   %50 = mul nsw i64 %indvars.iv91, %30
   %gep113 = getelementptr float, ptr %invariant.gep112, i64 %50
-  store float %49, ptr %gep113, align 4, !tbaa !6
+  store float %49, ptr %gep113, align 4, !tbaa !5
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %48, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %48, %45
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.loopexit81, label %45, !llvm.loop !12
+  br i1 %exitcond98.not, label %.loopexit81, label %45, !llvm.loop !11
 
 .loopexit81:                                      ; preds = %._crit_edge, %.loopexit, %.preheader82, %.preheader80, %18, %21, %11, %8
   ret void
@@ -155,13 +155,12 @@ attributes #3 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"float", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
+!5 = !{!6, !6, i64 0}
+!6 = !{!"float", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}

@@ -894,7 +894,7 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   %164 = tail call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %163, ptr noundef %0, i32 noundef %.1290.i, i32 noundef 2, i32 noundef 0)
   %.1.i = add i32 %.1290.i, 2
   %165 = icmp samesign ugt i32 %.1254289.i, 1
-  br i1 %165, label %.lr.ph292.i, label %._crit_edge293.i, !llvm.loop !9
+  br i1 %165, label %.lr.ph292.i, label %._crit_edge293.i, !llvm.loop !8
 
 ._crit_edge293.i:                                 ; preds = %.lr.ph292.i, %149
   %.1.in.lcssa.i = phi i32 [ %157, %149 ], [ %.1290.i, %.lr.ph292.i ]
@@ -927,7 +927,7 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
 181:                                              ; preds = %177, %.lr.ph300.i
   %.3.i = phi i32 [ %180, %177 ], [ %175, %.lr.ph300.i ]
   %182 = icmp samesign ugt i32 %.in317.i, 1
-  br i1 %182, label %.lr.ph300.i, label %._crit_edge301.i, !llvm.loop !10
+  br i1 %182, label %.lr.ph300.i, label %._crit_edge301.i, !llvm.loop !9
 
 ._crit_edge301.i:                                 ; preds = %181, %._crit_edge293.i
   %.2.lcssa.i = phi i32 [ %170, %._crit_edge293.i ], [ %.3.i, %181 ]
@@ -946,7 +946,7 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   %188 = load i32, ptr @hf_format, align 4
   %189 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %188, ptr noundef %0, i32 noundef %.4.i, i32 noundef 2, i32 noundef 0)
   %190 = icmp samesign ugt i32 %.3256304.i, 1
-  br i1 %190, label %.lr.ph307.i, label %dissect_pgsql_fe_msg.exit, !llvm.loop !11
+  br i1 %190, label %.lr.ph307.i, label %dissect_pgsql_fe_msg.exit, !llvm.loop !10
 
 191:                                              ; preds = %88
   %192 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
@@ -1031,7 +1031,7 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   %237 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef %232)
   %238 = sub i32 %231, %237
   %239 = icmp slt i32 %238, 1
-  br i1 %239, label %dissect_pgsql_fe_msg.exit, label %.lr.ph, !llvm.loop !12
+  br i1 %239, label %dissect_pgsql_fe_msg.exit, label %.lr.ph, !llvm.loop !11
 
 240:                                              ; preds = %211
   %241 = load i32, ptr @hf_request_code, align 4
@@ -1090,7 +1090,7 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
   %276 = tail call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %275, ptr noundef %0, i32 noundef %.6271.i, i32 noundef 2, i32 noundef 0)
   %277 = add nuw nsw i32 %.6271.i, 2
   %278 = icmp samesign ugt i32 %.5258270.i, 1
-  br i1 %278, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
+  br i1 %278, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %267
   %.6.lcssa.i = phi i32 [ 11, %267 ], [ %277, %.lr.ph.i ]
@@ -1122,7 +1122,7 @@ proto_item_set_hidden.exit:                       ; preds = %59, %80, %83
 294:                                              ; preds = %290, %.lr.ph274.i
   %.8.i = phi i32 [ %293, %290 ], [ %288, %.lr.ph274.i ]
   %295 = icmp samesign ugt i32 %.in.i, 1
-  br i1 %295, label %.lr.ph274.i, label %._crit_edge275.i, !llvm.loop !14
+  br i1 %295, label %.lr.ph274.i, label %._crit_edge275.i, !llvm.loop !13
 
 ._crit_edge275.i:                                 ; preds = %294, %._crit_edge.i
   %.7.lcssa.i = phi i32 [ %283, %._crit_edge.i ], [ %.8.i, %294 ]
@@ -1212,7 +1212,7 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %324 = load i32, ptr %6, align 4
   %325 = add i32 %324, %.0199241.i
   %326 = icmp ult i32 %325, %33
-  br i1 %326, label %.lr.ph242.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !15
+  br i1 %326, label %.lr.ph242.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !14
 
 327:                                              ; preds = %299, %299
   %328 = load ptr, ptr %.0, align 8
@@ -1267,7 +1267,7 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %362 = tail call ptr @proto_tree_add_item(ptr noundef %359, i32 noundef %361, ptr noundef %0, i32 noundef %.1238.i, i32 noundef 4, i32 noundef 0)
   %363 = add nuw nsw i32 %.1238.i, 4
   %364 = icmp samesign ugt i32 %.in258.i, 1
-  br i1 %364, label %.lr.ph239.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !16
+  br i1 %364, label %.lr.ph239.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !15
 
 365:                                              ; preds = %298
   %366 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
@@ -1311,7 +1311,7 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %395 = tail call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %394, ptr noundef %0, i32 noundef %393, i32 noundef 2, i32 noundef 0)
   %396 = add i32 %378, 18
   %397 = icmp samesign ugt i32 %.in257.i, 1
-  br i1 %397, label %.lr.ph233.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !17
+  br i1 %397, label %.lr.ph233.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !16
 
 398:                                              ; preds = %298
   %399 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
@@ -1346,7 +1346,7 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
 415:                                              ; preds = %411, %.lr.ph225.i
   %.4.i82 = phi i32 [ %414, %411 ], [ %409, %.lr.ph225.i ]
   %416 = icmp samesign ugt i32 %.in256.i, 1
-  br i1 %416, label %.lr.ph225.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !18
+  br i1 %416, label %.lr.ph225.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !17
 
 417:                                              ; preds = %298
   %418 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef range(i32 4, 6) 5)
@@ -1461,7 +1461,7 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %458 = sub i32 %reass.sub.i, %457
   %459 = add i32 %457, %433
   %460 = icmp sgt i32 %458, 0
-  br i1 %460, label %428, label %dissect_pgsql_be_msg.exit, !llvm.loop !19
+  br i1 %460, label %428, label %dissect_pgsql_be_msg.exit, !llvm.loop !18
 
 461:                                              ; preds = %298
   %462 = load i32, ptr @hf_pid, align 4
@@ -1497,7 +1497,7 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %483 = tail call ptr @proto_tree_add_item(ptr noundef %479, i32 noundef %482, ptr noundef %0, i32 noundef %.6214.i, i32 noundef 2, i32 noundef 0)
   %484 = add nuw nsw i32 %.6214.i, 2
   %485 = icmp samesign ugt i32 %.in.i80, 3
-  br i1 %485, label %.lr.ph215.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !20
+  br i1 %485, label %.lr.ph215.i, label %dissect_pgsql_be_msg.exit, !llvm.loop !19
 
 486:                                              ; preds = %298
   %487 = load i32, ptr @hf_copydata, align 4
@@ -1538,7 +1538,7 @@ dissect_pgsql_fe_msg.exit:                        ; preds = %236, %234, %.lr.ph2
   %510 = add i32 %509, -1
   store i32 %510, ptr %7, align 4
   %511 = icmp sgt i32 %510, 0
-  br i1 %511, label %.lr.ph.i79, label %dissect_pgsql_be_msg.exit, !llvm.loop !21
+  br i1 %511, label %.lr.ph.i79, label %dissect_pgsql_be_msg.exit, !llvm.loop !20
 
 dissect_pgsql_be_msg.exit:                        ; preds = %.lr.ph.i79, %.lr.ph215.i, %428, %452, %415, %.lr.ph233.i, %.lr.ph239.i, %.lr.ph242.i, %298, %299, %303, %312, %316, %327, %332, %336, %341, %355, %365, %398, %417, %421, %424, %461, %470, %473, %486, %490, %495, %498
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
@@ -1686,7 +1686,7 @@ define internal i32 @dissect_pgsql_gssapi_wrap(ptr noundef %0, ptr noundef %1, p
 
 42:                                               ; preds = %20
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %44 = load i8, ptr %43, align 8, !range !22, !noundef !23
+  %44 = load i8, ptr %43, align 8, !range !21, !noundef !22
   %45 = trunc nuw i8 %44 to i1
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %47 = load ptr, ptr %46, align 8
@@ -1763,21 +1763,20 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = !{i8 0, i8 2}
-!23 = !{}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = !{i8 0, i8 2}
+!22 = !{}

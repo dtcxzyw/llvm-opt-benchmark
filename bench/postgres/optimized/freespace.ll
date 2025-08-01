@@ -181,7 +181,7 @@ fsm_does_block_exist.exit:                        ; preds = %RelationGetSmgr.exi
   %.sroa.13.3 = phi i32 [ 0, %57 ], [ %62, %61 ]
   %.372 = phi i32 [ %59, %57 ], [ %.069, %61 ]
   %.narrow = add i32 %.sroa.13.3, %27
-  br label %.outer, !llvm.loop !5
+  br label %.outer
 
 65:                                               ; preds = %BufferGetPage.exit, %5
   %.078.ph = phi i8 [ 0, %5 ], [ %25, %BufferGetPage.exit ]
@@ -231,7 +231,7 @@ BufferGetPage.exit.i:                             ; preds = %81, %75
   tail call void @UnlockReleaseBuffer(i32 noundef %73) #8
   %90 = add i32 %.069, 1
   %exitcond.not = icmp eq i32 %.069, %smax
-  br i1 %exitcond.not, label %.thread95, label %5, !llvm.loop !5
+  br i1 %exitcond.not, label %.thread95, label %5
 
 .thread95:                                        ; preds = %57, %65, %89, %.thread88
   %.2101 = phi i32 [ %30, %.thread88 ], [ -1, %89 ], [ -1, %65 ], [ -1, %57 ]
@@ -428,7 +428,7 @@ define dso_local void @XLogRecordPageWithFreeSpace(i64 %0, i32 %1, i32 noundef %
   %9 = udiv i64 %.112.in18.i, 4069
   %10 = add nuw nsw i32 %.119.i, 1
   %exitcond21.not.i = icmp eq i32 %10, 3
-  br i1 %exitcond21.not.i, label %fsm_logical_to_physical.exit, label %6, !llvm.loop !7
+  br i1 %exitcond21.not.i, label %fsm_logical_to_physical.exit, label %6, !llvm.loop !5
 
 fsm_logical_to_physical.exit:                     ; preds = %6
   %11 = icmp ugt i64 %3, 8159
@@ -551,7 +551,7 @@ define internal fastcc i32 @fsm_readbuf(ptr noundef %0, i64 %1, i1 noundef zeroe
   %7 = mul nsw i64 %6, 4069
   %8 = add nuw nsw i32 %.016.i, 1
   %exitcond.not.i = icmp eq i32 %8, %.sroa.0.0.extract.trunc.i
-  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !7
 
 .preheader.i.preheader:                           ; preds = %.lr.ph.i, %3
   %.112.in18.i.ph = phi i64 [ %.sroa.3.0.extract.shift.i, %3 ], [ %7, %.lr.ph.i ]
@@ -569,7 +569,7 @@ define internal fastcc i32 @fsm_readbuf(ptr noundef %0, i64 %1, i1 noundef zeroe
   %12 = udiv i64 %11, 4069
   %13 = add nuw nsw i32 %.119.i, 1
   %exitcond21.not.i = icmp eq i32 %13, 3
-  br i1 %exitcond21.not.i, label %fsm_logical_to_physical.exit, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond21.not.i, label %fsm_logical_to_physical.exit, label %.preheader.i, !llvm.loop !5
 
 fsm_logical_to_physical.exit:                     ; preds = %.preheader.i
   %14 = xor i32 %.sroa.0.0.extract.trunc.i, -1
@@ -761,7 +761,7 @@ BufferGetPage.exit:                               ; preds = %21, %27
   %.0.i.i = phi ptr [ %26, %21 ], [ %32, %27 ]
   %33 = tail call zeroext i1 @fsm_truncate_avail(ptr noundef %.0.i.i, i32 noundef %14) #8
   tail call void @MarkBufferDirty(i32 noundef %16) #8
-  %34 = load i8, ptr @InRecovery, align 1, !range !10, !noundef !11
+  %34 = load i8, ptr @InRecovery, align 1, !range !8, !noundef !9
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.preheader.i, label %36
 
@@ -792,7 +792,7 @@ BufferGetPage.exit:                               ; preds = %21, %27
 
 53:                                               ; preds = %49, %42
   %54 = tail call zeroext i1 @DataChecksumsEnabled() #8
-  %55 = load i8, ptr @wal_log_hints, align 1, !range !10
+  %55 = load i8, ptr @wal_log_hints, align 1, !range !8
   %56 = trunc nuw i8 %55 to i1
   %or.cond = select i1 %54, i1 true, i1 %56
   br i1 %or.cond, label %57, label %.preheader.i
@@ -818,7 +818,7 @@ BufferGetPage.exit:                               ; preds = %21, %27
   %64 = udiv i64 %.112.in18.i, 4069
   %65 = add nuw nsw i32 %.119.i, 1
   %exitcond21.not.i = icmp eq i32 %65, 3
-  br i1 %exitcond21.not.i, label %fsm_logical_to_physical.exit, label %61, !llvm.loop !7
+  br i1 %exitcond21.not.i, label %fsm_logical_to_physical.exit, label %61, !llvm.loop !5
 
 fsm_logical_to_physical.exit:                     ; preds = %61
   %66 = add nuw nsw i32 %.112.i, 1
@@ -835,7 +835,7 @@ fsm_logical_to_physical.exit:                     ; preds = %61
   %70 = udiv i64 %.112.in18.i26, 4069
   %71 = add nuw nsw i32 %.119.i25, 1
   %exitcond21.not.i30 = icmp eq i32 %71, 3
-  br i1 %exitcond21.not.i30, label %fsm_logical_to_physical.exit36, label %.preheader.i23, !llvm.loop !7
+  br i1 %exitcond21.not.i30, label %fsm_logical_to_physical.exit36, label %.preheader.i23, !llvm.loop !5
 
 fsm_logical_to_physical.exit36:                   ; preds = %.preheader.i23
   %72 = load ptr, ptr %3, align 8
@@ -950,7 +950,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %30 = urem i64 %.sroa.013.0.in76, 4069
   %.sroa.018.0 = trunc i64 %27 to i32
   %31 = icmp slt i32 %.sroa.018.0, %.sroa.042.0.extract.trunc
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %32 = trunc nuw nsw i64 %30 to i32
@@ -980,14 +980,14 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %.06284 = phi i32 [ %.061, %.lr.ph86 ], [ %60, %59 ]
   %42 = load volatile i32, ptr @InterruptPending, align 4
   %.not63 = icmp eq i32 %42, 0
-  br i1 %.not63, label %44, label %43, !prof !13
+  br i1 %.not63, label %44, label %43, !prof !11
 
 43:                                               ; preds = %41
   tail call void @ProcessInterrupts() #8
   br label %44
 
 44:                                               ; preds = %43, %41
-  %45 = load i8, ptr %6, align 1, !range !10, !noundef !11
+  %45 = load i8, ptr %6, align 1, !range !8, !noundef !9
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %53, label %47
 
@@ -1019,7 +1019,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
 59:                                               ; preds = %56, %53
   %60 = add i32 %.06284, 1
   %exitcond.not = icmp eq i32 %.06284, %.060
-  br i1 %exitcond.not, label %._crit_edge87, label %41, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge87, label %41, !llvm.loop !12
 
 ._crit_edge87:                                    ; preds = %59, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #8
@@ -1103,12 +1103,10 @@ attributes #8 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !8, !6}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !6}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !8, !6}
-!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!14 = distinct !{!14, !8, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !6}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = distinct !{!12, !6}

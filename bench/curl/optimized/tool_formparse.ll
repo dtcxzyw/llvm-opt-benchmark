@@ -919,7 +919,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
 
 .critedge:                                        ; preds = %19, %16, %16
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  br label %16, !llvm.loop !50
+  br label %16, !llvm.loop !49
 
 .critedge4:                                       ; preds = %19
   store ptr %17, ptr %10, align 8
@@ -956,7 +956,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
 
 .critedge8:                                       ; preds = %30, %.lr.ph, %.lr.ph
   %32 = icmp ugt ptr %28, %17
-  br i1 %32, label %.lr.ph, label %.critedge6.loopexit, !llvm.loop !51
+  br i1 %32, label %.lr.ph, label %.critedge6.loopexit, !llvm.loop !50
 
 .critedge6.loopexit:                              ; preds = %30, %.critedge8, %.preheader252
   %.lcssa287 = phi ptr [ %.pre, %.preheader252 ], [ %scevgep, %.critedge8 ], [ %27, %30 ]
@@ -1002,7 +1002,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
 
 .critedge12:                                      ; preds = %42, %.lr.ph293, %.lr.ph293
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  br label %.lr.ph293, !llvm.loop !52
+  br label %.lr.ph293, !llvm.loop !51
 
 .critedge10:                                      ; preds = %42, %.preheader251
   %.lcssa291 = phi ptr [ %38, %.preheader251 ], [ %39, %42 ]
@@ -1036,7 +1036,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
 
 .critedge14:                                      ; preds = %51, %49, %49
   %53 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
-  br label %49, !llvm.loop !53
+  br label %49, !llvm.loop !52
 
 .critedge16:                                      ; preds = %51
   %54 = call i64 @strcspn(ptr noundef nonnull %storemerge, ptr noundef nonnull @.str.8) #18
@@ -1079,7 +1079,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
 
 .critedge18:                                      ; preds = %66, %64, %64
   %68 = getelementptr inbounds nuw i8, ptr %storemerge206, i64 1
-  br label %64, !llvm.loop !54
+  br label %64, !llvm.loop !53
 
 .critedge20:                                      ; preds = %66
   store ptr %storemerge206, ptr %10, align 8, !tbaa !33
@@ -1115,7 +1115,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
 
 .critedge24:                                      ; preds = %77, %.lr.ph306, %.lr.ph306
   %79 = icmp ugt ptr %75, %storemerge206
-  br i1 %79, label %.lr.ph306, label %.critedge22.loopexit, !llvm.loop !55
+  br i1 %79, label %.lr.ph306, label %.critedge22.loopexit, !llvm.loop !54
 
 .critedge22.loopexit:                             ; preds = %77, %.critedge24, %.preheader250
   %.lcssa305 = phi ptr [ %.pre370, %.preheader250 ], [ %scevgep363, %.critedge24 ], [ %74, %77 ]
@@ -1165,7 +1165,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
   ]
 
 .backedge.backedge:                               ; preds = %.backedge, %.backedge, %93
-  br label %.backedge, !llvm.loop !56
+  br label %.backedge, !llvm.loop !55
 
 93:                                               ; preds = %.backedge
   %94 = add i8 %92, -10
@@ -1206,7 +1206,7 @@ define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readon
 
 .critedge32:                                      ; preds = %103, %.lr.ph315, %.lr.ph315
   %105 = icmp ugt ptr %101, %91
-  br i1 %105, label %.lr.ph315, label %.critedge30.loopexit, !llvm.loop !57
+  br i1 %105, label %.lr.ph315, label %.critedge30.loopexit, !llvm.loop !56
 
 .critedge30.loopexit:                             ; preds = %103, %.critedge32, %.preheader249
   %.lcssa314 = phi ptr [ %.pre371, %.preheader249 ], [ %scevgep365, %.critedge32 ], [ %100, %103 ]
@@ -1291,7 +1291,7 @@ switch.early.test.i:                              ; preds = %119
 
 .critedge7.i:                                     ; preds = %126, %.lr.ph.i, %.lr.ph.i
   %.not.i = icmp eq i64 %123, 0
-  br i1 %.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !58
+  br i1 %.not.i, label %.critedge56.i, label %.lr.ph.i, !llvm.loop !57
 
 .critedge.i:                                      ; preds = %126
   %128 = getelementptr inbounds nuw [999 x i8], ptr %9, i64 0, i64 %.24872.i
@@ -1398,7 +1398,7 @@ read_field_headers.exit:                          ; preds = %131
 .critedge34:                                      ; preds = %159, %.preheader248, %.preheader248
   %161 = getelementptr inbounds nuw i8, ptr %158, i64 1
   %.pre372 = load i8, ptr %161, align 1, !tbaa !36
-  br label %.preheader248, !llvm.loop !59
+  br label %.preheader248, !llvm.loop !58
 
 .critedge36:                                      ; preds = %159
   store ptr %158, ptr %10, align 8
@@ -1434,7 +1434,7 @@ read_field_headers.exit:                          ; preds = %131
 
 .critedge40:                                      ; preds = %170, %.lr.ph323, %.lr.ph323
   %172 = icmp ugt ptr %168, %158
-  br i1 %172, label %.lr.ph323, label %.critedge38.loopexit, !llvm.loop !60
+  br i1 %172, label %.lr.ph323, label %.critedge38.loopexit, !llvm.loop !59
 
 .critedge38.loopexit:                             ; preds = %170, %.critedge40, %.preheader247
   %.lcssa322 = phi ptr [ %.pre373, %.preheader247 ], [ %scevgep367, %.critedge40 ], [ %167, %170 ]
@@ -1494,7 +1494,7 @@ slist_append.exit:                                ; preds = %.critedge38
 
 .critedge42:                                      ; preds = %186, %184, %184
   %188 = getelementptr inbounds nuw i8, ptr %storemerge202, i64 1
-  br label %184, !llvm.loop !61
+  br label %184, !llvm.loop !60
 
 .critedge44:                                      ; preds = %186
   store ptr %storemerge202, ptr %10, align 8, !tbaa !33
@@ -1530,7 +1530,7 @@ slist_append.exit:                                ; preds = %.critedge38
 
 .critedge48:                                      ; preds = %197, %.lr.ph330, %.lr.ph330
   %199 = icmp ugt ptr %195, %storemerge202
-  br i1 %199, label %.lr.ph330, label %.critedge46.loopexit, !llvm.loop !62
+  br i1 %199, label %.lr.ph330, label %.critedge46.loopexit, !llvm.loop !61
 
 .critedge46.loopexit:                             ; preds = %197, %.critedge48, %.preheader
   %.lcssa329 = phi ptr [ %.pre374, %.preheader ], [ %scevgep369, %.critedge48 ], [ %194, %197 ]
@@ -1573,7 +1573,7 @@ slist_append.exit:                                ; preds = %.critedge38
 210:                                              ; preds = %207, %206, %206
   %.6157 = phi ptr [ %.5156, %206 ], [ %.5156, %206 ], [ %spec.select, %207 ]
   %211 = getelementptr inbounds nuw i8, ptr %203, i64 1
-  br label %.thread246, !llvm.loop !63
+  br label %.thread246, !llvm.loop !62
 
 212:                                              ; preds = %178
   %213 = call fastcc ptr @get_param_word(ptr noundef %0, ptr noundef %10, ptr noundef %11, i8 noundef signext %1)
@@ -1603,7 +1603,7 @@ slist_append.exit:                                ; preds = %.critedge38
   %.1146 = phi ptr [ %.0145337, %212 ], [ %.0145337, %218 ], [ %.0145337, %.critedge46 ], [ %.0145337, %110 ], [ %.0145337, %read_field_headers.exit ], [ %69, %.critedge22 ], [ %.0145337, %.critedge16 ], [ %.0145337, %.critedge38 ], [ %.0145337, %.critedge221.loopexit ]
   %.1141 = phi ptr [ %.0140338, %212 ], [ %.0140338, %218 ], [ %.0140338, %.critedge46 ], [ %.0140338, %110 ], [ %.0140338, %read_field_headers.exit ], [ %.0140338, %.critedge22 ], [ %storemerge, %.critedge16 ], [ %.0140338, %.critedge38 ], [ %.0140338, %.critedge221.loopexit ]
   %220 = icmp eq i8 %.1150, 59
-  br i1 %220, label %.preheader251, label %._crit_edge, !llvm.loop !64
+  br i1 %220, label %.preheader251, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.critedge221
   %221 = zext i8 %.1150 to i32
@@ -1761,14 +1761,14 @@ tool_mime_new.exit:                               ; preds = %12
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !65
+  %35 = load i32, ptr %34, align 8, !tbaa !64
   %36 = and i32 %35, 61440
   %37 = icmp eq i32 %36, 32768
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %40 = load i64, ptr %39, align 8, !tbaa !68
+  %40 = load i64, ptr %39, align 8, !tbaa !67
   %41 = sub nsw i64 %40, %28
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %41, i64 0)
   br label %52
@@ -1930,7 +1930,7 @@ define internal fastcc ptr @get_param_word(ptr noundef readonly captures(none) %
   %.not74 = icmp eq ptr %.054.ph, null
   %spec.select = select i1 %.not74, ptr %.159, ptr %.054.ph
   %16 = getelementptr inbounds nuw i8, ptr %.159, i64 2
-  br label %.outer, !llvm.loop !69
+  br label %.outer, !llvm.loop !68
 
 17:                                               ; preds = %10
   store ptr %.159, ptr %2, align 8, !tbaa !33
@@ -1963,7 +1963,7 @@ define internal fastcc ptr @get_param_word(ptr noundef readonly captures(none) %
   store i8 %25, ptr %.056, align 1, !tbaa !36
   %28 = load ptr, ptr %2, align 8, !tbaa !33
   %29 = icmp ult ptr %26, %28
-  br i1 %29, label %.preheader, label %30, !llvm.loop !70
+  br i1 %29, label %.preheader, label %30, !llvm.loop !69
 
 30:                                               ; preds = %24
   store ptr %27, ptr %2, align 8, !tbaa !33
@@ -1998,13 +1998,13 @@ define internal fastcc ptr @get_param_word(ptr noundef readonly captures(none) %
   ]
 
 .backedge:                                        ; preds = %34, %34
-  br label %31, !llvm.loop !71
+  br label %31, !llvm.loop !70
 
 35:                                               ; preds = %34
   %36 = add i8 %32, -14
   %or.cond = icmp ult i8 %36, -4
   %spec.select75 = select i1 %or.cond, i1 true, i1 %.0.ph
-  br label %.outer94, !llvm.loop !71
+  br label %.outer94, !llvm.loop !70
 
 .critedge:                                        ; preds = %31, %31, %33
   br i1 %.0.ph, label %37, label %45
@@ -2017,7 +2017,7 @@ define internal fastcc ptr @get_param_word(ptr noundef readonly captures(none) %
 
 .thread:                                          ; preds = %10, %12
   %40 = getelementptr inbounds nuw i8, ptr %.159, i64 1
-  br label %10, !llvm.loop !69
+  br label %10, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %43
   %41 = phi i8 [ %.pre84, %43 ], [ %6, %.loopexit.preheader ]
@@ -2034,7 +2034,7 @@ define internal fastcc ptr @get_param_word(ptr noundef readonly captures(none) %
 43:                                               ; preds = %42
   %44 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   %.pre84 = load i8, ptr %44, align 1, !tbaa !36
-  br label %.loopexit, !llvm.loop !72
+  br label %.loopexit, !llvm.loop !71
 
 .critedge2:                                       ; preds = %.loopexit, %.loopexit, %42
   store ptr %.6, ptr %2, align 8, !tbaa !33
@@ -2151,29 +2151,28 @@ attributes #18 = { nounwind willreturn memory(read) }
 !44 = !{!"p1 _ZTS15OperationConfig", !10, i64 0}
 !45 = !{!"State", !43, i64 0, !46, i64 8, !46, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72}
 !46 = !{!"p1 _ZTS7URLGlob", !10, i64 0}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = distinct !{!50, !48, !49}
-!51 = distinct !{!51, !48, !49}
-!52 = distinct !{!52, !48, !49}
-!53 = distinct !{!53, !48, !49}
-!54 = distinct !{!54, !48, !49}
-!55 = distinct !{!55, !48, !49}
-!56 = distinct !{!56, !49}
-!57 = distinct !{!57, !48, !49}
-!58 = distinct !{!58, !48, !49}
-!59 = distinct !{!59, !48, !49}
-!60 = distinct !{!60, !48, !49}
-!61 = distinct !{!61, !48, !49}
-!62 = distinct !{!62, !48, !49}
-!63 = distinct !{!63, !48, !49}
-!64 = distinct !{!64, !48, !49}
-!65 = !{!66, !6, i64 24}
-!66 = !{!"stat", !13, i64 0, !13, i64 8, !13, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !67, i64 72, !67, i64 88, !67, i64 104, !7, i64 120}
-!67 = !{!"timespec", !13, i64 0, !13, i64 8}
-!68 = !{!66, !13, i64 48}
-!69 = distinct !{!69, !48, !49}
-!70 = distinct !{!70, !48, !49}
-!71 = distinct !{!71, !48, !49}
-!72 = distinct !{!72, !48, !49}
+!49 = distinct !{!49, !48}
+!50 = distinct !{!50, !48}
+!51 = distinct !{!51, !48}
+!52 = distinct !{!52, !48}
+!53 = distinct !{!53, !48}
+!54 = distinct !{!54, !48}
+!55 = distinct !{!55, !48}
+!56 = distinct !{!56, !48}
+!57 = distinct !{!57, !48}
+!58 = distinct !{!58, !48}
+!59 = distinct !{!59, !48}
+!60 = distinct !{!60, !48}
+!61 = distinct !{!61, !48}
+!62 = distinct !{!62, !48}
+!63 = distinct !{!63, !48}
+!64 = !{!65, !6, i64 24}
+!65 = !{!"stat", !13, i64 0, !13, i64 8, !13, i64 16, !6, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !66, i64 72, !66, i64 88, !66, i64 104, !7, i64 120}
+!66 = !{!"timespec", !13, i64 0, !13, i64 8}
+!67 = !{!65, !13, i64 48}
+!68 = distinct !{!68, !48}
+!69 = distinct !{!69, !48}
+!70 = distinct !{!70, !48}
+!71 = distinct !{!71, !48}

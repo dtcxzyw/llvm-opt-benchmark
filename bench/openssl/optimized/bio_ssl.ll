@@ -292,49 +292,49 @@ define internal noundef i32 @ssl_write(ptr noundef %0, ptr noundef %1, i64 nound
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !49
+  %13 = load i64, ptr %12, align 8, !tbaa !48
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %24, label %14
 
 14:                                               ; preds = %11
-  %15 = load i64, ptr %3, align 8, !tbaa !50
+  %15 = load i64, ptr %3, align 8, !tbaa !49
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !51
+  %17 = load i64, ptr %16, align 8, !tbaa !50
   %18 = add i64 %17, %15
-  store i64 %18, ptr %16, align 8, !tbaa !51
+  store i64 %18, ptr %16, align 8, !tbaa !50
   %19 = icmp ugt i64 %18, %13
   br i1 %19, label %.thread, label %24
 
 .thread:                                          ; preds = %14
-  store i64 0, ptr %16, align 8, !tbaa !51
+  store i64 0, ptr %16, align 8, !tbaa !50
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !52
+  %21 = load i32, ptr %20, align 8, !tbaa !51
   %22 = add nsw i32 %21, 1
-  store i32 %22, ptr %20, align 8, !tbaa !52
+  store i32 %22, ptr %20, align 8, !tbaa !51
   %23 = tail call i32 @SSL_renegotiate(ptr noundef %8) #5
   br label %44
 
 24:                                               ; preds = %14, %11
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %26 = load i64, ptr %25, align 8, !tbaa !53
+  %26 = load i64, ptr %25, align 8, !tbaa !52
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %44, label %28
 
 28:                                               ; preds = %24
   %29 = tail call i64 @time(ptr noundef null) #5
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %31 = load i64, ptr %30, align 8, !tbaa !54
-  %32 = load i64, ptr %25, align 8, !tbaa !53
+  %31 = load i64, ptr %30, align 8, !tbaa !53
+  %32 = load i64, ptr %25, align 8, !tbaa !52
   %33 = add i64 %32, %31
   %34 = icmp ugt i64 %29, %33
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %28
-  store i64 %29, ptr %30, align 8, !tbaa !54
+  store i64 %29, ptr %30, align 8, !tbaa !53
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !52
+  %37 = load i32, ptr %36, align 8, !tbaa !51
   %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %36, align 8, !tbaa !52
+  store i32 %38, ptr %36, align 8, !tbaa !51
   %39 = tail call i32 @SSL_renegotiate(ptr noundef %8) #5
   br label %44
 
@@ -386,49 +386,49 @@ define internal noundef i32 @ssl_read(ptr noundef %0, ptr noundef %1, i64 nounde
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !49
+  %13 = load i64, ptr %12, align 8, !tbaa !48
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %24, label %14
 
 14:                                               ; preds = %11
-  %15 = load i64, ptr %3, align 8, !tbaa !50
+  %15 = load i64, ptr %3, align 8, !tbaa !49
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %17 = load i64, ptr %16, align 8, !tbaa !51
+  %17 = load i64, ptr %16, align 8, !tbaa !50
   %18 = add i64 %17, %15
-  store i64 %18, ptr %16, align 8, !tbaa !51
+  store i64 %18, ptr %16, align 8, !tbaa !50
   %19 = icmp ugt i64 %18, %13
   br i1 %19, label %.thread, label %24
 
 .thread:                                          ; preds = %14
-  store i64 0, ptr %16, align 8, !tbaa !51
+  store i64 0, ptr %16, align 8, !tbaa !50
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !52
+  %21 = load i32, ptr %20, align 8, !tbaa !51
   %22 = add nsw i32 %21, 1
-  store i32 %22, ptr %20, align 8, !tbaa !52
+  store i32 %22, ptr %20, align 8, !tbaa !51
   %23 = tail call i32 @SSL_renegotiate(ptr noundef %8) #5
   br label %45
 
 24:                                               ; preds = %14, %11
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %26 = load i64, ptr %25, align 8, !tbaa !53
+  %26 = load i64, ptr %25, align 8, !tbaa !52
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %45, label %28
 
 28:                                               ; preds = %24
   %29 = tail call i64 @time(ptr noundef null) #5
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %31 = load i64, ptr %30, align 8, !tbaa !54
-  %32 = load i64, ptr %25, align 8, !tbaa !53
+  %31 = load i64, ptr %30, align 8, !tbaa !53
+  %32 = load i64, ptr %25, align 8, !tbaa !52
   %33 = add i64 %32, %31
   %34 = icmp ugt i64 %29, %33
   br i1 %34, label %35, label %45
 
 35:                                               ; preds = %28
-  store i64 %29, ptr %30, align 8, !tbaa !54
+  store i64 %29, ptr %30, align 8, !tbaa !53
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !52
+  %37 = load i32, ptr %36, align 8, !tbaa !51
   %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %36, align 8, !tbaa !52
+  store i32 %38, ptr %36, align 8, !tbaa !51
   %39 = tail call i32 @SSL_renegotiate(ptr noundef %8) #5
   br label %45
 
@@ -509,18 +509,18 @@ define internal i64 @ssl_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
   br i1 %8, label %.thread, label %12
 
 12:                                               ; preds = %11
-  %13 = load i32, ptr %7, align 8, !tbaa !55
+  %13 = load i32, ptr %7, align 8, !tbaa !54
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %12
   %16 = tail call i32 @SSL_shutdown(ptr noundef nonnull %7) #5
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %18 = load ptr, ptr %17, align 8, !tbaa !58
+  %18 = load ptr, ptr %17, align 8, !tbaa !57
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !96
+  %20 = load ptr, ptr %19, align 8, !tbaa !95
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %22 = load ptr, ptr %21, align 8, !tbaa !97
+  %22 = load ptr, ptr %21, align 8, !tbaa !96
   %23 = icmp eq ptr %18, %22
   br i1 %23, label %24, label %25
 
@@ -530,7 +530,7 @@ define internal i64 @ssl_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  %27 = load ptr, ptr %26, align 8, !tbaa !100
+  %27 = load ptr, ptr %26, align 8, !tbaa !99
   %28 = icmp eq ptr %18, %27
   br i1 %28, label %29, label %30
 
@@ -553,7 +553,7 @@ define internal i64 @ssl_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %37 = load ptr, ptr %36, align 8, !tbaa !101
+  %37 = load ptr, ptr %36, align 8, !tbaa !100
   %.not155 = icmp eq ptr %37, null
   br i1 %.not155, label %.thread, label %38
 
@@ -575,28 +575,28 @@ define internal i64 @ssl_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
 
 43:                                               ; preds = %10
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %45 = load i64, ptr %44, align 8, !tbaa !53
+  %45 = load i64, ptr %44, align 8, !tbaa !52
   %46 = icmp slt i64 %2, 60
   %spec.store.select = select i1 %46, i64 5, i64 %2
-  store i64 %spec.store.select, ptr %44, align 8, !tbaa !53
+  store i64 %spec.store.select, ptr %44, align 8, !tbaa !52
   %47 = tail call i64 @time(ptr noundef null) #5
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 %47, ptr %48, align 8, !tbaa !54
+  store i64 %47, ptr %48, align 8, !tbaa !53
   br label %.thread
 
 49:                                               ; preds = %10
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %51 = load i64, ptr %50, align 8, !tbaa !49
+  %51 = load i64, ptr %50, align 8, !tbaa !48
   %52 = icmp sgt i64 %2, 511
   br i1 %52, label %53, label %.thread
 
 53:                                               ; preds = %49
-  store i64 %2, ptr %50, align 8, !tbaa !49
+  store i64 %2, ptr %50, align 8, !tbaa !48
   br label %.thread
 
 54:                                               ; preds = %10
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !52
+  %56 = load i32, ptr %55, align 8, !tbaa !51
   %57 = sext i32 %56 to i64
   br label %.thread
 
@@ -644,7 +644,7 @@ define internal i64 @ssl_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
   br i1 %.not147, label %.thread, label %74
 
 74:                                               ; preds = %73
-  store ptr %7, ptr %3, align 8, !tbaa !102
+  store ptr %7, ptr %3, align 8, !tbaa !101
   br label %.thread
 
 75:                                               ; preds = %10
@@ -743,25 +743,25 @@ define internal i64 @ssl_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, pt
   %114 = tail call ptr @SSL_dup(ptr noundef %7) #5
   store ptr %114, ptr %112, align 8, !tbaa !43
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %116 = load i32, ptr %115, align 8, !tbaa !52
+  %116 = load i32, ptr %115, align 8, !tbaa !51
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  store i32 %116, ptr %117, align 8, !tbaa !52
+  store i32 %116, ptr %117, align 8, !tbaa !51
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %119 = load i64, ptr %118, align 8, !tbaa !49
+  %119 = load i64, ptr %118, align 8, !tbaa !48
   %120 = getelementptr inbounds nuw i8, ptr %112, i64 16
-  store i64 %119, ptr %120, align 8, !tbaa !49
+  store i64 %119, ptr %120, align 8, !tbaa !48
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %122 = load i64, ptr %121, align 8, !tbaa !51
+  %122 = load i64, ptr %121, align 8, !tbaa !50
   %123 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  store i64 %122, ptr %123, align 8, !tbaa !51
+  store i64 %122, ptr %123, align 8, !tbaa !50
   %124 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %125 = load i64, ptr %124, align 8, !tbaa !53
+  %125 = load i64, ptr %124, align 8, !tbaa !52
   %126 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  store i64 %125, ptr %126, align 8, !tbaa !53
+  store i64 %125, ptr %126, align 8, !tbaa !52
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %128 = load i64, ptr %127, align 8, !tbaa !54
+  %128 = load i64, ptr %127, align 8, !tbaa !53
   %129 = getelementptr inbounds nuw i8, ptr %112, i64 40
-  store i64 %128, ptr %129, align 8, !tbaa !54
+  store i64 %128, ptr %129, align 8, !tbaa !53
   %130 = icmp ne ptr %114, null
   %131 = zext i1 %130 to i64
   br label %.thread
@@ -1001,60 +1001,59 @@ attributes #6 = { nounwind willreturn memory(read) }
 !43 = !{!44, !45, i64 0}
 !44 = !{!"bio_ssl_st", !45, i64 0, !15, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40}
 !45 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!44, !13, i64 16}
-!50 = !{!13, !13, i64 0}
-!51 = !{!44, !13, i64 24}
-!52 = !{!44, !15, i64 8}
-!53 = !{!44, !13, i64 32}
-!54 = !{!44, !13, i64 40}
-!55 = !{!56, !15, i64 0}
-!56 = !{!"ssl_st", !15, i64 0, !57, i64 8, !9, i64 16, !9, i64 24, !18, i64 32, !6, i64 40, !19, i64 48}
-!57 = !{!"p1 _ZTS10ssl_ctx_st", !6, i64 0}
-!58 = !{!59, !6, i64 112}
-!59 = !{!"ssl_connection_st", !56, i64 0, !45, i64 64, !15, i64 72, !60, i64 80, !60, i64 88, !60, i64 96, !15, i64 104, !6, i64 112, !15, i64 120, !15, i64 124, !15, i64 128, !15, i64 132, !16, i64 136, !16, i64 144, !61, i64 152, !15, i64 240, !62, i64 248, !6, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !63, i64 288, !6, i64 336, !64, i64 344, !65, i64 352, !75, i64 1264, !6, i64 1272, !6, i64 1280, !15, i64 1288, !26, i64 1296, !76, i64 1304, !10, i64 1368, !10, i64 1376, !10, i64 1384, !10, i64 1392, !15, i64 1400, !7, i64 1404, !7, i64 1468, !7, i64 1532, !7, i64 1596, !7, i64 1660, !7, i64 1724, !7, i64 1788, !7, i64 1852, !7, i64 1916, !7, i64 1980, !7, i64 2044, !7, i64 2108, !25, i64 2176, !7, i64 2184, !13, i64 2248, !15, i64 2256, !13, i64 2264, !7, i64 2272, !14, i64 2304, !14, i64 2312, !31, i64 2320, !13, i64 2328, !6, i64 2336, !7, i64 2344, !13, i64 2376, !15, i64 2384, !6, i64 2392, !6, i64 2400, !15, i64 2408, !15, i64 2412, !6, i64 2416, !6, i64 2424, !6, i64 2432, !6, i64 2440, !22, i64 2448, !13, i64 2456, !24, i64 2464, !24, i64 2472, !13, i64 2480, !15, i64 2488, !15, i64 2492, !15, i64 2496, !13, i64 2504, !15, i64 2512, !15, i64 2516, !13, i64 2520, !13, i64 2528, !13, i64 2536, !81, i64 2544, !6, i64 2904, !15, i64 2912, !6, i64 2920, !6, i64 2928, !86, i64 2936, !15, i64 2944, !57, i64 2952, !38, i64 2960, !87, i64 2968, !15, i64 2976, !15, i64 2980, !15, i64 2984, !15, i64 2988, !31, i64 2992, !13, i64 3000, !15, i64 3008, !66, i64 3016, !34, i64 3024, !6, i64 3152, !88, i64 3160, !6, i64 5400, !6, i64 5408, !93, i64 5416, !94, i64 5424, !13, i64 5432, !15, i64 5440, !15, i64 5444, !15, i64 5448, !13, i64 5456, !13, i64 5464, !13, i64 5472, !6, i64 5480, !6, i64 5488, !6, i64 5496, !6, i64 5504, !95, i64 5512, !13, i64 5520, !31, i64 5528, !13, i64 5536, !31, i64 5544, !13, i64 5552}
-!60 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!61 = !{!"ossl_statem_st", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !15, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !15, i64 80}
-!62 = !{!"p1 _ZTS10buf_mem_st", !6, i64 0}
-!63 = !{!"ossl_quic_tls_callbacks_st", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}
-!64 = !{!"p1 _ZTS11quic_tls_st", !6, i64 0}
-!65 = !{!"", !13, i64 0, !7, i64 8, !7, i64 40, !60, i64 72, !66, i64 80, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !7, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !67, i64 128, !7, i64 704, !13, i64 768, !7, i64 776, !13, i64 840, !15, i64 848, !15, i64 852, !31, i64 856, !13, i64 864, !31, i64 872, !13, i64 880, !15, i64 888, !7, i64 892, !7, i64 893, !74, i64 894, !69, i64 896, !74, i64 904}
-!66 = !{!"p1 _ZTS13evp_md_ctx_st", !6, i64 0}
-!67 = !{!"", !7, i64 0, !13, i64 128, !7, i64 136, !13, i64 264, !13, i64 272, !15, i64 280, !68, i64 288, !69, i64 296, !7, i64 304, !7, i64 336, !13, i64 344, !15, i64 352, !31, i64 360, !13, i64 368, !24, i64 376, !13, i64 384, !31, i64 392, !70, i64 400, !21, i64 408, !15, i64 416, !13, i64 424, !71, i64 432, !15, i64 440, !31, i64 448, !13, i64 456, !31, i64 464, !13, i64 472, !31, i64 480, !13, i64 488, !39, i64 496, !72, i64 504, !32, i64 512, !32, i64 520, !13, i64 528, !13, i64 536, !39, i64 544, !73, i64 552, !15, i64 560, !15, i64 564, !15, i64 568, !15, i64 572}
-!68 = !{!"p1 _ZTS13ssl_cipher_st", !6, i64 0}
-!69 = !{!"p1 _ZTS11evp_pkey_st", !6, i64 0}
-!70 = !{!"p1 _ZTS13evp_cipher_st", !6, i64 0}
-!71 = !{!"p1 _ZTS11ssl_comp_st", !6, i64 0}
-!72 = !{!"p1 _ZTS12cert_pkey_st", !6, i64 0}
-!73 = !{!"p1 int", !6, i64 0}
-!74 = !{!"short", !7, i64 0}
-!75 = !{!"p1 _ZTS14dtls1_state_st", !6, i64 0}
-!76 = !{!"ssl_dane_st", !77, i64 0, !78, i64 8, !22, i64 16, !79, i64 24, !80, i64 32, !15, i64 40, !15, i64 44, !15, i64 48, !13, i64 56}
-!77 = !{!"p1 _ZTS11dane_ctx_st", !6, i64 0}
-!78 = !{!"p1 _ZTS23stack_st_danetls_record", !6, i64 0}
-!79 = !{!"p1 _ZTS17danetls_record_st", !6, i64 0}
-!80 = !{!"p1 _ZTS7x509_st", !6, i64 0}
-!81 = !{!"", !7, i64 0, !6, i64 32, !6, i64 40, !31, i64 48, !15, i64 56, !31, i64 64, !74, i64 72, !15, i64 76, !82, i64 80, !15, i64 112, !15, i64 116, !13, i64 120, !31, i64 128, !13, i64 136, !31, i64 144, !13, i64 152, !32, i64 160, !13, i64 168, !32, i64 176, !13, i64 184, !32, i64 192, !13, i64 200, !33, i64 208, !85, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !31, i64 256, !13, i64 264, !31, i64 272, !13, i64 280, !15, i64 288, !15, i64 292, !15, i64 296, !15, i64 300, !31, i64 304, !13, i64 312, !15, i64 320, !7, i64 324, !15, i64 328, !7, i64 332, !15, i64 348, !7, i64 352, !7, i64 353, !7, i64 354, !7, i64 355}
-!82 = !{!"", !83, i64 0, !84, i64 8, !31, i64 16, !13, i64 24}
-!83 = !{!"p1 _ZTS20stack_st_OCSP_RESPID", !6, i64 0}
-!84 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !6, i64 0}
-!85 = !{!"p1 _ZTS25tls_session_ticket_ext_st", !6, i64 0}
-!86 = !{!"p1 _ZTS12stack_st_SCT", !6, i64 0}
-!87 = !{!"p1 _ZTS26srtp_protection_profile_st", !6, i64 0}
-!88 = !{!"record_layer_st", !89, i64 0, !90, i64 8, !6, i64 16, !90, i64 24, !90, i64 32, !91, i64 40, !91, i64 48, !60, i64 56, !13, i64 64, !15, i64 72, !13, i64 80, !7, i64 88, !13, i64 96, !13, i64 104, !7, i64 112, !31, i64 120, !15, i64 128, !92, i64 136, !6, i64 144, !6, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !7, i64 192}
-!89 = !{!"p1 _ZTS17ssl_connection_st", !6, i64 0}
-!90 = !{!"p1 _ZTS21ossl_record_method_st", !6, i64 0}
-!91 = !{!"p1 _ZTS20ossl_record_layer_st", !6, i64 0}
-!92 = !{!"p1 _ZTS20dtls_record_layer_st", !6, i64 0}
-!93 = !{!"p1 _ZTS12async_job_st", !6, i64 0}
-!94 = !{!"p1 _ZTS17async_wait_ctx_st", !6, i64 0}
-!95 = !{!"p2 _ZTS16sigalg_lookup_st", !6, i64 0}
-!96 = !{!56, !9, i64 24}
-!97 = !{!98, !6, i64 72}
-!98 = !{!"ssl_method_st", !15, i64 0, !15, i64 4, !13, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !99, i64 216, !6, i64 224, !6, i64 232, !6, i64 240}
-!99 = !{!"p1 _ZTS15ssl3_enc_method", !6, i64 0}
-!100 = !{!98, !6, i64 64}
-!101 = !{!59, !60, i64 80}
-!102 = !{!45, !45, i64 0}
+!48 = !{!44, !13, i64 16}
+!49 = !{!13, !13, i64 0}
+!50 = !{!44, !13, i64 24}
+!51 = !{!44, !15, i64 8}
+!52 = !{!44, !13, i64 32}
+!53 = !{!44, !13, i64 40}
+!54 = !{!55, !15, i64 0}
+!55 = !{!"ssl_st", !15, i64 0, !56, i64 8, !9, i64 16, !9, i64 24, !18, i64 32, !6, i64 40, !19, i64 48}
+!56 = !{!"p1 _ZTS10ssl_ctx_st", !6, i64 0}
+!57 = !{!58, !6, i64 112}
+!58 = !{!"ssl_connection_st", !55, i64 0, !45, i64 64, !15, i64 72, !59, i64 80, !59, i64 88, !59, i64 96, !15, i64 104, !6, i64 112, !15, i64 120, !15, i64 124, !15, i64 128, !15, i64 132, !16, i64 136, !16, i64 144, !60, i64 152, !15, i64 240, !61, i64 248, !6, i64 256, !13, i64 264, !13, i64 272, !13, i64 280, !62, i64 288, !6, i64 336, !63, i64 344, !64, i64 352, !74, i64 1264, !6, i64 1272, !6, i64 1280, !15, i64 1288, !26, i64 1296, !75, i64 1304, !10, i64 1368, !10, i64 1376, !10, i64 1384, !10, i64 1392, !15, i64 1400, !7, i64 1404, !7, i64 1468, !7, i64 1532, !7, i64 1596, !7, i64 1660, !7, i64 1724, !7, i64 1788, !7, i64 1852, !7, i64 1916, !7, i64 1980, !7, i64 2044, !7, i64 2108, !25, i64 2176, !7, i64 2184, !13, i64 2248, !15, i64 2256, !13, i64 2264, !7, i64 2272, !14, i64 2304, !14, i64 2312, !31, i64 2320, !13, i64 2328, !6, i64 2336, !7, i64 2344, !13, i64 2376, !15, i64 2384, !6, i64 2392, !6, i64 2400, !15, i64 2408, !15, i64 2412, !6, i64 2416, !6, i64 2424, !6, i64 2432, !6, i64 2440, !22, i64 2448, !13, i64 2456, !24, i64 2464, !24, i64 2472, !13, i64 2480, !15, i64 2488, !15, i64 2492, !15, i64 2496, !13, i64 2504, !15, i64 2512, !15, i64 2516, !13, i64 2520, !13, i64 2528, !13, i64 2536, !80, i64 2544, !6, i64 2904, !15, i64 2912, !6, i64 2920, !6, i64 2928, !85, i64 2936, !15, i64 2944, !56, i64 2952, !38, i64 2960, !86, i64 2968, !15, i64 2976, !15, i64 2980, !15, i64 2984, !15, i64 2988, !31, i64 2992, !13, i64 3000, !15, i64 3008, !65, i64 3016, !34, i64 3024, !6, i64 3152, !87, i64 3160, !6, i64 5400, !6, i64 5408, !92, i64 5416, !93, i64 5424, !13, i64 5432, !15, i64 5440, !15, i64 5444, !15, i64 5448, !13, i64 5456, !13, i64 5464, !13, i64 5472, !6, i64 5480, !6, i64 5488, !6, i64 5496, !6, i64 5504, !94, i64 5512, !13, i64 5520, !31, i64 5528, !13, i64 5536, !31, i64 5544, !13, i64 5552}
+!59 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!60 = !{!"ossl_statem_st", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !15, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !15, i64 80}
+!61 = !{!"p1 _ZTS10buf_mem_st", !6, i64 0}
+!62 = !{!"ossl_quic_tls_callbacks_st", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}
+!63 = !{!"p1 _ZTS11quic_tls_st", !6, i64 0}
+!64 = !{!"", !13, i64 0, !7, i64 8, !7, i64 40, !59, i64 72, !65, i64 80, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !7, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !66, i64 128, !7, i64 704, !13, i64 768, !7, i64 776, !13, i64 840, !15, i64 848, !15, i64 852, !31, i64 856, !13, i64 864, !31, i64 872, !13, i64 880, !15, i64 888, !7, i64 892, !7, i64 893, !73, i64 894, !68, i64 896, !73, i64 904}
+!65 = !{!"p1 _ZTS13evp_md_ctx_st", !6, i64 0}
+!66 = !{!"", !7, i64 0, !13, i64 128, !7, i64 136, !13, i64 264, !13, i64 272, !15, i64 280, !67, i64 288, !68, i64 296, !7, i64 304, !7, i64 336, !13, i64 344, !15, i64 352, !31, i64 360, !13, i64 368, !24, i64 376, !13, i64 384, !31, i64 392, !69, i64 400, !21, i64 408, !15, i64 416, !13, i64 424, !70, i64 432, !15, i64 440, !31, i64 448, !13, i64 456, !31, i64 464, !13, i64 472, !31, i64 480, !13, i64 488, !39, i64 496, !71, i64 504, !32, i64 512, !32, i64 520, !13, i64 528, !13, i64 536, !39, i64 544, !72, i64 552, !15, i64 560, !15, i64 564, !15, i64 568, !15, i64 572}
+!67 = !{!"p1 _ZTS13ssl_cipher_st", !6, i64 0}
+!68 = !{!"p1 _ZTS11evp_pkey_st", !6, i64 0}
+!69 = !{!"p1 _ZTS13evp_cipher_st", !6, i64 0}
+!70 = !{!"p1 _ZTS11ssl_comp_st", !6, i64 0}
+!71 = !{!"p1 _ZTS12cert_pkey_st", !6, i64 0}
+!72 = !{!"p1 int", !6, i64 0}
+!73 = !{!"short", !7, i64 0}
+!74 = !{!"p1 _ZTS14dtls1_state_st", !6, i64 0}
+!75 = !{!"ssl_dane_st", !76, i64 0, !77, i64 8, !22, i64 16, !78, i64 24, !79, i64 32, !15, i64 40, !15, i64 44, !15, i64 48, !13, i64 56}
+!76 = !{!"p1 _ZTS11dane_ctx_st", !6, i64 0}
+!77 = !{!"p1 _ZTS23stack_st_danetls_record", !6, i64 0}
+!78 = !{!"p1 _ZTS17danetls_record_st", !6, i64 0}
+!79 = !{!"p1 _ZTS7x509_st", !6, i64 0}
+!80 = !{!"", !7, i64 0, !6, i64 32, !6, i64 40, !31, i64 48, !15, i64 56, !31, i64 64, !73, i64 72, !15, i64 76, !81, i64 80, !15, i64 112, !15, i64 116, !13, i64 120, !31, i64 128, !13, i64 136, !31, i64 144, !13, i64 152, !32, i64 160, !13, i64 168, !32, i64 176, !13, i64 184, !32, i64 192, !13, i64 200, !33, i64 208, !84, i64 216, !6, i64 224, !6, i64 232, !6, i64 240, !6, i64 248, !31, i64 256, !13, i64 264, !31, i64 272, !13, i64 280, !15, i64 288, !15, i64 292, !15, i64 296, !15, i64 300, !31, i64 304, !13, i64 312, !15, i64 320, !7, i64 324, !15, i64 328, !7, i64 332, !15, i64 348, !7, i64 352, !7, i64 353, !7, i64 354, !7, i64 355}
+!81 = !{!"", !82, i64 0, !83, i64 8, !31, i64 16, !13, i64 24}
+!82 = !{!"p1 _ZTS20stack_st_OCSP_RESPID", !6, i64 0}
+!83 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !6, i64 0}
+!84 = !{!"p1 _ZTS25tls_session_ticket_ext_st", !6, i64 0}
+!85 = !{!"p1 _ZTS12stack_st_SCT", !6, i64 0}
+!86 = !{!"p1 _ZTS26srtp_protection_profile_st", !6, i64 0}
+!87 = !{!"record_layer_st", !88, i64 0, !89, i64 8, !6, i64 16, !89, i64 24, !89, i64 32, !90, i64 40, !90, i64 48, !59, i64 56, !13, i64 64, !15, i64 72, !13, i64 80, !7, i64 88, !13, i64 96, !13, i64 104, !7, i64 112, !31, i64 120, !15, i64 128, !91, i64 136, !6, i64 144, !6, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !7, i64 192}
+!88 = !{!"p1 _ZTS17ssl_connection_st", !6, i64 0}
+!89 = !{!"p1 _ZTS21ossl_record_method_st", !6, i64 0}
+!90 = !{!"p1 _ZTS20ossl_record_layer_st", !6, i64 0}
+!91 = !{!"p1 _ZTS20dtls_record_layer_st", !6, i64 0}
+!92 = !{!"p1 _ZTS12async_job_st", !6, i64 0}
+!93 = !{!"p1 _ZTS17async_wait_ctx_st", !6, i64 0}
+!94 = !{!"p2 _ZTS16sigalg_lookup_st", !6, i64 0}
+!95 = !{!55, !9, i64 24}
+!96 = !{!97, !6, i64 72}
+!97 = !{!"ssl_method_st", !15, i64 0, !15, i64 4, !13, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !6, i64 208, !98, i64 216, !6, i64 224, !6, i64 232, !6, i64 240}
+!98 = !{!"p1 _ZTS15ssl3_enc_method", !6, i64 0}
+!99 = !{!97, !6, i64 64}
+!100 = !{!58, !59, i64 80}
+!101 = !{!45, !45, i64 0}

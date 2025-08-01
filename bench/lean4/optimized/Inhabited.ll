@@ -55476,7 +55476,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   store ptr %18, ptr %34, align 8, !tbaa !4
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %21, ptr %35, align 8, !tbaa !4
-  br label %3, !llvm.loop !22
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -55692,7 +55692,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit38
   %.034.be = phi ptr [ %.0, %lean_inc.exit38 ], [ %72, %lean_alloc_ctor.exit ]
-  br label %6, !llvm.loop !24
+  br label %6
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #2
@@ -55974,7 +55974,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit46
   %.041.be = phi ptr [ %.0, %lean_inc.exit46 ], [ %96, %lean_alloc_ctor.exit ]
-  br label %9, !llvm.loop !25
+  br label %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -56148,7 +56148,7 @@ lean_alloc_ctor.exit43:                           ; preds = %lean_alloc_ctor.exi
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit43, %lean_alloc_ctor.exit
   %.033.be = phi ptr [ %.0, %lean_alloc_ctor.exit ], [ %60, %lean_alloc_ctor.exit43 ]
-  br label %3, !llvm.loop !26
+  br label %3
 }
 
 declare ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef) local_unnamed_addr #2
@@ -72782,8 +72782,3 @@ attributes #6 = { noreturn nounwind }
 !19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !21 = !{!"branch_weights", i32 4000000, i32 4001}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = distinct !{!24, !23}
-!25 = distinct !{!25, !23}
-!26 = distinct !{!26, !23}

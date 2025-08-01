@@ -205,7 +205,7 @@ define hidden void @aom_lpf_vertical_4_c(ptr noundef captures(none) %0, i32 noun
   %75 = getelementptr inbounds i8, ptr %.022.lver.orig, i64 %5
   %76 = add nuw nsw i32 %.02021.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %76, 4
-  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !7
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !6
 
 .ph:                                              ; preds = %.lver.check
   %load_initial = load i8, ptr %0, align 1
@@ -291,7 +291,7 @@ define hidden void @aom_lpf_vertical_4_c(ptr noundef captures(none) %0, i32 noun
   %146 = getelementptr inbounds nuw i8, ptr %.022, i64 %5
   %147 = add nuw nsw i32 %.02021, 1
   %exitcond.not = icmp eq i32 %147, 4
-  br i1 %exitcond.not, label %.loopexit, label %77, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %77, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.ph.lver.orig, %77
   ret void
@@ -391,7 +391,7 @@ define hidden void @aom_lpf_horizontal_6_c(ptr noundef captures(none) %0, i32 no
   %80 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   %81 = add nuw nsw i32 %.04344, 1
   %exitcond.not = icmp eq i32 %81, 4
-  br i1 %exitcond.not, label %82, label %20, !llvm.loop !8
+  br i1 %exitcond.not, label %82, label %20, !llvm.loop !7
 
 82:                                               ; preds = %20
   ret void
@@ -633,7 +633,7 @@ define hidden void @aom_lpf_horizontal_8_c(ptr noundef captures(none) %0, i32 no
   %100 = getelementptr inbounds nuw i8, ptr %.057, i64 1
   %101 = add nuw nsw i32 %.05556, 1
   %exitcond.not = icmp eq i32 %101, 4
-  br i1 %exitcond.not, label %102, label %25, !llvm.loop !9
+  br i1 %exitcond.not, label %102, label %25, !llvm.loop !8
 
 102:                                              ; preds = %25
   ret void
@@ -860,7 +860,7 @@ define hidden void @aom_lpf_vertical_6_c(ptr noundef captures(none) %0, i32 noun
   %64 = getelementptr inbounds i8, ptr %.035, i64 %6
   %65 = add nuw nsw i32 %.03334, 1
   %exitcond.not = icmp eq i32 %65, 4
-  br i1 %exitcond.not, label %66, label %7, !llvm.loop !10
+  br i1 %exitcond.not, label %66, label %7, !llvm.loop !9
 
 66:                                               ; preds = %7
   ret void
@@ -964,7 +964,7 @@ define hidden void @aom_lpf_vertical_8_c(ptr noundef captures(none) %0, i32 noun
   %78 = getelementptr inbounds i8, ptr %.043, i64 %6
   %79 = add nuw nsw i32 %.04142, 1
   %exitcond.not = icmp eq i32 %79, 4
-  br i1 %exitcond.not, label %80, label %7, !llvm.loop !11
+  br i1 %exitcond.not, label %80, label %7, !llvm.loop !10
 
 80:                                               ; preds = %7
   ret void
@@ -1151,7 +1151,7 @@ define internal fastcc void @mb_lpf_horizontal_edge_w(ptr noundef captures(none)
   %155 = getelementptr inbounds nuw i8, ptr %.091, i64 1
   %156 = add nuw nsw i32 %.08990, 1
   %exitcond.not = icmp eq i32 %156, 4
-  br i1 %exitcond.not, label %157, label %40, !llvm.loop !12
+  br i1 %exitcond.not, label %157, label %40, !llvm.loop !11
 
 157:                                              ; preds = %40
   ret void
@@ -1296,7 +1296,7 @@ define internal fastcc void @mb_lpf_vertical_edge_w(ptr noundef captures(none) %
   %115 = getelementptr inbounds i8, ptr %.064, i64 %6
   %116 = add nuw nsw i32 %.06263, 1
   %exitcond.not = icmp eq i32 %116, 4
-  br i1 %exitcond.not, label %117, label %7, !llvm.loop !13
+  br i1 %exitcond.not, label %117, label %7, !llvm.loop !12
 
 117:                                              ; preds = %7
   ret void
@@ -1374,7 +1374,7 @@ define hidden void @aom_highbd_lpf_horizontal_4_c(ptr noundef captures(none) %0,
   %57 = getelementptr inbounds nuw i8, ptr %.030, i64 2
   %58 = add nuw nsw i32 %.02829, 1
   %exitcond.not = icmp eq i32 %58, 4
-  br i1 %exitcond.not, label %59, label %17, !llvm.loop !14
+  br i1 %exitcond.not, label %59, label %17, !llvm.loop !13
 
 59:                                               ; preds = %17
   ret void
@@ -1632,7 +1632,7 @@ define hidden void @aom_highbd_lpf_horizontal_4_dual_c(ptr noundef captures(none
   %60 = getelementptr inbounds nuw i8, ptr %.030.i, i64 2
   %61 = add nuw nsw i32 %.02829.i, 1
   %exitcond.not.i = icmp eq i32 %61, 4
-  br i1 %exitcond.not.i, label %aom_highbd_lpf_horizontal_4_c.exit, label %20, !llvm.loop !14
+  br i1 %exitcond.not.i, label %aom_highbd_lpf_horizontal_4_c.exit, label %20, !llvm.loop !13
 
 aom_highbd_lpf_horizontal_4_c.exit:               ; preds = %20
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1686,7 +1686,7 @@ aom_highbd_lpf_horizontal_4_c.exit:               ; preds = %20
   %103 = getelementptr inbounds nuw i8, ptr %.030.i11, i64 2
   %104 = add nuw nsw i32 %.02829.i12, 1
   %exitcond.not.i15 = icmp eq i32 %104, 4
-  br i1 %exitcond.not.i15, label %aom_highbd_lpf_horizontal_4_c.exit16, label %63, !llvm.loop !14
+  br i1 %exitcond.not.i15, label %aom_highbd_lpf_horizontal_4_c.exit16, label %63, !llvm.loop !13
 
 aom_highbd_lpf_horizontal_4_c.exit16:             ; preds = %63
   ret void
@@ -1744,7 +1744,7 @@ define hidden void @aom_highbd_lpf_vertical_4_c(ptr noundef captures(none) %0, i
   %47 = getelementptr inbounds i16, ptr %.024, i64 %8
   %48 = add nuw nsw i32 %.02223, 1
   %exitcond.not = icmp eq i32 %48, 4
-  br i1 %exitcond.not, label %49, label %9, !llvm.loop !15
+  br i1 %exitcond.not, label %49, label %9, !llvm.loop !14
 
 49:                                               ; preds = %9
   ret void
@@ -1802,7 +1802,7 @@ define hidden void @aom_highbd_lpf_vertical_4_dual_c(ptr noundef captures(none) 
   %50 = getelementptr inbounds i16, ptr %.024.i, i64 %11
   %51 = add nuw nsw i32 %.02223.i, 1
   %exitcond.not.i = icmp eq i32 %51, 4
-  br i1 %exitcond.not.i, label %aom_highbd_lpf_vertical_4_c.exit, label %12, !llvm.loop !15
+  br i1 %exitcond.not.i, label %aom_highbd_lpf_vertical_4_c.exit, label %12, !llvm.loop !14
 
 aom_highbd_lpf_vertical_4_c.exit:                 ; preds = %12
   %52 = shl nsw i32 %1, 2
@@ -1856,7 +1856,7 @@ aom_highbd_lpf_vertical_4_c.exit:                 ; preds = %12
   %93 = getelementptr inbounds i16, ptr %.024.i12, i64 %11
   %94 = add nuw nsw i32 %.02223.i13, 1
   %exitcond.not.i16 = icmp eq i32 %94, 4
-  br i1 %exitcond.not.i16, label %aom_highbd_lpf_vertical_4_c.exit17, label %55, !llvm.loop !15
+  br i1 %exitcond.not.i16, label %aom_highbd_lpf_vertical_4_c.exit17, label %55, !llvm.loop !14
 
 aom_highbd_lpf_vertical_4_c.exit17:               ; preds = %55
   ret void
@@ -1986,7 +1986,7 @@ define hidden void @aom_highbd_lpf_horizontal_8_c(ptr noundef captures(none) %0,
   %107 = getelementptr inbounds nuw i8, ptr %.061, i64 2
   %108 = add nuw nsw i32 %.05860, 1
   %exitcond.not = icmp eq i32 %108, 4
-  br i1 %exitcond.not, label %109, label %28, !llvm.loop !16
+  br i1 %exitcond.not, label %109, label %28, !llvm.loop !15
 
 109:                                              ; preds = %28
   ret void
@@ -2227,7 +2227,7 @@ highbd_filter6.exit:                              ; preds = %86, %123
   %126 = getelementptr inbounds nuw i8, ptr %.049, i64 2
   %127 = add nuw nsw i32 %.04648, 1
   %exitcond.not = icmp eq i32 %127, 4
-  br i1 %exitcond.not, label %128, label %23, !llvm.loop !17
+  br i1 %exitcond.not, label %128, label %23, !llvm.loop !16
 
 128:                                              ; preds = %highbd_filter6.exit
   ret void
@@ -2372,7 +2372,7 @@ highbd_filter6.exit:                              ; preds = %71, %102
   %105 = getelementptr inbounds i16, ptr %.039, i64 %9
   %106 = add nuw nsw i32 %.03638, 1
   %exitcond.not = icmp eq i32 %106, 4
-  br i1 %exitcond.not, label %107, label %10, !llvm.loop !18
+  br i1 %exitcond.not, label %107, label %10, !llvm.loop !17
 
 107:                                              ; preds = %highbd_filter6.exit
   ret void
@@ -2490,7 +2490,7 @@ define hidden void @aom_highbd_lpf_vertical_8_c(ptr noundef captures(none) %0, i
   %85 = getelementptr inbounds i16, ptr %.047, i64 %9
   %86 = add nuw nsw i32 %.04446, 1
   %exitcond.not = icmp eq i32 %86, 4
-  br i1 %exitcond.not, label %87, label %10, !llvm.loop !19
+  br i1 %exitcond.not, label %87, label %10, !llvm.loop !18
 
 87:                                               ; preds = %10
   ret void
@@ -2696,7 +2696,7 @@ define internal fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef capture
   %162 = getelementptr inbounds nuw i8, ptr %.096, i64 2
   %163 = add nuw nsw i32 %.08795, 1
   %exitcond.not = icmp eq i32 %163, 4
-  br i1 %exitcond.not, label %164, label %43, !llvm.loop !20
+  br i1 %exitcond.not, label %164, label %43, !llvm.loop !19
 
 164:                                              ; preds = %43
   ret void
@@ -2860,7 +2860,7 @@ define internal fastcc void @highbd_mb_lpf_vertical_edge_w(ptr noundef captures(
   %122 = getelementptr inbounds i16, ptr %.069, i64 %9
   %123 = add nuw nsw i32 %.06068, 1
   %exitcond.not = icmp eq i32 %123, 4
-  br i1 %exitcond.not, label %124, label %10, !llvm.loop !21
+  br i1 %exitcond.not, label %124, label %10, !llvm.loop !20
 
 124:                                              ; preds = %10
   ret void
@@ -3354,21 +3354,20 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}

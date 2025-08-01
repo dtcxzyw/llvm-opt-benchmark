@@ -202,7 +202,7 @@ define void @ff_sws_matrix3x3_apply(ptr noundef readonly captures(none) %0, ptr 
   store float %18, ptr %19, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %8, label %9, !llvm.loop !11
+  br i1 %exitcond.not, label %8, label %9, !llvm.loop !10
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
@@ -411,7 +411,7 @@ define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.Sws
   store float %152, ptr %153, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %64, label %149, !llvm.loop !12
+  br i1 %exitcond.not, label %64, label %149, !llvm.loop !11
 
 154:                                              ; preds = %64, %154
   %indvars.iv66 = phi i64 [ 0, %64 ], [ %indvars.iv.next67, %154 ]
@@ -427,7 +427,7 @@ define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.Sws
   store float %162, ptr %163, align 4, !tbaa !4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 3
-  br i1 %exitcond69.not, label %.preheader, label %154, !llvm.loop !13
+  br i1 %exitcond69.not, label %.preheader, label %154, !llvm.loop !12
 
 164:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #10
@@ -453,7 +453,7 @@ define void @ff_sws_rgb2xyz(ptr dead_on_unwind noalias writable sret(%struct.Sws
   store float %174, ptr %175, align 4, !tbaa !4
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 3
-  br i1 %exitcond73.not, label %164, label %.preheader, !llvm.loop !14
+  br i1 %exitcond73.not, label %164, label %.preheader, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -558,7 +558,7 @@ define void @ff_sws_get_adaptation(ptr dead_on_unwind noalias writable sret(%str
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %3, ptr %.sroa.3.0..sroa_idx, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 4 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 4 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !14
   call void @ff_sws_rgb2xyz(ptr dead_on_unwind nonnull writable sret(%struct.SwsMatrix3x3) align 4 %7, ptr noundef nonnull %8)
   call void @ff_sws_xyz2rgb(ptr dead_on_unwind nonnull writable sret(%struct.SwsMatrix3x3) align 4 %0, ptr noundef nonnull %8)
   tail call fastcc void @apply_chromatic_adaptation(i64 %2, i64 %3, i64 %4, i64 %5, ptr noundef nonnull %0)
@@ -752,7 +752,7 @@ ff_q_equal.exit.thread17.i:                       ; preds = %42, %39, %5
   store float %70, ptr %71, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %.preheader54, !llvm.loop !18
+  br i1 %exitcond.not, label %.preheader, label %.preheader54, !llvm.loop !17
 
 72:                                               ; preds = %.preheader
   %73 = load float, ptr %6, align 4, !tbaa !4
@@ -888,7 +888,7 @@ ff_sws_matrix3x3_mul.exit48:                      ; preds = %115
   store float %166, ptr %168, align 4, !tbaa !4
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 3
-  br i1 %exitcond63.not, label %72, label %.preheader, !llvm.loop !19
+  br i1 %exitcond63.not, label %72, label %.preheader, !llvm.loop !18
 
 ff_sws_matrix3x3_mul.exit52:                      ; preds = %143, %56, %53, %ff_q_equal.exit.thread17.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
@@ -1241,15 +1241,14 @@ attributes #11 = { nounwind willreturn memory(none) }
 !5 = !{!"float", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = !{i64 0, i64 4, !16, i64 4, i64 4, !16, i64 8, i64 4, !16, i64 12, i64 4, !16, i64 16, i64 4, !16, i64 20, i64 4, !16, i64 24, i64 4, !16, i64 28, i64 4, !16, i64 32, i64 4, !16, i64 36, i64 4, !16, i64 40, i64 4, !16, i64 44, i64 4, !16}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"int", !6, i64 0}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = !{i64 0, i64 4, !15, i64 4, i64 4, !15, i64 8, i64 4, !15, i64 12, i64 4, !15, i64 16, i64 4, !15, i64 20, i64 4, !15, i64 24, i64 4, !15, i64 28, i64 4, !15, i64 32, i64 4, !15, i64 36, i64 4, !15, i64 40, i64 4, !15, i64 44, i64 4, !15}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !6, i64 0}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}

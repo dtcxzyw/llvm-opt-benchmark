@@ -116,20 +116,20 @@ _ZL13WideToCharMapPKwPcmRb.exit.thread:           ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   store i64 0, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  store ptr %0, ptr %6, align 8, !tbaa !11
+  store ptr %0, ptr %6, align 8, !tbaa !10
   %47 = call i64 @wcsrtombs(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef %2, ptr noundef nonnull %5) #12
   %48 = icmp eq i64 %47, -1
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %_ZL13WideToCharMapPKwPcmRb.exit.thread
   %50 = tail call ptr @__errno_location() #13
-  %51 = load i32, ptr %50, align 4, !tbaa !14
+  %51 = load i32, ptr %50, align 4, !tbaa !13
   %52 = icmp eq i32 %51, 84
   br i1 %52, label %53, label %.thread
 
 53:                                               ; preds = %49
   store i64 0, ptr %5, align 8
-  store ptr %0, ptr %6, align 8, !tbaa !11
+  store ptr %0, ptr %6, align 8, !tbaa !10
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %2, i1 false)
   %54 = call i64 @wcsrtombs(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef %2, ptr noundef nonnull %5) #12
   br label %55
@@ -194,7 +194,7 @@ define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef init
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   store i64 0, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  store ptr %0, ptr %6, align 8, !tbaa !16
+  store ptr %0, ptr %6, align 8, !tbaa !15
   %7 = call i64 @mbsrtowcs(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef %2, ptr noundef nonnull %5) #12
   switch i64 %7, label %.thread [
     i64 -1, label %10
@@ -286,7 +286,7 @@ define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef init
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   %41 = zext i32 %.4.i to i64
   %42 = icmp ugt i64 %2, %41
-  br i1 %42, label %.preheader, label %_ZL13CharToWideMapPKcPwmRb.exit, !llvm.loop !18
+  br i1 %42, label %.preheader, label %_ZL13CharToWideMapPKcPwmRb.exit
 
 _ZL13CharToWideMapPKcPwmRb.exit:                  ; preds = %.preheader, %40, %.thread.i
   %43 = phi i1 [ false, %.thread.i ], [ %16, %40 ], [ %16, %.preheader ]
@@ -347,7 +347,7 @@ define noundef ptr @_Z9WideToRawPKwmPhm(ptr noundef readonly captures(none) %0, 
   %19 = getelementptr inbounds nuw i8, ptr %.01315, i64 4
   %20 = icmp ult i64 %18, %1
   %or.cond = select i1 %17, i1 %20, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !19
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph, %8, %4
   ret ptr %2
@@ -375,7 +375,7 @@ define noundef ptr @_Z9RawToWidePKhPwm(ptr noundef readonly captures(none) %0, p
   %15 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %15, %2
   %or.cond = select i1 %14, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %1
@@ -526,7 +526,7 @@ define void @_Z9WideToUtfPKwPcm(ptr noundef readonly captures(none) %0, ptr noun
   %.1 = phi i64 [ %7, %12 ], [ %19, %18 ], [ %42, %41 ], [ %58, %60 ], [ %58, %.thread66 ], [ %.2, %56 ], [ %40, %.thread66.thread ]
   %80 = load i32, ptr %.142, align 4, !tbaa !6
   %.not = icmp eq i32 %80, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !19
 
 .critedge:                                        ; preds = %.lr.ph, %79, %3
   %.044.lcssa = phi ptr [ %1, %3 ], [ %.145, %79 ], [ %.04477, %.lr.ph ]
@@ -595,7 +595,7 @@ define noundef i64 @_Z13WideToUtfSizePKw(ptr noundef readonly captures(none) %0)
   %27 = getelementptr inbounds nuw i8, ptr %.117, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !6
   %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %26
   %29 = add i64 %.1, 1
@@ -738,7 +738,7 @@ define noundef zeroext i1 @_Z9UtfToWidePKcPwm(ptr noundef readonly captures(none
 77:                                               ; preds = %75
   %78 = add nsw i64 %.03972, -2
   %79 = icmp samesign ugt i32 %.037, 1114111
-  br i1 %79, label %81, label %80, !llvm.loop !23
+  br i1 %79, label %81, label %80, !llvm.loop !21
 
 80:                                               ; preds = %72, %77
   %.241 = phi i64 [ %78, %77 ], [ %73, %72 ]
@@ -768,7 +768,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKh(ptr noundef readonly captures(none)
   br i1 %.not37.i, label %_Z10IsTextUtf8PKhm.exit, label %.lr.ph42.i
 
 .loopexit.i:                                      ; preds = %.preheader.i
-  br i1 %16, label %_Z10IsTextUtf8PKhm.exit, label %.lr.ph42.i, !llvm.loop !24
+  br i1 %16, label %_Z10IsTextUtf8PKhm.exit, label %.lr.ph42.i
 
 .lr.ph42.i:                                       ; preds = %1, %.loopexit.i
   %.01839.i = phi i64 [ %.220.i, %.loopexit.i ], [ %2, %1 ]
@@ -794,7 +794,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKh(ptr noundef readonly captures(none)
   %11 = and i32 %9, %4
   %12 = icmp ne i32 %11, 0
   %13 = and i1 %10, %12
-  br i1 %13, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
+  br i1 %13, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %18
   %.021.pn.i = phi ptr [ %.223.i, %18 ], [ %.02138.i, %._crit_edge.i ]
@@ -813,7 +813,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKh(ptr noundef readonly captures(none)
 18:                                               ; preds = %17
   %19 = load i8, ptr %.223.i, align 1, !tbaa !3
   %.not26.i = icmp slt i8 %19, -64
-  br i1 %.not26.i, label %.preheader.i, label %_Z10IsTextUtf8PKhm.exit, !llvm.loop !26
+  br i1 %.not26.i, label %.preheader.i, label %_Z10IsTextUtf8PKhm.exit, !llvm.loop !23
 
 _Z10IsTextUtf8PKhm.exit:                          ; preds = %.loopexit.i, %._crit_edge.i, %17, %18, %1
   %.not35.i = phi i1 [ true, %1 ], [ false, %18 ], [ false, %17 ], [ %or.cond.not.i, %._crit_edge.i ], [ %or.cond.not.i, %.loopexit.i ]
@@ -826,7 +826,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKhm(ptr noundef readonly captures(none
   br i1 %.not37, label %.thread, label %.lr.ph42
 
 .loopexit:                                        ; preds = %.preheader
-  br i1 %16, label %.thread, label %.lr.ph42, !llvm.loop !24
+  br i1 %16, label %.thread, label %.lr.ph42
 
 .lr.ph42:                                         ; preds = %2, %.loopexit
   %.01839 = phi i64 [ %.220, %.loopexit ], [ %1, %2 ]
@@ -852,7 +852,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKhm(ptr noundef readonly captures(none
   %11 = and i32 %9, %4
   %12 = icmp ne i32 %11, 0
   %13 = and i1 %10, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 .preheader:                                       ; preds = %._crit_edge, %18
   %.021.pn = phi ptr [ %.223, %18 ], [ %.02138, %._crit_edge ]
@@ -871,7 +871,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKhm(ptr noundef readonly captures(none
 18:                                               ; preds = %17
   %19 = load i8, ptr %.223, align 1, !tbaa !3
   %.not26 = icmp slt i8 %19, -64
-  br i1 %.not26, label %.preheader, label %.thread, !llvm.loop !26
+  br i1 %.not26, label %.preheader, label %.thread, !llvm.loop !23
 
 .thread:                                          ; preds = %.loopexit, %._crit_edge, %17, %18, %2
   %.not35 = phi i1 [ true, %2 ], [ false, %18 ], [ false, %17 ], [ %or.cond.not, %._crit_edge ], [ %or.cond.not, %.loopexit ]
@@ -988,7 +988,7 @@ define noundef ptr @_Z10wcscasestrPKwS0_(ptr noundef readonly captures(ret: addr
   %8 = getelementptr inbounds nuw i32, ptr %1, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !6
   %.not20 = icmp eq i32 %9, 0
-  br i1 %.not20, label %.thread, label %.lr.ph, !llvm.loop !27
+  br i1 %.not20, label %.thread, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %.preheader, %6
   %.026 = phi i64 [ %7, %6 ], [ 0, %.preheader ]
@@ -1006,7 +1006,7 @@ define noundef ptr @_Z10wcscasestrPKwS0_(ptr noundef readonly captures(ret: addr
   %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !6
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %.thread, label %.preheader, !llvm.loop !28
+  br i1 %.not, label %.thread, label %.preheader, !llvm.loop !25
 
 .thread:                                          ; preds = %16, %.preheader, %6, %2
   %spec.select = phi ptr [ null, %2 ], [ %4, %6 ], [ %4, %.preheader ], [ null, %16 ]
@@ -1036,7 +1036,7 @@ define noundef ptr @_Z8wcslowerPw(ptr noundef returned captures(ret: address, pr
   %5 = getelementptr inbounds nuw i8, ptr %.08, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !6
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 }
 
 ; Function Attrs: nounwind
@@ -1059,7 +1059,7 @@ define noundef ptr @_Z8wcsupperPw(ptr noundef returned captures(ret: address, pr
   %5 = getelementptr inbounds nuw i8, ptr %.08, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !6
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1091,7 +1091,7 @@ define noundef i32 @_Z5atoiwPKw(ptr noundef readonly captures(none) %0) local_un
   %12 = load i32, ptr %11, align 4, !tbaa !6
   %13 = add i32 %12, -48
   %or.cond.i = icmp ult i32 %13, 10
-  br i1 %or.cond.i, label %.lr.ph.i, label %_Z6atoilwPKw.exit, !llvm.loop !31
+  br i1 %or.cond.i, label %.lr.ph.i, label %_Z6atoilwPKw.exit, !llvm.loop !28
 
 _Z6atoilwPKw.exit:                                ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %10, %.lr.ph.i ]
@@ -1125,7 +1125,7 @@ define noundef i64 @_Z6atoilwPKw(ptr noundef readonly captures(none) %0) local_u
   %12 = load i32, ptr %11, align 4, !tbaa !6
   %13 = add i32 %12, -48
   %or.cond = icmp ult i32 %13, 10
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !31
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %10, %.lr.ph ]
@@ -1181,27 +1181,24 @@ attributes #13 = { nounwind willreturn memory(none) }
 !5 = !{!"Simple C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"wchar_t", !4, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 wchar_t", !13, i64 0}
-!13 = !{!"any pointer", !4, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !4, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 omnipotent char", !13, i64 0}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 wchar_t", !12, i64 0}
+!12 = !{!"any pointer", !4, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !4, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 omnipotent char", !12, i64 0}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
 !23 = distinct !{!23, !9}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !9, !10}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}

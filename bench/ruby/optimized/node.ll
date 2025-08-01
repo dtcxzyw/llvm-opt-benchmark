@@ -503,7 +503,7 @@ pm_node_list_grow.exit:                           ; preds = %.pm_node_list_grow.
   %25 = phi ptr [ %.pre, %.pm_node_list_grow.exit_crit_edge ], [ %22, %23 ]
   store i64 %.pre-phi, ptr %0, align 8, !tbaa !7
   %26 = getelementptr ptr, ptr %25, i64 %24
-  store ptr %1, ptr %26, align 8, !tbaa !19
+  store ptr %1, ptr %26, align 8, !tbaa !18
   br label %pm_node_list_grow.exit.thread
 
 pm_node_list_grow.exit.thread:                    ; preds = %15, %18, %10, %2, %pm_node_list_grow.exit
@@ -567,7 +567,7 @@ pm_node_list_grow.exit:                           ; preds = %.pm_node_list_grow.
   %28 = shl i64 %24, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %27, ptr noundef nonnull align 1 %25, i64 noundef %28, i1 noundef false) #9
   %29 = load ptr, ptr %26, align 8, !tbaa !15
-  store ptr %1, ptr %29, align 8, !tbaa !19
+  store ptr %1, ptr %29, align 8, !tbaa !18
   %30 = load i64, ptr %0, align 8, !tbaa !7
   %31 = add i64 %30, 1
   store i64 %31, ptr %0, align 8, !tbaa !7
@@ -677,7 +677,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load i16, ptr %1, align 8, !tbaa !21
+  %3 = load i16, ptr %1, align 8, !tbaa !20
   switch i16 %3, label %610 [
     i16 1, label %4
     i16 2, label %9
@@ -799,37 +799,37 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !27
+  %6 = load ptr, ptr %5, align 8, !tbaa !26
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %8)
   br label %610
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !29
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %11)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !32
+  %13 = load ptr, ptr %12, align 8, !tbaa !31
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %13)
   br label %610
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !33
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %16)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !35
+  %18 = load ptr, ptr %17, align 8, !tbaa !34
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %18)
   br label %610
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !36
+  %21 = load ptr, ptr %20, align 8, !tbaa !35
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %21)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !38
+  %23 = load ptr, ptr %22, align 8, !tbaa !37
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %23)
   br label %610
 
@@ -845,7 +845,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !39
+  %30 = load ptr, ptr %29, align 8, !tbaa !38
   %.not753 = icmp eq ptr %30, null
   br i1 %.not753, label %32, label %31
 
@@ -857,7 +857,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %33)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %35 = load ptr, ptr %34, align 8, !tbaa !41
+  %35 = load ptr, ptr %34, align 8, !tbaa !40
   %.not754 = icmp eq ptr %35, null
   br i1 %.not754, label %37, label %36
 
@@ -872,16 +872,16 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 39:                                               ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !42
+  %41 = load ptr, ptr %40, align 8, !tbaa !41
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %41)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !44
+  %43 = load ptr, ptr %42, align 8, !tbaa !43
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %43)
   br label %610
 
 44:                                               ; preds = %2
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %46 = load ptr, ptr %45, align 8, !tbaa !45
+  %46 = load ptr, ptr %45, align 8, !tbaa !44
   %.not752 = icmp eq ptr %46, null
   br i1 %.not752, label %610, label %47
 
@@ -891,7 +891,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 48:                                               ; preds = %2
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %50 = load ptr, ptr %49, align 8, !tbaa !47
+  %50 = load ptr, ptr %49, align 8, !tbaa !46
   %.not747 = icmp eq ptr %50, null
   br i1 %.not747, label %52, label %51
 
@@ -901,7 +901,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 52:                                               ; preds = %51, %48
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %54 = load ptr, ptr %53, align 8, !tbaa !53
+  %54 = load ptr, ptr %53, align 8, !tbaa !52
   %.not748 = icmp eq ptr %54, null
   br i1 %.not748, label %56, label %55
 
@@ -911,7 +911,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 56:                                               ; preds = %55, %52
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %58 = load ptr, ptr %57, align 8, !tbaa !54
+  %58 = load ptr, ptr %57, align 8, !tbaa !53
   %.not749 = icmp eq ptr %58, null
   br i1 %.not749, label %60, label %59
 
@@ -921,7 +921,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 60:                                               ; preds = %59, %56
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %62 = load ptr, ptr %61, align 8, !tbaa !55
+  %62 = load ptr, ptr %61, align 8, !tbaa !54
   %.not750 = icmp eq ptr %62, null
   br i1 %.not750, label %610, label %63
 
@@ -931,7 +931,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 64:                                               ; preds = %2
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %66 = load ptr, ptr %65, align 8, !tbaa !56
+  %66 = load ptr, ptr %65, align 8, !tbaa !55
   %.not746 = icmp eq ptr %66, null
   br i1 %.not746, label %610, label %67
 
@@ -943,7 +943,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @pm_constant_id_list_free(ptr noundef nonnull %69) #9
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %71 = load ptr, ptr %70, align 8, !tbaa !58
+  %71 = load ptr, ptr %70, align 8, !tbaa !57
   %.not744 = icmp eq ptr %71, null
   br i1 %.not744, label %73, label %72
 
@@ -953,7 +953,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 73:                                               ; preds = %72, %68
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %75 = load ptr, ptr %74, align 8, !tbaa !62
+  %75 = load ptr, ptr %74, align 8, !tbaa !61
   %.not745 = icmp eq ptr %75, null
   br i1 %.not745, label %610, label %76
 
@@ -963,7 +963,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 77:                                               ; preds = %2
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %79 = load ptr, ptr %78, align 8, !tbaa !63
+  %79 = load ptr, ptr %78, align 8, !tbaa !62
   %.not742 = icmp eq ptr %79, null
   br i1 %.not742, label %81, label %80
 
@@ -978,7 +978,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 83:                                               ; preds = %2
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %85 = load ptr, ptr %84, align 8, !tbaa !66
+  %85 = load ptr, ptr %84, align 8, !tbaa !65
   %.not741 = icmp eq ptr %85, null
   br i1 %.not741, label %610, label %86
 
@@ -988,7 +988,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 87:                                               ; preds = %2
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %89 = load ptr, ptr %88, align 8, !tbaa !69
+  %89 = load ptr, ptr %88, align 8, !tbaa !68
   %.not740 = icmp eq ptr %89, null
   br i1 %.not740, label %91, label %90
 
@@ -998,13 +998,13 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 91:                                               ; preds = %90, %87
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %93 = load ptr, ptr %92, align 8, !tbaa !71
+  %93 = load ptr, ptr %92, align 8, !tbaa !70
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %93)
   br label %610
 
 94:                                               ; preds = %2
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %96 = load ptr, ptr %95, align 8, !tbaa !72
+  %96 = load ptr, ptr %95, align 8, !tbaa !71
   %.not737 = icmp eq ptr %96, null
   br i1 %.not737, label %98, label %97
 
@@ -1014,7 +1014,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 98:                                               ; preds = %97, %94
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %100 = load ptr, ptr %99, align 8, !tbaa !74
+  %100 = load ptr, ptr %99, align 8, !tbaa !73
   %.not738 = icmp eq ptr %100, null
   br i1 %.not738, label %102, label %101
 
@@ -1024,7 +1024,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 102:                                              ; preds = %101, %98
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %104 = load ptr, ptr %103, align 8, !tbaa !75
+  %104 = load ptr, ptr %103, align 8, !tbaa !74
   %.not739 = icmp eq ptr %104, null
   br i1 %.not739, label %610, label %105
 
@@ -1034,7 +1034,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 106:                                              ; preds = %2
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %108 = load ptr, ptr %107, align 8, !tbaa !76
+  %108 = load ptr, ptr %107, align 8, !tbaa !75
   %.not736 = icmp eq ptr %108, null
   br i1 %.not736, label %110, label %109
 
@@ -1044,13 +1044,13 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 110:                                              ; preds = %109, %106
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %112 = load ptr, ptr %111, align 8, !tbaa !78
+  %112 = load ptr, ptr %111, align 8, !tbaa !77
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %112)
   br label %610
 
 113:                                              ; preds = %2
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %115 = load ptr, ptr %114, align 8, !tbaa !79
+  %115 = load ptr, ptr %114, align 8, !tbaa !78
   %.not735 = icmp eq ptr %115, null
   br i1 %.not735, label %117, label %116
 
@@ -1060,28 +1060,28 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 117:                                              ; preds = %116, %113
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %119 = load ptr, ptr %118, align 8, !tbaa !81
+  %119 = load ptr, ptr %118, align 8, !tbaa !80
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %119)
   br label %610
 
 120:                                              ; preds = %2
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %122 = load ptr, ptr %121, align 8, !tbaa !82
+  %122 = load ptr, ptr %121, align 8, !tbaa !81
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %122)
   br label %610
 
 123:                                              ; preds = %2
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %125 = load ptr, ptr %124, align 8, !tbaa !84
+  %125 = load ptr, ptr %124, align 8, !tbaa !83
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %125)
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %127 = load ptr, ptr %126, align 8, !tbaa !87
+  %127 = load ptr, ptr %126, align 8, !tbaa !86
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %127)
   br label %610
 
 128:                                              ; preds = %2
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %130 = load ptr, ptr %129, align 8, !tbaa !88
+  %130 = load ptr, ptr %129, align 8, !tbaa !87
   %.not733 = icmp eq ptr %130, null
   br i1 %.not733, label %132, label %131
 
@@ -1093,7 +1093,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %133)
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %135 = load ptr, ptr %134, align 8, !tbaa !90
+  %135 = load ptr, ptr %134, align 8, !tbaa !89
   %.not734 = icmp eq ptr %135, null
   br i1 %.not734, label %610, label %136
 
@@ -1103,7 +1103,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 137:                                              ; preds = %2
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %139 = load ptr, ptr %138, align 8, !tbaa !91
+  %139 = load ptr, ptr %138, align 8, !tbaa !90
   %.not731 = icmp eq ptr %139, null
   br i1 %.not731, label %141, label %140
 
@@ -1115,7 +1115,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %142)
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %144 = load ptr, ptr %143, align 8, !tbaa !93
+  %144 = load ptr, ptr %143, align 8, !tbaa !92
   %.not732 = icmp eq ptr %144, null
   br i1 %.not732, label %610, label %145
 
@@ -1127,10 +1127,10 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @pm_constant_id_list_free(ptr noundef nonnull %147) #9
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %149 = load ptr, ptr %148, align 8, !tbaa !94
+  %149 = load ptr, ptr %148, align 8, !tbaa !93
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %149)
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %151 = load ptr, ptr %150, align 8, !tbaa !96
+  %151 = load ptr, ptr %150, align 8, !tbaa !95
   %.not729 = icmp eq ptr %151, null
   br i1 %.not729, label %153, label %152
 
@@ -1140,7 +1140,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 153:                                              ; preds = %152, %146
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %155 = load ptr, ptr %154, align 8, !tbaa !97
+  %155 = load ptr, ptr %154, align 8, !tbaa !96
   %.not730 = icmp eq ptr %155, null
   br i1 %.not730, label %610, label %156
 
@@ -1150,58 +1150,58 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 157:                                              ; preds = %2
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %159 = load ptr, ptr %158, align 8, !tbaa !98
+  %159 = load ptr, ptr %158, align 8, !tbaa !97
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %159)
   br label %610
 
 160:                                              ; preds = %2
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %162 = load ptr, ptr %161, align 8, !tbaa !100
+  %162 = load ptr, ptr %161, align 8, !tbaa !99
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %162)
   br label %610
 
 163:                                              ; preds = %2
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %165 = load ptr, ptr %164, align 8, !tbaa !102
+  %165 = load ptr, ptr %164, align 8, !tbaa !101
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %165)
   br label %610
 
 166:                                              ; preds = %2
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %168 = load ptr, ptr %167, align 8, !tbaa !104
+  %168 = load ptr, ptr %167, align 8, !tbaa !103
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %168)
   br label %610
 
 169:                                              ; preds = %2
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %171 = load ptr, ptr %170, align 8, !tbaa !106
+  %171 = load ptr, ptr %170, align 8, !tbaa !105
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %171)
   br label %610
 
 172:                                              ; preds = %2
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %174 = load ptr, ptr %173, align 8, !tbaa !108
+  %174 = load ptr, ptr %173, align 8, !tbaa !107
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %174)
   br label %610
 
 175:                                              ; preds = %2
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %177 = load ptr, ptr %176, align 8, !tbaa !110
+  %177 = load ptr, ptr %176, align 8, !tbaa !109
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %177)
   br label %610
 
 178:                                              ; preds = %2
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %180 = load ptr, ptr %179, align 8, !tbaa !112
+  %180 = load ptr, ptr %179, align 8, !tbaa !111
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %180)
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %182 = load ptr, ptr %181, align 8, !tbaa !115
+  %182 = load ptr, ptr %181, align 8, !tbaa !114
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %182)
   br label %610
 
 183:                                              ; preds = %2
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %185 = load ptr, ptr %184, align 8, !tbaa !116
+  %185 = load ptr, ptr %184, align 8, !tbaa !115
   %.not726 = icmp eq ptr %185, null
   br i1 %.not726, label %610, label %186
 
@@ -1211,25 +1211,25 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 187:                                              ; preds = %2
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %189 = load ptr, ptr %188, align 8, !tbaa !118
+  %189 = load ptr, ptr %188, align 8, !tbaa !117
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %189)
   %190 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %191 = load ptr, ptr %190, align 8, !tbaa !120
+  %191 = load ptr, ptr %190, align 8, !tbaa !119
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %191)
   br label %610
 
 192:                                              ; preds = %2
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %194 = load ptr, ptr %193, align 8, !tbaa !121
+  %194 = load ptr, ptr %193, align 8, !tbaa !120
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %194)
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %196 = load ptr, ptr %195, align 8, !tbaa !123
+  %196 = load ptr, ptr %195, align 8, !tbaa !122
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %196)
   br label %610
 
 197:                                              ; preds = %2
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %199 = load ptr, ptr %198, align 8, !tbaa !124
+  %199 = load ptr, ptr %198, align 8, !tbaa !123
   %.not725 = icmp eq ptr %199, null
   br i1 %.not725, label %610, label %200
 
@@ -1239,22 +1239,22 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 201:                                              ; preds = %2
   %202 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %203 = load ptr, ptr %202, align 8, !tbaa !126
+  %203 = load ptr, ptr %202, align 8, !tbaa !125
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %203)
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %205 = load ptr, ptr %204, align 8, !tbaa !128
+  %205 = load ptr, ptr %204, align 8, !tbaa !127
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %205)
   br label %610
 
 206:                                              ; preds = %2
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %208 = load ptr, ptr %207, align 8, !tbaa !129
+  %208 = load ptr, ptr %207, align 8, !tbaa !128
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %208)
   br label %610
 
 209:                                              ; preds = %2
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %211 = load ptr, ptr %210, align 8, !tbaa !131
+  %211 = load ptr, ptr %210, align 8, !tbaa !130
   %.not720 = icmp eq ptr %211, null
   br i1 %.not720, label %213, label %212
 
@@ -1264,7 +1264,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 213:                                              ; preds = %212, %209
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %215 = load ptr, ptr %214, align 8, !tbaa !133
+  %215 = load ptr, ptr %214, align 8, !tbaa !132
   %.not721 = icmp eq ptr %215, null
   br i1 %.not721, label %217, label %216
 
@@ -1274,7 +1274,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 217:                                              ; preds = %216, %213
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %219 = load ptr, ptr %218, align 8, !tbaa !134
+  %219 = load ptr, ptr %218, align 8, !tbaa !133
   %.not722 = icmp eq ptr %219, null
   br i1 %.not722, label %221, label %220
 
@@ -1289,13 +1289,13 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 223:                                              ; preds = %2
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %225 = load ptr, ptr %224, align 8, !tbaa !135
+  %225 = load ptr, ptr %224, align 8, !tbaa !134
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %225)
   br label %610
 
 226:                                              ; preds = %2
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %228 = load ptr, ptr %227, align 8, !tbaa !137
+  %228 = load ptr, ptr %227, align 8, !tbaa !136
   %.not719 = icmp eq ptr %228, null
   br i1 %.not719, label %610, label %229
 
@@ -1305,7 +1305,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 230:                                              ; preds = %2
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %232 = load ptr, ptr %231, align 8, !tbaa !139
+  %232 = load ptr, ptr %231, align 8, !tbaa !138
   %.not718 = icmp eq ptr %232, null
   br i1 %.not718, label %610, label %233
 
@@ -1315,13 +1315,13 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 234:                                              ; preds = %2
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %236 = load ptr, ptr %235, align 8, !tbaa !141
+  %236 = load ptr, ptr %235, align 8, !tbaa !140
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %236)
   br label %610
 
 237:                                              ; preds = %2
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %239 = load ptr, ptr %238, align 8, !tbaa !143
+  %239 = load ptr, ptr %238, align 8, !tbaa !142
   %.not717 = icmp eq ptr %239, null
   br i1 %.not717, label %610, label %240
 
@@ -1331,7 +1331,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 241:                                              ; preds = %2
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %243 = load ptr, ptr %242, align 8, !tbaa !145
+  %243 = load ptr, ptr %242, align 8, !tbaa !144
   %.not716 = icmp eq ptr %243, null
   br i1 %.not716, label %245, label %244
 
@@ -1341,18 +1341,18 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 245:                                              ; preds = %244, %241
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %247 = load ptr, ptr %246, align 8, !tbaa !148
+  %247 = load ptr, ptr %246, align 8, !tbaa !147
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %247)
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %248)
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %250 = load ptr, ptr %249, align 8, !tbaa !149
+  %250 = load ptr, ptr %249, align 8, !tbaa !148
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %250)
   br label %610
 
 251:                                              ; preds = %2
   %252 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %253 = load ptr, ptr %252, align 8, !tbaa !150
+  %253 = load ptr, ptr %252, align 8, !tbaa !149
   %.not714 = icmp eq ptr %253, null
   br i1 %.not714, label %255, label %254
 
@@ -1362,7 +1362,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 255:                                              ; preds = %254, %251
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %257 = load ptr, ptr %256, align 8, !tbaa !152
+  %257 = load ptr, ptr %256, align 8, !tbaa !151
   %.not715 = icmp eq ptr %257, null
   br i1 %.not715, label %610, label %258
 
@@ -1372,13 +1372,13 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 259:                                              ; preds = %2
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %261 = load ptr, ptr %260, align 8, !tbaa !153
+  %261 = load ptr, ptr %260, align 8, !tbaa !152
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %261)
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %263 = load ptr, ptr %262, align 8, !tbaa !155
+  %263 = load ptr, ptr %262, align 8, !tbaa !154
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %263)
   %264 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %265 = load ptr, ptr %264, align 8, !tbaa !156
+  %265 = load ptr, ptr %264, align 8, !tbaa !155
   %.not711 = icmp eq ptr %265, null
   br i1 %.not711, label %610, label %266
 
@@ -1388,7 +1388,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 267:                                              ; preds = %2
   %268 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %269 = load ptr, ptr %268, align 8, !tbaa !157
+  %269 = load ptr, ptr %268, align 8, !tbaa !156
   %.not710 = icmp eq ptr %269, null
   br i1 %.not710, label %610, label %270
 
@@ -1398,25 +1398,25 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 271:                                              ; preds = %2
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %273 = load ptr, ptr %272, align 8, !tbaa !160
+  %273 = load ptr, ptr %272, align 8, !tbaa !159
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %273)
   br label %610
 
 274:                                              ; preds = %2
   %275 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %276 = load ptr, ptr %275, align 8, !tbaa !162
+  %276 = load ptr, ptr %275, align 8, !tbaa !161
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %276)
   br label %610
 
 277:                                              ; preds = %2
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %279 = load ptr, ptr %278, align 8, !tbaa !164
+  %279 = load ptr, ptr %278, align 8, !tbaa !163
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %279)
   br label %610
 
 280:                                              ; preds = %2
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %282 = load ptr, ptr %281, align 8, !tbaa !166
+  %282 = load ptr, ptr %281, align 8, !tbaa !165
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %282)
   br label %610
 
@@ -1427,7 +1427,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 285:                                              ; preds = %2
   %286 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %287 = load ptr, ptr %286, align 8, !tbaa !168
+  %287 = load ptr, ptr %286, align 8, !tbaa !167
   %.not707 = icmp eq ptr %287, null
   br i1 %.not707, label %289, label %288
 
@@ -1439,7 +1439,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %290)
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %292 = load ptr, ptr %291, align 8, !tbaa !170
+  %292 = load ptr, ptr %291, align 8, !tbaa !169
   %.not708 = icmp eq ptr %292, null
   br i1 %.not708, label %610, label %293
 
@@ -1449,10 +1449,10 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 294:                                              ; preds = %2
   %295 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %296 = load ptr, ptr %295, align 8, !tbaa !171
+  %296 = load ptr, ptr %295, align 8, !tbaa !170
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %296)
   %297 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %298 = load ptr, ptr %297, align 8, !tbaa !173
+  %298 = load ptr, ptr %297, align 8, !tbaa !172
   %.not705 = icmp eq ptr %298, null
   br i1 %.not705, label %300, label %299
 
@@ -1462,7 +1462,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 300:                                              ; preds = %299, %294
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %302 = load ptr, ptr %301, align 8, !tbaa !174
+  %302 = load ptr, ptr %301, align 8, !tbaa !173
   %.not706 = icmp eq ptr %302, null
   br i1 %.not706, label %610, label %303
 
@@ -1472,22 +1472,22 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 304:                                              ; preds = %2
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %306 = load ptr, ptr %305, align 8, !tbaa !175
+  %306 = load ptr, ptr %305, align 8, !tbaa !174
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %306)
   br label %610
 
 307:                                              ; preds = %2
   %308 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %309 = load ptr, ptr %308, align 8, !tbaa !177
+  %309 = load ptr, ptr %308, align 8, !tbaa !176
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %309)
   br label %610
 
 310:                                              ; preds = %2
   %311 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %312 = load ptr, ptr %311, align 8, !tbaa !179
+  %312 = load ptr, ptr %311, align 8, !tbaa !178
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %312)
   %313 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %314 = load ptr, ptr %313, align 8, !tbaa !181
+  %314 = load ptr, ptr %313, align 8, !tbaa !180
   %.not703 = icmp eq ptr %314, null
   br i1 %.not703, label %610, label %315
 
@@ -1497,7 +1497,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 316:                                              ; preds = %2
   %317 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %318 = load ptr, ptr %317, align 8, !tbaa !182
+  %318 = load ptr, ptr %317, align 8, !tbaa !181
   %.not700 = icmp eq ptr %318, null
   br i1 %.not700, label %320, label %319
 
@@ -1507,7 +1507,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 320:                                              ; preds = %319, %316
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %322 = load ptr, ptr %321, align 8, !tbaa !185
+  %322 = load ptr, ptr %321, align 8, !tbaa !184
   %.not701 = icmp eq ptr %322, null
   br i1 %.not701, label %324, label %323
 
@@ -1517,7 +1517,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 324:                                              ; preds = %323, %320
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %326 = load ptr, ptr %325, align 8, !tbaa !186
+  %326 = load ptr, ptr %325, align 8, !tbaa !185
   %.not702 = icmp eq ptr %326, null
   br i1 %.not702, label %328, label %327
 
@@ -1527,13 +1527,13 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 328:                                              ; preds = %327, %324
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %330 = load ptr, ptr %329, align 8, !tbaa !187
+  %330 = load ptr, ptr %329, align 8, !tbaa !186
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %330)
   br label %610
 
 331:                                              ; preds = %2
   %332 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %333 = load ptr, ptr %332, align 8, !tbaa !188
+  %333 = load ptr, ptr %332, align 8, !tbaa !187
   %.not697 = icmp eq ptr %333, null
   br i1 %.not697, label %335, label %334
 
@@ -1543,7 +1543,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 335:                                              ; preds = %334, %331
   %336 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %337 = load ptr, ptr %336, align 8, !tbaa !190
+  %337 = load ptr, ptr %336, align 8, !tbaa !189
   %.not698 = icmp eq ptr %337, null
   br i1 %.not698, label %339, label %338
 
@@ -1553,7 +1553,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 339:                                              ; preds = %338, %335
   %340 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %341 = load ptr, ptr %340, align 8, !tbaa !191
+  %341 = load ptr, ptr %340, align 8, !tbaa !190
   %.not699 = icmp eq ptr %341, null
   br i1 %.not699, label %343, label %342
 
@@ -1563,13 +1563,13 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 343:                                              ; preds = %342, %339
   %344 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %345 = load ptr, ptr %344, align 8, !tbaa !192
+  %345 = load ptr, ptr %344, align 8, !tbaa !191
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %345)
   br label %610
 
 346:                                              ; preds = %2
   %347 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %348 = load ptr, ptr %347, align 8, !tbaa !193
+  %348 = load ptr, ptr %347, align 8, !tbaa !192
   %.not694 = icmp eq ptr %348, null
   br i1 %.not694, label %350, label %349
 
@@ -1579,7 +1579,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 350:                                              ; preds = %349, %346
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %352 = load ptr, ptr %351, align 8, !tbaa !195
+  %352 = load ptr, ptr %351, align 8, !tbaa !194
   %.not695 = icmp eq ptr %352, null
   br i1 %.not695, label %354, label %353
 
@@ -1589,7 +1589,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 354:                                              ; preds = %353, %350
   %355 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %356 = load ptr, ptr %355, align 8, !tbaa !196
+  %356 = load ptr, ptr %355, align 8, !tbaa !195
   %.not696 = icmp eq ptr %356, null
   br i1 %.not696, label %358, label %357
 
@@ -1599,16 +1599,16 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 358:                                              ; preds = %357, %354
   %359 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %360 = load ptr, ptr %359, align 8, !tbaa !197
+  %360 = load ptr, ptr %359, align 8, !tbaa !196
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %360)
   br label %610
 
 361:                                              ; preds = %2
   %362 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %363 = load ptr, ptr %362, align 8, !tbaa !198
+  %363 = load ptr, ptr %362, align 8, !tbaa !197
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %363)
   %364 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %365 = load ptr, ptr %364, align 8, !tbaa !200
+  %365 = load ptr, ptr %364, align 8, !tbaa !199
   %.not692 = icmp eq ptr %365, null
   br i1 %.not692, label %367, label %366
 
@@ -1618,7 +1618,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 367:                                              ; preds = %366, %361
   %368 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %369 = load ptr, ptr %368, align 8, !tbaa !201
+  %369 = load ptr, ptr %368, align 8, !tbaa !200
   %.not693 = icmp eq ptr %369, null
   br i1 %.not693, label %610, label %370
 
@@ -1628,25 +1628,25 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 371:                                              ; preds = %2
   %372 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %373 = load ptr, ptr %372, align 8, !tbaa !202
+  %373 = load ptr, ptr %372, align 8, !tbaa !201
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %373)
   br label %610
 
 374:                                              ; preds = %2
   %375 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %376 = load ptr, ptr %375, align 8, !tbaa !204
+  %376 = load ptr, ptr %375, align 8, !tbaa !203
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %376)
   br label %610
 
 377:                                              ; preds = %2
   %378 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %379 = load ptr, ptr %378, align 8, !tbaa !206
+  %379 = load ptr, ptr %378, align 8, !tbaa !205
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %379)
   br label %610
 
 380:                                              ; preds = %2
   %381 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %382 = load ptr, ptr %381, align 8, !tbaa !208
+  %382 = load ptr, ptr %381, align 8, !tbaa !207
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %382)
   br label %610
 
@@ -1689,7 +1689,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %398 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @pm_constant_id_list_free(ptr noundef nonnull %398) #9
   %399 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %400 = load ptr, ptr %399, align 8, !tbaa !210
+  %400 = load ptr, ptr %399, align 8, !tbaa !209
   %.not686 = icmp eq ptr %400, null
   br i1 %.not686, label %402, label %401
 
@@ -1699,7 +1699,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 402:                                              ; preds = %401, %397
   %403 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %404 = load ptr, ptr %403, align 8, !tbaa !212
+  %404 = load ptr, ptr %403, align 8, !tbaa !211
   %.not687 = icmp eq ptr %404, null
   br i1 %.not687, label %610, label %405
 
@@ -1709,25 +1709,25 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 406:                                              ; preds = %2
   %407 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %408 = load ptr, ptr %407, align 8, !tbaa !213
+  %408 = load ptr, ptr %407, align 8, !tbaa !212
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %408)
   br label %610
 
 409:                                              ; preds = %2
   %410 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %411 = load ptr, ptr %410, align 8, !tbaa !215
+  %411 = load ptr, ptr %410, align 8, !tbaa !214
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %411)
   br label %610
 
 412:                                              ; preds = %2
   %413 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %414 = load ptr, ptr %413, align 8, !tbaa !217
+  %414 = load ptr, ptr %413, align 8, !tbaa !216
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %414)
   br label %610
 
 415:                                              ; preds = %2
   %416 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %417 = load ptr, ptr %416, align 8, !tbaa !219
+  %417 = load ptr, ptr %416, align 8, !tbaa !218
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %417)
   br label %610
 
@@ -1738,25 +1738,25 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 420:                                              ; preds = %2
   %421 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %422 = load ptr, ptr %421, align 8, !tbaa !221
+  %422 = load ptr, ptr %421, align 8, !tbaa !220
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %422)
   %423 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %424 = load ptr, ptr %423, align 8, !tbaa !223
+  %424 = load ptr, ptr %423, align 8, !tbaa !222
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %424)
   br label %610
 
 425:                                              ; preds = %2
   %426 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %427 = load ptr, ptr %426, align 8, !tbaa !224
+  %427 = load ptr, ptr %426, align 8, !tbaa !223
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %427)
   %428 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %429 = load ptr, ptr %428, align 8, !tbaa !226
+  %429 = load ptr, ptr %428, align 8, !tbaa !225
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %429)
   br label %610
 
 430:                                              ; preds = %2
   %431 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %432 = load ptr, ptr %431, align 8, !tbaa !227
+  %432 = load ptr, ptr %431, align 8, !tbaa !226
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %432)
   %433 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %433)
@@ -1766,10 +1766,10 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %435 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @pm_constant_id_list_free(ptr noundef nonnull %435) #9
   %436 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %437 = load ptr, ptr %436, align 8, !tbaa !230
+  %437 = load ptr, ptr %436, align 8, !tbaa !229
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %437)
   %438 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %439 = load ptr, ptr %438, align 8, !tbaa !232
+  %439 = load ptr, ptr %438, align 8, !tbaa !231
   %.not683 = icmp eq ptr %439, null
   br i1 %.not683, label %610, label %440
 
@@ -1781,7 +1781,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %442 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %442)
   %443 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %444 = load ptr, ptr %443, align 8, !tbaa !233
+  %444 = load ptr, ptr %443, align 8, !tbaa !232
   %.not682 = icmp eq ptr %444, null
   br i1 %.not682, label %446, label %445
 
@@ -1798,7 +1798,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %449 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %449)
   %450 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %451 = load ptr, ptr %450, align 8, !tbaa !235
+  %451 = load ptr, ptr %450, align 8, !tbaa !234
   %.not681 = icmp eq ptr %451, null
   br i1 %.not681, label %453, label %452
 
@@ -1810,13 +1810,13 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %454 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %454)
   %455 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %456 = load ptr, ptr %455, align 8, !tbaa !237
+  %456 = load ptr, ptr %455, align 8, !tbaa !236
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %456)
   br label %610
 
 457:                                              ; preds = %2
   %458 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %459 = load ptr, ptr %458, align 8, !tbaa !238
+  %459 = load ptr, ptr %458, align 8, !tbaa !237
   %.not680 = icmp eq ptr %459, null
   br i1 %.not680, label %610, label %460
 
@@ -1826,22 +1826,22 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 461:                                              ; preds = %2
   %462 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %463 = load ptr, ptr %462, align 8, !tbaa !240
+  %463 = load ptr, ptr %462, align 8, !tbaa !239
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %463)
   br label %610
 
 464:                                              ; preds = %2
   %465 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %466 = load ptr, ptr %465, align 8, !tbaa !242
+  %466 = load ptr, ptr %465, align 8, !tbaa !241
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %466)
   br label %610
 
 467:                                              ; preds = %2
   %468 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %469 = load ptr, ptr %468, align 8, !tbaa !244
+  %469 = load ptr, ptr %468, align 8, !tbaa !243
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %469)
   %470 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %471 = load ptr, ptr %470, align 8, !tbaa !246
+  %471 = load ptr, ptr %470, align 8, !tbaa !245
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %471)
   br label %610
 
@@ -1851,7 +1851,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %474 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %474)
   %475 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %476 = load ptr, ptr %475, align 8, !tbaa !247
+  %476 = load ptr, ptr %475, align 8, !tbaa !246
   %.not675 = icmp eq ptr %476, null
   br i1 %.not675, label %478, label %477
 
@@ -1865,7 +1865,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %480 = getelementptr inbounds nuw i8, ptr %1, i64 104
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %480)
   %481 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %482 = load ptr, ptr %481, align 8, !tbaa !250
+  %482 = load ptr, ptr %481, align 8, !tbaa !249
   %.not676 = icmp eq ptr %482, null
   br i1 %.not676, label %484, label %483
 
@@ -1875,7 +1875,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 484:                                              ; preds = %483, %478
   %485 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %486 = load ptr, ptr %485, align 8, !tbaa !251
+  %486 = load ptr, ptr %485, align 8, !tbaa !250
   %.not677 = icmp eq ptr %486, null
   br i1 %.not677, label %610, label %487
 
@@ -1885,7 +1885,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 488:                                              ; preds = %2
   %489 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %490 = load ptr, ptr %489, align 8, !tbaa !252
+  %490 = load ptr, ptr %489, align 8, !tbaa !251
   %.not = icmp eq ptr %490, null
   br i1 %.not, label %610, label %491
 
@@ -1895,19 +1895,19 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 492:                                              ; preds = %2
   %493 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %494 = load ptr, ptr %493, align 8, !tbaa !254
+  %494 = load ptr, ptr %493, align 8, !tbaa !253
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %494)
   br label %610
 
 495:                                              ; preds = %2
   %496 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %497 = load ptr, ptr %496, align 8, !tbaa !256
+  %497 = load ptr, ptr %496, align 8, !tbaa !255
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %497)
   br label %610
 
 498:                                              ; preds = %2
   %499 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %500 = load ptr, ptr %499, align 8, !tbaa !258
+  %500 = load ptr, ptr %499, align 8, !tbaa !257
   %.not678 = icmp eq ptr %500, null
   br i1 %.not678, label %610, label %501
 
@@ -1917,7 +1917,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 502:                                              ; preds = %2
   %503 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %504 = load ptr, ptr %503, align 8, !tbaa !260
+  %504 = load ptr, ptr %503, align 8, !tbaa !259
   %.not679 = icmp eq ptr %504, null
   br i1 %.not679, label %610, label %505
 
@@ -1929,13 +1929,13 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %507 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @pm_constant_id_list_free(ptr noundef nonnull %507) #9
   %508 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %509 = load ptr, ptr %508, align 8, !tbaa !262
+  %509 = load ptr, ptr %508, align 8, !tbaa !261
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %509)
   br label %610
 
 510:                                              ; preds = %2
   %511 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %512 = load ptr, ptr %511, align 8, !tbaa !264
+  %512 = load ptr, ptr %511, align 8, !tbaa !263
   %.not684 = icmp eq ptr %512, null
   br i1 %.not684, label %514, label %513
 
@@ -1945,7 +1945,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 514:                                              ; preds = %513, %510
   %515 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %516 = load ptr, ptr %515, align 8, !tbaa !266
+  %516 = load ptr, ptr %515, align 8, !tbaa !265
   %.not685 = icmp eq ptr %516, null
   br i1 %.not685, label %610, label %517
 
@@ -1967,10 +1967,10 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 523:                                              ; preds = %2
   %524 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %525 = load ptr, ptr %524, align 8, !tbaa !267
+  %525 = load ptr, ptr %524, align 8, !tbaa !266
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %525)
   %526 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %527 = load ptr, ptr %526, align 8, !tbaa !269
+  %527 = load ptr, ptr %526, align 8, !tbaa !268
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %527)
   br label %610
 
@@ -1978,7 +1978,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %529 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %529)
   %530 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %531 = load ptr, ptr %530, align 8, !tbaa !270
+  %531 = load ptr, ptr %530, align 8, !tbaa !269
   %.not688 = icmp eq ptr %531, null
   br i1 %.not688, label %533, label %532
 
@@ -1988,7 +1988,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 533:                                              ; preds = %532, %528
   %534 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %535 = load ptr, ptr %534, align 8, !tbaa !272
+  %535 = load ptr, ptr %534, align 8, !tbaa !271
   %.not689 = icmp eq ptr %535, null
   br i1 %.not689, label %537, label %536
 
@@ -1998,7 +1998,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 537:                                              ; preds = %536, %533
   %538 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %539 = load ptr, ptr %538, align 8, !tbaa !273
+  %539 = load ptr, ptr %538, align 8, !tbaa !272
   %.not690 = icmp eq ptr %539, null
   br i1 %.not690, label %610, label %540
 
@@ -2008,7 +2008,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 541:                                              ; preds = %2
   %542 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %543 = load ptr, ptr %542, align 8, !tbaa !274
+  %543 = load ptr, ptr %542, align 8, !tbaa !273
   %.not691 = icmp eq ptr %543, null
   br i1 %.not691, label %610, label %544
 
@@ -2018,7 +2018,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 545:                                              ; preds = %2
   %546 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %547 = load ptr, ptr %546, align 8, !tbaa !276
+  %547 = load ptr, ptr %546, align 8, !tbaa !275
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %547)
   br label %610
 
@@ -2026,10 +2026,10 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %549 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @pm_constant_id_list_free(ptr noundef nonnull %549) #9
   %550 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %551 = load ptr, ptr %550, align 8, !tbaa !278
+  %551 = load ptr, ptr %550, align 8, !tbaa !277
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %551)
   %552 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %553 = load ptr, ptr %552, align 8, !tbaa !280
+  %553 = load ptr, ptr %552, align 8, !tbaa !279
   %.not704 = icmp eq ptr %553, null
   br i1 %.not704, label %610, label %554
 
@@ -2044,7 +2044,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 557:                                              ; preds = %2
   %558 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %559 = load ptr, ptr %558, align 8, !tbaa !281
+  %559 = load ptr, ptr %558, align 8, !tbaa !280
   %.not709 = icmp eq ptr %559, null
   br i1 %.not709, label %610, label %560
 
@@ -2064,7 +2064,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 565:                                              ; preds = %2
   %566 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %567 = load ptr, ptr %566, align 8, !tbaa !283
+  %567 = load ptr, ptr %566, align 8, !tbaa !282
   %.not712 = icmp eq ptr %567, null
   br i1 %.not712, label %569, label %568
 
@@ -2074,7 +2074,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 569:                                              ; preds = %568, %565
   %570 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %571 = load ptr, ptr %570, align 8, !tbaa !285
+  %571 = load ptr, ptr %570, align 8, !tbaa !284
   %.not713 = icmp eq ptr %571, null
   br i1 %.not713, label %610, label %572
 
@@ -2094,10 +2094,10 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 577:                                              ; preds = %2
   %578 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %579 = load ptr, ptr %578, align 8, !tbaa !286
+  %579 = load ptr, ptr %578, align 8, !tbaa !285
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %579)
   %580 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %581 = load ptr, ptr %580, align 8, !tbaa !288
+  %581 = load ptr, ptr %580, align 8, !tbaa !287
   %.not723 = icmp eq ptr %581, null
   br i1 %.not723, label %583, label %582
 
@@ -2107,7 +2107,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 583:                                              ; preds = %582, %577
   %584 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %585 = load ptr, ptr %584, align 8, !tbaa !289
+  %585 = load ptr, ptr %584, align 8, !tbaa !288
   %.not724 = icmp eq ptr %585, null
   br i1 %.not724, label %610, label %586
 
@@ -2117,10 +2117,10 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 587:                                              ; preds = %2
   %588 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %589 = load ptr, ptr %588, align 8, !tbaa !290
+  %589 = load ptr, ptr %588, align 8, !tbaa !289
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %589)
   %590 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %591 = load ptr, ptr %590, align 8, !tbaa !292
+  %591 = load ptr, ptr %590, align 8, !tbaa !291
   %.not727 = icmp eq ptr %591, null
   br i1 %.not727, label %610, label %592
 
@@ -2132,7 +2132,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
   %594 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef nonnull %594)
   %595 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %596 = load ptr, ptr %595, align 8, !tbaa !293
+  %596 = load ptr, ptr %595, align 8, !tbaa !292
   %.not728 = icmp eq ptr %596, null
   br i1 %.not728, label %610, label %597
 
@@ -2142,10 +2142,10 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 598:                                              ; preds = %2
   %599 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %600 = load ptr, ptr %599, align 8, !tbaa !295
+  %600 = load ptr, ptr %599, align 8, !tbaa !294
   tail call void @pm_node_destroy(ptr noundef %0, ptr noundef %600)
   %601 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %602 = load ptr, ptr %601, align 8, !tbaa !297
+  %602 = load ptr, ptr %601, align 8, !tbaa !296
   %.not743 = icmp eq ptr %602, null
   br i1 %.not743, label %610, label %603
 
@@ -2160,7 +2160,7 @@ define hidden void @pm_node_destroy(ptr noundef %0, ptr noundef %1) local_unname
 
 606:                                              ; preds = %2
   %607 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %608 = load ptr, ptr %607, align 8, !tbaa !298
+  %608 = load ptr, ptr %607, align 8, !tbaa !297
   %.not751 = icmp eq ptr %608, null
   br i1 %.not751, label %610, label %609
 
@@ -2184,7 +2184,7 @@ define internal fastcc void @pm_node_list_destroy(ptr noundef %0, ptr noundef ca
   %.08 = phi i64 [ %13, %12 ], [ 0, %2 ]
   %5 = load ptr, ptr %3, align 8, !tbaa !15
   %6 = getelementptr ptr, ptr %5, i64 %.08
-  %7 = load ptr, ptr %6, align 8, !tbaa !19
+  %7 = load ptr, ptr %6, align 8, !tbaa !18
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.critedge, label %12
 
@@ -2208,7 +2208,7 @@ pm_node_list_free.exit:                           ; preds = %.critedge, %10
   %13 = add nuw i64 %.08, 1
   %14 = load i64, ptr %1, align 8, !tbaa !7
   %15 = icmp ult i64 %13, %14
-  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !300
+  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !299
 }
 
 declare void @pm_constant_id_list_free(ptr noundef) local_unnamed_addr #4
@@ -2253,7 +2253,7 @@ define hidden void @pm_visit_child_nodes(ptr noundef readonly %0, ptr noundef %1
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %3
   %.tr = phi ptr [ %0, %3 ], [ %.tr.be, %tailrecurse.backedge ]
-  %4 = load i16, ptr %.tr, align 8, !tbaa !21
+  %4 = load i16, ptr %.tr, align 8, !tbaa !20
   switch i16 %4, label %pm_visit_node.exit1093 [
     i16 1, label %5
     i16 2, label %13
@@ -2367,7 +2367,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 5:                                                ; preds = %tailrecurse
   %6 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %7 = load ptr, ptr %6, align 8, !tbaa !26
   %8 = tail call zeroext i1 %1(ptr noundef %7, ptr noundef %2) #9
   br i1 %8, label %9, label %pm_visit_node.exit
 
@@ -2377,7 +2377,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 pm_visit_node.exit:                               ; preds = %5, %9
   %10 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = tail call zeroext i1 %1(ptr noundef %11, ptr noundef %2) #9
   br i1 %12, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
@@ -2387,7 +2387,7 @@ tailrecurse.backedge:                             ; preds = %pm_visit_node.exit,
 
 13:                                               ; preds = %tailrecurse
   %14 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !30
+  %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = tail call zeroext i1 %1(ptr noundef %15, ptr noundef %2) #9
   br i1 %16, label %17, label %pm_visit_node.exit1094
 
@@ -2397,13 +2397,13 @@ tailrecurse.backedge:                             ; preds = %pm_visit_node.exit,
 
 pm_visit_node.exit1094:                           ; preds = %13, %17
   %18 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %19 = load ptr, ptr %18, align 8, !tbaa !31
   %20 = tail call zeroext i1 %1(ptr noundef %19, ptr noundef %2) #9
   br i1 %20, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 21:                                               ; preds = %tailrecurse
   %22 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !33
+  %23 = load ptr, ptr %22, align 8, !tbaa !32
   %24 = tail call zeroext i1 %1(ptr noundef %23, ptr noundef %2) #9
   br i1 %24, label %25, label %pm_visit_node.exit1096
 
@@ -2413,13 +2413,13 @@ pm_visit_node.exit1094:                           ; preds = %13, %17
 
 pm_visit_node.exit1096:                           ; preds = %21, %25
   %26 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !35
+  %27 = load ptr, ptr %26, align 8, !tbaa !34
   %28 = tail call zeroext i1 %1(ptr noundef %27, ptr noundef %2) #9
   br i1 %28, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 29:                                               ; preds = %tailrecurse
   %30 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !36
+  %31 = load ptr, ptr %30, align 8, !tbaa !35
   %32 = tail call zeroext i1 %1(ptr noundef %31, ptr noundef %2) #9
   br i1 %32, label %33, label %pm_visit_node.exit1098
 
@@ -2429,7 +2429,7 @@ pm_visit_node.exit1096:                           ; preds = %21, %25
 
 pm_visit_node.exit1098:                           ; preds = %29, %33
   %34 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !38
+  %35 = load ptr, ptr %34, align 8, !tbaa !37
   %36 = tail call zeroext i1 %1(ptr noundef %35, ptr noundef %2) #9
   br i1 %36, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
@@ -2447,7 +2447,7 @@ pm_visit_node.exit1098:                           ; preds = %29, %33
   %.01398 = phi i64 [ 0, %.lr.ph1400 ], [ %47, %pm_visit_node.exit1100 ]
   %42 = load ptr, ptr %40, align 8, !tbaa !15
   %43 = getelementptr ptr, ptr %42, i64 %.01398
-  %44 = load ptr, ptr %43, align 8, !tbaa !19
+  %44 = load ptr, ptr %43, align 8, !tbaa !18
   %45 = tail call zeroext i1 %1(ptr noundef %44, ptr noundef %2) #9
   br i1 %45, label %46, label %pm_visit_node.exit1100
 
@@ -2459,7 +2459,7 @@ pm_visit_node.exit1100:                           ; preds = %41, %46
   %47 = add nuw i64 %.01398, 1
   %48 = load i64, ptr %38, align 8, !tbaa !7
   %49 = icmp ult i64 %47, %48
-  br i1 %49, label %41, label %pm_visit_node.exit1093, !llvm.loop !301
+  br i1 %49, label %41, label %pm_visit_node.exit1093, !llvm.loop !300
 
 50:                                               ; preds = %tailrecurse
   %51 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
@@ -2475,7 +2475,7 @@ pm_visit_node.exit1100:                           ; preds = %41, %46
   %.09041395 = phi i64 [ 0, %.lr.ph1397 ], [ %60, %pm_visit_node.exit1101 ]
   %55 = load ptr, ptr %53, align 8, !tbaa !15
   %56 = getelementptr ptr, ptr %55, i64 %.09041395
-  %57 = load ptr, ptr %56, align 8, !tbaa !19
+  %57 = load ptr, ptr %56, align 8, !tbaa !18
   %58 = tail call zeroext i1 %1(ptr noundef %57, ptr noundef %2) #9
   br i1 %58, label %59, label %pm_visit_node.exit1101
 
@@ -2487,11 +2487,11 @@ pm_visit_node.exit1101:                           ; preds = %54, %59
   %60 = add nuw i64 %.09041395, 1
   %61 = load i64, ptr %51, align 8, !tbaa !7
   %62 = icmp ult i64 %60, %61
-  br i1 %62, label %54, label %pm_visit_node.exit1093, !llvm.loop !302
+  br i1 %62, label %54, label %pm_visit_node.exit1093, !llvm.loop !301
 
 63:                                               ; preds = %tailrecurse
   %64 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !39
+  %65 = load ptr, ptr %64, align 8, !tbaa !38
   %.not1091 = icmp eq ptr %65, null
   br i1 %.not1091, label %pm_visit_node.exit1102, label %66
 
@@ -2515,7 +2515,7 @@ pm_visit_node.exit1102:                           ; preds = %68, %66, %63
 
 ._crit_edge1392:                                  ; preds = %pm_visit_node.exit1103, %pm_visit_node.exit1102
   %72 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %73 = load ptr, ptr %72, align 8, !tbaa !41
+  %73 = load ptr, ptr %72, align 8, !tbaa !40
   %.not1092 = icmp eq ptr %73, null
   br i1 %.not1092, label %pm_visit_node.exit1104, label %83
 
@@ -2523,7 +2523,7 @@ pm_visit_node.exit1102:                           ; preds = %68, %66, %63
   %.09061390 = phi i64 [ 0, %.lr.ph1391 ], [ %80, %pm_visit_node.exit1103 ]
   %75 = load ptr, ptr %71, align 8, !tbaa !15
   %76 = getelementptr ptr, ptr %75, i64 %.09061390
-  %77 = load ptr, ptr %76, align 8, !tbaa !19
+  %77 = load ptr, ptr %76, align 8, !tbaa !18
   %78 = tail call zeroext i1 %1(ptr noundef %77, ptr noundef %2) #9
   br i1 %78, label %79, label %pm_visit_node.exit1103
 
@@ -2535,7 +2535,7 @@ pm_visit_node.exit1103:                           ; preds = %74, %79
   %80 = add nuw i64 %.09061390, 1
   %81 = load i64, ptr %69, align 8, !tbaa !7
   %82 = icmp ult i64 %80, %81
-  br i1 %82, label %74, label %._crit_edge1392, !llvm.loop !303
+  br i1 %82, label %74, label %._crit_edge1392, !llvm.loop !302
 
 83:                                               ; preds = %._crit_edge1392
   %84 = tail call zeroext i1 %1(ptr noundef nonnull %73, ptr noundef %2) #9
@@ -2559,7 +2559,7 @@ pm_visit_node.exit1104:                           ; preds = %85, %83, %._crit_ed
   %.09071393 = phi i64 [ 0, %.lr.ph1394 ], [ %95, %pm_visit_node.exit1105 ]
   %90 = load ptr, ptr %88, align 8, !tbaa !15
   %91 = getelementptr ptr, ptr %90, i64 %.09071393
-  %92 = load ptr, ptr %91, align 8, !tbaa !19
+  %92 = load ptr, ptr %91, align 8, !tbaa !18
   %93 = tail call zeroext i1 %1(ptr noundef %92, ptr noundef %2) #9
   br i1 %93, label %94, label %pm_visit_node.exit1105
 
@@ -2571,11 +2571,11 @@ pm_visit_node.exit1105:                           ; preds = %89, %94
   %95 = add nuw i64 %.09071393, 1
   %96 = load i64, ptr %86, align 8, !tbaa !7
   %97 = icmp ult i64 %95, %96
-  br i1 %97, label %89, label %pm_visit_node.exit1093, !llvm.loop !304
+  br i1 %97, label %89, label %pm_visit_node.exit1093, !llvm.loop !303
 
 98:                                               ; preds = %tailrecurse
   %99 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %100 = load ptr, ptr %99, align 8, !tbaa !42
+  %100 = load ptr, ptr %99, align 8, !tbaa !41
   %101 = tail call zeroext i1 %1(ptr noundef %100, ptr noundef %2) #9
   br i1 %101, label %102, label %pm_visit_node.exit1106
 
@@ -2585,13 +2585,13 @@ pm_visit_node.exit1105:                           ; preds = %89, %94
 
 pm_visit_node.exit1106:                           ; preds = %98, %102
   %103 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %104 = load ptr, ptr %103, align 8, !tbaa !44
+  %104 = load ptr, ptr %103, align 8, !tbaa !43
   %105 = tail call zeroext i1 %1(ptr noundef %104, ptr noundef %2) #9
   br i1 %105, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 106:                                              ; preds = %tailrecurse
   %107 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %108 = load ptr, ptr %107, align 8, !tbaa !45
+  %108 = load ptr, ptr %107, align 8, !tbaa !44
   %.not1090 = icmp eq ptr %108, null
   br i1 %.not1090, label %pm_visit_node.exit1093, label %109
 
@@ -2601,7 +2601,7 @@ pm_visit_node.exit1106:                           ; preds = %98, %102
 
 111:                                              ; preds = %tailrecurse
   %112 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %113 = load ptr, ptr %112, align 8, !tbaa !47
+  %113 = load ptr, ptr %112, align 8, !tbaa !46
   %.not1085 = icmp eq ptr %113, null
   br i1 %.not1085, label %pm_visit_node.exit1109, label %114
 
@@ -2615,7 +2615,7 @@ pm_visit_node.exit1106:                           ; preds = %98, %102
 
 pm_visit_node.exit1109:                           ; preds = %116, %114, %111
   %117 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %118 = load ptr, ptr %117, align 8, !tbaa !53
+  %118 = load ptr, ptr %117, align 8, !tbaa !52
   %.not1086 = icmp eq ptr %118, null
   br i1 %.not1086, label %pm_visit_node.exit1110, label %119
 
@@ -2629,7 +2629,7 @@ pm_visit_node.exit1109:                           ; preds = %116, %114, %111
 
 pm_visit_node.exit1110:                           ; preds = %121, %119, %pm_visit_node.exit1109
   %122 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %123 = load ptr, ptr %122, align 8, !tbaa !54
+  %123 = load ptr, ptr %122, align 8, !tbaa !53
   %.not1087 = icmp eq ptr %123, null
   br i1 %.not1087, label %pm_visit_node.exit1111, label %124
 
@@ -2643,7 +2643,7 @@ pm_visit_node.exit1110:                           ; preds = %121, %119, %pm_visi
 
 pm_visit_node.exit1111:                           ; preds = %126, %124, %pm_visit_node.exit1110
   %127 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %128 = load ptr, ptr %127, align 8, !tbaa !55
+  %128 = load ptr, ptr %127, align 8, !tbaa !54
   %.not1088 = icmp eq ptr %128, null
   br i1 %.not1088, label %pm_visit_node.exit1093, label %129
 
@@ -2653,7 +2653,7 @@ pm_visit_node.exit1111:                           ; preds = %126, %124, %pm_visi
 
 131:                                              ; preds = %tailrecurse
   %132 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %133 = load ptr, ptr %132, align 8, !tbaa !56
+  %133 = load ptr, ptr %132, align 8, !tbaa !55
   %.not1084 = icmp eq ptr %133, null
   br i1 %.not1084, label %pm_visit_node.exit1093, label %134
 
@@ -2663,7 +2663,7 @@ pm_visit_node.exit1111:                           ; preds = %126, %124, %pm_visi
 
 136:                                              ; preds = %tailrecurse
   %137 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %138 = load ptr, ptr %137, align 8, !tbaa !58
+  %138 = load ptr, ptr %137, align 8, !tbaa !57
   %.not1081 = icmp eq ptr %138, null
   br i1 %.not1081, label %pm_visit_node.exit1114, label %139
 
@@ -2677,7 +2677,7 @@ pm_visit_node.exit1111:                           ; preds = %126, %124, %pm_visi
 
 pm_visit_node.exit1114:                           ; preds = %141, %139, %136
   %142 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %143 = load ptr, ptr %142, align 8, !tbaa !62
+  %143 = load ptr, ptr %142, align 8, !tbaa !61
   %.not1082 = icmp eq ptr %143, null
   br i1 %.not1082, label %pm_visit_node.exit1093, label %144
 
@@ -2687,7 +2687,7 @@ pm_visit_node.exit1114:                           ; preds = %141, %139, %136
 
 146:                                              ; preds = %tailrecurse
   %147 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %148 = load ptr, ptr %147, align 8, !tbaa !63
+  %148 = load ptr, ptr %147, align 8, !tbaa !62
   %.not1079 = icmp eq ptr %148, null
   br i1 %.not1079, label %pm_visit_node.exit1116, label %149
 
@@ -2713,7 +2713,7 @@ pm_visit_node.exit1116:                           ; preds = %151, %149, %146
   %.09081388 = phi i64 [ 0, %.lr.ph1389 ], [ %161, %pm_visit_node.exit1117 ]
   %156 = load ptr, ptr %154, align 8, !tbaa !15
   %157 = getelementptr ptr, ptr %156, i64 %.09081388
-  %158 = load ptr, ptr %157, align 8, !tbaa !19
+  %158 = load ptr, ptr %157, align 8, !tbaa !18
   %159 = tail call zeroext i1 %1(ptr noundef %158, ptr noundef %2) #9
   br i1 %159, label %160, label %pm_visit_node.exit1117
 
@@ -2725,11 +2725,11 @@ pm_visit_node.exit1117:                           ; preds = %155, %160
   %161 = add nuw i64 %.09081388, 1
   %162 = load i64, ptr %152, align 8, !tbaa !7
   %163 = icmp ult i64 %161, %162
-  br i1 %163, label %155, label %pm_visit_node.exit1093, !llvm.loop !305
+  br i1 %163, label %155, label %pm_visit_node.exit1093, !llvm.loop !304
 
 164:                                              ; preds = %tailrecurse
   %165 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %166 = load ptr, ptr %165, align 8, !tbaa !66
+  %166 = load ptr, ptr %165, align 8, !tbaa !65
   %.not1078 = icmp eq ptr %166, null
   br i1 %.not1078, label %pm_visit_node.exit1093, label %167
 
@@ -2739,7 +2739,7 @@ pm_visit_node.exit1117:                           ; preds = %155, %160
 
 169:                                              ; preds = %tailrecurse
   %170 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %171 = load ptr, ptr %170, align 8, !tbaa !69
+  %171 = load ptr, ptr %170, align 8, !tbaa !68
   %.not1077 = icmp eq ptr %171, null
   br i1 %.not1077, label %pm_visit_node.exit1119, label %172
 
@@ -2753,13 +2753,13 @@ pm_visit_node.exit1117:                           ; preds = %155, %160
 
 pm_visit_node.exit1119:                           ; preds = %174, %172, %169
   %175 = getelementptr inbounds nuw i8, ptr %.tr, i64 88
-  %176 = load ptr, ptr %175, align 8, !tbaa !71
+  %176 = load ptr, ptr %175, align 8, !tbaa !70
   %177 = tail call zeroext i1 %1(ptr noundef %176, ptr noundef %2) #9
   br i1 %177, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 178:                                              ; preds = %tailrecurse
   %179 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %180 = load ptr, ptr %179, align 8, !tbaa !72
+  %180 = load ptr, ptr %179, align 8, !tbaa !71
   %.not1074 = icmp eq ptr %180, null
   br i1 %.not1074, label %pm_visit_node.exit1121, label %181
 
@@ -2773,7 +2773,7 @@ pm_visit_node.exit1119:                           ; preds = %174, %172, %169
 
 pm_visit_node.exit1121:                           ; preds = %183, %181, %178
   %184 = getelementptr inbounds nuw i8, ptr %.tr, i64 88
-  %185 = load ptr, ptr %184, align 8, !tbaa !74
+  %185 = load ptr, ptr %184, align 8, !tbaa !73
   %.not1075 = icmp eq ptr %185, null
   br i1 %.not1075, label %pm_visit_node.exit1122, label %186
 
@@ -2787,7 +2787,7 @@ pm_visit_node.exit1121:                           ; preds = %183, %181, %178
 
 pm_visit_node.exit1122:                           ; preds = %188, %186, %pm_visit_node.exit1121
   %189 = getelementptr inbounds nuw i8, ptr %.tr, i64 112
-  %190 = load ptr, ptr %189, align 8, !tbaa !75
+  %190 = load ptr, ptr %189, align 8, !tbaa !74
   %.not1076 = icmp eq ptr %190, null
   br i1 %.not1076, label %pm_visit_node.exit1093, label %191
 
@@ -2797,7 +2797,7 @@ pm_visit_node.exit1122:                           ; preds = %188, %186, %pm_visi
 
 193:                                              ; preds = %tailrecurse
   %194 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %195 = load ptr, ptr %194, align 8, !tbaa !76
+  %195 = load ptr, ptr %194, align 8, !tbaa !75
   %.not1073 = icmp eq ptr %195, null
   br i1 %.not1073, label %pm_visit_node.exit1124, label %196
 
@@ -2811,13 +2811,13 @@ pm_visit_node.exit1122:                           ; preds = %188, %186, %pm_visi
 
 pm_visit_node.exit1124:                           ; preds = %198, %196, %193
   %199 = getelementptr inbounds nuw i8, ptr %.tr, i64 96
-  %200 = load ptr, ptr %199, align 8, !tbaa !78
+  %200 = load ptr, ptr %199, align 8, !tbaa !77
   %201 = tail call zeroext i1 %1(ptr noundef %200, ptr noundef %2) #9
   br i1 %201, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 202:                                              ; preds = %tailrecurse
   %203 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %204 = load ptr, ptr %203, align 8, !tbaa !79
+  %204 = load ptr, ptr %203, align 8, !tbaa !78
   %.not1072 = icmp eq ptr %204, null
   br i1 %.not1072, label %pm_visit_node.exit1126, label %205
 
@@ -2831,19 +2831,19 @@ pm_visit_node.exit1124:                           ; preds = %198, %196, %193
 
 pm_visit_node.exit1126:                           ; preds = %207, %205, %202
   %208 = getelementptr inbounds nuw i8, ptr %.tr, i64 88
-  %209 = load ptr, ptr %208, align 8, !tbaa !81
+  %209 = load ptr, ptr %208, align 8, !tbaa !80
   %210 = tail call zeroext i1 %1(ptr noundef %209, ptr noundef %2) #9
   br i1 %210, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 211:                                              ; preds = %tailrecurse
   %212 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %213 = load ptr, ptr %212, align 8, !tbaa !82
+  %213 = load ptr, ptr %212, align 8, !tbaa !81
   %214 = tail call zeroext i1 %1(ptr noundef %213, ptr noundef %2) #9
   br i1 %214, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 215:                                              ; preds = %tailrecurse
   %216 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %217 = load ptr, ptr %216, align 8, !tbaa !84
+  %217 = load ptr, ptr %216, align 8, !tbaa !83
   %218 = tail call zeroext i1 %1(ptr noundef %217, ptr noundef %2) #9
   br i1 %218, label %219, label %pm_visit_node.exit1129
 
@@ -2853,13 +2853,13 @@ pm_visit_node.exit1126:                           ; preds = %207, %205, %202
 
 pm_visit_node.exit1129:                           ; preds = %215, %219
   %220 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %221 = load ptr, ptr %220, align 8, !tbaa !87
+  %221 = load ptr, ptr %220, align 8, !tbaa !86
   %222 = tail call zeroext i1 %1(ptr noundef %221, ptr noundef %2) #9
   br i1 %222, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 223:                                              ; preds = %tailrecurse
   %224 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %225 = load ptr, ptr %224, align 8, !tbaa !88
+  %225 = load ptr, ptr %224, align 8, !tbaa !87
   %.not1070 = icmp eq ptr %225, null
   br i1 %.not1070, label %pm_visit_node.exit1131, label %226
 
@@ -2883,7 +2883,7 @@ pm_visit_node.exit1131:                           ; preds = %228, %226, %223
 
 ._crit_edge1348:                                  ; preds = %pm_visit_node.exit1132, %pm_visit_node.exit1131
   %232 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %233 = load ptr, ptr %232, align 8, !tbaa !90
+  %233 = load ptr, ptr %232, align 8, !tbaa !89
   %.not1071 = icmp eq ptr %233, null
   br i1 %.not1071, label %pm_visit_node.exit1093, label %243
 
@@ -2891,7 +2891,7 @@ pm_visit_node.exit1131:                           ; preds = %228, %226, %223
   %.09091346 = phi i64 [ 0, %.lr.ph1347 ], [ %240, %pm_visit_node.exit1132 ]
   %235 = load ptr, ptr %231, align 8, !tbaa !15
   %236 = getelementptr ptr, ptr %235, i64 %.09091346
-  %237 = load ptr, ptr %236, align 8, !tbaa !19
+  %237 = load ptr, ptr %236, align 8, !tbaa !18
   %238 = tail call zeroext i1 %1(ptr noundef %237, ptr noundef %2) #9
   br i1 %238, label %239, label %pm_visit_node.exit1132
 
@@ -2903,7 +2903,7 @@ pm_visit_node.exit1132:                           ; preds = %234, %239
   %240 = add nuw i64 %.09091346, 1
   %241 = load i64, ptr %229, align 8, !tbaa !7
   %242 = icmp ult i64 %240, %241
-  br i1 %242, label %234, label %._crit_edge1348, !llvm.loop !306
+  br i1 %242, label %234, label %._crit_edge1348, !llvm.loop !305
 
 243:                                              ; preds = %._crit_edge1348
   %244 = tail call zeroext i1 %1(ptr noundef nonnull %233, ptr noundef %2) #9
@@ -2911,7 +2911,7 @@ pm_visit_node.exit1132:                           ; preds = %234, %239
 
 245:                                              ; preds = %tailrecurse
   %246 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %247 = load ptr, ptr %246, align 8, !tbaa !91
+  %247 = load ptr, ptr %246, align 8, !tbaa !90
   %.not1068 = icmp eq ptr %247, null
   br i1 %.not1068, label %pm_visit_node.exit1134, label %248
 
@@ -2935,7 +2935,7 @@ pm_visit_node.exit1134:                           ; preds = %250, %248, %245
 
 ._crit_edge1345:                                  ; preds = %pm_visit_node.exit1135, %pm_visit_node.exit1134
   %254 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %255 = load ptr, ptr %254, align 8, !tbaa !93
+  %255 = load ptr, ptr %254, align 8, !tbaa !92
   %.not1069 = icmp eq ptr %255, null
   br i1 %.not1069, label %pm_visit_node.exit1093, label %265
 
@@ -2943,7 +2943,7 @@ pm_visit_node.exit1134:                           ; preds = %250, %248, %245
   %.09111343 = phi i64 [ 0, %.lr.ph1344 ], [ %262, %pm_visit_node.exit1135 ]
   %257 = load ptr, ptr %253, align 8, !tbaa !15
   %258 = getelementptr ptr, ptr %257, i64 %.09111343
-  %259 = load ptr, ptr %258, align 8, !tbaa !19
+  %259 = load ptr, ptr %258, align 8, !tbaa !18
   %260 = tail call zeroext i1 %1(ptr noundef %259, ptr noundef %2) #9
   br i1 %260, label %261, label %pm_visit_node.exit1135
 
@@ -2955,7 +2955,7 @@ pm_visit_node.exit1135:                           ; preds = %256, %261
   %262 = add nuw i64 %.09111343, 1
   %263 = load i64, ptr %251, align 8, !tbaa !7
   %264 = icmp ult i64 %262, %263
-  br i1 %264, label %256, label %._crit_edge1345, !llvm.loop !307
+  br i1 %264, label %256, label %._crit_edge1345, !llvm.loop !306
 
 265:                                              ; preds = %._crit_edge1345
   %266 = tail call zeroext i1 %1(ptr noundef nonnull %255, ptr noundef %2) #9
@@ -2963,7 +2963,7 @@ pm_visit_node.exit1135:                           ; preds = %256, %261
 
 267:                                              ; preds = %tailrecurse
   %268 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %269 = load ptr, ptr %268, align 8, !tbaa !94
+  %269 = load ptr, ptr %268, align 8, !tbaa !93
   %270 = tail call zeroext i1 %1(ptr noundef %269, ptr noundef %2) #9
   br i1 %270, label %271, label %pm_visit_node.exit1137
 
@@ -2973,7 +2973,7 @@ pm_visit_node.exit1135:                           ; preds = %256, %261
 
 pm_visit_node.exit1137:                           ; preds = %267, %271
   %272 = getelementptr inbounds nuw i8, ptr %.tr, i64 88
-  %273 = load ptr, ptr %272, align 8, !tbaa !96
+  %273 = load ptr, ptr %272, align 8, !tbaa !95
   %.not1066 = icmp eq ptr %273, null
   br i1 %.not1066, label %pm_visit_node.exit1138, label %274
 
@@ -2987,7 +2987,7 @@ pm_visit_node.exit1137:                           ; preds = %267, %271
 
 pm_visit_node.exit1138:                           ; preds = %276, %274, %pm_visit_node.exit1137
   %277 = getelementptr inbounds nuw i8, ptr %.tr, i64 96
-  %278 = load ptr, ptr %277, align 8, !tbaa !97
+  %278 = load ptr, ptr %277, align 8, !tbaa !96
   %.not1067 = icmp eq ptr %278, null
   br i1 %.not1067, label %pm_visit_node.exit1093, label %279
 
@@ -2997,49 +2997,49 @@ pm_visit_node.exit1138:                           ; preds = %276, %274, %pm_visi
 
 281:                                              ; preds = %tailrecurse
   %282 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %283 = load ptr, ptr %282, align 8, !tbaa !98
+  %283 = load ptr, ptr %282, align 8, !tbaa !97
   %284 = tail call zeroext i1 %1(ptr noundef %283, ptr noundef %2) #9
   br i1 %284, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 285:                                              ; preds = %tailrecurse
   %286 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %287 = load ptr, ptr %286, align 8, !tbaa !100
+  %287 = load ptr, ptr %286, align 8, !tbaa !99
   %288 = tail call zeroext i1 %1(ptr noundef %287, ptr noundef %2) #9
   br i1 %288, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 289:                                              ; preds = %tailrecurse
   %290 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %291 = load ptr, ptr %290, align 8, !tbaa !102
+  %291 = load ptr, ptr %290, align 8, !tbaa !101
   %292 = tail call zeroext i1 %1(ptr noundef %291, ptr noundef %2) #9
   br i1 %292, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 293:                                              ; preds = %tailrecurse
   %294 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %295 = load ptr, ptr %294, align 8, !tbaa !104
+  %295 = load ptr, ptr %294, align 8, !tbaa !103
   %296 = tail call zeroext i1 %1(ptr noundef %295, ptr noundef %2) #9
   br i1 %296, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 297:                                              ; preds = %tailrecurse
   %298 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %299 = load ptr, ptr %298, align 8, !tbaa !106
+  %299 = load ptr, ptr %298, align 8, !tbaa !105
   %300 = tail call zeroext i1 %1(ptr noundef %299, ptr noundef %2) #9
   br i1 %300, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 301:                                              ; preds = %tailrecurse
   %302 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %303 = load ptr, ptr %302, align 8, !tbaa !108
+  %303 = load ptr, ptr %302, align 8, !tbaa !107
   %304 = tail call zeroext i1 %1(ptr noundef %303, ptr noundef %2) #9
   br i1 %304, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 305:                                              ; preds = %tailrecurse
   %306 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %307 = load ptr, ptr %306, align 8, !tbaa !110
+  %307 = load ptr, ptr %306, align 8, !tbaa !109
   %308 = tail call zeroext i1 %1(ptr noundef %307, ptr noundef %2) #9
   br i1 %308, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 309:                                              ; preds = %tailrecurse
   %310 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %311 = load ptr, ptr %310, align 8, !tbaa !112
+  %311 = load ptr, ptr %310, align 8, !tbaa !111
   %312 = tail call zeroext i1 %1(ptr noundef %311, ptr noundef %2) #9
   br i1 %312, label %313, label %pm_visit_node.exit1147
 
@@ -3049,13 +3049,13 @@ pm_visit_node.exit1138:                           ; preds = %276, %274, %pm_visi
 
 pm_visit_node.exit1147:                           ; preds = %309, %313
   %314 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %315 = load ptr, ptr %314, align 8, !tbaa !115
+  %315 = load ptr, ptr %314, align 8, !tbaa !114
   %316 = tail call zeroext i1 %1(ptr noundef %315, ptr noundef %2) #9
   br i1 %316, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 317:                                              ; preds = %tailrecurse
   %318 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %319 = load ptr, ptr %318, align 8, !tbaa !116
+  %319 = load ptr, ptr %318, align 8, !tbaa !115
   %.not1062 = icmp eq ptr %319, null
   br i1 %.not1062, label %pm_visit_node.exit1093, label %320
 
@@ -3065,7 +3065,7 @@ pm_visit_node.exit1147:                           ; preds = %309, %313
 
 322:                                              ; preds = %tailrecurse
   %323 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %324 = load ptr, ptr %323, align 8, !tbaa !118
+  %324 = load ptr, ptr %323, align 8, !tbaa !117
   %325 = tail call zeroext i1 %1(ptr noundef %324, ptr noundef %2) #9
   br i1 %325, label %326, label %pm_visit_node.exit1150
 
@@ -3075,13 +3075,13 @@ pm_visit_node.exit1147:                           ; preds = %309, %313
 
 pm_visit_node.exit1150:                           ; preds = %322, %326
   %327 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %328 = load ptr, ptr %327, align 8, !tbaa !120
+  %328 = load ptr, ptr %327, align 8, !tbaa !119
   %329 = tail call zeroext i1 %1(ptr noundef %328, ptr noundef %2) #9
   br i1 %329, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 330:                                              ; preds = %tailrecurse
   %331 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %332 = load ptr, ptr %331, align 8, !tbaa !121
+  %332 = load ptr, ptr %331, align 8, !tbaa !120
   %333 = tail call zeroext i1 %1(ptr noundef %332, ptr noundef %2) #9
   br i1 %333, label %334, label %pm_visit_node.exit1152
 
@@ -3091,13 +3091,13 @@ pm_visit_node.exit1150:                           ; preds = %322, %326
 
 pm_visit_node.exit1152:                           ; preds = %330, %334
   %335 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %336 = load ptr, ptr %335, align 8, !tbaa !123
+  %336 = load ptr, ptr %335, align 8, !tbaa !122
   %337 = tail call zeroext i1 %1(ptr noundef %336, ptr noundef %2) #9
   br i1 %337, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 338:                                              ; preds = %tailrecurse
   %339 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %340 = load ptr, ptr %339, align 8, !tbaa !124
+  %340 = load ptr, ptr %339, align 8, !tbaa !123
   %.not1061 = icmp eq ptr %340, null
   br i1 %.not1061, label %pm_visit_node.exit1093, label %341
 
@@ -3107,7 +3107,7 @@ pm_visit_node.exit1152:                           ; preds = %330, %334
 
 343:                                              ; preds = %tailrecurse
   %344 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %345 = load ptr, ptr %344, align 8, !tbaa !126
+  %345 = load ptr, ptr %344, align 8, !tbaa !125
   %346 = tail call zeroext i1 %1(ptr noundef %345, ptr noundef %2) #9
   br i1 %346, label %347, label %pm_visit_node.exit1155
 
@@ -3117,19 +3117,19 @@ pm_visit_node.exit1152:                           ; preds = %330, %334
 
 pm_visit_node.exit1155:                           ; preds = %343, %347
   %348 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %349 = load ptr, ptr %348, align 8, !tbaa !128
+  %349 = load ptr, ptr %348, align 8, !tbaa !127
   %350 = tail call zeroext i1 %1(ptr noundef %349, ptr noundef %2) #9
   br i1 %350, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 351:                                              ; preds = %tailrecurse
   %352 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %353 = load ptr, ptr %352, align 8, !tbaa !129
+  %353 = load ptr, ptr %352, align 8, !tbaa !128
   %354 = tail call zeroext i1 %1(ptr noundef %353, ptr noundef %2) #9
   br i1 %354, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 355:                                              ; preds = %tailrecurse
   %356 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %357 = load ptr, ptr %356, align 8, !tbaa !131
+  %357 = load ptr, ptr %356, align 8, !tbaa !130
   %.not1056 = icmp eq ptr %357, null
   br i1 %.not1056, label %pm_visit_node.exit1158, label %358
 
@@ -3143,7 +3143,7 @@ pm_visit_node.exit1155:                           ; preds = %343, %347
 
 pm_visit_node.exit1158:                           ; preds = %360, %358, %355
   %361 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %362 = load ptr, ptr %361, align 8, !tbaa !133
+  %362 = load ptr, ptr %361, align 8, !tbaa !132
   %.not1057 = icmp eq ptr %362, null
   br i1 %.not1057, label %pm_visit_node.exit1159, label %363
 
@@ -3157,7 +3157,7 @@ pm_visit_node.exit1158:                           ; preds = %360, %358, %355
 
 pm_visit_node.exit1159:                           ; preds = %365, %363, %pm_visit_node.exit1158
   %366 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %367 = load ptr, ptr %366, align 8, !tbaa !134
+  %367 = load ptr, ptr %366, align 8, !tbaa !133
   %.not1058 = icmp eq ptr %367, null
   br i1 %.not1058, label %pm_visit_node.exit1093, label %368
 
@@ -3167,13 +3167,13 @@ pm_visit_node.exit1159:                           ; preds = %365, %363, %pm_visi
 
 370:                                              ; preds = %tailrecurse
   %371 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %372 = load ptr, ptr %371, align 8, !tbaa !135
+  %372 = load ptr, ptr %371, align 8, !tbaa !134
   %373 = tail call zeroext i1 %1(ptr noundef %372, ptr noundef %2) #9
   br i1 %373, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 374:                                              ; preds = %tailrecurse
   %375 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %376 = load ptr, ptr %375, align 8, !tbaa !137
+  %376 = load ptr, ptr %375, align 8, !tbaa !136
   %.not1055 = icmp eq ptr %376, null
   br i1 %.not1055, label %pm_visit_node.exit1093, label %377
 
@@ -3183,7 +3183,7 @@ pm_visit_node.exit1159:                           ; preds = %365, %363, %pm_visi
 
 379:                                              ; preds = %tailrecurse
   %380 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %381 = load ptr, ptr %380, align 8, !tbaa !139
+  %381 = load ptr, ptr %380, align 8, !tbaa !138
   %.not1054 = icmp eq ptr %381, null
   br i1 %.not1054, label %pm_visit_node.exit1093, label %382
 
@@ -3193,13 +3193,13 @@ pm_visit_node.exit1159:                           ; preds = %365, %363, %pm_visi
 
 384:                                              ; preds = %tailrecurse
   %385 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %386 = load ptr, ptr %385, align 8, !tbaa !141
+  %386 = load ptr, ptr %385, align 8, !tbaa !140
   %387 = tail call zeroext i1 %1(ptr noundef %386, ptr noundef %2) #9
   br i1 %387, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 388:                                              ; preds = %tailrecurse
   %389 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %390 = load ptr, ptr %389, align 8, !tbaa !143
+  %390 = load ptr, ptr %389, align 8, !tbaa !142
   %.not1053 = icmp eq ptr %390, null
   br i1 %.not1053, label %pm_visit_node.exit1093, label %391
 
@@ -3209,7 +3209,7 @@ pm_visit_node.exit1159:                           ; preds = %365, %363, %pm_visi
 
 393:                                              ; preds = %tailrecurse
   %394 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %395 = load ptr, ptr %394, align 8, !tbaa !145
+  %395 = load ptr, ptr %394, align 8, !tbaa !144
   %.not1052 = icmp eq ptr %395, null
   br i1 %.not1052, label %pm_visit_node.exit1166, label %396
 
@@ -3223,7 +3223,7 @@ pm_visit_node.exit1159:                           ; preds = %365, %363, %pm_visi
 
 pm_visit_node.exit1166:                           ; preds = %398, %396, %393
   %399 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %400 = load ptr, ptr %399, align 8, !tbaa !148
+  %400 = load ptr, ptr %399, align 8, !tbaa !147
   %401 = tail call zeroext i1 %1(ptr noundef %400, ptr noundef %2) #9
   br i1 %401, label %402, label %pm_visit_node.exit1167
 
@@ -3243,7 +3243,7 @@ pm_visit_node.exit1167:                           ; preds = %pm_visit_node.exit1
 
 ._crit_edge1342:                                  ; preds = %pm_visit_node.exit1169, %pm_visit_node.exit1167
   %406 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %407 = load ptr, ptr %406, align 8, !tbaa !149
+  %407 = load ptr, ptr %406, align 8, !tbaa !148
   %408 = tail call zeroext i1 %1(ptr noundef %407, ptr noundef %2) #9
   br i1 %408, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
@@ -3251,7 +3251,7 @@ pm_visit_node.exit1167:                           ; preds = %pm_visit_node.exit1
   %.09121340 = phi i64 [ 0, %.lr.ph1341 ], [ %415, %pm_visit_node.exit1169 ]
   %410 = load ptr, ptr %405, align 8, !tbaa !15
   %411 = getelementptr ptr, ptr %410, i64 %.09121340
-  %412 = load ptr, ptr %411, align 8, !tbaa !19
+  %412 = load ptr, ptr %411, align 8, !tbaa !18
   %413 = tail call zeroext i1 %1(ptr noundef %412, ptr noundef %2) #9
   br i1 %413, label %414, label %pm_visit_node.exit1169
 
@@ -3263,11 +3263,11 @@ pm_visit_node.exit1169:                           ; preds = %409, %414
   %415 = add nuw i64 %.09121340, 1
   %416 = load i64, ptr %403, align 8, !tbaa !7
   %417 = icmp ult i64 %415, %416
-  br i1 %417, label %409, label %._crit_edge1342, !llvm.loop !308
+  br i1 %417, label %409, label %._crit_edge1342, !llvm.loop !307
 
 418:                                              ; preds = %tailrecurse
   %419 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %420 = load ptr, ptr %419, align 8, !tbaa !150
+  %420 = load ptr, ptr %419, align 8, !tbaa !149
   %.not1050 = icmp eq ptr %420, null
   br i1 %.not1050, label %pm_visit_node.exit1170, label %421
 
@@ -3281,7 +3281,7 @@ pm_visit_node.exit1169:                           ; preds = %409, %414
 
 pm_visit_node.exit1170:                           ; preds = %423, %421, %418
   %424 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %425 = load ptr, ptr %424, align 8, !tbaa !152
+  %425 = load ptr, ptr %424, align 8, !tbaa !151
   %.not1051 = icmp eq ptr %425, null
   br i1 %.not1051, label %pm_visit_node.exit1093, label %426
 
@@ -3291,7 +3291,7 @@ pm_visit_node.exit1170:                           ; preds = %423, %421, %418
 
 428:                                              ; preds = %tailrecurse
   %429 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %430 = load ptr, ptr %429, align 8, !tbaa !153
+  %430 = load ptr, ptr %429, align 8, !tbaa !152
   %431 = tail call zeroext i1 %1(ptr noundef %430, ptr noundef %2) #9
   br i1 %431, label %432, label %pm_visit_node.exit1172
 
@@ -3301,7 +3301,7 @@ pm_visit_node.exit1170:                           ; preds = %423, %421, %418
 
 pm_visit_node.exit1172:                           ; preds = %428, %432
   %433 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %434 = load ptr, ptr %433, align 8, !tbaa !155
+  %434 = load ptr, ptr %433, align 8, !tbaa !154
   %435 = tail call zeroext i1 %1(ptr noundef %434, ptr noundef %2) #9
   br i1 %435, label %436, label %pm_visit_node.exit1173
 
@@ -3311,7 +3311,7 @@ pm_visit_node.exit1172:                           ; preds = %428, %432
 
 pm_visit_node.exit1173:                           ; preds = %pm_visit_node.exit1172, %436
   %437 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %438 = load ptr, ptr %437, align 8, !tbaa !156
+  %438 = load ptr, ptr %437, align 8, !tbaa !155
   %.not1048 = icmp eq ptr %438, null
   br i1 %.not1048, label %pm_visit_node.exit1093, label %439
 
@@ -3321,7 +3321,7 @@ pm_visit_node.exit1173:                           ; preds = %pm_visit_node.exit1
 
 441:                                              ; preds = %tailrecurse
   %442 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %443 = load ptr, ptr %442, align 8, !tbaa !157
+  %443 = load ptr, ptr %442, align 8, !tbaa !156
   %.not1046 = icmp eq ptr %443, null
   br i1 %.not1046, label %pm_visit_node.exit1093, label %444
 
@@ -3331,25 +3331,25 @@ pm_visit_node.exit1173:                           ; preds = %pm_visit_node.exit1
 
 446:                                              ; preds = %tailrecurse
   %447 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %448 = load ptr, ptr %447, align 8, !tbaa !160
+  %448 = load ptr, ptr %447, align 8, !tbaa !159
   %449 = tail call zeroext i1 %1(ptr noundef %448, ptr noundef %2) #9
   br i1 %449, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 450:                                              ; preds = %tailrecurse
   %451 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %452 = load ptr, ptr %451, align 8, !tbaa !162
+  %452 = load ptr, ptr %451, align 8, !tbaa !161
   %453 = tail call zeroext i1 %1(ptr noundef %452, ptr noundef %2) #9
   br i1 %453, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 454:                                              ; preds = %tailrecurse
   %455 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %456 = load ptr, ptr %455, align 8, !tbaa !164
+  %456 = load ptr, ptr %455, align 8, !tbaa !163
   %457 = tail call zeroext i1 %1(ptr noundef %456, ptr noundef %2) #9
   br i1 %457, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 458:                                              ; preds = %tailrecurse
   %459 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %460 = load ptr, ptr %459, align 8, !tbaa !166
+  %460 = load ptr, ptr %459, align 8, !tbaa !165
   %461 = tail call zeroext i1 %1(ptr noundef %460, ptr noundef %2) #9
   br i1 %461, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
@@ -3367,7 +3367,7 @@ pm_visit_node.exit1173:                           ; preds = %pm_visit_node.exit1
   %.09131379 = phi i64 [ 0, %.lr.ph1381 ], [ %472, %pm_visit_node.exit1180 ]
   %467 = load ptr, ptr %465, align 8, !tbaa !15
   %468 = getelementptr ptr, ptr %467, i64 %.09131379
-  %469 = load ptr, ptr %468, align 8, !tbaa !19
+  %469 = load ptr, ptr %468, align 8, !tbaa !18
   %470 = tail call zeroext i1 %1(ptr noundef %469, ptr noundef %2) #9
   br i1 %470, label %471, label %pm_visit_node.exit1180
 
@@ -3379,11 +3379,11 @@ pm_visit_node.exit1180:                           ; preds = %466, %471
   %472 = add nuw i64 %.09131379, 1
   %473 = load i64, ptr %463, align 8, !tbaa !7
   %474 = icmp ult i64 %472, %473
-  br i1 %474, label %466, label %pm_visit_node.exit1093, !llvm.loop !309
+  br i1 %474, label %466, label %pm_visit_node.exit1093, !llvm.loop !308
 
 475:                                              ; preds = %tailrecurse
   %476 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %477 = load ptr, ptr %476, align 8, !tbaa !168
+  %477 = load ptr, ptr %476, align 8, !tbaa !167
   %.not1040 = icmp eq ptr %477, null
   br i1 %.not1040, label %pm_visit_node.exit1181, label %478
 
@@ -3407,7 +3407,7 @@ pm_visit_node.exit1181:                           ; preds = %480, %478, %475
 
 ._crit_edge1335:                                  ; preds = %pm_visit_node.exit1182, %pm_visit_node.exit1181
   %484 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %485 = load ptr, ptr %484, align 8, !tbaa !170
+  %485 = load ptr, ptr %484, align 8, !tbaa !169
   %.not1041 = icmp eq ptr %485, null
   br i1 %.not1041, label %pm_visit_node.exit1093, label %495
 
@@ -3415,7 +3415,7 @@ pm_visit_node.exit1181:                           ; preds = %480, %478, %475
   %.09151333 = phi i64 [ 0, %.lr.ph1334 ], [ %492, %pm_visit_node.exit1182 ]
   %487 = load ptr, ptr %483, align 8, !tbaa !15
   %488 = getelementptr ptr, ptr %487, i64 %.09151333
-  %489 = load ptr, ptr %488, align 8, !tbaa !19
+  %489 = load ptr, ptr %488, align 8, !tbaa !18
   %490 = tail call zeroext i1 %1(ptr noundef %489, ptr noundef %2) #9
   br i1 %490, label %491, label %pm_visit_node.exit1182
 
@@ -3427,7 +3427,7 @@ pm_visit_node.exit1182:                           ; preds = %486, %491
   %492 = add nuw i64 %.09151333, 1
   %493 = load i64, ptr %481, align 8, !tbaa !7
   %494 = icmp ult i64 %492, %493
-  br i1 %494, label %486, label %._crit_edge1335, !llvm.loop !310
+  br i1 %494, label %486, label %._crit_edge1335, !llvm.loop !309
 
 495:                                              ; preds = %._crit_edge1335
   %496 = tail call zeroext i1 %1(ptr noundef nonnull %485, ptr noundef %2) #9
@@ -3435,7 +3435,7 @@ pm_visit_node.exit1182:                           ; preds = %486, %491
 
 497:                                              ; preds = %tailrecurse
   %498 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %499 = load ptr, ptr %498, align 8, !tbaa !171
+  %499 = load ptr, ptr %498, align 8, !tbaa !170
   %500 = tail call zeroext i1 %1(ptr noundef %499, ptr noundef %2) #9
   br i1 %500, label %501, label %pm_visit_node.exit1184
 
@@ -3445,7 +3445,7 @@ pm_visit_node.exit1182:                           ; preds = %486, %491
 
 pm_visit_node.exit1184:                           ; preds = %497, %501
   %502 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %503 = load ptr, ptr %502, align 8, !tbaa !173
+  %503 = load ptr, ptr %502, align 8, !tbaa !172
   %.not1038 = icmp eq ptr %503, null
   br i1 %.not1038, label %pm_visit_node.exit1185, label %504
 
@@ -3459,7 +3459,7 @@ pm_visit_node.exit1184:                           ; preds = %497, %501
 
 pm_visit_node.exit1185:                           ; preds = %506, %504, %pm_visit_node.exit1184
   %507 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
-  %508 = load ptr, ptr %507, align 8, !tbaa !174
+  %508 = load ptr, ptr %507, align 8, !tbaa !173
   %.not1039 = icmp eq ptr %508, null
   br i1 %.not1039, label %pm_visit_node.exit1093, label %509
 
@@ -3469,19 +3469,19 @@ pm_visit_node.exit1185:                           ; preds = %506, %504, %pm_visi
 
 511:                                              ; preds = %tailrecurse
   %512 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %513 = load ptr, ptr %512, align 8, !tbaa !175
+  %513 = load ptr, ptr %512, align 8, !tbaa !174
   %514 = tail call zeroext i1 %1(ptr noundef %513, ptr noundef %2) #9
   br i1 %514, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 515:                                              ; preds = %tailrecurse
   %516 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %517 = load ptr, ptr %516, align 8, !tbaa !177
+  %517 = load ptr, ptr %516, align 8, !tbaa !176
   %518 = tail call zeroext i1 %1(ptr noundef %517, ptr noundef %2) #9
   br i1 %518, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 519:                                              ; preds = %tailrecurse
   %520 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %521 = load ptr, ptr %520, align 8, !tbaa !179
+  %521 = load ptr, ptr %520, align 8, !tbaa !178
   %522 = tail call zeroext i1 %1(ptr noundef %521, ptr noundef %2) #9
   br i1 %522, label %523, label %pm_visit_node.exit1189
 
@@ -3491,7 +3491,7 @@ pm_visit_node.exit1185:                           ; preds = %506, %504, %pm_visi
 
 pm_visit_node.exit1189:                           ; preds = %519, %523
   %524 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %525 = load ptr, ptr %524, align 8, !tbaa !181
+  %525 = load ptr, ptr %524, align 8, !tbaa !180
   %.not1037 = icmp eq ptr %525, null
   br i1 %.not1037, label %pm_visit_node.exit1093, label %526
 
@@ -3501,7 +3501,7 @@ pm_visit_node.exit1189:                           ; preds = %519, %523
 
 528:                                              ; preds = %tailrecurse
   %529 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %530 = load ptr, ptr %529, align 8, !tbaa !182
+  %530 = load ptr, ptr %529, align 8, !tbaa !181
   %.not1034 = icmp eq ptr %530, null
   br i1 %.not1034, label %pm_visit_node.exit1191, label %531
 
@@ -3515,7 +3515,7 @@ pm_visit_node.exit1189:                           ; preds = %519, %523
 
 pm_visit_node.exit1191:                           ; preds = %533, %531, %528
   %534 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %535 = load ptr, ptr %534, align 8, !tbaa !185
+  %535 = load ptr, ptr %534, align 8, !tbaa !184
   %.not1035 = icmp eq ptr %535, null
   br i1 %.not1035, label %pm_visit_node.exit1192, label %536
 
@@ -3529,7 +3529,7 @@ pm_visit_node.exit1191:                           ; preds = %533, %531, %528
 
 pm_visit_node.exit1192:                           ; preds = %538, %536, %pm_visit_node.exit1191
   %539 = getelementptr inbounds nuw i8, ptr %.tr, i64 88
-  %540 = load ptr, ptr %539, align 8, !tbaa !186
+  %540 = load ptr, ptr %539, align 8, !tbaa !185
   %.not1036 = icmp eq ptr %540, null
   br i1 %.not1036, label %pm_visit_node.exit1193, label %541
 
@@ -3543,13 +3543,13 @@ pm_visit_node.exit1192:                           ; preds = %538, %536, %pm_visi
 
 pm_visit_node.exit1193:                           ; preds = %543, %541, %pm_visit_node.exit1192
   %544 = getelementptr inbounds nuw i8, ptr %.tr, i64 112
-  %545 = load ptr, ptr %544, align 8, !tbaa !187
+  %545 = load ptr, ptr %544, align 8, !tbaa !186
   %546 = tail call zeroext i1 %1(ptr noundef %545, ptr noundef %2) #9
   br i1 %546, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 547:                                              ; preds = %tailrecurse
   %548 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %549 = load ptr, ptr %548, align 8, !tbaa !188
+  %549 = load ptr, ptr %548, align 8, !tbaa !187
   %.not1031 = icmp eq ptr %549, null
   br i1 %.not1031, label %pm_visit_node.exit1195, label %550
 
@@ -3563,7 +3563,7 @@ pm_visit_node.exit1193:                           ; preds = %543, %541, %pm_visi
 
 pm_visit_node.exit1195:                           ; preds = %552, %550, %547
   %553 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %554 = load ptr, ptr %553, align 8, !tbaa !190
+  %554 = load ptr, ptr %553, align 8, !tbaa !189
   %.not1032 = icmp eq ptr %554, null
   br i1 %.not1032, label %pm_visit_node.exit1196, label %555
 
@@ -3577,7 +3577,7 @@ pm_visit_node.exit1195:                           ; preds = %552, %550, %547
 
 pm_visit_node.exit1196:                           ; preds = %557, %555, %pm_visit_node.exit1195
   %558 = getelementptr inbounds nuw i8, ptr %.tr, i64 88
-  %559 = load ptr, ptr %558, align 8, !tbaa !191
+  %559 = load ptr, ptr %558, align 8, !tbaa !190
   %.not1033 = icmp eq ptr %559, null
   br i1 %.not1033, label %pm_visit_node.exit1197, label %560
 
@@ -3591,13 +3591,13 @@ pm_visit_node.exit1196:                           ; preds = %557, %555, %pm_visi
 
 pm_visit_node.exit1197:                           ; preds = %562, %560, %pm_visit_node.exit1196
   %563 = getelementptr inbounds nuw i8, ptr %.tr, i64 120
-  %564 = load ptr, ptr %563, align 8, !tbaa !192
+  %564 = load ptr, ptr %563, align 8, !tbaa !191
   %565 = tail call zeroext i1 %1(ptr noundef %564, ptr noundef %2) #9
   br i1 %565, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 566:                                              ; preds = %tailrecurse
   %567 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %568 = load ptr, ptr %567, align 8, !tbaa !193
+  %568 = load ptr, ptr %567, align 8, !tbaa !192
   %.not1028 = icmp eq ptr %568, null
   br i1 %.not1028, label %pm_visit_node.exit1199, label %569
 
@@ -3611,7 +3611,7 @@ pm_visit_node.exit1197:                           ; preds = %562, %560, %pm_visi
 
 pm_visit_node.exit1199:                           ; preds = %571, %569, %566
   %572 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %573 = load ptr, ptr %572, align 8, !tbaa !195
+  %573 = load ptr, ptr %572, align 8, !tbaa !194
   %.not1029 = icmp eq ptr %573, null
   br i1 %.not1029, label %pm_visit_node.exit1200, label %574
 
@@ -3625,7 +3625,7 @@ pm_visit_node.exit1199:                           ; preds = %571, %569, %566
 
 pm_visit_node.exit1200:                           ; preds = %576, %574, %pm_visit_node.exit1199
   %577 = getelementptr inbounds nuw i8, ptr %.tr, i64 88
-  %578 = load ptr, ptr %577, align 8, !tbaa !196
+  %578 = load ptr, ptr %577, align 8, !tbaa !195
   %.not1030 = icmp eq ptr %578, null
   br i1 %.not1030, label %pm_visit_node.exit1201, label %579
 
@@ -3639,13 +3639,13 @@ pm_visit_node.exit1200:                           ; preds = %576, %574, %pm_visi
 
 pm_visit_node.exit1201:                           ; preds = %581, %579, %pm_visit_node.exit1200
   %582 = getelementptr inbounds nuw i8, ptr %.tr, i64 112
-  %583 = load ptr, ptr %582, align 8, !tbaa !197
+  %583 = load ptr, ptr %582, align 8, !tbaa !196
   %584 = tail call zeroext i1 %1(ptr noundef %583, ptr noundef %2) #9
   br i1 %584, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 585:                                              ; preds = %tailrecurse
   %586 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %587 = load ptr, ptr %586, align 8, !tbaa !198
+  %587 = load ptr, ptr %586, align 8, !tbaa !197
   %588 = tail call zeroext i1 %1(ptr noundef %587, ptr noundef %2) #9
   br i1 %588, label %589, label %pm_visit_node.exit1203
 
@@ -3655,7 +3655,7 @@ pm_visit_node.exit1201:                           ; preds = %581, %579, %pm_visi
 
 pm_visit_node.exit1203:                           ; preds = %585, %589
   %590 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %591 = load ptr, ptr %590, align 8, !tbaa !200
+  %591 = load ptr, ptr %590, align 8, !tbaa !199
   %.not1026 = icmp eq ptr %591, null
   br i1 %.not1026, label %pm_visit_node.exit1204, label %592
 
@@ -3669,7 +3669,7 @@ pm_visit_node.exit1203:                           ; preds = %585, %589
 
 pm_visit_node.exit1204:                           ; preds = %594, %592, %pm_visit_node.exit1203
   %595 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
-  %596 = load ptr, ptr %595, align 8, !tbaa !201
+  %596 = load ptr, ptr %595, align 8, !tbaa !200
   %.not1027 = icmp eq ptr %596, null
   br i1 %.not1027, label %pm_visit_node.exit1093, label %597
 
@@ -3679,25 +3679,25 @@ pm_visit_node.exit1204:                           ; preds = %594, %592, %pm_visi
 
 599:                                              ; preds = %tailrecurse
   %600 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %601 = load ptr, ptr %600, align 8, !tbaa !202
+  %601 = load ptr, ptr %600, align 8, !tbaa !201
   %602 = tail call zeroext i1 %1(ptr noundef %601, ptr noundef %2) #9
   br i1 %602, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 603:                                              ; preds = %tailrecurse
   %604 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %605 = load ptr, ptr %604, align 8, !tbaa !204
+  %605 = load ptr, ptr %604, align 8, !tbaa !203
   %606 = tail call zeroext i1 %1(ptr noundef %605, ptr noundef %2) #9
   br i1 %606, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 607:                                              ; preds = %tailrecurse
   %608 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %609 = load ptr, ptr %608, align 8, !tbaa !206
+  %609 = load ptr, ptr %608, align 8, !tbaa !205
   %610 = tail call zeroext i1 %1(ptr noundef %609, ptr noundef %2) #9
   br i1 %610, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 611:                                              ; preds = %tailrecurse
   %612 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %613 = load ptr, ptr %612, align 8, !tbaa !208
+  %613 = load ptr, ptr %612, align 8, !tbaa !207
   %614 = tail call zeroext i1 %1(ptr noundef %613, ptr noundef %2) #9
   br i1 %614, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
@@ -3715,7 +3715,7 @@ pm_visit_node.exit1204:                           ; preds = %594, %592, %pm_visi
   %.09161376 = phi i64 [ 0, %.lr.ph1378 ], [ %625, %pm_visit_node.exit1210 ]
   %620 = load ptr, ptr %618, align 8, !tbaa !15
   %621 = getelementptr ptr, ptr %620, i64 %.09161376
-  %622 = load ptr, ptr %621, align 8, !tbaa !19
+  %622 = load ptr, ptr %621, align 8, !tbaa !18
   %623 = tail call zeroext i1 %1(ptr noundef %622, ptr noundef %2) #9
   br i1 %623, label %624, label %pm_visit_node.exit1210
 
@@ -3727,7 +3727,7 @@ pm_visit_node.exit1210:                           ; preds = %619, %624
   %625 = add nuw i64 %.09161376, 1
   %626 = load i64, ptr %616, align 8, !tbaa !7
   %627 = icmp ult i64 %625, %626
-  br i1 %627, label %619, label %pm_visit_node.exit1093, !llvm.loop !311
+  br i1 %627, label %619, label %pm_visit_node.exit1093, !llvm.loop !310
 
 628:                                              ; preds = %tailrecurse
   %629 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
@@ -3743,7 +3743,7 @@ pm_visit_node.exit1210:                           ; preds = %619, %624
   %.09171373 = phi i64 [ 0, %.lr.ph1375 ], [ %638, %pm_visit_node.exit1211 ]
   %633 = load ptr, ptr %631, align 8, !tbaa !15
   %634 = getelementptr ptr, ptr %633, i64 %.09171373
-  %635 = load ptr, ptr %634, align 8, !tbaa !19
+  %635 = load ptr, ptr %634, align 8, !tbaa !18
   %636 = tail call zeroext i1 %1(ptr noundef %635, ptr noundef %2) #9
   br i1 %636, label %637, label %pm_visit_node.exit1211
 
@@ -3755,7 +3755,7 @@ pm_visit_node.exit1211:                           ; preds = %632, %637
   %638 = add nuw i64 %.09171373, 1
   %639 = load i64, ptr %629, align 8, !tbaa !7
   %640 = icmp ult i64 %638, %639
-  br i1 %640, label %632, label %pm_visit_node.exit1093, !llvm.loop !312
+  br i1 %640, label %632, label %pm_visit_node.exit1093, !llvm.loop !311
 
 641:                                              ; preds = %tailrecurse
   %642 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
@@ -3771,7 +3771,7 @@ pm_visit_node.exit1211:                           ; preds = %632, %637
   %.09181370 = phi i64 [ 0, %.lr.ph1372 ], [ %651, %pm_visit_node.exit1212 ]
   %646 = load ptr, ptr %644, align 8, !tbaa !15
   %647 = getelementptr ptr, ptr %646, i64 %.09181370
-  %648 = load ptr, ptr %647, align 8, !tbaa !19
+  %648 = load ptr, ptr %647, align 8, !tbaa !18
   %649 = tail call zeroext i1 %1(ptr noundef %648, ptr noundef %2) #9
   br i1 %649, label %650, label %pm_visit_node.exit1212
 
@@ -3783,7 +3783,7 @@ pm_visit_node.exit1212:                           ; preds = %645, %650
   %651 = add nuw i64 %.09181370, 1
   %652 = load i64, ptr %642, align 8, !tbaa !7
   %653 = icmp ult i64 %651, %652
-  br i1 %653, label %645, label %pm_visit_node.exit1093, !llvm.loop !313
+  br i1 %653, label %645, label %pm_visit_node.exit1093, !llvm.loop !312
 
 654:                                              ; preds = %tailrecurse
   %655 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
@@ -3799,7 +3799,7 @@ pm_visit_node.exit1212:                           ; preds = %645, %650
   %.09191367 = phi i64 [ 0, %.lr.ph1369 ], [ %664, %pm_visit_node.exit1213 ]
   %659 = load ptr, ptr %657, align 8, !tbaa !15
   %660 = getelementptr ptr, ptr %659, i64 %.09191367
-  %661 = load ptr, ptr %660, align 8, !tbaa !19
+  %661 = load ptr, ptr %660, align 8, !tbaa !18
   %662 = tail call zeroext i1 %1(ptr noundef %661, ptr noundef %2) #9
   br i1 %662, label %663, label %pm_visit_node.exit1213
 
@@ -3811,7 +3811,7 @@ pm_visit_node.exit1213:                           ; preds = %658, %663
   %664 = add nuw i64 %.09191367, 1
   %665 = load i64, ptr %655, align 8, !tbaa !7
   %666 = icmp ult i64 %664, %665
-  br i1 %666, label %658, label %pm_visit_node.exit1093, !llvm.loop !314
+  br i1 %666, label %658, label %pm_visit_node.exit1093, !llvm.loop !313
 
 667:                                              ; preds = %tailrecurse
   %668 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
@@ -3827,7 +3827,7 @@ pm_visit_node.exit1213:                           ; preds = %658, %663
   %.09201364 = phi i64 [ 0, %.lr.ph1366 ], [ %677, %pm_visit_node.exit1214 ]
   %672 = load ptr, ptr %670, align 8, !tbaa !15
   %673 = getelementptr ptr, ptr %672, i64 %.09201364
-  %674 = load ptr, ptr %673, align 8, !tbaa !19
+  %674 = load ptr, ptr %673, align 8, !tbaa !18
   %675 = tail call zeroext i1 %1(ptr noundef %674, ptr noundef %2) #9
   br i1 %675, label %676, label %pm_visit_node.exit1214
 
@@ -3839,7 +3839,7 @@ pm_visit_node.exit1214:                           ; preds = %671, %676
   %677 = add nuw i64 %.09201364, 1
   %678 = load i64, ptr %668, align 8, !tbaa !7
   %679 = icmp ult i64 %677, %678
-  br i1 %679, label %671, label %pm_visit_node.exit1093, !llvm.loop !315
+  br i1 %679, label %671, label %pm_visit_node.exit1093, !llvm.loop !314
 
 680:                                              ; preds = %tailrecurse
   %681 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
@@ -3855,7 +3855,7 @@ pm_visit_node.exit1214:                           ; preds = %671, %676
   %.09221361 = phi i64 [ 0, %.lr.ph1363 ], [ %690, %pm_visit_node.exit1215 ]
   %685 = load ptr, ptr %683, align 8, !tbaa !15
   %686 = getelementptr ptr, ptr %685, i64 %.09221361
-  %687 = load ptr, ptr %686, align 8, !tbaa !19
+  %687 = load ptr, ptr %686, align 8, !tbaa !18
   %688 = tail call zeroext i1 %1(ptr noundef %687, ptr noundef %2) #9
   br i1 %688, label %689, label %pm_visit_node.exit1215
 
@@ -3867,11 +3867,11 @@ pm_visit_node.exit1215:                           ; preds = %684, %689
   %690 = add nuw i64 %.09221361, 1
   %691 = load i64, ptr %681, align 8, !tbaa !7
   %692 = icmp ult i64 %690, %691
-  br i1 %692, label %684, label %pm_visit_node.exit1093, !llvm.loop !316
+  br i1 %692, label %684, label %pm_visit_node.exit1093, !llvm.loop !315
 
 693:                                              ; preds = %tailrecurse
   %694 = getelementptr inbounds nuw i8, ptr %.tr, i64 96
-  %695 = load ptr, ptr %694, align 8, !tbaa !210
+  %695 = load ptr, ptr %694, align 8, !tbaa !209
   %.not1020 = icmp eq ptr %695, null
   br i1 %.not1020, label %pm_visit_node.exit1216, label %696
 
@@ -3885,7 +3885,7 @@ pm_visit_node.exit1215:                           ; preds = %684, %689
 
 pm_visit_node.exit1216:                           ; preds = %698, %696, %693
   %699 = getelementptr inbounds nuw i8, ptr %.tr, i64 104
-  %700 = load ptr, ptr %699, align 8, !tbaa !212
+  %700 = load ptr, ptr %699, align 8, !tbaa !211
   %.not1021 = icmp eq ptr %700, null
   br i1 %.not1021, label %pm_visit_node.exit1093, label %701
 
@@ -3895,31 +3895,31 @@ pm_visit_node.exit1216:                           ; preds = %698, %696, %693
 
 703:                                              ; preds = %tailrecurse
   %704 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %705 = load ptr, ptr %704, align 8, !tbaa !213
+  %705 = load ptr, ptr %704, align 8, !tbaa !212
   %706 = tail call zeroext i1 %1(ptr noundef %705, ptr noundef %2) #9
   br i1 %706, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 707:                                              ; preds = %tailrecurse
   %708 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %709 = load ptr, ptr %708, align 8, !tbaa !215
+  %709 = load ptr, ptr %708, align 8, !tbaa !214
   %710 = tail call zeroext i1 %1(ptr noundef %709, ptr noundef %2) #9
   br i1 %710, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 711:                                              ; preds = %tailrecurse
   %712 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %713 = load ptr, ptr %712, align 8, !tbaa !217
+  %713 = load ptr, ptr %712, align 8, !tbaa !216
   %714 = tail call zeroext i1 %1(ptr noundef %713, ptr noundef %2) #9
   br i1 %714, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 715:                                              ; preds = %tailrecurse
   %716 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %717 = load ptr, ptr %716, align 8, !tbaa !219
+  %717 = load ptr, ptr %716, align 8, !tbaa !218
   %718 = tail call zeroext i1 %1(ptr noundef %717, ptr noundef %2) #9
   br i1 %718, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 719:                                              ; preds = %tailrecurse
   %720 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %721 = load ptr, ptr %720, align 8, !tbaa !221
+  %721 = load ptr, ptr %720, align 8, !tbaa !220
   %722 = tail call zeroext i1 %1(ptr noundef %721, ptr noundef %2) #9
   br i1 %722, label %723, label %pm_visit_node.exit1222
 
@@ -3929,13 +3929,13 @@ pm_visit_node.exit1216:                           ; preds = %698, %696, %693
 
 pm_visit_node.exit1222:                           ; preds = %719, %723
   %724 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %725 = load ptr, ptr %724, align 8, !tbaa !223
+  %725 = load ptr, ptr %724, align 8, !tbaa !222
   %726 = tail call zeroext i1 %1(ptr noundef %725, ptr noundef %2) #9
   br i1 %726, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 727:                                              ; preds = %tailrecurse
   %728 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %729 = load ptr, ptr %728, align 8, !tbaa !224
+  %729 = load ptr, ptr %728, align 8, !tbaa !223
   %730 = tail call zeroext i1 %1(ptr noundef %729, ptr noundef %2) #9
   br i1 %730, label %731, label %pm_visit_node.exit1224
 
@@ -3945,13 +3945,13 @@ pm_visit_node.exit1222:                           ; preds = %719, %723
 
 pm_visit_node.exit1224:                           ; preds = %727, %731
   %732 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %733 = load ptr, ptr %732, align 8, !tbaa !226
+  %733 = load ptr, ptr %732, align 8, !tbaa !225
   %734 = tail call zeroext i1 %1(ptr noundef %733, ptr noundef %2) #9
   br i1 %734, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 735:                                              ; preds = %tailrecurse
   %736 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %737 = load ptr, ptr %736, align 8, !tbaa !227
+  %737 = load ptr, ptr %736, align 8, !tbaa !226
   %738 = tail call zeroext i1 %1(ptr noundef %737, ptr noundef %2) #9
   br i1 %738, label %739, label %pm_visit_node.exit1226
 
@@ -3973,7 +3973,7 @@ pm_visit_node.exit1226:                           ; preds = %735, %739
   %.09231359 = phi i64 [ 0, %.lr.ph1360 ], [ %749, %pm_visit_node.exit1227 ]
   %744 = load ptr, ptr %742, align 8, !tbaa !15
   %745 = getelementptr ptr, ptr %744, i64 %.09231359
-  %746 = load ptr, ptr %745, align 8, !tbaa !19
+  %746 = load ptr, ptr %745, align 8, !tbaa !18
   %747 = tail call zeroext i1 %1(ptr noundef %746, ptr noundef %2) #9
   br i1 %747, label %748, label %pm_visit_node.exit1227
 
@@ -3985,11 +3985,11 @@ pm_visit_node.exit1227:                           ; preds = %743, %748
   %749 = add nuw i64 %.09231359, 1
   %750 = load i64, ptr %740, align 8, !tbaa !7
   %751 = icmp ult i64 %749, %750
-  br i1 %751, label %743, label %pm_visit_node.exit1093, !llvm.loop !317
+  br i1 %751, label %743, label %pm_visit_node.exit1093, !llvm.loop !316
 
 752:                                              ; preds = %tailrecurse
   %753 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %754 = load ptr, ptr %753, align 8, !tbaa !230
+  %754 = load ptr, ptr %753, align 8, !tbaa !229
   %755 = tail call zeroext i1 %1(ptr noundef %754, ptr noundef %2) #9
   br i1 %755, label %756, label %pm_visit_node.exit1228
 
@@ -3999,7 +3999,7 @@ pm_visit_node.exit1227:                           ; preds = %743, %748
 
 pm_visit_node.exit1228:                           ; preds = %752, %756
   %757 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
-  %758 = load ptr, ptr %757, align 8, !tbaa !232
+  %758 = load ptr, ptr %757, align 8, !tbaa !231
   %.not1015 = icmp eq ptr %758, null
   br i1 %.not1015, label %pm_visit_node.exit1093, label %759
 
@@ -4019,7 +4019,7 @@ pm_visit_node.exit1228:                           ; preds = %752, %756
 
 ._crit_edge1356:                                  ; preds = %pm_visit_node.exit1230, %761
   %765 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %766 = load ptr, ptr %765, align 8, !tbaa !233
+  %766 = load ptr, ptr %765, align 8, !tbaa !232
   %.not1014 = icmp eq ptr %766, null
   br i1 %.not1014, label %pm_visit_node.exit1231, label %776
 
@@ -4027,7 +4027,7 @@ pm_visit_node.exit1228:                           ; preds = %752, %756
   %.09241353 = phi i64 [ 0, %.lr.ph1355 ], [ %773, %pm_visit_node.exit1230 ]
   %768 = load ptr, ptr %764, align 8, !tbaa !15
   %769 = getelementptr ptr, ptr %768, i64 %.09241353
-  %770 = load ptr, ptr %769, align 8, !tbaa !19
+  %770 = load ptr, ptr %769, align 8, !tbaa !18
   %771 = tail call zeroext i1 %1(ptr noundef %770, ptr noundef %2) #9
   br i1 %771, label %772, label %pm_visit_node.exit1230
 
@@ -4039,7 +4039,7 @@ pm_visit_node.exit1230:                           ; preds = %767, %772
   %773 = add nuw i64 %.09241353, 1
   %774 = load i64, ptr %762, align 8, !tbaa !7
   %775 = icmp ult i64 %773, %774
-  br i1 %775, label %767, label %._crit_edge1356, !llvm.loop !318
+  br i1 %775, label %767, label %._crit_edge1356, !llvm.loop !317
 
 776:                                              ; preds = %._crit_edge1356
   %777 = tail call zeroext i1 %1(ptr noundef nonnull %766, ptr noundef %2) #9
@@ -4063,7 +4063,7 @@ pm_visit_node.exit1231:                           ; preds = %778, %776, %._crit_
   %.09251357 = phi i64 [ 0, %.lr.ph1358 ], [ %788, %pm_visit_node.exit1232 ]
   %783 = load ptr, ptr %781, align 8, !tbaa !15
   %784 = getelementptr ptr, ptr %783, i64 %.09251357
-  %785 = load ptr, ptr %784, align 8, !tbaa !19
+  %785 = load ptr, ptr %784, align 8, !tbaa !18
   %786 = tail call zeroext i1 %1(ptr noundef %785, ptr noundef %2) #9
   br i1 %786, label %787, label %pm_visit_node.exit1232
 
@@ -4075,7 +4075,7 @@ pm_visit_node.exit1232:                           ; preds = %782, %787
   %788 = add nuw i64 %.09251357, 1
   %789 = load i64, ptr %779, align 8, !tbaa !7
   %790 = icmp ult i64 %788, %789
-  br i1 %790, label %782, label %pm_visit_node.exit1093, !llvm.loop !319
+  br i1 %790, label %782, label %pm_visit_node.exit1093, !llvm.loop !318
 
 791:                                              ; preds = %tailrecurse
   %792 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
@@ -4089,7 +4089,7 @@ pm_visit_node.exit1232:                           ; preds = %782, %787
 
 ._crit_edge:                                      ; preds = %pm_visit_node.exit1233, %791
   %795 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %796 = load ptr, ptr %795, align 8, !tbaa !235
+  %796 = load ptr, ptr %795, align 8, !tbaa !234
   %.not1013 = icmp eq ptr %796, null
   br i1 %.not1013, label %pm_visit_node.exit1234, label %806
 
@@ -4097,7 +4097,7 @@ pm_visit_node.exit1232:                           ; preds = %782, %787
   %.09261314 = phi i64 [ 0, %.lr.ph ], [ %803, %pm_visit_node.exit1233 ]
   %798 = load ptr, ptr %794, align 8, !tbaa !15
   %799 = getelementptr ptr, ptr %798, i64 %.09261314
-  %800 = load ptr, ptr %799, align 8, !tbaa !19
+  %800 = load ptr, ptr %799, align 8, !tbaa !18
   %801 = tail call zeroext i1 %1(ptr noundef %800, ptr noundef %2) #9
   br i1 %801, label %802, label %pm_visit_node.exit1233
 
@@ -4109,7 +4109,7 @@ pm_visit_node.exit1233:                           ; preds = %797, %802
   %803 = add nuw i64 %.09261314, 1
   %804 = load i64, ptr %792, align 8, !tbaa !7
   %805 = icmp ult i64 %803, %804
-  br i1 %805, label %797, label %._crit_edge, !llvm.loop !320
+  br i1 %805, label %797, label %._crit_edge, !llvm.loop !319
 
 806:                                              ; preds = %._crit_edge
   %807 = tail call zeroext i1 %1(ptr noundef nonnull %796, ptr noundef %2) #9
@@ -4131,7 +4131,7 @@ pm_visit_node.exit1234:                           ; preds = %808, %806, %._crit_
 
 ._crit_edge1317:                                  ; preds = %pm_visit_node.exit1236, %pm_visit_node.exit1234
   %812 = getelementptr inbounds nuw i8, ptr %.tr, i64 128
-  %813 = load ptr, ptr %812, align 8, !tbaa !237
+  %813 = load ptr, ptr %812, align 8, !tbaa !236
   %814 = tail call zeroext i1 %1(ptr noundef %813, ptr noundef %2) #9
   br i1 %814, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
@@ -4139,7 +4139,7 @@ pm_visit_node.exit1234:                           ; preds = %808, %806, %._crit_
   %.09271315 = phi i64 [ 0, %.lr.ph1316 ], [ %821, %pm_visit_node.exit1236 ]
   %816 = load ptr, ptr %811, align 8, !tbaa !15
   %817 = getelementptr ptr, ptr %816, i64 %.09271315
-  %818 = load ptr, ptr %817, align 8, !tbaa !19
+  %818 = load ptr, ptr %817, align 8, !tbaa !18
   %819 = tail call zeroext i1 %1(ptr noundef %818, ptr noundef %2) #9
   br i1 %819, label %820, label %pm_visit_node.exit1236
 
@@ -4151,11 +4151,11 @@ pm_visit_node.exit1236:                           ; preds = %815, %820
   %821 = add nuw i64 %.09271315, 1
   %822 = load i64, ptr %809, align 8, !tbaa !7
   %823 = icmp ult i64 %821, %822
-  br i1 %823, label %815, label %._crit_edge1317, !llvm.loop !321
+  br i1 %823, label %815, label %._crit_edge1317, !llvm.loop !320
 
 824:                                              ; preds = %tailrecurse
   %825 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %826 = load ptr, ptr %825, align 8, !tbaa !238
+  %826 = load ptr, ptr %825, align 8, !tbaa !237
   %.not = icmp eq ptr %826, null
   br i1 %.not, label %pm_visit_node.exit1093, label %827
 
@@ -4165,19 +4165,19 @@ pm_visit_node.exit1236:                           ; preds = %815, %820
 
 829:                                              ; preds = %tailrecurse
   %830 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %831 = load ptr, ptr %830, align 8, !tbaa !240
+  %831 = load ptr, ptr %830, align 8, !tbaa !239
   %832 = tail call zeroext i1 %1(ptr noundef %831, ptr noundef %2) #9
   br i1 %832, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 833:                                              ; preds = %tailrecurse
   %834 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %835 = load ptr, ptr %834, align 8, !tbaa !242
+  %835 = load ptr, ptr %834, align 8, !tbaa !241
   %836 = tail call zeroext i1 %1(ptr noundef %835, ptr noundef %2) #9
   br i1 %836, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 837:                                              ; preds = %tailrecurse
   %838 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %839 = load ptr, ptr %838, align 8, !tbaa !244
+  %839 = load ptr, ptr %838, align 8, !tbaa !243
   %840 = tail call zeroext i1 %1(ptr noundef %839, ptr noundef %2) #9
   br i1 %840, label %841, label %pm_visit_node.exit1240
 
@@ -4187,7 +4187,7 @@ pm_visit_node.exit1236:                           ; preds = %815, %820
 
 pm_visit_node.exit1240:                           ; preds = %837, %841
   %842 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %843 = load ptr, ptr %842, align 8, !tbaa !246
+  %843 = load ptr, ptr %842, align 8, !tbaa !245
   %844 = tail call zeroext i1 %1(ptr noundef %843, ptr noundef %2) #9
   br i1 %844, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
@@ -4215,7 +4215,7 @@ pm_visit_node.exit1240:                           ; preds = %837, %841
   %.09281318 = phi i64 [ 0, %.lr.ph1320 ], [ %858, %pm_visit_node.exit1242 ]
   %853 = load ptr, ptr %848, align 8, !tbaa !15
   %854 = getelementptr ptr, ptr %853, i64 %.09281318
-  %855 = load ptr, ptr %854, align 8, !tbaa !19
+  %855 = load ptr, ptr %854, align 8, !tbaa !18
   %856 = tail call zeroext i1 %1(ptr noundef %855, ptr noundef %2) #9
   br i1 %856, label %857, label %pm_visit_node.exit1242
 
@@ -4227,11 +4227,11 @@ pm_visit_node.exit1242:                           ; preds = %852, %857
   %858 = add nuw i64 %.09281318, 1
   %859 = load i64, ptr %846, align 8, !tbaa !7
   %860 = icmp ult i64 %858, %859
-  br i1 %860, label %852, label %._crit_edge1321, !llvm.loop !322
+  br i1 %860, label %852, label %._crit_edge1321, !llvm.loop !321
 
 ._crit_edge1325:                                  ; preds = %pm_visit_node.exit1243, %._crit_edge1321
   %861 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
-  %862 = load ptr, ptr %861, align 8, !tbaa !247
+  %862 = load ptr, ptr %861, align 8, !tbaa !246
   %.not1016 = icmp eq ptr %862, null
   br i1 %.not1016, label %pm_visit_node.exit1244, label %872
 
@@ -4239,7 +4239,7 @@ pm_visit_node.exit1242:                           ; preds = %852, %857
   %.09291322 = phi i64 [ 0, %.lr.ph1324 ], [ %869, %pm_visit_node.exit1243 ]
   %864 = load ptr, ptr %851, align 8, !tbaa !15
   %865 = getelementptr ptr, ptr %864, i64 %.09291322
-  %866 = load ptr, ptr %865, align 8, !tbaa !19
+  %866 = load ptr, ptr %865, align 8, !tbaa !18
   %867 = tail call zeroext i1 %1(ptr noundef %866, ptr noundef %2) #9
   br i1 %867, label %868, label %pm_visit_node.exit1243
 
@@ -4251,7 +4251,7 @@ pm_visit_node.exit1243:                           ; preds = %863, %868
   %869 = add nuw i64 %.09291322, 1
   %870 = load i64, ptr %849, align 8, !tbaa !7
   %871 = icmp ult i64 %869, %870
-  br i1 %871, label %863, label %._crit_edge1325, !llvm.loop !323
+  br i1 %871, label %863, label %._crit_edge1325, !llvm.loop !322
 
 872:                                              ; preds = %._crit_edge1325
   %873 = tail call zeroext i1 %1(ptr noundef nonnull %862, ptr noundef %2) #9
@@ -4285,7 +4285,7 @@ pm_visit_node.exit1244:                           ; preds = %874, %872, %._crit_
   %.09301326 = phi i64 [ 0, %.lr.ph1327 ], [ %887, %pm_visit_node.exit1245 ]
   %882 = load ptr, ptr %877, align 8, !tbaa !15
   %883 = getelementptr ptr, ptr %882, i64 %.09301326
-  %884 = load ptr, ptr %883, align 8, !tbaa !19
+  %884 = load ptr, ptr %883, align 8, !tbaa !18
   %885 = tail call zeroext i1 %1(ptr noundef %884, ptr noundef %2) #9
   br i1 %885, label %886, label %pm_visit_node.exit1245
 
@@ -4297,11 +4297,11 @@ pm_visit_node.exit1245:                           ; preds = %881, %886
   %887 = add nuw i64 %.09301326, 1
   %888 = load i64, ptr %875, align 8, !tbaa !7
   %889 = icmp ult i64 %887, %888
-  br i1 %889, label %881, label %._crit_edge1328, !llvm.loop !324
+  br i1 %889, label %881, label %._crit_edge1328, !llvm.loop !323
 
 ._crit_edge1332:                                  ; preds = %pm_visit_node.exit1246, %._crit_edge1328
   %890 = getelementptr inbounds nuw i8, ptr %.tr, i64 128
-  %891 = load ptr, ptr %890, align 8, !tbaa !250
+  %891 = load ptr, ptr %890, align 8, !tbaa !249
   %.not1017 = icmp eq ptr %891, null
   br i1 %.not1017, label %pm_visit_node.exit1247, label %901
 
@@ -4309,7 +4309,7 @@ pm_visit_node.exit1245:                           ; preds = %881, %886
   %.09311329 = phi i64 [ 0, %.lr.ph1331 ], [ %898, %pm_visit_node.exit1246 ]
   %893 = load ptr, ptr %880, align 8, !tbaa !15
   %894 = getelementptr ptr, ptr %893, i64 %.09311329
-  %895 = load ptr, ptr %894, align 8, !tbaa !19
+  %895 = load ptr, ptr %894, align 8, !tbaa !18
   %896 = tail call zeroext i1 %1(ptr noundef %895, ptr noundef %2) #9
   br i1 %896, label %897, label %pm_visit_node.exit1246
 
@@ -4321,7 +4321,7 @@ pm_visit_node.exit1246:                           ; preds = %892, %897
   %898 = add nuw i64 %.09311329, 1
   %899 = load i64, ptr %878, align 8, !tbaa !7
   %900 = icmp ult i64 %898, %899
-  br i1 %900, label %892, label %._crit_edge1332, !llvm.loop !325
+  br i1 %900, label %892, label %._crit_edge1332, !llvm.loop !324
 
 901:                                              ; preds = %._crit_edge1332
   %902 = tail call zeroext i1 %1(ptr noundef nonnull %891, ptr noundef %2) #9
@@ -4333,7 +4333,7 @@ pm_visit_node.exit1246:                           ; preds = %892, %897
 
 pm_visit_node.exit1247:                           ; preds = %903, %901, %._crit_edge1332
   %904 = getelementptr inbounds nuw i8, ptr %.tr, i64 136
-  %905 = load ptr, ptr %904, align 8, !tbaa !251
+  %905 = load ptr, ptr %904, align 8, !tbaa !250
   %.not1018 = icmp eq ptr %905, null
   br i1 %.not1018, label %pm_visit_node.exit1093, label %906
 
@@ -4343,7 +4343,7 @@ pm_visit_node.exit1247:                           ; preds = %903, %901, %._crit_
 
 908:                                              ; preds = %tailrecurse
   %909 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %910 = load ptr, ptr %909, align 8, !tbaa !252
+  %910 = load ptr, ptr %909, align 8, !tbaa !251
   %.not1019 = icmp eq ptr %910, null
   br i1 %.not1019, label %pm_visit_node.exit1093, label %911
 
@@ -4353,19 +4353,19 @@ pm_visit_node.exit1247:                           ; preds = %903, %901, %._crit_
 
 913:                                              ; preds = %tailrecurse
   %914 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %915 = load ptr, ptr %914, align 8, !tbaa !254
+  %915 = load ptr, ptr %914, align 8, !tbaa !253
   %916 = tail call zeroext i1 %1(ptr noundef %915, ptr noundef %2) #9
   br i1 %916, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 917:                                              ; preds = %tailrecurse
   %918 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %919 = load ptr, ptr %918, align 8, !tbaa !256
+  %919 = load ptr, ptr %918, align 8, !tbaa !255
   %920 = tail call zeroext i1 %1(ptr noundef %919, ptr noundef %2) #9
   br i1 %920, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 921:                                              ; preds = %tailrecurse
   %922 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %923 = load ptr, ptr %922, align 8, !tbaa !258
+  %923 = load ptr, ptr %922, align 8, !tbaa !257
   %.not1022 = icmp eq ptr %923, null
   br i1 %.not1022, label %pm_visit_node.exit1093, label %924
 
@@ -4375,7 +4375,7 @@ pm_visit_node.exit1247:                           ; preds = %903, %901, %._crit_
 
 926:                                              ; preds = %tailrecurse
   %927 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %928 = load ptr, ptr %927, align 8, !tbaa !260
+  %928 = load ptr, ptr %927, align 8, !tbaa !259
   %.not1023 = icmp eq ptr %928, null
   br i1 %.not1023, label %pm_visit_node.exit1093, label %929
 
@@ -4385,13 +4385,13 @@ pm_visit_node.exit1247:                           ; preds = %903, %901, %._crit_
 
 931:                                              ; preds = %tailrecurse
   %932 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %933 = load ptr, ptr %932, align 8, !tbaa !262
+  %933 = load ptr, ptr %932, align 8, !tbaa !261
   %934 = tail call zeroext i1 %1(ptr noundef %933, ptr noundef %2) #9
   br i1 %934, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 935:                                              ; preds = %tailrecurse
   %936 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %937 = load ptr, ptr %936, align 8, !tbaa !264
+  %937 = load ptr, ptr %936, align 8, !tbaa !263
   %.not1024 = icmp eq ptr %937, null
   br i1 %.not1024, label %pm_visit_node.exit1255, label %938
 
@@ -4405,7 +4405,7 @@ pm_visit_node.exit1247:                           ; preds = %903, %901, %._crit_
 
 pm_visit_node.exit1255:                           ; preds = %940, %938, %935
   %941 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
-  %942 = load ptr, ptr %941, align 8, !tbaa !266
+  %942 = load ptr, ptr %941, align 8, !tbaa !265
   %.not1025 = icmp eq ptr %942, null
   br i1 %.not1025, label %pm_visit_node.exit1093, label %943
 
@@ -4415,7 +4415,7 @@ pm_visit_node.exit1255:                           ; preds = %940, %938, %935
 
 945:                                              ; preds = %tailrecurse
   %946 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %947 = load ptr, ptr %946, align 8, !tbaa !267
+  %947 = load ptr, ptr %946, align 8, !tbaa !266
   %948 = tail call zeroext i1 %1(ptr noundef %947, ptr noundef %2) #9
   br i1 %948, label %949, label %pm_visit_node.exit1257
 
@@ -4425,7 +4425,7 @@ pm_visit_node.exit1255:                           ; preds = %940, %938, %935
 
 pm_visit_node.exit1257:                           ; preds = %945, %949
   %950 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
-  %951 = load ptr, ptr %950, align 8, !tbaa !269
+  %951 = load ptr, ptr %950, align 8, !tbaa !268
   %952 = tail call zeroext i1 %1(ptr noundef %951, ptr noundef %2) #9
   br i1 %952, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
@@ -4441,7 +4441,7 @@ pm_visit_node.exit1257:                           ; preds = %945, %949
 
 ._crit_edge1339:                                  ; preds = %pm_visit_node.exit1259, %953
   %957 = getelementptr inbounds nuw i8, ptr %.tr, i64 80
-  %958 = load ptr, ptr %957, align 8, !tbaa !270
+  %958 = load ptr, ptr %957, align 8, !tbaa !269
   %.not1042 = icmp eq ptr %958, null
   br i1 %.not1042, label %pm_visit_node.exit1260, label %968
 
@@ -4449,7 +4449,7 @@ pm_visit_node.exit1257:                           ; preds = %945, %949
   %.09211336 = phi i64 [ 0, %.lr.ph1338 ], [ %965, %pm_visit_node.exit1259 ]
   %960 = load ptr, ptr %956, align 8, !tbaa !15
   %961 = getelementptr ptr, ptr %960, i64 %.09211336
-  %962 = load ptr, ptr %961, align 8, !tbaa !19
+  %962 = load ptr, ptr %961, align 8, !tbaa !18
   %963 = tail call zeroext i1 %1(ptr noundef %962, ptr noundef %2) #9
   br i1 %963, label %964, label %pm_visit_node.exit1259
 
@@ -4461,7 +4461,7 @@ pm_visit_node.exit1259:                           ; preds = %959, %964
   %965 = add nuw i64 %.09211336, 1
   %966 = load i64, ptr %954, align 8, !tbaa !7
   %967 = icmp ult i64 %965, %966
-  br i1 %967, label %959, label %._crit_edge1339, !llvm.loop !326
+  br i1 %967, label %959, label %._crit_edge1339, !llvm.loop !325
 
 968:                                              ; preds = %._crit_edge1339
   %969 = tail call zeroext i1 %1(ptr noundef nonnull %958, ptr noundef %2) #9
@@ -4473,7 +4473,7 @@ pm_visit_node.exit1259:                           ; preds = %959, %964
 
 pm_visit_node.exit1260:                           ; preds = %970, %968, %._crit_edge1339
   %971 = getelementptr inbounds nuw i8, ptr %.tr, i64 88
-  %972 = load ptr, ptr %971, align 8, !tbaa !272
+  %972 = load ptr, ptr %971, align 8, !tbaa !271
   %.not1043 = icmp eq ptr %972, null
   br i1 %.not1043, label %pm_visit_node.exit1261, label %973
 
@@ -4487,7 +4487,7 @@ pm_visit_node.exit1260:                           ; preds = %970, %968, %._crit_
 
 pm_visit_node.exit1261:                           ; preds = %975, %973, %pm_visit_node.exit1260
   %976 = getelementptr inbounds nuw i8, ptr %.tr, i64 96
-  %977 = load ptr, ptr %976, align 8, !tbaa !273
+  %977 = load ptr, ptr %976, align 8, !tbaa !272
   %.not1044 = icmp eq ptr %977, null
   br i1 %.not1044, label %pm_visit_node.exit1093, label %978
 
@@ -4497,7 +4497,7 @@ pm_visit_node.exit1261:                           ; preds = %975, %973, %pm_visi
 
 980:                                              ; preds = %tailrecurse
   %981 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %982 = load ptr, ptr %981, align 8, !tbaa !274
+  %982 = load ptr, ptr %981, align 8, !tbaa !273
   %.not1045 = icmp eq ptr %982, null
   br i1 %.not1045, label %pm_visit_node.exit1093, label %983
 
@@ -4507,13 +4507,13 @@ pm_visit_node.exit1261:                           ; preds = %975, %973, %pm_visi
 
 985:                                              ; preds = %tailrecurse
   %986 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %987 = load ptr, ptr %986, align 8, !tbaa !276
+  %987 = load ptr, ptr %986, align 8, !tbaa !275
   %988 = tail call zeroext i1 %1(ptr noundef %987, ptr noundef %2) #9
   br i1 %988, label %tailrecurse.backedge, label %pm_visit_node.exit1093
 
 989:                                              ; preds = %tailrecurse
   %990 = getelementptr inbounds nuw i8, ptr %.tr, i64 80
-  %991 = load ptr, ptr %990, align 8, !tbaa !278
+  %991 = load ptr, ptr %990, align 8, !tbaa !277
   %992 = tail call zeroext i1 %1(ptr noundef %991, ptr noundef %2) #9
   br i1 %992, label %993, label %pm_visit_node.exit1265
 
@@ -4523,7 +4523,7 @@ pm_visit_node.exit1261:                           ; preds = %975, %973, %pm_visi
 
 pm_visit_node.exit1265:                           ; preds = %989, %993
   %994 = getelementptr inbounds nuw i8, ptr %.tr, i64 88
-  %995 = load ptr, ptr %994, align 8, !tbaa !280
+  %995 = load ptr, ptr %994, align 8, !tbaa !279
   %.not1047 = icmp eq ptr %995, null
   br i1 %.not1047, label %pm_visit_node.exit1093, label %996
 
@@ -4533,7 +4533,7 @@ pm_visit_node.exit1265:                           ; preds = %989, %993
 
 998:                                              ; preds = %tailrecurse
   %999 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %1000 = load ptr, ptr %999, align 8, !tbaa !281
+  %1000 = load ptr, ptr %999, align 8, !tbaa !280
   %.not1049 = icmp eq ptr %1000, null
   br i1 %.not1049, label %pm_visit_node.exit1093, label %1001
 
@@ -4555,7 +4555,7 @@ pm_visit_node.exit1265:                           ; preds = %989, %993
   %.09141382 = phi i64 [ 0, %.lr.ph1384 ], [ %1013, %pm_visit_node.exit1268 ]
   %1008 = load ptr, ptr %1006, align 8, !tbaa !15
   %1009 = getelementptr ptr, ptr %1008, i64 %.09141382
-  %1010 = load ptr, ptr %1009, align 8, !tbaa !19
+  %1010 = load ptr, ptr %1009, align 8, !tbaa !18
   %1011 = tail call zeroext i1 %1(ptr noundef %1010, ptr noundef %2) #9
   br i1 %1011, label %1012, label %pm_visit_node.exit1268
 
@@ -4567,11 +4567,11 @@ pm_visit_node.exit1268:                           ; preds = %1007, %1012
   %1013 = add nuw i64 %.09141382, 1
   %1014 = load i64, ptr %1004, align 8, !tbaa !7
   %1015 = icmp ult i64 %1013, %1014
-  br i1 %1015, label %1007, label %pm_visit_node.exit1093, !llvm.loop !327
+  br i1 %1015, label %1007, label %pm_visit_node.exit1093, !llvm.loop !326
 
 1016:                                             ; preds = %tailrecurse
   %1017 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %1018 = load ptr, ptr %1017, align 8, !tbaa !283
+  %1018 = load ptr, ptr %1017, align 8, !tbaa !282
   %.not1059 = icmp eq ptr %1018, null
   br i1 %.not1059, label %pm_visit_node.exit1269, label %1019
 
@@ -4585,7 +4585,7 @@ pm_visit_node.exit1268:                           ; preds = %1007, %1012
 
 pm_visit_node.exit1269:                           ; preds = %1021, %1019, %1016
   %1022 = getelementptr inbounds nuw i8, ptr %.tr, i64 80
-  %1023 = load ptr, ptr %1022, align 8, !tbaa !285
+  %1023 = load ptr, ptr %1022, align 8, !tbaa !284
   %.not1060 = icmp eq ptr %1023, null
   br i1 %.not1060, label %pm_visit_node.exit1093, label %1024
 
@@ -4607,7 +4607,7 @@ pm_visit_node.exit1269:                           ; preds = %1021, %1019, %1016
   %.09101385 = phi i64 [ 0, %.lr.ph1387 ], [ %1036, %pm_visit_node.exit1271 ]
   %1031 = load ptr, ptr %1029, align 8, !tbaa !15
   %1032 = getelementptr ptr, ptr %1031, i64 %.09101385
-  %1033 = load ptr, ptr %1032, align 8, !tbaa !19
+  %1033 = load ptr, ptr %1032, align 8, !tbaa !18
   %1034 = tail call zeroext i1 %1(ptr noundef %1033, ptr noundef %2) #9
   br i1 %1034, label %1035, label %pm_visit_node.exit1271
 
@@ -4619,11 +4619,11 @@ pm_visit_node.exit1271:                           ; preds = %1030, %1035
   %1036 = add nuw i64 %.09101385, 1
   %1037 = load i64, ptr %1027, align 8, !tbaa !7
   %1038 = icmp ult i64 %1036, %1037
-  br i1 %1038, label %1030, label %pm_visit_node.exit1093, !llvm.loop !328
+  br i1 %1038, label %1030, label %pm_visit_node.exit1093, !llvm.loop !327
 
 1039:                                             ; preds = %tailrecurse
   %1040 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
-  %1041 = load ptr, ptr %1040, align 8, !tbaa !286
+  %1041 = load ptr, ptr %1040, align 8, !tbaa !285
   %1042 = tail call zeroext i1 %1(ptr noundef %1041, ptr noundef %2) #9
   br i1 %1042, label %1043, label %pm_visit_node.exit1272
 
@@ -4633,7 +4633,7 @@ pm_visit_node.exit1271:                           ; preds = %1030, %1035
 
 pm_visit_node.exit1272:                           ; preds = %1039, %1043
   %1044 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
-  %1045 = load ptr, ptr %1044, align 8, !tbaa !288
+  %1045 = load ptr, ptr %1044, align 8, !tbaa !287
   %.not1063 = icmp eq ptr %1045, null
   br i1 %.not1063, label %pm_visit_node.exit1273, label %1046
 
@@ -4647,7 +4647,7 @@ pm_visit_node.exit1272:                           ; preds = %1039, %1043
 
 pm_visit_node.exit1273:                           ; preds = %1048, %1046, %pm_visit_node.exit1272
   %1049 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
-  %1050 = load ptr, ptr %1049, align 8, !tbaa !289
+  %1050 = load ptr, ptr %1049, align 8, !tbaa !288
   %.not1064 = icmp eq ptr %1050, null
   br i1 %.not1064, label %pm_visit_node.exit1093, label %1051
 
@@ -4657,7 +4657,7 @@ pm_visit_node.exit1273:                           ; preds = %1048, %1046, %pm_vi
 
 1053:                                             ; preds = %tailrecurse
   %1054 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
-  %1055 = load ptr, ptr %1054, align 8, !tbaa !290
+  %1055 = load ptr, ptr %1054, align 8, !tbaa !289
   %1056 = tail call zeroext i1 %1(ptr noundef %1055, ptr noundef %2) #9
   br i1 %1056, label %1057, label %pm_visit_node.exit1275
 
@@ -4667,7 +4667,7 @@ pm_visit_node.exit1273:                           ; preds = %1048, %1046, %pm_vi
 
 pm_visit_node.exit1275:                           ; preds = %1053, %1057
   %1058 = getelementptr inbounds nuw i8, ptr %.tr, i64 80
-  %1059 = load ptr, ptr %1058, align 8, !tbaa !292
+  %1059 = load ptr, ptr %1058, align 8, !tbaa !291
   %.not1065 = icmp eq ptr %1059, null
   br i1 %.not1065, label %pm_visit_node.exit1093, label %1060
 
@@ -4687,7 +4687,7 @@ pm_visit_node.exit1275:                           ; preds = %1053, %1057
 
 ._crit_edge1352:                                  ; preds = %pm_visit_node.exit1277, %1062
   %1066 = getelementptr inbounds nuw i8, ptr %.tr, i64 80
-  %1067 = load ptr, ptr %1066, align 8, !tbaa !293
+  %1067 = load ptr, ptr %1066, align 8, !tbaa !292
   %.not1080 = icmp eq ptr %1067, null
   br i1 %.not1080, label %pm_visit_node.exit1093, label %1077
 
@@ -4695,7 +4695,7 @@ pm_visit_node.exit1275:                           ; preds = %1053, %1057
   %.09051349 = phi i64 [ 0, %.lr.ph1351 ], [ %1074, %pm_visit_node.exit1277 ]
   %1069 = load ptr, ptr %1065, align 8, !tbaa !15
   %1070 = getelementptr ptr, ptr %1069, i64 %.09051349
-  %1071 = load ptr, ptr %1070, align 8, !tbaa !19
+  %1071 = load ptr, ptr %1070, align 8, !tbaa !18
   %1072 = tail call zeroext i1 %1(ptr noundef %1071, ptr noundef %2) #9
   br i1 %1072, label %1073, label %pm_visit_node.exit1277
 
@@ -4707,7 +4707,7 @@ pm_visit_node.exit1277:                           ; preds = %1068, %1073
   %1074 = add nuw i64 %.09051349, 1
   %1075 = load i64, ptr %1063, align 8, !tbaa !7
   %1076 = icmp ult i64 %1074, %1075
-  br i1 %1076, label %1068, label %._crit_edge1352, !llvm.loop !329
+  br i1 %1076, label %1068, label %._crit_edge1352, !llvm.loop !328
 
 1077:                                             ; preds = %._crit_edge1352
   %1078 = tail call zeroext i1 %1(ptr noundef nonnull %1067, ptr noundef %2) #9
@@ -4715,7 +4715,7 @@ pm_visit_node.exit1277:                           ; preds = %1068, %1073
 
 1079:                                             ; preds = %tailrecurse
   %1080 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
-  %1081 = load ptr, ptr %1080, align 8, !tbaa !295
+  %1081 = load ptr, ptr %1080, align 8, !tbaa !294
   %1082 = tail call zeroext i1 %1(ptr noundef %1081, ptr noundef %2) #9
   br i1 %1082, label %1083, label %pm_visit_node.exit1279
 
@@ -4725,7 +4725,7 @@ pm_visit_node.exit1277:                           ; preds = %1068, %1073
 
 pm_visit_node.exit1279:                           ; preds = %1079, %1083
   %1084 = getelementptr inbounds nuw i8, ptr %.tr, i64 80
-  %1085 = load ptr, ptr %1084, align 8, !tbaa !297
+  %1085 = load ptr, ptr %1084, align 8, !tbaa !296
   %.not1083 = icmp eq ptr %1085, null
   br i1 %.not1083, label %pm_visit_node.exit1093, label %1086
 
@@ -4735,7 +4735,7 @@ pm_visit_node.exit1279:                           ; preds = %1079, %1083
 
 1088:                                             ; preds = %tailrecurse
   %1089 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
-  %1090 = load ptr, ptr %1089, align 8, !tbaa !298
+  %1090 = load ptr, ptr %1089, align 8, !tbaa !297
   %.not1089 = icmp eq ptr %1090, null
   br i1 %.not1089, label %pm_visit_node.exit1093, label %1091
 
@@ -4749,7 +4749,7 @@ pm_visit_node.exit1093:                           ; preds = %1091, %1086, %1077,
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = load i16, ptr %2, align 8, !tbaa !21
+  %4 = load i16, ptr %2, align 8, !tbaa !20
   switch i16 %4, label %common.ret [
     i16 1, label %5
     i16 2, label %29
@@ -4915,10 +4915,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.152, i64 noundef 45) #9
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = getelementptr i8, ptr %1, i64 304
-  %.val = load ptr, ptr %7, align 8, !tbaa !330
-  %.val5422 = load ptr, ptr %6, align 8, !tbaa !345
+  %.val = load ptr, ptr %7, align 8, !tbaa !329
+  %.val5422 = load ptr, ptr %6, align 8, !tbaa !344
   %8 = getelementptr i8, ptr %2, i64 16
-  %.val5423 = load ptr, ptr %8, align 8, !tbaa !346
+  %.val5423 = load ptr, ptr %8, align 8, !tbaa !345
   %9 = ptrtoint ptr %.val5422 to i64
   %10 = ptrtoint ptr %.val to i64
   %11 = sub i64 %9, %10
@@ -4930,20 +4930,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.153, i64 noundef 11) #9
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !27
+  %17 = load ptr, ptr %16, align 8, !tbaa !26
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %17)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.154, i64 noundef 11) #9
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !29
+  %19 = load ptr, ptr %18, align 8, !tbaa !28
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %19)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val5424 = load ptr, ptr %7, align 8, !tbaa !330
-  %.val5425 = load ptr, ptr %20, align 8, !tbaa !345
+  %.val5424 = load ptr, ptr %7, align 8, !tbaa !329
+  %.val5425 = load ptr, ptr %20, align 8, !tbaa !344
   %21 = getelementptr i8, ptr %2, i64 48
-  %.val5426 = load ptr, ptr %21, align 8, !tbaa !346
+  %.val5426 = load ptr, ptr %21, align 8, !tbaa !345
   %22 = ptrtoint ptr %.val5425 to i64
   %23 = ptrtoint ptr %.val5424 to i64
   %24 = sub i64 %22, %23
@@ -4958,10 +4958,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.156, i64 noundef 37) #9
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = getelementptr i8, ptr %1, i64 304
-  %.val5427 = load ptr, ptr %31, align 8, !tbaa !330
-  %.val5428 = load ptr, ptr %30, align 8, !tbaa !345
+  %.val5427 = load ptr, ptr %31, align 8, !tbaa !329
+  %.val5428 = load ptr, ptr %30, align 8, !tbaa !344
   %32 = getelementptr i8, ptr %2, i64 16
-  %.val5429 = load ptr, ptr %32, align 8, !tbaa !346
+  %.val5429 = load ptr, ptr %32, align 8, !tbaa !345
   %33 = ptrtoint ptr %.val5428 to i64
   %34 = ptrtoint ptr %.val5427 to i64
   %35 = sub i64 %33, %34
@@ -4973,20 +4973,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.153, i64 noundef 11) #9
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !30
+  %41 = load ptr, ptr %40, align 8, !tbaa !29
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %41)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.154, i64 noundef 11) #9
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !32
+  %43 = load ptr, ptr %42, align 8, !tbaa !31
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %43)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val5430 = load ptr, ptr %31, align 8, !tbaa !330
-  %.val5431 = load ptr, ptr %44, align 8, !tbaa !345
+  %.val5430 = load ptr, ptr %31, align 8, !tbaa !329
+  %.val5431 = load ptr, ptr %44, align 8, !tbaa !344
   %45 = getelementptr i8, ptr %2, i64 48
-  %.val5432 = load ptr, ptr %45, align 8, !tbaa !346
+  %.val5432 = load ptr, ptr %45, align 8, !tbaa !345
   %46 = ptrtoint ptr %.val5431 to i64
   %47 = ptrtoint ptr %.val5430 to i64
   %48 = sub i64 %46, %47
@@ -5001,10 +5001,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.157, i64 noundef 44) #9
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %55 = getelementptr i8, ptr %1, i64 304
-  %.val5433 = load ptr, ptr %55, align 8, !tbaa !330
-  %.val5434 = load ptr, ptr %54, align 8, !tbaa !345
+  %.val5433 = load ptr, ptr %55, align 8, !tbaa !329
+  %.val5434 = load ptr, ptr %54, align 8, !tbaa !344
   %56 = getelementptr i8, ptr %2, i64 16
-  %.val5435 = load ptr, ptr %56, align 8, !tbaa !346
+  %.val5435 = load ptr, ptr %56, align 8, !tbaa !345
   %57 = ptrtoint ptr %.val5434 to i64
   %58 = ptrtoint ptr %.val5433 to i64
   %59 = sub i64 %57, %58
@@ -5016,20 +5016,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.158, i64 noundef 7) #9
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !33
+  %65 = load ptr, ptr %64, align 8, !tbaa !32
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %65)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.159, i64 noundef 8) #9
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %67 = load ptr, ptr %66, align 8, !tbaa !35
+  %67 = load ptr, ptr %66, align 8, !tbaa !34
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %67)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val5436 = load ptr, ptr %55, align 8, !tbaa !330
-  %.val5437 = load ptr, ptr %68, align 8, !tbaa !345
+  %.val5436 = load ptr, ptr %55, align 8, !tbaa !329
+  %.val5437 = load ptr, ptr %68, align 8, !tbaa !344
   %69 = getelementptr i8, ptr %2, i64 48
-  %.val5438 = load ptr, ptr %69, align 8, !tbaa !346
+  %.val5438 = load ptr, ptr %69, align 8, !tbaa !345
   %70 = ptrtoint ptr %.val5437 to i64
   %71 = ptrtoint ptr %.val5436 to i64
   %72 = sub i64 %70, %71
@@ -5044,10 +5044,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.161, i64 noundef 29) #9
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %79 = getelementptr i8, ptr %1, i64 304
-  %.val5439 = load ptr, ptr %79, align 8, !tbaa !330
-  %.val5440 = load ptr, ptr %78, align 8, !tbaa !345
+  %.val5439 = load ptr, ptr %79, align 8, !tbaa !329
+  %.val5440 = load ptr, ptr %78, align 8, !tbaa !344
   %80 = getelementptr i8, ptr %2, i64 16
-  %.val5441 = load ptr, ptr %80, align 8, !tbaa !346
+  %.val5441 = load ptr, ptr %80, align 8, !tbaa !345
   %81 = ptrtoint ptr %.val5440 to i64
   %82 = ptrtoint ptr %.val5439 to i64
   %83 = sub i64 %81, %82
@@ -5059,20 +5059,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.158, i64 noundef 7) #9
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %89 = load ptr, ptr %88, align 8, !tbaa !36
+  %89 = load ptr, ptr %88, align 8, !tbaa !35
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %89)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.159, i64 noundef 8) #9
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %91 = load ptr, ptr %90, align 8, !tbaa !38
+  %91 = load ptr, ptr %90, align 8, !tbaa !37
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %91)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val5442 = load ptr, ptr %79, align 8, !tbaa !330
-  %.val5443 = load ptr, ptr %92, align 8, !tbaa !345
+  %.val5442 = load ptr, ptr %79, align 8, !tbaa !329
+  %.val5443 = load ptr, ptr %92, align 8, !tbaa !344
   %93 = getelementptr i8, ptr %2, i64 48
-  %.val5444 = load ptr, ptr %93, align 8, !tbaa !346
+  %.val5444 = load ptr, ptr %93, align 8, !tbaa !345
   %94 = ptrtoint ptr %.val5443 to i64
   %95 = ptrtoint ptr %.val5442 to i64
   %96 = sub i64 %94, %95
@@ -5087,10 +5087,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.162, i64 noundef 35) #9
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %103 = getelementptr i8, ptr %1, i64 304
-  %.val5445 = load ptr, ptr %103, align 8, !tbaa !330
-  %.val5446 = load ptr, ptr %102, align 8, !tbaa !345
+  %.val5445 = load ptr, ptr %103, align 8, !tbaa !329
+  %.val5446 = load ptr, ptr %102, align 8, !tbaa !344
   %104 = getelementptr i8, ptr %2, i64 16
-  %.val5447 = load ptr, ptr %104, align 8, !tbaa !346
+  %.val5447 = load ptr, ptr %104, align 8, !tbaa !345
   %105 = ptrtoint ptr %.val5446 to i64
   %106 = ptrtoint ptr %.val5445 to i64
   %107 = sub i64 %105, %106
@@ -5103,7 +5103,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.163, i64 noundef 21) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %113 = load i16, ptr %112, align 2, !tbaa !347
+  %113 = load i16, ptr %112, align 2, !tbaa !346
   %114 = and i16 %113, 4
   %.not5412 = icmp eq i16 %114, 0
   br i1 %.not5412, label %115, label %.thread
@@ -5115,7 +5115,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread:                                          ; preds = %101
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.164, i64 noundef 21) #9
-  %117 = load i16, ptr %112, align 2, !tbaa !347
+  %117 = load i16, ptr %112, align 2, !tbaa !346
   %118 = and i16 %117, 8
   %.not54136553 = icmp eq i16 %118, 0
   br i1 %.not54136553, label %.thread6559, label %119
@@ -5126,7 +5126,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 120:                                              ; preds = %119, %115
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.165, i64 noundef 19) #9
-  %.pre7350 = load i16, ptr %112, align 2, !tbaa !347
+  %.pre7350 = load i16, ptr %112, align 2, !tbaa !346
   %121 = and i16 %.pre7350, 16
   %.not5415 = icmp eq i16 %121, 0
   br i1 %.not5415, label %124, label %.thread6563
@@ -5147,7 +5147,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7357:                                      ; preds = %.thread7353, %.thread6563
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.166, i64 noundef 24) #9
-  %.pre7351 = load i16, ptr %112, align 2, !tbaa !347
+  %.pre7351 = load i16, ptr %112, align 2, !tbaa !346
   br label %124
 
 124:                                              ; preds = %.thread7357, %120
@@ -5172,7 +5172,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7364:                                      ; preds = %.thread7360, %.thread6572
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.167, i64 noundef 16) #9
-  %.pre7352 = load i16, ptr %112, align 2, !tbaa !347
+  %.pre7352 = load i16, ptr %112, align 2, !tbaa !346
   br label %129
 
 129:                                              ; preds = %.thread6568, %.thread7364, %124
@@ -5224,21 +5224,21 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 140:                                              ; preds = %139, %138
   %141 = load ptr, ptr %137, align 8, !tbaa !15
   %142 = getelementptr ptr, ptr %141, i64 %.048187247
-  %143 = load ptr, ptr %142, align 8, !tbaa !19
+  %143 = load ptr, ptr %142, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %143)
   %144 = add nuw i64 %.048187247, 1
   %145 = load i64, ptr %135, align 8, !tbaa !7
   %146 = icmp ult i64 %144, %145
-  br i1 %146, label %138, label %._crit_edge7250, !llvm.loop !348
+  br i1 %146, label %138, label %._crit_edge7250, !llvm.loop !347
 
 147:                                              ; preds = %3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.170, i64 noundef 31) #9
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %149 = getelementptr i8, ptr %1, i64 304
-  %.val5448 = load ptr, ptr %149, align 8, !tbaa !330
-  %.val5449 = load ptr, ptr %148, align 8, !tbaa !345
+  %.val5448 = load ptr, ptr %149, align 8, !tbaa !329
+  %.val5449 = load ptr, ptr %148, align 8, !tbaa !344
   %150 = getelementptr i8, ptr %2, i64 16
-  %.val5450 = load ptr, ptr %150, align 8, !tbaa !346
+  %.val5450 = load ptr, ptr %150, align 8, !tbaa !345
   %151 = ptrtoint ptr %.val5449 to i64
   %152 = ptrtoint ptr %.val5448 to i64
   %153 = sub i64 %151, %152
@@ -5251,7 +5251,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.171, i64 noundef 17) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %159 = load i16, ptr %158, align 2, !tbaa !347
+  %159 = load i16, ptr %158, align 2, !tbaa !346
   %160 = and i16 %159, 4
   %.not5408 = icmp eq i16 %160, 0
   br i1 %.not5408, label %162, label %161
@@ -5279,7 +5279,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %166 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %167 = load ptr, ptr %166, align 8, !tbaa !349
+  %167 = load ptr, ptr %166, align 8, !tbaa !348
   %.not5409 = icmp eq ptr %167, null
   br i1 %.not5409, label %186, label %177
 
@@ -5295,17 +5295,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 170:                                              ; preds = %169, %168
   %171 = load ptr, ptr %165, align 8, !tbaa !15
   %172 = getelementptr ptr, ptr %171, i64 %.048207243
-  %173 = load ptr, ptr %172, align 8, !tbaa !19
+  %173 = load ptr, ptr %172, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %173)
   %174 = add nuw i64 %.048207243, 1
   %175 = load i64, ptr %163, align 8, !tbaa !7
   %176 = icmp ult i64 %174, %175
-  br i1 %176, label %168, label %._crit_edge7246, !llvm.loop !351
+  br i1 %176, label %168, label %._crit_edge7246, !llvm.loop !350
 
 177:                                              ; preds = %._crit_edge7246
-  %.val5451 = load ptr, ptr %149, align 8, !tbaa !330
+  %.val5451 = load ptr, ptr %149, align 8, !tbaa !329
   %178 = getelementptr i8, ptr %2, i64 56
-  %.val5453 = load ptr, ptr %178, align 8, !tbaa !346
+  %.val5453 = load ptr, ptr %178, align 8, !tbaa !345
   %179 = ptrtoint ptr %167 to i64
   %180 = ptrtoint ptr %.val5451 to i64
   %181 = sub i64 %179, %180
@@ -5324,14 +5324,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %188 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %189 = load ptr, ptr %188, align 8, !tbaa !352
+  %189 = load ptr, ptr %188, align 8, !tbaa !351
   %.not5410 = icmp eq ptr %189, null
   br i1 %.not5410, label %199, label %190
 
 190:                                              ; preds = %187
-  %.val5454 = load ptr, ptr %149, align 8, !tbaa !330
+  %.val5454 = load ptr, ptr %149, align 8, !tbaa !329
   %191 = getelementptr i8, ptr %2, i64 72
-  %.val5456 = load ptr, ptr %191, align 8, !tbaa !346
+  %.val5456 = load ptr, ptr %191, align 8, !tbaa !345
   %192 = ptrtoint ptr %189 to i64
   %193 = ptrtoint ptr %.val5454 to i64
   %194 = sub i64 %192, %193
@@ -5350,10 +5350,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.176, i64 noundef 38) #9
   %201 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %202 = getelementptr i8, ptr %1, i64 304
-  %.val5457 = load ptr, ptr %202, align 8, !tbaa !330
-  %.val5458 = load ptr, ptr %201, align 8, !tbaa !345
+  %.val5457 = load ptr, ptr %202, align 8, !tbaa !329
+  %.val5458 = load ptr, ptr %201, align 8, !tbaa !344
   %203 = getelementptr i8, ptr %2, i64 16
-  %.val5459 = load ptr, ptr %203, align 8, !tbaa !346
+  %.val5459 = load ptr, ptr %203, align 8, !tbaa !345
   %204 = ptrtoint ptr %.val5458 to i64
   %205 = ptrtoint ptr %.val5457 to i64
   %206 = sub i64 %204, %205
@@ -5365,7 +5365,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.177, i64 noundef 11) #9
   %211 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %212 = load ptr, ptr %211, align 8, !tbaa !39
+  %212 = load ptr, ptr %211, align 8, !tbaa !38
   %.not5402 = icmp eq ptr %212, null
   br i1 %.not5402, label %214, label %213
 
@@ -5395,7 +5395,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.179, i64 noundef 7) #9
   %219 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %220 = load ptr, ptr %219, align 8, !tbaa !41
+  %220 = load ptr, ptr %219, align 8, !tbaa !40
   %.not5403 = icmp eq ptr %220, null
   br i1 %.not5403, label %231, label %230
 
@@ -5411,12 +5411,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 223:                                              ; preds = %222, %221
   %224 = load ptr, ptr %218, align 8, !tbaa !15
   %225 = getelementptr ptr, ptr %224, i64 %.048227235
-  %226 = load ptr, ptr %225, align 8, !tbaa !19
+  %226 = load ptr, ptr %225, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %226)
   %227 = add nuw i64 %.048227235, 1
   %228 = load i64, ptr %216, align 8, !tbaa !7
   %229 = icmp ult i64 %227, %228
-  br i1 %229, label %221, label %._crit_edge7238, !llvm.loop !353
+  br i1 %229, label %221, label %._crit_edge7238, !llvm.loop !352
 
 230:                                              ; preds = %._crit_edge7238
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %220)
@@ -5444,7 +5444,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %237 = load ptr, ptr %236, align 8, !tbaa !354
+  %237 = load ptr, ptr %236, align 8, !tbaa !353
   %.not5404 = icmp eq ptr %237, null
   br i1 %.not5404, label %256, label %247
 
@@ -5460,17 +5460,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 240:                                              ; preds = %239, %238
   %241 = load ptr, ptr %235, align 8, !tbaa !15
   %242 = getelementptr ptr, ptr %241, i64 %.048237239
-  %243 = load ptr, ptr %242, align 8, !tbaa !19
+  %243 = load ptr, ptr %242, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %243)
   %244 = add nuw i64 %.048237239, 1
   %245 = load i64, ptr %233, align 8, !tbaa !7
   %246 = icmp ult i64 %244, %245
-  br i1 %246, label %238, label %._crit_edge7242, !llvm.loop !355
+  br i1 %246, label %238, label %._crit_edge7242, !llvm.loop !354
 
 247:                                              ; preds = %._crit_edge7242
-  %.val5460 = load ptr, ptr %202, align 8, !tbaa !330
+  %.val5460 = load ptr, ptr %202, align 8, !tbaa !329
   %248 = getelementptr i8, ptr %2, i64 96
-  %.val5462 = load ptr, ptr %248, align 8, !tbaa !346
+  %.val5462 = load ptr, ptr %248, align 8, !tbaa !345
   %249 = ptrtoint ptr %237 to i64
   %250 = ptrtoint ptr %.val5460 to i64
   %251 = sub i64 %249, %250
@@ -5489,14 +5489,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %258 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %259 = load ptr, ptr %258, align 8, !tbaa !356
+  %259 = load ptr, ptr %258, align 8, !tbaa !355
   %.not5405 = icmp eq ptr %259, null
   br i1 %.not5405, label %269, label %260
 
 260:                                              ; preds = %257
-  %.val5463 = load ptr, ptr %202, align 8, !tbaa !330
+  %.val5463 = load ptr, ptr %202, align 8, !tbaa !329
   %261 = getelementptr i8, ptr %2, i64 112
-  %.val5465 = load ptr, ptr %261, align 8, !tbaa !346
+  %.val5465 = load ptr, ptr %261, align 8, !tbaa !345
   %262 = ptrtoint ptr %259 to i64
   %263 = ptrtoint ptr %.val5463 to i64
   %264 = sub i64 %262, %263
@@ -5515,10 +5515,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.181, i64 noundef 31) #9
   %271 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %272 = getelementptr i8, ptr %1, i64 304
-  %.val5466 = load ptr, ptr %272, align 8, !tbaa !330
-  %.val5467 = load ptr, ptr %271, align 8, !tbaa !345
+  %.val5466 = load ptr, ptr %272, align 8, !tbaa !329
+  %.val5467 = load ptr, ptr %271, align 8, !tbaa !344
   %273 = getelementptr i8, ptr %2, i64 16
-  %.val5468 = load ptr, ptr %273, align 8, !tbaa !346
+  %.val5468 = load ptr, ptr %273, align 8, !tbaa !345
   %274 = ptrtoint ptr %.val5467 to i64
   %275 = ptrtoint ptr %.val5466 to i64
   %276 = sub i64 %274, %275
@@ -5530,24 +5530,24 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.182, i64 noundef 6) #9
   %281 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %282 = load ptr, ptr %281, align 8, !tbaa !42
+  %282 = load ptr, ptr %281, align 8, !tbaa !41
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %282)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %283 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %284 = load ptr, ptr %283, align 8, !tbaa !44
+  %284 = load ptr, ptr %283, align 8, !tbaa !43
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %284)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %285 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %286 = load ptr, ptr %285, align 8, !tbaa !357
+  %286 = load ptr, ptr %285, align 8, !tbaa !356
   %.not5401 = icmp eq ptr %286, null
   br i1 %.not5401, label %296, label %287
 
 287:                                              ; preds = %270
-  %.val5469 = load ptr, ptr %272, align 8, !tbaa !330
+  %.val5469 = load ptr, ptr %272, align 8, !tbaa !329
   %288 = getelementptr i8, ptr %2, i64 48
-  %.val5471 = load ptr, ptr %288, align 8, !tbaa !346
+  %.val5471 = load ptr, ptr %288, align 8, !tbaa !345
   %289 = ptrtoint ptr %286 to i64
   %290 = ptrtoint ptr %.val5469 to i64
   %291 = sub i64 %289, %290
@@ -5566,10 +5566,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.184, i64 noundef 36) #9
   %298 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %299 = getelementptr i8, ptr %1, i64 304
-  %.val5472 = load ptr, ptr %299, align 8, !tbaa !330
-  %.val5473 = load ptr, ptr %298, align 8, !tbaa !345
+  %.val5472 = load ptr, ptr %299, align 8, !tbaa !329
+  %.val5473 = load ptr, ptr %298, align 8, !tbaa !344
   %300 = getelementptr i8, ptr %2, i64 16
-  %.val5474 = load ptr, ptr %300, align 8, !tbaa !346
+  %.val5474 = load ptr, ptr %300, align 8, !tbaa !345
   %301 = ptrtoint ptr %.val5473 to i64
   %302 = ptrtoint ptr %.val5472 to i64
   %303 = sub i64 %301, %302
@@ -5581,7 +5581,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %308 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %309 = load ptr, ptr %308, align 8, !tbaa !45
+  %309 = load ptr, ptr %308, align 8, !tbaa !44
   %.not5400 = icmp eq ptr %309, null
   br i1 %.not5400, label %311, label %310
 
@@ -5597,10 +5597,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %313 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5475 = load ptr, ptr %299, align 8, !tbaa !330
-  %.val5476 = load ptr, ptr %313, align 8, !tbaa !345
+  %.val5475 = load ptr, ptr %299, align 8, !tbaa !329
+  %.val5476 = load ptr, ptr %313, align 8, !tbaa !344
   %314 = getelementptr i8, ptr %2, i64 40
-  %.val5477 = load ptr, ptr %314, align 8, !tbaa !346
+  %.val5477 = load ptr, ptr %314, align 8, !tbaa !345
   %315 = ptrtoint ptr %.val5476 to i64
   %316 = ptrtoint ptr %.val5475 to i64
   %317 = sub i64 %315, %316
@@ -5615,10 +5615,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.185, i64 noundef 43) #9
   %323 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %324 = getelementptr i8, ptr %1, i64 304
-  %.val5478 = load ptr, ptr %324, align 8, !tbaa !330
-  %.val5479 = load ptr, ptr %323, align 8, !tbaa !345
+  %.val5478 = load ptr, ptr %324, align 8, !tbaa !329
+  %.val5479 = load ptr, ptr %323, align 8, !tbaa !344
   %325 = getelementptr i8, ptr %2, i64 16
-  %.val5480 = load ptr, ptr %325, align 8, !tbaa !346
+  %.val5480 = load ptr, ptr %325, align 8, !tbaa !345
   %326 = ptrtoint ptr %.val5479 to i64
   %327 = ptrtoint ptr %.val5478 to i64
   %328 = sub i64 %326, %327
@@ -5630,7 +5630,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %333 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %334 = load i32, ptr %333, align 8, !tbaa !358
+  %334 = load i32, ptr %333, align 8, !tbaa !357
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %334)
   br label %common.ret.sink.split
 
@@ -5638,10 +5638,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.187, i64 noundef 31) #9
   %336 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %337 = getelementptr i8, ptr %1, i64 304
-  %.val5481 = load ptr, ptr %337, align 8, !tbaa !330
-  %.val5482 = load ptr, ptr %336, align 8, !tbaa !345
+  %.val5481 = load ptr, ptr %337, align 8, !tbaa !329
+  %.val5482 = load ptr, ptr %336, align 8, !tbaa !344
   %338 = getelementptr i8, ptr %2, i64 16
-  %.val5483 = load ptr, ptr %338, align 8, !tbaa !346
+  %.val5483 = load ptr, ptr %338, align 8, !tbaa !345
   %339 = ptrtoint ptr %.val5482 to i64
   %340 = ptrtoint ptr %.val5481 to i64
   %341 = sub i64 %339, %340
@@ -5653,14 +5653,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.188, i64 noundef 20) #9
   %346 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %347 = load ptr, ptr %346, align 8, !tbaa !360
+  %347 = load ptr, ptr %346, align 8, !tbaa !359
   %.not5394 = icmp eq ptr %347, null
   br i1 %.not5394, label %357, label %348
 
 348:                                              ; preds = %335
-  %.val5484 = load ptr, ptr %337, align 8, !tbaa !330
+  %.val5484 = load ptr, ptr %337, align 8, !tbaa !329
   %349 = getelementptr i8, ptr %2, i64 32
-  %.val5486 = load ptr, ptr %349, align 8, !tbaa !346
+  %.val5486 = load ptr, ptr %349, align 8, !tbaa !345
   %350 = ptrtoint ptr %347 to i64
   %351 = ptrtoint ptr %.val5484 to i64
   %352 = sub i64 %350, %351
@@ -5679,7 +5679,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %359 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %360 = load ptr, ptr %359, align 8, !tbaa !47
+  %360 = load ptr, ptr %359, align 8, !tbaa !46
   %.not5395 = icmp eq ptr %360, null
   br i1 %.not5395, label %362, label %361
 
@@ -5695,7 +5695,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.190, i64 noundef 16) #9
   %364 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %365 = load ptr, ptr %364, align 8, !tbaa !53
+  %365 = load ptr, ptr %364, align 8, !tbaa !52
   %.not5396 = icmp eq ptr %365, null
   br i1 %.not5396, label %367, label %366
 
@@ -5711,7 +5711,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.191, i64 noundef 14) #9
   %369 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %370 = load ptr, ptr %369, align 8, !tbaa !54
+  %370 = load ptr, ptr %369, align 8, !tbaa !53
   %.not5397 = icmp eq ptr %370, null
   br i1 %.not5397, label %372, label %371
 
@@ -5727,7 +5727,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.192, i64 noundef 16) #9
   %374 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %375 = load ptr, ptr %374, align 8, !tbaa !55
+  %375 = load ptr, ptr %374, align 8, !tbaa !54
   %.not5398 = icmp eq ptr %375, null
   br i1 %.not5398, label %377, label %376
 
@@ -5743,14 +5743,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 18) #9
   %379 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %380 = load ptr, ptr %379, align 8, !tbaa !361
+  %380 = load ptr, ptr %379, align 8, !tbaa !360
   %.not5399 = icmp eq ptr %380, null
   br i1 %.not5399, label %390, label %381
 
 381:                                              ; preds = %378
-  %.val5487 = load ptr, ptr %337, align 8, !tbaa !330
+  %.val5487 = load ptr, ptr %337, align 8, !tbaa !329
   %382 = getelementptr i8, ptr %2, i64 80
-  %.val5489 = load ptr, ptr %382, align 8, !tbaa !346
+  %.val5489 = load ptr, ptr %382, align 8, !tbaa !345
   %383 = ptrtoint ptr %380 to i64
   %384 = ptrtoint ptr %.val5487 to i64
   %385 = sub i64 %383, %384
@@ -5769,10 +5769,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.194, i64 noundef 39) #9
   %392 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %393 = getelementptr i8, ptr %1, i64 304
-  %.val5490 = load ptr, ptr %393, align 8, !tbaa !330
-  %.val5491 = load ptr, ptr %392, align 8, !tbaa !345
+  %.val5490 = load ptr, ptr %393, align 8, !tbaa !329
+  %.val5491 = load ptr, ptr %392, align 8, !tbaa !344
   %394 = getelementptr i8, ptr %2, i64 16
-  %.val5492 = load ptr, ptr %394, align 8, !tbaa !346
+  %.val5492 = load ptr, ptr %394, align 8, !tbaa !345
   %395 = ptrtoint ptr %.val5491 to i64
   %396 = ptrtoint ptr %.val5490 to i64
   %397 = sub i64 %395, %396
@@ -5784,7 +5784,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.195, i64 noundef 13) #9
   %402 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %403 = load ptr, ptr %402, align 8, !tbaa !56
+  %403 = load ptr, ptr %402, align 8, !tbaa !55
   %.not5393 = icmp eq ptr %403, null
   br i1 %.not5393, label %405, label %404
 
@@ -5800,10 +5800,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %407 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5493 = load ptr, ptr %393, align 8, !tbaa !330
-  %.val5494 = load ptr, ptr %407, align 8, !tbaa !345
+  %.val5493 = load ptr, ptr %393, align 8, !tbaa !329
+  %.val5494 = load ptr, ptr %407, align 8, !tbaa !344
   %408 = getelementptr i8, ptr %2, i64 40
-  %.val5495 = load ptr, ptr %408, align 8, !tbaa !346
+  %.val5495 = load ptr, ptr %408, align 8, !tbaa !345
   %409 = ptrtoint ptr %.val5494 to i64
   %410 = ptrtoint ptr %.val5493 to i64
   %411 = sub i64 %409, %410
@@ -5818,10 +5818,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.196, i64 noundef 44) #9
   %417 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %418 = getelementptr i8, ptr %1, i64 304
-  %.val5496 = load ptr, ptr %418, align 8, !tbaa !330
-  %.val5497 = load ptr, ptr %417, align 8, !tbaa !345
+  %.val5496 = load ptr, ptr %418, align 8, !tbaa !329
+  %.val5497 = load ptr, ptr %417, align 8, !tbaa !344
   %419 = getelementptr i8, ptr %2, i64 16
-  %.val5498 = load ptr, ptr %419, align 8, !tbaa !346
+  %.val5498 = load ptr, ptr %419, align 8, !tbaa !345
   %420 = ptrtoint ptr %.val5497 to i64
   %421 = ptrtoint ptr %.val5496 to i64
   %422 = sub i64 %420, %421
@@ -5834,7 +5834,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.197, i64 noundef 17) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %427 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %428 = load i16, ptr %427, align 2, !tbaa !347
+  %428 = load i16, ptr %427, align 2, !tbaa !346
   %429 = and i16 %428, 4
   %.not5392 = icmp eq i16 %429, 0
   br i1 %.not5392, label %431, label %430
@@ -5848,7 +5848,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %432 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %433 = load i32, ptr %432, align 8, !tbaa !362
+  %433 = load i32, ptr %432, align 8, !tbaa !361
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %433)
   br label %common.ret.sink.split
 
@@ -5856,10 +5856,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.199, i64 noundef 31) #9
   %435 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %436 = getelementptr i8, ptr %1, i64 304
-  %.val5499 = load ptr, ptr %436, align 8, !tbaa !330
-  %.val5500 = load ptr, ptr %435, align 8, !tbaa !345
+  %.val5499 = load ptr, ptr %436, align 8, !tbaa !329
+  %.val5500 = load ptr, ptr %435, align 8, !tbaa !344
   %437 = getelementptr i8, ptr %2, i64 16
-  %.val5501 = load ptr, ptr %437, align 8, !tbaa !346
+  %.val5501 = load ptr, ptr %437, align 8, !tbaa !345
   %438 = ptrtoint ptr %.val5500 to i64
   %439 = ptrtoint ptr %.val5499 to i64
   %440 = sub i64 %438, %439
@@ -5872,7 +5872,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.200, i64 noundef 9) #9
   %445 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
-  %446 = load i64, ptr %445, align 8, !tbaa !364
+  %446 = load i64, ptr %445, align 8, !tbaa !363
   %.not7282 = icmp eq i64 %446, 0
   br i1 %.not7282, label %._crit_edge7234, label %.lr.ph7233
 
@@ -5886,7 +5886,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.201, i64 noundef 13) #9
   %449 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %450 = load ptr, ptr %449, align 8, !tbaa !58
+  %450 = load ptr, ptr %449, align 8, !tbaa !57
   %.not5389 = icmp eq ptr %450, null
   br i1 %.not5389, label %465, label %464
 
@@ -5900,20 +5900,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %453
 
 453:                                              ; preds = %452, %451
-  %454 = load ptr, ptr %447, align 8, !tbaa !365
+  %454 = load ptr, ptr %447, align 8, !tbaa !364
   %455 = getelementptr i32, ptr %454, i64 %.048247231
-  %456 = load i32, ptr %455, align 4, !tbaa !366
+  %456 = load i32, ptr %455, align 4, !tbaa !365
   %457 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %448, i32 noundef %456) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
-  %458 = load ptr, ptr %457, align 8, !tbaa !367
+  %458 = load ptr, ptr %457, align 8, !tbaa !366
   %459 = getelementptr inbounds nuw i8, ptr %457, i64 8
-  %460 = load i64, ptr %459, align 8, !tbaa !369
+  %460 = load i64, ptr %459, align 8, !tbaa !368
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %458, i64 noundef %460, i32 noundef 1) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
   %461 = add nuw i64 %.048247231, 1
-  %462 = load i64, ptr %445, align 8, !tbaa !364
+  %462 = load i64, ptr %445, align 8, !tbaa !363
   %463 = icmp ult i64 %461, %462
-  br i1 %463, label %451, label %._crit_edge7234, !llvm.loop !370
+  br i1 %463, label %451, label %._crit_edge7234, !llvm.loop !369
 
 464:                                              ; preds = %._crit_edge7234
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %450)
@@ -5927,7 +5927,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.202, i64 noundef 7) #9
   %467 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %468 = load ptr, ptr %467, align 8, !tbaa !62
+  %468 = load ptr, ptr %467, align 8, !tbaa !61
   %.not5390 = icmp eq ptr %468, null
   br i1 %.not5390, label %470, label %469
 
@@ -5943,10 +5943,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %472 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val5502 = load ptr, ptr %436, align 8, !tbaa !330
-  %.val5503 = load ptr, ptr %472, align 8, !tbaa !345
+  %.val5502 = load ptr, ptr %436, align 8, !tbaa !329
+  %.val5503 = load ptr, ptr %472, align 8, !tbaa !344
   %473 = getelementptr i8, ptr %2, i64 72
-  %.val5504 = load ptr, ptr %473, align 8, !tbaa !346
+  %.val5504 = load ptr, ptr %473, align 8, !tbaa !345
   %474 = ptrtoint ptr %.val5503 to i64
   %475 = ptrtoint ptr %.val5502 to i64
   %476 = sub i64 %474, %475
@@ -5958,10 +5958,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %481 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %.val5505 = load ptr, ptr %436, align 8, !tbaa !330
-  %.val5506 = load ptr, ptr %481, align 8, !tbaa !345
+  %.val5505 = load ptr, ptr %436, align 8, !tbaa !329
+  %.val5506 = load ptr, ptr %481, align 8, !tbaa !344
   %482 = getelementptr i8, ptr %2, i64 88
-  %.val5507 = load ptr, ptr %482, align 8, !tbaa !346
+  %.val5507 = load ptr, ptr %482, align 8, !tbaa !345
   %483 = ptrtoint ptr %.val5506 to i64
   %484 = ptrtoint ptr %.val5505 to i64
   %485 = sub i64 %483, %484
@@ -5976,10 +5976,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.203, i64 noundef 40) #9
   %491 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %492 = getelementptr i8, ptr %1, i64 304
-  %.val5508 = load ptr, ptr %492, align 8, !tbaa !330
-  %.val5509 = load ptr, ptr %491, align 8, !tbaa !345
+  %.val5508 = load ptr, ptr %492, align 8, !tbaa !329
+  %.val5509 = load ptr, ptr %491, align 8, !tbaa !344
   %493 = getelementptr i8, ptr %2, i64 16
-  %.val5510 = load ptr, ptr %493, align 8, !tbaa !346
+  %.val5510 = load ptr, ptr %493, align 8, !tbaa !345
   %494 = ptrtoint ptr %.val5509 to i64
   %495 = ptrtoint ptr %.val5508 to i64
   %496 = sub i64 %494, %495
@@ -5992,7 +5992,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.197, i64 noundef 17) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %501 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %502 = load i16, ptr %501, align 2, !tbaa !347
+  %502 = load i16, ptr %501, align 2, !tbaa !346
   %503 = and i16 %502, 4
   %.not5386 = icmp eq i16 %503, 0
   br i1 %.not5386, label %505, label %504
@@ -6006,7 +6006,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %506 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %507 = load i32, ptr %506, align 8, !tbaa !371
+  %507 = load i32, ptr %506, align 8, !tbaa !370
   %.not5387 = icmp eq i32 %507, 0
   br i1 %.not5387, label %509, label %508
 
@@ -6022,14 +6022,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %511 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %512 = load ptr, ptr %511, align 8, !tbaa !373
+  %512 = load ptr, ptr %511, align 8, !tbaa !372
   %.not5388 = icmp eq ptr %512, null
   br i1 %.not5388, label %522, label %513
 
 513:                                              ; preds = %510
-  %.val5511 = load ptr, ptr %492, align 8, !tbaa !330
+  %.val5511 = load ptr, ptr %492, align 8, !tbaa !329
   %514 = getelementptr i8, ptr %2, i64 40
-  %.val5513 = load ptr, ptr %514, align 8, !tbaa !346
+  %.val5513 = load ptr, ptr %514, align 8, !tbaa !345
   %515 = ptrtoint ptr %512 to i64
   %516 = ptrtoint ptr %.val5511 to i64
   %517 = sub i64 %515, %516
@@ -6048,10 +6048,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %524 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5514 = load ptr, ptr %492, align 8, !tbaa !330
-  %.val5515 = load ptr, ptr %524, align 8, !tbaa !345
+  %.val5514 = load ptr, ptr %492, align 8, !tbaa !329
+  %.val5515 = load ptr, ptr %524, align 8, !tbaa !344
   %525 = getelementptr i8, ptr %2, i64 56
-  %.val5516 = load ptr, ptr %525, align 8, !tbaa !346
+  %.val5516 = load ptr, ptr %525, align 8, !tbaa !345
   %526 = ptrtoint ptr %.val5515 to i64
   %527 = ptrtoint ptr %.val5514 to i64
   %528 = sub i64 %526, %527
@@ -6066,10 +6066,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.205, i64 noundef 41) #9
   %534 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %535 = getelementptr i8, ptr %1, i64 304
-  %.val5517 = load ptr, ptr %535, align 8, !tbaa !330
-  %.val5518 = load ptr, ptr %534, align 8, !tbaa !345
+  %.val5517 = load ptr, ptr %535, align 8, !tbaa !329
+  %.val5518 = load ptr, ptr %534, align 8, !tbaa !344
   %536 = getelementptr i8, ptr %2, i64 16
-  %.val5519 = load ptr, ptr %536, align 8, !tbaa !346
+  %.val5519 = load ptr, ptr %536, align 8, !tbaa !345
   %537 = ptrtoint ptr %.val5518 to i64
   %538 = ptrtoint ptr %.val5517 to i64
   %539 = sub i64 %537, %538
@@ -6081,7 +6081,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.201, i64 noundef 13) #9
   %544 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %545 = load ptr, ptr %544, align 8, !tbaa !63
+  %545 = load ptr, ptr %544, align 8, !tbaa !62
   %.not5382 = icmp eq ptr %545, null
   br i1 %.not5382, label %547, label %546
 
@@ -6111,7 +6111,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %552 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %553 = load ptr, ptr %552, align 8, !tbaa !374
+  %553 = load ptr, ptr %552, align 8, !tbaa !373
   %.not5383 = icmp eq ptr %553, null
   br i1 %.not5383, label %572, label %563
 
@@ -6127,17 +6127,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 556:                                              ; preds = %555, %554
   %557 = load ptr, ptr %551, align 8, !tbaa !15
   %558 = getelementptr ptr, ptr %557, i64 %.048267227
-  %559 = load ptr, ptr %558, align 8, !tbaa !19
+  %559 = load ptr, ptr %558, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %559)
   %560 = add nuw i64 %.048267227, 1
   %561 = load i64, ptr %549, align 8, !tbaa !7
   %562 = icmp ult i64 %560, %561
-  br i1 %562, label %554, label %._crit_edge7230, !llvm.loop !375
+  br i1 %562, label %554, label %._crit_edge7230, !llvm.loop !374
 
 563:                                              ; preds = %._crit_edge7230
-  %.val5520 = load ptr, ptr %535, align 8, !tbaa !330
+  %.val5520 = load ptr, ptr %535, align 8, !tbaa !329
   %564 = getelementptr i8, ptr %2, i64 64
-  %.val5522 = load ptr, ptr %564, align 8, !tbaa !346
+  %.val5522 = load ptr, ptr %564, align 8, !tbaa !345
   %565 = ptrtoint ptr %553 to i64
   %566 = ptrtoint ptr %.val5520 to i64
   %567 = sub i64 %565, %566
@@ -6156,14 +6156,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %574 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %575 = load ptr, ptr %574, align 8, !tbaa !376
+  %575 = load ptr, ptr %574, align 8, !tbaa !375
   %.not5384 = icmp eq ptr %575, null
   br i1 %.not5384, label %585, label %576
 
 576:                                              ; preds = %573
-  %.val5523 = load ptr, ptr %535, align 8, !tbaa !330
+  %.val5523 = load ptr, ptr %535, align 8, !tbaa !329
   %577 = getelementptr i8, ptr %2, i64 80
-  %.val5525 = load ptr, ptr %577, align 8, !tbaa !346
+  %.val5525 = load ptr, ptr %577, align 8, !tbaa !345
   %578 = ptrtoint ptr %575 to i64
   %579 = ptrtoint ptr %.val5523 to i64
   %580 = sub i64 %578, %579
@@ -6182,10 +6182,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.206, i64 noundef 31) #9
   %587 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %588 = getelementptr i8, ptr %1, i64 304
-  %.val5526 = load ptr, ptr %588, align 8, !tbaa !330
-  %.val5527 = load ptr, ptr %587, align 8, !tbaa !345
+  %.val5526 = load ptr, ptr %588, align 8, !tbaa !329
+  %.val5527 = load ptr, ptr %587, align 8, !tbaa !344
   %589 = getelementptr i8, ptr %2, i64 16
-  %.val5528 = load ptr, ptr %589, align 8, !tbaa !346
+  %.val5528 = load ptr, ptr %589, align 8, !tbaa !345
   %590 = ptrtoint ptr %.val5527 to i64
   %591 = ptrtoint ptr %.val5526 to i64
   %592 = sub i64 %590, %591
@@ -6197,7 +6197,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.169, i64 noundef 12) #9
   %597 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %598 = load ptr, ptr %597, align 8, !tbaa !66
+  %598 = load ptr, ptr %597, align 8, !tbaa !65
   %.not5381 = icmp eq ptr %598, null
   br i1 %.not5381, label %600, label %599
 
@@ -6213,10 +6213,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %602 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5529 = load ptr, ptr %588, align 8, !tbaa !330
-  %.val5530 = load ptr, ptr %602, align 8, !tbaa !345
+  %.val5529 = load ptr, ptr %588, align 8, !tbaa !329
+  %.val5530 = load ptr, ptr %602, align 8, !tbaa !344
   %603 = getelementptr i8, ptr %2, i64 40
-  %.val5531 = load ptr, ptr %603, align 8, !tbaa !346
+  %.val5531 = load ptr, ptr %603, align 8, !tbaa !345
   %604 = ptrtoint ptr %.val5530 to i64
   %605 = ptrtoint ptr %.val5529 to i64
   %606 = sub i64 %604, %605
@@ -6231,10 +6231,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.207, i64 noundef 38) #9
   %612 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %613 = getelementptr i8, ptr %1, i64 304
-  %.val5532 = load ptr, ptr %613, align 8, !tbaa !330
-  %.val5533 = load ptr, ptr %612, align 8, !tbaa !345
+  %.val5532 = load ptr, ptr %613, align 8, !tbaa !329
+  %.val5533 = load ptr, ptr %612, align 8, !tbaa !344
   %614 = getelementptr i8, ptr %2, i64 16
-  %.val5534 = load ptr, ptr %614, align 8, !tbaa !346
+  %.val5534 = load ptr, ptr %614, align 8, !tbaa !345
   %615 = ptrtoint ptr %.val5533 to i64
   %616 = ptrtoint ptr %.val5532 to i64
   %617 = sub i64 %615, %616
@@ -6247,7 +6247,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.208, i64 noundef 16) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %622 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %623 = load i16, ptr %622, align 2, !tbaa !347
+  %623 = load i16, ptr %622, align 2, !tbaa !346
   %624 = and i16 %623, 4
   %.not5371 = icmp eq i16 %624, 0
   br i1 %.not5371, label %625, label %.thread6575
@@ -6259,7 +6259,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6575:                                      ; preds = %611
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.209, i64 noundef 17) #9
-  %627 = load i16, ptr %622, align 2, !tbaa !347
+  %627 = load i16, ptr %622, align 2, !tbaa !346
   %628 = and i16 %627, 8
   %.not53726577 = icmp eq i16 %628, 0
   br i1 %.not53726577, label %.thread6583, label %629
@@ -6270,7 +6270,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 630:                                              ; preds = %629, %625
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.210, i64 noundef 15) #9
-  %.pre7348 = load i16, ptr %622, align 2, !tbaa !347
+  %.pre7348 = load i16, ptr %622, align 2, !tbaa !346
   %631 = and i16 %.pre7348, 16
   %.not5374 = icmp eq i16 %631, 0
   br i1 %.not5374, label %634, label %.thread6587
@@ -6291,7 +6291,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7378:                                      ; preds = %.thread7374, %.thread6587
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.211, i64 noundef 17) #9
-  %.pre7349 = load i16, ptr %622, align 2, !tbaa !347
+  %.pre7349 = load i16, ptr %622, align 2, !tbaa !346
   br label %634
 
 634:                                              ; preds = %.thread6583, %.thread7378, %630
@@ -6318,7 +6318,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.213, i64 noundef 11) #9
   %640 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %641 = load ptr, ptr %640, align 8, !tbaa !69
+  %641 = load ptr, ptr %640, align 8, !tbaa !68
   %.not5378 = icmp eq ptr %641, null
   br i1 %.not5378, label %643, label %642
 
@@ -6334,14 +6334,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.214, i64 noundef 20) #9
   %645 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %646 = load ptr, ptr %645, align 8, !tbaa !377
+  %646 = load ptr, ptr %645, align 8, !tbaa !376
   %.not5379 = icmp eq ptr %646, null
   br i1 %.not5379, label %656, label %647
 
 647:                                              ; preds = %644
-  %.val5535 = load ptr, ptr %613, align 8, !tbaa !330
+  %.val5535 = load ptr, ptr %613, align 8, !tbaa !329
   %648 = getelementptr i8, ptr %2, i64 40
-  %.val5537 = load ptr, ptr %648, align 8, !tbaa !346
+  %.val5537 = load ptr, ptr %648, align 8, !tbaa !345
   %649 = ptrtoint ptr %646 to i64
   %650 = ptrtoint ptr %.val5535 to i64
   %651 = sub i64 %649, %650
@@ -6360,14 +6360,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.215, i64 noundef 14) #9
   %658 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %659 = load ptr, ptr %658, align 8, !tbaa !378
+  %659 = load ptr, ptr %658, align 8, !tbaa !377
   %.not5380 = icmp eq ptr %659, null
   br i1 %.not5380, label %669, label %660
 
 660:                                              ; preds = %657
-  %.val5538 = load ptr, ptr %613, align 8, !tbaa !330
+  %.val5538 = load ptr, ptr %613, align 8, !tbaa !329
   %661 = getelementptr i8, ptr %2, i64 56
-  %.val5540 = load ptr, ptr %661, align 8, !tbaa !346
+  %.val5540 = load ptr, ptr %661, align 8, !tbaa !345
   %662 = ptrtoint ptr %659 to i64
   %663 = ptrtoint ptr %.val5538 to i64
   %664 = sub i64 %662, %663
@@ -6386,20 +6386,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.216, i64 noundef 12) #9
   %671 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %672 = load i32, ptr %671, align 8, !tbaa !379
+  %672 = load i32, ptr %671, align 8, !tbaa !378
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %672)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.217, i64 noundef 13) #9
   %673 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %674 = load i32, ptr %673, align 4, !tbaa !380
+  %674 = load i32, ptr %673, align 4, !tbaa !379
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %674)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %675 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %.val5541 = load ptr, ptr %613, align 8, !tbaa !330
-  %.val5542 = load ptr, ptr %675, align 8, !tbaa !345
+  %.val5541 = load ptr, ptr %613, align 8, !tbaa !329
+  %.val5542 = load ptr, ptr %675, align 8, !tbaa !344
   %676 = getelementptr i8, ptr %2, i64 80
-  %.val5543 = load ptr, ptr %676, align 8, !tbaa !346
+  %.val5543 = load ptr, ptr %676, align 8, !tbaa !345
   %677 = ptrtoint ptr %.val5542 to i64
   %678 = ptrtoint ptr %.val5541 to i64
   %679 = sub i64 %677, %678
@@ -6411,7 +6411,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %684 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %685 = load ptr, ptr %684, align 8, !tbaa !71
+  %685 = load ptr, ptr %684, align 8, !tbaa !70
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %685)
   br label %common.ret.sink.split
 
@@ -6419,10 +6419,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.218, i64 noundef 30) #9
   %687 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %688 = getelementptr i8, ptr %1, i64 304
-  %.val5544 = load ptr, ptr %688, align 8, !tbaa !330
-  %.val5545 = load ptr, ptr %687, align 8, !tbaa !345
+  %.val5544 = load ptr, ptr %688, align 8, !tbaa !329
+  %.val5545 = load ptr, ptr %687, align 8, !tbaa !344
   %689 = getelementptr i8, ptr %2, i64 16
-  %.val5546 = load ptr, ptr %689, align 8, !tbaa !346
+  %.val5546 = load ptr, ptr %689, align 8, !tbaa !345
   %690 = ptrtoint ptr %.val5545 to i64
   %691 = ptrtoint ptr %.val5544 to i64
   %692 = sub i64 %690, %691
@@ -6435,7 +6435,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.208, i64 noundef 16) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %697 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %698 = load i16, ptr %697, align 2, !tbaa !347
+  %698 = load i16, ptr %697, align 2, !tbaa !346
   %699 = and i16 %698, 4
   %.not5357 = icmp eq i16 %699, 0
   br i1 %.not5357, label %700, label %.thread6590
@@ -6447,7 +6447,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6590:                                      ; preds = %686
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.209, i64 noundef 17) #9
-  %702 = load i16, ptr %697, align 2, !tbaa !347
+  %702 = load i16, ptr %697, align 2, !tbaa !346
   %703 = and i16 %702, 8
   %.not53586592 = icmp eq i16 %703, 0
   br i1 %.not53586592, label %.thread6598, label %704
@@ -6458,7 +6458,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 705:                                              ; preds = %704, %700
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.210, i64 noundef 15) #9
-  %.pre7346 = load i16, ptr %697, align 2, !tbaa !347
+  %.pre7346 = load i16, ptr %697, align 2, !tbaa !346
   %706 = and i16 %.pre7346, 16
   %.not5360 = icmp eq i16 %706, 0
   br i1 %.not5360, label %709, label %.thread6602
@@ -6479,7 +6479,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7392:                                      ; preds = %.thread7388, %.thread6602
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.211, i64 noundef 17) #9
-  %.pre7347 = load i16, ptr %697, align 2, !tbaa !347
+  %.pre7347 = load i16, ptr %697, align 2, !tbaa !346
   br label %709
 
 709:                                              ; preds = %.thread6598, %.thread7392, %705
@@ -6506,7 +6506,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.213, i64 noundef 11) #9
   %715 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %716 = load ptr, ptr %715, align 8, !tbaa !72
+  %716 = load ptr, ptr %715, align 8, !tbaa !71
   %.not5364 = icmp eq ptr %716, null
   br i1 %.not5364, label %718, label %717
 
@@ -6522,14 +6522,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.214, i64 noundef 20) #9
   %720 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %721 = load ptr, ptr %720, align 8, !tbaa !381
+  %721 = load ptr, ptr %720, align 8, !tbaa !380
   %.not5365 = icmp eq ptr %721, null
   br i1 %.not5365, label %731, label %722
 
 722:                                              ; preds = %719
-  %.val5547 = load ptr, ptr %688, align 8, !tbaa !330
+  %.val5547 = load ptr, ptr %688, align 8, !tbaa !329
   %723 = getelementptr i8, ptr %2, i64 40
-  %.val5549 = load ptr, ptr %723, align 8, !tbaa !346
+  %.val5549 = load ptr, ptr %723, align 8, !tbaa !345
   %724 = ptrtoint ptr %721 to i64
   %725 = ptrtoint ptr %.val5547 to i64
   %726 = sub i64 %724, %725
@@ -6548,19 +6548,19 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %733 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %734 = load i32, ptr %733, align 8, !tbaa !382
+  %734 = load i32, ptr %733, align 8, !tbaa !381
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %734)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.215, i64 noundef 14) #9
   %735 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %736 = load ptr, ptr %735, align 8, !tbaa !383
+  %736 = load ptr, ptr %735, align 8, !tbaa !382
   %.not5366 = icmp eq ptr %736, null
   br i1 %.not5366, label %746, label %737
 
 737:                                              ; preds = %732
-  %.val5550 = load ptr, ptr %688, align 8, !tbaa !330
+  %.val5550 = load ptr, ptr %688, align 8, !tbaa !329
   %738 = getelementptr i8, ptr %2, i64 64
-  %.val5552 = load ptr, ptr %738, align 8, !tbaa !346
+  %.val5552 = load ptr, ptr %738, align 8, !tbaa !345
   %739 = ptrtoint ptr %736 to i64
   %740 = ptrtoint ptr %.val5550 to i64
   %741 = sub i64 %739, %740
@@ -6579,14 +6579,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %748 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %749 = load ptr, ptr %748, align 8, !tbaa !384
+  %749 = load ptr, ptr %748, align 8, !tbaa !383
   %.not5367 = icmp eq ptr %749, null
   br i1 %.not5367, label %759, label %750
 
 750:                                              ; preds = %747
-  %.val5553 = load ptr, ptr %688, align 8, !tbaa !330
+  %.val5553 = load ptr, ptr %688, align 8, !tbaa !329
   %751 = getelementptr i8, ptr %2, i64 80
-  %.val5555 = load ptr, ptr %751, align 8, !tbaa !346
+  %.val5555 = load ptr, ptr %751, align 8, !tbaa !345
   %752 = ptrtoint ptr %749 to i64
   %753 = ptrtoint ptr %.val5553 to i64
   %754 = sub i64 %752, %753
@@ -6605,7 +6605,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.169, i64 noundef 12) #9
   %761 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %762 = load ptr, ptr %761, align 8, !tbaa !74
+  %762 = load ptr, ptr %761, align 8, !tbaa !73
   %.not5368 = icmp eq ptr %762, null
   br i1 %.not5368, label %764, label %763
 
@@ -6621,14 +6621,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %766 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %767 = load ptr, ptr %766, align 8, !tbaa !385
+  %767 = load ptr, ptr %766, align 8, !tbaa !384
   %.not5369 = icmp eq ptr %767, null
   br i1 %.not5369, label %777, label %768
 
 768:                                              ; preds = %765
-  %.val5556 = load ptr, ptr %688, align 8, !tbaa !330
+  %.val5556 = load ptr, ptr %688, align 8, !tbaa !329
   %769 = getelementptr i8, ptr %2, i64 104
-  %.val5558 = load ptr, ptr %769, align 8, !tbaa !346
+  %.val5558 = load ptr, ptr %769, align 8, !tbaa !345
   %770 = ptrtoint ptr %767 to i64
   %771 = ptrtoint ptr %.val5556 to i64
   %772 = sub i64 %770, %771
@@ -6647,7 +6647,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.219, i64 noundef 8) #9
   %779 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %780 = load ptr, ptr %779, align 8, !tbaa !75
+  %780 = load ptr, ptr %779, align 8, !tbaa !74
   %.not5370 = icmp eq ptr %780, null
   br i1 %.not5370, label %782, label %781
 
@@ -6663,10 +6663,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.220, i64 noundef 43) #9
   %784 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %785 = getelementptr i8, ptr %1, i64 304
-  %.val5559 = load ptr, ptr %785, align 8, !tbaa !330
-  %.val5560 = load ptr, ptr %784, align 8, !tbaa !345
+  %.val5559 = load ptr, ptr %785, align 8, !tbaa !329
+  %.val5560 = load ptr, ptr %784, align 8, !tbaa !344
   %786 = getelementptr i8, ptr %2, i64 16
-  %.val5561 = load ptr, ptr %786, align 8, !tbaa !346
+  %.val5561 = load ptr, ptr %786, align 8, !tbaa !345
   %787 = ptrtoint ptr %.val5560 to i64
   %788 = ptrtoint ptr %.val5559 to i64
   %789 = sub i64 %787, %788
@@ -6679,7 +6679,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.208, i64 noundef 16) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %794 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %795 = load i16, ptr %794, align 2, !tbaa !347
+  %795 = load i16, ptr %794, align 2, !tbaa !346
   %796 = and i16 %795, 4
   %.not5347 = icmp eq i16 %796, 0
   br i1 %.not5347, label %797, label %.thread6605
@@ -6691,7 +6691,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6605:                                      ; preds = %783
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.209, i64 noundef 17) #9
-  %799 = load i16, ptr %794, align 2, !tbaa !347
+  %799 = load i16, ptr %794, align 2, !tbaa !346
   %800 = and i16 %799, 8
   %.not53486607 = icmp eq i16 %800, 0
   br i1 %.not53486607, label %.thread6613, label %801
@@ -6702,7 +6702,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 802:                                              ; preds = %801, %797
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.210, i64 noundef 15) #9
-  %.pre7344 = load i16, ptr %794, align 2, !tbaa !347
+  %.pre7344 = load i16, ptr %794, align 2, !tbaa !346
   %803 = and i16 %.pre7344, 16
   %.not5350 = icmp eq i16 %803, 0
   br i1 %.not5350, label %806, label %.thread6617
@@ -6723,7 +6723,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7406:                                      ; preds = %.thread7402, %.thread6617
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.211, i64 noundef 17) #9
-  %.pre7345 = load i16, ptr %794, align 2, !tbaa !347
+  %.pre7345 = load i16, ptr %794, align 2, !tbaa !346
   br label %806
 
 806:                                              ; preds = %.thread6613, %.thread7406, %802
@@ -6750,7 +6750,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.213, i64 noundef 11) #9
   %812 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %813 = load ptr, ptr %812, align 8, !tbaa !76
+  %813 = load ptr, ptr %812, align 8, !tbaa !75
   %.not5354 = icmp eq ptr %813, null
   br i1 %.not5354, label %815, label %814
 
@@ -6766,14 +6766,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.214, i64 noundef 20) #9
   %817 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %818 = load ptr, ptr %817, align 8, !tbaa !386
+  %818 = load ptr, ptr %817, align 8, !tbaa !385
   %.not5355 = icmp eq ptr %818, null
   br i1 %.not5355, label %828, label %819
 
 819:                                              ; preds = %816
-  %.val5562 = load ptr, ptr %785, align 8, !tbaa !330
+  %.val5562 = load ptr, ptr %785, align 8, !tbaa !329
   %820 = getelementptr i8, ptr %2, i64 40
-  %.val5564 = load ptr, ptr %820, align 8, !tbaa !346
+  %.val5564 = load ptr, ptr %820, align 8, !tbaa !345
   %821 = ptrtoint ptr %818 to i64
   %822 = ptrtoint ptr %.val5562 to i64
   %823 = sub i64 %821, %822
@@ -6792,14 +6792,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.215, i64 noundef 14) #9
   %830 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %831 = load ptr, ptr %830, align 8, !tbaa !387
+  %831 = load ptr, ptr %830, align 8, !tbaa !386
   %.not5356 = icmp eq ptr %831, null
   br i1 %.not5356, label %841, label %832
 
 832:                                              ; preds = %829
-  %.val5565 = load ptr, ptr %785, align 8, !tbaa !330
+  %.val5565 = load ptr, ptr %785, align 8, !tbaa !329
   %833 = getelementptr i8, ptr %2, i64 56
-  %.val5567 = load ptr, ptr %833, align 8, !tbaa !346
+  %.val5567 = load ptr, ptr %833, align 8, !tbaa !345
   %834 = ptrtoint ptr %831 to i64
   %835 = ptrtoint ptr %.val5565 to i64
   %836 = sub i64 %834, %835
@@ -6818,25 +6818,25 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.216, i64 noundef 12) #9
   %843 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %844 = load i32, ptr %843, align 8, !tbaa !388
+  %844 = load i32, ptr %843, align 8, !tbaa !387
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %844)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.217, i64 noundef 13) #9
   %845 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %846 = load i32, ptr %845, align 4, !tbaa !389
+  %846 = load i32, ptr %845, align 4, !tbaa !388
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %846)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.221, i64 noundef 18) #9
   %847 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %848 = load i32, ptr %847, align 8, !tbaa !390
+  %848 = load i32, ptr %847, align 8, !tbaa !389
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %848)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.222, i64 noundef 22) #9
   %849 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %.val5568 = load ptr, ptr %785, align 8, !tbaa !330
-  %.val5569 = load ptr, ptr %849, align 8, !tbaa !345
+  %.val5568 = load ptr, ptr %785, align 8, !tbaa !329
+  %.val5569 = load ptr, ptr %849, align 8, !tbaa !344
   %850 = getelementptr i8, ptr %2, i64 88
-  %.val5570 = load ptr, ptr %850, align 8, !tbaa !346
+  %.val5570 = load ptr, ptr %850, align 8, !tbaa !345
   %851 = ptrtoint ptr %.val5569 to i64
   %852 = ptrtoint ptr %.val5568 to i64
   %853 = sub i64 %851, %852
@@ -6848,7 +6848,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %858 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %859 = load ptr, ptr %858, align 8, !tbaa !78
+  %859 = load ptr, ptr %858, align 8, !tbaa !77
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %859)
   br label %common.ret.sink.split
 
@@ -6856,10 +6856,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.223, i64 noundef 37) #9
   %861 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %862 = getelementptr i8, ptr %1, i64 304
-  %.val5571 = load ptr, ptr %862, align 8, !tbaa !330
-  %.val5572 = load ptr, ptr %861, align 8, !tbaa !345
+  %.val5571 = load ptr, ptr %862, align 8, !tbaa !329
+  %.val5572 = load ptr, ptr %861, align 8, !tbaa !344
   %863 = getelementptr i8, ptr %2, i64 16
-  %.val5573 = load ptr, ptr %863, align 8, !tbaa !346
+  %.val5573 = load ptr, ptr %863, align 8, !tbaa !345
   %864 = ptrtoint ptr %.val5572 to i64
   %865 = ptrtoint ptr %.val5571 to i64
   %866 = sub i64 %864, %865
@@ -6872,7 +6872,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.208, i64 noundef 16) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %871 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %872 = load i16, ptr %871, align 2, !tbaa !347
+  %872 = load i16, ptr %871, align 2, !tbaa !346
   %873 = and i16 %872, 4
   %.not5337 = icmp eq i16 %873, 0
   br i1 %.not5337, label %874, label %.thread6620
@@ -6884,7 +6884,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6620:                                      ; preds = %860
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.209, i64 noundef 17) #9
-  %876 = load i16, ptr %871, align 2, !tbaa !347
+  %876 = load i16, ptr %871, align 2, !tbaa !346
   %877 = and i16 %876, 8
   %.not53386622 = icmp eq i16 %877, 0
   br i1 %.not53386622, label %.thread6628, label %878
@@ -6895,7 +6895,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 879:                                              ; preds = %878, %874
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.210, i64 noundef 15) #9
-  %.pre7342 = load i16, ptr %871, align 2, !tbaa !347
+  %.pre7342 = load i16, ptr %871, align 2, !tbaa !346
   %880 = and i16 %.pre7342, 16
   %.not5340 = icmp eq i16 %880, 0
   br i1 %.not5340, label %883, label %.thread6632
@@ -6916,7 +6916,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7420:                                      ; preds = %.thread7416, %.thread6632
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.211, i64 noundef 17) #9
-  %.pre7343 = load i16, ptr %871, align 2, !tbaa !347
+  %.pre7343 = load i16, ptr %871, align 2, !tbaa !346
   br label %883
 
 883:                                              ; preds = %.thread6628, %.thread7420, %879
@@ -6943,7 +6943,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.213, i64 noundef 11) #9
   %889 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %890 = load ptr, ptr %889, align 8, !tbaa !79
+  %890 = load ptr, ptr %889, align 8, !tbaa !78
   %.not5344 = icmp eq ptr %890, null
   br i1 %.not5344, label %892, label %891
 
@@ -6959,14 +6959,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.214, i64 noundef 20) #9
   %894 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %895 = load ptr, ptr %894, align 8, !tbaa !391
+  %895 = load ptr, ptr %894, align 8, !tbaa !390
   %.not5345 = icmp eq ptr %895, null
   br i1 %.not5345, label %905, label %896
 
 896:                                              ; preds = %893
-  %.val5574 = load ptr, ptr %862, align 8, !tbaa !330
+  %.val5574 = load ptr, ptr %862, align 8, !tbaa !329
   %897 = getelementptr i8, ptr %2, i64 40
-  %.val5576 = load ptr, ptr %897, align 8, !tbaa !346
+  %.val5576 = load ptr, ptr %897, align 8, !tbaa !345
   %898 = ptrtoint ptr %895 to i64
   %899 = ptrtoint ptr %.val5574 to i64
   %900 = sub i64 %898, %899
@@ -6985,14 +6985,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.215, i64 noundef 14) #9
   %907 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %908 = load ptr, ptr %907, align 8, !tbaa !392
+  %908 = load ptr, ptr %907, align 8, !tbaa !391
   %.not5346 = icmp eq ptr %908, null
   br i1 %.not5346, label %918, label %909
 
 909:                                              ; preds = %906
-  %.val5577 = load ptr, ptr %862, align 8, !tbaa !330
+  %.val5577 = load ptr, ptr %862, align 8, !tbaa !329
   %910 = getelementptr i8, ptr %2, i64 56
-  %.val5579 = load ptr, ptr %910, align 8, !tbaa !346
+  %.val5579 = load ptr, ptr %910, align 8, !tbaa !345
   %911 = ptrtoint ptr %908 to i64
   %912 = ptrtoint ptr %.val5577 to i64
   %913 = sub i64 %911, %912
@@ -7011,20 +7011,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.216, i64 noundef 12) #9
   %920 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %921 = load i32, ptr %920, align 8, !tbaa !393
+  %921 = load i32, ptr %920, align 8, !tbaa !392
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %921)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.217, i64 noundef 13) #9
   %922 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %923 = load i32, ptr %922, align 4, !tbaa !394
+  %923 = load i32, ptr %922, align 4, !tbaa !393
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %923)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %924 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %.val5580 = load ptr, ptr %862, align 8, !tbaa !330
-  %.val5581 = load ptr, ptr %924, align 8, !tbaa !345
+  %.val5580 = load ptr, ptr %862, align 8, !tbaa !329
+  %.val5581 = load ptr, ptr %924, align 8, !tbaa !344
   %925 = getelementptr i8, ptr %2, i64 80
-  %.val5582 = load ptr, ptr %925, align 8, !tbaa !346
+  %.val5582 = load ptr, ptr %925, align 8, !tbaa !345
   %926 = ptrtoint ptr %.val5581 to i64
   %927 = ptrtoint ptr %.val5580 to i64
   %928 = sub i64 %926, %927
@@ -7036,7 +7036,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %933 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %934 = load ptr, ptr %933, align 8, !tbaa !81
+  %934 = load ptr, ptr %933, align 8, !tbaa !80
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %934)
   br label %common.ret.sink.split
 
@@ -7044,10 +7044,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.224, i64 noundef 36) #9
   %936 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %937 = getelementptr i8, ptr %1, i64 304
-  %.val5583 = load ptr, ptr %937, align 8, !tbaa !330
-  %.val5584 = load ptr, ptr %936, align 8, !tbaa !345
+  %.val5583 = load ptr, ptr %937, align 8, !tbaa !329
+  %.val5584 = load ptr, ptr %936, align 8, !tbaa !344
   %938 = getelementptr i8, ptr %2, i64 16
-  %.val5585 = load ptr, ptr %938, align 8, !tbaa !346
+  %.val5585 = load ptr, ptr %938, align 8, !tbaa !345
   %939 = ptrtoint ptr %.val5584 to i64
   %940 = ptrtoint ptr %.val5583 to i64
   %941 = sub i64 %939, %940
@@ -7060,7 +7060,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.208, i64 noundef 16) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %946 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %947 = load i16, ptr %946, align 2, !tbaa !347
+  %947 = load i16, ptr %946, align 2, !tbaa !346
   %948 = and i16 %947, 4
   %.not5330 = icmp eq i16 %948, 0
   br i1 %.not5330, label %949, label %.thread6635
@@ -7072,7 +7072,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6635:                                      ; preds = %935
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.209, i64 noundef 17) #9
-  %951 = load i16, ptr %946, align 2, !tbaa !347
+  %951 = load i16, ptr %946, align 2, !tbaa !346
   %952 = and i16 %951, 8
   %.not53316637 = icmp eq i16 %952, 0
   br i1 %.not53316637, label %.thread6643, label %953
@@ -7083,7 +7083,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 954:                                              ; preds = %953, %949
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.210, i64 noundef 15) #9
-  %.pre7340 = load i16, ptr %946, align 2, !tbaa !347
+  %.pre7340 = load i16, ptr %946, align 2, !tbaa !346
   %955 = and i16 %.pre7340, 16
   %.not5333 = icmp eq i16 %955, 0
   br i1 %.not5333, label %958, label %.thread6647
@@ -7104,7 +7104,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7434:                                      ; preds = %.thread7430, %.thread6647
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.211, i64 noundef 17) #9
-  %.pre7341 = load i16, ptr %946, align 2, !tbaa !347
+  %.pre7341 = load i16, ptr %946, align 2, !tbaa !346
   br label %958
 
 958:                                              ; preds = %.thread6643, %.thread7434, %954
@@ -7131,15 +7131,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.213, i64 noundef 11) #9
   %964 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %965 = load ptr, ptr %964, align 8, !tbaa !82
+  %965 = load ptr, ptr %964, align 8, !tbaa !81
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %965)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.214, i64 noundef 20) #9
   %966 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5586 = load ptr, ptr %937, align 8, !tbaa !330
-  %.val5587 = load ptr, ptr %966, align 8, !tbaa !345
+  %.val5586 = load ptr, ptr %937, align 8, !tbaa !329
+  %.val5587 = load ptr, ptr %966, align 8, !tbaa !344
   %967 = getelementptr i8, ptr %2, i64 40
-  %.val5588 = load ptr, ptr %967, align 8, !tbaa !346
+  %.val5588 = load ptr, ptr %967, align 8, !tbaa !345
   %968 = ptrtoint ptr %.val5587 to i64
   %969 = ptrtoint ptr %.val5586 to i64
   %970 = sub i64 %968, %969
@@ -7151,15 +7151,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %975 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %976 = load i32, ptr %975, align 8, !tbaa !395
+  %976 = load i32, ptr %975, align 8, !tbaa !394
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %976)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.215, i64 noundef 14) #9
   %977 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.val5589 = load ptr, ptr %937, align 8, !tbaa !330
-  %.val5590 = load ptr, ptr %977, align 8, !tbaa !345
+  %.val5589 = load ptr, ptr %937, align 8, !tbaa !329
+  %.val5590 = load ptr, ptr %977, align 8, !tbaa !344
   %978 = getelementptr i8, ptr %2, i64 64
-  %.val5591 = load ptr, ptr %978, align 8, !tbaa !346
+  %.val5591 = load ptr, ptr %978, align 8, !tbaa !345
   %979 = ptrtoint ptr %.val5590 to i64
   %980 = ptrtoint ptr %.val5589 to i64
   %981 = sub i64 %979, %980
@@ -7174,10 +7174,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.225, i64 noundef 40) #9
   %987 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %988 = getelementptr i8, ptr %1, i64 304
-  %.val5592 = load ptr, ptr %988, align 8, !tbaa !330
-  %.val5593 = load ptr, ptr %987, align 8, !tbaa !345
+  %.val5592 = load ptr, ptr %988, align 8, !tbaa !329
+  %.val5593 = load ptr, ptr %987, align 8, !tbaa !344
   %989 = getelementptr i8, ptr %2, i64 16
-  %.val5594 = load ptr, ptr %989, align 8, !tbaa !346
+  %.val5594 = load ptr, ptr %989, align 8, !tbaa !345
   %990 = ptrtoint ptr %.val5593 to i64
   %991 = ptrtoint ptr %.val5592 to i64
   %992 = sub i64 %990, %991
@@ -7189,20 +7189,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %997 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %998 = load ptr, ptr %997, align 8, !tbaa !84
+  %998 = load ptr, ptr %997, align 8, !tbaa !83
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %998)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.226, i64 noundef 9) #9
   %999 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1000 = load ptr, ptr %999, align 8, !tbaa !87
+  %1000 = load ptr, ptr %999, align 8, !tbaa !86
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1000)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %1001 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val5595 = load ptr, ptr %988, align 8, !tbaa !330
-  %.val5596 = load ptr, ptr %1001, align 8, !tbaa !345
+  %.val5595 = load ptr, ptr %988, align 8, !tbaa !329
+  %.val5596 = load ptr, ptr %1001, align 8, !tbaa !344
   %1002 = getelementptr i8, ptr %2, i64 48
-  %.val5597 = load ptr, ptr %1002, align 8, !tbaa !346
+  %.val5597 = load ptr, ptr %1002, align 8, !tbaa !345
   %1003 = ptrtoint ptr %.val5596 to i64
   %1004 = ptrtoint ptr %.val5595 to i64
   %1005 = sub i64 %1003, %1004
@@ -7217,10 +7217,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.227, i64 noundef 35) #9
   %1011 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1012 = getelementptr i8, ptr %1, i64 304
-  %.val5598 = load ptr, ptr %1012, align 8, !tbaa !330
-  %.val5599 = load ptr, ptr %1011, align 8, !tbaa !345
+  %.val5598 = load ptr, ptr %1012, align 8, !tbaa !329
+  %.val5599 = load ptr, ptr %1011, align 8, !tbaa !344
   %1013 = getelementptr i8, ptr %2, i64 16
-  %.val5600 = load ptr, ptr %1013, align 8, !tbaa !346
+  %.val5600 = load ptr, ptr %1013, align 8, !tbaa !345
   %1014 = ptrtoint ptr %.val5599 to i64
   %1015 = ptrtoint ptr %.val5598 to i64
   %1016 = sub i64 %1014, %1015
@@ -7232,7 +7232,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.228, i64 noundef 12) #9
   %1021 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1022 = load ptr, ptr %1021, align 8, !tbaa !88
+  %1022 = load ptr, ptr %1021, align 8, !tbaa !87
   %.not5327 = icmp eq ptr %1022, null
   br i1 %.not5327, label %1024, label %1023
 
@@ -7262,7 +7262,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.191, i64 noundef 14) #9
   %1029 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %1030 = load ptr, ptr %1029, align 8, !tbaa !90
+  %1030 = load ptr, ptr %1029, align 8, !tbaa !89
   %.not5328 = icmp eq ptr %1030, null
   br i1 %.not5328, label %1041, label %1040
 
@@ -7278,12 +7278,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 1033:                                             ; preds = %1032, %1031
   %1034 = load ptr, ptr %1028, align 8, !tbaa !15
   %1035 = getelementptr ptr, ptr %1034, i64 %.048477223
-  %1036 = load ptr, ptr %1035, align 8, !tbaa !19
+  %1036 = load ptr, ptr %1035, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1036)
   %1037 = add nuw i64 %.048477223, 1
   %1038 = load i64, ptr %1026, align 8, !tbaa !7
   %1039 = icmp ult i64 %1037, %1038
-  br i1 %1039, label %1031, label %._crit_edge7226, !llvm.loop !396
+  br i1 %1039, label %1031, label %._crit_edge7226, !llvm.loop !395
 
 1040:                                             ; preds = %._crit_edge7226
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1030)
@@ -7297,10 +7297,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.230, i64 noundef 19) #9
   %1043 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val5601 = load ptr, ptr %1012, align 8, !tbaa !330
-  %.val5602 = load ptr, ptr %1043, align 8, !tbaa !345
+  %.val5601 = load ptr, ptr %1012, align 8, !tbaa !329
+  %.val5602 = load ptr, ptr %1043, align 8, !tbaa !344
   %1044 = getelementptr i8, ptr %2, i64 72
-  %.val5603 = load ptr, ptr %1044, align 8, !tbaa !346
+  %.val5603 = load ptr, ptr %1044, align 8, !tbaa !345
   %1045 = ptrtoint ptr %.val5602 to i64
   %1046 = ptrtoint ptr %.val5601 to i64
   %1047 = sub i64 %1045, %1046
@@ -7312,10 +7312,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 18) #9
   %1052 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %.val5604 = load ptr, ptr %1012, align 8, !tbaa !330
-  %.val5605 = load ptr, ptr %1052, align 8, !tbaa !345
+  %.val5604 = load ptr, ptr %1012, align 8, !tbaa !329
+  %.val5605 = load ptr, ptr %1052, align 8, !tbaa !344
   %1053 = getelementptr i8, ptr %2, i64 88
-  %.val5606 = load ptr, ptr %1053, align 8, !tbaa !346
+  %.val5606 = load ptr, ptr %1053, align 8, !tbaa !345
   %1054 = ptrtoint ptr %.val5605 to i64
   %1055 = ptrtoint ptr %.val5604 to i64
   %1056 = sub i64 %1054, %1055
@@ -7330,10 +7330,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.231, i64 noundef 30) #9
   %1062 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1063 = getelementptr i8, ptr %1, i64 304
-  %.val5607 = load ptr, ptr %1063, align 8, !tbaa !330
-  %.val5608 = load ptr, ptr %1062, align 8, !tbaa !345
+  %.val5607 = load ptr, ptr %1063, align 8, !tbaa !329
+  %.val5608 = load ptr, ptr %1062, align 8, !tbaa !344
   %1064 = getelementptr i8, ptr %2, i64 16
-  %.val5609 = load ptr, ptr %1064, align 8, !tbaa !346
+  %.val5609 = load ptr, ptr %1064, align 8, !tbaa !345
   %1065 = ptrtoint ptr %.val5608 to i64
   %1066 = ptrtoint ptr %.val5607 to i64
   %1067 = sub i64 %1065, %1066
@@ -7345,7 +7345,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.228, i64 noundef 12) #9
   %1072 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1073 = load ptr, ptr %1072, align 8, !tbaa !91
+  %1073 = load ptr, ptr %1072, align 8, !tbaa !90
   %.not5324 = icmp eq ptr %1073, null
   br i1 %.not5324, label %1075, label %1074
 
@@ -7375,7 +7375,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.191, i64 noundef 14) #9
   %1080 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %1081 = load ptr, ptr %1080, align 8, !tbaa !93
+  %1081 = load ptr, ptr %1080, align 8, !tbaa !92
   %.not5325 = icmp eq ptr %1081, null
   br i1 %.not5325, label %1092, label %1091
 
@@ -7391,12 +7391,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 1084:                                             ; preds = %1083, %1082
   %1085 = load ptr, ptr %1079, align 8, !tbaa !15
   %1086 = getelementptr ptr, ptr %1085, i64 %.048497219
-  %1087 = load ptr, ptr %1086, align 8, !tbaa !19
+  %1087 = load ptr, ptr %1086, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1087)
   %1088 = add nuw i64 %.048497219, 1
   %1089 = load i64, ptr %1077, align 8, !tbaa !7
   %1090 = icmp ult i64 %1088, %1089
-  br i1 %1090, label %1082, label %._crit_edge7222, !llvm.loop !397
+  br i1 %1090, label %1082, label %._crit_edge7222, !llvm.loop !396
 
 1091:                                             ; preds = %._crit_edge7222
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1081)
@@ -7410,10 +7410,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.230, i64 noundef 19) #9
   %1094 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val5610 = load ptr, ptr %1063, align 8, !tbaa !330
-  %.val5611 = load ptr, ptr %1094, align 8, !tbaa !345
+  %.val5610 = load ptr, ptr %1063, align 8, !tbaa !329
+  %.val5611 = load ptr, ptr %1094, align 8, !tbaa !344
   %1095 = getelementptr i8, ptr %2, i64 72
-  %.val5612 = load ptr, ptr %1095, align 8, !tbaa !346
+  %.val5612 = load ptr, ptr %1095, align 8, !tbaa !345
   %1096 = ptrtoint ptr %.val5611 to i64
   %1097 = ptrtoint ptr %.val5610 to i64
   %1098 = sub i64 %1096, %1097
@@ -7425,10 +7425,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 18) #9
   %1103 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %.val5613 = load ptr, ptr %1063, align 8, !tbaa !330
-  %.val5614 = load ptr, ptr %1103, align 8, !tbaa !345
+  %.val5613 = load ptr, ptr %1063, align 8, !tbaa !329
+  %.val5614 = load ptr, ptr %1103, align 8, !tbaa !344
   %1104 = getelementptr i8, ptr %2, i64 88
-  %.val5615 = load ptr, ptr %1104, align 8, !tbaa !346
+  %.val5615 = load ptr, ptr %1104, align 8, !tbaa !345
   %1105 = ptrtoint ptr %.val5614 to i64
   %1106 = ptrtoint ptr %.val5613 to i64
   %1107 = sub i64 %1105, %1106
@@ -7443,10 +7443,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.232, i64 noundef 31) #9
   %1113 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1114 = getelementptr i8, ptr %1, i64 304
-  %.val5616 = load ptr, ptr %1114, align 8, !tbaa !330
-  %.val5617 = load ptr, ptr %1113, align 8, !tbaa !345
+  %.val5616 = load ptr, ptr %1114, align 8, !tbaa !329
+  %.val5617 = load ptr, ptr %1113, align 8, !tbaa !344
   %1115 = getelementptr i8, ptr %2, i64 16
-  %.val5618 = load ptr, ptr %1115, align 8, !tbaa !346
+  %.val5618 = load ptr, ptr %1115, align 8, !tbaa !345
   %1116 = ptrtoint ptr %.val5617 to i64
   %1117 = ptrtoint ptr %.val5616 to i64
   %1118 = sub i64 %1116, %1117
@@ -7459,7 +7459,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.200, i64 noundef 9) #9
   %1123 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
-  %1124 = load i64, ptr %1123, align 8, !tbaa !364
+  %1124 = load i64, ptr %1123, align 8, !tbaa !363
   %.not7278 = icmp eq i64 %1124, 0
   br i1 %.not7278, label %._crit_edge7218, label %.lr.ph7217
 
@@ -7473,10 +7473,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.233, i64 noundef 20) #9
   %1127 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5619 = load ptr, ptr %1114, align 8, !tbaa !330
-  %.val5620 = load ptr, ptr %1127, align 8, !tbaa !345
+  %.val5619 = load ptr, ptr %1114, align 8, !tbaa !329
+  %.val5620 = load ptr, ptr %1127, align 8, !tbaa !344
   %1128 = getelementptr i8, ptr %2, i64 56
-  %.val5621 = load ptr, ptr %1128, align 8, !tbaa !346
+  %.val5621 = load ptr, ptr %1128, align 8, !tbaa !345
   %1129 = ptrtoint ptr %.val5620 to i64
   %1130 = ptrtoint ptr %.val5619 to i64
   %1131 = sub i64 %1129, %1130
@@ -7488,12 +7488,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.234, i64 noundef 16) #9
   %1136 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %1137 = load ptr, ptr %1136, align 8, !tbaa !94
+  %1137 = load ptr, ptr %1136, align 8, !tbaa !93
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %1137)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.235, i64 noundef 27) #9
   %1138 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %1139 = load ptr, ptr %1138, align 8, !tbaa !398
+  %1139 = load ptr, ptr %1138, align 8, !tbaa !397
   %.not5320 = icmp eq ptr %1139, null
   br i1 %.not5320, label %1162, label %1153
 
@@ -7507,25 +7507,25 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %1142
 
 1142:                                             ; preds = %1141, %1140
-  %1143 = load ptr, ptr %1125, align 8, !tbaa !365
+  %1143 = load ptr, ptr %1125, align 8, !tbaa !364
   %1144 = getelementptr i32, ptr %1143, i64 %.048507215
-  %1145 = load i32, ptr %1144, align 4, !tbaa !366
+  %1145 = load i32, ptr %1144, align 4, !tbaa !365
   %1146 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %1126, i32 noundef %1145) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
-  %1147 = load ptr, ptr %1146, align 8, !tbaa !367
+  %1147 = load ptr, ptr %1146, align 8, !tbaa !366
   %1148 = getelementptr inbounds nuw i8, ptr %1146, i64 8
-  %1149 = load i64, ptr %1148, align 8, !tbaa !369
+  %1149 = load i64, ptr %1148, align 8, !tbaa !368
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1147, i64 noundef %1149, i32 noundef 1) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
   %1150 = add nuw i64 %.048507215, 1
-  %1151 = load i64, ptr %1123, align 8, !tbaa !364
+  %1151 = load i64, ptr %1123, align 8, !tbaa !363
   %1152 = icmp ult i64 %1150, %1151
-  br i1 %1152, label %1140, label %._crit_edge7218, !llvm.loop !399
+  br i1 %1152, label %1140, label %._crit_edge7218, !llvm.loop !398
 
 1153:                                             ; preds = %._crit_edge7218
-  %.val5622 = load ptr, ptr %1114, align 8, !tbaa !330
+  %.val5622 = load ptr, ptr %1114, align 8, !tbaa !329
   %1154 = getelementptr i8, ptr %2, i64 80
-  %.val5624 = load ptr, ptr %1154, align 8, !tbaa !346
+  %.val5624 = load ptr, ptr %1154, align 8, !tbaa !345
   %1155 = ptrtoint ptr %1139 to i64
   %1156 = ptrtoint ptr %.val5622 to i64
   %1157 = sub i64 %1155, %1156
@@ -7544,7 +7544,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.236, i64 noundef 13) #9
   %1164 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %1165 = load ptr, ptr %1164, align 8, !tbaa !96
+  %1165 = load ptr, ptr %1164, align 8, !tbaa !95
   %.not5321 = icmp eq ptr %1165, null
   br i1 %.not5321, label %1167, label %1166
 
@@ -7560,7 +7560,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.202, i64 noundef 7) #9
   %1169 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %1170 = load ptr, ptr %1169, align 8, !tbaa !97
+  %1170 = load ptr, ptr %1169, align 8, !tbaa !96
   %.not5322 = icmp eq ptr %1170, null
   br i1 %.not5322, label %1172, label %1171
 
@@ -7576,10 +7576,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 18) #9
   %1174 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %.val5625 = load ptr, ptr %1114, align 8, !tbaa !330
-  %.val5626 = load ptr, ptr %1174, align 8, !tbaa !345
+  %.val5625 = load ptr, ptr %1114, align 8, !tbaa !329
+  %.val5626 = load ptr, ptr %1174, align 8, !tbaa !344
   %1175 = getelementptr i8, ptr %2, i64 112
-  %.val5627 = load ptr, ptr %1175, align 8, !tbaa !346
+  %.val5627 = load ptr, ptr %1175, align 8, !tbaa !345
   %1176 = ptrtoint ptr %.val5626 to i64
   %1177 = ptrtoint ptr %.val5625 to i64
   %1178 = sub i64 %1176, %1177
@@ -7591,7 +7591,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1183 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %1184 = load i32, ptr %1183, align 8, !tbaa !400
+  %1184 = load i32, ptr %1183, align 8, !tbaa !399
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %1184)
   br label %common.ret.sink.split
 
@@ -7599,10 +7599,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.237, i64 noundef 47) #9
   %1186 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1187 = getelementptr i8, ptr %1, i64 304
-  %.val5628 = load ptr, ptr %1187, align 8, !tbaa !330
-  %.val5629 = load ptr, ptr %1186, align 8, !tbaa !345
+  %.val5628 = load ptr, ptr %1187, align 8, !tbaa !329
+  %.val5629 = load ptr, ptr %1186, align 8, !tbaa !344
   %1188 = getelementptr i8, ptr %2, i64 16
-  %.val5630 = load ptr, ptr %1188, align 8, !tbaa !346
+  %.val5630 = load ptr, ptr %1188, align 8, !tbaa !345
   %1189 = ptrtoint ptr %.val5629 to i64
   %1190 = ptrtoint ptr %.val5628 to i64
   %1191 = sub i64 %1189, %1190
@@ -7614,15 +7614,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1196 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1197 = load i32, ptr %1196, align 8, !tbaa !401
+  %1197 = load i32, ptr %1196, align 8, !tbaa !400
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1197)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %1198 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5631 = load ptr, ptr %1187, align 8, !tbaa !330
-  %.val5632 = load ptr, ptr %1198, align 8, !tbaa !345
+  %.val5631 = load ptr, ptr %1187, align 8, !tbaa !329
+  %.val5632 = load ptr, ptr %1198, align 8, !tbaa !344
   %1199 = getelementptr i8, ptr %2, i64 40
-  %.val5633 = load ptr, ptr %1199, align 8, !tbaa !346
+  %.val5633 = load ptr, ptr %1199, align 8, !tbaa !345
   %1200 = ptrtoint ptr %.val5632 to i64
   %1201 = ptrtoint ptr %.val5631 to i64
   %1202 = sub i64 %1200, %1201
@@ -7634,10 +7634,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %1207 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5634 = load ptr, ptr %1187, align 8, !tbaa !330
-  %.val5635 = load ptr, ptr %1207, align 8, !tbaa !345
+  %.val5634 = load ptr, ptr %1187, align 8, !tbaa !329
+  %.val5635 = load ptr, ptr %1207, align 8, !tbaa !344
   %1208 = getelementptr i8, ptr %2, i64 56
-  %.val5636 = load ptr, ptr %1208, align 8, !tbaa !346
+  %.val5636 = load ptr, ptr %1208, align 8, !tbaa !345
   %1209 = ptrtoint ptr %.val5635 to i64
   %1210 = ptrtoint ptr %.val5634 to i64
   %1211 = sub i64 %1209, %1210
@@ -7649,7 +7649,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1216 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %1217 = load ptr, ptr %1216, align 8, !tbaa !98
+  %1217 = load ptr, ptr %1216, align 8, !tbaa !97
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1217)
   br label %common.ret.sink.split
 
@@ -7657,10 +7657,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.238, i64 noundef 52) #9
   %1219 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1220 = getelementptr i8, ptr %1, i64 304
-  %.val5637 = load ptr, ptr %1220, align 8, !tbaa !330
-  %.val5638 = load ptr, ptr %1219, align 8, !tbaa !345
+  %.val5637 = load ptr, ptr %1220, align 8, !tbaa !329
+  %.val5638 = load ptr, ptr %1219, align 8, !tbaa !344
   %1221 = getelementptr i8, ptr %2, i64 16
-  %.val5639 = load ptr, ptr %1221, align 8, !tbaa !346
+  %.val5639 = load ptr, ptr %1221, align 8, !tbaa !345
   %1222 = ptrtoint ptr %.val5638 to i64
   %1223 = ptrtoint ptr %.val5637 to i64
   %1224 = sub i64 %1222, %1223
@@ -7672,15 +7672,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1229 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1230 = load i32, ptr %1229, align 8, !tbaa !402
+  %1230 = load i32, ptr %1229, align 8, !tbaa !401
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1230)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %1231 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5640 = load ptr, ptr %1220, align 8, !tbaa !330
-  %.val5641 = load ptr, ptr %1231, align 8, !tbaa !345
+  %.val5640 = load ptr, ptr %1220, align 8, !tbaa !329
+  %.val5641 = load ptr, ptr %1231, align 8, !tbaa !344
   %1232 = getelementptr i8, ptr %2, i64 40
-  %.val5642 = load ptr, ptr %1232, align 8, !tbaa !346
+  %.val5642 = load ptr, ptr %1232, align 8, !tbaa !345
   %1233 = ptrtoint ptr %.val5641 to i64
   %1234 = ptrtoint ptr %.val5640 to i64
   %1235 = sub i64 %1233, %1234
@@ -7692,10 +7692,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.222, i64 noundef 22) #9
   %1240 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5643 = load ptr, ptr %1220, align 8, !tbaa !330
-  %.val5644 = load ptr, ptr %1240, align 8, !tbaa !345
+  %.val5643 = load ptr, ptr %1220, align 8, !tbaa !329
+  %.val5644 = load ptr, ptr %1240, align 8, !tbaa !344
   %1241 = getelementptr i8, ptr %2, i64 56
-  %.val5645 = load ptr, ptr %1241, align 8, !tbaa !346
+  %.val5645 = load ptr, ptr %1241, align 8, !tbaa !345
   %1242 = ptrtoint ptr %.val5644 to i64
   %1243 = ptrtoint ptr %.val5643 to i64
   %1244 = sub i64 %1242, %1243
@@ -7707,12 +7707,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1249 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %1250 = load ptr, ptr %1249, align 8, !tbaa !100
+  %1250 = load ptr, ptr %1249, align 8, !tbaa !99
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1250)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.221, i64 noundef 18) #9
   %1251 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %1252 = load i32, ptr %1251, align 8, !tbaa !403
+  %1252 = load i32, ptr %1251, align 8, !tbaa !402
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1252)
   br label %common.ret.sink.split
 
@@ -7720,10 +7720,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.239, i64 noundef 46) #9
   %1254 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1255 = getelementptr i8, ptr %1, i64 304
-  %.val5646 = load ptr, ptr %1255, align 8, !tbaa !330
-  %.val5647 = load ptr, ptr %1254, align 8, !tbaa !345
+  %.val5646 = load ptr, ptr %1255, align 8, !tbaa !329
+  %.val5647 = load ptr, ptr %1254, align 8, !tbaa !344
   %1256 = getelementptr i8, ptr %2, i64 16
-  %.val5648 = load ptr, ptr %1256, align 8, !tbaa !346
+  %.val5648 = load ptr, ptr %1256, align 8, !tbaa !345
   %1257 = ptrtoint ptr %.val5647 to i64
   %1258 = ptrtoint ptr %.val5646 to i64
   %1259 = sub i64 %1257, %1258
@@ -7735,15 +7735,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1264 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1265 = load i32, ptr %1264, align 8, !tbaa !404
+  %1265 = load i32, ptr %1264, align 8, !tbaa !403
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1265)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %1266 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5649 = load ptr, ptr %1255, align 8, !tbaa !330
-  %.val5650 = load ptr, ptr %1266, align 8, !tbaa !345
+  %.val5649 = load ptr, ptr %1255, align 8, !tbaa !329
+  %.val5650 = load ptr, ptr %1266, align 8, !tbaa !344
   %1267 = getelementptr i8, ptr %2, i64 40
-  %.val5651 = load ptr, ptr %1267, align 8, !tbaa !346
+  %.val5651 = load ptr, ptr %1267, align 8, !tbaa !345
   %1268 = ptrtoint ptr %.val5650 to i64
   %1269 = ptrtoint ptr %.val5649 to i64
   %1270 = sub i64 %1268, %1269
@@ -7755,10 +7755,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %1275 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5652 = load ptr, ptr %1255, align 8, !tbaa !330
-  %.val5653 = load ptr, ptr %1275, align 8, !tbaa !345
+  %.val5652 = load ptr, ptr %1255, align 8, !tbaa !329
+  %.val5653 = load ptr, ptr %1275, align 8, !tbaa !344
   %1276 = getelementptr i8, ptr %2, i64 56
-  %.val5654 = load ptr, ptr %1276, align 8, !tbaa !346
+  %.val5654 = load ptr, ptr %1276, align 8, !tbaa !345
   %1277 = ptrtoint ptr %.val5653 to i64
   %1278 = ptrtoint ptr %.val5652 to i64
   %1279 = sub i64 %1277, %1278
@@ -7770,7 +7770,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1284 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %1285 = load ptr, ptr %1284, align 8, !tbaa !102
+  %1285 = load ptr, ptr %1284, align 8, !tbaa !101
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1285)
   br label %common.ret.sink.split
 
@@ -7778,10 +7778,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.240, i64 noundef 43) #9
   %1287 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1288 = getelementptr i8, ptr %1, i64 304
-  %.val5655 = load ptr, ptr %1288, align 8, !tbaa !330
-  %.val5656 = load ptr, ptr %1287, align 8, !tbaa !345
+  %.val5655 = load ptr, ptr %1288, align 8, !tbaa !329
+  %.val5656 = load ptr, ptr %1287, align 8, !tbaa !344
   %1289 = getelementptr i8, ptr %2, i64 16
-  %.val5657 = load ptr, ptr %1289, align 8, !tbaa !346
+  %.val5657 = load ptr, ptr %1289, align 8, !tbaa !345
   %1290 = ptrtoint ptr %.val5656 to i64
   %1291 = ptrtoint ptr %.val5655 to i64
   %1292 = sub i64 %1290, %1291
@@ -7793,7 +7793,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1297 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1298 = load i32, ptr %1297, align 8, !tbaa !405
+  %1298 = load i32, ptr %1297, align 8, !tbaa !404
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1298)
   br label %common.ret.sink.split
 
@@ -7801,10 +7801,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.241, i64 noundef 45) #9
   %1300 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1301 = getelementptr i8, ptr %1, i64 304
-  %.val5658 = load ptr, ptr %1301, align 8, !tbaa !330
-  %.val5659 = load ptr, ptr %1300, align 8, !tbaa !345
+  %.val5658 = load ptr, ptr %1301, align 8, !tbaa !329
+  %.val5659 = load ptr, ptr %1300, align 8, !tbaa !344
   %1302 = getelementptr i8, ptr %2, i64 16
-  %.val5660 = load ptr, ptr %1302, align 8, !tbaa !346
+  %.val5660 = load ptr, ptr %1302, align 8, !tbaa !345
   %1303 = ptrtoint ptr %.val5659 to i64
   %1304 = ptrtoint ptr %.val5658 to i64
   %1305 = sub i64 %1303, %1304
@@ -7816,7 +7816,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1310 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1311 = load i32, ptr %1310, align 8, !tbaa !407
+  %1311 = load i32, ptr %1310, align 8, !tbaa !406
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1311)
   br label %common.ret.sink.split
 
@@ -7824,10 +7824,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.242, i64 noundef 44) #9
   %1313 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1314 = getelementptr i8, ptr %1, i64 304
-  %.val5661 = load ptr, ptr %1314, align 8, !tbaa !330
-  %.val5662 = load ptr, ptr %1313, align 8, !tbaa !345
+  %.val5661 = load ptr, ptr %1314, align 8, !tbaa !329
+  %.val5662 = load ptr, ptr %1313, align 8, !tbaa !344
   %1315 = getelementptr i8, ptr %2, i64 16
-  %.val5663 = load ptr, ptr %1315, align 8, !tbaa !346
+  %.val5663 = load ptr, ptr %1315, align 8, !tbaa !345
   %1316 = ptrtoint ptr %.val5662 to i64
   %1317 = ptrtoint ptr %.val5661 to i64
   %1318 = sub i64 %1316, %1317
@@ -7839,15 +7839,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1323 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1324 = load i32, ptr %1323, align 8, !tbaa !409
+  %1324 = load i32, ptr %1323, align 8, !tbaa !408
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1324)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %1325 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5664 = load ptr, ptr %1314, align 8, !tbaa !330
-  %.val5665 = load ptr, ptr %1325, align 8, !tbaa !345
+  %.val5664 = load ptr, ptr %1314, align 8, !tbaa !329
+  %.val5665 = load ptr, ptr %1325, align 8, !tbaa !344
   %1326 = getelementptr i8, ptr %2, i64 40
-  %.val5666 = load ptr, ptr %1326, align 8, !tbaa !346
+  %.val5666 = load ptr, ptr %1326, align 8, !tbaa !345
   %1327 = ptrtoint ptr %.val5665 to i64
   %1328 = ptrtoint ptr %.val5664 to i64
   %1329 = sub i64 %1327, %1328
@@ -7859,15 +7859,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1334 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %1335 = load ptr, ptr %1334, align 8, !tbaa !104
+  %1335 = load ptr, ptr %1334, align 8, !tbaa !103
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1335)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %1336 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.val5667 = load ptr, ptr %1314, align 8, !tbaa !330
-  %.val5668 = load ptr, ptr %1336, align 8, !tbaa !345
+  %.val5667 = load ptr, ptr %1314, align 8, !tbaa !329
+  %.val5668 = load ptr, ptr %1336, align 8, !tbaa !344
   %1337 = getelementptr i8, ptr %2, i64 64
-  %.val5669 = load ptr, ptr %1337, align 8, !tbaa !346
+  %.val5669 = load ptr, ptr %1337, align 8, !tbaa !345
   %1338 = ptrtoint ptr %.val5668 to i64
   %1339 = ptrtoint ptr %.val5667 to i64
   %1340 = sub i64 %1338, %1339
@@ -7882,10 +7882,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.243, i64 noundef 42) #9
   %1346 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1347 = getelementptr i8, ptr %1, i64 304
-  %.val5670 = load ptr, ptr %1347, align 8, !tbaa !330
-  %.val5671 = load ptr, ptr %1346, align 8, !tbaa !345
+  %.val5670 = load ptr, ptr %1347, align 8, !tbaa !329
+  %.val5671 = load ptr, ptr %1346, align 8, !tbaa !344
   %1348 = getelementptr i8, ptr %2, i64 16
-  %.val5672 = load ptr, ptr %1348, align 8, !tbaa !346
+  %.val5672 = load ptr, ptr %1348, align 8, !tbaa !345
   %1349 = ptrtoint ptr %.val5671 to i64
   %1350 = ptrtoint ptr %.val5670 to i64
   %1351 = sub i64 %1349, %1350
@@ -7897,15 +7897,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1356 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1357 = load i32, ptr %1356, align 8, !tbaa !410
+  %1357 = load i32, ptr %1356, align 8, !tbaa !409
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1357)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %1358 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5673 = load ptr, ptr %1347, align 8, !tbaa !330
-  %.val5674 = load ptr, ptr %1358, align 8, !tbaa !345
+  %.val5673 = load ptr, ptr %1347, align 8, !tbaa !329
+  %.val5674 = load ptr, ptr %1358, align 8, !tbaa !344
   %1359 = getelementptr i8, ptr %2, i64 40
-  %.val5675 = load ptr, ptr %1359, align 8, !tbaa !346
+  %.val5675 = load ptr, ptr %1359, align 8, !tbaa !345
   %1360 = ptrtoint ptr %.val5674 to i64
   %1361 = ptrtoint ptr %.val5673 to i64
   %1362 = sub i64 %1360, %1361
@@ -7917,10 +7917,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %1367 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5676 = load ptr, ptr %1347, align 8, !tbaa !330
-  %.val5677 = load ptr, ptr %1367, align 8, !tbaa !345
+  %.val5676 = load ptr, ptr %1347, align 8, !tbaa !329
+  %.val5677 = load ptr, ptr %1367, align 8, !tbaa !344
   %1368 = getelementptr i8, ptr %2, i64 56
-  %.val5678 = load ptr, ptr %1368, align 8, !tbaa !346
+  %.val5678 = load ptr, ptr %1368, align 8, !tbaa !345
   %1369 = ptrtoint ptr %.val5677 to i64
   %1370 = ptrtoint ptr %.val5676 to i64
   %1371 = sub i64 %1369, %1370
@@ -7932,7 +7932,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1376 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %1377 = load ptr, ptr %1376, align 8, !tbaa !106
+  %1377 = load ptr, ptr %1376, align 8, !tbaa !105
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1377)
   br label %common.ret.sink.split
 
@@ -7940,10 +7940,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.244, i64 noundef 47) #9
   %1379 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1380 = getelementptr i8, ptr %1, i64 304
-  %.val5679 = load ptr, ptr %1380, align 8, !tbaa !330
-  %.val5680 = load ptr, ptr %1379, align 8, !tbaa !345
+  %.val5679 = load ptr, ptr %1380, align 8, !tbaa !329
+  %.val5680 = load ptr, ptr %1379, align 8, !tbaa !344
   %1381 = getelementptr i8, ptr %2, i64 16
-  %.val5681 = load ptr, ptr %1381, align 8, !tbaa !346
+  %.val5681 = load ptr, ptr %1381, align 8, !tbaa !345
   %1382 = ptrtoint ptr %.val5680 to i64
   %1383 = ptrtoint ptr %.val5679 to i64
   %1384 = sub i64 %1382, %1383
@@ -7955,15 +7955,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1389 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1390 = load i32, ptr %1389, align 8, !tbaa !411
+  %1390 = load i32, ptr %1389, align 8, !tbaa !410
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1390)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %1391 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5682 = load ptr, ptr %1380, align 8, !tbaa !330
-  %.val5683 = load ptr, ptr %1391, align 8, !tbaa !345
+  %.val5682 = load ptr, ptr %1380, align 8, !tbaa !329
+  %.val5683 = load ptr, ptr %1391, align 8, !tbaa !344
   %1392 = getelementptr i8, ptr %2, i64 40
-  %.val5684 = load ptr, ptr %1392, align 8, !tbaa !346
+  %.val5684 = load ptr, ptr %1392, align 8, !tbaa !345
   %1393 = ptrtoint ptr %.val5683 to i64
   %1394 = ptrtoint ptr %.val5682 to i64
   %1395 = sub i64 %1393, %1394
@@ -7975,10 +7975,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.222, i64 noundef 22) #9
   %1400 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5685 = load ptr, ptr %1380, align 8, !tbaa !330
-  %.val5686 = load ptr, ptr %1400, align 8, !tbaa !345
+  %.val5685 = load ptr, ptr %1380, align 8, !tbaa !329
+  %.val5686 = load ptr, ptr %1400, align 8, !tbaa !344
   %1401 = getelementptr i8, ptr %2, i64 56
-  %.val5687 = load ptr, ptr %1401, align 8, !tbaa !346
+  %.val5687 = load ptr, ptr %1401, align 8, !tbaa !345
   %1402 = ptrtoint ptr %.val5686 to i64
   %1403 = ptrtoint ptr %.val5685 to i64
   %1404 = sub i64 %1402, %1403
@@ -7990,12 +7990,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1409 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %1410 = load ptr, ptr %1409, align 8, !tbaa !108
+  %1410 = load ptr, ptr %1409, align 8, !tbaa !107
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1410)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.221, i64 noundef 18) #9
   %1411 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %1412 = load i32, ptr %1411, align 8, !tbaa !412
+  %1412 = load i32, ptr %1411, align 8, !tbaa !411
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1412)
   br label %common.ret.sink.split
 
@@ -8003,10 +8003,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.245, i64 noundef 41) #9
   %1414 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1415 = getelementptr i8, ptr %1, i64 304
-  %.val5688 = load ptr, ptr %1415, align 8, !tbaa !330
-  %.val5689 = load ptr, ptr %1414, align 8, !tbaa !345
+  %.val5688 = load ptr, ptr %1415, align 8, !tbaa !329
+  %.val5689 = load ptr, ptr %1414, align 8, !tbaa !344
   %1416 = getelementptr i8, ptr %2, i64 16
-  %.val5690 = load ptr, ptr %1416, align 8, !tbaa !346
+  %.val5690 = load ptr, ptr %1416, align 8, !tbaa !345
   %1417 = ptrtoint ptr %.val5689 to i64
   %1418 = ptrtoint ptr %.val5688 to i64
   %1419 = sub i64 %1417, %1418
@@ -8018,15 +8018,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1424 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1425 = load i32, ptr %1424, align 8, !tbaa !413
+  %1425 = load i32, ptr %1424, align 8, !tbaa !412
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1425)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %1426 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5691 = load ptr, ptr %1415, align 8, !tbaa !330
-  %.val5692 = load ptr, ptr %1426, align 8, !tbaa !345
+  %.val5691 = load ptr, ptr %1415, align 8, !tbaa !329
+  %.val5692 = load ptr, ptr %1426, align 8, !tbaa !344
   %1427 = getelementptr i8, ptr %2, i64 40
-  %.val5693 = load ptr, ptr %1427, align 8, !tbaa !346
+  %.val5693 = load ptr, ptr %1427, align 8, !tbaa !345
   %1428 = ptrtoint ptr %.val5692 to i64
   %1429 = ptrtoint ptr %.val5691 to i64
   %1430 = sub i64 %1428, %1429
@@ -8038,10 +8038,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %1435 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5694 = load ptr, ptr %1415, align 8, !tbaa !330
-  %.val5695 = load ptr, ptr %1435, align 8, !tbaa !345
+  %.val5694 = load ptr, ptr %1415, align 8, !tbaa !329
+  %.val5695 = load ptr, ptr %1435, align 8, !tbaa !344
   %1436 = getelementptr i8, ptr %2, i64 56
-  %.val5696 = load ptr, ptr %1436, align 8, !tbaa !346
+  %.val5696 = load ptr, ptr %1436, align 8, !tbaa !345
   %1437 = ptrtoint ptr %.val5695 to i64
   %1438 = ptrtoint ptr %.val5694 to i64
   %1439 = sub i64 %1437, %1438
@@ -8053,7 +8053,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1444 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %1445 = load ptr, ptr %1444, align 8, !tbaa !110
+  %1445 = load ptr, ptr %1444, align 8, !tbaa !109
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1445)
   br label %common.ret.sink.split
 
@@ -8061,10 +8061,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.246, i64 noundef 46) #9
   %1447 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1448 = getelementptr i8, ptr %1, i64 304
-  %.val5697 = load ptr, ptr %1448, align 8, !tbaa !330
-  %.val5698 = load ptr, ptr %1447, align 8, !tbaa !345
+  %.val5697 = load ptr, ptr %1448, align 8, !tbaa !329
+  %.val5698 = load ptr, ptr %1447, align 8, !tbaa !344
   %1449 = getelementptr i8, ptr %2, i64 16
-  %.val5699 = load ptr, ptr %1449, align 8, !tbaa !346
+  %.val5699 = load ptr, ptr %1449, align 8, !tbaa !345
   %1450 = ptrtoint ptr %.val5698 to i64
   %1451 = ptrtoint ptr %.val5697 to i64
   %1452 = sub i64 %1450, %1451
@@ -8076,15 +8076,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.226, i64 noundef 9) #9
   %1457 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1458 = load ptr, ptr %1457, align 8, !tbaa !112
+  %1458 = load ptr, ptr %1457, align 8, !tbaa !111
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1458)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %1459 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5700 = load ptr, ptr %1448, align 8, !tbaa !330
-  %.val5701 = load ptr, ptr %1459, align 8, !tbaa !345
+  %.val5700 = load ptr, ptr %1448, align 8, !tbaa !329
+  %.val5701 = load ptr, ptr %1459, align 8, !tbaa !344
   %1460 = getelementptr i8, ptr %2, i64 40
-  %.val5702 = load ptr, ptr %1460, align 8, !tbaa !346
+  %.val5702 = load ptr, ptr %1460, align 8, !tbaa !345
   %1461 = ptrtoint ptr %.val5701 to i64
   %1462 = ptrtoint ptr %.val5700 to i64
   %1463 = sub i64 %1461, %1462
@@ -8096,7 +8096,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1468 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %1469 = load ptr, ptr %1468, align 8, !tbaa !115
+  %1469 = load ptr, ptr %1468, align 8, !tbaa !114
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1469)
   br label %common.ret.sink.split
 
@@ -8104,10 +8104,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.247, i64 noundef 38) #9
   %1471 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1472 = getelementptr i8, ptr %1, i64 304
-  %.val5703 = load ptr, ptr %1472, align 8, !tbaa !330
-  %.val5704 = load ptr, ptr %1471, align 8, !tbaa !345
+  %.val5703 = load ptr, ptr %1472, align 8, !tbaa !329
+  %.val5704 = load ptr, ptr %1471, align 8, !tbaa !344
   %1473 = getelementptr i8, ptr %2, i64 16
-  %.val5705 = load ptr, ptr %1473, align 8, !tbaa !346
+  %.val5705 = load ptr, ptr %1473, align 8, !tbaa !345
   %1474 = ptrtoint ptr %.val5704 to i64
   %1475 = ptrtoint ptr %.val5703 to i64
   %1476 = sub i64 %1474, %1475
@@ -8119,7 +8119,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.248, i64 noundef 9) #9
   %1481 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1482 = load ptr, ptr %1481, align 8, !tbaa !116
+  %1482 = load ptr, ptr %1481, align 8, !tbaa !115
   %.not5318 = icmp eq ptr %1482, null
   br i1 %.not5318, label %1484, label %1483
 
@@ -8135,7 +8135,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1486 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1487 = load i32, ptr %1486, align 8, !tbaa !414
+  %1487 = load i32, ptr %1486, align 8, !tbaa !413
   %.not5319 = icmp eq i32 %1487, 0
   br i1 %.not5319, label %1489, label %1488
 
@@ -8151,10 +8151,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.249, i64 noundef 16) #9
   %1491 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val5706 = load ptr, ptr %1472, align 8, !tbaa !330
-  %.val5707 = load ptr, ptr %1491, align 8, !tbaa !345
+  %.val5706 = load ptr, ptr %1472, align 8, !tbaa !329
+  %.val5707 = load ptr, ptr %1491, align 8, !tbaa !344
   %1492 = getelementptr i8, ptr %2, i64 48
-  %.val5708 = load ptr, ptr %1492, align 8, !tbaa !346
+  %.val5708 = load ptr, ptr %1492, align 8, !tbaa !345
   %1493 = ptrtoint ptr %.val5707 to i64
   %1494 = ptrtoint ptr %.val5706 to i64
   %1495 = sub i64 %1493, %1494
@@ -8166,10 +8166,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %1500 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.val5709 = load ptr, ptr %1472, align 8, !tbaa !330
-  %.val5710 = load ptr, ptr %1500, align 8, !tbaa !345
+  %.val5709 = load ptr, ptr %1472, align 8, !tbaa !329
+  %.val5710 = load ptr, ptr %1500, align 8, !tbaa !344
   %1501 = getelementptr i8, ptr %2, i64 64
-  %.val5711 = load ptr, ptr %1501, align 8, !tbaa !346
+  %.val5711 = load ptr, ptr %1501, align 8, !tbaa !345
   %1502 = ptrtoint ptr %.val5710 to i64
   %1503 = ptrtoint ptr %.val5709 to i64
   %1504 = sub i64 %1502, %1503
@@ -8184,10 +8184,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.250, i64 noundef 51) #9
   %1510 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1511 = getelementptr i8, ptr %1, i64 304
-  %.val5712 = load ptr, ptr %1511, align 8, !tbaa !330
-  %.val5713 = load ptr, ptr %1510, align 8, !tbaa !345
+  %.val5712 = load ptr, ptr %1511, align 8, !tbaa !329
+  %.val5713 = load ptr, ptr %1510, align 8, !tbaa !344
   %1512 = getelementptr i8, ptr %2, i64 16
-  %.val5714 = load ptr, ptr %1512, align 8, !tbaa !346
+  %.val5714 = load ptr, ptr %1512, align 8, !tbaa !345
   %1513 = ptrtoint ptr %.val5713 to i64
   %1514 = ptrtoint ptr %.val5712 to i64
   %1515 = sub i64 %1513, %1514
@@ -8199,15 +8199,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.226, i64 noundef 9) #9
   %1520 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1521 = load ptr, ptr %1520, align 8, !tbaa !118
+  %1521 = load ptr, ptr %1520, align 8, !tbaa !117
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1521)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.222, i64 noundef 22) #9
   %1522 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5715 = load ptr, ptr %1511, align 8, !tbaa !330
-  %.val5716 = load ptr, ptr %1522, align 8, !tbaa !345
+  %.val5715 = load ptr, ptr %1511, align 8, !tbaa !329
+  %.val5716 = load ptr, ptr %1522, align 8, !tbaa !344
   %1523 = getelementptr i8, ptr %2, i64 40
-  %.val5717 = load ptr, ptr %1523, align 8, !tbaa !346
+  %.val5717 = load ptr, ptr %1523, align 8, !tbaa !345
   %1524 = ptrtoint ptr %.val5716 to i64
   %1525 = ptrtoint ptr %.val5715 to i64
   %1526 = sub i64 %1524, %1525
@@ -8219,12 +8219,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1531 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %1532 = load ptr, ptr %1531, align 8, !tbaa !120
+  %1532 = load ptr, ptr %1531, align 8, !tbaa !119
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1532)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.221, i64 noundef 18) #9
   %1533 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %1534 = load i32, ptr %1533, align 8, !tbaa !415
+  %1534 = load i32, ptr %1533, align 8, !tbaa !414
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1534)
   br label %common.ret.sink.split
 
@@ -8232,10 +8232,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.251, i64 noundef 45) #9
   %1536 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1537 = getelementptr i8, ptr %1, i64 304
-  %.val5718 = load ptr, ptr %1537, align 8, !tbaa !330
-  %.val5719 = load ptr, ptr %1536, align 8, !tbaa !345
+  %.val5718 = load ptr, ptr %1537, align 8, !tbaa !329
+  %.val5719 = load ptr, ptr %1536, align 8, !tbaa !344
   %1538 = getelementptr i8, ptr %2, i64 16
-  %.val5720 = load ptr, ptr %1538, align 8, !tbaa !346
+  %.val5720 = load ptr, ptr %1538, align 8, !tbaa !345
   %1539 = ptrtoint ptr %.val5719 to i64
   %1540 = ptrtoint ptr %.val5718 to i64
   %1541 = sub i64 %1539, %1540
@@ -8247,15 +8247,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.226, i64 noundef 9) #9
   %1546 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1547 = load ptr, ptr %1546, align 8, !tbaa !121
+  %1547 = load ptr, ptr %1546, align 8, !tbaa !120
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1547)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %1548 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5721 = load ptr, ptr %1537, align 8, !tbaa !330
-  %.val5722 = load ptr, ptr %1548, align 8, !tbaa !345
+  %.val5721 = load ptr, ptr %1537, align 8, !tbaa !329
+  %.val5722 = load ptr, ptr %1548, align 8, !tbaa !344
   %1549 = getelementptr i8, ptr %2, i64 40
-  %.val5723 = load ptr, ptr %1549, align 8, !tbaa !346
+  %.val5723 = load ptr, ptr %1549, align 8, !tbaa !345
   %1550 = ptrtoint ptr %.val5722 to i64
   %1551 = ptrtoint ptr %.val5721 to i64
   %1552 = sub i64 %1550, %1551
@@ -8267,7 +8267,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1557 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %1558 = load ptr, ptr %1557, align 8, !tbaa !123
+  %1558 = load ptr, ptr %1557, align 8, !tbaa !122
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1558)
   br label %common.ret.sink.split
 
@@ -8275,10 +8275,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.252, i64 noundef 44) #9
   %1560 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1561 = getelementptr i8, ptr %1, i64 304
-  %.val5724 = load ptr, ptr %1561, align 8, !tbaa !330
-  %.val5725 = load ptr, ptr %1560, align 8, !tbaa !345
+  %.val5724 = load ptr, ptr %1561, align 8, !tbaa !329
+  %.val5725 = load ptr, ptr %1560, align 8, !tbaa !344
   %1562 = getelementptr i8, ptr %2, i64 16
-  %.val5726 = load ptr, ptr %1562, align 8, !tbaa !346
+  %.val5726 = load ptr, ptr %1562, align 8, !tbaa !345
   %1563 = ptrtoint ptr %.val5725 to i64
   %1564 = ptrtoint ptr %.val5724 to i64
   %1565 = sub i64 %1563, %1564
@@ -8290,7 +8290,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.248, i64 noundef 9) #9
   %1570 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1571 = load ptr, ptr %1570, align 8, !tbaa !124
+  %1571 = load ptr, ptr %1570, align 8, !tbaa !123
   %.not5316 = icmp eq ptr %1571, null
   br i1 %.not5316, label %1573, label %1572
 
@@ -8306,7 +8306,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1575 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %1576 = load i32, ptr %1575, align 8, !tbaa !416
+  %1576 = load i32, ptr %1575, align 8, !tbaa !415
   %.not5317 = icmp eq i32 %1576, 0
   br i1 %.not5317, label %1578, label %1577
 
@@ -8322,10 +8322,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.249, i64 noundef 16) #9
   %1580 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val5727 = load ptr, ptr %1561, align 8, !tbaa !330
-  %.val5728 = load ptr, ptr %1580, align 8, !tbaa !345
+  %.val5727 = load ptr, ptr %1561, align 8, !tbaa !329
+  %.val5728 = load ptr, ptr %1580, align 8, !tbaa !344
   %1581 = getelementptr i8, ptr %2, i64 48
-  %.val5729 = load ptr, ptr %1581, align 8, !tbaa !346
+  %.val5729 = load ptr, ptr %1581, align 8, !tbaa !345
   %1582 = ptrtoint ptr %.val5728 to i64
   %1583 = ptrtoint ptr %.val5727 to i64
   %1584 = sub i64 %1582, %1583
@@ -8337,10 +8337,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %1589 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.val5730 = load ptr, ptr %1561, align 8, !tbaa !330
-  %.val5731 = load ptr, ptr %1589, align 8, !tbaa !345
+  %.val5730 = load ptr, ptr %1561, align 8, !tbaa !329
+  %.val5731 = load ptr, ptr %1589, align 8, !tbaa !344
   %1590 = getelementptr i8, ptr %2, i64 64
-  %.val5732 = load ptr, ptr %1590, align 8, !tbaa !346
+  %.val5732 = load ptr, ptr %1590, align 8, !tbaa !345
   %1591 = ptrtoint ptr %.val5731 to i64
   %1592 = ptrtoint ptr %.val5730 to i64
   %1593 = sub i64 %1591, %1592
@@ -8355,10 +8355,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.253, i64 noundef 43) #9
   %1599 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1600 = getelementptr i8, ptr %1, i64 304
-  %.val5733 = load ptr, ptr %1600, align 8, !tbaa !330
-  %.val5734 = load ptr, ptr %1599, align 8, !tbaa !345
+  %.val5733 = load ptr, ptr %1600, align 8, !tbaa !329
+  %.val5734 = load ptr, ptr %1599, align 8, !tbaa !344
   %1601 = getelementptr i8, ptr %2, i64 16
-  %.val5735 = load ptr, ptr %1601, align 8, !tbaa !346
+  %.val5735 = load ptr, ptr %1601, align 8, !tbaa !345
   %1602 = ptrtoint ptr %.val5734 to i64
   %1603 = ptrtoint ptr %.val5733 to i64
   %1604 = sub i64 %1602, %1603
@@ -8370,15 +8370,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.226, i64 noundef 9) #9
   %1609 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1610 = load ptr, ptr %1609, align 8, !tbaa !126
+  %1610 = load ptr, ptr %1609, align 8, !tbaa !125
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1610)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %1611 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5736 = load ptr, ptr %1600, align 8, !tbaa !330
-  %.val5737 = load ptr, ptr %1611, align 8, !tbaa !345
+  %.val5736 = load ptr, ptr %1600, align 8, !tbaa !329
+  %.val5737 = load ptr, ptr %1611, align 8, !tbaa !344
   %1612 = getelementptr i8, ptr %2, i64 40
-  %.val5738 = load ptr, ptr %1612, align 8, !tbaa !346
+  %.val5738 = load ptr, ptr %1612, align 8, !tbaa !345
   %1613 = ptrtoint ptr %.val5737 to i64
   %1614 = ptrtoint ptr %.val5736 to i64
   %1615 = sub i64 %1613, %1614
@@ -8390,7 +8390,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1620 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %1621 = load ptr, ptr %1620, align 8, !tbaa !128
+  %1621 = load ptr, ptr %1620, align 8, !tbaa !127
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1621)
   br label %common.ret.sink.split
 
@@ -8398,10 +8398,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.254, i64 noundef 38) #9
   %1623 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1624 = getelementptr i8, ptr %1, i64 304
-  %.val5739 = load ptr, ptr %1624, align 8, !tbaa !330
-  %.val5740 = load ptr, ptr %1623, align 8, !tbaa !345
+  %.val5739 = load ptr, ptr %1624, align 8, !tbaa !329
+  %.val5740 = load ptr, ptr %1623, align 8, !tbaa !344
   %1625 = getelementptr i8, ptr %2, i64 16
-  %.val5741 = load ptr, ptr %1625, align 8, !tbaa !346
+  %.val5741 = load ptr, ptr %1625, align 8, !tbaa !345
   %1626 = ptrtoint ptr %.val5740 to i64
   %1627 = ptrtoint ptr %.val5739 to i64
   %1628 = sub i64 %1626, %1627
@@ -8413,7 +8413,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1633 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1634 = load i32, ptr %1633, align 8, !tbaa !417
+  %1634 = load i32, ptr %1633, align 8, !tbaa !416
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1634)
   br label %common.ret.sink.split
 
@@ -8421,10 +8421,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.255, i64 noundef 40) #9
   %1636 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1637 = getelementptr i8, ptr %1, i64 304
-  %.val5742 = load ptr, ptr %1637, align 8, !tbaa !330
-  %.val5743 = load ptr, ptr %1636, align 8, !tbaa !345
+  %.val5742 = load ptr, ptr %1637, align 8, !tbaa !329
+  %.val5743 = load ptr, ptr %1636, align 8, !tbaa !344
   %1638 = getelementptr i8, ptr %2, i64 16
-  %.val5744 = load ptr, ptr %1638, align 8, !tbaa !346
+  %.val5744 = load ptr, ptr %1638, align 8, !tbaa !345
   %1639 = ptrtoint ptr %.val5743 to i64
   %1640 = ptrtoint ptr %.val5742 to i64
   %1641 = sub i64 %1639, %1640
@@ -8436,7 +8436,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1646 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1647 = load i32, ptr %1646, align 8, !tbaa !419
+  %1647 = load i32, ptr %1646, align 8, !tbaa !418
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1647)
   br label %common.ret.sink.split
 
@@ -8444,10 +8444,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.256, i64 noundef 39) #9
   %1649 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1650 = getelementptr i8, ptr %1, i64 304
-  %.val5745 = load ptr, ptr %1650, align 8, !tbaa !330
-  %.val5746 = load ptr, ptr %1649, align 8, !tbaa !345
+  %.val5745 = load ptr, ptr %1650, align 8, !tbaa !329
+  %.val5746 = load ptr, ptr %1649, align 8, !tbaa !344
   %1651 = getelementptr i8, ptr %2, i64 16
-  %.val5747 = load ptr, ptr %1651, align 8, !tbaa !346
+  %.val5747 = load ptr, ptr %1651, align 8, !tbaa !345
   %1652 = ptrtoint ptr %.val5746 to i64
   %1653 = ptrtoint ptr %.val5745 to i64
   %1654 = sub i64 %1652, %1653
@@ -8459,15 +8459,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1659 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1660 = load i32, ptr %1659, align 8, !tbaa !421
+  %1660 = load i32, ptr %1659, align 8, !tbaa !420
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1660)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %1661 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5748 = load ptr, ptr %1650, align 8, !tbaa !330
-  %.val5749 = load ptr, ptr %1661, align 8, !tbaa !345
+  %.val5748 = load ptr, ptr %1650, align 8, !tbaa !329
+  %.val5749 = load ptr, ptr %1661, align 8, !tbaa !344
   %1662 = getelementptr i8, ptr %2, i64 40
-  %.val5750 = load ptr, ptr %1662, align 8, !tbaa !346
+  %.val5750 = load ptr, ptr %1662, align 8, !tbaa !345
   %1663 = ptrtoint ptr %.val5749 to i64
   %1664 = ptrtoint ptr %.val5748 to i64
   %1665 = sub i64 %1663, %1664
@@ -8479,15 +8479,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1670 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %1671 = load ptr, ptr %1670, align 8, !tbaa !129
+  %1671 = load ptr, ptr %1670, align 8, !tbaa !128
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1671)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %1672 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.val5751 = load ptr, ptr %1650, align 8, !tbaa !330
-  %.val5752 = load ptr, ptr %1672, align 8, !tbaa !345
+  %.val5751 = load ptr, ptr %1650, align 8, !tbaa !329
+  %.val5752 = load ptr, ptr %1672, align 8, !tbaa !344
   %1673 = getelementptr i8, ptr %2, i64 64
-  %.val5753 = load ptr, ptr %1673, align 8, !tbaa !346
+  %.val5753 = load ptr, ptr %1673, align 8, !tbaa !345
   %1674 = ptrtoint ptr %.val5752 to i64
   %1675 = ptrtoint ptr %.val5751 to i64
   %1676 = sub i64 %1674, %1675
@@ -8502,10 +8502,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.257, i64 noundef 29) #9
   %1682 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1683 = getelementptr i8, ptr %1, i64 304
-  %.val5754 = load ptr, ptr %1683, align 8, !tbaa !330
-  %.val5755 = load ptr, ptr %1682, align 8, !tbaa !345
+  %.val5754 = load ptr, ptr %1683, align 8, !tbaa !329
+  %.val5755 = load ptr, ptr %1682, align 8, !tbaa !344
   %1684 = getelementptr i8, ptr %2, i64 16
-  %.val5756 = load ptr, ptr %1684, align 8, !tbaa !346
+  %.val5756 = load ptr, ptr %1684, align 8, !tbaa !345
   %1685 = ptrtoint ptr %.val5755 to i64
   %1686 = ptrtoint ptr %.val5754 to i64
   %1687 = sub i64 %1685, %1686
@@ -8517,15 +8517,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %1692 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1693 = load i32, ptr %1692, align 8, !tbaa !422
+  %1693 = load i32, ptr %1692, align 8, !tbaa !421
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1693)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %1694 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5757 = load ptr, ptr %1683, align 8, !tbaa !330
-  %.val5758 = load ptr, ptr %1694, align 8, !tbaa !345
+  %.val5757 = load ptr, ptr %1683, align 8, !tbaa !329
+  %.val5758 = load ptr, ptr %1694, align 8, !tbaa !344
   %1695 = getelementptr i8, ptr %2, i64 40
-  %.val5759 = load ptr, ptr %1695, align 8, !tbaa !346
+  %.val5759 = load ptr, ptr %1695, align 8, !tbaa !345
   %1696 = ptrtoint ptr %.val5758 to i64
   %1697 = ptrtoint ptr %.val5757 to i64
   %1698 = sub i64 %1696, %1697
@@ -8537,7 +8537,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.213, i64 noundef 11) #9
   %1703 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %1704 = load ptr, ptr %1703, align 8, !tbaa !131
+  %1704 = load ptr, ptr %1703, align 8, !tbaa !130
   %.not5307 = icmp eq ptr %1704, null
   br i1 %.not5307, label %1706, label %1705
 
@@ -8553,7 +8553,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.201, i64 noundef 13) #9
   %1708 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %1709 = load ptr, ptr %1708, align 8, !tbaa !133
+  %1709 = load ptr, ptr %1708, align 8, !tbaa !132
   %.not5308 = icmp eq ptr %1709, null
   br i1 %.not5308, label %1711, label %1710
 
@@ -8569,7 +8569,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.202, i64 noundef 7) #9
   %1713 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %1714 = load ptr, ptr %1713, align 8, !tbaa !134
+  %1714 = load ptr, ptr %1713, align 8, !tbaa !133
   %.not5309 = icmp eq ptr %1714, null
   br i1 %.not5309, label %1716, label %1715
 
@@ -8586,7 +8586,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.200, i64 noundef 9) #9
   %1718 = getelementptr inbounds nuw i8, ptr %2, i64 72
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
-  %1719 = load i64, ptr %1718, align 8, !tbaa !364
+  %1719 = load i64, ptr %1718, align 8, !tbaa !363
   %.not7277 = icmp eq i64 %1719, 0
   br i1 %.not7277, label %._crit_edge7214, label %.lr.ph7213
 
@@ -8600,10 +8600,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.258, i64 noundef 18) #9
   %1722 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %.val5760 = load ptr, ptr %1683, align 8, !tbaa !330
-  %.val5761 = load ptr, ptr %1722, align 8, !tbaa !345
+  %.val5760 = load ptr, ptr %1683, align 8, !tbaa !329
+  %.val5761 = load ptr, ptr %1722, align 8, !tbaa !344
   %1723 = getelementptr i8, ptr %2, i64 104
-  %.val5762 = load ptr, ptr %1723, align 8, !tbaa !346
+  %.val5762 = load ptr, ptr %1723, align 8, !tbaa !345
   %1724 = ptrtoint ptr %.val5761 to i64
   %1725 = ptrtoint ptr %.val5760 to i64
   %1726 = sub i64 %1724, %1725
@@ -8615,7 +8615,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %1731 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %1732 = load ptr, ptr %1731, align 8, !tbaa !423
+  %1732 = load ptr, ptr %1731, align 8, !tbaa !422
   %.not5310 = icmp eq ptr %1732, null
   br i1 %.not5310, label %1755, label %1746
 
@@ -8629,25 +8629,25 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %1735
 
 1735:                                             ; preds = %1734, %1733
-  %1736 = load ptr, ptr %1720, align 8, !tbaa !365
+  %1736 = load ptr, ptr %1720, align 8, !tbaa !364
   %1737 = getelementptr i32, ptr %1736, i64 %.048517211
-  %1738 = load i32, ptr %1737, align 4, !tbaa !366
+  %1738 = load i32, ptr %1737, align 4, !tbaa !365
   %1739 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %1721, i32 noundef %1738) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
-  %1740 = load ptr, ptr %1739, align 8, !tbaa !367
+  %1740 = load ptr, ptr %1739, align 8, !tbaa !366
   %1741 = getelementptr inbounds nuw i8, ptr %1739, i64 8
-  %1742 = load i64, ptr %1741, align 8, !tbaa !369
+  %1742 = load i64, ptr %1741, align 8, !tbaa !368
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1740, i64 noundef %1742, i32 noundef 1) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
   %1743 = add nuw i64 %.048517211, 1
-  %1744 = load i64, ptr %1718, align 8, !tbaa !364
+  %1744 = load i64, ptr %1718, align 8, !tbaa !363
   %1745 = icmp ult i64 %1743, %1744
-  br i1 %1745, label %1733, label %._crit_edge7214, !llvm.loop !424
+  br i1 %1745, label %1733, label %._crit_edge7214, !llvm.loop !423
 
 1746:                                             ; preds = %._crit_edge7214
-  %.val5763 = load ptr, ptr %1683, align 8, !tbaa !330
+  %.val5763 = load ptr, ptr %1683, align 8, !tbaa !329
   %1747 = getelementptr i8, ptr %2, i64 120
-  %.val5765 = load ptr, ptr %1747, align 8, !tbaa !346
+  %.val5765 = load ptr, ptr %1747, align 8, !tbaa !345
   %1748 = ptrtoint ptr %1732 to i64
   %1749 = ptrtoint ptr %.val5763 to i64
   %1750 = sub i64 %1748, %1749
@@ -8666,14 +8666,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.259, i64 noundef 13) #9
   %1757 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %1758 = load ptr, ptr %1757, align 8, !tbaa !425
+  %1758 = load ptr, ptr %1757, align 8, !tbaa !424
   %.not5311 = icmp eq ptr %1758, null
   br i1 %.not5311, label %1768, label %1759
 
 1759:                                             ; preds = %1756
-  %.val5766 = load ptr, ptr %1683, align 8, !tbaa !330
+  %.val5766 = load ptr, ptr %1683, align 8, !tbaa !329
   %1760 = getelementptr i8, ptr %2, i64 136
-  %.val5768 = load ptr, ptr %1760, align 8, !tbaa !346
+  %.val5768 = load ptr, ptr %1760, align 8, !tbaa !345
   %1761 = ptrtoint ptr %1758 to i64
   %1762 = ptrtoint ptr %.val5766 to i64
   %1763 = sub i64 %1761, %1762
@@ -8692,14 +8692,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.260, i64 noundef 13) #9
   %1770 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %1771 = load ptr, ptr %1770, align 8, !tbaa !426
+  %1771 = load ptr, ptr %1770, align 8, !tbaa !425
   %.not5312 = icmp eq ptr %1771, null
   br i1 %.not5312, label %1781, label %1772
 
 1772:                                             ; preds = %1769
-  %.val5769 = load ptr, ptr %1683, align 8, !tbaa !330
+  %.val5769 = load ptr, ptr %1683, align 8, !tbaa !329
   %1773 = getelementptr i8, ptr %2, i64 152
-  %.val5771 = load ptr, ptr %1773, align 8, !tbaa !346
+  %.val5771 = load ptr, ptr %1773, align 8, !tbaa !345
   %1774 = ptrtoint ptr %1771 to i64
   %1775 = ptrtoint ptr %.val5769 to i64
   %1776 = sub i64 %1774, %1775
@@ -8718,14 +8718,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.261, i64 noundef 12) #9
   %1783 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  %1784 = load ptr, ptr %1783, align 8, !tbaa !427
+  %1784 = load ptr, ptr %1783, align 8, !tbaa !426
   %.not5313 = icmp eq ptr %1784, null
   br i1 %.not5313, label %1794, label %1785
 
 1785:                                             ; preds = %1782
-  %.val5772 = load ptr, ptr %1683, align 8, !tbaa !330
+  %.val5772 = load ptr, ptr %1683, align 8, !tbaa !329
   %1786 = getelementptr i8, ptr %2, i64 168
-  %.val5774 = load ptr, ptr %1786, align 8, !tbaa !346
+  %.val5774 = load ptr, ptr %1786, align 8, !tbaa !345
   %1787 = ptrtoint ptr %1784 to i64
   %1788 = ptrtoint ptr %.val5772 to i64
   %1789 = sub i64 %1787, %1788
@@ -8744,14 +8744,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 18) #9
   %1796 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %1797 = load ptr, ptr %1796, align 8, !tbaa !428
+  %1797 = load ptr, ptr %1796, align 8, !tbaa !427
   %.not5314 = icmp eq ptr %1797, null
   br i1 %.not5314, label %1807, label %1798
 
 1798:                                             ; preds = %1795
-  %.val5775 = load ptr, ptr %1683, align 8, !tbaa !330
+  %.val5775 = load ptr, ptr %1683, align 8, !tbaa !329
   %1799 = getelementptr i8, ptr %2, i64 184
-  %.val5777 = load ptr, ptr %1799, align 8, !tbaa !346
+  %.val5777 = load ptr, ptr %1799, align 8, !tbaa !345
   %1800 = ptrtoint ptr %1797 to i64
   %1801 = ptrtoint ptr %.val5775 to i64
   %1802 = sub i64 %1800, %1801
@@ -8770,10 +8770,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.262, i64 noundef 33) #9
   %1809 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1810 = getelementptr i8, ptr %1, i64 304
-  %.val5778 = load ptr, ptr %1810, align 8, !tbaa !330
-  %.val5779 = load ptr, ptr %1809, align 8, !tbaa !345
+  %.val5778 = load ptr, ptr %1810, align 8, !tbaa !329
+  %.val5779 = load ptr, ptr %1809, align 8, !tbaa !344
   %1811 = getelementptr i8, ptr %2, i64 16
-  %.val5780 = load ptr, ptr %1811, align 8, !tbaa !346
+  %.val5780 = load ptr, ptr %1811, align 8, !tbaa !345
   %1812 = ptrtoint ptr %.val5779 to i64
   %1813 = ptrtoint ptr %.val5778 to i64
   %1814 = sub i64 %1812, %1813
@@ -8785,14 +8785,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.259, i64 noundef 13) #9
   %1819 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %1820 = load ptr, ptr %1819, align 8, !tbaa !429
+  %1820 = load ptr, ptr %1819, align 8, !tbaa !428
   %.not5305 = icmp eq ptr %1820, null
   br i1 %.not5305, label %1830, label %1821
 
 1821:                                             ; preds = %1808
-  %.val5781 = load ptr, ptr %1810, align 8, !tbaa !330
+  %.val5781 = load ptr, ptr %1810, align 8, !tbaa !329
   %1822 = getelementptr i8, ptr %2, i64 32
-  %.val5783 = load ptr, ptr %1822, align 8, !tbaa !346
+  %.val5783 = load ptr, ptr %1822, align 8, !tbaa !345
   %1823 = ptrtoint ptr %1820 to i64
   %1824 = ptrtoint ptr %.val5781 to i64
   %1825 = sub i64 %1823, %1824
@@ -8811,19 +8811,19 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %1832 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %1833 = load ptr, ptr %1832, align 8, !tbaa !135
+  %1833 = load ptr, ptr %1832, align 8, !tbaa !134
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %1833)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.260, i64 noundef 13) #9
   %1834 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %1835 = load ptr, ptr %1834, align 8, !tbaa !430
+  %1835 = load ptr, ptr %1834, align 8, !tbaa !429
   %.not5306 = icmp eq ptr %1835, null
   br i1 %.not5306, label %1845, label %1836
 
 1836:                                             ; preds = %1831
-  %.val5784 = load ptr, ptr %1810, align 8, !tbaa !330
+  %.val5784 = load ptr, ptr %1810, align 8, !tbaa !329
   %1837 = getelementptr i8, ptr %2, i64 56
-  %.val5786 = load ptr, ptr %1837, align 8, !tbaa !346
+  %.val5786 = load ptr, ptr %1837, align 8, !tbaa !345
   %1838 = ptrtoint ptr %1835 to i64
   %1839 = ptrtoint ptr %.val5784 to i64
   %1840 = sub i64 %1838, %1839
@@ -8842,10 +8842,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %1847 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val5787 = load ptr, ptr %1810, align 8, !tbaa !330
-  %.val5788 = load ptr, ptr %1847, align 8, !tbaa !345
+  %.val5787 = load ptr, ptr %1810, align 8, !tbaa !329
+  %.val5788 = load ptr, ptr %1847, align 8, !tbaa !344
   %1848 = getelementptr i8, ptr %2, i64 72
-  %.val5789 = load ptr, ptr %1848, align 8, !tbaa !346
+  %.val5789 = load ptr, ptr %1848, align 8, !tbaa !345
   %1849 = ptrtoint ptr %.val5788 to i64
   %1850 = ptrtoint ptr %.val5787 to i64
   %1851 = sub i64 %1849, %1850
@@ -8860,10 +8860,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.263, i64 noundef 30) #9
   %1857 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1858 = getelementptr i8, ptr %1, i64 304
-  %.val5790 = load ptr, ptr %1858, align 8, !tbaa !330
-  %.val5791 = load ptr, ptr %1857, align 8, !tbaa !345
+  %.val5790 = load ptr, ptr %1858, align 8, !tbaa !329
+  %.val5791 = load ptr, ptr %1857, align 8, !tbaa !344
   %1859 = getelementptr i8, ptr %2, i64 16
-  %.val5792 = load ptr, ptr %1859, align 8, !tbaa !346
+  %.val5792 = load ptr, ptr %1859, align 8, !tbaa !345
   %1860 = ptrtoint ptr %.val5791 to i64
   %1861 = ptrtoint ptr %.val5790 to i64
   %1862 = sub i64 %1860, %1861
@@ -8875,10 +8875,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.264, i64 noundef 19) #9
   %1867 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val5793 = load ptr, ptr %1858, align 8, !tbaa !330
-  %.val5794 = load ptr, ptr %1867, align 8, !tbaa !345
+  %.val5793 = load ptr, ptr %1858, align 8, !tbaa !329
+  %.val5794 = load ptr, ptr %1867, align 8, !tbaa !344
   %1868 = getelementptr i8, ptr %2, i64 32
-  %.val5795 = load ptr, ptr %1868, align 8, !tbaa !346
+  %.val5795 = load ptr, ptr %1868, align 8, !tbaa !345
   %1869 = ptrtoint ptr %.val5794 to i64
   %1870 = ptrtoint ptr %.val5793 to i64
   %1871 = sub i64 %1869, %1870
@@ -8890,7 +8890,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %1876 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %1877 = load ptr, ptr %1876, align 8, !tbaa !137
+  %1877 = load ptr, ptr %1876, align 8, !tbaa !136
   %.not5303 = icmp eq ptr %1877, null
   br i1 %.not5303, label %1879, label %1878
 
@@ -8906,14 +8906,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 18) #9
   %1881 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %1882 = load ptr, ptr %1881, align 8, !tbaa !431
+  %1882 = load ptr, ptr %1881, align 8, !tbaa !430
   %.not5304 = icmp eq ptr %1882, null
   br i1 %.not5304, label %1892, label %1883
 
 1883:                                             ; preds = %1880
-  %.val5796 = load ptr, ptr %1858, align 8, !tbaa !330
+  %.val5796 = load ptr, ptr %1858, align 8, !tbaa !329
   %1884 = getelementptr i8, ptr %2, i64 56
-  %.val5798 = load ptr, ptr %1884, align 8, !tbaa !346
+  %.val5798 = load ptr, ptr %1884, align 8, !tbaa !345
   %1885 = ptrtoint ptr %1882 to i64
   %1886 = ptrtoint ptr %.val5796 to i64
   %1887 = sub i64 %1885, %1886
@@ -8932,10 +8932,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.265, i64 noundef 44) #9
   %1894 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1895 = getelementptr i8, ptr %1, i64 304
-  %.val5799 = load ptr, ptr %1895, align 8, !tbaa !330
-  %.val5800 = load ptr, ptr %1894, align 8, !tbaa !345
+  %.val5799 = load ptr, ptr %1895, align 8, !tbaa !329
+  %.val5800 = load ptr, ptr %1894, align 8, !tbaa !344
   %1896 = getelementptr i8, ptr %2, i64 16
-  %.val5801 = load ptr, ptr %1896, align 8, !tbaa !346
+  %.val5801 = load ptr, ptr %1896, align 8, !tbaa !345
   %1897 = ptrtoint ptr %.val5800 to i64
   %1898 = ptrtoint ptr %.val5799 to i64
   %1899 = sub i64 %1897, %1898
@@ -8947,10 +8947,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %1904 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val5802 = load ptr, ptr %1895, align 8, !tbaa !330
-  %.val5803 = load ptr, ptr %1904, align 8, !tbaa !345
+  %.val5802 = load ptr, ptr %1895, align 8, !tbaa !329
+  %.val5803 = load ptr, ptr %1904, align 8, !tbaa !344
   %1905 = getelementptr i8, ptr %2, i64 32
-  %.val5804 = load ptr, ptr %1905, align 8, !tbaa !346
+  %.val5804 = load ptr, ptr %1905, align 8, !tbaa !345
   %1906 = ptrtoint ptr %.val5803 to i64
   %1907 = ptrtoint ptr %.val5802 to i64
   %1908 = sub i64 %1906, %1907
@@ -8962,7 +8962,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %1913 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %1914 = load ptr, ptr %1913, align 8, !tbaa !139
+  %1914 = load ptr, ptr %1913, align 8, !tbaa !138
   %.not5302 = icmp eq ptr %1914, null
   br i1 %.not5302, label %1916, label %1915
 
@@ -8978,10 +8978,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %1918 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5805 = load ptr, ptr %1895, align 8, !tbaa !330
-  %.val5806 = load ptr, ptr %1918, align 8, !tbaa !345
+  %.val5805 = load ptr, ptr %1895, align 8, !tbaa !329
+  %.val5806 = load ptr, ptr %1918, align 8, !tbaa !344
   %1919 = getelementptr i8, ptr %2, i64 56
-  %.val5807 = load ptr, ptr %1919, align 8, !tbaa !346
+  %.val5807 = load ptr, ptr %1919, align 8, !tbaa !345
   %1920 = ptrtoint ptr %.val5806 to i64
   %1921 = ptrtoint ptr %.val5805 to i64
   %1922 = sub i64 %1920, %1921
@@ -8996,10 +8996,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.266, i64 noundef 42) #9
   %1928 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1929 = getelementptr i8, ptr %1, i64 304
-  %.val5808 = load ptr, ptr %1929, align 8, !tbaa !330
-  %.val5809 = load ptr, ptr %1928, align 8, !tbaa !345
+  %.val5808 = load ptr, ptr %1929, align 8, !tbaa !329
+  %.val5809 = load ptr, ptr %1928, align 8, !tbaa !344
   %1930 = getelementptr i8, ptr %2, i64 16
-  %.val5810 = load ptr, ptr %1930, align 8, !tbaa !346
+  %.val5810 = load ptr, ptr %1930, align 8, !tbaa !345
   %1931 = ptrtoint ptr %.val5809 to i64
   %1932 = ptrtoint ptr %.val5808 to i64
   %1933 = sub i64 %1931, %1932
@@ -9011,10 +9011,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %1938 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val5811 = load ptr, ptr %1929, align 8, !tbaa !330
-  %.val5812 = load ptr, ptr %1938, align 8, !tbaa !345
+  %.val5811 = load ptr, ptr %1929, align 8, !tbaa !329
+  %.val5812 = load ptr, ptr %1938, align 8, !tbaa !344
   %1939 = getelementptr i8, ptr %2, i64 32
-  %.val5813 = load ptr, ptr %1939, align 8, !tbaa !346
+  %.val5813 = load ptr, ptr %1939, align 8, !tbaa !345
   %1940 = ptrtoint ptr %.val5812 to i64
   %1941 = ptrtoint ptr %.val5811 to i64
   %1942 = sub i64 %1940, %1941
@@ -9026,7 +9026,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.267, i64 noundef 11) #9
   %1947 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %1948 = load ptr, ptr %1947, align 8, !tbaa !141
+  %1948 = load ptr, ptr %1947, align 8, !tbaa !140
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %1948)
   br label %common.ret.sink.split
 
@@ -9034,10 +9034,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.268, i64 noundef 32) #9
   %1950 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1951 = getelementptr i8, ptr %1, i64 304
-  %.val5814 = load ptr, ptr %1951, align 8, !tbaa !330
-  %.val5815 = load ptr, ptr %1950, align 8, !tbaa !345
+  %.val5814 = load ptr, ptr %1951, align 8, !tbaa !329
+  %.val5815 = load ptr, ptr %1950, align 8, !tbaa !344
   %1952 = getelementptr i8, ptr %2, i64 16
-  %.val5816 = load ptr, ptr %1952, align 8, !tbaa !346
+  %.val5816 = load ptr, ptr %1952, align 8, !tbaa !345
   %1953 = ptrtoint ptr %.val5815 to i64
   %1954 = ptrtoint ptr %.val5814 to i64
   %1955 = sub i64 %1953, %1954
@@ -9049,10 +9049,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.269, i64 noundef 21) #9
   %1960 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val5817 = load ptr, ptr %1951, align 8, !tbaa !330
-  %.val5818 = load ptr, ptr %1960, align 8, !tbaa !345
+  %.val5817 = load ptr, ptr %1951, align 8, !tbaa !329
+  %.val5818 = load ptr, ptr %1960, align 8, !tbaa !344
   %1961 = getelementptr i8, ptr %2, i64 32
-  %.val5819 = load ptr, ptr %1961, align 8, !tbaa !346
+  %.val5819 = load ptr, ptr %1961, align 8, !tbaa !345
   %1962 = ptrtoint ptr %.val5818 to i64
   %1963 = ptrtoint ptr %.val5817 to i64
   %1964 = sub i64 %1962, %1963
@@ -9064,7 +9064,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %1969 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %1970 = load ptr, ptr %1969, align 8, !tbaa !143
+  %1970 = load ptr, ptr %1969, align 8, !tbaa !142
   %.not5301 = icmp eq ptr %1970, null
   br i1 %.not5301, label %1972, label %1971
 
@@ -9080,10 +9080,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 18) #9
   %1974 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5820 = load ptr, ptr %1951, align 8, !tbaa !330
-  %.val5821 = load ptr, ptr %1974, align 8, !tbaa !345
+  %.val5820 = load ptr, ptr %1951, align 8, !tbaa !329
+  %.val5821 = load ptr, ptr %1974, align 8, !tbaa !344
   %1975 = getelementptr i8, ptr %2, i64 56
-  %.val5822 = load ptr, ptr %1975, align 8, !tbaa !346
+  %.val5822 = load ptr, ptr %1975, align 8, !tbaa !345
   %1976 = ptrtoint ptr %.val5821 to i64
   %1977 = ptrtoint ptr %.val5820 to i64
   %1978 = sub i64 %1976, %1977
@@ -9098,10 +9098,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.270, i64 noundef 31) #9
   %1984 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1985 = getelementptr i8, ptr %1, i64 304
-  %.val5823 = load ptr, ptr %1985, align 8, !tbaa !330
-  %.val5824 = load ptr, ptr %1984, align 8, !tbaa !345
+  %.val5823 = load ptr, ptr %1985, align 8, !tbaa !329
+  %.val5824 = load ptr, ptr %1984, align 8, !tbaa !344
   %1986 = getelementptr i8, ptr %2, i64 16
-  %.val5825 = load ptr, ptr %1986, align 8, !tbaa !346
+  %.val5825 = load ptr, ptr %1986, align 8, !tbaa !345
   %1987 = ptrtoint ptr %.val5824 to i64
   %1988 = ptrtoint ptr %.val5823 to i64
   %1989 = sub i64 %1987, %1988
@@ -9116,10 +9116,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.271, i64 noundef 37) #9
   %1995 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1996 = getelementptr i8, ptr %1, i64 304
-  %.val5826 = load ptr, ptr %1996, align 8, !tbaa !330
-  %.val5827 = load ptr, ptr %1995, align 8, !tbaa !345
+  %.val5826 = load ptr, ptr %1996, align 8, !tbaa !329
+  %.val5827 = load ptr, ptr %1995, align 8, !tbaa !344
   %1997 = getelementptr i8, ptr %2, i64 16
-  %.val5828 = load ptr, ptr %1997, align 8, !tbaa !346
+  %.val5828 = load ptr, ptr %1997, align 8, !tbaa !345
   %1998 = ptrtoint ptr %.val5827 to i64
   %1999 = ptrtoint ptr %.val5826 to i64
   %2000 = sub i64 %1998, %1999
@@ -9131,7 +9131,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.177, i64 noundef 11) #9
   %2005 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2006 = load ptr, ptr %2005, align 8, !tbaa !145
+  %2006 = load ptr, ptr %2005, align 8, !tbaa !144
   %.not5297 = icmp eq ptr %2006, null
   br i1 %.not5297, label %2008, label %2007
 
@@ -9147,7 +9147,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.158, i64 noundef 7) #9
   %2010 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2011 = load ptr, ptr %2010, align 8, !tbaa !148
+  %2011 = load ptr, ptr %2010, align 8, !tbaa !147
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2011)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.178, i64 noundef 12) #9
@@ -9166,12 +9166,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.159, i64 noundef 8) #9
   %2015 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %2016 = load ptr, ptr %2015, align 8, !tbaa !149
+  %2016 = load ptr, ptr %2015, align 8, !tbaa !148
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2016)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %2017 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %2018 = load ptr, ptr %2017, align 8, !tbaa !432
+  %2018 = load ptr, ptr %2017, align 8, !tbaa !431
   %.not5298 = icmp eq ptr %2018, null
   br i1 %.not5298, label %2037, label %2028
 
@@ -9187,17 +9187,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 2021:                                             ; preds = %2020, %2019
   %2022 = load ptr, ptr %2014, align 8, !tbaa !15
   %2023 = getelementptr ptr, ptr %2022, i64 %.048527207
-  %2024 = load ptr, ptr %2023, align 8, !tbaa !19
+  %2024 = load ptr, ptr %2023, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2024)
   %2025 = add nuw i64 %.048527207, 1
   %2026 = load i64, ptr %2012, align 8, !tbaa !7
   %2027 = icmp ult i64 %2025, %2026
-  br i1 %2027, label %2019, label %._crit_edge7210, !llvm.loop !433
+  br i1 %2027, label %2019, label %._crit_edge7210, !llvm.loop !432
 
 2028:                                             ; preds = %._crit_edge7210
-  %.val5829 = load ptr, ptr %1996, align 8, !tbaa !330
+  %.val5829 = load ptr, ptr %1996, align 8, !tbaa !329
   %2029 = getelementptr i8, ptr %2, i64 80
-  %.val5831 = load ptr, ptr %2029, align 8, !tbaa !346
+  %.val5831 = load ptr, ptr %2029, align 8, !tbaa !345
   %2030 = ptrtoint ptr %2018 to i64
   %2031 = ptrtoint ptr %.val5829 to i64
   %2032 = sub i64 %2030, %2031
@@ -9216,14 +9216,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %2039 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %2040 = load ptr, ptr %2039, align 8, !tbaa !434
+  %2040 = load ptr, ptr %2039, align 8, !tbaa !433
   %.not5299 = icmp eq ptr %2040, null
   br i1 %.not5299, label %2050, label %2041
 
 2041:                                             ; preds = %2038
-  %.val5832 = load ptr, ptr %1996, align 8, !tbaa !330
+  %.val5832 = load ptr, ptr %1996, align 8, !tbaa !329
   %2042 = getelementptr i8, ptr %2, i64 96
-  %.val5834 = load ptr, ptr %2042, align 8, !tbaa !346
+  %.val5834 = load ptr, ptr %2042, align 8, !tbaa !345
   %2043 = ptrtoint ptr %2040 to i64
   %2044 = ptrtoint ptr %.val5832 to i64
   %2045 = sub i64 %2043, %2044
@@ -9242,10 +9242,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.272, i64 noundef 34) #9
   %2052 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2053 = getelementptr i8, ptr %1, i64 304
-  %.val5835 = load ptr, ptr %2053, align 8, !tbaa !330
-  %.val5836 = load ptr, ptr %2052, align 8, !tbaa !345
+  %.val5835 = load ptr, ptr %2053, align 8, !tbaa !329
+  %.val5836 = load ptr, ptr %2052, align 8, !tbaa !344
   %2054 = getelementptr i8, ptr %2, i64 16
-  %.val5837 = load ptr, ptr %2054, align 8, !tbaa !346
+  %.val5837 = load ptr, ptr %2054, align 8, !tbaa !345
   %2055 = ptrtoint ptr %.val5836 to i64
   %2056 = ptrtoint ptr %.val5835 to i64
   %2057 = sub i64 %2055, %2056
@@ -9258,7 +9258,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.273, i64 noundef 13) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %2062 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %2063 = load i16, ptr %2062, align 2, !tbaa !347
+  %2063 = load i16, ptr %2062, align 2, !tbaa !346
   %2064 = and i16 %2063, 4
   %.not5294 = icmp eq i16 %2064, 0
   br i1 %.not5294, label %2066, label %2065
@@ -9272,7 +9272,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.158, i64 noundef 7) #9
   %2067 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2068 = load ptr, ptr %2067, align 8, !tbaa !150
+  %2068 = load ptr, ptr %2067, align 8, !tbaa !149
   %.not5295 = icmp eq ptr %2068, null
   br i1 %.not5295, label %2070, label %2069
 
@@ -9288,7 +9288,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.159, i64 noundef 8) #9
   %2072 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2073 = load ptr, ptr %2072, align 8, !tbaa !152
+  %2073 = load ptr, ptr %2072, align 8, !tbaa !151
   %.not5296 = icmp eq ptr %2073, null
   br i1 %.not5296, label %2075, label %2074
 
@@ -9304,10 +9304,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %2077 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val5838 = load ptr, ptr %2053, align 8, !tbaa !330
-  %.val5839 = load ptr, ptr %2077, align 8, !tbaa !345
+  %.val5838 = load ptr, ptr %2053, align 8, !tbaa !329
+  %.val5839 = load ptr, ptr %2077, align 8, !tbaa !344
   %2078 = getelementptr i8, ptr %2, i64 48
-  %.val5840 = load ptr, ptr %2078, align 8, !tbaa !346
+  %.val5840 = load ptr, ptr %2078, align 8, !tbaa !345
   %2079 = ptrtoint ptr %.val5839 to i64
   %2080 = ptrtoint ptr %.val5838 to i64
   %2081 = sub i64 %2079, %2080
@@ -9322,10 +9322,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.275, i64 noundef 31) #9
   %2087 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2088 = getelementptr i8, ptr %1, i64 304
-  %.val5841 = load ptr, ptr %2088, align 8, !tbaa !330
-  %.val5842 = load ptr, ptr %2087, align 8, !tbaa !345
+  %.val5841 = load ptr, ptr %2088, align 8, !tbaa !329
+  %.val5842 = load ptr, ptr %2087, align 8, !tbaa !344
   %2089 = getelementptr i8, ptr %2, i64 16
-  %.val5843 = load ptr, ptr %2089, align 8, !tbaa !346
+  %.val5843 = load ptr, ptr %2089, align 8, !tbaa !345
   %2090 = ptrtoint ptr %.val5842 to i64
   %2091 = ptrtoint ptr %.val5841 to i64
   %2092 = sub i64 %2090, %2091
@@ -9337,7 +9337,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %2097 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2098 = load double, ptr %2097, align 8, !tbaa !435
+  %2098 = load double, ptr %2097, align 8, !tbaa !434
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.276, double noundef %2098) #9
   br label %common.ret.sink.split
 
@@ -9345,10 +9345,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.277, i64 noundef 29) #9
   %2100 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2101 = getelementptr i8, ptr %1, i64 304
-  %.val5844 = load ptr, ptr %2101, align 8, !tbaa !330
-  %.val5845 = load ptr, ptr %2100, align 8, !tbaa !345
+  %.val5844 = load ptr, ptr %2101, align 8, !tbaa !329
+  %.val5845 = load ptr, ptr %2100, align 8, !tbaa !344
   %2102 = getelementptr i8, ptr %2, i64 16
-  %.val5846 = load ptr, ptr %2102, align 8, !tbaa !346
+  %.val5846 = load ptr, ptr %2102, align 8, !tbaa !345
   %2103 = ptrtoint ptr %.val5845 to i64
   %2104 = ptrtoint ptr %.val5844 to i64
   %2105 = sub i64 %2103, %2104
@@ -9360,17 +9360,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.278, i64 noundef 8) #9
   %2110 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2111 = load ptr, ptr %2110, align 8, !tbaa !153
+  %2111 = load ptr, ptr %2110, align 8, !tbaa !152
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2111)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.279, i64 noundef 13) #9
   %2112 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2113 = load ptr, ptr %2112, align 8, !tbaa !155
+  %2113 = load ptr, ptr %2112, align 8, !tbaa !154
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2113)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %2114 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %2115 = load ptr, ptr %2114, align 8, !tbaa !156
+  %2115 = load ptr, ptr %2114, align 8, !tbaa !155
   %.not5292 = icmp eq ptr %2115, null
   br i1 %.not5292, label %2117, label %2116
 
@@ -9386,10 +9386,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.280, i64 noundef 18) #9
   %2119 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5847 = load ptr, ptr %2101, align 8, !tbaa !330
-  %.val5848 = load ptr, ptr %2119, align 8, !tbaa !345
+  %.val5847 = load ptr, ptr %2101, align 8, !tbaa !329
+  %.val5848 = load ptr, ptr %2119, align 8, !tbaa !344
   %2120 = getelementptr i8, ptr %2, i64 56
-  %.val5849 = load ptr, ptr %2120, align 8, !tbaa !346
+  %.val5849 = load ptr, ptr %2120, align 8, !tbaa !345
   %2121 = ptrtoint ptr %.val5848 to i64
   %2122 = ptrtoint ptr %.val5847 to i64
   %2123 = sub i64 %2121, %2122
@@ -9401,10 +9401,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.281, i64 noundef 17) #9
   %2128 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val5850 = load ptr, ptr %2101, align 8, !tbaa !330
-  %.val5851 = load ptr, ptr %2128, align 8, !tbaa !345
+  %.val5850 = load ptr, ptr %2101, align 8, !tbaa !329
+  %.val5851 = load ptr, ptr %2128, align 8, !tbaa !344
   %2129 = getelementptr i8, ptr %2, i64 72
-  %.val5852 = load ptr, ptr %2129, align 8, !tbaa !346
+  %.val5852 = load ptr, ptr %2129, align 8, !tbaa !345
   %2130 = ptrtoint ptr %.val5851 to i64
   %2131 = ptrtoint ptr %.val5850 to i64
   %2132 = sub i64 %2130, %2131
@@ -9416,14 +9416,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.282, i64 noundef 17) #9
   %2137 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %2138 = load ptr, ptr %2137, align 8, !tbaa !438
+  %2138 = load ptr, ptr %2137, align 8, !tbaa !437
   %.not5293 = icmp eq ptr %2138, null
   br i1 %.not5293, label %2148, label %2139
 
 2139:                                             ; preds = %2118
-  %.val5853 = load ptr, ptr %2101, align 8, !tbaa !330
+  %.val5853 = load ptr, ptr %2101, align 8, !tbaa !329
   %2140 = getelementptr i8, ptr %2, i64 88
-  %.val5855 = load ptr, ptr %2140, align 8, !tbaa !346
+  %.val5855 = load ptr, ptr %2140, align 8, !tbaa !345
   %2141 = ptrtoint ptr %2138 to i64
   %2142 = ptrtoint ptr %.val5853 to i64
   %2143 = sub i64 %2141, %2142
@@ -9442,10 +9442,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 18) #9
   %2150 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %.val5856 = load ptr, ptr %2101, align 8, !tbaa !330
-  %.val5857 = load ptr, ptr %2150, align 8, !tbaa !345
+  %.val5856 = load ptr, ptr %2101, align 8, !tbaa !329
+  %.val5857 = load ptr, ptr %2150, align 8, !tbaa !344
   %2151 = getelementptr i8, ptr %2, i64 104
-  %.val5858 = load ptr, ptr %2151, align 8, !tbaa !346
+  %.val5858 = load ptr, ptr %2151, align 8, !tbaa !345
   %2152 = ptrtoint ptr %.val5857 to i64
   %2153 = ptrtoint ptr %.val5856 to i64
   %2154 = sub i64 %2152, %2153
@@ -9460,10 +9460,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.283, i64 noundef 45) #9
   %2160 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2161 = getelementptr i8, ptr %1, i64 304
-  %.val5859 = load ptr, ptr %2161, align 8, !tbaa !330
-  %.val5860 = load ptr, ptr %2160, align 8, !tbaa !345
+  %.val5859 = load ptr, ptr %2161, align 8, !tbaa !329
+  %.val5860 = load ptr, ptr %2160, align 8, !tbaa !344
   %2162 = getelementptr i8, ptr %2, i64 16
-  %.val5861 = load ptr, ptr %2162, align 8, !tbaa !346
+  %.val5861 = load ptr, ptr %2162, align 8, !tbaa !345
   %2163 = ptrtoint ptr %.val5860 to i64
   %2164 = ptrtoint ptr %.val5859 to i64
   %2165 = sub i64 %2163, %2164
@@ -9478,10 +9478,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.284, i64 noundef 45) #9
   %2171 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2172 = getelementptr i8, ptr %1, i64 304
-  %.val5862 = load ptr, ptr %2172, align 8, !tbaa !330
-  %.val5863 = load ptr, ptr %2171, align 8, !tbaa !345
+  %.val5862 = load ptr, ptr %2172, align 8, !tbaa !329
+  %.val5863 = load ptr, ptr %2171, align 8, !tbaa !344
   %2173 = getelementptr i8, ptr %2, i64 16
-  %.val5864 = load ptr, ptr %2173, align 8, !tbaa !346
+  %.val5864 = load ptr, ptr %2173, align 8, !tbaa !345
   %2174 = ptrtoint ptr %.val5863 to i64
   %2175 = ptrtoint ptr %.val5862 to i64
   %2176 = sub i64 %2174, %2175
@@ -9496,10 +9496,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.285, i64 noundef 41) #9
   %2182 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2183 = getelementptr i8, ptr %1, i64 304
-  %.val5865 = load ptr, ptr %2183, align 8, !tbaa !330
-  %.val5866 = load ptr, ptr %2182, align 8, !tbaa !345
+  %.val5865 = load ptr, ptr %2183, align 8, !tbaa !329
+  %.val5866 = load ptr, ptr %2182, align 8, !tbaa !344
   %2184 = getelementptr i8, ptr %2, i64 16
-  %.val5867 = load ptr, ptr %2184, align 8, !tbaa !346
+  %.val5867 = load ptr, ptr %2184, align 8, !tbaa !345
   %2185 = ptrtoint ptr %.val5866 to i64
   %2186 = ptrtoint ptr %.val5865 to i64
   %2187 = sub i64 %2185, %2186
@@ -9511,7 +9511,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.219, i64 noundef 8) #9
   %2192 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2193 = load ptr, ptr %2192, align 8, !tbaa !157
+  %2193 = load ptr, ptr %2192, align 8, !tbaa !156
   %.not5291 = icmp eq ptr %2193, null
   br i1 %.not5291, label %2195, label %2194
 
@@ -9527,10 +9527,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.286, i64 noundef 48) #9
   %2197 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2198 = getelementptr i8, ptr %1, i64 304
-  %.val5868 = load ptr, ptr %2198, align 8, !tbaa !330
-  %.val5869 = load ptr, ptr %2197, align 8, !tbaa !345
+  %.val5868 = load ptr, ptr %2198, align 8, !tbaa !329
+  %.val5869 = load ptr, ptr %2197, align 8, !tbaa !344
   %2199 = getelementptr i8, ptr %2, i64 16
-  %.val5870 = load ptr, ptr %2199, align 8, !tbaa !346
+  %.val5870 = load ptr, ptr %2199, align 8, !tbaa !345
   %2200 = ptrtoint ptr %.val5869 to i64
   %2201 = ptrtoint ptr %.val5868 to i64
   %2202 = sub i64 %2200, %2201
@@ -9542,15 +9542,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %2207 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2208 = load i32, ptr %2207, align 8, !tbaa !439
+  %2208 = load i32, ptr %2207, align 8, !tbaa !438
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2208)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %2209 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5871 = load ptr, ptr %2198, align 8, !tbaa !330
-  %.val5872 = load ptr, ptr %2209, align 8, !tbaa !345
+  %.val5871 = load ptr, ptr %2198, align 8, !tbaa !329
+  %.val5872 = load ptr, ptr %2209, align 8, !tbaa !344
   %2210 = getelementptr i8, ptr %2, i64 40
-  %.val5873 = load ptr, ptr %2210, align 8, !tbaa !346
+  %.val5873 = load ptr, ptr %2210, align 8, !tbaa !345
   %2211 = ptrtoint ptr %.val5872 to i64
   %2212 = ptrtoint ptr %.val5871 to i64
   %2213 = sub i64 %2211, %2212
@@ -9562,10 +9562,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %2218 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5874 = load ptr, ptr %2198, align 8, !tbaa !330
-  %.val5875 = load ptr, ptr %2218, align 8, !tbaa !345
+  %.val5874 = load ptr, ptr %2198, align 8, !tbaa !329
+  %.val5875 = load ptr, ptr %2218, align 8, !tbaa !344
   %2219 = getelementptr i8, ptr %2, i64 56
-  %.val5876 = load ptr, ptr %2219, align 8, !tbaa !346
+  %.val5876 = load ptr, ptr %2219, align 8, !tbaa !345
   %2220 = ptrtoint ptr %.val5875 to i64
   %2221 = ptrtoint ptr %.val5874 to i64
   %2222 = sub i64 %2220, %2221
@@ -9577,7 +9577,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %2227 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %2228 = load ptr, ptr %2227, align 8, !tbaa !160
+  %2228 = load ptr, ptr %2227, align 8, !tbaa !159
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2228)
   br label %common.ret.sink.split
 
@@ -9585,10 +9585,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.287, i64 noundef 53) #9
   %2230 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2231 = getelementptr i8, ptr %1, i64 304
-  %.val5877 = load ptr, ptr %2231, align 8, !tbaa !330
-  %.val5878 = load ptr, ptr %2230, align 8, !tbaa !345
+  %.val5877 = load ptr, ptr %2231, align 8, !tbaa !329
+  %.val5878 = load ptr, ptr %2230, align 8, !tbaa !344
   %2232 = getelementptr i8, ptr %2, i64 16
-  %.val5879 = load ptr, ptr %2232, align 8, !tbaa !346
+  %.val5879 = load ptr, ptr %2232, align 8, !tbaa !345
   %2233 = ptrtoint ptr %.val5878 to i64
   %2234 = ptrtoint ptr %.val5877 to i64
   %2235 = sub i64 %2233, %2234
@@ -9600,15 +9600,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %2240 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2241 = load i32, ptr %2240, align 8, !tbaa !440
+  %2241 = load i32, ptr %2240, align 8, !tbaa !439
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2241)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %2242 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5880 = load ptr, ptr %2231, align 8, !tbaa !330
-  %.val5881 = load ptr, ptr %2242, align 8, !tbaa !345
+  %.val5880 = load ptr, ptr %2231, align 8, !tbaa !329
+  %.val5881 = load ptr, ptr %2242, align 8, !tbaa !344
   %2243 = getelementptr i8, ptr %2, i64 40
-  %.val5882 = load ptr, ptr %2243, align 8, !tbaa !346
+  %.val5882 = load ptr, ptr %2243, align 8, !tbaa !345
   %2244 = ptrtoint ptr %.val5881 to i64
   %2245 = ptrtoint ptr %.val5880 to i64
   %2246 = sub i64 %2244, %2245
@@ -9620,10 +9620,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.222, i64 noundef 22) #9
   %2251 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5883 = load ptr, ptr %2231, align 8, !tbaa !330
-  %.val5884 = load ptr, ptr %2251, align 8, !tbaa !345
+  %.val5883 = load ptr, ptr %2231, align 8, !tbaa !329
+  %.val5884 = load ptr, ptr %2251, align 8, !tbaa !344
   %2252 = getelementptr i8, ptr %2, i64 56
-  %.val5885 = load ptr, ptr %2252, align 8, !tbaa !346
+  %.val5885 = load ptr, ptr %2252, align 8, !tbaa !345
   %2253 = ptrtoint ptr %.val5884 to i64
   %2254 = ptrtoint ptr %.val5883 to i64
   %2255 = sub i64 %2253, %2254
@@ -9635,12 +9635,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %2260 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %2261 = load ptr, ptr %2260, align 8, !tbaa !162
+  %2261 = load ptr, ptr %2260, align 8, !tbaa !161
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2261)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.221, i64 noundef 18) #9
   %2262 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %2263 = load i32, ptr %2262, align 8, !tbaa !441
+  %2263 = load i32, ptr %2262, align 8, !tbaa !440
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2263)
   br label %common.ret.sink.split
 
@@ -9648,10 +9648,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.288, i64 noundef 47) #9
   %2265 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2266 = getelementptr i8, ptr %1, i64 304
-  %.val5886 = load ptr, ptr %2266, align 8, !tbaa !330
-  %.val5887 = load ptr, ptr %2265, align 8, !tbaa !345
+  %.val5886 = load ptr, ptr %2266, align 8, !tbaa !329
+  %.val5887 = load ptr, ptr %2265, align 8, !tbaa !344
   %2267 = getelementptr i8, ptr %2, i64 16
-  %.val5888 = load ptr, ptr %2267, align 8, !tbaa !346
+  %.val5888 = load ptr, ptr %2267, align 8, !tbaa !345
   %2268 = ptrtoint ptr %.val5887 to i64
   %2269 = ptrtoint ptr %.val5886 to i64
   %2270 = sub i64 %2268, %2269
@@ -9663,15 +9663,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %2275 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2276 = load i32, ptr %2275, align 8, !tbaa !442
+  %2276 = load i32, ptr %2275, align 8, !tbaa !441
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2276)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %2277 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5889 = load ptr, ptr %2266, align 8, !tbaa !330
-  %.val5890 = load ptr, ptr %2277, align 8, !tbaa !345
+  %.val5889 = load ptr, ptr %2266, align 8, !tbaa !329
+  %.val5890 = load ptr, ptr %2277, align 8, !tbaa !344
   %2278 = getelementptr i8, ptr %2, i64 40
-  %.val5891 = load ptr, ptr %2278, align 8, !tbaa !346
+  %.val5891 = load ptr, ptr %2278, align 8, !tbaa !345
   %2279 = ptrtoint ptr %.val5890 to i64
   %2280 = ptrtoint ptr %.val5889 to i64
   %2281 = sub i64 %2279, %2280
@@ -9683,10 +9683,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %2286 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5892 = load ptr, ptr %2266, align 8, !tbaa !330
-  %.val5893 = load ptr, ptr %2286, align 8, !tbaa !345
+  %.val5892 = load ptr, ptr %2266, align 8, !tbaa !329
+  %.val5893 = load ptr, ptr %2286, align 8, !tbaa !344
   %2287 = getelementptr i8, ptr %2, i64 56
-  %.val5894 = load ptr, ptr %2287, align 8, !tbaa !346
+  %.val5894 = load ptr, ptr %2287, align 8, !tbaa !345
   %2288 = ptrtoint ptr %.val5893 to i64
   %2289 = ptrtoint ptr %.val5892 to i64
   %2290 = sub i64 %2288, %2289
@@ -9698,7 +9698,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %2295 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %2296 = load ptr, ptr %2295, align 8, !tbaa !164
+  %2296 = load ptr, ptr %2295, align 8, !tbaa !163
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2296)
   br label %common.ret.sink.split
 
@@ -9706,10 +9706,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.289, i64 noundef 44) #9
   %2298 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2299 = getelementptr i8, ptr %1, i64 304
-  %.val5895 = load ptr, ptr %2299, align 8, !tbaa !330
-  %.val5896 = load ptr, ptr %2298, align 8, !tbaa !345
+  %.val5895 = load ptr, ptr %2299, align 8, !tbaa !329
+  %.val5896 = load ptr, ptr %2298, align 8, !tbaa !344
   %2300 = getelementptr i8, ptr %2, i64 16
-  %.val5897 = load ptr, ptr %2300, align 8, !tbaa !346
+  %.val5897 = load ptr, ptr %2300, align 8, !tbaa !345
   %2301 = ptrtoint ptr %.val5896 to i64
   %2302 = ptrtoint ptr %.val5895 to i64
   %2303 = sub i64 %2301, %2302
@@ -9721,7 +9721,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %2308 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2309 = load i32, ptr %2308, align 8, !tbaa !443
+  %2309 = load i32, ptr %2308, align 8, !tbaa !442
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2309)
   br label %common.ret.sink.split
 
@@ -9729,10 +9729,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.290, i64 noundef 46) #9
   %2311 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2312 = getelementptr i8, ptr %1, i64 304
-  %.val5898 = load ptr, ptr %2312, align 8, !tbaa !330
-  %.val5899 = load ptr, ptr %2311, align 8, !tbaa !345
+  %.val5898 = load ptr, ptr %2312, align 8, !tbaa !329
+  %.val5899 = load ptr, ptr %2311, align 8, !tbaa !344
   %2313 = getelementptr i8, ptr %2, i64 16
-  %.val5900 = load ptr, ptr %2313, align 8, !tbaa !346
+  %.val5900 = load ptr, ptr %2313, align 8, !tbaa !345
   %2314 = ptrtoint ptr %.val5899 to i64
   %2315 = ptrtoint ptr %.val5898 to i64
   %2316 = sub i64 %2314, %2315
@@ -9744,7 +9744,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %2321 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2322 = load i32, ptr %2321, align 8, !tbaa !445
+  %2322 = load i32, ptr %2321, align 8, !tbaa !444
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2322)
   br label %common.ret.sink.split
 
@@ -9752,10 +9752,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.291, i64 noundef 45) #9
   %2324 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2325 = getelementptr i8, ptr %1, i64 304
-  %.val5901 = load ptr, ptr %2325, align 8, !tbaa !330
-  %.val5902 = load ptr, ptr %2324, align 8, !tbaa !345
+  %.val5901 = load ptr, ptr %2325, align 8, !tbaa !329
+  %.val5902 = load ptr, ptr %2324, align 8, !tbaa !344
   %2326 = getelementptr i8, ptr %2, i64 16
-  %.val5903 = load ptr, ptr %2326, align 8, !tbaa !346
+  %.val5903 = load ptr, ptr %2326, align 8, !tbaa !345
   %2327 = ptrtoint ptr %.val5902 to i64
   %2328 = ptrtoint ptr %.val5901 to i64
   %2329 = sub i64 %2327, %2328
@@ -9767,15 +9767,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %2334 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2335 = load i32, ptr %2334, align 8, !tbaa !447
+  %2335 = load i32, ptr %2334, align 8, !tbaa !446
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2335)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %2336 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val5904 = load ptr, ptr %2325, align 8, !tbaa !330
-  %.val5905 = load ptr, ptr %2336, align 8, !tbaa !345
+  %.val5904 = load ptr, ptr %2325, align 8, !tbaa !329
+  %.val5905 = load ptr, ptr %2336, align 8, !tbaa !344
   %2337 = getelementptr i8, ptr %2, i64 40
-  %.val5906 = load ptr, ptr %2337, align 8, !tbaa !346
+  %.val5906 = load ptr, ptr %2337, align 8, !tbaa !345
   %2338 = ptrtoint ptr %.val5905 to i64
   %2339 = ptrtoint ptr %.val5904 to i64
   %2340 = sub i64 %2338, %2339
@@ -9787,15 +9787,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %2345 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %2346 = load ptr, ptr %2345, align 8, !tbaa !166
+  %2346 = load ptr, ptr %2345, align 8, !tbaa !165
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2346)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %2347 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.val5907 = load ptr, ptr %2325, align 8, !tbaa !330
-  %.val5908 = load ptr, ptr %2347, align 8, !tbaa !345
+  %.val5907 = load ptr, ptr %2325, align 8, !tbaa !329
+  %.val5908 = load ptr, ptr %2347, align 8, !tbaa !344
   %2348 = getelementptr i8, ptr %2, i64 64
-  %.val5909 = load ptr, ptr %2348, align 8, !tbaa !346
+  %.val5909 = load ptr, ptr %2348, align 8, !tbaa !345
   %2349 = ptrtoint ptr %.val5908 to i64
   %2350 = ptrtoint ptr %.val5907 to i64
   %2351 = sub i64 %2349, %2350
@@ -9810,10 +9810,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.292, i64 noundef 30) #9
   %2357 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2358 = getelementptr i8, ptr %1, i64 304
-  %.val5910 = load ptr, ptr %2358, align 8, !tbaa !330
-  %.val5911 = load ptr, ptr %2357, align 8, !tbaa !345
+  %.val5910 = load ptr, ptr %2358, align 8, !tbaa !329
+  %.val5911 = load ptr, ptr %2357, align 8, !tbaa !344
   %2359 = getelementptr i8, ptr %2, i64 16
-  %.val5912 = load ptr, ptr %2359, align 8, !tbaa !346
+  %.val5912 = load ptr, ptr %2359, align 8, !tbaa !345
   %2360 = ptrtoint ptr %.val5911 to i64
   %2361 = ptrtoint ptr %.val5910 to i64
   %2362 = sub i64 %2360, %2361
@@ -9825,10 +9825,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %2367 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val5913 = load ptr, ptr %2358, align 8, !tbaa !330
-  %.val5914 = load ptr, ptr %2367, align 8, !tbaa !345
+  %.val5913 = load ptr, ptr %2358, align 8, !tbaa !329
+  %.val5914 = load ptr, ptr %2367, align 8, !tbaa !344
   %2368 = getelementptr i8, ptr %2, i64 32
-  %.val5915 = load ptr, ptr %2368, align 8, !tbaa !346
+  %.val5915 = load ptr, ptr %2368, align 8, !tbaa !345
   %2369 = ptrtoint ptr %.val5914 to i64
   %2370 = ptrtoint ptr %.val5913 to i64
   %2371 = sub i64 %2369, %2370
@@ -9854,10 +9854,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %2379 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val5916 = load ptr, ptr %2358, align 8, !tbaa !330
-  %.val5917 = load ptr, ptr %2379, align 8, !tbaa !345
+  %.val5916 = load ptr, ptr %2358, align 8, !tbaa !329
+  %.val5917 = load ptr, ptr %2379, align 8, !tbaa !344
   %2380 = getelementptr i8, ptr %2, i64 72
-  %.val5918 = load ptr, ptr %2380, align 8, !tbaa !346
+  %.val5918 = load ptr, ptr %2380, align 8, !tbaa !345
   %2381 = ptrtoint ptr %.val5917 to i64
   %2382 = ptrtoint ptr %.val5916 to i64
   %2383 = sub i64 %2381, %2382
@@ -9880,21 +9880,21 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 2390:                                             ; preds = %2389, %2388
   %2391 = load ptr, ptr %2378, align 8, !tbaa !15
   %2392 = getelementptr ptr, ptr %2391, i64 %.048567203
-  %2393 = load ptr, ptr %2392, align 8, !tbaa !19
+  %2393 = load ptr, ptr %2392, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2393)
   %2394 = add nuw i64 %.048567203, 1
   %2395 = load i64, ptr %2376, align 8, !tbaa !7
   %2396 = icmp ult i64 %2394, %2395
-  br i1 %2396, label %2388, label %._crit_edge7206, !llvm.loop !448
+  br i1 %2396, label %2388, label %._crit_edge7206, !llvm.loop !447
 
 2397:                                             ; preds = %3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.293, i64 noundef 37) #9
   %2398 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2399 = getelementptr i8, ptr %1, i64 304
-  %.val5919 = load ptr, ptr %2399, align 8, !tbaa !330
-  %.val5920 = load ptr, ptr %2398, align 8, !tbaa !345
+  %.val5919 = load ptr, ptr %2399, align 8, !tbaa !329
+  %.val5920 = load ptr, ptr %2398, align 8, !tbaa !344
   %2400 = getelementptr i8, ptr %2, i64 16
-  %.val5921 = load ptr, ptr %2400, align 8, !tbaa !346
+  %.val5921 = load ptr, ptr %2400, align 8, !tbaa !345
   %2401 = ptrtoint ptr %.val5920 to i64
   %2402 = ptrtoint ptr %.val5919 to i64
   %2403 = sub i64 %2401, %2402
@@ -9906,7 +9906,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.177, i64 noundef 11) #9
   %2408 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2409 = load ptr, ptr %2408, align 8, !tbaa !168
+  %2409 = load ptr, ptr %2408, align 8, !tbaa !167
   %.not5285 = icmp eq ptr %2409, null
   br i1 %.not5285, label %2411, label %2410
 
@@ -9936,7 +9936,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.179, i64 noundef 7) #9
   %2416 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %2417 = load ptr, ptr %2416, align 8, !tbaa !170
+  %2417 = load ptr, ptr %2416, align 8, !tbaa !169
   %.not5286 = icmp eq ptr %2417, null
   br i1 %.not5286, label %2428, label %2427
 
@@ -9952,12 +9952,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 2420:                                             ; preds = %2419, %2418
   %2421 = load ptr, ptr %2415, align 8, !tbaa !15
   %2422 = getelementptr ptr, ptr %2421, i64 %.048577199
-  %2423 = load ptr, ptr %2422, align 8, !tbaa !19
+  %2423 = load ptr, ptr %2422, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2423)
   %2424 = add nuw i64 %.048577199, 1
   %2425 = load i64, ptr %2413, align 8, !tbaa !7
   %2426 = icmp ult i64 %2424, %2425
-  br i1 %2426, label %2418, label %._crit_edge7202, !llvm.loop !449
+  br i1 %2426, label %2418, label %._crit_edge7202, !llvm.loop !448
 
 2427:                                             ; preds = %._crit_edge7202
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2417)
@@ -9971,14 +9971,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %2430 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %2431 = load ptr, ptr %2430, align 8, !tbaa !450
+  %2431 = load ptr, ptr %2430, align 8, !tbaa !449
   %.not5287 = icmp eq ptr %2431, null
   br i1 %.not5287, label %2441, label %2432
 
 2432:                                             ; preds = %2429
-  %.val5922 = load ptr, ptr %2399, align 8, !tbaa !330
+  %.val5922 = load ptr, ptr %2399, align 8, !tbaa !329
   %2433 = getelementptr i8, ptr %2, i64 72
-  %.val5924 = load ptr, ptr %2433, align 8, !tbaa !346
+  %.val5924 = load ptr, ptr %2433, align 8, !tbaa !345
   %2434 = ptrtoint ptr %2431 to i64
   %2435 = ptrtoint ptr %.val5922 to i64
   %2436 = sub i64 %2434, %2435
@@ -9997,14 +9997,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %2443 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %2444 = load ptr, ptr %2443, align 8, !tbaa !451
+  %2444 = load ptr, ptr %2443, align 8, !tbaa !450
   %.not5288 = icmp eq ptr %2444, null
   br i1 %.not5288, label %2454, label %2445
 
 2445:                                             ; preds = %2442
-  %.val5925 = load ptr, ptr %2399, align 8, !tbaa !330
+  %.val5925 = load ptr, ptr %2399, align 8, !tbaa !329
   %2446 = getelementptr i8, ptr %2, i64 88
-  %.val5927 = load ptr, ptr %2446, align 8, !tbaa !346
+  %.val5927 = load ptr, ptr %2446, align 8, !tbaa !345
   %2447 = ptrtoint ptr %2444 to i64
   %2448 = ptrtoint ptr %.val5925 to i64
   %2449 = sub i64 %2447, %2448
@@ -10023,10 +10023,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.294, i64 noundef 28) #9
   %2456 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2457 = getelementptr i8, ptr %1, i64 304
-  %.val5928 = load ptr, ptr %2457, align 8, !tbaa !330
-  %.val5929 = load ptr, ptr %2456, align 8, !tbaa !345
+  %.val5928 = load ptr, ptr %2457, align 8, !tbaa !329
+  %.val5929 = load ptr, ptr %2456, align 8, !tbaa !344
   %2458 = getelementptr i8, ptr %2, i64 16
-  %.val5930 = load ptr, ptr %2458, align 8, !tbaa !346
+  %.val5930 = load ptr, ptr %2458, align 8, !tbaa !345
   %2459 = ptrtoint ptr %.val5929 to i64
   %2460 = ptrtoint ptr %.val5928 to i64
   %2461 = sub i64 %2459, %2460
@@ -10038,14 +10038,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.295, i64 noundef 17) #9
   %2466 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2467 = load ptr, ptr %2466, align 8, !tbaa !452
+  %2467 = load ptr, ptr %2466, align 8, !tbaa !451
   %.not5280 = icmp eq ptr %2467, null
   br i1 %.not5280, label %2477, label %2468
 
 2468:                                             ; preds = %2455
-  %.val5931 = load ptr, ptr %2457, align 8, !tbaa !330
+  %.val5931 = load ptr, ptr %2457, align 8, !tbaa !329
   %2469 = getelementptr i8, ptr %2, i64 32
-  %.val5933 = load ptr, ptr %2469, align 8, !tbaa !346
+  %.val5933 = load ptr, ptr %2469, align 8, !tbaa !345
   %2470 = ptrtoint ptr %2467 to i64
   %2471 = ptrtoint ptr %.val5931 to i64
   %2472 = sub i64 %2470, %2471
@@ -10064,19 +10064,19 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.228, i64 noundef 12) #9
   %2479 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %2480 = load ptr, ptr %2479, align 8, !tbaa !171
+  %2480 = load ptr, ptr %2479, align 8, !tbaa !170
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2480)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.296, i64 noundef 19) #9
   %2481 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %2482 = load ptr, ptr %2481, align 8, !tbaa !453
+  %2482 = load ptr, ptr %2481, align 8, !tbaa !452
   %.not5281 = icmp eq ptr %2482, null
   br i1 %.not5281, label %2492, label %2483
 
 2483:                                             ; preds = %2478
-  %.val5934 = load ptr, ptr %2457, align 8, !tbaa !330
+  %.val5934 = load ptr, ptr %2457, align 8, !tbaa !329
   %2484 = getelementptr i8, ptr %2, i64 56
-  %.val5936 = load ptr, ptr %2484, align 8, !tbaa !346
+  %.val5936 = load ptr, ptr %2484, align 8, !tbaa !345
   %2485 = ptrtoint ptr %2482 to i64
   %2486 = ptrtoint ptr %.val5934 to i64
   %2487 = sub i64 %2485, %2486
@@ -10095,7 +10095,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %2494 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %2495 = load ptr, ptr %2494, align 8, !tbaa !173
+  %2495 = load ptr, ptr %2494, align 8, !tbaa !172
   %.not5282 = icmp eq ptr %2495, null
   br i1 %.not5282, label %2497, label %2496
 
@@ -10111,7 +10111,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.297, i64 noundef 13) #9
   %2499 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %2500 = load ptr, ptr %2499, align 8, !tbaa !174
+  %2500 = load ptr, ptr %2499, align 8, !tbaa !173
   %.not5283 = icmp eq ptr %2500, null
   br i1 %.not5283, label %2502, label %2501
 
@@ -10127,14 +10127,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 18) #9
   %2504 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %2505 = load ptr, ptr %2504, align 8, !tbaa !454
+  %2505 = load ptr, ptr %2504, align 8, !tbaa !453
   %.not5284 = icmp eq ptr %2505, null
   br i1 %.not5284, label %2515, label %2506
 
 2506:                                             ; preds = %2503
-  %.val5937 = load ptr, ptr %2457, align 8, !tbaa !330
+  %.val5937 = load ptr, ptr %2457, align 8, !tbaa !329
   %2507 = getelementptr i8, ptr %2, i64 88
-  %.val5939 = load ptr, ptr %2507, align 8, !tbaa !346
+  %.val5939 = load ptr, ptr %2507, align 8, !tbaa !345
   %2508 = ptrtoint ptr %2505 to i64
   %2509 = ptrtoint ptr %.val5937 to i64
   %2510 = sub i64 %2508, %2509
@@ -10153,10 +10153,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.298, i64 noundef 35) #9
   %2517 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2518 = getelementptr i8, ptr %1, i64 304
-  %.val5940 = load ptr, ptr %2518, align 8, !tbaa !330
-  %.val5941 = load ptr, ptr %2517, align 8, !tbaa !345
+  %.val5940 = load ptr, ptr %2518, align 8, !tbaa !329
+  %.val5941 = load ptr, ptr %2517, align 8, !tbaa !344
   %2519 = getelementptr i8, ptr %2, i64 16
-  %.val5942 = load ptr, ptr %2519, align 8, !tbaa !346
+  %.val5942 = load ptr, ptr %2519, align 8, !tbaa !345
   %2520 = ptrtoint ptr %.val5941 to i64
   %2521 = ptrtoint ptr %.val5940 to i64
   %2522 = sub i64 %2520, %2521
@@ -10168,7 +10168,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.299, i64 noundef 10) #9
   %2527 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2528 = load ptr, ptr %2527, align 8, !tbaa !175
+  %2528 = load ptr, ptr %2527, align 8, !tbaa !174
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2528)
   br label %common.ret.sink.split
 
@@ -10176,10 +10176,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.300, i64 noundef 34) #9
   %2530 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2531 = getelementptr i8, ptr %1, i64 304
-  %.val5943 = load ptr, ptr %2531, align 8, !tbaa !330
-  %.val5944 = load ptr, ptr %2530, align 8, !tbaa !345
+  %.val5943 = load ptr, ptr %2531, align 8, !tbaa !329
+  %.val5944 = load ptr, ptr %2530, align 8, !tbaa !344
   %2532 = getelementptr i8, ptr %2, i64 16
-  %.val5945 = load ptr, ptr %2532, align 8, !tbaa !346
+  %.val5945 = load ptr, ptr %2532, align 8, !tbaa !345
   %2533 = ptrtoint ptr %.val5944 to i64
   %2534 = ptrtoint ptr %.val5943 to i64
   %2535 = sub i64 %2533, %2534
@@ -10191,7 +10191,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %2540 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2541 = load ptr, ptr %2540, align 8, !tbaa !177
+  %2541 = load ptr, ptr %2540, align 8, !tbaa !176
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2541)
   br label %common.ret.sink.split
 
@@ -10199,10 +10199,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.301, i64 noundef 38) #9
   %2543 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2544 = getelementptr i8, ptr %1, i64 304
-  %.val5946 = load ptr, ptr %2544, align 8, !tbaa !330
-  %.val5947 = load ptr, ptr %2543, align 8, !tbaa !345
+  %.val5946 = load ptr, ptr %2544, align 8, !tbaa !329
+  %.val5947 = load ptr, ptr %2543, align 8, !tbaa !344
   %2545 = getelementptr i8, ptr %2, i64 16
-  %.val5948 = load ptr, ptr %2545, align 8, !tbaa !346
+  %.val5948 = load ptr, ptr %2545, align 8, !tbaa !345
   %2546 = ptrtoint ptr %.val5947 to i64
   %2547 = ptrtoint ptr %.val5946 to i64
   %2548 = sub i64 %2546, %2547
@@ -10217,10 +10217,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.302, i64 noundef 28) #9
   %2554 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2555 = getelementptr i8, ptr %1, i64 304
-  %.val5949 = load ptr, ptr %2555, align 8, !tbaa !330
-  %.val5950 = load ptr, ptr %2554, align 8, !tbaa !345
+  %.val5949 = load ptr, ptr %2555, align 8, !tbaa !329
+  %.val5950 = load ptr, ptr %2554, align 8, !tbaa !344
   %2556 = getelementptr i8, ptr %2, i64 16
-  %.val5951 = load ptr, ptr %2556, align 8, !tbaa !346
+  %.val5951 = load ptr, ptr %2556, align 8, !tbaa !345
   %2557 = ptrtoint ptr %.val5950 to i64
   %2558 = ptrtoint ptr %.val5949 to i64
   %2559 = sub i64 %2557, %2558
@@ -10232,12 +10232,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.303, i64 noundef 10) #9
   %2564 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2565 = load ptr, ptr %2564, align 8, !tbaa !179
+  %2565 = load ptr, ptr %2564, align 8, !tbaa !178
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2565)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %2566 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2567 = load ptr, ptr %2566, align 8, !tbaa !181
+  %2567 = load ptr, ptr %2566, align 8, !tbaa !180
   %.not5278 = icmp eq ptr %2567, null
   br i1 %.not5278, label %2569, label %2568
 
@@ -10253,10 +10253,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.304, i64 noundef 9) #9
   %2571 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val5952 = load ptr, ptr %2555, align 8, !tbaa !330
-  %.val5953 = load ptr, ptr %2571, align 8, !tbaa !345
+  %.val5952 = load ptr, ptr %2555, align 8, !tbaa !329
+  %.val5953 = load ptr, ptr %2571, align 8, !tbaa !344
   %2572 = getelementptr i8, ptr %2, i64 48
-  %.val5954 = load ptr, ptr %2572, align 8, !tbaa !346
+  %.val5954 = load ptr, ptr %2572, align 8, !tbaa !345
   %2573 = ptrtoint ptr %.val5953 to i64
   %2574 = ptrtoint ptr %.val5952 to i64
   %2575 = sub i64 %2573, %2574
@@ -10268,14 +10268,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.305, i64 noundef 11) #9
   %2580 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %2581 = load ptr, ptr %2580, align 8, !tbaa !455
+  %2581 = load ptr, ptr %2580, align 8, !tbaa !454
   %.not5279 = icmp eq ptr %2581, null
   br i1 %.not5279, label %2591, label %2582
 
 2582:                                             ; preds = %2570
-  %.val5955 = load ptr, ptr %2555, align 8, !tbaa !330
+  %.val5955 = load ptr, ptr %2555, align 8, !tbaa !329
   %2583 = getelementptr i8, ptr %2, i64 64
-  %.val5957 = load ptr, ptr %2583, align 8, !tbaa !346
+  %.val5957 = load ptr, ptr %2583, align 8, !tbaa !345
   %2584 = ptrtoint ptr %2581 to i64
   %2585 = ptrtoint ptr %.val5955 to i64
   %2586 = sub i64 %2584, %2585
@@ -10294,10 +10294,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.306, i64 noundef 39) #9
   %2593 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2594 = getelementptr i8, ptr %1, i64 304
-  %.val5958 = load ptr, ptr %2594, align 8, !tbaa !330
-  %.val5959 = load ptr, ptr %2593, align 8, !tbaa !345
+  %.val5958 = load ptr, ptr %2594, align 8, !tbaa !329
+  %.val5959 = load ptr, ptr %2593, align 8, !tbaa !344
   %2595 = getelementptr i8, ptr %2, i64 16
-  %.val5960 = load ptr, ptr %2595, align 8, !tbaa !346
+  %.val5960 = load ptr, ptr %2595, align 8, !tbaa !345
   %2596 = ptrtoint ptr %.val5959 to i64
   %2597 = ptrtoint ptr %.val5958 to i64
   %2598 = sub i64 %2596, %2597
@@ -10310,7 +10310,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.208, i64 noundef 16) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %2603 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %2604 = load i16, ptr %2603, align 2, !tbaa !347
+  %2604 = load i16, ptr %2603, align 2, !tbaa !346
   %2605 = and i16 %2604, 4
   %.not5267 = icmp eq i16 %2605, 0
   br i1 %.not5267, label %2606, label %.thread6650
@@ -10322,7 +10322,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6650:                                      ; preds = %2592
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.209, i64 noundef 17) #9
-  %2608 = load i16, ptr %2603, align 2, !tbaa !347
+  %2608 = load i16, ptr %2603, align 2, !tbaa !346
   %2609 = and i16 %2608, 8
   %.not52686652 = icmp eq i16 %2609, 0
   br i1 %.not52686652, label %.thread6658, label %2610
@@ -10333,7 +10333,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 2611:                                             ; preds = %2610, %2606
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.210, i64 noundef 15) #9
-  %.pre7338 = load i16, ptr %2603, align 2, !tbaa !347
+  %.pre7338 = load i16, ptr %2603, align 2, !tbaa !346
   %2612 = and i16 %.pre7338, 16
   %.not5270 = icmp eq i16 %2612, 0
   br i1 %.not5270, label %2615, label %.thread6662
@@ -10354,7 +10354,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7448:                                      ; preds = %.thread7444, %.thread6662
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.211, i64 noundef 17) #9
-  %.pre7339 = load i16, ptr %2603, align 2, !tbaa !347
+  %.pre7339 = load i16, ptr %2603, align 2, !tbaa !346
   br label %2615
 
 2615:                                             ; preds = %.thread6658, %.thread7448, %2611
@@ -10381,7 +10381,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.213, i64 noundef 11) #9
   %2621 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2622 = load ptr, ptr %2621, align 8, !tbaa !182
+  %2622 = load ptr, ptr %2621, align 8, !tbaa !181
   %.not5274 = icmp eq ptr %2622, null
   br i1 %.not5274, label %2624, label %2623
 
@@ -10397,14 +10397,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.214, i64 noundef 20) #9
   %2626 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2627 = load ptr, ptr %2626, align 8, !tbaa !456
+  %2627 = load ptr, ptr %2626, align 8, !tbaa !455
   %.not5275 = icmp eq ptr %2627, null
   br i1 %.not5275, label %2637, label %2628
 
 2628:                                             ; preds = %2625
-  %.val5961 = load ptr, ptr %2594, align 8, !tbaa !330
+  %.val5961 = load ptr, ptr %2594, align 8, !tbaa !329
   %2629 = getelementptr i8, ptr %2, i64 40
-  %.val5963 = load ptr, ptr %2629, align 8, !tbaa !346
+  %.val5963 = load ptr, ptr %2629, align 8, !tbaa !345
   %2630 = ptrtoint ptr %2627 to i64
   %2631 = ptrtoint ptr %.val5961 to i64
   %2632 = sub i64 %2630, %2631
@@ -10423,10 +10423,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %2639 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5964 = load ptr, ptr %2594, align 8, !tbaa !330
-  %.val5965 = load ptr, ptr %2639, align 8, !tbaa !345
+  %.val5964 = load ptr, ptr %2594, align 8, !tbaa !329
+  %.val5965 = load ptr, ptr %2639, align 8, !tbaa !344
   %2640 = getelementptr i8, ptr %2, i64 56
-  %.val5966 = load ptr, ptr %2640, align 8, !tbaa !346
+  %.val5966 = load ptr, ptr %2640, align 8, !tbaa !345
   %2641 = ptrtoint ptr %.val5965 to i64
   %2642 = ptrtoint ptr %.val5964 to i64
   %2643 = sub i64 %2641, %2642
@@ -10438,7 +10438,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.169, i64 noundef 12) #9
   %2648 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %2649 = load ptr, ptr %2648, align 8, !tbaa !185
+  %2649 = load ptr, ptr %2648, align 8, !tbaa !184
   %.not5276 = icmp eq ptr %2649, null
   br i1 %.not5276, label %2651, label %2650
 
@@ -10454,10 +10454,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %2653 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %.val5967 = load ptr, ptr %2594, align 8, !tbaa !330
-  %.val5968 = load ptr, ptr %2653, align 8, !tbaa !345
+  %.val5967 = load ptr, ptr %2594, align 8, !tbaa !329
+  %.val5968 = load ptr, ptr %2653, align 8, !tbaa !344
   %2654 = getelementptr i8, ptr %2, i64 80
-  %.val5969 = load ptr, ptr %2654, align 8, !tbaa !346
+  %.val5969 = load ptr, ptr %2654, align 8, !tbaa !345
   %2655 = ptrtoint ptr %.val5968 to i64
   %2656 = ptrtoint ptr %.val5967 to i64
   %2657 = sub i64 %2655, %2656
@@ -10469,7 +10469,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.219, i64 noundef 8) #9
   %2662 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %2663 = load ptr, ptr %2662, align 8, !tbaa !186
+  %2663 = load ptr, ptr %2662, align 8, !tbaa !185
   %.not5277 = icmp eq ptr %2663, null
   br i1 %.not5277, label %2665, label %2664
 
@@ -10485,10 +10485,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %2667 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %.val5970 = load ptr, ptr %2594, align 8, !tbaa !330
-  %.val5971 = load ptr, ptr %2667, align 8, !tbaa !345
+  %.val5970 = load ptr, ptr %2594, align 8, !tbaa !329
+  %.val5971 = load ptr, ptr %2667, align 8, !tbaa !344
   %2668 = getelementptr i8, ptr %2, i64 104
-  %.val5972 = load ptr, ptr %2668, align 8, !tbaa !346
+  %.val5972 = load ptr, ptr %2668, align 8, !tbaa !345
   %2669 = ptrtoint ptr %.val5971 to i64
   %2670 = ptrtoint ptr %.val5970 to i64
   %2671 = sub i64 %2669, %2670
@@ -10500,7 +10500,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %2676 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %2677 = load ptr, ptr %2676, align 8, !tbaa !187
+  %2677 = load ptr, ptr %2676, align 8, !tbaa !186
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2677)
   br label %common.ret.sink.split
 
@@ -10508,10 +10508,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.307, i64 noundef 44) #9
   %2679 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2680 = getelementptr i8, ptr %1, i64 304
-  %.val5973 = load ptr, ptr %2680, align 8, !tbaa !330
-  %.val5974 = load ptr, ptr %2679, align 8, !tbaa !345
+  %.val5973 = load ptr, ptr %2680, align 8, !tbaa !329
+  %.val5974 = load ptr, ptr %2679, align 8, !tbaa !344
   %2681 = getelementptr i8, ptr %2, i64 16
-  %.val5975 = load ptr, ptr %2681, align 8, !tbaa !346
+  %.val5975 = load ptr, ptr %2681, align 8, !tbaa !345
   %2682 = ptrtoint ptr %.val5974 to i64
   %2683 = ptrtoint ptr %.val5973 to i64
   %2684 = sub i64 %2682, %2683
@@ -10524,7 +10524,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.208, i64 noundef 16) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %2689 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %2690 = load i16, ptr %2689, align 2, !tbaa !347
+  %2690 = load i16, ptr %2689, align 2, !tbaa !346
   %2691 = and i16 %2690, 4
   %.not5256 = icmp eq i16 %2691, 0
   br i1 %.not5256, label %2692, label %.thread6665
@@ -10536,7 +10536,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6665:                                      ; preds = %2678
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.209, i64 noundef 17) #9
-  %2694 = load i16, ptr %2689, align 2, !tbaa !347
+  %2694 = load i16, ptr %2689, align 2, !tbaa !346
   %2695 = and i16 %2694, 8
   %.not52576667 = icmp eq i16 %2695, 0
   br i1 %.not52576667, label %.thread6673, label %2696
@@ -10547,7 +10547,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 2697:                                             ; preds = %2696, %2692
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.210, i64 noundef 15) #9
-  %.pre7336 = load i16, ptr %2689, align 2, !tbaa !347
+  %.pre7336 = load i16, ptr %2689, align 2, !tbaa !346
   %2698 = and i16 %.pre7336, 16
   %.not5259 = icmp eq i16 %2698, 0
   br i1 %.not5259, label %2701, label %.thread6677
@@ -10568,7 +10568,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7462:                                      ; preds = %.thread7458, %.thread6677
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.211, i64 noundef 17) #9
-  %.pre7337 = load i16, ptr %2689, align 2, !tbaa !347
+  %.pre7337 = load i16, ptr %2689, align 2, !tbaa !346
   br label %2701
 
 2701:                                             ; preds = %.thread6673, %.thread7462, %2697
@@ -10595,7 +10595,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.213, i64 noundef 11) #9
   %2707 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2708 = load ptr, ptr %2707, align 8, !tbaa !188
+  %2708 = load ptr, ptr %2707, align 8, !tbaa !187
   %.not5263 = icmp eq ptr %2708, null
   br i1 %.not5263, label %2710, label %2709
 
@@ -10611,14 +10611,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.214, i64 noundef 20) #9
   %2712 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2713 = load ptr, ptr %2712, align 8, !tbaa !457
+  %2713 = load ptr, ptr %2712, align 8, !tbaa !456
   %.not5264 = icmp eq ptr %2713, null
   br i1 %.not5264, label %2723, label %2714
 
 2714:                                             ; preds = %2711
-  %.val5976 = load ptr, ptr %2680, align 8, !tbaa !330
+  %.val5976 = load ptr, ptr %2680, align 8, !tbaa !329
   %2715 = getelementptr i8, ptr %2, i64 40
-  %.val5978 = load ptr, ptr %2715, align 8, !tbaa !346
+  %.val5978 = load ptr, ptr %2715, align 8, !tbaa !345
   %2716 = ptrtoint ptr %2713 to i64
   %2717 = ptrtoint ptr %.val5976 to i64
   %2718 = sub i64 %2716, %2717
@@ -10637,10 +10637,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %2725 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5979 = load ptr, ptr %2680, align 8, !tbaa !330
-  %.val5980 = load ptr, ptr %2725, align 8, !tbaa !345
+  %.val5979 = load ptr, ptr %2680, align 8, !tbaa !329
+  %.val5980 = load ptr, ptr %2725, align 8, !tbaa !344
   %2726 = getelementptr i8, ptr %2, i64 56
-  %.val5981 = load ptr, ptr %2726, align 8, !tbaa !346
+  %.val5981 = load ptr, ptr %2726, align 8, !tbaa !345
   %2727 = ptrtoint ptr %.val5980 to i64
   %2728 = ptrtoint ptr %.val5979 to i64
   %2729 = sub i64 %2727, %2728
@@ -10652,7 +10652,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.169, i64 noundef 12) #9
   %2734 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %2735 = load ptr, ptr %2734, align 8, !tbaa !190
+  %2735 = load ptr, ptr %2734, align 8, !tbaa !189
   %.not5265 = icmp eq ptr %2735, null
   br i1 %.not5265, label %2737, label %2736
 
@@ -10668,10 +10668,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %2739 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %.val5982 = load ptr, ptr %2680, align 8, !tbaa !330
-  %.val5983 = load ptr, ptr %2739, align 8, !tbaa !345
+  %.val5982 = load ptr, ptr %2680, align 8, !tbaa !329
+  %.val5983 = load ptr, ptr %2739, align 8, !tbaa !344
   %2740 = getelementptr i8, ptr %2, i64 80
-  %.val5984 = load ptr, ptr %2740, align 8, !tbaa !346
+  %.val5984 = load ptr, ptr %2740, align 8, !tbaa !345
   %2741 = ptrtoint ptr %.val5983 to i64
   %2742 = ptrtoint ptr %.val5982 to i64
   %2743 = sub i64 %2741, %2742
@@ -10683,7 +10683,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.219, i64 noundef 8) #9
   %2748 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %2749 = load ptr, ptr %2748, align 8, !tbaa !191
+  %2749 = load ptr, ptr %2748, align 8, !tbaa !190
   %.not5266 = icmp eq ptr %2749, null
   br i1 %.not5266, label %2751, label %2750
 
@@ -10699,15 +10699,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.221, i64 noundef 18) #9
   %2753 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %2754 = load i32, ptr %2753, align 8, !tbaa !458
+  %2754 = load i32, ptr %2753, align 8, !tbaa !457
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2754)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.222, i64 noundef 22) #9
   %2755 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %.val5985 = load ptr, ptr %2680, align 8, !tbaa !330
-  %.val5986 = load ptr, ptr %2755, align 8, !tbaa !345
+  %.val5985 = load ptr, ptr %2680, align 8, !tbaa !329
+  %.val5986 = load ptr, ptr %2755, align 8, !tbaa !344
   %2756 = getelementptr i8, ptr %2, i64 112
-  %.val5987 = load ptr, ptr %2756, align 8, !tbaa !346
+  %.val5987 = load ptr, ptr %2756, align 8, !tbaa !345
   %2757 = ptrtoint ptr %.val5986 to i64
   %2758 = ptrtoint ptr %.val5985 to i64
   %2759 = sub i64 %2757, %2758
@@ -10719,7 +10719,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %2764 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %2765 = load ptr, ptr %2764, align 8, !tbaa !192
+  %2765 = load ptr, ptr %2764, align 8, !tbaa !191
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2765)
   br label %common.ret.sink.split
 
@@ -10727,10 +10727,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.308, i64 noundef 38) #9
   %2767 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2768 = getelementptr i8, ptr %1, i64 304
-  %.val5988 = load ptr, ptr %2768, align 8, !tbaa !330
-  %.val5989 = load ptr, ptr %2767, align 8, !tbaa !345
+  %.val5988 = load ptr, ptr %2768, align 8, !tbaa !329
+  %.val5989 = load ptr, ptr %2767, align 8, !tbaa !344
   %2769 = getelementptr i8, ptr %2, i64 16
-  %.val5990 = load ptr, ptr %2769, align 8, !tbaa !346
+  %.val5990 = load ptr, ptr %2769, align 8, !tbaa !345
   %2770 = ptrtoint ptr %.val5989 to i64
   %2771 = ptrtoint ptr %.val5988 to i64
   %2772 = sub i64 %2770, %2771
@@ -10743,7 +10743,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.208, i64 noundef 16) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %2777 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %2778 = load i16, ptr %2777, align 2, !tbaa !347
+  %2778 = load i16, ptr %2777, align 2, !tbaa !346
   %2779 = and i16 %2778, 4
   %.not5245 = icmp eq i16 %2779, 0
   br i1 %.not5245, label %2780, label %.thread6680
@@ -10755,7 +10755,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6680:                                      ; preds = %2766
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.209, i64 noundef 17) #9
-  %2782 = load i16, ptr %2777, align 2, !tbaa !347
+  %2782 = load i16, ptr %2777, align 2, !tbaa !346
   %2783 = and i16 %2782, 8
   %.not52466682 = icmp eq i16 %2783, 0
   br i1 %.not52466682, label %.thread6688, label %2784
@@ -10766,7 +10766,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 2785:                                             ; preds = %2784, %2780
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.210, i64 noundef 15) #9
-  %.pre7334 = load i16, ptr %2777, align 2, !tbaa !347
+  %.pre7334 = load i16, ptr %2777, align 2, !tbaa !346
   %2786 = and i16 %.pre7334, 16
   %.not5248 = icmp eq i16 %2786, 0
   br i1 %.not5248, label %2789, label %.thread6692
@@ -10787,7 +10787,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7476:                                      ; preds = %.thread7472, %.thread6692
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.211, i64 noundef 17) #9
-  %.pre7335 = load i16, ptr %2777, align 2, !tbaa !347
+  %.pre7335 = load i16, ptr %2777, align 2, !tbaa !346
   br label %2789
 
 2789:                                             ; preds = %.thread6688, %.thread7476, %2785
@@ -10814,7 +10814,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.213, i64 noundef 11) #9
   %2795 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2796 = load ptr, ptr %2795, align 8, !tbaa !193
+  %2796 = load ptr, ptr %2795, align 8, !tbaa !192
   %.not5252 = icmp eq ptr %2796, null
   br i1 %.not5252, label %2798, label %2797
 
@@ -10830,14 +10830,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.214, i64 noundef 20) #9
   %2800 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %2801 = load ptr, ptr %2800, align 8, !tbaa !459
+  %2801 = load ptr, ptr %2800, align 8, !tbaa !458
   %.not5253 = icmp eq ptr %2801, null
   br i1 %.not5253, label %2811, label %2802
 
 2802:                                             ; preds = %2799
-  %.val5991 = load ptr, ptr %2768, align 8, !tbaa !330
+  %.val5991 = load ptr, ptr %2768, align 8, !tbaa !329
   %2803 = getelementptr i8, ptr %2, i64 40
-  %.val5993 = load ptr, ptr %2803, align 8, !tbaa !346
+  %.val5993 = load ptr, ptr %2803, align 8, !tbaa !345
   %2804 = ptrtoint ptr %2801 to i64
   %2805 = ptrtoint ptr %.val5991 to i64
   %2806 = sub i64 %2804, %2805
@@ -10856,10 +10856,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %2813 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val5994 = load ptr, ptr %2768, align 8, !tbaa !330
-  %.val5995 = load ptr, ptr %2813, align 8, !tbaa !345
+  %.val5994 = load ptr, ptr %2768, align 8, !tbaa !329
+  %.val5995 = load ptr, ptr %2813, align 8, !tbaa !344
   %2814 = getelementptr i8, ptr %2, i64 56
-  %.val5996 = load ptr, ptr %2814, align 8, !tbaa !346
+  %.val5996 = load ptr, ptr %2814, align 8, !tbaa !345
   %2815 = ptrtoint ptr %.val5995 to i64
   %2816 = ptrtoint ptr %.val5994 to i64
   %2817 = sub i64 %2815, %2816
@@ -10871,7 +10871,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.169, i64 noundef 12) #9
   %2822 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %2823 = load ptr, ptr %2822, align 8, !tbaa !195
+  %2823 = load ptr, ptr %2822, align 8, !tbaa !194
   %.not5254 = icmp eq ptr %2823, null
   br i1 %.not5254, label %2825, label %2824
 
@@ -10887,10 +10887,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %2827 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %.val5997 = load ptr, ptr %2768, align 8, !tbaa !330
-  %.val5998 = load ptr, ptr %2827, align 8, !tbaa !345
+  %.val5997 = load ptr, ptr %2768, align 8, !tbaa !329
+  %.val5998 = load ptr, ptr %2827, align 8, !tbaa !344
   %2828 = getelementptr i8, ptr %2, i64 80
-  %.val5999 = load ptr, ptr %2828, align 8, !tbaa !346
+  %.val5999 = load ptr, ptr %2828, align 8, !tbaa !345
   %2829 = ptrtoint ptr %.val5998 to i64
   %2830 = ptrtoint ptr %.val5997 to i64
   %2831 = sub i64 %2829, %2830
@@ -10902,7 +10902,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.219, i64 noundef 8) #9
   %2836 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %2837 = load ptr, ptr %2836, align 8, !tbaa !196
+  %2837 = load ptr, ptr %2836, align 8, !tbaa !195
   %.not5255 = icmp eq ptr %2837, null
   br i1 %.not5255, label %2839, label %2838
 
@@ -10918,10 +10918,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %2841 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %.val6000 = load ptr, ptr %2768, align 8, !tbaa !330
-  %.val6001 = load ptr, ptr %2841, align 8, !tbaa !345
+  %.val6000 = load ptr, ptr %2768, align 8, !tbaa !329
+  %.val6001 = load ptr, ptr %2841, align 8, !tbaa !344
   %2842 = getelementptr i8, ptr %2, i64 104
-  %.val6002 = load ptr, ptr %2842, align 8, !tbaa !346
+  %.val6002 = load ptr, ptr %2842, align 8, !tbaa !345
   %2843 = ptrtoint ptr %.val6001 to i64
   %2844 = ptrtoint ptr %.val6000 to i64
   %2845 = sub i64 %2843, %2844
@@ -10933,7 +10933,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %2850 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %2851 = load ptr, ptr %2850, align 8, !tbaa !197
+  %2851 = load ptr, ptr %2850, align 8, !tbaa !196
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2851)
   br label %common.ret.sink.split
 
@@ -10941,10 +10941,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.309, i64 noundef 37) #9
   %2853 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2854 = getelementptr i8, ptr %1, i64 304
-  %.val6003 = load ptr, ptr %2854, align 8, !tbaa !330
-  %.val6004 = load ptr, ptr %2853, align 8, !tbaa !345
+  %.val6003 = load ptr, ptr %2854, align 8, !tbaa !329
+  %.val6004 = load ptr, ptr %2853, align 8, !tbaa !344
   %2855 = getelementptr i8, ptr %2, i64 16
-  %.val6005 = load ptr, ptr %2855, align 8, !tbaa !346
+  %.val6005 = load ptr, ptr %2855, align 8, !tbaa !345
   %2856 = ptrtoint ptr %.val6004 to i64
   %2857 = ptrtoint ptr %.val6003 to i64
   %2858 = sub i64 %2856, %2857
@@ -10957,7 +10957,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.208, i64 noundef 16) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %2863 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %2864 = load i16, ptr %2863, align 2, !tbaa !347
+  %2864 = load i16, ptr %2863, align 2, !tbaa !346
   %2865 = and i16 %2864, 4
   %.not5236 = icmp eq i16 %2865, 0
   br i1 %.not5236, label %2866, label %.thread6695
@@ -10969,7 +10969,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6695:                                      ; preds = %2852
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.209, i64 noundef 17) #9
-  %2868 = load i16, ptr %2863, align 2, !tbaa !347
+  %2868 = load i16, ptr %2863, align 2, !tbaa !346
   %2869 = and i16 %2868, 8
   %.not52376697 = icmp eq i16 %2869, 0
   br i1 %.not52376697, label %.thread6703, label %2870
@@ -10980,7 +10980,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 2871:                                             ; preds = %2870, %2866
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.210, i64 noundef 15) #9
-  %.pre7332 = load i16, ptr %2863, align 2, !tbaa !347
+  %.pre7332 = load i16, ptr %2863, align 2, !tbaa !346
   %2872 = and i16 %.pre7332, 16
   %.not5239 = icmp eq i16 %2872, 0
   br i1 %.not5239, label %2875, label %.thread6707
@@ -11001,7 +11001,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7490:                                      ; preds = %.thread7486, %.thread6707
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.211, i64 noundef 17) #9
-  %.pre7333 = load i16, ptr %2863, align 2, !tbaa !347
+  %.pre7333 = load i16, ptr %2863, align 2, !tbaa !346
   br label %2875
 
 2875:                                             ; preds = %.thread6703, %.thread7490, %2871
@@ -11028,15 +11028,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.213, i64 noundef 11) #9
   %2881 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2882 = load ptr, ptr %2881, align 8, !tbaa !198
+  %2882 = load ptr, ptr %2881, align 8, !tbaa !197
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2882)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %2883 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6006 = load ptr, ptr %2854, align 8, !tbaa !330
-  %.val6007 = load ptr, ptr %2883, align 8, !tbaa !345
+  %.val6006 = load ptr, ptr %2854, align 8, !tbaa !329
+  %.val6007 = load ptr, ptr %2883, align 8, !tbaa !344
   %2884 = getelementptr i8, ptr %2, i64 40
-  %.val6008 = load ptr, ptr %2884, align 8, !tbaa !346
+  %.val6008 = load ptr, ptr %2884, align 8, !tbaa !345
   %2885 = ptrtoint ptr %.val6007 to i64
   %2886 = ptrtoint ptr %.val6006 to i64
   %2887 = sub i64 %2885, %2886
@@ -11048,7 +11048,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.169, i64 noundef 12) #9
   %2892 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %2893 = load ptr, ptr %2892, align 8, !tbaa !200
+  %2893 = load ptr, ptr %2892, align 8, !tbaa !199
   %.not5243 = icmp eq ptr %2893, null
   br i1 %.not5243, label %2895, label %2894
 
@@ -11064,10 +11064,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %2897 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.val6009 = load ptr, ptr %2854, align 8, !tbaa !330
-  %.val6010 = load ptr, ptr %2897, align 8, !tbaa !345
+  %.val6009 = load ptr, ptr %2854, align 8, !tbaa !329
+  %.val6010 = load ptr, ptr %2897, align 8, !tbaa !344
   %2898 = getelementptr i8, ptr %2, i64 64
-  %.val6011 = load ptr, ptr %2898, align 8, !tbaa !346
+  %.val6011 = load ptr, ptr %2898, align 8, !tbaa !345
   %2899 = ptrtoint ptr %.val6010 to i64
   %2900 = ptrtoint ptr %.val6009 to i64
   %2901 = sub i64 %2899, %2900
@@ -11079,7 +11079,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.219, i64 noundef 8) #9
   %2906 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %2907 = load ptr, ptr %2906, align 8, !tbaa !201
+  %2907 = load ptr, ptr %2906, align 8, !tbaa !200
   %.not5244 = icmp eq ptr %2907, null
   br i1 %.not5244, label %2909, label %2908
 
@@ -11095,10 +11095,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.310, i64 noundef 50) #9
   %2911 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2912 = getelementptr i8, ptr %1, i64 304
-  %.val6012 = load ptr, ptr %2912, align 8, !tbaa !330
-  %.val6013 = load ptr, ptr %2911, align 8, !tbaa !345
+  %.val6012 = load ptr, ptr %2912, align 8, !tbaa !329
+  %.val6013 = load ptr, ptr %2911, align 8, !tbaa !344
   %2913 = getelementptr i8, ptr %2, i64 16
-  %.val6014 = load ptr, ptr %2913, align 8, !tbaa !346
+  %.val6014 = load ptr, ptr %2913, align 8, !tbaa !345
   %2914 = ptrtoint ptr %.val6013 to i64
   %2915 = ptrtoint ptr %.val6012 to i64
   %2916 = sub i64 %2914, %2915
@@ -11110,15 +11110,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %2921 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2922 = load i32, ptr %2921, align 8, !tbaa !460
+  %2922 = load i32, ptr %2921, align 8, !tbaa !459
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2922)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %2923 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6015 = load ptr, ptr %2912, align 8, !tbaa !330
-  %.val6016 = load ptr, ptr %2923, align 8, !tbaa !345
+  %.val6015 = load ptr, ptr %2912, align 8, !tbaa !329
+  %.val6016 = load ptr, ptr %2923, align 8, !tbaa !344
   %2924 = getelementptr i8, ptr %2, i64 40
-  %.val6017 = load ptr, ptr %2924, align 8, !tbaa !346
+  %.val6017 = load ptr, ptr %2924, align 8, !tbaa !345
   %2925 = ptrtoint ptr %.val6016 to i64
   %2926 = ptrtoint ptr %.val6015 to i64
   %2927 = sub i64 %2925, %2926
@@ -11130,10 +11130,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %2932 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6018 = load ptr, ptr %2912, align 8, !tbaa !330
-  %.val6019 = load ptr, ptr %2932, align 8, !tbaa !345
+  %.val6018 = load ptr, ptr %2912, align 8, !tbaa !329
+  %.val6019 = load ptr, ptr %2932, align 8, !tbaa !344
   %2933 = getelementptr i8, ptr %2, i64 56
-  %.val6020 = load ptr, ptr %2933, align 8, !tbaa !346
+  %.val6020 = load ptr, ptr %2933, align 8, !tbaa !345
   %2934 = ptrtoint ptr %.val6019 to i64
   %2935 = ptrtoint ptr %.val6018 to i64
   %2936 = sub i64 %2934, %2935
@@ -11145,7 +11145,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %2941 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %2942 = load ptr, ptr %2941, align 8, !tbaa !202
+  %2942 = load ptr, ptr %2941, align 8, !tbaa !201
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2942)
   br label %common.ret.sink.split
 
@@ -11153,10 +11153,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.311, i64 noundef 55) #9
   %2944 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2945 = getelementptr i8, ptr %1, i64 304
-  %.val6021 = load ptr, ptr %2945, align 8, !tbaa !330
-  %.val6022 = load ptr, ptr %2944, align 8, !tbaa !345
+  %.val6021 = load ptr, ptr %2945, align 8, !tbaa !329
+  %.val6022 = load ptr, ptr %2944, align 8, !tbaa !344
   %2946 = getelementptr i8, ptr %2, i64 16
-  %.val6023 = load ptr, ptr %2946, align 8, !tbaa !346
+  %.val6023 = load ptr, ptr %2946, align 8, !tbaa !345
   %2947 = ptrtoint ptr %.val6022 to i64
   %2948 = ptrtoint ptr %.val6021 to i64
   %2949 = sub i64 %2947, %2948
@@ -11168,15 +11168,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %2954 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2955 = load i32, ptr %2954, align 8, !tbaa !461
+  %2955 = load i32, ptr %2954, align 8, !tbaa !460
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2955)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %2956 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6024 = load ptr, ptr %2945, align 8, !tbaa !330
-  %.val6025 = load ptr, ptr %2956, align 8, !tbaa !345
+  %.val6024 = load ptr, ptr %2945, align 8, !tbaa !329
+  %.val6025 = load ptr, ptr %2956, align 8, !tbaa !344
   %2957 = getelementptr i8, ptr %2, i64 40
-  %.val6026 = load ptr, ptr %2957, align 8, !tbaa !346
+  %.val6026 = load ptr, ptr %2957, align 8, !tbaa !345
   %2958 = ptrtoint ptr %.val6025 to i64
   %2959 = ptrtoint ptr %.val6024 to i64
   %2960 = sub i64 %2958, %2959
@@ -11188,10 +11188,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.222, i64 noundef 22) #9
   %2965 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6027 = load ptr, ptr %2945, align 8, !tbaa !330
-  %.val6028 = load ptr, ptr %2965, align 8, !tbaa !345
+  %.val6027 = load ptr, ptr %2945, align 8, !tbaa !329
+  %.val6028 = load ptr, ptr %2965, align 8, !tbaa !344
   %2966 = getelementptr i8, ptr %2, i64 56
-  %.val6029 = load ptr, ptr %2966, align 8, !tbaa !346
+  %.val6029 = load ptr, ptr %2966, align 8, !tbaa !345
   %2967 = ptrtoint ptr %.val6028 to i64
   %2968 = ptrtoint ptr %.val6027 to i64
   %2969 = sub i64 %2967, %2968
@@ -11203,12 +11203,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %2974 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %2975 = load ptr, ptr %2974, align 8, !tbaa !204
+  %2975 = load ptr, ptr %2974, align 8, !tbaa !203
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %2975)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.221, i64 noundef 18) #9
   %2976 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %2977 = load i32, ptr %2976, align 8, !tbaa !462
+  %2977 = load i32, ptr %2976, align 8, !tbaa !461
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2977)
   br label %common.ret.sink.split
 
@@ -11216,10 +11216,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.312, i64 noundef 49) #9
   %2979 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %2980 = getelementptr i8, ptr %1, i64 304
-  %.val6030 = load ptr, ptr %2980, align 8, !tbaa !330
-  %.val6031 = load ptr, ptr %2979, align 8, !tbaa !345
+  %.val6030 = load ptr, ptr %2980, align 8, !tbaa !329
+  %.val6031 = load ptr, ptr %2979, align 8, !tbaa !344
   %2981 = getelementptr i8, ptr %2, i64 16
-  %.val6032 = load ptr, ptr %2981, align 8, !tbaa !346
+  %.val6032 = load ptr, ptr %2981, align 8, !tbaa !345
   %2982 = ptrtoint ptr %.val6031 to i64
   %2983 = ptrtoint ptr %.val6030 to i64
   %2984 = sub i64 %2982, %2983
@@ -11231,15 +11231,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %2989 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %2990 = load i32, ptr %2989, align 8, !tbaa !463
+  %2990 = load i32, ptr %2989, align 8, !tbaa !462
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2990)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %2991 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6033 = load ptr, ptr %2980, align 8, !tbaa !330
-  %.val6034 = load ptr, ptr %2991, align 8, !tbaa !345
+  %.val6033 = load ptr, ptr %2980, align 8, !tbaa !329
+  %.val6034 = load ptr, ptr %2991, align 8, !tbaa !344
   %2992 = getelementptr i8, ptr %2, i64 40
-  %.val6035 = load ptr, ptr %2992, align 8, !tbaa !346
+  %.val6035 = load ptr, ptr %2992, align 8, !tbaa !345
   %2993 = ptrtoint ptr %.val6034 to i64
   %2994 = ptrtoint ptr %.val6033 to i64
   %2995 = sub i64 %2993, %2994
@@ -11251,10 +11251,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %3000 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6036 = load ptr, ptr %2980, align 8, !tbaa !330
-  %.val6037 = load ptr, ptr %3000, align 8, !tbaa !345
+  %.val6036 = load ptr, ptr %2980, align 8, !tbaa !329
+  %.val6037 = load ptr, ptr %3000, align 8, !tbaa !344
   %3001 = getelementptr i8, ptr %2, i64 56
-  %.val6038 = load ptr, ptr %3001, align 8, !tbaa !346
+  %.val6038 = load ptr, ptr %3001, align 8, !tbaa !345
   %3002 = ptrtoint ptr %.val6037 to i64
   %3003 = ptrtoint ptr %.val6036 to i64
   %3004 = sub i64 %3002, %3003
@@ -11266,7 +11266,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %3009 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %3010 = load ptr, ptr %3009, align 8, !tbaa !206
+  %3010 = load ptr, ptr %3009, align 8, !tbaa !205
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3010)
   br label %common.ret.sink.split
 
@@ -11274,10 +11274,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.313, i64 noundef 46) #9
   %3012 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3013 = getelementptr i8, ptr %1, i64 304
-  %.val6039 = load ptr, ptr %3013, align 8, !tbaa !330
-  %.val6040 = load ptr, ptr %3012, align 8, !tbaa !345
+  %.val6039 = load ptr, ptr %3013, align 8, !tbaa !329
+  %.val6040 = load ptr, ptr %3012, align 8, !tbaa !344
   %3014 = getelementptr i8, ptr %2, i64 16
-  %.val6041 = load ptr, ptr %3014, align 8, !tbaa !346
+  %.val6041 = load ptr, ptr %3014, align 8, !tbaa !345
   %3015 = ptrtoint ptr %.val6040 to i64
   %3016 = ptrtoint ptr %.val6039 to i64
   %3017 = sub i64 %3015, %3016
@@ -11289,7 +11289,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %3022 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3023 = load i32, ptr %3022, align 8, !tbaa !464
+  %3023 = load i32, ptr %3022, align 8, !tbaa !463
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3023)
   br label %common.ret.sink.split
 
@@ -11297,10 +11297,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.314, i64 noundef 48) #9
   %3025 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3026 = getelementptr i8, ptr %1, i64 304
-  %.val6042 = load ptr, ptr %3026, align 8, !tbaa !330
-  %.val6043 = load ptr, ptr %3025, align 8, !tbaa !345
+  %.val6042 = load ptr, ptr %3026, align 8, !tbaa !329
+  %.val6043 = load ptr, ptr %3025, align 8, !tbaa !344
   %3027 = getelementptr i8, ptr %2, i64 16
-  %.val6044 = load ptr, ptr %3027, align 8, !tbaa !346
+  %.val6044 = load ptr, ptr %3027, align 8, !tbaa !345
   %3028 = ptrtoint ptr %.val6043 to i64
   %3029 = ptrtoint ptr %.val6042 to i64
   %3030 = sub i64 %3028, %3029
@@ -11312,7 +11312,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %3035 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3036 = load i32, ptr %3035, align 8, !tbaa !466
+  %3036 = load i32, ptr %3035, align 8, !tbaa !465
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3036)
   br label %common.ret.sink.split
 
@@ -11320,10 +11320,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.315, i64 noundef 47) #9
   %3038 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3039 = getelementptr i8, ptr %1, i64 304
-  %.val6045 = load ptr, ptr %3039, align 8, !tbaa !330
-  %.val6046 = load ptr, ptr %3038, align 8, !tbaa !345
+  %.val6045 = load ptr, ptr %3039, align 8, !tbaa !329
+  %.val6046 = load ptr, ptr %3038, align 8, !tbaa !344
   %3040 = getelementptr i8, ptr %2, i64 16
-  %.val6047 = load ptr, ptr %3040, align 8, !tbaa !346
+  %.val6047 = load ptr, ptr %3040, align 8, !tbaa !345
   %3041 = ptrtoint ptr %.val6046 to i64
   %3042 = ptrtoint ptr %.val6045 to i64
   %3043 = sub i64 %3041, %3042
@@ -11335,15 +11335,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %3048 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3049 = load i32, ptr %3048, align 8, !tbaa !468
+  %3049 = load i32, ptr %3048, align 8, !tbaa !467
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3049)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %3050 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6048 = load ptr, ptr %3039, align 8, !tbaa !330
-  %.val6049 = load ptr, ptr %3050, align 8, !tbaa !345
+  %.val6048 = load ptr, ptr %3039, align 8, !tbaa !329
+  %.val6049 = load ptr, ptr %3050, align 8, !tbaa !344
   %3051 = getelementptr i8, ptr %2, i64 40
-  %.val6050 = load ptr, ptr %3051, align 8, !tbaa !346
+  %.val6050 = load ptr, ptr %3051, align 8, !tbaa !345
   %3052 = ptrtoint ptr %.val6049 to i64
   %3053 = ptrtoint ptr %.val6048 to i64
   %3054 = sub i64 %3052, %3053
@@ -11355,15 +11355,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %3059 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %3060 = load ptr, ptr %3059, align 8, !tbaa !208
+  %3060 = load ptr, ptr %3059, align 8, !tbaa !207
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3060)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %3061 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.val6051 = load ptr, ptr %3039, align 8, !tbaa !330
-  %.val6052 = load ptr, ptr %3061, align 8, !tbaa !345
+  %.val6051 = load ptr, ptr %3039, align 8, !tbaa !329
+  %.val6052 = load ptr, ptr %3061, align 8, !tbaa !344
   %3062 = getelementptr i8, ptr %2, i64 64
-  %.val6053 = load ptr, ptr %3062, align 8, !tbaa !346
+  %.val6053 = load ptr, ptr %3062, align 8, !tbaa !345
   %3063 = ptrtoint ptr %.val6052 to i64
   %3064 = ptrtoint ptr %.val6051 to i64
   %3065 = sub i64 %3063, %3064
@@ -11378,10 +11378,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.316, i64 noundef 33) #9
   %3071 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3072 = getelementptr i8, ptr %1, i64 304
-  %.val6054 = load ptr, ptr %3072, align 8, !tbaa !330
-  %.val6055 = load ptr, ptr %3071, align 8, !tbaa !345
+  %.val6054 = load ptr, ptr %3072, align 8, !tbaa !329
+  %.val6055 = load ptr, ptr %3071, align 8, !tbaa !344
   %3073 = getelementptr i8, ptr %2, i64 16
-  %.val6056 = load ptr, ptr %3073, align 8, !tbaa !346
+  %.val6056 = load ptr, ptr %3073, align 8, !tbaa !345
   %3074 = ptrtoint ptr %.val6055 to i64
   %3075 = ptrtoint ptr %.val6054 to i64
   %3076 = sub i64 %3074, %3075
@@ -11394,7 +11394,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.317, i64 noundef 19) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %3081 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %3082 = load i16, ptr %3081, align 2, !tbaa !347
+  %3082 = load i16, ptr %3081, align 2, !tbaa !346
   %3083 = and i16 %3082, 4
   %.not5229 = icmp eq i16 %3083, 0
   br i1 %.not5229, label %3084, label %.thread6710
@@ -11406,7 +11406,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6710:                                      ; preds = %3070
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.318, i64 noundef 8) #9
-  %3086 = load i16, ptr %3081, align 2, !tbaa !347
+  %3086 = load i16, ptr %3081, align 2, !tbaa !346
   %3087 = and i16 %3086, 8
   %.not52306712 = icmp eq i16 %3087, 0
   br i1 %.not52306712, label %.thread6718, label %3088
@@ -11417,7 +11417,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 3089:                                             ; preds = %3088, %3084
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.319, i64 noundef 9) #9
-  %.pre7330 = load i16, ptr %3081, align 2, !tbaa !347
+  %.pre7330 = load i16, ptr %3081, align 2, !tbaa !346
   %3090 = and i16 %.pre7330, 16
   %.not5232 = icmp eq i16 %3090, 0
   br i1 %.not5232, label %3093, label %.thread6722
@@ -11438,7 +11438,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7504:                                      ; preds = %.thread7500, %.thread6722
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.320, i64 noundef 7) #9
-  %.pre7331 = load i16, ptr %3081, align 2, !tbaa !347
+  %.pre7331 = load i16, ptr %3081, align 2, !tbaa !346
   br label %3093
 
 3093:                                             ; preds = %.thread6718, %.thread7504, %3089
@@ -11472,10 +11472,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.322, i64 noundef 51) #9
   %3101 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3102 = getelementptr i8, ptr %1, i64 304
-  %.val6057 = load ptr, ptr %3102, align 8, !tbaa !330
-  %.val6058 = load ptr, ptr %3101, align 8, !tbaa !345
+  %.val6057 = load ptr, ptr %3102, align 8, !tbaa !329
+  %.val6058 = load ptr, ptr %3101, align 8, !tbaa !344
   %3103 = getelementptr i8, ptr %2, i64 16
-  %.val6059 = load ptr, ptr %3103, align 8, !tbaa !346
+  %.val6059 = load ptr, ptr %3103, align 8, !tbaa !345
   %3104 = ptrtoint ptr %.val6058 to i64
   %3105 = ptrtoint ptr %.val6057 to i64
   %3106 = sub i64 %3104, %3105
@@ -11488,7 +11488,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.323, i64 noundef 25) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %3111 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %3112 = load i16, ptr %3111, align 2, !tbaa !347
+  %3112 = load i16, ptr %3111, align 2, !tbaa !346
   %3113 = and i16 %3112, 4
   %.not5207 = icmp eq i16 %3113, 0
   br i1 %.not5207, label %3114, label %.thread6725
@@ -11500,7 +11500,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6725:                                      ; preds = %3100
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.324, i64 noundef 13) #9
-  %3116 = load i16, ptr %3111, align 2, !tbaa !347
+  %3116 = load i16, ptr %3111, align 2, !tbaa !346
   %3117 = and i16 %3116, 8
   %.not52086727 = icmp eq i16 %3117, 0
   br i1 %.not52086727, label %.thread6733, label %3118
@@ -11512,7 +11512,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 3119:                                             ; preds = %3118, %3114
   %.0487667286732 = phi i64 [ 2, %3118 ], [ 1, %3114 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.325, i64 noundef 10) #9
-  %.pre7321 = load i16, ptr %3111, align 2, !tbaa !347
+  %.pre7321 = load i16, ptr %3111, align 2, !tbaa !346
   %3120 = and i16 %.pre7321, 16
   %.not5210 = icmp eq i16 %3120, 0
   br i1 %.not5210, label %3124, label %.thread6737
@@ -11536,7 +11536,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7518:                                      ; preds = %.thread7514, %.thread6737
   %.1487767366741 = phi i64 [ %3123, %.thread6737 ], [ 1, %.thread7514 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.326, i64 noundef 12) #9
-  %.pre7322 = load i16, ptr %3111, align 2, !tbaa !347
+  %.pre7322 = load i16, ptr %3111, align 2, !tbaa !346
   br label %3124
 
 3124:                                             ; preds = %.thread7518, %3119
@@ -11565,7 +11565,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7525:                                      ; preds = %.thread7521, %.thread6746
   %.2487867456750 = phi i64 [ %3129, %.thread6746 ], [ 1, %.thread7521 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.327, i64 noundef 6) #9
-  %.pre7323 = load i16, ptr %3111, align 2, !tbaa !347
+  %.pre7323 = load i16, ptr %3111, align 2, !tbaa !346
   br label %3130
 
 3130:                                             ; preds = %.thread7525, %3124
@@ -11594,7 +11594,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7532:                                      ; preds = %.thread7528, %.thread6755
   %.3487967546759 = phi i64 [ %3135, %.thread6755 ], [ 1, %.thread7528 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.328, i64 noundef 8) #9
-  %.pre7324 = load i16, ptr %3111, align 2, !tbaa !347
+  %.pre7324 = load i16, ptr %3111, align 2, !tbaa !346
   br label %3136
 
 3136:                                             ; preds = %.thread7532, %3130
@@ -11623,7 +11623,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7539:                                      ; preds = %.thread7535, %.thread6764
   %.467636768 = phi i64 [ %3141, %.thread6764 ], [ 1, %.thread7535 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.329, i64 noundef 12) #9
-  %.pre7325 = load i16, ptr %3111, align 2, !tbaa !347
+  %.pre7325 = load i16, ptr %3111, align 2, !tbaa !346
   br label %3142
 
 3142:                                             ; preds = %.thread7539, %3136
@@ -11656,7 +11656,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7546:                                      ; preds = %.thread7542, %.thread6773, %3147
   %.567726777 = phi i64 [ %3148, %.thread6773 ], [ 1, %3147 ], [ 1, %.thread7542 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.330, i64 noundef 13) #9
-  %.pre7326 = load i16, ptr %3111, align 2, !tbaa !347
+  %.pre7326 = load i16, ptr %3111, align 2, !tbaa !346
   br label %3149
 
 3149:                                             ; preds = %.thread7546, %3142
@@ -11689,7 +11689,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7553:                                      ; preds = %.thread7549, %.thread6782, %3154
   %.667816786 = phi i64 [ %3155, %.thread6782 ], [ 1, %3154 ], [ 1, %.thread7549 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.331, i64 noundef 7) #9
-  %.pre7327 = load i16, ptr %3111, align 2, !tbaa !347
+  %.pre7327 = load i16, ptr %3111, align 2, !tbaa !346
   br label %3156
 
 3156:                                             ; preds = %.thread7553, %3149
@@ -11722,7 +11722,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7560:                                      ; preds = %.thread7556, %.thread6791, %3161
   %.767906795 = phi i64 [ %3162, %.thread6791 ], [ 1, %3161 ], [ 1, %.thread7556 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.332, i64 noundef 22) #9
-  %.pre7328 = load i16, ptr %3111, align 2, !tbaa !347
+  %.pre7328 = load i16, ptr %3111, align 2, !tbaa !346
   br label %3163
 
 3163:                                             ; preds = %.thread7560, %3156
@@ -11752,7 +11752,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7567:                                      ; preds = %.thread7563, %.thread6800, %3168
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.333, i64 noundef 24) #9
-  %.pre7329 = load i16, ptr %3111, align 2, !tbaa !347
+  %.pre7329 = load i16, ptr %3111, align 2, !tbaa !346
   br label %3169
 
 3169:                                             ; preds = %.thread6796, %.thread7567, %3163
@@ -11784,10 +11784,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %3176 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6060 = load ptr, ptr %3102, align 8, !tbaa !330
-  %.val6061 = load ptr, ptr %3176, align 8, !tbaa !345
+  %.val6060 = load ptr, ptr %3102, align 8, !tbaa !329
+  %.val6061 = load ptr, ptr %3176, align 8, !tbaa !344
   %3177 = getelementptr i8, ptr %2, i64 32
-  %.val6062 = load ptr, ptr %3177, align 8, !tbaa !346
+  %.val6062 = load ptr, ptr %3177, align 8, !tbaa !345
   %3178 = ptrtoint ptr %.val6061 to i64
   %3179 = ptrtoint ptr %.val6060 to i64
   %3180 = sub i64 %3178, %3179
@@ -11813,10 +11813,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %3188 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val6063 = load ptr, ptr %3102, align 8, !tbaa !330
-  %.val6064 = load ptr, ptr %3188, align 8, !tbaa !345
+  %.val6063 = load ptr, ptr %3102, align 8, !tbaa !329
+  %.val6064 = load ptr, ptr %3188, align 8, !tbaa !344
   %3189 = getelementptr i8, ptr %2, i64 72
-  %.val6065 = load ptr, ptr %3189, align 8, !tbaa !346
+  %.val6065 = load ptr, ptr %3189, align 8, !tbaa !345
   %3190 = ptrtoint ptr %.val6064 to i64
   %3191 = ptrtoint ptr %.val6063 to i64
   %3192 = sub i64 %3190, %3191
@@ -11839,21 +11839,21 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 3199:                                             ; preds = %3198, %3197
   %3200 = load ptr, ptr %3187, align 8, !tbaa !15
   %3201 = getelementptr ptr, ptr %3200, i64 %.048807195
-  %3202 = load ptr, ptr %3201, align 8, !tbaa !19
+  %3202 = load ptr, ptr %3201, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3202)
   %3203 = add nuw i64 %.048807195, 1
   %3204 = load i64, ptr %3185, align 8, !tbaa !7
   %3205 = icmp ult i64 %3203, %3204
-  br i1 %3205, label %3197, label %._crit_edge7198, !llvm.loop !469
+  br i1 %3205, label %3197, label %._crit_edge7198, !llvm.loop !468
 
 3206:                                             ; preds = %3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.336, i64 noundef 55) #9
   %3207 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3208 = getelementptr i8, ptr %1, i64 304
-  %.val6066 = load ptr, ptr %3208, align 8, !tbaa !330
-  %.val6067 = load ptr, ptr %3207, align 8, !tbaa !345
+  %.val6066 = load ptr, ptr %3208, align 8, !tbaa !329
+  %.val6067 = load ptr, ptr %3207, align 8, !tbaa !344
   %3209 = getelementptr i8, ptr %2, i64 16
-  %.val6068 = load ptr, ptr %3209, align 8, !tbaa !346
+  %.val6068 = load ptr, ptr %3209, align 8, !tbaa !345
   %3210 = ptrtoint ptr %.val6067 to i64
   %3211 = ptrtoint ptr %.val6066 to i64
   %3212 = sub i64 %3210, %3211
@@ -11866,7 +11866,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.323, i64 noundef 25) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %3217 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %3218 = load i16, ptr %3217, align 2, !tbaa !347
+  %3218 = load i16, ptr %3217, align 2, !tbaa !346
   %3219 = and i16 %3218, 4
   %.not5185 = icmp eq i16 %3219, 0
   br i1 %.not5185, label %3220, label %.thread6803
@@ -11878,7 +11878,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6803:                                      ; preds = %3206
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.324, i64 noundef 13) #9
-  %3222 = load i16, ptr %3217, align 2, !tbaa !347
+  %3222 = load i16, ptr %3217, align 2, !tbaa !346
   %3223 = and i16 %3222, 8
   %.not51866805 = icmp eq i16 %3223, 0
   br i1 %.not51866805, label %.thread6811, label %3224
@@ -11890,7 +11890,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 3225:                                             ; preds = %3224, %3220
   %.0488268066810 = phi i64 [ 2, %3224 ], [ 1, %3220 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.325, i64 noundef 10) #9
-  %.pre7312 = load i16, ptr %3217, align 2, !tbaa !347
+  %.pre7312 = load i16, ptr %3217, align 2, !tbaa !346
   %3226 = and i16 %.pre7312, 16
   %.not5188 = icmp eq i16 %3226, 0
   br i1 %.not5188, label %3230, label %.thread6815
@@ -11914,7 +11914,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7581:                                      ; preds = %.thread7577, %.thread6815
   %.1488368146819 = phi i64 [ %3229, %.thread6815 ], [ 1, %.thread7577 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.326, i64 noundef 12) #9
-  %.pre7313 = load i16, ptr %3217, align 2, !tbaa !347
+  %.pre7313 = load i16, ptr %3217, align 2, !tbaa !346
   br label %3230
 
 3230:                                             ; preds = %.thread7581, %3225
@@ -11943,7 +11943,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7588:                                      ; preds = %.thread7584, %.thread6824
   %.2488468236828 = phi i64 [ %3235, %.thread6824 ], [ 1, %.thread7584 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.327, i64 noundef 6) #9
-  %.pre7314 = load i16, ptr %3217, align 2, !tbaa !347
+  %.pre7314 = load i16, ptr %3217, align 2, !tbaa !346
   br label %3236
 
 3236:                                             ; preds = %.thread7588, %3230
@@ -11972,7 +11972,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7595:                                      ; preds = %.thread7591, %.thread6833
   %.3488568326837 = phi i64 [ %3241, %.thread6833 ], [ 1, %.thread7591 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.328, i64 noundef 8) #9
-  %.pre7315 = load i16, ptr %3217, align 2, !tbaa !347
+  %.pre7315 = load i16, ptr %3217, align 2, !tbaa !346
   br label %3242
 
 3242:                                             ; preds = %.thread7595, %3236
@@ -12001,7 +12001,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7602:                                      ; preds = %.thread7598, %.thread6842
   %.4488668416846 = phi i64 [ %3247, %.thread6842 ], [ 1, %.thread7598 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.329, i64 noundef 12) #9
-  %.pre7316 = load i16, ptr %3217, align 2, !tbaa !347
+  %.pre7316 = load i16, ptr %3217, align 2, !tbaa !346
   br label %3248
 
 3248:                                             ; preds = %.thread7602, %3242
@@ -12034,7 +12034,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7609:                                      ; preds = %.thread7605, %.thread6851, %3253
   %.5488768506855 = phi i64 [ %3254, %.thread6851 ], [ 1, %3253 ], [ 1, %.thread7605 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.330, i64 noundef 13) #9
-  %.pre7317 = load i16, ptr %3217, align 2, !tbaa !347
+  %.pre7317 = load i16, ptr %3217, align 2, !tbaa !346
   br label %3255
 
 3255:                                             ; preds = %.thread7609, %3248
@@ -12067,7 +12067,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7616:                                      ; preds = %.thread7612, %.thread6860, %3260
   %.6488868596864 = phi i64 [ %3261, %.thread6860 ], [ 1, %3260 ], [ 1, %.thread7612 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.331, i64 noundef 7) #9
-  %.pre7318 = load i16, ptr %3217, align 2, !tbaa !347
+  %.pre7318 = load i16, ptr %3217, align 2, !tbaa !346
   br label %3262
 
 3262:                                             ; preds = %.thread7616, %3255
@@ -12100,7 +12100,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7623:                                      ; preds = %.thread7619, %.thread6869, %3267
   %.7488968686873 = phi i64 [ %3268, %.thread6869 ], [ 1, %3267 ], [ 1, %.thread7619 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.332, i64 noundef 22) #9
-  %.pre7319 = load i16, ptr %3217, align 2, !tbaa !347
+  %.pre7319 = load i16, ptr %3217, align 2, !tbaa !346
   br label %3269
 
 3269:                                             ; preds = %.thread7623, %3262
@@ -12130,7 +12130,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7630:                                      ; preds = %.thread7626, %.thread6878, %3274
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.333, i64 noundef 24) #9
-  %.pre7320 = load i16, ptr %3217, align 2, !tbaa !347
+  %.pre7320 = load i16, ptr %3217, align 2, !tbaa !346
   br label %3275
 
 3275:                                             ; preds = %.thread6874, %.thread7630, %3269
@@ -12162,10 +12162,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %3282 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6069 = load ptr, ptr %3208, align 8, !tbaa !330
-  %.val6070 = load ptr, ptr %3282, align 8, !tbaa !345
+  %.val6069 = load ptr, ptr %3208, align 8, !tbaa !329
+  %.val6070 = load ptr, ptr %3282, align 8, !tbaa !344
   %3283 = getelementptr i8, ptr %2, i64 32
-  %.val6071 = load ptr, ptr %3283, align 8, !tbaa !346
+  %.val6071 = load ptr, ptr %3283, align 8, !tbaa !345
   %3284 = ptrtoint ptr %.val6070 to i64
   %3285 = ptrtoint ptr %.val6069 to i64
   %3286 = sub i64 %3284, %3285
@@ -12191,10 +12191,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %3294 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val6072 = load ptr, ptr %3208, align 8, !tbaa !330
-  %.val6073 = load ptr, ptr %3294, align 8, !tbaa !345
+  %.val6072 = load ptr, ptr %3208, align 8, !tbaa !329
+  %.val6073 = load ptr, ptr %3294, align 8, !tbaa !344
   %3295 = getelementptr i8, ptr %2, i64 72
-  %.val6074 = load ptr, ptr %3295, align 8, !tbaa !346
+  %.val6074 = load ptr, ptr %3295, align 8, !tbaa !345
   %3296 = ptrtoint ptr %.val6073 to i64
   %3297 = ptrtoint ptr %.val6072 to i64
   %3298 = sub i64 %3296, %3297
@@ -12217,21 +12217,21 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 3305:                                             ; preds = %3304, %3303
   %3306 = load ptr, ptr %3293, align 8, !tbaa !15
   %3307 = getelementptr ptr, ptr %3306, i64 %.048927191
-  %3308 = load ptr, ptr %3307, align 8, !tbaa !19
+  %3308 = load ptr, ptr %3307, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3308)
   %3309 = add nuw i64 %.048927191, 1
   %3310 = load i64, ptr %3291, align 8, !tbaa !7
   %3311 = icmp ult i64 %3309, %3310
-  br i1 %3311, label %3303, label %._crit_edge7194, !llvm.loop !470
+  br i1 %3311, label %3303, label %._crit_edge7194, !llvm.loop !469
 
 3312:                                             ; preds = %3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.337, i64 noundef 44) #9
   %3313 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3314 = getelementptr i8, ptr %1, i64 304
-  %.val6075 = load ptr, ptr %3314, align 8, !tbaa !330
-  %.val6076 = load ptr, ptr %3313, align 8, !tbaa !345
+  %.val6075 = load ptr, ptr %3314, align 8, !tbaa !329
+  %.val6076 = load ptr, ptr %3313, align 8, !tbaa !344
   %3315 = getelementptr i8, ptr %2, i64 16
-  %.val6077 = load ptr, ptr %3315, align 8, !tbaa !346
+  %.val6077 = load ptr, ptr %3315, align 8, !tbaa !345
   %3316 = ptrtoint ptr %.val6076 to i64
   %3317 = ptrtoint ptr %.val6075 to i64
   %3318 = sub i64 %3316, %3317
@@ -12244,7 +12244,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.338, i64 noundef 30) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %3323 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %3324 = load i16, ptr %3323, align 2, !tbaa !347
+  %3324 = load i16, ptr %3323, align 2, !tbaa !346
   %3325 = and i16 %3324, 4
   %.not5179 = icmp eq i16 %3325, 0
   br i1 %.not5179, label %3326, label %.thread6881
@@ -12256,7 +12256,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6881:                                      ; preds = %3312
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.339, i64 noundef 8) #9
-  %3328 = load i16, ptr %3323, align 2, !tbaa !347
+  %3328 = load i16, ptr %3323, align 2, !tbaa !346
   %3329 = and i16 %3328, 8
   %.not51806882 = icmp eq i16 %3329, 0
   br i1 %.not51806882, label %3332, label %3330
@@ -12274,14 +12274,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %3333 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3334 = load ptr, ptr %3333, align 8, !tbaa !471
+  %3334 = load ptr, ptr %3333, align 8, !tbaa !470
   %.not5182 = icmp eq ptr %3334, null
   br i1 %.not5182, label %3344, label %3335
 
 3335:                                             ; preds = %3332
-  %.val6078 = load ptr, ptr %3314, align 8, !tbaa !330
+  %.val6078 = load ptr, ptr %3314, align 8, !tbaa !329
   %3336 = getelementptr i8, ptr %2, i64 32
-  %.val6080 = load ptr, ptr %3336, align 8, !tbaa !346
+  %.val6080 = load ptr, ptr %3336, align 8, !tbaa !345
   %3337 = ptrtoint ptr %3334 to i64
   %3338 = ptrtoint ptr %.val6078 to i64
   %3339 = sub i64 %3337, %3338
@@ -12314,7 +12314,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %3349 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %3350 = load ptr, ptr %3349, align 8, !tbaa !473
+  %3350 = load ptr, ptr %3349, align 8, !tbaa !472
   %.not5183 = icmp eq ptr %3350, null
   br i1 %.not5183, label %3369, label %3360
 
@@ -12330,17 +12330,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 3353:                                             ; preds = %3352, %3351
   %3354 = load ptr, ptr %3348, align 8, !tbaa !15
   %3355 = getelementptr ptr, ptr %3354, i64 %.048947187
-  %3356 = load ptr, ptr %3355, align 8, !tbaa !19
+  %3356 = load ptr, ptr %3355, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3356)
   %3357 = add nuw i64 %.048947187, 1
   %3358 = load i64, ptr %3346, align 8, !tbaa !7
   %3359 = icmp ult i64 %3357, %3358
-  br i1 %3359, label %3351, label %._crit_edge7190, !llvm.loop !474
+  br i1 %3359, label %3351, label %._crit_edge7190, !llvm.loop !473
 
 3360:                                             ; preds = %._crit_edge7190
-  %.val6081 = load ptr, ptr %3314, align 8, !tbaa !330
+  %.val6081 = load ptr, ptr %3314, align 8, !tbaa !329
   %3361 = getelementptr i8, ptr %2, i64 72
-  %.val6083 = load ptr, ptr %3361, align 8, !tbaa !346
+  %.val6083 = load ptr, ptr %3361, align 8, !tbaa !345
   %3362 = ptrtoint ptr %3350 to i64
   %3363 = ptrtoint ptr %.val6081 to i64
   %3364 = sub i64 %3362, %3363
@@ -12359,10 +12359,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.341, i64 noundef 44) #9
   %3371 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3372 = getelementptr i8, ptr %1, i64 304
-  %.val6084 = load ptr, ptr %3372, align 8, !tbaa !330
-  %.val6085 = load ptr, ptr %3371, align 8, !tbaa !345
+  %.val6084 = load ptr, ptr %3372, align 8, !tbaa !329
+  %.val6085 = load ptr, ptr %3371, align 8, !tbaa !344
   %3373 = getelementptr i8, ptr %2, i64 16
-  %.val6086 = load ptr, ptr %3373, align 8, !tbaa !346
+  %.val6086 = load ptr, ptr %3373, align 8, !tbaa !345
   %3374 = ptrtoint ptr %.val6085 to i64
   %3375 = ptrtoint ptr %.val6084 to i64
   %3376 = sub i64 %3374, %3375
@@ -12374,14 +12374,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %3381 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3382 = load ptr, ptr %3381, align 8, !tbaa !475
+  %3382 = load ptr, ptr %3381, align 8, !tbaa !474
   %.not5176 = icmp eq ptr %3382, null
   br i1 %.not5176, label %3392, label %3383
 
 3383:                                             ; preds = %3370
-  %.val6087 = load ptr, ptr %3372, align 8, !tbaa !330
+  %.val6087 = load ptr, ptr %3372, align 8, !tbaa !329
   %3384 = getelementptr i8, ptr %2, i64 32
-  %.val6089 = load ptr, ptr %3384, align 8, !tbaa !346
+  %.val6089 = load ptr, ptr %3384, align 8, !tbaa !345
   %3385 = ptrtoint ptr %3382 to i64
   %3386 = ptrtoint ptr %.val6087 to i64
   %3387 = sub i64 %3385, %3386
@@ -12414,7 +12414,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %3397 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %3398 = load ptr, ptr %3397, align 8, !tbaa !477
+  %3398 = load ptr, ptr %3397, align 8, !tbaa !476
   %.not5177 = icmp eq ptr %3398, null
   br i1 %.not5177, label %3417, label %3408
 
@@ -12430,17 +12430,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 3401:                                             ; preds = %3400, %3399
   %3402 = load ptr, ptr %3396, align 8, !tbaa !15
   %3403 = getelementptr ptr, ptr %3402, i64 %.048957183
-  %3404 = load ptr, ptr %3403, align 8, !tbaa !19
+  %3404 = load ptr, ptr %3403, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3404)
   %3405 = add nuw i64 %.048957183, 1
   %3406 = load i64, ptr %3394, align 8, !tbaa !7
   %3407 = icmp ult i64 %3405, %3406
-  br i1 %3407, label %3399, label %._crit_edge7186, !llvm.loop !478
+  br i1 %3407, label %3399, label %._crit_edge7186, !llvm.loop !477
 
 3408:                                             ; preds = %._crit_edge7186
-  %.val6090 = load ptr, ptr %3372, align 8, !tbaa !330
+  %.val6090 = load ptr, ptr %3372, align 8, !tbaa !329
   %3409 = getelementptr i8, ptr %2, i64 72
-  %.val6092 = load ptr, ptr %3409, align 8, !tbaa !346
+  %.val6092 = load ptr, ptr %3409, align 8, !tbaa !345
   %3410 = ptrtoint ptr %3398 to i64
   %3411 = ptrtoint ptr %.val6090 to i64
   %3412 = sub i64 %3410, %3411
@@ -12459,10 +12459,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.342, i64 noundef 45) #9
   %3419 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3420 = getelementptr i8, ptr %1, i64 304
-  %.val6093 = load ptr, ptr %3420, align 8, !tbaa !330
-  %.val6094 = load ptr, ptr %3419, align 8, !tbaa !345
+  %.val6093 = load ptr, ptr %3420, align 8, !tbaa !329
+  %.val6094 = load ptr, ptr %3419, align 8, !tbaa !344
   %3421 = getelementptr i8, ptr %2, i64 16
-  %.val6095 = load ptr, ptr %3421, align 8, !tbaa !346
+  %.val6095 = load ptr, ptr %3421, align 8, !tbaa !345
   %3422 = ptrtoint ptr %.val6094 to i64
   %3423 = ptrtoint ptr %.val6093 to i64
   %3424 = sub i64 %3422, %3423
@@ -12474,10 +12474,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %3429 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6096 = load ptr, ptr %3420, align 8, !tbaa !330
-  %.val6097 = load ptr, ptr %3429, align 8, !tbaa !345
+  %.val6096 = load ptr, ptr %3420, align 8, !tbaa !329
+  %.val6097 = load ptr, ptr %3429, align 8, !tbaa !344
   %3430 = getelementptr i8, ptr %2, i64 32
-  %.val6098 = load ptr, ptr %3430, align 8, !tbaa !346
+  %.val6098 = load ptr, ptr %3430, align 8, !tbaa !345
   %3431 = ptrtoint ptr %.val6097 to i64
   %3432 = ptrtoint ptr %.val6096 to i64
   %3433 = sub i64 %3431, %3432
@@ -12503,10 +12503,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %3441 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val6099 = load ptr, ptr %3420, align 8, !tbaa !330
-  %.val6100 = load ptr, ptr %3441, align 8, !tbaa !345
+  %.val6099 = load ptr, ptr %3420, align 8, !tbaa !329
+  %.val6100 = load ptr, ptr %3441, align 8, !tbaa !344
   %3442 = getelementptr i8, ptr %2, i64 72
-  %.val6101 = load ptr, ptr %3442, align 8, !tbaa !346
+  %.val6101 = load ptr, ptr %3442, align 8, !tbaa !345
   %3443 = ptrtoint ptr %.val6100 to i64
   %3444 = ptrtoint ptr %.val6099 to i64
   %3445 = sub i64 %3443, %3444
@@ -12529,21 +12529,21 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 3452:                                             ; preds = %3451, %3450
   %3453 = load ptr, ptr %3440, align 8, !tbaa !15
   %3454 = getelementptr ptr, ptr %3453, i64 %.048967179
-  %3455 = load ptr, ptr %3454, align 8, !tbaa !19
+  %3455 = load ptr, ptr %3454, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3455)
   %3456 = add nuw i64 %.048967179, 1
   %3457 = load i64, ptr %3438, align 8, !tbaa !7
   %3458 = icmp ult i64 %3456, %3457
-  br i1 %3458, label %3450, label %._crit_edge7182, !llvm.loop !479
+  br i1 %3458, label %3450, label %._crit_edge7182, !llvm.loop !478
 
 3459:                                             ; preds = %3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.343, i64 noundef 45) #9
   %3460 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3461 = getelementptr i8, ptr %1, i64 304
-  %.val6102 = load ptr, ptr %3461, align 8, !tbaa !330
-  %.val6103 = load ptr, ptr %3460, align 8, !tbaa !345
+  %.val6102 = load ptr, ptr %3461, align 8, !tbaa !329
+  %.val6103 = load ptr, ptr %3460, align 8, !tbaa !344
   %3462 = getelementptr i8, ptr %2, i64 16
-  %.val6104 = load ptr, ptr %3462, align 8, !tbaa !346
+  %.val6104 = load ptr, ptr %3462, align 8, !tbaa !345
   %3463 = ptrtoint ptr %.val6103 to i64
   %3464 = ptrtoint ptr %.val6102 to i64
   %3465 = sub i64 %3463, %3464
@@ -12558,10 +12558,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.344, i64 noundef 38) #9
   %3471 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3472 = getelementptr i8, ptr %1, i64 304
-  %.val6105 = load ptr, ptr %3472, align 8, !tbaa !330
-  %.val6106 = load ptr, ptr %3471, align 8, !tbaa !345
+  %.val6105 = load ptr, ptr %3472, align 8, !tbaa !329
+  %.val6106 = load ptr, ptr %3471, align 8, !tbaa !344
   %3473 = getelementptr i8, ptr %2, i64 16
-  %.val6107 = load ptr, ptr %3473, align 8, !tbaa !346
+  %.val6107 = load ptr, ptr %3473, align 8, !tbaa !345
   %3474 = ptrtoint ptr %.val6106 to i64
   %3475 = ptrtoint ptr %.val6105 to i64
   %3476 = sub i64 %3474, %3475
@@ -12576,10 +12576,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.345, i64 noundef 37) #9
   %3482 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3483 = getelementptr i8, ptr %1, i64 304
-  %.val6108 = load ptr, ptr %3483, align 8, !tbaa !330
-  %.val6109 = load ptr, ptr %3482, align 8, !tbaa !345
+  %.val6108 = load ptr, ptr %3483, align 8, !tbaa !329
+  %.val6109 = load ptr, ptr %3482, align 8, !tbaa !344
   %3484 = getelementptr i8, ptr %2, i64 16
-  %.val6110 = load ptr, ptr %3484, align 8, !tbaa !346
+  %.val6110 = load ptr, ptr %3484, align 8, !tbaa !345
   %3485 = ptrtoint ptr %.val6109 to i64
   %3486 = ptrtoint ptr %.val6108 to i64
   %3487 = sub i64 %3485, %3486
@@ -12592,7 +12592,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.346, i64 noundef 23) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %3492 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %3493 = load i16, ptr %3492, align 2, !tbaa !347
+  %3493 = load i16, ptr %3492, align 2, !tbaa !346
   %3494 = and i16 %3493, 4
   %.not5173 = icmp eq i16 %3494, 0
   br i1 %.not5173, label %3496, label %3495
@@ -12631,21 +12631,21 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 3502:                                             ; preds = %3501, %3500
   %3503 = load ptr, ptr %3499, align 8, !tbaa !15
   %3504 = getelementptr ptr, ptr %3503, i64 %.049077175
-  %3505 = load ptr, ptr %3504, align 8, !tbaa !19
+  %3505 = load ptr, ptr %3504, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3505)
   %3506 = add nuw i64 %.049077175, 1
   %3507 = load i64, ptr %3497, align 8, !tbaa !7
   %3508 = icmp ult i64 %3506, %3507
-  br i1 %3508, label %3500, label %._crit_edge7178, !llvm.loop !480
+  br i1 %3508, label %3500, label %._crit_edge7178, !llvm.loop !479
 
 3509:                                             ; preds = %3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.348, i64 noundef 46) #9
   %3510 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3511 = getelementptr i8, ptr %1, i64 304
-  %.val6111 = load ptr, ptr %3511, align 8, !tbaa !330
-  %.val6112 = load ptr, ptr %3510, align 8, !tbaa !345
+  %.val6111 = load ptr, ptr %3511, align 8, !tbaa !329
+  %.val6112 = load ptr, ptr %3510, align 8, !tbaa !344
   %3512 = getelementptr i8, ptr %2, i64 16
-  %.val6113 = load ptr, ptr %3512, align 8, !tbaa !346
+  %.val6113 = load ptr, ptr %3512, align 8, !tbaa !345
   %3513 = ptrtoint ptr %.val6112 to i64
   %3514 = ptrtoint ptr %.val6111 to i64
   %3515 = sub i64 %3513, %3514
@@ -12658,7 +12658,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.197, i64 noundef 17) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %3520 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %3521 = load i16, ptr %3520, align 2, !tbaa !347
+  %3521 = load i16, ptr %3520, align 2, !tbaa !346
   %3522 = and i16 %3521, 4
   %.not5170 = icmp eq i16 %3522, 0
   br i1 %.not5170, label %3524, label %3523
@@ -12672,7 +12672,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %3525 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3526 = load i32, ptr %3525, align 8, !tbaa !481
+  %3526 = load i32, ptr %3525, align 8, !tbaa !480
   %.not5171 = icmp eq i32 %3526, 0
   br i1 %.not5171, label %3528, label %3527
 
@@ -12688,14 +12688,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %3530 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3531 = load ptr, ptr %3530, align 8, !tbaa !483
+  %3531 = load ptr, ptr %3530, align 8, !tbaa !482
   %.not5172 = icmp eq ptr %3531, null
   br i1 %.not5172, label %3541, label %3532
 
 3532:                                             ; preds = %3529
-  %.val6114 = load ptr, ptr %3511, align 8, !tbaa !330
+  %.val6114 = load ptr, ptr %3511, align 8, !tbaa !329
   %3533 = getelementptr i8, ptr %2, i64 40
-  %.val6116 = load ptr, ptr %3533, align 8, !tbaa !346
+  %.val6116 = load ptr, ptr %3533, align 8, !tbaa !345
   %3534 = ptrtoint ptr %3531 to i64
   %3535 = ptrtoint ptr %.val6114 to i64
   %3536 = sub i64 %3534, %3535
@@ -12714,10 +12714,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %3543 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6117 = load ptr, ptr %3511, align 8, !tbaa !330
-  %.val6118 = load ptr, ptr %3543, align 8, !tbaa !345
+  %.val6117 = load ptr, ptr %3511, align 8, !tbaa !329
+  %.val6118 = load ptr, ptr %3543, align 8, !tbaa !344
   %3544 = getelementptr i8, ptr %2, i64 56
-  %.val6119 = load ptr, ptr %3544, align 8, !tbaa !346
+  %.val6119 = load ptr, ptr %3544, align 8, !tbaa !345
   %3545 = ptrtoint ptr %.val6118 to i64
   %3546 = ptrtoint ptr %.val6117 to i64
   %3547 = sub i64 %3545, %3546
@@ -12732,10 +12732,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.349, i64 noundef 32) #9
   %3553 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3554 = getelementptr i8, ptr %1, i64 304
-  %.val6120 = load ptr, ptr %3554, align 8, !tbaa !330
-  %.val6121 = load ptr, ptr %3553, align 8, !tbaa !345
+  %.val6120 = load ptr, ptr %3554, align 8, !tbaa !329
+  %.val6121 = load ptr, ptr %3553, align 8, !tbaa !344
   %3555 = getelementptr i8, ptr %2, i64 16
-  %.val6122 = load ptr, ptr %3555, align 8, !tbaa !346
+  %.val6122 = load ptr, ptr %3555, align 8, !tbaa !345
   %3556 = ptrtoint ptr %.val6121 to i64
   %3557 = ptrtoint ptr %.val6120 to i64
   %3558 = sub i64 %3556, %3557
@@ -12748,7 +12748,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.200, i64 noundef 9) #9
   %3563 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
-  %3564 = load i64, ptr %3563, align 8, !tbaa !364
+  %3564 = load i64, ptr %3563, align 8, !tbaa !363
   %.not7267 = icmp eq i64 %3564, 0
   br i1 %.not7267, label %._crit_edge7174, label %.lr.ph7173
 
@@ -12762,10 +12762,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %3567 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6123 = load ptr, ptr %3554, align 8, !tbaa !330
-  %.val6124 = load ptr, ptr %3567, align 8, !tbaa !345
+  %.val6123 = load ptr, ptr %3554, align 8, !tbaa !329
+  %.val6124 = load ptr, ptr %3567, align 8, !tbaa !344
   %3568 = getelementptr i8, ptr %2, i64 56
-  %.val6125 = load ptr, ptr %3568, align 8, !tbaa !346
+  %.val6125 = load ptr, ptr %3568, align 8, !tbaa !345
   %3569 = ptrtoint ptr %.val6124 to i64
   %3570 = ptrtoint ptr %.val6123 to i64
   %3571 = sub i64 %3569, %3570
@@ -12777,10 +12777,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %3576 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val6126 = load ptr, ptr %3554, align 8, !tbaa !330
-  %.val6127 = load ptr, ptr %3576, align 8, !tbaa !345
+  %.val6126 = load ptr, ptr %3554, align 8, !tbaa !329
+  %.val6127 = load ptr, ptr %3576, align 8, !tbaa !344
   %3577 = getelementptr i8, ptr %2, i64 72
-  %.val6128 = load ptr, ptr %3577, align 8, !tbaa !346
+  %.val6128 = load ptr, ptr %3577, align 8, !tbaa !345
   %3578 = ptrtoint ptr %.val6127 to i64
   %3579 = ptrtoint ptr %.val6126 to i64
   %3580 = sub i64 %3578, %3579
@@ -12792,10 +12792,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %3585 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %.val6129 = load ptr, ptr %3554, align 8, !tbaa !330
-  %.val6130 = load ptr, ptr %3585, align 8, !tbaa !345
+  %.val6129 = load ptr, ptr %3554, align 8, !tbaa !329
+  %.val6130 = load ptr, ptr %3585, align 8, !tbaa !344
   %3586 = getelementptr i8, ptr %2, i64 88
-  %.val6131 = load ptr, ptr %3586, align 8, !tbaa !346
+  %.val6131 = load ptr, ptr %3586, align 8, !tbaa !345
   %3587 = ptrtoint ptr %.val6130 to i64
   %3588 = ptrtoint ptr %.val6129 to i64
   %3589 = sub i64 %3587, %3588
@@ -12807,7 +12807,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.201, i64 noundef 13) #9
   %3594 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %3595 = load ptr, ptr %3594, align 8, !tbaa !210
+  %3595 = load ptr, ptr %3594, align 8, !tbaa !209
   %.not5167 = icmp eq ptr %3595, null
   br i1 %.not5167, label %3610, label %3609
 
@@ -12821,20 +12821,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %3598
 
 3598:                                             ; preds = %3597, %3596
-  %3599 = load ptr, ptr %3565, align 8, !tbaa !365
+  %3599 = load ptr, ptr %3565, align 8, !tbaa !364
   %3600 = getelementptr i32, ptr %3599, i64 %.049117171
-  %3601 = load i32, ptr %3600, align 4, !tbaa !366
+  %3601 = load i32, ptr %3600, align 4, !tbaa !365
   %3602 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %3566, i32 noundef %3601) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
-  %3603 = load ptr, ptr %3602, align 8, !tbaa !367
+  %3603 = load ptr, ptr %3602, align 8, !tbaa !366
   %3604 = getelementptr inbounds nuw i8, ptr %3602, i64 8
-  %3605 = load i64, ptr %3604, align 8, !tbaa !369
+  %3605 = load i64, ptr %3604, align 8, !tbaa !368
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3603, i64 noundef %3605, i32 noundef 1) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
   %3606 = add nuw i64 %.049117171, 1
-  %3607 = load i64, ptr %3563, align 8, !tbaa !364
+  %3607 = load i64, ptr %3563, align 8, !tbaa !363
   %3608 = icmp ult i64 %3606, %3607
-  br i1 %3608, label %3596, label %._crit_edge7174, !llvm.loop !484
+  br i1 %3608, label %3596, label %._crit_edge7174, !llvm.loop !483
 
 3609:                                             ; preds = %._crit_edge7174
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %3595)
@@ -12848,7 +12848,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.202, i64 noundef 7) #9
   %3612 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %3613 = load ptr, ptr %3612, align 8, !tbaa !212
+  %3613 = load ptr, ptr %3612, align 8, !tbaa !211
   %.not5168 = icmp eq ptr %3613, null
   br i1 %.not5168, label %3615, label %3614
 
@@ -12864,10 +12864,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.350, i64 noundef 47) #9
   %3617 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3618 = getelementptr i8, ptr %1, i64 304
-  %.val6132 = load ptr, ptr %3618, align 8, !tbaa !330
-  %.val6133 = load ptr, ptr %3617, align 8, !tbaa !345
+  %.val6132 = load ptr, ptr %3618, align 8, !tbaa !329
+  %.val6133 = load ptr, ptr %3617, align 8, !tbaa !344
   %3619 = getelementptr i8, ptr %2, i64 16
-  %.val6134 = load ptr, ptr %3619, align 8, !tbaa !346
+  %.val6134 = load ptr, ptr %3619, align 8, !tbaa !345
   %3620 = ptrtoint ptr %.val6133 to i64
   %3621 = ptrtoint ptr %.val6132 to i64
   %3622 = sub i64 %3620, %3621
@@ -12879,10 +12879,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %3627 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6135 = load ptr, ptr %3618, align 8, !tbaa !330
-  %.val6136 = load ptr, ptr %3627, align 8, !tbaa !345
+  %.val6135 = load ptr, ptr %3618, align 8, !tbaa !329
+  %.val6136 = load ptr, ptr %3627, align 8, !tbaa !344
   %3628 = getelementptr i8, ptr %2, i64 32
-  %.val6137 = load ptr, ptr %3628, align 8, !tbaa !346
+  %.val6137 = load ptr, ptr %3628, align 8, !tbaa !345
   %3629 = ptrtoint ptr %.val6136 to i64
   %3630 = ptrtoint ptr %.val6135 to i64
   %3631 = sub i64 %3629, %3630
@@ -12894,10 +12894,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %3636 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val6138 = load ptr, ptr %3618, align 8, !tbaa !330
-  %.val6139 = load ptr, ptr %3636, align 8, !tbaa !345
+  %.val6138 = load ptr, ptr %3618, align 8, !tbaa !329
+  %.val6139 = load ptr, ptr %3636, align 8, !tbaa !344
   %3637 = getelementptr i8, ptr %2, i64 48
-  %.val6140 = load ptr, ptr %3637, align 8, !tbaa !346
+  %.val6140 = load ptr, ptr %3637, align 8, !tbaa !345
   %3638 = ptrtoint ptr %.val6139 to i64
   %3639 = ptrtoint ptr %.val6138 to i64
   %3640 = sub i64 %3638, %3639
@@ -12909,17 +12909,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %3645 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %3646 = load ptr, ptr %3645, align 8, !tbaa !213
+  %3646 = load ptr, ptr %3645, align 8, !tbaa !212
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3646)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %3647 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %3648 = load i32, ptr %3647, align 8, !tbaa !485
+  %3648 = load i32, ptr %3647, align 8, !tbaa !484
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3648)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.351, i64 noundef 8) #9
   %3649 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %3650 = load i32, ptr %3649, align 4, !tbaa !486
+  %3650 = load i32, ptr %3649, align 4, !tbaa !485
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.352, i32 noundef %3650) #9
   br label %common.ret.sink.split
 
@@ -12927,10 +12927,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.353, i64 noundef 52) #9
   %3652 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3653 = getelementptr i8, ptr %1, i64 304
-  %.val6141 = load ptr, ptr %3653, align 8, !tbaa !330
-  %.val6142 = load ptr, ptr %3652, align 8, !tbaa !345
+  %.val6141 = load ptr, ptr %3653, align 8, !tbaa !329
+  %.val6142 = load ptr, ptr %3652, align 8, !tbaa !344
   %3654 = getelementptr i8, ptr %2, i64 16
-  %.val6143 = load ptr, ptr %3654, align 8, !tbaa !346
+  %.val6143 = load ptr, ptr %3654, align 8, !tbaa !345
   %3655 = ptrtoint ptr %.val6142 to i64
   %3656 = ptrtoint ptr %.val6141 to i64
   %3657 = sub i64 %3655, %3656
@@ -12942,10 +12942,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %3662 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6144 = load ptr, ptr %3653, align 8, !tbaa !330
-  %.val6145 = load ptr, ptr %3662, align 8, !tbaa !345
+  %.val6144 = load ptr, ptr %3653, align 8, !tbaa !329
+  %.val6145 = load ptr, ptr %3662, align 8, !tbaa !344
   %3663 = getelementptr i8, ptr %2, i64 32
-  %.val6146 = load ptr, ptr %3663, align 8, !tbaa !346
+  %.val6146 = load ptr, ptr %3663, align 8, !tbaa !345
   %3664 = ptrtoint ptr %.val6145 to i64
   %3665 = ptrtoint ptr %.val6144 to i64
   %3666 = sub i64 %3664, %3665
@@ -12957,10 +12957,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.222, i64 noundef 22) #9
   %3671 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val6147 = load ptr, ptr %3653, align 8, !tbaa !330
-  %.val6148 = load ptr, ptr %3671, align 8, !tbaa !345
+  %.val6147 = load ptr, ptr %3653, align 8, !tbaa !329
+  %.val6148 = load ptr, ptr %3671, align 8, !tbaa !344
   %3672 = getelementptr i8, ptr %2, i64 48
-  %.val6149 = load ptr, ptr %3672, align 8, !tbaa !346
+  %.val6149 = load ptr, ptr %3672, align 8, !tbaa !345
   %3673 = ptrtoint ptr %.val6148 to i64
   %3674 = ptrtoint ptr %.val6147 to i64
   %3675 = sub i64 %3673, %3674
@@ -12972,22 +12972,22 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %3680 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %3681 = load ptr, ptr %3680, align 8, !tbaa !215
+  %3681 = load ptr, ptr %3680, align 8, !tbaa !214
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3681)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %3682 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %3683 = load i32, ptr %3682, align 8, !tbaa !487
+  %3683 = load i32, ptr %3682, align 8, !tbaa !486
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3683)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.221, i64 noundef 18) #9
   %3684 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %3685 = load i32, ptr %3684, align 4, !tbaa !488
+  %3685 = load i32, ptr %3684, align 4, !tbaa !487
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3685)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.351, i64 noundef 8) #9
   %3686 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %3687 = load i32, ptr %3686, align 8, !tbaa !489
+  %3687 = load i32, ptr %3686, align 8, !tbaa !488
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.352, i32 noundef %3687) #9
   br label %common.ret.sink.split
 
@@ -12995,10 +12995,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.354, i64 noundef 46) #9
   %3689 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3690 = getelementptr i8, ptr %1, i64 304
-  %.val6150 = load ptr, ptr %3690, align 8, !tbaa !330
-  %.val6151 = load ptr, ptr %3689, align 8, !tbaa !345
+  %.val6150 = load ptr, ptr %3690, align 8, !tbaa !329
+  %.val6151 = load ptr, ptr %3689, align 8, !tbaa !344
   %3691 = getelementptr i8, ptr %2, i64 16
-  %.val6152 = load ptr, ptr %3691, align 8, !tbaa !346
+  %.val6152 = load ptr, ptr %3691, align 8, !tbaa !345
   %3692 = ptrtoint ptr %.val6151 to i64
   %3693 = ptrtoint ptr %.val6150 to i64
   %3694 = sub i64 %3692, %3693
@@ -13010,10 +13010,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %3699 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6153 = load ptr, ptr %3690, align 8, !tbaa !330
-  %.val6154 = load ptr, ptr %3699, align 8, !tbaa !345
+  %.val6153 = load ptr, ptr %3690, align 8, !tbaa !329
+  %.val6154 = load ptr, ptr %3699, align 8, !tbaa !344
   %3700 = getelementptr i8, ptr %2, i64 32
-  %.val6155 = load ptr, ptr %3700, align 8, !tbaa !346
+  %.val6155 = load ptr, ptr %3700, align 8, !tbaa !345
   %3701 = ptrtoint ptr %.val6154 to i64
   %3702 = ptrtoint ptr %.val6153 to i64
   %3703 = sub i64 %3701, %3702
@@ -13025,10 +13025,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %3708 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val6156 = load ptr, ptr %3690, align 8, !tbaa !330
-  %.val6157 = load ptr, ptr %3708, align 8, !tbaa !345
+  %.val6156 = load ptr, ptr %3690, align 8, !tbaa !329
+  %.val6157 = load ptr, ptr %3708, align 8, !tbaa !344
   %3709 = getelementptr i8, ptr %2, i64 48
-  %.val6158 = load ptr, ptr %3709, align 8, !tbaa !346
+  %.val6158 = load ptr, ptr %3709, align 8, !tbaa !345
   %3710 = ptrtoint ptr %.val6157 to i64
   %3711 = ptrtoint ptr %.val6156 to i64
   %3712 = sub i64 %3710, %3711
@@ -13040,17 +13040,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %3717 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %3718 = load ptr, ptr %3717, align 8, !tbaa !217
+  %3718 = load ptr, ptr %3717, align 8, !tbaa !216
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3718)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %3719 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %3720 = load i32, ptr %3719, align 8, !tbaa !490
+  %3720 = load i32, ptr %3719, align 8, !tbaa !489
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3720)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.351, i64 noundef 8) #9
   %3721 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %3722 = load i32, ptr %3721, align 4, !tbaa !491
+  %3722 = load i32, ptr %3721, align 4, !tbaa !490
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.352, i32 noundef %3722) #9
   br label %common.ret.sink.split
 
@@ -13058,10 +13058,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.355, i64 noundef 43) #9
   %3724 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3725 = getelementptr i8, ptr %1, i64 304
-  %.val6159 = load ptr, ptr %3725, align 8, !tbaa !330
-  %.val6160 = load ptr, ptr %3724, align 8, !tbaa !345
+  %.val6159 = load ptr, ptr %3725, align 8, !tbaa !329
+  %.val6160 = load ptr, ptr %3724, align 8, !tbaa !344
   %3726 = getelementptr i8, ptr %2, i64 16
-  %.val6161 = load ptr, ptr %3726, align 8, !tbaa !346
+  %.val6161 = load ptr, ptr %3726, align 8, !tbaa !345
   %3727 = ptrtoint ptr %.val6160 to i64
   %3728 = ptrtoint ptr %.val6159 to i64
   %3729 = sub i64 %3727, %3728
@@ -13073,12 +13073,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %3734 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3735 = load i32, ptr %3734, align 8, !tbaa !492
+  %3735 = load i32, ptr %3734, align 8, !tbaa !491
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3735)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.351, i64 noundef 8) #9
   %3736 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %3737 = load i32, ptr %3736, align 4, !tbaa !494
+  %3737 = load i32, ptr %3736, align 4, !tbaa !493
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.352, i32 noundef %3737) #9
   br label %common.ret.sink.split
 
@@ -13086,10 +13086,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.356, i64 noundef 45) #9
   %3739 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3740 = getelementptr i8, ptr %1, i64 304
-  %.val6162 = load ptr, ptr %3740, align 8, !tbaa !330
-  %.val6163 = load ptr, ptr %3739, align 8, !tbaa !345
+  %.val6162 = load ptr, ptr %3740, align 8, !tbaa !329
+  %.val6163 = load ptr, ptr %3739, align 8, !tbaa !344
   %3741 = getelementptr i8, ptr %2, i64 16
-  %.val6164 = load ptr, ptr %3741, align 8, !tbaa !346
+  %.val6164 = load ptr, ptr %3741, align 8, !tbaa !345
   %3742 = ptrtoint ptr %.val6163 to i64
   %3743 = ptrtoint ptr %.val6162 to i64
   %3744 = sub i64 %3742, %3743
@@ -13101,12 +13101,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %3749 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3750 = load i32, ptr %3749, align 8, !tbaa !495
+  %3750 = load i32, ptr %3749, align 8, !tbaa !494
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3750)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.351, i64 noundef 8) #9
   %3751 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %3752 = load i32, ptr %3751, align 4, !tbaa !497
+  %3752 = load i32, ptr %3751, align 4, !tbaa !496
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.352, i32 noundef %3752) #9
   br label %common.ret.sink.split
 
@@ -13114,10 +13114,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.357, i64 noundef 44) #9
   %3754 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3755 = getelementptr i8, ptr %1, i64 304
-  %.val6165 = load ptr, ptr %3755, align 8, !tbaa !330
-  %.val6166 = load ptr, ptr %3754, align 8, !tbaa !345
+  %.val6165 = load ptr, ptr %3755, align 8, !tbaa !329
+  %.val6166 = load ptr, ptr %3754, align 8, !tbaa !344
   %3756 = getelementptr i8, ptr %2, i64 16
-  %.val6167 = load ptr, ptr %3756, align 8, !tbaa !346
+  %.val6167 = load ptr, ptr %3756, align 8, !tbaa !345
   %3757 = ptrtoint ptr %.val6166 to i64
   %3758 = ptrtoint ptr %.val6165 to i64
   %3759 = sub i64 %3757, %3758
@@ -13129,20 +13129,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %3764 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3765 = load i32, ptr %3764, align 8, !tbaa !498
+  %3765 = load i32, ptr %3764, align 8, !tbaa !497
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3765)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.351, i64 noundef 8) #9
   %3766 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %3767 = load i32, ptr %3766, align 4, !tbaa !499
+  %3767 = load i32, ptr %3766, align 4, !tbaa !498
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.352, i32 noundef %3767) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %3768 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6168 = load ptr, ptr %3755, align 8, !tbaa !330
-  %.val6169 = load ptr, ptr %3768, align 8, !tbaa !345
+  %.val6168 = load ptr, ptr %3755, align 8, !tbaa !329
+  %.val6169 = load ptr, ptr %3768, align 8, !tbaa !344
   %3769 = getelementptr i8, ptr %2, i64 40
-  %.val6170 = load ptr, ptr %3769, align 8, !tbaa !346
+  %.val6170 = load ptr, ptr %3769, align 8, !tbaa !345
   %3770 = ptrtoint ptr %.val6169 to i64
   %3771 = ptrtoint ptr %.val6168 to i64
   %3772 = sub i64 %3770, %3771
@@ -13154,15 +13154,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %3777 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %3778 = load ptr, ptr %3777, align 8, !tbaa !219
+  %3778 = load ptr, ptr %3777, align 8, !tbaa !218
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3778)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %3779 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.val6171 = load ptr, ptr %3755, align 8, !tbaa !330
-  %.val6172 = load ptr, ptr %3779, align 8, !tbaa !345
+  %.val6171 = load ptr, ptr %3755, align 8, !tbaa !329
+  %.val6172 = load ptr, ptr %3779, align 8, !tbaa !344
   %3780 = getelementptr i8, ptr %2, i64 64
-  %.val6173 = load ptr, ptr %3780, align 8, !tbaa !346
+  %.val6173 = load ptr, ptr %3780, align 8, !tbaa !345
   %3781 = ptrtoint ptr %.val6172 to i64
   %3782 = ptrtoint ptr %.val6171 to i64
   %3783 = sub i64 %3781, %3782
@@ -13177,10 +13177,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.358, i64 noundef 39) #9
   %3789 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3790 = getelementptr i8, ptr %1, i64 304
-  %.val6174 = load ptr, ptr %3790, align 8, !tbaa !330
-  %.val6175 = load ptr, ptr %3789, align 8, !tbaa !345
+  %.val6174 = load ptr, ptr %3790, align 8, !tbaa !329
+  %.val6175 = load ptr, ptr %3789, align 8, !tbaa !344
   %3791 = getelementptr i8, ptr %2, i64 16
-  %.val6176 = load ptr, ptr %3791, align 8, !tbaa !346
+  %.val6176 = load ptr, ptr %3791, align 8, !tbaa !345
   %3792 = ptrtoint ptr %.val6175 to i64
   %3793 = ptrtoint ptr %.val6174 to i64
   %3794 = sub i64 %3792, %3793
@@ -13193,7 +13193,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.323, i64 noundef 25) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %3799 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %3800 = load i16, ptr %3799, align 2, !tbaa !347
+  %3800 = load i16, ptr %3799, align 2, !tbaa !346
   %3801 = and i16 %3800, 4
   %.not5146 = icmp eq i16 %3801, 0
   br i1 %.not5146, label %3802, label %.thread6884
@@ -13205,7 +13205,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6884:                                      ; preds = %3788
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.324, i64 noundef 13) #9
-  %3804 = load i16, ptr %3799, align 2, !tbaa !347
+  %3804 = load i16, ptr %3799, align 2, !tbaa !346
   %3805 = and i16 %3804, 8
   %.not51476886 = icmp eq i16 %3805, 0
   br i1 %.not51476886, label %.thread6892, label %3806
@@ -13217,7 +13217,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 3807:                                             ; preds = %3806, %3802
   %.0491368876891 = phi i64 [ 2, %3806 ], [ 1, %3802 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.325, i64 noundef 10) #9
-  %.pre7303 = load i16, ptr %3799, align 2, !tbaa !347
+  %.pre7303 = load i16, ptr %3799, align 2, !tbaa !346
   %3808 = and i16 %.pre7303, 16
   %.not5149 = icmp eq i16 %3808, 0
   br i1 %.not5149, label %3812, label %.thread6896
@@ -13241,7 +13241,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7644:                                      ; preds = %.thread7640, %.thread6896
   %.1491468956900 = phi i64 [ %3811, %.thread6896 ], [ 1, %.thread7640 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.326, i64 noundef 12) #9
-  %.pre7304 = load i16, ptr %3799, align 2, !tbaa !347
+  %.pre7304 = load i16, ptr %3799, align 2, !tbaa !346
   br label %3812
 
 3812:                                             ; preds = %.thread7644, %3807
@@ -13270,7 +13270,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7651:                                      ; preds = %.thread7647, %.thread6905
   %.2491569046909 = phi i64 [ %3817, %.thread6905 ], [ 1, %.thread7647 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.327, i64 noundef 6) #9
-  %.pre7305 = load i16, ptr %3799, align 2, !tbaa !347
+  %.pre7305 = load i16, ptr %3799, align 2, !tbaa !346
   br label %3818
 
 3818:                                             ; preds = %.thread7651, %3812
@@ -13299,7 +13299,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7658:                                      ; preds = %.thread7654, %.thread6914
   %.3491669136918 = phi i64 [ %3823, %.thread6914 ], [ 1, %.thread7654 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.328, i64 noundef 8) #9
-  %.pre7306 = load i16, ptr %3799, align 2, !tbaa !347
+  %.pre7306 = load i16, ptr %3799, align 2, !tbaa !346
   br label %3824
 
 3824:                                             ; preds = %.thread7658, %3818
@@ -13328,7 +13328,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7665:                                      ; preds = %.thread7661, %.thread6923
   %.4491769226927 = phi i64 [ %3829, %.thread6923 ], [ 1, %.thread7661 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.329, i64 noundef 12) #9
-  %.pre7307 = load i16, ptr %3799, align 2, !tbaa !347
+  %.pre7307 = load i16, ptr %3799, align 2, !tbaa !346
   br label %3830
 
 3830:                                             ; preds = %.thread7665, %3824
@@ -13361,7 +13361,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7672:                                      ; preds = %.thread7668, %.thread6932, %3835
   %.5491869316936 = phi i64 [ %3836, %.thread6932 ], [ 1, %3835 ], [ 1, %.thread7668 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.330, i64 noundef 13) #9
-  %.pre7308 = load i16, ptr %3799, align 2, !tbaa !347
+  %.pre7308 = load i16, ptr %3799, align 2, !tbaa !346
   br label %3837
 
 3837:                                             ; preds = %.thread7672, %3830
@@ -13394,7 +13394,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7679:                                      ; preds = %.thread7675, %.thread6941, %3842
   %.6491969406945 = phi i64 [ %3843, %.thread6941 ], [ 1, %3842 ], [ 1, %.thread7675 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.331, i64 noundef 7) #9
-  %.pre7309 = load i16, ptr %3799, align 2, !tbaa !347
+  %.pre7309 = load i16, ptr %3799, align 2, !tbaa !346
   br label %3844
 
 3844:                                             ; preds = %.thread7679, %3837
@@ -13427,7 +13427,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7686:                                      ; preds = %.thread7682, %.thread6950, %3849
   %.7492069496954 = phi i64 [ %3850, %.thread6950 ], [ 1, %3849 ], [ 1, %.thread7682 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.332, i64 noundef 22) #9
-  %.pre7310 = load i16, ptr %3799, align 2, !tbaa !347
+  %.pre7310 = load i16, ptr %3799, align 2, !tbaa !346
   br label %3851
 
 3851:                                             ; preds = %.thread7686, %3844
@@ -13457,7 +13457,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7693:                                      ; preds = %.thread7689, %.thread6959, %3856
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.333, i64 noundef 24) #9
-  %.pre7311 = load i16, ptr %3799, align 2, !tbaa !347
+  %.pre7311 = load i16, ptr %3799, align 2, !tbaa !346
   br label %3857
 
 3857:                                             ; preds = %.thread6955, %.thread7693, %3851
@@ -13489,10 +13489,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %3864 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6177 = load ptr, ptr %3790, align 8, !tbaa !330
-  %.val6178 = load ptr, ptr %3864, align 8, !tbaa !345
+  %.val6177 = load ptr, ptr %3790, align 8, !tbaa !329
+  %.val6178 = load ptr, ptr %3864, align 8, !tbaa !344
   %3865 = getelementptr i8, ptr %2, i64 32
-  %.val6179 = load ptr, ptr %3865, align 8, !tbaa !346
+  %.val6179 = load ptr, ptr %3865, align 8, !tbaa !345
   %3866 = ptrtoint ptr %.val6178 to i64
   %3867 = ptrtoint ptr %.val6177 to i64
   %3868 = sub i64 %3866, %3867
@@ -13504,10 +13504,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.359, i64 noundef 14) #9
   %3873 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val6180 = load ptr, ptr %3790, align 8, !tbaa !330
-  %.val6181 = load ptr, ptr %3873, align 8, !tbaa !345
+  %.val6180 = load ptr, ptr %3790, align 8, !tbaa !329
+  %.val6181 = load ptr, ptr %3873, align 8, !tbaa !344
   %3874 = getelementptr i8, ptr %2, i64 48
-  %.val6182 = load ptr, ptr %3874, align 8, !tbaa !346
+  %.val6182 = load ptr, ptr %3874, align 8, !tbaa !345
   %3875 = ptrtoint ptr %.val6181 to i64
   %3876 = ptrtoint ptr %.val6180 to i64
   %3877 = sub i64 %3875, %3876
@@ -13519,10 +13519,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %3882 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.val6183 = load ptr, ptr %3790, align 8, !tbaa !330
-  %.val6184 = load ptr, ptr %3882, align 8, !tbaa !345
+  %.val6183 = load ptr, ptr %3790, align 8, !tbaa !329
+  %.val6184 = load ptr, ptr %3882, align 8, !tbaa !344
   %3883 = getelementptr i8, ptr %2, i64 64
-  %.val6185 = load ptr, ptr %3883, align 8, !tbaa !346
+  %.val6185 = load ptr, ptr %3883, align 8, !tbaa !345
   %3884 = ptrtoint ptr %.val6184 to i64
   %3885 = ptrtoint ptr %.val6183 to i64
   %3886 = sub i64 %3884, %3885
@@ -13545,10 +13545,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.361, i64 noundef 40) #9
   %3895 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3896 = getelementptr i8, ptr %1, i64 304
-  %.val6186 = load ptr, ptr %3896, align 8, !tbaa !330
-  %.val6187 = load ptr, ptr %3895, align 8, !tbaa !345
+  %.val6186 = load ptr, ptr %3896, align 8, !tbaa !329
+  %.val6187 = load ptr, ptr %3895, align 8, !tbaa !344
   %3897 = getelementptr i8, ptr %2, i64 16
-  %.val6188 = load ptr, ptr %3897, align 8, !tbaa !346
+  %.val6188 = load ptr, ptr %3897, align 8, !tbaa !345
   %3898 = ptrtoint ptr %.val6187 to i64
   %3899 = ptrtoint ptr %.val6186 to i64
   %3900 = sub i64 %3898, %3899
@@ -13560,20 +13560,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %3905 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3906 = load ptr, ptr %3905, align 8, !tbaa !221
+  %3906 = load ptr, ptr %3905, align 8, !tbaa !220
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3906)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.303, i64 noundef 10) #9
   %3907 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3908 = load ptr, ptr %3907, align 8, !tbaa !223
+  %3908 = load ptr, ptr %3907, align 8, !tbaa !222
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3908)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %3909 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val6189 = load ptr, ptr %3896, align 8, !tbaa !330
-  %.val6190 = load ptr, ptr %3909, align 8, !tbaa !345
+  %.val6189 = load ptr, ptr %3896, align 8, !tbaa !329
+  %.val6190 = load ptr, ptr %3909, align 8, !tbaa !344
   %3910 = getelementptr i8, ptr %2, i64 48
-  %.val6191 = load ptr, ptr %3910, align 8, !tbaa !346
+  %.val6191 = load ptr, ptr %3910, align 8, !tbaa !345
   %3911 = ptrtoint ptr %.val6190 to i64
   %3912 = ptrtoint ptr %.val6189 to i64
   %3913 = sub i64 %3911, %3912
@@ -13588,10 +13588,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.362, i64 noundef 39) #9
   %3919 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3920 = getelementptr i8, ptr %1, i64 304
-  %.val6192 = load ptr, ptr %3920, align 8, !tbaa !330
-  %.val6193 = load ptr, ptr %3919, align 8, !tbaa !345
+  %.val6192 = load ptr, ptr %3920, align 8, !tbaa !329
+  %.val6193 = load ptr, ptr %3919, align 8, !tbaa !344
   %3921 = getelementptr i8, ptr %2, i64 16
-  %.val6194 = load ptr, ptr %3921, align 8, !tbaa !346
+  %.val6194 = load ptr, ptr %3921, align 8, !tbaa !345
   %3922 = ptrtoint ptr %.val6193 to i64
   %3923 = ptrtoint ptr %.val6192 to i64
   %3924 = sub i64 %3922, %3923
@@ -13603,20 +13603,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %3929 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3930 = load ptr, ptr %3929, align 8, !tbaa !224
+  %3930 = load ptr, ptr %3929, align 8, !tbaa !223
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3930)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.303, i64 noundef 10) #9
   %3931 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %3932 = load ptr, ptr %3931, align 8, !tbaa !226
+  %3932 = load ptr, ptr %3931, align 8, !tbaa !225
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3932)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %3933 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val6195 = load ptr, ptr %3920, align 8, !tbaa !330
-  %.val6196 = load ptr, ptr %3933, align 8, !tbaa !345
+  %.val6195 = load ptr, ptr %3920, align 8, !tbaa !329
+  %.val6196 = load ptr, ptr %3933, align 8, !tbaa !344
   %3934 = getelementptr i8, ptr %2, i64 48
-  %.val6197 = load ptr, ptr %3934, align 8, !tbaa !346
+  %.val6197 = load ptr, ptr %3934, align 8, !tbaa !345
   %3935 = ptrtoint ptr %.val6196 to i64
   %3936 = ptrtoint ptr %.val6195 to i64
   %3937 = sub i64 %3935, %3936
@@ -13631,10 +13631,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.363, i64 noundef 36) #9
   %3943 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3944 = getelementptr i8, ptr %1, i64 304
-  %.val6198 = load ptr, ptr %3944, align 8, !tbaa !330
-  %.val6199 = load ptr, ptr %3943, align 8, !tbaa !345
+  %.val6198 = load ptr, ptr %3944, align 8, !tbaa !329
+  %.val6199 = load ptr, ptr %3943, align 8, !tbaa !344
   %3945 = getelementptr i8, ptr %2, i64 16
-  %.val6200 = load ptr, ptr %3945, align 8, !tbaa !346
+  %.val6200 = load ptr, ptr %3945, align 8, !tbaa !345
   %3946 = ptrtoint ptr %.val6199 to i64
   %3947 = ptrtoint ptr %.val6198 to i64
   %3948 = sub i64 %3946, %3947
@@ -13646,7 +13646,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.364, i64 noundef 7) #9
   %3953 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3954 = load ptr, ptr %3953, align 8, !tbaa !227
+  %3954 = load ptr, ptr %3953, align 8, !tbaa !226
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3954)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.365, i64 noundef 10) #9
@@ -13676,21 +13676,21 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 3960:                                             ; preds = %3959, %3958
   %3961 = load ptr, ptr %3957, align 8, !tbaa !15
   %3962 = getelementptr ptr, ptr %3961, i64 %.049237167
-  %3963 = load ptr, ptr %3962, align 8, !tbaa !19
+  %3963 = load ptr, ptr %3962, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %3963)
   %3964 = add nuw i64 %.049237167, 1
   %3965 = load i64, ptr %3955, align 8, !tbaa !7
   %3966 = icmp ult i64 %3964, %3965
-  br i1 %3966, label %3958, label %._crit_edge7170, !llvm.loop !500
+  br i1 %3966, label %3958, label %._crit_edge7170, !llvm.loop !499
 
 3967:                                             ; preds = %3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.366, i64 noundef 33) #9
   %3968 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3969 = getelementptr i8, ptr %1, i64 304
-  %.val6201 = load ptr, ptr %3969, align 8, !tbaa !330
-  %.val6202 = load ptr, ptr %3968, align 8, !tbaa !345
+  %.val6201 = load ptr, ptr %3969, align 8, !tbaa !329
+  %.val6202 = load ptr, ptr %3968, align 8, !tbaa !344
   %3970 = getelementptr i8, ptr %2, i64 16
-  %.val6203 = load ptr, ptr %3970, align 8, !tbaa !346
+  %.val6203 = load ptr, ptr %3970, align 8, !tbaa !345
   %3971 = ptrtoint ptr %.val6202 to i64
   %3972 = ptrtoint ptr %.val6201 to i64
   %3973 = sub i64 %3971, %3972
@@ -13705,10 +13705,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.367, i64 noundef 32) #9
   %3979 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3980 = getelementptr i8, ptr %1, i64 304
-  %.val6204 = load ptr, ptr %3980, align 8, !tbaa !330
-  %.val6205 = load ptr, ptr %3979, align 8, !tbaa !345
+  %.val6204 = load ptr, ptr %3980, align 8, !tbaa !329
+  %.val6205 = load ptr, ptr %3979, align 8, !tbaa !344
   %3981 = getelementptr i8, ptr %2, i64 16
-  %.val6206 = load ptr, ptr %3981, align 8, !tbaa !346
+  %.val6206 = load ptr, ptr %3981, align 8, !tbaa !345
   %3982 = ptrtoint ptr %.val6205 to i64
   %3983 = ptrtoint ptr %.val6204 to i64
   %3984 = sub i64 %3982, %3983
@@ -13721,7 +13721,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.200, i64 noundef 9) #9
   %3989 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
-  %3990 = load i64, ptr %3989, align 8, !tbaa !364
+  %3990 = load i64, ptr %3989, align 8, !tbaa !363
   %.not7265 = icmp eq i64 %3990, 0
   br i1 %.not7265, label %._crit_edge7166, label %.lr.ph7165
 
@@ -13735,10 +13735,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.368, i64 noundef 21) #9
   %3993 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6207 = load ptr, ptr %3980, align 8, !tbaa !330
-  %.val6208 = load ptr, ptr %3993, align 8, !tbaa !345
+  %.val6207 = load ptr, ptr %3980, align 8, !tbaa !329
+  %.val6208 = load ptr, ptr %3993, align 8, !tbaa !344
   %3994 = getelementptr i8, ptr %2, i64 56
-  %.val6209 = load ptr, ptr %3994, align 8, !tbaa !346
+  %.val6209 = load ptr, ptr %3994, align 8, !tbaa !345
   %3995 = ptrtoint ptr %.val6208 to i64
   %3996 = ptrtoint ptr %.val6207 to i64
   %3997 = sub i64 %3995, %3996
@@ -13750,12 +13750,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.234, i64 noundef 16) #9
   %4002 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %4003 = load ptr, ptr %4002, align 8, !tbaa !230
+  %4003 = load ptr, ptr %4002, align 8, !tbaa !229
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4003)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.202, i64 noundef 7) #9
   %4004 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %4005 = load ptr, ptr %4004, align 8, !tbaa !232
+  %4005 = load ptr, ptr %4004, align 8, !tbaa !231
   %.not5143 = icmp eq ptr %4005, null
   br i1 %.not5143, label %4020, label %4019
 
@@ -13769,20 +13769,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %4008
 
 4008:                                             ; preds = %4007, %4006
-  %4009 = load ptr, ptr %3991, align 8, !tbaa !365
+  %4009 = load ptr, ptr %3991, align 8, !tbaa !364
   %4010 = getelementptr i32, ptr %4009, i64 %.049247163
-  %4011 = load i32, ptr %4010, align 4, !tbaa !366
+  %4011 = load i32, ptr %4010, align 4, !tbaa !365
   %4012 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %3992, i32 noundef %4011) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
-  %4013 = load ptr, ptr %4012, align 8, !tbaa !367
+  %4013 = load ptr, ptr %4012, align 8, !tbaa !366
   %4014 = getelementptr inbounds nuw i8, ptr %4012, i64 8
-  %4015 = load i64, ptr %4014, align 8, !tbaa !369
+  %4015 = load i64, ptr %4014, align 8, !tbaa !368
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4013, i64 noundef %4015, i32 noundef 1) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
   %4016 = add nuw i64 %.049247163, 1
-  %4017 = load i64, ptr %3989, align 8, !tbaa !364
+  %4017 = load i64, ptr %3989, align 8, !tbaa !363
   %4018 = icmp ult i64 %4016, %4017
-  br i1 %4018, label %4006, label %._crit_edge7166, !llvm.loop !501
+  br i1 %4018, label %4006, label %._crit_edge7166, !llvm.loop !500
 
 4019:                                             ; preds = %._crit_edge7166
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %4005)
@@ -13796,10 +13796,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 18) #9
   %4022 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %.val6210 = load ptr, ptr %3980, align 8, !tbaa !330
-  %.val6211 = load ptr, ptr %4022, align 8, !tbaa !345
+  %.val6210 = load ptr, ptr %3980, align 8, !tbaa !329
+  %.val6211 = load ptr, ptr %4022, align 8, !tbaa !344
   %4023 = getelementptr i8, ptr %2, i64 88
-  %.val6212 = load ptr, ptr %4023, align 8, !tbaa !346
+  %.val6212 = load ptr, ptr %4023, align 8, !tbaa !345
   %4024 = ptrtoint ptr %.val6211 to i64
   %4025 = ptrtoint ptr %.val6210 to i64
   %4026 = sub i64 %4024, %4025
@@ -13811,7 +13811,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %4031 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %4032 = load i32, ptr %4031, align 8, !tbaa !502
+  %4032 = load i32, ptr %4031, align 8, !tbaa !501
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4032)
   br label %common.ret.sink.split
 
@@ -13819,10 +13819,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.369, i64 noundef 37) #9
   %4034 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4035 = getelementptr i8, ptr %1, i64 304
-  %.val6213 = load ptr, ptr %4035, align 8, !tbaa !330
-  %.val6214 = load ptr, ptr %4034, align 8, !tbaa !345
+  %.val6213 = load ptr, ptr %4035, align 8, !tbaa !329
+  %.val6214 = load ptr, ptr %4034, align 8, !tbaa !344
   %4036 = getelementptr i8, ptr %2, i64 16
-  %.val6215 = load ptr, ptr %4036, align 8, !tbaa !346
+  %.val6215 = load ptr, ptr %4036, align 8, !tbaa !345
   %4037 = ptrtoint ptr %.val6214 to i64
   %4038 = ptrtoint ptr %.val6213 to i64
   %4039 = sub i64 %4037, %4038
@@ -13848,7 +13848,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.179, i64 noundef 7) #9
   %4047 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %4048 = load ptr, ptr %4047, align 8, !tbaa !233
+  %4048 = load ptr, ptr %4047, align 8, !tbaa !232
   %.not5138 = icmp eq ptr %4048, null
   br i1 %.not5138, label %4059, label %4058
 
@@ -13864,12 +13864,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 4051:                                             ; preds = %4050, %4049
   %4052 = load ptr, ptr %4046, align 8, !tbaa !15
   %4053 = getelementptr ptr, ptr %4052, i64 %.049257155
-  %4054 = load ptr, ptr %4053, align 8, !tbaa !19
+  %4054 = load ptr, ptr %4053, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4054)
   %4055 = add nuw i64 %.049257155, 1
   %4056 = load i64, ptr %4044, align 8, !tbaa !7
   %4057 = icmp ult i64 %4055, %4056
-  br i1 %4057, label %4049, label %._crit_edge7158, !llvm.loop !503
+  br i1 %4057, label %4049, label %._crit_edge7158, !llvm.loop !502
 
 4058:                                             ; preds = %._crit_edge7158
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4048)
@@ -13897,7 +13897,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.259, i64 noundef 13) #9
   %4064 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %4065 = load ptr, ptr %4064, align 8, !tbaa !504
+  %4065 = load ptr, ptr %4064, align 8, !tbaa !503
   %.not5139 = icmp eq ptr %4065, null
   br i1 %.not5139, label %4084, label %4075
 
@@ -13913,17 +13913,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 4068:                                             ; preds = %4067, %4066
   %4069 = load ptr, ptr %4063, align 8, !tbaa !15
   %4070 = getelementptr ptr, ptr %4069, i64 %.049267159
-  %4071 = load ptr, ptr %4070, align 8, !tbaa !19
+  %4071 = load ptr, ptr %4070, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4071)
   %4072 = add nuw i64 %.049267159, 1
   %4073 = load i64, ptr %4061, align 8, !tbaa !7
   %4074 = icmp ult i64 %4072, %4073
-  br i1 %4074, label %4066, label %._crit_edge7162, !llvm.loop !505
+  br i1 %4074, label %4066, label %._crit_edge7162, !llvm.loop !504
 
 4075:                                             ; preds = %._crit_edge7162
-  %.val6216 = load ptr, ptr %4035, align 8, !tbaa !330
+  %.val6216 = load ptr, ptr %4035, align 8, !tbaa !329
   %4076 = getelementptr i8, ptr %2, i64 88
-  %.val6218 = load ptr, ptr %4076, align 8, !tbaa !346
+  %.val6218 = load ptr, ptr %4076, align 8, !tbaa !345
   %4077 = ptrtoint ptr %4065 to i64
   %4078 = ptrtoint ptr %.val6216 to i64
   %4079 = sub i64 %4077, %4078
@@ -13942,14 +13942,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.260, i64 noundef 13) #9
   %4086 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %4087 = load ptr, ptr %4086, align 8, !tbaa !506
+  %4087 = load ptr, ptr %4086, align 8, !tbaa !505
   %.not5140 = icmp eq ptr %4087, null
   br i1 %.not5140, label %4097, label %4088
 
 4088:                                             ; preds = %4085
-  %.val6219 = load ptr, ptr %4035, align 8, !tbaa !330
+  %.val6219 = load ptr, ptr %4035, align 8, !tbaa !329
   %4089 = getelementptr i8, ptr %2, i64 104
-  %.val6221 = load ptr, ptr %4089, align 8, !tbaa !346
+  %.val6221 = load ptr, ptr %4089, align 8, !tbaa !345
   %4090 = ptrtoint ptr %4087 to i64
   %4091 = ptrtoint ptr %.val6219 to i64
   %4092 = sub i64 %4090, %4091
@@ -13968,10 +13968,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.372, i64 noundef 36) #9
   %4099 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4100 = getelementptr i8, ptr %1, i64 304
-  %.val6222 = load ptr, ptr %4100, align 8, !tbaa !330
-  %.val6223 = load ptr, ptr %4099, align 8, !tbaa !345
+  %.val6222 = load ptr, ptr %4100, align 8, !tbaa !329
+  %.val6223 = load ptr, ptr %4099, align 8, !tbaa !344
   %4101 = getelementptr i8, ptr %2, i64 16
-  %.val6224 = load ptr, ptr %4101, align 8, !tbaa !346
+  %.val6224 = load ptr, ptr %4101, align 8, !tbaa !345
   %4102 = ptrtoint ptr %.val6223 to i64
   %4103 = ptrtoint ptr %.val6222 to i64
   %4104 = sub i64 %4102, %4103
@@ -13997,7 +13997,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.179, i64 noundef 7) #9
   %4112 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %4113 = load ptr, ptr %4112, align 8, !tbaa !235
+  %4113 = load ptr, ptr %4112, align 8, !tbaa !234
   %.not5133 = icmp eq ptr %4113, null
   br i1 %.not5133, label %4124, label %4123
 
@@ -14013,12 +14013,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 4116:                                             ; preds = %4115, %4114
   %4117 = load ptr, ptr %4111, align 8, !tbaa !15
   %4118 = getelementptr ptr, ptr %4117, i64 %.049277147
-  %4119 = load ptr, ptr %4118, align 8, !tbaa !19
+  %4119 = load ptr, ptr %4118, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4119)
   %4120 = add nuw i64 %.049277147, 1
   %4121 = load i64, ptr %4109, align 8, !tbaa !7
   %4122 = icmp ult i64 %4120, %4121
-  br i1 %4122, label %4114, label %._crit_edge7150, !llvm.loop !507
+  br i1 %4122, label %4114, label %._crit_edge7150, !llvm.loop !506
 
 4123:                                             ; preds = %._crit_edge7150
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4113)
@@ -14046,7 +14046,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.259, i64 noundef 13) #9
   %4129 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %4130 = load ptr, ptr %4129, align 8, !tbaa !508
+  %4130 = load ptr, ptr %4129, align 8, !tbaa !507
   %.not5134 = icmp eq ptr %4130, null
   br i1 %.not5134, label %4149, label %4140
 
@@ -14062,17 +14062,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 4133:                                             ; preds = %4132, %4131
   %4134 = load ptr, ptr %4128, align 8, !tbaa !15
   %4135 = getelementptr ptr, ptr %4134, i64 %.049287151
-  %4136 = load ptr, ptr %4135, align 8, !tbaa !19
+  %4136 = load ptr, ptr %4135, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4136)
   %4137 = add nuw i64 %.049287151, 1
   %4138 = load i64, ptr %4126, align 8, !tbaa !7
   %4139 = icmp ult i64 %4137, %4138
-  br i1 %4139, label %4131, label %._crit_edge7154, !llvm.loop !509
+  br i1 %4139, label %4131, label %._crit_edge7154, !llvm.loop !508
 
 4140:                                             ; preds = %._crit_edge7154
-  %.val6225 = load ptr, ptr %4100, align 8, !tbaa !330
+  %.val6225 = load ptr, ptr %4100, align 8, !tbaa !329
   %4141 = getelementptr i8, ptr %2, i64 88
-  %.val6227 = load ptr, ptr %4141, align 8, !tbaa !346
+  %.val6227 = load ptr, ptr %4141, align 8, !tbaa !345
   %4142 = ptrtoint ptr %4130 to i64
   %4143 = ptrtoint ptr %.val6225 to i64
   %4144 = sub i64 %4142, %4143
@@ -14091,14 +14091,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.260, i64 noundef 13) #9
   %4151 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %4152 = load ptr, ptr %4151, align 8, !tbaa !510
+  %4152 = load ptr, ptr %4151, align 8, !tbaa !509
   %.not5135 = icmp eq ptr %4152, null
   br i1 %.not5135, label %4162, label %4153
 
 4153:                                             ; preds = %4150
-  %.val6228 = load ptr, ptr %4100, align 8, !tbaa !330
+  %.val6228 = load ptr, ptr %4100, align 8, !tbaa !329
   %4154 = getelementptr i8, ptr %2, i64 104
-  %.val6230 = load ptr, ptr %4154, align 8, !tbaa !346
+  %.val6230 = load ptr, ptr %4154, align 8, !tbaa !345
   %4155 = ptrtoint ptr %4152 to i64
   %4156 = ptrtoint ptr %.val6228 to i64
   %4157 = sub i64 %4155, %4156
@@ -14117,10 +14117,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %4164 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %.val6231 = load ptr, ptr %4100, align 8, !tbaa !330
-  %.val6232 = load ptr, ptr %4164, align 8, !tbaa !345
+  %.val6231 = load ptr, ptr %4100, align 8, !tbaa !329
+  %.val6232 = load ptr, ptr %4164, align 8, !tbaa !344
   %4165 = getelementptr i8, ptr %2, i64 120
-  %.val6233 = load ptr, ptr %4165, align 8, !tbaa !346
+  %.val6233 = load ptr, ptr %4165, align 8, !tbaa !345
   %4166 = ptrtoint ptr %.val6232 to i64
   %4167 = ptrtoint ptr %.val6231 to i64
   %4168 = sub i64 %4166, %4167
@@ -14132,7 +14132,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %4173 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %4174 = load ptr, ptr %4173, align 8, !tbaa !237
+  %4174 = load ptr, ptr %4173, align 8, !tbaa !236
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4174)
   br label %common.ret.sink.split
 
@@ -14140,10 +14140,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.373, i64 noundef 30) #9
   %4176 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4177 = getelementptr i8, ptr %1, i64 304
-  %.val6234 = load ptr, ptr %4177, align 8, !tbaa !330
-  %.val6235 = load ptr, ptr %4176, align 8, !tbaa !345
+  %.val6234 = load ptr, ptr %4177, align 8, !tbaa !329
+  %.val6235 = load ptr, ptr %4176, align 8, !tbaa !344
   %4178 = getelementptr i8, ptr %2, i64 16
-  %.val6236 = load ptr, ptr %4178, align 8, !tbaa !346
+  %.val6236 = load ptr, ptr %4178, align 8, !tbaa !345
   %4179 = ptrtoint ptr %.val6235 to i64
   %4180 = ptrtoint ptr %.val6234 to i64
   %4181 = sub i64 %4179, %4180
@@ -14155,7 +14155,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.169, i64 noundef 12) #9
   %4186 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4187 = load ptr, ptr %4186, align 8, !tbaa !238
+  %4187 = load ptr, ptr %4186, align 8, !tbaa !237
   %.not5132 = icmp eq ptr %4187, null
   br i1 %.not5132, label %4189, label %4188
 
@@ -14171,10 +14171,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %4191 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6237 = load ptr, ptr %4177, align 8, !tbaa !330
-  %.val6238 = load ptr, ptr %4191, align 8, !tbaa !345
+  %.val6237 = load ptr, ptr %4177, align 8, !tbaa !329
+  %.val6238 = load ptr, ptr %4191, align 8, !tbaa !344
   %4192 = getelementptr i8, ptr %2, i64 40
-  %.val6239 = load ptr, ptr %4192, align 8, !tbaa !346
+  %.val6239 = load ptr, ptr %4192, align 8, !tbaa !345
   %4193 = ptrtoint ptr %.val6238 to i64
   %4194 = ptrtoint ptr %.val6237 to i64
   %4195 = sub i64 %4193, %4194
@@ -14189,10 +14189,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.374, i64 noundef 29) #9
   %4201 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4202 = getelementptr i8, ptr %1, i64 304
-  %.val6240 = load ptr, ptr %4202, align 8, !tbaa !330
-  %.val6241 = load ptr, ptr %4201, align 8, !tbaa !345
+  %.val6240 = load ptr, ptr %4202, align 8, !tbaa !329
+  %.val6241 = load ptr, ptr %4201, align 8, !tbaa !344
   %4203 = getelementptr i8, ptr %2, i64 16
-  %.val6242 = load ptr, ptr %4203, align 8, !tbaa !346
+  %.val6242 = load ptr, ptr %4203, align 8, !tbaa !345
   %4204 = ptrtoint ptr %.val6241 to i64
   %4205 = ptrtoint ptr %.val6240 to i64
   %4206 = sub i64 %4204, %4205
@@ -14207,10 +14207,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.375, i64 noundef 45) #9
   %4212 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4213 = getelementptr i8, ptr %1, i64 304
-  %.val6243 = load ptr, ptr %4213, align 8, !tbaa !330
-  %.val6244 = load ptr, ptr %4212, align 8, !tbaa !345
+  %.val6243 = load ptr, ptr %4213, align 8, !tbaa !329
+  %.val6244 = load ptr, ptr %4212, align 8, !tbaa !344
   %4214 = getelementptr i8, ptr %2, i64 16
-  %.val6245 = load ptr, ptr %4214, align 8, !tbaa !346
+  %.val6245 = load ptr, ptr %4214, align 8, !tbaa !345
   %4215 = ptrtoint ptr %.val6244 to i64
   %4216 = ptrtoint ptr %.val6243 to i64
   %4217 = sub i64 %4215, %4216
@@ -14222,10 +14222,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %4222 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6246 = load ptr, ptr %4213, align 8, !tbaa !330
-  %.val6247 = load ptr, ptr %4222, align 8, !tbaa !345
+  %.val6246 = load ptr, ptr %4213, align 8, !tbaa !329
+  %.val6247 = load ptr, ptr %4222, align 8, !tbaa !344
   %4223 = getelementptr i8, ptr %2, i64 32
-  %.val6248 = load ptr, ptr %4223, align 8, !tbaa !346
+  %.val6248 = load ptr, ptr %4223, align 8, !tbaa !345
   %4224 = ptrtoint ptr %.val6247 to i64
   %4225 = ptrtoint ptr %.val6246 to i64
   %4226 = sub i64 %4224, %4225
@@ -14237,10 +14237,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %4231 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val6249 = load ptr, ptr %4213, align 8, !tbaa !330
-  %.val6250 = load ptr, ptr %4231, align 8, !tbaa !345
+  %.val6249 = load ptr, ptr %4213, align 8, !tbaa !329
+  %.val6250 = load ptr, ptr %4231, align 8, !tbaa !344
   %4232 = getelementptr i8, ptr %2, i64 48
-  %.val6251 = load ptr, ptr %4232, align 8, !tbaa !346
+  %.val6251 = load ptr, ptr %4232, align 8, !tbaa !345
   %4233 = ptrtoint ptr %.val6250 to i64
   %4234 = ptrtoint ptr %.val6249 to i64
   %4235 = sub i64 %4233, %4234
@@ -14255,10 +14255,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.376, i64 noundef 44) #9
   %4241 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4242 = getelementptr i8, ptr %1, i64 304
-  %.val6252 = load ptr, ptr %4242, align 8, !tbaa !330
-  %.val6253 = load ptr, ptr %4241, align 8, !tbaa !345
+  %.val6252 = load ptr, ptr %4242, align 8, !tbaa !329
+  %.val6253 = load ptr, ptr %4241, align 8, !tbaa !344
   %4243 = getelementptr i8, ptr %2, i64 16
-  %.val6254 = load ptr, ptr %4243, align 8, !tbaa !346
+  %.val6254 = load ptr, ptr %4243, align 8, !tbaa !345
   %4244 = ptrtoint ptr %.val6253 to i64
   %4245 = ptrtoint ptr %.val6252 to i64
   %4246 = sub i64 %4244, %4245
@@ -14270,7 +14270,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.377, i64 noundef 10) #9
   %4251 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4252 = load i8, ptr %4251, align 8, !tbaa !511
+  %4252 = load i8, ptr %4251, align 8, !tbaa !510
   %4253 = zext i8 %4252 to i32
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.352, i32 noundef %4253) #9
   br label %common.ret.sink.split
@@ -14279,10 +14279,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.378, i64 noundef 47) #9
   %4255 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4256 = getelementptr i8, ptr %1, i64 304
-  %.val6255 = load ptr, ptr %4256, align 8, !tbaa !330
-  %.val6256 = load ptr, ptr %4255, align 8, !tbaa !345
+  %.val6255 = load ptr, ptr %4256, align 8, !tbaa !329
+  %.val6256 = load ptr, ptr %4255, align 8, !tbaa !344
   %4257 = getelementptr i8, ptr %2, i64 16
-  %.val6257 = load ptr, ptr %4257, align 8, !tbaa !346
+  %.val6257 = load ptr, ptr %4257, align 8, !tbaa !345
   %4258 = ptrtoint ptr %.val6256 to i64
   %4259 = ptrtoint ptr %.val6255 to i64
   %4260 = sub i64 %4258, %4259
@@ -14294,7 +14294,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.379, i64 noundef 9) #9
   %4265 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4266 = load i32, ptr %4265, align 8, !tbaa !513
+  %4266 = load i32, ptr %4265, align 8, !tbaa !512
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.352, i32 noundef %4266) #9
   br label %common.ret.sink.split
 
@@ -14302,10 +14302,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.380, i64 noundef 50) #9
   %4268 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4269 = getelementptr i8, ptr %1, i64 304
-  %.val6258 = load ptr, ptr %4269, align 8, !tbaa !330
-  %.val6259 = load ptr, ptr %4268, align 8, !tbaa !345
+  %.val6258 = load ptr, ptr %4269, align 8, !tbaa !329
+  %.val6259 = load ptr, ptr %4268, align 8, !tbaa !344
   %4270 = getelementptr i8, ptr %2, i64 16
-  %.val6260 = load ptr, ptr %4270, align 8, !tbaa !346
+  %.val6260 = load ptr, ptr %4270, align 8, !tbaa !345
   %4271 = ptrtoint ptr %.val6259 to i64
   %4272 = ptrtoint ptr %.val6258 to i64
   %4273 = sub i64 %4271, %4272
@@ -14318,7 +14318,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.197, i64 noundef 17) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %4278 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %4279 = load i16, ptr %4278, align 2, !tbaa !347
+  %4279 = load i16, ptr %4278, align 2, !tbaa !346
   %4280 = and i16 %4279, 4
   %.not5131 = icmp eq i16 %4280, 0
   br i1 %.not5131, label %4282, label %4281
@@ -14332,15 +14332,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %4283 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4284 = load i32, ptr %4283, align 8, !tbaa !515
+  %4284 = load i32, ptr %4283, align 8, !tbaa !514
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4284)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %4285 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6261 = load ptr, ptr %4269, align 8, !tbaa !330
-  %.val6262 = load ptr, ptr %4285, align 8, !tbaa !345
+  %.val6261 = load ptr, ptr %4269, align 8, !tbaa !329
+  %.val6262 = load ptr, ptr %4285, align 8, !tbaa !344
   %4286 = getelementptr i8, ptr %2, i64 40
-  %.val6263 = load ptr, ptr %4286, align 8, !tbaa !346
+  %.val6263 = load ptr, ptr %4286, align 8, !tbaa !345
   %4287 = ptrtoint ptr %.val6262 to i64
   %4288 = ptrtoint ptr %.val6261 to i64
   %4289 = sub i64 %4287, %4288
@@ -14352,7 +14352,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %4294 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %4295 = load ptr, ptr %4294, align 8, !tbaa !240
+  %4295 = load ptr, ptr %4294, align 8, !tbaa !239
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4295)
   br label %common.ret.sink.split
 
@@ -14360,10 +14360,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.381, i64 noundef 43) #9
   %4297 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4298 = getelementptr i8, ptr %1, i64 304
-  %.val6264 = load ptr, ptr %4298, align 8, !tbaa !330
-  %.val6265 = load ptr, ptr %4297, align 8, !tbaa !345
+  %.val6264 = load ptr, ptr %4298, align 8, !tbaa !329
+  %.val6265 = load ptr, ptr %4297, align 8, !tbaa !344
   %4299 = getelementptr i8, ptr %2, i64 16
-  %.val6266 = load ptr, ptr %4299, align 8, !tbaa !346
+  %.val6266 = load ptr, ptr %4299, align 8, !tbaa !345
   %4300 = ptrtoint ptr %.val6265 to i64
   %4301 = ptrtoint ptr %.val6264 to i64
   %4302 = sub i64 %4300, %4301
@@ -14376,7 +14376,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.197, i64 noundef 17) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %4307 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %4308 = load i16, ptr %4307, align 2, !tbaa !347
+  %4308 = load i16, ptr %4307, align 2, !tbaa !346
   %4309 = and i16 %4308, 4
   %.not5130 = icmp eq i16 %4309, 0
   br i1 %.not5130, label %4311, label %4310
@@ -14390,15 +14390,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %4312 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4313 = load i32, ptr %4312, align 8, !tbaa !516
+  %4313 = load i32, ptr %4312, align 8, !tbaa !515
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4313)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %4314 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6267 = load ptr, ptr %4298, align 8, !tbaa !330
-  %.val6268 = load ptr, ptr %4314, align 8, !tbaa !345
+  %.val6267 = load ptr, ptr %4298, align 8, !tbaa !329
+  %.val6268 = load ptr, ptr %4314, align 8, !tbaa !344
   %4315 = getelementptr i8, ptr %2, i64 40
-  %.val6269 = load ptr, ptr %4315, align 8, !tbaa !346
+  %.val6269 = load ptr, ptr %4315, align 8, !tbaa !345
   %4316 = ptrtoint ptr %.val6268 to i64
   %4317 = ptrtoint ptr %.val6267 to i64
   %4318 = sub i64 %4316, %4317
@@ -14410,10 +14410,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %4323 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6270 = load ptr, ptr %4298, align 8, !tbaa !330
-  %.val6271 = load ptr, ptr %4323, align 8, !tbaa !345
+  %.val6270 = load ptr, ptr %4298, align 8, !tbaa !329
+  %.val6271 = load ptr, ptr %4323, align 8, !tbaa !344
   %4324 = getelementptr i8, ptr %2, i64 56
-  %.val6272 = load ptr, ptr %4324, align 8, !tbaa !346
+  %.val6272 = load ptr, ptr %4324, align 8, !tbaa !345
   %4325 = ptrtoint ptr %.val6271 to i64
   %4326 = ptrtoint ptr %.val6270 to i64
   %4327 = sub i64 %4325, %4326
@@ -14425,7 +14425,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.183, i64 noundef 8) #9
   %4332 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %4333 = load ptr, ptr %4332, align 8, !tbaa !242
+  %4333 = load ptr, ptr %4332, align 8, !tbaa !241
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4333)
   br label %common.ret.sink.split
 
@@ -14433,10 +14433,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.382, i64 noundef 28) #9
   %4335 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4336 = getelementptr i8, ptr %1, i64 304
-  %.val6273 = load ptr, ptr %4336, align 8, !tbaa !330
-  %.val6274 = load ptr, ptr %4335, align 8, !tbaa !345
+  %.val6273 = load ptr, ptr %4336, align 8, !tbaa !329
+  %.val6274 = load ptr, ptr %4335, align 8, !tbaa !344
   %4337 = getelementptr i8, ptr %2, i64 16
-  %.val6275 = load ptr, ptr %4337, align 8, !tbaa !346
+  %.val6275 = load ptr, ptr %4337, align 8, !tbaa !345
   %4338 = ptrtoint ptr %.val6274 to i64
   %4339 = ptrtoint ptr %.val6273 to i64
   %4340 = sub i64 %4338, %4339
@@ -14448,20 +14448,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.158, i64 noundef 7) #9
   %4345 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4346 = load ptr, ptr %4345, align 8, !tbaa !244
+  %4346 = load ptr, ptr %4345, align 8, !tbaa !243
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4346)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.159, i64 noundef 8) #9
   %4347 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4348 = load ptr, ptr %4347, align 8, !tbaa !246
+  %4348 = load ptr, ptr %4347, align 8, !tbaa !245
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4348)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %4349 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val6276 = load ptr, ptr %4336, align 8, !tbaa !330
-  %.val6277 = load ptr, ptr %4349, align 8, !tbaa !345
+  %.val6276 = load ptr, ptr %4336, align 8, !tbaa !329
+  %.val6277 = load ptr, ptr %4349, align 8, !tbaa !344
   %4350 = getelementptr i8, ptr %2, i64 48
-  %.val6278 = load ptr, ptr %4350, align 8, !tbaa !346
+  %.val6278 = load ptr, ptr %4350, align 8, !tbaa !345
   %4351 = ptrtoint ptr %.val6277 to i64
   %4352 = ptrtoint ptr %.val6276 to i64
   %4353 = sub i64 %4351, %4352
@@ -14476,10 +14476,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.383, i64 noundef 36) #9
   %4359 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4360 = getelementptr i8, ptr %1, i64 304
-  %.val6279 = load ptr, ptr %4360, align 8, !tbaa !330
-  %.val6280 = load ptr, ptr %4359, align 8, !tbaa !345
+  %.val6279 = load ptr, ptr %4360, align 8, !tbaa !329
+  %.val6280 = load ptr, ptr %4359, align 8, !tbaa !344
   %4361 = getelementptr i8, ptr %2, i64 16
-  %.val6281 = load ptr, ptr %4361, align 8, !tbaa !346
+  %.val6281 = load ptr, ptr %4361, align 8, !tbaa !345
   %4362 = ptrtoint ptr %.val6280 to i64
   %4363 = ptrtoint ptr %.val6279 to i64
   %4364 = sub i64 %4362, %4363
@@ -14526,19 +14526,19 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 4377:                                             ; preds = %4376, %4375
   %4378 = load ptr, ptr %4371, align 8, !tbaa !15
   %4379 = getelementptr ptr, ptr %4378, i64 %.049327131
-  %4380 = load ptr, ptr %4379, align 8, !tbaa !19
+  %4380 = load ptr, ptr %4379, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4380)
   %4381 = add nuw i64 %.049327131, 1
   %4382 = load i64, ptr %4369, align 8, !tbaa !7
   %4383 = icmp ult i64 %4381, %4382
-  br i1 %4383, label %4375, label %._crit_edge7134, !llvm.loop !517
+  br i1 %4383, label %4375, label %._crit_edge7134, !llvm.loop !516
 
 ._crit_edge7138:                                  ; preds = %4388, %._crit_edge7134
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 93) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.179, i64 noundef 7) #9
   %4384 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %4385 = load ptr, ptr %4384, align 8, !tbaa !247
+  %4385 = load ptr, ptr %4384, align 8, !tbaa !246
   %.not5123 = icmp eq ptr %4385, null
   br i1 %.not5123, label %4396, label %4395
 
@@ -14554,12 +14554,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 4388:                                             ; preds = %4387, %4386
   %4389 = load ptr, ptr %4374, align 8, !tbaa !15
   %4390 = getelementptr ptr, ptr %4389, i64 %.049317135
-  %4391 = load ptr, ptr %4390, align 8, !tbaa !19
+  %4391 = load ptr, ptr %4390, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4391)
   %4392 = add nuw i64 %.049317135, 1
   %4393 = load i64, ptr %4372, align 8, !tbaa !7
   %4394 = icmp ult i64 %4392, %4393
-  br i1 %4394, label %4386, label %._crit_edge7138, !llvm.loop !518
+  br i1 %4394, label %4386, label %._crit_edge7138, !llvm.loop !517
 
 4395:                                             ; preds = %._crit_edge7138
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4385)
@@ -14608,19 +14608,19 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 4406:                                             ; preds = %4405, %4404
   %4407 = load ptr, ptr %4400, align 8, !tbaa !15
   %4408 = getelementptr ptr, ptr %4407, i64 %.049307139
-  %4409 = load ptr, ptr %4408, align 8, !tbaa !19
+  %4409 = load ptr, ptr %4408, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4409)
   %4410 = add nuw i64 %.049307139, 1
   %4411 = load i64, ptr %4398, align 8, !tbaa !7
   %4412 = icmp ult i64 %4410, %4411
-  br i1 %4412, label %4404, label %._crit_edge7142, !llvm.loop !519
+  br i1 %4412, label %4404, label %._crit_edge7142, !llvm.loop !518
 
 ._crit_edge7146:                                  ; preds = %4417, %._crit_edge7142
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 93) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.386, i64 noundef 15) #9
   %4413 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %4414 = load ptr, ptr %4413, align 8, !tbaa !250
+  %4414 = load ptr, ptr %4413, align 8, !tbaa !249
   %.not5124 = icmp eq ptr %4414, null
   br i1 %.not5124, label %4425, label %4424
 
@@ -14636,12 +14636,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 4417:                                             ; preds = %4416, %4415
   %4418 = load ptr, ptr %4403, align 8, !tbaa !15
   %4419 = getelementptr ptr, ptr %4418, i64 %.049297143
-  %4420 = load ptr, ptr %4419, align 8, !tbaa !19
+  %4420 = load ptr, ptr %4419, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4420)
   %4421 = add nuw i64 %.049297143, 1
   %4422 = load i64, ptr %4401, align 8, !tbaa !7
   %4423 = icmp ult i64 %4421, %4422
-  br i1 %4423, label %4415, label %._crit_edge7146, !llvm.loop !520
+  br i1 %4423, label %4415, label %._crit_edge7146, !llvm.loop !519
 
 4424:                                             ; preds = %._crit_edge7146
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4414)
@@ -14655,7 +14655,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.219, i64 noundef 8) #9
   %4427 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %4428 = load ptr, ptr %4427, align 8, !tbaa !251
+  %4428 = load ptr, ptr %4427, align 8, !tbaa !250
   %.not5125 = icmp eq ptr %4428, null
   br i1 %.not5125, label %4430, label %4429
 
@@ -14671,10 +14671,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.387, i64 noundef 37) #9
   %4432 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4433 = getelementptr i8, ptr %1, i64 304
-  %.val6282 = load ptr, ptr %4433, align 8, !tbaa !330
-  %.val6283 = load ptr, ptr %4432, align 8, !tbaa !345
+  %.val6282 = load ptr, ptr %4433, align 8, !tbaa !329
+  %.val6283 = load ptr, ptr %4432, align 8, !tbaa !344
   %4434 = getelementptr i8, ptr %2, i64 16
-  %.val6284 = load ptr, ptr %4434, align 8, !tbaa !346
+  %.val6284 = load ptr, ptr %4434, align 8, !tbaa !345
   %4435 = ptrtoint ptr %.val6283 to i64
   %4436 = ptrtoint ptr %.val6282 to i64
   %4437 = sub i64 %4435, %4436
@@ -14686,7 +14686,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.202, i64 noundef 7) #9
   %4442 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4443 = load ptr, ptr %4442, align 8, !tbaa !252
+  %4443 = load ptr, ptr %4442, align 8, !tbaa !251
   %.not5122 = icmp eq ptr %4443, null
   br i1 %.not5122, label %4445, label %4444
 
@@ -14702,10 +14702,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %4447 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6285 = load ptr, ptr %4433, align 8, !tbaa !330
-  %.val6286 = load ptr, ptr %4447, align 8, !tbaa !345
+  %.val6285 = load ptr, ptr %4433, align 8, !tbaa !329
+  %.val6286 = load ptr, ptr %4447, align 8, !tbaa !344
   %4448 = getelementptr i8, ptr %2, i64 40
-  %.val6287 = load ptr, ptr %4448, align 8, !tbaa !346
+  %.val6287 = load ptr, ptr %4448, align 8, !tbaa !345
   %4449 = ptrtoint ptr %.val6286 to i64
   %4450 = ptrtoint ptr %.val6285 to i64
   %4451 = sub i64 %4449, %4450
@@ -14717,10 +14717,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %4456 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6288 = load ptr, ptr %4433, align 8, !tbaa !330
-  %.val6289 = load ptr, ptr %4456, align 8, !tbaa !345
+  %.val6288 = load ptr, ptr %4433, align 8, !tbaa !329
+  %.val6289 = load ptr, ptr %4456, align 8, !tbaa !344
   %4457 = getelementptr i8, ptr %2, i64 56
-  %.val6290 = load ptr, ptr %4457, align 8, !tbaa !346
+  %.val6290 = load ptr, ptr %4457, align 8, !tbaa !345
   %4458 = ptrtoint ptr %.val6289 to i64
   %4459 = ptrtoint ptr %.val6288 to i64
   %4460 = sub i64 %4458, %4459
@@ -14735,10 +14735,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.388, i64 noundef 42) #9
   %4466 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4467 = getelementptr i8, ptr %1, i64 304
-  %.val6291 = load ptr, ptr %4467, align 8, !tbaa !330
-  %.val6292 = load ptr, ptr %4466, align 8, !tbaa !345
+  %.val6291 = load ptr, ptr %4467, align 8, !tbaa !329
+  %.val6292 = load ptr, ptr %4466, align 8, !tbaa !344
   %4468 = getelementptr i8, ptr %2, i64 16
-  %.val6293 = load ptr, ptr %4468, align 8, !tbaa !346
+  %.val6293 = load ptr, ptr %4468, align 8, !tbaa !345
   %4469 = ptrtoint ptr %.val6292 to i64
   %4470 = ptrtoint ptr %.val6291 to i64
   %4471 = sub i64 %4469, %4470
@@ -14750,15 +14750,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.195, i64 noundef 13) #9
   %4476 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4477 = load ptr, ptr %4476, align 8, !tbaa !254
+  %4477 = load ptr, ptr %4476, align 8, !tbaa !253
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4477)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %4478 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6294 = load ptr, ptr %4467, align 8, !tbaa !330
-  %.val6295 = load ptr, ptr %4478, align 8, !tbaa !345
+  %.val6294 = load ptr, ptr %4467, align 8, !tbaa !329
+  %.val6295 = load ptr, ptr %4478, align 8, !tbaa !344
   %4479 = getelementptr i8, ptr %2, i64 40
-  %.val6296 = load ptr, ptr %4479, align 8, !tbaa !346
+  %.val6296 = load ptr, ptr %4479, align 8, !tbaa !345
   %4480 = ptrtoint ptr %.val6295 to i64
   %4481 = ptrtoint ptr %.val6294 to i64
   %4482 = sub i64 %4480, %4481
@@ -14770,10 +14770,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.259, i64 noundef 13) #9
   %4487 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6297 = load ptr, ptr %4467, align 8, !tbaa !330
-  %.val6298 = load ptr, ptr %4487, align 8, !tbaa !345
+  %.val6297 = load ptr, ptr %4467, align 8, !tbaa !329
+  %.val6298 = load ptr, ptr %4487, align 8, !tbaa !344
   %4488 = getelementptr i8, ptr %2, i64 56
-  %.val6299 = load ptr, ptr %4488, align 8, !tbaa !346
+  %.val6299 = load ptr, ptr %4488, align 8, !tbaa !345
   %4489 = ptrtoint ptr %.val6298 to i64
   %4490 = ptrtoint ptr %.val6297 to i64
   %4491 = sub i64 %4489, %4490
@@ -14785,10 +14785,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.260, i64 noundef 13) #9
   %4496 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val6300 = load ptr, ptr %4467, align 8, !tbaa !330
-  %.val6301 = load ptr, ptr %4496, align 8, !tbaa !345
+  %.val6300 = load ptr, ptr %4467, align 8, !tbaa !329
+  %.val6301 = load ptr, ptr %4496, align 8, !tbaa !344
   %4497 = getelementptr i8, ptr %2, i64 72
-  %.val6302 = load ptr, ptr %4497, align 8, !tbaa !346
+  %.val6302 = load ptr, ptr %4497, align 8, !tbaa !345
   %4498 = ptrtoint ptr %.val6301 to i64
   %4499 = ptrtoint ptr %.val6300 to i64
   %4500 = sub i64 %4498, %4499
@@ -14803,10 +14803,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.389, i64 noundef 40) #9
   %4506 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4507 = getelementptr i8, ptr %1, i64 304
-  %.val6303 = load ptr, ptr %4507, align 8, !tbaa !330
-  %.val6304 = load ptr, ptr %4506, align 8, !tbaa !345
+  %.val6303 = load ptr, ptr %4507, align 8, !tbaa !329
+  %.val6304 = load ptr, ptr %4506, align 8, !tbaa !344
   %4508 = getelementptr i8, ptr %2, i64 16
-  %.val6305 = load ptr, ptr %4508, align 8, !tbaa !346
+  %.val6305 = load ptr, ptr %4508, align 8, !tbaa !345
   %4509 = ptrtoint ptr %.val6304 to i64
   %4510 = ptrtoint ptr %.val6303 to i64
   %4511 = sub i64 %4509, %4510
@@ -14818,15 +14818,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.267, i64 noundef 11) #9
   %4516 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4517 = load ptr, ptr %4516, align 8, !tbaa !256
+  %4517 = load ptr, ptr %4516, align 8, !tbaa !255
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4517)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %4518 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6306 = load ptr, ptr %4507, align 8, !tbaa !330
-  %.val6307 = load ptr, ptr %4518, align 8, !tbaa !345
+  %.val6306 = load ptr, ptr %4507, align 8, !tbaa !329
+  %.val6307 = load ptr, ptr %4518, align 8, !tbaa !344
   %4519 = getelementptr i8, ptr %2, i64 40
-  %.val6308 = load ptr, ptr %4519, align 8, !tbaa !346
+  %.val6308 = load ptr, ptr %4519, align 8, !tbaa !345
   %4520 = ptrtoint ptr %.val6307 to i64
   %4521 = ptrtoint ptr %.val6306 to i64
   %4522 = sub i64 %4520, %4521
@@ -14841,10 +14841,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.390, i64 noundef 39) #9
   %4528 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4529 = getelementptr i8, ptr %1, i64 304
-  %.val6309 = load ptr, ptr %4529, align 8, !tbaa !330
-  %.val6310 = load ptr, ptr %4528, align 8, !tbaa !345
+  %.val6309 = load ptr, ptr %4529, align 8, !tbaa !329
+  %.val6310 = load ptr, ptr %4528, align 8, !tbaa !344
   %4530 = getelementptr i8, ptr %2, i64 16
-  %.val6311 = load ptr, ptr %4530, align 8, !tbaa !346
+  %.val6311 = load ptr, ptr %4530, align 8, !tbaa !345
   %4531 = ptrtoint ptr %.val6310 to i64
   %4532 = ptrtoint ptr %.val6309 to i64
   %4533 = sub i64 %4531, %4532
@@ -14856,7 +14856,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %4538 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4539 = load ptr, ptr %4538, align 8, !tbaa !258
+  %4539 = load ptr, ptr %4538, align 8, !tbaa !257
   %.not5121 = icmp eq ptr %4539, null
   br i1 %.not5121, label %4541, label %4540
 
@@ -14872,10 +14872,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %4543 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6312 = load ptr, ptr %4529, align 8, !tbaa !330
-  %.val6313 = load ptr, ptr %4543, align 8, !tbaa !345
+  %.val6312 = load ptr, ptr %4529, align 8, !tbaa !329
+  %.val6313 = load ptr, ptr %4543, align 8, !tbaa !344
   %4544 = getelementptr i8, ptr %2, i64 40
-  %.val6314 = load ptr, ptr %4544, align 8, !tbaa !346
+  %.val6314 = load ptr, ptr %4544, align 8, !tbaa !345
   %4545 = ptrtoint ptr %.val6313 to i64
   %4546 = ptrtoint ptr %.val6312 to i64
   %4547 = sub i64 %4545, %4546
@@ -14887,10 +14887,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %4552 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6315 = load ptr, ptr %4529, align 8, !tbaa !330
-  %.val6316 = load ptr, ptr %4552, align 8, !tbaa !345
+  %.val6315 = load ptr, ptr %4529, align 8, !tbaa !329
+  %.val6316 = load ptr, ptr %4552, align 8, !tbaa !344
   %4553 = getelementptr i8, ptr %2, i64 56
-  %.val6317 = load ptr, ptr %4553, align 8, !tbaa !346
+  %.val6317 = load ptr, ptr %4553, align 8, !tbaa !345
   %4554 = ptrtoint ptr %.val6316 to i64
   %4555 = ptrtoint ptr %.val6315 to i64
   %4556 = sub i64 %4554, %4555
@@ -14902,10 +14902,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %4561 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val6318 = load ptr, ptr %4529, align 8, !tbaa !330
-  %.val6319 = load ptr, ptr %4561, align 8, !tbaa !345
+  %.val6318 = load ptr, ptr %4529, align 8, !tbaa !329
+  %.val6319 = load ptr, ptr %4561, align 8, !tbaa !344
   %4562 = getelementptr i8, ptr %2, i64 72
-  %.val6320 = load ptr, ptr %4562, align 8, !tbaa !346
+  %.val6320 = load ptr, ptr %4562, align 8, !tbaa !345
   %4563 = ptrtoint ptr %.val6319 to i64
   %4564 = ptrtoint ptr %.val6318 to i64
   %4565 = sub i64 %4563, %4564
@@ -14920,10 +14920,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.391, i64 noundef 38) #9
   %4571 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4572 = getelementptr i8, ptr %1, i64 304
-  %.val6321 = load ptr, ptr %4572, align 8, !tbaa !330
-  %.val6322 = load ptr, ptr %4571, align 8, !tbaa !345
+  %.val6321 = load ptr, ptr %4572, align 8, !tbaa !329
+  %.val6322 = load ptr, ptr %4571, align 8, !tbaa !344
   %4573 = getelementptr i8, ptr %2, i64 16
-  %.val6323 = load ptr, ptr %4573, align 8, !tbaa !346
+  %.val6323 = load ptr, ptr %4573, align 8, !tbaa !345
   %4574 = ptrtoint ptr %.val6322 to i64
   %4575 = ptrtoint ptr %.val6321 to i64
   %4576 = sub i64 %4574, %4575
@@ -14935,7 +14935,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %4581 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4582 = load ptr, ptr %4581, align 8, !tbaa !260
+  %4582 = load ptr, ptr %4581, align 8, !tbaa !259
   %.not5120 = icmp eq ptr %4582, null
   br i1 %.not5120, label %4584, label %4583
 
@@ -14951,10 +14951,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %4586 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6324 = load ptr, ptr %4572, align 8, !tbaa !330
-  %.val6325 = load ptr, ptr %4586, align 8, !tbaa !345
+  %.val6324 = load ptr, ptr %4572, align 8, !tbaa !329
+  %.val6325 = load ptr, ptr %4586, align 8, !tbaa !344
   %4587 = getelementptr i8, ptr %2, i64 40
-  %.val6326 = load ptr, ptr %4587, align 8, !tbaa !346
+  %.val6326 = load ptr, ptr %4587, align 8, !tbaa !345
   %4588 = ptrtoint ptr %.val6325 to i64
   %4589 = ptrtoint ptr %.val6324 to i64
   %4590 = sub i64 %4588, %4589
@@ -14966,10 +14966,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %4595 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6327 = load ptr, ptr %4572, align 8, !tbaa !330
-  %.val6328 = load ptr, ptr %4595, align 8, !tbaa !345
+  %.val6327 = load ptr, ptr %4572, align 8, !tbaa !329
+  %.val6328 = load ptr, ptr %4595, align 8, !tbaa !344
   %4596 = getelementptr i8, ptr %2, i64 56
-  %.val6329 = load ptr, ptr %4596, align 8, !tbaa !346
+  %.val6329 = load ptr, ptr %4596, align 8, !tbaa !345
   %4597 = ptrtoint ptr %.val6328 to i64
   %4598 = ptrtoint ptr %.val6327 to i64
   %4599 = sub i64 %4597, %4598
@@ -14981,10 +14981,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %4604 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val6330 = load ptr, ptr %4572, align 8, !tbaa !330
-  %.val6331 = load ptr, ptr %4604, align 8, !tbaa !345
+  %.val6330 = load ptr, ptr %4572, align 8, !tbaa !329
+  %.val6331 = load ptr, ptr %4604, align 8, !tbaa !344
   %4605 = getelementptr i8, ptr %2, i64 72
-  %.val6332 = load ptr, ptr %4605, align 8, !tbaa !346
+  %.val6332 = load ptr, ptr %4605, align 8, !tbaa !345
   %4606 = ptrtoint ptr %.val6331 to i64
   %4607 = ptrtoint ptr %.val6330 to i64
   %4608 = sub i64 %4606, %4607
@@ -14999,10 +14999,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.392, i64 noundef 33) #9
   %4614 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4615 = getelementptr i8, ptr %1, i64 304
-  %.val6333 = load ptr, ptr %4615, align 8, !tbaa !330
-  %.val6334 = load ptr, ptr %4614, align 8, !tbaa !345
+  %.val6333 = load ptr, ptr %4615, align 8, !tbaa !329
+  %.val6334 = load ptr, ptr %4614, align 8, !tbaa !344
   %4616 = getelementptr i8, ptr %2, i64 16
-  %.val6335 = load ptr, ptr %4616, align 8, !tbaa !346
+  %.val6335 = load ptr, ptr %4616, align 8, !tbaa !345
   %4617 = ptrtoint ptr %.val6334 to i64
   %4618 = ptrtoint ptr %.val6333 to i64
   %4619 = sub i64 %4617, %4618
@@ -15015,7 +15015,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.200, i64 noundef 9) #9
   %4624 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
-  %4625 = load i64, ptr %4624, align 8, !tbaa !364
+  %4625 = load i64, ptr %4624, align 8, !tbaa !363
   %.not7256 = icmp eq i64 %4625, 0
   br i1 %.not7256, label %._crit_edge7130, label %.lr.ph7129
 
@@ -15029,7 +15029,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %4628 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %4629 = load ptr, ptr %4628, align 8, !tbaa !262
+  %4629 = load ptr, ptr %4628, align 8, !tbaa !261
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4629)
   br label %common.ret.sink.split
 
@@ -15043,29 +15043,29 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %4632
 
 4632:                                             ; preds = %4631, %4630
-  %4633 = load ptr, ptr %4626, align 8, !tbaa !365
+  %4633 = load ptr, ptr %4626, align 8, !tbaa !364
   %4634 = getelementptr i32, ptr %4633, i64 %.049127127
-  %4635 = load i32, ptr %4634, align 4, !tbaa !366
+  %4635 = load i32, ptr %4634, align 4, !tbaa !365
   %4636 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %4627, i32 noundef %4635) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
-  %4637 = load ptr, ptr %4636, align 8, !tbaa !367
+  %4637 = load ptr, ptr %4636, align 8, !tbaa !366
   %4638 = getelementptr inbounds nuw i8, ptr %4636, i64 8
-  %4639 = load i64, ptr %4638, align 8, !tbaa !369
+  %4639 = load i64, ptr %4638, align 8, !tbaa !368
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4637, i64 noundef %4639, i32 noundef 1) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
   %4640 = add nuw i64 %.049127127, 1
-  %4641 = load i64, ptr %4624, align 8, !tbaa !364
+  %4641 = load i64, ptr %4624, align 8, !tbaa !363
   %4642 = icmp ult i64 %4640, %4641
-  br i1 %4642, label %4630, label %._crit_edge7130, !llvm.loop !521
+  br i1 %4642, label %4630, label %._crit_edge7130, !llvm.loop !520
 
 4643:                                             ; preds = %3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.393, i64 noundef 31) #9
   %4644 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4645 = getelementptr i8, ptr %1, i64 304
-  %.val6336 = load ptr, ptr %4645, align 8, !tbaa !330
-  %.val6337 = load ptr, ptr %4644, align 8, !tbaa !345
+  %.val6336 = load ptr, ptr %4645, align 8, !tbaa !329
+  %.val6337 = load ptr, ptr %4644, align 8, !tbaa !344
   %4646 = getelementptr i8, ptr %2, i64 16
-  %.val6338 = load ptr, ptr %4646, align 8, !tbaa !346
+  %.val6338 = load ptr, ptr %4646, align 8, !tbaa !345
   %4647 = ptrtoint ptr %.val6337 to i64
   %4648 = ptrtoint ptr %.val6336 to i64
   %4649 = sub i64 %4647, %4648
@@ -15078,7 +15078,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.273, i64 noundef 13) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %4654 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %4655 = load i16, ptr %4654, align 2, !tbaa !347
+  %4655 = load i16, ptr %4654, align 2, !tbaa !346
   %4656 = and i16 %4655, 4
   %.not5116 = icmp eq i16 %4656, 0
   br i1 %.not5116, label %4658, label %4657
@@ -15092,7 +15092,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.158, i64 noundef 7) #9
   %4659 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4660 = load ptr, ptr %4659, align 8, !tbaa !264
+  %4660 = load ptr, ptr %4659, align 8, !tbaa !263
   %.not5117 = icmp eq ptr %4660, null
   br i1 %.not5117, label %4662, label %4661
 
@@ -15108,7 +15108,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.159, i64 noundef 8) #9
   %4664 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4665 = load ptr, ptr %4664, align 8, !tbaa !266
+  %4665 = load ptr, ptr %4664, align 8, !tbaa !265
   %.not5118 = icmp eq ptr %4665, null
   br i1 %.not5118, label %4667, label %4666
 
@@ -15124,10 +15124,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %4669 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val6339 = load ptr, ptr %4645, align 8, !tbaa !330
-  %.val6340 = load ptr, ptr %4669, align 8, !tbaa !345
+  %.val6339 = load ptr, ptr %4645, align 8, !tbaa !329
+  %.val6340 = load ptr, ptr %4669, align 8, !tbaa !344
   %4670 = getelementptr i8, ptr %2, i64 48
-  %.val6341 = load ptr, ptr %4670, align 8, !tbaa !346
+  %.val6341 = load ptr, ptr %4670, align 8, !tbaa !345
   %4671 = ptrtoint ptr %.val6340 to i64
   %4672 = ptrtoint ptr %.val6339 to i64
   %4673 = sub i64 %4671, %4672
@@ -15142,10 +15142,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.394, i64 noundef 34) #9
   %4679 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4680 = getelementptr i8, ptr %1, i64 304
-  %.val6342 = load ptr, ptr %4680, align 8, !tbaa !330
-  %.val6343 = load ptr, ptr %4679, align 8, !tbaa !345
+  %.val6342 = load ptr, ptr %4680, align 8, !tbaa !329
+  %.val6343 = load ptr, ptr %4679, align 8, !tbaa !344
   %4681 = getelementptr i8, ptr %2, i64 16
-  %.val6344 = load ptr, ptr %4681, align 8, !tbaa !346
+  %.val6344 = load ptr, ptr %4681, align 8, !tbaa !345
   %4682 = ptrtoint ptr %.val6343 to i64
   %4683 = ptrtoint ptr %.val6342 to i64
   %4684 = sub i64 %4682, %4683
@@ -15158,7 +15158,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.317, i64 noundef 19) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %4689 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %4690 = load i16, ptr %4689, align 2, !tbaa !347
+  %4690 = load i16, ptr %4689, align 2, !tbaa !346
   %4691 = and i16 %4690, 4
   %.not5109 = icmp eq i16 %4691, 0
   br i1 %.not5109, label %4692, label %.thread6962
@@ -15170,7 +15170,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6962:                                      ; preds = %4678
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.318, i64 noundef 8) #9
-  %4694 = load i16, ptr %4689, align 2, !tbaa !347
+  %4694 = load i16, ptr %4689, align 2, !tbaa !346
   %4695 = and i16 %4694, 8
   %.not51106964 = icmp eq i16 %4695, 0
   br i1 %.not51106964, label %.thread6970, label %4696
@@ -15181,7 +15181,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 4697:                                             ; preds = %4696, %4692
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.319, i64 noundef 9) #9
-  %.pre7301 = load i16, ptr %4689, align 2, !tbaa !347
+  %.pre7301 = load i16, ptr %4689, align 2, !tbaa !346
   %4698 = and i16 %.pre7301, 16
   %.not5112 = icmp eq i16 %4698, 0
   br i1 %.not5112, label %4701, label %.thread6974
@@ -15202,7 +15202,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7707:                                      ; preds = %.thread7703, %.thread6974
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.320, i64 noundef 7) #9
-  %.pre7302 = load i16, ptr %4689, align 2, !tbaa !347
+  %.pre7302 = load i16, ptr %4689, align 2, !tbaa !346
   br label %4701
 
 4701:                                             ; preds = %.thread6970, %.thread7707, %4697
@@ -15240,10 +15240,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.397, i64 noundef 30) #9
   %4710 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4711 = getelementptr i8, ptr %1, i64 304
-  %.val6345 = load ptr, ptr %4711, align 8, !tbaa !330
-  %.val6346 = load ptr, ptr %4710, align 8, !tbaa !345
+  %.val6345 = load ptr, ptr %4711, align 8, !tbaa !329
+  %.val6346 = load ptr, ptr %4710, align 8, !tbaa !344
   %4712 = getelementptr i8, ptr %2, i64 16
-  %.val6347 = load ptr, ptr %4712, align 8, !tbaa !346
+  %.val6347 = load ptr, ptr %4712, align 8, !tbaa !345
   %4713 = ptrtoint ptr %.val6346 to i64
   %4714 = ptrtoint ptr %.val6345 to i64
   %4715 = sub i64 %4713, %4714
@@ -15258,10 +15258,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.398, i64 noundef 43) #9
   %4721 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4722 = getelementptr i8, ptr %1, i64 304
-  %.val6348 = load ptr, ptr %4722, align 8, !tbaa !330
-  %.val6349 = load ptr, ptr %4721, align 8, !tbaa !345
+  %.val6348 = load ptr, ptr %4722, align 8, !tbaa !329
+  %.val6349 = load ptr, ptr %4721, align 8, !tbaa !344
   %4723 = getelementptr i8, ptr %2, i64 16
-  %.val6350 = load ptr, ptr %4723, align 8, !tbaa !346
+  %.val6350 = load ptr, ptr %4723, align 8, !tbaa !345
   %4724 = ptrtoint ptr %.val6349 to i64
   %4725 = ptrtoint ptr %.val6348 to i64
   %4726 = sub i64 %4724, %4725
@@ -15274,7 +15274,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.323, i64 noundef 25) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %4731 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %4732 = load i16, ptr %4731, align 2, !tbaa !347
+  %4732 = load i16, ptr %4731, align 2, !tbaa !346
   %4733 = and i16 %4732, 4
   %.not5088 = icmp eq i16 %4733, 0
   br i1 %.not5088, label %4734, label %.thread6977
@@ -15286,7 +15286,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread6977:                                      ; preds = %4720
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.324, i64 noundef 13) #9
-  %4736 = load i16, ptr %4731, align 2, !tbaa !347
+  %4736 = load i16, ptr %4731, align 2, !tbaa !346
   %4737 = and i16 %4736, 8
   %.not50896979 = icmp eq i16 %4737, 0
   br i1 %.not50896979, label %.thread6985, label %4738
@@ -15298,7 +15298,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 4739:                                             ; preds = %4738, %4734
   %.0489769806984 = phi i64 [ 2, %4738 ], [ 1, %4734 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.325, i64 noundef 10) #9
-  %.pre7292 = load i16, ptr %4731, align 2, !tbaa !347
+  %.pre7292 = load i16, ptr %4731, align 2, !tbaa !346
   %4740 = and i16 %.pre7292, 16
   %.not5091 = icmp eq i16 %4740, 0
   br i1 %.not5091, label %4744, label %.thread6989
@@ -15322,7 +15322,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7721:                                      ; preds = %.thread7717, %.thread6989
   %.1489869886993 = phi i64 [ %4743, %.thread6989 ], [ 1, %.thread7717 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.326, i64 noundef 12) #9
-  %.pre7293 = load i16, ptr %4731, align 2, !tbaa !347
+  %.pre7293 = load i16, ptr %4731, align 2, !tbaa !346
   br label %4744
 
 4744:                                             ; preds = %.thread7721, %4739
@@ -15351,7 +15351,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7728:                                      ; preds = %.thread7724, %.thread6998
   %.2489969977002 = phi i64 [ %4749, %.thread6998 ], [ 1, %.thread7724 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.327, i64 noundef 6) #9
-  %.pre7294 = load i16, ptr %4731, align 2, !tbaa !347
+  %.pre7294 = load i16, ptr %4731, align 2, !tbaa !346
   br label %4750
 
 4750:                                             ; preds = %.thread7728, %4744
@@ -15380,7 +15380,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7735:                                      ; preds = %.thread7731, %.thread7007
   %.3490070067011 = phi i64 [ %4755, %.thread7007 ], [ 1, %.thread7731 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.328, i64 noundef 8) #9
-  %.pre7295 = load i16, ptr %4731, align 2, !tbaa !347
+  %.pre7295 = load i16, ptr %4731, align 2, !tbaa !346
   br label %4756
 
 4756:                                             ; preds = %.thread7735, %4750
@@ -15409,7 +15409,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7742:                                      ; preds = %.thread7738, %.thread7016
   %.4490170157020 = phi i64 [ %4761, %.thread7016 ], [ 1, %.thread7738 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.329, i64 noundef 12) #9
-  %.pre7296 = load i16, ptr %4731, align 2, !tbaa !347
+  %.pre7296 = load i16, ptr %4731, align 2, !tbaa !346
   br label %4762
 
 4762:                                             ; preds = %.thread7742, %4756
@@ -15442,7 +15442,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7749:                                      ; preds = %.thread7745, %.thread7025, %4767
   %.5490270247029 = phi i64 [ %4768, %.thread7025 ], [ 1, %4767 ], [ 1, %.thread7745 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.330, i64 noundef 13) #9
-  %.pre7297 = load i16, ptr %4731, align 2, !tbaa !347
+  %.pre7297 = load i16, ptr %4731, align 2, !tbaa !346
   br label %4769
 
 4769:                                             ; preds = %.thread7749, %4762
@@ -15475,7 +15475,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7756:                                      ; preds = %.thread7752, %.thread7034, %4774
   %.6490370337038 = phi i64 [ %4775, %.thread7034 ], [ 1, %4774 ], [ 1, %.thread7752 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.331, i64 noundef 7) #9
-  %.pre7298 = load i16, ptr %4731, align 2, !tbaa !347
+  %.pre7298 = load i16, ptr %4731, align 2, !tbaa !346
   br label %4776
 
 4776:                                             ; preds = %.thread7756, %4769
@@ -15508,7 +15508,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 .thread7763:                                      ; preds = %.thread7759, %.thread7043, %4781
   %.7490470427047 = phi i64 [ %4782, %.thread7043 ], [ 1, %4781 ], [ 1, %.thread7759 ]
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.332, i64 noundef 22) #9
-  %.pre7299 = load i16, ptr %4731, align 2, !tbaa !347
+  %.pre7299 = load i16, ptr %4731, align 2, !tbaa !346
   br label %4783
 
 4783:                                             ; preds = %.thread7763, %4776
@@ -15538,7 +15538,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7770:                                      ; preds = %.thread7766, %.thread7052, %4788
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.333, i64 noundef 24) #9
-  %.pre7300 = load i16, ptr %4731, align 2, !tbaa !347
+  %.pre7300 = load i16, ptr %4731, align 2, !tbaa !346
   br label %4789
 
 4789:                                             ; preds = %.thread7048, %.thread7770, %4783
@@ -15570,10 +15570,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %4796 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6351 = load ptr, ptr %4722, align 8, !tbaa !330
-  %.val6352 = load ptr, ptr %4796, align 8, !tbaa !345
+  %.val6351 = load ptr, ptr %4722, align 8, !tbaa !329
+  %.val6352 = load ptr, ptr %4796, align 8, !tbaa !344
   %4797 = getelementptr i8, ptr %2, i64 32
-  %.val6353 = load ptr, ptr %4797, align 8, !tbaa !346
+  %.val6353 = load ptr, ptr %4797, align 8, !tbaa !345
   %4798 = ptrtoint ptr %.val6352 to i64
   %4799 = ptrtoint ptr %.val6351 to i64
   %4800 = sub i64 %4798, %4799
@@ -15585,10 +15585,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.359, i64 noundef 14) #9
   %4805 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val6354 = load ptr, ptr %4722, align 8, !tbaa !330
-  %.val6355 = load ptr, ptr %4805, align 8, !tbaa !345
+  %.val6354 = load ptr, ptr %4722, align 8, !tbaa !329
+  %.val6355 = load ptr, ptr %4805, align 8, !tbaa !344
   %4806 = getelementptr i8, ptr %2, i64 48
-  %.val6356 = load ptr, ptr %4806, align 8, !tbaa !346
+  %.val6356 = load ptr, ptr %4806, align 8, !tbaa !345
   %4807 = ptrtoint ptr %.val6355 to i64
   %4808 = ptrtoint ptr %.val6354 to i64
   %4809 = sub i64 %4807, %4808
@@ -15600,10 +15600,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %4814 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.val6357 = load ptr, ptr %4722, align 8, !tbaa !330
-  %.val6358 = load ptr, ptr %4814, align 8, !tbaa !345
+  %.val6357 = load ptr, ptr %4722, align 8, !tbaa !329
+  %.val6358 = load ptr, ptr %4814, align 8, !tbaa !344
   %4815 = getelementptr i8, ptr %2, i64 64
-  %.val6359 = load ptr, ptr %4815, align 8, !tbaa !346
+  %.val6359 = load ptr, ptr %4815, align 8, !tbaa !345
   %4816 = ptrtoint ptr %.val6358 to i64
   %4817 = ptrtoint ptr %.val6357 to i64
   %4818 = sub i64 %4816, %4817
@@ -15626,10 +15626,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.399, i64 noundef 50) #9
   %4827 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4828 = getelementptr i8, ptr %1, i64 304
-  %.val6360 = load ptr, ptr %4828, align 8, !tbaa !330
-  %.val6361 = load ptr, ptr %4827, align 8, !tbaa !345
+  %.val6360 = load ptr, ptr %4828, align 8, !tbaa !329
+  %.val6361 = load ptr, ptr %4827, align 8, !tbaa !344
   %4829 = getelementptr i8, ptr %2, i64 16
-  %.val6362 = load ptr, ptr %4829, align 8, !tbaa !346
+  %.val6362 = load ptr, ptr %4829, align 8, !tbaa !345
   %4830 = ptrtoint ptr %.val6361 to i64
   %4831 = ptrtoint ptr %.val6360 to i64
   %4832 = sub i64 %4830, %4831
@@ -15642,7 +15642,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.197, i64 noundef 17) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %4837 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %4838 = load i16, ptr %4837, align 2, !tbaa !347
+  %4838 = load i16, ptr %4837, align 2, !tbaa !346
   %4839 = and i16 %4838, 4
   %.not5087 = icmp eq i16 %4839, 0
   br i1 %.not5087, label %4841, label %4840
@@ -15656,15 +15656,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %4842 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4843 = load i32, ptr %4842, align 8, !tbaa !522
+  %4843 = load i32, ptr %4842, align 8, !tbaa !521
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4843)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %4844 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6363 = load ptr, ptr %4828, align 8, !tbaa !330
-  %.val6364 = load ptr, ptr %4844, align 8, !tbaa !345
+  %.val6363 = load ptr, ptr %4828, align 8, !tbaa !329
+  %.val6364 = load ptr, ptr %4844, align 8, !tbaa !344
   %4845 = getelementptr i8, ptr %2, i64 40
-  %.val6365 = load ptr, ptr %4845, align 8, !tbaa !346
+  %.val6365 = load ptr, ptr %4845, align 8, !tbaa !345
   %4846 = ptrtoint ptr %.val6364 to i64
   %4847 = ptrtoint ptr %.val6363 to i64
   %4848 = sub i64 %4846, %4847
@@ -15679,10 +15679,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.400, i64 noundef 43) #9
   %4854 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4855 = getelementptr i8, ptr %1, i64 304
-  %.val6366 = load ptr, ptr %4855, align 8, !tbaa !330
-  %.val6367 = load ptr, ptr %4854, align 8, !tbaa !345
+  %.val6366 = load ptr, ptr %4855, align 8, !tbaa !329
+  %.val6367 = load ptr, ptr %4854, align 8, !tbaa !344
   %4856 = getelementptr i8, ptr %2, i64 16
-  %.val6368 = load ptr, ptr %4856, align 8, !tbaa !346
+  %.val6368 = load ptr, ptr %4856, align 8, !tbaa !345
   %4857 = ptrtoint ptr %.val6367 to i64
   %4858 = ptrtoint ptr %.val6366 to i64
   %4859 = sub i64 %4857, %4858
@@ -15695,7 +15695,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.197, i64 noundef 17) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %4864 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %4865 = load i16, ptr %4864, align 2, !tbaa !347
+  %4865 = load i16, ptr %4864, align 2, !tbaa !346
   %4866 = and i16 %4865, 4
   %.not5086 = icmp eq i16 %4866, 0
   br i1 %.not5086, label %4868, label %4867
@@ -15709,7 +15709,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %4869 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4870 = load i32, ptr %4869, align 8, !tbaa !524
+  %4870 = load i32, ptr %4869, align 8, !tbaa !523
   tail call fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4870)
   br label %common.ret.sink.split
 
@@ -15717,10 +15717,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.401, i64 noundef 40) #9
   %4872 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4873 = getelementptr i8, ptr %1, i64 304
-  %.val6369 = load ptr, ptr %4873, align 8, !tbaa !330
-  %.val6370 = load ptr, ptr %4872, align 8, !tbaa !345
+  %.val6369 = load ptr, ptr %4873, align 8, !tbaa !329
+  %.val6370 = load ptr, ptr %4872, align 8, !tbaa !344
   %4874 = getelementptr i8, ptr %2, i64 16
-  %.val6371 = load ptr, ptr %4874, align 8, !tbaa !346
+  %.val6371 = load ptr, ptr %4874, align 8, !tbaa !345
   %4875 = ptrtoint ptr %.val6370 to i64
   %4876 = ptrtoint ptr %.val6369 to i64
   %4877 = sub i64 %4875, %4876
@@ -15732,15 +15732,15 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.195, i64 noundef 13) #9
   %4882 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4883 = load ptr, ptr %4882, align 8, !tbaa !267
+  %4883 = load ptr, ptr %4882, align 8, !tbaa !266
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4883)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %4884 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.val6372 = load ptr, ptr %4873, align 8, !tbaa !330
-  %.val6373 = load ptr, ptr %4884, align 8, !tbaa !345
+  %.val6372 = load ptr, ptr %4873, align 8, !tbaa !329
+  %.val6373 = load ptr, ptr %4884, align 8, !tbaa !344
   %4885 = getelementptr i8, ptr %2, i64 40
-  %.val6374 = load ptr, ptr %4885, align 8, !tbaa !346
+  %.val6374 = load ptr, ptr %4885, align 8, !tbaa !345
   %4886 = ptrtoint ptr %.val6373 to i64
   %4887 = ptrtoint ptr %.val6372 to i64
   %4888 = sub i64 %4886, %4887
@@ -15752,7 +15752,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.402, i64 noundef 20) #9
   %4893 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %4894 = load ptr, ptr %4893, align 8, !tbaa !269
+  %4894 = load ptr, ptr %4893, align 8, !tbaa !268
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4894)
   br label %common.ret.sink.split
 
@@ -15760,10 +15760,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.403, i64 noundef 32) #9
   %4896 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4897 = getelementptr i8, ptr %1, i64 304
-  %.val6375 = load ptr, ptr %4897, align 8, !tbaa !330
-  %.val6376 = load ptr, ptr %4896, align 8, !tbaa !345
+  %.val6375 = load ptr, ptr %4897, align 8, !tbaa !329
+  %.val6376 = load ptr, ptr %4896, align 8, !tbaa !344
   %4898 = getelementptr i8, ptr %2, i64 16
-  %.val6377 = load ptr, ptr %4898, align 8, !tbaa !346
+  %.val6377 = load ptr, ptr %4898, align 8, !tbaa !345
   %4899 = ptrtoint ptr %.val6376 to i64
   %4900 = ptrtoint ptr %.val6375 to i64
   %4901 = sub i64 %4899, %4900
@@ -15775,10 +15775,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %4906 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6378 = load ptr, ptr %4897, align 8, !tbaa !330
-  %.val6379 = load ptr, ptr %4906, align 8, !tbaa !345
+  %.val6378 = load ptr, ptr %4897, align 8, !tbaa !329
+  %.val6379 = load ptr, ptr %4906, align 8, !tbaa !344
   %4907 = getelementptr i8, ptr %2, i64 32
-  %.val6380 = load ptr, ptr %4907, align 8, !tbaa !346
+  %.val6380 = load ptr, ptr %4907, align 8, !tbaa !345
   %4908 = ptrtoint ptr %.val6379 to i64
   %4909 = ptrtoint ptr %.val6378 to i64
   %4910 = sub i64 %4908, %4909
@@ -15804,7 +15804,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %4918 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %4919 = load ptr, ptr %4918, align 8, !tbaa !526
+  %4919 = load ptr, ptr %4918, align 8, !tbaa !525
   %.not5081 = icmp eq ptr %4919, null
   br i1 %.not5081, label %4938, label %4929
 
@@ -15820,17 +15820,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 4922:                                             ; preds = %4921, %4920
   %4923 = load ptr, ptr %4917, align 8, !tbaa !15
   %4924 = getelementptr ptr, ptr %4923, i64 %.048817123
-  %4925 = load ptr, ptr %4924, align 8, !tbaa !19
+  %4925 = load ptr, ptr %4924, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %4925)
   %4926 = add nuw i64 %.048817123, 1
   %4927 = load i64, ptr %4915, align 8, !tbaa !7
   %4928 = icmp ult i64 %4926, %4927
-  br i1 %4928, label %4920, label %._crit_edge7126, !llvm.loop !527
+  br i1 %4928, label %4920, label %._crit_edge7126, !llvm.loop !526
 
 4929:                                             ; preds = %._crit_edge7126
-  %.val6381 = load ptr, ptr %4897, align 8, !tbaa !330
+  %.val6381 = load ptr, ptr %4897, align 8, !tbaa !329
   %4930 = getelementptr i8, ptr %2, i64 72
-  %.val6383 = load ptr, ptr %4930, align 8, !tbaa !346
+  %.val6383 = load ptr, ptr %4930, align 8, !tbaa !345
   %4931 = ptrtoint ptr %4919 to i64
   %4932 = ptrtoint ptr %.val6381 to i64
   %4933 = sub i64 %4931, %4932
@@ -15849,7 +15849,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.405, i64 noundef 12) #9
   %4940 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %4941 = load ptr, ptr %4940, align 8, !tbaa !270
+  %4941 = load ptr, ptr %4940, align 8, !tbaa !269
   %.not5082 = icmp eq ptr %4941, null
   br i1 %.not5082, label %4943, label %4942
 
@@ -15865,7 +15865,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %4945 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %4946 = load ptr, ptr %4945, align 8, !tbaa !272
+  %4946 = load ptr, ptr %4945, align 8, !tbaa !271
   %.not5083 = icmp eq ptr %4946, null
   br i1 %.not5083, label %4948, label %4947
 
@@ -15881,7 +15881,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.297, i64 noundef 13) #9
   %4950 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %4951 = load ptr, ptr %4950, align 8, !tbaa !273
+  %4951 = load ptr, ptr %4950, align 8, !tbaa !272
   %.not5084 = icmp eq ptr %4951, null
   br i1 %.not5084, label %4953, label %4952
 
@@ -15897,10 +15897,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.406, i64 noundef 39) #9
   %4955 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4956 = getelementptr i8, ptr %1, i64 304
-  %.val6384 = load ptr, ptr %4956, align 8, !tbaa !330
-  %.val6385 = load ptr, ptr %4955, align 8, !tbaa !345
+  %.val6384 = load ptr, ptr %4956, align 8, !tbaa !329
+  %.val6385 = load ptr, ptr %4955, align 8, !tbaa !344
   %4957 = getelementptr i8, ptr %2, i64 16
-  %.val6386 = load ptr, ptr %4957, align 8, !tbaa !346
+  %.val6386 = load ptr, ptr %4957, align 8, !tbaa !345
   %4958 = ptrtoint ptr %.val6385 to i64
   %4959 = ptrtoint ptr %.val6384 to i64
   %4960 = sub i64 %4958, %4959
@@ -15913,7 +15913,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.197, i64 noundef 17) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %4965 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %4966 = load i16, ptr %4965, align 2, !tbaa !347
+  %4966 = load i16, ptr %4965, align 2, !tbaa !346
   %4967 = and i16 %4966, 4
   %.not5078 = icmp eq i16 %4967, 0
   br i1 %.not5078, label %4969, label %4968
@@ -15927,7 +15927,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.186, i64 noundef 7) #9
   %4970 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4971 = load i32, ptr %4970, align 8, !tbaa !528
+  %4971 = load i32, ptr %4970, align 8, !tbaa !527
   %.not5079 = icmp eq i32 %4971, 0
   br i1 %.not5079, label %4973, label %4972
 
@@ -15943,14 +15943,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 11) #9
   %4975 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4976 = load ptr, ptr %4975, align 8, !tbaa !530
+  %4976 = load ptr, ptr %4975, align 8, !tbaa !529
   %.not5080 = icmp eq ptr %4976, null
   br i1 %.not5080, label %4986, label %4977
 
 4977:                                             ; preds = %4974
-  %.val6387 = load ptr, ptr %4956, align 8, !tbaa !330
+  %.val6387 = load ptr, ptr %4956, align 8, !tbaa !329
   %4978 = getelementptr i8, ptr %2, i64 40
-  %.val6389 = load ptr, ptr %4978, align 8, !tbaa !346
+  %.val6389 = load ptr, ptr %4978, align 8, !tbaa !345
   %4979 = ptrtoint ptr %4976 to i64
   %4980 = ptrtoint ptr %.val6387 to i64
   %4981 = sub i64 %4979, %4980
@@ -15969,10 +15969,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %4988 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6390 = load ptr, ptr %4956, align 8, !tbaa !330
-  %.val6391 = load ptr, ptr %4988, align 8, !tbaa !345
+  %.val6390 = load ptr, ptr %4956, align 8, !tbaa !329
+  %.val6391 = load ptr, ptr %4988, align 8, !tbaa !344
   %4989 = getelementptr i8, ptr %2, i64 56
-  %.val6392 = load ptr, ptr %4989, align 8, !tbaa !346
+  %.val6392 = load ptr, ptr %4989, align 8, !tbaa !345
   %4990 = ptrtoint ptr %.val6391 to i64
   %4991 = ptrtoint ptr %.val6390 to i64
   %4992 = sub i64 %4990, %4991
@@ -15987,10 +15987,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.407, i64 noundef 31) #9
   %4998 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4999 = getelementptr i8, ptr %1, i64 304
-  %.val6393 = load ptr, ptr %4999, align 8, !tbaa !330
-  %.val6394 = load ptr, ptr %4998, align 8, !tbaa !345
+  %.val6393 = load ptr, ptr %4999, align 8, !tbaa !329
+  %.val6394 = load ptr, ptr %4998, align 8, !tbaa !344
   %5000 = getelementptr i8, ptr %2, i64 16
-  %.val6395 = load ptr, ptr %5000, align 8, !tbaa !346
+  %.val6395 = load ptr, ptr %5000, align 8, !tbaa !345
   %5001 = ptrtoint ptr %.val6394 to i64
   %5002 = ptrtoint ptr %.val6393 to i64
   %5003 = sub i64 %5001, %5002
@@ -16005,10 +16005,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.408, i64 noundef 32) #9
   %5009 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5010 = getelementptr i8, ptr %1, i64 304
-  %.val6396 = load ptr, ptr %5010, align 8, !tbaa !330
-  %.val6397 = load ptr, ptr %5009, align 8, !tbaa !345
+  %.val6396 = load ptr, ptr %5010, align 8, !tbaa !329
+  %.val6397 = load ptr, ptr %5009, align 8, !tbaa !344
   %5011 = getelementptr i8, ptr %2, i64 16
-  %.val6398 = load ptr, ptr %5011, align 8, !tbaa !346
+  %.val6398 = load ptr, ptr %5011, align 8, !tbaa !345
   %5012 = ptrtoint ptr %.val6397 to i64
   %5013 = ptrtoint ptr %.val6396 to i64
   %5014 = sub i64 %5012, %5013
@@ -16020,10 +16020,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %5019 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6399 = load ptr, ptr %5010, align 8, !tbaa !330
-  %.val6400 = load ptr, ptr %5019, align 8, !tbaa !345
+  %.val6399 = load ptr, ptr %5010, align 8, !tbaa !329
+  %.val6400 = load ptr, ptr %5019, align 8, !tbaa !344
   %5020 = getelementptr i8, ptr %2, i64 32
-  %.val6401 = load ptr, ptr %5020, align 8, !tbaa !346
+  %.val6401 = load ptr, ptr %5020, align 8, !tbaa !345
   %5021 = ptrtoint ptr %.val6400 to i64
   %5022 = ptrtoint ptr %.val6399 to i64
   %5023 = sub i64 %5021, %5022
@@ -16035,7 +16035,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.169, i64 noundef 12) #9
   %5028 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %5029 = load ptr, ptr %5028, align 8, !tbaa !274
+  %5029 = load ptr, ptr %5028, align 8, !tbaa !273
   %.not5077 = icmp eq ptr %5029, null
   br i1 %.not5077, label %5031, label %5030
 
@@ -16051,10 +16051,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.409, i64 noundef 30) #9
   %5033 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5034 = getelementptr i8, ptr %1, i64 304
-  %.val6402 = load ptr, ptr %5034, align 8, !tbaa !330
-  %.val6403 = load ptr, ptr %5033, align 8, !tbaa !345
+  %.val6402 = load ptr, ptr %5034, align 8, !tbaa !329
+  %.val6403 = load ptr, ptr %5033, align 8, !tbaa !344
   %5035 = getelementptr i8, ptr %2, i64 16
-  %.val6404 = load ptr, ptr %5035, align 8, !tbaa !346
+  %.val6404 = load ptr, ptr %5035, align 8, !tbaa !345
   %5036 = ptrtoint ptr %.val6403 to i64
   %5037 = ptrtoint ptr %.val6402 to i64
   %5038 = sub i64 %5036, %5037
@@ -16069,10 +16069,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.410, i64 noundef 43) #9
   %5044 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5045 = getelementptr i8, ptr %1, i64 304
-  %.val6405 = load ptr, ptr %5045, align 8, !tbaa !330
-  %.val6406 = load ptr, ptr %5044, align 8, !tbaa !345
+  %.val6405 = load ptr, ptr %5045, align 8, !tbaa !329
+  %.val6406 = load ptr, ptr %5044, align 8, !tbaa !344
   %5046 = getelementptr i8, ptr %2, i64 16
-  %.val6407 = load ptr, ptr %5046, align 8, !tbaa !346
+  %.val6407 = load ptr, ptr %5046, align 8, !tbaa !345
   %5047 = ptrtoint ptr %.val6406 to i64
   %5048 = ptrtoint ptr %.val6405 to i64
   %5049 = sub i64 %5047, %5048
@@ -16085,7 +16085,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.411, i64 noundef 29) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %5054 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %5055 = load i16, ptr %5054, align 2, !tbaa !347
+  %5055 = load i16, ptr %5054, align 2, !tbaa !346
   %5056 = and i16 %5055, 4
   %.not5072 = icmp eq i16 %5056, 0
   br i1 %.not5072, label %5057, label %.thread7055
@@ -16097,7 +16097,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7055:                                      ; preds = %5043
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.412, i64 noundef 9) #9
-  %5059 = load i16, ptr %5054, align 2, !tbaa !347
+  %5059 = load i16, ptr %5054, align 2, !tbaa !346
   %5060 = and i16 %5059, 8
   %.not50737057 = icmp eq i16 %5060, 0
   br i1 %.not50737057, label %5063, label %5061
@@ -16108,7 +16108,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 5062:                                             ; preds = %5057, %5061
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.413, i64 noundef 25) #9
-  %.pre7291 = load i16, ptr %5054, align 2, !tbaa !347
+  %.pre7291 = load i16, ptr %5054, align 2, !tbaa !346
   br label %5063
 
 5063:                                             ; preds = %.thread7055, %5062
@@ -16135,7 +16135,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.415, i64 noundef 8) #9
   %5069 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5070 = load ptr, ptr %5069, align 8, !tbaa !276
+  %5070 = load ptr, ptr %5069, align 8, !tbaa !275
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %5070)
   br label %common.ret.sink.split
 
@@ -16143,10 +16143,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.416, i64 noundef 40) #9
   %5072 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5073 = getelementptr i8, ptr %1, i64 304
-  %.val6408 = load ptr, ptr %5073, align 8, !tbaa !330
-  %.val6409 = load ptr, ptr %5072, align 8, !tbaa !345
+  %.val6408 = load ptr, ptr %5073, align 8, !tbaa !329
+  %.val6409 = load ptr, ptr %5072, align 8, !tbaa !344
   %5074 = getelementptr i8, ptr %2, i64 16
-  %.val6410 = load ptr, ptr %5074, align 8, !tbaa !346
+  %.val6410 = load ptr, ptr %5074, align 8, !tbaa !345
   %5075 = ptrtoint ptr %.val6409 to i64
   %5076 = ptrtoint ptr %.val6408 to i64
   %5077 = sub i64 %5075, %5076
@@ -16159,7 +16159,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.200, i64 noundef 9) #9
   %5082 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
-  %5083 = load i64, ptr %5082, align 8, !tbaa !364
+  %5083 = load i64, ptr %5082, align 8, !tbaa !363
   %.not7254 = icmp eq i64 %5083, 0
   br i1 %.not7254, label %._crit_edge7122, label %.lr.ph7121
 
@@ -16173,10 +16173,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.233, i64 noundef 20) #9
   %5086 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6411 = load ptr, ptr %5073, align 8, !tbaa !330
-  %.val6412 = load ptr, ptr %5086, align 8, !tbaa !345
+  %.val6411 = load ptr, ptr %5073, align 8, !tbaa !329
+  %.val6412 = load ptr, ptr %5086, align 8, !tbaa !344
   %5087 = getelementptr i8, ptr %2, i64 56
-  %.val6413 = load ptr, ptr %5087, align 8, !tbaa !346
+  %.val6413 = load ptr, ptr %5087, align 8, !tbaa !345
   %5088 = ptrtoint ptr %.val6412 to i64
   %5089 = ptrtoint ptr %.val6411 to i64
   %5090 = sub i64 %5088, %5089
@@ -16188,10 +16188,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %5095 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %.val6414 = load ptr, ptr %5073, align 8, !tbaa !330
-  %.val6415 = load ptr, ptr %5095, align 8, !tbaa !345
+  %.val6414 = load ptr, ptr %5073, align 8, !tbaa !329
+  %.val6415 = load ptr, ptr %5095, align 8, !tbaa !344
   %5096 = getelementptr i8, ptr %2, i64 72
-  %.val6416 = load ptr, ptr %5096, align 8, !tbaa !346
+  %.val6416 = load ptr, ptr %5096, align 8, !tbaa !345
   %5097 = ptrtoint ptr %.val6415 to i64
   %5098 = ptrtoint ptr %.val6414 to i64
   %5099 = sub i64 %5097, %5098
@@ -16203,12 +16203,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.195, i64 noundef 13) #9
   %5104 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %5105 = load ptr, ptr %5104, align 8, !tbaa !278
+  %5105 = load ptr, ptr %5104, align 8, !tbaa !277
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %5105)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.202, i64 noundef 7) #9
   %5106 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %5107 = load ptr, ptr %5106, align 8, !tbaa !280
+  %5107 = load ptr, ptr %5106, align 8, !tbaa !279
   %.not5070 = icmp eq ptr %5107, null
   br i1 %.not5070, label %5122, label %5121
 
@@ -16222,20 +16222,20 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   br label %5110
 
 5110:                                             ; preds = %5109, %5108
-  %5111 = load ptr, ptr %5084, align 8, !tbaa !365
+  %5111 = load ptr, ptr %5084, align 8, !tbaa !364
   %5112 = getelementptr i32, ptr %5111, i64 %.048587119
-  %5113 = load i32, ptr %5112, align 4, !tbaa !366
+  %5113 = load i32, ptr %5112, align 4, !tbaa !365
   %5114 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %5085, i32 noundef %5113) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
-  %5115 = load ptr, ptr %5114, align 8, !tbaa !367
+  %5115 = load ptr, ptr %5114, align 8, !tbaa !366
   %5116 = getelementptr inbounds nuw i8, ptr %5114, i64 8
-  %5117 = load i64, ptr %5116, align 8, !tbaa !369
+  %5117 = load i64, ptr %5116, align 8, !tbaa !368
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %5115, i64 noundef %5117, i32 noundef 1) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
   %5118 = add nuw i64 %.048587119, 1
-  %5119 = load i64, ptr %5082, align 8, !tbaa !364
+  %5119 = load i64, ptr %5082, align 8, !tbaa !363
   %5120 = icmp ult i64 %5118, %5119
-  br i1 %5120, label %5108, label %._crit_edge7122, !llvm.loop !531
+  br i1 %5120, label %5108, label %._crit_edge7122, !llvm.loop !530
 
 5121:                                             ; preds = %._crit_edge7122
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5107)
@@ -16249,10 +16249,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 18) #9
   %5124 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %.val6417 = load ptr, ptr %5073, align 8, !tbaa !330
-  %.val6418 = load ptr, ptr %5124, align 8, !tbaa !345
+  %.val6417 = load ptr, ptr %5073, align 8, !tbaa !329
+  %.val6418 = load ptr, ptr %5124, align 8, !tbaa !344
   %5125 = getelementptr i8, ptr %2, i64 104
-  %.val6419 = load ptr, ptr %5125, align 8, !tbaa !346
+  %.val6419 = load ptr, ptr %5125, align 8, !tbaa !345
   %5126 = ptrtoint ptr %.val6418 to i64
   %5127 = ptrtoint ptr %.val6417 to i64
   %5128 = sub i64 %5126, %5127
@@ -16267,10 +16267,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.417, i64 noundef 40) #9
   %5134 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5135 = getelementptr i8, ptr %1, i64 304
-  %.val6420 = load ptr, ptr %5135, align 8, !tbaa !330
-  %.val6421 = load ptr, ptr %5134, align 8, !tbaa !345
+  %.val6420 = load ptr, ptr %5135, align 8, !tbaa !329
+  %.val6421 = load ptr, ptr %5134, align 8, !tbaa !344
   %5136 = getelementptr i8, ptr %2, i64 16
-  %.val6422 = load ptr, ptr %5136, align 8, !tbaa !346
+  %.val6422 = load ptr, ptr %5136, align 8, !tbaa !345
   %5137 = ptrtoint ptr %.val6421 to i64
   %5138 = ptrtoint ptr %.val6420 to i64
   %5139 = sub i64 %5137, %5138
@@ -16285,10 +16285,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.418, i64 noundef 36) #9
   %5145 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5146 = getelementptr i8, ptr %1, i64 304
-  %.val6423 = load ptr, ptr %5146, align 8, !tbaa !330
-  %.val6424 = load ptr, ptr %5145, align 8, !tbaa !345
+  %.val6423 = load ptr, ptr %5146, align 8, !tbaa !329
+  %.val6424 = load ptr, ptr %5145, align 8, !tbaa !344
   %5147 = getelementptr i8, ptr %2, i64 16
-  %.val6425 = load ptr, ptr %5147, align 8, !tbaa !346
+  %.val6425 = load ptr, ptr %5147, align 8, !tbaa !345
   %5148 = ptrtoint ptr %.val6424 to i64
   %5149 = ptrtoint ptr %.val6423 to i64
   %5150 = sub i64 %5148, %5149
@@ -16301,7 +16301,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.419, i64 noundef 14) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %5155 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %5156 = load i16, ptr %5155, align 2, !tbaa !347
+  %5156 = load i16, ptr %5155, align 2, !tbaa !346
   %5157 = and i16 %5156, 4
   %.not5063 = icmp eq i16 %5157, 0
   br i1 %.not5063, label %5158, label %.thread7066
@@ -16313,7 +16313,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7066:                                      ; preds = %5144
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.332, i64 noundef 22) #9
-  %5160 = load i16, ptr %5155, align 2, !tbaa !347
+  %5160 = load i16, ptr %5155, align 2, !tbaa !346
   %5161 = and i16 %5160, 8
   %.not50647068 = icmp eq i16 %5161, 0
   br i1 %.not50647068, label %.thread7074, label %5162
@@ -16324,7 +16324,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 5163:                                             ; preds = %5162, %5158
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.333, i64 noundef 24) #9
-  %.pre7289 = load i16, ptr %5155, align 2, !tbaa !347
+  %.pre7289 = load i16, ptr %5155, align 2, !tbaa !346
   %5164 = and i16 %.pre7289, 16
   %.not5066 = icmp eq i16 %5164, 0
   br i1 %.not5066, label %5167, label %.thread7078
@@ -16345,7 +16345,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7784:                                      ; preds = %.thread7780, %.thread7078
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.339, i64 noundef 8) #9
-  %.pre7290 = load i16, ptr %5155, align 2, !tbaa !347
+  %.pre7290 = load i16, ptr %5155, align 2, !tbaa !346
   br label %5167
 
 5167:                                             ; preds = %.thread7074, %.thread7784, %5163
@@ -16383,10 +16383,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.421, i64 noundef 36) #9
   %5177 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5178 = getelementptr i8, ptr %1, i64 304
-  %.val6426 = load ptr, ptr %5178, align 8, !tbaa !330
-  %.val6427 = load ptr, ptr %5177, align 8, !tbaa !345
+  %.val6426 = load ptr, ptr %5178, align 8, !tbaa !329
+  %.val6427 = load ptr, ptr %5177, align 8, !tbaa !344
   %5179 = getelementptr i8, ptr %2, i64 16
-  %.val6428 = load ptr, ptr %5179, align 8, !tbaa !346
+  %.val6428 = load ptr, ptr %5179, align 8, !tbaa !345
   %5180 = ptrtoint ptr %.val6427 to i64
   %5181 = ptrtoint ptr %.val6426 to i64
   %5182 = sub i64 %5180, %5181
@@ -16401,10 +16401,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.422, i64 noundef 31) #9
   %5188 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5189 = getelementptr i8, ptr %1, i64 304
-  %.val6429 = load ptr, ptr %5189, align 8, !tbaa !330
-  %.val6430 = load ptr, ptr %5188, align 8, !tbaa !345
+  %.val6429 = load ptr, ptr %5189, align 8, !tbaa !329
+  %.val6430 = load ptr, ptr %5188, align 8, !tbaa !344
   %5190 = getelementptr i8, ptr %2, i64 16
-  %.val6431 = load ptr, ptr %5190, align 8, !tbaa !346
+  %.val6431 = load ptr, ptr %5190, align 8, !tbaa !345
   %5191 = ptrtoint ptr %.val6430 to i64
   %5192 = ptrtoint ptr %.val6429 to i64
   %5193 = sub i64 %5191, %5192
@@ -16416,10 +16416,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 15) #9
   %5198 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6432 = load ptr, ptr %5189, align 8, !tbaa !330
-  %.val6433 = load ptr, ptr %5198, align 8, !tbaa !345
+  %.val6432 = load ptr, ptr %5189, align 8, !tbaa !329
+  %.val6433 = load ptr, ptr %5198, align 8, !tbaa !344
   %5199 = getelementptr i8, ptr %2, i64 32
-  %.val6434 = load ptr, ptr %5199, align 8, !tbaa !346
+  %.val6434 = load ptr, ptr %5199, align 8, !tbaa !345
   %5200 = ptrtoint ptr %.val6433 to i64
   %5201 = ptrtoint ptr %.val6432 to i64
   %5202 = sub i64 %5200, %5201
@@ -16431,7 +16431,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.195, i64 noundef 13) #9
   %5207 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %5208 = load ptr, ptr %5207, align 8, !tbaa !281
+  %5208 = load ptr, ptr %5207, align 8, !tbaa !280
   %.not5062 = icmp eq ptr %5208, null
   br i1 %.not5062, label %5210, label %5209
 
@@ -16447,10 +16447,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.423, i64 noundef 36) #9
   %5212 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5213 = getelementptr i8, ptr %1, i64 304
-  %.val6435 = load ptr, ptr %5213, align 8, !tbaa !330
-  %.val6436 = load ptr, ptr %5212, align 8, !tbaa !345
+  %.val6435 = load ptr, ptr %5213, align 8, !tbaa !329
+  %.val6436 = load ptr, ptr %5212, align 8, !tbaa !344
   %5214 = getelementptr i8, ptr %2, i64 16
-  %.val6437 = load ptr, ptr %5214, align 8, !tbaa !346
+  %.val6437 = load ptr, ptr %5214, align 8, !tbaa !345
   %5215 = ptrtoint ptr %.val6436 to i64
   %5216 = ptrtoint ptr %.val6435 to i64
   %5217 = sub i64 %5215, %5216
@@ -16487,21 +16487,21 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 5227:                                             ; preds = %5226, %5225
   %5228 = load ptr, ptr %5224, align 8, !tbaa !15
   %5229 = getelementptr ptr, ptr %5228, i64 %.048487115
-  %5230 = load ptr, ptr %5229, align 8, !tbaa !19
+  %5230 = load ptr, ptr %5229, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %5230)
   %5231 = add nuw i64 %.048487115, 1
   %5232 = load i64, ptr %5222, align 8, !tbaa !7
   %5233 = icmp ult i64 %5231, %5232
-  br i1 %5233, label %5225, label %._crit_edge7118, !llvm.loop !532
+  br i1 %5233, label %5225, label %._crit_edge7118, !llvm.loop !531
 
 5234:                                             ; preds = %3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.424, i64 noundef 32) #9
   %5235 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5236 = getelementptr i8, ptr %1, i64 304
-  %.val6438 = load ptr, ptr %5236, align 8, !tbaa !330
-  %.val6439 = load ptr, ptr %5235, align 8, !tbaa !345
+  %.val6438 = load ptr, ptr %5236, align 8, !tbaa !329
+  %.val6439 = load ptr, ptr %5235, align 8, !tbaa !344
   %5237 = getelementptr i8, ptr %2, i64 16
-  %.val6440 = load ptr, ptr %5237, align 8, !tbaa !346
+  %.val6440 = load ptr, ptr %5237, align 8, !tbaa !345
   %5238 = ptrtoint ptr %.val6439 to i64
   %5239 = ptrtoint ptr %.val6438 to i64
   %5240 = sub i64 %5238, %5239
@@ -16514,7 +16514,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.419, i64 noundef 14) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %5245 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %5246 = load i16, ptr %5245, align 2, !tbaa !347
+  %5246 = load i16, ptr %5245, align 2, !tbaa !346
   %5247 = and i16 %5246, 4
   %.not5052 = icmp eq i16 %5247, 0
   br i1 %.not5052, label %5248, label %.thread7081
@@ -16526,7 +16526,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7081:                                      ; preds = %5234
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.332, i64 noundef 22) #9
-  %5250 = load i16, ptr %5245, align 2, !tbaa !347
+  %5250 = load i16, ptr %5245, align 2, !tbaa !346
   %5251 = and i16 %5250, 8
   %.not50537083 = icmp eq i16 %5251, 0
   br i1 %.not50537083, label %.thread7089, label %5252
@@ -16537,7 +16537,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 5253:                                             ; preds = %5252, %5248
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.333, i64 noundef 24) #9
-  %.pre7287 = load i16, ptr %5245, align 2, !tbaa !347
+  %.pre7287 = load i16, ptr %5245, align 2, !tbaa !346
   %5254 = and i16 %.pre7287, 16
   %.not5055 = icmp eq i16 %5254, 0
   br i1 %.not5055, label %5257, label %.thread7093
@@ -16558,7 +16558,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7798:                                      ; preds = %.thread7794, %.thread7093
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.339, i64 noundef 8) #9
-  %.pre7288 = load i16, ptr %5245, align 2, !tbaa !347
+  %.pre7288 = load i16, ptr %5245, align 2, !tbaa !346
   br label %5257
 
 5257:                                             ; preds = %.thread7089, %.thread7798, %5253
@@ -16585,14 +16585,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %5263 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5264 = load ptr, ptr %5263, align 8, !tbaa !533
+  %5264 = load ptr, ptr %5263, align 8, !tbaa !532
   %.not5059 = icmp eq ptr %5264, null
   br i1 %.not5059, label %5274, label %5265
 
 5265:                                             ; preds = %5262
-  %.val6441 = load ptr, ptr %5236, align 8, !tbaa !330
+  %.val6441 = load ptr, ptr %5236, align 8, !tbaa !329
   %5266 = getelementptr i8, ptr %2, i64 32
-  %.val6443 = load ptr, ptr %5266, align 8, !tbaa !346
+  %.val6443 = load ptr, ptr %5266, align 8, !tbaa !345
   %5267 = ptrtoint ptr %5264 to i64
   %5268 = ptrtoint ptr %.val6441 to i64
   %5269 = sub i64 %5267, %5268
@@ -16611,10 +16611,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.359, i64 noundef 14) #9
   %5276 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val6444 = load ptr, ptr %5236, align 8, !tbaa !330
-  %.val6445 = load ptr, ptr %5276, align 8, !tbaa !345
+  %.val6444 = load ptr, ptr %5236, align 8, !tbaa !329
+  %.val6445 = load ptr, ptr %5276, align 8, !tbaa !344
   %5277 = getelementptr i8, ptr %2, i64 48
-  %.val6446 = load ptr, ptr %5277, align 8, !tbaa !346
+  %.val6446 = load ptr, ptr %5277, align 8, !tbaa !345
   %5278 = ptrtoint ptr %.val6445 to i64
   %5279 = ptrtoint ptr %.val6444 to i64
   %5280 = sub i64 %5278, %5279
@@ -16626,14 +16626,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %5285 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %5286 = load ptr, ptr %5285, align 8, !tbaa !535
+  %5286 = load ptr, ptr %5285, align 8, !tbaa !534
   %.not5060 = icmp eq ptr %5286, null
   br i1 %.not5060, label %5296, label %5287
 
 5287:                                             ; preds = %5275
-  %.val6447 = load ptr, ptr %5236, align 8, !tbaa !330
+  %.val6447 = load ptr, ptr %5236, align 8, !tbaa !329
   %5288 = getelementptr i8, ptr %2, i64 64
-  %.val6449 = load ptr, ptr %5288, align 8, !tbaa !346
+  %.val6449 = load ptr, ptr %5288, align 8, !tbaa !345
   %5289 = ptrtoint ptr %5286 to i64
   %5290 = ptrtoint ptr %.val6447 to i64
   %5291 = sub i64 %5289, %5290
@@ -16663,10 +16663,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.425, i64 noundef 31) #9
   %5302 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5303 = getelementptr i8, ptr %1, i64 304
-  %.val6450 = load ptr, ptr %5303, align 8, !tbaa !330
-  %.val6451 = load ptr, ptr %5302, align 8, !tbaa !345
+  %.val6450 = load ptr, ptr %5303, align 8, !tbaa !329
+  %.val6451 = load ptr, ptr %5302, align 8, !tbaa !344
   %5304 = getelementptr i8, ptr %2, i64 16
-  %.val6452 = load ptr, ptr %5304, align 8, !tbaa !346
+  %.val6452 = load ptr, ptr %5304, align 8, !tbaa !345
   %5305 = ptrtoint ptr %.val6451 to i64
   %5306 = ptrtoint ptr %.val6450 to i64
   %5307 = sub i64 %5305, %5306
@@ -16678,10 +16678,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %5312 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6453 = load ptr, ptr %5303, align 8, !tbaa !330
-  %.val6454 = load ptr, ptr %5312, align 8, !tbaa !345
+  %.val6453 = load ptr, ptr %5303, align 8, !tbaa !329
+  %.val6454 = load ptr, ptr %5312, align 8, !tbaa !344
   %5313 = getelementptr i8, ptr %2, i64 32
-  %.val6455 = load ptr, ptr %5313, align 8, !tbaa !346
+  %.val6455 = load ptr, ptr %5313, align 8, !tbaa !345
   %5314 = ptrtoint ptr %.val6454 to i64
   %5315 = ptrtoint ptr %.val6453 to i64
   %5316 = sub i64 %5314, %5315
@@ -16693,14 +16693,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.259, i64 noundef 13) #9
   %5321 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %5322 = load ptr, ptr %5321, align 8, !tbaa !536
+  %5322 = load ptr, ptr %5321, align 8, !tbaa !535
   %.not5048 = icmp eq ptr %5322, null
   br i1 %.not5048, label %5332, label %5323
 
 5323:                                             ; preds = %5301
-  %.val6456 = load ptr, ptr %5303, align 8, !tbaa !330
+  %.val6456 = load ptr, ptr %5303, align 8, !tbaa !329
   %5324 = getelementptr i8, ptr %2, i64 48
-  %.val6458 = load ptr, ptr %5324, align 8, !tbaa !346
+  %.val6458 = load ptr, ptr %5324, align 8, !tbaa !345
   %5325 = ptrtoint ptr %5322 to i64
   %5326 = ptrtoint ptr %.val6456 to i64
   %5327 = sub i64 %5325, %5326
@@ -16719,7 +16719,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.169, i64 noundef 12) #9
   %5334 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %5335 = load ptr, ptr %5334, align 8, !tbaa !283
+  %5335 = load ptr, ptr %5334, align 8, !tbaa !282
   %.not5049 = icmp eq ptr %5335, null
   br i1 %.not5049, label %5337, label %5336
 
@@ -16735,14 +16735,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.260, i64 noundef 13) #9
   %5339 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %5340 = load ptr, ptr %5339, align 8, !tbaa !537
+  %5340 = load ptr, ptr %5339, align 8, !tbaa !536
   %.not5050 = icmp eq ptr %5340, null
   br i1 %.not5050, label %5350, label %5341
 
 5341:                                             ; preds = %5338
-  %.val6459 = load ptr, ptr %5303, align 8, !tbaa !330
+  %.val6459 = load ptr, ptr %5303, align 8, !tbaa !329
   %5342 = getelementptr i8, ptr %2, i64 72
-  %.val6461 = load ptr, ptr %5342, align 8, !tbaa !346
+  %.val6461 = load ptr, ptr %5342, align 8, !tbaa !345
   %5343 = ptrtoint ptr %5340 to i64
   %5344 = ptrtoint ptr %.val6459 to i64
   %5345 = sub i64 %5343, %5344
@@ -16761,7 +16761,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.219, i64 noundef 8) #9
   %5352 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %5353 = load ptr, ptr %5352, align 8, !tbaa !285
+  %5353 = load ptr, ptr %5352, align 8, !tbaa !284
   %.not5051 = icmp eq ptr %5353, null
   br i1 %.not5051, label %5355, label %5354
 
@@ -16777,10 +16777,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.426, i64 noundef 32) #9
   %5357 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5358 = getelementptr i8, ptr %1, i64 304
-  %.val6462 = load ptr, ptr %5358, align 8, !tbaa !330
-  %.val6463 = load ptr, ptr %5357, align 8, !tbaa !345
+  %.val6462 = load ptr, ptr %5358, align 8, !tbaa !329
+  %.val6463 = load ptr, ptr %5357, align 8, !tbaa !344
   %5359 = getelementptr i8, ptr %2, i64 16
-  %.val6464 = load ptr, ptr %5359, align 8, !tbaa !346
+  %.val6464 = load ptr, ptr %5359, align 8, !tbaa !345
   %5360 = ptrtoint ptr %.val6463 to i64
   %5361 = ptrtoint ptr %.val6462 to i64
   %5362 = sub i64 %5360, %5361
@@ -16793,7 +16793,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.427, i64 noundef 14) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %5367 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %5368 = load i16, ptr %5367, align 2, !tbaa !347
+  %5368 = load i16, ptr %5367, align 2, !tbaa !346
   %5369 = and i16 %5368, 4
   %.not5040 = icmp eq i16 %5369, 0
   br i1 %.not5040, label %5370, label %.thread7096
@@ -16805,7 +16805,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7096:                                      ; preds = %5356
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.332, i64 noundef 22) #9
-  %5372 = load i16, ptr %5367, align 2, !tbaa !347
+  %5372 = load i16, ptr %5367, align 2, !tbaa !346
   %5373 = and i16 %5372, 8
   %.not50417098 = icmp eq i16 %5373, 0
   br i1 %.not50417098, label %5376, label %5374
@@ -16816,7 +16816,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 5375:                                             ; preds = %5370, %5374
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.333, i64 noundef 24) #9
-  %.pre = load i16, ptr %5367, align 2, !tbaa !347
+  %.pre = load i16, ptr %5367, align 2, !tbaa !346
   br label %5376
 
 5376:                                             ; preds = %.thread7096, %5375
@@ -16843,14 +16843,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %5382 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5383 = load ptr, ptr %5382, align 8, !tbaa !538
+  %5383 = load ptr, ptr %5382, align 8, !tbaa !537
   %.not5045 = icmp eq ptr %5383, null
   br i1 %.not5045, label %5393, label %5384
 
 5384:                                             ; preds = %5381
-  %.val6465 = load ptr, ptr %5358, align 8, !tbaa !330
+  %.val6465 = load ptr, ptr %5358, align 8, !tbaa !329
   %5385 = getelementptr i8, ptr %2, i64 32
-  %.val6467 = load ptr, ptr %5385, align 8, !tbaa !346
+  %.val6467 = load ptr, ptr %5385, align 8, !tbaa !345
   %5386 = ptrtoint ptr %5383 to i64
   %5387 = ptrtoint ptr %.val6465 to i64
   %5388 = sub i64 %5386, %5387
@@ -16869,14 +16869,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.428, i64 noundef 12) #9
   %5395 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %5396 = load ptr, ptr %5395, align 8, !tbaa !540
+  %5396 = load ptr, ptr %5395, align 8, !tbaa !539
   %.not5046 = icmp eq ptr %5396, null
   br i1 %.not5046, label %5406, label %5397
 
 5397:                                             ; preds = %5394
-  %.val6468 = load ptr, ptr %5358, align 8, !tbaa !330
+  %.val6468 = load ptr, ptr %5358, align 8, !tbaa !329
   %5398 = getelementptr i8, ptr %2, i64 48
-  %.val6470 = load ptr, ptr %5398, align 8, !tbaa !346
+  %.val6470 = load ptr, ptr %5398, align 8, !tbaa !345
   %5399 = ptrtoint ptr %5396 to i64
   %5400 = ptrtoint ptr %.val6468 to i64
   %5401 = sub i64 %5399, %5400
@@ -16895,14 +16895,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %5408 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %5409 = load ptr, ptr %5408, align 8, !tbaa !541
+  %5409 = load ptr, ptr %5408, align 8, !tbaa !540
   %.not5047 = icmp eq ptr %5409, null
   br i1 %.not5047, label %5419, label %5410
 
 5410:                                             ; preds = %5407
-  %.val6471 = load ptr, ptr %5358, align 8, !tbaa !330
+  %.val6471 = load ptr, ptr %5358, align 8, !tbaa !329
   %5411 = getelementptr i8, ptr %2, i64 64
-  %.val6473 = load ptr, ptr %5411, align 8, !tbaa !346
+  %.val6473 = load ptr, ptr %5411, align 8, !tbaa !345
   %5412 = ptrtoint ptr %5409 to i64
   %5413 = ptrtoint ptr %.val6471 to i64
   %5414 = sub i64 %5412, %5413
@@ -16932,10 +16932,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.429, i64 noundef 30) #9
   %5425 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5426 = getelementptr i8, ptr %1, i64 304
-  %.val6474 = load ptr, ptr %5426, align 8, !tbaa !330
-  %.val6475 = load ptr, ptr %5425, align 8, !tbaa !345
+  %.val6474 = load ptr, ptr %5426, align 8, !tbaa !329
+  %.val6475 = load ptr, ptr %5425, align 8, !tbaa !344
   %5427 = getelementptr i8, ptr %2, i64 16
-  %.val6476 = load ptr, ptr %5427, align 8, !tbaa !346
+  %.val6476 = load ptr, ptr %5427, align 8, !tbaa !345
   %5428 = ptrtoint ptr %.val6475 to i64
   %5429 = ptrtoint ptr %.val6474 to i64
   %5430 = sub i64 %5428, %5429
@@ -16950,10 +16950,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.430, i64 noundef 31) #9
   %5436 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5437 = getelementptr i8, ptr %1, i64 304
-  %.val6477 = load ptr, ptr %5437, align 8, !tbaa !330
-  %.val6478 = load ptr, ptr %5436, align 8, !tbaa !345
+  %.val6477 = load ptr, ptr %5437, align 8, !tbaa !329
+  %.val6478 = load ptr, ptr %5436, align 8, !tbaa !344
   %5438 = getelementptr i8, ptr %2, i64 16
-  %.val6479 = load ptr, ptr %5438, align 8, !tbaa !346
+  %.val6479 = load ptr, ptr %5438, align 8, !tbaa !345
   %5439 = ptrtoint ptr %.val6478 to i64
   %5440 = ptrtoint ptr %.val6477 to i64
   %5441 = sub i64 %5439, %5440
@@ -16979,10 +16979,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %5449 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.val6480 = load ptr, ptr %5437, align 8, !tbaa !330
-  %.val6481 = load ptr, ptr %5449, align 8, !tbaa !345
+  %.val6480 = load ptr, ptr %5437, align 8, !tbaa !329
+  %.val6481 = load ptr, ptr %5449, align 8, !tbaa !344
   %5450 = getelementptr i8, ptr %2, i64 56
-  %.val6482 = load ptr, ptr %5450, align 8, !tbaa !346
+  %.val6482 = load ptr, ptr %5450, align 8, !tbaa !345
   %5451 = ptrtoint ptr %.val6481 to i64
   %5452 = ptrtoint ptr %.val6480 to i64
   %5453 = sub i64 %5451, %5452
@@ -17005,21 +17005,21 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 5460:                                             ; preds = %5459, %5458
   %5461 = load ptr, ptr %5448, align 8, !tbaa !15
   %5462 = getelementptr ptr, ptr %5461, i64 %.048257111
-  %5463 = load ptr, ptr %5462, align 8, !tbaa !19
+  %5463 = load ptr, ptr %5462, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %5463)
   %5464 = add nuw i64 %.048257111, 1
   %5465 = load i64, ptr %5446, align 8, !tbaa !7
   %5466 = icmp ult i64 %5464, %5465
-  br i1 %5466, label %5458, label %._crit_edge7114, !llvm.loop !542
+  br i1 %5466, label %5458, label %._crit_edge7114, !llvm.loop !541
 
 5467:                                             ; preds = %3
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.432, i64 noundef 32) #9
   %5468 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5469 = getelementptr i8, ptr %1, i64 304
-  %.val6483 = load ptr, ptr %5469, align 8, !tbaa !330
-  %.val6484 = load ptr, ptr %5468, align 8, !tbaa !345
+  %.val6483 = load ptr, ptr %5469, align 8, !tbaa !329
+  %.val6484 = load ptr, ptr %5468, align 8, !tbaa !344
   %5470 = getelementptr i8, ptr %2, i64 16
-  %.val6485 = load ptr, ptr %5470, align 8, !tbaa !346
+  %.val6485 = load ptr, ptr %5470, align 8, !tbaa !345
   %5471 = ptrtoint ptr %.val6484 to i64
   %5472 = ptrtoint ptr %.val6483 to i64
   %5473 = sub i64 %5471, %5472
@@ -17031,10 +17031,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %5478 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6486 = load ptr, ptr %5469, align 8, !tbaa !330
-  %.val6487 = load ptr, ptr %5478, align 8, !tbaa !345
+  %.val6486 = load ptr, ptr %5469, align 8, !tbaa !329
+  %.val6487 = load ptr, ptr %5478, align 8, !tbaa !344
   %5479 = getelementptr i8, ptr %2, i64 32
-  %.val6488 = load ptr, ptr %5479, align 8, !tbaa !346
+  %.val6488 = load ptr, ptr %5479, align 8, !tbaa !345
   %5480 = ptrtoint ptr %.val6487 to i64
   %5481 = ptrtoint ptr %.val6486 to i64
   %5482 = sub i64 %5480, %5481
@@ -17046,19 +17046,19 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.228, i64 noundef 12) #9
   %5487 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %5488 = load ptr, ptr %5487, align 8, !tbaa !286
+  %5488 = load ptr, ptr %5487, align 8, !tbaa !285
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %5488)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.296, i64 noundef 19) #9
   %5489 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %5490 = load ptr, ptr %5489, align 8, !tbaa !543
+  %5490 = load ptr, ptr %5489, align 8, !tbaa !542
   %.not5035 = icmp eq ptr %5490, null
   br i1 %.not5035, label %5500, label %5491
 
 5491:                                             ; preds = %5467
-  %.val6489 = load ptr, ptr %5469, align 8, !tbaa !330
+  %.val6489 = load ptr, ptr %5469, align 8, !tbaa !329
   %5492 = getelementptr i8, ptr %2, i64 56
-  %.val6491 = load ptr, ptr %5492, align 8, !tbaa !346
+  %.val6491 = load ptr, ptr %5492, align 8, !tbaa !345
   %5493 = ptrtoint ptr %5490 to i64
   %5494 = ptrtoint ptr %.val6489 to i64
   %5495 = sub i64 %5493, %5494
@@ -17077,7 +17077,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %5502 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %5503 = load ptr, ptr %5502, align 8, !tbaa !288
+  %5503 = load ptr, ptr %5502, align 8, !tbaa !287
   %.not5036 = icmp eq ptr %5503, null
   br i1 %.not5036, label %5505, label %5504
 
@@ -17093,7 +17093,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.191, i64 noundef 14) #9
   %5507 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %5508 = load ptr, ptr %5507, align 8, !tbaa !289
+  %5508 = load ptr, ptr %5507, align 8, !tbaa !288
   %.not5037 = icmp eq ptr %5508, null
   br i1 %.not5037, label %5510, label %5509
 
@@ -17109,14 +17109,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.193, i64 noundef 18) #9
   %5512 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %5513 = load ptr, ptr %5512, align 8, !tbaa !544
+  %5513 = load ptr, ptr %5512, align 8, !tbaa !543
   %.not5038 = icmp eq ptr %5513, null
   br i1 %.not5038, label %5523, label %5514
 
 5514:                                             ; preds = %5511
-  %.val6492 = load ptr, ptr %5469, align 8, !tbaa !330
+  %.val6492 = load ptr, ptr %5469, align 8, !tbaa !329
   %5515 = getelementptr i8, ptr %2, i64 88
-  %.val6494 = load ptr, ptr %5515, align 8, !tbaa !346
+  %.val6494 = load ptr, ptr %5515, align 8, !tbaa !345
   %5516 = ptrtoint ptr %5513 to i64
   %5517 = ptrtoint ptr %.val6492 to i64
   %5518 = sub i64 %5516, %5517
@@ -17135,10 +17135,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.433, i64 noundef 31) #9
   %5525 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5526 = getelementptr i8, ptr %1, i64 304
-  %.val6495 = load ptr, ptr %5526, align 8, !tbaa !330
-  %.val6496 = load ptr, ptr %5525, align 8, !tbaa !345
+  %.val6495 = load ptr, ptr %5526, align 8, !tbaa !329
+  %.val6496 = load ptr, ptr %5525, align 8, !tbaa !344
   %5527 = getelementptr i8, ptr %2, i64 16
-  %.val6497 = load ptr, ptr %5527, align 8, !tbaa !346
+  %.val6497 = load ptr, ptr %5527, align 8, !tbaa !345
   %5528 = ptrtoint ptr %.val6496 to i64
   %5529 = ptrtoint ptr %.val6495 to i64
   %5530 = sub i64 %5528, %5529
@@ -17151,7 +17151,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.434, i64 noundef 12) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %5535 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %5536 = load i16, ptr %5535, align 2, !tbaa !347
+  %5536 = load i16, ptr %5535, align 2, !tbaa !346
   %5537 = and i16 %5536, 4
   %.not5031 = icmp eq i16 %5537, 0
   br i1 %.not5031, label %5539, label %5538
@@ -17165,10 +17165,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %5540 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6498 = load ptr, ptr %5526, align 8, !tbaa !330
-  %.val6499 = load ptr, ptr %5540, align 8, !tbaa !345
+  %.val6498 = load ptr, ptr %5526, align 8, !tbaa !329
+  %.val6499 = load ptr, ptr %5540, align 8, !tbaa !344
   %5541 = getelementptr i8, ptr %2, i64 32
-  %.val6500 = load ptr, ptr %5541, align 8, !tbaa !346
+  %.val6500 = load ptr, ptr %5541, align 8, !tbaa !345
   %5542 = ptrtoint ptr %.val6499 to i64
   %5543 = ptrtoint ptr %.val6498 to i64
   %5544 = sub i64 %5542, %5543
@@ -17180,14 +17180,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.282, i64 noundef 17) #9
   %5549 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %5550 = load ptr, ptr %5549, align 8, !tbaa !545
+  %5550 = load ptr, ptr %5549, align 8, !tbaa !544
   %.not5032 = icmp eq ptr %5550, null
   br i1 %.not5032, label %5560, label %5551
 
 5551:                                             ; preds = %5539
-  %.val6501 = load ptr, ptr %5526, align 8, !tbaa !330
+  %.val6501 = load ptr, ptr %5526, align 8, !tbaa !329
   %5552 = getelementptr i8, ptr %2, i64 48
-  %.val6503 = load ptr, ptr %5552, align 8, !tbaa !346
+  %.val6503 = load ptr, ptr %5552, align 8, !tbaa !345
   %5553 = ptrtoint ptr %5550 to i64
   %5554 = ptrtoint ptr %.val6501 to i64
   %5555 = sub i64 %5553, %5554
@@ -17206,14 +17206,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %5562 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %5563 = load ptr, ptr %5562, align 8, !tbaa !546
+  %5563 = load ptr, ptr %5562, align 8, !tbaa !545
   %.not5033 = icmp eq ptr %5563, null
   br i1 %.not5033, label %5573, label %5564
 
 5564:                                             ; preds = %5561
-  %.val6504 = load ptr, ptr %5526, align 8, !tbaa !330
+  %.val6504 = load ptr, ptr %5526, align 8, !tbaa !329
   %5565 = getelementptr i8, ptr %2, i64 64
-  %.val6506 = load ptr, ptr %5565, align 8, !tbaa !346
+  %.val6506 = load ptr, ptr %5565, align 8, !tbaa !345
   %5566 = ptrtoint ptr %5563 to i64
   %5567 = ptrtoint ptr %.val6504 to i64
   %5568 = sub i64 %5566, %5567
@@ -17232,12 +17232,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.228, i64 noundef 12) #9
   %5575 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %5576 = load ptr, ptr %5575, align 8, !tbaa !290
+  %5576 = load ptr, ptr %5575, align 8, !tbaa !289
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %5576)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %5577 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %5578 = load ptr, ptr %5577, align 8, !tbaa !292
+  %5578 = load ptr, ptr %5577, align 8, !tbaa !291
   %.not5034 = icmp eq ptr %5578, null
   br i1 %.not5034, label %5580, label %5579
 
@@ -17253,10 +17253,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.436, i64 noundef 30) #9
   %5582 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5583 = getelementptr i8, ptr %1, i64 304
-  %.val6507 = load ptr, ptr %5583, align 8, !tbaa !330
-  %.val6508 = load ptr, ptr %5582, align 8, !tbaa !345
+  %.val6507 = load ptr, ptr %5583, align 8, !tbaa !329
+  %.val6508 = load ptr, ptr %5582, align 8, !tbaa !344
   %5584 = getelementptr i8, ptr %2, i64 16
-  %.val6509 = load ptr, ptr %5584, align 8, !tbaa !346
+  %.val6509 = load ptr, ptr %5584, align 8, !tbaa !345
   %5585 = ptrtoint ptr %.val6508 to i64
   %5586 = ptrtoint ptr %.val6507 to i64
   %5587 = sub i64 %5585, %5586
@@ -17268,10 +17268,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %5592 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6510 = load ptr, ptr %5583, align 8, !tbaa !330
-  %.val6511 = load ptr, ptr %5592, align 8, !tbaa !345
+  %.val6510 = load ptr, ptr %5583, align 8, !tbaa !329
+  %.val6511 = load ptr, ptr %5592, align 8, !tbaa !344
   %5593 = getelementptr i8, ptr %2, i64 32
-  %.val6512 = load ptr, ptr %5593, align 8, !tbaa !346
+  %.val6512 = load ptr, ptr %5593, align 8, !tbaa !345
   %5594 = ptrtoint ptr %.val6511 to i64
   %5595 = ptrtoint ptr %.val6510 to i64
   %5596 = sub i64 %5594, %5595
@@ -17297,7 +17297,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.296, i64 noundef 19) #9
   %5604 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %5605 = load ptr, ptr %5604, align 8, !tbaa !547
+  %5605 = load ptr, ptr %5604, align 8, !tbaa !546
   %.not5028 = icmp eq ptr %5605, null
   br i1 %.not5028, label %5624, label %5615
 
@@ -17313,17 +17313,17 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 5608:                                             ; preds = %5607, %5606
   %5609 = load ptr, ptr %5603, align 8, !tbaa !15
   %5610 = getelementptr ptr, ptr %5609, i64 %.048217110
-  %5611 = load ptr, ptr %5610, align 8, !tbaa !19
+  %5611 = load ptr, ptr %5610, align 8, !tbaa !18
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef %1, ptr noundef %5611)
   %5612 = add nuw i64 %.048217110, 1
   %5613 = load i64, ptr %5601, align 8, !tbaa !7
   %5614 = icmp ult i64 %5612, %5613
-  br i1 %5614, label %5606, label %._crit_edge, !llvm.loop !548
+  br i1 %5614, label %5606, label %._crit_edge, !llvm.loop !547
 
 5615:                                             ; preds = %._crit_edge
-  %.val6513 = load ptr, ptr %5583, align 8, !tbaa !330
+  %.val6513 = load ptr, ptr %5583, align 8, !tbaa !329
   %5616 = getelementptr i8, ptr %2, i64 72
-  %.val6515 = load ptr, ptr %5616, align 8, !tbaa !346
+  %.val6515 = load ptr, ptr %5616, align 8, !tbaa !345
   %5617 = ptrtoint ptr %5605 to i64
   %5618 = ptrtoint ptr %.val6513 to i64
   %5619 = sub i64 %5617, %5618
@@ -17342,7 +17342,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %5626 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %5627 = load ptr, ptr %5626, align 8, !tbaa !293
+  %5627 = load ptr, ptr %5626, align 8, !tbaa !292
   %.not5029 = icmp eq ptr %5627, null
   br i1 %.not5029, label %5629, label %5628
 
@@ -17358,10 +17358,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.437, i64 noundef 31) #9
   %5631 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5632 = getelementptr i8, ptr %1, i64 304
-  %.val6516 = load ptr, ptr %5632, align 8, !tbaa !330
-  %.val6517 = load ptr, ptr %5631, align 8, !tbaa !345
+  %.val6516 = load ptr, ptr %5632, align 8, !tbaa !329
+  %.val6517 = load ptr, ptr %5631, align 8, !tbaa !344
   %5633 = getelementptr i8, ptr %2, i64 16
-  %.val6518 = load ptr, ptr %5633, align 8, !tbaa !346
+  %.val6518 = load ptr, ptr %5633, align 8, !tbaa !345
   %5634 = ptrtoint ptr %.val6517 to i64
   %5635 = ptrtoint ptr %.val6516 to i64
   %5636 = sub i64 %5634, %5635
@@ -17374,7 +17374,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.434, i64 noundef 12) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %5641 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %5642 = load i16, ptr %5641, align 2, !tbaa !347
+  %5642 = load i16, ptr %5641, align 2, !tbaa !346
   %5643 = and i16 %5642, 4
   %.not5024 = icmp eq i16 %5643, 0
   br i1 %.not5024, label %5645, label %5644
@@ -17388,10 +17388,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %5646 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6519 = load ptr, ptr %5632, align 8, !tbaa !330
-  %.val6520 = load ptr, ptr %5646, align 8, !tbaa !345
+  %.val6519 = load ptr, ptr %5632, align 8, !tbaa !329
+  %.val6520 = load ptr, ptr %5646, align 8, !tbaa !344
   %5647 = getelementptr i8, ptr %2, i64 32
-  %.val6521 = load ptr, ptr %5647, align 8, !tbaa !346
+  %.val6521 = load ptr, ptr %5647, align 8, !tbaa !345
   %5648 = ptrtoint ptr %.val6520 to i64
   %5649 = ptrtoint ptr %.val6519 to i64
   %5650 = sub i64 %5648, %5649
@@ -17403,14 +17403,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.282, i64 noundef 17) #9
   %5655 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %5656 = load ptr, ptr %5655, align 8, !tbaa !549
+  %5656 = load ptr, ptr %5655, align 8, !tbaa !548
   %.not5025 = icmp eq ptr %5656, null
   br i1 %.not5025, label %5666, label %5657
 
 5657:                                             ; preds = %5645
-  %.val6522 = load ptr, ptr %5632, align 8, !tbaa !330
+  %.val6522 = load ptr, ptr %5632, align 8, !tbaa !329
   %5658 = getelementptr i8, ptr %2, i64 48
-  %.val6524 = load ptr, ptr %5658, align 8, !tbaa !346
+  %.val6524 = load ptr, ptr %5658, align 8, !tbaa !345
   %5659 = ptrtoint ptr %5656 to i64
   %5660 = ptrtoint ptr %.val6522 to i64
   %5661 = sub i64 %5659, %5660
@@ -17429,14 +17429,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %5668 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %5669 = load ptr, ptr %5668, align 8, !tbaa !550
+  %5669 = load ptr, ptr %5668, align 8, !tbaa !549
   %.not5026 = icmp eq ptr %5669, null
   br i1 %.not5026, label %5679, label %5670
 
 5670:                                             ; preds = %5667
-  %.val6525 = load ptr, ptr %5632, align 8, !tbaa !330
+  %.val6525 = load ptr, ptr %5632, align 8, !tbaa !329
   %5671 = getelementptr i8, ptr %2, i64 64
-  %.val6527 = load ptr, ptr %5671, align 8, !tbaa !346
+  %.val6527 = load ptr, ptr %5671, align 8, !tbaa !345
   %5672 = ptrtoint ptr %5669 to i64
   %5673 = ptrtoint ptr %.val6525 to i64
   %5674 = sub i64 %5672, %5673
@@ -17455,12 +17455,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.228, i64 noundef 12) #9
   %5681 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %5682 = load ptr, ptr %5681, align 8, !tbaa !295
+  %5682 = load ptr, ptr %5681, align 8, !tbaa !294
   tail call void @pm_dump_json(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %5682)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.189, i64 noundef 13) #9
   %5683 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %5684 = load ptr, ptr %5683, align 8, !tbaa !297
+  %5684 = load ptr, ptr %5683, align 8, !tbaa !296
   %.not5027 = icmp eq ptr %5684, null
   br i1 %.not5027, label %5686, label %5685
 
@@ -17476,10 +17476,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.438, i64 noundef 33) #9
   %5688 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5689 = getelementptr i8, ptr %1, i64 304
-  %.val6528 = load ptr, ptr %5689, align 8, !tbaa !330
-  %.val6529 = load ptr, ptr %5688, align 8, !tbaa !345
+  %.val6528 = load ptr, ptr %5689, align 8, !tbaa !329
+  %.val6529 = load ptr, ptr %5688, align 8, !tbaa !344
   %5690 = getelementptr i8, ptr %2, i64 16
-  %.val6530 = load ptr, ptr %5690, align 8, !tbaa !346
+  %.val6530 = load ptr, ptr %5690, align 8, !tbaa !345
   %5691 = ptrtoint ptr %.val6529 to i64
   %5692 = ptrtoint ptr %.val6528 to i64
   %5693 = sub i64 %5691, %5692
@@ -17492,7 +17492,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.439, i64 noundef 16) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 91) #9
   %5698 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %5699 = load i16, ptr %5698, align 2, !tbaa !347
+  %5699 = load i16, ptr %5698, align 2, !tbaa !346
   %5700 = and i16 %5699, 4
   %.not5021 = icmp eq i16 %5700, 0
   br i1 %.not5021, label %5701, label %.thread7107
@@ -17504,7 +17504,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 .thread7107:                                      ; preds = %5687
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.332, i64 noundef 22) #9
-  %5703 = load i16, ptr %5698, align 2, !tbaa !347
+  %5703 = load i16, ptr %5698, align 2, !tbaa !346
   %5704 = and i16 %5703, 8
   %.not50227108 = icmp eq i16 %5704, 0
   br i1 %.not50227108, label %5707, label %5705
@@ -17522,10 +17522,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 14) #9
   %5708 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6531 = load ptr, ptr %5689, align 8, !tbaa !330
-  %.val6532 = load ptr, ptr %5708, align 8, !tbaa !345
+  %.val6531 = load ptr, ptr %5689, align 8, !tbaa !329
+  %.val6532 = load ptr, ptr %5708, align 8, !tbaa !344
   %5709 = getelementptr i8, ptr %2, i64 32
-  %.val6533 = load ptr, ptr %5709, align 8, !tbaa !346
+  %.val6533 = load ptr, ptr %5709, align 8, !tbaa !345
   %5710 = ptrtoint ptr %.val6532 to i64
   %5711 = ptrtoint ptr %.val6531 to i64
   %5712 = sub i64 %5710, %5711
@@ -17537,10 +17537,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.359, i64 noundef 14) #9
   %5717 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %.val6534 = load ptr, ptr %5689, align 8, !tbaa !330
-  %.val6535 = load ptr, ptr %5717, align 8, !tbaa !345
+  %.val6534 = load ptr, ptr %5689, align 8, !tbaa !329
+  %.val6535 = load ptr, ptr %5717, align 8, !tbaa !344
   %5718 = getelementptr i8, ptr %2, i64 48
-  %.val6536 = load ptr, ptr %5718, align 8, !tbaa !346
+  %.val6536 = load ptr, ptr %5718, align 8, !tbaa !345
   %5719 = ptrtoint ptr %.val6535 to i64
   %5720 = ptrtoint ptr %.val6534 to i64
   %5721 = sub i64 %5719, %5720
@@ -17552,10 +17552,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 14) #9
   %5726 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %.val6537 = load ptr, ptr %5689, align 8, !tbaa !330
-  %.val6538 = load ptr, ptr %5726, align 8, !tbaa !345
+  %.val6537 = load ptr, ptr %5689, align 8, !tbaa !329
+  %.val6538 = load ptr, ptr %5726, align 8, !tbaa !344
   %5727 = getelementptr i8, ptr %2, i64 64
-  %.val6539 = load ptr, ptr %5727, align 8, !tbaa !346
+  %.val6539 = load ptr, ptr %5727, align 8, !tbaa !345
   %5728 = ptrtoint ptr %.val6538 to i64
   %5729 = ptrtoint ptr %.val6537 to i64
   %5730 = sub i64 %5728, %5729
@@ -17578,10 +17578,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.440, i64 noundef 31) #9
   %5739 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5740 = getelementptr i8, ptr %1, i64 304
-  %.val6540 = load ptr, ptr %5740, align 8, !tbaa !330
-  %.val6541 = load ptr, ptr %5739, align 8, !tbaa !345
+  %.val6540 = load ptr, ptr %5740, align 8, !tbaa !329
+  %.val6541 = load ptr, ptr %5739, align 8, !tbaa !344
   %5741 = getelementptr i8, ptr %2, i64 16
-  %.val6542 = load ptr, ptr %5741, align 8, !tbaa !346
+  %.val6542 = load ptr, ptr %5741, align 8, !tbaa !345
   %5742 = ptrtoint ptr %.val6541 to i64
   %5743 = ptrtoint ptr %.val6540 to i64
   %5744 = sub i64 %5742, %5743
@@ -17593,10 +17593,10 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.155, i64 noundef 14) #9
   %5749 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.val6543 = load ptr, ptr %5740, align 8, !tbaa !330
-  %.val6544 = load ptr, ptr %5749, align 8, !tbaa !345
+  %.val6543 = load ptr, ptr %5740, align 8, !tbaa !329
+  %.val6544 = load ptr, ptr %5749, align 8, !tbaa !344
   %5750 = getelementptr i8, ptr %2, i64 32
-  %.val6545 = load ptr, ptr %5750, align 8, !tbaa !346
+  %.val6545 = load ptr, ptr %5750, align 8, !tbaa !345
   %5751 = ptrtoint ptr %.val6544 to i64
   %5752 = ptrtoint ptr %.val6543 to i64
   %5753 = sub i64 %5751, %5752
@@ -17608,14 +17608,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.259, i64 noundef 13) #9
   %5758 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %5759 = load ptr, ptr %5758, align 8, !tbaa !551
+  %5759 = load ptr, ptr %5758, align 8, !tbaa !550
   %.not = icmp eq ptr %5759, null
   br i1 %.not, label %5769, label %5760
 
 5760:                                             ; preds = %5738
-  %.val6546 = load ptr, ptr %5740, align 8, !tbaa !330
+  %.val6546 = load ptr, ptr %5740, align 8, !tbaa !329
   %5761 = getelementptr i8, ptr %2, i64 48
-  %.val6548 = load ptr, ptr %5761, align 8, !tbaa !346
+  %.val6548 = load ptr, ptr %5761, align 8, !tbaa !345
   %5762 = ptrtoint ptr %5759 to i64
   %5763 = ptrtoint ptr %.val6546 to i64
   %5764 = sub i64 %5762, %5763
@@ -17634,7 +17634,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.169, i64 noundef 12) #9
   %5771 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %5772 = load ptr, ptr %5771, align 8, !tbaa !298
+  %5772 = load ptr, ptr %5771, align 8, !tbaa !297
   %.not5019 = icmp eq ptr %5772, null
   br i1 %.not5019, label %5774, label %5773
 
@@ -17650,14 +17650,14 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #9
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.260, i64 noundef 13) #9
   %5776 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %5777 = load ptr, ptr %5776, align 8, !tbaa !552
+  %5777 = load ptr, ptr %5776, align 8, !tbaa !551
   %.not5020 = icmp eq ptr %5777, null
   br i1 %.not5020, label %5787, label %5778
 
 5778:                                             ; preds = %5775
-  %.val6549 = load ptr, ptr %5740, align 8, !tbaa !330
+  %.val6549 = load ptr, ptr %5740, align 8, !tbaa !329
   %5779 = getelementptr i8, ptr %2, i64 72
-  %.val6551 = load ptr, ptr %5779, align 8, !tbaa !346
+  %.val6551 = load ptr, ptr %5779, align 8, !tbaa !345
   %5780 = ptrtoint ptr %5777 to i64
   %5781 = ptrtoint ptr %.val6549 to i64
   %5782 = sub i64 %5780, %5781
@@ -17682,9 +17682,9 @@ define internal fastcc void @pm_dump_json_constant(ptr noundef %0, ptr noundef %
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %5 = tail call ptr @pm_constant_pool_id_to_constant(ptr noundef nonnull %4, i32 noundef %2) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
-  %6 = load ptr, ptr %5, align 8, !tbaa !367
+  %6 = load ptr, ptr %5, align 8, !tbaa !366
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !369
+  %8 = load i64, ptr %7, align 8, !tbaa !368
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %6, i64 noundef %8, i32 noundef 1) #9
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 34) #9
   ret void
@@ -17740,540 +17740,539 @@ attributes #9 = { nounwind }
 !13 = !{!"any pointer", !10, i64 0}
 !14 = !{!8, !9, i64 8}
 !15 = !{!8, !12, i64 16}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 _ZTS7pm_node", !13, i64 0}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"pm_node", !23, i64 0, !23, i64 2, !24, i64 4, !25, i64 8}
-!23 = !{!"short", !10, i64 0}
-!24 = !{!"int", !10, i64 0}
-!25 = !{!"", !26, i64 0, !26, i64 8}
-!26 = !{!"p1 omnipotent char", !13, i64 0}
-!27 = !{!28, !20, i64 24}
-!28 = !{!"pm_alias_global_variable_node", !22, i64 0, !20, i64 24, !20, i64 32, !25, i64 40}
-!29 = !{!28, !20, i64 32}
-!30 = !{!31, !20, i64 24}
-!31 = !{!"pm_alias_method_node", !22, i64 0, !20, i64 24, !20, i64 32, !25, i64 40}
-!32 = !{!31, !20, i64 32}
-!33 = !{!34, !20, i64 24}
-!34 = !{!"pm_alternation_pattern_node", !22, i64 0, !20, i64 24, !20, i64 32, !25, i64 40}
-!35 = !{!34, !20, i64 32}
-!36 = !{!37, !20, i64 24}
-!37 = !{!"pm_and_node", !22, i64 0, !20, i64 24, !20, i64 32, !25, i64 40}
-!38 = !{!37, !20, i64 32}
-!39 = !{!40, !20, i64 24}
-!40 = !{!"pm_array_pattern_node", !22, i64 0, !20, i64 24, !8, i64 32, !20, i64 56, !8, i64 64, !25, i64 88, !25, i64 104}
-!41 = !{!40, !20, i64 56}
-!42 = !{!43, !20, i64 24}
-!43 = !{!"pm_assoc_node", !22, i64 0, !20, i64 24, !20, i64 32, !25, i64 40}
-!44 = !{!43, !20, i64 32}
-!45 = !{!46, !20, i64 24}
-!46 = !{!"pm_assoc_splat_node", !22, i64 0, !20, i64 24, !25, i64 32}
-!47 = !{!48, !49, i64 40}
-!48 = !{!"pm_begin_node", !22, i64 0, !25, i64 24, !49, i64 40, !50, i64 48, !51, i64 56, !52, i64 64, !25, i64 72}
-!49 = !{!"p1 _ZTS18pm_statements_node", !13, i64 0}
-!50 = !{!"p1 _ZTS14pm_rescue_node", !13, i64 0}
-!51 = !{!"p1 _ZTS12pm_else_node", !13, i64 0}
-!52 = !{!"p1 _ZTS14pm_ensure_node", !13, i64 0}
-!53 = !{!48, !50, i64 48}
-!54 = !{!48, !51, i64 56}
-!55 = !{!48, !52, i64 64}
-!56 = !{!57, !20, i64 24}
-!57 = !{!"pm_block_argument_node", !22, i64 0, !20, i64 24, !25, i64 32}
-!58 = !{!59, !20, i64 48}
-!59 = !{!"pm_block_node", !22, i64 0, !60, i64 24, !20, i64 48, !20, i64 56, !25, i64 64, !25, i64 80}
-!60 = !{!"", !9, i64 0, !9, i64 8, !61, i64 16}
-!61 = !{!"p1 int", !13, i64 0}
-!62 = !{!59, !20, i64 56}
-!63 = !{!64, !65, i64 24}
-!64 = !{!"pm_block_parameters_node", !22, i64 0, !65, i64 24, !8, i64 32, !25, i64 56, !25, i64 72}
-!65 = !{!"p1 _ZTS18pm_parameters_node", !13, i64 0}
-!66 = !{!67, !68, i64 24}
-!67 = !{!"pm_break_node", !22, i64 0, !68, i64 24, !25, i64 32}
-!68 = !{!"p1 _ZTS17pm_arguments_node", !13, i64 0}
-!69 = !{!70, !20, i64 24}
-!70 = !{!"pm_call_and_write_node", !22, i64 0, !20, i64 24, !25, i64 32, !25, i64 48, !24, i64 64, !24, i64 68, !25, i64 72, !20, i64 88}
-!71 = !{!70, !20, i64 88}
-!72 = !{!73, !20, i64 24}
-!73 = !{!"pm_call_node", !22, i64 0, !20, i64 24, !25, i64 32, !24, i64 48, !25, i64 56, !25, i64 72, !68, i64 88, !25, i64 96, !20, i64 112}
-!74 = !{!73, !68, i64 88}
-!75 = !{!73, !20, i64 112}
-!76 = !{!77, !20, i64 24}
-!77 = !{!"pm_call_operator_write_node", !22, i64 0, !20, i64 24, !25, i64 32, !25, i64 48, !24, i64 64, !24, i64 68, !24, i64 72, !25, i64 80, !20, i64 96}
-!78 = !{!77, !20, i64 96}
-!79 = !{!80, !20, i64 24}
-!80 = !{!"pm_call_or_write_node", !22, i64 0, !20, i64 24, !25, i64 32, !25, i64 48, !24, i64 64, !24, i64 68, !25, i64 72, !20, i64 88}
-!81 = !{!80, !20, i64 88}
-!82 = !{!83, !20, i64 24}
-!83 = !{!"pm_call_target_node", !22, i64 0, !20, i64 24, !25, i64 32, !24, i64 48, !25, i64 56}
-!84 = !{!85, !20, i64 24}
-!85 = !{!"pm_capture_pattern_node", !22, i64 0, !20, i64 24, !86, i64 32, !25, i64 40}
-!86 = !{!"p1 _ZTS29pm_local_variable_target_node", !13, i64 0}
-!87 = !{!85, !86, i64 32}
-!88 = !{!89, !20, i64 24}
-!89 = !{!"pm_case_match_node", !22, i64 0, !20, i64 24, !8, i64 32, !51, i64 56, !25, i64 64, !25, i64 80}
-!90 = !{!89, !51, i64 56}
-!91 = !{!92, !20, i64 24}
-!92 = !{!"pm_case_node", !22, i64 0, !20, i64 24, !8, i64 32, !51, i64 56, !25, i64 64, !25, i64 80}
-!93 = !{!92, !51, i64 56}
-!94 = !{!95, !20, i64 64}
-!95 = !{!"pm_class_node", !22, i64 0, !60, i64 24, !25, i64 48, !20, i64 64, !25, i64 72, !20, i64 88, !20, i64 96, !25, i64 104, !24, i64 120}
-!96 = !{!95, !20, i64 88}
-!97 = !{!95, !20, i64 96}
-!98 = !{!99, !20, i64 64}
-!99 = !{!"pm_class_variable_and_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64}
-!100 = !{!101, !20, i64 64}
-!101 = !{!"pm_class_variable_operator_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64, !24, i64 72}
-!102 = !{!103, !20, i64 64}
-!103 = !{!"pm_class_variable_or_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64}
-!104 = !{!105, !20, i64 48}
-!105 = !{!"pm_class_variable_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !20, i64 48, !25, i64 56}
-!106 = !{!107, !20, i64 64}
-!107 = !{!"pm_constant_and_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64}
-!108 = !{!109, !20, i64 64}
-!109 = !{!"pm_constant_operator_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64, !24, i64 72}
-!110 = !{!111, !20, i64 64}
-!111 = !{!"pm_constant_or_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64}
-!112 = !{!113, !114, i64 24}
-!113 = !{!"pm_constant_path_and_write_node", !22, i64 0, !114, i64 24, !25, i64 32, !20, i64 48}
-!114 = !{!"p1 _ZTS21pm_constant_path_node", !13, i64 0}
-!115 = !{!113, !20, i64 48}
-!116 = !{!117, !20, i64 24}
-!117 = !{!"pm_constant_path_node", !22, i64 0, !20, i64 24, !24, i64 32, !25, i64 40, !25, i64 56}
-!118 = !{!119, !114, i64 24}
-!119 = !{!"pm_constant_path_operator_write_node", !22, i64 0, !114, i64 24, !25, i64 32, !20, i64 48, !24, i64 56}
-!120 = !{!119, !20, i64 48}
-!121 = !{!122, !114, i64 24}
-!122 = !{!"pm_constant_path_or_write_node", !22, i64 0, !114, i64 24, !25, i64 32, !20, i64 48}
-!123 = !{!122, !20, i64 48}
-!124 = !{!125, !20, i64 24}
-!125 = !{!"pm_constant_path_target_node", !22, i64 0, !20, i64 24, !24, i64 32, !25, i64 40, !25, i64 56}
-!126 = !{!127, !114, i64 24}
-!127 = !{!"pm_constant_path_write_node", !22, i64 0, !114, i64 24, !25, i64 32, !20, i64 48}
-!128 = !{!127, !20, i64 48}
-!129 = !{!130, !20, i64 48}
-!130 = !{!"pm_constant_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !20, i64 48, !25, i64 56}
-!131 = !{!132, !20, i64 48}
-!132 = !{!"pm_def_node", !22, i64 0, !24, i64 24, !25, i64 32, !20, i64 48, !65, i64 56, !20, i64 64, !60, i64 72, !25, i64 96, !25, i64 112, !25, i64 128, !25, i64 144, !25, i64 160, !25, i64 176}
-!133 = !{!132, !65, i64 56}
-!134 = !{!132, !20, i64 64}
-!135 = !{!136, !20, i64 40}
-!136 = !{!"pm_defined_node", !22, i64 0, !25, i64 24, !20, i64 40, !25, i64 48, !25, i64 64}
-!137 = !{!138, !49, i64 40}
-!138 = !{!"pm_else_node", !22, i64 0, !25, i64 24, !49, i64 40, !25, i64 48}
-!139 = !{!140, !49, i64 40}
-!140 = !{!"pm_embedded_statements_node", !22, i64 0, !25, i64 24, !49, i64 40, !25, i64 48}
-!141 = !{!142, !20, i64 40}
-!142 = !{!"pm_embedded_variable_node", !22, i64 0, !25, i64 24, !20, i64 40}
-!143 = !{!144, !49, i64 40}
-!144 = !{!"pm_ensure_node", !22, i64 0, !25, i64 24, !49, i64 40, !25, i64 48}
-!145 = !{!146, !20, i64 24}
-!146 = !{!"pm_find_pattern_node", !22, i64 0, !20, i64 24, !147, i64 32, !8, i64 40, !20, i64 64, !25, i64 72, !25, i64 88}
-!147 = !{!"p1 _ZTS13pm_splat_node", !13, i64 0}
-!148 = !{!146, !147, i64 32}
-!149 = !{!146, !20, i64 64}
-!150 = !{!151, !20, i64 24}
-!151 = !{!"pm_flip_flop_node", !22, i64 0, !20, i64 24, !20, i64 32, !25, i64 40}
-!152 = !{!151, !20, i64 32}
-!153 = !{!154, !20, i64 24}
-!154 = !{!"pm_for_node", !22, i64 0, !20, i64 24, !20, i64 32, !49, i64 40, !25, i64 48, !25, i64 64, !25, i64 80, !25, i64 96}
-!155 = !{!154, !20, i64 32}
-!156 = !{!154, !49, i64 40}
-!157 = !{!158, !159, i64 24}
-!158 = !{!"pm_forwarding_super_node", !22, i64 0, !159, i64 24}
-!159 = !{!"p1 _ZTS13pm_block_node", !13, i64 0}
-!160 = !{!161, !20, i64 64}
-!161 = !{!"pm_global_variable_and_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64}
-!162 = !{!163, !20, i64 64}
-!163 = !{!"pm_global_variable_operator_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64, !24, i64 72}
-!164 = !{!165, !20, i64 64}
-!165 = !{!"pm_global_variable_or_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64}
-!166 = !{!167, !20, i64 48}
-!167 = !{!"pm_global_variable_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !20, i64 48, !25, i64 56}
-!168 = !{!169, !20, i64 24}
-!169 = !{!"pm_hash_pattern_node", !22, i64 0, !20, i64 24, !8, i64 32, !20, i64 56, !25, i64 64, !25, i64 80}
-!170 = !{!169, !20, i64 56}
-!171 = !{!172, !20, i64 40}
-!172 = !{!"pm_if_node", !22, i64 0, !25, i64 24, !20, i64 40, !25, i64 48, !49, i64 64, !20, i64 72, !25, i64 80}
-!173 = !{!172, !49, i64 64}
-!174 = !{!172, !20, i64 72}
-!175 = !{!176, !20, i64 24}
-!176 = !{!"pm_imaginary_node", !22, i64 0, !20, i64 24}
-!177 = !{!178, !20, i64 24}
-!178 = !{!"pm_implicit_node", !22, i64 0, !20, i64 24}
-!179 = !{!180, !20, i64 24}
-!180 = !{!"pm_in_node", !22, i64 0, !20, i64 24, !49, i64 32, !25, i64 40, !25, i64 56}
-!181 = !{!180, !49, i64 32}
-!182 = !{!183, !20, i64 24}
-!183 = !{!"pm_index_and_write_node", !22, i64 0, !20, i64 24, !25, i64 32, !25, i64 48, !68, i64 64, !25, i64 72, !184, i64 88, !25, i64 96, !20, i64 112}
-!184 = !{!"p1 _ZTS22pm_block_argument_node", !13, i64 0}
-!185 = !{!183, !68, i64 64}
-!186 = !{!183, !184, i64 88}
-!187 = !{!183, !20, i64 112}
-!188 = !{!189, !20, i64 24}
-!189 = !{!"pm_index_operator_write_node", !22, i64 0, !20, i64 24, !25, i64 32, !25, i64 48, !68, i64 64, !25, i64 72, !184, i64 88, !24, i64 96, !25, i64 104, !20, i64 120}
-!190 = !{!189, !68, i64 64}
-!191 = !{!189, !184, i64 88}
-!192 = !{!189, !20, i64 120}
-!193 = !{!194, !20, i64 24}
-!194 = !{!"pm_index_or_write_node", !22, i64 0, !20, i64 24, !25, i64 32, !25, i64 48, !68, i64 64, !25, i64 72, !184, i64 88, !25, i64 96, !20, i64 112}
-!195 = !{!194, !68, i64 64}
-!196 = !{!194, !184, i64 88}
-!197 = !{!194, !20, i64 112}
-!198 = !{!199, !20, i64 24}
-!199 = !{!"pm_index_target_node", !22, i64 0, !20, i64 24, !25, i64 32, !68, i64 48, !25, i64 56, !184, i64 72}
-!200 = !{!199, !68, i64 48}
-!201 = !{!199, !184, i64 72}
-!202 = !{!203, !20, i64 64}
-!203 = !{!"pm_instance_variable_and_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64}
-!204 = !{!205, !20, i64 64}
-!205 = !{!"pm_instance_variable_operator_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64, !24, i64 72}
-!206 = !{!207, !20, i64 64}
-!207 = !{!"pm_instance_variable_or_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64}
-!208 = !{!209, !20, i64 48}
-!209 = !{!"pm_instance_variable_write_node", !22, i64 0, !24, i64 24, !25, i64 32, !20, i64 48, !25, i64 56}
-!210 = !{!211, !20, i64 96}
-!211 = !{!"pm_lambda_node", !22, i64 0, !60, i64 24, !25, i64 48, !25, i64 64, !25, i64 80, !20, i64 96, !20, i64 104}
-!212 = !{!211, !20, i64 104}
-!213 = !{!214, !20, i64 56}
-!214 = !{!"pm_local_variable_and_write_node", !22, i64 0, !25, i64 24, !25, i64 40, !20, i64 56, !24, i64 64, !24, i64 68}
-!215 = !{!216, !20, i64 56}
-!216 = !{!"pm_local_variable_operator_write_node", !22, i64 0, !25, i64 24, !25, i64 40, !20, i64 56, !24, i64 64, !24, i64 68, !24, i64 72}
-!217 = !{!218, !20, i64 56}
-!218 = !{!"pm_local_variable_or_write_node", !22, i64 0, !25, i64 24, !25, i64 40, !20, i64 56, !24, i64 64, !24, i64 68}
-!219 = !{!220, !20, i64 48}
-!220 = !{!"pm_local_variable_write_node", !22, i64 0, !24, i64 24, !24, i64 28, !25, i64 32, !20, i64 48, !25, i64 56}
-!221 = !{!222, !20, i64 24}
-!222 = !{!"pm_match_predicate_node", !22, i64 0, !20, i64 24, !20, i64 32, !25, i64 40}
-!223 = !{!222, !20, i64 32}
-!224 = !{!225, !20, i64 24}
-!225 = !{!"pm_match_required_node", !22, i64 0, !20, i64 24, !20, i64 32, !25, i64 40}
-!226 = !{!225, !20, i64 32}
-!227 = !{!228, !229, i64 24}
-!228 = !{!"pm_match_write_node", !22, i64 0, !229, i64 24, !8, i64 32}
-!229 = !{!"p1 _ZTS12pm_call_node", !13, i64 0}
-!230 = !{!231, !20, i64 64}
-!231 = !{!"pm_module_node", !22, i64 0, !60, i64 24, !25, i64 48, !20, i64 64, !20, i64 72, !25, i64 80, !24, i64 96}
-!232 = !{!231, !20, i64 72}
-!233 = !{!234, !20, i64 48}
-!234 = !{!"pm_multi_target_node", !22, i64 0, !8, i64 24, !20, i64 48, !8, i64 56, !25, i64 80, !25, i64 96}
-!235 = !{!236, !20, i64 48}
-!236 = !{!"pm_multi_write_node", !22, i64 0, !8, i64 24, !20, i64 48, !8, i64 56, !25, i64 80, !25, i64 96, !25, i64 112, !20, i64 128}
-!237 = !{!236, !20, i64 128}
-!238 = !{!239, !68, i64 24}
-!239 = !{!"pm_next_node", !22, i64 0, !68, i64 24, !25, i64 32}
-!240 = !{!241, !20, i64 48}
-!241 = !{!"pm_optional_keyword_parameter_node", !22, i64 0, !24, i64 24, !25, i64 32, !20, i64 48}
-!242 = !{!243, !20, i64 64}
-!243 = !{!"pm_optional_parameter_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48, !20, i64 64}
-!244 = !{!245, !20, i64 24}
-!245 = !{!"pm_or_node", !22, i64 0, !20, i64 24, !20, i64 32, !25, i64 40}
-!246 = !{!245, !20, i64 32}
-!247 = !{!248, !20, i64 72}
-!248 = !{!"pm_parameters_node", !22, i64 0, !8, i64 24, !8, i64 48, !20, i64 72, !8, i64 80, !8, i64 104, !20, i64 128, !249, i64 136}
-!249 = !{!"p1 _ZTS23pm_block_parameter_node", !13, i64 0}
-!250 = !{!248, !20, i64 128}
-!251 = !{!248, !249, i64 136}
-!252 = !{!253, !20, i64 24}
-!253 = !{!"pm_parentheses_node", !22, i64 0, !20, i64 24, !25, i64 32, !25, i64 48}
-!254 = !{!255, !20, i64 24}
-!255 = !{!"pm_pinned_expression_node", !22, i64 0, !20, i64 24, !25, i64 32, !25, i64 48, !25, i64 64}
-!256 = !{!257, !20, i64 24}
-!257 = !{!"pm_pinned_variable_node", !22, i64 0, !20, i64 24, !25, i64 32}
-!258 = !{!259, !49, i64 24}
-!259 = !{!"pm_post_execution_node", !22, i64 0, !49, i64 24, !25, i64 32, !25, i64 48, !25, i64 64}
-!260 = !{!261, !49, i64 24}
-!261 = !{!"pm_pre_execution_node", !22, i64 0, !49, i64 24, !25, i64 32, !25, i64 48, !25, i64 64}
-!262 = !{!263, !49, i64 48}
-!263 = !{!"pm_program_node", !22, i64 0, !60, i64 24, !49, i64 48}
-!264 = !{!265, !20, i64 24}
-!265 = !{!"pm_range_node", !22, i64 0, !20, i64 24, !20, i64 32, !25, i64 40}
-!266 = !{!265, !20, i64 32}
-!267 = !{!268, !20, i64 24}
-!268 = !{!"pm_rescue_modifier_node", !22, i64 0, !20, i64 24, !25, i64 32, !20, i64 48}
-!269 = !{!268, !20, i64 48}
-!270 = !{!271, !20, i64 80}
-!271 = !{!"pm_rescue_node", !22, i64 0, !25, i64 24, !8, i64 40, !25, i64 64, !20, i64 80, !49, i64 88, !50, i64 96}
-!272 = !{!271, !49, i64 88}
-!273 = !{!271, !50, i64 96}
-!274 = !{!275, !68, i64 40}
-!275 = !{!"pm_return_node", !22, i64 0, !25, i64 24, !68, i64 40}
-!276 = !{!277, !20, i64 24}
-!277 = !{!"pm_shareable_constant_node", !22, i64 0, !20, i64 24}
-!278 = !{!279, !20, i64 80}
-!279 = !{!"pm_singleton_class_node", !22, i64 0, !60, i64 24, !25, i64 48, !25, i64 64, !20, i64 80, !20, i64 88, !25, i64 96}
-!280 = !{!279, !20, i64 88}
-!281 = !{!282, !20, i64 40}
-!282 = !{!"pm_splat_node", !22, i64 0, !25, i64 24, !20, i64 40}
-!283 = !{!284, !68, i64 56}
-!284 = !{!"pm_super_node", !22, i64 0, !25, i64 24, !25, i64 40, !68, i64 56, !25, i64 64, !20, i64 80}
-!285 = !{!284, !20, i64 80}
-!286 = !{!287, !20, i64 40}
-!287 = !{!"pm_unless_node", !22, i64 0, !25, i64 24, !20, i64 40, !25, i64 48, !49, i64 64, !51, i64 72, !25, i64 80}
-!288 = !{!287, !49, i64 64}
-!289 = !{!287, !51, i64 72}
-!290 = !{!291, !20, i64 72}
-!291 = !{!"pm_until_node", !22, i64 0, !25, i64 24, !25, i64 40, !25, i64 56, !20, i64 72, !49, i64 80}
-!292 = !{!291, !49, i64 80}
-!293 = !{!294, !49, i64 80}
-!294 = !{!"pm_when_node", !22, i64 0, !25, i64 24, !8, i64 40, !25, i64 64, !49, i64 80}
-!295 = !{!296, !20, i64 72}
-!296 = !{!"pm_while_node", !22, i64 0, !25, i64 24, !25, i64 40, !25, i64 56, !20, i64 72, !49, i64 80}
-!297 = !{!296, !49, i64 80}
-!298 = !{!299, !68, i64 56}
-!299 = !{!"pm_yield_node", !22, i64 0, !25, i64 24, !25, i64 40, !68, i64 56, !25, i64 64}
-!300 = distinct !{!300, !17, !18}
-!301 = distinct !{!301, !17, !18}
-!302 = distinct !{!302, !17, !18}
-!303 = distinct !{!303, !17, !18}
-!304 = distinct !{!304, !17, !18}
-!305 = distinct !{!305, !17, !18}
-!306 = distinct !{!306, !17, !18}
-!307 = distinct !{!307, !17, !18}
-!308 = distinct !{!308, !17, !18}
-!309 = distinct !{!309, !17, !18}
-!310 = distinct !{!310, !17, !18}
-!311 = distinct !{!311, !17, !18}
-!312 = distinct !{!312, !17, !18}
-!313 = distinct !{!313, !17, !18}
-!314 = distinct !{!314, !17, !18}
-!315 = distinct !{!315, !17, !18}
-!316 = distinct !{!316, !17, !18}
-!317 = distinct !{!317, !17, !18}
-!318 = distinct !{!318, !17, !18}
-!319 = distinct !{!319, !17, !18}
-!320 = distinct !{!320, !17, !18}
-!321 = distinct !{!321, !17, !18}
-!322 = distinct !{!322, !17, !18}
-!323 = distinct !{!323, !17, !18}
-!324 = distinct !{!324, !17, !18}
-!325 = distinct !{!325, !17, !18}
-!326 = distinct !{!326, !17, !18}
-!327 = distinct !{!327, !17, !18}
-!328 = distinct !{!328, !17, !18}
-!329 = distinct !{!329, !17, !18}
-!330 = !{!331, !26, i64 304}
-!331 = !{!"pm_parser", !24, i64 0, !24, i64 4, !24, i64 8, !24, i64 12, !24, i64 16, !24, i64 20, !24, i64 24, !332, i64 32, !26, i64 304, !26, i64 312, !334, i64 320, !334, i64 344, !26, i64 368, !26, i64 376, !335, i64 384, !335, i64 408, !25, i64 432, !335, i64 448, !335, i64 472, !337, i64 496, !338, i64 504, !13, i64 512, !13, i64 520, !13, i64 528, !26, i64 536, !13, i64 544, !339, i64 552, !340, i64 576, !341, i64 600, !23, i64 632, !339, i64 640, !24, i64 664, !13, i64 672, !343, i64 680, !24, i64 688, !10, i64 692, !10, i64 693, !344, i64 694, !344, i64 695, !344, i64 696, !344, i64 697, !344, i64 698, !344, i64 699, !344, i64 700, !344, i64 701, !344, i64 702, !344, i64 703, !344, i64 704}
-!332 = !{!"", !333, i64 0, !10, i64 8, !9, i64 264}
-!333 = !{!"p1 _ZTS11pm_lex_mode", !13, i64 0}
-!334 = !{!"", !24, i64 0, !26, i64 8, !26, i64 16}
-!335 = !{!"", !9, i64 0, !336, i64 8, !336, i64 16}
-!336 = !{!"p1 _ZTS12pm_list_node", !13, i64 0}
-!337 = !{!"p1 _ZTS8pm_scope", !13, i64 0}
-!338 = !{!"p1 _ZTS15pm_context_node", !13, i64 0}
-!339 = !{!"", !26, i64 0, !9, i64 8, !24, i64 16}
-!340 = !{!"", !13, i64 0, !13, i64 8, !24, i64 16, !24, i64 20}
-!341 = !{!"", !26, i64 0, !9, i64 8, !9, i64 16, !342, i64 24}
-!342 = !{!"p1 long", !13, i64 0}
-!343 = !{!"p1 _ZTS12pm_node_list", !13, i64 0}
-!344 = !{!"_Bool", !10, i64 0}
-!345 = !{!25, !26, i64 0}
-!346 = !{!25, !26, i64 8}
-!347 = !{!22, !23, i64 2}
-!348 = distinct !{!348, !17, !18}
-!349 = !{!350, !26, i64 48}
-!350 = !{!"pm_array_node", !22, i64 0, !8, i64 24, !25, i64 48, !25, i64 64}
-!351 = distinct !{!351, !17, !18}
-!352 = !{!350, !26, i64 64}
-!353 = distinct !{!353, !17, !18}
-!354 = !{!40, !26, i64 88}
-!355 = distinct !{!355, !17, !18}
-!356 = !{!40, !26, i64 104}
-!357 = !{!43, !26, i64 40}
-!358 = !{!359, !24, i64 24}
-!359 = !{!"pm_back_reference_read_node", !22, i64 0, !24, i64 24}
-!360 = !{!48, !26, i64 24}
-!361 = !{!48, !26, i64 72}
-!362 = !{!363, !24, i64 24}
-!363 = !{!"pm_block_local_variable_node", !22, i64 0, !24, i64 24}
-!364 = !{!60, !9, i64 0}
-!365 = !{!60, !61, i64 16}
-!366 = !{!24, !24, i64 0}
-!367 = !{!368, !26, i64 0}
-!368 = !{!"", !26, i64 0, !9, i64 8}
-!369 = !{!368, !9, i64 8}
-!370 = distinct !{!370, !17, !18}
-!371 = !{!372, !24, i64 24}
-!372 = !{!"pm_block_parameter_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48}
-!373 = !{!372, !26, i64 32}
-!374 = !{!64, !26, i64 56}
-!375 = distinct !{!375, !17, !18}
-!376 = !{!64, !26, i64 72}
-!377 = !{!70, !26, i64 32}
-!378 = !{!70, !26, i64 48}
-!379 = !{!70, !24, i64 64}
-!380 = !{!70, !24, i64 68}
-!381 = !{!73, !26, i64 32}
-!382 = !{!73, !24, i64 48}
-!383 = !{!73, !26, i64 56}
-!384 = !{!73, !26, i64 72}
-!385 = !{!73, !26, i64 96}
-!386 = !{!77, !26, i64 32}
-!387 = !{!77, !26, i64 48}
-!388 = !{!77, !24, i64 64}
-!389 = !{!77, !24, i64 68}
-!390 = !{!77, !24, i64 72}
-!391 = !{!80, !26, i64 32}
-!392 = !{!80, !26, i64 48}
-!393 = !{!80, !24, i64 64}
-!394 = !{!80, !24, i64 68}
-!395 = !{!83, !24, i64 48}
-!396 = distinct !{!396, !17, !18}
-!397 = distinct !{!397, !17, !18}
-!398 = !{!95, !26, i64 72}
-!399 = distinct !{!399, !17, !18}
-!400 = !{!95, !24, i64 120}
-!401 = !{!99, !24, i64 24}
-!402 = !{!101, !24, i64 24}
-!403 = !{!101, !24, i64 72}
-!404 = !{!103, !24, i64 24}
-!405 = !{!406, !24, i64 24}
-!406 = !{!"pm_class_variable_read_node", !22, i64 0, !24, i64 24}
-!407 = !{!408, !24, i64 24}
-!408 = !{!"pm_class_variable_target_node", !22, i64 0, !24, i64 24}
-!409 = !{!105, !24, i64 24}
-!410 = !{!107, !24, i64 24}
-!411 = !{!109, !24, i64 24}
-!412 = !{!109, !24, i64 72}
-!413 = !{!111, !24, i64 24}
-!414 = !{!117, !24, i64 32}
-!415 = !{!119, !24, i64 56}
-!416 = !{!125, !24, i64 32}
-!417 = !{!418, !24, i64 24}
-!418 = !{!"pm_constant_read_node", !22, i64 0, !24, i64 24}
-!419 = !{!420, !24, i64 24}
-!420 = !{!"pm_constant_target_node", !22, i64 0, !24, i64 24}
-!421 = !{!130, !24, i64 24}
-!422 = !{!132, !24, i64 24}
-!423 = !{!132, !26, i64 112}
-!424 = distinct !{!424, !17, !18}
-!425 = !{!132, !26, i64 128}
-!426 = !{!132, !26, i64 144}
-!427 = !{!132, !26, i64 160}
-!428 = !{!132, !26, i64 176}
-!429 = !{!136, !26, i64 24}
-!430 = !{!136, !26, i64 48}
-!431 = !{!138, !26, i64 48}
-!432 = !{!146, !26, i64 72}
-!433 = distinct !{!433, !17, !18}
-!434 = !{!146, !26, i64 88}
-!435 = !{!436, !437, i64 24}
-!436 = !{!"pm_float_node", !22, i64 0, !437, i64 24}
-!437 = !{!"double", !10, i64 0}
-!438 = !{!154, !26, i64 80}
-!439 = !{!161, !24, i64 24}
-!440 = !{!163, !24, i64 24}
-!441 = !{!163, !24, i64 72}
-!442 = !{!165, !24, i64 24}
-!443 = !{!444, !24, i64 24}
-!444 = !{!"pm_global_variable_read_node", !22, i64 0, !24, i64 24}
-!445 = !{!446, !24, i64 24}
-!446 = !{!"pm_global_variable_target_node", !22, i64 0, !24, i64 24}
-!447 = !{!167, !24, i64 24}
-!448 = distinct !{!448, !17, !18}
-!449 = distinct !{!449, !17, !18}
-!450 = !{!169, !26, i64 64}
-!451 = !{!169, !26, i64 80}
-!452 = !{!172, !26, i64 24}
-!453 = !{!172, !26, i64 48}
-!454 = !{!172, !26, i64 80}
-!455 = !{!180, !26, i64 56}
-!456 = !{!183, !26, i64 32}
-!457 = !{!189, !26, i64 32}
-!458 = !{!189, !24, i64 96}
-!459 = !{!194, !26, i64 32}
-!460 = !{!203, !24, i64 24}
-!461 = !{!205, !24, i64 24}
-!462 = !{!205, !24, i64 72}
-!463 = !{!207, !24, i64 24}
-!464 = !{!465, !24, i64 24}
-!465 = !{!"pm_instance_variable_read_node", !22, i64 0, !24, i64 24}
-!466 = !{!467, !24, i64 24}
-!467 = !{!"pm_instance_variable_target_node", !22, i64 0, !24, i64 24}
-!468 = !{!209, !24, i64 24}
-!469 = distinct !{!469, !17, !18}
-!470 = distinct !{!470, !17, !18}
-!471 = !{!472, !26, i64 24}
-!472 = !{!"pm_interpolated_string_node", !22, i64 0, !25, i64 24, !8, i64 40, !25, i64 64}
-!473 = !{!472, !26, i64 64}
-!474 = distinct !{!474, !17, !18}
-!475 = !{!476, !26, i64 24}
-!476 = !{!"pm_interpolated_symbol_node", !22, i64 0, !25, i64 24, !8, i64 40, !25, i64 64}
-!477 = !{!476, !26, i64 64}
-!478 = distinct !{!478, !17, !18}
-!479 = distinct !{!479, !17, !18}
-!480 = distinct !{!480, !17, !18}
-!481 = !{!482, !24, i64 24}
-!482 = !{!"pm_keyword_rest_parameter_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48}
-!483 = !{!482, !26, i64 32}
-!484 = distinct !{!484, !17, !18}
-!485 = !{!214, !24, i64 64}
-!486 = !{!214, !24, i64 68}
-!487 = !{!216, !24, i64 64}
-!488 = !{!216, !24, i64 68}
-!489 = !{!216, !24, i64 72}
-!490 = !{!218, !24, i64 64}
-!491 = !{!218, !24, i64 68}
-!492 = !{!493, !24, i64 24}
-!493 = !{!"pm_local_variable_read_node", !22, i64 0, !24, i64 24, !24, i64 28}
-!494 = !{!493, !24, i64 28}
-!495 = !{!496, !24, i64 24}
-!496 = !{!"pm_local_variable_target_node", !22, i64 0, !24, i64 24, !24, i64 28}
-!497 = !{!496, !24, i64 28}
-!498 = !{!220, !24, i64 24}
-!499 = !{!220, !24, i64 28}
-!500 = distinct !{!500, !17, !18}
-!501 = distinct !{!501, !17, !18}
-!502 = !{!231, !24, i64 96}
-!503 = distinct !{!503, !17, !18}
-!504 = !{!234, !26, i64 80}
-!505 = distinct !{!505, !17, !18}
-!506 = !{!234, !26, i64 96}
-!507 = distinct !{!507, !17, !18}
-!508 = !{!236, !26, i64 80}
-!509 = distinct !{!509, !17, !18}
-!510 = !{!236, !26, i64 96}
-!511 = !{!512, !10, i64 24}
-!512 = !{!"pm_numbered_parameters_node", !22, i64 0, !10, i64 24}
-!513 = !{!514, !24, i64 24}
-!514 = !{!"pm_numbered_reference_read_node", !22, i64 0, !24, i64 24}
-!515 = !{!241, !24, i64 24}
-!516 = !{!243, !24, i64 24}
-!517 = distinct !{!517, !17, !18}
-!518 = distinct !{!518, !17, !18}
-!519 = distinct !{!519, !17, !18}
-!520 = distinct !{!520, !17, !18}
-!521 = distinct !{!521, !17, !18}
-!522 = !{!523, !24, i64 24}
-!523 = !{!"pm_required_keyword_parameter_node", !22, i64 0, !24, i64 24, !25, i64 32}
-!524 = !{!525, !24, i64 24}
-!525 = !{!"pm_required_parameter_node", !22, i64 0, !24, i64 24}
-!526 = !{!271, !26, i64 64}
-!527 = distinct !{!527, !17, !18}
-!528 = !{!529, !24, i64 24}
-!529 = !{!"pm_rest_parameter_node", !22, i64 0, !24, i64 24, !25, i64 32, !25, i64 48}
-!530 = !{!529, !26, i64 32}
-!531 = distinct !{!531, !17, !18}
-!532 = distinct !{!532, !17, !18}
-!533 = !{!534, !26, i64 24}
-!534 = !{!"pm_string_node", !22, i64 0, !25, i64 24, !25, i64 40, !25, i64 56, !339, i64 72}
-!535 = !{!534, !26, i64 56}
-!536 = !{!284, !26, i64 40}
-!537 = !{!284, !26, i64 64}
-!538 = !{!539, !26, i64 24}
-!539 = !{!"pm_symbol_node", !22, i64 0, !25, i64 24, !25, i64 40, !25, i64 56, !339, i64 72}
-!540 = !{!539, !26, i64 40}
-!541 = !{!539, !26, i64 56}
-!542 = distinct !{!542, !17, !18}
-!543 = !{!287, !26, i64 48}
-!544 = !{!287, !26, i64 80}
-!545 = !{!291, !26, i64 40}
-!546 = !{!291, !26, i64 56}
-!547 = !{!294, !26, i64 64}
-!548 = distinct !{!548, !17, !18}
-!549 = !{!296, !26, i64 40}
-!550 = !{!296, !26, i64 56}
-!551 = !{!299, !26, i64 40}
-!552 = !{!299, !26, i64 64}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS7pm_node", !13, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"pm_node", !22, i64 0, !22, i64 2, !23, i64 4, !24, i64 8}
+!22 = !{!"short", !10, i64 0}
+!23 = !{!"int", !10, i64 0}
+!24 = !{!"", !25, i64 0, !25, i64 8}
+!25 = !{!"p1 omnipotent char", !13, i64 0}
+!26 = !{!27, !19, i64 24}
+!27 = !{!"pm_alias_global_variable_node", !21, i64 0, !19, i64 24, !19, i64 32, !24, i64 40}
+!28 = !{!27, !19, i64 32}
+!29 = !{!30, !19, i64 24}
+!30 = !{!"pm_alias_method_node", !21, i64 0, !19, i64 24, !19, i64 32, !24, i64 40}
+!31 = !{!30, !19, i64 32}
+!32 = !{!33, !19, i64 24}
+!33 = !{!"pm_alternation_pattern_node", !21, i64 0, !19, i64 24, !19, i64 32, !24, i64 40}
+!34 = !{!33, !19, i64 32}
+!35 = !{!36, !19, i64 24}
+!36 = !{!"pm_and_node", !21, i64 0, !19, i64 24, !19, i64 32, !24, i64 40}
+!37 = !{!36, !19, i64 32}
+!38 = !{!39, !19, i64 24}
+!39 = !{!"pm_array_pattern_node", !21, i64 0, !19, i64 24, !8, i64 32, !19, i64 56, !8, i64 64, !24, i64 88, !24, i64 104}
+!40 = !{!39, !19, i64 56}
+!41 = !{!42, !19, i64 24}
+!42 = !{!"pm_assoc_node", !21, i64 0, !19, i64 24, !19, i64 32, !24, i64 40}
+!43 = !{!42, !19, i64 32}
+!44 = !{!45, !19, i64 24}
+!45 = !{!"pm_assoc_splat_node", !21, i64 0, !19, i64 24, !24, i64 32}
+!46 = !{!47, !48, i64 40}
+!47 = !{!"pm_begin_node", !21, i64 0, !24, i64 24, !48, i64 40, !49, i64 48, !50, i64 56, !51, i64 64, !24, i64 72}
+!48 = !{!"p1 _ZTS18pm_statements_node", !13, i64 0}
+!49 = !{!"p1 _ZTS14pm_rescue_node", !13, i64 0}
+!50 = !{!"p1 _ZTS12pm_else_node", !13, i64 0}
+!51 = !{!"p1 _ZTS14pm_ensure_node", !13, i64 0}
+!52 = !{!47, !49, i64 48}
+!53 = !{!47, !50, i64 56}
+!54 = !{!47, !51, i64 64}
+!55 = !{!56, !19, i64 24}
+!56 = !{!"pm_block_argument_node", !21, i64 0, !19, i64 24, !24, i64 32}
+!57 = !{!58, !19, i64 48}
+!58 = !{!"pm_block_node", !21, i64 0, !59, i64 24, !19, i64 48, !19, i64 56, !24, i64 64, !24, i64 80}
+!59 = !{!"", !9, i64 0, !9, i64 8, !60, i64 16}
+!60 = !{!"p1 int", !13, i64 0}
+!61 = !{!58, !19, i64 56}
+!62 = !{!63, !64, i64 24}
+!63 = !{!"pm_block_parameters_node", !21, i64 0, !64, i64 24, !8, i64 32, !24, i64 56, !24, i64 72}
+!64 = !{!"p1 _ZTS18pm_parameters_node", !13, i64 0}
+!65 = !{!66, !67, i64 24}
+!66 = !{!"pm_break_node", !21, i64 0, !67, i64 24, !24, i64 32}
+!67 = !{!"p1 _ZTS17pm_arguments_node", !13, i64 0}
+!68 = !{!69, !19, i64 24}
+!69 = !{!"pm_call_and_write_node", !21, i64 0, !19, i64 24, !24, i64 32, !24, i64 48, !23, i64 64, !23, i64 68, !24, i64 72, !19, i64 88}
+!70 = !{!69, !19, i64 88}
+!71 = !{!72, !19, i64 24}
+!72 = !{!"pm_call_node", !21, i64 0, !19, i64 24, !24, i64 32, !23, i64 48, !24, i64 56, !24, i64 72, !67, i64 88, !24, i64 96, !19, i64 112}
+!73 = !{!72, !67, i64 88}
+!74 = !{!72, !19, i64 112}
+!75 = !{!76, !19, i64 24}
+!76 = !{!"pm_call_operator_write_node", !21, i64 0, !19, i64 24, !24, i64 32, !24, i64 48, !23, i64 64, !23, i64 68, !23, i64 72, !24, i64 80, !19, i64 96}
+!77 = !{!76, !19, i64 96}
+!78 = !{!79, !19, i64 24}
+!79 = !{!"pm_call_or_write_node", !21, i64 0, !19, i64 24, !24, i64 32, !24, i64 48, !23, i64 64, !23, i64 68, !24, i64 72, !19, i64 88}
+!80 = !{!79, !19, i64 88}
+!81 = !{!82, !19, i64 24}
+!82 = !{!"pm_call_target_node", !21, i64 0, !19, i64 24, !24, i64 32, !23, i64 48, !24, i64 56}
+!83 = !{!84, !19, i64 24}
+!84 = !{!"pm_capture_pattern_node", !21, i64 0, !19, i64 24, !85, i64 32, !24, i64 40}
+!85 = !{!"p1 _ZTS29pm_local_variable_target_node", !13, i64 0}
+!86 = !{!84, !85, i64 32}
+!87 = !{!88, !19, i64 24}
+!88 = !{!"pm_case_match_node", !21, i64 0, !19, i64 24, !8, i64 32, !50, i64 56, !24, i64 64, !24, i64 80}
+!89 = !{!88, !50, i64 56}
+!90 = !{!91, !19, i64 24}
+!91 = !{!"pm_case_node", !21, i64 0, !19, i64 24, !8, i64 32, !50, i64 56, !24, i64 64, !24, i64 80}
+!92 = !{!91, !50, i64 56}
+!93 = !{!94, !19, i64 64}
+!94 = !{!"pm_class_node", !21, i64 0, !59, i64 24, !24, i64 48, !19, i64 64, !24, i64 72, !19, i64 88, !19, i64 96, !24, i64 104, !23, i64 120}
+!95 = !{!94, !19, i64 88}
+!96 = !{!94, !19, i64 96}
+!97 = !{!98, !19, i64 64}
+!98 = !{!"pm_class_variable_and_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64}
+!99 = !{!100, !19, i64 64}
+!100 = !{!"pm_class_variable_operator_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64, !23, i64 72}
+!101 = !{!102, !19, i64 64}
+!102 = !{!"pm_class_variable_or_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64}
+!103 = !{!104, !19, i64 48}
+!104 = !{!"pm_class_variable_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !19, i64 48, !24, i64 56}
+!105 = !{!106, !19, i64 64}
+!106 = !{!"pm_constant_and_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64}
+!107 = !{!108, !19, i64 64}
+!108 = !{!"pm_constant_operator_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64, !23, i64 72}
+!109 = !{!110, !19, i64 64}
+!110 = !{!"pm_constant_or_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64}
+!111 = !{!112, !113, i64 24}
+!112 = !{!"pm_constant_path_and_write_node", !21, i64 0, !113, i64 24, !24, i64 32, !19, i64 48}
+!113 = !{!"p1 _ZTS21pm_constant_path_node", !13, i64 0}
+!114 = !{!112, !19, i64 48}
+!115 = !{!116, !19, i64 24}
+!116 = !{!"pm_constant_path_node", !21, i64 0, !19, i64 24, !23, i64 32, !24, i64 40, !24, i64 56}
+!117 = !{!118, !113, i64 24}
+!118 = !{!"pm_constant_path_operator_write_node", !21, i64 0, !113, i64 24, !24, i64 32, !19, i64 48, !23, i64 56}
+!119 = !{!118, !19, i64 48}
+!120 = !{!121, !113, i64 24}
+!121 = !{!"pm_constant_path_or_write_node", !21, i64 0, !113, i64 24, !24, i64 32, !19, i64 48}
+!122 = !{!121, !19, i64 48}
+!123 = !{!124, !19, i64 24}
+!124 = !{!"pm_constant_path_target_node", !21, i64 0, !19, i64 24, !23, i64 32, !24, i64 40, !24, i64 56}
+!125 = !{!126, !113, i64 24}
+!126 = !{!"pm_constant_path_write_node", !21, i64 0, !113, i64 24, !24, i64 32, !19, i64 48}
+!127 = !{!126, !19, i64 48}
+!128 = !{!129, !19, i64 48}
+!129 = !{!"pm_constant_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !19, i64 48, !24, i64 56}
+!130 = !{!131, !19, i64 48}
+!131 = !{!"pm_def_node", !21, i64 0, !23, i64 24, !24, i64 32, !19, i64 48, !64, i64 56, !19, i64 64, !59, i64 72, !24, i64 96, !24, i64 112, !24, i64 128, !24, i64 144, !24, i64 160, !24, i64 176}
+!132 = !{!131, !64, i64 56}
+!133 = !{!131, !19, i64 64}
+!134 = !{!135, !19, i64 40}
+!135 = !{!"pm_defined_node", !21, i64 0, !24, i64 24, !19, i64 40, !24, i64 48, !24, i64 64}
+!136 = !{!137, !48, i64 40}
+!137 = !{!"pm_else_node", !21, i64 0, !24, i64 24, !48, i64 40, !24, i64 48}
+!138 = !{!139, !48, i64 40}
+!139 = !{!"pm_embedded_statements_node", !21, i64 0, !24, i64 24, !48, i64 40, !24, i64 48}
+!140 = !{!141, !19, i64 40}
+!141 = !{!"pm_embedded_variable_node", !21, i64 0, !24, i64 24, !19, i64 40}
+!142 = !{!143, !48, i64 40}
+!143 = !{!"pm_ensure_node", !21, i64 0, !24, i64 24, !48, i64 40, !24, i64 48}
+!144 = !{!145, !19, i64 24}
+!145 = !{!"pm_find_pattern_node", !21, i64 0, !19, i64 24, !146, i64 32, !8, i64 40, !19, i64 64, !24, i64 72, !24, i64 88}
+!146 = !{!"p1 _ZTS13pm_splat_node", !13, i64 0}
+!147 = !{!145, !146, i64 32}
+!148 = !{!145, !19, i64 64}
+!149 = !{!150, !19, i64 24}
+!150 = !{!"pm_flip_flop_node", !21, i64 0, !19, i64 24, !19, i64 32, !24, i64 40}
+!151 = !{!150, !19, i64 32}
+!152 = !{!153, !19, i64 24}
+!153 = !{!"pm_for_node", !21, i64 0, !19, i64 24, !19, i64 32, !48, i64 40, !24, i64 48, !24, i64 64, !24, i64 80, !24, i64 96}
+!154 = !{!153, !19, i64 32}
+!155 = !{!153, !48, i64 40}
+!156 = !{!157, !158, i64 24}
+!157 = !{!"pm_forwarding_super_node", !21, i64 0, !158, i64 24}
+!158 = !{!"p1 _ZTS13pm_block_node", !13, i64 0}
+!159 = !{!160, !19, i64 64}
+!160 = !{!"pm_global_variable_and_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64}
+!161 = !{!162, !19, i64 64}
+!162 = !{!"pm_global_variable_operator_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64, !23, i64 72}
+!163 = !{!164, !19, i64 64}
+!164 = !{!"pm_global_variable_or_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64}
+!165 = !{!166, !19, i64 48}
+!166 = !{!"pm_global_variable_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !19, i64 48, !24, i64 56}
+!167 = !{!168, !19, i64 24}
+!168 = !{!"pm_hash_pattern_node", !21, i64 0, !19, i64 24, !8, i64 32, !19, i64 56, !24, i64 64, !24, i64 80}
+!169 = !{!168, !19, i64 56}
+!170 = !{!171, !19, i64 40}
+!171 = !{!"pm_if_node", !21, i64 0, !24, i64 24, !19, i64 40, !24, i64 48, !48, i64 64, !19, i64 72, !24, i64 80}
+!172 = !{!171, !48, i64 64}
+!173 = !{!171, !19, i64 72}
+!174 = !{!175, !19, i64 24}
+!175 = !{!"pm_imaginary_node", !21, i64 0, !19, i64 24}
+!176 = !{!177, !19, i64 24}
+!177 = !{!"pm_implicit_node", !21, i64 0, !19, i64 24}
+!178 = !{!179, !19, i64 24}
+!179 = !{!"pm_in_node", !21, i64 0, !19, i64 24, !48, i64 32, !24, i64 40, !24, i64 56}
+!180 = !{!179, !48, i64 32}
+!181 = !{!182, !19, i64 24}
+!182 = !{!"pm_index_and_write_node", !21, i64 0, !19, i64 24, !24, i64 32, !24, i64 48, !67, i64 64, !24, i64 72, !183, i64 88, !24, i64 96, !19, i64 112}
+!183 = !{!"p1 _ZTS22pm_block_argument_node", !13, i64 0}
+!184 = !{!182, !67, i64 64}
+!185 = !{!182, !183, i64 88}
+!186 = !{!182, !19, i64 112}
+!187 = !{!188, !19, i64 24}
+!188 = !{!"pm_index_operator_write_node", !21, i64 0, !19, i64 24, !24, i64 32, !24, i64 48, !67, i64 64, !24, i64 72, !183, i64 88, !23, i64 96, !24, i64 104, !19, i64 120}
+!189 = !{!188, !67, i64 64}
+!190 = !{!188, !183, i64 88}
+!191 = !{!188, !19, i64 120}
+!192 = !{!193, !19, i64 24}
+!193 = !{!"pm_index_or_write_node", !21, i64 0, !19, i64 24, !24, i64 32, !24, i64 48, !67, i64 64, !24, i64 72, !183, i64 88, !24, i64 96, !19, i64 112}
+!194 = !{!193, !67, i64 64}
+!195 = !{!193, !183, i64 88}
+!196 = !{!193, !19, i64 112}
+!197 = !{!198, !19, i64 24}
+!198 = !{!"pm_index_target_node", !21, i64 0, !19, i64 24, !24, i64 32, !67, i64 48, !24, i64 56, !183, i64 72}
+!199 = !{!198, !67, i64 48}
+!200 = !{!198, !183, i64 72}
+!201 = !{!202, !19, i64 64}
+!202 = !{!"pm_instance_variable_and_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64}
+!203 = !{!204, !19, i64 64}
+!204 = !{!"pm_instance_variable_operator_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64, !23, i64 72}
+!205 = !{!206, !19, i64 64}
+!206 = !{!"pm_instance_variable_or_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64}
+!207 = !{!208, !19, i64 48}
+!208 = !{!"pm_instance_variable_write_node", !21, i64 0, !23, i64 24, !24, i64 32, !19, i64 48, !24, i64 56}
+!209 = !{!210, !19, i64 96}
+!210 = !{!"pm_lambda_node", !21, i64 0, !59, i64 24, !24, i64 48, !24, i64 64, !24, i64 80, !19, i64 96, !19, i64 104}
+!211 = !{!210, !19, i64 104}
+!212 = !{!213, !19, i64 56}
+!213 = !{!"pm_local_variable_and_write_node", !21, i64 0, !24, i64 24, !24, i64 40, !19, i64 56, !23, i64 64, !23, i64 68}
+!214 = !{!215, !19, i64 56}
+!215 = !{!"pm_local_variable_operator_write_node", !21, i64 0, !24, i64 24, !24, i64 40, !19, i64 56, !23, i64 64, !23, i64 68, !23, i64 72}
+!216 = !{!217, !19, i64 56}
+!217 = !{!"pm_local_variable_or_write_node", !21, i64 0, !24, i64 24, !24, i64 40, !19, i64 56, !23, i64 64, !23, i64 68}
+!218 = !{!219, !19, i64 48}
+!219 = !{!"pm_local_variable_write_node", !21, i64 0, !23, i64 24, !23, i64 28, !24, i64 32, !19, i64 48, !24, i64 56}
+!220 = !{!221, !19, i64 24}
+!221 = !{!"pm_match_predicate_node", !21, i64 0, !19, i64 24, !19, i64 32, !24, i64 40}
+!222 = !{!221, !19, i64 32}
+!223 = !{!224, !19, i64 24}
+!224 = !{!"pm_match_required_node", !21, i64 0, !19, i64 24, !19, i64 32, !24, i64 40}
+!225 = !{!224, !19, i64 32}
+!226 = !{!227, !228, i64 24}
+!227 = !{!"pm_match_write_node", !21, i64 0, !228, i64 24, !8, i64 32}
+!228 = !{!"p1 _ZTS12pm_call_node", !13, i64 0}
+!229 = !{!230, !19, i64 64}
+!230 = !{!"pm_module_node", !21, i64 0, !59, i64 24, !24, i64 48, !19, i64 64, !19, i64 72, !24, i64 80, !23, i64 96}
+!231 = !{!230, !19, i64 72}
+!232 = !{!233, !19, i64 48}
+!233 = !{!"pm_multi_target_node", !21, i64 0, !8, i64 24, !19, i64 48, !8, i64 56, !24, i64 80, !24, i64 96}
+!234 = !{!235, !19, i64 48}
+!235 = !{!"pm_multi_write_node", !21, i64 0, !8, i64 24, !19, i64 48, !8, i64 56, !24, i64 80, !24, i64 96, !24, i64 112, !19, i64 128}
+!236 = !{!235, !19, i64 128}
+!237 = !{!238, !67, i64 24}
+!238 = !{!"pm_next_node", !21, i64 0, !67, i64 24, !24, i64 32}
+!239 = !{!240, !19, i64 48}
+!240 = !{!"pm_optional_keyword_parameter_node", !21, i64 0, !23, i64 24, !24, i64 32, !19, i64 48}
+!241 = !{!242, !19, i64 64}
+!242 = !{!"pm_optional_parameter_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48, !19, i64 64}
+!243 = !{!244, !19, i64 24}
+!244 = !{!"pm_or_node", !21, i64 0, !19, i64 24, !19, i64 32, !24, i64 40}
+!245 = !{!244, !19, i64 32}
+!246 = !{!247, !19, i64 72}
+!247 = !{!"pm_parameters_node", !21, i64 0, !8, i64 24, !8, i64 48, !19, i64 72, !8, i64 80, !8, i64 104, !19, i64 128, !248, i64 136}
+!248 = !{!"p1 _ZTS23pm_block_parameter_node", !13, i64 0}
+!249 = !{!247, !19, i64 128}
+!250 = !{!247, !248, i64 136}
+!251 = !{!252, !19, i64 24}
+!252 = !{!"pm_parentheses_node", !21, i64 0, !19, i64 24, !24, i64 32, !24, i64 48}
+!253 = !{!254, !19, i64 24}
+!254 = !{!"pm_pinned_expression_node", !21, i64 0, !19, i64 24, !24, i64 32, !24, i64 48, !24, i64 64}
+!255 = !{!256, !19, i64 24}
+!256 = !{!"pm_pinned_variable_node", !21, i64 0, !19, i64 24, !24, i64 32}
+!257 = !{!258, !48, i64 24}
+!258 = !{!"pm_post_execution_node", !21, i64 0, !48, i64 24, !24, i64 32, !24, i64 48, !24, i64 64}
+!259 = !{!260, !48, i64 24}
+!260 = !{!"pm_pre_execution_node", !21, i64 0, !48, i64 24, !24, i64 32, !24, i64 48, !24, i64 64}
+!261 = !{!262, !48, i64 48}
+!262 = !{!"pm_program_node", !21, i64 0, !59, i64 24, !48, i64 48}
+!263 = !{!264, !19, i64 24}
+!264 = !{!"pm_range_node", !21, i64 0, !19, i64 24, !19, i64 32, !24, i64 40}
+!265 = !{!264, !19, i64 32}
+!266 = !{!267, !19, i64 24}
+!267 = !{!"pm_rescue_modifier_node", !21, i64 0, !19, i64 24, !24, i64 32, !19, i64 48}
+!268 = !{!267, !19, i64 48}
+!269 = !{!270, !19, i64 80}
+!270 = !{!"pm_rescue_node", !21, i64 0, !24, i64 24, !8, i64 40, !24, i64 64, !19, i64 80, !48, i64 88, !49, i64 96}
+!271 = !{!270, !48, i64 88}
+!272 = !{!270, !49, i64 96}
+!273 = !{!274, !67, i64 40}
+!274 = !{!"pm_return_node", !21, i64 0, !24, i64 24, !67, i64 40}
+!275 = !{!276, !19, i64 24}
+!276 = !{!"pm_shareable_constant_node", !21, i64 0, !19, i64 24}
+!277 = !{!278, !19, i64 80}
+!278 = !{!"pm_singleton_class_node", !21, i64 0, !59, i64 24, !24, i64 48, !24, i64 64, !19, i64 80, !19, i64 88, !24, i64 96}
+!279 = !{!278, !19, i64 88}
+!280 = !{!281, !19, i64 40}
+!281 = !{!"pm_splat_node", !21, i64 0, !24, i64 24, !19, i64 40}
+!282 = !{!283, !67, i64 56}
+!283 = !{!"pm_super_node", !21, i64 0, !24, i64 24, !24, i64 40, !67, i64 56, !24, i64 64, !19, i64 80}
+!284 = !{!283, !19, i64 80}
+!285 = !{!286, !19, i64 40}
+!286 = !{!"pm_unless_node", !21, i64 0, !24, i64 24, !19, i64 40, !24, i64 48, !48, i64 64, !50, i64 72, !24, i64 80}
+!287 = !{!286, !48, i64 64}
+!288 = !{!286, !50, i64 72}
+!289 = !{!290, !19, i64 72}
+!290 = !{!"pm_until_node", !21, i64 0, !24, i64 24, !24, i64 40, !24, i64 56, !19, i64 72, !48, i64 80}
+!291 = !{!290, !48, i64 80}
+!292 = !{!293, !48, i64 80}
+!293 = !{!"pm_when_node", !21, i64 0, !24, i64 24, !8, i64 40, !24, i64 64, !48, i64 80}
+!294 = !{!295, !19, i64 72}
+!295 = !{!"pm_while_node", !21, i64 0, !24, i64 24, !24, i64 40, !24, i64 56, !19, i64 72, !48, i64 80}
+!296 = !{!295, !48, i64 80}
+!297 = !{!298, !67, i64 56}
+!298 = !{!"pm_yield_node", !21, i64 0, !24, i64 24, !24, i64 40, !67, i64 56, !24, i64 64}
+!299 = distinct !{!299, !17}
+!300 = distinct !{!300, !17}
+!301 = distinct !{!301, !17}
+!302 = distinct !{!302, !17}
+!303 = distinct !{!303, !17}
+!304 = distinct !{!304, !17}
+!305 = distinct !{!305, !17}
+!306 = distinct !{!306, !17}
+!307 = distinct !{!307, !17}
+!308 = distinct !{!308, !17}
+!309 = distinct !{!309, !17}
+!310 = distinct !{!310, !17}
+!311 = distinct !{!311, !17}
+!312 = distinct !{!312, !17}
+!313 = distinct !{!313, !17}
+!314 = distinct !{!314, !17}
+!315 = distinct !{!315, !17}
+!316 = distinct !{!316, !17}
+!317 = distinct !{!317, !17}
+!318 = distinct !{!318, !17}
+!319 = distinct !{!319, !17}
+!320 = distinct !{!320, !17}
+!321 = distinct !{!321, !17}
+!322 = distinct !{!322, !17}
+!323 = distinct !{!323, !17}
+!324 = distinct !{!324, !17}
+!325 = distinct !{!325, !17}
+!326 = distinct !{!326, !17}
+!327 = distinct !{!327, !17}
+!328 = distinct !{!328, !17}
+!329 = !{!330, !25, i64 304}
+!330 = !{!"pm_parser", !23, i64 0, !23, i64 4, !23, i64 8, !23, i64 12, !23, i64 16, !23, i64 20, !23, i64 24, !331, i64 32, !25, i64 304, !25, i64 312, !333, i64 320, !333, i64 344, !25, i64 368, !25, i64 376, !334, i64 384, !334, i64 408, !24, i64 432, !334, i64 448, !334, i64 472, !336, i64 496, !337, i64 504, !13, i64 512, !13, i64 520, !13, i64 528, !25, i64 536, !13, i64 544, !338, i64 552, !339, i64 576, !340, i64 600, !22, i64 632, !338, i64 640, !23, i64 664, !13, i64 672, !342, i64 680, !23, i64 688, !10, i64 692, !10, i64 693, !343, i64 694, !343, i64 695, !343, i64 696, !343, i64 697, !343, i64 698, !343, i64 699, !343, i64 700, !343, i64 701, !343, i64 702, !343, i64 703, !343, i64 704}
+!331 = !{!"", !332, i64 0, !10, i64 8, !9, i64 264}
+!332 = !{!"p1 _ZTS11pm_lex_mode", !13, i64 0}
+!333 = !{!"", !23, i64 0, !25, i64 8, !25, i64 16}
+!334 = !{!"", !9, i64 0, !335, i64 8, !335, i64 16}
+!335 = !{!"p1 _ZTS12pm_list_node", !13, i64 0}
+!336 = !{!"p1 _ZTS8pm_scope", !13, i64 0}
+!337 = !{!"p1 _ZTS15pm_context_node", !13, i64 0}
+!338 = !{!"", !25, i64 0, !9, i64 8, !23, i64 16}
+!339 = !{!"", !13, i64 0, !13, i64 8, !23, i64 16, !23, i64 20}
+!340 = !{!"", !25, i64 0, !9, i64 8, !9, i64 16, !341, i64 24}
+!341 = !{!"p1 long", !13, i64 0}
+!342 = !{!"p1 _ZTS12pm_node_list", !13, i64 0}
+!343 = !{!"_Bool", !10, i64 0}
+!344 = !{!24, !25, i64 0}
+!345 = !{!24, !25, i64 8}
+!346 = !{!21, !22, i64 2}
+!347 = distinct !{!347, !17}
+!348 = !{!349, !25, i64 48}
+!349 = !{!"pm_array_node", !21, i64 0, !8, i64 24, !24, i64 48, !24, i64 64}
+!350 = distinct !{!350, !17}
+!351 = !{!349, !25, i64 64}
+!352 = distinct !{!352, !17}
+!353 = !{!39, !25, i64 88}
+!354 = distinct !{!354, !17}
+!355 = !{!39, !25, i64 104}
+!356 = !{!42, !25, i64 40}
+!357 = !{!358, !23, i64 24}
+!358 = !{!"pm_back_reference_read_node", !21, i64 0, !23, i64 24}
+!359 = !{!47, !25, i64 24}
+!360 = !{!47, !25, i64 72}
+!361 = !{!362, !23, i64 24}
+!362 = !{!"pm_block_local_variable_node", !21, i64 0, !23, i64 24}
+!363 = !{!59, !9, i64 0}
+!364 = !{!59, !60, i64 16}
+!365 = !{!23, !23, i64 0}
+!366 = !{!367, !25, i64 0}
+!367 = !{!"", !25, i64 0, !9, i64 8}
+!368 = !{!367, !9, i64 8}
+!369 = distinct !{!369, !17}
+!370 = !{!371, !23, i64 24}
+!371 = !{!"pm_block_parameter_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48}
+!372 = !{!371, !25, i64 32}
+!373 = !{!63, !25, i64 56}
+!374 = distinct !{!374, !17}
+!375 = !{!63, !25, i64 72}
+!376 = !{!69, !25, i64 32}
+!377 = !{!69, !25, i64 48}
+!378 = !{!69, !23, i64 64}
+!379 = !{!69, !23, i64 68}
+!380 = !{!72, !25, i64 32}
+!381 = !{!72, !23, i64 48}
+!382 = !{!72, !25, i64 56}
+!383 = !{!72, !25, i64 72}
+!384 = !{!72, !25, i64 96}
+!385 = !{!76, !25, i64 32}
+!386 = !{!76, !25, i64 48}
+!387 = !{!76, !23, i64 64}
+!388 = !{!76, !23, i64 68}
+!389 = !{!76, !23, i64 72}
+!390 = !{!79, !25, i64 32}
+!391 = !{!79, !25, i64 48}
+!392 = !{!79, !23, i64 64}
+!393 = !{!79, !23, i64 68}
+!394 = !{!82, !23, i64 48}
+!395 = distinct !{!395, !17}
+!396 = distinct !{!396, !17}
+!397 = !{!94, !25, i64 72}
+!398 = distinct !{!398, !17}
+!399 = !{!94, !23, i64 120}
+!400 = !{!98, !23, i64 24}
+!401 = !{!100, !23, i64 24}
+!402 = !{!100, !23, i64 72}
+!403 = !{!102, !23, i64 24}
+!404 = !{!405, !23, i64 24}
+!405 = !{!"pm_class_variable_read_node", !21, i64 0, !23, i64 24}
+!406 = !{!407, !23, i64 24}
+!407 = !{!"pm_class_variable_target_node", !21, i64 0, !23, i64 24}
+!408 = !{!104, !23, i64 24}
+!409 = !{!106, !23, i64 24}
+!410 = !{!108, !23, i64 24}
+!411 = !{!108, !23, i64 72}
+!412 = !{!110, !23, i64 24}
+!413 = !{!116, !23, i64 32}
+!414 = !{!118, !23, i64 56}
+!415 = !{!124, !23, i64 32}
+!416 = !{!417, !23, i64 24}
+!417 = !{!"pm_constant_read_node", !21, i64 0, !23, i64 24}
+!418 = !{!419, !23, i64 24}
+!419 = !{!"pm_constant_target_node", !21, i64 0, !23, i64 24}
+!420 = !{!129, !23, i64 24}
+!421 = !{!131, !23, i64 24}
+!422 = !{!131, !25, i64 112}
+!423 = distinct !{!423, !17}
+!424 = !{!131, !25, i64 128}
+!425 = !{!131, !25, i64 144}
+!426 = !{!131, !25, i64 160}
+!427 = !{!131, !25, i64 176}
+!428 = !{!135, !25, i64 24}
+!429 = !{!135, !25, i64 48}
+!430 = !{!137, !25, i64 48}
+!431 = !{!145, !25, i64 72}
+!432 = distinct !{!432, !17}
+!433 = !{!145, !25, i64 88}
+!434 = !{!435, !436, i64 24}
+!435 = !{!"pm_float_node", !21, i64 0, !436, i64 24}
+!436 = !{!"double", !10, i64 0}
+!437 = !{!153, !25, i64 80}
+!438 = !{!160, !23, i64 24}
+!439 = !{!162, !23, i64 24}
+!440 = !{!162, !23, i64 72}
+!441 = !{!164, !23, i64 24}
+!442 = !{!443, !23, i64 24}
+!443 = !{!"pm_global_variable_read_node", !21, i64 0, !23, i64 24}
+!444 = !{!445, !23, i64 24}
+!445 = !{!"pm_global_variable_target_node", !21, i64 0, !23, i64 24}
+!446 = !{!166, !23, i64 24}
+!447 = distinct !{!447, !17}
+!448 = distinct !{!448, !17}
+!449 = !{!168, !25, i64 64}
+!450 = !{!168, !25, i64 80}
+!451 = !{!171, !25, i64 24}
+!452 = !{!171, !25, i64 48}
+!453 = !{!171, !25, i64 80}
+!454 = !{!179, !25, i64 56}
+!455 = !{!182, !25, i64 32}
+!456 = !{!188, !25, i64 32}
+!457 = !{!188, !23, i64 96}
+!458 = !{!193, !25, i64 32}
+!459 = !{!202, !23, i64 24}
+!460 = !{!204, !23, i64 24}
+!461 = !{!204, !23, i64 72}
+!462 = !{!206, !23, i64 24}
+!463 = !{!464, !23, i64 24}
+!464 = !{!"pm_instance_variable_read_node", !21, i64 0, !23, i64 24}
+!465 = !{!466, !23, i64 24}
+!466 = !{!"pm_instance_variable_target_node", !21, i64 0, !23, i64 24}
+!467 = !{!208, !23, i64 24}
+!468 = distinct !{!468, !17}
+!469 = distinct !{!469, !17}
+!470 = !{!471, !25, i64 24}
+!471 = !{!"pm_interpolated_string_node", !21, i64 0, !24, i64 24, !8, i64 40, !24, i64 64}
+!472 = !{!471, !25, i64 64}
+!473 = distinct !{!473, !17}
+!474 = !{!475, !25, i64 24}
+!475 = !{!"pm_interpolated_symbol_node", !21, i64 0, !24, i64 24, !8, i64 40, !24, i64 64}
+!476 = !{!475, !25, i64 64}
+!477 = distinct !{!477, !17}
+!478 = distinct !{!478, !17}
+!479 = distinct !{!479, !17}
+!480 = !{!481, !23, i64 24}
+!481 = !{!"pm_keyword_rest_parameter_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48}
+!482 = !{!481, !25, i64 32}
+!483 = distinct !{!483, !17}
+!484 = !{!213, !23, i64 64}
+!485 = !{!213, !23, i64 68}
+!486 = !{!215, !23, i64 64}
+!487 = !{!215, !23, i64 68}
+!488 = !{!215, !23, i64 72}
+!489 = !{!217, !23, i64 64}
+!490 = !{!217, !23, i64 68}
+!491 = !{!492, !23, i64 24}
+!492 = !{!"pm_local_variable_read_node", !21, i64 0, !23, i64 24, !23, i64 28}
+!493 = !{!492, !23, i64 28}
+!494 = !{!495, !23, i64 24}
+!495 = !{!"pm_local_variable_target_node", !21, i64 0, !23, i64 24, !23, i64 28}
+!496 = !{!495, !23, i64 28}
+!497 = !{!219, !23, i64 24}
+!498 = !{!219, !23, i64 28}
+!499 = distinct !{!499, !17}
+!500 = distinct !{!500, !17}
+!501 = !{!230, !23, i64 96}
+!502 = distinct !{!502, !17}
+!503 = !{!233, !25, i64 80}
+!504 = distinct !{!504, !17}
+!505 = !{!233, !25, i64 96}
+!506 = distinct !{!506, !17}
+!507 = !{!235, !25, i64 80}
+!508 = distinct !{!508, !17}
+!509 = !{!235, !25, i64 96}
+!510 = !{!511, !10, i64 24}
+!511 = !{!"pm_numbered_parameters_node", !21, i64 0, !10, i64 24}
+!512 = !{!513, !23, i64 24}
+!513 = !{!"pm_numbered_reference_read_node", !21, i64 0, !23, i64 24}
+!514 = !{!240, !23, i64 24}
+!515 = !{!242, !23, i64 24}
+!516 = distinct !{!516, !17}
+!517 = distinct !{!517, !17}
+!518 = distinct !{!518, !17}
+!519 = distinct !{!519, !17}
+!520 = distinct !{!520, !17}
+!521 = !{!522, !23, i64 24}
+!522 = !{!"pm_required_keyword_parameter_node", !21, i64 0, !23, i64 24, !24, i64 32}
+!523 = !{!524, !23, i64 24}
+!524 = !{!"pm_required_parameter_node", !21, i64 0, !23, i64 24}
+!525 = !{!270, !25, i64 64}
+!526 = distinct !{!526, !17}
+!527 = !{!528, !23, i64 24}
+!528 = !{!"pm_rest_parameter_node", !21, i64 0, !23, i64 24, !24, i64 32, !24, i64 48}
+!529 = !{!528, !25, i64 32}
+!530 = distinct !{!530, !17}
+!531 = distinct !{!531, !17}
+!532 = !{!533, !25, i64 24}
+!533 = !{!"pm_string_node", !21, i64 0, !24, i64 24, !24, i64 40, !24, i64 56, !338, i64 72}
+!534 = !{!533, !25, i64 56}
+!535 = !{!283, !25, i64 40}
+!536 = !{!283, !25, i64 64}
+!537 = !{!538, !25, i64 24}
+!538 = !{!"pm_symbol_node", !21, i64 0, !24, i64 24, !24, i64 40, !24, i64 56, !338, i64 72}
+!539 = !{!538, !25, i64 40}
+!540 = !{!538, !25, i64 56}
+!541 = distinct !{!541, !17}
+!542 = !{!286, !25, i64 48}
+!543 = !{!286, !25, i64 80}
+!544 = !{!290, !25, i64 40}
+!545 = !{!290, !25, i64 56}
+!546 = !{!293, !25, i64 64}
+!547 = distinct !{!547, !17}
+!548 = !{!295, !25, i64 40}
+!549 = !{!295, !25, i64 56}
+!550 = !{!298, !25, i64 40}
+!551 = !{!298, !25, i64 64}

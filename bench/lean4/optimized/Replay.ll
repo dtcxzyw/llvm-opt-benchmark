@@ -3583,7 +3583,7 @@ lean_alloc_ctor.exit114:                          ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit114, %lean_dec.exit84
   %.079.be = phi ptr [ %.0, %lean_dec.exit84 ], [ %142, %lean_alloc_ctor.exit114 ]
-  br label %12, !llvm.loop !15
+  br label %12
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -4073,7 +4073,7 @@ lean_inc.exit:                                    ; preds = %201, %200, %198, %l
 
 lean_dec.exit80.backedge:                         ; preds = %lean_inc.exit, %207, %209, %210, %lean_inc.exit89, %106, %108, %109
   %.076.be = phi ptr [ %92, %109 ], [ %92, %108 ], [ %92, %106 ], [ %92, %lean_inc.exit89 ], [ %193, %210 ], [ %193, %209 ], [ %193, %207 ], [ %193, %lean_inc.exit ]
-  br label %lean_dec.exit80, !llvm.loop !17
+  br label %lean_dec.exit80
 
 204:                                              ; preds = %lean_inc.exit
   %205 = load i32, ptr %191, align 4, !tbaa !4
@@ -4426,7 +4426,7 @@ lean_alloc_ctor.exit114:                          ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit114, %lean_dec.exit84
   %.079.be = phi ptr [ %.0, %lean_dec.exit84 ], [ %142, %lean_alloc_ctor.exit114 ]
-  br label %12, !llvm.loop !18
+  br label %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4604,7 +4604,7 @@ lean_inc.exit120:                                 ; preds = %69, %68, %66, %lean
 .backedge:                                        ; preds = %76, %lean_alloc_ctor.exit145, %lean_alloc_ctor.exit169
   %.0106.be = phi ptr [ %171, %lean_alloc_ctor.exit169 ], [ %75, %76 ], [ %75, %lean_alloc_ctor.exit145 ]
   %.0103.be = phi ptr [ %218, %lean_alloc_ctor.exit169 ], [ %.0, %76 ], [ %.0, %lean_alloc_ctor.exit145 ]
-  br label %12, !llvm.loop !19
+  br label %12
 
 77:                                               ; preds = %lean_inc.exit120
   %78 = ptrtoint ptr %75 to i64
@@ -6501,7 +6501,7 @@ lean_alloc_ctor.exit55:                           ; preds = %lean_alloc_ctor.exi
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit55, %lean_alloc_ctor.exit
   %.039.be = phi ptr [ %.0, %lean_alloc_ctor.exit ], [ %78, %lean_alloc_ctor.exit55 ]
-  br label %3, !llvm.loop !20
+  br label %3
 }
 
 declare ptr @l_Lean_ConstantInfo_type(ptr noundef) local_unnamed_addr #1
@@ -6878,7 +6878,7 @@ lean_alloc_ctor.exit95:                           ; preds = %lean_alloc_ctor.exi
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit95, %lean_alloc_ctor.exit
   %.057.be = phi ptr [ %.0, %lean_alloc_ctor.exit ], [ %136, %lean_alloc_ctor.exit95 ]
-  br label %3, !llvm.loop !21
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7448,7 +7448,7 @@ lean_inc.exit1751:                                ; preds = %12, %11, %9, %4
 24:                                               ; preds = %23, %20
   %25 = phi i32 [ %.pr, %23 ], [ %21, %20 ]
   %26 = icmp sgt i32 %25, 1
-  br i1 %26, label %27, label %29, !prof !22
+  br i1 %26, label %27, label %29, !prof !15
 
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, -1
@@ -24003,7 +24003,7 @@ lean_alloc_ctor.exit1386:                         ; preds = %1415
 .thread:                                          ; preds = %lean_inc.exit988.thread1474, %83
   %.val123214711473 = phi i32 [ %84, %83 ], [ %.val1232.pr1475, %lean_inc.exit988.thread1474 ]
   %1423 = icmp sgt i32 %.val123214711473, 1
-  br i1 %1423, label %1424, label %1426, !prof !23
+  br i1 %1423, label %1424, label %1426, !prof !16
 
 1424:                                             ; preds = %.thread
   %1425 = add nsw i32 %.val123214711473, -1
@@ -29674,7 +29674,7 @@ lean_alloc_ctor.exit1386:                         ; preds = %1415
 .thread:                                          ; preds = %lean_inc.exit988.thread1474, %83
   %.val123214711473 = phi i32 [ %84, %83 ], [ %.val1232.pr1475, %lean_inc.exit988.thread1474 ]
   %1423 = icmp sgt i32 %.val123214711473, 1
-  br i1 %1423, label %1424, label %1426, !prof !23
+  br i1 %1423, label %1424, label %1426, !prof !16
 
 1424:                                             ; preds = %.thread
   %1425 = add nsw i32 %.val123214711473, -1
@@ -32096,7 +32096,7 @@ lean_dec.exit33:                                  ; preds = %108, %107, %105, %1
 
 lean_dec.exit34.backedge:                         ; preds = %lean_dec.exit33, %112, %114, %115, %93, %97, %99, %100, %91
   %.030.be = phi ptr [ %92, %91 ], [ %.030, %100 ], [ %.030, %99 ], [ %.030, %97 ], [ %.030, %93 ], [ %.030, %115 ], [ %.030, %114 ], [ %.030, %112 ], [ %.030, %lean_dec.exit33 ]
-  br label %lean_dec.exit34, !llvm.loop !24
+  br label %lean_dec.exit34
 
 109:                                              ; preds = %lean_dec.exit33
   %110 = load i32, ptr %53, align 4, !tbaa !4
@@ -33933,9 +33933,9 @@ _init_l_panic___at_Lean_Environment_Replay_replayConstant___spec__1___closed__4.
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr @l_instInhabitedReaderT___rarg___boxed, ptr %49, align 8, !tbaa !9
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i16 2, ptr %50, align 8, !tbaa !25
+  store i16 2, ptr %50, align 8, !tbaa !17
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 18
-  store i16 1, ptr %51, align 2, !tbaa !25
+  store i16 1, ptr %51, align 2, !tbaa !17
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %44, ptr %52, align 8, !tbaa !9
   store ptr %45, ptr @l_panic___at_Lean_Environment_Replay_replayConstant___spec__1___closed__4, align 8, !tbaa !9
@@ -33986,9 +33986,9 @@ _init_l_Lean_RBNode_forIn_visit___at_Lean_Environment_Replay_checkPostponedConst
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr @l_Lean_RBNode_forIn_visit___at_Lean_Environment_Replay_checkPostponedConstructors___spec__1___lambda__1___boxed, ptr %71, align 8, !tbaa !9
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store i16 1, ptr %72, align 8, !tbaa !25
+  store i16 1, ptr %72, align 8, !tbaa !17
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 18
-  store i16 0, ptr %73, align 2, !tbaa !25
+  store i16 0, ptr %73, align 2, !tbaa !17
   store ptr %67, ptr @l_Lean_RBNode_forIn_visit___at_Lean_Environment_Replay_checkPostponedConstructors___spec__1___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %67) #5
   %74 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.6, i64 noundef 20, i64 noundef 20) #5
@@ -34087,15 +34087,7 @@ attributes #6 = { noreturn nounwind }
 !12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"long", !7, i64 0}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
-!21 = distinct !{!21, !16}
-!22 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!23 = !{!"branch_weights", !"expected", i32 2146812833, i32 670815}
-!24 = distinct !{!24, !16}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"short", !7, i64 0}
+!15 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!16 = !{!"branch_weights", !"expected", i32 2146812833, i32 670815}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"short", !7, i64 0}

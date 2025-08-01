@@ -67,7 +67,7 @@ define internal ptr @i2v_TLS_FEATURE(ptr readnone captures(none) %0, ptr noundef
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw [2 x %struct.TLS_FEATURE_NAME], ptr @tls_feature_tbl, i64 0, i64 %.01214, i32 1
-  %17 = load ptr, ptr %16, align 8, !tbaa !15
+  %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = call i32 @X509V3_add_value(ptr noundef null, ptr noundef %17, ptr noundef nonnull %4) #5
   br label %20
 
@@ -79,7 +79,7 @@ define internal ptr @i2v_TLS_FEATURE(ptr readnone captures(none) %0, ptr noundef
   %21 = add nuw nsw i32 %.015, 1
   %22 = call i32 @OPENSSL_sk_num(ptr noundef %1) #5
   %23 = icmp slt i32 %21, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
+  br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %20
   %.pre = load ptr, ptr %4, align 8, !tbaa !3
@@ -113,19 +113,19 @@ define internal ptr @v2i_TLS_FEATURE(ptr readnone captures(none) %0, ptr readnon
   %11 = add nuw nsw i32 %.03148, 1
   %12 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #5
   %13 = icmp slt i32 %11, %12
-  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !17
+  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %.preheader, %10
   %.03148 = phi i32 [ %11, %10 ], [ 0, %.preheader ]
   %14 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.03148) #5
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !18
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %20
 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !20
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
   br label %20
 
 20:                                               ; preds = %.lr.ph, %17
@@ -136,13 +136,13 @@ define internal ptr @v2i_TLS_FEATURE(ptr readnone captures(none) %0, ptr readnon
   %22 = phi i1 [ true, %20 ], [ false, %27 ]
   %.03046 = phi i64 [ 0, %20 ], [ 1, %27 ]
   %23 = getelementptr inbounds nuw [2 x %struct.TLS_FEATURE_NAME], ptr @tls_feature_tbl, i64 0, i64 %.03046, i32 1
-  %24 = load ptr, ptr %23, align 8, !tbaa !15
+  %24 = load ptr, ptr %23, align 8, !tbaa !14
   %25 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %.034, ptr noundef %24) #5
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %21
-  br i1 %22, label %21, label %.critedge, !llvm.loop !21
+  br i1 %22, label %21, label %.critedge, !llvm.loop !20
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw [2 x %struct.TLS_FEATURE_NAME], ptr @tls_feature_tbl, i64 0, i64 %.03046
@@ -151,8 +151,8 @@ define internal ptr @v2i_TLS_FEATURE(ptr readnone captures(none) %0, ptr readnon
 
 .critedge:                                        ; preds = %27
   %31 = call i64 @strtol(ptr noundef %.034, ptr noundef nonnull %4, i32 noundef 10) #5
-  %32 = load ptr, ptr %4, align 8, !tbaa !22
-  %33 = load i8, ptr %32, align 1, !tbaa !23
+  %32 = load ptr, ptr %4, align 8, !tbaa !21
+  %33 = load i8, ptr %32, align 1, !tbaa !22
   %.not39 = icmp eq i8 %33, 0
   br i1 %.not39, label %34, label %37
 
@@ -168,8 +168,8 @@ define internal ptr @v2i_TLS_FEATURE(ptr readnone captures(none) %0, ptr readnon
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.3, i32 noundef 119, ptr noundef nonnull @__func__.v2i_TLS_FEATURE) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 143, ptr noundef null) #5
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !20
-  %41 = load ptr, ptr %38, align 8, !tbaa !18
+  %40 = load ptr, ptr %39, align 8, !tbaa !19
+  %41 = load ptr, ptr %38, align 8, !tbaa !17
   tail call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef %40, ptr noundef nonnull @.str.5, ptr noundef %41) #5
   br label %51
 
@@ -271,15 +271,14 @@ attributes #5 = { nounwind }
 !9 = !{!"", !10, i64 0, !11, i64 8}
 !10 = !{!"long", !6, i64 0}
 !11 = !{!"p1 omnipotent char", !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!9, !11, i64 8}
-!16 = distinct !{!16, !13, !14}
-!17 = distinct !{!17, !13, !14}
-!18 = !{!19, !11, i64 16}
-!19 = !{!"", !11, i64 0, !11, i64 8, !11, i64 16}
-!20 = !{!19, !11, i64 8}
-!21 = distinct !{!21, !13, !14}
-!22 = !{!11, !11, i64 0}
-!23 = !{!6, !6, i64 0}
+!14 = !{!9, !11, i64 8}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = !{!18, !11, i64 16}
+!18 = !{!"", !11, i64 0, !11, i64 8, !11, i64 16}
+!19 = !{!18, !11, i64 8}
+!20 = distinct !{!20, !13}
+!21 = !{!11, !11, i64 0}
+!22 = !{!6, !6, i64 0}

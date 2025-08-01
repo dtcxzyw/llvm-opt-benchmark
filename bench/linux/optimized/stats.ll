@@ -509,7 +509,7 @@ define dso_local void @ethtool_aggregate_ctrl_stats(ptr noundef %0, ptr noundef 
   store i64 %23, ptr %24, align 8
   %25 = add nuw nsw i64 %14, 1
   %26 = icmp eq i64 %25, 3
-  br i1 %26, label %27, label %13, !llvm.loop !16
+  br i1 %26, label %27, label %13, !llvm.loop !12
 
 27:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
@@ -554,7 +554,7 @@ define dso_local void @ethtool_aggregate_pause_stats(ptr noundef %0, ptr noundef
   store i64 %23, ptr %24, align 8
   %25 = add nuw nsw i64 %14, 1
   %26 = icmp eq i64 %25, 2
-  br i1 %26, label %27, label %13, !llvm.loop !17
+  br i1 %26, label %27, label %13, !llvm.loop !12
 
 27:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #5
@@ -570,7 +570,7 @@ define dso_local void @ethtool_aggregate_rmon_stats(ptr noundef %0, ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store ptr null, ptr %3, align 8, !annotation !18
+  store ptr null, ptr %3, align 8, !annotation !15
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %4) #5
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %5, i8 -1, i64 200, i1 false)
@@ -602,7 +602,7 @@ define dso_local void @ethtool_aggregate_rmon_stats(ptr noundef %0, ptr noundef 
   store i64 %24, ptr %25, align 8
   %26 = add nuw nsw i64 %15, 1
   %27 = icmp eq i64 %26, 24
-  br i1 %27, label %28, label %14, !llvm.loop !19
+  br i1 %27, label %28, label %14, !llvm.loop !12
 
 28:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5) #5
@@ -659,7 +659,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_stats(ptr nounde
   br i1 %23, label %24, label %36
 
 24:                                               ; preds = %21
-  %25 = call i32 %4(ptr noundef %0, ptr noundef %1) #5, !callees !20
+  %25 = call i32 %4(ptr noundef %0, ptr noundef %1) #5, !callees !16
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %36
 
@@ -1106,7 +1106,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @stats_put_rmon_hist(ptr no
 59:                                               ; preds = %50, %22
   %60 = add nuw nsw i64 %14, 1
   %61 = icmp eq i64 %60, 10
-  br i1 %61, label %.loopexit, label %13, !llvm.loop !21
+  br i1 %61, label %.loopexit, label %13, !llvm.loop !17
 
 62:                                               ; preds = %46, %40, %35
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -1156,13 +1156,9 @@ attributes #5 = { nounwind }
 !9 = !{i64 2156818754, i64 2156818783, i64 2156818829, i64 2156818887, i64 2156818941, i64 2156818995, i64 2156819050, i64 2156819081, i64 2156819389, i64 2156819395, i64 2156819442, i64 2156819465, i64 2156819491}
 !10 = !{i64 2156819946, i64 2156819757, i64 2156819807, i64 2156819853, i64 2156819881}
 !11 = !{i32 -90, i32 1}
-!12 = distinct !{!12, !13, !14, !15}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
 !14 = !{!"llvm.loop.unroll.disable"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !13, !14, !15}
-!17 = distinct !{!17, !13, !14, !15}
-!18 = !{!"auto-init"}
-!19 = distinct !{!19, !13, !14, !15}
-!20 = !{ptr @stats_put_ctrl_stats, ptr @stats_put_mac_stats, ptr @stats_put_rmon_stats}
-!21 = distinct !{!21, !13, !14, !15}
+!15 = !{!"auto-init"}
+!16 = !{ptr @stats_put_ctrl_stats, ptr @stats_put_mac_stats, ptr @stats_put_rmon_stats}
+!17 = distinct !{!17, !13, !14}

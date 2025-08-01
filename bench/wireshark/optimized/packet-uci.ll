@@ -1195,7 +1195,7 @@ define internal fastcc void @dissect_core_get_caps_info_rsp(ptr noundef %0, ptr 
   %30 = add i32 %27, %18
   %31 = add nuw nsw i32 %.0401, 1
   %exitcond.not = icmp eq i32 %31, %6
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !10
 
 .loopexit:                                        ; preds = %13, %2
   ret void
@@ -1228,7 +1228,7 @@ define internal fastcc void @dissect_core_get_config_cmd(ptr noundef %0, ptr %.8
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %18, ptr noundef %0, i32 noundef %.02, i32 noundef 1, i32 noundef 0)
   %20 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %.02, %11
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !11
 
 .loopexit:                                        ; preds = %12, %2
   ret void
@@ -1276,7 +1276,7 @@ define internal fastcc void @dissect_core_set_config_rsp(ptr noundef %0, ptr %.8
   %24 = add nuw nsw i32 %.02, 2
   %25 = add nuw nsw i32 %.0311, 1
   %exitcond.not = icmp eq i32 %25, %6
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !12
 
 .loopexit:                                        ; preds = %13, %2
   ret void
@@ -1336,7 +1336,7 @@ define internal fastcc void @dissect_parameters(ptr noundef %0, i32 noundef rang
   %30 = add i32 %27, %18
   %31 = add nuw nsw i32 %.0351, 1
   %exitcond.not = icmp eq i32 %31, %5
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !13
 
 .loopexit:                                        ; preds = %13, %3
   ret void
@@ -1384,7 +1384,7 @@ define internal fastcc void @dissect_session_set_app_config_rsp(ptr noundef %0, 
   %24 = add nuw nsw i32 %.02, 2
   %25 = add nuw nsw i32 %.0311, 1
   %exitcond.not = icmp eq i32 %25, %6
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !14
 
 .loopexit:                                        ; preds = %13, %2
   ret void
@@ -1419,7 +1419,7 @@ define internal fastcc void @dissect_session_get_app_config_cmd(ptr noundef %0, 
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef %.02, i32 noundef 1, i32 noundef 0)
   %22 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %.02, %13
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !15
 
 .loopexit:                                        ; preds = %14, %2
   ret void
@@ -1494,7 +1494,7 @@ define internal fastcc void @dissect_session_update_controller_multicast_list_cm
   %23 = add nuw nsw i32 %.02, 6
   %24 = add nuw nsw i32 %.0321, 1
   %exitcond.not = icmp eq i32 %24, %8
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !16
 
 .loopexit:                                        ; preds = %15, %2
   ret void
@@ -1543,7 +1543,7 @@ define internal fastcc void @dissect_session_update_controller_multicast_list_nt
   %26 = add nuw nsw i32 %.02, 7
   %27 = add nuw nsw i32 %.0361, 1
   %exitcond.not = icmp eq i32 %27, %8
-  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !17
 
 .loopexit:                                        ; preds = %15, %2
   ret void
@@ -1586,7 +1586,7 @@ define internal fastcc void @dissect_app_config_parameters(ptr noundef %0, i32 n
   %30 = add i32 %27, %18
   %31 = add nuw nsw i32 %.0351, 1
   %exitcond.not = icmp eq i32 %31, %5
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !18
 
 .loopexit:                                        ; preds = %13, %3
   ret void
@@ -1626,15 +1626,14 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}

@@ -221,7 +221,7 @@ define internal fastcc void @errmsg(ptr noundef readonly captures(none) %0) unna
   %6 = sub i64 %.0811, %3
   %.not = icmp eq i64 %6, 0
   %or.cond = or i1 %4, %.not
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -283,7 +283,6 @@ attributes #12 = { noreturn nounwind }
 !14 = !{!"p1 _ZTS19archive_string_conv", !10, i64 0}
 !15 = !{!5, !6, i64 4}
 !16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = distinct !{!20, !18, !19}
+!19 = distinct !{!19, !18}

@@ -49,64 +49,64 @@ define internal void @vector_clip_int32_c(ptr noundef writeonly captures(none) %
   %.033 = phi ptr [ %0, %5 ], [ %38, %6 ]
   %.0 = phi i32 [ %4, %5 ], [ %39, %6 ]
   %7 = getelementptr inbounds nuw i8, ptr %.034, i64 4
-  %8 = load i32, ptr %.034, align 4, !tbaa !16
+  %8 = load i32, ptr %.034, align 4, !tbaa !15
   %9 = icmp slt i32 %8, %2
   %..i = tail call i32 @llvm.smin.i32(i32 %8, i32 %3)
   %.0.i = select i1 %9, i32 %2, i32 %..i
   %10 = getelementptr inbounds nuw i8, ptr %.033, i64 4
-  store i32 %.0.i, ptr %.033, align 4, !tbaa !16
+  store i32 %.0.i, ptr %.033, align 4, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %.034, i64 8
-  %12 = load i32, ptr %7, align 4, !tbaa !16
+  %12 = load i32, ptr %7, align 4, !tbaa !15
   %13 = icmp slt i32 %12, %2
   %..i35 = tail call i32 @llvm.smin.i32(i32 %12, i32 %3)
   %.0.i36 = select i1 %13, i32 %2, i32 %..i35
   %14 = getelementptr inbounds nuw i8, ptr %.033, i64 8
-  store i32 %.0.i36, ptr %10, align 4, !tbaa !16
+  store i32 %.0.i36, ptr %10, align 4, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %.034, i64 12
-  %16 = load i32, ptr %11, align 4, !tbaa !16
+  %16 = load i32, ptr %11, align 4, !tbaa !15
   %17 = icmp slt i32 %16, %2
   %..i37 = tail call i32 @llvm.smin.i32(i32 %16, i32 %3)
   %.0.i38 = select i1 %17, i32 %2, i32 %..i37
   %18 = getelementptr inbounds nuw i8, ptr %.033, i64 12
-  store i32 %.0.i38, ptr %14, align 4, !tbaa !16
+  store i32 %.0.i38, ptr %14, align 4, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %.034, i64 16
-  %20 = load i32, ptr %15, align 4, !tbaa !16
+  %20 = load i32, ptr %15, align 4, !tbaa !15
   %21 = icmp slt i32 %20, %2
   %..i39 = tail call i32 @llvm.smin.i32(i32 %20, i32 %3)
   %.0.i40 = select i1 %21, i32 %2, i32 %..i39
   %22 = getelementptr inbounds nuw i8, ptr %.033, i64 16
-  store i32 %.0.i40, ptr %18, align 4, !tbaa !16
+  store i32 %.0.i40, ptr %18, align 4, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %.034, i64 20
-  %24 = load i32, ptr %19, align 4, !tbaa !16
+  %24 = load i32, ptr %19, align 4, !tbaa !15
   %25 = icmp slt i32 %24, %2
   %..i41 = tail call i32 @llvm.smin.i32(i32 %24, i32 %3)
   %.0.i42 = select i1 %25, i32 %2, i32 %..i41
   %26 = getelementptr inbounds nuw i8, ptr %.033, i64 20
-  store i32 %.0.i42, ptr %22, align 4, !tbaa !16
+  store i32 %.0.i42, ptr %22, align 4, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %.034, i64 24
-  %28 = load i32, ptr %23, align 4, !tbaa !16
+  %28 = load i32, ptr %23, align 4, !tbaa !15
   %29 = icmp slt i32 %28, %2
   %..i43 = tail call i32 @llvm.smin.i32(i32 %28, i32 %3)
   %.0.i44 = select i1 %29, i32 %2, i32 %..i43
   %30 = getelementptr inbounds nuw i8, ptr %.033, i64 24
-  store i32 %.0.i44, ptr %26, align 4, !tbaa !16
+  store i32 %.0.i44, ptr %26, align 4, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %.034, i64 28
-  %32 = load i32, ptr %27, align 4, !tbaa !16
+  %32 = load i32, ptr %27, align 4, !tbaa !15
   %33 = icmp slt i32 %32, %2
   %..i45 = tail call i32 @llvm.smin.i32(i32 %32, i32 %3)
   %.0.i46 = select i1 %33, i32 %2, i32 %..i45
   %34 = getelementptr inbounds nuw i8, ptr %.033, i64 28
-  store i32 %.0.i46, ptr %30, align 4, !tbaa !16
+  store i32 %.0.i46, ptr %30, align 4, !tbaa !15
   %35 = getelementptr inbounds nuw i8, ptr %.034, i64 32
-  %36 = load i32, ptr %31, align 4, !tbaa !16
+  %36 = load i32, ptr %31, align 4, !tbaa !15
   %37 = icmp slt i32 %36, %2
   %..i47 = tail call i32 @llvm.smin.i32(i32 %36, i32 %3)
   %.0.i48 = select i1 %37, i32 %2, i32 %..i47
   %38 = getelementptr inbounds nuw i8, ptr %.033, i64 32
-  store i32 %.0.i48, ptr %34, align 4, !tbaa !16
+  store i32 %.0.i48, ptr %34, align 4, !tbaa !15
   %39 = add i32 %.0, -8
   %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %40, label %6, !llvm.loop !18
+  br i1 %.not, label %40, label %6, !llvm.loop !17
 
 40:                                               ; preds = %6
   ret void
@@ -140,24 +140,24 @@ define internal void @vector_clipf_c(ptr noundef writeonly captures(none) %0, pt
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
-  %13 = load float, ptr %gep, align 4, !tbaa !19
+  %13 = load float, ptr %gep, align 4, !tbaa !18
   %14 = fcmp nsz ogt float %13, %3
   %15 = select nsz i1 %14, float %13, float %3
   %16 = fcmp nsz ogt float %15, %4
   %..i = select nsz i1 %16, float %4, float %15
   %17 = getelementptr inbounds nuw [8 x float], ptr %6, i64 0, i64 %indvars.iv
-  store float %..i, ptr %17, align 4, !tbaa !19
+  store float %..i, ptr %17, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader.preheader, label %12, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader.preheader, label %12, !llvm.loop !20
 
 .preheader.preheader:                             ; preds = %12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %scevgep, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %scevgep, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false), !tbaa !18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #6
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 8
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond28.not = icmp eq i64 %indvar.next, %wide.trip.count
-  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -195,13 +195,12 @@ attributes #6 = { nounwind }
 !10 = !{!5, !6, i64 16}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"short", !7, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"int", !7, i64 0}
-!18 = distinct !{!18, !14, !15}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"float", !7, i64 0}
-!21 = distinct !{!21, !14, !15}
-!22 = distinct !{!22, !14, !15}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !7, i64 0}
+!17 = distinct !{!17, !14}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"float", !7, i64 0}
+!20 = distinct !{!20, !14}
+!21 = distinct !{!21, !14}

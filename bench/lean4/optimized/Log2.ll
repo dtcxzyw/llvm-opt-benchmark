@@ -93,7 +93,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   %14 = add nuw nsw i16 %.07.i, 1
   %15 = lshr i16 %.046.i, 1
   %16 = icmp ugt i16 %.046.i, 3
-  br i1 %16, label %.lr.ph.i, label %lean_uint16_log2.exit.loopexit, !llvm.loop !13
+  br i1 %16, label %.lr.ph.i, label %lean_uint16_log2.exit.loopexit, !llvm.loop !12
 
 lean_uint16_log2.exit.loopexit:                   ; preds = %.lr.ph.i
   %17 = shl nuw i16 %14, 1
@@ -144,7 +144,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
   %14 = add nuw nsw i32 %.06.i, 1
   %15 = lshr i32 %.045.i, 1
   %16 = icmp ugt i32 %.045.i, 3
-  br i1 %16, label %.lr.ph.i, label %lean_uint32_log2.exit.loopexit, !llvm.loop !14
+  br i1 %16, label %.lr.ph.i, label %lean_uint32_log2.exit.loopexit, !llvm.loop !13
 
 lean_uint32_log2.exit.loopexit:                   ; preds = %.lr.ph.i
   %17 = shl nuw i32 %14, 1
@@ -161,7 +161,7 @@ lean_uint32_log2.exit:                            ; preds = %lean_uint32_log2.ex
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_UInt64_log2___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %2, align 8, !tbaa !15
+  %.val = load i64, ptr %2, align 8, !tbaa !14
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 1
   %.not = icmp eq i64 %4, 0
@@ -195,7 +195,7 @@ lean_dec.exit:                                    ; preds = %11, %10, %8, %1
   %13 = add nuw nsw i64 %.06.i, 1
   %14 = lshr i64 %.045.i, 1
   %15 = icmp ugt i64 %.045.i, 3
-  br i1 %15, label %.lr.ph.i, label %lean_uint64_log2.exit, !llvm.loop !17
+  br i1 %15, label %.lr.ph.i, label %lean_uint64_log2.exit, !llvm.loop !16
 
 lean_uint64_log2.exit:                            ; preds = %.lr.ph.i, %lean_dec.exit
   %.0.lcssa.i = phi i64 [ 0, %lean_dec.exit ], [ %13, %.lr.ph.i ]
@@ -213,14 +213,14 @@ lean_box_uint64.exit:                             ; preds = %lean_uint64_log2.ex
   store i32 1, ptr %16, align 4, !tbaa !4
   store i32 16, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %.0.lcssa.i, ptr %20, align 8, !tbaa !15
+  store i64 %.0.lcssa.i, ptr %20, align 8, !tbaa !14
   ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
 define noalias nonnull ptr @l_USize_log2___boxed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %2, align 8, !tbaa !15
+  %.val = load i64, ptr %2, align 8, !tbaa !14
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, 1
   %.not = icmp eq i64 %4, 0
@@ -254,7 +254,7 @@ lean_dec.exit:                                    ; preds = %11, %10, %8, %1
   %13 = add nuw nsw i64 %.06.i, 1
   %14 = lshr i64 %.045.i, 1
   %15 = icmp ugt i64 %.045.i, 3
-  br i1 %15, label %.lr.ph.i, label %lean_usize_log2.exit, !llvm.loop !18
+  br i1 %15, label %.lr.ph.i, label %lean_usize_log2.exit, !llvm.loop !17
 
 lean_usize_log2.exit:                             ; preds = %.lr.ph.i, %lean_dec.exit
   %.0.lcssa.i = phi i64 [ 0, %lean_dec.exit ], [ %13, %.lr.ph.i ]
@@ -272,7 +272,7 @@ lean_box_usize.exit:                              ; preds = %lean_usize_log2.exi
   store i32 1, ptr %16, align 4, !tbaa !4
   store i32 16, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %.0.lcssa.i, ptr %20, align 8, !tbaa !15
+  store i64 %.0.lcssa.i, ptr %20, align 8, !tbaa !14
   ret ptr %16
 }
 
@@ -334,9 +334,9 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   store i32 1, ptr %.sink9, align 4, !tbaa !4
   store i32 131096, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %22, align 8, !tbaa !19
+  store ptr inttoptr (i64 1 to ptr), ptr %22, align 8, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %23, align 8, !tbaa !19
+  store ptr inttoptr (i64 1 to ptr), ptr %23, align 8, !tbaa !18
   br label %24
 
 24:                                               ; preds = %.sink.split, %7
@@ -373,14 +373,13 @@ attributes #4 = { noreturn nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !7, i64 0}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"any pointer", !7, i64 0}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !7, i64 0}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"any pointer", !7, i64 0}

@@ -858,7 +858,7 @@ define hidden void @_ZNK9metaspace14MetaspaceArena17add_to_statisticsEPNS_10Aren
   %35 = getelementptr inbounds nuw i8, ptr %.024, i64 48
   %.0 = load ptr, ptr %35, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -920,7 +920,7 @@ define hidden void @_ZNK9metaspace14MetaspaceArena13usage_numbersEPmS1_S1_(ptr n
   %18 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %.0 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.019.lcssa = phi i64 [ 0, %4 ], [ %8, %.lr.ph ]
@@ -1070,8 +1070,7 @@ attributes #10 = { noreturn nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145411697}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

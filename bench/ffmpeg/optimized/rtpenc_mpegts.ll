@@ -116,7 +116,7 @@ define internal range(i32 -2147483648, 1) i32 @rtp_mpegts_write_header(ptr nound
 
 59:                                               ; preds = %._crit_edge
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !47
+  %61 = load ptr, ptr %60, align 8, !tbaa !46
   %62 = call i32 @av_dict_copy(ptr noundef nonnull %2, ptr noundef %61, i32 noundef 0) #4
   %63 = call i32 @avformat_write_header(ptr noundef nonnull %11, ptr noundef nonnull %2) #4
   call void @av_dict_free(ptr noundef nonnull %2) #4
@@ -149,11 +149,11 @@ define internal range(i32 -2147483648, 1) i32 @rtp_mpegts_write_header(ptr nound
   %78 = load i32, ptr %24, align 4, !tbaa !32
   %79 = zext i32 %78 to i64
   %80 = icmp samesign ult i64 %indvars.iv.next108, %79
-  br i1 %80, label %68, label %._crit_edge103, !llvm.loop !48
+  br i1 %80, label %68, label %._crit_edge103, !llvm.loop !47
 
 ._crit_edge103:                                   ; preds = %68, %.preheader
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %11, ptr %81, align 8, !tbaa !49
+  store ptr %11, ptr %81, align 8, !tbaa !48
   %82 = call ptr @avformat_alloc_context() #4
   %.not82 = icmp eq ptr %82, null
   br i1 %.not82, label %104, label %83
@@ -167,19 +167,19 @@ define internal range(i32 -2147483648, 1) i32 @rtp_mpegts_write_header(ptr nound
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  store i32 1, ptr %87, align 8, !tbaa !50
+  store i32 1, ptr %87, align 8, !tbaa !49
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 36
-  store i32 90000, ptr %88, align 4, !tbaa !51
+  store i32 90000, ptr %88, align 4, !tbaa !50
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %90 = load ptr, ptr %89, align 8, !tbaa !43
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  store i32 131072, ptr %91, align 4, !tbaa !52
+  store i32 131072, ptr %91, align 4, !tbaa !51
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %93 = load ptr, ptr %92, align 8, !tbaa !55
+  %93 = load ptr, ptr %92, align 8, !tbaa !54
   %94 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  store ptr %93, ptr %94, align 8, !tbaa !55
+  store ptr %93, ptr %94, align 8, !tbaa !54
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %96 = load ptr, ptr %95, align 8, !tbaa !56
+  %96 = load ptr, ptr %95, align 8, !tbaa !55
   %97 = call i32 @av_dict_copy(ptr noundef nonnull %3, ptr noundef %96, i32 noundef 0) #4
   %98 = call i32 @avformat_write_header(ptr noundef nonnull %82, ptr noundef nonnull %3) #4
   call void @av_dict_free(ptr noundef nonnull %3) #4
@@ -188,7 +188,7 @@ define internal range(i32 -2147483648, 1) i32 @rtp_mpegts_write_header(ptr nound
 
 100:                                              ; preds = %86
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %82, ptr %101, align 8, !tbaa !57
+  store ptr %82, ptr %101, align 8, !tbaa !56
   br label %120
 
 .loopexit:                                        ; preds = %27, %._crit_edge, %59, %12
@@ -206,28 +206,28 @@ define internal range(i32 -2147483648, 1) i32 @rtp_mpegts_write_header(ptr nound
   call void @avformat_free_context(ptr noundef %.07095) #4
   %105 = load ptr, ptr %4, align 8, !tbaa !4
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !49
+  %107 = load ptr, ptr %106, align 8, !tbaa !48
   %.not.i = icmp eq ptr %107, null
   br i1 %.not.i, label %113, label %108
 
 108:                                              ; preds = %104
   %109 = call i32 @av_write_trailer(ptr noundef nonnull %107) #4
-  %110 = load ptr, ptr %106, align 8, !tbaa !49
+  %110 = load ptr, ptr %106, align 8, !tbaa !48
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
   call void @ffio_free_dyn_buf(ptr noundef nonnull %111) #4
-  %112 = load ptr, ptr %106, align 8, !tbaa !49
+  %112 = load ptr, ptr %106, align 8, !tbaa !48
   call void @avformat_free_context(ptr noundef %112) #4
   br label %113
 
 113:                                              ; preds = %108, %104
   %114 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %115 = load ptr, ptr %114, align 8, !tbaa !57
+  %115 = load ptr, ptr %114, align 8, !tbaa !56
   %.not10.i = icmp eq ptr %115, null
   br i1 %.not10.i, label %rtp_mpegts_write_close.exit, label %116
 
 116:                                              ; preds = %113
   %117 = call i32 @av_write_trailer(ptr noundef nonnull %115) #4
-  %118 = load ptr, ptr %114, align 8, !tbaa !57
+  %118 = load ptr, ptr %114, align 8, !tbaa !56
   call void @avformat_free_context(ptr noundef %118) #4
   br label %rtp_mpegts_write_close.exit
 
@@ -252,9 +252,9 @@ define internal i32 @rtp_mpegts_write_packet(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !25
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !49
+  %9 = load ptr, ptr %8, align 8, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !55
+  %11 = load ptr, ptr %10, align 8, !tbaa !54
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %15
 
@@ -264,7 +264,7 @@ define internal i32 @rtp_mpegts_write_packet(ptr noundef readonly captures(none)
   br i1 %14, label %79, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %12
-  %.pre = load ptr, ptr %8, align 8, !tbaa !49
+  %.pre = load ptr, ptr %8, align 8, !tbaa !48
   br label %15
 
 15:                                               ; preds = %._crit_edge, %2
@@ -274,27 +274,27 @@ define internal i32 @rtp_mpegts_write_packet(ptr noundef readonly captures(none)
   br i1 %18, label %79, label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %8, align 8, !tbaa !49
+  %20 = load ptr, ptr %8, align 8, !tbaa !48
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !55
+  %22 = load ptr, ptr %21, align 8, !tbaa !54
   %23 = call i32 @avio_close_dyn_buf(ptr noundef %22, ptr noundef nonnull %3) #4
-  %24 = load ptr, ptr %8, align 8, !tbaa !49
+  %24 = load ptr, ptr %8, align 8, !tbaa !48
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store ptr null, ptr %25, align 8, !tbaa !55
+  store ptr null, ptr %25, align 8, !tbaa !54
   %26 = icmp eq i32 %23, 0
   br i1 %26, label %.sink.split, label %27
 
 27:                                               ; preds = %19
   call void @av_packet_unref(ptr noundef %7) #4
-  %28 = load ptr, ptr %3, align 8, !tbaa !58
+  %28 = load ptr, ptr %3, align 8, !tbaa !57
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %28, ptr %29, align 8, !tbaa !59
+  store ptr %28, ptr %29, align 8, !tbaa !58
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 %23, ptr %30, align 8, !tbaa !60
+  store i32 %23, ptr %30, align 8, !tbaa !59
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 36
-  store i32 0, ptr %31, align 4, !tbaa !61
+  store i32 0, ptr %31, align 4, !tbaa !60
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !62
+  %33 = load i64, ptr %32, align 8, !tbaa !61
   %.not36 = icmp eq i64 %33, -9223372036854775808
   br i1 %.not36, label %53, label %34
 
@@ -302,13 +302,13 @@ define internal i32 @rtp_mpegts_write_packet(ptr noundef readonly captures(none)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8, !tbaa !33
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %38 = load i32, ptr %37, align 4, !tbaa !61
+  %38 = load i32, ptr %37, align 4, !tbaa !60
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds ptr, ptr %36, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !34
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !57
+  %44 = load ptr, ptr %43, align 8, !tbaa !56
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8, !tbaa !33
   %47 = load ptr, ptr %46, align 8, !tbaa !34
@@ -317,31 +317,31 @@ define internal i32 @rtp_mpegts_write_packet(ptr noundef readonly captures(none)
   %50 = load i64, ptr %48, align 8
   %51 = call i64 @av_rescale_q(i64 noundef %33, i64 %49, i64 %50) #5
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %51, ptr %52, align 8, !tbaa !62
+  store i64 %51, ptr %52, align 8, !tbaa !61
   br label %53
 
 53:                                               ; preds = %34, %27
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %55 = load i64, ptr %54, align 8, !tbaa !63
+  %55 = load i64, ptr %54, align 8, !tbaa !62
   %.not37 = icmp eq i64 %55, -9223372036854775808
   br i1 %.not37, label %._crit_edge38, label %56
 
 ._crit_edge38:                                    ; preds = %53
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.pre39 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !57
+  %.pre39 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !56
   br label %75
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %58 = load ptr, ptr %57, align 8, !tbaa !33
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %60 = load i32, ptr %59, align 4, !tbaa !61
+  %60 = load i32, ptr %59, align 4, !tbaa !60
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds ptr, ptr %58, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !34
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !57
+  %66 = load ptr, ptr %65, align 8, !tbaa !56
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = load ptr, ptr %67, align 8, !tbaa !33
   %69 = load ptr, ptr %68, align 8, !tbaa !34
@@ -350,7 +350,7 @@ define internal i32 @rtp_mpegts_write_packet(ptr noundef readonly captures(none)
   %72 = load i64, ptr %70, align 8
   %73 = call i64 @av_rescale_q(i64 noundef %55, i64 %71, i64 %72) #5
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %73, ptr %74, align 8, !tbaa !63
+  store i64 %73, ptr %74, align 8, !tbaa !62
   br label %75
 
 75:                                               ; preds = %._crit_edge38, %56
@@ -360,7 +360,7 @@ define internal i32 @rtp_mpegts_write_packet(ptr noundef readonly captures(none)
 
 .sink.split:                                      ; preds = %19, %75
   %.0.ph = phi i32 [ %77, %75 ], [ 0, %19 ]
-  %78 = load ptr, ptr %3, align 8, !tbaa !58
+  %78 = load ptr, ptr %3, align 8, !tbaa !57
   call void @av_free(ptr noundef %78) #4
   br label %79
 
@@ -375,28 +375,28 @@ define internal noundef i32 @rtp_mpegts_write_close(ptr noundef readonly capture
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %4, align 8, !tbaa !48
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %1
   %7 = tail call i32 @av_write_trailer(ptr noundef nonnull %5) #4
-  %8 = load ptr, ptr %4, align 8, !tbaa !49
+  %8 = load ptr, ptr %4, align 8, !tbaa !48
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   tail call void @ffio_free_dyn_buf(ptr noundef nonnull %9) #4
-  %10 = load ptr, ptr %4, align 8, !tbaa !49
+  %10 = load ptr, ptr %4, align 8, !tbaa !48
   tail call void @avformat_free_context(ptr noundef %10) #4
   br label %11
 
 11:                                               ; preds = %6, %1
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !57
+  %13 = load ptr, ptr %12, align 8, !tbaa !56
   %.not10 = icmp eq ptr %13, null
   br i1 %.not10, label %17, label %14
 
 14:                                               ; preds = %11
   %15 = tail call i32 @av_write_trailer(ptr noundef nonnull %13) #4
-  %16 = load ptr, ptr %12, align 8, !tbaa !57
+  %16 = load ptr, ptr %12, align 8, !tbaa !56
   tail call void @avformat_free_context(ptr noundef %16) #4
   br label %17
 
@@ -504,23 +504,22 @@ attributes #5 = { nounwind willreturn memory(none) }
 !41 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
 !42 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
 !43 = !{!37, !38, i64 16}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!26, !21, i64 32}
-!48 = distinct !{!48, !45, !46}
-!49 = !{!26, !27, i64 8}
-!50 = !{!37, !13, i64 32}
-!51 = !{!37, !13, i64 36}
-!52 = !{!53, !13, i64 4}
-!53 = !{!"AVCodecParameters", !13, i64 0, !13, i64 4, !13, i64 8, !18, i64 16, !13, i64 24, !42, i64 32, !13, i64 40, !13, i64 44, !19, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !39, i64 80, !39, i64 88, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !54, i64 128, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
-!54 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !8, i64 8, !7, i64 16}
-!55 = !{!5, !12, i64 32}
-!56 = !{!26, !21, i64 40}
-!57 = !{!26, !27, i64 16}
-!58 = !{!18, !18, i64 0}
-!59 = !{!40, !18, i64 24}
-!60 = !{!40, !13, i64 32}
-!61 = !{!40, !13, i64 36}
-!62 = !{!40, !19, i64 8}
-!63 = !{!40, !19, i64 16}
+!46 = !{!26, !21, i64 32}
+!47 = distinct !{!47, !45}
+!48 = !{!26, !27, i64 8}
+!49 = !{!37, !13, i64 32}
+!50 = !{!37, !13, i64 36}
+!51 = !{!52, !13, i64 4}
+!52 = !{!"AVCodecParameters", !13, i64 0, !13, i64 4, !13, i64 8, !18, i64 16, !13, i64 24, !42, i64 32, !13, i64 40, !13, i64 44, !19, i64 48, !13, i64 56, !13, i64 60, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !39, i64 80, !39, i64 88, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !13, i64 120, !53, i64 128, !13, i64 152, !13, i64 156, !13, i64 160, !13, i64 164, !13, i64 168, !13, i64 172}
+!53 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !8, i64 8, !7, i64 16}
+!54 = !{!5, !12, i64 32}
+!55 = !{!26, !21, i64 40}
+!56 = !{!26, !27, i64 16}
+!57 = !{!18, !18, i64 0}
+!58 = !{!40, !18, i64 24}
+!59 = !{!40, !13, i64 32}
+!60 = !{!40, !13, i64 36}
+!61 = !{!40, !19, i64 8}
+!62 = !{!40, !19, i64 16}

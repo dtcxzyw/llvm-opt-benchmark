@@ -1242,7 +1242,7 @@ dissect_tiff_ifd.exit:                            ; preds = %dissect_tiff_entry.
   %461 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.0.lcssa.i, i32 noundef range(i32 -2147483648, 1) %.024)
   store i32 %461, ptr %19, align 4
   %.not27 = icmp eq i32 %461, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not27, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %dissect_tiff_ifd.exit, %27
   %462 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1430,7 +1430,7 @@ switch.lookup:                                    ; preds = %14
   %33 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %32, i32 noundef %switch.load, i32 noundef %6)
   %34 = add nuw i32 %.050, 1
   %exitcond.not = icmp eq i32 %34, %5
-  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !9
 
 .loopexit:                                        ; preds = %29, %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
@@ -1536,8 +1536,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

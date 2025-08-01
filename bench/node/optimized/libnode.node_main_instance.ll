@@ -181,10 +181,10 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %isolate_data_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr null, ptr %isolate_data_, align 8
   %isolate_params_ = getelementptr inbounds nuw i8, ptr %this, i64 80
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  %call.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #12, !noalias !8
-  tail call void @_ZN2v87Isolate12CreateParamsC1Ev(ptr noundef nonnull align 8 dereferenceable(152) %call.i) #13, !noalias !8
-  store ptr %call.i, ptr %isolate_params_, align 8, !alias.scope !8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
+  %call.i = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #12, !noalias !7
+  tail call void @_ZN2v87Isolate12CreateParamsC1Ev(ptr noundef nonnull align 8 dereferenceable(152) %call.i) #13, !noalias !7
+  store ptr %call.i, ptr %isolate_params_, align 8, !alias.scope !7
   %snapshot_data_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %snapshot_data, ptr %snapshot_data_, align 8
   %8 = load ptr, ptr %array_buffer_allocator_, align 8
@@ -338,7 +338,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZNSt10unique_ptrIN
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #13
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %12
-  br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !10
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %for.body.i.i.i.i
   %.pr.i = load ptr, ptr %exec_args_, align 8
@@ -365,7 +365,7 @@ for.body.i.i.i.i7:                                ; preds = %_ZNSt6vectorINSt7__
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i8) #13
   %incdec.ptr.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i8, i64 32
   %cmp.not.i.i.i.i10 = icmp eq ptr %incdec.ptr.i.i.i.i9, %15
-  br i1 %cmp.not.i.i.i.i10, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i11, label %for.body.i.i.i.i7, !llvm.loop !11
+  br i1 %cmp.not.i.i.i.i10, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i11, label %for.body.i.i.i.i7, !llvm.loop !10
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i11: ; preds = %for.body.i.i.i.i7
   %.pr.i12 = load ptr, ptr %this, align 8
@@ -443,26 +443,26 @@ entry:
   %isolate_data_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = load ptr, ptr %isolate_data_, align 8
   %options_.i = getelementptr inbounds nuw i8, ptr %1, i64 4160
-  %2 = load ptr, ptr %options_.i, align 8, !noalias !12
+  %2 = load ptr, ptr %options_.i, align 8, !noalias !11
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 4168
-  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !12
+  %3 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !11
   %cmp.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4node11IsolateData7optionsEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %4 = load i8, ptr @__libc_single_threaded, align 1, !noalias !12
+  %4 = load i8, ptr @__libc_single_threaded, align 1, !noalias !11
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %4, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %5 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !12
+  %5 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !11
   %add.i.i.i.i.i.i = add nsw i32 %5, 1
-  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !12
+  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !11
   br label %if.then.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %6 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !12
+  %6 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !11
   br label %if.then.i.i.i
 
 _ZN4node11IsolateData7optionsEv.exit:             ; preds = %entry
@@ -767,13 +767,12 @@ attributes #14 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZSt11make_uniqueIN2v87Isolate12CreateParamsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!10 = distinct !{!10, !"_ZSt11make_uniqueIN2v87Isolate12CreateParamsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!11 = distinct !{!11, !6, !7}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN4node11IsolateData7optionsEv: %agg.result"}
-!14 = distinct !{!14, !"_ZN4node11IsolateData7optionsEv"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZSt11make_uniqueIN2v87Isolate12CreateParamsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!9 = distinct !{!9, !"_ZSt11make_uniqueIN2v87Isolate12CreateParamsEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!10 = distinct !{!10, !6}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN4node11IsolateData7optionsEv: %agg.result"}
+!13 = distinct !{!13, !"_ZN4node11IsolateData7optionsEv"}

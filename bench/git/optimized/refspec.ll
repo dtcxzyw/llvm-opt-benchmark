@@ -530,7 +530,7 @@ define dso_local void @refspec_clear(ptr noundef captures(none) %0) local_unname
   %15 = load i32, ptr %2, align 4, !tbaa !42
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %18 = load ptr, ptr %0, align 8, !tbaa !44
@@ -565,7 +565,7 @@ define dso_local range(i32 0, 2) i32 @valid_remote_name(ptr noundef %0) local_un
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.valid_remote_name.refspec, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef %0) #14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #14
   %6 = call i32 @refspec_item_init(ptr noundef nonnull %2, ptr noundef %5, i32 noundef 1)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -648,7 +648,7 @@ define dso_local void @refspec_ref_prefixes(ptr noundef readonly captures(none) 
   %29 = load i32, ptr %3, align 4, !tbaa !42
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %7, label %._crit_edge, !llvm.loop !53
+  br i1 %31, label %7, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %28, %2
   ret void
@@ -749,10 +749,9 @@ attributes #16 = { noreturn nounwind }
 !44 = !{!40, !41, i64 0}
 !45 = !{i64 0, i64 1, !11, i64 8, i64 8, !46, i64 16, i64 8, !46, i64 24, i64 8, !46}
 !46 = !{!9, !9, i64 0}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = distinct !{!50, !48, !49}
-!51 = !{!52, !9, i64 16}
-!52 = !{!"strbuf", !28, i64 0, !28, i64 8, !9, i64 16}
-!53 = distinct !{!53, !48, !49}
+!49 = distinct !{!49, !48}
+!50 = !{!51, !9, i64 16}
+!51 = !{!"strbuf", !28, i64 0, !28, i64 8, !9, i64 16}
+!52 = distinct !{!52, !48}

@@ -1039,20 +1039,20 @@ define hidden void @_ZNK2cv13wechat_qrcode9ImgSource4cropEiiiiRN5zxing12ErrorHan
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %18 = load i32, ptr %17, align 4, !tbaa !22
   %19 = add nsw i32 %18, %3
-  %20 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16, !noalias !42
+  %20 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16, !noalias !41
   invoke void @_ZN2cv13wechat_qrcode9ImgSourceC2EPhiiiiiiRN5zxing12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(80) %20, ptr noundef %9, i32 noundef %11, i32 noundef %13, i32 noundef %16, i32 noundef %19, i32 noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %6)
-          to label %23 unwind label %21, !noalias !42
+          to label %23 unwind label %21, !noalias !41
 
 21:                                               ; preds = %7
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %20) #19, !noalias !42
+  tail call void @_ZdlPv(ptr noundef nonnull %20) #19, !noalias !41
   resume { ptr, i32 } %22
 
 23:                                               ; preds = %7
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %25 = load i32, ptr %24, align 8, !tbaa !6, !noalias !42
-  store ptr %20, ptr %0, align 8, !tbaa !45
+  %25 = load i32, ptr %24, align 8, !tbaa !6, !noalias !41
+  store ptr %20, ptr %0, align 8, !tbaa !44
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 8, !tbaa !6
   %27 = icmp eq i32 %26, 0
@@ -1091,20 +1091,20 @@ define hidden void @_ZNK2cv13wechat_qrcode9ImgSource22rotateCounterClockwiseERN5
   %15 = load i32, ptr %14, align 4, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load i32, ptr %16, align 8, !tbaa !21
-  %18 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16, !noalias !48
+  %18 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16, !noalias !47
   invoke void @_ZN2cv13wechat_qrcode9ImgSourceC2EPhiiiiiiRN5zxing12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(80) %18, ptr noundef %9, i32 noundef %11, i32 noundef %13, i32 noundef %15, i32 noundef %17, i32 noundef %7, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %2)
-          to label %21 unwind label %19, !noalias !48
+          to label %21 unwind label %19, !noalias !47
 
 19:                                               ; preds = %3
   %20 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #19, !noalias !48
+  tail call void @_ZdlPv(ptr noundef nonnull %18) #19, !noalias !47
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !6, !noalias !48
-  store ptr %18, ptr %0, align 8, !tbaa !45
+  %23 = load i32, ptr %22, align 8, !tbaa !6, !noalias !47
+  store ptr %18, ptr %0, align 8, !tbaa !44
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 8, !tbaa !6
   %25 = icmp eq i32 %24, 0
@@ -1145,7 +1145,7 @@ define hidden void @_ZNK2cv13wechat_qrcode9ImgSource13getByteMatrixEv(ptr dead_o
   %15 = load i32, ptr %14, align 8, !tbaa !6
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 8, !tbaa !6
-  store ptr %4, ptr %0, align 8, !tbaa !51
+  store ptr %4, ptr %0, align 8, !tbaa !50
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIcEE, i64 16), ptr %3, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !10
@@ -1243,7 +1243,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5zxing12ErrorHandler7ErrCodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #12 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !54
+  %3 = load i32, ptr %2, align 4, !tbaa !53
   ret i32 %3
 }
 
@@ -1404,19 +1404,18 @@ attributes #19 = { builtin nounwind }
 !36 = !{!"p1 _ZTSN2cv13wechat_qrcode9ImgSourceE", !13, i64 0}
 !37 = !{!16, !8, i64 12}
 !38 = !{!16, !8, i64 16}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN2cv13wechat_qrcode9ImgSource6createEPhiiiiiiRN5zxing12ErrorHandlerE: argument 0"}
-!44 = distinct !{!44, !"_ZN2cv13wechat_qrcode9ImgSource6createEPhiiiiiiRN5zxing12ErrorHandlerE"}
-!45 = !{!46, !47, i64 0}
-!46 = !{!"_ZTSN5zxing3RefINS_15LuminanceSourceEEE", !47, i64 0}
-!47 = !{!"p1 _ZTSN5zxing15LuminanceSourceE", !13, i64 0}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZN2cv13wechat_qrcode9ImgSource6createEPhiiiiiiRN5zxing12ErrorHandlerE: argument 0"}
-!50 = distinct !{!50, !"_ZN2cv13wechat_qrcode9ImgSource6createEPhiiiiiiRN5zxing12ErrorHandlerE"}
-!51 = !{!52, !53, i64 0}
-!52 = !{!"_ZTSN5zxing3RefINS_10ByteMatrixEEE", !53, i64 0}
-!53 = !{!"p1 _ZTSN5zxing10ByteMatrixE", !13, i64 0}
-!54 = !{!28, !8, i64 12}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZN2cv13wechat_qrcode9ImgSource6createEPhiiiiiiRN5zxing12ErrorHandlerE: argument 0"}
+!43 = distinct !{!43, !"_ZN2cv13wechat_qrcode9ImgSource6createEPhiiiiiiRN5zxing12ErrorHandlerE"}
+!44 = !{!45, !46, i64 0}
+!45 = !{!"_ZTSN5zxing3RefINS_15LuminanceSourceEEE", !46, i64 0}
+!46 = !{!"p1 _ZTSN5zxing15LuminanceSourceE", !13, i64 0}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN2cv13wechat_qrcode9ImgSource6createEPhiiiiiiRN5zxing12ErrorHandlerE: argument 0"}
+!49 = distinct !{!49, !"_ZN2cv13wechat_qrcode9ImgSource6createEPhiiiiiiRN5zxing12ErrorHandlerE"}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"_ZTSN5zxing3RefINS_10ByteMatrixEEE", !52, i64 0}
+!52 = !{!"p1 _ZTSN5zxing10ByteMatrixE", !13, i64 0}
+!53 = !{!28, !8, i64 12}

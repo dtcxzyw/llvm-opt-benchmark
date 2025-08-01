@@ -2928,7 +2928,7 @@ cmp_address.exit.thread2.i.i:                     ; preds = %cmp_address.exit.i.
 cmp_address.exit.thread.i.i:                      ; preds = %cmp_address.exit.thread2.i.i, %cmp_address.exit.i.i, %104, %101, %99
   %118 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.01110.i.i)
   %.not.i.i = icmp eq ptr %118, null
-  br i1 %.not.i.i, label %.loopexit.i, label %99, !llvm.loop !11
+  br i1 %.not.i.i, label %.loopexit.i, label %99
 
 .loopexit.i:                                      ; preds = %cmp_address.exit.thread.i.i, %90
   %119 = load i32, ptr %92, align 4
@@ -2984,7 +2984,7 @@ cmp_address.exit.thread2.i.i.i:                   ; preds = %cmp_address.exit.i.
 cmp_address.exit.thread.i.i.i:                    ; preds = %cmp_address.exit.thread2.i.i.i, %cmp_address.exit.i.i.i, %129, %126, %124
   %143 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.01110.i.i.i)
   %.not.i.i.i = icmp eq ptr %143, null
-  br i1 %.not.i.i.i, label %.loopexit.i.i, label %124, !llvm.loop !11
+  br i1 %.not.i.i.i, label %.loopexit.i.i, label %124
 
 .loopexit.i.i:                                    ; preds = %cmp_address.exit.thread.i.i.i, %.loopexit.i
   %144 = call ptr @wmem_file_scope()
@@ -3473,7 +3473,7 @@ aeron_pos_compare.exit151.i:                      ; preds = %350, %348
 392:                                              ; preds = %388, %384, %.lr.ph.i.i154.i
   %393 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.027.i.i.i)
   %.not24.i.i.i = icmp eq ptr %393, null
-  br i1 %.not24.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i154.i, !llvm.loop !12
+  br i1 %.not24.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i154.i, !llvm.loop !10
 
 ._crit_edge.i.i.i:                                ; preds = %392, %379
   %394 = call ptr @wmem_file_scope()
@@ -3499,7 +3499,7 @@ aeron_pos_compare.exit151.i:                      ; preds = %350, %348
 aeron_frame_nak_rx_add.exit.i.i:                  ; preds = %388, %._crit_edge.i.i.i, %374, %370, %366, %361, %359
   %406 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02.i.i)
   %.not.i155.i = icmp eq ptr %406, null
-  br i1 %.not.i155.i, label %aeron_pos_add_length.exit149.thread211.i, label %359, !llvm.loop !13
+  br i1 %.not.i155.i, label %aeron_pos_add_length.exit149.thread211.i, label %359, !llvm.loop !11
 
 select.unfold.i:                                  ; preds = %350, %348
   %407 = load ptr, ptr %234, align 8
@@ -4449,7 +4449,7 @@ proto_item_set_generated.exit177:                 ; preds = %131, %134, %137
 aeron_sequence_report_frame.exit:                 ; preds = %170, %167, %166, %149, %147
   %174 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0114202)
   %.not148 = icmp eq ptr %174, null
-  br i1 %.not148, label %.loopexit200, label %147, !llvm.loop !14
+  br i1 %.not148, label %.loopexit200, label %147, !llvm.loop !12
 
 .loopexit200:                                     ; preds = %aeron_sequence_report_frame.exit, %proto_item_set_generated.exit177, %124
   %175 = load i32, ptr @hf_aeron_sequence_analysis_retransmission, align 4
@@ -4537,7 +4537,7 @@ proto_item_set_generated.exit184:                 ; preds = %189, %192, %195
 proto_item_set_generated.exit187:                 ; preds = %211, %208, %204, %.lr.ph205
   %215 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0115204)
   %.not151 = icmp eq ptr %215, null
-  br i1 %.not151, label %.loopexit, label %.lr.ph205, !llvm.loop !15
+  br i1 %.not151, label %.loopexit, label %.lr.ph205, !llvm.loop !13
 
 .loopexit:                                        ; preds = %proto_item_set_generated.exit187, %proto_item_set_generated.exit184, %185, %proto_item_set_generated.exit181
   %216 = load i32, ptr @hf_aeron_sequence_analysis_keepalive, align 4
@@ -4663,7 +4663,7 @@ proto_item_set_generated.exit196:                 ; preds = %248, %251, %254
 proto_item_set_generated.exit199:                 ; preds = %277, %274, %265, %.lr.ph208
   %281 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0207)
   %.not145 = icmp eq ptr %281, null
-  br i1 %.not145, label %proto_item_set_generated.exit190, label %.lr.ph208, !llvm.loop !16
+  br i1 %.not145, label %proto_item_set_generated.exit190, label %.lr.ph208, !llvm.loop !14
 
 proto_item_set_generated.exit190:                 ; preds = %proto_item_set_generated.exit199, %proto_item_set_generated.exit196, %223, %220, %.loopexit, %118, %proto_item_set_generated.exit162, %84, %227, %229, %119, %proto_item_set_generated.exit193, %proto_item_set_generated.exit168, %52, %10, %6
   ret void
@@ -5170,7 +5170,7 @@ define internal fastcc ptr @aeron_msg_fragment_find(ptr noundef nonnull readonly
 17:                                               ; preds = %12, %.lr.ph
   %18 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.016)
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %12, %17, %8, %2
   %.012 = phi ptr [ null, %2 ], [ null, %8 ], [ %11, %17 ], [ %11, %12 ]
@@ -5278,7 +5278,7 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
   %62 = tail call i64 @llvm.usub.sat.i64(i64 %43, i64 %.05968)
-  %63 = tail call ptr @__memcpy_chk(ptr noundef %57, ptr noundef %58, i64 noundef range(i64 0, 4294967296) %61, i64 noundef %62) #13, !alias.scope !18
+  %63 = tail call ptr @__memcpy_chk(ptr noundef %57, ptr noundef %58, i64 noundef range(i64 0, 4294967296) %61, i64 noundef %62) #13, !alias.scope !16
   %64 = load i32, ptr %59, align 8
   %65 = zext i32 %64 to i64
   %66 = add i64 %.05968, %65
@@ -5292,7 +5292,7 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   %.1 = phi i1 [ %.2, %56 ], [ %.05371, %.lr.ph ]
   %69 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.072)
   %.not64 = icmp eq ptr %69, null
-  br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %68
   %70 = load i32, ptr %6, align 8
@@ -5426,7 +5426,7 @@ define internal noundef zeroext i1 @aeron_msg_process_orphan_fragments_msg_cb(pt
 
 .lr.ph.backedge:                                  ; preds = %21, %17
   %.021.be = phi ptr [ %22, %21 ], [ %20, %17 ]
-  br label %.lr.ph, !llvm.loop !23
+  br label %.lr.ph, !llvm.loop !21
 
 .critedge:                                        ; preds = %17, %21, %.preheader, %3
   ret i1 false
@@ -5483,19 +5483,17 @@ attributes #15 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
-!20 = distinct !{!20, !"memcpy.inline"}
-!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = !{!17, !19}
+!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
+!18 = distinct !{!18, !"memcpy.inline"}
+!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}

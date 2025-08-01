@@ -262,7 +262,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS2_E
 
 28:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %30 = load ptr, ptr %29, align 8, !tbaa !50
+  %30 = load ptr, ptr %29, align 8, !tbaa !49
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %27 to i64
   %33 = sub i64 %31, %32
@@ -414,7 +414,6 @@ attributes #15 = { noreturn nounwind }
 !44 = !{!15, !16, i64 8}
 !45 = !{!46, !46, i64 0}
 !46 = !{!"p1 _ZTSN5draco17AttributesEncoderE", !10, i64 0}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = !{!15, !16, i64 16}
+!49 = !{!15, !16, i64 16}

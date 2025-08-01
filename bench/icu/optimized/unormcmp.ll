@@ -371,10 +371,10 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
 162:                                              ; preds = %.preheader259.us.i
   %163 = trunc nsw i64 %indvars.iv.next.i to i32
   %164 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %165 = load ptr, ptr %164, align 8, !tbaa !23
+  %165 = load ptr, ptr %164, align 8, !tbaa !22
   %166 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  %167 = load ptr, ptr %166, align 8, !tbaa !24
-  br label %.preheader261.split.us.i, !llvm.loop !25
+  %167 = load ptr, ptr %166, align 8, !tbaa !23
+  br label %.preheader261.split.us.i, !llvm.loop !24
 
 .preheader261.split.i:                            ; preds = %.preheader261.i, %181
   %.2201.i = phi ptr [ %184, %181 ], [ %.0199.i, %.preheader261.i ]
@@ -420,10 +420,10 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
 181:                                              ; preds = %.preheader259.i
   %182 = trunc nsw i64 %indvars.iv.next332.i to i32
   %183 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %184 = load ptr, ptr %183, align 8, !tbaa !23
+  %184 = load ptr, ptr %183, align 8, !tbaa !22
   %185 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %186 = load ptr, ptr %185, align 8, !tbaa !24
-  br label %.preheader261.split.i, !llvm.loop !27
+  %186 = load ptr, ptr %185, align 8, !tbaa !23
+  br label %.preheader261.split.i, !llvm.loop !26
 
 .loopexit262.i:                                   ; preds = %156, %173, %.split.us.i, %.backedge.i
   %.1200.i = phi ptr [ %177, %.split.us.i ], [ %.0199.i, %.backedge.i ], [ %.2201.i, %173 ], [ %.2201.us.i, %156 ]
@@ -469,15 +469,15 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   %199 = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %10, i64 0, i64 %indvars.iv.next335.i
   %200 = load ptr, ptr %199, align 8, !tbaa !17
   %201 = icmp eq ptr %200, null
-  br i1 %201, label %.preheader.i, label %202, !llvm.loop !28
+  br i1 %201, label %.preheader.i, label %202, !llvm.loop !27
 
 202:                                              ; preds = %.preheader.i
   %203 = trunc nsw i64 %indvars.iv.next335.i to i32
   %204 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %205 = load ptr, ptr %204, align 8, !tbaa !23
+  %205 = load ptr, ptr %204, align 8, !tbaa !22
   %206 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  %207 = load ptr, ptr %206, align 8, !tbaa !24
-  br label %.preheader260.i, !llvm.loop !29
+  %207 = load ptr, ptr %206, align 8, !tbaa !23
+  br label %.preheader260.i, !llvm.loop !28
 
 .loopexit.i:                                      ; preds = %193, %196, %.loopexit262.i
   %.1206.i = phi ptr [ %198, %196 ], [ %.0205.i, %.loopexit262.i ], [ %.2207.i, %193 ]
@@ -601,7 +601,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
           to label %.noexc107 unwind label %.loopexit
 
 .noexc107:                                        ; preds = %270
-  store i32 %271, ptr %8, align 4, !tbaa !30
+  store i32 %271, ptr %8, align 4, !tbaa !29
   %272 = icmp sgt i32 %271, -1
   br i1 %272, label %273, label %305
 
@@ -629,18 +629,18 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   %.3202.i = phi ptr [ %278, %277 ], [ %.1200.i, %279 ], [ %.1200.i, %273 ]
   %.2.i = phi i32 [ %.1167.i, %277 ], [ %283, %279 ], [ %.1167.i, %273 ]
   store ptr %.1195.i, ptr %9, align 16, !tbaa !17
-  store ptr %.3202.i, ptr %145, align 8, !tbaa !23
-  store ptr %.2189.i, ptr %146, align 16, !tbaa !24
+  store ptr %.3202.i, ptr %145, align 8, !tbaa !22
+  store ptr %.2189.i, ptr %146, align 16, !tbaa !23
   %285 = icmp samesign ult i32 %271, 32
   br i1 %285, label %286, label %289
 
 286:                                              ; preds = %284
-  %287 = load ptr, ptr %7, align 8, !tbaa !32
+  %287 = load ptr, ptr %7, align 8, !tbaa !31
   %288 = invoke ptr @u_memcpy_77(ptr noundef nonnull %13, ptr noundef %287, i32 noundef %271)
           to label %.noexc108 unwind label %.loopexit
 
 .noexc108:                                        ; preds = %286
-  %.pre.i = load i32, ptr %8, align 4, !tbaa !30
+  %.pre.i = load i32, ptr %8, align 4, !tbaa !29
   br label %301
 
 289:                                              ; preds = %284
@@ -665,7 +665,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   %.sink.i = phi i16 [ %292, %291 ], [ %296, %293 ]
   %.0162.i = phi i32 [ 1, %291 ], [ 2, %293 ]
   store i16 %.sink.i, ptr %13, align 16, !tbaa !15
-  store i32 %.0162.i, ptr %8, align 4, !tbaa !30
+  store i32 %.0162.i, ptr %8, align 4, !tbaa !29
   br label %301
 
 301:                                              ; preds = %300, %.noexc108
@@ -684,7 +684,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
           to label %.noexc109 unwind label %.loopexit
 
 .noexc109:                                        ; preds = %307
-  store i32 %308, ptr %8, align 4, !tbaa !30
+  store i32 %308, ptr %8, align 4, !tbaa !29
   %309 = icmp sgt i32 %308, -1
   br i1 %309, label %310, label %342
 
@@ -712,18 +712,18 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   %.4203.i = phi ptr [ %.1200.i, %314 ], [ %317, %316 ], [ %.1200.i, %310 ]
   %.2170.i = phi i32 [ %.1169.i, %314 ], [ %320, %316 ], [ %.1169.i, %310 ]
   store ptr %.1192.i, ptr %10, align 16, !tbaa !17
-  store ptr %.4209.i, ptr %148, align 8, !tbaa !23
-  store ptr %.2185.i, ptr %149, align 16, !tbaa !24
+  store ptr %.4209.i, ptr %148, align 8, !tbaa !22
+  store ptr %.2185.i, ptr %149, align 16, !tbaa !23
   %322 = icmp samesign ult i32 %308, 32
   br i1 %322, label %323, label %326
 
 323:                                              ; preds = %321
-  %324 = load ptr, ptr %7, align 8, !tbaa !32
+  %324 = load ptr, ptr %7, align 8, !tbaa !31
   %325 = invoke ptr @u_memcpy_77(ptr noundef nonnull %14, ptr noundef %324, i32 noundef %308)
           to label %.noexc110 unwind label %.loopexit
 
 .noexc110:                                        ; preds = %323
-  %.pre338.i = load i32, ptr %8, align 4, !tbaa !30
+  %.pre338.i = load i32, ptr %8, align 4, !tbaa !29
   br label %338
 
 326:                                              ; preds = %321
@@ -748,7 +748,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   %.sink337.i = phi i16 [ %329, %328 ], [ %333, %330 ]
   %.0.i106 = phi i32 [ 1, %328 ], [ 2, %330 ]
   store i16 %.sink337.i, ptr %14, align 16, !tbaa !15
-  store i32 %.0.i106, ptr %8, align 4, !tbaa !30
+  store i32 %.0.i106, ptr %8, align 4, !tbaa !29
   br label %338
 
 338:                                              ; preds = %337, %.noexc110
@@ -766,7 +766,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
           to label %.noexc111 unwind label %.loopexit
 
 .noexc111:                                        ; preds = %344
-  store ptr %345, ptr %7, align 8, !tbaa !32
+  store ptr %345, ptr %7, align 8, !tbaa !31
   %.not235.i = icmp eq ptr %345, null
   br i1 %.not235.i, label %371, label %346
 
@@ -797,9 +797,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   %359 = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %9, i64 0, i64 %358
   store ptr %.1195.i, ptr %359, align 8, !tbaa !17
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
-  store ptr %.5204.i, ptr %360, align 8, !tbaa !23
+  store ptr %.5204.i, ptr %360, align 8, !tbaa !22
   %361 = getelementptr inbounds nuw i8, ptr %359, i64 16
-  store ptr %.2189.i, ptr %361, align 8, !tbaa !24
+  store ptr %.2189.i, ptr %361, align 8, !tbaa !23
   %.not243.i = icmp eq i32 %.1179.i, 1
   br i1 %.not243.i, label %367, label %362
 
@@ -813,7 +813,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
 
 367:                                              ; preds = %362, %357
   %.4182.i = phi i32 [ %364, %362 ], [ 2, %357 ]
-  %368 = load i32, ptr %8, align 4, !tbaa !30
+  %368 = load i32, ptr %8, align 4, !tbaa !29
   %369 = sext i32 %368 to i64
   %370 = getelementptr inbounds i16, ptr %345, i64 %369
   br label %.backedge.i.backedge
@@ -827,7 +827,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
           to label %.noexc112 unwind label %.loopexit
 
 .noexc112:                                        ; preds = %373
-  store ptr %374, ptr %7, align 8, !tbaa !32
+  store ptr %374, ptr %7, align 8, !tbaa !31
   %.not236.i = icmp eq ptr %374, null
   br i1 %.not236.i, label %400, label %375
 
@@ -858,9 +858,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   %388 = getelementptr inbounds [2 x %struct.CmpEquivLevel], ptr %10, i64 0, i64 %387
   store ptr %.1192.i, ptr %388, align 8, !tbaa !17
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
-  store ptr %.6211.i, ptr %389, align 8, !tbaa !23
+  store ptr %.6211.i, ptr %389, align 8, !tbaa !22
   %390 = getelementptr inbounds nuw i8, ptr %388, i64 16
-  store ptr %.2185.i, ptr %390, align 8, !tbaa !24
+  store ptr %.2185.i, ptr %390, align 8, !tbaa !23
   %.not242.i = icmp eq i32 %.1174.i, 1
   br i1 %.not242.i, label %396, label %391
 
@@ -874,7 +874,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
 
 396:                                              ; preds = %391, %386
   %.4177.i = phi i32 [ %393, %391 ], [ 2, %386 ]
-  %397 = load i32, ptr %8, align 4, !tbaa !30
+  %397 = load i32, ptr %8, align 4, !tbaa !29
   %398 = sext i32 %397 to i64
   %399 = getelementptr inbounds i16, ptr %374, i64 %398
   br label %.backedge.i.backedge
@@ -890,7 +890,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit104:   ; preds = %113, %118, %120
   %.0173.i.be = phi i32 [ %.1174.i, %301 ], [ 1, %338 ], [ %.1174.i, %367 ], [ %.4177.i, %396 ], [ %.1174.i, %210 ]
   %.0168.i.be = phi i32 [ -1, %301 ], [ %.2170.i, %338 ], [ -1, %367 ], [ %.3171.i, %396 ], [ -1, %210 ]
   %.0166.i.be = phi i32 [ %.2.i, %301 ], [ -1, %338 ], [ %.3.i, %367 ], [ -1, %396 ], [ -1, %210 ]
-  br label %.backedge.i, !llvm.loop !33
+  br label %.backedge.i, !llvm.loop !32
 
 400:                                              ; preds = %.noexc112, %371
   %401 = icmp samesign ult i32 %.1169.i, 55296
@@ -1033,13 +1033,13 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL10_normalizePKN6icu
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #4
   %.lobit = lshr i32 %2, 31
   %10 = trunc nuw nsw i32 %.lobit to i8
-  store ptr %1, ptr %7, align 8, !tbaa !34
+  store ptr %1, ptr %7, align 8, !tbaa !33
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 noundef signext %10, ptr noundef nonnull %7, i32 noundef %2)
           to label %11 unwind label %20
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr %7, align 8, !tbaa !34
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #4, !srcloc !36
+  %12 = load ptr, ptr %7, align 8, !tbaa !33
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %12) #4, !srcloc !35
   %13 = load ptr, ptr %0, align 8, !tbaa !7
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %15 = load ptr, ptr %14, align 8
@@ -1054,8 +1054,8 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL10_normalizePKN6icu
 20:                                               ; preds = %5
   %21 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %7, align 8, !tbaa !34
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22) #4, !srcloc !36
+  %22 = load ptr, ptr %7, align 8, !tbaa !33
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22) #4, !srcloc !35
   br label %68
 
 23:                                               ; preds = %11
@@ -1102,13 +1102,13 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL10_normalizePKN6icu
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %36, %41, %43
   %.0.i = phi ptr [ %42, %41 ], [ %45, %43 ], [ null, %36 ]
-  store ptr %.0.i, ptr %9, align 8, !tbaa !34
+  store ptr %.0.i, ptr %9, align 8, !tbaa !33
   %46 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 noundef signext 0, ptr noundef nonnull %9, i32 noundef %16)
           to label %47 unwind label %60
 
 47:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit
-  %48 = load ptr, ptr %9, align 8, !tbaa !34
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %48) #4, !srcloc !36
+  %48 = load ptr, ptr %9, align 8, !tbaa !33
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %48) #4, !srcloc !35
   %49 = load ptr, ptr %0, align 8, !tbaa !7
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8
@@ -1135,8 +1135,8 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %36, %41, %43
 60:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit
   %61 = landingpad { ptr, i32 }
           cleanup
-  %62 = load ptr, ptr %9, align 8, !tbaa !34
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %62) #4, !srcloc !36
+  %62 = load ptr, ptr %9, align 8, !tbaa !33
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %62) #4, !srcloc !35
   br label %63
 
 63:                                               ; preds = %60, %58
@@ -1220,20 +1220,19 @@ attributes #4 = { nounwind }
 !17 = !{!18, !19, i64 0}
 !18 = !{!"_ZTS13CmpEquivLevel", !19, i64 0, !19, i64 8, !19, i64 16}
 !19 = !{!"p1 char16_t", !12, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!18, !19, i64 8}
-!24 = !{!18, !19, i64 16}
-!25 = distinct !{!25, !21, !22, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !21, !22}
-!28 = distinct !{!28, !21, !22}
-!29 = distinct !{!29, !21, !22}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"int", !5, i64 0}
-!32 = !{!19, !19, i64 0}
-!33 = distinct !{!33, !21, !22}
-!34 = !{!35, !19, i64 0}
-!35 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !19, i64 0}
-!36 = !{i64 2149615182}
+!22 = !{!18, !19, i64 8}
+!23 = !{!18, !19, i64 16}
+!24 = distinct !{!24, !21, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !21}
+!27 = distinct !{!27, !21}
+!28 = distinct !{!28, !21}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"int", !5, i64 0}
+!31 = !{!19, !19, i64 0}
+!32 = distinct !{!32, !21}
+!33 = !{!34, !19, i64 0}
+!34 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !19, i64 0}
+!35 = !{i64 2149615182}

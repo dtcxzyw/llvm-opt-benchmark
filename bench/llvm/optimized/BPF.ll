@@ -757,7 +757,7 @@ _ZNK12_GLOBAL__N_110BPFABIInfo20classifyArgumentTypeEN5clang8QualTypeE.exit: ; p
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
   %189 = getelementptr inbounds nuw i8, ptr %.036, i64 40
   %.not = icmp eq ptr %189, %84
-  br i1 %.not, label %._crit_edge, label %88, !llvm.loop !77
+  br i1 %.not, label %._crit_edge, label %88
 }
 
 declare void @_ZNK5clang7CodeGen14DefaultABIInfo9EmitVAArgERNS0_15CodeGenFunctionENS0_7AddressENS_8QualTypeENS0_12AggValueSlotE(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::RValue") align 8, ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(6496), ptr noundef byval(%"class.clang::CodeGen::Address") align 8, i64, ptr noundef byval(%"class.clang::CodeGen::AggValueSlot") align 8) unnamed_addr #3
@@ -913,5 +913,3 @@ attributes #12 = { builtin nounwind }
 !74 = !{!75, !61}
 !75 = distinct !{!75, !76, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj: argument 0"}
 !76 = distinct !{!76, !"_ZN5clang7CodeGen10ABIArgInfo9getDirectEPN4llvm4TypeEjS4_bj"}
-!77 = distinct !{!77, !78}
-!78 = !{!"llvm.loop.estimated_trip_count"}

@@ -100,7 +100,7 @@ atomic_compare_exchange_weak_b.exit.i:            ; preds = %24, %._crit_edge.i.
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %26 = cmpxchg weak ptr @dss_extending, i8 0, i8 1 acq_rel monotonic, align 1
   %27 = extractvalue { i8, i1 } %26, 1
-  br i1 %27, label %atomic_load_b.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %27, label %atomic_load_b.exit, label %.lr.ph.i
 
 atomic_load_b.exit:                               ; preds = %atomic_compare_exchange_weak_b.exit.i, %15
   %28 = load atomic i8, ptr @dss_exhausted.0 acquire, align 1
@@ -133,7 +133,7 @@ atomic_store_p.exit.i:                            ; preds = %37
   br i1 %or.cond92, label %.thread, label %42
 
 42:                                               ; preds = %atomic_store_p.exit.i
-  %43 = load i8, ptr @je_opt_retain, align 1, !tbaa !13, !range !15, !noundef !16
+  %43 = load i8, ptr @je_opt_retain, align 1, !tbaa !11, !range !13, !noundef !14
   %44 = add i64 %40, 4095
   %45 = and i64 %44, -4096
   %46 = add i64 %30, %45
@@ -144,23 +144,23 @@ atomic_store_p.exit.i:                            ; preds = %37
 48:                                               ; preds = %42
   %49 = sub i64 %47, %45
   %50 = inttoptr i64 %45 to ptr
-  %.val = load i32, ptr %32, align 8, !tbaa !17
+  %.val = load i32, ptr %32, align 8, !tbaa !15
   %51 = tail call i64 @je_extent_sn_next(ptr noundef nonnull %33) #6
-  %52 = load i64, ptr %13, align 8, !tbaa !71
+  %52 = load i64, ptr %13, align 8, !tbaa !69
   %53 = and i64 %52, -17592454479872
-  store ptr %50, ptr %34, align 8, !tbaa !73
-  %54 = load i64, ptr %35, align 8, !tbaa !74
+  store ptr %50, ptr %34, align 8, !tbaa !71
+  %54 = load i64, ptr %35, align 8, !tbaa !72
   %55 = and i64 %54, 4095
   %56 = or i64 %55, %49
-  store i64 %56, ptr %35, align 8, !tbaa !74
+  store i64 %56, ptr %35, align 8, !tbaa !72
   %57 = and i32 %.val, -268431361
   %.masked.i = zext i32 %57 to i64
-  store i64 %51, ptr %36, align 8, !tbaa !75
+  store i64 %51, ptr %36, align 8, !tbaa !73
   %.not.i82 = icmp eq i8 %43, 0
   %58 = select i1 %.not.i82, i64 246423552, i64 17592432467968
   %59 = or disjoint i64 %58, %.masked.i
   %60 = or i64 %59, %53
-  store i64 %60, ptr %13, align 8, !tbaa !71
+  store i64 %60, ptr %13, align 8, !tbaa !69
   br label %61
 
 61:                                               ; preds = %48, %42
@@ -193,21 +193,21 @@ atomic_store_p.exit:                              ; preds = %65
   br label %74
 
 74:                                               ; preds = %73, %71
-  %75 = load i8, ptr %6, align 1, !tbaa !13, !range !15, !noundef !16
+  %75 = load i8, ptr %6, align 1, !tbaa !11, !range !13, !noundef !14
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %.thread108, label %77
 
 77:                                               ; preds = %74
   %78 = tail call zeroext i1 @je_pages_decommit(ptr noundef %70, i64 noundef %3) #6
   %79 = zext i1 %78 to i8
-  store i8 %79, ptr %6, align 1, !tbaa !13
-  %80 = load i8, ptr %5, align 1, !tbaa !13, !range !15, !noundef !16
+  store i8 %79, ptr %6, align 1, !tbaa !11
+  %80 = load i8, ptr %5, align 1, !tbaa !11, !range !13, !noundef !14
   %81 = trunc nuw i8 %80 to i1
   %82 = select i1 %81, i1 %78, i1 false
   br i1 %82, label %.thread109, label %.thread89
 
 .thread108:                                       ; preds = %74
-  %83 = load i8, ptr %5, align 1, !tbaa !13, !range !15, !noundef !16
+  %83 = load i8, ptr %5, align 1, !tbaa !11, !range !13, !noundef !14
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %.thread109, label %.thread89
 
@@ -216,22 +216,22 @@ atomic_store_p.exit:                              ; preds = %65
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %85, i8 0, i64 104, i1 false)
   %86 = tail call ptr @je_arena_get_ehooks(ptr noundef nonnull %1) #6
-  %.val80 = load i32, ptr %32, align 8, !tbaa !17
+  %.val80 = load i32, ptr %32, align 8, !tbaa !15
   %.not94 = icmp eq i64 %3, 0
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %70, ptr %87, align 8, !tbaa !73
+  store ptr %70, ptr %87, align 8, !tbaa !71
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %3, ptr %88, align 8, !tbaa !74
+  store i64 %3, ptr %88, align 8, !tbaa !72
   %89 = and i32 %.val80, -268431361
   %.masked.i83 = zext i32 %89 to i64
   %90 = select i1 %.not94, i64 0, i64 4096
   %91 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i64 235, ptr %91, align 8, !tbaa !75
+  store i64 235, ptr %91, align 8, !tbaa !73
   %.not.i84 = icmp eq i8 %43, 0
   %92 = select i1 %.not.i84, i64 8192, i64 17592186052608
   %93 = or disjoint i64 %92, %90
   %94 = or disjoint i64 %93, %.masked.i83
-  store i64 %94, ptr %9, align 8, !tbaa !71
+  store i64 %94, ptr %9, align 8, !tbaa !69
   %95 = call zeroext i1 @je_extent_purge_forced_wrapper(ptr noundef %0, ptr noundef %86, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %3) #6
   br i1 %95, label %96, label %97
 
@@ -283,7 +283,7 @@ define hidden zeroext i1 @je_extent_in_dss(ptr noundef readnone captures(address
 atomic_load_p.exit:
   %1 = load atomic i64, ptr @dss_max.0 acquire, align 8
   %.0.i = inttoptr i64 %1 to ptr
-  %2 = load ptr, ptr @dss_base, align 8, !tbaa !76
+  %2 = load ptr, ptr @dss_base, align 8, !tbaa !74
   %3 = icmp uge ptr %0, %2
   %4 = icmp ult ptr %0, %.0.i
   %5 = and i1 %4, %3
@@ -292,7 +292,7 @@ atomic_load_p.exit:
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define hidden zeroext i1 @je_extent_dss_mergeable(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr @dss_base, align 8, !tbaa !76
+  %3 = load ptr, ptr @dss_base, align 8, !tbaa !74
   %4 = icmp ult ptr %0, %3
   %5 = icmp ult ptr %1, %3
   %or.cond = and i1 %4, %5
@@ -301,7 +301,7 @@ define hidden zeroext i1 @je_extent_dss_mergeable(ptr noundef readnone captures(
 atomic_load_p.exit:                               ; preds = %2
   %6 = load atomic i64, ptr @dss_max.0 acquire, align 8
   %.0.i = inttoptr i64 %6 to ptr
-  %7 = load ptr, ptr @dss_base, align 8, !tbaa !76
+  %7 = load ptr, ptr @dss_base, align 8, !tbaa !74
   %8 = icmp uge ptr %0, %7
   %9 = icmp ult ptr %0, %.0.i
   %10 = and i1 %9, %8
@@ -320,7 +320,7 @@ atomic_load_p.exit:                               ; preds = %2
 define hidden void @je_extent_dss_boot() local_unnamed_addr #2 {
 atomic_store_p.exit:
   %0 = tail call ptr @sbrk(i64 noundef 0) #6
-  store ptr %0, ptr @dss_base, align 8, !tbaa !76
+  store ptr %0, ptr @dss_base, align 8, !tbaa !74
   store atomic i8 0, ptr @dss_extending monotonic, align 1
   %1 = icmp eq ptr %0, inttoptr (i64 -1 to ptr)
   %2 = zext i1 %1 to i8
@@ -355,71 +355,69 @@ attributes #6 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{i64 2151356176}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !11}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"_Bool", !6, i64 0}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = !{!18, !5, i64 78928}
-!18 = !{!"arena_s", !6, i64 0, !19, i64 8, !20, i64 16, !22, i64 24, !29, i64 10392, !31, i64 10400, !33, i64 10408, !19, i64 10520, !34, i64 10528, !33, i64 10536, !37, i64 10648, !5, i64 78928, !44, i64 78936, !24, i64 78944, !6, i64 78952}
-!19 = !{!"", !5, i64 0}
-!20 = !{!"p1 _ZTS6tsdn_s", !21, i64 0}
-!21 = !{!"any pointer", !6, i64 0}
-!22 = !{!"arena_stats_s", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !24, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !23, i64 64, !23, i64 72, !23, i64 80, !25, i64 88, !23, i64 168, !23, i64 176, !6, i64 184, !6, i64 952, !24, i64 10360}
-!23 = !{!"long", !6, i64 0}
-!24 = !{!"", !23, i64 0}
-!25 = !{!"pa_shard_stats_s", !23, i64 0, !26, i64 8}
-!26 = !{!"pac_stats_s", !27, i64 0, !27, i64 24, !23, i64 48, !24, i64 56, !24, i64 64}
-!27 = !{!"pac_decay_stats_s", !28, i64 0, !28, i64 8, !28, i64 16}
-!28 = !{!"locked_u64_s", !24, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"_Bool", !6, i64 0}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = !{!16, !5, i64 78928}
+!16 = !{!"arena_s", !6, i64 0, !17, i64 8, !18, i64 16, !20, i64 24, !27, i64 10392, !29, i64 10400, !31, i64 10408, !17, i64 10520, !32, i64 10528, !31, i64 10536, !35, i64 10648, !5, i64 78928, !42, i64 78936, !22, i64 78944, !6, i64 78952}
+!17 = !{!"", !5, i64 0}
+!18 = !{!"p1 _ZTS6tsdn_s", !19, i64 0}
+!19 = !{!"any pointer", !6, i64 0}
+!20 = !{!"arena_stats_s", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24, !22, i64 32, !21, i64 40, !21, i64 48, !21, i64 56, !21, i64 64, !21, i64 72, !21, i64 80, !23, i64 88, !21, i64 168, !21, i64 176, !6, i64 184, !6, i64 952, !22, i64 10360}
+!21 = !{!"long", !6, i64 0}
+!22 = !{!"", !21, i64 0}
+!23 = !{!"pa_shard_stats_s", !21, i64 0, !24, i64 8}
+!24 = !{!"pac_stats_s", !25, i64 0, !25, i64 24, !21, i64 48, !22, i64 56, !22, i64 64}
+!25 = !{!"pac_decay_stats_s", !26, i64 0, !26, i64 8, !26, i64 16}
+!26 = !{!"locked_u64_s", !22, i64 0}
+!27 = !{!"", !28, i64 0}
+!28 = !{!"p1 _ZTS13tcache_slow_s", !19, i64 0}
 !29 = !{!"", !30, i64 0}
-!30 = !{!"p1 _ZTS13tcache_slow_s", !21, i64 0}
-!31 = !{!"", !32, i64 0}
-!32 = !{!"p1 _ZTS28cache_bin_array_descriptor_s", !21, i64 0}
-!33 = !{!"malloc_mutex_s", !6, i64 0}
-!34 = !{!"", !35, i64 0}
-!35 = !{!"", !36, i64 0}
-!36 = !{!"p1 _ZTS7edata_s", !21, i64 0}
-!37 = !{!"pa_shard_s", !38, i64 0, !24, i64 8, !39, i64 16, !14, i64 17, !40, i64 24, !52, i64 62264, !56, i64 62384, !67, i64 68096, !5, i64 68240, !50, i64 68248, !70, i64 68256, !45, i64 68264, !44, i64 68272}
-!38 = !{!"p1 _ZTS12pa_central_s", !21, i64 0}
-!39 = !{!"", !14, i64 0}
-!40 = !{!"pac_s", !41, i64 0, !42, i64 56, !42, i64 19496, !42, i64 38936, !44, i64 58376, !45, i64 58384, !46, i64 58392, !47, i64 58400, !33, i64 58408, !48, i64 58520, !24, i64 58640, !49, i64 58648, !49, i64 60432, !50, i64 62216, !51, i64 62224, !24, i64 62232}
-!41 = !{!"pai_s", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32, !21, i64 40, !21, i64 48}
-!42 = !{!"ecache_s", !33, i64 0, !43, i64 112, !43, i64 9768, !5, i64 19424, !5, i64 19428, !14, i64 19432}
-!43 = !{!"eset_s", !6, i64 0, !6, i64 32, !6, i64 6432, !34, i64 9632, !24, i64 9640, !5, i64 9648}
-!44 = !{!"p1 _ZTS6base_s", !21, i64 0}
-!45 = !{!"p1 _ZTS6emap_s", !21, i64 0}
-!46 = !{!"p1 _ZTS13edata_cache_s", !21, i64 0}
-!47 = !{!"exp_grow_s", !5, i64 0, !5, i64 4}
-!48 = !{!"san_bump_alloc_s", !33, i64 0, !36, i64 112}
-!49 = !{!"decay_s", !33, i64 0, !14, i64 112, !24, i64 120, !24, i64 128, !24, i64 136, !23, i64 144, !24, i64 152, !23, i64 160, !23, i64 168, !6, i64 176, !23, i64 1776}
-!50 = !{!"p1 _ZTS14malloc_mutex_s", !21, i64 0}
-!51 = !{!"p1 _ZTS11pac_stats_s", !21, i64 0}
-!52 = !{!"sec_s", !41, i64 0, !53, i64 56, !54, i64 64, !55, i64 104, !5, i64 112}
-!53 = !{!"p1 _ZTS5pai_s", !21, i64 0}
-!54 = !{!"sec_opts_s", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32}
-!55 = !{!"p1 _ZTS11sec_shard_s", !21, i64 0}
-!56 = !{!"hpa_shard_s", !41, i64 0, !57, i64 56, !33, i64 64, !33, i64 176, !44, i64 288, !58, i64 296, !59, i64 320, !23, i64 5600, !5, i64 5608, !45, i64 5616, !65, i64 5624, !23, i64 5664, !66, i64 5672, !24, i64 5704}
-!57 = !{!"p1 _ZTS13hpa_central_s", !21, i64 0}
-!58 = !{!"edata_cache_fast_s", !34, i64 0, !46, i64 8, !14, i64 16}
-!59 = !{!"psset_s", !6, i64 0, !6, i64 1024, !60, i64 1032, !61, i64 1056, !62, i64 4224, !6, i64 4232, !6, i64 5256, !62, i64 5272}
-!60 = !{!"psset_bin_stats_s", !23, i64 0, !23, i64 8, !23, i64 16}
-!61 = !{!"psset_stats_s", !6, i64 0, !6, i64 3072, !6, i64 3120}
-!62 = !{!"", !63, i64 0}
-!63 = !{!"", !64, i64 0}
-!64 = !{!"p1 _ZTS8hpdata_s", !21, i64 0}
-!65 = !{!"hpa_shard_opts_s", !23, i64 0, !23, i64 8, !5, i64 16, !14, i64 20, !23, i64 24, !23, i64 32}
-!66 = !{!"hpa_shard_nonderived_stats_s", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24}
-!67 = !{!"edata_cache_s", !68, i64 0, !24, i64 16, !33, i64 24, !44, i64 136}
-!68 = !{!"", !69, i64 0}
-!69 = !{!"ph_s", !21, i64 0, !23, i64 8}
-!70 = !{!"p1 _ZTS16pa_shard_stats_s", !21, i64 0}
-!71 = !{!72, !23, i64 0}
-!72 = !{!"edata_s", !23, i64 0, !21, i64 8, !6, i64 16, !64, i64 24, !23, i64 32, !6, i64 40, !6, i64 64}
-!73 = !{!72, !21, i64 8}
-!74 = !{!6, !6, i64 0}
-!75 = !{!72, !23, i64 32}
-!76 = !{!21, !21, i64 0}
+!30 = !{!"p1 _ZTS28cache_bin_array_descriptor_s", !19, i64 0}
+!31 = !{!"malloc_mutex_s", !6, i64 0}
+!32 = !{!"", !33, i64 0}
+!33 = !{!"", !34, i64 0}
+!34 = !{!"p1 _ZTS7edata_s", !19, i64 0}
+!35 = !{!"pa_shard_s", !36, i64 0, !22, i64 8, !37, i64 16, !12, i64 17, !38, i64 24, !50, i64 62264, !54, i64 62384, !65, i64 68096, !5, i64 68240, !48, i64 68248, !68, i64 68256, !43, i64 68264, !42, i64 68272}
+!36 = !{!"p1 _ZTS12pa_central_s", !19, i64 0}
+!37 = !{!"", !12, i64 0}
+!38 = !{!"pac_s", !39, i64 0, !40, i64 56, !40, i64 19496, !40, i64 38936, !42, i64 58376, !43, i64 58384, !44, i64 58392, !45, i64 58400, !31, i64 58408, !46, i64 58520, !22, i64 58640, !47, i64 58648, !47, i64 60432, !48, i64 62216, !49, i64 62224, !22, i64 62232}
+!39 = !{!"pai_s", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48}
+!40 = !{!"ecache_s", !31, i64 0, !41, i64 112, !41, i64 9768, !5, i64 19424, !5, i64 19428, !12, i64 19432}
+!41 = !{!"eset_s", !6, i64 0, !6, i64 32, !6, i64 6432, !32, i64 9632, !22, i64 9640, !5, i64 9648}
+!42 = !{!"p1 _ZTS6base_s", !19, i64 0}
+!43 = !{!"p1 _ZTS6emap_s", !19, i64 0}
+!44 = !{!"p1 _ZTS13edata_cache_s", !19, i64 0}
+!45 = !{!"exp_grow_s", !5, i64 0, !5, i64 4}
+!46 = !{!"san_bump_alloc_s", !31, i64 0, !34, i64 112}
+!47 = !{!"decay_s", !31, i64 0, !12, i64 112, !22, i64 120, !22, i64 128, !22, i64 136, !21, i64 144, !22, i64 152, !21, i64 160, !21, i64 168, !6, i64 176, !21, i64 1776}
+!48 = !{!"p1 _ZTS14malloc_mutex_s", !19, i64 0}
+!49 = !{!"p1 _ZTS11pac_stats_s", !19, i64 0}
+!50 = !{!"sec_s", !39, i64 0, !51, i64 56, !52, i64 64, !53, i64 104, !5, i64 112}
+!51 = !{!"p1 _ZTS5pai_s", !19, i64 0}
+!52 = !{!"sec_opts_s", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24, !21, i64 32}
+!53 = !{!"p1 _ZTS11sec_shard_s", !19, i64 0}
+!54 = !{!"hpa_shard_s", !39, i64 0, !55, i64 56, !31, i64 64, !31, i64 176, !42, i64 288, !56, i64 296, !57, i64 320, !21, i64 5600, !5, i64 5608, !43, i64 5616, !63, i64 5624, !21, i64 5664, !64, i64 5672, !22, i64 5704}
+!55 = !{!"p1 _ZTS13hpa_central_s", !19, i64 0}
+!56 = !{!"edata_cache_fast_s", !32, i64 0, !44, i64 8, !12, i64 16}
+!57 = !{!"psset_s", !6, i64 0, !6, i64 1024, !58, i64 1032, !59, i64 1056, !60, i64 4224, !6, i64 4232, !6, i64 5256, !60, i64 5272}
+!58 = !{!"psset_bin_stats_s", !21, i64 0, !21, i64 8, !21, i64 16}
+!59 = !{!"psset_stats_s", !6, i64 0, !6, i64 3072, !6, i64 3120}
+!60 = !{!"", !61, i64 0}
+!61 = !{!"", !62, i64 0}
+!62 = !{!"p1 _ZTS8hpdata_s", !19, i64 0}
+!63 = !{!"hpa_shard_opts_s", !21, i64 0, !21, i64 8, !5, i64 16, !12, i64 20, !21, i64 24, !21, i64 32}
+!64 = !{!"hpa_shard_nonderived_stats_s", !21, i64 0, !21, i64 8, !21, i64 16, !21, i64 24}
+!65 = !{!"edata_cache_s", !66, i64 0, !22, i64 16, !31, i64 24, !42, i64 136}
+!66 = !{!"", !67, i64 0}
+!67 = !{!"ph_s", !19, i64 0, !21, i64 8}
+!68 = !{!"p1 _ZTS16pa_shard_stats_s", !19, i64 0}
+!69 = !{!70, !21, i64 0}
+!70 = !{!"edata_s", !21, i64 0, !19, i64 8, !6, i64 16, !62, i64 24, !21, i64 32, !6, i64 40, !6, i64 64}
+!71 = !{!70, !19, i64 8}
+!72 = !{!6, !6, i64 0}
+!73 = !{!70, !21, i64 32}
+!74 = !{!19, !19, i64 0}

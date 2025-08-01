@@ -2945,7 +2945,7 @@ define hidden noundef i32 @_ZNK8AddPNode14unpack_offsetsEPP4Nodei(ptr noundef no
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1023
   %29 = icmp eq i32 %28, 512
-  br i1 %29, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  br i1 %29, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %22
   %30 = trunc nuw i64 %indvars.iv.next to i32
@@ -4229,7 +4229,7 @@ define hidden noundef ptr @_ZN8XorINode5IdealEP8PhaseGVNb(ptr noundef nonnull al
 39:                                               ; preds = %35, %.lr.ph.i
   %40 = getelementptr inbounds nuw i8, ptr %.091.i, i64 8
   %.not4.i = icmp ult ptr %40, %29
-  br i1 %.not4.i, label %.lr.ph.i, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, !llvm.loop !10
+  br i1 %.not4.i, label %.lr.ph.i, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, !llvm.loop !9
 
 _ZL26is_used_in_only_arithmeticP4Node9BasicType.exit: ; preds = %35
   %41 = load ptr, ptr %7, align 8
@@ -4678,7 +4678,7 @@ define hidden noundef ptr @_ZN8XorLNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
 39:                                               ; preds = %35, %.lr.ph.i
   %40 = getelementptr inbounds nuw i8, ptr %.091.i, i64 8
   %.not4.i = icmp ult ptr %40, %29
-  br i1 %.not4.i, label %.lr.ph.i, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, !llvm.loop !10
+  br i1 %.not4.i, label %.lr.ph.i, label %_ZL26is_used_in_only_arithmeticP4Node9BasicType.exit.thread, !llvm.loop !9
 
 _ZL26is_used_in_only_arithmeticP4Node9BasicType.exit: ; preds = %35
   %41 = load ptr, ptr %7, align 8
@@ -5790,12 +5790,12 @@ _ZL20as_add_with_constantP4Node.exit59.thread:    ; preds = %54, %.preheader, %_
 88:                                               ; preds = %_ZL20as_add_with_constantP4Node.exit59.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %88, %8
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next110, 3
-  br i1 %exitcond112.not, label %89, label %8, !llvm.loop !12
+  br i1 %exitcond112.not, label %89, label %8, !llvm.loop !11
 
 89:                                               ; preds = %.loopexit
   %90 = load ptr, ptr %7, align 8
@@ -6852,7 +6852,7 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit:       ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !13
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !12
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6868,7 +6868,7 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit:       ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !14
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !13
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -6976,12 +6976,11 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

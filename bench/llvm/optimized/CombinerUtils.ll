@@ -146,13 +146,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt9nullopt_tNS_15Mall
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 8
   %.pre = load ptr, ptr %11, align 8, !tbaa !11
-  br label %.preheader.i.i, !llvm.loop !22
+  br label %.preheader.i.i, !llvm.loop !21
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !23
+  %14 = load i32, ptr %13, align 8, !tbaa !22
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8, !tbaa !23
+  store i32 %15, ptr %13, align 8, !tbaa !22
   br label %16
 
 16:                                               ; preds = %4, %12
@@ -168,7 +168,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt9nullopt_tNS_15Mall
 
 _ZN4llvm14StringMapEntryISt9nullopt_tE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefERT_DpOT0_.exit: ; preds = %16, %20
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %2
-  store i8 0, ptr %21, align 1, !tbaa !24
+  store i8 0, ptr %21, align 1, !tbaa !23
   store i64 %2, ptr %18, align 8, !tbaa !13
   store ptr %18, ptr %8, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -192,7 +192,7 @@ _ZN4llvm14StringMapEntryISt9nullopt_tE6createINS_15MallocAllocatorEJEEEPS2_NS_9S
 
 .critedge.i.i.i25:                                ; preds = %.preheader.i.i23, %.preheader.i.i23
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  br label %.preheader.i.i23, !llvm.loop !22
+  br label %.preheader.i.i23, !llvm.loop !21
 
 _ZN4llvm17StringMapIteratorISt9nullopt_tEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i23, %.preheader.i.i
   %.sroa.030.0.pn = phi ptr [ %.sroa.030.0, %.preheader.i.i ], [ %.sroa.0.0, %.preheader.i.i23 ]
@@ -239,9 +239,8 @@ attributes #6 = { nounwind }
 !16 = !{!5, !10, i64 12}
 !17 = !{!5, !10, i64 8}
 !18 = !{!5, !6, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = !{!5, !10, i64 16}
-!24 = !{!8, !8, i64 0}
+!21 = distinct !{!21, !20}
+!22 = !{!5, !10, i64 16}
+!23 = !{!8, !8, i64 0}

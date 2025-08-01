@@ -442,7 +442,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit302:           ; preds = %206, %192, %185, %_
   %209 = load i32, ptr %138, align 4
   %210 = add i32 %209, 1
   %211 = icmp ult i32 %210, %9
-  br i1 %211, label %145, label %.critedge, !llvm.loop !9
+  br i1 %211, label %145, label %.critedge, !llvm.loop !8
 
 212:                                              ; preds = %7
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -607,7 +607,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit312:           ; preds = %285, %272, %_ZN11hb
   %288 = phi i32 [ %287, %285 ], [ %.pre558, %272 ], [ %.pre557, %_ZN11hb_buffer_t10next_glyphEv.exit307 ]
   %289 = add i32 %288, 1
   %290 = icmp ult i32 %289, %9
-  br i1 %290, label %220, label %.critedge, !llvm.loop !10
+  br i1 %290, label %220, label %.critedge, !llvm.loop !9
 
 291:                                              ; preds = %7
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -807,7 +807,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit327:           ; preds = %384, %370, %_ZN11hb
   %387 = load i32, ptr %292, align 4
   %388 = add i32 %387, 1
   %389 = icmp ult i32 %388, %9
-  br i1 %389, label %299, label %.critedge, !llvm.loop !11
+  br i1 %389, label %299, label %.critedge, !llvm.loop !10
 
 390:                                              ; preds = %7
   %391 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -952,7 +952,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit337:           ; preds = %458, %444, %437, %_
   %461 = load i32, ptr %391, align 4
   %462 = add i32 %461, 1
   %463 = icmp ult i32 %462, %9
-  br i1 %463, label %398, label %.critedge, !llvm.loop !12
+  br i1 %463, label %398, label %.critedge, !llvm.loop !11
 
 464:                                              ; preds = %7
   %465 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -1090,7 +1090,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit347:           ; preds = %532, %518, %511, %_
   %535 = load i32, ptr %465, align 4
   %536 = add i32 %535, 1
   %537 = icmp ult i32 %536, %9
-  br i1 %537, label %472, label %.critedge, !llvm.loop !13
+  br i1 %537, label %472, label %.critedge, !llvm.loop !12
 
 538:                                              ; preds = %7
   %539 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -1245,7 +1245,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit357:           ; preds = %610, %596, %589, %_
   %613 = load i32, ptr %539, align 4
   %614 = add i32 %613, 1
   %615 = icmp ult i32 %614, %9
-  br i1 %615, label %546, label %.critedge, !llvm.loop !14
+  br i1 %615, label %546, label %.critedge, !llvm.loop !13
 
 616:                                              ; preds = %7
   %617 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -1390,7 +1390,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit367:           ; preds = %684, %670, %663, %_
   %687 = load i32, ptr %617, align 4
   %688 = add i32 %687, 1
   %689 = icmp ult i32 %688, %9
-  br i1 %689, label %624, label %.critedge, !llvm.loop !15
+  br i1 %689, label %624, label %.critedge, !llvm.loop !14
 
 690:                                              ; preds = %7
   %691 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -1552,7 +1552,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit377:           ; preds = %767, %753, %746, %_
   %770 = load i32, ptr %691, align 4
   %771 = add i32 %770, 1
   %772 = icmp ult i32 %771, %9
-  br i1 %772, label %698, label %.critedge, !llvm.loop !16
+  br i1 %772, label %698, label %.critedge, !llvm.loop !15
 
 773:                                              ; preds = %7
   %774 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -1774,7 +1774,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit392:           ; preds = %876, %862, %_ZN11hb
   %879 = load i32, ptr %774, align 4
   %880 = add i32 %879, 1
   %881 = icmp ult i32 %880, %9
-  br i1 %881, label %781, label %.critedge, !llvm.loop !17
+  br i1 %881, label %781, label %.critedge, !llvm.loop !16
 
 882:                                              ; preds = %7
   %883 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -1922,7 +1922,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit402:           ; preds = %951, %937, %930, %_
   %954 = load i32, ptr %883, align 4
   %955 = add i32 %954, 1
   %956 = icmp ult i32 %955, %9
-  br i1 %956, label %890, label %.critedge, !llvm.loop !18
+  br i1 %956, label %890, label %.critedge, !llvm.loop !17
 
 957:                                              ; preds = %7
   %958 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -2139,7 +2139,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit417:           ; preds = %1061, %1047, %_ZN11
   %1064 = load i32, ptr %958, align 4
   %1065 = add i32 %1064, 1
   %1066 = icmp ult i32 %1065, %9
-  br i1 %1066, label %965, label %.critedge, !llvm.loop !19
+  br i1 %1066, label %965, label %.critedge, !llvm.loop !18
 
 1067:                                             ; preds = %7
   %1068 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -2283,7 +2283,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit427:           ; preds = %1132, %1119, %_ZN11
   %1135 = phi i32 [ %1134, %1132 ], [ %.pre533, %1119 ], [ %.pre532, %_ZN11hb_buffer_t10next_glyphEv.exit422 ]
   %1136 = add i32 %1135, 1
   %1137 = icmp ult i32 %1136, %9
-  br i1 %1137, label %1075, label %.critedge, !llvm.loop !20
+  br i1 %1137, label %1075, label %.critedge, !llvm.loop !19
 
 1138:                                             ; preds = %7
   %1139 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -2444,7 +2444,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit437:           ; preds = %1215, %1201, %1194,
   %1218 = load i32, ptr %1139, align 4
   %1219 = add i32 %1218, 1
   %1220 = icmp ult i32 %1219, %9
-  br i1 %1220, label %1146, label %.critedge, !llvm.loop !21
+  br i1 %1220, label %1146, label %.critedge, !llvm.loop !20
 
 1221:                                             ; preds = %7
   %1222 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -2584,7 +2584,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit447:           ; preds = %1288, %1274, %1267,
   %1291 = load i32, ptr %1222, align 4
   %1292 = add i32 %1291, 1
   %1293 = icmp ult i32 %1292, %9
-  br i1 %1293, label %1229, label %.critedge, !llvm.loop !22
+  br i1 %1293, label %1229, label %.critedge, !llvm.loop !21
 
 1294:                                             ; preds = %7
   %1295 = getelementptr inbounds nuw i8, ptr %1, i64 84
@@ -2780,7 +2780,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit462:           ; preds = %1387, %1373, %_ZN11
   %1390 = load i32, ptr %1295, align 4
   %1391 = add i32 %1390, 1
   %1392 = icmp ult i32 %1391, %9
-  br i1 %1392, label %1302, label %.critedge, !llvm.loop !23
+  br i1 %1392, label %1302, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %_ZN11hb_buffer_t10next_glyphEv.exit462, %1302, %_ZN11hb_buffer_t10next_glyphEv.exit447, %1229, %_ZN11hb_buffer_t10next_glyphEv.exit437, %1146, %_ZN11hb_buffer_t10next_glyphEv.exit427, %1075, %_ZN11hb_buffer_t10next_glyphEv.exit417, %965, %_ZN11hb_buffer_t10next_glyphEv.exit402, %890, %_ZN11hb_buffer_t10next_glyphEv.exit392, %781, %_ZN11hb_buffer_t10next_glyphEv.exit377, %698, %_ZN11hb_buffer_t10next_glyphEv.exit367, %624, %_ZN11hb_buffer_t10next_glyphEv.exit357, %546, %_ZN11hb_buffer_t10next_glyphEv.exit347, %472, %_ZN11hb_buffer_t10next_glyphEv.exit337, %398, %_ZN11hb_buffer_t10next_glyphEv.exit327, %299, %_ZN11hb_buffer_t10next_glyphEv.exit312, %220, %_ZN11hb_buffer_t10next_glyphEv.exit302, %145, %_ZN11hb_buffer_t10next_glyphEv.exit292, %20, %1294, %1221, %1138, %1067, %957, %882, %773, %690, %616, %538, %464, %390, %291, %212, %137, %12, %7
   %1393 = tail call noundef zeroext i1 @_ZN11hb_buffer_t4syncEv(ptr noundef nonnull align 8 dereferenceable(220) %1)
@@ -2996,21 +2996,20 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}

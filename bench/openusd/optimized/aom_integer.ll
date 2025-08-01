@@ -66,7 +66,7 @@ define hidden range(i32 -1, 1) i32 @aom_uleb_decode(ptr noundef readonly capture
 24:                                               ; preds = %.lr.ph
   %25 = add nuw nsw i64 %.01924, 1
   %exitcond.not = icmp eq i64 %25, %invariant.umin
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %24, %7, %4, %21
   %.0 = phi i32 [ %., %21 ], [ -1, %4 ], [ -1, %7 ], [ -1, %24 ]
@@ -114,7 +114,7 @@ aom_uleb_size_in_bytes.exit:                      ; preds = %5
   store i8 %.0, ptr %17, align 1
   %18 = add nuw nsw i64 %.02433, 1
   %exitcond.not = icmp eq i64 %18, %indvars.iv
-  br i1 %exitcond.not, label %19, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %19, label %.preheader, !llvm.loop !7
 
 19:                                               ; preds = %.preheader
   store i64 %6, ptr %3, align 8
@@ -167,7 +167,7 @@ define hidden range(i32 -1, 1) i32 @aom_uleb_encode_fixed_size(i64 noundef %0, i
   store i8 %.0, ptr %20, align 1
   %21 = add nuw nsw i64 %.02735, 1
   %exitcond.not = icmp eq i64 %21, %2
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %15, %.preheader
   store i64 %2, ptr %4, align 8
@@ -192,9 +192,8 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

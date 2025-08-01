@@ -244,7 +244,7 @@ define hidden ptr @_mpd_init_fnt_params(i64 noundef %0, i32 noundef %1, i32 noun
   %16 = sub i64 %13, %14
   %.sink.i = select i1 %15, i64 %16, i64 %14
   %17 = tail call fastcc i64 @x64_powmod(i64 noundef %12, i64 noundef %.sink.i, i64 noundef %10)
-  store i32 %2, ptr %5, align 8, !tbaa !10
+  store i32 %2, ptr %5, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %10, ptr %18, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -312,7 +312,7 @@ define hidden ptr @_mpd_init_fnt_params(i64 noundef %0, i32 noundef %1, i32 noun
   %spec.select108.i.us = sub i64 %51, %53
   %54 = add nuw nsw i64 %.02127.us, 1
   %exitcond29.not = icmp eq i64 %54, %4
-  br i1 %exitcond29.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !12
+  br i1 %exitcond29.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !11
 
 x64_mulmod.exit:                                  ; preds = %.lr.ph, %x64_mulmod.exit
   %.02127 = phi i64 [ %77, %x64_mulmod.exit ], [ 0, %.lr.ph ]
@@ -350,7 +350,7 @@ x64_mulmod.exit:                                  ; preds = %.lr.ph, %x64_mulmod
   %spec.select108.i = sub i64 %74, %76
   %77 = add nuw nsw i64 %.02127, 1
   %exitcond.not = icmp eq i64 %77, %4
-  br i1 %exitcond.not, label %.loopexit, label %x64_mulmod.exit, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %x64_mulmod.exit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %x64_mulmod.exit, %.lr.ph.split.us, %7, %3
   ret ptr %5
@@ -396,11 +396,10 @@ attributes #5 = { nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = distinct !{!12, !8, !9, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = distinct !{!11, !8, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !8}

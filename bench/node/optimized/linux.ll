@@ -457,7 +457,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %inc = add i32 %i.080, 1
   %21 = load i32, ptr %sqmask, align 8
   %cmp94.not = icmp ugt i32 %inc, %21
-  br i1 %cmp94.not, label %return, label %for.body, !llvm.loop !5
+  br i1 %cmp94.not, label %return, label %for.body
 
 fail:                                             ; preds = %if.end21
   br i1 %cmp34, label %if.end101, label %if.then99
@@ -540,7 +540,7 @@ while.cond.ithread-pre-split.i:                   ; preds = %while.cond.ithread-
   %tmp.0.i50.i = phi ptr [ %0, %if.end.i9 ], [ %tmp.0.i.pr.i, %while.cond.ithread-pre-split.i ]
   %tmp.0.i.pr.i = load ptr, ptr %tmp.0.i50.i, align 8
   %tobool.not.i.i = icmp eq ptr %tmp.0.i.pr.i, null
-  br i1 %tobool.not.i.i, label %for.cond.preheader.i, label %while.cond.ithread-pre-split.i, !llvm.loop !7
+  br i1 %tobool.not.i.i, label %for.cond.preheader.i, label %while.cond.ithread-pre-split.i
 
 for.cond.preheader.i:                             ; preds = %while.cond.ithread-pre-split.i
   %prev1.i.i.i = getelementptr inbounds nuw i8, ptr %queue.i, i64 8
@@ -557,7 +557,7 @@ while.cond.i27.i:                                 ; preds = %land.rhs.i, %while.
   %elm.addr.0.i.i = phi ptr [ %6, %while.cond.i27.i ], [ %5, %land.rhs.i ]
   %6 = load ptr, ptr %elm.addr.0.i.i, align 8
   %tobool5.not.i.i = icmp eq ptr %6, null
-  br i1 %tobool5.not.i.i, label %watcher_root_RB_NEXT.exit.i, label %while.cond.i27.i, !llvm.loop !8
+  br i1 %tobool5.not.i.i, label %watcher_root_RB_NEXT.exit.i, label %while.cond.i27.i
 
 if.else.i.i:                                      ; preds = %land.rhs.i
   %rbe_parent.i.i = getelementptr inbounds nuw i8, ptr %watcher_list.052.i, i64 16
@@ -584,7 +584,7 @@ land.rhs.i.i:                                     ; preds = %while.cond18.i.i
   %rbe_right25.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load ptr, ptr %rbe_right25.i.i, align 8
   %cmp26.i.i = icmp eq ptr %elm.addr.2.i.i, %10
-  br i1 %cmp26.i.i, label %while.cond18.i.i, label %watcher_root_RB_NEXT.exit.i, !llvm.loop !9
+  br i1 %cmp26.i.i, label %while.cond18.i.i, label %watcher_root_RB_NEXT.exit.i
 
 watcher_root_RB_NEXT.exit.i:                      ; preds = %while.cond.i27.i, %land.rhs.i.i, %while.cond18.i.i, %land.lhs.true.i.i
   %elm.addr.1.i.i = phi ptr [ %7, %land.lhs.true.i.i ], [ %9, %land.rhs.i.i ], [ null, %while.cond18.i.i ], [ %elm.addr.0.i.i, %while.cond.i27.i ]
@@ -667,7 +667,7 @@ if.end6.i.i.i.i:                                  ; preds = %if.then3.i.i.i.i, %
   %tmp.1.in.i.i.i.i = phi ptr [ %rbe_right.i.i.i.i, %if.then3.i.i.i.i ], [ %tmp.03.i.i.i.i, %while.body.i.i.i.i ]
   %tmp.0.i.i.i.i = load ptr, ptr %tmp.1.in.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %tmp.0.i.i.i.i, null
-  br i1 %tobool.not.i.i.i.i, label %if.end6.i.i, label %while.body.i.i.i.i, !llvm.loop !10
+  br i1 %tobool.not.i.i.i.i, label %if.end6.i.i, label %while.body.i.i.i.i
 
 if.end6.i.i:                                      ; preds = %if.end6.i.i.i.i, %if.else.i.i.i.i, %if.end.i.i
   %tmp.0.lcssa.i.i.i.i = phi ptr [ null, %if.end.i.i ], [ null, %if.end6.i.i.i.i ], [ %tmp.03.i.i.i.i, %if.else.i.i.i.i ]
@@ -706,13 +706,13 @@ uv_fs_event_stop.exit.i:                          ; preds = %do.end16.i.i, %whil
   store ptr %call8.i, ptr %path.i, align 8
   %31 = load ptr, ptr %queue.i, align 8
   %cmp.i29.not.i = icmp eq ptr %queue.i, %31
-  br i1 %cmp.i29.not.i, label %while.end.i, label %while.body.i, !llvm.loop !11
+  br i1 %cmp.i29.not.i, label %while.end.i, label %while.body.i
 
 while.end.i:                                      ; preds = %uv_fs_event_stop.exit.i, %uv__queue_move.exit.i, %uv__queue_move.exit.thread.i
   store i32 0, ptr %iterating.i, align 8
   call fastcc void @maybe_free_watcher_list(ptr noundef nonnull %watcher_list.052.i, ptr noundef %loop)
   %cmp2.not.i = icmp eq ptr %elm.addr.1.i.i, null
-  br i1 %cmp2.not.i, label %for.end.i, label %land.rhs.i, !llvm.loop !12
+  br i1 %cmp2.not.i, label %for.end.i, label %land.rhs.i
 
 for.end.i:                                        ; preds = %while.end.i
   %32 = load ptr, ptr %watchers.i, align 8
@@ -761,7 +761,7 @@ while.body20.i:                                   ; preds = %while.cond16.i
   %call25.i = call i32 @uv_fs_event_start(ptr noundef nonnull %add.ptr22.i, ptr noundef %40, ptr noundef %39, i32 poison)
   call void @uv__free(ptr noundef %39) #18
   %tobool26.not.i = icmp eq i32 %call25.i, 0
-  br i1 %tobool26.not.i, label %while.cond16.i, label %uv__inotify_fork.exit, !llvm.loop !13
+  br i1 %tobool26.not.i, label %while.cond16.i, label %uv__inotify_fork.exit
 
 uv__inotify_fork.exit:                            ; preds = %while.cond16.i, %while.body20.i, %if.end
   %retval.0.i11 = phi i32 [ 0, %if.end ], [ %call25.i, %while.body20.i ], [ 0, %while.cond16.i ]
@@ -884,7 +884,7 @@ for.inc:                                          ; preds = %for.body, %if.then4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = sext i32 %6 to i64
   %cmp2 = icmp slt i64 %indvars.iv.next, %7
-  br i1 %cmp2, label %for.body, label %if.else, !llvm.loop !14
+  br i1 %cmp2, label %for.body, label %if.else
 
 if.then11:                                        ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %dummy, i8 0, i64 12, i1 false)
@@ -2312,7 +2312,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call fastcc void @uv__epoll_ctl_prep(i32 noundef %4, ptr noundef nonnull %ctl1, ptr noundef nonnull %prep, i32 noundef %spec.store.select, i32 noundef %12, ptr noundef %e)
   %13 = load ptr, ptr %watcher_queue, align 8
   %cmp.i.not = icmp eq ptr %watcher_queue, %13
-  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !15
+  br i1 %cmp.i.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %if.end
   %events21 = getelementptr inbounds nuw i8, ptr %inv, i64 8
@@ -2385,7 +2385,7 @@ while.body35:                                     ; preds = %while.cond33.prehea
   %23 = load ptr, ptr %sqtail, align 8
   %24 = load i32, ptr %23, align 4
   %cmp34.not = icmp eq i32 %22, %24
-  br i1 %cmp34.not, label %if.end37, label %while.body35, !llvm.loop !16
+  br i1 %cmp34.not, label %if.end37, label %while.body35
 
 if.end37:                                         ; preds = %while.body35, %while.cond33.preheader, %if.end30
   %cmp38.not = icmp eq i32 %timeout.addr.1, 0
@@ -2616,7 +2616,7 @@ sw.epilog.i:                                      ; preds = %uv__iou_fs_statx_po
   call void %67(ptr noundef nonnull %41) #18
   %inc3.i = add i32 %i.027.i, 1
   %cmp.not.i = icmp eq i32 %inc3.i, %37
-  br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !17
+  br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i
 
 for.end.loopexit.i:                               ; preds = %sw.epilog.i
   %68 = sub i32 %37, %35
@@ -2643,7 +2643,7 @@ do.body7.i:                                       ; preds = %for.end.i, %land.rh
 land.rhs.i:                                       ; preds = %do.body7.i
   %74 = load i32, ptr %call43, align 4
   %cmp11.i = icmp eq i32 %74, 4
-  br i1 %cmp11.i, label %do.body7.i, label %if.then16.i, !llvm.loop !18
+  br i1 %cmp11.i, label %do.body7.i, label %if.then16.i
 
 do.end13.i:                                       ; preds = %do.body7.i
   %cmp14.i = icmp slt i32 %conv.i.i93, 0
@@ -2774,7 +2774,7 @@ for.inc:                                          ; preds = %if.end81, %if.then.
   %have_iou_events.1 = phi i32 [ %have_iou_events.0119, %for.body ], [ %have_iou_events.0119, %if.end104 ], [ 1, %do.body18.i ], [ 1, %do.body26.i ], [ %have_iou_events.0119, %if.else.i ], [ %have_iou_events.0119, %if.then29.i ], [ %have_iou_events.0119, %if.then.i ], [ %have_iou_events.0119, %if.end81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %do.body107, label %for.body, !llvm.loop !19
+  br i1 %exitcond.not, label %do.body107, label %for.body
 
 do.body107:                                       ; preds = %for.inc, %if.end64
   %have_signals.0.lcssa = phi i32 [ 0, %if.end64 ], [ %have_signals.1, %for.inc ]
@@ -2822,14 +2822,14 @@ if.then140:                                       ; preds = %if.end137
   %dec = add nsw i32 %count.0.ph, -1
   %cmp144.not = icmp eq i32 %dec, 0
   %or.cond89 = select i1 %cmp142, i1 true, i1 %cmp144.not
-  br i1 %or.cond89, label %for.end165, label %for.cond.outer, !llvm.loop !20
+  br i1 %or.cond89, label %for.end165, label %for.cond.outer
 
 update_timeout:                                   ; preds = %if.then56, %if.end137
   %timeout.addr.2 = phi i32 [ %timeout.addr.3, %if.end137 ], [ %.timeout.mux, %if.then56 ]
   switch i32 %timeout.addr.2, label %if.end156 [
     i32 0, label %for.end165
     i32 -1, label %for.cond
-  ], !llvm.loop !20
+  ]
 
 if.end156:                                        ; preds = %update_timeout
   %107 = load i64, ptr %time, align 8
@@ -2837,7 +2837,7 @@ if.end156:                                        ; preds = %update_timeout
   %108 = trunc i64 %sub.neg to i32
   %conv160 = add i32 %real_timeout.0.ph103, %108
   %cmp161 = icmp slt i32 %conv160, 1
-  br i1 %cmp161, label %for.end165, label %for.cond.outer102, !llvm.loop !20
+  br i1 %cmp161, label %for.end165, label %for.cond.outer102
 
 for.end165:                                       ; preds = %if.then140, %if.end156, %update_timeout, %if.end128, %if.then26
   %109 = load i32, ptr %ringfd, align 8
@@ -2859,7 +2859,7 @@ while.body175:                                    ; preds = %while.cond170.prehe
   %116 = load ptr, ptr %sqtail, align 8
   %117 = load i32, ptr %116, align 4
   %cmp173.not = icmp eq i32 %115, %117
-  br i1 %cmp173.not, label %if.end177, label %while.body175, !llvm.loop !21
+  br i1 %cmp173.not, label %if.end177, label %while.body175
 
 if.end177:                                        ; preds = %if.then56, %while.body175, %while.cond170.preheader, %for.end165
   ret void
@@ -2895,7 +2895,7 @@ land.rhs:                                         ; preds = %do.body
   %call1 = tail call ptr @__errno_location() #20
   %5 = load i32, ptr %call1, align 4
   %cmp2 = icmp eq i32 %5, 4
-  br i1 %cmp2, label %do.body, label %if.then, !llvm.loop !22
+  br i1 %cmp2, label %do.body, label %if.then
 
 do.end:                                           ; preds = %do.body
   %cmp3 = icmp slt i32 %conv.i, 0
@@ -3036,7 +3036,7 @@ while.cond.backedge:                              ; preds = %if.then29.i, %if.el
   %34 = load ptr, ptr %cqtail, align 8
   %35 = load i32, ptr %34, align 4
   %cmp8.not = icmp eq i32 %33, %35
-  br i1 %cmp8.not, label %while.end, label %while.body, !llvm.loop !23
+  br i1 %cmp8.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.cond.backedge, %if.end6
   ret void
@@ -3112,7 +3112,7 @@ land.rhs:                                         ; preds = %do.body
   %call1 = tail call ptr @__errno_location() #20
   %0 = load i32, ptr %call1, align 4
   %cmp2 = icmp eq i32 %0, 4
-  br i1 %cmp2, label %do.body, label %if.then, !llvm.loop !24
+  br i1 %cmp2, label %do.body, label %if.then
 
 if.then:                                          ; preds = %land.rhs
   %sub = sub nsw i32 0, %0
@@ -3127,7 +3127,7 @@ land.rhs9:                                        ; preds = %do.body5
   %call10 = tail call ptr @__errno_location() #20
   %1 = load i32, ptr %call10, align 4
   %cmp11 = icmp eq i32 %1, 4
-  br i1 %cmp11, label %do.body5, label %if.then16, !llvm.loop !25
+  br i1 %cmp11, label %do.body5, label %if.then16
 
 if.then16:                                        ; preds = %land.rhs9
   %call14 = tail call i32 @uv__close(i32 noundef %call) #18
@@ -3157,7 +3157,7 @@ if.end28:                                         ; preds = %if.end24
 for.cond:                                         ; preds = %for.body
   %inc = add nuw nsw i32 %i.019, 1
   %exitcond.not = icmp eq i32 %inc, 23
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !26
+  br i1 %exitcond.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end28, %for.cond
   %i.019 = phi i32 [ %inc, %for.cond ], [ 1, %if.end28 ]
@@ -3303,7 +3303,7 @@ if.then22:                                        ; preds = %if.end18
 if.end23:                                         ; preds = %if.end18
   %1 = load i32, ptr %cpu, align 4
   %cmp24 = icmp ugt i32 %1, 8191
-  br i1 %cmp24, label %for.cond, label %if.end27, !llvm.loop !27
+  br i1 %cmp24, label %for.cond, label %if.end27
 
 if.end27:                                         ; preds = %if.end23
   %conv = zext nneg i32 %1 to i64
@@ -3320,7 +3320,7 @@ if.end27:                                         ; preds = %if.end23
   store i8 %conv31, ptr %arrayidx29, align 1
   %add = add nuw nsw i32 %1, 1
   %spec.select = call i32 @llvm.umax.i32(i32 %maxcpu.0.ph, i32 %add)
-  br label %for.cond.outer, !llvm.loop !27
+  br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.cond.preheader, %if.end27
   %maxcpu.0.ph = phi i32 [ 0, %for.cond.preheader ], [ %spec.select, %if.end27 ]
@@ -3357,7 +3357,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %tobool53.not, label %if.end56, label %land.rhs.backedge
 
 land.rhs.backedge:                                ; preds = %while.body, %for.cond42.loopexit
-  br label %land.rhs, !llvm.loop !28
+  br label %land.rhs
 
 if.end56:                                         ; preds = %while.body
   %call59 = call i64 @strcspn(ptr noundef nonnull %add.ptr58, ptr noundef nonnull @.str.14) #19
@@ -3372,7 +3372,7 @@ for.body:                                         ; preds = %if.end56, %for.body
   %model.0.add = add nuw nsw i64 %model.0.idx57, 64
   %cmp67 = icmp samesign ult i64 %model.0.idx57, 448
   %4 = select i1 %tobool74, i1 %cmp67, i1 false
-  br i1 %4, label %for.body, label %for.end77, !llvm.loop !29
+  br i1 %4, label %for.body, label %for.end77
 
 for.end77:                                        ; preds = %for.body
   %model.0.ptr.le = getelementptr inbounds nuw i8, ptr %models, i64 %model.0.add
@@ -3410,7 +3410,7 @@ while.cond98:                                     ; preds = %while.cond98.prehea
   %7 = load i8, ptr %buf, align 16
   %cmp105 = icmp eq i8 %7, 10
   %or.cond = select i1 %tobool101, i1 true, i1 %cmp105
-  br i1 %or.cond, label %for.cond42.loopexit, label %while.cond98, !llvm.loop !28
+  br i1 %or.cond, label %for.cond42.loopexit, label %while.cond98
 
 for.end110:                                       ; preds = %for.cond42.loopexit, %for.cond42.preheader
   %call111 = call i32 @fclose(ptr noundef nonnull %call37)
@@ -3465,7 +3465,7 @@ for.inc142:                                       ; preds = %if.end125, %for.bod
   %inc143 = add i32 %9, 1
   store i32 %inc143, ptr %cpu, align 4
   %cmp113 = icmp ult i32 %inc143, %maxcpu.0.ph
-  br i1 %cmp113, label %for.body115, label %for.end144, !llvm.loop !30
+  br i1 %cmp113, label %for.body115, label %for.end144
 
 for.end144:                                       ; preds = %for.inc142, %nocpuinfo
   %n.0.lcssa = phi i32 [ 0, %nocpuinfo ], [ %n.1, %for.inc142 ]
@@ -3558,7 +3558,7 @@ for.inc198:                                       ; preds = %for.body159, %if.en
   %inc199 = add i32 %21, 1
   store i32 %inc199, ptr %cpu, align 4
   %cmp157 = icmp ult i32 %inc199, %maxcpu.0.ph
-  br i1 %cmp157, label %for.body159, label %for.end200, !llvm.loop !31
+  br i1 %cmp157, label %for.body159, label %for.end200
 
 for.end200:                                       ; preds = %for.inc198, %if.end153
   call void @uv__free(ptr noundef nonnull %call4) #18
@@ -3646,7 +3646,7 @@ if.end5:                                          ; preds = %uv__ifaddr_exclude.
 for.inc:                                          ; preds = %if.end.i, %for.body, %uv__ifaddr_exclude.exit, %if.end5
   %ent.0 = load ptr, ptr %ent.072, align 8
   %cmp.not = icmp eq ptr %ent.0, null
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !32
+  br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %6 = load i32, ptr %count, align 4
@@ -3746,7 +3746,7 @@ for.inc43:                                        ; preds = %if.end.i45, %for.bo
   %address.1 = phi ptr [ %address.075, %uv__ifaddr_exclude.exit52 ], [ %incdec.ptr, %if.end40 ], [ %address.075, %for.body16 ], [ %address.075, %if.end.i45 ]
   %ent.1 = load ptr, ptr %ent.176, align 8
   %cmp14.not = icmp eq ptr %ent.1, null
-  br i1 %cmp14.not, label %for.cond46.preheader, label %for.body16, !llvm.loop !33
+  br i1 %cmp14.not, label %for.cond46.preheader, label %for.body16
 
 for.body49:                                       ; preds = %for.cond46.preheader, %for.inc82
   %ent.282 = phi ptr [ %ent.2, %for.inc82 ], [ %ent.280.pre, %for.cond46.preheader ]
@@ -3809,12 +3809,12 @@ if.end77:                                         ; preds = %land.lhs.true, %if.
   %incdec.ptr78 = getelementptr inbounds nuw i8, ptr %address.278, i64 80
   %inc80 = add nuw nsw i32 %i.079, 1
   %cmp55 = icmp slt i32 %inc80, %29
-  br i1 %cmp55, label %for.body57, label %for.inc82, !llvm.loop !34
+  br i1 %cmp55, label %for.body57, label %for.inc82
 
 for.inc82:                                        ; preds = %if.end77, %if.end53, %if.end.i56, %for.body49, %uv__ifaddr_exclude.exit63
   %ent.2 = load ptr, ptr %ent.282, align 8
   %cmp47.not = icmp eq ptr %ent.2, null
-  br i1 %cmp47.not, label %for.end84, label %for.body49, !llvm.loop !35
+  br i1 %cmp47.not, label %for.end84, label %for.body49
 
 for.end84:                                        ; preds = %for.inc82, %for.cond13.preheader, %for.cond46.preheader
   %30 = phi ptr [ null, %for.cond46.preheader ], [ null, %for.cond13.preheader ], [ %ent.280.pre, %for.inc82 ]
@@ -3851,7 +3851,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call void @uv__free(ptr noundef %0) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   tail call void @uv__free(ptr noundef %addresses) #18
@@ -4033,7 +4033,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
 if.end.i.i:                                       ; preds = %while.body.i.i
   %call4.i.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call2.i.i, i32 noundef 58) #19
   %cmp.not.i.i = icmp eq ptr %call4.i.i, null
-  br i1 %cmp.not.i.i, label %if.end11.i, label %land.rhs.i.i, !llvm.loop !37
+  br i1 %cmp.not.i.i, label %if.end11.i, label %land.rhs.i.i
 
 if.then.i:                                        ; preds = %land.rhs.i.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %p.011.i.i, i64 9
@@ -4437,7 +4437,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
 if.end.i.i57:                                     ; preds = %while.body.i.i
   %call4.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %call2.i.i56, i32 noundef 58) #19
   %cmp.not.i.i = icmp eq ptr %call4.i.i, null
-  br i1 %cmp.not.i.i, label %if.end6.i, label %land.rhs.i.i, !llvm.loop !37
+  br i1 %cmp.not.i.i, label %if.end6.i, label %land.rhs.i.i
 
 if.then.i:                                        ; preds = %land.rhs.i.i
   %add.ptr.i.i59 = getelementptr inbounds nuw i8, ptr %p.011.i.i, i64 9
@@ -4691,7 +4691,7 @@ if.end6.i.i:                                      ; preds = %if.then3.i.i, %whil
   %tmp.1.in.i.i = phi ptr [ %rbe_right.i.i, %if.then3.i.i ], [ %tmp.03.i.i, %while.body.i.i ]
   %tmp.0.i.i = load ptr, ptr %tmp.1.in.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %tmp.0.i.i, null
-  br i1 %tobool.not.i.i, label %if.end13, label %while.body.i.i, !llvm.loop !10
+  br i1 %tobool.not.i.i, label %if.end13, label %while.body.i.i
 
 if.end13:                                         ; preds = %if.end6.i.i, %if.end9
   %call14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #19
@@ -4736,7 +4736,7 @@ if.end6.i:                                        ; preds = %while.body.i
 
 while.body.i.backedge:                            ; preds = %if.end6.i, %if.end6.i.thread
   %tmp.026.i.be = phi ptr [ %tmp.0.i, %if.end6.i ], [ %tmp.0.i40, %if.end6.i.thread ]
-  br label %while.body.i, !llvm.loop !38
+  br label %while.body.i
 
 if.end6.i.thread:                                 ; preds = %if.else.i
   %rbe_right.i = getelementptr inbounds nuw i8, ptr %tmp.026.i, i64 8
@@ -4816,7 +4816,7 @@ while.cond.backedge.i.i:                          ; preds = %if.end262.i.i, %if.
   %rbe_parent.i.i = getelementptr inbounds nuw i8, ptr %elm.addr.0.be.i.i, i64 16
   %16 = load ptr, ptr %rbe_parent.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %16, null
-  br i1 %cmp.not.i.i, label %watcher_root_RB_INSERT_COLOR.exit.i, label %land.rhs.i.i, !llvm.loop !39
+  br i1 %cmp.not.i.i, label %watcher_root_RB_INSERT_COLOR.exit.i, label %land.rhs.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.then.i.i
   %rbe_right20.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -5131,7 +5131,7 @@ if.end6.i.i:                                      ; preds = %if.then3.i.i, %whil
   %tmp.1.in.i.i = phi ptr [ %rbe_right.i.i, %if.then3.i.i ], [ %tmp.03.i.i, %while.body.i.i ]
   %tmp.0.i.i = load ptr, ptr %tmp.1.in.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %tmp.0.i.i, null
-  br i1 %tobool.not.i.i, label %if.end6, label %while.body.i.i, !llvm.loop !10
+  br i1 %tobool.not.i.i, label %if.end6, label %while.body.i.i
 
 if.end6:                                          ; preds = %if.end6.i.i, %if.else.i.i, %if.end
   %tmp.0.lcssa.i.i = phi ptr [ null, %if.end ], [ null, %if.end6.i.i ], [ %tmp.03.i.i, %if.else.i.i ]
@@ -5205,7 +5205,7 @@ while.cond.i:                                     ; preds = %if.else.i, %while.c
   %elm.addr.0.i = phi ptr [ %6, %while.cond.i ], [ %3, %if.else.i ]
   %6 = load ptr, ptr %elm.addr.0.i, align 8
   %cmp14.not.i = icmp eq ptr %6, null
-  br i1 %cmp14.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !40
+  br i1 %cmp14.not.i, label %while.end.i, label %while.cond.i
 
 while.end.i:                                      ; preds = %while.cond.i
   %rbe_right16.i = getelementptr inbounds nuw i8, ptr %elm.addr.0.i, i64 8
@@ -5294,7 +5294,7 @@ do.body83.i:                                      ; preds = %if.end80.i, %do.bod
   %rbe_parent87.i = getelementptr inbounds nuw i8, ptr %left.0.i, i64 16
   %16 = load ptr, ptr %rbe_parent87.i, align 8
   %cmp88.not.i = icmp eq ptr %16, null
-  br i1 %cmp88.not.i, label %color120.i, label %do.body83.i, !llvm.loop !41
+  br i1 %cmp88.not.i, label %color120.i, label %do.body83.i
 
 if.end92.i:                                       ; preds = %if.then
   %rbe_parent94.i = getelementptr inbounds nuw i8, ptr %w, i64 16
@@ -5768,7 +5768,7 @@ if.end487.i.i:                                    ; preds = %lor.lhs.false326.i.
   store i32 1, ptr %rbe_color334.i.i, align 8
   %parent.addr.1.in.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i, i64 16
   %parent.addr.1.i.i = load ptr, ptr %parent.addr.1.in.i.i, align 8
-  br label %while.cond.i.i, !llvm.loop !42
+  br label %while.cond.i.i
 
 while.end.sink.split.i.i:                         ; preds = %if.end470.i.i, %if.end225.i.i
   %70 = load ptr, ptr %inotify_watchers.i, align 8
@@ -5836,7 +5836,7 @@ if.end6.i.i.i:                                    ; preds = %if.then3.i.i.i, %wh
   %tmp.1.in.i.i.i = phi ptr [ %rbe_right.i.i.i, %if.then3.i.i.i ], [ %tmp.03.i.i.i, %while.body.i.i.i ]
   %tmp.0.i.i.i = load ptr, ptr %tmp.1.in.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %tmp.0.i.i.i, null
-  br i1 %tobool.not.i.i.i, label %if.end6.i, label %while.body.i.i.i, !llvm.loop !10
+  br i1 %tobool.not.i.i.i, label %if.end6.i, label %while.body.i.i.i
 
 if.end6.i:                                        ; preds = %if.end6.i.i.i, %if.else.i.i.i, %if.end.i
   %tmp.0.lcssa.i.i.i = phi ptr [ null, %if.end.i ], [ %tmp.03.i.i.i, %if.else.i.i.i ], [ null, %if.end6.i.i.i ]
@@ -5930,7 +5930,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %5 = getelementptr inbounds nuw i8, ptr %p.031.us, i64 %conv.us
   %add.ptr31.us = getelementptr inbounds nuw i8, ptr %5, i64 16
   %cmp7.us = icmp ult ptr %add.ptr31.us, %add.ptr
-  br i1 %cmp7.us, label %for.body.us, label %do.body.backedge, !llvm.loop !43
+  br i1 %cmp7.us, label %for.body.us, label %do.body.backedge, !llvm.loop !5
 
 land.rhs:                                         ; preds = %do.body
   %call1 = tail call ptr @__errno_location() #20
@@ -5938,8 +5938,8 @@ land.rhs:                                         ; preds = %do.body
   %cmp2 = icmp eq i32 %6, 4
   br i1 %cmp2, label %do.body.backedge, label %for.end32
 
-do.body.backedge:                                 ; preds = %for.cond5.preheader, %for.body.us, %for.inc, %land.rhs
-  br label %do.body, !llvm.loop !45
+do.body.backedge:                                 ; preds = %for.inc, %for.body.us, %land.rhs, %for.cond5.preheader
+  br label %do.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %p.031 = phi ptr [ %add.ptr31, %for.inc ], [ %buf, %for.body.lr.ph ]
@@ -5976,7 +5976,7 @@ if.end6.i.i:                                      ; preds = %if.then3.i.i, %whil
   %tmp.1.in.i.i = phi ptr [ %rbe_right.i.i, %if.then3.i.i ], [ %tmp.03.i.i, %while.body.i.i ]
   %tmp.0.i.i = load ptr, ptr %tmp.1.in.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %tmp.0.i.i, null
-  br i1 %tobool.not.i.i, label %for.inc, label %while.body.i.i, !llvm.loop !10
+  br i1 %tobool.not.i.i, label %for.inc, label %while.body.i.i
 
 if.end19:                                         ; preds = %if.else.i.i
   %len = getelementptr inbounds nuw i8, ptr %p.031, i64 12
@@ -6050,7 +6050,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void %20(ptr noundef nonnull %add.ptr27, ptr noundef %cond, i32 noundef %events.addr.1, i32 noundef 0) #18
   %21 = load ptr, ptr %queue, align 8
   %cmp.i23.not = icmp eq ptr %queue, %21
-  br i1 %cmp.i23.not, label %while.end, label %while.body, !llvm.loop !46
+  br i1 %cmp.i23.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %while.body, %uv__queue_move.exit.thread, %uv__queue_move.exit
   store i32 0, ptr %iterating, align 8
@@ -6064,7 +6064,7 @@ for.inc:                                          ; preds = %if.end6.i.i, %for.b
   %23 = getelementptr inbounds nuw i8, ptr %p.031, i64 %conv
   %add.ptr31 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %cmp7 = icmp ult ptr %add.ptr31, %add.ptr
-  br i1 %cmp7, label %for.body, label %do.body.backedge, !llvm.loop !47
+  br i1 %cmp7, label %for.body, label %do.body.backedge, !llvm.loop !7
 
 for.end32:                                        ; preds = %land.rhs
   ret void
@@ -6134,46 +6134,6 @@ attributes #22 = { cold }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = distinct !{!45, !6}
-!46 = distinct !{!46, !6}
-!47 = distinct !{!47, !6, !48}
-!48 = !{!"llvm.loop.unswitch.partial.disable"}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.unswitch.partial.disable"}

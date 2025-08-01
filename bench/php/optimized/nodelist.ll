@@ -169,7 +169,7 @@ dom_nodelist_iter_start_first_child.exit:         ; preds = %59, %61
   %65 = getelementptr inbounds nuw i8, ptr %.030, i64 48
   %66 = load ptr, ptr %65, align 8, !tbaa !56
   %.not40 = icmp eq ptr %66, null
-  br i1 %.not40, label %.loopexit, label %.preheader, !llvm.loop !57
+  br i1 %.not40, label %.loopexit, label %.preheader
 
 67:                                               ; preds = %55
   switch i32 %58, label %70 [
@@ -189,11 +189,11 @@ dom_nodelist_iter_start_first_child.exit:         ; preds = %59, %61
 php_dom_first_child_of_container_node.exit:       ; preds = %68, %70
   %.0.i42 = phi ptr [ %69, %68 ], [ %72, %70 ]
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %74 = load ptr, ptr %73, align 8, !tbaa !59
+  %74 = load ptr, ptr %73, align 8, !tbaa !57
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %76 = load ptr, ptr %75, align 8, !tbaa !60
+  %76 = load ptr, ptr %75, align 8, !tbaa !58
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %78 = load ptr, ptr %77, align 8, !tbaa !61
+  %78 = load ptr, ptr %77, align 8, !tbaa !59
   %79 = call ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef nonnull %22, ptr noundef %.0.i42, ptr noundef %74, ptr noundef %76, ptr noundef %78, ptr noundef nonnull %2, i64 noundef 9223372036854775806) #6
   %.pre48 = load i64, ptr %2, align 8, !tbaa !55
   br label %.loopexit
@@ -237,7 +237,7 @@ define hidden void @zim_DOMNodeList_count(ptr noundef readonly captures(none) %0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !36
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5, !prof !62
+  br i1 %.not, label %6, label %5, !prof !60
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #6
@@ -315,7 +315,7 @@ define hidden void @php_dom_nodelist_get_item_into_zval(ptr noundef %0, i64 noun
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %32 = load i64, ptr %31, align 8, !tbaa !63
+  %32 = load i64, ptr %31, align 8, !tbaa !61
   %.not91 = icmp slt i64 %1, %32
   br i1 %.not91, label %php_dom_is_cache_tag_stale_from_node.exit100.thread, label %33
 
@@ -353,7 +353,7 @@ php_dom_is_cache_tag_stale_from_node.exit100:     ; preds = %42
 48:                                               ; preds = %php_dom_is_cache_tag_stale_from_node.exit100
   %49 = tail call ptr @dom_object_get_node(ptr noundef nonnull %35) #6
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %.thread, !prof !64
+  br i1 %50, label %51, label %.thread, !prof !62
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %34, align 8, !tbaa !53
@@ -394,7 +394,7 @@ php_dom_is_cache_tag_stale_from_node.exit100.thread: ; preds = %39, %42, %36, %o
   br i1 %switch, label %68, label %84
 
 .thread:                                          ; preds = %48
-  %65 = load i64, ptr %31, align 8, !tbaa !63
+  %65 = load i64, ptr %31, align 8, !tbaa !61
   %66 = sub nsw i64 %1, %65
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   store i64 0, ptr %4, align 8, !tbaa !55
@@ -433,7 +433,7 @@ dom_nodelist_iter_start_first_child.exit:         ; preds = %68, %70
   %81 = icmp slt i64 %78, %.072118124
   %82 = icmp ne ptr %80, null
   %83 = select i1 %81, i1 %82, i1 false
-  br i1 %83, label %.lr.ph, label %.critedge, !llvm.loop !65
+  br i1 %83, label %.lr.ph, label %.critedge
 
 84:                                               ; preds = %php_dom_is_cache_tag_stale_from_node.exit100.thread
   switch i32 %64, label %87 [
@@ -454,11 +454,11 @@ php_dom_first_child_of_container_node.exit:       ; preds = %87, %85, %.thread
   %.072119129 = phi i64 [ %66, %.thread ], [ %1, %85 ], [ %1, %87 ]
   %.4 = phi ptr [ %49, %.thread ], [ %86, %85 ], [ %89, %87 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %91 = load ptr, ptr %90, align 8, !tbaa !59
+  %91 = load ptr, ptr %90, align 8, !tbaa !57
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %93 = load ptr, ptr %92, align 8, !tbaa !60
+  %93 = load ptr, ptr %92, align 8, !tbaa !58
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %95 = load ptr, ptr %94, align 8, !tbaa !61
+  %95 = load ptr, ptr %94, align 8, !tbaa !59
   %96 = call ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef nonnull %29, ptr noundef %.4, ptr noundef %91, ptr noundef %93, ptr noundef %95, ptr noundef nonnull %4, i64 noundef %.072119129) #6
   br label %.critedge
 
@@ -569,7 +569,7 @@ objmap_cache_release_cached_obj.exit105:          ; preds = %124, %130, %php_dom
   br label %objmap_cache_release_cached_obj.exit107
 
 objmap_cache_release_cached_obj.exit107:          ; preds = %135, %141, %132, %objmap_cache_release_cached_obj.exit105
-  store i64 %1, ptr %31, align 8, !tbaa !63
+  store i64 %1, ptr %31, align 8, !tbaa !61
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %105, ptr %142, align 8, !tbaa !53
   br label %144
@@ -597,7 +597,7 @@ define hidden void @zim_DOMNodeList_item(ptr noundef %0, ptr noundef %1) local_u
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !36
   %cond = icmp eq i32 %6, 1
-  br i1 %cond, label %7, label %.thread51, !prof !66
+  br i1 %cond, label %7, label %.thread51, !prof !63
 
 .thread51:                                        ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
@@ -608,7 +608,7 @@ define hidden void @zim_DOMNodeList_item(ptr noundef %0, ptr noundef %1) local_u
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i8, ptr %9, align 8, !tbaa !36
   %11 = icmp eq i8 %10, 4
-  br i1 %11, label %.thread, label %zend_parse_arg_long_ex.exit, !prof !62
+  br i1 %11, label %.thread, label %zend_parse_arg_long_ex.exit, !prof !60
 
 .thread:                                          ; preds = %7
   %12 = load i64, ptr %8, align 8, !tbaa !36
@@ -617,7 +617,7 @@ define hidden void @zim_DOMNodeList_item(ptr noundef %0, ptr noundef %1) local_u
 
 zend_parse_arg_long_ex.exit:                      ; preds = %7
   %13 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1) #6
-  br i1 %13, label %zend_parse_arg_long_ex.exit..critedge_crit_edge, label %14, !prof !67
+  br i1 %13, label %zend_parse_arg_long_ex.exit..critedge_crit_edge, label %14, !prof !64
 
 zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long_ex.exit
   %.pre = load i64, ptr %3, align 8, !tbaa !55
@@ -655,7 +655,7 @@ define hidden void @zim_DOMNodeList_getIterator(ptr noundef %0, ptr noundef %1) 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !36
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5, !prof !62
+  br i1 %.not, label %6, label %5, !prof !60
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #6
@@ -678,7 +678,7 @@ define hidden { i64, i32 } @dom_modern_nodelist_get_index(ptr noundef readonly c
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8, !tbaa !36
   %5 = icmp eq i8 %4, 10
-  br i1 %5, label %6, label %9, !prof !64
+  br i1 %5, label %6, label %9, !prof !62
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8, !tbaa !36
@@ -704,7 +704,7 @@ define hidden { i64, i32 } @dom_modern_nodelist_get_index(ptr noundef readonly c
   %14 = load double, ptr %.0, align 8, !tbaa !36
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp ueq double %15, 0x7FF0000000000000
-  br i1 %16, label %zend_dval_to_lval.exit, label %17, !prof !64
+  br i1 %16, label %zend_dval_to_lval.exit, label %17, !prof !62
 
 17:                                               ; preds = %13
   %18 = fcmp oge double %14, 0x43E0000000000000
@@ -735,10 +735,10 @@ zend_dval_to_lval.exit:                           ; preds = %13, %20, %22
   %28 = load ptr, ptr %.0, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %31 = load i64, ptr %30, align 8, !tbaa !68
+  %31 = load i64, ptr %30, align 8, !tbaa !65
   %32 = load i8, ptr %29, align 1, !tbaa !36
   %33 = icmp sgt i8 %32, 57
-  br i1 %33, label %_zend_handle_numeric_str.exit.thread, label %34, !prof !62
+  br i1 %33, label %_zend_handle_numeric_str.exit.thread, label %34, !prof !60
 
 34:                                               ; preds = %27
   %35 = icmp slt i8 %32, 48
@@ -789,13 +789,13 @@ zend_dval_to_lval_safe.exit:                      ; preds = %9, %26, %zend_dval_
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @dom_modern_nodelist_read_dimension(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %5, label %11, !prof !64
+  br i1 %.not, label %5, label %11, !prof !62
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !70
+  %7 = load ptr, ptr %6, align 8, !tbaa !67
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !71
+  %9 = load ptr, ptr %8, align 8, !tbaa !68
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %10) #6
   br label %24
@@ -804,13 +804,13 @@ define hidden noundef ptr @dom_modern_nodelist_read_dimension(ptr noundef readon
   %12 = tail call { i64, i32 } @dom_modern_nodelist_get_index(ptr noundef nonnull %1)
   %13 = extractvalue { i64, i32 } %12, 1
   %14 = icmp ult i32 %13, 2
-  br i1 %14, label %15, label %20, !prof !64
+  br i1 %14, label %15, label %20, !prof !62
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !70
+  %17 = load ptr, ptr %16, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !71
+  %19 = load ptr, ptr %18, align 8, !tbaa !68
   tail call void @zend_illegal_container_offset(ptr noundef %19, ptr noundef nonnull %1, i32 noundef %2) #6
   br label %24
 
@@ -836,13 +836,13 @@ define hidden range(i32 0, 2) i32 @dom_modern_nodelist_has_dimension(ptr noundef
   %5 = extractvalue { i64, i32 } %4, 0
   %6 = extractvalue { i64, i32 } %4, 1
   %7 = icmp ult i32 %6, 2
-  br i1 %7, label %8, label %13, !prof !64
+  br i1 %7, label %8, label %13, !prof !62
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !70
+  %10 = load ptr, ptr %9, align 8, !tbaa !67
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !71
+  %12 = load ptr, ptr %11, align 8, !tbaa !68
   tail call void @zend_illegal_container_offset(ptr noundef %12, ptr noundef %1, i32 noundef 3) #6
   br label %20
 
@@ -947,29 +947,26 @@ attributes #6 = { nounwind }
 !54 = !{!22, !9, i64 0}
 !55 = !{!32, !32, i64 0}
 !56 = !{!5, !11, i64 48}
-!57 = distinct !{!57, !58}
-!58 = !{!"llvm.loop.estimated_trip_count"}
-!59 = !{!26, !10, i64 56}
-!60 = !{!26, !10, i64 40}
-!61 = !{!26, !30, i64 48}
-!62 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!63 = !{!26, !32, i64 80}
-!64 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!65 = distinct !{!65, !58}
-!66 = !{!"branch_weights", i32 4000000, i32 4001}
-!67 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!68 = !{!69, !32, i64 16}
-!69 = !{!"_zend_string", !22, i64 0, !32, i64 8, !32, i64 16, !7, i64 24}
-!70 = !{!21, !23, i64 16}
-!71 = !{!72, !30, i64 8}
-!72 = !{!"_zend_class_entry", !7, i64 0, !30, i64 8, !7, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !73, i64 40, !73, i64 48, !73, i64 56, !38, i64 64, !38, i64 120, !38, i64 176, !74, i64 232, !75, i64 240, !76, i64 248, !77, i64 256, !77, i64 264, !77, i64 272, !77, i64 280, !77, i64 288, !77, i64 296, !77, i64 304, !77, i64 312, !77, i64 320, !77, i64 328, !77, i64 336, !77, i64 344, !77, i64 352, !24, i64 360, !78, i64 368, !79, i64 376, !7, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !6, i64 416, !9, i64 424, !9, i64 428, !9, i64 432, !9, i64 436, !7, i64 440, !80, i64 448, !81, i64 456, !82, i64 464, !20, i64 472, !9, i64 480, !20, i64 488, !30, i64 496, !7, i64 504}
-!73 = !{!"p1 _ZTS12_zval_struct", !6, i64 0}
-!74 = !{!"p1 _ZTS24_zend_class_mutable_data", !6, i64 0}
-!75 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !6, i64 0}
-!76 = !{!"p2 _ZTS19_zend_property_info", !6, i64 0}
-!77 = !{!"p1 _ZTS14_zend_function", !6, i64 0}
-!78 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !6, i64 0}
-!79 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !6, i64 0}
-!80 = !{!"p1 _ZTS16_zend_class_name", !6, i64 0}
-!81 = !{!"p2 _ZTS17_zend_trait_alias", !6, i64 0}
-!82 = !{!"p2 _ZTS22_zend_trait_precedence", !6, i64 0}
+!57 = !{!26, !10, i64 56}
+!58 = !{!26, !10, i64 40}
+!59 = !{!26, !30, i64 48}
+!60 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!61 = !{!26, !32, i64 80}
+!62 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!63 = !{!"branch_weights", i32 4000000, i32 4001}
+!64 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!65 = !{!66, !32, i64 16}
+!66 = !{!"_zend_string", !22, i64 0, !32, i64 8, !32, i64 16, !7, i64 24}
+!67 = !{!21, !23, i64 16}
+!68 = !{!69, !30, i64 8}
+!69 = !{!"_zend_class_entry", !7, i64 0, !30, i64 8, !7, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !70, i64 40, !70, i64 48, !70, i64 56, !38, i64 64, !38, i64 120, !38, i64 176, !71, i64 232, !72, i64 240, !73, i64 248, !74, i64 256, !74, i64 264, !74, i64 272, !74, i64 280, !74, i64 288, !74, i64 296, !74, i64 304, !74, i64 312, !74, i64 320, !74, i64 328, !74, i64 336, !74, i64 344, !74, i64 352, !24, i64 360, !75, i64 368, !76, i64 376, !7, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !6, i64 416, !9, i64 424, !9, i64 428, !9, i64 432, !9, i64 436, !7, i64 440, !77, i64 448, !78, i64 456, !79, i64 464, !20, i64 472, !9, i64 480, !20, i64 488, !30, i64 496, !7, i64 504}
+!70 = !{!"p1 _ZTS12_zval_struct", !6, i64 0}
+!71 = !{!"p1 _ZTS24_zend_class_mutable_data", !6, i64 0}
+!72 = !{!"p1 _ZTS29_zend_inheritance_cache_entry", !6, i64 0}
+!73 = !{!"p2 _ZTS19_zend_property_info", !6, i64 0}
+!74 = !{!"p1 _ZTS14_zend_function", !6, i64 0}
+!75 = !{!"p1 _ZTS26_zend_class_iterator_funcs", !6, i64 0}
+!76 = !{!"p1 _ZTS29_zend_class_arrayaccess_funcs", !6, i64 0}
+!77 = !{!"p1 _ZTS16_zend_class_name", !6, i64 0}
+!78 = !{!"p2 _ZTS17_zend_trait_alias", !6, i64 0}
+!79 = !{!"p2 _ZTS22_zend_trait_precedence", !6, i64 0}

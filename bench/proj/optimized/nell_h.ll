@@ -71,8 +71,8 @@ define internal { double, double } @_ZL16nell_h_s_inverse5PJ_XYP8PJconsts(double
   %.sroa.4.018 = phi double [ 0.000000e+00, %3 ], [ %17, %5 ]
   %.01517 = phi i32 [ 9, %3 ], [ %6, %5 ]
   %8 = fmul double %.sroa.4.018, 5.000000e-01
-  %9 = tail call double @cos(double noundef %8) #7, !tbaa !46
-  %10 = tail call double @tan(double noundef %8) #7, !tbaa !46
+  %9 = tail call double @cos(double noundef %8) #7, !tbaa !45
+  %10 = tail call double @tan(double noundef %8) #7, !tbaa !45
   %11 = fsub double %.sroa.4.018, %10
   %12 = fsub double %11, %4
   %13 = fmul double %9, %9
@@ -92,7 +92,7 @@ define internal { double, double } @_ZL16nell_h_s_inverse5PJ_XYP8PJconsts(double
 
 24:                                               ; preds = %7
   %25 = fmul double %0, 2.000000e+00
-  %26 = tail call double @cos(double noundef %17) #7, !tbaa !46
+  %26 = tail call double @cos(double noundef %17) #7, !tbaa !45
   %27 = fadd double %26, 1.000000e+00
   %28 = fdiv double %25, %27
   br label %29
@@ -108,11 +108,11 @@ define internal { double, double } @_ZL16nell_h_s_inverse5PJ_XYP8PJconsts(double
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal { double, double } @_ZL16nell_h_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr readnone captures(none) %2) #4 {
   %4 = fmul double %0, 5.000000e-01
-  %5 = tail call double @cos(double noundef %1) #7, !tbaa !46
+  %5 = tail call double @cos(double noundef %1) #7, !tbaa !45
   %6 = fadd double %5, 1.000000e+00
   %7 = fmul double %4, %6
   %8 = fmul double %1, 5.000000e-01
-  %9 = tail call double @tan(double noundef %8) #7, !tbaa !46
+  %9 = tail call double @tan(double noundef %8) #7, !tbaa !45
   %10 = fsub double %1, %9
   %11 = fmul double %10, 2.000000e+00
   %.fca.0.insert = insertvalue { double, double } poison, double %7, 0
@@ -183,7 +183,6 @@ attributes #7 = { nounwind }
 !40 = !{!4, !13, i64 360}
 !41 = !{!4, !15, i64 380}
 !42 = !{!4, !15, i64 384}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!13, !13, i64 0}
+!45 = !{!13, !13, i64 0}

@@ -170,7 +170,7 @@ define internal range(i32 0, 2) i32 @ml_kem_get_params(ptr noundef %0, ptr nound
 
 52:                                               ; preds = %.critedge
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %54 = load ptr, ptr %53, align 8, !tbaa !31
+  %54 = load ptr, ptr %53, align 8, !tbaa !30
   %.not83 = icmp eq ptr %54, null
   br i1 %.not83, label %70, label %55
 
@@ -182,7 +182,7 @@ define internal range(i32 0, 2) i32 @ml_kem_get_params(ptr noundef %0, ptr nound
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %60 = load i64, ptr %59, align 8, !tbaa !32
+  %60 = load i64, ptr %59, align 8, !tbaa !31
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store i64 %60, ptr %61, align 8, !tbaa !25
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -208,7 +208,7 @@ define internal range(i32 0, 2) i32 @ml_kem_get_params(ptr noundef %0, ptr nound
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %74 = load ptr, ptr %73, align 8, !tbaa !33
+  %74 = load ptr, ptr %73, align 8, !tbaa !32
   %.not88 = icmp eq ptr %74, null
   br i1 %.not88, label %88, label %75
 
@@ -255,14 +255,14 @@ define internal i32 @ml_kem_set_params(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store ptr null, ptr %3, align 8, !tbaa !34
+  store ptr null, ptr %3, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store i64 0, ptr %4, align 8, !tbaa !35
+  store i64 0, ptr %4, align 8, !tbaa !34
   %5 = icmp eq ptr %1, null
   br i1 %5, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !36
+  %6 = load ptr, ptr %1, align 8, !tbaa !35
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %7
 
@@ -277,7 +277,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not11, label %11, label %16
 
 11:                                               ; preds = %9
-  %12 = load i64, ptr %4, align 8, !tbaa !35
+  %12 = load i64, ptr %4, align 8, !tbaa !34
   %13 = load ptr, ptr %0, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8, !tbaa !24
@@ -307,7 +307,7 @@ thread-pre-split:                                 ; preds = %11
   br label %ossl_param_is_empty.exit.thread
 
 22:                                               ; preds = %18
-  %23 = load ptr, ptr %3, align 8, !tbaa !34
+  %23 = load ptr, ptr %3, align 8, !tbaa !33
   %24 = call i32 @ossl_ml_kem_parse_public_key(ptr noundef %23, i64 noundef %12, ptr noundef nonnull %0) #7
   br label %ossl_param_is_empty.exit.thread
 
@@ -344,7 +344,7 @@ define internal range(i32 0, 2) i32 @ml_kem_has(ptr noundef readonly captures(ad
 .sink.split:                                      ; preds = %6, %8
   %.sink = phi i64 [ 80, %8 ], [ 64, %6 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %10 = load ptr, ptr %9, align 8, !tbaa !37
+  %10 = load ptr, ptr %9, align 8, !tbaa !36
   %11 = icmp ne ptr %10, null
   %12 = zext i1 %11 to i32
   br label %13
@@ -391,13 +391,13 @@ define internal range(i32 0, 2) i32 @ml_kem_validate(ptr noundef %0, i32 noundef
 
 ml_kem_has.exit:                                  ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %10 = load ptr, ptr %9, align 8, !tbaa !37
+  %10 = load ptr, ptr %9, align 8, !tbaa !36
   %.not10 = icmp eq ptr %10, null
   br i1 %.not10, label %ml_kem_has.exit.thread, label %ml_kem_has.exit.thread7
 
 ml_kem_has.exit.thread11:                         ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  %12 = load ptr, ptr %11, align 8, !tbaa !36
   %.not1013 = icmp ne ptr %12, null
   %spec.select = zext i1 %.not1013 to i32
   br label %ml_kem_has.exit.thread
@@ -432,7 +432,7 @@ define internal range(i32 0, 2) i32 @ml_kem_gen_set_params(ptr noundef %0, ptr n
   br i1 %6, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %5
-  %7 = load ptr, ptr %1, align 8, !tbaa !36
+  %7 = load ptr, ptr %1, align 8, !tbaa !35
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %8
 
@@ -449,12 +449,12 @@ ossl_param_is_empty.exit:                         ; preds = %5
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !38
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
   tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.9, i32 noundef 631) #7
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !26
   %18 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %17, ptr noundef nonnull @.str.9, i32 noundef 632) #7
-  store ptr %18, ptr %14, align 8, !tbaa !38
+  store ptr %18, ptr %14, align 8, !tbaa !37
   %19 = icmp eq ptr %18, null
   br i1 %19, label %ossl_param_is_empty.exit.thread, label %20
 
@@ -465,10 +465,10 @@ ossl_param_is_empty.exit:                         ; preds = %5
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store i64 64, ptr %3, align 8, !tbaa !35
+  store i64 64, ptr %3, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %23, ptr %24, align 8, !tbaa !41
+  store ptr %23, ptr %24, align 8, !tbaa !40
   %25 = call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %21, ptr noundef nonnull %24, i64 noundef 64, ptr noundef nonnull %3) #7
   %26 = icmp ne i32 %25, 0
   %27 = load i64, ptr %3, align 8
@@ -480,7 +480,7 @@ ossl_param_is_empty.exit:                         ; preds = %5
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str.9, i32 noundef 646, ptr noundef nonnull @__func__.ml_kem_gen_set_params) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 154, ptr noundef null) #7
-  store ptr null, ptr %24, align 8, !tbaa !41
+  store ptr null, ptr %24, align 8, !tbaa !40
   br label %30
 
 30:                                               ; preds = %22, %29
@@ -505,19 +505,19 @@ define internal ptr @ml_kem_gen(ptr noundef captures(address_is_null) %0, ptr re
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !42
+  %7 = load i32, ptr %6, align 8, !tbaa !41
   %8 = and i32 %7, 3
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %ml_kem_new.exit.thread, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %12 = load ptr, ptr %11, align 8, !tbaa !41
-  %13 = load ptr, ptr %0, align 8, !tbaa !43
+  %12 = load ptr, ptr %11, align 8, !tbaa !40
+  %13 = load ptr, ptr %0, align 8, !tbaa !42
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !38
+  %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %17 = load i32, ptr %16, align 4, !tbaa !44
+  %17 = load i32, ptr %16, align 4, !tbaa !43
   %18 = tail call i32 @ossl_prov_is_running() #7
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %ml_kem_new.exit.thread, label %19
@@ -535,7 +535,7 @@ define internal ptr @ml_kem_gen(ptr noundef captures(address_is_null) %0, ptr re
   %25 = tail call i32 @ossl_prov_ctx_get_bool_param(ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 1) #7
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 104
   store i32 %25, ptr %26, align 8, !tbaa !13
-  %27 = load i32, ptr %6, align 8, !tbaa !42
+  %27 = load i32, ptr %6, align 8, !tbaa !41
   %28 = and i32 %27, 3
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %ml_kem_new.exit.thread, label %30
@@ -560,7 +560,7 @@ define internal ptr @ml_kem_gen(ptr noundef captures(address_is_null) %0, ptr re
 
 36:                                               ; preds = %.thread, %34
   %37 = phi i32 [ %31, %.thread ], [ %35, %34 ]
-  store ptr null, ptr %11, align 8, !tbaa !41
+  store ptr null, ptr %11, align 8, !tbaa !40
   %.not25 = icmp eq i32 %37, 0
   br i1 %.not25, label %38, label %ml_kem_new.exit.thread
 
@@ -576,7 +576,7 @@ ml_kem_new.exit.thread:                           ; preds = %19, %10, %36, %32, 
 ; Function Attrs: nounwind uwtable
 define internal void @ml_kem_gen_cleanup(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -586,7 +586,7 @@ define internal void @ml_kem_gen_cleanup(ptr noundef %0) #0 {
 
 5:                                                ; preds = %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !37
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.9, i32 noundef 738) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i32 noundef 739) #7
   ret void
@@ -603,11 +603,11 @@ define internal ptr @ml_kem_load(ptr noundef captures(none) %0, i64 noundef %1) 
   br i1 %or.cond, label %7, label %37
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %0, align 8, !tbaa !45
+  %8 = load ptr, ptr %0, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 176
-  %10 = load ptr, ptr %9, align 8, !tbaa !47
-  store ptr null, ptr %9, align 8, !tbaa !47
-  store ptr null, ptr %0, align 8, !tbaa !45
+  %10 = load ptr, ptr %9, align 8, !tbaa !46
+  store ptr null, ptr %9, align 8, !tbaa !46
+  store ptr null, ptr %0, align 8, !tbaa !44
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.thread, label %11
 
@@ -620,7 +620,7 @@ define internal ptr @ml_kem_load(ptr noundef captures(none) %0, i64 noundef %1) 
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %15 = load ptr, ptr %8, align 8, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !32
+  %17 = load i64, ptr %16, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 %17
   %19 = getelementptr inbounds i8, ptr %18, i64 -32
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %14, ptr noundef nonnull dereferenceable(32) %19, i64 32)
@@ -629,13 +629,13 @@ define internal ptr @ml_kem_load(ptr noundef captures(none) %0, i64 noundef %1) 
 
 20:                                               ; preds = %13, %11
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %22 = load ptr, ptr %21, align 8, !tbaa !33
+  %22 = load ptr, ptr %21, align 8, !tbaa !32
   %.not31 = icmp eq ptr %22, null
   br i1 %.not31, label %.thread39, label %25
 
 .thread:                                          ; preds = %7
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %24 = load ptr, ptr %23, align 8, !tbaa !33
+  %24 = load ptr, ptr %23, align 8, !tbaa !32
   %.not3136 = icmp eq ptr %24, null
   br i1 %.not3136, label %.thread38, label %.thread37
 
@@ -653,7 +653,7 @@ define internal ptr @ml_kem_load(ptr noundef captures(none) %0, i64 noundef %1) 
 .thread39:                                        ; preds = %20, %25
   %29 = load ptr, ptr %8, align 8, !tbaa !14
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !32
+  %31 = load i64, ptr %30, align 8, !tbaa !31
   %32 = call i32 @ossl_ml_kem_parse_private_key(ptr noundef nonnull %10, i64 noundef %31, ptr noundef nonnull %8) #7
   %.not33 = icmp eq i32 %32, 0
   br i1 %.not33, label %.sink.split, label %33
@@ -673,7 +673,7 @@ define internal ptr @ml_kem_load(ptr noundef captures(none) %0, i64 noundef %1) 
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str.9, i32 noundef %.sink, ptr noundef nonnull @__func__.ml_kem_load) #7
   %35 = load ptr, ptr %8, align 8, !tbaa !14
-  %36 = load ptr, ptr %35, align 8, !tbaa !48
+  %36 = load ptr, ptr %35, align 8, !tbaa !47
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 158, ptr noundef nonnull %.str.14.sink, ptr noundef %36) #7
   br label %37
 
@@ -724,17 +724,17 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   %16 = and i32 %1, 1
   %17 = icmp ne i32 %16, 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !34
+  store ptr null, ptr %4, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  store ptr null, ptr %5, align 8, !tbaa !34
+  store ptr null, ptr %5, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store ptr null, ptr %6, align 8, !tbaa !34
+  store ptr null, ptr %6, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  store i64 0, ptr %7, align 8, !tbaa !35
+  store i64 0, ptr %7, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
-  store i64 0, ptr %8, align 8, !tbaa !35
+  store i64 0, ptr %8, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
-  store i64 0, ptr %9, align 8, !tbaa !35
+  store i64 0, ptr %9, align 8, !tbaa !34
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   %.not.i = icmp eq ptr %19, null
@@ -756,7 +756,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not40.i, label %26, label %ml_kem_key_fromdata.exit.thread
 
 26:                                               ; preds = %24
-  %.pre.i = load i64, ptr %9, align 8, !tbaa !35
+  %.pre.i = load i64, ptr %9, align 8, !tbaa !34
   %27 = and i64 %.pre.i, -65
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %.thread.i, label %29
@@ -778,13 +778,13 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not42.i, label %33, label %ml_kem_key_fromdata.exit.thread
 
 33:                                               ; preds = %31
-  %.pre61.i = load i64, ptr %8, align 8, !tbaa !35
+  %.pre61.i = load i64, ptr %8, align 8, !tbaa !34
   %.not43.i = icmp eq i64 %.pre61.i, 0
   br i1 %.not43.i, label %.thread65.i, label %34
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !32
+  %36 = load i64, ptr %35, align 8, !tbaa !31
   %.not44.i = icmp eq i64 %.pre61.i, %36
   br i1 %.not44.i, label %.thread65.i, label %37
 
@@ -805,7 +805,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not46.i, label %41, label %ml_kem_key_fromdata.exit.thread
 
 41:                                               ; preds = %39
-  %.pre63.i = load i64, ptr %7, align 8, !tbaa !35
+  %.pre63.i = load i64, ptr %7, align 8, !tbaa !34
   %.not47.i = icmp eq i64 %.pre63.i, 0
   br i1 %.not47.i, label %.thread67.i, label %42
 
@@ -822,7 +822,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %ml_kem_key_fromdata.exit.thread
 
 .thread67.i:                                      ; preds = %41, %.thread65.i
-  %46 = load i64, ptr %9, align 8, !tbaa !35
+  %46 = load i64, ptr %9, align 8, !tbaa !34
   %47 = icmp eq i64 %46, 0
   %48 = load i64, ptr %8, align 8
   %49 = icmp eq i64 %48, 0
@@ -839,7 +839,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %ml_kem_key_fromdata.exit.thread
 
 51:                                               ; preds = %42
-  %52 = load i64, ptr %9, align 8, !tbaa !35
+  %52 = load i64, ptr %9, align 8, !tbaa !34
   %53 = icmp eq i64 %52, 0
   %54 = load i64, ptr %8, align 8
   %55 = icmp eq i64 %54, 0
@@ -847,8 +847,8 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 56:                                               ; preds = %51
   %reass.sub.i = sub i64 %54, %.pre63.i
-  %57 = load ptr, ptr %4, align 8, !tbaa !34
-  %58 = load ptr, ptr %5, align 8, !tbaa !34
+  %57 = load ptr, ptr %4, align 8, !tbaa !33
+  %58 = load ptr, ptr %5, align 8, !tbaa !33
   %59 = getelementptr i8, ptr %58, i64 %reass.sub.i
   %60 = getelementptr i8, ptr %59, i64 -64
   %bcmp.i = call i32 @bcmp(ptr %57, ptr %60, i64 %.pre63.i)
@@ -858,7 +858,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
 61:                                               ; preds = %56
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str.9, i32 noundef 378, ptr noundef nonnull @__func__.ml_kem_key_fromdata) #7
-  %62 = load ptr, ptr %21, align 8, !tbaa !48
+  %62 = load ptr, ptr %21, align 8, !tbaa !47
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 158, ptr noundef nonnull @.str.15, ptr noundef %62) #7
   br label %ml_kem_key_fromdata.exit.thread
 
@@ -878,7 +878,7 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not51.i, label %.thread58.i, label %71
 
 71:                                               ; preds = %68, %64
-  %72 = load ptr, ptr %6, align 8, !tbaa !34
+  %72 = load ptr, ptr %6, align 8, !tbaa !33
   %73 = call ptr @ossl_ml_kem_set_seed(ptr noundef %72, i64 noundef %67, ptr noundef nonnull %0) #7
   %.not53.i = icmp eq ptr %73, null
   br i1 %.not53.i, label %ml_kem_key_fromdata.exit.thread, label %74
@@ -897,12 +897,12 @@ define internal i32 @ml_kem_import(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 .thread58.i:                                      ; preds = %78, %68
   %82 = phi i64 [ %81, %78 ], [ %66, %68 ]
-  %83 = load ptr, ptr %5, align 8, !tbaa !34
+  %83 = load ptr, ptr %5, align 8, !tbaa !33
   %84 = call i32 @ossl_ml_kem_parse_private_key(ptr noundef %83, i64 noundef %82, ptr noundef nonnull %0) #7
   br label %ml_kem_key_fromdata.exit
 
 85:                                               ; preds = %78
-  %86 = load ptr, ptr %4, align 8, !tbaa !34
+  %86 = load ptr, ptr %4, align 8, !tbaa !33
   %87 = call i32 @ossl_ml_kem_parse_public_key(ptr noundef %86, i64 noundef %79, ptr noundef nonnull %0) #7
   br label %ml_kem_key_fromdata.exit
 
@@ -974,19 +974,19 @@ define internal i32 @ml_kem_export(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %19 = load ptr, ptr %18, align 8, !tbaa !47
+  %19 = load ptr, ptr %18, align 8, !tbaa !46
   %.not87 = icmp eq ptr %19, null
   br i1 %.not87, label %20, label %38
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %22 = load ptr, ptr %21, align 8, !tbaa !31
+  %22 = load ptr, ptr %21, align 8, !tbaa !30
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %26 = load ptr, ptr %25, align 8, !tbaa !33
+  %26 = load ptr, ptr %25, align 8, !tbaa !32
   %.not88 = icmp eq ptr %26, null
   br i1 %.not88, label %27, label %38
 
@@ -1022,7 +1022,7 @@ define internal i32 @ml_kem_export(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %42 = load ptr, ptr %41, align 8, !tbaa !33
+  %42 = load ptr, ptr %41, align 8, !tbaa !32
   %.not92 = icmp eq ptr %42, null
   br i1 %.not92, label %48, label %43
 
@@ -1040,13 +1040,13 @@ define internal i32 @ml_kem_export(ptr noundef %0, i32 noundef %1, ptr noundef r
   %.268 = phi ptr [ %44, %46 ], [ null, %40 ]
   %.2 = phi i64 [ 64, %46 ], [ 0, %40 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %50 = load ptr, ptr %49, align 8, !tbaa !31
+  %50 = load ptr, ptr %49, align 8, !tbaa !30
   %.not94 = icmp eq ptr %50, null
   br i1 %.not94, label %58, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %53 = load i64, ptr %52, align 8, !tbaa !32
+  %53 = load i64, ptr %52, align 8, !tbaa !31
   %54 = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef %53, ptr noundef nonnull @.str.9, i32 noundef 253) #7
   %55 = icmp eq ptr %54, null
   br i1 %55, label %89, label %56
@@ -1058,19 +1058,19 @@ define internal i32 @ml_kem_export(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 58:                                               ; preds = %48
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %60 = load ptr, ptr %59, align 8, !tbaa !47
+  %60 = load ptr, ptr %59, align 8, !tbaa !46
   %.not95 = icmp eq ptr %60, null
   br i1 %.not95, label %68, label %61
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %63 = load i64, ptr %62, align 8, !tbaa !32
+  %63 = load i64, ptr %62, align 8, !tbaa !31
   %64 = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef %63, ptr noundef nonnull @.str.9, i32 noundef 258) #7
   %65 = icmp eq ptr %64, null
   br i1 %65, label %89, label %66
 
 66:                                               ; preds = %61
-  %67 = load ptr, ptr %59, align 8, !tbaa !47
+  %67 = load ptr, ptr %59, align 8, !tbaa !46
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr align 1 %67, i64 %63, i1 false)
   br label %68
 
@@ -1262,7 +1262,7 @@ define internal fastcc range(i32 0, 2) i32 @ml_kem_pairwise_test(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
   %4 = load ptr, ptr %0, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !31
+  %6 = load ptr, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %24, label %7
 
@@ -1300,7 +1300,7 @@ define internal fastcc range(i32 0, 2) i32 @ml_kem_pairwise_test(ptr noundef %0)
 .thread:                                          ; preds = %18, %15, %10, %21
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str.9, i32 noundef 138, ptr noundef nonnull @__func__.ml_kem_pairwise_test) #7
-  %22 = load ptr, ptr %4, align 8, !tbaa !48
+  %22 = load ptr, ptr %4, align 8, !tbaa !47
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 158, ptr noundef nonnull @.str.11, ptr noundef %22) #7
   br label %23
 
@@ -1343,17 +1343,17 @@ define internal fastcc ptr @ml_kem_gen_init(ptr noundef %0, i32 noundef %1, ptr 
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %1, ptr %12, align 8, !tbaa !42
+  store i32 %1, ptr %12, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 %3, ptr %13, align 4, !tbaa !44
-  store ptr %0, ptr %9, align 8, !tbaa !43
+  store i32 %3, ptr %13, align 4, !tbaa !43
+  store ptr %0, ptr %9, align 8, !tbaa !42
   %14 = tail call i32 @ml_kem_gen_set_params(ptr noundef nonnull %9, ptr noundef %2)
   %.not12 = icmp eq i32 %14, 0
   br i1 %.not12, label %15, label %21
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %17 = load ptr, ptr %16, align 8, !tbaa !41
+  %17 = load ptr, ptr %16, align 8, !tbaa !40
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %ml_kem_gen_cleanup.exit, label %18
 
@@ -1363,7 +1363,7 @@ define internal fastcc ptr @ml_kem_gen_init(ptr noundef %0, i32 noundef %1, ptr 
 
 ml_kem_gen_cleanup.exit:                          ; preds = %15, %18
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !38
+  %20 = load ptr, ptr %19, align 8, !tbaa !37
   tail call void @CRYPTO_free(ptr noundef %20, ptr noundef nonnull @.str.9, i32 noundef 738) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %9, ptr noundef nonnull @.str.9, i32 noundef 739) #7
   br label %21
@@ -1447,24 +1447,23 @@ attributes #7 = { nounwind }
 !25 = !{!23, !17, i64 32}
 !26 = !{!23, !5, i64 16}
 !27 = !{!23, !17, i64 24}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!4, !11, i64 80}
-!32 = !{!16, !17, i64 8}
-!33 = !{!4, !10, i64 96}
-!34 = !{!5, !5, i64 0}
-!35 = !{!17, !17, i64 0}
-!36 = !{!23, !10, i64 0}
-!37 = !{!11, !11, i64 0}
-!38 = !{!39, !10, i64 8}
-!39 = !{!"ml_kem_gen_ctx_st", !40, i64 0, !10, i64 8, !12, i64 16, !12, i64 20, !6, i64 24, !10, i64 88}
-!40 = !{!"p1 _ZTS11prov_ctx_st", !5, i64 0}
-!41 = !{!39, !10, i64 88}
-!42 = !{!39, !12, i64 16}
-!43 = !{!39, !40, i64 0}
-!44 = !{!39, !12, i64 20}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 _ZTS18ossl_ml_kem_key_st", !5, i64 0}
-!47 = !{!4, !10, i64 176}
-!48 = !{!16, !10, i64 0}
+!30 = !{!4, !11, i64 80}
+!31 = !{!16, !17, i64 8}
+!32 = !{!4, !10, i64 96}
+!33 = !{!5, !5, i64 0}
+!34 = !{!17, !17, i64 0}
+!35 = !{!23, !10, i64 0}
+!36 = !{!11, !11, i64 0}
+!37 = !{!38, !10, i64 8}
+!38 = !{!"ml_kem_gen_ctx_st", !39, i64 0, !10, i64 8, !12, i64 16, !12, i64 20, !6, i64 24, !10, i64 88}
+!39 = !{!"p1 _ZTS11prov_ctx_st", !5, i64 0}
+!40 = !{!38, !10, i64 88}
+!41 = !{!38, !12, i64 16}
+!42 = !{!38, !39, i64 0}
+!43 = !{!38, !12, i64 20}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS18ossl_ml_kem_key_st", !5, i64 0}
+!46 = !{!4, !10, i64 176}
+!47 = !{!16, !10, i64 0}

@@ -31,7 +31,7 @@ define hidden ptr @_pcre2_memmove8(ptr noundef writeonly captures(address, ret: 
   store i8 %9, ptr %10, align 1, !tbaa !4
   %11 = add nuw i64 %.02334, 1
   %exitcond42.not = icmp eq i64 %11, %2
-  br i1 %exitcond42.not, label %.loopexit, label %.lr.ph38, !llvm.loop !7
+  br i1 %exitcond42.not, label %.loopexit, label %.lr.ph38
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.133 = phi ptr [ %12, %.lr.ph ], [ %1, %.preheader ]
@@ -43,7 +43,7 @@ define hidden ptr @_pcre2_memmove8(ptr noundef writeonly captures(address, ret: 
   store i8 %13, ptr %.12232, align 1, !tbaa !4
   %15 = add nuw i64 %.12431, 1
   %exitcond.not = icmp eq i64 %15, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.122.lcssa = phi ptr [ %0, %.preheader ], [ %14, %.lr.ph ]
@@ -74,7 +74,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_8(ptr noundef readonly capture
   %5 = getelementptr inbounds nuw i8, ptr %.08, i64 1
   %6 = getelementptr inbounds nuw i8, ptr %.09, i64 1
   %.not13 = icmp eq i8 %4, %.pre
-  br i1 %.not13, label %3, label %7, !llvm.loop !10
+  br i1 %.not13, label %3, label %7
 
 7:                                                ; preds = %.critedge
   %8 = icmp ugt i8 %4, %.pre
@@ -104,7 +104,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strcmp_c8_8(ptr noundef readonly capt
   %5 = getelementptr inbounds nuw i8, ptr %.08, i64 1
   %6 = getelementptr inbounds nuw i8, ptr %.09, i64 1
   %.not13 = icmp eq i8 %4, %.pre
-  br i1 %.not13, label %3, label %7, !llvm.loop !11
+  br i1 %.not13, label %3, label %7
 
 7:                                                ; preds = %.critedge
   %8 = icmp ugt i8 %4, %.pre
@@ -140,7 +140,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_8(ptr noundef readonly captur
   %11 = getelementptr inbounds nuw i8, ptr %.0818, i64 1
   %12 = add i64 %.0917, -1
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %9, %3, %6
   %.0 = phi i32 [ %8, %6 ], [ 0, %3 ], [ 0, %9 ]
@@ -171,7 +171,7 @@ define hidden range(i32 -1, 2) i32 @_pcre2_strncmp_c8_8(ptr noundef readonly cap
   %11 = getelementptr inbounds nuw i8, ptr %.0818, i64 1
   %12 = add i64 %.0917, -1
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %9, %3, %6
   %.0 = phi i32 [ %8, %6 ], [ 0, %3 ], [ 0, %9 ]
@@ -210,7 +210,7 @@ define hidden noundef i64 @_pcre2_strcpy_c8_8(ptr noundef %0, ptr noundef readon
   store i8 %4, ptr %.010, align 1, !tbaa !4
   %7 = load i8, ptr %5, align 1, !tbaa !4
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ %0, %2 ], [ %6, %.lr.ph ]
@@ -238,11 +238,3 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}

@@ -653,7 +653,7 @@ if.end40:                                         ; preds = %if.else, %if.then36
   %averagePrice.1 = phi double [ %averagePrice.054, %if.then36 ], [ %mul39, %if.else ]
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.052, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %26
-  br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body, !llvm.loop !47
+  br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 
 unreachable:                                      ; preds = %invoke.cont15
   unreachable
@@ -804,5 +804,3 @@ attributes #19 = { builtin nounwind }
 !44 = !{!45, !45, i64 0}
 !45 = !{!"int", !6, i64 0}
 !46 = !{!24, !24, i64 0}
-!47 = distinct !{!47, !48}
-!48 = !{!"llvm.loop.estimated_trip_count"}

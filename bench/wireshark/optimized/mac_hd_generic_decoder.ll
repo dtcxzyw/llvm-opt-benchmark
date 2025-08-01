@@ -1133,7 +1133,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
 379:                                              ; preds = %375
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit.sink.split:                             ; preds = %.preheader, %377
   %.sink539 = trunc i64 %indvars.iv to i32
@@ -1175,11 +1175,11 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(4096) %399, i8 noundef 0, i64 noundef 4096, i1 noundef false) #4
   %400 = load i32, ptr %301, align 4
   %401 = icmp ugt i32 %400, %396
-  br i1 %401, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %401, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   %.lcssa = phi i32 [ %382, %.loopexit ], [ %400, %.lr.ph ]
-  %402 = load i8, ptr @first_gmh, align 1, !range !11, !noundef !12
+  %402 = load i8, ptr @first_gmh, align 1, !range !10, !noundef !11
   %403 = trunc nuw i8 %402 to i1
   br i1 %403, label %404, label %._crit_edge._crit_edge
 
@@ -1223,7 +1223,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
 425:                                              ; preds = %._crit_edge._crit_edge
   %426 = load i32, ptr %419, align 4
   store i32 %426, ptr %417, align 4
-  %427 = load i8, ptr @first_gmh, align 1, !range !11, !noundef !12
+  %427 = load i8, ptr @first_gmh, align 1, !range !10, !noundef !11
   %428 = trunc nuw i8 %427 to i1
   br i1 %428, label %429, label %434
 
@@ -1405,7 +1405,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   %527 = add i32 %.11.us.i, 2
   %528 = add nuw nsw i32 %.0872.us.i, 1
   %exitcond6.not.i = icmp eq i32 %.0872.us.i, %511
-  br i1 %exitcond6.not.i, label %.loopexit.i, label %.split.us.i, !llvm.loop !13
+  br i1 %exitcond6.not.i, label %.loopexit.i, label %.split.us.i, !llvm.loop !12
 
 .split.i:                                         ; preds = %510, %.split.i
   %.0872.i = phi i32 [ %532, %.split.i ], [ 0, %510 ]
@@ -1415,7 +1415,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   %531 = add i32 %.11.i, 2
   %532 = add nuw nsw i32 %.0872.i, 1
   %exitcond.not.i = icmp eq i32 %.0872.i, %511
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.split.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.split.i, !llvm.loop !14
 
 533:                                              ; preds = %496
   %534 = load i32, ptr @hf_ack_type_reserved, align 4
@@ -1426,7 +1426,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
 .loopexit.i:                                      ; preds = %.split.i, %.split.us.i, %533
   %.2.i = phi i32 [ %536, %533 ], [ %527, %.split.us.i ], [ %531, %.split.i ]
   %.not93.i = icmp sgt i16 %500, -1
-  br i1 %.not93.i, label %496, label %537, !llvm.loop !16
+  br i1 %.not93.i, label %496, label %537, !llvm.loop !15
 
 537:                                              ; preds = %.loopexit.i
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %493, ptr noundef nonnull @.str.315, i32 noundef %.2.i)
@@ -1517,7 +1517,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   %585 = sub i32 %.8, %584
   %586 = add i32 %584, %.6
   %587 = icmp sgt i32 %585, 0
-  br i1 %587, label %316, label %.loopexit493, !llvm.loop !17
+  br i1 %587, label %316, label %.loopexit493, !llvm.loop !16
 
 .loopexit493:                                     ; preds = %.thread, %298, %69
   br i1 %32, label %588, label %604
@@ -1574,7 +1574,7 @@ define internal void @wimax_defragment_init() #0 {
   store i32 1, ptr %2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %3, label %1, !llvm.loop !18
+  br i1 %exitcond.not, label %3, label %1, !llvm.loop !17
 
 3:                                                ; preds = %1
   store i32 0, ptr @cid_adj_array_size, align 4
@@ -1715,16 +1715,15 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

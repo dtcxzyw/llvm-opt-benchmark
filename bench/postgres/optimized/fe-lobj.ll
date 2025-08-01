@@ -1118,7 +1118,7 @@ lo_open.exit:                                     ; preds = %53
   %73 = and i64 %69, 2147483647
   %74 = call i32 @lo_write(ptr noundef nonnull %0, i32 noundef %65, ptr noundef nonnull %16, i64 noundef %73)
   %.not42 = icmp eq i32 %74, %70
-  br i1 %.not42, label %.preheader, label %75, !llvm.loop !6
+  br i1 %.not42, label %.preheader, label %75, !llvm.loop !5
 
 75:                                               ; preds = %72
   %76 = call i32 @close(i32 noundef %22) #10
@@ -1367,7 +1367,7 @@ lo_read.exit:                                     ; preds = %63
   %74 = call i64 @write(i32 noundef %37, ptr noundef nonnull %18, i64 noundef %73) #10
   %75 = trunc i64 %74 to i32
   %.not39 = icmp eq i32 %70, %75
-  br i1 %.not39, label %60, label %76, !llvm.loop !7
+  br i1 %.not39, label %60, label %76, !llvm.loop !6
 
 76:                                               ; preds = %72
   %77 = tail call ptr @__errno_location() #12
@@ -1528,8 +1528,7 @@ attributes #12 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

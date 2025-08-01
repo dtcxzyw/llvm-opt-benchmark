@@ -143,7 +143,7 @@ define hidden void @jSuppressTables(ptr noundef readonly captures(none) %0, i32 
 22:                                               ; preds = %17, %20
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %23, label %12, !llvm.loop !9
+  br i1 %exitcond26.not, label %23, label %12, !llvm.loop !8
 
 23:                                               ; preds = %22
   ret void
@@ -262,7 +262,7 @@ define hidden void @jFinCompress(ptr noundef %0) local_unnamed_addr #0 {
   %58 = load i32, ptr %31, align 8
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %57, %34
   %61 = load ptr, ptr %27, align 8
@@ -273,7 +273,7 @@ define hidden void @jFinCompress(ptr noundef %0) local_unnamed_addr #0 {
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 28
   %66 = load i32, ptr %65, align 4
   %.not41 = icmp eq i32 %66, 0
-  br i1 %.not41, label %34, label %._crit_edge48, !llvm.loop !11
+  br i1 %.not41, label %34, label %._crit_edge48, !llvm.loop !10
 
 ._crit_edge48:                                    ; preds = %._crit_edge, %26
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -339,7 +339,7 @@ define hidden void @jWrtMarker(ptr noundef %0, i32 noundef %1, ptr noundef reado
   tail call void %26(ptr noundef nonnull %0, i32 noundef %29) #4
   %30 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   %.not23 = icmp eq i32 %27, 0
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   ret void
@@ -451,10 +451,9 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

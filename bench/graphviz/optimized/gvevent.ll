@@ -837,7 +837,7 @@ pointer2graph.exit:                               ; preds = %10, %19
 ._crit_edge.i:                                    ; preds = %43, %.lr.ph36.i
   %45 = tail call ptr @agnxtnode(ptr noundef %39, ptr noundef nonnull %.02234.i) #11
   %.not.i18 = icmp eq ptr %45, null
-  br i1 %.not.i18, label %._crit_edge37.i, label %.lr.ph36.i, !llvm.loop !113
+  br i1 %.not.i18, label %._crit_edge37.i, label %.lr.ph36.i, !llvm.loop !112
 
 ._crit_edge37.i:                                  ; preds = %._crit_edge.i, %pointer2graph.exit
   %46 = tail call ptr @aglstnode(ptr noundef %39) #11
@@ -852,7 +852,7 @@ pointer2graph.exit:                               ; preds = %10, %19
 48:                                               ; preds = %.lr.ph41.i
   %49 = tail call ptr @agprvnode(ptr noundef %39, ptr noundef nonnull %.139.i) #11
   %.not25.i = icmp eq ptr %49, null
-  br i1 %.not25.i, label %._crit_edge42.i, label %.lr.ph41.i, !llvm.loop !114
+  br i1 %.not25.i, label %._crit_edge42.i, label %.lr.ph41.i, !llvm.loop !113
 
 ._crit_edge42.i:                                  ; preds = %48, %._crit_edge37.i
   %50 = tail call fastcc ptr @gvevent_find_cluster(ptr noundef %39, ptr noundef nonnull byval(%struct.boxf) align 8 %4)
@@ -910,7 +910,7 @@ gvevent_find_obj.exit:                            ; preds = %.lr.ph.i, %.lr.ph41
 gvevent_leave_obj.exit:                           ; preds = %53, %54, %56, %62, %68
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store ptr %.023.i, ptr %51, align 8, !tbaa !87
-  store ptr null, ptr %74, align 8, !tbaa !115
+  store ptr null, ptr %74, align 8, !tbaa !114
   %.not.i20 = icmp eq ptr %.023.i, null
   br i1 %.not.i20, label %gvevent_enter_obj.exit, label %75
 
@@ -968,7 +968,7 @@ gvevent_leave_obj.exit:                           ; preds = %53, %54, %56, %62, 
   %.sink.i21 = phi ptr [ %83, %77 ], [ %91, %84 ], [ %105, %92 ]
   %106 = tail call ptr @agxget(ptr noundef nonnull %.023.i, ptr noundef nonnull %.sink.i21) #11
   %107 = tail call ptr @strdup_and_subst_obj(ptr noundef %106, ptr noundef nonnull %.023.i) #11
-  store ptr %107, ptr %74, align 8, !tbaa !115
+  store ptr %107, ptr %74, align 8, !tbaa !114
   br label %gvevent_enter_obj.exit
 
 gvevent_enter_obj.exit:                           ; preds = %gvevent_leave_obj.exit, %75, %77, %84, %92, %.sink.split.i
@@ -1001,13 +1001,13 @@ define internal fastcc ptr @gvevent_find_cluster(ptr noundef readonly captures(r
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 236
-  %6 = load i32, ptr %5, align 4, !tbaa !116
+  %6 = load i32, ptr %5, align 4, !tbaa !115
   %.not22 = icmp slt i32 %6, 1
   br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 240
-  %8 = load ptr, ptr %7, align 8, !tbaa !117
+  %8 = load ptr, ptr %7, align 8, !tbaa !116
   %9 = add nuw i32 %6, 1
   %wide.trip.count = zext i32 %9 to i64
   br label %11
@@ -1015,32 +1015,32 @@ define internal fastcc ptr @gvevent_find_cluster(ptr noundef readonly captures(r
 10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !118
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !117
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8, !tbaa !119
+  %13 = load ptr, ptr %12, align 8, !tbaa !118
   %14 = tail call fastcc ptr @gvevent_find_cluster(ptr noundef %13, ptr noundef nonnull byval(%struct.boxf) align 8 %1)
   %.not14 = icmp eq ptr %14, null
   br i1 %.not14, label %10, label %.loopexit
 
 ._crit_edge:                                      ; preds = %10, %2
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %16 = load double, ptr %15, align 8, !tbaa !120
+  %16 = load double, ptr %15, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %18 = load double, ptr %17, align 8, !tbaa !121
+  %18 = load double, ptr %17, align 8, !tbaa !120
   %19 = fcmp ult double %18, %16
   br i1 %19, label %35, label %20
 
 20:                                               ; preds = %._crit_edge
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %22 = load double, ptr %21, align 8, !tbaa !122
+  %22 = load double, ptr %21, align 8, !tbaa !121
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %24 = load double, ptr %23, align 8, !tbaa !123
+  %24 = load double, ptr %23, align 8, !tbaa !122
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %26 = load double, ptr %25, align 8, !tbaa !124
-  %27 = load double, ptr %1, align 8, !tbaa !125
+  %26 = load double, ptr %25, align 8, !tbaa !123
+  %27 = load double, ptr %1, align 8, !tbaa !124
   %28 = fcmp ult double %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load double, ptr %29, align 8
@@ -1215,19 +1215,18 @@ attributes #11 = { nounwind }
 !107 = !{!40, !9, i64 352}
 !108 = !{!4, !24, i64 632}
 !109 = !{!4, !24, i64 640}
-!110 = distinct !{!110, !111, !112}
+!110 = distinct !{!110, !111}
 !111 = !{!"llvm.loop.mustprogress"}
-!112 = !{!"llvm.loop.estimated_trip_count"}
-!113 = distinct !{!113, !111, !112}
-!114 = distinct !{!114, !111, !112}
-!115 = !{!4, !12, i64 720}
-!116 = !{!60, !13, i64 236}
-!117 = !{!60, !68, i64 240}
-!118 = distinct !{!118, !111, !112}
-!119 = !{!49, !49, i64 0}
-!120 = !{!60, !24, i64 32}
-!121 = !{!27, !24, i64 16}
-!122 = !{!60, !24, i64 56}
-!123 = !{!60, !24, i64 40}
-!124 = !{!60, !24, i64 48}
-!125 = !{!27, !24, i64 0}
+!112 = distinct !{!112, !111}
+!113 = distinct !{!113, !111}
+!114 = !{!4, !12, i64 720}
+!115 = !{!60, !13, i64 236}
+!116 = !{!60, !68, i64 240}
+!117 = distinct !{!117, !111}
+!118 = !{!49, !49, i64 0}
+!119 = !{!60, !24, i64 32}
+!120 = !{!27, !24, i64 16}
+!121 = !{!60, !24, i64 56}
+!122 = !{!60, !24, i64 40}
+!123 = !{!60, !24, i64 48}
+!124 = !{!27, !24, i64 0}

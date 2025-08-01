@@ -466,7 +466,7 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly ca
   %32 = getelementptr inbounds i8, ptr %.1, i64 -1
   %33 = load i8, ptr %32, align 1, !tbaa !22
   %34 = icmp eq i8 %33, 47
-  br i1 %34, label %.preheader, label %.critedge, !llvm.loop !30
+  br i1 %34, label %.preheader, label %.critedge, !llvm.loop !29
 
 35:                                               ; preds = %.preheader
   %36 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull @.str.4) #15
@@ -481,7 +481,7 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly ca
   %38 = getelementptr inbounds i8, ptr %.2, i64 -1
   %39 = load i8, ptr %38, align 1, !tbaa !22
   %.not56 = icmp eq i8 %39, 47
-  br i1 %.not56, label %.critedge2.preheader, label %.critedge, !llvm.loop !31
+  br i1 %.not56, label %.critedge2.preheader, label %.critedge, !llvm.loop !30
 
 40:                                               ; preds = %.critedge
   %41 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull @.str.10) #15
@@ -496,7 +496,7 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly ca
   %43 = getelementptr inbounds i8, ptr %.3, i64 -1
   %44 = load i8, ptr %43, align 1, !tbaa !22
   %45 = icmp eq i8 %44, 47
-  br i1 %45, label %.critedge2, label %.critedge4, !llvm.loop !32
+  br i1 %45, label %.critedge2, label %.critedge4, !llvm.loop !31
 
 46:                                               ; preds = %.critedge2
   %47 = tail call noalias ptr @H5MM_strdup(ptr noundef nonnull @.str.4) #15
@@ -626,7 +626,7 @@ define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly c
   %44 = getelementptr inbounds i8, ptr %.0, i64 -1
   %45 = load i8, ptr %44, align 1, !tbaa !22
   %46 = icmp eq i8 %45, 47
-  br i1 %46, label %.preheader, label %.critedge.preheader, !llvm.loop !33
+  br i1 %46, label %.preheader, label %.critedge.preheader, !llvm.loop !32
 
 .critedge.preheader:                              ; preds = %43
   %47 = sub i64 %3, %21
@@ -646,7 +646,7 @@ define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly c
   %51 = getelementptr inbounds i8, ptr %.038, i64 -1
   %52 = load i8, ptr %51, align 1, !tbaa !22
   %.not50 = icmp eq i8 %52, 47
-  br i1 %.not50, label %.critedge2, label %.critedge, !llvm.loop !34
+  br i1 %.not50, label %.critedge2, label %.critedge, !llvm.loop !33
 
 .critedge2:                                       ; preds = %.critedge, %50
   %.038.lcssa = phi ptr [ %scevgep, %.critedge ], [ %.038, %50 ]
@@ -754,7 +754,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   br i1 %.not84, label %.critedge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %32
-  %34 = load ptr, ptr %3, align 8, !tbaa !35
+  %34 = load ptr, ptr %3, align 8, !tbaa !34
   %.not85109 = icmp eq ptr %34, null
   br i1 %.not85109, label %.loopexit, label %.lr.ph111
 
@@ -768,10 +768,10 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
 .split:                                           ; preds = %.lr.ph111
   %38 = getelementptr inbounds nuw %struct.h5_long_options, ptr %3, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  %40 = load i8, ptr %39, align 4, !tbaa !37
+  %40 = load i8, ptr %39, align 4, !tbaa !36
   %41 = sext i8 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %43 = load i32, ptr %42, align 8, !tbaa !38
+  %43 = load i32, ptr %42, align 8, !tbaa !37
   %.not86 = icmp eq i32 %43, 0
   br i1 %.not86, label %54, label %44
 
@@ -806,7 +806,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   br i1 %.not88, label %.loopexit, label %57
 
 57:                                               ; preds = %55
-  %58 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %58 = load ptr, ptr @stderr, align 8, !tbaa !38
   %59 = load ptr, ptr %1, align 8, !tbaa !21
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %58, ptr noundef nonnull @.str.16, ptr noundef %59, ptr noundef nonnull %23) #19
   br label %.loopexit
@@ -814,7 +814,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
 61:                                               ; preds = %.lr.ph111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = getelementptr inbounds nuw %struct.h5_long_options, ptr %3, i64 %indvars.iv.next
-  %63 = load ptr, ptr %62, align 8, !tbaa !35
+  %63 = load ptr, ptr %62, align 8, !tbaa !34
   %.not85 = icmp eq ptr %63, null
   br i1 %.not85, label %.loopexit, label %.lr.ph111
 
@@ -823,7 +823,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   %.062.ph = phi i32 [ 63, %55 ], [ 63, %57 ], [ %41, %54 ], [ %41, %44 ], [ %41, %47 ], [ %41, %53 ], [ 63, %.lr.ph.split ], [ 63, %61 ]
   %64 = and i64 %.064104, 4294967295
   %65 = getelementptr inbounds nuw %struct.h5_long_options, ptr %3, i64 %64
-  %66 = load ptr, ptr %65, align 8, !tbaa !35
+  %66 = load ptr, ptr %65, align 8, !tbaa !34
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %.critedge
 
@@ -833,7 +833,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   br i1 %.not91, label %.critedge, label %70
 
 70:                                               ; preds = %68
-  %71 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %71 = load ptr, ptr @stderr, align 8, !tbaa !38
   %72 = load ptr, ptr %1, align 8, !tbaa !21
   %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.17, ptr noundef %72, ptr noundef nonnull %23) #19
   br label %.critedge
@@ -867,7 +867,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   br i1 %.not82, label %92, label %88
 
 88:                                               ; preds = %86
-  %89 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %89 = load ptr, ptr @stderr, align 8, !tbaa !38
   %90 = load ptr, ptr %1, align 8, !tbaa !21
   %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.18, ptr noundef %90, i32 noundef %81) #19
   %.pre121 = load i32, ptr @H5_optind, align 4, !tbaa !26
@@ -925,7 +925,7 @@ define range(i32 -128, 128) i32 @H5_get_option(i32 noundef %0, ptr noundef reado
   br i1 %.not81, label %123, label %114
 
 114:                                              ; preds = %112
-  %115 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %115 = load ptr, ptr @stderr, align 8, !tbaa !38
   %116 = load ptr, ptr %1, align 8, !tbaa !21
   %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %115, ptr noundef nonnull @.str.19, ptr noundef %116, i32 noundef %81) #19
   br label %123
@@ -1011,7 +1011,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @H5_strcasestr(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #13 {
   %3 = tail call ptr @__ctype_tolower_loc() #18
-  %4 = load ptr, ptr %3, align 8, !tbaa !41
+  %4 = load ptr, ptr %3, align 8, !tbaa !40
   %5 = load i8, ptr %1, align 1, !tbaa !22
   %.fr = freeze i8 %5
   %6 = sext i8 %.fr to i64
@@ -1045,7 +1045,7 @@ define noundef ptr @H5_strcasestr(ptr noundef readonly captures(ret: address, pr
   %23 = icmp ne i32 %18, %22
   %.not = icmp eq i8 %19, 0
   %or.cond = or i1 %.not, %23
-  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !43
+  br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !42
 
 .critedge:                                        ; preds = %.lr.ph
   br i1 %.not, label %.split25.us, label %.critedge26
@@ -1053,7 +1053,7 @@ define noundef ptr @H5_strcasestr(ptr noundef readonly captures(ret: address, pr
 .critedge26:                                      ; preds = %.split, %.critedge
   %24 = getelementptr inbounds nuw i8, ptr %.016, i64 1
   %.not19 = icmp eq i8 %9, 0
-  br i1 %.not19, label %.split25.us, label %.split, !llvm.loop !44
+  br i1 %.not19, label %.split25.us, label %.split, !llvm.loop !43
 
 .split25.us:                                      ; preds = %.critedge26, %.critedge, %2
   %.us-phi = phi ptr [ %0, %2 ], [ %.016, %.critedge ], [ null, %.critedge26 ]
@@ -1116,21 +1116,20 @@ attributes #19 = { cold nounwind }
 !24 = !{!"timespec", !8, i64 0, !8, i64 8}
 !25 = !{!24, !8, i64 8}
 !26 = !{!9, !9, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = distinct !{!30, !28, !29}
-!31 = distinct !{!31, !28, !29}
-!32 = distinct !{!32, !28, !29}
-!33 = distinct !{!33, !28, !29}
-!34 = distinct !{!34, !28, !29}
-!35 = !{!36, !19, i64 0}
-!36 = !{!"h5_long_options", !19, i64 0, !9, i64 8, !6, i64 12}
-!37 = !{!36, !6, i64 12}
-!38 = !{!36, !9, i64 8}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"p1 _ZTS8_IO_FILE", !20, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 int", !20, i64 0}
-!43 = distinct !{!43, !28, !29}
-!44 = distinct !{!44, !28, !29}
+!29 = distinct !{!29, !28}
+!30 = distinct !{!30, !28}
+!31 = distinct !{!31, !28}
+!32 = distinct !{!32, !28}
+!33 = distinct !{!33, !28}
+!34 = !{!35, !19, i64 0}
+!35 = !{!"h5_long_options", !19, i64 0, !9, i64 8, !6, i64 12}
+!36 = !{!35, !6, i64 12}
+!37 = !{!35, !9, i64 8}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS8_IO_FILE", !20, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 int", !20, i64 0}
+!42 = distinct !{!42, !28}
+!43 = distinct !{!43, !28}

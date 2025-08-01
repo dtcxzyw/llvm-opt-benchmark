@@ -113,7 +113,7 @@ _ZL12UTF8Positionmmm.exit.i:                      ; preds = %49, %47, %.lr.ph.i
   %.0.i120.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i, %49 ], [ %27, %47 ]
   %51 = add nuw nsw i64 %.0108135.i, 1
   %exitcond.not.i = icmp eq i64 %51, %28
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !10
 
 52:                                               ; preds = %170, %.preheader.i
   %.1109136.i = phi i64 [ 0, %.preheader.i ], [ %173, %170 ]
@@ -266,12 +266,12 @@ _ZL12UTF8Positionmmm.exit129.i:                   ; preds = %132, %130, %115
 
 145:                                              ; preds = %_ZL12UTF8Positionmmm.exit129.i
   %146 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %143
-  %147 = load double, ptr %146, align 8, !tbaa !12
+  %147 = load double, ptr %146, align 8, !tbaa !11
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
 148:                                              ; preds = %_ZL12UTF8Positionmmm.exit129.i
   %149 = uitofp i64 %143 to double
-  %150 = tail call double @log2(double noundef %149) #7, !tbaa !14
+  %150 = tail call double @log2(double noundef %149) #7, !tbaa !13
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %148, %145
@@ -281,12 +281,12 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i:            ; preds = %148, %145
 
 152:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit.i
   %153 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %spec.store.select.i
-  %154 = load double, ptr %153, align 8, !tbaa !12
+  %154 = load double, ptr %153, align 8, !tbaa !11
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit119.i
 
 155:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit.i
   %156 = uitofp i64 %spec.store.select.i to double
-  %157 = tail call double @log2(double noundef %156) #7, !tbaa !14
+  %157 = tail call double @log2(double noundef %156) #7, !tbaa !13
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit119.i
 
 _ZN13duckdb_brotliL8FastLog2Em.exit119.i:         ; preds = %155, %152
@@ -312,10 +312,10 @@ _ZN13duckdb_brotliL8FastLog2Em.exit119.i:         ; preds = %155, %152
   %.1.i = phi double [ %169, %164 ], [ %.0.i66, %_ZN13duckdb_brotliL8FastLog2Em.exit119.i ]
   %171 = fptrunc double %.1.i to float
   %172 = getelementptr inbounds nuw float, ptr %5, i64 %.1109136.i
-  store float %171, ptr %172, align 4, !tbaa !16
+  store float %171, ptr %172, align 4, !tbaa !15
   %173 = add nuw i64 %.1109136.i, 1
   %exitcond140.not.i = icmp eq i64 %173, %1
-  br i1 %exitcond140.not.i, label %_ZL31EstimateBitCostsForLiteralsUTF8mmmPKhPmPf.exit, label %52, !llvm.loop !18
+  br i1 %exitcond140.not.i, label %_ZL31EstimateBitCostsForLiteralsUTF8mmmPKhPmPf.exit, label %52, !llvm.loop !17
 
 _ZL31EstimateBitCostsForLiteralsUTF8mmmPKhPmPf.exit: ; preds = %170, %.preheader.thread.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #7
@@ -344,7 +344,7 @@ _ZL31EstimateBitCostsForLiteralsUTF8mmmPKhPmPf.exit: ; preds = %170, %.preheader
   store i64 %185, ptr %183, align 8, !tbaa !6
   %186 = add nuw nsw i64 %.05867, 1
   %exitcond.not = icmp eq i64 %186, %175
-  br i1 %exitcond.not, label %.lr.ph70, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph70, label %.lr.ph, !llvm.loop !18
 
 187:                                              ; preds = %.lr.ph70, %_ZN13duckdb_brotliL8FastLog2Em.exit65
   %.05769 = phi i64 [ %175, %.lr.ph70 ], [ %.2, %_ZN13duckdb_brotliL8FastLog2Em.exit65 ]
@@ -399,12 +399,12 @@ _ZL31EstimateBitCostsForLiteralsUTF8mmmPKhPmPf.exit: ; preds = %170, %.preheader
 
 221:                                              ; preds = %212
   %222 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %.2
-  %223 = load double, ptr %222, align 8, !tbaa !12
+  %223 = load double, ptr %222, align 8, !tbaa !11
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 224:                                              ; preds = %212
   %225 = uitofp i64 %.2 to double
-  %226 = tail call double @log2(double noundef %225) #7, !tbaa !14
+  %226 = tail call double @log2(double noundef %225) #7, !tbaa !13
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit
 
 _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %221, %224
@@ -414,12 +414,12 @@ _ZN13duckdb_brotliL8FastLog2Em.exit:              ; preds = %221, %224
 
 228:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit
   %229 = getelementptr inbounds nuw [256 x double], ptr @_ZN13duckdb_brotli16kBrotliLog2TableE, i64 0, i64 %spec.store.select
-  %230 = load double, ptr %229, align 8, !tbaa !12
+  %230 = load double, ptr %229, align 8, !tbaa !11
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65
 
 231:                                              ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit
   %232 = uitofp i64 %spec.store.select to double
-  %233 = tail call double @log2(double noundef %232) #7, !tbaa !14
+  %233 = tail call double @log2(double noundef %232) #7, !tbaa !13
   br label %_ZN13duckdb_brotliL8FastLog2Em.exit65
 
 _ZN13duckdb_brotliL8FastLog2Em.exit65:            ; preds = %228, %231
@@ -432,10 +432,10 @@ _ZN13duckdb_brotliL8FastLog2Em.exit65:            ; preds = %228, %231
   %.0 = select i1 %236, double %238, double %235
   %239 = fptrunc double %.0 to float
   %240 = getelementptr inbounds nuw float, ptr %5, i64 %.15968
-  store float %239, ptr %240, align 4, !tbaa !16
+  store float %239, ptr %240, align 4, !tbaa !15
   %241 = add nuw i64 %.15968, 1
   %exitcond73.not = icmp eq i64 %241, %1
-  br i1 %exitcond73.not, label %.loopexit, label %187, !llvm.loop !20
+  br i1 %exitcond73.not, label %.loopexit, label %187, !llvm.loop !19
 
 .loopexit:                                        ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit65, %174, %_ZL31EstimateBitCostsForLiteralsUTF8mmmPKhPmPf.exit
   ret void
@@ -483,16 +483,15 @@ attributes #7 = { nounwind }
 !5 = !{!"Simple C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"long", !4, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"double", !4, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !4, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"float", !4, i64 0}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"double", !4, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !4, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"float", !4, i64 0}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}

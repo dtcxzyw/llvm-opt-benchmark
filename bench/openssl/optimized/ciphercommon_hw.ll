@@ -106,16 +106,16 @@ define noundef i32 @ossl_cipher_hw_generic_ofb128(ptr noundef %0, ptr noundef %1
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %7 = load i32, ptr %6, align 8, !tbaa !19
-  store i32 %7, ptr %5, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 8, !tbaa !18
+  store i32 %7, ptr %5, align 4, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   call void @CRYPTO_ofb128_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef %12) #4
-  %13 = load i32, ptr %5, align 4, !tbaa !20
-  store i32 %13, ptr %6, align 8, !tbaa !19
+  %13 = load i32, ptr %5, align 4, !tbaa !19
+  store i32 %13, ptr %6, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 1
 }
@@ -127,8 +127,8 @@ define noundef i32 @ossl_cipher_hw_generic_cfb128(ptr noundef %0, ptr noundef %1
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %7 = load i32, ptr %6, align 8, !tbaa !19
-  store i32 %7, ptr %5, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 8, !tbaa !18
+  store i32 %7, ptr %5, align 4, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -140,8 +140,8 @@ define noundef i32 @ossl_cipher_hw_generic_cfb128(ptr noundef %0, ptr noundef %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   call void @CRYPTO_cfb128_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %15, ptr noundef %17) #4
-  %18 = load i32, ptr %5, align 4, !tbaa !20
-  store i32 %18, ptr %6, align 8, !tbaa !19
+  %18 = load i32, ptr %5, align 4, !tbaa !19
+  store i32 %18, ptr %6, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 1
 }
@@ -153,8 +153,8 @@ define noundef i32 @ossl_cipher_hw_generic_cfb8(ptr noundef %0, ptr noundef %1, 
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %7 = load i32, ptr %6, align 8, !tbaa !19
-  store i32 %7, ptr %5, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 8, !tbaa !18
+  store i32 %7, ptr %5, align 4, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -166,8 +166,8 @@ define noundef i32 @ossl_cipher_hw_generic_cfb8(ptr noundef %0, ptr noundef %1, 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   call void @CRYPTO_cfb128_8_encrypt(ptr noundef %2, ptr noundef %1, i64 noundef %3, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %15, ptr noundef %17) #4
-  %18 = load i32, ptr %5, align 4, !tbaa !20
-  store i32 %18, ptr %6, align 8, !tbaa !19
+  %18 = load i32, ptr %5, align 4, !tbaa !19
+  store i32 %18, ptr %6, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 1
 }
@@ -179,8 +179,8 @@ define noundef i32 @ossl_cipher_hw_generic_cfb1(ptr noundef %0, ptr noundef %1, 
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %7 = load i32, ptr %6, align 8, !tbaa !19
-  store i32 %7, ptr %5, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 8, !tbaa !18
+  store i32 %7, ptr %5, align 4, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %9 = load i8, ptr %8, align 4
   %.not = icmp sgt i8 %9, -1
@@ -223,7 +223,7 @@ define noundef i32 @ossl_cipher_hw_generic_cfb1(ptr noundef %0, ptr noundef %1, 
   %31 = getelementptr inbounds nuw i8, ptr %.03033, i64 1152921504606846976
   %32 = getelementptr inbounds nuw i8, ptr %.02934, i64 1152921504606846976
   %33 = icmp ugt i64 %30, 1152921504606846975
-  br i1 %33, label %23, label %._crit_edge, !llvm.loop !21
+  br i1 %33, label %23, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %23, %.preheader
   %.030.lcssa = phi ptr [ %1, %.preheader ], [ %31, %23 ]
@@ -247,8 +247,8 @@ define noundef i32 @ossl_cipher_hw_generic_cfb1(ptr noundef %0, ptr noundef %1, 
   br label %45
 
 45:                                               ; preds = %._crit_edge, %34, %14
-  %storemerge = load i32, ptr %5, align 4, !tbaa !20
-  store i32 %storemerge, ptr %6, align 8, !tbaa !19
+  %storemerge = load i32, ptr %5, align 4, !tbaa !19
+  store i32 %storemerge, ptr %6, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 1
 }
@@ -260,8 +260,8 @@ define noundef i32 @ossl_cipher_hw_generic_ctr(ptr noundef %0, ptr noundef %1, p
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %7 = load i32, ptr %6, align 8, !tbaa !19
-  store i32 %7, ptr %5, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 8, !tbaa !18
+  store i32 %7, ptr %5, align 4, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %.not = icmp eq ptr %9, null
@@ -282,8 +282,8 @@ define noundef i32 @ossl_cipher_hw_generic_ctr(ptr noundef %0, ptr noundef %1, p
   br label %18
 
 18:                                               ; preds = %15, %14
-  %19 = load i32, ptr %5, align 4, !tbaa !20
-  store i32 %19, ptr %6, align 8, !tbaa !19
+  %19 = load i32, ptr %5, align 4, !tbaa !19
+  store i32 %19, ptr %6, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   ret i32 1
 }
@@ -343,7 +343,7 @@ ossl_cipher_hw_generic_cbc.exit:                  ; preds = %13, %24, %25
   %27 = getelementptr inbounds nuw i8, ptr %.01117, i64 1073741824
   %28 = getelementptr inbounds nuw i8, ptr %.01216, i64 1073741824
   %29 = icmp ugt i64 %26, 1073741823
-  br i1 %29, label %11, label %._crit_edge, !llvm.loop !22
+  br i1 %29, label %11, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %ossl_cipher_hw_generic_cbc.exit, %4
   %.012.lcssa = phi ptr [ %1, %4 ], [ %28, %ossl_cipher_hw_generic_cbc.exit ]
@@ -407,7 +407,7 @@ define noundef i32 @ossl_cipher_hw_chunked_cfb8(ptr noundef %0, ptr noundef %1, 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre = load i32, ptr %6, align 8, !tbaa !19
+  %.pre = load i32, ptr %6, align 8, !tbaa !18
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
@@ -417,7 +417,7 @@ define noundef i32 @ossl_cipher_hw_chunked_cfb8(ptr noundef %0, ptr noundef %1, 
   %.01925 = phi ptr [ %2, %.lr.ph ], [ %21, %11 ]
   %.02024 = phi ptr [ %1, %.lr.ph ], [ %22, %11 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
-  store i32 %12, ptr %5, align 4, !tbaa !20
+  store i32 %12, ptr %5, align 4, !tbaa !19
   %13 = load ptr, ptr %7, align 8, !tbaa !6
   %14 = load i8, ptr %9, align 4
   %15 = lshr i8 %14, 1
@@ -425,15 +425,15 @@ define noundef i32 @ossl_cipher_hw_chunked_cfb8(ptr noundef %0, ptr noundef %1, 
   %17 = zext nneg i8 %16 to i32
   %18 = load ptr, ptr %10, align 8, !tbaa !14
   call void @CRYPTO_cfb128_8_encrypt(ptr noundef %.01925, ptr noundef %.02024, i64 noundef %.01826, ptr noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef %17, ptr noundef %18) #4
-  %19 = load i32, ptr %5, align 4, !tbaa !20
-  store i32 %19, ptr %6, align 8, !tbaa !19
+  %19 = load i32, ptr %5, align 4, !tbaa !19
+  store i32 %19, ptr %6, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   %20 = sub nuw i64 %.01826, %.127
   %21 = getelementptr inbounds nuw i8, ptr %.01925, i64 %.127
   %22 = getelementptr inbounds nuw i8, ptr %.02024, i64 %.127
   %spec.select23 = call i64 @llvm.umin.i64(i64 %20, i64 %.127)
   %.not28 = icmp eq i64 %20, 0
-  br i1 %.not28, label %._crit_edge, label %11, !llvm.loop !23
+  br i1 %.not28, label %._crit_edge, label %11, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %11, %4
   ret i32 1
@@ -452,7 +452,7 @@ define noundef i32 @ossl_cipher_hw_chunked_cfb128(ptr noundef %0, ptr noundef %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre = load i32, ptr %6, align 8, !tbaa !19
+  %.pre = load i32, ptr %6, align 8, !tbaa !18
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
@@ -462,7 +462,7 @@ define noundef i32 @ossl_cipher_hw_chunked_cfb128(ptr noundef %0, ptr noundef %1
   %.01925 = phi ptr [ %2, %.lr.ph ], [ %21, %11 ]
   %.02024 = phi ptr [ %1, %.lr.ph ], [ %22, %11 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
-  store i32 %12, ptr %5, align 4, !tbaa !20
+  store i32 %12, ptr %5, align 4, !tbaa !19
   %13 = load ptr, ptr %7, align 8, !tbaa !6
   %14 = load i8, ptr %9, align 4
   %15 = lshr i8 %14, 1
@@ -470,15 +470,15 @@ define noundef i32 @ossl_cipher_hw_chunked_cfb128(ptr noundef %0, ptr noundef %1
   %17 = zext nneg i8 %16 to i32
   %18 = load ptr, ptr %10, align 8, !tbaa !14
   call void @CRYPTO_cfb128_encrypt(ptr noundef %.01925, ptr noundef %.02024, i64 noundef %.01826, ptr noundef %13, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef %17, ptr noundef %18) #4
-  %19 = load i32, ptr %5, align 4, !tbaa !20
-  store i32 %19, ptr %6, align 8, !tbaa !19
+  %19 = load i32, ptr %5, align 4, !tbaa !19
+  store i32 %19, ptr %6, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   %20 = sub nuw i64 %.01826, %.127
   %21 = getelementptr inbounds nuw i8, ptr %.01925, i64 %.127
   %22 = getelementptr inbounds nuw i8, ptr %.02024, i64 %.127
   %spec.select23 = call i64 @llvm.umin.i64(i64 %20, i64 %.127)
   %.not28 = icmp eq i64 %20, 0
-  br i1 %.not28, label %._crit_edge, label %11, !llvm.loop !24
+  br i1 %.not28, label %._crit_edge, label %11, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %11, %4
   ret i32 1
@@ -496,7 +496,7 @@ define noundef i32 @ossl_cipher_hw_chunked_ofb128(ptr noundef %0, ptr noundef %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre = load i32, ptr %8, align 8, !tbaa !19
+  %.pre = load i32, ptr %8, align 8, !tbaa !18
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
@@ -505,18 +505,18 @@ define noundef i32 @ossl_cipher_hw_chunked_ofb128(ptr noundef %0, ptr noundef %1
   %.01114 = phi ptr [ %2, %.lr.ph ], [ %18, %12 ]
   %.01213 = phi ptr [ %1, %.lr.ph ], [ %19, %12 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
-  store i32 %13, ptr %6, align 4, !tbaa !20
+  store i32 %13, ptr %6, align 4, !tbaa !19
   %14 = load ptr, ptr %9, align 8, !tbaa !6
   %15 = load ptr, ptr %11, align 8, !tbaa !14
   call void @CRYPTO_ofb128_encrypt(ptr noundef %.01114, ptr noundef %.01213, i64 noundef 1073741824, ptr noundef %14, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef %15) #4
-  %16 = load i32, ptr %6, align 4, !tbaa !20
-  store i32 %16, ptr %8, align 8, !tbaa !19
+  %16 = load i32, ptr %6, align 4, !tbaa !19
+  store i32 %16, ptr %8, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   %17 = add i64 %.015, -1073741824
   %18 = getelementptr inbounds nuw i8, ptr %.01114, i64 1073741824
   %19 = getelementptr inbounds nuw i8, ptr %.01213, i64 1073741824
   %20 = icmp ugt i64 %17, 1073741823
-  br i1 %20, label %12, label %._crit_edge, !llvm.loop !25
+  br i1 %20, label %12, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %12, %4
   %.012.lcssa = phi ptr [ %1, %4 ], [ %19, %12 ]
@@ -528,16 +528,16 @@ define noundef i32 @ossl_cipher_hw_chunked_ofb128(ptr noundef %0, ptr noundef %1
 21:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %23 = load i32, ptr %22, align 8, !tbaa !19
-  store i32 %23, ptr %5, align 4, !tbaa !20
+  %23 = load i32, ptr %22, align 8, !tbaa !18
+  store i32 %23, ptr %5, align 4, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %25 = load ptr, ptr %24, align 8, !tbaa !6
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load ptr, ptr %27, align 8, !tbaa !14
   call void @CRYPTO_ofb128_encrypt(ptr noundef %.011.lcssa, ptr noundef %.012.lcssa, i64 noundef %.0.lcssa, ptr noundef %25, ptr noundef nonnull %26, ptr noundef nonnull %5, ptr noundef %28) #4
-  %29 = load i32, ptr %5, align 4, !tbaa !20
-  store i32 %29, ptr %22, align 8, !tbaa !19
+  %29 = load i32, ptr %5, align 4, !tbaa !19
+  store i32 %29, ptr %22, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   br label %30
 
@@ -572,13 +572,12 @@ attributes #4 = { nounwind }
 !13 = !{!"p1 _ZTS15ossl_lib_ctx_st", !8, i64 0}
 !14 = !{!7, !8, i64 48}
 !15 = !{!7, !10, i64 88}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!7, !9, i64 160}
-!20 = !{!9, !9, i64 0}
-!21 = distinct !{!21, !17, !18}
-!22 = distinct !{!22, !17, !18}
-!23 = distinct !{!23, !17, !18}
-!24 = distinct !{!24, !17, !18}
-!25 = distinct !{!25, !17, !18}
+!18 = !{!7, !9, i64 160}
+!19 = !{!9, !9, i64 0}
+!20 = distinct !{!20, !17}
+!21 = distinct !{!21, !17}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !17}
+!24 = distinct !{!24, !17}

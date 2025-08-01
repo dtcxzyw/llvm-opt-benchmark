@@ -1257,7 +1257,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17h07c1
   %.sroa.3182.1 = phi i32 [ %.sroa.3182.0, %438 ], [ %.sroa.3182.0, %413 ], [ %.sroa.3182.0, %395 ], [ %.sroa.3182.0, %377 ], [ %.sroa.3182.0, %347 ], [ %.sroa.3182.0, %320 ], [ %.sroa.3182.0, %318 ], [ %.sroa.3182.0, %327 ], [ %359, %356 ], [ %.sroa.3182.0, %422 ], [ %.sroa.3182.0, %449 ], [ %.sroa.3182.0, %465 ]
   %.sroa.0187.1 = phi i8 [ %.sroa.0187.0, %438 ], [ %.sroa.0187.0, %413 ], [ %.sroa.0187.0, %395 ], [ %.sroa.0187.0, %377 ], [ %.sroa.0187.0, %347 ], [ %.sroa.0187.0, %320 ], [ %.sroa.0187.0, %318 ], [ %330, %327 ], [ %.sroa.0187.0, %356 ], [ %.sroa.0187.0, %422 ], [ %.sroa.0187.0, %449 ], [ %.sroa.0187.0, %465 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %96)
-          to label %168 unwind label %.loopexit, !llvm.loop !6
+          to label %168 unwind label %.loopexit
 
 320:                                              ; preds = %312
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
@@ -2548,7 +2548,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17hb5fd
   %.sroa.3182.1 = phi i32 [ %.sroa.3182.0, %437 ], [ %.sroa.3182.0, %412 ], [ %.sroa.3182.0, %394 ], [ %.sroa.3182.0, %376 ], [ %.sroa.3182.0, %346 ], [ %.sroa.3182.0, %319 ], [ %.sroa.3182.0, %317 ], [ %.sroa.3182.0, %326 ], [ %358, %355 ], [ %.sroa.3182.0, %421 ], [ %.sroa.3182.0, %448 ], [ %.sroa.3182.0, %464 ]
   %.sroa.0187.1 = phi i8 [ %.sroa.0187.0, %437 ], [ %.sroa.0187.0, %412 ], [ %.sroa.0187.0, %394 ], [ %.sroa.0187.0, %376 ], [ %.sroa.0187.0, %346 ], [ %.sroa.0187.0, %319 ], [ %.sroa.0187.0, %317 ], [ %329, %326 ], [ %.sroa.0187.0, %355 ], [ %.sroa.0187.0, %421 ], [ %.sroa.0187.0, %448 ], [ %.sroa.0187.0, %464 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %95)
-          to label %167 unwind label %.loopexit, !llvm.loop !8
+          to label %167 unwind label %.loopexit
 
 319:                                              ; preds = %311
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
@@ -3839,7 +3839,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig11from_reader17heb02
   %.sroa.3182.1 = phi i32 [ %.sroa.3182.0, %437 ], [ %.sroa.3182.0, %412 ], [ %.sroa.3182.0, %394 ], [ %.sroa.3182.0, %376 ], [ %.sroa.3182.0, %346 ], [ %.sroa.3182.0, %319 ], [ %.sroa.3182.0, %317 ], [ %.sroa.3182.0, %326 ], [ %358, %355 ], [ %.sroa.3182.0, %421 ], [ %.sroa.3182.0, %448 ], [ %.sroa.3182.0, %464 ]
   %.sroa.0187.1 = phi i8 [ %.sroa.0187.0, %437 ], [ %.sroa.0187.0, %412 ], [ %.sroa.0187.0, %394 ], [ %.sroa.0187.0, %376 ], [ %.sroa.0187.0, %346 ], [ %.sroa.0187.0, %319 ], [ %.sroa.0187.0, %317 ], [ %329, %326 ], [ %.sroa.0187.0, %355 ], [ %.sroa.0187.0, %421 ], [ %.sroa.0187.0, %448 ], [ %.sroa.0187.0, %464 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %95)
-          to label %167 unwind label %.loopexit, !llvm.loop !9
+          to label %167 unwind label %.loopexit
 
 319:                                              ; preds = %311
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
@@ -5265,7 +5265,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig9to_writer17h16266f3
   store i64 1, ptr %150, align 8
   %157 = call ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h1bcc49a3d8f52f66E"(ptr nonnull align 8 %43, ptr nonnull align 8 %16)
   %158 = icmp eq ptr %157, null
-  br i1 %158, label %152, label %160, !llvm.loop !10
+  br i1 %158, label %152, label %160
 
 159:                                              ; preds = %89, %100, %111, %124, %160, %151, %141, %81, %77, %68, %59, %155
   ret void
@@ -5607,7 +5607,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig9to_writer17h2d3a12d
   store i64 1, ptr %150, align 8
   %157 = call ptr @"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_fmt17h030e2f7d285bc5bdE"(ptr nonnull align 8 %43, ptr nonnull align 8 %16)
   %158 = icmp eq ptr %157, null
-  br i1 %158, label %152, label %160, !llvm.loop !11
+  br i1 %158, label %152, label %160
 
 159:                                              ; preds = %89, %100, %111, %124, %160, %151, %141, %81, %77, %68, %59, %155
   ret void
@@ -6516,7 +6516,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_14search_lib_dir17h3022
 
 .invoke:                                          ; preds = %204, %57, %91, %184
   invoke void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$17h66b2f17eb627eb99E"(ptr nonnull align 8 %23)
-          to label %.backedge unwind label %.loopexit, !llvm.loop !12
+          to label %.backedge unwind label %.loopexit
 
 81:                                               ; preds = %.loopexit122, %.loopexit.split-lp123, %201, %95
   %.pn115 = phi { ptr, i32 } [ %202, %201 ], [ %.pn113, %95 ], [ %lpad.loopexit124, %.loopexit122 ], [ %lpad.loopexit.split-lp125, %.loopexit.split-lp123 ]
@@ -7062,7 +7062,7 @@ define hidden void @_ZN17pyo3_build_config5impl_14search_lib_dir17h9f792e7d73183
 
 .invoke:                                          ; preds = %205, %58, %92, %185
   invoke void @"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$17h66b2f17eb627eb99E"(ptr nonnull align 8 %23)
-          to label %.backedge unwind label %.loopexit, !llvm.loop !13
+          to label %.backedge unwind label %.loopexit
 
 82:                                               ; preds = %.loopexit122, %.loopexit.split-lp123, %202, %96
   %.pn115 = phi { ptr, i32 } [ %203, %202 ], [ %.pn113, %96 ], [ %lpad.loopexit124, %.loopexit122 ], [ %lpad.loopexit.split-lp125, %.loopexit.split-lp123 ]
@@ -8495,11 +8495,3 @@ attributes #13 = { noreturn }
 !3 = !{!4}
 !4 = distinct !{!4, !5, !"_ZN17pyo3_build_config5impl_22find_all_sysconfigdata28_$u7b$$u7b$closure$u7d$$u7d$17he24eb3eb6f09bc94E: argument 0"}
 !5 = distinct !{!5, !"_ZN17pyo3_build_config5impl_22find_all_sysconfigdata28_$u7b$$u7b$closure$u7d$$u7d$17he24eb3eb6f09bc94E"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}

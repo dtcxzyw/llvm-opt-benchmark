@@ -995,7 +995,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
 291:                                              ; preds = %293, %285
   %292 = add i64 %.sroa.016.0, 1
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h35e191ebbad61f43E"(ptr nonnull align 8 %281, ptr nonnull align 8 %77)
-          to label %280 unwind label %.loopexit178, !llvm.loop !3
+          to label %280 unwind label %.loopexit178
 
 293:                                              ; preds = %285
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %77)
@@ -1015,7 +1015,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
 
 297:                                              ; preds = %296
   invoke void @_ZN5quote9__private9push_semi17hf00f37cd883dc110E(ptr nonnull align 8 %87)
-          to label %209 unwind label %.loopexit183, !llvm.loop !5
+          to label %209 unwind label %.loopexit183
 
 298:                                              ; preds = %190
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %73)
@@ -1362,7 +1362,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
 397:                                              ; preds = %399, %392
   %398 = add i64 %.sroa.027.0, 1
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h35e191ebbad61f43E"(ptr nonnull align 8 %388, ptr nonnull align 8 %63)
-          to label %387 unwind label %.loopexit, !llvm.loop !6
+          to label %387 unwind label %.loopexit
 
 399:                                              ; preds = %392
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %63)
@@ -1382,7 +1382,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
 
 403:                                              ; preds = %402
   invoke void @_ZN5quote9__private9push_semi17hf00f37cd883dc110E(ptr nonnull align 8 %73)
-          to label %314 unwind label %.loopexit173, !llvm.loop !7
+          to label %314 unwind label %.loopexit173
 
 404:                                              ; preds = %183
   %405 = load i64, ptr %61, align 8
@@ -1584,7 +1584,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
 464:                                              ; preds = %466, %453
   %465 = add i64 %.sroa.032.0, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %449, ptr nonnull align 8 %56)
-          to label %448 unwind label %.loopexit188, !llvm.loop !8
+          to label %448 unwind label %.loopexit188
 
 466:                                              ; preds = %453
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %56)
@@ -2113,7 +2113,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
 609:                                              ; preds = %611, %485
   %610 = add i64 %.sroa.037.0, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %479, ptr nonnull align 8 %50)
-          to label %478 unwind label %480, !llvm.loop !9
+          to label %478 unwind label %480
 
 611:                                              ; preds = %485
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %50)
@@ -2324,7 +2324,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
 674:                                              ; preds = %676, %663
   %675 = add i64 %.sroa.042.0, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %659, ptr nonnull align 8 %23)
-          to label %658 unwind label %.loopexit193, !llvm.loop !10
+          to label %658 unwind label %.loopexit193
 
 676:                                              ; preds = %663
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %23)
@@ -2532,7 +2532,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
 738:                                              ; preds = %740, %696
   %739 = add i64 %.sroa.047.0, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %690, ptr nonnull align 8 %17)
-          to label %689 unwind label %691, !llvm.loop !11
+          to label %689 unwind label %691
 
 740:                                              ; preds = %696
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %17)
@@ -5460,12 +5460,3 @@ attributes #9 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}

@@ -2673,7 +2673,7 @@ show_wbxml_string_table.exit:                     ; preds = %.lr.ph.i, %91
   %116 = add i32 %115, %114
   %117 = load i32, ptr @ett_wbxml_content, align 4
   %118 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %0, i32 noundef %116, i32 noundef -1, i32 noundef %117, ptr noundef nonnull %8, ptr noundef nonnull @.str.166)
-  %119 = load i8, ptr @disable_wbxml_token_parsing, align 1, !range !9, !noundef !10
+  %119 = load i8, ptr @disable_wbxml_token_parsing, align 1, !range !8, !noundef !9
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %121, label %124
 
@@ -2765,7 +2765,7 @@ get_wbxml_decoding_from_content_type.exit.thread128: ; preds = %146, %get_wbxml_
 
 156:                                              ; preds = %get_wbxml_decoding_from_public_id.exit, %get_wbxml_decoding_from_content_type.exit.thread128, %125
   %.099 = phi ptr [ %3, %125 ], [ %135, %get_wbxml_decoding_from_public_id.exit ], [ %.013.i131, %get_wbxml_decoding_from_content_type.exit.thread128 ]
-  %157 = load i8, ptr @skip_wbxml_token_mapping, align 1, !range !9
+  %157 = load i8, ptr @skip_wbxml_token_mapping, align 1, !range !8
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %.sink.split, label %161
 
@@ -3022,12 +3022,12 @@ define internal fastcc i32 @parse_wbxml_tag_defined(ptr noundef %0, ptr noundef 
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   %.not.i.i = icmp eq ptr %113, null
-  br i1 %.not.i.i, label %map_token.exit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %map_token.exit, label %.lr.ph.i.i, !llvm.loop !10
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
   %114 = load i32, ptr %111, align 8
   %115 = icmp eq i32 %114, 0
-  br i1 %115, label %val_to_valstr.exit.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %115, label %val_to_valstr.exit.i, label %.lr.ph.i, !llvm.loop !10
 
 val_to_valstr.exit.i:                             ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %.lcssa.i = phi ptr [ %106, %.lr.ph.i.preheader.i ], [ %113, %.lr.ph.i.i ]
@@ -3100,12 +3100,12 @@ map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_v
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
   %.not.i.i458 = icmp eq ptr %155, null
-  br i1 %.not.i.i458, label %map_token.exit465, label %.lr.ph.i.i459, !llvm.loop !11
+  br i1 %.not.i.i458, label %map_token.exit465, label %.lr.ph.i.i459, !llvm.loop !10
 
 .lr.ph.i.i459:                                    ; preds = %.lr.ph.i456
   %156 = load i32, ptr %153, align 8
   %157 = icmp eq i32 %156, 0
-  br i1 %157, label %val_to_valstr.exit.i460, label %.lr.ph.i456, !llvm.loop !11
+  br i1 %157, label %val_to_valstr.exit.i460, label %.lr.ph.i456, !llvm.loop !10
 
 val_to_valstr.exit.i460:                          ; preds = %.lr.ph.i.i459, %.lr.ph.i.preheader.i455
   %.lcssa.i461 = phi ptr [ %148, %.lr.ph.i.preheader.i455 ], [ %155, %.lr.ph.i.i459 ]
@@ -3180,12 +3180,12 @@ map_token.exit465:                                ; preds = %.lr.ph.i456, %143, 
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load ptr, ptr %198, align 8
   %.not.i.i471 = icmp eq ptr %199, null
-  br i1 %.not.i.i471, label %map_token.exit478, label %.lr.ph.i.i472, !llvm.loop !11
+  br i1 %.not.i.i471, label %map_token.exit478, label %.lr.ph.i.i472, !llvm.loop !10
 
 .lr.ph.i.i472:                                    ; preds = %.lr.ph.i469
   %200 = load i32, ptr %197, align 8
   %201 = icmp eq i32 %200, 0
-  br i1 %201, label %val_to_valstr.exit.i473, label %.lr.ph.i469, !llvm.loop !11
+  br i1 %201, label %val_to_valstr.exit.i473, label %.lr.ph.i469, !llvm.loop !10
 
 val_to_valstr.exit.i473:                          ; preds = %.lr.ph.i.i472, %.lr.ph.i.preheader.i468
   %.lcssa.i474 = phi ptr [ %192, %.lr.ph.i.preheader.i468 ], [ %199, %.lr.ph.i.i472 ]
@@ -3339,12 +3339,12 @@ map_token.exit478:                                ; preds = %.lr.ph.i469, %val_t
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %290 = load ptr, ptr %289, align 8
   %.not.i.i484 = icmp eq ptr %290, null
-  br i1 %.not.i.i484, label %map_token.exit491, label %.lr.ph.i.i485, !llvm.loop !11
+  br i1 %.not.i.i484, label %map_token.exit491, label %.lr.ph.i.i485, !llvm.loop !10
 
 .lr.ph.i.i485:                                    ; preds = %.lr.ph.i482
   %291 = load i32, ptr %288, align 8
   %292 = icmp eq i32 %291, %281
-  br i1 %292, label %val_to_valstr.exit.i486, label %.lr.ph.i482, !llvm.loop !11
+  br i1 %292, label %val_to_valstr.exit.i486, label %.lr.ph.i482, !llvm.loop !10
 
 val_to_valstr.exit.i486:                          ; preds = %.lr.ph.i.i485, %.lr.ph.i.preheader.i481
   %.lcssa.i487 = phi ptr [ %283, %.lr.ph.i.preheader.i481 ], [ %290, %.lr.ph.i.i485 ]
@@ -3499,7 +3499,7 @@ map_token.exit491:                                ; preds = %.lr.ph.i482, %val_t
   %.1413 = phi ptr [ %.0412523, %44 ], [ %.0412523, %45 ], [ %.0412523, %69 ], [ %.0412523, %80 ], [ %.0412523, %map_token.exit ], [ %.0412523, %121 ], [ %.0412523, %163 ], [ %.0412523, %173 ], [ %.0412523, %map_token.exit478 ], [ %.0412523, %237 ], [ %.0412523, %251 ], [ %.0412523, %299 ], [ %.0412523, %374 ], [ %.0411, %317 ], [ %.0411, %326 ], [ %.0411, %330 ]
   %.1410 = phi i8 [ %.0409524, %44 ], [ %.0409524, %45 ], [ %.0409524, %69 ], [ %.0409524, %80 ], [ %.0409524, %map_token.exit ], [ %.0409524, %121 ], [ %.0409524, %163 ], [ %.0409524, %173 ], [ %.0409524, %map_token.exit478 ], [ %.0409524, %237 ], [ %.0409524, %251 ], [ 1, %299 ], [ %.0409524, %374 ], [ 1, %317 ], [ 1, %326 ], [ 1, %330 ]
   %377 = icmp ult i32 %.1419, %12
-  br i1 %377, label %39, label %._crit_edge, !llvm.loop !12
+  br i1 %377, label %39, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %246, %376, %.preheader
   %.0418.lcssa = phi i32 [ %3, %.preheader ], [ %12, %246 ], [ %.1419, %376 ]
@@ -5226,12 +5226,12 @@ define internal fastcc i32 @parse_wbxml_attribute_list_defined(ptr noundef %0, p
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
   %.not.i.i = icmp eq ptr %107, null
-  br i1 %.not.i.i, label %map_token.exit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %map_token.exit, label %.lr.ph.i.i, !llvm.loop !10
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
   %108 = load i32, ptr %105, align 8
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %val_to_valstr.exit.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %109, label %val_to_valstr.exit.i, label %.lr.ph.i, !llvm.loop !10
 
 val_to_valstr.exit.i:                             ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %.lcssa.i = phi ptr [ %100, %.lr.ph.i.preheader.i ], [ %107, %.lr.ph.i.i ]
@@ -5289,12 +5289,12 @@ map_token.exit:                                   ; preds = %.lr.ph.i, %val_to_v
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8
   %.not.i.i294 = icmp eq ptr %137, null
-  br i1 %.not.i.i294, label %map_token.exit301, label %.lr.ph.i.i295, !llvm.loop !11
+  br i1 %.not.i.i294, label %map_token.exit301, label %.lr.ph.i.i295, !llvm.loop !10
 
 .lr.ph.i.i295:                                    ; preds = %.lr.ph.i292
   %138 = load i32, ptr %135, align 8
   %139 = icmp eq i32 %138, 0
-  br i1 %139, label %val_to_valstr.exit.i296, label %.lr.ph.i292, !llvm.loop !11
+  br i1 %139, label %val_to_valstr.exit.i296, label %.lr.ph.i292, !llvm.loop !10
 
 val_to_valstr.exit.i296:                          ; preds = %.lr.ph.i.i295, %.lr.ph.i.preheader.i291
   %.lcssa.i297 = phi ptr [ %130, %.lr.ph.i.preheader.i291 ], [ %137, %.lr.ph.i.i295 ]
@@ -5378,12 +5378,12 @@ map_token.exit301:                                ; preds = %.lr.ph.i292, %125, 
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %184 = load ptr, ptr %183, align 8
   %.not.i.i307 = icmp eq ptr %184, null
-  br i1 %.not.i.i307, label %map_token.exit314, label %.lr.ph.i.i308, !llvm.loop !11
+  br i1 %.not.i.i307, label %map_token.exit314, label %.lr.ph.i.i308, !llvm.loop !10
 
 .lr.ph.i.i308:                                    ; preds = %.lr.ph.i305
   %185 = load i32, ptr %182, align 8
   %186 = icmp eq i32 %185, 0
-  br i1 %186, label %val_to_valstr.exit.i309, label %.lr.ph.i305, !llvm.loop !11
+  br i1 %186, label %val_to_valstr.exit.i309, label %.lr.ph.i305, !llvm.loop !10
 
 val_to_valstr.exit.i309:                          ; preds = %.lr.ph.i.i308, %.lr.ph.i.preheader.i304
   %.lcssa.i310 = phi ptr [ %177, %.lr.ph.i.preheader.i304 ], [ %184, %.lr.ph.i.i308 ]
@@ -5542,12 +5542,12 @@ map_token.exit314:                                ; preds = %.lr.ph.i305, %val_t
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %277 = load ptr, ptr %276, align 8
   %.not.i.i320 = icmp eq ptr %277, null
-  br i1 %.not.i.i320, label %map_token.exit327, label %.lr.ph.i.i321, !llvm.loop !11
+  br i1 %.not.i.i320, label %map_token.exit327, label %.lr.ph.i.i321, !llvm.loop !10
 
 .lr.ph.i.i321:                                    ; preds = %.lr.ph.i318
   %278 = load i32, ptr %275, align 8
   %279 = icmp eq i32 %278, %268
-  br i1 %279, label %val_to_valstr.exit.i322, label %.lr.ph.i318, !llvm.loop !11
+  br i1 %279, label %val_to_valstr.exit.i322, label %.lr.ph.i318, !llvm.loop !10
 
 val_to_valstr.exit.i322:                          ; preds = %.lr.ph.i.i321, %.lr.ph.i.preheader.i317
   %.lcssa.i323 = phi ptr [ %270, %.lr.ph.i.preheader.i317 ], [ %277, %.lr.ph.i.i321 ]
@@ -5599,12 +5599,12 @@ map_token.exit327:                                ; preds = %.lr.ph.i318, %val_t
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
   %303 = load ptr, ptr %302, align 8
   %.not.i.i333 = icmp eq ptr %303, null
-  br i1 %.not.i.i333, label %map_token.exit340, label %.lr.ph.i.i334, !llvm.loop !11
+  br i1 %.not.i.i333, label %map_token.exit340, label %.lr.ph.i.i334, !llvm.loop !10
 
 .lr.ph.i.i334:                                    ; preds = %.lr.ph.i331
   %304 = load i32, ptr %301, align 8
   %305 = icmp eq i32 %304, %294
-  br i1 %305, label %val_to_valstr.exit.i335, label %.lr.ph.i331, !llvm.loop !11
+  br i1 %305, label %val_to_valstr.exit.i335, label %.lr.ph.i331, !llvm.loop !10
 
 val_to_valstr.exit.i335:                          ; preds = %.lr.ph.i.i334, %.lr.ph.i.preheader.i330
   %.lcssa.i336 = phi ptr [ %296, %.lr.ph.i.preheader.i330 ], [ %303, %.lr.ph.i.i334 ]
@@ -5636,7 +5636,7 @@ map_token.exit340:                                ; preds = %.lr.ph.i331, %val_t
   %.1256 = phi ptr [ %.0255359, %37 ], [ %.0255359, %50 ], [ %.0255359, %58 ], [ %77, %74 ], [ %.0255359, %map_token.exit ], [ %.0255359, %154 ], [ %.0255359, %160 ], [ %.0255359, %map_token.exit314 ], [ %.0255359, %241 ], [ %.0255359, %314 ], [ %.0255359, %227 ]
   %.2 = phi i32 [ %43, %37 ], [ %57, %50 ], [ %69, %58 ], [ %85, %74 ], [ %114, %map_token.exit ], [ %155, %154 ], [ %171, %160 ], [ %194, %map_token.exit314 ], [ %250, %241 ], [ %.3, %314 ], [ %235, %227 ]
   %316 = icmp ult i32 %.2, %10
-  br i1 %316, label %31, label %.loopexit, !llvm.loop !13
+  br i1 %316, label %31, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %236, %225, %156, %145, %70, %46, %315, %256, %7, %251, %44
   %.pn = phi i32 [ %45, %44 ], [ %10, %251 ], [ %3, %7 ], [ %10, %256 ], [ %10, %236 ], [ %10, %225 ], [ %10, %156 ], [ %10, %145 ], [ %10, %70 ], [ %10, %46 ], [ %.2, %315 ]
@@ -5667,11 +5667,10 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

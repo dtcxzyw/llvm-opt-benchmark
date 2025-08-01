@@ -61,13 +61,13 @@ for.inc:                                          ; preds = %for.body13
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.022, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i7.not = icmp eq ptr %__begin2.sroa.0.0, %InstList.i
-  br i1 %cmp.i7.not, label %for.inc24, label %for.body13, !llvm.loop !4
+  br i1 %cmp.i7.not, label %for.inc24, label %for.body13
 
 for.inc24:                                        ; preds = %for.inc, %for.body
   %Next.i.i.i12 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.024, i64 8
   %4 = load ptr, ptr %Next.i.i.i12, align 8
   %cmp.i.not = icmp eq ptr %4, %BasicBlockList.i
-  br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !6
+  br i1 %cmp.i.not, label %return, label %for.body
 
 return:                                           ; preds = %for.inc24, %if.end, %entry, %if.then17
   %retval.0 = phi i1 [ true, %if.then17 ], [ false, %entry ], [ false, %if.end ], [ false, %for.inc24 ]
@@ -79,14 +79,14 @@ declare void @_ZN6hermes11Instruction10moveBeforeEPS0_(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes25createHoistStartGeneratorEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes19HoistStartGeneratorESt14default_deleteIS1_EED2Ev.exit:
-  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #5, !noalias !7
+  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #5, !noalias !4
   %kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store i32 0, ptr %kind.i.i.i.i, align 8, !noalias !7
+  store i32 0, ptr %kind.i.i.i.i, align 8, !noalias !4
   %name2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr @.str, ptr %name2.i.i.i.i, align 8, !noalias !7
+  store ptr @.str, ptr %name2.i.i.i.i, align 8, !noalias !4
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store i64 19, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !7
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes19HoistStartGeneratorE, i64 16), ptr %call.i, align 8, !noalias !7
+  store i64 19, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes19HoistStartGeneratorE, i64 16), ptr %call.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -124,9 +124,6 @@ attributes #6 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZSt11make_uniqueIN6hermes19HoistStartGeneratorEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!9 = distinct !{!9, !"_ZSt11make_uniqueIN6hermes19HoistStartGeneratorEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!4 = !{!5}
+!5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN6hermes19HoistStartGeneratorEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!6 = distinct !{!6, !"_ZSt11make_uniqueIN6hermes19HoistStartGeneratorEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}

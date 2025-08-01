@@ -510,7 +510,7 @@ define dso_local i32 @br_ip6_fragment(ptr noundef %0, ptr noundef %1, ptr nounde
   %137 = getelementptr inbounds nuw i8, ptr %120, i64 212
   %138 = load volatile i32, ptr %137, align 4
   %139 = icmp eq i32 %138, 1
-  br i1 %139, label %118, label %.loopexit16, !llvm.loop !13
+  br i1 %139, label %118, label %.loopexit16, !llvm.loop !12
 
 140:                                              ; preds = %118
   %141 = load ptr, ptr %7, align 8
@@ -554,7 +554,7 @@ define dso_local i32 @br_ip6_fragment(ptr noundef %0, ptr noundef %1, ptr nounde
   %166 = load ptr, ptr %162, align 8
   store ptr %166, ptr %145, align 8
   store ptr null, ptr %162, align 8
-  br label %149, !llvm.loop !14
+  br label %149, !llvm.loop !13
 
 167:                                              ; preds = %154
   %168 = load ptr, ptr %8, align 8
@@ -602,7 +602,7 @@ define dso_local i32 @br_ip6_fragment(ptr noundef %0, ptr noundef %1, ptr nounde
 187:                                              ; preds = %193
   %188 = load i32, ptr %180, align 8
   %189 = icmp eq i32 %188, 0
-  br i1 %189, label %.loopexit, label %190, !llvm.loop !15
+  br i1 %189, label %.loopexit, label %190
 
 190:                                              ; preds = %187, %183
   %191 = call ptr @ip6_frag_next(ptr noundef %2, ptr noundef nonnull %6) #7
@@ -779,10 +779,8 @@ attributes #7 = { nounwind }
 !6 = !{i64 2161543000}
 !7 = !{i64 2161558367}
 !8 = !{!"auto-init"}
-!9 = distinct !{!9, !10, !11, !12}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !10, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !12}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !11}

@@ -77,7 +77,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   tail call void @llvm.x86.sse2.pause() #7
   %.sroa.0.0.highbits.i = lshr i32 %16, %.093
   %17 = icmp eq i32 %.sroa.0.0.highbits.i, 0
-  br i1 %17, label %.preheader.i, label %.thread.i.thread, !llvm.loop !4
+  br i1 %17, label %.preheader.i, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %.preheader.i, %.thread.i
   %18 = add nuw nsw i32 %.093, 1
@@ -99,7 +99,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %25 = add nuw nsw i64 %23, 1
   %exitcond.not = icmp eq i64 %25, 31
-  br i1 %exitcond.not, label %26, label %22, !llvm.loop !6
+  br i1 %exitcond.not, label %26, label %22
 
 26:                                               ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(496) %4, i64 496, i1 false)
@@ -151,7 +151,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17h91
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
   %36 = add nuw nsw i64 %34, 1
   %exitcond111.not = icmp eq i64 %36, 31
-  br i1 %exitcond111.not, label %37, label %33, !llvm.loop !7
+  br i1 %exitcond111.not, label %37, label %33
 
 37:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %.sroa.061, ptr noundef nonnull align 8 dereferenceable(496) %3, i64 496, i1 false)
@@ -266,7 +266,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit: ; preds = %7
   tail call void @llvm.x86.sse2.pause() #7
   %.sroa.0.0.highbits.i56 = lshr i32 %80, %.0.sroa.speculated.i.i
   %81 = icmp eq i32 %.sroa.0.0.highbits.i56, 0
-  br i1 %81, label %79, label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit, !llvm.loop !8
+  br i1 %81, label %79, label %_ZN15crossbeam_utils7backoff7Backoff4spin17hd5546d72fd36e00dE.exit
 
 82:                                               ; preds = %.thread.i, %.thread.i.thread
   %.163 = phi i32 [ %18, %.thread.i.thread ], [ %.093, %.thread.i ]
@@ -423,8 +423,3 @@ attributes #14 = { noinline }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.74.1 (a28077b28 2023-12-04)"}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}

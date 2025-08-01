@@ -528,7 +528,7 @@ define void @ucol_prepareShortStringOpen_77(ptr noundef %0, i8 noundef signext %
   store i8 0, ptr %17, align 1, !tbaa !22
   %.add.i = add nuw nsw i64 %.idx.i, 64
   %18 = icmp eq i64 %.add.i, 384
-  br i1 %18, label %19, label %14, !llvm.loop !23
+  br i1 %18, label %19, label %14
 
 19:                                               ; preds = %15
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %13)
@@ -541,7 +541,7 @@ define void @ucol_prepareShortStringOpen_77(ptr noundef %0, i8 noundef signext %
   store i8 0, ptr %22, align 1, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 480
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 552
-  store i8 0, ptr %24, align 8, !tbaa !25
+  store i8 0, ptr %24, align 8, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %23, i8 0, i64 68, i1 false)
   br label %25
 
@@ -558,7 +558,7 @@ define void @ucol_prepareShortStringOpen_77(ptr noundef %0, i8 noundef signext %
   store i8 0, ptr %28, align 1, !tbaa !22
   %.add15.i = add nuw nsw i64 %.idx14.i, 64
   %29 = icmp samesign eq i64 %.add15.i, 1648
-  br i1 %29, label %_ZN12CollatorSpecC2Ev.exit, label %25, !llvm.loop !27
+  br i1 %29, label %_ZN12CollatorSpecC2Ev.exit, label %25
 
 30:                                               ; preds = %14
   %31 = landingpad { ptr, i32 }
@@ -571,7 +571,7 @@ define void @ucol_prepareShortStringOpen_77(ptr noundef %0, i8 noundef signext %
   %34 = getelementptr inbounds i8, ptr %33, i64 -64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %34) #14
   %35 = icmp eq ptr %34, %6
-  br i1 %35, label %common.resume, label %.preheader29.i, !llvm.loop !28
+  br i1 %35, label %common.resume, label %.preheader29.i
 
 36:                                               ; preds = %19
   %37 = landingpad { ptr, i32 }
@@ -590,7 +590,7 @@ define void @ucol_prepareShortStringOpen_77(ptr noundef %0, i8 noundef signext %
   %.ptr22.i = getelementptr inbounds i8, ptr %6, i64 %.add20.i
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %.ptr22.i) #14
   %41 = icmp eq i64 %.add20.i, 560
-  br i1 %41, label %.loopexit28.i, label %.preheader27.i, !llvm.loop !29
+  br i1 %41, label %.loopexit28.i, label %.preheader27.i
 
 .loopexit28.i:                                    ; preds = %.preheader27.i, %38
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %13) #14
@@ -605,7 +605,7 @@ define void @ucol_prepareShortStringOpen_77(ptr noundef %0, i8 noundef signext %
   %45 = getelementptr inbounds i8, ptr %44, i64 -64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %45) #14
   %46 = icmp eq ptr %45, %6
-  br i1 %46, label %common.resume, label %43, !llvm.loop !30
+  br i1 %46, label %common.resume, label %43
 
 common.resume:                                    ; preds = %.preheader29.i, %43, %30, %_ZN12CollatorSpecD2Ev.exit60
   %common.resume.op = phi { ptr, i32 } [ %.pn46.pn.pn.pn.pn.pn, %_ZN12CollatorSpecD2Ev.exit60 ], [ %31, %30 ], [ %.pn.i, %43 ], [ %31, %.preheader29.i ]
@@ -613,7 +613,7 @@ common.resume:                                    ; preds = %.preheader29.i, %43
 
 _ZN12CollatorSpecC2Ev.exit:                       ; preds = %26
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 448
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 -1, i64 32, i1 false), !tbaa !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 -1, i64 32, i1 false), !tbaa !25
   %48 = invoke fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11UParseErrorP10UErrorCode(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %3)
           to label %49 unwind label %75
 
@@ -750,7 +750,7 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %26
   %.ptr1.i = getelementptr inbounds i8, ptr %6, i64 %.add.i56
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %.ptr1.i) #14
   %99 = icmp eq i64 %.add.i56, 560
-  br i1 %99, label %100, label %98, !llvm.loop !33
+  br i1 %99, label %100, label %98
 
 100:                                              ; preds = %98
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %13) #14
@@ -761,7 +761,7 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %26
   %103 = getelementptr inbounds i8, ptr %102, i64 -64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %103) #14
   %104 = icmp eq ptr %103, %6
-  br i1 %104, label %_ZN12CollatorSpecD2Ev.exit, label %101, !llvm.loop !34
+  br i1 %104, label %_ZN12CollatorSpecD2Ev.exit, label %101
 
 _ZN12CollatorSpecD2Ev.exit:                       ; preds = %101
   call void @llvm.lifetime.end.p0(i64 1648, ptr nonnull %6) #14
@@ -801,7 +801,7 @@ _ZN12CollatorSpecD2Ev.exit:                       ; preds = %101
   %.ptr1.i59 = getelementptr inbounds i8, ptr %6, i64 %.add.i58
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %.ptr1.i59) #14
   %112 = icmp eq i64 %.add.i58, 560
-  br i1 %112, label %113, label %111, !llvm.loop !33
+  br i1 %112, label %113, label %111
 
 113:                                              ; preds = %111
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %13) #14
@@ -812,7 +812,7 @@ _ZN12CollatorSpecD2Ev.exit:                       ; preds = %101
   %116 = getelementptr inbounds i8, ptr %115, i64 -64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %116) #14
   %117 = icmp eq ptr %116, %6
-  br i1 %117, label %_ZN12CollatorSpecD2Ev.exit60, label %114, !llvm.loop !34
+  br i1 %117, label %_ZN12CollatorSpecD2Ev.exit60, label %114
 
 _ZN12CollatorSpecD2Ev.exit60:                     ; preds = %114
   call void @llvm.lifetime.end.p0(i64 1648, ptr nonnull %6) #14
@@ -836,7 +836,7 @@ define internal fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11
 .critedge2.loopexit:                              ; preds = %_ZL19ucol_sit_readOptionPKcP12CollatorSpecP10UErrorCode.exit
   %10 = load i32, ptr %3, align 4, !tbaa !13
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.critedge, label %12, !llvm.loop !35
+  br i1 %11, label %.critedge, label %12, !llvm.loop !27
 
 12:                                               ; preds = %.lr.ph, %.critedge2.loopexit
   %13 = phi i8 [ %.pre, %.lr.ph ], [ %39, %.critedge2.loopexit ]
@@ -847,20 +847,20 @@ define internal fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11
 14:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 17
-  br i1 %exitcond.not.i, label %38, label %.preheader, !llvm.loop !37
+  br i1 %exitcond.not.i, label %38, label %.preheader, !llvm.loop !29
 
 .preheader:                                       ; preds = %12, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %12 ]
   %15 = getelementptr inbounds nuw [17 x %struct.ShortStringOptions], ptr @_ZL7options, i64 0, i64 %indvars.iv.i
-  %16 = load i8, ptr %15, align 8, !tbaa !38
+  %16 = load i8, ptr %15, align 8, !tbaa !30
   %17 = icmp eq i8 %13, %16
   br i1 %17, label %18, label %14
 
 18:                                               ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !40
+  %20 = load ptr, ptr %19, align 8, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !41
+  %22 = load i32, ptr %21, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %.027, i64 1
   %24 = call noundef ptr %20(ptr noundef nonnull %0, i32 noundef %22, ptr noundef nonnull %23, ptr noundef nonnull %3)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #14
@@ -915,7 +915,7 @@ _ZL19ucol_sit_readOptionPKcP12CollatorSpecP10UErrorCode.exit: ; preds = %_ZL19uc
   %39 = load i8, ptr %.1, align 1, !tbaa !22
   %cond = icmp eq i8 %39, 95
   %40 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br i1 %cond, label %_ZL19ucol_sit_readOptionPKcP12CollatorSpecP10UErrorCode.exit, label %.critedge2.loopexit, !llvm.loop !42
+  br i1 %cond, label %_ZL19ucol_sit_readOptionPKcP12CollatorSpecP10UErrorCode.exit, label %.critedge2.loopexit, !llvm.loop !34
 
 .critedge:                                        ; preds = %.critedge2.loopexit, %4
   %.0.lcssa35 = phi ptr [ %1, %4 ], [ %.1, %.critedge2.loopexit ]
@@ -1114,7 +1114,7 @@ define ptr @ucol_openFromShortString_77(ptr noundef %0, i8 noundef signext %1, p
   store i8 0, ptr %15, align 1, !tbaa !22
   %.add.i = add nuw nsw i64 %.idx.i, 64
   %16 = icmp eq i64 %.add.i, 384
-  br i1 %16, label %17, label %12, !llvm.loop !23
+  br i1 %16, label %17, label %12
 
 17:                                               ; preds = %13
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11)
@@ -1127,7 +1127,7 @@ define ptr @ucol_openFromShortString_77(ptr noundef %0, i8 noundef signext %1, p
   store i8 0, ptr %20, align 1, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 480
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 552
-  store i8 0, ptr %22, align 8, !tbaa !25
+  store i8 0, ptr %22, align 8, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %21, i8 0, i64 68, i1 false)
   br label %23
 
@@ -1144,7 +1144,7 @@ define ptr @ucol_openFromShortString_77(ptr noundef %0, i8 noundef signext %1, p
   store i8 0, ptr %26, align 1, !tbaa !22
   %.add15.i = add nuw nsw i64 %.idx14.i, 64
   %27 = icmp samesign eq i64 %.add15.i, 1648
-  br i1 %27, label %_ZN12CollatorSpecC2Ev.exit, label %23, !llvm.loop !27
+  br i1 %27, label %_ZN12CollatorSpecC2Ev.exit, label %23
 
 28:                                               ; preds = %12
   %29 = landingpad { ptr, i32 }
@@ -1157,7 +1157,7 @@ define ptr @ucol_openFromShortString_77(ptr noundef %0, i8 noundef signext %1, p
   %32 = getelementptr inbounds i8, ptr %31, i64 -64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %32) #14
   %33 = icmp eq ptr %32, %6
-  br i1 %33, label %common.resume, label %.preheader29.i, !llvm.loop !28
+  br i1 %33, label %common.resume, label %.preheader29.i
 
 34:                                               ; preds = %17
   %35 = landingpad { ptr, i32 }
@@ -1176,7 +1176,7 @@ define ptr @ucol_openFromShortString_77(ptr noundef %0, i8 noundef signext %1, p
   %.ptr22.i = getelementptr inbounds i8, ptr %6, i64 %.add20.i
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %.ptr22.i) #14
   %39 = icmp eq i64 %.add20.i, 560
-  br i1 %39, label %.loopexit28.i, label %.preheader27.i, !llvm.loop !29
+  br i1 %39, label %.loopexit28.i, label %.preheader27.i
 
 .loopexit28.i:                                    ; preds = %.preheader27.i, %36
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #14
@@ -1191,7 +1191,7 @@ define ptr @ucol_openFromShortString_77(ptr noundef %0, i8 noundef signext %1, p
   %43 = getelementptr inbounds i8, ptr %42, i64 -64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %43) #14
   %44 = icmp eq ptr %43, %6
-  br i1 %44, label %common.resume, label %41, !llvm.loop !30
+  br i1 %44, label %common.resume, label %41
 
 common.resume:                                    ; preds = %.preheader29.i, %41, %28, %_ZN12CollatorSpecD2Ev.exit66
   %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn, %_ZN12CollatorSpecD2Ev.exit66 ], [ %29, %28 ], [ %.pn.i, %41 ], [ %29, %.preheader29.i ]
@@ -1199,7 +1199,7 @@ common.resume:                                    ; preds = %.preheader29.i, %41
 
 _ZN12CollatorSpecC2Ev.exit:                       ; preds = %24
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 448
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 -1, i64 32, i1 false), !tbaa !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 -1, i64 32, i1 false), !tbaa !25
   %46 = invoke fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11UParseErrorP10UErrorCode(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %3)
           to label %47 unwind label %65
 
@@ -1227,7 +1227,7 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %24
 55:                                               ; preds = %.preheader, %79
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %79 ]
   %56 = getelementptr inbounds nuw [8 x i32], ptr %45, i64 0, i64 %indvars.iv
-  %57 = load i32, ptr %56, align 4, !tbaa !31
+  %57 = load i32, ptr %56, align 4, !tbaa !25
   %.not52 = icmp eq i32 %57, -1
   br i1 %.not52, label %79, label %58
 
@@ -1240,7 +1240,7 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %24
           to label %62 unwind label %.loopexit
 
 62:                                               ; preds = %60
-  %63 = load i32, ptr %56, align 4, !tbaa !31
+  %63 = load i32, ptr %56, align 4, !tbaa !25
   %.not54 = icmp eq i32 %61, %63
   br i1 %.not54, label %71, label %._crit_edge
 
@@ -1294,10 +1294,10 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %24
 79:                                               ; preds = %55, %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %80, label %55, !llvm.loop !43
+  br i1 %exitcond.not, label %80, label %55, !llvm.loop !35
 
 80:                                               ; preds = %79
-  %81 = load i8, ptr %22, align 8, !tbaa !25
+  %81 = load i8, ptr %22, align 8, !tbaa !23
   %.not49 = icmp eq i8 %81, 0
   br i1 %.not49, label %91, label %82
 
@@ -1309,12 +1309,12 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %24
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 548
-  %87 = load i32, ptr %86, align 4, !tbaa !44
+  %87 = load i32, ptr %86, align 4, !tbaa !36
   %88 = invoke i32 @ucol_setVariableTop_77(ptr noundef %54, ptr noundef nonnull %83, i32 noundef %87, ptr noundef nonnull %3)
           to label %91 unwind label %.loopexit.split-lp
 
 89:                                               ; preds = %82
-  %90 = load i32, ptr %21, align 8, !tbaa !45
+  %90 = load i32, ptr %21, align 8, !tbaa !37
   invoke void @ucol_restoreVariableTop_77(ptr noundef %54, i32 noundef %90, ptr noundef nonnull %3)
           to label %91 unwind label %.loopexit.split-lp
 
@@ -1335,7 +1335,7 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %24
   %.ptr1.i = getelementptr inbounds i8, ptr %6, i64 %.add.i62
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %.ptr1.i) #14
   %96 = icmp eq i64 %.add.i62, 560
-  br i1 %96, label %97, label %95, !llvm.loop !33
+  br i1 %96, label %97, label %95
 
 97:                                               ; preds = %95
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #14
@@ -1346,7 +1346,7 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %24
   %100 = getelementptr inbounds i8, ptr %99, i64 -64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %100) #14
   %101 = icmp eq ptr %100, %6
-  br i1 %101, label %_ZN12CollatorSpecD2Ev.exit, label %98, !llvm.loop !34
+  br i1 %101, label %_ZN12CollatorSpecD2Ev.exit, label %98
 
 _ZN12CollatorSpecD2Ev.exit:                       ; preds = %98
   call void @llvm.lifetime.end.p0(i64 1648, ptr nonnull %6) #14
@@ -1373,7 +1373,7 @@ _ZN12CollatorSpecD2Ev.exit:                       ; preds = %98
   %.ptr1.i65 = getelementptr inbounds i8, ptr %6, i64 %.add.i64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %.ptr1.i65) #14
   %106 = icmp eq i64 %.add.i64, 560
-  br i1 %106, label %107, label %105, !llvm.loop !33
+  br i1 %106, label %107, label %105
 
 107:                                              ; preds = %105
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #14
@@ -1384,7 +1384,7 @@ _ZN12CollatorSpecD2Ev.exit:                       ; preds = %98
   %110 = getelementptr inbounds i8, ptr %109, i64 -64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %110) #14
   %111 = icmp eq ptr %110, %6
-  br i1 %111, label %_ZN12CollatorSpecD2Ev.exit66, label %108, !llvm.loop !34
+  br i1 %111, label %_ZN12CollatorSpecD2Ev.exit66, label %108
 
 _ZN12CollatorSpecD2Ev.exit66:                     ; preds = %108
   call void @llvm.lifetime.end.p0(i64 1648, ptr nonnull %6) #14
@@ -1423,7 +1423,7 @@ define noundef i32 @ucol_getShortDefinitionString_77(ptr noundef %0, ptr noundef
   br label %16
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr %0, align 8, !tbaa !46
+  %12 = load ptr, ptr %0, align 8, !tbaa !38
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -1472,7 +1472,7 @@ define i32 @ucol_normalizeShortDefinitionString_77(ptr noundef %0, ptr noundef %
   store i8 0, ptr %18, align 1, !tbaa !22
   %.add.i = add nuw nsw i64 %.idx.i, 64
   %19 = icmp eq i64 %.add.i, 384
-  br i1 %19, label %20, label %15, !llvm.loop !23
+  br i1 %19, label %20, label %15
 
 20:                                               ; preds = %16
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %14)
@@ -1485,7 +1485,7 @@ define i32 @ucol_normalizeShortDefinitionString_77(ptr noundef %0, ptr noundef %
   store i8 0, ptr %23, align 1, !tbaa !22
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 480
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 552
-  store i8 0, ptr %25, align 8, !tbaa !25
+  store i8 0, ptr %25, align 8, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %24, i8 0, i64 68, i1 false)
   br label %26
 
@@ -1502,7 +1502,7 @@ define i32 @ucol_normalizeShortDefinitionString_77(ptr noundef %0, ptr noundef %
   store i8 0, ptr %29, align 1, !tbaa !22
   %.add15.i = add nuw nsw i64 %.idx14.i, 64
   %30 = icmp samesign eq i64 %.add15.i, 1648
-  br i1 %30, label %_ZN12CollatorSpecC2Ev.exit, label %26, !llvm.loop !27
+  br i1 %30, label %_ZN12CollatorSpecC2Ev.exit, label %26
 
 31:                                               ; preds = %15
   %32 = landingpad { ptr, i32 }
@@ -1515,7 +1515,7 @@ define i32 @ucol_normalizeShortDefinitionString_77(ptr noundef %0, ptr noundef %
   %35 = getelementptr inbounds i8, ptr %34, i64 -64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %35) #14
   %36 = icmp eq ptr %35, %7
-  br i1 %36, label %common.resume, label %.preheader29.i, !llvm.loop !28
+  br i1 %36, label %common.resume, label %.preheader29.i
 
 37:                                               ; preds = %20
   %38 = landingpad { ptr, i32 }
@@ -1534,7 +1534,7 @@ define i32 @ucol_normalizeShortDefinitionString_77(ptr noundef %0, ptr noundef %
   %.ptr22.i = getelementptr inbounds i8, ptr %7, i64 %.add20.i
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %.ptr22.i) #14
   %42 = icmp eq i64 %.add20.i, 560
-  br i1 %42, label %.loopexit28.i, label %.preheader27.i, !llvm.loop !29
+  br i1 %42, label %.loopexit28.i, label %.preheader27.i
 
 .loopexit28.i:                                    ; preds = %.preheader27.i, %39
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %14) #14
@@ -1549,7 +1549,7 @@ define i32 @ucol_normalizeShortDefinitionString_77(ptr noundef %0, ptr noundef %
   %46 = getelementptr inbounds i8, ptr %45, i64 -64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %46) #14
   %47 = icmp eq ptr %46, %7
-  br i1 %47, label %common.resume, label %44, !llvm.loop !30
+  br i1 %47, label %common.resume, label %44
 
 common.resume:                                    ; preds = %.preheader29.i, %44, %31, %_ZN12CollatorSpecD2Ev.exit23
   %common.resume.op = phi { ptr, i32 } [ %lpad.phi, %_ZN12CollatorSpecD2Ev.exit23 ], [ %32, %31 ], [ %.pn.i, %44 ], [ %32, %.preheader29.i ]
@@ -1557,7 +1557,7 @@ common.resume:                                    ; preds = %.preheader29.i, %44
 
 _ZN12CollatorSpecC2Ev.exit:                       ; preds = %27
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 448
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 -1, i64 32, i1 false), !tbaa !31
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 -1, i64 32, i1 false), !tbaa !25
   %49 = invoke fastcc noundef ptr @_ZL18ucol_sit_readSpecsP12CollatorSpecPKcP11UParseErrorP10UErrorCode(ptr noundef %7, ptr noundef %0, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %4)
           to label %50 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1642,7 +1642,7 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next.i, %82
-  br i1 %83, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !48
+  br i1 %83, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %80, %68
   %.lcssa.i = phi i32 [ %58, %68 ], [ %81, %80 ]
@@ -1664,7 +1664,7 @@ _ZN12CollatorSpecC2Ev.exit:                       ; preds = %27
   %.2.i = phi i32 [ %.04957.i, %55 ], [ %84, %._crit_edge.i ], [ %90, %.noexc17 ]
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next61.i, 17
-  br i1 %exitcond.not.i, label %_ZL18ucol_sit_dumpSpecsP12CollatorSpecPciP10UErrorCode.exit, label %55, !llvm.loop !49
+  br i1 %exitcond.not.i, label %_ZL18ucol_sit_dumpSpecsP12CollatorSpecPciP10UErrorCode.exit, label %55, !llvm.loop !41
 
 _ZL18ucol_sit_dumpSpecsP12CollatorSpecPciP10UErrorCode.exit: ; preds = %91, %50
   %.0.i = phi i32 [ 0, %50 ], [ %.2.i, %91 ]
@@ -1676,7 +1676,7 @@ _ZL18ucol_sit_dumpSpecsP12CollatorSpecPciP10UErrorCode.exit: ; preds = %91, %50
   %.ptr1.i = getelementptr inbounds i8, ptr %7, i64 %.add.i19
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %.ptr1.i) #14
   %93 = icmp eq i64 %.add.i19, 560
-  br i1 %93, label %94, label %92, !llvm.loop !33
+  br i1 %93, label %94, label %92
 
 94:                                               ; preds = %92
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %14) #14
@@ -1687,7 +1687,7 @@ _ZL18ucol_sit_dumpSpecsP12CollatorSpecPciP10UErrorCode.exit: ; preds = %91, %50
   %97 = getelementptr inbounds i8, ptr %96, i64 -64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %97) #14
   %98 = icmp eq ptr %97, %7
-  br i1 %98, label %_ZN12CollatorSpecD2Ev.exit, label %95, !llvm.loop !34
+  br i1 %98, label %_ZN12CollatorSpecD2Ev.exit, label %95
 
 _ZN12CollatorSpecD2Ev.exit:                       ; preds = %95
   call void @llvm.lifetime.end.p0(i64 1648, ptr nonnull %7) #14
@@ -1719,7 +1719,7 @@ _ZN12CollatorSpecD2Ev.exit:                       ; preds = %95
   %.ptr1.i22 = getelementptr inbounds i8, ptr %7, i64 %.add.i21
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %.ptr1.i22) #14
   %100 = icmp eq i64 %.add.i21, 560
-  br i1 %100, label %101, label %99, !llvm.loop !33
+  br i1 %100, label %101, label %99
 
 101:                                              ; preds = %99
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %14) #14
@@ -1730,7 +1730,7 @@ _ZN12CollatorSpecD2Ev.exit:                       ; preds = %95
   %104 = getelementptr inbounds i8, ptr %103, i64 -64
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %104) #14
   %105 = icmp eq ptr %104, %7
-  br i1 %105, label %_ZN12CollatorSpecD2Ev.exit23, label %102, !llvm.loop !34
+  br i1 %105, label %_ZN12CollatorSpecD2Ev.exit23, label %102
 
 _ZN12CollatorSpecD2Ev.exit23:                     ; preds = %102
   call void @llvm.lifetime.end.p0(i64 1648, ptr nonnull %7) #14
@@ -1760,7 +1760,7 @@ define i32 @ucol_getContractions_77(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %ucol_getContractionsAndExpansions_77.exit
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %0, align 8, !tbaa !46
+  %10 = load ptr, ptr %0, align 8, !tbaa !38
   %11 = icmp eq ptr %10, getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTVN6icu_7717RuleBasedCollatorE, i64 16)
   br i1 %11, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit.i, label %12
 
@@ -1792,7 +1792,7 @@ define void @ucol_getContractionsAndExpansions_77(ptr noundef %0, ptr noundef %1
   br label %15
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr %0, align 8, !tbaa !46
+  %12 = load ptr, ptr %0, align 8, !tbaa !38
   %13 = icmp eq ptr %12, getelementptr inbounds nuw inrange(-16, 328) (i8, ptr @_ZTVN6icu_7717RuleBasedCollatorE, i64 16)
   br i1 %13, label %_ZN6icu_7717RuleBasedCollator16rbcFromUCollatorEPK9UCollator.exit, label %14
 
@@ -1822,18 +1822,18 @@ define internal noundef nonnull ptr @_ZL22_processCollatorOptionP12CollatorSpecj
 6:                                                ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %14, label %7, !llvm.loop !50
+  br i1 %exitcond.not.i, label %14, label %7, !llvm.loop !42
 
 7:                                                ; preds = %6, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %6 ]
   %8 = getelementptr inbounds nuw [12 x %struct.AttributeConversion], ptr @_ZL11conversions, i64 0, i64 %indvars.iv.i
-  %9 = load i8, ptr %8, align 8, !tbaa !51
+  %9 = load i8, ptr %8, align 8, !tbaa !43
   %10 = icmp eq i8 %9, %5
   br i1 %10, label %11, label %6
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw [12 x %struct.AttributeConversion], ptr @_ZL11conversions, i64 0, i64 %indvars.iv.i, i32 1
-  %13 = load i32, ptr %12, align 4, !tbaa !53
+  %13 = load i32, ptr %12, align 4, !tbaa !45
   br label %_ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit
 
 14:                                               ; preds = %6
@@ -1845,7 +1845,7 @@ _ZL31ucol_sit_letterToAttributeValuecP10UErrorCode.exit: ; preds = %11, %14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %16 = zext i32 %1 to i64
   %17 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %16
-  store i32 %.06.i, ptr %17, align 4, !tbaa !31
+  store i32 %.06.i, ptr %17, align 4, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !22
   switch i8 %19, label %23 [
@@ -1878,7 +1878,7 @@ define internal noundef ptr @_ZL19_processVariableTopP12CollatorSpecjPKcP10UErro
 
 .critedge.thread68:                               ; preds = %.preheader
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  store i32 0, ptr %6, align 4, !tbaa !44
+  store i32 0, ptr %6, align 4, !tbaa !36
   br label %.thread
 
 .lr.ph:                                           ; preds = %.preheader
@@ -1925,7 +1925,7 @@ define internal noundef ptr @_ZL19_processVariableTopP12CollatorSpecjPKcP10UErro
   %24 = icmp ne i8 %23, 0
   %25 = icmp samesign ult i32 %.034.i, 3
   %26 = select i1 %24, i1 %25, i1 false
-  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !54
+  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !46
 
 ._crit_edge.i:                                    ; preds = %17
   br i1 %25, label %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit.thread, label %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit
@@ -1944,12 +1944,12 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit:       ; preds = %._crit_edge.i
   %28 = getelementptr inbounds nuw [32 x i16], ptr %7, i64 0, i64 %indvars.iv
   store i16 %20, ptr %28, align 2, !tbaa !18
   %29 = icmp samesign ult i64 %indvars.iv, 31
-  br i1 %29, label %8, label %.critedge, !llvm.loop !55
+  br i1 %29, label %8, label %.critedge, !llvm.loop !47
 
 .thread73:                                        ; preds = %8, %8
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  store i32 %30, ptr %31, align 4, !tbaa !44
+  store i32 %30, ptr %31, align 4, !tbaa !36
   br label %63
 
 .critedge:                                        ; preds = %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit.thread
@@ -1958,7 +1958,7 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit:       ; preds = %._crit_edge.i
   %32 = phi i32 [ 1, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit.thread ], [ %.promoted, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit ]
   %33 = trunc nuw nsw i64 %indvars.iv.next67 to i32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  store i32 %33, ptr %34, align 4, !tbaa !44
+  store i32 %33, ptr %34, align 4, !tbaa !36
   %35 = icmp eq i64 %indvars.iv.next67, 32
   br i1 %35, label %36, label %60
 
@@ -2009,7 +2009,7 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit:       ; preds = %._crit_edge.i
   %55 = icmp ne i8 %54, 0
   %56 = icmp samesign ult i32 %.034.i24, 3
   %57 = select i1 %55, i1 %56, i1 false
-  br i1 %57, label %.lr.ph.i23, label %._crit_edge.i33, !llvm.loop !54
+  br i1 %57, label %.lr.ph.i23, label %._crit_edge.i33, !llvm.loop !46
 
 ._crit_edge.i33:                                  ; preds = %48
   br i1 %56, label %.sink.split.i29, label %._crit_edge.i33._ZL15readHexCodeUnitPPKcP10UErrorCode.exit34_crit_edge
@@ -2030,7 +2030,7 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit34:     ; preds = %._crit_edge.i33._ZL
   %.027.i31 = phi i16 [ %.027.ph.i30, %.sink.split.i29 ], [ %51, %._crit_edge.i33._ZL15readHexCodeUnitPPKcP10UErrorCode.exit34_crit_edge ]
   %58 = zext i16 %.027.i31 to i32
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store i32 %58, ptr %59, align 8, !tbaa !45
+  store i32 %58, ptr %59, align 8, !tbaa !37
   br label %60
 
 60:                                               ; preds = %36, %36, %.critedge, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit34
@@ -2042,7 +2042,7 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit34:     ; preds = %._crit_edge.i33._ZL
 63:                                               ; preds = %.thread73, %60
   %.175 = phi ptr [ %.03747, %.thread73 ], [ %.1, %60 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i8 1, ptr %64, align 8, !tbaa !25
+  store i8 1, ptr %64, align 8, !tbaa !23
   br label %.thread
 
 .thread:                                          ; preds = %.critedge.thread68, %38, %63, %60
@@ -2083,7 +2083,7 @@ define internal noundef nonnull ptr @_ZL21_processLocaleElementP12CollatorSpecjP
 13:                                               ; preds = %7
   %14 = load i32, ptr %3, align 4, !tbaa !13
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.critedge, label %7, !llvm.loop !56
+  br i1 %15, label %.critedge, label %7, !llvm.loop !48
 
 .split:                                           ; preds = %.split.preheader, %20
   %16 = phi i8 [ %19, %20 ], [ %.pre22, %.split.preheader ]
@@ -2099,7 +2099,7 @@ define internal noundef nonnull ptr @_ZL21_processLocaleElementP12CollatorSpecjP
 20:                                               ; preds = %.split
   %21 = load i32, ptr %3, align 4, !tbaa !13
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.critedge, label %.split, !llvm.loop !58
+  br i1 %22, label %.critedge, label %.split, !llvm.loop !50
 
 .critedge:                                        ; preds = %7, %7, %13, %20, %.split, %.split
   %.us-phi = phi ptr [ %18, %.split ], [ %18, %.split ], [ %18, %20 ], [ %11, %13 ], [ %11, %7 ], [ %11, %7 ]
@@ -2237,39 +2237,31 @@ attributes #17 = { nounwind willreturn memory(read) }
 !20 = !{!21, !9, i64 56}
 !21 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
 !22 = !{!7, !7, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!26, !7, i64 552}
-!26 = !{!"_ZTS12CollatorSpec", !7, i64 0, !21, i64 384, !7, i64 448, !9, i64 480, !7, i64 484, !9, i64 548, !7, i64 552, !7, i64 560}
-!27 = distinct !{!27, !24}
-!28 = distinct !{!28, !24}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"_ZTS18UColAttributeValue", !7, i64 0}
-!33 = distinct !{!33, !24}
-!34 = distinct !{!34, !24}
-!35 = distinct !{!35, !36, !24}
-!36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36, !24}
-!38 = !{!39, !7, i64 0}
-!39 = !{!"_ZTS18ShortStringOptions", !7, i64 0, !6, i64 8, !9, i64 16}
-!40 = !{!39, !6, i64 8}
-!41 = !{!39, !9, i64 16}
-!42 = distinct !{!42, !36, !24}
-!43 = distinct !{!43, !36, !24}
-!44 = !{!26, !9, i64 548}
-!45 = !{!26, !9, i64 480}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"vtable pointer", !8, i64 0}
-!48 = distinct !{!48, !36, !24}
-!49 = distinct !{!49, !36, !24}
-!50 = distinct !{!50, !36, !24}
-!51 = !{!52, !7, i64 0}
-!52 = !{!"_ZTS19AttributeConversion", !7, i64 0, !32, i64 4}
-!53 = !{!52, !32, i64 4}
-!54 = distinct !{!54, !36, !24}
-!55 = distinct !{!55, !36, !24}
-!56 = distinct !{!56, !36, !24, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!58 = distinct !{!58, !36, !24}
+!23 = !{!24, !7, i64 552}
+!24 = !{!"_ZTS12CollatorSpec", !7, i64 0, !21, i64 384, !7, i64 448, !9, i64 480, !7, i64 484, !9, i64 548, !7, i64 552, !7, i64 560}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"_ZTS18UColAttributeValue", !7, i64 0}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = distinct !{!29, !28}
+!30 = !{!31, !7, i64 0}
+!31 = !{!"_ZTS18ShortStringOptions", !7, i64 0, !6, i64 8, !9, i64 16}
+!32 = !{!31, !6, i64 8}
+!33 = !{!31, !9, i64 16}
+!34 = distinct !{!34, !28}
+!35 = distinct !{!35, !28}
+!36 = !{!24, !9, i64 548}
+!37 = !{!24, !9, i64 480}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"vtable pointer", !8, i64 0}
+!40 = distinct !{!40, !28}
+!41 = distinct !{!41, !28}
+!42 = distinct !{!42, !28}
+!43 = !{!44, !7, i64 0}
+!44 = !{!"_ZTS19AttributeConversion", !7, i64 0, !26, i64 4}
+!45 = !{!44, !26, i64 4}
+!46 = distinct !{!46, !28}
+!47 = distinct !{!47, !28}
+!48 = distinct !{!48, !28, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !28}

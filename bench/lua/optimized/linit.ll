@@ -55,7 +55,7 @@ define dso_local void @luaL_openselectedlibs(ptr noundef %0, i32 noundef %1, i32
   %18 = shl i32 %.01620, 1
   %19 = load ptr, ptr %17, align 8, !tbaa !10
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %20, label %5, !llvm.loop !11
+  br i1 %.not, label %20, label %5
 
 20:                                               ; preds = %16
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #2
@@ -109,5 +109,3 @@ attributes #2 = { nounwind }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!5, !6, i64 0}
-!11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.estimated_trip_count"}

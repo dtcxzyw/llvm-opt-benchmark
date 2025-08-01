@@ -1216,7 +1216,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEC2IS5_EEP
 _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEEEEcEvT_SC_RKT0_SF_.exit: ; preds = %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEC2IS5_EEPKcRKS5_.exit.split
   %.021.add = add nuw nsw i64 %.021.idx62, 1
   %.not = icmp eq i64 %.021.add, 8
-  br i1 %.not, label %.split.us, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEC2IS5_EEPKcRKS5_.exit.splitthread-pre-split, !llvm.loop !50
+  br i1 %.not, label %.split.us, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEC2IS5_EEPKcRKS5_.exit.splitthread-pre-split, !llvm.loop !49
 
 54:                                               ; preds = %.split.us
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #17
@@ -1277,7 +1277,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i30:     ; preds = %_ZNSt7__cxx1112basi
   %76 = sub i64 %74, %75
   %.not22 = icmp eq i64 %76, -1
   %or.cond80 = or i1 %.not.i31, %.not22
-  br i1 %or.cond80, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %or.cond80, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 .loopexit:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE7replaceEmmPKcm.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2066,9 +2066,8 @@ attributes #19 = { noreturn nounwind }
 !44 = !{!45, !5, i64 0}
 !45 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEEE", !43, i64 0, !20, i64 8, !7, i64 16}
 !46 = !{!45, !20, i64 8}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = distinct !{!50, !49, !51}
-!51 = !{!"llvm.loop.unswitch.partial.disable"}
-!52 = distinct !{!52, !48, !49}
+!49 = distinct !{!49, !50}
+!50 = !{!"llvm.loop.unswitch.partial.disable"}
+!51 = distinct !{!51, !48}

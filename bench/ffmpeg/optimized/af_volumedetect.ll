@@ -61,7 +61,7 @@ define internal void @uninit(ptr noundef %0) #0 {
   %.1.i.i = select i1 %.not11.i.i, i32 %spec.select12.i.i, i32 %15
   %16 = zext nneg i32 %.110.i.i to i64
   %17 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !25
+  %18 = load i8, ptr %17, align 1, !tbaa !24
   %19 = zext i8 %18 to i32
   %20 = add nuw nsw i32 %.1.i.i, %19
   %21 = zext nneg i32 %20 to i64
@@ -81,7 +81,7 @@ define internal void @uninit(ptr noundef %0) #0 {
   %30 = add i64 %29, %.06080.i
   %indvars.iv.next92.i = add nuw nsw i64 %indvars.iv91.i, 1
   %exitcond94.not.i = icmp eq i64 %indvars.iv.next92.i, 65536
-  br i1 %exitcond94.not.i, label %31, label %22, !llvm.loop !26
+  br i1 %exitcond94.not.i, label %31, label %22, !llvm.loop !25
 
 31:                                               ; preds = %22
   %.not65.i = icmp eq i64 %26, 0
@@ -134,7 +134,7 @@ logdb.exit.i:                                     ; preds = %39, %38
 53:                                               ; preds = %49
   %indvars.iv.next96.i = add nsw i64 %indvars.iv95.i, -1
   %54 = icmp samesign ugt i64 %indvars.iv95.i, 1
-  br i1 %54, label %45, label %logdb.exit73.i, !llvm.loop !27
+  br i1 %54, label %45, label %logdb.exit73.i, !llvm.loop !26
 
 .critedge.i:                                      ; preds = %45, %49
   %55 = trunc nuw nsw i64 %indvars.iv95.i to i32
@@ -178,7 +178,7 @@ logdb.exit76.i:                                   ; preds = %67, %62
   store i64 %78, ptr %76, align 8, !tbaa !20
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %exitcond101.not.i = icmp eq i64 %indvars.iv.next99.i, 65536
-  br i1 %exitcond101.not.i, label %.preheader.i, label %62, !llvm.loop !28
+  br i1 %exitcond101.not.i, label %.preheader.i, label %62, !llvm.loop !27
 
 .preheader.i:                                     ; preds = %logdb.exit76.i, %81
   %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %81 ], [ 0, %logdb.exit76.i ]
@@ -190,7 +190,7 @@ logdb.exit76.i:                                   ; preds = %67, %62
 81:                                               ; preds = %.preheader.i
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next103.i, 92
-  br i1 %exitcond105.not.i, label %print_stats.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond105.not.i, label %print_stats.exit, label %.preheader.i, !llvm.loop !28
 
 .critedge2.i:                                     ; preds = %.preheader.i
   %82 = udiv i64 %8, 1000
@@ -211,7 +211,7 @@ logdb.exit76.i:                                   ; preds = %67, %62
   %89 = icmp samesign ult i64 %indvars.iv106.i, 91
   %90 = icmp ult i64 %88, %82
   %or.cond.i = select i1 %89, i1 %90, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i, label %print_stats.exit, !llvm.loop !30
+  br i1 %or.cond.i, label %.lr.ph.i, label %print_stats.exit, !llvm.loop !29
 
 print_stats.exit:                                 ; preds = %81, %.lr.ph.i, %9, %31, %.critedge2.i
   call void @llvm.lifetime.end.p0(i64 736, ptr nonnull %2) #7
@@ -221,15 +221,15 @@ print_stats.exit:                                 ; preds = %81, %.lr.ph.i, %9, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %8 = load i32, ptr %7, align 8, !tbaa !40
+  %8 = load i32, ptr %7, align 8, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 388
-  %10 = load i32, ptr %9, align 4, !tbaa !45
+  %10 = load i32, ptr %9, align 4, !tbaa !44
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %12 = load i32, ptr %11, align 4, !tbaa !46
+  %12 = load i32, ptr %11, align 4, !tbaa !45
   %13 = tail call i32 @av_sample_fmt_is_planar(i32 noundef %12) #7
   %.not = icmp eq i32 %13, 0
   %spec.select = select i1 %.not, i32 1, i32 %10
@@ -240,7 +240,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph27:                                         ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %17 = load ptr, ptr %16, align 8, !tbaa !47
+  %17 = load ptr, ptr %16, align 8, !tbaa !46
   %18 = icmp sgt i32 %spec.select23, 0
   br i1 %18, label %.lr.ph.us.preheader, label %._crit_edge28
 
@@ -252,13 +252,13 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv31 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next32, %._crit_edge.us ]
   %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv31
-  %20 = load ptr, ptr %19, align 8, !tbaa !48
+  %20 = load ptr, ptr %19, align 8, !tbaa !47
   br label %21
 
 21:                                               ; preds = %.lr.ph.us, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %21 ]
   %22 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv
-  %23 = load i16, ptr %22, align 2, !tbaa !49
+  %23 = load i16, ptr %22, align 2, !tbaa !48
   %24 = sext i16 %23 to i64
   %25 = add nsw i64 %24, 32768
   %26 = getelementptr inbounds nuw [65537 x i64], ptr %6, i64 0, i64 %25
@@ -267,18 +267,18 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store i64 %28, ptr %26, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !50
 
 ._crit_edge.us:                                   ; preds = %21
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !52
+  br i1 %exitcond35.not, label %._crit_edge28, label %.lr.ph.us, !llvm.loop !51
 
 ._crit_edge28:                                    ; preds = %._crit_edge.us, %.lr.ph27, %2
-  %29 = load ptr, ptr %3, align 8, !tbaa !31
+  %29 = load ptr, ptr %3, align 8, !tbaa !30
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %31 = load ptr, ptr %30, align 8, !tbaa !54
-  %32 = load ptr, ptr %31, align 8, !tbaa !55
+  %31 = load ptr, ptr %30, align 8, !tbaa !53
+  %32 = load ptr, ptr %31, align 8, !tbaa !54
   %33 = tail call i32 @ff_filter_frame(ptr noundef %32, ptr noundef %1) #7
   ret i32 %33
 }
@@ -338,38 +338,37 @@ attributes #8 = { noreturn nounwind }
 !19 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"long", !8, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!8, !8, i64 0}
-!26 = distinct !{!26, !23, !24}
-!27 = distinct !{!27, !23, !24}
-!28 = distinct !{!28, !23, !24}
-!29 = distinct !{!29, !23, !24}
-!30 = distinct !{!30, !23, !24}
-!31 = !{!32, !33, i64 16}
-!32 = !{!"AVFilterLink", !33, i64 0, !12, i64 8, !33, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !34, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !35, i64 72, !34, i64 96, !36, i64 104, !15, i64 112, !37, i64 120, !37, i64 160}
-!33 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
-!34 = !{!"AVRational", !15, i64 0, !15, i64 4}
-!35 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
-!36 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
-!37 = !{!"AVFilterFormatsConfig", !38, i64 0, !38, i64 8, !39, i64 16, !38, i64 24, !38, i64 32}
-!38 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
-!39 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
-!40 = !{!41, !15, i64 112}
-!41 = !{!"AVFrame", !8, i64 0, !8, i64 64, !42, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !34, i64 124, !21, i64 136, !21, i64 144, !34, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !43, i64 248, !15, i64 256, !36, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !21, i64 304, !44, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !21, i64 344, !21, i64 352, !21, i64 360, !21, i64 368, !7, i64 376, !35, i64 384, !21, i64 408}
-!42 = !{!"p2 omnipotent char", !14, i64 0}
-!43 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
-!44 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!45 = !{!41, !15, i64 388}
-!46 = !{!41, !15, i64 116}
-!47 = !{!41, !42, i64 96}
-!48 = !{!11, !11, i64 0}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"short", !8, i64 0}
-!51 = distinct !{!51, !23, !24}
-!52 = distinct !{!52, !23, !24, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = !{!5, !13, i64 56}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
+!24 = !{!8, !8, i64 0}
+!25 = distinct !{!25, !23}
+!26 = distinct !{!26, !23}
+!27 = distinct !{!27, !23}
+!28 = distinct !{!28, !23}
+!29 = distinct !{!29, !23}
+!30 = !{!31, !32, i64 16}
+!31 = !{!"AVFilterLink", !32, i64 0, !12, i64 8, !32, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !33, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !34, i64 72, !33, i64 96, !35, i64 104, !15, i64 112, !36, i64 120, !36, i64 160}
+!32 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
+!33 = !{!"AVRational", !15, i64 0, !15, i64 4}
+!34 = !{!"AVChannelLayout", !15, i64 0, !15, i64 4, !8, i64 8, !7, i64 16}
+!35 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
+!36 = !{!"AVFilterFormatsConfig", !37, i64 0, !37, i64 8, !38, i64 16, !37, i64 24, !37, i64 32}
+!37 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
+!38 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
+!39 = !{!40, !15, i64 112}
+!40 = !{!"AVFrame", !8, i64 0, !8, i64 64, !41, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !33, i64 124, !21, i64 136, !21, i64 144, !33, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !42, i64 248, !15, i64 256, !35, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !21, i64 304, !43, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !21, i64 344, !21, i64 352, !21, i64 360, !21, i64 368, !7, i64 376, !34, i64 384, !21, i64 408}
+!41 = !{!"p2 omnipotent char", !14, i64 0}
+!42 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
+!43 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!44 = !{!40, !15, i64 388}
+!45 = !{!40, !15, i64 116}
+!46 = !{!40, !41, i64 96}
+!47 = !{!11, !11, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"short", !8, i64 0}
+!50 = distinct !{!50, !23}
+!51 = distinct !{!51, !23, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = !{!5, !13, i64 56}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}

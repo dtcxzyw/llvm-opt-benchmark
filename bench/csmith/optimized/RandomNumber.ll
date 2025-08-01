@@ -104,9 +104,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %.19.i.i.i = select i1 %8, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %8, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
-  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !33
+  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !32
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !34
+  br i1 %.not.i.i.i, label %_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !33
 
 _ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -122,9 +122,9 @@ _ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_E
   %.08.lcssa.i.i.i14 = phi ptr [ %.19.i.i.i, %10 ], [ %.19.i.i.i, %_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEE11lower_boundERS6_.exit ], [ %5, %2 ]
   %14 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #15
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i32 %.pre, ptr %15, align 8, !tbaa !35
+  store i32 %.pre, ptr %15, align 8, !tbaa !34
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr null, ptr %16, align 8, !tbaa !37
+  store ptr null, ptr %16, align 8, !tbaa !36
   %17 = invoke { ptr, ptr } @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4pairIKS0_P18AbsRndNumGeneratorESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i14, ptr noundef nonnull align 4 dereferenceable(4) %15)
           to label %18 unwind label %_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4pairIKS0_P18AbsRndNumGeneratorESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE10_Auto_nodeD2Ev.exit.i
 
@@ -283,7 +283,7 @@ define dso_local void @_ZN12RandomNumber14CreateInstanceE16RNDNUM_GENERATORm(i32
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   store i32 %0, ptr %4, align 4, !tbaa !27
-  %5 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  %5 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %26
 
@@ -327,12 +327,12 @@ define dso_local void @_ZN12RandomNumber14CreateInstanceE16RNDNUM_GENERATORm(i32
   resume { ptr, i32 } %19
 
 _ZN12RandomNumberC2Em.exit:                       ; preds = %18
-  store ptr %7, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  store ptr %7, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   %20 = load i32, ptr %4, align 4, !tbaa !27
   %21 = call noundef ptr @_ZN18AbsRndNumGenerator21make_rndnum_generatorE16RNDNUM_GENERATORm(i32 noundef %20, i64 noundef %1)
-  %22 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  %22 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %21, ptr %23, align 8, !tbaa !40
+  store ptr %21, ptr %23, align 8, !tbaa !39
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 4 dereferenceable(4) %4)
   store ptr %21, ptr %25, align 8, !tbaa !29
@@ -342,9 +342,9 @@ _ZN12RandomNumberC2Em.exit:                       ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %29 = load ptr, ptr %28, align 8, !tbaa !29
-  %30 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  %30 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %29, ptr %31, align 8, !tbaa !40
+  store ptr %29, ptr %31, align 8, !tbaa !39
   br label %32
 
 32:                                               ; preds = %26, %_ZN12RandomNumberC2Em.exit
@@ -356,15 +356,15 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN12RandomNumber11GetInstanceEv() local_unnamed_addr #8 align 2 {
-  %1 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  %1 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN12RandomNumber18GetRndNumGeneratorEv() local_unnamed_addr #9 align 2 {
-  %1 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  %1 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
   ret ptr %3
 }
 
@@ -372,7 +372,7 @@ define dso_local noundef ptr @_ZN12RandomNumber18GetRndNumGeneratorEv() local_un
 define dso_local noundef i32 @_ZN12RandomNumber21SwitchRndNumGeneratorE16RNDNUM_GENERATOR(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = alloca i32, align 4
   store i32 %0, ptr %2, align 4, !tbaa !27
-  %3 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  %3 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %6 = load ptr, ptr %5, align 8, !tbaa !29
@@ -381,11 +381,11 @@ define dso_local noundef i32 @_ZN12RandomNumber21SwitchRndNumGeneratorE16RNDNUM_
 
 8:                                                ; preds = %1
   %9 = load i32, ptr %2, align 4, !tbaa !27
-  %10 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  %10 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load i64, ptr %11, align 8, !tbaa !19
   %13 = call noundef ptr @_ZN18AbsRndNumGenerator21make_rndnum_generatorE16RNDNUM_GENERATORm(i32 noundef %9, i64 noundef %12)
-  %14 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  %14 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 4 dereferenceable(4) %2)
   store ptr %13, ptr %16, align 8, !tbaa !29
@@ -393,23 +393,23 @@ define dso_local noundef i32 @_ZN12RandomNumber21SwitchRndNumGeneratorE16RNDNUM_
 
 17:                                               ; preds = %8, %1
   %.0 = phi ptr [ %13, %8 ], [ %6, %1 ]
-  %18 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  %18 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !40
+  %20 = load ptr, ptr %19, align 8, !tbaa !39
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = call noundef i32 %23(ptr noundef nonnull align 8 dereferenceable(8) %20)
-  %25 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  %25 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %.0, ptr %26, align 8, !tbaa !40
+  store ptr %.0, ptr %26, align 8, !tbaa !39
   ret i32 %24
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12RandomNumber17get_prefixed_nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -419,7 +419,7 @@ define dso_local void @_ZN12RandomNumber17get_prefixed_nameERKNSt7__cxx1112basic
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN12RandomNumber11trace_depthB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -430,7 +430,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN12RandomNum
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12RandomNumber12get_sequenceERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !40
+  %4 = load ptr, ptr %3, align 8, !tbaa !39
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -441,7 +441,7 @@ define dso_local void @_ZN12RandomNumber12get_sequenceERNSt7__cxx1112basic_strin
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN12RandomNumber8rnd_uptoEjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !40
+  %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -452,7 +452,7 @@ define dso_local noundef i32 @_ZN12RandomNumber8rnd_uptoEjPK6FilterPKNSt7__cxx11
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN12RandomNumber12rnd_flipcoinEjPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !40
+  %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -463,7 +463,7 @@ define dso_local noundef zeroext i1 @_ZN12RandomNumber12rnd_flipcoinEjPK6FilterP
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12RandomNumber15RandomHexDigitsB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -474,7 +474,7 @@ define dso_local void @_ZN12RandomNumber15RandomHexDigitsB5cxx11Ei(ptr dead_on_u
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12RandomNumber12RandomDigitsB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
@@ -488,7 +488,7 @@ define dso_local void @_ZN12RandomNumber14doFinalizationEv() local_unnamed_addr 
   br label %5
 
 2:                                                ; preds = %16
-  %3 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  %3 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   %4 = icmp eq ptr %3, null
   br i1 %4, label %21, label %17
 
@@ -497,7 +497,7 @@ define dso_local void @_ZN12RandomNumber14doFinalizationEv() local_unnamed_addr 
   %.06 = phi i32 [ 0, %0 ], [ 1, %16 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1) #14
   store i32 %.06, ptr %1, align 4, !tbaa !27
-  %7 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !38
+  %7 = load ptr, ptr @_ZN12RandomNumber9instance_E, align 8, !tbaa !37
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEEixERS6_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %10 = load ptr, ptr %9, align 8, !tbaa !29
@@ -513,7 +513,7 @@ define dso_local void @_ZN12RandomNumber14doFinalizationEv() local_unnamed_addr 
 
 16:                                               ; preds = %12, %5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #14
-  br i1 %6, label %5, label %2, !llvm.loop !41
+  br i1 %6, label %5, label %2, !llvm.loop !40
 
 17:                                               ; preds = %2
   %18 = load ptr, ptr %3, align 8, !tbaa !4
@@ -546,13 +546,13 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4pairIKS0
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  %4 = load ptr, ptr %3, align 8, !tbaa !41
   tail call void @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4pairIKS0_P18AbsRndNumGeneratorESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !43
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 48) #16
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -572,7 +572,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !33
+  %11 = load ptr, ptr %10, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i32, ptr %12, align 4, !tbaa !27
   %14 = load i32, ptr %2, align 4, !tbaa !27
@@ -581,7 +581,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4
 
 16:                                               ; preds = %9, %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02022.i = load ptr, ptr %17, align 8, !tbaa !33
+  %.02022.i = load ptr, ptr %17, align 8, !tbaa !32
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
@@ -596,9 +596,9 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4
   %22 = icmp slt i32 %18, %21
   %.in.v.i = select i1 %22, i64 16, i64 24
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
-  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !33
+  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !32
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !45
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -636,7 +636,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !33
+  %39 = load ptr, ptr %38, align 8, !tbaa !32
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4pairIKS0_P18AbsRndNumGeneratorESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE24_M_get_insert_unique_posERS2_.exit, label %41
 
@@ -649,7 +649,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !42
+  %48 = load ptr, ptr %47, align 8, !tbaa !41
   %49 = icmp eq ptr %48, null
   %spec.select = select i1 %49, ptr null, ptr %1
   %spec.select71 = select i1 %49, ptr %42, ptr %1
@@ -657,7 +657,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !33
+  %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !32
   %.not23.i11 = icmp eq ptr %.02022.i10, null
   br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
 
@@ -668,9 +668,9 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4
   %54 = icmp slt i32 %34, %53
   %.in.v.i14 = select i1 %54, i64 16, i64 24
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
-  %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !33
+  %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !32
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !45
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !44
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -701,7 +701,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %65 = load ptr, ptr %64, align 8, !tbaa !33
+  %65 = load ptr, ptr %64, align 8, !tbaa !32
   %66 = icmp eq ptr %65, %1
   br i1 %66, label %_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4pairIKS0_P18AbsRndNumGeneratorESt10_Select1stIS5_ESt4lessIS0_ESaIS5_EE24_M_get_insert_unique_posERS2_.exit, label %67
 
@@ -714,7 +714,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !42
+  %74 = load ptr, ptr %73, align 8, !tbaa !41
   %75 = icmp eq ptr %74, null
   %spec.select72 = select i1 %75, ptr null, ptr %68
   %spec.select73 = select i1 %75, ptr %1, ptr %68
@@ -722,7 +722,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4
 
 76:                                               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !33
+  %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !32
   %.not23.i31 = icmp eq ptr %.02022.i30, null
   br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
 
@@ -733,9 +733,9 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeI16RNDNUM_GENERATORSt4
   %80 = icmp slt i32 %34, %79
   %.in.v.i34 = select i1 %80, i64 16, i64 24
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
-  %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !33
+  %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !32
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !45
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !44
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -838,19 +838,18 @@ attributes #18 = { nounwind willreturn memory(read) }
 !27 = !{!28, !28, i64 0}
 !28 = !{!"_ZTS16RNDNUM_GENERATOR", !11, i64 0}
 !29 = !{!21, !21, i64 0}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!12, !12, i64 0}
-!34 = distinct !{!34, !31, !32}
-!35 = !{!36, !28, i64 0}
-!36 = !{!"_ZTSSt4pairIK16RNDNUM_GENERATORP18AbsRndNumGeneratorE", !28, i64 0, !21, i64 8}
-!37 = !{!36, !21, i64 8}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"p1 _ZTS12RandomNumber", !13, i64 0}
-!40 = !{!20, !21, i64 8}
-!41 = distinct !{!41, !31, !32}
-!42 = !{!9, !12, i64 24}
-!43 = !{!9, !12, i64 16}
-!44 = distinct !{!44, !31, !32}
-!45 = distinct !{!45, !31, !32}
+!32 = !{!12, !12, i64 0}
+!33 = distinct !{!33, !31}
+!34 = !{!35, !28, i64 0}
+!35 = !{!"_ZTSSt4pairIK16RNDNUM_GENERATORP18AbsRndNumGeneratorE", !28, i64 0, !21, i64 8}
+!36 = !{!35, !21, i64 8}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS12RandomNumber", !13, i64 0}
+!39 = !{!20, !21, i64 8}
+!40 = distinct !{!40, !31}
+!41 = !{!9, !12, i64 24}
+!42 = !{!9, !12, i64 16}
+!43 = distinct !{!43, !31}
+!44 = distinct !{!44, !31}

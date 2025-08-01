@@ -76,7 +76,7 @@ define void @_ZNK5faiss10CodePacker10unpack_allEPKhPh(ptr noundef nonnull align 
   %14 = add nuw i64 %.06, 1
   %15 = load i64, ptr %4, align 8, !tbaa !4
   %16 = icmp ult i64 %14, %15
-  br i1 %16, label %7, label %._crit_edge, !llvm.loop !15
+  br i1 %16, label %7, label %._crit_edge, !llvm.loop !14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -136,7 +136,7 @@ define void @_ZN5faiss14CodePackerFlatC2Em(ptr noundef nonnull writeonly align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %1, ptr %5, align 8, !tbaa !16
+  store i64 %1, ptr %5, align 8, !tbaa !15
   ret void
 }
 
@@ -174,8 +174,7 @@ attributes #9 = { builtin nounwind }
 !9 = !{!5, !6, i64 8}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"vtable pointer", !8, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = !{!5, !6, i64 24}
+!14 = distinct !{!14, !13}
+!15 = !{!5, !6, i64 24}

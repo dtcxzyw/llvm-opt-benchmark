@@ -151,7 +151,7 @@ define range(i32 -1, 1) i32 @H5HL_debug(ptr noundef %0, i64 noundef %1, ptr noun
   %69 = add nuw nsw i32 %.076104, 1
   %.075 = load ptr, ptr %68, align 8, !tbaa !22
   %.not = icmp eq ptr %.075, null
-  br i1 %.not, label %._crit_edge109, label %42, !llvm.loop !30
+  br i1 %.not, label %._crit_edge109, label %42, !llvm.loop !29
 
 ._crit_edge109:                                   ; preds = %67, %36
   %.071.lcssa = phi i64 [ 0, %36 ], [ %.172, %67 ]
@@ -172,7 +172,7 @@ define range(i32 -1, 1) i32 @H5HL_debug(ptr noundef %0, i64 noundef %1, ptr noun
 78:                                               ; preds = %71, %._crit_edge109
   %79 = phi i64 [ %.pre, %71 ], [ 0, %._crit_edge109 ]
   %80 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  %81 = load ptr, ptr %80, align 8, !tbaa !31
+  %81 = load ptr, ptr %80, align 8, !tbaa !30
   %82 = call i32 @H5_buffer_dump(ptr noundef %2, i32 noundef %3, ptr noundef %81, ptr noundef nonnull %30, i64 noundef 0, i64 noundef %79) #7
   br label %86
 
@@ -284,8 +284,7 @@ attributes #8 = { nounwind allocsize(0,1) }
 !24 = !{!"H5HL_free_t", !13, i64 0, !13, i64 8, !14, i64 16, !14, i64 24}
 !25 = !{!24, !13, i64 8}
 !26 = !{!5, !5, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = distinct !{!30, !28, !29}
-!31 = !{!12, !18, i64 104}
+!29 = distinct !{!29, !28}
+!30 = !{!12, !18, i64 104}

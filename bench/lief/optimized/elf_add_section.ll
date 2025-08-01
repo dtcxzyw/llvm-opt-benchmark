@@ -644,9 +644,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN4LIEF3ELF7SectionE, i64 16), ptr %0, align 8, !tbaa !7
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %33, align 8, !tbaa !43
+  store i32 0, ptr %33, align 8, !tbaa !42
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %2, ptr %34, align 8, !tbaa !57
+  store i64 %2, ptr %34, align 8, !tbaa !56
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %35, i8 0, i64 65, i1 false)
@@ -826,21 +826,20 @@ attributes #18 = { builtin allocsize(0) }
 !37 = !{!"_ZTSNSt12_Vector_baseIPN4LIEF3ELF7SegmentESaIS3_EE17_Vector_impl_dataE", !38, i64 0, !38, i64 8, !38, i64 16}
 !38 = !{!"p2 _ZTSN4LIEF3ELF7SegmentE", !39, i64 0}
 !39 = !{!"any p2 pointer", !15, i64 0}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!44, !47, i64 64}
-!44 = !{!"_ZTSN4LIEF3ELF7SectionE", !45, i64 0, !47, i64 64, !48, i64 72, !11, i64 80, !11, i64 88, !17, i64 96, !17, i64 100, !11, i64 104, !11, i64 112, !49, i64 120, !52, i64 144, !53, i64 152, !54, i64 160}
-!45 = !{!"_ZTSN4LIEF7SectionE", !46, i64 0, !28, i64 8, !11, i64 40, !11, i64 48, !11, i64 56}
-!46 = !{!"_ZTSN4LIEF6ObjectE"}
-!47 = !{!"_ZTSN4LIEF3ELF4ARCHE", !5, i64 0}
-!48 = !{!"_ZTSN4LIEF3ELF7Section4TYPEE", !5, i64 0}
-!49 = !{!"_ZTSSt6vectorIPN4LIEF3ELF7SegmentESaIS3_EE", !50, i64 0}
-!50 = !{!"_ZTSSt12_Vector_baseIPN4LIEF3ELF7SegmentESaIS3_EE", !51, i64 0}
-!51 = !{!"_ZTSNSt12_Vector_baseIPN4LIEF3ELF7SegmentESaIS3_EE12_Vector_implE", !37, i64 0}
-!52 = !{!"bool", !5, i64 0}
-!53 = !{!"p1 _ZTSN4LIEF3ELF11DataHandler7HandlerE", !15, i64 0}
-!54 = !{!"_ZTSSt6vectorIhSaIhEE", !55, i64 0}
-!55 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !56, i64 0}
-!56 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !33, i64 0}
-!57 = !{!44, !48, i64 72}
+!42 = !{!43, !46, i64 64}
+!43 = !{!"_ZTSN4LIEF3ELF7SectionE", !44, i64 0, !46, i64 64, !47, i64 72, !11, i64 80, !11, i64 88, !17, i64 96, !17, i64 100, !11, i64 104, !11, i64 112, !48, i64 120, !51, i64 144, !52, i64 152, !53, i64 160}
+!44 = !{!"_ZTSN4LIEF7SectionE", !45, i64 0, !28, i64 8, !11, i64 40, !11, i64 48, !11, i64 56}
+!45 = !{!"_ZTSN4LIEF6ObjectE"}
+!46 = !{!"_ZTSN4LIEF3ELF4ARCHE", !5, i64 0}
+!47 = !{!"_ZTSN4LIEF3ELF7Section4TYPEE", !5, i64 0}
+!48 = !{!"_ZTSSt6vectorIPN4LIEF3ELF7SegmentESaIS3_EE", !49, i64 0}
+!49 = !{!"_ZTSSt12_Vector_baseIPN4LIEF3ELF7SegmentESaIS3_EE", !50, i64 0}
+!50 = !{!"_ZTSNSt12_Vector_baseIPN4LIEF3ELF7SegmentESaIS3_EE12_Vector_implE", !37, i64 0}
+!51 = !{!"bool", !5, i64 0}
+!52 = !{!"p1 _ZTSN4LIEF3ELF11DataHandler7HandlerE", !15, i64 0}
+!53 = !{!"_ZTSSt6vectorIhSaIhEE", !54, i64 0}
+!54 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !55, i64 0}
+!55 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !33, i64 0}
+!56 = !{!43, !47, i64 72}

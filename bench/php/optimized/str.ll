@@ -351,7 +351,7 @@ define hidden ptr @lexbor_str_append_lowercase(ptr noundef captures(none) %0, pt
   store i8 %26, ptr %27, align 1, !tbaa !12
   %28 = add nuw i64 %.02832, 1
   %exitcond.not = icmp eq i64 %28, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 %3
@@ -482,7 +482,7 @@ lexbor_str_append.exit55:                         ; preds = %51, %58
   store i8 0, ptr %65, align 1, !tbaa !12
   %66 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %.not = icmp eq ptr %66, %19
-  br i1 %.not, label %.critedge50, label %21, !llvm.loop !16
+  br i1 %.not, label %.critedge50, label %21
 
 67:                                               ; preds = %21
   %68 = load i64, ptr %5, align 8, !tbaa !11
@@ -648,7 +648,7 @@ define hidden void @lexbor_str_stay_only_whitespace(ptr noundef captures(none) %
   %.1 = phi i64 [ %10, %8 ], [ %.02022, %.lr.ph ]
   %13 = add nuw i64 %.023, 1
   %14 = icmp ult i64 %13, %12
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %14, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %11, %1
   %.020.lcssa = phi i64 [ 0, %1 ], [ %.1, %11 ]
@@ -724,7 +724,7 @@ define hidden void @lexbor_str_strip_collapse_whitespace(ptr noundef captures(no
   %22 = add nuw i64 %.055, 1
   %23 = load i64, ptr %3, align 8, !tbaa !11
   %24 = icmp ult i64 %22, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %24, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %21
   %25 = icmp eq i64 %.146, %22
@@ -777,7 +777,7 @@ define hidden i64 @lexbor_str_crop_whitespace_from_begin(ptr noundef captures(no
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = add nuw i64 %.033, 1
   %exitcond.not = icmp eq i64 %8, %4
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not30 = icmp eq i64 %.033, 0
@@ -823,7 +823,7 @@ define hidden i64 @lexbor_str_whitespace_from_begin(ptr noundef readonly capture
 7:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = add nuw i64 %.019, 1
   %exitcond.not = icmp eq i64 %8, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %.019, %.lr.ph ], [ %4, %7 ]
@@ -857,7 +857,7 @@ define hidden i64 @lexbor_str_whitespace_from_end(ptr noundef readonly captures(
 
 10:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %10, %1, %8
   %.0 = phi i64 [ %9, %8 ], [ 0, %1 ], [ 0, %10 ]
@@ -891,7 +891,7 @@ define hidden ptr @lexbor_str_data_ncasecmp_first(ptr noundef readonly captures(
 16:                                               ; preds = %7
   %17 = add nuw i64 %.018, 1
   %exitcond.not = icmp eq i64 %17, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %16, %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %2
@@ -928,7 +928,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_end(ptr noundef reado
   %15 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !12
   %.not7 = icmp eq i8 %11, %16
-  br i1 %.not7, label %4, label %17, !llvm.loop !23
+  br i1 %.not7, label %4, label %17
 
 17:                                               ; preds = %4, %5
   ret i1 %.not
@@ -951,7 +951,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_contain(ptr noundef r
 7:                                                ; preds = %.lr.ph.i
   %8 = add nuw i64 %.0810.i, 1
   %exitcond.not.i = icmp eq i64 %8, %3
-  br i1 %exitcond.not.i, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %7
   %.0810.i = phi i64 [ %8, %7 ], [ 0, %.lr.ph.i.preheader ]
@@ -972,7 +972,7 @@ lexbor_str_data_ncasecmp.exit:                    ; preds = %.lr.ph.i
   %19 = add i64 %.0917, 1
   %20 = sub i64 %1, %19
   %.not.not = icmp ugt i64 %3, %20
-  br i1 %.not.not, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph.i.preheader, !llvm.loop !25
+  br i1 %.not.not, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph.i.preheader
 
 lexbor_str_data_ncasecmp.exit.thread:             ; preds = %lexbor_str_data_ncasecmp.exit, %7, %.lr.ph, %4
   %.not15 = phi i1 [ false, %4 ], [ true, %.lr.ph ], [ true, %7 ], [ false, %lexbor_str_data_ncasecmp.exit ]
@@ -1000,7 +1000,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp(ptr noundef readonly 
   %15 = add nuw i64 %.0810, 1
   %exitcond.not = icmp ne i64 %15, %2
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.lcssa = phi i1 [ true, %3 ], [ %.not, %.lr.ph ]
@@ -1025,7 +1025,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_nlocmp_right(ptr noundef reado
   %12 = add nuw i64 %.0810, 1
   %exitcond.not = icmp ne i64 %12, %2
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.lcssa = phi i1 [ true, %3 ], [ %.not, %.lr.ph ]
@@ -1050,7 +1050,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_nupcmp_right(ptr noundef reado
   %12 = add nuw i64 %.0810, 1
   %exitcond.not = icmp ne i64 %12, %2
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.lcssa = phi i1 [ true, %3 ], [ %.not, %.lr.ph ]
@@ -1088,7 +1088,7 @@ define hidden zeroext i1 @lexbor_str_data_casecmp(ptr noundef readonly captures(
   %.not = icmp eq i8 %17, %21
   %22 = icmp ne i8 %14, 0
   %or.cond.not = and i1 %22, %.not
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.lcssa = phi i1 [ %.not9, %2 ], [ %.not, %.lr.ph ]
@@ -1111,7 +1111,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncmp_end(ptr noundef readonly 
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %10 = load i8, ptr %9, align 1, !tbaa !12
   %.not7 = icmp eq i8 %8, %10
-  br i1 %.not7, label %4, label %11, !llvm.loop !29
+  br i1 %.not7, label %4, label %11
 
 11:                                               ; preds = %4, %5
   ret i1 %.not
@@ -1126,7 +1126,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncmp_contain(ptr noundef reado
   %6 = add i64 %.0913, 1
   %7 = sub i64 %1, %6
   %.not.not = icmp ugt i64 %3, %7
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %5
   %.0913 = phi i64 [ %6, %5 ], [ 0, %4 ]
@@ -1166,7 +1166,7 @@ define hidden zeroext i1 @lexbor_str_data_cmp(ptr noundef readonly captures(none
   %.not = icmp eq i8 %8, %9
   %10 = icmp ne i8 %8, 0
   %or.cond.not = and i1 %10, %.not
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.not.lcssa = phi i1 [ %.not10, %2 ], [ %.not, %.lr.ph ]
@@ -1193,7 +1193,7 @@ define hidden noundef zeroext i1 @lexbor_str_data_cmp_ws(ptr noundef readonly ca
   %10 = load i8, ptr %8, align 1, !tbaa !12
   %11 = load i8, ptr %9, align 1, !tbaa !12
   %.not = icmp eq i8 %10, %11
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %.not, label %.lr.ph, label %._crit_edge
 
 switch.hole_check:                                ; preds = %.lr.ph
   %switch.maskindex = zext nneg i8 %5 to i64
@@ -1222,7 +1222,7 @@ define hidden void @lexbor_str_data_to_lowercase(ptr noundef writeonly captures(
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   store i8 %9, ptr %10, align 1, !tbaa !12
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1244,7 +1244,7 @@ define hidden void @lexbor_str_data_to_uppercase(ptr noundef writeonly captures(
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   store i8 %9, ptr %10, align 1, !tbaa !12
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1267,7 +1267,7 @@ define hidden ptr @lexbor_str_data_find_lowercase(ptr noundef readonly captures(
   %9 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_lowercase, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !12
   %11 = icmp eq i8 %7, %10
-  br i1 %11, label %.split.loop.exit.split.loop.exit11, label %3, !llvm.loop !35
+  br i1 %11, label %.split.loop.exit.split.loop.exit11, label %3
 
 .split.loop.exit.split.loop.exit11:               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %5
@@ -1295,7 +1295,7 @@ define hidden ptr @lexbor_str_data_find_uppercase(ptr noundef readonly captures(
   %9 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_uppercase, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !12
   %11 = icmp eq i8 %7, %10
-  br i1 %11, label %.split.loop.exit.split.loop.exit11, label %3, !llvm.loop !36
+  br i1 %11, label %.split.loop.exit.split.loop.exit11, label %3
 
 .split.loop.exit.split.loop.exit11:               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %5
@@ -1402,26 +1402,3 @@ attributes #16 = { nounwind willreturn memory(read) }
 !11 = !{!5, !10, i64 8}
 !12 = !{!8, !8, i64 0}
 !13 = !{!10, !10, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}
-!20 = distinct !{!20, !15}
-!21 = distinct !{!21, !15}
-!22 = distinct !{!22, !15}
-!23 = distinct !{!23, !15}
-!24 = distinct !{!24, !15}
-!25 = distinct !{!25, !15}
-!26 = distinct !{!26, !15}
-!27 = distinct !{!27, !15}
-!28 = distinct !{!28, !15}
-!29 = distinct !{!29, !15}
-!30 = distinct !{!30, !15}
-!31 = distinct !{!31, !15}
-!32 = distinct !{!32, !15}
-!33 = distinct !{!33, !15}
-!34 = distinct !{!34, !15}
-!35 = distinct !{!35, !15}
-!36 = distinct !{!36, !15}

@@ -84,7 +84,7 @@ define void @Amap_ManCleanRefs(ptr noundef readonly captures(none) %0) local_unn
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define noundef float @Amap_ManMaxDelay(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
   %4 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %4, align 4, !tbaa !21
   %5 = icmp sgt i32 %.val, 0
@@ -113,13 +113,13 @@ define noundef float @Amap_ManMaxDelay(ptr noundef readonly captures(none) %0) l
   %16 = getelementptr inbounds ptr, ptr %.val10.val, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
-  %19 = load float, ptr %18, align 8, !tbaa !30
+  %19 = load float, ptr %18, align 8, !tbaa !29
   %20 = fptosi float %19 to i32
   %21 = tail call noundef i32 @llvm.smax.i32(i32 %12, i32 %20)
   %22 = sitofp i32 %21 to float
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !34
+  br i1 %exitcond.not, label %.critedge, label %9, !llvm.loop !33
 
 .critedge:                                        ; preds = %9, %1
   %.08.lcssa = phi float [ 0.000000e+00, %1 ], [ %22, %9 ]
@@ -147,7 +147,7 @@ define void @Amap_ManCleanData(ptr noundef readonly captures(none) %0) local_unn
 
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr null, ptr %12, align 8, !tbaa !35
+  store ptr null, ptr %12, align 8, !tbaa !34
   %.pre = load ptr, ptr %2, align 8, !tbaa !20
   br label %13
 
@@ -158,7 +158,7 @@ define void @Amap_ManCleanData(ptr noundef readonly captures(none) %0) local_unn
   %.val = load i32, ptr %15, align 4, !tbaa !21
   %16 = sext i32 %.val to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !36
+  br i1 %17, label %.lr.ph, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %13, %1
   ret void
@@ -190,21 +190,21 @@ define float @Amap_ManComputeMapping_rec(ptr noundef readonly captures(none) %0,
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %19 = load ptr, ptr %18, align 8, !tbaa !36
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %21 = load ptr, ptr %20, align 8, !tbaa !38
+  %21 = load ptr, ptr %20, align 8, !tbaa !37
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 65535
   %25 = getelementptr i8, ptr %19, i64 8
-  %.val33 = load ptr, ptr %25, align 8, !tbaa !39
+  %.val33 = load ptr, ptr %25, align 8, !tbaa !38
   %26 = getelementptr i8, ptr %.val33, i64 8
   %.val33.val = load ptr, ptr %26, align 8, !tbaa !23
   %27 = zext nneg i32 %24 to i64
   %28 = getelementptr inbounds nuw ptr, ptr %.val33.val, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %31 = load double, ptr %30, align 8, !tbaa !45
+  %31 = load double, ptr %30, align 8, !tbaa !44
   %32 = fptrunc double %31 to float
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %34 = load i32, ptr %33, align 8
@@ -218,13 +218,13 @@ define float @Amap_ManComputeMapping_rec(ptr noundef readonly captures(none) %0,
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.037 = phi float [ %32, %.lr.ph ], [ %56, %36 ]
-  %37 = load ptr, ptr %20, align 8, !tbaa !38
+  %37 = load ptr, ptr %20, align 8, !tbaa !37
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %39 = getelementptr inbounds nuw [15 x i8], ptr %38, i64 0, i64 %indvars.iv
-  %40 = load i8, ptr %39, align 1, !tbaa !35
+  %40 = load i8, ptr %39, align 1, !tbaa !34
   %41 = sext i8 %40 to i32
   %42 = ashr i32 %41, 1
-  %43 = load ptr, ptr %4, align 8, !tbaa !48
+  %43 = load ptr, ptr %4, align 8, !tbaa !47
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = sext i32 %42 to i64
   %46 = getelementptr inbounds [0 x i32], ptr %44, i64 0, i64 %45
@@ -245,7 +245,7 @@ define float @Amap_ManComputeMapping_rec(ptr noundef readonly captures(none) %0,
   %58 = lshr i32 %57, 24
   %59 = zext nneg i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next, %59
-  br i1 %60, label %36, label %.loopexit, !llvm.loop !49
+  br i1 %60, label %36, label %.loopexit, !llvm.loop !48
 
 .loopexit:                                        ; preds = %36, %17, %15, %3
   %.027 = phi float [ 0.000000e+00, %3 ], [ 0.000000e+00, %15 ], [ %32, %17 ], [ %56, %36 ]
@@ -291,7 +291,7 @@ define float @Amap_ManComputeMapping(ptr noundef readonly captures(none) %0) loc
 
 Amap_ManCleanRefs.exit:                           ; preds = %14, %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
+  %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = getelementptr i8, ptr %18, i64 4
   %.val16 = load i32, ptr %19, align 4, !tbaa !21
   %20 = icmp sgt i32 %.val16, 0
@@ -318,12 +318,12 @@ Amap_ManCleanRefs.exit:                           ; preds = %14, %1
   %32 = tail call float @Amap_ManComputeMapping_rec(ptr noundef nonnull %0, ptr noundef %30, i32 noundef %31)
   %33 = fadd float %.01117, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = load ptr, ptr %17, align 8, !tbaa !29
+  %34 = load ptr, ptr %17, align 8, !tbaa !28
   %35 = getelementptr i8, ptr %34, i64 4
   %.val = load i32, ptr %35, align 4, !tbaa !21
   %36 = sext i32 %.val to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !50
+  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %.lr.ph, %Amap_ManCleanRefs.exit
   %.011.lcssa = phi float [ 0.000000e+00, %Amap_ManCleanRefs.exit ], [ %33, %.lr.ph ]
@@ -369,7 +369,7 @@ define i32 @Amap_ManCountInverters(ptr noundef readonly captures(none) %0) local
   %.1 = phi i32 [ %.013, %7 ], [ %19, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !51
+  br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !50
 
 .critedge:                                        ; preds = %20, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %.1, %20 ]
@@ -397,15 +397,15 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
 
 .thread:                                          ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !52
+  %11 = load i32, ptr %10, align 8, !tbaa !51
   %12 = sitofp i32 %11 to float
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %12, ptr %13, align 8, !tbaa !53
+  store float %12, ptr %13, align 8, !tbaa !52
   br label %29
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %16 = load float, ptr %15, align 8, !tbaa !53
+  %16 = load float, ptr %15, align 8, !tbaa !52
   %17 = fpext float %16 to double
   %18 = getelementptr i8, ptr %1, i64 52
   %.val = load i32, ptr %18, align 4, !tbaa !25
@@ -416,7 +416,7 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
   %22 = tail call double @llvm.fmuladd.f64(double %17, double 2.000000e+00, double %21)
   %23 = fdiv double %22, 3.000000e+00
   %24 = fptrunc double %23 to float
-  store float %24, ptr %15, align 8, !tbaa !53
+  store float %24, ptr %15, align 8, !tbaa !52
   %25 = icmp sgt i32 %20, 0
   br i1 %25, label %26, label %29
 
@@ -426,16 +426,16 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
   br label %29
 
 29:                                               ; preds = %.thread, %14, %26
-  store ptr null, ptr %6, align 8, !tbaa !48
-  store ptr null, ptr %5, align 8, !tbaa !48
+  store ptr null, ptr %6, align 8, !tbaa !47
+  store ptr null, ptr %5, align 8, !tbaa !47
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %31 = load i32, ptr %30, align 4, !tbaa !54
+  %31 = load i32, ptr %30, align 4, !tbaa !53
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph147, label %._crit_edge
 
 .lr.ph147:                                        ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !35
+  %34 = load ptr, ptr %33, align 8, !tbaa !34
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -460,12 +460,12 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %50, label %.loopexit, label %51
 
 51:                                               ; preds = %46
-  %52 = load ptr, ptr %35, align 8, !tbaa !37
+  %52 = load ptr, ptr %35, align 8, !tbaa !36
   %53 = getelementptr i8, ptr %52, i64 88
-  %.val119 = load ptr, ptr %53, align 8, !tbaa !55
+  %.val119 = load ptr, ptr %53, align 8, !tbaa !54
   %54 = zext nneg i32 %49 to i64
   %55 = getelementptr inbounds nuw %struct.Amap_Nod_t_, ptr %.val119, i64 %54, i32 5
-  %.093141 = load ptr, ptr %55, align 8, !tbaa !56
+  %.093141 = load ptr, ptr %55, align 8, !tbaa !55
   %.not112142 = icmp eq ptr %.093141, null
   br i1 %.not112142, label %.loopexit, label %.lr.ph
 
@@ -477,14 +477,14 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
   %58 = phi i32 [ %48, %.lr.ph ], [ %195, %Amap_CutCompareArea.exit ]
   %.093143 = phi ptr [ %.093141, %.lr.ph ], [ %.093, %Amap_CutCompareArea.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
-  store ptr %.094144, ptr %7, align 8, !tbaa !48
-  store ptr %.093143, ptr %37, align 8, !tbaa !38
-  %59 = load ptr, ptr %35, align 8, !tbaa !37
+  store ptr %.094144, ptr %7, align 8, !tbaa !47
+  store ptr %.093143, ptr %37, align 8, !tbaa !37
+  %59 = load ptr, ptr %35, align 8, !tbaa !36
   %60 = getelementptr inbounds nuw i8, ptr %.093143, i64 8
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 65535
   %63 = getelementptr i8, ptr %59, i64 8
-  %.val23.i = load ptr, ptr %63, align 8, !tbaa !39
+  %.val23.i = load ptr, ptr %63, align 8, !tbaa !38
   %64 = getelementptr i8, ptr %.val23.i, i64 8
   %.val23.val.i = load ptr, ptr %64, align 8, !tbaa !23
   %65 = zext nneg i32 %62 to i64
@@ -494,9 +494,9 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
 
 68:                                               ; preds = %57
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %70 = load double, ptr %69, align 8, !tbaa !45
+  %70 = load double, ptr %69, align 8, !tbaa !44
   %71 = fptrunc double %70 to float
-  store float %71, ptr %36, align 8, !tbaa !57
+  store float %71, ptr %36, align 8, !tbaa !56
   %.not.i = icmp ult i32 %58, 131072
   br i1 %.not.i, label %Amap_ManMatchGetFlows.exit, label %.lr.ph.i
 
@@ -515,7 +515,7 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
   %79 = phi float [ 0.000000e+00, %.lr.ph.i ], [ %95, %108 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %108 ]
   %80 = getelementptr inbounds nuw [15 x i8], ptr %72, i64 0, i64 %indvars.iv.i
-  %81 = load i8, ptr %80, align 1, !tbaa !35
+  %81 = load i8, ptr %80, align 1, !tbaa !34
   %82 = ashr i8 %81, 1
   %83 = sext i8 %82 to i64
   %84 = getelementptr inbounds [0 x i32], ptr %56, i64 0, i64 %83
@@ -526,7 +526,7 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
   %89 = load ptr, ptr %88, align 8, !tbaa !24
   %90 = fptosi float %79 to i32
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 88
-  %92 = load float, ptr %91, align 8, !tbaa !58
+  %92 = load float, ptr %91, align 8, !tbaa !57
   %93 = fptosi float %92 to i32
   %94 = tail call noundef i32 @llvm.smax.i32(i32 %90, i32 %93)
   %95 = sitofp i32 %94 to float
@@ -539,12 +539,12 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
   %100 = fadd float %78, %99
   %101 = icmp eq i32 %98, 0
   %102 = getelementptr inbounds nuw i8, ptr %89, i64 80
-  %103 = load float, ptr %102, align 8, !tbaa !57
+  %103 = load float, ptr %102, align 8, !tbaa !56
   br i1 %101, label %108, label %104
 
 104:                                              ; preds = %76
   %105 = getelementptr inbounds nuw i8, ptr %89, i64 48
-  %106 = load float, ptr %105, align 8, !tbaa !53
+  %106 = load float, ptr %105, align 8, !tbaa !52
   %107 = fdiv float %103, %106
   br label %108
 
@@ -557,10 +557,10 @@ define void @Amap_ManMatchNode(ptr noundef readonly captures(none) %0, ptr nound
   %storemerge.i = select i1 %or.cond.i, float 0x4693B8B5C0000000, float %112
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %75
-  br i1 %exitcond.not, label %.critedge.loopexit.i, label %76, !llvm.loop !59
+  br i1 %exitcond.not, label %.critedge.loopexit.i, label %76, !llvm.loop !58
 
 .critedge.loopexit.i:                             ; preds = %108
-  store float %storemerge.i, ptr %36, align 8, !tbaa !57
+  store float %storemerge.i, ptr %36, align 8, !tbaa !56
   %113 = fadd float %95, 1.000000e+00
   br label %Amap_ManMatchGetFlows.exit
 
@@ -573,8 +573,8 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   %119 = lshr i32 %118, 24
   %120 = uitofp nneg i32 %119 to float
   %121 = fdiv float %116, %120
-  store float %121, ptr %38, align 4, !tbaa !60
-  store float %115, ptr %39, align 8, !tbaa !58
+  store float %121, ptr %38, align 4, !tbaa !59
+  store float %115, ptr %39, align 8, !tbaa !57
   br label %191
 
 122:                                              ; preds = %57
@@ -595,7 +595,7 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   %129 = phi float [ 0.000000e+00, %.lr.ph.i123 ], [ %145, %127 ]
   %indvars.iv.i126 = phi i64 [ 0, %.lr.ph.i123 ], [ %indvars.iv.next.i127, %127 ]
   %130 = getelementptr inbounds nuw [15 x i8], ptr %123, i64 0, i64 %indvars.iv.i126
-  %131 = load i8, ptr %130, align 1, !tbaa !35
+  %131 = load i8, ptr %130, align 1, !tbaa !34
   %132 = ashr i8 %131, 1
   %133 = sext i8 %132 to i64
   %134 = getelementptr inbounds [0 x i32], ptr %56, i64 0, i64 %133
@@ -606,7 +606,7 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   %139 = load ptr, ptr %138, align 8, !tbaa !24
   %140 = fptosi float %129 to i32
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 88
-  %142 = load float, ptr %141, align 8, !tbaa !58
+  %142 = load float, ptr %141, align 8, !tbaa !57
   %143 = fptosi float %142 to i32
   %144 = tail call noundef i32 @llvm.smax.i32(i32 %140, i32 %143)
   %145 = sitofp i32 %144 to float
@@ -619,7 +619,7 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   %150 = fadd float %128, %149
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i126, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next.i127, %126
-  br i1 %exitcond151.not, label %.critedge.loopexit.i128, label %127, !llvm.loop !61
+  br i1 %exitcond151.not, label %.critedge.loopexit.i128, label %127, !llvm.loop !60
 
 .critedge.loopexit.i128:                          ; preds = %127
   %151 = fadd float %145, 1.000000e+00
@@ -633,13 +633,13 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   %156 = lshr i32 %155, 24
   %157 = uitofp nneg i32 %156 to float
   %158 = fdiv float %153, %157
-  store float %158, ptr %38, align 4, !tbaa !60
-  store float %152, ptr %39, align 8, !tbaa !58
-  %159 = load ptr, ptr %41, align 8, !tbaa !62
+  store float %158, ptr %38, align 4, !tbaa !59
+  store float %152, ptr %39, align 8, !tbaa !57
+  %159 = load ptr, ptr %41, align 8, !tbaa !61
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store i32 0, ptr %160, align 4, !tbaa !21
   %161 = call fastcc float @Amap_CutAreaRef2(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %7, ptr noundef %159, i32 noundef 8)
-  %162 = load ptr, ptr %41, align 8, !tbaa !62
+  %162 = load ptr, ptr %41, align 8, !tbaa !61
   %163 = getelementptr i8, ptr %162, i64 4
   %.val21.i.i = load i32, ptr %163, align 4, !tbaa !21
   %164 = icmp sgt i32 %.val21.i.i, 0
@@ -661,7 +661,7 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   %.val.i.i = load i32, ptr %163, align 4, !tbaa !21
   %171 = sext i32 %.val.i.i to i64
   %172 = icmp slt i64 %indvars.iv.next.i.i, %171
-  br i1 %172, label %166, label %.critedge.i.i, !llvm.loop !63
+  br i1 %172, label %166, label %.critedge.i.i, !llvm.loop !62
 
 .critedge.i.i:                                    ; preds = %166, %.critedge.i
   %173 = load i32, ptr %.094144, align 4
@@ -684,13 +684,13 @@ Amap_ManMatchGetFlows.exit:                       ; preds = %68, %.critedge.loop
   br i1 %187, label %188, label %Amap_ManMatchGetExacts.exit
 
 188:                                              ; preds = %182
-  %189 = load float, ptr %43, align 4, !tbaa !64
+  %189 = load float, ptr %43, align 4, !tbaa !63
   %190 = fadd float %161, %189
   br label %Amap_ManMatchGetExacts.exit
 
 Amap_ManMatchGetExacts.exit:                      ; preds = %.critedge.i.i, %182, %188
   %.0.i.i = phi float [ %190, %188 ], [ %161, %182 ], [ %161, %.critedge.i.i ]
-  store float %.0.i.i, ptr %36, align 8, !tbaa !57
+  store float %.0.i.i, ptr %36, align 8, !tbaa !56
   br label %191
 
 191:                                              ; preds = %Amap_ManMatchGetExacts.exit, %Amap_ManMatchGetFlows.exit
@@ -698,15 +698,15 @@ Amap_ManMatchGetExacts.exit:                      ; preds = %.critedge.i.i, %182
   %193 = phi float [ %.0.i.i, %Amap_ManMatchGetExacts.exit ], [ %114, %Amap_ManMatchGetFlows.exit ]
   %194 = phi float [ %152, %Amap_ManMatchGetExacts.exit ], [ %115, %Amap_ManMatchGetFlows.exit ]
   %195 = phi i32 [ %173, %Amap_ManMatchGetExacts.exit ], [ %58, %Amap_ManMatchGetFlows.exit ]
-  %196 = load ptr, ptr %6, align 8, !tbaa !48
+  %196 = load ptr, ptr %6, align 8, !tbaa !47
   %197 = icmp eq ptr %196, null
   br i1 %197, label %Amap_CutCompareDelay.exit.thread, label %198
 
 198:                                              ; preds = %191
-  %.val120 = load ptr, ptr %0, align 8, !tbaa !65
+  %.val120 = load ptr, ptr %0, align 8, !tbaa !64
   %199 = getelementptr i8, ptr %.val120, i64 24
-  %.val120.val = load float, ptr %199, align 4, !tbaa !66
-  %200 = load float, ptr %.092.sroa.gep101, align 8, !tbaa !58
+  %.val120.val = load float, ptr %199, align 4, !tbaa !65
+  %200 = load float, ptr %.092.sroa.gep101, align 8, !tbaa !57
   %201 = fsub float %194, %.val120.val
   %202 = fcmp olt float %200, %201
   br i1 %202, label %Amap_CutCompareDelay.exit, label %203
@@ -717,7 +717,7 @@ Amap_ManMatchGetExacts.exit:                      ; preds = %.critedge.i.i, %182
   br i1 %205, label %Amap_CutCompareDelay.exit.thread, label %206
 
 206:                                              ; preds = %203
-  %207 = load float, ptr %.092.sroa.gep104, align 8, !tbaa !57
+  %207 = load float, ptr %.092.sroa.gep104, align 8, !tbaa !56
   %208 = fsub float %193, %.val120.val
   %209 = fcmp olt float %207, %208
   br i1 %209, label %Amap_CutCompareDelay.exit, label %210
@@ -728,25 +728,25 @@ Amap_ManMatchGetExacts.exit:                      ; preds = %.critedge.i.i, %182
   br i1 %212, label %Amap_CutCompareDelay.exit.thread, label %213
 
 213:                                              ; preds = %210
-  %214 = load float, ptr %44, align 4, !tbaa !60
+  %214 = load float, ptr %44, align 4, !tbaa !59
   %215 = fsub float %192, %.val120.val
   %216 = fcmp ogt float %214, %215
   br i1 %216, label %Amap_CutCompareDelay.exit, label %Amap_CutCompareDelay.exit.thread
 
 Amap_CutCompareDelay.exit.thread:                 ; preds = %213, %210, %203, %191
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !67
   br label %Amap_CutCompareDelay.exit
 
 Amap_CutCompareDelay.exit:                        ; preds = %213, %206, %198, %Amap_CutCompareDelay.exit.thread
-  %217 = load ptr, ptr %5, align 8, !tbaa !48
+  %217 = load ptr, ptr %5, align 8, !tbaa !47
   %218 = icmp eq ptr %217, null
   br i1 %218, label %Amap_CutCompareArea.exit.thread, label %219
 
 219:                                              ; preds = %Amap_CutCompareDelay.exit
-  %.val121 = load ptr, ptr %0, align 8, !tbaa !65
+  %.val121 = load ptr, ptr %0, align 8, !tbaa !64
   %220 = getelementptr i8, ptr %.val121, i64 24
-  %.val121.val = load float, ptr %220, align 4, !tbaa !66
-  %221 = load float, ptr %.092.sroa.gep103, align 8, !tbaa !57
+  %.val121.val = load float, ptr %220, align 4, !tbaa !65
+  %221 = load float, ptr %.092.sroa.gep103, align 8, !tbaa !56
   %222 = fsub float %193, %.val121.val
   %223 = fcmp olt float %221, %222
   br i1 %223, label %Amap_CutCompareArea.exit, label %224
@@ -757,7 +757,7 @@ Amap_CutCompareDelay.exit:                        ; preds = %213, %206, %198, %A
   br i1 %226, label %Amap_CutCompareArea.exit.thread, label %227
 
 227:                                              ; preds = %224
-  %228 = load float, ptr %45, align 4, !tbaa !60
+  %228 = load float, ptr %45, align 4, !tbaa !59
   %229 = fsub float %192, %.val121.val
   %230 = fcmp ogt float %228, %229
   br i1 %230, label %Amap_CutCompareArea.exit, label %231
@@ -768,22 +768,22 @@ Amap_CutCompareDelay.exit:                        ; preds = %213, %206, %198, %A
   br i1 %233, label %Amap_CutCompareArea.exit.thread, label %234
 
 234:                                              ; preds = %231
-  %235 = load float, ptr %.092.sroa.gep100, align 8, !tbaa !58
+  %235 = load float, ptr %.092.sroa.gep100, align 8, !tbaa !57
   %236 = fsub float %194, %.val121.val
   %237 = fcmp olt float %235, %236
   br i1 %237, label %Amap_CutCompareArea.exit, label %Amap_CutCompareArea.exit.thread
 
 Amap_CutCompareArea.exit.thread:                  ; preds = %234, %231, %224, %Amap_CutCompareDelay.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !67
   br label %Amap_CutCompareArea.exit
 
 Amap_CutCompareArea.exit:                         ; preds = %234, %227, %219, %Amap_CutCompareArea.exit.thread
-  %.093 = load ptr, ptr %.093143, align 8, !tbaa !56
+  %.093 = load ptr, ptr %.093143, align 8, !tbaa !55
   %.not112 = icmp eq ptr %.093, null
-  br i1 %.not112, label %.loopexit.loopexit, label %57, !llvm.loop !71
+  br i1 %.not112, label %.loopexit.loopexit, label %57, !llvm.loop !70
 
 .loopexit.loopexit:                               ; preds = %Amap_CutCompareArea.exit
-  %.pre = load i32, ptr %30, align 4, !tbaa !54
+  %.pre = load i32, ptr %30, align 4, !tbaa !53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %51, %46
@@ -795,13 +795,13 @@ Amap_CutCompareArea.exit:                         ; preds = %234, %227, %219, %A
   %243 = getelementptr inbounds nuw i32, ptr %.094144, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
   %245 = icmp slt i32 %240, %238
-  br i1 %245, label %46, label %._crit_edge.loopexit, !llvm.loop !72
+  br i1 %245, label %46, label %._crit_edge.loopexit, !llvm.loop !71
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
-  %.pre153 = load float, ptr %.092.sroa.gep103, align 8, !tbaa !57
-  %.pre154 = load float, ptr %.092.sroa.gep104, align 8, !tbaa !57
-  %.pre155 = load float, ptr %.092.sroa.gep100, align 8, !tbaa !58
-  %.pre156 = load float, ptr %.092.sroa.gep101, align 8, !tbaa !58
+  %.pre153 = load float, ptr %.092.sroa.gep103, align 8, !tbaa !56
+  %.pre154 = load float, ptr %.092.sroa.gep104, align 8, !tbaa !56
+  %.pre155 = load float, ptr %.092.sroa.gep100, align 8, !tbaa !57
+  %.pre156 = load float, ptr %.092.sroa.gep101, align 8, !tbaa !57
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %29
@@ -814,9 +814,9 @@ Amap_CutCompareArea.exit:                         ; preds = %234, %227, %219, %A
   %252 = fneg float %250
   %253 = select i1 %251, float %252, float %250
   %254 = fdiv float %253, %248
-  %255 = load ptr, ptr %0, align 8, !tbaa !65
+  %255 = load ptr, ptr %0, align 8, !tbaa !64
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 28
-  %257 = load float, ptr %256, align 4, !tbaa !73
+  %257 = load float, ptr %256, align 4, !tbaa !72
   %258 = fsub float %247, %246
   %259 = fcmp olt float %258, 0.000000e+00
   %260 = fneg float %258
@@ -827,9 +827,9 @@ Amap_CutCompareArea.exit:                         ; preds = %234, %227, %219, %A
   %.092.sroa.gep95..092.sroa.gep.v = select i1 %264, ptr %6, ptr %5
   %.092.sroa.gep95..092.sroa.gep.v.sroa.sel.v.sroa.sel.v = select i1 %264, ptr %6, ptr %5
   %.092.sroa.gep95..092.sroa.gep.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.092.sroa.gep95..092.sroa.gep.v.sroa.sel.v.sroa.sel.v, i64 8
-  %265 = load ptr, ptr %.092.sroa.gep95..092.sroa.gep.v, align 8, !tbaa !48
+  %265 = load ptr, ptr %.092.sroa.gep95..092.sroa.gep.v, align 8, !tbaa !47
   %266 = load i32, ptr %265, align 4
-  %267 = load ptr, ptr %.092.sroa.gep95..092.sroa.gep.v.sroa.sel.v.sroa.sel, align 8, !tbaa !38
+  %267 = load ptr, ptr %.092.sroa.gep95..092.sroa.gep.v.sroa.sel.v.sroa.sel, align 8, !tbaa !37
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %269 = load i32, ptr %268, align 8
   %270 = xor i32 %269, %266
@@ -842,8 +842,8 @@ Amap_CutCompareArea.exit:                         ; preds = %234, %227, %219, %A
   %277 = or disjoint i64 %275, %276
   store i64 %277, ptr %1, align 8
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %278, ptr noundef nonnull align 8 dereferenceable(32) %.092.sroa.gep95..092.sroa.gep.v, i64 32, i1 false), !tbaa.struct !68
-  %279 = load ptr, ptr %278, align 8, !tbaa !74
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %278, ptr noundef nonnull align 8 dereferenceable(32) %.092.sroa.gep95..092.sroa.gep.v, i64 32, i1 false), !tbaa.struct !67
+  %279 = load ptr, ptr %278, align 8, !tbaa !73
   %280 = load i32, ptr %279, align 4
   %281 = lshr i32 %280, 15
   %282 = and i32 %281, 131068
@@ -853,7 +853,7 @@ Amap_CutCompareArea.exit:                         ; preds = %234, %227, %219, %A
   %285 = tail call noundef ptr @Aig_MmFlexEntryFetch(ptr noundef %284, i32 noundef %narrow.i) #19
   %286 = zext nneg i32 %narrow.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %285, ptr noundef nonnull readonly align 4 dereferenceable(1) %279, i64 %286, i1 false)
-  store ptr %285, ptr %278, align 8, !tbaa !74
+  store ptr %285, ptr %278, align 8, !tbaa !73
   br i1 %.not, label %294, label %287
 
 287:                                              ; preds = %._crit_edge
@@ -885,23 +885,23 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 ; Function Attrs: inlinehint nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc float @Amap_CutAreaDeref(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 65535
   %10 = getelementptr i8, ptr %4, i64 8
-  %.val32 = load ptr, ptr %10, align 8, !tbaa !39
+  %.val32 = load ptr, ptr %10, align 8, !tbaa !38
   %11 = getelementptr i8, ptr %.val32, i64 8
   %.val32.val = load ptr, ptr %11, align 8, !tbaa !23
   %12 = zext nneg i32 %9 to i64
   %13 = getelementptr inbounds nuw ptr, ptr %.val32.val, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load double, ptr %15, align 8, !tbaa !45
+  %16 = load double, ptr %15, align 8, !tbaa !44
   %17 = fptrunc double %16 to float
-  %18 = load ptr, ptr %1, align 8, !tbaa !48
+  %18 = load ptr, ptr %1, align 8, !tbaa !47
   %19 = load i32, ptr %18, align 4
   %.not37 = icmp ult i32 %19, 131072
   br i1 %.not37, label %.critedge, label %.lr.ph
@@ -916,10 +916,10 @@ define internal fastcc float @Amap_CutAreaDeref(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %.036 = phi float [ %17, %.lr.ph ], [ %.2, %67 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %25 = load ptr, ptr %5, align 8, !tbaa !38
+  %25 = load ptr, ptr %5, align 8, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = getelementptr inbounds nuw [15 x i8], ptr %26, i64 0, i64 %indvars.iv
-  %28 = load i8, ptr %27, align 1, !tbaa !35
+  %28 = load i8, ptr %27, align 1, !tbaa !34
   %29 = sext i8 %28 to i32
   %30 = ashr i32 %29, 1
   %31 = sext i32 %30 to i64
@@ -948,7 +948,7 @@ define internal fastcc float @Amap_CutAreaDeref(ptr noundef readonly captures(no
   br i1 %or.cond, label %46, label %._crit_edge
 
 46:                                               ; preds = %22
-  %47 = load float, ptr %21, align 4, !tbaa !64
+  %47 = load float, ptr %21, align 4, !tbaa !63
   %48 = fadd float %.036, %47
   br label %._crit_edge
 
@@ -980,7 +980,7 @@ define internal fastcc float @Amap_CutAreaDeref(ptr noundef readonly captures(no
   %64 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %65 = tail call fastcc float @Amap_CutAreaDeref(ptr noundef nonnull %0, ptr noundef nonnull %64)
   %66 = fadd float %.1, %65
-  %.pre41 = load ptr, ptr %1, align 8, !tbaa !48
+  %.pre41 = load ptr, ptr %1, align 8, !tbaa !47
   br label %67
 
 67:                                               ; preds = %._crit_edge, %58, %63
@@ -991,7 +991,7 @@ define internal fastcc float @Amap_CutAreaDeref(ptr noundef readonly captures(no
   %70 = lshr i32 %69, 17
   %71 = zext nneg i32 %70 to i64
   %72 = icmp samesign ult i64 %indvars.iv.next, %71
-  br i1 %72, label %22, label %.critedge, !llvm.loop !75
+  br i1 %72, label %22, label %.critedge, !llvm.loop !74
 
 .critedge:                                        ; preds = %67, %2
   %.0.lcssa = phi float [ %17, %2 ], [ %.2, %67 ]
@@ -1004,23 +1004,23 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: inlinehint nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc float @Amap_CutAreaRef(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 65535
   %10 = getelementptr i8, ptr %4, i64 8
-  %.val32 = load ptr, ptr %10, align 8, !tbaa !39
+  %.val32 = load ptr, ptr %10, align 8, !tbaa !38
   %11 = getelementptr i8, ptr %.val32, i64 8
   %.val32.val = load ptr, ptr %11, align 8, !tbaa !23
   %12 = zext nneg i32 %9 to i64
   %13 = getelementptr inbounds nuw ptr, ptr %.val32.val, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load double, ptr %15, align 8, !tbaa !45
+  %16 = load double, ptr %15, align 8, !tbaa !44
   %17 = fptrunc double %16 to float
-  %18 = load ptr, ptr %1, align 8, !tbaa !48
+  %18 = load ptr, ptr %1, align 8, !tbaa !47
   %19 = load i32, ptr %18, align 4
   %.not37 = icmp ult i32 %19, 131072
   br i1 %.not37, label %.critedge, label %.lr.ph
@@ -1035,10 +1035,10 @@ define internal fastcc float @Amap_CutAreaRef(ptr noundef readonly captures(none
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %.036 = phi float [ %17, %.lr.ph ], [ %.2, %67 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %25 = load ptr, ptr %5, align 8, !tbaa !38
+  %25 = load ptr, ptr %5, align 8, !tbaa !37
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = getelementptr inbounds nuw [15 x i8], ptr %26, i64 0, i64 %indvars.iv
-  %28 = load i8, ptr %27, align 1, !tbaa !35
+  %28 = load i8, ptr %27, align 1, !tbaa !34
   %29 = sext i8 %28 to i32
   %30 = ashr i32 %29, 1
   %31 = sext i32 %30 to i64
@@ -1067,7 +1067,7 @@ define internal fastcc float @Amap_CutAreaRef(ptr noundef readonly captures(none
   br i1 %or.cond, label %46, label %._crit_edge
 
 46:                                               ; preds = %22
-  %47 = load float, ptr %21, align 4, !tbaa !64
+  %47 = load float, ptr %21, align 4, !tbaa !63
   %48 = fadd float %.036, %47
   br label %._crit_edge
 
@@ -1099,7 +1099,7 @@ define internal fastcc float @Amap_CutAreaRef(ptr noundef readonly captures(none
   %64 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %65 = tail call fastcc float @Amap_CutAreaRef(ptr noundef nonnull %0, ptr noundef nonnull %64)
   %66 = fadd float %.1, %65
-  %.pre41 = load ptr, ptr %1, align 8, !tbaa !48
+  %.pre41 = load ptr, ptr %1, align 8, !tbaa !47
   br label %67
 
 67:                                               ; preds = %._crit_edge, %58, %63
@@ -1110,7 +1110,7 @@ define internal fastcc float @Amap_CutAreaRef(ptr noundef readonly captures(none
   %70 = lshr i32 %69, 17
   %71 = zext nneg i32 %70 to i64
   %72 = icmp samesign ult i64 %indvars.iv.next, %71
-  br i1 %72, label %22, label %.critedge, !llvm.loop !76
+  br i1 %72, label %22, label %.critedge, !llvm.loop !75
 
 .critedge:                                        ; preds = %67, %2
   %.0.lcssa = phi float [ %17, %2 ], [ %.2, %67 ]
@@ -1127,10 +1127,10 @@ define void @Amap_ManMatch(ptr noundef captures(none) %0, i32 noundef %1, i32 no
   br i1 %7, label %Abc_Clock.exit, label %8
 
 8:                                                ; preds = %3
-  %9 = load i64, ptr %5, align 8, !tbaa !77
+  %9 = load i64, ptr %5, align 8, !tbaa !76
   %.neg44 = mul i64 %9, -1000000
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !80
+  %11 = load i64, ptr %10, align 8, !tbaa !79
   %.neg = sdiv i64 %11, -1000
   %.neg45 = add i64 %.neg, %.neg44
   br label %Abc_Clock.exit
@@ -1171,7 +1171,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %31 = load ptr, ptr %30, align 8, !tbaa !35
+  %31 = load ptr, ptr %30, align 8, !tbaa !34
   %.not28 = icmp eq ptr %31, null
   br i1 %.not28, label %33, label %32
 
@@ -1187,7 +1187,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.val = load i32, ptr %35, align 4, !tbaa !21
   %36 = sext i32 %.val to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !81
+  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !80
 
 .critedge:                                        ; preds = %33, %Abc_Clock.exit
   call void @Aig_MmFlexStop(ptr noundef %13, i32 noundef 0) #19
@@ -1228,7 +1228,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 Amap_ManCleanRefs.exit.i:                         ; preds = %49, %.critedge
   %.val.i3155 = phi i32 [ %.val9.i.i, %.critedge ], [ %.val.i.i, %49 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = load ptr, ptr %52, align 8, !tbaa !29
+  %53 = load ptr, ptr %52, align 8, !tbaa !28
   %54 = getelementptr i8, ptr %53, i64 4
   %.val16.i = load i32, ptr %54, align 4, !tbaa !21
   %55 = icmp sgt i32 %.val16.i, 0
@@ -1255,12 +1255,12 @@ Amap_ManCleanRefs.exit.i:                         ; preds = %49, %.critedge
   %67 = call float @Amap_ManComputeMapping_rec(ptr noundef nonnull readonly %0, ptr noundef %65, i32 noundef %66)
   %68 = fadd float %.01117.i, %67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %69 = load ptr, ptr %52, align 8, !tbaa !29
+  %69 = load ptr, ptr %52, align 8, !tbaa !28
   %70 = getelementptr i8, ptr %69, i64 4
   %.val.i = load i32, ptr %70, align 4, !tbaa !21
   %71 = sext i32 %.val.i to i64
   %72 = icmp slt i64 %indvars.iv.next.i, %71
-  br i1 %72, label %.lr.ph.i, label %Amap_ManComputeMapping.exit.loopexit, !llvm.loop !50
+  br i1 %72, label %.lr.ph.i, label %Amap_ManComputeMapping.exit.loopexit, !llvm.loop !49
 
 Amap_ManComputeMapping.exit.loopexit:             ; preds = %.lr.ph.i
   %.pre53 = load ptr, ptr %15, align 8, !tbaa !20
@@ -1307,20 +1307,20 @@ Amap_ManComputeMapping.exit:                      ; preds = %Amap_ManComputeMapp
   %.1.i = phi i32 [ %.013.i, %77 ], [ %89, %81 ]
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Amap_ManCountInverters.exit, label %77, !llvm.loop !51
+  br i1 %exitcond.not.i, label %Amap_ManCountInverters.exit, label %77, !llvm.loop !50
 
 Amap_ManCountInverters.exit:                      ; preds = %90, %Amap_ManComputeMapping.exit
   %.0.lcssa.i = phi i32 [ 0, %Amap_ManComputeMapping.exit ], [ %.1.i, %90 ]
-  %91 = load ptr, ptr %0, align 8, !tbaa !65
+  %91 = load ptr, ptr %0, align 8, !tbaa !64
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  %93 = load i32, ptr %92, align 4, !tbaa !82
+  %93 = load i32, ptr %92, align 4, !tbaa !81
   %.not = icmp eq i32 %93, 0
   br i1 %.not, label %134, label %94
 
 94:                                               ; preds = %Amap_ManCountInverters.exit
   %95 = sitofp i32 %.0.lcssa.i to float
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %97 = load float, ptr %96, align 4, !tbaa !64
+  %97 = load float, ptr %96, align 4, !tbaa !63
   %98 = call float @llvm.fmuladd.f32(float %95, float %97, float %.011.lcssa.i)
   %99 = fpext float %98 to double
   %100 = fpext float %.011.lcssa.i to double
@@ -1350,13 +1350,13 @@ Amap_ManCountInverters.exit:                      ; preds = %90, %Amap_ManComput
   %113 = getelementptr inbounds ptr, ptr %.val10.val.i, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !24
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 88
-  %116 = load float, ptr %115, align 8, !tbaa !30
+  %116 = load float, ptr %115, align 8, !tbaa !29
   %117 = fptosi float %116 to i32
   %118 = call noundef i32 @llvm.smax.i32(i32 %109, i32 %117)
   %119 = sitofp i32 %118 to float
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i37
-  br i1 %exitcond.not.i41, label %Amap_ManMaxDelay.exit.loopexit, label %106, !llvm.loop !34
+  br i1 %exitcond.not.i41, label %Amap_ManMaxDelay.exit.loopexit, label %106, !llvm.loop !33
 
 Amap_ManMaxDelay.exit.loopexit:                   ; preds = %106
   %120 = fpext float %119 to double
@@ -1372,10 +1372,10 @@ Amap_ManMaxDelay.exit:                            ; preds = %Amap_ManMaxDelay.ex
   br i1 %123, label %Abc_Clock.exit43, label %124
 
 124:                                              ; preds = %Amap_ManMaxDelay.exit
-  %125 = load i64, ptr %4, align 8, !tbaa !77
+  %125 = load i64, ptr %4, align 8, !tbaa !76
   %126 = mul nsw i64 %125, 1000000
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %128 = load i64, ptr %127, align 8, !tbaa !80
+  %128 = load i64, ptr %127, align 8, !tbaa !79
   %129 = sdiv i64 %128, 1000
   %130 = add nsw i64 %129, %126
   br label %Abc_Clock.exit43
@@ -1417,7 +1417,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #11 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #19
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !83
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !82
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #20
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #19
@@ -1425,7 +1425,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #11 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !83, !noalias !85
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !82, !noalias !84
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #19
   br label %17
 
@@ -1441,15 +1441,15 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #11 {
 ; Function Attrs: nounwind uwtable
 define void @Amap_ManMap(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @Amap_ManMerge(ptr noundef %0) #19
-  %2 = load ptr, ptr %0, align 8, !tbaa !65
-  %3 = load i32, ptr %2, align 4, !tbaa !88
+  %2 = load ptr, ptr %0, align 8, !tbaa !64
+  %3 = load i32, ptr %2, align 4, !tbaa !87
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %1
   %5 = phi ptr [ %2, %1 ], [ %12, %.lr.ph ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !89
+  %7 = load i32, ptr %6, align 4, !tbaa !88
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph14, label %._crit_edge
 
@@ -1459,26 +1459,26 @@ define void @Amap_ManMap(ptr noundef %0) local_unnamed_addr #0 {
   %10 = zext i1 %9 to i32
   tail call void @Amap_ManMatch(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %10)
   %11 = add nuw nsw i32 %.012, 1
-  %12 = load ptr, ptr %0, align 8, !tbaa !65
-  %13 = load i32, ptr %12, align 4, !tbaa !88
+  %12 = load ptr, ptr %0, align 8, !tbaa !64
+  %13 = load i32, ptr %12, align 4, !tbaa !87
   %14 = icmp slt i32 %11, %13
-  br i1 %14, label %.lr.ph, label %.preheader, !llvm.loop !90
+  br i1 %14, label %.lr.ph, label %.preheader, !llvm.loop !89
 
 .lr.ph14:                                         ; preds = %.preheader, %.lr.ph14
   %15 = phi ptr [ %22, %.lr.ph14 ], [ %5, %.preheader ]
   %.113 = phi i32 [ %21, %.lr.ph14 ], [ 0, %.preheader ]
-  %16 = load i32, ptr %15, align 4, !tbaa !88
+  %16 = load i32, ptr %15, align 4, !tbaa !87
   %17 = icmp sgt i32 %16, 0
   %18 = icmp ne i32 %.113, 0
   %19 = or i1 %18, %17
   %20 = zext i1 %19 to i32
   tail call void @Amap_ManMatch(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %20)
   %21 = add nuw nsw i32 %.113, 1
-  %22 = load ptr, ptr %0, align 8, !tbaa !65
+  %22 = load ptr, ptr %0, align 8, !tbaa !64
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %24 = load i32, ptr %23, align 4, !tbaa !89
+  %24 = load i32, ptr %23, align 4, !tbaa !88
   %25 = icmp slt i32 %21, %24
-  br i1 %25, label %.lr.ph14, label %._crit_edge, !llvm.loop !91
+  br i1 %25, label %.lr.ph14, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %.lr.ph14, %.preheader
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1500,7 +1500,7 @@ define void @Amap_ManMap(ptr noundef %0) local_unnamed_addr #0 {
 
 35:                                               ; preds = %.lr.ph.i
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  store ptr null, ptr %36, align 8, !tbaa !35
+  store ptr null, ptr %36, align 8, !tbaa !34
   %.pre.i = load ptr, ptr %26, align 8, !tbaa !20
   br label %37
 
@@ -1511,7 +1511,7 @@ define void @Amap_ManMap(ptr noundef %0) local_unnamed_addr #0 {
   %.val.i = load i32, ptr %39, align 4, !tbaa !21
   %40 = sext i32 %.val.i to i64
   %41 = icmp slt i64 %indvars.iv.next.i, %40
-  br i1 %41, label %.lr.ph.i, label %Amap_ManCleanData.exit, !llvm.loop !36
+  br i1 %41, label %.lr.ph.i, label %Amap_ManCleanData.exit, !llvm.loop !35
 
 Amap_ManCleanData.exit:                           ; preds = %37, %._crit_edge
   ret void
@@ -1522,27 +1522,27 @@ declare void @Amap_ManMerge(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc float @Amap_CutAreaRef2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef range(i32 0, 9) %3) unnamed_addr #11 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !38
+  %8 = load ptr, ptr %7, align 8, !tbaa !37
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 65535
   %12 = getelementptr i8, ptr %6, i64 8
-  %.val41 = load ptr, ptr %12, align 8, !tbaa !39
+  %.val41 = load ptr, ptr %12, align 8, !tbaa !38
   %13 = getelementptr i8, ptr %.val41, i64 8
   %.val41.val = load ptr, ptr %13, align 8, !tbaa !23
   %14 = zext nneg i32 %11 to i64
   %15 = getelementptr inbounds nuw ptr, ptr %.val41.val, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %18 = load double, ptr %17, align 8, !tbaa !45
+  %18 = load double, ptr %17, align 8, !tbaa !44
   %19 = fptrunc double %18 to float
   %20 = icmp eq i32 %3, 0
   br i1 %20, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %21 = load ptr, ptr %1, align 8, !tbaa !48
+  %21 = load ptr, ptr %1, align 8, !tbaa !47
   %22 = load i32, ptr %21, align 4
   %.not46 = icmp ult i32 %22, 131072
   br i1 %.not46, label %.critedge, label %.lr.ph
@@ -1560,10 +1560,10 @@ define internal fastcc float @Amap_CutAreaRef2(ptr noundef readonly captures(non
   %28 = phi ptr [ %21, %.lr.ph ], [ %102, %101 ]
   %.045 = phi float [ %19, %.lr.ph ], [ %.2, %101 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %30 = load ptr, ptr %7, align 8, !tbaa !38
+  %30 = load ptr, ptr %7, align 8, !tbaa !37
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %32 = getelementptr inbounds nuw [15 x i8], ptr %31, i64 0, i64 %indvars.iv
-  %33 = load i8, ptr %32, align 1, !tbaa !35
+  %33 = load i8, ptr %32, align 1, !tbaa !34
   %34 = sext i8 %33 to i32
   %35 = ashr i32 %34, 1
   %36 = sext i32 %35 to i64
@@ -1583,7 +1583,7 @@ define internal fastcc float @Amap_CutAreaRef2(ptr noundef readonly captures(non
   %48 = zext nneg i32 %46 to i64
   %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
   %50 = load i32, ptr %24, align 4, !tbaa !21
-  %51 = load i32, ptr %2, align 8, !tbaa !92
+  %51 = load i32, ptr %2, align 8, !tbaa !91
   %52 = icmp eq i32 %50, %51
   br i1 %52, label %53, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -1611,7 +1611,7 @@ define internal fastcc float @Amap_CutAreaRef2(ptr noundef readonly captures(non
 Vec_PtrGrow.exit.i:                               ; preds = %59, %57
   %61 = phi ptr [ %58, %57 ], [ %60, %59 ]
   store ptr %61, ptr %.phi.trans.insert.i, align 8, !tbaa !23
-  store i32 16, ptr %2, align 8, !tbaa !92
+  store i32 16, ptr %2, align 8, !tbaa !91
   br label %Vec_PtrPush.exit
 
 62:                                               ; preds = %53
@@ -1633,7 +1633,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %59, %57
 71:                                               ; preds = %69, %67
   %72 = phi ptr [ %68, %67 ], [ %70, %69 ]
   store ptr %72, ptr %.phi.trans.insert.i, align 8, !tbaa !23
-  store i32 %63, ptr %2, align 8, !tbaa !92
+  store i32 %63, ptr %2, align 8, !tbaa !91
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %71
@@ -1654,7 +1654,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %or.cond, label %82, label %85
 
 82:                                               ; preds = %Vec_PtrPush.exit
-  %83 = load float, ptr %25, align 4, !tbaa !64
+  %83 = load float, ptr %25, align 4, !tbaa !63
   %84 = fadd float %.045, %83
   br label %85
 
@@ -1688,12 +1688,12 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 101:                                              ; preds = %85, %92, %97
   %.2 = phi float [ %100, %97 ], [ %.1, %92 ], [ %.1, %85 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %102 = load ptr, ptr %1, align 8, !tbaa !48
+  %102 = load ptr, ptr %1, align 8, !tbaa !47
   %103 = load i32, ptr %102, align 4
   %104 = lshr i32 %103, 17
   %105 = zext nneg i32 %104 to i64
   %106 = icmp samesign ult i64 %indvars.iv.next, %105
-  br i1 %106, label %27, label %.critedge, !llvm.loop !93
+  br i1 %106, label %27, label %.critedge, !llvm.loop !92
 
 .critedge:                                        ; preds = %101, %.preheader, %4
   %.036 = phi float [ %19, %4 ], [ %19, %.preheader ], [ %.2, %101 ]
@@ -1785,71 +1785,70 @@ attributes #22 = { nounwind allocsize(0) }
 !23 = !{!22, !6, i64 8}
 !24 = !{!6, !6, i64 0}
 !25 = !{!11, !11, i64 0}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!4, !12, i64 40}
-!30 = !{!31, !10, i64 88}
-!31 = !{!"Amap_Obj_t_", !11, i64 0, !11, i64 0, !11, i64 4, !11, i64 7, !11, i64 7, !11, i64 7, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !7, i64 24, !7, i64 40, !10, i64 48, !7, i64 52, !32, i64 64}
-!32 = !{!"Amap_Mat_t_", !19, i64 0, !33, i64 8, !10, i64 16, !10, i64 20, !10, i64 24}
-!33 = !{!"p1 _ZTS11Amap_Set_t_", !6, i64 0}
-!34 = distinct !{!34, !27, !28}
-!35 = !{!7, !7, i64 0}
-!36 = distinct !{!36, !27, !28}
-!37 = !{!4, !9, i64 8}
-!38 = !{!32, !33, i64 8}
-!39 = !{!40, !12, i64 8}
-!40 = !{!"Amap_Lib_t_", !41, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !42, i64 32, !42, i64 40, !42, i64 48, !42, i64 56, !14, i64 64, !11, i64 72, !11, i64 76, !11, i64 80, !43, i64 88, !11, i64 96, !11, i64 100, !12, i64 104, !12, i64 112, !16, i64 120, !44, i64 128, !44, i64 136, !14, i64 144, !11, i64 152}
-!41 = !{!"p1 omnipotent char", !6, i64 0}
-!42 = !{!"p1 _ZTS11Amap_Gat_t_", !6, i64 0}
-!43 = !{!"p1 _ZTS11Amap_Nod_t_", !6, i64 0}
-!44 = !{!"p2 int", !6, i64 0}
-!45 = !{!46, !47, i64 32}
-!46 = !{!"Amap_Gat_t_", !9, i64 0, !42, i64 8, !41, i64 16, !41, i64 24, !47, i64 32, !41, i64 40, !17, i64 48, !11, i64 56, !11, i64 58, !11, i64 59, !7, i64 64}
-!47 = !{!"double", !7, i64 0}
-!48 = !{!32, !19, i64 0}
-!49 = distinct !{!49, !27, !28}
-!50 = distinct !{!50, !27, !28}
-!51 = distinct !{!51, !27, !28}
-!52 = !{!31, !11, i64 16}
-!53 = !{!31, !10, i64 48}
-!54 = !{!31, !11, i64 12}
-!55 = !{!40, !43, i64 88}
-!56 = !{!33, !33, i64 0}
-!57 = !{!32, !10, i64 16}
-!58 = !{!32, !10, i64 24}
-!59 = distinct !{!59, !27, !28}
-!60 = !{!32, !10, i64 20}
-!61 = distinct !{!61, !27, !28}
-!62 = !{!4, !12, i64 192}
-!63 = distinct !{!63, !27, !28}
-!64 = !{!4, !10, i64 20}
-!65 = !{!4, !5, i64 0}
-!66 = !{!67, !10, i64 24}
-!67 = !{!"Amap_Par_t_", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !10, i64 24, !10, i64 28, !11, i64 32}
-!68 = !{i64 0, i64 8, !69, i64 8, i64 8, !56, i64 16, i64 4, !70, i64 20, i64 4, !70, i64 24, i64 4, !70}
-!69 = !{!19, !19, i64 0}
-!70 = !{!10, !10, i64 0}
-!71 = distinct !{!71, !27, !28}
-!72 = distinct !{!72, !27, !28}
-!73 = !{!67, !10, i64 28}
-!74 = !{!31, !19, i64 64}
-!75 = distinct !{!75, !27, !28}
-!76 = distinct !{!76, !27, !28}
-!77 = !{!78, !79, i64 0}
-!78 = !{!"timespec", !79, i64 0, !79, i64 8}
-!79 = !{!"long", !7, i64 0}
-!80 = !{!78, !79, i64 8}
-!81 = distinct !{!81, !27, !28}
-!82 = !{!67, !11, i64 32}
-!83 = !{!84, !84, i64 0}
-!84 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"vprintf: argument 0"}
-!87 = distinct !{!87, !"vprintf"}
-!88 = !{!67, !11, i64 0}
-!89 = !{!67, !11, i64 4}
-!90 = distinct !{!90, !27, !28}
-!91 = distinct !{!91, !27, !28}
-!92 = !{!22, !11, i64 0}
-!93 = distinct !{!93, !27, !28}
+!28 = !{!4, !12, i64 40}
+!29 = !{!30, !10, i64 88}
+!30 = !{!"Amap_Obj_t_", !11, i64 0, !11, i64 0, !11, i64 4, !11, i64 7, !11, i64 7, !11, i64 7, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !7, i64 24, !7, i64 40, !10, i64 48, !7, i64 52, !31, i64 64}
+!31 = !{!"Amap_Mat_t_", !19, i64 0, !32, i64 8, !10, i64 16, !10, i64 20, !10, i64 24}
+!32 = !{!"p1 _ZTS11Amap_Set_t_", !6, i64 0}
+!33 = distinct !{!33, !27}
+!34 = !{!7, !7, i64 0}
+!35 = distinct !{!35, !27}
+!36 = !{!4, !9, i64 8}
+!37 = !{!31, !32, i64 8}
+!38 = !{!39, !12, i64 8}
+!39 = !{!"Amap_Lib_t_", !40, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !41, i64 32, !41, i64 40, !41, i64 48, !41, i64 56, !14, i64 64, !11, i64 72, !11, i64 76, !11, i64 80, !42, i64 88, !11, i64 96, !11, i64 100, !12, i64 104, !12, i64 112, !16, i64 120, !43, i64 128, !43, i64 136, !14, i64 144, !11, i64 152}
+!40 = !{!"p1 omnipotent char", !6, i64 0}
+!41 = !{!"p1 _ZTS11Amap_Gat_t_", !6, i64 0}
+!42 = !{!"p1 _ZTS11Amap_Nod_t_", !6, i64 0}
+!43 = !{!"p2 int", !6, i64 0}
+!44 = !{!45, !46, i64 32}
+!45 = !{!"Amap_Gat_t_", !9, i64 0, !41, i64 8, !40, i64 16, !40, i64 24, !46, i64 32, !40, i64 40, !17, i64 48, !11, i64 56, !11, i64 58, !11, i64 59, !7, i64 64}
+!46 = !{!"double", !7, i64 0}
+!47 = !{!31, !19, i64 0}
+!48 = distinct !{!48, !27}
+!49 = distinct !{!49, !27}
+!50 = distinct !{!50, !27}
+!51 = !{!30, !11, i64 16}
+!52 = !{!30, !10, i64 48}
+!53 = !{!30, !11, i64 12}
+!54 = !{!39, !42, i64 88}
+!55 = !{!32, !32, i64 0}
+!56 = !{!31, !10, i64 16}
+!57 = !{!31, !10, i64 24}
+!58 = distinct !{!58, !27}
+!59 = !{!31, !10, i64 20}
+!60 = distinct !{!60, !27}
+!61 = !{!4, !12, i64 192}
+!62 = distinct !{!62, !27}
+!63 = !{!4, !10, i64 20}
+!64 = !{!4, !5, i64 0}
+!65 = !{!66, !10, i64 24}
+!66 = !{!"Amap_Par_t_", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !10, i64 24, !10, i64 28, !11, i64 32}
+!67 = !{i64 0, i64 8, !68, i64 8, i64 8, !55, i64 16, i64 4, !69, i64 20, i64 4, !69, i64 24, i64 4, !69}
+!68 = !{!19, !19, i64 0}
+!69 = !{!10, !10, i64 0}
+!70 = distinct !{!70, !27}
+!71 = distinct !{!71, !27}
+!72 = !{!66, !10, i64 28}
+!73 = !{!30, !19, i64 64}
+!74 = distinct !{!74, !27}
+!75 = distinct !{!75, !27}
+!76 = !{!77, !78, i64 0}
+!77 = !{!"timespec", !78, i64 0, !78, i64 8}
+!78 = !{!"long", !7, i64 0}
+!79 = !{!77, !78, i64 8}
+!80 = distinct !{!80, !27}
+!81 = !{!66, !11, i64 32}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"vprintf: argument 0"}
+!86 = distinct !{!86, !"vprintf"}
+!87 = !{!66, !11, i64 0}
+!88 = !{!66, !11, i64 4}
+!89 = distinct !{!89, !27}
+!90 = distinct !{!90, !27}
+!91 = !{!22, !11, i64 0}
+!92 = distinct !{!92, !27}

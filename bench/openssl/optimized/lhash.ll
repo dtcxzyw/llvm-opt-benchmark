@@ -135,17 +135,17 @@ define void @OPENSSL_LH_free(ptr noundef %0) local_unnamed_addr #1 {
   %6 = phi ptr [ %12, %._crit_edge.i ], [ %.pre, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %.preheader.i ]
   %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %8 = load ptr, ptr %7, align 8, !tbaa !25
   %.not14.i = icmp eq ptr %8, null
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph17.i, %.lr.ph.i
   %.01215.i = phi ptr [ %10, %.lr.ph.i ], [ %8, %.lr.ph17.i ]
   %9 = getelementptr inbounds nuw i8, ptr %.01215.i, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  %10 = load ptr, ptr %9, align 8, !tbaa !27
   tail call void @CRYPTO_free(ptr noundef nonnull %.01215.i, ptr noundef nonnull @.str, i32 noundef 108) #7
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !29
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre21.i = load ptr, ptr %0, align 8, !tbaa !14
@@ -156,16 +156,16 @@ define void @OPENSSL_LH_free(ptr noundef %0) local_unnamed_addr #1 {
   %11 = phi i32 [ %.pre22.i, %._crit_edge.loopexit.i ], [ %5, %.lr.ph17.i ]
   %12 = phi ptr [ %.pre21.i, %._crit_edge.loopexit.i ], [ %6, %.lr.ph17.i ]
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
-  store ptr null, ptr %13, align 8, !tbaa !26
+  store ptr null, ptr %13, align 8, !tbaa !25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %14 = zext i32 %11 to i64
   %15 = icmp samesign ult i64 %indvars.iv.next.i, %14
-  br i1 %15, label %.lr.ph17.i, label %OPENSSL_LH_flush.exit, !llvm.loop !31
+  br i1 %15, label %.lr.ph17.i, label %OPENSSL_LH_flush.exit, !llvm.loop !30
 
 OPENSSL_LH_flush.exit:                            ; preds = %._crit_edge.i, %.preheader.i
   %16 = phi ptr [ %.pre, %.preheader.i ], [ %12, %._crit_edge.i ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 0, ptr %17, align 8, !tbaa !32
+  store i64 0, ptr %17, align 8, !tbaa !31
   tail call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 92) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 93) #7
   br label %18
@@ -194,17 +194,17 @@ define void @OPENSSL_LH_flush(ptr noundef captures(address_is_null) %0) local_un
   %6 = phi ptr [ %.pre, %.lr.ph17.preheader ], [ %12, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph17.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %8 = load ptr, ptr %7, align 8, !tbaa !25
   %.not14 = icmp eq ptr %8, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph17, %.lr.ph
   %.01215 = phi ptr [ %10, %.lr.ph ], [ %8, %.lr.ph17 ]
   %9 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  %10 = load ptr, ptr %9, align 8, !tbaa !27
   tail call void @CRYPTO_free(ptr noundef nonnull %.01215, ptr noundef nonnull @.str, i32 noundef 108) #7
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre21 = load ptr, ptr %0, align 8, !tbaa !14
@@ -215,15 +215,15 @@ define void @OPENSSL_LH_flush(ptr noundef captures(address_is_null) %0) local_un
   %11 = phi i32 [ %.pre22, %._crit_edge.loopexit ], [ %5, %.lr.ph17 ]
   %12 = phi ptr [ %.pre21, %._crit_edge.loopexit ], [ %6, %.lr.ph17 ]
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
-  store ptr null, ptr %13, align 8, !tbaa !26
+  store ptr null, ptr %13, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = zext i32 %11 to i64
   %15 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph17, label %._crit_edge18, !llvm.loop !31
+  br i1 %15, label %.lr.ph17, label %._crit_edge18, !llvm.loop !30
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 0, ptr %16, align 8, !tbaa !32
+  store i64 0, ptr %16, align 8, !tbaa !31
   br label %17
 
 17:                                               ; preds = %1, %._crit_edge18
@@ -233,11 +233,11 @@ define void @OPENSSL_LH_flush(ptr noundef captures(address_is_null) %0) local_un
 ; Function Attrs: nounwind uwtable
 define ptr @OPENSSL_LH_insert(ptr noundef captures(none) initializes((96, 100)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 0, ptr %3, align 8, !tbaa !33
+  store i32 0, ptr %3, align 8, !tbaa !32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i64, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = load i64, ptr %6, align 8, !tbaa !32
+  %7 = load i64, ptr %6, align 8, !tbaa !31
   %8 = shl i64 %7, 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i32, ptr %9, align 8, !tbaa !17
@@ -250,7 +250,7 @@ define ptr @OPENSSL_LH_insert(ptr noundef captures(none) initializes((96, 100)) 
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %15 = load i32, ptr %14, align 4, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = load i32, ptr %16, align 8, !tbaa !34
+  %17 = load i32, ptr %16, align 8, !tbaa !33
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %19 = load i32, ptr %18, align 4, !tbaa !19
   %20 = add i32 %17, 1
@@ -280,7 +280,7 @@ define ptr @OPENSSL_LH_insert(ptr noundef captures(none) initializes((96, 100)) 
 32:                                               ; preds = %28, %13
   %33 = phi i32 [ %.pre, %28 ], [ %10, %13 ]
   %storemerge.i = phi i32 [ 0, %28 ], [ %20, %13 ]
-  store i32 %storemerge.i, ptr %16, align 8, !tbaa !34
+  store i32 %storemerge.i, ptr %16, align 8, !tbaa !33
   %34 = add i32 %33, 1
   store i32 %34, ptr %9, align 8, !tbaa !17
   %35 = load ptr, ptr %0, align 8, !tbaa !14
@@ -289,8 +289,8 @@ define ptr @OPENSSL_LH_insert(ptr noundef captures(none) initializes((96, 100)) 
   %38 = add i32 %19, %17
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw ptr, ptr %35, i64 %39
-  store ptr null, ptr %40, align 8, !tbaa !26
-  %.04449.i = load ptr, ptr %37, align 8, !tbaa !26
+  store ptr null, ptr %40, align 8, !tbaa !25
+  %.04449.i = load ptr, ptr %37, align 8, !tbaa !25
   %.not4750.i = icmp eq ptr %.04449.i, null
   br i1 %.not4750.i, label %expand.exit.thread, label %.lr.ph.i
 
@@ -302,30 +302,30 @@ define ptr @OPENSSL_LH_insert(ptr noundef captures(none) initializes((96, 100)) 
   %.04452.i = phi ptr [ %.04449.i, %.lr.ph.i ], [ %.044.i, %50 ]
   %.04351.i = phi ptr [ %37, %.lr.ph.i ], [ %.1.i, %50 ]
   %43 = getelementptr inbounds nuw i8, ptr %.04452.i, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !35
+  %44 = load i64, ptr %43, align 8, !tbaa !34
   %45 = urem i64 %44, %41
   %.not48.i = icmp eq i64 %45, %36
   %46 = getelementptr inbounds nuw i8, ptr %.04452.i, i64 8
   br i1 %.not48.i, label %50, label %47
 
 47:                                               ; preds = %42
-  %48 = load ptr, ptr %46, align 8, !tbaa !28
-  store ptr %48, ptr %.04351.i, align 8, !tbaa !26
-  %49 = load ptr, ptr %40, align 8, !tbaa !26
-  store ptr %49, ptr %46, align 8, !tbaa !28
-  store ptr %.04452.i, ptr %40, align 8, !tbaa !26
+  %48 = load ptr, ptr %46, align 8, !tbaa !27
+  store ptr %48, ptr %.04351.i, align 8, !tbaa !25
+  %49 = load ptr, ptr %40, align 8, !tbaa !25
+  store ptr %49, ptr %46, align 8, !tbaa !27
+  store ptr %.04452.i, ptr %40, align 8, !tbaa !25
   br label %50
 
 50:                                               ; preds = %47, %42
   %.1.i = phi ptr [ %.04351.i, %47 ], [ %46, %42 ]
-  %.044.i = load ptr, ptr %.1.i, align 8, !tbaa !26
+  %.044.i = load ptr, ptr %.1.i, align 8, !tbaa !25
   %.not47.i = icmp eq ptr %.044.i, null
-  br i1 %.not47.i, label %expand.exit.thread, label %42, !llvm.loop !36
+  br i1 %.not47.i, label %expand.exit.thread, label %42, !llvm.loop !35
 
 expand.exit:                                      ; preds = %21
-  %51 = load i32, ptr %3, align 8, !tbaa !33
+  %51 = load i32, ptr %3, align 8, !tbaa !32
   %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %3, align 8, !tbaa !33
+  store i32 %52, ptr %3, align 8, !tbaa !32
   br label %110
 
 expand.exit.thread:                               ; preds = %50, %32, %2
@@ -351,7 +351,7 @@ expand.exit.thread:                               ; preds = %50, %32, %2
   %64 = zext i32 %63 to i64
   %65 = urem i64 %.031.i, %64
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %67 = load i32, ptr %66, align 8, !tbaa !34
+  %67 = load i32, ptr %66, align 8, !tbaa !33
   %68 = zext i32 %67 to i64
   %69 = icmp samesign ult i64 %65, %68
   br i1 %69, label %70, label %75
@@ -370,7 +370,7 @@ expand.exit.thread:                               ; preds = %50, %32, %2
   %77 = ashr exact i64 %sext.i, 29
   %78 = getelementptr inbounds i8, ptr %76, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.03240.i = load ptr, ptr %78, align 8, !tbaa !26
+  %.03240.i = load ptr, ptr %78, align 8, !tbaa !25
   %.not3741.i = icmp eq ptr %.03240.i, null
   br i1 %.not3741.i, label %getrn.exit.thread, label %.lr.ph.i27
 
@@ -382,7 +382,7 @@ expand.exit.thread:                               ; preds = %50, %32, %2
   %.03243.i = phi ptr [ %.03240.i, %.lr.ph.i27 ], [ %.032.i, %96 ]
   %.03342.i = phi ptr [ %78, %.lr.ph.i27 ], [ %.1.i28, %96 ]
   %82 = getelementptr inbounds nuw i8, ptr %.03243.i, i64 16
-  %83 = load i64, ptr %82, align 8, !tbaa !35
+  %83 = load i64, ptr %82, align 8, !tbaa !34
   %.not38.i = icmp eq i64 %83, %.031.i
   br i1 %.not38.i, label %84, label %96
 
@@ -392,7 +392,7 @@ expand.exit.thread:                               ; preds = %50, %32, %2
   br i1 %.not39.i, label %91, label %86
 
 86:                                               ; preds = %84
-  %87 = load ptr, ptr %.03243.i, align 8, !tbaa !37
+  %87 = load ptr, ptr %.03243.i, align 8, !tbaa !36
   %88 = load ptr, ptr %79, align 8, !tbaa !15
   %89 = tail call i32 %85(ptr noundef %87, ptr noundef %1, ptr noundef %88) #7
   %90 = icmp eq i32 %89, 0
@@ -400,19 +400,19 @@ expand.exit.thread:                               ; preds = %50, %32, %2
 
 91:                                               ; preds = %84
   %92 = load ptr, ptr %79, align 8, !tbaa !15
-  %93 = load ptr, ptr %.03243.i, align 8, !tbaa !37
+  %93 = load ptr, ptr %.03243.i, align 8, !tbaa !36
   %94 = tail call i32 %92(ptr noundef %93, ptr noundef %1) #7
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %getrn.exit, label %96
 
 96:                                               ; preds = %91, %86, %81
   %.1.i28 = getelementptr inbounds nuw i8, ptr %.03243.i, i64 8
-  %.032.i = load ptr, ptr %.1.i28, align 8, !tbaa !26
+  %.032.i = load ptr, ptr %.1.i28, align 8, !tbaa !25
   %.not37.i = icmp eq ptr %.032.i, null
-  br i1 %.not37.i, label %getrn.exit.thread, label %81, !llvm.loop !38
+  br i1 %.not37.i, label %getrn.exit.thread, label %81, !llvm.loop !37
 
 getrn.exit:                                       ; preds = %86, %91
-  %.pr = load ptr, ptr %.03342.i, align 8, !tbaa !26
+  %.pr = load ptr, ptr %.03342.i, align 8, !tbaa !25
   %97 = icmp eq ptr %.pr, null
   br i1 %97, label %getrn.exit.thread, label %108
 
@@ -423,26 +423,26 @@ getrn.exit.thread:                                ; preds = %96, %75, %getrn.exi
   br i1 %99, label %100, label %103
 
 100:                                              ; preds = %getrn.exit.thread
-  %101 = load i32, ptr %3, align 8, !tbaa !33
+  %101 = load i32, ptr %3, align 8, !tbaa !32
   %102 = add nsw i32 %101, 1
-  store i32 %102, ptr %3, align 8, !tbaa !33
+  store i32 %102, ptr %3, align 8, !tbaa !32
   br label %110
 
 103:                                              ; preds = %getrn.exit.thread
-  store ptr %1, ptr %98, align 8, !tbaa !37
+  store ptr %1, ptr %98, align 8, !tbaa !36
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store ptr null, ptr %104, align 8, !tbaa !28
+  store ptr null, ptr %104, align 8, !tbaa !27
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  store i64 %.031.i, ptr %105, align 8, !tbaa !35
-  store ptr %98, ptr %.033.lcssa.i32, align 8, !tbaa !26
-  %106 = load i64, ptr %6, align 8, !tbaa !32
+  store i64 %.031.i, ptr %105, align 8, !tbaa !34
+  store ptr %98, ptr %.033.lcssa.i32, align 8, !tbaa !25
+  %106 = load i64, ptr %6, align 8, !tbaa !31
   %107 = add i64 %106, 1
-  store i64 %107, ptr %6, align 8, !tbaa !32
+  store i64 %107, ptr %6, align 8, !tbaa !31
   br label %110
 
 108:                                              ; preds = %getrn.exit
-  %109 = load ptr, ptr %.pr, align 8, !tbaa !37
-  store ptr %1, ptr %.pr, align 8, !tbaa !37
+  %109 = load ptr, ptr %.pr, align 8, !tbaa !36
+  store ptr %1, ptr %.pr, align 8, !tbaa !36
   br label %110
 
 110:                                              ; preds = %expand.exit, %103, %108, %100
@@ -455,7 +455,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: nounwind uwtable
 define ptr @OPENSSL_LH_delete(ptr noundef captures(none) initializes((96, 100)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 0, ptr %3, align 8, !tbaa !33
+  store i32 0, ptr %3, align 8, !tbaa !32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %.not.i = icmp eq ptr %5, null
@@ -478,7 +478,7 @@ define ptr @OPENSSL_LH_delete(ptr noundef captures(none) initializes((96, 100)) 
   %15 = zext i32 %14 to i64
   %16 = urem i64 %.031.i, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load i32, ptr %17, align 8, !tbaa !34
+  %18 = load i32, ptr %17, align 8, !tbaa !33
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %16, %19
   br i1 %20, label %21, label %26
@@ -497,7 +497,7 @@ define ptr @OPENSSL_LH_delete(ptr noundef captures(none) initializes((96, 100)) 
   %28 = ashr exact i64 %sext.i, 29
   %29 = getelementptr inbounds i8, ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.03240.i = load ptr, ptr %29, align 8, !tbaa !26
+  %.03240.i = load ptr, ptr %29, align 8, !tbaa !25
   %.not3741.i = icmp eq ptr %.03240.i, null
   br i1 %.not3741.i, label %contract.exit, label %.lr.ph.i
 
@@ -509,7 +509,7 @@ define ptr @OPENSSL_LH_delete(ptr noundef captures(none) initializes((96, 100)) 
   %.03243.i = phi ptr [ %.03240.i, %.lr.ph.i ], [ %.032.i, %47 ]
   %.03342.i = phi ptr [ %29, %.lr.ph.i ], [ %.1.i, %47 ]
   %33 = getelementptr inbounds nuw i8, ptr %.03243.i, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !35
+  %34 = load i64, ptr %33, align 8, !tbaa !34
   %.not38.i = icmp eq i64 %34, %.031.i
   br i1 %.not38.i, label %35, label %47
 
@@ -519,7 +519,7 @@ define ptr @OPENSSL_LH_delete(ptr noundef captures(none) initializes((96, 100)) 
   br i1 %.not39.i, label %42, label %37
 
 37:                                               ; preds = %35
-  %38 = load ptr, ptr %.03243.i, align 8, !tbaa !37
+  %38 = load ptr, ptr %.03243.i, align 8, !tbaa !36
   %39 = load ptr, ptr %30, align 8, !tbaa !15
   %40 = tail call i32 %36(ptr noundef %38, ptr noundef %1, ptr noundef %39) #7
   %41 = icmp eq i32 %40, 0
@@ -527,32 +527,32 @@ define ptr @OPENSSL_LH_delete(ptr noundef captures(none) initializes((96, 100)) 
 
 42:                                               ; preds = %35
   %43 = load ptr, ptr %30, align 8, !tbaa !15
-  %44 = load ptr, ptr %.03243.i, align 8, !tbaa !37
+  %44 = load ptr, ptr %.03243.i, align 8, !tbaa !36
   %45 = tail call i32 %43(ptr noundef %44, ptr noundef %1) #7
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %getrn.exit, label %47
 
 47:                                               ; preds = %42, %37, %32
   %.1.i = getelementptr inbounds nuw i8, ptr %.03243.i, i64 8
-  %.032.i = load ptr, ptr %.1.i, align 8, !tbaa !26
+  %.032.i = load ptr, ptr %.1.i, align 8, !tbaa !25
   %.not37.i = icmp eq ptr %.032.i, null
-  br i1 %.not37.i, label %contract.exit, label %32, !llvm.loop !38
+  br i1 %.not37.i, label %contract.exit, label %32, !llvm.loop !37
 
 getrn.exit:                                       ; preds = %37, %42
-  %.pr = load ptr, ptr %.03342.i, align 8, !tbaa !26
+  %.pr = load ptr, ptr %.03342.i, align 8, !tbaa !25
   %48 = icmp eq ptr %.pr, null
   br i1 %48, label %contract.exit, label %49
 
 49:                                               ; preds = %getrn.exit
   %50 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !28
-  store ptr %51, ptr %.03342.i, align 8, !tbaa !26
-  %52 = load ptr, ptr %.pr, align 8, !tbaa !37
+  %51 = load ptr, ptr %50, align 8, !tbaa !27
+  store ptr %51, ptr %.03342.i, align 8, !tbaa !25
+  %52 = load ptr, ptr %.pr, align 8, !tbaa !36
   tail call void @CRYPTO_free(ptr noundef nonnull %.pr, ptr noundef nonnull @.str, i32 noundef 162) #7
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %54 = load i64, ptr %53, align 8, !tbaa !32
+  %54 = load i64, ptr %53, align 8, !tbaa !31
   %55 = add i64 %54, -1
-  store i64 %55, ptr %53, align 8, !tbaa !32
+  store i64 %55, ptr %53, align 8, !tbaa !31
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %57 = load i32, ptr %56, align 8, !tbaa !17
   %58 = icmp ugt i32 %57, 16
@@ -569,14 +569,14 @@ getrn.exit:                                       ; preds = %37, %42
 
 65:                                               ; preds = %59
   %66 = load ptr, ptr %0, align 8, !tbaa !14
-  %67 = load i32, ptr %17, align 8, !tbaa !34
+  %67 = load i32, ptr %17, align 8, !tbaa !33
   %68 = load i32, ptr %13, align 4, !tbaa !19
   %69 = add i32 %67, -1
   %70 = add i32 %69, %68
   %71 = zext i32 %70 to i64
   %72 = getelementptr inbounds nuw ptr, ptr %66, i64 %71
-  %73 = load ptr, ptr %72, align 8, !tbaa !26
-  store ptr null, ptr %72, align 8, !tbaa !26
+  %73 = load ptr, ptr %72, align 8, !tbaa !25
+  store ptr null, ptr %72, align 8, !tbaa !25
   %74 = icmp eq i32 %67, 0
   br i1 %74, label %75, label %90
 
@@ -588,9 +588,9 @@ getrn.exit:                                       ; preds = %37, %42
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %75
-  %81 = load i32, ptr %3, align 8, !tbaa !33
+  %81 = load i32, ptr %3, align 8, !tbaa !32
   %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %3, align 8, !tbaa !33
+  store i32 %82, ptr %3, align 8, !tbaa !32
   %.pre.pre.i = load ptr, ptr %0, align 8, !tbaa !14
   br label %84
 
@@ -615,29 +615,29 @@ getrn.exit:                                       ; preds = %37, %42
   %91 = phi i32 [ %57, %65 ], [ %.pre, %84 ]
   %storemerge.pre-phi.i = phi i32 [ %69, %65 ], [ %.pre34.i, %84 ]
   %92 = phi ptr [ %66, %65 ], [ %.pre.i, %84 ]
-  store i32 %storemerge.pre-phi.i, ptr %17, align 8, !tbaa !34
+  store i32 %storemerge.pre-phi.i, ptr %17, align 8, !tbaa !33
   %93 = add i32 %91, -1
   store i32 %93, ptr %56, align 8, !tbaa !17
   %94 = sext i32 %storemerge.pre-phi.i to i64
   %95 = getelementptr inbounds ptr, ptr %92, i64 %94
-  %96 = load ptr, ptr %95, align 8, !tbaa !26
+  %96 = load ptr, ptr %95, align 8, !tbaa !25
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %.preheader.i
 
 98:                                               ; preds = %90
-  store ptr %73, ptr %95, align 8, !tbaa !26
+  store ptr %73, ptr %95, align 8, !tbaa !25
   br label %contract.exit
 
 .preheader.i:                                     ; preds = %90, %.preheader.i
   %.0.i19 = phi ptr [ %100, %.preheader.i ], [ %96, %90 ]
   %99 = getelementptr inbounds nuw i8, ptr %.0.i19, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !28
+  %100 = load ptr, ptr %99, align 8, !tbaa !27
   %.not.i20 = icmp eq ptr %100, null
-  br i1 %.not.i20, label %101, label %.preheader.i, !llvm.loop !39
+  br i1 %.not.i20, label %101, label %.preheader.i, !llvm.loop !38
 
 101:                                              ; preds = %.preheader.i
   %102 = getelementptr inbounds nuw i8, ptr %.0.i19, i64 8
-  store ptr %73, ptr %102, align 8, !tbaa !28
+  store ptr %73, ptr %102, align 8, !tbaa !27
   br label %contract.exit
 
 contract.exit:                                    ; preds = %47, %26, %101, %98, %49, %59, %getrn.exit
@@ -648,12 +648,12 @@ contract.exit:                                    ; preds = %47, %26, %101, %98,
 ; Function Attrs: nounwind uwtable
 define ptr @OPENSSL_LH_retrieve(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %4 = load i32, ptr %3, align 8, !tbaa !33
+  %4 = load i32, ptr %3, align 8, !tbaa !32
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  store i32 0, ptr %3, align 8, !tbaa !33
+  store i32 0, ptr %3, align 8, !tbaa !32
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -679,7 +679,7 @@ define ptr @OPENSSL_LH_retrieve(ptr noundef captures(none) %0, ptr noundef %1) l
   %18 = zext i32 %17 to i64
   %19 = urem i64 %.031.i, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load i32, ptr %20, align 8, !tbaa !34
+  %21 = load i32, ptr %20, align 8, !tbaa !33
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %19, %22
   br i1 %23, label %24, label %29
@@ -698,7 +698,7 @@ define ptr @OPENSSL_LH_retrieve(ptr noundef captures(none) %0, ptr noundef %1) l
   %31 = ashr exact i64 %sext.i, 29
   %32 = getelementptr inbounds i8, ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.03240.i = load ptr, ptr %32, align 8, !tbaa !26
+  %.03240.i = load ptr, ptr %32, align 8, !tbaa !25
   %.not3741.i = icmp eq ptr %.03240.i, null
   br i1 %.not3741.i, label %getrn.exit.thread, label %.lr.ph.i
 
@@ -710,7 +710,7 @@ define ptr @OPENSSL_LH_retrieve(ptr noundef captures(none) %0, ptr noundef %1) l
   %.03243.i = phi ptr [ %.03240.i, %.lr.ph.i ], [ %.032.i, %50 ]
   %.03342.i = phi ptr [ %32, %.lr.ph.i ], [ %.1.i, %50 ]
   %36 = getelementptr inbounds nuw i8, ptr %.03243.i, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !35
+  %37 = load i64, ptr %36, align 8, !tbaa !34
   %.not38.i = icmp eq i64 %37, %.031.i
   br i1 %.not38.i, label %38, label %50
 
@@ -720,7 +720,7 @@ define ptr @OPENSSL_LH_retrieve(ptr noundef captures(none) %0, ptr noundef %1) l
   br i1 %.not39.i, label %45, label %40
 
 40:                                               ; preds = %38
-  %41 = load ptr, ptr %.03243.i, align 8, !tbaa !37
+  %41 = load ptr, ptr %.03243.i, align 8, !tbaa !36
   %42 = load ptr, ptr %33, align 8, !tbaa !15
   %43 = tail call i32 %39(ptr noundef %41, ptr noundef %1, ptr noundef %42) #7
   %44 = icmp eq i32 %43, 0
@@ -728,24 +728,24 @@ define ptr @OPENSSL_LH_retrieve(ptr noundef captures(none) %0, ptr noundef %1) l
 
 45:                                               ; preds = %38
   %46 = load ptr, ptr %33, align 8, !tbaa !15
-  %47 = load ptr, ptr %.03243.i, align 8, !tbaa !37
+  %47 = load ptr, ptr %.03243.i, align 8, !tbaa !36
   %48 = tail call i32 %46(ptr noundef %47, ptr noundef %1) #7
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %getrn.exit, label %50
 
 50:                                               ; preds = %45, %40, %35
   %.1.i = getelementptr inbounds nuw i8, ptr %.03243.i, i64 8
-  %.032.i = load ptr, ptr %.1.i, align 8, !tbaa !26
+  %.032.i = load ptr, ptr %.1.i, align 8, !tbaa !25
   %.not37.i = icmp eq ptr %.032.i, null
-  br i1 %.not37.i, label %getrn.exit.thread, label %35, !llvm.loop !38
+  br i1 %.not37.i, label %getrn.exit.thread, label %35, !llvm.loop !37
 
 getrn.exit:                                       ; preds = %40, %45
-  %.pr = load ptr, ptr %.03342.i, align 8, !tbaa !26
+  %.pr = load ptr, ptr %.03342.i, align 8, !tbaa !25
   %51 = icmp eq ptr %.pr, null
   br i1 %51, label %getrn.exit.thread, label %52
 
 52:                                               ; preds = %getrn.exit
-  %53 = load ptr, ptr %.pr, align 8, !tbaa !37
+  %53 = load ptr, ptr %.pr, align 8, !tbaa !36
   br label %getrn.exit.thread
 
 getrn.exit.thread:                                ; preds = %50, %29, %getrn.exit, %52
@@ -775,23 +775,23 @@ define void @OPENSSL_LH_doall(ptr noundef readonly captures(address_is_null) %0,
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %.loopexit.us.i ], [ %10, %.lr.ph24.i ]
   %11 = load ptr, ptr %0, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv27.i
-  %13 = load ptr, ptr %12, align 8, !tbaa !26
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
   %.not20.us.i = icmp eq ptr %13, null
   br i1 %.not20.us.i, label %.loopexit.us.i, label %.lr.ph.us.i
 
 .loopexit.us.i:                                   ; preds = %.lr.ph.us.i, %.lr.ph24.split.us.i
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %14 = icmp sgt i64 %indvars.iv27.i, 0
-  br i1 %14, label %.lr.ph24.split.us.i, label %doall_util_fn.exit, !llvm.loop !40
+  br i1 %14, label %.lr.ph24.split.us.i, label %doall_util_fn.exit, !llvm.loop !39
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph24.split.us.i, %.lr.ph.us.i
   %.01621.us.us.i = phi ptr [ %16, %.lr.ph.us.i ], [ %13, %.lr.ph24.split.us.i ]
   %15 = getelementptr inbounds nuw i8, ptr %.01621.us.us.i, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !28
-  %17 = load ptr, ptr %.01621.us.us.i, align 8, !tbaa !37
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  %17 = load ptr, ptr %.01621.us.us.i, align 8, !tbaa !36
   tail call void %6(ptr noundef %17, ptr noundef %1) #7
   %.not.us.us.i = icmp eq ptr %16, null
-  br i1 %.not.us.us.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !42
+  br i1 %.not.us.us.i, label %.loopexit.us.i, label %.lr.ph.us.i, !llvm.loop !41
 
 doall_util_fn.exit:                               ; preds = %.loopexit.us.i, %4, %2
   ret void
@@ -818,24 +818,24 @@ define void @OPENSSL_LH_doall_arg(ptr noundef readonly captures(address_is_null)
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph24.split.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %12 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %12, label %.lr.ph24.split.i, label %doall_util_fn.exit, !llvm.loop !43
+  br i1 %12, label %.lr.ph24.split.i, label %doall_util_fn.exit, !llvm.loop !42
 
 .lr.ph24.split.i:                                 ; preds = %.loopexit.i, %.lr.ph24.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ %11, %.lr.ph24.i ]
   %13 = load ptr, ptr %0, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
-  %15 = load ptr, ptr %14, align 8, !tbaa !26
+  %15 = load ptr, ptr %14, align 8, !tbaa !25
   %.not20.i = icmp eq ptr %15, null
   br i1 %.not20.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph24.split.i, %.lr.ph.i
   %.01621.i = phi ptr [ %17, %.lr.ph.i ], [ %15, %.lr.ph24.split.i ]
   %16 = getelementptr inbounds nuw i8, ptr %.01621.i, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
-  %18 = load ptr, ptr %.01621.i, align 8, !tbaa !37
+  %17 = load ptr, ptr %16, align 8, !tbaa !27
+  %18 = load ptr, ptr %.01621.i, align 8, !tbaa !36
   tail call void %7(ptr noundef %18, ptr noundef %2, ptr noundef %1) #7
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !43
 
 doall_util_fn.exit:                               ; preds = %.loopexit.i, %5, %3
   ret void
@@ -860,24 +860,24 @@ define void @OPENSSL_LH_doall_arg_thunk(ptr noundef readonly captures(address_is
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph24.split.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %11 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %11, label %.lr.ph24.split.i, label %doall_util_fn.exit, !llvm.loop !43
+  br i1 %11, label %.lr.ph24.split.i, label %doall_util_fn.exit, !llvm.loop !42
 
 .lr.ph24.split.i:                                 ; preds = %.loopexit.i, %.lr.ph24.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ %10, %.lr.ph24.i ]
   %12 = load ptr, ptr %0, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
-  %14 = load ptr, ptr %13, align 8, !tbaa !26
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
   %.not20.i = icmp eq ptr %14, null
   br i1 %.not20.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph24.split.i, %.lr.ph.i
   %.01621.i = phi ptr [ %16, %.lr.ph.i ], [ %14, %.lr.ph24.split.i ]
   %15 = getelementptr inbounds nuw i8, ptr %.01621.i, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !28
-  %17 = load ptr, ptr %.01621.i, align 8, !tbaa !37
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  %17 = load ptr, ptr %.01621.i, align 8, !tbaa !36
   tail call void %1(ptr noundef %17, ptr noundef %3, ptr noundef %2) #7
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !43
 
 doall_util_fn.exit:                               ; preds = %.loopexit.i, %4, %6
   ret void
@@ -915,7 +915,7 @@ define i64 @ossl_lh_strcasehash(ptr noundef readonly captures(address_is_null) %
   %21 = add nuw nsw i64 %.02224, 256
   %.pr = load i8, ptr %20, align 1, !tbaa !22
   %.not = icmp eq i8 %.pr, 0
-  br i1 %.not, label %22, label %.preheader, !llvm.loop !45
+  br i1 %.not, label %22, label %.preheader, !llvm.loop !44
 
 22:                                               ; preds = %.preheader
   %23 = lshr i64 %19, 16
@@ -934,7 +934,7 @@ define i64 @OPENSSL_LH_num_items(ptr noundef readonly captures(address_is_null) 
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load i64, ptr %3, align 8, !tbaa !32
+  %4 = load i64, ptr %3, align 8, !tbaa !31
   br label %5
 
 5:                                                ; preds = %1, %2
@@ -959,7 +959,7 @@ define void @OPENSSL_LH_set_down_load(ptr noundef writeonly captures(none) initi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @OPENSSL_LH_error(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load i32, ptr %2, align 8, !tbaa !33
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   ret i32 %3
 }
 
@@ -1002,26 +1002,25 @@ attributes #7 = { nounwind }
 !20 = !{!4, !10, i64 72}
 !21 = !{!4, !10, i64 80}
 !22 = !{!7, !7, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS13lhash_node_st", !6, i64 0}
-!28 = !{!29, !27, i64 8}
-!29 = !{!"lhash_node_st", !6, i64 0, !27, i64 8, !10, i64 16}
-!30 = distinct !{!30, !24, !25}
-!31 = distinct !{!31, !24, !25}
-!32 = !{!4, !10, i64 88}
-!33 = !{!4, !9, i64 96}
-!34 = !{!4, !9, i64 64}
-!35 = !{!29, !10, i64 16}
-!36 = distinct !{!36, !24, !25}
-!37 = !{!29, !6, i64 0}
-!38 = distinct !{!38, !24, !25}
-!39 = distinct !{!39, !24, !25}
-!40 = distinct !{!40, !24, !25, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = distinct !{!42, !24, !25, !41}
-!43 = distinct !{!43, !24, !25}
-!44 = distinct !{!44, !24, !25}
-!45 = distinct !{!45, !24, !25}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 _ZTS13lhash_node_st", !6, i64 0}
+!27 = !{!28, !26, i64 8}
+!28 = !{!"lhash_node_st", !6, i64 0, !26, i64 8, !10, i64 16}
+!29 = distinct !{!29, !24}
+!30 = distinct !{!30, !24}
+!31 = !{!4, !10, i64 88}
+!32 = !{!4, !9, i64 96}
+!33 = !{!4, !9, i64 64}
+!34 = !{!28, !10, i64 16}
+!35 = distinct !{!35, !24}
+!36 = !{!28, !6, i64 0}
+!37 = distinct !{!37, !24}
+!38 = distinct !{!38, !24}
+!39 = distinct !{!39, !24, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !24, !40}
+!42 = distinct !{!42, !24}
+!43 = distinct !{!43, !24}
+!44 = distinct !{!44, !24}

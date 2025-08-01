@@ -1429,7 +1429,7 @@ proto_item_set_generated.exit:                    ; preds = %22, %40, %43
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %50, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %53 = load i8, ptr %52, align 8, !range !9, !noundef !10
+  %53 = load i8, ptr %52, align 8, !range !8, !noundef !9
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %.critedge
 
@@ -1446,7 +1446,7 @@ proto_item_set_generated.exit:                    ; preds = %22, %40, %43
 
 61:                                               ; preds = %.critedge, %55
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 41
-  %63 = load i8, ptr %62, align 1, !range !9, !noundef !10
+  %63 = load i8, ptr %62, align 1, !range !8, !noundef !9
   %64 = trunc nuw i8 %63 to i1
   %.not = xor i1 %64, true
   %or.cond4 = or i1 %9, %.not
@@ -2734,7 +2734,7 @@ proto_item_set_generated.exit388:                 ; preds = %proto_item_set_gene
   br i1 %or.cond460, label %517, label %proto_item_set_generated.exit400
 
 517:                                              ; preds = %515
-  %518 = load i8, ptr %141, align 1, !range !9, !noundef !10
+  %518 = load i8, ptr %141, align 1, !range !8, !noundef !9
   %519 = trunc nuw i8 %518 to i1
   br i1 %519, label %520, label %proto_item_set_generated.exit400
 
@@ -2988,8 +2988,7 @@ attributes #15 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!8 = !{i8 0, i8 2}
+!9 = !{}

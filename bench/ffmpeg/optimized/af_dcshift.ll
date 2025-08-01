@@ -189,7 +189,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %87 = load i32, ptr %39, align 8, !tbaa !39
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next105, %88
-  br i1 %89, label %.lr.ph83.split.split.us, label %._crit_edge84, !llvm.loop !53
+  br i1 %89, label %.lr.ph83.split.split.us, label %._crit_edge84, !llvm.loop !52
 
 .lr.ph83.split.split:                             ; preds = %.lr.ph83.split, %110
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %110 ], [ 0, %.lr.ph83.split ]
@@ -232,7 +232,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %113 = load i32, ptr %39, align 8, !tbaa !39
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next108, %114
-  br i1 %115, label %.lr.ph83.split.split, label %._crit_edge84, !llvm.loop !54
+  br i1 %115, label %.lr.ph83.split.split, label %._crit_edge84, !llvm.loop !53
 
 ._crit_edge84:                                    ; preds = %66, %84, %110, %.lr.ph90.split
   %116 = phi i32 [ %45, %.lr.ph90.split ], [ %113, %110 ], [ %87, %84 ], [ %69, %66 ]
@@ -240,7 +240,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %117 = load i32, ptr %25, align 4, !tbaa !45
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next111, %118
-  br i1 %119, label %.lr.ph90.split, label %.loopexit, !llvm.loop !55
+  br i1 %119, label %.lr.ph90.split, label %.loopexit, !llvm.loop !54
 
 .lr.ph80.split:                                   ; preds = %.lr.ph80, %._crit_edge
   %120 = phi i32 [ %136, %._crit_edge ], [ %26, %.lr.ph80 ]
@@ -266,7 +266,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %133 = load i32, ptr %32, align 8, !tbaa !39
   %134 = sext i32 %133 to i64
   %135 = icmp slt i64 %indvars.iv.next, %134
-  br i1 %135, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !57
+  br i1 %135, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !56
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %25, align 4, !tbaa !45
@@ -278,7 +278,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %138 = sext i32 %136 to i64
   %139 = icmp slt i64 %indvars.iv.next99, %138
-  br i1 %139, label %.lr.ph80.split, label %.loopexit, !llvm.loop !58
+  br i1 %139, label %.lr.ph80.split, label %.loopexit, !llvm.loop !57
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge84, %.lr.ph90, %.lr.ph80, %.preheader76, %.preheader
   %.not73 = icmp eq ptr %.061, %1
@@ -376,13 +376,12 @@ attributes #5 = { nounwind }
 !46 = !{!40, !41, i64 96}
 !47 = !{!11, !11, i64 0}
 !48 = !{!15, !15, i64 0}
-!49 = distinct !{!49, !50, !51, !52}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!53 = distinct !{!53, !50, !51, !52}
-!54 = distinct !{!54, !50, !51}
-!55 = distinct !{!55, !50, !51, !56}
-!56 = !{!"llvm.loop.unswitch.partial.disable"}
-!57 = distinct !{!57, !50, !51}
-!58 = distinct !{!58, !50, !51, !56}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = distinct !{!52, !50, !51}
+!53 = distinct !{!53, !50}
+!54 = distinct !{!54, !50, !55}
+!55 = !{!"llvm.loop.unswitch.partial.disable"}
+!56 = distinct !{!56, !50}
+!57 = distinct !{!57, !50, !55}

@@ -1434,7 +1434,7 @@ dissect_lcaf_geo.exit:                            ; preds = %280, %281, %285, %2
   %321 = sub nsw i32 %.052.i167, %319
   %322 = add i32 %.051.i168, 1
   %323 = icmp sgt i32 %321, 0
-  br i1 %323, label %.lr.ph170, label %dissect_lcaf_natt.exit, !llvm.loop !9
+  br i1 %323, label %.lr.ph170, label %dissect_lcaf_natt.exit, !llvm.loop !8
 
 324:                                              ; preds = %53
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #3
@@ -1729,7 +1729,7 @@ dissect_lcaf_elp_hop.exit:                        ; preds = %480, %482
   %484 = sub nsw i32 %.013.i163, %473
   %485 = add i32 %.0.i141164, 1
   %486 = icmp sgt i32 %484, 0
-  br i1 %486, label %.lr.ph165, label %dissect_lcaf_natt.exit, !llvm.loop !10
+  br i1 %486, label %.lr.ph165, label %dissect_lcaf_natt.exit, !llvm.loop !9
 
 487:                                              ; preds = %53
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #3
@@ -1925,7 +1925,7 @@ dissect_lcaf_rle_entry.exit:                      ; preds = %588, %589
   %595 = sub nsw i32 %.013.i145160, %593
   %596 = add i32 %.0.i146161, 1
   %597 = icmp sgt i32 %595, 0
-  br i1 %597, label %.lr.ph, label %dissect_lcaf_natt.exit, !llvm.loop !11
+  br i1 %597, label %.lr.ph, label %dissect_lcaf_natt.exit, !llvm.loop !10
 
 598:                                              ; preds = %53
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #3
@@ -2358,7 +2358,7 @@ dissect_lisp_locator.exit:                        ; preds = %145, %160
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #3
   %172 = add i32 %.0.i, %.1141
   %exitcond.not = icmp eq i32 %110, %108
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %dissect_lisp_locator.exit, %107, %22
   %.0 = phi i32 [ %6, %22 ], [ %.0135, %107 ], [ %172, %dissect_lisp_locator.exit ]
@@ -2436,7 +2436,7 @@ define hidden i32 @dissect_lisp_map_register(ptr noundef %0, ptr noundef %1, ptr
   %47 = add nuw nsw i32 %.07779, 1
   %48 = tail call i32 @dissect_lisp_mapping(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %28, i32 noundef %47, i1 noundef zeroext false, i32 noundef %.07680, ptr noundef %4)
   %exitcond.not = icmp eq i32 %47, %46
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %22
   %.076.lcssa = phi i32 [ %45, %22 ], [ %48, %.lr.ph ]
@@ -2530,7 +2530,7 @@ define internal i32 @dissect_lisp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %17
 
 17:                                               ; preds = %16, %15
-  %18 = load i8, ptr @ddt_originated, align 1, !range !14, !noundef !15
+  %18 = load i8, ptr @ddt_originated, align 1, !range !13, !noundef !14
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %22
 
@@ -2748,7 +2748,7 @@ define internal i32 @dissect_lisp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @proto_item_set_len(ptr noundef %118, i32 noundef %.sink265.i)
   %135 = add i32 %.sink265.i, %.1232247.i
   %exitcond.not.i = icmp eq i32 %132, %111
-  br i1 %exitcond.not.i, label %.preheader.i, label %115, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.preheader.i, label %115, !llvm.loop !15
 
 136:                                              ; preds = %189, %.lr.ph.i
   %.1250.i = phi i32 [ 0, %.lr.ph.i ], [ %190, %189 ]
@@ -2842,7 +2842,7 @@ define internal i32 @dissect_lisp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %191 = zext i8 %138 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %152, ptr noundef nonnull @.str.474, i32 noundef %190, ptr noundef nonnull %142, i32 noundef %191)
   %exitcond258.not.i = icmp eq i32 %190, %113
-  br i1 %exitcond258.not.i, label %._crit_edge.i, label %136, !llvm.loop !17
+  br i1 %exitcond258.not.i, label %._crit_edge.i, label %136, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %189, %.preheader.i
   %.4.lcssa.i = phi i32 [ %135, %.preheader.i ], [ %.6.i, %189 ]
@@ -2901,7 +2901,7 @@ dissect_lisp_map_request.exit:                    ; preds = %105, %.critedge.i, 
   %221 = add nuw nsw i32 %.043.i, 1
   %222 = tail call i32 @dissect_lisp_mapping(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i8 noundef zeroext %215, i32 noundef %221, i1 noundef zeroext false, i32 noundef %.04142.i, ptr noundef null)
   %exitcond.not.i45 = icmp eq i32 %221, %220
-  br i1 %exitcond.not.i45, label %dissect_lisp_map_reply.exit, label %.lr.ph.i44, !llvm.loop !18
+  br i1 %exitcond.not.i45, label %dissect_lisp_map_reply.exit, label %.lr.ph.i44, !llvm.loop !17
 
 dissect_lisp_map_reply.exit:                      ; preds = %.lr.ph.i44, %212
   %.041.lcssa.i = phi i32 [ 12, %212 ], [ %222, %.lr.ph.i44 ]
@@ -2958,7 +2958,7 @@ dissect_lisp_map_reply.exit:                      ; preds = %.lr.ph.i44, %212
   %256 = add nuw nsw i32 %.083.i, 1
   %257 = tail call i32 @dissect_lisp_mapping(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i8 noundef zeroext %241, i32 noundef %256, i1 noundef zeroext false, i32 noundef %.08082.i, ptr noundef null)
   %exitcond.not.i49 = icmp eq i32 %256, %255
-  br i1 %exitcond.not.i49, label %._crit_edge.i50, label %.lr.ph.i48, !llvm.loop !19
+  br i1 %exitcond.not.i49, label %._crit_edge.i50, label %.lr.ph.i48, !llvm.loop !18
 
 ._crit_edge.i50:                                  ; preds = %.lr.ph.i48, %238
   %.080.lcssa.i = phi i32 [ %254, %238 ], [ %257, %.lr.ph.i48 ]
@@ -3015,7 +3015,7 @@ dissect_lisp_map_notify.exit:                     ; preds = %265, %266
   %289 = add nuw nsw i32 %.029.i, 1
   %290 = tail call i32 @dissect_lisp_mapping(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i8 noundef zeroext %283, i32 noundef %289, i1 noundef zeroext true, i32 noundef %.02728.i, ptr noundef null)
   %exitcond.not.i53 = icmp eq i32 %289, %288
-  br i1 %exitcond.not.i53, label %dissect_lisp_map_referral.exit, label %.lr.ph.i52, !llvm.loop !20
+  br i1 %exitcond.not.i53, label %dissect_lisp_map_referral.exit, label %.lr.ph.i52, !llvm.loop !19
 
 dissect_lisp_map_referral.exit:                   ; preds = %.lr.ph.i52, %280
   %.027.lcssa.i = phi i32 [ 12, %280 ], [ %290, %.lr.ph.i52 ]
@@ -3312,18 +3312,17 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

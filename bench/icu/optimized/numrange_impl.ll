@@ -3033,9 +3033,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(489) ptr @_ZN6icu_77
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %23 = tail call noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_776number5ScaleaSERKS1_(ptr noundef nonnull align 8 dereferenceable(20) %21, ptr noundef nonnull align 8 dereferenceable(20) %22)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %25 = load ptr, ptr %24, align 8, !tbaa !205
+  %25 = load ptr, ptr %24, align 8, !tbaa !204
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store ptr %25, ptr %26, align 8, !tbaa !205
+  store ptr %25, ptr %26, align 8, !tbaa !204
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %29 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %28)
@@ -3338,7 +3338,6 @@ attributes #20 = { builtin nounwind }
 !199 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !200, i64 0}
 !200 = !{!"p1 char16_t", !6, i64 0}
 !201 = !{i64 2149029648}
-!202 = distinct !{!202, !203, !204}
+!202 = distinct !{!202, !203}
 !203 = !{!"llvm.loop.mustprogress"}
-!204 = !{!"llvm.loop.estimated_trip_count"}
-!205 = !{!67, !53, i64 32}
+!204 = !{!67, !53, i64 32}

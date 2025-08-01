@@ -198,13 +198,13 @@ computeSP.exit:                                   ; preds = %33
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %119, ptr %122, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
-  store ptr %5, ptr %4, align 16, !tbaa !15
+  store ptr %5, ptr %4, align 16, !tbaa !14
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %6, ptr %123, align 8, !tbaa !15
+  store ptr %6, ptr %123, align 8, !tbaa !14
   %124 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %7, ptr %124, align 16, !tbaa !15
+  store ptr %7, ptr %124, align 16, !tbaa !14
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %8, ptr %125, align 8, !tbaa !15
+  store ptr %8, ptr %125, align 8, !tbaa !14
   store i64 %12, ptr %0, align 8, !tbaa !10
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %15, ptr %126, align 8, !tbaa !10
@@ -213,13 +213,13 @@ computeSP.exit:                                   ; preds = %33
 
 .preheader.i.preheader:                           ; preds = %computeSP.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #10
-  store ptr %5, ptr %4, align 16, !tbaa !15
+  store ptr %5, ptr %4, align 16, !tbaa !14
   %128 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %6, ptr %128, align 8, !tbaa !15
+  store ptr %6, ptr %128, align 8, !tbaa !14
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %7, ptr %129, align 16, !tbaa !15
+  store ptr %7, ptr %129, align 16, !tbaa !14
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %8, ptr %130, align 8, !tbaa !15
+  store ptr %8, ptr %130, align 8, !tbaa !14
   store i64 %12, ptr %0, align 8, !tbaa !10
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %15, ptr %131, align 8, !tbaa !10
@@ -232,7 +232,7 @@ computeSP.exit:                                   ; preds = %33
   %134 = load i8, ptr %133, align 1, !tbaa !9
   %135 = zext i8 %134 to i64
   %136 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %135
-  %137 = load ptr, ptr %136, align 8, !tbaa !15
+  %137 = load ptr, ptr %136, align 8, !tbaa !14
   %138 = getelementptr inbounds nuw [12 x i8], ptr @shifts, i64 0, i64 %indvars.iv74.i
   %139 = load i8, ptr %138, align 1, !tbaa !9
   %140 = zext i8 %139 to i32
@@ -280,7 +280,7 @@ LR128.exit.i:                                     ; preds = %151, %147
   store i64 %.sink.i.i, ptr %167, align 8, !tbaa !10
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %exitcond77.not.i = icmp eq i64 %indvars.iv.next75.i, 9
-  br i1 %exitcond77.not.i, label %168, label %.preheader.i, !llvm.loop !18
+  br i1 %exitcond77.not.i, label %168, label %.preheader.i, !llvm.loop !17
 
 168:                                              ; preds = %LR128.exit.i
   %169 = call i64 @llvm.fshl.i64(i64 %15, i64 %12, i64 60)
@@ -302,7 +302,7 @@ LR128.exit.i:                                     ; preds = %151, %147
   %178 = load i8, ptr %177, align 1, !tbaa !9
   %179 = zext i8 %178 to i64
   %180 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %179
-  %181 = load ptr, ptr %180, align 8, !tbaa !15
+  %181 = load ptr, ptr %180, align 8, !tbaa !14
   %182 = getelementptr inbounds nuw [12 x i8], ptr getelementptr inbounds nuw (i8, ptr @shifts, i64 12), i64 0, i64 %indvars.iv.i36
   %183 = load i8, ptr %182, align 1, !tbaa !9
   %184 = zext i8 %183 to i32
@@ -350,7 +350,7 @@ LR128.exit48.i:                                   ; preds = %195, %191
   store i64 %.sink.i47.i, ptr %211, align 8, !tbaa !10
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 12
-  br i1 %exitcond.not.i38, label %212, label %.preheader70.i, !llvm.loop !19
+  br i1 %exitcond.not.i38, label %212, label %.preheader70.i, !llvm.loop !18
 
 212:                                              ; preds = %LR128.exit48.i
   %213 = call i64 @llvm.fshl.i64(i64 %32, i64 %31, i64 30)
@@ -521,7 +521,7 @@ define void @av_camellia_crypt(ptr noundef readonly captures(none) %0, ptr nound
   store i8 %50, ptr %51, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %44, label %.preheader.us, !llvm.loop !20
+  br i1 %exitcond.not, label %44, label %.preheader.us, !llvm.loop !19
 
 52:                                               ; preds = %.lr.ph.split.us
   %.025.val.us = load i64, ptr %.02534.us, align 1, !tbaa !9
@@ -535,7 +535,7 @@ define void @av_camellia_crypt(ptr noundef readonly captures(none) %0, ptr nound
   %56 = getelementptr inbounds nuw i8, ptr %.02436.us, i64 16
   %57 = add nsw i32 %43, -1
   %.not.us = icmp eq i32 %43, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %camellia_decrypt.exit
   %58 = phi i32 [ %1134, %camellia_decrypt.exit ], [ %7, %.lr.ph ]
@@ -1635,7 +1635,7 @@ camellia_decrypt.exit:                            ; preds = %339, %1122
   %1133 = getelementptr inbounds nuw i8, ptr %.02436, i64 16
   %1134 = add nsw i32 %58, -1
   %.not = icmp eq i32 %58, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %camellia_decrypt.exit, %54, %6
   ret void
@@ -2790,15 +2790,14 @@ attributes #10 = { nounwind }
 !9 = !{!6, !6, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !6, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 long", !17, i64 0}
-!17 = !{!"any pointer", !6, i64 0}
-!18 = distinct !{!18, !13, !14}
-!19 = distinct !{!19, !13, !14}
-!20 = distinct !{!20, !13, !14}
-!21 = distinct !{!21, !13, !14, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !13, !14}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 long", !16, i64 0}
+!16 = !{!"any pointer", !6, i64 0}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !13}

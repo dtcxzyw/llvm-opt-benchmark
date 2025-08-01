@@ -60,7 +60,7 @@ define hidden range(i32 -1, 6) i32 @_get_colorlabel(ptr noundef readonly capture
 10:                                               ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %.split.loop.exit12, label %6, !llvm.loop !18
+  br i1 %exitcond, label %.split.loop.exit12, label %6
 
 .split.loop.exit:                                 ; preds = %6
   %11 = trunc nuw nsw i64 %indvars.iv to i32
@@ -113,7 +113,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   store ptr %2, ptr %3, align 8, !tbaa !6
   %4 = tail call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store ptr %4, ptr %5, align 8, !tbaa !20
+  store ptr %4, ptr %5, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br label %9
 
@@ -123,7 +123,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   tail call void @dt_shortcut_register(ptr noundef %32, i32 noundef 3, i32 noundef 0, i32 noundef 65472, i32 noundef 0) #10
   tail call void @dt_shortcut_register(ptr noundef %32, i32 noundef 4, i32 noundef 0, i32 noundef 65473, i32 noundef 0) #10
   tail call void @dt_shortcut_register(ptr noundef %32, i32 noundef 5, i32 noundef 0, i32 noundef 65474, i32 noundef 0) #10
-  %8 = load ptr, ptr %5, align 8, !tbaa !20
+  %8 = load ptr, ptr %5, align 8, !tbaa !18
   tail call void @gtk_widget_set_name(ptr noundef %8, ptr noundef nonnull @.str.7) #10
   ret void
 
@@ -154,7 +154,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %22 = phi ptr [ %17, %15 ], [ %20, %18 ]
   tail call void @gtk_widget_set_tooltip_markup(ptr noundef %12, ptr noundef %22) #10
   tail call void @g_free(ptr noundef %22) #10
-  %23 = load ptr, ptr %5, align 8, !tbaa !20
+  %23 = load ptr, ptr %5, align 8, !tbaa !18
   %24 = tail call i64 @gtk_box_get_type() #12
   %25 = tail call ptr @g_type_check_instance_cast(ptr noundef %23, i64 noundef %24) #10
   tail call void @gtk_box_pack_start(ptr noundef %25, ptr noundef %12, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
@@ -162,12 +162,12 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %27 = tail call i64 @g_signal_connect_data(ptr noundef %26, ptr noundef nonnull @.str.4, ptr noundef nonnull @_lib_colorlabels_button_clicked_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #10
   %28 = tail call ptr @g_type_check_instance_cast(ptr noundef %12, i64 noundef 80) #10
   %29 = tail call i64 @g_signal_connect_data(ptr noundef %28, ptr noundef nonnull @.str.5, ptr noundef nonnull @_lib_colorlabels_enter_notify_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #10
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !21
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 112
   %32 = tail call ptr @dt_action_define(ptr noundef nonnull %31, ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %12, ptr noundef nonnull @dt_action_def_color_label) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %7, label %9, !llvm.loop !58
+  br i1 %exitcond.not, label %7, label %9
 }
 
 ; Function Attrs: allocsize(0)
@@ -187,10 +187,10 @@ define internal fastcc ptr @_get_tooltip_for(i32 noundef %0) unnamed_addr #3 {
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #10
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [0 x ptr], ptr @dt_colorlabels_name, i64 0, i64 %3
-  %5 = load ptr, ptr %4, align 8, !tbaa !59
+  %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef %5) #10
   %7 = call ptr @dt_conf_get_string_const(ptr noundef nonnull %2) #10
-  %8 = load i8, ptr %7, align 1, !tbaa !60
+  %8 = load i8, ptr %7, align 1, !tbaa !57
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %12, label %9
 
@@ -242,7 +242,7 @@ define internal void @_lib_colorlabels_button_clicked_callback(ptr noundef readn
 11:                                               ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.i, label %_get_colorlabel.exit, label %7, !llvm.loop !18
+  br i1 %exitcond.i, label %_get_colorlabel.exit, label %7
 
 .split.loop.exit.i:                               ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -250,13 +250,13 @@ define internal void @_lib_colorlabels_button_clicked_callback(ptr noundef readn
 
 _get_colorlabel.exit:                             ; preds = %11, %.split.loop.exit.i
   %spec.select.i = phi i32 [ %12, %.split.loop.exit.i ], [ -1, %11 ]
-  %13 = load i32, ptr %1, align 8, !tbaa !61
+  %13 = load i32, ptr %1, align 8, !tbaa !58
   %14 = icmp eq i32 %13, 4
   br i1 %14, label %15, label %66
 
 15:                                               ; preds = %_get_colorlabel.exit
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %17 = load i32, ptr %16, align 4, !tbaa !66
+  %17 = load i32, ptr %16, align 4, !tbaa !63
   %18 = icmp eq i32 %17, 3
   %19 = icmp ne i32 %spec.select.i, 5
   %or.cond = select i1 %18, i1 %19, i1 false
@@ -264,45 +264,45 @@ _get_colorlabel.exit:                             ; preds = %11, %.split.loop.ex
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store i32 %spec.select.i, ptr %21, align 8, !tbaa !67
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !69
-  %23 = load ptr, ptr %22, align 8, !tbaa !70
+  store i32 %spec.select.i, ptr %21, align 8, !tbaa !64
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !66
+  %23 = load ptr, ptr %22, align 8, !tbaa !67
   %24 = tail call ptr @dt_ui_main_window(ptr noundef %23) #10
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %26 = load double, ptr %25, align 8, !tbaa !75
+  %26 = load double, ptr %25, align 8, !tbaa !72
   %27 = fptosi double %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %29 = load double, ptr %28, align 8, !tbaa !76
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !69
+  %29 = load double, ptr %28, align 8, !tbaa !73
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !66
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1424
-  %32 = load double, ptr %31, align 8, !tbaa !77
+  %32 = load double, ptr %31, align 8, !tbaa !74
   %33 = fmul reassoc nsz arcp contract afn double %32, 5.000000e+01
   %34 = fsub reassoc nsz arcp contract afn double %29, %33
   %35 = fptosi double %34 to i32
   %36 = tail call ptr @gtk_window_new(i32 noundef 0) #10
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store ptr %36, ptr %37, align 8, !tbaa !78
+  store ptr %36, ptr %37, align 8, !tbaa !75
   tail call void @gtk_widget_set_can_focus(ptr noundef %36, i32 noundef 1) #10
-  %38 = load ptr, ptr %37, align 8, !tbaa !78
+  %38 = load ptr, ptr %37, align 8, !tbaa !75
   %39 = tail call i64 @gtk_window_get_type() #12
   %40 = tail call ptr @g_type_check_instance_cast(ptr noundef %38, i64 noundef %39) #10
   tail call void @gtk_window_set_decorated(ptr noundef %40, i32 noundef 0) #10
-  %41 = load ptr, ptr %37, align 8, !tbaa !78
+  %41 = load ptr, ptr %37, align 8, !tbaa !75
   %42 = tail call ptr @g_type_check_instance_cast(ptr noundef %41, i64 noundef %39) #10
   tail call void @gtk_window_set_type_hint(ptr noundef %42, i32 noundef 9) #10
-  %43 = load ptr, ptr %37, align 8, !tbaa !78
+  %43 = load ptr, ptr %37, align 8, !tbaa !75
   %44 = tail call ptr @g_type_check_instance_cast(ptr noundef %43, i64 noundef %39) #10
   %45 = tail call ptr @g_type_check_instance_cast(ptr noundef %24, i64 noundef %39) #10
   tail call void @gtk_window_set_transient_for(ptr noundef %44, ptr noundef %45) #10
-  %46 = load ptr, ptr %37, align 8, !tbaa !78
+  %46 = load ptr, ptr %37, align 8, !tbaa !75
   tail call void @gtk_widget_set_opacity(ptr noundef %46, double noundef 8.000000e-01) #10
-  %47 = load ptr, ptr %37, align 8, !tbaa !78
+  %47 = load ptr, ptr %37, align 8, !tbaa !75
   %48 = tail call ptr @g_type_check_instance_cast(ptr noundef %47, i64 noundef %39) #10
   tail call void @gtk_window_move(ptr noundef %48, i32 noundef %27, i32 noundef %35) #10
   %49 = tail call ptr @gtk_entry_new() #10
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !69
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !66
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1424
-  %52 = load double, ptr %51, align 8, !tbaa !77
+  %52 = load double, ptr %51, align 8, !tbaa !74
   %53 = fmul reassoc nsz arcp contract afn double %52, 1.500000e+02
   %54 = fptosi double %53 to i32
   tail call void @gtk_widget_set_size_request(ptr noundef %49, i32 noundef %54, i32 noundef -1) #10
@@ -310,7 +310,7 @@ _get_colorlabel.exit:                             ; preds = %11, %.split.loop.ex
   %55 = tail call i64 @gtk_editable_get_type() #12
   %56 = tail call ptr @g_type_check_instance_cast(ptr noundef %49, i64 noundef %55) #10
   tail call void @gtk_editable_select_region(ptr noundef %56, i32 noundef 0, i32 noundef -1) #10
-  %57 = load ptr, ptr %37, align 8, !tbaa !78
+  %57 = load ptr, ptr %37, align 8, !tbaa !75
   %58 = tail call i64 @gtk_container_get_type() #12
   %59 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef %58) #10
   tail call void @gtk_container_add(ptr noundef %59, ptr noundef %49) #10
@@ -318,10 +318,10 @@ _get_colorlabel.exit:                             ; preds = %11, %.split.loop.ex
   %61 = tail call i64 @g_signal_connect_data(ptr noundef %49, ptr noundef nonnull @.str.12, ptr noundef nonnull @_lib_colorlabels_key_press, ptr noundef %2, ptr noundef null, i32 noundef 0) #10
   %62 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #10
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %49, ptr noundef %62) #10
-  %63 = load ptr, ptr %37, align 8, !tbaa !78
+  %63 = load ptr, ptr %37, align 8, !tbaa !75
   tail call void @gtk_widget_show_all(ptr noundef %63) #10
   tail call void @gtk_widget_grab_focus(ptr noundef %49) #10
-  %64 = load ptr, ptr %37, align 8, !tbaa !78
+  %64 = load ptr, ptr %37, align 8, !tbaa !75
   %65 = tail call ptr @g_type_check_instance_cast(ptr noundef %64, i64 noundef %39) #10
   tail call void @gtk_window_present(ptr noundef %65) #10
   br label %69
@@ -329,7 +329,7 @@ _get_colorlabel.exit:                             ; preds = %11, %.split.loop.ex
 66:                                               ; preds = %15, %_get_colorlabel.exit
   %67 = tail call ptr @dt_act_on_get_images(i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   tail call void @dt_colorlabels_toggle_label_on_list(ptr noundef %67, i32 noundef %spec.select.i, i32 noundef 1) #10
-  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !79
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !76
   tail call void @dt_collection_update_query(ptr noundef %68, i32 noundef 3, i32 noundef 18, ptr noundef %67) #10
   br label %69
 
@@ -354,7 +354,7 @@ define internal noundef i32 @_lib_colorlabels_enter_notify_callback(ptr noundef 
 11:                                               ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.i, label %_get_colorlabel.exit, label %7, !llvm.loop !18
+  br i1 %exitcond.i, label %_get_colorlabel.exit, label %7
 
 .split.loop.exit.i:                               ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -364,9 +364,9 @@ define internal noundef i32 @_lib_colorlabels_enter_notify_callback(ptr noundef 
 
 _get_colorlabel.exit:                             ; preds = %11, %.split.loop.exit.i
   %spec.select.i = phi i32 [ %14, %.split.loop.exit.i ], [ 0, %11 ]
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !21
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 588
-  store i32 %spec.select.i, ptr %16, align 4, !tbaa !80
+  store i32 %spec.select.i, ptr %16, align 4, !tbaa !77
   ret i32 0
 }
 
@@ -438,7 +438,7 @@ define internal noundef i32 @_lib_colorlabels_destroy(ptr readnone captures(none
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !78
+  %7 = load ptr, ptr %6, align 8, !tbaa !75
   tail call void @gtk_widget_destroy(ptr noundef %7) #10
   ret i32 0
 }
@@ -449,7 +449,7 @@ define internal range(i32 0, 2) i32 @_lib_colorlabels_key_press(ptr noundef %0, 
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %8 = load i32, ptr %7, align 4, !tbaa !93
+  %8 = load i32, ptr %7, align 4, !tbaa !90
   switch i32 %8, label %41 [
     i32 65307, label %9
     i32 65289, label %42
@@ -459,10 +459,10 @@ define internal range(i32 0, 2) i32 @_lib_colorlabels_key_press(ptr noundef %0, 
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %11 = load ptr, ptr %10, align 8, !tbaa !78
+  %11 = load ptr, ptr %10, align 8, !tbaa !75
   tail call void @gtk_widget_destroy(ptr noundef %11) #10
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !69
-  %13 = load ptr, ptr %12, align 8, !tbaa !70
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !66
+  %13 = load ptr, ptr %12, align 8, !tbaa !67
   %14 = tail call ptr @dt_ui_main_window(ptr noundef %13) #10
   %15 = tail call i64 @gtk_window_get_type() #12
   %16 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %15) #10
@@ -475,26 +475,26 @@ define internal range(i32 0, 2) i32 @_lib_colorlabels_key_press(ptr noundef %0, 
   %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %18) #10
   %20 = tail call ptr @gtk_entry_get_text(ptr noundef %19) #10
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %22 = load i32, ptr %21, align 8, !tbaa !67
+  %22 = load i32, ptr %21, align 8, !tbaa !64
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds [0 x ptr], ptr @dt_colorlabels_name, i64 0, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !59
+  %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef %25) #10
   call void @dt_conf_set_string(ptr noundef nonnull %4, ptr noundef %20) #10
-  %27 = load i32, ptr %21, align 8, !tbaa !67
+  %27 = load i32, ptr %21, align 8, !tbaa !64
   %28 = call fastcc ptr @_get_tooltip_for(i32 noundef %27)
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %30 = load i32, ptr %21, align 8, !tbaa !67
+  %30 = load i32, ptr %21, align 8, !tbaa !64
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds [6 x ptr], ptr %29, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !17
   call void @gtk_widget_set_tooltip_markup(ptr noundef %33, ptr noundef %28) #10
   call void @g_free(ptr noundef %28) #10
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %35 = load ptr, ptr %34, align 8, !tbaa !78
+  %35 = load ptr, ptr %34, align 8, !tbaa !75
   call void @gtk_widget_destroy(ptr noundef %35) #10
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !69
-  %37 = load ptr, ptr %36, align 8, !tbaa !70
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !66
+  %37 = load ptr, ptr %36, align 8, !tbaa !67
   %38 = call ptr @dt_ui_main_window(ptr noundef %37) #10
   %39 = tail call i64 @gtk_window_get_type() #12
   %40 = call ptr @g_type_check_instance_cast(ptr noundef %38, i64 noundef %39) #10
@@ -561,81 +561,78 @@ attributes #12 = { nounwind willreturn memory(none) }
 !15 = !{!"p1 _ZTS8_GModule", !13, i64 0}
 !16 = !{!"p1 _ZTS10_GtkWidget", !13, i64 0}
 !17 = !{!16, !16, i64 0}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!7, !16, i64 416}
-!21 = !{!22, !30, i64 88}
-!22 = !{!"darktable_t", !23, i64 0, !9, i64 4, !9, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !25, i64 48, !26, i64 56, !27, i64 64, !28, i64 72, !29, i64 80, !30, i64 88, !31, i64 96, !32, i64 104, !33, i64 112, !34, i64 120, !35, i64 128, !36, i64 136, !37, i64 144, !38, i64 152, !39, i64 160, !40, i64 168, !41, i64 176, !42, i64 184, !43, i64 192, !44, i64 200, !45, i64 208, !46, i64 216, !47, i64 224, !10, i64 232, !48, i64 2792, !48, i64 2832, !48, i64 2872, !48, i64 2912, !48, i64 2952, !12, i64 2992, !12, i64 3000, !12, i64 3008, !12, i64 3016, !12, i64 3024, !12, i64 3032, !12, i64 3040, !12, i64 3048, !12, i64 3056, !12, i64 3064, !12, i64 3072, !12, i64 3080, !12, i64 3088, !49, i64 3096, !24, i64 3104, !50, i64 3112, !24, i64 3120, !9, i64 3128, !10, i64 3132, !9, i64 3320, !9, i64 3324, !51, i64 3328, !52, i64 3336, !53, i64 3344, !56, i64 3384, !57, i64 3416}
-!23 = !{!"dt_codepath_t", !9, i64 0}
-!24 = !{!"p1 _ZTS6_GList", !13, i64 0}
-!25 = !{!"p1 _ZTS11_JsonParser", !13, i64 0}
-!26 = !{!"p1 _ZTS9dt_conf_t", !13, i64 0}
-!27 = !{!"p1 _ZTS12dt_develop_t", !13, i64 0}
-!28 = !{!"p1 _ZTS8dt_lib_t", !13, i64 0}
-!29 = !{!"p1 _ZTS17dt_view_manager_t", !13, i64 0}
-!30 = !{!"p1 _ZTS12dt_control_t", !13, i64 0}
-!31 = !{!"p1 _ZTS19dt_control_signal_t", !13, i64 0}
-!32 = !{!"p1 _ZTS12dt_gui_gtk_t", !13, i64 0}
-!33 = !{!"p1 _ZTS17dt_mipmap_cache_t", !13, i64 0}
-!34 = !{!"p1 _ZTS16dt_image_cache_t", !13, i64 0}
-!35 = !{!"p1 _ZTS12dt_bauhaus_t", !13, i64 0}
-!36 = !{!"p1 _ZTS13dt_database_t", !13, i64 0}
-!37 = !{!"p1 _ZTS14dt_pwstorage_t", !13, i64 0}
-!38 = !{!"p1 _ZTS11dt_camctl_t", !13, i64 0}
-!39 = !{!"p1 _ZTS15dt_collection_t", !13, i64 0}
-!40 = !{!"p1 _ZTS14dt_selection_t", !13, i64 0}
-!41 = !{!"p1 _ZTS11dt_points_t", !13, i64 0}
-!42 = !{!"p1 _ZTS12dt_imageio_t", !13, i64 0}
-!43 = !{!"p1 _ZTS11dt_opencl_t", !13, i64 0}
-!44 = !{!"p1 _ZTS9dt_dbus_t", !13, i64 0}
-!45 = !{!"p1 _ZTS9dt_undo_t", !13, i64 0}
-!46 = !{!"p1 _ZTS16dt_colorspaces_t", !13, i64 0}
-!47 = !{!"p1 _ZTS9dt_l10n_t", !13, i64 0}
-!48 = !{!"dt_pthread_mutex_t", !10, i64 0}
-!49 = !{!"", !9, i64 0}
-!50 = !{!"double", !10, i64 0}
-!51 = !{!"p1 _ZTS10_GTimeZone", !13, i64 0}
-!52 = !{!"p1 _ZTS10_GDateTime", !13, i64 0}
-!53 = !{!"dt_sys_resources_t", !54, i64 0, !54, i64 8, !55, i64 16, !55, i64 24, !9, i64 32}
-!54 = !{!"long", !10, i64 0}
-!55 = !{!"p1 int", !13, i64 0}
-!56 = !{!"dt_backthumb_t", !50, i64 0, !50, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28}
-!57 = !{!"dt_gimp_t", !9, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !9, i64 28}
-!58 = distinct !{!58, !19}
-!59 = !{!12, !12, i64 0}
-!60 = !{!10, !10, i64 0}
-!61 = !{!62, !9, i64 0}
-!62 = !{!"_GdkEventButton", !9, i64 0, !63, i64 8, !10, i64 16, !9, i64 20, !50, i64 24, !50, i64 32, !64, i64 40, !9, i64 48, !9, i64 52, !65, i64 56, !50, i64 64, !50, i64 72}
-!63 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
-!64 = !{!"p1 double", !13, i64 0}
-!65 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
-!66 = !{!62, !9, i64 52}
-!67 = !{!68, !9, i64 104}
-!68 = !{!"dt_lib_colorlabels_t", !10, i64 0, !10, i64 48, !16, i64 96, !9, i64 104}
-!69 = !{!22, !32, i64 104}
-!70 = !{!71, !72, i64 0}
-!71 = !{!"dt_gui_gtk_t", !72, i64 0, !73, i64 8, !74, i64 56, !9, i64 80, !12, i64 88, !9, i64 96, !10, i64 104, !9, i64 1352, !9, i64 1356, !9, i64 1360, !9, i64 1364, !9, i64 1368, !50, i64 1376, !50, i64 1384, !50, i64 1392, !50, i64 1400, !16, i64 1408, !50, i64 1416, !50, i64 1424, !50, i64 1432, !50, i64 1440, !9, i64 1448, !9, i64 1452, !10, i64 1456, !9, i64 5552, !9, i64 5556, !9, i64 5560, !48, i64 5568}
-!72 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
-!73 = !{!"dt_gui_widgets_t", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
-!74 = !{!"dt_gui_scrollbars_t", !16, i64 0, !16, i64 8, !9, i64 16}
-!75 = !{!62, !50, i64 64}
-!76 = !{!62, !50, i64 72}
-!77 = !{!71, !50, i64 1424}
-!78 = !{!68, !16, i64 96}
-!79 = !{!22, !39, i64 160}
-!80 = !{!81, !9, i64 588}
-!81 = !{!"dt_control_t", !9, i64 0, !14, i64 8, !8, i64 16, !8, i64 64, !8, i64 112, !8, i64 160, !8, i64 208, !8, i64 256, !8, i64 304, !8, i64 352, !8, i64 400, !8, i64 448, !8, i64 496, !14, i64 544, !82, i64 552, !83, i64 560, !9, i64 568, !16, i64 576, !9, i64 584, !9, i64 588, !84, i64 592, !85, i64 600, !10, i64 608, !9, i64 864, !50, i64 872, !9, i64 880, !9, i64 884, !54, i64 888, !9, i64 896, !9, i64 900, !9, i64 904, !50, i64 912, !50, i64 920, !9, i64 928, !9, i64 932, !9, i64 936, !9, i64 940, !9, i64 944, !9, i64 948, !10, i64 952, !9, i64 8952, !9, i64 8956, !48, i64 8960, !9, i64 9000, !9, i64 9004, !10, i64 9008, !9, i64 9608, !9, i64 9612, !48, i64 9616, !48, i64 9656, !48, i64 9696, !50, i64 9736, !10, i64 9744, !9, i64 9748, !9, i64 9752, !48, i64 9760, !48, i64 9800, !10, i64 9840, !9, i64 9888, !86, i64 9896, !54, i64 9904, !54, i64 9912, !87, i64 9920, !10, i64 9928, !10, i64 9968, !48, i64 10008, !10, i64 10048, !10, i64 10072, !10, i64 10080, !88, i64 10104, !91, i64 10224}
-!82 = !{!"p1 _ZTS11_GHashTable", !13, i64 0}
-!83 = !{!"p1 _ZTS10_GSequence", !13, i64 0}
-!84 = !{!"p1 _ZTS10_GPtrArray", !13, i64 0}
-!85 = !{!"p1 _ZTS7_GSList", !13, i64 0}
-!86 = !{!"p1 long", !13, i64 0}
-!87 = !{!"p2 _ZTS9_dt_job_t", !13, i64 0}
-!88 = !{!"", !24, i64 0, !54, i64 8, !54, i64 16, !50, i64 24, !48, i64 32, !89, i64 72}
-!89 = !{!"", !90, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40}
-!90 = !{!"p1 _ZTS15dt_lib_module_t", !13, i64 0}
-!91 = !{!"", !92, i64 0}
-!92 = !{!"", !90, i64 0, !13, i64 8}
-!93 = !{!94, !9, i64 28}
-!94 = !{!"_GdkEventKey", !9, i64 0, !63, i64 8, !10, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !12, i64 40, !95, i64 48, !10, i64 50, !9, i64 51}
-!95 = !{!"short", !10, i64 0}
+!18 = !{!7, !16, i64 416}
+!19 = !{!20, !28, i64 88}
+!20 = !{!"darktable_t", !21, i64 0, !9, i64 4, !9, i64 8, !22, i64 16, !22, i64 24, !22, i64 32, !22, i64 40, !23, i64 48, !24, i64 56, !25, i64 64, !26, i64 72, !27, i64 80, !28, i64 88, !29, i64 96, !30, i64 104, !31, i64 112, !32, i64 120, !33, i64 128, !34, i64 136, !35, i64 144, !36, i64 152, !37, i64 160, !38, i64 168, !39, i64 176, !40, i64 184, !41, i64 192, !42, i64 200, !43, i64 208, !44, i64 216, !45, i64 224, !10, i64 232, !46, i64 2792, !46, i64 2832, !46, i64 2872, !46, i64 2912, !46, i64 2952, !12, i64 2992, !12, i64 3000, !12, i64 3008, !12, i64 3016, !12, i64 3024, !12, i64 3032, !12, i64 3040, !12, i64 3048, !12, i64 3056, !12, i64 3064, !12, i64 3072, !12, i64 3080, !12, i64 3088, !47, i64 3096, !22, i64 3104, !48, i64 3112, !22, i64 3120, !9, i64 3128, !10, i64 3132, !9, i64 3320, !9, i64 3324, !49, i64 3328, !50, i64 3336, !51, i64 3344, !54, i64 3384, !55, i64 3416}
+!21 = !{!"dt_codepath_t", !9, i64 0}
+!22 = !{!"p1 _ZTS6_GList", !13, i64 0}
+!23 = !{!"p1 _ZTS11_JsonParser", !13, i64 0}
+!24 = !{!"p1 _ZTS9dt_conf_t", !13, i64 0}
+!25 = !{!"p1 _ZTS12dt_develop_t", !13, i64 0}
+!26 = !{!"p1 _ZTS8dt_lib_t", !13, i64 0}
+!27 = !{!"p1 _ZTS17dt_view_manager_t", !13, i64 0}
+!28 = !{!"p1 _ZTS12dt_control_t", !13, i64 0}
+!29 = !{!"p1 _ZTS19dt_control_signal_t", !13, i64 0}
+!30 = !{!"p1 _ZTS12dt_gui_gtk_t", !13, i64 0}
+!31 = !{!"p1 _ZTS17dt_mipmap_cache_t", !13, i64 0}
+!32 = !{!"p1 _ZTS16dt_image_cache_t", !13, i64 0}
+!33 = !{!"p1 _ZTS12dt_bauhaus_t", !13, i64 0}
+!34 = !{!"p1 _ZTS13dt_database_t", !13, i64 0}
+!35 = !{!"p1 _ZTS14dt_pwstorage_t", !13, i64 0}
+!36 = !{!"p1 _ZTS11dt_camctl_t", !13, i64 0}
+!37 = !{!"p1 _ZTS15dt_collection_t", !13, i64 0}
+!38 = !{!"p1 _ZTS14dt_selection_t", !13, i64 0}
+!39 = !{!"p1 _ZTS11dt_points_t", !13, i64 0}
+!40 = !{!"p1 _ZTS12dt_imageio_t", !13, i64 0}
+!41 = !{!"p1 _ZTS11dt_opencl_t", !13, i64 0}
+!42 = !{!"p1 _ZTS9dt_dbus_t", !13, i64 0}
+!43 = !{!"p1 _ZTS9dt_undo_t", !13, i64 0}
+!44 = !{!"p1 _ZTS16dt_colorspaces_t", !13, i64 0}
+!45 = !{!"p1 _ZTS9dt_l10n_t", !13, i64 0}
+!46 = !{!"dt_pthread_mutex_t", !10, i64 0}
+!47 = !{!"", !9, i64 0}
+!48 = !{!"double", !10, i64 0}
+!49 = !{!"p1 _ZTS10_GTimeZone", !13, i64 0}
+!50 = !{!"p1 _ZTS10_GDateTime", !13, i64 0}
+!51 = !{!"dt_sys_resources_t", !52, i64 0, !52, i64 8, !53, i64 16, !53, i64 24, !9, i64 32}
+!52 = !{!"long", !10, i64 0}
+!53 = !{!"p1 int", !13, i64 0}
+!54 = !{!"dt_backthumb_t", !48, i64 0, !48, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28}
+!55 = !{!"dt_gimp_t", !9, i64 0, !12, i64 8, !12, i64 16, !9, i64 24, !9, i64 28}
+!56 = !{!12, !12, i64 0}
+!57 = !{!10, !10, i64 0}
+!58 = !{!59, !9, i64 0}
+!59 = !{!"_GdkEventButton", !9, i64 0, !60, i64 8, !10, i64 16, !9, i64 20, !48, i64 24, !48, i64 32, !61, i64 40, !9, i64 48, !9, i64 52, !62, i64 56, !48, i64 64, !48, i64 72}
+!60 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
+!61 = !{!"p1 double", !13, i64 0}
+!62 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
+!63 = !{!59, !9, i64 52}
+!64 = !{!65, !9, i64 104}
+!65 = !{!"dt_lib_colorlabels_t", !10, i64 0, !10, i64 48, !16, i64 96, !9, i64 104}
+!66 = !{!20, !30, i64 104}
+!67 = !{!68, !69, i64 0}
+!68 = !{!"dt_gui_gtk_t", !69, i64 0, !70, i64 8, !71, i64 56, !9, i64 80, !12, i64 88, !9, i64 96, !10, i64 104, !9, i64 1352, !9, i64 1356, !9, i64 1360, !9, i64 1364, !9, i64 1368, !48, i64 1376, !48, i64 1384, !48, i64 1392, !48, i64 1400, !16, i64 1408, !48, i64 1416, !48, i64 1424, !48, i64 1432, !48, i64 1440, !9, i64 1448, !9, i64 1452, !10, i64 1456, !9, i64 5552, !9, i64 5556, !9, i64 5560, !46, i64 5568}
+!69 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
+!70 = !{!"dt_gui_widgets_t", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
+!71 = !{!"dt_gui_scrollbars_t", !16, i64 0, !16, i64 8, !9, i64 16}
+!72 = !{!59, !48, i64 64}
+!73 = !{!59, !48, i64 72}
+!74 = !{!68, !48, i64 1424}
+!75 = !{!65, !16, i64 96}
+!76 = !{!20, !37, i64 160}
+!77 = !{!78, !9, i64 588}
+!78 = !{!"dt_control_t", !9, i64 0, !14, i64 8, !8, i64 16, !8, i64 64, !8, i64 112, !8, i64 160, !8, i64 208, !8, i64 256, !8, i64 304, !8, i64 352, !8, i64 400, !8, i64 448, !8, i64 496, !14, i64 544, !79, i64 552, !80, i64 560, !9, i64 568, !16, i64 576, !9, i64 584, !9, i64 588, !81, i64 592, !82, i64 600, !10, i64 608, !9, i64 864, !48, i64 872, !9, i64 880, !9, i64 884, !52, i64 888, !9, i64 896, !9, i64 900, !9, i64 904, !48, i64 912, !48, i64 920, !9, i64 928, !9, i64 932, !9, i64 936, !9, i64 940, !9, i64 944, !9, i64 948, !10, i64 952, !9, i64 8952, !9, i64 8956, !46, i64 8960, !9, i64 9000, !9, i64 9004, !10, i64 9008, !9, i64 9608, !9, i64 9612, !46, i64 9616, !46, i64 9656, !46, i64 9696, !48, i64 9736, !10, i64 9744, !9, i64 9748, !9, i64 9752, !46, i64 9760, !46, i64 9800, !10, i64 9840, !9, i64 9888, !83, i64 9896, !52, i64 9904, !52, i64 9912, !84, i64 9920, !10, i64 9928, !10, i64 9968, !46, i64 10008, !10, i64 10048, !10, i64 10072, !10, i64 10080, !85, i64 10104, !88, i64 10224}
+!79 = !{!"p1 _ZTS11_GHashTable", !13, i64 0}
+!80 = !{!"p1 _ZTS10_GSequence", !13, i64 0}
+!81 = !{!"p1 _ZTS10_GPtrArray", !13, i64 0}
+!82 = !{!"p1 _ZTS7_GSList", !13, i64 0}
+!83 = !{!"p1 long", !13, i64 0}
+!84 = !{!"p2 _ZTS9_dt_job_t", !13, i64 0}
+!85 = !{!"", !22, i64 0, !52, i64 8, !52, i64 16, !48, i64 24, !46, i64 32, !86, i64 72}
+!86 = !{!"", !87, i64 0, !13, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40}
+!87 = !{!"p1 _ZTS15dt_lib_module_t", !13, i64 0}
+!88 = !{!"", !89, i64 0}
+!89 = !{!"", !87, i64 0, !13, i64 8}
+!90 = !{!91, !9, i64 28}
+!91 = !{!"_GdkEventKey", !9, i64 0, !60, i64 8, !10, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !12, i64 40, !92, i64 48, !10, i64 50, !9, i64 51}
+!92 = !{!"short", !10, i64 0}

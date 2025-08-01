@@ -235,7 +235,7 @@ define internal fastcc i32 @jhash(ptr noundef readonly captures(none) %0, i32 no
   %42 = add i32 %9, -12
   %43 = getelementptr i8, ptr %5, i64 12
   %44 = icmp ugt i32 %42, 12
-  br i1 %44, label %.preheader, label %.loopexit, !llvm.loop !9
+  br i1 %44, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %2
   %45 = phi i32 [ %1, %2 ], [ %42, %.preheader ]
@@ -431,7 +431,7 @@ define dso_local range(i32 1, 0) i32 @p9_errstr2errno(ptr noundef %0, i32 nounde
   %24 = getelementptr i8, ptr %22, i64 -16
   %25 = icmp eq ptr %24, null
   %26 = or i1 %23, %25
-  br i1 %26, label %.thread, label %.preheader, !llvm.loop !10
+  br i1 %26, label %.thread, label %.preheader, !llvm.loop !9
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -481,9 +481,8 @@ attributes #9 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7, !8}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}

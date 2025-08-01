@@ -796,12 +796,12 @@ define void @av_log(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) local_u
   br i1 %.not.i, label %.thread.i, label %6
 
 .thread.i:                                        ; preds = %3
-  %5 = load ptr, ptr @av_log_callback, align 8, !tbaa !35
+  %5 = load ptr, ptr @av_log_callback, align 8, !tbaa !34
   br label %23
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8, !tbaa !4
-  %8 = load ptr, ptr @av_log_callback, align 8, !tbaa !35
+  %8 = load ptr, ptr @av_log_callback, align 8, !tbaa !34
   %.not20.i = icmp eq ptr %7, null
   br i1 %.not20.i, label %23, label %9
 
@@ -813,7 +813,7 @@ define void @av_log(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) local_u
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %15 = load i32, ptr %14, align 4, !tbaa !36
+  %15 = load i32, ptr %14, align 4, !tbaa !35
   %16 = icmp ne i32 %15, 0
   %17 = icmp sgt i32 %1, 7
   %or.cond.i = and i1 %17, %16
@@ -851,12 +851,12 @@ define void @av_vlog(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not, label %.thread, label %6
 
 .thread:                                          ; preds = %4
-  %5 = load ptr, ptr @av_log_callback, align 8, !tbaa !35
+  %5 = load ptr, ptr @av_log_callback, align 8, !tbaa !34
   br label %23
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8, !tbaa !4
-  %8 = load ptr, ptr @av_log_callback, align 8, !tbaa !35
+  %8 = load ptr, ptr @av_log_callback, align 8, !tbaa !34
   %.not20 = icmp eq ptr %7, null
   br i1 %.not20, label %23, label %9
 
@@ -868,7 +868,7 @@ define void @av_vlog(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  %15 = load i32, ptr %14, align 4, !tbaa !36
+  %15 = load i32, ptr %14, align 4, !tbaa !35
   %16 = icmp ne i32 %15, 0
   %17 = icmp sgt i32 %1, 7
   %or.cond = and i1 %17, %16
@@ -910,12 +910,12 @@ define void @av_log_once(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nou
   br i1 %.not.i, label %.thread.i, label %10
 
 .thread.i:                                        ; preds = %5
-  %9 = load ptr, ptr @av_log_callback, align 8, !tbaa !35
+  %9 = load ptr, ptr @av_log_callback, align 8, !tbaa !34
   br label %27
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %0, align 8, !tbaa !4
-  %12 = load ptr, ptr @av_log_callback, align 8, !tbaa !35
+  %12 = load ptr, ptr @av_log_callback, align 8, !tbaa !34
   %.not20.i = icmp eq ptr %11, null
   br i1 %.not20.i, label %27, label %13
 
@@ -927,7 +927,7 @@ define void @av_log_once(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nou
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %19 = load i32, ptr %18, align 4, !tbaa !36
+  %19 = load i32, ptr %18, align 4, !tbaa !35
   %20 = icmp ne i32 %19, 0
   %21 = icmp sgt i32 %8, 7
   %or.cond.i = and i1 %21, %20
@@ -983,7 +983,7 @@ define i32 @av_log_get_flags() local_unnamed_addr #9 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @av_log_set_callback(ptr noundef %0) local_unnamed_addr #10 {
-  store ptr %0, ptr @av_log_callback, align 8, !tbaa !35
+  store ptr %0, ptr @av_log_callback, align 8, !tbaa !34
   ret void
 }
 
@@ -996,12 +996,12 @@ define void @avpriv_request_sample(ptr noundef %0, ptr noundef %1, ...) local_un
   br i1 %.not.i.i, label %.thread.i.i, label %5
 
 .thread.i.i:                                      ; preds = %2
-  %4 = load ptr, ptr @av_log_callback, align 8, !tbaa !35
+  %4 = load ptr, ptr @av_log_callback, align 8, !tbaa !34
   br label %20
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8, !tbaa !4
-  %7 = load ptr, ptr @av_log_callback, align 8, !tbaa !35
+  %7 = load ptr, ptr @av_log_callback, align 8, !tbaa !34
   %.not20.i.i = icmp eq ptr %6, null
   br i1 %.not20.i.i, label %20, label %8
 
@@ -1013,7 +1013,7 @@ define void @avpriv_request_sample(ptr noundef %0, ptr noundef %1, ...) local_un
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %14 = load i32, ptr %13, align 4, !tbaa !36
+  %14 = load i32, ptr %13, align 4, !tbaa !35
   %.not5.i = icmp eq i32 %14, 0
   br i1 %.not5.i, label %20, label %15
 
@@ -1051,12 +1051,12 @@ define void @avpriv_report_missing_feature(ptr noundef %0, ptr noundef %1, ...) 
   br i1 %.not.i.i, label %.thread.i.i, label %5
 
 .thread.i.i:                                      ; preds = %2
-  %4 = load ptr, ptr @av_log_callback, align 8, !tbaa !35
+  %4 = load ptr, ptr @av_log_callback, align 8, !tbaa !34
   br label %20
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8, !tbaa !4
-  %7 = load ptr, ptr @av_log_callback, align 8, !tbaa !35
+  %7 = load ptr, ptr @av_log_callback, align 8, !tbaa !34
   %.not20.i.i = icmp eq ptr %6, null
   br i1 %.not20.i.i, label %20, label %8
 
@@ -1068,7 +1068,7 @@ define void @avpriv_report_missing_feature(ptr noundef %0, ptr noundef %1, ...) 
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %14 = load i32, ptr %13, align 4, !tbaa !36
+  %14 = load i32, ptr %13, align 4, !tbaa !35
   %.not5.i = icmp eq i32 %14, 0
   br i1 %.not5.i, label %20, label %15
 
@@ -1237,8 +1237,7 @@ attributes #17 = { cold }
 !29 = !{!16, !13, i64 12}
 !30 = !{!31, !31, i64 0}
 !31 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!6, !6, i64 0}
-!36 = !{!10, !13, i64 28}
+!34 = !{!6, !6, i64 0}
+!35 = !{!10, !13, i64 28}

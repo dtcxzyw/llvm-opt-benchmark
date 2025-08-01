@@ -1567,7 +1567,7 @@ proto_item_set_generated.exit:                    ; preds = %428, %425, %414, %4
   %460 = tail call i32 @dissect_tipc(ptr noundef %458, ptr noundef %1, ptr noundef %202, ptr poison)
   %461 = add nuw nsw i32 %451, %.0.i269294
   %462 = icmp samesign ult i32 %461, %20
-  br i1 %462, label %.lr.ph, label %dissect_tipc_int_prot_msg.exit, !llvm.loop !8
+  br i1 %462, label %.lr.ph, label %dissect_tipc_int_prot_msg.exit
 
 463:                                              ; preds = %389
   %464 = load i32, ptr @hf_tipc_data, align 4
@@ -1916,7 +1916,7 @@ define internal fastcc void @dissect_tipc_name_dist_data(ptr noundef %0, ptr nou
   %34 = add i32 %.072, 20
   %35 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %34)
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph73, label %.loopexit, !llvm.loop !10
+  br i1 %36, label %.lr.ph73, label %.loopexit, !llvm.loop !8
 
 37:                                               ; preds = %.lr.ph, %.backedge
   %.171 = phi i32 [ 0, %.lr.ph ], [ %.1.be, %.backedge ]
@@ -1962,7 +1962,7 @@ define internal fastcc void @dissect_tipc_name_dist_data(ptr noundef %0, ptr nou
   %.1.be = phi i32 [ %68, %37 ], [ %71, %69 ]
   %72 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.be)
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %37, label %.loopexit, !llvm.loop !12
+  br i1 %73, label %37, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.backedge, %.lr.ph73, %.preheader, %17
   ret void
@@ -2238,7 +2238,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %155 = add nuw nsw i32 %140, %.4851
   %156 = add nuw nsw i32 %155, %154
   %157 = icmp samesign ult i32 %156, %4
-  br i1 %157, label %137, label %.loopexit, !llvm.loop !13
+  br i1 %157, label %137, label %.loopexit, !llvm.loop !11
 
 158:                                              ; preds = %6
   %159 = load i32, ptr @hf_tipcv2_link_mtype, align 4
@@ -3051,8 +3051,6 @@ attributes #10 = { nounwind willreturn memory(read) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !11, !9}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11, !9}
-!13 = distinct !{!13, !11, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

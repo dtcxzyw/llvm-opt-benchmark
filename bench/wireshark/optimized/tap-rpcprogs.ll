@@ -476,6 +476,5 @@ attributes #8 = { allocsize(0) }
 !6 = !{i32 7, !"uwtable", i32 2}
 !7 = !{i8 0, i8 2}
 !8 = !{}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}

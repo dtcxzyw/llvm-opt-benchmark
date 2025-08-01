@@ -93,7 +93,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %37 = add nuw nsw i32 %24, %.0235372
   %38 = add nuw nsw i32 %24, 1
   %.not340.not = icmp slt i32 %24, %21
-  br i1 %.not340.not, label %.lr.ph375, label %.loopexit347, !llvm.loop !12
+  br i1 %.not340.not, label %.lr.ph375, label %.loopexit347, !llvm.loop !11
 
 39:                                               ; preds = %22
   br i1 %.not327413, label %.loopexit347, label %.lr.ph390
@@ -136,7 +136,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
 ._crit_edge676:                                   ; preds = %52, %.lr.ph382
   %.6 = phi double [ %50, %.lr.ph382 ], [ %spec.select704, %52 ]
   %.not337.not = icmp slt i64 %indvars.iv.next573, %45
-  br i1 %.not337.not, label %.lr.ph382, label %._crit_edge383.loopexit, !llvm.loop !13
+  br i1 %.not337.not, label %.lr.ph382, label %._crit_edge383.loopexit, !llvm.loop !12
 
 ._crit_edge383.loopexit:                          ; preds = %._crit_edge676
   %.pre678 = load i32, ptr %3, align 4, !tbaa !3
@@ -150,7 +150,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %57 = sub i32 %56, %41
   %58 = add nuw nsw i32 %41, 1
   %.not336.not = icmp slt i32 %41, %21
-  br i1 %.not336.not, label %.lr.ph390, label %.loopexit347, !llvm.loop !14
+  br i1 %.not336.not, label %.lr.ph390, label %.loopexit347, !llvm.loop !13
 
 59:                                               ; preds = %18
   br i1 %.not325, label %75, label %60
@@ -195,14 +195,14 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %.9 = phi double [ %69, %.lr.ph396 ], [ %spec.select705, %71 ]
   %indvars.iv.next576 = add nuw nsw i64 %indvars.iv575, 1
   %.not332.not = icmp slt i64 %indvars.iv575, %64
-  br i1 %.not332.not, label %.lr.ph396, label %._crit_edge397, !llvm.loop !15
+  br i1 %.not332.not, label %.lr.ph396, label %._crit_edge397, !llvm.loop !14
 
 ._crit_edge397:                                   ; preds = %._crit_edge679, %.lr.ph404
   %.8.lcssa = phi double [ %.7402, %.lr.ph404 ], [ %.9, %._crit_edge679 ]
   %73 = add nuw nsw i32 %61, %.2237401
   %74 = add nuw nsw i32 %61, 1
   %.not331.not = icmp slt i32 %61, %21
-  br i1 %.not331.not, label %.lr.ph404, label %.loopexit347, !llvm.loop !16
+  br i1 %.not331.not, label %.lr.ph404, label %.loopexit347, !llvm.loop !15
 
 75:                                               ; preds = %59
   br i1 %.not327413, label %.loopexit347, label %.lr.ph418
@@ -245,7 +245,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %.12 = phi double [ %86, %.lr.ph410 ], [ %spec.select706, %88 ]
   %indvars.iv.next579 = add nsw i64 %indvars.iv578, 1
   %.not328.not = icmp slt i64 %indvars.iv578, %81
-  br i1 %.not328.not, label %.lr.ph410, label %._crit_edge411.loopexit, !llvm.loop !17
+  br i1 %.not328.not, label %.lr.ph410, label %._crit_edge411.loopexit, !llvm.loop !16
 
 ._crit_edge411.loopexit:                          ; preds = %._crit_edge681
   %.pre683 = load i32, ptr %3, align 4, !tbaa !3
@@ -259,7 +259,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %93 = sub i32 %92, %77
   %94 = add nuw nsw i32 %77, 1
   %.not327.not = icmp slt i32 %77, %21
-  br i1 %.not327.not, label %.lr.ph418, label %.loopexit347, !llvm.loop !18
+  br i1 %.not327.not, label %.lr.ph418, label %.loopexit347, !llvm.loop !17
 
 95:                                               ; preds = %16
   %96 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.2) #5
@@ -267,7 +267,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br i1 %.not276, label %97, label %100
 
 97:                                               ; preds = %95
-  %98 = load i8, ptr %0, align 1, !tbaa !19
+  %98 = load i8, ptr %0, align 1, !tbaa !18
   %99 = icmp eq i8 %98, 49
   br i1 %99, label %100, label %173
 
@@ -317,7 +317,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %indvars.iv.next659 = add nsw i64 %indvars.iv658, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next659 to i32
   %exitcond661.not = icmp eq i32 %112, %lftr.wideiv
-  br i1 %exitcond661.not, label %.loopexit348.sink.split, label %.lr.ph514, !llvm.loop !20
+  br i1 %exitcond661.not, label %.loopexit348.sink.split, label %.lr.ph514, !llvm.loop !19
 
 .lr.ph520.preheader:                              ; preds = %105
   %120 = add nsw i32 %.4239524, %106
@@ -336,7 +336,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %129 = fadd double %123, %128
   %indvars.iv.next663 = add nsw i64 %indvars.iv662, 1
   %.not321.not = icmp slt i64 %indvars.iv.next663, %122
-  br i1 %.not321.not, label %.lr.ph520, label %.loopexit348.sink.split, !llvm.loop !21
+  br i1 %.not321.not, label %.lr.ph520, label %.loopexit348.sink.split, !llvm.loop !20
 
 .loopexit348.sink.split:                          ; preds = %.lr.ph514, %.lr.ph520
   %.lcssa702.sink = phi double [ %129, %.lr.ph520 ], [ %119, %.lr.ph514 ]
@@ -361,7 +361,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %.14 = phi double [ %130, %.loopexit348 ], [ %spec.select707, %132 ]
   %134 = add nuw nsw i32 %106, 1
   %.not319.not = icmp slt i32 %106, %103
-  br i1 %.not319.not, label %105, label %.loopexit347, !llvm.loop !22
+  br i1 %.not319.not, label %105, label %.loopexit347, !llvm.loop !21
 
 135:                                              ; preds = %100
   br i1 %.not313542, label %.loopexit347, label %.lr.ph548
@@ -401,7 +401,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %148 = select i1 %146, double %145, double %147
   %149 = fadd double %143, %148
   %exitcond669.not = icmp eq i64 %indvars.iv.next666, %wide.trip.count668
-  br i1 %exitcond669.not, label %.loopexit.sink.split, label %.lr.ph534, !llvm.loop !23
+  br i1 %exitcond669.not, label %.loopexit.sink.split, label %.lr.ph534, !llvm.loop !22
 
 150:                                              ; preds = %136
   store double 0.000000e+00, ptr %10, align 8, !tbaa !7
@@ -429,7 +429,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %indvars.iv.next671 = add nsw i64 %indvars.iv670, 1
   %lftr.wideiv673 = trunc i64 %indvars.iv.next671 to i32
   %exitcond674.not = icmp eq i32 %156, %lftr.wideiv673
-  br i1 %exitcond674.not, label %.loopexit.sink.split, label %.lr.ph540, !llvm.loop !24
+  br i1 %exitcond674.not, label %.loopexit.sink.split, label %.lr.ph540, !llvm.loop !23
 
 .loopexit.sink.split:                             ; preds = %.lr.ph534, %.lr.ph540
   %.lcssa.sink = phi double [ %163, %.lr.ph540 ], [ %149, %.lr.ph534 ]
@@ -458,7 +458,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %172 = add nuw nsw i32 %137, 1
   %storemerge312.neg = xor i32 %137, -1
   %.not313.not = icmp slt i32 %137, %103
-  br i1 %.not313.not, label %136, label %.loopexit347, !llvm.loop !25
+  br i1 %.not313.not, label %136, label %.loopexit347, !llvm.loop !24
 
 173:                                              ; preds = %97
   %174 = tail call i32 @lsame_(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #5
@@ -496,7 +496,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   store double 1.000000e+00, ptr %183, align 8, !tbaa !7
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next582, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph434.preheader, label %.lr.ph423, !llvm.loop !26
+  br i1 %exitcond.not, label %.lr.ph434.preheader, label %.lr.ph423, !llvm.loop !25
 
 .lr.ph434:                                        ; preds = %.lr.ph434.preheader, %._crit_edge429
   %indvars.iv593 = phi i64 [ 1, %.lr.ph434.preheader ], [ %indvars.iv.next594, %._crit_edge429 ]
@@ -523,7 +523,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %indvars.iv.next585 = add nsw i64 %indvars.iv584, 1
   %indvars.iv.next587 = add nuw nsw i64 %indvars.iv586, 1
   %exitcond592.not = icmp eq i64 %indvars.iv.next587, %indvars.iv593
-  br i1 %exitcond592.not, label %._crit_edge429.loopexit, label %.lr.ph428, !llvm.loop !27
+  br i1 %exitcond592.not, label %._crit_edge429.loopexit, label %.lr.ph428, !llvm.loop !26
 
 ._crit_edge429.loopexit:                          ; preds = %.lr.ph428
   %193 = trunc nsw i64 %indvars.iv.next585 to i32
@@ -534,7 +534,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %194 = add nsw i32 %.7242.lcssa, 1
   %indvars.iv.next594 = add nuw nsw i64 %indvars.iv593, 1
   %exitcond597.not = icmp eq i64 %indvars.iv.next594, %wide.trip.count596
-  br i1 %exitcond597.not, label %.loopexit356, label %.lr.ph434, !llvm.loop !28
+  br i1 %exitcond597.not, label %.loopexit356, label %.lr.ph434, !llvm.loop !27
 
 195:                                              ; preds = %179
   br i1 %.not292471, label %.loopexit356, label %.lr.ph448.preheader
@@ -569,12 +569,12 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %indvars.iv.next602 = add nsw i64 %indvars.iv601, 1
   %indvars.iv.next604 = add nuw nsw i64 %indvars.iv603, 1
   %exitcond611.not = icmp eq i64 %indvars.iv.next604, %indvars.iv612
-  br i1 %exitcond611.not, label %209, label %200, !llvm.loop !29
+  br i1 %exitcond611.not, label %209, label %200, !llvm.loop !28
 
 209:                                              ; preds = %200
   %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612, 1
   %exitcond616.not = icmp eq i64 %indvars.iv.next613, %wide.trip.count615
-  br i1 %exitcond616.not, label %.loopexit356, label %.lr.ph448, !llvm.loop !30
+  br i1 %exitcond616.not, label %.loopexit356, label %.lr.ph448, !llvm.loop !29
 
 210:                                              ; preds = %175
   br i1 %.not291, label %225, label %211
@@ -599,7 +599,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   store double 1.000000e+00, ptr %214, align 8, !tbaa !7
   %indvars.iv.next618 = add nuw nsw i64 %indvars.iv617, 1
   %exitcond621.not = icmp eq i64 %indvars.iv.next618, %wide.trip.count620
-  br i1 %exitcond621.not, label %.lr.ph468.preheader, label %.lr.ph454, !llvm.loop !31
+  br i1 %exitcond621.not, label %.lr.ph468.preheader, label %.lr.ph454, !llvm.loop !30
 
 .lr.ph468:                                        ; preds = %.lr.ph468.preheader, %._crit_edge461
   %indvars.iv624 = phi i64 [ 1, %.lr.ph468.preheader ], [ %indvars.iv.next625, %._crit_edge461 ]
@@ -628,7 +628,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   store double %223, ptr %221, align 8, !tbaa !7
   %indvars.iv.next623 = add nsw i64 %indvars.iv622, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next627, %wide.trip.count631
-  br i1 %exitcond632.not, label %._crit_edge461.loopexit, label %.lr.ph460, !llvm.loop !32
+  br i1 %exitcond632.not, label %._crit_edge461.loopexit, label %.lr.ph460, !llvm.loop !31
 
 ._crit_edge461.loopexit:                          ; preds = %.lr.ph460
   %224 = trunc nsw i64 %indvars.iv.next623 to i32
@@ -638,7 +638,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %.11246.lcssa = phi i32 [ %.11246455, %.lr.ph468 ], [ %224, %._crit_edge461.loopexit ]
   %indvars.iv.next625 = add nuw nsw i64 %indvars.iv624, 1
   %exitcond635.not = icmp eq i64 %indvars.iv.next625, %wide.trip.count634
-  br i1 %exitcond635.not, label %.loopexit356, label %.lr.ph468, !llvm.loop !33
+  br i1 %exitcond635.not, label %.loopexit356, label %.lr.ph468, !llvm.loop !32
 
 225:                                              ; preds = %210
   br i1 %.not292471, label %.loopexit356, label %.lr.ph482.preheader
@@ -673,12 +673,12 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %indvars.iv.next640 = add nsw i64 %indvars.iv639, 1
   %indvars.iv.next644 = add nuw nsw i64 %indvars.iv643, 1
   %exitcond649.not = icmp eq i64 %indvars.iv.next644, %wide.trip.count651
-  br i1 %exitcond649.not, label %239, label %230, !llvm.loop !34
+  br i1 %exitcond649.not, label %239, label %230, !llvm.loop !33
 
 239:                                              ; preds = %230
   %indvars.iv.next642 = add nuw nsw i64 %indvars.iv641, 1
   %exitcond652.not = icmp eq i64 %indvars.iv.next642, %wide.trip.count651
-  br i1 %exitcond652.not, label %.loopexit356, label %.lr.ph482, !llvm.loop !35
+  br i1 %exitcond652.not, label %.loopexit356, label %.lr.ph482, !llvm.loop !34
 
 .loopexit356:                                     ; preds = %._crit_edge429, %209, %._crit_edge461, %239, %180, %195, %211, %225
   %.not308485 = icmp slt i32 %178, 1
@@ -709,7 +709,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %.18 = phi double [ %242, %.lr.ph489 ], [ %spec.select711, %244 ]
   %indvars.iv.next654 = add nuw nsw i64 %indvars.iv653, 1
   %exitcond657.not = icmp eq i64 %indvars.iv.next654, %wide.trip.count656
-  br i1 %exitcond657.not, label %.loopexit347, label %.lr.ph489, !llvm.loop !36
+  br i1 %exitcond657.not, label %.loopexit347, label %.lr.ph489, !llvm.loop !35
 
 246:                                              ; preds = %173
   %247 = tail call i32 @lsame_(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #5
@@ -758,7 +758,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %263 = add nuw nsw i32 %260, %.14249493
   %264 = add nuw nsw i32 %260, 1
   %.not289.not = icmp slt i32 %260, %255
-  br i1 %.not289.not, label %259, label %.loopexit351, !llvm.loop !37
+  br i1 %.not289.not, label %259, label %.loopexit351, !llvm.loop !36
 
 265:                                              ; preds = %253
   store double 0.000000e+00, ptr %11, align 16, !tbaa !7
@@ -786,7 +786,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %274 = add nsw i32 %272, 1
   store i32 %274, ptr %8, align 4, !tbaa !3
   %.not287.not = icmp slt i32 %272, %267
-  br i1 %.not287.not, label %269, label %.loopexit351, !llvm.loop !38
+  br i1 %.not287.not, label %269, label %.loopexit351, !llvm.loop !37
 
 275:                                              ; preds = %250
   br i1 %.not281, label %292, label %276
@@ -822,7 +822,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %290 = sub i32 %289, %283
   %291 = add nuw nsw i32 %283, 1
   %.not284.not = icmp slt i32 %291, %277
-  br i1 %.not284.not, label %281, label %.loopexit351, !llvm.loop !39
+  br i1 %.not284.not, label %281, label %.loopexit351, !llvm.loop !38
 
 292:                                              ; preds = %275
   store double 0.000000e+00, ptr %11, align 16, !tbaa !7
@@ -855,7 +855,7 @@ define double @dlantp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %305 = sub i32 %304, %298
   %306 = add nuw nsw i32 %298, 1
   %.not282.not = icmp slt i32 %298, %294
-  br i1 %.not282.not, label %296, label %.loopexit351, !llvm.loop !40
+  br i1 %.not282.not, label %296, label %.loopexit351, !llvm.loop !39
 
 .loopexit351:                                     ; preds = %259, %269, %281, %296, %254, %265, %276, %292
   %307 = load double, ptr %11, align 16, !tbaa !7
@@ -913,35 +913,34 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = !{!5, !5, i64 0}
-!20 = distinct !{!20, !10, !11}
-!21 = distinct !{!21, !10, !11}
-!22 = distinct !{!22, !10, !11}
-!23 = distinct !{!23, !10, !11}
-!24 = distinct !{!24, !10, !11}
-!25 = distinct !{!25, !10, !11}
-!26 = distinct !{!26, !10, !11}
-!27 = distinct !{!27, !10, !11}
-!28 = distinct !{!28, !10, !11}
-!29 = distinct !{!29, !10, !11}
-!30 = distinct !{!30, !10, !11}
-!31 = distinct !{!31, !10, !11}
-!32 = distinct !{!32, !10, !11}
-!33 = distinct !{!33, !10, !11}
-!34 = distinct !{!34, !10, !11}
-!35 = distinct !{!35, !10, !11}
-!36 = distinct !{!36, !10, !11}
-!37 = distinct !{!37, !10, !11}
-!38 = distinct !{!38, !10, !11}
-!39 = distinct !{!39, !10, !11}
-!40 = distinct !{!40, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = !{!5, !5, i64 0}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10}
+!24 = distinct !{!24, !10}
+!25 = distinct !{!25, !10}
+!26 = distinct !{!26, !10}
+!27 = distinct !{!27, !10}
+!28 = distinct !{!28, !10}
+!29 = distinct !{!29, !10}
+!30 = distinct !{!30, !10}
+!31 = distinct !{!31, !10}
+!32 = distinct !{!32, !10}
+!33 = distinct !{!33, !10}
+!34 = distinct !{!34, !10}
+!35 = distinct !{!35, !10}
+!36 = distinct !{!36, !10}
+!37 = distinct !{!37, !10}
+!38 = distinct !{!38, !10}
+!39 = distinct !{!39, !10}

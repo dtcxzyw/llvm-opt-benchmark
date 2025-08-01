@@ -1998,14 +1998,14 @@ define internal fastcc ptr @copy_grouping(ptr noundef readonly captures(none) %0
   br label %.critedge2
 
 27:                                               ; preds = %13
-  %.val = load ptr, ptr %12, align 8, !tbaa !47
+  %.val = load ptr, ptr %12, align 8, !tbaa !46
   %28 = getelementptr ptr, ptr %.val, i64 %15
   store ptr %19, ptr %28, align 8, !tbaa !10
   %29 = load i8, ptr %16, align 1, !tbaa !11
   switch i8 %29, label %13 [
     i8 0, label %.critedge2
     i8 127, label %.critedge2
-  ], !llvm.loop !50
+  ]
 
 .critedge2:                                       ; preds = %27, %27, %26, %23, %21, %.critedge, %4
   %.0 = phi ptr [ %5, %4 ], [ null, %.critedge ], [ null, %21 ], [ null, %23 ], [ null, %26 ], [ %11, %27 ], [ %11, %27 ]
@@ -2085,13 +2085,13 @@ define internal fastcc ptr @_locale_nl_langinfo_impl(i32 noundef %0) unnamed_add
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = getelementptr [57 x %struct.langinfo_constant], ptr @langinfo_constants, i64 0, i64 %indvars.iv.next
   %exitcond = icmp eq i64 %indvars.iv.next, 56
-  br i1 %exitcond, label %50, label %4, !llvm.loop !51
+  br i1 %exitcond, label %50, label %4, !llvm.loop !49
 
 4:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %5 = phi ptr [ @langinfo_constants, %1 ], [ %3, %2 ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !52
+  %7 = load i32, ptr %6, align 8, !tbaa !50
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
@@ -2100,7 +2100,7 @@ define internal fastcc ptr @_locale_nl_langinfo_impl(i32 noundef %0) unnamed_add
   %.not21 = icmp eq ptr %10, null
   %11 = select i1 %.not21, ptr @.str.41, ptr %10
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !54
+  %13 = load i32, ptr %12, align 4, !tbaa !52
   %.not22 = icmp eq i32 %13, 0
   br i1 %.not22, label %change_locale.exit, label %14
 
@@ -2113,7 +2113,7 @@ define internal fastcc ptr @_locale_nl_langinfo_impl(i32 noundef %0) unnamed_add
   %17 = getelementptr i8, ptr %.06.i, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !11
   %.not.i = icmp eq i8 %18, 0
-  br i1 %.not.i, label %change_locale.exit, label %.lr.ph.i, !llvm.loop !55
+  br i1 %.not.i, label %change_locale.exit, label %.lr.ph.i, !llvm.loop !53
 
 .lr.ph.i:                                         ; preds = %14, %16
   %19 = phi i8 [ %18, %16 ], [ %15, %14 ]
@@ -2229,7 +2229,7 @@ define internal fastcc ptr @decode_strings(ptr noundef readonly captures(none) %
   %8 = add i64 %7, %6
   %9 = add nuw i64 %.02328, 1
   %exitcond.not = icmp eq i64 %9, %1
-  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !56
+  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !54
 
 .critedge.loopexit:                               ; preds = %5, %.lr.ph
   %.023.lcssa.ph = phi i64 [ %.02328, %.lr.ph ], [ %1, %5 ]
@@ -2264,7 +2264,7 @@ define internal fastcc ptr @decode_strings(ptr noundef readonly captures(none) %
   store i8 59, ptr %21, align 1, !tbaa !11
   %22 = add i64 %16, -1
   %.not27 = icmp eq i64 %22, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph36, !llvm.loop !57
+  br i1 %.not27, label %._crit_edge, label %.lr.ph36, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph36, %15
   %23 = tail call ptr @PyUnicode_DecodeLocale(ptr noundef nonnull %11, ptr noundef null) #8
@@ -2349,16 +2349,16 @@ define internal range(i32 -1, 1) i32 @_locale_exec(ptr noundef %0) #0 {
 30:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = getelementptr [57 x %struct.langinfo_constant], ptr @langinfo_constants, i64 0, i64 %indvars.iv.next
-  %32 = load ptr, ptr %31, align 16, !tbaa !58
+  %32 = load ptr, ptr %31, align 16, !tbaa !56
   %exitcond = icmp eq i64 %indvars.iv.next, 56
-  br i1 %exitcond, label %40, label %.preheader, !llvm.loop !59
+  br i1 %exitcond, label %40, label %.preheader, !llvm.loop !57
 
 .preheader:                                       ; preds = %25, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %25 ]
   %33 = phi ptr [ %32, %30 ], [ @.str.43, %25 ]
   %34 = phi ptr [ %31, %30 ], [ @langinfo_constants, %25 ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !52
+  %36 = load i32, ptr %35, align 8, !tbaa !50
   %37 = sext i32 %36 to i64
   %38 = tail call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef nonnull %33, i64 noundef %37) #8
   %39 = icmp slt i32 %38, 0
@@ -2439,19 +2439,17 @@ attributes #10 = { nounwind willreturn memory(none) }
 !41 = !{!27, !8, i64 87}
 !42 = !{!27, !19, i64 16}
 !43 = !{!23, !23, i64 0}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!48, !49, i64 24}
-!48 = !{!"", !17, i64 0, !49, i64 24, !18, i64 32}
-!49 = !{!"p2 _ZTS7_object", !7, i64 0}
-!50 = distinct !{!50, !46}
-!51 = distinct !{!51, !45, !46}
-!52 = !{!53, !23, i64 8}
-!53 = !{!"langinfo_constant", !19, i64 0, !23, i64 8, !23, i64 12}
-!54 = !{!53, !23, i64 12}
-!55 = distinct !{!55, !45, !46}
-!56 = distinct !{!56, !45, !46}
-!57 = distinct !{!57, !45, !46}
-!58 = !{!53, !19, i64 0}
-!59 = distinct !{!59, !45, !46}
+!46 = !{!47, !48, i64 24}
+!47 = !{!"", !17, i64 0, !48, i64 24, !18, i64 32}
+!48 = !{!"p2 _ZTS7_object", !7, i64 0}
+!49 = distinct !{!49, !45}
+!50 = !{!51, !23, i64 8}
+!51 = !{!"langinfo_constant", !19, i64 0, !23, i64 8, !23, i64 12}
+!52 = !{!51, !23, i64 12}
+!53 = distinct !{!53, !45}
+!54 = distinct !{!54, !45}
+!55 = distinct !{!55, !45}
+!56 = !{!51, !19, i64 0}
+!57 = distinct !{!57, !45}

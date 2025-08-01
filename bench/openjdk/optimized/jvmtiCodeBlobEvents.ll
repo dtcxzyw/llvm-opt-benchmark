@@ -281,7 +281,7 @@ _ZN26GrowableArrayWithAllocatorIP17JvmtiCodeBlobDesc13GrowableArrayIS1_EE6append
   store ptr %11, ptr %39, align 8
   %.0 = load ptr, ptr %.011, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIP17JvmtiCodeBlobDesc13GrowableArrayIS1_EE6appendERKS1_.exit, %9
   tail call void @_ZN11VtableStubs14vtable_stub_doEPFvP10VtableStubE(ptr noundef nonnull @_ZN17CodeBlobCollector14do_vtable_stubEP10VtableStub) #10
@@ -353,7 +353,7 @@ _ZN17CodeBlobCollector4nextEv.exit:               ; preds = %12
   %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %.preheader.i, label %12, !llvm.loop !10
+  br i1 %.not, label %.preheader.i, label %12, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %12, %_ZN17CodeBlobCollector4nextEv.exit, %_ZN17CodeBlobCollector5firstEv.exit
   %24 = phi i32 [ %6, %_ZN17CodeBlobCollector5firstEv.exit ], [ %19, %_ZN17CodeBlobCollector4nextEv.exit ], [ %19, %12 ]
@@ -374,7 +374,7 @@ _ZN17CodeBlobCollector4nextEv.exit:               ; preds = %12
   %30 = load i32, ptr %5, align 4
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next.i, %31
-  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZN11MutexLockerD2Ev.exit, %.preheader.i
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -488,7 +488,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 38:                                               ; preds = %.lr.ph.i.i
   %39 = tail call noundef ptr @_ZN9CodeCache9next_blobEP8CodeHeapP8CodeBlob(ptr noundef %23, ptr noundef nonnull %.sroa.0.3) #10
   %.not.i.i8 = icmp eq ptr %39, null
-  br i1 %.not.i.i8, label %.loopexit.i.thread, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i8, label %.loopexit.i.thread, label %.lr.ph.i.i, !llvm.loop !11
 
 .loopexit.i.thread:                               ; preds = %25, %32, %38
   %40 = add nsw i32 %.sroa.10.122.ph, 1
@@ -498,7 +498,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %.sroa.10.2 = phi i32 [ %40, %.loopexit.i.thread ], [ %.sroa.10.122.ph, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_blobEv.exit.i ]
   %.sroa.0.5 = phi ptr [ null, %.loopexit.i.thread ], [ %42, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_blobEv.exit.i ]
   %41 = icmp eq i32 %.sroa.10.2, %16
-  br i1 %41, label %.loopexit.i.thread16, label %.lr.ph.outer, !llvm.loop !13
+  br i1 %41, label %.loopexit.i.thread16, label %.lr.ph.outer, !llvm.loop !12
 
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_blobEv.exit.i: ; preds = %.lr.ph.i.i, %28
   %42 = phi ptr [ %26, %28 ], [ %.sroa.0.3, %.lr.ph.i.i ]
@@ -507,7 +507,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_blobEv.exit.i: ; preds =
 
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit: ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_blobEv.exit.i
   tail call void @_ZN7nmethod31post_compiled_method_load_eventEP16JvmtiThreadState(ptr noundef nonnull align 8 dereferenceable(214) %42, ptr noundef %.0.i) #10
-  br i1 %20, label %.loopexit.i.thread16, label %.lr.ph, !llvm.loop !14
+  br i1 %20, label %.loopexit.i.thread16, label %.lr.ph, !llvm.loop !13
 
 .loopexit.i.thread16:                             ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit, %.backedge.i, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %44
@@ -626,7 +626,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %3, %_ZN26GrowableAr
   %.02633 = phi ptr [ %61, %.lr.ph ], [ %5, %.lr.ph37 ]
   %61 = call noundef ptr @_ZNK9ScopeDesc6senderEv(ptr noundef nonnull align 8 dereferenceable(56) %.02633) #10
   %62 = call noundef zeroext i1 @_ZNK9ScopeDesc6is_topEv(ptr noundef nonnull align 8 dereferenceable(56) %61) #10
-  br i1 %62, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %62, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph37
   %.026.lcssa = phi ptr [ %5, %.lr.ph37 ], [ %61, %.lr.ph ]
@@ -654,7 +654,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %3, %_ZN26GrowableAr
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr %75, i64 %77
   %79 = icmp ult ptr %74, %78
-  br i1 %79, label %.lr.ph37, label %.loopexit, !llvm.loop !16
+  br i1 %79, label %.lr.ph37, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %73, %44, %_ZN12methodHandleC2EP6ThreadP6Method.exit
   %.027 = phi i32 [ 0, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ 0, %44 ], [ %.2, %73 ]
@@ -855,7 +855,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP17JvmtiCodeBlo
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -906,7 +906,7 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %10 = load volatile i32, ptr %9, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %11 = add i32 %10, -57003
   %12 = icmp ult i32 %11, 4
   br i1 %12, label %39, label %13
@@ -1052,7 +1052,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !19
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !18
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1068,7 +1068,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !20
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !19
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1158,7 +1158,7 @@ _ZN13GrowableArrayIP17JvmtiCodeBlobDescE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !21
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !20
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1174,7 +1174,7 @@ _ZN13GrowableArrayIP17JvmtiCodeBlobDescE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !22
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !21
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1223,20 +1223,19 @@ attributes #10 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = !{i64 2145392468}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = !{i64 2145392468}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

@@ -71,7 +71,7 @@ define hidden noundef ptr @_ZN15ClasspathStream8get_nextEv(ptr noundef nonnull a
   %45 = tail call noundef ptr @_ZN2os14path_separatorEv() #3
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %44, %46
-  br i1 %47, label %.lr.ph10, label %._crit_edge, !llvm.loop !9
+  br i1 %47, label %.lr.ph10, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph10, %.critedge
   %48 = load i32, ptr %2, align 8
@@ -99,7 +99,6 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

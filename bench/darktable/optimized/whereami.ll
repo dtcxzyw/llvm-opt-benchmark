@@ -48,7 +48,7 @@ define i32 @wai_getExecutablePath(ptr noundef captures(none) %0, i32 noundef %1,
 
 19:                                               ; preds = %14
   %20 = trunc i64 %15 to i32
-  store i32 %20, ptr %2, align 4, !tbaa !9
+  store i32 %20, ptr %2, align 4, !tbaa !8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %19, %6, %9, %3
@@ -89,7 +89,7 @@ define i32 @wai_getModulePath(ptr noundef captures(none) %0, i32 noundef %1, ptr
 13:                                               ; preds = %.thread.thread, %.thread
   %14 = add nuw nsw i32 %.03360, 1
   %exitcond.not = icmp eq i32 %14, 5
-  br i1 %exitcond.not, label %46, label %15, !llvm.loop !11
+  br i1 %exitcond.not, label %46, label %15, !llvm.loop !10
 
 15:                                               ; preds = %3, %13
   %.03360 = phi i32 [ 0, %3 ], [ %14, %13 ]
@@ -119,7 +119,7 @@ define i32 @wai_getModulePath(ptr noundef captures(none) %0, i32 noundef %1, ptr
 20:                                               ; preds = %.lr.ph
   %21 = call ptr @llvm.returnaddress(i32 0)
   %22 = ptrtoint ptr %21 to i64
-  %23 = load i64, ptr %5, align 8, !tbaa !12
+  %23 = load i64, ptr %5, align 8, !tbaa !11
   %.not40 = icmp ugt i64 %23, %22
   %24 = load i64, ptr %6, align 8
   %.not41 = icmp ult i64 %24, %22
@@ -158,11 +158,11 @@ define i32 @wai_getModulePath(ptr noundef captures(none) %0, i32 noundef %1, ptr
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !3
   %39 = icmp eq i8 %38, 47
-  br i1 %39, label %40, label %.preheader, !llvm.loop !14
+  br i1 %39, label %40, label %.preheader, !llvm.loop !13
 
 40:                                               ; preds = %35
   %41 = trunc i64 %36 to i32
-  store i32 %41, ptr %2, align 4, !tbaa !9
+  store i32 %41, ptr %2, align 4, !tbaa !8
   br label %.thread
 
 42:                                               ; preds = %20, %.lr.ph
@@ -186,7 +186,7 @@ define i32 @wai_getModulePath(ptr noundef captures(none) %0, i32 noundef %1, ptr
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
   %43 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 4096, ptr noundef nonnull %16)
   %.not39 = icmp eq ptr %43, null
-  br i1 %.not39, label %.thread.thread, label %.lr.ph, !llvm.loop !15
+  br i1 %.not39, label %.thread.thread, label %.lr.ph
 
 .thread.thread:                                   ; preds = %42, %25, %.preheader56
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
@@ -253,13 +253,11 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"int", !4, i64 0}
-!11 = distinct !{!11, !7, !8}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !4, i64 0}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !8}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !4, i64 0}
+!10 = distinct !{!10, !7}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !4, i64 0}
+!13 = distinct !{!13, !7}

@@ -271,7 +271,7 @@ wsd_to_av_channel_layoyt.exit:                    ; preds = %52, %53, %54, %55, 
   %86 = getelementptr inbounds nuw i8, ptr %.02.i.i, i64 1
   %87 = load i8, ptr %.02.i.i, align 1, !tbaa !12
   %.not4.i.i = icmp eq i8 %87, 32
-  br i1 %.not4.i.i, label %.preheader.i, label %88, !llvm.loop !45
+  br i1 %.not4.i.i, label %.preheader.i, label %88, !llvm.loop !44
 
 empty_string.exit.i:                              ; preds = %.preheader.i
   call void @av_free(ptr noundef nonnull %79) #6
@@ -309,7 +309,7 @@ get_metadata.exit:                                ; preds = %78, %83, %empty_str
   %98 = getelementptr inbounds nuw i8, ptr %.02.i.i70, i64 1
   %99 = load i8, ptr %.02.i.i70, align 1, !tbaa !12
   %.not4.i.i73 = icmp eq i8 %99, 32
-  br i1 %.not4.i.i73, label %.preheader.i69, label %100, !llvm.loop !45
+  br i1 %.not4.i.i73, label %.preheader.i69, label %100, !llvm.loop !44
 
 empty_string.exit.i74:                            ; preds = %.preheader.i69
   call void @av_free(ptr noundef nonnull %91) #6
@@ -347,7 +347,7 @@ get_metadata.exit75:                              ; preds = %get_metadata.exit, 
   %110 = getelementptr inbounds nuw i8, ptr %.02.i.i80, i64 1
   %111 = load i8, ptr %.02.i.i80, align 1, !tbaa !12
   %.not4.i.i83 = icmp eq i8 %111, 32
-  br i1 %.not4.i.i83, label %.preheader.i79, label %112, !llvm.loop !45
+  br i1 %.not4.i.i83, label %.preheader.i79, label %112, !llvm.loop !44
 
 empty_string.exit.i84:                            ; preds = %.preheader.i79
   call void @av_free(ptr noundef nonnull %103) #6
@@ -385,7 +385,7 @@ get_metadata.exit85:                              ; preds = %get_metadata.exit75
   %122 = getelementptr inbounds nuw i8, ptr %.02.i.i90, i64 1
   %123 = load i8, ptr %.02.i.i90, align 1, !tbaa !12
   %.not4.i.i93 = icmp eq i8 %123, 32
-  br i1 %.not4.i.i93, label %.preheader.i89, label %124, !llvm.loop !45
+  br i1 %.not4.i.i93, label %.preheader.i89, label %124, !llvm.loop !44
 
 empty_string.exit.i94:                            ; preds = %.preheader.i89
   call void @av_free(ptr noundef nonnull %115) #6
@@ -423,7 +423,7 @@ get_metadata.exit95:                              ; preds = %get_metadata.exit85
   %134 = getelementptr inbounds nuw i8, ptr %.02.i.i100, i64 1
   %135 = load i8, ptr %.02.i.i100, align 1, !tbaa !12
   %.not4.i.i103 = icmp eq i8 %135, 32
-  br i1 %.not4.i.i103, label %.preheader.i99, label %136, !llvm.loop !45
+  br i1 %.not4.i.i103, label %.preheader.i99, label %136, !llvm.loop !44
 
 empty_string.exit.i104:                           ; preds = %.preheader.i99
   call void @av_free(ptr noundef nonnull %127) #6
@@ -461,7 +461,7 @@ get_metadata.exit105:                             ; preds = %get_metadata.exit95
   %146 = getelementptr inbounds nuw i8, ptr %.02.i.i110, i64 1
   %147 = load i8, ptr %.02.i.i110, align 1, !tbaa !12
   %.not4.i.i113 = icmp eq i8 %147, 32
-  br i1 %.not4.i.i113, label %.preheader.i109, label %148, !llvm.loop !45
+  br i1 %.not4.i.i113, label %.preheader.i109, label %148, !llvm.loop !44
 
 empty_string.exit.i114:                           ; preds = %.preheader.i109
   call void @av_free(ptr noundef nonnull %139) #6
@@ -499,7 +499,7 @@ get_metadata.exit115:                             ; preds = %get_metadata.exit10
   %158 = getelementptr inbounds nuw i8, ptr %.02.i.i120, i64 1
   %159 = load i8, ptr %.02.i.i120, align 1, !tbaa !12
   %.not4.i.i123 = icmp eq i8 %159, 32
-  br i1 %.not4.i.i123, label %.preheader.i119, label %160, !llvm.loop !45
+  br i1 %.not4.i.i123, label %.preheader.i119, label %160, !llvm.loop !44
 
 empty_string.exit.i124:                           ; preds = %.preheader.i119
   call void @av_free(ptr noundef nonnull %151) #6
@@ -537,7 +537,7 @@ get_metadata.exit125:                             ; preds = %get_metadata.exit11
   %170 = getelementptr inbounds nuw i8, ptr %.02.i.i130, i64 1
   %171 = load i8, ptr %.02.i.i130, align 1, !tbaa !12
   %.not4.i.i133 = icmp eq i8 %171, 32
-  br i1 %.not4.i.i133, label %.preheader.i129, label %172, !llvm.loop !45
+  br i1 %.not4.i.i133, label %.preheader.i129, label %172, !llvm.loop !44
 
 empty_string.exit.i134:                           ; preds = %.preheader.i129
   call void @av_free(ptr noundef nonnull %163) #6
@@ -575,7 +575,7 @@ get_metadata.exit135:                             ; preds = %get_metadata.exit12
   %182 = getelementptr inbounds nuw i8, ptr %.02.i.i140, i64 1
   %183 = load i8, ptr %.02.i.i140, align 1, !tbaa !12
   %.not4.i.i143 = icmp eq i8 %183, 32
-  br i1 %.not4.i.i143, label %.preheader.i139, label %184, !llvm.loop !45
+  br i1 %.not4.i.i143, label %.preheader.i139, label %184, !llvm.loop !44
 
 empty_string.exit.i144:                           ; preds = %.preheader.i139
   call void @av_free(ptr noundef nonnull %175) #6
@@ -613,7 +613,7 @@ get_metadata.exit145:                             ; preds = %get_metadata.exit13
   %194 = getelementptr inbounds nuw i8, ptr %.02.i.i150, i64 1
   %195 = load i8, ptr %.02.i.i150, align 1, !tbaa !12
   %.not4.i.i153 = icmp eq i8 %195, 32
-  br i1 %.not4.i.i153, label %.preheader.i149, label %196, !llvm.loop !45
+  br i1 %.not4.i.i153, label %.preheader.i149, label %196, !llvm.loop !44
 
 empty_string.exit.i154:                           ; preds = %.preheader.i149
   call void @av_free(ptr noundef nonnull %187) #6
@@ -728,7 +728,6 @@ attributes #6 = { nounwind }
 !39 = !{!36, !10, i64 152}
 !40 = !{!36, !10, i64 132}
 !41 = !{!36, !23, i64 48}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = distinct !{!45, !43, !44}
+!44 = distinct !{!44, !43}

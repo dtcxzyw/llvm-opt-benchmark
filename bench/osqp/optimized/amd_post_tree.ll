@@ -36,7 +36,7 @@ define i64 @amd_l_post_tree(i64 noundef %0, i64 noundef %1, ptr noundef captures
   %17 = getelementptr inbounds i64, ptr %3, i64 %.13242
   %.132 = load i64, ptr %17, align 8, !tbaa !3
   %.not35 = icmp eq i64 %.132, -1
-  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store i64 -1, ptr %10, align 8, !tbaa !3
@@ -53,7 +53,7 @@ define i64 @amd_l_post_tree(i64 noundef %0, i64 noundef %1, ptr noundef captures
   %.2 = phi i64 [ %12, %._crit_edge ], [ %19, %18 ]
   %.1 = phi i64 [ %.044, %._crit_edge ], [ %20, %18 ]
   %23 = icmp sgt i64 %.2, -1
-  br i1 %23, label %7, label %24, !llvm.loop !11
+  br i1 %23, label %7, label %24, !llvm.loop !10
 
 24:                                               ; preds = %22
   ret i64 %.1
@@ -70,8 +70,7 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"long long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

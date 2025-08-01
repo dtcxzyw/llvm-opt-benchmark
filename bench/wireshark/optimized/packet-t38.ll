@@ -1418,7 +1418,7 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   %66 = add i32 %63, 1
   %.091.i = load ptr, ptr %.0917.i, align 8
   %.not99.i = icmp eq ptr %.091.i, null
-  br i1 %.not99.i, label %.lr.ph14.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not99.i, label %.lr.ph14.i, label %.lr.ph.i, !llvm.loop !10
 
 .lr.ph14.i:                                       ; preds = %.lr.ph.i, %76
   %.19213.i = phi ptr [ %.192.i, %76 ], [ %.0912.i, %.lr.ph.i ]
@@ -1445,7 +1445,7 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   %.186.i = phi i32 [ %75, %72 ], [ %.08512.i, %67 ]
   %.192.i = load ptr, ptr %.19213.i, align 8
   %.not100.i = icmp eq ptr %.192.i, null
-  br i1 %.not100.i, label %._crit_edge.i, label %.lr.ph14.i, !llvm.loop !12
+  br i1 %.not100.i, label %._crit_edge.i, label %.lr.ph14.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %76, %.preheader1.i
   %.082.lcssa33.i = phi i32 [ 0, %.preheader1.i ], [ %.1.i, %76 ]
@@ -1543,7 +1543,7 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
   %.188.i = phi i32 [ %102, %94 ], [ %.08719.i, %121 ], [ %.08719.i, %112 ], [ %.08719.i, %87 ]
   %.2.i = load ptr, ptr %.220.i, align 8
   %.not101.i = icmp eq ptr %.2.i, null
-  br i1 %.not101.i, label %.critedge.i, label %83, !llvm.loop !13
+  br i1 %.not101.i, label %.critedge.i, label %83, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %126, %83
   %.324.pre.i = load ptr, ptr %55, align 8
@@ -1565,7 +1565,7 @@ define internal i32 @dissect_t38_T_field_type(ptr noundef %0, i32 noundef %1, pt
 130:                                              ; preds = %129, %.lr.ph27.i
   %.3.i = load ptr, ptr %.326.i, align 8
   %.not103.i = icmp eq ptr %.3.i, null
-  br i1 %.not103.i, label %._crit_edge28.i, label %.lr.ph27.i, !llvm.loop !14
+  br i1 %.not103.i, label %._crit_edge28.i, label %.lr.ph27.i, !llvm.loop !13
 
 ._crit_edge28.i:                                  ; preds = %130, %.critedge.i, %._crit_edge.i
   %131 = getelementptr inbounds nuw i8, ptr %55, i64 48
@@ -2054,10 +2054,9 @@ attributes #12 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}

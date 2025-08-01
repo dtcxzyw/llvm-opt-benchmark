@@ -1018,7 +1018,7 @@ define dso_local void @DecodingContextFindStartpoint(ptr noundef %0) local_unnam
   %39 = call ptr @XLogReadRecord(ptr noundef %38, ptr noundef nonnull %2) #10
   %40 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %24, label %._crit_edge, !llvm.loop !12
+  br i1 %.not, label %24, label %._crit_edge
 
 41:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
@@ -1050,7 +1050,7 @@ define dso_local void @DecodingContextFindStartpoint(ptr noundef %0) local_unnam
   br label %58
 
 58:                                               ; preds = %45, %53
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   store i8 0, ptr %4, align 8
   ret void
 }
@@ -1321,7 +1321,7 @@ define dso_local void @LogicalIncreaseXminForSlot(i64 noundef %0, i32 noundef %1
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 236
   store i32 %1, ptr %19, align 4
   store i64 %0, ptr %15, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   store i8 0, ptr %3, align 8
   %20 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
   br i1 %20, label %21, label %.thread28
@@ -1335,7 +1335,7 @@ define dso_local void @LogicalIncreaseXminForSlot(i64 noundef %0, i32 noundef %1
   br label %.thread28
 
 .thread31:                                        ; preds = %14, %7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   store i8 0, ptr %3, align 8
   br label %.thread28
 
@@ -1344,7 +1344,7 @@ define dso_local void @LogicalIncreaseXminForSlot(i64 noundef %0, i32 noundef %1
   store i32 %1, ptr %27, align 4
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 240
   store i64 %0, ptr %28, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   store i8 0, ptr %3, align 8
   %29 = load i64, ptr %12, align 8
   tail call void @LogicalConfirmReceivedLocation(i64 noundef %29)
@@ -1425,7 +1425,7 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
   br label %34
 
 34:                                               ; preds = %26, %30
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !14
   %35 = load ptr, ptr @MyReplicationSlot, align 8
   store i8 0, ptr %35, align 8
   %or.cond = or i1 %.010, %or.cond25.not
@@ -1464,7 +1464,7 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
   %52 = load i32, ptr %51, align 4
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store i32 %52, ptr %53, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
   %54 = load ptr, ptr @MyReplicationSlot, align 8
   store i8 0, ptr %54, align 8
   tail call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #10
@@ -1485,7 +1485,7 @@ define dso_local void @LogicalConfirmReceivedLocation(i64 noundef %0) local_unna
   %61 = load ptr, ptr @MyReplicationSlot, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 120
   store i64 %0, ptr %62, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !16
   %63 = load ptr, ptr @MyReplicationSlot, align 8
   store i8 0, ptr %63, align 8
   br label %64
@@ -1512,7 +1512,7 @@ define dso_local void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %0, i64
   br i1 %.not41, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   store i8 0, ptr %3, align 8
   br label %.critedge
 
@@ -1527,7 +1527,7 @@ define dso_local void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %0, i64
   store i64 %0, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 256
   store i64 %1, ptr %16, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !18
   store i8 0, ptr %3, align 8
   %17 = load i64, ptr %12, align 8
   tail call void @LogicalConfirmReceivedLocation(i64 noundef %17)
@@ -1542,7 +1542,7 @@ define dso_local void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %0, i64
   store i64 %0, ptr %14, align 8
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 256
   store i64 %1, ptr %22, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !19
   store i8 0, ptr %3, align 8
   %23 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
   br i1 %23, label %24, label %.critedge
@@ -1561,7 +1561,7 @@ define dso_local void @LogicalIncreaseRestartDecodingForSlot(i64 noundef %0, i64
 32:                                               ; preds = %18
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %34 = load i64, ptr %33, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !20
   store i8 0, ptr %3, align 8
   %35 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
   br i1 %35, label %36, label %.critedge
@@ -1767,7 +1767,7 @@ define dso_local noundef zeroext i1 @LogicalReplicationSlotHasPendingWal(i64 nou
 
 41:                                               ; preds = %40, %36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
-  br i1 %38, label %.critedge, label %21, !llvm.loop !23
+  br i1 %38, label %.critedge, label %21, !llvm.loop !21
 
 .critedge:                                        ; preds = %41, %21
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 104
@@ -1926,7 +1926,7 @@ define dso_local i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %0, ptr no
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = load i64, ptr %43, align 8
   %45 = icmp ult i64 %44, %0
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %41, %15
   br i1 %.not, label %52, label %46
@@ -3002,17 +3002,15 @@ attributes #13 = { noreturn nounwind }
 !9 = !{}
 !10 = !{i64 2151195560}
 !11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{i64 2151204099}
-!15 = !{i64 2151225431}
-!16 = !{i64 2151241841}
-!17 = !{i64 2151243005}
-!18 = !{i64 2151243353}
-!19 = !{i64 2151228023}
-!20 = !{i64 2151228136}
-!21 = !{i64 2151228253}
-!22 = !{i64 2151232144}
-!23 = distinct !{!23, !24, !13}
-!24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24, !13}
+!12 = !{i64 2151204099}
+!13 = !{i64 2151225431}
+!14 = !{i64 2151241841}
+!15 = !{i64 2151243005}
+!16 = !{i64 2151243353}
+!17 = !{i64 2151228023}
+!18 = !{i64 2151228136}
+!19 = !{i64 2151228253}
+!20 = !{i64 2151232144}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = distinct !{!23, !22}

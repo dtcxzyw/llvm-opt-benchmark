@@ -1094,7 +1094,7 @@ H5HL__dirty.exit:                                 ; preds = %28
   %54 = load i64, ptr %53, align 8, !tbaa !28
   %55 = add i64 %54, %52
   %56 = icmp eq i64 %55, %2
-  br i1 %56, label %57, label %50, !llvm.loop !56
+  br i1 %56, label %57, label %50, !llvm.loop !55
 
 57:                                               ; preds = %51
   store i64 %52, ptr %.0101153, align 8, !tbaa !26
@@ -1214,7 +1214,7 @@ H5HL__remove_free.exit:                           ; preds = %57, %75
 116:                                              ; preds = %115
   %117 = load i64, ptr %.1, align 8, !tbaa !26
   %118 = icmp eq i64 %114, %117
-  br i1 %118, label %119, label %115, !llvm.loop !57
+  br i1 %118, label %119, label %115, !llvm.loop !56
 
 119:                                              ; preds = %116
   %120 = getelementptr inbounds nuw i8, ptr %.1, i64 8
@@ -1314,7 +1314,7 @@ H5HL__remove_free.exit135:                        ; preds = %119, %139
   %170 = getelementptr inbounds nuw i8, ptr %.0101153, i64 24
   %.0101 = load ptr, ptr %170, align 8, !tbaa !50
   %.not = icmp eq ptr %.0101, null
-  br i1 %.not, label %._crit_edge, label %43, !llvm.loop !58
+  br i1 %.not, label %._crit_edge, label %43
 
 ._crit_edge:                                      ; preds = %169, %H5HL__dirty.exit
   %171 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #7
@@ -1413,7 +1413,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__minimize_heap_space(ptr nound
   %20 = getelementptr inbounds nuw i8, ptr %.04969, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !52
   %.not53 = icmp eq ptr %21, null
-  br i1 %.not53, label %H5HL__remove_free.exit, label %.preheader67, !llvm.loop !59
+  br i1 %.not53, label %H5HL__remove_free.exit, label %.preheader67, !llvm.loop !57
 
 22:                                               ; preds = %.preheader67
   %23 = getelementptr inbounds nuw i8, ptr %.04969, i64 8
@@ -1440,7 +1440,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__minimize_heap_space(ptr nound
 35:                                               ; preds = %.preheader
   %36 = lshr i64 %.270, 1
   %37 = icmp ugt i64 %.270, 257
-  br i1 %37, label %.preheader, label %.critedge, !llvm.loop !60
+  br i1 %37, label %.preheader, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %35, %.preheader
   %.2.lcssa = phi i64 [ %36, %35 ], [ %.270, %.preheader ]
@@ -1924,11 +1924,9 @@ attributes #7 = { nounwind }
 !50 = !{!14, !14, i64 0}
 !51 = !{!27, !14, i64 16}
 !52 = !{!27, !14, i64 24}
-!53 = distinct !{!53, !54, !55}
+!53 = distinct !{!53, !54}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!"llvm.loop.estimated_trip_count"}
-!56 = distinct !{!56, !54, !55}
-!57 = distinct !{!57, !54, !55}
-!58 = distinct !{!58, !55}
-!59 = distinct !{!59, !54, !55}
-!60 = distinct !{!60, !54, !55}
+!55 = distinct !{!55, !54}
+!56 = distinct !{!56, !54}
+!57 = distinct !{!57, !54}
+!58 = distinct !{!58, !54}

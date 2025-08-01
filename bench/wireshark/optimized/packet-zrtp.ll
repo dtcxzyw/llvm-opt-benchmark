@@ -464,7 +464,7 @@ check_valid_version.exit.i:                       ; preds = %55, %52
 .lr.ph.i:                                         ; preds = %.lr.ph181.i, %.lr.ph.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i.i ], [ 0, %.lr.ph181.i ]
   %exitcond.i = icmp eq i64 %indvars.iv.i, 3
-  br i1 %exitcond.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -472,7 +472,7 @@ check_valid_version.exit.i:                       ; preds = %55, %52
   %98 = load ptr, ptr %97, align 16
   %99 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef %94, i64 noundef 4) #7
   %.not13.i.i = icmp eq i32 %99, 0
-  br i1 %.not13.i.i, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not13.i.i, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 .lr.ph.i._crit_edge.i:                            ; preds = %.lr.ph.i.i, %.lr.ph181.i
   %.lcssa175.i = phi ptr [ @zrtp_hash_type_vals, %.lr.ph181.i ], [ %97, %.lr.ph.i.i ]
@@ -491,7 +491,7 @@ key_to_val.exit.i:                                ; preds = %._crit_edge.i.i, %.
   %105 = add nuw nsw i32 %.0135179.i, 4
   %106 = add nuw nsw i32 %.0180.i, 1
   %exitcond247.not.i = icmp eq i32 %106, %78
-  br i1 %exitcond247.not.i, label %._crit_edge.i, label %.lr.ph181.i, !llvm.loop !10
+  br i1 %exitcond247.not.i, label %._crit_edge.i, label %.lr.ph181.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %key_to_val.exit.i, %61
   %.0135.lcssa.i = phi i32 [ 92, %61 ], [ %105, %key_to_val.exit.i ]
@@ -515,7 +515,7 @@ key_to_val.exit.i:                                ; preds = %._crit_edge.i.i, %.
 .lr.ph186.i:                                      ; preds = %.lr.ph191.i, %.lr.ph.i140.i
   %indvars.iv248.i = phi i64 [ %indvars.iv.next249.i, %.lr.ph.i140.i ], [ 0, %.lr.ph191.i ]
   %exitcond251.i = icmp eq i64 %indvars.iv248.i, 8
-  br i1 %exitcond251.i, label %._crit_edge.i144.i, label %.lr.ph.i140.i, !llvm.loop !9
+  br i1 %exitcond251.i, label %._crit_edge.i144.i, label %.lr.ph.i140.i, !llvm.loop !8
 
 .lr.ph.i140.i:                                    ; preds = %.lr.ph186.i
   %indvars.iv.next249.i = add nuw nsw i64 %indvars.iv248.i, 1
@@ -523,7 +523,7 @@ key_to_val.exit.i:                                ; preds = %._crit_edge.i.i, %.
   %116 = load ptr, ptr %115, align 16
   %117 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %116, ptr noundef %112, i64 noundef 4) #7
   %.not13.i142.i = icmp eq i32 %117, 0
-  br i1 %.not13.i142.i, label %.lr.ph.i140._crit_edge.i, label %.lr.ph186.i, !llvm.loop !9
+  br i1 %.not13.i142.i, label %.lr.ph.i140._crit_edge.i, label %.lr.ph186.i, !llvm.loop !8
 
 .lr.ph.i140._crit_edge.i:                         ; preds = %.lr.ph.i140.i, %.lr.ph191.i
   %.lcssa173.i = phi ptr [ @zrtp_cipher_type_vals, %.lr.ph191.i ], [ %115, %.lr.ph.i140.i ]
@@ -542,7 +542,7 @@ key_to_val.exit146.i:                             ; preds = %._crit_edge.i144.i,
   %123 = add nuw nsw i32 %.1136188.i, 4
   %124 = add nuw nsw i32 %.1189.i, 1
   %exitcond252.not.i = icmp eq i32 %124, %83
-  br i1 %exitcond252.not.i, label %._crit_edge192.i, label %.lr.ph191.i, !llvm.loop !11
+  br i1 %exitcond252.not.i, label %._crit_edge192.i, label %.lr.ph191.i, !llvm.loop !10
 
 ._crit_edge192.i:                                 ; preds = %key_to_val.exit146.i, %._crit_edge.i
   %.1136.lcssa.i = phi i32 [ %.0135.lcssa.i, %._crit_edge.i ], [ %123, %key_to_val.exit146.i ]
@@ -566,7 +566,7 @@ key_to_val.exit146.i:                             ; preds = %._crit_edge.i144.i,
 .lr.ph197.i:                                      ; preds = %.lr.ph202.i, %.lr.ph.i147.i
   %indvars.iv253.i = phi i64 [ %indvars.iv.next254.i, %.lr.ph.i147.i ], [ 0, %.lr.ph202.i ]
   %exitcond256.i = icmp eq i64 %indvars.iv253.i, 3
-  br i1 %exitcond256.i, label %._crit_edge.i151.i, label %.lr.ph.i147.i, !llvm.loop !9
+  br i1 %exitcond256.i, label %._crit_edge.i151.i, label %.lr.ph.i147.i, !llvm.loop !8
 
 .lr.ph.i147.i:                                    ; preds = %.lr.ph197.i
   %indvars.iv.next254.i = add nuw nsw i64 %indvars.iv253.i, 1
@@ -574,7 +574,7 @@ key_to_val.exit146.i:                             ; preds = %._crit_edge.i144.i,
   %134 = load ptr, ptr %133, align 16
   %135 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %134, ptr noundef %130, i64 noundef 4) #7
   %.not13.i149.i = icmp eq i32 %135, 0
-  br i1 %.not13.i149.i, label %.lr.ph.i147._crit_edge.i, label %.lr.ph197.i, !llvm.loop !9
+  br i1 %.not13.i149.i, label %.lr.ph.i147._crit_edge.i, label %.lr.ph197.i, !llvm.loop !8
 
 .lr.ph.i147._crit_edge.i:                         ; preds = %.lr.ph.i147.i, %.lr.ph202.i
   %.lcssa171.i = phi ptr [ @zrtp_auth_tag_vals, %.lr.ph202.i ], [ %133, %.lr.ph.i147.i ]
@@ -593,7 +593,7 @@ key_to_val.exit153.i:                             ; preds = %._crit_edge.i151.i,
   %141 = add nuw nsw i32 %.2137199.i, 4
   %142 = add nuw nsw i32 %.2200.i, 1
   %exitcond257.not.i = icmp eq i32 %142, %82
-  br i1 %exitcond257.not.i, label %._crit_edge203.i, label %.lr.ph202.i, !llvm.loop !12
+  br i1 %exitcond257.not.i, label %._crit_edge203.i, label %.lr.ph202.i, !llvm.loop !11
 
 ._crit_edge203.i:                                 ; preds = %key_to_val.exit153.i, %._crit_edge192.i
   %.2137.lcssa.i = phi i32 [ %.1136.lcssa.i, %._crit_edge192.i ], [ %141, %key_to_val.exit153.i ]
@@ -617,7 +617,7 @@ key_to_val.exit153.i:                             ; preds = %._crit_edge.i151.i,
 .lr.ph208.i:                                      ; preds = %.lr.ph213.i, %.lr.ph.i154.i
   %indvars.iv258.i = phi i64 [ %indvars.iv.next259.i, %.lr.ph.i154.i ], [ 0, %.lr.ph213.i ]
   %exitcond261.i = icmp eq i64 %indvars.iv258.i, 7
-  br i1 %exitcond261.i, label %._crit_edge.i158.i, label %.lr.ph.i154.i, !llvm.loop !9
+  br i1 %exitcond261.i, label %._crit_edge.i158.i, label %.lr.ph.i154.i, !llvm.loop !8
 
 .lr.ph.i154.i:                                    ; preds = %.lr.ph208.i
   %indvars.iv.next259.i = add nuw nsw i64 %indvars.iv258.i, 1
@@ -625,7 +625,7 @@ key_to_val.exit153.i:                             ; preds = %._crit_edge.i151.i,
   %152 = load ptr, ptr %151, align 16
   %153 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %152, ptr noundef %148, i64 noundef 4) #7
   %.not13.i156.i = icmp eq i32 %153, 0
-  br i1 %.not13.i156.i, label %.lr.ph.i154._crit_edge.i, label %.lr.ph208.i, !llvm.loop !9
+  br i1 %.not13.i156.i, label %.lr.ph.i154._crit_edge.i, label %.lr.ph208.i, !llvm.loop !8
 
 .lr.ph.i154._crit_edge.i:                         ; preds = %.lr.ph.i154.i, %.lr.ph213.i
   %.lcssa169.i = phi ptr [ @zrtp_key_agreement_vals, %.lr.ph213.i ], [ %151, %.lr.ph.i154.i ]
@@ -644,7 +644,7 @@ key_to_val.exit160.i:                             ; preds = %._crit_edge.i158.i,
   %159 = add nuw nsw i32 %.3138210.i, 4
   %160 = add nuw nsw i32 %.3211.i, 1
   %exitcond262.not.i = icmp eq i32 %160, %88
-  br i1 %exitcond262.not.i, label %._crit_edge214.i, label %.lr.ph213.i, !llvm.loop !13
+  br i1 %exitcond262.not.i, label %._crit_edge214.i, label %.lr.ph213.i, !llvm.loop !12
 
 ._crit_edge214.i:                                 ; preds = %key_to_val.exit160.i, %._crit_edge203.i
   %.3138.lcssa.i = phi i32 [ %.2137.lcssa.i, %._crit_edge203.i ], [ %159, %key_to_val.exit160.i ]
@@ -668,7 +668,7 @@ key_to_val.exit160.i:                             ; preds = %._crit_edge.i158.i,
 .lr.ph219.i:                                      ; preds = %.lr.ph224.i, %.lr.ph.i161.i
   %indvars.iv263.i = phi i64 [ %indvars.iv.next264.i, %.lr.ph.i161.i ], [ 0, %.lr.ph224.i ]
   %exitcond266.i = icmp eq i64 %indvars.iv263.i, 1
-  br i1 %exitcond266.i, label %._crit_edge.i165.i, label %.lr.ph.i161.i, !llvm.loop !9
+  br i1 %exitcond266.i, label %._crit_edge.i165.i, label %.lr.ph.i161.i, !llvm.loop !8
 
 .lr.ph.i161.i:                                    ; preds = %.lr.ph219.i
   %indvars.iv.next264.i = add nuw nsw i64 %indvars.iv263.i, 1
@@ -676,7 +676,7 @@ key_to_val.exit160.i:                             ; preds = %._crit_edge.i158.i,
   %170 = load ptr, ptr %169, align 16
   %171 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %170, ptr noundef %166, i64 noundef 4) #7
   %.not13.i163.i = icmp eq i32 %171, 0
-  br i1 %.not13.i163.i, label %.lr.ph.i161._crit_edge.i, label %.lr.ph219.i, !llvm.loop !9
+  br i1 %.not13.i163.i, label %.lr.ph.i161._crit_edge.i, label %.lr.ph219.i, !llvm.loop !8
 
 .lr.ph.i161._crit_edge.i:                         ; preds = %.lr.ph.i161.i, %.lr.ph224.i
   %.lcssa.i = phi ptr [ @zrtp_sas_type_vals, %.lr.ph224.i ], [ %169, %.lr.ph.i161.i ]
@@ -695,7 +695,7 @@ key_to_val.exit167.i:                             ; preds = %._crit_edge.i165.i,
   %177 = add nuw nsw i32 %.4139221.i, 4
   %178 = add nuw nsw i32 %.4222.i, 1
   %exitcond267.not.i = icmp eq i32 %178, %87
-  br i1 %exitcond267.not.i, label %dissect_Hello.exit, label %.lr.ph224.i, !llvm.loop !14
+  br i1 %exitcond267.not.i, label %dissect_Hello.exit, label %.lr.ph224.i, !llvm.loop !13
 
 dissect_Hello.exit:                               ; preds = %key_to_val.exit167.i, %._crit_edge214.i
   %.4139.lcssa.i = phi i32 [ %.3138.lcssa.i, %._crit_edge214.i ], [ %177, %key_to_val.exit167.i ]
@@ -740,7 +740,7 @@ dissect_Hello.exit:                               ; preds = %key_to_val.exit167.
 .lr.ph.i189:                                      ; preds = %184, %.lr.ph.i.i192
   %indvars.iv.i190 = phi i64 [ %indvars.iv.next.i193, %.lr.ph.i.i192 ], [ 0, %184 ]
   %exitcond.i191 = icmp eq i64 %indvars.iv.i190, 3
-  br i1 %exitcond.i191, label %._crit_edge.i.i200, label %.lr.ph.i.i192, !llvm.loop !9
+  br i1 %exitcond.i191, label %._crit_edge.i.i200, label %.lr.ph.i.i192, !llvm.loop !8
 
 .lr.ph.i.i192:                                    ; preds = %.lr.ph.i189
   %indvars.iv.next.i193 = add nuw nsw i64 %indvars.iv.i190, 1
@@ -748,7 +748,7 @@ dissect_Hello.exit:                               ; preds = %key_to_val.exit167.
   %199 = load ptr, ptr %198, align 16
   %200 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %199, ptr noundef %195, i64 noundef 4) #7
   %.not13.i.i194 = icmp eq i32 %200, 0
-  br i1 %.not13.i.i194, label %.lr.ph.i._crit_edge.i195, label %.lr.ph.i189, !llvm.loop !9
+  br i1 %.not13.i.i194, label %.lr.ph.i._crit_edge.i195, label %.lr.ph.i189, !llvm.loop !8
 
 .lr.ph.i._crit_edge.i195:                         ; preds = %.lr.ph.i.i192, %184
   %.lcssa8.i = phi ptr [ @zrtp_hash_type_vals, %184 ], [ %198, %.lr.ph.i.i192 ]
@@ -774,7 +774,7 @@ key_to_val.exit.i196:                             ; preds = %._crit_edge.i.i200,
 .lr.ph14.i:                                       ; preds = %key_to_val.exit.i196, %.lr.ph.i62.i
   %indvars.iv39.i = phi i64 [ %indvars.iv.next40.i, %.lr.ph.i62.i ], [ 0, %key_to_val.exit.i196 ]
   %exitcond42.i = icmp eq i64 %indvars.iv39.i, 8
-  br i1 %exitcond42.i, label %._crit_edge.i66.i, label %.lr.ph.i62.i, !llvm.loop !9
+  br i1 %exitcond42.i, label %._crit_edge.i66.i, label %.lr.ph.i62.i, !llvm.loop !8
 
 .lr.ph.i62.i:                                     ; preds = %.lr.ph14.i
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
@@ -782,7 +782,7 @@ key_to_val.exit.i196:                             ; preds = %._crit_edge.i.i200,
   %211 = load ptr, ptr %210, align 16
   %212 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %211, ptr noundef %207, i64 noundef 4) #7
   %.not13.i64.i = icmp eq i32 %212, 0
-  br i1 %.not13.i64.i, label %.lr.ph.i62._crit_edge.i, label %.lr.ph14.i, !llvm.loop !9
+  br i1 %.not13.i64.i, label %.lr.ph.i62._crit_edge.i, label %.lr.ph14.i, !llvm.loop !8
 
 .lr.ph.i62._crit_edge.i:                          ; preds = %.lr.ph.i62.i, %key_to_val.exit.i196
   %.lcssa6.i = phi ptr [ @zrtp_cipher_type_vals, %key_to_val.exit.i196 ], [ %210, %.lr.ph.i62.i ]
@@ -808,7 +808,7 @@ key_to_val.exit68.i:                              ; preds = %._crit_edge.i66.i, 
 .lr.ph18.i:                                       ; preds = %key_to_val.exit68.i, %.lr.ph.i69.i
   %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %.lr.ph.i69.i ], [ 0, %key_to_val.exit68.i ]
   %exitcond46.i = icmp eq i64 %indvars.iv43.i, 3
-  br i1 %exitcond46.i, label %._crit_edge.i73.i, label %.lr.ph.i69.i, !llvm.loop !9
+  br i1 %exitcond46.i, label %._crit_edge.i73.i, label %.lr.ph.i69.i, !llvm.loop !8
 
 .lr.ph.i69.i:                                     ; preds = %.lr.ph18.i
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
@@ -816,7 +816,7 @@ key_to_val.exit68.i:                              ; preds = %._crit_edge.i66.i, 
   %223 = load ptr, ptr %222, align 16
   %224 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %223, ptr noundef %219, i64 noundef 4) #7
   %.not13.i71.i = icmp eq i32 %224, 0
-  br i1 %.not13.i71.i, label %.lr.ph.i69._crit_edge.i, label %.lr.ph18.i, !llvm.loop !9
+  br i1 %.not13.i71.i, label %.lr.ph.i69._crit_edge.i, label %.lr.ph18.i, !llvm.loop !8
 
 .lr.ph.i69._crit_edge.i:                          ; preds = %.lr.ph.i69.i, %key_to_val.exit68.i
   %.lcssa4.i = phi ptr [ @zrtp_auth_tag_vals, %key_to_val.exit68.i ], [ %222, %.lr.ph.i69.i ]
@@ -842,7 +842,7 @@ key_to_val.exit75.i:                              ; preds = %._crit_edge.i73.i, 
 .lr.ph22.i:                                       ; preds = %key_to_val.exit75.i, %.lr.ph.i76.i
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %.lr.ph.i76.i ], [ 0, %key_to_val.exit75.i ]
   %exitcond50.i = icmp eq i64 %indvars.iv47.i, 7
-  br i1 %exitcond50.i, label %._crit_edge.i80.i, label %.lr.ph.i76.i, !llvm.loop !9
+  br i1 %exitcond50.i, label %._crit_edge.i80.i, label %.lr.ph.i76.i, !llvm.loop !8
 
 .lr.ph.i76.i:                                     ; preds = %.lr.ph22.i
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
@@ -850,7 +850,7 @@ key_to_val.exit75.i:                              ; preds = %._crit_edge.i73.i, 
   %235 = load ptr, ptr %234, align 16
   %236 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %235, ptr noundef %231, i64 noundef 4) #7
   %.not13.i78.i = icmp eq i32 %236, 0
-  br i1 %.not13.i78.i, label %.lr.ph.i76._crit_edge.i, label %.lr.ph22.i, !llvm.loop !9
+  br i1 %.not13.i78.i, label %.lr.ph.i76._crit_edge.i, label %.lr.ph22.i, !llvm.loop !8
 
 .lr.ph.i76._crit_edge.i:                          ; preds = %.lr.ph.i76.i, %key_to_val.exit75.i
   %.lcssa2.i = phi ptr [ @zrtp_key_agreement_vals, %key_to_val.exit75.i ], [ %234, %.lr.ph.i76.i ]
@@ -888,7 +888,7 @@ key_to_val.exit82.i:                              ; preds = %._crit_edge.i80.i, 
 .lr.ph26.i:                                       ; preds = %245, %.lr.ph.i83.i
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %.lr.ph.i83.i ], [ 0, %245 ]
   %exitcond54.i = icmp eq i64 %indvars.iv51.i, 1
-  br i1 %exitcond54.i, label %._crit_edge.i87.i, label %.lr.ph.i83.i, !llvm.loop !9
+  br i1 %exitcond54.i, label %._crit_edge.i87.i, label %.lr.ph.i83.i, !llvm.loop !8
 
 .lr.ph.i83.i:                                     ; preds = %.lr.ph26.i
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
@@ -896,7 +896,7 @@ key_to_val.exit82.i:                              ; preds = %._crit_edge.i80.i, 
   %251 = load ptr, ptr %250, align 16
   %252 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %251, ptr noundef %247, i64 noundef 4) #7
   %.not13.i85.i = icmp eq i32 %252, 0
-  br i1 %.not13.i85.i, label %.lr.ph.i83._crit_edge.i, label %.lr.ph26.i, !llvm.loop !9
+  br i1 %.not13.i85.i, label %.lr.ph.i83._crit_edge.i, label %.lr.ph26.i, !llvm.loop !8
 
 .lr.ph.i83._crit_edge.i:                          ; preds = %.lr.ph.i83.i, %245
   %.lcssa.i199 = phi ptr [ @zrtp_sas_type_vals, %245 ], [ %250, %.lr.ph.i83.i ]
@@ -1367,12 +1367,11 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

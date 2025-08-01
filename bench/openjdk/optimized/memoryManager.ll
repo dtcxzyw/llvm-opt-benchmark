@@ -529,7 +529,7 @@ define hidden void @_ZN10GCStatInfoC2Ei(ptr noundef nonnull align 8 captures(non
   %19 = load i32, ptr %9, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next12.i, %20
-  br i1 %21, label %.lr.ph9.i, label %_ZN10GCStatInfo5clearEv.exit, !llvm.loop !10
+  br i1 %21, label %.lr.ph9.i, label %_ZN10GCStatInfo5clearEv.exit, !llvm.loop !9
 
 _ZN10GCStatInfo5clearEv.exit:                     ; preds = %.lr.ph9.i, %2, %.preheader.i
   ret void
@@ -577,7 +577,7 @@ define hidden void @_ZN10GCStatInfo5clearEv(ptr noundef nonnull align 8 captures
   %17 = load i32, ptr %2, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next12, %18
-  br i1 %19, label %14, label %._crit_edge, !llvm.loop !10
+  br i1 %19, label %14, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %14, %1, %.preheader
   ret void
@@ -793,7 +793,7 @@ define hidden void @_ZN15GCMemoryManager23initialize_gc_stat_infoEv(ptr noundef 
   %21 = load i32, ptr %11, align 8
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next12.i.i, %22
-  br i1 %23, label %.lr.ph9.i.i, label %_ZN10GCStatInfoC2Ei.exit, !llvm.loop !10
+  br i1 %23, label %.lr.ph9.i.i, label %_ZN10GCStatInfoC2Ei.exit, !llvm.loop !9
 
 _ZN10GCStatInfoC2Ei.exit:                         ; preds = %.lr.ph9.i.i, %1, %.preheader.i.i
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -839,7 +839,7 @@ _ZN10GCStatInfoC2Ei.exit:                         ; preds = %.lr.ph9.i.i, %1, %.
   %44 = load i32, ptr %34, align 8
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next12.i.i12, %45
-  br i1 %46, label %.lr.ph9.i.i10, label %_ZN10GCStatInfoC2Ei.exit13, !llvm.loop !10
+  br i1 %46, label %.lr.ph9.i.i10, label %_ZN10GCStatInfoC2Ei.exit13, !llvm.loop !9
 
 _ZN10GCStatInfoC2Ei.exit13:                       ; preds = %.lr.ph9.i.i10, %_ZN10GCStatInfoC2Ei.exit, %.preheader.i.i9
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -915,14 +915,14 @@ define hidden void @_ZN15GCMemoryManager8gc_beginEbbb(ptr noundef nonnull align 
   %44 = load i64, ptr %24, align 8
   %45 = load i64, ptr %25, align 8
   %46 = load i64, ptr %26, align 8
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22mem__pool__gc__begin\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${8:n}\0A_SDT_SIZE ${8:n}\0A_SDT_TYPE ${8:n}\0A.ascii \22$9\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${10:n}\0A_SDT_SIZE ${10:n}\0A_SDT_TYPE ${10:n}\0A.ascii \22$11\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${12:n}\0A_SDT_SIZE ${12:n}\0A_SDT_TYPE ${12:n}\0A.ascii \22$13\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${14:n}\0A_SDT_SIZE ${14:n}\0A_SDT_TYPE ${14:n}\0A.ascii \22$15\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr nonnull %38, i32 -2049, i64 %39, i32 -2053, ptr nonnull %41, i32 -2049, i64 %42, i32 -2049, i64 %43, i32 -2049, i64 %44, i32 -2049, i64 %45, i32 -2049, i64 %46) #13, !srcloc !11
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22mem__pool__gc__begin\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${8:n}\0A_SDT_SIZE ${8:n}\0A_SDT_TYPE ${8:n}\0A.ascii \22$9\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${10:n}\0A_SDT_SIZE ${10:n}\0A_SDT_TYPE ${10:n}\0A.ascii \22$11\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${12:n}\0A_SDT_SIZE ${12:n}\0A_SDT_TYPE ${12:n}\0A.ascii \22$13\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${14:n}\0A_SDT_SIZE ${14:n}\0A_SDT_TYPE ${14:n}\0A.ascii \22$15\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr nonnull %38, i32 -2049, i64 %39, i32 -2053, ptr nonnull %41, i32 -2049, i64 %42, i32 -2049, i64 %43, i32 -2049, i64 %44, i32 -2049, i64 %45, i32 -2049, i64 %46) #13, !srcloc !10
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %27, label %.loopexit, !llvm.loop !13
+  br i1 %50, label %27, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %27, %.preheader, %18
   ret void
@@ -1005,8 +1005,8 @@ define hidden void @_ZN15GCMemoryManager6gc_endEbbbbN7GCCause5CauseEbPKc(ptr nou
   %48 = load i64, ptr %24, align 8
   %49 = load i64, ptr %25, align 8
   %50 = load i64, ptr %26, align 8
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22mem__pool__gc__end\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${8:n}\0A_SDT_SIZE ${8:n}\0A_SDT_TYPE ${8:n}\0A.ascii \22$9\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${10:n}\0A_SDT_SIZE ${10:n}\0A_SDT_TYPE ${10:n}\0A.ascii \22$11\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${12:n}\0A_SDT_SIZE ${12:n}\0A_SDT_TYPE ${12:n}\0A.ascii \22$13\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${14:n}\0A_SDT_SIZE ${14:n}\0A_SDT_TYPE ${14:n}\0A.ascii \22$15\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr nonnull %42, i32 -2049, i64 %43, i32 -2053, ptr nonnull %45, i32 -2049, i64 %46, i32 -2049, i64 %47, i32 -2049, i64 %48, i32 -2049, i64 %49, i32 -2049, i64 %50) #13, !srcloc !14
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !15
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22mem__pool__gc__end\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${8:n}\0A_SDT_SIZE ${8:n}\0A_SDT_TYPE ${8:n}\0A.ascii \22$9\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${10:n}\0A_SDT_SIZE ${10:n}\0A_SDT_TYPE ${10:n}\0A.ascii \22$11\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${12:n}\0A_SDT_SIZE ${12:n}\0A_SDT_TYPE ${12:n}\0A.ascii \22$13\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${14:n}\0A_SDT_SIZE ${14:n}\0A_SDT_TYPE ${14:n}\0A.ascii \22$15\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr nonnull %42, i32 -2049, i64 %43, i32 -2053, ptr nonnull %45, i32 -2049, i64 %46, i32 -2049, i64 %47, i32 -2049, i64 %48, i32 -2049, i64 %49, i32 -2049, i64 %50) #13, !srcloc !13
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !14
   %51 = load ptr, ptr %27, align 8
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %51, i64 32
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
@@ -1017,7 +1017,7 @@ define hidden void @_ZN15GCMemoryManager6gc_endEbbbbN7GCCause5CauseEbPKc(ptr nou
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %33, label %.preheader, !llvm.loop !16
+  br i1 %56, label %33, label %.preheader, !llvm.loop !15
 
 57:                                               ; preds = %.lr.ph26, %69
   %indvars.iv28 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next29, %69 ]
@@ -1046,7 +1046,7 @@ define hidden void @_ZN15GCMemoryManager6gc_endEbbbbN7GCCause5CauseEbPKc(ptr nou
   %70 = load i32, ptr %28, align 8
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next29, %71
-  br i1 %72, label %57, label %.loopexit, !llvm.loop !17
+  br i1 %72, label %57, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %69, %.preheader, %19
   br i1 %4, label %73, label %108
@@ -1110,7 +1110,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %73, %79
   %99 = load i32, ptr %84, align 8
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next12.i, %100
-  br i1 %101, label %96, label %_ZN10GCStatInfo5clearEv.exit, !llvm.loop !10
+  br i1 %101, label %96, label %_ZN10GCStatInfo5clearEv.exit, !llvm.loop !9
 
 _ZN10GCStatInfo5clearEv.exit:                     ; preds = %96, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %.preheader.i
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %102
@@ -1370,7 +1370,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not23.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #13, !srcloc !18
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #13, !srcloc !17
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548964ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
@@ -1393,7 +1393,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %8, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %6
-  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #13, !srcloc !18
+  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #13, !srcloc !17
   %10 = icmp eq i64 %9, %3
   br i1 %10, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -1405,9 +1405,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #13, !srcloc !18
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #13, !srcloc !17
   %14 = icmp eq i64 %13, %phi.call9.i.i.i.i.i
-  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !19
+  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !18
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %6
   %15 = inttoptr i64 %7 to ptr
@@ -1660,7 +1660,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
   %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
-  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !18
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #13, !srcloc !17
   %61 = icmp eq i64 %60, %.0.i16.i
   br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
@@ -1668,7 +1668,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !20
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !19
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -1708,7 +1708,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not23.i.i, label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #13, !srcloc !18
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %6, ptr nonnull %2, ptr nonnull %0) #13, !srcloc !17
   br label %_ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit
 
 _ZN20ShenandoahBarrierSet13AccessBarrierILm548932ES_E20oop_load_not_in_heapIP7oopDescEES4_PT_.exit: ; preds = %1, %4, %7
@@ -1731,7 +1731,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %8, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split7.i.i.i.i.i
 
 .split7.i.i.i.i.i:                                ; preds = %6
-  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #13, !srcloc !18
+  %9 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %3, ptr nonnull %0) #13, !srcloc !17
   %10 = icmp eq i64 %9, %3
   br i1 %10, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -1743,9 +1743,9 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i
-  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #13, !srcloc !18
+  %13 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, i64 %phi.call9.i.i.i.i.i, ptr nonnull %0) #13, !srcloc !17
   %14 = icmp eq i64 %13, %phi.call9.i.i.i.i.i
-  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !19
+  br i1 %14, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !18
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i.i: ; preds = %.split.i.i.i.i.i, %.lr.ph.i.i.i.i.i, %.split7.i.i.i.i.i, %6
   %15 = inttoptr i64 %7 to ptr
@@ -2411,17 +2411,16 @@ attributes #15 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{i64 2155431821, i64 2155431871, i64 2155431982, i64 2155432063, i64 2155432104, i64 2155432144, i64 2155432183, i64 2155432221, i64 2155432267, i64 2155432379, i64 2155432462, i64 2155432509, i64 2155432547, i64 2155432592, i64 2155432679, i64 2155432753, i64 2155432799, i64 2155432911, i64 2155433007, i64 2155433054, i64 2155433094, i64 2155433132, i64 2155433177, i64 2155433215, i64 2155433260, i64 2155433327, i64 2155433381, i64 2155433420, i64 2155433526, i64 2155433608, i64 2155433704, i64 2155433795, i64 2155433854, i64 2155433913, i64 2155433979, i64 2155434067, i64 2155434174, i64 2155434330, i64 2155435110, i64 2155435184, i64 2155435258, i64 2155435411, i64 2155435544, i64 2155435900, i64 2155435974, i64 2155440109, i64 2155440262, i64 2155440395, i64 2155440751, i64 2155440825, i64 2155440899, i64 2155441052, i64 2155441185, i64 2155441541, i64 2155441615, i64 2155441689, i64 2155441842, i64 2155441975, i64 2155442331, i64 2155442405, i64 2155442479, i64 2155442632, i64 2155442765, i64 2155443121, i64 2155443195, i64 2155443269, i64 2155443422, i64 2155443555, i64 2155443911, i64 2155443985, i64 2155444059, i64 2155444212, i64 2155444345, i64 2155444701, i64 2155444775, i64 2155444849, i64 2155445002, i64 2155445113, i64 2155445378, i64 2155445435, i64 2155445492, i64 2155445549, i64 2155445606, i64 2155445659, i64 2155445706}
-!12 = !{i64 2155453696, i64 2155453874, i64 2155454003, i64 2155454067, i64 2155454135, i64 2155454217, i64 2155454277, i64 2155454316}
-!13 = distinct !{!13, !8, !9}
-!14 = !{i64 2155457454, i64 2155457504, i64 2155457615, i64 2155457696, i64 2155457737, i64 2155457777, i64 2155457816, i64 2155457854, i64 2155457900, i64 2155458012, i64 2155458095, i64 2155458142, i64 2155458180, i64 2155458225, i64 2155458312, i64 2155458386, i64 2155458432, i64 2155458544, i64 2155458640, i64 2155458687, i64 2155458727, i64 2155458765, i64 2155458810, i64 2155458848, i64 2155458893, i64 2155458960, i64 2155459014, i64 2155459053, i64 2155459159, i64 2155459241, i64 2155459337, i64 2155459428, i64 2155459487, i64 2155459546, i64 2155459612, i64 2155459700, i64 2155459807, i64 2155459957, i64 2155460735, i64 2155460809, i64 2155460883, i64 2155461036, i64 2155461169, i64 2155461525, i64 2155461599, i64 2155461673, i64 2155461826, i64 2155461959, i64 2155462315, i64 2155462389, i64 2155462463, i64 2155462616, i64 2155462749, i64 2155463105, i64 2155463179, i64 2155463253, i64 2155463406, i64 2155463539, i64 2155463895, i64 2155463969, i64 2155464043, i64 2155464196, i64 2155464329, i64 2155464685, i64 2155464759, i64 2155464833, i64 2155464986, i64 2155465119, i64 2155465475, i64 2155465549, i64 2155465623, i64 2155465776, i64 2155465909, i64 2155466265, i64 2155466339, i64 2155466413, i64 2155470627, i64 2155470738, i64 2155471003, i64 2155471060, i64 2155471117, i64 2155471174, i64 2155471231, i64 2155471284, i64 2155471331}
-!15 = !{i64 2155479321, i64 2155479499, i64 2155479628, i64 2155479692, i64 2155479760, i64 2155479842, i64 2155479902, i64 2155479941}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = !{i64 2145412694}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = !{i64 2155431821, i64 2155431871, i64 2155431982, i64 2155432063, i64 2155432104, i64 2155432144, i64 2155432183, i64 2155432221, i64 2155432267, i64 2155432379, i64 2155432462, i64 2155432509, i64 2155432547, i64 2155432592, i64 2155432679, i64 2155432753, i64 2155432799, i64 2155432911, i64 2155433007, i64 2155433054, i64 2155433094, i64 2155433132, i64 2155433177, i64 2155433215, i64 2155433260, i64 2155433327, i64 2155433381, i64 2155433420, i64 2155433526, i64 2155433608, i64 2155433704, i64 2155433795, i64 2155433854, i64 2155433913, i64 2155433979, i64 2155434067, i64 2155434174, i64 2155434330, i64 2155435110, i64 2155435184, i64 2155435258, i64 2155435411, i64 2155435544, i64 2155435900, i64 2155435974, i64 2155440109, i64 2155440262, i64 2155440395, i64 2155440751, i64 2155440825, i64 2155440899, i64 2155441052, i64 2155441185, i64 2155441541, i64 2155441615, i64 2155441689, i64 2155441842, i64 2155441975, i64 2155442331, i64 2155442405, i64 2155442479, i64 2155442632, i64 2155442765, i64 2155443121, i64 2155443195, i64 2155443269, i64 2155443422, i64 2155443555, i64 2155443911, i64 2155443985, i64 2155444059, i64 2155444212, i64 2155444345, i64 2155444701, i64 2155444775, i64 2155444849, i64 2155445002, i64 2155445113, i64 2155445378, i64 2155445435, i64 2155445492, i64 2155445549, i64 2155445606, i64 2155445659, i64 2155445706}
+!11 = !{i64 2155453696, i64 2155453874, i64 2155454003, i64 2155454067, i64 2155454135, i64 2155454217, i64 2155454277, i64 2155454316}
+!12 = distinct !{!12, !8}
+!13 = !{i64 2155457454, i64 2155457504, i64 2155457615, i64 2155457696, i64 2155457737, i64 2155457777, i64 2155457816, i64 2155457854, i64 2155457900, i64 2155458012, i64 2155458095, i64 2155458142, i64 2155458180, i64 2155458225, i64 2155458312, i64 2155458386, i64 2155458432, i64 2155458544, i64 2155458640, i64 2155458687, i64 2155458727, i64 2155458765, i64 2155458810, i64 2155458848, i64 2155458893, i64 2155458960, i64 2155459014, i64 2155459053, i64 2155459159, i64 2155459241, i64 2155459337, i64 2155459428, i64 2155459487, i64 2155459546, i64 2155459612, i64 2155459700, i64 2155459807, i64 2155459957, i64 2155460735, i64 2155460809, i64 2155460883, i64 2155461036, i64 2155461169, i64 2155461525, i64 2155461599, i64 2155461673, i64 2155461826, i64 2155461959, i64 2155462315, i64 2155462389, i64 2155462463, i64 2155462616, i64 2155462749, i64 2155463105, i64 2155463179, i64 2155463253, i64 2155463406, i64 2155463539, i64 2155463895, i64 2155463969, i64 2155464043, i64 2155464196, i64 2155464329, i64 2155464685, i64 2155464759, i64 2155464833, i64 2155464986, i64 2155465119, i64 2155465475, i64 2155465549, i64 2155465623, i64 2155465776, i64 2155465909, i64 2155466265, i64 2155466339, i64 2155466413, i64 2155470627, i64 2155470738, i64 2155471003, i64 2155471060, i64 2155471117, i64 2155471174, i64 2155471231, i64 2155471284, i64 2155471331}
+!14 = !{i64 2155479321, i64 2155479499, i64 2155479628, i64 2155479692, i64 2155479760, i64 2155479842, i64 2155479902, i64 2155479941}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = !{i64 2145412694}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}

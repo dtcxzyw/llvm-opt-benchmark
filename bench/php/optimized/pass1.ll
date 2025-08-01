@@ -464,7 +464,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %146, %153, %158
   switch i8 %214, label %zend_memnstr.exit [
     i8 0, label %.preheader369
     i8 65, label %215
-  ], !llvm.loop !75
+  ]
 
 215:                                              ; preds = %.preheader369
   %216 = getelementptr inbounds i8, ptr %.0284.pn, i64 -3
@@ -486,7 +486,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %146, %153, %158
   switch i8 %223, label %zend_memnstr.exit [
     i8 0, label %.preheader
     i8 65, label %224
-  ], !llvm.loop !77
+  ]
 
 224:                                              ; preds = %.preheader
   %225 = getelementptr inbounds i8, ptr %.0283.pn, i64 -3
@@ -510,7 +510,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %146, %153, %158
 
 231:                                              ; preds = %228
   %.0281 = getelementptr inbounds i8, ptr %.1.pn, i64 -32
-  br label %228, !llvm.loop !78
+  br label %228
 
 232:                                              ; preds = %228
   %233 = getelementptr inbounds i8, ptr %.1.pn, i64 -4
@@ -570,7 +570,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %146, %153, %158
 
 269:                                              ; preds = %264, %262
   %270 = getelementptr inbounds nuw i8, ptr %.0284379, i64 31
-  %271 = load i8, ptr %270, align 1, !tbaa !79
+  %271 = load i8, ptr %270, align 1, !tbaa !75
   %272 = icmp eq i8 %271, 0
   br i1 %272, label %273, label %zend_memnstr.exit
 
@@ -609,7 +609,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %146, %153, %158
   %294 = getelementptr inbounds nuw i8, ptr %292, i64 1
   %295 = load i8, ptr %294, align 1, !tbaa !34
   %296 = icmp eq i8 %295, 58
-  br i1 %296, label %zend_memnstr.exit, label %288, !llvm.loop !80
+  br i1 %296, label %zend_memnstr.exit, label %288
 
 .loopexit:                                        ; preds = %289, %288, %273
   store i8 -113, ptr %29, align 4, !tbaa !30
@@ -617,7 +617,7 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %146, %153, %158
   store i8 1, ptr %297, align 1, !tbaa !32
   %298 = getelementptr inbounds nuw i8, ptr %.0284379, i64 30
   store i8 1, ptr %298, align 2, !tbaa !35
-  store i8 0, ptr %270, align 1, !tbaa !79
+  store i8 0, ptr %270, align 1, !tbaa !75
   %299 = load i32, ptr %254, align 8, !tbaa !34
   %300 = getelementptr inbounds nuw i8, ptr %.0284379, i64 8
   store i32 %299, ptr %300, align 8, !tbaa !34
@@ -666,7 +666,7 @@ zval_ptr_dtor_nogc.exit324:                       ; preds = %.loopexit, %311, %3
   store i8 0, ptr %234, align 2, !tbaa !35
   store i32 -1, ptr %238, align 4, !tbaa !34
   %324 = getelementptr inbounds i8, ptr %.1.pn, i64 -1
-  store i8 0, ptr %324, align 1, !tbaa !79
+  store i8 0, ptr %324, align 1, !tbaa !75
   %325 = getelementptr inbounds i8, ptr %.1.pn, i64 -16
   store i32 -1, ptr %325, align 8, !tbaa !34
   %326 = getelementptr inbounds nuw i8, ptr %.1, i64 28
@@ -679,7 +679,7 @@ zval_ptr_dtor_nogc.exit324:                       ; preds = %.loopexit, %311, %3
   %329 = getelementptr inbounds nuw i8, ptr %.1, i64 12
   store i32 -1, ptr %329, align 4, !tbaa !34
   %330 = getelementptr inbounds nuw i8, ptr %.1, i64 31
-  store i8 0, ptr %330, align 1, !tbaa !79
+  store i8 0, ptr %330, align 1, !tbaa !75
   %331 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   store i32 -1, ptr %331, align 8, !tbaa !34
   %332 = getelementptr inbounds nuw i8, ptr %.0282, i64 28
@@ -692,7 +692,7 @@ zval_ptr_dtor_nogc.exit324:                       ; preds = %.loopexit, %311, %3
   %335 = getelementptr inbounds nuw i8, ptr %.0282, i64 12
   store i32 -1, ptr %335, align 4, !tbaa !34
   %336 = getelementptr inbounds nuw i8, ptr %.0282, i64 31
-  store i8 0, ptr %336, align 1, !tbaa !79
+  store i8 0, ptr %336, align 1, !tbaa !75
   %337 = getelementptr inbounds nuw i8, ptr %.0282, i64 16
   store i32 -1, ptr %337, align 8, !tbaa !34
   br label %zend_memnstr.exit
@@ -762,7 +762,7 @@ zval_ptr_dtor_nogc.exit327:                       ; preds = %356, %363, %368
   store i8 0, ptr %234, align 2, !tbaa !35
   store i32 -1, ptr %238, align 4, !tbaa !34
   %376 = getelementptr inbounds i8, ptr %.1.pn, i64 -1
-  store i8 0, ptr %376, align 1, !tbaa !79
+  store i8 0, ptr %376, align 1, !tbaa !75
   %377 = getelementptr inbounds i8, ptr %.1.pn, i64 -16
   store i32 -1, ptr %377, align 8, !tbaa !34
   %378 = load ptr, ptr %23, align 8, !tbaa !33
@@ -806,7 +806,7 @@ zval_ptr_dtor_nogc.exit330:                       ; preds = %zval_ptr_dtor_nogc.
   %398 = getelementptr inbounds nuw i8, ptr %.1, i64 12
   store i32 -1, ptr %398, align 4, !tbaa !34
   %399 = getelementptr inbounds nuw i8, ptr %.1, i64 31
-  store i8 0, ptr %399, align 1, !tbaa !79
+  store i8 0, ptr %399, align 1, !tbaa !75
   %400 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   store i32 -1, ptr %400, align 8, !tbaa !34
   call fastcc void @replace_by_const_or_qm_assign(ptr noundef nonnull %0, ptr noundef %.0284379, ptr noundef %3)
@@ -1073,7 +1073,7 @@ zval_ptr_dtor_nogc.exit342:                       ; preds = %517, %532, %537
   store i8 0, ptr %548, align 2, !tbaa !35
   store i32 -1, ptr %543, align 4, !tbaa !34
   %549 = getelementptr inbounds nuw i8, ptr %.0284379, i64 31
-  store i8 0, ptr %549, align 1, !tbaa !79
+  store i8 0, ptr %549, align 1, !tbaa !75
   %550 = getelementptr inbounds nuw i8, ptr %.0284379, i64 16
   store i32 -1, ptr %550, align 8, !tbaa !34
   br label %zend_memnstr.exit
@@ -1085,7 +1085,7 @@ zend_memnstr.exit:                                ; preds = %.preheader369, %.pr
   %.1286 = phi i8 [ %.0285377, %28 ], [ %.0285377, %78 ], [ %.0285377, %65 ], [ %.0285377, %61 ], [ %.0285377, %57 ], [ %.0285377, %95 ], [ %.0285377, %87 ], [ %.0285377, %83 ], [ %.0285377, %79 ], [ %.0285377, %110 ], [ %.0285377, %100 ], [ %.0285377, %96 ], [ %.0285377, %123 ], [ %.0285377, %115 ], [ %.0285377, %111 ], [ %.0285377, %164 ], [ %.0285377, %178 ], [ %.0285377, %179 ], [ %.0285377, %170 ], [ %.0285377, %168 ], [ %.0285377, %212 ], [ %.0285377, %413 ], [ %.0285377, %405 ], [ %.0285377, %401 ], [ %.0285377, %zval_ptr_dtor_nogc.exit333 ], [ %.0285377, %414 ], [ 1, %458 ], [ 1, %451 ], [ 1, %442 ], [ 0, %440 ], [ %.0285377, %zval_ptr_dtor_nogc.exit336 ], [ %.0285377, %zval_ptr_dtor_nogc.exit339 ], [ %.0285377, %547 ], [ 0, %551 ], [ %.0285377, %zval_ptr_dtor_nogc.exit330 ], [ 0, %215 ], [ 0, %224 ], [ 0, %236 ], [ 0, %232 ], [ %.0285377, %zval_ptr_dtor_nogc.exit324 ], [ %.0285377, %269 ], [ 0, %348 ], [ 0, %339 ], [ 0, %338 ], [ 0, %471 ], [ 0, %492 ], [ 0, %459 ], [ %.0285377, %124 ], [ 0, %.thread346 ], [ 0, %513 ], [ %.0285377, %128 ], [ %.0285377, %293 ], [ 0, %228 ], [ 0, %.preheader ], [ 0, %.preheader369 ]
   %552 = getelementptr inbounds nuw i8, ptr %.0284379, i64 32
   %553 = icmp ult ptr %552, %11
-  br i1 %553, label %28, label %._crit_edge, !llvm.loop !81
+  br i1 %553, label %28, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %zend_memnstr.exit, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
@@ -1187,7 +1187,7 @@ zval_ptr_dtor_nogc.exit31:                        ; preds = %31, %40, %45
 51:                                               ; preds = %zval_ptr_dtor_nogc.exit31, %27
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 31
-  %54 = load i8, ptr %53, align 1, !tbaa !79
+  %54 = load i8, ptr %53, align 1, !tbaa !75
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %56 = load i32, ptr %55, align 8, !tbaa !34
   %57 = tail call zeroext i1 @zend_optimizer_replace_by_const(ptr noundef %0, ptr noundef nonnull %52, i8 noundef zeroext %54, i32 noundef %56, ptr noundef nonnull %2) #7
@@ -1202,7 +1202,7 @@ zval_ptr_dtor_nogc.exit31:                        ; preds = %31, %40, %45
   store i8 0, ptr %28, align 2, !tbaa !35
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 -1, ptr %61, align 4, !tbaa !34
-  store i8 0, ptr %53, align 1, !tbaa !79
+  store i8 0, ptr %53, align 1, !tbaa !75
   store i32 -1, ptr %55, align 8, !tbaa !34
   br label %66
 
@@ -1352,10 +1352,4 @@ attributes #8 = { nounwind willreturn memory(read) }
 !72 = !{!"_zend_ast", !73, i64 0, !73, i64 2, !8, i64 4, !6, i64 8}
 !73 = !{!"short", !6, i64 0}
 !74 = !{!"branch_weights", i32 4001, i32 1}
-!75 = distinct !{!75, !76}
-!76 = !{!"llvm.loop.estimated_trip_count"}
-!77 = distinct !{!77, !76}
-!78 = distinct !{!78, !76}
-!79 = !{!31, !6, i64 31}
-!80 = distinct !{!80, !76}
-!81 = distinct !{!81, !76}
+!75 = !{!31, !6, i64 31}

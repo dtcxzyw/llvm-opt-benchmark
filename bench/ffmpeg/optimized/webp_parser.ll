@@ -114,7 +114,7 @@ define internal i32 @webp_parse(ptr noundef readonly captures(none) %0, ptr read
 
 49:                                               ; preds = %41
   store i64 0, ptr %10, align 8, !tbaa !15
-  br label %.outer, !llvm.loop !23
+  br label %.outer
 
 50:                                               ; preds = %.lr.ph102
   %51 = add nsw i32 %23, 1
@@ -126,7 +126,7 @@ define internal i32 @webp_parse(ptr noundef readonly captures(none) %0, ptr read
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph102, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph102, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader, %41, %52
   %.173 = phi i32 [ %5, %52 ], [ %.0.lcssa, %.preheader ], [ %42, %41 ]
@@ -217,6 +217,4 @@ attributes #3 = { nounwind }
 !21 = !{!16, !10, i64 48}
 !22 = !{!16, !10, i64 8}
 !23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !26, !24}
-!26 = !{!"llvm.loop.mustprogress"}
+!24 = !{!"llvm.loop.mustprogress"}

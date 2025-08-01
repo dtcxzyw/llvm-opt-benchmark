@@ -2095,7 +2095,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
   %262 = sub i8 %.0302369, %224
   %263 = add i32 %.0308367, 1
   %.not330 = icmp eq i8 %262, 0
-  br i1 %.not330, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not330, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %261
   %264 = load ptr, ptr %9, align 8
@@ -2107,7 +2107,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
   %269 = trunc i64 %268 to i32
   %270 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %221, i32 noundef %269, i32 noundef %269)
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %272 = load i8, ptr %271, align 8, !range !12, !noundef !13
+  %272 = load i8, ptr %271, align 8, !range !10, !noundef !11
   store i8 1, ptr %271, align 8
   %273 = load ptr, ptr %134, align 8
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 57
@@ -2272,7 +2272,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
   %.0174243.i = phi i32 [ %334, %.lr.ph245.i ], [ 2, %330 ]
   %334 = call fastcc i32 @dnp3_al_process_object(ptr noundef nonnull %284, ptr noundef %1, i32 noundef %.0174243.i, ptr noundef %332, i1 noundef zeroext true, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %.not196.i = icmp ugt i32 %334, %333
-  br i1 %.not196.i, label %dissect_dnp3_al.exit, label %.lr.ph245.i, !llvm.loop !14
+  br i1 %.not196.i, label %dissect_dnp3_al.exit, label %.lr.ph245.i, !llvm.loop !12
 
 335:                                              ; preds = %325
   %336 = load i32, ptr @ett_dnp3_al_objdet, align 4
@@ -2310,7 +2310,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
 353:                                              ; preds = %348, %341
   %.1.i = phi i8 [ %.0239.i, %348 ], [ %347, %341 ]
   %.not193.i = icmp ugt i32 %339, %338
-  br i1 %.not193.i, label %._crit_edge.i, label %.lr.ph240.i, !llvm.loop !16
+  br i1 %.not193.i, label %._crit_edge.i, label %.lr.ph240.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %353
   %354 = zext i8 %.1.i to i32
@@ -2337,7 +2337,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
 362:                                              ; preds = %360, %357
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i32 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %dissect_dnp3_al.exit, label %357, !llvm.loop !17
+  br i1 %exitcond.not.i, label %dissect_dnp3_al.exit, label %357, !llvm.loop !15
 
 363:                                              ; preds = %325
   %364 = load i32, ptr @ett_dnp3_al_objdet, align 4
@@ -2356,7 +2356,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
   %372 = load ptr, ptr %10, align 8
   call void @col_append_sep_str(ptr noundef %372, i32 noundef 25, ptr noundef null, ptr noundef %371)
   %.not192.i = icmp ugt i32 %367, %366
-  br i1 %.not192.i, label %dissect_dnp3_al.exit, label %.lr.ph236.i, !llvm.loop !18
+  br i1 %.not192.i, label %dissect_dnp3_al.exit, label %.lr.ph236.i, !llvm.loop !16
 
 373:                                              ; preds = %325
   %374 = load i32, ptr @ett_dnp3_al_objdet, align 4
@@ -2369,7 +2369,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
   %.3232.i = phi i32 [ %377, %.lr.ph233.i ], [ 2, %373 ]
   %377 = call fastcc i32 @dnp3_al_process_object(ptr noundef nonnull %284, ptr noundef %1, i32 noundef %.3232.i, ptr noundef %375, i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %.not191.i = icmp ugt i32 %377, %376
-  br i1 %.not191.i, label %dissect_dnp3_al.exit, label %.lr.ph233.i, !llvm.loop !19
+  br i1 %.not191.i, label %dissect_dnp3_al.exit, label %.lr.ph233.i, !llvm.loop !17
 
 378:                                              ; preds = %325
   %379 = load i32, ptr @ett_dnp3_al_objdet, align 4
@@ -2382,7 +2382,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
   %.4229.i = phi i32 [ %382, %.lr.ph230.i ], [ 2, %378 ]
   %382 = call fastcc i32 @dnp3_al_process_object(ptr noundef nonnull %284, ptr noundef %1, i32 noundef %.4229.i, ptr noundef %380, i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %.not190.i = icmp ugt i32 %382, %381
-  br i1 %.not190.i, label %dissect_dnp3_al.exit, label %.lr.ph230.i, !llvm.loop !20
+  br i1 %.not190.i, label %dissect_dnp3_al.exit, label %.lr.ph230.i, !llvm.loop !18
 
 383:                                              ; preds = %325, %325
   %384 = load i32, ptr @ett_dnp3_al_objdet, align 4
@@ -2395,7 +2395,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
   %.5226.i = phi i32 [ %387, %.lr.ph227.i ], [ 2, %383 ]
   %387 = call fastcc i32 @dnp3_al_process_object(ptr noundef nonnull %284, ptr noundef %1, i32 noundef %.5226.i, ptr noundef %385, i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %.not189.i = icmp ugt i32 %387, %386
-  br i1 %.not189.i, label %dissect_dnp3_al.exit, label %.lr.ph227.i, !llvm.loop !21
+  br i1 %.not189.i, label %dissect_dnp3_al.exit, label %.lr.ph227.i, !llvm.loop !19
 
 388:                                              ; preds = %325, %325, %325, %325
   %389 = load i32, ptr @ett_dnp3_al_objdet, align 4
@@ -2408,7 +2408,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
   %.6223.i = phi i32 [ %392, %.lr.ph224.i ], [ 2, %388 ]
   %392 = call fastcc i32 @dnp3_al_process_object(ptr noundef nonnull %284, ptr noundef %1, i32 noundef %.6223.i, ptr noundef %390, i1 noundef zeroext true, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %.not188.i = icmp ugt i32 %392, %391
-  br i1 %.not188.i, label %dissect_dnp3_al.exit, label %.lr.ph224.i, !llvm.loop !22
+  br i1 %.not188.i, label %dissect_dnp3_al.exit, label %.lr.ph224.i, !llvm.loop !20
 
 393:                                              ; preds = %325
   %394 = load i32, ptr @ett_dnp3_al_objdet, align 4
@@ -2421,7 +2421,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
   %.7220.i = phi i32 [ %397, %.lr.ph221.i ], [ 2, %393 ]
   %397 = call fastcc i32 @dnp3_al_process_object(ptr noundef nonnull %284, ptr noundef %1, i32 noundef %.7220.i, ptr noundef %395, i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %.not187.i = icmp ugt i32 %397, %396
-  br i1 %.not187.i, label %dissect_dnp3_al.exit, label %.lr.ph221.i, !llvm.loop !23
+  br i1 %.not187.i, label %dissect_dnp3_al.exit, label %.lr.ph221.i, !llvm.loop !21
 
 398:                                              ; preds = %325
   %399 = load i32, ptr @ett_dnp3_al_objdet, align 4
@@ -2434,7 +2434,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
   %.8217.i = phi i32 [ %402, %.lr.ph218.i ], [ 2, %398 ]
   %402 = call fastcc i32 @dnp3_al_process_object(ptr noundef nonnull %284, ptr noundef %1, i32 noundef %.8217.i, ptr noundef %400, i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %.not186.i = icmp ugt i32 %402, %401
-  br i1 %.not186.i, label %dissect_dnp3_al.exit, label %.lr.ph218.i, !llvm.loop !24
+  br i1 %.not186.i, label %dissect_dnp3_al.exit, label %.lr.ph218.i, !llvm.loop !22
 
 403:                                              ; preds = %325, %325, %325
   %404 = load i32, ptr @ett_dnp3_al_objdet, align 4
@@ -2447,7 +2447,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
   %.9211.i = phi i32 [ %407, %.lr.ph212.i ], [ 2, %403 ]
   %407 = call fastcc i32 @dnp3_al_process_object(ptr noundef nonnull %284, ptr noundef %1, i32 noundef %.9211.i, ptr noundef %405, i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %.not183.i = icmp ugt i32 %407, %406
-  br i1 %.not183.i, label %dissect_dnp3_al.exit, label %.lr.ph212.i, !llvm.loop !25
+  br i1 %.not183.i, label %dissect_dnp3_al.exit, label %.lr.ph212.i, !llvm.loop !23
 
 408:                                              ; preds = %325, %325
   %409 = load i32, ptr @ett_dnp3_al_objdet, align 4
@@ -2460,7 +2460,7 @@ proto_item_set_generated.exit:                    ; preds = %.lr.ph, %242, %245
   %.10209.i = phi i32 [ %412, %.lr.ph.i ], [ 2, %408 ]
   %412 = call fastcc i32 @dnp3_al_process_object(ptr noundef nonnull %284, ptr noundef %1, i32 noundef %.10209.i, ptr noundef %410, i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %.not182.i = icmp ugt i32 %412, %411
-  br i1 %.not182.i, label %dissect_dnp3_al.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %.not182.i, label %dissect_dnp3_al.exit, label %.lr.ph.i, !llvm.loop !24
 
 413:                                              ; preds = %325, %325, %325
   %414 = load i32, ptr @hf_dnp3_al_iin, align 4
@@ -2492,7 +2492,7 @@ dnp3_al_process_iin.exit.i:                       ; preds = %419, %413
   %.11214.i = phi i32 [ %427, %.lr.ph215.i ], [ 4, %423 ]
   %427 = call fastcc i32 @dnp3_al_process_object(ptr noundef nonnull %284, ptr noundef %1, i32 noundef %.11214.i, ptr noundef %425, i1 noundef zeroext false, ptr noundef nonnull %5, ptr noundef nonnull %7)
   %.not185.i = icmp ugt i32 %427, %426
-  br i1 %.not185.i, label %dissect_dnp3_al.exit, label %.lr.ph215.i, !llvm.loop !27
+  br i1 %.not185.i, label %dissect_dnp3_al.exit, label %.lr.ph215.i, !llvm.loop !25
 
 dissect_dnp3_al.exit:                             ; preds = %.lr.ph.i, %.lr.ph212.i, %.lr.ph215.i, %.lr.ph218.i, %.lr.ph221.i, %.lr.ph224.i, %.lr.ph227.i, %.lr.ph230.i, %.lr.ph233.i, %.lr.ph236.i, %362, %.lr.ph245.i, %325, %328, %330, %335, %._crit_edge.i, %363, %373, %378, %383, %388, %393, %398, %403, %408, %dnp3_al_process_iin.exit.i, %423
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
@@ -4887,7 +4887,7 @@ switch.lookup1385:                                ; preds = %963
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
   %1123 = add nuw nsw i32 %.012101330, 1
   %1124 = icmp slt i32 %1123, %.21201
-  br i1 %1124, label %215, label %.loopexit, !llvm.loop !28
+  br i1 %1124, label %215, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %1122, %.thread, %202
   %.01187 = phi i32 [ %204, %202 ], [ %196, %.thread ], [ %.4, %1122 ]
@@ -5328,22 +5328,20 @@ attributes #12 = { nounwind }
 !7 = distinct !{!7, !8, !"memcpy.inline: argument 0"}
 !8 = distinct !{!8, !"memcpy.inline"}
 !9 = distinct !{!9, !8, !"memcpy.inline: argument 1"}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !15, !11}
-!15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15, !11}
-!17 = distinct !{!17, !15, !11}
-!18 = distinct !{!18, !15, !11}
-!19 = distinct !{!19, !15, !11}
-!20 = distinct !{!20, !15, !11}
-!21 = distinct !{!21, !15, !11}
-!22 = distinct !{!22, !15, !11}
-!23 = distinct !{!23, !15, !11}
-!24 = distinct !{!24, !15, !11}
-!25 = distinct !{!25, !15, !11}
-!26 = distinct !{!26, !15, !11}
-!27 = distinct !{!27, !15, !11}
-!28 = distinct !{!28, !15, !11}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}
+!19 = distinct !{!19, !13}
+!20 = distinct !{!20, !13}
+!21 = distinct !{!21, !13}
+!22 = distinct !{!22, !13}
+!23 = distinct !{!23, !13}
+!24 = distinct !{!24, !13}
+!25 = distinct !{!25, !13}
+!26 = distinct !{!26, !13}

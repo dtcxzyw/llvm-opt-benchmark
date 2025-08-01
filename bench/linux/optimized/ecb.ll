@@ -284,7 +284,7 @@ define internal range(i32 0, -1) i32 @crypto_ecb_decrypt2(ptr noundef readonly c
   %23 = getelementptr i8, ptr %20, i64 %17
   %24 = sub i32 %21, %14
   %25 = icmp ult i32 %24, %14
-  br i1 %25, label %.loopexit, label %18, !llvm.loop !10
+  br i1 %25, label %.loopexit, label %18, !llvm.loop !6
 
 .loopexit:                                        ; preds = %18, %6
   %26 = phi i32 [ %3, %6 ], [ %24, %18 ]
@@ -402,8 +402,6 @@ attributes #6 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}

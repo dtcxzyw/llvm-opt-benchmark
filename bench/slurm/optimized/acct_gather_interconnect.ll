@@ -381,7 +381,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_interconnect_fini() local_unn
   %57 = load i32, ptr @g_context_num, align 4
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %56, %38
   %.027.lcssa = phi i32 [ 0, %38 ], [ %.1, %56 ]
@@ -587,7 +587,7 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %25 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %24, %.preheader
   %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
@@ -625,7 +625,7 @@ define internal noalias noundef ptr @_watch_node(ptr readnone captures(none) %0)
 41:                                               ; preds = %38, %36
   %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @acct_gather_profile_timer, i64 376)) #7
   %.not23 = icmp eq i32 %42, 0
-  br i1 %.not23, label %6, label %43, !llvm.loop !14
+  br i1 %.not23, label %6, label %43, !llvm.loop !13
 
 43:                                               ; preds = %41
   %44 = tail call ptr @__errno_location() #8
@@ -690,7 +690,7 @@ define dso_local noundef i32 @acct_gather_interconnect_g_conf_options(ptr nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %19 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %18, %.preheader
   %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
@@ -757,7 +757,7 @@ define dso_local noundef i32 @acct_gather_interconnect_g_conf_set(ptr noundef %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = sext i32 %18 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %17, %.preheader
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
@@ -824,7 +824,7 @@ define dso_local noundef i32 @acct_gather_interconnect_g_conf_values(ptr noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = sext i32 %18 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %17, %.preheader
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
@@ -895,7 +895,7 @@ define dso_local noundef i32 @acct_gather_interconnect_g_get_data(ptr noundef %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = sext i32 %19 to i64
   %22 = icmp slt i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %18, %13, %.preheader
   %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_context_lock) #7
@@ -940,14 +940,13 @@ attributes #9 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

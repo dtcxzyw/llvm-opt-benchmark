@@ -1876,7 +1876,7 @@ _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i: ; preds = %1
 
 136:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i
   %.not.i53 = icmp ugt i32 %.0.i.i, %.0.i23.i
-  br i1 %.not.i53, label %_ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit, label %124, !llvm.loop !30
+  br i1 %.not.i53, label %_ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit, label %124, !llvm.loop !29
 
 _ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit: ; preds = %124, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i, %136
   %spec.select.i = phi i32 [ 1, %136 ], [ 0, %124 ], [ -1, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i ]
@@ -1923,7 +1923,7 @@ _ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_
   %153 = lshr i64 %151, 32
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %146, !llvm.loop !31
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %146, !llvm.loop !30
 
 154:                                              ; preds = %._crit_edge.i.i
   %155 = trunc nuw i64 %153 to i32
@@ -1946,7 +1946,7 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.i, 
   call void @_ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii(ptr noundef nonnull align 4 dereferenceable(340) %7, i32 noundef %140, ptr noundef nonnull %4, i32 noundef 2, i32 noundef %.012.i.i)
   %161 = add nsw i32 %.012.i.i, -1
   %.not.i2.i = icmp eq i32 %.012.i.i, 0
-  br i1 %.not.i2.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEm.exit, label %select.unfold.i.i, !llvm.loop !32
+  br i1 %.not.i2.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEm.exit, label %select.unfold.i.i, !llvm.loop !31
 
 _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEm.exit: ; preds = %select.unfold.i.i, %141, %._crit_edge.i.i, %154, %158
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
@@ -2221,7 +2221,7 @@ _ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i92: ; preds = 
 
 287:                                              ; preds = %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i92
   %.not.i94 = icmp ugt i32 %.0.i.i90, %.0.i23.i93
-  br i1 %.not.i94, label %_ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit96, label %275, !llvm.loop !30
+  br i1 %.not.i94, label %_ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit96, label %275, !llvm.loop !29
 
 _ZN4absl16strings_internal7CompareILi84ELi84EEEiRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_EEE.exit96: ; preds = %275, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i92, %287
   %spec.select.i95 = phi i32 [ 1, %287 ], [ 0, %275 ], [ -1, %_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi.exit24.i92 ]
@@ -2322,9 +2322,8 @@ attributes #10 = { nounwind willreturn memory(read) }
 !24 = !{!25, !10, i64 0}
 !25 = !{!"_ZTSN4absl16strings_internal11BigUnsignedILi84EEE", !10, i64 0, !5, i64 4}
 !26 = !{!10, !10, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = distinct !{!30, !28, !29}
-!31 = distinct !{!31, !28, !29}
-!32 = distinct !{!32, !28, !29}
+!29 = distinct !{!29, !28}
+!30 = distinct !{!30, !28}
+!31 = distinct !{!31, !28}

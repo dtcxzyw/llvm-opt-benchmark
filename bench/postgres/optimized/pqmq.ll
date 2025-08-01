@@ -342,7 +342,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   %138 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #10
   %sext = shl i32 %138, 24
   %139 = icmp eq i32 %sext, 0
-  br i1 %139, label %._crit_edge, label %28, !llvm.loop !4
+  br i1 %139, label %._crit_edge, label %28
 
 ._crit_edge:                                      ; preds = %137, %.loopexit
   tail call void @pq_getmsgend(ptr noundef %0) #10
@@ -463,7 +463,7 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
   call void @ResetLatch(ptr noundef %27) #10
   %28 = load volatile i32, ptr @InterruptPending, align 4
   %.not8 = icmp eq i32 %28, 0
-  br i1 %.not8, label %30, label %29, !prof !6
+  br i1 %.not8, label %30, label %29, !prof !4
 
 29:                                               ; preds = %24
   call void @ProcessInterrupts() #10
@@ -471,7 +471,7 @@ define internal range(i32 -1, 1) i32 @mq_putmessage(i8 noundef signext %0, ptr n
 
 30:                                               ; preds = %29, %24
   %.pre = load ptr, ptr @pq_mq_handle, align 8
-  br label %15, !llvm.loop !7
+  br label %15
 
 31:                                               ; preds = %23
   store i1 false, ptr @pq_mq_busy, align 1
@@ -531,7 +531,4 @@ attributes #12 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = distinct !{!7, !5}
+!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}

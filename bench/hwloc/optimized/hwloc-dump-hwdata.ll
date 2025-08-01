@@ -135,7 +135,7 @@ sub_143:                                          ; preds = %sub_042
 
 45:                                               ; preds = %42
   %46 = tail call ptr @__errno_location() #18
-  %47 = load i32, ptr %46, align 4, !tbaa !14
+  %47 = load i32, ptr %46, align 4, !tbaa !13
   %48 = icmp eq i32 %47, 17
   br i1 %48, label %49, label %54
 
@@ -266,8 +266,7 @@ attributes #18 = { nounwind willreturn memory(none) }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !7, i64 0}

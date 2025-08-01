@@ -349,7 +349,7 @@ _ZL23entropy_gather_internalP23mbedtls_entropy_context.exit: ; preds = %._crit_e
   %spec.select54 = add i64 %49, %.03170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %50 = icmp eq i32 %spec.select, 0
@@ -360,7 +360,7 @@ _ZL23entropy_gather_internalP23mbedtls_entropy_context.exit: ; preds = %._crit_e
 .backedge:                                        ; preds = %_ZL23entropy_gather_internalP23mbedtls_entropy_context.exit, %._crit_edge.loopexit
   %53 = add nuw nsw i32 %11, 1
   %exitcond83 = icmp eq i32 %11, 257
-  br i1 %exitcond83, label %.loopexit, label %10, !llvm.loop !24
+  br i1 %exitcond83, label %.loopexit, label %10, !llvm.loop !23
 
 54:                                               ; preds = %._crit_edge.loopexit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
@@ -392,18 +392,18 @@ _ZL23entropy_gather_internalP23mbedtls_entropy_context.exit: ; preds = %._crit_e
   br i1 %64, label %.lr.ph73, label %._crit_edge74
 
 .lr.ph73:                                         ; preds = %.preheader
-  %65 = getelementptr i8, ptr %0, i64 136
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %wide.trip.count87 = zext nneg i32 %63 to i64
   br label %66
 
 66:                                               ; preds = %.lr.ph73, %66
   %indvars.iv84 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next85, %66 ]
   %.idx = mul nuw nsw i64 %indvars.iv84, 40
-  %67 = getelementptr i8, ptr %65, i64 %.idx
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx
   store i64 0, ptr %67, align 8, !tbaa !19
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge74, label %66, !llvm.loop !25
+  br i1 %exitcond88.not, label %._crit_edge74, label %66, !llvm.loop !24
 
 ._crit_edge74:                                    ; preds = %66, %.preheader
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 16 %6, i64 %2, i1 false)
@@ -461,9 +461,8 @@ attributes #6 = { nounwind }
 !17 = !{!6, !6, i64 0}
 !18 = !{!13, !13, i64 0}
 !19 = !{!11, !13, i64 16}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = distinct !{!23, !21, !22}
-!24 = distinct !{!24, !21, !22}
-!25 = distinct !{!25, !21, !22}
+!22 = distinct !{!22, !21}
+!23 = distinct !{!23, !21}
+!24 = distinct !{!24, !21}

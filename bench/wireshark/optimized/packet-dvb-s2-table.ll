@@ -1711,7 +1711,7 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   tail call void @proto_item_set_len(ptr noundef %188, i32 noundef %247)
   %248 = add nuw nsw i32 %.098104.i, 1
   %exitcond106.not.i = icmp eq i32 %.098104.i, %177
-  br i1 %exitcond106.not.i, label %249, label %185, !llvm.loop !9
+  br i1 %exitcond106.not.i, label %249, label %185, !llvm.loop !8
 
 249:                                              ; preds = %246
   %250 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -1851,14 +1851,14 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   tail call void @proto_item_set_len(ptr noundef %299, i32 noundef %340)
   %341 = add nuw nsw i32 %.0129133.i, 1
   %exitcond.not.i325 = icmp eq i32 %.0129133.i, %295
-  br i1 %exitcond.not.i325, label %342, label %296, !llvm.loop !10
+  br i1 %exitcond.not.i325, label %342, label %296, !llvm.loop !9
 
 342:                                              ; preds = %339
   %343 = sub i32 %.2.i324, %.0130134.i
   tail call void @proto_item_set_len(ptr noundef %282, i32 noundef %343)
   %344 = add nuw nsw i32 %.0135.i, 1
   %exitcond136.not.i = icmp eq i32 %.0135.i, %276
-  br i1 %exitcond136.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %279, !llvm.loop !11
+  br i1 %exitcond136.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %279, !llvm.loop !10
 
 345:                                              ; preds = %151
   %346 = load i32, ptr @hf_dvb_s2_tbtp_group_id, align 4
@@ -1938,14 +1938,14 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   tail call void @proto_item_set_len(ptr noundef %376, i32 noundef %401)
   %402 = add nuw nsw i32 %.095100.i, 1
   %exitcond.not.i328 = icmp eq i32 %402, %372
-  br i1 %exitcond.not.i328, label %403, label %373, !llvm.loop !12
+  br i1 %exitcond.not.i328, label %403, label %373, !llvm.loop !11
 
 403:                                              ; preds = %396
   %404 = sub i32 %400, %.096101.i
   tail call void @proto_item_set_len(ptr noundef %361, i32 noundef %404)
   %405 = add nuw nsw i32 %.0102.i, 1
   %exitcond103.not.i = icmp eq i32 %405, %357
-  br i1 %exitcond103.not.i, label %406, label %358, !llvm.loop !13
+  br i1 %exitcond103.not.i, label %406, label %358, !llvm.loop !12
 
 406:                                              ; preds = %403
   %407 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -1988,7 +1988,7 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   tail call void @proto_item_set_len(ptr noundef %422, i32 noundef %433)
   %434 = add nuw nsw i32 %.042.i, 1
   %exitcond.not.i331 = icmp eq i32 %.042.i, %415
-  br i1 %exitcond.not.i331, label %435, label %419, !llvm.loop !14
+  br i1 %exitcond.not.i331, label %435, label %419, !llvm.loop !13
 
 435:                                              ; preds = %419
   %436 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -2072,14 +2072,14 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %500 = add i32 %.184.i, 9
   %501 = add nuw nsw i32 %.08185.i, 1
   %exitcond.not.i332 = icmp eq i32 %.08185.i, %479
-  br i1 %exitcond.not.i332, label %502, label %483, !llvm.loop !15
+  br i1 %exitcond.not.i332, label %502, label %483, !llvm.loop !14
 
 502:                                              ; preds = %483
   %503 = sub i32 %500, %.08286.i
   tail call void @proto_item_set_len(ptr noundef %463, i32 noundef %503)
   %504 = add nuw nsw i32 %.087.i, 1
   %exitcond88.not.i = icmp eq i32 %.087.i, %451
-  br i1 %exitcond88.not.i, label %505, label %460, !llvm.loop !16
+  br i1 %exitcond88.not.i, label %505, label %460, !llvm.loop !15
 
 505:                                              ; preds = %502
   %506 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -2130,7 +2130,7 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %539 = add nuw nsw i32 %.04445.i, 3
   %540 = add nuw nsw i32 %.046.i, 1
   %exitcond.not.i334 = icmp eq i32 %540, %517
-  br i1 %exitcond.not.i334, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %521, !llvm.loop !17
+  br i1 %exitcond.not.i334, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %521, !llvm.loop !16
 
 541:                                              ; preds = %151
   %542 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 1, 16) %.2)
@@ -2158,7 +2158,7 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %556 = tail call ptr @proto_tree_add_item(ptr noundef %550, i32 noundef %555, ptr noundef %0, i32 noundef %547, i32 noundef 1, i32 noundef 0)
   %557 = add nuw nsw i32 %.03435.i, 1
   %exitcond.not.i337 = icmp eq i32 %.03435.i, %545
-  br i1 %exitcond.not.i337, label %._crit_edge.i.loopexit, label %.lr.ph.i336, !llvm.loop !18
+  br i1 %exitcond.not.i337, label %._crit_edge.i.loopexit, label %.lr.ph.i336, !llvm.loop !17
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i336
   %558 = add nuw nsw i32 %545, 1
@@ -2242,7 +2242,7 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %616 = add i32 %.1106.i, 3
   %617 = add nuw nsw i32 %.0102107.i, 1
   %exitcond.not.i340 = icmp eq i32 %617, %609
-  br i1 %exitcond.not.i340, label %._crit_edge.i341, label %.lr.ph.i339, !llvm.loop !19
+  br i1 %exitcond.not.i340, label %._crit_edge.i341, label %.lr.ph.i339, !llvm.loop !18
 
 ._crit_edge.i341:                                 ; preds = %.lr.ph.i339, %581
   %.1.lcssa.i = phi i32 [ %612, %581 ], [ %616, %.lr.ph.i339 ]
@@ -2273,14 +2273,14 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %638 = add i32 %.2108.i, 4
   %639 = add nuw nsw i32 %.0103109.i, 1
   %exitcond114.not.i = icmp eq i32 %.0103109.i, %620
-  br i1 %exitcond114.not.i, label %640, label %624, !llvm.loop !20
+  br i1 %exitcond114.not.i, label %640, label %624, !llvm.loop !19
 
 640:                                              ; preds = %624
   %641 = sub i32 %638, %.0104110.i
   tail call void @proto_item_set_len(ptr noundef %584, i32 noundef %641)
   %642 = add nuw nsw i32 %.0111.i, 1
   %exitcond115.not.i = icmp eq i32 %.0111.i, %570
-  br i1 %exitcond115.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %581, !llvm.loop !21
+  br i1 %exitcond115.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %581, !llvm.loop !20
 
 643:                                              ; preds = %151
   %644 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 1, 16) %.2)
@@ -2410,7 +2410,7 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %744 = add i32 %.1373381.i, 1
   %745 = add nuw nsw i32 %.0371382.i, 1
   %exitcond419.not.i = icmp eq i32 %745, %737
-  br i1 %exitcond419.not.i, label %._crit_edge385.loopexit.i, label %.lr.ph384.i, !llvm.loop !22
+  br i1 %exitcond419.not.i, label %._crit_edge385.loopexit.i, label %.lr.ph384.i, !llvm.loop !21
 
 ._crit_edge385.loopexit.i:                        ; preds = %.lr.ph384.i
   %.pre.i = add i32 %744, %.2
@@ -2436,7 +2436,7 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %754 = add i32 %.2387.i, 1
   %755 = add nuw nsw i32 %.1388.i, 1
   %exitcond420.not.i = icmp eq i32 %755, %747
-  br i1 %exitcond420.not.i, label %._crit_edge391.loopexit.i, label %.lr.ph390.i, !llvm.loop !23
+  br i1 %exitcond420.not.i, label %._crit_edge391.loopexit.i, label %.lr.ph390.i, !llvm.loop !22
 
 ._crit_edge391.loopexit.i:                        ; preds = %.lr.ph390.i
   %.pre423.i = add i32 %754, %.2
@@ -2500,7 +2500,7 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
   %.4.i = add i32 %.3393.i, 1
   %790 = add nuw nsw i32 %.0369394.i, 1
   %exitcond421.not.i = icmp eq i32 %790, %772
-  br i1 %exitcond421.not.i, label %.loopexit.i, label %.lr.ph396.i, !llvm.loop !24
+  br i1 %exitcond421.not.i, label %.loopexit.i, label %.lr.ph396.i, !llvm.loop !23
 
 791:                                              ; preds = %689
   %792 = load i32, ptr @hf_dvb_s2_table_tx_type_waveform_id, align 4
@@ -2574,7 +2574,7 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
   %844 = tail call ptr @proto_tree_add_item(ptr noundef %839, i32 noundef %843, ptr noundef %0, i32 noundef %.reass376.i, i32 noundef 1, i32 noundef 0)
   %845 = add nuw nsw i32 %.0370379.i, 1
   %exitcond.not.i346 = icmp eq i32 %845, %833
-  br i1 %exitcond.not.i346, label %._crit_edge.i347, label %.lr.ph.i344, !llvm.loop !25
+  br i1 %exitcond.not.i346, label %._crit_edge.i347, label %.lr.ph.i344, !llvm.loop !24
 
 ._crit_edge.i347:                                 ; preds = %.lr.ph.i344
   %.5.le.i = add i32 %.5.in378.i, 4
@@ -2633,7 +2633,7 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
   %.6.i = phi i32 [ %880, %877 ], [ %794, %791 ], [ %872, %851 ], [ %.neg.i, %873 ], [ %804, %795 ], [ %778, %._crit_edge391.i ], [ %.4.i, %787 ]
   %881 = add nuw nsw i32 %.0407.i, 1
   %exitcond422.not.i = icmp eq i32 %881, %645
-  br i1 %exitcond422.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %664, !llvm.loop !26
+  br i1 %exitcond422.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %664, !llvm.loop !25
 
 882:                                              ; preds = %151
   %883 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef range(i32 1, 16) %.2)
@@ -2667,7 +2667,7 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
   %907 = add nuw nsw i32 %.04142.i, 13
   %908 = add nuw nsw i32 %.043.i, 1
   %exitcond.not.i349 = icmp eq i32 %.043.i, %884
-  br i1 %exitcond.not.i349, label %909, label %890, !llvm.loop !27
+  br i1 %exitcond.not.i349, label %909, label %890, !llvm.loop !26
 
 909:                                              ; preds = %890
   %910 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -2703,7 +2703,7 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
   %928 = add nuw nsw i32 %927, %926
   %929 = add i32 %.09094.i, 1
   %930 = icmp samesign ult i32 %928, %921
-  br i1 %930, label %923, label %._crit_edge.i353, !llvm.loop !28
+  br i1 %930, label %923, label %._crit_edge.i353, !llvm.loop !27
 
 ._crit_edge.i353:                                 ; preds = %923, %916
   %.090.lcssa.i = phi i32 [ -1, %916 ], [ %.09094.i, %923 ]
@@ -2765,7 +2765,7 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
   %968 = add nuw nsw i32 %967, %966
   %969 = add i32 %.19196.i, 1
   %970 = icmp samesign ult i32 %968, %961
-  br i1 %970, label %963, label %._crit_edge100.i, !llvm.loop !29
+  br i1 %970, label %963, label %._crit_edge100.i, !llvm.loop !28
 
 ._crit_edge100.i:                                 ; preds = %963, %945
   %.191.lcssa.i = phi i32 [ -1, %945 ], [ %.19196.i, %963 ]
@@ -2775,7 +2775,7 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
   %974 = sub i32 %973, %.092104.i
   tail call void @proto_item_set_len(ptr noundef %948, i32 noundef %974)
   %975 = icmp slt i32 %973, %941
-  br i1 %975, label %945, label %._crit_edge107.i, !llvm.loop !30
+  br i1 %975, label %945, label %._crit_edge107.i, !llvm.loop !29
 
 ._crit_edge107.i:                                 ; preds = %._crit_edge100.i, %._crit_edge.i353
   %.092.lcssa.i = phi i32 [ %939, %._crit_edge.i353 ], [ %973, %._crit_edge100.i ]
@@ -2867,7 +2867,7 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
   %.reass124.i = add i32 %.2125.i, %invariant.op131.i
   %1037 = add nuw nsw i32 %.0119126.i, 1
   %exitcond.not.i356 = icmp eq i32 %.0119126.i, %1024
-  br i1 %exitcond.not.i356, label %1038, label %1027, !llvm.loop !31
+  br i1 %exitcond.not.i356, label %1038, label %1027, !llvm.loop !30
 
 1038:                                             ; preds = %1027
   %1039 = load i32, ptr @hf_dvb_s2_table_pt_ms_mac24_base, align 4
@@ -2881,14 +2881,14 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
   tail call void @proto_item_set_len(ptr noundef %1016, i32 noundef %1046)
   %1047 = add nuw nsw i32 %.0118128.i, 1
   %exitcond139.not.i = icmp eq i32 %.0118128.i, %1008
-  br i1 %exitcond139.not.i, label %1048, label %1013, !llvm.loop !32
+  br i1 %exitcond139.not.i, label %1048, label %1013, !llvm.loop !31
 
 1048:                                             ; preds = %1038
   %1049 = sub i32 %1045, %.0120137.i
   tail call void @proto_item_set_len(ptr noundef %997, i32 noundef %1049)
   %1050 = add nuw nsw i32 %.0138.i, 1
   %exitcond140.not.i = icmp eq i32 %.0138.i, %990
-  br i1 %exitcond140.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %994, !llvm.loop !33
+  br i1 %exitcond140.not.i, label %dissect_dvb_s2_table_sct.exitthread-pre-split, label %994, !llvm.loop !32
 
 dissect_dvb_s2_table_sct.exitthread-pre-split:    ; preds = %1048, %.loopexit.i, %640, %521, %342, %409, %406, %151, %152, %256, %257, %442, %252, %438, %508, %512, %561, %643, %912, %978
   %.pr357 = load i32, ptr @dvb_s2_rcs_version, align 4
@@ -3191,7 +3191,7 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %138 = add i32 %.21168, 5
   %139 = add nuw nsw i8 %.010741167, 1
   %exitcond1216.not = icmp eq i8 %139, %115
-  br i1 %exitcond1216.not, label %._crit_edge1171, label %.lr.ph1170, !llvm.loop !34
+  br i1 %exitcond1216.not, label %._crit_edge1171, label %.lr.ph1170, !llvm.loop !33
 
 ._crit_edge1171:                                  ; preds = %.lr.ph1170, %96
   %.2.lcssa = phi i32 [ %120, %96 ], [ %138, %.lr.ph1170 ]
@@ -3282,7 +3282,7 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %.5 = phi i32 [ %200, %193 ], [ %.4, %192 ]
   %202 = add nuw nsw i8 %.010731148, 1
   %exitcond1213.not = icmp eq i8 %202, %159
-  br i1 %exitcond1213.not, label %._crit_edge, label %.lr.ph1150, !llvm.loop !35
+  br i1 %exitcond1213.not, label %._crit_edge, label %.lr.ph1150, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %201, %147
   %.3.lcssa = phi i32 [ %162, %147 ], [ %.5, %201 ]
@@ -3352,7 +3352,7 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %.8 = phi i32 [ %243, %239 ], [ %.7, %238 ]
   %245 = add nuw nsw i8 %.010721154, 1
   %exitcond1214.not = icmp eq i8 %245, %205
-  br i1 %exitcond1214.not, label %._crit_edge1158, label %.lr.ph1157, !llvm.loop !36
+  br i1 %exitcond1214.not, label %._crit_edge1158, label %.lr.ph1157, !llvm.loop !35
 
 ._crit_edge1158:                                  ; preds = %244, %._crit_edge
   %.6.lcssa = phi i32 [ %208, %._crit_edge ], [ %.8, %244 ]
@@ -3398,7 +3398,7 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %278 = add i32 %275, %255
   %279 = add nuw nsw i8 %.010711162, 1
   %exitcond1215.not = icmp eq i8 %279, %248
-  br i1 %exitcond1215.not, label %.loopexit1112, label %.lr.ph1165, !llvm.loop !37
+  br i1 %exitcond1215.not, label %.loopexit1112, label %.lr.ph1165, !llvm.loop !36
 
 280:                                              ; preds = %18
   %281 = load i32, ptr @hf_dvb_s2_table_nnd_char, align 4
@@ -3507,7 +3507,7 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %354 = add i32 %.141145, 4
   %355 = add nuw nsw i32 %.010791144, 1
   %exitcond1212.not = icmp eq i32 %.010791144, %343
-  br i1 %exitcond1212.not, label %.thread1108, label %347, !llvm.loop !38
+  br i1 %exitcond1212.not, label %.thread1108, label %347, !llvm.loop !37
 
 .thread1108:                                      ; preds = %347, %319, %316, %324, %336
   %.13 = phi i32 [ %300, %336 ], [ %335, %324 ], [ %.11, %316 ], [ %323, %319 ], [ %354, %347 ]
@@ -3681,13 +3681,13 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %490 = add i32 %.171140, 2
   %491 = add nuw nsw i32 %.010751139, 1
   %exitcond1211.not = icmp eq i32 %491, %485
-  br i1 %exitcond1211.not, label %492, label %486, !llvm.loop !39
+  br i1 %exitcond1211.not, label %492, label %486, !llvm.loop !38
 
 492:                                              ; preds = %486
   %reass.sub = sub i32 %.neg1098, %.171140
   %493 = add i32 %reass.sub, -2
   %494 = icmp sgt i32 %493, 0
-  br i1 %494, label %472, label %.loopexit1112, !llvm.loop !40
+  br i1 %494, label %472, label %.loopexit1112, !llvm.loop !39
 
 495:                                              ; preds = %18
   %496 = load i32, ptr @hf_dvb_s2_table_ripd_continuous_carrier, align 4
@@ -3738,7 +3738,7 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %527 = add nuw nsw i32 %.010781119, 1
   %.20 = add i32 %.201120, 2
   %exitcond1207.not = icmp eq i32 %.010781119, %520
-  br i1 %exitcond1207.not, label %.loopexit1111, label %523, !llvm.loop !41
+  br i1 %exitcond1207.not, label %.loopexit1111, label %523, !llvm.loop !40
 
 .loopexit1111:                                    ; preds = %523, %505
   %.19 = phi i32 [ %517, %505 ], [ %.20, %523 ]
@@ -3771,7 +3771,7 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %544 = call ptr @proto_tree_add_item(ptr noundef %510, i32 noundef %543, ptr noundef %0, i32 noundef %.reass1124, i32 noundef 2, i32 noundef 0)
   %545 = add nuw nsw i32 %.110801126, 1
   %exitcond1208.not = icmp eq i32 %.110801126, %536
-  br i1 %exitcond1208.not, label %.loopexit1110, label %539, !llvm.loop !42
+  br i1 %exitcond1208.not, label %.loopexit1110, label %539, !llvm.loop !41
 
 .loopexit1110:                                    ; preds = %539
   %.22.le = add i32 %.22.in1127, 5
@@ -3806,7 +3806,7 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %562 = add nuw nsw i32 %.010811129, 1
   %.24 = add i32 %.241130, 2
   %exitcond1209.not = icmp eq i32 %.010811129, %555
-  br i1 %exitcond1209.not, label %.loopexit, label %558, !llvm.loop !43
+  br i1 %exitcond1209.not, label %.loopexit, label %558, !llvm.loop !42
 
 .loopexit:                                        ; preds = %558, %546
   %.23 = phi i32 [ %552, %546 ], [ %.24, %558 ]
@@ -3816,7 +3816,7 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %566 = add i32 %.23, 1
   %567 = add nuw nsw i32 %.110761137, 1
   %exitcond1210.not = icmp eq i32 %567, %504
-  br i1 %exitcond1210.not, label %.loopexit1112, label %505, !llvm.loop !44
+  br i1 %exitcond1210.not, label %.loopexit1112, label %505, !llvm.loop !43
 
 568:                                              ; preds = %18
   %569 = add i32 %34, %1
@@ -4027,7 +4027,7 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %722 = add i32 %719, %716
   %723 = add nuw nsw i32 %.210771116, 1
   %exitcond.not = icmp eq i32 %723, %701
-  br i1 %exitcond.not, label %.loopexit1112, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %.loopexit1112, label %.lr.ph, !llvm.loop !44
 
 724:                                              ; preds = %18
   %725 = add i32 %34, %23
@@ -4038,7 +4038,7 @@ define internal fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 nounde
   %.28 = phi i32 [ %725, %724 ], [ %77, %64 ], [ %.11069, %61 ], [ %81, %78 ], [ %95, %82 ], [ %146, %._crit_edge1171 ], [ %284, %280 ], [ %362, %358 ], [ %.13, %.thread1108 ], [ %394, %389 ], [ %387, %363 ], [ %471, %458 ], [ %456, %455 ], [ %572, %568 ], [ %586, %573 ], [ %600, %587 ], [ %689, %688 ], [ %.26, %668 ], [ %697, %690 ], [ %251, %._crit_edge1158 ], [ %34, %.preheader ], [ %704, %698 ], [ %278, %.lr.ph1165 ], [ %490, %492 ], [ %566, %.loopexit ], [ %722, %.lr.ph ]
   %726 = add i32 %.01188, 1
   %.not = icmp sgt i32 %726, %3
-  br i1 %.not, label %._crit_edge1191, label %18, !llvm.loop !46
+  br i1 %.not, label %._crit_edge1191, label %18, !llvm.loop !45
 
 ._crit_edge1191:                                  ; preds = %.loopexit1112, %6
   %.01068.lcssa = phi i32 [ 0, %6 ], [ %.28, %.loopexit1112 ]
@@ -4134,44 +4134,43 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !7, !8}
-!42 = distinct !{!42, !7, !8}
-!43 = distinct !{!43, !7, !8}
-!44 = distinct !{!44, !7, !8}
-!45 = distinct !{!45, !7, !8}
-!46 = distinct !{!46, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}

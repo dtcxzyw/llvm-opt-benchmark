@@ -153,7 +153,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
   %indvars.iv = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next, %61 ]
   %.16797 = phi i32 [ %.06699, %.preheader93 ], [ %spec.select, %61 ]
   %62 = getelementptr inbounds nuw [4 x i16], ptr %58, i64 0, i64 %indvars.iv
-  %63 = load i16, ptr %62, align 2, !tbaa !82
+  %63 = load i16, ptr %62, align 2, !tbaa !81
   %64 = zext i16 %63 to i32
   %65 = load i16, ptr %54, align 2, !tbaa !75
   %66 = zext i16 %65 to i32
@@ -174,11 +174,11 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
   %81 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
   %82 = tail call i32 @llvm.umin.i32(i32 %81, i32 65535)
   %83 = trunc nuw i32 %82 to i16
-  store i16 %83, ptr %62, align 2, !tbaa !82
+  store i16 %83, ptr %62, align 2, !tbaa !81
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.16797, i32 %80)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %60, label %61, !llvm.loop !83
+  br i1 %exitcond.not, label %60, label %61, !llvm.loop !82
 
 84:                                               ; preds = %52, %35
   %85 = phi i32 [ %53, %52 ], [ %42, %35 ]
@@ -199,13 +199,13 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
 88:                                               ; preds = %89
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
-  br i1 %exitcond127.not, label %.loopexit, label %.preheader, !llvm.loop !84
+  br i1 %exitcond127.not, label %.loopexit, label %.preheader, !llvm.loop !83
 
 89:                                               ; preds = %.preheader, %89
   %indvars.iv119 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next120, %89 ]
   %.5101 = phi i32 [ %.4103, %.preheader ], [ %spec.select89, %89 ]
   %90 = getelementptr inbounds nuw [4 x i16], ptr %87, i64 0, i64 %indvars.iv119
-  %91 = load i16, ptr %90, align 2, !tbaa !82
+  %91 = load i16, ptr %90, align 2, !tbaa !81
   %92 = zext i16 %91 to i32
   %93 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %indvars.iv119
   %94 = load i32, ptr %93, align 4, !tbaa !73
@@ -213,23 +213,23 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
   %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
   %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 65535)
   %98 = trunc nuw i32 %97 to i16
-  store i16 %98, ptr %90, align 2, !tbaa !82
+  store i16 %98, ptr %90, align 2, !tbaa !81
   %spec.select89 = tail call i32 @llvm.smax.i32(i32 %.5101, i32 %95)
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, 4
-  br i1 %exitcond122.not, label %88, label %89, !llvm.loop !85
+  br i1 %exitcond122.not, label %88, label %89, !llvm.loop !84
 
 .loopexit:                                        ; preds = %60, %88, %.preheader94, %84
   %.3 = phi i32 [ 0, %84 ], [ 0, %.preheader94 ], [ %spec.select89, %88 ], [ %spec.select, %60 ]
   %99 = and i32 %.3, 65535
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 152996
-  store i32 %99, ptr %100, align 4, !tbaa !86
+  store i32 %99, ptr %100, align 4, !tbaa !85
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 152992
-  %102 = load i32, ptr %101, align 8, !tbaa !87
+  %102 = load i32, ptr %101, align 8, !tbaa !86
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 153000
-  %104 = load i32, ptr %103, align 8, !tbaa !88
+  %104 = load i32, ptr %103, align 8, !tbaa !87
   %105 = sub i32 %104, %102
-  store i32 %105, ptr %103, align 8, !tbaa !88
+  store i32 %105, ptr %103, align 8, !tbaa !87
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16420) %15, i8 0, i64 16420, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #7
   br label %130
@@ -255,17 +255,17 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
   %indvars.iv128 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next129, %.lr.ph ]
   %.058107 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select90, %.lr.ph ]
   %116 = getelementptr inbounds nuw i16, ptr %107, i64 %indvars.iv128
-  %117 = load i16, ptr %116, align 2, !tbaa !82
+  %117 = load i16, ptr %116, align 2, !tbaa !81
   %118 = zext i16 %117 to i32
   %spec.select90 = tail call i32 @llvm.umax.i32(i32 %.058107, i32 %118)
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
-  br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
+  br i1 %exitcond132.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.lr.ph, %106
   %.058.lcssa = phi i32 [ 0, %106 ], [ %spec.select90, %.lr.ph ]
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 152996
-  store i32 %.058.lcssa, ptr %119, align 4, !tbaa !86
+  store i32 %.058.lcssa, ptr %119, align 4, !tbaa !85
   br label %130
 
 120:                                              ; preds = %48
@@ -442,14 +442,13 @@ attributes #7 = { nounwind }
 !76 = !{!77, !77, i64 0}
 !77 = !{!"_ZTS17LibRaw_exceptions", !11, i64 0}
 !78 = !{!7, !9, i64 8}
-!79 = distinct !{!79, !80, !81}
+!79 = distinct !{!79, !80}
 !80 = !{!"llvm.loop.mustprogress"}
-!81 = !{!"llvm.loop.estimated_trip_count"}
-!82 = !{!14, !14, i64 0}
-!83 = distinct !{!83, !80, !81}
-!84 = distinct !{!84, !80, !81}
-!85 = distinct !{!85, !80, !81}
-!86 = !{!7, !15, i64 152996}
-!87 = !{!7, !15, i64 152992}
-!88 = !{!7, !15, i64 153000}
-!89 = distinct !{!89, !80, !81}
+!81 = !{!14, !14, i64 0}
+!82 = distinct !{!82, !80}
+!83 = distinct !{!83, !80}
+!84 = distinct !{!84, !80}
+!85 = !{!7, !15, i64 152996}
+!86 = !{!7, !15, i64 152992}
+!87 = !{!7, !15, i64 153000}
+!88 = distinct !{!88, !80}

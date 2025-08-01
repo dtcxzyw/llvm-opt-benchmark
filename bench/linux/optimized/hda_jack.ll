@@ -192,7 +192,7 @@ define dso_local ptr @snd_hda_jack_tbl_get_from_tag(ptr noundef readonly capture
   %23 = add nuw i32 %13, 1
   %24 = getelementptr i8, ptr %14, i64 56
   %25 = icmp eq i32 %23, %11
-  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %22, %18, %9, %3
   %26 = phi ptr [ null, %3 ], [ null, %9 ], [ %14, %18 ], [ null, %22 ]
@@ -241,7 +241,7 @@ define dso_local void @snd_hda_jack_tbl_disconnect(ptr noundef readonly captures
   %27 = add nuw i32 %12, 1
   %28 = getelementptr i8, ptr %13, i64 56
   %29 = icmp ult i32 %27, %26
-  br i1 %29, label %10, label %.loopexit, !llvm.loop !11
+  br i1 %29, label %10, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %25, %1
   ret void
@@ -297,14 +297,14 @@ define dso_local void @snd_hda_jack_tbl_clear(ptr noundef %0) local_unnamed_addr
   %30 = load ptr, ptr %29, align 8
   tail call void @kfree(ptr noundef nonnull %28) #11
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %24
   %32 = add nuw i32 %11, 1
   %33 = getelementptr i8, ptr %12, i64 56
   %34 = load i32, ptr %2, align 8
   %35 = icmp ult i32 %32, %34
-  br i1 %35, label %10, label %.loopexit3, !llvm.loop !13
+  br i1 %35, label %10, label %.loopexit3, !llvm.loop !12
 
 .loopexit3:                                       ; preds = %.loopexit, %1
   tail call void @snd_array_free(ptr noundef nonnull %2) #11
@@ -353,7 +353,7 @@ define dso_local void @snd_hda_jack_set_dirty_all(ptr noundef readonly captures(
   %20 = add nuw i32 %10, 1
   %21 = getelementptr i8, ptr %11, i64 56
   %22 = icmp ult i32 %20, %19
-  br i1 %22, label %8, label %.loopexit, !llvm.loop !14
+  br i1 %22, label %8, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %18, %1
   ret void
@@ -392,7 +392,7 @@ define dso_local i32 @snd_hda_jack_pin_sense(ptr noundef %0, i16 noundef zeroext
   %23 = add nuw i32 %14, 1
   %24 = getelementptr i8, ptr %15, i64 56
   %25 = icmp eq i32 %23, %12
-  br i1 %25, label %.thread, label %.preheader, !llvm.loop !15
+  br i1 %25, label %.thread, label %.preheader, !llvm.loop !6
 
 26:                                               ; preds = %18
   %27 = icmp eq ptr %15, null
@@ -528,7 +528,7 @@ define internal fastcc void @jack_detect_update(ptr noundef %0, ptr noundef capt
   %59 = add nuw i32 %50, 1
   %60 = getelementptr i8, ptr %51, i64 56
   %61 = icmp eq i32 %59, %48
-  br i1 %61, label %.thread, label %.preheader10, !llvm.loop !16
+  br i1 %61, label %.thread, label %.preheader10, !llvm.loop !6
 
 62:                                               ; preds = %54
   %63 = icmp eq ptr %51, null
@@ -592,7 +592,7 @@ define internal fastcc void @jack_detect_update(ptr noundef %0, ptr noundef capt
   %99 = add nuw i32 %90, 1
   %100 = getelementptr i8, ptr %91, i64 56
   %101 = icmp eq i32 %99, %88
-  br i1 %101, label %.thread9, label %.preheader, !llvm.loop !17
+  br i1 %101, label %.thread9, label %.preheader, !llvm.loop !6
 
 102:                                              ; preds = %94
   %103 = icmp eq ptr %91, null
@@ -642,7 +642,7 @@ define dso_local range(i32 0, 3) i32 @snd_hda_jack_detect_state_mst(ptr noundef 
   %22 = add nuw i32 %13, 1
   %23 = getelementptr i8, ptr %14, i64 56
   %24 = icmp eq i32 %22, %11
-  br i1 %24, label %.thread, label %.preheader, !llvm.loop !18
+  br i1 %24, label %.thread, label %.preheader, !llvm.loop !6
 
 25:                                               ; preds = %17
   %26 = icmp eq ptr %14, null
@@ -692,7 +692,7 @@ define dso_local ptr @snd_hda_jack_detect_enable_callback_mst(ptr noundef %0, i1
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %17, %9
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
@@ -785,7 +785,7 @@ define internal fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zer
   %22 = add nuw i32 %13, 1
   %23 = getelementptr i8, ptr %14, i64 56
   %24 = icmp eq i32 %22, %11
-  br i1 %24, label %.preheader.preheader, label %.preheader9, !llvm.loop !20
+  br i1 %24, label %.preheader.preheader, label %.preheader9, !llvm.loop !6
 
 .preheader.preheader:                             ; preds = %21, %17
   %25 = phi ptr [ %14, %17 ], [ null, %21 ]
@@ -802,7 +802,7 @@ define internal fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zer
   %31 = add nuw i32 %26, 1
   %32 = getelementptr i8, ptr %27, i64 56
   %33 = icmp eq i32 %31, %11
-  br i1 %33, label %.thread8, label %.preheader, !llvm.loop !21
+  br i1 %33, label %.thread8, label %.preheader, !llvm.loop !15
 
 .thread8:                                         ; preds = %30, %.preheader, %9, %3
   %34 = phi ptr [ null, %3 ], [ null, %9 ], [ %25, %.preheader ], [ %25, %30 ]
@@ -815,12 +815,12 @@ define internal fastcc ptr @snd_hda_jack_tbl_new(ptr noundef %0, i16 noundef zer
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 16384
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %43, !prof !22
+  br i1 %41, label %42, label %43, !prof !16
 
 42:                                               ; preds = %37
-  tail call void asm sideeffect "364: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 364b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 364) #11, !srcloc !23
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 135, i32 2305, i64 12) #11, !srcloc !24
-  tail call void asm sideeffect "365: nop\0A\09.pushsection .discard.instr_end\0A\09.long 365b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 365) #11, !srcloc !25
+  tail call void asm sideeffect "364: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 364b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 364) #11, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 135, i32 2305, i64 12) #11, !srcloc !18
+  tail call void asm sideeffect "365: nop\0A\09.pushsection .discard.instr_end\0A\09.long 365b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 365) #11, !srcloc !19
   br label %43
 
 43:                                               ; preds = %42, %37, %.thread8
@@ -947,7 +947,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_set_gating_jack(ptr
   %22 = add nuw i32 %13, 1
   %23 = getelementptr i8, ptr %14, i64 56
   %24 = icmp eq i32 %22, %11
-  br i1 %24, label %.preheader.preheader.i, label %.preheader9.i, !llvm.loop !20
+  br i1 %24, label %.preheader.preheader.i, label %.preheader9.i, !llvm.loop !6
 
 .preheader.preheader.i:                           ; preds = %17, %21
   %25 = phi ptr [ null, %21 ], [ %14, %17 ]
@@ -964,7 +964,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_set_gating_jack(ptr
   %31 = add nuw i32 %26, 1
   %32 = getelementptr i8, ptr %27, i64 56
   %33 = icmp eq i32 %31, %11
-  br i1 %33, label %.thread8.i, label %.preheader.i, !llvm.loop !21
+  br i1 %33, label %.thread8.i, label %.preheader.i, !llvm.loop !15
 
 .thread8.i:                                       ; preds = %30, %.preheader.i
   %34 = phi ptr [ %27, %.preheader.i ], [ null, %30 ]
@@ -1039,7 +1039,7 @@ snd_hda_jack_tbl_new.exit:                        ; preds = %.thread8.i, %.threa
   %76 = add nuw i32 %67, 1
   %77 = getelementptr i8, ptr %68, i64 56
   %78 = icmp eq i32 %76, %65
-  br i1 %78, label %.preheader.preheader.i4, label %.preheader9.i3, !llvm.loop !20
+  br i1 %78, label %.preheader.preheader.i4, label %.preheader9.i3, !llvm.loop !6
 
 .preheader.preheader.i4:                          ; preds = %71, %75
   %79 = phi ptr [ null, %75 ], [ %68, %71 ]
@@ -1056,7 +1056,7 @@ snd_hda_jack_tbl_new.exit:                        ; preds = %.thread8.i, %.threa
   %85 = add nuw i32 %80, 1
   %86 = getelementptr i8, ptr %81, i64 56
   %87 = icmp eq i32 %85, %65
-  br i1 %87, label %.thread8.i2, label %.preheader.i5, !llvm.loop !21
+  br i1 %87, label %.thread8.i2, label %.preheader.i5, !llvm.loop !15
 
 .thread8.i2:                                      ; preds = %84, %.preheader.i5
   %88 = phi ptr [ %81, %.preheader.i5 ], [ null, %84 ]
@@ -1106,12 +1106,12 @@ snd_hda_jack_tbl_new.exit7:                       ; preds = %.thread8.i2, %.thre
   %114 = load i32, ptr %113, align 8
   %115 = and i32 %114, 16384
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %118, label %117, !prof !26
+  br i1 %116, label %118, label %117, !prof !20
 
 117:                                              ; preds = %snd_hda_jack_tbl_new.exit7
-  tail call void asm sideeffect "371: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 371b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 371) #11, !srcloc !27
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 390, i32 2305, i64 12) #11, !srcloc !28
-  tail call void asm sideeffect "372: nop\0A\09.pushsection .discard.instr_end\0A\09.long 372b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 372) #11, !srcloc !29
+  tail call void asm sideeffect "371: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 371b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 371) #11, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 390, i32 2305, i64 12) #11, !srcloc !22
+  tail call void asm sideeffect "372: nop\0A\09.pushsection .discard.instr_end\0A\09.long 372b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 372) #11, !srcloc !23
   br label %118
 
 118:                                              ; preds = %117, %snd_hda_jack_tbl_new.exit7
@@ -1164,7 +1164,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr nou
   %23 = add nuw i32 %14, 1
   %24 = getelementptr i8, ptr %15, i64 56
   %25 = icmp eq i32 %23, %12
-  br i1 %25, label %.loopexit12, label %.preheader11, !llvm.loop !30
+  br i1 %25, label %.loopexit12, label %.preheader11, !llvm.loop !6
 
 .loopexit12:                                      ; preds = %22, %18, %10, %4
   %26 = phi ptr [ null, %4 ], [ null, %10 ], [ %15, %18 ], [ null, %22 ]
@@ -1195,7 +1195,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr nou
   %42 = add nuw i32 %33, 1
   %43 = getelementptr i8, ptr %34, i64 56
   %44 = icmp eq i32 %42, %31
-  br i1 %44, label %.loopexit10, label %.preheader9, !llvm.loop !31
+  br i1 %44, label %.loopexit10, label %.preheader9, !llvm.loop !6
 
 .loopexit10:                                      ; preds = %41, %37, %29, %.loopexit12
   %45 = phi ptr [ null, %.loopexit12 ], [ null, %29 ], [ %34, %37 ], [ null, %41 ]
@@ -1203,12 +1203,12 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr nou
   %47 = load i32, ptr %46, align 8
   %48 = and i32 %47, 16384
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %51, label %50, !prof !26
+  br i1 %49, label %51, label %50, !prof !20
 
 50:                                               ; preds = %.loopexit10
-  tail call void asm sideeffect "374: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 374b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 374) #11, !srcloc !32
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 420, i32 2305, i64 12) #11, !srcloc !33
-  tail call void asm sideeffect "375: nop\0A\09.pushsection .discard.instr_end\0A\09.long 375b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 375) #11, !srcloc !34
+  tail call void asm sideeffect "374: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 374b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 374) #11, !srcloc !24
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 420, i32 2305, i64 12) #11, !srcloc !25
+  tail call void asm sideeffect "375: nop\0A\09.pushsection .discard.instr_end\0A\09.long 375b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 375) #11, !srcloc !26
   br label %51
 
 51:                                               ; preds = %50, %.loopexit10
@@ -1244,7 +1244,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_jack_bind_keymap(ptr nou
   %71 = getelementptr i8, ptr %66, i64 8
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.loopexit, label %.preheader, !llvm.loop !35
+  br i1 %73, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %62, %59, %55, %51
   %74 = phi i32 [ -22, %55 ], [ -22, %51 ], [ 0, %59 ], [ 0, %62 ], [ 0, %.preheader ]
@@ -1286,7 +1286,7 @@ define dso_local void @snd_hda_jack_set_button_state(ptr noundef readonly captur
   %22 = add nuw i32 %13, 1
   %23 = getelementptr i8, ptr %14, i64 56
   %24 = icmp eq i32 %22, %11
-  br i1 %24, label %.thread, label %.preheader10, !llvm.loop !36
+  br i1 %24, label %.thread, label %.preheader10, !llvm.loop !6
 
 25:                                               ; preds = %17
   %26 = icmp eq ptr %14, null
@@ -1315,7 +1315,7 @@ define dso_local void @snd_hda_jack_set_button_state(ptr noundef readonly captur
   %39 = add nuw i32 %30, 1
   %40 = getelementptr i8, ptr %31, i64 56
   %41 = icmp eq i32 %39, %11
-  br i1 %41, label %.thread8, label %.preheader, !llvm.loop !37
+  br i1 %41, label %.thread8, label %.preheader, !llvm.loop !6
 
 42:                                               ; preds = %34
   %43 = icmp eq ptr %31, null
@@ -1364,7 +1364,7 @@ define dso_local void @snd_hda_jack_report_sync(ptr noundef %0) #0 align 16 {
   %17 = add nuw i32 %10, 1
   %18 = getelementptr i8, ptr %11, i64 56
   %19 = icmp ult i32 %17, %16
-  br i1 %19, label %8, label %20, !llvm.loop !38
+  br i1 %19, label %8, label %20, !llvm.loop !28
 
 20:                                               ; preds = %15
   %21 = icmp eq i32 %16, 0
@@ -1428,7 +1428,7 @@ define dso_local void @snd_hda_jack_report_sync(ptr noundef %0) #0 align 16 {
   %58 = getelementptr i8, ptr %26, i64 56
   %59 = load i32, ptr %2, align 8
   %60 = icmp ult i32 %57, %59
-  br i1 %60, label %24, label %.thread, !llvm.loop !39
+  br i1 %60, label %24, label %.thread, !llvm.loop !29
 
 .thread:                                          ; preds = %56, %1, %20
   ret void
@@ -1496,7 +1496,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr no
   %34 = getelementptr i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %.loopexit13, label %.preheader12, !llvm.loop !40
+  br i1 %36, label %.loopexit13, label %.preheader12, !llvm.loop !30
 
 .loopexit13:                                      ; preds = %.preheader12, %27, %24
   %37 = phi i32 [ 0, %24 ], [ 0, %27 ], [ %33, %.preheader12 ]
@@ -1541,7 +1541,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr no
   %64 = getelementptr i8, ptr %59, i64 8
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.loopexit, label %.preheader11, !llvm.loop !41
+  br i1 %66, label %.loopexit, label %.preheader11, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.preheader11, %55, %43
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 1496
@@ -1574,7 +1574,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctl_mst(ptr no
   %85 = add nuw i32 %76, 1
   %86 = getelementptr i8, ptr %77, i64 56
   %87 = icmp eq i32 %85, %74
-  br i1 %87, label %.thread, label %.preheader, !llvm.loop !42
+  br i1 %87, label %.thread, label %.preheader, !llvm.loop !6
 
 88:                                               ; preds = %80
   %89 = icmp eq ptr %77, null
@@ -1643,7 +1643,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   %11 = load i32, ptr %3, align 4
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %10, %12
-  br i1 %13, label %14, label %.loopexit21, !llvm.loop !43
+  br i1 %13, label %14, label %.loopexit21, !llvm.loop !32
 
 14:                                               ; preds = %9, %6
   %15 = phi i64 [ 0, %6 ], [ %10, %9 ]
@@ -1704,7 +1704,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   %52 = getelementptr i8, ptr %46, i64 2
   %53 = load i32, ptr %1, align 4
   %54 = icmp slt i32 %51, %53
-  br i1 %54, label %.preheader, label %.loopexit19, !llvm.loop !44
+  br i1 %54, label %.preheader, label %.loopexit19, !llvm.loop !33
 
 .loopexit19:                                      ; preds = %50, %.loopexit21
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1734,7 +1734,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   %71 = getelementptr i8, ptr %62, i64 2
   %72 = load i32, ptr %55, align 4
   %73 = icmp slt i32 %70, %72
-  br i1 %73, label %60, label %.loopexit16, !llvm.loop !45
+  br i1 %73, label %60, label %.loopexit16, !llvm.loop !34
 
 .loopexit16:                                      ; preds = %69, %60, %.loopexit19
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1764,7 +1764,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   %90 = getelementptr i8, ptr %81, i64 2
   %91 = load i32, ptr %74, align 4
   %92 = icmp slt i32 %89, %91
-  br i1 %92, label %79, label %.loopexit14, !llvm.loop !46
+  br i1 %92, label %79, label %.loopexit14, !llvm.loop !35
 
 .loopexit14:                                      ; preds = %88, %79, %.loopexit16
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -1789,7 +1789,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_jack_add_kctls(ptr nound
   %106 = getelementptr i8, ptr %100, i64 2
   %107 = load i32, ptr %93, align 4
   %108 = icmp slt i32 %105, %107
-  br i1 %108, label %98, label %.loopexit13, !llvm.loop !47
+  br i1 %108, label %98, label %.loopexit13, !llvm.loop !36
 
 .loopexit13:                                      ; preds = %104, %.loopexit14
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -1819,12 +1819,12 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 16384
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %12, label %11, !prof !26
+  br i1 %10, label %12, label %11, !prof !20
 
 11:                                               ; preds = %4
-  tail call void asm sideeffect "380: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 380b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 380) #11, !srcloc !48
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 595, i32 2305, i64 12) #11, !srcloc !49
-  tail call void asm sideeffect "381: nop\0A\09.pushsection .discard.instr_end\0A\09.long 381b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 381) #11, !srcloc !50
+  tail call void asm sideeffect "380: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 380b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 380) #11, !srcloc !37
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 595, i32 2305, i64 12) #11, !srcloc !38
+  tail call void asm sideeffect "381: nop\0A\09.pushsection .discard.instr_end\0A\09.long 381b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 381) #11, !srcloc !39
   br label %12
 
 12:                                               ; preds = %11, %4
@@ -1921,11 +1921,11 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
   %69 = sub i64 43, %68
   %70 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull @.str.3, i64 noundef %69) #11
-  %71 = call i32 @snd_hda_jack_add_kctl_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 0, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 0, ptr noundef null), !range !51
+  %71 = call i32 @snd_hda_jack_add_kctl_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 0, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 0, ptr noundef null), !range !40
   br label %155
 
 72:                                               ; preds = %67
-  %73 = call i32 @snd_hda_jack_add_kctl_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 0, ptr noundef nonnull %6, i1 noundef zeroext false, i32 noundef 0, ptr noundef null), !range !51
+  %73 = call i32 @snd_hda_jack_add_kctl_mst(ptr noundef %0, i16 noundef zeroext %1, i32 noundef 0, ptr noundef nonnull %6, i1 noundef zeroext false, i32 noundef 0, ptr noundef null), !range !40
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %155, label %75
 
@@ -1958,7 +1958,7 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   %91 = add nuw i32 %82, 1
   %92 = getelementptr i8, ptr %83, i64 56
   %93 = icmp eq i32 %91, %80
-  br i1 %93, label %.preheader.preheader.i, label %.preheader9.i, !llvm.loop !20
+  br i1 %93, label %.preheader.preheader.i, label %.preheader9.i, !llvm.loop !6
 
 .preheader.preheader.i:                           ; preds = %86, %90
   %94 = phi ptr [ null, %90 ], [ %83, %86 ]
@@ -1975,7 +1975,7 @@ define internal fastcc i32 @add_jack_kctl(ptr noundef %0, i16 noundef zeroext %1
   %100 = add nuw i32 %95, 1
   %101 = getelementptr i8, ptr %96, i64 56
   %102 = icmp eq i32 %100, %80
-  br i1 %102, label %.thread8.i, label %.preheader.i, !llvm.loop !21
+  br i1 %102, label %.thread8.i, label %.preheader.i, !llvm.loop !15
 
 .thread8.i:                                       ; preds = %99, %.preheader.i
   %103 = phi ptr [ %96, %.preheader.i ], [ null, %99 ]
@@ -2115,7 +2115,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   %31 = add nuw i32 %21, 1
   %32 = getelementptr i8, ptr %22, i64 56
   %33 = icmp eq i32 %31, %19
-  br i1 %33, label %.thread, label %.preheader27, !llvm.loop !52
+  br i1 %33, label %.thread, label %.preheader27, !llvm.loop !9
 
 34:                                               ; preds = %2
   %35 = trunc nuw nsw i32 %3 to i8
@@ -2150,7 +2150,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   %55 = add nuw i32 %45, 1
   %56 = getelementptr i8, ptr %46, i64 56
   %57 = icmp eq i32 %55, %43
-  br i1 %57, label %.thread, label %.preheader25, !llvm.loop !53
+  br i1 %57, label %.thread, label %.preheader25, !llvm.loop !9
 
 .loopexit26:                                      ; preds = %26, %50
   %58 = phi i32 [ %43, %50 ], [ %19, %26 ]
@@ -2183,7 +2183,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   %76 = add nuw i32 %67, 1
   %77 = getelementptr i8, ptr %68, i64 56
   %78 = icmp eq i32 %76, %58
-  br i1 %78, label %.thread18, label %.preheader24, !llvm.loop !54
+  br i1 %78, label %.thread18, label %.preheader24, !llvm.loop !6
 
 79:                                               ; preds = %71
   %80 = icmp eq ptr %68, null
@@ -2215,7 +2215,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
-  br i1 %96, label %.loopexit, label %.preheader23, !llvm.loop !55
+  br i1 %96, label %.loopexit, label %.preheader23, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.preheader23, %.thread18
   %97 = getelementptr inbounds nuw i8, ptr %61, i64 32
@@ -2254,7 +2254,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   %119 = add nuw i32 %110, 1
   %120 = getelementptr i8, ptr %111, i64 56
   %121 = icmp eq i32 %119, %108
-  br i1 %121, label %.thread20, label %.preheader21, !llvm.loop !56
+  br i1 %121, label %.thread20, label %.preheader21, !llvm.loop !6
 
 122:                                              ; preds = %114
   %123 = icmp eq ptr %111, null
@@ -2278,7 +2278,7 @@ define dso_local void @snd_hda_jack_unsol_event(ptr noundef %0, i32 noundef %1) 
   %133 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %.thread20, label %.preheader, !llvm.loop !57
+  br i1 %135, label %.thread20, label %.preheader, !llvm.loop !42
 
 .thread20:                                        ; preds = %118, %.preheader, %106, %100, %124, %122, %.loopexit
   tail call void @snd_hda_jack_report_sync(ptr noundef %0)
@@ -2342,7 +2342,7 @@ define dso_local void @snd_hda_jack_poll_all(ptr noundef %0) #0 align 16 {
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.loopexit, label %.preheader9, !llvm.loop !58
+  br i1 %36, label %.loopexit, label %.preheader9, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.preheader9, %25
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -2379,7 +2379,7 @@ define dso_local void @snd_hda_jack_poll_all(ptr noundef %0) #0 align 16 {
   %57 = add nuw i32 %48, 1
   %58 = getelementptr i8, ptr %49, i64 56
   %59 = icmp eq i32 %57, %46
-  br i1 %59, label %.thread, label %.preheader7, !llvm.loop !59
+  br i1 %59, label %.thread, label %.preheader7, !llvm.loop !6
 
 60:                                               ; preds = %52
   %61 = icmp eq ptr %49, null
@@ -2403,7 +2403,7 @@ define dso_local void @snd_hda_jack_poll_all(ptr noundef %0) #0 align 16 {
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
-  br i1 %73, label %.thread, label %.preheader, !llvm.loop !60
+  br i1 %73, label %.thread, label %.preheader, !llvm.loop !42
 
 .thread:                                          ; preds = %56, %.preheader, %45, %40, %62, %60, %.loopexit, %19, %14, %8
   %74 = phi i32 [ %9, %14 ], [ %9, %8 ], [ %9, %19 ], [ 1, %.loopexit ], [ 1, %60 ], [ 1, %62 ], [ 1, %40 ], [ 1, %45 ], [ 1, %.preheader ], [ 1, %56 ]
@@ -2411,7 +2411,7 @@ define dso_local void @snd_hda_jack_poll_all(ptr noundef %0) #0 align 16 {
   %76 = getelementptr i8, ptr %11, i64 56
   %77 = load i32, ptr %2, align 8
   %78 = icmp ult i32 %75, %77
-  br i1 %78, label %8, label %79, !llvm.loop !61
+  br i1 %78, label %8, label %79, !llvm.loop !43
 
 79:                                               ; preds = %.thread
   %80 = icmp eq i32 %74, 0
@@ -2480,59 +2480,41 @@ attributes #12 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = distinct !{!14, !7, !8, !9}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = distinct !{!18, !7, !8, !9}
-!19 = distinct !{!19, !7, !8, !9}
-!20 = distinct !{!20, !7, !8, !9}
-!21 = distinct !{!21, !7, !8, !9}
-!22 = !{!"branch_weights", i32 1, i32 2000}
-!23 = !{i64 2155683279, i64 2155683088, i64 2155683140, i64 2155683186, i64 2155683214}
-!24 = !{i64 2155683353, i64 2155683382, i64 2155683428, i64 2155683486, i64 2155683540, i64 2155683594, i64 2155683649, i64 2155683680, i64 2155683988, i64 2155683994, i64 2155684041, i64 2155684064, i64 2155684090}
-!25 = !{i64 2155684547, i64 2155684358, i64 2155684408, i64 2155684454, i64 2155684482}
-!26 = !{!"branch_weights", i32 2000, i32 1}
-!27 = !{i64 2155696149, i64 2155695958, i64 2155696010, i64 2155696056, i64 2155696084}
-!28 = !{i64 2155696223, i64 2155696252, i64 2155696298, i64 2155696356, i64 2155696410, i64 2155696464, i64 2155696519, i64 2155696550, i64 2155696858, i64 2155696864, i64 2155696911, i64 2155696934, i64 2155696960}
-!29 = !{i64 2155697417, i64 2155697228, i64 2155697278, i64 2155697324, i64 2155697352}
-!30 = distinct !{!30, !7, !8, !9}
-!31 = distinct !{!31, !7, !8, !9}
-!32 = !{i64 2155700323, i64 2155700132, i64 2155700184, i64 2155700230, i64 2155700258}
-!33 = !{i64 2155700397, i64 2155700426, i64 2155700472, i64 2155700530, i64 2155700584, i64 2155700638, i64 2155700693, i64 2155700724, i64 2155701032, i64 2155701038, i64 2155701085, i64 2155701108, i64 2155701134}
-!34 = !{i64 2155701591, i64 2155701402, i64 2155701452, i64 2155701498, i64 2155701526}
-!35 = distinct !{!35, !7, !8, !9}
-!36 = distinct !{!36, !7, !8, !9}
-!37 = distinct !{!37, !7, !8, !9}
-!38 = distinct !{!38, !7, !8, !9}
-!39 = distinct !{!39, !7, !8, !9}
-!40 = distinct !{!40, !7, !8, !9}
-!41 = distinct !{!41, !7, !8, !9}
-!42 = distinct !{!42, !7, !8, !9}
-!43 = distinct !{!43, !7, !8, !9}
-!44 = distinct !{!44, !7, !8, !9}
-!45 = distinct !{!45, !7, !8, !9}
-!46 = distinct !{!46, !7, !8, !9}
-!47 = distinct !{!47, !7, !8, !9}
-!48 = !{i64 2155714693, i64 2155714502, i64 2155714554, i64 2155714600, i64 2155714628}
-!49 = !{i64 2155714767, i64 2155714796, i64 2155714842, i64 2155714900, i64 2155714954, i64 2155715008, i64 2155715063, i64 2155715094, i64 2155715402, i64 2155715408, i64 2155715455, i64 2155715478, i64 2155715504}
-!50 = !{i64 2155715961, i64 2155715772, i64 2155715822, i64 2155715868, i64 2155715896}
-!51 = !{i32 -2147483648, i32 1}
-!52 = distinct !{!52, !7, !8, !9}
-!53 = distinct !{!53, !7, !8, !9}
-!54 = distinct !{!54, !7, !8, !9}
-!55 = distinct !{!55, !7, !8, !9}
-!56 = distinct !{!56, !7, !8, !9}
-!57 = distinct !{!57, !7, !8, !9}
-!58 = distinct !{!58, !7, !8, !9}
-!59 = distinct !{!59, !7, !8, !9}
-!60 = distinct !{!60, !7, !8, !9}
-!61 = distinct !{!61, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = !{!"branch_weights", i32 1, i32 2000}
+!17 = !{i64 2155683279, i64 2155683088, i64 2155683140, i64 2155683186, i64 2155683214}
+!18 = !{i64 2155683353, i64 2155683382, i64 2155683428, i64 2155683486, i64 2155683540, i64 2155683594, i64 2155683649, i64 2155683680, i64 2155683988, i64 2155683994, i64 2155684041, i64 2155684064, i64 2155684090}
+!19 = !{i64 2155684547, i64 2155684358, i64 2155684408, i64 2155684454, i64 2155684482}
+!20 = !{!"branch_weights", i32 2000, i32 1}
+!21 = !{i64 2155696149, i64 2155695958, i64 2155696010, i64 2155696056, i64 2155696084}
+!22 = !{i64 2155696223, i64 2155696252, i64 2155696298, i64 2155696356, i64 2155696410, i64 2155696464, i64 2155696519, i64 2155696550, i64 2155696858, i64 2155696864, i64 2155696911, i64 2155696934, i64 2155696960}
+!23 = !{i64 2155697417, i64 2155697228, i64 2155697278, i64 2155697324, i64 2155697352}
+!24 = !{i64 2155700323, i64 2155700132, i64 2155700184, i64 2155700230, i64 2155700258}
+!25 = !{i64 2155700397, i64 2155700426, i64 2155700472, i64 2155700530, i64 2155700584, i64 2155700638, i64 2155700693, i64 2155700724, i64 2155701032, i64 2155701038, i64 2155701085, i64 2155701108, i64 2155701134}
+!26 = !{i64 2155701591, i64 2155701402, i64 2155701452, i64 2155701498, i64 2155701526}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = !{i64 2155714693, i64 2155714502, i64 2155714554, i64 2155714600, i64 2155714628}
+!38 = !{i64 2155714767, i64 2155714796, i64 2155714842, i64 2155714900, i64 2155714954, i64 2155715008, i64 2155715063, i64 2155715094, i64 2155715402, i64 2155715408, i64 2155715455, i64 2155715478, i64 2155715504}
+!39 = !{i64 2155715961, i64 2155715772, i64 2155715822, i64 2155715868, i64 2155715896}
+!40 = !{i32 -2147483648, i32 1}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}

@@ -741,7 +741,7 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr noundef captures(non
   %.3142209.us = phi i32 [ %.6.us, %135 ], [ %.3142208.us, %.thread203.us ], [ %132, %.thread284 ], [ %116, %.thread179.us ]
   %139 = add nuw nsw i32 %.0225.us, 1
   %exitcond238 = icmp eq i32 %139, 3
-  br i1 %exitcond238, label %.split232.us, label %.split.us, !llvm.loop !9
+  br i1 %exitcond238, label %.split232.us, label %.split.us, !llvm.loop !8
 
 .split:                                           ; preds = %68, %265
   %.0225 = phi i32 [ %266, %265 ], [ 1, %68 ]
@@ -950,7 +950,7 @@ proto_item_set_generated.exit105.i:               ; preds = %225, %222, %proto_i
   %.2141302 = phi i32 [ %259, %255 ], [ %.0139221, %.thread203 ]
   %266 = add nuw nsw i32 %.0225, 1
   %exitcond = icmp eq i32 %266, 3
-  br i1 %exitcond, label %.split232.us, label %.split, !llvm.loop !11
+  br i1 %exitcond, label %.split232.us, label %.split, !llvm.loop !10
 
 .split229.us:                                     ; preds = %.thread203, %.thread203.us
   %.us-phi = phi i32 [ %.2214.us, %.thread203.us ], [ 64, %.thread203 ]
@@ -1490,9 +1490,8 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}

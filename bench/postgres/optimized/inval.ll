@@ -88,7 +88,7 @@ define dso_local void @InvalidateSystemCachesExtended(i1 noundef zeroext %0) loc
   %20 = load i32, ptr @relcache_callback_count, align 4
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next17, %21
-  br i1 %22, label %.lr.ph14, label %._crit_edge, !llvm.loop !7
+  br i1 %22, label %.lr.ph14, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph14, %.preheader
   ret void
@@ -162,7 +162,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 2
   %.0.in.in.i = load i16, ptr %31, align 2
   %32 = icmp sgt i16 %.0.in.in.i, 0
-  br i1 %32, label %.lr.ph.i, label %CallSyscacheCallbacks.exit, !llvm.loop !8
+  br i1 %32, label %.lr.ph.i, label %CallSyscacheCallbacks.exit, !llvm.loop !7
 
 33:                                               ; preds = %1
   switch i8 %2, label %93 [
@@ -229,7 +229,7 @@ define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly capt
   %63 = load i32, ptr @relcache_callback_count, align 4
   %64 = sext i32 %63 to i64
   %65 = icmp slt i64 %indvars.iv.next, %64
-  br i1 %65, label %.lr.ph, label %CallSyscacheCallbacks.exit, !llvm.loop !9
+  br i1 %65, label %.lr.ph, label %CallSyscacheCallbacks.exit, !llvm.loop !8
 
 66:                                               ; preds = %33
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -337,7 +337,7 @@ define dso_local void @CallSyscacheCallbacks(i32 noundef %0, i32 noundef %1) loc
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %.0.in.in = load i16, ptr %16, align 2
   %17 = icmp sgt i16 %.0.in.in, 0
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -404,7 +404,7 @@ define dso_local void @InvalidateSystemCaches() #0 {
   %19 = load i32, ptr @relcache_callback_count, align 4
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next17.i, %20
-  br i1 %21, label %.lr.ph14.i, label %InvalidateSystemCachesExtended.exit, !llvm.loop !7
+  br i1 %21, label %.lr.ph14.i, label %InvalidateSystemCachesExtended.exit, !llvm.loop !6
 
 InvalidateSystemCachesExtended.exit:              ; preds = %.lr.ph14.i, %.preheader.i
   ret void
@@ -445,7 +445,7 @@ define dso_local void @PostPrepare_Inval() local_unnamed_addr #0 {
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %7, %lftr.wideiv.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -467,7 +467,7 @@ define dso_local void @PostPrepare_Inval() local_unnamed_addr #0 {
   %indvars.iv.next8.i.i = add nsw i64 %indvars.iv7.i.i, 1
   %lftr.wideiv10.i.i = trunc i64 %indvars.iv.next8.i.i to i32
   %exitcond11.not.i.i = icmp eq i32 %15, %lftr.wideiv10.i.i
-  br i1 %exitcond11.not.i.i, label %ProcessInvalidationMessages.exit.i, label %.lr.ph4.i.i, !llvm.loop !11
+  br i1 %exitcond11.not.i.i, label %ProcessInvalidationMessages.exit.i, label %.lr.ph4.i.i, !llvm.loop !10
 
 ProcessInvalidationMessages.exit.i:               ; preds = %.lr.ph4.i.i, %._crit_edge.i.i
   store ptr null, ptr @transInvalInfo, align 8
@@ -489,7 +489,7 @@ define dso_local void @AtEOXact_Inval(i1 noundef zeroext %0) local_unnamed_addr 
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %7 = load i8, ptr %6, align 8, !range !12, !noundef !13
+  %7 = load i8, ptr %6, align 8, !range !11, !noundef !12
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %10
 
@@ -543,7 +543,7 @@ define dso_local void @AtEOXact_Inval(i1 noundef zeroext %0) local_unnamed_addr 
 ProcessInvalidationMessagesMulti.exit:            ; preds = %27, %33
   %37 = load ptr, ptr @transInvalInfo, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load i8, ptr %38, align 8, !range !12, !noundef !13
+  %39 = load i8, ptr %38, align 8, !range !11, !noundef !12
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %ProcessInvalidationMessages.exit
 
@@ -571,7 +571,7 @@ ProcessInvalidationMessagesMulti.exit:            ; preds = %27, %33
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %46, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %42
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -593,7 +593,7 @@ ProcessInvalidationMessagesMulti.exit:            ; preds = %27, %33
   %indvars.iv.next8.i = add nsw i64 %indvars.iv7.i, 1
   %lftr.wideiv10.i = trunc i64 %indvars.iv.next8.i to i32
   %exitcond11.not.i = icmp eq i32 %54, %lftr.wideiv10.i
-  br i1 %exitcond11.not.i, label %ProcessInvalidationMessages.exit, label %.lr.ph4.i, !llvm.loop !11
+  br i1 %exitcond11.not.i, label %ProcessInvalidationMessages.exit, label %.lr.ph4.i, !llvm.loop !10
 
 ProcessInvalidationMessages.exit:                 ; preds = %.lr.ph4.i, %._crit_edge.i, %ProcessInvalidationMessagesMulti.exit, %41
   store ptr null, ptr @transInvalInfo, align 8
@@ -616,7 +616,7 @@ define dso_local i32 @xactGetCommittedInvalidationMessages(ptr noundef writeonly
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %8 = load i8, ptr %7, align 8, !range !12, !noundef !13
+  %8 = load i8, ptr %7, align 8, !range !11, !noundef !12
   store i8 %8, ptr %1, align 1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -748,7 +748,7 @@ define dso_local range(i32 0, -1) i32 @inplaceGetInvalidationMessages(ptr nounde
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %8 = load i8, ptr %7, align 4, !range !12, !noundef !13
+  %8 = load i8, ptr %7, align 4, !range !11, !noundef !12
   store i8 %8, ptr %1, align 1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 4
@@ -885,7 +885,7 @@ define dso_local void @PreInplace_Inval() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load i8, ptr %3, align 4, !range !12, !noundef !13
+  %4 = load i8, ptr %3, align 4, !range !11, !noundef !12
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %7
 
@@ -937,7 +937,7 @@ define dso_local void @AtInplace_Inval() local_unnamed_addr #0 {
 ProcessInvalidationMessagesMulti.exit:            ; preds = %13, %20
   %24 = load ptr, ptr @inplaceInvalInfo, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load i8, ptr %25, align 4, !range !12, !noundef !13
+  %26 = load i8, ptr %25, align 4, !range !11, !noundef !12
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %29
 
@@ -1006,7 +1006,7 @@ define dso_local void @AtEOSubXact_Inval(i1 noundef zeroext %0) local_unnamed_ad
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %17, %lftr.wideiv.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %14
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -1028,7 +1028,7 @@ define dso_local void @AtEOSubXact_Inval(i1 noundef zeroext %0) local_unnamed_ad
   %indvars.iv.next8.i.i = add nsw i64 %indvars.iv7.i.i, 1
   %lftr.wideiv10.i.i = trunc i64 %indvars.iv.next8.i.i to i32
   %exitcond11.not.i.i = icmp eq i32 %25, %lftr.wideiv10.i.i
-  br i1 %exitcond11.not.i.i, label %ProcessInvalidationMessages.exit.i, label %.lr.ph4.i.i, !llvm.loop !11
+  br i1 %exitcond11.not.i.i, label %ProcessInvalidationMessages.exit.i, label %.lr.ph4.i.i, !llvm.loop !10
 
 ProcessInvalidationMessages.exit.i:               ; preds = %.lr.ph4.i.i, %._crit_edge.i.i
   %30 = load i32, ptr @wal_level, align 4
@@ -1104,7 +1104,7 @@ CommandEndInvalidationMessages.exit:              ; preds = %11, %33
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i32 %69, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %74 = load i8, ptr %73, align 8, !range !12, !noundef !13
+  %74 = load i8, ptr %73, align 8, !range !11, !noundef !12
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %79
 
@@ -1140,7 +1140,7 @@ CommandEndInvalidationMessages.exit:              ; preds = %11, %33
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %85, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %81
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1162,7 +1162,7 @@ CommandEndInvalidationMessages.exit:              ; preds = %11, %33
   %indvars.iv.next8.i = add nsw i64 %indvars.iv7.i, 1
   %lftr.wideiv10.i = trunc i64 %indvars.iv.next8.i to i32
   %exitcond11.not.i = icmp eq i32 %93, %lftr.wideiv10.i
-  br i1 %exitcond11.not.i, label %ProcessInvalidationMessages.exit, label %.lr.ph4.i, !llvm.loop !11
+  br i1 %exitcond11.not.i, label %ProcessInvalidationMessages.exit, label %.lr.ph4.i, !llvm.loop !10
 
 ProcessInvalidationMessages.exit:                 ; preds = %.lr.ph4.i, %._crit_edge.i
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1202,7 +1202,7 @@ define dso_local void @CommandEndInvalidationMessages() local_unnamed_addr #0 {
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %6, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1224,7 +1224,7 @@ define dso_local void @CommandEndInvalidationMessages() local_unnamed_addr #0 {
   %indvars.iv.next8.i = add nsw i64 %indvars.iv7.i, 1
   %lftr.wideiv10.i = trunc i64 %indvars.iv.next8.i to i32
   %exitcond11.not.i = icmp eq i32 %14, %lftr.wideiv10.i
-  br i1 %exitcond11.not.i, label %ProcessInvalidationMessages.exit, label %.lr.ph4.i, !llvm.loop !11
+  br i1 %exitcond11.not.i, label %ProcessInvalidationMessages.exit, label %.lr.ph4.i, !llvm.loop !10
 
 ProcessInvalidationMessages.exit:                 ; preds = %.lr.ph4.i, %._crit_edge.i
   %19 = load i32, ptr @wal_level, align 4
@@ -1339,7 +1339,7 @@ define internal fastcc void @CacheInvalidateHeapTupleCommon(ptr noundef %0, ptr 
   br i1 %10, label %.critedge, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call ptr %3() #7, !callees !14
+  %12 = tail call ptr %3() #7, !callees !13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load i32, ptr %13, align 8
   %15 = tail call zeroext i1 @RelationInvalidatesSnapshotsOnly(i32 noundef %14) #7
@@ -1378,7 +1378,7 @@ define internal fastcc void @CacheInvalidateHeapTupleCommon(ptr noundef %0, ptr 
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %23, %lftr.wideiv.i.i
-  br i1 %exitcond.not.i.i, label %.critedge16.i.i, label %26, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %.critedge16.i.i, label %26, !llvm.loop !14
 
 .critedge16.i.i:                                  ; preds = %.critedge.i.i, %16
   %34 = load i32, ptr @InvalMessageArrays.3, align 8
@@ -1443,7 +1443,7 @@ RegisterSnapshotInvalidation.exit:                ; preds = %30, %AddInvalidatio
   %56 = getelementptr inbounds nuw i8, ptr %.val, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 113
-  %59 = load i8, ptr %58, align 1, !range !12, !noundef !13
+  %59 = load i8, ptr %58, align 1, !range !11, !noundef !12
   %60 = trunc nuw i8 %59 to i1
   %61 = load i32, ptr @MyDatabaseId, align 4
   %.1 = select i1 %60, i32 0, i32 %61
@@ -1687,7 +1687,7 @@ define dso_local void @CacheInvalidateRelcache(ptr noundef readonly captures(non
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 113
-  %7 = load i8, ptr %6, align 1, !range !12, !noundef !13
+  %7 = load i8, ptr %6, align 1, !range !11, !noundef !12
   %8 = trunc nuw i8 %7 to i1
   %9 = load i32, ptr @MyDatabaseId, align 4
   %.0 = select i1 %8, i32 0, i32 %9
@@ -1729,7 +1729,7 @@ define internal fastcc void @RegisterRelcacheInvalidation(ptr noundef captures(n
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %7, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %.critedge18.i, label %10, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.critedge18.i, label %10, !llvm.loop !15
 
 .critedge18.i:                                    ; preds = %.critedge.i, %3
   %19 = load i32, ptr @InvalMessageArrays.3, align 8
@@ -1808,7 +1808,7 @@ define dso_local void @CacheInvalidateRelcacheByTuple(ptr noundef readonly captu
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 113
-  %9 = load i8, ptr %8, align 1, !range !12, !noundef !13
+  %9 = load i8, ptr %8, align 1, !range !11, !noundef !12
   %10 = trunc nuw i8 %9 to i1
   %11 = load i32, ptr @MyDatabaseId, align 4
   %.0 = select i1 %10, i32 0, i32 %11
@@ -1840,7 +1840,7 @@ define dso_local void @CacheInvalidateRelcacheByRelid(i32 noundef %0) local_unna
   %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 113
-  %15 = load i8, ptr %14, align 1, !range !12, !noundef !13
+  %15 = load i8, ptr %14, align 1, !range !11, !noundef !12
   %16 = trunc nuw i8 %15 to i1
   %17 = load i32, ptr @MyDatabaseId, align 4
   %.0.i = select i1 %16, i32 0, i32 %17
@@ -1937,7 +1937,7 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   %25 = load i16, ptr %24, align 2
   %26 = icmp sgt i16 %25, 0
   %27 = zext nneg i16 %25 to i64
-  br i1 %26, label %23, label %28, !llvm.loop !17
+  br i1 %26, label %23, label %28, !llvm.loop !16
 
 28:                                               ; preds = %23
   %29 = trunc i32 %8 to i16
@@ -2076,17 +2076,16 @@ attributes #8 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = !{ptr @PrepareInplaceInvalidationState, ptr @PrepareInvalidationState}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = !{ptr @PrepareInplaceInvalidationState, ptr @PrepareInvalidationState}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

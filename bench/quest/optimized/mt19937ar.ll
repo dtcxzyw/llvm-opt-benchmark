@@ -25,10 +25,10 @@ define void @init_genrand(i64 noundef %0) local_unnamed_addr #0 {
   store i64 %10, ptr %9, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 624
-  br i1 %exitcond.not, label %11, label %3, !llvm.loop !8
+  br i1 %exitcond.not, label %11, label %3
 
 11:                                               ; preds = %3
-  store i32 624, ptr @mti, align 4, !tbaa !10
+  store i32 624, ptr @mti, align 4, !tbaa !8
   ret void
 }
 
@@ -49,10 +49,10 @@ define void @init_by_array(ptr noundef readonly captures(none) %0, i32 noundef %
   store i64 %10, ptr %9, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
-  br i1 %exitcond.not.i, label %init_genrand.exit, label %3, !llvm.loop !8
+  br i1 %exitcond.not.i, label %init_genrand.exit, label %3
 
 init_genrand.exit:                                ; preds = %3
-  store i32 624, ptr @mti, align 4, !tbaa !10
+  store i32 624, ptr @mti, align 4, !tbaa !8
   %11 = tail call i32 @llvm.smax.i32(i32 %1, i32 624)
   br label %12
 
@@ -94,7 +94,7 @@ init_genrand.exit:                                ; preds = %3
   %spec.store.select = select i1 %.not32, i32 %31, i32 0
   %36 = add nsw i32 %.035, -1
   %.not = icmp eq i32 %36, 0
-  br i1 %.not, label %.preheader, label %12, !llvm.loop !12
+  br i1 %.not, label %.preheader, label %12
 
 .preheader:                                       ; preds = %35, %54
   %.137 = phi i32 [ %55, %54 ], [ 623, %35 ]
@@ -126,7 +126,7 @@ init_genrand.exit:                                ; preds = %3
   %.3 = phi i32 [ 1, %52 ], [ %50, %.preheader ]
   %55 = add nsw i32 %.137, -1
   %.not31 = icmp eq i32 %55, 0
-  br i1 %.not31, label %56, label %.preheader, !llvm.loop !13
+  br i1 %.not31, label %56, label %.preheader
 
 56:                                               ; preds = %54
   store i64 2147483648, ptr @mt, align 16, !tbaa !4
@@ -135,7 +135,7 @@ init_genrand.exit:                                ; preds = %3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define i64 @genrand_int32() local_unnamed_addr #2 {
-  %1 = load i32, ptr @mti, align 4, !tbaa !10
+  %1 = load i32, ptr @mti, align 4, !tbaa !8
   %2 = icmp sgt i32 %1, 623
   br i1 %2, label %4, label %._crit_edge36
 
@@ -174,7 +174,7 @@ init_genrand.exit.preheader:                      ; preds = %7, %._crit_edge39
   store i64 %14, ptr %13, align 8, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 624
-  br i1 %exitcond.not.i, label %init_genrand.exit.preheader, label %7, !llvm.loop !8
+  br i1 %exitcond.not.i, label %init_genrand.exit.preheader, label %7
 
 .lr.ph.preheader:                                 ; preds = %init_genrand.exit
   %.pre35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mt, i64 1816), align 8, !tbaa !4
@@ -201,7 +201,7 @@ init_genrand.exit:                                ; preds = %init_genrand.exit.p
   %30 = xor i64 %29, %25
   store i64 %30, ptr %16, align 8, !tbaa !4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 227
-  br i1 %exitcond.not, label %.lr.ph.preheader, label %init_genrand.exit, !llvm.loop !14
+  br i1 %exitcond.not, label %.lr.ph.preheader, label %init_genrand.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %31 = phi i64 [ %.pre35, %.lr.ph.preheader ], [ %35, %.lr.ph ]
@@ -224,7 +224,7 @@ init_genrand.exit:                                ; preds = %init_genrand.exit.p
   %46 = xor i64 %45, %41
   store i64 %46, ptr %32, align 8, !tbaa !4
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, 623
-  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond34.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mt, i64 4984), align 8, !tbaa !4
@@ -245,7 +245,7 @@ init_genrand.exit:                                ; preds = %init_genrand.exit.p
 59:                                               ; preds = %._crit_edge36, %._crit_edge
   %60 = phi i64 [ %49, %._crit_edge ], [ %.pre38, %._crit_edge36 ]
   %61 = phi i32 [ 1, %._crit_edge ], [ %3, %._crit_edge36 ]
-  store i32 %61, ptr @mti, align 4, !tbaa !10
+  store i32 %61, ptr @mti, align 4, !tbaa !8
   %62 = lshr i64 %60, 11
   %63 = xor i64 %62, %60
   %64 = shl i64 %63, 7
@@ -327,11 +327,5 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{!"long", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !6, i64 0}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}

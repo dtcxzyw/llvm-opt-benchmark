@@ -282,9 +282,9 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %102 = alloca %struct.GetBitContext, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %102) #7
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %104 = load ptr, ptr %103, align 8, !tbaa !20
+  %104 = load ptr, ptr %103, align 8, !tbaa !19
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %106 = load i64, ptr %105, align 8, !tbaa !22
+  %106 = load i64, ptr %105, align 8, !tbaa !21
   %.tr = trunc i64 %106 to i32
   %107 = shl i32 %.tr, 3
   %or.cond.i = icmp ult i32 %107, 2147483135
@@ -293,18 +293,18 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %.018.i = select i1 %or.cond3.i, i32 %107, i32 0
   %.017.i = select i1 %or.cond.i, ptr %104, ptr null
   %109 = lshr exact i32 %.018.i, 3
-  store ptr %.017.i, ptr %102, align 8, !tbaa !23
+  store ptr %.017.i, ptr %102, align 8, !tbaa !22
   %110 = getelementptr inbounds nuw i8, ptr %102, i64 20
-  store i32 %.018.i, ptr %110, align 4, !tbaa !25
+  store i32 %.018.i, ptr %110, align 4, !tbaa !24
   %111 = add nuw nsw i32 %.018.i, 8
   %112 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  store i32 %111, ptr %112, align 8, !tbaa !26
+  store i32 %111, ptr %112, align 8, !tbaa !25
   %113 = zext nneg i32 %109 to i64
   %114 = getelementptr inbounds nuw i8, ptr %.017.i, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store ptr %114, ptr %115, align 8, !tbaa !27
+  store ptr %114, ptr %115, align 8, !tbaa !26
   %116 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  store i32 0, ptr %116, align 8, !tbaa !28
+  store i32 0, ptr %116, align 8, !tbaa !27
   br i1 %or.cond3.i, label %117, label %.thread
 
 117:                                              ; preds = %2
@@ -313,16 +313,16 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   br i1 %119, label %.thread, label %120
 
 120:                                              ; preds = %117
-  %121 = load i32, ptr %1, align 8, !tbaa !29
+  %121 = load i32, ptr %1, align 8, !tbaa !28
   %122 = add i32 %121, -1
   %or.cond = icmp ult i32 %122, 175
   br i1 %or.cond, label %123, label %226
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %125 = load ptr, ptr %124, align 8, !tbaa !30
+  %125 = load ptr, ptr %124, align 8, !tbaa !29
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %127 = load ptr, ptr %126, align 8, !tbaa !31
+  %127 = load ptr, ptr %126, align 8, !tbaa !30
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %94) #7
   %128 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.2, ptr noundef nonnull %94) #7
@@ -332,10 +332,10 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
 130:                                              ; preds = %123
   %131 = load i32, ptr %94, align 4, !tbaa !4
   %132 = trunc i32 %131 to i8
-  store i8 %132, ptr %125, align 8, !tbaa !35
+  store i8 %132, ptr %125, align 8, !tbaa !34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %94) #7
   %133 = getelementptr inbounds nuw i8, ptr %127, i64 2
-  %134 = load i16, ptr %133, align 2, !tbaa !38
+  %134 = load i16, ptr %133, align 2, !tbaa !37
   %135 = icmp ugt i16 %134, 2800
   br i1 %135, label %136, label %143
 
@@ -349,7 +349,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %139 = load i32, ptr %95, align 4, !tbaa !4
   %140 = trunc i32 %139 to i8
   %141 = getelementptr inbounds nuw i8, ptr %125, i64 1
-  store i8 %140, ptr %141, align 1, !tbaa !41
+  store i8 %140, ptr %141, align 1, !tbaa !40
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %95) #7
   br label %143
 
@@ -359,13 +359,13 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
 
 143:                                              ; preds = %.thread.i, %130
   %144 = getelementptr inbounds nuw i8, ptr %127, i64 4
-  %145 = load i8, ptr %144, align 2, !tbaa !42
+  %145 = load i8, ptr %144, align 2, !tbaa !41
   %.not.i = icmp eq i8 %145, 0
   br i1 %.not.i, label %157, label %146
 
 146:                                              ; preds = %143
   %147 = getelementptr inbounds nuw i8, ptr %127, i64 5
-  %148 = load i8, ptr %147, align 1, !tbaa !43
+  %148 = load i8, ptr %147, align 1, !tbaa !42
   %149 = icmp eq i8 %148, 0
   br i1 %149, label %150, label %157
 
@@ -379,7 +379,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %153 = load i32, ptr %96, align 4, !tbaa !4
   %154 = trunc i32 %153 to i8
   %155 = getelementptr inbounds nuw i8, ptr %125, i64 2
-  store i8 %154, ptr %155, align 2, !tbaa !44
+  store i8 %154, ptr %155, align 2, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %96) #7
   br label %157
 
@@ -401,26 +401,26 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %162 = load i32, ptr %97, align 4, !tbaa !4
   %163 = trunc i32 %162 to i8
   %164 = getelementptr inbounds nuw i8, ptr %125, i64 3
-  store i8 %163, ptr %164, align 1, !tbaa !45
+  store i8 %163, ptr %164, align 1, !tbaa !44
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %97) #7
-  %.val.i = load i32, ptr %116, align 8, !tbaa !28
-  %.val85.i = load i32, ptr %110, align 4, !tbaa !25
+  %.val.i = load i32, ptr %116, align 8, !tbaa !27
+  %.val85.i = load i32, ptr %110, align 4, !tbaa !24
   %165 = icmp sgt i32 %.val85.i, %.val.i
   br i1 %165, label %166, label %cbs_mpeg2_read_slice_header.exit
 
 166:                                              ; preds = %161
-  %.val86.i = load ptr, ptr %102, align 8, !tbaa !23
+  %.val86.i = load ptr, ptr %102, align 8, !tbaa !22
   %167 = lshr i32 %.val.i, 3
   %168 = zext nneg i32 %167 to i64
   %169 = getelementptr inbounds nuw i8, ptr %.val86.i, i64 %168
-  %170 = load i32, ptr %169, align 1, !tbaa !46
+  %170 = load i32, ptr %169, align 1, !tbaa !45
   %171 = call i32 @llvm.bswap.i32(i32 %170)
   %172 = and i32 %.val.i, 7
   %173 = shl i32 %171, %172
   %174 = lshr i32 %173, 31
   %175 = trunc nuw nsw i32 %174 to i8
   %176 = getelementptr inbounds nuw i8, ptr %125, i64 4
-  store i8 %175, ptr %176, align 4, !tbaa !47
+  store i8 %175, ptr %176, align 4, !tbaa !46
   %.not84.i = icmp sgt i32 %173, -1
   br i1 %.not84.i, label %cbs_mpeg2_read_slice_header.exit, label %177
 
@@ -437,7 +437,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
 181:                                              ; preds = %177
   %182 = load i32, ptr %98, align 4, !tbaa !4
   %183 = trunc i32 %182 to i8
-  store i8 %183, ptr %176, align 4, !tbaa !47
+  store i8 %183, ptr %176, align 4, !tbaa !46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %98) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %99) #7
   %184 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef nonnull %99) #7
@@ -452,7 +452,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %188 = load i32, ptr %99, align 4, !tbaa !4
   %189 = trunc i32 %188 to i8
   %190 = getelementptr inbounds nuw i8, ptr %125, i64 5
-  store i8 %189, ptr %190, align 1, !tbaa !48
+  store i8 %189, ptr %190, align 1, !tbaa !47
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %99) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %100) #7
   %191 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef nonnull %100) #7
@@ -467,7 +467,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %195 = load i32, ptr %100, align 4, !tbaa !4
   %196 = trunc i32 %195 to i8
   %197 = getelementptr inbounds nuw i8, ptr %125, i64 6
-  store i8 %196, ptr %197, align 2, !tbaa !49
+  store i8 %196, ptr %197, align 2, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %100) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %101) #7
   %198 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 6, ptr noundef nonnull @.str.9, ptr noundef nonnull %101) #7
@@ -478,7 +478,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_unit(ptr noundef %
   %200 = load i32, ptr %101, align 4, !tbaa !4
   %201 = trunc i32 %200 to i8
   %202 = getelementptr inbounds nuw i8, ptr %125, i64 7
-  store i8 %201, ptr %202, align 1, !tbaa !50
+  store i8 %201, ptr %202, align 1, !tbaa !49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %101) #7
   br label %cbs_mpeg2_read_slice_header.exit
 
@@ -497,36 +497,36 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   br i1 %206, label %.thread, label %207
 
 207:                                              ; preds = %cbs_mpeg2_read_slice_header.exit
-  %.val84 = load i32, ptr %116, align 8, !tbaa !28
-  %.val85 = load i32, ptr %110, align 4, !tbaa !25
+  %.val84 = load i32, ptr %116, align 8, !tbaa !27
+  %.val85 = load i32, ptr %110, align 4, !tbaa !24
   %.not82 = icmp eq i32 %.val85, %.val84
   br i1 %.not82, label %.thread, label %208
 
 208:                                              ; preds = %207
-  %209 = load i64, ptr %105, align 8, !tbaa !22
+  %209 = load i64, ptr %105, align 8, !tbaa !21
   %210 = trunc i64 %209 to i32
   %211 = sdiv i32 %.val84, 8
   %212 = srem i32 %.val84, 8
   %213 = sub nsw i32 %210, %211
   %214 = sext i32 %213 to i64
   %215 = getelementptr inbounds nuw i8, ptr %125, i64 48
-  store i64 %214, ptr %215, align 8, !tbaa !51
+  store i64 %214, ptr %215, align 8, !tbaa !50
   %216 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %217 = load ptr, ptr %216, align 8, !tbaa !53
+  %217 = load ptr, ptr %216, align 8, !tbaa !52
   %218 = call ptr @av_buffer_ref(ptr noundef %217) #7
   %219 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  store ptr %218, ptr %219, align 8, !tbaa !54
+  store ptr %218, ptr %219, align 8, !tbaa !53
   %.not83 = icmp eq ptr %218, null
   br i1 %.not83, label %.thread, label %220
 
 220:                                              ; preds = %208
-  %221 = load ptr, ptr %103, align 8, !tbaa !20
+  %221 = load ptr, ptr %103, align 8, !tbaa !19
   %222 = sext i32 %211 to i64
   %223 = getelementptr inbounds i8, ptr %221, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %125, i64 32
-  store ptr %223, ptr %224, align 8, !tbaa !55
+  store ptr %223, ptr %224, align 8, !tbaa !54
   %225 = getelementptr inbounds nuw i8, ptr %125, i64 56
-  store i32 %212, ptr %225, align 8, !tbaa !56
+  store i32 %212, ptr %225, align 8, !tbaa !55
   br label %cbs_mpeg2_read_extension_data.exit.thread103
 
 226:                                              ; preds = %120
@@ -541,7 +541,7 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
 
 227:                                              ; preds = %226
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %229 = load ptr, ptr %228, align 8, !tbaa !30
+  %229 = load ptr, ptr %228, align 8, !tbaa !29
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.12) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %86) #7
   %230 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.13, ptr noundef nonnull %86) #7
@@ -551,7 +551,7 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
 232:                                              ; preds = %227
   %233 = load i32, ptr %86, align 4, !tbaa !4
   %234 = trunc i32 %233 to i8
-  store i8 %234, ptr %229, align 8, !tbaa !57
+  store i8 %234, ptr %229, align 8, !tbaa !56
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %86) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %87) #7
   %235 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 10, ptr noundef nonnull @.str.14, ptr noundef nonnull %87) #7
@@ -566,7 +566,7 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %239 = load i32, ptr %87, align 4, !tbaa !4
   %240 = trunc i32 %239 to i16
   %241 = getelementptr inbounds nuw i8, ptr %229, i64 2
-  store i16 %240, ptr %241, align 2, !tbaa !59
+  store i16 %240, ptr %241, align 2, !tbaa !58
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %87) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %88) #7
   %242 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 3, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef nonnull %88, i32 noundef 1, i32 noundef 7) #7
@@ -581,7 +581,7 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %246 = load i32, ptr %88, align 4, !tbaa !4
   %247 = trunc i32 %246 to i8
   %248 = getelementptr inbounds nuw i8, ptr %229, i64 4
-  store i8 %247, ptr %248, align 4, !tbaa !60
+  store i8 %247, ptr %248, align 4, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %88) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %89) #7
   %249 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 16, ptr noundef nonnull @.str.16, ptr noundef nonnull %89) #7
@@ -596,9 +596,9 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %253 = load i32, ptr %89, align 4, !tbaa !4
   %254 = trunc i32 %253 to i16
   %255 = getelementptr inbounds nuw i8, ptr %229, i64 6
-  store i16 %254, ptr %255, align 2, !tbaa !61
+  store i16 %254, ptr %255, align 2, !tbaa !60
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %89) #7
-  %256 = load i8, ptr %248, align 4, !tbaa !60
+  %256 = load i8, ptr %248, align 4, !tbaa !59
   %257 = and i8 %256, -2
   %switch.i = icmp eq i8 %257, 2
   br i1 %switch.i, label %258, label %cbs_mpeg2_read_picture_header.exit
@@ -617,7 +617,7 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %263 = load i32, ptr %90, align 4, !tbaa !4
   %264 = trunc i32 %263 to i8
   %265 = getelementptr inbounds nuw i8, ptr %229, i64 8
-  store i8 %264, ptr %265, align 8, !tbaa !62
+  store i8 %264, ptr %265, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %90) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %91) #7
   %266 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 3, ptr noundef nonnull @.str.18, ptr noundef nonnull %91) #7
@@ -632,9 +632,9 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %270 = load i32, ptr %91, align 4, !tbaa !4
   %271 = trunc i32 %270 to i8
   %272 = getelementptr inbounds nuw i8, ptr %229, i64 9
-  store i8 %271, ptr %272, align 1, !tbaa !63
+  store i8 %271, ptr %272, align 1, !tbaa !62
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %91) #7
-  %.pr.i = load i8, ptr %248, align 4, !tbaa !60
+  %.pr.i = load i8, ptr %248, align 4, !tbaa !59
   %273 = icmp eq i8 %.pr.i, 3
   br i1 %273, label %274, label %cbs_mpeg2_read_picture_header.exit
 
@@ -652,7 +652,7 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %279 = load i32, ptr %92, align 4, !tbaa !4
   %280 = trunc i32 %279 to i8
   %281 = getelementptr inbounds nuw i8, ptr %229, i64 10
-  store i8 %280, ptr %281, align 2, !tbaa !64
+  store i8 %280, ptr %281, align 2, !tbaa !63
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %92) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %93) #7
   %282 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 3, ptr noundef nonnull @.str.20, ptr noundef nonnull %93) #7
@@ -663,7 +663,7 @@ cbs_mpeg2_read_slice_header.exit:                 ; preds = %161, %166, %.thread
   %284 = load i32, ptr %93, align 4, !tbaa !4
   %285 = trunc i32 %284 to i8
   %286 = getelementptr inbounds nuw i8, ptr %229, i64 11
-  store i8 %285, ptr %286, align 1, !tbaa !65
+  store i8 %285, ptr %286, align 1, !tbaa !64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %93) #7
   br label %cbs_mpeg2_read_picture_header.exit
 
@@ -683,7 +683,7 @@ cbs_mpeg2_read_picture_header.exit:               ; preds = %252, %269, %.thread
 
 291:                                              ; preds = %226
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %293 = load ptr, ptr %292, align 8, !tbaa !30
+  %293 = load ptr, ptr %292, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.23) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %83) #7
@@ -694,10 +694,10 @@ cbs_mpeg2_read_picture_header.exit:               ; preds = %252, %269, %.thread
 296:                                              ; preds = %291
   %297 = load i32, ptr %83, align 4, !tbaa !4
   %298 = trunc i32 %297 to i8
-  store i8 %298, ptr %293, align 8, !tbaa !66
+  store i8 %298, ptr %293, align 8, !tbaa !65
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %83) #7
-  %.val.i88 = load i32, ptr %116, align 8, !tbaa !28
-  %.val36.i = load i32, ptr %110, align 4, !tbaa !25
+  %.val.i88 = load i32, ptr %116, align 8, !tbaa !27
+  %.val36.i = load i32, ptr %110, align 4, !tbaa !24
   %299 = sub nsw i32 %.val36.i, %.val.i88
   %300 = and i32 %299, 7
   %301 = icmp eq i32 %300, 0
@@ -712,7 +712,7 @@ cbs_mpeg2_read_picture_header.exit:               ; preds = %252, %269, %.thread
   %304 = sext i32 %299 to i64
   %305 = lshr exact i64 %304, 3
   %306 = getelementptr inbounds nuw i8, ptr %293, i64 24
-  store i64 %305, ptr %306, align 8, !tbaa !68
+  store i64 %305, ptr %306, align 8, !tbaa !67
   %.not.i89 = icmp eq i32 %.val36.i, %.val.i88
   br i1 %.not.i89, label %315, label %307
 
@@ -720,16 +720,16 @@ cbs_mpeg2_read_picture_header.exit:               ; preds = %252, %269, %.thread
   %308 = add nuw nsw i64 %305, 64
   %309 = call ptr @av_buffer_allocz(i64 noundef %308) #7
   %310 = getelementptr inbounds nuw i8, ptr %293, i64 16
-  store ptr %309, ptr %310, align 8, !tbaa !69
+  store ptr %309, ptr %310, align 8, !tbaa !68
   %.not35.i = icmp eq ptr %309, null
   br i1 %.not35.i, label %cbs_mpeg2_read_user_data.exit.thread, label %311
 
 311:                                              ; preds = %307
   %312 = getelementptr inbounds nuw i8, ptr %309, i64 8
-  %313 = load ptr, ptr %312, align 8, !tbaa !70
+  %313 = load ptr, ptr %312, align 8, !tbaa !69
   %314 = getelementptr inbounds nuw i8, ptr %293, i64 8
-  store ptr %313, ptr %314, align 8, !tbaa !73
-  %.pre.i = load i64, ptr %306, align 8, !tbaa !68
+  store ptr %313, ptr %314, align 8, !tbaa !72
+  %.pre.i = load i64, ptr %306, align 8, !tbaa !67
   br label %315
 
 315:                                              ; preds = %311, %303
@@ -759,14 +759,14 @@ cbs_mpeg2_read_picture_header.exit:               ; preds = %252, %269, %.thread
 324:                                              ; preds = %319
   %325 = load i32, ptr %84, align 4, !tbaa !4
   %326 = trunc i32 %325 to i8
-  %327 = load ptr, ptr %318, align 8, !tbaa !73
+  %327 = load ptr, ptr %318, align 8, !tbaa !72
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 %.02939.i
-  store i8 %326, ptr %328, align 1, !tbaa !46
+  store i8 %326, ptr %328, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %84) #7
   %329 = add nuw i64 %.02939.i, 1
-  %330 = load i64, ptr %306, align 8, !tbaa !68
+  %330 = load i64, ptr %306, align 8, !tbaa !67
   %331 = icmp ult i64 %329, %330
-  br i1 %331, label %319, label %cbs_mpeg2_read_user_data.exit, !llvm.loop !74
+  br i1 %331, label %319, label %cbs_mpeg2_read_user_data.exit, !llvm.loop !73
 
 .critedge.i87:                                    ; preds = %291
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %83) #7
@@ -783,11 +783,11 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
 
 332:                                              ; preds = %226
   %333 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %334 = load ptr, ptr %333, align 8, !tbaa !30
+  %334 = load ptr, ptr %333, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %82)
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %336 = load ptr, ptr %335, align 8, !tbaa !31
+  %336 = load ptr, ptr %335, align 8, !tbaa !30
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.29) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %68) #7
   %337 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.30, ptr noundef nonnull %68) #7
@@ -797,7 +797,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
 339:                                              ; preds = %332
   %340 = load i32, ptr %68, align 4, !tbaa !4
   %341 = trunc i32 %340 to i8
-  store i8 %341, ptr %334, align 4, !tbaa !75
+  store i8 %341, ptr %334, align 4, !tbaa !74
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %69) #7
   %342 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 12, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef nonnull %69, i32 noundef 1, i32 noundef 4095) #7
@@ -812,7 +812,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %346 = load i32, ptr %69, align 4, !tbaa !4
   %347 = trunc i32 %346 to i16
   %348 = getelementptr inbounds nuw i8, ptr %334, i64 2
-  store i16 %347, ptr %348, align 2, !tbaa !77
+  store i16 %347, ptr %348, align 2, !tbaa !76
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %69) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %70) #7
   %349 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 12, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef nonnull %70, i32 noundef 1, i32 noundef 4095) #7
@@ -827,12 +827,12 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %353 = load i32, ptr %70, align 4, !tbaa !4
   %354 = trunc i32 %353 to i16
   %355 = getelementptr inbounds nuw i8, ptr %334, i64 4
-  store i16 %354, ptr %355, align 4, !tbaa !78
+  store i16 %354, ptr %355, align 4, !tbaa !77
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %70) #7
-  %356 = load i16, ptr %348, align 2, !tbaa !77
-  store i16 %356, ptr %336, align 2, !tbaa !79
+  %356 = load i16, ptr %348, align 2, !tbaa !76
+  store i16 %356, ptr %336, align 2, !tbaa !78
   %357 = getelementptr inbounds nuw i8, ptr %336, i64 2
-  store i16 %354, ptr %357, align 2, !tbaa !38
+  store i16 %354, ptr %357, align 2, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %71) #7
   %358 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef nonnull %71, i32 noundef 1, i32 noundef 15) #7
   %359 = icmp sgt i32 %358, -1
@@ -846,7 +846,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %362 = load i32, ptr %71, align 4, !tbaa !4
   %363 = trunc i32 %362 to i8
   %364 = getelementptr inbounds nuw i8, ptr %334, i64 6
-  store i8 %363, ptr %364, align 2, !tbaa !80
+  store i8 %363, ptr %364, align 2, !tbaa !79
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %71) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %72) #7
   %365 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.34, ptr noundef null, ptr noundef nonnull %72, i32 noundef 1, i32 noundef 15) #7
@@ -861,7 +861,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %369 = load i32, ptr %72, align 4, !tbaa !4
   %370 = trunc i32 %369 to i8
   %371 = getelementptr inbounds nuw i8, ptr %334, i64 7
-  store i8 %370, ptr %371, align 1, !tbaa !81
+  store i8 %370, ptr %371, align 1, !tbaa !80
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %72) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %73) #7
   %372 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 18, ptr noundef nonnull @.str.35, ptr noundef nonnull %73) #7
@@ -875,7 +875,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
 375:                                              ; preds = %368
   %376 = load i32, ptr %73, align 4, !tbaa !4
   %377 = getelementptr inbounds nuw i8, ptr %334, i64 8
-  store i32 %376, ptr %377, align 4, !tbaa !82
+  store i32 %376, ptr %377, align 4, !tbaa !81
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %73) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %74) #7
   %378 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %74, i32 noundef 1, i32 noundef 1) #7
@@ -897,7 +897,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %385 = load i32, ptr %75, align 4, !tbaa !4
   %386 = trunc i32 %385 to i16
   %387 = getelementptr inbounds nuw i8, ptr %334, i64 12
-  store i16 %386, ptr %387, align 4, !tbaa !83
+  store i16 %386, ptr %387, align 4, !tbaa !82
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %75) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %76) #7
   %388 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.38, ptr noundef nonnull %76) #7
@@ -912,7 +912,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %392 = load i32, ptr %76, align 4, !tbaa !4
   %393 = trunc i32 %392 to i8
   %394 = getelementptr inbounds nuw i8, ptr %334, i64 14
-  store i8 %393, ptr %394, align 2, !tbaa !84
+  store i8 %393, ptr %394, align 2, !tbaa !83
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %76) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %77) #7
   %395 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.39, ptr noundef nonnull %77) #7
@@ -927,7 +927,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %399 = load i32, ptr %77, align 4, !tbaa !4
   %400 = trunc i32 %399 to i8
   %401 = getelementptr inbounds nuw i8, ptr %334, i64 15
-  store i8 %400, ptr %401, align 1, !tbaa !85
+  store i8 %400, ptr %401, align 1, !tbaa !84
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %77) #7
   %.not.i91 = icmp eq i8 %400, 0
   br i1 %.not.i91, label %.loopexit168.i, label %.preheader167.i
@@ -955,11 +955,11 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %410 = load i32, ptr %78, align 4, !tbaa !4
   %411 = trunc i32 %410 to i8
   %412 = getelementptr inbounds nuw [64 x i8], ptr %403, i64 0, i64 %indvars.iv.i
-  store i8 %411, ptr %412, align 1, !tbaa !46
+  store i8 %411, ptr %412, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %78) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %.loopexit168.i, label %404, !llvm.loop !86
+  br i1 %exitcond.not.i, label %.loopexit168.i, label %404, !llvm.loop !85
 
 .loopexit168.i:                                   ; preds = %409, %398
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %80) #7
@@ -975,7 +975,7 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %417 = load i32, ptr %80, align 4, !tbaa !4
   %418 = trunc i32 %417 to i8
   %419 = getelementptr inbounds nuw i8, ptr %334, i64 80
-  store i8 %418, ptr %419, align 4, !tbaa !87
+  store i8 %418, ptr %419, align 4, !tbaa !86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %80) #7
   %.not134.i = icmp eq i8 %418, 0
   br i1 %.not134.i, label %cbs_mpeg2_read_sequence_header.exit, label %.preheader.i
@@ -1003,11 +1003,11 @@ cbs_mpeg2_read_user_data.exit:                    ; preds = %324, %315
   %428 = load i32, ptr %81, align 4, !tbaa !4
   %429 = trunc i32 %428 to i8
   %430 = getelementptr inbounds nuw [64 x i8], ptr %421, i64 0, i64 %indvars.iv176.i
-  store i8 %429, ptr %430, align 1, !tbaa !46
+  store i8 %429, ptr %430, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %81) #7
   %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
   %exitcond179.not.i = icmp eq i64 %indvars.iv.next177.i, 64
-  br i1 %exitcond179.not.i, label %cbs_mpeg2_read_sequence_header.exit, label %422, !llvm.loop !88
+  br i1 %exitcond179.not.i, label %cbs_mpeg2_read_sequence_header.exit, label %422, !llvm.loop !87
 
 .critedge.i90:                                    ; preds = %332
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68) #7
@@ -1026,7 +1026,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 
 431:                                              ; preds = %226
   %432 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %433 = load ptr, ptr %432, align 8, !tbaa !30
+  %433 = load ptr, ptr %432, align 8, !tbaa !29
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.43) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %66) #7
   %434 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.44, ptr noundef nonnull %66) #7
@@ -1036,7 +1036,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 436:                                              ; preds = %431
   %437 = load i32, ptr %66, align 4, !tbaa !4
   %438 = trunc i32 %437 to i8
-  store i8 %438, ptr %433, align 2, !tbaa !89
+  store i8 %438, ptr %433, align 2, !tbaa !88
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %66) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %67) #7
   %439 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.45, ptr noundef nonnull %67) #7
@@ -1051,7 +1051,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %443 = load i32, ptr %67, align 4, !tbaa !4
   %444 = trunc i32 %443 to i8
   %445 = getelementptr inbounds nuw i8, ptr %433, i64 1
-  store i8 %444, ptr %445, align 1, !tbaa !91
+  store i8 %444, ptr %445, align 1, !tbaa !90
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %67) #7
   switch i8 %444, label %880 [
     i8 1, label %446
@@ -1063,7 +1063,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
 
 446:                                              ; preds = %442
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %448 = load ptr, ptr %447, align 8, !tbaa !31
+  %448 = load ptr, ptr %447, align 8, !tbaa !30
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.47) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %55) #7
   %449 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.48, ptr noundef nonnull %55) #7
@@ -1074,7 +1074,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %452 = getelementptr inbounds nuw i8, ptr %433, i64 2
   %453 = load i32, ptr %55, align 4, !tbaa !4
   %454 = trunc i32 %453 to i8
-  store i8 %454, ptr %452, align 2, !tbaa !92
+  store i8 %454, ptr %452, align 2, !tbaa !91
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %55) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %56) #7
   %455 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.49, ptr noundef nonnull %56) #7
@@ -1089,7 +1089,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %459 = load i32, ptr %56, align 4, !tbaa !4
   %460 = trunc i32 %459 to i8
   %461 = getelementptr inbounds nuw i8, ptr %433, i64 3
-  store i8 %460, ptr %461, align 1, !tbaa !94
+  store i8 %460, ptr %461, align 1, !tbaa !93
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %57) #7
   %462 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 2, ptr noundef nonnull @.str.50, ptr noundef nonnull %57) #7
@@ -1104,7 +1104,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %466 = load i32, ptr %57, align 4, !tbaa !4
   %467 = trunc i32 %466 to i8
   %468 = getelementptr inbounds nuw i8, ptr %433, i64 4
-  store i8 %467, ptr %468, align 2, !tbaa !95
+  store i8 %467, ptr %468, align 2, !tbaa !94
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58) #7
   %469 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 2, ptr noundef nonnull @.str.51, ptr noundef nonnull %58) #7
@@ -1119,7 +1119,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %473 = load i32, ptr %58, align 4, !tbaa !4
   %474 = trunc i32 %473 to i8
   %475 = getelementptr inbounds nuw i8, ptr %433, i64 5
-  store i8 %474, ptr %475, align 1, !tbaa !96
+  store i8 %474, ptr %475, align 1, !tbaa !95
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %58) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59) #7
   %476 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 2, ptr noundef nonnull @.str.52, ptr noundef nonnull %59) #7
@@ -1134,25 +1134,25 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %480 = load i32, ptr %59, align 4, !tbaa !4
   %481 = trunc i32 %480 to i8
   %482 = getelementptr inbounds nuw i8, ptr %433, i64 6
-  store i8 %481, ptr %482, align 2, !tbaa !97
+  store i8 %481, ptr %482, align 2, !tbaa !96
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %59) #7
-  %483 = load i16, ptr %448, align 2, !tbaa !79
+  %483 = load i16, ptr %448, align 2, !tbaa !78
   %484 = and i16 %483, 4095
-  %485 = load i8, ptr %475, align 1, !tbaa !96
+  %485 = load i8, ptr %475, align 1, !tbaa !95
   %486 = zext i8 %485 to i16
   %487 = shl i16 %486, 12
   %488 = or disjoint i16 %487, %484
-  store i16 %488, ptr %448, align 2, !tbaa !79
+  store i16 %488, ptr %448, align 2, !tbaa !78
   %489 = getelementptr inbounds nuw i8, ptr %448, i64 2
-  %490 = load i16, ptr %489, align 2, !tbaa !38
+  %490 = load i16, ptr %489, align 2, !tbaa !37
   %491 = and i16 %490, 4095
   %492 = trunc i32 %480 to i16
   %493 = shl i16 %492, 12
   %494 = or disjoint i16 %491, %493
-  store i16 %494, ptr %489, align 2, !tbaa !38
-  %495 = load i8, ptr %461, align 1, !tbaa !94
+  store i16 %494, ptr %489, align 2, !tbaa !37
+  %495 = load i8, ptr %461, align 1, !tbaa !93
   %496 = getelementptr inbounds nuw i8, ptr %448, i64 6
-  store i8 %495, ptr %496, align 2, !tbaa !98
+  store i8 %495, ptr %496, align 2, !tbaa !97
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %60) #7
   %497 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 12, ptr noundef nonnull @.str.53, ptr noundef nonnull %60) #7
   %498 = icmp sgt i32 %497, -1
@@ -1166,7 +1166,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %501 = load i32, ptr %60, align 4, !tbaa !4
   %502 = trunc i32 %501 to i16
   %503 = getelementptr inbounds nuw i8, ptr %433, i64 8
-  store i16 %502, ptr %503, align 2, !tbaa !99
+  store i16 %502, ptr %503, align 2, !tbaa !98
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %60) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61) #7
   %504 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %61, i32 noundef 1, i32 noundef 1) #7
@@ -1188,7 +1188,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %511 = load i32, ptr %62, align 4, !tbaa !4
   %512 = trunc i32 %511 to i8
   %513 = getelementptr inbounds nuw i8, ptr %433, i64 10
-  store i8 %512, ptr %513, align 2, !tbaa !100
+  store i8 %512, ptr %513, align 2, !tbaa !99
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %62) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %63) #7
   %514 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.55, ptr noundef nonnull %63) #7
@@ -1203,7 +1203,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %518 = load i32, ptr %63, align 4, !tbaa !4
   %519 = trunc i32 %518 to i8
   %520 = getelementptr inbounds nuw i8, ptr %433, i64 11
-  store i8 %519, ptr %520, align 1, !tbaa !101
+  store i8 %519, ptr %520, align 1, !tbaa !100
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %63) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %64) #7
   %521 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 2, ptr noundef nonnull @.str.56, ptr noundef nonnull %64) #7
@@ -1218,7 +1218,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %525 = load i32, ptr %64, align 4, !tbaa !4
   %526 = trunc i32 %525 to i8
   %527 = getelementptr inbounds nuw i8, ptr %433, i64 12
-  store i8 %526, ptr %527, align 2, !tbaa !102
+  store i8 %526, ptr %527, align 2, !tbaa !101
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %64) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %65) #7
   %528 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 5, ptr noundef nonnull @.str.57, ptr noundef nonnull %65) #7
@@ -1229,7 +1229,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %531 = load i32, ptr %65, align 4, !tbaa !4
   %532 = trunc i32 %531 to i8
   %533 = getelementptr inbounds nuw i8, ptr %433, i64 13
-  store i8 %532, ptr %533, align 1, !tbaa !103
+  store i8 %532, ptr %533, align 1, !tbaa !102
   br label %534
 
 534:                                              ; preds = %530, %524
@@ -1252,7 +1252,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %539 = getelementptr inbounds nuw i8, ptr %433, i64 2
   %540 = load i32, ptr %47, align 4, !tbaa !4
   %541 = trunc i32 %540 to i8
-  store i8 %541, ptr %539, align 2, !tbaa !104
+  store i8 %541, ptr %539, align 2, !tbaa !103
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %48) #7
   %542 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.60, ptr noundef nonnull %48) #7
@@ -1267,7 +1267,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %546 = load i32, ptr %48, align 4, !tbaa !4
   %547 = trunc i32 %546 to i8
   %548 = getelementptr inbounds nuw i8, ptr %433, i64 3
-  store i8 %547, ptr %548, align 1, !tbaa !106
+  store i8 %547, ptr %548, align 1, !tbaa !105
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %48) #7
   %.not.i.i = icmp eq i8 %547, 0
   br i1 %.not.i.i, label %582, label %549
@@ -1286,14 +1286,14 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %554 = load i32, ptr %49, align 4, !tbaa !4
   %555 = trunc i32 %554 to i8
   %556 = getelementptr inbounds nuw i8, ptr %433, i64 4
-  store i8 %555, ptr %556, align 2, !tbaa !107
+  store i8 %555, ptr %556, align 2, !tbaa !106
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %49) #7
   %557 = icmp eq i8 %555, 0
   br i1 %557, label %558, label %560
 
 558:                                              ; preds = %553
-  store i8 2, ptr %556, align 2, !tbaa !107
-  %559 = load ptr, ptr %0, align 8, !tbaa !108
+  store i8 2, ptr %556, align 2, !tbaa !106
+  %559 = load ptr, ptr %0, align 8, !tbaa !107
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %559, i32 noundef 24, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.61) #7
   br label %560
 
@@ -1311,14 +1311,14 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %565 = load i32, ptr %50, align 4, !tbaa !4
   %566 = trunc i32 %565 to i8
   %567 = getelementptr inbounds nuw i8, ptr %433, i64 5
-  store i8 %566, ptr %567, align 1, !tbaa !109
+  store i8 %566, ptr %567, align 1, !tbaa !108
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #7
   %568 = icmp eq i8 %566, 0
   br i1 %568, label %569, label %571
 
 569:                                              ; preds = %564
-  store i8 2, ptr %567, align 1, !tbaa !109
-  %570 = load ptr, ptr %0, align 8, !tbaa !108
+  store i8 2, ptr %567, align 1, !tbaa !108
+  %570 = load ptr, ptr %0, align 8, !tbaa !107
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %570, i32 noundef 24, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63) #7
   br label %571
 
@@ -1336,24 +1336,24 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %576 = load i32, ptr %51, align 4, !tbaa !4
   %577 = trunc i32 %576 to i8
   %578 = getelementptr inbounds nuw i8, ptr %433, i64 6
-  store i8 %577, ptr %578, align 2, !tbaa !110
+  store i8 %577, ptr %578, align 2, !tbaa !109
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %51) #7
   %579 = icmp eq i8 %577, 0
   br i1 %579, label %580, label %586
 
 580:                                              ; preds = %575
-  store i8 2, ptr %578, align 2, !tbaa !110
-  %581 = load ptr, ptr %0, align 8, !tbaa !108
+  store i8 2, ptr %578, align 2, !tbaa !109
+  %581 = load ptr, ptr %0, align 8, !tbaa !107
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %581, i32 noundef 24, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.64) #7
   br label %586
 
 582:                                              ; preds = %545
   %583 = getelementptr inbounds nuw i8, ptr %433, i64 4
-  store i8 2, ptr %583, align 2, !tbaa !107
+  store i8 2, ptr %583, align 2, !tbaa !106
   %584 = getelementptr inbounds nuw i8, ptr %433, i64 5
-  store i8 2, ptr %584, align 1, !tbaa !109
+  store i8 2, ptr %584, align 1, !tbaa !108
   %585 = getelementptr inbounds nuw i8, ptr %433, i64 6
-  store i8 2, ptr %585, align 2, !tbaa !110
+  store i8 2, ptr %585, align 2, !tbaa !109
   br label %586
 
 586:                                              ; preds = %582, %580, %575
@@ -1370,7 +1370,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %591 = load i32, ptr %52, align 4, !tbaa !4
   %592 = trunc i32 %591 to i16
   %593 = getelementptr inbounds nuw i8, ptr %433, i64 8
-  store i16 %592, ptr %593, align 2, !tbaa !111
+  store i16 %592, ptr %593, align 2, !tbaa !110
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %53) #7
   %594 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %53, i32 noundef 1, i32 noundef 1) #7
@@ -1388,7 +1388,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %600 = load i32, ptr %54, align 4, !tbaa !4
   %601 = trunc i32 %600 to i16
   %602 = getelementptr inbounds nuw i8, ptr %433, i64 10
-  store i16 %601, ptr %602, align 2, !tbaa !112
+  store i16 %601, ptr %602, align 2, !tbaa !111
   br label %603
 
 603:                                              ; preds = %599, %596
@@ -1415,7 +1415,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %608 = getelementptr inbounds nuw i8, ptr %433, i64 2
   %609 = load i32, ptr %35, align 4, !tbaa !4
   %610 = trunc i32 %609 to i8
-  store i8 %610, ptr %608, align 1, !tbaa !113
+  store i8 %610, ptr %608, align 1, !tbaa !112
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #7
   %.not.i38.i = icmp eq i8 %610, 0
   br i1 %.not.i38.i, label %.loopexit123.i.i, label %.preheader122.i.i
@@ -1443,11 +1443,11 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %619 = load i32, ptr %36, align 4, !tbaa !4
   %620 = trunc i32 %619 to i8
   %621 = getelementptr inbounds nuw [64 x i8], ptr %612, i64 0, i64 %indvars.iv.i.i
-  store i8 %620, ptr %621, align 1, !tbaa !46
+  store i8 %620, ptr %621, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36) #7
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
-  br i1 %exitcond.not.i.i, label %.loopexit123.i.i, label %613, !llvm.loop !115
+  br i1 %exitcond.not.i.i, label %.loopexit123.i.i, label %613, !llvm.loop !114
 
 .loopexit123.i.i:                                 ; preds = %618, %607
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #7
@@ -1463,7 +1463,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %626 = load i32, ptr %38, align 4, !tbaa !4
   %627 = trunc i32 %626 to i8
   %628 = getelementptr inbounds nuw i8, ptr %433, i64 67
-  store i8 %627, ptr %628, align 1, !tbaa !116
+  store i8 %627, ptr %628, align 1, !tbaa !115
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #7
   %.not95.i.i = icmp eq i8 %627, 0
   br i1 %.not95.i.i, label %.loopexit121.i.i, label %.preheader120.i.i
@@ -1491,11 +1491,11 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %637 = load i32, ptr %39, align 4, !tbaa !4
   %638 = trunc i32 %637 to i8
   %639 = getelementptr inbounds nuw [64 x i8], ptr %630, i64 0, i64 %indvars.iv139.i.i
-  store i8 %638, ptr %639, align 1, !tbaa !46
+  store i8 %638, ptr %639, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #7
   %indvars.iv.next140.i.i = add nuw nsw i64 %indvars.iv139.i.i, 1
   %exitcond142.not.i.i = icmp eq i64 %indvars.iv.next140.i.i, 64
-  br i1 %exitcond142.not.i.i, label %.loopexit121.i.i, label %631, !llvm.loop !117
+  br i1 %exitcond142.not.i.i, label %.loopexit121.i.i, label %631, !llvm.loop !116
 
 .loopexit121.i.i:                                 ; preds = %636, %625
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %41) #7
@@ -1511,7 +1511,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %644 = load i32, ptr %41, align 4, !tbaa !4
   %645 = trunc i32 %644 to i8
   %646 = getelementptr inbounds nuw i8, ptr %433, i64 132
-  store i8 %645, ptr %646, align 1, !tbaa !118
+  store i8 %645, ptr %646, align 1, !tbaa !117
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #7
   %.not96.i.i = icmp eq i8 %645, 0
   br i1 %.not96.i.i, label %.loopexit119.i.i, label %.preheader118.i.i
@@ -1539,11 +1539,11 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %655 = load i32, ptr %42, align 4, !tbaa !4
   %656 = trunc i32 %655 to i8
   %657 = getelementptr inbounds nuw [64 x i8], ptr %648, i64 0, i64 %indvars.iv143.i.i
-  store i8 %656, ptr %657, align 1, !tbaa !46
+  store i8 %656, ptr %657, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %42) #7
   %indvars.iv.next144.i.i = add nuw nsw i64 %indvars.iv143.i.i, 1
   %exitcond146.not.i.i = icmp eq i64 %indvars.iv.next144.i.i, 64
-  br i1 %exitcond146.not.i.i, label %.loopexit119.i.i, label %649, !llvm.loop !119
+  br i1 %exitcond146.not.i.i, label %.loopexit119.i.i, label %649, !llvm.loop !118
 
 .loopexit119.i.i:                                 ; preds = %654, %643
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #7
@@ -1559,7 +1559,7 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %662 = load i32, ptr %44, align 4, !tbaa !4
   %663 = trunc i32 %662 to i8
   %664 = getelementptr inbounds nuw i8, ptr %433, i64 197
-  store i8 %663, ptr %664, align 1, !tbaa !120
+  store i8 %663, ptr %664, align 1, !tbaa !119
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #7
   %.not97.i.i = icmp eq i8 %663, 0
   br i1 %.not97.i.i, label %cbs_mpeg2_read_quant_matrix_extension.exit.i, label %.preheader.i.i
@@ -1587,11 +1587,11 @@ cbs_mpeg2_read_sequence_header.exit:              ; preds = %427, %416
   %673 = load i32, ptr %45, align 4, !tbaa !4
   %674 = trunc i32 %673 to i8
   %675 = getelementptr inbounds nuw [64 x i8], ptr %666, i64 0, i64 %indvars.iv147.i.i
-  store i8 %674, ptr %675, align 1, !tbaa !46
+  store i8 %674, ptr %675, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #7
   %indvars.iv.next148.i.i = add nuw nsw i64 %indvars.iv147.i.i, 1
   %exitcond150.not.i.i = icmp eq i64 %indvars.iv.next148.i.i, 64
-  br i1 %exitcond150.not.i.i, label %cbs_mpeg2_read_quant_matrix_extension.exit.i, label %667, !llvm.loop !121
+  br i1 %exitcond150.not.i.i, label %cbs_mpeg2_read_quant_matrix_extension.exit.i, label %667, !llvm.loop !120
 
 .critedge.i37.i:                                  ; preds = %604
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #7
@@ -1610,10 +1610,10 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
   %678 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %679 = load ptr, ptr %678, align 8, !tbaa !31
+  %679 = load ptr, ptr %678, align 8, !tbaa !30
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.71) #7
   %680 = getelementptr inbounds nuw i8, ptr %679, i64 7
-  %681 = load i8, ptr %680, align 1, !tbaa !122
+  %681 = load i8, ptr %680, align 1, !tbaa !121
   %.not.i39.i = icmp eq i8 %681, 0
   br i1 %.not.i39.i, label %cbs_mpeg2_read_picture_display_extension.exit.i, label %.lr.ph.i.i
 
@@ -1625,10 +1625,10 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
 
 685:                                              ; preds = %704
   %indvars.iv.next.i41.i = add nuw nsw i64 %indvars.iv.i40.i, 1
-  %686 = load i8, ptr %680, align 1, !tbaa !122
+  %686 = load i8, ptr %680, align 1, !tbaa !121
   %687 = zext i8 %686 to i64
   %688 = icmp samesign ult i64 %indvars.iv.next.i41.i, %687
-  br i1 %688, label %689, label %cbs_mpeg2_read_picture_display_extension.exit.i, !llvm.loop !123
+  br i1 %688, label %689, label %cbs_mpeg2_read_picture_display_extension.exit.i, !llvm.loop !122
 
 689:                                              ; preds = %685, %.lr.ph.i.i
   %indvars.iv.i40.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i41.i, %685 ]
@@ -1648,7 +1648,7 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
   %695 = load i32, ptr %29, align 4, !tbaa !4
   %696 = trunc i32 %695 to i16
   %697 = getelementptr inbounds nuw [3 x i16], ptr %677, i64 0, i64 %indvars.iv.i40.i
-  store i16 %696, ptr %697, align 2, !tbaa !124
+  store i16 %696, ptr %697, align 2, !tbaa !123
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31) #7
   %698 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %31, i32 noundef 1, i32 noundef 1) #7
@@ -1672,7 +1672,7 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
   %705 = load i32, ptr %32, align 4, !tbaa !4
   %706 = trunc i32 %705 to i16
   %707 = getelementptr inbounds nuw [3 x i16], ptr %684, i64 0, i64 %indvars.iv.i40.i
-  store i16 %706, ptr %707, align 2, !tbaa !124
+  store i16 %706, ptr %707, align 2, !tbaa !123
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34) #7
   %708 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef nonnull %34, i32 noundef 1, i32 noundef 1) #7
@@ -1688,7 +1688,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
 
 710:                                              ; preds = %442
   %711 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %712 = load ptr, ptr %711, align 8, !tbaa !31
+  %712 = load ptr, ptr %711, align 8, !tbaa !30
   call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.74) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
   %713 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.75, ptr noundef null, ptr noundef nonnull %8, i32 noundef 1, i32 noundef 15) #7
@@ -1699,7 +1699,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %716 = getelementptr inbounds nuw i8, ptr %433, i64 2
   %717 = load i32, ptr %8, align 4, !tbaa !4
   %718 = trunc i32 %717 to i8
-  store i8 %718, ptr %716, align 1, !tbaa !46
+  store i8 %718, ptr %716, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #7
   %719 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.76, ptr noundef null, ptr noundef nonnull %9, i32 noundef 1, i32 noundef 15) #7
@@ -1714,7 +1714,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %723 = load i32, ptr %9, align 4, !tbaa !4
   %724 = trunc i32 %723 to i8
   %725 = getelementptr inbounds nuw i8, ptr %433, i64 3
-  store i8 %724, ptr %725, align 1, !tbaa !46
+  store i8 %724, ptr %725, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
   %726 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.77, ptr noundef null, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 15) #7
@@ -1729,7 +1729,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %730 = load i32, ptr %10, align 4, !tbaa !4
   %731 = trunc i32 %730 to i8
   %732 = getelementptr inbounds nuw i8, ptr %433, i64 4
-  store i8 %731, ptr %732, align 1, !tbaa !46
+  store i8 %731, ptr %732, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7
   %733 = call i32 @ff_cbs_read_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 4, ptr noundef nonnull @.str.78, ptr noundef null, ptr noundef nonnull %11, i32 noundef 1, i32 noundef 15) #7
@@ -1744,7 +1744,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %737 = load i32, ptr %11, align 4, !tbaa !4
   %738 = trunc i32 %737 to i8
   %739 = getelementptr inbounds nuw i8, ptr %433, i64 5
-  store i8 %738, ptr %739, align 1, !tbaa !46
+  store i8 %738, ptr %739, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #7
   %740 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 2, ptr noundef nonnull @.str.79, ptr noundef nonnull %12) #7
@@ -1759,7 +1759,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %744 = load i32, ptr %12, align 4, !tbaa !4
   %745 = trunc i32 %744 to i8
   %746 = getelementptr inbounds nuw i8, ptr %433, i64 6
-  store i8 %745, ptr %746, align 1, !tbaa !125
+  store i8 %745, ptr %746, align 1, !tbaa !124
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #7
   %747 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 2, ptr noundef nonnull @.str.80, ptr noundef nonnull %13) #7
@@ -1774,7 +1774,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %751 = load i32, ptr %13, align 4, !tbaa !4
   %752 = trunc i32 %751 to i8
   %753 = getelementptr inbounds nuw i8, ptr %433, i64 7
-  store i8 %752, ptr %753, align 1, !tbaa !127
+  store i8 %752, ptr %753, align 1, !tbaa !126
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #7
   %754 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.81, ptr noundef nonnull %14) #7
@@ -1789,7 +1789,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %758 = load i32, ptr %14, align 4, !tbaa !4
   %759 = trunc i32 %758 to i8
   %760 = getelementptr inbounds nuw i8, ptr %433, i64 8
-  store i8 %759, ptr %760, align 1, !tbaa !128
+  store i8 %759, ptr %760, align 1, !tbaa !127
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #7
   %761 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.82, ptr noundef nonnull %15) #7
@@ -1804,7 +1804,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %765 = load i32, ptr %15, align 4, !tbaa !4
   %766 = trunc i32 %765 to i8
   %767 = getelementptr inbounds nuw i8, ptr %433, i64 9
-  store i8 %766, ptr %767, align 1, !tbaa !129
+  store i8 %766, ptr %767, align 1, !tbaa !128
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #7
   %768 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.83, ptr noundef nonnull %16) #7
@@ -1819,7 +1819,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %772 = load i32, ptr %16, align 4, !tbaa !4
   %773 = trunc i32 %772 to i8
   %774 = getelementptr inbounds nuw i8, ptr %433, i64 10
-  store i8 %773, ptr %774, align 1, !tbaa !130
+  store i8 %773, ptr %774, align 1, !tbaa !129
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #7
   %775 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.84, ptr noundef nonnull %17) #7
@@ -1834,7 +1834,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %779 = load i32, ptr %17, align 4, !tbaa !4
   %780 = trunc i32 %779 to i8
   %781 = getelementptr inbounds nuw i8, ptr %433, i64 11
-  store i8 %780, ptr %781, align 1, !tbaa !131
+  store i8 %780, ptr %781, align 1, !tbaa !130
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #7
   %782 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.85, ptr noundef nonnull %18) #7
@@ -1849,7 +1849,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %786 = load i32, ptr %18, align 4, !tbaa !4
   %787 = trunc i32 %786 to i8
   %788 = getelementptr inbounds nuw i8, ptr %433, i64 12
-  store i8 %787, ptr %788, align 1, !tbaa !132
+  store i8 %787, ptr %788, align 1, !tbaa !131
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #7
   %789 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef nonnull %19) #7
@@ -1864,7 +1864,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %793 = load i32, ptr %19, align 4, !tbaa !4
   %794 = trunc i32 %793 to i8
   %795 = getelementptr inbounds nuw i8, ptr %433, i64 13
-  store i8 %794, ptr %795, align 1, !tbaa !133
+  store i8 %794, ptr %795, align 1, !tbaa !132
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #7
   %796 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.87, ptr noundef nonnull %20) #7
@@ -1879,7 +1879,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %800 = load i32, ptr %20, align 4, !tbaa !4
   %801 = trunc i32 %800 to i8
   %802 = getelementptr inbounds nuw i8, ptr %433, i64 14
-  store i8 %801, ptr %802, align 1, !tbaa !134
+  store i8 %801, ptr %802, align 1, !tbaa !133
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #7
   %803 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.88, ptr noundef nonnull %21) #7
@@ -1894,7 +1894,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %807 = load i32, ptr %21, align 4, !tbaa !4
   %808 = trunc i32 %807 to i8
   %809 = getelementptr inbounds nuw i8, ptr %433, i64 15
-  store i8 %808, ptr %809, align 1, !tbaa !135
+  store i8 %808, ptr %809, align 1, !tbaa !134
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #7
   %810 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.89, ptr noundef nonnull %22) #7
@@ -1909,60 +1909,60 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %814 = load i32, ptr %22, align 4, !tbaa !4
   %815 = trunc i32 %814 to i8
   %816 = getelementptr inbounds nuw i8, ptr %433, i64 16
-  store i8 %815, ptr %816, align 1, !tbaa !136
+  store i8 %815, ptr %816, align 1, !tbaa !135
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #7
   %817 = getelementptr inbounds nuw i8, ptr %712, i64 6
-  %818 = load i8, ptr %817, align 2, !tbaa !98
+  %818 = load i8, ptr %817, align 2, !tbaa !97
   %.not.i43.i = icmp eq i8 %818, 0
   br i1 %.not.i43.i, label %828, label %819
 
 819:                                              ; preds = %813
-  %820 = load i8, ptr %802, align 1, !tbaa !134
+  %820 = load i8, ptr %802, align 1, !tbaa !133
   %.not204.i.i = icmp eq i8 %820, 0
   br i1 %.not204.i.i, label %826, label %821
 
 821:                                              ; preds = %819
-  %822 = load i8, ptr %760, align 1, !tbaa !128
+  %822 = load i8, ptr %760, align 1, !tbaa !127
   %.not205.i.i = icmp eq i8 %822, 0
   %823 = getelementptr inbounds nuw i8, ptr %712, i64 7
   br i1 %.not205.i.i, label %825, label %824
 
 824:                                              ; preds = %821
-  store i8 3, ptr %823, align 1, !tbaa !122
+  store i8 3, ptr %823, align 1, !tbaa !121
   br label %837
 
 825:                                              ; preds = %821
-  store i8 2, ptr %823, align 1, !tbaa !122
+  store i8 2, ptr %823, align 1, !tbaa !121
   br label %837
 
 826:                                              ; preds = %819
   %827 = getelementptr inbounds nuw i8, ptr %712, i64 7
-  store i8 1, ptr %827, align 1, !tbaa !122
+  store i8 1, ptr %827, align 1, !tbaa !121
   br label %837
 
 828:                                              ; preds = %813
-  %829 = load i8, ptr %753, align 1, !tbaa !127
+  %829 = load i8, ptr %753, align 1, !tbaa !126
   %.off.i.i = add i8 %829, -1
   %switch.i.i = icmp ult i8 %.off.i.i, 2
   br i1 %switch.i.i, label %830, label %832
 
 830:                                              ; preds = %828
   %831 = getelementptr inbounds nuw i8, ptr %712, i64 7
-  store i8 1, ptr %831, align 1, !tbaa !122
+  store i8 1, ptr %831, align 1, !tbaa !121
   br label %837
 
 832:                                              ; preds = %828
-  %833 = load i8, ptr %802, align 1, !tbaa !134
+  %833 = load i8, ptr %802, align 1, !tbaa !133
   %.not203.i.i = icmp eq i8 %833, 0
   %834 = getelementptr inbounds nuw i8, ptr %712, i64 7
   br i1 %.not203.i.i, label %836, label %835
 
 835:                                              ; preds = %832
-  store i8 3, ptr %834, align 1, !tbaa !122
+  store i8 3, ptr %834, align 1, !tbaa !121
   br label %837
 
 836:                                              ; preds = %832
-  store i8 2, ptr %834, align 1, !tbaa !122
+  store i8 2, ptr %834, align 1, !tbaa !121
   br label %837
 
 837:                                              ; preds = %836, %835, %830, %826, %825, %824
@@ -1979,7 +1979,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %842 = load i32, ptr %23, align 4, !tbaa !4
   %843 = trunc i32 %842 to i8
   %844 = getelementptr inbounds nuw i8, ptr %433, i64 17
-  store i8 %843, ptr %844, align 1, !tbaa !137
+  store i8 %843, ptr %844, align 1, !tbaa !136
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #7
   %.not206.i.i = icmp eq i8 %843, 0
   br i1 %.not206.i.i, label %cbs_mpeg2_read_extension_data.exit.thread103, label %845
@@ -1998,7 +1998,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %850 = load i32, ptr %24, align 4, !tbaa !4
   %851 = trunc i32 %850 to i8
   %852 = getelementptr inbounds nuw i8, ptr %433, i64 18
-  store i8 %851, ptr %852, align 1, !tbaa !138
+  store i8 %851, ptr %852, align 1, !tbaa !137
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %24) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #7
   %853 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 3, ptr noundef nonnull @.str.92, ptr noundef nonnull %25) #7
@@ -2013,7 +2013,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %857 = load i32, ptr %25, align 4, !tbaa !4
   %858 = trunc i32 %857 to i8
   %859 = getelementptr inbounds nuw i8, ptr %433, i64 19
-  store i8 %858, ptr %859, align 1, !tbaa !139
+  store i8 %858, ptr %859, align 1, !tbaa !138
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #7
   %860 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.93, ptr noundef nonnull %26) #7
@@ -2028,7 +2028,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %864 = load i32, ptr %26, align 4, !tbaa !4
   %865 = trunc i32 %864 to i8
   %866 = getelementptr inbounds nuw i8, ptr %433, i64 20
-  store i8 %865, ptr %866, align 1, !tbaa !140
+  store i8 %865, ptr %866, align 1, !tbaa !139
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27) #7
   %867 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 7, ptr noundef nonnull @.str.94, ptr noundef nonnull %27) #7
@@ -2043,7 +2043,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %871 = load i32, ptr %27, align 4, !tbaa !4
   %872 = trunc i32 %871 to i8
   %873 = getelementptr inbounds nuw i8, ptr %433, i64 21
-  store i8 %872, ptr %873, align 1, !tbaa !141
+  store i8 %872, ptr %873, align 1, !tbaa !140
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #7
   %874 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef nonnull %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.95, ptr noundef nonnull %28) #7
@@ -2054,7 +2054,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
   %876 = load i32, ptr %28, align 4, !tbaa !4
   %877 = trunc i32 %876 to i8
   %878 = getelementptr inbounds nuw i8, ptr %433, i64 22
-  store i8 %877, ptr %878, align 1, !tbaa !142
+  store i8 %877, ptr %878, align 1, !tbaa !141
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #7
   br label %cbs_mpeg2_read_extension_data.exit.thread103
 
@@ -2068,7 +2068,7 @@ cbs_mpeg2_read_picture_display_extension.exit.i:  ; preds = %704, %694, %685, %7
 
 880:                                              ; preds = %442
   %881 = and i32 %443, 255
-  %882 = load ptr, ptr %0, align 8, !tbaa !108
+  %882 = load ptr, ptr %0, align 8, !tbaa !107
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %882, i32 noundef 16, ptr noundef nonnull @.str.46, i32 noundef %881) #7
   br label %.thread
 
@@ -2083,7 +2083,7 @@ cbs_mpeg2_read_extension_data.exit:               ; preds = %534, %603, %cbs_mpe
 
 884:                                              ; preds = %226
   %885 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %886 = load ptr, ptr %885, align 8, !tbaa !30
+  %886 = load ptr, ptr %885, align 8, !tbaa !29
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.96) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   %887 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.97, ptr noundef nonnull %4) #7
@@ -2093,7 +2093,7 @@ cbs_mpeg2_read_extension_data.exit:               ; preds = %534, %603, %cbs_mpe
 889:                                              ; preds = %884
   %890 = load i32, ptr %4, align 4, !tbaa !4
   %891 = trunc i32 %890 to i8
-  store i8 %891, ptr %886, align 4, !tbaa !143
+  store i8 %891, ptr %886, align 4, !tbaa !142
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %892 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 25, ptr noundef nonnull @.str.98, ptr noundef nonnull %5) #7
@@ -2107,7 +2107,7 @@ cbs_mpeg2_read_extension_data.exit:               ; preds = %534, %603, %cbs_mpe
 895:                                              ; preds = %889
   %896 = load i32, ptr %5, align 4, !tbaa !4
   %897 = getelementptr inbounds nuw i8, ptr %886, i64 4
-  store i32 %896, ptr %897, align 4, !tbaa !145
+  store i32 %896, ptr %897, align 4, !tbaa !144
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
   %898 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.99, ptr noundef nonnull %6) #7
@@ -2122,7 +2122,7 @@ cbs_mpeg2_read_extension_data.exit:               ; preds = %534, %603, %cbs_mpe
   %902 = load i32, ptr %6, align 4, !tbaa !4
   %903 = trunc i32 %902 to i8
   %904 = getelementptr inbounds nuw i8, ptr %886, i64 8
-  store i8 %903, ptr %904, align 4, !tbaa !146
+  store i8 %903, ptr %904, align 4, !tbaa !145
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
   %905 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 1, ptr noundef nonnull @.str.100, ptr noundef nonnull %7) #7
@@ -2133,7 +2133,7 @@ cbs_mpeg2_read_group_of_pictures_header.exit.thread106: ; preds = %901
   %907 = load i32, ptr %7, align 4, !tbaa !4
   %908 = trunc i32 %907 to i8
   %909 = getelementptr inbounds nuw i8, ptr %886, i64 9
-  store i8 %908, ptr %909, align 1, !tbaa !147
+  store i8 %908, ptr %909, align 1, !tbaa !146
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
   br label %cbs_mpeg2_read_extension_data.exit.thread103
 
@@ -2147,7 +2147,7 @@ cbs_mpeg2_read_group_of_pictures_header.exit:     ; preds = %901
 
 910:                                              ; preds = %226
   %911 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %912 = load ptr, ptr %911, align 8, !tbaa !30
+  %912 = load ptr, ptr %911, align 8, !tbaa !29
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.101) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7
   %913 = call i32 @ff_cbs_read_simple_unsigned(ptr noundef %0, ptr noundef nonnull %102, i32 noundef 8, ptr noundef nonnull @.str.102, ptr noundef nonnull %3) #7
@@ -2157,7 +2157,7 @@ cbs_mpeg2_read_group_of_pictures_header.exit:     ; preds = %901
 cbs_mpeg2_read_sequence_end.exit.thread:          ; preds = %910
   %915 = load i32, ptr %3, align 4, !tbaa !4
   %916 = trunc i32 %915 to i8
-  store i8 %916, ptr %912, align 1, !tbaa !148
+  store i8 %916, ptr %912, align 1, !tbaa !147
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   br label %cbs_mpeg2_read_extension_data.exit.thread103
 
@@ -2187,18 +2187,18 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
   %12 = alloca [2 x i32], align 4
   %13 = alloca [2 x i32], align 4
   %14 = alloca [2 x i32], align 4
-  %15 = load i32, ptr %1, align 8, !tbaa !29
+  %15 = load i32, ptr %1, align 8, !tbaa !28
   %16 = add i32 %15, -1
   %or.cond = icmp ult i32 %16, 175
   br i1 %or.cond, label %17, label %275
 
 17:                                               ; preds = %3
   %18 = getelementptr i8, ptr %1, i64 40
-  %.val = load ptr, ptr %18, align 8, !tbaa !30
+  %.val = load ptr, ptr %18, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !31
+  %20 = load ptr, ptr %19, align 8, !tbaa !30
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str) #7
-  %21 = load i8, ptr %.val, align 8, !tbaa !35
+  %21 = load i8, ptr %.val, align 8, !tbaa !34
   %22 = zext i8 %21 to i32
   %23 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.2, i32 noundef %22) #7
   %24 = icmp slt i32 %23, 0
@@ -2206,13 +2206,13 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 2
-  %27 = load i16, ptr %26, align 2, !tbaa !38
+  %27 = load i16, ptr %26, align 2, !tbaa !37
   %28 = icmp ugt i16 %27, 2800
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.val, i64 1
-  %31 = load i8, ptr %30, align 1, !tbaa !41
+  %31 = load i8, ptr %30, align 1, !tbaa !40
   %32 = zext i8 %31 to i32
   %33 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.3, i32 noundef %32) #7
   %34 = icmp slt i32 %33, 0
@@ -2220,19 +2220,19 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
 
 35:                                               ; preds = %29, %25
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %37 = load i8, ptr %36, align 2, !tbaa !42
+  %37 = load i8, ptr %36, align 2, !tbaa !41
   %.not.i.i = icmp eq i8 %37, 0
   br i1 %.not.i.i, label %48, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 5
-  %40 = load i8, ptr %39, align 1, !tbaa !43
+  %40 = load i8, ptr %39, align 1, !tbaa !42
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %.val, i64 2
-  %44 = load i8, ptr %43, align 2, !tbaa !44
+  %44 = load i8, ptr %43, align 2, !tbaa !43
   %45 = zext i8 %44 to i32
   %46 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 7, ptr noundef nonnull @.str.4, i32 noundef %45) #7
   %47 = icmp slt i32 %46, 0
@@ -2240,7 +2240,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
 
 48:                                               ; preds = %42, %38, %35
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 3
-  %50 = load i8, ptr %49, align 1, !tbaa !45
+  %50 = load i8, ptr %49, align 1, !tbaa !44
   %51 = zext i8 %50 to i32
   %52 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 5, ptr noundef nonnull @.str.5, ptr noundef null, i32 noundef %51, i32 noundef 1, i32 noundef 31) #7
   %53 = icmp slt i32 %52, 0
@@ -2248,7 +2248,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
 
 54:                                               ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %56 = load i8, ptr %55, align 4, !tbaa !47
+  %56 = load i8, ptr %55, align 4, !tbaa !46
   %.not61.i.i = icmp eq i8 %56, 0
   br i1 %.not61.i.i, label %79, label %57
 
@@ -2260,7 +2260,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %.val, i64 5
-  %63 = load i8, ptr %62, align 1, !tbaa !48
+  %63 = load i8, ptr %62, align 1, !tbaa !47
   %64 = zext i8 %63 to i32
   %65 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.7, i32 noundef %64) #7
   %66 = icmp slt i32 %65, 0
@@ -2268,7 +2268,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %.val, i64 6
-  %69 = load i8, ptr %68, align 2, !tbaa !49
+  %69 = load i8, ptr %68, align 2, !tbaa !48
   %70 = zext i8 %69 to i32
   %71 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.8, i32 noundef %70) #7
   %72 = icmp slt i32 %71, 0
@@ -2276,7 +2276,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
 
 73:                                               ; preds = %67
   %74 = getelementptr inbounds nuw i8, ptr %.val, i64 7
-  %75 = load i8, ptr %74, align 1, !tbaa !50
+  %75 = load i8, ptr %74, align 1, !tbaa !49
   %76 = zext i8 %75 to i32
   %77 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 6, ptr noundef nonnull @.str.9, i32 noundef %76) #7
   %78 = icmp slt i32 %77, 0
@@ -2286,7 +2286,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
   %80 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
   %81 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %82 = load i64, ptr %81, align 8, !tbaa !150
+  %82 = load i64, ptr %81, align 8, !tbaa !149
   %.not.i.i.i = icmp eq i64 %82, 0
   br i1 %.not.i.i.i, label %cbs_mpeg2_write_slice_header.exit.i, label %.lr.ph.i.i.i
 
@@ -2296,9 +2296,9 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
 
 84:                                               ; preds = %91
   %85 = add nuw i64 %.02833.i.i.i, 1
-  %86 = load i64, ptr %81, align 8, !tbaa !150
+  %86 = load i64, ptr %81, align 8, !tbaa !149
   %87 = icmp ult i64 %85, %86
-  br i1 %87, label %88, label %cbs_mpeg2_write_slice_header.exit.i, !llvm.loop !151
+  br i1 %87, label %88, label %cbs_mpeg2_write_slice_header.exit.i, !llvm.loop !150
 
 88:                                               ; preds = %84, %.lr.ph.i.i.i
   %.02833.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %85, %84 ]
@@ -2310,9 +2310,9 @@ define internal range(i32 -2147483648, 1) i32 @cbs_mpeg2_write_unit(ptr noundef 
   store i32 1, ptr %14, align 4, !tbaa !4
   %92 = trunc i64 %.02833.i.i.i to i32
   store i32 %92, ptr %83, align 4, !tbaa !4
-  %93 = load ptr, ptr %80, align 8, !tbaa !152
+  %93 = load ptr, ptr %80, align 8, !tbaa !151
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 %.02833.i.i.i
-  %95 = load i8, ptr %94, align 1, !tbaa !46
+  %95 = load i8, ptr %94, align 1, !tbaa !45
   %96 = zext i8 %95 to i32
   %97 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.10, ptr noundef nonnull %14, i32 noundef %96, i32 noundef 0, i32 noundef 255) #7
   %98 = icmp slt i32 %97, 0
@@ -2331,15 +2331,15 @@ cbs_mpeg2_write_slice_header.exit.i:              ; preds = %84, %79
 
 101:                                              ; preds = %cbs_mpeg2_write_slice_header.exit.i
   %102 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %103 = load ptr, ptr %102, align 8, !tbaa !55
+  %103 = load ptr, ptr %102, align 8, !tbaa !54
   %.not.i = icmp eq ptr %103, null
   br i1 %.not.i, label %cbs_mpeg2_write_slice.exit, label %104
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  %106 = load i64, ptr %105, align 8, !tbaa !51
+  %106 = load i64, ptr %105, align 8, !tbaa !50
   %107 = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  %108 = load i32, ptr %107, align 8, !tbaa !56
+  %108 = load i32, ptr %107, align 8, !tbaa !55
   %109 = add nsw i32 %108, 7
   %110 = sdiv i32 %109, 8
   %111 = sext i32 %110 to i64
@@ -2361,14 +2361,14 @@ cbs_mpeg2_write_slice_header.exit.i:              ; preds = %84, %79
   %120 = shl i64 %106, 3
   %121 = add i64 %120, 8
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %123 = load ptr, ptr %122, align 8, !tbaa !153
+  %123 = load ptr, ptr %122, align 8, !tbaa !152
   %124 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %125 = load ptr, ptr %124, align 8, !tbaa !155
+  %125 = load ptr, ptr %124, align 8, !tbaa !154
   %126 = ptrtoint ptr %123 to i64
   %127 = ptrtoint ptr %125 to i64
   %128 = sub i64 %126, %127
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %130 = load i32, ptr %129, align 4, !tbaa !156
+  %130 = load i32, ptr %129, align 4, !tbaa !155
   %.tr.i.i = trunc i64 %128 to i32
   %131 = shl i32 %.tr.i.i, 3
   %132 = add i32 %130, -32
@@ -2386,12 +2386,12 @@ cbs_mpeg2_write_slice_header.exit.i:              ; preds = %84, %79
   %.neg15.i = or i32 %108, -8
   %138 = sub nuw nsw i32 8, %136
   %139 = getelementptr inbounds nuw i8, ptr %115, i64 1
-  %140 = load i8, ptr %115, align 1, !tbaa !46
+  %140 = load i8, ptr %115, align 1, !tbaa !45
   %141 = zext i8 %140 to i32
   %notmask.i = shl nsw i32 -1, %138
   %142 = xor i32 %notmask.i, -1
   %143 = and i32 %141, %142
-  %144 = load i32, ptr %2, align 8, !tbaa !157
+  %144 = load i32, ptr %2, align 8, !tbaa !156
   %145 = icmp slt i32 %138, %130
   br i1 %145, label %146, label %150
 
@@ -2411,10 +2411,10 @@ cbs_mpeg2_write_slice_header.exit.i:              ; preds = %84, %79
   %155 = lshr i32 %143, %154
   %156 = or i32 %155, %153
   %157 = call i32 @llvm.bswap.i32(i32 %156)
-  store i32 %157, ptr %125, align 1, !tbaa !46
-  %158 = load ptr, ptr %124, align 8, !tbaa !155
+  store i32 %157, ptr %125, align 1, !tbaa !45
+  %158 = load ptr, ptr %124, align 8, !tbaa !154
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
-  store ptr %159, ptr %124, align 8, !tbaa !155
+  store ptr %159, ptr %124, align 8, !tbaa !154
   br label %161
 
 160:                                              ; preds = %150
@@ -2429,8 +2429,8 @@ cbs_mpeg2_write_slice_header.exit.i:              ; preds = %84, %79
 put_bits.exit.i:                                  ; preds = %161, %146
   %.026.i.i.i = phi i32 [ %148, %146 ], [ %143, %161 ]
   %.0.i.i.i = phi i32 [ %149, %146 ], [ %162, %161 ]
-  store i32 %.026.i.i.i, ptr %2, align 8, !tbaa !157
-  store i32 %.0.i.i.i, ptr %129, align 4, !tbaa !156
+  store i32 %.026.i.i.i, ptr %2, align 8, !tbaa !156
+  store i32 %.0.i.i.i, ptr %129, align 4, !tbaa !155
   br label %163
 
 163:                                              ; preds = %put_bits.exit.i, %135
@@ -2447,7 +2447,7 @@ put_bits.exit.i:                                  ; preds = %161, %146
   br i1 %168, label %.lr.ph.preheader.i, label %.preheader7..preheader_crit_edge.i
 
 .preheader7..preheader_crit_edge.i:               ; preds = %.preheader7.i
-  %.pre17.pre.i = load i32, ptr %2, align 8, !tbaa !157
+  %.pre17.pre.i = load i32, ptr %2, align 8, !tbaa !156
   br label %.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader7.i
@@ -2460,15 +2460,15 @@ put_bits.exit.i:                                  ; preds = %161, %146
   br i1 %172, label %.lr.ph.i.i, label %flush_put_bits.exit.i
 
 .lr.ph.i.i:                                       ; preds = %171
-  %173 = load i32, ptr %2, align 8, !tbaa !157
+  %173 = load i32, ptr %2, align 8, !tbaa !156
   %174 = shl i32 %173, %164
-  store i32 %174, ptr %2, align 8, !tbaa !157
+  store i32 %174, ptr %2, align 8, !tbaa !156
   br label %175
 
 175:                                              ; preds = %181, %.lr.ph.i.i
   %176 = phi i32 [ %186, %181 ], [ %174, %.lr.ph.i.i ]
-  %177 = load ptr, ptr %124, align 8, !tbaa !155
-  %178 = load ptr, ptr %122, align 8, !tbaa !153
+  %177 = load ptr, ptr %124, align 8, !tbaa !154
+  %178 = load ptr, ptr %122, align 8, !tbaa !152
   %179 = icmp ult ptr %177, %178
   br i1 %179, label %181, label %180
 
@@ -2481,26 +2481,26 @@ put_bits.exit.i:                                  ; preds = %161, %146
   %182 = lshr i32 %176, 24
   %183 = trunc nuw i32 %182 to i8
   %184 = getelementptr inbounds nuw i8, ptr %177, i64 1
-  store ptr %184, ptr %124, align 8, !tbaa !155
-  store i8 %183, ptr %177, align 1, !tbaa !46
-  %185 = load i32, ptr %2, align 8, !tbaa !157
+  store ptr %184, ptr %124, align 8, !tbaa !154
+  store i8 %183, ptr %177, align 1, !tbaa !45
+  %185 = load i32, ptr %2, align 8, !tbaa !156
   %186 = shl i32 %185, 8
-  store i32 %186, ptr %2, align 8, !tbaa !157
-  %187 = load i32, ptr %129, align 4, !tbaa !156
+  store i32 %186, ptr %2, align 8, !tbaa !156
+  %187 = load i32, ptr %129, align 4, !tbaa !155
   %188 = add nsw i32 %187, 8
-  store i32 %188, ptr %129, align 4, !tbaa !156
+  store i32 %188, ptr %129, align 4, !tbaa !155
   %189 = icmp slt i32 %187, 24
-  br i1 %189, label %175, label %flush_put_bits.exit.i, !llvm.loop !158
+  br i1 %189, label %175, label %flush_put_bits.exit.i, !llvm.loop !157
 
 flush_put_bits.exit.i:                            ; preds = %181, %171
-  store i32 32, ptr %129, align 4, !tbaa !156
-  store i32 0, ptr %2, align 8, !tbaa !157
-  %.val.i = load ptr, ptr %124, align 8, !tbaa !155
+  store i32 32, ptr %129, align 4, !tbaa !155
+  store i32 0, ptr %2, align 8, !tbaa !156
+  %.val.i = load ptr, ptr %124, align 8, !tbaa !154
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.val.i, ptr align 1 %.0.i, i64 %112, i1 false)
   %sext.i = shl i64 %112, 32
   %190 = ashr exact i64 %sext.i, 32
-  %191 = load ptr, ptr %122, align 8, !tbaa !153
-  %192 = load ptr, ptr %124, align 8, !tbaa !155
+  %191 = load ptr, ptr %122, align 8, !tbaa !152
+  %192 = load ptr, ptr %124, align 8, !tbaa !154
   %193 = ptrtoint ptr %191 to i64
   %194 = ptrtoint ptr %192 to i64
   %195 = sub i64 %193, %194
@@ -2514,7 +2514,7 @@ flush_put_bits.exit.i:                            ; preds = %181, %171
 
 skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit.i
   %197 = getelementptr inbounds i8, ptr %192, i64 %190
-  store ptr %197, ptr %124, align 8, !tbaa !155
+  store ptr %197, ptr %124, align 8, !tbaa !154
   br label %cbs_mpeg2_write_slice.exit
 
 .preheader.i:                                     ; preds = %put_bits32.exit.i, %.preheader7..preheader_crit_edge.i
@@ -2527,10 +2527,10 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
 .lr.ph.i:                                         ; preds = %put_bits32.exit.i, %.lr.ph.preheader.i
   %.19.i = phi ptr [ %218, %put_bits32.exit.i ], [ %.0.i, %.lr.ph.preheader.i ]
   %.0418.i = phi i64 [ %217, %put_bits32.exit.i ], [ %112, %.lr.ph.preheader.i ]
-  %198 = load i32, ptr %.19.i, align 1, !tbaa !46
+  %198 = load i32, ptr %.19.i, align 1, !tbaa !45
   %199 = call i32 @llvm.bswap.i32(i32 %198)
-  %200 = load ptr, ptr %122, align 8, !tbaa !153
-  %201 = load ptr, ptr %124, align 8, !tbaa !155
+  %200 = load ptr, ptr %122, align 8, !tbaa !152
+  %201 = load ptr, ptr %124, align 8, !tbaa !154
   %202 = ptrtoint ptr %200 to i64
   %203 = ptrtoint ptr %201 to i64
   %204 = sub i64 %202, %203
@@ -2538,17 +2538,17 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
   br i1 %205, label %206, label %216
 
 206:                                              ; preds = %.lr.ph.i
-  %207 = load i32, ptr %2, align 8, !tbaa !157
+  %207 = load i32, ptr %2, align 8, !tbaa !156
   %208 = zext i32 %207 to i64
   %209 = shl i64 %208, %169
   %210 = trunc i64 %209 to i32
   %211 = lshr i32 %199, %170
   %212 = or i32 %211, %210
   %213 = call i32 @llvm.bswap.i32(i32 %212)
-  store i32 %213, ptr %201, align 1, !tbaa !46
-  %214 = load ptr, ptr %124, align 8, !tbaa !155
+  store i32 %213, ptr %201, align 1, !tbaa !45
+  %214 = load ptr, ptr %124, align 8, !tbaa !154
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
-  store ptr %215, ptr %124, align 8, !tbaa !155
+  store ptr %215, ptr %124, align 8, !tbaa !154
   br label %put_bits32.exit.i
 
 216:                                              ; preds = %.lr.ph.i
@@ -2556,19 +2556,19 @@ skip_put_bytes.exit.i:                            ; preds = %flush_put_bits.exit
   br label %put_bits32.exit.i
 
 put_bits32.exit.i:                                ; preds = %216, %206
-  store i32 %199, ptr %2, align 8, !tbaa !157
-  store i32 %164, ptr %129, align 4, !tbaa !156
+  store i32 %199, ptr %2, align 8, !tbaa !156
+  store i32 %164, ptr %129, align 4, !tbaa !155
   %217 = add i64 %.0418.i, -4
   %218 = getelementptr inbounds nuw i8, ptr %.19.i, i64 4
   %219 = icmp ugt i64 %217, 3
-  br i1 %219, label %.lr.ph.i, label %.preheader.i, !llvm.loop !159
+  br i1 %219, label %.lr.ph.i, label %.preheader.i, !llvm.loop !158
 
 .lr.ph14.i:                                       ; preds = %.preheader.i, %put_bits.exit59.i
   %220 = phi i32 [ %244, %put_bits.exit59.i ], [ %164, %.preheader.i ]
   %221 = phi i32 [ %.026.i.i57.i, %put_bits.exit59.i ], [ %.pre17.i, %.preheader.i ]
   %.213.i = phi ptr [ %246, %put_bits.exit59.i ], [ %.1.lcssa.i, %.preheader.i ]
   %.14212.i = phi i64 [ %245, %put_bits.exit59.i ], [ %.041.lcssa.i, %.preheader.i ]
-  %222 = load i8, ptr %.213.i, align 1, !tbaa !46
+  %222 = load i8, ptr %.213.i, align 1, !tbaa !45
   %223 = zext i8 %222 to i32
   %224 = icmp sgt i32 %220, 8
   br i1 %224, label %225, label %228
@@ -2579,8 +2579,8 @@ put_bits32.exit.i:                                ; preds = %216, %206
   br label %put_bits.exit59.i
 
 228:                                              ; preds = %.lr.ph14.i
-  %229 = load ptr, ptr %122, align 8, !tbaa !153
-  %230 = load ptr, ptr %124, align 8, !tbaa !155
+  %229 = load ptr, ptr %122, align 8, !tbaa !152
+  %230 = load ptr, ptr %124, align 8, !tbaa !154
   %231 = ptrtoint ptr %229 to i64
   %232 = ptrtoint ptr %230 to i64
   %233 = sub i64 %231, %232
@@ -2593,10 +2593,10 @@ put_bits32.exit.i:                                ; preds = %216, %206
   %238 = lshr i32 %223, %237
   %239 = or i32 %238, %236
   %240 = call i32 @llvm.bswap.i32(i32 %239)
-  store i32 %240, ptr %230, align 1, !tbaa !46
-  %241 = load ptr, ptr %124, align 8, !tbaa !155
+  store i32 %240, ptr %230, align 1, !tbaa !45
+  %241 = load ptr, ptr %124, align 8, !tbaa !154
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
-  store ptr %242, ptr %124, align 8, !tbaa !155
+  store ptr %242, ptr %124, align 8, !tbaa !154
   br label %put_bits.exit59.i
 
 243:                                              ; preds = %228
@@ -2607,18 +2607,18 @@ put_bits.exit59.i:                                ; preds = %243, %235, %225
   %.sink.i = phi i32 [ -8, %225 ], [ 24, %243 ], [ 24, %235 ]
   %.026.i.i57.i = phi i32 [ %227, %225 ], [ %223, %243 ], [ %223, %235 ]
   %244 = add nsw i32 %.sink.i, %220
-  store i32 %.026.i.i57.i, ptr %2, align 8, !tbaa !157
-  store i32 %244, ptr %129, align 4, !tbaa !156
+  store i32 %.026.i.i57.i, ptr %2, align 8, !tbaa !156
+  store i32 %244, ptr %129, align 4, !tbaa !155
   %245 = add nsw i64 %.14212.i, -1
   %246 = getelementptr inbounds nuw i8, ptr %.213.i, i64 1
   %.not51.i = icmp eq i64 %245, 0
-  br i1 %.not51.i, label %._crit_edge.i, label %.lr.ph14.i, !llvm.loop !160
+  br i1 %.not51.i, label %._crit_edge.i, label %.lr.ph14.i, !llvm.loop !159
 
 ._crit_edge.i:                                    ; preds = %put_bits.exit59.i, %.preheader.i
   %247 = phi i32 [ %.pre17.i, %.preheader.i ], [ %.026.i.i57.i, %put_bits.exit59.i ]
   %248 = phi i32 [ %164, %.preheader.i ], [ %244, %put_bits.exit59.i ]
-  %249 = load ptr, ptr %124, align 8, !tbaa !155
-  %250 = load ptr, ptr %165, align 8, !tbaa !161
+  %249 = load ptr, ptr %124, align 8, !tbaa !154
+  %250 = load ptr, ptr %165, align 8, !tbaa !160
   %251 = ptrtoint ptr %249 to i64
   %252 = ptrtoint ptr %250 to i64
   %253 = sub i64 %251, %252
@@ -2637,7 +2637,7 @@ put_bits.exit59.i:                                ; preds = %243, %235, %225
   br label %put_bits.exit65.i
 
 262:                                              ; preds = %._crit_edge.i
-  %263 = load ptr, ptr %122, align 8, !tbaa !153
+  %263 = load ptr, ptr %122, align 8, !tbaa !152
   %264 = ptrtoint ptr %263 to i64
   %265 = sub i64 %264, %251
   %266 = icmp ugt i64 %265, 3
@@ -2646,10 +2646,10 @@ put_bits.exit59.i:                                ; preds = %243, %235, %225
 267:                                              ; preds = %262
   %268 = shl i32 %247, %248
   %269 = call i32 @llvm.bswap.i32(i32 %268)
-  store i32 %269, ptr %249, align 1, !tbaa !46
-  %270 = load ptr, ptr %124, align 8, !tbaa !155
+  store i32 %269, ptr %249, align 1, !tbaa !45
+  %270 = load ptr, ptr %124, align 8, !tbaa !154
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 4
-  store ptr %271, ptr %124, align 8, !tbaa !155
+  store ptr %271, ptr %124, align 8, !tbaa !154
   br label %273
 
 272:                                              ; preds = %262
@@ -2664,8 +2664,8 @@ put_bits.exit59.i:                                ; preds = %243, %235, %225
 put_bits.exit65.i:                                ; preds = %273, %259
   %.026.i.i63.i = phi i32 [ %260, %259 ], [ 0, %273 ]
   %.0.i.i64.i = phi i32 [ %261, %259 ], [ %274, %273 ]
-  store i32 %.026.i.i63.i, ptr %2, align 8, !tbaa !157
-  store i32 %.0.i.i64.i, ptr %129, align 4, !tbaa !156
+  store i32 %.026.i.i63.i, ptr %2, align 8, !tbaa !156
+  store i32 %.0.i.i64.i, ptr %129, align 4, !tbaa !155
   br label %cbs_mpeg2_write_slice.exit
 
 275:                                              ; preds = %3
@@ -2680,9 +2680,9 @@ put_bits.exit65.i:                                ; preds = %273, %259
 
 276:                                              ; preds = %275
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %278 = load ptr, ptr %277, align 8, !tbaa !30
+  %278 = load ptr, ptr %277, align 8, !tbaa !29
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.12) #7
-  %279 = load i8, ptr %278, align 8, !tbaa !57
+  %279 = load i8, ptr %278, align 8, !tbaa !56
   %280 = zext i8 %279 to i32
   %281 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.13, i32 noundef %280) #7
   %282 = icmp slt i32 %281, 0
@@ -2690,7 +2690,7 @@ put_bits.exit65.i:                                ; preds = %273, %259
 
 283:                                              ; preds = %276
   %284 = getelementptr inbounds nuw i8, ptr %278, i64 2
-  %285 = load i16, ptr %284, align 2, !tbaa !59
+  %285 = load i16, ptr %284, align 2, !tbaa !58
   %286 = zext i16 %285 to i32
   %287 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 10, ptr noundef nonnull @.str.14, i32 noundef %286) #7
   %288 = icmp slt i32 %287, 0
@@ -2698,7 +2698,7 @@ put_bits.exit65.i:                                ; preds = %273, %259
 
 289:                                              ; preds = %283
   %290 = getelementptr inbounds nuw i8, ptr %278, i64 4
-  %291 = load i8, ptr %290, align 4, !tbaa !60
+  %291 = load i8, ptr %290, align 4, !tbaa !59
   %292 = zext i8 %291 to i32
   %293 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.15, ptr noundef null, i32 noundef %292, i32 noundef 1, i32 noundef 7) #7
   %294 = icmp slt i32 %293, 0
@@ -2706,21 +2706,21 @@ put_bits.exit65.i:                                ; preds = %273, %259
 
 295:                                              ; preds = %289
   %296 = getelementptr inbounds nuw i8, ptr %278, i64 6
-  %297 = load i16, ptr %296, align 2, !tbaa !61
+  %297 = load i16, ptr %296, align 2, !tbaa !60
   %298 = zext i16 %297 to i32
   %299 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.16, i32 noundef %298) #7
   %300 = icmp slt i32 %299, 0
   br i1 %300, label %cbs_mpeg2_write_slice.exit, label %301
 
 301:                                              ; preds = %295
-  %302 = load i8, ptr %290, align 4, !tbaa !60
+  %302 = load i8, ptr %290, align 4, !tbaa !59
   %303 = and i8 %302, -2
   %switch.i.i = icmp eq i8 %303, 2
   br i1 %switch.i.i, label %304, label %.thread.i.i
 
 304:                                              ; preds = %301
   %305 = getelementptr inbounds nuw i8, ptr %278, i64 8
-  %306 = load i8, ptr %305, align 8, !tbaa !62
+  %306 = load i8, ptr %305, align 8, !tbaa !61
   %307 = zext i8 %306 to i32
   %308 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.17, i32 noundef %307) #7
   %309 = icmp slt i32 %308, 0
@@ -2728,20 +2728,20 @@ put_bits.exit65.i:                                ; preds = %273, %259
 
 310:                                              ; preds = %304
   %311 = getelementptr inbounds nuw i8, ptr %278, i64 9
-  %312 = load i8, ptr %311, align 1, !tbaa !63
+  %312 = load i8, ptr %311, align 1, !tbaa !62
   %313 = zext i8 %312 to i32
   %314 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.18, i32 noundef %313) #7
   %315 = icmp slt i32 %314, 0
   br i1 %315, label %cbs_mpeg2_write_slice.exit, label %316
 
 316:                                              ; preds = %310
-  %.pr.i.i = load i8, ptr %290, align 4, !tbaa !60
+  %.pr.i.i = load i8, ptr %290, align 4, !tbaa !59
   %317 = icmp eq i8 %.pr.i.i, 3
   br i1 %317, label %318, label %.thread.i.i
 
 318:                                              ; preds = %316
   %319 = getelementptr inbounds nuw i8, ptr %278, i64 10
-  %320 = load i8, ptr %319, align 2, !tbaa !64
+  %320 = load i8, ptr %319, align 2, !tbaa !63
   %321 = zext i8 %320 to i32
   %322 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.19, i32 noundef %321) #7
   %323 = icmp slt i32 %322, 0
@@ -2749,7 +2749,7 @@ put_bits.exit65.i:                                ; preds = %273, %259
 
 324:                                              ; preds = %318
   %325 = getelementptr inbounds nuw i8, ptr %278, i64 11
-  %326 = load i8, ptr %325, align 1, !tbaa !65
+  %326 = load i8, ptr %325, align 1, !tbaa !64
   %327 = zext i8 %326 to i32
   %328 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.20, i32 noundef %327) #7
   %329 = icmp slt i32 %328, 0
@@ -2759,7 +2759,7 @@ put_bits.exit65.i:                                ; preds = %273, %259
   %330 = getelementptr inbounds nuw i8, ptr %278, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   %331 = getelementptr inbounds nuw i8, ptr %278, i64 32
-  %332 = load i64, ptr %331, align 8, !tbaa !150
+  %332 = load i64, ptr %331, align 8, !tbaa !149
   %.not.i.i.i11 = icmp eq i64 %332, 0
   br i1 %.not.i.i.i11, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i12
 
@@ -2769,9 +2769,9 @@ put_bits.exit65.i:                                ; preds = %273, %259
 
 334:                                              ; preds = %341
   %335 = add nuw i64 %.02833.i.i.i13, 1
-  %336 = load i64, ptr %331, align 8, !tbaa !150
+  %336 = load i64, ptr %331, align 8, !tbaa !149
   %337 = icmp ult i64 %335, %336
-  br i1 %337, label %338, label %._crit_edge.i.i.i, !llvm.loop !151
+  br i1 %337, label %338, label %._crit_edge.i.i.i, !llvm.loop !150
 
 338:                                              ; preds = %334, %.lr.ph.i.i.i12
   %.02833.i.i.i13 = phi i64 [ 0, %.lr.ph.i.i.i12 ], [ %335, %334 ]
@@ -2783,9 +2783,9 @@ put_bits.exit65.i:                                ; preds = %273, %259
   store i32 1, ptr %13, align 4, !tbaa !4
   %342 = trunc i64 %.02833.i.i.i13 to i32
   store i32 %342, ptr %333, align 4, !tbaa !4
-  %343 = load ptr, ptr %330, align 8, !tbaa !152
+  %343 = load ptr, ptr %330, align 8, !tbaa !151
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 %.02833.i.i.i13
-  %345 = load i8, ptr %344, align 1, !tbaa !46
+  %345 = load i8, ptr %344, align 1, !tbaa !45
   %346 = zext i8 %345 to i32
   %347 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.21, ptr noundef nonnull %13, i32 noundef %346, i32 noundef 0, i32 noundef 255) #7
   %348 = icmp slt i32 %347, 0
@@ -2803,10 +2803,10 @@ cbs_mpeg2_write_extra_information.exit.i.i:       ; preds = %341, %338, %._crit_
 
 350:                                              ; preds = %275
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %352 = load ptr, ptr %351, align 8, !tbaa !30
+  %352 = load ptr, ptr %351, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.23) #7
-  %353 = load i8, ptr %352, align 8, !tbaa !66
+  %353 = load i8, ptr %352, align 8, !tbaa !65
   %354 = zext i8 %353 to i32
   %355 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.24, i32 noundef %354) #7
   %356 = icmp slt i32 %355, 0
@@ -2814,7 +2814,7 @@ cbs_mpeg2_write_extra_information.exit.i.i:       ; preds = %341, %338, %._crit_
 
 .preheader.i.i:                                   ; preds = %350
   %357 = getelementptr inbounds nuw i8, ptr %352, i64 24
-  %358 = load i64, ptr %357, align 8, !tbaa !68
+  %358 = load i64, ptr %357, align 8, !tbaa !67
   %.not.i.i9 = icmp eq i64 %358, 0
   br i1 %.not.i.i9, label %cbs_mpeg2_write_user_data.exit.i, label %.lr.ph.i.i10
 
@@ -2825,18 +2825,18 @@ cbs_mpeg2_write_extra_information.exit.i.i:       ; preds = %341, %338, %._crit_
 
 361:                                              ; preds = %365
   %362 = add nuw i64 %.019.i.i, 1
-  %363 = load i64, ptr %357, align 8, !tbaa !68
+  %363 = load i64, ptr %357, align 8, !tbaa !67
   %364 = icmp ult i64 %362, %363
-  br i1 %364, label %365, label %cbs_mpeg2_write_user_data.exit.i, !llvm.loop !162
+  br i1 %364, label %365, label %cbs_mpeg2_write_user_data.exit.i, !llvm.loop !161
 
 365:                                              ; preds = %361, %.lr.ph.i.i10
   %.019.i.i = phi i64 [ 0, %.lr.ph.i.i10 ], [ %362, %361 ]
   store i32 1, ptr %12, align 4, !tbaa !4
   %366 = trunc i64 %.019.i.i to i32
   store i32 %366, ptr %359, align 4, !tbaa !4
-  %367 = load ptr, ptr %360, align 8, !tbaa !73
+  %367 = load ptr, ptr %360, align 8, !tbaa !72
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 %.019.i.i
-  %369 = load i8, ptr %368, align 1, !tbaa !46
+  %369 = load i8, ptr %368, align 1, !tbaa !45
   %370 = zext i8 %369 to i32
   %371 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.28, ptr noundef nonnull %12, i32 noundef %370, i32 noundef 0, i32 noundef 255) #7
   %372 = icmp slt i32 %371, 0
@@ -2849,13 +2849,13 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
 
 373:                                              ; preds = %275
   %374 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %375 = load ptr, ptr %374, align 8, !tbaa !30
+  %375 = load ptr, ptr %374, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %377 = load ptr, ptr %376, align 8, !tbaa !31
+  %377 = load ptr, ptr %376, align 8, !tbaa !30
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.29) #7
-  %378 = load i8, ptr %375, align 4, !tbaa !75
+  %378 = load i8, ptr %375, align 4, !tbaa !74
   %379 = zext i8 %378 to i32
   %380 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.30, i32 noundef %379) #7
   %381 = icmp slt i32 %380, 0
@@ -2863,7 +2863,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
 
 382:                                              ; preds = %373
   %383 = getelementptr inbounds nuw i8, ptr %375, i64 2
-  %384 = load i16, ptr %383, align 2, !tbaa !77
+  %384 = load i16, ptr %383, align 2, !tbaa !76
   %385 = zext i16 %384 to i32
   %386 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 12, ptr noundef nonnull @.str.31, ptr noundef null, i32 noundef %385, i32 noundef 1, i32 noundef 4095) #7
   %387 = icmp slt i32 %386, 0
@@ -2871,20 +2871,20 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
 
 388:                                              ; preds = %382
   %389 = getelementptr inbounds nuw i8, ptr %375, i64 4
-  %390 = load i16, ptr %389, align 4, !tbaa !78
+  %390 = load i16, ptr %389, align 4, !tbaa !77
   %391 = zext i16 %390 to i32
   %392 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 12, ptr noundef nonnull @.str.32, ptr noundef null, i32 noundef %391, i32 noundef 1, i32 noundef 4095) #7
   %393 = icmp slt i32 %392, 0
   br i1 %393, label %cbs_mpeg2_write_sequence_header.exit.i, label %394
 
 394:                                              ; preds = %388
-  %395 = load i16, ptr %383, align 2, !tbaa !77
-  store i16 %395, ptr %377, align 2, !tbaa !79
-  %396 = load i16, ptr %389, align 4, !tbaa !78
+  %395 = load i16, ptr %383, align 2, !tbaa !76
+  store i16 %395, ptr %377, align 2, !tbaa !78
+  %396 = load i16, ptr %389, align 4, !tbaa !77
   %397 = getelementptr inbounds nuw i8, ptr %377, i64 2
-  store i16 %396, ptr %397, align 2, !tbaa !38
+  store i16 %396, ptr %397, align 2, !tbaa !37
   %398 = getelementptr inbounds nuw i8, ptr %375, i64 6
-  %399 = load i8, ptr %398, align 2, !tbaa !80
+  %399 = load i8, ptr %398, align 2, !tbaa !79
   %400 = zext i8 %399 to i32
   %401 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.33, ptr noundef null, i32 noundef %400, i32 noundef 1, i32 noundef 15) #7
   %402 = icmp slt i32 %401, 0
@@ -2892,7 +2892,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
 
 403:                                              ; preds = %394
   %404 = getelementptr inbounds nuw i8, ptr %375, i64 7
-  %405 = load i8, ptr %404, align 1, !tbaa !81
+  %405 = load i8, ptr %404, align 1, !tbaa !80
   %406 = zext i8 %405 to i32
   %407 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.34, ptr noundef null, i32 noundef %406, i32 noundef 1, i32 noundef 15) #7
   %408 = icmp slt i32 %407, 0
@@ -2900,7 +2900,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
 
 409:                                              ; preds = %403
   %410 = getelementptr inbounds nuw i8, ptr %375, i64 8
-  %411 = load i32, ptr %410, align 4, !tbaa !82
+  %411 = load i32, ptr %410, align 4, !tbaa !81
   %412 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 18, ptr noundef nonnull @.str.35, i32 noundef %411) #7
   %413 = icmp slt i32 %412, 0
   br i1 %413, label %cbs_mpeg2_write_sequence_header.exit.i, label %414
@@ -2912,7 +2912,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
 
 417:                                              ; preds = %414
   %418 = getelementptr inbounds nuw i8, ptr %375, i64 12
-  %419 = load i16, ptr %418, align 4, !tbaa !83
+  %419 = load i16, ptr %418, align 4, !tbaa !82
   %420 = zext i16 %419 to i32
   %421 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 10, ptr noundef nonnull @.str.37, i32 noundef %420) #7
   %422 = icmp slt i32 %421, 0
@@ -2920,7 +2920,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
 
 423:                                              ; preds = %417
   %424 = getelementptr inbounds nuw i8, ptr %375, i64 14
-  %425 = load i8, ptr %424, align 2, !tbaa !84
+  %425 = load i8, ptr %424, align 2, !tbaa !83
   %426 = zext i8 %425 to i32
   %427 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.38, i32 noundef %426) #7
   %428 = icmp slt i32 %427, 0
@@ -2928,14 +2928,14 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
 
 429:                                              ; preds = %423
   %430 = getelementptr inbounds nuw i8, ptr %375, i64 15
-  %431 = load i8, ptr %430, align 1, !tbaa !85
+  %431 = load i8, ptr %430, align 1, !tbaa !84
   %432 = zext i8 %431 to i32
   %433 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.39, i32 noundef %432) #7
   %434 = icmp slt i32 %433, 0
   br i1 %434, label %cbs_mpeg2_write_sequence_header.exit.i, label %435
 
 435:                                              ; preds = %429
-  %436 = load i8, ptr %430, align 1, !tbaa !85
+  %436 = load i8, ptr %430, align 1, !tbaa !84
   %.not.i24.i = icmp eq i8 %436, 0
   br i1 %.not.i24.i, label %.loopexit99.i.i, label %.preheader98.i.i
 
@@ -2947,7 +2947,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
 439:                                              ; preds = %440
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 64
-  br i1 %exitcond.not.i.i, label %.loopexit99.i.i, label %440, !llvm.loop !163
+  br i1 %exitcond.not.i.i, label %.loopexit99.i.i, label %440, !llvm.loop !162
 
 440:                                              ; preds = %439, %.preheader98.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader98.i.i ], [ %indvars.iv.next.i.i, %439 ]
@@ -2955,7 +2955,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
   %441 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %441, ptr %437, align 4, !tbaa !4
   %442 = getelementptr inbounds nuw [64 x i8], ptr %438, i64 0, i64 %indvars.iv.i.i
-  %443 = load i8, ptr %442, align 1, !tbaa !46
+  %443 = load i8, ptr %442, align 1, !tbaa !45
   %444 = zext i8 %443 to i32
   %445 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.40, ptr noundef nonnull %10, i32 noundef %444, i32 noundef 1, i32 noundef 255) #7
   %446 = icmp slt i32 %445, 0
@@ -2963,14 +2963,14 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
 
 .loopexit99.i.i:                                  ; preds = %439, %435
   %447 = getelementptr inbounds nuw i8, ptr %375, i64 80
-  %448 = load i8, ptr %447, align 4, !tbaa !87
+  %448 = load i8, ptr %447, align 4, !tbaa !86
   %449 = zext i8 %448 to i32
   %450 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.41, i32 noundef %449) #7
   %451 = icmp slt i32 %450, 0
   br i1 %451, label %cbs_mpeg2_write_sequence_header.exit.i, label %452
 
 452:                                              ; preds = %.loopexit99.i.i
-  %453 = load i8, ptr %447, align 4, !tbaa !87
+  %453 = load i8, ptr %447, align 4, !tbaa !86
   %.not97.i.i = icmp eq i8 %453, 0
   br i1 %.not97.i.i, label %cbs_mpeg2_write_sequence_header.exit.i, label %.preheader.i25.i
 
@@ -2982,7 +2982,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
 456:                                              ; preds = %457
   %indvars.iv.next107.i.i = add nuw nsw i64 %indvars.iv106.i.i, 1
   %exitcond109.not.i.i = icmp eq i64 %indvars.iv.next107.i.i, 64
-  br i1 %exitcond109.not.i.i, label %cbs_mpeg2_write_sequence_header.exit.i, label %457, !llvm.loop !164
+  br i1 %exitcond109.not.i.i, label %cbs_mpeg2_write_sequence_header.exit.i, label %457, !llvm.loop !163
 
 457:                                              ; preds = %456, %.preheader.i25.i
   %indvars.iv106.i.i = phi i64 [ 0, %.preheader.i25.i ], [ %indvars.iv.next107.i.i, %456 ]
@@ -2990,7 +2990,7 @@ cbs_mpeg2_write_user_data.exit.i:                 ; preds = %365, %361, %.prehea
   %458 = trunc nuw nsw i64 %indvars.iv106.i.i to i32
   store i32 %458, ptr %454, align 4, !tbaa !4
   %459 = getelementptr inbounds nuw [64 x i8], ptr %455, i64 0, i64 %indvars.iv106.i.i
-  %460 = load i8, ptr %459, align 1, !tbaa !46
+  %460 = load i8, ptr %459, align 1, !tbaa !45
   %461 = zext i8 %460 to i32
   %462 = call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.42, ptr noundef nonnull %11, i32 noundef %461, i32 noundef 1, i32 noundef 255) #7
   %463 = icmp slt i32 %462, 0
@@ -3004,9 +3004,9 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 464:                                              ; preds = %275
   %465 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %466 = load ptr, ptr %465, align 8, !tbaa !30
+  %466 = load ptr, ptr %465, align 8, !tbaa !29
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.43) #7
-  %467 = load i8, ptr %466, align 2, !tbaa !89
+  %467 = load i8, ptr %466, align 2, !tbaa !88
   %468 = zext i8 %467 to i32
   %469 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.44, i32 noundef %468) #7
   %470 = icmp slt i32 %469, 0
@@ -3014,14 +3014,14 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 471:                                              ; preds = %464
   %472 = getelementptr inbounds nuw i8, ptr %466, i64 1
-  %473 = load i8, ptr %472, align 1, !tbaa !91
+  %473 = load i8, ptr %472, align 1, !tbaa !90
   %474 = zext i8 %473 to i32
   %475 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.45, i32 noundef %474) #7
   %476 = icmp slt i32 %475, 0
   br i1 %476, label %cbs_mpeg2_write_slice.exit, label %477
 
 477:                                              ; preds = %471
-  %478 = load i8, ptr %472, align 1, !tbaa !91
+  %478 = load i8, ptr %472, align 1, !tbaa !90
   switch i8 %478, label %873 [
     i8 1, label %479
     i8 2, label %558
@@ -3033,9 +3033,9 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 479:                                              ; preds = %477
   %480 = getelementptr inbounds nuw i8, ptr %466, i64 2
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %482 = load ptr, ptr %481, align 8, !tbaa !31
+  %482 = load ptr, ptr %481, align 8, !tbaa !30
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.47) #7
-  %483 = load i8, ptr %480, align 2, !tbaa !92
+  %483 = load i8, ptr %480, align 2, !tbaa !91
   %484 = zext i8 %483 to i32
   %485 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.48, i32 noundef %484) #7
   %486 = icmp slt i32 %485, 0
@@ -3043,7 +3043,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 487:                                              ; preds = %479
   %488 = getelementptr inbounds nuw i8, ptr %466, i64 3
-  %489 = load i8, ptr %488, align 1, !tbaa !94
+  %489 = load i8, ptr %488, align 1, !tbaa !93
   %490 = zext i8 %489 to i32
   %491 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.49, i32 noundef %490) #7
   %492 = icmp slt i32 %491, 0
@@ -3051,7 +3051,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 493:                                              ; preds = %487
   %494 = getelementptr inbounds nuw i8, ptr %466, i64 4
-  %495 = load i8, ptr %494, align 2, !tbaa !95
+  %495 = load i8, ptr %494, align 2, !tbaa !94
   %496 = zext i8 %495 to i32
   %497 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.50, i32 noundef %496) #7
   %498 = icmp slt i32 %497, 0
@@ -3059,7 +3059,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 499:                                              ; preds = %493
   %500 = getelementptr inbounds nuw i8, ptr %466, i64 5
-  %501 = load i8, ptr %500, align 1, !tbaa !96
+  %501 = load i8, ptr %500, align 1, !tbaa !95
   %502 = zext i8 %501 to i32
   %503 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.51, i32 noundef %502) #7
   %504 = icmp slt i32 %503, 0
@@ -3067,33 +3067,33 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 505:                                              ; preds = %499
   %506 = getelementptr inbounds nuw i8, ptr %466, i64 6
-  %507 = load i8, ptr %506, align 2, !tbaa !97
+  %507 = load i8, ptr %506, align 2, !tbaa !96
   %508 = zext i8 %507 to i32
   %509 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.52, i32 noundef %508) #7
   %510 = icmp slt i32 %509, 0
   br i1 %510, label %cbs_mpeg2_write_slice.exit, label %511
 
 511:                                              ; preds = %505
-  %512 = load i16, ptr %482, align 2, !tbaa !79
+  %512 = load i16, ptr %482, align 2, !tbaa !78
   %513 = and i16 %512, 4095
-  %514 = load i8, ptr %500, align 1, !tbaa !96
+  %514 = load i8, ptr %500, align 1, !tbaa !95
   %515 = zext i8 %514 to i16
   %516 = shl i16 %515, 12
   %517 = or disjoint i16 %516, %513
-  store i16 %517, ptr %482, align 2, !tbaa !79
+  store i16 %517, ptr %482, align 2, !tbaa !78
   %518 = getelementptr inbounds nuw i8, ptr %482, i64 2
-  %519 = load i16, ptr %518, align 2, !tbaa !38
+  %519 = load i16, ptr %518, align 2, !tbaa !37
   %520 = and i16 %519, 4095
-  %521 = load i8, ptr %506, align 2, !tbaa !97
+  %521 = load i8, ptr %506, align 2, !tbaa !96
   %522 = zext i8 %521 to i16
   %523 = shl i16 %522, 12
   %524 = or disjoint i16 %523, %520
-  store i16 %524, ptr %518, align 2, !tbaa !38
-  %525 = load i8, ptr %488, align 1, !tbaa !94
+  store i16 %524, ptr %518, align 2, !tbaa !37
+  %525 = load i8, ptr %488, align 1, !tbaa !93
   %526 = getelementptr inbounds nuw i8, ptr %482, i64 6
-  store i8 %525, ptr %526, align 2, !tbaa !98
+  store i8 %525, ptr %526, align 2, !tbaa !97
   %527 = getelementptr inbounds nuw i8, ptr %466, i64 8
-  %528 = load i16, ptr %527, align 2, !tbaa !99
+  %528 = load i16, ptr %527, align 2, !tbaa !98
   %529 = zext i16 %528 to i32
   %530 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 12, ptr noundef nonnull @.str.53, i32 noundef %529) #7
   %531 = icmp slt i32 %530, 0
@@ -3106,7 +3106,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 535:                                              ; preds = %532
   %536 = getelementptr inbounds nuw i8, ptr %466, i64 10
-  %537 = load i8, ptr %536, align 2, !tbaa !100
+  %537 = load i8, ptr %536, align 2, !tbaa !99
   %538 = zext i8 %537 to i32
   %539 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.54, i32 noundef %538) #7
   %540 = icmp slt i32 %539, 0
@@ -3114,7 +3114,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 541:                                              ; preds = %535
   %542 = getelementptr inbounds nuw i8, ptr %466, i64 11
-  %543 = load i8, ptr %542, align 1, !tbaa !101
+  %543 = load i8, ptr %542, align 1, !tbaa !100
   %544 = zext i8 %543 to i32
   %545 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.55, i32 noundef %544) #7
   %546 = icmp slt i32 %545, 0
@@ -3122,7 +3122,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 547:                                              ; preds = %541
   %548 = getelementptr inbounds nuw i8, ptr %466, i64 12
-  %549 = load i8, ptr %548, align 2, !tbaa !102
+  %549 = load i8, ptr %548, align 2, !tbaa !101
   %550 = zext i8 %549 to i32
   %551 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.56, i32 noundef %550) #7
   %552 = icmp slt i32 %551, 0
@@ -3130,7 +3130,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 553:                                              ; preds = %547
   %554 = getelementptr inbounds nuw i8, ptr %466, i64 13
-  %555 = load i8, ptr %554, align 1, !tbaa !103
+  %555 = load i8, ptr %554, align 1, !tbaa !102
   %556 = zext i8 %555 to i32
   %557 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 5, ptr noundef nonnull @.str.57, i32 noundef %556) #7
   %..i.i.i = tail call i32 @llvm.smin.i32(i32 %557, i32 0)
@@ -3139,7 +3139,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 558:                                              ; preds = %477
   %559 = getelementptr inbounds nuw i8, ptr %466, i64 2
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.58) #7
-  %560 = load i8, ptr %559, align 2, !tbaa !104
+  %560 = load i8, ptr %559, align 2, !tbaa !103
   %561 = zext i8 %560 to i32
   %562 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.59, i32 noundef %561) #7
   %563 = icmp slt i32 %562, 0
@@ -3147,17 +3147,17 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 564:                                              ; preds = %558
   %565 = getelementptr inbounds nuw i8, ptr %466, i64 3
-  %566 = load i8, ptr %565, align 1, !tbaa !106
+  %566 = load i8, ptr %565, align 1, !tbaa !105
   %567 = zext i8 %566 to i32
   %568 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.60, i32 noundef %567) #7
   %569 = icmp slt i32 %568, 0
   br i1 %569, label %cbs_mpeg2_write_slice.exit, label %570
 
 570:                                              ; preds = %564
-  %571 = load i8, ptr %565, align 1, !tbaa !106
+  %571 = load i8, ptr %565, align 1, !tbaa !105
   %.not.i.i28.i = icmp eq i8 %571, 0
   %572 = getelementptr inbounds nuw i8, ptr %466, i64 4
-  %573 = load i8, ptr %572, align 2, !tbaa !107
+  %573 = load i8, ptr %572, align 2, !tbaa !106
   br i1 %.not.i.i28.i, label %590, label %574
 
 574:                                              ; preds = %570
@@ -3168,7 +3168,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 578:                                              ; preds = %574
   %579 = getelementptr inbounds nuw i8, ptr %466, i64 5
-  %580 = load i8, ptr %579, align 1, !tbaa !109
+  %580 = load i8, ptr %579, align 1, !tbaa !108
   %581 = zext i8 %580 to i32
   %582 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.63, ptr noundef null, i32 noundef %581, i32 noundef 1, i32 noundef 255) #7
   %583 = icmp slt i32 %582, 0
@@ -3176,7 +3176,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 584:                                              ; preds = %578
   %585 = getelementptr inbounds nuw i8, ptr %466, i64 6
-  %586 = load i8, ptr %585, align 2, !tbaa !110
+  %586 = load i8, ptr %585, align 2, !tbaa !109
   %587 = zext i8 %586 to i32
   %588 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.64, ptr noundef null, i32 noundef %587, i32 noundef 1, i32 noundef 255) #7
   %589 = icmp slt i32 %588, 0
@@ -3187,38 +3187,38 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
   br i1 %.not60.i.i.i, label %594, label %591
 
 591:                                              ; preds = %590
-  %592 = load ptr, ptr %0, align 8, !tbaa !108
+  %592 = load ptr, ptr %0, align 8, !tbaa !107
   %593 = zext i8 %573 to i64
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %592, i32 noundef 24, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.61, i64 noundef %593, i64 noundef 2) #7
   br label %594
 
 594:                                              ; preds = %591, %590
   %595 = getelementptr inbounds nuw i8, ptr %466, i64 5
-  %596 = load i8, ptr %595, align 1, !tbaa !109
+  %596 = load i8, ptr %595, align 1, !tbaa !108
   %.not61.i.i.i = icmp eq i8 %596, 2
   br i1 %.not61.i.i.i, label %600, label %597
 
 597:                                              ; preds = %594
-  %598 = load ptr, ptr %0, align 8, !tbaa !108
+  %598 = load ptr, ptr %0, align 8, !tbaa !107
   %599 = zext i8 %596 to i64
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %598, i32 noundef 24, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.63, i64 noundef %599, i64 noundef 2) #7
   br label %600
 
 600:                                              ; preds = %597, %594
   %601 = getelementptr inbounds nuw i8, ptr %466, i64 6
-  %602 = load i8, ptr %601, align 2, !tbaa !110
+  %602 = load i8, ptr %601, align 2, !tbaa !109
   %.not62.i.i.i = icmp eq i8 %602, 2
   br i1 %.not62.i.i.i, label %606, label %603
 
 603:                                              ; preds = %600
-  %604 = load ptr, ptr %0, align 8, !tbaa !108
+  %604 = load ptr, ptr %0, align 8, !tbaa !107
   %605 = zext i8 %602 to i64
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %604, i32 noundef 24, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.64, i64 noundef %605, i64 noundef 2) #7
   br label %606
 
 606:                                              ; preds = %603, %600, %584
   %607 = getelementptr inbounds nuw i8, ptr %466, i64 8
-  %608 = load i16, ptr %607, align 2, !tbaa !111
+  %608 = load i16, ptr %607, align 2, !tbaa !110
   %609 = zext i16 %608 to i32
   %610 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 14, ptr noundef nonnull @.str.65, i32 noundef %609) #7
   %611 = icmp slt i32 %610, 0
@@ -3231,7 +3231,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 615:                                              ; preds = %612
   %616 = getelementptr inbounds nuw i8, ptr %466, i64 10
-  %617 = load i16, ptr %616, align 2, !tbaa !112
+  %617 = load i16, ptr %616, align 2, !tbaa !111
   %618 = zext i16 %617 to i32
   %619 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 14, ptr noundef nonnull @.str.66, i32 noundef %618) #7
   %..i32.i.i = tail call i32 @llvm.smin.i32(i32 %619, i32 0)
@@ -3244,14 +3244,14 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.67) #7
-  %622 = load i8, ptr %621, align 1, !tbaa !113
+  %622 = load i8, ptr %621, align 1, !tbaa !112
   %623 = zext i8 %622 to i32
   %624 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.39, i32 noundef %623) #7
   %625 = icmp slt i32 %624, 0
   br i1 %625, label %cbs_mpeg2_write_quant_matrix_extension.exit.i.i, label %626
 
 626:                                              ; preds = %620
-  %627 = load i8, ptr %621, align 1, !tbaa !113
+  %627 = load i8, ptr %621, align 1, !tbaa !112
   %.not.i33.i.i = icmp eq i8 %627, 0
   br i1 %.not.i33.i.i, label %.loopexit80.i.i.i, label %.preheader79.i.i.i
 
@@ -3263,7 +3263,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 630:                                              ; preds = %631
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 64
-  br i1 %exitcond.not.i.i.i, label %.loopexit80.i.i.i, label %631, !llvm.loop !165
+  br i1 %exitcond.not.i.i.i, label %.loopexit80.i.i.i, label %631, !llvm.loop !164
 
 631:                                              ; preds = %630, %.preheader79.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader79.i.i.i ], [ %indvars.iv.next.i.i.i, %630 ]
@@ -3271,7 +3271,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
   %632 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   store i32 %632, ptr %628, align 4, !tbaa !4
   %633 = getelementptr inbounds nuw [64 x i8], ptr %629, i64 0, i64 %indvars.iv.i.i.i
-  %634 = load i8, ptr %633, align 1, !tbaa !46
+  %634 = load i8, ptr %633, align 1, !tbaa !45
   %635 = zext i8 %634 to i32
   %636 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.40, ptr noundef nonnull %6, i32 noundef %635, i32 noundef 1, i32 noundef 255) #7
   %637 = icmp slt i32 %636, 0
@@ -3279,14 +3279,14 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 .loopexit80.i.i.i:                                ; preds = %630, %626
   %638 = getelementptr inbounds nuw i8, ptr %466, i64 67
-  %639 = load i8, ptr %638, align 1, !tbaa !116
+  %639 = load i8, ptr %638, align 1, !tbaa !115
   %640 = zext i8 %639 to i32
   %641 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.41, i32 noundef %640) #7
   %642 = icmp slt i32 %641, 0
   br i1 %642, label %cbs_mpeg2_write_quant_matrix_extension.exit.i.i, label %643
 
 643:                                              ; preds = %.loopexit80.i.i.i
-  %644 = load i8, ptr %638, align 1, !tbaa !116
+  %644 = load i8, ptr %638, align 1, !tbaa !115
   %.not70.i.i.i = icmp eq i8 %644, 0
   br i1 %.not70.i.i.i, label %.loopexit77.i.i.i, label %.preheader76.i.i.i
 
@@ -3298,7 +3298,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 647:                                              ; preds = %648
   %indvars.iv.next98.i.i.i = add nuw nsw i64 %indvars.iv97.i.i.i, 1
   %exitcond100.not.i.i.i = icmp eq i64 %indvars.iv.next98.i.i.i, 64
-  br i1 %exitcond100.not.i.i.i, label %.loopexit77.i.i.i, label %648, !llvm.loop !166
+  br i1 %exitcond100.not.i.i.i, label %.loopexit77.i.i.i, label %648, !llvm.loop !165
 
 648:                                              ; preds = %647, %.preheader76.i.i.i
   %indvars.iv97.i.i.i = phi i64 [ 0, %.preheader76.i.i.i ], [ %indvars.iv.next98.i.i.i, %647 ]
@@ -3306,7 +3306,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
   %649 = trunc nuw nsw i64 %indvars.iv97.i.i.i to i32
   store i32 %649, ptr %645, align 4, !tbaa !4
   %650 = getelementptr inbounds nuw [64 x i8], ptr %646, i64 0, i64 %indvars.iv97.i.i.i
-  %651 = load i8, ptr %650, align 1, !tbaa !46
+  %651 = load i8, ptr %650, align 1, !tbaa !45
   %652 = zext i8 %651 to i32
   %653 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.42, ptr noundef nonnull %7, i32 noundef %652, i32 noundef 1, i32 noundef 255) #7
   %654 = icmp slt i32 %653, 0
@@ -3314,14 +3314,14 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 .loopexit77.i.i.i:                                ; preds = %647, %643
   %655 = getelementptr inbounds nuw i8, ptr %466, i64 132
-  %656 = load i8, ptr %655, align 1, !tbaa !118
+  %656 = load i8, ptr %655, align 1, !tbaa !117
   %657 = zext i8 %656 to i32
   %658 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.68, i32 noundef %657) #7
   %659 = icmp slt i32 %658, 0
   br i1 %659, label %cbs_mpeg2_write_quant_matrix_extension.exit.i.i, label %660
 
 660:                                              ; preds = %.loopexit77.i.i.i
-  %661 = load i8, ptr %655, align 1, !tbaa !118
+  %661 = load i8, ptr %655, align 1, !tbaa !117
   %.not71.i.i.i = icmp eq i8 %661, 0
   br i1 %.not71.i.i.i, label %.loopexit74.i.i.i, label %.preheader73.i.i.i
 
@@ -3333,7 +3333,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 664:                                              ; preds = %665
   %indvars.iv.next102.i.i.i = add nuw nsw i64 %indvars.iv101.i.i.i, 1
   %exitcond104.not.i.i.i = icmp eq i64 %indvars.iv.next102.i.i.i, 64
-  br i1 %exitcond104.not.i.i.i, label %.loopexit74.i.i.i, label %665, !llvm.loop !167
+  br i1 %exitcond104.not.i.i.i, label %.loopexit74.i.i.i, label %665, !llvm.loop !166
 
 665:                                              ; preds = %664, %.preheader73.i.i.i
   %indvars.iv101.i.i.i = phi i64 [ 0, %.preheader73.i.i.i ], [ %indvars.iv.next102.i.i.i, %664 ]
@@ -3341,7 +3341,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
   %666 = trunc nuw nsw i64 %indvars.iv101.i.i.i to i32
   store i32 %666, ptr %662, align 4, !tbaa !4
   %667 = getelementptr inbounds nuw [64 x i8], ptr %663, i64 0, i64 %indvars.iv101.i.i.i
-  %668 = load i8, ptr %667, align 1, !tbaa !46
+  %668 = load i8, ptr %667, align 1, !tbaa !45
   %669 = zext i8 %668 to i32
   %670 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.40, ptr noundef nonnull %8, i32 noundef %669, i32 noundef 1, i32 noundef 255) #7
   %671 = icmp slt i32 %670, 0
@@ -3349,14 +3349,14 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 
 .loopexit74.i.i.i:                                ; preds = %664, %660
   %672 = getelementptr inbounds nuw i8, ptr %466, i64 197
-  %673 = load i8, ptr %672, align 1, !tbaa !120
+  %673 = load i8, ptr %672, align 1, !tbaa !119
   %674 = zext i8 %673 to i32
   %675 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.69, i32 noundef %674) #7
   %676 = icmp slt i32 %675, 0
   br i1 %676, label %cbs_mpeg2_write_quant_matrix_extension.exit.i.i, label %677
 
 677:                                              ; preds = %.loopexit74.i.i.i
-  %678 = load i8, ptr %672, align 1, !tbaa !120
+  %678 = load i8, ptr %672, align 1, !tbaa !119
   %.not72.i.i.i = icmp eq i8 %678, 0
   br i1 %.not72.i.i.i, label %cbs_mpeg2_write_quant_matrix_extension.exit.i.i, label %.preheader.i.i.i
 
@@ -3368,7 +3368,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
 681:                                              ; preds = %682
   %indvars.iv.next106.i.i.i = add nuw nsw i64 %indvars.iv105.i.i.i, 1
   %exitcond108.not.i.i.i = icmp eq i64 %indvars.iv.next106.i.i.i, 64
-  br i1 %exitcond108.not.i.i.i, label %cbs_mpeg2_write_quant_matrix_extension.exit.i.i, label %682, !llvm.loop !168
+  br i1 %exitcond108.not.i.i.i, label %cbs_mpeg2_write_quant_matrix_extension.exit.i.i, label %682, !llvm.loop !167
 
 682:                                              ; preds = %681, %.preheader.i.i.i
   %indvars.iv105.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next106.i.i.i, %681 ]
@@ -3376,7 +3376,7 @@ cbs_mpeg2_write_sequence_header.exit.i:           ; preds = %440, %457, %456, %4
   %683 = trunc nuw nsw i64 %indvars.iv105.i.i.i to i32
   store i32 %683, ptr %679, align 4, !tbaa !4
   %684 = getelementptr inbounds nuw [64 x i8], ptr %680, i64 0, i64 %indvars.iv105.i.i.i
-  %685 = load i8, ptr %684, align 1, !tbaa !46
+  %685 = load i8, ptr %684, align 1, !tbaa !45
   %686 = zext i8 %685 to i32
   %687 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.70, ptr noundef nonnull %9, i32 noundef %686, i32 noundef 1, i32 noundef 255) #7
   %688 = icmp slt i32 %687, 0
@@ -3395,10 +3395,10 @@ cbs_mpeg2_write_quant_matrix_extension.exit.i.i:  ; preds = %631, %648, %665, %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %692 = load ptr, ptr %691, align 8, !tbaa !31
+  %692 = load ptr, ptr %691, align 8, !tbaa !30
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.71) #7
   %693 = getelementptr inbounds nuw i8, ptr %692, i64 7
-  %694 = load i8, ptr %693, align 1, !tbaa !122
+  %694 = load i8, ptr %693, align 1, !tbaa !121
   %.not.i34.i.i = icmp eq i8 %694, 0
   br i1 %.not.i34.i.i, label %cbs_mpeg2_write_picture_display_extension.exit.i.i, label %.lr.ph.i.i27.i
 
@@ -3410,10 +3410,10 @@ cbs_mpeg2_write_quant_matrix_extension.exit.i.i:  ; preds = %631, %648, %665, %6
 
 698:                                              ; preds = %718
   %indvars.iv.next.i36.i.i = add nuw nsw i64 %indvars.iv.i35.i.i, 1
-  %699 = load i8, ptr %693, align 1, !tbaa !122
+  %699 = load i8, ptr %693, align 1, !tbaa !121
   %700 = zext i8 %699 to i64
   %701 = icmp samesign ult i64 %indvars.iv.next.i36.i.i, %700
-  br i1 %701, label %702, label %cbs_mpeg2_write_picture_display_extension.exit.i.i, !llvm.loop !169
+  br i1 %701, label %702, label %cbs_mpeg2_write_picture_display_extension.exit.i.i, !llvm.loop !168
 
 702:                                              ; preds = %698, %.lr.ph.i.i27.i
   %indvars.iv.i35.i.i = phi i64 [ 0, %.lr.ph.i.i27.i ], [ %indvars.iv.next.i36.i.i, %698 ]
@@ -3421,7 +3421,7 @@ cbs_mpeg2_write_quant_matrix_extension.exit.i.i:  ; preds = %631, %648, %665, %6
   %703 = trunc nuw nsw i64 %indvars.iv.i35.i.i to i32
   store i32 %703, ptr %695, align 4, !tbaa !4
   %704 = getelementptr inbounds nuw [3 x i16], ptr %690, i64 0, i64 %indvars.iv.i35.i.i
-  %705 = load i16, ptr %704, align 2, !tbaa !124
+  %705 = load i16, ptr %704, align 2, !tbaa !123
   %706 = sext i16 %705 to i32
   %707 = call i32 @ff_cbs_write_signed(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.72, ptr noundef nonnull %4, i32 noundef %706, i32 noundef -32768, i32 noundef 32767) #7
   %708 = icmp slt i32 %707, 0
@@ -3436,7 +3436,7 @@ cbs_mpeg2_write_quant_matrix_extension.exit.i.i:  ; preds = %631, %648, %665, %6
   store i32 1, ptr %5, align 4, !tbaa !4
   store i32 %703, ptr %696, align 4, !tbaa !4
   %713 = getelementptr inbounds nuw [3 x i16], ptr %697, i64 0, i64 %indvars.iv.i35.i.i
-  %714 = load i16, ptr %713, align 2, !tbaa !124
+  %714 = load i16, ptr %713, align 2, !tbaa !123
   %715 = sext i16 %714 to i32
   %716 = call i32 @ff_cbs_write_signed(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.73, ptr noundef nonnull %5, i32 noundef %715, i32 noundef -32768, i32 noundef 32767) #7
   %717 = icmp slt i32 %716, 0
@@ -3456,9 +3456,9 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 721:                                              ; preds = %477
   %722 = getelementptr inbounds nuw i8, ptr %466, i64 2
   %723 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %724 = load ptr, ptr %723, align 8, !tbaa !31
+  %724 = load ptr, ptr %723, align 8, !tbaa !30
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.74) #7
-  %725 = load i8, ptr %722, align 1, !tbaa !46
+  %725 = load i8, ptr %722, align 1, !tbaa !45
   %726 = zext i8 %725 to i32
   %727 = tail call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.75, ptr noundef null, i32 noundef %726, i32 noundef 1, i32 noundef 15) #7
   %728 = icmp slt i32 %727, 0
@@ -3466,7 +3466,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 729:                                              ; preds = %721
   %730 = getelementptr inbounds nuw i8, ptr %466, i64 3
-  %731 = load i8, ptr %730, align 1, !tbaa !46
+  %731 = load i8, ptr %730, align 1, !tbaa !45
   %732 = zext i8 %731 to i32
   %733 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.76, ptr noundef null, i32 noundef %732, i32 noundef 1, i32 noundef 15) #7
   %734 = icmp slt i32 %733, 0
@@ -3474,7 +3474,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 735:                                              ; preds = %729
   %736 = getelementptr inbounds nuw i8, ptr %466, i64 4
-  %737 = load i8, ptr %736, align 1, !tbaa !46
+  %737 = load i8, ptr %736, align 1, !tbaa !45
   %738 = zext i8 %737 to i32
   %739 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.77, ptr noundef null, i32 noundef %738, i32 noundef 1, i32 noundef 15) #7
   %740 = icmp slt i32 %739, 0
@@ -3482,7 +3482,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 741:                                              ; preds = %735
   %742 = getelementptr inbounds nuw i8, ptr %466, i64 5
-  %743 = load i8, ptr %742, align 1, !tbaa !46
+  %743 = load i8, ptr %742, align 1, !tbaa !45
   %744 = zext i8 %743 to i32
   %745 = tail call i32 @ff_cbs_write_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 4, ptr noundef nonnull @.str.78, ptr noundef null, i32 noundef %744, i32 noundef 1, i32 noundef 15) #7
   %746 = icmp slt i32 %745, 0
@@ -3490,7 +3490,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 747:                                              ; preds = %741
   %748 = getelementptr inbounds nuw i8, ptr %466, i64 6
-  %749 = load i8, ptr %748, align 1, !tbaa !125
+  %749 = load i8, ptr %748, align 1, !tbaa !124
   %750 = zext i8 %749 to i32
   %751 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.79, i32 noundef %750) #7
   %752 = icmp slt i32 %751, 0
@@ -3498,7 +3498,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 753:                                              ; preds = %747
   %754 = getelementptr inbounds nuw i8, ptr %466, i64 7
-  %755 = load i8, ptr %754, align 1, !tbaa !127
+  %755 = load i8, ptr %754, align 1, !tbaa !126
   %756 = zext i8 %755 to i32
   %757 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.80, i32 noundef %756) #7
   %758 = icmp slt i32 %757, 0
@@ -3506,7 +3506,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 759:                                              ; preds = %753
   %760 = getelementptr inbounds nuw i8, ptr %466, i64 8
-  %761 = load i8, ptr %760, align 1, !tbaa !128
+  %761 = load i8, ptr %760, align 1, !tbaa !127
   %762 = zext i8 %761 to i32
   %763 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.81, i32 noundef %762) #7
   %764 = icmp slt i32 %763, 0
@@ -3514,7 +3514,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 765:                                              ; preds = %759
   %766 = getelementptr inbounds nuw i8, ptr %466, i64 9
-  %767 = load i8, ptr %766, align 1, !tbaa !129
+  %767 = load i8, ptr %766, align 1, !tbaa !128
   %768 = zext i8 %767 to i32
   %769 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.82, i32 noundef %768) #7
   %770 = icmp slt i32 %769, 0
@@ -3522,7 +3522,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 771:                                              ; preds = %765
   %772 = getelementptr inbounds nuw i8, ptr %466, i64 10
-  %773 = load i8, ptr %772, align 1, !tbaa !130
+  %773 = load i8, ptr %772, align 1, !tbaa !129
   %774 = zext i8 %773 to i32
   %775 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.83, i32 noundef %774) #7
   %776 = icmp slt i32 %775, 0
@@ -3530,7 +3530,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 777:                                              ; preds = %771
   %778 = getelementptr inbounds nuw i8, ptr %466, i64 11
-  %779 = load i8, ptr %778, align 1, !tbaa !131
+  %779 = load i8, ptr %778, align 1, !tbaa !130
   %780 = zext i8 %779 to i32
   %781 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.84, i32 noundef %780) #7
   %782 = icmp slt i32 %781, 0
@@ -3538,7 +3538,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 783:                                              ; preds = %777
   %784 = getelementptr inbounds nuw i8, ptr %466, i64 12
-  %785 = load i8, ptr %784, align 1, !tbaa !132
+  %785 = load i8, ptr %784, align 1, !tbaa !131
   %786 = zext i8 %785 to i32
   %787 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.85, i32 noundef %786) #7
   %788 = icmp slt i32 %787, 0
@@ -3546,7 +3546,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 789:                                              ; preds = %783
   %790 = getelementptr inbounds nuw i8, ptr %466, i64 13
-  %791 = load i8, ptr %790, align 1, !tbaa !133
+  %791 = load i8, ptr %790, align 1, !tbaa !132
   %792 = zext i8 %791 to i32
   %793 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.86, i32 noundef %792) #7
   %794 = icmp slt i32 %793, 0
@@ -3554,7 +3554,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 795:                                              ; preds = %789
   %796 = getelementptr inbounds nuw i8, ptr %466, i64 14
-  %797 = load i8, ptr %796, align 1, !tbaa !134
+  %797 = load i8, ptr %796, align 1, !tbaa !133
   %798 = zext i8 %797 to i32
   %799 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.87, i32 noundef %798) #7
   %800 = icmp slt i32 %799, 0
@@ -3562,7 +3562,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 801:                                              ; preds = %795
   %802 = getelementptr inbounds nuw i8, ptr %466, i64 15
-  %803 = load i8, ptr %802, align 1, !tbaa !135
+  %803 = load i8, ptr %802, align 1, !tbaa !134
   %804 = zext i8 %803 to i32
   %805 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.88, i32 noundef %804) #7
   %806 = icmp slt i32 %805, 0
@@ -3570,7 +3570,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 807:                                              ; preds = %801
   %808 = getelementptr inbounds nuw i8, ptr %466, i64 16
-  %809 = load i8, ptr %808, align 1, !tbaa !136
+  %809 = load i8, ptr %808, align 1, !tbaa !135
   %810 = zext i8 %809 to i32
   %811 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.89, i32 noundef %810) #7
   %812 = icmp slt i32 %811, 0
@@ -3578,75 +3578,75 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 813:                                              ; preds = %807
   %814 = getelementptr inbounds nuw i8, ptr %724, i64 6
-  %815 = load i8, ptr %814, align 2, !tbaa !98
+  %815 = load i8, ptr %814, align 2, !tbaa !97
   %.not.i37.i.i = icmp eq i8 %815, 0
   br i1 %.not.i37.i.i, label %825, label %816
 
 816:                                              ; preds = %813
-  %817 = load i8, ptr %796, align 1, !tbaa !134
+  %817 = load i8, ptr %796, align 1, !tbaa !133
   %.not143.i.i.i = icmp eq i8 %817, 0
   br i1 %.not143.i.i.i, label %823, label %818
 
 818:                                              ; preds = %816
-  %819 = load i8, ptr %760, align 1, !tbaa !128
+  %819 = load i8, ptr %760, align 1, !tbaa !127
   %.not144.i.i.i = icmp eq i8 %819, 0
   %820 = getelementptr inbounds nuw i8, ptr %724, i64 7
   br i1 %.not144.i.i.i, label %822, label %821
 
 821:                                              ; preds = %818
-  store i8 3, ptr %820, align 1, !tbaa !122
+  store i8 3, ptr %820, align 1, !tbaa !121
   br label %834
 
 822:                                              ; preds = %818
-  store i8 2, ptr %820, align 1, !tbaa !122
+  store i8 2, ptr %820, align 1, !tbaa !121
   br label %834
 
 823:                                              ; preds = %816
   %824 = getelementptr inbounds nuw i8, ptr %724, i64 7
-  store i8 1, ptr %824, align 1, !tbaa !122
+  store i8 1, ptr %824, align 1, !tbaa !121
   br label %834
 
 825:                                              ; preds = %813
-  %826 = load i8, ptr %754, align 1, !tbaa !127
+  %826 = load i8, ptr %754, align 1, !tbaa !126
   %.off.i.i.i = add i8 %826, -1
   %switch.i.i.i = icmp ult i8 %.off.i.i.i, 2
   br i1 %switch.i.i.i, label %827, label %829
 
 827:                                              ; preds = %825
   %828 = getelementptr inbounds nuw i8, ptr %724, i64 7
-  store i8 1, ptr %828, align 1, !tbaa !122
+  store i8 1, ptr %828, align 1, !tbaa !121
   br label %834
 
 829:                                              ; preds = %825
-  %830 = load i8, ptr %796, align 1, !tbaa !134
+  %830 = load i8, ptr %796, align 1, !tbaa !133
   %.not142.i.i.i = icmp eq i8 %830, 0
   %831 = getelementptr inbounds nuw i8, ptr %724, i64 7
   br i1 %.not142.i.i.i, label %833, label %832
 
 832:                                              ; preds = %829
-  store i8 3, ptr %831, align 1, !tbaa !122
+  store i8 3, ptr %831, align 1, !tbaa !121
   br label %834
 
 833:                                              ; preds = %829
-  store i8 2, ptr %831, align 1, !tbaa !122
+  store i8 2, ptr %831, align 1, !tbaa !121
   br label %834
 
 834:                                              ; preds = %833, %832, %827, %823, %822, %821
   %835 = getelementptr inbounds nuw i8, ptr %466, i64 17
-  %836 = load i8, ptr %835, align 1, !tbaa !137
+  %836 = load i8, ptr %835, align 1, !tbaa !136
   %837 = zext i8 %836 to i32
   %838 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.90, i32 noundef %837) #7
   %839 = icmp slt i32 %838, 0
   br i1 %839, label %cbs_mpeg2_write_slice.exit, label %840
 
 840:                                              ; preds = %834
-  %841 = load i8, ptr %835, align 1, !tbaa !137
+  %841 = load i8, ptr %835, align 1, !tbaa !136
   %.not145.i.i.i = icmp eq i8 %841, 0
   br i1 %.not145.i.i.i, label %872, label %842
 
 842:                                              ; preds = %840
   %843 = getelementptr inbounds nuw i8, ptr %466, i64 18
-  %844 = load i8, ptr %843, align 1, !tbaa !138
+  %844 = load i8, ptr %843, align 1, !tbaa !137
   %845 = zext i8 %844 to i32
   %846 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.91, i32 noundef %845) #7
   %847 = icmp slt i32 %846, 0
@@ -3654,7 +3654,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 848:                                              ; preds = %842
   %849 = getelementptr inbounds nuw i8, ptr %466, i64 19
-  %850 = load i8, ptr %849, align 1, !tbaa !139
+  %850 = load i8, ptr %849, align 1, !tbaa !138
   %851 = zext i8 %850 to i32
   %852 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull @.str.92, i32 noundef %851) #7
   %853 = icmp slt i32 %852, 0
@@ -3662,7 +3662,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 854:                                              ; preds = %848
   %855 = getelementptr inbounds nuw i8, ptr %466, i64 20
-  %856 = load i8, ptr %855, align 1, !tbaa !140
+  %856 = load i8, ptr %855, align 1, !tbaa !139
   %857 = zext i8 %856 to i32
   %858 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.93, i32 noundef %857) #7
   %859 = icmp slt i32 %858, 0
@@ -3670,7 +3670,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 860:                                              ; preds = %854
   %861 = getelementptr inbounds nuw i8, ptr %466, i64 21
-  %862 = load i8, ptr %861, align 1, !tbaa !141
+  %862 = load i8, ptr %861, align 1, !tbaa !140
   %863 = zext i8 %862 to i32
   %864 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 7, ptr noundef nonnull @.str.94, i32 noundef %863) #7
   %865 = icmp slt i32 %864, 0
@@ -3678,7 +3678,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 866:                                              ; preds = %860
   %867 = getelementptr inbounds nuw i8, ptr %466, i64 22
-  %868 = load i8, ptr %867, align 1, !tbaa !142
+  %868 = load i8, ptr %867, align 1, !tbaa !141
   %869 = zext i8 %868 to i32
   %870 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.95, i32 noundef %869) #7
   %871 = icmp slt i32 %870, 0
@@ -3689,15 +3689,15 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 873:                                              ; preds = %477
   %874 = zext i8 %478 to i32
-  %875 = load ptr, ptr %0, align 8, !tbaa !108
+  %875 = load ptr, ptr %0, align 8, !tbaa !107
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %875, i32 noundef 16, ptr noundef nonnull @.str.46, i32 noundef %874) #7
   br label %cbs_mpeg2_write_slice.exit
 
 876:                                              ; preds = %275
   %877 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %878 = load ptr, ptr %877, align 8, !tbaa !30
+  %878 = load ptr, ptr %877, align 8, !tbaa !29
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.96) #7
-  %879 = load i8, ptr %878, align 4, !tbaa !143
+  %879 = load i8, ptr %878, align 4, !tbaa !142
   %880 = zext i8 %879 to i32
   %881 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.97, i32 noundef %880) #7
   %882 = icmp slt i32 %881, 0
@@ -3705,14 +3705,14 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 883:                                              ; preds = %876
   %884 = getelementptr inbounds nuw i8, ptr %878, i64 4
-  %885 = load i32, ptr %884, align 4, !tbaa !145
+  %885 = load i32, ptr %884, align 4, !tbaa !144
   %886 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 25, ptr noundef nonnull @.str.98, i32 noundef %885) #7
   %887 = icmp slt i32 %886, 0
   br i1 %887, label %cbs_mpeg2_write_slice.exit, label %888
 
 888:                                              ; preds = %883
   %889 = getelementptr inbounds nuw i8, ptr %878, i64 8
-  %890 = load i8, ptr %889, align 4, !tbaa !146
+  %890 = load i8, ptr %889, align 4, !tbaa !145
   %891 = zext i8 %890 to i32
   %892 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.99, i32 noundef %891) #7
   %893 = icmp slt i32 %892, 0
@@ -3720,7 +3720,7 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 894:                                              ; preds = %888
   %895 = getelementptr inbounds nuw i8, ptr %878, i64 9
-  %896 = load i8, ptr %895, align 1, !tbaa !147
+  %896 = load i8, ptr %895, align 1, !tbaa !146
   %897 = zext i8 %896 to i32
   %898 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.100, i32 noundef %897) #7
   %..i.i = tail call i32 @llvm.smin.i32(i32 %898, i32 0)
@@ -3728,16 +3728,16 @@ cbs_mpeg2_write_picture_display_extension.exit.i.i: ; preds = %718, %712, %709, 
 
 899:                                              ; preds = %275
   %900 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %901 = load ptr, ptr %900, align 8, !tbaa !30
+  %901 = load ptr, ptr %900, align 8, !tbaa !29
   tail call void @ff_cbs_trace_header(ptr noundef %0, ptr noundef nonnull @.str.101) #7
-  %902 = load i8, ptr %901, align 1, !tbaa !148
+  %902 = load i8, ptr %901, align 1, !tbaa !147
   %903 = zext i8 %902 to i32
   %904 = tail call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %2, i32 noundef 8, ptr noundef nonnull @.str.102, i32 noundef %903) #7
   %..i30.i = tail call range(i32 -2147483648, 1) i32 @llvm.smin.i32(i32 %904, i32 0)
   br label %cbs_mpeg2_write_slice.exit
 
 905:                                              ; preds = %275
-  %906 = load ptr, ptr %0, align 8, !tbaa !108
+  %906 = load ptr, ptr %0, align 8, !tbaa !107
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %906, i32 noundef 16, ptr noundef nonnull @.str.109, i32 noundef %15) #7
   br label %cbs_mpeg2_write_slice.exit
 
@@ -3749,13 +3749,13 @@ cbs_mpeg2_write_slice.exit:                       ; preds = %905, %899, %894, %8
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -12, 1) i32 @cbs_mpeg2_assemble_fragment(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !170
+  %4 = load i32, ptr %3, align 8, !tbaa !169
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !171
+  %7 = load ptr, ptr %6, align 8, !tbaa !170
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %8
 
@@ -3763,12 +3763,12 @@ define internal range(i32 -12, 1) i32 @cbs_mpeg2_assemble_fragment(ptr readnone 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.03739 = phi i64 [ 0, %.lr.ph ], [ %12, %8 ]
   %9 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %7, i64 %indvars.iv, i32 2
-  %10 = load i64, ptr %9, align 8, !tbaa !22
+  %10 = load i64, ptr %9, align 8, !tbaa !21
   %11 = add i64 %.03739, 3
   %12 = add i64 %11, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !172
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %8, %2
   %.037.lcssa = phi i64 [ 0, %2 ], [ %12, %8 ]
@@ -3781,8 +3781,8 @@ define internal range(i32 -12, 1) i32 @cbs_mpeg2_assemble_fragment(ptr readnone 
 
 16:                                               ; preds = %._crit_edge
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !70
-  %19 = load i32, ptr %3, align 8, !tbaa !170
+  %18 = load ptr, ptr %17, align 8, !tbaa !69
+  %19 = load i32, ptr %3, align 8, !tbaa !169
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph44, label %._crit_edge45
 
@@ -3793,28 +3793,28 @@ define internal range(i32 -12, 1) i32 @cbs_mpeg2_assemble_fragment(ptr readnone 
 22:                                               ; preds = %.lr.ph44, %22
   %indvars.iv49 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next50, %22 ]
   %.03641 = phi i64 [ 0, %.lr.ph44 ], [ %35, %22 ]
-  %23 = load ptr, ptr %21, align 8, !tbaa !171
+  %23 = load ptr, ptr %21, align 8, !tbaa !170
   %24 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %23, i64 %indvars.iv49
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 %.03641
-  store i8 0, ptr %25, align 1, !tbaa !46
+  store i8 0, ptr %25, align 1, !tbaa !45
   %26 = getelementptr i8, ptr %25, i64 1
-  store i8 0, ptr %26, align 1, !tbaa !46
+  store i8 0, ptr %26, align 1, !tbaa !45
   %27 = add i64 %.03641, 3
   %28 = getelementptr i8, ptr %25, i64 2
-  store i8 1, ptr %28, align 1, !tbaa !46
+  store i8 1, ptr %28, align 1, !tbaa !45
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !20
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !22
+  %33 = load i64, ptr %32, align 8, !tbaa !21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr align 1 %31, i64 %33, i1 false)
-  %34 = load i64, ptr %32, align 8, !tbaa !22
+  %34 = load i64, ptr %32, align 8, !tbaa !21
   %35 = add i64 %34, %27
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %36 = load i32, ptr %3, align 8, !tbaa !170
+  %36 = load i32, ptr %3, align 8, !tbaa !169
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next50, %37
-  br i1 %38, label %22, label %._crit_edge45, !llvm.loop !173
+  br i1 %38, label %22, label %._crit_edge45, !llvm.loop !172
 
 ._crit_edge45:                                    ; preds = %22, %16
   %.036.lcssa = phi i64 [ 0, %16 ], [ %35, %22 ]
@@ -3867,21 +3867,21 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_extra_infor
   %9 = alloca [2 x i32], align 4
   %10 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !174
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !173
   %11 = getelementptr i8, ptr %1, i64 16
   %12 = getelementptr i8, ptr %1, i64 20
-  %.val57 = load i32, ptr %12, align 4, !tbaa !25
-  %.promoted = load i32, ptr %11, align 8, !tbaa !28
+  %.val57 = load i32, ptr %12, align 4, !tbaa !24
+  %.promoted = load i32, ptr %11, align 8, !tbaa !27
   %13 = icmp sgt i32 %.val57, %.promoted
   br i1 %13, label %.lr.ph, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 0, ptr %14, align 8, !tbaa !150
+  store i64 0, ptr %14, align 8, !tbaa !149
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %.val58 = load ptr, ptr %1, align 8, !tbaa !23
+  %.val58 = load ptr, ptr %1, align 8, !tbaa !22
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %16
 
@@ -3891,7 +3891,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_extra_infor
   %18 = lshr i32 %17, 3
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %.val58, i64 %19
-  %21 = load i32, ptr %20, align 1, !tbaa !46
+  %21 = load i32, ptr %20, align 1, !tbaa !45
   %22 = tail call i32 @llvm.bswap.i32(i32 %21)
   %23 = and i32 %17, 7
   %24 = shl i32 %22, %23
@@ -3899,35 +3899,35 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_extra_infor
   br i1 %.not, label %.critedge, label %25
 
 25:                                               ; preds = %16
-  %26 = load i32, ptr %15, align 8, !tbaa !26
+  %26 = load i32, ptr %15, align 8, !tbaa !25
   %27 = add i32 %17, 9
   %28 = tail call i32 @llvm.umin.i32(i32 %26, i32 %27)
-  store i32 %28, ptr %11, align 8, !tbaa !28
+  store i32 %28, ptr %11, align 8, !tbaa !27
   %29 = add i64 %.04864, 1
   %30 = icmp sgt i32 %.val57, %28
-  br i1 %30, label %16, label %.critedge, !llvm.loop !176
+  br i1 %30, label %16, label %.critedge, !llvm.loop !175
 
 .critedge:                                        ; preds = %16, %25
   %.048.lcssa = phi i64 [ %.04864, %16 ], [ %29, %25 ]
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %.048.lcssa, ptr %31, align 8, !tbaa !150
+  store i64 %.048.lcssa, ptr %31, align 8, !tbaa !149
   %.not54 = icmp eq i64 %.048.lcssa, 0
   br i1 %.not54, label %._crit_edge, label %32
 
 32:                                               ; preds = %.critedge
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !174
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !173
   %33 = add i64 %.048.lcssa, 64
   %34 = tail call ptr @av_buffer_allocz(i64 noundef %33) #7
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %34, ptr %35, align 8, !tbaa !177
+  store ptr %34, ptr %35, align 8, !tbaa !176
   %.not55 = icmp eq ptr %34, null
   br i1 %.not55, label %.loopexit, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !70
-  store ptr %38, ptr %2, align 8, !tbaa !152
-  %.pre = load i64, ptr %31, align 8, !tbaa !150
+  %38 = load ptr, ptr %37, align 8, !tbaa !69
+  store ptr %38, ptr %2, align 8, !tbaa !151
+  %.pre = load i64, ptr %31, align 8, !tbaa !149
   %39 = icmp eq i64 %.pre, 0
   br i1 %39, label %._crit_edge, label %.lr.ph68
 
@@ -3959,14 +3959,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_mpeg2_read_extra_infor
 49:                                               ; preds = %44
   %50 = load i32, ptr %8, align 4, !tbaa !4
   %51 = trunc i32 %50 to i8
-  %52 = load ptr, ptr %2, align 8, !tbaa !152
+  %52 = load ptr, ptr %2, align 8, !tbaa !151
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.14967
-  store i8 %51, ptr %53, align 1, !tbaa !46
+  store i8 %51, ptr %53, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   %54 = add nuw i64 %.14967, 1
-  %55 = load i64, ptr %31, align 8, !tbaa !150
+  %55 = load i64, ptr %31, align 8, !tbaa !149
   %56 = icmp ult i64 %54, %55
-  br i1 %56, label %41, label %._crit_edge, !llvm.loop !178
+  br i1 %56, label %41, label %._crit_edge, !llvm.loop !177
 
 ._crit_edge:                                      ; preds = %49, %.critedge.thread, %.critedge, %36
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #7
@@ -4042,165 +4042,164 @@ attributes #8 = { noreturn nounwind }
 !14 = !{!"p1 _ZTS18CodedBitstreamUnit", !11, i64 0}
 !15 = !{!9, !12, i64 8}
 !16 = !{!9, !13, i64 24}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !10, i64 8}
-!21 = !{!"CodedBitstreamUnit", !5, i64 0, !10, i64 8, !12, i64 16, !12, i64 24, !13, i64 32, !11, i64 40, !11, i64 48}
-!22 = !{!21, !12, i64 16}
-!23 = !{!24, !10, i64 0}
-!24 = !{!"GetBitContext", !10, i64 0, !10, i64 8, !5, i64 16, !5, i64 20, !5, i64 24}
-!25 = !{!24, !5, i64 20}
-!26 = !{!24, !5, i64 24}
-!27 = !{!24, !10, i64 8}
-!28 = !{!24, !5, i64 16}
-!29 = !{!21, !5, i64 0}
-!30 = !{!21, !11, i64 40}
-!31 = !{!32, !11, i64 16}
-!32 = !{!"CodedBitstreamContext", !11, i64 0, !33, i64 8, !11, i64 16, !34, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !10, i64 72, !12, i64 80}
-!33 = !{!"p1 _ZTS18CodedBitstreamType", !11, i64 0}
-!34 = !{!"p1 int", !11, i64 0}
-!35 = !{!36, !6, i64 0}
-!36 = !{!"MPEG2RawSliceHeader", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !37, i64 8}
-!37 = !{!"MPEG2RawExtraInformation", !10, i64 0, !13, i64 8, !12, i64 16}
-!38 = !{!39, !40, i64 2}
-!39 = !{!"CodedBitstreamMPEG2Context", !40, i64 0, !40, i64 2, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7}
-!40 = !{!"short", !6, i64 0}
-!41 = !{!36, !6, i64 1}
-!42 = !{!39, !6, i64 4}
-!43 = !{!39, !6, i64 5}
-!44 = !{!36, !6, i64 2}
-!45 = !{!36, !6, i64 3}
-!46 = !{!6, !6, i64 0}
-!47 = !{!36, !6, i64 4}
-!48 = !{!36, !6, i64 5}
-!49 = !{!36, !6, i64 6}
-!50 = !{!36, !6, i64 7}
-!51 = !{!52, !12, i64 48}
-!52 = !{!"MPEG2RawSlice", !36, i64 0, !10, i64 32, !13, i64 40, !12, i64 48, !5, i64 56}
-!53 = !{!21, !13, i64 32}
-!54 = !{!52, !13, i64 40}
-!55 = !{!52, !10, i64 32}
-!56 = !{!52, !5, i64 56}
-!57 = !{!58, !6, i64 0}
-!58 = !{!"MPEG2RawPictureHeader", !6, i64 0, !40, i64 2, !6, i64 4, !40, i64 6, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !37, i64 16}
-!59 = !{!58, !40, i64 2}
-!60 = !{!58, !6, i64 4}
-!61 = !{!58, !40, i64 6}
-!62 = !{!58, !6, i64 8}
-!63 = !{!58, !6, i64 9}
-!64 = !{!58, !6, i64 10}
-!65 = !{!58, !6, i64 11}
-!66 = !{!67, !6, i64 0}
-!67 = !{!"MPEG2RawUserData", !6, i64 0, !10, i64 8, !13, i64 16, !12, i64 24}
-!68 = !{!67, !12, i64 24}
-!69 = !{!67, !13, i64 16}
-!70 = !{!71, !10, i64 8}
-!71 = !{!"AVBufferRef", !72, i64 0, !10, i64 8, !12, i64 16}
-!72 = !{!"p1 _ZTS8AVBuffer", !11, i64 0}
-!73 = !{!67, !10, i64 8}
-!74 = distinct !{!74, !18, !19}
-!75 = !{!76, !6, i64 0}
-!76 = !{!"MPEG2RawSequenceHeader", !6, i64 0, !40, i64 2, !40, i64 4, !6, i64 6, !6, i64 7, !5, i64 8, !40, i64 12, !6, i64 14, !6, i64 15, !6, i64 16, !6, i64 80, !6, i64 81}
-!77 = !{!76, !40, i64 2}
-!78 = !{!76, !40, i64 4}
-!79 = !{!39, !40, i64 0}
-!80 = !{!76, !6, i64 6}
-!81 = !{!76, !6, i64 7}
-!82 = !{!76, !5, i64 8}
-!83 = !{!76, !40, i64 12}
-!84 = !{!76, !6, i64 14}
-!85 = !{!76, !6, i64 15}
-!86 = distinct !{!86, !18, !19}
-!87 = !{!76, !6, i64 80}
-!88 = distinct !{!88, !18, !19}
-!89 = !{!90, !6, i64 0}
-!90 = !{!"MPEG2RawExtensionData", !6, i64 0, !6, i64 1, !6, i64 2}
-!91 = !{!90, !6, i64 1}
-!92 = !{!93, !6, i64 0}
-!93 = !{!"MPEG2RawSequenceExtension", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !40, i64 6, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11}
-!94 = !{!93, !6, i64 1}
-!95 = !{!93, !6, i64 2}
-!96 = !{!93, !6, i64 3}
-!97 = !{!93, !6, i64 4}
-!98 = !{!39, !6, i64 6}
-!99 = !{!93, !40, i64 6}
-!100 = !{!93, !6, i64 8}
-!101 = !{!93, !6, i64 9}
-!102 = !{!93, !6, i64 10}
-!103 = !{!93, !6, i64 11}
-!104 = !{!105, !6, i64 0}
-!105 = !{!"MPEG2RawSequenceDisplayExtension", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !40, i64 6, !40, i64 8}
-!106 = !{!105, !6, i64 1}
-!107 = !{!105, !6, i64 2}
-!108 = !{!32, !11, i64 0}
-!109 = !{!105, !6, i64 3}
-!110 = !{!105, !6, i64 4}
-!111 = !{!105, !40, i64 6}
-!112 = !{!105, !40, i64 8}
-!113 = !{!114, !6, i64 0}
-!114 = !{!"MPEG2RawQuantMatrixExtension", !6, i64 0, !6, i64 1, !6, i64 65, !6, i64 66, !6, i64 130, !6, i64 131, !6, i64 195, !6, i64 196}
-!115 = distinct !{!115, !18, !19}
-!116 = !{!114, !6, i64 65}
-!117 = distinct !{!117, !18, !19}
-!118 = !{!114, !6, i64 130}
-!119 = distinct !{!119, !18, !19}
-!120 = !{!114, !6, i64 195}
-!121 = distinct !{!121, !18, !19}
-!122 = !{!39, !6, i64 7}
-!123 = distinct !{!123, !18, !19}
-!124 = !{!40, !40, i64 0}
-!125 = !{!126, !6, i64 4}
-!126 = !{!"MPEG2RawPictureCodingExtension", !6, i64 0, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !6, i64 12, !6, i64 13, !6, i64 14, !6, i64 15, !6, i64 16, !6, i64 17, !6, i64 18, !6, i64 19, !6, i64 20}
-!127 = !{!126, !6, i64 5}
-!128 = !{!126, !6, i64 6}
-!129 = !{!126, !6, i64 7}
-!130 = !{!126, !6, i64 8}
-!131 = !{!126, !6, i64 9}
-!132 = !{!126, !6, i64 10}
-!133 = !{!126, !6, i64 11}
-!134 = !{!126, !6, i64 12}
-!135 = !{!126, !6, i64 13}
-!136 = !{!126, !6, i64 14}
-!137 = !{!126, !6, i64 15}
-!138 = !{!126, !6, i64 16}
-!139 = !{!126, !6, i64 17}
-!140 = !{!126, !6, i64 18}
-!141 = !{!126, !6, i64 19}
-!142 = !{!126, !6, i64 20}
-!143 = !{!144, !6, i64 0}
-!144 = !{!"MPEG2RawGroupOfPicturesHeader", !6, i64 0, !5, i64 4, !6, i64 8, !6, i64 9}
-!145 = !{!144, !5, i64 4}
-!146 = !{!144, !6, i64 8}
-!147 = !{!144, !6, i64 9}
-!148 = !{!149, !6, i64 0}
-!149 = !{!"MPEG2RawSequenceEnd", !6, i64 0}
-!150 = !{!37, !12, i64 16}
-!151 = distinct !{!151, !18, !19}
-!152 = !{!37, !10, i64 0}
-!153 = !{!154, !10, i64 24}
-!154 = !{!"PutBitContext", !5, i64 0, !5, i64 4, !10, i64 8, !10, i64 16, !10, i64 24}
-!155 = !{!154, !10, i64 16}
-!156 = !{!154, !5, i64 4}
-!157 = !{!154, !5, i64 0}
-!158 = distinct !{!158, !18, !19}
-!159 = distinct !{!159, !18, !19}
-!160 = distinct !{!160, !18, !19}
-!161 = !{!154, !10, i64 8}
-!162 = distinct !{!162, !18, !19}
-!163 = distinct !{!163, !18, !19}
-!164 = distinct !{!164, !18, !19}
-!165 = distinct !{!165, !18, !19}
-!166 = distinct !{!166, !18, !19}
-!167 = distinct !{!167, !18, !19}
-!168 = distinct !{!168, !18, !19}
-!169 = distinct !{!169, !18, !19}
-!170 = !{!9, !5, i64 32}
-!171 = !{!9, !14, i64 40}
-!172 = distinct !{!172, !18, !19}
-!173 = distinct !{!173, !18, !19}
-!174 = !{i64 0, i64 8, !175, i64 8, i64 8, !175, i64 16, i64 4, !4, i64 20, i64 4, !4, i64 24, i64 4, !4}
-!175 = !{!10, !10, i64 0}
-!176 = distinct !{!176, !18, !19}
-!177 = !{!37, !13, i64 8}
-!178 = distinct !{!178, !18, !19}
+!19 = !{!20, !10, i64 8}
+!20 = !{!"CodedBitstreamUnit", !5, i64 0, !10, i64 8, !12, i64 16, !12, i64 24, !13, i64 32, !11, i64 40, !11, i64 48}
+!21 = !{!20, !12, i64 16}
+!22 = !{!23, !10, i64 0}
+!23 = !{!"GetBitContext", !10, i64 0, !10, i64 8, !5, i64 16, !5, i64 20, !5, i64 24}
+!24 = !{!23, !5, i64 20}
+!25 = !{!23, !5, i64 24}
+!26 = !{!23, !10, i64 8}
+!27 = !{!23, !5, i64 16}
+!28 = !{!20, !5, i64 0}
+!29 = !{!20, !11, i64 40}
+!30 = !{!31, !11, i64 16}
+!31 = !{!"CodedBitstreamContext", !11, i64 0, !32, i64 8, !11, i64 16, !33, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !10, i64 72, !12, i64 80}
+!32 = !{!"p1 _ZTS18CodedBitstreamType", !11, i64 0}
+!33 = !{!"p1 int", !11, i64 0}
+!34 = !{!35, !6, i64 0}
+!35 = !{!"MPEG2RawSliceHeader", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !36, i64 8}
+!36 = !{!"MPEG2RawExtraInformation", !10, i64 0, !13, i64 8, !12, i64 16}
+!37 = !{!38, !39, i64 2}
+!38 = !{!"CodedBitstreamMPEG2Context", !39, i64 0, !39, i64 2, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7}
+!39 = !{!"short", !6, i64 0}
+!40 = !{!35, !6, i64 1}
+!41 = !{!38, !6, i64 4}
+!42 = !{!38, !6, i64 5}
+!43 = !{!35, !6, i64 2}
+!44 = !{!35, !6, i64 3}
+!45 = !{!6, !6, i64 0}
+!46 = !{!35, !6, i64 4}
+!47 = !{!35, !6, i64 5}
+!48 = !{!35, !6, i64 6}
+!49 = !{!35, !6, i64 7}
+!50 = !{!51, !12, i64 48}
+!51 = !{!"MPEG2RawSlice", !35, i64 0, !10, i64 32, !13, i64 40, !12, i64 48, !5, i64 56}
+!52 = !{!20, !13, i64 32}
+!53 = !{!51, !13, i64 40}
+!54 = !{!51, !10, i64 32}
+!55 = !{!51, !5, i64 56}
+!56 = !{!57, !6, i64 0}
+!57 = !{!"MPEG2RawPictureHeader", !6, i64 0, !39, i64 2, !6, i64 4, !39, i64 6, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !36, i64 16}
+!58 = !{!57, !39, i64 2}
+!59 = !{!57, !6, i64 4}
+!60 = !{!57, !39, i64 6}
+!61 = !{!57, !6, i64 8}
+!62 = !{!57, !6, i64 9}
+!63 = !{!57, !6, i64 10}
+!64 = !{!57, !6, i64 11}
+!65 = !{!66, !6, i64 0}
+!66 = !{!"MPEG2RawUserData", !6, i64 0, !10, i64 8, !13, i64 16, !12, i64 24}
+!67 = !{!66, !12, i64 24}
+!68 = !{!66, !13, i64 16}
+!69 = !{!70, !10, i64 8}
+!70 = !{!"AVBufferRef", !71, i64 0, !10, i64 8, !12, i64 16}
+!71 = !{!"p1 _ZTS8AVBuffer", !11, i64 0}
+!72 = !{!66, !10, i64 8}
+!73 = distinct !{!73, !18}
+!74 = !{!75, !6, i64 0}
+!75 = !{!"MPEG2RawSequenceHeader", !6, i64 0, !39, i64 2, !39, i64 4, !6, i64 6, !6, i64 7, !5, i64 8, !39, i64 12, !6, i64 14, !6, i64 15, !6, i64 16, !6, i64 80, !6, i64 81}
+!76 = !{!75, !39, i64 2}
+!77 = !{!75, !39, i64 4}
+!78 = !{!38, !39, i64 0}
+!79 = !{!75, !6, i64 6}
+!80 = !{!75, !6, i64 7}
+!81 = !{!75, !5, i64 8}
+!82 = !{!75, !39, i64 12}
+!83 = !{!75, !6, i64 14}
+!84 = !{!75, !6, i64 15}
+!85 = distinct !{!85, !18}
+!86 = !{!75, !6, i64 80}
+!87 = distinct !{!87, !18}
+!88 = !{!89, !6, i64 0}
+!89 = !{!"MPEG2RawExtensionData", !6, i64 0, !6, i64 1, !6, i64 2}
+!90 = !{!89, !6, i64 1}
+!91 = !{!92, !6, i64 0}
+!92 = !{!"MPEG2RawSequenceExtension", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !39, i64 6, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11}
+!93 = !{!92, !6, i64 1}
+!94 = !{!92, !6, i64 2}
+!95 = !{!92, !6, i64 3}
+!96 = !{!92, !6, i64 4}
+!97 = !{!38, !6, i64 6}
+!98 = !{!92, !39, i64 6}
+!99 = !{!92, !6, i64 8}
+!100 = !{!92, !6, i64 9}
+!101 = !{!92, !6, i64 10}
+!102 = !{!92, !6, i64 11}
+!103 = !{!104, !6, i64 0}
+!104 = !{!"MPEG2RawSequenceDisplayExtension", !6, i64 0, !6, i64 1, !6, i64 2, !6, i64 3, !6, i64 4, !39, i64 6, !39, i64 8}
+!105 = !{!104, !6, i64 1}
+!106 = !{!104, !6, i64 2}
+!107 = !{!31, !11, i64 0}
+!108 = !{!104, !6, i64 3}
+!109 = !{!104, !6, i64 4}
+!110 = !{!104, !39, i64 6}
+!111 = !{!104, !39, i64 8}
+!112 = !{!113, !6, i64 0}
+!113 = !{!"MPEG2RawQuantMatrixExtension", !6, i64 0, !6, i64 1, !6, i64 65, !6, i64 66, !6, i64 130, !6, i64 131, !6, i64 195, !6, i64 196}
+!114 = distinct !{!114, !18}
+!115 = !{!113, !6, i64 65}
+!116 = distinct !{!116, !18}
+!117 = !{!113, !6, i64 130}
+!118 = distinct !{!118, !18}
+!119 = !{!113, !6, i64 195}
+!120 = distinct !{!120, !18}
+!121 = !{!38, !6, i64 7}
+!122 = distinct !{!122, !18}
+!123 = !{!39, !39, i64 0}
+!124 = !{!125, !6, i64 4}
+!125 = !{!"MPEG2RawPictureCodingExtension", !6, i64 0, !6, i64 4, !6, i64 5, !6, i64 6, !6, i64 7, !6, i64 8, !6, i64 9, !6, i64 10, !6, i64 11, !6, i64 12, !6, i64 13, !6, i64 14, !6, i64 15, !6, i64 16, !6, i64 17, !6, i64 18, !6, i64 19, !6, i64 20}
+!126 = !{!125, !6, i64 5}
+!127 = !{!125, !6, i64 6}
+!128 = !{!125, !6, i64 7}
+!129 = !{!125, !6, i64 8}
+!130 = !{!125, !6, i64 9}
+!131 = !{!125, !6, i64 10}
+!132 = !{!125, !6, i64 11}
+!133 = !{!125, !6, i64 12}
+!134 = !{!125, !6, i64 13}
+!135 = !{!125, !6, i64 14}
+!136 = !{!125, !6, i64 15}
+!137 = !{!125, !6, i64 16}
+!138 = !{!125, !6, i64 17}
+!139 = !{!125, !6, i64 18}
+!140 = !{!125, !6, i64 19}
+!141 = !{!125, !6, i64 20}
+!142 = !{!143, !6, i64 0}
+!143 = !{!"MPEG2RawGroupOfPicturesHeader", !6, i64 0, !5, i64 4, !6, i64 8, !6, i64 9}
+!144 = !{!143, !5, i64 4}
+!145 = !{!143, !6, i64 8}
+!146 = !{!143, !6, i64 9}
+!147 = !{!148, !6, i64 0}
+!148 = !{!"MPEG2RawSequenceEnd", !6, i64 0}
+!149 = !{!36, !12, i64 16}
+!150 = distinct !{!150, !18}
+!151 = !{!36, !10, i64 0}
+!152 = !{!153, !10, i64 24}
+!153 = !{!"PutBitContext", !5, i64 0, !5, i64 4, !10, i64 8, !10, i64 16, !10, i64 24}
+!154 = !{!153, !10, i64 16}
+!155 = !{!153, !5, i64 4}
+!156 = !{!153, !5, i64 0}
+!157 = distinct !{!157, !18}
+!158 = distinct !{!158, !18}
+!159 = distinct !{!159, !18}
+!160 = !{!153, !10, i64 8}
+!161 = distinct !{!161, !18}
+!162 = distinct !{!162, !18}
+!163 = distinct !{!163, !18}
+!164 = distinct !{!164, !18}
+!165 = distinct !{!165, !18}
+!166 = distinct !{!166, !18}
+!167 = distinct !{!167, !18}
+!168 = distinct !{!168, !18}
+!169 = !{!9, !5, i64 32}
+!170 = !{!9, !14, i64 40}
+!171 = distinct !{!171, !18}
+!172 = distinct !{!172, !18}
+!173 = !{i64 0, i64 8, !174, i64 8, i64 8, !174, i64 16, i64 4, !4, i64 20, i64 4, !4, i64 24, i64 4, !4}
+!174 = !{!10, !10, i64 0}
+!175 = distinct !{!175, !18}
+!176 = !{!36, !13, i64 8}
+!177 = distinct !{!177, !18}

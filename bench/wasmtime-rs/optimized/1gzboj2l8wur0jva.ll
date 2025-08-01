@@ -1159,7 +1159,7 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
 
 359:                                              ; preds = %338
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr nonnull align 8 %9)
-          to label %330 unwind label %332, !llvm.loop !5
+          to label %330 unwind label %332
 
 360:                                              ; preds = %361, %294
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr nonnull align 8 %17, ptr nonnull align 8 %19)
@@ -1178,7 +1178,7 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
 364:                                              ; preds = %360
   %365 = add i64 %.048, 1
   invoke void @"_ZN4core3ptr74drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..Ident$GT$$GT$17ha8ae34e0c4f40a4aE"(ptr nonnull align 8 %17)
-          to label %286 unwind label %288, !llvm.loop !7
+          to label %286 unwind label %288
 
 366:                                              ; preds = %273
   %367 = landingpad { ptr, i32 }
@@ -1188,7 +1188,7 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
 
 368:                                              ; preds = %273
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr nonnull align 8 %24)
-          to label %265 unwind label %267, !llvm.loop !8
+          to label %265 unwind label %267
 
 369:                                              ; preds = %181
   %370 = landingpad { ptr, i32 }
@@ -1198,7 +1198,7 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
 
 371:                                              ; preds = %181
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr nonnull align 8 %43)
-          to label %173 unwind label %175, !llvm.loop !9
+          to label %173 unwind label %175
 
 372:                                              ; preds = %373, %166
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr nonnull align 8 %48, ptr nonnull align 8 %50)
@@ -1217,7 +1217,7 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
 376:                                              ; preds = %372
   %377 = add i64 %.039, 1
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr nonnull align 8 %48)
-          to label %158 unwind label %160, !llvm.loop !10
+          to label %158 unwind label %160
 
 .thread92:                                        ; preds = %111, %123, %128, %103
   %.pn7899 = phi { ptr, i32 } [ %.pn78, %103 ], [ %.pn, %111 ], [ %124, %123 ], [ %129, %128 ]
@@ -1364,9 +1364,3 @@ attributes #5 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 0, i64 -9223372036854775806}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

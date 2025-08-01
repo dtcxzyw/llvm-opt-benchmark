@@ -284,7 +284,7 @@ _ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallVe
 114:                                              ; preds = %89
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #7
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %116 = load i32, ptr %115, align 4, !tbaa !704
+  %116 = load i32, ptr %115, align 4, !tbaa !703
   %117 = zext i32 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %118, ptr %8, align 8, !tbaa !697
@@ -361,7 +361,7 @@ _ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit63: ; preds = %._crit_edge, %1
   %143 = add i32 %.073, 1
   %144 = load i32, ptr %119, align 8, !tbaa !699
   %.not = icmp eq i32 %144, %143
-  br i1 %.not, label %._crit_edge.loopexit, label %135, !llvm.loop !705
+  br i1 %.not, label %._crit_edge.loopexit, label %135, !llvm.loop !704
 
 145:                                              ; preds = %28, %_ZN4llvm5APIntD2Ev.exit44, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit63, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit, %_ZN4llvm5APIntD2Ev.exit61, %_ZNK4llvm4Type13getScalarTypeEv.exit52
   %.1 = phi ptr [ %60, %_ZNK4llvm4Type13getScalarTypeEv.exit52 ], [ %82, %_ZN4llvm5APIntD2Ev.exit61 ], [ %110, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit ], [ %131, %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit63 ], [ %29, %28 ], [ %33, %_ZN4llvm5APIntD2Ev.exit44 ]
@@ -1123,8 +1123,7 @@ attributes #8 = { builtin nounwind }
 !698 = !{!145, !13, i64 12}
 !699 = !{!145, !13, i64 8}
 !700 = !{!63, !63, i64 0}
-!701 = distinct !{!701, !702, !703}
+!701 = distinct !{!701, !702}
 !702 = !{!"llvm.loop.mustprogress"}
-!703 = !{!"llvm.loop.estimated_trip_count"}
-!704 = !{!682, !13, i64 12}
-!705 = distinct !{!705, !702, !703}
+!703 = !{!682, !13, i64 12}
+!704 = distinct !{!704, !702}

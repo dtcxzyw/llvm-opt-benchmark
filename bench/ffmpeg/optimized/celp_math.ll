@@ -77,7 +77,7 @@ define i64 @ff_dot_product(ptr noundef readonly captures(none) %0, ptr noundef r
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable
 define void @ff_celp_math_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #2 {
-  store ptr @ff_scalarproduct_float_c, ptr %0, align 8, !tbaa !12
+  store ptr @ff_scalarproduct_float_c, ptr %0, align 8, !tbaa !11
   ret void
 }
 
@@ -99,9 +99,8 @@ attributes #3 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "st
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"short", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"CELPMContext", !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"CELPMContext", !13, i64 0}
+!13 = !{!"any pointer", !5, i64 0}

@@ -210,7 +210,7 @@ merge_all.exit:                                   ; preds = %74, %90, %82, %51, 
   %.123 = phi i32 [ 1, %.tail34 ], [ 0, %51 ], [ %.02245, %82 ], [ %.02245, %90 ], [ 0, %74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %merge_all.exit, %.tail29.thread
   %93 = load i32, ptr @err, align 4, !tbaa !47
@@ -336,7 +336,7 @@ define internal fastcc range(i32 1, 0) i32 @merge_entry(i32 noundef %0, ptr noun
   %51 = load i32, ptr %50, align 4, !tbaa !32
   %52 = trunc nsw i64 %indvars.iv.next to i32
   %53 = icmp ugt i32 %51, %52
-  br i1 %53, label %.preheader, label %.thread33, !llvm.loop !52
+  br i1 %53, label %.preheader, label %.thread33, !llvm.loop !51
 
 54:                                               ; preds = %.preheader
   %.not26 = icmp eq i32 %.021, 0
@@ -467,8 +467,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !45 = !{!46, !46, i64 0}
 !46 = !{!"p1 _ZTS11cache_entry", !6, i64 0}
 !47 = !{!18, !18, i64 0}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = distinct !{!51, !49, !50}
-!52 = distinct !{!52, !49, !50}
+!50 = distinct !{!50, !49}
+!51 = distinct !{!51, !49}

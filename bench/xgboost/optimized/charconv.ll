@@ -365,7 +365,7 @@ tailrecurse.i19.preheader:                        ; preds = %tailrecurse.i19.pre
   store i8 %14, ptr %17, align 1, !tbaa !3
   %18 = add i32 %.01828, -2
   %.not = icmp ult i64 %.029, 10000
-  br i1 %.not, label %_ZN7xgboost6detail4TensEj.exit._crit_edge, label %tailrecurse.i19.preheader, !llvm.loop !13
+  br i1 %.not, label %_ZN7xgboost6detail4TensEj.exit._crit_edge, label %tailrecurse.i19.preheader, !llvm.loop !12
 
 _ZN7xgboost6detail4TensEj.exit._crit_edge:        ; preds = %tailrecurse.i19.preheader, %3
   %.0.lcssa = phi i64 [ %2, %3 ], [ %7, %tailrecurse.i19.preheader ]
@@ -434,7 +434,7 @@ tailrecurse.i18.preheader.i.i:                    ; preds = %tailrecurse.i14.pre
 _ZN7xgboost6detail15ShortestDigit10Em.exit:       ; preds = %tailrecurse.i18.preheader.i.i, %3, %7, %10, %15
   %17 = phi i32 [ %8, %7 ], [ %11, %10 ], [ %16, %15 ], [ 1, %3 ], [ %13, %tailrecurse.i18.preheader.i.i ]
   %18 = icmp eq ptr %1, %0
-  br i1 %18, label %49, label %19, !prof !14
+  br i1 %18, label %49, label %19, !prof !13
 
 19:                                               ; preds = %_ZN7xgboost6detail15ShortestDigit10Em.exit
   %.not.i11 = icmp ult i64 %2, 100
@@ -464,7 +464,7 @@ tailrecurse.i19.preheader.i:                      ; preds = %tailrecurse.i19.pre
   store i8 %30, ptr %33, align 1, !tbaa !3
   %34 = add i32 %.018.i12, -2
   %.not.i = icmp ult i64 %.0.i13, 10000
-  br i1 %.not.i, label %_ZN7xgboost6detail4TensEj.exit.i._crit_edge, label %tailrecurse.i19.preheader.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZN7xgboost6detail4TensEj.exit.i._crit_edge, label %tailrecurse.i19.preheader.i, !llvm.loop !12
 
 _ZN7xgboost6detail4TensEj.exit.i._crit_edge:      ; preds = %tailrecurse.i19.preheader.i, %19
   %.0.i.lcssa = phi i64 [ %2, %19 ], [ %23, %tailrecurse.i19.preheader.i ]
@@ -559,7 +559,7 @@ select.unfold:                                    ; preds = %13, %19
   %.2.ph = phi i32 [ %spec.select200, %19 ], [ %.0275, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread.thread, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit.thread.thread, label %.lr.ph, !llvm.loop !14
 
 24:                                               ; preds = %15
   %25 = trunc nuw nsw i64 %indvars.iv to i32
@@ -625,7 +625,7 @@ select.unfold:                                    ; preds = %13, %19
   %indvars.iv.next307 = add nsw i64 %indvars.iv306, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next307 to i32
   %exitcond309.not = icmp eq i32 %1, %lftr.wideiv
-  br i1 %exitcond309.not, label %.loopexit.thread, label %.lr.ph283, !llvm.loop !16
+  br i1 %exitcond309.not, label %.loopexit.thread, label %.lr.ph283, !llvm.loop !15
 
 .loopexit:                                        ; preds = %5, %39, %24
   %.0169266 = phi i32 [ %.0169273, %24 ], [ %.0169273, %39 ], [ 0, %5 ]
@@ -669,7 +669,7 @@ select.unfold:                                    ; preds = %13, %19
 
 64:                                               ; preds = %.loopexit.thread.thread
   %65 = select i1 %7, float -0.000000e+00, float 0.000000e+00
-  store float %65, ptr %2, align 4, !tbaa !17
+  store float %65, ptr %2, align 4, !tbaa !16
   br label %.thread
 
 66:                                               ; preds = %.loopexit.thread.thread
@@ -679,7 +679,7 @@ select.unfold:                                    ; preds = %13, %19
 
 69:                                               ; preds = %66
   %70 = select i1 %7, float -0.000000e+00, float 0.000000e+00
-  store float %70, ptr %2, align 4, !tbaa !17
+  store float %70, ptr %2, align 4, !tbaa !16
   br label %.thread
 
 71:                                               ; preds = %66
@@ -688,7 +688,7 @@ select.unfold:                                    ; preds = %13, %19
 
 73:                                               ; preds = %71
   %74 = select i1 %7, float 0xFFF0000000000000, float 0x7FF0000000000000
-  store float %74, ptr %2, align 4, !tbaa !17
+  store float %74, ptr %2, align 4, !tbaa !16
   br label %.thread
 
 75:                                               ; preds = %71
@@ -705,7 +705,7 @@ select.unfold:                                    ; preds = %13, %19
   %83 = sub nsw i32 %82, %62
   %84 = zext nneg i32 %62 to i64
   %85 = getelementptr inbounds nuw [47 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils15kFloatPow5SplitE, i64 0, i64 %84
-  %86 = load i64, ptr %85, align 8, !tbaa !19
+  %86 = load i64, ptr %85, align 8, !tbaa !18
   %87 = lshr i64 %86, 32
   %88 = zext i32 %.0169266317332 to i64
   %89 = and i64 %86, 4294967295
@@ -740,7 +740,7 @@ select.unfold:                                    ; preds = %13, %19
   %109 = sub nsw i32 %108, %62
   %110 = zext nneg i32 %104 to i64
   %111 = getelementptr inbounds nuw [55 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils18kFloatPow5InvSplitE, i64 0, i64 %110
-  %112 = load i64, ptr %111, align 8, !tbaa !19
+  %112 = load i64, ptr %111, align 8, !tbaa !18
   %113 = lshr i64 %112, 32
   %114 = zext i32 %.0169266317332 to i64
   %115 = and i64 %112, 4294967295
@@ -780,7 +780,7 @@ select.unfold:                                    ; preds = %13, %19
   %132 = add i32 %.0816.i.i, 1
   %133 = urem i32 %131, 5
   %.not.i.i = icmp eq i32 %133, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit.loopexit, !llvm.loop !21
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit.loopexit
 
 _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit.loopexit: ; preds = %.lr.ph.i.i
   %134 = icmp uge i32 %132, %104
@@ -801,7 +801,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %130, 
 
 140:                                              ; preds = %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
   %141 = select i1 %7, float 0xFFF0000000000000, float 0x7FF0000000000000
-  store float %141, ptr %2, align 4, !tbaa !17
+  store float %141, ptr %2, align 4, !tbaa !16
   br label %.thread
 
 142:                                              ; preds = %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
@@ -842,7 +842,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %130, 
   %167 = or i32 %spec.select203, %166
   %168 = shl nuw i32 %167, 23
   %169 = or disjoint i32 %168, %163
-  store i32 %169, ptr %2, align 4, !tbaa !17
+  store i32 %169, ptr %2, align 4, !tbaa !16
   br label %.thread
 
 .thread.loopexit:                                 ; preds = %.lr.ph283, %45
@@ -879,13 +879,13 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %11 = mul i64 %10, 169464822037455
   %12 = lshr i64 %11, 49
   %13 = trunc nuw nsw i64 %12 to i32
-  store i32 %13, ptr %4, align 4, !tbaa !22
+  store i32 %13, ptr %4, align 4, !tbaa !20
   %14 = mul nuw nsw i64 %12, 163391164108059
   %15 = lshr i64 %14, 46
   %16 = trunc nuw nsw i64 %15 to i32
   %17 = sub nsw i32 %13, %.sroa.0.0.extract.trunc
   %18 = getelementptr inbounds nuw [55 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils18kFloatPow5InvSplitE, i64 0, i64 %12
-  %19 = load i64, ptr %18, align 8, !tbaa !19
+  %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = lshr i64 %19, 32
   %21 = and i64 %19, 4294967295
   %22 = mul nuw i64 %21, %.sroa.8.0.extract.shift
@@ -898,7 +898,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %29 = lshr i64 %25, %28
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %30, ptr %31, align 4, !tbaa !25
+  store i32 %30, ptr %31, align 4, !tbaa !23
   %32 = and i64 %3, 4294967295
   %33 = mul nuw i64 %21, %32
   %34 = mul nuw i64 %20, %32
@@ -907,7 +907,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %37 = lshr i64 %36, %28
   %38 = trunc i64 %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %38, ptr %39, align 4, !tbaa !26
+  store i32 %38, ptr %39, align 4, !tbaa !24
   %40 = mul nuw i64 %21, %.sroa.19.8.extract.shift
   %41 = mul nuw i64 %20, %.sroa.19.8.extract.shift
   %42 = lshr i64 %40, 32
@@ -915,7 +915,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %44 = lshr i64 %43, %28
   %45 = trunc i64 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %45, ptr %46, align 4, !tbaa !27
+  store i32 %45, ptr %46, align 4, !tbaa !25
   %.not81 = icmp ult i64 %11, 562949953421312
   br i1 %.not81, label %.thread, label %47
 
@@ -933,7 +933,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %55 = lshr i64 %54, 46
   %56 = trunc nuw nsw i64 %55 to i32
   %57 = getelementptr inbounds nuw [55 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils18kFloatPow5InvSplitE, i64 0, i64 %53
-  %58 = load i64, ptr %57, align 8, !tbaa !19
+  %58 = load i64, ptr %57, align 8, !tbaa !18
   %59 = lshr i64 %58, 32
   %60 = and i64 %58, 4294967295
   %61 = mul nuw i64 %60, %32
@@ -967,7 +967,7 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   %77 = add i32 %.0816.i.i, 1
   %78 = urem i32 %76, 5
   %.not.i.i = icmp eq i32 %78, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit, !llvm.loop !21
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
 
 _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %.lr.ph.i.i
   %79 = icmp uge i32 %77, %13
@@ -990,7 +990,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %.lr.p
   %85 = add i32 %.0816.i.i87, 1
   %86 = urem i32 %84, 5
   %.not.i.i88 = icmp eq i32 %86, 0
-  br i1 %.not.i.i88, label %.lr.ph.i.i85, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit89, !llvm.loop !21
+  br i1 %.not.i.i88, label %.lr.ph.i.i85, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit89
 
 _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit89: ; preds = %.lr.ph.i.i85, %82
   %.08.lcssa.i.i84 = phi i32 [ 0, %82 ], [ %85, %.lr.ph.i.i85 ]
@@ -1011,14 +1011,14 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit89: ; preds = %.lr
   %92 = add i32 %.0816.i.i94, 1
   %93 = urem i32 %91, 5
   %.not.i.i95 = icmp eq i32 %93, 0
-  br i1 %.not.i.i95, label %.lr.ph.i.i92, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96, !llvm.loop !21
+  br i1 %.not.i.i95, label %.lr.ph.i.i92, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96
 
 _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr.ph.i.i92, %89
   %.08.lcssa.i.i91 = phi i32 [ 0, %89 ], [ %92, %.lr.ph.i.i92 ]
   %94 = icmp uge i32 %.08.lcssa.i.i91, %13
   %.neg = sext i1 %94 to i32
   %95 = add i32 %.neg, %45
-  store i32 %95, ptr %46, align 4, !tbaa !27
+  store i32 %95, ptr %46, align 4, !tbaa !25
   br label %175
 
 96:                                               ; preds = %7
@@ -1028,14 +1028,14 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   %100 = lshr i64 %99, 48
   %101 = trunc nuw nsw i64 %100 to i32
   %102 = add nsw i32 %101, %.sroa.0.0.extract.trunc
-  store i32 %102, ptr %4, align 4, !tbaa !22
+  store i32 %102, ptr %4, align 4, !tbaa !20
   %103 = sub nsw i32 %97, %101
   %104 = sext i32 %103 to i64
   %105 = mul i64 %104, 163391164108059
   %106 = lshr i64 %105, 46
   %107 = zext i32 %103 to i64
   %108 = getelementptr inbounds nuw [47 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils15kFloatPow5SplitE, i64 0, i64 %107
-  %109 = load i64, ptr %108, align 8, !tbaa !19
+  %109 = load i64, ptr %108, align 8, !tbaa !18
   %110 = lshr i64 %109, 32
   %111 = and i64 %3, 4294967295
   %112 = and i64 %109, 4294967295
@@ -1049,7 +1049,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   %120 = lshr i64 %116, %119
   %121 = trunc i64 %120 to i32
   %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %121, ptr %122, align 4, !tbaa !26
+  store i32 %121, ptr %122, align 4, !tbaa !24
   %123 = mul nuw i64 %112, %.sroa.19.8.extract.shift
   %124 = mul nuw i64 %110, %.sroa.19.8.extract.shift
   %125 = lshr i64 %123, 32
@@ -1057,7 +1057,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   %127 = lshr i64 %126, %119
   %128 = trunc i64 %127 to i32
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 %128, ptr %129, align 4, !tbaa !27
+  store i32 %128, ptr %129, align 4, !tbaa !25
   %130 = mul nuw i64 %112, %.sroa.8.0.extract.shift
   %131 = mul nuw i64 %110, %.sroa.8.0.extract.shift
   %132 = lshr i64 %130, 32
@@ -1065,7 +1065,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   %134 = lshr i64 %133, %119
   %135 = trunc i64 %134 to i32
   %136 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %135, ptr %136, align 4, !tbaa !25
+  store i32 %135, ptr %136, align 4, !tbaa !23
   %.not = icmp ult i64 %99, 281474976710656
   br i1 %.not, label %.thread99, label %137
 
@@ -1084,7 +1084,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
   %.neg102 = xor i64 %145, -1
   %146 = zext i32 %142 to i64
   %147 = getelementptr inbounds nuw [47 x i64], ptr @_ZN7xgboost6detail14RyuPowLogUtils15kFloatPow5SplitE, i64 0, i64 %146
-  %148 = load i64, ptr %147, align 8, !tbaa !19
+  %148 = load i64, ptr %147, align 8, !tbaa !18
   %149 = lshr i64 %148, 32
   %150 = and i64 %148, 4294967295
   %151 = mul nuw i64 %150, %111
@@ -1117,7 +1117,7 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96: ; preds = %.lr
 
 166:                                              ; preds = %.thread99
   %167 = add i32 %128, -1
-  store i32 %167, ptr %129, align 4, !tbaa !27
+  store i32 %167, ptr %129, align 4, !tbaa !25
   br label %175
 
 168:                                              ; preds = %161
@@ -1177,7 +1177,7 @@ define linkonce_odr i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresen
   %21 = udiv i32 %11, 10
   %22 = udiv i32 %10, 10
   %23 = icmp samesign ugt i32 %21, %22
-  br i1 %23, label %.lr.ph80, label %._crit_edge81, !llvm.loop !28
+  br i1 %23, label %.lr.ph80, label %._crit_edge81, !llvm.loop !26
 
 ._crit_edge81:                                    ; preds = %.lr.ph80, %.preheader67
   %.sroa.2.0.lcssa = phi i32 [ %.sroa.2.0.extract.trunc, %.preheader67 ], [ %10, %.lr.ph80 ]
@@ -1206,7 +1206,7 @@ define linkonce_odr i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresen
   %32 = add nuw nsw i32 %.292, 1
   %33 = urem i32 %31, 10
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %.lr.ph93, label %.loopexit, !llvm.loop !29
+  br i1 %34, label %.lr.ph93, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph93, %._crit_edge81
   %.sroa.2.1 = phi i32 [ %.sroa.2.0.lcssa, %._crit_edge81 ], [ %31, %.lr.ph93 ]
@@ -1240,7 +1240,7 @@ define linkonce_odr i64 @_ZN7xgboost6detail17PowerBaseComputer22ShortestRepresen
   %46 = udiv i32 %42, 10
   %47 = udiv i32 %41, 10
   %48 = icmp samesign ugt i32 %46, %47
-  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %48, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %49 = trunc nuw nsw i32 %44 to i8
@@ -1314,24 +1314,22 @@ attributes #11 = { nounwind }
 !7 = !{!"bool", !4, i64 0}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"float", !4, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !4, i64 0}
-!21 = distinct !{!21, !12}
-!22 = !{!23, !24, i64 0}
-!23 = !{!"_ZTSN7xgboost6detail15MantissaIntevalE", !24, i64 0, !24, i64 4, !24, i64 8, !24, i64 12}
-!24 = !{!"int", !4, i64 0}
-!25 = !{!23, !24, i64 4}
-!26 = !{!23, !24, i64 8}
-!27 = !{!23, !24, i64 12}
-!28 = distinct !{!28, !11, !12}
-!29 = distinct !{!29, !11, !12}
-!30 = distinct !{!30, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"float", !4, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !4, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"_ZTSN7xgboost6detail15MantissaIntevalE", !22, i64 0, !22, i64 4, !22, i64 8, !22, i64 12}
+!22 = !{!"int", !4, i64 0}
+!23 = !{!21, !22, i64 4}
+!24 = !{!21, !22, i64 8}
+!25 = !{!21, !22, i64 12}
+!26 = distinct !{!26, !11}
+!27 = distinct !{!27, !11}
+!28 = distinct !{!28, !11}

@@ -717,7 +717,7 @@ _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexi
 _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i: ; preds = %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i, %3
   %13 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i ], [ %2, %3 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !43
+  %15 = load i64, ptr %14, align 8, !tbaa !42
   %16 = shl i64 %15, 3
   tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %16) #25
   br label %_ZNSt5dequeIP10SubprocessSaIS1_EED2Ev.exit
@@ -742,7 +742,7 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
 .lr.ph.i:                                         ; preds = %1, %16
   %5 = phi ptr [ %17, %16 ], [ %4, %1 ]
   %.sroa.05.012.i = phi ptr [ %18, %16 ], [ %2, %1 ]
-  %6 = load ptr, ptr %.sroa.05.012.i, align 8, !tbaa !44
+  %6 = load ptr, ptr %.sroa.05.012.i, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i8, ptr %7, align 8, !tbaa !19, !range !22, !noundef !23
   %9 = trunc nuw i8 %8 to i1
@@ -761,7 +761,7 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
   %17 = phi ptr [ %5, %.lr.ph.i ], [ %.pre.i, %10 ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 8
   %.not.i = icmp eq ptr %18, %17
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !46
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45
 
 ._crit_edge17.i:                                  ; preds = %25
   %.pre21.i = load ptr, ptr %0, align 8, !tbaa !28
@@ -769,13 +769,13 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
   br i1 %19, label %_ZN13SubprocessSet5ClearEv.exit, label %20
 
 20:                                               ; preds = %._crit_edge17.i
-  store ptr %.pre21.i, ptr %3, align 8, !tbaa !47
+  store ptr %.pre21.i, ptr %3, align 8, !tbaa !46
   br label %_ZN13SubprocessSet5ClearEv.exit
 
 .lr.ph16.i:                                       ; preds = %._crit_edge.i, %25
   %21 = phi ptr [ %26, %25 ], [ %17, %._crit_edge.i ]
   %.sroa.01.014.i = phi ptr [ %27, %25 ], [ %.pre19.i, %._crit_edge.i ]
-  %22 = load ptr, ptr %.sroa.01.014.i, align 8, !tbaa !44
+  %22 = load ptr, ptr %.sroa.01.014.i, align 8, !tbaa !43
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -789,7 +789,7 @@ define dso_local void @_ZN13SubprocessSetD2Ev(ptr noundef nonnull align 8 derefe
   %26 = phi ptr [ %21, %.lr.ph16.i ], [ %.pre20.i, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 8
   %.not9.i = icmp eq ptr %27, %26
-  br i1 %.not9.i, label %._crit_edge17.i, label %.lr.ph16.i, !llvm.loop !48
+  br i1 %.not9.i, label %._crit_edge17.i, label %.lr.ph16.i, !llvm.loop !47
 
 _ZN13SubprocessSet5ClearEv.exit:                  ; preds = %1, %._crit_edge.i, %._crit_edge17.i, %20
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -856,7 +856,7 @@ _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexi
 _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i, %50
   %60 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.loopexit.i.i.i ], [ %49, %50 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %62 = load i64, ptr %61, align 8, !tbaa !43
+  %62 = load i64, ptr %61, align 8, !tbaa !42
   %63 = shl i64 %62, 3
   tail call void @_ZdlPvm(ptr noundef %60, i64 noundef %63) #25
   br label %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEED2Ev.exit
@@ -902,7 +902,7 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr noundef nonnull align 8 ca
 .lr.ph:                                           ; preds = %1, %16
   %5 = phi ptr [ %17, %16 ], [ %4, %1 ]
   %.sroa.05.012 = phi ptr [ %18, %16 ], [ %2, %1 ]
-  %6 = load ptr, ptr %.sroa.05.012, align 8, !tbaa !44
+  %6 = load ptr, ptr %.sroa.05.012, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i8, ptr %7, align 8, !tbaa !19, !range !22, !noundef !23
   %9 = trunc nuw i8 %8 to i1
@@ -921,7 +921,7 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr noundef nonnull align 8 ca
   %17 = phi ptr [ %5, %.lr.ph ], [ %.pre, %10 ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.05.012, i64 8
   %.not = icmp eq ptr %18, %17
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge17:                                    ; preds = %25
   %.pre21 = load ptr, ptr %0, align 8, !tbaa !28
@@ -929,7 +929,7 @@ define dso_local void @_ZN13SubprocessSet5ClearEv(ptr noundef nonnull align 8 ca
   br i1 %19, label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit, label %20
 
 20:                                               ; preds = %._crit_edge17
-  store ptr %.pre21, ptr %3, align 8, !tbaa !47
+  store ptr %.pre21, ptr %3, align 8, !tbaa !46
   br label %_ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %._crit_edge17, %20
@@ -938,7 +938,7 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %.
 .lr.ph16:                                         ; preds = %._crit_edge, %25
   %21 = phi ptr [ %26, %25 ], [ %17, %._crit_edge ]
   %.sroa.01.014 = phi ptr [ %27, %25 ], [ %.pre19, %._crit_edge ]
-  %22 = load ptr, ptr %.sroa.01.014, align 8, !tbaa !44
+  %22 = load ptr, ptr %.sroa.01.014, align 8, !tbaa !43
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
@@ -952,7 +952,7 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE5clearEv.exit:  ; preds = %1, %._crit_edge, %.
   %26 = phi ptr [ %21, %.lr.ph16 ], [ %.pre20, %24 ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.01.014, i64 8
   %.not9 = icmp eq ptr %27, %26
-  br i1 %.not9, label %._crit_edge17, label %.lr.ph16, !llvm.loop !48
+  br i1 %.not9, label %._crit_edge17, label %.lr.ph16, !llvm.loop !47
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -972,16 +972,16 @@ define dso_local noundef nonnull ptr @_ZN13SubprocessSet3AddERKNSt7__cxx1112basi
   store i8 %5, ptr %10, align 8, !tbaa !19
   %11 = tail call noundef zeroext i1 @_ZN10Subprocess5StartEP13SubprocessSetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(41) %4, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !47
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !31
   %.not.i = icmp eq ptr %13, %15
   br i1 %.not.i, label %18, label %16
 
 16:                                               ; preds = %3
-  store ptr %4, ptr %13, align 8, !tbaa !44
+  store ptr %4, ptr %13, align 8, !tbaa !43
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %17, ptr %12, align 8, !tbaa !47
+  store ptr %17, ptr %12, align 8, !tbaa !46
   br label %_ZNSt6vectorIP10SubprocessSaIS1_EE9push_backERKS1_.exit
 
 18:                                               ; preds = %3
@@ -1008,7 +1008,7 @@ _ZNKSt6vectorIP10SubprocessSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %18
   %30 = shl nuw nsw i64 %29, 3
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #28
   %32 = getelementptr inbounds i8, ptr %31, i64 %22
-  store ptr %4, ptr %32, align 8, !tbaa !44
+  store ptr %4, ptr %32, align 8, !tbaa !43
   %33 = icmp sgt i64 %22, 0
   br i1 %33, label %34, label %_ZNSt6vectorIP10SubprocessSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
@@ -1027,7 +1027,7 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pre
 
 _ZNSt6vectorIP10SubprocessSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorIP10SubprocessSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %31, ptr %0, align 8, !tbaa !28
-  store ptr %35, ptr %12, align 8, !tbaa !47
+  store ptr %35, ptr %12, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %29
   store ptr %37, ptr %14, align 8, !tbaa !31
   br label %_ZNSt6vectorIP10SubprocessSaIS1_EE9push_backERKS1_.exit
@@ -1064,7 +1064,7 @@ define dso_local noundef zeroext i1 @_ZN13SubprocessSet6DoWorkEv(ptr noundef non
   %.sroa.10.087 = phi ptr [ %.sroa.10.1, %33 ], [ null, %1 ]
   %.sroa.14.086 = phi ptr [ %.sroa.14.1, %33 ], [ null, %1 ]
   %.sroa.054.085 = phi ptr [ %35, %33 ], [ %2, %1 ]
-  %8 = load ptr, ptr %.sroa.054.085, align 8, !tbaa !44
+  %8 = load ptr, ptr %.sroa.054.085, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8, !tbaa !14
   %11 = icmp slt i32 %10, 0
@@ -1148,7 +1148,7 @@ _ZNSt6vectorI6pollfdSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI6poll
   %.1 = phi i64 [ %.01089, %.lr.ph ], [ %32, %_ZNSt6vectorI6pollfdSaIS0_EE9push_backERKS0_.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.054.085, i64 8
   %.not69 = icmp eq ptr %35, %34
-  br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %.not69, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1217,16 +1217,16 @@ _ZNSt6vectorI6pollfdSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI6poll
   %58 = phi ptr [ %52, %.lr.ph96 ], [ %98, %97 ]
   %.01194 = phi i64 [ 0, %.lr.ph96 ], [ %.112, %97 ]
   %.sroa.031.093 = phi ptr [ %51, %.lr.ph96 ], [ %.sroa.031.1, %97 ]
-  %59 = load ptr, ptr %.sroa.031.093, align 8, !tbaa !44
+  %59 = load ptr, ptr %.sroa.031.093, align 8, !tbaa !43
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load i32, ptr %60, align 8, !tbaa !14
   %62 = icmp slt i32 %61, 0
-  br i1 %62, label %97, label %63, !llvm.loop !50
+  br i1 %62, label %97, label %63, !llvm.loop !49
 
 63:                                               ; preds = %57
   %64 = add i64 %.01194, 1
   %65 = getelementptr inbounds nuw %struct.pollfd, ptr %.sroa.057.1, i64 %.01194, i32 2
-  %66 = load i16, ptr %65, align 2, !tbaa !51
+  %66 = load i16, ptr %65, align 2, !tbaa !50
   %.not = icmp eq i16 %66, 0
   br i1 %.not, label %95, label %67
 
@@ -1235,7 +1235,7 @@ _ZNSt6vectorI6pollfdSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI6poll
           to label %68 unwind label %93
 
 68:                                               ; preds = %67
-  %69 = load ptr, ptr %.sroa.031.093, align 8, !tbaa !44
+  %69 = load ptr, ptr %.sroa.031.093, align 8, !tbaa !43
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %71 = load i32, ptr %70, align 8, !tbaa !14
   %72 = icmp eq i32 %71, -1
@@ -1246,16 +1246,16 @@ _ZNSt6vectorI6pollfdSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI6poll
   br label %95
 
 73:                                               ; preds = %68
-  %74 = load ptr, ptr %53, align 8, !tbaa !54
-  %75 = load ptr, ptr %54, align 8, !tbaa !55
+  %74 = load ptr, ptr %53, align 8, !tbaa !53
+  %75 = load ptr, ptr %54, align 8, !tbaa !54
   %76 = getelementptr inbounds i8, ptr %75, i64 -8
   %.not.i.i = icmp eq ptr %74, %76
   br i1 %.not.i.i, label %79, label %77
 
 77:                                               ; preds = %73
-  store ptr %69, ptr %74, align 8, !tbaa !44
+  store ptr %69, ptr %74, align 8, !tbaa !43
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store ptr %78, ptr %53, align 8, !tbaa !54
+  store ptr %78, ptr %53, align 8, !tbaa !53
   br label %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit
 
 79:                                               ; preds = %73
@@ -1278,14 +1278,14 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10SubprocessSt6vectorIS3_SaIS3_EEEES8
   %88 = ptrtoint ptr %85 to i64
   %89 = sub i64 %87, %88
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %84, ptr nonnull align 8 %85, i64 %89, i1 false)
-  %.pre.i.i = load ptr, ptr %3, align 8, !tbaa !47
+  %.pre.i.i = load ptr, ptr %3, align 8, !tbaa !46
   br label %90
 
 90:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10SubprocessSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i, %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit
   %91 = phi ptr [ %.pre.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10SubprocessSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i ], [ %86, %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit ]
   %92 = getelementptr inbounds i8, ptr %91, i64 -8
-  store ptr %92, ptr %3, align 8, !tbaa !47
-  br label %97, !llvm.loop !50
+  store ptr %92, ptr %3, align 8, !tbaa !46
+  br label %97, !llvm.loop !49
 
 93:                                               ; preds = %79, %67
   %94 = landingpad { ptr, i32 }
@@ -1303,7 +1303,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10SubprocessSt6vectorIS3_SaIS3_EEEES8
   %.sroa.031.1 = phi ptr [ %.sroa.031.093, %57 ], [ %96, %95 ], [ %84, %90 ]
   %.112 = phi i64 [ %.01194, %57 ], [ %64, %95 ], [ %64, %90 ]
   %.not71 = icmp eq ptr %.sroa.031.1, %98
-  br i1 %.not71, label %._crit_edge97.loopexit, label %57, !llvm.loop !56
+  br i1 %.not71, label %._crit_edge97.loopexit, label %57
 
 _ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit:            ; preds = %50, %._crit_edge97.loopexit, %48, %45, %42
   %.0 = phi i1 [ false, %42 ], [ %47, %45 ], [ true, %48 ], [ %56, %._crit_edge97.loopexit ], [ false, %50 ]
@@ -1334,15 +1334,15 @@ declare i32 @ppoll(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unn
 define dso_local noundef ptr @_ZN13SubprocessSet12NextFinishedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(688) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %2, align 8, !tbaa !57
-  %5 = load ptr, ptr %3, align 8, !tbaa !57
+  %4 = load ptr, ptr %2, align 8, !tbaa !55
+  %5 = load ptr, ptr %3, align 8, !tbaa !55
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %22, label %7
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %5, align 8, !tbaa !44
+  %8 = load ptr, ptr %5, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load ptr, ptr %9, align 8, !tbaa !58
+  %10 = load ptr, ptr %9, align 8, !tbaa !56
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
   %.not.i.i = icmp eq ptr %5, %11
   br i1 %.not.i.i, label %14, label %12
@@ -1353,21 +1353,21 @@ define dso_local noundef ptr @_ZN13SubprocessSet12NextFinishedEv(ptr noundef non
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !59
+  %16 = load ptr, ptr %15, align 8, !tbaa !57
   tail call void @_ZdlPvm(ptr noundef %16, i64 noundef 512) #25
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %19, ptr %17, align 8, !tbaa !60
+  store ptr %19, ptr %17, align 8, !tbaa !58
   %20 = load ptr, ptr %19, align 8, !tbaa !39
-  store ptr %20, ptr %15, align 8, !tbaa !61
+  store ptr %20, ptr %15, align 8, !tbaa !59
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 512
-  store ptr %21, ptr %9, align 8, !tbaa !62
+  store ptr %21, ptr %9, align 8, !tbaa !60
   br label %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEE3popEv.exit
 
 _ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEE3popEv.exit: ; preds = %12, %14
   %storemerge.i.i = phi ptr [ %13, %12 ], [ %20, %14 ]
-  store ptr %storemerge.i.i, ptr %3, align 8, !tbaa !63
+  store ptr %storemerge.i.i, ptr %3, align 8, !tbaa !61
   br label %22
 
 22:                                               ; preds = %1, %_ZNSt5queueIP10SubprocessSt5dequeIS1_SaIS1_EEE3popEv.exit
@@ -1391,7 +1391,7 @@ _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE15_M_allocate_mapEm.exit:
   %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 5)
   %.sroa.speculated = add nuw nsw i64 %4, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !43
+  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !42
   %6 = shl nuw nsw i64 %.sroa.speculated, 3
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #28
   store ptr %7, ptr %0, align 8, !tbaa !32
@@ -1411,7 +1411,7 @@ _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_allocate_nodeEv.exit.i: ; preds = %
   store ptr %12, ptr %.011.i, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %14 = icmp ult ptr %13, %11
-  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE15_M_create_nodesEPPS1_S5_.exit, !llvm.loop !64
+  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE15_M_create_nodesEPPS1_S5_.exit, !llvm.loop !62
 
 15:                                               ; preds = %.lr.ph.i
   %16 = landingpad { ptr, i32 }
@@ -1453,7 +1453,7 @@ _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i: ; pr
   %29 = extractvalue { ptr, i32 } %24, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #22
   %31 = load ptr, ptr %0, align 8, !tbaa !32
-  %32 = load i64, ptr %5, align 8, !tbaa !43
+  %32 = load i64, ptr %5, align 8, !tbaa !42
   %33 = shl i64 %32, 3
   tail call void @_ZdlPvm(ptr noundef %31, i64 noundef %33) #25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -1472,27 +1472,27 @@ _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i: ; pr
 _ZNSt11_Deque_baseIP10SubprocessSaIS1_EE15_M_create_nodesEPPS1_S5_.exit: ; preds = %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE16_M_allocate_nodeEv.exit.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %10, ptr %38, align 8, !tbaa !60
+  store ptr %10, ptr %38, align 8, !tbaa !58
   %39 = load ptr, ptr %10, align 8, !tbaa !39
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %39, ptr %40, align 8, !tbaa !61
+  store ptr %39, ptr %40, align 8, !tbaa !59
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 512
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %41, ptr %42, align 8, !tbaa !62
+  store ptr %41, ptr %42, align 8, !tbaa !60
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = getelementptr inbounds i8, ptr %11, i64 -8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %44, ptr %45, align 8, !tbaa !60
+  store ptr %44, ptr %45, align 8, !tbaa !58
   %46 = load ptr, ptr %44, align 8, !tbaa !39
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %46, ptr %47, align 8, !tbaa !61
+  store ptr %46, ptr %47, align 8, !tbaa !59
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 512
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %48, ptr %49, align 8, !tbaa !62
-  store ptr %39, ptr %37, align 8, !tbaa !63
+  store ptr %48, ptr %49, align 8, !tbaa !60
+  store ptr %39, ptr %37, align 8, !tbaa !61
   %50 = and i64 %1, 63
   %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
-  store ptr %51, ptr %43, align 8, !tbaa !54
+  store ptr %51, ptr %43, align 8, !tbaa !53
   ret void
 
 52:                                               ; preds = %34
@@ -1524,9 +1524,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeIP10SubprocessSaIS1_EE16_M_push_b
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !60
+  %6 = load ptr, ptr %5, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !60
+  %8 = load ptr, ptr %7, align 8, !tbaa !58
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -1535,17 +1535,17 @@ define linkonce_odr dso_local void @_ZNSt5dequeIP10SubprocessSaIS1_EE16_M_push_b
   %.neg.i.i = sext i1 %13 to i64
   %14 = add nsw i64 %12, %.neg.i.i
   %15 = shl nsw i64 %14, 6
-  %16 = load ptr, ptr %3, align 8, !tbaa !57
+  %16 = load ptr, ptr %3, align 8, !tbaa !55
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !61
+  %18 = load ptr, ptr %17, align 8, !tbaa !59
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 3
   %23 = add nsw i64 %15, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !62
-  %26 = load ptr, ptr %4, align 8, !tbaa !57
+  %25 = load ptr, ptr %24, align 8, !tbaa !60
+  %26 = load ptr, ptr %4, align 8, !tbaa !55
   %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %27, %28
@@ -1560,7 +1560,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIP10SubprocessSaIS1_EE16_M_push_b
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !43
+  %36 = load i64, ptr %35, align 8, !tbaa !42
   %37 = load ptr, ptr %0, align 8, !tbaa !32
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %9, %38
@@ -1579,15 +1579,15 @@ _ZNSt5dequeIP10SubprocessSaIS1_EE22_M_reserve_map_at_backEm.exit: ; preds = %34,
   %45 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #28
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !39
-  %47 = load ptr, ptr %3, align 8, !tbaa !54
-  %48 = load ptr, ptr %1, align 8, !tbaa !44
-  store ptr %48, ptr %47, align 8, !tbaa !44
-  store ptr %46, ptr %5, align 8, !tbaa !60
-  store ptr %45, ptr %17, align 8, !tbaa !61
+  %47 = load ptr, ptr %3, align 8, !tbaa !53
+  %48 = load ptr, ptr %1, align 8, !tbaa !43
+  store ptr %48, ptr %47, align 8, !tbaa !43
+  store ptr %46, ptr %5, align 8, !tbaa !58
+  store ptr %45, ptr %17, align 8, !tbaa !59
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 512
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %49, ptr %50, align 8, !tbaa !62
-  store ptr %45, ptr %3, align 8, !tbaa !54
+  store ptr %49, ptr %50, align 8, !tbaa !60
+  store ptr %45, ptr %3, align 8, !tbaa !53
   ret void
 }
 
@@ -1604,7 +1604,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIP10SubprocessSaIS1_EE17_M_reallo
   %12 = add nsw i64 %11, 1
   %13 = add i64 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !43
+  %15 = load i64, ptr %14, align 8, !tbaa !42
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %18, label %39
@@ -1648,7 +1648,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIP10SubprocessSaIS1_EE17_M_reallo
   %40 = add i64 %15, 2
   %41 = add i64 %40, %.sroa.speculated
   %42 = icmp ugt i64 %41, 1152921504606846975
-  br i1 %42, label %43, label %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE15_M_allocate_mapEm.exit, !prof !65
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseIP10SubprocessSaIS1_EE15_M_allocate_mapEm.exit, !prof !63
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %41, 2305843009213693951
@@ -1685,27 +1685,27 @@ _ZSt4copyIPPP10SubprocessS3_ET0_T_S5_S4_.exit26:  ; preds = %_ZNSt11_Deque_baseI
   %57 = shl i64 %15, 3
   tail call void @_ZdlPvm(ptr noundef %56, i64 noundef %57) #25
   store ptr %46, ptr %0, align 8, !tbaa !32
-  store i64 %41, ptr %14, align 8, !tbaa !43
+  store i64 %41, ptr %14, align 8, !tbaa !42
   br label %_ZSt4copyIPPP10SubprocessS3_ET0_T_S5_S4_.exit
 
 _ZSt4copyIPPP10SubprocessS3_ET0_T_S5_S4_.exit:    ; preds = %32, %31, %28, %27, %_ZSt4copyIPPP10SubprocessS3_ET0_T_S5_S4_.exit26
   %.0 = phi ptr [ %51, %_ZSt4copyIPPP10SubprocessS3_ET0_T_S5_S4_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
-  store ptr %.0, ptr %6, align 8, !tbaa !60
+  store ptr %.0, ptr %6, align 8, !tbaa !58
   %58 = load ptr, ptr %.0, align 8, !tbaa !39
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %58, ptr %59, align 8, !tbaa !61
+  store ptr %58, ptr %59, align 8, !tbaa !59
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %60, ptr %61, align 8, !tbaa !62
+  store ptr %60, ptr %61, align 8, !tbaa !60
   %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
-  store ptr %63, ptr %4, align 8, !tbaa !60
+  store ptr %63, ptr %4, align 8, !tbaa !58
   %64 = load ptr, ptr %63, align 8, !tbaa !39
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %64, ptr %65, align 8, !tbaa !61
+  store ptr %64, ptr %65, align 8, !tbaa !59
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 512
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %66, ptr %67, align 8, !tbaa !62
+  store ptr %66, ptr %67, align 8, !tbaa !60
   ret void
 }
 
@@ -1790,29 +1790,27 @@ attributes #28 = { builtin allocsize(0) }
 !37 = !{!33, !34, i64 40}
 !38 = !{!33, !34, i64 72}
 !39 = !{!30, !30, i64 0}
-!40 = distinct !{!40, !41, !42}
+!40 = distinct !{!40, !41}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!"llvm.loop.estimated_trip_count"}
-!43 = !{!33, !12, i64 8}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p1 _ZTS10Subprocess", !7, i64 0}
-!46 = distinct !{!46, !41, !42}
-!47 = !{!29, !30, i64 8}
-!48 = distinct !{!48, !41, !42}
-!49 = distinct !{!49, !41, !42}
-!50 = distinct !{!50, !41}
-!51 = !{!52, !53, i64 6}
-!52 = !{!"_ZTS6pollfd", !16, i64 0, !53, i64 4, !53, i64 6}
-!53 = !{!"short", !8, i64 0}
-!54 = !{!33, !30, i64 48}
-!55 = !{!33, !30, i64 64}
-!56 = distinct !{!56, !42}
-!57 = !{!36, !30, i64 0}
-!58 = !{!33, !30, i64 32}
-!59 = !{!33, !30, i64 24}
-!60 = !{!36, !34, i64 24}
-!61 = !{!36, !30, i64 8}
-!62 = !{!36, !30, i64 16}
-!63 = !{!33, !30, i64 16}
-!64 = distinct !{!64, !41, !42}
-!65 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!42 = !{!33, !12, i64 8}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS10Subprocess", !7, i64 0}
+!45 = distinct !{!45, !41}
+!46 = !{!29, !30, i64 8}
+!47 = distinct !{!47, !41}
+!48 = distinct !{!48, !41}
+!49 = distinct !{!49, !41}
+!50 = !{!51, !52, i64 6}
+!51 = !{!"_ZTS6pollfd", !16, i64 0, !52, i64 4, !52, i64 6}
+!52 = !{!"short", !8, i64 0}
+!53 = !{!33, !30, i64 48}
+!54 = !{!33, !30, i64 64}
+!55 = !{!36, !30, i64 0}
+!56 = !{!33, !30, i64 32}
+!57 = !{!33, !30, i64 24}
+!58 = !{!36, !34, i64 24}
+!59 = !{!36, !30, i64 8}
+!60 = !{!36, !30, i64 16}
+!61 = !{!33, !30, i64 16}
+!62 = distinct !{!62, !41}
+!63 = !{!"branch_weights", !"expected", i32 1, i32 2000}

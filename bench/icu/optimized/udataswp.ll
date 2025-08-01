@@ -27,12 +27,12 @@ define noundef i32 @udata_readInt32_77(ptr noundef readonly captures(none) %0, i
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, -2147483648) i32 @udata_swapInvStringBlock_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %4, null
-  br i1 %6, label %36, label %7
+  br i1 %6, label %38, label %7
 
 7:                                                ; preds = %5
   %8 = load i32, ptr %4, align 4, !tbaa !9
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %36
+  br i1 %9, label %10, label %38
 
 10:                                               ; preds = %7
   %11 = icmp eq ptr %0, null
@@ -49,54 +49,54 @@ define range(i32 0, -2147483648) i32 @udata_swapInvStringBlock_77(ptr noundef %0
   br i1 %or.cond5, label %17, label %.preheader
 
 .preheader:                                       ; preds = %14
-  %invariant.gep = getelementptr i8, ptr %1, i64 -1
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 
 17:                                               ; preds = %14, %10
   store i32 1, ptr %4, align 4, !tbaa !9
-  br label %36
+  br label %38
 
-.lr.ph:                                           ; preds = %.preheader, %20
-  %.047 = phi i32 [ %21, %20 ], [ %2, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %22
+  %.047 = phi i32 [ %23, %22 ], [ %2, %.preheader ]
   %18 = zext nneg i32 %.047 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %18
-  %19 = load i8, ptr %gep, align 1, !tbaa !11
-  %.not43 = icmp eq i8 %19, 0
-  br i1 %.not43, label %.critedge, label %20
+  %19 = getelementptr i8, ptr %1, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 -1
+  %21 = load i8, ptr %20, align 1, !tbaa !11
+  %.not43 = icmp eq i8 %21, 0
+  br i1 %.not43, label %.critedge, label %22
 
-20:                                               ; preds = %.lr.ph
-  %21 = add nsw i32 %.047, -1
-  %22 = icmp sgt i32 %.047, 1
-  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !12
+22:                                               ; preds = %.lr.ph
+  %23 = add nsw i32 %.047, -1
+  %24 = icmp sgt i32 %.047, 1
+  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !12
 
-.critedge:                                        ; preds = %.lr.ph, %20, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ 0, %20 ], [ %.047, %.lr.ph ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load ptr, ptr %23, align 8, !tbaa !15
-  %25 = tail call noundef i32 %24(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0.lcssa, ptr noundef %3, ptr noundef nonnull %4)
+.critedge:                                        ; preds = %.lr.ph, %22, %.preheader
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ 0, %22 ], [ %.047, %.lr.ph ]
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
+  %27 = tail call noundef i32 %26(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0.lcssa, ptr noundef %3, ptr noundef nonnull %4)
   %.not44 = icmp ne ptr %1, %3
-  %26 = icmp sgt i32 %2, %.0.lcssa
-  %or.cond46 = and i1 %.not44, %26
-  br i1 %or.cond46, label %27, label %33
+  %28 = icmp sgt i32 %2, %.0.lcssa
+  %or.cond46 = and i1 %.not44, %28
+  br i1 %or.cond46, label %29, label %35
 
-27:                                               ; preds = %.critedge
-  %28 = zext nneg i32 %.0.lcssa to i64
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %28
-  %31 = sub nsw i32 %2, %.0.lcssa
-  %32 = zext nneg i32 %31 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr nonnull align 1 %30, i64 %32, i1 false)
-  br label %33
+29:                                               ; preds = %.critedge
+  %30 = zext nneg i32 %.0.lcssa to i64
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %30
+  %33 = sub nsw i32 %2, %.0.lcssa
+  %34 = zext nneg i32 %33 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr nonnull align 1 %32, i64 %34, i1 false)
+  br label %35
 
-33:                                               ; preds = %27, %.critedge
-  %34 = load i32, ptr %4, align 4, !tbaa !9
-  %35 = icmp sgt i32 %34, 0
-  %. = select i1 %35, i32 0, i32 %2
-  br label %36
+35:                                               ; preds = %29, %.critedge
+  %36 = load i32, ptr %4, align 4, !tbaa !9
+  %37 = icmp sgt i32 %36, 0
+  %. = select i1 %37, i32 0, i32 %2
+  br label %38
 
-36:                                               ; preds = %33, %5, %7, %17
-  %.037 = phi i32 [ 0, %17 ], [ 0, %7 ], [ 0, %5 ], [ %., %33 ]
+38:                                               ; preds = %35, %5, %7, %17
+  %.037 = phi i32 [ 0, %17 ], [ 0, %7 ], [ 0, %5 ], [ %., %35 ]
   ret i32 %.037
 }
 
@@ -114,15 +114,15 @@ define void @udata_printError_77(ptr noundef readonly captures(none) %0, ptr nou
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %2
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %7 = load ptr, ptr %4, align 8, !tbaa !16
+  %7 = load ptr, ptr %4, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load ptr, ptr %8, align 8, !tbaa !17
+  %9 = load ptr, ptr %8, align 8, !tbaa !16
   call void %7(ptr noundef %9, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   br label %10
@@ -172,20 +172,20 @@ define range(i32 0, 65536) i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noun
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %21 = load i8, ptr %20, align 2, !tbaa !18
+  %21 = load i8, ptr %20, align 2, !tbaa !17
   %.not90 = icmp eq i8 %21, -38
   br i1 %.not90, label %22, label %29
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %24 = load i8, ptr %23, align 1, !tbaa !23
+  %24 = load i8, ptr %23, align 1, !tbaa !22
   %.not91 = icmp eq i8 %24, 39
   br i1 %.not91, label %25, label %29
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %28 = load i8, ptr %27, align 2, !tbaa !24
+  %28 = load i8, ptr %27, align 2, !tbaa !23
   %.not92 = icmp eq i8 %28, 2
   br i1 %.not92, label %30, label %29
 
@@ -197,10 +197,10 @@ define range(i32 0, 65536) i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noun
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !3
-  %33 = load i16, ptr %1, align 2, !tbaa !25
+  %33 = load i16, ptr %1, align 2, !tbaa !24
   %34 = tail call noundef zeroext i16 %32(i16 noundef zeroext %33)
   %35 = load ptr, ptr %31, align 8, !tbaa !3
-  %36 = load i16, ptr %26, align 2, !tbaa !26
+  %36 = load i16, ptr %26, align 2, !tbaa !25
   %37 = tail call noundef zeroext i16 %35(i16 noundef zeroext %36)
   %38 = zext i16 %34 to i64
   %39 = icmp ult i16 %34, 24
@@ -239,18 +239,18 @@ define range(i32 0, 65536) i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noun
 
 53:                                               ; preds = %52, %51
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %55 = load i8, ptr %54, align 2, !tbaa !27
+  %55 = load i8, ptr %54, align 2, !tbaa !26
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i8 %55, ptr %57, align 2, !tbaa !28
+  store i8 %55, ptr %57, align 2, !tbaa !27
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %59 = load i8, ptr %58, align 1, !tbaa !29
+  %59 = load i8, ptr %58, align 1, !tbaa !28
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  store i8 %59, ptr %60, align 1, !tbaa !30
+  store i8 %59, ptr %60, align 1, !tbaa !29
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %62 = load ptr, ptr %61, align 8, !tbaa !31
+  %62 = load ptr, ptr %61, align 8, !tbaa !30
   %63 = tail call noundef i32 %62(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 2, ptr noundef %3, ptr noundef nonnull %4)
-  %64 = load ptr, ptr %61, align 8, !tbaa !31
+  %64 = load ptr, ptr %61, align 8, !tbaa !30
   %65 = tail call noundef i32 %64(ptr noundef nonnull %0, ptr noundef nonnull %26, i32 noundef 4, ptr noundef nonnull %56, ptr noundef nonnull %4)
   %66 = trunc nuw nsw i64 %43 to i32
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 %43
@@ -272,7 +272,7 @@ define range(i32 0, 65536) i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noun
 72:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !31
 
 .critedge.loopexit.split.loop.exit101:            ; preds = %.lr.ph
   %73 = trunc nuw nsw i64 %indvars.iv to i32
@@ -281,7 +281,7 @@ define range(i32 0, 65536) i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noun
 .critedge:                                        ; preds = %72, %.critedge.loopexit.split.loop.exit101, %53
   %.081.lcssa = phi i32 [ 0, %53 ], [ %73, %.critedge.loopexit.split.loop.exit101 ], [ %68, %72 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %75 = load ptr, ptr %74, align 8, !tbaa !15
+  %75 = load ptr, ptr %74, align 8, !tbaa !14
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 %43
   %77 = tail call noundef i32 %75(ptr noundef nonnull %0, ptr noundef nonnull %67, i32 noundef %.081.lcssa, ptr noundef nonnull %76, ptr noundef nonnull %4)
   br label %78
@@ -321,13 +321,13 @@ define noalias noundef ptr @udata_openSwapper_77(i8 noundef signext %0, i8 nound
 
 17:                                               ; preds = %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false)
-  store i8 %0, ptr %14, align 8, !tbaa !33
+  store i8 %0, ptr %14, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  store i8 %1, ptr %18, align 1, !tbaa !34
+  store i8 %1, ptr %18, align 1, !tbaa !33
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  store i8 %2, ptr %19, align 2, !tbaa !27
+  store i8 %2, ptr %19, align 2, !tbaa !26
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 3
-  store i8 %3, ptr %20, align 1, !tbaa !29
+  store i8 %3, ptr %20, align 1, !tbaa !28
   %21 = icmp eq i8 %0, 0
   %_ZL21uprv_readDirectUInt16t._ZL19uprv_readSwapUInt16t = select i1 %21, ptr @_ZL21uprv_readDirectUInt16t, ptr @_ZL19uprv_readSwapUInt16t
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -338,38 +338,38 @@ define noalias noundef ptr @udata_openSwapper_77(i8 noundef signext %0, i8 nound
   %25 = icmp eq i8 %2, 0
   %26 = select i1 %25, ptr @_ZL22uprv_writeDirectUInt16Ptt, ptr @_ZL20uprv_writeSwapUInt16Ptt
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr %26, ptr %27, align 8, !tbaa !35
+  store ptr %26, ptr %27, align 8, !tbaa !34
   %28 = select i1 %25, ptr @_ZL22uprv_writeDirectUInt32Pjj, ptr @_ZL20uprv_writeSwapUInt32Pjj
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr %28, ptr %29, align 8, !tbaa !36
+  store ptr %28, ptr %29, align 8, !tbaa !35
   %30 = icmp eq i8 %3, 0
   %31 = select i1 %30, ptr @uprv_compareInvAscii_77, ptr @uprv_compareInvEbcdic_77
   %32 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %31, ptr %32, align 8, !tbaa !37
+  store ptr %31, ptr %32, align 8, !tbaa !36
   %33 = icmp eq i8 %0, %2
   %_ZL16uprv_swapArray16PK12UDataSwapperPKviPvP10UErrorCode.sink = select i1 %33, ptr @_ZL16uprv_copyArray16PK12UDataSwapperPKviPvP10UErrorCode, ptr @_ZL16uprv_swapArray16PK12UDataSwapperPKviPvP10UErrorCode
   %_ZL16uprv_swapArray32PK12UDataSwapperPKviPvP10UErrorCode.sink = select i1 %33, ptr @_ZL16uprv_copyArray32PK12UDataSwapperPKviPvP10UErrorCode, ptr @_ZL16uprv_swapArray32PK12UDataSwapperPKviPvP10UErrorCode
   %_ZL16uprv_swapArray64PK12UDataSwapperPKviPvP10UErrorCode.sink = select i1 %33, ptr @_ZL16uprv_copyArray64PK12UDataSwapperPKviPvP10UErrorCode, ptr @_ZL16uprv_swapArray64PK12UDataSwapperPKviPvP10UErrorCode
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store ptr %_ZL16uprv_swapArray16PK12UDataSwapperPKviPvP10UErrorCode.sink, ptr %34, align 8, !tbaa !31
+  store ptr %_ZL16uprv_swapArray16PK12UDataSwapperPKviPvP10UErrorCode.sink, ptr %34, align 8, !tbaa !30
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store ptr %_ZL16uprv_swapArray32PK12UDataSwapperPKviPvP10UErrorCode.sink, ptr %35, align 8, !tbaa !38
+  store ptr %_ZL16uprv_swapArray32PK12UDataSwapperPKviPvP10UErrorCode.sink, ptr %35, align 8, !tbaa !37
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store ptr %_ZL16uprv_swapArray64PK12UDataSwapperPKviPvP10UErrorCode.sink, ptr %36, align 8, !tbaa !39
+  store ptr %_ZL16uprv_swapArray64PK12UDataSwapperPKviPvP10UErrorCode.sink, ptr %36, align 8, !tbaa !38
   %37 = icmp eq i8 %1, 0
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %17
   %uprv_copyAscii_77.uprv_ebcdicFromAscii_77 = select i1 %30, ptr @uprv_copyAscii_77, ptr @uprv_ebcdicFromAscii_77
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  store ptr %uprv_copyAscii_77.uprv_ebcdicFromAscii_77, ptr %39, align 8, !tbaa !15
+  store ptr %uprv_copyAscii_77.uprv_ebcdicFromAscii_77, ptr %39, align 8, !tbaa !14
   br label %43
 
 40:                                               ; preds = %17
   %41 = icmp eq i8 %3, 1
   %uprv_copyEbcdic_77.uprv_asciiFromEbcdic_77 = select i1 %41, ptr @uprv_copyEbcdic_77, ptr @uprv_asciiFromEbcdic_77
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  store ptr %uprv_copyEbcdic_77.uprv_asciiFromEbcdic_77, ptr %42, align 8, !tbaa !15
+  store ptr %uprv_copyEbcdic_77.uprv_asciiFromEbcdic_77, ptr %42, align 8, !tbaa !14
   br label %43
 
 43:                                               ; preds = %38, %40, %5, %7, %16, %12
@@ -407,27 +407,27 @@ define internal noundef i32 @_ZL19uprv_readSwapUInt32j(i32 noundef %0) #6 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZL22uprv_writeDirectUInt16Ptt(ptr noundef writeonly captures(none) initializes((0, 2)) %0, i16 noundef zeroext %1) #7 {
-  store i16 %1, ptr %0, align 2, !tbaa !40
+  store i16 %1, ptr %0, align 2, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZL20uprv_writeSwapUInt16Ptt(ptr noundef writeonly captures(none) initializes((0, 2)) %0, i16 noundef zeroext %1) #7 {
   %3 = tail call i16 @llvm.bswap.i16(i16 %1)
-  store i16 %3, ptr %0, align 2, !tbaa !40
+  store i16 %3, ptr %0, align 2, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZL22uprv_writeDirectUInt32Pjj(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1) #7 {
-  store i32 %1, ptr %0, align 4, !tbaa !41
+  store i32 %1, ptr %0, align 4, !tbaa !40
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZL20uprv_writeSwapUInt32Pjj(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1) #7 {
   %3 = tail call i32 @llvm.bswap.i32(i32 %1)
-  store i32 %3, ptr %0, align 4, !tbaa !41
+  store i32 %3, ptr %0, align 4, !tbaa !40
   ret void
 }
 
@@ -612,13 +612,13 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray16PK12
   %.02431 = phi ptr [ %24, %.lr.ph ], [ %3, %.lr.ph.preheader ]
   %.02530 = phi ptr [ %21, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %21 = getelementptr inbounds nuw i8, ptr %.02530, i64 2
-  %22 = load i16, ptr %.02530, align 2, !tbaa !40
+  %22 = load i16, ptr %.02530, align 2, !tbaa !39
   %23 = tail call i16 @llvm.bswap.i16(i16 %22)
   %24 = getelementptr inbounds nuw i8, ptr %.02431, i64 2
-  store i16 %23, ptr %.02431, align 2, !tbaa !40
+  store i16 %23, ptr %.02431, align 2, !tbaa !39
   %25 = add nsw i32 %.02332, -1
   %26 = icmp samesign ugt i32 %.02332, 1
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !43
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %5, %7, %18
   %.0 = phi i32 [ 0, %18 ], [ 0, %7 ], [ 0, %5 ], [ 0, %19 ], [ %2, %.lr.ph ]
@@ -667,13 +667,13 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray32PK12
   %.02633 = phi ptr [ %24, %.lr.ph ], [ %3, %.lr.ph.preheader ]
   %.02732 = phi ptr [ %21, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %21 = getelementptr inbounds nuw i8, ptr %.02732, i64 4
-  %22 = load i32, ptr %.02732, align 4, !tbaa !41
+  %22 = load i32, ptr %.02732, align 4, !tbaa !40
   %23 = tail call i32 @llvm.bswap.i32(i32 %22)
   %24 = getelementptr inbounds nuw i8, ptr %.02633, i64 4
-  store i32 %23, ptr %.02633, align 4, !tbaa !41
+  store i32 %23, ptr %.02633, align 4, !tbaa !40
   %25 = add nsw i32 %.02534, -1
   %26 = icmp samesign ugt i32 %.02534, 1
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !44
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %5, %7, %18
   %.0 = phi i32 [ 0, %18 ], [ 0, %7 ], [ 0, %5 ], [ 0, %19 ], [ %2, %.lr.ph ]
@@ -722,13 +722,13 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL16uprv_swapArray64PK12
   %.03138 = phi ptr [ %24, %.lr.ph ], [ %3, %.lr.ph.preheader ]
   %.03237 = phi ptr [ %21, %.lr.ph ], [ %1, %.lr.ph.preheader ]
   %21 = getelementptr inbounds nuw i8, ptr %.03237, i64 8
-  %22 = load i64, ptr %.03237, align 8, !tbaa !45
+  %22 = load i64, ptr %.03237, align 8, !tbaa !44
   %23 = tail call i64 @llvm.bswap.i64(i64 %22)
   %24 = getelementptr inbounds nuw i8, ptr %.03138, i64 8
-  store i64 %23, ptr %.03138, align 8, !tbaa !45
+  store i64 %23, ptr %.03138, align 8, !tbaa !44
   %25 = add nsw i32 %.03039, -1
   %26 = icmp samesign ugt i32 %.03039, 1
-  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !47
+  br i1 %26, label %.lr.ph, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %5, %7, %18
   %.0 = phi i32 [ 0, %18 ], [ 0, %7 ], [ 0, %5 ], [ 0, %19 ], [ %2, %.lr.ph ]
@@ -769,20 +769,20 @@ define noalias noundef ptr @udata_openSwapperForInputData_77(ptr noundef readonl
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %17 = load i8, ptr %16, align 2, !tbaa !18
+  %17 = load i8, ptr %16, align 2, !tbaa !17
   %.not50 = icmp eq i8 %17, -38
   br i1 %.not50, label %18, label %25
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %20 = load i8, ptr %19, align 1, !tbaa !23
+  %20 = load i8, ptr %19, align 1, !tbaa !22
   %.not51 = icmp eq i8 %20, 39
   br i1 %.not51, label %21, label %25
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %24 = load i8, ptr %23, align 2, !tbaa !24
+  %24 = load i8, ptr %23, align 2, !tbaa !23
   %.not52 = icmp eq i8 %24, 2
   br i1 %.not52, label %26, label %25
 
@@ -792,20 +792,20 @@ define noalias noundef ptr @udata_openSwapperForInputData_77(ptr noundef readonl
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load i8, ptr %27, align 2, !tbaa !28
+  %28 = load i8, ptr %27, align 2, !tbaa !27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %30 = load i8, ptr %29, align 1, !tbaa !30
+  %30 = load i8, ptr %29, align 1, !tbaa !29
   %31 = icmp eq i8 %28, 0
-  %32 = load i16, ptr %0, align 2, !tbaa !25
+  %32 = load i16, ptr %0, align 2, !tbaa !24
   br i1 %31, label %33, label %35
 
 33:                                               ; preds = %26
-  %34 = load i16, ptr %22, align 2, !tbaa !26
+  %34 = load i16, ptr %22, align 2, !tbaa !25
   br label %39
 
 35:                                               ; preds = %26
   %36 = tail call noundef i16 @llvm.bswap.i16(i16 %32)
-  %37 = load i16, ptr %22, align 2, !tbaa !26
+  %37 = load i16, ptr %22, align 2, !tbaa !25
   %38 = tail call noundef i16 @llvm.bswap.i16(i16 %37)
   br label %39
 
@@ -886,39 +886,38 @@ attributes #13 = { allocsize(0) }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"_ZTS10UErrorCode", !5, i64 0}
 !11 = !{!5, !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!4, !7, i64 72}
-!16 = !{!4, !7, i64 80}
-!17 = !{!4, !7, i64 88}
-!18 = !{!19, !5, i64 2}
-!19 = !{!"_ZTS10DataHeader", !20, i64 0, !22, i64 4}
-!20 = !{!"_ZTS10MappedData", !21, i64 0, !5, i64 2, !5, i64 3}
-!21 = !{!"short", !5, i64 0}
-!22 = !{!"_ZTS9UDataInfo", !21, i64 0, !21, i64 2, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7, !5, i64 8, !5, i64 12, !5, i64 16}
-!23 = !{!19, !5, i64 3}
-!24 = !{!19, !5, i64 10}
-!25 = !{!19, !21, i64 0}
-!26 = !{!19, !21, i64 4}
-!27 = !{!4, !5, i64 2}
-!28 = !{!19, !5, i64 8}
-!29 = !{!4, !5, i64 3}
-!30 = !{!19, !5, i64 9}
-!31 = !{!4, !7, i64 48}
-!32 = distinct !{!32, !13, !14}
-!33 = !{!4, !5, i64 0}
-!34 = !{!4, !5, i64 1}
-!35 = !{!4, !7, i64 32}
-!36 = !{!4, !7, i64 40}
-!37 = !{!4, !7, i64 24}
-!38 = !{!4, !7, i64 56}
-!39 = !{!4, !7, i64 64}
-!40 = !{!21, !21, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"int", !5, i64 0}
-!43 = distinct !{!43, !13, !14}
-!44 = distinct !{!44, !13, !14}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"long", !5, i64 0}
-!47 = distinct !{!47, !13, !14}
+!14 = !{!4, !7, i64 72}
+!15 = !{!4, !7, i64 80}
+!16 = !{!4, !7, i64 88}
+!17 = !{!18, !5, i64 2}
+!18 = !{!"_ZTS10DataHeader", !19, i64 0, !21, i64 4}
+!19 = !{!"_ZTS10MappedData", !20, i64 0, !5, i64 2, !5, i64 3}
+!20 = !{!"short", !5, i64 0}
+!21 = !{!"_ZTS9UDataInfo", !20, i64 0, !20, i64 2, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7, !5, i64 8, !5, i64 12, !5, i64 16}
+!22 = !{!18, !5, i64 3}
+!23 = !{!18, !5, i64 10}
+!24 = !{!18, !20, i64 0}
+!25 = !{!18, !20, i64 4}
+!26 = !{!4, !5, i64 2}
+!27 = !{!18, !5, i64 8}
+!28 = !{!4, !5, i64 3}
+!29 = !{!18, !5, i64 9}
+!30 = !{!4, !7, i64 48}
+!31 = distinct !{!31, !13}
+!32 = !{!4, !5, i64 0}
+!33 = !{!4, !5, i64 1}
+!34 = !{!4, !7, i64 32}
+!35 = !{!4, !7, i64 40}
+!36 = !{!4, !7, i64 24}
+!37 = !{!4, !7, i64 56}
+!38 = !{!4, !7, i64 64}
+!39 = !{!20, !20, i64 0}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"int", !5, i64 0}
+!42 = distinct !{!42, !13}
+!43 = distinct !{!43, !13}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"long", !5, i64 0}
+!46 = distinct !{!46, !13}

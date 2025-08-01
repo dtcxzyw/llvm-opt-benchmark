@@ -522,7 +522,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16ObjectStartArray12object_startEPP1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = icmp samesign ugt i32 %10, %20
-  br i1 %21, label %_ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %21, label %_ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit: ; preds = %.lr.ph.i, %2
   %.0.lcssa.i = phi ptr [ %9, %2 ], [ %18, %.lr.ph.i ]
@@ -621,7 +621,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %51, %54, %61, %81
   %.0.i1.i = phi i64 [ %58, %54 ], [ %53, %51 ], [ %80, %61 ], [ %85, %81 ]
   %86 = getelementptr inbounds ptr, ptr %.0, i64 %.0.i1.i
   %87 = icmp ugt ptr %86, %1
-  br i1 %87, label %88, label %30, !llvm.loop !10
+  br i1 %87, label %88, label %30, !llvm.loop !9
 
 88:                                               ; preds = %_ZN7oopDesc4sizeEv.exit
   ret ptr %.0
@@ -1098,7 +1098,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %28, %31, %38, %58
 
 _ZN16ObjectStartArray16update_for_blockEPP12HeapWordImplS2_.exit: ; preds = %_ZN7oopDesc4sizeEv.exit, %73
   %74 = icmp ult ptr %63, %4
-  br i1 %74, label %7, label %._crit_edge, !llvm.loop !11
+  br i1 %74, label %7, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZN16ObjectStartArray16update_for_blockEPP12HeapWordImplS2_.exit, %3
   ret void
@@ -1494,9 +1494,8 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

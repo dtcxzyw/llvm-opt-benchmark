@@ -71,7 +71,7 @@ define range(i32 -22, 1) i32 @wd_cancel(ptr noundef captures(address) %0) local_
   br i1 %.not.i, label %up_irq_restore.exit, label %26
 
 26:                                               ; preds = %24
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #3, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %24, %26
@@ -105,7 +105,6 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 149658, i64 149676}
 !7 = !{i64 150277}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{i64 150398}
+!10 = !{i64 150398}

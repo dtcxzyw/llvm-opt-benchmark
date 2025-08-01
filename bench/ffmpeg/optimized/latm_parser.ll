@@ -153,6 +153,5 @@ attributes #2 = { nounwind }
 !19 = !{!7, !7, i64 0}
 !20 = !{!21, !10, i64 48}
 !21 = !{!"LATMParseContext", !17, i64 0, !10, i64 48}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}

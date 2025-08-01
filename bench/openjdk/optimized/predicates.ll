@@ -688,7 +688,7 @@ _ZN16RuntimePredicate15is_success_projEP4NodeN14Deoptimization11DeoptReasonE.exi
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, 127
   %34 = icmp eq i32 %33, 72
-  br i1 %34, label %.lr.ph, label %_ZN16RuntimePredicate15is_success_projEP4NodeN14Deoptimization11DeoptReasonE.exit.thread, !llvm.loop !9
+  br i1 %34, label %.lr.ph, label %_ZN16RuntimePredicate15is_success_projEP4NodeN14Deoptimization11DeoptReasonE.exit.thread, !llvm.loop !8
 
 _ZN16RuntimePredicate15is_success_projEP4NodeN14Deoptimization11DeoptReasonE.exit.thread: ; preds = %_ZN16RuntimePredicate15is_success_projEP4NodeN14Deoptimization11DeoptReasonE.exit, %25, %.lr.ph, %13, %2
   %.0.lcssa = phi ptr [ %0, %2 ], [ %.05, %13 ], [ %.05, %.lr.ph ], [ %30, %25 ], [ %.05, %_ZN16RuntimePredicate15is_success_projEP4NodeN14Deoptimization11DeoptReasonE.exit ]
@@ -759,7 +759,7 @@ define hidden noundef ptr @_ZN36TemplateAssertionPredicateExpression5cloneERK35T
 
 .lr.ph.i.i.i:                                     ; preds = %46, %4
   %.in = phi ptr [ %47, %46 ], [ %38, %4 ]
-  %39 = load ptr, ptr %.in, align 8, !nonnull !10, !noundef !10
+  %39 = load ptr, ptr %.in, align 8, !nonnull !9, !noundef !9
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, %33
   br i1 %41, label %42, label %46
@@ -1214,13 +1214,13 @@ _ZN16Unique_Node_List4pushEP4Node.exit.i:         ; preds = %_ZN9Node_List4pushE
   %123 = load i32, ptr %88, align 8
   %124 = zext i32 %123 to i64
   %125 = icmp samesign ult i64 %indvars.iv.next.i, %124
-  br i1 %125, label %92, label %_ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.exit16, !llvm.loop !11
+  br i1 %125, label %92, label %_ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.exit16, !llvm.loop !10
 
 _ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.exit16: ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit.i, %87, %switch.early.test.i15
   %126 = add nuw i32 %.01126, 1
   %127 = load i32, ptr %38, align 8
   %.not = icmp ult i32 %126, %127
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.exit16, %_ZN16Unique_Node_List4pushEP4Node.exit
   %.not.lcssa = phi i1 [ false, %_ZN16Unique_Node_List4pushEP4Node.exit ], [ %or.cond, %_ZN40TemplateAssertionPredicateExpressionNode22is_maybe_in_expressionEPK4Node.exit16 ], [ %or.cond, %.lr.ph ]
@@ -1673,7 +1673,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit19:         ; preds = %_ZN16Unique_Node_Li
   %104 = load i32, ptr %51, align 8
   %105 = zext i32 %104 to i64
   %106 = icmp samesign ult i64 %indvars.iv.next, %105
-  br i1 %106, label %55, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %106, label %55, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit19
   %.pre = load i32, ptr %30, align 8
@@ -1684,7 +1684,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit19:         ; preds = %_ZN16Unique_Node_Li
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %108 = zext i32 %107 to i64
   %109 = icmp samesign ult i64 %indvars.iv.next32, %108
-  br i1 %109, label %41, label %._crit_edge29, !llvm.loop !14
+  br i1 %109, label %41, label %._crit_edge29, !llvm.loop !13
 
 ._crit_edge29:                                    ; preds = %._crit_edge, %_ZN16Unique_Node_List4pushEP4Node.exit
   ret void
@@ -1789,7 +1789,7 @@ _ZN9Node_List4pushEP4Node.exit.i:                 ; preds = %48, %44
 _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %.lr.ph, %_ZN9Node_List4pushEP4Node.exit.i, %_ZN9VectorSet8test_setEj.exit.i, %_ZN16Unique_Node_List6memberEP4Node.exit
   %52 = getelementptr inbounds nuw i8, ptr %.01013, i64 8
   %53 = icmp ult ptr %52, %23
-  br i1 %53, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %53, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit
   %.pre = load i32, ptr %3, align 8
@@ -1800,7 +1800,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %.lr.ph, %_ZN9Node_L
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = zext i32 %54 to i64
   %56 = icmp samesign ult i64 %indvars.iv.next, %55
-  br i1 %56, label %_ZNK10Node_ArrayixEj.exit, label %._crit_edge15, !llvm.loop !16
+  br i1 %56, label %_ZNK10Node_ArrayixEj.exit, label %._crit_edge15, !llvm.loop !15
 
 ._crit_edge15:                                    ; preds = %._crit_edge, %1
   ret void
@@ -1893,7 +1893,7 @@ _ZN13GrowableArrayIP18ParsePredicateNodeE8allocateEv.exit: ; preds = %7, %11, %1
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !17
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1909,7 +1909,7 @@ _ZN13GrowableArrayIP18ParsePredicateNodeE8allocateEv.exit: ; preds = %7, %11, %1
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !18
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1960,16 +1960,15 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

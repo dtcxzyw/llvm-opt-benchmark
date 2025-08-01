@@ -204,7 +204,7 @@ define internal noundef zeroext i1 @aethra_read(ptr noundef readonly captures(no
   %cond = icmp eq i8 %52, 1
   %cond1 = icmp ult i8 %51, 2
   %or.cond = select i1 %cond, i1 %cond1, i1 false
-  br i1 %or.cond, label %aethra_read_rec_header.exit.thread, label %21, !llvm.loop !6
+  br i1 %or.cond, label %aethra_read_rec_header.exit.thread, label %21
 
 aethra_read_rec_header.exit.thread:               ; preds = %21, %50, %47, %33
   %.0 = phi i1 [ false, %33 ], [ false, %21 ], [ true, %50 ], [ false, %47 ]
@@ -356,5 +356,3 @@ attributes #7 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}

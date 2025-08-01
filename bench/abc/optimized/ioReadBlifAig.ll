@@ -390,7 +390,7 @@ Vec_PtrGrow.exit.i96.i:                           ; preds = %131, %129
 Io_BlifCharIsSpace.exit.thread.i:                 ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %165 = getelementptr inbounds i8, ptr %.069152.i, i64 -1
   %.not75.i = icmp ult ptr %165, %163
-  br i1 %.not75.i, label %thread-pre-split.i, label %.lr.ph.i, !llvm.loop !34
+  br i1 %.not75.i, label %thread-pre-split.i, label %.lr.ph.i, !llvm.loop !33
 
 thread-pre-split.i:                               ; preds = %Io_BlifCharIsSpace.exit.thread.i, %161
   %.069.lcssa.i = phi ptr [ %162, %161 ], [ %165, %Io_BlifCharIsSpace.exit.thread.i ]
@@ -409,7 +409,7 @@ thread-pre-split.i:                               ; preds = %Io_BlifCharIsSpace.
   %168 = getelementptr inbounds nuw i8, ptr %.170154.i, i64 1
   %169 = load i8, ptr %168, align 1, !tbaa !30
   %.not86.i = icmp eq i8 %169, 0
-  br i1 %.not86.i, label %._crit_edge.i, label %.lr.ph155.i, !llvm.loop !35
+  br i1 %.not86.i, label %._crit_edge.i, label %.lr.ph155.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %.lr.ph155.i
   store i8 32, ptr %168, align 1, !tbaa !30
@@ -737,7 +737,7 @@ Vec_PtrPush.exit126.i:                            ; preds = %305, %Vec_PtrGrow.e
   br i1 %.not83.i, label %314, label %sub_0.i
 
 314:                                              ; preds = %312
-  store ptr %171, ptr %116, align 8, !tbaa !36
+  store ptr %171, ptr %116, align 8, !tbaa !35
   br label %.loopexit.i
 
 sub_0.i:                                          ; preds = %312
@@ -777,7 +777,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 329:                                              ; preds = %328, %322
   %330 = phi ptr [ %.pre171.i, %328 ], [ %155, %322 ]
-  %331 = load ptr, ptr @stdout, align 8, !tbaa !37
+  %331 = load ptr, ptr @stdout, align 8, !tbaa !36
   %332 = getelementptr i8, ptr %330, i64 4
   %.val.i.i = load i32, ptr %332, align 4, !tbaa !3
   %333 = icmp sgt i32 %.val.i.i, 0
@@ -799,7 +799,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 339:                                              ; preds = %335
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Io_BlifGetLine.exit.i, label %335, !llvm.loop !39
+  br i1 %exitcond.not.i.i, label %Io_BlifGetLine.exit.i, label %335, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i.i:         ; preds = %335
   %340 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -817,7 +817,7 @@ Io_BlifGetLine.exit.i:                            ; preds = %339, %.critedge.loo
   %.val.i = load i32, ptr %343, align 4, !tbaa !3
   %344 = sext i32 %.val.i to i64
   %345 = icmp slt i64 %indvars.iv.next.i, %344
-  br i1 %345, label %154, label %.critedge.i, !llvm.loop !40
+  br i1 %345, label %154, label %.critedge.i, !llvm.loop !39
 
 .critedge.i:                                      ; preds = %.loopexit.i, %.tail.thread.i, %.tail.i, %.preheader144.i
   %346 = load ptr, ptr %17, align 8, !tbaa !18
@@ -862,12 +862,12 @@ Io_BlifCharIsSpace.exit.i.i:                      ; preds = %355, %353, %353, %3
   %spec.select.i.i = zext i1 %narrow.i.i to i32
   %.3.i.i = add nsw i32 %.1.i.i, %spec.select.i.i
   %356 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 1
-  br label %353, !llvm.loop !41
+  br label %353, !llvm.loop !40
 
 357:                                              ; preds = %353
   %indvars.iv.next.i131.i = add nuw nsw i64 %indvars.iv.i130.i, 1
   %exitcond.not.i132.i = icmp eq i64 %indvars.iv.next.i131.i, %wide.trip.count.i129.i
-  br i1 %exitcond.not.i132.i, label %Io_BlifEstimatePiNum.exit.loopexit.i, label %350, !llvm.loop !42
+  br i1 %exitcond.not.i132.i, label %Io_BlifEstimatePiNum.exit.loopexit.i, label %350, !llvm.loop !41
 
 Io_BlifEstimatePiNum.exit.loopexit.i:             ; preds = %357
   %358 = add i32 %.1.i.i, 512
@@ -884,23 +884,23 @@ Io_BlifReadPreparse.exit:                         ; preds = %.critedge.i, %Io_Bl
   %363 = add i32 %.val88.i, %.0.lcssa.i.i
   %364 = add i32 %363, %.val89.i
   %365 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 32
-  store i32 %364, ptr %365, align 8, !tbaa !43
+  store i32 %364, ptr %365, align 8, !tbaa !42
   %366 = sext i32 %364 to i64
   %367 = shl nsw i64 %366, 5
   %calloc.i25 = tail call ptr @calloc(i64 1, i64 %367)
   %368 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 24
-  store ptr %calloc.i25, ptr %368, align 8, !tbaa !44
+  store ptr %calloc.i25, ptr %368, align 8, !tbaa !43
   %369 = sdiv i32 %364, 2
   %370 = add nsw i32 %369, 1
   %371 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 120
-  store i32 %370, ptr %371, align 8, !tbaa !45
+  store i32 %370, ptr %371, align 8, !tbaa !44
   %372 = sext i32 %370 to i64
   %373 = shl nsw i64 %372, 3
   %calloc173.i = tail call ptr @calloc(i64 1, i64 %373)
   %374 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 112
-  store ptr %calloc173.i, ptr %374, align 8, !tbaa !46
+  store ptr %calloc173.i, ptr %374, align 8, !tbaa !45
   %375 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 40
-  %376 = load ptr, ptr %375, align 8, !tbaa !36
+  %376 = load ptr, ptr %375, align 8, !tbaa !35
   %377 = load ptr, ptr %37, align 8, !tbaa !22
   %378 = load i8, ptr %376, align 1, !tbaa !30
   %.not11.i.i.i = icmp eq i8 %378, 0
@@ -924,7 +924,7 @@ Io_BlifCharIsSpace.exit.thread.i.i.i:             ; preds = %.lr.ph.i.i.i, %.lr.
   %381 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 1
   %382 = load i8, ptr %381, align 1, !tbaa !30
   %.not.i.i.i = icmp eq i8 %382, 0
-  br i1 %.not.i.i.i, label %Io_BlifSplitIntoTokens.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !47
+  br i1 %.not.i.i.i, label %Io_BlifSplitIntoTokens.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !46
 
 Io_BlifSplitIntoTokens.exit.i.i:                  ; preds = %380, %Io_BlifReadPreparse.exit
   %.0.lcssa.i.i.i = phi ptr [ %376, %Io_BlifReadPreparse.exit ], [ %381, %380 ]
@@ -962,7 +962,7 @@ Io_BlifSplitIntoTokens.exit.i.i:                  ; preds = %380, %Io_BlifReadPr
 397:                                              ; preds = %393
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %Io_BlifParseModel.exit.thread.i, label %393, !llvm.loop !39
+  br i1 %exitcond.not.i.i.i, label %Io_BlifParseModel.exit.thread.i, label %393, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i.i.i:       ; preds = %393
   %398 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
@@ -976,7 +976,7 @@ Io_BlifParseModel.exit.thread.i:                  ; preds = %397, %.critedge.loo
 Io_BlifParseModel.exit.i:                         ; preds = %Io_BlifSplitIntoTokens.exit.i.i
   %400 = getelementptr inbounds nuw i8, ptr %.val12.i.i, i64 8
   %401 = load ptr, ptr %400, align 8, !tbaa !29
-  store ptr %401, ptr %375, align 8, !tbaa !36
+  store ptr %401, ptr %375, align 8, !tbaa !35
   %402 = load ptr, ptr %17, align 8, !tbaa !18
   %403 = getelementptr i8, ptr %402, i64 4
   %.val274.i = load i32, ptr %403, align 4, !tbaa !3
@@ -1029,7 +1029,7 @@ Io_BlifCharIsSpace.exit.thread.i.i55.i:           ; preds = %.lr.ph.i.i53.i, %.l
   %420 = getelementptr inbounds nuw i8, ptr %.012.i.i54.i, i64 1
   %421 = load i8, ptr %420, align 1, !tbaa !30
   %.not.i.i56.i = icmp eq i8 %421, 0
-  br i1 %.not.i.i56.i, label %Io_BlifSplitIntoTokens.exit.i57.i, label %.lr.ph.i.i53.i, !llvm.loop !47
+  br i1 %.not.i.i56.i, label %Io_BlifSplitIntoTokens.exit.i57.i, label %.lr.ph.i.i53.i, !llvm.loop !46
 
 Io_BlifSplitIntoTokens.exit.i57.i:                ; preds = %419, %411
   %.0.lcssa.i.i58.i = phi ptr [ %416, %411 ], [ %420, %419 ]
@@ -1047,8 +1047,8 @@ Io_BlifSplitIntoTokens.exit.i57.i:                ; preds = %419, %411
   %.val19.i.i = load ptr, ptr %426, align 8, !tbaa !10
   %427 = getelementptr inbounds nuw ptr, ptr %.val19.i.i, i64 %indvars.iv.i.i35
   %428 = load ptr, ptr %427, align 8, !tbaa !29
-  %.val.i.i59.i = load ptr, ptr %374, align 8, !tbaa !46
-  %.val9.i.i60.i = load i32, ptr %371, align 8, !tbaa !45
+  %.val.i.i59.i = load ptr, ptr %374, align 8, !tbaa !45
+  %.val9.i.i60.i = load i32, ptr %371, align 8, !tbaa !44
   %429 = load i8, ptr %428, align 1, !tbaa !30
   %.not12.i.i.i.i.i = icmp eq i8 %429, 0
   br i1 %.not12.i.i.i.i.i, label %Io_BlifHashString.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
@@ -1061,7 +1061,7 @@ Io_BlifSplitIntoTokens.exit.i57.i:                ; preds = %419, %411
   %432 = urem i32 %.01013.i.i.i.i.i, 10
   %433 = zext nneg i32 %432 to i64
   %434 = getelementptr inbounds nuw [10 x i32], ptr @Io_BlifHashString.s_Primes, i64 0, i64 %433
-  %435 = load i32, ptr %434, align 4, !tbaa !48
+  %435 = load i32, ptr %434, align 4, !tbaa !47
   %436 = mul nsw i32 %431, %431
   %437 = mul i32 %436, %435
   %438 = xor i32 %437, %.014.i.i.i.i.i
@@ -1070,20 +1070,20 @@ Io_BlifSplitIntoTokens.exit.i57.i:                ; preds = %419, %411
   %441 = getelementptr inbounds nuw i8, ptr %428, i64 %440
   %442 = load i8, ptr %441, align 1, !tbaa !30
   %.not.i.i.i.i.i = icmp eq i8 %442, 0
-  br i1 %.not.i.i.i.i.i, label %Io_BlifHashString.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !49
+  br i1 %.not.i.i.i.i.i, label %Io_BlifHashString.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !48
 
 Io_BlifHashString.exit.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i34
   %.0.lcssa.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i34 ], [ %438, %.lr.ph.i.i.i.i.i ]
   %443 = urem i32 %.0.lcssa.i.i.i.i.i, %.val9.i.i60.i
   %444 = zext i32 %443 to i64
   %445 = getelementptr inbounds nuw ptr, ptr %.val.i.i59.i, i64 %444
-  %446 = load ptr, ptr %445, align 8, !tbaa !50
+  %446 = load ptr, ptr %445, align 8, !tbaa !49
   %.not1.i.i.i.i = icmp eq ptr %446, null
   br i1 %.not1.i.i.i.i, label %Io_BlifHashLookup.exit.thread.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %Io_BlifHashString.exit.i.i.i.i
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 8
-  %448 = load ptr, ptr %447, align 8, !tbaa !51
+  %448 = load ptr, ptr %447, align 8, !tbaa !50
   %449 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %448, ptr noundef nonnull readonly dereferenceable(1) %428) #14
   %.not12.i15.i.i.i = icmp eq i32 %449, 0
   br i1 %.not12.i15.i.i.i, label %Io_BlifHashFindOrAdd.exit.i.i, label %.lr.ph.i21.i.i
@@ -1091,16 +1091,16 @@ Io_BlifHashString.exit.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i, %
 .lr.ph.i21.i.i:                                   ; preds = %.lr.ph.i.preheader.i.i.i, %.lr.ph.i.i.i.i
   %450 = phi ptr [ %452, %.lr.ph.i.i.i.i ], [ %446, %.lr.ph.i.preheader.i.i.i ]
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 24
-  %452 = load ptr, ptr %451, align 8, !tbaa !50
+  %452 = load ptr, ptr %451, align 8, !tbaa !49
   %.not.i.i.i.i = icmp eq ptr %452, null
-  br i1 %.not.i.i.i.i, label %Io_BlifHashLookup.exit.thread.i.i.i.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !53
+  br i1 %.not.i.i.i.i, label %Io_BlifHashLookup.exit.thread.i.i.i.loopexit, label %.lr.ph.i.i.i.i, !llvm.loop !52
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i21.i.i
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 8
-  %454 = load ptr, ptr %453, align 8, !tbaa !51
+  %454 = load ptr, ptr %453, align 8, !tbaa !50
   %455 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %454, ptr noundef nonnull readonly dereferenceable(1) %428) #14
   %.not12.i.i.i.i = icmp eq i32 %455, 0
-  br i1 %.not12.i.i.i.i, label %Io_BlifHashFindOrAdd.exit.i.i, label %.lr.ph.i21.i.i, !llvm.loop !53
+  br i1 %.not12.i.i.i.i, label %Io_BlifHashFindOrAdd.exit.i.i, label %.lr.ph.i21.i.i, !llvm.loop !52
 
 Io_BlifHashLookup.exit.thread.i.i.i.loopexit:     ; preds = %.lr.ph.i21.i.i
   %456 = getelementptr inbounds nuw i8, ptr %450, i64 24
@@ -1108,15 +1108,15 @@ Io_BlifHashLookup.exit.thread.i.i.i.loopexit:     ; preds = %.lr.ph.i21.i.i
 
 Io_BlifHashLookup.exit.thread.i.i.i:              ; preds = %Io_BlifHashLookup.exit.thread.i.i.i.loopexit, %Io_BlifHashString.exit.i.i.i.i
   %.0.lcssa.i12.i.i.i = phi ptr [ %445, %Io_BlifHashString.exit.i.i.i.i ], [ %456, %Io_BlifHashLookup.exit.thread.i.i.i.loopexit ]
-  %457 = load ptr, ptr %368, align 8, !tbaa !44
-  %458 = load i32, ptr %405, align 4, !tbaa !54
+  %457 = load ptr, ptr %368, align 8, !tbaa !43
+  %458 = load i32, ptr %405, align 4, !tbaa !53
   %459 = add nsw i32 %458, 1
-  store i32 %459, ptr %405, align 4, !tbaa !54
+  store i32 %459, ptr %405, align 4, !tbaa !53
   %460 = sext i32 %458 to i64
   %461 = getelementptr inbounds %struct.Io_BlifObj_t_, ptr %457, i64 %460
-  store ptr %461, ptr %.0.lcssa.i12.i.i.i, align 8, !tbaa !50
+  store ptr %461, ptr %.0.lcssa.i12.i.i.i, align 8, !tbaa !49
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 8
-  store ptr %428, ptr %462, align 8, !tbaa !51
+  store ptr %428, ptr %462, align 8, !tbaa !50
   br label %Io_BlifHashFindOrAdd.exit.i.i
 
 Io_BlifHashFindOrAdd.exit.i.i:                    ; preds = %.lr.ph.i.i.i.i, %Io_BlifHashLookup.exit.thread.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -1150,7 +1150,7 @@ Io_BlifHashFindOrAdd.exit.i.i:                    ; preds = %.lr.ph.i.i.i.i, %Io
 476:                                              ; preds = %472
   %indvars.iv.next.i.i66.i = add nuw nsw i64 %indvars.iv.i.i65.i, 1
   %exitcond.not.i.i67.i = icmp eq i64 %indvars.iv.next.i.i66.i, %wide.trip.count.i.i64.i
-  br i1 %exitcond.not.i.i67.i, label %Io_BlifParseInputs.exit.i, label %472, !llvm.loop !39
+  br i1 %exitcond.not.i.i67.i, label %Io_BlifParseInputs.exit.i, label %472, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i.i68.i:     ; preds = %472
   %477 = trunc nuw nsw i64 %indvars.iv.i.i65.i to i32
@@ -1232,7 +1232,7 @@ Vec_PtrPush.exit.i.i:                             ; preds = %505, %Vec_PtrGrow.e
   %.val.i.i37 = load i32, ptr %513, align 4, !tbaa !3
   %514 = sext i32 %.val.i.i37 to i64
   %515 = icmp slt i64 %indvars.iv.next.i.i36, %514
-  br i1 %515, label %.lr.ph.i.i34, label %.loopexit217.i, !llvm.loop !55
+  br i1 %515, label %.lr.ph.i.i34, label %.loopexit217.i, !llvm.loop !54
 
 Io_BlifParseInputs.exit.i:                        ; preds = %476, %.critedge.loopexit.split.loop.exit14.i.i68.i, %466
   %.08.i.i63.i = phi i32 [ -1, %466 ], [ %477, %.critedge.loopexit.split.loop.exit14.i.i68.i ], [ -1, %476 ]
@@ -1247,7 +1247,7 @@ Io_BlifParseInputs.exit.i:                        ; preds = %476, %.critedge.loo
   %.val.i33 = load i32, ptr %519, align 4, !tbaa !3
   %520 = sext i32 %.val.i33 to i64
   %521 = icmp slt i64 %indvars.iv.next.i32, %520
-  br i1 %521, label %411, label %.critedge.preheader.i, !llvm.loop !56
+  br i1 %521, label %411, label %.critedge.preheader.i, !llvm.loop !55
 
 .critedge2.preheader.i:                           ; preds = %Io_BlifParseOutputs.exit.i, %.critedge.preheader.i
   %522 = load ptr, ptr %27, align 8, !tbaa !20
@@ -1290,7 +1290,7 @@ Io_BlifCharIsSpace.exit.thread.i.i72.i:           ; preds = %.lr.ph.i.i70.i, %.l
   %535 = getelementptr inbounds nuw i8, ptr %.012.i.i71.i, i64 1
   %536 = load i8, ptr %535, align 1, !tbaa !30
   %.not.i.i73.i = icmp eq i8 %536, 0
-  br i1 %.not.i.i73.i, label %Io_BlifSplitIntoTokens.exit.i74.i, label %.lr.ph.i.i70.i, !llvm.loop !47
+  br i1 %.not.i.i73.i, label %Io_BlifSplitIntoTokens.exit.i74.i, label %.lr.ph.i.i70.i, !llvm.loop !46
 
 Io_BlifSplitIntoTokens.exit.i74.i:                ; preds = %534, %526
   %.0.lcssa.i.i75.i = phi ptr [ %531, %526 ], [ %535, %534 ]
@@ -1308,8 +1308,8 @@ Io_BlifSplitIntoTokens.exit.i74.i:                ; preds = %534, %526
   %.val16.i.i = load ptr, ptr %541, align 8, !tbaa !10
   %542 = getelementptr inbounds nuw ptr, ptr %.val16.i.i, i64 %indvars.iv.i77.i
   %543 = load ptr, ptr %542, align 8, !tbaa !29
-  %.val.i.i78.i = load ptr, ptr %374, align 8, !tbaa !46
-  %.val9.i.i79.i = load i32, ptr %371, align 8, !tbaa !45
+  %.val.i.i78.i = load ptr, ptr %374, align 8, !tbaa !45
+  %.val9.i.i79.i = load i32, ptr %371, align 8, !tbaa !44
   %544 = load i8, ptr %543, align 1, !tbaa !30
   %.not12.i.i.i.i80.i = icmp eq i8 %544, 0
   br i1 %.not12.i.i.i.i80.i, label %Io_BlifHashString.exit.i.i.i85.i, label %.lr.ph.i.i.i.i81.i
@@ -1322,7 +1322,7 @@ Io_BlifSplitIntoTokens.exit.i74.i:                ; preds = %534, %526
   %547 = urem i32 %.01013.i.i.i.i83.i, 10
   %548 = zext nneg i32 %547 to i64
   %549 = getelementptr inbounds nuw [10 x i32], ptr @Io_BlifHashString.s_Primes, i64 0, i64 %548
-  %550 = load i32, ptr %549, align 4, !tbaa !48
+  %550 = load i32, ptr %549, align 4, !tbaa !47
   %551 = mul nsw i32 %546, %546
   %552 = mul i32 %551, %550
   %553 = xor i32 %552, %.014.i.i.i.i82.i
@@ -1331,20 +1331,20 @@ Io_BlifSplitIntoTokens.exit.i74.i:                ; preds = %534, %526
   %556 = getelementptr inbounds nuw i8, ptr %543, i64 %555
   %557 = load i8, ptr %556, align 1, !tbaa !30
   %.not.i.i.i.i84.i = icmp eq i8 %557, 0
-  br i1 %.not.i.i.i.i84.i, label %Io_BlifHashString.exit.i.i.i85.i, label %.lr.ph.i.i.i.i81.i, !llvm.loop !49
+  br i1 %.not.i.i.i.i84.i, label %Io_BlifHashString.exit.i.i.i85.i, label %.lr.ph.i.i.i.i81.i, !llvm.loop !48
 
 Io_BlifHashString.exit.i.i.i85.i:                 ; preds = %.lr.ph.i.i.i.i81.i, %.lr.ph.i76.i
   %.0.lcssa.i.i.i.i86.i = phi i32 [ 0, %.lr.ph.i76.i ], [ %553, %.lr.ph.i.i.i.i81.i ]
   %558 = urem i32 %.0.lcssa.i.i.i.i86.i, %.val9.i.i79.i
   %559 = zext i32 %558 to i64
   %560 = getelementptr inbounds nuw ptr, ptr %.val.i.i78.i, i64 %559
-  %561 = load ptr, ptr %560, align 8, !tbaa !50
+  %561 = load ptr, ptr %560, align 8, !tbaa !49
   %.not1.i.i.i87.i = icmp eq ptr %561, null
   br i1 %.not1.i.i.i87.i, label %Io_BlifHashLookup.exit.thread.i.i112.i, label %.lr.ph.i.preheader.i.i88.i
 
 .lr.ph.i.preheader.i.i88.i:                       ; preds = %Io_BlifHashString.exit.i.i.i85.i
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 8
-  %563 = load ptr, ptr %562, align 8, !tbaa !51
+  %563 = load ptr, ptr %562, align 8, !tbaa !50
   %564 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %563, ptr noundef nonnull readonly dereferenceable(1) %543) #14
   %.not12.i15.i.i89.i = icmp eq i32 %564, 0
   br i1 %.not12.i15.i.i89.i, label %Io_BlifHashFindOrAdd.exit.i93.i, label %.lr.ph.i18.i.i
@@ -1352,16 +1352,16 @@ Io_BlifHashString.exit.i.i.i85.i:                 ; preds = %.lr.ph.i.i.i.i81.i,
 .lr.ph.i18.i.i:                                   ; preds = %.lr.ph.i.preheader.i.i88.i, %.lr.ph.i.i.i91.i
   %565 = phi ptr [ %567, %.lr.ph.i.i.i91.i ], [ %561, %.lr.ph.i.preheader.i.i88.i ]
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 24
-  %567 = load ptr, ptr %566, align 8, !tbaa !50
+  %567 = load ptr, ptr %566, align 8, !tbaa !49
   %.not.i.i.i90.i = icmp eq ptr %567, null
-  br i1 %.not.i.i.i90.i, label %Io_BlifHashLookup.exit.thread.i.i112.i.loopexit, label %.lr.ph.i.i.i91.i, !llvm.loop !53
+  br i1 %.not.i.i.i90.i, label %Io_BlifHashLookup.exit.thread.i.i112.i.loopexit, label %.lr.ph.i.i.i91.i, !llvm.loop !52
 
 .lr.ph.i.i.i91.i:                                 ; preds = %.lr.ph.i18.i.i
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 8
-  %569 = load ptr, ptr %568, align 8, !tbaa !51
+  %569 = load ptr, ptr %568, align 8, !tbaa !50
   %570 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %569, ptr noundef nonnull readonly dereferenceable(1) %543) #14
   %.not12.i.i.i92.i = icmp eq i32 %570, 0
-  br i1 %.not12.i.i.i92.i, label %Io_BlifHashFindOrAdd.exit.i93.i, label %.lr.ph.i18.i.i, !llvm.loop !53
+  br i1 %.not12.i.i.i92.i, label %Io_BlifHashFindOrAdd.exit.i93.i, label %.lr.ph.i18.i.i, !llvm.loop !52
 
 Io_BlifHashLookup.exit.thread.i.i112.i.loopexit:  ; preds = %.lr.ph.i18.i.i
   %571 = getelementptr inbounds nuw i8, ptr %565, i64 24
@@ -1369,15 +1369,15 @@ Io_BlifHashLookup.exit.thread.i.i112.i.loopexit:  ; preds = %.lr.ph.i18.i.i
 
 Io_BlifHashLookup.exit.thread.i.i112.i:           ; preds = %Io_BlifHashLookup.exit.thread.i.i112.i.loopexit, %Io_BlifHashString.exit.i.i.i85.i
   %.0.lcssa.i12.i.i113.i = phi ptr [ %560, %Io_BlifHashString.exit.i.i.i85.i ], [ %571, %Io_BlifHashLookup.exit.thread.i.i112.i.loopexit ]
-  %572 = load ptr, ptr %368, align 8, !tbaa !44
-  %573 = load i32, ptr %410, align 4, !tbaa !54
+  %572 = load ptr, ptr %368, align 8, !tbaa !43
+  %573 = load i32, ptr %410, align 4, !tbaa !53
   %574 = add nsw i32 %573, 1
-  store i32 %574, ptr %410, align 4, !tbaa !54
+  store i32 %574, ptr %410, align 4, !tbaa !53
   %575 = sext i32 %573 to i64
   %576 = getelementptr inbounds %struct.Io_BlifObj_t_, ptr %572, i64 %575
-  store ptr %576, ptr %.0.lcssa.i12.i.i113.i, align 8, !tbaa !50
+  store ptr %576, ptr %.0.lcssa.i12.i.i113.i, align 8, !tbaa !49
   %577 = getelementptr inbounds nuw i8, ptr %576, i64 8
-  store ptr %543, ptr %577, align 8, !tbaa !51
+  store ptr %543, ptr %577, align 8, !tbaa !50
   br label %Io_BlifHashFindOrAdd.exit.i93.i
 
 Io_BlifHashFindOrAdd.exit.i93.i:                  ; preds = %.lr.ph.i.i.i91.i, %Io_BlifHashLookup.exit.thread.i.i112.i, %.lr.ph.i.preheader.i.i88.i
@@ -1388,7 +1388,7 @@ Io_BlifHashFindOrAdd.exit.i93.i:                  ; preds = %.lr.ph.i.i.i91.i, %
   br i1 %.not.i94.i, label %594, label %581
 
 581:                                              ; preds = %Io_BlifHashFindOrAdd.exit.i93.i
-  %582 = load ptr, ptr @stdout, align 8, !tbaa !37
+  %582 = load ptr, ptr @stdout, align 8, !tbaa !36
   %583 = load ptr, ptr %12, align 8, !tbaa !11
   %584 = getelementptr i8, ptr %583, i64 4
   %.val.i19.i.i = load i32, ptr %584, align 4, !tbaa !3
@@ -1411,7 +1411,7 @@ Io_BlifHashFindOrAdd.exit.i93.i:                  ; preds = %.lr.ph.i.i.i91.i, %
 591:                                              ; preds = %587
   %indvars.iv.next.i.i108.i = add nuw nsw i64 %indvars.iv.i.i107.i, 1
   %exitcond.not.i.i109.i = icmp eq i64 %indvars.iv.next.i.i108.i, %wide.trip.count.i.i106.i
-  br i1 %exitcond.not.i.i109.i, label %Io_BlifGetLine.exit.i95.i, label %587, !llvm.loop !39
+  br i1 %exitcond.not.i.i109.i, label %Io_BlifGetLine.exit.i95.i, label %587, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i.i110.i:    ; preds = %587
   %592 = trunc nuw nsw i64 %indvars.iv.i.i107.i to i32
@@ -1500,7 +1500,7 @@ Vec_PtrPush.exit.i100.i:                          ; preds = %622, %Vec_PtrGrow.e
   %.val.i102.i = load i32, ptr %630, align 4, !tbaa !3
   %631 = sext i32 %.val.i102.i to i64
   %632 = icmp slt i64 %indvars.iv.next.i101.i, %631
-  br i1 %632, label %.lr.ph.i76.i, label %Io_BlifParseOutputs.exit.i, !llvm.loop !57
+  br i1 %632, label %.lr.ph.i76.i, label %Io_BlifParseOutputs.exit.i, !llvm.loop !56
 
 Io_BlifParseOutputs.exit.i:                       ; preds = %Vec_PtrPush.exit.i100.i, %Io_BlifSplitIntoTokens.exit.i74.i
   %633 = phi ptr [ %537, %Io_BlifSplitIntoTokens.exit.i74.i ], [ %629, %Vec_PtrPush.exit.i100.i ]
@@ -1510,7 +1510,7 @@ Io_BlifParseOutputs.exit.i:                       ; preds = %Vec_PtrPush.exit.i1
   %.val45.i = load i32, ptr %635, align 4, !tbaa !3
   %636 = sext i32 %.val45.i to i64
   %637 = icmp slt i64 %indvars.iv.next346.i, %636
-  br i1 %637, label %526, label %.critedge2.preheader.i, !llvm.loop !58
+  br i1 %637, label %526, label %.critedge2.preheader.i, !llvm.loop !57
 
 .critedge4.preheader.i:                           ; preds = %.critedge2.i, %.critedge2.preheader.i
   %638 = load ptr, ptr %32, align 8, !tbaa !21
@@ -1553,7 +1553,7 @@ Io_BlifCharIsSpace.exit.thread.i.i117.i:          ; preds = %.lr.ph.i.i115.i, %.
   %651 = getelementptr inbounds nuw i8, ptr %.012.i.i116.i, i64 1
   %652 = load i8, ptr %651, align 1, !tbaa !30
   %.not.i.i118.i = icmp eq i8 %652, 0
-  br i1 %.not.i.i118.i, label %Io_BlifSplitIntoTokens.exit.i119.i, label %.lr.ph.i.i115.i, !llvm.loop !47
+  br i1 %.not.i.i118.i, label %Io_BlifSplitIntoTokens.exit.i119.i, label %.lr.ph.i.i115.i, !llvm.loop !46
 
 Io_BlifSplitIntoTokens.exit.i119.i:               ; preds = %650, %642
   %.0.lcssa.i.i120.i = phi ptr [ %646, %642 ], [ %651, %650 ]
@@ -1591,7 +1591,7 @@ Io_BlifSplitIntoTokens.exit.i119.i:               ; preds = %650, %642
 668:                                              ; preds = %664
   %indvars.iv.next.i.i153.i = add nuw nsw i64 %indvars.iv.i.i152.i, 1
   %exitcond.not.i.i154.i = icmp eq i64 %indvars.iv.next.i.i153.i, %wide.trip.count.i.i151.i
-  br i1 %exitcond.not.i.i154.i, label %Io_BlifGetLine.exit.i148.i, label %664, !llvm.loop !39
+  br i1 %exitcond.not.i.i154.i, label %Io_BlifGetLine.exit.i148.i, label %664, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i.i155.i:    ; preds = %664
   %669 = trunc nuw nsw i64 %indvars.iv.i.i152.i to i32
@@ -1639,7 +1639,7 @@ Io_BlifGetLine.exit.i148.i:                       ; preds = %668, %.critedge.loo
 687:                                              ; preds = %683
   %indvars.iv.next.i61.i.i = add nuw nsw i64 %indvars.iv.i60.i.i, 1
   %exitcond.not.i62.i.i = icmp eq i64 %indvars.iv.next.i61.i.i, %wide.trip.count.i59.i.i
-  br i1 %exitcond.not.i62.i.i, label %Io_BlifGetLine.exit64.i.i, label %683, !llvm.loop !39
+  br i1 %exitcond.not.i62.i.i, label %Io_BlifGetLine.exit64.i.i, label %683, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i63.i.i:     ; preds = %683
   %688 = trunc nuw nsw i64 %indvars.iv.i60.i.i to i32
@@ -1670,8 +1670,8 @@ Io_BlifGetLine.exit64.i.i:                        ; preds = %687, %.critedge.loo
   %695 = phi i32 [ 192, %671 ], [ %spec.select128.i.i, %694 ]
   %696 = getelementptr inbounds nuw i8, ptr %.val50.i.i, i64 8
   %697 = load ptr, ptr %696, align 8, !tbaa !29
-  %.val.i65.i.i = load ptr, ptr %374, align 8, !tbaa !46
-  %.val9.i66.i.i = load i32, ptr %371, align 8, !tbaa !45
+  %.val.i65.i.i = load ptr, ptr %374, align 8, !tbaa !45
+  %.val9.i66.i.i = load i32, ptr %371, align 8, !tbaa !44
   %698 = load i8, ptr %697, align 1, !tbaa !30
   %.not12.i.i.i.i122.i = icmp eq i8 %698, 0
   br i1 %.not12.i.i.i.i122.i, label %Io_BlifHashString.exit.i.i.i127.i, label %.lr.ph.i.i.i.i123.i
@@ -1684,7 +1684,7 @@ Io_BlifGetLine.exit64.i.i:                        ; preds = %687, %.critedge.loo
   %701 = urem i32 %.01013.i.i.i.i125.i, 10
   %702 = zext nneg i32 %701 to i64
   %703 = getelementptr inbounds nuw [10 x i32], ptr @Io_BlifHashString.s_Primes, i64 0, i64 %702
-  %704 = load i32, ptr %703, align 4, !tbaa !48
+  %704 = load i32, ptr %703, align 4, !tbaa !47
   %705 = mul nsw i32 %700, %700
   %706 = mul i32 %705, %704
   %707 = xor i32 %706, %.014.i.i.i.i124.i
@@ -1693,20 +1693,20 @@ Io_BlifGetLine.exit64.i.i:                        ; preds = %687, %.critedge.loo
   %710 = getelementptr inbounds nuw i8, ptr %697, i64 %709
   %711 = load i8, ptr %710, align 1, !tbaa !30
   %.not.i.i.i.i126.i = icmp eq i8 %711, 0
-  br i1 %.not.i.i.i.i126.i, label %Io_BlifHashString.exit.i.i.i127.i, label %.lr.ph.i.i.i.i123.i, !llvm.loop !49
+  br i1 %.not.i.i.i.i126.i, label %Io_BlifHashString.exit.i.i.i127.i, label %.lr.ph.i.i.i.i123.i, !llvm.loop !48
 
 Io_BlifHashString.exit.i.i.i127.i:                ; preds = %.lr.ph.i.i.i.i123.i, %.thread124.i.i
   %.0.lcssa.i.i.i.i128.i = phi i32 [ 0, %.thread124.i.i ], [ %707, %.lr.ph.i.i.i.i123.i ]
   %712 = urem i32 %.0.lcssa.i.i.i.i128.i, %.val9.i66.i.i
   %713 = zext i32 %712 to i64
   %714 = getelementptr inbounds nuw ptr, ptr %.val.i65.i.i, i64 %713
-  %715 = load ptr, ptr %714, align 8, !tbaa !50
+  %715 = load ptr, ptr %714, align 8, !tbaa !49
   %.not1.i.i.i129.i = icmp eq ptr %715, null
   br i1 %.not1.i.i.i129.i, label %Io_BlifHashLookup.exit.thread.i.i145.i, label %.lr.ph.i.preheader.i.i130.i
 
 .lr.ph.i.preheader.i.i130.i:                      ; preds = %Io_BlifHashString.exit.i.i.i127.i
   %716 = getelementptr inbounds nuw i8, ptr %715, i64 8
-  %717 = load ptr, ptr %716, align 8, !tbaa !51
+  %717 = load ptr, ptr %716, align 8, !tbaa !50
   %718 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %717, ptr noundef nonnull readonly dereferenceable(1) %697) #14
   %.not12.i15.i.i131.i = icmp eq i32 %718, 0
   br i1 %.not12.i15.i.i131.i, label %Io_BlifHashFindOrAdd.exit.i135.i, label %.lr.ph.i67.i.i
@@ -1714,16 +1714,16 @@ Io_BlifHashString.exit.i.i.i127.i:                ; preds = %.lr.ph.i.i.i.i123.i
 .lr.ph.i67.i.i:                                   ; preds = %.lr.ph.i.preheader.i.i130.i, %.lr.ph.i.i.i133.i
   %719 = phi ptr [ %721, %.lr.ph.i.i.i133.i ], [ %715, %.lr.ph.i.preheader.i.i130.i ]
   %720 = getelementptr inbounds nuw i8, ptr %719, i64 24
-  %721 = load ptr, ptr %720, align 8, !tbaa !50
+  %721 = load ptr, ptr %720, align 8, !tbaa !49
   %.not.i.i.i132.i = icmp eq ptr %721, null
-  br i1 %.not.i.i.i132.i, label %Io_BlifHashLookup.exit.thread.i.i145.i.loopexit, label %.lr.ph.i.i.i133.i, !llvm.loop !53
+  br i1 %.not.i.i.i132.i, label %Io_BlifHashLookup.exit.thread.i.i145.i.loopexit, label %.lr.ph.i.i.i133.i, !llvm.loop !52
 
 .lr.ph.i.i.i133.i:                                ; preds = %.lr.ph.i67.i.i
   %722 = getelementptr inbounds nuw i8, ptr %721, i64 8
-  %723 = load ptr, ptr %722, align 8, !tbaa !51
+  %723 = load ptr, ptr %722, align 8, !tbaa !50
   %724 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %723, ptr noundef nonnull readonly dereferenceable(1) %697) #14
   %.not12.i.i.i134.i = icmp eq i32 %724, 0
-  br i1 %.not12.i.i.i134.i, label %Io_BlifHashFindOrAdd.exit.i135.i, label %.lr.ph.i67.i.i, !llvm.loop !53
+  br i1 %.not12.i.i.i134.i, label %Io_BlifHashFindOrAdd.exit.i135.i, label %.lr.ph.i67.i.i, !llvm.loop !52
 
 Io_BlifHashLookup.exit.thread.i.i145.i.loopexit:  ; preds = %.lr.ph.i67.i.i
   %725 = getelementptr inbounds nuw i8, ptr %719, i64 24
@@ -1731,15 +1731,15 @@ Io_BlifHashLookup.exit.thread.i.i145.i.loopexit:  ; preds = %.lr.ph.i67.i.i
 
 Io_BlifHashLookup.exit.thread.i.i145.i:           ; preds = %Io_BlifHashLookup.exit.thread.i.i145.i.loopexit, %Io_BlifHashString.exit.i.i.i127.i
   %.0.lcssa.i12.i.i146.i = phi ptr [ %714, %Io_BlifHashString.exit.i.i.i127.i ], [ %725, %Io_BlifHashLookup.exit.thread.i.i145.i.loopexit ]
-  %726 = load ptr, ptr %368, align 8, !tbaa !44
-  %727 = load i32, ptr %525, align 4, !tbaa !54
+  %726 = load ptr, ptr %368, align 8, !tbaa !43
+  %727 = load i32, ptr %525, align 4, !tbaa !53
   %728 = add nsw i32 %727, 1
-  store i32 %728, ptr %525, align 4, !tbaa !54
+  store i32 %728, ptr %525, align 4, !tbaa !53
   %729 = sext i32 %727 to i64
   %730 = getelementptr inbounds %struct.Io_BlifObj_t_, ptr %726, i64 %729
-  store ptr %730, ptr %.0.lcssa.i12.i.i146.i, align 8, !tbaa !50
+  store ptr %730, ptr %.0.lcssa.i12.i.i146.i, align 8, !tbaa !49
   %731 = getelementptr inbounds nuw i8, ptr %730, i64 8
-  store ptr %697, ptr %731, align 8, !tbaa !51
+  store ptr %697, ptr %731, align 8, !tbaa !50
   br label %Io_BlifHashFindOrAdd.exit.i135.i
 
 Io_BlifHashFindOrAdd.exit.i135.i:                 ; preds = %.lr.ph.i.i.i133.i, %Io_BlifHashLookup.exit.thread.i.i145.i, %.lr.ph.i.preheader.i.i130.i
@@ -1823,8 +1823,8 @@ Vec_PtrPush.exit.i139.i:                          ; preds = %760, %Vec_PtrGrow.e
   %.val49.i.i = load ptr, ptr %771, align 8, !tbaa !10
   %772 = getelementptr inbounds nuw i8, ptr %.val49.i.i, i64 16
   %773 = load ptr, ptr %772, align 8, !tbaa !29
-  %.val.i68.i.i = load ptr, ptr %374, align 8, !tbaa !46
-  %.val9.i69.i.i = load i32, ptr %371, align 8, !tbaa !45
+  %.val.i68.i.i = load ptr, ptr %374, align 8, !tbaa !45
+  %.val9.i69.i.i = load i32, ptr %371, align 8, !tbaa !44
   %774 = load i8, ptr %773, align 1, !tbaa !30
   %.not12.i.i.i70.i.i = icmp eq i8 %774, 0
   br i1 %.not12.i.i.i70.i.i, label %Io_BlifHashString.exit.i.i75.i.i, label %.lr.ph.i.i.i71.i.i
@@ -1837,7 +1837,7 @@ Vec_PtrPush.exit.i139.i:                          ; preds = %760, %Vec_PtrGrow.e
   %777 = urem i32 %.01013.i.i.i73.i.i, 10
   %778 = zext nneg i32 %777 to i64
   %779 = getelementptr inbounds nuw [10 x i32], ptr @Io_BlifHashString.s_Primes, i64 0, i64 %778
-  %780 = load i32, ptr %779, align 4, !tbaa !48
+  %780 = load i32, ptr %779, align 4, !tbaa !47
   %781 = mul nsw i32 %776, %776
   %782 = mul i32 %781, %780
   %783 = xor i32 %782, %.014.i.i.i72.i.i
@@ -1846,20 +1846,20 @@ Vec_PtrPush.exit.i139.i:                          ; preds = %760, %Vec_PtrGrow.e
   %786 = getelementptr inbounds nuw i8, ptr %773, i64 %785
   %787 = load i8, ptr %786, align 1, !tbaa !30
   %.not.i.i.i74.i.i = icmp eq i8 %787, 0
-  br i1 %.not.i.i.i74.i.i, label %Io_BlifHashString.exit.i.i75.i.i, label %.lr.ph.i.i.i71.i.i, !llvm.loop !49
+  br i1 %.not.i.i.i74.i.i, label %Io_BlifHashString.exit.i.i75.i.i, label %.lr.ph.i.i.i71.i.i, !llvm.loop !48
 
 Io_BlifHashString.exit.i.i75.i.i:                 ; preds = %.lr.ph.i.i.i71.i.i, %Vec_PtrPush.exit.i139.i
   %.0.lcssa.i.i.i76.i.i = phi i32 [ 0, %Vec_PtrPush.exit.i139.i ], [ %783, %.lr.ph.i.i.i71.i.i ]
   %788 = urem i32 %.0.lcssa.i.i.i76.i.i, %.val9.i69.i.i
   %789 = zext i32 %788 to i64
   %790 = getelementptr inbounds nuw ptr, ptr %.val.i68.i.i, i64 %789
-  %791 = load ptr, ptr %790, align 8, !tbaa !50
+  %791 = load ptr, ptr %790, align 8, !tbaa !49
   %.not1.i.i77.i.i = icmp eq ptr %791, null
   br i1 %.not1.i.i77.i.i, label %Io_BlifHashLookup.exit.thread.i85.i.i, label %.lr.ph.i.preheader.i78.i.i
 
 .lr.ph.i.preheader.i78.i.i:                       ; preds = %Io_BlifHashString.exit.i.i75.i.i
   %792 = getelementptr inbounds nuw i8, ptr %791, i64 8
-  %793 = load ptr, ptr %792, align 8, !tbaa !51
+  %793 = load ptr, ptr %792, align 8, !tbaa !50
   %794 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %793, ptr noundef nonnull readonly dereferenceable(1) %773) #14
   %.not12.i15.i79.i.i = icmp eq i32 %794, 0
   br i1 %.not12.i15.i79.i.i, label %Io_BlifHashFindOrAdd.exit87.i.i, label %.lr.ph.i80.i.i
@@ -1867,16 +1867,16 @@ Io_BlifHashString.exit.i.i75.i.i:                 ; preds = %.lr.ph.i.i.i71.i.i,
 .lr.ph.i80.i.i:                                   ; preds = %.lr.ph.i.preheader.i78.i.i, %.lr.ph.i.i82.i.i
   %795 = phi ptr [ %797, %.lr.ph.i.i82.i.i ], [ %791, %.lr.ph.i.preheader.i78.i.i ]
   %796 = getelementptr inbounds nuw i8, ptr %795, i64 24
-  %797 = load ptr, ptr %796, align 8, !tbaa !50
+  %797 = load ptr, ptr %796, align 8, !tbaa !49
   %.not.i.i81.i.i = icmp eq ptr %797, null
-  br i1 %.not.i.i81.i.i, label %Io_BlifHashLookup.exit.thread.i85.i.i.loopexit, label %.lr.ph.i.i82.i.i, !llvm.loop !53
+  br i1 %.not.i.i81.i.i, label %Io_BlifHashLookup.exit.thread.i85.i.i.loopexit, label %.lr.ph.i.i82.i.i, !llvm.loop !52
 
 .lr.ph.i.i82.i.i:                                 ; preds = %.lr.ph.i80.i.i
   %798 = getelementptr inbounds nuw i8, ptr %797, i64 8
-  %799 = load ptr, ptr %798, align 8, !tbaa !51
+  %799 = load ptr, ptr %798, align 8, !tbaa !50
   %800 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %799, ptr noundef nonnull readonly dereferenceable(1) %773) #14
   %.not12.i.i83.i.i = icmp eq i32 %800, 0
-  br i1 %.not12.i.i83.i.i, label %Io_BlifHashFindOrAdd.exit87.i.i, label %.lr.ph.i80.i.i, !llvm.loop !53
+  br i1 %.not12.i.i83.i.i, label %Io_BlifHashFindOrAdd.exit87.i.i, label %.lr.ph.i80.i.i, !llvm.loop !52
 
 Io_BlifHashLookup.exit.thread.i85.i.i.loopexit:   ; preds = %.lr.ph.i80.i.i
   %801 = getelementptr inbounds nuw i8, ptr %795, i64 24
@@ -1884,15 +1884,15 @@ Io_BlifHashLookup.exit.thread.i85.i.i.loopexit:   ; preds = %.lr.ph.i80.i.i
 
 Io_BlifHashLookup.exit.thread.i85.i.i:            ; preds = %Io_BlifHashLookup.exit.thread.i85.i.i.loopexit, %Io_BlifHashString.exit.i.i75.i.i
   %.0.lcssa.i12.i86.i.i = phi ptr [ %790, %Io_BlifHashString.exit.i.i75.i.i ], [ %801, %Io_BlifHashLookup.exit.thread.i85.i.i.loopexit ]
-  %802 = load ptr, ptr %368, align 8, !tbaa !44
-  %803 = load i32, ptr %525, align 4, !tbaa !54
+  %802 = load ptr, ptr %368, align 8, !tbaa !43
+  %803 = load i32, ptr %525, align 4, !tbaa !53
   %804 = add nsw i32 %803, 1
-  store i32 %804, ptr %525, align 4, !tbaa !54
+  store i32 %804, ptr %525, align 4, !tbaa !53
   %805 = sext i32 %803 to i64
   %806 = getelementptr inbounds %struct.Io_BlifObj_t_, ptr %802, i64 %805
-  store ptr %806, ptr %.0.lcssa.i12.i86.i.i, align 8, !tbaa !50
+  store ptr %806, ptr %.0.lcssa.i12.i86.i.i, align 8, !tbaa !49
   %807 = getelementptr inbounds nuw i8, ptr %806, i64 8
-  store ptr %773, ptr %807, align 8, !tbaa !51
+  store ptr %773, ptr %807, align 8, !tbaa !50
   br label %Io_BlifHashFindOrAdd.exit87.i.i
 
 Io_BlifHashFindOrAdd.exit87.i.i:                  ; preds = %.lr.ph.i.i82.i.i, %Io_BlifHashLookup.exit.thread.i85.i.i, %.lr.ph.i.preheader.i78.i.i
@@ -1927,7 +1927,7 @@ Io_BlifHashFindOrAdd.exit87.i.i:                  ; preds = %.lr.ph.i.i82.i.i, %
 822:                                              ; preds = %818
   %indvars.iv.next.i94.i.i = add nuw nsw i64 %indvars.iv.i93.i.i, 1
   %exitcond.not.i95.i.i = icmp eq i64 %indvars.iv.next.i94.i.i, %wide.trip.count.i92.i.i
-  br i1 %exitcond.not.i95.i.i, label %Io_BlifGetLine.exit97.i.i, label %818, !llvm.loop !39
+  br i1 %exitcond.not.i95.i.i, label %Io_BlifGetLine.exit97.i.i, label %818, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i96.i.i:     ; preds = %818
   %823 = trunc nuw nsw i64 %indvars.iv.i93.i.i to i32
@@ -1969,7 +1969,7 @@ Io_BlifGetLine.exit97.i.i:                        ; preds = %822, %.critedge.loo
 839:                                              ; preds = %835
   %indvars.iv.next.i104.i.i = add nuw nsw i64 %indvars.iv.i103.i.i, 1
   %exitcond.not.i105.i.i = icmp eq i64 %indvars.iv.next.i104.i.i, %wide.trip.count.i102.i.i
-  br i1 %exitcond.not.i105.i.i, label %Io_BlifGetLine.exit107.i.i, label %835, !llvm.loop !39
+  br i1 %exitcond.not.i105.i.i, label %Io_BlifGetLine.exit107.i.i, label %835, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i106.i.i:    ; preds = %835
   %840 = trunc nuw nsw i64 %indvars.iv.i103.i.i to i32
@@ -2061,7 +2061,7 @@ Vec_PtrGrow.exit.i113.i.i:                        ; preds = %857, %855
   %.val46.i = load i32, ptr %881, align 4, !tbaa !3
   %882 = sext i32 %.val46.i to i64
   %883 = icmp slt i64 %indvars.iv.next349.i, %882
-  br i1 %883, label %642, label %.critedge4.preheader.i, !llvm.loop !59
+  br i1 %883, label %642, label %.critedge4.preheader.i, !llvm.loop !58
 
 884:                                              ; preds = %.critedge4.i, %.lr.ph289.i
   %indvars.iv351.i = phi i64 [ 0, %.lr.ph289.i ], [ %indvars.iv.next352.i, %.critedge4.i ]
@@ -2093,7 +2093,7 @@ Io_BlifCharIsSpace.exit.thread.i.i159.i:          ; preds = %.lr.ph.i.i157.i, %.
   %893 = getelementptr inbounds nuw i8, ptr %.012.i.i158.i, i64 1
   %894 = load i8, ptr %893, align 1, !tbaa !30
   %.not.i.i160.i = icmp eq i8 %894, 0
-  br i1 %.not.i.i160.i, label %Io_BlifSplitIntoTokens.exit.i161.i, label %.lr.ph.i.i157.i, !llvm.loop !47
+  br i1 %.not.i.i160.i, label %Io_BlifSplitIntoTokens.exit.i161.i, label %.lr.ph.i.i157.i, !llvm.loop !46
 
 Io_BlifSplitIntoTokens.exit.i161.i:               ; preds = %892, %884
   %.0.lcssa.i.i162.i = phi ptr [ %888, %884 ], [ %893, %892 ]
@@ -2107,8 +2107,8 @@ Io_BlifSplitIntoTokens.exit.i161.i:               ; preds = %892, %884
   %899 = getelementptr ptr, ptr %.val29.i163.i, i64 %898
   %900 = getelementptr i8, ptr %899, i64 -8
   %901 = load ptr, ptr %900, align 8, !tbaa !29
-  %.val.i.i164.i = load ptr, ptr %374, align 8, !tbaa !46
-  %.val9.i.i165.i = load i32, ptr %371, align 8, !tbaa !45
+  %.val.i.i164.i = load ptr, ptr %374, align 8, !tbaa !45
+  %.val9.i.i165.i = load i32, ptr %371, align 8, !tbaa !44
   %902 = load i8, ptr %901, align 1, !tbaa !30
   %.not12.i.i.i.i166.i = icmp eq i8 %902, 0
   br i1 %.not12.i.i.i.i166.i, label %Io_BlifHashString.exit.i.i.i171.i, label %.lr.ph.i.i.i.i167.i
@@ -2121,7 +2121,7 @@ Io_BlifSplitIntoTokens.exit.i161.i:               ; preds = %892, %884
   %905 = urem i32 %.01013.i.i.i.i169.i, 10
   %906 = zext nneg i32 %905 to i64
   %907 = getelementptr inbounds nuw [10 x i32], ptr @Io_BlifHashString.s_Primes, i64 0, i64 %906
-  %908 = load i32, ptr %907, align 4, !tbaa !48
+  %908 = load i32, ptr %907, align 4, !tbaa !47
   %909 = mul nsw i32 %904, %904
   %910 = mul i32 %909, %908
   %911 = xor i32 %910, %.014.i.i.i.i168.i
@@ -2130,20 +2130,20 @@ Io_BlifSplitIntoTokens.exit.i161.i:               ; preds = %892, %884
   %914 = getelementptr inbounds nuw i8, ptr %901, i64 %913
   %915 = load i8, ptr %914, align 1, !tbaa !30
   %.not.i.i.i.i170.i = icmp eq i8 %915, 0
-  br i1 %.not.i.i.i.i170.i, label %Io_BlifHashString.exit.i.i.i171.i, label %.lr.ph.i.i.i.i167.i, !llvm.loop !49
+  br i1 %.not.i.i.i.i170.i, label %Io_BlifHashString.exit.i.i.i171.i, label %.lr.ph.i.i.i.i167.i, !llvm.loop !48
 
 Io_BlifHashString.exit.i.i.i171.i:                ; preds = %.lr.ph.i.i.i.i167.i, %Io_BlifSplitIntoTokens.exit.i161.i
   %.0.lcssa.i.i.i.i172.i = phi i32 [ 0, %Io_BlifSplitIntoTokens.exit.i161.i ], [ %911, %.lr.ph.i.i.i.i167.i ]
   %916 = urem i32 %.0.lcssa.i.i.i.i172.i, %.val9.i.i165.i
   %917 = zext i32 %916 to i64
   %918 = getelementptr inbounds nuw ptr, ptr %.val.i.i164.i, i64 %917
-  %919 = load ptr, ptr %918, align 8, !tbaa !50
+  %919 = load ptr, ptr %918, align 8, !tbaa !49
   %.not1.i.i.i173.i = icmp eq ptr %919, null
   br i1 %.not1.i.i.i173.i, label %Io_BlifHashLookup.exit.thread.i.i191.i, label %.lr.ph.i.preheader.i.i174.i
 
 .lr.ph.i.preheader.i.i174.i:                      ; preds = %Io_BlifHashString.exit.i.i.i171.i
   %920 = getelementptr inbounds nuw i8, ptr %919, i64 8
-  %921 = load ptr, ptr %920, align 8, !tbaa !51
+  %921 = load ptr, ptr %920, align 8, !tbaa !50
   %922 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %921, ptr noundef nonnull readonly dereferenceable(1) %901) #14
   %.not12.i15.i.i175.i = icmp eq i32 %922, 0
   br i1 %.not12.i15.i.i175.i, label %Io_BlifHashFindOrAdd.exit.i179.i, label %.lr.ph.i30.i.i
@@ -2151,16 +2151,16 @@ Io_BlifHashString.exit.i.i.i171.i:                ; preds = %.lr.ph.i.i.i.i167.i
 .lr.ph.i30.i.i:                                   ; preds = %.lr.ph.i.preheader.i.i174.i, %.lr.ph.i.i.i177.i
   %923 = phi ptr [ %925, %.lr.ph.i.i.i177.i ], [ %919, %.lr.ph.i.preheader.i.i174.i ]
   %924 = getelementptr inbounds nuw i8, ptr %923, i64 24
-  %925 = load ptr, ptr %924, align 8, !tbaa !50
+  %925 = load ptr, ptr %924, align 8, !tbaa !49
   %.not.i.i.i176.i = icmp eq ptr %925, null
-  br i1 %.not.i.i.i176.i, label %Io_BlifHashLookup.exit.thread.i.i191.i.loopexit, label %.lr.ph.i.i.i177.i, !llvm.loop !53
+  br i1 %.not.i.i.i176.i, label %Io_BlifHashLookup.exit.thread.i.i191.i.loopexit, label %.lr.ph.i.i.i177.i, !llvm.loop !52
 
 .lr.ph.i.i.i177.i:                                ; preds = %.lr.ph.i30.i.i
   %926 = getelementptr inbounds nuw i8, ptr %925, i64 8
-  %927 = load ptr, ptr %926, align 8, !tbaa !51
+  %927 = load ptr, ptr %926, align 8, !tbaa !50
   %928 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %927, ptr noundef nonnull readonly dereferenceable(1) %901) #14
   %.not12.i.i.i178.i = icmp eq i32 %928, 0
-  br i1 %.not12.i.i.i178.i, label %Io_BlifHashFindOrAdd.exit.i179.i, label %.lr.ph.i30.i.i, !llvm.loop !53
+  br i1 %.not12.i.i.i178.i, label %Io_BlifHashFindOrAdd.exit.i179.i, label %.lr.ph.i30.i.i, !llvm.loop !52
 
 Io_BlifHashLookup.exit.thread.i.i191.i.loopexit:  ; preds = %.lr.ph.i30.i.i
   %929 = getelementptr inbounds nuw i8, ptr %923, i64 24
@@ -2168,15 +2168,15 @@ Io_BlifHashLookup.exit.thread.i.i191.i.loopexit:  ; preds = %.lr.ph.i30.i.i
 
 Io_BlifHashLookup.exit.thread.i.i191.i:           ; preds = %Io_BlifHashLookup.exit.thread.i.i191.i.loopexit, %Io_BlifHashString.exit.i.i.i171.i
   %.0.lcssa.i12.i.i192.i = phi ptr [ %918, %Io_BlifHashString.exit.i.i.i171.i ], [ %929, %Io_BlifHashLookup.exit.thread.i.i191.i.loopexit ]
-  %930 = load ptr, ptr %368, align 8, !tbaa !44
-  %931 = load i32, ptr %641, align 4, !tbaa !54
+  %930 = load ptr, ptr %368, align 8, !tbaa !43
+  %931 = load i32, ptr %641, align 4, !tbaa !53
   %932 = add nsw i32 %931, 1
-  store i32 %932, ptr %641, align 4, !tbaa !54
+  store i32 %932, ptr %641, align 4, !tbaa !53
   %933 = sext i32 %931 to i64
   %934 = getelementptr inbounds %struct.Io_BlifObj_t_, ptr %930, i64 %933
-  store ptr %934, ptr %.0.lcssa.i12.i.i192.i, align 8, !tbaa !50
+  store ptr %934, ptr %.0.lcssa.i12.i.i192.i, align 8, !tbaa !49
   %935 = getelementptr inbounds nuw i8, ptr %934, i64 8
-  store ptr %901, ptr %935, align 8, !tbaa !51
+  store ptr %901, ptr %935, align 8, !tbaa !50
   br label %Io_BlifHashFindOrAdd.exit.i179.i
 
 Io_BlifHashFindOrAdd.exit.i179.i:                 ; preds = %.lr.ph.i.i.i177.i, %Io_BlifHashLookup.exit.thread.i.i191.i, %.lr.ph.i.preheader.i.i174.i
@@ -2210,7 +2210,7 @@ Io_BlifHashFindOrAdd.exit.i179.i:                 ; preds = %.lr.ph.i.i.i177.i, 
 949:                                              ; preds = %945
   %indvars.iv.next.i.i186.i = add nuw nsw i64 %indvars.iv.i.i185.i, 1
   %exitcond.not.i.i187.i = icmp eq i64 %indvars.iv.next.i.i186.i, %wide.trip.count.i.i184.i
-  br i1 %exitcond.not.i.i187.i, label %Io_BlifGetLine.exit.i181.i, label %945, !llvm.loop !39
+  br i1 %exitcond.not.i.i187.i, label %Io_BlifGetLine.exit.i181.i, label %945, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i.i188.i:    ; preds = %945
   %950 = trunc nuw nsw i64 %indvars.iv.i.i185.i to i32
@@ -2250,7 +2250,7 @@ Io_BlifGetLine.exit.i181.i:                       ; preds = %949, %.critedge.loo
 964:                                              ; preds = %960
   %indvars.iv.next.i40.i.i = add nuw nsw i64 %indvars.iv.i39.i.i, 1
   %exitcond.not.i41.i.i = icmp eq i64 %indvars.iv.next.i40.i.i, %wide.trip.count.i38.i.i
-  br i1 %exitcond.not.i41.i.i, label %Io_BlifGetLine.exit43.i.i, label %960, !llvm.loop !39
+  br i1 %exitcond.not.i41.i.i, label %Io_BlifGetLine.exit43.i.i, label %960, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i42.i.i:     ; preds = %960
   %965 = trunc nuw nsw i64 %indvars.iv.i39.i.i to i32
@@ -2290,7 +2290,7 @@ Io_BlifGetLine.exit43.i.i:                        ; preds = %964, %.critedge.loo
 979:                                              ; preds = %975
   %indvars.iv.next.i50.i.i = add nuw nsw i64 %indvars.iv.i49.i.i, 1
   %exitcond.not.i51.i.i = icmp eq i64 %indvars.iv.next.i50.i.i, %wide.trip.count.i48.i.i
-  br i1 %exitcond.not.i51.i.i, label %Io_BlifGetLine.exit53.i.i, label %975, !llvm.loop !39
+  br i1 %exitcond.not.i51.i.i, label %Io_BlifGetLine.exit53.i.i, label %975, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i52.i.i:     ; preds = %975
   %980 = trunc nuw nsw i64 %indvars.iv.i49.i.i to i32
@@ -2305,7 +2305,7 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   %982 = or disjoint i32 %937, 16
   store i32 %982, ptr %936, align 8
   %983 = getelementptr inbounds nuw i8, ptr %936, i64 8
-  store ptr %901, ptr %983, align 8, !tbaa !51
+  store ptr %901, ptr %983, align 8, !tbaa !50
   %984 = load ptr, ptr %37, align 8, !tbaa !22
   %985 = getelementptr i8, ptr %984, i64 8
   %.val.i189.i = load ptr, ptr %985, align 8, !tbaa !10
@@ -2325,20 +2325,20 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   %.val47.i = load i32, ptr %996, align 4, !tbaa !3
   %997 = sext i32 %.val47.i to i64
   %998 = icmp slt i64 %indvars.iv.next352.i, %997
-  br i1 %998, label %884, label %.critedge6.i, !llvm.loop !60
+  br i1 %998, label %884, label %.critedge6.i, !llvm.loop !59
 
 .critedge6.i:                                     ; preds = %.critedge4.i, %.critedge4.preheader.i
   %999 = tail call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #12
   %1000 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 128
-  store ptr %999, ptr %1000, align 8, !tbaa !61
-  %1001 = load ptr, ptr %375, align 8, !tbaa !36
+  store ptr %999, ptr %1000, align 8, !tbaa !60
+  %1001 = load ptr, ptr %375, align 8, !tbaa !35
   %1002 = tail call ptr @Extra_UtilStrsav(ptr noundef %1001) #12
   %1003 = getelementptr inbounds nuw i8, ptr %999, i64 8
-  store ptr %1002, ptr %1003, align 8, !tbaa !62
+  store ptr %1002, ptr %1003, align 8, !tbaa !61
   %1004 = load ptr, ptr %calloc.i, align 8, !tbaa !27
   %1005 = tail call ptr @Extra_UtilStrsav(ptr noundef %1004) #12
   %1006 = getelementptr inbounds nuw i8, ptr %999, i64 16
-  store ptr %1005, ptr %1006, align 8, !tbaa !76
+  store ptr %1005, ptr %1006, align 8, !tbaa !75
   %1007 = load ptr, ptr %42, align 8, !tbaa !23
   %1008 = getelementptr i8, ptr %1007, i64 4
   %.val92105.i.i = load i32, ptr %1008, align 4, !tbaa !3
@@ -2361,17 +2361,17 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   %1016 = load ptr, ptr %1015, align 8, !tbaa !29
   %1017 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %999, i32 noundef 2) #12
   %1018 = getelementptr inbounds nuw i8, ptr %1016, i64 8
-  %1019 = load ptr, ptr %1018, align 8, !tbaa !51
+  %1019 = load ptr, ptr %1018, align 8, !tbaa !50
   %1020 = tail call ptr @Abc_ObjAssignName(ptr noundef %1017, ptr noundef %1019, ptr noundef null) #12
   %1021 = getelementptr inbounds nuw i8, ptr %1016, i64 16
-  store ptr %1017, ptr %1021, align 8, !tbaa !77
+  store ptr %1017, ptr %1021, align 8, !tbaa !76
   %indvars.iv.next.i205.i = add nuw nsw i64 %indvars.iv.i204.i, 1
   %1022 = load ptr, ptr %42, align 8, !tbaa !23
   %1023 = getelementptr i8, ptr %1022, i64 4
   %.val92.i.i = load i32, ptr %1023, align 4, !tbaa !3
   %1024 = sext i32 %.val92.i.i to i64
   %1025 = icmp slt i64 %indvars.iv.next.i205.i, %1024
-  br i1 %1025, label %.lr.ph.i203.i, label %.critedge.preheader.i.i, !llvm.loop !78
+  br i1 %1025, label %.lr.ph.i203.i, label %.critedge.preheader.i.i, !llvm.loop !77
 
 .critedge2.preheader.i.i:                         ; preds = %.critedge.i.i, %.critedge.preheader.i.i
   %1026 = phi ptr [ %1010, %.critedge.preheader.i.i ], [ %1038, %.critedge.i.i ]
@@ -2390,7 +2390,7 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   %1033 = load ptr, ptr %1032, align 8, !tbaa !29
   %1034 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %999, i32 noundef 3) #12
   %1035 = getelementptr inbounds nuw i8, ptr %1033, i64 8
-  %1036 = load ptr, ptr %1035, align 8, !tbaa !51
+  %1036 = load ptr, ptr %1035, align 8, !tbaa !50
   %1037 = tail call ptr @Abc_ObjAssignName(ptr noundef %1034, ptr noundef %1036, ptr noundef null) #12
   %indvars.iv.next123.i.i = add nuw nsw i64 %indvars.iv122.i.i, 1
   %1038 = load ptr, ptr %47, align 8, !tbaa !24
@@ -2398,7 +2398,7 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   %.val91.i.i = load i32, ptr %1039, align 4, !tbaa !3
   %1040 = sext i32 %.val91.i.i to i64
   %1041 = icmp slt i64 %indvars.iv.next123.i.i, %1040
-  br i1 %1041, label %.critedge.i.i, label %.critedge2.preheader.i.i, !llvm.loop !79
+  br i1 %1041, label %.critedge.i.i, label %.critedge2.preheader.i.i, !llvm.loop !78
 
 .critedge4.preheader.loopexit.i.i:                ; preds = %.critedge2.i.i
   %.pre.i202.i = load ptr, ptr %47, align 8, !tbaa !24
@@ -2425,7 +2425,7 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   %1052 = getelementptr inbounds nuw ptr, ptr %.val95.i.i, i64 %indvars.iv125.i.i
   %1053 = load ptr, ptr %1052, align 8, !tbaa !29
   %1054 = getelementptr inbounds nuw i8, ptr %1053, i64 8
-  %1055 = load ptr, ptr %1054, align 8, !tbaa !51
+  %1055 = load ptr, ptr %1054, align 8, !tbaa !50
   %1056 = tail call ptr @Abc_ObjAssignName(ptr noundef %1049, ptr noundef %1055, ptr noundef null) #12
   %1057 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %999, i32 noundef 8) #12
   %1058 = load i32, ptr %1048, align 8
@@ -2436,22 +2436,22 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   %1063 = getelementptr inbounds nuw i8, ptr %1057, i64 56
   store ptr %1062, ptr %1063, align 8, !tbaa !30
   %1064 = getelementptr inbounds nuw i8, ptr %1048, i64 8
-  %1065 = load ptr, ptr %1064, align 8, !tbaa !51
+  %1065 = load ptr, ptr %1064, align 8, !tbaa !50
   %1066 = tail call ptr @Abc_ObjAssignName(ptr noundef %1057, ptr noundef %1065, ptr noundef nonnull @.str.25) #12
   tail call void @Abc_ObjAddFanin(ptr noundef %1057, ptr noundef %1049) #12
   %1067 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %999, i32 noundef 5) #12
-  %1068 = load ptr, ptr %1064, align 8, !tbaa !51
+  %1068 = load ptr, ptr %1064, align 8, !tbaa !50
   %1069 = tail call ptr @Abc_ObjAssignName(ptr noundef %1067, ptr noundef %1068, ptr noundef null) #12
   tail call void @Abc_ObjAddFanin(ptr noundef %1067, ptr noundef %1057) #12
   %1070 = getelementptr inbounds nuw i8, ptr %1048, i64 16
-  store ptr %1067, ptr %1070, align 8, !tbaa !77
+  store ptr %1067, ptr %1070, align 8, !tbaa !76
   %indvars.iv.next126.i.i = add nuw nsw i64 %indvars.iv125.i.i, 1
   %1071 = load ptr, ptr %57, align 8, !tbaa !26
   %1072 = getelementptr i8, ptr %1071, i64 4
   %.val90.i.i = load i32, ptr %1072, align 4, !tbaa !3
   %1073 = sext i32 %.val90.i.i to i64
   %1074 = icmp slt i64 %indvars.iv.next126.i.i, %1073
-  br i1 %1074, label %.critedge2.i.i, label %.critedge4.preheader.loopexit.i.i, !llvm.loop !80
+  br i1 %1074, label %.critedge2.i.i, label %.critedge4.preheader.loopexit.i.i, !llvm.loop !79
 
 .critedge6.preheader.i.i:                         ; preds = %.critedge4.i.i, %.critedge4.preheader.i.i
   %1075 = load ptr, ptr %52, align 8, !tbaa !25
@@ -2468,15 +2468,15 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   %1080 = getelementptr inbounds nuw ptr, ptr %.val94.i.i, i64 %indvars.iv128.i.i
   %1081 = load ptr, ptr %1080, align 8, !tbaa !29
   %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 8
-  %1083 = load ptr, ptr %1082, align 8, !tbaa !51
+  %1083 = load ptr, ptr %1082, align 8, !tbaa !50
   %1084 = tail call fastcc ptr @Io_BlifParseConstruct_rec(ptr noundef nonnull %calloc.i, ptr noundef %1083)
   %1085 = icmp eq ptr %1084, null
   br i1 %1085, label %Io_BlifParse.exit, label %.critedge4.i.i
 
 .critedge4.i.i:                                   ; preds = %.lr.ph115.i.i
-  %1086 = load ptr, ptr %1000, align 8, !tbaa !61
+  %1086 = load ptr, ptr %1000, align 8, !tbaa !60
   %1087 = getelementptr i8, ptr %1086, i64 48
-  %.val99.i.i = load ptr, ptr %1087, align 8, !tbaa !81
+  %.val99.i.i = load ptr, ptr %1087, align 8, !tbaa !80
   %1088 = getelementptr i8, ptr %.val99.i.i, i64 8
   %.val99.val.i.i = load ptr, ptr %1088, align 8, !tbaa !10
   %1089 = getelementptr inbounds nuw ptr, ptr %.val99.val.i.i, i64 %indvars.iv128.i.i
@@ -2488,7 +2488,7 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   %.val89.i.i = load i32, ptr %1092, align 4, !tbaa !3
   %1093 = sext i32 %.val89.i.i to i64
   %1094 = icmp slt i64 %indvars.iv.next129.i.i, %1093
-  br i1 %1094, label %.lr.ph115.i.i, label %.critedge6.preheader.i.i, !llvm.loop !82
+  br i1 %1094, label %.lr.ph115.i.i, label %.critedge6.preheader.i.i, !llvm.loop !81
 
 .lr.ph118.i.i:                                    ; preds = %.critedge6.preheader.i.i, %.critedge6.i.i
   %indvars.iv131.i.i = phi i64 [ %indvars.iv.next132.i.i, %.critedge6.i.i ], [ 0, %.critedge6.preheader.i.i ]
@@ -2498,25 +2498,25 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   %1097 = getelementptr inbounds nuw ptr, ptr %.val93.i.i, i64 %indvars.iv131.i.i
   %1098 = load ptr, ptr %1097, align 8, !tbaa !29
   %1099 = getelementptr inbounds nuw i8, ptr %1098, i64 8
-  %1100 = load ptr, ptr %1099, align 8, !tbaa !51
+  %1100 = load ptr, ptr %1099, align 8, !tbaa !50
   %1101 = tail call fastcc ptr @Io_BlifParseConstruct_rec(ptr noundef nonnull %calloc.i, ptr noundef %1100)
   %1102 = icmp eq ptr %1101, null
   br i1 %1102, label %Io_BlifParse.exit, label %.critedge6.i.i
 
 .critedge6.i.i:                                   ; preds = %.lr.ph118.i.i
-  %1103 = load ptr, ptr %1000, align 8, !tbaa !61
+  %1103 = load ptr, ptr %1000, align 8, !tbaa !60
   %1104 = getelementptr i8, ptr %1103, i64 80
-  %.val100.i.i = load ptr, ptr %1104, align 8, !tbaa !83
+  %.val100.i.i = load ptr, ptr %1104, align 8, !tbaa !82
   %1105 = getelementptr i8, ptr %.val100.i.i, i64 8
   %.val100.val.i.i = load ptr, ptr %1105, align 8, !tbaa !10
   %1106 = getelementptr inbounds nuw ptr, ptr %.val100.val.i.i, i64 %indvars.iv131.i.i
   %1107 = load ptr, ptr %1106, align 8, !tbaa !29
-  %.val101.i.i = load ptr, ptr %1107, align 8, !tbaa !84
+  %.val101.i.i = load ptr, ptr %1107, align 8, !tbaa !83
   %1108 = getelementptr i8, ptr %1107, i64 32
-  %.val102.i.i = load ptr, ptr %1108, align 8, !tbaa !87
+  %.val102.i.i = load ptr, ptr %1108, align 8, !tbaa !86
   %1109 = getelementptr i8, ptr %.val101.i.i, i64 32
-  %.val101.val.i.i = load ptr, ptr %1109, align 8, !tbaa !88
-  %.val102.val.i.i = load i32, ptr %.val102.i.i, align 4, !tbaa !48
+  %.val101.val.i.i = load ptr, ptr %1109, align 8, !tbaa !87
+  %.val102.val.i.i = load i32, ptr %.val102.i.i, align 4, !tbaa !47
   %1110 = getelementptr i8, ptr %.val101.val.i.i, i64 8
   %.val101.val.val.i.i = load ptr, ptr %1110, align 8, !tbaa !10
   %1111 = sext i32 %.val102.val.i.i to i64
@@ -2529,17 +2529,17 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   %.val88.i.i = load i32, ptr %1115, align 4, !tbaa !3
   %1116 = sext i32 %.val88.i.i to i64
   %1117 = icmp slt i64 %indvars.iv.next132.i.i, %1116
-  br i1 %1117, label %.lr.ph118.i.i, label %.critedge8.i.i, !llvm.loop !89
+  br i1 %1117, label %.lr.ph118.i.i, label %.critedge8.i.i, !llvm.loop !88
 
 .critedge8.i.i:                                   ; preds = %.critedge6.i.i, %.critedge6.preheader.i.i
   %1118 = load ptr, ptr %32, align 8, !tbaa !21
   %1119 = getelementptr i8, ptr %1118, i64 4
   %.val.i193.i = load i32, ptr %1119, align 4, !tbaa !3
   %1120 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 656
-  %1121 = load i32, ptr %1120, align 8, !tbaa !90
+  %1121 = load i32, ptr %1120, align 8, !tbaa !89
   %1122 = sub nsw i32 %.val.i193.i, %1121
   %1123 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 660
-  store i32 %1122, ptr %1123, align 4, !tbaa !91
+  store i32 %1122, ptr %1123, align 4, !tbaa !90
   %.not.i194.i = icmp eq i32 %.val.i193.i, %1121
   br i1 %.not.i194.i, label %1126, label %1124
 
@@ -2548,16 +2548,16 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   br label %1126
 
 1126:                                             ; preds = %1124, %.critedge8.i.i
-  %1127 = load ptr, ptr %1000, align 8, !tbaa !61
+  %1127 = load ptr, ptr %1000, align 8, !tbaa !60
   %1128 = getelementptr i8, ptr %1127, i64 124
-  %.val103.i.i = load i32, ptr %1128, align 4, !tbaa !48
+  %.val103.i.i = load i32, ptr %1128, align 4, !tbaa !47
   %1129 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 36
-  %1130 = load i32, ptr %1129, align 4, !tbaa !54
+  %1130 = load i32, ptr %1129, align 4, !tbaa !53
   %1131 = icmp sgt i32 %1130, 0
   br i1 %1131, label %.lr.ph.i.i196.i, label %.loopexit.i26
 
 .lr.ph.i.i196.i:                                  ; preds = %1126
-  %1132 = load ptr, ptr %368, align 8, !tbaa !44
+  %1132 = load ptr, ptr %368, align 8, !tbaa !43
   %wide.trip.count.i.i197.i = zext nneg i32 %1130 to i64
   br label %1133
 
@@ -2572,7 +2572,7 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
 
 1137:                                             ; preds = %1133
   %1138 = getelementptr inbounds nuw i8, ptr %1134, i64 8
-  %1139 = load ptr, ptr %1138, align 8, !tbaa !51
+  %1139 = load ptr, ptr %1138, align 8, !tbaa !50
   %1140 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1139) #14
   %1141 = getelementptr inbounds nuw i8, ptr %1139, i64 %1140
   br label %1142
@@ -2594,7 +2594,7 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
 1146:                                             ; preds = %1144, %1142
   %.117.i.i.i = phi i32 [ %1145, %1144 ], [ %.016.i.i.i, %1142 ]
   %1147 = getelementptr inbounds nuw i8, ptr %.019.i.i.i, i64 1
-  br label %1142, !llvm.loop !92
+  br label %1142, !llvm.loop !91
 
 1148:                                             ; preds = %1142
   %.not22.i.i.i = icmp eq i32 %.016.i.i.i, 0
@@ -2609,13 +2609,13 @@ Io_BlifGetLine.exit53.i.i:                        ; preds = %979, %.critedge.loo
   %.1.i.i.i = phi i32 [ %1151, %1149 ], [ %.024.i.i.i, %1148 ], [ %.024.i.i.i, %1133 ]
   %indvars.iv.next.i.i200.i = add nuw nsw i64 %indvars.iv.i.i198.i, 1
   %exitcond.not.i.i201.i = icmp eq i64 %indvars.iv.next.i.i200.i, %wide.trip.count.i.i197.i
-  br i1 %exitcond.not.i.i201.i, label %.loopexit.i26, label %1133, !llvm.loop !93
+  br i1 %exitcond.not.i.i201.i, label %.loopexit.i26, label %1133, !llvm.loop !92
 
 .loopexit.i26:                                    ; preds = %1152, %1126
   %.0.lcssa.i.i195.i = phi i32 [ 0, %1126 ], [ %.1.i.i.i, %1152 ]
   %1153 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %.val103.i.i, i32 noundef %.0.lcssa.i.i195.i)
-  %1154 = load ptr, ptr %1000, align 8, !tbaa !61
-  store ptr null, ptr %1000, align 8, !tbaa !61
+  %1154 = load ptr, ptr %1000, align 8, !tbaa !60
+  store ptr null, ptr %1000, align 8, !tbaa !60
   br label %Io_BlifParse.exit
 
 Io_BlifParse.exit:                                ; preds = %.lr.ph115.i.i, %.lr.ph118.i.i, %Io_BlifParseModel.exit.thread.i, %Io_BlifParseInputs.exit.i, %Io_BlifGetLine.exit.i148.i, %Io_BlifGetLine.exit64.i.i, %Io_BlifGetLine.exit97.i.i, %Io_BlifGetLine.exit107.i.i, %Io_BlifGetLine.exit.i181.i, %Io_BlifGetLine.exit43.i.i, %Io_BlifGetLine.exit53.i.i, %.loopexit.i26
@@ -2626,7 +2626,7 @@ Io_BlifParse.exit:                                ; preds = %.lr.ph115.i.i, %.lr
   br i1 %.not, label %1160, label %1157
 
 1157:                                             ; preds = %Io_BlifParse.exit
-  %1158 = load ptr, ptr @stdout, align 8, !tbaa !37
+  %1158 = load ptr, ptr @stdout, align 8, !tbaa !36
   %1159 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1158, ptr noundef nonnull @.str.2, ptr noundef nonnull %1155) #12
   br label %1160
 
@@ -2666,7 +2666,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Io_BlifFree(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load ptr, ptr %2, align 8, !tbaa !61
+  %3 = load ptr, ptr %2, align 8, !tbaa !60
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -2687,24 +2687,24 @@ define internal fastcc void @Io_BlifFree(ptr noundef captures(none) %0) unnamed_
 
 9:                                                ; preds = %8, %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !44
+  %11 = load ptr, ptr %10, align 8, !tbaa !43
   %.not31 = icmp eq ptr %11, null
   br i1 %.not31, label %13, label %12
 
 12:                                               ; preds = %9
   tail call void @free(ptr noundef nonnull %11) #12
-  store ptr null, ptr %10, align 8, !tbaa !44
+  store ptr null, ptr %10, align 8, !tbaa !43
   br label %13
 
 13:                                               ; preds = %12, %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %15 = load ptr, ptr %14, align 8, !tbaa !46
+  %15 = load ptr, ptr %14, align 8, !tbaa !45
   %.not32 = icmp eq ptr %15, null
   br i1 %.not32, label %17, label %16
 
 16:                                               ; preds = %13
   tail call void @free(ptr noundef nonnull %15) #12
-  store ptr null, ptr %14, align 8, !tbaa !46
+  store ptr null, ptr %14, align 8, !tbaa !45
   br label %17
 
 17:                                               ; preds = %16, %13
@@ -2969,7 +2969,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.1 = phi ptr [ %.09, %6 ], [ %scevgep10, %Vec_PtrPush.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %40 = icmp ult ptr %39, %2
-  br i1 %40, label %6, label %._crit_edge, !llvm.loop !94
+  br i1 %40, label %6, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -2992,9 +2992,9 @@ declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @Io_BlifParseConstruct_rec(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 112
-  %.val45 = load ptr, ptr %3, align 8, !tbaa !46
+  %.val45 = load ptr, ptr %3, align 8, !tbaa !45
   %4 = getelementptr i8, ptr %0, i64 120
-  %.val46 = load i32, ptr %4, align 8, !tbaa !45
+  %.val46 = load i32, ptr %4, align 8, !tbaa !44
   %5 = load i8, ptr %1, align 1, !tbaa !30
   %.not12.i.i = icmp eq i8 %5, 0
   br i1 %.not12.i.i, label %Io_BlifHashString.exit.i, label %.lr.ph.i.i
@@ -3007,7 +3007,7 @@ define internal fastcc ptr @Io_BlifParseConstruct_rec(ptr noundef captures(none)
   %8 = urem i32 %.01013.i.i, 10
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds nuw [10 x i32], ptr @Io_BlifHashString.s_Primes, i64 0, i64 %9
-  %11 = load i32, ptr %10, align 4, !tbaa !48
+  %11 = load i32, ptr %10, align 4, !tbaa !47
   %12 = mul nsw i32 %7, %7
   %13 = mul i32 %12, %11
   %14 = xor i32 %13, %.014.i.i
@@ -3016,20 +3016,20 @@ define internal fastcc ptr @Io_BlifParseConstruct_rec(ptr noundef captures(none)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !30
   %.not.i.i = icmp eq i8 %18, 0
-  br i1 %.not.i.i, label %Io_BlifHashString.exit.i, label %.lr.ph.i.i, !llvm.loop !49
+  br i1 %.not.i.i, label %Io_BlifHashString.exit.i, label %.lr.ph.i.i, !llvm.loop !48
 
 Io_BlifHashString.exit.i:                         ; preds = %.lr.ph.i.i, %2
   %.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %14, %.lr.ph.i.i ]
   %19 = urem i32 %.0.lcssa.i.i, %.val46
   %20 = zext i32 %19 to i64
   %21 = getelementptr inbounds nuw ptr, ptr %.val45, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !50
+  %22 = load ptr, ptr %21, align 8, !tbaa !49
   %.not1.i = icmp eq ptr %22, null
   br i1 %.not1.i, label %Io_BlifHashLookup.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %Io_BlifHashString.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !51
+  %24 = load ptr, ptr %23, align 8, !tbaa !50
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %1) #14
   %.not12.i104 = icmp eq i32 %25, 0
   br i1 %.not12.i104, label %Io_BlifHashLookup.exit, label %.lr.ph
@@ -3037,16 +3037,16 @@ Io_BlifHashString.exit.i:                         ; preds = %.lr.ph.i.i, %2
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %26 = phi ptr [ %28, %.lr.ph.i ], [ %22, %.lr.ph.i.preheader ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !50
+  %28 = load ptr, ptr %27, align 8, !tbaa !49
   %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %Io_BlifHashLookup.exit.thread, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %Io_BlifHashLookup.exit.thread, label %.lr.ph.i, !llvm.loop !52
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !51
+  %30 = load ptr, ptr %29, align 8, !tbaa !50
   %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull readonly dereferenceable(1) %1) #14
   %.not12.i = icmp eq i32 %31, 0
-  br i1 %.not12.i, label %Io_BlifHashLookup.exit, label %.lr.ph, !llvm.loop !53
+  br i1 %.not12.i, label %Io_BlifHashLookup.exit, label %.lr.ph, !llvm.loop !52
 
 Io_BlifHashLookup.exit.thread:                    ; preds = %.lr.ph, %Io_BlifHashString.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -3073,7 +3073,7 @@ Io_BlifHashLookup.exit.thread:                    ; preds = %.lr.ph, %Io_BlifHas
 42:                                               ; preds = %38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Io_BlifGetLine.exit, label %38, !llvm.loop !39
+  br i1 %exitcond.not.i, label %Io_BlifGetLine.exit, label %38, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i:           ; preds = %38
   %43 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -3117,7 +3117,7 @@ Io_BlifHashLookup.exit:                           ; preds = %.lr.ph.i, %.lr.ph.i
 59:                                               ; preds = %55
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i53
-  br i1 %exitcond.not.i56, label %Io_BlifGetLine.exit58, label %55, !llvm.loop !39
+  br i1 %exitcond.not.i56, label %Io_BlifGetLine.exit58, label %55, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i57:         ; preds = %55
   %60 = trunc nuw nsw i64 %indvars.iv.i54 to i32
@@ -3130,7 +3130,7 @@ Io_BlifGetLine.exit58:                            ; preds = %59, %48, %.critedge
 
 62:                                               ; preds = %Io_BlifHashLookup.exit
   %63 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !77
+  %64 = load ptr, ptr %63, align 8, !tbaa !76
   %.not43 = icmp eq ptr %64, null
   br i1 %.not43, label %65, label %288
 
@@ -3176,16 +3176,16 @@ Vec_PtrFree.exit:                                 ; preds = %77
   store ptr %80, ptr %78, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %77, !llvm.loop !95
+  br i1 %exitcond.not, label %.critedge, label %77, !llvm.loop !94
 
 .critedge:                                        ; preds = %82, %65
-  %83 = load ptr, ptr %71, align 8, !tbaa !51
+  %83 = load ptr, ptr %71, align 8, !tbaa !50
   %84 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #14
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %87 = load i32, ptr %86, align 8, !tbaa !90
+  %87 = load i32, ptr %86, align 8, !tbaa !89
   %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %86, align 8, !tbaa !90
+  store i32 %88, ptr %86, align 8, !tbaa !89
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %90 = load ptr, ptr %89, align 8, !tbaa !22
   %91 = load i8, ptr %85, align 1, !tbaa !30
@@ -3210,7 +3210,7 @@ Io_BlifCharIsSpace.exit.thread.i.i:               ; preds = %.lr.ph.i.i60, %.lr.
   %94 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 1
   %95 = load i8, ptr %94, align 1, !tbaa !30
   %.not.i.i61 = icmp eq i8 %95, 46
-  br i1 %.not.i.i61, label %Io_BlifSplitIntoTokens.exit.i, label %.lr.ph.i.i60, !llvm.loop !47
+  br i1 %.not.i.i61, label %Io_BlifSplitIntoTokens.exit.i, label %.lr.ph.i.i60, !llvm.loop !46
 
 Io_BlifSplitIntoTokens.exit.i:                    ; preds = %93, %.critedge
   %.0.lcssa.i.i62 = phi ptr [ %85, %.critedge ], [ %94, %93 ]
@@ -3225,7 +3225,7 @@ Io_BlifSplitIntoTokens.exit.i:                    ; preds = %93, %.critedge
 
 98:                                               ; preds = %Io_BlifSplitIntoTokens.exit.i
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %100 = load ptr, ptr %99, align 8, !tbaa !61
+  %100 = load ptr, ptr %99, align 8, !tbaa !60
   %101 = tail call ptr @Abc_AigConst1(ptr noundef %100) #12
   %102 = ptrtoint ptr %101 to i64
   %103 = xor i64 %102, 1
@@ -3273,7 +3273,7 @@ Io_BlifSplitIntoTokens.exit.i:                    ; preds = %93, %.critedge
 125:                                              ; preds = %121
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Io_BlifGetLine.exit.i, label %121, !llvm.loop !39
+  br i1 %exitcond.not.i.i, label %Io_BlifGetLine.exit.i, label %121, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i.i:         ; preds = %121
   %126 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -3286,7 +3286,7 @@ Io_BlifGetLine.exit.i:                            ; preds = %125, %.critedge.loo
 
 128:                                              ; preds = %111
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %130 = load ptr, ptr %129, align 8, !tbaa !61
+  %130 = load ptr, ptr %129, align 8, !tbaa !60
   %131 = tail call ptr @Abc_AigConst1(ptr noundef %130) #12
   %132 = load i8, ptr %107, align 1, !tbaa !30
   %133 = icmp eq i8 %132, 48
@@ -3329,7 +3329,7 @@ Io_BlifGetLine.exit.i:                            ; preds = %125, %.critedge.loo
 154:                                              ; preds = %150
   %indvars.iv.next.i115.i = add nuw nsw i64 %indvars.iv.i114.i, 1
   %exitcond.not.i116.i = icmp eq i64 %indvars.iv.next.i115.i, %wide.trip.count.i113.i
-  br i1 %exitcond.not.i116.i, label %Io_BlifGetLine.exit118.i, label %150, !llvm.loop !39
+  br i1 %exitcond.not.i116.i, label %Io_BlifGetLine.exit118.i, label %150, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i117.i:      ; preds = %150
   %155 = trunc nuw nsw i64 %indvars.iv.i114.i to i32
@@ -3342,7 +3342,7 @@ Io_BlifGetLine.exit118.i:                         ; preds = %154, %.critedge.loo
 
 157:                                              ; preds = %138
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %159 = load ptr, ptr %158, align 8, !tbaa !61
+  %159 = load ptr, ptr %158, align 8, !tbaa !60
   %160 = tail call ptr @Abc_AigConst1(ptr noundef %159) #12
   %161 = ptrtoint ptr %160 to i64
   %162 = xor i64 %161, 1
@@ -3399,7 +3399,7 @@ Io_BlifGetLine.exit118.i:                         ; preds = %154, %.critedge.loo
 187:                                              ; preds = %183
   %indvars.iv.next.i125.i = add nuw nsw i64 %indvars.iv.i124.i, 1
   %exitcond.not.i126.i = icmp eq i64 %indvars.iv.next.i125.i, %wide.trip.count.i123.i
-  br i1 %exitcond.not.i126.i, label %Io_BlifGetLine.exit128.i, label %183, !llvm.loop !39
+  br i1 %exitcond.not.i126.i, label %Io_BlifGetLine.exit128.i, label %183, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i127.i:      ; preds = %183
   %188 = trunc nuw nsw i64 %indvars.iv.i124.i to i32
@@ -3449,7 +3449,7 @@ Io_BlifGetLine.exit128.i:                         ; preds = %187, %.critedge.loo
 209:                                              ; preds = %205
   %indvars.iv.next.i135.i = add nuw nsw i64 %indvars.iv.i134.i, 1
   %exitcond.not.i136.i = icmp eq i64 %indvars.iv.next.i135.i, %wide.trip.count.i133.i
-  br i1 %exitcond.not.i136.i, label %Io_BlifGetLine.exit138.i, label %205, !llvm.loop !39
+  br i1 %exitcond.not.i136.i, label %Io_BlifGetLine.exit138.i, label %205, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i137.i:      ; preds = %205
   %210 = trunc nuw nsw i64 %indvars.iv.i134.i to i32
@@ -3493,7 +3493,7 @@ Io_BlifGetLine.exit138.i:                         ; preds = %209, %.critedge.loo
 226:                                              ; preds = %222
   %indvars.iv.next.i145.i = add nuw nsw i64 %indvars.iv.i144.i, 1
   %exitcond.not.i146.i = icmp eq i64 %indvars.iv.next.i145.i, %wide.trip.count.i143.i
-  br i1 %exitcond.not.i146.i, label %Io_BlifGetLine.exit148.i, label %222, !llvm.loop !39
+  br i1 %exitcond.not.i146.i, label %Io_BlifGetLine.exit148.i, label %222, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i147.i:      ; preds = %222
   %227 = trunc nuw nsw i64 %indvars.iv.i144.i to i32
@@ -3506,7 +3506,7 @@ Io_BlifGetLine.exit148.i:                         ; preds = %226, %.critedge.loo
 
 229:                                              ; preds = %214, %212
   %.1.i = phi i32 [ %.0190.i, %214 ], [ %193, %212 ]
-  %230 = load ptr, ptr %158, align 8, !tbaa !61
+  %230 = load ptr, ptr %158, align 8, !tbaa !60
   %231 = tail call ptr @Abc_AigConst1(ptr noundef %230) #12
   br label %232
 
@@ -3523,9 +3523,9 @@ Io_BlifGetLine.exit148.i:                         ; preds = %226, %.critedge.loo
   ]
 
 235:                                              ; preds = %232
-  %236 = load ptr, ptr %158, align 8, !tbaa !61
+  %236 = load ptr, ptr %158, align 8, !tbaa !60
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 256
-  %238 = load ptr, ptr %237, align 8, !tbaa !96
+  %238 = load ptr, ptr %237, align 8, !tbaa !95
   %.val103.i = load ptr, ptr %70, align 8, !tbaa !10
   %239 = getelementptr inbounds nuw ptr, ptr %.val103.i, i64 %indvars.iv.i66
   %240 = load ptr, ptr %239, align 8, !tbaa !29
@@ -3536,9 +3536,9 @@ Io_BlifGetLine.exit148.i:                         ; preds = %226, %.critedge.loo
   br label %267
 
 245:                                              ; preds = %232
-  %246 = load ptr, ptr %158, align 8, !tbaa !61
+  %246 = load ptr, ptr %158, align 8, !tbaa !60
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 256
-  %248 = load ptr, ptr %247, align 8, !tbaa !96
+  %248 = load ptr, ptr %247, align 8, !tbaa !95
   %.val102.i = load ptr, ptr %70, align 8, !tbaa !10
   %249 = getelementptr inbounds nuw ptr, ptr %.val102.i, i64 %indvars.iv.i66
   %250 = load ptr, ptr %249, align 8, !tbaa !29
@@ -3570,7 +3570,7 @@ Io_BlifGetLine.exit148.i:                         ; preds = %226, %.critedge.loo
 263:                                              ; preds = %259
   %indvars.iv.next.i155.i = add nuw nsw i64 %indvars.iv.i154.i, 1
   %exitcond.not.i156.i = icmp eq i64 %indvars.iv.next.i155.i, %wide.trip.count.i153.i
-  br i1 %exitcond.not.i156.i, label %Io_BlifGetLine.exit158.i, label %259, !llvm.loop !39
+  br i1 %exitcond.not.i156.i, label %Io_BlifGetLine.exit158.i, label %259, !llvm.loop !38
 
 .critedge.loopexit.split.loop.exit14.i157.i:      ; preds = %259
   %264 = trunc nuw nsw i64 %indvars.iv.i154.i to i32
@@ -3585,12 +3585,12 @@ Io_BlifGetLine.exit158.i:                         ; preds = %263, %.critedge.loo
 267:                                              ; preds = %245, %235, %232
   %.184.i = phi ptr [ %244, %235 ], [ %251, %245 ], [ %.083.i, %232 ]
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
-  br label %232, !llvm.loop !97
+  br label %232, !llvm.loop !96
 
 268:                                              ; preds = %232
-  %269 = load ptr, ptr %158, align 8, !tbaa !61
+  %269 = load ptr, ptr %158, align 8, !tbaa !60
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 256
-  %271 = load ptr, ptr %270, align 8, !tbaa !96
+  %271 = load ptr, ptr %270, align 8, !tbaa !95
   %272 = tail call ptr @Abc_AigOr(ptr noundef %271, ptr noundef %.085188.i, ptr noundef %.083.i) #12
   %indvars.iv.next223.i = add nuw nsw i64 %indvars.iv222.i, 1
   %273 = load ptr, ptr %89, align 8, !tbaa !22
@@ -3599,7 +3599,7 @@ Io_BlifGetLine.exit158.i:                         ; preds = %263, %.critedge.loo
   %275 = sdiv i32 %.val97.i, 2
   %276 = sext i32 %275 to i64
   %277 = icmp slt i64 %indvars.iv.next223.i, %276
-  br i1 %277, label %167, label %._crit_edge.loopexit.i, !llvm.loop !98
+  br i1 %277, label %167, label %._crit_edge.loopexit.i, !llvm.loop !97
 
 ._crit_edge.loopexit.i:                           ; preds = %268
   %278 = icmp eq i32 %.1.i, 0
@@ -3616,7 +3616,7 @@ Io_BlifGetLine.exit158.i:                         ; preds = %263, %.critedge.loo
 
 Io_BlifParseTable.exit:                           ; preds = %98, %Io_BlifGetLine.exit.i, %128, %Io_BlifGetLine.exit118.i, %Io_BlifGetLine.exit128.i, %Io_BlifGetLine.exit138.i, %Io_BlifGetLine.exit148.i, %Io_BlifGetLine.exit158.i, %._crit_edge.i
   %.086.i = phi ptr [ %104, %98 ], [ null, %Io_BlifGetLine.exit.i ], [ %137, %128 ], [ null, %Io_BlifGetLine.exit118.i ], [ null, %Io_BlifGetLine.exit128.i ], [ null, %Io_BlifGetLine.exit138.i ], [ null, %Io_BlifGetLine.exit158.i ], [ null, %Io_BlifGetLine.exit148.i ], [ %282, %._crit_edge.i ]
-  store ptr %.086.i, ptr %63, align 8, !tbaa !77
+  store ptr %.086.i, ptr %63, align 8, !tbaa !76
   %283 = load ptr, ptr %70, align 8, !tbaa !10
   %.not.i68 = icmp eq ptr %283, null
   br i1 %.not.i68, label %Vec_PtrFree.exit69, label %284
@@ -3630,7 +3630,7 @@ Vec_PtrFree.exit69:                               ; preds = %Io_BlifParseTable.e
   %285 = load i32, ptr %.pr, align 8
   %286 = and i32 %285, -33
   store i32 %286, ptr %.pr, align 8
-  %287 = load ptr, ptr %63, align 8, !tbaa !77
+  %287 = load ptr, ptr %63, align 8, !tbaa !76
   br label %288
 
 288:                                              ; preds = %62, %Vec_PtrFree.exit69, %Vec_PtrFree.exit, %Io_BlifGetLine.exit58, %Io_BlifGetLine.exit
@@ -3704,71 +3704,70 @@ attributes #14 = { nounwind willreturn memory(read) }
 !28 = !{!12, !13, i64 8}
 !29 = !{!8, !8, i64 0}
 !30 = !{!6, !6, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
-!35 = distinct !{!35, !32, !33}
-!36 = !{!12, !13, i64 40}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
-!39 = distinct !{!39, !32, !33}
-!40 = distinct !{!40, !32, !33}
-!41 = distinct !{!41, !32, !33}
-!42 = distinct !{!42, !32, !33}
-!43 = !{!12, !5, i64 32}
-!44 = !{!12, !15, i64 24}
-!45 = !{!12, !5, i64 120}
-!46 = !{!12, !16, i64 112}
-!47 = distinct !{!47, !32, !33}
-!48 = !{!5, !5, i64 0}
-!49 = distinct !{!49, !32, !33}
-!50 = !{!15, !15, i64 0}
-!51 = !{!52, !13, i64 8}
-!52 = !{!"Io_BlifObj_t_", !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 1, !13, i64 8, !8, i64 16, !15, i64 24}
-!53 = distinct !{!53, !32, !33}
-!54 = !{!12, !5, i64 36}
-!55 = distinct !{!55, !32, !33}
-!56 = distinct !{!56, !32, !33}
-!57 = distinct !{!57, !32, !33}
-!58 = distinct !{!58, !32, !33}
-!59 = distinct !{!59, !32, !33}
-!60 = distinct !{!60, !32, !33}
-!61 = !{!12, !17, i64 128}
-!62 = !{!63, !13, i64 8}
-!63 = !{!"Abc_Ntk_t_", !5, i64 0, !5, i64 4, !13, i64 8, !13, i64 16, !64, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !6, i64 96, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !17, i64 160, !5, i64 168, !65, i64 176, !17, i64 184, !5, i64 192, !5, i64 196, !5, i64 200, !66, i64 208, !5, i64 216, !67, i64 224, !69, i64 240, !70, i64 248, !8, i64 256, !71, i64 264, !8, i64 272, !72, i64 280, !5, i64 284, !73, i64 288, !14, i64 296, !68, i64 304, !74, i64 312, !14, i64 320, !17, i64 328, !8, i64 336, !8, i64 344, !17, i64 352, !8, i64 360, !8, i64 368, !73, i64 376, !73, i64 384, !13, i64 392, !75, i64 400, !14, i64 408, !73, i64 416, !73, i64 424, !14, i64 432, !73, i64 440, !73, i64 448, !73, i64 456}
-!64 = !{!"p1 _ZTS9Nm_Man_t_", !8, i64 0}
-!65 = !{!"p1 _ZTS10Abc_Des_t_", !8, i64 0}
-!66 = !{!"double", !6, i64 0}
-!67 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !68, i64 8}
-!68 = !{!"p1 int", !8, i64 0}
-!69 = !{!"p1 _ZTS12Mem_Fixed_t_", !8, i64 0}
-!70 = !{!"p1 _ZTS11Mem_Step_t_", !8, i64 0}
-!71 = !{!"p1 _ZTS14Abc_ManTime_t_", !8, i64 0}
-!72 = !{!"float", !6, i64 0}
-!73 = !{!"p1 _ZTS10Vec_Int_t_", !8, i64 0}
-!74 = !{!"p1 _ZTS10Abc_Cex_t_", !8, i64 0}
-!75 = !{!"p1 float", !8, i64 0}
-!76 = !{!63, !13, i64 16}
-!77 = !{!52, !8, i64 16}
-!78 = distinct !{!78, !32, !33}
-!79 = distinct !{!79, !32, !33}
-!80 = distinct !{!80, !32, !33}
-!81 = !{!63, !14, i64 48}
-!82 = distinct !{!82, !32, !33}
-!83 = !{!63, !14, i64 80}
-!84 = !{!85, !17, i64 0}
-!85 = !{!"Abc_Obj_t_", !17, i64 0, !86, i64 8, !5, i64 16, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !67, i64 24, !67, i64 40, !6, i64 56, !6, i64 64}
-!86 = !{!"p1 _ZTS10Abc_Obj_t_", !8, i64 0}
-!87 = !{!85, !68, i64 32}
-!88 = !{!63, !14, i64 32}
-!89 = distinct !{!89, !32, !33}
-!90 = !{!12, !5, i64 656}
-!91 = !{!12, !5, i64 660}
-!92 = distinct !{!92, !32, !33}
-!93 = distinct !{!93, !32, !33}
-!94 = distinct !{!94, !32, !33}
-!95 = distinct !{!95, !32, !33}
-!96 = !{!63, !8, i64 256}
-!97 = distinct !{!97, !32, !33}
-!98 = distinct !{!98, !32, !33}
+!33 = distinct !{!33, !32}
+!34 = distinct !{!34, !32}
+!35 = !{!12, !13, i64 40}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!38 = distinct !{!38, !32}
+!39 = distinct !{!39, !32}
+!40 = distinct !{!40, !32}
+!41 = distinct !{!41, !32}
+!42 = !{!12, !5, i64 32}
+!43 = !{!12, !15, i64 24}
+!44 = !{!12, !5, i64 120}
+!45 = !{!12, !16, i64 112}
+!46 = distinct !{!46, !32}
+!47 = !{!5, !5, i64 0}
+!48 = distinct !{!48, !32}
+!49 = !{!15, !15, i64 0}
+!50 = !{!51, !13, i64 8}
+!51 = !{!"Io_BlifObj_t_", !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 0, !5, i64 1, !13, i64 8, !8, i64 16, !15, i64 24}
+!52 = distinct !{!52, !32}
+!53 = !{!12, !5, i64 36}
+!54 = distinct !{!54, !32}
+!55 = distinct !{!55, !32}
+!56 = distinct !{!56, !32}
+!57 = distinct !{!57, !32}
+!58 = distinct !{!58, !32}
+!59 = distinct !{!59, !32}
+!60 = !{!12, !17, i64 128}
+!61 = !{!62, !13, i64 8}
+!62 = !{!"Abc_Ntk_t_", !5, i64 0, !5, i64 4, !13, i64 8, !13, i64 16, !63, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !6, i64 96, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !17, i64 160, !5, i64 168, !64, i64 176, !17, i64 184, !5, i64 192, !5, i64 196, !5, i64 200, !65, i64 208, !5, i64 216, !66, i64 224, !68, i64 240, !69, i64 248, !8, i64 256, !70, i64 264, !8, i64 272, !71, i64 280, !5, i64 284, !72, i64 288, !14, i64 296, !67, i64 304, !73, i64 312, !14, i64 320, !17, i64 328, !8, i64 336, !8, i64 344, !17, i64 352, !8, i64 360, !8, i64 368, !72, i64 376, !72, i64 384, !13, i64 392, !74, i64 400, !14, i64 408, !72, i64 416, !72, i64 424, !14, i64 432, !72, i64 440, !72, i64 448, !72, i64 456}
+!63 = !{!"p1 _ZTS9Nm_Man_t_", !8, i64 0}
+!64 = !{!"p1 _ZTS10Abc_Des_t_", !8, i64 0}
+!65 = !{!"double", !6, i64 0}
+!66 = !{!"Vec_Int_t_", !5, i64 0, !5, i64 4, !67, i64 8}
+!67 = !{!"p1 int", !8, i64 0}
+!68 = !{!"p1 _ZTS12Mem_Fixed_t_", !8, i64 0}
+!69 = !{!"p1 _ZTS11Mem_Step_t_", !8, i64 0}
+!70 = !{!"p1 _ZTS14Abc_ManTime_t_", !8, i64 0}
+!71 = !{!"float", !6, i64 0}
+!72 = !{!"p1 _ZTS10Vec_Int_t_", !8, i64 0}
+!73 = !{!"p1 _ZTS10Abc_Cex_t_", !8, i64 0}
+!74 = !{!"p1 float", !8, i64 0}
+!75 = !{!62, !13, i64 16}
+!76 = !{!51, !8, i64 16}
+!77 = distinct !{!77, !32}
+!78 = distinct !{!78, !32}
+!79 = distinct !{!79, !32}
+!80 = !{!62, !14, i64 48}
+!81 = distinct !{!81, !32}
+!82 = !{!62, !14, i64 80}
+!83 = !{!84, !17, i64 0}
+!84 = !{!"Abc_Obj_t_", !17, i64 0, !85, i64 8, !5, i64 16, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 20, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !5, i64 21, !66, i64 24, !66, i64 40, !6, i64 56, !6, i64 64}
+!85 = !{!"p1 _ZTS10Abc_Obj_t_", !8, i64 0}
+!86 = !{!84, !67, i64 32}
+!87 = !{!62, !14, i64 32}
+!88 = distinct !{!88, !32}
+!89 = !{!12, !5, i64 656}
+!90 = !{!12, !5, i64 660}
+!91 = distinct !{!91, !32}
+!92 = distinct !{!92, !32}
+!93 = distinct !{!93, !32}
+!94 = distinct !{!94, !32}
+!95 = !{!62, !8, i64 256}
+!96 = distinct !{!96, !32}
+!97 = distinct !{!97, !32}

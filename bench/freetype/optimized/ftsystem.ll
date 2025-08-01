@@ -78,15 +78,15 @@ define hidden range(i32 0, 82) i32 @FT_Stream_Open(ptr noundef captures(address_
 .thread64:                                        ; preds = %35, %14
   %ft_close_stream_by_free.sink = phi ptr [ @ft_close_stream_by_munmap, %14 ], [ @ft_close_stream_by_free, %35 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %ft_close_stream_by_free.sink, ptr %37, align 8, !tbaa !18
+  store ptr %ft_close_stream_by_free.sink, ptr %37, align 8, !tbaa !17
   %38 = tail call i32 @close(i32 noundef %5) #15
   %39 = load ptr, ptr %0, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %39, ptr %40, align 8, !tbaa !19
+  store ptr %39, ptr %40, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %41, align 8, !tbaa !19
+  store ptr %1, ptr %41, align 8, !tbaa !18
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr null, ptr %42, align 8, !tbaa !20
+  store ptr null, ptr %42, align 8, !tbaa !19
   br label %47
 
 43:                                               ; preds = %27, %29
@@ -122,11 +122,11 @@ declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal void @ft_close_stream_by_munmap(ptr noundef captures(none) initializes((0, 8)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !3
   %6 = tail call i32 @munmap(ptr noundef %3, i64 noundef %5) #15
-  store ptr null, ptr %2, align 8, !tbaa !19
+  store ptr null, ptr %2, align 8, !tbaa !18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -149,9 +149,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @ft_close_stream_by_free(ptr noundef captures(none) initializes((0, 16)) %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   tail call void @free(ptr noundef %3) #15
-  store ptr null, ptr %2, align 8, !tbaa !19
+  store ptr null, ptr %2, align 8, !tbaa !18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -171,13 +171,13 @@ define hidden noalias noundef ptr @FT_New_Memory() local_unnamed_addr #10 {
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %0
-  store ptr null, ptr %1, align 8, !tbaa !21
+  store ptr null, ptr %1, align 8, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr @ft_alloc, ptr %3, align 8, !tbaa !23
+  store ptr @ft_alloc, ptr %3, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr @ft_realloc, ptr %4, align 8, !tbaa !24
+  store ptr @ft_realloc, ptr %4, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr @ft_free, ptr %5, align 8, !tbaa !25
+  store ptr @ft_free, ptr %5, align 8, !tbaa !24
   br label %6
 
 6:                                                ; preds = %2, %0
@@ -196,7 +196,7 @@ define internal noalias noundef ptr @ft_realloc(ptr readnone captures(none) %0, 
 ; Function Attrs: nounwind uwtable
 define hidden void @FT_Done_Memory(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !25
+  %3 = load ptr, ptr %2, align 8, !tbaa !24
   tail call void %3(ptr noundef %0, ptr noundef %0) #15
   ret void
 }
@@ -250,14 +250,13 @@ attributes #18 = { nounwind allocsize(1) }
 !12 = !{!4, !5, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"int", !7, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!4, !6, i64 48}
-!19 = !{!7, !7, i64 0}
-!20 = !{!4, !6, i64 40}
-!21 = !{!22, !6, i64 0}
-!22 = !{!"FT_MemoryRec_", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
-!23 = !{!22, !6, i64 8}
-!24 = !{!22, !6, i64 24}
-!25 = !{!22, !6, i64 16}
+!17 = !{!4, !6, i64 48}
+!18 = !{!7, !7, i64 0}
+!19 = !{!4, !6, i64 40}
+!20 = !{!21, !6, i64 0}
+!21 = !{!"FT_MemoryRec_", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
+!22 = !{!21, !6, i64 8}
+!23 = !{!21, !6, i64 24}
+!24 = !{!21, !6, i64 16}

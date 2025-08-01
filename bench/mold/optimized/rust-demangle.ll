@@ -244,7 +244,7 @@ eat.exit.i:                                       ; preds = %peek.exit.i.i
 68:                                               ; preds = %peek.exit.i.i, %59
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11
   call fastcc void @parse_ident(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %7)
-  %69 = load i8, ptr %14, align 2, !tbaa !17, !range !25, !noundef !26
+  %69 = load i8, ptr %14, align 2, !tbaa !17, !range !24, !noundef !25
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %is_rust_hash.exit.i, label %71
 
@@ -262,7 +262,7 @@ peek.exit.i:                                      ; preds = %71
   br i1 %78, label %79, label %is_rust_hash.exit.i
 
 79:                                               ; preds = %peek.exit.i
-  %.val.i = load ptr, ptr %6, align 8, !tbaa !27
+  %.val.i = load ptr, ptr %6, align 8, !tbaa !26
   %.val11.i = load i64, ptr %58, align 8
   %80 = load i8, ptr %.val.i, align 1, !tbaa !21
   %.not.i.i = icmp eq i8 %80, 104
@@ -275,7 +275,7 @@ peek.exit.i:                                      ; preds = %71
 82:                                               ; preds = %.lr.ph.i.i
   %83 = add nuw i64 %.072.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %83, %.val11.i
-  br i1 %exitcond.not.i.i, label %peek.exit.i12.i, label %.lr.ph.i.i, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %peek.exit.i12.i, label %.lr.ph.i.i, !llvm.loop !28
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %82
   %.072.i.i = phi i64 [ %83, %82 ], [ 1, %.preheader.i.i ]
@@ -294,7 +294,7 @@ peek.exit.i12.i:                                  ; preds = %.preheader.i.i, %82
   br label %eat.exit13.thread.i
 
 is_rust_hash.exit.i:                              ; preds = %.lr.ph.i.i, %79, %peek.exit.i, %71, %68
-  %.pre67.i = load i8, ptr %12, align 8, !tbaa !15, !range !25
+  %.pre67.i = load i8, ptr %12, align 8, !tbaa !15, !range !24
   br i1 %.010.i, label %print_str.exit.i, label %89
 
 89:                                               ; preds = %is_rust_hash.exit.i
@@ -302,7 +302,7 @@ is_rust_hash.exit.i:                              ; preds = %.lr.ph.i.i, %79, %p
   br i1 %90, label %print_legacy_ident.exit.thread.i, label %91
 
 91:                                               ; preds = %89
-  %92 = load i8, ptr %13, align 1, !tbaa !16, !range !25, !noundef !26
+  %92 = load i8, ptr %13, align 1, !tbaa !16, !range !24, !noundef !25
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %eat.exit13.i, label %94
 
@@ -310,7 +310,7 @@ is_rust_hash.exit.i:                              ; preds = %.lr.ph.i.i, %79, %p
   %95 = load ptr, ptr %10, align 8, !tbaa !13
   %96 = load ptr, ptr %9, align 8, !tbaa !12
   call void %95(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %96) #11
-  %.pre.i = load i8, ptr %12, align 8, !tbaa !15, !range !25
+  %.pre.i = load i8, ptr %12, align 8, !tbaa !15, !range !24
   br label %print_str.exit.i
 
 print_str.exit.i:                                 ; preds = %94, %is_rust_hash.exit.i
@@ -320,7 +320,7 @@ print_str.exit.i:                                 ; preds = %94, %is_rust_hash.e
 
 99:                                               ; preds = %print_str.exit.i
   %.sroa.6.0.copyload.i = load i64, ptr %58, align 8
-  %.pre139 = load i8, ptr %13, align 1, !tbaa !16, !range !25
+  %.pre139 = load i8, ptr %13, align 1, !tbaa !16, !range !24
   %100 = trunc nuw i8 %.pre139 to i1
   %.sroa.0.0.copyload79.i = load ptr, ptr %6, align 8
   br i1 %100, label %eat.exit13.i, label %101
@@ -364,16 +364,16 @@ print_str.exit.i:                                 ; preds = %94, %is_rust_hash.e
   br i1 %.not87.i.i, label %._crit_edge.i.i, label %116
 
 ._crit_edge.i.i:                                  ; preds = %115
-  %.pre192.i.i = load i8, ptr %12, align 8, !tbaa !15, !range !25
-  %.pre142 = load i8, ptr %13, align 1, !range !25
+  %.pre192.i.i = load i8, ptr %12, align 8, !tbaa !15, !range !24
+  %.pre142 = load i8, ptr %13, align 1, !range !24
   br label %128
 
 116:                                              ; preds = %115
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 1
   %118 = load i8, ptr %117, align 1, !tbaa !21
   %119 = icmp eq i8 %118, 46
-  %.pre193.i.i = load i8, ptr %12, align 8, !tbaa !15, !range !25
-  %.pre143 = load i8, ptr %13, align 1, !range !25
+  %.pre193.i.i = load i8, ptr %12, align 8, !tbaa !15, !range !24
+  %.pre143 = load i8, ptr %13, align 1, !range !24
   br i1 %119, label %120, label %128
 
 120:                                              ; preds = %116
@@ -441,9 +441,9 @@ sub_0.i.i:                                        ; preds = %138
   br i1 %148, label %149, label %.critedge92.i.i
 
 149:                                              ; preds = %.tail.i.i
-  %150 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %150 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %151 = trunc nuw i8 %150 to i1
-  %152 = load i8, ptr %13, align 1, !range !25
+  %152 = load i8, ptr %13, align 1, !range !24
   %153 = trunc nuw i8 %152 to i1
   %or.cond49 = select i1 %151, i1 true, i1 %153
   br i1 %or.cond49, label %.thread.i.i, label %154
@@ -461,9 +461,9 @@ sub_0.i.i:                                        ; preds = %138
   br i1 %159, label %160, label %.critedge92.i.i
 
 160:                                              ; preds = %.tail114.i.i
-  %161 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %161 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %162 = trunc nuw i8 %161 to i1
-  %163 = load i8, ptr %13, align 1, !range !25
+  %163 = load i8, ptr %13, align 1, !range !24
   %164 = trunc nuw i8 %163 to i1
   %or.cond51 = select i1 %162, i1 true, i1 %164
   br i1 %or.cond51, label %.thread.i.i, label %165
@@ -483,9 +483,9 @@ sub_0.i.i:                                        ; preds = %138
   ]
 
 170:                                              ; preds = %.tail118.i.i
-  %171 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %171 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %172 = trunc nuw i8 %171 to i1
-  %173 = load i8, ptr %13, align 1, !range !25
+  %173 = load i8, ptr %13, align 1, !range !24
   %174 = trunc nuw i8 %173 to i1
   %or.cond53 = select i1 %172, i1 true, i1 %174
   br i1 %or.cond53, label %.thread.i.i, label %175
@@ -505,9 +505,9 @@ sub_0.i.i:                                        ; preds = %138
   ]
 
 180:                                              ; preds = %.tail122.i.i
-  %181 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %181 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %182 = trunc nuw i8 %181 to i1
-  %183 = load i8, ptr %13, align 1, !range !25
+  %183 = load i8, ptr %13, align 1, !range !24
   %184 = trunc nuw i8 %183 to i1
   %or.cond55 = select i1 %182, i1 true, i1 %184
   br i1 %or.cond55, label %.thread.i.i, label %185
@@ -525,9 +525,9 @@ sub_0.i.i:                                        ; preds = %138
   br i1 %190, label %191, label %.critedge92.i.i
 
 191:                                              ; preds = %.tail126.i.i
-  %192 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %192 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %193 = trunc nuw i8 %192 to i1
-  %194 = load i8, ptr %13, align 1, !range !25
+  %194 = load i8, ptr %13, align 1, !range !24
   %195 = trunc nuw i8 %194 to i1
   %or.cond57 = select i1 %193, i1 true, i1 %195
   br i1 %or.cond57, label %.thread.i.i, label %196
@@ -539,9 +539,9 @@ sub_0.i.i:                                        ; preds = %138
   br label %.thread.i.i
 
 199:                                              ; preds = %.tail122.i.i
-  %200 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %200 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %201 = trunc nuw i8 %200 to i1
-  %202 = load i8, ptr %13, align 1, !range !25
+  %202 = load i8, ptr %13, align 1, !range !24
   %203 = trunc nuw i8 %202 to i1
   %or.cond59 = select i1 %201, i1 true, i1 %203
   br i1 %or.cond59, label %.thread.i.i, label %204
@@ -553,9 +553,9 @@ sub_0.i.i:                                        ; preds = %138
   br label %.thread.i.i
 
 207:                                              ; preds = %.tail118.i.i
-  %208 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %208 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %209 = trunc nuw i8 %208 to i1
-  %210 = load i8, ptr %13, align 1, !range !25
+  %210 = load i8, ptr %13, align 1, !range !24
   %211 = trunc nuw i8 %210 to i1
   %or.cond61 = select i1 %209, i1 true, i1 %211
   br i1 %or.cond61, label %.thread.i.i, label %212
@@ -567,9 +567,9 @@ sub_0.i.i:                                        ; preds = %138
   br label %.thread.i.i
 
 215:                                              ; preds = %sub_0.i.i
-  %216 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %216 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %217 = trunc nuw i8 %216 to i1
-  %218 = load i8, ptr %13, align 1, !range !25
+  %218 = load i8, ptr %13, align 1, !range !24
   %219 = trunc nuw i8 %218 to i1
   %or.cond63 = select i1 %217, i1 true, i1 %219
   br i1 %or.cond63, label %.thread.i.i, label %220
@@ -589,7 +589,7 @@ sub_0.i.i:                                        ; preds = %138
 227:                                              ; preds = %.lr.ph.i16.i
   %228 = add nuw i64 %.078145.i.i, 1
   %exitcond.not.i17.i = icmp eq i64 %228, %225
-  br i1 %exitcond.not.i17.i, label %.critedge.i.i.preheader, label %.lr.ph.i16.i, !llvm.loop !30
+  br i1 %exitcond.not.i17.i, label %.critedge.i.i.preheader, label %.lr.ph.i16.i, !llvm.loop !29
 
 .critedge.preheader.i.i:                          ; preds = %223
   %.not179.i.i = icmp eq i64 %225, 0
@@ -599,8 +599,8 @@ sub_0.i.i:                                        ; preds = %138
   br label %.critedge.i.i
 
 .critedge.preheader.i..thread234.i_crit_edge.i:   ; preds = %.critedge.preheader.i.i
-  %.pre68.i = load i8, ptr %12, align 8, !tbaa !15, !range !25
-  %.pre140 = load i8, ptr %13, align 1, !range !25
+  %.pre68.i = load i8, ptr %12, align 8, !tbaa !15, !range !24
+  %.pre140 = load i8, ptr %13, align 1, !range !24
   br label %.thread234.i.i
 
 .lr.ph.i16.i:                                     ; preds = %223, %227
@@ -634,13 +634,13 @@ sub_0.i.i:                                        ; preds = %138
   %241 = or i32 %235, %240
   %242 = add nuw i64 %.074147.i.i, 1
   %exitcond189.not.i.i = icmp eq i64 %242, %225
-  br i1 %exitcond189.not.i.i, label %.critedge._crit_edge.i.i, label %.critedge.i.i, !llvm.loop !31
+  br i1 %exitcond189.not.i.i, label %.critedge._crit_edge.i.i, label %.critedge.i.i, !llvm.loop !30
 
 243:                                              ; preds = %.critedge._crit_edge.i.i
   %244 = add nsw i32 %241, -32
   %or.cond3.i.i = icmp ult i32 %244, 95
-  %.pre69.i = load i8, ptr %12, align 8, !tbaa !15, !range !25
-  %.pre141 = load i8, ptr %13, align 1, !range !25
+  %.pre69.i = load i8, ptr %12, align 8, !tbaa !15, !range !24
+  %.pre141 = load i8, ptr %13, align 1, !range !24
   br i1 %or.cond3.i.i, label %245, label %.thread234.i.i
 
 245:                                              ; preds = %243
@@ -681,9 +681,9 @@ print_str.exit103.i.i:                            ; preds = %256, %.thread234.i.
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %5) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false)
   %259 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %.075.lcssa233237.i.i) #11
-  %260 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %260 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %261 = trunc nuw i8 %260 to i1
-  %262 = load i8, ptr %13, align 1, !range !25
+  %262 = load i8, ptr %13, align 1, !range !24
   %263 = trunc nuw i8 %262 to i1
   %or.cond69 = select i1 %261, i1 true, i1 %263
   br i1 %or.cond69, label %print_str.exit105.i.i, label %print_str.exit104.i.i
@@ -693,9 +693,9 @@ print_str.exit104.i.i:                            ; preds = %print_str.exit103.i
   %265 = load ptr, ptr %10, align 8, !tbaa !13
   %266 = load ptr, ptr %9, align 8, !tbaa !12
   call void %265(ptr noundef nonnull %5, i64 noundef %264, ptr noundef %266) #11
-  %.pre.i.i = load i8, ptr %12, align 8, !tbaa !15, !range !25
+  %.pre.i.i = load i8, ptr %12, align 8, !tbaa !15, !range !24
   %267 = trunc nuw i8 %.pre.i.i to i1
-  %.pre70.i = load i8, ptr %13, align 1, !range !25
+  %.pre70.i = load i8, ptr %13, align 1, !range !24
   %268 = trunc nuw i8 %.pre70.i to i1
   %or.cond70 = select i1 %267, i1 true, i1 %268
   br i1 %or.cond70, label %print_str.exit105.i.i, label %269
@@ -727,9 +727,9 @@ print_str.exit105.i.i:                            ; preds = %269, %print_str.exi
 
 277:                                              ; preds = %.preheader.i18.i, %.preheader.i18.i
   %278 = getelementptr inbounds nuw i8, ptr %113, i64 %.0149.i.i
-  %279 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %279 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %280 = trunc nuw i8 %279 to i1
-  %281 = load i8, ptr %13, align 1, !range !25
+  %281 = load i8, ptr %13, align 1, !range !24
   %282 = trunc nuw i8 %281 to i1
   %or.cond72 = select i1 %280, i1 true, i1 %282
   br i1 %or.cond72, label %print_str.exit106.i.i, label %283
@@ -747,23 +747,23 @@ print_str.exit106.i.i:                            ; preds = %283, %277
 287:                                              ; preds = %.preheader.i18.i
   %288 = add nuw i64 %.0149.i.i, 1
   %exitcond190.not.i.i = icmp eq i64 %288, %112
-  br i1 %exitcond190.not.i.i, label %.critedge92.i.i, label %.preheader.i18.i, !llvm.loop !32
+  br i1 %exitcond190.not.i.i, label %.critedge92.i.i, label %.preheader.i18.i, !llvm.loop !31
 
 289:                                              ; preds = %print_str.exit106.i.i, %.thread.i.i, %print_str.exit93.i.i, %print_str.exit.i.i
   %290 = phi ptr [ %278, %print_str.exit106.i.i ], [ %273, %.thread.i.i ], [ %136, %print_str.exit93.i.i ], [ %126, %print_str.exit.i.i ]
   %291 = phi i64 [ %286, %print_str.exit106.i.i ], [ %274, %.thread.i.i ], [ %137, %print_str.exit93.i.i ], [ %127, %print_str.exit.i.i ]
   %292 = icmp eq i64 %291, 0
-  br i1 %292, label %.critedge92.i.i, label %.lr.ph156.i.i, !llvm.loop !33
+  br i1 %292, label %.critedge92.i.i, label %.lr.ph156.i.i
 
 .critedge92.i.i:                                  ; preds = %289, %.critedge._crit_edge.i.i, %.tail126.i.i, %.tail122.i.i, %.tail118.i.i, %.tail114.i.i, %.tail.i.i, %sub_0.i.i, %138, %.lr.ph.i16.i, %287, %110
   %.lcssa.sink.i.i = phi i64 [ 0, %110 ], [ %112, %287 ], [ %112, %.lr.ph.i16.i ], [ 0, %289 ], [ %112, %138 ], [ %112, %.critedge._crit_edge.i.i ], [ %112, %sub_0.i.i ], [ %112, %.tail114.i.i ], [ %112, %.tail.i.i ], [ %112, %.tail126.i.i ], [ %112, %.tail122.i.i ], [ %112, %.tail118.i.i ]
   %.lcssa153.sink.i.i = phi ptr [ %.promoted152.i.i, %110 ], [ %113, %287 ], [ %113, %.lr.ph.i16.i ], [ %290, %289 ], [ %113, %138 ], [ %113, %.critedge._crit_edge.i.i ], [ %113, %sub_0.i.i ], [ %113, %.tail114.i.i ], [ %113, %.tail.i.i ], [ %113, %.tail126.i.i ], [ %113, %.tail122.i.i ], [ %113, %.tail118.i.i ]
-  %293 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %293 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %294 = trunc nuw i8 %293 to i1
   br i1 %294, label %print_legacy_ident.exit.thread.i, label %295
 
 295:                                              ; preds = %.critedge92.i.i
-  %296 = load i8, ptr %13, align 1, !tbaa !16, !range !25, !noundef !26
+  %296 = load i8, ptr %13, align 1, !tbaa !16, !range !24, !noundef !25
   %297 = trunc nuw i8 %296 to i1
   br i1 %297, label %eat.exit13.i, label %print_legacy_ident.exit.i
 
@@ -771,7 +771,7 @@ print_legacy_ident.exit.i:                        ; preds = %295
   %298 = load ptr, ptr %10, align 8, !tbaa !13
   %299 = load ptr, ptr %9, align 8, !tbaa !12
   call void %298(ptr noundef %.lcssa153.sink.i.i, i64 noundef %.lcssa.sink.i.i, ptr noundef %299) #11
-  %.pre71.i = load i8, ptr %12, align 8, !tbaa !15, !range !25
+  %.pre71.i = load i8, ptr %12, align 8, !tbaa !15, !range !24
   %300 = trunc nuw i8 %.pre71.i to i1
   br i1 %300, label %print_legacy_ident.exit.thread.i, label %eat.exit13.i
 
@@ -787,11 +787,11 @@ eat.exit13.i:                                     ; preds = %91, %print_legacy_i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #11
   %.pre = load i64, ptr %11, align 8, !tbaa !14
   %.pre138 = load i64, ptr %8, align 8, !tbaa !3
-  br label %59, !llvm.loop !34
+  br label %59
 
 301:                                              ; preds = %.critedge
   call fastcc void @demangle_path(ptr noundef %7, i1 noundef zeroext true)
-  %302 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %302 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %303 = trunc nuw i8 %302 to i1
   br i1 %303, label %demangle_legacy_path.exit, label %304
 
@@ -815,7 +815,7 @@ peek.exit:                                        ; preds = %304
   br label %demangle_legacy_path.exit
 
 demangle_legacy_path.exit:                        ; preds = %eat.exit13.thread.i, %eat.exit.i, %301, %304, %peek.exit, %312
-  %313 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %313 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %314 = trunc nuw i8 %313 to i1
   br i1 %314, label %.loopexit, label %315
 
@@ -851,10 +851,10 @@ demangle_legacy_path.exit:                        ; preds = %eat.exit13.thread.i
   %329 = getelementptr inbounds nuw i8, ptr %.0113, i64 1
   %330 = load i8, ptr %329, align 1, !tbaa !21
   %.not34 = icmp eq i8 %330, 0
-  br i1 %.not34, label %._crit_edge, label %.lr.ph114, !llvm.loop !35
+  br i1 %.not34, label %._crit_edge, label %.lr.ph114, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %328, %318
-  %331 = load i8, ptr %13, align 1, !tbaa !16, !range !25, !noundef !26
+  %331 = load i8, ptr %13, align 1, !tbaa !16, !range !24, !noundef !25
   %332 = trunc nuw i8 %331 to i1
   br i1 %332, label %.loopexit, label %333
 
@@ -863,7 +863,7 @@ demangle_legacy_path.exit:                        ; preds = %eat.exit13.thread.i
   %335 = load ptr, ptr %10, align 8, !tbaa !13
   %336 = load ptr, ptr %9, align 8, !tbaa !12
   call void %335(ptr noundef nonnull %320, i64 noundef %334, ptr noundef %336) #11
-  %.pre144 = load i8, ptr %12, align 8, !tbaa !15, !range !25
+  %.pre144 = load i8, ptr %12, align 8, !tbaa !15, !range !24
   %337 = trunc nuw i8 %.pre144 to i1
   %338 = xor i1 %337, true
   br label %.loopexit
@@ -890,7 +890,7 @@ define internal fastcc void @demangle_path(ptr noundef nonnull %0, i1 noundef ze
   %5 = alloca i8, align 1
   %6 = alloca %struct.rust_mangled_ident, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i8, ptr %7, align 8, !tbaa !15, !range !25, !noundef !26
+  %8 = load i8, ptr %7, align 8, !tbaa !15, !range !24, !noundef !25
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %11
 
@@ -992,7 +992,7 @@ next.exit.i.i.i:                                  ; preds = %peek.exit.i33.i.i.i
   %.pn.i.i.i = and i64 %45, 4294967295
   %.129.i.i.i = add i64 %.pn.i.i.i, %37
   %exitcond.not.i.i = icmp eq i64 %36, %15
-  br i1 %exitcond.not.i.i, label %.critedge.i.i.i, label %peek.exit.i33.i.i.i, !llvm.loop !36
+  br i1 %exitcond.not.i.i, label %.critedge.i.i.i, label %peek.exit.i33.i.i.i, !llvm.loop !33
 
 46:                                               ; preds = %peek.exit.i33.i.i.i
   %47 = add nuw i64 %33, 1
@@ -1006,18 +1006,18 @@ parse_disambiguator.exit:                         ; preds = %21, %peek.exit.i.i.
   call fastcc void @parse_ident(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %0)
   tail call fastcc void @print_ident(ptr noundef %0, ptr noundef nonnull byval(%struct.rust_mangled_ident) align 8 %4)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %50 = load i8, ptr %49, align 2, !tbaa !17, !range !25, !noundef !26
+  %50 = load i8, ptr %49, align 2, !tbaa !17, !range !24, !noundef !25
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %52, label %print_str.exit84
 
 52:                                               ; preds = %parse_disambiguator.exit
-  %53 = load i8, ptr %7, align 8, !tbaa !15, !range !25, !noundef !26
+  %53 = load i8, ptr %7, align 8, !tbaa !15, !range !24, !noundef !25
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %print_str.exit, label %55
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %57 = load i8, ptr %56, align 1, !tbaa !16, !range !25, !noundef !26
+  %57 = load i8, ptr %56, align 1, !tbaa !16, !range !24, !noundef !25
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %print_str.exit, label %59
 
@@ -1033,7 +1033,7 @@ print_str.exit:                                   ; preds = %52, %55, %59
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %3) #11
   %64 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %.0.i.i) #11
   %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
-  %66 = load i8, ptr %7, align 8, !tbaa !15, !range !25, !noundef !26
+  %66 = load i8, ptr %7, align 8, !tbaa !15, !range !24, !noundef !25
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %print_uint64_hex.exit.thread, label %68
 
@@ -1043,7 +1043,7 @@ print_uint64_hex.exit.thread:                     ; preds = %print_str.exit
 
 68:                                               ; preds = %print_str.exit
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %70 = load i8, ptr %69, align 1, !tbaa !16, !range !25, !noundef !26
+  %70 = load i8, ptr %69, align 1, !tbaa !16, !range !24, !noundef !25
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %print_uint64_hex.exit.thread206, label %print_uint64_hex.exit
 
@@ -1057,14 +1057,14 @@ print_uint64_hex.exit:                            ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !12
   call void %73(ptr noundef nonnull %3, i64 noundef %65, ptr noundef %75) #11
-  %.pre205 = load i8, ptr %7, align 8, !tbaa !15, !range !25
+  %.pre205 = load i8, ptr %7, align 8, !tbaa !15, !range !24
   %76 = trunc nuw i8 %.pre205 to i1
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %3) #11
   br i1 %76, label %print_str.exit84, label %77
 
 77:                                               ; preds = %print_uint64_hex.exit.thread206, %print_uint64_hex.exit
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %79 = load i8, ptr %78, align 1, !tbaa !16, !range !25, !noundef !26
+  %79 = load i8, ptr %78, align 1, !tbaa !16, !range !24, !noundef !25
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %print_str.exit84, label %81
 
@@ -1175,7 +1175,7 @@ next.exit.i.i.i96:                                ; preds = %peek.exit.i33.i.i.i
   %.pn.i.i.i101 = and i64 %120, 4294967295
   %.129.i.i.i102 = add i64 %.pn.i.i.i101, %112
   %exitcond.not.i.i103 = icmp eq i64 %111, %95
-  br i1 %exitcond.not.i.i103, label %.critedge.i.i.i92, label %peek.exit.i33.i.i.i94, !llvm.loop !36
+  br i1 %exitcond.not.i.i103, label %.critedge.i.i.i92, label %peek.exit.i33.i.i.i94, !llvm.loop !33
 
 121:                                              ; preds = %peek.exit.i33.i.i.i94
   %122 = add nuw i64 %108, 1
@@ -1192,13 +1192,13 @@ parse_disambiguator.exit105:                      ; preds = %93, %peek.exit.i.i.
   br i1 %or.cond8, label %125, label %208
 
 125:                                              ; preds = %parse_disambiguator.exit105
-  %126 = load i8, ptr %7, align 8, !tbaa !15, !range !25, !noundef !26
+  %126 = load i8, ptr %7, align 8, !tbaa !15, !range !24, !noundef !25
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %print_str.exit106, label %128
 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %130 = load i8, ptr %129, align 1, !tbaa !16, !range !25, !noundef !26
+  %130 = load i8, ptr %129, align 1, !tbaa !16, !range !24, !noundef !25
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %print_str.exit106, label %132
 
@@ -1211,7 +1211,7 @@ parse_disambiguator.exit105:                      ; preds = %93, %peek.exit.i.i.
   br label %print_str.exit106
 
 print_str.exit106:                                ; preds = %125, %128, %132
-  %137 = load i8, ptr %7, align 8, !tbaa !15, !range !25, !noundef !26
+  %137 = load i8, ptr %7, align 8, !tbaa !15, !range !24, !noundef !25
   %138 = trunc nuw i8 %137 to i1
   switch i8 %89, label %159 [
     i8 67, label %139
@@ -1223,7 +1223,7 @@ print_str.exit106:                                ; preds = %125, %128, %132
 
 140:                                              ; preds = %139
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %142 = load i8, ptr %141, align 1, !tbaa !16, !range !25, !noundef !26
+  %142 = load i8, ptr %141, align 1, !tbaa !16, !range !24, !noundef !25
   %143 = trunc nuw i8 %142 to i1
   br i1 %143, label %print_str.exit107, label %144
 
@@ -1240,7 +1240,7 @@ print_str.exit106:                                ; preds = %125, %128, %132
 
 150:                                              ; preds = %149
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %152 = load i8, ptr %151, align 1, !tbaa !16, !range !25, !noundef !26
+  %152 = load i8, ptr %151, align 1, !tbaa !16, !range !24, !noundef !25
   %153 = trunc nuw i8 %152 to i1
   br i1 %153, label %print_str.exit107, label %154
 
@@ -1257,7 +1257,7 @@ print_str.exit106:                                ; preds = %125, %128, %132
 
 160:                                              ; preds = %159
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %162 = load i8, ptr %161, align 1, !tbaa !16, !range !25, !noundef !26
+  %162 = load i8, ptr %161, align 1, !tbaa !16, !range !24, !noundef !25
   %163 = trunc nuw i8 %162 to i1
   br i1 %163, label %print_str.exit107, label %164
 
@@ -1270,13 +1270,13 @@ print_str.exit106:                                ; preds = %125, %128, %132
   br label %print_str.exit107
 
 print_str.exit107:                                ; preds = %164, %160, %159, %154, %150, %149, %144, %140, %139
-  %169 = load ptr, ptr %6, align 8, !tbaa !27
+  %169 = load ptr, ptr %6, align 8, !tbaa !26
   %170 = icmp ne ptr %169, null
   %171 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %172 = load ptr, ptr %171, align 8
   %173 = icmp ne ptr %172, null
   %or.cond11 = select i1 %170, i1 true, i1 %173
-  %.pre204 = load i8, ptr %7, align 8, !tbaa !15, !range !25
+  %.pre204 = load i8, ptr %7, align 8, !tbaa !15, !range !24
   br i1 %or.cond11, label %174, label %185
 
 174:                                              ; preds = %print_str.exit107
@@ -1285,7 +1285,7 @@ print_str.exit107:                                ; preds = %164, %160, %159, %1
 
 176:                                              ; preds = %174
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %178 = load i8, ptr %177, align 1, !tbaa !16, !range !25, !noundef !26
+  %178 = load i8, ptr %177, align 1, !tbaa !16, !range !24, !noundef !25
   %179 = trunc nuw i8 %178 to i1
   br i1 %179, label %print_str.exit110, label %180
 
@@ -1299,7 +1299,7 @@ print_str.exit107:                                ; preds = %164, %160, %159, %1
 
 print_str.exit110:                                ; preds = %174, %176, %180
   call fastcc void @print_ident(ptr noundef %0, ptr noundef nonnull byval(%struct.rust_mangled_ident) align 8 %6)
-  %.pre203 = load i8, ptr %7, align 8, !tbaa !15, !range !25
+  %.pre203 = load i8, ptr %7, align 8, !tbaa !15, !range !24
   br label %185
 
 185:                                              ; preds = %print_str.exit107, %print_str.exit110
@@ -1309,7 +1309,7 @@ print_str.exit110:                                ; preds = %174, %176, %180
 
 188:                                              ; preds = %185
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %190 = load i8, ptr %189, align 1, !tbaa !16, !range !25, !noundef !26
+  %190 = load i8, ptr %189, align 1, !tbaa !16, !range !24, !noundef !25
   %191 = trunc nuw i8 %190 to i1
   br i1 %191, label %print_str.exit111, label %192
 
@@ -1323,13 +1323,13 @@ print_str.exit110:                                ; preds = %174, %176, %180
 
 print_str.exit111:                                ; preds = %185, %188, %192
   call fastcc void @print_uint64(ptr noundef %0, i64 noundef %.0.i.i90)
-  %197 = load i8, ptr %7, align 8, !tbaa !15, !range !25, !noundef !26
+  %197 = load i8, ptr %7, align 8, !tbaa !15, !range !24, !noundef !25
   %198 = trunc nuw i8 %197 to i1
   br i1 %198, label %.critedge83, label %199
 
 199:                                              ; preds = %print_str.exit111
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %201 = load i8, ptr %200, align 1, !tbaa !16, !range !25, !noundef !26
+  %201 = load i8, ptr %200, align 1, !tbaa !16, !range !24, !noundef !25
   %202 = trunc nuw i8 %201 to i1
   br i1 %202, label %.critedge83, label %203
 
@@ -1342,7 +1342,7 @@ print_str.exit111:                                ; preds = %185, %188, %192
   br label %.critedge83
 
 208:                                              ; preds = %parse_disambiguator.exit105
-  %209 = load ptr, ptr %6, align 8, !tbaa !27
+  %209 = load ptr, ptr %6, align 8, !tbaa !26
   %210 = icmp ne ptr %209, null
   %211 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %212 = load ptr, ptr %211, align 8
@@ -1351,13 +1351,13 @@ print_str.exit111:                                ; preds = %185, %188, %192
   br i1 %or.cond14, label %214, label %.critedge83
 
 214:                                              ; preds = %208
-  %215 = load i8, ptr %7, align 8, !tbaa !15, !range !25, !noundef !26
+  %215 = load i8, ptr %7, align 8, !tbaa !15, !range !24, !noundef !25
   %216 = trunc nuw i8 %215 to i1
   br i1 %216, label %print_str.exit113, label %217
 
 217:                                              ; preds = %214
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %219 = load i8, ptr %218, align 1, !tbaa !16, !range !25, !noundef !26
+  %219 = load i8, ptr %218, align 1, !tbaa !16, !range !24, !noundef !25
   %220 = trunc nuw i8 %219 to i1
   br i1 %220, label %print_str.exit113, label %221
 
@@ -1425,7 +1425,7 @@ next.exit.i.i.i120:                               ; preds = %peek.exit.i33.i.i.i
   %or.cond226.not229 = and i1 %or.cond.i.i.i121, %245
   %exitcond.not.i.i127 = icmp eq i64 %241, %15
   %or.cond227 = or i1 %or.cond226.not229, %exitcond.not.i.i127
-  br i1 %or.cond227, label %.critedge.i.i.i116, label %peek.exit.i33.i.i.i118, !llvm.loop !36
+  br i1 %or.cond227, label %.critedge.i.i.i116, label %peek.exit.i33.i.i.i118, !llvm.loop !33
 
 .critedge.i.i.i116:                               ; preds = %peek.exit.i33.i.i.i118, %next.exit.i.i.i120, %231
   store i8 1, ptr %7, align 8, !tbaa !15
@@ -1438,17 +1438,17 @@ next.exit.i.i.i120:                               ; preds = %peek.exit.i33.i.i.i
 
 248:                                              ; preds = %246, %.critedge.i.i.i116, %eat.exit.thread.i.i.i128, %peek.exit.i.i.i115, %226
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %250 = load i8, ptr %249, align 1, !tbaa !16, !range !25, !noundef !26
+  %250 = load i8, ptr %249, align 1, !tbaa !16, !range !24, !noundef !25
   store i8 1, ptr %249, align 1, !tbaa !16
   tail call fastcc void @demangle_path(ptr noundef %0, i1 noundef zeroext %1)
   store i8 %250, ptr %249, align 1, !tbaa !16
-  %.pre202 = load i8, ptr %7, align 8, !tbaa !15, !range !25
+  %.pre202 = load i8, ptr %7, align 8, !tbaa !15, !range !24
   %251 = trunc nuw i8 %.pre202 to i1
   br i1 %251, label %print_str.exit130, label %.thread
 
 .thread:                                          ; preds = %next.exit, %248
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %253 = load i8, ptr %252, align 1, !tbaa !16, !range !25, !noundef !26
+  %253 = load i8, ptr %252, align 1, !tbaa !16, !range !24, !noundef !25
   %254 = trunc nuw i8 %253 to i1
   br i1 %254, label %print_str.exit130, label %255
 
@@ -1466,13 +1466,13 @@ print_str.exit130:                                ; preds = %248, %.thread, %255
   br i1 %.not80, label %272, label %260
 
 260:                                              ; preds = %print_str.exit130
-  %261 = load i8, ptr %7, align 8, !tbaa !15, !range !25, !noundef !26
+  %261 = load i8, ptr %7, align 8, !tbaa !15, !range !24, !noundef !25
   %262 = trunc nuw i8 %261 to i1
   br i1 %262, label %print_str.exit131, label %263
 
 263:                                              ; preds = %260
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %265 = load i8, ptr %264, align 1, !tbaa !16, !range !25, !noundef !26
+  %265 = load i8, ptr %264, align 1, !tbaa !16, !range !24, !noundef !25
   %266 = trunc nuw i8 %265 to i1
   br i1 %266, label %print_str.exit131, label %267
 
@@ -1489,13 +1489,13 @@ print_str.exit131:                                ; preds = %260, %263, %267
   br label %272
 
 272:                                              ; preds = %print_str.exit131, %print_str.exit130
-  %273 = load i8, ptr %7, align 8, !tbaa !15, !range !25, !noundef !26
+  %273 = load i8, ptr %7, align 8, !tbaa !15, !range !24, !noundef !25
   %274 = trunc nuw i8 %273 to i1
   br i1 %274, label %common.ret275, label %275
 
 275:                                              ; preds = %272
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %277 = load i8, ptr %276, align 1, !tbaa !16, !range !25, !noundef !26
+  %277 = load i8, ptr %276, align 1, !tbaa !16, !range !24, !noundef !25
   %278 = trunc nuw i8 %277 to i1
   br i1 %278, label %common.ret275, label %279
 
@@ -1509,7 +1509,7 @@ print_str.exit131:                                ; preds = %260, %263, %267
 
 284:                                              ; preds = %next.exit
   tail call fastcc void @demangle_path(ptr noundef %0, i1 noundef zeroext %1)
-  %.pre198 = load i8, ptr %7, align 8, !tbaa !15, !range !25
+  %.pre198 = load i8, ptr %7, align 8, !tbaa !15, !range !24
   br i1 %1, label %285, label %print_str.exit133
 
 285:                                              ; preds = %284
@@ -1518,7 +1518,7 @@ print_str.exit131:                                ; preds = %260, %263, %267
 
 287:                                              ; preds = %285
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %289 = load i8, ptr %288, align 1, !tbaa !16, !range !25, !noundef !26
+  %289 = load i8, ptr %288, align 1, !tbaa !16, !range !24, !noundef !25
   %290 = trunc nuw i8 %289 to i1
   br i1 %290, label %print_str.exit133.thread208, label %291
 
@@ -1528,7 +1528,7 @@ print_str.exit131:                                ; preds = %260, %263, %267
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %295 = load ptr, ptr %294, align 8, !tbaa !12
   tail call void %293(ptr noundef nonnull @.str.7, i64 noundef 2, ptr noundef %295) #11
-  %.pre = load i8, ptr %7, align 8, !tbaa !15, !range !25
+  %.pre = load i8, ptr %7, align 8, !tbaa !15, !range !24
   br label %print_str.exit133
 
 print_str.exit133:                                ; preds = %291, %284
@@ -1538,7 +1538,7 @@ print_str.exit133:                                ; preds = %291, %284
 
 print_str.exit133.thread208:                      ; preds = %287, %print_str.exit133
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %299 = load i8, ptr %298, align 1, !tbaa !16, !range !25, !noundef !26
+  %299 = load i8, ptr %298, align 1, !tbaa !16, !range !24, !noundef !25
   %300 = trunc nuw i8 %299 to i1
   br i1 %300, label %.lr.ph, label %print_str.exit134
 
@@ -1548,7 +1548,7 @@ print_str.exit134:                                ; preds = %print_str.exit133.t
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %304 = load ptr, ptr %303, align 8, !tbaa !12
   tail call void %302(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %304) #11
-  %.pre199 = load i8, ptr %7, align 8, !tbaa !15, !range !25
+  %.pre199 = load i8, ptr %7, align 8, !tbaa !15, !range !24
   %305 = trunc nuw i8 %.pre199 to i1
   br i1 %305, label %common.ret275, label %.lr.ph
 
@@ -1575,7 +1575,7 @@ peek.exit.i136:                                   ; preds = %309
 317:                                              ; preds = %peek.exit.i136
   %318 = add nuw i64 %310, 1
   store i64 %318, ptr %12, align 8, !tbaa !14
-  %319 = load i8, ptr %306, align 1, !tbaa !16, !range !25, !noundef !26
+  %319 = load i8, ptr %306, align 1, !tbaa !16, !range !24, !noundef !25
   %320 = trunc nuw i8 %319 to i1
   br i1 %320, label %common.ret275, label %321
 
@@ -1590,7 +1590,7 @@ peek.exit.i136:                                   ; preds = %309
   br i1 %.not, label %print_str.exit138, label %325
 
 325:                                              ; preds = %324
-  %326 = load i8, ptr %306, align 1, !tbaa !16, !range !25, !noundef !26
+  %326 = load i8, ptr %306, align 1, !tbaa !16, !range !24, !noundef !25
   %327 = trunc nuw i8 %326 to i1
   br i1 %327, label %print_str.exit138, label %328
 
@@ -1671,7 +1671,7 @@ next.exit.i149:                                   ; preds = %peek.exit.i33.i146
   %.pn.i154 = and i64 %357, 4294967295
   %.129.i155 = add i64 %.pn.i154, %349
   %exitcond197.not = icmp eq i64 %348, %331
-  br i1 %exitcond197.not, label %.critedge.i144, label %peek.exit.i33.i146, !llvm.loop !36
+  br i1 %exitcond197.not, label %.critedge.i144, label %peek.exit.i33.i146, !llvm.loop !33
 
 358:                                              ; preds = %peek.exit.i33.i146
   %359 = add nuw i64 %345, 1
@@ -1703,9 +1703,9 @@ peek.exit.i140:                                   ; preds = %peek.exit.i160
 
 demangle_generic_arg.exit:                        ; preds = %parse_integer_62.exit158, %365, %367
   %368 = add i64 %.079181, 1
-  %369 = load i8, ptr %7, align 8, !tbaa !15, !range !25, !noundef !26
+  %369 = load i8, ptr %7, align 8, !tbaa !15, !range !24, !noundef !25
   %370 = trunc nuw i8 %369 to i1
-  br i1 %370, label %common.ret275, label %309, !llvm.loop !37
+  br i1 %370, label %common.ret275, label %309, !llvm.loop !34
 
 371:                                              ; preds = %next.exit
   %372 = icmp ult i64 %20, %15
@@ -1762,7 +1762,7 @@ next.exit.i:                                      ; preds = %peek.exit.i33.i
   %.pn.i = and i64 %390, 4294967295
   %.129.i = add i64 %.pn.i, %381
   %exitcond.not = icmp eq i64 %380, %15
-  br i1 %exitcond.not, label %.critedge.i, label %peek.exit.i33.i, !llvm.loop !36
+  br i1 %exitcond.not, label %.critedge.i, label %peek.exit.i33.i, !llvm.loop !33
 
 391:                                              ; preds = %peek.exit.i33.i
   %392 = add nuw i64 %377, 1
@@ -1774,7 +1774,7 @@ parse_integer_62.exit:                            ; preds = %eat.exit.thread.i, 
   %394 = phi i64 [ %392, %391 ], [ %388, %.critedge.i ], [ %376, %eat.exit.thread.i ]
   %.027.i = phi i64 [ %393, %391 ], [ 0, %.critedge.i ], [ 0, %eat.exit.thread.i ]
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %396 = load i8, ptr %395, align 1, !tbaa !16, !range !25, !noundef !26
+  %396 = load i8, ptr %395, align 1, !tbaa !16, !range !24, !noundef !25
   %397 = trunc nuw i8 %396 to i1
   br i1 %397, label %common.ret275, label %398
 
@@ -1804,23 +1804,23 @@ define dso_local ptr @rust_demangle(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %3, align 8, !tbaa !38
+  %9 = load ptr, ptr %3, align 8, !tbaa !35
   call void @free(ptr noundef %9) #11
   br label %37
 
 10:                                               ; preds = %2
-  %11 = load i8, ptr %6, align 8, !tbaa !40, !range !25, !noundef !26
+  %11 = load i8, ptr %6, align 8, !tbaa !37, !range !24, !noundef !25
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %str_buf_append.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = load i64, ptr %5, align 8, !tbaa !41
-  %15 = load i64, ptr %4, align 8, !tbaa !42
+  %14 = load i64, ptr %5, align 8, !tbaa !38
+  %15 = load i64, ptr %4, align 8, !tbaa !39
   %.not.i.i = icmp eq i64 %14, %15
   br i1 %.not.i.i, label %16, label %.str_buf_reserve.exit.thread10.i_crit_edge
 
 .str_buf_reserve.exit.thread10.i_crit_edge:       ; preds = %13
-  %.pre = load ptr, ptr %3, align 8, !tbaa !38
+  %.pre = load ptr, ptr %3, align 8, !tbaa !35
   br label %str_buf_reserve.exit.thread10.i
 
 16:                                               ; preds = %13
@@ -1841,28 +1841,28 @@ define dso_local ptr @rust_demangle(ptr noundef %0, i32 noundef %1) local_unname
 23:                                               ; preds = %21
   %24 = shl i64 %.0.i.i, 1
   %25 = icmp ult i64 %24, %14
-  br i1 %25, label %str_buf_append.exit, label %21, !llvm.loop !43
+  br i1 %25, label %str_buf_append.exit, label %21, !llvm.loop !40
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %3, align 8, !tbaa !38
+  %27 = load ptr, ptr %3, align 8, !tbaa !35
   %28 = call ptr @realloc(ptr noundef %27, i64 noundef %.0.i.i) #13
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %str_buf_reserve.exit.i
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr %3, align 8, !tbaa !38
+  %31 = load ptr, ptr %3, align 8, !tbaa !35
   call void @free(ptr noundef %31) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   br label %str_buf_append.exit
 
 str_buf_reserve.exit.i:                           ; preds = %26
-  store ptr %28, ptr %3, align 8, !tbaa !38
-  %.pre.i = load i8, ptr %6, align 8, !tbaa !40, !range !25
+  store ptr %28, ptr %3, align 8, !tbaa !35
+  %.pre.i = load i8, ptr %6, align 8, !tbaa !37, !range !24
   %32 = trunc nuw i8 %.pre.i to i1
   br i1 %32, label %str_buf_append.exit, label %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge
 
 str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge: ; preds = %str_buf_reserve.exit.i
-  %.pre5 = load i64, ptr %4, align 8, !tbaa !42
+  %.pre5 = load i64, ptr %4, align 8, !tbaa !39
   br label %str_buf_reserve.exit.thread10.i
 
 str_buf_reserve.exit.thread10.i:                  ; preds = %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge, %.str_buf_reserve.exit.thread10.i_crit_edge
@@ -1873,7 +1873,7 @@ str_buf_reserve.exit.thread10.i:                  ; preds = %str_buf_reserve.exi
   br label %str_buf_append.exit
 
 str_buf_append.exit:                              ; preds = %23, %16, %10, %30, %str_buf_reserve.exit.i, %str_buf_reserve.exit.thread10.i
-  %36 = load ptr, ptr %3, align 8, !tbaa !38
+  %36 = load ptr, ptr %3, align 8, !tbaa !35
   br label %37
 
 37:                                               ; preds = %str_buf_append.exit, %8
@@ -1885,21 +1885,21 @@ str_buf_append.exit:                              ; preds = %23, %16, %10, %30, 
 ; Function Attrs: nounwind
 define internal void @str_buf_demangle_callback(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5 = load i8, ptr %4, align 8, !tbaa !40, !range !25, !noundef !26
+  %5 = load i8, ptr %4, align 8, !tbaa !37, !range !24, !noundef !25
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %str_buf_append.exit, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !41
+  %9 = load i64, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !42
+  %11 = load i64, ptr %10, align 8, !tbaa !39
   %12 = sub i64 %9, %11
   %.not.i.i = icmp ugt i64 %1, %12
   br i1 %.not.i.i, label %13, label %.str_buf_reserve.exit.thread10.i_crit_edge
 
 .str_buf_reserve.exit.thread10.i_crit_edge:       ; preds = %7
-  %.pre = load ptr, ptr %2, align 8, !tbaa !38
+  %.pre = load ptr, ptr %2, align 8, !tbaa !35
   br label %str_buf_reserve.exit.thread10.i
 
 13:                                               ; preds = %7
@@ -1909,7 +1909,7 @@ define internal void @str_buf_demangle_callback(ptr noundef readonly captures(no
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %13
-  store i8 1, ptr %4, align 8, !tbaa !40
+  store i8 1, ptr %4, align 8, !tbaa !37
   br label %str_buf_append.exit
 
 18:                                               ; preds = %13
@@ -1925,34 +1925,34 @@ define internal void @str_buf_demangle_callback(ptr noundef readonly captures(no
 22:                                               ; preds = %20
   %23 = shl i64 %.0.i.i, 1
   %24 = icmp ult i64 %23, %9
-  br i1 %24, label %25, label %20, !llvm.loop !43
+  br i1 %24, label %25, label %20, !llvm.loop !40
 
 25:                                               ; preds = %22
-  store i8 1, ptr %4, align 8, !tbaa !40
+  store i8 1, ptr %4, align 8, !tbaa !37
   br label %str_buf_append.exit
 
 26:                                               ; preds = %20
-  %27 = load ptr, ptr %2, align 8, !tbaa !38
+  %27 = load ptr, ptr %2, align 8, !tbaa !35
   %28 = tail call ptr @realloc(ptr noundef %27, i64 noundef %.0.i.i) #13
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %str_buf_reserve.exit.i
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr %2, align 8, !tbaa !38
+  %31 = load ptr, ptr %2, align 8, !tbaa !35
   tail call void @free(ptr noundef %31) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  store i8 1, ptr %4, align 8, !tbaa !40
+  store i8 1, ptr %4, align 8, !tbaa !37
   br label %str_buf_append.exit
 
 str_buf_reserve.exit.i:                           ; preds = %26
-  store ptr %28, ptr %2, align 8, !tbaa !38
-  store i64 %.0.i.i, ptr %8, align 8, !tbaa !41
-  %.pre.i = load i8, ptr %4, align 8, !tbaa !40, !range !25
+  store ptr %28, ptr %2, align 8, !tbaa !35
+  store i64 %.0.i.i, ptr %8, align 8, !tbaa !38
+  %.pre.i = load i8, ptr %4, align 8, !tbaa !37, !range !24
   %32 = trunc nuw i8 %.pre.i to i1
   br i1 %32, label %str_buf_append.exit, label %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge
 
 str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge: ; preds = %str_buf_reserve.exit.i
-  %.pre4 = load i64, ptr %10, align 8, !tbaa !42
+  %.pre4 = load i64, ptr %10, align 8, !tbaa !39
   br label %str_buf_reserve.exit.thread10.i
 
 str_buf_reserve.exit.thread10.i:                  ; preds = %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge, %.str_buf_reserve.exit.thread10.i_crit_edge
@@ -1960,9 +1960,9 @@ str_buf_reserve.exit.thread10.i:                  ; preds = %str_buf_reserve.exi
   %34 = phi ptr [ %.pre, %.str_buf_reserve.exit.thread10.i_crit_edge ], [ %28, %str_buf_reserve.exit.i.str_buf_reserve.exit.thread10.i_crit_edge ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr readonly align 1 %0, i64 %1, i1 false)
-  %36 = load i64, ptr %10, align 8, !tbaa !42
+  %36 = load i64, ptr %10, align 8, !tbaa !39
   %37 = add i64 %36, %1
-  store i64 %37, ptr %10, align 8, !tbaa !42
+  store i64 %37, ptr %10, align 8, !tbaa !39
   br label %str_buf_append.exit
 
 str_buf_append.exit:                              ; preds = %3, %17, %25, %30, %str_buf_reserve.exit.i, %str_buf_reserve.exit.thread10.i
@@ -2052,7 +2052,7 @@ next.exit49:                                      ; preds = %peek.exit
   %35 = add i64 %32, -48
   %36 = add i64 %35, %34
   %37 = icmp ult i64 %33, %.pre76
-  br i1 %37, label %peek.exit, label %.critedge, !llvm.loop !44
+  br i1 %37, label %peek.exit, label %.critedge, !llvm.loop !41
 
 .critedge:                                        ; preds = %peek.exit, %next.exit49, %24
   %38 = phi i64 [ %21, %24 ], [ %28, %peek.exit ], [ %33, %next.exit49 ]
@@ -2085,8 +2085,8 @@ eat.exit52:                                       ; preds = %peek.exit.i51, %.cr
 
 48:                                               ; preds = %eat.exit52
   %49 = getelementptr inbounds nuw i8, ptr %18, i64 %44
-  store ptr %49, ptr %0, align 8, !tbaa !27
-  store i64 %.029, ptr %3, align 8, !tbaa !45
+  store ptr %49, ptr %0, align 8, !tbaa !26
+  store i64 %.029, ptr %3, align 8, !tbaa !42
   br i1 %.0, label %.preheader, label %62
 
 .preheader:                                       ; preds = %48
@@ -2094,7 +2094,7 @@ eat.exit52:                                       ; preds = %peek.exit.i51, %.cr
   br i1 %.not3963, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %.preheader
-  store i64 0, ptr %5, align 8, !tbaa !46
+  store i64 0, ptr %5, align 8, !tbaa !43
   br label %57
 
 .lr.ph:                                           ; preds = %.preheader, %55
@@ -2109,13 +2109,13 @@ eat.exit52:                                       ; preds = %peek.exit.i51, %.cr
 55:                                               ; preds = %.lr.ph
   %56 = add nuw i64 %storemerge64, 1
   %.not39 = icmp eq i64 %51, 0
-  br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %55
   %.lcssa.sink = phi i64 [ 0, %55 ], [ %51, %.lr.ph ]
   %storemerge.lcssa62 = phi i64 [ %.029, %55 ], [ %storemerge64, %.lr.ph ]
-  store i64 %.lcssa.sink, ptr %3, align 8, !tbaa !45
-  store i64 %storemerge.lcssa62, ptr %5, align 8, !tbaa !46
+  store i64 %.lcssa.sink, ptr %3, align 8, !tbaa !42
+  store i64 %storemerge.lcssa62, ptr %5, align 8, !tbaa !43
   %.not40 = icmp eq i64 %storemerge.lcssa62, 0
   br i1 %.not40, label %57, label %59
 
@@ -2127,7 +2127,7 @@ eat.exit52:                                       ; preds = %peek.exit.i51, %.cr
 59:                                               ; preds = %._crit_edge
   %60 = sub i64 %.029, %storemerge.lcssa62
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 %60
-  store ptr %61, ptr %4, align 8, !tbaa !48
+  store ptr %61, ptr %4, align 8, !tbaa !45
   br label %62
 
 62:                                               ; preds = %59, %48
@@ -2136,7 +2136,7 @@ eat.exit52:                                       ; preds = %peek.exit.i51, %.cr
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %62
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store ptr null, ptr %0, align 8, !tbaa !26
   br label %66
 
 66:                                               ; preds = %46, %57, %65, %62, %next.exit.thread
@@ -2158,31 +2158,31 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 ; Function Attrs: nounwind
 define internal fastcc void @print_ident(ptr noundef nonnull captures(none) %0, ptr noundef readonly byval(%struct.rust_mangled_ident) align 8 captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i8, ptr %3, align 8, !tbaa !15, !range !25, !noundef !26
+  %4 = load i8, ptr %3, align 8, !tbaa !15, !range !24, !noundef !25
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %143, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %8 = load i8, ptr %7, align 1, !tbaa !16, !range !25, !noundef !26
+  %8 = load i8, ptr %7, align 1, !tbaa !16, !range !24, !noundef !25
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %143, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !48
+  %12 = load ptr, ptr %11, align 8, !tbaa !45
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %print_str.exit, label %.preheader204
 
 .preheader204:                                    ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !45
+  %14 = load i64, ptr %13, align 8, !tbaa !42
   br label %22
 
 print_str.exit:                                   ; preds = %10
-  %15 = load ptr, ptr %1, align 8, !tbaa !27
+  %15 = load ptr, ptr %1, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !45
+  %17 = load i64, ptr %16, align 8, !tbaa !42
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2198,7 +2198,7 @@ print_str.exit:                                   ; preds = %10
 24:                                               ; preds = %22
   %25 = shl i64 %.0156, 1
   %26 = icmp ult i64 %25, 4611686018427387904
-  br i1 %26, label %22, label %27, !llvm.loop !49
+  br i1 %26, label %22, label %27, !llvm.loop !46
 
 27:                                               ; preds = %24
   store i8 1, ptr %3, align 8, !tbaa !15
@@ -2215,7 +2215,7 @@ print_str.exit:                                   ; preds = %10
   br i1 %.not238, label %.preheader202, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader203
-  %31 = load ptr, ptr %1, align 8, !tbaa !27
+  %31 = load ptr, ptr %1, align 8, !tbaa !26
   br label %35
 
 32:                                               ; preds = %28
@@ -2224,7 +2224,7 @@ print_str.exit:                                   ; preds = %10
 
 .preheader202:                                    ; preds = %35, %.preheader203
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %34 = load i64, ptr %33, align 8, !tbaa !46
+  %34 = load i64, ptr %33, align 8, !tbaa !43
   %.not239 = icmp eq i64 %34, 0
   br i1 %.not239, label %.thread192, label %.preheader
 
@@ -2243,7 +2243,7 @@ print_str.exit:                                   ; preds = %10
   store i8 %41, ptr %42, align 1, !tbaa !21
   %43 = add nuw i64 %.0152214, 1
   %exitcond.not = icmp eq i64 %43, %14
-  br i1 %exitcond.not, label %.preheader202, label %35, !llvm.loop !50
+  br i1 %exitcond.not, label %.preheader202, label %35, !llvm.loop !47
 
 .preheader:                                       ; preds = %.preheader202, %._crit_edge
   %.0139227 = phi i64 [ %51, %._crit_edge ], [ 0, %.preheader202 ]
@@ -2302,7 +2302,7 @@ print_str.exit:                                   ; preds = %10
   %64 = sub nuw nsw i64 36, %.1133
   %65 = mul i64 %64, %.0136
   %.not178 = icmp samesign ugt i64 %.1133, %61
-  br i1 %.not178, label %66, label %44, !llvm.loop !51
+  br i1 %.not178, label %66, label %44, !llvm.loop !48
 
 66:                                               ; preds = %60
   %67 = add i64 %.1153222, 1
@@ -2401,7 +2401,7 @@ print_str.exit:                                   ; preds = %10
   %124 = udiv i64 %.1138215, 35
   %125 = add i64 %.1135216, 36
   %126 = icmp ugt i64 %.1138215, 15959
-  br i1 %126, label %.lr.ph217, label %._crit_edge, !llvm.loop !52
+  br i1 %126, label %.lr.ph217, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %.lr.ph217, %118
   %.1138.lcssa = phi i64 [ %122, %118 ], [ %124, %.lr.ph217 ]
@@ -2440,7 +2440,7 @@ print_str.exit:                                   ; preds = %10
   %.1 = phi i64 [ %135, %134 ], [ %.0234, %.lr.ph235 ]
   %138 = add nuw i64 %.3233, 1
   %exitcond257.not = icmp eq i64 %138, %131
-  br i1 %exitcond257.not, label %._crit_edge236, label %.lr.ph235, !llvm.loop !53
+  br i1 %exitcond257.not, label %._crit_edge236, label %.lr.ph235, !llvm.loop !50
 
 ._crit_edge236:                                   ; preds = %137, %.thread192
   %.0.lcssa = phi i64 [ 0, %.thread192 ], [ %.1, %137 ]
@@ -2467,13 +2467,13 @@ define internal fastcc void @print_uint64(ptr noundef nonnull readonly captures(
   %4 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %1) #11
   %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i8, ptr %6, align 8, !tbaa !15, !range !25, !noundef !26
+  %7 = load i8, ptr %6, align 8, !tbaa !15, !range !24, !noundef !25
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %print_str.exit, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %11 = load i8, ptr %10, align 1, !tbaa !16, !range !25, !noundef !26
+  %11 = load i8, ptr %10, align 1, !tbaa !16, !range !24, !noundef !25
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %print_str.exit, label %13
 
@@ -2495,7 +2495,7 @@ define internal fastcc void @demangle_type(ptr noundef nonnull %0) unnamed_addr 
   %2 = alloca %struct.rust_mangled_ident, align 8
   %3 = alloca %struct.rust_mangled_ident, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %5 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -2628,7 +2628,7 @@ next.exit:                                        ; preds = %peek.exit.i
 
 33:                                               ; preds = %next.exit, %.loopexit736, %.loopexit661, %.loopexit593, %.loopexit518, %.loopexit448, %.loopexit380, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %.loopexit198, %.loopexit330
   %.0.i126.ph = phi ptr [ @.str.71, %32 ], [ @.str.70, %31 ], [ @.str.69, %30 ], [ @.str.68, %29 ], [ @.str.67, %28 ], [ @.str.66, %27 ], [ @.str.65, %26 ], [ @.str.64, %25 ], [ @.str.63, %24 ], [ @.str.62, %23 ], [ @.str.61, %22 ], [ @.str.60, %21 ], [ @.str.51, %.loopexit198 ], [ @.str.52, %.loopexit330 ], [ @.str.53, %.loopexit380 ], [ @.str.54, %.loopexit448 ], [ @.str.55, %.loopexit518 ], [ @.str.56, %.loopexit593 ], [ @.str.57, %.loopexit661 ], [ @.str.58, %.loopexit736 ], [ @.str.59, %next.exit ]
-  %34 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %34 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %common.ret, label %36
 
@@ -2640,7 +2640,7 @@ next.exit:                                        ; preds = %peek.exit.i
   br label %common.ret
 
 40:                                               ; preds = %next.exit, %next.exit
-  %41 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %41 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %print_str.exit127, label %43
 
@@ -2721,7 +2721,7 @@ next.exit.i:                                      ; preds = %peek.exit.i33.i
   %.pn.i = and i64 %72, 4294967295
   %.129.i = add i64 %.pn.i, %64
   %exitcond.not = icmp eq i64 %63, %46
-  br i1 %exitcond.not, label %.critedge.i, label %peek.exit.i33.i, !llvm.loop !36
+  br i1 %exitcond.not, label %.critedge.i, label %peek.exit.i33.i, !llvm.loop !33
 
 parse_integer_62.exit:                            ; preds = %peek.exit.i33.i
   %73 = add nuw i64 %60, 1
@@ -2732,12 +2732,12 @@ parse_integer_62.exit:                            ; preds = %peek.exit.i33.i
 
 75:                                               ; preds = %parse_integer_62.exit
   tail call fastcc void @print_lifetime_from_index(ptr noundef %0, i64 noundef %74)
-  %76 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %76 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %print_str.exit130, label %78
 
 78:                                               ; preds = %75
-  %79 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %79 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %print_str.exit130, label %81
 
@@ -2752,12 +2752,12 @@ print_str.exit130:                                ; preds = %eat.exit.thread.i, 
   br i1 %.not125, label %tailrecurse.backedge, label %84
 
 84:                                               ; preds = %print_str.exit130
-  %85 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %85 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %86 = trunc nuw i8 %85 to i1
   br i1 %86, label %tailrecurse.backedge, label %87
 
 87:                                               ; preds = %84
-  %88 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %88 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %tailrecurse.backedge, label %90
 
@@ -2768,12 +2768,12 @@ print_str.exit130:                                ; preds = %eat.exit.thread.i, 
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %101, %.thread, %104, %107, %.thread592, %110, %print_str.exit130, %84, %87, %90
-  %93 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %93 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %tailrecurse._crit_edge, label %12
 
 95:                                               ; preds = %next.exit, %next.exit
-  %96 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %96 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %97 = trunc nuw i8 %96 to i1
   br i1 %97, label %print_str.exit132.thread, label %print_str.exit132
 
@@ -2781,7 +2781,7 @@ print_str.exit132:                                ; preds = %95
   %98 = load ptr, ptr %10, align 8, !tbaa !13
   %99 = load ptr, ptr %11, align 8, !tbaa !12
   tail call void %98(ptr noundef nonnull @.str.12, i64 noundef 1, ptr noundef %99) #11
-  %.pre590 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre590 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %100 = trunc nuw i8 %.pre590 to i1
   %.not123 = icmp eq i8 %18, 80
   br i1 %.not123, label %107, label %101
@@ -2794,7 +2794,7 @@ print_str.exit132.thread:                         ; preds = %95
   br i1 %100, label %tailrecurse.backedge, label %.thread
 
 .thread:                                          ; preds = %print_str.exit132.thread, %101
-  %102 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %102 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %tailrecurse.backedge, label %104
 
@@ -2808,7 +2808,7 @@ print_str.exit132.thread:                         ; preds = %95
   br i1 %100, label %tailrecurse.backedge, label %.thread592
 
 .thread592:                                       ; preds = %print_str.exit132.thread, %107
-  %108 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %108 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %109 = trunc nuw i8 %108 to i1
   br i1 %109, label %tailrecurse.backedge, label %110
 
@@ -2819,7 +2819,7 @@ print_str.exit132.thread:                         ; preds = %95
   br label %tailrecurse.backedge
 
 113:                                              ; preds = %next.exit, %next.exit
-  %114 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %114 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %print_str.exit135, label %116
 
@@ -2835,12 +2835,12 @@ print_str.exit135:                                ; preds = %113, %116
   br i1 %119, label %120, label %129
 
 120:                                              ; preds = %print_str.exit135
-  %121 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %121 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %print_str.exit136, label %123
 
 123:                                              ; preds = %120
-  %124 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %124 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %print_str.exit136, label %126
 
@@ -2855,12 +2855,12 @@ print_str.exit136:                                ; preds = %120, %123, %126
   br label %129
 
 129:                                              ; preds = %print_str.exit136, %print_str.exit135
-  %130 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %130 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %common.ret, label %132
 
 132:                                              ; preds = %129
-  %133 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %133 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %134 = trunc nuw i8 %133 to i1
   br i1 %134, label %common.ret, label %135
 
@@ -2871,7 +2871,7 @@ print_str.exit136:                                ; preds = %120, %123, %126
   br label %common.ret
 
 138:                                              ; preds = %next.exit
-  %139 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %139 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %.lr.ph329.preheader, label %print_str.exit138
 
@@ -2879,7 +2879,7 @@ print_str.exit138:                                ; preds = %138
   %141 = load ptr, ptr %10, align 8, !tbaa !13
   %142 = load ptr, ptr %11, align 8, !tbaa !12
   tail call void %141(ptr noundef nonnull @.str.20, i64 noundef 1, ptr noundef %142) #11
-  %.pre371 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre371 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %143 = trunc nuw i8 %.pre371 to i1
   br i1 %143, label %common.ret, label %.lr.ph329.preheader
 
@@ -2905,7 +2905,7 @@ peek.exit.i140:                                   ; preds = %.lr.ph329
   br i1 %.not122, label %print_str.exit142, label %152
 
 152:                                              ; preds = %151
-  %153 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %153 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %print_str.exit142, label %155
 
@@ -2918,15 +2918,15 @@ peek.exit.i140:                                   ; preds = %.lr.ph329
 print_str.exit142:                                ; preds = %155, %152, %151
   tail call fastcc void @demangle_type(ptr noundef %0)
   %158 = add i64 %.0112328, 1
-  %159 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %159 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %160 = trunc nuw i8 %159 to i1
-  br i1 %160, label %common.ret, label %.lr.ph329, !llvm.loop !54
+  br i1 %160, label %common.ret, label %.lr.ph329, !llvm.loop !51
 
 .critedge.thread:                                 ; preds = %peek.exit.i140
   %161 = add nuw i64 %144, 1
   store i64 %161, ptr %7, align 8, !tbaa !14
   %162 = icmp eq i64 %.0112328, 1
-  %.pre589 = load i8, ptr %9, align 1, !tbaa !16, !range !25
+  %.pre589 = load i8, ptr %9, align 1, !tbaa !16, !range !24
   br i1 %162, label %163, label %print_str.exit143.thread376
 
 163:                                              ; preds = %.critedge.thread
@@ -2937,12 +2937,12 @@ print_str.exit143:                                ; preds = %163
   %165 = load ptr, ptr %10, align 8, !tbaa !13
   %166 = load ptr, ptr %11, align 8, !tbaa !12
   tail call void %165(ptr noundef nonnull @.str.24, i64 noundef 1, ptr noundef %166) #11
-  %.pre372 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre372 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %167 = trunc nuw i8 %.pre372 to i1
   br i1 %167, label %common.ret, label %print_str.exit143.print_str.exit143.thread376_crit_edge
 
 print_str.exit143.print_str.exit143.thread376_crit_edge: ; preds = %print_str.exit143
-  %.pre588 = load i8, ptr %9, align 1, !tbaa !16, !range !25
+  %.pre588 = load i8, ptr %9, align 1, !tbaa !16, !range !24
   br label %print_str.exit143.thread376
 
 print_str.exit143.thread376:                      ; preds = %print_str.exit143.print_str.exit143.thread376_crit_edge, %.critedge.thread
@@ -2975,12 +2975,12 @@ peek.exit.i146:                                   ; preds = %173
 183:                                              ; preds = %peek.exit.i146
   %184 = add nuw i64 %176, 1
   store i64 %184, ptr %7, align 8, !tbaa !14
-  %185 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %185 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %186 = trunc nuw i8 %185 to i1
   br i1 %186, label %print_str.exit148, label %187
 
 187:                                              ; preds = %183
-  %188 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %188 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %189 = trunc nuw i8 %188 to i1
   br i1 %189, label %print_str.exit148, label %190
 
@@ -3025,11 +3025,11 @@ eat.exit154:                                      ; preds = %peek.exit.i153
 207:                                              ; preds = %peek.exit.i153, %200
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #11
   call fastcc void @parse_ident(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %0)
-  %.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !55
+  %.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !52
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !56
+  %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !53
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.15.0.copyload = load ptr, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.15.0.copyload = load ptr, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !52
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #11
   %208 = icmp eq ptr %.sroa.0.0.copyload, null
   %209 = icmp ne ptr %.sroa.15.0.copyload, null
@@ -3039,12 +3039,12 @@ eat.exit154:                                      ; preds = %peek.exit.i153
 210:                                              ; preds = %eat.exit154, %207
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %207 ], [ @.str.23, %eat.exit154 ]
   %.sroa.10.0 = phi i64 [ %.sroa.10.0.copyload, %207 ], [ 1, %eat.exit154 ]
-  %211 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %211 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %212 = trunc nuw i8 %211 to i1
   br i1 %212, label %print_str.exit155, label %213
 
 213:                                              ; preds = %210
-  %214 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %214 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %215 = trunc nuw i8 %214 to i1
   br i1 %215, label %print_str.exit155, label %216
 
@@ -3061,12 +3061,12 @@ print_str.exit155:                                ; preds = %210, %213, %216
 ._crit_edge323:                                   ; preds = %250, %print_str.exit155
   %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %print_str.exit155 ], [ %.sroa.0.2, %250 ]
   %.sroa.10.1.lcssa = phi i64 [ 0, %print_str.exit155 ], [ %.sroa.10.2, %250 ]
-  %219 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %219 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %220 = trunc nuw i8 %219 to i1
   br i1 %220, label %eat.exit151.thread, label %221
 
 221:                                              ; preds = %._crit_edge323
-  %222 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %222 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %223 = trunc nuw i8 %222 to i1
   br i1 %223, label %eat.exit151.thread, label %print_str.exit156
 
@@ -3074,12 +3074,12 @@ print_str.exit156:                                ; preds = %221
   %224 = load ptr, ptr %10, align 8, !tbaa !13
   %225 = load ptr, ptr %11, align 8, !tbaa !12
   tail call void %224(ptr noundef %.sroa.0.1.lcssa, i64 noundef %.sroa.10.1.lcssa, ptr noundef %225) #11
-  %.pre369 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre369 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %226 = trunc nuw i8 %.pre369 to i1
   br i1 %226, label %eat.exit151.thread, label %print_str.exit156.thread377
 
 print_str.exit156.thread377:                      ; preds = %print_str.exit156
-  %.pre587 = load i8, ptr %9, align 1, !tbaa !16, !range !25
+  %.pre587 = load i8, ptr %9, align 1, !tbaa !16, !range !24
   %227 = trunc nuw i8 %.pre587 to i1
   br i1 %227, label %eat.exit151.thread, label %228
 
@@ -3099,12 +3099,12 @@ print_str.exit156.thread377:                      ; preds = %print_str.exit156
   br i1 %233, label %234, label %250
 
 234:                                              ; preds = %.lr.ph322
-  %235 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %235 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %236 = trunc nuw i8 %235 to i1
   br i1 %236, label %print_str.exit159, label %237
 
 237:                                              ; preds = %234
-  %238 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %238 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %239 = trunc nuw i8 %238 to i1
   br i1 %239, label %print_str.exit159, label %print_str.exit158
 
@@ -3112,12 +3112,12 @@ print_str.exit158:                                ; preds = %237
   %240 = load ptr, ptr %10, align 8, !tbaa !13
   %241 = load ptr, ptr %11, align 8, !tbaa !12
   tail call void %240(ptr noundef nonnull %.sroa.0.1320, i64 noundef %.0115319, ptr noundef %241) #11
-  %.pre368 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre368 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %242 = trunc nuw i8 %.pre368 to i1
   br i1 %242, label %print_str.exit159, label %print_str.exit158.thread378
 
 print_str.exit158.thread378:                      ; preds = %print_str.exit158
-  %.pre586 = load i8, ptr %9, align 1, !tbaa !16, !range !25
+  %.pre586 = load i8, ptr %9, align 1, !tbaa !16, !range !24
   %243 = trunc nuw i8 %.pre586 to i1
   br i1 %243, label %print_str.exit159, label %244
 
@@ -3139,19 +3139,19 @@ print_str.exit159:                                ; preds = %237, %234, %print_s
   %.sroa.10.2 = phi i64 [ %249, %print_str.exit159 ], [ %.sroa.10.1321, %.lr.ph322 ]
   %251 = add nuw i64 %.1, 1
   %252 = icmp ult i64 %251, %.sroa.10.2
-  br i1 %252, label %.lr.ph322, label %._crit_edge323, !llvm.loop !57
+  br i1 %252, label %.lr.ph322, label %._crit_edge323, !llvm.loop !54
 
 print_str.exit157:                                ; preds = %207
   store i8 1, ptr %4, align 8, !tbaa !15
   br label %302
 
 eat.exit151.thread:                               ; preds = %221, %._crit_edge323, %228, %print_str.exit156.thread377, %print_str.exit156, %print_str.exit148, %peek.exit.i150
-  %253 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %253 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %254 = trunc nuw i8 %253 to i1
   br i1 %254, label %print_str.exit164, label %255
 
 255:                                              ; preds = %eat.exit151.thread
-  %256 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %256 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %257 = trunc nuw i8 %256 to i1
   br i1 %257, label %.lr.ph327.preheader, label %print_str.exit160
 
@@ -3159,7 +3159,7 @@ print_str.exit160:                                ; preds = %255
   %258 = load ptr, ptr %10, align 8, !tbaa !13
   %259 = load ptr, ptr %11, align 8, !tbaa !12
   tail call void %258(ptr noundef nonnull @.str.47, i64 noundef 3, ptr noundef %259) #11
-  %.pre370 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre370 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %260 = trunc nuw i8 %.pre370 to i1
   br i1 %260, label %print_str.exit164, label %.lr.ph327.preheader
 
@@ -3183,7 +3183,7 @@ peek.exit.i162:                                   ; preds = %.lr.ph327
 268:                                              ; preds = %peek.exit.i162
   %269 = add nuw i64 %261, 1
   store i64 %269, ptr %7, align 8, !tbaa !14
-  %270 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %270 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %271 = trunc nuw i8 %270 to i1
   br i1 %271, label %print_str.exit164, label %272
 
@@ -3216,7 +3216,7 @@ eat.exit167:                                      ; preds = %peek.exit.i166
   br i1 %.not121, label %print_str.exit168, label %284
 
 284:                                              ; preds = %283
-  %285 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %285 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %286 = trunc nuw i8 %285 to i1
   br i1 %286, label %print_str.exit168, label %287
 
@@ -3229,17 +3229,17 @@ eat.exit167:                                      ; preds = %peek.exit.i166
 print_str.exit168:                                ; preds = %287, %284, %283
   tail call fastcc void @demangle_type(ptr noundef %0)
   %290 = add i64 %.0114326, 1
-  %291 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %291 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %292 = trunc nuw i8 %291 to i1
-  br i1 %292, label %print_str.exit164, label %.lr.ph327, !llvm.loop !58
+  br i1 %292, label %print_str.exit164, label %.lr.ph327, !llvm.loop !55
 
 293:                                              ; preds = %peek.exit.i166, %print_str.exit164
-  %294 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %294 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %295 = trunc nuw i8 %294 to i1
   br i1 %295, label %print_str.exit169, label %296
 
 296:                                              ; preds = %293
-  %297 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %297 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %298 = trunc nuw i8 %297 to i1
   br i1 %298, label %print_str.exit169, label %299
 
@@ -3258,7 +3258,7 @@ print_str.exit169:                                ; preds = %293, %296, %299
   br label %common.ret
 
 303:                                              ; preds = %next.exit
-  %304 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %304 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %305 = trunc nuw i8 %304 to i1
   br i1 %305, label %print_str.exit170, label %306
 
@@ -3272,7 +3272,7 @@ print_str.exit170:                                ; preds = %303, %306
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %310 = load i64, ptr %309, align 8, !tbaa !18
   tail call fastcc void @demangle_binder(ptr noundef %0)
-  %311 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %311 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %312 = trunc nuw i8 %311 to i1
   br i1 %312, label %.critedge6, label %.lr.ph318
 
@@ -3314,7 +3314,7 @@ peek.exit.i175:                                   ; preds = %.critedge6
   br i1 %.not119, label %print_str.exit177.thread, label %329
 
 329:                                              ; preds = %328
-  %330 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %330 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %331 = trunc nuw i8 %330 to i1
   br i1 %331, label %print_str.exit177.thread, label %print_str.exit177
 
@@ -3322,7 +3322,7 @@ print_str.exit177:                                ; preds = %329
   %332 = load ptr, ptr %10, align 8, !tbaa !13
   %333 = load ptr, ptr %11, align 8, !tbaa !12
   tail call void %332(ptr noundef nonnull @.str.50, i64 noundef 3, ptr noundef %333) #11
-  %.pre = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %334 = trunc nuw i8 %.pre to i1
   br i1 %334, label %335, label %print_str.exit177.thread
 
@@ -3349,7 +3349,7 @@ peek.exit.i185:                                   ; preds = %print_str.exit177.t
 345:                                              ; preds = %peek.exit.i185
   %346 = add nuw i64 %340, 1
   store i64 %346, ptr %7, align 8, !tbaa !14
-  %347 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %347 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %348 = trunc nuw i8 %347 to i1
   br i1 %.0.i178314, label %356, label %349
 
@@ -3357,7 +3357,7 @@ peek.exit.i185:                                   ; preds = %print_str.exit177.t
   br i1 %348, label %print_str.exit183, label %350
 
 350:                                              ; preds = %349
-  %351 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %351 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %352 = trunc nuw i8 %351 to i1
   br i1 %352, label %print_str.exit183, label %353
 
@@ -3371,7 +3371,7 @@ peek.exit.i185:                                   ; preds = %print_str.exit177.t
   br i1 %348, label %print_str.exit183, label %357
 
 357:                                              ; preds = %356
-  %358 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %358 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %359 = trunc nuw i8 %358 to i1
   br i1 %359, label %print_str.exit183, label %360
 
@@ -3385,12 +3385,12 @@ print_str.exit183:                                ; preds = %360, %357, %356, %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #11
   call fastcc void @parse_ident(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull %0)
   tail call fastcc void @print_ident(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.rust_mangled_ident) align 8 %2)
-  %363 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %363 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %364 = trunc nuw i8 %363 to i1
   br i1 %364, label %print_str.exit181, label %365
 
 365:                                              ; preds = %print_str.exit183
-  %366 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %366 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %367 = trunc nuw i8 %366 to i1
   br i1 %367, label %print_str.exit181, label %368
 
@@ -3406,19 +3406,19 @@ print_str.exit181:                                ; preds = %print_str.exit183, 
   %371 = load i64, ptr %7, align 8, !tbaa !14
   %372 = load i64, ptr %8, align 8, !tbaa !3
   %373 = icmp ult i64 %371, %372
-  br i1 %373, label %peek.exit.i185, label %.critedge, !llvm.loop !59
+  br i1 %373, label %peek.exit.i185, label %.critedge, !llvm.loop !56
 
 peek.exit.i185._crit_edge:                        ; preds = %peek.exit.i185, %print_str.exit177.thread
   %.0.i178.lcssa = phi i1 [ %336, %print_str.exit177.thread ], [ %.0.i178314, %peek.exit.i185 ]
   br i1 %.0.i178.lcssa, label %.critedge, label %demangle_dyn_trait.exit
 
 .critedge:                                        ; preds = %print_str.exit181, %peek.exit.i185._crit_edge
-  %374 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %374 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %375 = trunc nuw i8 %374 to i1
   br i1 %375, label %demangle_dyn_trait.exit, label %376
 
 376:                                              ; preds = %.critedge
-  %377 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %377 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %378 = trunc nuw i8 %377 to i1
   br i1 %378, label %demangle_dyn_trait.exit, label %379
 
@@ -3430,9 +3430,9 @@ peek.exit.i185._crit_edge:                        ; preds = %peek.exit.i185, %pr
 
 demangle_dyn_trait.exit:                          ; preds = %379, %376, %.critedge, %335, %peek.exit.i185._crit_edge
   %382 = add i64 %.0113317, 1
-  %383 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %383 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %384 = trunc nuw i8 %383 to i1
-  br i1 %384, label %.critedge6, label %.lr.ph318, !llvm.loop !60
+  br i1 %384, label %.critedge6, label %.lr.ph318, !llvm.loop !57
 
 385:                                              ; preds = %peek.exit.i175, %.critedge6
   store i8 1, ptr %4, align 8, !tbaa !15
@@ -3446,12 +3446,12 @@ demangle_dyn_trait.exit:                          ; preds = %379, %376, %.crited
   br i1 %.not120, label %common.ret, label %389
 
 389:                                              ; preds = %386
-  %390 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %390 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %391 = trunc nuw i8 %390 to i1
   br i1 %391, label %print_str.exit179, label %392
 
 392:                                              ; preds = %389
-  %393 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %393 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %394 = trunc nuw i8 %393 to i1
   br i1 %394, label %print_str.exit179, label %395
 
@@ -3467,7 +3467,7 @@ print_str.exit179:                                ; preds = %389, %392, %395
 
 398:                                              ; preds = %next.exit
   %399 = tail call fastcc i64 @parse_integer_62(ptr noundef %0)
-  %400 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %400 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %401 = trunc nuw i8 %400 to i1
   br i1 %401, label %common.ret, label %402
 
@@ -3562,7 +3562,7 @@ next.exit:                                        ; preds = %peek.exit.i35
   %.pn = and i64 %31, 4294967295
   %.129 = add i64 %22, %.pn
   %32 = icmp ult i64 %21, %5
-  br i1 %32, label %peek.exit.i33, label %.critedge, !llvm.loop !36
+  br i1 %32, label %peek.exit.i33, label %.critedge, !llvm.loop !33
 
 33:                                               ; preds = %peek.exit.i33
   %34 = add nuw i64 %14, 1
@@ -3589,13 +3589,13 @@ define internal fastcc void @print_lifetime_from_index(ptr noundef nonnull reado
   %3 = alloca [21 x i8], align 16
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load i8, ptr %5, align 8, !tbaa !15, !range !25, !noundef !26
+  %6 = load i8, ptr %5, align 8, !tbaa !15, !range !24, !noundef !25
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %print_str.exit, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %10 = load i8, ptr %9, align 1, !tbaa !16, !range !25, !noundef !26
+  %10 = load i8, ptr %9, align 1, !tbaa !16, !range !24, !noundef !25
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %print_str.exit, label %12
 
@@ -3612,13 +3612,13 @@ print_str.exit:                                   ; preds = %2, %8, %12
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %print_str.exit
-  %19 = load i8, ptr %5, align 8, !tbaa !15, !range !25, !noundef !26
+  %19 = load i8, ptr %5, align 8, !tbaa !15, !range !24, !noundef !25
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %print_str.exit11, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %23 = load i8, ptr %22, align 1, !tbaa !16, !range !25, !noundef !26
+  %23 = load i8, ptr %22, align 1, !tbaa !16, !range !24, !noundef !25
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %print_str.exit11, label %25
 
@@ -3642,13 +3642,13 @@ print_str.exit:                                   ; preds = %2, %8, %12
   %36 = trunc nuw nsw i64 %33 to i8
   %37 = add nuw nsw i8 %36, 97
   store i8 %37, ptr %4, align 1, !tbaa !21
-  %38 = load i8, ptr %5, align 8, !tbaa !15, !range !25, !noundef !26
+  %38 = load i8, ptr %5, align 8, !tbaa !15, !range !24, !noundef !25
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %print_str.exit12, label %40
 
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %42 = load i8, ptr %41, align 1, !tbaa !16, !range !25, !noundef !26
+  %42 = load i8, ptr %41, align 1, !tbaa !16, !range !24, !noundef !25
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %print_str.exit12, label %44
 
@@ -3665,13 +3665,13 @@ print_str.exit12:                                 ; preds = %35, %40, %44
   br label %print_str.exit11
 
 49:                                               ; preds = %30
-  %50 = load i8, ptr %5, align 8, !tbaa !15, !range !25, !noundef !26
+  %50 = load i8, ptr %5, align 8, !tbaa !15, !range !24, !noundef !25
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %print_str.exit13, label %52
 
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %54 = load i8, ptr %53, align 1, !tbaa !16, !range !25, !noundef !26
+  %54 = load i8, ptr %53, align 1, !tbaa !16, !range !24, !noundef !25
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %print_str.exit13, label %56
 
@@ -3687,13 +3687,13 @@ print_str.exit13:                                 ; preds = %49, %52, %56
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3) #11
   %61 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %33) #11
   %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
-  %63 = load i8, ptr %5, align 8, !tbaa !15, !range !25, !noundef !26
+  %63 = load i8, ptr %5, align 8, !tbaa !15, !range !24, !noundef !25
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %print_uint64.exit, label %65
 
 65:                                               ; preds = %print_str.exit13
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %67 = load i8, ptr %66, align 1, !tbaa !16, !range !25, !noundef !26
+  %67 = load i8, ptr %66, align 1, !tbaa !16, !range !24, !noundef !25
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %print_uint64.exit, label %69
 
@@ -3717,7 +3717,7 @@ print_str.exit11:                                 ; preds = %25, %21, %18, %prin
 define internal fastcc void @demangle_const(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct.rust_mangled_ident, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %5 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %8
 
@@ -3770,7 +3770,7 @@ next.exit:                                        ; preds = %peek.exit.i
 
 18:                                               ; preds = %next.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %20 = load i8, ptr %19, align 1, !tbaa !16, !range !25, !noundef !26
+  %20 = load i8, ptr %19, align 1, !tbaa !16, !range !24, !noundef !25
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %common.ret402, label %22
 
@@ -3800,7 +3800,7 @@ peek.exit.i149:                                   ; preds = %28
   %34 = add nuw i64 %10, 2
   store i64 %34, ptr %9, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %36 = load i8, ptr %35, align 1, !tbaa !16, !range !25, !noundef !26
+  %36 = load i8, ptr %35, align 1, !tbaa !16, !range !24, !noundef !25
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %print_str.exit150, label %38
 
@@ -3853,7 +3853,7 @@ next.exit.i.i:                                    ; preds = %47, %peek.exit.thre
 
 52:                                               ; preds = %next.exit.i.i
   %53 = add i64 %.017.i.i, 1
-  br label %.preheader334, !llvm.loop !61
+  br label %.preheader334, !llvm.loop !58
 
 parse_hex_nibbles.exit.i:                         ; preds = %peek.exit.i.i.i
   %54 = add nuw i64 %43, 1
@@ -3881,7 +3881,7 @@ parse_hex_nibbles.exit.i:                         ; preds = %peek.exit.i.i.i
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.110.i, i64 1
   %61 = add i64 %.sroa.5.111.i, -1
   %.not.i151 = icmp eq i64 %61, 0
-  br i1 %.not.i151, label %parse_hex_nibbles_for_const_uint.exit, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i151, label %parse_hex_nibbles_for_const_uint.exit, label %.lr.ph.i, !llvm.loop !59
 
 parse_hex_nibbles_for_const_uint.exit:            ; preds = %.lr.ph.i, %59, %.preheader.i
   %.sroa.0.0.i = phi ptr [ %55, %.preheader.i ], [ %.sroa.0.110.i, %.lr.ph.i ], [ %scevgep.i, %59 ]
@@ -3909,7 +3909,7 @@ parse_hex_nibbles_for_const_uint.exit:            ; preds = %.lr.ph.i, %59, %.pr
 .thread:                                          ; preds = %63, %64
   %70 = phi i32 [ %68, %64 ], [ 0, %63 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %72 = load i8, ptr %71, align 1, !tbaa !16, !range !25, !noundef !26
+  %72 = load i8, ptr %71, align 1, !tbaa !16, !range !24, !noundef !25
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %common.ret402, label %74
 
@@ -3965,7 +3965,7 @@ next.exit.i.i155:                                 ; preds = %86, %peek.exit.thre
 
 91:                                               ; preds = %next.exit.i.i155
   %92 = add i64 %.017.i.i153, 1
-  br label %.preheader335, !llvm.loop !61
+  br label %.preheader335, !llvm.loop !58
 
 parse_hex_nibbles.exit.i168:                      ; preds = %peek.exit.i.i.i167
   %93 = add nuw i64 %82, 1
@@ -3993,7 +3993,7 @@ parse_hex_nibbles.exit.i168:                      ; preds = %peek.exit.i.i.i167
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.110.i176, i64 1
   %100 = add i64 %.sroa.5.111.i175, -1
   %.not.i177 = icmp eq i64 %100, 0
-  br i1 %.not.i177, label %parse_hex_nibbles_for_const_uint.exit178, label %.lr.ph.i174, !llvm.loop !62
+  br i1 %.not.i177, label %parse_hex_nibbles_for_const_uint.exit178, label %.lr.ph.i174, !llvm.loop !59
 
 parse_hex_nibbles_for_const_uint.exit178:         ; preds = %.lr.ph.i174, %98, %.preheader.i170
   %.sroa.0.0.i163 = phi ptr [ %94, %.preheader.i170 ], [ %.sroa.0.110.i176, %.lr.ph.i174 ], [ %scevgep.i173, %98 ]
@@ -4012,7 +4012,7 @@ print_str.exit180.thread:                         ; preds = %next.exit.i.i155, %
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0137.lcssa = phi i32 [ 0, %.preheader ], [ %127, %.lr.ph ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %103 = load i8, ptr %102, align 1, !tbaa !16, !range !25, !noundef !26
+  %103 = load i8, ptr %102, align 1, !tbaa !16, !range !24, !noundef !25
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %print_str.exit179, label %105
 
@@ -4026,13 +4026,13 @@ print_str.exit180.thread:                         ; preds = %next.exit.i.i155, %
 
 print_str.exit179:                                ; preds = %._crit_edge, %105
   tail call fastcc void @print_quoted_escaped_char(ptr noundef %0, i8 noundef signext 39, i32 noundef %.0137.lcssa)
-  %110 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %110 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %common.ret402, label %112
 
 112:                                              ; preds = %print_str.exit179
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %114 = load i8, ptr %113, align 1, !tbaa !16, !range !25, !noundef !26
+  %114 = load i8, ptr %113, align 1, !tbaa !16, !range !24, !noundef !25
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %common.ret402, label %116
 
@@ -4057,14 +4057,14 @@ print_str.exit179:                                ; preds = %._crit_edge, %105
   %127 = or i32 %121, %126
   %128 = add nuw nsw i64 %.0136253, 1
   %exitcond277.not = icmp eq i64 %128, %.sroa.5.0.i164
-  br i1 %exitcond277.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond277.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 129:                                              ; preds = %next.exit
   br i1 %1, label %print_str.exit182.thread, label %130
 
 130:                                              ; preds = %129
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %132 = load i8, ptr %131, align 1, !tbaa !16, !range !25, !noundef !26
+  %132 = load i8, ptr %131, align 1, !tbaa !16, !range !24, !noundef !25
   %133 = trunc nuw i8 %132 to i1
   br i1 %133, label %print_str.exit182.thread, label %print_str.exit182
 
@@ -4074,13 +4074,13 @@ print_str.exit182:                                ; preds = %130
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !12
   tail call void %135(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %137) #11
-  %.pre293 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre293 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %138 = trunc nuw i8 %.pre293 to i1
   br i1 %138, label %print_str.exit183, label %print_str.exit182.thread
 
 print_str.exit182.thread:                         ; preds = %129, %130, %print_str.exit182
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %140 = load i8, ptr %139, align 1, !tbaa !16, !range !25, !noundef !26
+  %140 = load i8, ptr %139, align 1, !tbaa !16, !range !24, !noundef !25
   %141 = trunc nuw i8 %140 to i1
   br i1 %141, label %print_str.exit183, label %142
 
@@ -4117,7 +4117,7 @@ eat.exit186.thread:                               ; preds = %147, %peek.exit.i18
 
 154:                                              ; preds = %eat.exit186.thread
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %156 = load i8, ptr %155, align 1, !tbaa !16, !range !25, !noundef !26
+  %156 = load i8, ptr %155, align 1, !tbaa !16, !range !24, !noundef !25
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %print_str.exit187.thread, label %print_str.exit187
 
@@ -4127,13 +4127,13 @@ print_str.exit187:                                ; preds = %154
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %161 = load ptr, ptr %160, align 8, !tbaa !12
   tail call void %159(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %161) #11
-  %.pre = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %162 = trunc nuw i8 %.pre to i1
   br i1 %162, label %print_str.exit188, label %print_str.exit187.thread
 
 print_str.exit187.thread:                         ; preds = %eat.exit186.thread, %154, %print_str.exit187
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %164 = load i8, ptr %163, align 1, !tbaa !16, !range !25, !noundef !26
+  %164 = load i8, ptr %163, align 1, !tbaa !16, !range !24, !noundef !25
   %165 = trunc nuw i8 %164 to i1
   br i1 %165, label %print_str.exit188, label %166
 
@@ -4150,13 +4150,13 @@ print_str.exit188:                                ; preds = %print_str.exit187, 
   br i1 %.not145, label %print_str.exit189, label %171
 
 171:                                              ; preds = %print_str.exit188
-  %172 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %172 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %173 = trunc nuw i8 %172 to i1
   br i1 %173, label %print_str.exit189, label %174
 
 174:                                              ; preds = %171
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %176 = load i8, ptr %175, align 1, !tbaa !16, !range !25, !noundef !26
+  %176 = load i8, ptr %175, align 1, !tbaa !16, !range !24, !noundef !25
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %print_str.exit189, label %178
 
@@ -4177,7 +4177,7 @@ print_str.exit189:                                ; preds = %178, %174, %171, %p
 
 184:                                              ; preds = %183
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %186 = load i8, ptr %185, align 1, !tbaa !16, !range !25, !noundef !26
+  %186 = load i8, ptr %185, align 1, !tbaa !16, !range !24, !noundef !25
   %187 = trunc nuw i8 %186 to i1
   br i1 %187, label %print_str.exit190.thread, label %print_str.exit190
 
@@ -4187,13 +4187,13 @@ print_str.exit190:                                ; preds = %184
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %191 = load ptr, ptr %190, align 8, !tbaa !12
   tail call void %189(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %191) #11
-  %.pre281 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre281 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %192 = trunc nuw i8 %.pre281 to i1
   br i1 %192, label %print_str.exit191, label %print_str.exit190.thread
 
 print_str.exit190.thread:                         ; preds = %183, %184, %print_str.exit190
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %194 = load i8, ptr %193, align 1, !tbaa !16, !range !25, !noundef !26
+  %194 = load i8, ptr %193, align 1, !tbaa !16, !range !24, !noundef !25
   %195 = trunc nuw i8 %194 to i1
   br i1 %195, label %print_str.exit191, label %196
 
@@ -4219,7 +4219,7 @@ print_str.exit191:                                ; preds = %print_str.exit190, 
   br i1 %207, label %peek.exit.i193, label %._crit_edge282
 
 ._crit_edge282:                                   ; preds = %204
-  %.pre283 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre283 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   br label %212
 
 peek.exit.i193:                                   ; preds = %204
@@ -4227,7 +4227,7 @@ peek.exit.i193:                                   ; preds = %204
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 %205
   %210 = load i8, ptr %209, align 1, !tbaa !21
   %211 = icmp eq i8 %210, 69
-  %.pre284 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre284 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   br i1 %211, label %223, label %212
 
 212:                                              ; preds = %._crit_edge282, %peek.exit.i193
@@ -4240,7 +4240,7 @@ peek.exit.i193:                                   ; preds = %204
   br i1 %.not144, label %print_str.exit195, label %216
 
 216:                                              ; preds = %215
-  %217 = load i8, ptr %201, align 1, !tbaa !16, !range !25, !noundef !26
+  %217 = load i8, ptr %201, align 1, !tbaa !16, !range !24, !noundef !25
   %218 = trunc nuw i8 %217 to i1
   br i1 %218, label %print_str.exit195, label %219
 
@@ -4253,7 +4253,7 @@ peek.exit.i193:                                   ; preds = %204
 print_str.exit195:                                ; preds = %219, %216, %215
   tail call fastcc void @demangle_const(ptr noundef %0, i1 noundef zeroext true)
   %222 = add i64 %.0135, 1
-  br label %204, !llvm.loop !64
+  br label %204, !llvm.loop !61
 
 223:                                              ; preds = %peek.exit.i193
   %224 = add nuw i64 %205, 1
@@ -4262,7 +4262,7 @@ print_str.exit195:                                ; preds = %219, %216, %215
   br i1 %225, label %print_str.exit, label %226
 
 226:                                              ; preds = %223
-  %227 = load i8, ptr %201, align 1, !tbaa !16, !range !25, !noundef !26
+  %227 = load i8, ptr %201, align 1, !tbaa !16, !range !24, !noundef !25
   %228 = trunc nuw i8 %227 to i1
   br i1 %228, label %print_str.exit, label %229
 
@@ -4281,7 +4281,7 @@ print_str.exit196:                                ; preds = %212
 
 233:                                              ; preds = %232
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %235 = load i8, ptr %234, align 1, !tbaa !16, !range !25, !noundef !26
+  %235 = load i8, ptr %234, align 1, !tbaa !16, !range !24, !noundef !25
   %236 = trunc nuw i8 %235 to i1
   br i1 %236, label %print_str.exit197.thread, label %print_str.exit197
 
@@ -4291,13 +4291,13 @@ print_str.exit197:                                ; preds = %233
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %240 = load ptr, ptr %239, align 8, !tbaa !12
   tail call void %238(ptr noundef nonnull @.str.75, i64 noundef 1, ptr noundef %240) #11
-  %.pre278 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre278 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %241 = trunc nuw i8 %.pre278 to i1
   br i1 %241, label %print_str.exit198, label %print_str.exit197.thread
 
 print_str.exit197.thread:                         ; preds = %232, %233, %print_str.exit197
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %243 = load i8, ptr %242, align 1, !tbaa !16, !range !25, !noundef !26
+  %243 = load i8, ptr %242, align 1, !tbaa !16, !range !24, !noundef !25
   %244 = trunc nuw i8 %243 to i1
   br i1 %244, label %print_str.exit198, label %245
 
@@ -4323,7 +4323,7 @@ print_str.exit198:                                ; preds = %print_str.exit197, 
   br i1 %256, label %peek.exit.i200, label %._crit_edge298
 
 ._crit_edge298:                                   ; preds = %253
-  %.pre299 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre299 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   br label %261
 
 peek.exit.i200:                                   ; preds = %253
@@ -4331,7 +4331,7 @@ peek.exit.i200:                                   ; preds = %253
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 %254
   %259 = load i8, ptr %258, align 1, !tbaa !21
   %260 = icmp eq i8 %259, 69
-  %.pre300 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre300 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   br i1 %260, label %272, label %261
 
 261:                                              ; preds = %._crit_edge298, %peek.exit.i200
@@ -4344,7 +4344,7 @@ peek.exit.i200:                                   ; preds = %253
   br i1 %.not143, label %print_str.exit202, label %265
 
 265:                                              ; preds = %264
-  %266 = load i8, ptr %250, align 1, !tbaa !16, !range !25, !noundef !26
+  %266 = load i8, ptr %250, align 1, !tbaa !16, !range !24, !noundef !25
   %267 = trunc nuw i8 %266 to i1
   br i1 %267, label %print_str.exit202, label %268
 
@@ -4357,7 +4357,7 @@ peek.exit.i200:                                   ; preds = %253
 print_str.exit202:                                ; preds = %268, %265, %264
   tail call fastcc void @demangle_const(ptr noundef %0, i1 noundef zeroext true)
   %271 = add i64 %.0134, 1
-  br label %253, !llvm.loop !65
+  br label %253, !llvm.loop !62
 
 272:                                              ; preds = %peek.exit.i200
   %273 = add nuw i64 %254, 1
@@ -4370,7 +4370,7 @@ print_str.exit202:                                ; preds = %268, %265, %264
   br i1 %276, label %print_str.exit, label %277
 
 277:                                              ; preds = %275
-  %278 = load i8, ptr %250, align 1, !tbaa !16, !range !25, !noundef !26
+  %278 = load i8, ptr %250, align 1, !tbaa !16, !range !24, !noundef !25
   %279 = trunc nuw i8 %278 to i1
   br i1 %279, label %print_str.exit203.thread307, label %280
 
@@ -4378,7 +4378,7 @@ print_str.exit202:                                ; preds = %268, %265, %264
   %281 = load ptr, ptr %251, align 8, !tbaa !13
   %282 = load ptr, ptr %252, align 8, !tbaa !12
   tail call void %281(ptr noundef nonnull @.str.24, i64 noundef 1, ptr noundef %282) #11
-  %.pre279 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre279 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   br label %print_str.exit203
 
 print_str.exit203:                                ; preds = %280, %272
@@ -4387,7 +4387,7 @@ print_str.exit203:                                ; preds = %280, %272
   br i1 %284, label %print_str.exit, label %print_str.exit203.thread307
 
 print_str.exit203.thread307:                      ; preds = %277, %print_str.exit203
-  %285 = load i8, ptr %250, align 1, !tbaa !16, !range !25, !noundef !26
+  %285 = load i8, ptr %250, align 1, !tbaa !16, !range !24, !noundef !25
   %286 = trunc nuw i8 %285 to i1
   br i1 %286, label %print_str.exit, label %287
 
@@ -4406,7 +4406,7 @@ print_str.exit204:                                ; preds = %261
 
 291:                                              ; preds = %290
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %293 = load i8, ptr %292, align 1, !tbaa !16, !range !25, !noundef !26
+  %293 = load i8, ptr %292, align 1, !tbaa !16, !range !24, !noundef !25
   %294 = trunc nuw i8 %293 to i1
   br i1 %294, label %print_str.exit205, label %295
 
@@ -4442,13 +4442,13 @@ next.exit210:                                     ; preds = %peek.exit.i208
   ]
 
 307:                                              ; preds = %next.exit210
-  %308 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %308 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %309 = trunc nuw i8 %308 to i1
   br i1 %309, label %print_str.exit211, label %310
 
 310:                                              ; preds = %307
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %312 = load i8, ptr %311, align 1, !tbaa !16, !range !25, !noundef !26
+  %312 = load i8, ptr %311, align 1, !tbaa !16, !range !24, !noundef !25
   %313 = trunc nuw i8 %312 to i1
   br i1 %313, label %print_str.exit211, label %314
 
@@ -4474,7 +4474,7 @@ print_str.exit211:                                ; preds = %307, %310, %314
   br i1 %325, label %peek.exit.i213, label %._crit_edge290
 
 ._crit_edge290:                                   ; preds = %322
-  %.pre291 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre291 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   br label %330
 
 peek.exit.i213:                                   ; preds = %322
@@ -4482,7 +4482,7 @@ peek.exit.i213:                                   ; preds = %322
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 %323
   %328 = load i8, ptr %327, align 1, !tbaa !21
   %329 = icmp eq i8 %328, 69
-  %.pre292 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre292 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   br i1 %329, label %341, label %330
 
 330:                                              ; preds = %._crit_edge290, %peek.exit.i213
@@ -4495,7 +4495,7 @@ peek.exit.i213:                                   ; preds = %322
   br i1 %.not142, label %print_str.exit215, label %334
 
 334:                                              ; preds = %333
-  %335 = load i8, ptr %319, align 1, !tbaa !16, !range !25, !noundef !26
+  %335 = load i8, ptr %319, align 1, !tbaa !16, !range !24, !noundef !25
   %336 = trunc nuw i8 %335 to i1
   br i1 %336, label %print_str.exit215, label %337
 
@@ -4508,7 +4508,7 @@ peek.exit.i213:                                   ; preds = %322
 print_str.exit215:                                ; preds = %337, %334, %333
   tail call fastcc void @demangle_const(ptr noundef %0, i1 noundef zeroext true)
   %340 = add i64 %.0133, 1
-  br label %322, !llvm.loop !66
+  br label %322, !llvm.loop !63
 
 341:                                              ; preds = %peek.exit.i213
   %342 = add nuw i64 %323, 1
@@ -4517,7 +4517,7 @@ print_str.exit215:                                ; preds = %337, %334, %333
   br i1 %343, label %print_str.exit, label %344
 
 344:                                              ; preds = %341
-  %345 = load i8, ptr %319, align 1, !tbaa !16, !range !25, !noundef !26
+  %345 = load i8, ptr %319, align 1, !tbaa !16, !range !24, !noundef !25
   %346 = trunc nuw i8 %345 to i1
   br i1 %346, label %print_str.exit, label %347
 
@@ -4532,13 +4532,13 @@ print_str.exit216:                                ; preds = %330
   br label %common.ret402
 
 350:                                              ; preds = %next.exit210
-  %351 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %351 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %352 = trunc nuw i8 %351 to i1
   br i1 %352, label %print_str.exit217, label %353
 
 353:                                              ; preds = %350
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %355 = load i8, ptr %354, align 1, !tbaa !16, !range !25, !noundef !26
+  %355 = load i8, ptr %354, align 1, !tbaa !16, !range !24, !noundef !25
   %356 = trunc nuw i8 %355 to i1
   br i1 %356, label %print_str.exit217, label %357
 
@@ -4564,7 +4564,7 @@ print_str.exit217:                                ; preds = %350, %353, %357
   br i1 %368, label %peek.exit.i219, label %._crit_edge285
 
 ._crit_edge285:                                   ; preds = %365
-  %.pre286 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre286 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   br label %373
 
 peek.exit.i219:                                   ; preds = %365
@@ -4572,7 +4572,7 @@ peek.exit.i219:                                   ; preds = %365
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 %366
   %371 = load i8, ptr %370, align 1, !tbaa !21
   %372 = icmp eq i8 %371, 69
-  %.pre287 = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre287 = load i8, ptr %4, align 8, !tbaa !15, !range !24
   br i1 %372, label %416, label %373
 
 373:                                              ; preds = %._crit_edge285, %peek.exit.i219
@@ -4585,7 +4585,7 @@ peek.exit.i219:                                   ; preds = %365
   br i1 %.not141, label %print_str.exit221, label %377
 
 377:                                              ; preds = %376
-  %378 = load i8, ptr %362, align 1, !tbaa !16, !range !25, !noundef !26
+  %378 = load i8, ptr %362, align 1, !tbaa !16, !range !24, !noundef !25
   %379 = trunc nuw i8 %378 to i1
   br i1 %379, label %print_str.exit221, label %380
 
@@ -4647,7 +4647,7 @@ next.exit.i.i.i:                                  ; preds = %peek.exit.i33.i.i.i
   %or.cond330.not333 = and i1 %or.cond.i.i.i, %404
   %exitcond.not.i.i = icmp eq i64 %400, %383
   %or.cond331 = or i1 %or.cond330.not333, %exitcond.not.i.i
-  br i1 %or.cond331, label %.critedge.i.i.i, label %peek.exit.i33.i.i.i, !llvm.loop !36
+  br i1 %or.cond331, label %.critedge.i.i.i, label %peek.exit.i33.i.i.i, !llvm.loop !33
 
 .critedge.i.i.i:                                  ; preds = %peek.exit.i33.i.i.i, %next.exit.i.i.i, %390
   store i8 1, ptr %4, align 8, !tbaa !15
@@ -4662,12 +4662,12 @@ parse_disambiguator.exit:                         ; preds = %print_str.exit221, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #11
   call fastcc void @parse_ident(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %0)
   tail call fastcc void @print_ident(ptr noundef %0, ptr noundef nonnull byval(%struct.rust_mangled_ident) align 8 %3)
-  %407 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %407 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %408 = trunc nuw i8 %407 to i1
   br i1 %408, label %print_str.exit223, label %409
 
 409:                                              ; preds = %parse_disambiguator.exit
-  %410 = load i8, ptr %362, align 1, !tbaa !16, !range !25, !noundef !26
+  %410 = load i8, ptr %362, align 1, !tbaa !16, !range !24, !noundef !25
   %411 = trunc nuw i8 %410 to i1
   br i1 %411, label %print_str.exit223, label %412
 
@@ -4681,7 +4681,7 @@ print_str.exit223:                                ; preds = %parse_disambiguator
   tail call fastcc void @demangle_const(ptr noundef %0, i1 noundef zeroext true)
   %415 = add i64 %.0132, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #11
-  br label %365, !llvm.loop !67
+  br label %365, !llvm.loop !64
 
 416:                                              ; preds = %peek.exit.i219
   %417 = add nuw i64 %366, 1
@@ -4690,7 +4690,7 @@ print_str.exit223:                                ; preds = %parse_disambiguator
   br i1 %418, label %print_str.exit, label %419
 
 419:                                              ; preds = %416
-  %420 = load i8, ptr %362, align 1, !tbaa !16, !range !25, !noundef !26
+  %420 = load i8, ptr %362, align 1, !tbaa !16, !range !24, !noundef !25
   %421 = trunc nuw i8 %420 to i1
   br i1 %421, label %print_str.exit, label %422
 
@@ -4763,7 +4763,7 @@ next.exit.i:                                      ; preds = %peek.exit.i33.i
   %.pn.i = and i64 %444, 4294967295
   %.129.i = add i64 %.pn.i, %435
   %exitcond.not = icmp eq i64 %434, %12
-  br i1 %exitcond.not, label %.critedge.i, label %peek.exit.i33.i, !llvm.loop !36
+  br i1 %exitcond.not, label %.critedge.i, label %peek.exit.i33.i, !llvm.loop !33
 
 445:                                              ; preds = %peek.exit.i33.i
   %446 = add nuw i64 %431, 1
@@ -4775,7 +4775,7 @@ parse_integer_62.exit:                            ; preds = %eat.exit.thread.i, 
   %448 = phi i64 [ %446, %445 ], [ %442, %.critedge.i ], [ %430, %eat.exit.thread.i ]
   %.027.i = phi i64 [ %447, %445 ], [ 0, %.critedge.i ], [ 0, %eat.exit.thread.i ]
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %450 = load i8, ptr %449, align 1, !tbaa !16, !range !25, !noundef !26
+  %450 = load i8, ptr %449, align 1, !tbaa !16, !range !24, !noundef !25
   %451 = trunc nuw i8 %450 to i1
   br i1 %451, label %common.ret402, label %452
 
@@ -4796,13 +4796,13 @@ print_str.exit:                                   ; preds = %275, %422, %419, %4
   br i1 %1, label %common.ret402, label %453
 
 453:                                              ; preds = %print_str.exit
-  %454 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %454 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %455 = trunc nuw i8 %454 to i1
   br i1 %455, label %common.ret402, label %456
 
 456:                                              ; preds = %453
   %457 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %458 = load i8, ptr %457, align 1, !tbaa !16, !range !25, !noundef !26
+  %458 = load i8, ptr %457, align 1, !tbaa !16, !range !24, !noundef !25
   %459 = trunc nuw i8 %458 to i1
   br i1 %459, label %common.ret402, label %460
 
@@ -4818,7 +4818,7 @@ print_str.exit:                                   ; preds = %275, %422, %419, %4
 ; Function Attrs: nounwind
 define internal fastcc void @demangle_binder(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !tbaa !15, !range !25, !noundef !26
+  %3 = load i8, ptr %2, align 8, !tbaa !15, !range !24, !noundef !25
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -4893,7 +4893,7 @@ next.exit.i.i:                                    ; preds = %peek.exit.i33.i.i
   %.pn.i.i = and i64 %35, 4294967295
   %.129.i.i = add i64 %.pn.i.i, %27
   %exitcond.not.i = icmp eq i64 %26, %10
-  br i1 %exitcond.not.i, label %parse_opt_integer_62.exit.thread19, label %peek.exit.i33.i.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %parse_opt_integer_62.exit.thread19, label %peek.exit.i33.i.i, !llvm.loop !33
 
 parse_opt_integer_62.exit:                        ; preds = %peek.exit.i33.i.i
   %36 = add nuw i64 %23, 1
@@ -4909,7 +4909,7 @@ parse_opt_integer_62.exit.thread19:               ; preds = %peek.exit.i33.i.i, 
 38:                                               ; preds = %parse_opt_integer_62.exit, %eat.exit.thread.i.i
   %.0.i22.ph = phi i64 [ 1, %eat.exit.thread.i.i ], [ %37, %parse_opt_integer_62.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %40 = load i8, ptr %39, align 1, !tbaa !16, !range !25, !noundef !26
+  %40 = load i8, ptr %39, align 1, !tbaa !16, !range !24, !noundef !25
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %print_str.exit, label %42
 
@@ -4930,12 +4930,12 @@ print_str.exit:                                   ; preds = %parse_opt_integer_6
   br label %60
 
 51:                                               ; preds = %print_str.exit15
-  %52 = load i8, ptr %2, align 8, !tbaa !15, !range !25, !noundef !26
+  %52 = load i8, ptr %2, align 8, !tbaa !15, !range !24, !noundef !25
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %print_str.exit14, label %54
 
 54:                                               ; preds = %51
-  %55 = load i8, ptr %47, align 1, !tbaa !16, !range !25, !noundef !26
+  %55 = load i8, ptr %47, align 1, !tbaa !16, !range !24, !noundef !25
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %print_str.exit14, label %57
 
@@ -4951,12 +4951,12 @@ print_str.exit:                                   ; preds = %parse_opt_integer_6
   br i1 %.not13, label %print_str.exit15, label %61
 
 61:                                               ; preds = %60
-  %62 = load i8, ptr %2, align 8, !tbaa !15, !range !25, !noundef !26
+  %62 = load i8, ptr %2, align 8, !tbaa !15, !range !24, !noundef !25
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %print_str.exit15, label %64
 
 64:                                               ; preds = %61
-  %65 = load i8, ptr %47, align 1, !tbaa !16, !range !25, !noundef !26
+  %65 = load i8, ptr %47, align 1, !tbaa !16, !range !24, !noundef !25
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %print_str.exit15, label %67
 
@@ -4973,7 +4973,7 @@ print_str.exit15:                                 ; preds = %67, %64, %61, %60
   tail call fastcc void @print_lifetime_from_index(ptr noundef %0, i64 noundef 1)
   %72 = add nuw i64 %.025, 1
   %exitcond.not = icmp eq i64 %72, %.0.i2230
-  br i1 %exitcond.not, label %51, label %60, !llvm.loop !68
+  br i1 %exitcond.not, label %51, label %60, !llvm.loop !65
 
 print_str.exit14:                                 ; preds = %6, %peek.exit.i.i, %57, %54, %51, %parse_opt_integer_62.exit, %5
   ret void
@@ -4986,7 +4986,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define internal fastcc void @demangle_const_uint(ptr noundef nonnull captures(none) %0, i8 noundef signext %1) unnamed_addr #0 {
   %3 = alloca [21 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %5 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %8
 
@@ -5039,7 +5039,7 @@ next.exit.i.i:                                    ; preds = %19, %peek.exit.thre
 
 24:                                               ; preds = %next.exit.i.i
   %25 = add i64 %.017.i.i, 1
-  br label %13, !llvm.loop !61
+  br label %13, !llvm.loop !58
 
 parse_hex_nibbles.exit.i:                         ; preds = %peek.exit.i.i.i
   %26 = add nuw i64 %14, 1
@@ -5066,7 +5066,7 @@ parse_hex_nibbles.exit.i:                         ; preds = %peek.exit.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.110.i, i64 1
   %33 = add i64 %.sroa.5.111.i, -1
   %.not.i = icmp eq i64 %33, 0
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph.i, !llvm.loop !62
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph.i, !llvm.loop !59
 
 .loopexit:                                        ; preds = %next.exit.i.i, %parse_hex_nibbles.exit.i
   store i8 1, ptr %4, align 8, !tbaa !15
@@ -5078,7 +5078,7 @@ parse_hex_nibbles.exit.i:                         ; preds = %peek.exit.i.i.i
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %38 = load i8, ptr %37, align 1, !tbaa !16, !range !25, !noundef !26
+  %38 = load i8, ptr %37, align 1, !tbaa !16, !range !24, !noundef !25
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %print_str.exit.thread, label %print_str.exit
 
@@ -5088,12 +5088,12 @@ print_str.exit:                                   ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !12
   tail call void %41(ptr noundef nonnull @.str.79, i64 noundef 2, ptr noundef %43) #11
-  %.pre = load i8, ptr %4, align 8, !tbaa !15, !range !25
+  %.pre = load i8, ptr %4, align 8, !tbaa !15, !range !24
   %44 = trunc nuw i8 %.pre to i1
   br i1 %44, label %print_str.exit21, label %print_str.exit.thread
 
 print_str.exit.thread:                            ; preds = %36, %print_str.exit
-  %45 = load i8, ptr %37, align 1, !tbaa !16, !range !25, !noundef !26
+  %45 = load i8, ptr %37, align 1, !tbaa !16, !range !24, !noundef !25
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %print_str.exit21, label %47
 
@@ -5110,13 +5110,13 @@ print_str.exit.thread:                            ; preds = %36, %print_str.exit
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %3) #11
   %52 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %.019.lcssa) #11
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #12
-  %54 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %54 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %print_uint64.exit, label %56
 
 56:                                               ; preds = %._crit_edge
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %58 = load i8, ptr %57, align 1, !tbaa !16, !range !25, !noundef !26
+  %58 = load i8, ptr %57, align 1, !tbaa !16, !range !24, !noundef !25
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %print_uint64.exit, label %60
 
@@ -5145,11 +5145,11 @@ print_uint64.exit:                                ; preds = %._crit_edge, %56, %
   %71 = or i64 %65, %70
   %72 = add nuw nsw i64 %.091, 1
   %exitcond.not = icmp eq i64 %72, %.sroa.5.111.i
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 print_str.exit21:                                 ; preds = %47, %print_str.exit.thread, %print_str.exit, %print_uint64.exit
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  %74 = load i8, ptr %73, align 2, !tbaa !17, !range !25, !noundef !26
+  %74 = load i8, ptr %73, align 2, !tbaa !17, !range !24, !noundef !25
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %switch.lookup, label %print_str.exit24
 
@@ -5159,13 +5159,13 @@ switch.lookup:                                    ; preds = %print_str.exit21
   %switch.gep = getelementptr inbounds nuw [26 x ptr], ptr @switch.table.demangle_const_uint, i64 0, i64 %76
   %switch.load = load ptr, ptr %switch.gep, align 8
   %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #12
-  %78 = load i8, ptr %4, align 8, !tbaa !15, !range !25, !noundef !26
+  %78 = load i8, ptr %4, align 8, !tbaa !15, !range !24, !noundef !25
   %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %print_str.exit24, label %80
 
 80:                                               ; preds = %switch.lookup
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %82 = load i8, ptr %81, align 1, !tbaa !16, !range !25, !noundef !26
+  %82 = load i8, ptr %81, align 1, !tbaa !16, !range !24, !noundef !25
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %print_str.exit24, label %84
 
@@ -5209,13 +5209,13 @@ define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captu
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load i8, ptr %12, align 8, !tbaa !15, !range !25, !noundef !26
+  %13 = load i8, ptr %12, align 8, !tbaa !15, !range !24, !noundef !25
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %print_str.exit, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %17 = load i8, ptr %16, align 1, !tbaa !16, !range !25, !noundef !26
+  %17 = load i8, ptr %16, align 1, !tbaa !16, !range !24, !noundef !25
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %print_str.exit, label %19
 
@@ -5229,13 +5229,13 @@ define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captu
 
 24:                                               ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load i8, ptr %25, align 8, !tbaa !15, !range !25, !noundef !26
+  %26 = load i8, ptr %25, align 8, !tbaa !15, !range !24, !noundef !25
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %print_str.exit, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %30 = load i8, ptr %29, align 1, !tbaa !16, !range !25, !noundef !26
+  %30 = load i8, ptr %29, align 1, !tbaa !16, !range !24, !noundef !25
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %print_str.exit, label %32
 
@@ -5249,13 +5249,13 @@ define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captu
 
 37:                                               ; preds = %10
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %39 = load i8, ptr %38, align 8, !tbaa !15, !range !25, !noundef !26
+  %39 = load i8, ptr %38, align 8, !tbaa !15, !range !24, !noundef !25
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %print_str.exit, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %43 = load i8, ptr %42, align 1, !tbaa !16, !range !25, !noundef !26
+  %43 = load i8, ptr %42, align 1, !tbaa !16, !range !24, !noundef !25
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %print_str.exit, label %45
 
@@ -5269,13 +5269,13 @@ define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captu
 
 50:                                               ; preds = %10
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %52 = load i8, ptr %51, align 8, !tbaa !15, !range !25, !noundef !26
+  %52 = load i8, ptr %51, align 8, !tbaa !15, !range !24, !noundef !25
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %print_str.exit, label %54
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %56 = load i8, ptr %55, align 1, !tbaa !16, !range !25, !noundef !26
+  %56 = load i8, ptr %55, align 1, !tbaa !16, !range !24, !noundef !25
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %print_str.exit, label %58
 
@@ -5289,13 +5289,13 @@ define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captu
 
 63:                                               ; preds = %10
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %65 = load i8, ptr %64, align 8, !tbaa !15, !range !25, !noundef !26
+  %65 = load i8, ptr %64, align 8, !tbaa !15, !range !24, !noundef !25
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %print_str.exit, label %67
 
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %69 = load i8, ptr %68, align 1, !tbaa !16, !range !25, !noundef !26
+  %69 = load i8, ptr %68, align 1, !tbaa !16, !range !24, !noundef !25
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %print_str.exit, label %71
 
@@ -5310,7 +5310,7 @@ define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captu
 76:                                               ; preds = %10
   %77 = icmp eq i8 %1, 34
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %79 = load i8, ptr %78, align 8, !tbaa !15, !range !25, !noundef !26
+  %79 = load i8, ptr %78, align 8, !tbaa !15, !range !24, !noundef !25
   %80 = trunc nuw i8 %79 to i1
   br i1 %77, label %81, label %91
 
@@ -5319,7 +5319,7 @@ define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captu
 
 82:                                               ; preds = %81
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %84 = load i8, ptr %83, align 1, !tbaa !16, !range !25, !noundef !26
+  %84 = load i8, ptr %83, align 1, !tbaa !16, !range !24, !noundef !25
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %print_str.exit, label %86
 
@@ -5336,7 +5336,7 @@ define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captu
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %94 = load i8, ptr %93, align 1, !tbaa !16, !range !25, !noundef !26
+  %94 = load i8, ptr %93, align 1, !tbaa !16, !range !24, !noundef !25
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %print_str.exit, label %96
 
@@ -5351,7 +5351,7 @@ define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captu
 101:                                              ; preds = %10
   %102 = icmp eq i8 %1, 39
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %104 = load i8, ptr %103, align 8, !tbaa !15, !range !25, !noundef !26
+  %104 = load i8, ptr %103, align 8, !tbaa !15, !range !24, !noundef !25
   %105 = trunc nuw i8 %104 to i1
   br i1 %102, label %106, label %116
 
@@ -5360,7 +5360,7 @@ define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captu
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %109 = load i8, ptr %108, align 1, !tbaa !16, !range !25, !noundef !26
+  %109 = load i8, ptr %108, align 1, !tbaa !16, !range !24, !noundef !25
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %print_str.exit, label %111
 
@@ -5377,7 +5377,7 @@ define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captu
 
 117:                                              ; preds = %116
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %119 = load i8, ptr %118, align 1, !tbaa !16, !range !25, !noundef !26
+  %119 = load i8, ptr %118, align 1, !tbaa !16, !range !24, !noundef !25
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %print_str.exit, label %121
 
@@ -5399,13 +5399,13 @@ define internal fastcc void @print_quoted_escaped_char(ptr noundef nonnull captu
   %129 = trunc nuw nsw i32 %2 to i8
   store i8 %129, ptr %4, align 1, !tbaa !21
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %131 = load i8, ptr %130, align 8, !tbaa !15, !range !25, !noundef !26
+  %131 = load i8, ptr %130, align 8, !tbaa !15, !range !24, !noundef !25
   %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %print_str.exit35, label %133
 
 133:                                              ; preds = %128
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %135 = load i8, ptr %134, align 1, !tbaa !16, !range !25, !noundef !26
+  %135 = load i8, ptr %134, align 1, !tbaa !16, !range !24, !noundef !25
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %print_str.exit35, label %137
 
@@ -5423,13 +5423,13 @@ print_str.exit35:                                 ; preds = %128, %133, %137
 
 142:                                              ; preds = %126
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %144 = load i8, ptr %143, align 8, !tbaa !15, !range !25, !noundef !26
+  %144 = load i8, ptr %143, align 8, !tbaa !15, !range !24, !noundef !25
   %145 = trunc nuw i8 %144 to i1
   br i1 %145, label %print_str.exit36, label %146
 
 146:                                              ; preds = %142
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %148 = load i8, ptr %147, align 1, !tbaa !16, !range !25, !noundef !26
+  %148 = load i8, ptr %147, align 1, !tbaa !16, !range !24, !noundef !25
   %149 = trunc nuw i8 %148 to i1
   br i1 %149, label %print_str.exit36, label %150
 
@@ -5446,13 +5446,13 @@ print_str.exit36:                                 ; preds = %142, %146, %150
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, i8 0, i64 9, i1 false)
   %155 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %2) #11
   %156 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #12
-  %157 = load i8, ptr %143, align 8, !tbaa !15, !range !25, !noundef !26
+  %157 = load i8, ptr %143, align 8, !tbaa !15, !range !24, !noundef !25
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %print_str.exit38, label %159
 
 159:                                              ; preds = %print_str.exit36
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %161 = load i8, ptr %160, align 1, !tbaa !16, !range !25, !noundef !26
+  %161 = load i8, ptr %160, align 1, !tbaa !16, !range !24, !noundef !25
   %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %print_str.exit37.thread39, label %print_str.exit37
 
@@ -5462,13 +5462,13 @@ print_str.exit37:                                 ; preds = %159
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %166 = load ptr, ptr %165, align 8, !tbaa !12
   call void %164(ptr noundef nonnull %5, i64 noundef %156, ptr noundef %166) #11
-  %.pre = load i8, ptr %143, align 8, !tbaa !15, !range !25
+  %.pre = load i8, ptr %143, align 8, !tbaa !15, !range !24
   %167 = trunc nuw i8 %.pre to i1
   br i1 %167, label %print_str.exit38, label %print_str.exit37.thread39
 
 print_str.exit37.thread39:                        ; preds = %159, %print_str.exit37
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %169 = load i8, ptr %168, align 1, !tbaa !16, !range !25, !noundef !26
+  %169 = load i8, ptr %168, align 1, !tbaa !16, !range !24, !noundef !25
   %170 = trunc nuw i8 %169 to i1
   br i1 %170, label %print_str.exit38, label %171
 
@@ -5491,7 +5491,7 @@ print_str.exit:                                   ; preds = %121, %117, %116, %1
 ; Function Attrs: nounwind
 define internal fastcc void @demangle_const_str_literal(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !tbaa !15, !range !25, !noundef !26
+  %3 = load i8, ptr %2, align 8, !tbaa !15, !range !24, !noundef !25
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -5544,7 +5544,7 @@ next.exit.i.i:                                    ; preds = %17, %peek.exit.thre
 
 22:                                               ; preds = %next.exit.i.i
   %23 = add i64 %.017.i.i, 1
-  br label %11, !llvm.loop !61
+  br label %11, !llvm.loop !58
 
 parse_hex_nibbles.exit.i:                         ; preds = %peek.exit.i.i.i
   %24 = add nuw i64 %12, 1
@@ -5562,7 +5562,7 @@ parse_hex_nibbles.exit.i:                         ; preds = %peek.exit.i.i.i
 
 parse_hex_nibbles_for_const_bytes.exit:           ; preds = %parse_hex_nibbles.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %30 = load i8, ptr %29, align 1, !tbaa !16, !range !25, !noundef !26
+  %30 = load i8, ptr %29, align 1, !tbaa !16, !range !24, !noundef !25
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %print_str.exit, label %32
 
@@ -5578,152 +5578,149 @@ print_str.exit:                                   ; preds = %parse_hex_nibbles_f
   %.not3885.not = icmp eq i64 %.017.i.i, 0
   br i1 %.not3885.not, label %.critedge40, label %.lr.ph87
 
-.lr.ph87:                                         ; preds = %print_str.exit
-  %invariant.gep = getelementptr i8, ptr %25, i64 3
-  br label %37
+.lr.ph87:                                         ; preds = %print_str.exit, %.thread60
+  %.03186 = phi i64 [ %89, %.thread60 ], [ 0, %print_str.exit ]
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 %.03186
+  %38 = load i8, ptr %37, align 1, !tbaa !21
+  %39 = icmp sgt i8 %38, 96
+  %.v.i = select i1 %39, i8 9, i8 96
+  %40 = add i8 %.v.i, %38
+  %41 = shl i8 %40, 4
+  %42 = getelementptr i8, ptr %37, i64 1
+  %43 = load i8, ptr %42, align 1, !tbaa !21
+  %44 = icmp sgt i8 %43, 96
+  %.v.i41 = select i1 %44, i8 -87, i8 -48
+  %45 = add i8 %.v.i41, %43
+  %46 = or i8 %41, %45
+  %47 = add i64 %.03186, -2
+  br label %49
 
-37:                                               ; preds = %.lr.ph87, %.thread60
-  %.03186 = phi i64 [ 0, %.lr.ph87 ], [ %88, %.thread60 ]
-  %38 = getelementptr inbounds nuw i8, ptr %25, i64 %.03186
-  %39 = load i8, ptr %38, align 1, !tbaa !21
-  %40 = icmp sgt i8 %39, 96
-  %.v.i = select i1 %40, i8 9, i8 96
-  %41 = add i8 %.v.i, %39
-  %42 = shl i8 %41, 4
-  %43 = getelementptr i8, ptr %38, i64 1
-  %44 = load i8, ptr %43, align 1, !tbaa !21
-  %45 = icmp sgt i8 %44, 96
-  %.v.i41 = select i1 %45, i8 -87, i8 -48
-  %46 = add i8 %.v.i41, %44
-  %47 = or i8 %42, %46
-  %48 = add i64 %.03186, -2
-  br label %50
-
-thread-pre-split.i:                               ; preds = %50
-  %49 = add nuw nsw i64 %.sroa.050.0, 1
-  %exitcond.not.i = icmp eq i64 %49, 7
+thread-pre-split.i:                               ; preds = %49
+  %48 = add nuw nsw i64 %.sroa.050.0, 1
+  %exitcond.not.i = icmp eq i64 %48, 7
   %indvars.iv.next = add i64 %indvars.iv, 2
-  br i1 %exitcond.not.i, label %.thread, label %50
+  br i1 %exitcond.not.i, label %.thread, label %49
 
-50:                                               ; preds = %thread-pre-split.i, %37
-  %indvars.iv = phi i64 [ %indvars.iv.next, %thread-pre-split.i ], [ %48, %37 ]
-  %.sroa.050.0 = phi i64 [ %49, %thread-pre-split.i ], [ 0, %37 ]
-  %51 = phi i8 [ %55, %thread-pre-split.i ], [ %47, %37 ]
-  %52 = trunc nuw nsw i64 %.sroa.050.0 to i8
-  %53 = lshr exact i8 -128, %52
-  %54 = xor i8 %53, -1
-  %55 = and i8 %51, %54
-  %56 = and i8 %53, %47
-  %57 = icmp eq i8 %56, 0
-  br i1 %57, label %utf8_decode.exit, label %thread-pre-split.i, !llvm.loop !70
+49:                                               ; preds = %thread-pre-split.i, %.lr.ph87
+  %indvars.iv = phi i64 [ %indvars.iv.next, %thread-pre-split.i ], [ %47, %.lr.ph87 ]
+  %.sroa.050.0 = phi i64 [ %48, %thread-pre-split.i ], [ 0, %.lr.ph87 ]
+  %50 = phi i8 [ %54, %thread-pre-split.i ], [ %46, %.lr.ph87 ]
+  %51 = trunc nuw nsw i64 %.sroa.050.0 to i8
+  %52 = lshr exact i8 -128, %51
+  %53 = xor i8 %52, -1
+  %54 = and i8 %50, %53
+  %55 = and i8 %52, %46
+  %56 = icmp eq i8 %55, 0
+  br i1 %56, label %utf8_decode.exit, label %thread-pre-split.i
 
-utf8_decode.exit:                                 ; preds = %50
-  %58 = zext i8 %55 to i32
+utf8_decode.exit:                                 ; preds = %49
+  %57 = zext i8 %54 to i32
   %.not = icmp eq i64 %.sroa.050.0, 0
-  br i1 %.not, label %.thread60, label %59
+  br i1 %.not, label %.thread60, label %58
 
-59:                                               ; preds = %utf8_decode.exit
-  %60 = icmp ne i64 %.sroa.050.0, 1
-  %61 = icmp samesign ult i64 %.sroa.050.0, 5
-  %or.cond = and i1 %60, %61
+58:                                               ; preds = %utf8_decode.exit
+  %59 = icmp ne i64 %.sroa.050.0, 1
+  %60 = icmp samesign ult i64 %.sroa.050.0, 5
+  %or.cond = and i1 %59, %60
   br i1 %or.cond, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %59
+.preheader:                                       ; preds = %58
   %.079 = add nsw i64 %.sroa.050.0, -1
   %.not3780 = icmp eq i64 %.079, 0
   br i1 %.not3780, label %.thread60, label %.lr.ph
 
-.thread:                                          ; preds = %59, %thread-pre-split.i
+.thread:                                          ; preds = %58, %thread-pre-split.i
   store i8 1, ptr %2, align 8, !tbaa !15
   br label %print_str.exit48
 
-.lr.ph:                                           ; preds = %.preheader, %84
-  %.083 = phi i64 [ %.0, %84 ], [ %.079, %.preheader ]
-  %.182 = phi i32 [ %87, %84 ], [ %58, %.preheader ]
-  %.381 = phi i64 [ %62, %84 ], [ %.03186, %.preheader ]
-  %62 = add i64 %.381, 2
-  %63 = getelementptr inbounds nuw i8, ptr %25, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !21
-  %65 = icmp sgt i8 %64, 96
-  %.v.i42 = select i1 %65, i8 9, i8 96
-  %66 = add i8 %.v.i42, %64
-  %67 = shl i8 %66, 4
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.381
-  %68 = load i8, ptr %gep, align 1, !tbaa !21
-  %69 = icmp sgt i8 %68, 96
-  %.v.i43 = select i1 %69, i8 -87, i8 -48
-  %70 = add i8 %.v.i43, %68
-  %71 = or i8 %67, %70
-  br label %73
+.lr.ph:                                           ; preds = %.preheader, %85
+  %.083 = phi i64 [ %.0, %85 ], [ %.079, %.preheader ]
+  %.182 = phi i32 [ %88, %85 ], [ %57, %.preheader ]
+  %.381 = phi i64 [ %61, %85 ], [ %.03186, %.preheader ]
+  %61 = add i64 %.381, 2
+  %62 = getelementptr inbounds nuw i8, ptr %25, i64 %61
+  %63 = load i8, ptr %62, align 1, !tbaa !21
+  %64 = icmp sgt i8 %63, 96
+  %.v.i42 = select i1 %64, i8 9, i8 96
+  %65 = add i8 %.v.i42, %63
+  %66 = shl i8 %65, 4
+  %67 = getelementptr i8, ptr %25, i64 %.381
+  %68 = getelementptr i8, ptr %67, i64 3
+  %69 = load i8, ptr %68, align 1, !tbaa !21
+  %70 = icmp sgt i8 %69, 96
+  %.v.i43 = select i1 %70, i8 -87, i8 -48
+  %71 = add i8 %.v.i43, %69
+  %72 = or i8 %66, %71
+  br label %74
 
-thread-pre-split.i44:                             ; preds = %73
-  %72 = add nuw nsw i64 %.sroa.0.0, 1
-  %exitcond.not.i45 = icmp eq i64 %72, 7
-  br i1 %exitcond.not.i45, label %utf8_decode.exit47.thread, label %73
+thread-pre-split.i44:                             ; preds = %74
+  %73 = add nuw nsw i64 %.sroa.0.0, 1
+  %exitcond.not.i45 = icmp eq i64 %73, 7
+  br i1 %exitcond.not.i45, label %utf8_decode.exit47.thread, label %74
 
-73:                                               ; preds = %thread-pre-split.i44, %.lr.ph
-  %.sroa.0.0 = phi i64 [ 0, %.lr.ph ], [ %72, %thread-pre-split.i44 ]
-  %74 = phi i32 [ 8, %.lr.ph ], [ %80, %thread-pre-split.i44 ]
-  %75 = phi i8 [ %71, %.lr.ph ], [ %79, %thread-pre-split.i44 ]
-  %76 = trunc nuw nsw i64 %.sroa.0.0 to i8
-  %77 = lshr exact i8 -128, %76
-  %78 = xor i8 %77, -1
-  %79 = and i8 %75, %78
-  %80 = add nsw i32 %74, -1
-  %81 = and i8 %77, %71
-  %82 = icmp eq i8 %81, 0
-  br i1 %82, label %utf8_decode.exit47, label %thread-pre-split.i44, !llvm.loop !70
+74:                                               ; preds = %thread-pre-split.i44, %.lr.ph
+  %.sroa.0.0 = phi i64 [ 0, %.lr.ph ], [ %73, %thread-pre-split.i44 ]
+  %75 = phi i32 [ 8, %.lr.ph ], [ %81, %thread-pre-split.i44 ]
+  %76 = phi i8 [ %72, %.lr.ph ], [ %80, %thread-pre-split.i44 ]
+  %77 = trunc nuw nsw i64 %.sroa.0.0 to i8
+  %78 = lshr exact i8 -128, %77
+  %79 = xor i8 %78, -1
+  %80 = and i8 %76, %79
+  %81 = add nsw i32 %75, -1
+  %82 = and i8 %78, %72
+  %83 = icmp eq i8 %82, 0
+  br i1 %83, label %utf8_decode.exit47, label %thread-pre-split.i44
 
-utf8_decode.exit47:                               ; preds = %73
-  %83 = icmp eq i64 %.sroa.0.0, 1
-  br i1 %83, label %84, label %utf8_decode.exit47.thread
+utf8_decode.exit47:                               ; preds = %74
+  %84 = icmp eq i64 %.sroa.0.0, 1
+  br i1 %84, label %85, label %utf8_decode.exit47.thread
 
-84:                                               ; preds = %utf8_decode.exit47
-  %85 = shl i32 %.182, %80
-  %86 = zext i8 %79 to i32
-  %87 = or i32 %85, %86
+85:                                               ; preds = %utf8_decode.exit47
+  %86 = shl i32 %.182, %81
+  %87 = zext i8 %80 to i32
+  %88 = or i32 %86, %87
   %.0 = add nsw i64 %.083, -1
   %.not37 = icmp eq i64 %.0, 0
-  br i1 %.not37, label %.thread60, label %.lr.ph, !llvm.loop !71
+  br i1 %.not37, label %.thread60, label %.lr.ph, !llvm.loop !67
 
 utf8_decode.exit47.thread:                        ; preds = %utf8_decode.exit47, %thread-pre-split.i44
   store i8 1, ptr %2, align 8, !tbaa !15
   br label %print_str.exit48
 
-.thread60:                                        ; preds = %84, %.preheader, %utf8_decode.exit
-  %.132 = phi i64 [ %.03186, %utf8_decode.exit ], [ %.03186, %.preheader ], [ %indvars.iv, %84 ]
-  %.030 = phi i32 [ %58, %utf8_decode.exit ], [ %58, %.preheader ], [ %87, %84 ]
+.thread60:                                        ; preds = %85, %.preheader, %utf8_decode.exit
+  %.132 = phi i64 [ %.03186, %utf8_decode.exit ], [ %.03186, %.preheader ], [ %indvars.iv, %85 ]
+  %.030 = phi i32 [ %57, %utf8_decode.exit ], [ %57, %.preheader ], [ %88, %85 ]
   tail call fastcc void @print_quoted_escaped_char(ptr noundef %0, i8 noundef signext 34, i32 noundef %.030)
-  %88 = add i64 %.132, 2
-  %.not38 = icmp ult i64 %88, %.017.i.i
-  br i1 %.not38, label %37, label %.critedge40, !llvm.loop !72
+  %89 = add i64 %.132, 2
+  %.not38 = icmp ult i64 %89, %.017.i.i
+  br i1 %.not38, label %.lr.ph87, label %.critedge40, !llvm.loop !68
 
 .critedge40:                                      ; preds = %.thread60, %print_str.exit
-  %89 = load i8, ptr %2, align 8, !tbaa !15, !range !25, !noundef !26
-  %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %print_str.exit48, label %91
+  %90 = load i8, ptr %2, align 8, !tbaa !15, !range !24, !noundef !25
+  %91 = trunc nuw i8 %90 to i1
+  br i1 %91, label %print_str.exit48, label %92
 
-91:                                               ; preds = %.critedge40
-  %92 = load i8, ptr %29, align 1, !tbaa !16, !range !25, !noundef !26
-  %93 = trunc nuw i8 %92 to i1
-  br i1 %93, label %print_str.exit48, label %94
+92:                                               ; preds = %.critedge40
+  %93 = load i8, ptr %29, align 1, !tbaa !16, !range !24, !noundef !25
+  %94 = trunc nuw i8 %93 to i1
+  br i1 %94, label %print_str.exit48, label %95
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %96 = load ptr, ptr %95, align 8, !tbaa !13
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !12
-  tail call void %96(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %98) #11
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %97 = load ptr, ptr %96, align 8, !tbaa !13
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %99 = load ptr, ptr %98, align 8, !tbaa !12
+  tail call void %97(ptr noundef nonnull @.str.86, i64 noundef 1, ptr noundef %99) #11
   br label %print_str.exit48
 
-print_str.exit48:                                 ; preds = %.thread, %utf8_decode.exit47.thread, %94, %91, %.critedge40, %.loopexit, %5
+print_str.exit48:                                 ; preds = %.thread, %utf8_decode.exit47.thread, %95, %92, %.critedge40, %.loopexit, %5
   ret void
 }
 
 ; Function Attrs: nounwind
 define internal fastcc zeroext i1 @demangle_path_maybe_open_generics(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !tbaa !15, !range !25, !noundef !26
+  %3 = load i8, ptr %2, align 8, !tbaa !15, !range !24, !noundef !25
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -5803,7 +5800,7 @@ next.exit.i:                                      ; preds = %peek.exit.i33.i
   %.pn.i = and i64 %36, 4294967295
   %.129.i = add i64 %.pn.i, %27
   %exitcond67.not = icmp eq i64 %26, %10
-  br i1 %exitcond67.not, label %.critedge.i, label %peek.exit.i33.i, !llvm.loop !36
+  br i1 %exitcond67.not, label %.critedge.i, label %peek.exit.i33.i, !llvm.loop !33
 
 37:                                               ; preds = %peek.exit.i33.i
   %38 = add nuw i64 %23, 1
@@ -5815,7 +5812,7 @@ parse_integer_62.exit:                            ; preds = %eat.exit.thread.i, 
   %40 = phi i64 [ %38, %37 ], [ %34, %.critedge.i ], [ %22, %eat.exit.thread.i ]
   %.027.i = phi i64 [ %39, %37 ], [ 0, %.critedge.i ], [ 0, %eat.exit.thread.i ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %42 = load i8, ptr %41, align 1, !tbaa !16, !range !25, !noundef !26
+  %42 = load i8, ptr %41, align 1, !tbaa !16, !range !24, !noundef !25
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %common.ret100, label %44
 
@@ -5840,13 +5837,13 @@ peek.exit.i25:                                    ; preds = %peek.exit.i
   %51 = add nuw i64 %8, 1
   store i64 %51, ptr %7, align 8, !tbaa !14
   tail call fastcc void @demangle_path(ptr noundef %0, i1 noundef zeroext false)
-  %52 = load i8, ptr %2, align 8, !tbaa !15, !range !25, !noundef !26
+  %52 = load i8, ptr %2, align 8, !tbaa !15, !range !24, !noundef !25
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %common.ret100, label %54
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %56 = load i8, ptr %55, align 1, !tbaa !16, !range !25, !noundef !26
+  %56 = load i8, ptr %55, align 1, !tbaa !16, !range !24, !noundef !25
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %.lr.ph, label %print_str.exit
 
@@ -5856,7 +5853,7 @@ print_str.exit:                                   ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !12
   tail call void %59(ptr noundef nonnull @.str.16, i64 noundef 1, ptr noundef %61) #11
-  %.pre = load i8, ptr %2, align 8, !tbaa !15, !range !25
+  %.pre = load i8, ptr %2, align 8, !tbaa !15, !range !24
   %62 = trunc nuw i8 %.pre to i1
   br i1 %62, label %common.ret100, label %.lr.ph
 
@@ -5890,7 +5887,7 @@ eat.exit28:                                       ; preds = %peek.exit.i27
   br i1 %.not, label %print_str.exit29, label %76
 
 76:                                               ; preds = %75
-  %77 = load i8, ptr %63, align 1, !tbaa !16, !range !25, !noundef !26
+  %77 = load i8, ptr %63, align 1, !tbaa !16, !range !24, !noundef !25
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %print_str.exit29, label %79
 
@@ -5971,7 +5968,7 @@ next.exit.i39:                                    ; preds = %peek.exit.i33.i36
   %.pn.i44 = and i64 %108, 4294967295
   %.129.i45 = add i64 %.pn.i44, %100
   %exitcond.not = icmp eq i64 %99, %82
-  br i1 %exitcond.not, label %.critedge.i34, label %peek.exit.i33.i36, !llvm.loop !36
+  br i1 %exitcond.not, label %.critedge.i34, label %peek.exit.i33.i36, !llvm.loop !33
 
 109:                                              ; preds = %peek.exit.i33.i36
   %110 = add nuw i64 %96, 1
@@ -6003,9 +6000,9 @@ peek.exit.i30:                                    ; preds = %peek.exit.i49
 
 demangle_generic_arg.exit:                        ; preds = %parse_integer_62.exit48, %116, %118
   %119 = add i64 %.057, 1
-  %120 = load i8, ptr %2, align 8, !tbaa !15, !range !25, !noundef !26
+  %120 = load i8, ptr %2, align 8, !tbaa !15, !range !24, !noundef !25
   %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %common.ret100, label %66, !llvm.loop !73
+  br i1 %121, label %common.ret100, label %66, !llvm.loop !69
 
 122:                                              ; preds = %6, %peek.exit.i25
   tail call fastcc void @demangle_path(ptr noundef %0, i1 noundef zeroext false)
@@ -6058,55 +6055,51 @@ attributes #14 = { nounwind allocsize(0) }
 !19 = !{!4, !5, i64 0}
 !20 = !{!4, !11, i64 44}
 !21 = !{!7, !7, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{i8 0, i8 2}
-!26 = !{}
-!27 = !{!28, !5, i64 0}
-!28 = !{!"rust_mangled_ident", !5, i64 0, !9, i64 8, !5, i64 16, !9, i64 24}
-!29 = distinct !{!29, !23, !24}
-!30 = distinct !{!30, !23, !24}
-!31 = distinct !{!31, !23, !24}
-!32 = distinct !{!32, !23, !24}
-!33 = distinct !{!33, !24}
-!34 = distinct !{!34, !24}
-!35 = distinct !{!35, !23, !24}
-!36 = distinct !{!36, !23, !24}
-!37 = distinct !{!37, !23, !24}
-!38 = !{!39, !5, i64 0}
-!39 = !{!"str_buf", !5, i64 0, !9, i64 8, !9, i64 16, !10, i64 24}
-!40 = !{!39, !10, i64 24}
-!41 = !{!39, !9, i64 16}
-!42 = !{!39, !9, i64 8}
-!43 = distinct !{!43, !23, !24}
-!44 = distinct !{!44, !23, !24}
-!45 = !{!28, !9, i64 8}
-!46 = !{!28, !9, i64 24}
-!47 = distinct !{!47, !23, !24}
-!48 = !{!28, !5, i64 16}
-!49 = distinct !{!49, !23, !24}
-!50 = distinct !{!50, !23, !24}
-!51 = distinct !{!51, !23, !24}
-!52 = distinct !{!52, !23, !24}
-!53 = distinct !{!53, !23, !24}
-!54 = distinct !{!54, !23, !24}
-!55 = !{!5, !5, i64 0}
-!56 = !{!9, !9, i64 0}
-!57 = distinct !{!57, !23, !24}
-!58 = distinct !{!58, !23, !24}
-!59 = distinct !{!59, !23, !24}
-!60 = distinct !{!60, !23, !24}
-!61 = distinct !{!61, !23, !24}
-!62 = distinct !{!62, !23, !24}
-!63 = distinct !{!63, !23, !24}
-!64 = distinct !{!64, !23, !24}
-!65 = distinct !{!65, !23, !24}
-!66 = distinct !{!66, !23, !24}
-!67 = distinct !{!67, !23, !24}
-!68 = distinct !{!68, !23, !24}
-!69 = distinct !{!69, !23, !24}
-!70 = distinct !{!70, !24}
-!71 = distinct !{!71, !23, !24}
-!72 = distinct !{!72, !23, !24}
-!73 = distinct !{!73, !23, !24}
+!24 = !{i8 0, i8 2}
+!25 = !{}
+!26 = !{!27, !5, i64 0}
+!27 = !{!"rust_mangled_ident", !5, i64 0, !9, i64 8, !5, i64 16, !9, i64 24}
+!28 = distinct !{!28, !23}
+!29 = distinct !{!29, !23}
+!30 = distinct !{!30, !23}
+!31 = distinct !{!31, !23}
+!32 = distinct !{!32, !23}
+!33 = distinct !{!33, !23}
+!34 = distinct !{!34, !23}
+!35 = !{!36, !5, i64 0}
+!36 = !{!"str_buf", !5, i64 0, !9, i64 8, !9, i64 16, !10, i64 24}
+!37 = !{!36, !10, i64 24}
+!38 = !{!36, !9, i64 16}
+!39 = !{!36, !9, i64 8}
+!40 = distinct !{!40, !23}
+!41 = distinct !{!41, !23}
+!42 = !{!27, !9, i64 8}
+!43 = !{!27, !9, i64 24}
+!44 = distinct !{!44, !23}
+!45 = !{!27, !5, i64 16}
+!46 = distinct !{!46, !23}
+!47 = distinct !{!47, !23}
+!48 = distinct !{!48, !23}
+!49 = distinct !{!49, !23}
+!50 = distinct !{!50, !23}
+!51 = distinct !{!51, !23}
+!52 = !{!5, !5, i64 0}
+!53 = !{!9, !9, i64 0}
+!54 = distinct !{!54, !23}
+!55 = distinct !{!55, !23}
+!56 = distinct !{!56, !23}
+!57 = distinct !{!57, !23}
+!58 = distinct !{!58, !23}
+!59 = distinct !{!59, !23}
+!60 = distinct !{!60, !23}
+!61 = distinct !{!61, !23}
+!62 = distinct !{!62, !23}
+!63 = distinct !{!63, !23}
+!64 = distinct !{!64, !23}
+!65 = distinct !{!65, !23}
+!66 = distinct !{!66, !23}
+!67 = distinct !{!67, !23}
+!68 = distinct !{!68, !23}
+!69 = distinct !{!69, !23}

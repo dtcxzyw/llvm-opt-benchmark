@@ -349,19 +349,19 @@ define internal fastcc i64 @XXH3_hashLong_64b_default(ptr noalias noundef readon
 XXH3_accumulate_512_sse2.exit.i:                  ; preds = %14
   %32 = add nuw nsw i64 %.0.i12, 1
   %exitcond11.not = icmp eq i64 %32, 16
-  br i1 %exitcond11.not, label %XXH3_accumulate.exit, label %8, !llvm.loop !35
+  br i1 %exitcond11.not, label %XXH3_accumulate.exit, label %8, !llvm.loop !34
 
 XXH3_accumulate.exit:                             ; preds = %XXH3_accumulate_512_sse2.exit.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   br label %33
 
 33:                                               ; preds = %XXH3_accumulate.exit, %33
   %.0.i35.i3 = phi i64 [ 0, %XXH3_accumulate.exit ], [ %48, %33 ]
   %34 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i35.i3
-  %35 = load <2 x i64>, ptr %34, align 16, !tbaa !17, !alias.scope !39, !noalias !42
+  %35 = load <2 x i64>, ptr %34, align 16, !tbaa !17, !alias.scope !38, !noalias !41
   %36 = lshr <2 x i64> %35, splat (i64 47)
   %37 = getelementptr inbounds nuw <2 x i64>, ptr getelementptr inbounds nuw (i8, ptr @XXH3_kSecret, i64 128), i64 %.0.i35.i3
-  %38 = load <2 x i64>, ptr %37, align 16, !tbaa !17, !noalias !36
+  %38 = load <2 x i64>, ptr %37, align 16, !tbaa !17, !noalias !35
   %39 = xor <2 x i64> %38, %36
   %40 = xor <2 x i64> %39, %35
   %41 = bitcast <2 x i64> %40 to <4 x i32>
@@ -371,22 +371,22 @@ XXH3_accumulate.exit:                             ; preds = %XXH3_accumulate_512
   %45 = mul nuw <2 x i64> %44, splat (i64 2654435761)
   %46 = mul <2 x i64> %43, splat (i64 -7046029290881679360)
   %47 = add <2 x i64> %46, %45
-  store <2 x i64> %47, ptr %34, align 16, !tbaa !17, !alias.scope !39, !noalias !42
+  store <2 x i64> %47, ptr %34, align 16, !tbaa !17, !alias.scope !38, !noalias !41
   %48 = add nuw nsw i64 %.0.i35.i3, 1
   %exitcond12.not = icmp eq i64 %48, 4
-  br i1 %exitcond12.not, label %XXH3_scrambleAcc_sse2.exit.i, label %33, !llvm.loop !45
+  br i1 %exitcond12.not, label %XXH3_scrambleAcc_sse2.exit.i, label %33, !llvm.loop !44
 
 XXH3_scrambleAcc_sse2.exit.i:                     ; preds = %33
   %49 = add nuw nsw i64 %.0.i4, 1
   %exitcond13.not = icmp eq i64 %49, %5
-  br i1 %exitcond13.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond13.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %XXH3_scrambleAcc_sse2.exit.i, %2
   %50 = and i64 %4, -1024
   %51 = lshr i64 %4, 6
   %52 = and i64 %51, 15
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 %50
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %.not10 = icmp eq i64 %52, 0
   br i1 %.not10, label %XXH3_accumulate.exit6, label %.lr.ph8
 
@@ -395,18 +395,18 @@ XXH3_scrambleAcc_sse2.exit.i:                     ; preds = %33
   %54 = shl nuw i64 %.0.i36, 6
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %56, i32 0, i32 3, i32 1), !noalias !47
+  tail call void @llvm.prefetch.p0(ptr nonnull %56, i32 0, i32 3, i32 1), !noalias !46
   %57 = shl nuw nsw i64 %.0.i36, 3
   %58 = getelementptr inbounds nuw i8, ptr @XXH3_kSecret, i64 %57
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   br label %59
 
 59:                                               ; preds = %.lr.ph8, %59
   %.0.i.i45 = phi i64 [ 0, %.lr.ph8 ], [ %76, %59 ]
   %60 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %.0.i.i45
-  %61 = load <2 x i64>, ptr %60, align 1, !tbaa !17, !noalias !53
+  %61 = load <2 x i64>, ptr %60, align 1, !tbaa !17, !noalias !52
   %62 = getelementptr inbounds nuw <2 x i64>, ptr %58, i64 %.0.i.i45
-  %63 = load <2 x i64>, ptr %62, align 8, !tbaa !17, !noalias !53
+  %63 = load <2 x i64>, ptr %62, align 8, !tbaa !17, !noalias !52
   %64 = xor <2 x i64> %63, %61
   %65 = bitcast <2 x i64> %64 to <4 x i32>
   %66 = shufflevector <4 x i32> %65, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -416,10 +416,10 @@ XXH3_scrambleAcc_sse2.exit.i:                     ; preds = %33
   %70 = mul nuw <2 x i64> %69, %68
   %71 = shufflevector <2 x i64> %61, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %72 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i.i45
-  %73 = load <2 x i64>, ptr %72, align 16, !tbaa !17, !alias.scope !53, !noalias !54
+  %73 = load <2 x i64>, ptr %72, align 16, !tbaa !17, !alias.scope !52, !noalias !53
   %74 = add <2 x i64> %73, %71
   %75 = add <2 x i64> %74, %70
-  store <2 x i64> %75, ptr %72, align 16, !tbaa !17, !alias.scope !53, !noalias !54
+  store <2 x i64> %75, ptr %72, align 16, !tbaa !17, !alias.scope !52, !noalias !53
   %76 = add nuw nsw i64 %.0.i.i45, 1
   %exitcond14.not = icmp eq i64 %76, 4
   br i1 %exitcond14.not, label %XXH3_accumulate_512_sse2.exit.i5, label %59, !llvm.loop !32
@@ -427,20 +427,20 @@ XXH3_scrambleAcc_sse2.exit.i:                     ; preds = %33
 XXH3_accumulate_512_sse2.exit.i5:                 ; preds = %59
   %77 = add nuw nsw i64 %.0.i36, 1
   %exitcond15.not = icmp eq i64 %77, %52
-  br i1 %exitcond15.not, label %XXH3_accumulate.exit6, label %.lr.ph8, !llvm.loop !35
+  br i1 %exitcond15.not, label %XXH3_accumulate.exit6, label %.lr.ph8, !llvm.loop !34
 
 XXH3_accumulate.exit6:                            ; preds = %XXH3_accumulate_512_sse2.exit.i5, %._crit_edge
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %79 = getelementptr inbounds i8, ptr %78, i64 -64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
   br label %80
 
 80:                                               ; preds = %XXH3_accumulate.exit6, %80
   %.0.i.i9 = phi i64 [ 0, %XXH3_accumulate.exit6 ], [ %97, %80 ]
   %81 = getelementptr inbounds nuw <2 x i64>, ptr %79, i64 %.0.i.i9
-  %82 = load <2 x i64>, ptr %81, align 1, !tbaa !17, !noalias !58
+  %82 = load <2 x i64>, ptr %81, align 1, !tbaa !17, !noalias !57
   %83 = getelementptr inbounds nuw <2 x i64>, ptr getelementptr inbounds nuw (i8, ptr @XXH3_kSecret, i64 121), i64 %.0.i.i9
-  %84 = load <2 x i64>, ptr %83, align 1, !tbaa !17, !noalias !58
+  %84 = load <2 x i64>, ptr %83, align 1, !tbaa !17, !noalias !57
   %85 = xor <2 x i64> %84, %82
   %86 = bitcast <2 x i64> %85 to <4 x i32>
   %87 = shufflevector <4 x i32> %86, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -450,17 +450,17 @@ XXH3_accumulate.exit6:                            ; preds = %XXH3_accumulate_512
   %91 = mul nuw <2 x i64> %90, %89
   %92 = shufflevector <2 x i64> %82, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %93 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i.i9
-  %94 = load <2 x i64>, ptr %93, align 16, !tbaa !17, !alias.scope !61, !noalias !62
+  %94 = load <2 x i64>, ptr %93, align 16, !tbaa !17, !alias.scope !60, !noalias !61
   %95 = add <2 x i64> %94, %92
   %96 = add <2 x i64> %95, %91
-  store <2 x i64> %96, ptr %93, align 16, !tbaa !17, !alias.scope !61, !noalias !62
+  store <2 x i64> %96, ptr %93, align 16, !tbaa !17, !alias.scope !60, !noalias !61
   %97 = add nuw nsw i64 %.0.i.i9, 1
   %exitcond16.not = icmp eq i64 %97, 4
   br i1 %exitcond16.not, label %XXH3_hashLong_internal_loop.exit, label %80, !llvm.loop !32
 
 XXH3_hashLong_internal_loop.exit:                 ; preds = %80
   %98 = mul i64 %1, -7046029288634856825
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   br label %99
 
 99:                                               ; preds = %99, %XXH3_hashLong_internal_loop.exit
@@ -469,13 +469,13 @@ XXH3_hashLong_internal_loop.exit:                 ; preds = %80
   %.idx.i = shl nuw nsw i64 %.02.i, 4
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
   %101 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @XXH3_kSecret, i64 11), i64 %.idx.i
-  %102 = load i64, ptr %100, align 16, !tbaa !68, !alias.scope !69, !noalias !72
-  %.val9.i = load i64, ptr %101, align 1, !noalias !65
+  %102 = load i64, ptr %100, align 16, !tbaa !67, !alias.scope !68, !noalias !71
+  %.val9.i = load i64, ptr %101, align 1, !noalias !64
   %103 = xor i64 %.val9.i, %102
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %105 = load i64, ptr %104, align 8, !tbaa !68, !alias.scope !69, !noalias !72
+  %105 = load i64, ptr %104, align 8, !tbaa !67, !alias.scope !68, !noalias !71
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %.val.i = load i64, ptr %106, align 1, !noalias !65
+  %.val.i = load i64, ptr %106, align 1, !noalias !64
   %107 = xor i64 %.val.i, %105
   %108 = zext i64 %103 to i128
   %109 = zext i64 %107 to i128
@@ -486,7 +486,7 @@ XXH3_hashLong_internal_loop.exit:                 ; preds = %80
   %114 = add i64 %.081.i, %113
   %115 = add nuw nsw i64 %.02.i, 1
   %exitcond.not.i = icmp eq i64 %115, 4
-  br i1 %exitcond.not.i, label %XXH3_mergeAccs.exit, label %99, !llvm.loop !74
+  br i1 %exitcond.not.i, label %XXH3_mergeAccs.exit, label %99, !llvm.loop !73
 
 XXH3_mergeAccs.exit:                              ; preds = %99
   %116 = lshr i64 %114, 37
@@ -526,7 +526,7 @@ define internal fastcc i64 @XXH3_len_129to240_64b(ptr noalias noundef readonly c
   %18 = add i64 %.0251, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %19, label %4, !llvm.loop !75
+  br i1 %exitcond.not, label %19, label %4, !llvm.loop !74
 
 19:                                               ; preds = %4
   %20 = trunc nuw nsw i64 %1 to i32
@@ -567,7 +567,7 @@ define internal fastcc i64 @XXH3_len_129to240_64b(ptr noalias noundef readonly c
   %41 = add i64 %.1263, %40
   %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
   %exitcond10.not = icmp eq i64 %indvars.iv.next8, %wide.trip.count
-  br i1 %exitcond10.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
+  br i1 %exitcond10.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %.126.lcssa = phi i64 [ %26, %19 ], [ %41, %.lr.ph ]
@@ -661,48 +661,47 @@ attributes #11 = { nounwind }
 !29 = distinct !{!29, !26, !"XXH3_accumulate_512_sse2: argument 1"}
 !30 = distinct !{!30, !26, !"XXH3_accumulate_512_sse2: argument 2"}
 !31 = distinct !{!31, !23, !"XXH3_accumulate: argument 1"}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = distinct !{!35, !33, !34}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"XXH3_scrambleAcc_sse2: argument 0"}
-!38 = distinct !{!38, !"XXH3_scrambleAcc_sse2"}
-!39 = !{!37, !40}
-!40 = distinct !{!40, !41, !"XXH3_hashLong_internal_loop: argument 0"}
-!41 = distinct !{!41, !"XXH3_hashLong_internal_loop"}
-!42 = !{!43, !44}
-!43 = distinct !{!43, !38, !"XXH3_scrambleAcc_sse2: argument 1"}
-!44 = distinct !{!44, !41, !"XXH3_hashLong_internal_loop: argument 1"}
-!45 = distinct !{!45, !33, !34}
-!46 = distinct !{!46, !33, !34}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"XXH3_accumulate: argument 0"}
-!49 = distinct !{!49, !"XXH3_accumulate"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"XXH3_accumulate_512_sse2: argument 0"}
-!52 = distinct !{!52, !"XXH3_accumulate_512_sse2"}
-!53 = !{!51, !48}
-!54 = !{!55, !56, !57}
-!55 = distinct !{!55, !52, !"XXH3_accumulate_512_sse2: argument 1"}
-!56 = distinct !{!56, !52, !"XXH3_accumulate_512_sse2: argument 2"}
-!57 = distinct !{!57, !49, !"XXH3_accumulate: argument 1"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"XXH3_accumulate_512_sse2: argument 0"}
-!60 = distinct !{!60, !"XXH3_accumulate_512_sse2"}
-!61 = !{!59, !40}
-!62 = !{!63, !64, !44}
-!63 = distinct !{!63, !60, !"XXH3_accumulate_512_sse2: argument 1"}
-!64 = distinct !{!64, !60, !"XXH3_accumulate_512_sse2: argument 2"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"XXH3_mergeAccs: argument 0"}
-!67 = distinct !{!67, !"XXH3_mergeAccs"}
-!68 = !{!10, !10, i64 0}
-!69 = !{!70, !66}
-!70 = distinct !{!70, !71, !"XXH3_mix2Accs: argument 0"}
-!71 = distinct !{!71, !"XXH3_mix2Accs"}
-!72 = !{!73}
-!73 = distinct !{!73, !71, !"XXH3_mix2Accs: argument 1"}
-!74 = distinct !{!74, !33, !34}
-!75 = distinct !{!75, !33, !34}
-!76 = distinct !{!76, !33, !34}
+!34 = distinct !{!34, !33}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"XXH3_scrambleAcc_sse2: argument 0"}
+!37 = distinct !{!37, !"XXH3_scrambleAcc_sse2"}
+!38 = !{!36, !39}
+!39 = distinct !{!39, !40, !"XXH3_hashLong_internal_loop: argument 0"}
+!40 = distinct !{!40, !"XXH3_hashLong_internal_loop"}
+!41 = !{!42, !43}
+!42 = distinct !{!42, !37, !"XXH3_scrambleAcc_sse2: argument 1"}
+!43 = distinct !{!43, !40, !"XXH3_hashLong_internal_loop: argument 1"}
+!44 = distinct !{!44, !33}
+!45 = distinct !{!45, !33}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"XXH3_accumulate: argument 0"}
+!48 = distinct !{!48, !"XXH3_accumulate"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"XXH3_accumulate_512_sse2: argument 0"}
+!51 = distinct !{!51, !"XXH3_accumulate_512_sse2"}
+!52 = !{!50, !47}
+!53 = !{!54, !55, !56}
+!54 = distinct !{!54, !51, !"XXH3_accumulate_512_sse2: argument 1"}
+!55 = distinct !{!55, !51, !"XXH3_accumulate_512_sse2: argument 2"}
+!56 = distinct !{!56, !48, !"XXH3_accumulate: argument 1"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"XXH3_accumulate_512_sse2: argument 0"}
+!59 = distinct !{!59, !"XXH3_accumulate_512_sse2"}
+!60 = !{!58, !39}
+!61 = !{!62, !63, !43}
+!62 = distinct !{!62, !59, !"XXH3_accumulate_512_sse2: argument 1"}
+!63 = distinct !{!63, !59, !"XXH3_accumulate_512_sse2: argument 2"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"XXH3_mergeAccs: argument 0"}
+!66 = distinct !{!66, !"XXH3_mergeAccs"}
+!67 = !{!10, !10, i64 0}
+!68 = !{!69, !65}
+!69 = distinct !{!69, !70, !"XXH3_mix2Accs: argument 0"}
+!70 = distinct !{!70, !"XXH3_mix2Accs"}
+!71 = !{!72}
+!72 = distinct !{!72, !70, !"XXH3_mix2Accs: argument 1"}
+!73 = distinct !{!73, !33}
+!74 = distinct !{!74, !33}
+!75 = distinct !{!75, !33}

@@ -64,7 +64,7 @@ default.unreachable4:                             ; preds = %2
 
 "_ZN8uv_types6builds14BuildIsolation11is_isolated28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf6aacb0c0eae3770E.exit.backedge.i": ; preds = %23, %18
   %.not14.i = icmp eq ptr %16, %12
-  br i1 %.not14.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h547a18ea4c78f2f7E.exit", label %14, !llvm.loop !14
+  br i1 %.not14.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h547a18ea4c78f2f7E.exit", label %14
 }
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
@@ -103,34 +103,34 @@ default.unreachable5:                             ; preds = %2
   br i1 %.not.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9
-  %.val1.i.i = load ptr, ptr %1, align 8, !noalias !16, !nonnull !4, !noundef !4
+  %.val1.i.i = load ptr, ptr %1, align 8, !noalias !14, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 16
   br label %16
 
 16:                                               ; preds = %"_ZN8uv_types6builds14BuildIsolation18shared_environment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h710ec3202aff2e75E.exit.backedge.i", %.lr.ph.i
   %17 = phi ptr [ %13, %.lr.ph.i ], [ %18, %"_ZN8uv_types6builds14BuildIsolation18shared_environment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h710ec3202aff2e75E.exit.backedge.i" ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.val4.i = load ptr, ptr %17, align 8, !noalias !16, !nonnull !4, !noundef !4
+  %.val4.i = load ptr, ptr %17, align 8, !noalias !14, !nonnull !4, !noundef !4
   %19 = icmp eq ptr %.val4.i, %.val1.i.i
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %16
-  %21 = load i64, ptr %.val4.i, align 8, !noalias !16, !noundef !4
+  %21 = load i64, ptr %.val4.i, align 8, !noalias !14, !noundef !4
   %22 = lshr i64 %21, 1
-  %23 = load i64, ptr %.val1.i.i, align 8, !noalias !16, !noundef !4
+  %23 = load i64, ptr %.val1.i.i, align 8, !noalias !14, !noundef !4
   %24 = lshr i64 %23, 1
   %.not.i.i.i.i = icmp eq i64 %22, %24
   br i1 %.not.i.i.i.i, label %25, label %"_ZN8uv_types6builds14BuildIsolation18shared_environment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h710ec3202aff2e75E.exit.backedge.i"
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %.val4.i, i64 16
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %26, ptr nonnull readonly align 1 %15, i64 %22), !alias.scope !20, !noalias !16
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %26, ptr nonnull readonly align 1 %15, i64 %22), !alias.scope !18, !noalias !14
   %27 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %27, label %28, label %"_ZN8uv_types6builds14BuildIsolation18shared_environment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h710ec3202aff2e75E.exit.backedge.i"
 
 "_ZN8uv_types6builds14BuildIsolation18shared_environment28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h710ec3202aff2e75E.exit.backedge.i": ; preds = %25, %20
   %.not14.i = icmp eq ptr %18, %14
-  br i1 %.not14.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE.exit", label %16, !llvm.loop !24
+  br i1 %.not14.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE.exit", label %16
 
 28:                                               ; preds = %16, %25
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -165,14 +165,11 @@ attributes #2 = { nocallback nofree nounwind nonlazybind willreturn memory(argme
 !11 = distinct !{!11, !12, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0eacd65366eb3d18E: argument 0"}
 !12 = distinct !{!12, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0eacd65366eb3d18E"}
 !13 = distinct !{!13, !12, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0eacd65366eb3d18E: argument 1"}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE: argument 0"}
-!18 = distinct !{!18, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE"}
-!19 = distinct !{!19, !18, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE: argument 1"}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0eacd65366eb3d18E: argument 0"}
-!22 = distinct !{!22, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0eacd65366eb3d18E"}
-!23 = distinct !{!23, !22, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0eacd65366eb3d18E: argument 1"}
-!24 = distinct !{!24, !15}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE: argument 0"}
+!16 = distinct !{!16, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE"}
+!17 = distinct !{!17, !16, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hb7fdd286ee827d9dE: argument 1"}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0eacd65366eb3d18E: argument 0"}
+!20 = distinct !{!20, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0eacd65366eb3d18E"}
+!21 = distinct !{!21, !20, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h0eacd65366eb3d18E: argument 1"}

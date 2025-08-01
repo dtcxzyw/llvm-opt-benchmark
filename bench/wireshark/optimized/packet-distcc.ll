@@ -571,7 +571,7 @@ dissect_distcc_doto.exit:                         ; preds = %198, %202, %206
   store i8 0, ptr %20, align 1
   %213 = add i32 %.1, 12
   %214 = call zeroext i1 @ws_hexstrtou32(ptr noundef nonnull %21, ptr noundef null, ptr noundef nonnull %9)
-  br i1 %214, label %27, label %.loopexit, !llvm.loop !8
+  br i1 %214, label %27, label %.loopexit
 
 .loopexit:                                        ; preds = %211, %18, %208
   %.052 = phi i32 [ %210, %208 ], [ 12, %18 ], [ %213, %211 ]
@@ -666,5 +666,3 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}

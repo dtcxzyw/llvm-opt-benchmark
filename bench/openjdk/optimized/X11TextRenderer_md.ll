@@ -246,7 +246,7 @@ checkPixmap.exit:                                 ; preds = %86, %54
   %136 = getelementptr inbounds i8, ptr %.0133167.i, i64 %134
   %137 = add nsw i32 %.0142166.i, 1
   %exitcond.not.i = icmp eq i32 %137, %spec.select
-  br i1 %exitcond.not.i, label %.preheader.i.loopexit, label %135, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.preheader.i.loopexit, label %135, !llvm.loop !9
 
 .lr.ph169.i:                                      ; preds = %.preheader.i.loopexit, %.loopexit.i
   %indvars.iv179.i = phi i64 [ %indvars.iv.next180.i, %.loopexit.i ], [ 0, %.preheader.i.loopexit ]
@@ -351,7 +351,7 @@ checkPixmap.exit:                                 ; preds = %86, %54
   %193 = lshr i32 %.1122.i, 1
   %indvars.iv.next174.i = add nuw nsw i64 %indvars.iv173.i, 1
   %exitcond178.not.i = icmp eq i64 %indvars.iv.next174.i, %wide.trip.count177.i
-  br i1 %exitcond178.not.i, label %194, label %178, !llvm.loop !11
+  br i1 %exitcond178.not.i, label %194, label %178, !llvm.loop !10
 
 194:                                              ; preds = %189
   %195 = trunc nuw i32 %spec.select.i to i8
@@ -362,7 +362,7 @@ checkPixmap.exit:                                 ; preds = %86, %54
   %199 = getelementptr inbounds nuw i8, ptr %.2132.i, i64 %172
   %200 = add nsw i32 %.0136.i, -1
   %201 = icmp sgt i32 %.0136.i, 1
-  br i1 %201, label %175, label %.loopexit.i, !llvm.loop !12
+  br i1 %201, label %175, label %.loopexit.i, !llvm.loop !11
 
 202:                                              ; preds = %157
   %203 = shl nuw nsw i32 1, %169
@@ -408,7 +408,7 @@ checkPixmap.exit:                                 ; preds = %86, %54
   %221 = shl nuw nsw i32 %.1.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond172.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count177.i
-  br i1 %exitcond172.not.i, label %222, label %207, !llvm.loop !13
+  br i1 %exitcond172.not.i, label %222, label %207, !llvm.loop !12
 
 222:                                              ; preds = %217
   %223 = trunc i32 %spec.select163.i to i8
@@ -419,12 +419,12 @@ checkPixmap.exit:                                 ; preds = %86, %54
   %227 = getelementptr inbounds nuw i8, ptr %.3.i, i64 %172
   %228 = add nsw i32 %.1137.i, -1
   %229 = icmp sgt i32 %.1137.i, 1
-  br i1 %229, label %204, label %.loopexit.i, !llvm.loop !14
+  br i1 %229, label %204, label %.loopexit.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %222, %194, %141, %.lr.ph169.i
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
   %exitcond183.not.i = icmp eq i64 %indvars.iv.next180.i, %wide.trip.count182.i
-  br i1 %exitcond183.not.i, label %FillBitmap.exit, label %.lr.ph169.i, !llvm.loop !15
+  br i1 %exitcond183.not.i, label %FillBitmap.exit, label %.lr.ph169.i, !llvm.loop !14
 
 FillBitmap.exit:                                  ; preds = %.loopexit.i, %.preheader.i.loopexit
   %230 = load ptr, ptr @awt_display, align 8
@@ -449,7 +449,7 @@ FillBitmap.exit:                                  ; preds = %.loopexit.i, %.preh
   %241 = call i32 @XFillRectangle(ptr noundef %239, i64 noundef %240, ptr noundef nonnull %12, i32 noundef %.06378, i32 noundef %.06279, i32 noundef %reass.sub, i32 noundef %126) #5
   %242 = load i32, ptr %109, align 4
   %243 = icmp slt i32 %spec.select72, %242
-  br i1 %243, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !16
+  br i1 %243, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %.lr.ph, %checkPixmap.exit
   %244 = load ptr, ptr @awt_display, align 8
@@ -519,14 +519,13 @@ attributes #6 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"llvm.loop.unswitch.partial.disable"}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = !{!"llvm.loop.unswitch.partial.disable"}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

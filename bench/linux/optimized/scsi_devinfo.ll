@@ -457,7 +457,7 @@ define dso_local i32 @scsi_dev_info_list_add_keyed(i32 noundef %0, ptr noundef %
 
 54:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
-  store i64 0, ptr %7, align 8, !annotation !9
+  store i64 0, ptr %7, align 8, !annotation !8
   %55 = call i32 @kstrtoull(ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %7) #13
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %.thread10, label %58
@@ -573,7 +573,7 @@ define internal fastcc ptr @scsi_dev_info_list_find(ptr noundef readonly capture
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %2
-  br i1 %11, label %12, label %4, !llvm.loop !10
+  br i1 %11, label %12, label %4, !llvm.loop !5
 
 12:                                               ; preds = %8
   %13 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
@@ -594,7 +594,7 @@ define internal fastcc ptr @scsi_dev_info_list_find(ptr noundef readonly capture
   %22 = add nsw i64 %17, -1
   %23 = getelementptr i8, ptr %18, i64 1
   %24 = icmp eq i64 %22, 0
-  br i1 %24, label %25, label %16, !llvm.loop !11
+  br i1 %24, label %25, label %16, !llvm.loop !9
 
 25:                                               ; preds = %21, %16
   %26 = phi ptr [ %15, %21 ], [ %18, %16 ]
@@ -611,7 +611,7 @@ define internal fastcc ptr @scsi_dev_info_list_find(ptr noundef readonly capture
   %33 = getelementptr i8, ptr %26, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 32
-  br i1 %35, label %28, label %36, !llvm.loop !12
+  br i1 %35, label %28, label %36, !llvm.loop !10
 
 36:                                               ; preds = %31, %28
   %37 = getelementptr i8, ptr %1, i64 16
@@ -628,7 +628,7 @@ define internal fastcc ptr @scsi_dev_info_list_find(ptr noundef readonly capture
   %44 = add nsw i64 %40, -1
   %45 = getelementptr i8, ptr %39, i64 1
   %46 = icmp eq i64 %44, 0
-  br i1 %46, label %47, label %38, !llvm.loop !13
+  br i1 %46, label %47, label %38, !llvm.loop !11
 
 47:                                               ; preds = %43, %38
   %48 = phi i64 [ 0, %43 ], [ %40, %38 ]
@@ -645,7 +645,7 @@ define internal fastcc ptr @scsi_dev_info_list_find(ptr noundef readonly capture
   %55 = getelementptr i8, ptr %49, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 32
-  br i1 %57, label %50, label %58, !llvm.loop !14
+  br i1 %57, label %50, label %58, !llvm.loop !12
 
 58:                                               ; preds = %53, %50
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -696,7 +696,7 @@ define internal fastcc ptr @scsi_dev_info_list_find(ptr noundef readonly capture
 87:                                               ; preds = %83, %80, %77, %73, %70, %67
   %88 = load ptr, ptr %62, align 8
   %89 = icmp eq ptr %88, %59
-  br i1 %89, label %.thread, label %.preheader, !llvm.loop !15
+  br i1 %89, label %.thread, label %.preheader, !llvm.loop !13
 
 .thread:                                          ; preds = %4, %87, %83, %77, %58, %12
   %90 = phi ptr [ %6, %12 ], [ inttoptr (i64 -2 to ptr), %58 ], [ %62, %77 ], [ %62, %83 ], [ inttoptr (i64 -2 to ptr), %87 ], [ inttoptr (i64 -22 to ptr), %4 ]
@@ -770,7 +770,7 @@ define dso_local void @scsi_exit_devinfo() local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %9, label %1, !llvm.loop !16
+  br i1 %8, label %9, label %1, !llvm.loop !5
 
 9:                                                ; preds = %5
   %10 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
@@ -795,7 +795,7 @@ define dso_local void @scsi_exit_devinfo() local_unnamed_addr #0 align 16 {
   %20 = load ptr, ptr %19, align 8
   tail call void @kfree(ptr noundef %19) #13
   %21 = icmp eq ptr %20, %16
-  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %21, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %11
   tail call void @kfree(ptr noundef %3) #13
@@ -822,7 +822,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_dev_info_remove_list(i32 no
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %0
-  br i1 %9, label %10, label %2, !llvm.loop !18
+  br i1 %9, label %10, label %2, !llvm.loop !5
 
 10:                                               ; preds = %6
   %11 = icmp ugt ptr %4, inttoptr (i64 -4096 to ptr)
@@ -847,7 +847,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_dev_info_remove_list(i32 no
   %21 = load ptr, ptr %20, align 8
   tail call void @kfree(ptr noundef %20) #13
   %22 = icmp eq ptr %21, %17
-  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %12
   tail call void @kfree(ptr noundef %4) #13
@@ -872,7 +872,7 @@ define dso_local noundef range(i32 -17, 1) i32 @scsi_dev_info_add_list(i32 nound
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, %0
-  br i1 %10, label %11, label %3, !llvm.loop !20
+  br i1 %10, label %11, label %3, !llvm.loop !5
 
 11:                                               ; preds = %7
   %12 = icmp ugt ptr %5, inttoptr (i64 -4096 to ptr)
@@ -910,7 +910,7 @@ define dso_local noundef range(i32 -17, 1) i32 @scsi_dev_info_add_list(i32 nound
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @scsi_init_devinfo() local_unnamed_addr #5 section ".init.text" align 16 {
-  %1 = tail call i32 @scsi_dev_info_add_list(i32 noundef 0, ptr noundef null), !range !21
+  %1 = tail call i32 @scsi_dev_info_add_list(i32 noundef 0, ptr noundef null), !range !15
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %3, label %24
 
@@ -925,7 +925,7 @@ define dso_local i32 @scsi_init_devinfo() local_unnamed_addr #5 section ".init.t
   %9 = getelementptr [183 x %struct.anon.3], ptr @scsi_static_device_list, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 16
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %21, label %.preheader, !llvm.loop !22
+  br i1 %11, label %21, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %3, %6
   %12 = phi ptr [ %10, %6 ], [ @.str.11, %3 ]
@@ -1009,7 +1009,7 @@ define internal fastcc i32 @scsi_dev_info_list_add_str(ptr noundef %0) unnamed_a
   %27 = phi i32 [ %25, %24 ], [ -22, %.thread ]
   %28 = call ptr @strsep(ptr noundef nonnull %2, ptr noundef nonnull @.str.9) #13
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %26, %.preheader, %9
   %30 = phi i32 [ 0, %9 ], [ %14, %.preheader ], [ %27, %26 ]
@@ -1141,7 +1141,7 @@ define internal noundef ptr @devinfo_seq_start(ptr readnone captures(none) %0, p
 21:                                               ; preds = %16
   %22 = add i64 %18, -1
   %23 = icmp eq i64 %18, 0
-  br i1 %23, label %.thread, label %16, !llvm.loop !24
+  br i1 %23, label %.thread, label %16, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit, %6
   tail call void @kfree(ptr noundef nonnull %4) #13
@@ -1181,7 +1181,7 @@ define internal noundef ptr @devinfo_seq_next(ptr readnone captures(none) %0, pt
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %7, align 8
   %17 = icmp eq ptr %15, %16
-  br i1 %17, label %18, label %.loopexit, !llvm.loop !25
+  br i1 %17, label %18, label %.loopexit, !llvm.loop !19
 
 18:                                               ; preds = %14, %12
   %19 = phi ptr [ %13, %12 ], [ %20, %14 ]
@@ -1265,24 +1265,18 @@ attributes #13 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = distinct !{!17, !6, !7, !8}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = !{i32 -17, i32 1}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !6, !7, !8}
-!24 = distinct !{!24, !6, !7, !8}
-!25 = distinct !{!25, !6, !7, !8}
+!8 = !{!"auto-init"}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = !{i32 -17, i32 1}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}

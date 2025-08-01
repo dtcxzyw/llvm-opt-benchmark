@@ -1617,7 +1617,7 @@ define range(i32 -2, 1) i32 @ossl_aria_set_decrypt_key(ptr noundef readonly capt
   %.0249 = getelementptr inbounds i8, ptr %.0249256, i64 -16
   %.0248 = getelementptr inbounds nuw i8, ptr %.0248257, i64 16
   %105 = icmp ult ptr %.0248, %.0249
-  br i1 %105, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %105, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.pn251.lcssa = phi ptr [ %9, %5 ], [ %.0249256, %.lr.ph ]
@@ -1705,7 +1705,6 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !7 = !{!"int", !5, i64 0}
 !8 = !{!5, !5, i64 0}
 !9 = !{!7, !7, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
+!12 = distinct !{!12, !11}

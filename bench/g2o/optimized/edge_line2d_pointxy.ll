@@ -1295,16 +1295,16 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_12VertexLine2DENS
 _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit.preheader: ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #18
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 2, ptr %9, align 8, !tbaa !139
+  store i64 2, ptr %9, align 8, !tbaa !138
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %2, ptr %10, align 8, !tbaa !141
+  store ptr %2, ptr %10, align 8, !tbaa !140
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %20
 
 13:                                               ; preds = %_ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit
-  %14 = load i64, ptr %9, align 8, !tbaa !146
+  %14 = load i64, ptr %9, align 8, !tbaa !145
   %15 = icmp ult i64 %14, 3
   br i1 %15, label %_ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEED2Ev.exit, label %16
 
@@ -1332,7 +1332,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEED2Ev.exit: ; preds = %13, %16
           to label %25 unwind label %18
 
 25:                                               ; preds = %20
-  %26 = load ptr, ptr %10, align 8, !tbaa !141
+  %26 = load ptr, ptr %10, align 8, !tbaa !140
   %27 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
   store double 1.000000e-09, ptr %27, align 8, !tbaa !49
   %28 = load ptr, ptr %5, align 8, !tbaa !35
@@ -1371,7 +1371,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
           to label %46 unwind label %69
 
 46:                                               ; preds = %42
-  %47 = load ptr, ptr %10, align 8, !tbaa !141
+  %47 = load ptr, ptr %10, align 8, !tbaa !140
   %48 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv
   store double -1.000000e-09, ptr %48, align 8, !tbaa !49
   %49 = load ptr, ptr %5, align 8, !tbaa !35
@@ -1404,14 +1404,14 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31: ; preds = %.noexc29
 
 _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit: ; preds = %58
   %63 = fsub double %38, %59
-  %64 = load ptr, ptr %10, align 8, !tbaa !141
+  %64 = load ptr, ptr %10, align 8, !tbaa !140
   %65 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv
   store double 0.000000e+00, ptr %65, align 8, !tbaa !49
-  %66 = load ptr, ptr %11, align 8, !tbaa !94, !noalias !147
+  %66 = load ptr, ptr %11, align 8, !tbaa !94, !noalias !146
   %67 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv
   %68 = fmul double %63, 0x41BDCD64FFFFFFFF
   store double %68, ptr %67, align 8, !tbaa !49
-  br i1 %21, label %20, label %13, !llvm.loop !150
+  br i1 %21, label %20, label %13, !llvm.loop !149
 
 69:                                               ; preds = %.noexc29, %46, %58, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31, %42, %37
   %70 = landingpad { ptr, i32 }
@@ -1423,12 +1423,12 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit: ; preds = %58
 
 72:                                               ; preds = %69, %18
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %19, %18 ], [ %70, %69 ]
-  %73 = load i64, ptr %9, align 8, !tbaa !146
+  %73 = load i64, ptr %9, align 8, !tbaa !145
   %74 = icmp ult i64 %73, 3
   br i1 %74, label %_ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEED2Ev.exit32, label %75
 
 75:                                               ; preds = %72
-  %76 = load ptr, ptr %10, align 8, !tbaa !141
+  %76 = load ptr, ptr %10, align 8, !tbaa !140
   %77 = shl i64 %73, 3
   call void @_ZdlPvm(ptr noundef %76, i64 noundef %77) #19
   br label %_ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEED2Ev.exit32
@@ -1453,16 +1453,16 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi1EdJNS_12VertexLine2DENS
 _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit.preheader: ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #18
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 2, ptr %10, align 8, !tbaa !139
+  store i64 2, ptr %10, align 8, !tbaa !138
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %2, ptr %11, align 8, !tbaa !141
+  store ptr %2, ptr %11, align 8, !tbaa !140
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !tbaa !49
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %21
 
 14:                                               ; preds = %_ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit
-  %15 = load i64, ptr %10, align 8, !tbaa !146
+  %15 = load i64, ptr %10, align 8, !tbaa !145
   %16 = icmp ult i64 %15, 3
   br i1 %16, label %_ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEED2Ev.exit, label %17
 
@@ -1490,7 +1490,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEED2Ev.exit: ; preds = %14, %17
           to label %26 unwind label %19
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %11, align 8, !tbaa !141
+  %27 = load ptr, ptr %11, align 8, !tbaa !140
   %28 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
   store double 1.000000e-09, ptr %28, align 8, !tbaa !49
   %29 = load ptr, ptr %6, align 8, !tbaa !35
@@ -1529,7 +1529,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
           to label %47 unwind label %70
 
 47:                                               ; preds = %43
-  %48 = load ptr, ptr %11, align 8, !tbaa !141
+  %48 = load ptr, ptr %11, align 8, !tbaa !140
   %49 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv
   store double -1.000000e-09, ptr %49, align 8, !tbaa !49
   %50 = load ptr, ptr %6, align 8, !tbaa !35
@@ -1562,14 +1562,14 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31: ; preds = %.noexc29
 
 _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit: ; preds = %59
   %64 = fsub double %39, %60
-  %65 = load ptr, ptr %11, align 8, !tbaa !141
+  %65 = load ptr, ptr %11, align 8, !tbaa !140
   %66 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv
   store double 0.000000e+00, ptr %66, align 8, !tbaa !49
-  %67 = load ptr, ptr %12, align 8, !tbaa !94, !noalias !151
+  %67 = load ptr, ptr %12, align 8, !tbaa !94, !noalias !150
   %68 = getelementptr inbounds nuw double, ptr %67, i64 %indvars.iv
   %69 = fmul double %64, 0x41BDCD64FFFFFFFF
   store double %69, ptr %68, align 8, !tbaa !49
-  br i1 %22, label %21, label %14, !llvm.loop !154
+  br i1 %22, label %21, label %14, !llvm.loop !153
 
 70:                                               ; preds = %.noexc29, %47, %59, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31, %43, %38
   %71 = landingpad { ptr, i32 }
@@ -1581,12 +1581,12 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE4fillERKd.exit: ; preds = %59
 
 73:                                               ; preds = %70, %19
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %71, %70 ]
-  %74 = load i64, ptr %10, align 8, !tbaa !146
+  %74 = load i64, ptr %10, align 8, !tbaa !145
   %75 = icmp ult i64 %74, 3
   br i1 %75, label %_ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEED2Ev.exit32, label %76
 
 76:                                               ; preds = %73
-  %77 = load ptr, ptr %11, align 8, !tbaa !141
+  %77 = load ptr, ptr %11, align 8, !tbaa !140
   %78 = shl i64 %74, 3
   call void @_ZdlPvm(ptr noundef %77, i64 noundef %78) #19
   br label %_ZN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEED2Ev.exit32
@@ -1777,22 +1777,21 @@ attributes #22 = { builtin allocsize(0) }
 !133 = !{!134, !93, i64 0}
 !134 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EEE", !93, i64 0, !53, i64 8}
 !135 = !{!10, !11, i64 16}
-!136 = distinct !{!136, !137, !138}
+!136 = distinct !{!136, !137}
 !137 = !{!"llvm.loop.mustprogress"}
-!138 = !{!"llvm.loop.estimated_trip_count"}
-!139 = !{!140, !53, i64 0}
-!140 = !{!"_ZTSSt10_Head_baseILm0EmLb0EE", !53, i64 0}
-!141 = !{!142, !93, i64 24}
-!142 = !{!"_ZTSN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE7StorageE", !143, i64 0, !144, i64 16, !93, i64 24}
-!143 = !{!"_ZTSN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE22NonEmptyInlinedStorageE", !13, i64 0}
-!144 = !{!"_ZTSSt5tupleIJmSaIdEEE", !145, i64 0}
-!145 = !{!"_ZTSSt11_Tuple_implILm0EJmSaIdEEE", !140, i64 0}
-!146 = !{!53, !53, i64 0}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!149 = distinct !{!149, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!150 = distinct !{!150, !137, !138}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!153 = distinct !{!153, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!154 = distinct !{!154, !137, !138}
+!138 = !{!139, !53, i64 0}
+!139 = !{!"_ZTSSt10_Head_baseILm0EmLb0EE", !53, i64 0}
+!140 = !{!141, !93, i64 24}
+!141 = !{!"_ZTSN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE7StorageE", !142, i64 0, !143, i64 16, !93, i64 24}
+!142 = !{!"_ZTSN3g2o5ceres8internal10FixedArrayIdLm2ESaIdEE22NonEmptyInlinedStorageE", !13, i64 0}
+!143 = !{!"_ZTSSt5tupleIJmSaIdEEE", !144, i64 0}
+!144 = !{!"_ZTSSt11_Tuple_implILm0EJmSaIdEEE", !139, i64 0}
+!145 = !{!53, !53, i64 0}
+!146 = !{!147}
+!147 = distinct !{!147, !148, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!148 = distinct !{!148, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!149 = distinct !{!149, !137}
+!150 = !{!151}
+!151 = distinct !{!151, !152, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!152 = distinct !{!152, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELi2ELi1ELi1ELi2EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!153 = distinct !{!153, !137}

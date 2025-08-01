@@ -595,7 +595,7 @@ define internal fastcc i32 @dissect_typeinfo_TYPEDESC(ptr noundef %0, i32 nounde
   %8 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !8, !noundef !9
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -716,7 +716,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 define internal fastcc range(i32 0, 65536) i32 @dissect_typeinfo_ELEMDESC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !8, !noundef !9
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not = icmp eq i32 %12, 0
@@ -731,7 +731,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_typeinfo_ELEMDESC(ptr no
   %19 = tail call fastcc i32 @dissect_typeinfo_TYPEDESC(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %17, ptr noundef %4, ptr noundef %5, i32 noundef %18)
   %20 = load i32, ptr @hf_typeinfo_paramdesc, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #4
-  %21 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %21 = load i8, ptr %9, align 1, !range !8, !noundef !9
   %22 = trunc nuw i8 %21 to i1
   %23 = and i32 %19, 3
   %.not.i = icmp eq i32 %23, 0
@@ -775,7 +775,7 @@ define internal i32 @dissect_typeinfo_PARAMDESCEX_through_pointer(ptr noundef %0
   %8 = load i32, ptr @hf_typeinfo_paramdescex, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
-  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %10 = load i8, ptr %9, align 1, !range !8, !noundef !9
   %11 = trunc nuw i8 %10 to i1
   %12 = and i32 %1, 3
   %.not.i = icmp eq i32 %12, 0
@@ -861,8 +861,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!8 = !{i8 0, i8 2}
+!9 = !{}

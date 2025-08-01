@@ -474,7 +474,7 @@ define internal fastcc ptr @mon_text_read_wait(ptr noundef %0, ptr noundef reado
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #11
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !14
+  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !13
   %8 = inttoptr i64 %7 to ptr
   store i64 0, ptr %3, align 8
   store ptr %8, ptr %6, align 8
@@ -485,7 +485,7 @@ define internal fastcc ptr @mon_text_read_wait(ptr noundef %0, ptr noundef reado
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void @add_wait_queue(ptr noundef nonnull %11, ptr noundef nonnull %3) #11
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %13 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 1, ptr nonnull elementtype(i32) %12) #11, !srcloc !15
+  %13 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 1, ptr nonnull elementtype(i32) %12) #11, !srcloc !14
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -525,7 +525,7 @@ define internal fastcc ptr @mon_text_read_wait(ptr noundef %0, ptr noundef reado
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %30
-  %35 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 0, ptr nonnull elementtype(i32) %12) #11, !srcloc !16
+  %35 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 0, ptr nonnull elementtype(i32) %12) #11, !srcloc !15
   br label %.critedge
 
 36:                                               ; preds = %30
@@ -533,7 +533,7 @@ define internal fastcc ptr @mon_text_read_wait(ptr noundef %0, ptr noundef reado
   %37 = load volatile i64, ptr %8, align 8
   %38 = and i64 %37, 131072
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %.critedge, !prof !17
+  br i1 %39, label %40, label %.critedge, !prof !16
 
 40:                                               ; preds = %36
   %41 = load volatile i64, ptr %8, align 8
@@ -542,11 +542,11 @@ define internal fastcc ptr @mon_text_read_wait(ptr noundef %0, ptr noundef reado
   br i1 %43, label %44, label %.critedge
 
 44:                                               ; preds = %40
-  %45 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 1, ptr nonnull elementtype(i32) %12) #11, !srcloc !18
-  br label %18, !llvm.loop !19
+  %45 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 1, ptr nonnull elementtype(i32) %12) #11, !srcloc !17
+  br label %18, !llvm.loop !18
 
 46:                                               ; preds = %22
-  %47 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 0, ptr nonnull elementtype(i32) %12) #11, !srcloc !20
+  %47 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %12, i32 0, ptr nonnull elementtype(i32) %12) #11, !srcloc !19
   br label %.critedge
 
 .critedge:                                        ; preds = %36, %40, %46, %34
@@ -628,7 +628,7 @@ define internal fastcc void @mon_text_read_data(ptr noundef captures(none) %0, p
   store i32 %54, ptr %0, align 8
   %55 = add nuw nsw i64 %28, 1
   %56 = icmp eq i64 %55, %25
-  br i1 %56, label %57, label %26, !llvm.loop !21
+  br i1 %56, label %57, label %26, !llvm.loop !20
 
 57:                                               ; preds = %41
   %58 = load ptr, ptr %11, align 8
@@ -980,7 +980,7 @@ define internal fastcc void @mon_text_event(ptr noundef %0, ptr noundef %1, i8 n
   %102 = getelementptr i8, ptr %92, i64 12
   %103 = add nuw nsw i32 %91, 1
   %104 = icmp eq i32 %103, %86
-  br i1 %104, label %105, label %90, !llvm.loop !22
+  br i1 %104, label %105, label %90, !llvm.loop !21
 
 105:                                              ; preds = %90
   %106 = icmp eq i8 %2, 67
@@ -1324,7 +1324,7 @@ mon_text_read_statset.exit:                       ; preds = %56, %77, %84
   %145 = getelementptr i8, ptr %132, i64 12
   %146 = add nuw nsw i32 %133, 1
   %147 = icmp eq i32 %126, %146
-  br i1 %147, label %.loopexit, label %130, !llvm.loop !23
+  br i1 %147, label %.loopexit, label %130, !llvm.loop !22
 
 148:                                              ; preds = %94
   %149 = sext i32 %50 to i64
@@ -1495,17 +1495,16 @@ attributes #14 = { nounwind memory(none) }
 !7 = !{i64 2149671012, i64 2149670826, i64 2149670878, i64 2149670924, i64 2149670952}
 !8 = !{i64 2149671083, i64 2149671112, i64 2149671158, i64 2149671216, i64 2149671270, i64 2149671324, i64 2149671379, i64 2149671410, i64 2149671718, i64 2149671724, i64 2149671771, i64 2149671794, i64 2149671820}
 !9 = !{i64 2149672275, i64 2149672091, i64 2149672141, i64 2149672187, i64 2149672215}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{i64 2148539226}
-!15 = !{i64 2155028665}
-!16 = !{i64 2155030373}
-!17 = !{!"branch_weights", i32 2000, i32 1}
-!18 = !{i64 2155032086}
-!19 = distinct !{!19, !11, !12, !13}
-!20 = !{i64 2155033773}
-!21 = distinct !{!21, !11, !12, !13}
-!22 = distinct !{!22, !11, !12, !13}
-!23 = distinct !{!23, !11, !12, !13}
+!13 = !{i64 2148539226}
+!14 = !{i64 2155028665}
+!15 = !{i64 2155030373}
+!16 = !{!"branch_weights", i32 2000, i32 1}
+!17 = !{i64 2155032086}
+!18 = distinct !{!18, !11, !12}
+!19 = !{i64 2155033773}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}

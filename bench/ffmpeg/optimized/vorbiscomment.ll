@@ -76,7 +76,7 @@ define i64 @ff_vorbiscomment_length(ptr noundef %0, ptr noundef readonly capture
   %.2.lcssa = phi i64 [ %9, %.preheader34 ], [ %27, %21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit35, label %.preheader34, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit35, label %.preheader34, !llvm.loop !21
 
 .loopexit35:                                      ; preds = %._crit_edge, %4
   %.023 = phi i64 [ %6, %4 ], [ %.2.lcssa, %._crit_edge ]
@@ -101,7 +101,7 @@ define i64 @ff_vorbiscomment_length(ptr noundef %0, ptr noundef readonly capture
   %41 = add i64 %40, %38
   %42 = tail call ptr @av_dict_iterate(ptr noundef nonnull %0, ptr noundef nonnull %33) #7
   %.not31 = icmp eq ptr %42, null
-  br i1 %.not31, label %.loopexit, label %.lr.ph42, !llvm.loop !23
+  br i1 %.not31, label %.loopexit, label %.lr.ph42, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph42, %.preheader, %.loopexit35
   %.3 = phi i64 [ %.023, %.loopexit35 ], [ %.023, %.preheader ], [ %41, %.lr.ph42 ]
@@ -151,7 +151,7 @@ define range(i32 -22, 1) i32 @ff_vorbiscomment_write(ptr noundef %0, ptr noundef
   %18 = add i32 %17, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.preheader119, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.preheader119, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.preheader119, %5
   %.091 = phi i32 [ 0, %5 ], [ %18, %.preheader119 ]
@@ -198,7 +198,7 @@ define range(i32 -22, 1) i32 @ff_vorbiscomment_write(ptr noundef %0, ptr noundef
   tail call void @avio_write(ptr noundef %0, ptr noundef %36, i32 noundef %37) #7
   %38 = tail call ptr @av_dict_iterate(ptr noundef nonnull %1, ptr noundef nonnull %23) #7
   %.not108 = icmp eq ptr %38, null
-  br i1 %.not108, label %.preheader, label %.lr.ph, !llvm.loop !25
+  br i1 %.not108, label %.preheader, label %.lr.ph, !llvm.loop !24
 
 .lr.ph127:                                        ; preds = %.lr.ph127.preheader, %._crit_edge
   %indvars.iv130 = phi i64 [ 0, %.lr.ph127.preheader ], [ %indvars.iv.next131, %._crit_edge ]
@@ -207,12 +207,12 @@ define range(i32 -22, 1) i32 @ff_vorbiscomment_write(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #7
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !26
+  %42 = load i64, ptr %41, align 8, !tbaa !25
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !27
+  %44 = load i32, ptr %43, align 8, !tbaa !26
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %47 = load i32, ptr %46, align 4, !tbaa !28
+  %47 = load i32, ptr %46, align 4, !tbaa !27
   %48 = sext i32 %47 to i64
   %49 = call i64 @av_rescale(i64 noundef %42, i64 noundef %45, i64 noundef %48) #8
   %50 = trunc i64 %49 to i32
@@ -290,14 +290,14 @@ define range(i32 -22, 1) i32 @ff_vorbiscomment_write(ptr noundef %0, ptr noundef
   %92 = load ptr, ptr %91, align 8, !tbaa !9
   %93 = call ptr @av_dict_iterate(ptr noundef %92, ptr noundef nonnull %66) #7
   %.not109 = icmp eq ptr %93, null
-  br i1 %.not109, label %._crit_edge, label %.lr.ph124, !llvm.loop !29
+  br i1 %.not109, label %._crit_edge, label %.lr.ph124, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %87, %.lr.ph127
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %6) #7
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
-  br i1 %exitcond134.not, label %.critedge116, label %.lr.ph127, !llvm.loop !30
+  br i1 %exitcond134.not, label %.critedge116, label %.lr.ph127, !llvm.loop !29
 
 .critedge:                                        ; preds = %71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
@@ -361,15 +361,14 @@ attributes #8 = { nounwind willreturn memory(none) }
 !16 = !{!"AVDictionaryEntry", !17, i64 0, !17, i64 8}
 !17 = !{!"p1 omnipotent char", !6, i64 0}
 !18 = !{!16, !17, i64 8}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = distinct !{!23, !20, !21}
-!24 = distinct !{!24, !20, !21}
-!25 = distinct !{!25, !20, !21}
-!26 = !{!10, !11, i64 16}
-!27 = !{!10, !13, i64 8}
-!28 = !{!10, !13, i64 12}
-!29 = distinct !{!29, !20, !21}
-!30 = distinct !{!30, !20, !21}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}
+!24 = distinct !{!24, !20}
+!25 = !{!10, !11, i64 16}
+!26 = !{!10, !13, i64 8}
+!27 = !{!10, !13, i64 12}
+!28 = distinct !{!28, !20}
+!29 = distinct !{!29, !20}

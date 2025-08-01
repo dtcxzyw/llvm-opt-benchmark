@@ -784,19 +784,19 @@ define linkonce_odr void @_ZN5faiss12AlignedTableIhLi32EE6resizeEm(ptr noundef n
 
 _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit: ; preds = %.preheader.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !54
+  %10 = load i64, ptr %9, align 8, !tbaa !53
   %11 = icmp eq i64 %10, %.0.i
   br i1 %11, label %_ZN5faiss22AlignedTableTightAllocIhLi32EE6resizeEm.exit, label %.thread
 
 _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread8: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !54
+  %13 = load i64, ptr %12, align 8, !tbaa !53
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %_ZN5faiss22AlignedTableTightAllocIhLi32EE6resizeEm.exit, label %27
 
 _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread: ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !54
+  %16 = load i64, ptr %15, align 8, !tbaa !53
   %17 = icmp eq i64 %16, 256
   br i1 %17, label %_ZN5faiss22AlignedTableTightAllocIhLi32EE6resizeEm.exit, label %.thread
 
@@ -815,12 +815,12 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread: ; preds = %5
   unreachable
 
 22:                                               ; preds = %.thread
-  %23 = load i64, ptr %18, align 8, !tbaa !54
+  %23 = load i64, ptr %18, align 8, !tbaa !53
   %.not2.i = icmp eq i64 %23, 0
   br i1 %.not2.i, label %28, label %24
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr %3, align 8, !tbaa !55
+  %25 = load ptr, ptr %3, align 8, !tbaa !54
   %26 = load ptr, ptr %0, align 8, !tbaa !13
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.07.i36, i64 %23)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %26, i64 %.sroa.speculated.i, i1 false)
@@ -828,23 +828,23 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread: ; preds = %5
 
 27:                                               ; preds = %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  store ptr null, ptr %3, align 8, !tbaa !55
+  store ptr null, ptr %3, align 8, !tbaa !54
   br label %28
 
 28:                                               ; preds = %27, %24, %22
   %.07.i37 = phi i64 [ 0, %27 ], [ %.07.i36, %24 ], [ %.07.i36, %22 ]
   %29 = phi ptr [ %12, %27 ], [ %18, %24 ], [ %18, %22 ]
-  store i64 %.07.i37, ptr %29, align 8, !tbaa !54
+  store i64 %.07.i37, ptr %29, align 8, !tbaa !53
   %30 = load ptr, ptr %0, align 8, !tbaa !13
   call void @free(ptr noundef %30) #18
-  %31 = load ptr, ptr %3, align 8, !tbaa !55
+  %31 = load ptr, ptr %3, align 8, !tbaa !54
   store ptr %31, ptr %0, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   br label %_ZN5faiss22AlignedTableTightAllocIhLi32EE6resizeEm.exit
 
 _ZN5faiss22AlignedTableTightAllocIhLi32EE6resizeEm.exit: ; preds = %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread8, %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.thread, %_ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit, %28
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %1, ptr %32, align 8, !tbaa !56
+  store i64 %1, ptr %32, align 8, !tbaa !55
   ret void
 }
 
@@ -987,9 +987,8 @@ attributes #21 = { noreturn nounwind }
 !48 = !{!8, !9, i64 8}
 !49 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !50 = !{!9, !9, i64 0}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = !{!14, !16, i64 8}
-!55 = !{!15, !15, i64 0}
-!56 = !{!27, !16, i64 16}
+!53 = !{!14, !16, i64 8}
+!54 = !{!15, !15, i64 0}
+!55 = !{!27, !16, i64 16}

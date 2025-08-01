@@ -815,7 +815,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
   %358 = add nuw nsw i32 %357, 1
   %359 = getelementptr inbounds nuw i8, ptr %98, i64 28
   %360 = load i32, ptr %359, align 4
-  %361 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %360, i32 -1) #16, !srcloc !12
+  %361 = call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %360, i32 -1) #16, !srcloc !11
   %362 = add i32 %361, 1
   %363 = call i32 @llvm.smax.i32(i32 %358, i32 %362)
   %364 = call ptr @ata_host_alloc_pinfo(ptr noundef nonnull %24, ptr noundef nonnull %16, i32 noundef %363) #13
@@ -1017,7 +1017,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
   %481 = add nuw i32 %446, 1
   %482 = load i32, ptr %439, align 8
   %483 = icmp ult i32 %481, %482
-  br i1 %483, label %445, label %.loopexit38, !llvm.loop !13
+  br i1 %483, label %445, label %.loopexit38, !llvm.loop !12
 
 .loopexit38:                                      ; preds = %480, %438
   %484 = getelementptr inbounds nuw i8, ptr %364, i64 8
@@ -1097,18 +1097,18 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
   store i32 %533, ptr %531, align 16
   %534 = call ptr @ata_dev_next(ptr noundef nonnull %530, ptr noundef nonnull %527, i32 noundef 2) #13
   %535 = icmp eq ptr %534, null
-  br i1 %535, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %535, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %.preheader35
   %536 = call ptr @ata_link_next(ptr noundef nonnull %527, ptr noundef %524, i32 noundef 0) #13
   %537 = icmp eq ptr %536, null
-  br i1 %537, label %.loopexit36, label %.preheader35, !llvm.loop !15
+  br i1 %537, label %.loopexit36, label %.preheader35, !llvm.loop !14
 
 .loopexit36:                                      ; preds = %.loopexit, %520
   %538 = add nuw i32 %521, 1
   %539 = load i32, ptr %439, align 8
   %540 = icmp ult i32 %538, %539
-  br i1 %540, label %520, label %.loopexit37, !llvm.loop !16
+  br i1 %540, label %520, label %.loopexit37, !llvm.loop !15
 
 .loopexit37:                                      ; preds = %.loopexit36, %508, %505
   %541 = load i32, ptr %248, align 8
@@ -1165,22 +1165,22 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
   %572 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %573 = load volatile i32, ptr %572, align 4
   %574 = icmp eq i32 %573, 0
-  br i1 %574, label %.thread33, label %.lr.ph, !prof !17
+  br i1 %574, label %.thread33, label %.lr.ph, !prof !16
 
 .lr.ph:                                           ; preds = %571, %581
   %575 = phi i32 [ %582, %581 ], [ %573, %571 ]
   %576 = add i32 %575, -1
-  %577 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %572, i32 %576, ptr nonnull elementtype(i32) %572, i32 %575) #13, !srcloc !18
+  %577 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %572, i32 %576, ptr nonnull elementtype(i32) %572, i32 %575) #13, !srcloc !17
   %578 = extractvalue { i8, i32 } %577, 0
   %579 = icmp ult i8 %578, 2
   call void @llvm.assume(i1 %579)
   %580 = icmp eq i8 %578, 0
-  br i1 %580, label %581, label %.thread33, !prof !19
+  br i1 %580, label %581, label %.thread33, !prof !18
 
 581:                                              ; preds = %.lr.ph
   %582 = extractvalue { i8, i32 } %577, 1
   %583 = icmp eq i32 %582, 0
-  br i1 %583, label %.thread33, label %.lr.ph, !prof !20, !llvm.loop !21
+  br i1 %583, label %.thread33, label %.lr.ph, !prof !19, !llvm.loop !20
 
 .thread33:                                        ; preds = %581, %.lr.ph, %571, %564, %568, %565, %355, %97, %96, %93, %91, %.thread42, %27
   %584 = phi i32 [ -19, %91 ], [ -19, %27 ], [ %76, %.thread42 ], [ %95, %93 ], [ -16, %96 ], [ -12, %97 ], [ -12, %355 ], [ %560, %564 ], [ %566, %565 ], [ %569, %568 ], [ 0, %571 ], [ 0, %.lr.ph ], [ 0, %581 ]
@@ -1194,7 +1194,7 @@ define internal void @ahci_remove_one(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @sysfs_remove_file_from_group(ptr noundef nonnull %2, ptr noundef nonnull @dev_attr_remapped_nvme, ptr noundef null) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, ptr nonnull elementtype(i32) %3) #13, !srcloc !22
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, ptr nonnull elementtype(i32) %3) #13, !srcloc !21
   tail call void @ata_pci_remove_one(ptr noundef %0) #13
   ret void
 }
@@ -1375,14 +1375,14 @@ define internal fastcc void @ahci_pci_init_controller(ptr noundef nonnull %0) un
   %16 = select i1 %12, i64 256, i64 512
   %17 = getelementptr i8, ptr %15, i64 %16
   %18 = getelementptr i8, ptr %17, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %18) #13, !srcloc !23
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %18) #13, !srcloc !22
   %19 = getelementptr i8, ptr %17, i64 16
   %20 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19) #13, !srcloc !6
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %7
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %20, ptr elementtype(i32) %19) #13, !srcloc !23
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %20, ptr elementtype(i32) %19) #13, !srcloc !22
   br label %23
 
 23:                                               ; preds = %22, %7, %1
@@ -1550,13 +1550,13 @@ define internal i32 @ahci_avn_hardreset(ptr noundef %0, ptr noundef writeonly ca
   %85 = add i64 %24, %36
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #13
-  br i1 %37, label %35, label %.loopexit, !llvm.loop !24
+  br i1 %37, label %35, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %74, %.thread
   %86 = getelementptr inbounds nuw i8, ptr %19, i64 280
   %87 = load ptr, ptr %86, align 8
   call void %87(ptr noundef %13) #13
-  %88 = load i8, ptr %5, align 1, !range !25, !noundef !26
+  %88 = load i8, ptr %5, align 1, !range !24, !noundef !25
   %89 = icmp eq i8 %88, 0
   br i1 %89, label %92, label %90
 
@@ -1620,7 +1620,7 @@ define internal i32 @ahci_vt8251_hardreset(ptr noundef %0, ptr readnone captures
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 280
   %20 = load ptr, ptr %19, align 8
   call void %20(ptr noundef %5) #13
-  %21 = load i8, ptr %4, align 1, !range !25, !noundef !26
+  %21 = load i8, ptr %4, align 1, !range !24, !noundef !25
   %22 = icmp eq i8 %21, 0
   %23 = select i1 %22, i32 %18, i32 -11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
@@ -1734,7 +1734,7 @@ define internal i32 @ahci_p5wdh_hardreset(ptr noundef %0, ptr readnone captures(
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 280
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef %6) #13
-  %39 = load i8, ptr %5, align 1, !range !25, !noundef !26
+  %39 = load i8, ptr %5, align 1, !range !24, !noundef !25
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %48, label %41
 
@@ -1846,7 +1846,7 @@ define internal noundef range(i32 -5, 1) i32 @ahci_pci_device_suspend(ptr nounde
   %13 = getelementptr i8, ptr %12, i64 4
   %14 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #13, !srcloc !6
   %15 = and i32 %14, -3
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %15, ptr elementtype(i32) %13) #13, !srcloc !23
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %15, ptr elementtype(i32) %13) #13, !srcloc !22
   %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13) #13, !srcloc !6
   tail call void @ata_host_suspend(ptr noundef %3, i32 2) #13
   br label %17
@@ -1960,14 +1960,14 @@ define internal i32 @ahci_pci_device_resume(ptr noundef %0) #2 align 16 {
   %70 = select i1 %66, i64 256, i64 512
   %71 = getelementptr i8, ptr %69, i64 %70
   %72 = getelementptr i8, ptr %71, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %72) #13, !srcloc !23
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %72) #13, !srcloc !22
   %73 = getelementptr i8, ptr %71, i64 16
   %74 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %73) #13, !srcloc !6
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %77, label %76
 
 76:                                               ; preds = %62
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %74, ptr elementtype(i32) %73) #13, !srcloc !23
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %74, ptr elementtype(i32) %73) #13, !srcloc !22
   br label %77
 
 77:                                               ; preds = %76, %62, %57
@@ -1994,7 +1994,7 @@ define internal noundef i32 @ahci_pci_device_runtime_suspend(ptr noundef readonl
   %8 = getelementptr i8, ptr %7, i64 4
   %9 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8) #13, !srcloc !6
   %10 = and i32 %9, -3
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %10, ptr elementtype(i32) %8) #13, !srcloc !23
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %10, ptr elementtype(i32) %8) #13, !srcloc !22
   %11 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %8) #13, !srcloc !6
   ret i32 0
 }
@@ -2068,14 +2068,14 @@ define internal i32 @ahci_pci_device_runtime_resume(ptr noundef readonly capture
   %48 = select i1 %44, i64 256, i64 512
   %49 = getelementptr i8, ptr %47, i64 %48
   %50 = getelementptr i8, ptr %49, i64 20
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %50) #13, !srcloc !23
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr elementtype(i32) %50) #13, !srcloc !22
   %51 = getelementptr i8, ptr %49, i64 16
   %52 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %51) #13, !srcloc !6
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %55, label %54
 
 54:                                               ; preds = %40
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %52, ptr elementtype(i32) %51) #13, !srcloc !23
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %52, ptr elementtype(i32) %51) #13, !srcloc !22
   br label %55
 
 55:                                               ; preds = %54, %40, %35
@@ -2123,22 +2123,21 @@ attributes #16 = { nounwind memory(read) }
 !5 = !{!"auto-init"}
 !6 = !{i64 2154320427}
 !7 = !{i64 2154324336}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i64 361384}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = !{!"branch_weights", i32 1, i32 127}
-!18 = !{i64 2148895419, i64 2148895458, i64 2148895479, i64 2148895516, i64 2148895539, i64 2148895548, i64 2148895846}
-!19 = !{!"branch_weights", i32 1, i32 2000}
-!20 = !{!"branch_weights", i32 127, i32 255873}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = !{i64 2148872978, i64 2148873017, i64 2148873038, i64 2148873075, i64 2148873098, i64 2148872968}
-!23 = !{i64 2154322820}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = !{i8 0, i8 2}
-!26 = !{}
+!11 = !{i64 361384}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = !{!"branch_weights", i32 1, i32 127}
+!17 = !{i64 2148895419, i64 2148895458, i64 2148895479, i64 2148895516, i64 2148895539, i64 2148895548, i64 2148895846}
+!18 = !{!"branch_weights", i32 1, i32 2000}
+!19 = !{!"branch_weights", i32 127, i32 255873}
+!20 = distinct !{!20, !9, !10}
+!21 = !{i64 2148872978, i64 2148873017, i64 2148873038, i64 2148873075, i64 2148873098, i64 2148872968}
+!22 = !{i64 2154322820}
+!23 = distinct !{!23, !9, !10}
+!24 = !{i8 0, i8 2}
+!25 = !{}

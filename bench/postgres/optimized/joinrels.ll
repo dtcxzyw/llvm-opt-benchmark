@@ -254,7 +254,7 @@ make_rels_by_clause_joins.exit:                   ; preds = %72, %52, %.lr.ph.i1
   %132 = add i32 %.086133, 1
   %133 = sub i32 %1, %132
   %134 = icmp sgt i32 %132, %133
-  br i1 %134, label %.critedge105, label %.lr.ph134, !llvm.loop !6
+  br i1 %134, label %.critedge105, label %.lr.ph134
 
 .critedge105:                                     ; preds = %._crit_edge, %.critedge
   %135 = sext i32 %1 to i64
@@ -334,7 +334,7 @@ make_rels_by_clauseless_joins.exit119:            ; preds = %make_rels_by_clause
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %172 = sext i32 %171 to i64
   %173 = icmp slt i64 %indvars.iv.next153, %172
-  br i1 %173, label %.lr.ph140.splitthread-pre-split, label %.critedge109, !llvm.loop !8
+  br i1 %173, label %.lr.ph140.splitthread-pre-split, label %.critedge109, !llvm.loop !6
 
 .critedge109:                                     ; preds = %make_rels_by_clauseless_joins.exit119
   %.pre155 = load ptr, ptr %136, align 8
@@ -721,7 +721,7 @@ define dso_local ptr @make_join_rel(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 44:                                               ; preds = %42, %42
   %.1.in.i = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
-  br label %42, !llvm.loop !10
+  br label %42
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
@@ -1130,7 +1130,7 @@ define internal fastcc noundef zeroext i1 @join_is_legal(ptr noundef %0, ptr nou
   br i1 %194, label %206, label %195
 
 .critedge:                                        ; preds = %206
-  br i1 %.1146, label %.splitthread-pre-split, label %.split247.us, !llvm.loop !11
+  br i1 %.1146, label %.splitthread-pre-split, label %.split247.us, !llvm.loop !8
 
 195:                                              ; preds = %.lr.ph243
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 8
@@ -1397,7 +1397,7 @@ define dso_local noundef zeroext i1 @is_dummy_rel(ptr noundef readonly captures(
 
 9:                                                ; preds = %7, %7
   %.1.in = getelementptr inbounds nuw i8, ptr %.0, i64 80
-  br label %7, !llvm.loop !10
+  br label %7
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 80
@@ -1451,7 +1451,7 @@ define internal fastcc void @populate_joinrel_with_paths(ptr noundef %0, ptr nou
 
 20:                                               ; preds = %18, %18
   %.1.in.i = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
-  br label %18, !llvm.loop !10
+  br label %18
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
@@ -1482,7 +1482,7 @@ define internal fastcc void @populate_joinrel_with_paths(ptr noundef %0, ptr nou
 
 32:                                               ; preds = %30, %30
   %.1.in.i134 = getelementptr inbounds nuw i8, ptr %.0.i131, i64 80
-  br label %30, !llvm.loop !10
+  br label %30
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %.0.i131, i64 80
@@ -1569,7 +1569,7 @@ is_dummy_rel.exit:                                ; preds = %54, %50, %33, %21
 
 65:                                               ; preds = %63, %63
   %.1.in.i141 = getelementptr inbounds nuw i8, ptr %.0.i138, i64 80
-  br label %63, !llvm.loop !10
+  br label %63
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %.0.i138, i64 80
@@ -1720,7 +1720,7 @@ restriction_is_constant_false.exit158.thread:     ; preds = %.critedge.i154, %.l
 
 133:                                              ; preds = %131, %131
   %.1.in.i164 = getelementptr inbounds nuw i8, ptr %.0.i161, i64 80
-  br label %131, !llvm.loop !10
+  br label %131
 
 134:                                              ; preds = %131
   %135 = getelementptr inbounds nuw i8, ptr %.0.i161, i64 80
@@ -1751,7 +1751,7 @@ is_dummy_rel.exit165:                             ; preds = %134
 
 145:                                              ; preds = %143, %143
   %.1.in.i171 = getelementptr inbounds nuw i8, ptr %.0.i168, i64 80
-  br label %143, !llvm.loop !10
+  br label %143
 
 146:                                              ; preds = %143
   %147 = getelementptr inbounds nuw i8, ptr %.0.i168, i64 80
@@ -1877,7 +1877,7 @@ restriction_is_constant_false.exit182:            ; preds = %.critedge.us.i179, 
 
 209:                                              ; preds = %207, %207
   %.1.in.i188 = getelementptr inbounds nuw i8, ptr %.0.i185, i64 80
-  br label %207, !llvm.loop !10
+  br label %207
 
 210:                                              ; preds = %207
   %211 = getelementptr inbounds nuw i8, ptr %.0.i185, i64 80
@@ -1908,7 +1908,7 @@ restriction_is_constant_false.exit182:            ; preds = %.critedge.us.i179, 
 
 221:                                              ; preds = %219, %219
   %.1.in.i195 = getelementptr inbounds nuw i8, ptr %.0.i192, i64 80
-  br label %219, !llvm.loop !10
+  br label %219
 
 222:                                              ; preds = %219
   %223 = getelementptr inbounds nuw i8, ptr %.0.i192, i64 80
@@ -2010,7 +2010,7 @@ is_dummy_rel.exit189:                             ; preds = %243, %239, %222, %2
 
 264:                                              ; preds = %262, %262
   %.1.in.i202 = getelementptr inbounds nuw i8, ptr %.0.i199, i64 80
-  br label %262, !llvm.loop !10
+  br label %262
 
 265:                                              ; preds = %262
   %266 = getelementptr inbounds nuw i8, ptr %.0.i199, i64 80
@@ -2041,7 +2041,7 @@ is_dummy_rel.exit189:                             ; preds = %243, %239, %222, %2
 
 276:                                              ; preds = %274, %274
   %.1.in.i209 = getelementptr inbounds nuw i8, ptr %.0.i206, i64 80
-  br label %274, !llvm.loop !10
+  br label %274
 
 277:                                              ; preds = %274
   %278 = getelementptr inbounds nuw i8, ptr %.0.i206, i64 80
@@ -2128,7 +2128,7 @@ is_dummy_rel.exit203:                             ; preds = %298, %294, %277, %2
 
 309:                                              ; preds = %307, %307
   %.1.in.i216 = getelementptr inbounds nuw i8, ptr %.0.i213, i64 80
-  br label %307, !llvm.loop !10
+  br label %307
 
 310:                                              ; preds = %307
   %311 = getelementptr inbounds nuw i8, ptr %.0.i213, i64 80
@@ -2332,7 +2332,7 @@ restriction_is_constant_false.exit239.thread:     ; preds = %.critedge.i235, %.l
 
 406:                                              ; preds = %404, %404
   %.1.in.i266 = getelementptr inbounds nuw i8, ptr %.0.i263, i64 80
-  br label %404, !llvm.loop !10
+  br label %404
 
 407:                                              ; preds = %404
   %408 = getelementptr inbounds nuw i8, ptr %.0.i263, i64 80
@@ -2482,7 +2482,7 @@ list_head.exit:                                   ; preds = %436, %list_head.exi
 
 478:                                              ; preds = %476, %476
   %.1.in.i255 = getelementptr inbounds nuw i8, ptr %.0.i252, i64 80
-  br label %476, !llvm.loop !10
+  br label %476
 
 479:                                              ; preds = %476
   %480 = getelementptr inbounds nuw i8, ptr %.0.i252, i64 80
@@ -2521,7 +2521,7 @@ is_dummy_rel.exit256:                             ; preds = %.loopexit.i253, %47
 
 493:                                              ; preds = %491, %491
   %.1.in.i248 = getelementptr inbounds nuw i8, ptr %.0.i245, i64 80
-  br label %491, !llvm.loop !10
+  br label %491
 
 494:                                              ; preds = %491
   %495 = getelementptr inbounds nuw i8, ptr %.0.i245, i64 80
@@ -2645,7 +2645,7 @@ is_dummy_rel.exit249:                             ; preds = %.loopexit.i246, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %549 = sext i32 %548 to i64
   %550 = icmp slt i64 %indvars.iv.next, %549
-  br i1 %550, label %444, label %try_partitionwise_join.exit, !llvm.loop !13
+  br i1 %550, label %444, label %try_partitionwise_join.exit, !llvm.loop !10
 
 try_partitionwise_join.exit:                      ; preds = %547, %list_head.exit, %546, %407, %373, %381, %385, %388, %391, %395, %.loopexit.i264, %413, %416, %420, %423
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
@@ -2791,7 +2791,7 @@ define dso_local void @mark_dummy_rel(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %7, %7
   %.1.in.i = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
-  br label %7, !llvm.loop !10
+  br label %7
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
@@ -3014,7 +3014,7 @@ list_length.exit:                                 ; preds = %56, %58
   %106 = load i32, ptr %8, align 8
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %indvars.iv.next.i.us, %107
-  br i1 %108, label %.lr.ph.i.split.us, label %get_matching_part_pairs.exit, !llvm.loop !14
+  br i1 %108, label %.lr.ph.i.split.us, label %get_matching_part_pairs.exit, !llvm.loop !11
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i
   switch i32 %.fr45, label %.lr.ph.i.split.split [
@@ -3059,7 +3059,7 @@ list_length.exit:                                 ; preds = %56, %58
   %128 = load i32, ptr %8, align 8
   %129 = sext i32 %128 to i64
   %130 = icmp slt i64 %indvars.iv.next.i.us44, %129
-  br i1 %130, label %.lr.ph.i.split.split.us, label %get_matching_part_pairs.exit, !llvm.loop !16
+  br i1 %130, label %.lr.ph.i.split.split.us, label %get_matching_part_pairs.exit, !llvm.loop !13
 
 .lr.ph.i.split.split:                             ; preds = %.lr.ph.i.split, %144
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %144 ], [ 0, %.lr.ph.i.split ]
@@ -3094,7 +3094,7 @@ list_length.exit:                                 ; preds = %56, %58
   %149 = load i32, ptr %8, align 8
   %150 = sext i32 %149 to i64
   %151 = icmp slt i64 %indvars.iv.next.i, %150
-  br i1 %151, label %.lr.ph.i.split.split, label %get_matching_part_pairs.exit, !llvm.loop !17
+  br i1 %151, label %.lr.ph.i.split.split, label %get_matching_part_pairs.exit, !llvm.loop !14
 
 get_matching_part_pairs.exit:                     ; preds = %101, %123, %144, %73, %55, %63, %69
   ret void
@@ -3249,14 +3249,11 @@ attributes #10 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.partial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !12, !7, !9}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12, !7}
-!14 = distinct !{!14, !12, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !12, !7, !15}
-!17 = distinct !{!17, !12, !7}
+!7 = !{!"llvm.loop.unswitch.partial.disable"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !9, !12}
+!14 = distinct !{!14, !9}

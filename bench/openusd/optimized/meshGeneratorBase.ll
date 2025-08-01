@@ -158,12 +158,12 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase27_
   %65 = getelementptr inbounds nuw i8, ptr %.3108, i64 16
   store i32 %64, ptr %63, align 4
   %exitcond123.not = icmp eq i64 %57, %1
-  br i1 %exitcond123.not, label %66, label %52, !llvm.loop !7
+  br i1 %exitcond123.not, label %66, label %52, !llvm.loop !6
 
 66:                                               ; preds = %52
   %67 = add nuw i64 %.078113, 1
   %exitcond124.not = icmp eq i64 %67, %2
-  br i1 %exitcond124.not, label %._crit_edge, label %.preheader, !llvm.loop !8
+  br i1 %exitcond124.not, label %._crit_edge, label %.preheader, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %66, %51
   %.188.lcssa = phi i64 [ %.087, %51 ], [ %invariant.op, %66 ]
@@ -198,7 +198,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase27_
   %83 = getelementptr inbounds nuw i8, ptr %.4117, i64 12
   store i32 %72, ptr %82, align 4
   %exitcond126.not = icmp eq i64 %78, %1
-  br i1 %exitcond126.not, label %.loopexit, label %73, !llvm.loop !9
+  br i1 %exitcond126.not, label %.loopexit, label %73, !llvm.loop !8
 
 .loopexit:                                        ; preds = %73, %._crit_edge
   %84 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21PxOsdOpenSubdivTokensE seq_cst, align 8
@@ -338,9 +338,8 @@ attributes #8 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

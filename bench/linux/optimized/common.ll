@@ -315,12 +315,12 @@ define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 a
 38:                                               ; preds = %36, %32, %27
   %39 = add nuw nsw i64 %28, 1
   %40 = icmp eq i64 %39, 6
-  br i1 %40, label %.loopexit.us, label %27, !llvm.loop !10
+  br i1 %40, label %.loopexit.us, label %27, !llvm.loop !9
 
 .loopexit.us:                                     ; preds = %38
   %41 = load ptr, ptr %25, align 8
   %42 = icmp eq ptr %41, %2
-  br i1 %42, label %.loopexit4, label %.preheader.us, !llvm.loop !11
+  br i1 %42, label %.loopexit4, label %.preheader.us, !llvm.loop !10
 
 .preheader:                                       ; preds = %.split, %68
   %43 = phi ptr [ %69, %68 ], [ %3, %.split ]
@@ -349,7 +349,7 @@ define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 a
 56:                                               ; preds = %54, %50, %45
   %57 = add nuw nsw i64 %46, 1
   %58 = icmp eq i64 %57, 6
-  br i1 %58, label %.loopexit, label %45, !llvm.loop !10
+  br i1 %58, label %.loopexit, label %45, !llvm.loop !9
 
 .loopexit:                                        ; preds = %56
   %59 = getelementptr i8, ptr %43, i64 1304
@@ -372,7 +372,7 @@ define dso_local void @pcibios_fixup_bus(ptr noundef %0) local_unnamed_addr #0 a
 68:                                               ; preds = %66, %63, %.loopexit
   %69 = load ptr, ptr %43, align 8
   %70 = icmp eq ptr %69, %2
-  br i1 %70, label %.loopexit4, label %.preheader, !llvm.loop !12
+  br i1 %70, label %.loopexit4, label %.preheader, !llvm.loop !11
 
 .loopexit4:                                       ; preds = %68, %.loopexit.us, %22, %1
   ret void
@@ -930,7 +930,7 @@ define dso_local noundef range(i32 -12, 1) i32 @pcibios_device_add(ptr noundef c
   %64 = load i64, ptr %13, align 8
   tail call void @memunmap(ptr noundef nonnull %13) #10
   %65 = icmp eq i64 %64, 0
-  br i1 %65, label %.loopexit3, label %11, !llvm.loop !13
+  br i1 %65, label %.loopexit3, label %11, !llvm.loop !12
 
 .loopexit3:                                       ; preds = %63, %1
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1003,7 +1003,7 @@ define dso_local void @pcibios_disable_device(ptr noundef %0) local_unnamed_addr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pcibios_release_device(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 -1, ptr nonnull elementtype(i32) %2) #10, !srcloc !14
+  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 -1, ptr nonnull elementtype(i32) %2) #10, !srcloc !13
   %4 = add i32 %3, -1
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %15
@@ -1134,13 +1134,12 @@ attributes #13 = { cold }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8, !9}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !6, !7}
 !10 = distinct !{!10, !6, !7, !8}
-!11 = distinct !{!11, !6, !7, !8, !9}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = !{i64 2148706719, i64 2148706758, i64 2148706779, i64 2148706816, i64 2148706839, i64 2148706848}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = !{i64 2148706719, i64 2148706758, i64 2148706779, i64 2148706816, i64 2148706839, i64 2148706848}

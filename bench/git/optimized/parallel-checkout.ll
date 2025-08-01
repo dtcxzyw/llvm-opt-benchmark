@@ -614,7 +614,7 @@ advance_progress_meter.exit.i:                    ; preds = %21, %19, %.lr.ph.i
 35:                                               ; preds = %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %30
-  br i1 %exitcond.not.i, label %51, label %36, !llvm.loop !49
+  br i1 %exitcond.not.i, label %51, label %36, !llvm.loop !48
 
 36:                                               ; preds = %35, %29
   %indvars.iv.i = phi i64 [ 0, %29 ], [ %indvars.iv.next.i, %35 ]
@@ -623,9 +623,9 @@ advance_progress_meter.exit.i:                    ; preds = %21, %19, %.lr.ph.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %39 = load i16, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 80
-  store i32 -1, ptr %40, align 8, !tbaa !50
+  store i32 -1, ptr %40, align 8, !tbaa !49
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 84
-  store i32 -1, ptr %41, align 4, !tbaa !54
+  store i32 -1, ptr %41, align 4, !tbaa !53
   %42 = or i16 %39, 264
   store i16 %42, ptr %38, align 8
   %43 = tail call ptr @strvec_push(ptr noundef %37, ptr noundef nonnull @.str.20) #17
@@ -661,7 +661,7 @@ advance_progress_meter.exit.i:                    ; preds = %21, %19, %.lr.ph.i
   %58 = zext i1 %57 to i64
   %spec.select.i = add nuw i64 %53, %58
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 80
-  %60 = load i32, ptr %59, align 8, !tbaa !55
+  %60 = load i32, ptr %59, align 8, !tbaa !54
   %61 = tail call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #17
   %.not.i.i15 = icmp eq i64 %spec.select.i, 0
   br i1 %.not.i.i15, label %send_batch.exit.i, label %.lr.ph.i.i
@@ -672,7 +672,7 @@ advance_progress_meter.exit.i:                    ; preds = %21, %19, %.lr.ph.i
   %63 = getelementptr %struct.parallel_checkout_item, ptr %62, i64 %.03742.i
   %64 = getelementptr %struct.parallel_checkout_item, ptr %63, i64 %.07.i.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %66 = load ptr, ptr %65, align 8, !tbaa !57
+  %66 = load ptr, ptr %65, align 8, !tbaa !56
   %67 = load ptr, ptr %64, align 8, !tbaa !26
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %69 = load i32, ptr %68, align 8, !tbaa !15
@@ -691,31 +691,31 @@ advance_progress_meter.exit.i:                    ; preds = %21, %19, %.lr.ph.i
   %77 = tail call ptr @xmalloc(i64 noundef %76) #17
   %78 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %79 = load i64, ptr %78, align 8, !tbaa !32
-  store i64 %79, ptr %77, align 8, !tbaa !58
+  store i64 %79, ptr %77, align 8, !tbaa !57
   %80 = load ptr, ptr %64, align 8, !tbaa !26
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 52
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 44
-  store i32 %82, ptr %83, align 4, !tbaa !60
+  store i32 %82, ptr %83, align 4, !tbaa !59
   %84 = getelementptr inbounds nuw i8, ptr %64, i64 20
-  %85 = load i32, ptr %84, align 4, !tbaa !61
+  %85 = load i32, ptr %84, align 4, !tbaa !60
   %86 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  store i32 %85, ptr %86, align 8, !tbaa !62
+  store i32 %85, ptr %86, align 8, !tbaa !61
   %87 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %88 = load i32, ptr %87, align 8, !tbaa !63
+  %88 = load i32, ptr %87, align 8, !tbaa !62
   %89 = getelementptr inbounds nuw i8, ptr %77, i64 52
-  store i32 %88, ptr %89, align 4, !tbaa !64
+  store i32 %88, ptr %89, align 4, !tbaa !63
   %90 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  store i64 %70, ptr %90, align 8, !tbaa !65
+  store i64 %70, ptr %90, align 8, !tbaa !64
   %91 = getelementptr inbounds nuw i8, ptr %77, i64 56
-  store i64 %74, ptr %91, align 8, !tbaa !66
+  store i64 %74, ptr %91, align 8, !tbaa !65
   %92 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %93 = getelementptr inbounds nuw i8, ptr %80, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %92, ptr noundef nonnull readonly align 4 dereferenceable(32) %93, i64 32, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %80, i64 104
-  %95 = load i32, ptr %94, align 4, !tbaa !67
+  %95 = load i32, ptr %94, align 4, !tbaa !66
   %96 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  store i32 %95, ptr %96, align 4, !tbaa !67
+  store i32 %95, ptr %96, align 4, !tbaa !66
   %97 = getelementptr inbounds nuw i8, ptr %77, i64 72
   %.not37.i.i.i = icmp eq i64 %74, 0
   br i1 %.not37.i.i.i, label %send_one_item.exit.i.i, label %98
@@ -734,19 +734,19 @@ send_one_item.exit.i.i:                           ; preds = %98, %73
   tail call void @free(ptr noundef nonnull %77) #17
   %102 = add nuw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %102, %spec.select.i
-  br i1 %exitcond.not.i.i, label %send_batch.exit.i, label %.lr.ph.i.i, !llvm.loop !68
+  br i1 %exitcond.not.i.i, label %send_batch.exit.i, label %.lr.ph.i.i, !llvm.loop !67
 
 send_batch.exit.i:                                ; preds = %send_one_item.exit.i.i, %55
   tail call void @packet_flush(i32 noundef %60) #17
   %103 = tail call i32 @sigchain_pop(i32 noundef 13) #17
   %104 = getelementptr inbounds nuw i8, ptr %56, i64 120
-  store i64 %.03742.i, ptr %104, align 8, !tbaa !69
+  store i64 %.03742.i, ptr %104, align 8, !tbaa !68
   %105 = getelementptr inbounds nuw i8, ptr %56, i64 128
-  store i64 %spec.select.i, ptr %105, align 8, !tbaa !70
+  store i64 %spec.select.i, ptr %105, align 8, !tbaa !69
   %106 = add i64 %spec.select.i, %.03742.i
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %30
-  br i1 %exitcond49.not.i, label %setup_workers.exit, label %55, !llvm.loop !71
+  br i1 %exitcond49.not.i, label %setup_workers.exit, label %55, !llvm.loop !70
 
 setup_workers.exit:                               ; preds = %send_batch.exit.i
   %107 = tail call ptr @xcalloc(i64 noundef %30, i64 noundef 8) #17
@@ -755,14 +755,14 @@ setup_workers.exit:                               ; preds = %send_batch.exit.i
 108:                                              ; preds = %108, %setup_workers.exit
   %indvars.iv.i16 = phi i64 [ 0, %setup_workers.exit ], [ %indvars.iv.next.i17, %108 ]
   %109 = getelementptr inbounds nuw %struct.pc_worker, ptr %32, i64 %indvars.iv.i16, i32 0, i32 8
-  %110 = load i32, ptr %109, align 4, !tbaa !72
+  %110 = load i32, ptr %109, align 4, !tbaa !71
   %111 = getelementptr inbounds nuw %struct.pollfd, ptr %107, i64 %indvars.iv.i16
-  store i32 %110, ptr %111, align 4, !tbaa !73
+  store i32 %110, ptr %111, align 4, !tbaa !72
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  store i16 1, ptr %112, align 4, !tbaa !76
+  store i16 1, ptr %112, align 4, !tbaa !75
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, %30
-  br i1 %exitcond.not.i18, label %.preheader50.i, label %108, !llvm.loop !77
+  br i1 %exitcond.not.i18, label %.preheader50.i, label %108, !llvm.loop !76
 
 .preheader50.i:                                   ; preds = %108, %.loopexit.i
   %.03769.i = phi i32 [ %.138.i, %.loopexit.i ], [ %spec.select, %108 ]
@@ -778,7 +778,7 @@ setup_workers.exit:                               ; preds = %send_batch.exit.i
   %116 = tail call ptr @__errno_location() #18
   %117 = load i32, ptr %116, align 4, !tbaa !15
   %118 = icmp eq i32 %117, 4
-  br i1 %118, label %.loopexit.i, label %119, !llvm.loop !78
+  br i1 %118, label %.loopexit.i, label %119, !llvm.loop !77
 
 119:                                              ; preds = %115
   tail call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.23) #19
@@ -791,7 +791,7 @@ setup_workers.exit:                               ; preds = %send_batch.exit.i
   %120 = getelementptr inbounds nuw %struct.pc_worker, ptr %32, i64 %indvars.iv79.i
   %121 = getelementptr inbounds nuw %struct.pollfd, ptr %107, i64 %indvars.iv79.i
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 6
-  %123 = load i16, ptr %122, align 2, !tbaa !79
+  %123 = load i16, ptr %122, align 2, !tbaa !78
   %.not45.i = icmp eq i16 %123, 0
   br i1 %.not45.i, label %176, label %124
 
@@ -801,7 +801,7 @@ setup_workers.exit:                               ; preds = %send_batch.exit.i
   br i1 %.not46.i, label %168, label %126
 
 126:                                              ; preds = %124
-  %127 = load i32, ptr %121, align 4, !tbaa !73
+  %127 = load i32, ptr %121, align 4, !tbaa !72
   %128 = tail call i32 @packet_read(i32 noundef %127, ptr noundef nonnull @packet_buffer, i32 noundef 65520, i32 noundef 0) #17
   %129 = icmp slt i32 %128, 0
   br i1 %129, label %130, label %131
@@ -815,7 +815,7 @@ setup_workers.exit:                               ; preds = %send_batch.exit.i
   br i1 %.not49.i, label %132, label %134
 
 132:                                              ; preds = %131
-  store i32 -1, ptr %121, align 4, !tbaa !73
+  store i32 -1, ptr %121, align 4, !tbaa !72
   %133 = add nsw i32 %.267.i, -1
   br label %parse_and_save_result.exit.i
 
@@ -828,7 +828,7 @@ setup_workers.exit:                               ; preds = %send_batch.exit.i
   unreachable
 
 137:                                              ; preds = %134
-  %138 = load i32, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 8), align 8, !tbaa !80
+  %138 = load i32, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 8), align 8, !tbaa !79
   %.not24.i.i = icmp eq i32 %138, 1
   br i1 %.not24.i.i, label %139, label %141
 
@@ -851,7 +851,7 @@ setup_workers.exit:                               ; preds = %send_batch.exit.i
 assert_pc_item_result_size.exit.i.i:              ; preds = %141, %139
   %.0.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 16), %139 ], [ null, %141 ]
   %143 = getelementptr inbounds nuw i8, ptr %120, i64 128
-  %144 = load i64, ptr %143, align 8, !tbaa !70
+  %144 = load i64, ptr %143, align 8, !tbaa !69
   %.not.i.i20 = icmp eq i64 %144, 0
   br i1 %.not.i.i20, label %145, label %146
 
@@ -860,9 +860,9 @@ assert_pc_item_result_size.exit.i.i:              ; preds = %141, %139
   unreachable
 
 146:                                              ; preds = %assert_pc_item_result_size.exit.i.i
-  %147 = load i64, ptr @packet_buffer, align 16, !tbaa !82
+  %147 = load i64, ptr @packet_buffer, align 16, !tbaa !81
   %148 = getelementptr inbounds nuw i8, ptr %120, i64 120
-  %149 = load i64, ptr %148, align 8, !tbaa !69
+  %149 = load i64, ptr %148, align 8, !tbaa !68
   %.not22.i.i = icmp eq i64 %147, %149
   br i1 %.not22.i.i, label %151, label %150
 
@@ -872,9 +872,9 @@ assert_pc_item_result_size.exit.i.i:              ; preds = %141, %139
 
 151:                                              ; preds = %146
   %152 = add i64 %147, 1
-  store i64 %152, ptr %148, align 8, !tbaa !69
+  store i64 %152, ptr %148, align 8, !tbaa !68
   %153 = add i64 %144, -1
-  store i64 %153, ptr %143, align 8, !tbaa !70
+  store i64 %153, ptr %143, align 8, !tbaa !69
   %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 8), align 8, !tbaa !25
   %155 = getelementptr inbounds nuw %struct.parallel_checkout_item, ptr %154, i64 %147
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 56
@@ -883,8 +883,8 @@ assert_pc_item_result_size.exit.i.i:              ; preds = %141, %139
 
 157:                                              ; preds = %151
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %158, ptr noundef nonnull align 8 dereferenceable(144) %.0.i.i, i64 144, i1 false), !tbaa.struct !83
-  %.pre.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 8), align 8, !tbaa !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %158, ptr noundef nonnull align 8 dereferenceable(144) %.0.i.i, i64 144, i1 false), !tbaa.struct !82
+  %.pre.i.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @packet_buffer, i64 8), align 8, !tbaa !79
   br label %159
 
 159:                                              ; preds = %157, %151
@@ -912,7 +912,7 @@ assert_pc_item_result_size.exit.i.i:              ; preds = %141, %139
   br i1 %.not47.i, label %172, label %170
 
 170:                                              ; preds = %168
-  store i32 -1, ptr %121, align 4, !tbaa !73
+  store i32 -1, ptr %121, align 4, !tbaa !72
   %171 = add nsw i32 %.267.i, -1
   br label %parse_and_save_result.exit.i
 
@@ -937,12 +937,12 @@ parse_and_save_result.exit.i:                     ; preds = %172, %170, %163, %1
   %177 = icmp samesign ult i64 %indvars.iv.next80.i, %30
   %178 = icmp sgt i32 %.140.i, 0
   %179 = select i1 %177, i1 %178, i1 false
-  br i1 %179, label %.lr.ph.i19, label %.loopexit.i, !llvm.loop !84
+  br i1 %179, label %.lr.ph.i19, label %.loopexit.i, !llvm.loop !83
 
 .loopexit.i:                                      ; preds = %176, %115, %.preheader.i
   %.138.i = phi i32 [ %.03769.i, %115 ], [ %.03769.i, %.preheader.i ], [ %.3.i, %176 ]
   %.not.i21 = icmp eq i32 %.138.i, 0
-  br i1 %.not.i21, label %gather_results_from_workers.exit, label %.preheader50.i, !llvm.loop !85
+  br i1 %.not.i21, label %gather_results_from_workers.exit, label %.preheader50.i
 
 gather_results_from_workers.exit:                 ; preds = %.loopexit.i
   tail call void @free(ptr noundef %107) #17
@@ -952,7 +952,7 @@ gather_results_from_workers.exit:                 ; preds = %.loopexit.i
   %indvars.iv.i23 = phi i64 [ 0, %gather_results_from_workers.exit ], [ %indvars.iv.next.i24, %193 ]
   %181 = getelementptr inbounds nuw %struct.pc_worker, ptr %32, i64 %indvars.iv.i23
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 80
-  %183 = load i32, ptr %182, align 8, !tbaa !50
+  %183 = load i32, ptr %182, align 8, !tbaa !49
   %184 = icmp sgt i32 %183, -1
   br i1 %184, label %185, label %187
 
@@ -962,7 +962,7 @@ gather_results_from_workers.exit:                 ; preds = %.loopexit.i
 
 187:                                              ; preds = %185, %180
   %188 = getelementptr inbounds nuw i8, ptr %181, i64 84
-  %189 = load i32, ptr %188, align 4, !tbaa !54
+  %189 = load i32, ptr %188, align 4, !tbaa !53
   %190 = icmp sgt i32 %189, -1
   br i1 %190, label %191, label %193
 
@@ -973,7 +973,7 @@ gather_results_from_workers.exit:                 ; preds = %.loopexit.i
 193:                                              ; preds = %191, %187
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, %30
-  br i1 %exitcond.not.i25, label %.preheader.i26, label %180, !llvm.loop !86
+  br i1 %exitcond.not.i25, label %.preheader.i26, label %180, !llvm.loop !84
 
 .preheader.i26:                                   ; preds = %193, %201
   %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %201 ], [ 0, %193 ]
@@ -991,7 +991,7 @@ gather_results_from_workers.exit:                 ; preds = %.loopexit.i
 201:                                              ; preds = %197, %.preheader.i26
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %30
-  br i1 %exitcond28.not.i, label %finish_workers.exit, label %.preheader.i26, !llvm.loop !87
+  br i1 %exitcond28.not.i, label %finish_workers.exit, label %.preheader.i26, !llvm.loop !85
 
 finish_workers.exit:                              ; preds = %201
   tail call void @free(ptr noundef %32) #17
@@ -1041,7 +1041,7 @@ write_items_sequentially.exit:                    ; preds = %advance_progress_me
   %217 = phi ptr [ %.pre.i, %212 ], [ %207, %.lr.ph.i27 ]
   %218 = add nuw i64 %.01927.i, 1
   %219 = icmp ult i64 %218, %216
-  br i1 %219, label %.lr.ph.i27, label %.preheader.i28, !llvm.loop !88
+  br i1 %219, label %.lr.ph.i27, label %.preheader.i28, !llvm.loop !86
 
 .lr.ph31.i:                                       ; preds = %advance_progress_meter.exit.i29, %.lr.ph31.outer.i
   %220 = phi i64 [ %246, %advance_progress_meter.exit.i29 ], [ %204, %.lr.ph31.outer.i ]
@@ -1099,12 +1099,12 @@ advance_progress_meter.exit.i29:                  ; preds = %239, %231, %228, %2
   %245 = add nuw i64 %.12029.i, 1
   %246 = load i64, ptr getelementptr inbounds nuw (i8, ptr @parallel_checkout, i64 16), align 8, !tbaa !23
   %247 = icmp ult i64 %245, %246
-  br i1 %247, label %.lr.ph31.i, label %._crit_edge.i, !llvm.loop !89
+  br i1 %247, label %.lr.ph31.i, label %._crit_edge.i, !llvm.loop !87
 
 advance_progress_meter.exit.thread.i:             ; preds = %.lr.ph31.i
   %248 = add nuw i64 %.12029.i, 1
   %249 = icmp ult i64 %248, %220
-  br i1 %249, label %.lr.ph31.outer.i, label %._crit_edge.thread45.i, !llvm.loop !89
+  br i1 %249, label %.lr.ph31.outer.i, label %._crit_edge.thread45.i, !llvm.loop !87
 
 ._crit_edge.i:                                    ; preds = %advance_progress_meter.exit.i29
   br i1 %205, label %handle_results.exit, label %._crit_edge.thread45.i
@@ -1288,47 +1288,45 @@ attributes #20 = { nounwind willreturn memory(read) }
 !43 = !{!11, !11, i64 0}
 !44 = !{!5, !12, i64 32}
 !45 = !{!5, !13, i64 40}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !47, !48}
-!50 = !{!51, !6, i64 80}
-!51 = !{!"child_process", !52, i64 0, !52, i64 24, !6, i64 48, !6, i64 52, !11, i64 56, !17, i64 64, !17, i64 72, !6, i64 80, !6, i64 84, !6, i64 88, !17, i64 96, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 105, !6, i64 105, !10, i64 112}
-!52 = !{!"strvec", !53, i64 0, !11, i64 8, !11, i64 16}
-!53 = !{!"p2 omnipotent char", !10, i64 0}
-!54 = !{!51, !6, i64 84}
-!55 = !{!56, !6, i64 80}
-!56 = !{!"pc_worker", !51, i64 0, !11, i64 120, !11, i64 128}
-!57 = !{!27, !17, i64 32}
-!58 = !{!59, !11, i64 0}
-!59 = !{!"pc_item_fixed_portion", !11, i64 0, !39, i64 8, !6, i64 44, !6, i64 48, !6, i64 52, !11, i64 56, !11, i64 64}
-!60 = !{!59, !6, i64 44}
-!61 = !{!27, !6, i64 20}
-!62 = !{!59, !6, i64 48}
-!63 = !{!27, !6, i64 24}
-!64 = !{!59, !6, i64 52}
-!65 = !{!59, !11, i64 64}
-!66 = !{!59, !11, i64 56}
-!67 = !{!39, !6, i64 32}
-!68 = distinct !{!68, !47, !48}
-!69 = !{!56, !11, i64 120}
-!70 = !{!56, !11, i64 128}
-!71 = distinct !{!71, !47, !48}
-!72 = !{!56, !6, i64 84}
-!73 = !{!74, !6, i64 0}
-!74 = !{!"pollfd", !6, i64 0, !75, i64 4, !75, i64 6}
-!75 = !{!"short", !7, i64 0}
-!76 = !{!74, !75, i64 4}
-!77 = distinct !{!77, !47, !48}
-!78 = distinct !{!78, !47}
-!79 = !{!74, !75, i64 6}
-!80 = !{!81, !6, i64 8}
-!81 = !{!"pc_item_result", !11, i64 0, !6, i64 8, !29, i64 16}
-!82 = !{!81, !11, i64 0}
-!83 = !{i64 0, i64 8, !43, i64 8, i64 8, !43, i64 16, i64 8, !43, i64 24, i64 4, !15, i64 28, i64 4, !15, i64 32, i64 4, !15, i64 36, i64 4, !15, i64 40, i64 8, !43, i64 48, i64 8, !43, i64 56, i64 8, !43, i64 64, i64 8, !43, i64 72, i64 8, !43, i64 80, i64 8, !43, i64 88, i64 8, !43, i64 96, i64 8, !43, i64 104, i64 8, !43, i64 112, i64 8, !43, i64 120, i64 24, !14}
-!84 = distinct !{!84, !47, !48}
-!85 = distinct !{!85, !48}
-!86 = distinct !{!86, !47, !48}
-!87 = distinct !{!87, !47, !48}
-!88 = distinct !{!88, !47, !48}
-!89 = distinct !{!89, !47, !48}
+!48 = distinct !{!48, !47}
+!49 = !{!50, !6, i64 80}
+!50 = !{!"child_process", !51, i64 0, !51, i64 24, !6, i64 48, !6, i64 52, !11, i64 56, !17, i64 64, !17, i64 72, !6, i64 80, !6, i64 84, !6, i64 88, !17, i64 96, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 104, !6, i64 105, !6, i64 105, !10, i64 112}
+!51 = !{!"strvec", !52, i64 0, !11, i64 8, !11, i64 16}
+!52 = !{!"p2 omnipotent char", !10, i64 0}
+!53 = !{!50, !6, i64 84}
+!54 = !{!55, !6, i64 80}
+!55 = !{!"pc_worker", !50, i64 0, !11, i64 120, !11, i64 128}
+!56 = !{!27, !17, i64 32}
+!57 = !{!58, !11, i64 0}
+!58 = !{!"pc_item_fixed_portion", !11, i64 0, !39, i64 8, !6, i64 44, !6, i64 48, !6, i64 52, !11, i64 56, !11, i64 64}
+!59 = !{!58, !6, i64 44}
+!60 = !{!27, !6, i64 20}
+!61 = !{!58, !6, i64 48}
+!62 = !{!27, !6, i64 24}
+!63 = !{!58, !6, i64 52}
+!64 = !{!58, !11, i64 64}
+!65 = !{!58, !11, i64 56}
+!66 = !{!39, !6, i64 32}
+!67 = distinct !{!67, !47}
+!68 = !{!55, !11, i64 120}
+!69 = !{!55, !11, i64 128}
+!70 = distinct !{!70, !47}
+!71 = !{!55, !6, i64 84}
+!72 = !{!73, !6, i64 0}
+!73 = !{!"pollfd", !6, i64 0, !74, i64 4, !74, i64 6}
+!74 = !{!"short", !7, i64 0}
+!75 = !{!73, !74, i64 4}
+!76 = distinct !{!76, !47}
+!77 = distinct !{!77, !47}
+!78 = !{!73, !74, i64 6}
+!79 = !{!80, !6, i64 8}
+!80 = !{!"pc_item_result", !11, i64 0, !6, i64 8, !29, i64 16}
+!81 = !{!80, !11, i64 0}
+!82 = !{i64 0, i64 8, !43, i64 8, i64 8, !43, i64 16, i64 8, !43, i64 24, i64 4, !15, i64 28, i64 4, !15, i64 32, i64 4, !15, i64 36, i64 4, !15, i64 40, i64 8, !43, i64 48, i64 8, !43, i64 56, i64 8, !43, i64 64, i64 8, !43, i64 72, i64 8, !43, i64 80, i64 8, !43, i64 88, i64 8, !43, i64 96, i64 8, !43, i64 104, i64 8, !43, i64 112, i64 8, !43, i64 120, i64 24, !14}
+!83 = distinct !{!83, !47}
+!84 = distinct !{!84, !47}
+!85 = distinct !{!85, !47}
+!86 = distinct !{!86, !47}
+!87 = distinct !{!87, !47}

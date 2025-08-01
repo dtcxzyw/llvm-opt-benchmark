@@ -681,7 +681,7 @@ define internal fastcc void @_lib_lighttable_update_btn(ptr readonly captures(no
   tail call void @gtk_widget_queue_draw(ptr noundef %27) #8
   %31 = tail call ptr @g_list_delete_link(ptr noundef nonnull %.0414, ptr noundef nonnull %.0414) #8
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !109
+  br i1 %.not, label %._crit_edge, label %26
 
 .thread:                                          ; preds = %._crit_edge
   %32 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.25, i32 noundef 5) #8
@@ -763,7 +763,7 @@ define internal void @_lib_lighttable_zoom_slider_changed(ptr noundef %0, ptr no
 15:                                               ; preds = %2, %2
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.7, i32 noundef %6) #8
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !87
-  %17 = load ptr, ptr %16, align 8, !tbaa !111
+  %17 = load ptr, ptr %16, align 8, !tbaa !109
   %18 = tail call ptr @dt_ui_thumbtable(ptr noundef %17) #8
   %19 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %20 = load i32, ptr %19, align 8, !tbaa !77
@@ -782,7 +782,7 @@ define internal noundef i32 @_lib_lighttable_zoom_entry_changed(ptr noundef %0, 
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = load i32, ptr %6, align 4, !tbaa !112
+  %7 = load i32, ptr %6, align 4, !tbaa !110
   switch i32 %7, label %40 [
     i32 65307, label %8
     i32 65289, label %8
@@ -829,7 +829,7 @@ define internal noundef i32 @_lib_lighttable_zoom_entry_changed(ptr noundef %0, 
   tail call void @gtk_entry_set_text(ptr noundef %17, ptr noundef %13) #8
   tail call void @g_free(ptr noundef %13) #8
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !87
-  %19 = load ptr, ptr %18, align 8, !tbaa !111
+  %19 = load ptr, ptr %18, align 8, !tbaa !109
   %20 = tail call ptr @dt_ui_main_window(ptr noundef %19) #8
   %21 = tail call i64 @gtk_window_get_type() #10
   %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %21) #8
@@ -850,7 +850,7 @@ define internal noundef i32 @_lib_lighttable_zoom_entry_changed(ptr noundef %0, 
   %34 = sitofp i32 %30 to double
   tail call void @gtk_range_set_value(ptr noundef %33, double noundef %34) #8
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !87
-  %36 = load ptr, ptr %35, align 8, !tbaa !111
+  %36 = load ptr, ptr %35, align 8, !tbaa !109
   %37 = tail call ptr @dt_ui_main_window(ptr noundef %36) #8
   %38 = tail call i64 @gtk_window_get_type() #10
   %39 = tail call ptr @g_type_check_instance_cast(ptr noundef %37, i64 noundef %38) #8
@@ -1253,9 +1253,7 @@ attributes #10 = { nounwind willreturn memory(none) }
 !106 = !{!55, !55, i64 0}
 !107 = !{!108, !13, i64 0}
 !108 = !{!"_GList", !13, i64 0, !12, i64 8, !12, i64 16}
-!109 = distinct !{!109, !110}
-!110 = !{!"llvm.loop.estimated_trip_count"}
-!111 = !{!89, !90, i64 0}
-!112 = !{!113, !9, i64 28}
-!113 = !{!"_GdkEventKey", !9, i64 0, !101, i64 8, !10, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !38, i64 40, !114, i64 48, !10, i64 50, !9, i64 51}
-!114 = !{!"short", !10, i64 0}
+!109 = !{!89, !90, i64 0}
+!110 = !{!111, !9, i64 28}
+!111 = !{!"_GdkEventKey", !9, i64 0, !101, i64 8, !10, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !38, i64 40, !112, i64 48, !10, i64 50, !9, i64 51}
+!112 = !{!"short", !10, i64 0}

@@ -190,7 +190,7 @@ _ZNSt6vectorIPN3gmx21ITopologyHolderClientESaIS2_EED2Ev.exit: ; preds = %24, %26
 .noexc:                                           ; preds = %.lr.ph.i
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 8
   %.not.i = icmp eq ptr %39, %33
-  br i1 %.not.i, label %_ZN3gmx14TopologyHolder19updateLocalTopologyEv.exit, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %_ZN3gmx14TopologyHolder19updateLocalTopologyEv.exit, label %.lr.ph.i
 
 _ZN3gmx14TopologyHolder19updateLocalTopologyEv.exit: ; preds = %.noexc, %31
   ret void
@@ -226,7 +226,7 @@ define void @_ZN3gmx14TopologyHolder19updateLocalTopologyEv(ptr noundef nonnull 
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %13, %5
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %7
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -235,7 +235,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(768) ptr @_ZNK3gmx14TopologyHolder14globalTopologyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !55
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   ret ptr %3
 }
 
@@ -250,7 +250,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvvEZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #2 align 2 {
-  %.val = load ptr, ptr %0, align 8, !tbaa !56
+  %.val = load ptr, ptr %0, align 8, !tbaa !54
   %2 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !50
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 32
@@ -272,7 +272,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3gmx14TopologyHolder22regi
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %13, %5
-  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %7, !llvm.loop !53
+  br i1 %.not.i.i.i.i, label %"_ZSt10__invoke_rIvRZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %7
 
 "_ZSt10__invoke_rIvRZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit": ; preds = %7, %1
   ret void
@@ -287,11 +287,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN3gmx14Topolo
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0", ptr %0, align 8, !tbaa !58
+  store ptr @"_ZTIZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0", ptr %0, align 8, !tbaa !56
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !60
+  store ptr %1, ptr %0, align 8, !tbaa !58
   br label %"_ZNSt14_Function_base13_Base_managerIZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -314,7 +314,7 @@ define void @_ZN3gmx14TopologyHolder7Builder14registerClientEPNS_21ITopologyHold
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !61
+  %6 = load i32, ptr %5, align 8, !tbaa !59
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %17
 
@@ -436,7 +436,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !64
+  store ptr %4, ptr %0, align 8, !tbaa !62
   %5 = icmp eq ptr %1, null
   br i1 %5, label %.noexc, label %6
 
@@ -447,15 +447,15 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 6:                                                ; preds = %2
   %7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
-  store i64 %7, ptr %3, align 8, !tbaa !67
+  store i64 %7, ptr %3, align 8, !tbaa !65
   %8 = icmp ugt i64 %7, 15
   br i1 %8, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %6
   %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-  store ptr %9, ptr %0, align 8, !tbaa !69
-  %10 = load i64, ptr %3, align 8, !tbaa !67
-  store i64 %10, ptr %4, align 8, !tbaa !71
+  store ptr %9, ptr %0, align 8, !tbaa !67
+  %10 = load i64, ptr %3, align 8, !tbaa !65
+  store i64 %10, ptr %4, align 8, !tbaa !69
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i, %6
@@ -466,8 +466,8 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
   ]
 
 12:                                               ; preds = %._crit_edge.i.i
-  %13 = load i8, ptr %1, align 1, !tbaa !71
-  store i8 %13, ptr %11, align 1, !tbaa !71
+  %13 = load i8, ptr %1, align 1, !tbaa !69
+  store i8 %13, ptr %11, align 1, !tbaa !69
   br label %15
 
 14:                                               ; preds = %._crit_edge.i.i
@@ -475,12 +475,12 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
   br label %15
 
 15:                                               ; preds = %14, %12, %._crit_edge.i.i
-  %16 = load i64, ptr %3, align 8, !tbaa !67
+  %16 = load i64, ptr %3, align 8, !tbaa !65
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %16, ptr %17, align 8, !tbaa !72
-  %18 = load ptr, ptr %0, align 8, !tbaa !69
+  store i64 %16, ptr %17, align 8, !tbaa !70
+  %18 = load ptr, ptr %0, align 8, !tbaa !67
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %16
-  store i8 0, ptr %19, align 1, !tbaa !71
+  store i8 0, ptr %19, align 1, !tbaa !69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
@@ -491,7 +491,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8, !tbaa !18
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8, !tbaa !71
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -503,9 +503,9 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !76
+  store i32 0, ptr %5, align 8, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !78
+  store i32 0, ptr %10, align 4, !tbaa !76
   %11 = load ptr, ptr %3, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -517,13 +517,13 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   br label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
-  %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !71
+  %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !69
   %.not.i.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i.i, label %21, label %19
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !79
+  store i32 %20, ptr %5, align 4, !tbaa !77
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 21:                                               ; preds = %17
@@ -533,7 +533,7 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   %.0.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !80
+  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !78
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
@@ -550,15 +550,15 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #11
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !81
+  %3 = load ptr, ptr %2, align 8, !tbaa !79
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !84
+  %5 = load ptr, ptr %4, align 8, !tbaa !82
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %8, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i ], [ %3, %1 ]
-  %6 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !85
+  %6 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !83
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i, label %7
 
@@ -569,10 +569,10 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !87
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !85
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8, !tbaa !81
+  %.pr.i = load ptr, ptr %2, align 8, !tbaa !79
   br label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %1
@@ -582,7 +582,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !89
+  %12 = load ptr, ptr %11, align 8, !tbaa !87
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -590,20 +590,20 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
   br label %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit
 
 _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, %10
-  %16 = load ptr, ptr %0, align 8, !tbaa !69
+  %16 = load ptr, ptr %0, align 8, !tbaa !67
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !72
+  %20 = load i64, ptr %19, align 8, !tbaa !70
   %21 = icmp ult i64 %20, 16
   tail call void @llvm.assume(i1 %21)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EED2Ev.exit
-  %22 = load i64, ptr %17, align 8, !tbaa !71
+  %22 = load i64, ptr %17, align 8, !tbaa !69
   %23 = add i64 %22, 1
   tail call void @_ZdlPvm(ptr noundef %16, i64 noundef %23) #19
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -626,7 +626,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 define linkonce_odr void @_ZN3gmx29SimulationAlgorithmSetupErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8, !tbaa !18
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8, !tbaa !71
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZN3gmx16GromacsExceptionD2Ev.exit, label %4
 
@@ -638,9 +638,9 @@ define linkonce_odr void @_ZN3gmx29SimulationAlgorithmSetupErrorD0Ev(ptr noundef
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !76
+  store i32 0, ptr %5, align 8, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !78
+  store i32 0, ptr %10, align 4, !tbaa !76
   %11 = load ptr, ptr %3, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -652,13 +652,13 @@ define linkonce_odr void @_ZN3gmx29SimulationAlgorithmSetupErrorD0Ev(ptr noundef
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
 
 17:                                               ; preds = %4
-  %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !71
+  %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !69
   %.not.i.i.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i.i.i, label %21, label %19
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !79
+  store i32 %20, ptr %5, align 4, !tbaa !77
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 21:                                               ; preds = %17
@@ -668,7 +668,7 @@ define linkonce_odr void @_ZN3gmx29SimulationAlgorithmSetupErrorD0Ev(ptr noundef
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %21, %19
   %.0.i.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZN3gmx16GromacsExceptionD2Ev.exit, !prof !80
+  br i1 %23, label %24, label %_ZN3gmx16GromacsExceptionD2Ev.exit, !prof !78
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
@@ -697,14 +697,14 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !71
+  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !69
   %.not.i = icmp eq i8 %6, 0
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !79
+  %8 = load i32, ptr %5, align 4, !tbaa !77
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !79
+  store i32 %9, ptr %5, align 4, !tbaa !77
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -827,40 +827,38 @@ attributes #22 = { builtin allocsize(0) }
 !50 = !{!6, !6, i64 0}
 !51 = !{!52, !52, i64 0}
 !52 = !{!"p1 _ZTSN3gmx21ITopologyHolderClientE", !8, i64 0}
-!53 = distinct !{!53, !54}
-!54 = !{!"llvm.loop.estimated_trip_count"}
-!55 = !{!23, !21, i64 8}
-!56 = !{!57, !13, i64 0}
-!57 = !{!"_ZTSZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0", !13, i64 0}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"p1 _ZTSSt9type_info", !8, i64 0}
-!60 = !{!8, !8, i64 0}
-!61 = !{!62, !63, i64 24}
-!62 = !{!"_ZTSN3gmx14TopologyHolder7BuilderE", !26, i64 0, !63, i64 24}
-!63 = !{!"_ZTSN3gmx28ModularSimulatorBuilderStateE", !9, i64 0}
-!64 = !{!65, !66, i64 0}
-!65 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !66, i64 0}
-!66 = !{!"p1 omnipotent char", !8, i64 0}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"long", !9, i64 0}
-!69 = !{!70, !66, i64 0}
-!70 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !65, i64 0, !68, i64 8, !9, i64 16}
-!71 = !{!9, !9, i64 0}
-!72 = !{!70, !68, i64 8}
-!73 = !{!74, !75, i64 0}
-!74 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !75, i64 0}
-!75 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !8, i64 0}
-!76 = !{!77, !33, i64 8}
-!77 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !33, i64 8, !33, i64 12}
-!78 = !{!77, !33, i64 12}
-!79 = !{!33, !33, i64 0}
-!80 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!81 = !{!82, !83, i64 0}
-!82 = !{!"_ZTSNSt12_Vector_baseINSt15__exception_ptr13exception_ptrESaIS1_EE17_Vector_impl_dataE", !83, i64 0, !83, i64 8, !83, i64 16}
-!83 = !{!"p1 _ZTSNSt15__exception_ptr13exception_ptrE", !8, i64 0}
-!84 = !{!82, !83, i64 8}
-!85 = !{!86, !8, i64 0}
-!86 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !8, i64 0}
-!87 = distinct !{!87, !88, !54}
-!88 = !{!"llvm.loop.mustprogress"}
-!89 = !{!82, !83, i64 16}
+!53 = !{!23, !21, i64 8}
+!54 = !{!55, !13, i64 0}
+!55 = !{!"_ZTSZN3gmx14TopologyHolder22registerDomDecCallbackEvE3$_0", !13, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTSSt9type_info", !8, i64 0}
+!58 = !{!8, !8, i64 0}
+!59 = !{!60, !61, i64 24}
+!60 = !{!"_ZTSN3gmx14TopologyHolder7BuilderE", !26, i64 0, !61, i64 24}
+!61 = !{!"_ZTSN3gmx28ModularSimulatorBuilderStateE", !9, i64 0}
+!62 = !{!63, !64, i64 0}
+!63 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !64, i64 0}
+!64 = !{!"p1 omnipotent char", !8, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"long", !9, i64 0}
+!67 = !{!68, !64, i64 0}
+!68 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !63, i64 0, !66, i64 8, !9, i64 16}
+!69 = !{!9, !9, i64 0}
+!70 = !{!68, !66, i64 8}
+!71 = !{!72, !73, i64 0}
+!72 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !73, i64 0}
+!73 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !8, i64 0}
+!74 = !{!75, !33, i64 8}
+!75 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !33, i64 8, !33, i64 12}
+!76 = !{!75, !33, i64 12}
+!77 = !{!33, !33, i64 0}
+!78 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!79 = !{!80, !81, i64 0}
+!80 = !{!"_ZTSNSt12_Vector_baseINSt15__exception_ptr13exception_ptrESaIS1_EE17_Vector_impl_dataE", !81, i64 0, !81, i64 8, !81, i64 16}
+!81 = !{!"p1 _ZTSNSt15__exception_ptr13exception_ptrE", !8, i64 0}
+!82 = !{!80, !81, i64 8}
+!83 = !{!84, !8, i64 0}
+!84 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !8, i64 0}
+!85 = distinct !{!85, !86}
+!86 = !{!"llvm.loop.mustprogress"}
+!87 = !{!80, !81, i64 16}

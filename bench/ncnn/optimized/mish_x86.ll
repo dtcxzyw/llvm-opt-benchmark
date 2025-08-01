@@ -263,23 +263,23 @@ define internal void @_ZNK4ncnn8Mish_x8615forward_inplaceERNS_3MatERKNS_6OptionE
 .lr.ph147:                                        ; preds = %.preheader, %.lr.ph147
   %.1146 = phi i32 [ %146, %.lr.ph147 ], [ %.0.lcssa, %.preheader ]
   %.128145 = phi ptr [ %145, %.lr.ph147 ], [ %.027.lcssa, %.preheader ]
-  %139 = load float, ptr %.128145, align 4, !tbaa !47
+  %139 = load float, ptr %.128145, align 4, !tbaa !46
   %140 = call fast float @llvm.exp.f32(float %139)
   %141 = fadd fast float %140, 1.000000e+00
   %142 = call fast float @llvm.log.f32(float %141)
   %143 = call fast float @llvm.tanh.f32(float %142)
   %144 = fmul fast float %143, %139
-  store float %144, ptr %.128145, align 4, !tbaa !47
+  store float %144, ptr %.128145, align 4, !tbaa !46
   %145 = getelementptr inbounds nuw i8, ptr %.128145, i64 4
   %146 = add nuw nsw i32 %.1146, 1
   %exitcond.not = icmp eq i32 %146, %30
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph147, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph147, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph147, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond155.not = icmp eq i32 %21, %lftr.wideiv
-  br i1 %exitcond155.not, label %._crit_edge150, label %.noexc, !llvm.loop !50
+  br i1 %exitcond155.not, label %._crit_edge150, label %.noexc
 
 ._crit_edge150:                                   ; preds = %._crit_edge, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -320,7 +320,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #7
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare !callback !51 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
+declare !callback !49 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #9
@@ -397,12 +397,10 @@ attributes #12 = { builtin nounwind }
 !41 = !{!5, !10, i64 64}
 !42 = !{!5, !10, i64 16}
 !43 = !{!7, !7, i64 0}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"float", !7, i64 0}
-!49 = distinct !{!49, !45, !46}
-!50 = distinct !{!50, !46}
-!51 = !{!52}
-!52 = !{i64 2, i64 -1, i64 -1, i1 true}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"float", !7, i64 0}
+!48 = distinct !{!48, !45}
+!49 = !{!50}
+!50 = !{i64 2, i64 -1, i64 -1, i1 true}

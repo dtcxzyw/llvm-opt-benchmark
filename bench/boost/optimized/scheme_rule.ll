@@ -170,7 +170,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit16: ; preds = %_
   %60 = ptrtoint ptr %59 to i64
   %61 = sub i64 %33, %60
   %62 = icmp sgt i64 %61, 15
-  br i1 %62, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !27
+  br i1 %62, label %.lr.ph.i.i.i.i, label %.preheader.i.i.i.i
 
 .lr.ph37.i.i.i.i:                                 ; preds = %72, %.lr.ph37.preheader.i.i.i.i
   %.22336.i.i.i.i = phi ptr [ %73, %72 ], [ %.021.lcssa.i.i.i.i, %.lr.ph37.preheader.i.i.i.i ]
@@ -189,7 +189,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit16: ; preds = %_
 72:                                               ; preds = %.lr.ph37.i.i.i.i
   %73 = getelementptr inbounds nuw i8, ptr %.22336.i.i.i.i, i64 1
   %.not.i.i.i.i = icmp eq ptr %73, %3
-  br i1 %.not.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph37.i.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i.i, label %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, label %.lr.ph37.i.i.i.i, !llvm.loop !26
 
 _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds = %.lr.ph37.i.i.i.i, %72, %.preheader.i.i.i.i, %.thread.i.i.i.i
   %.2.i.i.i.i = phi ptr [ %57, %.thread.i.i.i.i ], [ %.021.lcssa.i.i.i.i, %.preheader.i.i.i.i ], [ %scevgep.i.i.i.i, %72 ], [ %.22336.i.i.i.i, %.lr.ph37.i.i.i.i ]
@@ -202,13 +202,13 @@ _ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit: ; preds
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %76, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !19
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %77, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !29
+  store i16 %77, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !27
   br label %78
 
 78:                                               ; preds = %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit16, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit
   %.sink = phi i32 [ 1, %_ZN5boost4urls7grammar11find_if_notINS1_9lut_charsEEEPKcS5_S5_RKT_.exit ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit16 ], [ 2, %_ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sink, ptr %79, align 8, !tbaa !31
+  store i32 %.sink, ptr %79, align 8, !tbaa !29
   ret void
 }
 
@@ -254,12 +254,10 @@ attributes #5 = { nounwind }
 !21 = !{!22}
 !22 = distinct !{!22, !23, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE: argument 0"}
 !23 = distinct !{!23, !"_ZN5boost4urls7grammar15make_error_codeENS1_5errorE"}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !26}
-!28 = distinct !{!28, !25, !26}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"_ZTSN5boost4urls6schemeE", !5, i64 0}
-!31 = !{!32, !12, i64 24}
-!32 = !{!"_ZTSN5boost8variant26detail17variant_base_implILb1ELb1EJNS_4urls6detail11scheme_rule10value_typeENS_6system10error_codeEEEE", !5, i64 0, !12, i64 24}
+!26 = distinct !{!26, !25}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"_ZTSN5boost4urls6schemeE", !5, i64 0}
+!29 = !{!30, !12, i64 24}
+!30 = !{!"_ZTSN5boost8variant26detail17variant_base_implILb1ELb1EJNS_4urls6detail11scheme_rule10value_typeENS_6system10error_codeEEEE", !5, i64 0, !12, i64 24}

@@ -275,7 +275,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
 58:                                               ; preds = %51, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %59, label %51, !llvm.loop !14
+  br i1 %exitcond.not, label %59, label %51, !llvm.loop !13
 
 59:                                               ; preds = %58
   %60 = load ptr, ptr %3, align 8
@@ -301,7 +301,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
 .loopexit:                                        ; preds = %86
   %71 = call ptr @list_next(ptr noundef %69) #8
   %.not58 = icmp eq ptr %71, null
-  br i1 %.not58, label %._crit_edge, label %.preheader, !llvm.loop !15
+  br i1 %.not58, label %._crit_edge, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %65, %.loopexit
   %72 = phi ptr [ %71, %.loopexit ], [ %70, %65 ]
@@ -335,7 +335,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   %.1 = phi i1 [ %.073, %74 ], [ false, %82 ]
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next77, 3
-  br i1 %exitcond78.not, label %.loopexit, label %74, !llvm.loop !16
+  br i1 %exitcond78.not, label %.loopexit, label %74, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %65
   call void @list_iterator_destroy(ptr noundef %69) #8
@@ -666,10 +666,9 @@ attributes #8 = { nounwind }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !11, !12, !13}
-!15 = distinct !{!15, !11, !12, !13}
-!16 = distinct !{!16, !11, !12, !13}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}

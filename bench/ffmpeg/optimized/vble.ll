@@ -201,7 +201,7 @@ vble_unpack.exit.thread:                          ; preds = %56, %vble_unpack.ex
   call fastcc void @vble_restore_plane(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %5, i32 noundef 0, i32 noundef 0, i32 noundef %86, i32 noundef %87)
   %88 = load ptr, ptr %7, align 8, !tbaa !27
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 64
-  %90 = load i32, ptr %89, align 8, !tbaa !50
+  %90 = load i32, ptr %89, align 8, !tbaa !49
   %91 = and i32 %90, 8192
   %.not45 = icmp eq i32 %91, 0
   br i1 %.not45, label %92, label %98
@@ -217,7 +217,7 @@ vble_unpack.exit.thread:                          ; preds = %56, %vble_unpack.ex
   br label %98
 
 98:                                               ; preds = %92, %85
-  store i32 1, ptr %2, align 4, !tbaa !51
+  store i32 1, ptr %2, align 4, !tbaa !50
   %99 = load i32, ptr %16, align 8, !tbaa !39
   br label %100
 
@@ -258,12 +258,12 @@ define internal fastcc void @vble_restore_plane(ptr noundef readonly captures(no
   %9 = alloca i32, align 4
   %10 = zext nneg i32 %3 to i64
   %11 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !52
+  %12 = load ptr, ptr %11, align 8, !tbaa !51
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %10
-  %17 = load i32, ptr %16, align 4, !tbaa !51
+  %17 = load i32, ptr %16, align 4, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
   %18 = icmp sgt i32 %6, 0
@@ -295,12 +295,12 @@ define internal fastcc void @vble_restore_plane(ptr noundef readonly captures(no
   br label %46
 
 31:                                               ; preds = %._crit_edge.us
-  store i32 0, ptr %8, align 4, !tbaa !51
+  store i32 0, ptr %8, align 4, !tbaa !50
   %32 = getelementptr inbounds i8, ptr %.059.us, i64 %25
   %33 = load i8, ptr %32, align 1, !tbaa !40
   %34 = zext i8 %33 to i32
-  store i32 %34, ptr %9, align 4, !tbaa !51
-  %35 = load ptr, ptr %26, align 8, !tbaa !53
+  store i32 %34, ptr %9, align 4, !tbaa !50
+  %35 = load ptr, ptr %26, align 8, !tbaa !52
   %36 = getelementptr inbounds i8, ptr %.059.us, i64 %28
   call void %35(ptr noundef %.059.us, ptr noundef %36, ptr noundef nonnull %.04856.us, i64 noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
   br label %.loopexit.us
@@ -319,7 +319,7 @@ define internal fastcc void @vble_restore_plane(ptr noundef readonly captures(no
   %40 = getelementptr inbounds nuw i8, ptr %.04856.us, i64 %29
   %41 = add nuw nsw i32 %.04758.us, 1
   %exitcond79.not = icmp eq i32 %41, %6
-  br i1 %exitcond79.not, label %._crit_edge61, label %.preheader.us, !llvm.loop !54
+  br i1 %exitcond79.not, label %._crit_edge61, label %.preheader.us, !llvm.loop !53
 
 .lr.ph55.us:                                      ; preds = %.lr.ph55.us.preheader, %.lr.ph55.us
   %store_forwarded = phi i8 [ %load_initial, %.lr.ph55.us.preheader ], [ %45, %.lr.ph55.us ]
@@ -331,7 +331,7 @@ define internal fastcc void @vble_restore_plane(ptr noundef readonly captures(no
   store i8 %45, ptr %44, align 1, !tbaa !40
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
-  br i1 %exitcond78.not, label %.loopexit.us, label %.lr.ph55.us, !llvm.loop !56
+  br i1 %exitcond78.not, label %.loopexit.us, label %.lr.ph55.us, !llvm.loop !55
 
 46:                                               ; preds = %.preheader.us, %72
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %72 ]
@@ -371,7 +371,7 @@ define internal fastcc void @vble_restore_plane(ptr noundef readonly captures(no
 72:                                               ; preds = %49, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond73.not, label %._crit_edge.us, label %46, !llvm.loop !57
+  br i1 %exitcond73.not, label %._crit_edge.us, label %46, !llvm.loop !56
 
 ._crit_edge.us:                                   ; preds = %72
   %.not.us = icmp eq i32 %.04758.us, 0
@@ -385,12 +385,12 @@ define internal fastcc void @vble_restore_plane(ptr noundef readonly captures(no
   br i1 %.not, label %.loopexit, label %73
 
 73:                                               ; preds = %.preheader
-  store i32 0, ptr %8, align 4, !tbaa !51
+  store i32 0, ptr %8, align 4, !tbaa !50
   %74 = getelementptr inbounds i8, ptr %.059, i64 %25
   %75 = load i8, ptr %74, align 1, !tbaa !40
   %76 = zext i8 %75 to i32
-  store i32 %76, ptr %9, align 4, !tbaa !51
-  %77 = load ptr, ptr %26, align 8, !tbaa !53
+  store i32 %76, ptr %9, align 4, !tbaa !50
+  %77 = load ptr, ptr %26, align 8, !tbaa !52
   %78 = getelementptr inbounds i8, ptr %.059, i64 %28
   call void %77(ptr noundef %.059, ptr noundef %78, ptr noundef %.04856, i64 noundef %29, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
   br label %80
@@ -405,7 +405,7 @@ define internal fastcc void @vble_restore_plane(ptr noundef readonly captures(no
   %82 = getelementptr inbounds i8, ptr %.04856, i64 %29
   %83 = add nuw nsw i32 %.04758, 1
   %exitcond.not = icmp eq i32 %83, %6
-  br i1 %exitcond.not, label %._crit_edge61, label %.preheader, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge61, label %.preheader, !llvm.loop !57
 
 ._crit_edge61:                                    ; preds = %80, %.loopexit.us, %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
@@ -474,15 +474,14 @@ attributes #5 = { nounwind }
 !44 = !{!42, !10, i64 24}
 !45 = !{!42, !14, i64 8}
 !46 = !{!42, !10, i64 16}
-!47 = distinct !{!47, !48, !49}
+!47 = distinct !{!47, !48}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!"llvm.loop.estimated_trip_count"}
-!50 = !{!5, !10, i64 64}
-!51 = !{!10, !10, i64 0}
-!52 = !{!14, !14, i64 0}
-!53 = !{!28, !7, i64 16}
-!54 = distinct !{!54, !48, !49, !55}
-!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!56 = distinct !{!56, !48, !49}
-!57 = distinct !{!57, !48, !49}
-!58 = distinct !{!58, !48, !49}
+!49 = !{!5, !10, i64 64}
+!50 = !{!10, !10, i64 0}
+!51 = !{!14, !14, i64 0}
+!52 = !{!28, !7, i64 16}
+!53 = distinct !{!53, !48, !54}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = distinct !{!55, !48}
+!56 = distinct !{!56, !48}
+!57 = distinct !{!57, !48}

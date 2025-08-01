@@ -1637,7 +1637,7 @@ define internal i32 @intel_crt_detect(ptr noundef %0, ptr noundef %1, i1 noundef
   br label %185
 
 185:                                              ; preds = %183, %.split.split
-  br i1 %176, label %.split.split, label %.split7.us, !llvm.loop !38
+  br i1 %176, label %.split.split, label %.split7.us, !llvm.loop !37
 
 .split7.us:                                       ; preds = %185, %166, %.split.split.us, %174
   %186 = load ptr, ptr %154, align 8
@@ -2138,7 +2138,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   %166 = load ptr, ptr %21, align 8
   %167 = tail call i32 %166(ptr noundef nonnull %20, i32 %165, i1 noundef zeroext true) #5
   %168 = icmp ugt i32 %167, %49
-  br i1 %168, label %155, label %169, !llvm.loop !39
+  br i1 %168, label %155, label %169, !llvm.loop !38
 
 169:                                              ; preds = %155
   %170 = sub nsw i32 %154, %49
@@ -2165,7 +2165,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   %189 = load ptr, ptr %21, align 8
   %190 = tail call i32 %189(ptr noundef nonnull %20, i32 %188, i1 noundef zeroext true) #5
   %191 = icmp ugt i32 %190, %177
-  br i1 %191, label %192, label %178, !llvm.loop !40
+  br i1 %191, label %192, label %178, !llvm.loop !39
 
 192:                                              ; preds = %178
   %193 = getelementptr inbounds nuw i8, ptr %.0.val, i64 7496
@@ -2194,7 +2194,7 @@ define internal fastcc range(i32 1, 3) i32 @intel_crt_load_detect(ptr %.0.val, i
   %214 = load ptr, ptr %21, align 8
   %215 = tail call i32 %214(ptr noundef nonnull %20, i32 %213, i1 noundef zeroext true) #5
   %216 = icmp eq i32 %215, %190
-  br i1 %216, label %194, label %217, !llvm.loop !41
+  br i1 %216, label %194, label %217, !llvm.loop !40
 
 217:                                              ; preds = %194
   br i1 %125, label %218, label %230
@@ -2308,12 +2308,11 @@ attributes #6 = { nounwind allocsize(2) }
 !30 = !{i64 2161946209, i64 2161946238, i64 2161946284, i64 2161946342, i64 2161946396, i64 2161946450, i64 2161946505, i64 2161946536, i64 2161946844, i64 2161946850, i64 2161946897, i64 2161946920, i64 2161946946}
 !31 = !{i64 2161947419, i64 2161947230, i64 2161947280, i64 2161947326, i64 2161947354}
 !32 = !{i64 2161947725, i64 2161947536, i64 2161947586, i64 2161947632, i64 2161947660}
-!33 = distinct !{!33, !34, !35, !36, !37}
+!33 = distinct !{!33, !34, !35, !36}
 !34 = !{!"llvm.loop.mustprogress"}
 !35 = !{!"llvm.loop.unroll.disable"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !34, !35, !36}
-!39 = distinct !{!39, !34, !35, !36}
-!40 = distinct !{!40, !34, !35, !36}
-!41 = distinct !{!41, !34, !35, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !34, !35}
+!38 = distinct !{!38, !34, !35}
+!39 = distinct !{!39, !34, !35}
+!40 = distinct !{!40, !34, !35}

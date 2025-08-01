@@ -713,7 +713,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_block_update(ptr noundef %0, ptr
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %55 = load ptr, ptr %54, align 8, !tbaa !23
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !36
+  %57 = load ptr, ptr %56, align 8, !tbaa !35
   %58 = tail call i32 %57(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i64 noundef %50) #6
   %.not124 = icmp eq i32 %58, 0
   br i1 %.not124, label %59, label %60
@@ -747,11 +747,11 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_block_update(ptr noundef %0, ptr
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %71 = load ptr, ptr %70, align 8, !tbaa !37
+  %71 = load ptr, ptr %70, align 8, !tbaa !36
   %72 = load i32, ptr %16, align 8, !tbaa !31
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %75 = load i64, ptr %74, align 8, !tbaa !38
+  %75 = load i64, ptr %74, align 8, !tbaa !37
   %76 = tail call i32 @ossl_cipher_tlsunpadblock(ptr noundef %71, i32 noundef %72, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %10, ptr noundef nonnull %73, ptr noundef nonnull %61, i64 noundef %75, i32 noundef 0) #6
   %.not127 = icmp eq i32 %76, 0
   br i1 %.not127, label %77, label %.critedge
@@ -808,7 +808,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_block_update(ptr noundef %0, ptr
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %101 = load ptr, ptr %100, align 8, !tbaa !23
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %103 = load ptr, ptr %102, align 8, !tbaa !36
+  %103 = load ptr, ptr %102, align 8, !tbaa !35
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %105 = call i32 %103(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %104, i64 noundef %10) #6
   %.not111 = icmp eq i32 %105, 0
@@ -842,7 +842,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_block_update(ptr noundef %0, ptr
 
 115:                                              ; preds = %110
   %.not115 = icmp ult i64 %.094, %10
-  br i1 %.not115, label %116, label %117, !prof !39
+  br i1 %.not115, label %116, label %117, !prof !38
 
 116:                                              ; preds = %115
   call void @ERR_new() #6
@@ -874,7 +874,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_block_update(ptr noundef %0, ptr
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %126 = load ptr, ptr %125, align 8, !tbaa !23
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !36
+  %128 = load ptr, ptr %127, align 8, !tbaa !35
   %129 = load ptr, ptr %7, align 8, !tbaa !29
   %130 = call i32 %128(ptr noundef nonnull %0, ptr noundef %.092, ptr noundef %129, i64 noundef %.2) #6
   %.not117 = icmp eq i32 %130, 0
@@ -1020,7 +1020,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_block_final(ptr noundef %0, ptr 
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %36 = load ptr, ptr %35, align 8, !tbaa !23
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !36
+  %38 = load ptr, ptr %37, align 8, !tbaa !35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = tail call i32 %38(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %39, i64 noundef %6) #6
   %.not59 = icmp eq i32 %40, 0
@@ -1065,7 +1065,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_block_final(ptr noundef %0, ptr 
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %54 = load ptr, ptr %53, align 8, !tbaa !23
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !36
+  %56 = load ptr, ptr %55, align 8, !tbaa !35
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = tail call i32 %56(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef nonnull %57, i64 noundef %6) #6
   %.not53 = icmp eq i32 %58, 0
@@ -1156,7 +1156,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_stream_update(ptr noundef %0, pt
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !36
+  %21 = load ptr, ptr %20, align 8, !tbaa !35
   %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4, i64 noundef %5) #6
   %.not41 = icmp eq i32 %22, 0
   br i1 %.not41, label %23, label %24
@@ -1182,7 +1182,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_stream_update(ptr noundef %0, pt
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %32 = load i32, ptr %31, align 8, !tbaa !40
+  %32 = load i32, ptr %31, align 8, !tbaa !39
   %.not44 = icmp eq i32 %32, 0
   br i1 %.not44, label %40, label %33
 
@@ -1192,7 +1192,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_stream_update(ptr noundef %0, pt
   %36 = load i8, ptr %35, align 1, !tbaa !32
   %37 = zext i8 %36 to i64
   %.not45.not = icmp ugt i64 %5, %37
-  br i1 %.not45.not, label %38, label %56, !prof !41
+  br i1 %.not45.not, label %38, label %56, !prof !40
 
 38:                                               ; preds = %33
   %.neg = xor i64 %37, -1
@@ -1203,15 +1203,15 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_stream_update(ptr noundef %0, pt
 40:                                               ; preds = %38, %30
   %41 = phi i64 [ %39, %38 ], [ %5, %30 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %43 = load i64, ptr %42, align 8, !tbaa !42
+  %43 = load i64, ptr %42, align 8, !tbaa !41
   %.not46 = icmp ult i64 %41, %43
-  br i1 %.not46, label %56, label %44, !prof !39
+  br i1 %.not46, label %56, label %44, !prof !38
 
 44:                                               ; preds = %40
   %45 = sub nuw i64 %41, %43
   store i64 %45, ptr %2, align 8, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %47 = load i64, ptr %46, align 8, !tbaa !38
+  %47 = load i64, ptr %46, align 8, !tbaa !37
   %.not47 = icmp eq i64 %47, 0
   br i1 %.not47, label %56, label %48
 
@@ -1295,7 +1295,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_cipher(ptr noundef %0, ptr nound
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %18 = load ptr, ptr %17, align 8, !tbaa !23
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !36
+  %20 = load ptr, ptr %19, align 8, !tbaa !35
   %21 = tail call i32 %20(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4, i64 noundef %5) #6
   %.not13 = icmp eq i32 %21, 0
   br i1 %.not13, label %22, label %23
@@ -1412,7 +1412,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_get_ctx_params(ptr noundef %0, p
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %51 = load ptr, ptr %50, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %53 = load i64, ptr %52, align 8, !tbaa !38
+  %53 = load i64, ptr %52, align 8, !tbaa !37
   %54 = tail call i32 @OSSL_PARAM_set_octet_ptr(ptr noundef nonnull %48, ptr noundef %51, i64 noundef %53) #6
   %.not59 = icmp eq i32 %54, 0
   br i1 %.not59, label %.sink.split, label %55
@@ -1507,7 +1507,7 @@ define void @ossl_cipher_generic_initkey(ptr noundef captures(none) initializes(
 28:                                               ; preds = %._crit_edge
   %29 = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef nonnull %7) #6
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %29, ptr %30, align 8, !tbaa !37
+  store ptr %29, ptr %30, align 8, !tbaa !36
   br label %31
 
 31:                                               ; preds = %28, %._crit_edge
@@ -1559,13 +1559,12 @@ attributes #6 = { nounwind }
 !30 = !{!12, !10, i64 88}
 !31 = !{!12, !9, i64 112}
 !32 = !{!7, !7, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!25, !6, i64 8}
-!37 = !{!12, !14, i64 184}
-!38 = !{!12, !10, i64 136}
-!39 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!40 = !{!12, !9, i64 144}
-!41 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!42 = !{!12, !10, i64 152}
+!35 = !{!25, !6, i64 8}
+!36 = !{!12, !14, i64 184}
+!37 = !{!12, !10, i64 136}
+!38 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!39 = !{!12, !9, i64 144}
+!40 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!41 = !{!12, !10, i64 152}

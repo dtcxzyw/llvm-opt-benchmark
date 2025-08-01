@@ -275,7 +275,7 @@ dec_month.exit.i:                                 ; preds = %.preheader.i, %.cri
   %126 = add i64 %112, %125
   %127 = add i64 %111, -1
   %128 = icmp slt i64 %126, 0
-  br i1 %128, label %dec_month.exit.i, label %do_range_limit_days_relative.exit.sink.split, !llvm.loop !13
+  br i1 %128, label %dec_month.exit.i, label %do_range_limit_days_relative.exit.sink.split
 
 .lr.ph.i:                                         ; preds = %.preheader14.i, %inc_month.exit.i
   %129 = phi i64 [ %141, %inc_month.exit.i ], [ %.pr46.pre, %.preheader14.i ]
@@ -311,7 +311,7 @@ inc_month.exit.i:                                 ; preds = %.critedge20.i, %133
   %145 = zext i1 %143 to i64
   %.3.i = add i64 %.217.i, %145
   %146 = icmp slt i64 %140, 0
-  br i1 %146, label %.lr.ph.i, label %do_range_limit_days_relative.exit.sink.split, !llvm.loop !15
+  br i1 %146, label %.lr.ph.i, label %do_range_limit_days_relative.exit.sink.split
 
 do_range_limit_days_relative.exit.sink.split:     ; preds = %inc_month.exit.i, %.critedge18.i
   %.lcssa60.sink = phi i64 [ %126, %.critedge18.i ], [ %140, %inc_month.exit.i ]
@@ -360,7 +360,7 @@ do_range_limit.exit43:                            ; preds = %156, %158
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @timelib_do_normalize(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i64, ptr %2, align 8, !tbaa !16
+  %3 = load i64, ptr %2, align 8, !tbaa !13
   %.not = icmp eq i64 %3, -9999999
   br i1 %.not, label %do_range_limit.exit, label %4
 
@@ -399,7 +399,7 @@ define hidden void @timelib_do_normalize(ptr noundef captures(none) %0) local_un
 
 do_range_limit.exit:                              ; preds = %16, %14, %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %22 = load i64, ptr %21, align 8, !tbaa !21
+  %22 = load i64, ptr %21, align 8, !tbaa !18
   %.not23 = icmp eq i64 %22, -9999999
   br i1 %.not23, label %do_range_limit.exit42, label %23
 
@@ -448,14 +448,14 @@ do_range_limit.exit32._crit_edge:                 ; preds = %do_range_limit.exit
   %39 = phi i64 [ %.pre, %do_range_limit.exit32._crit_edge ], [ %36, %do_range_limit.exit32.thread58 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = icmp slt i64 %39, 0
-  %.pre109.pre = load i64, ptr %40, align 8, !tbaa !4
+  %.pre108.pre = load i64, ptr %40, align 8, !tbaa !4
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %38
   %.neg.i35 = xor i64 %39, -1
   %43 = udiv i64 %.neg.i35, 60
   %.neg24.i36 = xor i64 %43, -1
-  %44 = add i64 %.pre109.pre, %.neg24.i36
+  %44 = add i64 %.pre108.pre, %.neg24.i36
   store i64 %44, ptr %40, align 8, !tbaa !4
   %45 = mul nuw nsw i64 %43, 60
   %46 = add nsw i64 %39, 60
@@ -464,7 +464,7 @@ do_range_limit.exit32._crit_edge:                 ; preds = %do_range_limit.exit
   br label %48
 
 48:                                               ; preds = %42, %38
-  %.pre109 = phi i64 [ %44, %42 ], [ %.pre109.pre, %38 ]
+  %.pre108 = phi i64 [ %44, %42 ], [ %.pre108.pre, %38 ]
   %49 = phi i64 [ %47, %42 ], [ %39, %38 ]
   %.fr.i34 = freeze i64 %49
   %.not.i33 = icmp slt i64 %.fr.i34, 60
@@ -472,14 +472,14 @@ do_range_limit.exit32._crit_edge:                 ; preds = %do_range_limit.exit
 
 50:                                               ; preds = %48
   %51 = udiv i64 %.fr.i34, 60
-  %52 = add i64 %.pre109, %51
+  %52 = add i64 %.pre108, %51
   store i64 %52, ptr %40, align 8, !tbaa !4
   %53 = urem i64 %.fr.i34, 60
   store i64 %53, ptr %24, align 8, !tbaa !4
   br label %do_range_limit.exit37
 
 do_range_limit.exit37:                            ; preds = %48, %50
-  %54 = phi i64 [ %.pre109, %48 ], [ %52, %50 ]
+  %54 = phi i64 [ %.pre108, %48 ], [ %52, %50 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = icmp slt i64 %54, 0
   br i1 %56, label %57, label %64
@@ -547,7 +547,7 @@ do_range_limit.exit42:                            ; preds = %do_range_limit.exit
   br label %do_range_limit.exit47
 
 do_range_limit.exit47thread-pre-split:            ; preds = %82
-  %.pr62 = load i64, ptr %0, align 8, !tbaa !22
+  %.pr62 = load i64, ptr %0, align 8, !tbaa !19
   br label %do_range_limit.exit47
 
 do_range_limit.exit47:                            ; preds = %do_range_limit.exit47thread-pre-split, %84
@@ -562,7 +562,7 @@ do_range_limit.exit47:                            ; preds = %do_range_limit.exit
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %96 = load i64, ptr %95, align 8, !tbaa !23
+  %96 = load i64, ptr %95, align 8, !tbaa !20
   %.not26 = icmp eq i64 %96, 1
   %97 = icmp slt i64 %96, -719498
   %or.cond = or i1 %.not26, %97
@@ -612,9 +612,9 @@ do_range_limit.exit47:                            ; preds = %do_range_limit.exit
   %.neg.i48 = sdiv i64 %118, -10
   %119 = add i64 %.026.i, 1
   %120 = add i64 %119, %.neg.i48
-  store i64 %116, ptr %0, align 8, !tbaa !22
-  store i64 %114, ptr %71, align 8, !tbaa !24
-  store i64 %120, ptr %95, align 8, !tbaa !23
+  store i64 %116, ptr %0, align 8, !tbaa !19
+  store i64 %114, ptr %71, align 8, !tbaa !21
+  store i64 %120, ptr %95, align 8, !tbaa !20
   br label %magic_date_calc.exit
 
 magic_date_calc.exit:                             ; preds = %108, %94, %92, %do_range_limit.exit47
@@ -625,7 +625,7 @@ magic_date_calc.exit:                             ; preds = %108, %94, %92, %do_
   br label %122
 
 122:                                              ; preds = %do_range_limit_days.exit, %magic_date_calc.exit
-  %123 = phi i64 [ %194, %do_range_limit_days.exit ], [ %.promoted86, %magic_date_calc.exit ]
+  %123 = phi i64 [ %195, %do_range_limit_days.exit ], [ %.promoted86, %magic_date_calc.exit ]
   %.lcssa7088 = phi i64 [ %.lcssa7089, %do_range_limit_days.exit ], [ %.promoted86, %magic_date_calc.exit ]
   %124 = phi i64 [ %149, %do_range_limit_days.exit ], [ %.promoted85, %magic_date_calc.exit ]
   %.lcssa6878 = phi i64 [ %.lcssa6879, %do_range_limit_days.exit ], [ %.promoted77, %magic_date_calc.exit ]
@@ -707,7 +707,7 @@ do_range_limit.exit.i:                            ; preds = %144, %141
 
 .lr.ph.i:                                         ; preds = %.critedge52.i
   %162 = icmp samesign ugt i64 %163, 1
-  br i1 %162, label %.lr.ph, label %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge, !llvm.loop !25
+  br i1 %162, label %.lr.ph, label %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %163 = phi i64 [ %166, %.lr.ph.i ], [ %.lcssa7094, %.lr.ph.i.preheader ]
@@ -739,7 +739,7 @@ do_range_limit.exit.i:                            ; preds = %144, %141
   %176 = sext i32 %175 to i64
   %177 = add i64 %164, %176
   %178 = icmp slt i64 %177, 1
-  br i1 %178, label %.lr.ph.i, label %.lr.ph59.preheader.i, !llvm.loop !25
+  br i1 %178, label %.lr.ph.i, label %.lr.ph59.preheader.i
 
 .lr.ph59.preheader.i:                             ; preds = %.critedge52.i
   store i64 %177, ptr %121, align 8, !tbaa !4
@@ -748,112 +748,100 @@ do_range_limit.exit.i:                            ; preds = %144, %141
   br i1 %179, label %.lr.ph72.preheader, label %do_range_limit_days.exit
 
 .lr.ph72.preheader:                               ; preds = %158, %.lr.ph59.preheader.i
-  %.0.lcssa.ph.i118 = phi i32 [ 1, %.lr.ph59.preheader.i ], [ 0, %158 ]
-  %.lcssa6882117 = phi i64 [ %177, %.lr.ph59.preheader.i ], [ %.lcssa6884, %158 ]
-  %.lcssa7092116 = phi i64 [ %166, %.lr.ph59.preheader.i ], [ %.lcssa7094, %158 ]
+  %.0.lcssa.ph.i117 = phi i32 [ 1, %.lr.ph59.preheader.i ], [ 0, %158 ]
+  %.lcssa6882116 = phi i64 [ %177, %.lr.ph59.preheader.i ], [ %.lcssa6884, %158 ]
+  %.lcssa7092115 = phi i64 [ %166, %.lr.ph59.preheader.i ], [ %.lcssa7094, %158 ]
   %180 = phi i64 [ %166, %.lr.ph59.preheader.i ], [ %148, %158 ]
-  %181 = getelementptr inbounds i32, ptr %159, i64 %.lcssa7092116
+  %181 = getelementptr inbounds i32, ptr %159, i64 %.lcssa7092115
   %182 = load i32, ptr %181, align 4, !tbaa !12
   %183 = sext i32 %182 to i64
-  %184 = icmp sgt i64 %.lcssa6882117, %183
-  br i1 %184, label %.lr.ph137, label %do_range_limit_days.exit.loopexit
+  %184 = icmp sgt i64 %.lcssa6882116, %183
+  br i1 %184, label %.lr.ph132, label %do_range_limit_days.exit.loopexit
 
-.lr.ph59.i:                                       ; preds = %.lr.ph137
-  %exitcond.not = icmp eq i64 %191, 13
-  br i1 %exitcond.not, label %.lr.ph59.i.do_range_limit_days.exit.loopexit_crit_edge, label %.lr.ph72, !llvm.loop !26
-
-.lr.ph72:                                         ; preds = %.lr.ph59.i
+.lr.ph72:                                         ; preds = %.lr.ph132
   %185 = getelementptr inbounds i32, ptr %159, i64 %191
   %186 = load i32, ptr %185, align 4, !tbaa !12
   %187 = sext i32 %186 to i64
   %188 = icmp sgt i64 %190, %187
-  br i1 %188, label %.lr.ph137, label %do_range_limit_days.exit.loopexit.loopexit, !llvm.loop !26
+  br i1 %188, label %.lr.ph132, label %do_range_limit_days.exit.loopexit.loopexit
 
-.lr.ph137:                                        ; preds = %.lr.ph72.preheader, %.lr.ph72
+.lr.ph132:                                        ; preds = %.lr.ph72.preheader, %.lr.ph72
   %189 = phi i64 [ %187, %.lr.ph72 ], [ %183, %.lr.ph72.preheader ]
-  %.lcssa6881136 = phi i64 [ %190, %.lr.ph72 ], [ %.lcssa6882117, %.lr.ph72.preheader ]
-  %.lcssa7091135 = phi i64 [ %191, %.lr.ph72 ], [ %.lcssa7092116, %.lr.ph72.preheader ]
-  %190 = sub i64 %.lcssa6881136, %189
-  %191 = add nsw i64 %.lcssa7091135, 1
+  %.lcssa6881131 = phi i64 [ %190, %.lr.ph72 ], [ %.lcssa6882116, %.lr.ph72.preheader ]
+  %.lcssa7091130 = phi i64 [ %191, %.lr.ph72 ], [ %.lcssa7092115, %.lr.ph72.preheader ]
+  %190 = sub i64 %.lcssa6881131, %189
+  %191 = add nsw i64 %.lcssa7091130, 1
   %192 = icmp sgt i64 %190, 0
-  br i1 %192, label %.lr.ph59.i, label %.do_range_limit_days.exit.loopexit_crit_edge, !llvm.loop !26
-
-.do_range_limit_days.exit.loopexit_crit_edge:     ; preds = %.lr.ph137
-  store i64 %190, ptr %121, align 8, !tbaa !4
-  store i64 %191, ptr %71, align 8, !tbaa !4
-  br label %do_range_limit_days.exit, !llvm.loop !26
+  %193 = icmp slt i64 %.lcssa7091130, 12
+  %or.cond103 = and i1 %192, %193
+  br i1 %or.cond103, label %.lr.ph72, label %do_range_limit_days.exit.loopexit.loopexit
 
 .lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge: ; preds = %.lr.ph.i
   store i64 %177, ptr %121, align 8, !tbaa !4
   store i64 0, ptr %71, align 8, !tbaa !4
   br label %do_range_limit_days.exit
 
-.lr.ph59.i.do_range_limit_days.exit.loopexit_crit_edge: ; preds = %.lr.ph59.i
-  store i64 %190, ptr %121, align 8, !tbaa !4
-  store i64 %191, ptr %71, align 8, !tbaa !4
-  br label %do_range_limit_days.exit.loopexit, !llvm.loop !26
-
-do_range_limit_days.exit.loopexit.loopexit:       ; preds = %.lr.ph72
+do_range_limit_days.exit.loopexit.loopexit:       ; preds = %.lr.ph72, %.lr.ph132
   store i64 %190, ptr %121, align 8, !tbaa !4
   store i64 %191, ptr %71, align 8, !tbaa !4
   br label %do_range_limit_days.exit.loopexit
 
-do_range_limit_days.exit.loopexit:                ; preds = %do_range_limit_days.exit.loopexit.loopexit, %.lr.ph59.i.do_range_limit_days.exit.loopexit_crit_edge, %.lr.ph72.preheader
-  %.ph = phi i64 [ 13, %.lr.ph59.i.do_range_limit_days.exit.loopexit_crit_edge ], [ %180, %.lr.ph72.preheader ], [ %191, %do_range_limit_days.exit.loopexit.loopexit ]
-  %.lcssa7089.ph = phi i64 [ 13, %.lr.ph59.i.do_range_limit_days.exit.loopexit_crit_edge ], [ %.lcssa7092116, %.lr.ph72.preheader ], [ %191, %do_range_limit_days.exit.loopexit.loopexit ]
-  %.lcssa6879.ph = phi i64 [ %190, %.lr.ph59.i.do_range_limit_days.exit.loopexit_crit_edge ], [ %.lcssa6882117, %.lr.ph72.preheader ], [ %190, %do_range_limit_days.exit.loopexit.loopexit ]
-  %.1.lcssa.i.ph = phi i32 [ 1, %.lr.ph59.i.do_range_limit_days.exit.loopexit_crit_edge ], [ %.0.lcssa.ph.i118, %.lr.ph72.preheader ], [ 1, %do_range_limit_days.exit.loopexit.loopexit ]
-  %193 = icmp eq i32 %.1.lcssa.i.ph, 0
+do_range_limit_days.exit.loopexit:                ; preds = %do_range_limit_days.exit.loopexit.loopexit, %.lr.ph72.preheader
+  %.ph = phi i64 [ %180, %.lr.ph72.preheader ], [ %191, %do_range_limit_days.exit.loopexit.loopexit ]
+  %.lcssa7089.ph = phi i64 [ %.lcssa7092115, %.lr.ph72.preheader ], [ %191, %do_range_limit_days.exit.loopexit.loopexit ]
+  %.lcssa6879.ph = phi i64 [ %.lcssa6882116, %.lr.ph72.preheader ], [ %190, %do_range_limit_days.exit.loopexit.loopexit ]
+  %.1.lcssa.i.ph = phi i32 [ %.0.lcssa.ph.i117, %.lr.ph72.preheader ], [ 1, %do_range_limit_days.exit.loopexit.loopexit ]
+  %194 = icmp eq i32 %.1.lcssa.i.ph, 0
   br label %do_range_limit_days.exit
 
-do_range_limit_days.exit:                         ; preds = %do_range_limit_days.exit.loopexit, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge, %.lr.ph59.preheader.i, %.do_range_limit_days.exit.loopexit_crit_edge
-  %194 = phi i64 [ %191, %.do_range_limit_days.exit.loopexit_crit_edge ], [ %166, %.lr.ph59.preheader.i ], [ 0, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %.ph, %do_range_limit_days.exit.loopexit ]
-  %.lcssa7089 = phi i64 [ %191, %.do_range_limit_days.exit.loopexit_crit_edge ], [ %166, %.lr.ph59.preheader.i ], [ 0, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %.lcssa7089.ph, %do_range_limit_days.exit.loopexit ]
-  %.lcssa6879 = phi i64 [ %190, %.do_range_limit_days.exit.loopexit_crit_edge ], [ %177, %.lr.ph59.preheader.i ], [ %177, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %.lcssa6879.ph, %do_range_limit_days.exit.loopexit ]
-  %.1.lcssa.i = phi i1 [ false, %.do_range_limit_days.exit.loopexit_crit_edge ], [ false, %.lr.ph59.preheader.i ], [ false, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %193, %do_range_limit_days.exit.loopexit ]
-  br i1 %.1.lcssa.i, label %do_range_limit_days.exit.thread, label %122, !llvm.loop !27
+do_range_limit_days.exit:                         ; preds = %do_range_limit_days.exit.loopexit, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge, %.lr.ph59.preheader.i
+  %195 = phi i64 [ %166, %.lr.ph59.preheader.i ], [ 0, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %.ph, %do_range_limit_days.exit.loopexit ]
+  %.lcssa7089 = phi i64 [ %166, %.lr.ph59.preheader.i ], [ 0, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %.lcssa7089.ph, %do_range_limit_days.exit.loopexit ]
+  %.lcssa6879 = phi i64 [ %177, %.lr.ph59.preheader.i ], [ %177, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %.lcssa6879.ph, %do_range_limit_days.exit.loopexit ]
+  %.1.lcssa.i = phi i1 [ false, %.lr.ph59.preheader.i ], [ false, %.lr.ph.i.do_range_limit_days.exit.loopexit63_crit_edge ], [ %194, %do_range_limit_days.exit.loopexit ]
+  br i1 %.1.lcssa.i, label %do_range_limit_days.exit.thread, label %122
 
 do_range_limit_days.exit.thread:                  ; preds = %.lr.ph.i.preheader, %do_range_limit_days.exit
-  %195 = phi i64 [ %194, %do_range_limit_days.exit ], [ %148, %.lr.ph.i.preheader ]
-  %196 = icmp slt i64 %195, 1
-  br i1 %196, label %197, label %204
+  %196 = phi i64 [ %195, %do_range_limit_days.exit ], [ %148, %.lr.ph.i.preheader ]
+  %197 = icmp slt i64 %196, 1
+  br i1 %197, label %198, label %205
 
-197:                                              ; preds = %do_range_limit_days.exit.thread
-  %198 = sub i64 0, %195
-  %199 = sdiv i64 %198, 12
-  %.neg24.i54 = xor i64 %199, -1
-  %200 = add i64 %149, %.neg24.i54
-  store i64 %200, ptr %0, align 8, !tbaa !4
-  %201 = mul nsw i64 %199, 12
-  %202 = add nsw i64 %195, 12
-  %203 = add i64 %202, %201
-  store i64 %203, ptr %71, align 8, !tbaa !4
-  br label %204
+198:                                              ; preds = %do_range_limit_days.exit.thread
+  %199 = sub i64 0, %196
+  %200 = sdiv i64 %199, 12
+  %.neg24.i54 = xor i64 %200, -1
+  %201 = add i64 %149, %.neg24.i54
+  store i64 %201, ptr %0, align 8, !tbaa !4
+  %202 = mul nsw i64 %200, 12
+  %203 = add nsw i64 %196, 12
+  %204 = add i64 %203, %202
+  store i64 %204, ptr %71, align 8, !tbaa !4
+  br label %205
 
-204:                                              ; preds = %197, %do_range_limit_days.exit.thread
-  %205 = phi i64 [ %200, %197 ], [ %149, %do_range_limit_days.exit.thread ]
-  %206 = phi i64 [ %203, %197 ], [ %195, %do_range_limit_days.exit.thread ]
-  %.fr.i52 = freeze i64 %206
+205:                                              ; preds = %198, %do_range_limit_days.exit.thread
+  %206 = phi i64 [ %201, %198 ], [ %149, %do_range_limit_days.exit.thread ]
+  %207 = phi i64 [ %204, %198 ], [ %196, %do_range_limit_days.exit.thread ]
+  %.fr.i52 = freeze i64 %207
   %.not.i51 = icmp slt i64 %.fr.i52, 13
-  br i1 %.not.i51, label %do_range_limit.exit55, label %207
+  br i1 %.not.i51, label %do_range_limit.exit55, label %208
 
-207:                                              ; preds = %204
-  %208 = udiv i64 %.fr.i52, 12
-  %209 = add i64 %205, %208
-  store i64 %209, ptr %0, align 8, !tbaa !4
-  %210 = urem i64 %.fr.i52, 12
-  store i64 %210, ptr %71, align 8, !tbaa !4
+208:                                              ; preds = %205
+  %209 = udiv i64 %.fr.i52, 12
+  %210 = add i64 %206, %209
+  store i64 %210, ptr %0, align 8, !tbaa !4
+  %211 = urem i64 %.fr.i52, 12
+  store i64 %211, ptr %71, align 8, !tbaa !4
   br label %do_range_limit.exit55
 
-do_range_limit.exit55:                            ; preds = %204, %207
+do_range_limit.exit55:                            ; preds = %205, %208
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i64 @timelib_epoch_days_from_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
-  %2 = load i64, ptr %0, align 8, !tbaa !22
+  %2 = load i64, ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !24
+  %4 = load i64, ptr %3, align 8, !tbaa !21
   %5 = icmp slt i64 %4, 3
   %.neg = sext i1 %5 to i64
   %6 = add i64 %2, %.neg
@@ -870,7 +858,7 @@ define hidden i64 @timelib_epoch_days_from_time(ptr noundef readonly captures(no
   %16 = add i64 %15, 2
   %17 = sdiv i64 %16, 5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i64, ptr %18, align 8, !tbaa !23
+  %19 = load i64, ptr %18, align 8, !tbaa !20
   %20 = mul i64 %11, 365
   %21 = sdiv i64 %11, 4
   %.neg17 = sdiv i64 %11, -100
@@ -902,13 +890,13 @@ define hidden void @timelib_update_ts(ptr noundef %0, ptr noundef %1) local_unna
   %10 = alloca i32, align 4
   %11 = alloca i64, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  %13 = load i32, ptr %12, align 4, !tbaa !28
+  %13 = load i32, ptr %12, align 4, !tbaa !22
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %32, label %14
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %16 = load i32, ptr %15, align 8, !tbaa !29
+  %16 = load i32, ptr %15, align 8, !tbaa !23
   switch i32 %16, label %32 [
     i32 2, label %17
     i32 3, label %24
@@ -916,32 +904,32 @@ define hidden void @timelib_update_ts(ptr noundef %0, ptr noundef %1) local_unna
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %18, align 8, !tbaa !23
+  store i64 1, ptr %18, align 8, !tbaa !20
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %20 = load i64, ptr %19, align 8, !tbaa !30
+  %20 = load i64, ptr %19, align 8, !tbaa !24
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !24
+  %22 = load i64, ptr %21, align 8, !tbaa !21
   %23 = add i64 %22, %20
-  store i64 %23, ptr %21, align 8, !tbaa !24
-  store i64 0, ptr %19, align 8, !tbaa !30
+  store i64 %23, ptr %21, align 8, !tbaa !21
+  store i64 0, ptr %19, align 8, !tbaa !24
   br label %32
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %25, align 8, !tbaa !23
+  store i64 1, ptr %25, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %27 = load i64, ptr %26, align 8, !tbaa !30
+  %27 = load i64, ptr %26, align 8, !tbaa !24
   %28 = add i64 %27, 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !24
+  %30 = load i64, ptr %29, align 8, !tbaa !21
   %31 = add i64 %28, %30
-  store i64 %31, ptr %29, align 8, !tbaa !24
-  store i64 0, ptr %26, align 8, !tbaa !30
+  store i64 %31, ptr %29, align 8, !tbaa !21
+  store i64 0, ptr %26, align 8, !tbaa !24
   br label %32
 
 32:                                               ; preds = %24, %17, %14, %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %34 = load i32, ptr %33, align 8, !tbaa !31
+  %34 = load i32, ptr %33, align 8, !tbaa !25
   switch i32 %34, label %do_adjust_special_early.exit [
     i32 1, label %35
     i32 2, label %37
@@ -949,42 +937,42 @@ define hidden void @timelib_update_ts(ptr noundef %0, ptr noundef %1) local_unna
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %36, align 8, !tbaa !23
+  store i64 1, ptr %36, align 8, !tbaa !20
   br label %do_adjust_special_early.exit
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %38, align 8, !tbaa !23
+  store i64 0, ptr %38, align 8, !tbaa !20
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !24
+  %40 = load i64, ptr %39, align 8, !tbaa !21
   %41 = add i64 %40, 1
-  store i64 %41, ptr %39, align 8, !tbaa !24
+  store i64 %41, ptr %39, align 8, !tbaa !21
   br label %do_adjust_special_early.exit
 
 do_adjust_special_early.exit:                     ; preds = %32, %35, %37
   tail call void @timelib_do_normalize(ptr noundef nonnull %0)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %44 = load i32, ptr %43, align 8, !tbaa !32
+  %44 = load i32, ptr %43, align 8, !tbaa !26
   %.not.i18 = icmp eq i32 %44, 0
   br i1 %.not.i18, label %do_adjust_for_weekday.exit.i, label %45
 
 45:                                               ; preds = %do_adjust_special_early.exit
-  %46 = load i64, ptr %0, align 8, !tbaa !22
+  %46 = load i64, ptr %0, align 8, !tbaa !19
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !24
+  %48 = load i64, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load i64, ptr %49, align 8, !tbaa !23
+  %50 = load i64, ptr %49, align 8, !tbaa !20
   %51 = tail call i64 @timelib_day_of_week(i64 noundef %46, i64 noundef %48, i64 noundef %50) #6
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %53 = load i32, ptr %52, align 4, !tbaa !33
+  %53 = load i32, ptr %52, align 4, !tbaa !27
   %54 = icmp eq i32 %53, 2
   br i1 %54, label %55, label %68
 
 55:                                               ; preds = %45
   %56 = icmp eq i64 %51, 0
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %58 = load i32, ptr %57, align 8, !tbaa !34
+  %58 = load i32, ptr %57, align 8, !tbaa !28
   %.not36.i.i = icmp eq i32 %58, 0
   br i1 %56, label %59, label %62
 
@@ -1000,25 +988,25 @@ do_adjust_special_early.exit:                     ; preds = %32, %35, %37
 
 .thread.sink.split.i.i:                           ; preds = %62, %60
   %.sink.i.i = phi i32 [ %61, %60 ], [ 7, %62 ]
-  store i32 %.sink.i.i, ptr %57, align 8, !tbaa !34
+  store i32 %.sink.i.i, ptr %57, align 8, !tbaa !28
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.thread.sink.split.i.i, %62, %59
   %63 = phi i32 [ %58, %62 ], [ 0, %59 ], [ %.sink.i.i, %.thread.sink.split.i.i ]
-  %64 = load i64, ptr %49, align 8, !tbaa !23
+  %64 = load i64, ptr %49, align 8, !tbaa !20
   %65 = sub i64 %64, %51
   %66 = sext i32 %63 to i64
   %67 = add i64 %65, %66
-  store i64 %67, ptr %49, align 8, !tbaa !23
+  store i64 %67, ptr %49, align 8, !tbaa !20
   br label %do_adjust_for_weekday.exit.i
 
 68:                                               ; preds = %45
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %70 = load i32, ptr %69, align 8, !tbaa !34
+  %70 = load i32, ptr %69, align 8, !tbaa !28
   %71 = sext i32 %70 to i64
   %72 = sub i64 %71, %51
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %74 = load i64, ptr %73, align 8, !tbaa !35
+  %74 = load i64, ptr %73, align 8, !tbaa !29
   %75 = icmp slt i64 %74, 0
   %76 = icmp slt i64 %72, 0
   %or.cond3.i.i = select i1 %75, i1 %76, i1 false
@@ -1044,14 +1032,14 @@ do_adjust_special_early.exit:                     ; preds = %32, %35, %37
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %84
-  %87 = load i64, ptr %49, align 8, !tbaa !23
+  %87 = load i64, ptr %49, align 8, !tbaa !20
   %88 = add i64 %87, %.0.i.i
   br label %94
 
 89:                                               ; preds = %84
   %90 = sub i32 0, %70
   %91 = sext i32 %90 to i64
-  %92 = load i64, ptr %49, align 8, !tbaa !23
+  %92 = load i64, ptr %49, align 8, !tbaa !20
   %reass.sub = sub i64 %91, %51
   %.neg35.i.i = add i64 %reass.sub, -7
   %93 = add i64 %.neg35.i.i, %92
@@ -1059,62 +1047,62 @@ do_adjust_special_early.exit:                     ; preds = %32, %35, %37
 
 94:                                               ; preds = %89, %86
   %storemerge.i.i = phi i64 [ %93, %89 ], [ %88, %86 ]
-  store i64 %storemerge.i.i, ptr %49, align 8, !tbaa !23
-  store i32 0, ptr %43, align 8, !tbaa !32
+  store i64 %storemerge.i.i, ptr %49, align 8, !tbaa !20
+  store i32 0, ptr %43, align 8, !tbaa !26
   br label %do_adjust_for_weekday.exit.i
 
 do_adjust_for_weekday.exit.i:                     ; preds = %94, %.thread.i.i, %do_adjust_special_early.exit
   tail call void @timelib_do_normalize(ptr noundef nonnull %0)
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %96 = load i32, ptr %95, align 4, !tbaa !36
+  %96 = load i32, ptr %95, align 4, !tbaa !30
   %.not23.i = icmp eq i32 %96, 0
   br i1 %.not23.i, label %131, label %97
 
 97:                                               ; preds = %do_adjust_for_weekday.exit.i
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %99 = load i64, ptr %98, align 8, !tbaa !37
+  %99 = load i64, ptr %98, align 8, !tbaa !31
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %101 = load i64, ptr %100, align 8, !tbaa !16
+  %101 = load i64, ptr %100, align 8, !tbaa !13
   %102 = add i64 %101, %99
-  store i64 %102, ptr %100, align 8, !tbaa !16
+  store i64 %102, ptr %100, align 8, !tbaa !13
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %104 = load i64, ptr %103, align 8, !tbaa !38
+  %104 = load i64, ptr %103, align 8, !tbaa !32
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %106 = load i64, ptr %105, align 8, !tbaa !21
+  %106 = load i64, ptr %105, align 8, !tbaa !18
   %107 = add i64 %106, %104
-  store i64 %107, ptr %105, align 8, !tbaa !21
+  store i64 %107, ptr %105, align 8, !tbaa !18
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %109 = load i64, ptr %108, align 8, !tbaa !39
+  %109 = load i64, ptr %108, align 8, !tbaa !33
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %111 = load i64, ptr %110, align 8, !tbaa !40
+  %111 = load i64, ptr %110, align 8, !tbaa !34
   %112 = add i64 %111, %109
-  store i64 %112, ptr %110, align 8, !tbaa !40
+  store i64 %112, ptr %110, align 8, !tbaa !34
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %114 = load i64, ptr %113, align 8, !tbaa !41
+  %114 = load i64, ptr %113, align 8, !tbaa !35
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %116 = load i64, ptr %115, align 8, !tbaa !42
+  %116 = load i64, ptr %115, align 8, !tbaa !36
   %117 = add i64 %116, %114
-  store i64 %117, ptr %115, align 8, !tbaa !42
+  store i64 %117, ptr %115, align 8, !tbaa !36
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %119 = load i64, ptr %118, align 8, !tbaa !35
+  %119 = load i64, ptr %118, align 8, !tbaa !29
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %121 = load i64, ptr %120, align 8, !tbaa !23
+  %121 = load i64, ptr %120, align 8, !tbaa !20
   %122 = add i64 %121, %119
-  store i64 %122, ptr %120, align 8, !tbaa !23
+  store i64 %122, ptr %120, align 8, !tbaa !20
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %124 = load i64, ptr %123, align 8, !tbaa !30
+  %124 = load i64, ptr %123, align 8, !tbaa !24
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %126 = load i64, ptr %125, align 8, !tbaa !24
+  %126 = load i64, ptr %125, align 8, !tbaa !21
   %127 = add i64 %126, %124
-  store i64 %127, ptr %125, align 8, !tbaa !24
-  %128 = load i64, ptr %42, align 8, !tbaa !43
-  %129 = load i64, ptr %0, align 8, !tbaa !22
+  store i64 %127, ptr %125, align 8, !tbaa !21
+  %128 = load i64, ptr %42, align 8, !tbaa !37
+  %129 = load i64, ptr %0, align 8, !tbaa !19
   %130 = add i64 %129, %128
-  store i64 %130, ptr %0, align 8, !tbaa !22
+  store i64 %130, ptr %0, align 8, !tbaa !19
   br label %131
 
 131:                                              ; preds = %97, %do_adjust_for_weekday.exit.i
-  %132 = load i32, ptr %33, align 8, !tbaa !31
+  %132 = load i32, ptr %33, align 8, !tbaa !25
   switch i32 %132, label %do_adjust_relative.exit [
     i32 1, label %133
     i32 2, label %135
@@ -1122,42 +1110,42 @@ do_adjust_for_weekday.exit.i:                     ; preds = %94, %.thread.i.i, %
 
 133:                                              ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 1, ptr %134, align 8, !tbaa !23
+  store i64 1, ptr %134, align 8, !tbaa !20
   br label %do_adjust_relative.exit
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %136, align 8, !tbaa !23
+  store i64 0, ptr %136, align 8, !tbaa !20
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %138 = load i64, ptr %137, align 8, !tbaa !24
+  %138 = load i64, ptr %137, align 8, !tbaa !21
   %139 = add i64 %138, 1
-  store i64 %139, ptr %137, align 8, !tbaa !24
+  store i64 %139, ptr %137, align 8, !tbaa !21
   br label %do_adjust_relative.exit
 
 do_adjust_relative.exit:                          ; preds = %131, %133, %135
   tail call void @timelib_do_normalize(ptr noundef nonnull %0)
-  %140 = load i32, ptr %12, align 4, !tbaa !28
+  %140 = load i32, ptr %12, align 4, !tbaa !22
   %.not.i19 = icmp eq i32 %140, 0
   br i1 %.not.i19, label %do_adjust_special.exit, label %141
 
 141:                                              ; preds = %do_adjust_relative.exit
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %143 = load i32, ptr %142, align 8, !tbaa !29
+  %143 = load i32, ptr %142, align 8, !tbaa !23
   %cond.i = icmp eq i32 %143, 1
   br i1 %cond.i, label %144, label %do_adjust_special.exit
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %146 = load i64, ptr %145, align 8, !tbaa !44
-  %147 = load i64, ptr %0, align 8, !tbaa !22
+  %146 = load i64, ptr %145, align 8, !tbaa !38
+  %147 = load i64, ptr %0, align 8, !tbaa !19
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %149 = load i64, ptr %148, align 8, !tbaa !24
+  %149 = load i64, ptr %148, align 8, !tbaa !21
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %151 = load i64, ptr %150, align 8, !tbaa !23
+  %151 = load i64, ptr %150, align 8, !tbaa !20
   %152 = tail call i64 @timelib_day_of_week(i64 noundef %147, i64 noundef %149, i64 noundef %151) #6
   %153 = sdiv i64 %146, 5
   %154 = mul i64 %153, 7
-  %155 = load i64, ptr %150, align 8, !tbaa !23
+  %155 = load i64, ptr %150, align 8, !tbaa !20
   %156 = add i64 %155, %154
   %157 = srem i64 %146, 5
   %158 = icmp sgt i64 %146, 0
@@ -1231,7 +1219,7 @@ do_adjust_relative.exit:                          ; preds = %131, %133, %135
 do_adjust_special_weekday.exit.i:                 ; preds = %184, %182, %178, %176, %175, %170, %168, %164, %162, %161
   %188 = phi i64 [ %156, %175 ], [ %156, %161 ], [ %179, %178 ], [ %177, %176 ], [ %183, %182 ], [ %165, %164 ], [ %163, %162 ], [ %169, %168 ], [ %spec.select.i.i, %170 ], [ %spec.select31.i.i, %184 ]
   %189 = add i64 %188, %157
-  store i64 %189, ptr %150, align 8, !tbaa !23
+  store i64 %189, ptr %150, align 8, !tbaa !20
   br label %do_adjust_special.exit
 
 do_adjust_special.exit:                           ; preds = %do_adjust_relative.exit, %141, %do_adjust_special_weekday.exit.i
@@ -1239,16 +1227,16 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, i8 0, i64 16, i1 false)
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %192 = load i64, ptr %191, align 8, !tbaa !42
+  %192 = load i64, ptr %191, align 8, !tbaa !36
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %194 = load i64, ptr %193, align 8, !tbaa !40
+  %194 = load i64, ptr %193, align 8, !tbaa !34
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %196 = load i64, ptr %195, align 8, !tbaa !21
+  %196 = load i64, ptr %195, align 8, !tbaa !18
   %197 = tail call i64 @timelib_hms_to_seconds(i64 noundef %192, i64 noundef %194, i64 noundef %196) #6
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %199 = load i64, ptr %0, align 8, !tbaa !22
+  %199 = load i64, ptr %0, align 8, !tbaa !19
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %201 = load i64, ptr %200, align 8, !tbaa !24
+  %201 = load i64, ptr %200, align 8, !tbaa !21
   %202 = icmp slt i64 %201, 3
   %.neg.i = sext i1 %202 to i64
   %203 = add i64 %199, %.neg.i
@@ -1265,7 +1253,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   %213 = add i64 %212, 2
   %214 = sdiv i64 %213, 5
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %216 = load i64, ptr %215, align 8, !tbaa !23
+  %216 = load i64, ptr %215, align 8, !tbaa !20
   %217 = mul i64 %208, 365
   %218 = sdiv i64 %208, 4
   %.neg17.i = sdiv i64 %208, -100
@@ -1278,9 +1266,9 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   %225 = add i64 %224, %.neg17.i
   %reass.add = mul i64 %225, 86400
   %226 = add i64 %reass.add, %197
-  store i64 %226, ptr %198, align 8, !tbaa !45
+  store i64 %226, ptr %198, align 8, !tbaa !39
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %228 = load i32, ptr %227, align 8, !tbaa !46
+  %228 = load i32, ptr %227, align 8, !tbaa !40
   switch i32 %228, label %248 [
     i32 1, label %229
     i32 2, label %236
@@ -1289,32 +1277,32 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
 
 229:                                              ; preds = %do_adjust_special.exit
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 1, ptr %230, align 4, !tbaa !47
+  store i32 1, ptr %230, align 4, !tbaa !41
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %232 = load i32, ptr %231, align 8, !tbaa !48
+  %232 = load i32, ptr %231, align 8, !tbaa !42
   %233 = sub i32 0, %232
   %234 = sext i32 %233 to i64
   %235 = add i64 %226, %234
-  store i64 %235, ptr %198, align 8, !tbaa !45
+  store i64 %235, ptr %198, align 8, !tbaa !39
   br label %do_adjust_timezone.exit
 
 236:                                              ; preds = %do_adjust_special.exit
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 1, ptr %237, align 4, !tbaa !47
+  store i32 1, ptr %237, align 4, !tbaa !41
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %239 = load i32, ptr %238, align 8, !tbaa !48
+  %239 = load i32, ptr %238, align 8, !tbaa !42
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %241 = load i32, ptr %240, align 8, !tbaa !49
+  %241 = load i32, ptr %240, align 8, !tbaa !43
   %.neg.i25 = mul i32 %241, -3600
   %242 = sub i32 %.neg.i25, %239
   %243 = sext i32 %242 to i64
   %244 = add i64 %226, %243
-  store i64 %244, ptr %198, align 8, !tbaa !45
+  store i64 %244, ptr %198, align 8, !tbaa !39
   br label %do_adjust_timezone.exit
 
 245:                                              ; preds = %do_adjust_special.exit
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %247 = load ptr, ptr %246, align 8, !tbaa !50
+  %247 = load ptr, ptr %246, align 8, !tbaa !44
   br label %248
 
 248:                                              ; preds = %245, %do_adjust_special.exit
@@ -1334,7 +1322,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
 
 249:                                              ; preds = %248
   %250 = call i32 @timelib_get_time_zone_offset_info(i64 noundef %226, ptr noundef nonnull %.046.i, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
-  %251 = load i64, ptr %198, align 8, !tbaa !45
+  %251 = load i64, ptr %198, align 8, !tbaa !39
   %252 = load i32, ptr %3, align 4, !tbaa !12
   %253 = sext i32 %252 to i64
   %254 = sub i64 %251, %253
@@ -1347,7 +1335,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
 
 260:                                              ; preds = %249
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %262 = load i32, ptr %261, align 8, !tbaa !51
+  %262 = load i32, ptr %261, align 8, !tbaa !45
   %.not55.i = icmp eq i32 %262, 0
   br i1 %.not55.i, label %304, label %263
 
@@ -1358,7 +1346,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
 
 265:                                              ; preds = %263
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %267 = load i32, ptr %266, align 8, !tbaa !49
+  %267 = load i32, ptr %266, align 8, !tbaa !43
   %268 = icmp eq i32 %267, 0
   %269 = icmp ne i32 %.pre.i, 0
   %or.cond.i = select i1 %268, i1 true, i1 %269
@@ -1367,7 +1355,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
 270:                                              ; preds = %265
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
-  %271 = load i64, ptr %198, align 8, !tbaa !45
+  %271 = load i64, ptr %198, align 8, !tbaa !39
   %272 = zext nneg i32 %256 to i64
   %reass.sub28 = sub i64 %271, %272
   %273 = add i64 %reass.sub28, -7200
@@ -1378,7 +1366,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   br i1 %.not56.i, label %284, label %277
 
 277:                                              ; preds = %270
-  %278 = load i64, ptr %198, align 8, !tbaa !45
+  %278 = load i64, ptr %198, align 8, !tbaa !39
   %279 = sext i32 %275 to i64
   %280 = sub i64 %278, %279
   %281 = load i64, ptr %7, align 8, !tbaa !4
@@ -1403,14 +1391,14 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
 
 288:                                              ; preds = %285
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %290 = load i32, ptr %289, align 8, !tbaa !49
+  %290 = load i32, ptr %289, align 8, !tbaa !43
   %.not57.i = icmp eq i32 %290, 0
   br i1 %.not57.i, label %291, label %304
 
 291:                                              ; preds = %288
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #6
-  %292 = load i64, ptr %198, align 8, !tbaa !45
+  %292 = load i64, ptr %198, align 8, !tbaa !39
   %293 = sext i32 %256 to i64
   %reass.sub29 = sub i64 %292, %293
   %294 = add i64 %reass.sub29, 7200
@@ -1421,7 +1409,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   br i1 %.not58.i, label %303, label %298
 
 298:                                              ; preds = %291
-  %299 = load i64, ptr %198, align 8, !tbaa !45
+  %299 = load i64, ptr %198, align 8, !tbaa !39
   %300 = sext i32 %296 to i64
   %301 = sub i64 %299, %300
   %302 = load i64, ptr %11, align 8, !tbaa !4
@@ -1441,9 +1429,9 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   %.043.i = phi i32 [ %256, %288 ], [ %.245.i, %303 ], [ %256, %285 ], [ %.144.i, %284 ], [ %256, %260 ], [ %256, %249 ]
   %.0.i = phi i64 [ %257, %288 ], [ %.2.i, %303 ], [ %257, %285 ], [ %.1.i, %284 ], [ %257, %260 ], [ %257, %249 ]
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 1, ptr %305, align 4, !tbaa !47
+  store i32 1, ptr %305, align 4, !tbaa !41
   %.not60.i = icmp eq i64 %.0.i, -9223372036854775808
-  %.pre70.i = load i64, ptr %198, align 8, !tbaa !45
+  %.pre70.i = load i64, ptr %198, align 8, !tbaa !39
   br i1 %.not60.i, label %314, label %306
 
 306:                                              ; preds = %304
@@ -1464,7 +1452,7 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
   %.047.in.i = sub i32 0, %..043.i
   %.047.i = sext i32 %.047.in.i to i64
   %315 = add i64 %.pre70.i, %.047.i
-  store i64 %315, ptr %198, align 8, !tbaa !45
+  store i64 %315, ptr %198, align 8, !tbaa !39
   call void @timelib_set_timezone(ptr noundef nonnull %0, ptr noundef nonnull %.046.i) #6
   br label %316
 
@@ -1478,11 +1466,11 @@ do_adjust_special.exit:                           ; preds = %do_adjust_relative.
 
 do_adjust_timezone.exit:                          ; preds = %229, %236, %316
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  store i32 1, ptr %317, align 4, !tbaa !52
-  store i32 0, ptr %33, align 8, !tbaa !31
-  store i32 0, ptr %12, align 4, !tbaa !28
-  store i32 0, ptr %43, align 8, !tbaa !32
-  store i32 0, ptr %95, align 4, !tbaa !36
+  store i32 1, ptr %317, align 4, !tbaa !46
+  store i32 0, ptr %33, align 8, !tbaa !25
+  store i32 0, ptr %12, align 4, !tbaa !22
+  store i32 0, ptr %43, align 8, !tbaa !26
+  store i32 0, ptr %95, align 4, !tbaa !30
   ret void
 }
 
@@ -1520,43 +1508,37 @@ attributes #6 = { nounwind }
 !10 = !{!"int", !6, i64 0}
 !11 = !{!"", !10, i64 0, !5, i64 8}
 !12 = !{!10, !10, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}
-!16 = !{!17, !5, i64 48}
-!17 = !{!"_timelib_time", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !10, i64 56, !18, i64 64, !20, i64 72, !10, i64 80, !9, i64 88, !5, i64 192, !10, i64 200, !10, i64 204, !10, i64 208, !10, i64 212, !10, i64 216, !10, i64 220, !10, i64 224, !10, i64 228, !10, i64 232}
-!18 = !{!"p1 omnipotent char", !19, i64 0}
-!19 = !{!"any pointer", !6, i64 0}
-!20 = !{!"p1 _ZTS15_timelib_tzinfo", !19, i64 0}
-!21 = !{!17, !5, i64 40}
-!22 = !{!17, !5, i64 0}
-!23 = !{!17, !5, i64 16}
-!24 = !{!17, !5, i64 8}
-!25 = distinct !{!25, !14}
-!26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14}
-!28 = !{!17, !10, i64 188}
-!29 = !{!17, !10, i64 168}
-!30 = !{!17, !5, i64 96}
-!31 = !{!17, !10, i64 152}
-!32 = !{!17, !10, i64 184}
-!33 = !{!17, !10, i64 148}
-!34 = !{!17, !10, i64 144}
-!35 = !{!17, !5, i64 104}
-!36 = !{!17, !10, i64 212}
-!37 = !{!17, !5, i64 136}
-!38 = !{!17, !5, i64 128}
-!39 = !{!17, !5, i64 120}
-!40 = !{!17, !5, i64 32}
-!41 = !{!17, !5, i64 112}
-!42 = !{!17, !5, i64 24}
-!43 = !{!17, !5, i64 88}
-!44 = !{!17, !5, i64 176}
-!45 = !{!17, !5, i64 192}
-!46 = !{!17, !10, i64 232}
-!47 = !{!17, !10, i64 228}
-!48 = !{!17, !10, i64 56}
-!49 = !{!17, !10, i64 80}
-!50 = !{!17, !20, i64 72}
-!51 = !{!17, !10, i64 208}
-!52 = !{!17, !10, i64 220}
+!13 = !{!14, !5, i64 48}
+!14 = !{!"_timelib_time", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !10, i64 56, !15, i64 64, !17, i64 72, !10, i64 80, !9, i64 88, !5, i64 192, !10, i64 200, !10, i64 204, !10, i64 208, !10, i64 212, !10, i64 216, !10, i64 220, !10, i64 224, !10, i64 228, !10, i64 232}
+!15 = !{!"p1 omnipotent char", !16, i64 0}
+!16 = !{!"any pointer", !6, i64 0}
+!17 = !{!"p1 _ZTS15_timelib_tzinfo", !16, i64 0}
+!18 = !{!14, !5, i64 40}
+!19 = !{!14, !5, i64 0}
+!20 = !{!14, !5, i64 16}
+!21 = !{!14, !5, i64 8}
+!22 = !{!14, !10, i64 188}
+!23 = !{!14, !10, i64 168}
+!24 = !{!14, !5, i64 96}
+!25 = !{!14, !10, i64 152}
+!26 = !{!14, !10, i64 184}
+!27 = !{!14, !10, i64 148}
+!28 = !{!14, !10, i64 144}
+!29 = !{!14, !5, i64 104}
+!30 = !{!14, !10, i64 212}
+!31 = !{!14, !5, i64 136}
+!32 = !{!14, !5, i64 128}
+!33 = !{!14, !5, i64 120}
+!34 = !{!14, !5, i64 32}
+!35 = !{!14, !5, i64 112}
+!36 = !{!14, !5, i64 24}
+!37 = !{!14, !5, i64 88}
+!38 = !{!14, !5, i64 176}
+!39 = !{!14, !5, i64 192}
+!40 = !{!14, !10, i64 232}
+!41 = !{!14, !10, i64 228}
+!42 = !{!14, !10, i64 56}
+!43 = !{!14, !10, i64 80}
+!44 = !{!14, !17, i64 72}
+!45 = !{!14, !10, i64 208}
+!46 = !{!14, !10, i64 220}

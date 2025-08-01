@@ -165,7 +165,7 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 40
   br label %41
 
-41:                                               ; preds = %.lr.ph, %74
+41:                                               ; preds = %.lr.ph, %73
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9) #6
   %42 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %42, 0
@@ -192,7 +192,7 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   store i64 %53, ptr %36, align 8
   %54 = load i32, ptr %8, align 4
   %.not30 = icmp eq i32 %54, -1
-  br i1 %.not30, label %.preheader, label %55
+  br i1 %.not30, label %.loopexit.preheader, label %55
 
 55:                                               ; preds = %44
   %56 = zext i32 %54 to i64
@@ -202,56 +202,56 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
   %58 = call ptr @heap_form_tuple(ptr noundef %57, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %59 = load ptr, ptr %40, align 8
   call void @tuplestore_puttuple(ptr noundef %59, ptr noundef %58) #6
-  br label %.preheader
+  br label %.loopexit.preheader
 
-.preheader:                                       ; preds = %55, %44
-  br label %60
+.loopexit.preheader:                              ; preds = %55, %44
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %67
-  br label %60, !llvm.loop !5
+.loopexit.loopexit:                               ; preds = %66
+  br label %.loopexit, !llvm.loop !5
 
-60:                                               ; preds = %.preheader, %.loopexit
-  %61 = load volatile i32, ptr @InterruptPending, align 4
-  %.not27 = icmp eq i32 %61, 0
-  br i1 %.not27, label %63, label %62, !prof !4
+.loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit.loopexit
+  %60 = load volatile i32, ptr @InterruptPending, align 4
+  %.not27 = icmp eq i32 %60, 0
+  br i1 %.not27, label %62, label %61, !prof !4
 
-62:                                               ; preds = %60
+61:                                               ; preds = %.loopexit
   call void @ProcessInterrupts() #6
-  br label %63
+  br label %62
 
-63:                                               ; preds = %62, %60
-  %64 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %30, ptr noundef nonnull %9, i32 noundef 256) #6
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %74, label %66
+62:                                               ; preds = %61, %.loopexit
+  %63 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %30, ptr noundef nonnull %9, i32 noundef 256) #6
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %73, label %65
 
-66:                                               ; preds = %63
+65:                                               ; preds = %62
   store i64 0, ptr %38, align 8
-  %wide.trip.count = zext i32 %64 to i64
-  br label %67
+  %wide.trip.count = zext i32 %63 to i64
+  br label %66
 
-67:                                               ; preds = %66, %67
-  %indvars.iv = phi i64 [ 0, %66 ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv
-  %69 = load i32, ptr %68, align 4
-  %70 = zext i32 %69 to i64
-  store i64 %70, ptr %37, align 16
-  %71 = load ptr, ptr %39, align 8
-  %72 = call ptr @heap_form_tuple(ptr noundef %71, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
-  %73 = load ptr, ptr %40, align 8
-  call void @tuplestore_puttuple(ptr noundef %73, ptr noundef %72) #6
+66:                                               ; preds = %65, %66
+  %indvars.iv = phi i64 [ 0, %65 ], [ %indvars.iv.next, %66 ]
+  %67 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %68 = load i32, ptr %67, align 4
+  %69 = zext i32 %68 to i64
+  store i64 %69, ptr %37, align 16
+  %70 = load ptr, ptr %39, align 8
+  %71 = call ptr @heap_form_tuple(ptr noundef %70, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
+  %72 = load ptr, ptr %40, align 8
+  call void @tuplestore_puttuple(ptr noundef %72, ptr noundef %71) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %67, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %66, !llvm.loop !5
 
-74:                                               ; preds = %63
+73:                                               ; preds = %62
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #6
-  %75 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %30, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
-  br i1 %75, label %41, label %._crit_edge, !llvm.loop !9
+  %74 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %30, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #6
+  br i1 %74, label %41, label %._crit_edge, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %74, %19
+._crit_edge:                                      ; preds = %73, %19
   call void @DestroyBlockRefTableReader(ptr noundef %30) #6
-  %76 = load i32, ptr %5, align 8
-  call void @FileClose(i32 noundef %76) #6
+  %75 = load i32, ptr %5, align 8
+  call void @FileClose(i32 noundef %75) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #6
@@ -387,7 +387,5 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !8, !6}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

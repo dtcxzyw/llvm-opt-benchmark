@@ -99,7 +99,7 @@ define i32 @Dch_NodeHash(ptr noundef readonly captures(none) %0, ptr noundef rea
   %34 = xor i32 %33, %.230
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %.loopexit, label %.lr.ph31, !llvm.loop !17
+  br i1 %exitcond40.not, label %.loopexit, label %.lr.ph31, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph31, %.preheader25, %.preheader
   %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader25 ], [ %34, %.lr.ph31 ], [ %27, %.lr.ph ]
@@ -147,7 +147,7 @@ define range(i32 0, 2) i32 @Dch_NodeIsConst(ptr noundef readonly captures(none) 
 20:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
@@ -159,7 +159,7 @@ define range(i32 0, 2) i32 @Dch_NodeIsConst(ptr noundef readonly captures(none) 
 23:                                               ; preds = %.lr.ph29
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %.loopexit, label %.lr.ph29, !llvm.loop !19
+  br i1 %exitcond40.not, label %.loopexit, label %.lr.ph29, !llvm.loop !18
 
 .lr.ph29:                                         ; preds = %.lr.ph29.preheader, %23
   %indvars.iv36 = phi i64 [ 0, %.lr.ph29.preheader ], [ %indvars.iv.next37, %23 ]
@@ -222,7 +222,7 @@ define range(i32 0, 2) i32 @Dch_NodesAreEqual(ptr noundef readonly captures(none
 28:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
@@ -237,7 +237,7 @@ define range(i32 0, 2) i32 @Dch_NodesAreEqual(ptr noundef readonly captures(none
 34:                                               ; preds = %.lr.ph38
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
-  br i1 %exitcond49.not, label %.loopexit, label %.lr.ph38, !llvm.loop !21
+  br i1 %exitcond49.not, label %.loopexit, label %.lr.ph38, !llvm.loop !20
 
 .lr.ph38:                                         ; preds = %.lr.ph38.preheader, %34
   %indvars.iv45 = phi i64 [ 0, %.lr.ph38.preheader ], [ %indvars.iv.next46, %34 ]
@@ -266,7 +266,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   %10 = lshr i64 %9, 2
   %11 = trunc i64 %10 to i32
   %12 = getelementptr i8, ptr %0, i64 48
-  %.val98 = load ptr, ptr %12, align 8, !tbaa !22
+  %.val98 = load ptr, ptr %12, align 8, !tbaa !21
   %13 = getelementptr i8, ptr %.val98, i64 36
   %.val97 = load i32, ptr %13, align 4, !tbaa !10
   %14 = sext i32 %.val97 to i64
@@ -277,9 +277,9 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   %18 = and i64 %17, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %16, i8 -1, i64 %18, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !34
+  %20 = load ptr, ptr %19, align 8, !tbaa !33
   %21 = getelementptr i8, ptr %20, i64 4
-  %.val99118 = load i32, ptr %21, align 4, !tbaa !35
+  %.val99118 = load i32, ptr %21, align 4, !tbaa !34
   %22 = icmp sgt i32 %.val99118, 0
   br i1 %22, label %.lr.ph121, label %.critedge.preheader
 
@@ -313,19 +313,19 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   store i32 %33, ptr %34, align 4, !tbaa !13
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %32, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge.us, label %32, !llvm.loop !35
 
 ._crit_edge.us:                                   ; preds = %32
   %35 = load i32, ptr %31, align 4, !tbaa !13
   %36 = shl i32 %35, 1
   store i32 %36, ptr %31, align 4, !tbaa !13
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %37 = load ptr, ptr %19, align 8, !tbaa !34
+  %37 = load ptr, ptr %19, align 8, !tbaa !33
   %38 = getelementptr i8, ptr %37, i64 4
-  %.val99.us = load i32, ptr %38, align 4, !tbaa !35
+  %.val99.us = load i32, ptr %38, align 4, !tbaa !34
   %39 = sext i32 %.val99.us to i64
   %40 = icmp slt i64 %indvars.iv.next141, %39
-  br i1 %40, label %.lr.ph.us, label %.critedge.preheader, !llvm.loop !37
+  br i1 %40, label %.lr.ph.us, label %.critedge.preheader, !llvm.loop !36
 
 .lr.ph121.split:                                  ; preds = %.lr.ph121
   %.phi.trans.insert = getelementptr i8, ptr %20, i64 8
@@ -335,9 +335,9 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
 
 .critedge.preheader:                              ; preds = %47, %._crit_edge.us, %2
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !39
+  %42 = load ptr, ptr %41, align 8, !tbaa !38
   %43 = getelementptr i8, ptr %42, i64 4
-  %.val100129 = load i32, ptr %43, align 4, !tbaa !35
+  %.val100129 = load i32, ptr %43, align 4, !tbaa !34
   %44 = icmp sgt i32 %.val100129, 0
   br i1 %44, label %.lr.ph131, label %.critedge2
 
@@ -364,10 +364,10 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   %55 = shl i32 %54, 1
   store i32 %55, ptr %53, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val99 = load i32, ptr %21, align 4, !tbaa !35
+  %.val99 = load i32, ptr %21, align 4, !tbaa !34
   %56 = sext i32 %.val99 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %47, label %.critedge.preheader, !llvm.loop !40
+  br i1 %57, label %47, label %.critedge.preheader, !llvm.loop !39
 
 58:                                               ; preds = %.lr.ph131, %.critedge
   %indvars.iv163 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next164, %.critedge ]
@@ -387,7 +387,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
 
 67:                                               ; preds = %62
   %68 = getelementptr i8, ptr %60, i64 8
-  %.val102 = load ptr, ptr %68, align 8, !tbaa !41
+  %.val102 = load ptr, ptr %68, align 8, !tbaa !40
   %69 = ptrtoint ptr %.val102 to i64
   %70 = and i64 %69, -2
   %71 = inttoptr i64 %70 to ptr
@@ -398,7 +398,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   %74 = getelementptr inbounds ptr, ptr %.val92, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !9
   %76 = getelementptr i8, ptr %60, i64 16
-  %.val103 = load ptr, ptr %76, align 8, !tbaa !42
+  %.val103 = load ptr, ptr %76, align 8, !tbaa !41
   %77 = ptrtoint ptr %.val103 to i64
   %78 = and i64 %77, -2
   %79 = inttoptr i64 %78 to ptr
@@ -439,7 +439,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   store i32 %95, ptr %96, align 4, !tbaa !13
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %.critedge, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond147.not, label %.critedge, label %.lr.ph, !llvm.loop !42
 
 .lr.ph124:                                        ; preds = %.preheader113, %.lr.ph124
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.lr.ph124 ], [ 0, %.preheader113 ]
@@ -453,7 +453,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   store i32 %102, ptr %103, align 4, !tbaa !13
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
-  br i1 %exitcond152.not, label %.critedge, label %.lr.ph124, !llvm.loop !44
+  br i1 %exitcond152.not, label %.critedge, label %.lr.ph124, !llvm.loop !43
 
 104:                                              ; preds = %67
   br i1 %.not84, label %.preheader, label %.preheader111
@@ -476,7 +476,7 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   store i32 %110, ptr %111, align 4, !tbaa !13
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
-  br i1 %exitcond157.not, label %.critedge, label %.lr.ph126, !llvm.loop !45
+  br i1 %exitcond157.not, label %.critedge, label %.lr.ph126, !llvm.loop !44
 
 .lr.ph128:                                        ; preds = %.preheader, %.lr.ph128
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.lr.ph128 ], [ 0, %.preheader ]
@@ -489,14 +489,14 @@ define void @Dch_PerformRandomSimulation(ptr noundef readonly captures(none) %0,
   store i32 %116, ptr %117, align 4, !tbaa !13
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
-  br i1 %exitcond162.not, label %.critedge, label %.lr.ph128, !llvm.loop !46
+  br i1 %exitcond162.not, label %.critedge, label %.lr.ph128, !llvm.loop !45
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph124, %.lr.ph126, %.lr.ph128, %.preheader115, %.preheader113, %.preheader111, %.preheader, %62, %58
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
-  %.val100 = load i32, ptr %43, align 4, !tbaa !35
+  %.val100 = load i32, ptr %43, align 4, !tbaa !34
   %118 = sext i32 %.val100 to i64
   %119 = icmp slt i64 %indvars.iv.next164, %118
-  br i1 %119, label %58, label %.critedge2, !llvm.loop !47
+  br i1 %119, label %58, label %.critedge2, !llvm.loop !46
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   ret void
@@ -508,9 +508,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Dch_CreateCandEquivClasses(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %4, align 8, !tbaa !39
+  %.val = load ptr, ptr %4, align 8, !tbaa !38
   %5 = getelementptr i8, ptr %.val, i64 4
-  %.val.val = load i32, ptr %5, align 4, !tbaa !35
+  %.val.val = load i32, ptr %5, align 4, !tbaa !34
   %6 = sext i32 %1 to i64
   %7 = shl nsw i64 %6, 2
   %8 = add nsw i64 %7, 8
@@ -533,13 +533,13 @@ define noundef ptr @Dch_CreateCandEquivClasses(ptr noundef %0, i32 noundef %1, i
   store ptr %15, ptr %16, align 8, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_PtrAllocSimInfo.exit, label %.lr.ph.i, !llvm.loop !48
+  br i1 %exitcond.not.i, label %Vec_PtrAllocSimInfo.exit, label %.lr.ph.i, !llvm.loop !47
 
 Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %3
   %17 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 %.val.val, ptr %18, align 4, !tbaa !35
-  store i32 %.val.val, ptr %17, align 8, !tbaa !49
+  store i32 %.val.val, ptr %18, align 4, !tbaa !34
+  store i32 %.val.val, ptr %17, align 8, !tbaa !48
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %11, ptr %19, align 8, !tbaa !3
   tail call void @Dch_PerformRandomSimulation(ptr noundef nonnull %0, ptr noundef nonnull %17)
@@ -554,7 +554,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %3
   %22 = tail call i32 @Dch_ClassesRefine(ptr noundef %20) #7
   %23 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %23, 7
-  br i1 %exitcond.not, label %24, label %21, !llvm.loop !50
+  br i1 %exitcond.not, label %24, label %21, !llvm.loop !49
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %19, align 8, !tbaa !3
@@ -613,40 +613,39 @@ attributes #8 = { nounwind allocsize(0) }
 !11 = !{!"Aig_Obj_t_", !6, i64 0, !12, i64 8, !12, i64 16, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 28, !5, i64 31, !5, i64 32, !5, i64 36, !6, i64 40}
 !12 = !{!"p1 _ZTS10Aig_Obj_t_", !8, i64 0}
 !13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = distinct !{!18, !15, !16}
-!19 = distinct !{!19, !15, !16}
-!20 = distinct !{!20, !15, !16}
-!21 = distinct !{!21, !15, !16}
-!22 = !{!23, !12, i64 48}
-!23 = !{!"Aig_Man_t_", !24, i64 0, !24, i64 8, !25, i64 16, !25, i64 24, !25, i64 32, !25, i64 40, !12, i64 48, !11, i64 56, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !6, i64 128, !5, i64 156, !26, i64 160, !5, i64 168, !27, i64 176, !5, i64 184, !28, i64 192, !5, i64 200, !5, i64 204, !5, i64 208, !27, i64 216, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !26, i64 248, !26, i64 256, !5, i64 264, !29, i64 272, !30, i64 280, !5, i64 288, !8, i64 296, !8, i64 304, !5, i64 312, !5, i64 316, !5, i64 320, !26, i64 328, !8, i64 336, !8, i64 344, !8, i64 352, !8, i64 360, !27, i64 368, !27, i64 376, !25, i64 384, !30, i64 392, !30, i64 400, !31, i64 408, !25, i64 416, !32, i64 424, !25, i64 432, !5, i64 440, !30, i64 448, !28, i64 456, !30, i64 464, !30, i64 472, !5, i64 480, !33, i64 488, !33, i64 496, !33, i64 504, !25, i64 512, !25, i64 520}
-!24 = !{!"p1 omnipotent char", !8, i64 0}
-!25 = !{!"p1 _ZTS10Vec_Ptr_t_", !8, i64 0}
-!26 = !{!"p2 _ZTS10Aig_Obj_t_", !8, i64 0}
-!27 = !{!"p1 int", !8, i64 0}
-!28 = !{!"p1 _ZTS10Vec_Vec_t_", !8, i64 0}
-!29 = !{!"p1 _ZTS14Aig_MmFixed_t_", !8, i64 0}
-!30 = !{!"p1 _ZTS10Vec_Int_t_", !8, i64 0}
-!31 = !{!"p1 _ZTS10Abc_Cex_t_", !8, i64 0}
-!32 = !{!"p1 _ZTS10Aig_Man_t_", !8, i64 0}
-!33 = !{!"long", !6, i64 0}
-!34 = !{!23, !25, i64 16}
-!35 = !{!4, !5, i64 4}
-!36 = distinct !{!36, !15, !16}
-!37 = distinct !{!37, !15, !16, !38}
-!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!39 = !{!23, !25, i64 32}
-!40 = distinct !{!40, !15, !16}
-!41 = !{!11, !12, i64 8}
-!42 = !{!11, !12, i64 16}
-!43 = distinct !{!43, !15, !16}
-!44 = distinct !{!44, !15, !16}
-!45 = distinct !{!45, !15, !16}
-!46 = distinct !{!46, !15, !16}
-!47 = distinct !{!47, !15, !16}
-!48 = distinct !{!48, !15, !16}
-!49 = !{!4, !5, i64 0}
-!50 = distinct !{!50, !15, !16}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15}
+!20 = distinct !{!20, !15}
+!21 = !{!22, !12, i64 48}
+!22 = !{!"Aig_Man_t_", !23, i64 0, !23, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !12, i64 48, !11, i64 56, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !6, i64 128, !5, i64 156, !25, i64 160, !5, i64 168, !26, i64 176, !5, i64 184, !27, i64 192, !5, i64 200, !5, i64 204, !5, i64 208, !26, i64 216, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !25, i64 248, !25, i64 256, !5, i64 264, !28, i64 272, !29, i64 280, !5, i64 288, !8, i64 296, !8, i64 304, !5, i64 312, !5, i64 316, !5, i64 320, !25, i64 328, !8, i64 336, !8, i64 344, !8, i64 352, !8, i64 360, !26, i64 368, !26, i64 376, !24, i64 384, !29, i64 392, !29, i64 400, !30, i64 408, !24, i64 416, !31, i64 424, !24, i64 432, !5, i64 440, !29, i64 448, !27, i64 456, !29, i64 464, !29, i64 472, !5, i64 480, !32, i64 488, !32, i64 496, !32, i64 504, !24, i64 512, !24, i64 520}
+!23 = !{!"p1 omnipotent char", !8, i64 0}
+!24 = !{!"p1 _ZTS10Vec_Ptr_t_", !8, i64 0}
+!25 = !{!"p2 _ZTS10Aig_Obj_t_", !8, i64 0}
+!26 = !{!"p1 int", !8, i64 0}
+!27 = !{!"p1 _ZTS10Vec_Vec_t_", !8, i64 0}
+!28 = !{!"p1 _ZTS14Aig_MmFixed_t_", !8, i64 0}
+!29 = !{!"p1 _ZTS10Vec_Int_t_", !8, i64 0}
+!30 = !{!"p1 _ZTS10Abc_Cex_t_", !8, i64 0}
+!31 = !{!"p1 _ZTS10Aig_Man_t_", !8, i64 0}
+!32 = !{!"long", !6, i64 0}
+!33 = !{!22, !24, i64 16}
+!34 = !{!4, !5, i64 4}
+!35 = distinct !{!35, !15}
+!36 = distinct !{!36, !15, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = !{!22, !24, i64 32}
+!39 = distinct !{!39, !15}
+!40 = !{!11, !12, i64 8}
+!41 = !{!11, !12, i64 16}
+!42 = distinct !{!42, !15}
+!43 = distinct !{!43, !15}
+!44 = distinct !{!44, !15}
+!45 = distinct !{!45, !15}
+!46 = distinct !{!46, !15}
+!47 = distinct !{!47, !15}
+!48 = !{!4, !5, i64 0}
+!49 = distinct !{!49, !15}

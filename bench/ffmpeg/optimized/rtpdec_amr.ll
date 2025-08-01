@@ -163,11 +163,11 @@ define internal range(i32 -2147483648, 1) i32 @amr_handle_packet(ptr noundef %0,
   %36 = zext i32 %.069.lcssa to i64
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !47
+  %39 = load i32, ptr %38, align 8, !tbaa !46
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 %39, ptr %40, align 4, !tbaa !48
+  store i32 %39, ptr %40, align 4, !tbaa !47
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !49
+  %42 = load ptr, ptr %41, align 8, !tbaa !48
   %43 = sext i32 %6 to i64
   %44 = getelementptr inbounds i8, ptr %5, i64 %43
   br label %45
@@ -191,20 +191,20 @@ define internal range(i32 -2147483648, 1) i32 @amr_handle_packet(ptr noundef %0,
 
 .thread:                                          ; preds = %45
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.15) #8
-  %55 = load ptr, ptr %41, align 8, !tbaa !49
+  %55 = load ptr, ptr %41, align 8, !tbaa !48
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %57 = load i32, ptr %56, align 8, !tbaa !50
+  %57 = load i32, ptr %56, align 8, !tbaa !49
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %55, i64 %58
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %.06587 to i64
   %62 = sub i64 %60, %61
   tail call void @llvm.memset.p0.i64(ptr align 1 %.06587, i8 0, i64 %62, i1 false)
-  %63 = load ptr, ptr %41, align 8, !tbaa !49
+  %63 = load ptr, ptr %41, align 8, !tbaa !48
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %61, %64
   %66 = trunc i64 %65 to i32
-  store i32 %66, ptr %56, align 8, !tbaa !50
+  store i32 %66, ptr %56, align 8, !tbaa !49
   br label %86
 
 67:                                               ; preds = %45
@@ -222,20 +222,20 @@ define internal range(i32 -2147483648, 1) i32 @amr_handle_packet(ptr noundef %0,
 
 73:                                               ; preds = %71
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.16) #8
-  %74 = load ptr, ptr %41, align 8, !tbaa !49
+  %74 = load ptr, ptr %41, align 8, !tbaa !48
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %76 = load i32, ptr %75, align 8, !tbaa !50
+  %76 = load i32, ptr %75, align 8, !tbaa !49
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr %74, i64 %77
   %79 = ptrtoint ptr %78 to i64
   %80 = ptrtoint ptr %70 to i64
   %81 = sub i64 %79, %80
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %70, i8 0, i64 %81, i1 false)
-  %82 = load ptr, ptr %41, align 8, !tbaa !49
+  %82 = load ptr, ptr %41, align 8, !tbaa !48
   %83 = ptrtoint ptr %82 to i64
   %84 = sub i64 %80, %83
   %85 = trunc i64 %84 to i32
-  store i32 %85, ptr %75, align 8, !tbaa !50
+  store i32 %85, ptr %75, align 8, !tbaa !49
   br label %86
 
 86:                                               ; preds = %.thread, %71, %73, %33, %28, %19, %15
@@ -390,10 +390,9 @@ attributes #9 = { nounwind willreturn memory(read) }
 !41 = !{!"AVChannelLayout", !6, i64 0, !6, i64 4, !7, i64 8, !12, i64 16}
 !42 = !{!40, !6, i64 132}
 !43 = !{!7, !7, i64 0}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!33, !6, i64 8}
-!48 = !{!36, !6, i64 36}
-!49 = !{!36, !20, i64 24}
-!50 = !{!36, !6, i64 32}
+!46 = !{!33, !6, i64 8}
+!47 = !{!36, !6, i64 36}
+!48 = !{!36, !20, i64 24}
+!49 = !{!36, !6, i64 32}

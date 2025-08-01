@@ -325,7 +325,7 @@ define i32 @ossl_quic_reactor_block_until_pred(ptr noundef %0, ptr noundef reado
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.val = load i32, ptr %11, align 4, !tbaa !33
+  %.val = load i32, ptr %11, align 4, !tbaa !32
   br label %12
 
 12:                                               ; preds = %4, %10
@@ -465,14 +465,14 @@ poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descripto
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %80 = icmp eq i32 %.sink.i.i, %.sink.i8.i
-  store i32 %.sink.i.i, ptr %5, align 16, !tbaa !34
+  store i32 %.sink.i.i, ptr %5, align 16, !tbaa !33
   br i1 %80, label %81, label %86
 
 81:                                               ; preds = %poll_descriptor_to_fd.exit10.i
   %82 = shl nuw nsw i8 %65, 2
   %83 = or disjoint i8 %82, %63
   %84 = zext nneg i8 %83 to i16
-  store i16 %84, ptr %27, align 4, !tbaa !37
+  store i16 %84, ptr %27, align 4, !tbaa !36
   %85 = icmp sgt i32 %.sink.i.i, -1
   %.not56.i.i = icmp ne i8 %83, 0
   %or.cond.not.i.i = select i1 %85, i1 %.not56.i.i, i1 false
@@ -481,17 +481,17 @@ poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descripto
 
 86:                                               ; preds = %poll_descriptor_to_fd.exit10.i
   %87 = zext nneg i8 %63 to i16
-  store i16 %87, ptr %27, align 4, !tbaa !37
+  store i16 %87, ptr %27, align 4, !tbaa !36
   %88 = icmp sgt i32 %.sink.i.i, -1
   %or.cond61.not.i.i = and i1 %66, %88
   %.1.i.i = zext i1 %or.cond61.not.i.i to i64
   %.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond61.not.i.i, i64 8, i64 0
   %.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
-  store i32 %.sink.i8.i, ptr %.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 8, !tbaa !34
+  store i32 %.sink.i8.i, ptr %.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 8, !tbaa !33
   %.not52.i.i = icmp eq i8 %65, 0
   %89 = select i1 %.not52.i.i, i16 0, i16 4
   %.1.sroa.sel.sroa.sel.i.i = select i1 %or.cond61.not.i.i, ptr %.sroa.gep65.sroa.gep.i.i, ptr %27
-  store i16 %89, ptr %.1.sroa.sel.sroa.sel.i.i, align 4, !tbaa !37
+  store i16 %89, ptr %.1.sroa.sel.sroa.sel.i.i, align 4, !tbaa !36
   %90 = icmp sgt i32 %.sink.i8.i, -1
   br i1 %90, label %91, label %93
 
@@ -506,16 +506,16 @@ poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descripto
 
 .thread.i.i:                                      ; preds = %93
   %94 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %5, i64 0, i64 %.045.i.i
-  store i32 %13, ptr %94, align 8, !tbaa !34
+  store i32 %13, ptr %94, align 8, !tbaa !33
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  store i16 1, ptr %95, align 4, !tbaa !37
+  store i16 1, ptr %95, align 4, !tbaa !36
   %96 = add nuw nsw i64 %.045.i.i, 1
   br label %.critedge63.i.i
 
 97:                                               ; preds = %93
   %.not57.i.i = icmp eq i64 %.045.i.i, 0
   %brmerge.not = select i1 %.not57.i.i, i1 %.not33, i1 false
-  br i1 %brmerge.not, label %poll_two_fds.exit.i, label %.critedge63.i.i, !prof !38
+  br i1 %brmerge.not, label %poll_two_fds.exit.i, label %.critedge63.i.i, !prof !37
 
 .critedge63.i.i:                                  ; preds = %97, %.thread.i.i
   %.268.i.i = phi i64 [ %96, %.thread.i.i ], [ %.045.i.i, %97 ]
@@ -538,7 +538,7 @@ poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descripto
   %103 = tail call ptr @__errno_location() #11
   %104 = load i32, ptr %103, align 4, !tbaa !23
   %105 = icmp eq i32 %104, 4
-  br i1 %105, label %.split.us.i.i, label %.critedge.i.i, !llvm.loop !39
+  br i1 %105, label %.split.us.i.i, label %.critedge.i.i, !llvm.loop !38
 
 .split.i.i:                                       ; preds = %99, %111
   %106 = call i64 @ossl_time_now() #10
@@ -553,7 +553,7 @@ poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descripto
   %112 = tail call ptr @__errno_location() #11
   %113 = load i32, ptr %112, align 4, !tbaa !23
   %114 = icmp eq i32 %113, 4
-  br i1 %114, label %.split.i.i, label %.critedge.i.i, !llvm.loop !41
+  br i1 %114, label %.split.i.i, label %.critedge.i.i, !llvm.loop !40
 
 .critedge.i.i:                                    ; preds = %111, %.split.i.i, %102, %.split.us.i.i
   %.us-phi.i.i = phi i32 [ %100, %.split.us.i.i ], [ -1, %102 ], [ -1, %111 ], [ %109, %.split.i.i ]
@@ -606,10 +606,10 @@ poll_two_descriptors.exit:                        ; preds = %68, %73, %poll_desc
   %131 = load i8, ptr %7, align 8
   %132 = and i8 %131, 32
   %.not11.i = icmp eq i8 %132, 0
-  br i1 %.not11.i, label %ossl_quic_reactor_leave_blocking_section.exit, label %.lr.ph.i, !llvm.loop !42
+  br i1 %.not11.i, label %ossl_quic_reactor_leave_blocking_section.exit, label %.lr.ph.i, !llvm.loop !41
 
 ossl_quic_reactor_leave_blocking_section.exit:    ; preds = %.lr.ph.i, %poll_two_descriptors.exit, %124
-  br i1 %.0.i, label %133, label %29, !llvm.loop !43
+  br i1 %.0.i, label %133, label %29
 
 133:                                              ; preds = %61, %ossl_quic_reactor_leave_blocking_section.exit, %59
   %.0 = phi i32 [ %60, %59 ], [ 0, %ossl_quic_reactor_leave_blocking_section.exit ], [ 0, %61 ]
@@ -664,7 +664,7 @@ define void @ossl_quic_reactor_leave_blocking_section(ptr noundef %0) local_unna
   %22 = load i8, ptr %5, align 8
   %23 = and i8 %22, 32
   %.not11 = icmp eq i8 %23, 0
-  br i1 %.not11, label %.loopexit, label %19, !llvm.loop !42
+  br i1 %.not11, label %.loopexit, label %19, !llvm.loop !41
 
 .loopexit:                                        ; preds = %19, %12, %1
   ret void
@@ -737,17 +737,15 @@ attributes #11 = { nounwind willreturn memory(none) }
 !27 = !{!"quic_tick_result_st", !9, i64 0, !7, i64 8, !7, i64 9, !7, i64 10}
 !28 = !{!27, !7, i64 9}
 !29 = !{!27, !7, i64 10}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!13, !6, i64 0}
-!34 = !{!35, !6, i64 0}
-!35 = !{!"pollfd", !6, i64 0, !36, i64 4, !36, i64 6}
-!36 = !{!"short", !7, i64 0}
-!37 = !{!35, !36, i64 4}
-!38 = !{!"branch_weights", i32 1, i32 4001}
-!39 = distinct !{!39, !31, !32, !40}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !31, !32}
-!42 = distinct !{!42, !31, !32}
-!43 = distinct !{!43, !32}
+!32 = !{!13, !6, i64 0}
+!33 = !{!34, !6, i64 0}
+!34 = !{!"pollfd", !6, i64 0, !35, i64 4, !35, i64 6}
+!35 = !{!"short", !7, i64 0}
+!36 = !{!34, !35, i64 4}
+!37 = !{!"branch_weights", i32 1, i32 4001}
+!38 = distinct !{!38, !31, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = distinct !{!40, !31}
+!41 = distinct !{!41, !31}

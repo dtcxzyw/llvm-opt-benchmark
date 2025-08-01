@@ -63,7 +63,7 @@ define dso_local i64 @strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
   %21 = getelementptr inbounds nuw i8, ptr %.02438, i64 1
   %22 = load i8, ptr %21, align 1
   %.not30 = icmp eq i8 %22, 0
-  br i1 %.not30, label %._crit_edge, label %.lr.ph40, !llvm.loop !7
+  br i1 %.not30, label %._crit_edge, label %.lr.ph40, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %20, %.preheader
   %.126.lcssa = phi ptr [ %.025.lcssa, %.preheader ], [ %.227, %20 ]
@@ -93,7 +93,6 @@ attributes #2 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

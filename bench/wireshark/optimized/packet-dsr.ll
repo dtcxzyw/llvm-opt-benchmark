@@ -355,7 +355,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   %105 = add i32 %.1368386, 4
   %106 = add nuw nsw i32 %.1387, 1
   %exitcond400.not = icmp eq i32 %106, %99
-  br i1 %exitcond400.not, label %.loopexit, label %.lr.ph388, !llvm.loop !9
+  br i1 %exitcond400.not, label %.loopexit, label %.lr.ph388, !llvm.loop !8
 
 107:                                              ; preds = %35
   %108 = load i32, ptr @ett_dsr_rerr_opt, align 4
@@ -542,7 +542,7 @@ define internal noundef i32 @dissect_dsr(ptr noundef %0, ptr noundef %1, ptr nou
   %244 = add i32 %.2369384, 4
   %245 = add nuw nsw i32 %.2385, 1
   %exitcond.not = icmp eq i32 %245, %umax
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 246:                                              ; preds = %35
   %247 = load i32, ptr @ett_dsr_padn_opt, align 4
@@ -627,7 +627,7 @@ switch.early.test:                                ; preds = %.loopexit
   ]
 
 .backedge:                                        ; preds = %switch.early.test, %switch.early.test, %302
-  br label %35, !llvm.loop !11
+  br label %35, !llvm.loop !10
 
 302:                                              ; preds = %switch.early.test
   %303 = load ptr, ptr %10, align 8
@@ -759,9 +759,8 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

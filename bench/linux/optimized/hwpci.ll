@@ -40,7 +40,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
 20:                                               ; preds = %.preheader24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   store i64 0, ptr %7, align 8, !annotation !5
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #4, !srcloc !10
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #4, !srcloc !9
   %21 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
   %22 = and i64 %21, 512
@@ -61,7 +61,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   %32 = load ptr, ptr %31, align 8
   call void @kfree(ptr noundef nonnull %30) #4
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.thread17, label %.preheader, !llvm.loop !11
+  br i1 %33, label %.thread17, label %.preheader, !llvm.loop !6
 
 34:                                               ; preds = %20
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -70,7 +70,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   store ptr %36, ptr %26, align 8
   %37 = call i32 @acpi_get_parent(ptr noundef %36, ptr noundef nonnull %8) #4
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.preheader24, label %.preheader22, !llvm.loop !12
+  br i1 %38, label %.preheader24, label %.preheader22, !llvm.loop !10
 
 .thread17:                                        ; preds = %.preheader22, %.preheader, %28, %10
   %.ph16 = phi i32 [ 4, %28 ], [ %11, %10 ], [ 4, %.preheader ], [ %37, %.preheader22 ]
@@ -175,7 +175,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   %88 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %.loopexit, label %46, !llvm.loop !13
+  br i1 %90, label %.loopexit, label %46, !llvm.loop !11
 
 .loopexit:                                        ; preds = %87, %85
   %91 = phi i32 [ %86, %85 ], [ 0, %87 ]
@@ -187,7 +187,7 @@ define dso_local i32 @acpi_hw_derive_pci_id(ptr noundef %0, ptr noundef readnone
   %95 = load ptr, ptr %94, align 8
   call void @kfree(ptr noundef nonnull %93) #4
   %96 = icmp eq ptr %95, null
-  br i1 %96, label %.thread21, label %92, !llvm.loop !14
+  br i1 %96, label %.thread21, label %92, !llvm.loop !6
 
 .thread21:                                        ; preds = %92, %39, %.thread17, %3
   %97 = phi i32 [ 4097, %3 ], [ %.ph16, %.thread17 ], [ 0, %39 ], [ %91, %92 ]
@@ -233,12 +233,9 @@ attributes #5 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i64 1809001, i64 1809022}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = distinct !{!14, !7, !8, !9}
+!9 = !{i64 1809001, i64 1809022}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}

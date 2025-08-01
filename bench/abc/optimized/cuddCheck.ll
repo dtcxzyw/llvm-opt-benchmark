@@ -429,7 +429,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %.1.lcssa = phi i32 [ %.0266, %.lr.ph268 ], [ %.2, %239 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge269.loopexit, label %.lr.ph268, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge269.loopexit, label %.lr.ph268, !llvm.loop !38
 
 ._crit_edge269.loopexit:                          ; preds = %._crit_edge
   %.pre361 = load ptr, ptr %11, align 8, !tbaa !29
@@ -441,7 +441,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %.0143.lcssa = phi i32 [ 0, %32 ], [ %.1144.lcssa, %._crit_edge269.loopexit ]
   %.0.lcssa = phi i32 [ 0, %32 ], [ %.1.lcssa, %._crit_edge269.loopexit ]
   %243 = getelementptr inbounds nuw %struct.DdSubtable, ptr %242, i64 %indvars.iv341, i32 3
-  %244 = load i32, ptr %243, align 8, !tbaa !40
+  %244 = load i32, ptr %243, align 8, !tbaa !39
   %.not207 = icmp eq i32 %.0143.lcssa, %244
   br i1 %.not207, label %248, label %245
 
@@ -455,7 +455,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %249 = phi ptr [ %.pre362, %245 ], [ %242, %._crit_edge269 ]
   %.9 = phi i32 [ 1, %245 ], [ %.1150.lcssa, %._crit_edge269 ]
   %250 = getelementptr inbounds nuw %struct.DdSubtable, ptr %249, i64 %indvars.iv341, i32 5
-  %251 = load i32, ptr %250, align 8, !tbaa !41
+  %251 = load i32, ptr %250, align 8, !tbaa !40
   %.not208 = icmp eq i32 %.0.lcssa, %251
   br i1 %.not208, label %255, label %252
 
@@ -470,15 +470,15 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %256 = load i32, ptr %6, align 8, !tbaa !3
   %257 = zext i32 %256 to i64
   %258 = icmp samesign ult i64 %indvars.iv.next342, %257
-  br i1 %258, label %19, label %.preheader, !llvm.loop !42
+  br i1 %258, label %19, label %.preheader, !llvm.loop !41
 
 259:                                              ; preds = %.lr.ph301, %517
   %indvars.iv349 = phi i64 [ 0, %.lr.ph301 ], [ %indvars.iv.next350, %517 ]
   %.11300 = phi i32 [ %.0149.lcssa, %.lr.ph301 ], [ %.21, %517 ]
-  %260 = load ptr, ptr %14, align 8, !tbaa !43
+  %260 = load ptr, ptr %14, align 8, !tbaa !42
   %261 = getelementptr inbounds nuw i32, ptr %260, i64 %indvars.iv349
   %262 = load i32, ptr %261, align 4, !tbaa !26
-  %263 = load ptr, ptr %15, align 8, !tbaa !44
+  %263 = load ptr, ptr %15, align 8, !tbaa !43
   %264 = sext i32 %262 to i64
   %265 = getelementptr inbounds i32, ptr %263, i64 %264
   %266 = load i32, ptr %265, align 4, !tbaa !26
@@ -493,7 +493,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   br label %272
 
 272:                                              ; preds = %268, %259
-  %273 = load ptr, ptr %17, align 8, !tbaa !45
+  %273 = load ptr, ptr %17, align 8, !tbaa !44
   %274 = getelementptr inbounds nuw %struct.DdSubtable, ptr %273, i64 %indvars.iv349
   %275 = load ptr, ptr %274, align 8, !tbaa !30
   %276 = getelementptr inbounds nuw i8, ptr %274, i64 12
@@ -607,7 +607,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   br i1 %337, label %344, label %338
 
 338:                                              ; preds = %334
-  %339 = load ptr, ptr %15, align 8, !tbaa !44
+  %339 = load ptr, ptr %15, align 8, !tbaa !43
   %340 = zext i32 %336 to i64
   %341 = getelementptr inbounds nuw i32, ptr %339, i64 %340
   %342 = load i32, ptr %341, align 4, !tbaa !26
@@ -626,7 +626,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   br i1 %349, label %356, label %350
 
 350:                                              ; preds = %346
-  %351 = load ptr, ptr %15, align 8, !tbaa !44
+  %351 = load ptr, ptr %15, align 8, !tbaa !43
   %352 = zext i32 %348 to i64
   %353 = getelementptr inbounds nuw i32, ptr %351, i64 %352
   %354 = load i32, ptr %353, align 4, !tbaa !26
@@ -691,7 +691,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
 405:                                              ; preds = %358, %356
   %406 = phi ptr [ %.pre365, %358 ], [ %335, %356 ]
   %.16 = phi i32 [ 1, %358 ], [ %.15, %356 ]
-  %407 = load ptr, ptr %18, align 8, !tbaa !46
+  %407 = load ptr, ptr %18, align 8, !tbaa !45
   %408 = icmp eq ptr %406, %407
   br i1 %408, label %409, label %426
 
@@ -791,7 +791,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
 477:                                              ; preds = %466
   call void @st__free_table(ptr noundef nonnull %4) #7
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %478, align 8, !tbaa !47
+  store i32 1, ptr %478, align 8, !tbaa !46
   br label %586
 
 479:                                              ; preds = %287
@@ -831,7 +831,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %storemerge190 = load ptr, ptr %503, align 8, !tbaa !32
   store ptr %storemerge190, ptr %3, align 8, !tbaa !32
   %.not191 = icmp eq ptr %storemerge190, null
-  br i1 %.not191, label %._crit_edge285, label %.lr.ph284, !llvm.loop !48
+  br i1 %.not191, label %._crit_edge285, label %.lr.ph284, !llvm.loop !47
 
 ._crit_edge285:                                   ; preds = %501, %.lr.ph294
   %.13.lcssa = phi i32 [ %.12290, %.lr.ph294 ], [ %.19, %501 ]
@@ -839,10 +839,10 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %.4.lcssa = phi i32 [ %.3292, %.lr.ph294 ], [ %.5, %501 ]
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %exitcond348.not = icmp eq i64 %indvars.iv.next345, %wide.trip.count347
-  br i1 %exitcond348.not, label %._crit_edge295.loopexit, label %.lr.ph294, !llvm.loop !49
+  br i1 %exitcond348.not, label %._crit_edge295.loopexit, label %.lr.ph294, !llvm.loop !48
 
 ._crit_edge295.loopexit:                          ; preds = %._crit_edge285
-  %.pre368 = load ptr, ptr %17, align 8, !tbaa !45
+  %.pre368 = load ptr, ptr %17, align 8, !tbaa !44
   br label %._crit_edge295
 
 ._crit_edge295:                                   ; preds = %._crit_edge295.loopexit, %272
@@ -851,21 +851,21 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %.2145.lcssa = phi i32 [ 0, %272 ], [ %.3146.lcssa, %._crit_edge295.loopexit ]
   %.3.lcssa = phi i32 [ 0, %272 ], [ %.4.lcssa, %._crit_edge295.loopexit ]
   %505 = getelementptr inbounds nuw %struct.DdSubtable, ptr %504, i64 %indvars.iv349, i32 3
-  %506 = load i32, ptr %505, align 8, !tbaa !40
+  %506 = load i32, ptr %505, align 8, !tbaa !39
   %.not188 = icmp eq i32 %.2145.lcssa, %506
   br i1 %.not188, label %510, label %507
 
 507:                                              ; preds = %._crit_edge295
   %508 = load ptr, ptr %16, align 8, !tbaa !28
   %509 = call i64 @fwrite(ptr nonnull @.str.16, i64 42, i64 1, ptr %508)
-  %.pre369 = load ptr, ptr %17, align 8, !tbaa !45
+  %.pre369 = load ptr, ptr %17, align 8, !tbaa !44
   br label %510
 
 510:                                              ; preds = %507, %._crit_edge295
   %511 = phi ptr [ %.pre369, %507 ], [ %504, %._crit_edge295 ]
   %.20 = phi i32 [ 1, %507 ], [ %.12.lcssa, %._crit_edge295 ]
   %512 = getelementptr inbounds nuw %struct.DdSubtable, ptr %511, i64 %indvars.iv349, i32 5
-  %513 = load i32, ptr %512, align 8, !tbaa !41
+  %513 = load i32, ptr %512, align 8, !tbaa !40
   %.not189 = icmp eq i32 %.3.lcssa, %513
   br i1 %.not189, label %517, label %514
 
@@ -880,14 +880,14 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %518 = load i32, ptr %12, align 4, !tbaa !24
   %519 = zext i32 %518 to i64
   %520 = icmp samesign ult i64 %indvars.iv.next350, %519
-  br i1 %520, label %259, label %._crit_edge302, !llvm.loop !50
+  br i1 %520, label %259, label %._crit_edge302, !llvm.loop !49
 
 ._crit_edge302:                                   ; preds = %517, %.preheader
   %.11.lcssa = phi i32 [ %.0149.lcssa, %.preheader ], [ %.21, %517 ]
   %521 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %522 = load ptr, ptr %521, align 8, !tbaa !51
+  %522 = load ptr, ptr %521, align 8, !tbaa !50
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %524 = load i32, ptr %523, align 4, !tbaa !52
+  %524 = load i32, ptr %523, align 4, !tbaa !51
   %525 = icmp sgt i32 %524, 0
   br i1 %525, label %.lr.ph321, label %._crit_edge322
 
@@ -946,7 +946,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %storemerge = load ptr, ptr %548, align 8, !tbaa !32
   store ptr %storemerge, ptr %3, align 8, !tbaa !32
   %.not184 = icmp eq ptr %storemerge, null
-  br i1 %.not184, label %._crit_edge312, label %.lr.ph311, !llvm.loop !53
+  br i1 %.not184, label %._crit_edge312, label %.lr.ph311, !llvm.loop !52
 
 ._crit_edge312:                                   ; preds = %547, %527
   %.23.lcssa = phi i32 [ %.22317, %527 ], [ %.24, %547 ]
@@ -954,14 +954,14 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %.7.lcssa = phi i32 [ %.6319, %527 ], [ %.8, %547 ]
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next353, %wide.trip.count355
-  br i1 %exitcond356.not, label %._crit_edge322, label %527, !llvm.loop !54
+  br i1 %exitcond356.not, label %._crit_edge322, label %527, !llvm.loop !53
 
 ._crit_edge322:                                   ; preds = %._crit_edge312, %._crit_edge302
   %.22.lcssa = phi i32 [ %.11.lcssa, %._crit_edge302 ], [ %.23.lcssa, %._crit_edge312 ]
   %.4147.lcssa = phi i32 [ 0, %._crit_edge302 ], [ %.5148.lcssa, %._crit_edge312 ]
   %.6.lcssa = phi i32 [ 0, %._crit_edge302 ], [ %.7.lcssa, %._crit_edge312 ]
   %549 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %550 = load i32, ptr %549, align 8, !tbaa !55
+  %550 = load i32, ptr %549, align 8, !tbaa !54
   %.not = icmp eq i32 %.4147.lcssa, %550
   br i1 %.not, label %555, label %551
 
@@ -974,7 +974,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
 555:                                              ; preds = %551, %._crit_edge322
   %.25 = phi i32 [ 1, %551 ], [ %.22.lcssa, %._crit_edge322 ]
   %556 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %557 = load i32, ptr %556, align 8, !tbaa !56
+  %557 = load i32, ptr %556, align 8, !tbaa !55
   %.not181 = icmp eq i32 %.6.lcssa, %557
   br i1 %.not181, label %562, label %558
 
@@ -1025,7 +1025,7 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %.28 = phi i32 [ 1, %572 ], [ %.27327, %566 ]
   %585 = call i32 @st__gen(ptr noundef %563, ptr noundef nonnull %3, ptr noundef nonnull %2) #7
   %.not182 = icmp eq i32 %585, 0
-  br i1 %.not182, label %._crit_edge330, label %566, !llvm.loop !57
+  br i1 %.not182, label %._crit_edge330, label %566, !llvm.loop !56
 
 ._crit_edge330:                                   ; preds = %584, %562
   %.27.lcssa = phi i32 [ %.26, %562 ], [ %.28, %584 ]
@@ -1141,7 +1141,7 @@ define internal fastcc void @debugFindParent(ptr noundef readonly captures(none)
   br i1 %or.cond, label %.lr.ph._crit_edge, label %39
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %32 = load ptr, ptr %5, align 8, !tbaa !58
+  %32 = load ptr, ptr %5, align 8, !tbaa !57
   %33 = ptrtoint ptr %.032 to i64
   %34 = load i32, ptr %.032, align 8, !tbaa !35
   %35 = getelementptr inbounds nuw i8, ptr %.032, i64 4
@@ -1154,16 +1154,16 @@ define internal fastcc void @debugFindParent(ptr noundef readonly captures(none)
   %40 = getelementptr inbounds nuw i8, ptr %.032, i64 8
   %.0 = load ptr, ptr %40, align 8, !tbaa !32
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %39, %.lr.ph35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !59
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %18
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  br label %6, !llvm.loop !61
+  br label %6, !llvm.loop !60
 
 41:                                               ; preds = %15
   ret void
@@ -1198,14 +1198,14 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %9 = getelementptr inbounds nuw %struct.DdSubtable, ptr %8, i64 %indvars.iv296
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !40
+  %12 = load i32, ptr %11, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !41
+  %14 = load i32, ptr %13, align 8, !tbaa !40
   %15 = add nsw i32 %12, %.0151219
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %17 = load i32, ptr %16, align 4, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !62
+  %19 = load i32, ptr %18, align 8, !tbaa !61
   %20 = sub i32 32, %19
   %21 = shl nsw i32 -1, %20
   %22 = and i32 %21, %17
@@ -1254,16 +1254,16 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %39 = sext i1 %38 to i32
   %spec.select198 = add nsw i32 %.1159206, %39
   %40 = getelementptr inbounds nuw i8, ptr %.0172204, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !63
+  %41 = load ptr, ptr %40, align 8, !tbaa !62
   %.not197 = icmp eq ptr %41, %0
-  br i1 %.not197, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not197, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph213
   %.1167.lcssa = phi i32 [ %.0166208, %.lr.ph213 ], [ %35, %.lr.ph ]
   %.1159.lcssa = phi i32 [ %.0158209, %.lr.ph213 ], [ %spec.select198, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge214, label %.lr.ph213, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge214, label %.lr.ph213, !llvm.loop !64
 
 ._crit_edge214:                                   ; preds = %._crit_edge, %29
   %.0166.lcssa = phi i32 [ %12, %29 ], [ %.1167.lcssa, %._crit_edge ]
@@ -1293,7 +1293,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
 52:                                               ; preds = %47, %48
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
-  br i1 %exitcond300.not, label %._crit_edge226, label %7, !llvm.loop !66
+  br i1 %exitcond300.not, label %._crit_edge226, label %7, !llvm.loop !65
 
 ._crit_edge226:                                   ; preds = %52, %1
   %.0153.lcssa = phi i32 [ 0, %1 ], [ %.1154, %52 ]
@@ -1319,13 +1319,13 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %.1150253 = phi i32 [ %.0149.lcssa, %.lr.ph258 ], [ %69, %91 ]
   %.1152252 = phi i32 [ %.0151.lcssa, %.lr.ph258 ], [ %66, %91 ]
   %.2155251 = phi i32 [ %.0153.lcssa, %.lr.ph258 ], [ %.3156, %91 ]
-  %59 = load ptr, ptr %56, align 8, !tbaa !45
+  %59 = load ptr, ptr %56, align 8, !tbaa !44
   %60 = getelementptr inbounds nuw %struct.DdSubtable, ptr %59, i64 %indvars.iv306
   %61 = load ptr, ptr %60, align 8, !tbaa !30
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %63 = load i32, ptr %62, align 8, !tbaa !40
+  %63 = load i32, ptr %62, align 8, !tbaa !39
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %65 = load i32, ptr %64, align 8, !tbaa !41
+  %65 = load i32, ptr %64, align 8, !tbaa !40
   %66 = add nsw i32 %63, %.1152252
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %68 = load i32, ptr %67, align 4, !tbaa !31
@@ -1362,16 +1362,16 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %78 = sext i1 %77 to i32
   %spec.select200 = add nsw i32 %.4162235, %78
   %79 = getelementptr inbounds nuw i8, ptr %.1173233, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !63
+  %80 = load ptr, ptr %79, align 8, !tbaa !62
   %.not192 = icmp eq ptr %80, null
-  br i1 %.not192, label %._crit_edge238, label %.lr.ph237, !llvm.loop !67
+  br i1 %.not192, label %._crit_edge238, label %.lr.ph237, !llvm.loop !66
 
 ._crit_edge238:                                   ; preds = %.lr.ph237, %.lr.ph246
   %.3169.lcssa = phi i32 [ %.2168241, %.lr.ph246 ], [ %74, %.lr.ph237 ]
   %.4162.lcssa = phi i32 [ %.3161242, %.lr.ph246 ], [ %spec.select200, %.lr.ph237 ]
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %exitcond305.not = icmp eq i64 %indvars.iv.next302, %wide.trip.count304
-  br i1 %exitcond305.not, label %._crit_edge247, label %.lr.ph246, !llvm.loop !68
+  br i1 %exitcond305.not, label %._crit_edge247, label %.lr.ph246, !llvm.loop !67
 
 ._crit_edge247:                                   ; preds = %._crit_edge238, %58
   %.2168.lcssa = phi i32 [ %63, %58 ], [ %.3169.lcssa, %._crit_edge238 ]
@@ -1401,7 +1401,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
 91:                                               ; preds = %86, %87
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
   %exitcond310.not = icmp eq i64 %indvars.iv.next307, %wide.trip.count309
-  br i1 %exitcond310.not, label %._crit_edge259, label %58, !llvm.loop !69
+  br i1 %exitcond310.not, label %._crit_edge259, label %58, !llvm.loop !68
 
 ._crit_edge259:                                   ; preds = %91, %._crit_edge226
   %.2155.lcssa = phi i32 [ %.0153.lcssa, %._crit_edge226 ], [ %.3156, %91 ]
@@ -1412,9 +1412,9 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %93 = load ptr, ptr %92, align 8, !tbaa !30
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %95 = load i32, ptr %94, align 8, !tbaa !40
+  %95 = load i32, ptr %94, align 8, !tbaa !39
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %97 = load i32, ptr %96, align 8, !tbaa !41
+  %97 = load i32, ptr %96, align 8, !tbaa !40
   %98 = add nsw i32 %95, %.1152.lcssa
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %100 = load i32, ptr %99, align 4, !tbaa !31
@@ -1451,16 +1451,16 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %110 = sext i1 %109 to i32
   %spec.select202 = add nsw i32 %.7165268, %110
   %111 = getelementptr inbounds nuw i8, ptr %.2174266, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !63
+  %112 = load ptr, ptr %111, align 8, !tbaa !62
   %.not188 = icmp eq ptr %112, null
-  br i1 %.not188, label %._crit_edge271, label %.lr.ph270, !llvm.loop !70
+  br i1 %.not188, label %._crit_edge271, label %.lr.ph270, !llvm.loop !69
 
 ._crit_edge271:                                   ; preds = %.lr.ph270, %.lr.ph279
   %.5171.lcssa = phi i32 [ %.4170274, %.lr.ph279 ], [ %106, %.lr.ph270 ]
   %.7165.lcssa = phi i32 [ %.6164275, %.lr.ph279 ], [ %spec.select202, %.lr.ph270 ]
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %exitcond315.not = icmp eq i64 %indvars.iv.next312, %wide.trip.count314
-  br i1 %exitcond315.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !71
+  br i1 %exitcond315.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !70
 
 ._crit_edge280:                                   ; preds = %._crit_edge271, %._crit_edge259
   %.4170.lcssa = phi i32 [ %95, %._crit_edge259 ], [ %.5171.lcssa, %._crit_edge271 ]
@@ -1489,9 +1489,9 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
 
 123:                                              ; preds = %119, %118
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %125 = load i32, ptr %124, align 4, !tbaa !72
+  %125 = load i32, ptr %124, align 4, !tbaa !71
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %127 = load i32, ptr %126, align 8, !tbaa !73
+  %127 = load i32, ptr %126, align 8, !tbaa !72
   %128 = add i32 %127, %125
   %.not183 = icmp eq i32 %98, %128
   br i1 %.not183, label %134, label %129
@@ -1505,7 +1505,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
 
 134:                                              ; preds = %129, %123
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %136 = load i32, ptr %135, align 8, !tbaa !74
+  %136 = load i32, ptr %135, align 8, !tbaa !73
   %.not184 = icmp eq i32 %101, %136
   br i1 %.not184, label %142, label %137
 
@@ -1514,15 +1514,15 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   %139 = load ptr, ptr %138, align 8, !tbaa !28
   %140 = sub i32 %101, %136
   %141 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.31, i32 noundef %140) #7
-  %.pre = load i32, ptr %135, align 8, !tbaa !74
+  %.pre = load i32, ptr %135, align 8, !tbaa !73
   br label %142
 
 142:                                              ; preds = %137, %134
   %143 = phi i32 [ %.pre, %137 ], [ %101, %134 ]
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %145 = load i32, ptr %144, align 8, !tbaa !75
+  %145 = load i32, ptr %144, align 8, !tbaa !74
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %147 = load double, ptr %146, align 8, !tbaa !76
+  %147 = load double, ptr %146, align 8, !tbaa !75
   %148 = uitofp i32 %143 to double
   %149 = fmul double %147, %148
   %150 = fptoui double %149 to i32
@@ -1537,9 +1537,9 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
 
 155:                                              ; preds = %151, %142
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %157 = load i32, ptr %156, align 4, !tbaa !77
+  %157 = load i32, ptr %156, align 4, !tbaa !76
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %159 = load i32, ptr %158, align 8, !tbaa !78
+  %159 = load i32, ptr %158, align 8, !tbaa !77
   %160 = add i32 %159, %157
   %.not186 = icmp eq i32 %102, %160
   br i1 %.not186, label %166, label %161
@@ -1552,7 +1552,7 @@ define i32 @Cudd_CheckKeys(ptr noundef readonly captures(address) %0) local_unna
   br label %166
 
 166:                                              ; preds = %161, %155
-  %167 = load i32, ptr %124, align 4, !tbaa !72
+  %167 = load i32, ptr %124, align 4, !tbaa !71
   %168 = uitofp i32 %167 to double
   %169 = sitofp i32 %.6.lcssa to double
   %170 = fdiv double %168, %169
@@ -1570,7 +1570,7 @@ define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %7 = load ptr, ptr %6, align 8, !tbaa !58
+  %7 = load ptr, ptr %6, align 8, !tbaa !57
   %8 = ptrtoint ptr %0 to i64
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.35, i64 noundef %8) #7
   %10 = icmp eq i32 %9, -1
@@ -1591,15 +1591,15 @@ define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #
   %.04359 = phi i32 [ -1, %.lr.ph.preheader ], [ %.144, %26 ]
   %12 = getelementptr inbounds nuw %struct.DdSubtable, ptr %5, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !40
+  %14 = load i32, ptr %13, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !41
+  %16 = load i32, ptr %15, align 8, !tbaa !40
   %17 = sub i32 %14, %16
   %.not51 = icmp eq i32 %14, %16
   br i1 %.not51, label %26, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = load ptr, ptr %6, align 8, !tbaa !58
+  %19 = load ptr, ptr %6, align 8, !tbaa !57
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.36, i32 noundef %20, i32 noundef %17) #7
   %22 = icmp eq i32 %21, -1
@@ -1618,22 +1618,22 @@ define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #
   %.1 = phi i32 [ %.061, %.lr.ph ], [ %24, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %26, %.preheader
   %.043.lcssa = phi i32 [ -1, %.preheader ], [ %.144, %26 ]
   %.040.lcssa = phi i32 [ -1, %.preheader ], [ %.141, %26 ]
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %26 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %28 = load i32, ptr %27, align 8, !tbaa !55
+  %28 = load i32, ptr %27, align 8, !tbaa !54
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %30 = load i32, ptr %29, align 8, !tbaa !56
+  %30 = load i32, ptr %29, align 8, !tbaa !55
   %31 = sub i32 %28, %30
   %.not = icmp eq i32 %28, %30
   br i1 %.not, label %39, label %32
 
 32:                                               ; preds = %._crit_edge
-  %33 = load ptr, ptr %6, align 8, !tbaa !58
+  %33 = load ptr, ptr %6, align 8, !tbaa !57
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.37, i32 noundef %31) #7
   %35 = icmp eq i32 %34, -1
   br i1 %35, label %.loopexit, label %36
@@ -1649,14 +1649,14 @@ define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #
   %.245 = phi i32 [ %.043.lcssa, %._crit_edge ], [ %spec.select53, %36 ]
   %.242 = phi i32 [ %.040.lcssa, %._crit_edge ], [ %spec.select54, %36 ]
   %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %37, %36 ]
-  %40 = load ptr, ptr %6, align 8, !tbaa !58
+  %40 = load ptr, ptr %6, align 8, !tbaa !57
   %41 = add nsw i32 %3, 1
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.38, i32 noundef %41, i32 noundef %.2, i32 noundef %.245) #7
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %.loopexit, label %44
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %6, align 8, !tbaa !58
+  %45 = load ptr, ptr %6, align 8, !tbaa !57
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.39, i32 noundef %.242) #7
   %47 = icmp ne i32 %46, -1
   %. = zext i1 %47 to i32
@@ -1671,11 +1671,11 @@ define range(i32 0, 2) i32 @cuddHeapProfile(ptr noundef %0) local_unnamed_addr #
 define void @cuddPrintVarGroups(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %.not = icmp eq i32 %2, 0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !80
+  %6 = load i32, ptr %5, align 4, !tbaa !79
   %7 = zext i32 %6 to i64
   %. = select i1 %.not, i64 312, i64 320
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %9 = load ptr, ptr %8, align 8, !tbaa !82
+  %9 = load ptr, ptr %8, align 8, !tbaa !81
   %10 = getelementptr inbounds nuw i32, ptr %9, i64 %7
   %.0 = load i32, ptr %10, align 4, !tbaa !26
   %.not26 = icmp eq i32 %3, 0
@@ -1686,14 +1686,14 @@ define void @cuddPrintVarGroups(ptr noundef readonly captures(none) %0, ptr noun
   br label %13
 
 13:                                               ; preds = %11, %4
-  %14 = load i32, ptr %1, align 8, !tbaa !83
+  %14 = load i32, ptr %1, align 8, !tbaa !82
   %15 = and i32 %14, 1
   %.not27 = icmp eq i32 %15, 0
   br i1 %.not27, label %16, label %20
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !84
+  %18 = load ptr, ptr %17, align 8, !tbaa !83
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %.preheader
 
@@ -1708,33 +1708,33 @@ define void @cuddPrintVarGroups(ptr noundef readonly captures(none) %0, ptr noun
   %.02439 = phi ptr [ %22, %.preheader ], [ %18, %16 ]
   tail call void @cuddPrintVarGroups(ptr noundef nonnull %0, ptr noundef nonnull %.02439, i32 noundef %2, i32 noundef %3)
   %21 = getelementptr inbounds nuw i8, ptr %.02439, i64 40
-  %22 = load ptr, ptr %21, align 8, !tbaa !85
+  %22 = load ptr, ptr %21, align 8, !tbaa !84
   %.not28 = icmp eq ptr %22, null
-  br i1 %.not28, label %23, label %.preheader, !llvm.loop !86
+  br i1 %.not28, label %23, label %.preheader, !llvm.loop !85
 
 23:                                               ; preds = %.preheader
   br i1 %.not26, label %24, label %.critedge
 
 24:                                               ; preds = %.thread, %23
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !87
+  %26 = load i32, ptr %25, align 8, !tbaa !86
   %27 = add i32 %.0, -1
   %28 = add i32 %27, %26
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i32 noundef %28)
-  %30 = load i32, ptr %1, align 8, !tbaa !83
+  %30 = load i32, ptr %1, align 8, !tbaa !82
   %.not29 = icmp eq i32 %30, 0
   br i1 %.not29, label %43, label %31
 
 31:                                               ; preds = %24
   %putchar30 = tail call i32 @putchar(i32 124)
-  %32 = load i32, ptr %1, align 8, !tbaa !83
+  %32 = load i32, ptr %1, align 8, !tbaa !82
   %33 = and i32 %32, 4
   %.not31 = icmp eq i32 %33, 0
   br i1 %.not31, label %35, label %34
 
 34:                                               ; preds = %31
   %putchar32 = tail call i32 @putchar(i32 70)
-  %.pre = load i32, ptr %1, align 8, !tbaa !83
+  %.pre = load i32, ptr %1, align 8, !tbaa !82
   br label %35
 
 35:                                               ; preds = %34, %31
@@ -1745,7 +1745,7 @@ define void @cuddPrintVarGroups(ptr noundef readonly captures(none) %0, ptr noun
 
 38:                                               ; preds = %35
   %putchar34 = tail call i32 @putchar(i32 78)
-  %.pre40 = load i32, ptr %1, align 8, !tbaa !83
+  %.pre40 = load i32, ptr %1, align 8, !tbaa !82
   br label %39
 
 39:                                               ; preds = %38, %35
@@ -1761,7 +1761,7 @@ define void @cuddPrintVarGroups(ptr noundef readonly captures(none) %0, ptr noun
 43:                                               ; preds = %39, %42, %24
   %putchar37 = tail call i32 @putchar(i32 41)
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !88
+  %45 = load ptr, ptr %44, align 8, !tbaa !87
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %.critedge
 
@@ -1829,56 +1829,55 @@ attributes #7 = { nounwind }
 !33 = !{!7, !7, i64 0}
 !34 = !{!5, !6, i64 4}
 !35 = !{!5, !6, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = distinct !{!39, !37, !38}
-!40 = !{!15, !6, i64 16}
-!41 = !{!15, !6, i64 24}
-!42 = distinct !{!42, !37, !38}
-!43 = !{!4, !17, i64 336}
-!44 = !{!4, !17, i64 320}
-!45 = !{!4, !14, i64 160}
-!46 = !{!4, !9, i64 48}
-!47 = !{!4, !6, i64 624}
-!48 = distinct !{!48, !37, !38}
-!49 = distinct !{!49, !37, !38}
-!50 = distinct !{!50, !37, !38}
-!51 = !{!4, !16, i64 168}
-!52 = !{!4, !6, i64 180}
-!53 = distinct !{!53, !37, !38}
-!54 = distinct !{!54, !37, !38}
-!55 = !{!4, !6, i64 184}
-!56 = !{!4, !6, i64 192}
-!57 = distinct !{!57, !37, !38}
-!58 = !{!4, !23, i64 608}
-!59 = distinct !{!59, !37, !38}
-!60 = distinct !{!60, !37, !38}
-!61 = distinct !{!61, !37, !38}
-!62 = !{!15, !6, i64 8}
-!63 = !{!5, !9, i64 8}
-!64 = distinct !{!64, !37, !38}
-!65 = distinct !{!65, !37, !38}
-!66 = distinct !{!66, !37, !38}
-!67 = distinct !{!67, !37, !38}
-!68 = distinct !{!68, !37, !38}
-!69 = distinct !{!69, !37, !38}
-!70 = distinct !{!70, !37, !38}
-!71 = distinct !{!71, !37, !38}
-!72 = !{!4, !6, i64 228}
-!73 = !{!4, !6, i64 232}
-!74 = !{!4, !6, i64 224}
-!75 = !{!4, !6, i64 248}
-!76 = !{!4, !13, i64 256}
-!77 = !{!4, !6, i64 236}
-!78 = !{!4, !6, i64 240}
-!79 = distinct !{!79, !37, !38}
-!80 = !{!81, !6, i64 12}
-!81 = !{!"MtrNode", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40}
-!82 = !{!17, !17, i64 0}
-!83 = !{!81, !6, i64 0}
-!84 = !{!81, !20, i64 24}
-!85 = !{!81, !20, i64 40}
-!86 = distinct !{!86, !37, !38}
-!87 = !{!81, !6, i64 8}
-!88 = !{!81, !20, i64 16}
+!38 = distinct !{!38, !37}
+!39 = !{!15, !6, i64 16}
+!40 = !{!15, !6, i64 24}
+!41 = distinct !{!41, !37}
+!42 = !{!4, !17, i64 336}
+!43 = !{!4, !17, i64 320}
+!44 = !{!4, !14, i64 160}
+!45 = !{!4, !9, i64 48}
+!46 = !{!4, !6, i64 624}
+!47 = distinct !{!47, !37}
+!48 = distinct !{!48, !37}
+!49 = distinct !{!49, !37}
+!50 = !{!4, !16, i64 168}
+!51 = !{!4, !6, i64 180}
+!52 = distinct !{!52, !37}
+!53 = distinct !{!53, !37}
+!54 = !{!4, !6, i64 184}
+!55 = !{!4, !6, i64 192}
+!56 = distinct !{!56, !37}
+!57 = !{!4, !23, i64 608}
+!58 = distinct !{!58, !37}
+!59 = distinct !{!59, !37}
+!60 = distinct !{!60, !37}
+!61 = !{!15, !6, i64 8}
+!62 = !{!5, !9, i64 8}
+!63 = distinct !{!63, !37}
+!64 = distinct !{!64, !37}
+!65 = distinct !{!65, !37}
+!66 = distinct !{!66, !37}
+!67 = distinct !{!67, !37}
+!68 = distinct !{!68, !37}
+!69 = distinct !{!69, !37}
+!70 = distinct !{!70, !37}
+!71 = !{!4, !6, i64 228}
+!72 = !{!4, !6, i64 232}
+!73 = !{!4, !6, i64 224}
+!74 = !{!4, !6, i64 248}
+!75 = !{!4, !13, i64 256}
+!76 = !{!4, !6, i64 236}
+!77 = !{!4, !6, i64 240}
+!78 = distinct !{!78, !37}
+!79 = !{!80, !6, i64 12}
+!80 = !{!"MtrNode", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40}
+!81 = !{!17, !17, i64 0}
+!82 = !{!80, !6, i64 0}
+!83 = !{!80, !20, i64 24}
+!84 = !{!80, !20, i64 40}
+!85 = distinct !{!85, !37}
+!86 = !{!80, !6, i64 8}
+!87 = !{!80, !20, i64 16}

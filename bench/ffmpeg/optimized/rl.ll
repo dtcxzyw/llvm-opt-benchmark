@@ -77,14 +77,14 @@ define void @ff_rl_init(ptr noundef captures(none) %0, ptr noundef %1) local_unn
   br i1 %10, label %16, label %14
 
 14:                                               ; preds = %9
-  %15 = load i32, ptr %6, align 4, !tbaa !10
+  %15 = load i32, ptr %6, align 4, !tbaa !9
   br label %16
 
 16:                                               ; preds = %9, %14
   %.049.in = phi ptr [ %0, %14 ], [ %6, %9 ]
   %.048 = phi i32 [ %15, %14 ], [ 0, %9 ]
-  %.049 = load i32, ptr %.049.in, align 4, !tbaa !16
-  %17 = load i32, ptr %0, align 8, !tbaa !17
+  %.049 = load i32, ptr %.049.in, align 4, !tbaa !15
+  %17 = load i32, ptr %0, align 8, !tbaa !16
   %18 = trunc i32 %17 to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(65) %13, i8 %18, i64 65, i1 false)
   %19 = icmp slt i32 %.048, %.049
@@ -97,17 +97,17 @@ define void @ff_rl_init(ptr noundef captures(none) %0, ptr noundef %1) local_unn
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
   %indvars.iv = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
-  %21 = load ptr, ptr %7, align 8, !tbaa !18
+  %21 = load ptr, ptr %7, align 8, !tbaa !17
   %22 = getelementptr inbounds i8, ptr %21, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !4
-  %24 = load ptr, ptr %8, align 8, !tbaa !19
+  %24 = load ptr, ptr %8, align 8, !tbaa !18
   %25 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = sext i8 %23 to i64
   %28 = getelementptr inbounds i8, ptr %13, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !4
   %30 = zext i8 %29 to i32
-  %31 = load i32, ptr %0, align 8, !tbaa !17
+  %31 = load i32, ptr %0, align 8, !tbaa !16
   %32 = icmp eq i32 %31, %30
   br i1 %32, label %33, label %35
 
@@ -140,16 +140,16 @@ define void @ff_rl_init(ptr noundef captures(none) %0, ptr noundef %1) local_unn
 46:                                               ; preds = %40, %45
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %46, %16
   %47 = getelementptr inbounds nuw [2 x ptr], ptr %3, i64 0, i64 %indvars.iv54
-  store ptr %11, ptr %47, align 8, !tbaa !21
+  store ptr %11, ptr %47, align 8, !tbaa !20
   %48 = getelementptr inbounds nuw [2 x ptr], ptr %4, i64 0, i64 %indvars.iv54
-  store ptr %12, ptr %48, align 8, !tbaa !21
+  store ptr %12, ptr %48, align 8, !tbaa !20
   %49 = getelementptr inbounds nuw [2 x ptr], ptr %5, i64 0, i64 %indvars.iv54
-  store ptr %13, ptr %49, align 8, !tbaa !21
-  br i1 %10, label %9, label %50, !llvm.loop !22
+  store ptr %13, ptr %49, align 8, !tbaa !20
+  br i1 %10, label %9, label %50, !llvm.loop !21
 
 50:                                               ; preds = %._crit_edge
   ret void
@@ -158,14 +158,14 @@ define void @ff_rl_init(ptr noundef captures(none) %0, ptr noundef %1) local_unn
 ; Function Attrs: cold nounwind optsize uwtable
 define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load ptr, ptr %3, align 8, !tbaa !23
-  %5 = load i32, ptr %0, align 8, !tbaa !17
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
+  %5 = load i32, ptr %0, align 8, !tbaa !16
   %6 = add nsw i32 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !25
+  %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 2
   tail call void @ff_vlc_init_table_sparse(ptr noundef %4, i32 noundef %1, i32 noundef 9, i32 noundef %6, ptr noundef nonnull %9, i32 noundef 4, i32 noundef 2, ptr noundef %8, i32 noundef 4, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #5
-  %10 = load ptr, ptr %3, align 8, !tbaa !23
+  %10 = load ptr, ptr %3, align 8, !tbaa !22
   %.not57 = icmp eq i32 %1, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -180,9 +180,9 @@ define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef 
   %indvars.iv59 = phi i64 [ 31, %2 ], [ %indvars.iv.next60, %.loopexit ]
   %.04556 = phi i16 [ 32, %2 ], [ %55, %.loopexit ]
   %16 = getelementptr inbounds nuw [32 x ptr], ptr %3, i64 0, i64 %indvars.iv59
-  %17 = load ptr, ptr %16, align 8, !tbaa !23
+  %17 = load ptr, ptr %16, align 8, !tbaa !22
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %.loopexit, label %18, !llvm.loop !26
+  br i1 %.not, label %.loopexit, label %18, !llvm.loop !25
 
 18:                                               ; preds = %15
   %19 = or i16 %.04556, 1
@@ -209,22 +209,22 @@ define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef 
   br i1 %30, label %46, label %31
 
 31:                                               ; preds = %29
-  %32 = load i32, ptr %0, align 8, !tbaa !17
+  %32 = load i32, ptr %0, align 8, !tbaa !16
   %33 = icmp eq i32 %32, %25
   br i1 %33, label %46, label %34
 
 34:                                               ; preds = %31
-  %35 = load ptr, ptr %11, align 8, !tbaa !18
+  %35 = load ptr, ptr %11, align 8, !tbaa !17
   %36 = sext i16 %24 to i64
   %37 = getelementptr inbounds i8, ptr %35, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !4
-  %39 = load ptr, ptr %12, align 8, !tbaa !19
+  %39 = load ptr, ptr %12, align 8, !tbaa !18
   %40 = getelementptr inbounds i8, ptr %39, i64 %36
   %41 = load i8, ptr %40, align 1, !tbaa !4
   %42 = sext i8 %41 to i16
   %43 = mul i16 %spec.select, %42
   %44 = add i16 %43, %spec.select53
-  %45 = load i32, ptr %13, align 4, !tbaa !10
+  %45 = load i32, ptr %13, align 4, !tbaa !9
   %.not52 = icmp sgt i32 %45, %25
   %spec.select54.v = select i1 %.not52, i8 1, i8 -63
   %spec.select54 = add i8 %spec.select54.v, %38
@@ -234,25 +234,25 @@ define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef 
   %.044 = phi i16 [ 64, %.lr.ph ], [ %24, %29 ], [ 0, %31 ], [ %44, %34 ]
   %.0 = phi i8 [ 66, %.lr.ph ], [ 0, %29 ], [ 66, %31 ], [ %spec.select54, %34 ]
   %47 = trunc i16 %27 to i8
-  %48 = load ptr, ptr %16, align 8, !tbaa !23
+  %48 = load ptr, ptr %16, align 8, !tbaa !22
   %49 = getelementptr inbounds nuw %struct.VLCElem, ptr %48, i64 %indvars.iv, i32 0, i32 0, i32 1
   store i8 %47, ptr %49, align 2, !tbaa !4
-  %50 = load ptr, ptr %16, align 8, !tbaa !23
+  %50 = load ptr, ptr %16, align 8, !tbaa !22
   %51 = getelementptr inbounds nuw %struct.VLCElem, ptr %50, i64 %indvars.iv
   store i16 %.044, ptr %51, align 2, !tbaa !4
-  %52 = load ptr, ptr %16, align 8, !tbaa !23
+  %52 = load ptr, ptr %16, align 8, !tbaa !22
   %53 = getelementptr inbounds nuw %struct.VLCElem, ptr %52, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 3
   store i8 %.0, ptr %54, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %46, %18, %15
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, -1
   %.not62 = icmp eq i64 %indvars.iv59, 0
   %55 = trunc i64 %indvars.iv59 to i16
-  br i1 %.not62, label %14, label %15, !llvm.loop !28
+  br i1 %.not62, label %14, label %15
 }
 
 declare void @ff_vlc_init_table_sparse(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
@@ -273,25 +273,23 @@ attributes #5 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !12, i64 4}
-!11 = !{!"RLTable", !12, i64 0, !12, i64 4, !13, i64 8, !15, i64 16, !15, i64 24, !5, i64 32, !5, i64 48, !5, i64 64, !5, i64 80}
-!12 = !{!"int", !5, i64 0}
-!13 = !{!"p1 short", !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}
-!15 = !{!"p1 omnipotent char", !14, i64 0}
-!16 = !{!12, !12, i64 0}
-!17 = !{!11, !12, i64 0}
-!18 = !{!11, !15, i64 16}
-!19 = !{!11, !15, i64 24}
-!20 = distinct !{!20, !8, !9}
-!21 = !{!15, !15, i64 0}
-!22 = distinct !{!22, !8, !9}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS7VLCElem", !14, i64 0}
-!25 = !{!11, !13, i64 8}
+!9 = !{!10, !11, i64 4}
+!10 = !{!"RLTable", !11, i64 0, !11, i64 4, !12, i64 8, !14, i64 16, !14, i64 24, !5, i64 32, !5, i64 48, !5, i64 64, !5, i64 80}
+!11 = !{!"int", !5, i64 0}
+!12 = !{!"p1 short", !13, i64 0}
+!13 = !{!"any pointer", !5, i64 0}
+!14 = !{!"p1 omnipotent char", !13, i64 0}
+!15 = !{!11, !11, i64 0}
+!16 = !{!10, !11, i64 0}
+!17 = !{!10, !14, i64 16}
+!18 = !{!10, !14, i64 24}
+!19 = distinct !{!19, !8}
+!20 = !{!14, !14, i64 0}
+!21 = distinct !{!21, !8}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS7VLCElem", !13, i64 0}
+!24 = !{!10, !12, i64 8}
+!25 = distinct !{!25, !8}
 !26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8, !9}
-!28 = distinct !{!28, !9}

@@ -68,15 +68,15 @@ define double @dsdot_k(i64 noundef %0, ptr noundef readonly captures(none) %1, i
   %.06596 = phi double [ %51, %.lr.ph97 ], [ 0.000000e+00, %.loopexit ]
   %.17295 = phi i64 [ %52, %.lr.ph97 ], [ %11, %.loopexit ]
   %45 = getelementptr inbounds nuw float, ptr %3, i64 %.17295
-  %46 = load float, ptr %45, align 4, !tbaa !9
+  %46 = load float, ptr %45, align 4, !tbaa !8
   %47 = fpext float %46 to double
   %48 = getelementptr inbounds nuw float, ptr %1, i64 %.17295
-  %49 = load float, ptr %48, align 4, !tbaa !9
+  %49 = load float, ptr %48, align 4, !tbaa !8
   %50 = fpext float %49 to double
   %51 = tail call double @llvm.fmuladd.f64(double %47, double %50, double %.06596)
   %52 = add nuw nsw i64 %.17295, 1
   %53 = icmp slt i64 %52, %0
-  br i1 %53, label %.lr.ph97, label %._crit_edge, !llvm.loop !11
+  br i1 %53, label %.lr.ph97, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph97, %.loopexit
   %.065.lcssa = phi double [ 0.000000e+00, %.loopexit ], [ %51, %.lr.ph97 ]
@@ -113,16 +113,16 @@ define double @dsdot_k(i64 noundef %0, ptr noundef readonly captures(none) %1, i
   %.06979 = phi i64 [ 0, %.lr.ph ], [ %79, %63 ]
   %.27378 = phi i64 [ 0, %.lr.ph ], [ %81, %63 ]
   %64 = getelementptr inbounds float, ptr %3, i64 %.06780
-  %65 = load float, ptr %64, align 4, !tbaa !9
+  %65 = load float, ptr %64, align 4, !tbaa !8
   %66 = fpext float %65 to double
   %67 = getelementptr inbounds float, ptr %1, i64 %.06979
-  %68 = load float, ptr %67, align 4, !tbaa !9
+  %68 = load float, ptr %67, align 4, !tbaa !8
   %69 = fpext float %68 to double
   %70 = getelementptr float, ptr %64, i64 %4
-  %71 = load float, ptr %70, align 4, !tbaa !9
+  %71 = load float, ptr %70, align 4, !tbaa !8
   %72 = fpext float %71 to double
   %73 = getelementptr float, ptr %67, i64 %2
-  %74 = load float, ptr %73, align 4, !tbaa !9
+  %74 = load float, ptr %73, align 4, !tbaa !8
   %75 = fpext float %74 to double
   %76 = fmul double %72, %75
   %77 = tail call double @llvm.fmuladd.f64(double %66, double %69, double %76)
@@ -131,7 +131,7 @@ define double @dsdot_k(i64 noundef %0, ptr noundef readonly captures(none) %1, i
   %80 = add nsw i64 %.06780, %58
   %81 = add nuw nsw i64 %.27378, 2
   %82 = icmp samesign ult i64 %81, %56
-  br i1 %82, label %63, label %.preheader76.loopexit, !llvm.loop !12
+  br i1 %82, label %63, label %.preheader76.loopexit, !llvm.loop !11
 
 .lr.ph89:                                         ; preds = %.preheader76, %.lr.ph89
   %.288 = phi double [ %89, %.lr.ph89 ], [ %.166.lcssa, %.preheader76 ]
@@ -139,17 +139,17 @@ define double @dsdot_k(i64 noundef %0, ptr noundef readonly captures(none) %1, i
   %.17086 = phi i64 [ %90, %.lr.ph89 ], [ %.069.lcssa, %.preheader76 ]
   %.385 = phi i64 [ %92, %.lr.ph89 ], [ %.273.lcssa, %.preheader76 ]
   %83 = getelementptr inbounds float, ptr %3, i64 %.16887
-  %84 = load float, ptr %83, align 4, !tbaa !9
+  %84 = load float, ptr %83, align 4, !tbaa !8
   %85 = fpext float %84 to double
   %86 = getelementptr inbounds float, ptr %1, i64 %.17086
-  %87 = load float, ptr %86, align 4, !tbaa !9
+  %87 = load float, ptr %86, align 4, !tbaa !8
   %88 = fpext float %87 to double
   %89 = tail call double @llvm.fmuladd.f64(double %85, double %88, double %.288)
   %90 = add nsw i64 %.17086, %2
   %91 = add nsw i64 %.16887, %4
   %92 = add nuw nsw i64 %.385, 1
   %exitcond.not = icmp eq i64 %92, %0
-  br i1 %exitcond.not, label %.loopexit77, label %.lr.ph89, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit77, label %.lr.ph89, !llvm.loop !12
 
 .loopexit77:                                      ; preds = %.lr.ph89, %.preheader76, %5, %._crit_edge
   %.0 = phi double [ %54, %._crit_edge ], [ 0.000000e+00, %5 ], [ %.166.lcssa, %.preheader76 ], [ %89, %.lr.ph89 ]
@@ -177,11 +177,10 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"float", !4, i64 0}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"float", !4, i64 0}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

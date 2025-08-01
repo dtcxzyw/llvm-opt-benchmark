@@ -247,12 +247,12 @@ define internal i32 @procfs_opendir(ptr readnone captures(none) %0, ptr noundef 
 21:                                               ; preds = %19, %.lr.ph.i
   %22 = phi i32 [ %17, %.lr.ph.i ], [ %15, %19 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %21, %.preheader.i
   %23 = add nuw nsw i32 %.01923.i, 1
   %exitcond28.not.i = icmp eq i32 %23, %12
-  br i1 %exitcond28.not.i, label %procfs_sort_pid.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond28.not.i, label %procfs_sort_pid.exit, label %.preheader.i, !llvm.loop !9
 
 procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 552
@@ -316,7 +316,7 @@ procfs_sort_pid.exit:                             ; preds = %._crit_edge.i, %9
 55:                                               ; preds = %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !10
 
 56:                                               ; preds = %.thread, %procfs_sort_pid.exit
   %.sink61 = phi ptr [ %47, %.thread ], [ %8, %procfs_sort_pid.exit ]
@@ -383,7 +383,7 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  br label %20, !llvm.loop !12
+  br label %20, !llvm.loop !11
 
 .critedge:                                        ; preds = %20, %20
   %24 = load i8, ptr %14, align 8
@@ -400,7 +400,7 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
 .critedge.thread:                                 ; preds = %20, %20, %20, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.thread, label %17, !llvm.loop !13
+  br i1 %exitcond.not, label %.thread, label %17, !llvm.loop !12
 
 29:                                               ; preds = %25, %.critedge
   %30 = tail call i64 @strcspn(ptr noundef %19, ptr noundef nonnull @.str.14)
@@ -512,7 +512,7 @@ define internal i32 @procfs_readdir(ptr readnone captures(none) %0, ptr noundef 
   %101 = getelementptr inbounds [33 x i8], ptr %88, i64 0, i64 %100
   %102 = load i8, ptr %101, align 1
   %103 = icmp eq i8 %102, 42
-  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %103, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %81
   %.lcssa109 = phi i64 [ %92, %81 ], [ %99, %.lr.ph ]
@@ -613,7 +613,7 @@ define internal i32 @procfs_stat(ptr readnone captures(none) %0, ptr noundef %1,
 12:                                               ; preds = %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !14
 
 13:                                               ; preds = %9, %12
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %12 ]
@@ -720,13 +720,12 @@ attributes #13 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

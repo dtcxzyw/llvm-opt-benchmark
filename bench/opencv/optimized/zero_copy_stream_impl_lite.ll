@@ -947,21 +947,21 @@ define hidden noundef i32 @_ZN6google8protobuf2io18CopyingInputStream4SkipEi(ptr
 define hidden void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorC2EPNS1_18CopyingInputStreamEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(52) initializes((0, 18), (24, 52)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io25CopyingInputStreamAdaptorE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !37
+  store ptr %1, ptr %4, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %5, align 8, !tbaa !47
+  store i8 0, ptr %5, align 8, !tbaa !46
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 0, ptr %6, align 1, !tbaa !48
+  store i8 0, ptr %6, align 1, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = icmp sgt i32 %2, 0
   %10 = select i1 %9, i32 %2, i32 8192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store i32 %10, ptr %8, align 8, !tbaa !49
+  store i32 %10, ptr %8, align 8, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %11, align 4, !tbaa !50
+  store i32 0, ptr %11, align 4, !tbaa !49
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %12, align 8, !tbaa !51
+  store i32 0, ptr %12, align 8, !tbaa !50
   ret void
 }
 
@@ -969,13 +969,13 @@ define hidden void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorC2EPNS1_18C
 define hidden void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io25CopyingInputStreamAdaptorE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i8, ptr %2, align 8, !tbaa !47, !range !52, !noundef !53
+  %3 = load i8, ptr %2, align 8, !tbaa !46, !range !51, !noundef !52
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !37
+  %7 = load ptr, ptr %6, align 8, !tbaa !36
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
 
@@ -988,7 +988,7 @@ define hidden void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD2Ev(ptr no
 
 13:                                               ; preds = %5, %9, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !54
+  %15 = load ptr, ptr %14, align 8, !tbaa !53
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
@@ -997,7 +997,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %13, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
-  store ptr null, ptr %14, align 8, !tbaa !54
+  store ptr null, ptr %14, align 8, !tbaa !53
   ret void
 }
 
@@ -1005,13 +1005,13 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %13, %_ZNKSt14
 define hidden void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD0Ev(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io25CopyingInputStreamAdaptorE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i8, ptr %2, align 8, !tbaa !47, !range !52, !noundef !53
+  %3 = load i8, ptr %2, align 8, !tbaa !46, !range !51, !noundef !52
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !37
+  %7 = load ptr, ptr %6, align 8, !tbaa !36
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
 
@@ -1024,7 +1024,7 @@ define hidden void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD0Ev(ptr no
 
 13:                                               ; preds = %9, %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !54
+  %15 = load ptr, ptr %14, align 8, !tbaa !53
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZN6google8protobuf2io25CopyingInputStreamAdaptorD2Ev.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
@@ -1043,35 +1043,35 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdaptor4NextEPPKvPi(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %5 = load i8, ptr %4, align 1, !tbaa !48, !range !52, !noundef !53
+  %5 = load i8, ptr %4, align 1, !tbaa !47, !range !51, !noundef !52
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %48, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !54
+  %9 = load ptr, ptr %8, align 8, !tbaa !53
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i, label %_ZN6google8protobuf2io25CopyingInputStreamAdaptor22AllocateBufferIfNeededEv.exit
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load i32, ptr %11, align 8, !tbaa !49
+  %12 = load i32, ptr %11, align 8, !tbaa !48
   %narrow.i = tail call i32 @llvm.smax.i32(i32 %12, i32 -1)
   %13 = sext i32 %narrow.i to i64
   %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #21
-  store ptr %14, ptr %8, align 8, !tbaa !54
+  store ptr %14, ptr %8, align 8, !tbaa !53
   br label %_ZN6google8protobuf2io25CopyingInputStreamAdaptor22AllocateBufferIfNeededEv.exit
 
 _ZN6google8protobuf2io25CopyingInputStreamAdaptor22AllocateBufferIfNeededEv.exit: ; preds = %7, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i
   %15 = phi ptr [ %9, %7 ], [ %14, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i32, ptr %16, align 8, !tbaa !51
+  %17 = load i32, ptr %16, align 8, !tbaa !50
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %_ZN6google8protobuf2io25CopyingInputStreamAdaptor22AllocateBufferIfNeededEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %21 = load i32, ptr %20, align 4, !tbaa !50
+  %21 = load i32, ptr %20, align 4, !tbaa !49
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %15, i64 %22
   %24 = zext nneg i32 %17 to i64
@@ -1079,20 +1079,20 @@ _ZN6google8protobuf2io25CopyingInputStreamAdaptor22AllocateBufferIfNeededEv.exit
   %26 = getelementptr inbounds i8, ptr %23, i64 %25
   store ptr %26, ptr %1, align 8, !tbaa !18
   store i32 %17, ptr %2, align 4, !tbaa !17
-  store i32 0, ptr %16, align 8, !tbaa !51
+  store i32 0, ptr %16, align 8, !tbaa !50
   br label %48
 
 27:                                               ; preds = %_ZN6google8protobuf2io25CopyingInputStreamAdaptor22AllocateBufferIfNeededEv.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !37
+  %29 = load ptr, ptr %28, align 8, !tbaa !36
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load i32, ptr %30, align 8, !tbaa !49
+  %31 = load i32, ptr %30, align 8, !tbaa !48
   %32 = load ptr, ptr %29, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef i32 %34(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull %15, i32 noundef %31)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %35, ptr %36, align 4, !tbaa !50
+  store i32 %35, ptr %36, align 4, !tbaa !49
   %37 = icmp slt i32 %35, 1
   br i1 %37, label %38, label %42
 
@@ -1101,7 +1101,7 @@ _ZN6google8protobuf2io25CopyingInputStreamAdaptor22AllocateBufferIfNeededEv.exit
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %38
-  store i8 1, ptr %4, align 1, !tbaa !48
+  store i8 1, ptr %4, align 1, !tbaa !47
   br label %41
 
 41:                                               ; preds = %40, %38
@@ -1111,11 +1111,11 @@ _ZN6google8protobuf2io25CopyingInputStreamAdaptor22AllocateBufferIfNeededEv.exit
 42:                                               ; preds = %27
   %43 = zext nneg i32 %35 to i64
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = load i64, ptr %44, align 8, !tbaa !55
+  %45 = load i64, ptr %44, align 8, !tbaa !54
   %46 = add nsw i64 %45, %43
-  store i64 %46, ptr %44, align 8, !tbaa !55
+  store i64 %46, ptr %44, align 8, !tbaa !54
   store i32 %35, ptr %2, align 4, !tbaa !17
-  %47 = load ptr, ptr %8, align 8, !tbaa !54
+  %47 = load ptr, ptr %8, align 8, !tbaa !53
   store ptr %47, ptr %1, align 8, !tbaa !18
   br label %48
 
@@ -1127,17 +1127,17 @@ _ZN6google8protobuf2io25CopyingInputStreamAdaptor22AllocateBufferIfNeededEv.exit
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor22AllocateBufferIfNeededEv(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit, label %9
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load i32, ptr %5, align 8, !tbaa !49
+  %6 = load i32, ptr %5, align 8, !tbaa !48
   %narrow = tail call i32 @llvm.smax.i32(i32 %6, i32 -1)
   %7 = sext i32 %narrow to i64
   %8 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
-  store ptr %8, ptr %2, align 8, !tbaa !54
+  store ptr %8, ptr %2, align 8, !tbaa !53
   br label %9
 
 9:                                                ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit, %1
@@ -1149,7 +1149,7 @@ define hidden void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor10FreeBuffe
   %2 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %3 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load i32, ptr %4, align 8, !tbaa !51
+  %5 = load i32, ptr %4, align 8, !tbaa !50
   %.not = icmp eq i32 %5, 0
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #19
   br i1 %.not, label %.thread, label %6
@@ -1176,10 +1176,10 @@ define hidden void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor10FreeBuffe
 
 .critedge11:                                      ; preds = %.thread, %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %10, align 4, !tbaa !50
+  store i32 0, ptr %10, align 4, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !54
-  store ptr null, ptr %11, align 8, !tbaa !54
+  %12 = load ptr, ptr %11, align 8, !tbaa !53
+  store ptr null, ptr %11, align 8, !tbaa !53
   %.not.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
@@ -1217,7 +1217,7 @@ define hidden void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor6BackUpEi(p
   %7 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %8 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load i32, ptr %9, align 8, !tbaa !51
+  %10 = load i32, ptr %9, align 8, !tbaa !50
   %11 = icmp ne i32 %10, 0
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1252,7 +1252,7 @@ define hidden void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor6BackUpEi(p
 
 .critedge:                                        ; preds = %.critedge.critedge, %19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %21 = load i32, ptr %20, align 4, !tbaa !50
+  %21 = load i32, ptr %20, align 4, !tbaa !49
   %.not28 = icmp sgt i32 %1, %21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
   br i1 %.not28, label %22, label %27
@@ -1311,7 +1311,7 @@ define hidden void @_ZN6google8protobuf2io25CopyingInputStreamAdaptor6BackUpEi(p
   br label %.critedge41
 
 .critedge41:                                      ; preds = %35, %36
-  store i32 %1, ptr %9, align 8, !tbaa !51
+  store i32 %1, ptr %9, align 8, !tbaa !50
   ret void
 
 37:                                               ; preds = %16, %14
@@ -1400,7 +1400,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdap
 
 .critedge24:                                      ; preds = %9, %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %12 = load i8, ptr %11, align 1, !tbaa !48, !range !52, !noundef !53
+  %12 = load i8, ptr %11, align 1, !tbaa !47, !range !51, !noundef !52
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %37, label %19
 
@@ -1423,29 +1423,29 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdap
 
 19:                                               ; preds = %.critedge24
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = load i32, ptr %20, align 8, !tbaa !51
+  %21 = load i32, ptr %20, align 8, !tbaa !50
   %.not = icmp slt i32 %21, %1
   br i1 %.not, label %24, label %22
 
 22:                                               ; preds = %19
   %23 = sub nsw i32 %21, %1
-  store i32 %23, ptr %20, align 8, !tbaa !51
+  store i32 %23, ptr %20, align 8, !tbaa !50
   br label %37
 
 24:                                               ; preds = %19
   %25 = sub nsw i32 %1, %21
-  store i32 0, ptr %20, align 8, !tbaa !51
+  store i32 0, ptr %20, align 8, !tbaa !50
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !37
+  %27 = load ptr, ptr %26, align 8, !tbaa !36
   %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 noundef %25)
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %34 = load i64, ptr %33, align 8, !tbaa !55
+  %34 = load i64, ptr %33, align 8, !tbaa !54
   %35 = add nsw i64 %34, %32
-  store i64 %35, ptr %33, align 8, !tbaa !55
+  store i64 %35, ptr %33, align 8, !tbaa !54
   %36 = icmp eq i32 %31, %25
   br label %37
 
@@ -1457,9 +1457,9 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io25CopyingInputStreamAdap
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK6google8protobuf2io25CopyingInputStreamAdaptor9ByteCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8, !tbaa !55
+  %3 = load i64, ptr %2, align 8, !tbaa !54
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load i32, ptr %4, align 8, !tbaa !51
+  %5 = load i32, ptr %4, align 8, !tbaa !50
   %6 = sext i32 %5 to i64
   %7 = sub nsw i64 %3, %6
   ret i64 %7
@@ -1472,19 +1472,19 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #10
 define hidden void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC2EPNS1_19CopyingOutputStreamEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 18), (24, 48)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6google8protobuf2io26CopyingOutputStreamAdaptorE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %5, align 8, !tbaa !59
+  store i8 0, ptr %5, align 8, !tbaa !58
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 0, ptr %6, align 1, !tbaa !60
+  store i8 0, ptr %6, align 1, !tbaa !59
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = icmp sgt i32 %2, 0
   %10 = select i1 %9, i32 %2, i32 8192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store i32 %10, ptr %8, align 8, !tbaa !61
+  store i32 %10, ptr %8, align 8, !tbaa !60
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %11, align 4, !tbaa !62
+  store i32 0, ptr %11, align 4, !tbaa !61
   ret void
 }
 
@@ -1492,21 +1492,21 @@ define hidden void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC2EPNS1_19
 define hidden void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN6google8protobuf2io26CopyingOutputStreamAdaptorE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %3 = load i8, ptr %2, align 1, !tbaa !60, !range !52, !noundef !53
+  %3 = load i8, ptr %2, align 1, !tbaa !59, !range !51, !noundef !52
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %7 = load i32, ptr %6, align 4, !tbaa !62
+  %7 = load i32, ptr %6, align 4, !tbaa !61
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !54
+  %13 = load ptr, ptr %12, align 8, !tbaa !53
   %14 = load ptr, ptr %11, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
@@ -1517,20 +1517,20 @@ define hidden void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorD2Ev(ptr n
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %.noexc
-  %19 = load i32, ptr %6, align 4, !tbaa !62
+  %19 = load i32, ptr %6, align 4, !tbaa !61
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !63
+  %22 = load i64, ptr %21, align 8, !tbaa !62
   %23 = add nsw i64 %22, %20
-  store i64 %23, ptr %21, align 8, !tbaa !63
-  store i32 0, ptr %6, align 4, !tbaa !62
+  store i64 %23, ptr %21, align 8, !tbaa !62
+  store i32 0, ptr %6, align 4, !tbaa !61
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
 
 24:                                               ; preds = %.noexc
-  store i8 1, ptr %2, align 1, !tbaa !60
-  store i32 0, ptr %6, align 4, !tbaa !62
-  %25 = load ptr, ptr %12, align 8, !tbaa !54
-  store ptr null, ptr %12, align 8, !tbaa !54
+  store i8 1, ptr %2, align 1, !tbaa !59
+  store i32 0, ptr %6, align 4, !tbaa !61
+  %25 = load ptr, ptr %12, align 8, !tbaa !53
+  store ptr null, ptr %12, align 8, !tbaa !53
   %.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i
 
@@ -1540,13 +1540,13 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i, %24, %18, %5, %1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i8, ptr %26, align 8, !tbaa !59, !range !52, !noundef !53
+  %27 = load i8, ptr %26, align 8, !tbaa !58, !range !51, !noundef !52
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !56
+  %31 = load ptr, ptr %30, align 8, !tbaa !55
   %32 = icmp eq ptr %31, null
   br i1 %32, label %37, label %33
 
@@ -1559,7 +1559,7 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds 
 
 37:                                               ; preds = %29, %33, %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !54
+  %39 = load ptr, ptr %38, align 8, !tbaa !53
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
@@ -1568,7 +1568,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %37, %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
-  store ptr null, ptr %38, align 8, !tbaa !54
+  store ptr null, ptr %38, align 8, !tbaa !53
   ret void
 
 40:                                               ; preds = %9
@@ -1582,21 +1582,21 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %37, %_ZNKSt14
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %3 = load i8, ptr %2, align 1, !tbaa !60, !range !52, !noundef !53
+  %3 = load i8, ptr %2, align 1, !tbaa !59, !range !51, !noundef !52
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %7 = load i32, ptr %6, align 4, !tbaa !62
+  %7 = load i32, ptr %6, align 4, !tbaa !61
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv.exit, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !54
+  %13 = load ptr, ptr %12, align 8, !tbaa !53
   %14 = load ptr, ptr %11, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
@@ -1604,20 +1604,20 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAda
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %9
-  %19 = load i32, ptr %6, align 4, !tbaa !62
+  %19 = load i32, ptr %6, align 4, !tbaa !61
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !63
+  %22 = load i64, ptr %21, align 8, !tbaa !62
   %23 = add nsw i64 %22, %20
-  store i64 %23, ptr %21, align 8, !tbaa !63
-  store i32 0, ptr %6, align 4, !tbaa !62
+  store i64 %23, ptr %21, align 8, !tbaa !62
+  store i32 0, ptr %6, align 4, !tbaa !61
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv.exit
 
 24:                                               ; preds = %9
-  store i8 1, ptr %2, align 1, !tbaa !60
-  store i32 0, ptr %6, align 4, !tbaa !62
-  %25 = load ptr, ptr %12, align 8, !tbaa !54
-  store ptr null, ptr %12, align 8, !tbaa !54
+  store i8 1, ptr %2, align 1, !tbaa !59
+  store i32 0, ptr %6, align 4, !tbaa !61
+  %25 = load ptr, ptr %12, align 8, !tbaa !53
+  store ptr null, ptr %12, align 8, !tbaa !53
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i
 
@@ -1652,21 +1652,21 @@ define hidden void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorD0Ev(ptr n
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %3 = load i8, ptr %2, align 1, !tbaa !60, !range !52, !noundef !53
+  %3 = load i8, ptr %2, align 1, !tbaa !59, !range !51, !noundef !52
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %7 = load i32, ptr %6, align 4, !tbaa !62
+  %7 = load i32, ptr %6, align 4, !tbaa !61
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !54
+  %13 = load ptr, ptr %12, align 8, !tbaa !53
   %14 = load ptr, ptr %11, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
@@ -1674,20 +1674,20 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAda
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %9
-  %19 = load i32, ptr %6, align 4, !tbaa !62
+  %19 = load i32, ptr %6, align 4, !tbaa !61
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !63
+  %22 = load i64, ptr %21, align 8, !tbaa !62
   %23 = add nsw i64 %22, %20
-  store i64 %23, ptr %21, align 8, !tbaa !63
-  store i32 0, ptr %6, align 4, !tbaa !62
+  store i64 %23, ptr %21, align 8, !tbaa !62
+  store i32 0, ptr %6, align 4, !tbaa !61
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
 
 24:                                               ; preds = %9
-  store i8 1, ptr %2, align 1, !tbaa !60
-  store i32 0, ptr %6, align 4, !tbaa !62
-  %25 = load ptr, ptr %12, align 8, !tbaa !54
-  store ptr null, ptr %12, align 8, !tbaa !54
+  store i8 1, ptr %2, align 1, !tbaa !59
+  store i32 0, ptr %6, align 4, !tbaa !61
+  %25 = load ptr, ptr %12, align 8, !tbaa !53
+  store ptr null, ptr %12, align 8, !tbaa !53
   %.not.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i
 
@@ -1703,15 +1703,15 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor4NextEPPvPi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4, !tbaa !62
+  %5 = load i32, ptr %4, align 4, !tbaa !61
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i32, ptr %6, align 8, !tbaa !61
+  %7 = load i32, ptr %6, align 8, !tbaa !60
   %8 = icmp eq i32 %5, %7
   br i1 %8, label %9, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %11 = load i8, ptr %10, align 1, !tbaa !60, !range !52, !noundef !53
+  %11 = load i8, ptr %10, align 1, !tbaa !59, !range !51, !noundef !52
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit.thread, label %13
 
@@ -1721,9 +1721,9 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAda
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !56
+  %17 = load ptr, ptr %16, align 8, !tbaa !55
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !54
+  %19 = load ptr, ptr %18, align 8, !tbaa !53
   %20 = load ptr, ptr %17, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
@@ -1731,21 +1731,21 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAda
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %15
-  %25 = load i32, ptr %4, align 4, !tbaa !62
+  %25 = load i32, ptr %4, align 4, !tbaa !61
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load i64, ptr %27, align 8, !tbaa !63
+  %28 = load i64, ptr %27, align 8, !tbaa !62
   %29 = add nsw i64 %28, %26
-  store i64 %29, ptr %27, align 8, !tbaa !63
-  store i32 0, ptr %4, align 4, !tbaa !62
-  %.pre.pre = load i32, ptr %6, align 8, !tbaa !61
+  store i64 %29, ptr %27, align 8, !tbaa !62
+  store i32 0, ptr %4, align 4, !tbaa !61
+  %.pre.pre = load i32, ptr %6, align 8, !tbaa !60
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit
 
 30:                                               ; preds = %15
-  store i8 1, ptr %10, align 1, !tbaa !60
-  store i32 0, ptr %4, align 4, !tbaa !62
-  %31 = load ptr, ptr %18, align 8, !tbaa !54
-  store ptr null, ptr %18, align 8, !tbaa !54
+  store i8 1, ptr %10, align 1, !tbaa !59
+  store i32 0, ptr %4, align 4, !tbaa !61
+  %31 = load ptr, ptr %18, align 8, !tbaa !53
+  store ptr null, ptr %18, align 8, !tbaa !53
   %.not.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i.i, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit.thread, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i
 
@@ -1757,7 +1757,7 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit: ; preds 
   %.pre = phi i32 [ %.pre.pre, %24 ], [ 0, %13 ], [ %7, %3 ]
   %32 = phi i32 [ 0, %24 ], [ 0, %13 ], [ %5, %3 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %34 = load ptr, ptr %33, align 8, !tbaa !54
+  %34 = load ptr, ptr %33, align 8, !tbaa !53
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor22AllocateBufferIfNeededEv.exit
 
@@ -1765,7 +1765,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i: ; preds = %
   %narrow.i = tail call i32 @llvm.smax.i32(i32 %.pre, i32 -1)
   %35 = sext i32 %narrow.i to i64
   %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %35) #21
-  store ptr %36, ptr %33, align 8, !tbaa !54
+  store ptr %36, ptr %33, align 8, !tbaa !53
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor22AllocateBufferIfNeededEv.exit
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor22AllocateBufferIfNeededEv.exit: ; preds = %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i
@@ -1775,8 +1775,8 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor22AllocateBufferIfNeededEv.exi
   store ptr %39, ptr %1, align 8, !tbaa !18
   %40 = sub nsw i32 %.pre, %32
   store i32 %40, ptr %2, align 4, !tbaa !17
-  %41 = load i32, ptr %6, align 8, !tbaa !61
-  store i32 %41, ptr %4, align 4, !tbaa !62
+  %41 = load i32, ptr %6, align 8, !tbaa !60
+  store i32 %41, ptr %4, align 4, !tbaa !61
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit.thread
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit.thread: ; preds = %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i, %30, %9, %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor22AllocateBufferIfNeededEv.exit
@@ -1787,17 +1787,17 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor11WriteBufferEv.exit.thread: ;
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor22AllocateBufferIfNeededEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit, label %8
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load i32, ptr %4, align 8, !tbaa !61
+  %5 = load i32, ptr %4, align 8, !tbaa !60
   %narrow = tail call i32 @llvm.smax.i32(i32 %5, i32 -1)
   %6 = sext i32 %narrow to i64
   %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #21
-  store ptr %7, ptr %2, align 8, !tbaa !54
+  store ptr %7, ptr %2, align 8, !tbaa !53
   br label %8
 
 8:                                                ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit, %1
@@ -1838,9 +1838,9 @@ define hidden void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor6BackUpEi(
 
 .critedge35:                                      ; preds = %13, %14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %16 = load i32, ptr %15, align 4, !tbaa !62
+  %16 = load i32, ptr %15, align 4, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load i32, ptr %17, align 8, !tbaa !61
+  %18 = load i32, ptr %17, align 8, !tbaa !60
   %.not = icmp eq i32 %16, %18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #19
   br i1 %.not, label %.thread44, label %19
@@ -1867,7 +1867,7 @@ define hidden void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor6BackUpEi(
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #19
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #19
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #19
-  %.pre = load i32, ptr %15, align 4, !tbaa !62
+  %.pre = load i32, ptr %15, align 4, !tbaa !61
   br label %.critedge39
 
 .critedge39:                                      ; preds = %.thread44, %24
@@ -1898,13 +1898,13 @@ define hidden void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor6BackUpEi(
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #19
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #19
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #19
-  %.pre46 = load i32, ptr %15, align 4, !tbaa !62
+  %.pre46 = load i32, ptr %15, align 4, !tbaa !61
   br label %.critedge43
 
 .critedge43:                                      ; preds = %31, %32
   %33 = phi i32 [ %25, %31 ], [ %.pre46, %32 ]
   %34 = sub nsw i32 %33, %1
-  store i32 %34, ptr %15, align 4, !tbaa !62
+  store i32 %34, ptr %15, align 4, !tbaa !61
   ret void
 
 35:                                               ; preds = %10
@@ -1966,9 +1966,9 @@ define hidden void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor6BackUpEi(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK6google8protobuf2io26CopyingOutputStreamAdaptor9ByteCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8, !tbaa !63
+  %3 = load i64, ptr %2, align 8, !tbaa !62
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %5 = load i32, ptr %4, align 4, !tbaa !62
+  %5 = load i32, ptr %4, align 4, !tbaa !61
   %6 = sext i32 %5 to i64
   %7 = add nsw i64 %3, %6
   ret i64 %7
@@ -1979,27 +1979,27 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAda
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load i32, ptr %6, align 8, !tbaa !61
+  %7 = load i32, ptr %6, align 8, !tbaa !60
   %.not = icmp slt i32 %2, %7
   br i1 %.not, label %44, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %10 = load i8, ptr %9, align 1, !tbaa !60, !range !52, !noundef !53
+  %10 = load i8, ptr %9, align 1, !tbaa !59, !range !51, !noundef !52
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit.thread, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %14 = load i32, ptr %13, align 4, !tbaa !62
+  %14 = load i32, ptr %13, align 4, !tbaa !61
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !56
+  %18 = load ptr, ptr %17, align 8, !tbaa !55
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !54
+  %20 = load ptr, ptr %19, align 8, !tbaa !53
   %21 = load ptr, ptr %18, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -2007,20 +2007,20 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io26CopyingOutputStreamAda
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %16
-  %26 = load i32, ptr %13, align 4, !tbaa !62
+  %26 = load i32, ptr %13, align 4, !tbaa !61
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !63
+  %29 = load i64, ptr %28, align 8, !tbaa !62
   %30 = add nsw i64 %29, %27
-  store i64 %30, ptr %28, align 8, !tbaa !63
-  store i32 0, ptr %13, align 4, !tbaa !62
+  store i64 %30, ptr %28, align 8, !tbaa !62
+  store i32 0, ptr %13, align 4, !tbaa !61
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit
 
 31:                                               ; preds = %16
-  store i8 1, ptr %9, align 1, !tbaa !60
-  store i32 0, ptr %13, align 4, !tbaa !62
-  %32 = load ptr, ptr %19, align 8, !tbaa !54
-  store ptr null, ptr %19, align 8, !tbaa !54
+  store i8 1, ptr %9, align 1, !tbaa !59
+  store i32 0, ptr %13, align 4, !tbaa !61
+  %32 = load ptr, ptr %19, align 8, !tbaa !53
+  store ptr null, ptr %19, align 8, !tbaa !53
   %.not.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit.thread, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i.i.i
 
@@ -2030,7 +2030,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit: ; preds = %25, %12
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !56
+  %34 = load ptr, ptr %33, align 8, !tbaa !55
   %35 = load ptr, ptr %34, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
@@ -2040,9 +2040,9 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit: ; preds = %25, 
 39:                                               ; preds = %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit
   %40 = sext i32 %2 to i64
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load i64, ptr %41, align 8, !tbaa !63
+  %42 = load i64, ptr %41, align 8, !tbaa !62
   %43 = add nsw i64 %42, %40
-  store i64 %43, ptr %41, align 8, !tbaa !63
+  store i64 %43, ptr %41, align 8, !tbaa !62
   br label %_ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit.thread
 
 44:                                               ; preds = %3
@@ -2084,7 +2084,7 @@ _ZN6google8protobuf2io26CopyingOutputStreamAdaptor5FlushEv.exit: ; preds = %25, 
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = call noundef zeroext i1 %66(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  br i1 %67, label %.lr.ph, label %.loopexit, !llvm.loop !64
+  br i1 %67, label %.lr.ph, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %58, %44, %51
   %68 = phi i1 [ true, %51 ], [ false, %44 ], [ false, %58 ]
@@ -2103,10 +2103,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((44, 48)) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %2, align 4, !tbaa !62
+  store i32 0, ptr %2, align 4, !tbaa !61
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !54
-  store ptr null, ptr %3, align 8, !tbaa !54
+  %4 = load ptr, ptr %3, align 8, !tbaa !53
+  store ptr null, ptr %3, align 8, !tbaa !53
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit, label %_ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i
 
@@ -2122,15 +2122,15 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit: ; preds = %1, %_ZNK
 define hidden void @_ZN6google8protobuf2io19LimitingInputStreamC2EPNS1_19ZeroCopyInputStreamEl(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io19LimitingInputStreamE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %5, align 8, !tbaa !68
+  store i64 %2, ptr %5, align 8, !tbaa !67
   %6 = load ptr, ptr %1, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %9, ptr %10, align 8, !tbaa !69
+  store i64 %9, ptr %10, align 8, !tbaa !68
   ret void
 }
 
@@ -2138,13 +2138,13 @@ define hidden void @_ZN6google8protobuf2io19LimitingInputStreamC2EPNS1_19ZeroCop
 define hidden void @_ZN6google8protobuf2io19LimitingInputStreamD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io19LimitingInputStreamE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !68
+  %3 = load i64, ptr %2, align 8, !tbaa !67
   %4 = icmp slt i64 %3, 0
   br i1 %4, label %5, label %13
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !64
   %8 = trunc i64 %3 to i32
   %9 = sub i32 0, %8
   %10 = load ptr, ptr %7, align 8, !tbaa !3
@@ -2168,13 +2168,13 @@ define hidden void @_ZN6google8protobuf2io19LimitingInputStreamD2Ev(ptr noundef 
 define hidden void @_ZN6google8protobuf2io19LimitingInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6google8protobuf2io19LimitingInputStreamE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !68
+  %3 = load i64, ptr %2, align 8, !tbaa !67
   %4 = icmp slt i64 %3, 0
   br i1 %4, label %5, label %_ZN6google8protobuf2io19LimitingInputStreamD2Ev.exit
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !64
   %8 = trunc i64 %3 to i32
   %9 = sub i32 0, %8
   %10 = load ptr, ptr %7, align 8, !tbaa !3
@@ -2198,13 +2198,13 @@ _ZN6google8protobuf2io19LimitingInputStreamD2Ev.exit: ; preds = %1, %5
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6google8protobuf2io19LimitingInputStream4NextEPPKvPi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !68
+  %5 = load i64, ptr %4, align 8, !tbaa !67
   %6 = icmp slt i64 %5, 1
   br i1 %6, label %23, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !65
+  %9 = load ptr, ptr %8, align 8, !tbaa !64
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -2214,9 +2214,9 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19LimitingInputStream4Ne
 14:                                               ; preds = %7
   %15 = load i32, ptr %2, align 4, !tbaa !17
   %16 = sext i32 %15 to i64
-  %17 = load i64, ptr %4, align 8, !tbaa !68
+  %17 = load i64, ptr %4, align 8, !tbaa !67
   %18 = sub nsw i64 %17, %16
-  store i64 %18, ptr %4, align 8, !tbaa !68
+  store i64 %18, ptr %4, align 8, !tbaa !67
   %19 = icmp slt i64 %18, 0
   br i1 %19, label %20, label %23
 
@@ -2234,10 +2234,10 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19LimitingInputStream4Ne
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf2io19LimitingInputStream6BackUpEi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i64, ptr %3, align 8, !tbaa !68
+  %4 = load i64, ptr %3, align 8, !tbaa !67
   %5 = icmp slt i64 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !64
   br i1 %5, label %8, label %15
 
 8:                                                ; preds = %2
@@ -2256,13 +2256,13 @@ define hidden void @_ZN6google8protobuf2io19LimitingInputStream6BackUpEi(ptr nou
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %1)
   %19 = sext i32 %1 to i64
-  %20 = load i64, ptr %3, align 8, !tbaa !68
+  %20 = load i64, ptr %3, align 8, !tbaa !67
   %21 = add nsw i64 %20, %19
   br label %22
 
 22:                                               ; preds = %15, %8
   %storemerge = phi i64 [ %21, %15 ], [ %9, %8 ]
-  store i64 %storemerge, ptr %3, align 8, !tbaa !68
+  store i64 %storemerge, ptr %3, align 8, !tbaa !67
   ret void
 }
 
@@ -2270,7 +2270,7 @@ define hidden void @_ZN6google8protobuf2io19LimitingInputStream6BackUpEi(ptr nou
 define hidden noundef zeroext i1 @_ZN6google8protobuf2io19LimitingInputStream4SkipEi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #6 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !68
+  %5 = load i64, ptr %4, align 8, !tbaa !67
   %6 = icmp sge i64 %5, %3
   br i1 %6, label %17, label %7
 
@@ -2280,7 +2280,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19LimitingInputStream4Sk
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !65
+  %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = trunc nuw nsw i64 %5 to i32
   %13 = load ptr, ptr %11, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -2290,7 +2290,7 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19LimitingInputStream4Sk
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !65
+  %19 = load ptr, ptr %18, align 8, !tbaa !64
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
@@ -2298,13 +2298,13 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19LimitingInputStream4Sk
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %17
-  %25 = load i64, ptr %4, align 8, !tbaa !68
+  %25 = load i64, ptr %4, align 8, !tbaa !67
   %26 = sub nsw i64 %25, %3
   br label %.sink.split
 
 .sink.split:                                      ; preds = %9, %24
   %.sink = phi i64 [ %26, %24 ], [ 0, %9 ]
-  store i64 %.sink, ptr %4, align 8, !tbaa !68
+  store i64 %.sink, ptr %4, align 8, !tbaa !67
   br label %27
 
 27:                                               ; preds = %.sink.split, %17, %7
@@ -2315,10 +2315,10 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf2io19LimitingInputStream4Sk
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZNK6google8protobuf2io19LimitingInputStream9ByteCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !68
+  %3 = load i64, ptr %2, align 8, !tbaa !67
   %4 = icmp slt i64 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !65
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -2327,7 +2327,7 @@ define hidden noundef i64 @_ZNK6google8protobuf2io19LimitingInputStream9ByteCoun
   %12 = select i1 %4, i64 %11, i64 0
   %.sink = add nsw i64 %10, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !69
+  %14 = load i64, ptr %13, align 8, !tbaa !68
   %15 = sub i64 %.sink, %14
   ret i64 %15
 }
@@ -2478,39 +2478,38 @@ attributes #22 = { noreturn nounwind }
 !31 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
 !32 = !{!"long", !11, i64 0}
 !33 = !{!30, !9, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!38, !39, i64 8}
-!38 = !{!"_ZTSN6google8protobuf2io25CopyingInputStreamAdaptorE", !8, i64 0, !39, i64 8, !40, i64 16, !40, i64 17, !32, i64 24, !41, i64 32, !12, i64 40, !12, i64 44, !12, i64 48}
-!39 = !{!"p1 _ZTSN6google8protobuf2io18CopyingInputStreamE", !10, i64 0}
-!40 = !{!"bool", !11, i64 0}
-!41 = !{!"_ZTSSt10unique_ptrIA_hSt14default_deleteIS0_EE", !42, i64 0}
-!42 = !{!"_ZTSSt15__uniq_ptr_dataIhSt14default_deleteIA_hELb1ELb1EE", !43, i64 0}
-!43 = !{!"_ZTSSt15__uniq_ptr_implIhSt14default_deleteIA_hEE", !44, i64 0}
-!44 = !{!"_ZTSSt5tupleIJPhSt14default_deleteIA_hEEE", !45, i64 0}
-!45 = !{!"_ZTSSt11_Tuple_implILm0EJPhSt14default_deleteIA_hEEE", !46, i64 0}
-!46 = !{!"_ZTSSt10_Head_baseILm0EPhLb0EE", !9, i64 0}
-!47 = !{!38, !40, i64 16}
-!48 = !{!38, !40, i64 17}
-!49 = !{!38, !12, i64 40}
-!50 = !{!38, !12, i64 44}
-!51 = !{!38, !12, i64 48}
-!52 = !{i8 0, i8 2}
-!53 = !{}
-!54 = !{!9, !9, i64 0}
-!55 = !{!38, !32, i64 24}
-!56 = !{!57, !58, i64 8}
-!57 = !{!"_ZTSN6google8protobuf2io26CopyingOutputStreamAdaptorE", !21, i64 0, !58, i64 8, !40, i64 16, !40, i64 17, !32, i64 24, !41, i64 32, !12, i64 40, !12, i64 44}
-!58 = !{!"p1 _ZTSN6google8protobuf2io19CopyingOutputStreamE", !10, i64 0}
-!59 = !{!57, !40, i64 16}
-!60 = !{!57, !40, i64 17}
-!61 = !{!57, !12, i64 40}
-!62 = !{!57, !12, i64 44}
-!63 = !{!57, !32, i64 24}
-!64 = distinct !{!64, !35, !36}
-!65 = !{!66, !67, i64 8}
-!66 = !{!"_ZTSN6google8protobuf2io19LimitingInputStreamE", !8, i64 0, !67, i64 8, !32, i64 16, !32, i64 24}
-!67 = !{!"p1 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !10, i64 0}
-!68 = !{!66, !32, i64 16}
-!69 = !{!66, !32, i64 24}
+!36 = !{!37, !38, i64 8}
+!37 = !{!"_ZTSN6google8protobuf2io25CopyingInputStreamAdaptorE", !8, i64 0, !38, i64 8, !39, i64 16, !39, i64 17, !32, i64 24, !40, i64 32, !12, i64 40, !12, i64 44, !12, i64 48}
+!38 = !{!"p1 _ZTSN6google8protobuf2io18CopyingInputStreamE", !10, i64 0}
+!39 = !{!"bool", !11, i64 0}
+!40 = !{!"_ZTSSt10unique_ptrIA_hSt14default_deleteIS0_EE", !41, i64 0}
+!41 = !{!"_ZTSSt15__uniq_ptr_dataIhSt14default_deleteIA_hELb1ELb1EE", !42, i64 0}
+!42 = !{!"_ZTSSt15__uniq_ptr_implIhSt14default_deleteIA_hEE", !43, i64 0}
+!43 = !{!"_ZTSSt5tupleIJPhSt14default_deleteIA_hEEE", !44, i64 0}
+!44 = !{!"_ZTSSt11_Tuple_implILm0EJPhSt14default_deleteIA_hEEE", !45, i64 0}
+!45 = !{!"_ZTSSt10_Head_baseILm0EPhLb0EE", !9, i64 0}
+!46 = !{!37, !39, i64 16}
+!47 = !{!37, !39, i64 17}
+!48 = !{!37, !12, i64 40}
+!49 = !{!37, !12, i64 44}
+!50 = !{!37, !12, i64 48}
+!51 = !{i8 0, i8 2}
+!52 = !{}
+!53 = !{!9, !9, i64 0}
+!54 = !{!37, !32, i64 24}
+!55 = !{!56, !57, i64 8}
+!56 = !{!"_ZTSN6google8protobuf2io26CopyingOutputStreamAdaptorE", !21, i64 0, !57, i64 8, !39, i64 16, !39, i64 17, !32, i64 24, !40, i64 32, !12, i64 40, !12, i64 44}
+!57 = !{!"p1 _ZTSN6google8protobuf2io19CopyingOutputStreamE", !10, i64 0}
+!58 = !{!56, !39, i64 16}
+!59 = !{!56, !39, i64 17}
+!60 = !{!56, !12, i64 40}
+!61 = !{!56, !12, i64 44}
+!62 = !{!56, !32, i64 24}
+!63 = distinct !{!63, !35}
+!64 = !{!65, !66, i64 8}
+!65 = !{!"_ZTSN6google8protobuf2io19LimitingInputStreamE", !8, i64 0, !66, i64 8, !32, i64 16, !32, i64 24}
+!66 = !{!"p1 _ZTSN6google8protobuf2io19ZeroCopyInputStreamE", !10, i64 0}
+!67 = !{!65, !32, i64 16}
+!68 = !{!65, !32, i64 24}

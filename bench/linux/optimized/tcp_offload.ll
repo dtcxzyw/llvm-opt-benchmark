@@ -215,10 +215,10 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %146 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %147 = load i16, ptr %146, align 4
   %148 = zext i16 %147 to i32
-  %149 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %148, i32 %103) #8, !srcloc !13
+  %149 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %148, i32 %103) #8, !srcloc !12
   %150 = shl i32 %149, 16
   %151 = and i32 %149, -65536
-  %152 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %150, i32 %151) #9, !srcloc !14
+  %152 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %150, i32 %151) #9, !srcloc !13
   %153 = xor i32 %152, -1
   %154 = lshr i32 %153, 16
   %155 = trunc nuw i32 %154 to i16
@@ -271,7 +271,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %188 = tail call i32 @csum_partial(ptr noundef %181, i32 noundef %185, i32 noundef %187) #7
   %189 = shl i32 %188, 16
   %190 = and i32 %188, -65536
-  %191 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %189, i32 %190) #9, !srcloc !14
+  %191 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %189, i32 %190) #9, !srcloc !13
   %192 = xor i32 %191, -1
   %193 = lshr i32 %192, 16
   %194 = trunc nuw i32 %193 to i16
@@ -321,7 +321,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   store i16 %225, ptr %223, align 4
   %226 = load ptr, ptr %214, align 8
   %227 = icmp eq ptr %226, null
-  br i1 %227, label %.loopexit, label %.split.us, !llvm.loop !15
+  br i1 %227, label %.loopexit, label %.split.us, !llvm.loop !14
 
 .split:                                           ; preds = %159, %269
   %228 = phi i16 [ %282, %269 ], [ %.pre30, %159 ]
@@ -374,7 +374,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %262 = tail call i32 @csum_partial(ptr noundef %255, i32 noundef %259, i32 noundef %261) #7
   %263 = shl i32 %262, 16
   %264 = and i32 %262, -65536
-  %265 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %263, i32 %264) #9, !srcloc !14
+  %265 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %263, i32 %264) #9, !srcloc !13
   %266 = xor i32 %265, -1
   %267 = lshr i32 %266, 16
   %268 = trunc nuw i32 %267 to i16
@@ -399,7 +399,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   store i16 %282, ptr %280, align 4
   %283 = load ptr, ptr %271, align 8
   %284 = icmp eq ptr %283, null
-  br i1 %284, label %.loopexit, label %.split, !llvm.loop !17
+  br i1 %284, label %.loopexit, label %.split, !llvm.loop !16
 
 .loopexit:                                        ; preds = %269, %205, %.loopexit12
   %285 = phi ptr [ %107, %.loopexit12 ], [ %220, %205 ], [ %277, %269 ]
@@ -431,7 +431,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
 303:                                              ; preds = %288
   %304 = load ptr, ptr %291, align 8
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 340
-  %306 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %305, i32 %301, ptr nonnull elementtype(i32) %305) #7, !srcloc !18
+  %306 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %305, i32 %301, ptr nonnull elementtype(i32) %305) #7, !srcloc !17
   %307 = icmp eq i32 %306, 0
   br i1 %307, label %308, label %309, !prof !5
 
@@ -457,9 +457,9 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   br i1 %318, label %319, label %320, !prof !5
 
 319:                                              ; preds = %314
-  tail call void asm sideeffect "911: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 911b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 911) #7, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 165, i32 2307, i64 12) #7, !srcloc !20
-  tail call void asm sideeffect "912: nop\0A\09.pushsection .discard.instr_end\0A\09.long 912b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 912) #7, !srcloc !21
+  tail call void asm sideeffect "911: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 911b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 911) #7, !srcloc !18
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 165, i32 2307, i64 12) #7, !srcloc !19
+  tail call void asm sideeffect "912: nop\0A\09.pushsection .discard.instr_end\0A\09.long 912b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 912) #7, !srcloc !20
   br label %320
 
 320:                                              ; preds = %319, %314, %313, %309, %308, %.loopexit
@@ -477,10 +477,10 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %332 = getelementptr inbounds nuw i8, ptr %285, i64 16
   %333 = load i16, ptr %332, align 4
   %334 = zext i16 %333 to i32
-  %335 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %334, i32 %331) #8, !srcloc !13
+  %335 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %334, i32 %331) #8, !srcloc !12
   %336 = shl i32 %335, 16
   %337 = and i32 %335, -65536
-  %338 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %336, i32 %337) #9, !srcloc !14
+  %338 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %336, i32 %337) #9, !srcloc !13
   %339 = xor i32 %338, -1
   %340 = lshr i32 %339, 16
   %341 = trunc nuw i32 %340 to i16
@@ -530,7 +530,7 @@ define dso_local ptr @tcp_gso_segment(ptr noundef %0, i64 noundef %1) local_unna
   %373 = tail call i32 @csum_partial(ptr noundef %366, i32 noundef %370, i32 noundef %372) #7
   %374 = shl i32 %373, 16
   %375 = and i32 %373, -65536
-  %376 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %374, i32 %375) #9, !srcloc !14
+  %376 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %374, i32 %375) #9, !srcloc !13
   %377 = xor i32 %376, -1
   %378 = lshr i32 %377, 16
   %379 = trunc nuw i32 %378 to i16
@@ -554,12 +554,12 @@ declare i32 @llvm.bswap.i32(i32) #2
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @refcount_sub_and_test(i32 noundef range(i32 1, -2147483647) %0, ptr noundef %1) unnamed_addr #3 align 16 {
   %3 = sub i32 0, %0
-  %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, i32 %3, ptr elementtype(i32) %1) #7, !srcloc !22
+  %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, i32 %3, ptr elementtype(i32) %1) #7, !srcloc !21
   %5 = icmp eq i32 %4, %0
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !22
   br label %12
 
 7:                                                ; preds = %2
@@ -619,7 +619,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly captures(address) %0,
   %.pn = load ptr, ptr %.pn.in, align 8
   %28 = getelementptr i8, ptr %.pn, i64 %7
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread, label %30, !prof !24
+  br i1 %29, label %.thread, label %30, !prof !23
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
@@ -661,7 +661,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly captures(address) %0,
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr i8, ptr %55, i64 %7
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread, label %58, !prof !25
+  br i1 %57, label %.thread, label %58, !prof !24
 
 58:                                               ; preds = %53, %37
   %59 = phi ptr [ %56, %53 ], [ %28, %37 ]
@@ -705,7 +705,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly captures(address) %0,
 86:                                               ; preds = %84, %.preheader
   %87 = load ptr, ptr %69, align 8
   %88 = icmp eq ptr %87, %0
-  br i1 %88, label %.loopexit14, label %.preheader, !llvm.loop !26
+  br i1 %88, label %.loopexit14, label %.preheader, !llvm.loop !25
 
 89:                                               ; preds = %74
   %90 = getelementptr i8, ptr %76, i64 %79
@@ -743,7 +743,7 @@ define dso_local ptr @tcp_gro_receive(ptr noundef readonly captures(address) %0,
   %118 = or i32 %117, %112
   %119 = add nuw nsw i64 %111, 4
   %120 = icmp samesign ult i64 %119, %109
-  br i1 %120, label %110, label %.loopexit, !llvm.loop !27
+  br i1 %120, label %110, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %110, %89
   %121 = phi i32 [ %106, %89 ], [ %118, %110 ]
@@ -1030,7 +1030,7 @@ define dso_local ptr @tcp4_gro_receive(ptr noundef readonly captures(address) %0
   %62 = sub i32 %61, %28
   %63 = shl i32 %62, 8
   %64 = add i32 %63, 1536
-  %65 = tail call i32 asm "  addl $1, $0\0A  adcl $2, $0\0A  adcl $3, $0\0A  adcl $$0, $0\0A", "=r,imr,imr,imr,0,~{dirflag},~{fpsr},~{flags}"(i32 %59, i32 %57, i32 %64, i32 0) #8, !srcloc !28
+  %65 = tail call i32 asm "  addl $1, $0\0A  adcl $2, $0\0A  adcl $3, $0\0A  adcl $$0, $0\0A", "=r,imr,imr,imr,0,~{dirflag},~{fpsr},~{flags}"(i32 %59, i32 %57, i32 %64, i32 0) #8, !srcloc !27
   %66 = and i16 %35, 4
   %67 = icmp eq i16 %66, 0
   br i1 %67, label %76, label %68
@@ -1038,10 +1038,10 @@ define dso_local ptr @tcp4_gro_receive(ptr noundef readonly captures(address) %0
 68:                                               ; preds = %38
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %70 = load i32, ptr %69, align 8
-  %71 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %65, i32 %70) #8, !srcloc !13
+  %71 = tail call i32 asm "addl $2,$0\0A\09adcl $$0,$0", "=r,0,rm,~{dirflag},~{fpsr},~{flags}"(i32 %65, i32 %70) #8, !srcloc !12
   %72 = shl i32 %71, 16
   %73 = and i32 %71, -65536
-  %74 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72, i32 %73) #9, !srcloc !14
+  %74 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72, i32 %73) #9, !srcloc !13
   %75 = icmp ugt i32 %74, -65537
   br i1 %75, label %80, label %76
 
@@ -1137,10 +1137,10 @@ define dso_local noundef i32 @tcp4_gro_complete(ptr noundef captures(none) initi
   %19 = load i32, ptr %18, align 4
   %20 = shl i32 %15, 8
   %21 = add i32 %20, 1536
-  %22 = tail call i32 asm "  addl $1, $0\0A  adcl $2, $0\0A  adcl $3, $0\0A  adcl $$0, $0\0A", "=r,imr,imr,imr,0,~{dirflag},~{fpsr},~{flags}"(i32 %19, i32 %17, i32 %21, i32 0) #8, !srcloc !28
+  %22 = tail call i32 asm "  addl $1, $0\0A  adcl $2, $0\0A  adcl $3, $0\0A  adcl $$0, $0\0A", "=r,imr,imr,imr,0,~{dirflag},~{fpsr},~{flags}"(i32 %19, i32 %17, i32 %21, i32 0) #8, !srcloc !27
   %23 = shl i32 %22, 16
   %24 = and i32 %22, -65536
-  %25 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %23, i32 %24) #9, !srcloc !14
+  %25 = tail call i32 asm "  addl $1,$0\0A  adcl $$0xffff,$0", "=r,r,0,~{dirflag},~{fpsr},~{flags}"(i32 %23, i32 %24) #9, !srcloc !13
   %26 = xor i32 %25, -1
   %27 = lshr i32 %26, 16
   %28 = trunc nuw i32 %27 to i16
@@ -1343,23 +1343,22 @@ attributes #9 = { nounwind memory(none) }
 !6 = !{i64 2155217173, i64 2155216982, i64 2155217034, i64 2155217080, i64 2155217108}
 !7 = !{i64 2155217247, i64 2155217276, i64 2155217322, i64 2155217380, i64 2155217434, i64 2155217488, i64 2155217543, i64 2155217574}
 !8 = !{!"branch_weights", i32 2000, i32 1}
-!9 = distinct !{!9, !10, !11, !12}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{i64 6776741, i64 6776754}
-!14 = !{i64 6772510, i64 6772533}
-!15 = distinct !{!15, !10, !11, !12, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !10, !11, !12}
-!18 = !{i64 2148828663, i64 2148828702, i64 2148828723, i64 2148828760, i64 2148828783, i64 2148828792}
-!19 = !{i64 2160598575, i64 2160598384, i64 2160598436, i64 2160598482, i64 2160598510}
-!20 = !{i64 2160598649, i64 2160598678, i64 2160598724, i64 2160598782, i64 2160598836, i64 2160598890, i64 2160598945, i64 2160598976, i64 2160599284, i64 2160599290, i64 2160599337, i64 2160599360, i64 2160599386}
-!21 = !{i64 2160599841, i64 2160599652, i64 2160599702, i64 2160599748, i64 2160599776}
-!22 = !{i64 2148830848, i64 2148830887, i64 2148830908, i64 2148830945, i64 2148830968, i64 2148830977}
-!23 = !{i64 2150806221}
-!24 = !{!"branch_weights", i32 871893, i32 2146611755}
-!25 = !{!"branch_weights", i32 670544, i32 2146813104}
-!26 = distinct !{!26, !10, !11, !12}
-!27 = distinct !{!27, !10, !11, !12}
-!28 = !{i64 6774259, i64 6774283, i64 6774306, i64 6774329}
+!12 = !{i64 6776741, i64 6776754}
+!13 = !{i64 6772510, i64 6772533}
+!14 = distinct !{!14, !10, !11, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !10, !11}
+!17 = !{i64 2148828663, i64 2148828702, i64 2148828723, i64 2148828760, i64 2148828783, i64 2148828792}
+!18 = !{i64 2160598575, i64 2160598384, i64 2160598436, i64 2160598482, i64 2160598510}
+!19 = !{i64 2160598649, i64 2160598678, i64 2160598724, i64 2160598782, i64 2160598836, i64 2160598890, i64 2160598945, i64 2160598976, i64 2160599284, i64 2160599290, i64 2160599337, i64 2160599360, i64 2160599386}
+!20 = !{i64 2160599841, i64 2160599652, i64 2160599702, i64 2160599748, i64 2160599776}
+!21 = !{i64 2148830848, i64 2148830887, i64 2148830908, i64 2148830945, i64 2148830968, i64 2148830977}
+!22 = !{i64 2150806221}
+!23 = !{!"branch_weights", i32 871893, i32 2146611755}
+!24 = !{!"branch_weights", i32 670544, i32 2146813104}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = !{i64 6774259, i64 6774283, i64 6774306, i64 6774329}

@@ -195,7 +195,7 @@ define internal zeroext i1 @busmaster_read(ptr noundef captures(none) %0, ptr no
   %27 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %busmaster_find_priv_entry.exit.thread, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %busmaster_find_priv_entry.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 busmaster_find_priv_entry.exit.thread:            ; preds = %26, %.lr.ph
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %6, i8 noundef 0, i64 noundef 232, i1 noundef false) #10
@@ -320,7 +320,7 @@ busmaster_find_priv_entry.exit:                   ; preds = %20, %24
   %80 = getelementptr inbounds nuw i8, ptr %.01522.i73, i64 8
   %81 = load ptr, ptr %80, align 8
   %.not.i78 = icmp eq ptr %81, null
-  br i1 %.not.i78, label %busmaster_find_priv_entry.exit79, label %.lr.ph.i72, !llvm.loop !9
+  br i1 %.not.i78, label %busmaster_find_priv_entry.exit79, label %.lr.ph.i72, !llvm.loop !8
 
 busmaster_find_priv_entry.exit79:                 ; preds = %73, %77, %79, %66
   %.2.i77 = phi ptr [ null, %66 ], [ null, %79 ], [ %69, %73 ], [ %69, %77 ]
@@ -331,7 +331,7 @@ busmaster_find_priv_entry.exit79:                 ; preds = %73, %77, %79, %66
   %84 = load ptr, ptr %0, align 8
   %85 = call i32 @file_eof(ptr noundef %84)
   %.not = icmp eq i32 %85, 0
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 .loopexit:                                        ; preds = %30, %busmaster_find_priv_entry.exit79, %57, %46, %37, %._crit_edge
   %.0 = phi i1 [ false, %._crit_edge ], [ false, %46 ], [ false, %57 ], [ false, %37 ], [ %82, %busmaster_find_priv_entry.exit79 ], [ false, %30 ]
@@ -374,7 +374,7 @@ define internal noundef zeroext i1 @busmaster_seek_read(ptr noundef readonly cap
   %20 = getelementptr inbounds nuw i8, ptr %.01522.i, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %busmaster_find_priv_entry.exit.thread, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %busmaster_find_priv_entry.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 busmaster_find_priv_entry.exit:                   ; preds = %13, %17
   %.not = icmp eq ptr %9, null
@@ -511,7 +511,7 @@ switch.edge:
   %27 = load i32, ptr %22, align 4
   %28 = and i32 %27, %23
   %29 = or disjoint i32 %28, %24
-  %30 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %29) #13, !srcloc !11
+  %30 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %29) #13, !srcloc !10
   store i32 %30, ptr %5, align 4
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 5
   store i8 4, ptr %31, align 1
@@ -524,7 +524,7 @@ switch.edge:
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %narrow106 = tail call i32 @llvm.umin.i32(i32 %33, i32 64)
   %spec.select = zext nneg i32 %narrow106 to i64
-  %38 = call ptr @__memcpy_chk(ptr noundef nonnull %36, ptr noundef nonnull %37, i64 noundef range(i64 0, 65) %spec.select, i64 noundef 64) #10, !alias.scope !12
+  %38 = call ptr @__memcpy_chk(ptr noundef nonnull %36, ptr noundef nonnull %37, i64 noundef range(i64 0, 65) %spec.select, i64 noundef 64) #10, !alias.scope !11
   call void @ws_buffer_append(ptr noundef nonnull %20, ptr noundef nonnull %5, i64 noundef 72)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #10
   br label %55
@@ -539,7 +539,7 @@ switch.edge:
   %44 = or disjoint i32 %13, %43
   %45 = or disjoint i32 %44, %42
   %46 = or disjoint i32 %45, %24
-  %47 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %46) #13, !srcloc !16
+  %47 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %46) #13, !srcloc !15
   store i32 %47, ptr %6, align 4
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %49 = load i32, ptr %48, align 4
@@ -550,7 +550,7 @@ switch.edge:
   %53 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %narrow = tail call i32 @llvm.umin.i32(i32 %49, i32 8)
   %spec.select102 = zext nneg i32 %narrow to i64
-  %54 = call ptr @__memcpy_chk(ptr noundef nonnull %52, ptr noundef nonnull %53, i64 noundef range(i64 0, 65) %spec.select102, i64 noundef 8) #10, !alias.scope !17
+  %54 = call ptr @__memcpy_chk(ptr noundef nonnull %52, ptr noundef nonnull %53, i64 noundef range(i64 0, 65) %spec.select102, i64 noundef 8) #10, !alias.scope !16
   call void @ws_buffer_append(ptr noundef nonnull %20, ptr noundef nonnull %6, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #10
   br label %55
@@ -722,18 +722,17 @@ attributes #13 = { nounwind memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = !{i64 2150987753}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
-!16 = !{i64 2150989191}
-!17 = !{!18, !20}
-!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
-!19 = distinct !{!19, !"memcpy.inline"}
-!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i64 2150987753}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
+!13 = distinct !{!13, !"memcpy.inline"}
+!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!15 = !{i64 2150989191}
+!16 = !{!17, !19}
+!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
+!18 = distinct !{!18, !"memcpy.inline"}
+!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}

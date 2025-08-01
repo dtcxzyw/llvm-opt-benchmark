@@ -350,7 +350,7 @@ define void @Map_NodeVecRemove(ptr noundef captures(none) %0, ptr noundef readno
 11:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !16
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv to i32
@@ -380,7 +380,7 @@ define void @Map_NodeVecRemove(ptr noundef captures(none) %0, ptr noundef readno
   %22 = trunc nuw i64 %indvars.iv.next29 to i32
   %23 = icmp sgt i32 %4, %22
   %24 = trunc nuw i64 %indvars.iv28 to i32
-  br i1 %23, label %17, label %._crit_edge26, !llvm.loop !18
+  br i1 %23, label %17, label %._crit_edge26, !llvm.loop !17
 
 ._crit_edge26:                                    ; preds = %17, %._crit_edge
   %25 = add nsw i32 %4, -1
@@ -446,9 +446,9 @@ define internal range(i32 -1, 2) i32 @Map_NodeVecCompareLevels(ptr noundef reado
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !19
+  %24 = load i32, ptr %23, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !19
+  %26 = load i32, ptr %25, align 8, !tbaa !18
   %27 = icmp slt i32 %24, %26
   br i1 %27, label %30, label %28
 
@@ -498,14 +498,13 @@ attributes #18 = { nounwind allocsize(1) }
 !11 = !{!4, !5, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTS17Map_NodeStruct_t_", !6, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = distinct !{!18, !15, !16}
-!19 = !{!20, !9, i64 16}
-!20 = !{!"Map_NodeStruct_t_", !21, i64 0, !13, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 28, !9, i64 28, !9, i64 28, !9, i64 28, !9, i64 28, !9, i64 30, !7, i64 32, !7, i64 44, !22, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !7, i64 96, !7, i64 120, !7, i64 144, !23, i64 160, !24, i64 168, !24, i64 176}
-!21 = !{!"p1 _ZTS16Map_ManStruct_t_", !6, i64 0}
-!22 = !{!"float", !7, i64 0}
-!23 = !{!"p1 _ZTS16Map_CutStruct_t_", !6, i64 0}
-!24 = !{!"p1 omnipotent char", !6, i64 0}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = !{!19, !9, i64 16}
+!19 = !{!"Map_NodeStruct_t_", !20, i64 0, !13, i64 8, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 28, !9, i64 28, !9, i64 28, !9, i64 28, !9, i64 28, !9, i64 30, !7, i64 32, !7, i64 44, !21, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !7, i64 96, !7, i64 120, !7, i64 144, !22, i64 160, !23, i64 168, !23, i64 176}
+!20 = !{!"p1 _ZTS16Map_ManStruct_t_", !6, i64 0}
+!21 = !{!"float", !7, i64 0}
+!22 = !{!"p1 _ZTS16Map_CutStruct_t_", !6, i64 0}
+!23 = !{!"p1 omnipotent char", !6, i64 0}

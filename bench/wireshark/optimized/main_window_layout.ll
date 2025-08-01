@@ -606,7 +606,7 @@ _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP9QSplitterEEbRKT_.exit: ; pre
 182:                                              ; preds = %180
   %183 = load ptr, ptr %181, align 8
   %184 = icmp eq ptr %183, %172
-  br i1 %184, label %185, label %180, !llvm.loop !14
+  br i1 %184, label %185, label %180, !llvm.loop !13
 
 185:                                              ; preds = %182
   %186 = ptrtoint ptr %181 to i64
@@ -648,7 +648,7 @@ _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP10PacketListEEbRKT_.exit: ; p
 207:                                              ; preds = %205
   %208 = load ptr, ptr %206, align 8
   %209 = icmp eq ptr %208, %197
-  br i1 %209, label %210, label %205, !llvm.loop !15
+  br i1 %209, label %210, label %205, !llvm.loop !14
 
 210:                                              ; preds = %207
   %211 = ptrtoint ptr %206 to i64
@@ -690,7 +690,7 @@ _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP9ProtoTreeEEbRKT_.exit: ; pre
 232:                                              ; preds = %230
   %233 = load ptr, ptr %231, align 8
   %234 = icmp eq ptr %233, %222
-  br i1 %234, label %235, label %230, !llvm.loop !16
+  br i1 %234, label %235, label %230, !llvm.loop !15
 
 235:                                              ; preds = %232
   %236 = ptrtoint ptr %231 to i64
@@ -736,7 +736,7 @@ _ZNK23QListSpecialMethodsBaseIP7QWidgetE8containsIP11ByteViewTabEEbRKT_.exit: ; 
 258:                                              ; preds = %256
   %259 = load ptr, ptr %257, align 8
   %260 = icmp eq ptr %259, %247
-  br i1 %260, label %261, label %256, !llvm.loop !17
+  br i1 %260, label %261, label %256, !llvm.loop !16
 
 261:                                              ; preds = %258
   %262 = ptrtoint ptr %257 to i64
@@ -2666,10 +2666,9 @@ attributes #14 = { cold noreturn }
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZNK7QObject12findChildrenIP7QWidgetEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE: argument 0"}
 !10 = distinct !{!10, !"_ZNK7QObject12findChildrenIP7QWidgetEE5QListIT_ERK7QString6QFlagsIN2Qt15FindChildOptionEE"}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = distinct !{!15, !12, !13}
-!16 = distinct !{!16, !12, !13}
-!17 = distinct !{!17, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !12}

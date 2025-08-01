@@ -57,18 +57,18 @@ define range(i32 0, 2) i32 @cs_gaxpy(ptr noundef readonly captures(address_is_nu
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %27 = getelementptr inbounds double, ptr %18, i64 %indvars.iv
-  %28 = load double, ptr %27, align 8, !tbaa !19
-  %29 = load double, ptr %24, align 8, !tbaa !19
+  %28 = load double, ptr %27, align 8, !tbaa !18
+  %29 = load double, ptr %24, align 8, !tbaa !18
   %30 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !15
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds double, ptr %2, i64 %32
-  %34 = load double, ptr %33, align 8, !tbaa !19
+  %34 = load double, ptr %33, align 8, !tbaa !18
   %35 = tail call double @llvm.fmuladd.f64(double %28, double %29, double %34)
-  store double %35, ptr %33, align 8, !tbaa !19
+  store double %35, ptr %33, align 8, !tbaa !18
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !20
 
 .loopexit32:                                      ; preds = %.loopexit, %10, %3, %4
   %.0 = phi i32 [ 0, %4 ], [ 0, %3 ], [ 1, %10 ], [ 1, %.loopexit ]
@@ -99,9 +99,8 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !13 = !{!4, !8, i64 24}
 !14 = !{!4, !10, i64 32}
 !15 = !{!5, !5, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"double", !6, i64 0}
-!21 = distinct !{!21, !17, !18}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"double", !6, i64 0}
+!20 = distinct !{!20, !17}

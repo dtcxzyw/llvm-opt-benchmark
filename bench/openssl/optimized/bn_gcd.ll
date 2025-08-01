@@ -323,7 +323,7 @@ bn_mod_inverse_no_branch.exit:                    ; preds = %.thread114.i, %.thr
 126:                                              ; preds = %124, %121
   %127 = tail call i32 @BN_rshift1(ptr noundef %78, ptr noundef %78) #4
   %.not232 = icmp eq i32 %127, 0
-  br i1 %.not232, label %.thread248, label %119, !llvm.loop !14
+  br i1 %.not232, label %.thread248, label %119, !llvm.loop !13
 
 128:                                              ; preds = %119
   %.not224 = icmp eq i32 %.1, 0
@@ -488,7 +488,7 @@ bn_mod_inverse_no_branch.exit:                    ; preds = %.thread114.i, %.thr
   br i1 %.not215, label %.thread248, label %207
 
 196:                                              ; preds = %192
-  %197 = load i32, ptr %146, align 8, !tbaa !15
+  %197 = load i32, ptr %146, align 8, !tbaa !14
   %198 = icmp eq i32 %197, 1
   br i1 %198, label %199, label %205
 
@@ -498,8 +498,8 @@ bn_mod_inverse_no_branch.exit:                    ; preds = %.thread114.i, %.thr
   br i1 %.not213, label %.thread248, label %201
 
 201:                                              ; preds = %199
-  %202 = load ptr, ptr %76, align 8, !tbaa !16
-  %203 = load i64, ptr %202, align 8, !tbaa !17
+  %202 = load ptr, ptr %76, align 8, !tbaa !15
+  %203 = load i64, ptr %202, align 8, !tbaa !16
   %204 = tail call i32 @BN_mul_word(ptr noundef %.1177292, i64 noundef %203) #4
   %.not214 = icmp eq i32 %204, 0
   br i1 %.not214, label %.thread248, label %207
@@ -518,7 +518,7 @@ bn_mod_inverse_no_branch.exit:                    ; preds = %.thread114.i, %.thr
   %210 = sub nsw i32 0, %.1172293
   %211 = tail call i32 @BN_is_zero(ptr noundef %.0181290) #4
   %.not197 = icmp eq i32 %211, 0
-  br i1 %.not197, label %147, label %._crit_edge, !llvm.loop !19
+  br i1 %.not197, label %147, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %209
   %212 = icmp sgt i32 %.1172293, 0
@@ -773,13 +773,13 @@ define range(i32 0, 2) i32 @BN_gcd(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .preheader:                                       ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %27 = load i32, ptr %26, align 4, !tbaa !20
+  %27 = load i32, ptr %26, align 4, !tbaa !18
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %30 = load i32, ptr %29, align 4, !tbaa !20
+  %30 = load i32, ptr %29, align 4, !tbaa !18
   %smax = tail call i32 @llvm.smax.i32(i32 %30, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
   %wide.trip.count146 = zext nneg i32 %27 to i64
@@ -794,27 +794,27 @@ define range(i32 0, 2) i32 @BN_gcd(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %exitcond.not, label %.critedge.loopexit, label %32
 
 32:                                               ; preds = %31
-  %33 = load ptr, ptr %0, align 8, !tbaa !16
+  %33 = load ptr, ptr %0, align 8, !tbaa !15
   %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv
-  %35 = load i64, ptr %34, align 8, !tbaa !17
-  %36 = load ptr, ptr %20, align 8, !tbaa !16
+  %35 = load i64, ptr %34, align 8, !tbaa !16
+  %36 = load ptr, ptr %20, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
-  %38 = load i64, ptr %37, align 8, !tbaa !17
+  %38 = load i64, ptr %37, align 8, !tbaa !16
   %39 = or i64 %38, %35
   %sext = add nsw i64 %.0110131, -1
   %40 = icmp eq i64 %39, 0
   %41 = select i1 %40, i64 %.0110131, i64 0
   %42 = trunc nuw nsw i64 %41 to i32
   %43 = add i32 %.0105133, %42
-  %44 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) %sext) #5, !srcloc !21
+  %44 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) %sext) #5, !srcloc !19
   %45 = and i64 %44, %.0108132
   %46 = sub nsw i64 0, %.0110131
-  %47 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) %46) #5, !srcloc !21
+  %47 = tail call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 range(i64 -1, 1) %46) #5, !srcloc !19
   %48 = and i64 %47, %39
   %49 = or i64 %48, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next, %wide.trip.count146
-  br i1 %exitcond147.not, label %.critedge.loopexit, label %31, !llvm.loop !22
+  br i1 %exitcond147.not, label %.critedge.loopexit, label %31, !llvm.loop !20
 
 .critedge.loopexit:                               ; preds = %32, %31
   %.0108.lcssa.ph = phi i64 [ %.0108132, %31 ], [ %49, %32 ]
@@ -839,7 +839,7 @@ define range(i32 0, 2) i32 @BN_gcd(ptr noundef %0, ptr noundef %1, ptr noundef %
   %55 = lshr i64 %.1109140, 1
   %56 = add nuw nsw i32 %.0112138, 1
   %exitcond148.not = icmp eq i32 %56, 64
-  br i1 %exitcond148.not, label %57, label %.critedge, !llvm.loop !23
+  br i1 %exitcond148.not, label %57, label %.critedge, !llvm.loop !21
 
 57:                                               ; preds = %.critedge
   %58 = tail call i32 @BN_rshift(ptr noundef %0, ptr noundef %0, i32 noundef %54) #4
@@ -853,9 +853,9 @@ define range(i32 0, 2) i32 @BN_gcd(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %63 = load i32, ptr %62, align 8, !tbaa !15
+  %63 = load i32, ptr %62, align 8, !tbaa !14
   %64 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %65 = load i32, ptr %64, align 8, !tbaa !15
+  %65 = load i32, ptr %64, align 8, !tbaa !14
   %. = tail call i32 @llvm.smax.i32(i32 %63, i32 %65)
   %66 = add nsw i32 %., 1
   %67 = tail call ptr @bn_wexpand(ptr noundef %0, i32 noundef %66) #4
@@ -873,8 +873,8 @@ define range(i32 0, 2) i32 @BN_gcd(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %74, label %.loopexit, label %75
 
 75:                                               ; preds = %72
-  %76 = load ptr, ptr %0, align 8, !tbaa !16
-  %77 = load i64, ptr %76, align 8, !tbaa !17
+  %76 = load ptr, ptr %0, align 8, !tbaa !15
+  %77 = load i64, ptr %76, align 8, !tbaa !16
   %78 = and i64 %77, 1
   %79 = xor i64 %78, 1
   tail call void @BN_consttime_swap(i64 noundef %79, ptr noundef nonnull %0, ptr noundef nonnull %20, i32 noundef %66) #4
@@ -900,16 +900,16 @@ define range(i32 0, 2) i32 @BN_gcd(ptr noundef %0, ptr noundef %1, ptr noundef %
   %93 = add nsw i32 %92, 1
   %94 = add nuw i32 %.1114142, 1
   %exitcond150.not = icmp eq i32 %.1114142, %smax149
-  br i1 %exitcond150.not, label %._crit_edge, label %95, !llvm.loop !24
+  br i1 %exitcond150.not, label %._crit_edge, label %95, !llvm.loop !22
 
 95:                                               ; preds = %.lr.ph144, %87
   %.0106143 = phi i32 [ 1, %.lr.ph144 ], [ %93, %87 ]
   %.1114142 = phi i32 [ 0, %.lr.ph144 ], [ %94, %87 ]
   %96 = sub nsw i32 0, %.0106143
   %97 = lshr i32 %96, 31
-  %98 = load ptr, ptr %20, align 8, !tbaa !16
-  %99 = load i64, ptr %98, align 8, !tbaa !17
-  %100 = load i32, ptr %64, align 8, !tbaa !15
+  %98 = load ptr, ptr %20, align 8, !tbaa !15
+  %99 = load i64, ptr %98, align 8, !tbaa !16
+  %100 = load i32, ptr %64, align 8, !tbaa !14
   %101 = add nsw i32 %100, -1
   %102 = lshr i32 %101, 31
   %103 = xor i32 %102, -1
@@ -926,10 +926,10 @@ define range(i32 0, 2) i32 @BN_gcd(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not127, label %.loopexit, label %111
 
 111:                                              ; preds = %95
-  %112 = load ptr, ptr %20, align 8, !tbaa !16
-  %113 = load i64, ptr %112, align 8, !tbaa !17
+  %112 = load ptr, ptr %20, align 8, !tbaa !15
+  %113 = load i64, ptr %112, align 8, !tbaa !16
   %114 = and i64 %113, 1
-  %115 = load i32, ptr %64, align 8, !tbaa !15
+  %115 = load i32, ptr %64, align 8, !tbaa !14
   %116 = add nsw i32 %115, -1
   %117 = lshr i32 %116, 31
   %118 = xor i32 %117, -1
@@ -994,17 +994,15 @@ attributes #5 = { nounwind memory(none) }
 !8 = !{!"bignum_st", !9, i64 0, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20}
 !9 = !{!"p1 long", !10, i64 0}
 !10 = !{!"any pointer", !5, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = !{!8, !4, i64 8}
-!16 = !{!8, !9, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !5, i64 0}
-!19 = distinct !{!19, !13}
-!20 = !{!8, !4, i64 12}
-!21 = !{i64 1294658}
-!22 = distinct !{!22, !12, !13}
-!23 = distinct !{!23, !12, !13}
-!24 = distinct !{!24, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = !{!8, !4, i64 8}
+!15 = !{!8, !9, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !5, i64 0}
+!18 = !{!8, !4, i64 12}
+!19 = !{i64 1294658}
+!20 = distinct !{!20, !12}
+!21 = distinct !{!21, !12}
+!22 = distinct !{!22, !12}

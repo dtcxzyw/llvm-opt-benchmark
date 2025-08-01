@@ -276,7 +276,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
   %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
-  br label %.backedge, !llvm.loop !7
+  br label %.backedge
 
 6:                                                ; preds = %.backedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.3, i32 noundef 29) #5
@@ -495,7 +495,7 @@ tailrecurse:                                      ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond109.not = select i1 %31, i1 %exitcond.not, i1 false
-  br i1 %or.cond109.not, label %.lr.ph76, label %is_power_of_two.exit.thread, !llvm.loop !9
+  br i1 %or.cond109.not, label %.lr.ph76, label %is_power_of_two.exit.thread, !llvm.loop !7
 
 is_power_of_two.exit.thread:                      ; preds = %tailrecurse, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %8, %.lr.ph, %.lr.ph76, %17, %1, %22, %10
   %.019 = phi i1 [ %11, %10 ], [ true, %22 ], [ false, %1 ], [ true, %17 ], [ %31, %.lr.ph76 ], [ false, %tailrecurse ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ true, %8 ], [ false, %.lr.ph ]
@@ -590,7 +590,7 @@ define dso_local void @c_abi_func_create_x86(ptr noundef captures(none) %0) loca
   store ptr %42, ptr %43, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %36
-  br i1 %exitcond.not.i, label %x86_create_params.exit, label %39, !llvm.loop !11
+  br i1 %exitcond.not.i, label %x86_create_params.exit, label %39, !llvm.loop !9
 
 x86_create_params.exit:                           ; preds = %39, %29, %32
   %.018.i = phi ptr [ null, %29 ], [ null, %32 ], [ %38, %39 ]
@@ -622,7 +622,7 @@ x86_create_params.exit:                           ; preds = %39, %29, %32
   store ptr %57, ptr %58, align 8
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, %51
-  br i1 %exitcond.not.i19, label %x86_create_params.exit21, label %54, !llvm.loop !11
+  br i1 %exitcond.not.i19, label %x86_create_params.exit21, label %54, !llvm.loop !9
 
 x86_create_params.exit21:                         ; preds = %54, %x86_create_params.exit, %47
   %.018.i20 = phi ptr [ null, %47 ], [ null, %x86_create_params.exit ], [ %53, %54 ]
@@ -1060,7 +1060,7 @@ x86_try_use_free_regs.exit.thread.i:              ; preds = %x86_try_use_free_re
 191:                                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %x86_can_expand_indirect_aggregate_arg.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %x86_can_expand_indirect_aggregate_arg.exit.i, label %.lr.ph.i.i, !llvm.loop !10
 
 x86_can_expand_indirect_aggregate_arg.exit.i:     ; preds = %191, %182, %177
   %192 = tail call i32 @type_size(ptr noundef nonnull %3) #4
@@ -1182,7 +1182,7 @@ define internal fastcc noundef zeroext i1 @type_is_union_struct_with_simd_vector
 19:                                               ; preds = %type_is_simd_vector.exit.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
@@ -1236,9 +1236,7 @@ attributes #5 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !10, !8}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10, !8}
-!12 = distinct !{!12, !10, !8}
-!13 = distinct !{!13, !10, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}

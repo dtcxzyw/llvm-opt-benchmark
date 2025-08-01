@@ -598,7 +598,7 @@ define noalias ptr @lean_io_basesharedmutex_read(ptr noundef readonly captures(n
   switch i32 %5, label %_ZNSt18shared_timed_mutex11lock_sharedEv.exit [
     i32 11, label %4
     i32 35, label %6
-  ], !llvm.loop !25
+  ]
 
 6:                                                ; preds = %4
   tail call void @_ZSt20__throw_system_errori(i32 noundef 35) #12
@@ -858,5 +858,3 @@ attributes #13 = { builtin nounwind }
 !22 = !{!"short", !5, i64 0}
 !23 = !{!"_ZTS23__pthread_internal_list", !24, i64 0, !24, i64 8}
 !24 = !{!"p1 _ZTS23__pthread_internal_list", !4, i64 0}
-!25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.estimated_trip_count"}

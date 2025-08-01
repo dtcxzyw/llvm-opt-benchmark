@@ -234,8 +234,8 @@ define internal range(i32 0, 2) i32 @i2r_issuer_sign_tool(ptr readnone captures(
   %12 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %3, ptr noundef nonnull @.str.7) #4
   %13 = load ptr, ptr %1, align 8, !tbaa !9
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !19
-  %16 = load i32, ptr %13, align 8, !tbaa !23
+  %15 = load ptr, ptr %14, align 8, !tbaa !18
+  %16 = load i32, ptr %13, align 8, !tbaa !22
   %17 = tail call i32 @BIO_write(ptr noundef %2, ptr noundef %15, i32 noundef %16) #4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !13
@@ -251,8 +251,8 @@ define internal range(i32 0, 2) i32 @i2r_issuer_sign_tool(ptr readnone captures(
   %24 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.7) #4
   %25 = load ptr, ptr %23, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !19
-  %28 = load i32, ptr %25, align 8, !tbaa !23
+  %27 = load ptr, ptr %26, align 8, !tbaa !18
+  %28 = load i32, ptr %25, align 8, !tbaa !22
   %29 = tail call i32 @BIO_write(ptr noundef %2, ptr noundef %27, i32 noundef %28) #4
   br label %30
 
@@ -277,8 +277,8 @@ define internal range(i32 0, 2) i32 @i2r_issuer_sign_tool(ptr readnone captures(
   %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef nonnull @.str.7) #4
   %39 = load ptr, ptr %37, align 8, !tbaa !14
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !19
-  %42 = load i32, ptr %39, align 8, !tbaa !23
+  %41 = load ptr, ptr %40, align 8, !tbaa !18
+  %42 = load i32, ptr %39, align 8, !tbaa !22
   %43 = tail call i32 @BIO_write(ptr noundef %2, ptr noundef %41, i32 noundef %42) #4
   br label %44
 
@@ -303,8 +303,8 @@ define internal range(i32 0, 2) i32 @i2r_issuer_sign_tool(ptr readnone captures(
   %52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef nonnull @.str.7) #4
   %53 = load ptr, ptr %51, align 8, !tbaa !15
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !19
-  %56 = load i32, ptr %53, align 8, !tbaa !23
+  %55 = load ptr, ptr %54, align 8, !tbaa !18
+  %56 = load i32, ptr %53, align 8, !tbaa !22
   %57 = tail call i32 @BIO_write(ptr noundef %2, ptr noundef %55, i32 noundef %56) #4
   br label %58
 
@@ -364,11 +364,10 @@ attributes #5 = { nounwind willreturn memory(read) }
 !13 = !{!10, !11, i64 8}
 !14 = !{!10, !11, i64 16}
 !15 = !{!10, !11, i64 24}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !5, i64 8}
-!20 = !{!"asn1_string_st", !21, i64 0, !21, i64 4, !5, i64 8, !22, i64 16}
-!21 = !{!"int", !7, i64 0}
-!22 = !{!"long", !7, i64 0}
-!23 = !{!20, !21, i64 0}
+!18 = !{!19, !5, i64 8}
+!19 = !{!"asn1_string_st", !20, i64 0, !20, i64 4, !5, i64 8, !21, i64 16}
+!20 = !{!"int", !7, i64 0}
+!21 = !{!"long", !7, i64 0}
+!22 = !{!19, !20, i64 0}

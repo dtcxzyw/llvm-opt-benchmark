@@ -385,7 +385,7 @@ define internal fastcc void @initJvmlLauncherDataPointers(ptr noundef %0, ptr no
   %35 = load i32, ptr %19, align 4
   %36 = zext i32 %35 to i64
   %.not27 = icmp eq i64 %indvars.iv.next35, %36
-  br i1 %.not27, label %._crit_edge, label %.lr.ph32, !llvm.loop !10
+  br i1 %.not27, label %._crit_edge, label %.lr.ph32, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph32, %.preheader
   ret void
@@ -472,7 +472,6 @@ attributes #11 = { nounwind allocsize(0) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

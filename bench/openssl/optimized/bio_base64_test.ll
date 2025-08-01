@@ -223,7 +223,7 @@ define internal fastcc range(i32 0, 2) i32 @generic_case(ptr noundef nonnull rea
   %19 = load i32, ptr %18, align 4, !tbaa !18
   %20 = shl i32 %19, 1
   %21 = icmp ult i32 %20, %16
-  br i1 %21, label %22, label %265, !llvm.loop !25
+  br i1 %21, label %22, label %265, !llvm.loop !24
 
 22:                                               ; preds = %.preheader, %17
   %.not.i = phi i1 [ %.pre, %.preheader ], [ true, %17 ]
@@ -382,7 +382,7 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
   %105 = getelementptr inbounds nuw i8, ptr %.07290.i.i.i, i64 3
   %106 = add i32 %.07489.i.i.i, -3
   %107 = icmp ugt i32 %106, 2
-  br i1 %107, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !26
+  br i1 %107, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !25
 
 ._crit_edge.i.i.i:                                ; preds = %104, %.preheader.i.i.i
   %.074.lcssa.i.i.i = phi i32 [ %49, %.preheader.i.i.i ], [ %106, %104 ]
@@ -471,7 +471,7 @@ genbytes.exit.thread.i:                           ; preds = %genbytes.exit.threa
   %161 = add nsw i32 %.079.i.i.i, -1
   %162 = call fastcc i32 @memoutws(ptr noundef nonnull %57, i8 noundef signext 65, i32 noundef %23, i32 noundef %26, ptr noundef %2)
   %163 = icmp eq i32 %162, 0
-  br i1 %163, label %encode.exit.thread.i.i, label %.critedge83.i.i.i, !llvm.loop !27
+  br i1 %163, label %encode.exit.thread.i.i, label %.critedge83.i.i.i, !llvm.loop !26
 
 164:                                              ; preds = %.critedge83.i.i.i
   %165 = load i32, ptr %2, align 4, !tbaa !18
@@ -528,15 +528,15 @@ genb64.exit.thread.i:                             ; preds = %179, %46
 
 genb64.exit.i:                                    ; preds = %177, %173
   %181 = call i64 @BIO_ctrl(ptr noundef nonnull %57, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %5) #8
-  %182 = load ptr, ptr %5, align 8, !tbaa !28
+  %182 = load ptr, ptr %5, align 8, !tbaa !27
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  %184 = load ptr, ptr %183, align 8, !tbaa !30
-  %185 = load i64, ptr %182, align 8, !tbaa !33
+  %184 = load ptr, ptr %183, align 8, !tbaa !29
+  %185 = load i64, ptr %182, align 8, !tbaa !32
   %186 = trunc i64 %185 to i32
-  store ptr null, ptr %183, align 8, !tbaa !30
+  store ptr null, ptr %183, align 8, !tbaa !29
   %187 = call i64 @BIO_ctrl(ptr noundef nonnull %57, i32 noundef 9, i64 noundef 0, ptr noundef null) #8
   %188 = call i32 @BIO_free(ptr noundef nonnull %57) #8
-  %189 = load ptr, ptr %5, align 8, !tbaa !28
+  %189 = load ptr, ptr %5, align 8, !tbaa !27
   call void @BUF_MEM_free(ptr noundef %189) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #8
@@ -883,15 +883,14 @@ attributes #10 = { nounwind willreturn memory(read) }
 !19 = !{!8, !11, i64 16}
 !20 = !{!8, !11, i64 20}
 !21 = !{!8, !9, i64 24}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = distinct !{!25, !23, !24}
-!26 = distinct !{!26, !23, !24}
-!27 = distinct !{!27, !23, !24}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTS10buf_mem_st", !10, i64 0}
-!30 = !{!31, !9, i64 8}
-!31 = !{!"buf_mem_st", !32, i64 0, !9, i64 8, !32, i64 16, !32, i64 24}
-!32 = !{!"long", !5, i64 0}
-!33 = !{!31, !32, i64 0}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = distinct !{!26, !23}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS10buf_mem_st", !10, i64 0}
+!29 = !{!30, !9, i64 8}
+!30 = !{!"buf_mem_st", !31, i64 0, !9, i64 8, !31, i64 16, !31, i64 24}
+!31 = !{!"long", !5, i64 0}
+!32 = !{!30, !31, i64 0}

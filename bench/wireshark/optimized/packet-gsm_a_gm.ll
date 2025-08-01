@@ -2934,7 +2934,7 @@ switch.lookup4396:                                ; preds = %183
   %.43625 = phi i32 [ %109, %133 ], [ %154, %150 ], [ %197, %188 ], [ %225, %217 ], [ %132, %127 ]
   %.83491 = phi i32 [ %.93492, %133 ], [ %.123495, %150 ], [ %.133496, %188 ], [ %.143497, %217 ], [ %.113494, %127 ]
   %.8 = phi i32 [ %.9, %133 ], [ %.12, %150 ], [ %.13, %188 ], [ %.14, %217 ], [ %.11, %127 ]
-  br i1 %trunc4295, label %.thread, label %.preheader4321, !llvm.loop !9
+  br i1 %trunc4295, label %.thread, label %.preheader4321, !llvm.loop !8
 
 229:                                              ; preds = %77
   %230 = icmp ult i32 %.53653, 100663296
@@ -3139,7 +3139,7 @@ switch.lookup4408:                                ; preds = %255
   %.19 = phi i32 [ %.184330, %299 ], [ %.20, %316 ]
   %325 = add nuw nsw i32 %.040024324, 1
   %exitcond.not = icmp eq i32 %325, 8
-  br i1 %exitcond.not, label %.loopexit4323, label %299, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit4323, label %299, !llvm.loop !9
 
 .loopexit4323:                                    ; preds = %324, %295
   %.43968 = phi i32 [ %293, %295 ], [ %.63970, %324 ]
@@ -7269,7 +7269,7 @@ switch.lookup4408:                                ; preds = %255
   %2655 = trunc nuw nsw i32 %..233987 to i8
   %2656 = sub i8 %.1363921, %2655
   %.not4293 = icmp eq i32 %2653, 0
-  br i1 %.not4293, label %.thread, label %.lr.ph, !llvm.loop !11
+  br i1 %.not4293, label %.thread, label %.lr.ph, !llvm.loop !10
 
 .thread:                                          ; preds = %2652, %.preheader, %.preheader4321, %.loopexit, %2631, %2610, %2589, %2572, %2548, %2520, %2498, %2477, %2460, %2430, %2407, %2389, %2363, %2345, %2322, %2295, %2274, %2253, %2232, %2211, %2190, %2168, %2146, %2125, %2104, %2083, %2062, %2041, %2020, %1999, %1982, %1952, %1935, %1907, %1885, %1864, %1843, %1821, %1799, %1777, %1756, %1735, %1714, %1697, %1670, %1650, %1622, %1601, %1584, %1560, %1531, %1514, %1486, %1465, %1443, %1421, %1395, %1368, %1351, %1321, %1297, %1273, %1241, %1209, %1192, %1161, %1124, %1092, %1071, %1050, %1029, %1008, %987, %966, %949, %921, %898, %874, %845, %821, %801, %773, %746, %725, %698, %671, %643, %613, %593, %565, %538, %518, %491, %462, %432, %405, %384, %363, %342, %.loopexit4323, %260, %229
   %.13998 = phi i8 [ %.039974353, %229 ], [ %.039974353, %260 ], [ %.039974353, %.loopexit4323 ], [ %.039974353, %342 ], [ %.039974353, %363 ], [ %.039974353, %384 ], [ %.039974353, %405 ], [ %.039974353, %432 ], [ %.039974353, %491 ], [ %.039974353, %565 ], [ %.039974353, %643 ], [ %.039974353, %698 ], [ %.039974353, %773 ], [ %.23999, %898 ], [ %.23999, %921 ], [ %.23999, %949 ], [ %.23999, %966 ], [ %.23999, %987 ], [ %.23999, %1008 ], [ %.23999, %1029 ], [ %.23999, %1050 ], [ %.23999, %1071 ], [ %.23999, %1092 ], [ %.23999, %1192 ], [ %.23999, %1209 ], [ %.23999, %1273 ], [ %.23999, %1297 ], [ %.23999, %1321 ], [ %.23999, %1351 ], [ %.23999, %1368 ], [ %.23999, %1395 ], [ %.23999, %1421 ], [ %.23999, %1443 ], [ %.23999, %1465 ], [ %.23999, %1486 ], [ %.23999, %1584 ], [ %.23999, %1601 ], [ %.23999, %1622 ], [ %.23999, %1697 ], [ %.23999, %1714 ], [ %.23999, %1735 ], [ %.23999, %1756 ], [ %.23999, %1777 ], [ %.23999, %1799 ], [ %.23999, %1821 ], [ %.23999, %1843 ], [ %.23999, %1864 ], [ %.23999, %1885 ], [ %.23999, %1907 ], [ %.23999, %1982 ], [ %.23999, %1999 ], [ %.23999, %2020 ], [ %.23999, %2041 ], [ %.23999, %2062 ], [ %.23999, %2083 ], [ %.23999, %2104 ], [ %.23999, %2125 ], [ %.23999, %2146 ], [ %.23999, %2168 ], [ %.23999, %2190 ], [ %.23999, %2211 ], [ %.23999, %2232 ], [ %.23999, %2253 ], [ %.23999, %2274 ], [ %.23999, %2295 ], [ %.23999, %2460 ], [ %.23999, %2477 ], [ %.23999, %2498 ], [ %.23999, %2520 ], [ %.23999, %2572 ], [ %.23999, %2589 ], [ %.23999, %2610 ], [ %.23999, %2548 ], [ %.23999, %2322 ], [ %.23999, %2389 ], [ %.23999, %2407 ], [ %.23999, %2430 ], [ %.23999, %2345 ], [ %.23999, %2363 ], [ %.23999, %1935 ], [ %.23999, %1952 ], [ %.23999, %1650 ], [ %.23999, %1670 ], [ %.23999, %1514 ], [ %.23999, %1531 ], [ %.23999, %1560 ], [ %.23999, %1241 ], [ %.23999, %1124 ], [ %.23999, %1161 ], [ %.039974353, %801 ], [ %.039974353, %821 ], [ %.039974353, %845 ], [ %868, %874 ], [ %.039974353, %725 ], [ %.039974353, %746 ], [ %.039974353, %671 ], [ %.039974353, %593 ], [ %.039974353, %613 ], [ %.039974353, %518 ], [ %.039974353, %538 ], [ %.039974353, %462 ], [ %.23999, %2631 ], [ %.039974353, %.loopexit ], [ %.039974353, %.preheader4321 ], [ %.039974353, %.preheader ], [ %.23999, %2652 ]
@@ -7283,7 +7283,7 @@ switch.lookup4408:                                ; preds = %255
   %2658 = zext i8 %.23787 to i32
   %2659 = add i32 %2657, %2658
   %2660 = icmp ult i32 %2659, 11
-  br i1 %2660, label %._crit_edge, label %13, !llvm.loop !12
+  br i1 %2660, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %.thread, %29, %30, %7
   %.13484 = phi i32 [ %4, %7 ], [ %.43487, %30 ], [ %.43487, %29 ], [ %.33486, %.thread ]
@@ -8465,7 +8465,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %21, %24
   %480 = add i32 %478, %56
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
   %481 = icmp sgt i32 %479, 2
-  br i1 %481, label %39, label %._crit_edge, !llvm.loop !13
+  br i1 %481, label %39, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %477, %proto_item_set_generated.exit
   %.0507.lcssa = phi i32 [ %34, %proto_item_set_generated.exit ], [ %479, %477 ]
@@ -9491,7 +9491,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   %indvars.iv.next439 = add nuw nsw i32 %indvars.iv438, 1
   tail call void @proto_item_set_len(ptr noundef %27, i32 noundef 1)
   %41 = icmp samesign ult i32 %indvars.iv.next439, %24
-  br i1 %41, label %25, label %._crit_edge, !llvm.loop !14
+  br i1 %41, label %25, label %._crit_edge, !llvm.loop !12
 
 .lr.ph399.split:                                  ; preds = %.lr.ph399.split.preheader, %.loopexit373
   %indvars.iv = phi i32 [ %22, %.lr.ph399.split.preheader ], [ %indvars.iv.next, %.loopexit373 ]
@@ -9728,7 +9728,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   %171 = sub i32 %.3336.lcssa, %.0333398
   tail call void @proto_item_set_len(ptr noundef %43, i32 noundef %171)
   %172 = icmp samesign ult i32 %indvars.iv.next, %23
-  br i1 %172, label %.lr.ph399.split, label %._crit_edge, !llvm.loop !16
+  br i1 %172, label %.lr.ph399.split, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit373, %25, %7
   %.0339.lcssa = phi i32 [ %18, %7 ], [ %40, %25 ], [ %.3342.lcssa, %.loopexit373 ]
@@ -9789,7 +9789,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   %203 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %182, i32 noundef %200, ptr noundef %0, i32 noundef %197, i32 noundef 1, i32 noundef %202, ptr noundef nonnull @.str.156, i32 noundef %.0356405, i32 noundef %202, i32 noundef %201)
   %204 = add nuw nsw i32 %.0356405, 1
   %exitcond.not = icmp eq i32 %204, %178
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph406, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph406, !llvm.loop !15
 
 205:                                              ; preds = %.preheader371
   %206 = load i32, ptr @hf_gsm_a_sm_tft_parameter_content, align 4
@@ -9801,7 +9801,7 @@ define hidden noundef zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef 
   %209 = sub i32 %187, %178
   %210 = add i8 %.4352407, 1
   %.not = icmp eq i32 %209, 0
-  br i1 %.not, label %.loopexit372, label %.preheader371, !llvm.loop !18
+  br i1 %.not, label %.loopexit372, label %.preheader371, !llvm.loop !16
 
 .loopexit372:                                     ; preds = %.loopexit, %._crit_edge
   %.6 = phi i32 [ %.0333.lcssa, %._crit_edge ], [ %208, %.loopexit ]
@@ -10078,7 +10078,7 @@ define internal zeroext i16 @de_gmm_rec_npdu_lst(ptr noundef %0, ptr noundef %1,
   %.151 = phi i32 [ %34, %25 ], [ %23, %.preheader ]
   %.1 = phi i32 [ %29, %25 ], [ %14, %.preheader ]
   %36 = icmp ugt i32 %.1, 1
-  br i1 %36, label %.preheader, label %37, !llvm.loop !19
+  br i1 %36, label %.preheader, label %37, !llvm.loop !17
 
 37:                                               ; preds = %35
   %38 = sub i32 %.151, %3
@@ -10727,7 +10727,7 @@ define internal noundef zeroext i16 @de_gc_context_stat(ptr noundef %0, ptr noun
   %22 = lshr i8 %.135, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %23, label %9, !llvm.loop !20
+  br i1 %exitcond.not, label %23, label %9, !llvm.loop !18
 
 23:                                               ; preds = %14
   %24 = add i32 %.1, 1
@@ -10836,13 +10836,13 @@ define internal noundef zeroext i16 @de_gc_mbms_context_stat(ptr noundef %0, ptr
   %20 = lshr i8 %.01823, 1
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %21, label %11, !llvm.loop !21
+  br i1 %exitcond.not, label %21, label %11, !llvm.loop !19
 
 21:                                               ; preds = %11
   %22 = add i32 %.02025, 1
   %23 = add nuw i32 %.01926, 1
   %exitcond28.not = icmp eq i32 %23, %4
-  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond28.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %21, %7
   %24 = trunc i32 %4 to i16
@@ -10992,7 +10992,7 @@ define hidden void @proto_register_gsm_a_gm() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %.preheader21, label %8, !llvm.loop !23
+  br i1 %exitcond.not, label %.preheader21, label %8, !llvm.loop !21
 
 .preheader21:                                     ; preds = %8, %.preheader21
   %indvars.iv36 = phi i64 [ %indvars.iv.next37, %.preheader21 ], [ 31, %8 ]
@@ -11003,7 +11003,7 @@ define hidden void @proto_register_gsm_a_gm() local_unnamed_addr #1 {
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next35, 30
-  br i1 %exitcond41.not, label %.preheader, label %.preheader21, !llvm.loop !24
+  br i1 %exitcond41.not, label %.preheader, label %.preheader21, !llvm.loop !22
 
 .preheader:                                       ; preds = %.preheader21, %.preheader
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.preheader ], [ 61, %.preheader21 ]
@@ -11014,7 +11014,7 @@ define hidden void @proto_register_gsm_a_gm() local_unnamed_addr #1 {
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next43, 77
-  br i1 %exitcond49.not, label %15, label %.preheader, !llvm.loop !25
+  br i1 %exitcond49.not, label %15, label %.preheader, !llvm.loop !23
 
 15:                                               ; preds = %.preheader
   %16 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.871, ptr noundef nonnull @.str.872, ptr noundef nonnull @.str.873)
@@ -15408,23 +15408,21 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

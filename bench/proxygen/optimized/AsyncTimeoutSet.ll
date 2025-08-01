@@ -896,27 +896,27 @@ _ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i: ; preds = %i
   br label %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit
 
 _ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit: ; preds = %entry, %_ZN8proxygen15AsyncTimeoutSet8Callback17cancelTimeoutImplEv.exit.i
-  %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !11
-  %6 = load ptr, ptr %call.i, align 8, !noalias !11
+  %call.i = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !10
+  %6 = load ptr, ptr %call.i, align 8, !noalias !10
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !11
+  %7 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !10
   %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5folly14RequestContext11saveContextEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit
   %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !11
+  %8 = load i8, ptr @__libc_single_threaded, align 1, !noalias !10
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %9 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !11
+  %9 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !10
   %add.i.i.i.i.i.i = add nsw i32 %9, 1
-  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !11
+  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !10
   br label %_ZN5folly14RequestContext11saveContextEv.exit
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !11
+  %10 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !10
   br label %_ZN5folly14RequestContext11saveContextEv.exit
 
 _ZN5folly14RequestContext11saveContextEv.exit:    ; preds = %_ZN8proxygen15AsyncTimeoutSet8Callback13cancelTimeoutEv.exit, %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
@@ -1014,31 +1014,31 @@ if.then2:                                         ; preds = %if.then
   %interval_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   %25 = load i64, ptr %interval_, align 8
   %conv = trunc i64 %25 to i32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %call.i16 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !14
-  %26 = load ptr, ptr %call.i16, align 8, !noalias !14
-  store ptr %26, ptr %ref.tmp4, align 8, !alias.scope !14
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
+  %call.i16 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv(), !noalias !13
+  %26 = load ptr, ptr %call.i16, align 8, !noalias !13
+  store ptr %26, ptr %ref.tmp4, align 8, !alias.scope !13
   %_M_refcount.i.i.i17 = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 8
   %_M_refcount3.i.i.i18 = getelementptr inbounds nuw i8, ptr %call.i16, i64 8
-  %27 = load ptr, ptr %_M_refcount3.i.i.i18, align 8, !noalias !14
-  store ptr %27, ptr %_M_refcount.i.i.i17, align 8, !alias.scope !14
+  %27 = load ptr, ptr %_M_refcount3.i.i.i18, align 8, !noalias !13
+  store ptr %27, ptr %_M_refcount.i.i.i17, align 8, !alias.scope !13
   %cmp.not.i.i.i.i19 = icmp eq ptr %27, null
   br i1 %cmp.not.i.i.i.i19, label %_ZN5folly14RequestContext11saveContextEv.exit26, label %if.then.i.i.i.i20
 
 if.then.i.i.i.i20:                                ; preds = %if.then2
   %_M_use_count.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %28 = load i8, ptr @__libc_single_threaded, align 1, !noalias !14
+  %28 = load i8, ptr @__libc_single_threaded, align 1, !noalias !13
   %tobool.i.i.not.i.i.i.i.i22 = icmp eq i8 %28, 0
   br i1 %tobool.i.i.not.i.i.i.i.i22, label %if.else.i.i.i.i.i.i25, label %if.then.i.i.i.i.i.i23
 
 if.then.i.i.i.i.i.i23:                            ; preds = %if.then.i.i.i.i20
-  %29 = load i32, ptr %_M_use_count.i.i.i.i.i21, align 4, !noalias !14
+  %29 = load i32, ptr %_M_use_count.i.i.i.i.i21, align 4, !noalias !13
   %add.i.i.i.i.i.i24 = add nsw i32 %29, 1
-  store i32 %add.i.i.i.i.i.i24, ptr %_M_use_count.i.i.i.i.i21, align 4, !noalias !14
+  store i32 %add.i.i.i.i.i.i24, ptr %_M_use_count.i.i.i.i.i21, align 4, !noalias !13
   br label %_ZN5folly14RequestContext11saveContextEv.exit26
 
 if.else.i.i.i.i.i.i25:                            ; preds = %if.then.i.i.i.i20
-  %30 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i21, i32 1 acq_rel, align 4, !noalias !14
+  %30 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i21, i32 1 acq_rel, align 4, !noalias !13
   br label %_ZN5folly14RequestContext11saveContextEv.exit26
 
 _ZN5folly14RequestContext11saveContextEv.exit26:  ; preds = %if.then2, %if.then.i.i.i.i.i.i23, %if.else.i.i.i.i.i.i25
@@ -1200,34 +1200,34 @@ if.then:                                          ; preds = %invoke.cont12
   %6 = load i64, ptr %atMostEveryN_, align 8
   %cmp.i = icmp slt i64 %spec.select.i, %6
   %spec.select = select i1 %cmp.i, i64 %6, i64 %sub.i.i
-  call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %call.i3 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14RequestContext16getStaticContextEv()
           to label %call.i.noexc unwind label %terminate.lpad.loopexit.split-lp
 
 call.i.noexc:                                     ; preds = %if.then
-  %7 = load ptr, ptr %call.i3, align 8, !noalias !17
-  store ptr %7, ptr %ref.tmp20, align 8, !alias.scope !17
+  %7 = load ptr, ptr %call.i3, align 8, !noalias !16
+  store ptr %7, ptr %ref.tmp20, align 8, !alias.scope !16
   %_M_refcount.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp20, i64 8
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 8
-  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !17
-  store ptr %8, ptr %_M_refcount.i.i.i, align 8, !alias.scope !17
+  %8 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !16
+  store ptr %8, ptr %_M_refcount.i.i.i, align 8, !alias.scope !16
   %cmp.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i.i.i, label %invoke.cont21, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %call.i.noexc
   %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %9 = load i8, ptr @__libc_single_threaded, align 1, !noalias !17
+  %9 = load i8, ptr @__libc_single_threaded, align 1, !noalias !16
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %10 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !17
+  %10 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !16
   %add.i.i.i.i.i.i = add nsw i32 %10, 1
-  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !17
+  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !16
   br label %invoke.cont21
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %11 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !17
+  %11 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !16
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %call.i.noexc
@@ -1367,7 +1367,7 @@ invoke.cont28:                                    ; preds = %invoke.cont27
   call void @_ZN5folly24RequestContextScopeGuardD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %rctxScopeGuard) #15
   %30 = load ptr, ptr %head_, align 8
   %cmp.not = icmp eq ptr %30, null
-  br i1 %cmp.not, label %if.then.i9, label %invoke.cont12, !llvm.loop !20
+  br i1 %cmp.not, label %if.then.i9, label %invoke.cont12, !llvm.loop !19
 
 if.then.i9:                                       ; preds = %invoke.cont28, %while.cond.preheader, %invoke.cont22, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   store i8 0, ptr %inTimeoutExpired_, align 8
@@ -1660,16 +1660,15 @@ attributes #17 = { builtin nounwind }
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZN5folly14RequestContext11saveContextEv: %agg.result"}
 !7 = distinct !{!7, !"_ZN5folly14RequestContext11saveContextEv"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN5folly14RequestContext11saveContextEv: %agg.result"}
-!13 = distinct !{!13, !"_ZN5folly14RequestContext11saveContextEv"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZN5folly14RequestContext11saveContextEv: %agg.result"}
-!16 = distinct !{!16, !"_ZN5folly14RequestContext11saveContextEv"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN5folly14RequestContext11saveContextEv: %agg.result"}
-!19 = distinct !{!19, !"_ZN5folly14RequestContext11saveContextEv"}
-!20 = distinct !{!20, !9, !10}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN5folly14RequestContext11saveContextEv: %agg.result"}
+!12 = distinct !{!12, !"_ZN5folly14RequestContext11saveContextEv"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN5folly14RequestContext11saveContextEv: %agg.result"}
+!15 = distinct !{!15, !"_ZN5folly14RequestContext11saveContextEv"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN5folly14RequestContext11saveContextEv: %agg.result"}
+!18 = distinct !{!18, !"_ZN5folly14RequestContext11saveContextEv"}
+!19 = distinct !{!19, !9}

@@ -243,7 +243,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %42, %44
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %83, %81, %75, %73, %63, %61
   %85 = getelementptr inbounds nuw i8, ptr %.039, i64 1
   %.not23 = icmp eq ptr %85, %46
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %51, %49, %29, %28, %26
   ret void
@@ -270,9 +270,9 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   %11 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %8, i64 noundef 16) #8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %14 = load i32, ptr %13, align 8, !tbaa !58
+  %14 = load i32, ptr %13, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %16 = load i32, ptr %15, align 4, !tbaa !59
+  %16 = load i32, ptr %15, align 4, !tbaa !57
   %.not.i.i.not.i = icmp ult i32 %14, %16
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit, label %17, !prof !23
 
@@ -281,20 +281,20 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   %19 = add nuw nsw i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #8
-  %.pre.i = load i32, ptr %13, align 8, !tbaa !58
+  %.pre.i = load i32, ptr %13, align 8, !tbaa !56
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds = %10, %17
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
-  %22 = load ptr, ptr %12, align 8, !tbaa !60
+  %22 = load ptr, ptr %12, align 8, !tbaa !58
   %23 = zext i32 %21 to i64
   %24 = getelementptr inbounds nuw %"struct.std::pair.117", ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %25 = load i32, ptr %13, align 8, !tbaa !58
+  %25 = load i32, ptr %13, align 8, !tbaa !56
   %26 = add i32 %25, 1
-  store i32 %26, ptr %13, align 8, !tbaa !58
+  store i32 %26, ptr %13, align 8, !tbaa !56
   %27 = ptrtoint ptr %11 to i64
   %28 = add i64 %7, %27
   %29 = sub i64 0, %6
@@ -305,15 +305,15 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
 32:                                               ; preds = %4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !58
+  %35 = load i32, ptr %34, align 8, !tbaa !56
   %36 = lshr i32 %35, 7
   %37 = tail call i32 @llvm.umin.i32(i32 %36, i32 30)
   %.sroa.speculated.i.i = zext nneg i32 %37 to i64
   %38 = shl nuw nsw i64 4096, %.sroa.speculated.i.i
   %39 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %38, i64 noundef 16) #8
-  %40 = load i32, ptr %34, align 8, !tbaa !58
+  %40 = load i32, ptr %34, align 8, !tbaa !56
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %42 = load i32, ptr %41, align 4, !tbaa !59
+  %42 = load i32, ptr %41, align 4, !tbaa !57
   %.not.i.i.not.i.i = icmp ult i32 %40, %42
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, label %43, !prof !23
 
@@ -322,19 +322,19 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %45 = add nuw nsw i64 %44, 1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %46, i64 noundef %45, i64 noundef 8) #8
-  %.pre.i.i = load i32, ptr %34, align 8, !tbaa !58
+  %.pre.i.i = load i32, ptr %34, align 8, !tbaa !56
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit: ; preds = %32, %43
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
-  %48 = load ptr, ptr %33, align 8, !tbaa !60
+  %48 = load ptr, ptr %33, align 8, !tbaa !58
   %49 = zext i32 %47 to i64
   %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
-  %52 = load i32, ptr %34, align 8, !tbaa !58
+  %52 = load i32, ptr %34, align 8, !tbaa !56
   %53 = add i32 %52, 1
-  store i32 %53, ptr %34, align 8, !tbaa !58
+  store i32 %53, ptr %34, align 8, !tbaa !56
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 %38
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %54, ptr %55, align 8, !tbaa !22
@@ -437,8 +437,6 @@ attributes #9 = { noreturn nounwind }
 !53 = !{!"_ZTSSt4pairIiiE", !14, i64 0, !14, i64 4}
 !54 = !{i8 0, i8 2}
 !55 = !{}
-!56 = distinct !{!56, !57}
-!57 = !{!"llvm.loop.estimated_trip_count"}
-!58 = !{!13, !14, i64 8}
-!59 = !{!13, !14, i64 12}
-!60 = !{!13, !6, i64 0}
+!56 = !{!13, !14, i64 8}
+!57 = !{!13, !14, i64 12}
+!58 = !{!13, !6, i64 0}

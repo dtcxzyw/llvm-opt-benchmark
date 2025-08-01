@@ -299,12 +299,12 @@ _ZL25scan_default_hugepagesizev.exit.thread:      ; preds = %1
   switch i32 %18, label %.preheader.i [
     i32 -1, label %.loopexit.i
     i32 10, label %.loopexit.i
-  ], !llvm.loop !9
+  ]
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.preheader.i, %16, %14, %12
   %19 = call i32 @feof(ptr noundef nonnull %7) #15
   %.not9.i = icmp eq i32 %19, 0
-  br i1 %.not9.i, label %.lr.ph.i, label %_ZL25scan_default_hugepagesizev.exit.thread6, !llvm.loop !10
+  br i1 %.not9.i, label %.lr.ph.i, label %_ZL25scan_default_hugepagesizev.exit.thread6, !llvm.loop !8
 
 _ZL25scan_default_hugepagesizev.exit.thread6:     ; preds = %.loopexit.i, %.preheader12.i
   %20 = call i32 @fclose(ptr noundef nonnull %7)
@@ -362,7 +362,7 @@ _ZL25scan_default_hugepagesizev.exit:             ; preds = %16
 41:                                               ; preds = %38, %34, %.lr.ph.i3
   %42 = call ptr @readdir64(ptr noundef nonnull %28) #15
   %.not5.i = icmp eq ptr %42, null
-  br i1 %.not5.i, label %._crit_edge.i, label %.lr.ph.i3, !llvm.loop !11
+  br i1 %.not5.i, label %._crit_edge.i, label %.lr.ph.i3, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %41, %.preheader.i2
   %43 = call i32 @closedir(ptr noundef nonnull %28)
@@ -1012,9 +1012,7 @@ attributes #17 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

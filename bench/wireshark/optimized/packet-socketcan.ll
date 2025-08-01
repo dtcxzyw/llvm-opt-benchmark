@@ -995,7 +995,7 @@ define internal void @post_update_sender_receiver_cb() #0 {
   %19 = load i32, ptr @sender_receiver_config_num, align 4
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1565,7 +1565,7 @@ socketcan_set_source_and_destination_columns.exit199: ; preds = %ht_lookup_sende
   %270 = getelementptr i8, ptr %.0156204, i64 8
   %271 = load ptr, ptr %270, align 8
   %.not173 = icmp eq ptr %271, null
-  br i1 %.not173, label %272, label %254, !llvm.loop !12
+  br i1 %.not173, label %272, label %254, !llvm.loop !11
 
 272:                                              ; preds = %269
   %273 = load i32, ptr %8, align 4
@@ -1806,8 +1806,7 @@ attributes #9 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

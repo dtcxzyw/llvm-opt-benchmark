@@ -427,7 +427,7 @@ define hidden void @_ZN12outputStream22do_vsnprintf_and_writeEPKcP13__va_list_ta
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %18) #21
   %22 = sub nsw i32 %.0.i.i, %17
   %.old1.i.i = icmp sgt i32 %22, 0
-  br i1 %.old1.i.i, label %.preheader.i.i, label %_ZN12outputStream6indentEv.exit, !llvm.loop !9
+  br i1 %.old1.i.i, label %.preheader.i.i, label %_ZN12outputStream6indentEv.exit
 
 _ZN12outputStream6indentEv.exit:                  ; preds = %.preheader.i.i, %4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -485,7 +485,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN12outputStream
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %9) #21
   %13 = sub nsw i32 %.0.i, %8
   %.old1.i = icmp sgt i32 %13, 0
-  br i1 %.old1.i, label %.preheader.i, label %_ZN12outputStream2spEi.exit, !llvm.loop !9
+  br i1 %.old1.i, label %.preheader.i, label %_ZN12outputStream2spEi.exit
 
 _ZN12outputStream2spEi.exit:                      ; preds = %.preheader.i, %1
   ret ptr %0
@@ -552,7 +552,7 @@ define hidden void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %14) #21
   %18 = sub nsw i32 %.0.i.i, %13
   %.old1.i.i = icmp sgt i32 %18, 0
-  br i1 %.old1.i.i, label %.preheader.i.i, label %_ZN12outputStream6indentEv.exit, !llvm.loop !9
+  br i1 %.old1.i.i, label %.preheader.i.i, label %_ZN12outputStream6indentEv.exit
 
 _ZN12outputStream6indentEv.exit:                  ; preds = %.preheader.i.i, %3
   %19 = load ptr, ptr %0, align 8
@@ -581,7 +581,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN12outputStream7fill_toEi
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %8) #21
   %12 = sub nsw i32 %.0.i, %7
   %.old1.i = icmp sgt i32 %12, 0
-  br i1 %.old1.i, label %.preheader.i, label %_ZN12outputStream2spEi.exit, !llvm.loop !9
+  br i1 %.old1.i, label %.preheader.i, label %_ZN12outputStream2spEi.exit
 
 _ZN12outputStream2spEi.exit:                      ; preds = %.preheader.i, %2
   ret i32 %6
@@ -602,7 +602,7 @@ define hidden void @_ZN12outputStream2spEi(ptr noundef nonnull align 8 dereferen
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %5) #21
   %9 = sub nsw i32 %.0, %4
   %.old1 = icmp sgt i32 %9, 0
-  br i1 %.old1, label %.preheader, label %.loopexit, !llvm.loop !9
+  br i1 %.old1, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -641,7 +641,7 @@ define hidden void @_ZN12outputStream7move_toEiii(ptr noundef nonnull align 8 de
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %17) #21
   %21 = sub nsw i32 %.0.i, %16
   %.old1.i = icmp sgt i32 %21, 0
-  br i1 %.old1.i, label %.preheader.i, label %_ZN12outputStream2spEi.exit, !llvm.loop !9
+  br i1 %.old1.i, label %.preheader.i, label %_ZN12outputStream2spEi.exit
 
 _ZN12outputStream2spEi.exit:                      ; preds = %.preheader.i, %12
   ret void
@@ -693,7 +693,7 @@ define hidden void @_ZN12outputStream9cr_indentEv(ptr noundef nonnull align 8 de
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %12) #21
   %16 = sub nsw i32 %.0.i.i, %11
   %.old1.i.i = icmp sgt i32 %16, 0
-  br i1 %.old1.i.i, label %.preheader.i.i, label %_ZN12outputStream6indentEv.exit, !llvm.loop !9
+  br i1 %.old1.i.i, label %.preheader.i.i, label %_ZN12outputStream6indentEv.exit
 
 _ZN12outputStream6indentEv.exit:                  ; preds = %.preheader.i.i, %1
   ret void
@@ -738,7 +738,7 @@ define hidden void @_ZN12outputStream5stampEv(ptr noundef nonnull align 8 derefe
   call void %23(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %20) #21
   %24 = sub nsw i32 %.0.i.i.i.i, %19
   %.old1.i.i.i.i = icmp sgt i32 %24, 0
-  br i1 %.old1.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN12outputStream9print_rawEPKc.exit, !llvm.loop !9
+  br i1 %.old1.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN12outputStream9print_rawEPKc.exit
 
 _ZN12outputStream9print_rawEPKc.exit:             ; preds = %.preheader.i.i.i.i, %6
   %25 = load ptr, ptr %0, align 8
@@ -781,7 +781,7 @@ define hidden void @_ZN12outputStream5stampEbPKcS1_(ptr noundef nonnull align 8 
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %17) #21
   %21 = sub nsw i32 %.0.i.i.i.i, %16
   %.old1.i.i.i.i = icmp sgt i32 %21, 0
-  br i1 %.old1.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN12outputStream9print_rawEPKc.exit, !llvm.loop !9
+  br i1 %.old1.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN12outputStream9print_rawEPKc.exit
 
 _ZN12outputStream9print_rawEPKc.exit:             ; preds = %.preheader.i.i.i.i, %5
   %22 = load ptr, ptr %0, align 8
@@ -810,7 +810,7 @@ _ZN12outputStream9print_rawEPKc.exit:             ; preds = %.preheader.i.i.i.i,
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %33) #21
   %37 = sub nsw i32 %.0.i.i.i.i6, %32
   %.old1.i.i.i.i7 = icmp sgt i32 %37, 0
-  br i1 %.old1.i.i.i.i7, label %.preheader.i.i.i.i5, label %_ZN12outputStream9print_rawEPKc.exit8, !llvm.loop !9
+  br i1 %.old1.i.i.i.i7, label %.preheader.i.i.i.i5, label %_ZN12outputStream9print_rawEPKc.exit8
 
 _ZN12outputStream9print_rawEPKc.exit8:            ; preds = %.preheader.i.i.i.i5, %_ZN12outputStream9print_rawEPKc.exit
   %38 = load ptr, ptr %0, align 8
@@ -853,7 +853,7 @@ define hidden void @_ZN12outputStream10date_stampEbPKcS1_(ptr noundef nonnull al
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %18) #21
   %22 = sub nsw i32 %.0.i.i.i.i, %17
   %.old1.i.i.i.i = icmp sgt i32 %22, 0
-  br i1 %.old1.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN12outputStream9print_rawEPKc.exit, !llvm.loop !9
+  br i1 %.old1.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN12outputStream9print_rawEPKc.exit
 
 _ZN12outputStream9print_rawEPKc.exit:             ; preds = %.preheader.i.i.i.i, %6
   %23 = load ptr, ptr %0, align 8
@@ -886,7 +886,7 @@ _ZN12outputStream9print_rawEPKc.exit:             ; preds = %.preheader.i.i.i.i,
   call void %39(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %36) #21
   %40 = sub nsw i32 %.0.i.i.i.i7, %35
   %.old1.i.i.i.i8 = icmp sgt i32 %40, 0
-  br i1 %.old1.i.i.i.i8, label %.preheader.i.i.i.i6, label %_ZN12outputStream9print_rawEPKc.exit9, !llvm.loop !9
+  br i1 %.old1.i.i.i.i8, label %.preheader.i.i.i.i6, label %_ZN12outputStream9print_rawEPKc.exit9
 
 _ZN12outputStream9print_rawEPKc.exit9:            ; preds = %.preheader.i.i.i.i6, %27
   %41 = load ptr, ptr %0, align 8
@@ -916,7 +916,7 @@ _ZN12outputStream9print_rawEPKc.exit9:            ; preds = %.preheader.i.i.i.i6
   call void %55(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %52) #21
   %56 = sub nsw i32 %.0.i.i.i.i13, %51
   %.old1.i.i.i.i14 = icmp sgt i32 %56, 0
-  br i1 %.old1.i.i.i.i14, label %.preheader.i.i.i.i12, label %_ZN12outputStream9print_rawEPKc.exit15, !llvm.loop !9
+  br i1 %.old1.i.i.i.i14, label %.preheader.i.i.i.i12, label %_ZN12outputStream9print_rawEPKc.exit15
 
 _ZN12outputStream9print_rawEPKc.exit15:           ; preds = %.preheader.i.i.i.i12, %44
   %57 = load ptr, ptr %0, align 8
@@ -947,7 +947,7 @@ _ZN12outputStream9print_rawEPKc.exit15:           ; preds = %.preheader.i.i.i.i1
   call void %72(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %69) #21
   %73 = sub nsw i32 %.0.i.i.i.i19, %68
   %.old1.i.i.i.i20 = icmp sgt i32 %73, 0
-  br i1 %.old1.i.i.i.i20, label %.preheader.i.i.i.i18, label %_ZN12outputStream9print_rawEPKc.exit21, !llvm.loop !9
+  br i1 %.old1.i.i.i.i20, label %.preheader.i.i.i.i18, label %_ZN12outputStream9print_rawEPKc.exit21
 
 _ZN12outputStream9print_rawEPKc.exit21:           ; preds = %.preheader.i.i.i.i18, %60
   %74 = load ptr, ptr %0, align 8
@@ -1022,7 +1022,7 @@ define hidden void @_ZN12outputStream10print_dataEPvmbb(ptr noundef nonnull alig
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %20) #21
   %24 = sub nsw i32 %.0.i.i, %19
   %.old1.i.i = icmp sgt i32 %24, 0
-  br i1 %.old1.i.i, label %.preheader.i.i, label %_ZN12outputStream6indentEv.exit, !llvm.loop !9
+  br i1 %.old1.i.i, label %.preheader.i.i, label %_ZN12outputStream6indentEv.exit
 
 _ZN12outputStream6indentEv.exit:                  ; preds = %.preheader.i.i, %18
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.9, i64 noundef %.036)
@@ -1041,7 +1041,7 @@ _ZN12outputStream6indentEv.exit:                  ; preds = %.preheader.i.i, %18
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i64 noundef %27) #21
   %31 = sub nsw i32 %.0.i.i32, %26
   %.old1.i.i33 = icmp sgt i32 %31, 0
-  br i1 %.old1.i.i33, label %.preheader.i.i31, label %_ZN12outputStream6indentEv.exit34, !llvm.loop !9
+  br i1 %.old1.i.i33, label %.preheader.i.i31, label %_ZN12outputStream6indentEv.exit34
 
 _ZN12outputStream6indentEv.exit34:                ; preds = %.preheader.i.i31, %25
   %32 = getelementptr inbounds i8, ptr %1, i64 %.036
@@ -1106,7 +1106,7 @@ _ZN12outputStream6indentEv.exit34:                ; preds = %.preheader.i.i31, %
 61:                                               ; preds = %52, %55
   %62 = add nuw nsw i64 %.02935, 1
   %exitcond.not = icmp eq i64 %62, 16
-  br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !8
 
 .loopexit:                                        ; preds = %61, %49
   %63 = load ptr, ptr %0, align 8
@@ -1117,7 +1117,7 @@ _ZN12outputStream6indentEv.exit34:                ; preds = %.preheader.i.i31, %
 
 66:                                               ; preds = %45, %.loopexit
   %exitcond37.not = icmp eq i64 %46, %7
-  br i1 %exitcond37.not, label %._crit_edge, label %10, !llvm.loop !11
+  br i1 %exitcond37.not, label %._crit_edge, label %10, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %66, %5
   ret void
@@ -1434,7 +1434,7 @@ define hidden noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull re
   %17 = load i64, ptr %3, align 8
   %18 = getelementptr inbounds i8, ptr %14, i64 %17
   store i8 0, ptr %18, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !10
   br label %19
 
 19:                                               ; preds = %7, %13
@@ -1532,7 +1532,7 @@ define hidden noundef ptr @_Z13make_log_namePKcS0_(ptr noundef %0, ptr noundef r
 
 13:                                               ; preds = %.sink.split.i, %.lr.ph.i
   %14 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %14, label %.lr.ph.i, label %_ZL19get_datetime_stringPcm.exit, !llvm.loop !13
+  br i1 %14, label %.lr.ph.i, label %_ZL19get_datetime_stringPcm.exit, !llvm.loop !11
 
 _ZL19get_datetime_stringPcm.exit:                 ; preds = %13, %2
   %15 = call noundef i32 @_ZN2os18current_process_idEv() #21
@@ -1561,7 +1561,7 @@ _ZL19get_datetime_stringPcm.exit:                 ; preds = %13, %2
 24:                                               ; preds = %22, %20
   %.1.i = phi ptr [ %23, %22 ], [ %.086.i, %20 ]
   %25 = getelementptr inbounds nuw i8, ptr %.087.i, i64 1
-  br label %18, !llvm.loop !14
+  br label %18, !llvm.loop !12
 
 26:                                               ; preds = %18
   %.not97.i = icmp eq ptr %1, null
@@ -2440,7 +2440,7 @@ _ZNK14SystemProperty8readableEv.exit.thread:      ; preds = %59, %_ZNK14SystemPr
   call void %80(ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull @.str.4, i64 noundef %77) #21
   %81 = sub nsw i32 %.0.i.i.i.i, %76
   %.old1.i.i.i.i = icmp sgt i32 %81, 0
-  br i1 %.old1.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN12outputStream9print_rawEPKc.exit, !llvm.loop !9
+  br i1 %.old1.i.i.i.i, label %.preheader.i.i.i.i, label %_ZN12outputStream9print_rawEPKc.exit
 
 _ZN12outputStream9print_rawEPKc.exit:             ; preds = %.preheader.i.i.i.i, %_ZNK14SystemProperty8readableEv.exit.thread
   %82 = load ptr, ptr %54, align 8
@@ -2477,7 +2477,7 @@ _ZN12outputStream9print_rawEPKc.exit:             ; preds = %.preheader.i.i.i.i,
   call void %100(ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull @.str.4, i64 noundef %97) #21
   %101 = sub nsw i32 %.0.i.i.i.i.i, %96
   %.old1.i.i.i.i.i = icmp sgt i32 %101, 0
-  br i1 %.old1.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %_ZN12outputStream12print_raw_crEPKc.exit, !llvm.loop !9
+  br i1 %.old1.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %_ZN12outputStream12print_raw_crEPKc.exit
 
 _ZN12outputStream12print_raw_crEPKc.exit:         ; preds = %.preheader.i.i.i.i.i, %_ZN12outputStream9print_rawEPKc.exit
   %102 = load ptr, ptr %54, align 8
@@ -2494,7 +2494,7 @@ _ZNK14SystemProperty8readableEv.exit.thread48:    ; preds = %65, %_ZNK14SystemPr
   %108 = getelementptr inbounds nuw i8, ptr %.052, i64 16
   %.0 = load ptr, ptr %108, align 8
   %.not47 = icmp eq ptr %.0, null
-  br i1 %.not47, label %._crit_edge, label %59, !llvm.loop !15
+  br i1 %.not47, label %._crit_edge, label %59, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZNK14SystemProperty8readableEv.exit.thread48, %52
   call void @_ZN9xmlStream4tailEPKc(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull @.str.38) #21
@@ -3756,13 +3756,11 @@ attributes #24 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = !{i64 2145392468}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = !{i64 2145392468}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

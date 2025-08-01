@@ -350,18 +350,18 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelecto
   %4 = alloca %"class.std::tuple", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %3, align 8, !alias.scope !7
+  store ptr %6, ptr %3, align 8, !alias.scope !6
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %5, ptr %7, align 8, !alias.scope !7
+  store ptr %5, ptr %7, align 8, !alias.scope !6
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %0, ptr %8, align 8, !alias.scope !7
+  store ptr %0, ptr %8, align 8, !alias.scope !6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %10, ptr %4, align 8, !alias.scope !10
+  store ptr %10, ptr %4, align 8, !alias.scope !9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %9, ptr %11, align 8, !alias.scope !10
+  store ptr %9, ptr %11, align 8, !alias.scope !9
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %1, ptr %12, align 8, !alias.scope !10
+  store ptr %1, ptr %12, align 8, !alias.scope !9
   %13 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES4_S4_EES5_Lm0ELm3EE6__lessERKS5_S8_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
   ret i1 %13
 }
@@ -460,7 +460,7 @@ _ZSt8_DestroyISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10HdDrawItemESt1
   store ptr null, ptr %.05.i.i.i.i, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %9, %4
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10HdDrawItemESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10HdDrawItemESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZSt8_DestroyIPSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10HdDrawItemESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10HdDrawItemESt14default_deleteIS2_EEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %0, align 8
@@ -903,13 +903,12 @@ attributes #17 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZSt3tieIJKN32pxrInternal_v0_24__pxrReserved__7TfTokenES2_S2_EESt5tupleIJDpRT_EES6_: argument 0"}
-!9 = distinct !{!9, !"_ZSt3tieIJKN32pxrInternal_v0_24__pxrReserved__7TfTokenES2_S2_EESt5tupleIJDpRT_EES6_"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZSt3tieIJKN32pxrInternal_v0_24__pxrReserved__7TfTokenES2_S2_EESt5tupleIJDpRT_EES6_: argument 0"}
-!12 = distinct !{!12, !"_ZSt3tieIJKN32pxrInternal_v0_24__pxrReserved__7TfTokenES2_S2_EESt5tupleIJDpRT_EES6_"}
-!13 = distinct !{!13, !5, !6}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZSt3tieIJKN32pxrInternal_v0_24__pxrReserved__7TfTokenES2_S2_EESt5tupleIJDpRT_EES6_: argument 0"}
+!8 = distinct !{!8, !"_ZSt3tieIJKN32pxrInternal_v0_24__pxrReserved__7TfTokenES2_S2_EESt5tupleIJDpRT_EES6_"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZSt3tieIJKN32pxrInternal_v0_24__pxrReserved__7TfTokenES2_S2_EESt5tupleIJDpRT_EES6_: argument 0"}
+!11 = distinct !{!11, !"_ZSt3tieIJKN32pxrInternal_v0_24__pxrReserved__7TfTokenES2_S2_EESt5tupleIJDpRT_EES6_"}
+!12 = distinct !{!12, !5}

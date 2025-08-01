@@ -69,13 +69,13 @@ define ptr @av_audio_fifo_alloc(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %1, ptr %10, align 4, !tbaa !16
+  store i32 %1, ptr %10, align 4, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %0, ptr %11, align 8, !tbaa !17
-  %12 = load i32, ptr %4, align 4, !tbaa !18
+  store i32 %0, ptr %11, align 8, !tbaa !16
+  %12 = load i32, ptr %4, align 4, !tbaa !17
   %13 = sdiv i32 %12, %2
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %13, ptr %14, align 4, !tbaa !19
+  store i32 %13, ptr %14, align 4, !tbaa !18
   %15 = call i32 @av_sample_fmt_is_planar(i32 noundef %0) #5
   %.not29 = icmp eq i32 %15, 0
   %16 = select i1 %.not29, i32 1, i32 %1
@@ -96,22 +96,22 @@ define ptr @av_audio_fifo_alloc(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
   %22 = load i32, ptr %17, align 8, !tbaa !12
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader ]
-  %25 = load i32, ptr %4, align 4, !tbaa !18
+  %25 = load i32, ptr %4, align 4, !tbaa !17
   %26 = sext i32 %25 to i64
   %27 = call ptr @av_fifo_alloc2(i64 noundef %26, i64 noundef 1, i32 noundef 0) #5
   %28 = load ptr, ptr %8, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
-  store ptr %27, ptr %29, align 8, !tbaa !21
+  store ptr %27, ptr %29, align 8, !tbaa !20
   %.not31 = icmp eq ptr %27, null
   br i1 %.not31, label %.preheader.i, label %21
 
 ._crit_edge:                                      ; preds = %21, %.preheader
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %2, ptr %30, align 8, !tbaa !23
+  store i32 %2, ptr %30, align 8, !tbaa !22
   br label %38
 
 .preheader.i:                                     ; preds = %.lr.ph
@@ -158,23 +158,23 @@ declare ptr @av_fifo_alloc2(i64 noundef, i64 noundef, i32 noundef) local_unnamed
 define range(i32 -2147483648, 1) i32 @av_audio_fifo_realloc(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %0, align 8, !tbaa !4
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = tail call i64 @av_fifo_can_read(ptr noundef %5) #5
   %7 = load ptr, ptr %0, align 8, !tbaa !4
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = tail call i64 @av_fifo_can_write(ptr noundef %8) #5
   %10 = add i64 %9, %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %12 = load i32, ptr %11, align 4, !tbaa !16
+  %12 = load i32, ptr %11, align 4, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !17
+  %14 = load i32, ptr %13, align 8, !tbaa !16
   %15 = call i32 @av_samples_get_buffer_size(ptr noundef nonnull %3, i32 noundef %12, i32 noundef %1, i32 noundef %14, i32 noundef 1) #5
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %.loopexit20, label %17
 
 17:                                               ; preds = %2
-  %18 = load i32, ptr %3, align 4, !tbaa !18
+  %18 = load i32, ptr %3, align 4, !tbaa !17
   %19 = sext i32 %18 to i64
   %20 = icmp ult i64 %10, %19
   br i1 %20, label %.preheader, label %.loopexit
@@ -190,14 +190,14 @@ define range(i32 -2147483648, 1) i32 @av_audio_fifo_realloc(ptr noundef captures
   %25 = load i32, ptr %21, align 8, !tbaa !12
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !24
+  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.preheader, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.preheader ]
   %28 = load ptr, ptr %0, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
-  %30 = load ptr, ptr %29, align 8, !tbaa !21
-  %31 = load i32, ptr %3, align 4, !tbaa !18
+  %30 = load ptr, ptr %29, align 8, !tbaa !20
+  %31 = load i32, ptr %3, align 4, !tbaa !17
   %32 = sext i32 %31 to i64
   %33 = sub i64 %32, %10
   %34 = call i32 @av_fifo_grow2(ptr noundef %30, i64 noundef %33) #5
@@ -206,7 +206,7 @@ define range(i32 -2147483648, 1) i32 @av_audio_fifo_realloc(ptr noundef captures
 
 .loopexit:                                        ; preds = %24, %.preheader, %17
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %36, align 8, !tbaa !23
+  store i32 %1, ptr %36, align 8, !tbaa !22
   br label %.loopexit20
 
 .loopexit20:                                      ; preds = %.lr.ph, %2, %.loopexit
@@ -224,9 +224,9 @@ declare i32 @av_fifo_grow2(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define i32 @av_audio_fifo_write(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i32, ptr %4, align 8, !tbaa !23
+  %5 = load i32, ptr %4, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !25
+  %7 = load i32, ptr %6, align 4, !tbaa !24
   %8 = sub nsw i32 %5, %7
   %9 = icmp slt i32 %8, %2
   br i1 %9, label %10, label %18
@@ -251,7 +251,7 @@ define i32 @av_audio_fifo_write(ptr noundef captures(none) %0, ptr noundef reado
 
 .lr.ph:                                           ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %23 = load i32, ptr %22, align 4, !tbaa !19
+  %23 = load i32, ptr %22, align 4, !tbaa !18
   %24 = mul nsw i32 %23, %2
   %25 = sext i32 %24 to i64
   br label %30
@@ -261,23 +261,23 @@ define i32 @av_audio_fifo_write(ptr noundef captures(none) %0, ptr noundef reado
   %27 = load i32, ptr %19, align 8, !tbaa !12
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %30, label %._crit_edge, !llvm.loop !26
+  br i1 %29, label %30, label %._crit_edge, !llvm.loop !25
 
 30:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %31 = load ptr, ptr %0, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
-  %33 = load ptr, ptr %32, align 8, !tbaa !21
+  %33 = load ptr, ptr %32, align 8, !tbaa !20
   %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %35 = load ptr, ptr %34, align 8, !tbaa !27
+  %35 = load ptr, ptr %34, align 8, !tbaa !26
   %36 = tail call i32 @av_fifo_write(ptr noundef %33, ptr noundef %35, i64 noundef %25) #5
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %.thread, label %26
 
 ._crit_edge:                                      ; preds = %26, %18
-  %38 = load i32, ptr %6, align 4, !tbaa !25
+  %38 = load i32, ptr %6, align 4, !tbaa !24
   %39 = add nsw i32 %38, %2
-  store i32 %39, ptr %6, align 4, !tbaa !25
+  store i32 %39, ptr %6, align 4, !tbaa !24
   br label %.thread
 
 .thread:                                          ; preds = %30, %10, %13, %._crit_edge
@@ -288,9 +288,9 @@ define i32 @av_audio_fifo_write(ptr noundef captures(none) %0, ptr noundef reado
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @av_audio_fifo_space(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !23
+  %3 = load i32, ptr %2, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !25
+  %5 = load i32, ptr %4, align 4, !tbaa !24
   %6 = sub nsw i32 %3, %5
   ret i32 %6
 }
@@ -298,7 +298,7 @@ define i32 @av_audio_fifo_space(ptr noundef readonly captures(none) %0) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @av_audio_fifo_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !25
+  %3 = load i32, ptr %2, align 4, !tbaa !24
   ret i32 %3
 }
 
@@ -307,7 +307,7 @@ declare i32 @av_fifo_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define range(i32 -558323010, -2147483648) i32 @av_audio_fifo_peek(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !25
+  %5 = load i32, ptr %4, align 4, !tbaa !24
   %.not.i = icmp slt i32 %5, 1
   %6 = icmp slt i32 %2, 0
   %or.cond.i = or i1 %6, %.not.i
@@ -326,7 +326,7 @@ define range(i32 -558323010, -2147483648) i32 @av_audio_fifo_peek(ptr noundef re
 
 .lr.ph.i:                                         ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %13 = load i32, ptr %12, align 4, !tbaa !19
+  %13 = load i32, ptr %12, align 4, !tbaa !18
   %14 = mul nsw i32 %13, %..i
   %15 = sext i32 %14 to i64
   br label %20
@@ -336,15 +336,15 @@ define range(i32 -558323010, -2147483648) i32 @av_audio_fifo_peek(ptr noundef re
   %17 = load i32, ptr %9, align 8, !tbaa !12
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next.i, %18
-  br i1 %19, label %20, label %av_audio_fifo_peek_at.exit, !llvm.loop !28
+  br i1 %19, label %20, label %av_audio_fifo_peek_at.exit, !llvm.loop !27
 
 20:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
-  %23 = load ptr, ptr %22, align 8, !tbaa !21
+  %23 = load ptr, ptr %22, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
-  %25 = load ptr, ptr %24, align 8, !tbaa !27
+  %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = tail call i32 @av_fifo_peek(ptr noundef %23, ptr noundef %25, i64 noundef %15, i64 noundef 0) #5
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %av_audio_fifo_peek_at.exit, label %16
@@ -361,7 +361,7 @@ define range(i32 -558323010, -2147483648) i32 @av_audio_fifo_peek_at(ptr noundef
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !25
+  %8 = load i32, ptr %7, align 4, !tbaa !24
   %.not = icmp sge i32 %3, %8
   %9 = icmp slt i32 %2, 0
   %or.cond = or i1 %9, %.not
@@ -385,7 +385,7 @@ define range(i32 -558323010, -2147483648) i32 @av_audio_fifo_peek_at(ptr noundef
 
 .lr.ph:                                           ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %19 = load i32, ptr %18, align 4, !tbaa !19
+  %19 = load i32, ptr %18, align 4, !tbaa !18
   %20 = mul nsw i32 %19, %.
   %21 = mul nsw i32 %19, %3
   %22 = sext i32 %20 to i64
@@ -397,15 +397,15 @@ define range(i32 -558323010, -2147483648) i32 @av_audio_fifo_peek_at(ptr noundef
   %25 = load i32, ptr %15, align 8, !tbaa !12
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %28, label %.loopexit, !llvm.loop !28
+  br i1 %27, label %28, label %.loopexit, !llvm.loop !27
 
 28:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %29 = load ptr, ptr %0, align 8, !tbaa !4
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8, !tbaa !21
+  %31 = load ptr, ptr %30, align 8, !tbaa !20
   %32 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %33 = load ptr, ptr %32, align 8, !tbaa !27
+  %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = tail call i32 @av_fifo_peek(ptr noundef %31, ptr noundef %33, i64 noundef %22, i64 noundef %23) #5
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %.loopexit, label %24
@@ -424,7 +424,7 @@ define i32 @av_audio_fifo_read(ptr noundef captures(none) %0, ptr noundef readon
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !25
+  %7 = load i32, ptr %6, align 4, !tbaa !24
   %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %7)
   %.not = icmp eq i32 %., 0
   br i1 %.not, label %.loopexit, label %8
@@ -437,7 +437,7 @@ define i32 @av_audio_fifo_read(ptr noundef captures(none) %0, ptr noundef readon
 
 .lr.ph:                                           ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %13 = load i32, ptr %12, align 4, !tbaa !19
+  %13 = load i32, ptr %12, align 4, !tbaa !18
   %14 = mul nsw i32 %13, %.
   %15 = sext i32 %14 to i64
   br label %20
@@ -447,27 +447,27 @@ define i32 @av_audio_fifo_read(ptr noundef captures(none) %0, ptr noundef readon
   %17 = load i32, ptr %9, align 8, !tbaa !12
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %20, label %._crit_edge.loopexit, !llvm.loop !29
+  br i1 %19, label %20, label %._crit_edge.loopexit, !llvm.loop !28
 
 20:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !21
+  %23 = load ptr, ptr %22, align 8, !tbaa !20
   %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !27
+  %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = tail call i32 @av_fifo_read(ptr noundef %23, ptr noundef %25, i64 noundef %15) #5
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.loopexit, label %16
 
 ._crit_edge.loopexit:                             ; preds = %16
-  %.pre = load i32, ptr %6, align 4, !tbaa !25
+  %.pre = load i32, ptr %6, align 4, !tbaa !24
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
   %28 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %7, %8 ]
   %29 = sub nsw i32 %28, %.
-  store i32 %29, ptr %6, align 4, !tbaa !25
+  store i32 %29, ptr %6, align 4, !tbaa !24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %5, %3, %._crit_edge
@@ -484,7 +484,7 @@ define range(i32 -22, 1) i32 @av_audio_fifo_drain(ptr noundef captures(none) %0,
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !25
+  %6 = load i32, ptr %5, align 4, !tbaa !24
   %. = tail call i32 @llvm.smin.i32(i32 %1, i32 %6)
   %.not = icmp eq i32 %., 0
   br i1 %.not, label %24, label %7
@@ -497,7 +497,7 @@ define range(i32 -22, 1) i32 @av_audio_fifo_drain(ptr noundef captures(none) %0,
 
 .lr.ph:                                           ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %12 = load i32, ptr %11, align 4, !tbaa !19
+  %12 = load i32, ptr %11, align 4, !tbaa !18
   %13 = mul nsw i32 %12, %.
   %14 = sext i32 %13 to i64
   br label %15
@@ -506,22 +506,22 @@ define range(i32 -22, 1) i32 @av_audio_fifo_drain(ptr noundef captures(none) %0,
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %16 = load ptr, ptr %0, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !21
+  %18 = load ptr, ptr %17, align 8, !tbaa !20
   tail call void @av_fifo_drain2(ptr noundef %18, i64 noundef %14) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %8, align 8, !tbaa !12
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %15, label %._crit_edge.loopexit, !llvm.loop !30
+  br i1 %21, label %15, label %._crit_edge.loopexit, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %15
-  %.pre = load i32, ptr %5, align 4, !tbaa !25
+  %.pre = load i32, ptr %5, align 4, !tbaa !24
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
   %22 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %6, %7 ]
   %23 = sub nsw i32 %22, %.
-  store i32 %23, ptr %5, align 4, !tbaa !25
+  store i32 %23, ptr %5, align 4, !tbaa !24
   br label %24
 
 24:                                               ; preds = %4, %._crit_edge, %2
@@ -542,17 +542,17 @@ define void @av_audio_fifo_reset(ptr noundef captures(none) %0) local_unnamed_ad
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !21
+  %7 = load ptr, ptr %6, align 8, !tbaa !20
   tail call void @av_fifo_reset2(ptr noundef %7) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %2, align 8, !tbaa !12
   %9 = sext i32 %8 to i64
   %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %11, align 4, !tbaa !25
+  store i32 0, ptr %11, align 4, !tbaa !24
   ret void
 }
 
@@ -586,22 +586,21 @@ attributes #5 = { nounwind }
 !10 = !{!"Simple C/C++ TBAA"}
 !11 = !{!"int", !9, i64 0}
 !12 = !{!5, !11, i64 8}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!5, !11, i64 20}
-!17 = !{!5, !11, i64 24}
-!18 = !{!11, !11, i64 0}
-!19 = !{!5, !11, i64 28}
-!20 = distinct !{!20, !14, !15}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS6AVFifo", !8, i64 0}
-!23 = !{!5, !11, i64 16}
-!24 = distinct !{!24, !14, !15}
-!25 = !{!5, !11, i64 12}
-!26 = distinct !{!26, !14, !15}
-!27 = !{!8, !8, i64 0}
-!28 = distinct !{!28, !14, !15}
-!29 = distinct !{!29, !14, !15}
-!30 = distinct !{!30, !14, !15}
-!31 = distinct !{!31, !14, !15}
+!15 = !{!5, !11, i64 20}
+!16 = !{!5, !11, i64 24}
+!17 = !{!11, !11, i64 0}
+!18 = !{!5, !11, i64 28}
+!19 = distinct !{!19, !14}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS6AVFifo", !8, i64 0}
+!22 = !{!5, !11, i64 16}
+!23 = distinct !{!23, !14}
+!24 = !{!5, !11, i64 12}
+!25 = distinct !{!25, !14}
+!26 = !{!8, !8, i64 0}
+!27 = distinct !{!27, !14}
+!28 = distinct !{!28, !14}
+!29 = distinct !{!29, !14}
+!30 = distinct !{!30, !14}

@@ -141,7 +141,7 @@ define i32 @X509_load_cert_file_ex(ptr noundef readonly captures(none) %0, ptr n
   %51 = call i32 @ERR_set_mark() #4
   %52 = call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull @.str.1) #4
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %._crit_edge, label %39, !llvm.loop !13
+  br i1 %53, label %._crit_edge, label %39
 
 54:                                               ; preds = %22
   %55 = call ptr @d2i_X509_bio(ptr noundef nonnull %11, ptr noundef nonnull %6) #4
@@ -310,7 +310,7 @@ define i32 @X509_load_crl_file(ptr noundef readonly captures(none) %0, ptr nound
   tail call void @X509_CRL_free(ptr noundef nonnull %30) #4
   %35 = tail call ptr @PEM_read_bio_X509_CRL(ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.1) #4
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %._crit_edge, label %29, !llvm.loop !15
+  br i1 %36, label %._crit_edge, label %29
 
 37:                                               ; preds = %15
   %38 = tail call ptr @d2i_X509_CRL_bio(ptr noundef nonnull %8, ptr noundef null) #4
@@ -399,7 +399,7 @@ define i32 @X509_load_cert_crl_file_ex(ptr noundef readonly captures(none) %0, p
   %.042 = phi i32 [ 0, %.lr.ph ], [ %.3, %36 ]
   %.02941 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
   %21 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %13, i32 noundef %.02941) #4
-  %22 = load ptr, ptr %21, align 8, !tbaa !16
+  %22 = load ptr, ptr %21, align 8, !tbaa !13
   %.not36 = icmp eq ptr %22, null
   br i1 %.not36, label %28, label %23
 
@@ -416,7 +416,7 @@ define i32 @X509_load_cert_crl_file_ex(ptr noundef readonly captures(none) %0, p
 28:                                               ; preds = %26, %20
   %.1 = phi i32 [ %27, %26 ], [ %.042, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !23
+  %30 = load ptr, ptr %29, align 8, !tbaa !20
   %.not38 = icmp eq ptr %30, null
   br i1 %.not38, label %36, label %31
 
@@ -435,7 +435,7 @@ define i32 @X509_load_cert_crl_file_ex(ptr noundef readonly captures(none) %0, p
   %37 = add nuw nsw i32 %.02941, 1
   %38 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %13) #4
   %39 = icmp slt i32 %37, %38
-  br i1 %39, label %20, label %._crit_edge, !llvm.loop !24
+  br i1 %39, label %20, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %36
   %40 = icmp eq i32 %.3, 0
@@ -558,16 +558,13 @@ attributes #4 = { nounwind }
 !10 = !{!"int", !6, i64 0}
 !11 = !{!"p1 _ZTS21x509_lookup_method_st", !5, i64 0}
 !12 = !{!"p1 _ZTS13x509_store_st", !5, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}
-!16 = !{!17, !4, i64 0}
-!17 = !{!"X509_info_st", !4, i64 0, !18, i64 8, !19, i64 16, !20, i64 24, !10, i64 48, !22, i64 56}
-!18 = !{!"p1 _ZTS11X509_crl_st", !5, i64 0}
-!19 = !{!"p1 _ZTS14private_key_st", !5, i64 0}
-!20 = !{!"evp_cipher_info_st", !21, i64 0, !6, i64 8}
-!21 = !{!"p1 _ZTS13evp_cipher_st", !5, i64 0}
-!22 = !{!"p1 omnipotent char", !5, i64 0}
-!23 = !{!17, !18, i64 8}
-!24 = distinct !{!24, !25, !14}
-!25 = !{!"llvm.loop.mustprogress"}
+!13 = !{!14, !4, i64 0}
+!14 = !{!"X509_info_st", !4, i64 0, !15, i64 8, !16, i64 16, !17, i64 24, !10, i64 48, !19, i64 56}
+!15 = !{!"p1 _ZTS11X509_crl_st", !5, i64 0}
+!16 = !{!"p1 _ZTS14private_key_st", !5, i64 0}
+!17 = !{!"evp_cipher_info_st", !18, i64 0, !6, i64 8}
+!18 = !{!"p1 _ZTS13evp_cipher_st", !5, i64 0}
+!19 = !{!"p1 omnipotent char", !5, i64 0}
+!20 = !{!14, !15, i64 8}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}

@@ -364,7 +364,7 @@ check_retval.exit155:                             ; preds = %135
   %144 = add nuw nsw i32 %.079241, 1
   %145 = fmul double %.076242, 2.000000e+00
   %exitcond.not = icmp eq i32 %144, 12
-  br i1 %exitcond.not, label %146, label %135, !llvm.loop !23
+  br i1 %exitcond.not, label %146, label %135
 
 146:                                              ; preds = %141
   %147 = call i32 @IDAGetNumErrTestFails(ptr noundef %142, ptr noundef nonnull %5) #11
@@ -397,11 +397,11 @@ check_retval.exit159:                             ; preds = %check_retval.exit15
   br label %check_retval.exit161
 
 check_retval.exit161:                             ; preds = %check_retval.exit159, %159
-  %162 = load i64, ptr %5, align 8, !tbaa !25
+  %162 = load i64, ptr %5, align 8, !tbaa !23
   %163 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i64 noundef %162)
-  %164 = load i64, ptr %6, align 8, !tbaa !25
+  %164 = load i64, ptr %6, align 8, !tbaa !23
   %165 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i64 noundef %164)
-  %166 = load i64, ptr %7, align 8, !tbaa !25
+  %166 = load i64, ptr %7, align 8, !tbaa !23
   %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i64 noundef %166)
   %.not109 = icmp eq i32 %.078243, 2
   br i1 %.not109, label %169, label %check_retval.exit135
@@ -483,12 +483,12 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   store double %25, ptr %26, align 8, !tbaa !22
   %27 = add nuw nsw i64 %.055.us, 1
   %exitcond.not = icmp eq i64 %27, %5
-  br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.us, label %17
 
 ._crit_edge.us:                                   ; preds = %17
   %28 = add nuw nsw i64 %.04956.us, 1
   %exitcond74.not = icmp eq i64 %28, %5
-  br i1 %exitcond74.not, label %._crit_edge59, label %.lr.ph.us, !llvm.loop !27
+  br i1 %exitcond74.not, label %._crit_edge59, label %.lr.ph.us, !llvm.loop !24
 
 ._crit_edge59:                                    ; preds = %._crit_edge.us, %4
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %2) #11
@@ -538,12 +538,12 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   store double %59, ptr %60, align 8, !tbaa !22
   %61 = add nuw nsw i64 %.038.us.i, 1
   %exitcond.not.i = icmp eq i64 %.038.us.i, %37
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %39, !llvm.loop !29
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %39
 
 ._crit_edge.us.i:                                 ; preds = %39
   %62 = add nuw nsw i64 %.03739.us.i, 1
   %exitcond43.not.i = icmp eq i64 %62, 9
-  br i1 %exitcond43.not.i, label %resHeat.exit, label %.lr.ph.us.i, !llvm.loop !30
+  br i1 %exitcond43.not.i, label %resHeat.exit, label %.lr.ph.us.i, !llvm.loop !26
 
 resHeat.exit:                                     ; preds = %._crit_edge.us.i, %._crit_edge59
   tail call void @N_VScale(double noundef -1.000000e+00, ptr noundef %3, ptr noundef %2) #11
@@ -577,7 +577,7 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
 72:                                               ; preds = %70, %.lr.ph.split.split.us70
   %73 = add nuw nsw i64 %.160.us65, 1
   %exitcond75.not = icmp eq i64 %73, %5
-  br i1 %exitcond75.not, label %._crit_edge.us69, label %.lr.ph.split.split.us70, !llvm.loop !31
+  br i1 %exitcond75.not, label %._crit_edge.us69, label %.lr.ph.split.split.us70
 
 .lr.ph.split.us68:                                ; preds = %.lr.ph.us66
   %74 = icmp eq i64 %.15062.us, %8
@@ -591,7 +591,7 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
 ._crit_edge.us69:                                 ; preds = %72, %._crit_edge.us69.sink.split
   %75 = add nuw nsw i64 %.15062.us, 1
   %exitcond77.not = icmp eq i64 %75, %5
-  br i1 %exitcond77.not, label %._crit_edge64, label %.lr.ph.us66, !llvm.loop !32
+  br i1 %exitcond77.not, label %._crit_edge64, label %.lr.ph.us66, !llvm.loop !27
 
 ._crit_edge64:                                    ; preds = %._crit_edge.us69, %resHeat.exit
   ret void
@@ -657,12 +657,12 @@ define dso_local noundef i32 @resHeat(double %0, ptr noundef %1, ptr noundef %2,
   store double %36, ptr %37, align 8, !tbaa !22
   %38 = add nuw nsw i64 %.038.us, 1
   %exitcond.not = icmp eq i64 %.038.us, %14
-  br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.us, label %16
 
 ._crit_edge.us:                                   ; preds = %16
   %39 = add nuw nsw i64 %.03739.us, 1
   %exitcond43.not = icmp eq i64 %39, 9
-  br i1 %exitcond43.not, label %.split41.us, label %.lr.ph.us, !llvm.loop !30
+  br i1 %exitcond43.not, label %.split41.us, label %.lr.ph.us, !llvm.loop !26
 
 .split41.us:                                      ; preds = %._crit_edge.us, %5
   ret i32 0
@@ -715,12 +715,12 @@ define dso_local noundef i32 @PsetupHeat(double %0, ptr readnone captures(none) 
   store double %15, ptr %21, align 8, !tbaa !22
   %22 = add nuw nsw i64 %.020.us, 1
   %exitcond.not = icmp eq i64 %22, %16
-  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge.us, label %20
 
 ._crit_edge.us:                                   ; preds = %20
   %23 = add nuw nsw i64 %.01821.us, 1
   %exitcond25.not = icmp eq i64 %23, %16
-  br i1 %exitcond25.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !34
+  br i1 %exitcond25.not, label %._crit_edge24, label %.lr.ph.us, !llvm.loop !28
 
 ._crit_edge24:                                    ; preds = %._crit_edge.us, %6
   ret i32 0
@@ -885,15 +885,15 @@ check_retval.exit28:                              ; preds = %check_retval.exit26
   br label %check_retval.exit30
 
 check_retval.exit30:                              ; preds = %check_retval.exit28, %62
-  %65 = load i32, ptr %13, align 4, !tbaa !35
-  %66 = load i64, ptr %5, align 8, !tbaa !25
-  %67 = load i64, ptr %6, align 8, !tbaa !25
-  %68 = load i64, ptr %7, align 8, !tbaa !25
-  %69 = load i64, ptr %8, align 8, !tbaa !25
-  %70 = load i64, ptr %9, align 8, !tbaa !25
+  %65 = load i32, ptr %13, align 4, !tbaa !29
+  %66 = load i64, ptr %5, align 8, !tbaa !23
+  %67 = load i64, ptr %6, align 8, !tbaa !23
+  %68 = load i64, ptr %7, align 8, !tbaa !23
+  %69 = load i64, ptr %8, align 8, !tbaa !23
+  %70 = load i64, ptr %9, align 8, !tbaa !23
   %71 = load double, ptr %4, align 8, !tbaa !22
-  %72 = load i64, ptr %11, align 8, !tbaa !25
-  %73 = load i64, ptr %12, align 8, !tbaa !25
+  %72 = load i64, ptr %11, align 8, !tbaa !23
+  %73 = load i64, ptr %12, align 8, !tbaa !23
   %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, double noundef %1, double noundef %14, i32 noundef %65, i64 noundef %66, i64 noundef %67, i64 noundef %68, i64 noundef %69, i64 noundef %70, double noundef %71, i64 noundef %72, i64 noundef %73)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #11
@@ -1007,17 +1007,11 @@ attributes #13 = { nounwind allocsize(0) }
 !20 = !{!14, !17, i64 24}
 !21 = !{!6, !6, i64 0}
 !22 = !{!16, !16, i64 0}
-!23 = distinct !{!23, !24}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!15, !15, i64 0}
-!26 = distinct !{!26, !24}
-!27 = distinct !{!27, !24, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24, !28}
-!31 = distinct !{!31, !24}
-!32 = distinct !{!32, !24, !28}
-!33 = distinct !{!33, !24}
-!34 = distinct !{!34, !24, !28}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"int", !7, i64 0}
+!23 = !{!15, !15, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !25}
+!27 = distinct !{!27, !25}
+!28 = distinct !{!28, !25}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"int", !7, i64 0}

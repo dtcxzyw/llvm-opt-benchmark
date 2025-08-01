@@ -356,7 +356,7 @@ _ZSt22__uninitialized_move_aIPcS0_SaIcEET0_T_S3_S2_RT1_.exit56: ; preds = %_ZSt2
   br i1 %55, label %.lr.ph.i.i.i.i.i58, label %_ZSt4copyIPKhN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, !llvm.loop !39
 
 56:                                               ; preds = %5
-  %57 = load ptr, ptr %0, align 8, !tbaa !42
+  %57 = load ptr, ptr %0, align 8, !tbaa !41
   %58 = ptrtoint ptr %57 to i64
   %59 = sub i64 %14, %58
   %60 = sub i64 9223372036854775807, %59
@@ -425,7 +425,7 @@ _ZSt22__uninitialized_copy_aIPKhPccET0_T_S4_S3_RSaIT1_E.exit69: ; preds = %.lr.p
   br label %_ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit
 
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %81, %83
-  store ptr %69, ptr %0, align 8, !tbaa !42
+  store ptr %69, ptr %0, align 8, !tbaa !41
   store ptr %82, ptr %11, align 8, !tbaa !37
   %85 = getelementptr inbounds nuw i8, ptr %69, i64 %66
   store ptr %85, ptr %9, align 8, !tbaa !36
@@ -532,7 +532,6 @@ attributes #20 = { nounwind }
 !36 = !{!24, !25, i64 16}
 !37 = !{!24, !25, i64 8}
 !38 = !{!7, !7, i64 0}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!24, !25, i64 0}
+!41 = !{!24, !25, i64 0}

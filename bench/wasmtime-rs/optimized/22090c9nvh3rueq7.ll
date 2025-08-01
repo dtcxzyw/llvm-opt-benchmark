@@ -2437,7 +2437,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   tail call void @llvm.assume(i1 %4)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h32d6bfa4be20287bE"(ptr align 8 %8, ptr nonnull align 8 %0)
   %.not5 = icmp eq ptr %9, null
-  br i1 %.not5, label %10, label %5, !llvm.loop !9
+  br i1 %.not5, label %10, label %5
 
 .critedge:                                        ; preds = %5, %10
   %.0 = phi i64 [ %11, %10 ], [ 0, %5 ]
@@ -2466,7 +2466,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   tail call void @llvm.assume(i1 %4)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hfdb8a0a6ca650477E"(ptr align 8 %8, ptr nonnull align 8 %0)
   %.not5 = icmp eq ptr %9, null
-  br i1 %.not5, label %10, label %5, !llvm.loop !11
+  br i1 %.not5, label %10, label %5
 
 .critedge:                                        ; preds = %5, %10
   %.0 = phi i64 [ %11, %10 ], [ 0, %5 ]
@@ -2495,7 +2495,7 @@ define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_
   tail call void @llvm.assume(i1 %4)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hfdb8a0a6ca650477E"(ptr align 8 %8, ptr nonnull align 8 %0)
   %.not5.i = icmp eq ptr %9, null
-  br i1 %.not5.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit, label %5, !llvm.loop !11
+  br i1 %.not5.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit, label %5
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdf187ef57640c1e1E.exit.thread: ; preds = %5
   %10 = load ptr, ptr %3, align 8, !align !3, !noundef !4
@@ -2527,7 +2527,7 @@ define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_
   tail call void @llvm.assume(i1 %4)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h32d6bfa4be20287bE"(ptr align 8 %8, ptr nonnull align 8 %0)
   %.not5.i = icmp eq ptr %9, null
-  br i1 %.not5.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit, label %5, !llvm.loop !9
+  br i1 %.not5.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit, label %5
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h049c5aacf59cf894E.exit.thread: ; preds = %5
   %10 = load ptr, ptr %3, align 8, !align !3, !noundef !4
@@ -2556,7 +2556,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h4a09295e280c736
   %7 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3c3270d59d5f131aE"(ptr align 8 %0)
   %8 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h4487299cf5881e52E"(ptr align 8 %7, ptr nonnull align 8 %3)
   %.not5 = icmp eq ptr %8, null
-  br i1 %.not5, label %9, label %4, !llvm.loop !12
+  br i1 %.not5, label %9, label %4
 
 .critedge:                                        ; preds = %4, %9
   %.0 = phi i64 [ %10, %9 ], [ 0, %4 ]
@@ -2582,7 +2582,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17haf10108dc39c247
   %7 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he69d03b951506a5aE"(ptr align 8 %0)
   %8 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h151eb07a6d129909E"(ptr align 8 %7, ptr nonnull align 8 %3)
   %.not5 = icmp eq ptr %8, null
-  br i1 %.not5, label %9, label %4, !llvm.loop !13
+  br i1 %.not5, label %9, label %4
 
 .critedge:                                        ; preds = %4, %9
   %.0 = phi i64 [ %10, %9 ], [ 0, %4 ]
@@ -2608,7 +2608,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h3dd76d98a77f880
   %7 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he69d03b951506a5aE"(ptr align 8 %0)
   %8 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h151eb07a6d129909E"(ptr align 8 %7, ptr nonnull align 8 %3)
   %.not5.i = icmp eq ptr %8, null
-  br i1 %.not5.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17haf10108dc39c247fE.exit, label %4, !llvm.loop !13
+  br i1 %.not5.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17haf10108dc39c247fE.exit, label %4
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17haf10108dc39c247fE.exit.thread: ; preds = %4
   %9 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he69d03b951506a5aE"(ptr align 8 %0)
@@ -2635,7 +2635,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17hf57768edc227957
   %7 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3c3270d59d5f131aE"(ptr align 8 %0)
   %8 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h4487299cf5881e52E"(ptr align 8 %7, ptr nonnull align 8 %3)
   %.not5.i = icmp eq ptr %8, null
-  br i1 %.not5.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h4a09295e280c7361E.exit, label %4, !llvm.loop !12
+  br i1 %.not5.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h4a09295e280c7361E.exit, label %4
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h4a09295e280c7361E.exit.thread: ; preds = %4
   %9 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3c3270d59d5f131aE"(ptr align 8 %0)
@@ -2727,7 +2727,7 @@ define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h167fc14dedbb2fd7E"(ptr readonly align 8 captures(none) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !14, !noundef !4
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !9, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !3, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2738,7 +2738,7 @@ define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..i
 
 ; Function Attrs: nonlazybind uwtable
 define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9f9e76db50fddf73E"(ptr readonly align 8 captures(none) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !14, !noundef !4
+  %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !9, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !3, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3075,9 +3075,4 @@ attributes #13 = { noreturn }
 !6 = !{i64 0, i64 -9223372036854775798}
 !7 = !{i64 0, i64 -9223372036854775799}
 !8 = !{i64 0, i64 -9223372036854775806}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = !{i64 1}
+!9 = !{i64 1}

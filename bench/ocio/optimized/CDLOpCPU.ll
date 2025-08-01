@@ -960,13 +960,13 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev14CDLRendererFwdILb1EE
   %.sroa.speculated.i9.i.i = select i1 %41, float 1.000000e+00, float %.sroa.speculated2.i8.i.i
   store float %.sroa.speculated.i9.i.i, ptr %27, align 4, !tbaa !10
   %42 = load float, ptr %15, align 8, !tbaa !10
-  %43 = tail call float @powf(float noundef %.sroa.speculated.i.i.i, float noundef %42) #22, !tbaa !85
+  %43 = tail call float @powf(float noundef %.sroa.speculated.i.i.i, float noundef %42) #22, !tbaa !84
   store float %43, ptr %.02122, align 4, !tbaa !10
   %44 = load float, ptr %16, align 4, !tbaa !10
-  %45 = tail call float @powf(float noundef %.sroa.speculated.i7.i.i, float noundef %44) #22, !tbaa !85
+  %45 = tail call float @powf(float noundef %.sroa.speculated.i7.i.i, float noundef %44) #22, !tbaa !84
   store float %45, ptr %24, align 4, !tbaa !10
   %46 = load float, ptr %17, align 8, !tbaa !10
-  %47 = tail call float @powf(float noundef %.sroa.speculated.i9.i.i, float noundef %46) #22, !tbaa !85
+  %47 = tail call float @powf(float noundef %.sroa.speculated.i9.i.i, float noundef %46) #22, !tbaa !84
   store float %47, ptr %27, align 4, !tbaa !10
   %48 = load float, ptr %18, align 8, !tbaa !11
   %49 = fmul float %43, 0x3FCB367A00000000
@@ -1001,7 +1001,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev14CDLRendererFwdILb1EE
   %68 = getelementptr inbounds nuw i8, ptr %.02122, i64 16
   %69 = add nuw nsw i64 %.02023, 1
   %exitcond.not = icmp eq i64 %69, %3
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !86
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !85
 }
 
 ; Function Attrs: nobuiltin nounwind
@@ -1225,7 +1225,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererFwdSSEILb
   %77 = getelementptr inbounds nuw i8, ptr %.0918, i64 16
   %78 = add nuw nsw i64 %.019, 1
   %exitcond.not = icmp eq i64 %78, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -1294,7 +1294,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev14CDLRendererFwdILb0EE
 
 39:                                               ; preds = %37
   %40 = load float, ptr %15, align 8, !tbaa !10
-  %41 = tail call float @powf(float noundef %31, float noundef %40) #22, !tbaa !85
+  %41 = tail call float @powf(float noundef %31, float noundef %40) #22, !tbaa !84
   br label %42
 
 42:                                               ; preds = %39, %37, %19
@@ -1309,7 +1309,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev14CDLRendererFwdILb0EE
 
 47:                                               ; preds = %45
   %48 = load float, ptr %16, align 4, !tbaa !10
-  %49 = tail call float @powf(float noundef %33, float noundef %48) #22, !tbaa !85
+  %49 = tail call float @powf(float noundef %33, float noundef %48) #22, !tbaa !84
   br label %50
 
 50:                                               ; preds = %47, %45, %42
@@ -1324,7 +1324,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev14CDLRendererFwdILb0EE
 
 55:                                               ; preds = %53
   %56 = load float, ptr %17, align 8, !tbaa !10
-  %57 = tail call float @powf(float noundef %35, float noundef %56) #22, !tbaa !85
+  %57 = tail call float @powf(float noundef %35, float noundef %56) #22, !tbaa !84
   br label %_ZN19OpenColorIO_v2_5dev10ApplyPowerILb0EEEvPfPKf.exit
 
 _ZN19OpenColorIO_v2_5dev10ApplyPowerILb0EEEvPfPKf.exit: ; preds = %50, %53, %55
@@ -1351,7 +1351,7 @@ _ZN19OpenColorIO_v2_5dev10ApplyPowerILb0EEEvPfPKf.exit: ; preds = %50, %53, %55
   %73 = getelementptr inbounds nuw i8, ptr %.02122, i64 16
   %74 = add nuw nsw i64 %.02023, 1
   %exitcond.not = icmp eq i64 %74, %3
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !87
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1558,7 +1558,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererRevSSEILb
   %81 = getelementptr inbounds nuw i8, ptr %.0921, i64 16
   %82 = add nuw nsw i64 %.022, 1
   %exitcond.not = icmp eq i64 %82, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -1643,13 +1643,13 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev14CDLRendererRevILb1EE
   %.sroa.speculated.i9.i.i = select i1 %47, float 1.000000e+00, float %.sroa.speculated2.i8.i.i
   store float %.sroa.speculated.i9.i.i, ptr %26, align 4, !tbaa !10
   %48 = load float, ptr %8, align 8, !tbaa !10
-  %49 = tail call float @powf(float noundef %.sroa.speculated.i.i.i, float noundef %48) #22, !tbaa !85
+  %49 = tail call float @powf(float noundef %.sroa.speculated.i.i.i, float noundef %48) #22, !tbaa !84
   store float %49, ptr %.01926, align 4, !tbaa !10
   %50 = load float, ptr %9, align 4, !tbaa !10
-  %51 = tail call float @powf(float noundef %.sroa.speculated.i7.i.i, float noundef %50) #22, !tbaa !85
+  %51 = tail call float @powf(float noundef %.sroa.speculated.i7.i.i, float noundef %50) #22, !tbaa !84
   store float %51, ptr %22, align 4, !tbaa !10
   %52 = load float, ptr %10, align 8, !tbaa !10
-  %53 = tail call float @powf(float noundef %.sroa.speculated.i9.i.i, float noundef %52) #22, !tbaa !85
+  %53 = tail call float @powf(float noundef %.sroa.speculated.i9.i.i, float noundef %52) #22, !tbaa !84
   store float %53, ptr %26, align 4, !tbaa !10
   %54 = load float, ptr %11, align 8, !tbaa !10
   %55 = fadd float %49, %54
@@ -1689,7 +1689,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev14CDLRendererRevILb1EE
   %74 = getelementptr inbounds nuw i8, ptr %.01926, i64 16
   %75 = add nuw nsw i64 %.01827, 1
   %exitcond.not = icmp eq i64 %75, %3
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !89
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1892,7 +1892,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev17CDLRendererRevSSEILb
   %77 = getelementptr inbounds nuw i8, ptr %.0919, i64 16
   %78 = add nuw nsw i64 %.020, 1
   %exitcond.not = icmp eq i64 %78, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -1958,7 +1958,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev14CDLRendererRevILb0EE
 
 39:                                               ; preds = %37
   %40 = load float, ptr %8, align 8, !tbaa !10
-  %41 = tail call float @powf(float noundef %31, float noundef %40) #22, !tbaa !85
+  %41 = tail call float @powf(float noundef %31, float noundef %40) #22, !tbaa !84
   br label %42
 
 42:                                               ; preds = %39, %37, %16
@@ -1973,7 +1973,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev14CDLRendererRevILb0EE
 
 47:                                               ; preds = %45
   %48 = load float, ptr %9, align 4, !tbaa !10
-  %49 = tail call float @powf(float noundef %33, float noundef %48) #22, !tbaa !85
+  %49 = tail call float @powf(float noundef %33, float noundef %48) #22, !tbaa !84
   br label %50
 
 50:                                               ; preds = %47, %45, %42
@@ -1988,7 +1988,7 @@ define linkonce_odr hidden void @_ZNK19OpenColorIO_v2_5dev14CDLRendererRevILb0EE
 
 55:                                               ; preds = %53
   %56 = load float, ptr %10, align 8, !tbaa !10
-  %57 = tail call float @powf(float noundef %35, float noundef %56) #22, !tbaa !85
+  %57 = tail call float @powf(float noundef %35, float noundef %56) #22, !tbaa !84
   br label %_ZN19OpenColorIO_v2_5dev10ApplyPowerILb0EEEvPfPKf.exit
 
 _ZN19OpenColorIO_v2_5dev10ApplyPowerILb0EEEvPfPKf.exit: ; preds = %50, %53, %55
@@ -2018,7 +2018,7 @@ _ZN19OpenColorIO_v2_5dev10ApplyPowerILb0EEEvPfPKf.exit: ; preds = %50, %53, %55
   %73 = getelementptr inbounds nuw i8, ptr %.01920, i64 16
   %74 = add nuw nsw i64 %.01821, 1
   %exitcond.not = icmp eq i64 %74, %3
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !91
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2197,14 +2197,13 @@ attributes #25 = { builtin nounwind }
 !79 = distinct !{!79, !"_ZSt11make_sharedIN19OpenColorIO_v2_5dev14CDLRendererRevILb0EEEJRSt10shared_ptrIKNS0_9CDLOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES9_E4typeEEDpOT0_"}
 !80 = !{!81, !29, i64 8}
 !81 = !{!"_ZTSSt9type_info", !29, i64 8}
-!82 = distinct !{!82, !83, !84}
+!82 = distinct !{!82, !83}
 !83 = !{!"llvm.loop.mustprogress"}
-!84 = !{!"llvm.loop.estimated_trip_count"}
-!85 = !{!50, !50, i64 0}
-!86 = distinct !{!86, !83, !84}
-!87 = distinct !{!87, !83, !84}
-!88 = distinct !{!88, !83, !84}
-!89 = distinct !{!89, !83, !84}
-!90 = distinct !{!90, !83, !84}
-!91 = distinct !{!91, !83, !84}
-!92 = distinct !{!92, !83, !84}
+!84 = !{!50, !50, i64 0}
+!85 = distinct !{!85, !83}
+!86 = distinct !{!86, !83}
+!87 = distinct !{!87, !83}
+!88 = distinct !{!88, !83}
+!89 = distinct !{!89, !83}
+!90 = distinct !{!90, !83}
+!91 = distinct !{!91, !83}

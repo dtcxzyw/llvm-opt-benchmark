@@ -498,7 +498,7 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   %106 = add i64 %104, %105
   %107 = mul i64 %106, 11
   %108 = icmp eq i32 %93, 0
-  br i1 %108, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %108, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %75
   %109 = phi i64 [ %68, %75 ], [ %107, %.preheader ]
@@ -742,7 +742,7 @@ define internal noundef range(i32 -22, 1) i32 @efivarfs_d_hash(ptr noundef %0, p
   %28 = mul i64 %27, 11
   %29 = add i32 %18, -1
   %30 = icmp ugt i32 %18, 36
-  br i1 %30, label %.preheader5, label %.thread, !llvm.loop !11
+  br i1 %30, label %.preheader5, label %.thread, !llvm.loop !6
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %31 = phi i32 [ %34, %.preheader ], [ %.ph, %.preheader.preheader ]
@@ -764,7 +764,7 @@ define internal noundef range(i32 -22, 1) i32 @efivarfs_d_hash(ptr noundef %0, p
   %47 = add i64 %45, %46
   %48 = mul i64 %47, 11
   %49 = icmp eq i32 %34, 0
-  br i1 %49, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %49, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %16
   %50 = phi i64 [ %9, %16 ], [ %48, %.preheader ]
@@ -909,10 +909,7 @@ attributes #21 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}

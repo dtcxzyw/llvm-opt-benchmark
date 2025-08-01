@@ -281,10 +281,10 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA15FinalEv(ptr noundef nonnull al
   %12 = lshr i32 %8, %11
   %13 = trunc i32 %12 to i8
   %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 0, i64 %indvars.iv
-  store i8 %13, ptr %14, align 1, !tbaa !23
+  store i8 %13, ptr %14, align 1, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %15, label %4, !llvm.loop !24
+  br i1 %exitcond.not, label %15, label %4, !llvm.loop !23
 
 15:                                               ; preds = %4
   %16 = load i32, ptr %3, align 4, !tbaa !8
@@ -357,7 +357,7 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16: ; preds = %.loopexit.i10, %.lo
   %47 = phi i32 [ %.pre48, %.loopexit.i10 ], [ %39, %.loopexit.i10.thread ]
   %48 = and i32 %47, 504
   %.not = icmp eq i32 %48, 448
-  br i1 %.not, label %.loopexit.i17, label %35, !llvm.loop !25
+  br i1 %.not, label %.loopexit.i17, label %35, !llvm.loop !24
 
 .loopexit.i17:                                    ; preds = %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
   %.lcssa = phi i32 [ %31, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit ], [ %47, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16 ]
@@ -389,10 +389,10 @@ _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit16: ; preds = %.loopexit.i10, %.lo
   %66 = lshr i32 %62, %65
   %67 = trunc i32 %66 to i8
   %68 = getelementptr inbounds nuw [20 x i8], ptr %57, i64 0, i64 %indvars.iv44
-  store i8 %67, ptr %68, align 1, !tbaa !23
+  store i8 %67, ptr %68, align 1, !tbaa !22
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 20
-  br i1 %exitcond47.not, label %69, label %58, !llvm.loop !26
+  br i1 %exitcond47.not, label %69, label %58, !llvm.loop !25
 
 69:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
@@ -429,17 +429,17 @@ define void @_ZN11OpenImageIO6v3_1_04SHA16digestB5cxx11Ev(ptr dead_on_unwind noa
 
 9:                                                ; preds = %7, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %10, ptr %0, align 8, !tbaa !27
+  store ptr %10, ptr %0, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %11, align 8, !tbaa !30
-  store i8 0, ptr %10, align 8, !tbaa !23
+  store i64 0, ptr %11, align 8, !tbaa !29
+  store i8 0, ptr %10, align 8, !tbaa !22
   %12 = load ptr, ptr %1, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 84, ptr nonnull %3) #22
   %13 = call noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcNS1_11REPORT_TYPEE(ptr noundef nonnull readonly align 8 dereferenceable(200) %12, ptr noundef nonnull %3, i32 noundef 2)
   br i1 %13, label %14, label %26
 
 14:                                               ; preds = %9
-  %15 = load i64, ptr %11, align 8, !tbaa !30
+  %15 = load i64, ptr %11, align 8, !tbaa !29
   %16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #22
   %17 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %15, ptr noundef nonnull %3, i64 noundef %16)
           to label %26 unwind label %18
@@ -447,18 +447,18 @@ define void @_ZN11OpenImageIO6v3_1_04SHA16digestB5cxx11Ev(ptr dead_on_unwind noa
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = load ptr, ptr %0, align 8, !tbaa !33
+  %20 = load ptr, ptr %0, align 8, !tbaa !32
   %21 = icmp eq ptr %20, %10
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %18
-  %22 = load i64, ptr %11, align 8, !tbaa !30
+  %22 = load i64, ptr %11, align 8, !tbaa !29
   %23 = icmp ult i64 %22, 16
   call void @llvm.assume(i1 %23)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %18
-  %24 = load i64, ptr %10, align 8, !tbaa !23
+  %24 = load i64, ptr %10, align 8, !tbaa !22
   %25 = add i64 %24, 1
   call void @_ZdlPvm(ptr noundef %20, i64 noundef %25) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -480,7 +480,7 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA113ReportHashStlE
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !30
+  %8 = load i64, ptr %7, align 8, !tbaa !29
   %9 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   %10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %8, ptr noundef nonnull %4, i64 noundef %9)
   br label %11
@@ -547,9 +547,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %16 = and i32 %15, %6
   %17 = xor i32 %16, %10
   %18 = load ptr, ptr %13, align 8, !tbaa !3
-  %19 = load i32, ptr %18, align 4, !tbaa !23
+  %19 = load i32, ptr %18, align 4, !tbaa !22
   %20 = tail call i32 @llvm.bswap.i32(i32 %19)
-  store i32 %20, ptr %18, align 4, !tbaa !23
+  store i32 %20, ptr %18, align 4, !tbaa !22
   %21 = tail call i32 @llvm.fshl.i32(i32 %4, i32 %4, i32 5)
   %22 = add i32 %21, 1518500249
   %23 = add i32 %22, %12
@@ -561,9 +561,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %29 = xor i32 %28, %8
   %30 = load ptr, ptr %13, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %32 = load i32, ptr %31, align 4, !tbaa !23
+  %32 = load i32, ptr %31, align 4, !tbaa !22
   %33 = tail call i32 @llvm.bswap.i32(i32 %32)
-  store i32 %33, ptr %31, align 4, !tbaa !23
+  store i32 %33, ptr %31, align 4, !tbaa !22
   %34 = tail call i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 5)
   %35 = add i32 %10, 1518500249
   %36 = add i32 %35, %29
@@ -575,9 +575,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %42 = xor i32 %41, %26
   %43 = load ptr, ptr %13, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i32, ptr %44, align 4, !tbaa !23
+  %45 = load i32, ptr %44, align 4, !tbaa !22
   %46 = tail call i32 @llvm.bswap.i32(i32 %45)
-  store i32 %46, ptr %44, align 4, !tbaa !23
+  store i32 %46, ptr %44, align 4, !tbaa !22
   %47 = tail call i32 @llvm.fshl.i32(i32 %38, i32 %38, i32 5)
   %48 = add i32 %8, 1518500249
   %49 = add i32 %48, %46
@@ -589,9 +589,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %55 = xor i32 %54, %39
   %56 = load ptr, ptr %13, align 8, !tbaa !3
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  %58 = load i32, ptr %57, align 4, !tbaa !23
+  %58 = load i32, ptr %57, align 4, !tbaa !22
   %59 = tail call i32 @llvm.bswap.i32(i32 %58)
-  store i32 %59, ptr %57, align 4, !tbaa !23
+  store i32 %59, ptr %57, align 4, !tbaa !22
   %60 = tail call i32 @llvm.fshl.i32(i32 %51, i32 %51, i32 5)
   %61 = add i32 %26, 1518500249
   %62 = add i32 %61, %59
@@ -603,9 +603,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %68 = xor i32 %67, %52
   %69 = load ptr, ptr %13, align 8, !tbaa !3
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = load i32, ptr %70, align 4, !tbaa !23
+  %71 = load i32, ptr %70, align 4, !tbaa !22
   %72 = tail call i32 @llvm.bswap.i32(i32 %71)
-  store i32 %72, ptr %70, align 4, !tbaa !23
+  store i32 %72, ptr %70, align 4, !tbaa !22
   %73 = tail call i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 5)
   %74 = add i32 %39, 1518500249
   %75 = add i32 %74, %72
@@ -617,9 +617,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %81 = xor i32 %80, %65
   %82 = load ptr, ptr %13, align 8, !tbaa !3
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 20
-  %84 = load i32, ptr %83, align 4, !tbaa !23
+  %84 = load i32, ptr %83, align 4, !tbaa !22
   %85 = tail call i32 @llvm.bswap.i32(i32 %84)
-  store i32 %85, ptr %83, align 4, !tbaa !23
+  store i32 %85, ptr %83, align 4, !tbaa !22
   %86 = tail call i32 @llvm.fshl.i32(i32 %77, i32 %77, i32 5)
   %87 = add i32 %52, 1518500249
   %88 = add i32 %87, %85
@@ -631,9 +631,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %94 = xor i32 %93, %78
   %95 = load ptr, ptr %13, align 8, !tbaa !3
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  %97 = load i32, ptr %96, align 4, !tbaa !23
+  %97 = load i32, ptr %96, align 4, !tbaa !22
   %98 = tail call i32 @llvm.bswap.i32(i32 %97)
-  store i32 %98, ptr %96, align 4, !tbaa !23
+  store i32 %98, ptr %96, align 4, !tbaa !22
   %99 = tail call i32 @llvm.fshl.i32(i32 %90, i32 %90, i32 5)
   %100 = add i32 %65, 1518500249
   %101 = add i32 %100, %98
@@ -645,9 +645,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %107 = xor i32 %106, %91
   %108 = load ptr, ptr %13, align 8, !tbaa !3
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 28
-  %110 = load i32, ptr %109, align 4, !tbaa !23
+  %110 = load i32, ptr %109, align 4, !tbaa !22
   %111 = tail call i32 @llvm.bswap.i32(i32 %110)
-  store i32 %111, ptr %109, align 4, !tbaa !23
+  store i32 %111, ptr %109, align 4, !tbaa !22
   %112 = tail call i32 @llvm.fshl.i32(i32 %103, i32 %103, i32 5)
   %113 = add i32 %78, 1518500249
   %114 = add i32 %113, %111
@@ -659,9 +659,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %120 = xor i32 %119, %104
   %121 = load ptr, ptr %13, align 8, !tbaa !3
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  %123 = load i32, ptr %122, align 4, !tbaa !23
+  %123 = load i32, ptr %122, align 4, !tbaa !22
   %124 = tail call i32 @llvm.bswap.i32(i32 %123)
-  store i32 %124, ptr %122, align 4, !tbaa !23
+  store i32 %124, ptr %122, align 4, !tbaa !22
   %125 = tail call i32 @llvm.fshl.i32(i32 %116, i32 %116, i32 5)
   %126 = add i32 %91, 1518500249
   %127 = add i32 %126, %124
@@ -673,9 +673,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %133 = xor i32 %132, %117
   %134 = load ptr, ptr %13, align 8, !tbaa !3
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 36
-  %136 = load i32, ptr %135, align 4, !tbaa !23
+  %136 = load i32, ptr %135, align 4, !tbaa !22
   %137 = tail call i32 @llvm.bswap.i32(i32 %136)
-  store i32 %137, ptr %135, align 4, !tbaa !23
+  store i32 %137, ptr %135, align 4, !tbaa !22
   %138 = tail call i32 @llvm.fshl.i32(i32 %129, i32 %129, i32 5)
   %139 = add i32 %104, 1518500249
   %140 = add i32 %139, %137
@@ -687,9 +687,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %146 = xor i32 %145, %130
   %147 = load ptr, ptr %13, align 8, !tbaa !3
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 40
-  %149 = load i32, ptr %148, align 4, !tbaa !23
+  %149 = load i32, ptr %148, align 4, !tbaa !22
   %150 = tail call i32 @llvm.bswap.i32(i32 %149)
-  store i32 %150, ptr %148, align 4, !tbaa !23
+  store i32 %150, ptr %148, align 4, !tbaa !22
   %151 = tail call i32 @llvm.fshl.i32(i32 %142, i32 %142, i32 5)
   %152 = add i32 %117, 1518500249
   %153 = add i32 %152, %150
@@ -701,9 +701,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %159 = xor i32 %158, %143
   %160 = load ptr, ptr %13, align 8, !tbaa !3
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 44
-  %162 = load i32, ptr %161, align 4, !tbaa !23
+  %162 = load i32, ptr %161, align 4, !tbaa !22
   %163 = tail call i32 @llvm.bswap.i32(i32 %162)
-  store i32 %163, ptr %161, align 4, !tbaa !23
+  store i32 %163, ptr %161, align 4, !tbaa !22
   %164 = tail call i32 @llvm.fshl.i32(i32 %155, i32 %155, i32 5)
   %165 = add i32 %130, 1518500249
   %166 = add i32 %165, %163
@@ -715,9 +715,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %172 = xor i32 %171, %156
   %173 = load ptr, ptr %13, align 8, !tbaa !3
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 48
-  %175 = load i32, ptr %174, align 4, !tbaa !23
+  %175 = load i32, ptr %174, align 4, !tbaa !22
   %176 = tail call i32 @llvm.bswap.i32(i32 %175)
-  store i32 %176, ptr %174, align 4, !tbaa !23
+  store i32 %176, ptr %174, align 4, !tbaa !22
   %177 = tail call i32 @llvm.fshl.i32(i32 %168, i32 %168, i32 5)
   %178 = add i32 %143, 1518500249
   %179 = add i32 %178, %176
@@ -729,9 +729,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %185 = xor i32 %184, %169
   %186 = load ptr, ptr %13, align 8, !tbaa !3
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 52
-  %188 = load i32, ptr %187, align 4, !tbaa !23
+  %188 = load i32, ptr %187, align 4, !tbaa !22
   %189 = tail call i32 @llvm.bswap.i32(i32 %188)
-  store i32 %189, ptr %187, align 4, !tbaa !23
+  store i32 %189, ptr %187, align 4, !tbaa !22
   %190 = tail call i32 @llvm.fshl.i32(i32 %181, i32 %181, i32 5)
   %191 = add i32 %156, 1518500249
   %192 = add i32 %191, %189
@@ -743,9 +743,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %198 = xor i32 %197, %182
   %199 = load ptr, ptr %13, align 8, !tbaa !3
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 56
-  %201 = load i32, ptr %200, align 4, !tbaa !23
+  %201 = load i32, ptr %200, align 4, !tbaa !22
   %202 = tail call i32 @llvm.bswap.i32(i32 %201)
-  store i32 %202, ptr %200, align 4, !tbaa !23
+  store i32 %202, ptr %200, align 4, !tbaa !22
   %203 = tail call i32 @llvm.fshl.i32(i32 %194, i32 %194, i32 5)
   %204 = add i32 %169, 1518500249
   %205 = add i32 %204, %202
@@ -757,9 +757,9 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %211 = xor i32 %210, %195
   %212 = load ptr, ptr %13, align 8, !tbaa !3
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 60
-  %214 = load i32, ptr %213, align 4, !tbaa !23
+  %214 = load i32, ptr %213, align 4, !tbaa !22
   %215 = tail call i32 @llvm.bswap.i32(i32 %214)
-  store i32 %215, ptr %213, align 4, !tbaa !23
+  store i32 %215, ptr %213, align 4, !tbaa !22
   %216 = tail call i32 @llvm.fshl.i32(i32 %207, i32 %207, i32 5)
   %217 = add i32 %182, 1518500249
   %218 = add i32 %217, %215
@@ -771,17 +771,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %224 = xor i32 %223, %208
   %225 = load ptr, ptr %13, align 8, !tbaa !3
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 52
-  %227 = load i32, ptr %226, align 4, !tbaa !23
+  %227 = load i32, ptr %226, align 4, !tbaa !22
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 32
-  %229 = load i32, ptr %228, align 4, !tbaa !23
+  %229 = load i32, ptr %228, align 4, !tbaa !22
   %230 = xor i32 %229, %227
   %231 = getelementptr inbounds nuw i8, ptr %225, i64 8
-  %232 = load i32, ptr %231, align 4, !tbaa !23
+  %232 = load i32, ptr %231, align 4, !tbaa !22
   %233 = xor i32 %230, %232
-  %234 = load i32, ptr %225, align 4, !tbaa !23
+  %234 = load i32, ptr %225, align 4, !tbaa !22
   %235 = xor i32 %233, %234
   %236 = tail call i32 @llvm.fshl.i32(i32 %235, i32 %235, i32 1)
-  store i32 %236, ptr %225, align 4, !tbaa !23
+  store i32 %236, ptr %225, align 4, !tbaa !22
   %237 = tail call i32 @llvm.fshl.i32(i32 %220, i32 %220, i32 5)
   %238 = add i32 %195, 1518500249
   %239 = add i32 %238, %224
@@ -793,18 +793,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %245 = xor i32 %244, %221
   %246 = load ptr, ptr %13, align 8, !tbaa !3
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 56
-  %248 = load i32, ptr %247, align 4, !tbaa !23
+  %248 = load i32, ptr %247, align 4, !tbaa !22
   %249 = getelementptr inbounds nuw i8, ptr %246, i64 36
-  %250 = load i32, ptr %249, align 4, !tbaa !23
+  %250 = load i32, ptr %249, align 4, !tbaa !22
   %251 = xor i32 %250, %248
   %252 = getelementptr inbounds nuw i8, ptr %246, i64 12
-  %253 = load i32, ptr %252, align 4, !tbaa !23
+  %253 = load i32, ptr %252, align 4, !tbaa !22
   %254 = xor i32 %251, %253
   %255 = getelementptr inbounds nuw i8, ptr %246, i64 4
-  %256 = load i32, ptr %255, align 4, !tbaa !23
+  %256 = load i32, ptr %255, align 4, !tbaa !22
   %257 = xor i32 %254, %256
   %258 = tail call i32 @llvm.fshl.i32(i32 %257, i32 %257, i32 1)
-  store i32 %258, ptr %255, align 4, !tbaa !23
+  store i32 %258, ptr %255, align 4, !tbaa !22
   %259 = tail call i32 @llvm.fshl.i32(i32 %241, i32 %241, i32 5)
   %260 = add i32 %208, 1518500249
   %261 = add i32 %260, %245
@@ -816,18 +816,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %267 = xor i32 %266, %242
   %268 = load ptr, ptr %13, align 8, !tbaa !3
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 60
-  %270 = load i32, ptr %269, align 4, !tbaa !23
+  %270 = load i32, ptr %269, align 4, !tbaa !22
   %271 = getelementptr inbounds nuw i8, ptr %268, i64 40
-  %272 = load i32, ptr %271, align 4, !tbaa !23
+  %272 = load i32, ptr %271, align 4, !tbaa !22
   %273 = xor i32 %272, %270
   %274 = getelementptr inbounds nuw i8, ptr %268, i64 16
-  %275 = load i32, ptr %274, align 4, !tbaa !23
+  %275 = load i32, ptr %274, align 4, !tbaa !22
   %276 = xor i32 %273, %275
   %277 = getelementptr inbounds nuw i8, ptr %268, i64 8
-  %278 = load i32, ptr %277, align 4, !tbaa !23
+  %278 = load i32, ptr %277, align 4, !tbaa !22
   %279 = xor i32 %276, %278
   %280 = tail call i32 @llvm.fshl.i32(i32 %279, i32 %279, i32 1)
-  store i32 %280, ptr %277, align 4, !tbaa !23
+  store i32 %280, ptr %277, align 4, !tbaa !22
   %281 = tail call i32 @llvm.fshl.i32(i32 %263, i32 %263, i32 5)
   %282 = add i32 %221, 1518500249
   %283 = add i32 %282, %267
@@ -838,18 +838,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %288 = and i32 %263, %287
   %289 = xor i32 %288, %264
   %290 = load ptr, ptr %13, align 8, !tbaa !3
-  %291 = load i32, ptr %290, align 4, !tbaa !23
+  %291 = load i32, ptr %290, align 4, !tbaa !22
   %292 = getelementptr inbounds nuw i8, ptr %290, i64 44
-  %293 = load i32, ptr %292, align 4, !tbaa !23
+  %293 = load i32, ptr %292, align 4, !tbaa !22
   %294 = xor i32 %293, %291
   %295 = getelementptr inbounds nuw i8, ptr %290, i64 20
-  %296 = load i32, ptr %295, align 4, !tbaa !23
+  %296 = load i32, ptr %295, align 4, !tbaa !22
   %297 = xor i32 %294, %296
   %298 = getelementptr inbounds nuw i8, ptr %290, i64 12
-  %299 = load i32, ptr %298, align 4, !tbaa !23
+  %299 = load i32, ptr %298, align 4, !tbaa !22
   %300 = xor i32 %297, %299
   %301 = tail call i32 @llvm.fshl.i32(i32 %300, i32 %300, i32 1)
-  store i32 %301, ptr %298, align 4, !tbaa !23
+  store i32 %301, ptr %298, align 4, !tbaa !22
   %302 = tail call i32 @llvm.fshl.i32(i32 %285, i32 %285, i32 5)
   %303 = add i32 %242, 1518500249
   %304 = add i32 %303, %289
@@ -860,18 +860,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %309 = xor i32 %308, %285
   %310 = load ptr, ptr %13, align 8, !tbaa !3
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 4
-  %312 = load i32, ptr %311, align 4, !tbaa !23
+  %312 = load i32, ptr %311, align 4, !tbaa !22
   %313 = getelementptr inbounds nuw i8, ptr %310, i64 48
-  %314 = load i32, ptr %313, align 4, !tbaa !23
+  %314 = load i32, ptr %313, align 4, !tbaa !22
   %315 = xor i32 %314, %312
   %316 = getelementptr inbounds nuw i8, ptr %310, i64 24
-  %317 = load i32, ptr %316, align 4, !tbaa !23
+  %317 = load i32, ptr %316, align 4, !tbaa !22
   %318 = xor i32 %315, %317
   %319 = getelementptr inbounds nuw i8, ptr %310, i64 16
-  %320 = load i32, ptr %319, align 4, !tbaa !23
+  %320 = load i32, ptr %319, align 4, !tbaa !22
   %321 = xor i32 %318, %320
   %322 = tail call i32 @llvm.fshl.i32(i32 %321, i32 %321, i32 1)
-  store i32 %322, ptr %319, align 4, !tbaa !23
+  store i32 %322, ptr %319, align 4, !tbaa !22
   %323 = tail call i32 @llvm.fshl.i32(i32 %306, i32 %306, i32 5)
   %324 = add i32 %264, 1859775393
   %325 = add i32 %324, %309
@@ -882,18 +882,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %330 = xor i32 %329, %306
   %331 = load ptr, ptr %13, align 8, !tbaa !3
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
-  %333 = load i32, ptr %332, align 4, !tbaa !23
+  %333 = load i32, ptr %332, align 4, !tbaa !22
   %334 = getelementptr inbounds nuw i8, ptr %331, i64 52
-  %335 = load i32, ptr %334, align 4, !tbaa !23
+  %335 = load i32, ptr %334, align 4, !tbaa !22
   %336 = xor i32 %335, %333
   %337 = getelementptr inbounds nuw i8, ptr %331, i64 28
-  %338 = load i32, ptr %337, align 4, !tbaa !23
+  %338 = load i32, ptr %337, align 4, !tbaa !22
   %339 = xor i32 %336, %338
   %340 = getelementptr inbounds nuw i8, ptr %331, i64 20
-  %341 = load i32, ptr %340, align 4, !tbaa !23
+  %341 = load i32, ptr %340, align 4, !tbaa !22
   %342 = xor i32 %339, %341
   %343 = tail call i32 @llvm.fshl.i32(i32 %342, i32 %342, i32 1)
-  store i32 %343, ptr %340, align 4, !tbaa !23
+  store i32 %343, ptr %340, align 4, !tbaa !22
   %344 = tail call i32 @llvm.fshl.i32(i32 %327, i32 %327, i32 5)
   %345 = add i32 %286, 1859775393
   %346 = add i32 %345, %330
@@ -904,18 +904,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %351 = xor i32 %350, %327
   %352 = load ptr, ptr %13, align 8, !tbaa !3
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 12
-  %354 = load i32, ptr %353, align 4, !tbaa !23
+  %354 = load i32, ptr %353, align 4, !tbaa !22
   %355 = getelementptr inbounds nuw i8, ptr %352, i64 56
-  %356 = load i32, ptr %355, align 4, !tbaa !23
+  %356 = load i32, ptr %355, align 4, !tbaa !22
   %357 = xor i32 %356, %354
   %358 = getelementptr inbounds nuw i8, ptr %352, i64 32
-  %359 = load i32, ptr %358, align 4, !tbaa !23
+  %359 = load i32, ptr %358, align 4, !tbaa !22
   %360 = xor i32 %357, %359
   %361 = getelementptr inbounds nuw i8, ptr %352, i64 24
-  %362 = load i32, ptr %361, align 4, !tbaa !23
+  %362 = load i32, ptr %361, align 4, !tbaa !22
   %363 = xor i32 %360, %362
   %364 = tail call i32 @llvm.fshl.i32(i32 %363, i32 %363, i32 1)
-  store i32 %364, ptr %361, align 4, !tbaa !23
+  store i32 %364, ptr %361, align 4, !tbaa !22
   %365 = tail call i32 @llvm.fshl.i32(i32 %348, i32 %348, i32 5)
   %366 = add i32 %307, 1859775393
   %367 = add i32 %366, %351
@@ -926,18 +926,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %372 = xor i32 %371, %348
   %373 = load ptr, ptr %13, align 8, !tbaa !3
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 16
-  %375 = load i32, ptr %374, align 4, !tbaa !23
+  %375 = load i32, ptr %374, align 4, !tbaa !22
   %376 = getelementptr inbounds nuw i8, ptr %373, i64 60
-  %377 = load i32, ptr %376, align 4, !tbaa !23
+  %377 = load i32, ptr %376, align 4, !tbaa !22
   %378 = xor i32 %377, %375
   %379 = getelementptr inbounds nuw i8, ptr %373, i64 36
-  %380 = load i32, ptr %379, align 4, !tbaa !23
+  %380 = load i32, ptr %379, align 4, !tbaa !22
   %381 = xor i32 %378, %380
   %382 = getelementptr inbounds nuw i8, ptr %373, i64 28
-  %383 = load i32, ptr %382, align 4, !tbaa !23
+  %383 = load i32, ptr %382, align 4, !tbaa !22
   %384 = xor i32 %381, %383
   %385 = tail call i32 @llvm.fshl.i32(i32 %384, i32 %384, i32 1)
-  store i32 %385, ptr %382, align 4, !tbaa !23
+  store i32 %385, ptr %382, align 4, !tbaa !22
   %386 = tail call i32 @llvm.fshl.i32(i32 %369, i32 %369, i32 5)
   %387 = add i32 %328, 1859775393
   %388 = add i32 %387, %372
@@ -948,17 +948,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %393 = xor i32 %392, %369
   %394 = load ptr, ptr %13, align 8, !tbaa !3
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 20
-  %396 = load i32, ptr %395, align 4, !tbaa !23
-  %397 = load i32, ptr %394, align 4, !tbaa !23
+  %396 = load i32, ptr %395, align 4, !tbaa !22
+  %397 = load i32, ptr %394, align 4, !tbaa !22
   %398 = xor i32 %397, %396
   %399 = getelementptr inbounds nuw i8, ptr %394, i64 40
-  %400 = load i32, ptr %399, align 4, !tbaa !23
+  %400 = load i32, ptr %399, align 4, !tbaa !22
   %401 = xor i32 %398, %400
   %402 = getelementptr inbounds nuw i8, ptr %394, i64 32
-  %403 = load i32, ptr %402, align 4, !tbaa !23
+  %403 = load i32, ptr %402, align 4, !tbaa !22
   %404 = xor i32 %401, %403
   %405 = tail call i32 @llvm.fshl.i32(i32 %404, i32 %404, i32 1)
-  store i32 %405, ptr %402, align 4, !tbaa !23
+  store i32 %405, ptr %402, align 4, !tbaa !22
   %406 = tail call i32 @llvm.fshl.i32(i32 %390, i32 %390, i32 5)
   %407 = add i32 %349, 1859775393
   %408 = add i32 %407, %393
@@ -969,18 +969,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %413 = xor i32 %412, %390
   %414 = load ptr, ptr %13, align 8, !tbaa !3
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 24
-  %416 = load i32, ptr %415, align 4, !tbaa !23
+  %416 = load i32, ptr %415, align 4, !tbaa !22
   %417 = getelementptr inbounds nuw i8, ptr %414, i64 4
-  %418 = load i32, ptr %417, align 4, !tbaa !23
+  %418 = load i32, ptr %417, align 4, !tbaa !22
   %419 = xor i32 %418, %416
   %420 = getelementptr inbounds nuw i8, ptr %414, i64 44
-  %421 = load i32, ptr %420, align 4, !tbaa !23
+  %421 = load i32, ptr %420, align 4, !tbaa !22
   %422 = xor i32 %419, %421
   %423 = getelementptr inbounds nuw i8, ptr %414, i64 36
-  %424 = load i32, ptr %423, align 4, !tbaa !23
+  %424 = load i32, ptr %423, align 4, !tbaa !22
   %425 = xor i32 %422, %424
   %426 = tail call i32 @llvm.fshl.i32(i32 %425, i32 %425, i32 1)
-  store i32 %426, ptr %423, align 4, !tbaa !23
+  store i32 %426, ptr %423, align 4, !tbaa !22
   %427 = tail call i32 @llvm.fshl.i32(i32 %410, i32 %410, i32 5)
   %428 = add i32 %370, 1859775393
   %429 = add i32 %428, %413
@@ -991,18 +991,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %434 = xor i32 %433, %410
   %435 = load ptr, ptr %13, align 8, !tbaa !3
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 28
-  %437 = load i32, ptr %436, align 4, !tbaa !23
+  %437 = load i32, ptr %436, align 4, !tbaa !22
   %438 = getelementptr inbounds nuw i8, ptr %435, i64 8
-  %439 = load i32, ptr %438, align 4, !tbaa !23
+  %439 = load i32, ptr %438, align 4, !tbaa !22
   %440 = xor i32 %439, %437
   %441 = getelementptr inbounds nuw i8, ptr %435, i64 48
-  %442 = load i32, ptr %441, align 4, !tbaa !23
+  %442 = load i32, ptr %441, align 4, !tbaa !22
   %443 = xor i32 %440, %442
   %444 = getelementptr inbounds nuw i8, ptr %435, i64 40
-  %445 = load i32, ptr %444, align 4, !tbaa !23
+  %445 = load i32, ptr %444, align 4, !tbaa !22
   %446 = xor i32 %443, %445
   %447 = tail call i32 @llvm.fshl.i32(i32 %446, i32 %446, i32 1)
-  store i32 %447, ptr %444, align 4, !tbaa !23
+  store i32 %447, ptr %444, align 4, !tbaa !22
   %448 = tail call i32 @llvm.fshl.i32(i32 %431, i32 %431, i32 5)
   %449 = add i32 %391, 1859775393
   %450 = add i32 %449, %434
@@ -1013,18 +1013,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %455 = xor i32 %454, %431
   %456 = load ptr, ptr %13, align 8, !tbaa !3
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 32
-  %458 = load i32, ptr %457, align 4, !tbaa !23
+  %458 = load i32, ptr %457, align 4, !tbaa !22
   %459 = getelementptr inbounds nuw i8, ptr %456, i64 12
-  %460 = load i32, ptr %459, align 4, !tbaa !23
+  %460 = load i32, ptr %459, align 4, !tbaa !22
   %461 = xor i32 %460, %458
   %462 = getelementptr inbounds nuw i8, ptr %456, i64 52
-  %463 = load i32, ptr %462, align 4, !tbaa !23
+  %463 = load i32, ptr %462, align 4, !tbaa !22
   %464 = xor i32 %461, %463
   %465 = getelementptr inbounds nuw i8, ptr %456, i64 44
-  %466 = load i32, ptr %465, align 4, !tbaa !23
+  %466 = load i32, ptr %465, align 4, !tbaa !22
   %467 = xor i32 %464, %466
   %468 = tail call i32 @llvm.fshl.i32(i32 %467, i32 %467, i32 1)
-  store i32 %468, ptr %465, align 4, !tbaa !23
+  store i32 %468, ptr %465, align 4, !tbaa !22
   %469 = tail call i32 @llvm.fshl.i32(i32 %452, i32 %452, i32 5)
   %470 = add i32 %411, 1859775393
   %471 = add i32 %470, %455
@@ -1035,18 +1035,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %476 = xor i32 %475, %452
   %477 = load ptr, ptr %13, align 8, !tbaa !3
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 36
-  %479 = load i32, ptr %478, align 4, !tbaa !23
+  %479 = load i32, ptr %478, align 4, !tbaa !22
   %480 = getelementptr inbounds nuw i8, ptr %477, i64 16
-  %481 = load i32, ptr %480, align 4, !tbaa !23
+  %481 = load i32, ptr %480, align 4, !tbaa !22
   %482 = xor i32 %481, %479
   %483 = getelementptr inbounds nuw i8, ptr %477, i64 56
-  %484 = load i32, ptr %483, align 4, !tbaa !23
+  %484 = load i32, ptr %483, align 4, !tbaa !22
   %485 = xor i32 %482, %484
   %486 = getelementptr inbounds nuw i8, ptr %477, i64 48
-  %487 = load i32, ptr %486, align 4, !tbaa !23
+  %487 = load i32, ptr %486, align 4, !tbaa !22
   %488 = xor i32 %485, %487
   %489 = tail call i32 @llvm.fshl.i32(i32 %488, i32 %488, i32 1)
-  store i32 %489, ptr %486, align 4, !tbaa !23
+  store i32 %489, ptr %486, align 4, !tbaa !22
   %490 = tail call i32 @llvm.fshl.i32(i32 %473, i32 %473, i32 5)
   %491 = add i32 %432, 1859775393
   %492 = add i32 %491, %476
@@ -1057,18 +1057,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %497 = xor i32 %496, %473
   %498 = load ptr, ptr %13, align 8, !tbaa !3
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 40
-  %500 = load i32, ptr %499, align 4, !tbaa !23
+  %500 = load i32, ptr %499, align 4, !tbaa !22
   %501 = getelementptr inbounds nuw i8, ptr %498, i64 20
-  %502 = load i32, ptr %501, align 4, !tbaa !23
+  %502 = load i32, ptr %501, align 4, !tbaa !22
   %503 = xor i32 %502, %500
   %504 = getelementptr inbounds nuw i8, ptr %498, i64 60
-  %505 = load i32, ptr %504, align 4, !tbaa !23
+  %505 = load i32, ptr %504, align 4, !tbaa !22
   %506 = xor i32 %503, %505
   %507 = getelementptr inbounds nuw i8, ptr %498, i64 52
-  %508 = load i32, ptr %507, align 4, !tbaa !23
+  %508 = load i32, ptr %507, align 4, !tbaa !22
   %509 = xor i32 %506, %508
   %510 = tail call i32 @llvm.fshl.i32(i32 %509, i32 %509, i32 1)
-  store i32 %510, ptr %507, align 4, !tbaa !23
+  store i32 %510, ptr %507, align 4, !tbaa !22
   %511 = tail call i32 @llvm.fshl.i32(i32 %494, i32 %494, i32 5)
   %512 = add i32 %453, 1859775393
   %513 = add i32 %512, %497
@@ -1079,17 +1079,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %518 = xor i32 %517, %494
   %519 = load ptr, ptr %13, align 8, !tbaa !3
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 44
-  %521 = load i32, ptr %520, align 4, !tbaa !23
+  %521 = load i32, ptr %520, align 4, !tbaa !22
   %522 = getelementptr inbounds nuw i8, ptr %519, i64 24
-  %523 = load i32, ptr %522, align 4, !tbaa !23
+  %523 = load i32, ptr %522, align 4, !tbaa !22
   %524 = xor i32 %523, %521
-  %525 = load i32, ptr %519, align 4, !tbaa !23
+  %525 = load i32, ptr %519, align 4, !tbaa !22
   %526 = xor i32 %524, %525
   %527 = getelementptr inbounds nuw i8, ptr %519, i64 56
-  %528 = load i32, ptr %527, align 4, !tbaa !23
+  %528 = load i32, ptr %527, align 4, !tbaa !22
   %529 = xor i32 %526, %528
   %530 = tail call i32 @llvm.fshl.i32(i32 %529, i32 %529, i32 1)
-  store i32 %530, ptr %527, align 4, !tbaa !23
+  store i32 %530, ptr %527, align 4, !tbaa !22
   %531 = tail call i32 @llvm.fshl.i32(i32 %515, i32 %515, i32 5)
   %532 = add i32 %474, 1859775393
   %533 = add i32 %532, %518
@@ -1100,18 +1100,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %538 = xor i32 %537, %515
   %539 = load ptr, ptr %13, align 8, !tbaa !3
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 48
-  %541 = load i32, ptr %540, align 4, !tbaa !23
+  %541 = load i32, ptr %540, align 4, !tbaa !22
   %542 = getelementptr inbounds nuw i8, ptr %539, i64 28
-  %543 = load i32, ptr %542, align 4, !tbaa !23
+  %543 = load i32, ptr %542, align 4, !tbaa !22
   %544 = xor i32 %543, %541
   %545 = getelementptr inbounds nuw i8, ptr %539, i64 4
-  %546 = load i32, ptr %545, align 4, !tbaa !23
+  %546 = load i32, ptr %545, align 4, !tbaa !22
   %547 = xor i32 %544, %546
   %548 = getelementptr inbounds nuw i8, ptr %539, i64 60
-  %549 = load i32, ptr %548, align 4, !tbaa !23
+  %549 = load i32, ptr %548, align 4, !tbaa !22
   %550 = xor i32 %547, %549
   %551 = tail call i32 @llvm.fshl.i32(i32 %550, i32 %550, i32 1)
-  store i32 %551, ptr %548, align 4, !tbaa !23
+  store i32 %551, ptr %548, align 4, !tbaa !22
   %552 = tail call i32 @llvm.fshl.i32(i32 %535, i32 %535, i32 5)
   %553 = add i32 %495, 1859775393
   %554 = add i32 %553, %538
@@ -1122,17 +1122,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %559 = xor i32 %558, %535
   %560 = load ptr, ptr %13, align 8, !tbaa !3
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 52
-  %562 = load i32, ptr %561, align 4, !tbaa !23
+  %562 = load i32, ptr %561, align 4, !tbaa !22
   %563 = getelementptr inbounds nuw i8, ptr %560, i64 32
-  %564 = load i32, ptr %563, align 4, !tbaa !23
+  %564 = load i32, ptr %563, align 4, !tbaa !22
   %565 = xor i32 %564, %562
   %566 = getelementptr inbounds nuw i8, ptr %560, i64 8
-  %567 = load i32, ptr %566, align 4, !tbaa !23
+  %567 = load i32, ptr %566, align 4, !tbaa !22
   %568 = xor i32 %565, %567
-  %569 = load i32, ptr %560, align 4, !tbaa !23
+  %569 = load i32, ptr %560, align 4, !tbaa !22
   %570 = xor i32 %568, %569
   %571 = tail call i32 @llvm.fshl.i32(i32 %570, i32 %570, i32 1)
-  store i32 %571, ptr %560, align 4, !tbaa !23
+  store i32 %571, ptr %560, align 4, !tbaa !22
   %572 = tail call i32 @llvm.fshl.i32(i32 %556, i32 %556, i32 5)
   %573 = add i32 %516, 1859775393
   %574 = add i32 %573, %559
@@ -1143,18 +1143,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %579 = xor i32 %578, %556
   %580 = load ptr, ptr %13, align 8, !tbaa !3
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 56
-  %582 = load i32, ptr %581, align 4, !tbaa !23
+  %582 = load i32, ptr %581, align 4, !tbaa !22
   %583 = getelementptr inbounds nuw i8, ptr %580, i64 36
-  %584 = load i32, ptr %583, align 4, !tbaa !23
+  %584 = load i32, ptr %583, align 4, !tbaa !22
   %585 = xor i32 %584, %582
   %586 = getelementptr inbounds nuw i8, ptr %580, i64 12
-  %587 = load i32, ptr %586, align 4, !tbaa !23
+  %587 = load i32, ptr %586, align 4, !tbaa !22
   %588 = xor i32 %585, %587
   %589 = getelementptr inbounds nuw i8, ptr %580, i64 4
-  %590 = load i32, ptr %589, align 4, !tbaa !23
+  %590 = load i32, ptr %589, align 4, !tbaa !22
   %591 = xor i32 %588, %590
   %592 = tail call i32 @llvm.fshl.i32(i32 %591, i32 %591, i32 1)
-  store i32 %592, ptr %589, align 4, !tbaa !23
+  store i32 %592, ptr %589, align 4, !tbaa !22
   %593 = tail call i32 @llvm.fshl.i32(i32 %576, i32 %576, i32 5)
   %594 = add i32 %536, 1859775393
   %595 = add i32 %594, %579
@@ -1165,18 +1165,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %600 = xor i32 %599, %576
   %601 = load ptr, ptr %13, align 8, !tbaa !3
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 60
-  %603 = load i32, ptr %602, align 4, !tbaa !23
+  %603 = load i32, ptr %602, align 4, !tbaa !22
   %604 = getelementptr inbounds nuw i8, ptr %601, i64 40
-  %605 = load i32, ptr %604, align 4, !tbaa !23
+  %605 = load i32, ptr %604, align 4, !tbaa !22
   %606 = xor i32 %605, %603
   %607 = getelementptr inbounds nuw i8, ptr %601, i64 16
-  %608 = load i32, ptr %607, align 4, !tbaa !23
+  %608 = load i32, ptr %607, align 4, !tbaa !22
   %609 = xor i32 %606, %608
   %610 = getelementptr inbounds nuw i8, ptr %601, i64 8
-  %611 = load i32, ptr %610, align 4, !tbaa !23
+  %611 = load i32, ptr %610, align 4, !tbaa !22
   %612 = xor i32 %609, %611
   %613 = tail call i32 @llvm.fshl.i32(i32 %612, i32 %612, i32 1)
-  store i32 %613, ptr %610, align 4, !tbaa !23
+  store i32 %613, ptr %610, align 4, !tbaa !22
   %614 = tail call i32 @llvm.fshl.i32(i32 %597, i32 %597, i32 5)
   %615 = add i32 %557, 1859775393
   %616 = add i32 %615, %600
@@ -1186,18 +1186,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %620 = xor i32 %619, %598
   %621 = xor i32 %620, %597
   %622 = load ptr, ptr %13, align 8, !tbaa !3
-  %623 = load i32, ptr %622, align 4, !tbaa !23
+  %623 = load i32, ptr %622, align 4, !tbaa !22
   %624 = getelementptr inbounds nuw i8, ptr %622, i64 44
-  %625 = load i32, ptr %624, align 4, !tbaa !23
+  %625 = load i32, ptr %624, align 4, !tbaa !22
   %626 = xor i32 %625, %623
   %627 = getelementptr inbounds nuw i8, ptr %622, i64 20
-  %628 = load i32, ptr %627, align 4, !tbaa !23
+  %628 = load i32, ptr %627, align 4, !tbaa !22
   %629 = xor i32 %626, %628
   %630 = getelementptr inbounds nuw i8, ptr %622, i64 12
-  %631 = load i32, ptr %630, align 4, !tbaa !23
+  %631 = load i32, ptr %630, align 4, !tbaa !22
   %632 = xor i32 %629, %631
   %633 = tail call i32 @llvm.fshl.i32(i32 %632, i32 %632, i32 1)
-  store i32 %633, ptr %630, align 4, !tbaa !23
+  store i32 %633, ptr %630, align 4, !tbaa !22
   %634 = tail call i32 @llvm.fshl.i32(i32 %618, i32 %618, i32 5)
   %635 = add i32 %577, 1859775393
   %636 = add i32 %635, %621
@@ -1208,18 +1208,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %641 = xor i32 %640, %618
   %642 = load ptr, ptr %13, align 8, !tbaa !3
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 4
-  %644 = load i32, ptr %643, align 4, !tbaa !23
+  %644 = load i32, ptr %643, align 4, !tbaa !22
   %645 = getelementptr inbounds nuw i8, ptr %642, i64 48
-  %646 = load i32, ptr %645, align 4, !tbaa !23
+  %646 = load i32, ptr %645, align 4, !tbaa !22
   %647 = xor i32 %646, %644
   %648 = getelementptr inbounds nuw i8, ptr %642, i64 24
-  %649 = load i32, ptr %648, align 4, !tbaa !23
+  %649 = load i32, ptr %648, align 4, !tbaa !22
   %650 = xor i32 %647, %649
   %651 = getelementptr inbounds nuw i8, ptr %642, i64 16
-  %652 = load i32, ptr %651, align 4, !tbaa !23
+  %652 = load i32, ptr %651, align 4, !tbaa !22
   %653 = xor i32 %650, %652
   %654 = tail call i32 @llvm.fshl.i32(i32 %653, i32 %653, i32 1)
-  store i32 %654, ptr %651, align 4, !tbaa !23
+  store i32 %654, ptr %651, align 4, !tbaa !22
   %655 = tail call i32 @llvm.fshl.i32(i32 %638, i32 %638, i32 5)
   %656 = add i32 %598, 1859775393
   %657 = add i32 %656, %641
@@ -1230,18 +1230,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %662 = xor i32 %661, %638
   %663 = load ptr, ptr %13, align 8, !tbaa !3
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 8
-  %665 = load i32, ptr %664, align 4, !tbaa !23
+  %665 = load i32, ptr %664, align 4, !tbaa !22
   %666 = getelementptr inbounds nuw i8, ptr %663, i64 52
-  %667 = load i32, ptr %666, align 4, !tbaa !23
+  %667 = load i32, ptr %666, align 4, !tbaa !22
   %668 = xor i32 %667, %665
   %669 = getelementptr inbounds nuw i8, ptr %663, i64 28
-  %670 = load i32, ptr %669, align 4, !tbaa !23
+  %670 = load i32, ptr %669, align 4, !tbaa !22
   %671 = xor i32 %668, %670
   %672 = getelementptr inbounds nuw i8, ptr %663, i64 20
-  %673 = load i32, ptr %672, align 4, !tbaa !23
+  %673 = load i32, ptr %672, align 4, !tbaa !22
   %674 = xor i32 %671, %673
   %675 = tail call i32 @llvm.fshl.i32(i32 %674, i32 %674, i32 1)
-  store i32 %675, ptr %672, align 4, !tbaa !23
+  store i32 %675, ptr %672, align 4, !tbaa !22
   %676 = tail call i32 @llvm.fshl.i32(i32 %659, i32 %659, i32 5)
   %677 = add i32 %619, 1859775393
   %678 = add i32 %677, %662
@@ -1252,18 +1252,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %683 = xor i32 %682, %659
   %684 = load ptr, ptr %13, align 8, !tbaa !3
   %685 = getelementptr inbounds nuw i8, ptr %684, i64 12
-  %686 = load i32, ptr %685, align 4, !tbaa !23
+  %686 = load i32, ptr %685, align 4, !tbaa !22
   %687 = getelementptr inbounds nuw i8, ptr %684, i64 56
-  %688 = load i32, ptr %687, align 4, !tbaa !23
+  %688 = load i32, ptr %687, align 4, !tbaa !22
   %689 = xor i32 %688, %686
   %690 = getelementptr inbounds nuw i8, ptr %684, i64 32
-  %691 = load i32, ptr %690, align 4, !tbaa !23
+  %691 = load i32, ptr %690, align 4, !tbaa !22
   %692 = xor i32 %689, %691
   %693 = getelementptr inbounds nuw i8, ptr %684, i64 24
-  %694 = load i32, ptr %693, align 4, !tbaa !23
+  %694 = load i32, ptr %693, align 4, !tbaa !22
   %695 = xor i32 %692, %694
   %696 = tail call i32 @llvm.fshl.i32(i32 %695, i32 %695, i32 1)
-  store i32 %696, ptr %693, align 4, !tbaa !23
+  store i32 %696, ptr %693, align 4, !tbaa !22
   %697 = tail call i32 @llvm.fshl.i32(i32 %680, i32 %680, i32 5)
   %698 = add i32 %639, 1859775393
   %699 = add i32 %698, %683
@@ -1274,18 +1274,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %704 = xor i32 %703, %680
   %705 = load ptr, ptr %13, align 8, !tbaa !3
   %706 = getelementptr inbounds nuw i8, ptr %705, i64 16
-  %707 = load i32, ptr %706, align 4, !tbaa !23
+  %707 = load i32, ptr %706, align 4, !tbaa !22
   %708 = getelementptr inbounds nuw i8, ptr %705, i64 60
-  %709 = load i32, ptr %708, align 4, !tbaa !23
+  %709 = load i32, ptr %708, align 4, !tbaa !22
   %710 = xor i32 %709, %707
   %711 = getelementptr inbounds nuw i8, ptr %705, i64 36
-  %712 = load i32, ptr %711, align 4, !tbaa !23
+  %712 = load i32, ptr %711, align 4, !tbaa !22
   %713 = xor i32 %710, %712
   %714 = getelementptr inbounds nuw i8, ptr %705, i64 28
-  %715 = load i32, ptr %714, align 4, !tbaa !23
+  %715 = load i32, ptr %714, align 4, !tbaa !22
   %716 = xor i32 %713, %715
   %717 = tail call i32 @llvm.fshl.i32(i32 %716, i32 %716, i32 1)
-  store i32 %717, ptr %714, align 4, !tbaa !23
+  store i32 %717, ptr %714, align 4, !tbaa !22
   %718 = tail call i32 @llvm.fshl.i32(i32 %701, i32 %701, i32 5)
   %719 = add i32 %660, 1859775393
   %720 = add i32 %719, %704
@@ -1298,17 +1298,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %727 = or i32 %725, %726
   %728 = load ptr, ptr %13, align 8, !tbaa !3
   %729 = getelementptr inbounds nuw i8, ptr %728, i64 20
-  %730 = load i32, ptr %729, align 4, !tbaa !23
-  %731 = load i32, ptr %728, align 4, !tbaa !23
+  %730 = load i32, ptr %729, align 4, !tbaa !22
+  %731 = load i32, ptr %728, align 4, !tbaa !22
   %732 = xor i32 %731, %730
   %733 = getelementptr inbounds nuw i8, ptr %728, i64 40
-  %734 = load i32, ptr %733, align 4, !tbaa !23
+  %734 = load i32, ptr %733, align 4, !tbaa !22
   %735 = xor i32 %732, %734
   %736 = getelementptr inbounds nuw i8, ptr %728, i64 32
-  %737 = load i32, ptr %736, align 4, !tbaa !23
+  %737 = load i32, ptr %736, align 4, !tbaa !22
   %738 = xor i32 %735, %737
   %739 = tail call i32 @llvm.fshl.i32(i32 %738, i32 %738, i32 1)
-  store i32 %739, ptr %736, align 4, !tbaa !23
+  store i32 %739, ptr %736, align 4, !tbaa !22
   %740 = tail call i32 @llvm.fshl.i32(i32 %722, i32 %722, i32 5)
   %741 = add i32 %681, -1894007588
   %742 = add i32 %741, %727
@@ -1321,18 +1321,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %749 = or i32 %747, %748
   %750 = load ptr, ptr %13, align 8, !tbaa !3
   %751 = getelementptr inbounds nuw i8, ptr %750, i64 24
-  %752 = load i32, ptr %751, align 4, !tbaa !23
+  %752 = load i32, ptr %751, align 4, !tbaa !22
   %753 = getelementptr inbounds nuw i8, ptr %750, i64 4
-  %754 = load i32, ptr %753, align 4, !tbaa !23
+  %754 = load i32, ptr %753, align 4, !tbaa !22
   %755 = xor i32 %754, %752
   %756 = getelementptr inbounds nuw i8, ptr %750, i64 44
-  %757 = load i32, ptr %756, align 4, !tbaa !23
+  %757 = load i32, ptr %756, align 4, !tbaa !22
   %758 = xor i32 %755, %757
   %759 = getelementptr inbounds nuw i8, ptr %750, i64 36
-  %760 = load i32, ptr %759, align 4, !tbaa !23
+  %760 = load i32, ptr %759, align 4, !tbaa !22
   %761 = xor i32 %758, %760
   %762 = tail call i32 @llvm.fshl.i32(i32 %761, i32 %761, i32 1)
-  store i32 %762, ptr %759, align 4, !tbaa !23
+  store i32 %762, ptr %759, align 4, !tbaa !22
   %763 = tail call i32 @llvm.fshl.i32(i32 %744, i32 %744, i32 5)
   %764 = add i32 %702, -1894007588
   %765 = add i32 %764, %749
@@ -1345,18 +1345,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %772 = or i32 %770, %771
   %773 = load ptr, ptr %13, align 8, !tbaa !3
   %774 = getelementptr inbounds nuw i8, ptr %773, i64 28
-  %775 = load i32, ptr %774, align 4, !tbaa !23
+  %775 = load i32, ptr %774, align 4, !tbaa !22
   %776 = getelementptr inbounds nuw i8, ptr %773, i64 8
-  %777 = load i32, ptr %776, align 4, !tbaa !23
+  %777 = load i32, ptr %776, align 4, !tbaa !22
   %778 = xor i32 %777, %775
   %779 = getelementptr inbounds nuw i8, ptr %773, i64 48
-  %780 = load i32, ptr %779, align 4, !tbaa !23
+  %780 = load i32, ptr %779, align 4, !tbaa !22
   %781 = xor i32 %778, %780
   %782 = getelementptr inbounds nuw i8, ptr %773, i64 40
-  %783 = load i32, ptr %782, align 4, !tbaa !23
+  %783 = load i32, ptr %782, align 4, !tbaa !22
   %784 = xor i32 %781, %783
   %785 = tail call i32 @llvm.fshl.i32(i32 %784, i32 %784, i32 1)
-  store i32 %785, ptr %782, align 4, !tbaa !23
+  store i32 %785, ptr %782, align 4, !tbaa !22
   %786 = tail call i32 @llvm.fshl.i32(i32 %767, i32 %767, i32 5)
   %787 = add i32 %723, -1894007588
   %788 = add i32 %787, %772
@@ -1369,18 +1369,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %795 = or i32 %793, %794
   %796 = load ptr, ptr %13, align 8, !tbaa !3
   %797 = getelementptr inbounds nuw i8, ptr %796, i64 32
-  %798 = load i32, ptr %797, align 4, !tbaa !23
+  %798 = load i32, ptr %797, align 4, !tbaa !22
   %799 = getelementptr inbounds nuw i8, ptr %796, i64 12
-  %800 = load i32, ptr %799, align 4, !tbaa !23
+  %800 = load i32, ptr %799, align 4, !tbaa !22
   %801 = xor i32 %800, %798
   %802 = getelementptr inbounds nuw i8, ptr %796, i64 52
-  %803 = load i32, ptr %802, align 4, !tbaa !23
+  %803 = load i32, ptr %802, align 4, !tbaa !22
   %804 = xor i32 %801, %803
   %805 = getelementptr inbounds nuw i8, ptr %796, i64 44
-  %806 = load i32, ptr %805, align 4, !tbaa !23
+  %806 = load i32, ptr %805, align 4, !tbaa !22
   %807 = xor i32 %804, %806
   %808 = tail call i32 @llvm.fshl.i32(i32 %807, i32 %807, i32 1)
-  store i32 %808, ptr %805, align 4, !tbaa !23
+  store i32 %808, ptr %805, align 4, !tbaa !22
   %809 = tail call i32 @llvm.fshl.i32(i32 %790, i32 %790, i32 5)
   %810 = add i32 %745, -1894007588
   %811 = add i32 %810, %795
@@ -1393,18 +1393,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %818 = or i32 %816, %817
   %819 = load ptr, ptr %13, align 8, !tbaa !3
   %820 = getelementptr inbounds nuw i8, ptr %819, i64 36
-  %821 = load i32, ptr %820, align 4, !tbaa !23
+  %821 = load i32, ptr %820, align 4, !tbaa !22
   %822 = getelementptr inbounds nuw i8, ptr %819, i64 16
-  %823 = load i32, ptr %822, align 4, !tbaa !23
+  %823 = load i32, ptr %822, align 4, !tbaa !22
   %824 = xor i32 %823, %821
   %825 = getelementptr inbounds nuw i8, ptr %819, i64 56
-  %826 = load i32, ptr %825, align 4, !tbaa !23
+  %826 = load i32, ptr %825, align 4, !tbaa !22
   %827 = xor i32 %824, %826
   %828 = getelementptr inbounds nuw i8, ptr %819, i64 48
-  %829 = load i32, ptr %828, align 4, !tbaa !23
+  %829 = load i32, ptr %828, align 4, !tbaa !22
   %830 = xor i32 %827, %829
   %831 = tail call i32 @llvm.fshl.i32(i32 %830, i32 %830, i32 1)
-  store i32 %831, ptr %828, align 4, !tbaa !23
+  store i32 %831, ptr %828, align 4, !tbaa !22
   %832 = tail call i32 @llvm.fshl.i32(i32 %813, i32 %813, i32 5)
   %833 = add i32 %768, -1894007588
   %834 = add i32 %833, %818
@@ -1417,18 +1417,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %841 = or i32 %839, %840
   %842 = load ptr, ptr %13, align 8, !tbaa !3
   %843 = getelementptr inbounds nuw i8, ptr %842, i64 40
-  %844 = load i32, ptr %843, align 4, !tbaa !23
+  %844 = load i32, ptr %843, align 4, !tbaa !22
   %845 = getelementptr inbounds nuw i8, ptr %842, i64 20
-  %846 = load i32, ptr %845, align 4, !tbaa !23
+  %846 = load i32, ptr %845, align 4, !tbaa !22
   %847 = xor i32 %846, %844
   %848 = getelementptr inbounds nuw i8, ptr %842, i64 60
-  %849 = load i32, ptr %848, align 4, !tbaa !23
+  %849 = load i32, ptr %848, align 4, !tbaa !22
   %850 = xor i32 %847, %849
   %851 = getelementptr inbounds nuw i8, ptr %842, i64 52
-  %852 = load i32, ptr %851, align 4, !tbaa !23
+  %852 = load i32, ptr %851, align 4, !tbaa !22
   %853 = xor i32 %850, %852
   %854 = tail call i32 @llvm.fshl.i32(i32 %853, i32 %853, i32 1)
-  store i32 %854, ptr %851, align 4, !tbaa !23
+  store i32 %854, ptr %851, align 4, !tbaa !22
   %855 = tail call i32 @llvm.fshl.i32(i32 %836, i32 %836, i32 5)
   %856 = add i32 %791, -1894007588
   %857 = add i32 %856, %841
@@ -1441,17 +1441,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %864 = or i32 %862, %863
   %865 = load ptr, ptr %13, align 8, !tbaa !3
   %866 = getelementptr inbounds nuw i8, ptr %865, i64 44
-  %867 = load i32, ptr %866, align 4, !tbaa !23
+  %867 = load i32, ptr %866, align 4, !tbaa !22
   %868 = getelementptr inbounds nuw i8, ptr %865, i64 24
-  %869 = load i32, ptr %868, align 4, !tbaa !23
+  %869 = load i32, ptr %868, align 4, !tbaa !22
   %870 = xor i32 %869, %867
-  %871 = load i32, ptr %865, align 4, !tbaa !23
+  %871 = load i32, ptr %865, align 4, !tbaa !22
   %872 = xor i32 %870, %871
   %873 = getelementptr inbounds nuw i8, ptr %865, i64 56
-  %874 = load i32, ptr %873, align 4, !tbaa !23
+  %874 = load i32, ptr %873, align 4, !tbaa !22
   %875 = xor i32 %872, %874
   %876 = tail call i32 @llvm.fshl.i32(i32 %875, i32 %875, i32 1)
-  store i32 %876, ptr %873, align 4, !tbaa !23
+  store i32 %876, ptr %873, align 4, !tbaa !22
   %877 = tail call i32 @llvm.fshl.i32(i32 %859, i32 %859, i32 5)
   %878 = add i32 %814, -1894007588
   %879 = add i32 %878, %864
@@ -1464,18 +1464,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %886 = or i32 %884, %885
   %887 = load ptr, ptr %13, align 8, !tbaa !3
   %888 = getelementptr inbounds nuw i8, ptr %887, i64 48
-  %889 = load i32, ptr %888, align 4, !tbaa !23
+  %889 = load i32, ptr %888, align 4, !tbaa !22
   %890 = getelementptr inbounds nuw i8, ptr %887, i64 28
-  %891 = load i32, ptr %890, align 4, !tbaa !23
+  %891 = load i32, ptr %890, align 4, !tbaa !22
   %892 = xor i32 %891, %889
   %893 = getelementptr inbounds nuw i8, ptr %887, i64 4
-  %894 = load i32, ptr %893, align 4, !tbaa !23
+  %894 = load i32, ptr %893, align 4, !tbaa !22
   %895 = xor i32 %892, %894
   %896 = getelementptr inbounds nuw i8, ptr %887, i64 60
-  %897 = load i32, ptr %896, align 4, !tbaa !23
+  %897 = load i32, ptr %896, align 4, !tbaa !22
   %898 = xor i32 %895, %897
   %899 = tail call i32 @llvm.fshl.i32(i32 %898, i32 %898, i32 1)
-  store i32 %899, ptr %896, align 4, !tbaa !23
+  store i32 %899, ptr %896, align 4, !tbaa !22
   %900 = tail call i32 @llvm.fshl.i32(i32 %881, i32 %881, i32 5)
   %901 = add i32 %837, -1894007588
   %902 = add i32 %901, %886
@@ -1488,17 +1488,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %909 = or i32 %907, %908
   %910 = load ptr, ptr %13, align 8, !tbaa !3
   %911 = getelementptr inbounds nuw i8, ptr %910, i64 52
-  %912 = load i32, ptr %911, align 4, !tbaa !23
+  %912 = load i32, ptr %911, align 4, !tbaa !22
   %913 = getelementptr inbounds nuw i8, ptr %910, i64 32
-  %914 = load i32, ptr %913, align 4, !tbaa !23
+  %914 = load i32, ptr %913, align 4, !tbaa !22
   %915 = xor i32 %914, %912
   %916 = getelementptr inbounds nuw i8, ptr %910, i64 8
-  %917 = load i32, ptr %916, align 4, !tbaa !23
+  %917 = load i32, ptr %916, align 4, !tbaa !22
   %918 = xor i32 %915, %917
-  %919 = load i32, ptr %910, align 4, !tbaa !23
+  %919 = load i32, ptr %910, align 4, !tbaa !22
   %920 = xor i32 %918, %919
   %921 = tail call i32 @llvm.fshl.i32(i32 %920, i32 %920, i32 1)
-  store i32 %921, ptr %910, align 4, !tbaa !23
+  store i32 %921, ptr %910, align 4, !tbaa !22
   %922 = tail call i32 @llvm.fshl.i32(i32 %904, i32 %904, i32 5)
   %923 = add i32 %860, -1894007588
   %924 = add i32 %923, %909
@@ -1511,18 +1511,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %931 = or i32 %929, %930
   %932 = load ptr, ptr %13, align 8, !tbaa !3
   %933 = getelementptr inbounds nuw i8, ptr %932, i64 56
-  %934 = load i32, ptr %933, align 4, !tbaa !23
+  %934 = load i32, ptr %933, align 4, !tbaa !22
   %935 = getelementptr inbounds nuw i8, ptr %932, i64 36
-  %936 = load i32, ptr %935, align 4, !tbaa !23
+  %936 = load i32, ptr %935, align 4, !tbaa !22
   %937 = xor i32 %936, %934
   %938 = getelementptr inbounds nuw i8, ptr %932, i64 12
-  %939 = load i32, ptr %938, align 4, !tbaa !23
+  %939 = load i32, ptr %938, align 4, !tbaa !22
   %940 = xor i32 %937, %939
   %941 = getelementptr inbounds nuw i8, ptr %932, i64 4
-  %942 = load i32, ptr %941, align 4, !tbaa !23
+  %942 = load i32, ptr %941, align 4, !tbaa !22
   %943 = xor i32 %940, %942
   %944 = tail call i32 @llvm.fshl.i32(i32 %943, i32 %943, i32 1)
-  store i32 %944, ptr %941, align 4, !tbaa !23
+  store i32 %944, ptr %941, align 4, !tbaa !22
   %945 = tail call i32 @llvm.fshl.i32(i32 %926, i32 %926, i32 5)
   %946 = add i32 %882, -1894007588
   %947 = add i32 %946, %931
@@ -1535,18 +1535,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %954 = or i32 %952, %953
   %955 = load ptr, ptr %13, align 8, !tbaa !3
   %956 = getelementptr inbounds nuw i8, ptr %955, i64 60
-  %957 = load i32, ptr %956, align 4, !tbaa !23
+  %957 = load i32, ptr %956, align 4, !tbaa !22
   %958 = getelementptr inbounds nuw i8, ptr %955, i64 40
-  %959 = load i32, ptr %958, align 4, !tbaa !23
+  %959 = load i32, ptr %958, align 4, !tbaa !22
   %960 = xor i32 %959, %957
   %961 = getelementptr inbounds nuw i8, ptr %955, i64 16
-  %962 = load i32, ptr %961, align 4, !tbaa !23
+  %962 = load i32, ptr %961, align 4, !tbaa !22
   %963 = xor i32 %960, %962
   %964 = getelementptr inbounds nuw i8, ptr %955, i64 8
-  %965 = load i32, ptr %964, align 4, !tbaa !23
+  %965 = load i32, ptr %964, align 4, !tbaa !22
   %966 = xor i32 %963, %965
   %967 = tail call i32 @llvm.fshl.i32(i32 %966, i32 %966, i32 1)
-  store i32 %967, ptr %964, align 4, !tbaa !23
+  store i32 %967, ptr %964, align 4, !tbaa !22
   %968 = tail call i32 @llvm.fshl.i32(i32 %949, i32 %949, i32 5)
   %969 = add i32 %905, -1894007588
   %970 = add i32 %969, %954
@@ -1558,18 +1558,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %976 = and i32 %949, %973
   %977 = or i32 %975, %976
   %978 = load ptr, ptr %13, align 8, !tbaa !3
-  %979 = load i32, ptr %978, align 4, !tbaa !23
+  %979 = load i32, ptr %978, align 4, !tbaa !22
   %980 = getelementptr inbounds nuw i8, ptr %978, i64 44
-  %981 = load i32, ptr %980, align 4, !tbaa !23
+  %981 = load i32, ptr %980, align 4, !tbaa !22
   %982 = xor i32 %981, %979
   %983 = getelementptr inbounds nuw i8, ptr %978, i64 20
-  %984 = load i32, ptr %983, align 4, !tbaa !23
+  %984 = load i32, ptr %983, align 4, !tbaa !22
   %985 = xor i32 %982, %984
   %986 = getelementptr inbounds nuw i8, ptr %978, i64 12
-  %987 = load i32, ptr %986, align 4, !tbaa !23
+  %987 = load i32, ptr %986, align 4, !tbaa !22
   %988 = xor i32 %985, %987
   %989 = tail call i32 @llvm.fshl.i32(i32 %988, i32 %988, i32 1)
-  store i32 %989, ptr %986, align 4, !tbaa !23
+  store i32 %989, ptr %986, align 4, !tbaa !22
   %990 = tail call i32 @llvm.fshl.i32(i32 %972, i32 %972, i32 5)
   %991 = add i32 %927, -1894007588
   %992 = add i32 %991, %977
@@ -1582,18 +1582,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %999 = or i32 %997, %998
   %1000 = load ptr, ptr %13, align 8, !tbaa !3
   %1001 = getelementptr inbounds nuw i8, ptr %1000, i64 4
-  %1002 = load i32, ptr %1001, align 4, !tbaa !23
+  %1002 = load i32, ptr %1001, align 4, !tbaa !22
   %1003 = getelementptr inbounds nuw i8, ptr %1000, i64 48
-  %1004 = load i32, ptr %1003, align 4, !tbaa !23
+  %1004 = load i32, ptr %1003, align 4, !tbaa !22
   %1005 = xor i32 %1004, %1002
   %1006 = getelementptr inbounds nuw i8, ptr %1000, i64 24
-  %1007 = load i32, ptr %1006, align 4, !tbaa !23
+  %1007 = load i32, ptr %1006, align 4, !tbaa !22
   %1008 = xor i32 %1005, %1007
   %1009 = getelementptr inbounds nuw i8, ptr %1000, i64 16
-  %1010 = load i32, ptr %1009, align 4, !tbaa !23
+  %1010 = load i32, ptr %1009, align 4, !tbaa !22
   %1011 = xor i32 %1008, %1010
   %1012 = tail call i32 @llvm.fshl.i32(i32 %1011, i32 %1011, i32 1)
-  store i32 %1012, ptr %1009, align 4, !tbaa !23
+  store i32 %1012, ptr %1009, align 4, !tbaa !22
   %1013 = tail call i32 @llvm.fshl.i32(i32 %994, i32 %994, i32 5)
   %1014 = add i32 %950, -1894007588
   %1015 = add i32 %1014, %999
@@ -1606,18 +1606,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1022 = or i32 %1020, %1021
   %1023 = load ptr, ptr %13, align 8, !tbaa !3
   %1024 = getelementptr inbounds nuw i8, ptr %1023, i64 8
-  %1025 = load i32, ptr %1024, align 4, !tbaa !23
+  %1025 = load i32, ptr %1024, align 4, !tbaa !22
   %1026 = getelementptr inbounds nuw i8, ptr %1023, i64 52
-  %1027 = load i32, ptr %1026, align 4, !tbaa !23
+  %1027 = load i32, ptr %1026, align 4, !tbaa !22
   %1028 = xor i32 %1027, %1025
   %1029 = getelementptr inbounds nuw i8, ptr %1023, i64 28
-  %1030 = load i32, ptr %1029, align 4, !tbaa !23
+  %1030 = load i32, ptr %1029, align 4, !tbaa !22
   %1031 = xor i32 %1028, %1030
   %1032 = getelementptr inbounds nuw i8, ptr %1023, i64 20
-  %1033 = load i32, ptr %1032, align 4, !tbaa !23
+  %1033 = load i32, ptr %1032, align 4, !tbaa !22
   %1034 = xor i32 %1031, %1033
   %1035 = tail call i32 @llvm.fshl.i32(i32 %1034, i32 %1034, i32 1)
-  store i32 %1035, ptr %1032, align 4, !tbaa !23
+  store i32 %1035, ptr %1032, align 4, !tbaa !22
   %1036 = tail call i32 @llvm.fshl.i32(i32 %1017, i32 %1017, i32 5)
   %1037 = add i32 %973, -1894007588
   %1038 = add i32 %1037, %1022
@@ -1630,18 +1630,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1045 = or i32 %1043, %1044
   %1046 = load ptr, ptr %13, align 8, !tbaa !3
   %1047 = getelementptr inbounds nuw i8, ptr %1046, i64 12
-  %1048 = load i32, ptr %1047, align 4, !tbaa !23
+  %1048 = load i32, ptr %1047, align 4, !tbaa !22
   %1049 = getelementptr inbounds nuw i8, ptr %1046, i64 56
-  %1050 = load i32, ptr %1049, align 4, !tbaa !23
+  %1050 = load i32, ptr %1049, align 4, !tbaa !22
   %1051 = xor i32 %1050, %1048
   %1052 = getelementptr inbounds nuw i8, ptr %1046, i64 32
-  %1053 = load i32, ptr %1052, align 4, !tbaa !23
+  %1053 = load i32, ptr %1052, align 4, !tbaa !22
   %1054 = xor i32 %1051, %1053
   %1055 = getelementptr inbounds nuw i8, ptr %1046, i64 24
-  %1056 = load i32, ptr %1055, align 4, !tbaa !23
+  %1056 = load i32, ptr %1055, align 4, !tbaa !22
   %1057 = xor i32 %1054, %1056
   %1058 = tail call i32 @llvm.fshl.i32(i32 %1057, i32 %1057, i32 1)
-  store i32 %1058, ptr %1055, align 4, !tbaa !23
+  store i32 %1058, ptr %1055, align 4, !tbaa !22
   %1059 = tail call i32 @llvm.fshl.i32(i32 %1040, i32 %1040, i32 5)
   %1060 = add i32 %995, -1894007588
   %1061 = add i32 %1060, %1045
@@ -1654,18 +1654,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1068 = or i32 %1066, %1067
   %1069 = load ptr, ptr %13, align 8, !tbaa !3
   %1070 = getelementptr inbounds nuw i8, ptr %1069, i64 16
-  %1071 = load i32, ptr %1070, align 4, !tbaa !23
+  %1071 = load i32, ptr %1070, align 4, !tbaa !22
   %1072 = getelementptr inbounds nuw i8, ptr %1069, i64 60
-  %1073 = load i32, ptr %1072, align 4, !tbaa !23
+  %1073 = load i32, ptr %1072, align 4, !tbaa !22
   %1074 = xor i32 %1073, %1071
   %1075 = getelementptr inbounds nuw i8, ptr %1069, i64 36
-  %1076 = load i32, ptr %1075, align 4, !tbaa !23
+  %1076 = load i32, ptr %1075, align 4, !tbaa !22
   %1077 = xor i32 %1074, %1076
   %1078 = getelementptr inbounds nuw i8, ptr %1069, i64 28
-  %1079 = load i32, ptr %1078, align 4, !tbaa !23
+  %1079 = load i32, ptr %1078, align 4, !tbaa !22
   %1080 = xor i32 %1077, %1079
   %1081 = tail call i32 @llvm.fshl.i32(i32 %1080, i32 %1080, i32 1)
-  store i32 %1081, ptr %1078, align 4, !tbaa !23
+  store i32 %1081, ptr %1078, align 4, !tbaa !22
   %1082 = tail call i32 @llvm.fshl.i32(i32 %1063, i32 %1063, i32 5)
   %1083 = add i32 %1018, -1894007588
   %1084 = add i32 %1083, %1068
@@ -1678,17 +1678,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1091 = or i32 %1089, %1090
   %1092 = load ptr, ptr %13, align 8, !tbaa !3
   %1093 = getelementptr inbounds nuw i8, ptr %1092, i64 20
-  %1094 = load i32, ptr %1093, align 4, !tbaa !23
-  %1095 = load i32, ptr %1092, align 4, !tbaa !23
+  %1094 = load i32, ptr %1093, align 4, !tbaa !22
+  %1095 = load i32, ptr %1092, align 4, !tbaa !22
   %1096 = xor i32 %1095, %1094
   %1097 = getelementptr inbounds nuw i8, ptr %1092, i64 40
-  %1098 = load i32, ptr %1097, align 4, !tbaa !23
+  %1098 = load i32, ptr %1097, align 4, !tbaa !22
   %1099 = xor i32 %1096, %1098
   %1100 = getelementptr inbounds nuw i8, ptr %1092, i64 32
-  %1101 = load i32, ptr %1100, align 4, !tbaa !23
+  %1101 = load i32, ptr %1100, align 4, !tbaa !22
   %1102 = xor i32 %1099, %1101
   %1103 = tail call i32 @llvm.fshl.i32(i32 %1102, i32 %1102, i32 1)
-  store i32 %1103, ptr %1100, align 4, !tbaa !23
+  store i32 %1103, ptr %1100, align 4, !tbaa !22
   %1104 = tail call i32 @llvm.fshl.i32(i32 %1086, i32 %1086, i32 5)
   %1105 = add i32 %1041, -1894007588
   %1106 = add i32 %1105, %1091
@@ -1701,18 +1701,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1113 = or i32 %1111, %1112
   %1114 = load ptr, ptr %13, align 8, !tbaa !3
   %1115 = getelementptr inbounds nuw i8, ptr %1114, i64 24
-  %1116 = load i32, ptr %1115, align 4, !tbaa !23
+  %1116 = load i32, ptr %1115, align 4, !tbaa !22
   %1117 = getelementptr inbounds nuw i8, ptr %1114, i64 4
-  %1118 = load i32, ptr %1117, align 4, !tbaa !23
+  %1118 = load i32, ptr %1117, align 4, !tbaa !22
   %1119 = xor i32 %1118, %1116
   %1120 = getelementptr inbounds nuw i8, ptr %1114, i64 44
-  %1121 = load i32, ptr %1120, align 4, !tbaa !23
+  %1121 = load i32, ptr %1120, align 4, !tbaa !22
   %1122 = xor i32 %1119, %1121
   %1123 = getelementptr inbounds nuw i8, ptr %1114, i64 36
-  %1124 = load i32, ptr %1123, align 4, !tbaa !23
+  %1124 = load i32, ptr %1123, align 4, !tbaa !22
   %1125 = xor i32 %1122, %1124
   %1126 = tail call i32 @llvm.fshl.i32(i32 %1125, i32 %1125, i32 1)
-  store i32 %1126, ptr %1123, align 4, !tbaa !23
+  store i32 %1126, ptr %1123, align 4, !tbaa !22
   %1127 = tail call i32 @llvm.fshl.i32(i32 %1108, i32 %1108, i32 5)
   %1128 = add i32 %1064, -1894007588
   %1129 = add i32 %1128, %1113
@@ -1725,18 +1725,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1136 = or i32 %1134, %1135
   %1137 = load ptr, ptr %13, align 8, !tbaa !3
   %1138 = getelementptr inbounds nuw i8, ptr %1137, i64 28
-  %1139 = load i32, ptr %1138, align 4, !tbaa !23
+  %1139 = load i32, ptr %1138, align 4, !tbaa !22
   %1140 = getelementptr inbounds nuw i8, ptr %1137, i64 8
-  %1141 = load i32, ptr %1140, align 4, !tbaa !23
+  %1141 = load i32, ptr %1140, align 4, !tbaa !22
   %1142 = xor i32 %1141, %1139
   %1143 = getelementptr inbounds nuw i8, ptr %1137, i64 48
-  %1144 = load i32, ptr %1143, align 4, !tbaa !23
+  %1144 = load i32, ptr %1143, align 4, !tbaa !22
   %1145 = xor i32 %1142, %1144
   %1146 = getelementptr inbounds nuw i8, ptr %1137, i64 40
-  %1147 = load i32, ptr %1146, align 4, !tbaa !23
+  %1147 = load i32, ptr %1146, align 4, !tbaa !22
   %1148 = xor i32 %1145, %1147
   %1149 = tail call i32 @llvm.fshl.i32(i32 %1148, i32 %1148, i32 1)
-  store i32 %1149, ptr %1146, align 4, !tbaa !23
+  store i32 %1149, ptr %1146, align 4, !tbaa !22
   %1150 = tail call i32 @llvm.fshl.i32(i32 %1131, i32 %1131, i32 5)
   %1151 = add i32 %1087, -1894007588
   %1152 = add i32 %1151, %1136
@@ -1749,18 +1749,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1159 = or i32 %1157, %1158
   %1160 = load ptr, ptr %13, align 8, !tbaa !3
   %1161 = getelementptr inbounds nuw i8, ptr %1160, i64 32
-  %1162 = load i32, ptr %1161, align 4, !tbaa !23
+  %1162 = load i32, ptr %1161, align 4, !tbaa !22
   %1163 = getelementptr inbounds nuw i8, ptr %1160, i64 12
-  %1164 = load i32, ptr %1163, align 4, !tbaa !23
+  %1164 = load i32, ptr %1163, align 4, !tbaa !22
   %1165 = xor i32 %1164, %1162
   %1166 = getelementptr inbounds nuw i8, ptr %1160, i64 52
-  %1167 = load i32, ptr %1166, align 4, !tbaa !23
+  %1167 = load i32, ptr %1166, align 4, !tbaa !22
   %1168 = xor i32 %1165, %1167
   %1169 = getelementptr inbounds nuw i8, ptr %1160, i64 44
-  %1170 = load i32, ptr %1169, align 4, !tbaa !23
+  %1170 = load i32, ptr %1169, align 4, !tbaa !22
   %1171 = xor i32 %1168, %1170
   %1172 = tail call i32 @llvm.fshl.i32(i32 %1171, i32 %1171, i32 1)
-  store i32 %1172, ptr %1169, align 4, !tbaa !23
+  store i32 %1172, ptr %1169, align 4, !tbaa !22
   %1173 = tail call i32 @llvm.fshl.i32(i32 %1154, i32 %1154, i32 5)
   %1174 = add i32 %1109, -1894007588
   %1175 = add i32 %1174, %1159
@@ -1771,18 +1771,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1180 = xor i32 %1179, %1154
   %1181 = load ptr, ptr %13, align 8, !tbaa !3
   %1182 = getelementptr inbounds nuw i8, ptr %1181, i64 36
-  %1183 = load i32, ptr %1182, align 4, !tbaa !23
+  %1183 = load i32, ptr %1182, align 4, !tbaa !22
   %1184 = getelementptr inbounds nuw i8, ptr %1181, i64 16
-  %1185 = load i32, ptr %1184, align 4, !tbaa !23
+  %1185 = load i32, ptr %1184, align 4, !tbaa !22
   %1186 = xor i32 %1185, %1183
   %1187 = getelementptr inbounds nuw i8, ptr %1181, i64 56
-  %1188 = load i32, ptr %1187, align 4, !tbaa !23
+  %1188 = load i32, ptr %1187, align 4, !tbaa !22
   %1189 = xor i32 %1186, %1188
   %1190 = getelementptr inbounds nuw i8, ptr %1181, i64 48
-  %1191 = load i32, ptr %1190, align 4, !tbaa !23
+  %1191 = load i32, ptr %1190, align 4, !tbaa !22
   %1192 = xor i32 %1189, %1191
   %1193 = tail call i32 @llvm.fshl.i32(i32 %1192, i32 %1192, i32 1)
-  store i32 %1193, ptr %1190, align 4, !tbaa !23
+  store i32 %1193, ptr %1190, align 4, !tbaa !22
   %1194 = tail call i32 @llvm.fshl.i32(i32 %1177, i32 %1177, i32 5)
   %1195 = add i32 %1132, -899497514
   %1196 = add i32 %1195, %1180
@@ -1793,18 +1793,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1201 = xor i32 %1200, %1177
   %1202 = load ptr, ptr %13, align 8, !tbaa !3
   %1203 = getelementptr inbounds nuw i8, ptr %1202, i64 40
-  %1204 = load i32, ptr %1203, align 4, !tbaa !23
+  %1204 = load i32, ptr %1203, align 4, !tbaa !22
   %1205 = getelementptr inbounds nuw i8, ptr %1202, i64 20
-  %1206 = load i32, ptr %1205, align 4, !tbaa !23
+  %1206 = load i32, ptr %1205, align 4, !tbaa !22
   %1207 = xor i32 %1206, %1204
   %1208 = getelementptr inbounds nuw i8, ptr %1202, i64 60
-  %1209 = load i32, ptr %1208, align 4, !tbaa !23
+  %1209 = load i32, ptr %1208, align 4, !tbaa !22
   %1210 = xor i32 %1207, %1209
   %1211 = getelementptr inbounds nuw i8, ptr %1202, i64 52
-  %1212 = load i32, ptr %1211, align 4, !tbaa !23
+  %1212 = load i32, ptr %1211, align 4, !tbaa !22
   %1213 = xor i32 %1210, %1212
   %1214 = tail call i32 @llvm.fshl.i32(i32 %1213, i32 %1213, i32 1)
-  store i32 %1214, ptr %1211, align 4, !tbaa !23
+  store i32 %1214, ptr %1211, align 4, !tbaa !22
   %1215 = tail call i32 @llvm.fshl.i32(i32 %1198, i32 %1198, i32 5)
   %1216 = add i32 %1155, -899497514
   %1217 = add i32 %1216, %1201
@@ -1815,17 +1815,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1222 = xor i32 %1221, %1198
   %1223 = load ptr, ptr %13, align 8, !tbaa !3
   %1224 = getelementptr inbounds nuw i8, ptr %1223, i64 44
-  %1225 = load i32, ptr %1224, align 4, !tbaa !23
+  %1225 = load i32, ptr %1224, align 4, !tbaa !22
   %1226 = getelementptr inbounds nuw i8, ptr %1223, i64 24
-  %1227 = load i32, ptr %1226, align 4, !tbaa !23
+  %1227 = load i32, ptr %1226, align 4, !tbaa !22
   %1228 = xor i32 %1227, %1225
-  %1229 = load i32, ptr %1223, align 4, !tbaa !23
+  %1229 = load i32, ptr %1223, align 4, !tbaa !22
   %1230 = xor i32 %1228, %1229
   %1231 = getelementptr inbounds nuw i8, ptr %1223, i64 56
-  %1232 = load i32, ptr %1231, align 4, !tbaa !23
+  %1232 = load i32, ptr %1231, align 4, !tbaa !22
   %1233 = xor i32 %1230, %1232
   %1234 = tail call i32 @llvm.fshl.i32(i32 %1233, i32 %1233, i32 1)
-  store i32 %1234, ptr %1231, align 4, !tbaa !23
+  store i32 %1234, ptr %1231, align 4, !tbaa !22
   %1235 = tail call i32 @llvm.fshl.i32(i32 %1219, i32 %1219, i32 5)
   %1236 = add i32 %1178, -899497514
   %1237 = add i32 %1236, %1222
@@ -1836,18 +1836,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1242 = xor i32 %1241, %1219
   %1243 = load ptr, ptr %13, align 8, !tbaa !3
   %1244 = getelementptr inbounds nuw i8, ptr %1243, i64 48
-  %1245 = load i32, ptr %1244, align 4, !tbaa !23
+  %1245 = load i32, ptr %1244, align 4, !tbaa !22
   %1246 = getelementptr inbounds nuw i8, ptr %1243, i64 28
-  %1247 = load i32, ptr %1246, align 4, !tbaa !23
+  %1247 = load i32, ptr %1246, align 4, !tbaa !22
   %1248 = xor i32 %1247, %1245
   %1249 = getelementptr inbounds nuw i8, ptr %1243, i64 4
-  %1250 = load i32, ptr %1249, align 4, !tbaa !23
+  %1250 = load i32, ptr %1249, align 4, !tbaa !22
   %1251 = xor i32 %1248, %1250
   %1252 = getelementptr inbounds nuw i8, ptr %1243, i64 60
-  %1253 = load i32, ptr %1252, align 4, !tbaa !23
+  %1253 = load i32, ptr %1252, align 4, !tbaa !22
   %1254 = xor i32 %1251, %1253
   %1255 = tail call i32 @llvm.fshl.i32(i32 %1254, i32 %1254, i32 1)
-  store i32 %1255, ptr %1252, align 4, !tbaa !23
+  store i32 %1255, ptr %1252, align 4, !tbaa !22
   %1256 = tail call i32 @llvm.fshl.i32(i32 %1239, i32 %1239, i32 5)
   %1257 = add i32 %1199, -899497514
   %1258 = add i32 %1257, %1242
@@ -1858,17 +1858,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1263 = xor i32 %1262, %1239
   %1264 = load ptr, ptr %13, align 8, !tbaa !3
   %1265 = getelementptr inbounds nuw i8, ptr %1264, i64 52
-  %1266 = load i32, ptr %1265, align 4, !tbaa !23
+  %1266 = load i32, ptr %1265, align 4, !tbaa !22
   %1267 = getelementptr inbounds nuw i8, ptr %1264, i64 32
-  %1268 = load i32, ptr %1267, align 4, !tbaa !23
+  %1268 = load i32, ptr %1267, align 4, !tbaa !22
   %1269 = xor i32 %1268, %1266
   %1270 = getelementptr inbounds nuw i8, ptr %1264, i64 8
-  %1271 = load i32, ptr %1270, align 4, !tbaa !23
+  %1271 = load i32, ptr %1270, align 4, !tbaa !22
   %1272 = xor i32 %1269, %1271
-  %1273 = load i32, ptr %1264, align 4, !tbaa !23
+  %1273 = load i32, ptr %1264, align 4, !tbaa !22
   %1274 = xor i32 %1272, %1273
   %1275 = tail call i32 @llvm.fshl.i32(i32 %1274, i32 %1274, i32 1)
-  store i32 %1275, ptr %1264, align 4, !tbaa !23
+  store i32 %1275, ptr %1264, align 4, !tbaa !22
   %1276 = tail call i32 @llvm.fshl.i32(i32 %1260, i32 %1260, i32 5)
   %1277 = add i32 %1220, -899497514
   %1278 = add i32 %1277, %1263
@@ -1879,18 +1879,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1283 = xor i32 %1282, %1260
   %1284 = load ptr, ptr %13, align 8, !tbaa !3
   %1285 = getelementptr inbounds nuw i8, ptr %1284, i64 56
-  %1286 = load i32, ptr %1285, align 4, !tbaa !23
+  %1286 = load i32, ptr %1285, align 4, !tbaa !22
   %1287 = getelementptr inbounds nuw i8, ptr %1284, i64 36
-  %1288 = load i32, ptr %1287, align 4, !tbaa !23
+  %1288 = load i32, ptr %1287, align 4, !tbaa !22
   %1289 = xor i32 %1288, %1286
   %1290 = getelementptr inbounds nuw i8, ptr %1284, i64 12
-  %1291 = load i32, ptr %1290, align 4, !tbaa !23
+  %1291 = load i32, ptr %1290, align 4, !tbaa !22
   %1292 = xor i32 %1289, %1291
   %1293 = getelementptr inbounds nuw i8, ptr %1284, i64 4
-  %1294 = load i32, ptr %1293, align 4, !tbaa !23
+  %1294 = load i32, ptr %1293, align 4, !tbaa !22
   %1295 = xor i32 %1292, %1294
   %1296 = tail call i32 @llvm.fshl.i32(i32 %1295, i32 %1295, i32 1)
-  store i32 %1296, ptr %1293, align 4, !tbaa !23
+  store i32 %1296, ptr %1293, align 4, !tbaa !22
   %1297 = tail call i32 @llvm.fshl.i32(i32 %1280, i32 %1280, i32 5)
   %1298 = add i32 %1240, -899497514
   %1299 = add i32 %1298, %1283
@@ -1901,18 +1901,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1304 = xor i32 %1303, %1280
   %1305 = load ptr, ptr %13, align 8, !tbaa !3
   %1306 = getelementptr inbounds nuw i8, ptr %1305, i64 60
-  %1307 = load i32, ptr %1306, align 4, !tbaa !23
+  %1307 = load i32, ptr %1306, align 4, !tbaa !22
   %1308 = getelementptr inbounds nuw i8, ptr %1305, i64 40
-  %1309 = load i32, ptr %1308, align 4, !tbaa !23
+  %1309 = load i32, ptr %1308, align 4, !tbaa !22
   %1310 = xor i32 %1309, %1307
   %1311 = getelementptr inbounds nuw i8, ptr %1305, i64 16
-  %1312 = load i32, ptr %1311, align 4, !tbaa !23
+  %1312 = load i32, ptr %1311, align 4, !tbaa !22
   %1313 = xor i32 %1310, %1312
   %1314 = getelementptr inbounds nuw i8, ptr %1305, i64 8
-  %1315 = load i32, ptr %1314, align 4, !tbaa !23
+  %1315 = load i32, ptr %1314, align 4, !tbaa !22
   %1316 = xor i32 %1313, %1315
   %1317 = tail call i32 @llvm.fshl.i32(i32 %1316, i32 %1316, i32 1)
-  store i32 %1317, ptr %1314, align 4, !tbaa !23
+  store i32 %1317, ptr %1314, align 4, !tbaa !22
   %1318 = tail call i32 @llvm.fshl.i32(i32 %1301, i32 %1301, i32 5)
   %1319 = add i32 %1261, -899497514
   %1320 = add i32 %1319, %1304
@@ -1922,18 +1922,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1324 = xor i32 %1323, %1302
   %1325 = xor i32 %1324, %1301
   %1326 = load ptr, ptr %13, align 8, !tbaa !3
-  %1327 = load i32, ptr %1326, align 4, !tbaa !23
+  %1327 = load i32, ptr %1326, align 4, !tbaa !22
   %1328 = getelementptr inbounds nuw i8, ptr %1326, i64 44
-  %1329 = load i32, ptr %1328, align 4, !tbaa !23
+  %1329 = load i32, ptr %1328, align 4, !tbaa !22
   %1330 = xor i32 %1329, %1327
   %1331 = getelementptr inbounds nuw i8, ptr %1326, i64 20
-  %1332 = load i32, ptr %1331, align 4, !tbaa !23
+  %1332 = load i32, ptr %1331, align 4, !tbaa !22
   %1333 = xor i32 %1330, %1332
   %1334 = getelementptr inbounds nuw i8, ptr %1326, i64 12
-  %1335 = load i32, ptr %1334, align 4, !tbaa !23
+  %1335 = load i32, ptr %1334, align 4, !tbaa !22
   %1336 = xor i32 %1333, %1335
   %1337 = tail call i32 @llvm.fshl.i32(i32 %1336, i32 %1336, i32 1)
-  store i32 %1337, ptr %1334, align 4, !tbaa !23
+  store i32 %1337, ptr %1334, align 4, !tbaa !22
   %1338 = tail call i32 @llvm.fshl.i32(i32 %1322, i32 %1322, i32 5)
   %1339 = add i32 %1281, -899497514
   %1340 = add i32 %1339, %1325
@@ -1944,18 +1944,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1345 = xor i32 %1344, %1322
   %1346 = load ptr, ptr %13, align 8, !tbaa !3
   %1347 = getelementptr inbounds nuw i8, ptr %1346, i64 4
-  %1348 = load i32, ptr %1347, align 4, !tbaa !23
+  %1348 = load i32, ptr %1347, align 4, !tbaa !22
   %1349 = getelementptr inbounds nuw i8, ptr %1346, i64 48
-  %1350 = load i32, ptr %1349, align 4, !tbaa !23
+  %1350 = load i32, ptr %1349, align 4, !tbaa !22
   %1351 = xor i32 %1350, %1348
   %1352 = getelementptr inbounds nuw i8, ptr %1346, i64 24
-  %1353 = load i32, ptr %1352, align 4, !tbaa !23
+  %1353 = load i32, ptr %1352, align 4, !tbaa !22
   %1354 = xor i32 %1351, %1353
   %1355 = getelementptr inbounds nuw i8, ptr %1346, i64 16
-  %1356 = load i32, ptr %1355, align 4, !tbaa !23
+  %1356 = load i32, ptr %1355, align 4, !tbaa !22
   %1357 = xor i32 %1354, %1356
   %1358 = tail call i32 @llvm.fshl.i32(i32 %1357, i32 %1357, i32 1)
-  store i32 %1358, ptr %1355, align 4, !tbaa !23
+  store i32 %1358, ptr %1355, align 4, !tbaa !22
   %1359 = tail call i32 @llvm.fshl.i32(i32 %1342, i32 %1342, i32 5)
   %1360 = add i32 %1302, -899497514
   %1361 = add i32 %1360, %1345
@@ -1966,18 +1966,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1366 = xor i32 %1365, %1342
   %1367 = load ptr, ptr %13, align 8, !tbaa !3
   %1368 = getelementptr inbounds nuw i8, ptr %1367, i64 8
-  %1369 = load i32, ptr %1368, align 4, !tbaa !23
+  %1369 = load i32, ptr %1368, align 4, !tbaa !22
   %1370 = getelementptr inbounds nuw i8, ptr %1367, i64 52
-  %1371 = load i32, ptr %1370, align 4, !tbaa !23
+  %1371 = load i32, ptr %1370, align 4, !tbaa !22
   %1372 = xor i32 %1371, %1369
   %1373 = getelementptr inbounds nuw i8, ptr %1367, i64 28
-  %1374 = load i32, ptr %1373, align 4, !tbaa !23
+  %1374 = load i32, ptr %1373, align 4, !tbaa !22
   %1375 = xor i32 %1372, %1374
   %1376 = getelementptr inbounds nuw i8, ptr %1367, i64 20
-  %1377 = load i32, ptr %1376, align 4, !tbaa !23
+  %1377 = load i32, ptr %1376, align 4, !tbaa !22
   %1378 = xor i32 %1375, %1377
   %1379 = tail call i32 @llvm.fshl.i32(i32 %1378, i32 %1378, i32 1)
-  store i32 %1379, ptr %1376, align 4, !tbaa !23
+  store i32 %1379, ptr %1376, align 4, !tbaa !22
   %1380 = tail call i32 @llvm.fshl.i32(i32 %1363, i32 %1363, i32 5)
   %1381 = add i32 %1323, -899497514
   %1382 = add i32 %1381, %1366
@@ -1988,18 +1988,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1387 = xor i32 %1386, %1363
   %1388 = load ptr, ptr %13, align 8, !tbaa !3
   %1389 = getelementptr inbounds nuw i8, ptr %1388, i64 12
-  %1390 = load i32, ptr %1389, align 4, !tbaa !23
+  %1390 = load i32, ptr %1389, align 4, !tbaa !22
   %1391 = getelementptr inbounds nuw i8, ptr %1388, i64 56
-  %1392 = load i32, ptr %1391, align 4, !tbaa !23
+  %1392 = load i32, ptr %1391, align 4, !tbaa !22
   %1393 = xor i32 %1392, %1390
   %1394 = getelementptr inbounds nuw i8, ptr %1388, i64 32
-  %1395 = load i32, ptr %1394, align 4, !tbaa !23
+  %1395 = load i32, ptr %1394, align 4, !tbaa !22
   %1396 = xor i32 %1393, %1395
   %1397 = getelementptr inbounds nuw i8, ptr %1388, i64 24
-  %1398 = load i32, ptr %1397, align 4, !tbaa !23
+  %1398 = load i32, ptr %1397, align 4, !tbaa !22
   %1399 = xor i32 %1396, %1398
   %1400 = tail call i32 @llvm.fshl.i32(i32 %1399, i32 %1399, i32 1)
-  store i32 %1400, ptr %1397, align 4, !tbaa !23
+  store i32 %1400, ptr %1397, align 4, !tbaa !22
   %1401 = tail call i32 @llvm.fshl.i32(i32 %1384, i32 %1384, i32 5)
   %1402 = add i32 %1343, -899497514
   %1403 = add i32 %1402, %1387
@@ -2010,18 +2010,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1408 = xor i32 %1407, %1384
   %1409 = load ptr, ptr %13, align 8, !tbaa !3
   %1410 = getelementptr inbounds nuw i8, ptr %1409, i64 16
-  %1411 = load i32, ptr %1410, align 4, !tbaa !23
+  %1411 = load i32, ptr %1410, align 4, !tbaa !22
   %1412 = getelementptr inbounds nuw i8, ptr %1409, i64 60
-  %1413 = load i32, ptr %1412, align 4, !tbaa !23
+  %1413 = load i32, ptr %1412, align 4, !tbaa !22
   %1414 = xor i32 %1413, %1411
   %1415 = getelementptr inbounds nuw i8, ptr %1409, i64 36
-  %1416 = load i32, ptr %1415, align 4, !tbaa !23
+  %1416 = load i32, ptr %1415, align 4, !tbaa !22
   %1417 = xor i32 %1414, %1416
   %1418 = getelementptr inbounds nuw i8, ptr %1409, i64 28
-  %1419 = load i32, ptr %1418, align 4, !tbaa !23
+  %1419 = load i32, ptr %1418, align 4, !tbaa !22
   %1420 = xor i32 %1417, %1419
   %1421 = tail call i32 @llvm.fshl.i32(i32 %1420, i32 %1420, i32 1)
-  store i32 %1421, ptr %1418, align 4, !tbaa !23
+  store i32 %1421, ptr %1418, align 4, !tbaa !22
   %1422 = tail call i32 @llvm.fshl.i32(i32 %1405, i32 %1405, i32 5)
   %1423 = add i32 %1364, -899497514
   %1424 = add i32 %1423, %1408
@@ -2032,17 +2032,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1429 = xor i32 %1428, %1405
   %1430 = load ptr, ptr %13, align 8, !tbaa !3
   %1431 = getelementptr inbounds nuw i8, ptr %1430, i64 20
-  %1432 = load i32, ptr %1431, align 4, !tbaa !23
-  %1433 = load i32, ptr %1430, align 4, !tbaa !23
+  %1432 = load i32, ptr %1431, align 4, !tbaa !22
+  %1433 = load i32, ptr %1430, align 4, !tbaa !22
   %1434 = xor i32 %1433, %1432
   %1435 = getelementptr inbounds nuw i8, ptr %1430, i64 40
-  %1436 = load i32, ptr %1435, align 4, !tbaa !23
+  %1436 = load i32, ptr %1435, align 4, !tbaa !22
   %1437 = xor i32 %1434, %1436
   %1438 = getelementptr inbounds nuw i8, ptr %1430, i64 32
-  %1439 = load i32, ptr %1438, align 4, !tbaa !23
+  %1439 = load i32, ptr %1438, align 4, !tbaa !22
   %1440 = xor i32 %1437, %1439
   %1441 = tail call i32 @llvm.fshl.i32(i32 %1440, i32 %1440, i32 1)
-  store i32 %1441, ptr %1438, align 4, !tbaa !23
+  store i32 %1441, ptr %1438, align 4, !tbaa !22
   %1442 = tail call i32 @llvm.fshl.i32(i32 %1426, i32 %1426, i32 5)
   %1443 = add i32 %1385, -899497514
   %1444 = add i32 %1443, %1429
@@ -2053,18 +2053,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1449 = xor i32 %1448, %1426
   %1450 = load ptr, ptr %13, align 8, !tbaa !3
   %1451 = getelementptr inbounds nuw i8, ptr %1450, i64 24
-  %1452 = load i32, ptr %1451, align 4, !tbaa !23
+  %1452 = load i32, ptr %1451, align 4, !tbaa !22
   %1453 = getelementptr inbounds nuw i8, ptr %1450, i64 4
-  %1454 = load i32, ptr %1453, align 4, !tbaa !23
+  %1454 = load i32, ptr %1453, align 4, !tbaa !22
   %1455 = xor i32 %1454, %1452
   %1456 = getelementptr inbounds nuw i8, ptr %1450, i64 44
-  %1457 = load i32, ptr %1456, align 4, !tbaa !23
+  %1457 = load i32, ptr %1456, align 4, !tbaa !22
   %1458 = xor i32 %1455, %1457
   %1459 = getelementptr inbounds nuw i8, ptr %1450, i64 36
-  %1460 = load i32, ptr %1459, align 4, !tbaa !23
+  %1460 = load i32, ptr %1459, align 4, !tbaa !22
   %1461 = xor i32 %1458, %1460
   %1462 = tail call i32 @llvm.fshl.i32(i32 %1461, i32 %1461, i32 1)
-  store i32 %1462, ptr %1459, align 4, !tbaa !23
+  store i32 %1462, ptr %1459, align 4, !tbaa !22
   %1463 = tail call i32 @llvm.fshl.i32(i32 %1446, i32 %1446, i32 5)
   %1464 = add i32 %1406, -899497514
   %1465 = add i32 %1464, %1449
@@ -2075,18 +2075,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1470 = xor i32 %1469, %1446
   %1471 = load ptr, ptr %13, align 8, !tbaa !3
   %1472 = getelementptr inbounds nuw i8, ptr %1471, i64 28
-  %1473 = load i32, ptr %1472, align 4, !tbaa !23
+  %1473 = load i32, ptr %1472, align 4, !tbaa !22
   %1474 = getelementptr inbounds nuw i8, ptr %1471, i64 8
-  %1475 = load i32, ptr %1474, align 4, !tbaa !23
+  %1475 = load i32, ptr %1474, align 4, !tbaa !22
   %1476 = xor i32 %1475, %1473
   %1477 = getelementptr inbounds nuw i8, ptr %1471, i64 48
-  %1478 = load i32, ptr %1477, align 4, !tbaa !23
+  %1478 = load i32, ptr %1477, align 4, !tbaa !22
   %1479 = xor i32 %1476, %1478
   %1480 = getelementptr inbounds nuw i8, ptr %1471, i64 40
-  %1481 = load i32, ptr %1480, align 4, !tbaa !23
+  %1481 = load i32, ptr %1480, align 4, !tbaa !22
   %1482 = xor i32 %1479, %1481
   %1483 = tail call i32 @llvm.fshl.i32(i32 %1482, i32 %1482, i32 1)
-  store i32 %1483, ptr %1480, align 4, !tbaa !23
+  store i32 %1483, ptr %1480, align 4, !tbaa !22
   %1484 = tail call i32 @llvm.fshl.i32(i32 %1467, i32 %1467, i32 5)
   %1485 = add i32 %1427, -899497514
   %1486 = add i32 %1485, %1470
@@ -2097,18 +2097,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1491 = xor i32 %1490, %1467
   %1492 = load ptr, ptr %13, align 8, !tbaa !3
   %1493 = getelementptr inbounds nuw i8, ptr %1492, i64 32
-  %1494 = load i32, ptr %1493, align 4, !tbaa !23
+  %1494 = load i32, ptr %1493, align 4, !tbaa !22
   %1495 = getelementptr inbounds nuw i8, ptr %1492, i64 12
-  %1496 = load i32, ptr %1495, align 4, !tbaa !23
+  %1496 = load i32, ptr %1495, align 4, !tbaa !22
   %1497 = xor i32 %1496, %1494
   %1498 = getelementptr inbounds nuw i8, ptr %1492, i64 52
-  %1499 = load i32, ptr %1498, align 4, !tbaa !23
+  %1499 = load i32, ptr %1498, align 4, !tbaa !22
   %1500 = xor i32 %1497, %1499
   %1501 = getelementptr inbounds nuw i8, ptr %1492, i64 44
-  %1502 = load i32, ptr %1501, align 4, !tbaa !23
+  %1502 = load i32, ptr %1501, align 4, !tbaa !22
   %1503 = xor i32 %1500, %1502
   %1504 = tail call i32 @llvm.fshl.i32(i32 %1503, i32 %1503, i32 1)
-  store i32 %1504, ptr %1501, align 4, !tbaa !23
+  store i32 %1504, ptr %1501, align 4, !tbaa !22
   %1505 = tail call i32 @llvm.fshl.i32(i32 %1488, i32 %1488, i32 5)
   %1506 = add i32 %1447, -899497514
   %1507 = add i32 %1506, %1491
@@ -2119,18 +2119,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1512 = xor i32 %1511, %1488
   %1513 = load ptr, ptr %13, align 8, !tbaa !3
   %1514 = getelementptr inbounds nuw i8, ptr %1513, i64 36
-  %1515 = load i32, ptr %1514, align 4, !tbaa !23
+  %1515 = load i32, ptr %1514, align 4, !tbaa !22
   %1516 = getelementptr inbounds nuw i8, ptr %1513, i64 16
-  %1517 = load i32, ptr %1516, align 4, !tbaa !23
+  %1517 = load i32, ptr %1516, align 4, !tbaa !22
   %1518 = xor i32 %1517, %1515
   %1519 = getelementptr inbounds nuw i8, ptr %1513, i64 56
-  %1520 = load i32, ptr %1519, align 4, !tbaa !23
+  %1520 = load i32, ptr %1519, align 4, !tbaa !22
   %1521 = xor i32 %1518, %1520
   %1522 = getelementptr inbounds nuw i8, ptr %1513, i64 48
-  %1523 = load i32, ptr %1522, align 4, !tbaa !23
+  %1523 = load i32, ptr %1522, align 4, !tbaa !22
   %1524 = xor i32 %1521, %1523
   %1525 = tail call i32 @llvm.fshl.i32(i32 %1524, i32 %1524, i32 1)
-  store i32 %1525, ptr %1522, align 4, !tbaa !23
+  store i32 %1525, ptr %1522, align 4, !tbaa !22
   %1526 = tail call i32 @llvm.fshl.i32(i32 %1509, i32 %1509, i32 5)
   %1527 = add i32 %1468, -899497514
   %1528 = add i32 %1527, %1512
@@ -2141,18 +2141,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1533 = xor i32 %1532, %1509
   %1534 = load ptr, ptr %13, align 8, !tbaa !3
   %1535 = getelementptr inbounds nuw i8, ptr %1534, i64 40
-  %1536 = load i32, ptr %1535, align 4, !tbaa !23
+  %1536 = load i32, ptr %1535, align 4, !tbaa !22
   %1537 = getelementptr inbounds nuw i8, ptr %1534, i64 20
-  %1538 = load i32, ptr %1537, align 4, !tbaa !23
+  %1538 = load i32, ptr %1537, align 4, !tbaa !22
   %1539 = xor i32 %1538, %1536
   %1540 = getelementptr inbounds nuw i8, ptr %1534, i64 60
-  %1541 = load i32, ptr %1540, align 4, !tbaa !23
+  %1541 = load i32, ptr %1540, align 4, !tbaa !22
   %1542 = xor i32 %1539, %1541
   %1543 = getelementptr inbounds nuw i8, ptr %1534, i64 52
-  %1544 = load i32, ptr %1543, align 4, !tbaa !23
+  %1544 = load i32, ptr %1543, align 4, !tbaa !22
   %1545 = xor i32 %1542, %1544
   %1546 = tail call i32 @llvm.fshl.i32(i32 %1545, i32 %1545, i32 1)
-  store i32 %1546, ptr %1543, align 4, !tbaa !23
+  store i32 %1546, ptr %1543, align 4, !tbaa !22
   %1547 = tail call i32 @llvm.fshl.i32(i32 %1530, i32 %1530, i32 5)
   %1548 = add i32 %1489, -899497514
   %1549 = add i32 %1548, %1533
@@ -2163,17 +2163,17 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1554 = xor i32 %1553, %1530
   %1555 = load ptr, ptr %13, align 8, !tbaa !3
   %1556 = getelementptr inbounds nuw i8, ptr %1555, i64 44
-  %1557 = load i32, ptr %1556, align 4, !tbaa !23
+  %1557 = load i32, ptr %1556, align 4, !tbaa !22
   %1558 = getelementptr inbounds nuw i8, ptr %1555, i64 24
-  %1559 = load i32, ptr %1558, align 4, !tbaa !23
+  %1559 = load i32, ptr %1558, align 4, !tbaa !22
   %1560 = xor i32 %1559, %1557
-  %1561 = load i32, ptr %1555, align 4, !tbaa !23
+  %1561 = load i32, ptr %1555, align 4, !tbaa !22
   %1562 = xor i32 %1560, %1561
   %1563 = getelementptr inbounds nuw i8, ptr %1555, i64 56
-  %1564 = load i32, ptr %1563, align 4, !tbaa !23
+  %1564 = load i32, ptr %1563, align 4, !tbaa !22
   %1565 = xor i32 %1562, %1564
   %1566 = tail call i32 @llvm.fshl.i32(i32 %1565, i32 %1565, i32 1)
-  store i32 %1566, ptr %1563, align 4, !tbaa !23
+  store i32 %1566, ptr %1563, align 4, !tbaa !22
   %1567 = tail call i32 @llvm.fshl.i32(i32 %1551, i32 %1551, i32 5)
   %1568 = add i32 %1510, -899497514
   %1569 = add i32 %1568, %1554
@@ -2184,18 +2184,18 @@ define hidden void @_ZN11OpenImageIO6v3_1_05CSHA19TransformEPjPKh(ptr noundef no
   %1574 = xor i32 %1573, %1551
   %1575 = load ptr, ptr %13, align 8, !tbaa !3
   %1576 = getelementptr inbounds nuw i8, ptr %1575, i64 48
-  %1577 = load i32, ptr %1576, align 4, !tbaa !23
+  %1577 = load i32, ptr %1576, align 4, !tbaa !22
   %1578 = getelementptr inbounds nuw i8, ptr %1575, i64 28
-  %1579 = load i32, ptr %1578, align 4, !tbaa !23
+  %1579 = load i32, ptr %1578, align 4, !tbaa !22
   %1580 = xor i32 %1579, %1577
   %1581 = getelementptr inbounds nuw i8, ptr %1575, i64 4
-  %1582 = load i32, ptr %1581, align 4, !tbaa !23
+  %1582 = load i32, ptr %1581, align 4, !tbaa !22
   %1583 = xor i32 %1580, %1582
   %1584 = getelementptr inbounds nuw i8, ptr %1575, i64 60
-  %1585 = load i32, ptr %1584, align 4, !tbaa !23
+  %1585 = load i32, ptr %1584, align 4, !tbaa !22
   %1586 = xor i32 %1583, %1585
   %1587 = tail call i32 @llvm.fshl.i32(i32 %1586, i32 %1586, i32 1)
-  store i32 %1587, ptr %1584, align 4, !tbaa !23
+  store i32 %1587, ptr %1584, align 4, !tbaa !22
   %1588 = tail call i32 @llvm.fshl.i32(i32 %1571, i32 %1571, i32 5)
   %1589 = tail call i32 @llvm.fshl.i32(i32 %1551, i32 %1551, i32 30)
   %1590 = load i32, ptr %1, align 4, !tbaa !8
@@ -2312,7 +2312,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_05CSHA18HashFileEPKc(ptr
 
 _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit:   ; preds = %43, %.loopexit.i
   %49 = icmp ult i64 %13, 524800
-  br i1 %49, label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit.thread, label %12, !llvm.loop !34
+  br i1 %49, label %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit.thread, label %12
 
 _ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit.thread: ; preds = %12, %_ZN11OpenImageIO6v3_1_05CSHA16UpdateEPKhj.exit
   %50 = tail call i32 @feof(ptr noundef nonnull %5) #22
@@ -2365,13 +2365,13 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
 11:                                               ; preds = %10, %10
   %12 = icmp eq i32 %2, 0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %14 = load i8, ptr %13, align 8, !tbaa !23
+  %14 = load i8, ptr %13, align 8, !tbaa !22
   %15 = zext i8 %14 to i32
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.7, i32 noundef %15) #22
-  store ptr %4, ptr %5, align 8, !tbaa !35
+  store ptr %4, ptr %5, align 8, !tbaa !33
   %17 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %17, ptr %18, align 8, !tbaa !37
+  store i64 %17, ptr %18, align 8, !tbaa !35
   %19 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef 83) #22
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %12, label %.split.us, label %.split
@@ -2379,40 +2379,40 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
 .split.us:                                        ; preds = %11, %.split.us
   %.01824.us = phi i64 [ %27, %.split.us ], [ 1, %11 ]
   %21 = getelementptr inbounds nuw [20 x i8], ptr %13, i64 0, i64 %.01824.us
-  %22 = load i8, ptr %21, align 1, !tbaa !23
+  %22 = load i8, ptr %21, align 1, !tbaa !22
   %23 = zext i8 %22 to i32
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.8, i32 noundef %23) #22
-  store ptr %4, ptr %6, align 8, !tbaa !35
+  store ptr %4, ptr %6, align 8, !tbaa !33
   %25 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
-  store i64 %25, ptr %20, align 8, !tbaa !37
+  store i64 %25, ptr %20, align 8, !tbaa !35
   %26 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 83) #22
   %27 = add nuw nsw i64 %.01824.us, 1
   %exitcond28.not = icmp eq i64 %27, 20
-  br i1 %exitcond28.not, label %.loopexit, label %.split.us, !llvm.loop !38
+  br i1 %exitcond28.not, label %.loopexit, label %.split.us, !llvm.loop !36
 
 .split:                                           ; preds = %11, %.split
   %.01824 = phi i64 [ %34, %.split ], [ 1, %11 ]
   %28 = getelementptr inbounds nuw [20 x i8], ptr %13, i64 0, i64 %.01824
-  %29 = load i8, ptr %28, align 1, !tbaa !23
+  %29 = load i8, ptr %28, align 1, !tbaa !22
   %30 = zext i8 %29 to i32
   %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.7, i32 noundef %30) #22
-  store ptr %4, ptr %6, align 8, !tbaa !35
+  store ptr %4, ptr %6, align 8, !tbaa !33
   %32 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
-  store i64 %32, ptr %20, align 8, !tbaa !37
+  store i64 %32, ptr %20, align 8, !tbaa !35
   %33 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 83) #22
   %34 = add nuw nsw i64 %.01824, 1
   %exitcond27.not = icmp eq i64 %34, 20
-  br i1 %exitcond27.not, label %.loopexit, label %.split, !llvm.loop !40
+  br i1 %exitcond27.not, label %.loopexit, label %.split, !llvm.loop !38
 
 35:                                               ; preds = %10
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %37 = load i8, ptr %36, align 8, !tbaa !23
+  %37 = load i8, ptr %36, align 8, !tbaa !22
   %38 = zext i8 %37 to i32
   %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.9, i32 noundef %38) #22
-  store ptr %4, ptr %7, align 8, !tbaa !35
+  store ptr %4, ptr %7, align 8, !tbaa !33
   %40 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %40, ptr %41, align 8, !tbaa !37
+  store i64 %40, ptr %41, align 8, !tbaa !35
   %42 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcpyEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %7, i64 noundef 83) #22
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %44
@@ -2420,16 +2420,16 @@ define hidden noundef zeroext i1 @_ZNK11OpenImageIO6v3_1_05CSHA110ReportHashEPcN
 44:                                               ; preds = %35, %44
   %.023 = phi i64 [ 1, %35 ], [ %51, %44 ]
   %45 = getelementptr inbounds nuw [20 x i8], ptr %36, i64 0, i64 %.023
-  %46 = load i8, ptr %45, align 1, !tbaa !23
+  %46 = load i8, ptr %45, align 1, !tbaa !22
   %47 = zext i8 %46 to i32
   %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 15, ptr noundef nonnull @.str.10, i32 noundef %47) #22
-  store ptr %4, ptr %8, align 8, !tbaa !35
+  store ptr %4, ptr %8, align 8, !tbaa !33
   %49 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #22
-  store i64 %49, ptr %43, align 8, !tbaa !37
+  store i64 %49, ptr %43, align 8, !tbaa !35
   %50 = call noundef ptr @_ZN11OpenImageIO6v3_1_07Strutil11safe_strcatEPcNS0_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull %1, ptr noundef nonnull %8, i64 noundef 83) #22
   %51 = add nuw nsw i64 %.023, 1
   %exitcond.not = icmp eq i64 %51, 20
-  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !41
+  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !39
 
 .loopexit:                                        ; preds = %44, %.split, %.split.us, %10
   %.1 = phi i1 [ false, %10 ], [ true, %.split.us ], [ true, %.split ], [ true, %44 ]
@@ -2517,25 +2517,23 @@ attributes #22 = { nounwind }
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!5, !5, i64 0}
-!24 = distinct !{!24, !21, !22}
-!25 = distinct !{!25, !21, !22}
-!26 = distinct !{!26, !21, !22}
-!27 = !{!28, !29, i64 0}
-!28 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !29, i64 0}
-!29 = !{!"p1 omnipotent char", !7, i64 0}
-!30 = !{!31, !32, i64 8}
-!31 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !28, i64 0, !32, i64 8, !5, i64 16}
-!32 = !{!"long", !5, i64 0}
-!33 = !{!31, !29, i64 0}
-!34 = distinct !{!34, !22}
-!35 = !{!36, !29, i64 0}
-!36 = !{!"_ZTSN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEE", !29, i64 0, !32, i64 8}
-!37 = !{!36, !32, i64 8}
-!38 = distinct !{!38, !21, !22, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = distinct !{!40, !21, !22}
-!41 = distinct !{!41, !21, !22}
+!22 = !{!5, !5, i64 0}
+!23 = distinct !{!23, !21}
+!24 = distinct !{!24, !21}
+!25 = distinct !{!25, !21}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !28, i64 0}
+!28 = !{!"p1 omnipotent char", !7, i64 0}
+!29 = !{!30, !31, i64 8}
+!30 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !27, i64 0, !31, i64 8, !5, i64 16}
+!31 = !{!"long", !5, i64 0}
+!32 = !{!30, !28, i64 0}
+!33 = !{!34, !28, i64 0}
+!34 = !{!"_ZTSN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEE", !28, i64 0, !31, i64 8}
+!35 = !{!34, !31, i64 8}
+!36 = distinct !{!36, !21, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !21}
+!39 = distinct !{!39, !21}

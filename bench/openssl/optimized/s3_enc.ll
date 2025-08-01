@@ -408,14 +408,14 @@ define range(i32 0, 2) i32 @ssl3_init_finished_mac(ptr noundef %0) local_unnamed
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %8 = load ptr, ptr %7, align 8, !tbaa !101
+  %8 = load ptr, ptr %7, align 8, !tbaa !100
   %9 = tail call i32 @BIO_free(ptr noundef %8) #8
-  store ptr null, ptr %7, align 8, !tbaa !101
+  store ptr null, ptr %7, align 8, !tbaa !100
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %11 = load ptr, ptr %10, align 8, !tbaa !102
+  %11 = load ptr, ptr %10, align 8, !tbaa !101
   tail call void @EVP_MD_CTX_free(ptr noundef %11) #8
-  store ptr null, ptr %10, align 8, !tbaa !102
-  store ptr %3, ptr %7, align 8, !tbaa !101
+  store ptr null, ptr %10, align 8, !tbaa !101
+  store ptr %3, ptr %7, align 8, !tbaa !100
   %12 = tail call i64 @BIO_ctrl(ptr noundef nonnull %3, i32 noundef 9, i64 noundef 1, ptr noundef null) #8
   br label %13
 
@@ -431,13 +431,13 @@ declare ptr @BIO_s_mem() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @ssl3_free_digest_list(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %3 = load ptr, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8, !tbaa !100
   %4 = tail call i32 @BIO_free(ptr noundef %3) #8
-  store ptr null, ptr %2, align 8, !tbaa !101
+  store ptr null, ptr %2, align 8, !tbaa !100
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %6 = load ptr, ptr %5, align 8, !tbaa !102
+  %6 = load ptr, ptr %5, align 8, !tbaa !101
   tail call void @EVP_MD_CTX_free(ptr noundef %6) #8
-  store ptr null, ptr %5, align 8, !tbaa !102
+  store ptr null, ptr %5, align 8, !tbaa !101
   ret void
 }
 
@@ -450,7 +450,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ssl3_finish_mac(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %5 = load ptr, ptr %4, align 8, !tbaa !102
+  %5 = load ptr, ptr %4, align 8, !tbaa !101
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %15
 
@@ -460,7 +460,7 @@ define range(i32 0, 2) i32 @ssl3_finish_mac(ptr noundef %0, ptr noundef %1, i64 
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %11 = load ptr, ptr %10, align 8, !tbaa !101
+  %11 = load ptr, ptr %10, align 8, !tbaa !100
   %12 = trunc nuw nsw i64 %2 to i32
   %13 = tail call i32 @BIO_write(ptr noundef %11, ptr noundef %1, i32 noundef %12) #8
   %14 = icmp sgt i32 %13, 0
@@ -495,13 +495,13 @@ define range(i32 0, 2) i32 @ssl3_digest_cached_records(ptr noundef %0, i32 nound
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %5 = load ptr, ptr %4, align 8, !tbaa !102
+  %5 = load ptr, ptr %4, align 8, !tbaa !101
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %29
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %9 = load ptr, ptr %8, align 8, !tbaa !101
+  %9 = load ptr, ptr %8, align 8, !tbaa !100
   %10 = call i64 @BIO_ctrl(ptr noundef %9, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %3) #8
   %11 = icmp slt i64 %10, 1
   br i1 %11, label %12, label %13
@@ -514,7 +514,7 @@ define range(i32 0, 2) i32 @ssl3_digest_cached_records(ptr noundef %0, i32 nound
 
 13:                                               ; preds = %7
   %14 = call ptr @EVP_MD_CTX_new() #8
-  store ptr %14, ptr %4, align 8, !tbaa !102
+  store ptr %14, ptr %4, align 8, !tbaa !101
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
@@ -536,14 +536,14 @@ define range(i32 0, 2) i32 @ssl3_digest_cached_records(ptr noundef %0, i32 nound
   br label %35
 
 21:                                               ; preds = %17
-  %22 = load ptr, ptr %4, align 8, !tbaa !102
+  %22 = load ptr, ptr %4, align 8, !tbaa !101
   %23 = call i32 @EVP_DigestInit_ex(ptr noundef %22, ptr noundef nonnull %18, ptr noundef null) #8
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %28, label %24
 
 24:                                               ; preds = %21
-  %25 = load ptr, ptr %4, align 8, !tbaa !102
-  %26 = load ptr, ptr %3, align 8, !tbaa !103
+  %25 = load ptr, ptr %4, align 8, !tbaa !101
+  %26 = load ptr, ptr %3, align 8, !tbaa !102
   %27 = call i32 @EVP_DigestUpdate(ptr noundef %25, ptr noundef %26, i64 noundef %10) #8
   %.not20 = icmp eq i32 %27, 0
   br i1 %.not20, label %28, label %29
@@ -560,9 +560,9 @@ define range(i32 0, 2) i32 @ssl3_digest_cached_records(ptr noundef %0, i32 nound
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %33 = load ptr, ptr %32, align 8, !tbaa !101
+  %33 = load ptr, ptr %32, align 8, !tbaa !100
   %34 = call i32 @BIO_free(ptr noundef %33) #8
-  store ptr null, ptr %32, align 8, !tbaa !101
+  store ptr null, ptr %32, align 8, !tbaa !100
   br label %35
 
 35:                                               ; preds = %29, %31, %28, %20, %16, %12
@@ -586,12 +586,12 @@ define void @ssl3_digest_master_key_set_params(ptr noundef %0, ptr noundef write
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !95
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.1, ptr noundef nonnull %5, i64 noundef %7) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !103
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #8
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !103
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #8
   ret void
 }
@@ -613,7 +613,7 @@ define range(i64 0, 2147483648) i64 @ssl3_final_finish_mac(ptr noundef %0, ptr n
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %10 = load ptr, ptr %9, align 8, !tbaa !102
+  %10 = load ptr, ptr %9, align 8, !tbaa !101
   %11 = tail call ptr @EVP_MD_CTX_get0_md(ptr noundef %10) #8
   %12 = tail call i32 @EVP_MD_get_type(ptr noundef %11) #8
   %.not26 = icmp eq i32 %12, 114
@@ -637,7 +637,7 @@ define range(i64 0, 2147483648) i64 @ssl3_final_finish_mac(ptr noundef %0, ptr n
   br label %46
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr %9, align 8, !tbaa !102
+  %19 = load ptr, ptr %9, align 8, !tbaa !101
   %20 = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef nonnull %15, ptr noundef %19) #8
   %.not27 = icmp eq i32 %20, 0
   br i1 %.not27, label %21, label %22
@@ -674,7 +674,7 @@ define range(i64 0, 2147483648) i64 @ssl3_final_finish_mac(ptr noundef %0, ptr n
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #8
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !104
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !103
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #8
   %34 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %15, ptr noundef nonnull %1, i64 noundef %2) #8
   %35 = icmp slt i32 %34, 1
@@ -752,14 +752,14 @@ define range(i32 0, 2) i32 @ssl3_generate_master_secret(ptr noundef %0, ptr noun
   %.03641 = phi ptr [ %1, %.preheader ], [ %59, %56 ]
   %15 = load ptr, ptr %10, align 8, !tbaa !74
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 264
-  %17 = load ptr, ptr %16, align 8, !tbaa !108
+  %17 = load ptr, ptr %16, align 8, !tbaa !107
   %18 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %8, ptr noundef %17, ptr noundef null) #8
   %19 = icmp slt i32 %18, 1
   br i1 %19, label %55, label %20
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw [3 x ptr], ptr @ssl3_generate_master_secret.salt, i64 0, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !105
+  %22 = load ptr, ptr %21, align 8, !tbaa !104
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #9
   %24 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %8, ptr noundef nonnull %22, i64 noundef %23) #8
   %25 = icmp slt i32 %24, 1
@@ -788,7 +788,7 @@ define range(i32 0, 2) i32 @ssl3_generate_master_secret(ptr noundef %0, ptr noun
 38:                                               ; preds = %35
   %39 = load ptr, ptr %10, align 8, !tbaa !74
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 256
-  %41 = load ptr, ptr %40, align 8, !tbaa !109
+  %41 = load ptr, ptr %40, align 8, !tbaa !108
   %42 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %8, ptr noundef %41, ptr noundef null) #8
   %43 = icmp slt i32 %42, 1
   br i1 %43, label %55, label %44
@@ -799,7 +799,7 @@ define range(i32 0, 2) i32 @ssl3_generate_master_secret(ptr noundef %0, ptr noun
   br i1 %46, label %55, label %47
 
 47:                                               ; preds = %44
-  %48 = load i32, ptr %7, align 4, !tbaa !106
+  %48 = load i32, ptr %7, align 4, !tbaa !105
   %49 = zext i32 %48 to i64
   %50 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %8, ptr noundef nonnull %6, i64 noundef %49) #8
   %51 = icmp slt i32 %50, 1
@@ -817,13 +817,13 @@ define range(i32 0, 2) i32 @ssl3_generate_master_secret(ptr noundef %0, ptr noun
   br label %.loopexit
 
 56:                                               ; preds = %52
-  %57 = load i32, ptr %7, align 4, !tbaa !106
+  %57 = load i32, ptr %7, align 4, !tbaa !105
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %.03641, i64 %58
   %60 = add i64 %.043, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !110
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !109
 
 .loopexit:                                        ; preds = %56, %55
   %.040 = phi i64 [ %.043, %55 ], [ %60, %56 ]
@@ -834,7 +834,7 @@ define range(i32 0, 2) i32 @ssl3_generate_master_secret(ptr noundef %0, ptr noun
   br i1 %61, label %63, label %62
 
 62:                                               ; preds = %.loopexit
-  store i64 %.040, ptr %4, align 8, !tbaa !107
+  store i64 %.040, ptr %4, align 8, !tbaa !106
   br label %63
 
 63:                                               ; preds = %.loopexit, %62, %13
@@ -1023,16 +1023,15 @@ attributes #9 = { nounwind willreturn memory(read) }
 !95 = !{!96, !19, i64 8}
 !96 = !{!"ssl_session_st", !6, i64 0, !19, i64 8, !7, i64 16, !7, i64 80, !19, i64 592, !7, i64 600, !19, i64 632, !7, i64 640, !29, i64 672, !29, i64 680, !6, i64 688, !28, i64 696, !46, i64 704, !44, i64 712, !19, i64 720, !18, i64 728, !18, i64 736, !18, i64 744, !6, i64 752, !27, i64 760, !19, i64 768, !6, i64 776, !13, i64 784, !97, i64 800, !29, i64 864, !29, i64 872, !19, i64 880, !6, i64 888, !9, i64 896, !49, i64 904, !49, i64 912, !12, i64 920}
 !97 = !{!"", !29, i64 0, !29, i64 8, !19, i64 16, !19, i64 24, !6, i64 32, !6, i64 36, !29, i64 40, !19, i64 48, !7, i64 56}
-!98 = distinct !{!98, !99, !100}
+!98 = distinct !{!98, !99}
 !99 = !{!"llvm.loop.mustprogress"}
-!100 = !{!"llvm.loop.estimated_trip_count"}
-!101 = !{!4, !17, i64 424}
-!102 = !{!4, !25, i64 432}
-!103 = !{!10, !10, i64 0}
-!104 = !{i64 0, i64 8, !105, i64 8, i64 4, !106, i64 16, i64 8, !103, i64 24, i64 8, !107, i64 32, i64 8, !107}
-!105 = !{!29, !29, i64 0}
-!106 = !{!6, !6, i64 0}
-!107 = !{!19, !19, i64 0}
-!108 = !{!80, !32, i64 264}
-!109 = !{!80, !32, i64 256}
-!110 = distinct !{!110, !99, !100}
+!100 = !{!4, !17, i64 424}
+!101 = !{!4, !25, i64 432}
+!102 = !{!10, !10, i64 0}
+!103 = !{i64 0, i64 8, !104, i64 8, i64 4, !105, i64 16, i64 8, !102, i64 24, i64 8, !106, i64 32, i64 8, !106}
+!104 = !{!29, !29, i64 0}
+!105 = !{!6, !6, i64 0}
+!106 = !{!19, !19, i64 0}
+!107 = !{!80, !32, i64 264}
+!108 = !{!80, !32, i64 256}
+!109 = distinct !{!109, !99}

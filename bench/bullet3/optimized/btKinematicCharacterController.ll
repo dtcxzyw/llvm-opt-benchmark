@@ -764,7 +764,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit: ; preds =
   %128 = phi float [ %.promoted6263, %.lr.ph ], [ %155, %152 ]
   %129 = getelementptr inbounds nuw [4 x %class.btManifoldPoint], ptr %124, i64 0, i64 %indvars.iv
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 80
-  %131 = load float, ptr %130, align 8, !tbaa !102
+  %131 = load float, ptr %130, align 8, !tbaa !101
   %132 = fcmp olt float %131, %113
   br i1 %132, label %133, label %152
 
@@ -802,7 +802,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit: ; preds =
   %.4 = phi i1 [ true, %133 ], [ %.355, %125 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %125, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge, label %125, !llvm.loop !103
 
 .loopexit:                                        ; preds = %._crit_edge, %107, %95, %84, %90
   %.1 = phi i1 [ %.079, %90 ], [ %.079, %84 ], [ %.079, %95 ], [ %.079, %107 ], [ %.3.lcssa, %._crit_edge ]
@@ -816,7 +816,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit: ; preds =
   %162 = call noundef i32 %161(ptr noundef nonnull align 8 dereferenceable(120) %158)
   %163 = sext i32 %162 to i64
   %164 = icmp slt i64 %indvars.iv.next89, %163
-  br i1 %164, label %56, label %._crit_edge82, !llvm.loop !105
+  br i1 %164, label %56, label %._crit_edge82, !llvm.loop !104
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1013,37 +1013,37 @@ define dso_local void @_ZN30btKinematicCharacterController6stepUpEP16btCollision
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %150 = load float, ptr %149, align 8, !tbaa !53
   %151 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store float 1.000000e+00, ptr %151, align 8, !tbaa !106
+  store float 1.000000e+00, ptr %151, align 8, !tbaa !105
   %152 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %153 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %154 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr null, ptr %155, align 8, !tbaa !108
+  store ptr null, ptr %155, align 8, !tbaa !107
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %154, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i64 16), ptr %5, align 8, !tbaa !8
   %156 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store ptr %145, ptr %156, align 8, !tbaa !110
+  store ptr %145, ptr %156, align 8, !tbaa !109
   %157 = getelementptr inbounds nuw i8, ptr %5, i64 104
   store <2 x float> %.sroa.0.4.vec.insert.i33, ptr %157, align 8
   %.sroa.4.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store <2 x float> %.sroa.3.12.vec.insert.i34, ptr %.sroa.4.0..sroa_idx37, align 8, !tbaa !50
   %158 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  store float %150, ptr %158, align 8, !tbaa !112
+  store float %150, ptr %158, align 8, !tbaa !111
   %159 = getelementptr inbounds nuw i8, ptr %145, i64 192
   %160 = load ptr, ptr %159, align 8, !tbaa !65
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %162 = load i32, ptr %161, align 8, !tbaa !113
-  store i32 %162, ptr %152, align 4, !tbaa !114
+  %162 = load i32, ptr %161, align 8, !tbaa !112
+  store i32 %162, ptr %152, align 4, !tbaa !113
   %163 = getelementptr inbounds nuw i8, ptr %160, i64 12
-  %164 = load i32, ptr %163, align 4, !tbaa !115
-  store i32 %164, ptr %153, align 8, !tbaa !116
+  %164 = load i32, ptr %163, align 4, !tbaa !114
+  store i32 %164, ptr %153, align 8, !tbaa !115
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 278
-  %166 = load i8, ptr %165, align 2, !tbaa !30, !range !55, !noundef !117
+  %166 = load i8, ptr %165, align 2, !tbaa !30, !range !55, !noundef !116
   %167 = trunc nuw i8 %166 to i1
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %169 = load ptr, ptr %168, align 8, !tbaa !32
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %171 = load float, ptr %170, align 4, !tbaa !118
+  %171 = load float, ptr %170, align 4, !tbaa !117
   br i1 %167, label %172, label %173
 
 172:                                              ; preds = %2
@@ -1055,7 +1055,7 @@ define dso_local void @_ZN30btKinematicCharacterController6stepUpEP16btCollision
   br label %174
 
 174:                                              ; preds = %172, %173
-  %175 = load float, ptr %151, align 8, !tbaa !106
+  %175 = load float, ptr %151, align 8, !tbaa !105
   %176 = fcmp olt float %175, 1.000000e+00
   br i1 %176, label %177, label %253
 
@@ -1068,7 +1068,7 @@ define dso_local void @_ZN30btKinematicCharacterController6stepUpEP16btCollision
   br i1 %182, label %183, label %253
 
 183:                                              ; preds = %177
-  %184 = load ptr, ptr %155, align 8, !tbaa !108
+  %184 = load ptr, ptr %155, align 8, !tbaa !107
   %185 = load ptr, ptr %0, align 8, !tbaa !8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 112
   %187 = load ptr, ptr %186, align 8
@@ -1092,12 +1092,12 @@ define dso_local void @_ZN30btKinematicCharacterController6stepUpEP16btCollision
   br i1 %202, label %203, label %226
 
 203:                                              ; preds = %189
-  %204 = load float, ptr %151, align 8, !tbaa !106
+  %204 = load float, ptr %151, align 8, !tbaa !105
   %205 = fmul float %.046, %204
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store float %205, ptr %206, align 4, !tbaa !44
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  %208 = load i8, ptr %207, align 4, !tbaa !43, !range !55, !noundef !117
+  %208 = load i8, ptr %207, align 4, !tbaa !43, !range !55, !noundef !116
   %209 = trunc nuw i8 %208 to i1
   br i1 %209, label %210, label %225
 
@@ -1146,7 +1146,7 @@ define dso_local void @_ZN30btKinematicCharacterController6stepUpEP16btCollision
   %239 = getelementptr inbounds nuw i8, ptr %230, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %239, ptr noundef nonnull align 4 dereferenceable(16) %229, i64 16, i1 false), !tbaa.struct !78
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i8 0, ptr %240, align 8, !tbaa !119
+  store i8 0, ptr %240, align 8, !tbaa !118
   br label %241
 
 241:                                              ; preds = %243, %226
@@ -1156,9 +1156,9 @@ define dso_local void @_ZN30btKinematicCharacterController6stepUpEP16btCollision
 
 243:                                              ; preds = %241
   %244 = add nuw nsw i32 %.0, 1
-  store i8 1, ptr %240, align 8, !tbaa !119
+  store i8 1, ptr %240, align 8, !tbaa !118
   %exitcond = icmp eq i32 %244, 5
-  br i1 %exitcond, label %245, label %241, !llvm.loop !120
+  br i1 %exitcond, label %245, label %241, !llvm.loop !119
 
 245:                                              ; preds = %243, %241
   %246 = load ptr, ptr %144, align 8, !tbaa !20
@@ -1204,20 +1204,20 @@ define dso_local noundef zeroext i1 @_ZN30btKinematicCharacterController14needsC
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %5 = load ptr, ptr %4, align 8, !tbaa !65
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !113
+  %7 = load i32, ptr %6, align 8, !tbaa !112
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %9 = load ptr, ptr %8, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %11 = load i32, ptr %10, align 4, !tbaa !115
+  %11 = load i32, ptr %10, align 4, !tbaa !114
   %12 = and i32 %11, %7
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %20, label %13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !113
+  %15 = load i32, ptr %14, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !115
+  %17 = load i32, ptr %16, align 4, !tbaa !114
   %18 = and i32 %17, %15
   %19 = icmp ne i32 %18, 0
   br label %20
@@ -1515,22 +1515,22 @@ define dso_local void @_ZN30btKinematicCharacterController20stepForwardAndStrafe
   store float 0.000000e+00, ptr %31, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #29
   %158 = load ptr, ptr %55, align 8, !tbaa !20
-  store float 1.000000e+00, ptr %56, align 8, !tbaa !106
-  store ptr null, ptr %60, align 8, !tbaa !108
+  store float 1.000000e+00, ptr %56, align 8, !tbaa !105
+  store ptr null, ptr %60, align 8, !tbaa !107
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %59, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i64 16), ptr %6, align 8, !tbaa !8
-  store ptr %158, ptr %61, align 8, !tbaa !110
+  store ptr %158, ptr %61, align 8, !tbaa !109
   store <2 x float> %.sroa.0.4.vec.insert.i26, ptr %62, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i27, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !50
-  store float 0.000000e+00, ptr %63, align 8, !tbaa !112
+  store float 0.000000e+00, ptr %63, align 8, !tbaa !111
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 192
   %160 = load ptr, ptr %159, align 8, !tbaa !65
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %162 = load i32, ptr %161, align 8, !tbaa !113
-  store i32 %162, ptr %57, align 4, !tbaa !114
+  %162 = load i32, ptr %161, align 8, !tbaa !112
+  store i32 %162, ptr %57, align 4, !tbaa !113
   %163 = getelementptr inbounds nuw i8, ptr %160, i64 12
-  %164 = load i32, ptr %163, align 4, !tbaa !115
-  store i32 %164, ptr %58, align 8, !tbaa !116
+  %164 = load i32, ptr %163, align 4, !tbaa !114
+  store i32 %164, ptr %58, align 8, !tbaa !115
   %165 = load ptr, ptr %64, align 8, !tbaa !32
   %166 = load ptr, ptr %165, align 8, !tbaa !8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 96
@@ -1621,20 +1621,20 @@ _ZeqRK11btTransformS1_.exit:                      ; preds = %218
   br i1 %224, label %234, label %_ZeqRK11btTransformS1_.exit.thread
 
 _ZeqRK11btTransformS1_.exit.thread:               ; preds = %82, %179, %183, %187, %191, %195, %199, %203, %210, %214, %218, %_ZeqRK11btMatrix3x3S1_.exit.i, %_ZeqRK11btTransformS1_.exit
-  %225 = load i8, ptr %72, align 2, !tbaa !30, !range !55, !noundef !117
+  %225 = load i8, ptr %72, align 2, !tbaa !30, !range !55, !noundef !116
   %226 = trunc nuw i8 %225 to i1
   br i1 %226, label %227, label %231
 
 227:                                              ; preds = %_ZeqRK11btTransformS1_.exit.thread
   %228 = load ptr, ptr %55, align 8, !tbaa !20
   %229 = load ptr, ptr %64, align 8, !tbaa !32
-  %230 = load float, ptr %73, align 4, !tbaa !118
+  %230 = load float, ptr %73, align 4, !tbaa !117
   call void @_ZNK13btGhostObject15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RN16btCollisionWorld20ConvexResultCallbackEf(ptr noundef nonnull align 8 dereferenceable(408) %228, ptr noundef %229, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(20) %6, float noundef %230)
   br label %234
 
 231:                                              ; preds = %_ZeqRK11btTransformS1_.exit.thread
   %232 = load ptr, ptr %64, align 8, !tbaa !32
-  %233 = load float, ptr %73, align 4, !tbaa !118
+  %233 = load float, ptr %73, align 4, !tbaa !117
   call void @_ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_20ConvexResultCallbackEf(ptr noundef nonnull align 8 dereferenceable(121) %1, ptr noundef %232, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(20) %6, float noundef %233)
   br label %234
 
@@ -1644,7 +1644,7 @@ _ZeqRK11btTransformS1_.exit.thread:               ; preds = %82, %179, %183, %18
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 88
   %238 = load ptr, ptr %237, align 8
   call void %238(ptr noundef nonnull align 8 dereferenceable(32) %235, float noundef %169)
-  %239 = load float, ptr %56, align 8, !tbaa !106
+  %239 = load float, ptr %56, align 8, !tbaa !105
   %240 = fsub float %.01462, %239
   %241 = fcmp olt float %239, 1.000000e+00
   br i1 %241, label %242, label %325
@@ -1658,7 +1658,7 @@ _ZeqRK11btTransformS1_.exit.thread:               ; preds = %82, %179, %183, %18
   br i1 %247, label %248, label %325
 
 248:                                              ; preds = %242
-  %249 = load ptr, ptr %60, align 8, !tbaa !108
+  %249 = load ptr, ptr %60, align 8, !tbaa !107
   %250 = load ptr, ptr %0, align 8, !tbaa !8
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 112
   %252 = load ptr, ptr %251, align 8
@@ -1759,7 +1759,7 @@ _ZeqRK11btTransformS1_.exit.thread:               ; preds = %82, %179, %183, %18
   %322 = load float, ptr %79, align 4, !tbaa !4
   %323 = call noundef float @llvm.fmuladd.f32(float %317, float %322, float %321)
   %324 = fcmp ugt float %323, 0.000000e+00
-  br i1 %324, label %.critedge60, label %.critedge.sink.split, !llvm.loop !121
+  br i1 %324, label %.critedge60, label %.critedge.sink.split
 
 325:                                              ; preds = %248, %242, %234
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !78
@@ -1815,7 +1815,7 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %25 = load i8, ptr %24, align 4, !tbaa !41, !range !55, !noundef !117
+  %25 = load i8, ptr %24, align 4, !tbaa !41, !range !55, !noundef !116
   %26 = trunc nuw i8 %25 to i1
   %.not = xor i1 %26, true
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 277
@@ -1861,48 +1861,48 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %55 = load float, ptr %54, align 8, !tbaa !53
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store float 1.000000e+00, ptr %56, align 8, !tbaa !106
+  store float 1.000000e+00, ptr %56, align 8, !tbaa !105
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store ptr null, ptr %60, align 8, !tbaa !108
+  store ptr null, ptr %60, align 8, !tbaa !107
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %59, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i64 16), ptr %7, align 8, !tbaa !8
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr %53, ptr %61, align 8, !tbaa !110
+  store ptr %53, ptr %61, align 8, !tbaa !109
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !78
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store float %55, ptr %63, align 8, !tbaa !112
+  store float %55, ptr %63, align 8, !tbaa !111
   %64 = getelementptr inbounds nuw i8, ptr %53, i64 192
   %65 = load ptr, ptr %64, align 8, !tbaa !65
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %67 = load i32, ptr %66, align 8, !tbaa !113
-  store i32 %67, ptr %57, align 4, !tbaa !114
+  %67 = load i32, ptr %66, align 8, !tbaa !112
+  store i32 %67, ptr %57, align 4, !tbaa !113
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 12
-  %69 = load i32, ptr %68, align 4, !tbaa !115
-  store i32 %69, ptr %58, align 8, !tbaa !116
+  %69 = load i32, ptr %68, align 4, !tbaa !114
+  store i32 %69, ptr %58, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #29
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float 1.000000e+00, ptr %70, align 8, !tbaa !106
+  store float 1.000000e+00, ptr %70, align 8, !tbaa !105
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  store ptr null, ptr %74, align 8, !tbaa !108
+  store ptr null, ptr %74, align 8, !tbaa !107
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %73, i8 0, i64 32, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV43btKinematicClosestNotMeConvexResultCallback, i64 16), ptr %8, align 8, !tbaa !8
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  store ptr %53, ptr %75, align 8, !tbaa !110
+  store ptr %53, ptr %75, align 8, !tbaa !109
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !78
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  store float %55, ptr %77, align 8, !tbaa !112
-  %78 = load i32, ptr %66, align 8, !tbaa !113
-  store i32 %78, ptr %71, align 4, !tbaa !114
-  %79 = load i32, ptr %68, align 4, !tbaa !115
-  store i32 %79, ptr %72, align 8, !tbaa !116
+  store float %55, ptr %77, align 8, !tbaa !111
+  %78 = load i32, ptr %66, align 8, !tbaa !112
+  store i32 %78, ptr %71, align 4, !tbaa !113
+  %79 = load i32, ptr %68, align 4, !tbaa !114
+  store i32 %79, ptr %72, align 8, !tbaa !115
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2069,16 +2069,16 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   %.sroa.3.12.vec.insert.i63 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %199, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i62, ptr %118, align 4
   store <2 x float> %.sroa.3.12.vec.insert.i63, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !50
-  %200 = load i8, ptr %119, align 2, !tbaa !30, !range !55, !noundef !117
+  %200 = load i8, ptr %119, align 2, !tbaa !30, !range !55, !noundef !116
   %201 = trunc nuw i8 %200 to i1
   br i1 %201, label %202, label %217
 
 202:                                              ; preds = %126
   %203 = load ptr, ptr %52, align 8, !tbaa !20
   %204 = load ptr, ptr %120, align 8, !tbaa !32
-  %205 = load float, ptr %121, align 4, !tbaa !118
+  %205 = load float, ptr %121, align 4, !tbaa !117
   call void @_ZNK13btGhostObject15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RN16btCollisionWorld20ConvexResultCallbackEf(ptr noundef nonnull align 8 dereferenceable(408) %203, ptr noundef %204, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(20) %7, float noundef %205)
-  %206 = load float, ptr %56, align 8, !tbaa !106
+  %206 = load float, ptr %56, align 8, !tbaa !105
   %207 = fcmp olt float %206, 1.000000e+00
   br i1 %207, label %231, label %208
 
@@ -2092,15 +2092,15 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
 
 214:                                              ; preds = %208
   %215 = load ptr, ptr %120, align 8, !tbaa !32
-  %216 = load float, ptr %121, align 4, !tbaa !118
+  %216 = load float, ptr %121, align 4, !tbaa !117
   call void @_ZNK13btGhostObject15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RN16btCollisionWorld20ConvexResultCallbackEf(ptr noundef nonnull align 8 dereferenceable(408) %209, ptr noundef %215, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(20) %8, float noundef %216)
   br label %231
 
 217:                                              ; preds = %126
   %218 = load ptr, ptr %120, align 8, !tbaa !32
-  %219 = load float, ptr %121, align 4, !tbaa !118
+  %219 = load float, ptr %121, align 4, !tbaa !117
   call void @_ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_20ConvexResultCallbackEf(ptr noundef nonnull align 8 dereferenceable(121) %1, ptr noundef %218, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(20) %7, float noundef %219)
-  %220 = load float, ptr %56, align 8, !tbaa !106
+  %220 = load float, ptr %56, align 8, !tbaa !105
   %221 = fcmp olt float %220, 1.000000e+00
   br i1 %221, label %231, label %222
 
@@ -2114,7 +2114,7 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
 
 228:                                              ; preds = %222
   %229 = load ptr, ptr %120, align 8, !tbaa !32
-  %230 = load float, ptr %121, align 4, !tbaa !118
+  %230 = load float, ptr %121, align 4, !tbaa !117
   call void @_ZNK16btCollisionWorld15convexSweepTestEPK13btConvexShapeRK11btTransformS5_RNS_20ConvexResultCallbackEf(ptr noundef nonnull align 8 dereferenceable(121) %1, ptr noundef %229, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(20) %8, float noundef %230)
   br label %231
 
@@ -2124,12 +2124,12 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   %234 = fneg float %232
   %235 = select i1 %233, float %234, float 0.000000e+00
   %236 = fmul float %2, %235
-  %237 = load i8, ptr %122, align 2, !tbaa !47, !range !55, !noundef !117
+  %237 = load i8, ptr %122, align 2, !tbaa !47, !range !55, !noundef !116
   %238 = trunc nuw i8 %237 to i1
   br i1 %238, label %239, label %256
 
 239:                                              ; preds = %231
-  %240 = load float, ptr %56, align 8, !tbaa !106
+  %240 = load float, ptr %56, align 8, !tbaa !105
   %241 = fcmp olt float %240, 1.000000e+00
   %242 = load float, ptr %70, align 8
   %243 = fcmp olt float %242, 1.000000e+00
@@ -2145,7 +2145,7 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   br i1 %249, label %250, label %271
 
 250:                                              ; preds = %244
-  %251 = load ptr, ptr %60, align 8, !tbaa !108
+  %251 = load ptr, ptr %60, align 8, !tbaa !107
   %252 = load ptr, ptr %0, align 8, !tbaa !8
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 112
   %254 = load ptr, ptr %253, align 8
@@ -2153,7 +2153,7 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   br label %271
 
 256:                                              ; preds = %231
-  %257 = load float, ptr %70, align 8, !tbaa !106
+  %257 = load float, ptr %70, align 8, !tbaa !105
   %258 = fcmp olt float %257, 1.000000e+00
   br i1 %258, label %259, label %271
 
@@ -2166,7 +2166,7 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   br i1 %264, label %265, label %271
 
 265:                                              ; preds = %259
-  %266 = load ptr, ptr %74, align 8, !tbaa !108
+  %266 = load ptr, ptr %74, align 8, !tbaa !107
   %267 = load ptr, ptr %0, align 8, !tbaa !8
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 112
   %269 = load ptr, ptr %268, align 8
@@ -2187,7 +2187,7 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   br i1 %or.cond50, label %277, label %297
 
 277:                                              ; preds = %271
-  %278 = load i8, ptr %124, align 4, !tbaa !41, !range !55, !noundef !117
+  %278 = load i8, ptr %124, align 4, !tbaa !41, !range !55, !noundef !116
   %279 = trunc nuw i8 %278 to i1
   %.not51 = xor i1 %279, true
   %280 = load i8, ptr %125, align 1, !range !55
@@ -2231,7 +2231,7 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   br i1 %or.cond117, label %305, label %311
 
 305:                                              ; preds = %297
-  %306 = load ptr, ptr %60, align 8, !tbaa !108
+  %306 = load ptr, ptr %60, align 8, !tbaa !107
   %307 = load ptr, ptr %0, align 8, !tbaa !8
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 112
   %309 = load ptr, ptr %308, align 8
@@ -2245,7 +2245,7 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
 312:                                              ; preds = %311, %305
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %314 = load float, ptr %313, align 8, !tbaa !4
-  %315 = load i8, ptr %122, align 2, !tbaa !47, !range !55, !noundef !117
+  %315 = load i8, ptr %122, align 2, !tbaa !47, !range !55, !noundef !116
   %316 = trunc nuw i8 %315 to i1
   br i1 %316, label %317, label %327
 
@@ -2255,16 +2255,16 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   %320 = fsub float %314, %319
   %321 = fmul float %320, 5.000000e-01
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 317
-  %323 = load i8, ptr %322, align 1, !tbaa !46, !range !55, !noundef !117
+  %323 = load i8, ptr %322, align 1, !tbaa !46, !range !55, !noundef !116
   %324 = trunc nuw i8 %323 to i1
   br i1 %324, label %325, label %329
 
 325:                                              ; preds = %317
-  %326 = load float, ptr %56, align 8, !tbaa !106
+  %326 = load float, ptr %56, align 8, !tbaa !105
   br label %329
 
 327:                                              ; preds = %312
-  %328 = load float, ptr %56, align 8, !tbaa !106
+  %328 = load float, ptr %56, align 8, !tbaa !105
   br label %329
 
 329:                                              ; preds = %317, %325, %327
@@ -2296,7 +2296,7 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
 345:                                              ; preds = %305, %311
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 317
   store i8 1, ptr %346, align 1, !tbaa !46
-  %347 = load i8, ptr %122, align 2, !tbaa !47, !range !55, !noundef !117
+  %347 = load i8, ptr %122, align 2, !tbaa !47, !range !55, !noundef !116
   %348 = trunc nuw i8 %347 to i1
   br i1 %348, label %349, label %381
 
@@ -2312,7 +2312,7 @@ define dso_local void @_ZN30btKinematicCharacterController8stepDownEP16btCollisi
   br i1 %357, label %358, label %381
 
 358:                                              ; preds = %349
-  %359 = load i8, ptr %124, align 4, !tbaa !41, !range !55, !noundef !117
+  %359 = load i8, ptr %124, align 4, !tbaa !41, !range !55, !noundef !116
   %360 = trunc nuw i8 %359 to i1
   %.not56 = xor i1 %360, true
   %361 = load i8, ptr %125, align 1, !range !55
@@ -2616,7 +2616,7 @@ define dso_local void @_ZN30btKinematicCharacterController5resetEP16btCollisionW
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef nonnull align 8 dereferenceable(25) ptr %15(ptr noundef nonnull align 8 dereferenceable(120) %12)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !122
+  %18 = load i32, ptr %17, align 4, !tbaa !120
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
 
@@ -2650,9 +2650,9 @@ define dso_local void @_ZN30btKinematicCharacterController5resetEP16btCollisionW
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef nonnull align 8 dereferenceable(25) ptr %44(ptr noundef nonnull align 8 dereferenceable(120) %12)
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !122
+  %47 = load i32, ptr %46, align 4, !tbaa !120
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %21, label %._crit_edge, !llvm.loop !123
+  br i1 %48, label %21, label %._crit_edge, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %21, %2
   ret void
@@ -2916,7 +2916,7 @@ define dso_local void @_ZN30btKinematicCharacterController10playerStepEP16btColl
 
 134:                                              ; preds = %29, %27
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 279
-  %136 = load i8, ptr %135, align 1, !tbaa !33, !range !55, !noundef !117
+  %136 = load i8, ptr %135, align 1, !tbaa !33, !range !55, !noundef !116
   %137 = trunc nuw i8 %136 to i1
   br i1 %137, label %153, label %138
 
@@ -3031,7 +3031,7 @@ thread-pre-split:                                 ; preds = %187, %191, %._crit_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %212, ptr noundef nonnull align 4 dereferenceable(16) %211, i64 16, i1 false), !tbaa.struct !78
   %213 = getelementptr inbounds nuw i8, ptr %7, i64 48
   call void @_ZN30btKinematicCharacterController6stepUpEP16btCollisionWorld(ptr noundef nonnull align 8 dereferenceable(319) %0, ptr noundef %1)
-  %214 = load i8, ptr %135, align 1, !tbaa !33, !range !55, !noundef !117
+  %214 = load i8, ptr %135, align 1, !tbaa !33, !range !55, !noundef !116
   %215 = trunc nuw i8 %214 to i1
   br i1 %215, label %216, label %217
 
@@ -3081,7 +3081,7 @@ thread-pre-split:                                 ; preds = %187, %191, %._crit_
   %238 = getelementptr inbounds nuw i8, ptr %231, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %238, ptr noundef nonnull align 4 dereferenceable(16) %213, i64 16, i1 false), !tbaa.struct !78
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i8 0, ptr %239, align 8, !tbaa !119
+  store i8 0, ptr %239, align 8, !tbaa !118
   br label %240
 
 240:                                              ; preds = %242, %229
@@ -3091,9 +3091,9 @@ thread-pre-split:                                 ; preds = %187, %191, %._crit_
 
 242:                                              ; preds = %240
   %243 = add nuw nsw i32 %.0, 1
-  store i8 1, ptr %239, align 8, !tbaa !119
+  store i8 1, ptr %239, align 8, !tbaa !118
   %exitcond = icmp eq i32 %243, 5
-  br i1 %exitcond, label %244, label %240, !llvm.loop !124
+  br i1 %exitcond, label %244, label %240, !llvm.loop !122
 
 244:                                              ; preds = %242, %240
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
@@ -3125,7 +3125,7 @@ define dso_local void @_ZN30btKinematicCharacterController12setJumpSpeedEf(ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN30btKinematicCharacterController16setMaxJumpHeightEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(319) initializes((56, 60)) %0, float noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store float %1, ptr %3, align 8, !tbaa !125
+  store float %1, ptr %3, align 8, !tbaa !123
   ret void
 }
 
@@ -3605,7 +3605,7 @@ define dso_local noundef zeroext i1 @_ZNK30btKinematicCharacterController8onGrou
 define dso_local noundef nonnull ptr @_ZN30btKinematicCharacterController19getUpAxisDirectionsEv() local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %6, !prof !126
+  br i1 %2, label %3, label %6, !prof !124
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN30btKinematicCharacterController19getUpAxisDirectionsEvE16sUpAxisDirection) #29
@@ -3829,18 +3829,18 @@ define linkonce_odr dso_local void @_ZN43btKinematicClosestNotMeConvexResultCall
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK16btCollisionWorld20ConvexResultCallback14needsCollisionEP17btBroadphaseProxy(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #5 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !113
+  %4 = load i32, ptr %3, align 8, !tbaa !112
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !116
+  %6 = load i32, ptr %5, align 8, !tbaa !115
   %7 = and i32 %6, %4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %10 = load i32, ptr %9, align 4, !tbaa !114
+  %10 = load i32, ptr %9, align 4, !tbaa !113
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %12 = load i32, ptr %11, align 4, !tbaa !115
+  %12 = load i32, ptr %11, align 4, !tbaa !114
   %13 = and i32 %12, %10
   %14 = icmp ne i32 %13, 0
   br label %15
@@ -3852,9 +3852,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK16btCollisionWorld20Convex
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZN43btKinematicClosestNotMeConvexResultCallback15addSingleResultERN16btCollisionWorld17LocalConvexResultEb(ptr noundef nonnull align 8 dereferenceable(124) %0, ptr noundef nonnull align 8 dereferenceable(52) %1, i1 noundef zeroext %2) unnamed_addr #2 comdat align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !127
+  %4 = load ptr, ptr %1, align 8, !tbaa !125
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load ptr, ptr %5, align 8, !tbaa !110
+  %6 = load ptr, ptr %5, align 8, !tbaa !109
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %109, label %8
 
@@ -3930,17 +3930,17 @@ define linkonce_odr dso_local noundef float @_ZN43btKinematicClosestNotMeConvexR
   %.sroa.6.8.vec.extract = extractelement <2 x float> %.sroa.6.0, i64 0
   %59 = tail call noundef float @llvm.fmuladd.f32(float %58, float %.sroa.6.8.vec.extract, float %56)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %61 = load float, ptr %60, align 8, !tbaa !112
+  %61 = load float, ptr %60, align 8, !tbaa !111
   %62 = fcmp olt float %59, %61
   br i1 %62, label %109, label %63
 
 63:                                               ; preds = %50
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %65 = load float, ptr %64, align 8, !tbaa !130
+  %65 = load float, ptr %64, align 8, !tbaa !128
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %65, ptr %66, align 8, !tbaa !106
+  store float %65, ptr %66, align 8, !tbaa !105
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %4, ptr %67, align 8, !tbaa !108
+  store ptr %4, ptr %67, align 8, !tbaa !107
   br i1 %2, label %68, label %71
 
 68:                                               ; preds = %63
@@ -3996,7 +3996,7 @@ _ZN16btCollisionWorld27ClosestConvexResultCallback15addSingleResultERNS_17LocalC
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %106, i64 16, i1 false), !tbaa.struct !78
-  %108 = load float, ptr %64, align 8, !tbaa !130
+  %108 = load float, ptr %64, align 8, !tbaa !128
   br label %109
 
 109:                                              ; preds = %_ZN16btCollisionWorld27ClosestConvexResultCallback15addSingleResultERNS_17LocalConvexResultEb.exit, %50, %8, %3
@@ -4288,35 +4288,33 @@ attributes #31 = { builtin nounwind }
 !96 = !{!"_ZTS13btTypedObject", !13, i64 0}
 !97 = !{!"p1 _ZTS17btCollisionObject", !15, i64 0}
 !98 = !{!95, !13, i64 856}
-!99 = distinct !{!99, !100, !101}
+!99 = distinct !{!99, !100}
 !100 = !{!"llvm.loop.mustprogress"}
-!101 = !{!"llvm.loop.estimated_trip_count"}
-!102 = !{!103, !5, i64 80}
-!103 = !{!"_ZTS15btManifoldPoint", !26, i64 0, !26, i64 16, !26, i64 32, !26, i64 48, !26, i64 64, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !15, i64 120, !13, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !6, i64 156, !6, i64 160, !5, i64 164, !13, i64 168, !26, i64 172, !26, i64 188}
-!104 = distinct !{!104, !100, !101}
-!105 = distinct !{!105, !100, !101}
-!106 = !{!107, !5, i64 8}
-!107 = !{!"_ZTSN16btCollisionWorld20ConvexResultCallbackE", !5, i64 8, !13, i64 12, !13, i64 16}
-!108 = !{!109, !97, i64 88}
-!109 = !{!"_ZTSN16btCollisionWorld27ClosestConvexResultCallbackE", !107, i64 0, !26, i64 20, !26, i64 36, !26, i64 52, !26, i64 68, !97, i64 88}
-!110 = !{!111, !97, i64 96}
-!111 = !{!"_ZTS43btKinematicClosestNotMeConvexResultCallback", !109, i64 0, !97, i64 96, !26, i64 104, !5, i64 120}
-!112 = !{!111, !5, i64 120}
-!113 = !{!90, !13, i64 8}
-!114 = !{!107, !13, i64 12}
-!115 = !{!90, !13, i64 12}
-!116 = !{!107, !13, i64 16}
-!117 = !{}
-!118 = !{!62, !5, i64 36}
-!119 = !{!21, !16, i64 248}
-!120 = distinct !{!120, !100, !101}
-!121 = distinct !{!121, !101}
-!122 = !{!83, !13, i64 4}
-!123 = distinct !{!123, !100, !101}
-!124 = distinct !{!124, !100, !101}
-!125 = !{!21, !5, i64 56}
-!126 = !{!"branch_weights", i32 1, i32 1048575}
-!127 = !{!128, !97, i64 0}
-!128 = !{!"_ZTSN16btCollisionWorld17LocalConvexResultE", !97, i64 0, !129, i64 8, !26, i64 16, !26, i64 32, !5, i64 48}
-!129 = !{!"p1 _ZTSN16btCollisionWorld14LocalShapeInfoE", !15, i64 0}
-!130 = !{!128, !5, i64 48}
+!101 = !{!102, !5, i64 80}
+!102 = !{!"_ZTS15btManifoldPoint", !26, i64 0, !26, i64 16, !26, i64 32, !26, i64 48, !26, i64 64, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !15, i64 120, !13, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !6, i64 156, !6, i64 160, !5, i64 164, !13, i64 168, !26, i64 172, !26, i64 188}
+!103 = distinct !{!103, !100}
+!104 = distinct !{!104, !100}
+!105 = !{!106, !5, i64 8}
+!106 = !{!"_ZTSN16btCollisionWorld20ConvexResultCallbackE", !5, i64 8, !13, i64 12, !13, i64 16}
+!107 = !{!108, !97, i64 88}
+!108 = !{!"_ZTSN16btCollisionWorld27ClosestConvexResultCallbackE", !106, i64 0, !26, i64 20, !26, i64 36, !26, i64 52, !26, i64 68, !97, i64 88}
+!109 = !{!110, !97, i64 96}
+!110 = !{!"_ZTS43btKinematicClosestNotMeConvexResultCallback", !108, i64 0, !97, i64 96, !26, i64 104, !5, i64 120}
+!111 = !{!110, !5, i64 120}
+!112 = !{!90, !13, i64 8}
+!113 = !{!106, !13, i64 12}
+!114 = !{!90, !13, i64 12}
+!115 = !{!106, !13, i64 16}
+!116 = !{}
+!117 = !{!62, !5, i64 36}
+!118 = !{!21, !16, i64 248}
+!119 = distinct !{!119, !100}
+!120 = !{!83, !13, i64 4}
+!121 = distinct !{!121, !100}
+!122 = distinct !{!122, !100}
+!123 = !{!21, !5, i64 56}
+!124 = !{!"branch_weights", i32 1, i32 1048575}
+!125 = !{!126, !97, i64 0}
+!126 = !{!"_ZTSN16btCollisionWorld17LocalConvexResultE", !97, i64 0, !127, i64 8, !26, i64 16, !26, i64 32, !5, i64 48}
+!127 = !{!"p1 _ZTSN16btCollisionWorld14LocalShapeInfoE", !15, i64 0}
+!128 = !{!126, !5, i64 48}

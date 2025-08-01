@@ -139,7 +139,7 @@ define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(non
   %36 = sext i1 %.not36 to i64
   %spec.select = xor i64 %.027.lcssa91, %36
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %38 = load i64, ptr %37, align 8, !tbaa !9
+  %38 = load i64, ptr %37, align 8, !tbaa !8
   %39 = icmp eq i64 %spec.select, %38
   br i1 %39, label %40, label %41
 
@@ -162,7 +162,7 @@ define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(non
 define internal range(i32 -268435456, 268435457) i32 @long_i2c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #3 {
   %.0.copyload = load i64, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %6 = load i64, ptr %5, align 8, !tbaa !9
+  %6 = load i64, ptr %5, align 8, !tbaa !8
   %7 = icmp eq i64 %.0.copyload, %6
   br i1 %7, label %32, label %8
 
@@ -181,7 +181,7 @@ define internal range(i32 -268435456, 268435457) i32 @long_i2c(ptr noundef reado
   %13 = lshr i64 %.078.i, 1
   %14 = add nuw nsw i64 %.069.i, 1
   %exitcond.not.i = icmp eq i64 %14, 64
-  br i1 %exitcond.not.i, label %num_bits_ulong.exit, label %9, !llvm.loop !15
+  br i1 %exitcond.not.i, label %num_bits_ulong.exit, label %9, !llvm.loop !14
 
 num_bits_ulong.exit:                              ; preds = %9
   %15 = icmp slt i64 %.0.copyload, 0
@@ -222,7 +222,7 @@ num_bits_ulong.exit:                              ; preds = %9
   store i8 %27, ptr %28, align 1, !tbaa !3
   %29 = lshr i64 %.131, 8
   %30 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %23, %num_bits_ulong.exit
   %31 = add nsw i32 %18, %.023
@@ -263,14 +263,13 @@ attributes #5 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !11, i64 40}
-!10 = !{!"ASN1_ITEM_st", !4, i64 0, !11, i64 8, !12, i64 16, !11, i64 24, !13, i64 32, !11, i64 40, !14, i64 48}
-!11 = !{!"long", !4, i64 0}
-!12 = !{!"p1 _ZTS16ASN1_TEMPLATE_st", !13, i64 0}
-!13 = !{!"any pointer", !4, i64 0}
-!14 = !{!"p1 omnipotent char", !13, i64 0}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = !{!9, !10, i64 40}
+!9 = !{!"ASN1_ITEM_st", !4, i64 0, !10, i64 8, !11, i64 16, !10, i64 24, !12, i64 32, !10, i64 40, !13, i64 48}
+!10 = !{!"long", !4, i64 0}
+!11 = !{!"p1 _ZTS16ASN1_TEMPLATE_st", !12, i64 0}
+!12 = !{!"any pointer", !4, i64 0}
+!13 = !{!"p1 omnipotent char", !12, i64 0}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

@@ -225,7 +225,7 @@ openFile.exit.i.backedge:                         ; preds = %69, %64, %123, %101
   br label %openFile.exit.i.backedge
 
 76:                                               ; preds = %openFile.exit.i
-  store i8 1, ptr @Verbose, align 1, !tbaa !16
+  store i8 1, ptr @Verbose, align 1, !tbaa !15
   br label %openFile.exit.i.backedge
 
 77:                                               ; preds = %openFile.exit.i
@@ -241,7 +241,7 @@ openFile.exit.i.backedge:                         ; preds = %69, %64, %123, %101
   br i1 %82, label %83, label %openFile.exit.i.backedge
 
 83:                                               ; preds = %79
-  %84 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %84 = load ptr, ptr @stderr, align 8, !tbaa !16
   %85 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str.17, ptr noundef %28, ptr noundef %80, ptr noundef nonnull @.str.16) #15
   call void @perror(ptr noundef %80) #16
   call fastcc void @graphviz_exit(i32 noundef 1) #17
@@ -294,7 +294,7 @@ openFile.exit.i.backedge:                         ; preds = %69, %64, %123, %101
   br label %openFile.exit.i.backedge
 
 112:                                              ; preds = %107
-  %113 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %113 = load ptr, ptr @stderr, align 8, !tbaa !16
   %114 = load ptr, ptr @optarg, align 8, !tbaa !4
   %115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.7, ptr noundef %114) #15
   call fastcc void @usage(ptr noundef %28, i32 noundef 1)
@@ -342,13 +342,13 @@ openFile.exit.i.backedge:                         ; preds = %69, %64, %123, %101
   br label %openFile.exit.i.backedge
 
 138:                                              ; preds = %132
-  %139 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %139 = load ptr, ptr @stderr, align 8, !tbaa !16
   %140 = load ptr, ptr @optarg, align 8, !tbaa !4
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.8, ptr noundef %28, ptr noundef %140) #15
   br label %openFile.exit.i.backedge
 
 142:                                              ; preds = %openFile.exit.i
-  %143 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %143 = load ptr, ptr @stderr, align 8, !tbaa !16
   %144 = load i32, ptr @optopt, align 4, !tbaa !9
   %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.9, i32 noundef %144) #15
   br label %openFile.exit.i.backedge
@@ -365,13 +365,13 @@ openFile.exit.i.backedge:                         ; preds = %69, %64, %123, %101
   unreachable
 
 149:                                              ; preds = %146
-  %150 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %150 = load ptr, ptr @stderr, align 8, !tbaa !16
   %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef nonnull @.str.10, i32 noundef %147) #15
   call fastcc void @usage(ptr noundef %28, i32 noundef 1)
   unreachable
 
 152:                                              ; preds = %openFile.exit.i
-  %153 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %153 = load ptr, ptr @stderr, align 8, !tbaa !16
   %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %153, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i32 noundef 293) #15
   call void @abort() #18
   unreachable
@@ -413,35 +413,35 @@ init.exit:                                        ; preds = %openFile.exit.i
 167:                                              ; preds = %165, %164
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #13
-  store ptr null, ptr %15, align 8, !tbaa !19
+  store ptr null, ptr %15, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #13
-  store ptr null, ptr %17, align 8, !tbaa !21
+  store ptr null, ptr %17, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #13
-  store ptr null, ptr %19, align 8, !tbaa !23
+  store ptr null, ptr %19, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #13
-  store ptr null, ptr %20, align 8, !tbaa !23
+  store ptr null, ptr %20, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #13
-  store ptr null, ptr %21, align 8, !tbaa !23
+  store ptr null, ptr %21, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #13
   call void @initDotIO(ptr noundef nonnull %163) #13
   %168 = call ptr @Import_coord_clusters_from_dot(ptr noundef nonnull %163, i32 noundef %.sroa.5517.0, i32 noundef 2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %17, i32 noundef %.sroa.3416.0, i32 noundef %.sroa.30.0, i32 noundef %.sroa.27.0) #13
   %169 = load i32, ptr %14, align 4, !tbaa !9
-  %170 = load ptr, ptr %16, align 8, !tbaa !19
-  %171 = load ptr, ptr %15, align 8, !tbaa !19
-  %172 = load ptr, ptr %18, align 8, !tbaa !25
-  %173 = load ptr, ptr %17, align 8, !tbaa !21
-  %174 = load ptr, ptr %22, align 8, !tbaa !23
-  %175 = load ptr, ptr %19, align 8, !tbaa !23
-  %176 = load ptr, ptr %20, align 8, !tbaa !23
-  %177 = load ptr, ptr %21, align 8, !tbaa !23
+  %170 = load ptr, ptr %16, align 8, !tbaa !18
+  %171 = load ptr, ptr %15, align 8, !tbaa !18
+  %172 = load ptr, ptr %18, align 8, !tbaa !24
+  %173 = load ptr, ptr %17, align 8, !tbaa !20
+  %174 = load ptr, ptr %22, align 8, !tbaa !22
+  %175 = load ptr, ptr %19, align 8, !tbaa !22
+  %176 = load ptr, ptr %20, align 8, !tbaa !22
+  %177 = load ptr, ptr %21, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr %175, ptr %3, align 8, !tbaa !23
-  store ptr %176, ptr %4, align 8, !tbaa !23
-  store ptr %177, ptr %5, align 8, !tbaa !23
+  store ptr %175, ptr %3, align 8, !tbaa !22
+  store ptr %176, ptr %4, align 8, !tbaa !22
+  store ptr %177, ptr %5, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #13
@@ -465,7 +465,7 @@ init.exit:                                        ; preds = %openFile.exit.i
 180:                                              ; preds = %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !27
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !26
 
 .lr.ph.i.i.i:                                     ; preds = %180, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %180 ]
@@ -475,7 +475,7 @@ init.exit:                                        ; preds = %openFile.exit.i
   br i1 %183, label %validateCluster.exit.i.i, label %180
 
 ._crit_edge.i.i.i:                                ; preds = %180, %178
-  %184 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %184 = load ptr, ptr @stderr, align 8, !tbaa !16
   %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.19, i32 noundef range(i32 1, 0) %.sroa.7123.0) #15
   br label %validateCluster.exit.i.i
 
@@ -486,12 +486,12 @@ validateCluster.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %._cr
   br i1 %.not98.i.i, label %187, label %mapFromGraph.exit
 
 187:                                              ; preds = %validateCluster.exit.i.i
-  %188 = load i8, ptr @Verbose, align 1, !tbaa !16
+  %188 = load i8, ptr @Verbose, align 1, !tbaa !15
   %.not99.i.i = icmp eq i8 %188, 0
   br i1 %.not99.i.i, label %193, label %189
 
 189:                                              ; preds = %187
-  %190 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %190 = load ptr, ptr @stderr, align 8, !tbaa !16
   %191 = load i32, ptr %13, align 4, !tbaa !9
   %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef nonnull @.str.18, i32 noundef %191) #15
   br label %193
@@ -529,13 +529,13 @@ validateCluster.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %._cr
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.090101.i.i = phi i32 [ %206, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
-  %204 = load ptr, ptr %8, align 8, !tbaa !28
+  %204 = load ptr, ptr %8, align 8, !tbaa !27
   call void @improve_contiguity(i32 noundef %169, i32 noundef 2, ptr noundef %172, ptr noundef %204, ptr noundef %170, ptr noundef nonnull %168) #13
   store i32 %.sroa.49.0, ptr %13, align 4, !tbaa !9
   %205 = call i32 @make_map_from_rectangle_groups(i1 noundef zeroext %.sroa.66.0, i32 noundef %169, i32 noundef 2, ptr noundef %170, ptr noundef %171, ptr noundef %172, ptr noundef nonnull %168, double noundef %.sroa.2213.0, i32 noundef %.sroa.19.0, ptr noundef nonnull %13, i32 noundef %.sroa.58.0, double noundef %.sroa.1410.0, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %12, i32 noundef %.sroa.7123.3) #13
   %206 = add nuw nsw i32 %.090101.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %206, %.sroa.46.0
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !30
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !29
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %207 = call ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef nonnull %168) #13
@@ -546,28 +546,28 @@ validateCluster.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %._cr
   br label %209
 
 209:                                              ; preds = %._crit_edge.i.i, %202
-  %210 = load ptr, ptr %3, align 8, !tbaa !23
-  %211 = load ptr, ptr %4, align 8, !tbaa !23
-  %212 = load ptr, ptr %5, align 8, !tbaa !23
+  %210 = load ptr, ptr %3, align 8, !tbaa !22
+  %211 = load ptr, ptr %4, align 8, !tbaa !22
+  %212 = load ptr, ptr %5, align 8, !tbaa !22
   call void @Dot_SetClusterColor(ptr noundef nonnull %163, ptr noundef %210, ptr noundef %211, ptr noundef %212, ptr noundef %172) #13
-  %213 = load ptr, ptr %7, align 8, !tbaa !28
-  %214 = load ptr, ptr %6, align 8, !tbaa !28
-  %215 = load ptr, ptr %11, align 8, !tbaa !19
-  %216 = load ptr, ptr %10, align 8, !tbaa !25
-  %217 = load ptr, ptr %3, align 8, !tbaa !23
-  %218 = load ptr, ptr %4, align 8, !tbaa !23
-  %219 = load ptr, ptr %5, align 8, !tbaa !23
+  %213 = load ptr, ptr %7, align 8, !tbaa !27
+  %214 = load ptr, ptr %6, align 8, !tbaa !27
+  %215 = load ptr, ptr %11, align 8, !tbaa !18
+  %216 = load ptr, ptr %10, align 8, !tbaa !24
+  %217 = load ptr, ptr %3, align 8, !tbaa !22
+  %218 = load ptr, ptr %4, align 8, !tbaa !22
+  %219 = load ptr, ptr %5, align 8, !tbaa !22
   %220 = select i1 %.sroa.32.0, ptr %168, ptr null
   call void @plot_dot_map(ptr noundef nonnull %163, i32 noundef %169, i32 noundef 2, ptr noundef %170, ptr noundef %213, ptr noundef %214, double noundef %.sroa.38.0, ptr noundef %.sroa.6320.0, ptr noundef %215, ptr noundef %216, ptr noundef %173, ptr noundef %174, ptr noundef %217, ptr noundef %218, ptr noundef %219, ptr noundef %.sroa.44.0, ptr noundef %220, ptr noundef %.sroa.6.2) #13
-  %221 = load ptr, ptr %7, align 8, !tbaa !28
+  %221 = load ptr, ptr %7, align 8, !tbaa !27
   call void @SparseMatrix_delete(ptr noundef %221) #13
-  %222 = load ptr, ptr %6, align 8, !tbaa !28
+  %222 = load ptr, ptr %6, align 8, !tbaa !27
   call void @SparseMatrix_delete(ptr noundef %222) #13
-  %223 = load ptr, ptr %8, align 8, !tbaa !28
+  %223 = load ptr, ptr %8, align 8, !tbaa !27
   call void @SparseMatrix_delete(ptr noundef %223) #13
-  %224 = load ptr, ptr %11, align 8, !tbaa !19
+  %224 = load ptr, ptr %11, align 8, !tbaa !18
   call void @free(ptr noundef %224) #13
-  %225 = load ptr, ptr %10, align 8, !tbaa !25
+  %225 = load ptr, ptr %10, align 8, !tbaa !24
   call void @free(ptr noundef %225) #13
   br label %mapFromGraph.exit
 
@@ -583,11 +583,11 @@ mapFromGraph.exit:                                ; preds = %validateCluster.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %226 = load ptr, ptr %19, align 8, !tbaa !23
+  %226 = load ptr, ptr %19, align 8, !tbaa !22
   call void @free(ptr noundef %226) #13
-  %227 = load ptr, ptr %20, align 8, !tbaa !23
+  %227 = load ptr, ptr %20, align 8, !tbaa !22
   call void @free(ptr noundef %227) #13
-  %228 = load ptr, ptr %21, align 8, !tbaa !23
+  %228 = load ptr, ptr %21, align 8, !tbaa !22
   call void @free(ptr noundef %228) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #13
@@ -598,7 +598,7 @@ mapFromGraph.exit:                                ; preds = %validateCluster.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
-  br i1 %.not98.i.i, label %162, label %229, !llvm.loop !31
+  br i1 %.not98.i.i, label %162, label %229, !llvm.loop !30
 
 229:                                              ; preds = %mapFromGraph.exit
   call fastcc void @graphviz_exit(i32 noundef 1) #17
@@ -632,9 +632,9 @@ declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr no
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @usage(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #6 {
-  %3 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %3 = load ptr, ptr @stderr, align 8, !tbaa !16
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.13, ptr noundef %0) #15
-  %5 = load ptr, ptr @stderr, align 8, !tbaa !17
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !16
   %6 = tail call i64 @fwrite(ptr nonnull @usestr, i64 1774, i64 1, ptr %5) #16
   tail call fastcc void @graphviz_exit(i32 noundef %1) #17
   unreachable
@@ -732,22 +732,21 @@ attributes #18 = { noreturn nounwind }
 !10 = !{!"int", !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"double", !7, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!7, !7, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 double", !6, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p2 omnipotent char", !6, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 float", !6, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 int", !6, i64 0}
-!27 = distinct !{!27, !14, !15}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTS19SparseMatrix_struct", !6, i64 0}
-!30 = distinct !{!30, !14, !15}
-!31 = distinct !{!31, !14, !15}
+!15 = !{!7, !7, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 double", !6, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p2 omnipotent char", !6, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 float", !6, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 int", !6, i64 0}
+!26 = distinct !{!26, !14}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS19SparseMatrix_struct", !6, i64 0}
+!29 = distinct !{!29, !14}
+!30 = distinct !{!30, !14}

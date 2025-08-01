@@ -238,7 +238,7 @@ define void @_ZN5folly10LogMessage15sanitizeMessageEv(ptr noundef nonnull align 
   %.1 = phi i64 [ %14, %13 ], [ %19, %18 ], [ %22, %21 ], [ %24, %23 ], [ %28, %27 ], [ %30, %29 ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.048.053, i64 1
   %.not = icmp eq ptr %32, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 33:                                               ; preds = %._crit_edge
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -454,7 +454,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit43: ; pred
 132:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit43, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit36
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.044.058, i64 1
   %.not51 = icmp eq ptr %133, %37
-  br i1 %.not51, label %.loopexit, label %43, !llvm.loop !52
+  br i1 %.not51, label %.loopexit, label %43
 
 .loopexit:                                        ; preds = %132, %33, %._crit_edge
   ret void
@@ -482,7 +482,7 @@ define void @_ZN5folly10LogMessageC2EPKNS_11LogCategoryENS_8LogLevelENSt6chrono1
   %12 = tail call noundef i64 @_ZN5folly13getOSThreadIDEv()
   store i64 %12, ptr %11, align 8, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %3, ptr %13, align 8, !tbaa !53
+  store i64 %3, ptr %13, align 8, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %4, ptr %14, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -635,7 +635,7 @@ _ZNK5folly5RangeIPKcE5rfindERS1_.exit:            ; preds = %4
   %15 = ptrtoint ptr %.sroa.0.0.copyload.pre4 to i64
   %16 = sub i64 %14, %15
   %.not = icmp ult i64 %11, %16
-  br i1 %.not, label %_ZNK5folly5RangeIPKcE8subpieceEmm.exit, label %17, !prof !54
+  br i1 %.not, label %_ZNK5folly5RangeIPKcE8subpieceEmm.exit, label %17, !prof !51
 
 17:                                               ; preds = %13
   tail call void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str) #8
@@ -695,7 +695,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #7 comdat align 2 {
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %0, align 8, !tbaa !55
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt12out_of_range, i64 16), ptr %0, align 8, !tbaa !52
   ret void
 }
 
@@ -790,10 +790,7 @@ attributes #13 = { noreturn }
 !47 = !{!20, !18, i64 0}
 !48 = !{!20, !14, i64 8}
 !49 = !{!11, !11, i64 0}
-!50 = distinct !{!50, !51}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = distinct !{!52, !51}
-!53 = !{!14, !14, i64 0}
-!54 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"vtable pointer", !12, i64 0}
+!50 = !{!14, !14, i64 0}
+!51 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"vtable pointer", !12, i64 0}

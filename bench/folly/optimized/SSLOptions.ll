@@ -558,14 +558,14 @@ define linkonce_odr void @_ZN5folly3ssl15setCipherSuitesINS0_23SSLOptionsCompati
   %5 = alloca %"struct.std::array.51", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %6, ptr %3, align 8, !tbaa !33
+  store ptr %6, ptr %3, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #18
-  store ptr @.str.7, ptr %4, align 8, !tbaa !13, !alias.scope !34
+  store ptr @.str.7, ptr %4, align 8, !tbaa !13, !alias.scope !33
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @.str.8, ptr %8, align 8, !tbaa !13, !alias.scope !34
+  store ptr @.str.8, ptr %8, align 8, !tbaa !13, !alias.scope !33
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @.str.9, ptr %9, align 8, !tbaa !13, !alias.scope !34
+  store ptr @.str.9, ptr %9, align 8, !tbaa !13, !alias.scope !33
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %7, align 8, !tbaa !29
   store i8 0, ptr %6, align 8, !tbaa !7
@@ -579,40 +579,40 @@ _ZN5folly4joinIcSt5arrayIPKcLm3EENSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 11:                                               ; preds = %_ZN5folly4joinIcSt5arrayIPKcLm3EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_RT1_.exit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #18
-  store ptr @.str.11, ptr %5, align 8, !tbaa !13, !alias.scope !39
+  store ptr @.str.11, ptr %5, align 8, !tbaa !13, !alias.scope !38
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @.str.12, ptr %12, align 8, !tbaa !13, !alias.scope !39
+  store ptr @.str.12, ptr %12, align 8, !tbaa !13, !alias.scope !38
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @.str.13, ptr %13, align 8, !tbaa !13, !alias.scope !39
+  store ptr @.str.13, ptr %13, align 8, !tbaa !13, !alias.scope !38
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr @.str.14, ptr %14, align 8, !tbaa !13, !alias.scope !39
+  store ptr @.str.14, ptr %14, align 8, !tbaa !13, !alias.scope !38
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr @.str.15, ptr %15, align 8, !tbaa !13, !alias.scope !39
+  store ptr @.str.15, ptr %15, align 8, !tbaa !13, !alias.scope !38
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr @.str.16, ptr %16, align 8, !tbaa !13, !alias.scope !39
+  store ptr @.str.16, ptr %16, align 8, !tbaa !13, !alias.scope !38
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr @.str.17, ptr %17, align 8, !tbaa !13, !alias.scope !39
+  store ptr @.str.17, ptr %17, align 8, !tbaa !13, !alias.scope !38
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr @.str.18, ptr %18, align 8, !tbaa !13, !alias.scope !39
+  store ptr @.str.18, ptr %18, align 8, !tbaa !13, !alias.scope !38
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr @.str.19, ptr %19, align 8, !tbaa !13, !alias.scope !39
+  store ptr @.str.19, ptr %19, align 8, !tbaa !13, !alias.scope !38
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr @.str.20, ptr %20, align 8, !tbaa !13, !alias.scope !39
+  store ptr @.str.20, ptr %20, align 8, !tbaa !13, !alias.scope !38
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store ptr @.str.21, ptr %21, align 8, !tbaa !13, !alias.scope !39
+  store ptr @.str.21, ptr %21, align 8, !tbaa !13, !alias.scope !38
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store ptr @.str.22, ptr %22, align 8, !tbaa !13, !alias.scope !39
+  store ptr @.str.22, ptr %22, align 8, !tbaa !13, !alias.scope !38
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #18
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %24, ptr %2, align 8, !tbaa !33
+  store ptr %24, ptr %2, align 8, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %25, i8 0, i64 9, i1 false)
   invoke void @_ZN5folly6detail18internalJoinAppendIcPKPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_T0_SD_RT1_(i8 noundef signext 58, ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull %23, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZN5folly4joinIA2_cPKPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_T0_SF_RT1_.exit.i.i unwind label %36
 
 _ZN5folly4joinIA2_cPKPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_T0_SF_RT1_.exit.i.i: ; preds = %11
-  %26 = load ptr, ptr %0, align 8, !tbaa !44
+  %26 = load ptr, ptr %0, align 8, !tbaa !43
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -757,44 +757,44 @@ define linkonce_odr void @_ZN5folly3ssl22setSignatureAlgorithmsINS0_23SSLOptions
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"struct.std::array.53", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #18
-  store ptr @.str.23, ptr %3, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.23, ptr %3, align 8, !tbaa !13, !alias.scope !45
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @.str.24, ptr %4, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.24, ptr %4, align 8, !tbaa !13, !alias.scope !45
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @.str.25, ptr %5, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.25, ptr %5, align 8, !tbaa !13, !alias.scope !45
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr @.str.26, ptr %6, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.26, ptr %6, align 8, !tbaa !13, !alias.scope !45
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr @.str.27, ptr %7, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.27, ptr %7, align 8, !tbaa !13, !alias.scope !45
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr @.str.28, ptr %8, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.28, ptr %8, align 8, !tbaa !13, !alias.scope !45
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr @.str.29, ptr %9, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.29, ptr %9, align 8, !tbaa !13, !alias.scope !45
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr @.str.30, ptr %10, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.30, ptr %10, align 8, !tbaa !13, !alias.scope !45
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr @.str.31, ptr %11, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.31, ptr %11, align 8, !tbaa !13, !alias.scope !45
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @.str.32, ptr %12, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.32, ptr %12, align 8, !tbaa !13, !alias.scope !45
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr @.str.33, ptr %13, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.33, ptr %13, align 8, !tbaa !13, !alias.scope !45
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store ptr @.str.34, ptr %14, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.34, ptr %14, align 8, !tbaa !13, !alias.scope !45
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store ptr @.str.35, ptr %15, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.35, ptr %15, align 8, !tbaa !13, !alias.scope !45
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store ptr @.str.36, ptr %16, align 8, !tbaa !13, !alias.scope !46
+  store ptr @.str.36, ptr %16, align 8, !tbaa !13, !alias.scope !45
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 112
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #18
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %18, ptr %2, align 8, !tbaa !33
+  store ptr %18, ptr %2, align 8, !tbaa !32
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %19, i8 0, i64 9, i1 false)
   invoke void @_ZN5folly6detail18internalJoinAppendIcPKPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_T0_SD_RT1_(i8 noundef signext 58, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %_ZN5folly4joinIA2_cPKPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_T0_SF_RT1_.exit.i.i unwind label %30
 
 _ZN5folly4joinIA2_cPKPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_T0_SF_RT1_.exit.i.i: ; preds = %1
-  %20 = load ptr, ptr %0, align 8, !tbaa !44
+  %20 = load ptr, ptr %0, align 8, !tbaa !43
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -977,7 +977,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKPKcPNSt7__cxx1112basic
   %.01218 = phi ptr [ %22, %17 ], [ %0, %3 ]
   %5 = load ptr, ptr %.01218, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %.019, i64 16
-  store ptr %6, ptr %.019, align 8, !tbaa !33
+  store ptr %6, ptr %.019, align 8, !tbaa !32
   %7 = icmp eq ptr %5, null
   br i1 %7, label %.noexc.i, label %8
 
@@ -991,7 +991,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKPKcPNSt7__cxx1112basic
 8:                                                ; preds = %.lr.ph
   %9 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
-  store i64 %9, ptr %4, align 8, !tbaa !51
+  store i64 %9, ptr %4, align 8, !tbaa !50
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.noexc.i.i, label %._crit_edge.i.i.i
 
@@ -1001,7 +1001,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKPKcPNSt7__cxx1112basic
 
 .noexc13:                                         ; preds = %.noexc.i.i
   store ptr %11, ptr %.019, align 8, !tbaa !25
-  %12 = load i64, ptr %4, align 8, !tbaa !51
+  %12 = load i64, ptr %4, align 8, !tbaa !50
   store i64 %12, ptr %6, align 8, !tbaa !7
   br label %._crit_edge.i.i.i
 
@@ -1022,7 +1022,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKPKcPNSt7__cxx1112basic
   br label %17
 
 17:                                               ; preds = %16, %14, %._crit_edge.i.i.i
-  %18 = load i64, ptr %4, align 8, !tbaa !51
+  %18 = load i64, ptr %4, align 8, !tbaa !50
   %19 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   store i64 %18, ptr %19, align 8, !tbaa !29
   %20 = load ptr, ptr %.019, align 8, !tbaa !25
@@ -1032,7 +1032,7 @@ define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIPKPKcPNSt7__cxx1112basic
   %22 = getelementptr inbounds nuw i8, ptr %.01218, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %.019, i64 32
   %.not = icmp eq ptr %22, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.noexc.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1217,7 +1217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i.i: ; p
 _ZN5folly8toAppendIJcPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEETnNSt9enable_ifIXaagesZT_Li3Esr12IsSomeStringINSt14remove_pointerI19__type_pack_elementIXmisPDpT_ELi1EEJSE_EEE4typeEEE5valueEiE4typeELi0EEEvDpRKSD_.exit: ; preds = %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvcPT_.exit.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i.i
   %41 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.not = icmp eq ptr %41, %2
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %_ZN5folly8toAppendIJcPKcPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEETnNSt9enable_ifIXaagesZT_Li3Esr12IsSomeStringINSt14remove_pointerI19__type_pack_elementIXmisPDpT_ELi1EEJSE_EEE4typeEEE5valueEiE4typeELi0EEEvDpRKSD_.exit, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
   ret void
@@ -1289,27 +1289,26 @@ attributes #22 = { noreturn }
 !27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !14, i64 0}
 !28 = !{!"long", !8, i64 0}
 !29 = !{!26, !28, i64 8}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!27, !14, i64 0}
-!34 = !{!35, !37}
-!35 = distinct !{!35, !36, !"_ZN5folly10make_arrayIvJRA23_KcS3_RA29_S1_EEESt5arrayINS_12array_detail18return_type_helperIT_JDpT0_EE4typeEXsPSB_EEEDpOSA_: argument 0"}
-!36 = distinct !{!36, !"_ZN5folly10make_arrayIvJRA23_KcS3_RA29_S1_EEESt5arrayINS_12array_detail18return_type_helperIT_JDpT0_EE4typeEXsPSB_EEEDpOSA_"}
-!37 = distinct !{!37, !38, !"_ZN5folly3ssl23SSLOptionsCompatibility12ciphersuitesEv: argument 0"}
-!38 = distinct !{!38, !"_ZN5folly3ssl23SSLOptionsCompatibility12ciphersuitesEv"}
-!39 = !{!40, !42}
-!40 = distinct !{!40, !41, !"_ZN5folly10make_arrayIvJRA30_KcRA28_S1_S3_S5_RA23_S1_RA21_S1_S7_S9_RA24_S1_RA18_S1_RA11_S1_SF_EEESt5arrayINS_12array_detail18return_type_helperIT_JDpT0_EE4typeEXsPSL_EEEDpOSK_: argument 0"}
-!41 = distinct !{!41, !"_ZN5folly10make_arrayIvJRA30_KcRA28_S1_S3_S5_RA23_S1_RA21_S1_S7_S9_RA24_S1_RA18_S1_RA11_S1_SF_EEESt5arrayINS_12array_detail18return_type_helperIT_JDpT0_EE4typeEXsPSL_EEEDpOSK_"}
-!42 = distinct !{!42, !43, !"_ZN5folly3ssl23SSLOptionsCompatibility7ciphersEv: argument 0"}
-!43 = distinct !{!43, !"_ZN5folly3ssl23SSLOptionsCompatibility7ciphersEv"}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"vtable pointer", !9, i64 0}
-!46 = !{!47, !49}
-!47 = distinct !{!47, !48, !"_ZN5folly10make_arrayIvJRA19_KcRA20_S1_RA11_S1_RA13_S1_S3_S5_S7_S9_S3_S5_S7_S9_RA9_S1_S7_EEESt5arrayINS_12array_detail18return_type_helperIT_JDpT0_EE4typeEXsPSH_EEEDpOSG_: argument 0"}
-!48 = distinct !{!48, !"_ZN5folly10make_arrayIvJRA19_KcRA20_S1_RA11_S1_RA13_S1_S3_S5_S7_S9_S3_S5_S7_S9_RA9_S1_S7_EEESt5arrayINS_12array_detail18return_type_helperIT_JDpT0_EE4typeEXsPSH_EEEDpOSG_"}
-!49 = distinct !{!49, !50, !"_ZN5folly3ssl23SSLOptionsCompatibility7sigalgsEv: argument 0"}
-!50 = distinct !{!50, !"_ZN5folly3ssl23SSLOptionsCompatibility7sigalgsEv"}
-!51 = !{!28, !28, i64 0}
-!52 = distinct !{!52, !31, !32}
-!53 = distinct !{!53, !31, !32}
+!32 = !{!27, !14, i64 0}
+!33 = !{!34, !36}
+!34 = distinct !{!34, !35, !"_ZN5folly10make_arrayIvJRA23_KcS3_RA29_S1_EEESt5arrayINS_12array_detail18return_type_helperIT_JDpT0_EE4typeEXsPSB_EEEDpOSA_: argument 0"}
+!35 = distinct !{!35, !"_ZN5folly10make_arrayIvJRA23_KcS3_RA29_S1_EEESt5arrayINS_12array_detail18return_type_helperIT_JDpT0_EE4typeEXsPSB_EEEDpOSA_"}
+!36 = distinct !{!36, !37, !"_ZN5folly3ssl23SSLOptionsCompatibility12ciphersuitesEv: argument 0"}
+!37 = distinct !{!37, !"_ZN5folly3ssl23SSLOptionsCompatibility12ciphersuitesEv"}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"_ZN5folly10make_arrayIvJRA30_KcRA28_S1_S3_S5_RA23_S1_RA21_S1_S7_S9_RA24_S1_RA18_S1_RA11_S1_SF_EEESt5arrayINS_12array_detail18return_type_helperIT_JDpT0_EE4typeEXsPSL_EEEDpOSK_: argument 0"}
+!40 = distinct !{!40, !"_ZN5folly10make_arrayIvJRA30_KcRA28_S1_S3_S5_RA23_S1_RA21_S1_S7_S9_RA24_S1_RA18_S1_RA11_S1_SF_EEESt5arrayINS_12array_detail18return_type_helperIT_JDpT0_EE4typeEXsPSL_EEEDpOSK_"}
+!41 = distinct !{!41, !42, !"_ZN5folly3ssl23SSLOptionsCompatibility7ciphersEv: argument 0"}
+!42 = distinct !{!42, !"_ZN5folly3ssl23SSLOptionsCompatibility7ciphersEv"}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"vtable pointer", !9, i64 0}
+!45 = !{!46, !48}
+!46 = distinct !{!46, !47, !"_ZN5folly10make_arrayIvJRA19_KcRA20_S1_RA11_S1_RA13_S1_S3_S5_S7_S9_S3_S5_S7_S9_RA9_S1_S7_EEESt5arrayINS_12array_detail18return_type_helperIT_JDpT0_EE4typeEXsPSH_EEEDpOSG_: argument 0"}
+!47 = distinct !{!47, !"_ZN5folly10make_arrayIvJRA19_KcRA20_S1_RA11_S1_RA13_S1_S3_S5_S7_S9_S3_S5_S7_S9_RA9_S1_S7_EEESt5arrayINS_12array_detail18return_type_helperIT_JDpT0_EE4typeEXsPSH_EEEDpOSG_"}
+!48 = distinct !{!48, !49, !"_ZN5folly3ssl23SSLOptionsCompatibility7sigalgsEv: argument 0"}
+!49 = distinct !{!49, !"_ZN5folly3ssl23SSLOptionsCompatibility7sigalgsEv"}
+!50 = !{!28, !28, i64 0}
+!51 = distinct !{!51, !31}
+!52 = distinct !{!52, !31}

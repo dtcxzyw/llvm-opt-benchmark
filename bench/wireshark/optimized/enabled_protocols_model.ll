@@ -815,14 +815,14 @@ _ZNK23QListSpecialMethodsBaseI8QVariantE7indexOfIS0_EExRKT_x.exit.i: ; preds = %
 
 _ZN19ModelHelperTreeItemI19EnabledProtocolItemE3rowEv.exit: ; preds = %30, %_ZNK23QListSpecialMethodsBaseI8QVariantE7indexOfIS0_EExRKT_x.exit.i
   %.0.i = phi i32 [ %.1.i.i.i, %_ZNK23QListSpecialMethodsBaseI8QVariantE7indexOfIS0_EExRKT_x.exit.i ], [ 0, %30 ]
-  store i32 %.0.i, ptr %0, align 8, !alias.scope !14
+  store i32 %.0.i, ptr %0, align 8, !alias.scope !13
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %56, align 4, !alias.scope !14
+  store i32 0, ptr %56, align 4, !alias.scope !13
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = ptrtoint ptr %22 to i64
-  store i64 %58, ptr %57, align 8, !alias.scope !14
+  store i64 %58, ptr %57, align 8, !alias.scope !13
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %59, align 8, !alias.scope !14
+  store ptr %1, ptr %59, align 8, !alias.scope !13
   br label %62
 
 .critedge:                                        ; preds = %19, %16
@@ -880,18 +880,18 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %12
   %.0 = phi ptr [ %26, %23 ], [ %22, %_ZNK11QModelIndex7isValidEv.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %28 = sext i32 %2 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28, !noalias !17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !noalias !17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28, !noalias !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !noalias !16
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 2, ptr %29, align 8, !noalias !17
+  store i64 2, ptr %29, align 8, !noalias !16
   %30 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %31 = load i64, ptr %30, align 8, !noalias !20
+  %31 = load i64, ptr %30, align 8, !noalias !19
   %32 = icmp ugt i64 %31, %28
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %35 = load ptr, ptr %34, align 8, !noalias !20
+  %35 = load ptr, ptr %34, align 8, !noalias !19
   %36 = getelementptr %class.QVariant, ptr %35, i64 %28
   br label %37
 
@@ -908,12 +908,12 @@ common.resume.i:                                  ; preds = %42, %39
   %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28, !noalias !17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28, !noalias !16
   br label %common.resume.i
 
 _ZNK5QListI8QVariantE5valueEx.exit.i:             ; preds = %37
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28, !noalias !17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28, !noalias !16
   %41 = invoke noundef ptr @_ZN14VariantPointerI19EnabledProtocolItemE5asPtrE8QVariant(ptr noundef nonnull %7)
           to label %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit unwind label %42
 
@@ -932,12 +932,12 @@ _ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit: ; preds = %_ZNK5QL
   br i1 %.not, label %49, label %46
 
 46:                                               ; preds = %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit
-  store i32 %2, ptr %0, align 8, !alias.scope !23
-  store i32 %3, ptr %44, align 4, !alias.scope !23
+  store i32 %2, ptr %0, align 8, !alias.scope !22
+  store i32 %3, ptr %44, align 4, !alias.scope !22
   %47 = ptrtoint ptr %41 to i64
-  store i64 %47, ptr %45, align 8, !alias.scope !23
+  store i64 %47, ptr %45, align 8, !alias.scope !22
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %48, align 8, !alias.scope !23
+  store ptr %1, ptr %48, align 8, !alias.scope !22
   br label %50
 
 49:                                               ; preds = %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit
@@ -1034,23 +1034,23 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
 
 26:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #28
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %28 = load ptr, ptr %27, align 8, !noalias !26
-  store ptr %28, ptr %5, align 8, !alias.scope !26
+  %28 = load ptr, ptr %27, align 8, !noalias !25
+  store ptr %28, ptr %5, align 8, !alias.scope !25
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %31 = load ptr, ptr %30, align 8, !noalias !26
-  store ptr %31, ptr %29, align 8, !alias.scope !26
+  %31 = load ptr, ptr %30, align 8, !noalias !25
+  store ptr %31, ptr %29, align 8, !alias.scope !25
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  %34 = load i64, ptr %33, align 8, !noalias !26
-  store i64 %34, ptr %32, align 8, !alias.scope !26
+  %34 = load i64, ptr %33, align 8, !noalias !25
+  store i64 %34, ptr %32, align 8, !alias.scope !25
   %.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i, label %_ZNK19EnabledProtocolItem4nameEv.exit, label %35
 
 35:                                               ; preds = %26
-  %36 = atomicrmw add ptr %28, i32 1 seq_cst, align 4, !noalias !26
+  %36 = atomicrmw add ptr %28, i32 1 seq_cst, align 4, !noalias !25
   br label %_ZNK19EnabledProtocolItem4nameEv.exit
 
 _ZNK19EnabledProtocolItem4nameEv.exit:            ; preds = %26, %35
@@ -1099,23 +1099,23 @@ _ZN7QStringD2Ev.exit17:                           ; preds = %42, %_ZN17QArrayDat
 
 48:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  %50 = load ptr, ptr %49, align 8, !noalias !29
-  store ptr %50, ptr %6, align 8, !alias.scope !29
+  %50 = load ptr, ptr %49, align 8, !noalias !28
+  store ptr %50, ptr %6, align 8, !alias.scope !28
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %53 = load ptr, ptr %52, align 8, !noalias !29
-  store ptr %53, ptr %51, align 8, !alias.scope !29
+  %53 = load ptr, ptr %52, align 8, !noalias !28
+  store ptr %53, ptr %51, align 8, !alias.scope !28
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %55 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  %56 = load i64, ptr %55, align 8, !noalias !29
-  store i64 %56, ptr %54, align 8, !alias.scope !29
+  %56 = load i64, ptr %55, align 8, !noalias !28
+  store i64 %56, ptr %54, align 8, !alias.scope !28
   %.not.i.i.i.i18 = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i18, label %_ZNK19EnabledProtocolItem11descriptionEv.exit, label %57
 
 57:                                               ; preds = %48
-  %58 = atomicrmw add ptr %50, i32 1 seq_cst, align 4, !noalias !29
+  %58 = atomicrmw add ptr %50, i32 1 seq_cst, align 4, !noalias !28
   br label %_ZNK19EnabledProtocolItem11descriptionEv.exit
 
 _ZNK19EnabledProtocolItem11descriptionEv.exit:    ; preds = %48, %57
@@ -1312,10 +1312,10 @@ define void @_ZN21EnabledProtocolsModel8populateEv(ptr noundef align 8 dereferen
   %16 = load ptr, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28, !noalias !32
-  store ptr %13, ptr %2, align 8, !noalias !32
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #28, !noalias !31
+  store ptr %13, ptr %2, align 8, !noalias !31
   call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable_or_null(32) %3, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28, !noalias !32
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #28, !noalias !31
   invoke void @_ZN9QtPrivate16QMovableArrayOpsI8QVariantE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %17, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE12prependChildEPS0_.exit unwind label %18
 
@@ -1346,7 +1346,7 @@ _ZN19ModelHelperTreeItemI19EnabledProtocolItemE12prependChildEPS0_.exit: ; preds
 22:                                               ; preds = %7, %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE12prependChildEPS0_.exit, %9
   %23 = call i32 @proto_get_next_protocol(ptr noundef nonnull %4)
   %.not = icmp eq i32 %23, -1
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !34
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1378,10 +1378,10 @@ define internal void @_ZL16addHeuristicItemPvS_(ptr noundef %0, ptr noundef %1) 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28, !noalias !36
-  store ptr %5, ptr %3, align 8, !noalias !36
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28, !noalias !35
+  store ptr %5, ptr %3, align 8, !noalias !35
   call void @_ZN8QVariantC1E9QMetaTypePKv(ptr noundef nonnull align 8 dereferenceable_or_null(32) %4, ptr nonnull @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28, !noalias !36
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28, !noalias !35
   invoke void @_ZN9QtPrivate16QMovableArrayOpsI8QVariantE7emplaceIJS1_EEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %7, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE12prependChildEPS0_.exit unwind label %8
 
@@ -1446,15 +1446,15 @@ define void @_ZN21EnabledProtocolsModel12applyChangesEb(ptr noundef readonly ali
   %21 = phi ptr [ %11, %.lr.ph36 ], [ %49, %._crit_edge ]
   %.034 = phi i1 [ false, %.lr.ph36 ], [ %.1.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #28, !noalias !39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false), !noalias !39
-  store i64 2, ptr %16, align 8, !noalias !39
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #28, !noalias !38
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 24, i1 false), !noalias !38
+  store i64 2, ptr %16, align 8, !noalias !38
   %22 = icmp ugt i64 %20, %indvars.iv39
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %25 = load ptr, ptr %24, align 8, !noalias !42
+  %25 = load ptr, ptr %24, align 8, !noalias !41
   %26 = getelementptr %class.QVariant, ptr %25, i64 %indvars.iv39
   br label %27
 
@@ -1471,12 +1471,12 @@ common.resume:                                    ; preds = %62, %102, %29, %32
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %8) #28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #28, !noalias !39
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #28, !noalias !38
   br label %common.resume
 
 _ZNK5QListI8QVariantE5valueEx.exit.i:             ; preds = %27
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %8) #28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #28, !noalias !39
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #28, !noalias !38
   %31 = invoke noundef ptr @_ZN14VariantPointerI19EnabledProtocolItemE5asPtrE8QVariant(ptr noundef nonnull %9)
           to label %_ZN19ModelHelperTreeItemI19EnabledProtocolItemE5childEi.exit unwind label %32
 
@@ -1525,21 +1525,21 @@ _ZN19EnabledProtocolItem10applyValueEv.exit:      ; preds = %_ZN19ModelHelperTre
   %sext41 = shl i64 %51, 32
   %52 = ashr exact i64 %sext41, 32
   %53 = icmp slt i64 %indvars.iv.next40, %52
-  br i1 %53, label %19, label %._crit_edge37, !llvm.loop !45
+  br i1 %53, label %19, label %._crit_edge37, !llvm.loop !44
 
 54:                                               ; preds = %.lr.ph, %_ZN19EnabledProtocolItem10applyValueEv.exit21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN19EnabledProtocolItem10applyValueEv.exit21 ]
   %55 = phi i64 [ %45, %.lr.ph ], [ %114, %_ZN19EnabledProtocolItem10applyValueEv.exit21 ]
   %.132 = phi i1 [ %43, %.lr.ph ], [ %113, %_ZN19EnabledProtocolItem10applyValueEv.exit21 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28, !noalias !46
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !noalias !46
-  store i64 2, ptr %17, align 8, !noalias !46
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28, !noalias !45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 24, i1 false), !noalias !45
+  store i64 2, ptr %17, align 8, !noalias !45
   %56 = icmp ugt i64 %55, %indvars.iv
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %54
-  %58 = load ptr, ptr %48, align 8, !noalias !49
+  %58 = load ptr, ptr %48, align 8, !noalias !48
   %59 = getelementptr %class.QVariant, ptr %58, i64 %indvars.iv
   br label %60
 
@@ -1552,12 +1552,12 @@ _ZN19EnabledProtocolItem10applyValueEv.exit:      ; preds = %_ZN19ModelHelperTre
   %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28, !noalias !46
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28, !noalias !45
   br label %common.resume
 
 _ZNK5QListI8QVariantE5valueEx.exit.i18:           ; preds = %60
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %6) #28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28, !noalias !46
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #28, !noalias !45
   %64 = load i64, ptr %18, align 8
   %65 = and i64 %64, -4
   %66 = inttoptr i64 %65 to ptr
@@ -1694,7 +1694,7 @@ _ZN19EnabledProtocolItem10applyValueEv.exit21:    ; preds = %_ZN19ModelHelperTre
   %sext = shl i64 %114, 32
   %115 = ashr exact i64 %sext, 32
   %116 = icmp slt i64 %indvars.iv.next, %115
-  br i1 %116, label %54, label %._crit_edge, !llvm.loop !52
+  br i1 %116, label %54, label %._crit_edge, !llvm.loop !51
 
 117:                                              ; preds = %._crit_edge37
   br i1 %1, label %118, label %_ZN21EnabledProtocolsModel11saveChangesEb.exit
@@ -1884,44 +1884,44 @@ define noundef zeroext i1 @_ZNK26EnabledProtocolsProxyModel8lessThanERK11QModelI
 
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %21 = load ptr, ptr %20, align 8, !noalias !53
-  store ptr %21, ptr %4, align 8, !alias.scope !53
+  %21 = load ptr, ptr %20, align 8, !noalias !52
+  store ptr %21, ptr %4, align 8, !alias.scope !52
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %24 = load ptr, ptr %23, align 8, !noalias !53
-  store ptr %24, ptr %22, align 8, !alias.scope !53
+  %24 = load ptr, ptr %23, align 8, !noalias !52
+  store ptr %24, ptr %22, align 8, !alias.scope !52
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %27 = load i64, ptr %26, align 8, !noalias !53
-  store i64 %27, ptr %25, align 8, !alias.scope !53
+  %27 = load i64, ptr %26, align 8, !noalias !52
+  store i64 %27, ptr %25, align 8, !alias.scope !52
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZNK19EnabledProtocolItem4nameEv.exit, label %28
 
 28:                                               ; preds = %19
-  %29 = atomicrmw add ptr %21, i32 1 seq_cst, align 4, !noalias !53
+  %29 = atomicrmw add ptr %21, i32 1 seq_cst, align 4, !noalias !52
   br label %_ZNK19EnabledProtocolItem4nameEv.exit
 
 _ZNK19EnabledProtocolItem4nameEv.exit:            ; preds = %19, %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #28
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %31 = load ptr, ptr %30, align 8, !noalias !56
-  store ptr %31, ptr %5, align 8, !alias.scope !56
+  %31 = load ptr, ptr %30, align 8, !noalias !55
+  store ptr %31, ptr %5, align 8, !alias.scope !55
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %34 = load ptr, ptr %33, align 8, !noalias !56
-  store ptr %34, ptr %32, align 8, !alias.scope !56
+  %34 = load ptr, ptr %33, align 8, !noalias !55
+  store ptr %34, ptr %32, align 8, !alias.scope !55
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %37 = load i64, ptr %36, align 8, !noalias !56
-  store i64 %37, ptr %35, align 8, !alias.scope !56
+  %37 = load i64, ptr %36, align 8, !noalias !55
+  store i64 %37, ptr %35, align 8, !alias.scope !55
   %.not.i.i.i.i17 = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i17, label %_ZNK19EnabledProtocolItem4nameEv.exit18, label %38
 
 38:                                               ; preds = %_ZNK19EnabledProtocolItem4nameEv.exit
-  %39 = atomicrmw add ptr %31, i32 1 seq_cst, align 4, !noalias !56
+  %39 = atomicrmw add ptr %31, i32 1 seq_cst, align 4, !noalias !55
   br label %_ZNK19EnabledProtocolItem4nameEv.exit18
 
 _ZNK19EnabledProtocolItem4nameEv.exit18:          ; preds = %_ZNK19EnabledProtocolItem4nameEv.exit, %38
@@ -1962,44 +1962,44 @@ _ZN7QStringD2Ev.exit22:                           ; preds = %_ZN7QStringD2Ev.exi
 
 49:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %51 = load ptr, ptr %50, align 8, !noalias !59
-  store ptr %51, ptr %6, align 8, !alias.scope !59
+  %51 = load ptr, ptr %50, align 8, !noalias !58
+  store ptr %51, ptr %6, align 8, !alias.scope !58
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %54 = load ptr, ptr %53, align 8, !noalias !59
-  store ptr %54, ptr %52, align 8, !alias.scope !59
+  %54 = load ptr, ptr %53, align 8, !noalias !58
+  store ptr %54, ptr %52, align 8, !alias.scope !58
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %57 = load i64, ptr %56, align 8, !noalias !59
-  store i64 %57, ptr %55, align 8, !alias.scope !59
+  %57 = load i64, ptr %56, align 8, !noalias !58
+  store i64 %57, ptr %55, align 8, !alias.scope !58
   %.not.i.i.i.i23 = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i23, label %_ZNK19EnabledProtocolItem11descriptionEv.exit, label %58
 
 58:                                               ; preds = %49
-  %59 = atomicrmw add ptr %51, i32 1 seq_cst, align 4, !noalias !59
+  %59 = atomicrmw add ptr %51, i32 1 seq_cst, align 4, !noalias !58
   br label %_ZNK19EnabledProtocolItem11descriptionEv.exit
 
 _ZNK19EnabledProtocolItem11descriptionEv.exit:    ; preds = %49, %58
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #28
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %61 = load ptr, ptr %60, align 8, !noalias !62
-  store ptr %61, ptr %7, align 8, !alias.scope !62
+  %61 = load ptr, ptr %60, align 8, !noalias !61
+  store ptr %61, ptr %7, align 8, !alias.scope !61
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %64 = load ptr, ptr %63, align 8, !noalias !62
-  store ptr %64, ptr %62, align 8, !alias.scope !62
+  %64 = load ptr, ptr %63, align 8, !noalias !61
+  store ptr %64, ptr %62, align 8, !alias.scope !61
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %67 = load i64, ptr %66, align 8, !noalias !62
-  store i64 %67, ptr %65, align 8, !alias.scope !62
+  %67 = load i64, ptr %66, align 8, !noalias !61
+  store i64 %67, ptr %65, align 8, !alias.scope !61
   %.not.i.i.i.i24 = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i24, label %_ZNK19EnabledProtocolItem11descriptionEv.exit25, label %68
 
 68:                                               ; preds = %_ZNK19EnabledProtocolItem11descriptionEv.exit
-  %69 = atomicrmw add ptr %61, i32 1 seq_cst, align 4, !noalias !62
+  %69 = atomicrmw add ptr %61, i32 1 seq_cst, align 4, !noalias !61
   br label %_ZNK19EnabledProtocolItem11descriptionEv.exit25
 
 _ZNK19EnabledProtocolItem11descriptionEv.exit25:  ; preds = %_ZNK19EnabledProtocolItem11descriptionEv.exit, %68
@@ -2078,25 +2078,25 @@ define range(i32 0, 50) i32 @_ZNK26EnabledProtocolsProxyModel5flagsERK11QModelIn
   call void %16(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %3, ptr noundef align 8 dereferenceable_or_null(16) %0, ptr noundef align 8 dereferenceable(24) %1)
   %17 = load i32, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #28
-  call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %19 = load ptr, ptr %18, align 8, !noalias !65
+  %19 = load ptr, ptr %18, align 8, !noalias !64
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %24, label %20
 
 20:                                               ; preds = %13
-  %21 = load ptr, ptr %19, align 8, !noalias !65
+  %21 = load ptr, ptr %19, align 8, !noalias !64
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
-  %23 = load ptr, ptr %22, align 8, !noalias !65
+  %23 = load ptr, ptr %22, align 8, !noalias !64
   call void %23(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %4, ptr noundef nonnull align 8 dereferenceable_or_null(16) %19, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %3)
   br label %_ZNK11QModelIndex6parentEv.exit
 
 24:                                               ; preds = %13
-  store i32 -1, ptr %4, align 8, !alias.scope !65
+  store i32 -1, ptr %4, align 8, !alias.scope !64
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 -1, ptr %25, align 4, !alias.scope !65
+  store i32 -1, ptr %25, align 4, !alias.scope !64
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !alias.scope !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false), !alias.scope !64
   br label %_ZNK11QModelIndex6parentEv.exit
 
 _ZNK11QModelIndex6parentEv.exit:                  ; preds = %20, %24
@@ -2186,23 +2186,23 @@ define noundef zeroext i1 @_ZNK26EnabledProtocolsProxyModel17filterAcceptsSelfEi
 
 47:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #28
-  call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %49 = load ptr, ptr %48, align 8, !noalias !68
-  store ptr %49, ptr %6, align 8, !alias.scope !68
+  %49 = load ptr, ptr %48, align 8, !noalias !67
+  store ptr %49, ptr %6, align 8, !alias.scope !67
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %52 = load ptr, ptr %51, align 8, !noalias !68
-  store ptr %52, ptr %50, align 8, !alias.scope !68
+  %52 = load ptr, ptr %51, align 8, !noalias !67
+  store ptr %52, ptr %50, align 8, !alias.scope !67
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %55 = load i64, ptr %54, align 8, !noalias !68
-  store i64 %55, ptr %53, align 8, !alias.scope !68
+  %55 = load i64, ptr %54, align 8, !noalias !67
+  store i64 %55, ptr %53, align 8, !alias.scope !67
   %.not.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i, label %_ZNK19EnabledProtocolItem4nameEv.exit, label %56
 
 56:                                               ; preds = %47
-  %57 = atomicrmw add ptr %49, i32 1 seq_cst, align 4, !noalias !68
+  %57 = atomicrmw add ptr %49, i32 1 seq_cst, align 4, !noalias !67
   br label %_ZNK19EnabledProtocolItem4nameEv.exit
 
 _ZNK19EnabledProtocolItem4nameEv.exit:            ; preds = %47, %56
@@ -2275,23 +2275,23 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %.critedge, %_ZN17QA
 
 76:                                               ; preds = %_ZN7QStringD2Ev.exit52, %_ZN7QStringD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #28
-  call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %77 = getelementptr inbounds nuw i8, ptr %25, i64 64
-  %78 = load ptr, ptr %77, align 8, !noalias !71
-  store ptr %78, ptr %7, align 8, !alias.scope !71
+  %78 = load ptr, ptr %77, align 8, !noalias !70
+  store ptr %78, ptr %7, align 8, !alias.scope !70
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %80 = getelementptr inbounds nuw i8, ptr %25, i64 72
-  %81 = load ptr, ptr %80, align 8, !noalias !71
-  store ptr %81, ptr %79, align 8, !alias.scope !71
+  %81 = load ptr, ptr %80, align 8, !noalias !70
+  store ptr %81, ptr %79, align 8, !alias.scope !70
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %83 = getelementptr inbounds nuw i8, ptr %25, i64 80
-  %84 = load i64, ptr %83, align 8, !noalias !71
-  store i64 %84, ptr %82, align 8, !alias.scope !71
+  %84 = load i64, ptr %83, align 8, !noalias !70
+  store i64 %84, ptr %82, align 8, !alias.scope !70
   %.not.i.i.i.i53 = icmp eq ptr %78, null
   br i1 %.not.i.i.i.i53, label %_ZNK19EnabledProtocolItem11descriptionEv.exit, label %85
 
 85:                                               ; preds = %76
-  %86 = atomicrmw add ptr %78, i32 1 seq_cst, align 4, !noalias !71
+  %86 = atomicrmw add ptr %78, i32 1 seq_cst, align 4, !noalias !70
   br label %_ZNK19EnabledProtocolItem11descriptionEv.exit
 
 _ZNK19EnabledProtocolItem11descriptionEv.exit:    ; preds = %76, %85
@@ -2367,23 +2367,23 @@ _ZN7QStringD2Ev.exit65:                           ; preds = %.critedge2, %_ZN17Q
 
 106:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #28
-  call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %107 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %108 = load ptr, ptr %107, align 8, !noalias !74
-  store ptr %108, ptr %8, align 8, !alias.scope !74
+  %108 = load ptr, ptr %107, align 8, !noalias !73
+  store ptr %108, ptr %8, align 8, !alias.scope !73
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %110 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %111 = load ptr, ptr %110, align 8, !noalias !74
-  store ptr %111, ptr %109, align 8, !alias.scope !74
+  %111 = load ptr, ptr %110, align 8, !noalias !73
+  store ptr %111, ptr %109, align 8, !alias.scope !73
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %113 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %114 = load i64, ptr %113, align 8, !noalias !74
-  store i64 %114, ptr %112, align 8, !alias.scope !74
+  %114 = load i64, ptr %113, align 8, !noalias !73
+  store i64 %114, ptr %112, align 8, !alias.scope !73
   %.not.i.i.i.i66 = icmp eq ptr %108, null
   br i1 %.not.i.i.i.i66, label %_ZNK19EnabledProtocolItem4nameEv.exit67, label %115
 
 115:                                              ; preds = %106
-  %116 = atomicrmw add ptr %108, i32 1 seq_cst, align 4, !noalias !74
+  %116 = atomicrmw add ptr %108, i32 1 seq_cst, align 4, !noalias !73
   br label %_ZNK19EnabledProtocolItem4nameEv.exit67
 
 _ZNK19EnabledProtocolItem4nameEv.exit67:          ; preds = %106, %115
@@ -2395,23 +2395,23 @@ _ZNK19EnabledProtocolItem4nameEv.exit67:          ; preds = %106, %115
 
 119:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #28
-  call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %120 = getelementptr inbounds nuw i8, ptr %25, i64 64
-  %121 = load ptr, ptr %120, align 8, !noalias !77
-  store ptr %121, ptr %9, align 8, !alias.scope !77
+  %121 = load ptr, ptr %120, align 8, !noalias !76
+  store ptr %121, ptr %9, align 8, !alias.scope !76
   %122 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %25, i64 72
-  %124 = load ptr, ptr %123, align 8, !noalias !77
-  store ptr %124, ptr %122, align 8, !alias.scope !77
+  %124 = load ptr, ptr %123, align 8, !noalias !76
+  store ptr %124, ptr %122, align 8, !alias.scope !76
   %125 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %126 = getelementptr inbounds nuw i8, ptr %25, i64 80
-  %127 = load i64, ptr %126, align 8, !noalias !77
-  store i64 %127, ptr %125, align 8, !alias.scope !77
+  %127 = load i64, ptr %126, align 8, !noalias !76
+  store i64 %127, ptr %125, align 8, !alias.scope !76
   %.not.i.i.i.i68 = icmp eq ptr %121, null
   br i1 %.not.i.i.i.i68, label %_ZNK19EnabledProtocolItem11descriptionEv.exit69, label %128
 
 128:                                              ; preds = %119
-  %129 = atomicrmw add ptr %121, i32 1 seq_cst, align 4, !noalias !77
+  %129 = atomicrmw add ptr %121, i32 1 seq_cst, align 4, !noalias !76
   br label %_ZNK19EnabledProtocolItem11descriptionEv.exit69
 
 _ZNK19EnabledProtocolItem11descriptionEv.exit69:  ; preds = %119, %128
@@ -2590,7 +2590,7 @@ define noundef zeroext i1 @_ZNK26EnabledProtocolsProxyModel16filterAcceptsRowEiR
   %25 = add nuw nsw i32 %.018.i, 1
   %exitcond.not.i = icmp eq i32 %25, %23
   %or.cond = select i1 %24, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond, label %_ZNK26EnabledProtocolsProxyModel18filterAcceptsChildEiRK11QModelIndex.exit, label %.lr.ph.i, !llvm.loop !80
+  br i1 %or.cond, label %_ZNK26EnabledProtocolsProxyModel18filterAcceptsChildEiRK11QModelIndex.exit, label %.lr.ph.i, !llvm.loop !79
 
 _ZNK26EnabledProtocolsProxyModel18filterAcceptsChildEiRK11QModelIndex.exit: ; preds = %.lr.ph.i, %6, %19
   %.09.i = phi i1 [ false, %19 ], [ false, %6 ], [ %24, %.lr.ph.i ]
@@ -2637,7 +2637,7 @@ define noundef zeroext i1 @_ZNK26EnabledProtocolsProxyModel18filterAcceptsChildE
   %23 = add nuw nsw i32 %.018, 1
   %exitcond.not = icmp eq i32 %23, %21
   %or.cond22 = select i1 %22, i1 true, i1 %exitcond.not
-  br i1 %or.cond22, label %_ZNK11QModelIndex7isValidEv.exit.thread, label %.lr.ph, !llvm.loop !80
+  br i1 %or.cond22, label %_ZNK11QModelIndex7isValidEv.exit.thread, label %.lr.ph, !llvm.loop !79
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %.lr.ph, %3, %17
   %.09 = phi i1 [ false, %17 ], [ false, %3 ], [ %22, %.lr.ph ]
@@ -2780,22 +2780,22 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %14
 64:                                               ; preds = %60, %57
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #28
-  call void @llvm.experimental.noalias.scope.decl(metadata !81)
-  %65 = load ptr, ptr %33, align 8, !noalias !81
+  call void @llvm.experimental.noalias.scope.decl(metadata !80)
+  %65 = load ptr, ptr %33, align 8, !noalias !80
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %.thread, label %_ZNK11QModelIndex4dataEi.exit
 
 .thread:                                          ; preds = %64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false), !alias.scope !81
-  store i64 2, ptr %34, align 8, !alias.scope !81
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false), !alias.scope !80
+  store i64 2, ptr %34, align 8, !alias.scope !80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   br label %_Zeq9QMetaTypeS_.exit.thread10.i.i
 
 _ZNK11QModelIndex4dataEi.exit:                    ; preds = %64
-  %66 = load ptr, ptr %65, align 8, !noalias !81
+  %66 = load ptr, ptr %65, align 8, !noalias !80
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 144
-  %68 = load ptr, ptr %67, align 8, !noalias !81
+  %68 = load ptr, ptr %67, align 8, !noalias !80
   call void %68(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %10, ptr noundef nonnull align 8 dereferenceable_or_null(16) %65, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %7, i32 noundef 10)
   %.pre = load i64, ptr %34, align 8
   %69 = and i64 %.pre, -4
@@ -2970,7 +2970,7 @@ _ZNK11QModelIndex7isValidEv.exit19.thread:        ; preds = %41, %54, %60, %121
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #28
   %125 = add nuw nsw i32 %.01240, 1
   %exitcond.not = icmp eq i32 %125, %27
-  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge, label %41, !llvm.loop !83
 
 _ZNK11QModelIndex7isValidEv.exit18.thread:        ; preds = %._crit_edge
   call void @_ZN18QAbstractItemModel13endResetModelEv(ptr noundef align 8 dereferenceable_or_null(16) %0)
@@ -3295,14 +3295,14 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI19EnabledProtocolItemED2Ev(pt
   %11 = phi i64 [ %5, %.lr.ph ], [ %32, %29 ]
   %12 = phi i64 [ 0, %.lr.ph ], [ %31, %29 ]
   %.010 = phi i32 [ 0, %.lr.ph ], [ %30, %29 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28, !noalias !85
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false), !noalias !85
-  store i64 2, ptr %7, align 8, !noalias !85
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #28, !noalias !84
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false), !noalias !84
+  store i64 2, ptr %7, align 8, !noalias !84
   %13 = icmp ugt i64 %11, %12
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %8, align 8, !noalias !88
+  %15 = load ptr, ptr %8, align 8, !noalias !87
   %16 = getelementptr %class.QVariant, ptr %15, i64 %12
   br label %17
 
@@ -3315,12 +3315,12 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI19EnabledProtocolItemED2Ev(pt
   %20 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %2) #28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28, !noalias !85
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28, !noalias !84
   br label %.body
 
 21:                                               ; preds = %17
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %2) #28
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28, !noalias !85
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #28, !noalias !84
   %22 = invoke noundef ptr @_ZN14VariantPointerI19EnabledProtocolItemE5asPtrE8QVariant(ptr noundef nonnull %3)
           to label %23 unwind label %.loopexit
 
@@ -3341,7 +3341,7 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI19EnabledProtocolItemED2Ev(pt
   %31 = sext i32 %30 to i64
   %32 = load i64, ptr %4, align 8
   %33 = icmp sgt i64 %32, %31
-  br i1 %33, label %10, label %._crit_edge, !llvm.loop !91
+  br i1 %33, label %10, label %._crit_edge, !llvm.loop !90
 
 34:                                               ; preds = %._crit_edge
   %35 = load ptr, ptr %9, align 8
@@ -3367,7 +3367,7 @@ _ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i.i: ; preds = %34
   call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %.05.i.i.i.i.i.i) #28
   %42 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i = icmp eq ptr %42, %41
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !92
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !91
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %37
   %43 = load ptr, ptr %9, align 8
@@ -3566,7 +3566,7 @@ _ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i: ; preds = %_ZN17QArrayDataPoin
   call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %.05.i.i.i.i.i) #28
   %22 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %22, %21
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !92
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !91
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %20
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef nonnull %15, i64 noundef 32, i64 noundef 8) #28
@@ -3585,7 +3585,7 @@ _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i: ; preds = %.lr.
   tail call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %.05.i.i.i.i) #28
   %27 = getelementptr i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %27, %26
-  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE8truncateEm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !92
+  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE8truncateEm.exit, label %.lr.ph.i.i.i.i, !llvm.loop !91
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE8truncateEm.exit: ; preds = %.lr.ph.i.i.i.i, %23
   store i64 0, ptr %3, align 8
@@ -3653,7 +3653,7 @@ _ZN17QArrayDataPointerI8QVariantE5derefEv.exit:   ; preds = %1
   tail call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %.05.i.i.i.i) #28
   %10 = getelementptr i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %10, %9
-  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !92
+  br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !91
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit: ; preds = %.lr.ph.i.i.i.i, %4
   %11 = load ptr, ptr %0, align 8
@@ -4474,7 +4474,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit33.thread: ; preds = %39, 
   %55 = add i64 %54, 1
   store i64 %55, ptr %49, align 8
   %56 = icmp ult ptr %53, %46
-  br i1 %56, label %50, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit, !llvm.loop !93
+  br i1 %56, label %50, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit, !llvm.loop !92
 
 57:                                               ; preds = %50
   %58 = landingpad { ptr, i32 }
@@ -4509,7 +4509,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit33.thread: ; preds = %39, 
   %71 = add i64 %70, 1
   store i64 %71, ptr %65, align 8
   %72 = icmp ult ptr %69, %62
-  br i1 %72, label %66, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit, !llvm.loop !94
+  br i1 %72, label %66, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit, !llvm.loop !93
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10copyAppendEPKS1_S4_.exit: ; preds = %66, %.noexc, %59, %_ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit33.thread, %36
   %73 = load ptr, ptr %0, align 8
@@ -4565,7 +4565,7 @@ _ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i: ; preds = %87
   call void @_ZN8QVariantD1Ev(ptr noundef align 8 dereferenceable_or_null(32) %.05.i.i.i.i.i) #28
   %94 = getelementptr i8, ptr %.05.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq ptr %94, %93
-  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !92
+  br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !91
 
 _ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %90
   %95 = load ptr, ptr %5, align 8
@@ -5057,87 +5057,86 @@ attributes #30 = { cold noreturn }
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZN14VariantPointerI19EnabledProtocolItemE10asQVariantEPS0_: argument 0"}
 !10 = distinct !{!10, !"_ZN14VariantPointerI19EnabledProtocolItemE10asQVariantEPS0_"}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
-!16 = distinct !{!16, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
-!19 = distinct !{!19, !"_ZNK5QListI8QVariantE5valueEx"}
-!20 = !{!21, !18}
-!21 = distinct !{!21, !22, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
-!22 = distinct !{!22, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
-!25 = distinct !{!25, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZNK19EnabledProtocolItem4nameEv: argument 0"}
-!28 = distinct !{!28, !"_ZNK19EnabledProtocolItem4nameEv"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZNK19EnabledProtocolItem11descriptionEv: argument 0"}
-!31 = distinct !{!31, !"_ZNK19EnabledProtocolItem11descriptionEv"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN14VariantPointerI19EnabledProtocolItemE10asQVariantEPS0_: argument 0"}
-!34 = distinct !{!34, !"_ZN14VariantPointerI19EnabledProtocolItemE10asQVariantEPS0_"}
-!35 = distinct !{!35, !12, !13}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"_ZN14VariantPointerI19EnabledProtocolItemE10asQVariantEPS0_: argument 0"}
-!38 = distinct !{!38, !"_ZN14VariantPointerI19EnabledProtocolItemE10asQVariantEPS0_"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
-!41 = distinct !{!41, !"_ZNK5QListI8QVariantE5valueEx"}
-!42 = !{!43, !40}
-!43 = distinct !{!43, !44, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
-!44 = distinct !{!44, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
-!45 = distinct !{!45, !12, !13}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
-!48 = distinct !{!48, !"_ZNK5QListI8QVariantE5valueEx"}
-!49 = !{!50, !47}
-!50 = distinct !{!50, !51, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
-!51 = distinct !{!51, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
-!52 = distinct !{!52, !12, !13}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNK19EnabledProtocolItem4nameEv: argument 0"}
-!55 = distinct !{!55, !"_ZNK19EnabledProtocolItem4nameEv"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZNK19EnabledProtocolItem4nameEv: argument 0"}
-!58 = distinct !{!58, !"_ZNK19EnabledProtocolItem4nameEv"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK19EnabledProtocolItem11descriptionEv: argument 0"}
-!61 = distinct !{!61, !"_ZNK19EnabledProtocolItem11descriptionEv"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZNK19EnabledProtocolItem11descriptionEv: argument 0"}
-!64 = distinct !{!64, !"_ZNK19EnabledProtocolItem11descriptionEv"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZNK11QModelIndex6parentEv: argument 0"}
-!67 = distinct !{!67, !"_ZNK11QModelIndex6parentEv"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZNK19EnabledProtocolItem4nameEv: argument 0"}
-!70 = distinct !{!70, !"_ZNK19EnabledProtocolItem4nameEv"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZNK19EnabledProtocolItem11descriptionEv: argument 0"}
-!73 = distinct !{!73, !"_ZNK19EnabledProtocolItem11descriptionEv"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNK19EnabledProtocolItem4nameEv: argument 0"}
-!76 = distinct !{!76, !"_ZNK19EnabledProtocolItem4nameEv"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZNK19EnabledProtocolItem11descriptionEv: argument 0"}
-!79 = distinct !{!79, !"_ZNK19EnabledProtocolItem11descriptionEv"}
-!80 = distinct !{!80, !12, !13}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZNK11QModelIndex4dataEi: argument 0"}
-!83 = distinct !{!83, !"_ZNK11QModelIndex4dataEi"}
-!84 = distinct !{!84, !12, !13}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
-!87 = distinct !{!87, !"_ZNK5QListI8QVariantE5valueEx"}
-!88 = !{!89, !86}
-!89 = distinct !{!89, !90, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
-!90 = distinct !{!90, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
-!91 = distinct !{!91, !12, !13}
-!92 = distinct !{!92, !12, !13}
-!93 = distinct !{!93, !12, !13}
-!94 = distinct !{!94, !12, !13}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
+!15 = distinct !{!15, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
+!18 = distinct !{!18, !"_ZNK5QListI8QVariantE5valueEx"}
+!19 = !{!20, !17}
+!20 = distinct !{!20, !21, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
+!21 = distinct !{!21, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK18QAbstractItemModel11createIndexEiiPKv: argument 0"}
+!24 = distinct !{!24, !"_ZNK18QAbstractItemModel11createIndexEiiPKv"}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZNK19EnabledProtocolItem4nameEv: argument 0"}
+!27 = distinct !{!27, !"_ZNK19EnabledProtocolItem4nameEv"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZNK19EnabledProtocolItem11descriptionEv: argument 0"}
+!30 = distinct !{!30, !"_ZNK19EnabledProtocolItem11descriptionEv"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZN14VariantPointerI19EnabledProtocolItemE10asQVariantEPS0_: argument 0"}
+!33 = distinct !{!33, !"_ZN14VariantPointerI19EnabledProtocolItemE10asQVariantEPS0_"}
+!34 = distinct !{!34, !12}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN14VariantPointerI19EnabledProtocolItemE10asQVariantEPS0_: argument 0"}
+!37 = distinct !{!37, !"_ZN14VariantPointerI19EnabledProtocolItemE10asQVariantEPS0_"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
+!40 = distinct !{!40, !"_ZNK5QListI8QVariantE5valueEx"}
+!41 = !{!42, !39}
+!42 = distinct !{!42, !43, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
+!43 = distinct !{!43, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
+!44 = distinct !{!44, !12}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
+!47 = distinct !{!47, !"_ZNK5QListI8QVariantE5valueEx"}
+!48 = !{!49, !46}
+!49 = distinct !{!49, !50, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
+!50 = distinct !{!50, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
+!51 = distinct !{!51, !12}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZNK19EnabledProtocolItem4nameEv: argument 0"}
+!54 = distinct !{!54, !"_ZNK19EnabledProtocolItem4nameEv"}
+!55 = !{!56}
+!56 = distinct !{!56, !57, !"_ZNK19EnabledProtocolItem4nameEv: argument 0"}
+!57 = distinct !{!57, !"_ZNK19EnabledProtocolItem4nameEv"}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZNK19EnabledProtocolItem11descriptionEv: argument 0"}
+!60 = distinct !{!60, !"_ZNK19EnabledProtocolItem11descriptionEv"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZNK19EnabledProtocolItem11descriptionEv: argument 0"}
+!63 = distinct !{!63, !"_ZNK19EnabledProtocolItem11descriptionEv"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZNK11QModelIndex6parentEv: argument 0"}
+!66 = distinct !{!66, !"_ZNK11QModelIndex6parentEv"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZNK19EnabledProtocolItem4nameEv: argument 0"}
+!69 = distinct !{!69, !"_ZNK19EnabledProtocolItem4nameEv"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZNK19EnabledProtocolItem11descriptionEv: argument 0"}
+!72 = distinct !{!72, !"_ZNK19EnabledProtocolItem11descriptionEv"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZNK19EnabledProtocolItem4nameEv: argument 0"}
+!75 = distinct !{!75, !"_ZNK19EnabledProtocolItem4nameEv"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZNK19EnabledProtocolItem11descriptionEv: argument 0"}
+!78 = distinct !{!78, !"_ZNK19EnabledProtocolItem11descriptionEv"}
+!79 = distinct !{!79, !12}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZNK11QModelIndex4dataEi: argument 0"}
+!82 = distinct !{!82, !"_ZNK11QModelIndex4dataEi"}
+!83 = distinct !{!83, !12}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZNK5QListI8QVariantE5valueEx: argument 0"}
+!86 = distinct !{!86, !"_ZNK5QListI8QVariantE5valueEx"}
+!87 = !{!88, !85}
+!88 = distinct !{!88, !89, !"_ZNK5QListI8QVariantE5valueExRKS0_: argument 0"}
+!89 = distinct !{!89, !"_ZNK5QListI8QVariantE5valueExRKS0_"}
+!90 = distinct !{!90, !12}
+!91 = distinct !{!91, !12}
+!92 = distinct !{!92, !12}
+!93 = distinct !{!93, !12}

@@ -228,7 +228,7 @@ land.rhs:                                         ; preds = %do.body
   %call2 = tail call ptr @__errno_location() #14
   %1 = load i32, ptr %call2, align 4
   %cmp3 = icmp eq i32 %1, 4
-  br i1 %cmp3, label %do.body, label %if.then5, !llvm.loop !5
+  br i1 %cmp3, label %do.body, label %if.then5
 
 if.then5:                                         ; preds = %land.rhs
   %sub = sub nsw i32 0, %1
@@ -876,5 +876,3 @@ attributes #14 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

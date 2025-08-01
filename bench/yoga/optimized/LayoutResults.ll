@@ -83,7 +83,7 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit: ; preds = 
 _ZN8facebook4yoga13inexactEqualsEff.exit.i14:     ; preds = %36, %30
   %.0.i.i15 = phi i1 [ %33, %30 ], [ %37, %36 ]
   %38 = and i1 %25, %.0.i.i15
-  br i1 %38, label %24, label %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit, !llvm.loop !11
+  br i1 %38, label %24, label %_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit, !llvm.loop !10
 
 _ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_.exit: ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit.i14
   br i1 %.0.i.i15, label %39, label %._crit_edge
@@ -214,25 +214,25 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit33: ; preds 
 
 103:                                              ; preds = %96
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %105 = load i8, ptr %104, align 4, !tbaa !12
+  %105 = load i8, ptr %104, align 4, !tbaa !11
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %107 = load i8, ptr %106, align 8, !tbaa !12
+  %107 = load i8, ptr %106, align 8, !tbaa !11
   %108 = icmp eq i8 %105, %107
   br i1 %108, label %109, label %._crit_edge
 
 109:                                              ; preds = %103
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %111 = load i32, ptr %110, align 4, !tbaa !23
+  %111 = load i32, ptr %110, align 4, !tbaa !22
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %113 = load i32, ptr %112, align 4, !tbaa !23
+  %113 = load i32, ptr %112, align 4, !tbaa !22
   %114 = icmp eq i32 %111, %113
   br i1 %114, label %115, label %._crit_edge
 
 115:                                              ; preds = %109
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %117 = load i32, ptr %116, align 4, !tbaa !24
+  %117 = load i32, ptr %116, align 4, !tbaa !23
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %119 = load i32, ptr %118, align 4, !tbaa !24
+  %119 = load i32, ptr %118, align 4, !tbaa !23
   %120 = icmp eq i32 %117, %119
   br i1 %120, label %121, label %._crit_edge
 
@@ -281,21 +281,21 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit33: ; preds 
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 4
   %.sroa.2.0.copyload = load float, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !4
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !25
+  %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !24
   %.sroa.436.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 12
-  %.sroa.436.0.copyload = load i32, ptr %.sroa.436.0..sroa_idx, align 4, !tbaa !25
+  %.sroa.436.0.copyload = load i32, ptr %.sroa.436.0..sroa_idx, align 4, !tbaa !24
   %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 16
   %.sroa.537.0.copyload = load float, ptr %.sroa.537.0..sroa_idx, align 8, !tbaa !4
   %.sroa.638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %140, i64 20
   %.sroa.638.0.copyload = load float, ptr %.sroa.638.0..sroa_idx, align 4, !tbaa !4
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %142 = load i32, ptr %141, align 4, !tbaa !26
+  %142 = load i32, ptr %141, align 4, !tbaa !25
   %143 = icmp eq i32 %142, %.sroa.3.0.copyload
   %144 = getelementptr inbounds nuw i8, ptr %139, i64 12
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, %.sroa.436.0.copyload
   %147 = select i1 %143, i1 %146, i1 false
-  %148 = load float, ptr %139, align 4, !tbaa !27
+  %148 = load float, ptr %139, align 4, !tbaa !26
   %149 = fcmp uno float %148, 0.000000e+00
   %150 = fcmp uno float %.sroa.035.0.copyload, 0.000000e+00
   %or.cond17.i = select i1 %149, i1 %150, i1 false
@@ -309,7 +309,7 @@ _ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_.exit33: ; preds 
 _ZNK8facebook4yoga17CachedMeasurementeqES1_.exit: ; preds = %138, %151
   %.0.in.i = phi i1 [ %narrow.i, %151 ], [ %147, %138 ]
   %153 = getelementptr inbounds nuw i8, ptr %139, i64 4
-  %154 = load float, ptr %153, align 4, !tbaa !28
+  %154 = load float, ptr %153, align 4, !tbaa !27
   %155 = fcmp uno float %154, 0.000000e+00
   %156 = fcmp uno float %.sroa.2.0.copyload, 0.000000e+00
   %or.cond.i = select i1 %155, i1 %156, i1 false
@@ -317,7 +317,7 @@ _ZNK8facebook4yoga17CachedMeasurementeqES1_.exit: ; preds = %138, %151
   %narrow13.i = select i1 %.0.in.i, i1 %157, i1 false
   %.1.v.i = select i1 %or.cond.i, i1 %.0.in.i, i1 %narrow13.i
   %158 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %159 = load float, ptr %158, align 4, !tbaa !29
+  %159 = load float, ptr %158, align 4, !tbaa !28
   %160 = fcmp uno float %159, 0.000000e+00
   %161 = fcmp uno float %.sroa.537.0.copyload, 0.000000e+00
   %or.cond9.i = select i1 %160, i1 %161, i1 false
@@ -325,7 +325,7 @@ _ZNK8facebook4yoga17CachedMeasurementeqES1_.exit: ; preds = %138, %151
   %narrow14.i = select i1 %.1.v.i, i1 %162, i1 false
   %.2.v.i = select i1 %or.cond9.i, i1 %.1.v.i, i1 %narrow14.i
   %163 = getelementptr inbounds nuw i8, ptr %139, i64 20
-  %164 = load float, ptr %163, align 4, !tbaa !30
+  %164 = load float, ptr %163, align 4, !tbaa !29
   %165 = fcmp uno float %164, 0.000000e+00
   %166 = fcmp uno float %.sroa.638.0.copyload, 0.000000e+00
   %or.cond12.i = select i1 %165, i1 %166, i1 false
@@ -335,7 +335,7 @@ _ZNK8facebook4yoga17CachedMeasurementeqES1_.exit: ; preds = %138, %151
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %168 = icmp samesign ult i64 %indvars.iv, 7
   %169 = select i1 %168, i1 %.3.v.i, i1 false
-  br i1 %169, label %138, label %._crit_edge.loopexit, !llvm.loop !31
+  br i1 %169, label %138, label %._crit_edge.loopexit, !llvm.loop !30
 
 170:                                              ; preds = %._crit_edge
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 252
@@ -388,9 +388,9 @@ _ZNK8facebook4yoga17CachedMeasurementeqES1_.exit: ; preds = %138, %151
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasurementeqES1_(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef byval(%"struct.facebook::yoga::CachedMeasurement") align 8 %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 4, !tbaa !26
+  %4 = load i32, ptr %3, align 4, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !26
+  %6 = load i32, ptr %5, align 8, !tbaa !25
   %7 = icmp eq i32 %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
@@ -398,7 +398,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasure
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %9, %11
   %13 = select i1 %7, i1 %12, i1 false
-  %14 = load float, ptr %0, align 4, !tbaa !27
+  %14 = load float, ptr %0, align 4, !tbaa !26
   %15 = fcmp uno float %14, 0.000000e+00
   %16 = load float, ptr %1, align 8
   %17 = fcmp uno float %16, 0.000000e+00
@@ -413,7 +413,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasure
 20:                                               ; preds = %2, %18
   %.0.in = phi i1 [ %narrow, %18 ], [ %13, %2 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %22 = load float, ptr %21, align 4, !tbaa !28
+  %22 = load float, ptr %21, align 4, !tbaa !27
   %23 = fcmp uno float %22, 0.000000e+00
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load float, ptr %24, align 4
@@ -423,7 +423,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasure
   %narrow13 = select i1 %.0.in, i1 %27, i1 false
   %.1.v = select i1 %or.cond, i1 %.0.in, i1 %narrow13
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = load float, ptr %28, align 4, !tbaa !29
+  %29 = load float, ptr %28, align 4, !tbaa !28
   %30 = fcmp uno float %29, 0.000000e+00
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load float, ptr %31, align 8
@@ -433,7 +433,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasure
   %narrow14 = select i1 %.1.v, i1 %34, i1 false
   %.2.v = select i1 %or.cond9, i1 %.1.v, i1 %narrow14
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %36 = load float, ptr %35, align 4, !tbaa !30
+  %36 = load float, ptr %35, align 4, !tbaa !29
   %37 = fcmp uno float %36, 0.000000e+00
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %39 = load float, ptr %38, align 4
@@ -462,27 +462,26 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !5 = !{!"float", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{!13, !16, i64 16}
-!13 = !{!"_ZTSN8facebook4yoga13LayoutResultsE", !14, i64 0, !15, i64 4, !14, i64 8, !14, i64 12, !16, i64 16, !14, i64 20, !17, i64 24, !18, i64 216, !16, i64 240, !20, i64 240, !21, i64 244, !21, i64 252, !22, i64 260, !22, i64 276, !22, i64 292, !22, i64 308}
-!14 = !{!"int", !6, i64 0}
-!15 = !{!"_ZTSN8facebook4yoga13FloatOptionalE", !5, i64 0}
-!16 = !{!"_ZTSN8facebook4yoga9DirectionE", !6, i64 0}
-!17 = !{!"_ZTSSt5arrayIN8facebook4yoga17CachedMeasurementELm8EE", !6, i64 0}
-!18 = !{!"_ZTSN8facebook4yoga17CachedMeasurementE", !5, i64 0, !5, i64 4, !19, i64 8, !19, i64 12, !5, i64 16, !5, i64 20}
-!19 = !{!"_ZTSN8facebook4yoga10SizingModeE", !6, i64 0}
-!20 = !{!"bool", !6, i64 0}
-!21 = !{!"_ZTSSt5arrayIfLm2EE", !6, i64 0}
-!22 = !{!"_ZTSSt5arrayIfLm4EE", !6, i64 0}
-!23 = !{!13, !14, i64 12}
-!24 = !{!13, !14, i64 20}
-!25 = !{!19, !19, i64 0}
-!26 = !{!18, !19, i64 8}
-!27 = !{!18, !5, i64 0}
-!28 = !{!18, !5, i64 4}
-!29 = !{!18, !5, i64 16}
-!30 = !{!18, !5, i64 20}
-!31 = distinct !{!31, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = !{!12, !15, i64 16}
+!12 = !{!"_ZTSN8facebook4yoga13LayoutResultsE", !13, i64 0, !14, i64 4, !13, i64 8, !13, i64 12, !15, i64 16, !13, i64 20, !16, i64 24, !17, i64 216, !15, i64 240, !19, i64 240, !20, i64 244, !20, i64 252, !21, i64 260, !21, i64 276, !21, i64 292, !21, i64 308}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!"_ZTSN8facebook4yoga13FloatOptionalE", !5, i64 0}
+!15 = !{!"_ZTSN8facebook4yoga9DirectionE", !6, i64 0}
+!16 = !{!"_ZTSSt5arrayIN8facebook4yoga17CachedMeasurementELm8EE", !6, i64 0}
+!17 = !{!"_ZTSN8facebook4yoga17CachedMeasurementE", !5, i64 0, !5, i64 4, !18, i64 8, !18, i64 12, !5, i64 16, !5, i64 20}
+!18 = !{!"_ZTSN8facebook4yoga10SizingModeE", !6, i64 0}
+!19 = !{!"bool", !6, i64 0}
+!20 = !{!"_ZTSSt5arrayIfLm2EE", !6, i64 0}
+!21 = !{!"_ZTSSt5arrayIfLm4EE", !6, i64 0}
+!22 = !{!12, !13, i64 12}
+!23 = !{!12, !13, i64 20}
+!24 = !{!18, !18, i64 0}
+!25 = !{!17, !18, i64 8}
+!26 = !{!17, !5, i64 0}
+!27 = !{!17, !5, i64 4}
+!28 = !{!17, !5, i64 16}
+!29 = !{!17, !5, i64 20}
+!30 = distinct !{!30, !9}

@@ -463,7 +463,7 @@ for.cond:                                         ; preds = %entry, %for.cond
   %it.0.in = getelementptr inbounds nuw i8, ptr %last.0, i64 792
   %it.0 = load ptr, ptr %it.0.in, align 8
   %cmp8.not = icmp eq ptr %it.0, %add.ptr
-  br i1 %cmp8.not, label %for.end, label %for.cond, !llvm.loop !5
+  br i1 %cmp8.not, label %for.end, label %for.cond
 
 for.end:                                          ; preds = %for.cond
   %it.0.in.le = getelementptr inbounds nuw i8, ptr %last.0, i64 792
@@ -623,5 +623,3 @@ attributes #9 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

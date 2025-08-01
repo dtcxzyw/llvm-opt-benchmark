@@ -288,7 +288,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 37:                                               ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 248
-  %39 = load ptr, ptr %38, align 8, !tbaa !53
+  %39 = load ptr, ptr %38, align 8, !tbaa !52
   %40 = load ptr, ptr %39, align 8, !tbaa !17
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %46
@@ -311,11 +311,11 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br label %.thread
 
 53:                                               ; preds = %46
-  store i64 %1, ptr %47, align 8, !tbaa !54
+  store i64 %1, ptr %47, align 8, !tbaa !53
   %54 = getelementptr inbounds nuw i8, ptr %31, i64 256
   %55 = load i32, ptr %54, align 8, !tbaa !41
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i32 %55, ptr %56, align 8, !tbaa !57
+  store i32 %55, ptr %56, align 8, !tbaa !56
   %57 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %1, ptr noundef nonnull %31, i32 noundef 0) #6
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %61, label %.preheader131
@@ -335,7 +335,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   %.094138 = phi ptr [ %47, %.preheader131 ], [ %187, %186 ]
   %.095137 = phi ptr [ null, %.preheader131 ], [ %.094138, %186 ]
   %.096136 = phi ptr [ %47, %.preheader131 ], [ %.1, %186 ]
-  %66 = load i64, ptr %.094138, align 8, !tbaa !54
+  %66 = load i64, ptr %.094138, align 8, !tbaa !53
   %67 = call ptr @H5AC_protect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %66, ptr noundef nonnull %5, i32 noundef 128) #6
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %73
@@ -350,7 +350,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   %74 = getelementptr inbounds nuw i8, ptr %67, i64 256
   %75 = load i32, ptr %74, align 8, !tbaa !41
   %76 = getelementptr inbounds nuw i8, ptr %.094138, i64 8
-  %77 = load i32, ptr %76, align 8, !tbaa !57
+  %77 = load i32, ptr %76, align 8, !tbaa !56
   %.not115 = icmp eq i32 %75, %77
   br i1 %.not115, label %82, label %78
 
@@ -362,13 +362,13 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 82:                                               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %.094138, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !58
+  %84 = load ptr, ptr %83, align 8, !tbaa !57
   %.not116 = icmp eq ptr %84, null
   br i1 %.not116, label %99, label %85
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %87 = load i32, ptr %86, align 8, !tbaa !57
+  %87 = load i32, ptr %86, align 8, !tbaa !56
   %88 = icmp eq i32 %87, %75
   br i1 %88, label %89, label %99
 
@@ -379,7 +379,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br i1 %.not118, label %95, label %92
 
 92:                                               ; preds = %89
-  %93 = load i64, ptr %84, align 8, !tbaa !54
+  %93 = load i64, ptr %84, align 8, !tbaa !53
   %94 = icmp eq i64 %91, %93
   br i1 %94, label %106, label %95
 
@@ -407,7 +407,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds nuw i8, ptr %.095137, i64 8
-  %109 = load i32, ptr %108, align 8, !tbaa !57
+  %109 = load i32, ptr %108, align 8, !tbaa !56
   %110 = icmp eq i32 %109, %75
   br i1 %110, label %111, label %121
 
@@ -418,7 +418,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br i1 %.not121, label %117, label %114
 
 114:                                              ; preds = %111
-  %115 = load i64, ptr %.095137, align 8, !tbaa !54
+  %115 = load i64, ptr %.095137, align 8, !tbaa !53
   %116 = icmp eq i64 %113, %115
   br i1 %116, label %128, label %117
 
@@ -460,7 +460,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 .preheader129:                                    ; preds = %132, %146
   %.093135 = phi ptr [ %148, %146 ], [ %47, %132 ]
-  %136 = load i64, ptr %.093135, align 8, !tbaa !54
+  %136 = load i64, ptr %.093135, align 8, !tbaa !53
   %.not124 = icmp eq i64 %136, -1
   br i1 %.not124, label %146, label %137
 
@@ -479,9 +479,9 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 146:                                              ; preds = %.preheader129, %137
   %147 = getelementptr inbounds nuw i8, ptr %.093135, i64 16
-  %148 = load ptr, ptr %147, align 8, !tbaa !58
+  %148 = load ptr, ptr %147, align 8, !tbaa !57
   %.not123 = icmp eq ptr %148, null
-  br i1 %.not123, label %149, label %.preheader129, !llvm.loop !59
+  br i1 %.not123, label %149, label %.preheader129, !llvm.loop !58
 
 149:                                              ; preds = %146
   %150 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #7
@@ -498,14 +498,14 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   %157 = load ptr, ptr %130, align 8, !tbaa !46
   %158 = getelementptr inbounds nuw i64, ptr %157, i64 %indvars.iv
   %159 = load i64, ptr %158, align 8, !tbaa !16
-  store i64 %159, ptr %150, align 8, !tbaa !54
+  store i64 %159, ptr %150, align 8, !tbaa !53
   %160 = load i32, ptr %74, align 8, !tbaa !41
   %161 = add i32 %160, -1
   %162 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  store i32 %161, ptr %162, align 8, !tbaa !57
+  store i32 %161, ptr %162, align 8, !tbaa !56
   %163 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  store ptr %150, ptr %163, align 8, !tbaa !58
-  %164 = load ptr, ptr %59, align 8, !tbaa !60
+  store ptr %150, ptr %163, align 8, !tbaa !57
+  %164 = load ptr, ptr %59, align 8, !tbaa !59
   %165 = load ptr, ptr %131, align 8, !tbaa !48
   %166 = load ptr, ptr %60, align 8, !tbaa !49
   %167 = getelementptr inbounds nuw i64, ptr %166, i64 %indvars.iv
@@ -517,7 +517,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   %172 = getelementptr inbounds nuw i8, ptr %165, i64 %171
   %173 = call i32 %164(ptr noundef %169, ptr noundef %3, ptr noundef %172) #6
   %174 = icmp sgt i32 %173, -1
-  br i1 %174, label %175, label %132, !llvm.loop !61
+  br i1 %174, label %175, label %132, !llvm.loop !60
 
 175:                                              ; preds = %156
   %176 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !16
@@ -527,7 +527,7 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
 
 .loopexit:                                        ; preds = %132, %128
   %.1 = phi ptr [ %.096136, %128 ], [ %.2, %132 ]
-  %179 = load i64, ptr %.094138, align 8, !tbaa !54
+  %179 = load i64, ptr %.094138, align 8, !tbaa !53
   %180 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_BT, i64 noundef %179, ptr noundef nonnull %67, i32 noundef 0) #6
   %181 = icmp slt i32 %180, 0
   br i1 %181, label %182, label %186
@@ -539,17 +539,17 @@ define range(i32 -1, 1) i32 @H5B__verify_structure(ptr noundef %0, i64 noundef %
   br label %.thread
 
 186:                                              ; preds = %.loopexit
-  %187 = load ptr, ptr %83, align 8, !tbaa !58
+  %187 = load ptr, ptr %83, align 8, !tbaa !57
   %.not = icmp eq ptr %187, null
-  br i1 %.not, label %.preheader, label %65, !llvm.loop !62
+  br i1 %.not, label %.preheader, label %65, !llvm.loop !61
 
 .preheader:                                       ; preds = %186, %.preheader
   %.097139 = phi ptr [ %189, %.preheader ], [ %47, %186 ]
   %188 = getelementptr inbounds nuw i8, ptr %.097139, i64 16
-  %189 = load ptr, ptr %188, align 8, !tbaa !58
+  %189 = load ptr, ptr %188, align 8, !tbaa !57
   %190 = call ptr @H5MM_xfree(ptr noundef nonnull %.097139) #6
   %.not114 = icmp eq ptr %189, null
-  br i1 %.not114, label %.thread, label %.preheader, !llvm.loop !63
+  br i1 %.not114, label %.thread, label %.preheader, !llvm.loop !62
 
 .thread:                                          ; preds = %.preheader, %175, %152, %142, %4, %182, %124, %117, %102, %95, %78, %69, %61, %49, %42, %33, %24, %17
   %.0102 = phi i32 [ -1, %17 ], [ -1, %24 ], [ -1, %33 ], [ -1, %42 ], [ -1, %49 ], [ -1, %61 ], [ -1, %69 ], [ -1, %78 ], [ -1, %182 ], [ -1, %117 ], [ -1, %124 ], [ -1, %95 ], [ -1, %102 ], [ 0, %4 ], [ -1, %142 ], [ -1, %152 ], [ -1, %175 ], [ 0, %.preheader ]
@@ -626,17 +626,16 @@ attributes #7 = { nounwind allocsize(0,1) }
 !47 = !{!12, !15, i64 96}
 !48 = !{!34, !28, i64 280}
 !49 = !{!27, !29, i64 64}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!34, !23, i64 248}
-!54 = !{!55, !14, i64 0}
-!55 = !{!"child_t", !14, i64 0, !13, i64 8, !56, i64 16}
-!56 = !{!"p1 _ZTSZ21H5B__verify_structureE7child_t", !15, i64 0}
-!57 = !{!55, !13, i64 8}
-!58 = !{!55, !56, i64 16}
-!59 = distinct !{!59, !51, !52}
-!60 = !{!12, !15, i64 32}
-!61 = distinct !{!61, !51, !52}
-!62 = distinct !{!62, !51, !52}
-!63 = distinct !{!63, !51, !52}
+!52 = !{!34, !23, i64 248}
+!53 = !{!54, !14, i64 0}
+!54 = !{!"child_t", !14, i64 0, !13, i64 8, !55, i64 16}
+!55 = !{!"p1 _ZTSZ21H5B__verify_structureE7child_t", !15, i64 0}
+!56 = !{!54, !13, i64 8}
+!57 = !{!54, !55, i64 16}
+!58 = distinct !{!58, !51}
+!59 = !{!12, !15, i64 32}
+!60 = distinct !{!60, !51}
+!61 = distinct !{!61, !51}
+!62 = distinct !{!62, !51}

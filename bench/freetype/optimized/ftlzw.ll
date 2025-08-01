@@ -236,7 +236,7 @@ ft_lzw_file_reset.exit.thread.i:                  ; preds = %20
   store i64 %51, ptr %7, align 8, !tbaa !23
   %52 = sub i64 %.02438.i.i, %spec.select32.i.i
   %.not31.i.i = icmp eq i64 %52, 0
-  br i1 %.not31.i.i, label %ft_lzw_file_skip_output.exit.i, label %46, !llvm.loop !38
+  br i1 %.not31.i.i, label %ft_lzw_file_skip_output.exit.i, label %46
 
 ft_lzw_file_skip_output.exit.i:                   ; preds = %49, %33
   %53 = icmp eq i64 %3, 0
@@ -284,7 +284,7 @@ ft_lzw_file_skip_output.exit.i:                   ; preds = %49, %33
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 %74
   store ptr %76, ptr %57, align 8, !tbaa !21
   %.not62.i = icmp eq i64 %74, 0
-  br i1 %.not62.i, label %ft_lzw_file_io.exit, label %59, !llvm.loop !40
+  br i1 %.not62.i, label %ft_lzw_file_io.exit, label %59
 
 ft_lzw_file_io.exit:                              ; preds = %46, %59, %73, %20, %ft_lzw_file_skip_output.exit.i, %54
   %.044.i = phi i64 [ 0, %ft_lzw_file_skip_output.exit.i ], [ 0, %54 ], [ 0, %20 ], [ %66, %73 ], [ %66, %59 ], [ 0, %46 ]
@@ -328,7 +328,7 @@ define internal void @ft_lzw_stream_close(ptr noundef captures(none) %0) #0 {
 
 ft_lzw_file_done.exit:                            ; preds = %4, %18
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %20 = load ptr, ptr %19, align 8, !tbaa !41
+  %20 = load ptr, ptr %19, align 8, !tbaa !38
   tail call void @ft_mem_free(ptr noundef %9, ptr noundef %20) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %3, i8 0, i64 240, i1 false)
   tail call void @ft_mem_free(ptr noundef %6, ptr noundef nonnull %3) #8
@@ -411,7 +411,7 @@ define hidden void @ft_lzwstate_done(ptr noundef captures(address) initializes((
 
 13:                                               ; preds = %1, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %15 = load ptr, ptr %14, align 8, !tbaa !41
+  %15 = load ptr, ptr %14, align 8, !tbaa !38
   tail call void @ft_mem_free(ptr noundef %3, ptr noundef %15) #8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
   ret void
@@ -425,11 +425,11 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly captures
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %10 = load i32, ptr %9, align 4, !tbaa !42
+  %10 = load i32, ptr %9, align 4, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = load i32, ptr %11, align 8, !tbaa !43
+  %12 = load i32, ptr %11, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = load i32, ptr %13, align 8, !tbaa !44
+  %14 = load i32, ptr %13, align 8, !tbaa !41
   %15 = icmp eq i64 %2, 0
   br i1 %15, label %.loopexit, label %16
 
@@ -460,15 +460,15 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly captures
   %27 = and i8 %26, 31
   %28 = zext nneg i8 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %28, ptr %29, align 8, !tbaa !45
+  store i32 %28, ptr %29, align 8, !tbaa !42
   %30 = and i8 %26, -128
   %31 = zext i8 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %31, ptr %32, align 4, !tbaa !46
+  store i32 %31, ptr %32, align 4, !tbaa !43
   %33 = shl nuw i32 1, %28
   %34 = add i32 %33, -256
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %34, ptr %35, align 8, !tbaa !47
+  store i32 %34, ptr %35, align 8, !tbaa !44
   %36 = icmp samesign ugt i8 %27, 16
   br i1 %36, label %.thread, label %37
 
@@ -478,12 +478,12 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly captures
   %.lobit = lshr i8 %26, 7
   %39 = zext nneg i8 %.lobit to i32
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %39, ptr %40, align 8, !tbaa !48
+  store i32 %39, ptr %40, align 8, !tbaa !45
   %41 = icmp samesign ugt i8 %27, 9
   %42 = add i32 %33, -255
   %spec.select = select i1 %41, i32 256, i32 %42
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %spec.select, ptr %43, align 4, !tbaa !49
+  store i32 %spec.select, ptr %43, align 4, !tbaa !46
   %44 = call fastcc i32 @ft_lzwstate_get_code(ptr noundef nonnull %0)
   %or.cond = icmp ugt i32 %44, 255
   br i1 %or.cond, label %.thread, label %45
@@ -538,16 +538,16 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly captures
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %56
-  %60 = load i32, ptr %53, align 4, !tbaa !46
+  %60 = load i32, ptr %53, align 4, !tbaa !43
   %.not141 = icmp eq i32 %60, 0
   br i1 %.not141, label %.thread184, label %61
 
 61:                                               ; preds = %59
-  store i32 0, ptr %54, align 8, !tbaa !48
-  store i8 1, ptr %55, align 8, !tbaa !50
+  store i32 0, ptr %54, align 8, !tbaa !45
+  store i8 1, ptr %55, align 8, !tbaa !47
   %62 = call fastcc i32 @ft_lzwstate_get_code(ptr noundef nonnull %0)
   %63 = icmp slt i32 %62, 0
-  br i1 %63, label %.loopexit190, label %56, !llvm.loop !51
+  br i1 %63, label %.loopexit190, label %56
 
 64:                                               ; preds = %56
   %65 = icmp samesign ugt i32 %57, 255
@@ -555,7 +555,7 @@ define hidden i64 @ft_lzwstate_io(ptr noundef %0, ptr noundef writeonly captures
 
 .thread184:                                       ; preds = %59, %64
   %66 = add nsw i32 %57, -256
-  %67 = load i32, ptr %54, align 8, !tbaa !48
+  %67 = load i32, ptr %54, align 8, !tbaa !45
   %.not142 = icmp ult i32 %66, %67
   br i1 %.not142, label %.lr.ph210, label %68
 
@@ -649,7 +649,7 @@ ft_lzwstate_stack_grow.exit:                      ; preds = %93, %95
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.pre232 = load ptr, ptr %104, align 8, !tbaa !41
+  %.pre232 = load ptr, ptr %104, align 8, !tbaa !38
   br label %111
 
 111:                                              ; preds = %.lr.ph210, %133
@@ -723,7 +723,7 @@ ft_lzwstate_stack_grow.exit160:                   ; preds = %130, %132
   %.pre-phi = phi i64 [ %.pre239, %ft_lzwstate_stack_grow.exit160 ], [ %115, %113 ]
   %134 = phi i32 [ %.pre235, %ft_lzwstate_stack_grow.exit160 ], [ %114, %113 ]
   %135 = phi ptr [ %.pre233, %ft_lzwstate_stack_grow.exit160 ], [ %.pre234, %113 ]
-  %136 = load ptr, ptr %110, align 8, !tbaa !52
+  %136 = load ptr, ptr %110, align 8, !tbaa !48
   %137 = add i32 %.2209, -256
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 %138
@@ -732,12 +732,12 @@ ft_lzwstate_stack_grow.exit160:                   ; preds = %130, %132
   store i32 %141, ptr %105, align 8, !tbaa !36
   %142 = getelementptr inbounds nuw i8, ptr %135, i64 %.pre-phi
   store i8 %140, ptr %142, align 1, !tbaa !11
-  %143 = load ptr, ptr %104, align 8, !tbaa !41
+  %143 = load ptr, ptr %104, align 8, !tbaa !38
   %144 = getelementptr inbounds nuw i16, ptr %143, i64 %138
-  %145 = load i16, ptr %144, align 2, !tbaa !53
+  %145 = load i16, ptr %144, align 2, !tbaa !49
   %146 = zext i16 %145 to i32
   %147 = icmp ugt i16 %145, 255
-  br i1 %147, label %111, label %.loopexit189, !llvm.loop !55
+  br i1 %147, label %111, label %.loopexit189, !llvm.loop !51
 
 .loopexit189:                                     ; preds = %133, %96, %64
   %.0 = phi i32 [ %57, %64 ], [ %.5119207, %96 ], [ %146, %133 ]
@@ -842,7 +842,7 @@ ft_lzwstate_stack_grow.exit171:                   ; preds = %170, %172
   store i32 %186, ptr %181, align 8, !tbaa !36
   %187 = add i64 %.6.us, 1
   %188 = icmp eq i64 %187, %2
-  br i1 %188, label %.loopexit, label %183, !llvm.loop !57
+  br i1 %188, label %.loopexit, label %183, !llvm.loop !53
 
 .split:                                           ; preds = %180, %190
   %.6 = phi i64 [ %197, %190 ], [ %.2107, %180 ]
@@ -861,20 +861,20 @@ ft_lzwstate_stack_grow.exit171:                   ; preds = %170, %172
   store i8 %195, ptr %196, align 1, !tbaa !11
   %197 = add i64 %.6, 1
   %198 = icmp eq i64 %197, %2
-  br i1 %198, label %.loopexit, label %.split, !llvm.loop !59
+  br i1 %198, label %.loopexit, label %.split, !llvm.loop !55
 
 .split213.us:                                     ; preds = %.split, %183
   %.us-phi = phi i64 [ %.6.us, %183 ], [ %.6, %.split ]
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %200 = load i32, ptr %199, align 8, !tbaa !48
+  %200 = load i32, ptr %199, align 8, !tbaa !45
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %202 = load i32, ptr %201, align 8, !tbaa !47
+  %202 = load i32, ptr %201, align 8, !tbaa !44
   %203 = icmp ult i32 %200, %202
   br i1 %203, label %204, label %235
 
 204:                                              ; preds = %.split213.us
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %206 = load i32, ptr %205, align 8, !tbaa !60
+  %206 = load i32, ptr %205, align 8, !tbaa !56
   %.not146 = icmp ult i32 %200, %206
   br i1 %.not146, label %222, label %207
 
@@ -889,9 +889,9 @@ ft_lzwstate_stack_grow.exit171:                   ; preds = %170, %172
   %213 = zext i32 %206 to i64
   %214 = zext i32 %.020.i to i64
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %216 = load ptr, ptr %215, align 8, !tbaa !41
+  %216 = load ptr, ptr %215, align 8, !tbaa !38
   %217 = call ptr @ft_mem_realloc(ptr noundef %209, i64 noundef 3, i64 noundef %213, i64 noundef %214, ptr noundef %216, ptr noundef nonnull %4) #8
-  store ptr %217, ptr %215, align 8, !tbaa !41
+  store ptr %217, ptr %215, align 8, !tbaa !38
   %218 = load i32, ptr %4, align 4, !tbaa !12
   %.not.i172 = icmp eq i32 %218, 0
   br i1 %.not.i172, label %ft_lzwstate_prefix_grow.exit, label %ft_lzwstate_prefix_grow.exit.thread
@@ -903,30 +903,30 @@ ft_lzwstate_prefix_grow.exit.thread:              ; preds = %207
 ft_lzwstate_prefix_grow.exit:                     ; preds = %207
   %219 = getelementptr inbounds nuw i16, ptr %217, i64 %214
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %219, ptr %220, align 8, !tbaa !52
+  store ptr %219, ptr %220, align 8, !tbaa !48
   %221 = getelementptr inbounds nuw i16, ptr %217, i64 %213
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %219, ptr align 2 %221, i64 %213, i1 false)
-  store i32 %.020.i, ptr %205, align 8, !tbaa !60
+  store i32 %.020.i, ptr %205, align 8, !tbaa !56
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
-  %.pre237 = load i32, ptr %199, align 8, !tbaa !48
+  %.pre237 = load i32, ptr %199, align 8, !tbaa !45
   br label %222
 
 222:                                              ; preds = %ft_lzwstate_prefix_grow.exit, %204
   %223 = phi i32 [ %.pre237, %ft_lzwstate_prefix_grow.exit ], [ %200, %204 ]
   %224 = trunc i32 %.2116 to i16
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %226 = load ptr, ptr %225, align 8, !tbaa !41
+  %226 = load ptr, ptr %225, align 8, !tbaa !38
   %227 = zext i32 %223 to i64
   %228 = getelementptr inbounds nuw i16, ptr %226, i64 %227
-  store i16 %224, ptr %228, align 2, !tbaa !53
+  store i16 %224, ptr %228, align 2, !tbaa !49
   %229 = trunc i32 %.2122 to i8
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %231 = load ptr, ptr %230, align 8, !tbaa !52
+  %231 = load ptr, ptr %230, align 8, !tbaa !48
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 %227
   store i8 %229, ptr %232, align 1, !tbaa !11
-  %233 = load i32, ptr %199, align 8, !tbaa !48
+  %233 = load i32, ptr %199, align 8, !tbaa !45
   %234 = add i32 %233, 1
-  store i32 %234, ptr %199, align 8, !tbaa !48
+  store i32 %234, ptr %199, align 8, !tbaa !45
   br label %235
 
 235:                                              ; preds = %222, %.split213.us
@@ -946,9 +946,9 @@ ft_lzwstate_prefix_grow.exit:                     ; preds = %207
   %.0114 = phi i32 [ %12, %3 ], [ %12, %16 ], [ %.4118, %.loopexit190 ], [ %44, %50 ], [ %.2116, %185 ], [ %.2116, %190 ]
   %.0108 = phi i32 [ %14, %3 ], [ %14, %16 ], [ %.4112, %.loopexit190 ], [ 0, %50 ], [ %.2110, %185 ], [ %.2110, %190 ]
   %.0105 = phi i64 [ 0, %3 ], [ 0, %16 ], [ %.4, %.loopexit190 ], [ 1, %50 ], [ %2, %185 ], [ %2, %190 ]
-  store i32 %.0114, ptr %11, align 8, !tbaa !43
-  store i32 %.0120, ptr %9, align 4, !tbaa !42
-  store i32 %.0108, ptr %13, align 8, !tbaa !44
+  store i32 %.0114, ptr %11, align 8, !tbaa !40
+  store i32 %.0120, ptr %9, align 4, !tbaa !39
+  store i32 %.0108, ptr %13, align 8, !tbaa !41
   ret i64 %.0105
 }
 
@@ -961,31 +961,31 @@ define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr nou
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !61
+  %5 = load i32, ptr %4, align 8, !tbaa !57
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i8, ptr %6, align 8, !tbaa !50
+  %7 = load i8, ptr %6, align 8, !tbaa !47
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %8, label %16
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %10 = load i32, ptr %9, align 4, !tbaa !62
+  %10 = load i32, ptr %9, align 4, !tbaa !58
   %.not56 = icmp ult i32 %5, %10
   br i1 %.not56, label %11, label %16
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load i32, ptr %12, align 8, !tbaa !48
+  %13 = load i32, ptr %12, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %15 = load i32, ptr %14, align 4, !tbaa !49
+  %15 = load i32, ptr %14, align 4, !tbaa !46
   %.not57 = icmp ult i32 %13, %15
   br i1 %.not57, label %64, label %16
 
 16:                                               ; preds = %11, %8, %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load i32, ptr %17, align 8, !tbaa !48
+  %18 = load i32, ptr %17, align 8, !tbaa !45
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %20 = load i32, ptr %19, align 4, !tbaa !49
+  %20 = load i32, ptr %19, align 4, !tbaa !46
   %.not58 = icmp ult i32 %18, %20
   br i1 %.not58, label %39, label %21
 
@@ -997,7 +997,7 @@ define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr nou
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load i32, ptr %25, align 8, !tbaa !45
+  %26 = load i32, ptr %25, align 8, !tbaa !42
   %27 = icmp ult i32 %22, %26
   br i1 %27, label %28, label %33
 
@@ -1010,13 +1010,13 @@ define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr nou
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %35 = load i32, ptr %34, align 8, !tbaa !47
+  %35 = load i32, ptr %34, align 8, !tbaa !44
   %36 = add i32 %35, 1
   br label %37
 
 37:                                               ; preds = %33, %28
   %38 = phi i32 [ %32, %28 ], [ %36, %33 ]
-  store i32 %38, ptr %19, align 4, !tbaa !49
+  store i32 %38, ptr %19, align 4, !tbaa !46
   br label %39
 
 39:                                               ; preds = %37, %16
@@ -1025,8 +1025,8 @@ define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr nou
 
 40:                                               ; preds = %39
   store i32 9, ptr %2, align 4, !tbaa !28
-  store i32 256, ptr %19, align 4, !tbaa !49
-  store i8 0, ptr %6, align 8, !tbaa !50
+  store i32 256, ptr %19, align 4, !tbaa !46
+  store i8 0, ptr %6, align 8, !tbaa !47
   br label %41
 
 41:                                               ; preds = %40, %39
@@ -1053,16 +1053,16 @@ define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr nou
   %58 = icmp ult i64 %50, %57
   %59 = zext i1 %58 to i32
   store i32 %59, ptr %43, align 4, !tbaa !34
-  store i32 0, ptr %4, align 8, !tbaa !61
+  store i32 0, ptr %4, align 8, !tbaa !57
   %60 = shl i32 %51, 3
-  store i32 %60, ptr %52, align 4, !tbaa !62
+  store i32 %60, ptr %52, align 4, !tbaa !58
   %61 = icmp ugt i32 %60, %56
   br i1 %61, label %ft_lzwstate_refill.exit, label %ft_lzwstate_refill.exit.thread
 
 ft_lzwstate_refill.exit:                          ; preds = %45
   %.neg20.i = or disjoint i32 %60, 1
   %62 = sub i32 %.neg20.i, %56
-  store i32 %62, ptr %52, align 4, !tbaa !62
+  store i32 %62, ptr %52, align 4, !tbaa !58
   %63 = icmp eq i64 %50, 0
   br i1 %63, label %ft_lzwstate_refill.exit.thread, label %64
 
@@ -1070,7 +1070,7 @@ ft_lzwstate_refill.exit:                          ; preds = %45
   %.049 = phi i32 [ %3, %11 ], [ %42, %ft_lzwstate_refill.exit ]
   %.047 = phi i32 [ %5, %11 ], [ 0, %ft_lzwstate_refill.exit ]
   %65 = add i32 %.047, %.049
-  store i32 %65, ptr %4, align 8, !tbaa !61
+  store i32 %65, ptr %4, align 8, !tbaa !57
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = lshr i32 %.047, 3
   %68 = zext nneg i32 %67 to i64
@@ -1183,28 +1183,24 @@ attributes #8 = { nounwind }
 !35 = !{!17, !9, i64 40}
 !36 = !{!17, !13, i64 120}
 !37 = !{!17, !13, i64 0}
-!38 = distinct !{!38, !39}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = distinct !{!40, !39}
-!41 = !{!17, !18, i64 88}
-!42 = !{!17, !13, i64 76}
-!43 = !{!17, !13, i64 72}
-!44 = !{!17, !13, i64 80}
-!45 = !{!17, !13, i64 48}
-!46 = !{!17, !13, i64 52}
-!47 = !{!17, !13, i64 56}
-!48 = !{!17, !13, i64 64}
-!49 = !{!17, !13, i64 68}
-!50 = !{!17, !7, i64 32}
-!51 = distinct !{!51, !39}
-!52 = !{!17, !5, i64 96}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"short", !7, i64 0}
-!55 = distinct !{!55, !56, !39}
-!56 = !{!"llvm.loop.mustprogress"}
-!57 = distinct !{!57, !56, !39, !58}
-!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!59 = distinct !{!59, !56, !39}
-!60 = !{!17, !13, i64 104}
-!61 = !{!17, !13, i64 24}
-!62 = !{!17, !13, i64 28}
+!38 = !{!17, !18, i64 88}
+!39 = !{!17, !13, i64 76}
+!40 = !{!17, !13, i64 72}
+!41 = !{!17, !13, i64 80}
+!42 = !{!17, !13, i64 48}
+!43 = !{!17, !13, i64 52}
+!44 = !{!17, !13, i64 56}
+!45 = !{!17, !13, i64 64}
+!46 = !{!17, !13, i64 68}
+!47 = !{!17, !7, i64 32}
+!48 = !{!17, !5, i64 96}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"short", !7, i64 0}
+!51 = distinct !{!51, !52}
+!52 = !{!"llvm.loop.mustprogress"}
+!53 = distinct !{!53, !52, !54}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = distinct !{!55, !52}
+!56 = !{!17, !13, i64 104}
+!57 = !{!17, !13, i64 24}
+!58 = !{!17, !13, i64 28}

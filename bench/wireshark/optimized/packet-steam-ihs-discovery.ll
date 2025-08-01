@@ -589,7 +589,7 @@ get_varint64.exit37.i:                            ; preds = %131, %get_varint64.
   %149 = sub i32 %62, %.044.i
   store i32 %149, ptr %39, align 4
   %150 = icmp slt i32 %149, 1
-  br i1 %150, label %steamdiscover_dissect_header.exit, label %43, !llvm.loop !9
+  br i1 %150, label %steamdiscover_dissect_header.exit, label %43, !llvm.loop !8
 
 steamdiscover_dissect_header.exit:                ; preds = %protobuf_iter_next.exit.i, %147
   %.0.lcssa.i = phi i64 [ %.1.i, %147 ], [ %.055.i, %protobuf_iter_next.exit.i ]
@@ -949,7 +949,7 @@ get_varint64.exit25:                              ; preds = %82, %get_varint64.e
   %100 = sub i32 %36, %.0
   store i32 %100, ptr %11, align 4
   %101 = icmp slt i32 %100, 1
-  br i1 %101, label %protobuf_iter_next.exit.thread, label %17, !llvm.loop !10
+  br i1 %101, label %protobuf_iter_next.exit.thread, label %17, !llvm.loop !9
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %98, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #4
@@ -1754,7 +1754,7 @@ get_varint64.exit163:                             ; preds = %325, %get_varint64.
   %345 = sub i32 %292, %.0
   store i32 %345, ptr %26, align 4
   %346 = icmp slt i32 %345, 1
-  br i1 %346, label %protobuf_iter_next.exit152.thread, label %.lr.ph, !llvm.loop !11
+  br i1 %346, label %protobuf_iter_next.exit152.thread, label %.lr.ph, !llvm.loop !10
 
 347:                                              ; preds = %54
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
@@ -2087,7 +2087,7 @@ protobuf_iter_next.exit152.thread:                ; preds = %protobuf_iter_next.
   %484 = sub i32 %53, %.0228
   store i32 %484, ptr %24, align 4
   %485 = icmp slt i32 %484, 1
-  br i1 %485, label %protobuf_iter_next.exit.thread, label %34, !llvm.loop !12
+  br i1 %485, label %protobuf_iter_next.exit.thread, label %34, !llvm.loop !11
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %protobuf_iter_next.exit152.thread, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #4
@@ -2334,7 +2334,7 @@ get_varint64.exit37:                              ; preds = %.preheader51, %get_
   %104 = sub i32 %35, %.0
   store i32 %104, ptr %9, align 4
   %105 = icmp slt i32 %104, 1
-  br i1 %105, label %protobuf_iter_next.exit.thread, label %16, !llvm.loop !13
+  br i1 %105, label %protobuf_iter_next.exit.thread, label %16, !llvm.loop !12
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %102, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #4
@@ -2494,7 +2494,7 @@ get_varint64.exit:                                ; preds = %51, %get_varint64.e
   %71 = sub i32 %35, %.0
   store i32 %71, ptr %10, align 4
   %72 = icmp slt i32 %71, 1
-  br i1 %72, label %protobuf_iter_next.exit.thread, label %16, !llvm.loop !14
+  br i1 %72, label %protobuf_iter_next.exit.thread, label %16, !llvm.loop !13
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %69, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #4
@@ -3287,7 +3287,7 @@ get_varint64.exit127:                             ; preds = %319, %get_varint64.
   %338 = sub i32 %42, %.0
   store i32 %338, ptr %17, align 4
   %339 = icmp slt i32 %338, 1
-  br i1 %339, label %protobuf_iter_next.exit.thread, label %23, !llvm.loop !15
+  br i1 %339, label %protobuf_iter_next.exit.thread, label %23, !llvm.loop !14
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %336, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #4
@@ -3447,7 +3447,7 @@ get_varint64.exit:                                ; preds = %51, %get_varint64.e
   %71 = sub i32 %35, %.0
   store i32 %71, ptr %10, align 4
   %72 = icmp slt i32 %71, 1
-  br i1 %72, label %protobuf_iter_next.exit.thread, label %16, !llvm.loop !16
+  br i1 %72, label %protobuf_iter_next.exit.thread, label %16, !llvm.loop !15
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %69, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #4
@@ -3868,7 +3868,7 @@ get_varint64.exit63:                              ; preds = %163, %get_varint64.
   %182 = sub i32 %38, %.0
   store i32 %182, ptr %13, align 4
   %183 = icmp slt i32 %182, 1
-  br i1 %183, label %protobuf_iter_next.exit.thread, label %19, !llvm.loop !17
+  br i1 %183, label %protobuf_iter_next.exit.thread, label %19, !llvm.loop !16
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %180, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #4
@@ -4001,7 +4001,7 @@ get_varint64.exit:                                ; preds = %.preheader, %get_va
   %58 = sub i32 %33, %.0
   store i32 %58, ptr %9, align 4
   %59 = icmp slt i32 %58, 1
-  br i1 %59, label %protobuf_iter_next.exit.thread, label %14, !llvm.loop !18
+  br i1 %59, label %protobuf_iter_next.exit.thread, label %14, !llvm.loop !17
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %56, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #4
@@ -4134,7 +4134,7 @@ get_varint64.exit:                                ; preds = %.preheader, %get_va
   %58 = sub i32 %33, %.0
   store i32 %58, ptr %9, align 4
   %59 = icmp slt i32 %58, 1
-  br i1 %59, label %protobuf_iter_next.exit.thread, label %14, !llvm.loop !19
+  br i1 %59, label %protobuf_iter_next.exit.thread, label %14, !llvm.loop !18
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %56, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #4
@@ -4214,7 +4214,7 @@ protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.e
   %37 = sub i32 %33, %35
   store i32 %37, ptr %9, align 4
   %38 = icmp slt i32 %37, 1
-  br i1 %38, label %protobuf_iter_next.exit.thread, label %14, !llvm.loop !20
+  br i1 %38, label %protobuf_iter_next.exit.thread, label %14, !llvm.loop !19
 
 protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.exit, %34, %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #4
@@ -4612,18 +4612,17 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}

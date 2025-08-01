@@ -118,7 +118,7 @@ define range(i32 0, 2) i32 @curl_strnequal(ptr noundef readonly captures(address
   %22 = getelementptr inbounds nuw i8, ptr %.01221.i, i64 1
   %23 = load i8, ptr %21, align 1, !tbaa !3
   %.not.i = icmp eq i8 %23, 0
-  br i1 %.not.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
 .critedge.loopexit.i:                             ; preds = %19, %.lr.ph.i
   %.012.lcssa.ph.i = phi ptr [ %22, %19 ], [ %.01221.i, %.lr.ph.i ]
@@ -179,7 +179,7 @@ define hidden void @Curl_strntoupper(ptr noundef writeonly captures(none) %0, pt
   %12 = add i64 %.0, -1
   %.not8 = icmp eq i64 %12, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not8
-  br i1 %or.cond, label %.critedge, label %.preheader, !llvm.loop !10
+  br i1 %or.cond, label %.critedge, label %.preheader, !llvm.loop !9
 
 .critedge:                                        ; preds = %.preheader, %3
   ret void
@@ -206,7 +206,7 @@ define hidden void @Curl_strntolower(ptr noundef writeonly captures(none) %0, pt
   %12 = add i64 %.0, -1
   %.not8 = icmp eq i64 %12, 0
   %or.cond = select i1 %.not, i1 true, i1 %.not8
-  br i1 %or.cond, label %.critedge, label %.preheader, !llvm.loop !11
+  br i1 %or.cond, label %.critedge, label %.preheader, !llvm.loop !10
 
 .critedge:                                        ; preds = %.preheader, %3
   ret void
@@ -258,7 +258,7 @@ define hidden i32 @Curl_timestrcmp(ptr noundef readonly captures(address_is_null
   %.not18 = icmp eq i8 %8, 0
   %or.cond19 = select i1 %.not, i1 true, i1 %.not18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %or.cond19, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %or.cond19, label %.loopexit, label %.preheader
 
 12:                                               ; preds = %2
   %13 = or i1 %3, %4
@@ -285,10 +285,8 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

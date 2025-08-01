@@ -113,7 +113,7 @@ if.end.i6.i.us:                                   ; preds = %sw.bb2.i.us31, %sw.
 _ZN6hermes12CompactArray6trySetEjj.exit.us39:     ; preds = %if.end.i6.i.us, %_ZNK6hermes12CompactArray3getEj.exit.us37
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count72
-  br i1 %exitcond68.not, label %for.end, label %for.body.us26, !llvm.loop !8
+  br i1 %exitcond68.not, label %for.end, label %for.body.us26, !llvm.loop !7
 
 for.body.us43:                                    ; preds = %for.body.lr.ph, %_ZNK6hermes12CompactArray3getEj.exit.us54
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK6hermes12CompactArray3getEj.exit.us54 ], [ 0, %for.body.lr.ph ]
@@ -145,7 +145,7 @@ _ZNK6hermes12CompactArray3getEj.exit.us54:        ; preds = %sw.bb.i.us51, %sw.b
   store i32 %retval.0.i.us55, ptr %arrayidx.i11.i.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count72
-  br i1 %exitcond.not, label %for.end, label %for.body.us43, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body.us43, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph
   unreachable
@@ -180,9 +180,8 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6, !7}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5, !6, !7}
-!9 = distinct !{!9, !5, !6, !7}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

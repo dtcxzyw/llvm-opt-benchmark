@@ -231,7 +231,7 @@ define hidden void @_ZN7nanogui6Window14perform_layoutEP10NVGcontext(ptr noundef
   store i32 15, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.016.021, i64 8
   %.not19 = icmp eq ptr %16, %12
-  br i1 %.not19, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %.not19, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %3, align 8
@@ -554,7 +554,7 @@ define hidden void @_ZN7nanogui6Window7disposeEv(ptr noundef nonnull align 8 der
   %3 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %5, label %2, !llvm.loop !7
+  br i1 %.not, label %5, label %2, !llvm.loop !5
 
 5:                                                ; preds = %2
   tail call void @_ZN7nanogui6Screen14dispose_windowEPNS_6WindowE(ptr noundef nonnull align 8 dereferenceable(384) %.0, ptr noundef nonnull %0)
@@ -572,7 +572,7 @@ define hidden void @_ZN7nanogui6Window6centerEv(ptr noundef nonnull align 8 dere
   %3 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %5, label %2, !llvm.loop !9
+  br i1 %.not, label %5, label %2, !llvm.loop !7
 
 5:                                                ; preds = %2
   tail call void @_ZN7nanogui6Screen13center_windowEPNS_6WindowE(ptr noundef nonnull align 8 dereferenceable(384) %.0, ptr noundef nonnull %0)
@@ -771,7 +771,5 @@ attributes #16 = { builtin nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !8, !6}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}

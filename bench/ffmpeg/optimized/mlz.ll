@@ -86,7 +86,7 @@ define i32 @ff_mlz_decompression(ptr noundef captures(none) %0, ptr noundef capt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
-  store i32 -1, ptr %5, align 4, !tbaa !25
+  store i32 -1, ptr %5, align 4, !tbaa !24
   %8 = sext i32 %2 to i64
   %.not153 = icmp eq i32 %2, 0
   br i1 %.not153, label %.thread, label %.lr.ph
@@ -108,9 +108,9 @@ define i32 @ff_mlz_decompression(ptr noundef captures(none) %0, ptr noundef capt
   br i1 %17, label %.lr.ph.i, label %input_code.exit.thread
 
 .lr.ph.i:                                         ; preds = %15
-  %18 = load ptr, ptr %1, align 8, !tbaa !26
-  %19 = load i32, ptr %10, align 8, !tbaa !29
-  %.promoted.i = load i32, ptr %9, align 8, !tbaa !30
+  %18 = load ptr, ptr %1, align 8, !tbaa !25
+  %19 = load i32, ptr %10, align 8, !tbaa !28
+  %.promoted.i = load i32, ptr %9, align 8, !tbaa !29
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i
@@ -120,7 +120,7 @@ define i32 @ff_mlz_decompression(ptr noundef captures(none) %0, ptr noundef capt
   %21 = lshr i32 %spec.select.i9.i, 3
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !31
+  %24 = load i8, ptr %23, align 1, !tbaa !30
   %25 = icmp slt i32 %spec.select.i9.i, %19
   %26 = zext i1 %25 to i32
   %spec.select.i.i = add i32 %spec.select.i9.i, %26
@@ -128,13 +128,13 @@ define i32 @ff_mlz_decompression(ptr noundef captures(none) %0, ptr noundef capt
   %28 = and i32 %spec.select.i9.i, 7
   %29 = shl nuw nsw i32 %27, %28
   %30 = lshr i32 %29, 7
-  store i32 %spec.select.i.i, ptr %9, align 8, !tbaa !30
+  store i32 %spec.select.i.i, ptr %9, align 8, !tbaa !29
   %31 = and i32 %30, 1
   %32 = shl nuw i32 %31, %.08.i
   %33 = or i32 %32, %.067.i
   %34 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %34, %16
-  br i1 %exitcond.not.i, label %input_code.exit, label %20, !llvm.loop !32
+  br i1 %exitcond.not.i, label %input_code.exit, label %20, !llvm.loop !31
 
 input_code.exit:                                  ; preds = %20
   switch i32 %33, label %input_code.exit.thread [
@@ -165,7 +165,7 @@ ff_mlz_flush_dict.exit:                           ; preds = %37
   store i32 511, ptr %13, align 8, !tbaa !14
   store i32 258, ptr %14, align 8, !tbaa !15
   store i32 0, ptr %11, align 4, !tbaa !16
-  store i32 -1, ptr %5, align 4, !tbaa !25
+  store i32 -1, ptr %5, align 4, !tbaa !24
   br label %135
 
 41:                                               ; preds = %input_code.exit
@@ -224,7 +224,7 @@ input_code.exit.thread:                           ; preds = %15, %input_code.exi
 67:                                               ; preds = %61
   %68 = add i64 %.089151, %62
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 %68
-  %70 = load i32, ptr %5, align 4, !tbaa !25
+  %70 = load i32, ptr %5, align 4, !tbaa !24
   %71 = sub i64 %8, %68
   %72 = call fastcc i32 @decode_string(ptr noundef nonnull %0, ptr noundef %69, i32 noundef %70, ptr noundef %5, i64 noundef %71)
   %73 = icmp slt i32 %72, 0
@@ -244,14 +244,14 @@ input_code.exit.thread:                           ; preds = %15, %input_code.exi
 80:                                               ; preds = %74
   %81 = add i64 %68, %75
   %82 = load i32, ptr %14, align 8, !tbaa !15
-  %83 = load i32, ptr %5, align 4, !tbaa !25
+  %83 = load i32, ptr %5, align 4, !tbaa !24
   %84 = sext i32 %82 to i64
   %85 = getelementptr inbounds %struct.MLZDict, ptr %7, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   store i32 %.087152, ptr %86, align 4, !tbaa !20
   store i32 %82, ptr %85, align 4, !tbaa !18
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store i32 %83, ptr %87, align 4, !tbaa !33
+  store i32 %83, ptr %87, align 4, !tbaa !32
   %88 = icmp slt i32 %.087152, 258
   br i1 %88, label %set_new_entry_dict.exit, label %89
 
@@ -312,14 +312,14 @@ set_new_entry_dict.exit:                          ; preds = %80, %89
 
 115:                                              ; preds = %114
   %116 = load i32, ptr %14, align 8, !tbaa !15
-  %117 = load i32, ptr %5, align 4, !tbaa !25
+  %117 = load i32, ptr %5, align 4, !tbaa !24
   %118 = sext i32 %116 to i64
   %119 = getelementptr inbounds %struct.MLZDict, ptr %7, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   store i32 %.087152, ptr %120, align 4, !tbaa !20
   store i32 %116, ptr %119, align 4, !tbaa !18
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store i32 %117, ptr %121, align 4, !tbaa !33
+  store i32 %117, ptr %121, align 4, !tbaa !32
   %122 = icmp slt i32 %.087152, 258
   br i1 %122, label %set_new_entry_dict.exit112, label %123
 
@@ -352,7 +352,7 @@ set_new_entry_dict.exit112:                       ; preds = %115, %123
   %.190 = phi i64 [ %.089151, %50 ], [ %.089151, %ff_mlz_flush_dict.exit ], [ %.089151, %41 ], [ %81, %99 ], [ %111, %112 ], [ %111, %110 ], [ %111, %114 ], [ %111, %133 ]
   %.188 = phi i32 [ %.087152, %50 ], [ -1, %ff_mlz_flush_dict.exit ], [ %.087152, %41 ], [ %.06.lcssa.i114, %99 ], [ %.087152, %112 ], [ %.087152, %110 ], [ %.06.lcssa.i114, %114 ], [ %.06.lcssa.i114, %133 ]
   %136 = icmp ult i64 %.190, %8
-  br i1 %136, label %15, label %.thread, !llvm.loop !34
+  br i1 %136, label %15, label %.thread, !llvm.loop !33
 
 .thread:                                          ; preds = %135, %4, %130, %107, %96, %77, %64, %44
   %.2.in = phi i64 [ %.089151, %44 ], [ %81, %96 ], [ %68, %77 ], [ %.089151, %64 ], [ %111, %130 ], [ %.089151, %107 ], [ 0, %4 ], [ %.190, %135 ]
@@ -367,7 +367,7 @@ declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 define internal fastcc i32 @decode_string(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3, i64 noundef %4) unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !4
-  store i32 -1, ptr %3, align 4, !tbaa !25
+  store i32 -1, ptr %3, align 4, !tbaa !24
   %.not69 = icmp eq i64 %4, 0
   br i1 %.not69, label %._crit_edge, label %.lr.ph
 
@@ -386,9 +386,9 @@ define internal fastcc i32 @decode_string(ptr noundef readonly captures(none) %0
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %10
-  store i32 %.04967, ptr %3, align 4, !tbaa !25
+  store i32 %.04967, ptr %3, align 4, !tbaa !24
   %13 = trunc i32 %.04967 to i8
-  store i8 %13, ptr %1, align 1, !tbaa !31
+  store i8 %13, ptr %1, align 1, !tbaa !30
   %14 = trunc i64 %.04868 to i32
   %15 = add i32 %14, 1
   br label %._crit_edge
@@ -412,10 +412,10 @@ define internal fastcc i32 @decode_string(ptr noundef readonly captures(none) %0
 
 27:                                               ; preds = %16
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %29 = load i32, ptr %28, align 4, !tbaa !33
+  %29 = load i32, ptr %28, align 4, !tbaa !32
   %30 = trunc i32 %29 to i8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %22
-  store i8 %30, ptr %31, align 1, !tbaa !31
+  store i8 %30, ptr %31, align 1, !tbaa !30
   %32 = add nuw i64 %.04868, 1
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !20
@@ -464,7 +464,7 @@ define internal fastcc i32 @decode_string(ptr noundef readonly captures(none) %0
 
 59:                                               ; preds = %39, %50
   %exitcond.not = icmp eq i64 %32, %4
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %59
   %60 = trunc i64 %4 to i32
@@ -506,17 +506,16 @@ attributes #5 = { nounwind }
 !19 = !{!"MLZDict", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12}
 !20 = !{!19, !6, i64 4}
 !21 = !{!19, !6, i64 12}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!6, !6, i64 0}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"GetBitContext", !28, i64 0, !28, i64 8, !6, i64 16, !6, i64 20, !6, i64 24}
-!28 = !{!"p1 omnipotent char", !10, i64 0}
-!29 = !{!27, !6, i64 24}
-!30 = !{!27, !6, i64 16}
-!31 = !{!7, !7, i64 0}
-!32 = distinct !{!32, !23, !24}
-!33 = !{!19, !6, i64 8}
-!34 = distinct !{!34, !23, !24}
-!35 = distinct !{!35, !23, !24}
+!24 = !{!6, !6, i64 0}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"GetBitContext", !27, i64 0, !27, i64 8, !6, i64 16, !6, i64 20, !6, i64 24}
+!27 = !{!"p1 omnipotent char", !10, i64 0}
+!28 = !{!26, !6, i64 24}
+!29 = !{!26, !6, i64 16}
+!30 = !{!7, !7, i64 0}
+!31 = distinct !{!31, !23}
+!32 = !{!19, !6, i64 8}
+!33 = distinct !{!33, !23}
+!34 = distinct !{!34, !23}

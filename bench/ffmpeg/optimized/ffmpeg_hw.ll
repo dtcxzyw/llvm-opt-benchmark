@@ -76,13 +76,13 @@ define noundef ptr @hw_device_get_by_name(ptr noundef readonly captures(none) %0
 5:                                                ; preds = %6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !20
 
 6:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !12
-  %9 = load ptr, ptr %8, align 8, !tbaa !22
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %0) #7
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %5
@@ -103,18 +103,18 @@ define range(i32 -2147483648, 1) i32 @hw_device_init_from_string(ptr noundef %0,
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr null, ptr %3, align 8, !tbaa !23
+  store ptr null, ptr %3, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
-  store ptr null, ptr %5, align 8, !tbaa !25
+  store ptr null, ptr %5, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr null, ptr %6, align 8, !tbaa !25
+  store ptr null, ptr %6, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  store ptr null, ptr %7, align 8, !tbaa !26
+  store ptr null, ptr %7, align 8, !tbaa !25
   %8 = tail call i64 @strcspn(ptr noundef %0, ptr noundef nonnull @.str) #7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
   %10 = tail call noalias ptr @av_strndup(ptr noundef %0, i64 noundef %8) #8
-  store ptr %10, ptr %4, align 8, !tbaa !25
+  store ptr %10, ptr %4, align 8, !tbaa !24
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %hw_device_add.exit.thread, label %11
 
@@ -124,7 +124,7 @@ define range(i32 -2147483648, 1) i32 @hw_device_init_from_string(ptr noundef %0,
   br i1 %13, label %hw_device_get_by_name.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = load i8, ptr %9, align 1, !tbaa !27
+  %15 = load i8, ptr %9, align 1, !tbaa !26
   %16 = icmp eq i8 %15, 61
   br i1 %16, label %17, label %33
 
@@ -132,7 +132,7 @@ define range(i32 -2147483648, 1) i32 @hw_device_init_from_string(ptr noundef %0,
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %19 = tail call i64 @strcspn(ptr noundef nonnull %18, ptr noundef nonnull @.str.2) #7
   %20 = tail call noalias ptr @av_strndup(ptr noundef nonnull %18, i64 noundef %19) #8
-  store ptr %20, ptr %5, align 8, !tbaa !25
+  store ptr %20, ptr %5, align 8, !tbaa !24
   %.not71 = icmp eq ptr %20, null
   br i1 %.not71, label %hw_device_add.exit.thread, label %21
 
@@ -149,13 +149,13 @@ define range(i32 -2147483648, 1) i32 @hw_device_init_from_string(ptr noundef %0,
 25:                                               ; preds = %26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %26, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.loopexit, label %26, !llvm.loop !20
 
 26:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
   %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !12
-  %29 = load ptr, ptr %28, align 8, !tbaa !22
+  %29 = load ptr, ptr %28, align 8, !tbaa !21
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %20) #7
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %hw_device_get_by_name.exit, label %25
@@ -167,13 +167,13 @@ define range(i32 -2147483648, 1) i32 @hw_device_init_from_string(ptr noundef %0,
 
 33:                                               ; preds = %14
   %34 = tail call fastcc ptr @hw_device_default_name(i32 noundef %12)
-  store ptr %34, ptr %5, align 8, !tbaa !25
+  store ptr %34, ptr %5, align 8, !tbaa !24
   %.not70 = icmp eq ptr %34, null
   br i1 %.not70, label %hw_device_add.exit.thread, label %35
 
 35:                                               ; preds = %33, %.loopexit
   %.054 = phi ptr [ %32, %.loopexit ], [ %9, %33 ]
-  %36 = load i8, ptr %.054, align 1, !tbaa !27
+  %36 = load i8, ptr %.054, align 1, !tbaa !26
   switch i8 %36, label %hw_device_get_by_name.exit [
     i8 0, label %37
     i8 58, label %40
@@ -201,7 +201,7 @@ define range(i32 -2147483648, 1) i32 @hw_device_init_from_string(ptr noundef %0,
 
 48:                                               ; preds = %43
   %49 = tail call noalias ptr @av_strndup(ptr noundef nonnull %41, i64 noundef %46) #8
-  store ptr %49, ptr %6, align 8, !tbaa !25
+  store ptr %49, ptr %6, align 8, !tbaa !24
   %.not76 = icmp eq ptr %49, null
   br i1 %.not76, label %hw_device_add.exit.thread, label %50
 
@@ -213,11 +213,11 @@ define range(i32 -2147483648, 1) i32 @hw_device_init_from_string(ptr noundef %0,
   br i1 %54, label %hw_device_get_by_name.exit, label %55
 
 55:                                               ; preds = %50
-  %.pre = load ptr, ptr %3, align 8, !tbaa !23
+  %.pre = load ptr, ptr %3, align 8, !tbaa !22
   br label %58
 
 .critedge:                                        ; preds = %40
-  %56 = load i8, ptr %41, align 1, !tbaa !27
+  %56 = load i8, ptr %41, align 1, !tbaa !26
   %.not77 = icmp eq i8 %56, 0
   %57 = select i1 %.not77, ptr null, ptr %41
   br label %58
@@ -243,20 +243,20 @@ define range(i32 -2147483648, 1) i32 @hw_device_init_from_string(ptr noundef %0,
 68:                                               ; preds = %69
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i86 = icmp eq i64 %indvars.iv.next.i85, %wide.trip.count.i82
-  br i1 %exitcond.not.i86, label %hw_device_get_by_name.exit, label %69, !llvm.loop !21
+  br i1 %exitcond.not.i86, label %hw_device_get_by_name.exit, label %69, !llvm.loop !20
 
 69:                                               ; preds = %68, %.lr.ph.i81
   %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.i81 ], [ %indvars.iv.next.i85, %68 ]
   %70 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i83
   %71 = load ptr, ptr %70, align 8, !tbaa !12
-  %72 = load ptr, ptr %71, align 8, !tbaa !22
+  %72 = load ptr, ptr %71, align 8, !tbaa !21
   %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull readonly dereferenceable(1) %64) #7
   %.not.i84 = icmp eq i32 %73, 0
   br i1 %.not.i84, label %hw_device_get_by_name.exit87, label %68
 
 hw_device_get_by_name.exit87:                     ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !28
+  %75 = load ptr, ptr %74, align 8, !tbaa !27
   %76 = call i32 @av_hwdevice_ctx_create_derived(ptr noundef nonnull %7, i32 noundef %12, ptr noundef %75, i32 noundef 0) #8
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %hw_device_add.exit.thread, label %86
@@ -268,7 +268,7 @@ hw_device_get_by_name.exit87:                     ; preds = %69
   br i1 %81, label %hw_device_get_by_name.exit, label %82
 
 82:                                               ; preds = %78
-  %83 = load ptr, ptr %3, align 8, !tbaa !23
+  %83 = load ptr, ptr %3, align 8, !tbaa !22
   %84 = call i32 @av_hwdevice_ctx_create(ptr noundef nonnull %7, i32 noundef %12, ptr noundef null, ptr noundef %83, i32 noundef 0) #8
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %hw_device_add.exit.thread, label %86
@@ -298,13 +298,13 @@ hw_device_add.exit.thread95:                      ; preds = %86
 97:                                               ; preds = %91
   %98 = add nsw i32 %94, 1
   store i32 %98, ptr @nb_hw_devices, align 4, !tbaa !4
-  %99 = load ptr, ptr %5, align 8, !tbaa !25
-  store ptr %99, ptr %92, align 8, !tbaa !22
+  %99 = load ptr, ptr %5, align 8, !tbaa !24
+  store ptr %99, ptr %92, align 8, !tbaa !21
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i32 %12, ptr %100, align 8, !tbaa !14
-  %101 = load ptr, ptr %7, align 8, !tbaa !26
+  %101 = load ptr, ptr %7, align 8, !tbaa !25
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store ptr %101, ptr %102, align 8, !tbaa !28
+  store ptr %101, ptr %102, align 8, !tbaa !27
   %.not79 = icmp eq ptr %1, null
   br i1 %.not79, label %104, label %103
 
@@ -313,7 +313,7 @@ hw_device_add.exit.thread95:                      ; preds = %86
   br label %104
 
 104:                                              ; preds = %103, %97
-  store ptr null, ptr %5, align 8, !tbaa !25
+  store ptr null, ptr %5, align 8, !tbaa !24
   br label %105
 
 105:                                              ; preds = %hw_device_add.exit.thread, %hw_device_get_by_name.exit, %104
@@ -356,7 +356,7 @@ define internal fastcc ptr @hw_device_default_name(i32 noundef %0) unnamed_addr 
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
   %5 = add i64 %4, 4
   %6 = tail call noalias ptr @av_malloc(i64 noundef %5) #8
-  store ptr %6, ptr %2, align 8, !tbaa !25
+  store ptr %6, ptr %2, align 8, !tbaa !24
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.thread15, label %.preheader
 
@@ -375,13 +375,13 @@ define internal fastcc ptr @hw_device_default_name(i32 noundef %0) unnamed_addr 
 11:                                               ; preds = %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread15, label %12, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.thread15, label %12, !llvm.loop !20
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
   %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !12
-  %15 = load ptr, ptr %14, align 8, !tbaa !22
+  %15 = load ptr, ptr %14, align 8, !tbaa !21
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %6) #7
   %.not.i = icmp eq i32 %16, 0
   br i1 %.not.i, label %hw_device_get_by_name.exit, label %11
@@ -389,7 +389,7 @@ define internal fastcc ptr @hw_device_default_name(i32 noundef %0) unnamed_addr 
 hw_device_get_by_name.exit:                       ; preds = %12
   %17 = add nuw nsw i32 %.01117, 1
   %exitcond.not = icmp eq i32 %17, 1000
-  br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !29
+  br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !28
 
 .thread:                                          ; preds = %hw_device_get_by_name.exit
   call void @av_freep(ptr noundef nonnull %2) #8
@@ -423,10 +423,10 @@ define range(i32 -2147483648, 1) i32 @hw_device_init_from_type(i32 noundef %0, p
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store ptr null, ptr %4, align 8, !tbaa !26
+  store ptr null, ptr %4, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   %6 = tail call fastcc ptr @hw_device_default_name(i32 noundef %0)
-  store ptr %6, ptr %5, align 8, !tbaa !25
+  store ptr %6, ptr %5, align 8, !tbaa !24
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %hw_device_add.exit.thread, label %7
 
@@ -464,12 +464,12 @@ hw_device_add.exit.thread22:                      ; preds = %11
 22:                                               ; preds = %16
   %23 = add nsw i32 %19, 1
   store i32 %23, ptr @nb_hw_devices, align 4, !tbaa !4
-  store ptr %6, ptr %17, align 8, !tbaa !22
+  store ptr %6, ptr %17, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %0, ptr %24, align 8, !tbaa !14
-  %25 = load ptr, ptr %4, align 8, !tbaa !26
+  %25 = load ptr, ptr %4, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %25, ptr %26, align 8, !tbaa !28
+  store ptr %25, ptr %26, align 8, !tbaa !27
   %.not19 = icmp eq ptr %2, null
   br i1 %.not19, label %28, label %27
 
@@ -514,7 +514,7 @@ define void @hw_device_free_all() local_unnamed_addr #4 {
   %12 = load i32, ptr @nb_hw_devices, align 4, !tbaa !4
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   tail call void @av_freep(ptr noundef nonnull @hw_devices) #8
@@ -543,18 +543,18 @@ define ptr @hw_device_for_filter() local_unnamed_addr #4 {
   br i1 %.not7, label %.sink.split, label %11
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr %10, align 8, !tbaa !22
+  %12 = load ptr, ptr %10, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !14
   %15 = tail call ptr @av_hwdevice_get_type_name(i32 noundef %14) #8
-  %16 = load ptr, ptr %10, align 8, !tbaa !22
+  %16 = load ptr, ptr %10, align 8, !tbaa !21
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 24, ptr noundef nonnull @.str.11, i32 noundef %3, ptr noundef %12, ptr noundef %15, ptr noundef %16) #8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %11, %0
   %.sink8 = phi ptr [ %1, %0 ], [ %10, %11 ], [ %10, %5 ]
   %17 = getelementptr inbounds nuw i8, ptr %.sink8, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  %18 = load ptr, ptr %17, align 8, !tbaa !27
   br label %19
 
 19:                                               ; preds = %.sink.split, %2
@@ -606,16 +606,15 @@ attributes #8 = { nounwind }
 !15 = !{!"HWDevice", !16, i64 0, !5, i64 8, !17, i64 16}
 !16 = !{!"p1 omnipotent char", !11, i64 0}
 !17 = !{!"p1 _ZTS11AVBufferRef", !11, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = !{!15, !16, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS12AVDictionary", !11, i64 0}
-!25 = !{!16, !16, i64 0}
-!26 = !{!17, !17, i64 0}
-!27 = !{!6, !6, i64 0}
-!28 = !{!15, !17, i64 16}
-!29 = distinct !{!29, !19, !20}
-!30 = distinct !{!30, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = !{!15, !16, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS12AVDictionary", !11, i64 0}
+!24 = !{!16, !16, i64 0}
+!25 = !{!17, !17, i64 0}
+!26 = !{!6, !6, i64 0}
+!27 = !{!15, !17, i64 16}
+!28 = distinct !{!28, !19}
+!29 = distinct !{!29, !19}

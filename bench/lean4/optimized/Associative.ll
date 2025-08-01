@@ -7742,7 +7742,7 @@ lean_dec.exit:                                    ; preds = %78, %77, %75, %lean
 
 lean_inc.exit:                                    ; preds = %84, %83, %81, %lean_dec.exit
   %85 = tail call ptr @l_Std_Internal_List_insertEntry___rarg(ptr noundef %0, ptr noundef %53, ptr noundef %63, ptr noundef %.0)
-  br label %6, !llvm.loop !14
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8039,7 +8039,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %21
   %.027.be = phi ptr [ %.0, %21 ], [ %48, %lean_alloc_ctor.exit ]
-  br label %3, !llvm.loop !16
+  br label %3
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -8250,7 +8250,7 @@ lean_dec.exit:                                    ; preds = %51, %50, %48, %lean
 
 lean_inc.exit:                                    ; preds = %57, %56, %54, %lean_dec.exit
   %58 = tail call ptr @l_Std_Internal_List_insertEntryIfNew___rarg(ptr noundef %0, ptr noundef %26, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %.0)
-  br label %6, !llvm.loop !17
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10550,7 +10550,7 @@ lean_dec.exit27:                                  ; preds = %88, %87, %85, %lean
 
 lean_dec.exit26.backedge:                         ; preds = %101, %105, %107, %108, %91, %97, %99, %100
   %.0.be = phi ptr [ %.0, %101 ], [ %.0, %105 ], [ %.0, %107 ], [ %.0, %108 ], [ %25, %91 ], [ %25, %97 ], [ %25, %99 ], [ %25, %100 ]
-  br label %lean_dec.exit26, !llvm.loop !18
+  br label %lean_dec.exit26
 
 102:                                              ; preds = %101
   %103 = load i32, ptr %25, align 4, !tbaa !4
@@ -14500,8 +14500,3 @@ attributes #6 = { noreturn nounwind }
 !11 = !{!"any pointer", !7, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !7, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}

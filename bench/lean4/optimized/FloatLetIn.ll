@@ -2409,7 +2409,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #4
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %20, !llvm.loop !17
+  br i1 %19, label %3, label %20
 
 20:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -2732,7 +2732,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3, !llvm.loop !19
+  br label %3
 }
 
 declare i64 @l___private_Lean_Expr_0__Lean_hashFVarId____x40_Lean_Expr___hyg_1730_(ptr noundef) local_unnamed_addr #2
@@ -3872,7 +3872,7 @@ lean_obj_tag.exit.i1277:                          ; preds = %236, %233
   %244 = load ptr, ptr %243, align 8, !tbaa !4
   %245 = tail call zeroext i8 @lean_name_eq(ptr noundef %242, ptr noundef %1) #4
   %246 = icmp eq i8 %245, 0
-  br i1 %246, label %lean_array_uget.exit1275, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit, !llvm.loop !17
+  br i1 %246, label %lean_array_uget.exit1275, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit
 
 247:                                              ; preds = %lean_obj_tag.exit.i1277
   %248 = ptrtoint ptr %213 to i64
@@ -4452,7 +4452,7 @@ lean_obj_tag.exit.i1306:                          ; preds = %477, %474
   %485 = load ptr, ptr %484, align 8, !tbaa !4
   %486 = tail call zeroext i8 @lean_name_eq(ptr noundef %483, ptr noundef %1) #4
   %487 = icmp eq i8 %486, 0
-  br i1 %487, label %lean_array_uget.exit1303, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1310, !llvm.loop !17
+  br i1 %487, label %lean_array_uget.exit1303, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1310
 
 488:                                              ; preds = %lean_obj_tag.exit.i1306
   br i1 %.not1756, label %499, label %489, !prof !14
@@ -5040,7 +5040,7 @@ lean_obj_tag.exit.i1339:                          ; preds = %719, %716
   %727 = load ptr, ptr %726, align 8, !tbaa !4
   %728 = tail call zeroext i8 @lean_name_eq(ptr noundef %725, ptr noundef %1) #4
   %729 = icmp eq i8 %728, 0
-  br i1 %729, label %lean_array_uget.exit1336, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1343, !llvm.loop !17
+  br i1 %729, label %lean_array_uget.exit1336, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1343
 
 730:                                              ; preds = %lean_obj_tag.exit.i1339
   %731 = ptrtoint ptr %696 to i64
@@ -5755,7 +5755,7 @@ lean_obj_tag.exit.i1389:                          ; preds = %1008, %1005
   %1016 = load ptr, ptr %1015, align 8, !tbaa !4
   %1017 = tail call zeroext i8 @lean_name_eq(ptr noundef %1014, ptr noundef %1) #4
   %1018 = icmp eq i8 %1017, 0
-  br i1 %1018, label %lean_array_uget.exit1386, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1393, !llvm.loop !17
+  br i1 %1018, label %lean_array_uget.exit1386, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1393
 
 1019:                                             ; preds = %lean_obj_tag.exit.i1389
   br i1 %.not1727, label %1030, label %1020, !prof !14
@@ -7131,7 +7131,7 @@ lean_obj_tag.exit.i1522:                          ; preds = %1546, %1543
   %1554 = load ptr, ptr %1553, align 8, !tbaa !4
   %1555 = tail call zeroext i8 @lean_name_eq(ptr noundef %1552, ptr noundef %1) #4
   %1556 = icmp eq i8 %1555, 0
-  br i1 %1556, label %lean_array_uget.exit1519, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1526, !llvm.loop !17
+  br i1 %1556, label %lean_array_uget.exit1519, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1526
 
 1557:                                             ; preds = %lean_obj_tag.exit.i1522
   br i1 %.not1702, label %1568, label %1558, !prof !14
@@ -7959,7 +7959,7 @@ lean_obj_tag.exit.i1580:                          ; preds = %1877, %1874
   %1885 = load ptr, ptr %1884, align 8, !tbaa !4
   %1886 = tail call zeroext i8 @lean_name_eq(ptr noundef %1883, ptr noundef %1) #4
   %1887 = icmp eq i8 %1886, 0
-  br i1 %1887, label %lean_array_uget.exit1577, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1584, !llvm.loop !17
+  br i1 %1887, label %lean_array_uget.exit1577, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1584
 
 1888:                                             ; preds = %lean_obj_tag.exit.i1580
   br i1 %.not1684, label %1899, label %1889, !prof !14
@@ -8813,7 +8813,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = tail call zeroext i8 @lean_name_eq(ptr noundef %15, ptr noundef %0) #4
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit, !llvm.loop !17
+  br i1 %19, label %3, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -31610,7 +31610,7 @@ lean_obj_tag.exit.i:                              ; preds = %42, %39
   %50 = load ptr, ptr %49, align 8, !tbaa !4
   %51 = tail call zeroext i8 @lean_name_eq(ptr noundef %48, ptr noundef %11) #4
   %52 = icmp eq i8 %51, 0
-  br i1 %52, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit, !llvm.loop !17
+  br i1 %52, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit
 
 53:                                               ; preds = %lean_obj_tag.exit.i
   %54 = ptrtoint ptr %2 to i64
@@ -32119,7 +32119,7 @@ lean_obj_tag.exit.i269:                           ; preds = %256, %253
   %264 = load ptr, ptr %263, align 8, !tbaa !4
   %265 = tail call zeroext i8 @lean_name_eq(ptr noundef %262, ptr noundef %11) #4
   %266 = icmp eq i8 %265, 0
-  br i1 %266, label %lean_array_uget.exit266, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit273, !llvm.loop !17
+  br i1 %266, label %lean_array_uget.exit266, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit273
 
 267:                                              ; preds = %lean_obj_tag.exit.i269
   %268 = ptrtoint ptr %2 to i64
@@ -32726,7 +32726,7 @@ lean_dec.exit327:                                 ; preds = %66, %65, %63, %lean
 77:                                               ; preds = %76, %73
   %.val.i430 = phi i32 [ %.val.i430.pr, %76 ], [ %74, %73 ]
   %78 = icmp sgt i32 %.val.i430, 0
-  br i1 %78, label %79, label %81, !prof !20
+  br i1 %78, label %79, label %81, !prof !17
 
 79:                                               ; preds = %77
   %80 = add nuw i32 %.val.i430, 1
@@ -32794,7 +32794,7 @@ lean_obj_tag.exit436:                             ; preds = %86, %89
 104:                                              ; preds = %103, %100
   %105 = phi i32 [ %.pr, %103 ], [ %101, %100 ]
   %106 = icmp sgt i32 %105, 1
-  br i1 %106, label %107, label %109, !prof !20
+  br i1 %106, label %107, label %109, !prof !17
 
 107:                                              ; preds = %104
   %108 = add nsw i32 %105, -1
@@ -33195,7 +33195,7 @@ lean_obj_tag.exit.i:                              ; preds = %253, %250
   %261 = load ptr, ptr %260, align 8, !tbaa !4
   %262 = tail call zeroext i8 @lean_name_eq(ptr noundef %259, ptr noundef %207) #4
   %263 = icmp eq i8 %262, 0
-  br i1 %263, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit, !llvm.loop !17
+  br i1 %263, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit
 
 264:                                              ; preds = %lean_obj_tag.exit.i
   %265 = ptrtoint ptr %225 to i64
@@ -33680,7 +33680,7 @@ lean_obj_tag.exit.i500:                           ; preds = %455, %452
   %463 = load ptr, ptr %462, align 8, !tbaa !4
   %464 = tail call zeroext i8 @lean_name_eq(ptr noundef %461, ptr noundef %207) #4
   %465 = icmp eq i8 %464, 0
-  br i1 %465, label %lean_array_uget.exit497, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit504, !llvm.loop !17
+  br i1 %465, label %lean_array_uget.exit497, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit504
 
 466:                                              ; preds = %lean_obj_tag.exit.i500
   br i1 %.not606, label %477, label %467, !prof !14
@@ -35254,7 +35254,7 @@ lean_obj_tag.exit.i:                              ; preds = %164, %161
   %172 = load ptr, ptr %171, align 8, !tbaa !4
   %173 = tail call zeroext i8 @lean_name_eq(ptr noundef %170, ptr noundef %110) #4
   %174 = icmp eq i8 %173, 0
-  br i1 %174, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit, !llvm.loop !17
+  br i1 %174, label %lean_array_uget.exit, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit
 
 175:                                              ; preds = %lean_obj_tag.exit.i
   br i1 %.not.i242, label %176, label %lean_dec.exit164
@@ -36377,7 +36377,7 @@ lean_obj_tag.exit30.i:                            ; preds = %44, %45
   br i1 %.not, label %50, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %lean_obj_tag.exit30.i, %lean_obj_tag.exit26.i, %35, %l_Lean_Compiler_LCNF_FloatLetIn_beqDecision____x40_Lean_Compiler_LCNF_FloatLetIn___hyg_63_.exit, %lean_obj_tag.exit22.i
-  br label %.critedge, !llvm.loop !21
+  br label %.critedge
 
 47:                                               ; preds = %lean_obj_tag.exit.i
   br i1 %.not.i31.i, label %48, label %l_Lean_Compiler_LCNF_FloatLetIn_beqDecision____x40_Lean_Compiler_LCNF_FloatLetIn___hyg_63_.exit
@@ -36786,7 +36786,7 @@ lean_array_uset.exit113:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit113, %lean_array_uset.exit
   %.068.be = phi ptr [ %20, %lean_array_uset.exit ], [ %74, %lean_array_uset.exit113 ]
   %.0.be = phi ptr [ %.0.i.i86, %lean_array_uset.exit ], [ %.0.i.i110, %lean_array_uset.exit113 ]
-  br label %3, !llvm.loop !22
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -45203,7 +45203,7 @@ lean_obj_tag.exit.i:                              ; preds = %82, %79
 lean_obj_tag.exit.i.i:                            ; preds = %96, %93
   %.0.i.i.i = phi i32 [ %95, %93 ], [ %98, %96 ]
   %cond = icmp eq i32 %.0.i.i.i, 2
-  br i1 %cond, label %140, label %.critedge.i248, !llvm.loop !21
+  br i1 %cond, label %140, label %.critedge.i248
 
 99:                                               ; preds = %lean_obj_tag.exit.i
   tail call void @lean_inc_heartbeat() #4
@@ -46721,7 +46721,7 @@ lean_obj_tag.exit.i:                              ; preds = %100, %97
   %108 = load ptr, ptr %107, align 8, !tbaa !4
   %109 = tail call zeroext i8 @lean_name_eq(ptr noundef %106, ptr noundef %0) #4
   %110 = icmp eq i8 %109, 0
-  br i1 %110, label %lean_dec.exit716, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit, !llvm.loop !17
+  br i1 %110, label %lean_dec.exit716, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit: ; preds = %lean_obj_tag.exit.i, %104
   br i1 %.not.i907, label %111, label %lean_dec.exit715
@@ -46983,7 +46983,7 @@ lean_obj_tag.exit.i926:                           ; preds = %206, %203
   %214 = load ptr, ptr %213, align 8, !tbaa !4
   %215 = tail call zeroext i8 @lean_name_eq(ptr noundef %212, ptr noundef %0) #4
   %216 = icmp eq i8 %215, 0
-  br i1 %216, label %lean_array_uget.exit923, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit930, !llvm.loop !17
+  br i1 %216, label %lean_array_uget.exit923, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit930
 
 217:                                              ; preds = %lean_obj_tag.exit.i926
   %218 = ptrtoint ptr %183 to i64
@@ -47698,7 +47698,7 @@ lean_obj_tag.exit.i974:                           ; preds = %495, %492
   %503 = load ptr, ptr %502, align 8, !tbaa !4
   %504 = tail call zeroext i8 @lean_name_eq(ptr noundef %501, ptr noundef %0) #4
   %505 = icmp eq i8 %504, 0
-  br i1 %505, label %lean_array_uget.exit971, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit978, !llvm.loop !17
+  br i1 %505, label %lean_array_uget.exit971, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit978
 
 506:                                              ; preds = %lean_obj_tag.exit.i974
   br i1 %.not1294, label %517, label %507, !prof !14
@@ -48531,7 +48531,7 @@ lean_obj_tag.exit.i1042:                          ; preds = %824, %821
   %832 = load ptr, ptr %831, align 8, !tbaa !4
   %833 = tail call zeroext i8 @lean_name_eq(ptr noundef %830, ptr noundef %0) #4
   %834 = icmp eq i8 %833, 0
-  br i1 %834, label %lean_array_uget.exit1039, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1046, !llvm.loop !17
+  br i1 %834, label %lean_array_uget.exit1039, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1046
 
 835:                                              ; preds = %lean_obj_tag.exit.i1042
   br i1 %.not1278, label %846, label %836, !prof !14
@@ -49412,7 +49412,7 @@ lean_obj_tag.exit.i1106:                          ; preds = %1178, %1175
   %1186 = load ptr, ptr %1185, align 8, !tbaa !4
   %1187 = tail call zeroext i8 @lean_name_eq(ptr noundef %1184, ptr noundef %0) #4
   %1188 = icmp eq i8 %1187, 0
-  br i1 %1188, label %lean_dec.exit685, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1110, !llvm.loop !17
+  br i1 %1188, label %lean_dec.exit685, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1110
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1110: ; preds = %lean_obj_tag.exit.i1106, %1182
   br i1 %.not.i1100, label %1189, label %lean_dec.exit684
@@ -49884,7 +49884,7 @@ lean_obj_tag.exit.i1149:                          ; preds = %1359, %1356
   %1367 = load ptr, ptr %1366, align 8, !tbaa !4
   %1368 = tail call zeroext i8 @lean_name_eq(ptr noundef %1365, ptr noundef %0) #4
   %1369 = icmp eq i8 %1368, 0
-  br i1 %1369, label %lean_array_uget.exit1146, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1153, !llvm.loop !17
+  br i1 %1369, label %lean_array_uget.exit1146, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1153
 
 1370:                                             ; preds = %lean_obj_tag.exit.i1149
   br i1 %.not1253, label %1381, label %1371, !prof !14
@@ -72780,7 +72780,7 @@ lean_obj_tag.exit.i997:                           ; preds = %286, %283
 lean_obj_tag.exit.i.i1000:                        ; preds = %300, %297
   %.0.i.i.i1001 = phi i32 [ %299, %297 ], [ %302, %300 ]
   %cond1347 = icmp eq i32 %.0.i.i.i1001, 2
-  br i1 %cond1347, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialNewArms___spec__1.exit, label %.critedge.i995, !llvm.loop !21
+  br i1 %cond1347, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialNewArms___spec__1.exit, label %.critedge.i995
 
 303:                                              ; preds = %lean_obj_tag.exit.i997
   %304 = ptrtoint ptr %223 to i64
@@ -73618,7 +73618,7 @@ lean_obj_tag.exit.i1059:                          ; preds = %630, %627
 lean_obj_tag.exit.i.i1062:                        ; preds = %644, %641
   %.0.i.i.i1063 = phi i32 [ %643, %641 ], [ %646, %644 ]
   %cond1345 = icmp eq i32 %.0.i.i.i1063, 2
-  br i1 %cond1345, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialNewArms___spec__1.exit1069, label %.critedge.i1056, !llvm.loop !21
+  br i1 %cond1345, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialNewArms___spec__1.exit1069, label %.critedge.i1056
 
 647:                                              ; preds = %lean_obj_tag.exit.i1059
   br i1 %.not1408, label %658, label %648, !prof !14
@@ -74549,7 +74549,7 @@ lean_obj_tag.exit.i1139:                          ; preds = %1003, %1000
 lean_obj_tag.exit.i.i1142:                        ; preds = %1017, %1014
   %.0.i.i.i1143 = phi i32 [ %1016, %1014 ], [ %1019, %1017 ]
   %cond1343 = icmp eq i32 %.0.i.i.i1143, 2
-  br i1 %cond1343, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialNewArms___spec__1.exit1149, label %.critedge.i1136, !llvm.loop !21
+  br i1 %cond1343, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialNewArms___spec__1.exit1149, label %.critedge.i1136
 
 1020:                                             ; preds = %lean_obj_tag.exit.i1139
   br i1 %.not1390, label %1031, label %1021, !prof !14
@@ -75796,7 +75796,7 @@ lean_obj_tag.exit.i1249:                          ; preds = %1492, %1489
 lean_obj_tag.exit.i.i1252:                        ; preds = %1506, %1503
   %.0.i.i.i1253 = phi i32 [ %1505, %1503 ], [ %1508, %1506 ]
   %cond1341 = icmp eq i32 %.0.i.i.i1253, 2
-  br i1 %cond1341, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialNewArms___spec__1.exit1259, label %.critedge.i1246, !llvm.loop !21
+  br i1 %cond1341, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialNewArms___spec__1.exit1259, label %.critedge.i1246
 
 1509:                                             ; preds = %lean_obj_tag.exit.i1249
   br i1 %.not1368, label %1520, label %1510, !prof !14
@@ -78004,7 +78004,7 @@ lean_obj_tag.exit.i1801:                          ; preds = %285, %282
   %293 = load ptr, ptr %292, align 8, !tbaa !4
   %294 = tail call zeroext i8 @lean_name_eq(ptr noundef %291, ptr noundef %0) #4
   %295 = icmp eq i8 %294, 0
-  br i1 %295, label %lean_array_uget.exit1799, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit, !llvm.loop !17
+  br i1 %295, label %lean_array_uget.exit1799, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit
 
 296:                                              ; preds = %lean_obj_tag.exit.i1801
   %297 = ptrtoint ptr %262 to i64
@@ -78584,7 +78584,7 @@ lean_obj_tag.exit.i1830:                          ; preds = %526, %523
   %534 = load ptr, ptr %533, align 8, !tbaa !4
   %535 = tail call zeroext i8 @lean_name_eq(ptr noundef %532, ptr noundef %0) #4
   %536 = icmp eq i8 %535, 0
-  br i1 %536, label %lean_array_uget.exit1827, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1834, !llvm.loop !17
+  br i1 %536, label %lean_array_uget.exit1827, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1834
 
 537:                                              ; preds = %lean_obj_tag.exit.i1830
   br i1 %.not2465, label %548, label %538, !prof !14
@@ -79219,7 +79219,7 @@ lean_obj_tag.exit.i1871:                          ; preds = %783, %780
   %791 = load ptr, ptr %790, align 8, !tbaa !4
   %792 = tail call zeroext i8 @lean_name_eq(ptr noundef %789, ptr noundef %0) #4
   %793 = icmp eq i8 %792, 0
-  br i1 %793, label %lean_array_uget.exit1868, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1875, !llvm.loop !17
+  br i1 %793, label %lean_array_uget.exit1868, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1875
 
 794:                                              ; preds = %lean_obj_tag.exit.i1871
   br i1 %.not2449, label %805, label %795, !prof !14
@@ -80079,7 +80079,7 @@ lean_obj_tag.exit.i1941:                          ; preds = %1129, %1126
   %1137 = load ptr, ptr %1136, align 8, !tbaa !4
   %1138 = tail call zeroext i8 @lean_name_eq(ptr noundef %1135, ptr noundef %0) #4
   %1139 = icmp eq i8 %1138, 0
-  br i1 %1139, label %lean_array_uget.exit1938, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1945, !llvm.loop !17
+  br i1 %1139, label %lean_array_uget.exit1938, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1945
 
 1140:                                             ; preds = %lean_obj_tag.exit.i1941
   %1141 = ptrtoint ptr %1106 to i64
@@ -80659,7 +80659,7 @@ lean_obj_tag.exit.i1974:                          ; preds = %1370, %1367
   %1378 = load ptr, ptr %1377, align 8, !tbaa !4
   %1379 = tail call zeroext i8 @lean_name_eq(ptr noundef %1376, ptr noundef %0) #4
   %1380 = icmp eq i8 %1379, 0
-  br i1 %1380, label %lean_array_uget.exit1971, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1978, !llvm.loop !17
+  br i1 %1380, label %lean_array_uget.exit1971, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit1978
 
 1381:                                             ; preds = %lean_obj_tag.exit.i1974
   br i1 %.not2418, label %1392, label %1382, !prof !14
@@ -81294,7 +81294,7 @@ lean_obj_tag.exit.i2016:                          ; preds = %1627, %1624
   %1635 = load ptr, ptr %1634, align 8, !tbaa !4
   %1636 = tail call zeroext i8 @lean_name_eq(ptr noundef %1633, ptr noundef %0) #4
   %1637 = icmp eq i8 %1636, 0
-  br i1 %1637, label %lean_array_uget.exit2013, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit2020, !llvm.loop !17
+  br i1 %1637, label %lean_array_uget.exit2013, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit2020
 
 1638:                                             ; preds = %lean_obj_tag.exit.i2016
   br i1 %.not2402, label %1649, label %1639, !prof !14
@@ -82730,7 +82730,7 @@ lean_obj_tag.exit.i2134:                          ; preds = %2193, %2190
   %2201 = load ptr, ptr %2200, align 8, !tbaa !4
   %2202 = tail call zeroext i8 @lean_name_eq(ptr noundef %2199, ptr noundef %0) #4
   %2203 = icmp eq i8 %2202, 0
-  br i1 %2203, label %lean_array_uget.exit2131, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit2138, !llvm.loop !17
+  br i1 %2203, label %lean_array_uget.exit2131, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit2138
 
 2204:                                             ; preds = %lean_obj_tag.exit.i2134
   br i1 %.not2373, label %2215, label %2205, !prof !14
@@ -83905,7 +83905,7 @@ lean_obj_tag.exit.i2237:                          ; preds = %2653, %2650
   %2661 = load ptr, ptr %2660, align 8, !tbaa !4
   %2662 = tail call zeroext i8 @lean_name_eq(ptr noundef %2659, ptr noundef %0) #4
   %2663 = icmp eq i8 %2662, 0
-  br i1 %2663, label %lean_array_uget.exit2234, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit2241, !llvm.loop !17
+  br i1 %2663, label %lean_array_uget.exit2234, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_Compiler_LCNF_FloatLetIn_initialDecisions_goFVar___spec__2.exit2241
 
 2664:                                             ; preds = %lean_obj_tag.exit.i2237
   br i1 %.not2349, label %2675, label %2665, !prof !14
@@ -92016,7 +92016,7 @@ lean_dec.exit507:                                 ; preds = %162, %161, %159, %1
 
 165:                                              ; preds = %lean_dec.exit507
   %166 = load ptr, ptr %164, align 8, !tbaa !4
-  %167 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__4, align 8, !tbaa !23
+  %167 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__4, align 8, !tbaa !18
   %168 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__5, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
   %169 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #4
@@ -92038,9 +92038,9 @@ lean_alloc_ctor.exit644:                          ; preds = %165
   %175 = getelementptr inbounds nuw i8, ptr %169, i64 16
   store ptr %168, ptr %175, align 8, !tbaa !4
   %176 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store double %167, ptr %176, align 8, !tbaa !23
+  store double %167, ptr %176, align 8, !tbaa !18
   %177 = getelementptr inbounds nuw i8, ptr %169, i64 32
-  store double %167, ptr %177, align 8, !tbaa !23
+  store double %167, ptr %177, align 8, !tbaa !18
   %178 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__6, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
   %179 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #4
@@ -92243,7 +92243,7 @@ lean_inc.exit555:                                 ; preds = %246, %245, %243, %2
   br label %lean_dec.exit504
 
 lean_dec.exit504:                                 ; preds = %253, %252, %250, %lean_inc.exit555
-  %254 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__4, align 8, !tbaa !23
+  %254 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__4, align 8, !tbaa !18
   %255 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__5, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
   %256 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #4
@@ -92265,9 +92265,9 @@ lean_alloc_ctor.exit657:                          ; preds = %lean_dec.exit504
   %262 = getelementptr inbounds nuw i8, ptr %256, i64 16
   store ptr %255, ptr %262, align 8, !tbaa !4
   %263 = getelementptr inbounds nuw i8, ptr %256, i64 24
-  store double %254, ptr %263, align 8, !tbaa !23
+  store double %254, ptr %263, align 8, !tbaa !18
   %264 = getelementptr inbounds nuw i8, ptr %256, i64 32
-  store double %254, ptr %264, align 8, !tbaa !23
+  store double %254, ptr %264, align 8, !tbaa !18
   %265 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__6, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
   %266 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #4
@@ -92777,7 +92777,7 @@ lean_ctor_release.exit700:                        ; preds = %438, %445, %447, %4
 
 lean_dec_ref.exit608:                             ; preds = %454, %453, %451, %lean_ctor_release.exit700
   %.0487 = phi ptr [ %128, %lean_ctor_release.exit700 ], [ inttoptr (i64 1 to ptr), %451 ], [ inttoptr (i64 1 to ptr), %453 ], [ inttoptr (i64 1 to ptr), %454 ]
-  %455 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__4, align 8, !tbaa !23
+  %455 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__4, align 8, !tbaa !18
   %456 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__5, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
   %457 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #4
@@ -92799,9 +92799,9 @@ lean_alloc_ctor.exit702:                          ; preds = %lean_dec_ref.exit60
   %463 = getelementptr inbounds nuw i8, ptr %457, i64 16
   store ptr %456, ptr %463, align 8, !tbaa !4
   %464 = getelementptr inbounds nuw i8, ptr %457, i64 24
-  store double %455, ptr %464, align 8, !tbaa !23
+  store double %455, ptr %464, align 8, !tbaa !18
   %465 = getelementptr inbounds nuw i8, ptr %457, i64 32
-  store double %455, ptr %465, align 8, !tbaa !23
+  store double %455, ptr %465, align 8, !tbaa !18
   %466 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__6, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
   %467 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #4
@@ -93638,7 +93638,7 @@ lean_ctor_release.exit778:                        ; preds = %764, %771, %773, %7
 
 lean_dec_ref.exit602:                             ; preds = %780, %779, %777, %lean_ctor_release.exit778
   %.0492 = phi ptr [ %128, %lean_ctor_release.exit778 ], [ inttoptr (i64 1 to ptr), %777 ], [ inttoptr (i64 1 to ptr), %779 ], [ inttoptr (i64 1 to ptr), %780 ]
-  %781 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__4, align 8, !tbaa !23
+  %781 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__4, align 8, !tbaa !18
   %782 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__5, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
   %783 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #4
@@ -93660,9 +93660,9 @@ lean_alloc_ctor.exit780:                          ; preds = %lean_dec_ref.exit60
   %789 = getelementptr inbounds nuw i8, ptr %783, i64 16
   store ptr %782, ptr %789, align 8, !tbaa !4
   %790 = getelementptr inbounds nuw i8, ptr %783, i64 24
-  store double %781, ptr %790, align 8, !tbaa !23
+  store double %781, ptr %790, align 8, !tbaa !18
   %791 = getelementptr inbounds nuw i8, ptr %783, i64 32
-  store double %781, ptr %791, align 8, !tbaa !23
+  store double %781, ptr %791, align 8, !tbaa !18
   %792 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__6, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
   %793 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #4
@@ -94840,7 +94840,7 @@ lean_ctor_release.exit883:                        ; preds = %1218, %1225, %1227,
 
 lean_dec_ref.exit594:                             ; preds = %1234, %1233, %1231, %lean_ctor_release.exit883
   %.0493 = phi ptr [ %981, %lean_ctor_release.exit883 ], [ inttoptr (i64 1 to ptr), %1231 ], [ inttoptr (i64 1 to ptr), %1233 ], [ inttoptr (i64 1 to ptr), %1234 ]
-  %1235 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__4, align 8, !tbaa !23
+  %1235 = load double, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__4, align 8, !tbaa !18
   %1236 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__5, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
   %1237 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #4
@@ -94862,9 +94862,9 @@ lean_alloc_ctor.exit885:                          ; preds = %lean_dec_ref.exit59
   %1243 = getelementptr inbounds nuw i8, ptr %1237, i64 16
   store ptr %1236, ptr %1243, align 8, !tbaa !4
   %1244 = getelementptr inbounds nuw i8, ptr %1237, i64 24
-  store double %1235, ptr %1244, align 8, !tbaa !23
+  store double %1235, ptr %1244, align 8, !tbaa !18
   %1245 = getelementptr inbounds nuw i8, ptr %1237, i64 32
-  store double %1235, ptr %1245, align 8, !tbaa !23
+  store double %1235, ptr %1245, align 8, !tbaa !18
   %1246 = load ptr, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__6, align 8, !tbaa !4
   tail call void @lean_inc_heartbeat() #4
   %1247 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #4
@@ -103778,9 +103778,9 @@ lean_alloc_ctor.exit206:                          ; preds = %lean_dec.exit142
 
 150:                                              ; preds = %6
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %152 = load i8, ptr %151, align 1, !tbaa !25
+  %152 = load i8, ptr %151, align 1, !tbaa !20
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %154 = load i8, ptr %153, align 1, !tbaa !25
+  %154 = load i8, ptr %153, align 1, !tbaa !20
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %156 = load ptr, ptr %155, align 8, !tbaa !4
   %157 = ptrtoint ptr %156 to i64
@@ -104132,9 +104132,9 @@ lean_alloc_ctor.exit239:                          ; preds = %lean_dec_ref.exit18
   store ptr %227, ptr %283, align 8, !tbaa !4
   %284 = getelementptr inbounds nuw i8, ptr %274, i64 48
   store ptr %156, ptr %284, align 8, !tbaa !4
-  store i8 %152, ptr %278, align 1, !tbaa !25
+  store i8 %152, ptr %278, align 1, !tbaa !20
   %285 = getelementptr inbounds nuw i8, ptr %274, i64 57
-  store i8 %154, ptr %285, align 1, !tbaa !25
+  store i8 %154, ptr %285, align 1, !tbaa !20
   %286 = ptrtoint ptr %.0136 to i64
   %287 = and i64 %286, 1
   %.not265 = icmp eq i64 %287, 0
@@ -105176,7 +105176,7 @@ _init_l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2
   store ptr %233, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__3, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %233) #4
   %246 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 1 to ptr), i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
-  store double %246, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__4, align 8, !tbaa !23
+  store double %246, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__4, align 8, !tbaa !18
   %247 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.10, i64 noundef 0, i64 noundef 0) #4
   store ptr %247, ptr @l_Lean_addTrace___at_Lean_Compiler_LCNF_FloatLetIn_floatLetIn_go___spec__2___closed__5, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef %247) #4
@@ -105471,12 +105471,7 @@ attributes #5 = { noreturn nounwind }
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"short", !6, i64 0}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !18}
-!20 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"double", !6, i64 0}
-!25 = !{!6, !6, i64 0}
+!17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"double", !6, i64 0}
+!20 = !{!6, !6, i64 0}

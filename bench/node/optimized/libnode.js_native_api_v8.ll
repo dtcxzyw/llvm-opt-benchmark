@@ -2092,7 +2092,7 @@ if.then279:                                       ; preds = %for.body273
 for.inc281:                                       ; preds = %for.body273, %if.then279
   %inc282 = add nuw i64 %i270.0102, 1
   %exitcond103.not = icmp eq i64 %inc282, %property_count
-  br i1 %exitcond103.not, label %do.body284, label %for.body273, !llvm.loop !8
+  br i1 %exitcond103.not, label %do.body284, label %for.body273, !llvm.loop !7
 
 do.body284:                                       ; preds = %for.inc281, %if.then269
   %20 = load ptr, ptr %result, align 8
@@ -2777,7 +2777,7 @@ for.inc.sink.split:                               ; preds = %do.end153, %if.end1
 for.inc:                                          ; preds = %for.inc.sink.split, %do.body258
   %inc = add nuw i64 %i.0107, 1
   %exitcond.not = icmp eq i64 %inc, %property_count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
   %call271 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #24
@@ -6136,7 +6136,7 @@ while.cond.i.i.i.i.i:                             ; preds = %do.end25.i.i, %whil
   %4 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
   %cmp.i.i.i.i.i.i = icmp eq i16 %4, 0
   %inc.i.i.i.i.i = add i64 %__i.0.i.i.i.i.i, 1
-  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !10
+  br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i, label %while.cond.i.i.i.i.i, !llvm.loop !9
 
 if.end.i.i.i:                                     ; preds = %while.cond.i.i.i.i.i, %do.end25.i.i
   %5 = phi i64 [ %length, %do.end25.i.i ], [ %__i.0.i.i.i.i.i, %while.cond.i.i.i.i.i ]
@@ -15689,7 +15689,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   store ptr %retval.i32.sroa.0.0, ptr %arrayidx, align 8
   %add = add nuw i64 %i.020, 1
   %exitcond.not = icmp eq i64 %add, %.sroa.speculated
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %entry
   %cmp9 = icmp ult i64 %0, %buffer_length
@@ -15712,7 +15712,7 @@ for.body27:                                       ; preds = %if.then, %for.body2
   store ptr %12, ptr %arrayidx28, align 8
   %add30 = add nuw i64 %i.122, 1
   %exitcond23.not = icmp eq i64 %add30, %buffer_length
-  br i1 %exitcond23.not, label %if.end, label %for.body27, !llvm.loop !12
+  br i1 %exitcond23.not, label %if.end, label %for.body27, !llvm.loop !11
 
 if.end:                                           ; preds = %for.body27, %for.end
   ret void
@@ -17060,11 +17060,10 @@ attributes #28 = { noreturn }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}

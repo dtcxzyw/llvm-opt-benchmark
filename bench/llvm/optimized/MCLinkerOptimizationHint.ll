@@ -53,7 +53,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %17, %15
 
 _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !27
+  %20 = load i32, ptr %19, align 8, !tbaa !26
   %21 = zext i32 %20 to i64
   br label %22
 
@@ -84,8 +84,8 @@ _ZN4llvm11raw_ostreamlsEc.exit.i18:               ; preds = %30, %28
 
 _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit19: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i18
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !28
-  %34 = load i32, ptr %19, align 8, !tbaa !27
+  %33 = load ptr, ptr %32, align 8, !tbaa !27
+  %34 = load i32, ptr %19, align 8, !tbaa !26
   %35 = zext i32 %34 to i64
   %.idx = shl nuw nsw i64 %35, 3
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
@@ -97,7 +97,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit19: ; preds = %_ZN4llvm11raw_os
 
 .lr.ph:                                           ; preds = %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit19, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit26
   %.028 = phi ptr [ %49, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit26 ], [ %33, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit19 ]
-  %37 = load ptr, ptr %.028, align 8, !tbaa !29
+  %37 = load ptr, ptr %.028, align 8, !tbaa !28
   %38 = tail call noundef i64 @_ZNK4llvm16MachObjectWriter16getSymbolAddressERKNS_8MCSymbolERKNS_11MCAssemblerE(ptr noundef nonnull align 8 dereferenceable(2032) %3, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 1 %1) #8
   br label %39
 
@@ -129,7 +129,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i25:               ; preds = %47, %45
 _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit26: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i25
   %49 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %.not = icmp eq ptr %49, %36
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -143,7 +143,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm14MCLOHDirective4emitERKNS_11MCAssemblerERNS_16MachObjectWriterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 8 dereferenceable(2032) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2016
-  %5 = load ptr, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   tail call void @_ZNK4llvm14MCLOHDirective9emit_implERKNS_11MCAssemblerERNS_11raw_ostreamERKNS_16MachObjectWriterE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(2032) %2)
   ret void
 }
@@ -153,25 +153,25 @@ define dso_local noundef i64 @_ZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAs
   %4 = alloca %class.raw_counting_ostream, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %5, align 8, !tbaa !104
+  store i32 0, ptr %5, align 8, !tbaa !102
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i8 0, ptr %6, align 8, !tbaa !105
+  store i8 0, ptr %6, align 8, !tbaa !103
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  store i32 1, ptr %7, align 4, !tbaa !106
+  store i32 1, ptr %7, align 4, !tbaa !104
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEE20raw_counting_ostream, i64 16), ptr %4, align 8, !tbaa !107
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEE20raw_counting_ostream, i64 16), ptr %4, align 8, !tbaa !105
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i64 0, ptr %9, align 8, !tbaa !109
+  store i64 0, ptr %9, align 8, !tbaa !107
   call void @_ZNK4llvm14MCLOHDirective9emit_implERKNS_11MCAssemblerERNS_11raw_ostreamERKNS_16MachObjectWriterE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(2032) %2)
-  %10 = load ptr, ptr %4, align 8, !tbaa !107
+  %10 = load ptr, ptr %4, align 8, !tbaa !105
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(48) %4) #8
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !16
-  %16 = load ptr, ptr %8, align 8, !tbaa !111
-  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEE20raw_counting_ostream, i64 16), ptr %4, align 8, !tbaa !107
+  %16 = load ptr, ptr %8, align 8, !tbaa !109
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEE20raw_counting_ostream, i64 16), ptr %4, align 8, !tbaa !105
   %.not.i.i = icmp eq ptr %15, %16
   br i1 %.not.i.i, label %_ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEEN20raw_counting_ostreamD2Ev.exit, label %17
 
@@ -191,11 +191,11 @@ _ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWrit
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEEN20raw_counting_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEE20raw_counting_ostream, i64 16), ptr %0, align 8, !tbaa !107
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEE20raw_counting_ostream, i64 16), ptr %0, align 8, !tbaa !105
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !111
+  %5 = load ptr, ptr %4, align 8, !tbaa !109
   %.not.i = icmp eq ptr %3, %5
   br i1 %.not.i, label %_ZN4llvm11raw_ostream5flushEv.exit, label %6
 
@@ -212,11 +212,11 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEEN20raw_counting_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEE20raw_counting_ostream, i64 16), ptr %0, align 8, !tbaa !107
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEE20raw_counting_ostream, i64 16), ptr %0, align 8, !tbaa !105
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !111
+  %5 = load ptr, ptr %4, align 8, !tbaa !109
   %.not.i.i = icmp eq ptr %3, %5
   br i1 %.not.i.i, label %_ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEEN20raw_counting_ostreamD2Ev.exit, label %6
 
@@ -248,7 +248,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11raw_ostream12is_displa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11raw_ostream10has_colorsEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !107
+  %2 = load ptr, ptr %0, align 8, !tbaa !105
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(48) %0) #8
@@ -259,23 +259,23 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11raw_ostream10has_color
 define linkonce_odr hidden void @_ZN4llvm11raw_ostream13enable_colorsEb(ptr noundef nonnull align 8 dereferenceable(48) %0, i1 noundef zeroext %1) unnamed_addr #0 comdat align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %3, ptr %4, align 8, !tbaa !105
+  store i8 %3, ptr %4, align 8, !tbaa !103
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEEN20raw_counting_ostream10write_implEPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr readnone captures(none) %1, i64 noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load i64, ptr %4, align 8, !tbaa !109
+  %5 = load i64, ptr %4, align 8, !tbaa !107
   %6 = add i64 %5, %2
-  store i64 %6, ptr %4, align 8, !tbaa !109
+  store i64 %6, ptr %4, align 8, !tbaa !107
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i64 @_ZZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEENK20raw_counting_ostream11current_posEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i64, ptr %2, align 8, !tbaa !109
+  %3 = load i64, ptr %2, align 8, !tbaa !107
   ret i64 %3
 }
 
@@ -331,91 +331,89 @@ attributes #9 = { builtin nounwind }
 !21 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !6, i64 0}
 !22 = !{!17, !19, i64 24}
 !23 = !{!6, !6, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!12, !14, i64 8}
-!28 = !{!12, !13, i64 0}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTSN4llvm8MCSymbolE", !13, i64 0}
-!31 = distinct !{!31, !26}
-!32 = !{!33, !102, i64 2016}
-!33 = !{!"_ZTSN4llvm16MachObjectWriterE", !34, i64 0, !51, i64 104, !58, i64 112, !60, i64 136, !65, i64 160, !67, i64 184, !72, i64 208, !74, i64 232, !78, i64 248, !83, i64 288, !83, i64 312, !83, i64 336, !88, i64 360, !94, i64 1920, !94, i64 1956, !96, i64 1992, !101, i64 2016}
-!34 = !{!"_ZTSN4llvm14MCObjectWriterE", !35, i64 8, !39, i64 24, !42, i64 56, !20, i64 80, !20, i64 81, !47, i64 88}
-!35 = !{!"_ZTSN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmELj0EEE", !36, i64 0}
-!36 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE", !37, i64 0}
-!37 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmELb0EEE", !38, i64 0}
-!38 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvEE", !12, i64 0}
-!39 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !40, i64 0, !41, i64 8, !6, i64 16}
-!40 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !19, i64 0}
-!41 = !{!"long", !6, i64 0}
-!42 = !{!"_ZTSSt6vectorIPKN4llvm8MCSymbolESaIS3_EE", !43, i64 0}
-!43 = !{!"_ZTSSt12_Vector_baseIPKN4llvm8MCSymbolESaIS3_EE", !44, i64 0}
-!44 = !{!"_ZTSNSt12_Vector_baseIPKN4llvm8MCSymbolESaIS3_EE12_Vector_implE", !45, i64 0}
-!45 = !{!"_ZTSNSt12_Vector_baseIPKN4llvm8MCSymbolESaIS3_EE17_Vector_impl_dataE", !46, i64 0, !46, i64 8, !46, i64 16}
-!46 = !{!"p2 _ZTSN4llvm8MCSymbolE", !13, i64 0}
-!47 = !{!"_ZTSN4llvm11SmallVectorINS_14MCObjectWriter14CGProfileEntryELj0EEE", !48, i64 0}
-!48 = !{!"_ZTSN4llvm15SmallVectorImplINS_14MCObjectWriter14CGProfileEntryEEE", !49, i64 0}
-!49 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_14MCObjectWriter14CGProfileEntryELb1EEE", !50, i64 0}
-!50 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_14MCObjectWriter14CGProfileEntryEvEE", !12, i64 0}
-!51 = !{!"_ZTSSt10unique_ptrIN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EE", !52, i64 0}
-!52 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_ELb1ELb1EE", !53, i64 0}
-!53 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EE", !54, i64 0}
-!54 = !{!"_ZTSSt5tupleIJPN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EEE", !55, i64 0}
-!55 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EEE", !56, i64 0}
-!56 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm24MCMachObjectTargetWriterELb0EE", !57, i64 0}
-!57 = !{!"p1 _ZTSN4llvm24MCMachObjectTargetWriterE", !13, i64 0}
-!58 = !{!"_ZTSN4llvm8DenseMapIPKNS_9MCSectionESt6vectorINS_16MachObjectWriter12RelAndSymbolESaIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEE", !59, i64 0, !14, i64 8, !14, i64 12, !14, i64 16}
-!59 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_9MCSectionESt6vectorINS_16MachObjectWriter12RelAndSymbolESaIS7_EEEE", !13, i64 0}
-!60 = !{!"_ZTSSt6vectorIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE", !61, i64 0}
-!61 = !{!"_ZTSSt12_Vector_baseIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE", !62, i64 0}
-!62 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE12_Vector_implE", !63, i64 0}
-!63 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE17_Vector_impl_dataE", !64, i64 0, !64, i64 8, !64, i64 16}
-!64 = !{!"p1 _ZTSN4llvm16MachObjectWriter18IndirectSymbolDataE", !13, i64 0}
-!65 = !{!"_ZTSN4llvm8DenseMapIPKNS_9MCSectionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEE", !66, i64 0, !14, i64 8, !14, i64 12, !14, i64 16}
-!66 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_9MCSectionEjEE", !13, i64 0}
-!67 = !{!"_ZTSSt6vectorIN4llvm16MachObjectWriter14DataRegionDataESaIS2_EE", !68, i64 0}
-!68 = !{!"_ZTSSt12_Vector_baseIN4llvm16MachObjectWriter14DataRegionDataESaIS2_EE", !69, i64 0}
-!69 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MachObjectWriter14DataRegionDataESaIS2_EE12_Vector_implE", !70, i64 0}
-!70 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MachObjectWriter14DataRegionDataESaIS2_EE17_Vector_impl_dataE", !71, i64 0, !71, i64 8, !71, i64 16}
-!71 = !{!"p1 _ZTSN4llvm16MachObjectWriter14DataRegionDataE", !13, i64 0}
-!72 = !{!"_ZTSN4llvm8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEE", !73, i64 0, !14, i64 8, !14, i64 12, !14, i64 16}
-!73 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_9MCSectionEmEE", !13, i64 0}
-!74 = !{!"_ZTSN4llvm11SmallVectorIPNS_9MCSectionELj0EEE", !75, i64 0}
-!75 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_9MCSectionEEE", !76, i64 0}
-!76 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_9MCSectionELb1EEE", !77, i64 0}
-!77 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_9MCSectionEvEE", !12, i64 0}
-!78 = !{!"_ZTSN4llvm18StringTableBuilderE", !79, i64 0, !41, i64 24, !81, i64 32, !82, i64 36, !20, i64 37}
-!79 = !{!"_ZTSN4llvm8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_mEEEE", !80, i64 0, !14, i64 8, !14, i64 12, !14, i64 16}
-!80 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairINS_19CachedHashStringRefEmEE", !13, i64 0}
-!81 = !{!"_ZTSN4llvm18StringTableBuilder4KindE", !6, i64 0}
-!82 = !{!"_ZTSN4llvm5AlignE", !6, i64 0}
-!83 = !{!"_ZTSSt6vectorIN4llvm16MachObjectWriter14MachSymbolDataESaIS2_EE", !84, i64 0}
-!84 = !{!"_ZTSSt12_Vector_baseIN4llvm16MachObjectWriter14MachSymbolDataESaIS2_EE", !85, i64 0}
-!85 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MachObjectWriter14MachSymbolDataESaIS2_EE12_Vector_implE", !86, i64 0}
-!86 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MachObjectWriter14MachSymbolDataESaIS2_EE17_Vector_impl_dataE", !87, i64 0, !87, i64 8, !87, i64 16}
-!87 = !{!"p1 _ZTSN4llvm16MachObjectWriter14MachSymbolDataE", !13, i64 0}
-!88 = !{!"_ZTSN4llvm14MCLOHContainerE", !41, i64 0, !89, i64 8}
-!89 = !{!"_ZTSN4llvm11SmallVectorINS_14MCLOHDirectiveELj32EEE", !90, i64 0, !93, i64 16}
-!90 = !{!"_ZTSN4llvm15SmallVectorImplINS_14MCLOHDirectiveEEE", !91, i64 0}
-!91 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_14MCLOHDirectiveELb0EEE", !92, i64 0}
-!92 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_14MCLOHDirectiveEvEE", !12, i64 0}
-!93 = !{!"_ZTSN4llvm18SmallVectorStorageINS_14MCLOHDirectiveELj32EEE", !6, i64 0}
-!94 = !{!"_ZTSN4llvm16MachObjectWriter15VersionInfoTypeE", !20, i64 0, !6, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !95, i64 20}
-!95 = !{!"_ZTSN4llvm12VersionTupleE", !14, i64 0, !14, i64 4, !14, i64 7, !14, i64 8, !14, i64 11, !14, i64 12, !14, i64 15}
-!96 = !{!"_ZTSSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE", !97, i64 0}
-!97 = !{!"_ZTSSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE", !98, i64 0}
-!98 = !{!"_ZTSNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE12_Vector_implE", !99, i64 0}
-!99 = !{!"_ZTSNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE17_Vector_impl_dataE", !100, i64 0, !100, i64 8, !100, i64 16}
-!100 = !{!"p1 _ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !13, i64 0}
-!101 = !{!"_ZTSN4llvm7support6endian6WriterE", !102, i64 0, !103, i64 8}
-!102 = !{!"p1 _ZTSN4llvm11raw_ostreamE", !13, i64 0}
-!103 = !{!"_ZTSN4llvm10endiannessE", !6, i64 0}
-!104 = !{!17, !18, i64 8}
-!105 = !{!17, !20, i64 40}
-!106 = !{!17, !21, i64 44}
-!107 = !{!108, !108, i64 0}
-!108 = !{!"vtable pointer", !7, i64 0}
-!109 = !{!110, !41, i64 48}
-!110 = !{!"_ZTSZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEE20raw_counting_ostream", !17, i64 0, !41, i64 48}
-!111 = !{!17, !19, i64 16}
+!26 = !{!12, !14, i64 8}
+!27 = !{!12, !13, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTSN4llvm8MCSymbolE", !13, i64 0}
+!30 = !{!31, !100, i64 2016}
+!31 = !{!"_ZTSN4llvm16MachObjectWriterE", !32, i64 0, !49, i64 104, !56, i64 112, !58, i64 136, !63, i64 160, !65, i64 184, !70, i64 208, !72, i64 232, !76, i64 248, !81, i64 288, !81, i64 312, !81, i64 336, !86, i64 360, !92, i64 1920, !92, i64 1956, !94, i64 1992, !99, i64 2016}
+!32 = !{!"_ZTSN4llvm14MCObjectWriterE", !33, i64 8, !37, i64 24, !40, i64 56, !20, i64 80, !20, i64 81, !45, i64 88}
+!33 = !{!"_ZTSN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmELj0EEE", !34, i64 0}
+!34 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEEE", !35, i64 0}
+!35 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmELb0EEE", !36, i64 0}
+!36 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEvEE", !12, i64 0}
+!37 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !38, i64 0, !39, i64 8, !6, i64 16}
+!38 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !19, i64 0}
+!39 = !{!"long", !6, i64 0}
+!40 = !{!"_ZTSSt6vectorIPKN4llvm8MCSymbolESaIS3_EE", !41, i64 0}
+!41 = !{!"_ZTSSt12_Vector_baseIPKN4llvm8MCSymbolESaIS3_EE", !42, i64 0}
+!42 = !{!"_ZTSNSt12_Vector_baseIPKN4llvm8MCSymbolESaIS3_EE12_Vector_implE", !43, i64 0}
+!43 = !{!"_ZTSNSt12_Vector_baseIPKN4llvm8MCSymbolESaIS3_EE17_Vector_impl_dataE", !44, i64 0, !44, i64 8, !44, i64 16}
+!44 = !{!"p2 _ZTSN4llvm8MCSymbolE", !13, i64 0}
+!45 = !{!"_ZTSN4llvm11SmallVectorINS_14MCObjectWriter14CGProfileEntryELj0EEE", !46, i64 0}
+!46 = !{!"_ZTSN4llvm15SmallVectorImplINS_14MCObjectWriter14CGProfileEntryEEE", !47, i64 0}
+!47 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_14MCObjectWriter14CGProfileEntryELb1EEE", !48, i64 0}
+!48 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_14MCObjectWriter14CGProfileEntryEvEE", !12, i64 0}
+!49 = !{!"_ZTSSt10unique_ptrIN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EE", !50, i64 0}
+!50 = !{!"_ZTSSt15__uniq_ptr_dataIN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_ELb1ELb1EE", !51, i64 0}
+!51 = !{!"_ZTSSt15__uniq_ptr_implIN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EE", !52, i64 0}
+!52 = !{!"_ZTSSt5tupleIJPN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EEE", !53, i64 0}
+!53 = !{!"_ZTSSt11_Tuple_implILm0EJPN4llvm24MCMachObjectTargetWriterESt14default_deleteIS1_EEE", !54, i64 0}
+!54 = !{!"_ZTSSt10_Head_baseILm0EPN4llvm24MCMachObjectTargetWriterELb0EE", !55, i64 0}
+!55 = !{!"p1 _ZTSN4llvm24MCMachObjectTargetWriterE", !13, i64 0}
+!56 = !{!"_ZTSN4llvm8DenseMapIPKNS_9MCSectionESt6vectorINS_16MachObjectWriter12RelAndSymbolESaIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEE", !57, i64 0, !14, i64 8, !14, i64 12, !14, i64 16}
+!57 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_9MCSectionESt6vectorINS_16MachObjectWriter12RelAndSymbolESaIS7_EEEE", !13, i64 0}
+!58 = !{!"_ZTSSt6vectorIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE", !59, i64 0}
+!59 = !{!"_ZTSSt12_Vector_baseIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE", !60, i64 0}
+!60 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE12_Vector_implE", !61, i64 0}
+!61 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MachObjectWriter18IndirectSymbolDataESaIS2_EE17_Vector_impl_dataE", !62, i64 0, !62, i64 8, !62, i64 16}
+!62 = !{!"p1 _ZTSN4llvm16MachObjectWriter18IndirectSymbolDataE", !13, i64 0}
+!63 = !{!"_ZTSN4llvm8DenseMapIPKNS_9MCSectionEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEE", !64, i64 0, !14, i64 8, !14, i64 12, !14, i64 16}
+!64 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_9MCSectionEjEE", !13, i64 0}
+!65 = !{!"_ZTSSt6vectorIN4llvm16MachObjectWriter14DataRegionDataESaIS2_EE", !66, i64 0}
+!66 = !{!"_ZTSSt12_Vector_baseIN4llvm16MachObjectWriter14DataRegionDataESaIS2_EE", !67, i64 0}
+!67 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MachObjectWriter14DataRegionDataESaIS2_EE12_Vector_implE", !68, i64 0}
+!68 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MachObjectWriter14DataRegionDataESaIS2_EE17_Vector_impl_dataE", !69, i64 0, !69, i64 8, !69, i64 16}
+!69 = !{!"p1 _ZTSN4llvm16MachObjectWriter14DataRegionDataE", !13, i64 0}
+!70 = !{!"_ZTSN4llvm8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEE", !71, i64 0, !14, i64 8, !14, i64 12, !14, i64 16}
+!71 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_9MCSectionEmEE", !13, i64 0}
+!72 = !{!"_ZTSN4llvm11SmallVectorIPNS_9MCSectionELj0EEE", !73, i64 0}
+!73 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_9MCSectionEEE", !74, i64 0}
+!74 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_9MCSectionELb1EEE", !75, i64 0}
+!75 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_9MCSectionEvEE", !12, i64 0}
+!76 = !{!"_ZTSN4llvm18StringTableBuilderE", !77, i64 0, !39, i64 24, !79, i64 32, !80, i64 36, !20, i64 37}
+!77 = !{!"_ZTSN4llvm8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_mEEEE", !78, i64 0, !14, i64 8, !14, i64 12, !14, i64 16}
+!78 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairINS_19CachedHashStringRefEmEE", !13, i64 0}
+!79 = !{!"_ZTSN4llvm18StringTableBuilder4KindE", !6, i64 0}
+!80 = !{!"_ZTSN4llvm5AlignE", !6, i64 0}
+!81 = !{!"_ZTSSt6vectorIN4llvm16MachObjectWriter14MachSymbolDataESaIS2_EE", !82, i64 0}
+!82 = !{!"_ZTSSt12_Vector_baseIN4llvm16MachObjectWriter14MachSymbolDataESaIS2_EE", !83, i64 0}
+!83 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MachObjectWriter14MachSymbolDataESaIS2_EE12_Vector_implE", !84, i64 0}
+!84 = !{!"_ZTSNSt12_Vector_baseIN4llvm16MachObjectWriter14MachSymbolDataESaIS2_EE17_Vector_impl_dataE", !85, i64 0, !85, i64 8, !85, i64 16}
+!85 = !{!"p1 _ZTSN4llvm16MachObjectWriter14MachSymbolDataE", !13, i64 0}
+!86 = !{!"_ZTSN4llvm14MCLOHContainerE", !39, i64 0, !87, i64 8}
+!87 = !{!"_ZTSN4llvm11SmallVectorINS_14MCLOHDirectiveELj32EEE", !88, i64 0, !91, i64 16}
+!88 = !{!"_ZTSN4llvm15SmallVectorImplINS_14MCLOHDirectiveEEE", !89, i64 0}
+!89 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_14MCLOHDirectiveELb0EEE", !90, i64 0}
+!90 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_14MCLOHDirectiveEvEE", !12, i64 0}
+!91 = !{!"_ZTSN4llvm18SmallVectorStorageINS_14MCLOHDirectiveELj32EEE", !6, i64 0}
+!92 = !{!"_ZTSN4llvm16MachObjectWriter15VersionInfoTypeE", !20, i64 0, !6, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !93, i64 20}
+!93 = !{!"_ZTSN4llvm12VersionTupleE", !14, i64 0, !14, i64 4, !14, i64 7, !14, i64 8, !14, i64 11, !14, i64 12, !14, i64 15}
+!94 = !{!"_ZTSSt6vectorIS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EESaIS7_EE", !95, i64 0}
+!95 = !{!"_ZTSSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE", !96, i64 0}
+!96 = !{!"_ZTSNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE12_Vector_implE", !97, i64 0}
+!97 = !{!"_ZTSNSt12_Vector_baseISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EESaIS8_EE17_Vector_impl_dataE", !98, i64 0, !98, i64 8, !98, i64 16}
+!98 = !{!"p1 _ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !13, i64 0}
+!99 = !{!"_ZTSN4llvm7support6endian6WriterE", !100, i64 0, !101, i64 8}
+!100 = !{!"p1 _ZTSN4llvm11raw_ostreamE", !13, i64 0}
+!101 = !{!"_ZTSN4llvm10endiannessE", !6, i64 0}
+!102 = !{!17, !18, i64 8}
+!103 = !{!17, !20, i64 40}
+!104 = !{!17, !21, i64 44}
+!105 = !{!106, !106, i64 0}
+!106 = !{!"vtable pointer", !7, i64 0}
+!107 = !{!108, !39, i64 48}
+!108 = !{!"_ZTSZNK4llvm14MCLOHDirective11getEmitSizeERKNS_11MCAssemblerERKNS_16MachObjectWriterEE20raw_counting_ostream", !17, i64 0, !39, i64 48}
+!109 = !{!17, !19, i64 16}

@@ -138,7 +138,7 @@ define internal range(i32 -2147483648, 1) i32 @frame_merge_filter(ptr noundef %0
   %.290 = phi i32 [ %.088130, %47 ], [ 1, %.critedge.thread.sink.split ]
   %58 = add i32 %45, 3
   %.not103 = icmp ugt i32 %58, %28
-  br i1 %.not103, label %.critedge111, label %37, !llvm.loop !29
+  br i1 %.not103, label %.critedge111, label %37
 
 59:                                               ; preds = %47
   %60 = icmp eq i32 %.088130, 0
@@ -344,5 +344,3 @@ attributes #6 = { cold }
 !26 = !{!19, !13, i64 40}
 !27 = !{!19, !13, i64 32}
 !28 = !{!8, !8, i64 0}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.estimated_trip_count"}

@@ -49,7 +49,7 @@ define internal range(i32 0, 2) i32 @test_txpim() #0 {
   %.02944 = phi i64 [ %6, %5 ], [ 0, %0 ]
   %7 = call ptr @ossl_quic_txpim_pkt_alloc(ptr noundef %3) #4
   %8 = getelementptr inbounds nuw [10 x ptr], ptr %1, i64 0, i64 %.02944
-  store ptr %7, ptr %8, align 8, !tbaa !7
+  store ptr %7, ptr %8, align 8, !tbaa !6
   %9 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 27, ptr noundef nonnull @.str.3, ptr noundef %7) #4
   %.not32 = icmp eq i32 %9, 0
   br i1 %.not32, label %.loopexit, label %10
@@ -68,20 +68,20 @@ define internal range(i32 0, 2) i32 @test_txpim() #0 {
 14:                                               ; preds = %16
   %15 = add nuw nsw i64 %.02843, 1
   %exitcond.not = icmp eq i64 %15, 3
-  br i1 %exitcond.not, label %27, label %16, !llvm.loop !12
+  br i1 %exitcond.not, label %27, label %16, !llvm.loop !11
 
 16:                                               ; preds = %.preheader, %14
   %.02843 = phi i64 [ 0, %.preheader ], [ %15, %14 ]
   %17 = sub nuw nsw i64 100, %.02843
   %18 = getelementptr inbounds nuw [3 x %struct.quic_txpim_chunk_st], ptr %2, i64 0, i64 %.02843
-  store i64 %17, ptr %18, align 16, !tbaa !13
+  store i64 %17, ptr %18, align 16, !tbaa !12
   %19 = mul nuw nsw i64 %.02843, 10
   %20 = add nuw nsw i64 %19, %13
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 %20, ptr %21, align 8, !tbaa !17
+  store i64 %20, ptr %21, align 8, !tbaa !16
   %.reass = add nuw nsw i64 %19, %invariant.op
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 %.reass, ptr %22, align 16, !tbaa !18
+  store i64 %.reass, ptr %22, align 16, !tbaa !17
   %23 = call i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef %7, ptr noundef nonnull %18) #4
   %24 = icmp ne i32 %23, 0
   %25 = zext i1 %24 to i32
@@ -97,21 +97,21 @@ define internal range(i32 0, 2) i32 @test_txpim() #0 {
 
 30:                                               ; preds = %27
   %31 = call ptr @ossl_quic_txpim_pkt_get_chunks(ptr noundef %7) #4
-  %32 = load i64, ptr %31, align 8, !tbaa !13
+  %32 = load i64, ptr %31, align 8, !tbaa !12
   %33 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 47, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i64 noundef %32, i64 noundef 98) #4
   %.not35 = icmp eq i32 %33, 0
   br i1 %.not35, label %.loopexit, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %36 = load i64, ptr %35, align 8, !tbaa !13
+  %36 = load i64, ptr %35, align 8, !tbaa !12
   %37 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 48, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i64 noundef %36, i64 noundef 99) #4
   %.not36 = icmp eq i32 %37, 0
   br i1 %.not36, label %.loopexit, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %40 = load i64, ptr %39, align 8, !tbaa !13
+  %40 = load i64, ptr %39, align 8, !tbaa !12
   %41 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.1, i32 noundef 49, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i64 noundef %40, i64 noundef 100) #4
   %.not37 = icmp eq i32 %41, 0
   br i1 %.not37, label %.loopexit, label %5
@@ -124,7 +124,7 @@ define internal range(i32 0, 2) i32 @test_txpim() #0 {
 .split:                                           ; preds = %.loopexit, %45
   %.145 = phi i64 [ %46, %45 ], [ 0, %.loopexit ]
   %42 = getelementptr inbounds nuw [10 x ptr], ptr %1, i64 0, i64 %.145
-  %43 = load ptr, ptr %42, align 8, !tbaa !7
+  %43 = load ptr, ptr %42, align 8, !tbaa !6
   %.not40 = icmp eq ptr %43, null
   br i1 %.not40, label %45, label %44
 
@@ -135,7 +135,7 @@ define internal range(i32 0, 2) i32 @test_txpim() #0 {
 45:                                               ; preds = %.split, %44
   %46 = add nuw nsw i64 %.145, 1
   %exitcond51.not = icmp eq i64 %46, 10
-  br i1 %exitcond51.not, label %.split47.us, label %.split, !llvm.loop !19
+  br i1 %exitcond51.not, label %.split47.us, label %.split, !llvm.loop !18
 
 .split47.us:                                      ; preds = %45, %.loopexit
   call void @ossl_quic_txpim_free(ptr noundef %3) #4
@@ -187,19 +187,18 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"p1 _ZTS17quic_txpim_pkt_st", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = distinct !{!12, !5, !6}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"quic_txpim_chunk_st", !15, i64 0, !15, i64 8, !15, i64 16, !16, i64 24, !16, i64 24, !16, i64 24}
-!15 = !{!"long", !10, i64 0}
-!16 = !{!"int", !10, i64 0}
-!17 = !{!14, !15, i64 8}
-!18 = !{!14, !15, i64 16}
-!19 = distinct !{!19, !5, !6}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS17quic_txpim_pkt_st", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = distinct !{!11, !5}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"quic_txpim_chunk_st", !14, i64 0, !14, i64 8, !14, i64 16, !15, i64 24, !15, i64 24, !15, i64 24}
+!14 = !{!"long", !9, i64 0}
+!15 = !{!"int", !9, i64 0}
+!16 = !{!13, !14, i64 8}
+!17 = !{!13, !14, i64 16}
+!18 = distinct !{!18, !5}

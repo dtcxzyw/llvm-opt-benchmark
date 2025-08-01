@@ -67,12 +67,12 @@ define void @Rwr_ManPrecompute(ptr noundef captures(none) %0) local_unnamed_addr
 33:                                               ; preds = %24
   %34 = add nuw nsw i32 %31, 1
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %34, i32 noundef %19)
-  %36 = load i32, ptr %7, align 4, !tbaa !25
+  %36 = load i32, ptr %7, align 4, !tbaa !24
   %37 = sdiv i32 %36, 1000000
   %38 = load ptr, ptr %3, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !18
-  %41 = load i32, ptr %8, align 4, !tbaa !26
+  %41 = load i32, ptr %8, align 4, !tbaa !25
   %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %37, i32 noundef %40, i32 noundef %41, i32 noundef %19)
   br label %43
 
@@ -97,10 +97,10 @@ define void @Rwr_ManPrecompute(ptr noundef captures(none) %0) local_unnamed_addr
   %56 = tail call range(i32 0, 64) i32 @llvm.umax.i32(i32 range(i32 0, 64) %48, i32 range(i32 0, 64) %52)
   %57 = add nuw nsw i32 %56, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #10
-  store i32 0, ptr %2, align 4, !tbaa !27
-  %58 = load i32, ptr %9, align 8, !tbaa !28
+  store i32 0, ptr %2, align 4, !tbaa !26
+  %58 = load i32, ptr %9, align 8, !tbaa !27
   %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %9, align 8, !tbaa !28
+  store i32 %59, ptr %9, align 8, !tbaa !27
   %60 = icmp ult i32 %58, -1879048193
   br i1 %60, label %Rwr_ManNodeVolume.exit, label %.preheader.i.i
 
@@ -122,19 +122,19 @@ define void @Rwr_ManPrecompute(ptr noundef captures(none) %0) local_unnamed_addr
   %66 = getelementptr inbounds nuw ptr, ptr %.val7.i.i, i64 %indvars.iv.i.i
   %67 = load ptr, ptr %66, align 8, !tbaa !21
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  store i32 0, ptr %68, align 4, !tbaa !29
+  store i32 0, ptr %68, align 4, !tbaa !28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %65, !llvm.loop !33
+  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %65, !llvm.loop !32
 
 .critedge.i.i:                                    ; preds = %65, %.preheader.i.i
-  store i32 1, ptr %9, align 8, !tbaa !28
+  store i32 1, ptr %9, align 8, !tbaa !27
   br label %Rwr_ManNodeVolume.exit
 
 Rwr_ManNodeVolume.exit:                           ; preds = %55, %.critedge.i.i
   call void @Rwr_Trav_rec(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %2)
   call void @Rwr_Trav_rec(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %2)
-  %69 = load i32, ptr %2, align 4, !tbaa !27
+  %69 = load i32, ptr %2, align 4, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
   %70 = add nsw i32 %69, 1
   tail call fastcc void @Rwr_ManTryNode(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %28, i32 noundef 0, i32 noundef %57, i32 noundef %70)
@@ -146,7 +146,7 @@ Rwr_ManNodeVolume.exit:                           ; preds = %55, %.critedge.i.i
   tail call fastcc void @Rwr_ManTryNode(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %73, i32 noundef 0, i32 noundef %57, i32 noundef %70)
   %74 = add nsw i32 %69, 2
   tail call fastcc void @Rwr_ManTryNode(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %28, i32 noundef 1, i32 noundef %57, i32 noundef %74)
-  %75 = load i32, ptr %7, align 4, !tbaa !25
+  %75 = load i32, ptr %7, align 4, !tbaa !24
   %76 = srem i32 %75, 50000000
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %85
@@ -156,7 +156,7 @@ Rwr_ManNodeVolume.exit:                           ; preds = %55, %.critedge.i.i
   %80 = load ptr, ptr %3, align 8, !tbaa !3
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !18
-  %83 = load i32, ptr %8, align 4, !tbaa !26
+  %83 = load i32, ptr %8, align 4, !tbaa !25
   %84 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %79, i32 noundef %82, i32 noundef %83, i32 noundef %20)
   br label %85
 
@@ -169,9 +169,9 @@ Rwr_ManNodeVolume.exit:                           ; preds = %55, %.critedge.i.i
 
 90:                                               ; preds = %85
   %91 = trunc nuw nsw i64 %indvars.iv144 to i32
-  %92 = load i32, ptr %7, align 4, !tbaa !25
+  %92 = load i32, ptr %7, align 4, !tbaa !24
   %93 = sdiv i32 %92, 1000000
-  %94 = load i32, ptr %8, align 4, !tbaa !26
+  %94 = load i32, ptr %8, align 4, !tbaa !25
   %95 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %93, i32 noundef 262149, i32 noundef %94, i32 noundef %91)
   %.pre154.pre = load ptr, ptr %3, align 8, !tbaa !3
   br label %.critedge
@@ -188,14 +188,14 @@ Rwr_ManNodeVolume.exit:                           ; preds = %55, %.critedge.i.i
   %.val = load i32, ptr %97, align 4, !tbaa !18
   %98 = sext i32 %.val to i64
   %99 = icmp slt i64 %indvars.iv.next145, %98
-  br i1 %99, label %.lr.ph126.split, label %.critedge, !llvm.loop !34
+  br i1 %99, label %.lr.ph126.split, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %.critedge2, %1, %90
   %.pre154 = phi ptr [ %4, %1 ], [ %.pre154.pre, %90 ], [ %96, %.critedge2 ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %101 = load i32, ptr %100, align 8, !tbaa !28
+  %101 = load i32, ptr %100, align 8, !tbaa !27
   %102 = add nsw i32 %101, 1
-  store i32 %102, ptr %100, align 8, !tbaa !28
+  store i32 %102, ptr %100, align 8, !tbaa !27
   %103 = icmp ult i32 %101, -1879048193
   %.phi.trans.insert = getelementptr i8, ptr %.pre154, i64 4
   %.val106128.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !18
@@ -216,13 +216,13 @@ Rwr_ManNodeVolume.exit:                           ; preds = %55, %.critedge.i.i
   %107 = getelementptr inbounds nuw ptr, ptr %.val7.i, i64 %indvars.iv.i
   %108 = load ptr, ptr %107, align 8, !tbaa !21
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
-  store i32 0, ptr %109, align 4, !tbaa !29
+  store i32 0, ptr %109, align 4, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %106, !llvm.loop !33
+  br i1 %exitcond.not.i, label %.critedge.i, label %106, !llvm.loop !32
 
 .critedge.i:                                      ; preds = %106, %.preheader.i
-  store i32 1, ptr %100, align 8, !tbaa !28
+  store i32 1, ptr %100, align 8, !tbaa !27
   br label %Rwr_ManIncTravId.exit
 
 Rwr_ManIncTravId.exit:                            ; preds = %.critedge, %.critedge.i
@@ -248,10 +248,10 @@ Rwr_ManIncTravId.exit:                            ; preds = %.critedge, %.crited
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 14
   %119 = load i32, ptr %118, align 2
   %120 = and i32 %119, 65535
-  %121 = load ptr, ptr %111, align 8, !tbaa !36
+  %121 = load ptr, ptr %111, align 8, !tbaa !35
   %122 = zext nneg i32 %120 to i64
   %123 = getelementptr inbounds nuw i16, ptr %121, i64 %122
-  %124 = load i16, ptr %123, align 2, !tbaa !37
+  %124 = load i16, ptr %123, align 2, !tbaa !36
   %125 = trunc i32 %119 to i16
   %126 = icmp eq i16 %124, %125
   br i1 %126, label %127, label %129
@@ -270,7 +270,7 @@ Rwr_ManIncTravId.exit:                            ; preds = %.critedge, %.crited
   %.val106 = load i32, ptr %131, align 4, !tbaa !18
   %132 = sext i32 %.val106 to i64
   %133 = icmp slt i64 %indvars.iv.next148, %132
-  br i1 %133, label %113, label %.critedge4.preheader, !llvm.loop !38
+  br i1 %133, label %113, label %.critedge4.preheader, !llvm.loop !37
 
 .lr.ph137:                                        ; preds = %.critedge4.preheader, %.critedge4
   %134 = phi ptr [ %145, %.critedge4 ], [ %130, %.critedge4.preheader ]
@@ -291,7 +291,7 @@ Rwr_ManIncTravId.exit:                            ; preds = %.critedge, %.crited
   %143 = getelementptr inbounds ptr, ptr %.val111, i64 %142
   store ptr %137, ptr %143, align 8, !tbaa !21
   %144 = add nsw i32 %.1101135, 1
-  store i32 %.1101135, ptr %137, align 8, !tbaa !39
+  store i32 %.1101135, ptr %137, align 8, !tbaa !38
   %.pre158 = load ptr, ptr %3, align 8, !tbaa !3
   br label %.critedge4
 
@@ -303,7 +303,7 @@ Rwr_ManIncTravId.exit:                            ; preds = %.critedge, %.crited
   %.val107 = load i32, ptr %146, align 4, !tbaa !18
   %147 = sext i32 %.val107 to i64
   %148 = icmp slt i64 %indvars.iv.next151, %147
-  br i1 %148, label %.lr.ph137, label %.critedge6, !llvm.loop !40
+  br i1 %148, label %.lr.ph137, label %.critedge6, !llvm.loop !39
 
 .critedge6:                                       ; preds = %.critedge4, %Rwr_ManIncTravId.exit, %.critedge4.preheader
   %.0.lcssa162 = phi i32 [ %.1, %.critedge4.preheader ], [ 0, %Rwr_ManIncTravId.exit ], [ %.1, %.critedge4 ]
@@ -325,11 +325,11 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define i32 @Rwr_ManNodeVolume(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
-  store i32 0, ptr %4, align 4, !tbaa !27
+  store i32 0, ptr %4, align 4, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load i32, ptr %5, align 8, !tbaa !28
+  %6 = load i32, ptr %5, align 8, !tbaa !27
   %7 = add nsw i32 %6, 1
-  store i32 %7, ptr %5, align 8, !tbaa !28
+  store i32 %7, ptr %5, align 8, !tbaa !27
   %8 = icmp ult i32 %6, -1879048193
   br i1 %8, label %Rwr_ManIncTravId.exit, label %.preheader.i
 
@@ -352,19 +352,19 @@ define i32 @Rwr_ManNodeVolume(ptr noundef captures(none) %0, ptr noundef capture
   %15 = getelementptr inbounds nuw ptr, ptr %.val7.i, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 0, ptr %17, align 4, !tbaa !29
+  store i32 0, ptr %17, align 4, !tbaa !28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %14, !llvm.loop !33
+  br i1 %exitcond.not.i, label %.critedge.i, label %14, !llvm.loop !32
 
 .critedge.i:                                      ; preds = %14, %.preheader.i
-  store i32 1, ptr %5, align 8, !tbaa !28
+  store i32 1, ptr %5, align 8, !tbaa !27
   br label %Rwr_ManIncTravId.exit
 
 Rwr_ManIncTravId.exit:                            ; preds = %3, %.critedge.i
   call void @Rwr_Trav_rec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4)
   call void @Rwr_Trav_rec(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %4)
-  %18 = load i32, ptr %4, align 4, !tbaa !27
+  %18 = load i32, ptr %4, align 4, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
   ret i32 %18
 }
@@ -372,9 +372,9 @@ Rwr_ManIncTravId.exit:                            ; preds = %3, %.critedge.i
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Rwr_ManTryNode(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 1, 65) %4, i32 noundef range(i32 -2147483647, -2147483648) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %8 = load i32, ptr %7, align 4, !tbaa !25
+  %8 = load i32, ptr %7, align 4, !tbaa !24
   %9 = add nsw i32 %8, 1
-  store i32 %9, ptr %7, align 4, !tbaa !25
+  store i32 %9, ptr %7, align 4, !tbaa !24
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %16, label %10
 
@@ -442,24 +442,24 @@ define internal fastcc void @Rwr_ManTryNode(ptr noundef captures(none) %0, ptr n
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %48 = load ptr, ptr %47, align 8, !tbaa !41
+  %48 = load ptr, ptr %47, align 8, !tbaa !40
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !36
+  %50 = load ptr, ptr %49, align 8, !tbaa !35
   %51 = zext nneg i32 %.0 to i64
   %52 = getelementptr inbounds nuw i16, ptr %50, i64 %51
-  %53 = load i16, ptr %52, align 2, !tbaa !37
+  %53 = load i16, ptr %52, align 2, !tbaa !36
   %54 = zext i16 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !42
+  %56 = load i8, ptr %55, align 1, !tbaa !41
   %.not62 = icmp eq i8 %56, 0
   br i1 %.not62, label %.loopexit, label %57
 
 57:                                               ; preds = %._crit_edge71, %46
   %.pre-phi = phi i64 [ %.pre, %._crit_edge71 ], [ %51, %46 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %59 = load ptr, ptr %58, align 8, !tbaa !43
+  %59 = load ptr, ptr %58, align 8, !tbaa !42
   %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %.pre-phi
-  %.05967 = load ptr, ptr %60, align 8, !tbaa !44
+  %.05967 = load ptr, ptr %60, align 8, !tbaa !43
   %.not6368 = icmp eq ptr %.05967, null
   br i1 %.not6368, label %._crit_edge.thread, label %.lr.ph
 
@@ -490,9 +490,9 @@ define internal fastcc void @Rwr_ManTryNode(ptr noundef captures(none) %0, ptr n
 
 76:                                               ; preds = %70, %72
   %77 = getelementptr inbounds nuw i8, ptr %.05969, i64 40
-  %.059 = load ptr, ptr %77, align 8, !tbaa !44
+  %.059 = load ptr, ptr %77, align 8, !tbaa !43
   %.not63 = icmp eq ptr %.059, null
-  br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %.05969, i64 40
@@ -500,32 +500,32 @@ define internal fastcc void @Rwr_ManTryNode(ptr noundef captures(none) %0, ptr n
 
 ._crit_edge.thread:                               ; preds = %57
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !36
+  %80 = load ptr, ptr %79, align 8, !tbaa !35
   %81 = getelementptr inbounds nuw i16, ptr %80, i64 %.pre-phi
-  %82 = load i16, ptr %81, align 2, !tbaa !37
+  %82 = load i16, ptr %81, align 2, !tbaa !36
   %83 = trunc i32 %.0.in to i16
   %84 = icmp eq i16 %82, %83
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %._crit_edge.thread
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %87 = load i32, ptr %86, align 4, !tbaa !26
+  %87 = load i32, ptr %86, align 4, !tbaa !25
   %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %86, align 4, !tbaa !26
+  store i32 %88, ptr %86, align 4, !tbaa !25
   br label %89
 
 89:                                               ; preds = %._crit_edge, %85, %._crit_edge.thread
   %.057.lcssa73 = phi ptr [ %60, %85 ], [ %60, %._crit_edge.thread ], [ %78, %._crit_edge ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %91 = load ptr, ptr %90, align 8, !tbaa !46
+  %91 = load ptr, ptr %90, align 8, !tbaa !45
   %92 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %91) #10
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %94 = load ptr, ptr %93, align 8, !tbaa !3
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !18
-  store i32 %96, ptr %92, align 8, !tbaa !39
+  store i32 %96, ptr %92, align 8, !tbaa !38
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 4
-  store i32 0, ptr %97, align 4, !tbaa !29
+  store i32 0, ptr %97, align 4, !tbaa !28
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 14
   %99 = shl nuw nsw i32 %4, 24
   %100 = shl i32 %5, 16
@@ -537,15 +537,15 @@ define internal fastcc void @Rwr_ManTryNode(ptr noundef captures(none) %0, ptr n
   %104 = or disjoint i32 %.0, %103
   store i32 %104, ptr %98, align 2
   %105 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  store ptr %1, ptr %105, align 8, !tbaa !47
+  store ptr %1, ptr %105, align 8, !tbaa !46
   %106 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  store ptr %2, ptr %106, align 8, !tbaa !48
+  store ptr %2, ptr %106, align 8, !tbaa !47
   %107 = getelementptr inbounds nuw i8, ptr %92, i64 40
-  store ptr null, ptr %107, align 8, !tbaa !49
+  store ptr null, ptr %107, align 8, !tbaa !48
   %108 = load ptr, ptr %93, align 8, !tbaa !3
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4, !tbaa !18
-  %111 = load i32, ptr %108, align 8, !tbaa !50
+  %111 = load i32, ptr %108, align 8, !tbaa !49
   %112 = icmp eq i32 %110, %111
   br i1 %112, label %113, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -575,7 +575,7 @@ define internal fastcc void @Rwr_ManTryNode(ptr noundef captures(none) %0, ptr n
 Vec_PtrGrow.exit.i:                               ; preds = %120, %118
   %122 = phi ptr [ %119, %118 ], [ %121, %120 ]
   store ptr %122, ptr %116, align 8, !tbaa !20
-  store i32 16, ptr %108, align 8, !tbaa !50
+  store i32 16, ptr %108, align 8, !tbaa !49
   br label %Vec_PtrPush.exit
 
 123:                                              ; preds = %113
@@ -598,7 +598,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %120, %118
 133:                                              ; preds = %131, %129
   %134 = phi ptr [ %130, %129 ], [ %132, %131 ]
   store ptr %134, ptr %125, align 8, !tbaa !20
-  store i32 %124, ptr %108, align 8, !tbaa !50
+  store i32 %124, ptr %108, align 8, !tbaa !49
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %133
@@ -609,7 +609,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %138 = sext i32 %136 to i64
   %139 = getelementptr inbounds ptr, ptr %135, i64 %138
   store ptr %92, ptr %139, align 8, !tbaa !21
-  store ptr %92, ptr %.057.lcssa73, align 8, !tbaa !44
+  store ptr %92, ptr %.057.lcssa73, align 8, !tbaa !43
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %66, %46, %Vec_PtrPush.exit
@@ -619,9 +619,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Rwr_ManIncTravId(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load i32, ptr %2, align 8, !tbaa !28
+  %3 = load i32, ptr %2, align 8, !tbaa !27
   %4 = add nsw i32 %3, 1
-  store i32 %4, ptr %2, align 8, !tbaa !28
+  store i32 %4, ptr %2, align 8, !tbaa !27
   %5 = icmp ult i32 %3, -1879048193
   br i1 %5, label %15, label %.preheader
 
@@ -644,13 +644,13 @@ define void @Rwr_ManIncTravId(ptr noundef captures(none) %0) local_unnamed_addr 
   %12 = getelementptr inbounds nuw ptr, ptr %.val7, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 0, ptr %14, align 4, !tbaa !29
+  store i32 0, ptr %14, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !33
+  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !32
 
 .critedge:                                        ; preds = %11, %.preheader
-  store i32 1, ptr %2, align 8, !tbaa !28
+  store i32 1, ptr %2, align 8, !tbaa !27
   br label %15
 
 15:                                               ; preds = %1, %.critedge
@@ -674,23 +674,23 @@ define internal fastcc void @Rwr_MarkUsed_rec(ptr noundef readonly captures(none
   %9 = phi ptr [ %3, %.lr.ph ], [ %25, %tailrecurse ]
   %.tr1012 = phi ptr [ %1, %.lr.ph ], [ %24, %tailrecurse ]
   %10 = getelementptr inbounds nuw i8, ptr %.tr1012, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !29
-  %12 = load i32, ptr %6, align 8, !tbaa !28
+  %11 = load i32, ptr %10, align 4, !tbaa !28
+  %12 = load i32, ptr %6, align 8, !tbaa !27
   %13 = icmp eq i32 %11, %12
   br i1 %13, label %tailrecurse._crit_edge, label %tailrecurse
 
 tailrecurse:                                      ; preds = %7
-  store i32 %12, ptr %10, align 4, !tbaa !29
+  store i32 %12, ptr %10, align 4, !tbaa !28
   %14 = or disjoint i32 %8, 1073741824
   store i32 %14, ptr %9, align 2
   %15 = getelementptr inbounds nuw i8, ptr %.tr1012, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !47
+  %16 = load ptr, ptr %15, align 8, !tbaa !46
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
   tail call fastcc void @Rwr_MarkUsed_rec(ptr noundef nonnull %0, ptr noundef %19)
   %20 = getelementptr inbounds nuw i8, ptr %.tr1012, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !48
+  %21 = load ptr, ptr %20, align 8, !tbaa !47
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, -2
   %24 = inttoptr i64 %23 to ptr
@@ -710,9 +710,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Rwr_ManAddNode(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %8 = load i32, ptr %7, align 4, !tbaa !25
+  %8 = load i32, ptr %7, align 4, !tbaa !24
   %9 = add nsw i32 %8, 1
-  store i32 %9, ptr %7, align 4, !tbaa !25
+  store i32 %9, ptr %7, align 4, !tbaa !24
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %16, label %10
 
@@ -772,15 +772,15 @@ define noundef ptr @Rwr_ManAddNode(ptr noundef captures(none) %0, ptr noundef %1
   %.0.in = phi i32 [ %15, %10 ], [ %43, %41 ]
   %.0 = and i32 %.0.in, 65535
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %46 = load ptr, ptr %45, align 8, !tbaa !46
+  %46 = load ptr, ptr %45, align 8, !tbaa !45
   %47 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %46) #10
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %49 = load ptr, ptr %48, align 8, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !18
-  store i32 %51, ptr %47, align 8, !tbaa !39
+  store i32 %51, ptr %47, align 8, !tbaa !38
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store i32 0, ptr %52, align 4, !tbaa !29
+  store i32 0, ptr %52, align 4, !tbaa !28
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 14
   %54 = shl i32 %4, 24
   %55 = and i32 %54, 1056964608
@@ -792,15 +792,15 @@ define noundef ptr @Rwr_ManAddNode(ptr noundef captures(none) %0, ptr noundef %1
   %61 = or disjoint i32 %.0, %60
   store i32 %61, ptr %53, align 2
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store ptr %1, ptr %62, align 8, !tbaa !47
+  store ptr %1, ptr %62, align 8, !tbaa !46
   %63 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  store ptr %2, ptr %63, align 8, !tbaa !48
+  store ptr %2, ptr %63, align 8, !tbaa !47
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  store ptr null, ptr %64, align 8, !tbaa !49
+  store ptr null, ptr %64, align 8, !tbaa !48
   %65 = load ptr, ptr %48, align 8, !tbaa !3
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !18
-  %68 = load i32, ptr %65, align 8, !tbaa !50
+  %68 = load i32, ptr %65, align 8, !tbaa !49
   %69 = icmp eq i32 %67, %68
   br i1 %69, label %70, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -830,7 +830,7 @@ define noundef ptr @Rwr_ManAddNode(ptr noundef captures(none) %0, ptr noundef %1
 Vec_PtrGrow.exit.i:                               ; preds = %77, %75
   %79 = phi ptr [ %76, %75 ], [ %78, %77 ]
   store ptr %79, ptr %73, align 8, !tbaa !20
-  store i32 16, ptr %65, align 8, !tbaa !50
+  store i32 16, ptr %65, align 8, !tbaa !49
   br label %Vec_PtrPush.exit
 
 80:                                               ; preds = %70
@@ -853,7 +853,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %77, %75
 90:                                               ; preds = %88, %86
   %91 = phi ptr [ %87, %86 ], [ %89, %88 ]
   store ptr %91, ptr %82, align 8, !tbaa !20
-  store i32 %81, ptr %65, align 8, !tbaa !50
+  store i32 %81, ptr %65, align 8, !tbaa !49
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %90
@@ -865,31 +865,31 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %96 = getelementptr inbounds ptr, ptr %92, i64 %95
   store ptr %47, ptr %96, align 8, !tbaa !21
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !36
+  %98 = load ptr, ptr %97, align 8, !tbaa !35
   %99 = zext nneg i32 %.0 to i64
   %100 = getelementptr inbounds nuw i16, ptr %98, i64 %99
-  %101 = load i16, ptr %100, align 2, !tbaa !37
+  %101 = load i16, ptr %100, align 2, !tbaa !36
   %102 = trunc i32 %.0.in to i16
   %.not45 = icmp eq i16 %101, %102
   br i1 %.not45, label %103, label %117
 
 103:                                              ; preds = %Vec_PtrPush.exit
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %105 = load i32, ptr %104, align 8, !tbaa !51
+  %105 = load i32, ptr %104, align 8, !tbaa !50
   %106 = add nsw i32 %105, 1
-  store i32 %106, ptr %104, align 8, !tbaa !51
+  store i32 %106, ptr %104, align 8, !tbaa !50
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %108 = load ptr, ptr %107, align 8, !tbaa !43
+  %108 = load ptr, ptr %107, align 8, !tbaa !42
   %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %99
-  %110 = load ptr, ptr %109, align 8, !tbaa !44
+  %110 = load ptr, ptr %109, align 8, !tbaa !43
   %111 = icmp eq ptr %110, null
   br i1 %111, label %112, label %116
 
 112:                                              ; preds = %103
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %114 = load i32, ptr %113, align 4, !tbaa !26
+  %114 = load i32, ptr %113, align 4, !tbaa !25
   %115 = add nsw i32 %114, 1
-  store i32 %115, ptr %113, align 4, !tbaa !26
+  store i32 %115, ptr %113, align 4, !tbaa !25
   br label %116
 
 116:                                              ; preds = %112, %103
@@ -907,15 +907,15 @@ declare void @Rwr_ListAddToTail(ptr noundef, ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Rwr_ManAddVar(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
   %6 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %5) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !18
-  store i32 %10, ptr %6, align 8, !tbaa !39
+  store i32 %10, ptr %6, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %11, align 4, !tbaa !29
+  store i32 0, ptr %11, align 4, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %13 = and i32 %1, 65535
   %14 = or disjoint i32 %13, 1073741824
@@ -925,7 +925,7 @@ define noundef ptr @Rwr_ManAddVar(ptr noundef readonly captures(none) %0, i32 no
   %16 = load ptr, ptr %7, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !18
-  %19 = load i32, ptr %16, align 8, !tbaa !50
+  %19 = load i32, ptr %16, align 8, !tbaa !49
   %20 = icmp eq i32 %18, %19
   br i1 %20, label %21, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -955,7 +955,7 @@ define noundef ptr @Rwr_ManAddVar(ptr noundef readonly captures(none) %0, i32 no
 Vec_PtrGrow.exit.i:                               ; preds = %28, %26
   %30 = phi ptr [ %27, %26 ], [ %29, %28 ]
   store ptr %30, ptr %24, align 8, !tbaa !20
-  store i32 16, ptr %16, align 8, !tbaa !50
+  store i32 16, ptr %16, align 8, !tbaa !49
   br label %Vec_PtrPush.exit
 
 31:                                               ; preds = %21
@@ -978,7 +978,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %28, %26
 41:                                               ; preds = %39, %37
   %42 = phi ptr [ %38, %37 ], [ %40, %39 ]
   store ptr %42, ptr %33, align 8, !tbaa !20
-  store i32 %32, ptr %16, align 8, !tbaa !50
+  store i32 %32, ptr %16, align 8, !tbaa !49
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %41
@@ -994,7 +994,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 48:                                               ; preds = %Vec_PtrPush.exit
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %50 = load ptr, ptr %49, align 8, !tbaa !43
+  %50 = load ptr, ptr %49, align 8, !tbaa !42
   %51 = zext i32 %1 to i64
   %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   tail call void @Rwr_ListAddToTail(ptr noundef %52, ptr noundef nonnull %6) #10
@@ -1020,34 +1020,34 @@ define void @Rwr_Trav_rec(ptr noundef readonly captures(none) %0, ptr noundef ca
   %9 = phi ptr [ %4, %.lr.ph ], [ %30, %tailrecurse ]
   %.tr1518 = phi ptr [ %1, %.lr.ph ], [ %29, %tailrecurse ]
   %10 = getelementptr inbounds nuw i8, ptr %.tr1518, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !29
-  %12 = load i32, ptr %7, align 8, !tbaa !28
+  %11 = load i32, ptr %10, align 4, !tbaa !28
+  %12 = load i32, ptr %7, align 8, !tbaa !27
   %13 = icmp eq i32 %11, %12
   br i1 %13, label %tailrecurse._crit_edge, label %14
 
 14:                                               ; preds = %8
-  store i32 %12, ptr %10, align 4, !tbaa !29
-  %15 = load i32, ptr %2, align 4, !tbaa !27
+  store i32 %12, ptr %10, align 4, !tbaa !28
+  %15 = load i32, ptr %2, align 4, !tbaa !26
   %16 = add nsw i32 %15, 1
-  store i32 %16, ptr %2, align 4, !tbaa !27
+  store i32 %16, ptr %2, align 4, !tbaa !26
   %17 = load i32, ptr %9, align 2
   %.not14 = icmp sgt i32 %17, -1
   br i1 %.not14, label %tailrecurse, label %18
 
 18:                                               ; preds = %14
   %19 = add nsw i32 %15, 2
-  store i32 %19, ptr %2, align 4, !tbaa !27
+  store i32 %19, ptr %2, align 4, !tbaa !26
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %18, %14
   %20 = getelementptr inbounds nuw i8, ptr %.tr1518, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !47
+  %21 = load ptr, ptr %20, align 8, !tbaa !46
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, -2
   %24 = inttoptr i64 %23 to ptr
   tail call void @Rwr_Trav_rec(ptr noundef nonnull %0, ptr noundef %24, ptr noundef nonnull %2)
   %25 = getelementptr inbounds nuw i8, ptr %.tr1518, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !48
+  %26 = load ptr, ptr %25, align 8, !tbaa !47
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, -2
   %29 = inttoptr i64 %28 to ptr
@@ -1111,33 +1111,32 @@ attributes #12 = { nounwind allocsize(0) }
 !19 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !9, i64 8}
 !20 = !{!19, !9, i64 8}
 !21 = !{!9, !9, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!4, !5, i64 100}
-!26 = !{!4, !5, i64 108}
-!27 = !{!5, !5, i64 0}
-!28 = !{!4, !5, i64 96}
-!29 = !{!30, !5, i64 4}
-!30 = !{!"Rwr_Node_t_", !5, i64 0, !5, i64 4, !31, i64 8, !31, i64 10, !31, i64 12, !5, i64 14, !5, i64 16, !5, i64 17, !5, i64 17, !5, i64 17, !32, i64 24, !32, i64 32, !32, i64 40}
-!31 = !{!"short", !6, i64 0}
-!32 = !{!"p1 _ZTS11Rwr_Node_t_", !9, i64 0}
-!33 = distinct !{!33, !23, !24}
-!34 = distinct !{!34, !23, !24, !35}
-!35 = !{!"llvm.loop.unswitch.partial.disable"}
-!36 = !{!4, !8, i64 8}
-!37 = !{!31, !31, i64 0}
-!38 = distinct !{!38, !23, !24}
-!39 = !{!30, !5, i64 0}
-!40 = distinct !{!40, !23, !24}
-!41 = !{!4, !10, i64 48}
-!42 = !{!6, !6, i64 0}
-!43 = !{!4, !13, i64 72}
-!44 = !{!32, !32, i64 0}
-!45 = distinct !{!45, !23, !24}
-!46 = !{!4, !15, i64 88}
-!47 = !{!30, !32, i64 24}
-!48 = !{!30, !32, i64 32}
-!49 = !{!30, !32, i64 40}
-!50 = !{!19, !5, i64 0}
-!51 = !{!4, !5, i64 104}
+!24 = !{!4, !5, i64 100}
+!25 = !{!4, !5, i64 108}
+!26 = !{!5, !5, i64 0}
+!27 = !{!4, !5, i64 96}
+!28 = !{!29, !5, i64 4}
+!29 = !{!"Rwr_Node_t_", !5, i64 0, !5, i64 4, !30, i64 8, !30, i64 10, !30, i64 12, !5, i64 14, !5, i64 16, !5, i64 17, !5, i64 17, !5, i64 17, !31, i64 24, !31, i64 32, !31, i64 40}
+!30 = !{!"short", !6, i64 0}
+!31 = !{!"p1 _ZTS11Rwr_Node_t_", !9, i64 0}
+!32 = distinct !{!32, !23}
+!33 = distinct !{!33, !23, !34}
+!34 = !{!"llvm.loop.unswitch.partial.disable"}
+!35 = !{!4, !8, i64 8}
+!36 = !{!30, !30, i64 0}
+!37 = distinct !{!37, !23}
+!38 = !{!29, !5, i64 0}
+!39 = distinct !{!39, !23}
+!40 = !{!4, !10, i64 48}
+!41 = !{!6, !6, i64 0}
+!42 = !{!4, !13, i64 72}
+!43 = !{!31, !31, i64 0}
+!44 = distinct !{!44, !23}
+!45 = !{!4, !15, i64 88}
+!46 = !{!29, !31, i64 24}
+!47 = !{!29, !31, i64 32}
+!48 = !{!29, !31, i64 40}
+!49 = !{!19, !5, i64 0}
+!50 = !{!4, !5, i64 104}

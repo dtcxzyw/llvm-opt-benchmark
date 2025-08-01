@@ -6537,7 +6537,7 @@ define internal fastcc i32 @construct_gprs_data_segment_li_array(ptr noundef %0,
   %36 = add i32 %.028, 1
   %37 = load i64, ptr %6, align 8
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %29, %7
   %.0.lcssa = phi i32 [ %8, %7 ], [ %36, %29 ]
@@ -6622,7 +6622,7 @@ define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr nounde
   %50 = trunc nuw i64 %indvars.iv.next to i32
   %51 = icmp samesign ult i64 %indvars.iv.next, %15
   %52 = and i1 %51, %23
-  br i1 %52, label %16, label %._crit_edge, !llvm.loop !10
+  br i1 %52, label %16, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %49
   %53 = zext i8 %.1 to i32
@@ -6831,7 +6831,7 @@ define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %62, %7
   %.0.lcssa = phi i32 [ %3, %7 ], [ %.1, %62 ]
@@ -6944,7 +6944,7 @@ define internal noundef signext i16 @callback_init_Cell_Sel_Param_2_FREQUENCY_DI
   %10 = add nuw nsw i32 %.067, 1
   %11 = getelementptr i8, ptr %.08, i64 22
   %exitcond.not = icmp eq i32 %10, 16
-  br i1 %exitcond.not, label %12, label %9, !llvm.loop !12
+  br i1 %exitcond.not, label %12, label %9, !llvm.loop !11
 
 12:                                               ; preds = %9
   ret i16 0
@@ -7025,7 +7025,7 @@ define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr
   %.158 = add i32 %.05781, %35
   %36 = add i32 %.05980, 1
   %37 = icmp sgt i32 %31, 0
-  br i1 %37, label %24, label %38, !llvm.loop !13
+  br i1 %37, label %24, label %38, !llvm.loop !12
 
 38:                                               ; preds = %30
   %39 = add i32 %.15682, %.083
@@ -7061,7 +7061,7 @@ define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr
   %55 = call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %52, ptr noundef %1, i32 noundef %42, i32 noundef 0, i32 noundef %54)
   %56 = add i32 %.16085, 1
   %.not68 = icmp sgt i32 %56, %.05977
-  br i1 %.not68, label %.loopexit, label %43, !llvm.loop !14
+  br i1 %.not68, label %.loopexit, label %43, !llvm.loop !13
 
 .loopexit:                                        ; preds = %43, %.thread, %7
   %.055 = phi i32 [ %4, %7 ], [ %41, %.thread ], [ %41, %43 ]
@@ -7092,7 +7092,7 @@ define internal noundef signext i16 @callback_init_luMode_Cell_Sel_Param_FREQUEN
   %10 = add nuw nsw i32 %.067, 1
   %11 = getelementptr i8, ptr %.08, i64 21
   %exitcond.not = icmp eq i32 %10, 16
-  br i1 %exitcond.not, label %12, label %9, !llvm.loop !15
+  br i1 %exitcond.not, label %12, label %9, !llvm.loop !14
 
 12:                                               ; preds = %9
   ret i16 0
@@ -7191,7 +7191,7 @@ define internal noundef signext i16 @callback_init_Cell_Selection_Params_FREQUEN
   %10 = add nuw nsw i32 %.067, 1
   %11 = getelementptr i8, ptr %.08, i64 21
   %exitcond.not = icmp eq i32 %10, 16
-  br i1 %exitcond.not, label %12, label %9, !llvm.loop !16
+  br i1 %exitcond.not, label %12, label %9, !llvm.loop !15
 
 12:                                               ; preds = %9
   ret i16 0
@@ -7209,7 +7209,7 @@ define internal noundef signext i16 @callback_init_COMP_Ncell_Param_FREQUENCY_DI
   %10 = add nuw nsw i32 %.067, 1
   %11 = getelementptr i8, ptr %.08, i64 24
   %exitcond.not = icmp eq i32 %10, 16
-  br i1 %exitcond.not, label %12, label %9, !llvm.loop !17
+  br i1 %exitcond.not, label %12, label %9, !llvm.loop !16
 
 12:                                               ; preds = %9
   ret i16 0
@@ -7239,15 +7239,14 @@ attributes #8 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}

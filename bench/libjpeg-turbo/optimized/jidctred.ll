@@ -179,7 +179,7 @@ define void @jpeg_idct_4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %231 ]
   %.1124134 = phi ptr [ %6, %.preheader ], [ %.2, %231 ]
   %135 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %136 = load ptr, ptr %135, align 8, !tbaa !37
+  %136 = load ptr, ptr %135, align 8, !tbaa !36
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 %12
   %138 = getelementptr inbounds nuw i8, ptr %.1124134, i64 4
   %139 = load i32, ptr %138, align 4, !tbaa !33
@@ -221,12 +221,12 @@ define void @jpeg_idct_4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   %164 = and i32 %163, 1023
   %165 = zext nneg i32 %164 to i64
   %166 = getelementptr inbounds nuw i8, ptr %11, i64 %165
-  %167 = load i8, ptr %166, align 1, !tbaa !38
-  store i8 %167, ptr %137, align 1, !tbaa !38
+  %167 = load i8, ptr %166, align 1, !tbaa !37
+  store i8 %167, ptr %137, align 1, !tbaa !37
   %168 = getelementptr inbounds nuw i8, ptr %137, i64 1
-  store i8 %167, ptr %168, align 1, !tbaa !38
+  store i8 %167, ptr %168, align 1, !tbaa !37
   %169 = getelementptr inbounds nuw i8, ptr %137, i64 2
-  store i8 %167, ptr %169, align 1, !tbaa !38
+  store i8 %167, ptr %169, align 1, !tbaa !37
   br label %231
 
 ._crit_edge137:                                   ; preds = %134, %156, %152, %148, %144
@@ -272,39 +272,39 @@ define void @jpeg_idct_4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   %209 = lshr i64 %208, 19
   %210 = and i64 %209, 1023
   %211 = getelementptr inbounds nuw i8, ptr %11, i64 %210
-  %212 = load i8, ptr %211, align 1, !tbaa !38
-  store i8 %212, ptr %137, align 1, !tbaa !38
+  %212 = load i8, ptr %211, align 1, !tbaa !37
+  store i8 %212, ptr %137, align 1, !tbaa !37
   %213 = sub nsw i64 %207, %206
   %214 = lshr i64 %213, 19
   %215 = and i64 %214, 1023
   %216 = getelementptr inbounds nuw i8, ptr %11, i64 %215
-  %217 = load i8, ptr %216, align 1, !tbaa !38
+  %217 = load i8, ptr %216, align 1, !tbaa !37
   %218 = getelementptr inbounds nuw i8, ptr %137, i64 3
-  store i8 %217, ptr %218, align 1, !tbaa !38
+  store i8 %217, ptr %218, align 1, !tbaa !37
   %219 = add nsw i64 %182, 262144
   %220 = add nsw i64 %219, %199
   %221 = lshr i64 %220, 19
   %222 = and i64 %221, 1023
   %223 = getelementptr inbounds nuw i8, ptr %11, i64 %222
-  %224 = load i8, ptr %223, align 1, !tbaa !38
+  %224 = load i8, ptr %223, align 1, !tbaa !37
   %225 = getelementptr inbounds nuw i8, ptr %137, i64 1
-  store i8 %224, ptr %225, align 1, !tbaa !38
+  store i8 %224, ptr %225, align 1, !tbaa !37
   %226 = sub nsw i64 %219, %199
   %227 = lshr i64 %226, 19
   %228 = and i64 %227, 1023
   %229 = getelementptr inbounds nuw i8, ptr %11, i64 %228
-  %230 = load i8, ptr %229, align 1, !tbaa !38
+  %230 = load i8, ptr %229, align 1, !tbaa !37
   br label %231
 
 231:                                              ; preds = %._crit_edge137, %160
   %.sink145 = phi i64 [ 2, %._crit_edge137 ], [ 3, %160 ]
   %.sink143 = phi i8 [ %230, %._crit_edge137 ], [ %167, %160 ]
   %232 = getelementptr inbounds nuw i8, ptr %137, i64 %.sink145
-  store i8 %.sink143, ptr %232, align 1, !tbaa !38
+  store i8 %.sink143, ptr %232, align 1, !tbaa !37
   %.2 = getelementptr inbounds nuw i8, ptr %.1124134, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %233, label %134, !llvm.loop !39
+  br i1 %exitcond.not, label %233, label %134, !llvm.loop !38
 
 233:                                              ; preds = %231
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #3
@@ -436,14 +436,14 @@ define void @jpeg_idct_2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %87 = getelementptr inbounds nuw i8, ptr %.07982, i64 4
   %88 = add nsw i32 %.085, -1
   %89 = icmp samesign ugt i32 %.085, 1
-  br i1 %89, label %13, label %.preheader, !llvm.loop !40
+  br i1 %89, label %13, label %.preheader, !llvm.loop !39
 
 90:                                               ; preds = %.preheader, %147
   %91 = phi i1 [ true, %.preheader ], [ false, %147 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %147 ]
   %.18086 = phi ptr [ %6, %.preheader ], [ %.2, %147 ]
   %92 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %93 = load ptr, ptr %92, align 8, !tbaa !37
+  %93 = load ptr, ptr %92, align 8, !tbaa !36
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 %12
   %95 = getelementptr inbounds nuw i8, ptr %.18086, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !33
@@ -473,8 +473,8 @@ define void @jpeg_idct_2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %113 = and i32 %112, 1023
   %114 = zext nneg i32 %113 to i64
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !38
-  store i8 %116, ptr %94, align 1, !tbaa !38
+  %116 = load i8, ptr %115, align 1, !tbaa !37
+  store i8 %116, ptr %94, align 1, !tbaa !37
   br label %147
 
 ._crit_edge89:                                    ; preds = %90, %105, %101
@@ -502,21 +502,21 @@ define void @jpeg_idct_2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %138 = lshr i64 %137, 20
   %139 = and i64 %138, 1023
   %140 = getelementptr inbounds nuw i8, ptr %11, i64 %139
-  %141 = load i8, ptr %140, align 1, !tbaa !38
-  store i8 %141, ptr %94, align 1, !tbaa !38
+  %141 = load i8, ptr %140, align 1, !tbaa !37
+  store i8 %141, ptr %94, align 1, !tbaa !37
   %142 = sub nsw i64 %136, %135
   %143 = lshr i64 %142, 20
   %144 = and i64 %143, 1023
   %145 = getelementptr inbounds nuw i8, ptr %11, i64 %144
-  %146 = load i8, ptr %145, align 1, !tbaa !38
+  %146 = load i8, ptr %145, align 1, !tbaa !37
   br label %147
 
 147:                                              ; preds = %._crit_edge89, %109
   %.sink95 = phi i8 [ %146, %._crit_edge89 ], [ %116, %109 ]
   %148 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  store i8 %.sink95, ptr %148, align 1, !tbaa !38
+  store i8 %.sink95, ptr %148, align 1, !tbaa !37
   %.2 = getelementptr inbounds nuw i8, ptr %.18086, i64 32
-  br i1 %91, label %90, label %149, !llvm.loop !41
+  br i1 %91, label %90, label %149, !llvm.loop !40
 
 149:                                              ; preds = %147
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #3
@@ -539,11 +539,11 @@ define void @jpeg_idct_1x1(ptr noundef readonly captures(none) %0, ptr noundef r
   %17 = lshr i64 %16, 3
   %18 = and i64 %17, 1023
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !38
-  %21 = load ptr, ptr %3, align 8, !tbaa !37
+  %20 = load i8, ptr %19, align 1, !tbaa !37
+  %21 = load ptr, ptr %3, align 8, !tbaa !36
   %22 = zext i32 %4 to i64
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
-  store i8 %20, ptr %23, align 1, !tbaa !38
+  store i8 %20, ptr %23, align 1, !tbaa !37
   ret void
 }
 
@@ -588,11 +588,10 @@ attributes #3 = { nounwind }
 !31 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !11, i64 68, !11, i64 72, !6, i64 80, !6, i64 88}
 !32 = !{!16, !16, i64 0}
 !33 = !{!11, !11, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!18, !18, i64 0}
-!38 = !{!7, !7, i64 0}
-!39 = distinct !{!39, !35, !36}
-!40 = distinct !{!40, !35, !36}
-!41 = distinct !{!41, !35, !36}
+!36 = !{!18, !18, i64 0}
+!37 = !{!7, !7, i64 0}
+!38 = distinct !{!38, !35}
+!39 = distinct !{!39, !35}
+!40 = distinct !{!40, !35}

@@ -94,7 +94,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %.1102.us147 = phi i32 [ %41, %40 ], [ %.0101143.us144, %36 ], [ %.0101143.us144, %35 ]
   %43 = add nuw nsw i32 %.0103142.us145, 1
   %exitcond172.not = icmp eq i32 %43, %0
-  br i1 %exitcond172.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !10
+  br i1 %exitcond172.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !9
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not139, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -127,7 +127,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %.1102.us154 = phi i32 [ %56, %55 ], [ %.0101143.us150, %51 ]
   %58 = add nuw nsw i32 %.0103142.us151, 1
   %exitcond171.not = icmp eq i32 %58, %0
-  br i1 %exitcond171.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !11
+  br i1 %exitcond171.not, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !10
 
 59:                                               ; preds = %5
   %60 = tail call ptr @__errno() #6
@@ -169,7 +169,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %.1102 = phi i32 [ %77, %76 ], [ %.0101143, %72 ]
   %79 = add nuw nsw i32 %.0103142, 1
   %exitcond.not = icmp eq i32 %79, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %78, %57, %42, %26
   %.0101.lcssa = phi i32 [ %.1102.us, %26 ], [ %.1102.us147, %42 ], [ %.1102.us154, %57 ], [ %.1102, %78 ]
@@ -273,7 +273,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %131 = add nsw i32 %.2, %.098158
   %132 = add nuw nsw i32 %.1104157, 1
   %exitcond174.not = icmp eq i32 %132, %smax
-  br i1 %exitcond174.not, label %._crit_edge161, label %88, !llvm.loop !13
+  br i1 %exitcond174.not, label %._crit_edge161, label %88, !llvm.loop !12
 
 ._crit_edge161:                                   ; preds = %130, %.preheader141
   %.0105184 = phi ptr [ null, %.preheader141 ], [ %.0105.ph, %130 ]
@@ -408,7 +408,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %.4 = phi i32 [ %197, %188 ], [ %.3, %183 ], [ %.3, %182 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond176.not, label %.loopexit, label %.lr.ph164, !llvm.loop !14
+  br i1 %exitcond176.not, label %.loopexit, label %.lr.ph164, !llvm.loop !13
 
 .loopexit:                                        ; preds = %198, %149
   %.095 = phi i32 [ %.mux, %149 ], [ %.4, %198 ]
@@ -456,12 +456,11 @@ attributes #7 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

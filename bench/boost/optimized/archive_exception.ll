@@ -54,7 +54,7 @@ define noundef i32 @_ZN5boost7archive17archive_exception6appendEjPKc(ptr noundef
   store i8 %8, ptr %12, align 1, !tbaa !3
   %13 = and i64 %indvars.iv.next, 4294967295
   %exitcond.not = icmp eq i64 %13, 127
-  br i1 %exitcond.not, label %.thread, label %7, !llvm.loop !6
+  br i1 %exitcond.not, label %.thread, label %7
 
 .thread.loopexit.split.loop.exit:                 ; preds = %7
   %14 = trunc nuw nsw i64 %indvars.iv to i32
@@ -72,15 +72,15 @@ define noundef i32 @_ZN5boost7archive17archive_exception6appendEjPKc(ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5boost7archive17archive_exceptionC2ENS1_14exception_codeEPKcS4_(ptr noundef nonnull writeonly align 8 dereferenceable(140) initializes((0, 8), (136, 140)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #1 align 2 {
   %6 = load ptr, ptr %1, align 8
-  store ptr %6, ptr %0, align 8, !tbaa !8
+  store ptr %6, ptr %0, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %6, i64 -40
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 %10
-  store ptr %8, ptr %11, align 8, !tbaa !8
+  store ptr %8, ptr %11, align 8, !tbaa !6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %2, ptr %12, align 8, !tbaa !10
+  store i32 %2, ptr %12, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   switch i32 %2, label %.preheader [
     i32 0, label %.preheader486
@@ -162,7 +162,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit74: ; preds = %.preheader48
   store i8 %26, ptr %30, align 1, !tbaa !3
   %31 = and i64 %indvars.iv.next.i86, 4294967295
   %exitcond.not.i87 = icmp eq i64 %31, 127
-  br i1 %exitcond.not.i87, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit89, label %.lr.ph.i83, !llvm.loop !6
+  br i1 %exitcond.not.i87, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit89, label %.lr.ph.i83
 
 .thread.loopexit.split.loop.exit.i88:             ; preds = %.lr.ph.i83
   %32 = and i64 %indvars.iv.i84, 4294967295
@@ -269,7 +269,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit121: ; preds = %.preheader4
   store i8 %54, ptr %58, align 1, !tbaa !3
   %59 = and i64 %indvars.iv.next.i134, 4294967295
   %exitcond.not.i135 = icmp eq i64 %59, 127
-  br i1 %exitcond.not.i135, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit137, label %.lr.ph.i131, !llvm.loop !6
+  br i1 %exitcond.not.i135, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit137, label %.lr.ph.i131
 
 .thread.loopexit.split.loop.exit.i136:            ; preds = %.lr.ph.i131
   %60 = and i64 %indvars.iv.i132, 4294967295
@@ -335,7 +335,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit153: ; preds = %.preheader4
   store i8 %72, ptr %76, align 1, !tbaa !3
   %77 = and i64 %indvars.iv.next.i166, 4294967295
   %exitcond.not.i167 = icmp eq i64 %77, 127
-  br i1 %exitcond.not.i167, label %.loopexit, label %.lr.ph.i163, !llvm.loop !6
+  br i1 %exitcond.not.i167, label %.loopexit, label %.lr.ph.i163
 
 .thread.loopexit.split.loop.exit.i168:            ; preds = %.lr.ph.i163
   %78 = trunc nuw nsw i64 %indvars.iv.i164 to i32
@@ -377,7 +377,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit153: ; preds = %.preheader4
   store i8 %86, ptr %87, align 1, !tbaa !3
   %88 = and i64 %indvars.iv.next.i174, 4294967295
   %exitcond.not.i175 = icmp eq i64 %88, 127
-  br i1 %exitcond.not.i175, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit177.thread, label %84, !llvm.loop !6
+  br i1 %exitcond.not.i175, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit177.thread, label %84
 
 _ZN5boost7archive17archive_exception6appendEjPKc.exit177.thread: ; preds = %85, %81
   %.08.lcssa.i170.ph = phi i32 [ %.08.lcssa.i162, %81 ], [ 127, %85 ]
@@ -408,7 +408,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit177: ; preds = %84
   store i8 %95, ptr %99, align 1, !tbaa !3
   %100 = and i64 %indvars.iv.next.i182, 4294967295
   %exitcond.not.i183 = icmp eq i64 %100, 127
-  br i1 %exitcond.not.i183, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit185, label %.lr.ph.i179, !llvm.loop !6
+  br i1 %exitcond.not.i183, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit185, label %.lr.ph.i179
 
 .thread.loopexit.split.loop.exit.i184:            ; preds = %.lr.ph.i179
   %101 = trunc nuw nsw i64 %indvars.iv.i180 to i32
@@ -471,7 +471,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit193: ; preds = %.preheader4
   %118 = and i64 %indvars.iv.next.i206, 4294967295
   %exitcond.not.i207 = icmp eq i64 %118, 127
   %indvars.iv.next = add i32 %indvars.iv, 1
-  br i1 %exitcond.not.i207, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit209.thread, label %.lr.ph.i203, !llvm.loop !6
+  br i1 %exitcond.not.i207, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit209.thread, label %.lr.ph.i203
 
 _ZN5boost7archive17archive_exception6appendEjPKc.exit209.thread: ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 135
@@ -501,7 +501,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit209: ; preds = %.lr.ph.i203
   store i8 %125, ptr %127, align 1, !tbaa !3
   %128 = and i64 %indvars.iv.next.i214, 4294967295
   %exitcond.not.i215 = icmp eq i64 %128, 127
-  br i1 %exitcond.not.i215, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit217.thread, label %.lr.ph.i211, !llvm.loop !6
+  br i1 %exitcond.not.i215, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit217.thread, label %.lr.ph.i211
 
 _ZN5boost7archive17archive_exception6appendEjPKc.exit217.thread: ; preds = %124, %_ZN5boost7archive17archive_exception6appendEjPKc.exit209, %_ZN5boost7archive17archive_exception6appendEjPKc.exit209.thread
   %.08.lcssa.i210.ph = phi i32 [ 127, %_ZN5boost7archive17archive_exception6appendEjPKc.exit209.thread ], [ %120, %_ZN5boost7archive17archive_exception6appendEjPKc.exit209 ], [ 127, %124 ]
@@ -536,7 +536,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit217: ; preds = %.lr.ph.i211
   store i8 %135, ptr %139, align 1, !tbaa !3
   %140 = and i64 %indvars.iv.next.i222, 4294967295
   %exitcond.not.i223 = icmp eq i64 %140, 127
-  br i1 %exitcond.not.i223, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit225, label %.lr.ph.i219, !llvm.loop !6
+  br i1 %exitcond.not.i223, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit225, label %.lr.ph.i219
 
 .thread.loopexit.split.loop.exit.i224:            ; preds = %.lr.ph.i219
   %141 = trunc nuw nsw i64 %indvars.iv.i220 to i32
@@ -581,7 +581,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit225: ; preds = %137, %_ZN5b
   store i8 %149, ptr %153, align 1, !tbaa !3
   %154 = and i64 %indvars.iv.next.i238, 4294967295
   %exitcond.not.i239 = icmp eq i64 %154, 127
-  br i1 %exitcond.not.i239, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit241, label %.lr.ph.i235, !llvm.loop !6
+  br i1 %exitcond.not.i239, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit241, label %.lr.ph.i235
 
 _ZN5boost7archive17archive_exception6appendEjPKc.exit241: ; preds = %.lr.ph.i235, %151
   %.08.lcssa.i234.ph = phi i64 [ 127, %151 ], [ %indvars.iv.i236, %.lr.ph.i235 ]
@@ -653,7 +653,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit257: ; preds = %.preheader4
   store i8 %169, ptr %173, align 1, !tbaa !3
   %174 = and i64 %indvars.iv.next.i270, 4294967295
   %exitcond.not.i271 = icmp eq i64 %174, 127
-  br i1 %exitcond.not.i271, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit273, label %.lr.ph.i267, !llvm.loop !6
+  br i1 %exitcond.not.i271, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit273, label %.lr.ph.i267
 
 .thread.loopexit.split.loop.exit.i272:            ; preds = %.lr.ph.i267
   %175 = and i64 %indvars.iv.i268, 4294967295
@@ -703,7 +703,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit281: ; preds = %.preheader4
   store i8 %183, ptr %187, align 1, !tbaa !3
   %188 = and i64 %indvars.iv.next.i294, 4294967295
   %exitcond.not.i295 = icmp eq i64 %188, 127
-  br i1 %exitcond.not.i295, label %.loopexit472, label %.lr.ph.i291, !llvm.loop !6
+  br i1 %exitcond.not.i295, label %.loopexit472, label %.lr.ph.i291
 
 .thread.loopexit.split.loop.exit.i296:            ; preds = %.lr.ph.i291
   %189 = trunc nuw nsw i64 %indvars.iv.i292 to i32
@@ -745,7 +745,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit281: ; preds = %.preheader4
   store i8 %197, ptr %198, align 1, !tbaa !3
   %199 = and i64 %indvars.iv.next.i302, 4294967295
   %exitcond.not.i303 = icmp eq i64 %199, 127
-  br i1 %exitcond.not.i303, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit305.thread, label %195, !llvm.loop !6
+  br i1 %exitcond.not.i303, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit305.thread, label %195
 
 _ZN5boost7archive17archive_exception6appendEjPKc.exit305.thread: ; preds = %196, %192
   %.08.lcssa.i298.ph = phi i32 [ %.08.lcssa.i290, %192 ], [ 127, %196 ]
@@ -776,7 +776,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit305: ; preds = %195
   store i8 %206, ptr %210, align 1, !tbaa !3
   %211 = and i64 %indvars.iv.next.i310, 4294967295
   %exitcond.not.i311 = icmp eq i64 %211, 127
-  br i1 %exitcond.not.i311, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit313, label %.lr.ph.i307, !llvm.loop !6
+  br i1 %exitcond.not.i311, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit313, label %.lr.ph.i307
 
 .thread.loopexit.split.loop.exit.i312:            ; preds = %.lr.ph.i307
   %212 = trunc nuw nsw i64 %indvars.iv.i308 to i32
@@ -811,9 +811,9 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit321: ; preds = %.preheader
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5boost7archive17archive_exceptionC1ENS1_14exception_codeEPKcS4_(ptr noundef nonnull writeonly align 8 dereferenceable(140) initializes((0, 8), (136, 140)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive17archive_exceptionE, i64 40), ptr %0, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive17archive_exceptionE, i64 40), ptr %0, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %1, ptr %5, align 8, !tbaa !10
+  store i32 %1, ptr %5, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   switch i32 %1, label %.preheader [
     i32 0, label %.preheader485
@@ -895,7 +895,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit73: ; preds = %.preheader48
   store i8 %19, ptr %23, align 1, !tbaa !3
   %24 = and i64 %indvars.iv.next.i85, 4294967295
   %exitcond.not.i86 = icmp eq i64 %24, 127
-  br i1 %exitcond.not.i86, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit88, label %.lr.ph.i82, !llvm.loop !6
+  br i1 %exitcond.not.i86, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit88, label %.lr.ph.i82
 
 .thread.loopexit.split.loop.exit.i87:             ; preds = %.lr.ph.i82
   %25 = and i64 %indvars.iv.i83, 4294967295
@@ -1002,7 +1002,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit120: ; preds = %.preheader4
   store i8 %47, ptr %51, align 1, !tbaa !3
   %52 = and i64 %indvars.iv.next.i133, 4294967295
   %exitcond.not.i134 = icmp eq i64 %52, 127
-  br i1 %exitcond.not.i134, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit136, label %.lr.ph.i130, !llvm.loop !6
+  br i1 %exitcond.not.i134, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit136, label %.lr.ph.i130
 
 .thread.loopexit.split.loop.exit.i135:            ; preds = %.lr.ph.i130
   %53 = and i64 %indvars.iv.i131, 4294967295
@@ -1068,7 +1068,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit152: ; preds = %.preheader4
   store i8 %65, ptr %69, align 1, !tbaa !3
   %70 = and i64 %indvars.iv.next.i165, 4294967295
   %exitcond.not.i166 = icmp eq i64 %70, 127
-  br i1 %exitcond.not.i166, label %.loopexit, label %.lr.ph.i162, !llvm.loop !6
+  br i1 %exitcond.not.i166, label %.loopexit, label %.lr.ph.i162
 
 .thread.loopexit.split.loop.exit.i167:            ; preds = %.lr.ph.i162
   %71 = trunc nuw nsw i64 %indvars.iv.i163 to i32
@@ -1110,7 +1110,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit152: ; preds = %.preheader4
   store i8 %79, ptr %80, align 1, !tbaa !3
   %81 = and i64 %indvars.iv.next.i173, 4294967295
   %exitcond.not.i174 = icmp eq i64 %81, 127
-  br i1 %exitcond.not.i174, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit176.thread, label %77, !llvm.loop !6
+  br i1 %exitcond.not.i174, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit176.thread, label %77
 
 _ZN5boost7archive17archive_exception6appendEjPKc.exit176.thread: ; preds = %78, %74
   %.08.lcssa.i169.ph = phi i32 [ %.08.lcssa.i161, %74 ], [ 127, %78 ]
@@ -1141,7 +1141,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit176: ; preds = %77
   store i8 %88, ptr %92, align 1, !tbaa !3
   %93 = and i64 %indvars.iv.next.i181, 4294967295
   %exitcond.not.i182 = icmp eq i64 %93, 127
-  br i1 %exitcond.not.i182, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit184, label %.lr.ph.i178, !llvm.loop !6
+  br i1 %exitcond.not.i182, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit184, label %.lr.ph.i178
 
 .thread.loopexit.split.loop.exit.i183:            ; preds = %.lr.ph.i178
   %94 = trunc nuw nsw i64 %indvars.iv.i179 to i32
@@ -1204,7 +1204,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit192: ; preds = %.preheader4
   %111 = and i64 %indvars.iv.next.i205, 4294967295
   %exitcond.not.i206 = icmp eq i64 %111, 127
   %indvars.iv.next = add i32 %indvars.iv, 1
-  br i1 %exitcond.not.i206, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit208.thread, label %.lr.ph.i202, !llvm.loop !6
+  br i1 %exitcond.not.i206, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit208.thread, label %.lr.ph.i202
 
 _ZN5boost7archive17archive_exception6appendEjPKc.exit208.thread: ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 135
@@ -1234,7 +1234,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit208: ; preds = %.lr.ph.i202
   store i8 %118, ptr %120, align 1, !tbaa !3
   %121 = and i64 %indvars.iv.next.i213, 4294967295
   %exitcond.not.i214 = icmp eq i64 %121, 127
-  br i1 %exitcond.not.i214, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit216.thread, label %.lr.ph.i210, !llvm.loop !6
+  br i1 %exitcond.not.i214, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit216.thread, label %.lr.ph.i210
 
 _ZN5boost7archive17archive_exception6appendEjPKc.exit216.thread: ; preds = %117, %_ZN5boost7archive17archive_exception6appendEjPKc.exit208, %_ZN5boost7archive17archive_exception6appendEjPKc.exit208.thread
   %.08.lcssa.i209.ph = phi i32 [ 127, %_ZN5boost7archive17archive_exception6appendEjPKc.exit208.thread ], [ %113, %_ZN5boost7archive17archive_exception6appendEjPKc.exit208 ], [ 127, %117 ]
@@ -1269,7 +1269,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit216: ; preds = %.lr.ph.i210
   store i8 %128, ptr %132, align 1, !tbaa !3
   %133 = and i64 %indvars.iv.next.i221, 4294967295
   %exitcond.not.i222 = icmp eq i64 %133, 127
-  br i1 %exitcond.not.i222, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit224, label %.lr.ph.i218, !llvm.loop !6
+  br i1 %exitcond.not.i222, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit224, label %.lr.ph.i218
 
 .thread.loopexit.split.loop.exit.i223:            ; preds = %.lr.ph.i218
   %134 = trunc nuw nsw i64 %indvars.iv.i219 to i32
@@ -1314,7 +1314,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit224: ; preds = %130, %_ZN5b
   store i8 %142, ptr %146, align 1, !tbaa !3
   %147 = and i64 %indvars.iv.next.i237, 4294967295
   %exitcond.not.i238 = icmp eq i64 %147, 127
-  br i1 %exitcond.not.i238, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit240, label %.lr.ph.i234, !llvm.loop !6
+  br i1 %exitcond.not.i238, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit240, label %.lr.ph.i234
 
 _ZN5boost7archive17archive_exception6appendEjPKc.exit240: ; preds = %.lr.ph.i234, %144
   %.08.lcssa.i233.ph = phi i64 [ 127, %144 ], [ %indvars.iv.i235, %.lr.ph.i234 ]
@@ -1386,7 +1386,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit256: ; preds = %.preheader4
   store i8 %162, ptr %166, align 1, !tbaa !3
   %167 = and i64 %indvars.iv.next.i269, 4294967295
   %exitcond.not.i270 = icmp eq i64 %167, 127
-  br i1 %exitcond.not.i270, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit272, label %.lr.ph.i266, !llvm.loop !6
+  br i1 %exitcond.not.i270, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit272, label %.lr.ph.i266
 
 .thread.loopexit.split.loop.exit.i271:            ; preds = %.lr.ph.i266
   %168 = and i64 %indvars.iv.i267, 4294967295
@@ -1436,7 +1436,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit280: ; preds = %.preheader4
   store i8 %176, ptr %180, align 1, !tbaa !3
   %181 = and i64 %indvars.iv.next.i293, 4294967295
   %exitcond.not.i294 = icmp eq i64 %181, 127
-  br i1 %exitcond.not.i294, label %.loopexit471, label %.lr.ph.i290, !llvm.loop !6
+  br i1 %exitcond.not.i294, label %.loopexit471, label %.lr.ph.i290
 
 .thread.loopexit.split.loop.exit.i295:            ; preds = %.lr.ph.i290
   %182 = trunc nuw nsw i64 %indvars.iv.i291 to i32
@@ -1478,7 +1478,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit280: ; preds = %.preheader4
   store i8 %190, ptr %191, align 1, !tbaa !3
   %192 = and i64 %indvars.iv.next.i301, 4294967295
   %exitcond.not.i302 = icmp eq i64 %192, 127
-  br i1 %exitcond.not.i302, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit304.thread, label %188, !llvm.loop !6
+  br i1 %exitcond.not.i302, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit304.thread, label %188
 
 _ZN5boost7archive17archive_exception6appendEjPKc.exit304.thread: ; preds = %189, %185
   %.08.lcssa.i297.ph = phi i32 [ %.08.lcssa.i289, %185 ], [ 127, %189 ]
@@ -1509,7 +1509,7 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit304: ; preds = %188
   store i8 %199, ptr %203, align 1, !tbaa !3
   %204 = and i64 %indvars.iv.next.i309, 4294967295
   %exitcond.not.i310 = icmp eq i64 %204, 127
-  br i1 %exitcond.not.i310, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit312, label %.lr.ph.i306, !llvm.loop !6
+  br i1 %exitcond.not.i310, label %_ZN5boost7archive17archive_exception6appendEjPKc.exit312, label %.lr.ph.i306
 
 .thread.loopexit.split.loop.exit.i311:            ; preds = %.lr.ph.i306
   %205 = trunc nuw nsw i64 %indvars.iv.i307 to i32
@@ -1545,17 +1545,17 @@ _ZN5boost7archive17archive_exception6appendEjPKc.exit320: ; preds = %.preheader
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5boost7archive17archive_exceptionC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(140) initializes((0, 140)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %2) unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %1, align 8
-  store ptr %4, ptr %0, align 8, !tbaa !8
+  store ptr %4, ptr %0, align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %4, i64 -40
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
-  store ptr %6, ptr %9, align 8, !tbaa !8
+  store ptr %6, ptr %9, align 8, !tbaa !6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %12 = load i32, ptr %11, align 8, !tbaa !10
-  store i32 %12, ptr %10, align 8, !tbaa !10
+  %12 = load i32, ptr %11, align 8, !tbaa !8
+  store i32 %12, ptr %10, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %13, ptr noundef nonnull align 8 dereferenceable(128) %14, i64 128, i1 false)
@@ -1567,11 +1567,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN5boost7archive17archive_exceptionC1ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(140) initializes((0, 140)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %1) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive17archive_exceptionE, i64 40), ptr %0, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive17archive_exceptionE, i64 40), ptr %0, align 8, !tbaa !6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %5 = load i32, ptr %4, align 8, !tbaa !10
-  store i32 %5, ptr %3, align 8, !tbaa !10
+  %5 = load i32, ptr %4, align 8, !tbaa !8
+  store i32 %5, ptr %3, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(128) %7, i64 128, i1 false)
@@ -1594,7 +1594,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: nounwind uwtable
 define void @_ZTv0_n24_N5boost7archive17archive_exceptionD1Ev(ptr noundef %0) unnamed_addr #8 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !8
+  %2 = load ptr, ptr %0, align 8, !tbaa !6
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
@@ -1614,7 +1614,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define void @_ZTv0_n24_N5boost7archive17archive_exceptionD0Ev(ptr noundef %0) unnamed_addr #8 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !8
+  %2 = load ptr, ptr %0, align 8, !tbaa !6
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
@@ -1631,7 +1631,7 @@ define noundef nonnull ptr @_ZNK5boost7archive17archive_exception4whatEv(ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef nonnull ptr @_ZTv0_n32_NK5boost7archive17archive_exception4whatEv(ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #10 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !8
+  %2 = load ptr, ptr %0, align 8, !tbaa !6
   %3 = getelementptr inbounds i8, ptr %2, i64 -32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
@@ -1642,23 +1642,23 @@ define noundef nonnull ptr @_ZTv0_n32_NK5boost7archive17archive_exception4whatEv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5boost7archive17archive_exceptionC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(140) initializes((0, 8), (136, 140)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
-  store ptr %3, ptr %0, align 8, !tbaa !8
+  store ptr %3, ptr %0, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %3, i64 -40
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
-  store ptr %5, ptr %8, align 8, !tbaa !8
+  store ptr %5, ptr %8, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 0, ptr %9, align 8, !tbaa !10
+  store i32 0, ptr %9, align 8, !tbaa !8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5boost7archive17archive_exceptionC1Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(140) initializes((0, 8), (136, 140)) %0) unnamed_addr #11 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive17archive_exceptionE, i64 40), ptr %0, align 8, !tbaa !8
+  store ptr getelementptr inbounds nuw inrange(-40, 24) (i8, ptr @_ZTVN5boost7archive17archive_exceptionE, i64 40), ptr %0, align 8, !tbaa !6
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 0, ptr %2, align 8, !tbaa !10
+  store i32 0, ptr %2, align 8, !tbaa !8
   ret void
 }
 
@@ -1685,10 +1685,8 @@ attributes #13 = { builtin nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"vtable pointer", !5, i64 0}
-!10 = !{!11, !12, i64 136}
-!11 = !{!"_ZTSN5boost7archive17archive_exceptionE", !4, i64 8, !12, i64 136}
-!12 = !{!"_ZTSN5boost7archive17archive_exception14exception_codeE", !4, i64 0}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"vtable pointer", !5, i64 0}
+!8 = !{!9, !10, i64 136}
+!9 = !{!"_ZTSN5boost7archive17archive_exceptionE", !4, i64 8, !10, i64 136}
+!10 = !{!"_ZTSN5boost7archive17archive_exception14exception_codeE", !4, i64 0}

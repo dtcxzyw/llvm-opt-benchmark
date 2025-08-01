@@ -515,7 +515,7 @@ define noundef i32 @_ZN19colvarproxy_volmaps15add_volmap_slotEi(ptr noundef nonn
   br i1 %.not.i, label %10, label %8
 
 8:                                                ; preds = %2
-  store i32 %1, ptr %5, align 4, !tbaa !36
+  store i32 %1, ptr %5, align 4, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store ptr %9, ptr %4, align 8, !tbaa !16
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -544,7 +544,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %10
   %22 = shl nuw nsw i64 %21, 2
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #19
   %24 = getelementptr inbounds i8, ptr %23, i64 %14
-  store i32 %1, ptr %24, align 4, !tbaa !36
+  store i32 %1, ptr %24, align 4, !tbaa !35
   %25 = icmp sgt i64 %14, 0
   br i1 %25, label %26, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
 
@@ -641,7 +641,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %35, %_ZNSt6vectorIm
   br i1 %.not.i.i1, label %64, label %62
 
 62:                                               ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit
-  store double 0.000000e+00, ptr %59, align 8, !tbaa !38
+  store double 0.000000e+00, ptr %59, align 8, !tbaa !37
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %63, ptr %58, align 8, !tbaa !32
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
@@ -670,7 +670,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %64
   %76 = shl nuw nsw i64 %75, 3
   %77 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %76) #19
   %78 = getelementptr inbounds i8, ptr %77, i64 %68
-  store double 0.000000e+00, ptr %78, align 8, !tbaa !38
+  store double 0.000000e+00, ptr %78, align 8, !tbaa !37
   %79 = icmp sgt i64 %68, 0
   br i1 %79, label %80, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i
 
@@ -704,7 +704,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %62, %_ZNSt6vectorId
   br i1 %.not.i.i5, label %91, label %89
 
 89:                                               ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
-  store double 0.000000e+00, ptr %86, align 8, !tbaa !38
+  store double 0.000000e+00, ptr %86, align 8, !tbaa !37
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %90, ptr %85, align 8, !tbaa !32
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit12
@@ -733,7 +733,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i6: ; preds = %91
   %103 = shl nuw nsw i64 %102, 3
   %104 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %103) #19
   %105 = getelementptr inbounds i8, ptr %104, i64 %95
-  store double 0.000000e+00, ptr %105, align 8, !tbaa !38
+  store double 0.000000e+00, ptr %105, align 8, !tbaa !37
   %106 = icmp sgt i64 %95, 0
   br i1 %106, label %107, label %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i9
 
@@ -808,21 +808,21 @@ define noundef i32 @_ZN19colvarproxy_volmaps20check_volmap_by_nameERKNSt7__cxx11
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define void @_ZN19colvarproxy_volmaps33compute_rms_volmaps_applied_forceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
   %.not1213.i = icmp eq ptr %3, %5
   br i1 %.not1213.i, label %_Z19compute_norm2_statsIdLi0ELb0EEdRKSt6vectorIT_SaIS1_EEPi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.015.i = phi double [ %8, %.lr.ph.i ], [ 0.000000e+00, %1 ]
   %.sroa.07.014.i = phi ptr [ %9, %.lr.ph.i ], [ %3, %1 ]
-  %6 = load double, ptr %.sroa.07.014.i, align 8, !tbaa !38
+  %6 = load double, ptr %.sroa.07.014.i, align 8, !tbaa !37
   %7 = fmul double %6, %6
   %8 = fadd double %.015.i, %7
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.07.014.i, i64 8
   %.not12.i = icmp eq ptr %9, %5
-  br i1 %.not12.i, label %_Z19compute_norm2_statsIdLi0ELb0EEdRKSt6vectorIT_SaIS1_EEPi.exit, label %.lr.ph.i, !llvm.loop !41
+  br i1 %.not12.i, label %_Z19compute_norm2_statsIdLi0ELb0EEdRKSt6vectorIT_SaIS1_EEPi.exit, label %.lr.ph.i, !llvm.loop !40
 
 _Z19compute_norm2_statsIdLi0ELb0EEdRKSt6vectorIT_SaIS1_EEPi.exit: ; preds = %.lr.ph.i, %1
   %.0.lcssa.i = phi double [ 0.000000e+00, %1 ], [ %8, %.lr.ph.i ]
@@ -833,9 +833,9 @@ _Z19compute_norm2_statsIdLi0ELb0EEdRKSt6vectorIT_SaIS1_EEPi.exit: ; preds = %.lr
   %14 = uitofp i64 %13 to double
   %15 = fdiv double %.0.lcssa.i, %14
   %.1.i = select i1 %.not1213.i, double %.0.lcssa.i, double %15
-  %16 = tail call noundef double @sqrt(double noundef %.1.i) #16, !tbaa !36
+  %16 = tail call noundef double @sqrt(double noundef %.1.i) #16, !tbaa !35
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store double %16, ptr %17, align 8, !tbaa !42
+  store double %16, ptr %17, align 8, !tbaa !41
   ret void
 }
 
@@ -845,22 +845,22 @@ declare double @sqrt(double noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN19colvarproxy_volmaps33compute_max_volmaps_applied_forceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 8, !tbaa !40
+  %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
   %.not10.i = icmp eq ptr %3, %5
   br i1 %.not10.i, label %_Z19compute_norm2_statsIdLi1ELb0EEdRKSt6vectorIT_SaIS1_EEPi.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.012.i = phi double [ %.1.i, %.lr.ph.i ], [ 0.000000e+00, %1 ]
   %.sroa.06.011.i = phi ptr [ %9, %.lr.ph.i ], [ %3, %1 ]
-  %6 = load double, ptr %.sroa.06.011.i, align 8, !tbaa !38
+  %6 = load double, ptr %.sroa.06.011.i, align 8, !tbaa !37
   %7 = fmul double %6, %6
   %8 = fcmp ogt double %7, %.012.i
   %.1.i = select i1 %8, double %7, double %.012.i
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i, i64 8
   %.not.i = icmp eq ptr %9, %5
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !52
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %10 = tail call double @llvm.sqrt.f64(double %.1.i)
@@ -869,7 +869,7 @@ define void @_ZN19colvarproxy_volmaps33compute_max_volmaps_applied_forceEv(ptr n
 _Z19compute_norm2_statsIdLi1ELb0EEdRKSt6vectorIT_SaIS1_EEPi.exit: ; preds = %1, %._crit_edge.loopexit.i
   %.0.lcssa.i = phi double [ 0.000000e+00, %1 ], [ %10, %._crit_edge.loopexit.i ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store double %.0.lcssa.i, ptr %11, align 8, !tbaa !54
+  store double %.0.lcssa.i, ptr %11, align 8, !tbaa !53
   ret void
 }
 
@@ -944,25 +944,24 @@ attributes #19 = { builtin allocsize(0) }
 !30 = !{!17, !18, i64 16}
 !31 = !{!21, !22, i64 8}
 !32 = !{!26, !27, i64 8}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"int", !8, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"double", !8, i64 0}
-!40 = !{!27, !27, i64 0}
-!41 = distinct !{!41, !34, !35}
-!42 = !{!43, !39, i64 104}
-!43 = !{!"_ZTS19colvarproxy_volmaps", !44, i64 8, !47, i64 32, !50, i64 56, !50, i64 80, !39, i64 104, !39, i64 112}
-!44 = !{!"_ZTSSt6vectorIiSaIiEE", !45, i64 0}
-!45 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !46, i64 0}
-!46 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !17, i64 0}
-!47 = !{!"_ZTSSt6vectorImSaImEE", !48, i64 0}
-!48 = !{!"_ZTSSt12_Vector_baseImSaImEE", !49, i64 0}
-!49 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !21, i64 0}
-!50 = !{!"_ZTSSt6vectorIdSaIdEE", !51, i64 0}
-!51 = !{!"_ZTSSt12_Vector_baseIdSaIdEE", !52, i64 0}
-!52 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE12_Vector_implE", !26, i64 0}
-!53 = distinct !{!53, !34, !35}
-!54 = !{!43, !39, i64 112}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"int", !8, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"double", !8, i64 0}
+!39 = !{!27, !27, i64 0}
+!40 = distinct !{!40, !34}
+!41 = !{!42, !38, i64 104}
+!42 = !{!"_ZTS19colvarproxy_volmaps", !43, i64 8, !46, i64 32, !49, i64 56, !49, i64 80, !38, i64 104, !38, i64 112}
+!43 = !{!"_ZTSSt6vectorIiSaIiEE", !44, i64 0}
+!44 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !45, i64 0}
+!45 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !17, i64 0}
+!46 = !{!"_ZTSSt6vectorImSaImEE", !47, i64 0}
+!47 = !{!"_ZTSSt12_Vector_baseImSaImEE", !48, i64 0}
+!48 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !21, i64 0}
+!49 = !{!"_ZTSSt6vectorIdSaIdEE", !50, i64 0}
+!50 = !{!"_ZTSSt12_Vector_baseIdSaIdEE", !51, i64 0}
+!51 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE12_Vector_implE", !26, i64 0}
+!52 = distinct !{!52, !34}
+!53 = !{!42, !38, i64 112}

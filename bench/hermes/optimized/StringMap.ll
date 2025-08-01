@@ -133,7 +133,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %add3.i = add i32 %add.i, %conv.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.07.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i, label %_ZN4llvh7djbHashENS_9StringRefEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %cmp.not.i, label %_ZN4llvh7djbHashENS_9StringRefEj.exit, label %for.body.i
 
 _ZN4llvh7djbHashENS_9StringRefEj.exit:            ; preds = %for.body.i, %if.end
   %H.addr.0.lcssa.i = phi i32 [ 0, %if.end ], [ %add3.i, %for.body.i ]
@@ -199,7 +199,7 @@ if.end34:                                         ; preds = %if.then17, %if.else
   %FirstTombstone.1 = phi i32 [ %FirstTombstone.0, %if.end.i ], [ %FirstTombstone.0, %if.then24 ], [ %FirstTombstone.0, %if.else ], [ %spec.select, %if.then17 ]
   %add = add i32 %BucketNo.0, %ProbeAmt.0
   %inc = add i32 %ProbeAmt.0, 1
-  br label %while.body, !llvm.loop !6
+  br label %while.body, !llvm.loop !4
 
 return:                                           ; preds = %land.rhs.i, %if.end.i, %if.then6
   %retval.0 = phi i32 [ %retval.0.ph, %if.then6 ], [ %BucketNo.0, %if.end.i ], [ %BucketNo.0, %land.rhs.i ]
@@ -228,7 +228,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   %add3.i = add i32 %add.i, %conv.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.07.i, i64 1
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i, label %_ZN4llvh7djbHashENS_9StringRefEj.exit, label %for.body.i, !llvm.loop !4
+  br i1 %cmp.not.i, label %_ZN4llvh7djbHashENS_9StringRefEj.exit, label %for.body.i
 
 _ZN4llvh7djbHashENS_9StringRefEj.exit:            ; preds = %for.body.i, %if.end
   %H.addr.0.lcssa.i = phi i32 [ 0, %if.end ], [ %add3.i, %for.body.i ]
@@ -278,7 +278,7 @@ if.end.i:                                         ; preds = %land.rhs.i
 if.end23:                                         ; preds = %while.body, %if.else, %if.then13, %if.end.i
   %add = add i32 %BucketNo.0, %ProbeAmt.0
   %inc = add i32 %ProbeAmt.0, 1
-  br label %while.body, !llvm.loop !8
+  br label %while.body, !llvm.loop !6
 
 return:                                           ; preds = %while.body, %land.rhs.i, %if.end.i, %entry
   %retval.0 = phi i32 [ -1, %entry ], [ %BucketNo.0, %land.rhs.i ], [ %BucketNo.0, %if.end.i ], [ -1, %while.body ]
@@ -319,7 +319,7 @@ for.body.i.i:                                     ; preds = %if.end.i, %for.body
   %add3.i.i = add i32 %add.i.i, %conv.i.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin1.07.i.i, i64 1
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.not.i.i, label %while.body.i.preheader, label %for.body.i.i, !llvm.loop !4
+  br i1 %cmp.not.i.i, label %while.body.i.preheader, label %for.body.i.i
 
 while.body.i.preheader:                           ; preds = %for.body.i.i
   %sub.i = add i32 %0, -1
@@ -367,7 +367,7 @@ if.then13.i.us:                                   ; preds = %if.else.i.us
 if.end23.i.us:                                    ; preds = %if.then13.i.us, %if.else.i.us, %while.body.i.us
   %add.i.us = add i32 %BucketNo.0.i.us, %ProbeAmt.0.i.us
   %inc.i.us = add i32 %ProbeAmt.0.i.us, 1
-  br label %while.body.i.us, !llvm.loop !9
+  br label %while.body.i.us, !llvm.loop !7
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end23.i
   %ProbeAmt.0.i = phi i32 [ %inc.i, %if.end23.i ], [ 1, %while.body.i.preheader ]
@@ -402,7 +402,7 @@ land.rhs.i.i:                                     ; preds = %if.then13.i
 if.end23.i:                                       ; preds = %land.rhs.i.i, %if.then13.i, %if.else.i, %while.body.i
   %add.i = add i32 %BucketNo.0.i, %ProbeAmt.0.i
   %inc.i = add i32 %ProbeAmt.0.i, 1
-  br label %while.body.i, !llvm.loop !8
+  br label %while.body.i, !llvm.loop !6
 
 _ZNK4llvh13StringMapImpl7FindKeyENS_9StringRefE.exit: ; preds = %land.rhs.i.i, %if.then13.i.us
   %12 = phi ptr [ %4, %if.then13.i.us ], [ %2, %land.rhs.i.i ]
@@ -524,7 +524,7 @@ do.body:                                          ; preds = %if.then26, %do.body
   %arrayidx50 = getelementptr inbounds nuw ptr, ptr %call.i, i64 %idxprom49
   %11 = load ptr, ptr %arrayidx50, align 8
   %tobool51.not = icmp eq ptr %11, null
-  br i1 %tobool51.not, label %do.end, label %do.body, !llvm.loop !11
+  br i1 %tobool51.not, label %do.end, label %do.body, !llvm.loop !9
 
 do.end:                                           ; preds = %do.body
   %arrayidx50.le = getelementptr inbounds nuw ptr, ptr %call.i, i64 %idxprom49
@@ -544,7 +544,7 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %NewBucketNo.1 = phi i32 [ %NewBucketNo.042, %for.body ], [ %NewBucketNo.042, %for.body ], [ %spec.select37, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp20.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %cmp20.not, label %for.end, label %for.body, !llvm.loop !12
+  br i1 %cmp20.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %_ZN4llvh11safe_callocEmm.exit
   %NewBucketNo.0.lcssa = phi i32 [ %BucketNo, %_ZN4llvh11safe_callocEmm.exit ], [ %NewBucketNo.1, %for.inc ]
@@ -592,11 +592,9 @@ attributes #9 = { nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !7, !5}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !5}
-!9 = distinct !{!9, !7, !5, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7, !5}
-!12 = distinct !{!12, !7, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

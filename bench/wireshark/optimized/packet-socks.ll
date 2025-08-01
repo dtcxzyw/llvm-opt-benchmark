@@ -1575,7 +1575,7 @@ get_auth_method_name.exit:                        ; preds = %switch.lookup, %31,
   %37 = add i32 %.0128, 1
   %38 = add nuw nsw i32 %.0119127, 1
   %exitcond.not = icmp eq i32 %38, %23
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %get_auth_method_name.exit
   %39 = icmp eq i8 %21, 1
@@ -2023,7 +2023,6 @@ attributes #11 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

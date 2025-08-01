@@ -99,7 +99,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
 30:                                               ; preds = %27, %25
   %31 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %10) #7
   %32 = icmp eq i32 %31, 1
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %32, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %27, %30
   %.pre = load ptr, ptr %5, align 8, !tbaa !3
@@ -110,15 +110,15 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
 
 35:                                               ; preds = %._crit_edge
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %37 = load ptr, ptr %36, align 8, !tbaa !10
+  %37 = load ptr, ptr %36, align 8, !tbaa !8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %.lr.ph162
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %41 = load ptr, ptr %40, align 8, !tbaa !34
+  %41 = load ptr, ptr %40, align 8, !tbaa !32
   %42 = tail call ptr @mpool_calloc(ptr noundef %41, i64 noundef 1, i64 noundef 416) #7
-  store ptr %42, ptr %36, align 8, !tbaa !10
+  store ptr %42, ptr %36, align 8, !tbaa !8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %46
 
@@ -128,9 +128,9 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   br label %.thread
 
 46:                                               ; preds = %39
-  %47 = load ptr, ptr %40, align 8, !tbaa !34
+  %47 = load ptr, ptr %40, align 8, !tbaa !32
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 408
-  store ptr %47, ptr %48, align 8, !tbaa !35
+  store ptr %47, ptr %48, align 8, !tbaa !33
   br label %.lr.ph162
 
 .lr.ph162:                                        ; preds = %46, %35
@@ -147,22 +147,22 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %56 = phi ptr [ %.pre, %.lr.ph162 ], [ %139, %138 ]
   %.0107160 = phi i32 [ 0, %.lr.ph162 ], [ %.1108, %138 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !51
+  %58 = load ptr, ptr %57, align 8, !tbaa !49
   store ptr %58, ptr %5, align 8, !tbaa !3
-  %59 = load ptr, ptr %56, align 8, !tbaa !53
-  %60 = load ptr, ptr %49, align 8, !tbaa !54
+  %59 = load ptr, ptr %56, align 8, !tbaa !51
+  %60 = load ptr, ptr %49, align 8, !tbaa !52
   br label %61
 
 61:                                               ; preds = %61, %55
   %.0103 = phi ptr [ %59, %55 ], [ %67, %61 ]
-  %62 = load i8, ptr %.0103, align 1, !tbaa !56
+  %62 = load i8, ptr %.0103, align 1, !tbaa !54
   %63 = sext i8 %62 to i64
   %64 = getelementptr inbounds i16, ptr %60, i64 %63
-  %65 = load i16, ptr %64, align 2, !tbaa !57
+  %65 = load i16, ptr %64, align 2, !tbaa !55
   %66 = and i16 %65, 8192
   %.not128 = icmp eq i16 %66, 0
   %67 = getelementptr inbounds nuw i8, ptr %.0103, i64 1
-  br i1 %.not128, label %68, label %61, !llvm.loop !58
+  br i1 %.not128, label %68, label %61
 
 68:                                               ; preds = %61
   %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0103) #8
@@ -171,7 +171,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %68
-  %73 = load ptr, ptr @xmlFree, align 8, !tbaa !59
+  %73 = load ptr, ptr @xmlFree, align 8, !tbaa !56
   tail call void %73(ptr noundef %59) #7
   tail call void @free(ptr noundef nonnull %56) #7
   br label %138
@@ -181,10 +181,10 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %75 = ashr exact i64 %sext, 32
   %76 = getelementptr i8, ptr %.0103, i64 %75
   %.0101141 = getelementptr i8, ptr %76, i64 -1
-  %77 = load i8, ptr %.0101141, align 1, !tbaa !56
+  %77 = load i8, ptr %.0101141, align 1, !tbaa !54
   %78 = sext i8 %77 to i64
   %79 = getelementptr inbounds i16, ptr %60, i64 %78
-  %80 = load i16, ptr %79, align 2, !tbaa !57
+  %80 = load i16, ptr %79, align 2, !tbaa !55
   %81 = and i16 %80, 8192
   %82 = icmp ne i16 %81, 0
   %83 = icmp sgt i64 %75, 1
@@ -194,19 +194,19 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
 .lr.ph145:                                        ; preds = %74, %.lr.ph145
   %.0101143 = phi ptr [ %.0101, %.lr.ph145 ], [ %.0101141, %74 ]
   %.0142 = phi i32 [ %85, %.lr.ph145 ], [ %70, %74 ]
-  store i8 0, ptr %.0101143, align 1, !tbaa !56
+  store i8 0, ptr %.0101143, align 1, !tbaa !54
   %85 = add nsw i32 %.0142, -1
   %.0101 = getelementptr inbounds i8, ptr %.0101143, i64 -1
-  %86 = load ptr, ptr %49, align 8, !tbaa !54
-  %87 = load i8, ptr %.0101, align 1, !tbaa !56
+  %86 = load ptr, ptr %49, align 8, !tbaa !52
+  %87 = load i8, ptr %.0101, align 1, !tbaa !54
   %88 = sext i8 %87 to i64
   %89 = getelementptr inbounds i16, ptr %86, i64 %88
-  %90 = load i16, ptr %89, align 2, !tbaa !57
+  %90 = load i16, ptr %89, align 2, !tbaa !55
   %91 = and i16 %90, 8192
   %92 = icmp ne i16 %91, 0
   %93 = icmp ugt ptr %.0101, %.0103
   %94 = and i1 %93, %92
-  br i1 %94, label %.lr.ph145, label %._crit_edge146, !llvm.loop !60
+  br i1 %94, label %.lr.ph145, label %._crit_edge146
 
 ._crit_edge146:                                   ; preds = %.lr.ph145, %74
   %.0.lcssa = phi i32 [ %70, %74 ], [ %85, %.lr.ph145 ]
@@ -229,7 +229,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %.0100149 = phi i32 [ %109, %108 ], [ 0, %.preheader ]
   %.1102148 = phi ptr [ %111, %108 ], [ %97, %.preheader ]
   %.0104147 = phi ptr [ %110, %108 ], [ %0, %.preheader ]
-  %101 = load i8, ptr %.0104147, align 1, !tbaa !56
+  %101 = load i8, ptr %.0104147, align 1, !tbaa !54
   switch i8 %101, label %102 [
     i8 92, label %108
     i8 47, label %108
@@ -244,10 +244,10 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   ]
 
 102:                                              ; preds = %.lr.ph150
-  %103 = load ptr, ptr %49, align 8, !tbaa !54
+  %103 = load ptr, ptr %49, align 8, !tbaa !52
   %104 = sext i8 %101 to i64
   %105 = getelementptr inbounds i16, ptr %103, i64 %104
-  %106 = load i16, ptr %105, align 2, !tbaa !57
+  %106 = load i16, ptr %105, align 2, !tbaa !55
   %107 = and i16 %106, 8192
   %.not132 = icmp eq i16 %107, 0
   %. = select i1 %.not132, i8 %101, i8 95
@@ -255,16 +255,16 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
 
 108:                                              ; preds = %102, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150, %.lr.ph150
   %.sink = phi i8 [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ 95, %.lr.ph150 ], [ %., %102 ]
-  store i8 %.sink, ptr %.1102148, align 1, !tbaa !56
+  store i8 %.sink, ptr %.1102148, align 1, !tbaa !54
   %109 = add nuw nsw i32 %.0100149, 1
   %110 = getelementptr inbounds nuw i8, ptr %.0104147, i64 1
   %111 = getelementptr inbounds nuw i8, ptr %.1102148, i64 1
   %exitcond.not = icmp eq i32 %109, %50
-  br i1 %exitcond.not, label %._crit_edge151, label %.lr.ph150, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge151, label %.lr.ph150
 
 ._crit_edge151:                                   ; preds = %108, %.preheader
   %.1102.lcssa = phi ptr [ %97, %.preheader ], [ %111, %108 ]
-  store i8 46, ptr %.1102.lcssa, align 1, !tbaa !56
+  store i8 46, ptr %.1102.lcssa, align 1, !tbaa !54
   %112 = icmp sgt i32 %.0.lcssa, 0
   br i1 %112, label %.lr.ph157.preheader, label %._crit_edge158
 
@@ -276,18 +276,18 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %.1155 = phi i32 [ %123, %122 ], [ 0, %.lr.ph157.preheader ]
   %.2154 = phi ptr [ %.3, %122 ], [ %113, %.lr.ph157.preheader ]
   %.1105153 = phi ptr [ %124, %122 ], [ %.0103, %.lr.ph157.preheader ]
-  %114 = load ptr, ptr %49, align 8, !tbaa !54
-  %115 = load i8, ptr %.1105153, align 1, !tbaa !56
+  %114 = load ptr, ptr %49, align 8, !tbaa !52
+  %115 = load i8, ptr %.1105153, align 1, !tbaa !54
   %116 = sext i8 %115 to i64
   %117 = getelementptr inbounds i16, ptr %114, i64 %116
-  %118 = load i16, ptr %117, align 2, !tbaa !57
+  %118 = load i16, ptr %117, align 2, !tbaa !55
   %119 = and i16 %118, 4096
   %.not131 = icmp eq i16 %119, 0
   br i1 %.not131, label %122, label %120
 
 120:                                              ; preds = %.lr.ph157
   %121 = getelementptr inbounds nuw i8, ptr %.2154, i64 1
-  store i8 %115, ptr %.2154, align 1, !tbaa !56
+  store i8 %115, ptr %.2154, align 1, !tbaa !54
   br label %122
 
 122:                                              ; preds = %.lr.ph157, %120
@@ -295,10 +295,10 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %123 = add nuw nsw i32 %.1155, 1
   %124 = getelementptr inbounds nuw i8, ptr %.1105153, i64 1
   %exitcond170.not = icmp eq i32 %123, %.0.lcssa
-  br i1 %exitcond170.not, label %._crit_edge158, label %.lr.ph157, !llvm.loop !62
+  br i1 %exitcond170.not, label %._crit_edge158, label %.lr.ph157
 
 ._crit_edge158:                                   ; preds = %122, %._crit_edge151
-  %125 = load ptr, ptr %52, align 8, !tbaa !34
+  %125 = load ptr, ptr %52, align 8, !tbaa !32
   %126 = tail call ptr @cli_mpool_virname(ptr noundef %125, ptr noundef nonnull %97, i32 noundef %53) #7
   %.not129 = icmp eq ptr %126, null
   br i1 %.not129, label %127, label %129
@@ -312,7 +312,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
 
 129:                                              ; preds = %._crit_edge158
   tail call void @free(ptr noundef nonnull %97) #7
-  %130 = load ptr, ptr %54, align 8, !tbaa !10
+  %130 = load ptr, ptr %54, align 8, !tbaa !8
   %131 = tail call i32 @hm_addhash_str(ptr noundef %130, ptr noundef nonnull %.0103, i32 noundef 0, ptr noundef nonnull %126) #7
   %.not130 = icmp eq i32 %131, 0
   br i1 %.not130, label %133, label %132
@@ -327,8 +327,8 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
 
 135:                                              ; preds = %133, %132
   %.2109 = phi i32 [ %.0107160, %132 ], [ %134, %133 ]
-  %136 = load ptr, ptr @xmlFree, align 8, !tbaa !59
-  %137 = load ptr, ptr %56, align 8, !tbaa !53
+  %136 = load ptr, ptr @xmlFree, align 8, !tbaa !56
+  %137 = load ptr, ptr %56, align 8, !tbaa !51
   tail call void %136(ptr noundef %137) #7
   tail call void @free(ptr noundef %56) #7
   %.pre171 = load ptr, ptr %5, align 8, !tbaa !3
@@ -481,7 +481,7 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
 
 .thread.i.i:                                      ; preds = %45, %44, %42, %36
   %.021.i.i = phi i32 [ 0, %45 ], [ 1, %44 ], [ 0, %42 ], [ 0, %36 ]
-  %46 = load ptr, ptr @xmlFree, align 8, !tbaa !59
+  %46 = load ptr, ptr @xmlFree, align 8, !tbaa !56
   tail call void %46(ptr noundef nonnull %32) #7
   br label %47
 
@@ -490,7 +490,7 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
   br i1 %35, label %48, label %openioc_is_context_hash.exit.i
 
 48:                                               ; preds = %47
-  %49 = load ptr, ptr @xmlFree, align 8, !tbaa !59
+  %49 = load ptr, ptr @xmlFree, align 8, !tbaa !56
   tail call void %49(ptr noundef nonnull %33) #7
   br label %openioc_is_context_hash.exit.i
 
@@ -533,12 +533,12 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
   br i1 %.not28.i.i, label %69, label %67
 
 67:                                               ; preds = %65
-  %68 = load ptr, ptr @xmlFree, align 8, !tbaa !59
+  %68 = load ptr, ptr @xmlFree, align 8, !tbaa !56
   tail call void %68(ptr noundef nonnull %58) #7
   br label %openioc_is_context_hash.exit.i
 
 69:                                               ; preds = %65, %63, %61
-  %70 = load ptr, ptr @xmlFree, align 8, !tbaa !59
+  %70 = load ptr, ptr @xmlFree, align 8, !tbaa !56
   tail call void %70(ptr noundef nonnull %58) #7
   br label %71
 
@@ -564,10 +564,10 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
 
 82:                                               ; preds = %79
   %83 = tail call ptr @xmlStrdup(ptr noundef nonnull %78) #7
-  store ptr %83, ptr %80, align 8, !tbaa !53
+  store ptr %83, ptr %80, align 8, !tbaa !51
   %84 = load ptr, ptr %1, align 8, !tbaa !3
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr %84, ptr %85, align 8, !tbaa !51
+  store ptr %84, ptr %85, align 8, !tbaa !49
   store ptr %80, ptr %1, align 8, !tbaa !3
   br label %openioc_is_context_hash.exit.i
 
@@ -593,7 +593,7 @@ openioc_is_context_hash.exit.i:                   ; preds = %90, %88, %87, %86, 
   %.1.i = phi i32 [ %.027.i, %90 ], [ %.027.i, %88 ], [ %.020.i.i, %47 ], [ %.020.i.i, %48 ], [ %.027.i, %82 ], [ %.027.i, %86 ], [ %.027.i, %87 ], [ 0, %67 ], [ 0, %60 ]
   %93 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #7
   %.not.i.i = icmp eq i32 %93, 1
-  br i1 %.not.i.i, label %.lr.ph.i, label %openioc_parse_indicatoritem.exit.thread, !llvm.loop !63
+  br i1 %.not.i.i, label %.lr.ph.i, label %openioc_parse_indicatoritem.exit.thread
 
 94:                                               ; preds = %17, %15
   %95 = tail call i32 @xmlStrEqual(ptr noundef nonnull %4, ptr noundef nonnull @.str.3) #7
@@ -608,7 +608,7 @@ openioc_is_context_hash.exit.i:                   ; preds = %90, %88, %87, %86, 
 openioc_parse_indicatoritem.exit.thread:          ; preds = %90, %openioc_is_context_hash.exit.i, %.lr.ph.i, %20, %96, %94, %13
   %99 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #7
   %.not.i = icmp eq i32 %99, 1
-  br i1 %.not.i, label %.lr.ph, label %openioc_read.exit.thread, !llvm.loop !64
+  br i1 %.not.i, label %.lr.ph, label %openioc_read.exit.thread
 
 openioc_read.exit.thread.sink.split:              ; preds = %13, %79
   %.str.30.sink = phi ptr [ @.str.30, %79 ], [ @.str.13, %13 ]
@@ -680,60 +680,52 @@ attributes #10 = { nounwind allocsize(0,1) }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !16, i64 104}
-!11 = !{!"cl_engine", !12, i64 0, !12, i64 4, !12, i64 8, !6, i64 12, !12, i64 20, !12, i64 24, !12, i64 28, !13, i64 32, !12, i64 40, !14, i64 48, !12, i64 56, !12, i64 60, !14, i64 64, !14, i64 72, !12, i64 80, !12, i64 84, !12, i64 88, !12, i64 92, !15, i64 96, !16, i64 104, !16, i64 112, !16, i64 120, !16, i64 128, !17, i64 136, !18, i64 144, !18, i64 152, !19, i64 160, !20, i64 168, !21, i64 176, !21, i64 184, !22, i64 192, !16, i64 200, !16, i64 208, !13, i64 216, !23, i64 224, !24, i64 232, !25, i64 240, !14, i64 248, !26, i64 256, !27, i64 264, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !29, i64 416, !6, i64 936, !6, i64 992, !12, i64 1020, !12, i64 1024, !12, i64 1028, !12, i64 1032, !14, i64 1040, !14, i64 1048, !14, i64 1056, !14, i64 1064, !14, i64 1072, !5, i64 1080, !5, i64 1088, !5, i64 1096, !5, i64 1104, !5, i64 1112, !5, i64 1120, !5, i64 1128, !5, i64 1136, !5, i64 1144, !12, i64 1152, !12, i64 1156, !12, i64 1160, !14, i64 1168, !14, i64 1176, !14, i64 1184, !33, i64 1192}
-!12 = !{!"int", !6, i64 0}
-!13 = !{!"p1 omnipotent char", !5, i64 0}
-!14 = !{!"long", !6, i64 0}
-!15 = !{!"p2 _ZTS11cli_matcher", !5, i64 0}
-!16 = !{!"p1 _ZTS11cli_matcher", !5, i64 0}
-!17 = !{!"p1 _ZTS7cli_cdb", !5, i64 0}
-!18 = !{!"p1 _ZTS13regex_matcher", !5, i64 0}
-!19 = !{!"p1 _ZTS10phishcheck", !5, i64 0}
-!20 = !{!"p1 _ZTS9cli_dconf", !5, i64 0}
-!21 = !{!"p1 _ZTS9cli_ftype", !5, i64 0}
-!22 = !{!"p2 _ZTS8cli_pwdb", !5, i64 0}
-!23 = !{!"p1 _ZTS12icon_matcher", !5, i64 0}
-!24 = !{!"p1 _ZTS5CACHE", !5, i64 0}
-!25 = !{!"p1 _ZTS10cli_dbinfo", !5, i64 0}
-!26 = !{!"p1 _ZTS2MP", !5, i64 0}
-!27 = !{!"", !28, i64 0, !12, i64 8}
-!28 = !{!"p1 _ZTS9cli_crt_t", !5, i64 0}
-!29 = !{!"cli_all_bc", !30, i64 0, !12, i64 8, !31, i64 16, !32, i64 24, !12, i64 516}
-!30 = !{!"p1 _ZTS6cli_bc", !5, i64 0}
-!31 = !{!"p1 _ZTS12cli_bcengine", !5, i64 0}
-!32 = !{!"cli_environment", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !6, i64 28, !6, i64 93, !6, i64 158, !6, i64 223, !6, i64 288, !6, i64 353, !6, i64 418, !6, i64 483, !6, i64 484, !6, i64 485, !6, i64 486, !6, i64 487, !6, i64 488, !6, i64 489, !6, i64 490, !6, i64 491}
-!33 = !{!"p1 _ZTS12_yara_global", !5, i64 0}
-!34 = !{!11, !26, i64 256}
-!35 = !{!36, !26, i64 408}
-!36 = !{!"cli_matcher", !12, i64 0, !13, i64 8, !37, i64 16, !37, i64 24, !38, i64 32, !12, i64 40, !12, i64 44, !12, i64 48, !12, i64 52, !12, i64 56, !39, i64 64, !40, i64 160, !12, i64 232, !12, i64 236, !12, i64 240, !12, i64 244, !12, i64 248, !41, i64 256, !42, i64 264, !43, i64 272, !44, i64 280, !45, i64 288, !45, i64 296, !12, i64 304, !12, i64 308, !6, i64 312, !6, i64 313, !46, i64 320, !47, i64 328, !6, i64 330, !12, i64 332, !48, i64 336, !12, i64 344, !12, i64 348, !12, i64 352, !49, i64 360, !5, i64 368, !12, i64 376, !50, i64 384, !14, i64 392, !14, i64 400, !26, i64 408}
-!37 = !{!"p2 _ZTS11cli_bm_patt", !5, i64 0}
-!38 = !{!"p1 int", !5, i64 0}
-!39 = !{!"cli_hash_patt", !6, i64 0}
-!40 = !{!"cli_hash_wild", !6, i64 0}
-!41 = !{!"p2 _ZTS11cli_ac_lsig", !5, i64 0}
-!42 = !{!"p1 _ZTS11cli_ac_node", !5, i64 0}
-!43 = !{!"p2 _ZTS11cli_ac_node", !5, i64 0}
-!44 = !{!"p2 _ZTS11cli_ac_list", !5, i64 0}
-!45 = !{!"p2 _ZTS11cli_ac_patt", !5, i64 0}
-!46 = !{!"p1 _ZTS6filter", !5, i64 0}
-!47 = !{!"short", !6, i64 0}
-!48 = !{!"p2 _ZTS13cli_pcre_meta", !5, i64 0}
-!49 = !{!"p2 _ZTS14cli_bcomp_meta", !5, i64 0}
-!50 = !{!"p3 _ZTS11cli_ac_node", !5, i64 0}
-!51 = !{!52, !5, i64 8}
-!52 = !{!"openioc_hash", !13, i64 0, !5, i64 8}
-!53 = !{!52, !13, i64 0}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 short", !5, i64 0}
-!56 = !{!6, !6, i64 0}
-!57 = !{!47, !47, i64 0}
-!58 = distinct !{!58, !9}
-!59 = !{!5, !5, i64 0}
-!60 = distinct !{!60, !9}
-!61 = distinct !{!61, !9}
-!62 = distinct !{!62, !9}
-!63 = distinct !{!63, !9}
-!64 = distinct !{!64, !9}
+!8 = !{!9, !14, i64 104}
+!9 = !{!"cl_engine", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 12, !10, i64 20, !10, i64 24, !10, i64 28, !11, i64 32, !10, i64 40, !12, i64 48, !10, i64 56, !10, i64 60, !12, i64 64, !12, i64 72, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !13, i64 96, !14, i64 104, !14, i64 112, !14, i64 120, !14, i64 128, !15, i64 136, !16, i64 144, !16, i64 152, !17, i64 160, !18, i64 168, !19, i64 176, !19, i64 184, !20, i64 192, !14, i64 200, !14, i64 208, !11, i64 216, !21, i64 224, !22, i64 232, !23, i64 240, !12, i64 248, !24, i64 256, !25, i64 264, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !27, i64 416, !6, i64 936, !6, i64 992, !10, i64 1020, !10, i64 1024, !10, i64 1028, !10, i64 1032, !12, i64 1040, !12, i64 1048, !12, i64 1056, !12, i64 1064, !12, i64 1072, !5, i64 1080, !5, i64 1088, !5, i64 1096, !5, i64 1104, !5, i64 1112, !5, i64 1120, !5, i64 1128, !5, i64 1136, !5, i64 1144, !10, i64 1152, !10, i64 1156, !10, i64 1160, !12, i64 1168, !12, i64 1176, !12, i64 1184, !31, i64 1192}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!"p1 omnipotent char", !5, i64 0}
+!12 = !{!"long", !6, i64 0}
+!13 = !{!"p2 _ZTS11cli_matcher", !5, i64 0}
+!14 = !{!"p1 _ZTS11cli_matcher", !5, i64 0}
+!15 = !{!"p1 _ZTS7cli_cdb", !5, i64 0}
+!16 = !{!"p1 _ZTS13regex_matcher", !5, i64 0}
+!17 = !{!"p1 _ZTS10phishcheck", !5, i64 0}
+!18 = !{!"p1 _ZTS9cli_dconf", !5, i64 0}
+!19 = !{!"p1 _ZTS9cli_ftype", !5, i64 0}
+!20 = !{!"p2 _ZTS8cli_pwdb", !5, i64 0}
+!21 = !{!"p1 _ZTS12icon_matcher", !5, i64 0}
+!22 = !{!"p1 _ZTS5CACHE", !5, i64 0}
+!23 = !{!"p1 _ZTS10cli_dbinfo", !5, i64 0}
+!24 = !{!"p1 _ZTS2MP", !5, i64 0}
+!25 = !{!"", !26, i64 0, !10, i64 8}
+!26 = !{!"p1 _ZTS9cli_crt_t", !5, i64 0}
+!27 = !{!"cli_all_bc", !28, i64 0, !10, i64 8, !29, i64 16, !30, i64 24, !10, i64 516}
+!28 = !{!"p1 _ZTS6cli_bc", !5, i64 0}
+!29 = !{!"p1 _ZTS12cli_bcengine", !5, i64 0}
+!30 = !{!"cli_environment", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !6, i64 28, !6, i64 93, !6, i64 158, !6, i64 223, !6, i64 288, !6, i64 353, !6, i64 418, !6, i64 483, !6, i64 484, !6, i64 485, !6, i64 486, !6, i64 487, !6, i64 488, !6, i64 489, !6, i64 490, !6, i64 491}
+!31 = !{!"p1 _ZTS12_yara_global", !5, i64 0}
+!32 = !{!9, !24, i64 256}
+!33 = !{!34, !24, i64 408}
+!34 = !{!"cli_matcher", !10, i64 0, !11, i64 8, !35, i64 16, !35, i64 24, !36, i64 32, !10, i64 40, !10, i64 44, !10, i64 48, !10, i64 52, !10, i64 56, !37, i64 64, !38, i64 160, !10, i64 232, !10, i64 236, !10, i64 240, !10, i64 244, !10, i64 248, !39, i64 256, !40, i64 264, !41, i64 272, !42, i64 280, !43, i64 288, !43, i64 296, !10, i64 304, !10, i64 308, !6, i64 312, !6, i64 313, !44, i64 320, !45, i64 328, !6, i64 330, !10, i64 332, !46, i64 336, !10, i64 344, !10, i64 348, !10, i64 352, !47, i64 360, !5, i64 368, !10, i64 376, !48, i64 384, !12, i64 392, !12, i64 400, !24, i64 408}
+!35 = !{!"p2 _ZTS11cli_bm_patt", !5, i64 0}
+!36 = !{!"p1 int", !5, i64 0}
+!37 = !{!"cli_hash_patt", !6, i64 0}
+!38 = !{!"cli_hash_wild", !6, i64 0}
+!39 = !{!"p2 _ZTS11cli_ac_lsig", !5, i64 0}
+!40 = !{!"p1 _ZTS11cli_ac_node", !5, i64 0}
+!41 = !{!"p2 _ZTS11cli_ac_node", !5, i64 0}
+!42 = !{!"p2 _ZTS11cli_ac_list", !5, i64 0}
+!43 = !{!"p2 _ZTS11cli_ac_patt", !5, i64 0}
+!44 = !{!"p1 _ZTS6filter", !5, i64 0}
+!45 = !{!"short", !6, i64 0}
+!46 = !{!"p2 _ZTS13cli_pcre_meta", !5, i64 0}
+!47 = !{!"p2 _ZTS14cli_bcomp_meta", !5, i64 0}
+!48 = !{!"p3 _ZTS11cli_ac_node", !5, i64 0}
+!49 = !{!50, !5, i64 8}
+!50 = !{!"openioc_hash", !11, i64 0, !5, i64 8}
+!51 = !{!50, !11, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 short", !5, i64 0}
+!54 = !{!6, !6, i64 0}
+!55 = !{!45, !45, i64 0}
+!56 = !{!5, !5, i64 0}

@@ -56,23 +56,23 @@ define internal void @rct_int(ptr noundef captures(none) %0, ptr noundef capture
   %.01823 = phi ptr [ %15, %.lr.ph ], [ %1, %4 ]
   %.01922 = phi ptr [ %16, %.lr.ph ], [ %2, %4 ]
   %.02021 = phi i32 [ %17, %.lr.ph ], [ 0, %4 ]
-  %6 = load i32, ptr %.024, align 4, !tbaa !13
-  %7 = load i32, ptr %.01922, align 4, !tbaa !13
-  %8 = load i32, ptr %.01823, align 4, !tbaa !13
+  %6 = load i32, ptr %.024, align 4, !tbaa !12
+  %7 = load i32, ptr %.01922, align 4, !tbaa !12
+  %8 = load i32, ptr %.01823, align 4, !tbaa !12
   %9 = add i32 %8, %7
   %10 = ashr i32 %9, 2
   %11 = sub i32 %6, %10
   %12 = add i32 %11, %7
   %13 = add i32 %11, %8
   %14 = getelementptr inbounds nuw i8, ptr %.024, i64 4
-  store i32 %12, ptr %.024, align 4, !tbaa !13
+  store i32 %12, ptr %.024, align 4, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %.01823, i64 4
-  store i32 %11, ptr %.01823, align 4, !tbaa !13
+  store i32 %11, ptr %.01823, align 4, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %.01922, i64 4
-  store i32 %13, ptr %.01922, align 4, !tbaa !13
+  store i32 %13, ptr %.01922, align 4, !tbaa !12
   %17 = add nuw nsw i32 %.02021, 1
   %exitcond.not = icmp eq i32 %17, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -88,14 +88,14 @@ define internal void @ict_int(ptr noundef captures(none) %0, ptr noundef capture
   %.02027 = phi ptr [ %28, %.lr.ph ], [ %0, %4 ]
   %.02126 = phi ptr [ %29, %.lr.ph ], [ %1, %4 ]
   %.02225 = phi ptr [ %30, %.lr.ph ], [ %2, %4 ]
-  %6 = load i32, ptr %.02027, align 4, !tbaa !13
-  %7 = load i32, ptr %.02225, align 4, !tbaa !13
+  %6 = load i32, ptr %.02027, align 4, !tbaa !12
+  %7 = load i32, ptr %.02225, align 4, !tbaa !12
   %8 = add nsw i32 %7, %6
   %9 = mul i32 %7, 26345
   %10 = add i32 %9, 32768
   %11 = ashr i32 %10, 16
   %12 = add nsw i32 %8, %11
-  %13 = load i32, ptr %.02126, align 4, !tbaa !13
+  %13 = load i32, ptr %.02126, align 4, !tbaa !12
   %14 = mul i32 %13, 22553
   %15 = add i32 %14, 32768
   %16 = ashr i32 %15, 16
@@ -111,14 +111,14 @@ define internal void @ict_int(ptr noundef captures(none) %0, ptr noundef capture
   %26 = ashr i32 %25, 16
   %27 = add nsw i32 %23, %26
   %28 = getelementptr inbounds nuw i8, ptr %.02027, i64 4
-  store i32 %12, ptr %.02027, align 4, !tbaa !13
+  store i32 %12, ptr %.02027, align 4, !tbaa !12
   %29 = getelementptr inbounds nuw i8, ptr %.02126, i64 4
-  store i32 %21, ptr %.02126, align 4, !tbaa !13
+  store i32 %21, ptr %.02126, align 4, !tbaa !12
   %30 = getelementptr inbounds nuw i8, ptr %.02225, i64 4
-  store i32 %27, ptr %.02225, align 4, !tbaa !13
+  store i32 %27, ptr %.02225, align 4, !tbaa !12
   %31 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %31, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -143,10 +143,9 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"float", !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !6, i64 0}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}

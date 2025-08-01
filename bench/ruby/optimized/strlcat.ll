@@ -67,7 +67,7 @@ define dso_local i64 @strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) lo
   %22 = getelementptr i8, ptr %.02736, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !7
   %.not29 = icmp eq i8 %23, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph39, !llvm.loop !13
+  br i1 %.not29, label %._crit_edge, label %.lr.ph39, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %21, %.preheader
   %.027.lcssa = phi ptr [ %1, %.preheader ], [ %22, %21 ]
@@ -103,7 +103,6 @@ attributes #2 = { nounwind willreturn memory(read) }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
+!12 = distinct !{!12, !11}

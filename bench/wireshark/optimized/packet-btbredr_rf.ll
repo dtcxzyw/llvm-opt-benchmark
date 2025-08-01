@@ -1220,7 +1220,7 @@ define internal i32 @dissect_btbredr_rf(ptr noundef %0, ptr noundef %1, ptr noun
   %137 = xor i32 %136, 229
   %138 = select i1 %.not10.i, i32 %136, i32 %137
   %exitcond.not.i = icmp eq i32 %135, 10
-  br i1 %exitcond.not.i, label %check_hec.exit, label %133, !llvm.loop !9
+  br i1 %exitcond.not.i, label %check_hec.exit, label %133, !llvm.loop !8
 
 check_hec.exit:                                   ; preds = %133
   %.not.i = icmp eq i32 %138, 0
@@ -1254,7 +1254,7 @@ check_hec.exit:                                   ; preds = %133
   %sext.i = add nsw i32 %154, -16777216
   %155 = ashr exact i32 %sext.i, 24
   %156 = icmp sgt i32 %155, -1
-  br i1 %156, label %144, label %broken_check_hec.exit, !llvm.loop !10
+  br i1 %156, label %144, label %broken_check_hec.exit, !llvm.loop !9
 
 broken_check_hec.exit:                            ; preds = %144
   %rev.i.i978 = call noundef i8 @llvm.bitreverse.i8(i8 %153)
@@ -3478,7 +3478,7 @@ define internal fastcc zeroext i1 @check_crc(i8 noundef zeroext %0, ptr noundef 
   %12 = add nsw i32 %.01619, -1
   %13 = add nuw nsw i32 %.021, 1
   %14 = icmp sgt i32 %.01619, 1
-  br i1 %14, label %7, label %22, !llvm.loop !11
+  br i1 %14, label %7, label %22, !llvm.loop !10
 
 15:                                               ; preds = %7, %15
   %.01418 = phi i32 [ 0, %7 ], [ %21, %15 ]
@@ -3490,7 +3490,7 @@ define internal fastcc zeroext i1 @check_crc(i8 noundef zeroext %0, ptr noundef 
   %20 = xor i16 %19, %17
   %21 = add nuw nsw i32 %.01418, 1
   %exitcond.not = icmp eq i32 %21, 8
-  br i1 %exitcond.not, label %11, label %15, !llvm.loop !12
+  br i1 %exitcond.not, label %11, label %15, !llvm.loop !11
 
 22:                                               ; preds = %11
   %.not = icmp eq i16 %19, %17
@@ -3563,10 +3563,9 @@ attributes #11 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

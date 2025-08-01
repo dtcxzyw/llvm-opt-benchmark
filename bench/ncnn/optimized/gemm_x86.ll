@@ -852,7 +852,7 @@ _ZN4ncnn3Mat7releaseEv.exit55:                    ; preds = %327, %326, %314, %3
   %333 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %334 = load i32, ptr %333, align 4, !tbaa !42
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  store i32 %334, ptr %335, align 4, !tbaa !65
+  store i32 %334, ptr %335, align 4, !tbaa !64
   br label %336
 
 336:                                              ; preds = %.thread76, %_ZNK4ncnn3Mat5emptyEv.exit.thread, %332, %328, %20
@@ -929,14 +929,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Gemm_x867forwardERKSt6ve
   br label %121
 
 57:                                               ; preds = %47
-  %58 = load ptr, ptr %1, align 8, !tbaa !66
+  %58 = load ptr, ptr %1, align 8, !tbaa !65
   br i1 %.not151, label %75, label %59
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %61 = load i32, ptr %60, align 4, !tbaa !36
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %63 = load i32, ptr %62, align 4, !tbaa !67
+  %63 = load i32, ptr %62, align 4, !tbaa !66
   %.not160 = icmp eq i32 %63, 0
   br i1 %.not160, label %72, label %64
 
@@ -959,7 +959,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Gemm_x867forwardERKSt6ve
 
 75:                                               ; preds = %57
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %77 = load i32, ptr %76, align 8, !tbaa !68
+  %77 = load i32, ptr %76, align 8, !tbaa !67
   %.not155 = icmp eq i32 %77, 0
   br i1 %.not152, label %94, label %78
 
@@ -1012,7 +1012,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Gemm_x867forwardERKSt6ve
 106:                                              ; preds = %98, %95
   %107 = phi i32 [ %97, %95 ], [ %105, %98 ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %109 = load i32, ptr %108, align 4, !tbaa !67
+  %109 = load i32, ptr %108, align 4, !tbaa !66
   %.not156 = icmp eq i32 %109, 0
   br i1 %.not156, label %118, label %110
 
@@ -1144,8 +1144,8 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %_ZN4ncnn3Mat7releas
 
 178:                                              ; preds = %121
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %180 = load ptr, ptr %179, align 8, !tbaa !69
-  %181 = load ptr, ptr %1, align 8, !tbaa !66
+  %180 = load ptr, ptr %179, align 8, !tbaa !68
+  %181 = load ptr, ptr %1, align 8, !tbaa !65
   %182 = ptrtoint ptr %180 to i64
   %183 = ptrtoint ptr %181 to i64
   %184 = sub i64 %182, %183
@@ -1839,7 +1839,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %_ZN4ncnn3MatD2Ev.ex
   %493 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %40, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %486, i8 0, i64 28, i1 false)
-  %494 = load ptr, ptr %493, align 8, !tbaa !70
+  %494 = load ptr, ptr %493, align 8, !tbaa !69
   invoke void @_ZN4ncnn3Mat11create_likeERKS0_PNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %40, ptr noundef nonnull align 8 dereferenceable(72) %39, ptr noundef %494)
           to label %495 unwind label %522
 
@@ -1914,7 +1914,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %_ZN4ncnn3MatD2Ev.ex
   store float %528, ptr %529, align 4, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %524, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %524, !llvm.loop !70
 
 530:                                              ; preds = %510, %508, %516, %521, %520
   %531 = load ptr, ptr %40, align 8, !tbaa !16
@@ -2030,10 +2030,10 @@ _ZN4ncnn3MatD2Ev.exit216:                         ; preds = %561, %559, %567, %5
 _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatD2Ev.exit, %_ZNK4ncnn3Mat5emptyEv.exit, %_ZN4ncnn3MatD2Ev.exit215, %478, %_ZN4ncnn3MataSERKS0_.exit
   %.0125 = phi i32 [ %175, %_ZN4ncnn3MataSERKS0_.exit ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit ], [ %.6, %_ZN4ncnn3MatD2Ev.exit215 ], [ %.6, %478 ], [ 0, %_ZN4ncnn3MatD2Ev.exit ]
   %576 = getelementptr inbounds nuw i8, ptr %3, i64 39
-  %577 = load i8, ptr %576, align 1, !tbaa !72, !range !46, !noundef !47
+  %577 = load i8, ptr %576, align 1, !tbaa !71, !range !46, !noundef !47
   %578 = trunc nuw i8 %577 to i1
   %579 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %580 = load i32, ptr %579, align 8, !tbaa !73
+  %580 = load i32, ptr %579, align 8, !tbaa !72
   br i1 %578, label %581, label %_ZNK4ncnn3Mat5emptyEv.exit.thread._crit_edge
 
 581:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.thread
@@ -2047,19 +2047,19 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %_ZN4ncnn3MatD2Ev.ex
 _ZNK4ncnn3Mat5emptyEv.exit.thread._crit_edge:     ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.thread, %581
   %.0145 = phi i32 [ %585, %581 ], [ 1, %_ZNK4ncnn3Mat5emptyEv.exit.thread ]
   %586 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %587 = load i32, ptr %586, align 8, !tbaa !74
+  %587 = load i32, ptr %586, align 8, !tbaa !73
   %.not177 = icmp eq i32 %587, 0
   %spec.select205 = select i1 %.not177, i32 %.0145, i32 %587
   %588 = shl i32 %spec.select205, 2
   %589 = zext i32 %588 to i64
-  %590 = load ptr, ptr %2, align 8, !tbaa !66
+  %590 = load ptr, ptr %2, align 8, !tbaa !65
   %591 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %.not178 = icmp eq i32 %580, 0
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %593 = load i32, ptr %592, align 4, !tbaa !75
+  %593 = load i32, ptr %592, align 4, !tbaa !74
   %.not179 = icmp eq i32 %593, 0
   %594 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %595 = load ptr, ptr %594, align 8, !tbaa !76
+  %595 = load ptr, ptr %594, align 8, !tbaa !75
   br i1 %.not178, label %600, label %596
 
 596:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.thread._crit_edge
@@ -2104,7 +2104,7 @@ _ZNK4ncnn3Mat5emptyEv.exit286:                    ; preds = %606
 
 616:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit286
   %617 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  %618 = load i32, ptr %617, align 4, !tbaa !65
+  %618 = load i32, ptr %617, align 4, !tbaa !64
   %.not181 = icmp eq i32 %618, 0
   %619 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %620 = load i32, ptr %619, align 4
@@ -2114,9 +2114,9 @@ _ZNK4ncnn3Mat5emptyEv.exit286:                    ; preds = %606
   br i1 %or.cond, label %626, label %622
 
 622:                                              ; preds = %616
-  %623 = load ptr, ptr @stderr, align 8, !tbaa !77
+  %623 = load ptr, ptr @stderr, align 8, !tbaa !76
   %624 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %623, ptr noundef nonnull @.str, i32 noundef %620, i32 noundef %618) #24
-  %625 = load ptr, ptr @stderr, align 8, !tbaa !77
+  %625 = load ptr, ptr @stderr, align 8, !tbaa !76
   %fputc = call i32 @fputc(i32 10, ptr %625)
   br label %626
 
@@ -2137,7 +2137,7 @@ _ZNK4ncnn3Mat5emptyEv.exit286:                    ; preds = %606
   %635 = load i32, ptr %634, align 8, !tbaa !49
   %636 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %637 = load i32, ptr %636, align 4, !tbaa !38
-  %638 = load i32, ptr %591, align 8, !tbaa !73
+  %638 = load i32, ptr %591, align 8, !tbaa !72
   %639 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %640 = load i32, ptr %639, align 8, !tbaa !39
   %641 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -2187,7 +2187,7 @@ _ZNK4ncnn3Mat5emptyEv.exit286:                    ; preds = %606
   %658 = load i32, ptr %35, align 4, !tbaa !37
   %659 = mul nsw i32 %658, %645
   %660 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %661 = load ptr, ptr %660, align 8, !tbaa !70
+  %661 = load ptr, ptr %660, align 8, !tbaa !69
   invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %38, i32 noundef %659, i32 noundef 1, i32 noundef %621, i64 noundef 4, ptr noundef %661)
           to label %662 unwind label %670
 
@@ -2315,7 +2315,7 @@ _ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; pre
   br label %_ZN4ncnn3MatD2Ev.exit208
 
 707:                                              ; preds = %626
-  %708 = load ptr, ptr %1, align 8, !tbaa !66
+  %708 = load ptr, ptr %1, align 8, !tbaa !65
   br i1 %.not184, label %858, label %709
 
 709:                                              ; preds = %707
@@ -2325,8 +2325,8 @@ _ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; pre
   %713 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %714 = load i32, ptr %713, align 4, !tbaa !38
   %715 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %716 = load i32, ptr %715, align 4, !tbaa !67
-  %717 = load i32, ptr %591, align 8, !tbaa !73
+  %716 = load i32, ptr %715, align 4, !tbaa !66
+  %717 = load i32, ptr %591, align 8, !tbaa !72
   %718 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %719 = load i32, ptr %718, align 8, !tbaa !39
   %720 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -2395,7 +2395,7 @@ _ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; pre
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %26) #9
   %751 = mul nsw i32 %747, %742
   %752 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %753 = load ptr, ptr %752, align 8, !tbaa !70
+  %753 = load ptr, ptr %752, align 8, !tbaa !69
   %754 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %755 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %756 = getelementptr inbounds nuw i8, ptr %26, i64 64
@@ -2446,7 +2446,7 @@ _ZNK4ncnn3Mat5emptyEv.exit49.i:                   ; preds = %.noexc347
 777:                                              ; preds = %765
   %778 = load i32, ptr %22, align 4, !tbaa !37
   %779 = mul nsw i32 %778, %737
-  %780 = load ptr, ptr %752, align 8, !tbaa !70
+  %780 = load ptr, ptr %752, align 8, !tbaa !69
   invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %28, i32 noundef %779, i32 noundef 1, i32 noundef %621, i64 noundef 4, ptr noundef %780)
           to label %781 unwind label %789
 
@@ -2671,8 +2671,8 @@ _ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   %863 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %864 = load i32, ptr %863, align 4, !tbaa !38
   %865 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %866 = load i32, ptr %865, align 8, !tbaa !68
-  %867 = load i32, ptr %591, align 8, !tbaa !73
+  %866 = load i32, ptr %865, align 8, !tbaa !67
+  %867 = load i32, ptr %591, align 8, !tbaa !72
   %868 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %869 = load i32, ptr %868, align 8, !tbaa !39
   %870 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -2729,7 +2729,7 @@ _ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
   %894 = add i32 %893, %891
   %895 = sdiv i32 %894, %891
   %896 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %897 = load ptr, ptr %896, align 8, !tbaa !70
+  %897 = load ptr, ptr %896, align 8, !tbaa !69
   %898 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %899 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %900 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -2772,7 +2772,7 @@ _ZNK4ncnn3Mat5emptyEv.exit53.i:                   ; preds = %.noexc368
 917:                                              ; preds = %909
   %918 = load i32, ptr %10, align 4, !tbaa !37
   %919 = mul nsw i32 %918, %887
-  %920 = load ptr, ptr %896, align 8, !tbaa !70
+  %920 = load ptr, ptr %896, align 8, !tbaa !69
   invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %14, i32 noundef %919, i32 noundef 1, i32 noundef %621, i64 noundef 4, ptr noundef %920)
           to label %921 unwind label %929
 
@@ -2983,10 +2983,10 @@ _ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
 998:                                              ; preds = %858
   %999 = getelementptr inbounds nuw i8, ptr %708, i64 72
   %1000 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %1001 = load i32, ptr %1000, align 8, !tbaa !68
+  %1001 = load i32, ptr %1000, align 8, !tbaa !67
   %1002 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %1003 = load i32, ptr %1002, align 4, !tbaa !67
-  %1004 = load i32, ptr %591, align 8, !tbaa !73
+  %1003 = load i32, ptr %1002, align 4, !tbaa !66
+  %1004 = load i32, ptr %591, align 8, !tbaa !72
   %1005 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %1006 = load i32, ptr %1005, align 8, !tbaa !39
   %1007 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -3008,7 +3008,7 @@ _ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6OptionE.exit: ; preds 
 
 1015:                                             ; preds = %1014
   %1016 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %1017 = load float, ptr %1016, align 8, !tbaa !79
+  %1017 = load float, ptr %1016, align 8, !tbaa !78
   %1018 = fcmp fast une float %1017, 1.000000e+00
   br i1 %1018, label %1019, label %_ZNK4ncnn3Mat5emptyEv.exit286.thread
 
@@ -3142,9 +3142,9 @@ define hidden void @_ZN4ncnn8Gemm_x86C2Ev(ptr noundef nonnull align 8 dereferenc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 0, i64 36, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %7, i8 0, i64 28, i1 false)
-  store i8 1, ptr %9, align 1, !tbaa !80
+  store i8 1, ptr %9, align 1, !tbaa !79
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  store i32 0, ptr %10, align 4, !tbaa !65
+  store i32 0, ptr %10, align 4, !tbaa !64
   ret void
 }
 
@@ -3830,7 +3830,7 @@ _ZN4ncnn3Mat7releaseEv.exit:                      ; preds = %238, %237, %226, %2
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %245 = load i32, ptr %244, align 4, !tbaa !42
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  store i32 %245, ptr %246, align 4, !tbaa !65
+  store i32 %245, ptr %246, align 4, !tbaa !64
   br label %247
 
 247:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit41.thread, %_ZNK4ncnn3Mat5emptyEv.exit.thread, %243, %239
@@ -4044,7 +4044,7 @@ define internal void @_ZN4ncnn8Gemm_x8615create_pipelineERKNS_6OptionE.omp_outli
   %35 = phi i32 [ %63, %._crit_edge.loopexit ], [ %30, %.lr.ph.split ]
   %36 = add nsw i32 %.063, 1
   %.not.not = icmp slt i32 %.063, %34
-  br i1 %.not.not, label %.lr.ph.split, label %._crit_edge65, !llvm.loop !81
+  br i1 %.not.not, label %.lr.ph.split, label %._crit_edge65, !llvm.loop !80
 
 .noexc40:                                         ; preds = %.noexc40.preheader, %_ZN4ncnn3MatD2Ev.exit
   %37 = phi i32 [ %61, %_ZN4ncnn3MatD2Ev.exit ], [ %.pre, %.noexc40.preheader ]
@@ -4057,12 +4057,12 @@ define internal void @_ZN4ncnn8Gemm_x8615create_pipelineERKNS_6OptionE.omp_outli
   %42 = sub nsw i32 %38, %.03061
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %37, i32 %42)
   %43 = sdiv i32 %32, %41
-  %44 = load i32, ptr %22, align 4, !tbaa !55, !noalias !83
-  %45 = load ptr, ptr %21, align 8, !tbaa !16, !noalias !83
-  %46 = load i64, ptr %23, align 8, !tbaa !17, !noalias !83
+  %44 = load i32, ptr %22, align 4, !tbaa !55, !noalias !82
+  %45 = load ptr, ptr %21, align 8, !tbaa !16, !noalias !82
+  %46 = load i64, ptr %23, align 8, !tbaa !17, !noalias !82
   %47 = sext i32 %43 to i64
   %48 = mul i64 %46, %47
-  %49 = load i64, ptr %24, align 8, !tbaa !52, !noalias !83
+  %49 = load i64, ptr %24, align 8, !tbaa !52, !noalias !82
   %50 = mul i64 %48, %49
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 %50
   %52 = sext i32 %44 to i64
@@ -4071,7 +4071,7 @@ define internal void @_ZN4ncnn8Gemm_x8615create_pipelineERKNS_6OptionE.omp_outli
   %55 = mul i64 %49, %52
   %56 = mul i64 %55, %54
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 %56
-  %58 = load i32, ptr %25, align 8, !tbaa !68
+  %58 = load i32, ptr %25, align 8, !tbaa !67
   %.not31 = icmp eq i32 %58, 0
   br i1 %.not31, label %60, label %59
 
@@ -4088,7 +4088,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %60, %59
   %62 = add nsw i32 %61, %.03061
   %63 = load i32, ptr %4, align 4, !tbaa !37
   %64 = icmp slt i32 %62, %63
-  br i1 %64, label %.noexc40, label %._crit_edge.loopexit, !llvm.loop !86
+  br i1 %64, label %.noexc40, label %._crit_edge.loopexit, !llvm.loop !85
 
 ._crit_edge65:                                    ; preds = %._crit_edge, %.lr.ph, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -4166,31 +4166,31 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 4
   %36 = or disjoint i64 %indvars.iv.next99, 3
   %37 = icmp samesign ult i64 %36, %28
-  br i1 %37, label %.lr.ph17.split.us, label %.preheader4.loopexit, !llvm.loop !87
+  br i1 %37, label %.lr.ph17.split.us, label %.preheader4.loopexit, !llvm.loop !86
 
 .lr.ph13.us:                                      ; preds = %.lr.ph13.us.preheader, %.lr.ph13.us
   %.312.us = phi ptr [ %39, %.lr.ph13.us ], [ %.2.lcssa.us, %.lr.ph13.us.preheader ]
   %.014611.us = phi i32 [ %41, %.lr.ph13.us ], [ 0, %.lr.ph13.us.preheader ]
   %.014710.us = phi ptr [ %40, %.lr.ph13.us ], [ %35, %.lr.ph13.us.preheader ]
-  %38 = load <4 x float>, ptr %.014710.us, align 1, !tbaa !89
-  store <4 x float> %38, ptr %.312.us, align 16, !tbaa !89
+  %38 = load <4 x float>, ptr %.014710.us, align 1, !tbaa !88
+  store <4 x float> %38, ptr %.312.us, align 16, !tbaa !88
   %39 = getelementptr inbounds nuw i8, ptr %.312.us, i64 16
   %40 = getelementptr inbounds float, ptr %.014710.us, i64 %26
   %41 = add nuw nsw i32 %.014611.us, 1
   %exitcond97.not = icmp eq i32 %41, %4
-  br i1 %exitcond97.not, label %.loopexit5.us, label %.lr.ph13.us, !llvm.loop !90
+  br i1 %exitcond97.not, label %.loopexit5.us, label %.lr.ph13.us, !llvm.loop !89
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %.29.us = phi ptr [ %60, %.lr.ph.us ], [ %.013816.us, %.lr.ph.us.preheader ]
   %.01428.us = phi ptr [ %61, %.lr.ph.us ], [ %32, %.lr.ph.us.preheader ]
   %.01437.us = phi i32 [ %62, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
-  %42 = load <4 x float>, ptr %.01428.us, align 16, !tbaa !89
+  %42 = load <4 x float>, ptr %.01428.us, align 16, !tbaa !88
   %43 = getelementptr inbounds nuw i8, ptr %.01428.us, i64 16
-  %44 = load <4 x float>, ptr %43, align 16, !tbaa !89
+  %44 = load <4 x float>, ptr %43, align 16, !tbaa !88
   %45 = getelementptr inbounds nuw i8, ptr %.01428.us, i64 32
-  %46 = load <4 x float>, ptr %45, align 16, !tbaa !89
+  %46 = load <4 x float>, ptr %45, align 16, !tbaa !88
   %47 = getelementptr inbounds nuw i8, ptr %.01428.us, i64 48
-  %48 = load <4 x float>, ptr %47, align 16, !tbaa !89
+  %48 = load <4 x float>, ptr %47, align 16, !tbaa !88
   %49 = shufflevector <4 x float> %42, <4 x float> %44, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %50 = shufflevector <4 x float> %46, <4 x float> %48, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %51 = shufflevector <4 x float> %42, <4 x float> %44, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -4199,19 +4199,19 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   %54 = shufflevector <4 x float> %50, <4 x float> %49, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %55 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %56 = shufflevector <4 x float> %52, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %53, ptr %.29.us, align 16, !tbaa !89
+  store <4 x float> %53, ptr %.29.us, align 16, !tbaa !88
   %57 = getelementptr inbounds nuw i8, ptr %.29.us, i64 16
-  store <4 x float> %54, ptr %57, align 16, !tbaa !89
+  store <4 x float> %54, ptr %57, align 16, !tbaa !88
   %58 = getelementptr inbounds nuw i8, ptr %.29.us, i64 32
-  store <4 x float> %55, ptr %58, align 16, !tbaa !89
+  store <4 x float> %55, ptr %58, align 16, !tbaa !88
   %59 = getelementptr inbounds nuw i8, ptr %.29.us, i64 48
-  store <4 x float> %56, ptr %59, align 16, !tbaa !89
+  store <4 x float> %56, ptr %59, align 16, !tbaa !88
   %60 = getelementptr inbounds nuw i8, ptr %.29.us, i64 64
   %61 = getelementptr inbounds float, ptr %.01428.us, i64 %23
   %62 = add nuw nsw i32 %.01437.us, 4
   %63 = or disjoint i32 %62, 3
   %64 = icmp slt i32 %63, %4
-  br i1 %64, label %.lr.ph.us, label %.loopexit6.us, !llvm.loop !91
+  br i1 %64, label %.lr.ph.us, label %.loopexit6.us, !llvm.loop !90
 
 .loopexit6.us:                                    ; preds = %.lr.ph.us, %.lr.ph17.split.us
   %.2.lcssa.us = phi ptr [ %.013816.us, %.lr.ph17.split.us ], [ %60, %.lr.ph.us ]
@@ -4245,20 +4245,20 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   %.312.us24 = phi ptr [ %73, %.lr.ph13.us29 ], [ %.013816.us21, %.lr.ph13.us29.preheader ]
   %.014611.us25 = phi i32 [ %75, %.lr.ph13.us29 ], [ 0, %.lr.ph13.us29.preheader ]
   %.014710.us26 = phi ptr [ %74, %.lr.ph13.us29 ], [ %71, %.lr.ph13.us29.preheader ]
-  %72 = load <4 x float>, ptr %.014710.us26, align 1, !tbaa !89
-  store <4 x float> %72, ptr %.312.us24, align 16, !tbaa !89
+  %72 = load <4 x float>, ptr %.014710.us26, align 1, !tbaa !88
+  store <4 x float> %72, ptr %.312.us24, align 16, !tbaa !88
   %73 = getelementptr inbounds nuw i8, ptr %.312.us24, i64 16
   %74 = getelementptr inbounds float, ptr %.014710.us26, i64 %26
   %75 = add nuw nsw i32 %.014611.us25, 1
   %exitcond.not = icmp eq i32 %75, %4
-  br i1 %exitcond.not, label %.loopexit5.us27, label %.lr.ph13.us29, !llvm.loop !90
+  br i1 %exitcond.not, label %.loopexit5.us27, label %.lr.ph13.us29, !llvm.loop !89
 
 .loopexit5.us27:                                  ; preds = %.lr.ph13.us29, %.lr.ph17.split.split.us
   %.3.lcssa.us28 = phi ptr [ %.013816.us21, %.lr.ph17.split.split.us ], [ %73, %.lr.ph13.us29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %76 = or disjoint i64 %indvars.iv.next, 3
   %77 = icmp samesign ult i64 %76, %67
-  br i1 %77, label %.lr.ph17.split.split.us, label %.preheader4.loopexit81, !llvm.loop !92
+  br i1 %77, label %.lr.ph17.split.split.us, label %.preheader4.loopexit81, !llvm.loop !91
 
 .preheader4.loopexit:                             ; preds = %.loopexit5.us
   %78 = trunc nuw nsw i64 %indvars.iv.next99 to i32
@@ -4318,7 +4318,7 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 2
   %101 = or disjoint i64 %indvars.iv.next107, 1
   %102 = icmp slt i64 %101, %93
-  br i1 %102, label %.lr.ph46.split.us, label %.preheader.loopexit, !llvm.loop !93
+  br i1 %102, label %.lr.ph46.split.us, label %.preheader.loopexit, !llvm.loop !92
 
 .lr.ph42.us:                                      ; preds = %.lr.ph42.us.preheader, %.lr.ph42.us
   %.013641.us = phi i32 [ %109, %.lr.ph42.us ], [ 0, %.lr.ph42.us.preheader ]
@@ -4334,26 +4334,26 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   %108 = getelementptr inbounds float, ptr %.013740.us, i64 %90
   %109 = add nuw nsw i32 %.013641.us, 1
   %exitcond105.not = icmp eq i32 %109, %4
-  br i1 %exitcond105.not, label %.loopexit2.us, label %.lr.ph42.us, !llvm.loop !94
+  br i1 %exitcond105.not, label %.loopexit2.us, label %.lr.ph42.us, !llvm.loop !93
 
 .lr.ph.us49:                                      ; preds = %.lr.ph.us49.preheader, %.lr.ph.us49
   %.738.us = phi ptr [ %116, %.lr.ph.us49 ], [ %.545.us, %.lr.ph.us49.preheader ]
   %.014437.us = phi i32 [ %118, %.lr.ph.us49 ], [ 0, %.lr.ph.us49.preheader ]
   %.014536.us = phi ptr [ %117, %.lr.ph.us49 ], [ %97, %.lr.ph.us49.preheader ]
-  %110 = load <4 x float>, ptr %.014536.us, align 16, !tbaa !89
+  %110 = load <4 x float>, ptr %.014536.us, align 16, !tbaa !88
   %111 = getelementptr inbounds nuw i8, ptr %.014536.us, i64 16
-  %112 = load <4 x float>, ptr %111, align 16, !tbaa !89
+  %112 = load <4 x float>, ptr %111, align 16, !tbaa !88
   %113 = shufflevector <4 x float> %110, <4 x float> %112, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %114 = shufflevector <4 x float> %110, <4 x float> %112, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %113, ptr %.738.us, align 16, !tbaa !89
+  store <4 x float> %113, ptr %.738.us, align 16, !tbaa !88
   %115 = getelementptr inbounds nuw i8, ptr %.738.us, i64 16
-  store <4 x float> %114, ptr %115, align 16, !tbaa !89
+  store <4 x float> %114, ptr %115, align 16, !tbaa !88
   %116 = getelementptr inbounds nuw i8, ptr %.738.us, i64 32
   %117 = getelementptr inbounds float, ptr %.014536.us, i64 %87
   %118 = add nuw nsw i32 %.014437.us, 4
   %119 = or disjoint i32 %118, 3
   %120 = icmp slt i32 %119, %4
-  br i1 %120, label %.lr.ph.us49, label %.loopexit3.us, !llvm.loop !95
+  br i1 %120, label %.lr.ph.us49, label %.loopexit3.us, !llvm.loop !94
 
 .loopexit3.us:                                    ; preds = %.lr.ph.us49, %.lr.ph46.split.us
   %.7.lcssa.us = phi ptr [ %.545.us, %.lr.ph46.split.us ], [ %116, %.lr.ph.us49 ]
@@ -4402,14 +4402,14 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   %136 = getelementptr inbounds float, ptr %.013740.us57, i64 %90
   %137 = add nuw nsw i32 %.013641.us56, 1
   %exitcond101.not = icmp eq i32 %137, %4
-  br i1 %exitcond101.not, label %.loopexit2.us59, label %.lr.ph42.us61, !llvm.loop !94
+  br i1 %exitcond101.not, label %.loopexit2.us59, label %.lr.ph42.us61, !llvm.loop !93
 
 .loopexit2.us59:                                  ; preds = %.lr.ph42.us61, %.lr.ph46.split.split.us
   %.8.lcssa.us60 = phi ptr [ %.545.us53, %.lr.ph46.split.split.us ], [ %135, %.lr.ph42.us61 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 2
   %138 = or disjoint i64 %indvars.iv.next103, 1
   %139 = icmp slt i64 %138, %130
-  br i1 %139, label %.lr.ph46.split.split.us, label %.preheader.loopexit79, !llvm.loop !96
+  br i1 %139, label %.lr.ph46.split.split.us, label %.preheader.loopexit79, !llvm.loop !95
 
 .preheader.loopexit:                              ; preds = %.loopexit2.us
   %140 = trunc nsw i64 %indvars.iv.next107 to i32
@@ -4461,14 +4461,14 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   %.013470 = phi i32 [ %161, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.013569 = phi ptr [ %160, %.lr.ph ], [ %157, %.lr.ph.preheader ]
   %.1268 = phi ptr [ %159, %.lr.ph ], [ %.1077, %.lr.ph.preheader ]
-  %158 = load <4 x float>, ptr %.013569, align 16, !tbaa !89
-  store <4 x float> %158, ptr %.1268, align 16, !tbaa !89
+  %158 = load <4 x float>, ptr %.013569, align 16, !tbaa !88
+  store <4 x float> %158, ptr %.1268, align 16, !tbaa !88
   %159 = getelementptr inbounds nuw i8, ptr %.1268, i64 16
   %160 = getelementptr inbounds float, ptr %.013569, i64 %147
   %161 = add nuw nsw i32 %.013470, 4
   %162 = or disjoint i32 %161, 3
   %163 = icmp slt i32 %162, %4
-  br i1 %163, label %.lr.ph, label %.loopexit, !llvm.loop !97
+  br i1 %163, label %.lr.ph, label %.loopexit, !llvm.loop !96
 
 164:                                              ; preds = %152
   br i1 %148, label %.lr.ph74.preheader, label %.loopexit
@@ -4490,13 +4490,13 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_A_tileERKNS_3MatERS0_iiii
   %171 = getelementptr inbounds float, ptr %.013372, i64 %149
   %172 = add nuw nsw i32 %.073, 1
   %exitcond109.not = icmp eq i32 %172, %4
-  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph74, !llvm.loop !98
+  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph74, !llvm.loop !97
 
 .loopexit:                                        ; preds = %.lr.ph74, %.lr.ph, %152, %153, %164
   %.14 = phi ptr [ %.1077, %164 ], [ %.1077, %153 ], [ %.1077, %152 ], [ %159, %.lr.ph ], [ %170, %.lr.ph74 ]
   %indvars.iv.next111 = add nsw i64 %indvars.iv110, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
-  br i1 %exitcond113.not, label %._crit_edge, label %152, !llvm.loop !99
+  br i1 %exitcond113.not, label %._crit_edge, label %152, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   ret void
@@ -4615,7 +4615,7 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   %73 = getelementptr inbounds nuw i8, ptr %.117623.us, i64 4
   %74 = add nuw nsw i32 %.117822.us, 1
   %exitcond135.not = icmp eq i32 %74, %4
-  br i1 %exitcond135.not, label %.loopexit.us, label %.lr.ph28.us, !llvm.loop !100
+  br i1 %exitcond135.not, label %.loopexit.us, label %.lr.ph28.us, !llvm.loop !99
 
 .lr.ph15.us:                                      ; preds = %.loopexit5.us, %.lr.ph15.us
   %.314.us = phi ptr [ %90, %.lr.ph15.us ], [ %.1157.us, %.loopexit5.us ]
@@ -4624,10 +4624,10 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   %.017311.us = phi ptr [ %93, %.lr.ph15.us ], [ %57, %.loopexit5.us ]
   %.017510.us = phi ptr [ %94, %.lr.ph15.us ], [ %61, %.loopexit5.us ]
   %.01779.us = phi i32 [ %95, %.lr.ph15.us ], [ 0, %.loopexit5.us ]
-  %75 = load <4 x float>, ptr %.016913.us, align 1, !tbaa !89
-  %76 = load <4 x float>, ptr %.017112.us, align 1, !tbaa !89
-  %77 = load <4 x float>, ptr %.017311.us, align 1, !tbaa !89
-  %78 = load <4 x float>, ptr %.017510.us, align 1, !tbaa !89
+  %75 = load <4 x float>, ptr %.016913.us, align 1, !tbaa !88
+  %76 = load <4 x float>, ptr %.017112.us, align 1, !tbaa !88
+  %77 = load <4 x float>, ptr %.017311.us, align 1, !tbaa !88
+  %78 = load <4 x float>, ptr %.017510.us, align 1, !tbaa !88
   %79 = shufflevector <4 x float> %75, <4 x float> %76, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %80 = shufflevector <4 x float> %77, <4 x float> %78, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %81 = shufflevector <4 x float> %75, <4 x float> %76, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -4636,13 +4636,13 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   %84 = shufflevector <4 x float> %80, <4 x float> %79, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %85 = shufflevector <4 x float> %81, <4 x float> %82, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %86 = shufflevector <4 x float> %82, <4 x float> %81, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %83, ptr %.314.us, align 16, !tbaa !89
+  store <4 x float> %83, ptr %.314.us, align 16, !tbaa !88
   %87 = getelementptr inbounds nuw i8, ptr %.314.us, i64 16
-  store <4 x float> %84, ptr %87, align 16, !tbaa !89
+  store <4 x float> %84, ptr %87, align 16, !tbaa !88
   %88 = getelementptr inbounds nuw i8, ptr %.314.us, i64 32
-  store <4 x float> %85, ptr %88, align 16, !tbaa !89
+  store <4 x float> %85, ptr %88, align 16, !tbaa !88
   %89 = getelementptr inbounds nuw i8, ptr %.314.us, i64 48
-  store <4 x float> %86, ptr %89, align 16, !tbaa !89
+  store <4 x float> %86, ptr %89, align 16, !tbaa !88
   %90 = getelementptr inbounds nuw i8, ptr %.314.us, i64 64
   %91 = getelementptr inbounds nuw i8, ptr %.016913.us, i64 16
   %92 = getelementptr inbounds nuw i8, ptr %.017112.us, i64 16
@@ -4651,19 +4651,19 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   %95 = add nuw nsw i32 %.01779.us, 4
   %96 = or disjoint i32 %95, 3
   %97 = icmp slt i32 %96, %4
-  br i1 %97, label %.lr.ph15.us, label %.preheader4.us, !llvm.loop !101
+  br i1 %97, label %.lr.ph15.us, label %.preheader4.us, !llvm.loop !100
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %.28.us = phi ptr [ %99, %.lr.ph.us ], [ %.015631.us, %.lr.ph.us.preheader ]
   %.01617.us = phi ptr [ %100, %.lr.ph.us ], [ %46, %.lr.ph.us.preheader ]
   %.01626.us = phi i32 [ %101, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
-  %98 = load <4 x float>, ptr %.01617.us, align 16, !tbaa !89
-  store <4 x float> %98, ptr %.28.us, align 16, !tbaa !89
+  %98 = load <4 x float>, ptr %.01617.us, align 16, !tbaa !88
+  store <4 x float> %98, ptr %.28.us, align 16, !tbaa !88
   %99 = getelementptr inbounds nuw i8, ptr %.28.us, i64 16
   %100 = getelementptr inbounds nuw i8, ptr %.01617.us, i64 16
   %101 = add nuw nsw i32 %.01626.us, 1
   %exitcond134.not = icmp eq i32 %101, %4
-  br i1 %exitcond134.not, label %.loopexit5.us.loopexit, label %.lr.ph.us, !llvm.loop !102
+  br i1 %exitcond134.not, label %.loopexit5.us.loopexit, label %.lr.ph.us, !llvm.loop !101
 
 .preheader4.us:                                   ; preds = %.lr.ph15.us, %.loopexit5.us.thread, %.loopexit5.us
   %.0177.lcssa.us = phi i32 [ 0, %.loopexit5.us ], [ 0, %.loopexit5.us.thread ], [ %25, %.lr.ph15.us ]
@@ -4680,7 +4680,7 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 4
   %103 = or disjoint i64 %indvars.iv.next137, 3
   %104 = icmp samesign ult i64 %103, %28
-  br i1 %104, label %.lr.ph32.split.us, label %.preheader3.loopexit, !llvm.loop !103
+  br i1 %104, label %.lr.ph32.split.us, label %.preheader3.loopexit, !llvm.loop !102
 
 .lr.ph32.split:                                   ; preds = %.lr.ph32
   br i1 %18, label %.lr.ph32.split.split.us.preheader, label %.lr.ph32.split.split.preheader
@@ -4712,20 +4712,20 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   %.28.us39 = phi ptr [ %115, %.lr.ph.us44 ], [ %.015631.us36, %.lr.ph.us44.preheader ]
   %.01617.us40 = phi ptr [ %116, %.lr.ph.us44 ], [ %113, %.lr.ph.us44.preheader ]
   %.01626.us41 = phi i32 [ %117, %.lr.ph.us44 ], [ 0, %.lr.ph.us44.preheader ]
-  %114 = load <4 x float>, ptr %.01617.us40, align 16, !tbaa !89
-  store <4 x float> %114, ptr %.28.us39, align 16, !tbaa !89
+  %114 = load <4 x float>, ptr %.01617.us40, align 16, !tbaa !88
+  store <4 x float> %114, ptr %.28.us39, align 16, !tbaa !88
   %115 = getelementptr inbounds nuw i8, ptr %.28.us39, i64 16
   %116 = getelementptr inbounds nuw i8, ptr %.01617.us40, i64 16
   %117 = add nuw nsw i32 %.01626.us41, 1
   %exitcond.not = icmp eq i32 %117, %4
-  br i1 %exitcond.not, label %.loopexit5.us42, label %.lr.ph.us44, !llvm.loop !102
+  br i1 %exitcond.not, label %.loopexit5.us42, label %.lr.ph.us44, !llvm.loop !101
 
 .loopexit5.us42:                                  ; preds = %.lr.ph.us44, %.lr.ph32.split.split.us
   %.2.lcssa.us43 = phi ptr [ %.015631.us36, %.lr.ph32.split.split.us ], [ %115, %.lr.ph.us44 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %118 = or disjoint i64 %indvars.iv.next, 3
   %119 = icmp samesign ult i64 %118, %108
-  br i1 %119, label %.lr.ph32.split.split.us, label %.preheader3.loopexit107, !llvm.loop !104
+  br i1 %119, label %.lr.ph32.split.split.us, label %.preheader3.loopexit107, !llvm.loop !103
 
 .preheader3.loopexit:                             ; preds = %.loopexit.us
   %120 = trunc nuw nsw i64 %indvars.iv.next137 to i32
@@ -4778,7 +4778,7 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 2
   %142 = or disjoint i64 %indvars.iv.next144, 1
   %143 = icmp slt i64 %142, %130
-  br i1 %143, label %.lr.ph.us69, label %.preheader1.loopexit, !llvm.loop !105
+  br i1 %143, label %.lr.ph.us69, label %.preheader1.loopexit, !llvm.loop !104
 
 .lr.ph62.us:                                      ; preds = %..preheader2_crit_edge.us, %.lr.ph62.us
   %.861.us = phi ptr [ %147, %.lr.ph62.us ], [ %158, %..preheader2_crit_edge.us ]
@@ -4795,27 +4795,27 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   %149 = getelementptr inbounds nuw i8, ptr %.116659.us, i64 4
   %150 = add nuw nsw i32 %.116460.us, 1
   %151 = icmp slt i32 %150, %4
-  br i1 %151, label %.lr.ph62.us, label %._crit_edge.us, !llvm.loop !106
+  br i1 %151, label %.lr.ph62.us, label %._crit_edge.us, !llvm.loop !105
 
 152:                                              ; preds = %.lr.ph.us69, %152
   %.754.us = phi ptr [ %.665.us, %.lr.ph.us69 ], [ %158, %152 ]
   %.016353.us = phi i32 [ 0, %.lr.ph.us69 ], [ %161, %152 ]
   %.016552.us = phi ptr [ %141, %.lr.ph.us69 ], [ %160, %152 ]
   %.016751.us = phi ptr [ %136, %.lr.ph.us69 ], [ %159, %152 ]
-  %153 = load <4 x float>, ptr %.016751.us, align 1, !tbaa !89
-  %154 = load <4 x float>, ptr %.016552.us, align 1, !tbaa !89
+  %153 = load <4 x float>, ptr %.016751.us, align 1, !tbaa !88
+  %154 = load <4 x float>, ptr %.016552.us, align 1, !tbaa !88
   %155 = shufflevector <4 x float> %153, <4 x float> %154, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %156 = shufflevector <4 x float> %153, <4 x float> %154, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %155, ptr %.754.us, align 16, !tbaa !89
+  store <4 x float> %155, ptr %.754.us, align 16, !tbaa !88
   %157 = getelementptr inbounds nuw i8, ptr %.754.us, i64 16
-  store <4 x float> %156, ptr %157, align 16, !tbaa !89
+  store <4 x float> %156, ptr %157, align 16, !tbaa !88
   %158 = getelementptr inbounds nuw i8, ptr %.754.us, i64 32
   %159 = getelementptr inbounds nuw i8, ptr %.016751.us, i64 16
   %160 = getelementptr inbounds nuw i8, ptr %.016552.us, i64 16
   %161 = add nuw nsw i32 %.016353.us, 4
   %162 = or disjoint i32 %161, 3
   %163 = icmp slt i32 %162, %4
-  br i1 %163, label %152, label %..preheader2_crit_edge.us, !llvm.loop !107
+  br i1 %163, label %152, label %..preheader2_crit_edge.us, !llvm.loop !106
 
 ..preheader2_crit_edge.us:                        ; preds = %152
   br i1 %131, label %.lr.ph62.us, label %._crit_edge.us
@@ -4869,13 +4869,13 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   %186 = getelementptr inbounds nuw i8, ptr %.116659.us80, i64 4
   %187 = add nuw nsw i32 %.116460.us79, 1
   %exitcond139.not = icmp eq i32 %187, %4
-  br i1 %exitcond139.not, label %._crit_edge.us83, label %180, !llvm.loop !106
+  br i1 %exitcond139.not, label %._crit_edge.us83, label %180, !llvm.loop !105
 
 ._crit_edge.us83:                                 ; preds = %180
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 2
   %188 = or disjoint i64 %indvars.iv.next141, 1
   %189 = icmp slt i64 %188, %174
-  br i1 %189, label %.preheader2.us73, label %.preheader1.loopexit105, !llvm.loop !108
+  br i1 %189, label %.preheader2.us73, label %.preheader1.loopexit105, !llvm.loop !107
 
 .preheader1.loopexit:                             ; preds = %._crit_edge.us
   %190 = trunc nsw i64 %indvars.iv.next144 to i32
@@ -4922,14 +4922,14 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   %.093 = phi i32 [ %209, %.lr.ph ], [ 0, %199 ]
   %.015492 = phi ptr [ %208, %.lr.ph ], [ %204, %199 ]
   %.1091 = phi ptr [ %207, %.lr.ph ], [ %.9102, %199 ]
-  %206 = load <4 x float>, ptr %.015492, align 1, !tbaa !89
-  store <4 x float> %206, ptr %.1091, align 1, !tbaa !89
+  %206 = load <4 x float>, ptr %.015492, align 1, !tbaa !88
+  store <4 x float> %206, ptr %.1091, align 1, !tbaa !88
   %207 = getelementptr inbounds nuw i8, ptr %.1091, i64 16
   %208 = getelementptr inbounds nuw i8, ptr %.015492, i64 16
   %209 = add nuw nsw i32 %.093, 4
   %210 = or disjoint i32 %209, 3
   %211 = icmp slt i32 %210, %4
-  br i1 %211, label %.lr.ph, label %.preheader, !llvm.loop !109
+  br i1 %211, label %.lr.ph, label %.preheader, !llvm.loop !108
 
 .lr.ph99:                                         ; preds = %.preheader, %.lr.ph99
   %.198 = phi i32 [ %215, %.lr.ph99 ], [ %.0.lcssa, %.preheader ]
@@ -4941,13 +4941,13 @@ define internal fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr nound
   %214 = getelementptr inbounds nuw i8, ptr %.115597, i64 4
   %215 = add nuw nsw i32 %.198, 1
   %exitcond146.not = icmp eq i32 %215, %4
-  br i1 %exitcond146.not, label %._crit_edge, label %.lr.ph99, !llvm.loop !110
+  br i1 %exitcond146.not, label %._crit_edge, label %.lr.ph99, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %.lr.ph99, %.preheader
   %.11.lcssa = phi ptr [ %.10.lcssa, %.preheader ], [ %213, %.lr.ph99 ]
   %indvars.iv.next148 = add nsw i64 %indvars.iv147, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count
-  br i1 %exitcond150.not, label %._crit_edge104, label %199, !llvm.loop !111
+  br i1 %exitcond150.not, label %._crit_edge104, label %199, !llvm.loop !110
 
 ._crit_edge104:                                   ; preds = %._crit_edge, %.preheader1
   ret void
@@ -4963,7 +4963,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #9
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
-declare !callback !112 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #9
+declare !callback !111 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #9
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
 define internal void @_ZN4ncnn8Gemm_x8615create_pipelineERKNS_6OptionE.omp_outlined.1(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %7, ptr noundef readonly captures(none) %8) #8 personality ptr @__gxx_personality_v0 {
@@ -5018,12 +5018,12 @@ define internal void @_ZN4ncnn8Gemm_x8615create_pipelineERKNS_6OptionE.omp_outli
   %37 = load i32, ptr %7, align 4, !tbaa !37
   %38 = sub nsw i32 %37, %34
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %33, i32 %38)
-  %39 = load i32, ptr %23, align 4, !tbaa !55, !noalias !114
-  %40 = load ptr, ptr %22, align 8, !tbaa !16, !noalias !114
-  %41 = load i64, ptr %24, align 8, !tbaa !17, !noalias !114
+  %39 = load i32, ptr %23, align 4, !tbaa !55, !noalias !113
+  %40 = load ptr, ptr %22, align 8, !tbaa !16, !noalias !113
+  %41 = load i64, ptr %24, align 8, !tbaa !17, !noalias !113
   %42 = sext i32 %29 to i64
   %43 = mul i64 %41, %42
-  %44 = load i64, ptr %25, align 8, !tbaa !52, !noalias !114
+  %44 = load i64, ptr %25, align 8, !tbaa !52, !noalias !113
   %45 = mul i64 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 %45
   %47 = sext i32 %39 to i64
@@ -5031,7 +5031,7 @@ define internal void @_ZN4ncnn8Gemm_x8615create_pipelineERKNS_6OptionE.omp_outli
   %49 = mul nsw i64 %47, %48
   %50 = mul i64 %49, %44
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 %50
-  %52 = load i32, ptr %26, align 4, !tbaa !67
+  %52 = load i32, ptr %26, align 4, !tbaa !66
   %.not32 = icmp eq i32 %52, 0
   br i1 %.not32, label %54, label %53
 
@@ -5047,7 +5047,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %54, %53
   %55 = add nsw i32 %.063, 1
   %56 = load i32, ptr %11, align 4, !tbaa !37
   %.not.not = icmp slt i32 %.063, %56
-  br i1 %.not.not, label %.noexc41, label %._crit_edge, !llvm.loop !117
+  br i1 %.not.not, label %.noexc41, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit, %16
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %18)
@@ -5224,7 +5224,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %105 = getelementptr inbounds nuw i8, ptr %.162397.us, i64 4
   %106 = add nuw nsw i32 %.162198.us, 1
   %exitcond261.not = icmp eq i32 %106, %4
-  br i1 %exitcond261.not, label %.loopexit8.us, label %.lr.ph106.us, !llvm.loop !118
+  br i1 %exitcond261.not, label %.loopexit8.us, label %.lr.ph106.us, !llvm.loop !116
 
 .lr.ph85.us:                                      ; preds = %.loopexit9.us, %.lr.ph85.us
   %.984.us = phi ptr [ %138, %.lr.ph85.us ], [ %.7.us, %.loopexit9.us ]
@@ -5237,14 +5237,14 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %.062077.us = phi i32 [ %147, %.lr.ph85.us ], [ 0, %.loopexit9.us ]
   %.062276.us = phi ptr [ %146, %.lr.ph85.us ], [ %81, %.loopexit9.us ]
   %.062475.us = phi ptr [ %145, %.lr.ph85.us ], [ %77, %.loopexit9.us ]
-  %107 = load <4 x float>, ptr %.060883.us, align 1, !tbaa !89
-  %108 = load <4 x float>, ptr %.061082.us, align 1, !tbaa !89
-  %109 = load <4 x float>, ptr %.061281.us, align 1, !tbaa !89
-  %110 = load <4 x float>, ptr %.061480.us, align 1, !tbaa !89
-  %111 = load <4 x float>, ptr %.061679.us, align 1, !tbaa !89
-  %112 = load <4 x float>, ptr %.061878.us, align 1, !tbaa !89
-  %113 = load <4 x float>, ptr %.062475.us, align 1, !tbaa !89
-  %114 = load <4 x float>, ptr %.062276.us, align 1, !tbaa !89
+  %107 = load <4 x float>, ptr %.060883.us, align 1, !tbaa !88
+  %108 = load <4 x float>, ptr %.061082.us, align 1, !tbaa !88
+  %109 = load <4 x float>, ptr %.061281.us, align 1, !tbaa !88
+  %110 = load <4 x float>, ptr %.061480.us, align 1, !tbaa !88
+  %111 = load <4 x float>, ptr %.061679.us, align 1, !tbaa !88
+  %112 = load <4 x float>, ptr %.061878.us, align 1, !tbaa !88
+  %113 = load <4 x float>, ptr %.062475.us, align 1, !tbaa !88
+  %114 = load <4 x float>, ptr %.062276.us, align 1, !tbaa !88
   %115 = shufflevector <4 x float> %107, <4 x float> %108, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %116 = shufflevector <4 x float> %109, <4 x float> %110, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %117 = shufflevector <4 x float> %107, <4 x float> %108, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -5261,21 +5261,21 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %128 = shufflevector <4 x float> %124, <4 x float> %123, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %129 = shufflevector <4 x float> %125, <4 x float> %126, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %130 = shufflevector <4 x float> %126, <4 x float> %125, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %119, ptr %.984.us, align 16, !tbaa !89
+  store <4 x float> %119, ptr %.984.us, align 16, !tbaa !88
   %131 = getelementptr inbounds nuw i8, ptr %.984.us, i64 16
-  store <4 x float> %127, ptr %131, align 16, !tbaa !89
+  store <4 x float> %127, ptr %131, align 16, !tbaa !88
   %132 = getelementptr inbounds nuw i8, ptr %.984.us, i64 32
-  store <4 x float> %120, ptr %132, align 16, !tbaa !89
+  store <4 x float> %120, ptr %132, align 16, !tbaa !88
   %133 = getelementptr inbounds nuw i8, ptr %.984.us, i64 48
-  store <4 x float> %128, ptr %133, align 16, !tbaa !89
+  store <4 x float> %128, ptr %133, align 16, !tbaa !88
   %134 = getelementptr inbounds nuw i8, ptr %.984.us, i64 64
-  store <4 x float> %121, ptr %134, align 16, !tbaa !89
+  store <4 x float> %121, ptr %134, align 16, !tbaa !88
   %135 = getelementptr inbounds nuw i8, ptr %.984.us, i64 80
-  store <4 x float> %129, ptr %135, align 16, !tbaa !89
+  store <4 x float> %129, ptr %135, align 16, !tbaa !88
   %136 = getelementptr inbounds nuw i8, ptr %.984.us, i64 96
-  store <4 x float> %122, ptr %136, align 16, !tbaa !89
+  store <4 x float> %122, ptr %136, align 16, !tbaa !88
   %137 = getelementptr inbounds nuw i8, ptr %.984.us, i64 112
-  store <4 x float> %130, ptr %137, align 16, !tbaa !89
+  store <4 x float> %130, ptr %137, align 16, !tbaa !88
   %138 = getelementptr inbounds nuw i8, ptr %.984.us, i64 128
   %139 = getelementptr inbounds nuw i8, ptr %.060883.us, i64 16
   %140 = getelementptr inbounds nuw i8, ptr %.061082.us, i64 16
@@ -5288,24 +5288,24 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %147 = add nuw nsw i32 %.062077.us, 4
   %148 = or disjoint i32 %147, 3
   %149 = icmp slt i32 %148, %4
-  br i1 %149, label %.lr.ph85.us, label %.preheader7.us, !llvm.loop !119
+  br i1 %149, label %.lr.ph85.us, label %.preheader7.us, !llvm.loop !117
 
 .lr.ph73.us:                                      ; preds = %.lr.ph73.us.preheader, %.lr.ph73.us
   %.872.us = phi ptr [ %153, %.lr.ph73.us ], [ %.6109.us, %.lr.ph73.us.preheader ]
   %.060571.us = phi ptr [ %154, %.lr.ph73.us ], [ %50, %.lr.ph73.us.preheader ]
   %.060670.us = phi ptr [ %155, %.lr.ph73.us ], [ %48, %.lr.ph73.us.preheader ]
   %.060769.us = phi i32 [ %156, %.lr.ph73.us ], [ 0, %.lr.ph73.us.preheader ]
-  %150 = load <4 x float>, ptr %.060571.us, align 16, !tbaa !89
-  store <4 x float> %150, ptr %.872.us, align 16, !tbaa !89
+  %150 = load <4 x float>, ptr %.060571.us, align 16, !tbaa !88
+  store <4 x float> %150, ptr %.872.us, align 16, !tbaa !88
   %151 = getelementptr inbounds nuw i8, ptr %.872.us, i64 16
-  %152 = load <4 x float>, ptr %.060670.us, align 16, !tbaa !89
-  store <4 x float> %152, ptr %151, align 16, !tbaa !89
+  %152 = load <4 x float>, ptr %.060670.us, align 16, !tbaa !88
+  store <4 x float> %152, ptr %151, align 16, !tbaa !88
   %153 = getelementptr inbounds nuw i8, ptr %.872.us, i64 32
   %154 = getelementptr inbounds nuw i8, ptr %.060571.us, i64 16
   %155 = getelementptr inbounds nuw i8, ptr %.060670.us, i64 16
   %156 = add nuw nsw i32 %.060769.us, 1
   %exitcond260.not = icmp eq i32 %156, %4
-  br i1 %exitcond260.not, label %.loopexit9.us.loopexit, label %.lr.ph73.us, !llvm.loop !120
+  br i1 %exitcond260.not, label %.loopexit9.us.loopexit, label %.lr.ph73.us, !llvm.loop !118
 
 .preheader7.us:                                   ; preds = %.lr.ph85.us, %.loopexit9.us
   %.0624.lcssa.us = phi ptr [ %77, %.loopexit9.us ], [ %145, %.lr.ph85.us ]
@@ -5325,7 +5325,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %.10.lcssa.us = phi ptr [ %.9.lcssa.us, %.preheader7.us ], [ %97, %.lr.ph106.us ]
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 8
   %158 = icmp slt i64 %indvars.iv262, %invariant.op328
-  br i1 %158, label %.lr.ph110.split.us, label %.preheader6.loopexit, !llvm.loop !121
+  br i1 %158, label %.lr.ph110.split.us, label %.preheader6.loopexit, !llvm.loop !119
 
 .lr.ph110.split:                                  ; preds = %.lr.ph110
   br i1 %30, label %.lr.ph110.split.split.preheader, label %.lr.ph110.split.split.us.preheader
@@ -5370,23 +5370,23 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %.060571.us119 = phi ptr [ %182, %.lr.ph73.us124 ], [ %177, %.lr.ph73.us124.preheader ]
   %.060670.us120 = phi ptr [ %183, %.lr.ph73.us124 ], [ %173, %.lr.ph73.us124.preheader ]
   %.060769.us121 = phi i32 [ %184, %.lr.ph73.us124 ], [ 0, %.lr.ph73.us124.preheader ]
-  %178 = load <4 x float>, ptr %.060571.us119, align 16, !tbaa !89
-  store <4 x float> %178, ptr %.872.us118, align 16, !tbaa !89
+  %178 = load <4 x float>, ptr %.060571.us119, align 16, !tbaa !88
+  store <4 x float> %178, ptr %.872.us118, align 16, !tbaa !88
   %179 = getelementptr inbounds nuw i8, ptr %.872.us118, i64 16
-  %180 = load <4 x float>, ptr %.060670.us120, align 16, !tbaa !89
-  store <4 x float> %180, ptr %179, align 16, !tbaa !89
+  %180 = load <4 x float>, ptr %.060670.us120, align 16, !tbaa !88
+  store <4 x float> %180, ptr %179, align 16, !tbaa !88
   %181 = getelementptr inbounds nuw i8, ptr %.872.us118, i64 32
   %182 = getelementptr inbounds nuw i8, ptr %.060571.us119, i64 16
   %183 = getelementptr inbounds nuw i8, ptr %.060670.us120, i64 16
   %184 = add nuw nsw i32 %.060769.us121, 1
   %exitcond256.not = icmp eq i32 %184, %4
-  br i1 %exitcond256.not, label %.loopexit9.us122, label %.lr.ph73.us124, !llvm.loop !120
+  br i1 %exitcond256.not, label %.loopexit9.us122, label %.lr.ph73.us124, !llvm.loop !118
 
 .loopexit9.us122:                                 ; preds = %.lr.ph73.us124, %.lr.ph110.split.split.us
   %.8.lcssa.us123 = phi ptr [ %.6109.us114, %.lr.ph110.split.split.us ], [ %181, %.lr.ph73.us124 ]
   %indvars.iv.next258 = add nuw nsw i64 %indvars.iv257, 8
   %185 = icmp slt i64 %indvars.iv257, %invariant.op327
-  br i1 %185, label %.lr.ph110.split.split.us, label %.preheader6.loopexit201, !llvm.loop !122
+  br i1 %185, label %.lr.ph110.split.split.us, label %.preheader6.loopexit201, !llvm.loop !120
 
 186:                                              ; preds = %.lr.ph66, %.loopexit12
   %indvars.iv = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next, %.loopexit12 ]
@@ -5421,21 +5421,21 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %.055816 = phi ptr [ %208, %.lr.ph ], [ %197, %.lr.ph.preheader ]
   %.056515 = phi ptr [ %209, %.lr.ph ], [ %193, %.lr.ph.preheader ]
   %.056614 = phi i32 [ %210, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %201 = load <4 x float>, ptr %.055717, align 16, !tbaa !89
-  store <4 x float> %201, ptr %.218, align 16, !tbaa !89
+  %201 = load <4 x float>, ptr %.055717, align 16, !tbaa !88
+  store <4 x float> %201, ptr %.218, align 16, !tbaa !88
   %202 = getelementptr inbounds nuw i8, ptr %.218, i64 16
-  %203 = load <4 x float>, ptr %.055816, align 16, !tbaa !89
-  store <4 x float> %203, ptr %202, align 16, !tbaa !89
+  %203 = load <4 x float>, ptr %.055816, align 16, !tbaa !88
+  store <4 x float> %203, ptr %202, align 16, !tbaa !88
   %204 = getelementptr inbounds nuw i8, ptr %.218, i64 32
-  %205 = load <4 x float>, ptr %.056515, align 16, !tbaa !89
-  store <4 x float> %205, ptr %204, align 16, !tbaa !89
+  %205 = load <4 x float>, ptr %.056515, align 16, !tbaa !88
+  store <4 x float> %205, ptr %204, align 16, !tbaa !88
   %206 = getelementptr inbounds nuw i8, ptr %.218, i64 48
   %207 = getelementptr inbounds nuw i8, ptr %.055717, i64 16
   %208 = getelementptr inbounds nuw i8, ptr %.055816, i64 16
   %209 = getelementptr inbounds nuw i8, ptr %.056515, i64 16
   %210 = add nuw nsw i32 %.056614, 1
   %exitcond.not = icmp eq i32 %210, %4
-  br i1 %exitcond.not, label %.loopexit12, label %.lr.ph, !llvm.loop !123
+  br i1 %exitcond.not, label %.loopexit12, label %.lr.ph, !llvm.loop !121
 
 211:                                              ; preds = %186
   %212 = load ptr, ptr %0, align 8, !tbaa !16
@@ -5522,18 +5522,18 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %.059921 = phi ptr [ %320, %.lr.ph33 ], [ %256, %211 ]
   %.060120 = phi ptr [ %321, %.lr.ph33 ], [ %260, %211 ]
   %.060319 = phi i32 [ %322, %.lr.ph33 ], [ 0, %211 ]
-  %262 = load <4 x float>, ptr %.056731, align 1, !tbaa !89
-  %263 = load <4 x float>, ptr %.056930, align 1, !tbaa !89
-  %264 = load <4 x float>, ptr %.057129, align 1, !tbaa !89
-  %265 = load <4 x float>, ptr %.057328, align 1, !tbaa !89
-  %266 = load <4 x float>, ptr %.057527, align 1, !tbaa !89
-  %267 = load <4 x float>, ptr %.057726, align 1, !tbaa !89
-  %268 = load <4 x float>, ptr %.059125, align 1, !tbaa !89
-  %269 = load <4 x float>, ptr %.059324, align 1, !tbaa !89
-  %270 = load <4 x float>, ptr %.059523, align 1, !tbaa !89
-  %271 = load <4 x float>, ptr %.059722, align 1, !tbaa !89
-  %272 = load <4 x float>, ptr %.059921, align 1, !tbaa !89
-  %273 = load <4 x float>, ptr %.060120, align 1, !tbaa !89
+  %262 = load <4 x float>, ptr %.056731, align 1, !tbaa !88
+  %263 = load <4 x float>, ptr %.056930, align 1, !tbaa !88
+  %264 = load <4 x float>, ptr %.057129, align 1, !tbaa !88
+  %265 = load <4 x float>, ptr %.057328, align 1, !tbaa !88
+  %266 = load <4 x float>, ptr %.057527, align 1, !tbaa !88
+  %267 = load <4 x float>, ptr %.057726, align 1, !tbaa !88
+  %268 = load <4 x float>, ptr %.059125, align 1, !tbaa !88
+  %269 = load <4 x float>, ptr %.059324, align 1, !tbaa !88
+  %270 = load <4 x float>, ptr %.059523, align 1, !tbaa !88
+  %271 = load <4 x float>, ptr %.059722, align 1, !tbaa !88
+  %272 = load <4 x float>, ptr %.059921, align 1, !tbaa !88
+  %273 = load <4 x float>, ptr %.060120, align 1, !tbaa !88
   %274 = shufflevector <4 x float> %262, <4 x float> %263, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %275 = shufflevector <4 x float> %264, <4 x float> %265, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %276 = shufflevector <4 x float> %262, <4 x float> %263, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -5558,29 +5558,29 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %295 = shufflevector <4 x float> %291, <4 x float> %290, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %296 = shufflevector <4 x float> %292, <4 x float> %293, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %297 = shufflevector <4 x float> %293, <4 x float> %292, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %278, ptr %.332, align 16, !tbaa !89
+  store <4 x float> %278, ptr %.332, align 16, !tbaa !88
   %298 = getelementptr inbounds nuw i8, ptr %.332, i64 16
-  store <4 x float> %286, ptr %298, align 16, !tbaa !89
+  store <4 x float> %286, ptr %298, align 16, !tbaa !88
   %299 = getelementptr inbounds nuw i8, ptr %.332, i64 32
-  store <4 x float> %294, ptr %299, align 16, !tbaa !89
+  store <4 x float> %294, ptr %299, align 16, !tbaa !88
   %300 = getelementptr inbounds nuw i8, ptr %.332, i64 48
-  store <4 x float> %279, ptr %300, align 16, !tbaa !89
+  store <4 x float> %279, ptr %300, align 16, !tbaa !88
   %301 = getelementptr inbounds nuw i8, ptr %.332, i64 64
-  store <4 x float> %287, ptr %301, align 16, !tbaa !89
+  store <4 x float> %287, ptr %301, align 16, !tbaa !88
   %302 = getelementptr inbounds nuw i8, ptr %.332, i64 80
-  store <4 x float> %295, ptr %302, align 16, !tbaa !89
+  store <4 x float> %295, ptr %302, align 16, !tbaa !88
   %303 = getelementptr inbounds nuw i8, ptr %.332, i64 96
-  store <4 x float> %280, ptr %303, align 16, !tbaa !89
+  store <4 x float> %280, ptr %303, align 16, !tbaa !88
   %304 = getelementptr inbounds nuw i8, ptr %.332, i64 112
-  store <4 x float> %288, ptr %304, align 16, !tbaa !89
+  store <4 x float> %288, ptr %304, align 16, !tbaa !88
   %305 = getelementptr inbounds nuw i8, ptr %.332, i64 128
-  store <4 x float> %296, ptr %305, align 16, !tbaa !89
+  store <4 x float> %296, ptr %305, align 16, !tbaa !88
   %306 = getelementptr inbounds nuw i8, ptr %.332, i64 144
-  store <4 x float> %281, ptr %306, align 16, !tbaa !89
+  store <4 x float> %281, ptr %306, align 16, !tbaa !88
   %307 = getelementptr inbounds nuw i8, ptr %.332, i64 160
-  store <4 x float> %289, ptr %307, align 16, !tbaa !89
+  store <4 x float> %289, ptr %307, align 16, !tbaa !88
   %308 = getelementptr inbounds nuw i8, ptr %.332, i64 176
-  store <4 x float> %297, ptr %308, align 16, !tbaa !89
+  store <4 x float> %297, ptr %308, align 16, !tbaa !88
   %309 = getelementptr inbounds nuw i8, ptr %.332, i64 192
   %310 = getelementptr inbounds nuw i8, ptr %.056731, i64 16
   %311 = getelementptr inbounds nuw i8, ptr %.056930, i64 16
@@ -5597,7 +5597,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %322 = add nuw nsw i32 %.060319, 4
   %323 = or disjoint i32 %322, 3
   %324 = icmp slt i32 %323, %4
-  br i1 %324, label %.lr.ph33, label %.preheader11, !llvm.loop !124
+  br i1 %324, label %.lr.ph33, label %.preheader11, !llvm.loop !122
 
 .lr.ph62:                                         ; preds = %.preheader11, %.lr.ph62
   %.461 = phi ptr [ %348, %.lr.ph62 ], [ %.3.lcssa, %.preheader11 ]
@@ -5664,14 +5664,14 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %360 = getelementptr inbounds nuw i8, ptr %.160249, i64 4
   %361 = add nuw nsw i32 %.160448, 1
   %exitcond254.not = icmp eq i32 %361, %4
-  br i1 %exitcond254.not, label %.loopexit12, label %.lr.ph62, !llvm.loop !125
+  br i1 %exitcond254.not, label %.loopexit12, label %.lr.ph62, !llvm.loop !123
 
 .loopexit12:                                      ; preds = %.lr.ph62, %.lr.ph, %186, %187, %.preheader11
   %.5 = phi ptr [ %.3.lcssa, %.preheader11 ], [ %.055065, %187 ], [ %.055065, %186 ], [ %206, %.lr.ph ], [ %348, %.lr.ph62 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 12
   %362 = add nuw nsw i64 %indvars.iv, 23
   %363 = icmp samesign ult i64 %362, %26
-  br i1 %363, label %186, label %.preheader10.loopexit, !llvm.loop !126
+  br i1 %363, label %186, label %.preheader10.loopexit, !llvm.loop !124
 
 .preheader6.loopexit:                             ; preds = %.loopexit8.us
   %364 = trunc nsw i64 %indvars.iv.next263 to i32
@@ -5746,13 +5746,13 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %.14133 = phi ptr [ %396, %.lr.ph134 ], [ %.12158, %.lr.ph134.preheader ]
   %.0589132 = phi i32 [ %398, %.lr.ph134 ], [ 0, %.lr.ph134.preheader ]
   %.0590131 = phi ptr [ %397, %.lr.ph134 ], [ %394, %.lr.ph134.preheader ]
-  %395 = load <4 x float>, ptr %.0590131, align 16, !tbaa !89
-  store <4 x float> %395, ptr %.14133, align 16, !tbaa !89
+  %395 = load <4 x float>, ptr %.0590131, align 16, !tbaa !88
+  store <4 x float> %395, ptr %.14133, align 16, !tbaa !88
   %396 = getelementptr inbounds nuw i8, ptr %.14133, i64 16
   %397 = getelementptr inbounds nuw i8, ptr %.0590131, i64 16
   %398 = add nuw nsw i32 %.0589132, 1
   %exitcond265.not = icmp eq i32 %398, %4
-  br i1 %exitcond265.not, label %.loopexit, label %.lr.ph134, !llvm.loop !127
+  br i1 %exitcond265.not, label %.loopexit, label %.lr.ph134, !llvm.loop !125
 
 399:                                              ; preds = %388
   %400 = load ptr, ptr %0, align 8, !tbaa !16
@@ -5791,10 +5791,10 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %.0583138 = phi ptr [ %436, %.lr.ph142 ], [ %412, %399 ]
   %.0585137 = phi ptr [ %435, %.lr.ph142 ], [ %408, %399 ]
   %.0587136 = phi ptr [ %434, %.lr.ph142 ], [ %404, %399 ]
-  %418 = load <4 x float>, ptr %.0587136, align 1, !tbaa !89
-  %419 = load <4 x float>, ptr %.0585137, align 1, !tbaa !89
-  %420 = load <4 x float>, ptr %.0583138, align 1, !tbaa !89
-  %421 = load <4 x float>, ptr %.0581139, align 1, !tbaa !89
+  %418 = load <4 x float>, ptr %.0587136, align 1, !tbaa !88
+  %419 = load <4 x float>, ptr %.0585137, align 1, !tbaa !88
+  %420 = load <4 x float>, ptr %.0583138, align 1, !tbaa !88
+  %421 = load <4 x float>, ptr %.0581139, align 1, !tbaa !88
   %422 = shufflevector <4 x float> %418, <4 x float> %419, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %423 = shufflevector <4 x float> %420, <4 x float> %421, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %424 = shufflevector <4 x float> %418, <4 x float> %419, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -5803,13 +5803,13 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %427 = shufflevector <4 x float> %423, <4 x float> %422, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %428 = shufflevector <4 x float> %424, <4 x float> %425, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %429 = shufflevector <4 x float> %425, <4 x float> %424, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %426, ptr %.15141, align 16, !tbaa !89
+  store <4 x float> %426, ptr %.15141, align 16, !tbaa !88
   %430 = getelementptr inbounds nuw i8, ptr %.15141, i64 16
-  store <4 x float> %427, ptr %430, align 16, !tbaa !89
+  store <4 x float> %427, ptr %430, align 16, !tbaa !88
   %431 = getelementptr inbounds nuw i8, ptr %.15141, i64 32
-  store <4 x float> %428, ptr %431, align 16, !tbaa !89
+  store <4 x float> %428, ptr %431, align 16, !tbaa !88
   %432 = getelementptr inbounds nuw i8, ptr %.15141, i64 48
-  store <4 x float> %429, ptr %432, align 16, !tbaa !89
+  store <4 x float> %429, ptr %432, align 16, !tbaa !88
   %433 = getelementptr inbounds nuw i8, ptr %.15141, i64 64
   %434 = getelementptr inbounds nuw i8, ptr %.0587136, i64 16
   %435 = getelementptr inbounds nuw i8, ptr %.0585137, i64 16
@@ -5818,7 +5818,7 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %438 = add nuw nsw i32 %.0579140, 4
   %439 = or disjoint i32 %438, 3
   %440 = icmp slt i32 %439, %4
-  br i1 %440, label %.lr.ph142, label %.preheader4, !llvm.loop !128
+  br i1 %440, label %.lr.ph142, label %.preheader4, !llvm.loop !126
 
 .lr.ph155:                                        ; preds = %.preheader4, %.lr.ph155
   %.16154 = phi ptr [ %448, %.lr.ph155 ], [ %.15.lcssa, %.preheader4 ]
@@ -5845,14 +5845,14 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %452 = getelementptr inbounds nuw i8, ptr %.1582152, i64 4
   %453 = add nuw nsw i32 %.1580153, 1
   %exitcond266.not = icmp eq i32 %453, %4
-  br i1 %exitcond266.not, label %.loopexit, label %.lr.ph155, !llvm.loop !129
+  br i1 %exitcond266.not, label %.loopexit, label %.lr.ph155, !llvm.loop !127
 
 .loopexit:                                        ; preds = %.lr.ph155, %.lr.ph134, %388, %389, %.preheader4
   %.17 = phi ptr [ %.15.lcssa, %.preheader4 ], [ %.12158, %389 ], [ %.12158, %388 ], [ %396, %.lr.ph134 ], [ %448, %.lr.ph155 ]
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 4
   %454 = or disjoint i64 %indvars.iv.next268, 3
   %455 = icmp slt i64 %454, %375
-  br i1 %455, label %388, label %.preheader3.loopexit, !llvm.loop !130
+  br i1 %455, label %388, label %.preheader3.loopexit, !llvm.loop !128
 
 .preheader1.loopexit:                             ; preds = %._crit_edge
   %456 = trunc nsw i64 %indvars.iv.next272 to i32
@@ -5903,20 +5903,20 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %.0559164 = phi i32 [ %484, %.lr.ph166 ], [ 0, %464 ]
   %.0561163 = phi ptr [ %483, %.lr.ph166 ], [ %474, %464 ]
   %.0563162 = phi ptr [ %482, %.lr.ph166 ], [ %469, %464 ]
-  %476 = load <4 x float>, ptr %.0563162, align 1, !tbaa !89
-  %477 = load <4 x float>, ptr %.0561163, align 1, !tbaa !89
+  %476 = load <4 x float>, ptr %.0563162, align 1, !tbaa !88
+  %477 = load <4 x float>, ptr %.0561163, align 1, !tbaa !88
   %478 = shufflevector <4 x float> %476, <4 x float> %477, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %479 = shufflevector <4 x float> %476, <4 x float> %477, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %478, ptr %.19165, align 16, !tbaa !89
+  store <4 x float> %478, ptr %.19165, align 16, !tbaa !88
   %480 = getelementptr inbounds nuw i8, ptr %.19165, i64 16
-  store <4 x float> %479, ptr %480, align 16, !tbaa !89
+  store <4 x float> %479, ptr %480, align 16, !tbaa !88
   %481 = getelementptr inbounds nuw i8, ptr %.19165, i64 32
   %482 = getelementptr inbounds nuw i8, ptr %.0563162, i64 16
   %483 = getelementptr inbounds nuw i8, ptr %.0561163, i64 16
   %484 = add nuw nsw i32 %.0559164, 4
   %485 = or disjoint i32 %484, 3
   %486 = icmp slt i32 %485, %4
-  br i1 %486, label %.lr.ph166, label %.preheader2, !llvm.loop !131
+  br i1 %486, label %.lr.ph166, label %.preheader2, !llvm.loop !129
 
 .lr.ph175:                                        ; preds = %.preheader2, %.lr.ph175
   %.20174 = phi ptr [ %490, %.lr.ph175 ], [ %.19.lcssa, %.preheader2 ]
@@ -5933,14 +5933,14 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %492 = getelementptr inbounds nuw i8, ptr %.1562172, i64 4
   %493 = add nuw nsw i32 %.1560173, 1
   %exitcond270.not = icmp eq i32 %493, %4
-  br i1 %exitcond270.not, label %._crit_edge, label %.lr.ph175, !llvm.loop !132
+  br i1 %exitcond270.not, label %._crit_edge, label %.lr.ph175, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %.lr.ph175, %.preheader2
   %.20.lcssa = phi ptr [ %.19.lcssa, %.preheader2 ], [ %490, %.lr.ph175 ]
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 2
   %494 = or disjoint i64 %indvars.iv.next272, 1
   %495 = icmp slt i64 %494, %385
-  br i1 %495, label %464, label %.preheader1.loopexit, !llvm.loop !133
+  br i1 %495, label %464, label %.preheader1.loopexit, !llvm.loop !131
 
 496:                                              ; preds = %.lr.ph199, %._crit_edge195
   %indvars.iv275 = phi i64 [ %461, %.lr.ph199 ], [ %indvars.iv.next276, %._crit_edge195 ]
@@ -5963,14 +5963,14 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %.0185 = phi i32 [ %506, %.lr.ph187 ], [ 0, %496 ]
   %.0548184 = phi ptr [ %505, %.lr.ph187 ], [ %501, %496 ]
   %.22183 = phi ptr [ %504, %.lr.ph187 ], [ %.21198, %496 ]
-  %503 = load <4 x float>, ptr %.0548184, align 1, !tbaa !89
-  store <4 x float> %503, ptr %.22183, align 1, !tbaa !89
+  %503 = load <4 x float>, ptr %.0548184, align 1, !tbaa !88
+  store <4 x float> %503, ptr %.22183, align 1, !tbaa !88
   %504 = getelementptr inbounds nuw i8, ptr %.22183, i64 16
   %505 = getelementptr inbounds nuw i8, ptr %.0548184, i64 16
   %506 = add nuw nsw i32 %.0185, 4
   %507 = or disjoint i32 %506, 3
   %508 = icmp slt i32 %507, %4
-  br i1 %508, label %.lr.ph187, label %.preheader, !llvm.loop !134
+  br i1 %508, label %.lr.ph187, label %.preheader, !llvm.loop !132
 
 .lr.ph194:                                        ; preds = %.preheader, %.lr.ph194
   %.1193 = phi i32 [ %512, %.lr.ph194 ], [ %.0.lcssa, %.preheader ]
@@ -5982,13 +5982,13 @@ define internal fastcc void @_ZN4ncnnL11pack_B_tileERKNS_3MatERS0_iiii(ptr nound
   %511 = getelementptr inbounds nuw i8, ptr %.1549192, i64 4
   %512 = add nuw nsw i32 %.1193, 1
   %exitcond274.not = icmp eq i32 %512, %4
-  br i1 %exitcond274.not, label %._crit_edge195, label %.lr.ph194, !llvm.loop !135
+  br i1 %exitcond274.not, label %._crit_edge195, label %.lr.ph194, !llvm.loop !133
 
 ._crit_edge195:                                   ; preds = %.lr.ph194, %.preheader
   %.23.lcssa = phi ptr [ %.22.lcssa, %.preheader ], [ %510, %.lr.ph194 ]
   %indvars.iv.next276 = add nsw i64 %indvars.iv275, 1
   %exitcond278.not = icmp eq i64 %indvars.iv.next276, %wide.trip.count
-  br i1 %exitcond278.not, label %._crit_edge200, label %496, !llvm.loop !136
+  br i1 %exitcond278.not, label %._crit_edge200, label %496, !llvm.loop !134
 
 ._crit_edge200:                                   ; preds = %._crit_edge195, %.preheader1
   ret void
@@ -6052,55 +6052,55 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 12
   %36 = add nuw nsw i64 %indvars.iv118, 23
   %37 = icmp samesign ult i64 %36, %28
-  br i1 %37, label %.lr.ph23.split.us, label %.preheader10.loopexit, !llvm.loop !137
+  br i1 %37, label %.lr.ph23.split.us, label %.preheader10.loopexit, !llvm.loop !135
 
 .lr.ph19.us:                                      ; preds = %.lr.ph19.us.preheader, %.lr.ph19.us
   %.318.us = phi ptr [ %45, %.lr.ph19.us ], [ %.2.lcssa.us, %.lr.ph19.us.preheader ]
   %.035417.us = phi ptr [ %46, %.lr.ph19.us ], [ %35, %.lr.ph19.us.preheader ]
   %.035516.us = phi i32 [ %47, %.lr.ph19.us ], [ 0, %.lr.ph19.us.preheader ]
-  %38 = load <4 x float>, ptr %.035417.us, align 1, !tbaa !89
-  store <4 x float> %38, ptr %.318.us, align 16, !tbaa !89
+  %38 = load <4 x float>, ptr %.035417.us, align 1, !tbaa !88
+  store <4 x float> %38, ptr %.318.us, align 16, !tbaa !88
   %39 = getelementptr inbounds nuw i8, ptr %.318.us, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %.035417.us, i64 16
-  %41 = load <4 x float>, ptr %40, align 1, !tbaa !89
-  store <4 x float> %41, ptr %39, align 16, !tbaa !89
+  %41 = load <4 x float>, ptr %40, align 1, !tbaa !88
+  store <4 x float> %41, ptr %39, align 16, !tbaa !88
   %42 = getelementptr inbounds nuw i8, ptr %.318.us, i64 32
   %43 = getelementptr inbounds nuw i8, ptr %.035417.us, i64 32
-  %44 = load <4 x float>, ptr %43, align 1, !tbaa !89
-  store <4 x float> %44, ptr %42, align 16, !tbaa !89
+  %44 = load <4 x float>, ptr %43, align 1, !tbaa !88
+  store <4 x float> %44, ptr %42, align 16, !tbaa !88
   %45 = getelementptr inbounds nuw i8, ptr %.318.us, i64 48
   %46 = getelementptr inbounds float, ptr %.035417.us, i64 %26
   %47 = add nuw nsw i32 %.035516.us, 1
   %exitcond117.not = icmp eq i32 %47, %4
-  br i1 %exitcond117.not, label %.loopexit11.us, label %.lr.ph19.us, !llvm.loop !138
+  br i1 %exitcond117.not, label %.loopexit11.us, label %.lr.ph19.us, !llvm.loop !136
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %.215.us = phi ptr [ %106, %.lr.ph.us ], [ %.034222.us, %.lr.ph.us.preheader ]
   %.034814.us = phi ptr [ %107, %.lr.ph.us ], [ %32, %.lr.ph.us.preheader ]
   %.034913.us = phi i32 [ %108, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
-  %48 = load <4 x float>, ptr %.034814.us, align 16, !tbaa !89
+  %48 = load <4 x float>, ptr %.034814.us, align 16, !tbaa !88
   %49 = getelementptr inbounds nuw i8, ptr %.034814.us, i64 16
-  %50 = load <4 x float>, ptr %49, align 16, !tbaa !89
+  %50 = load <4 x float>, ptr %49, align 16, !tbaa !88
   %51 = getelementptr inbounds nuw i8, ptr %.034814.us, i64 32
-  %52 = load <4 x float>, ptr %51, align 16, !tbaa !89
+  %52 = load <4 x float>, ptr %51, align 16, !tbaa !88
   %53 = getelementptr inbounds nuw i8, ptr %.034814.us, i64 48
-  %54 = load <4 x float>, ptr %53, align 16, !tbaa !89
+  %54 = load <4 x float>, ptr %53, align 16, !tbaa !88
   %55 = getelementptr inbounds nuw i8, ptr %.034814.us, i64 64
-  %56 = load <4 x float>, ptr %55, align 16, !tbaa !89
+  %56 = load <4 x float>, ptr %55, align 16, !tbaa !88
   %57 = getelementptr inbounds nuw i8, ptr %.034814.us, i64 80
-  %58 = load <4 x float>, ptr %57, align 16, !tbaa !89
+  %58 = load <4 x float>, ptr %57, align 16, !tbaa !88
   %59 = getelementptr inbounds nuw i8, ptr %.034814.us, i64 96
-  %60 = load <4 x float>, ptr %59, align 16, !tbaa !89
+  %60 = load <4 x float>, ptr %59, align 16, !tbaa !88
   %61 = getelementptr inbounds nuw i8, ptr %.034814.us, i64 112
-  %62 = load <4 x float>, ptr %61, align 16, !tbaa !89
+  %62 = load <4 x float>, ptr %61, align 16, !tbaa !88
   %63 = getelementptr inbounds nuw i8, ptr %.034814.us, i64 128
-  %64 = load <4 x float>, ptr %63, align 16, !tbaa !89
+  %64 = load <4 x float>, ptr %63, align 16, !tbaa !88
   %65 = getelementptr inbounds nuw i8, ptr %.034814.us, i64 144
-  %66 = load <4 x float>, ptr %65, align 16, !tbaa !89
+  %66 = load <4 x float>, ptr %65, align 16, !tbaa !88
   %67 = getelementptr inbounds nuw i8, ptr %.034814.us, i64 160
-  %68 = load <4 x float>, ptr %67, align 16, !tbaa !89
+  %68 = load <4 x float>, ptr %67, align 16, !tbaa !88
   %69 = getelementptr inbounds nuw i8, ptr %.034814.us, i64 176
-  %70 = load <4 x float>, ptr %69, align 16, !tbaa !89
+  %70 = load <4 x float>, ptr %69, align 16, !tbaa !88
   %71 = shufflevector <4 x float> %48, <4 x float> %50, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %72 = shufflevector <4 x float> %52, <4 x float> %54, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %73 = shufflevector <4 x float> %48, <4 x float> %50, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -6125,35 +6125,35 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %92 = shufflevector <4 x float> %88, <4 x float> %87, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %93 = shufflevector <4 x float> %89, <4 x float> %90, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %94 = shufflevector <4 x float> %90, <4 x float> %89, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %75, ptr %.215.us, align 16, !tbaa !89
+  store <4 x float> %75, ptr %.215.us, align 16, !tbaa !88
   %95 = getelementptr inbounds nuw i8, ptr %.215.us, i64 16
-  store <4 x float> %83, ptr %95, align 16, !tbaa !89
+  store <4 x float> %83, ptr %95, align 16, !tbaa !88
   %96 = getelementptr inbounds nuw i8, ptr %.215.us, i64 32
-  store <4 x float> %91, ptr %96, align 16, !tbaa !89
+  store <4 x float> %91, ptr %96, align 16, !tbaa !88
   %97 = getelementptr inbounds nuw i8, ptr %.215.us, i64 48
-  store <4 x float> %76, ptr %97, align 16, !tbaa !89
+  store <4 x float> %76, ptr %97, align 16, !tbaa !88
   %98 = getelementptr inbounds nuw i8, ptr %.215.us, i64 64
-  store <4 x float> %84, ptr %98, align 16, !tbaa !89
+  store <4 x float> %84, ptr %98, align 16, !tbaa !88
   %99 = getelementptr inbounds nuw i8, ptr %.215.us, i64 80
-  store <4 x float> %92, ptr %99, align 16, !tbaa !89
+  store <4 x float> %92, ptr %99, align 16, !tbaa !88
   %100 = getelementptr inbounds nuw i8, ptr %.215.us, i64 96
-  store <4 x float> %77, ptr %100, align 16, !tbaa !89
+  store <4 x float> %77, ptr %100, align 16, !tbaa !88
   %101 = getelementptr inbounds nuw i8, ptr %.215.us, i64 112
-  store <4 x float> %85, ptr %101, align 16, !tbaa !89
+  store <4 x float> %85, ptr %101, align 16, !tbaa !88
   %102 = getelementptr inbounds nuw i8, ptr %.215.us, i64 128
-  store <4 x float> %93, ptr %102, align 16, !tbaa !89
+  store <4 x float> %93, ptr %102, align 16, !tbaa !88
   %103 = getelementptr inbounds nuw i8, ptr %.215.us, i64 144
-  store <4 x float> %78, ptr %103, align 16, !tbaa !89
+  store <4 x float> %78, ptr %103, align 16, !tbaa !88
   %104 = getelementptr inbounds nuw i8, ptr %.215.us, i64 160
-  store <4 x float> %86, ptr %104, align 16, !tbaa !89
+  store <4 x float> %86, ptr %104, align 16, !tbaa !88
   %105 = getelementptr inbounds nuw i8, ptr %.215.us, i64 176
-  store <4 x float> %94, ptr %105, align 16, !tbaa !89
+  store <4 x float> %94, ptr %105, align 16, !tbaa !88
   %106 = getelementptr inbounds nuw i8, ptr %.215.us, i64 192
   %107 = getelementptr inbounds float, ptr %.034814.us, i64 %23
   %108 = add nuw nsw i32 %.034913.us, 4
   %109 = or disjoint i32 %108, 3
   %110 = icmp slt i32 %109, %4
-  br i1 %110, label %.lr.ph.us, label %.loopexit12.us, !llvm.loop !139
+  br i1 %110, label %.lr.ph.us, label %.loopexit12.us, !llvm.loop !137
 
 .loopexit12.us:                                   ; preds = %.lr.ph.us, %.lr.ph23.split.us
   %.2.lcssa.us = phi ptr [ %.034222.us, %.lr.ph23.split.us ], [ %106, %.lr.ph.us ]
@@ -6190,28 +6190,28 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %.318.us30 = phi ptr [ %128, %.lr.ph19.us35 ], [ %.034222.us27, %.lr.ph19.us35.preheader ]
   %.035417.us31 = phi ptr [ %129, %.lr.ph19.us35 ], [ %120, %.lr.ph19.us35.preheader ]
   %.035516.us32 = phi i32 [ %130, %.lr.ph19.us35 ], [ 0, %.lr.ph19.us35.preheader ]
-  %121 = load <4 x float>, ptr %.035417.us31, align 1, !tbaa !89
-  store <4 x float> %121, ptr %.318.us30, align 16, !tbaa !89
+  %121 = load <4 x float>, ptr %.035417.us31, align 1, !tbaa !88
+  store <4 x float> %121, ptr %.318.us30, align 16, !tbaa !88
   %122 = getelementptr inbounds nuw i8, ptr %.318.us30, i64 16
   %123 = getelementptr inbounds nuw i8, ptr %.035417.us31, i64 16
-  %124 = load <4 x float>, ptr %123, align 1, !tbaa !89
-  store <4 x float> %124, ptr %122, align 16, !tbaa !89
+  %124 = load <4 x float>, ptr %123, align 1, !tbaa !88
+  store <4 x float> %124, ptr %122, align 16, !tbaa !88
   %125 = getelementptr inbounds nuw i8, ptr %.318.us30, i64 32
   %126 = getelementptr inbounds nuw i8, ptr %.035417.us31, i64 32
-  %127 = load <4 x float>, ptr %126, align 1, !tbaa !89
-  store <4 x float> %127, ptr %125, align 16, !tbaa !89
+  %127 = load <4 x float>, ptr %126, align 1, !tbaa !88
+  store <4 x float> %127, ptr %125, align 16, !tbaa !88
   %128 = getelementptr inbounds nuw i8, ptr %.318.us30, i64 48
   %129 = getelementptr inbounds float, ptr %.035417.us31, i64 %26
   %130 = add nuw nsw i32 %.035516.us32, 1
   %exitcond.not = icmp eq i32 %130, %4
-  br i1 %exitcond.not, label %.loopexit11.us33, label %.lr.ph19.us35, !llvm.loop !138
+  br i1 %exitcond.not, label %.loopexit11.us33, label %.lr.ph19.us35, !llvm.loop !136
 
 .loopexit11.us33:                                 ; preds = %.lr.ph19.us35, %.lr.ph23.split.split.us
   %.3.lcssa.us34 = phi ptr [ %.034222.us27, %.lr.ph23.split.split.us ], [ %128, %.lr.ph19.us35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 12
   %131 = add nuw nsw i64 %indvars.iv, 23
   %132 = icmp samesign ult i64 %131, %116
-  br i1 %132, label %.lr.ph23.split.split.us, label %.preheader10.loopexit98, !llvm.loop !140
+  br i1 %132, label %.lr.ph23.split.split.us, label %.preheader10.loopexit98, !llvm.loop !138
 
 .preheader10.loopexit:                            ; preds = %.loopexit11.us
   %133 = trunc nuw nsw i64 %indvars.iv.next119 to i32
@@ -6289,21 +6289,21 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %.744 = phi ptr [ %204, %.lr.ph ], [ %.551, %.lr.ph.preheader ]
   %.035643 = phi ptr [ %205, %.lr.ph ], [ %165, %.lr.ph.preheader ]
   %.035742 = phi i32 [ %206, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %166 = load <4 x float>, ptr %.035643, align 16, !tbaa !89
+  %166 = load <4 x float>, ptr %.035643, align 16, !tbaa !88
   %167 = getelementptr inbounds nuw i8, ptr %.035643, i64 16
-  %168 = load <4 x float>, ptr %167, align 16, !tbaa !89
+  %168 = load <4 x float>, ptr %167, align 16, !tbaa !88
   %169 = getelementptr inbounds nuw i8, ptr %.035643, i64 32
-  %170 = load <4 x float>, ptr %169, align 16, !tbaa !89
+  %170 = load <4 x float>, ptr %169, align 16, !tbaa !88
   %171 = getelementptr inbounds nuw i8, ptr %.035643, i64 48
-  %172 = load <4 x float>, ptr %171, align 16, !tbaa !89
+  %172 = load <4 x float>, ptr %171, align 16, !tbaa !88
   %173 = getelementptr inbounds nuw i8, ptr %.035643, i64 64
-  %174 = load <4 x float>, ptr %173, align 16, !tbaa !89
+  %174 = load <4 x float>, ptr %173, align 16, !tbaa !88
   %175 = getelementptr inbounds nuw i8, ptr %.035643, i64 80
-  %176 = load <4 x float>, ptr %175, align 16, !tbaa !89
+  %176 = load <4 x float>, ptr %175, align 16, !tbaa !88
   %177 = getelementptr inbounds nuw i8, ptr %.035643, i64 96
-  %178 = load <4 x float>, ptr %177, align 16, !tbaa !89
+  %178 = load <4 x float>, ptr %177, align 16, !tbaa !88
   %179 = getelementptr inbounds nuw i8, ptr %.035643, i64 112
-  %180 = load <4 x float>, ptr %179, align 16, !tbaa !89
+  %180 = load <4 x float>, ptr %179, align 16, !tbaa !88
   %181 = shufflevector <4 x float> %166, <4 x float> %168, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %182 = shufflevector <4 x float> %170, <4 x float> %172, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %183 = shufflevector <4 x float> %166, <4 x float> %168, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -6320,27 +6320,27 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %194 = shufflevector <4 x float> %190, <4 x float> %189, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %195 = shufflevector <4 x float> %191, <4 x float> %192, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %196 = shufflevector <4 x float> %192, <4 x float> %191, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %185, ptr %.744, align 16, !tbaa !89
+  store <4 x float> %185, ptr %.744, align 16, !tbaa !88
   %197 = getelementptr inbounds nuw i8, ptr %.744, i64 16
-  store <4 x float> %193, ptr %197, align 16, !tbaa !89
+  store <4 x float> %193, ptr %197, align 16, !tbaa !88
   %198 = getelementptr inbounds nuw i8, ptr %.744, i64 32
-  store <4 x float> %186, ptr %198, align 16, !tbaa !89
+  store <4 x float> %186, ptr %198, align 16, !tbaa !88
   %199 = getelementptr inbounds nuw i8, ptr %.744, i64 48
-  store <4 x float> %194, ptr %199, align 16, !tbaa !89
+  store <4 x float> %194, ptr %199, align 16, !tbaa !88
   %200 = getelementptr inbounds nuw i8, ptr %.744, i64 64
-  store <4 x float> %187, ptr %200, align 16, !tbaa !89
+  store <4 x float> %187, ptr %200, align 16, !tbaa !88
   %201 = getelementptr inbounds nuw i8, ptr %.744, i64 80
-  store <4 x float> %195, ptr %201, align 16, !tbaa !89
+  store <4 x float> %195, ptr %201, align 16, !tbaa !88
   %202 = getelementptr inbounds nuw i8, ptr %.744, i64 96
-  store <4 x float> %188, ptr %202, align 16, !tbaa !89
+  store <4 x float> %188, ptr %202, align 16, !tbaa !88
   %203 = getelementptr inbounds nuw i8, ptr %.744, i64 112
-  store <4 x float> %196, ptr %203, align 16, !tbaa !89
+  store <4 x float> %196, ptr %203, align 16, !tbaa !88
   %204 = getelementptr inbounds nuw i8, ptr %.744, i64 128
   %205 = getelementptr inbounds float, ptr %.035643, i64 %141
   %206 = add nuw nsw i32 %.035742, 4
   %207 = or disjoint i32 %206, 3
   %208 = icmp slt i32 %207, %4
-  br i1 %208, label %.lr.ph, label %.loopexit8, !llvm.loop !141
+  br i1 %208, label %.lr.ph, label %.loopexit8, !llvm.loop !139
 
 209:                                              ; preds = %160
   br i1 %142, label %.lr.ph48.preheader, label %.loopexit8
@@ -6356,23 +6356,23 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %.847 = phi ptr [ %218, %.lr.ph48 ], [ %.551, %.lr.ph48.preheader ]
   %.035846 = phi ptr [ %219, %.lr.ph48 ], [ %213, %.lr.ph48.preheader ]
   %.035945 = phi i32 [ %220, %.lr.ph48 ], [ 0, %.lr.ph48.preheader ]
-  %214 = load <4 x float>, ptr %.035846, align 1, !tbaa !89
-  store <4 x float> %214, ptr %.847, align 16, !tbaa !89
+  %214 = load <4 x float>, ptr %.035846, align 1, !tbaa !88
+  store <4 x float> %214, ptr %.847, align 16, !tbaa !88
   %215 = getelementptr inbounds nuw i8, ptr %.847, i64 16
   %216 = getelementptr inbounds nuw i8, ptr %.035846, i64 16
-  %217 = load <4 x float>, ptr %216, align 1, !tbaa !89
-  store <4 x float> %217, ptr %215, align 16, !tbaa !89
+  %217 = load <4 x float>, ptr %216, align 1, !tbaa !88
+  store <4 x float> %217, ptr %215, align 16, !tbaa !88
   %218 = getelementptr inbounds nuw i8, ptr %.847, i64 32
   %219 = getelementptr inbounds float, ptr %.035846, i64 %143
   %220 = add nuw nsw i32 %.035945, 1
   %exitcond121.not = icmp eq i32 %220, %4
-  br i1 %exitcond121.not, label %.loopexit8, label %.lr.ph48, !llvm.loop !142
+  br i1 %exitcond121.not, label %.loopexit8, label %.lr.ph48, !llvm.loop !140
 
 .loopexit8:                                       ; preds = %.lr.ph48, %.lr.ph, %160, %161, %209
   %.9 = phi ptr [ %.551, %209 ], [ %.551, %161 ], [ %.551, %160 ], [ %204, %.lr.ph ], [ %218, %.lr.ph48 ]
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 8
   %221 = icmp slt i64 %indvars.iv122, %invariant.op
-  br i1 %221, label %160, label %.preheader7.loopexit, !llvm.loop !143
+  br i1 %221, label %160, label %.preheader7.loopexit, !llvm.loop !141
 
 .preheader4.loopexit:                             ; preds = %.loopexit5
   %222 = trunc nsw i64 %indvars.iv.next127 to i32
@@ -6421,13 +6421,13 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %.1257 = phi ptr [ %259, %.lr.ph58 ], [ %.1066, %.lr.ph58.preheader ]
   %.036056 = phi ptr [ %260, %.lr.ph58 ], [ %240, %.lr.ph58.preheader ]
   %.036155 = phi i32 [ %261, %.lr.ph58 ], [ 0, %.lr.ph58.preheader ]
-  %241 = load <4 x float>, ptr %.036056, align 16, !tbaa !89
+  %241 = load <4 x float>, ptr %.036056, align 16, !tbaa !88
   %242 = getelementptr inbounds nuw i8, ptr %.036056, i64 16
-  %243 = load <4 x float>, ptr %242, align 16, !tbaa !89
+  %243 = load <4 x float>, ptr %242, align 16, !tbaa !88
   %244 = getelementptr inbounds nuw i8, ptr %.036056, i64 32
-  %245 = load <4 x float>, ptr %244, align 16, !tbaa !89
+  %245 = load <4 x float>, ptr %244, align 16, !tbaa !88
   %246 = getelementptr inbounds nuw i8, ptr %.036056, i64 48
-  %247 = load <4 x float>, ptr %246, align 16, !tbaa !89
+  %247 = load <4 x float>, ptr %246, align 16, !tbaa !88
   %248 = shufflevector <4 x float> %241, <4 x float> %243, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %249 = shufflevector <4 x float> %245, <4 x float> %247, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %250 = shufflevector <4 x float> %241, <4 x float> %243, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -6436,19 +6436,19 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %253 = shufflevector <4 x float> %249, <4 x float> %248, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %254 = shufflevector <4 x float> %250, <4 x float> %251, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %255 = shufflevector <4 x float> %251, <4 x float> %250, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %252, ptr %.1257, align 16, !tbaa !89
+  store <4 x float> %252, ptr %.1257, align 16, !tbaa !88
   %256 = getelementptr inbounds nuw i8, ptr %.1257, i64 16
-  store <4 x float> %253, ptr %256, align 16, !tbaa !89
+  store <4 x float> %253, ptr %256, align 16, !tbaa !88
   %257 = getelementptr inbounds nuw i8, ptr %.1257, i64 32
-  store <4 x float> %254, ptr %257, align 16, !tbaa !89
+  store <4 x float> %254, ptr %257, align 16, !tbaa !88
   %258 = getelementptr inbounds nuw i8, ptr %.1257, i64 48
-  store <4 x float> %255, ptr %258, align 16, !tbaa !89
+  store <4 x float> %255, ptr %258, align 16, !tbaa !88
   %259 = getelementptr inbounds nuw i8, ptr %.1257, i64 64
   %260 = getelementptr inbounds float, ptr %.036056, i64 %154
   %261 = add nuw nsw i32 %.036155, 4
   %262 = or disjoint i32 %261, 3
   %263 = icmp slt i32 %262, %4
-  br i1 %263, label %.lr.ph58, label %.loopexit5, !llvm.loop !144
+  br i1 %263, label %.lr.ph58, label %.loopexit5, !llvm.loop !142
 
 264:                                              ; preds = %235
   br i1 %155, label %.lr.ph63.preheader, label %.loopexit5
@@ -6464,20 +6464,20 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %.1362 = phi ptr [ %270, %.lr.ph63 ], [ %.1066, %.lr.ph63.preheader ]
   %.035261 = phi i32 [ %272, %.lr.ph63 ], [ 0, %.lr.ph63.preheader ]
   %.035360 = phi ptr [ %271, %.lr.ph63 ], [ %268, %.lr.ph63.preheader ]
-  %269 = load <4 x float>, ptr %.035360, align 1, !tbaa !89
-  store <4 x float> %269, ptr %.1362, align 16, !tbaa !89
+  %269 = load <4 x float>, ptr %.035360, align 1, !tbaa !88
+  store <4 x float> %269, ptr %.1362, align 16, !tbaa !88
   %270 = getelementptr inbounds nuw i8, ptr %.1362, i64 16
   %271 = getelementptr inbounds float, ptr %.035360, i64 %156
   %272 = add nuw nsw i32 %.035261, 1
   %exitcond125.not = icmp eq i32 %272, %4
-  br i1 %exitcond125.not, label %.loopexit5, label %.lr.ph63, !llvm.loop !145
+  br i1 %exitcond125.not, label %.loopexit5, label %.lr.ph63, !llvm.loop !143
 
 .loopexit5:                                       ; preds = %.lr.ph63, %.lr.ph58, %235, %236, %264
   %.14 = phi ptr [ %.1066, %264 ], [ %.1066, %236 ], [ %.1066, %235 ], [ %259, %.lr.ph58 ], [ %270, %.lr.ph63 ]
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 4
   %273 = or disjoint i64 %indvars.iv.next127, 3
   %274 = icmp slt i64 %273, %158
-  br i1 %274, label %235, label %.preheader4.loopexit, !llvm.loop !146
+  br i1 %274, label %235, label %.preheader4.loopexit, !llvm.loop !144
 
 .preheader.loopexit:                              ; preds = %.loopexit2
   %275 = trunc nsw i64 %indvars.iv.next131 to i32
@@ -6525,20 +6525,20 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %.1772 = phi ptr [ %298, %.lr.ph73 ], [ %.1581, %.lr.ph73.preheader ]
   %.035071 = phi i32 [ %300, %.lr.ph73 ], [ 0, %.lr.ph73.preheader ]
   %.035170 = phi ptr [ %299, %.lr.ph73 ], [ %291, %.lr.ph73.preheader ]
-  %292 = load <4 x float>, ptr %.035170, align 16, !tbaa !89
+  %292 = load <4 x float>, ptr %.035170, align 16, !tbaa !88
   %293 = getelementptr inbounds nuw i8, ptr %.035170, i64 16
-  %294 = load <4 x float>, ptr %293, align 16, !tbaa !89
+  %294 = load <4 x float>, ptr %293, align 16, !tbaa !88
   %295 = shufflevector <4 x float> %292, <4 x float> %294, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %296 = shufflevector <4 x float> %292, <4 x float> %294, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %295, ptr %.1772, align 16, !tbaa !89
+  store <4 x float> %295, ptr %.1772, align 16, !tbaa !88
   %297 = getelementptr inbounds nuw i8, ptr %.1772, i64 16
-  store <4 x float> %296, ptr %297, align 16, !tbaa !89
+  store <4 x float> %296, ptr %297, align 16, !tbaa !88
   %298 = getelementptr inbounds nuw i8, ptr %.1772, i64 32
   %299 = getelementptr inbounds float, ptr %.035170, i64 %229
   %300 = add nuw nsw i32 %.035071, 4
   %301 = or disjoint i32 %300, 3
   %302 = icmp slt i32 %301, %4
-  br i1 %302, label %.lr.ph73, label %.loopexit2, !llvm.loop !147
+  br i1 %302, label %.lr.ph73, label %.loopexit2, !llvm.loop !145
 
 303:                                              ; preds = %286
   br i1 %230, label %.lr.ph78.preheader, label %.loopexit2
@@ -6564,14 +6564,14 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %313 = getelementptr inbounds float, ptr %.034176, i64 %231
   %314 = add nuw nsw i32 %.034077, 1
   %exitcond129.not = icmp eq i32 %314, %4
-  br i1 %exitcond129.not, label %.loopexit2, label %.lr.ph78, !llvm.loop !148
+  br i1 %exitcond129.not, label %.loopexit2, label %.lr.ph78, !llvm.loop !146
 
 .loopexit2:                                       ; preds = %.lr.ph78, %.lr.ph73, %286, %287, %303
   %.19 = phi ptr [ %.1581, %303 ], [ %.1581, %287 ], [ %.1581, %286 ], [ %298, %.lr.ph73 ], [ %312, %.lr.ph78 ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 2
   %315 = or disjoint i64 %indvars.iv.next131, 1
   %316 = icmp slt i64 %315, %233
-  br i1 %316, label %286, label %.preheader.loopexit, !llvm.loop !149
+  br i1 %316, label %286, label %.preheader.loopexit, !llvm.loop !147
 
 317:                                              ; preds = %.lr.ph97, %.loopexit
   %indvars.iv134 = phi i64 [ %284, %.lr.ph97 ], [ %indvars.iv.next135, %.loopexit ]
@@ -6596,14 +6596,14 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %.033887 = phi i32 [ %326, %.lr.ph88 ], [ 0, %.lr.ph88.preheader ]
   %.033986 = phi ptr [ %325, %.lr.ph88 ], [ %322, %.lr.ph88.preheader ]
   %.2285 = phi ptr [ %324, %.lr.ph88 ], [ %.2096, %.lr.ph88.preheader ]
-  %323 = load <4 x float>, ptr %.033986, align 16, !tbaa !89
-  store <4 x float> %323, ptr %.2285, align 16, !tbaa !89
+  %323 = load <4 x float>, ptr %.033986, align 16, !tbaa !88
+  store <4 x float> %323, ptr %.2285, align 16, !tbaa !88
   %324 = getelementptr inbounds nuw i8, ptr %.2285, i64 16
   %325 = getelementptr inbounds float, ptr %.033986, i64 %281
   %326 = add nuw nsw i32 %.033887, 4
   %327 = or disjoint i32 %326, 3
   %328 = icmp slt i32 %327, %4
-  br i1 %328, label %.lr.ph88, label %.loopexit, !llvm.loop !150
+  br i1 %328, label %.lr.ph88, label %.loopexit, !llvm.loop !148
 
 329:                                              ; preds = %317
   br i1 %282, label %.lr.ph93.preheader, label %.loopexit
@@ -6625,13 +6625,13 @@ define internal fastcc void @_ZN4ncnnL21transpose_pack_B_tileERKNS_3MatERS0_iiii
   %336 = getelementptr inbounds float, ptr %.033791, i64 %283
   %337 = add nuw nsw i32 %.092, 1
   %exitcond133.not = icmp eq i32 %337, %4
-  br i1 %exitcond133.not, label %.loopexit, label %.lr.ph93, !llvm.loop !151
+  br i1 %exitcond133.not, label %.loopexit, label %.lr.ph93, !llvm.loop !149
 
 .loopexit:                                        ; preds = %.lr.ph93, %.lr.ph88, %317, %318, %329
   %.24 = phi ptr [ %.2096, %329 ], [ %.2096, %318 ], [ %.2096, %317 ], [ %324, %.lr.ph88 ], [ %335, %.lr.ph93 ]
   %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count
-  br i1 %exitcond137.not, label %._crit_edge, label %317, !llvm.loop !152
+  br i1 %exitcond137.not, label %._crit_edge, label %317, !llvm.loop !150
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   ret void
@@ -6722,14 +6722,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Gemm_x8612forward_int8ER
   br label %131
 
 67:                                               ; preds = %4
-  %68 = load ptr, ptr %1, align 8, !tbaa !66
+  %68 = load ptr, ptr %1, align 8, !tbaa !65
   br i1 %.not, label %85, label %69
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %71 = load i32, ptr %70, align 4, !tbaa !36
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %73 = load i32, ptr %72, align 4, !tbaa !67
+  %73 = load i32, ptr %72, align 4, !tbaa !66
   %.not140 = icmp eq i32 %73, 0
   br i1 %.not140, label %82, label %74
 
@@ -6752,7 +6752,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Gemm_x8612forward_int8ER
 
 85:                                               ; preds = %67
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %87 = load i32, ptr %86, align 8, !tbaa !68
+  %87 = load i32, ptr %86, align 8, !tbaa !67
   %.not135 = icmp eq i32 %87, 0
   br i1 %.not132, label %104, label %88
 
@@ -6805,7 +6805,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8Gemm_x8612forward_int8ER
 116:                                              ; preds = %108, %105
   %117 = phi i32 [ %107, %105 ], [ %115, %108 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %119 = load i32, ptr %118, align 4, !tbaa !67
+  %119 = load i32, ptr %118, align 4, !tbaa !66
   %.not136 = icmp eq i32 %119, 0
   br i1 %.not136, label %128, label %120
 
@@ -6937,8 +6937,8 @@ _ZN4ncnn3MataSERKS0_.exit279:                     ; preds = %_ZN4ncnn3Mat7releas
 
 188:                                              ; preds = %131
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %190 = load ptr, ptr %189, align 8, !tbaa !69
-  %191 = load ptr, ptr %1, align 8, !tbaa !66
+  %190 = load ptr, ptr %189, align 8, !tbaa !68
+  %191 = load ptr, ptr %1, align 8, !tbaa !65
   %192 = ptrtoint ptr %190 to i64
   %193 = ptrtoint ptr %191 to i64
   %194 = sub i64 %192, %193
@@ -7612,10 +7612,10 @@ _ZNK4ncnn3Mat5emptyEv.exit249:                    ; preds = %_ZN4ncnn3MatD2Ev.ex
 _ZNK4ncnn3Mat5emptyEv.exit249.thread:             ; preds = %.thread688, %_ZN4ncnn3MatD2Ev.exit193, %479, %482, %_ZNK4ncnn3Mat5emptyEv.exit249, %_ZN4ncnn3MataSERKS0_.exit279
   %.0111 = phi i32 [ %185, %_ZN4ncnn3MataSERKS0_.exit279 ], [ 0, %_ZNK4ncnn3Mat5emptyEv.exit249 ], [ %spec.select181, %482 ], [ %.4, %479 ], [ 0, %_ZN4ncnn3MatD2Ev.exit193 ], [ %spec.select174, %.thread688 ]
   %488 = getelementptr inbounds nuw i8, ptr %3, i64 39
-  %489 = load i8, ptr %488, align 1, !tbaa !72, !range !46, !noundef !47
+  %489 = load i8, ptr %488, align 1, !tbaa !71, !range !46, !noundef !47
   %490 = trunc nuw i8 %489 to i1
   %491 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %492 = load i32, ptr %491, align 8, !tbaa !73
+  %492 = load i32, ptr %491, align 8, !tbaa !72
   br i1 %490, label %493, label %_ZNK4ncnn3Mat5emptyEv.exit249.thread._crit_edge
 
 493:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit249.thread
@@ -7629,19 +7629,19 @@ _ZNK4ncnn3Mat5emptyEv.exit249.thread:             ; preds = %.thread688, %_ZN4nc
 _ZNK4ncnn3Mat5emptyEv.exit249.thread._crit_edge:  ; preds = %_ZNK4ncnn3Mat5emptyEv.exit249.thread, %493
   %.0126 = phi i32 [ %497, %493 ], [ 1, %_ZNK4ncnn3Mat5emptyEv.exit249.thread ]
   %498 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %499 = load i32, ptr %498, align 8, !tbaa !74
+  %499 = load i32, ptr %498, align 8, !tbaa !73
   %.not155 = icmp eq i32 %499, 0
   %spec.select182 = select i1 %.not155, i32 %.0126, i32 %499
   %500 = shl i32 %spec.select182, 2
   %501 = zext i32 %500 to i64
-  %502 = load ptr, ptr %2, align 8, !tbaa !66
+  %502 = load ptr, ptr %2, align 8, !tbaa !65
   %503 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %.not156 = icmp eq i32 %492, 0
   %504 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %505 = load i32, ptr %504, align 4, !tbaa !75
+  %505 = load i32, ptr %504, align 4, !tbaa !74
   %.not157 = icmp eq i32 %505, 0
   %506 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %507 = load ptr, ptr %506, align 8, !tbaa !76
+  %507 = load ptr, ptr %506, align 8, !tbaa !75
   br i1 %.not156, label %512, label %508
 
 508:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit249.thread._crit_edge
@@ -7686,7 +7686,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %518
 
 528:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit
   %529 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  %530 = load i32, ptr %529, align 4, !tbaa !65
+  %530 = load i32, ptr %529, align 4, !tbaa !64
   %.not159 = icmp eq i32 %530, 0
   %531 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %532 = load i32, ptr %531, align 4
@@ -7696,9 +7696,9 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %518
   br i1 %or.cond, label %538, label %534
 
 534:                                              ; preds = %528
-  %535 = load ptr, ptr @stderr, align 8, !tbaa !77
+  %535 = load ptr, ptr @stderr, align 8, !tbaa !76
   %536 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %535, ptr noundef nonnull @.str, i32 noundef %532, i32 noundef %530) #24
-  %537 = load ptr, ptr @stderr, align 8, !tbaa !77
+  %537 = load ptr, ptr @stderr, align 8, !tbaa !76
   %fputc = call i32 @fputc(i32 10, ptr %537)
   br label %538
 
@@ -7716,16 +7716,16 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %518
   %544 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %546 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %547 = load float, ptr %546, align 8, !tbaa !153
+  %547 = load float, ptr %546, align 8, !tbaa !151
   %548 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %549 = load i32, ptr %548, align 4, !tbaa !36
   %550 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %551 = load i32, ptr %550, align 8, !tbaa !49
   %552 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %553 = load i32, ptr %552, align 4, !tbaa !38
-  %554 = load i32, ptr %503, align 8, !tbaa !73
+  %554 = load i32, ptr %503, align 8, !tbaa !72
   %555 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %556 = load float, ptr %555, align 8, !tbaa !79
+  %556 = load float, ptr %555, align 8, !tbaa !78
   %557 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %558 = load float, ptr %557, align 4, !tbaa !58
   %559 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -7755,7 +7755,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %518
   store i32 %568, ptr %53, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %54) #9
   %569 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %570 = load ptr, ptr %569, align 8, !tbaa !70
+  %570 = load ptr, ptr %569, align 8, !tbaa !69
   %571 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %572 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %573 = getelementptr inbounds nuw i8, ptr %54, i64 64
@@ -7792,7 +7792,7 @@ _ZNK4ncnn3Mat5emptyEv.exit53.i:                   ; preds = %.noexc288
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %55) #9
   %584 = load i32, ptr %51, align 4, !tbaa !37
   %585 = mul nsw i32 %584, %565
-  %586 = load ptr, ptr %569, align 8, !tbaa !70
+  %586 = load ptr, ptr %569, align 8, !tbaa !69
   %587 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %588 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %589 = getelementptr inbounds nuw i8, ptr %55, i64 56
@@ -7813,7 +7813,7 @@ _ZNK4ncnn3Mat5emptyEv.exit53.i:                   ; preds = %.noexc288
   store float %595, ptr %596, align 4, !tbaa !61
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %591, !llvm.loop !154
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %591, !llvm.loop !152
 
 _ZN4ncnn3MatC2EiiimPNS_9AllocatorE.exit.i:        ; preds = %._crit_edge.i
   %597 = load ptr, ptr %55, align 8, !tbaa !16
@@ -7838,22 +7838,22 @@ _ZNK4ncnn3Mat5emptyEv.exit.i:                     ; preds = %_ZN4ncnn3MatC2Eiiim
 
 607:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56) #9
-  store i32 %565, ptr %56, align 4, !tbaa !155
+  store i32 %565, ptr %56, align 4, !tbaa !153
   %608 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  store i32 %584, ptr %608, align 4, !tbaa !157
+  store i32 %584, ptr %608, align 4, !tbaa !155
   %609 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %610 = load i32, ptr %52, align 4, !tbaa !37
-  store i32 %610, ptr %609, align 4, !tbaa !158
+  store i32 %610, ptr %609, align 4, !tbaa !156
   %611 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  store i32 %.0111, ptr %611, align 4, !tbaa !159
+  store i32 %.0111, ptr %611, align 4, !tbaa !157
   %612 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store i32 0, ptr %612, align 4, !tbaa !160
+  store i32 0, ptr %612, align 4, !tbaa !158
   %613 = getelementptr inbounds nuw i8, ptr %56, i64 20
-  store i32 %554, ptr %613, align 4, !tbaa !161
+  store i32 %554, ptr %613, align 4, !tbaa !159
   %614 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  store float %556, ptr %614, align 4, !tbaa !162
+  store float %556, ptr %614, align 4, !tbaa !160
   %615 = getelementptr inbounds nuw i8, ptr %56, i64 28
-  store float %558, ptr %615, align 4, !tbaa !163
+  store float %558, ptr %615, align 4, !tbaa !161
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %541, i32 %533)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 11, ptr nonnull @_ZN4ncnnL19gemm_AT_BT_x86_int8ERKNS_3MatES2_S2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.omp_outlined, ptr nonnull %53, ptr nonnull %56, ptr nonnull %47, ptr nonnull %55, ptr nonnull %48, ptr nonnull %49, ptr nonnull align 8 dereferenceable(72) %543, ptr nonnull align 8 dereferenceable(72) %545, ptr nonnull align 8 dereferenceable(72) %57, ptr nonnull align 8 dereferenceable(72) %502, ptr nonnull %54)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %56) #9
@@ -8004,7 +8004,7 @@ _ZN4ncnnL19gemm_AT_BT_x86_int8ERKNS_3MatES2_S2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.
   br i1 %.not164, label %916, label %667
 
 667:                                              ; preds = %665
-  %668 = load ptr, ptr %1, align 8, !tbaa !66
+  %668 = load ptr, ptr %1, align 8, !tbaa !65
   %669 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %671 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -8012,10 +8012,10 @@ _ZN4ncnnL19gemm_AT_BT_x86_int8ERKNS_3MatES2_S2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.
   %673 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %674 = load i32, ptr %673, align 4, !tbaa !38
   %675 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %676 = load i32, ptr %675, align 4, !tbaa !67
-  %677 = load i32, ptr %503, align 8, !tbaa !73
+  %676 = load i32, ptr %675, align 4, !tbaa !66
+  %677 = load i32, ptr %503, align 8, !tbaa !72
   %678 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %679 = load float, ptr %678, align 8, !tbaa !79
+  %679 = load float, ptr %678, align 8, !tbaa !78
   %680 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %681 = load float, ptr %680, align 4, !tbaa !58
   %682 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -8082,7 +8082,7 @@ _ZN4ncnnL19gemm_AT_BT_x86_int8ERKNS_3MatES2_S2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %41) #9
   %715 = mul nsw i32 %711, %706
   %716 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %717 = load ptr, ptr %716, align 8, !tbaa !70
+  %717 = load ptr, ptr %716, align 8, !tbaa !69
   %718 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %719 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %720 = getelementptr inbounds nuw i8, ptr %41, i64 64
@@ -8156,7 +8156,7 @@ _ZNK4ncnn3Mat5emptyEv.exit83.i:                   ; preds = %.noexc302
   %.139.lcssa.us.i.i.i = phi float [ %.03850.us.i.i.i, %..preheader_crit_edge.us.i.i.i ], [ %.sroa.speculated34.us.i.i.i, %.lr.ph48.us.i.i.i ]
   %indvars.iv.next83.i.i.i = add nuw nsw i64 %indvars.iv82.i.i.i, 1
   %exitcond86.not.i.i.i = icmp eq i64 %indvars.iv.next83.i.i.i, %wide.trip.count85.i.i.i
-  br i1 %exitcond86.not.i.i.i, label %.loopexit.i, label %.lr.ph.us.i.i.i, !llvm.loop !164
+  br i1 %exitcond86.not.i.i.i, label %.loopexit.i, label %.lr.ph.us.i.i.i, !llvm.loop !162
 
 .lr.ph48.us.i.i.i:                                ; preds = %..preheader_crit_edge.us.i.i.i, %.lr.ph48.us.i.i.i
   %.12847.us.i.i.i = phi i32 [ %756, %.lr.ph48.us.i.i.i ], [ %748, %..preheader_crit_edge.us.i.i.i ]
@@ -8169,13 +8169,13 @@ _ZNK4ncnn3Mat5emptyEv.exit83.i:                   ; preds = %.noexc302
   %755 = getelementptr inbounds nuw i8, ptr %.13146.us.i.i.i, i64 4
   %756 = add nuw nsw i32 %.12847.us.i.i.i, 1
   %exitcond81.not.i.i.i = icmp eq i32 %756, %746
-  br i1 %exitcond81.not.i.i.i, label %._crit_edge.us.i.i.i, label %.lr.ph48.us.i.i.i, !llvm.loop !165
+  br i1 %exitcond81.not.i.i.i, label %._crit_edge.us.i.i.i, label %.lr.ph48.us.i.i.i, !llvm.loop !163
 
 757:                                              ; preds = %757, %.lr.ph.us.i.i.i
   %.142.us.i.i.i = phi <4 x float> [ %.052.us.i.i.i, %.lr.ph.us.i.i.i ], [ %761, %757 ]
   %.02741.us.i.i.i = phi i32 [ 0, %.lr.ph.us.i.i.i ], [ %763, %757 ]
   %.03040.us.i.i.i = phi ptr [ %751, %.lr.ph.us.i.i.i ], [ %762, %757 ]
-  %758 = load <4 x i32>, ptr %.03040.us.i.i.i, align 1, !tbaa !89
+  %758 = load <4 x i32>, ptr %.03040.us.i.i.i, align 1, !tbaa !88
   %759 = and <4 x i32> %758, splat (i32 2147483647)
   %760 = bitcast <4 x i32> %759 to <4 x float>
   %761 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.142.us.i.i.i, <4 x float> nofpclass(nan inf) %760)
@@ -8183,7 +8183,7 @@ _ZNK4ncnn3Mat5emptyEv.exit83.i:                   ; preds = %.noexc302
   %763 = add nuw nsw i32 %.02741.us.i.i.i, 4
   %764 = or disjoint i32 %763, 3
   %765 = icmp slt i32 %764, %746
-  br i1 %765, label %757, label %..preheader_crit_edge.us.i.i.i, !llvm.loop !166
+  br i1 %765, label %757, label %..preheader_crit_edge.us.i.i.i, !llvm.loop !164
 
 ..preheader_crit_edge.us.i.i.i:                   ; preds = %757
   br i1 %.not.i86.i, label %._crit_edge.us.i.i.i, label %.lr.ph48.us.i.i.i
@@ -8216,12 +8216,12 @@ _ZNK4ncnn3Mat5emptyEv.exit83.i:                   ; preds = %.noexc302
   %774 = getelementptr inbounds nuw i8, ptr %.13146.us65.i.i.i, i64 4
   %775 = add nuw nsw i32 %.12847.us64.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %775, %746
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.us69.i.i.i, label %770, !llvm.loop !165
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.us69.i.i.i, label %770, !llvm.loop !163
 
 ._crit_edge.us69.i.i.i:                           ; preds = %770
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond80.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond80.not.i.i.i, label %.loopexit.i, label %.preheader.us59.i.i.i, !llvm.loop !167
+  br i1 %exitcond80.not.i.i.i, label %.loopexit.i, label %.preheader.us59.i.i.i, !llvm.loop !165
 
 .loopexit.i:                                      ; preds = %._crit_edge.us69.i.i.i, %._crit_edge.us.i.i.i, %.lr.ph54.split.i.i.i, %729
   %.038.lcssa.i.i.i = phi float [ 0.000000e+00, %729 ], [ 0.000000e+00, %.lr.ph54.split.i.i.i ], [ %.139.lcssa.us.i.i.i, %._crit_edge.us.i.i.i ], [ %.sroa.speculated34.us67.i.i.i, %._crit_edge.us69.i.i.i ]
@@ -8238,7 +8238,7 @@ _ZNK4ncnn3Mat5emptyEv.exit83.i:                   ; preds = %.noexc302
   %784 = select fast i1 %782, float 1.000000e+00, float %783
   store float %784, ptr %43, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %44) #9
-  %785 = load ptr, ptr %716, align 8, !tbaa !70
+  %785 = load ptr, ptr %716, align 8, !tbaa !69
   %786 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %787 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %788 = getelementptr inbounds nuw i8, ptr %44, i64 56
@@ -8282,7 +8282,7 @@ _ZNK4ncnn3Mat5emptyEv.exit82.i:                   ; preds = %_ZN4ncnn3MatC2EimPN
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %45) #9
   %801 = load i32, ptr %37, align 4, !tbaa !37
   %802 = mul nsw i32 %801, %701
-  %803 = load ptr, ptr %716, align 8, !tbaa !70
+  %803 = load ptr, ptr %716, align 8, !tbaa !69
   %804 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %805 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %806 = getelementptr inbounds nuw i8, ptr %45, i64 56
@@ -8304,7 +8304,7 @@ _ZNK4ncnn3Mat5emptyEv.exit82.i:                   ; preds = %_ZN4ncnn3MatC2EimPN
   store float %813, ptr %814, align 4, !tbaa !61
   %indvars.iv.next.i299 = add nuw nsw i64 %indvars.iv.i298, 1
   %exitcond.not.i300 = icmp eq i64 %indvars.iv.next.i299, %wide.trip.count.i297
-  br i1 %exitcond.not.i300, label %._crit_edge.i292, label %808, !llvm.loop !168
+  br i1 %exitcond.not.i300, label %._crit_edge.i292, label %808, !llvm.loop !166
 
 _ZN4ncnn3MatC2EiiimPNS_9AllocatorE.exit.i293:     ; preds = %._crit_edge.i292
   %815 = load ptr, ptr %45, align 8, !tbaa !16
@@ -8329,23 +8329,23 @@ _ZNK4ncnn3Mat5emptyEv.exit.i294:                  ; preds = %_ZN4ncnn3MatC2Eiiim
 
 825:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.i294
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46) #9
-  store i32 %701, ptr %46, align 4, !tbaa !155
+  store i32 %701, ptr %46, align 4, !tbaa !153
   %826 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %827 = load i32, ptr %37, align 4, !tbaa !37
-  store i32 %827, ptr %826, align 4, !tbaa !157
+  store i32 %827, ptr %826, align 4, !tbaa !155
   %828 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %829 = load i32, ptr %38, align 4, !tbaa !37
-  store i32 %829, ptr %828, align 4, !tbaa !158
+  store i32 %829, ptr %828, align 4, !tbaa !156
   %830 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  store i32 %.0111, ptr %830, align 4, !tbaa !159
+  store i32 %.0111, ptr %830, align 4, !tbaa !157
   %831 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i32 0, ptr %831, align 4, !tbaa !160
+  store i32 0, ptr %831, align 4, !tbaa !158
   %832 = getelementptr inbounds nuw i8, ptr %46, i64 20
-  store i32 %677, ptr %832, align 4, !tbaa !161
+  store i32 %677, ptr %832, align 4, !tbaa !159
   %833 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  store float %679, ptr %833, align 4, !tbaa !162
+  store float %679, ptr %833, align 4, !tbaa !160
   %834 = getelementptr inbounds nuw i8, ptr %46, i64 28
-  store float %681, ptr %834, align 4, !tbaa !163
+  store float %681, ptr %834, align 4, !tbaa !161
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %541, i32 %533)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 11, ptr nonnull @_ZN4ncnnL16gemm_AT_x86_int8ERKNS_3MatES2_S2_S2_RS0_iiiiiffiiiiRKNS_6OptionE.omp_outlined.6, ptr nonnull %39, ptr nonnull %46, ptr nonnull %32, ptr nonnull %45, ptr nonnull %35, ptr nonnull %33, ptr nonnull align 8 dereferenceable(72) %669, ptr nonnull %41, ptr nonnull align 8 dereferenceable(72) %57, ptr nonnull align 8 dereferenceable(72) %502, ptr nonnull %44)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %46) #9
@@ -8584,22 +8584,22 @@ _ZN4ncnnL16gemm_AT_x86_int8ERKNS_3MatES2_S2_S2_RS0_iiiiiffiiiiRKNS_6OptionE.exit
 916:                                              ; preds = %665
   %917 = load i32, ptr %60, align 4, !tbaa !48
   %.not165 = icmp eq i32 %917, 0
-  %918 = load ptr, ptr %1, align 8, !tbaa !66
+  %918 = load ptr, ptr %1, align 8, !tbaa !65
   br i1 %.not165, label %1176, label %919
 
 919:                                              ; preds = %916
   %920 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %921 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %922 = load float, ptr %921, align 8, !tbaa !153
+  %922 = load float, ptr %921, align 8, !tbaa !151
   %923 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %924 = load i32, ptr %923, align 8, !tbaa !49
   %925 = getelementptr inbounds nuw i8, ptr %0, i64 244
   %926 = load i32, ptr %925, align 4, !tbaa !38
   %927 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %928 = load i32, ptr %927, align 8, !tbaa !68
-  %929 = load i32, ptr %503, align 8, !tbaa !73
+  %928 = load i32, ptr %927, align 8, !tbaa !67
+  %929 = load i32, ptr %503, align 8, !tbaa !72
   %930 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %931 = load float, ptr %930, align 8, !tbaa !79
+  %931 = load float, ptr %930, align 8, !tbaa !78
   %932 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %933 = load float, ptr %932, align 4, !tbaa !58
   %934 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -8649,7 +8649,7 @@ _ZN4ncnnL16gemm_AT_x86_int8ERKNS_3MatES2_S2_S2_RS0_iiiiiffiiiiRKNS_6OptionE.exit
   store i32 %956, ptr %26, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %27) #9
   %957 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %958 = load ptr, ptr %957, align 8, !tbaa !70
+  %958 = load ptr, ptr %957, align 8, !tbaa !69
   %959 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %960 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %961 = getelementptr inbounds nuw i8, ptr %27, i64 64
@@ -8675,7 +8675,7 @@ _ZNK4ncnn3Mat5emptyEv.exit109.i:                  ; preds = %.noexc316
 
 970:                                              ; preds = %_ZNK4ncnn3Mat5emptyEv.exit109.i
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %28) #9
-  %971 = load ptr, ptr %957, align 8, !tbaa !70
+  %971 = load ptr, ptr %957, align 8, !tbaa !69
   %972 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %973 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %974 = getelementptr inbounds nuw i8, ptr %28, i64 56
@@ -8770,7 +8770,7 @@ _ZNK4ncnn3Mat5emptyEv.exit108.i:                  ; preds = %_ZN4ncnn3MatC2EimPN
   %1017 = add i32 %926, -1
   %1018 = add i32 %1017, %990
   %1019 = sdiv i32 %1018, %990
-  %1020 = load ptr, ptr %957, align 8, !tbaa !70
+  %1020 = load ptr, ptr %957, align 8, !tbaa !69
   invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %29, i32 noundef %1016, i32 noundef %1019, i32 noundef %533, i64 noundef 1, ptr noundef %1020)
           to label %1028 unwind label %1021
 
@@ -8784,7 +8784,7 @@ _ZNK4ncnn3Mat5emptyEv.exit108.i:                  ; preds = %_ZN4ncnn3MatC2EimPN
   %1024 = add i32 %926, -1
   %1025 = add i32 %1024, %990
   %1026 = sdiv i32 %1025, %990
-  %1027 = load ptr, ptr %957, align 8, !tbaa !70
+  %1027 = load ptr, ptr %957, align 8, !tbaa !69
   invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %29, i32 noundef %1023, i32 noundef %1026, i32 noundef %533, i64 noundef 1, ptr noundef %1027)
           to label %1028 unwind label %1003
 
@@ -8805,7 +8805,7 @@ _ZNK4ncnn3Mat5emptyEv.exit107.i:                  ; preds = %1028
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %30) #9
   %1037 = load i32, ptr %24, align 4, !tbaa !37
   %1038 = mul nsw i32 %1037, %953
-  %1039 = load ptr, ptr %957, align 8, !tbaa !70
+  %1039 = load ptr, ptr %957, align 8, !tbaa !69
   %1040 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1041 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %1042 = getelementptr inbounds nuw i8, ptr %30, i64 56
@@ -8837,21 +8837,21 @@ _ZNK4ncnn3Mat5emptyEv.exit.i310:                  ; preds = %_ZN4ncnn3MatC2Eiiim
 
 1053:                                             ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.i310
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #9
-  store i32 %953, ptr %31, align 4, !tbaa !155
+  store i32 %953, ptr %31, align 4, !tbaa !153
   %1054 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 %1037, ptr %1054, align 4, !tbaa !157
+  store i32 %1037, ptr %1054, align 4, !tbaa !155
   %1055 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 %990, ptr %1055, align 4, !tbaa !158
+  store i32 %990, ptr %1055, align 4, !tbaa !156
   %1056 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  store i32 %.0111, ptr %1056, align 4, !tbaa !159
+  store i32 %.0111, ptr %1056, align 4, !tbaa !157
   %1057 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i32 %928, ptr %1057, align 4, !tbaa !160
+  store i32 %928, ptr %1057, align 4, !tbaa !158
   %1058 = getelementptr inbounds nuw i8, ptr %31, i64 20
-  store i32 %929, ptr %1058, align 4, !tbaa !161
+  store i32 %929, ptr %1058, align 4, !tbaa !159
   %1059 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store float %931, ptr %1059, align 4, !tbaa !162
+  store float %931, ptr %1059, align 4, !tbaa !160
   %1060 = getelementptr inbounds nuw i8, ptr %31, i64 28
-  store float %933, ptr %1060, align 4, !tbaa !163
+  store float %933, ptr %1060, align 4, !tbaa !161
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %541, i32 %533)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN4ncnnL16gemm_BT_x86_int8ERKNS_3MatES2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.omp_outlined, ptr nonnull %26, ptr nonnull %31, ptr nonnull align 8 dereferenceable(72) %918, ptr nonnull %30, ptr nonnull %22, ptr nonnull %29, ptr nonnull align 8 dereferenceable(72) %920, ptr nonnull %27, ptr nonnull %21, ptr nonnull %28, ptr nonnull align 8 dereferenceable(72) %57, ptr nonnull align 8 dereferenceable(72) %502)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31) #9
@@ -9169,12 +9169,12 @@ _ZN4ncnnL16gemm_BT_x86_int8ERKNS_3MatES2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.exit: 
 1176:                                             ; preds = %916
   %1177 = getelementptr inbounds nuw i8, ptr %918, i64 72
   %1178 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %1179 = load i32, ptr %1178, align 8, !tbaa !68
+  %1179 = load i32, ptr %1178, align 8, !tbaa !67
   %1180 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  %1181 = load i32, ptr %1180, align 4, !tbaa !67
-  %1182 = load i32, ptr %503, align 8, !tbaa !73
+  %1181 = load i32, ptr %1180, align 4, !tbaa !66
+  %1182 = load i32, ptr %503, align 8, !tbaa !72
   %1183 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %1184 = load float, ptr %1183, align 8, !tbaa !79
+  %1184 = load float, ptr %1183, align 8, !tbaa !78
   %1185 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %1186 = load float, ptr %1185, align 4, !tbaa !58
   %1187 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -9346,7 +9346,7 @@ _ZN4ncnnL16gemm_BT_x86_int8ERKNS_3MatES2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.exit: 
   %1276 = add i32 %1275, %1274
   %1277 = sdiv i32 %1276, %1271
   %1278 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %1279 = load ptr, ptr %1278, align 8, !tbaa !70
+  %1279 = load ptr, ptr %1278, align 8, !tbaa !69
   invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %13, i32 noundef %1273, i32 noundef %1277, i32 noundef %533, i64 noundef 1, ptr noundef %1279)
           to label %1286 unwind label %1280
 
@@ -9360,7 +9360,7 @@ _ZN4ncnnL16gemm_BT_x86_int8ERKNS_3MatES2_fS2_RS0_iiiiiffiiiiRKNS_6OptionE.exit: 
   %1282 = phi i32 [ %.pre.i, %..critedge_crit_edge.i ], [ %1239, %.noexc379 ]
   %1283 = mul nsw i32 %1282, %1229
   %1284 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %1285 = load ptr, ptr %1284, align 8, !tbaa !70
+  %1285 = load ptr, ptr %1284, align 8, !tbaa !69
   invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %13, i32 noundef %1283, i32 noundef %.pre-phi586, i32 noundef %533, i64 noundef 1, ptr noundef %1285)
           to label %1286 unwind label %1259
 
@@ -9391,7 +9391,7 @@ _ZNK4ncnn3Mat5emptyEv.exit148.i:                  ; preds = %1286
   %1304 = add i32 %1303, %1302
   %1305 = sdiv i32 %1304, %1296
   %1306 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %1307 = load ptr, ptr %1306, align 8, !tbaa !70
+  %1307 = load ptr, ptr %1306, align 8, !tbaa !69
   %1308 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %1309 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %1310 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -9426,7 +9426,7 @@ _ZNK4ncnn3Mat5emptyEv.exit147.i:                  ; preds = %_ZN4ncnn3MatC2Eiiim
   %1323 = mul nsw i32 %1322, %1237
   store i32 %1323, ptr %15, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %16) #9
-  %1324 = load ptr, ptr %1306, align 8, !tbaa !70
+  %1324 = load ptr, ptr %1306, align 8, !tbaa !69
   %1325 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %1326 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %1327 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -9501,7 +9501,7 @@ _ZNK4ncnn3Mat5emptyEv.exit146.i:                  ; preds = %_ZN4ncnn3MatC2EimPN
   %.139.lcssa.us.i.i.i372 = phi float [ %.03850.us.i.i.i359, %..preheader_crit_edge.us.i.i.i364 ], [ %.sroa.speculated34.us.i.i.i369, %.lr.ph48.us.i.i.i365 ]
   %indvars.iv.next83.i.i.i373 = add nuw nsw i64 %indvars.iv82.i.i.i357, 1
   %exitcond86.not.i.i.i374 = icmp eq i64 %indvars.iv.next83.i.i.i373, %wide.trip.count85.i.i.i355
-  br i1 %exitcond86.not.i.i.i374, label %.loopexit.i325, label %.lr.ph.us.i.i.i356, !llvm.loop !164
+  br i1 %exitcond86.not.i.i.i374, label %.loopexit.i325, label %.lr.ph.us.i.i.i356, !llvm.loop !162
 
 .lr.ph48.us.i.i.i365:                             ; preds = %..preheader_crit_edge.us.i.i.i364, %.lr.ph48.us.i.i.i365
   %.12847.us.i.i.i366 = phi i32 [ %1363, %.lr.ph48.us.i.i.i365 ], [ %1355, %..preheader_crit_edge.us.i.i.i364 ]
@@ -9514,13 +9514,13 @@ _ZNK4ncnn3Mat5emptyEv.exit146.i:                  ; preds = %_ZN4ncnn3MatC2EimPN
   %1362 = getelementptr inbounds nuw i8, ptr %.13146.us.i.i.i367, i64 4
   %1363 = add nuw nsw i32 %.12847.us.i.i.i366, 1
   %exitcond81.not.i.i.i370 = icmp eq i32 %1363, %1353
-  br i1 %exitcond81.not.i.i.i370, label %._crit_edge.us.i.i.i371, label %.lr.ph48.us.i.i.i365, !llvm.loop !165
+  br i1 %exitcond81.not.i.i.i370, label %._crit_edge.us.i.i.i371, label %.lr.ph48.us.i.i.i365, !llvm.loop !163
 
 1364:                                             ; preds = %1364, %.lr.ph.us.i.i.i356
   %.142.us.i.i.i361 = phi <4 x float> [ %.052.us.i.i.i358, %.lr.ph.us.i.i.i356 ], [ %1368, %1364 ]
   %.02741.us.i.i.i362 = phi i32 [ 0, %.lr.ph.us.i.i.i356 ], [ %1370, %1364 ]
   %.03040.us.i.i.i363 = phi ptr [ %1358, %.lr.ph.us.i.i.i356 ], [ %1369, %1364 ]
-  %1365 = load <4 x i32>, ptr %.03040.us.i.i.i363, align 1, !tbaa !89
+  %1365 = load <4 x i32>, ptr %.03040.us.i.i.i363, align 1, !tbaa !88
   %1366 = and <4 x i32> %1365, splat (i32 2147483647)
   %1367 = bitcast <4 x i32> %1366 to <4 x float>
   %1368 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.142.us.i.i.i361, <4 x float> nofpclass(nan inf) %1367)
@@ -9528,7 +9528,7 @@ _ZNK4ncnn3Mat5emptyEv.exit146.i:                  ; preds = %_ZN4ncnn3MatC2EimPN
   %1370 = add nuw nsw i32 %.02741.us.i.i.i362, 4
   %1371 = or disjoint i32 %1370, 3
   %1372 = icmp slt i32 %1371, %1353
-  br i1 %1372, label %1364, label %..preheader_crit_edge.us.i.i.i364, !llvm.loop !166
+  br i1 %1372, label %1364, label %..preheader_crit_edge.us.i.i.i364, !llvm.loop !164
 
 ..preheader_crit_edge.us.i.i.i364:                ; preds = %1364
   br i1 %.not.i155.i, label %._crit_edge.us.i.i.i371, label %.lr.ph48.us.i.i.i365
@@ -9561,12 +9561,12 @@ _ZNK4ncnn3Mat5emptyEv.exit146.i:                  ; preds = %_ZN4ncnn3MatC2EimPN
   %1381 = getelementptr inbounds nuw i8, ptr %.13146.us65.i.i.i347, i64 4
   %1382 = add nuw nsw i32 %.12847.us64.i.i.i346, 1
   %exitcond.not.i.i.i350 = icmp eq i32 %1382, %1353
-  br i1 %exitcond.not.i.i.i350, label %._crit_edge.us69.i.i.i351, label %1377, !llvm.loop !165
+  br i1 %exitcond.not.i.i.i350, label %._crit_edge.us69.i.i.i351, label %1377, !llvm.loop !163
 
 ._crit_edge.us69.i.i.i351:                        ; preds = %1377
   %indvars.iv.next.i.i.i352 = add nuw nsw i64 %indvars.iv.i.i.i343, 1
   %exitcond80.not.i.i.i353 = icmp eq i64 %indvars.iv.next.i.i.i352, %wide.trip.count.i.i.i341
-  br i1 %exitcond80.not.i.i.i353, label %.loopexit.i325, label %.preheader.us59.i.i.i342, !llvm.loop !167
+  br i1 %exitcond80.not.i.i.i353, label %.loopexit.i325, label %.preheader.us59.i.i.i342, !llvm.loop !165
 
 .loopexit.i325:                                   ; preds = %._crit_edge.us69.i.i.i351, %._crit_edge.us.i.i.i371, %.lr.ph54.split.i.i.i339, %1338
   %.038.lcssa.i.i.i326 = phi float [ 0.000000e+00, %1338 ], [ 0.000000e+00, %.lr.ph54.split.i.i.i339 ], [ %.139.lcssa.us.i.i.i372, %._crit_edge.us.i.i.i371 ], [ %.sroa.speculated34.us67.i.i.i349, %._crit_edge.us69.i.i.i351 ]
@@ -9583,7 +9583,7 @@ _ZNK4ncnn3Mat5emptyEv.exit146.i:                  ; preds = %_ZN4ncnn3MatC2EimPN
   %1391 = select fast i1 %1389, float 1.000000e+00, float %1390
   store float %1391, ptr %17, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %18) #9
-  %1392 = load ptr, ptr %1306, align 8, !tbaa !70
+  %1392 = load ptr, ptr %1306, align 8, !tbaa !69
   %1393 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1394 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %1395 = getelementptr inbounds nuw i8, ptr %18, i64 56
@@ -9618,7 +9618,7 @@ _ZNK4ncnn3Mat5emptyEv.exit145.i:                  ; preds = %_ZN4ncnn3MatC2EimPN
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %19) #9
   %1407 = load i32, ptr %9, align 4, !tbaa !37
   %1408 = mul nsw i32 %1407, %1229
-  %1409 = load ptr, ptr %1306, align 8, !tbaa !70
+  %1409 = load ptr, ptr %1306, align 8, !tbaa !69
   %1410 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %1411 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %1412 = getelementptr inbounds nuw i8, ptr %19, i64 56
@@ -9652,23 +9652,23 @@ _ZNK4ncnn3Mat5emptyEv.exit.i331:                  ; preds = %_ZN4ncnn3MatC2Eiiim
 
 1424:                                             ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.i331
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #9
-  store i32 %1229, ptr %20, align 4, !tbaa !155
+  store i32 %1229, ptr %20, align 4, !tbaa !153
   %1425 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %1426 = load i32, ptr %9, align 4, !tbaa !37
-  store i32 %1426, ptr %1425, align 4, !tbaa !157
+  store i32 %1426, ptr %1425, align 4, !tbaa !155
   %1427 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %1428 = load i32, ptr %10, align 4, !tbaa !37
-  store i32 %1428, ptr %1427, align 4, !tbaa !158
+  store i32 %1428, ptr %1427, align 4, !tbaa !156
   %1429 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store i32 %.0111, ptr %1429, align 4, !tbaa !159
+  store i32 %.0111, ptr %1429, align 4, !tbaa !157
   %1430 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i32 %1179, ptr %1430, align 4, !tbaa !160
+  store i32 %1179, ptr %1430, align 4, !tbaa !158
   %1431 = getelementptr inbounds nuw i8, ptr %20, i64 20
-  store i32 %1182, ptr %1431, align 4, !tbaa !161
+  store i32 %1182, ptr %1431, align 4, !tbaa !159
   %1432 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store float %1184, ptr %1432, align 4, !tbaa !162
+  store float %1184, ptr %1432, align 4, !tbaa !160
   %1433 = getelementptr inbounds nuw i8, ptr %20, i64 28
-  store float %1186, ptr %1433, align 4, !tbaa !163
+  store float %1186, ptr %1433, align 4, !tbaa !161
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %541, i32 %533)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 12, ptr nonnull @_ZN4ncnnL13gemm_x86_int8ERKNS_3MatES2_S2_RS0_iiiiffiiiiRKNS_6OptionE.omp_outlined.7, ptr nonnull %11, ptr nonnull %20, ptr nonnull align 8 dereferenceable(72) %918, ptr nonnull %19, ptr nonnull %7, ptr nonnull %13, ptr nonnull %14, ptr nonnull %16, ptr nonnull %17, ptr nonnull %18, ptr nonnull align 8 dereferenceable(72) %57, ptr nonnull align 8 dereferenceable(72) %502)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #9
@@ -10276,7 +10276,7 @@ define internal fastcc noundef range(i32 -100, 1) i32 @_ZN4ncnnL8gemm_x86ERKNS_3
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %25) #9
   %80 = mul nsw i32 %76, %66
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !70
+  %82 = load ptr, ptr %81, align 8, !tbaa !69
   %83 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %85 = getelementptr inbounds nuw i8, ptr %25, i64 64
@@ -10310,7 +10310,7 @@ _ZNK4ncnn3Mat5emptyEv.exit88:                     ; preds = %64
   %103 = add i32 %96, -1
   %104 = add i32 %103, %102
   %105 = sdiv i32 %104, %96
-  %106 = load ptr, ptr %81, align 8, !tbaa !70
+  %106 = load ptr, ptr %81, align 8, !tbaa !69
   %107 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %108 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %109 = getelementptr inbounds nuw i8, ptr %26, i64 56
@@ -10366,7 +10366,7 @@ _ZNK4ncnn3Mat5emptyEv.exit87:                     ; preds = %_ZN4ncnn3MatC2Eiiim
 132:                                              ; preds = %120
   %133 = load i32, ptr %21, align 4, !tbaa !37
   %134 = mul nsw i32 %66, %133
-  %135 = load ptr, ptr %81, align 8, !tbaa !70
+  %135 = load ptr, ptr %81, align 8, !tbaa !69
   invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %28, i32 noundef %134, i32 noundef 1, i32 noundef %11, i64 noundef 4, ptr noundef %135)
           to label %136 unwind label %144
 
@@ -10695,7 +10695,7 @@ define internal void @_ZNK4ncnn8Gemm_x867forwardERKSt6vectorINS_3MatESaIS2_EERS4
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = load float, ptr %18, align 8, !tbaa !79
+  %23 = load float, ptr %18, align 8, !tbaa !78
   %24 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
   %25 = load float, ptr %24, align 4, !tbaa !61
   %26 = fmul fast float %25, %23
@@ -10703,7 +10703,7 @@ define internal void @_ZNK4ncnn8Gemm_x867forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %21, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !169
+  br i1 %exitcond.not, label %._crit_edge, label %22
 
 ._crit_edge:                                      ; preds = %22, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -10801,29 +10801,29 @@ define internal void @_ZN4ncnnL14gemm_AT_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKN
           to label %_ZN4ncnn3MatD2Ev.exit69 unwind label %156
 
 _ZN4ncnn3MatD2Ev.exit69:                          ; preds = %65
-  %67 = load i32, ptr %47, align 8, !tbaa !54, !noalias !170
+  %67 = load i32, ptr %47, align 8, !tbaa !54, !noalias !167
   %68 = icmp eq i32 %67, 4
-  %69 = load i32, ptr %41, align 8, !tbaa !56, !noalias !170
+  %69 = load i32, ptr %41, align 8, !tbaa !56, !noalias !167
   %70 = sext i32 %69 to i64
-  %71 = load i32, ptr %40, align 4, !tbaa !55, !noalias !170
+  %71 = load i32, ptr %40, align 4, !tbaa !55, !noalias !167
   %72 = sext i32 %71 to i64
   %73 = mul nsw i64 %70, %72
-  %74 = load i64, ptr %44, align 8, !tbaa !52, !noalias !170
+  %74 = load i64, ptr %44, align 8, !tbaa !52, !noalias !167
   %75 = mul i64 %74, %73
   %76 = add i64 %75, 15
   %77 = and i64 %76, -16
   %78 = udiv i64 %77, %74
   %spec.select = select i1 %68, i64 %73, i64 %78
   %79 = add nsw i32 %67, -1
-  %80 = load ptr, ptr %46, align 8, !tbaa !15, !noalias !170
-  %81 = load i32, ptr %45, align 8, !tbaa !53, !noalias !170
-  %82 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !170
-  %83 = load i64, ptr %43, align 8, !tbaa !17, !noalias !170
+  %80 = load ptr, ptr %46, align 8, !tbaa !15, !noalias !167
+  %81 = load i32, ptr %45, align 8, !tbaa !53, !noalias !167
+  %82 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !167
+  %83 = load i64, ptr %43, align 8, !tbaa !17, !noalias !167
   %84 = sext i32 %66 to i64
   %85 = mul i64 %83, %84
   %86 = mul i64 %85, %74
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 %86
-  %88 = load i32, ptr %42, align 4, !tbaa !57, !noalias !170
+  %88 = load i32, ptr %42, align 4, !tbaa !57, !noalias !167
   store ptr %87, ptr %21, align 8, !tbaa !16
   store ptr null, ptr %30, align 8, !tbaa !7
   store i64 %74, ptr %31, align 8, !tbaa !52
@@ -10852,7 +10852,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %150, %89
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %21) #9
   %92 = add nsw i32 %.0195, 1
   %.not.not = icmp slt i32 %.0195, %.pre206
-  br i1 %.not.not, label %54, label %._crit_edge198, !llvm.loop !173
+  br i1 %.not.not, label %54, label %._crit_edge198
 
 93:                                               ; preds = %.lr.ph, %150
   %94 = phi i32 [ %.pre, %.lr.ph ], [ %151, %150 ]
@@ -10894,12 +10894,12 @@ _ZN4ncnn3MatD2Ev.exit68:                          ; preds = %_ZN4ncnn3MatD2Ev.ex
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %107, i32 %109)
   %110 = load i32, ptr %3, align 4, !tbaa !37
   %111 = sdiv i32 %56, %110
-  %112 = load i32, ptr %48, align 4, !tbaa !55, !noalias !174
-  %113 = load ptr, ptr %13, align 8, !tbaa !16, !noalias !174
-  %114 = load i64, ptr %49, align 8, !tbaa !17, !noalias !174
+  %112 = load i32, ptr %48, align 4, !tbaa !55, !noalias !170
+  %113 = load ptr, ptr %13, align 8, !tbaa !16, !noalias !170
+  %114 = load i64, ptr %49, align 8, !tbaa !17, !noalias !170
   %115 = sext i32 %111 to i64
   %116 = mul i64 %114, %115
-  %117 = load i64, ptr %50, align 8, !tbaa !52, !noalias !174
+  %117 = load i64, ptr %50, align 8, !tbaa !52, !noalias !170
   %118 = mul i64 %116, %117
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 %118
   %120 = sext i32 %112 to i64
@@ -10910,12 +10910,12 @@ _ZN4ncnn3MatD2Ev.exit68:                          ; preds = %_ZN4ncnn3MatD2Ev.ex
   %125 = getelementptr inbounds nuw i8, ptr %119, i64 %124
   %126 = load i32, ptr %11, align 4, !tbaa !37
   %127 = sdiv i32 %.058191, %126
-  %128 = load i32, ptr %51, align 4, !tbaa !55, !noalias !177
-  %129 = load ptr, ptr %14, align 8, !tbaa !16, !noalias !177
-  %130 = load i64, ptr %52, align 8, !tbaa !17, !noalias !177
+  %128 = load i32, ptr %51, align 4, !tbaa !55, !noalias !173
+  %129 = load ptr, ptr %14, align 8, !tbaa !16, !noalias !173
+  %130 = load i64, ptr %52, align 8, !tbaa !17, !noalias !173
   %131 = sext i32 %127 to i64
   %132 = mul i64 %130, %131
-  %133 = load i64, ptr %53, align 8, !tbaa !52, !noalias !177
+  %133 = load i64, ptr %53, align 8, !tbaa !52, !noalias !173
   %134 = mul i64 %132, %133
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 %134
   %136 = sext i32 %128 to i64
@@ -10933,7 +10933,7 @@ _ZN4ncnn3MatD2Ev.exit68:                          ; preds = %_ZN4ncnn3MatD2Ev.ex
   %146 = add nsw i32 %145, %.059190
   %147 = load i32, ptr %5, align 4, !tbaa !37
   %148 = icmp slt i32 %146, %147
-  br i1 %148, label %_ZN4ncnn3MatD2Ev.exit68, label %._crit_edge, !llvm.loop !180
+  br i1 %148, label %_ZN4ncnn3MatD2Ev.exit68, label %._crit_edge, !llvm.loop !176
 
 149:                                              ; preds = %._crit_edge
   call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val, ptr noundef nonnull align 8 dereferenceable(72) %15, i32 noundef %56, i32 noundef %.sroa.speculated184, i32 noundef %.058191, i32 noundef %.sroa.speculated164)
@@ -10944,7 +10944,7 @@ _ZN4ncnn3MatD2Ev.exit68:                          ; preds = %_ZN4ncnn3MatD2Ev.ex
   %152 = add nsw i32 %151, %.058191
   %153 = load i32, ptr %10, align 4, !tbaa !37
   %154 = icmp slt i32 %152, %153
-  br i1 %154, label %93, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !181
+  br i1 %154, label %93, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !177
 
 ._crit_edge198:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit, %24
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %26)
@@ -11114,7 +11114,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %or.cond, label %89, label %91
 
 89:                                               ; preds = %88
-  %90 = load <4 x float>, ptr %.31132811, align 1, !tbaa !89
+  %90 = load <4 x float>, ptr %.31132811, align 1, !tbaa !88
   br label %.thread565
 
 91:                                               ; preds = %88
@@ -11124,29 +11124,29 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 92:                                               ; preds = %91
-  %93 = load <4 x float>, ptr %.31132811, align 1, !tbaa !89
+  %93 = load <4 x float>, ptr %.31132811, align 1, !tbaa !88
   %94 = getelementptr inbounds nuw i8, ptr %.31132811, i64 16
-  %95 = load <4 x float>, ptr %94, align 1, !tbaa !89
+  %95 = load <4 x float>, ptr %94, align 1, !tbaa !88
   %96 = getelementptr inbounds nuw i8, ptr %.31132811, i64 32
-  %97 = load <4 x float>, ptr %96, align 1, !tbaa !89
+  %97 = load <4 x float>, ptr %96, align 1, !tbaa !88
   %98 = getelementptr inbounds nuw i8, ptr %.31132811, i64 48
-  %99 = load <4 x float>, ptr %98, align 1, !tbaa !89
+  %99 = load <4 x float>, ptr %98, align 1, !tbaa !88
   %100 = getelementptr inbounds nuw i8, ptr %.31132811, i64 64
-  %101 = load <4 x float>, ptr %100, align 1, !tbaa !89
+  %101 = load <4 x float>, ptr %100, align 1, !tbaa !88
   %102 = getelementptr inbounds nuw i8, ptr %.31132811, i64 80
-  %103 = load <4 x float>, ptr %102, align 1, !tbaa !89
+  %103 = load <4 x float>, ptr %102, align 1, !tbaa !88
   %104 = getelementptr inbounds nuw i8, ptr %.31132811, i64 96
-  %105 = load <4 x float>, ptr %104, align 1, !tbaa !89
+  %105 = load <4 x float>, ptr %104, align 1, !tbaa !88
   %106 = getelementptr inbounds nuw i8, ptr %.31132811, i64 112
-  %107 = load <4 x float>, ptr %106, align 1, !tbaa !89
+  %107 = load <4 x float>, ptr %106, align 1, !tbaa !88
   %108 = getelementptr inbounds nuw i8, ptr %.31132811, i64 128
-  %109 = load <4 x float>, ptr %108, align 1, !tbaa !89
+  %109 = load <4 x float>, ptr %108, align 1, !tbaa !88
   %110 = getelementptr inbounds nuw i8, ptr %.31132811, i64 144
-  %111 = load <4 x float>, ptr %110, align 1, !tbaa !89
+  %111 = load <4 x float>, ptr %110, align 1, !tbaa !88
   %112 = getelementptr inbounds nuw i8, ptr %.31132811, i64 160
-  %113 = load <4 x float>, ptr %112, align 1, !tbaa !89
+  %113 = load <4 x float>, ptr %112, align 1, !tbaa !88
   %114 = getelementptr inbounds nuw i8, ptr %.31132811, i64 176
-  %115 = load <4 x float>, ptr %114, align 1, !tbaa !89
+  %115 = load <4 x float>, ptr %114, align 1, !tbaa !88
   %116 = getelementptr inbounds nuw i8, ptr %.31132811, i64 192
   br label %.thread565
 
@@ -11202,29 +11202,29 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread565
 
 166:                                              ; preds = %.lr.ph813
-  %167 = load <4 x float>, ptr %.11142810, align 16, !tbaa !89
+  %167 = load <4 x float>, ptr %.11142810, align 16, !tbaa !88
   %168 = getelementptr inbounds nuw i8, ptr %.11142810, i64 16
-  %169 = load <4 x float>, ptr %168, align 16, !tbaa !89
+  %169 = load <4 x float>, ptr %168, align 16, !tbaa !88
   %170 = getelementptr inbounds nuw i8, ptr %.11142810, i64 32
-  %171 = load <4 x float>, ptr %170, align 16, !tbaa !89
+  %171 = load <4 x float>, ptr %170, align 16, !tbaa !88
   %172 = getelementptr inbounds nuw i8, ptr %.11142810, i64 48
-  %173 = load <4 x float>, ptr %172, align 16, !tbaa !89
+  %173 = load <4 x float>, ptr %172, align 16, !tbaa !88
   %174 = getelementptr inbounds nuw i8, ptr %.11142810, i64 64
-  %175 = load <4 x float>, ptr %174, align 16, !tbaa !89
+  %175 = load <4 x float>, ptr %174, align 16, !tbaa !88
   %176 = getelementptr inbounds nuw i8, ptr %.11142810, i64 80
-  %177 = load <4 x float>, ptr %176, align 16, !tbaa !89
+  %177 = load <4 x float>, ptr %176, align 16, !tbaa !88
   %178 = getelementptr inbounds nuw i8, ptr %.11142810, i64 96
-  %179 = load <4 x float>, ptr %178, align 16, !tbaa !89
+  %179 = load <4 x float>, ptr %178, align 16, !tbaa !88
   %180 = getelementptr inbounds nuw i8, ptr %.11142810, i64 112
-  %181 = load <4 x float>, ptr %180, align 16, !tbaa !89
+  %181 = load <4 x float>, ptr %180, align 16, !tbaa !88
   %182 = getelementptr inbounds nuw i8, ptr %.11142810, i64 128
-  %183 = load <4 x float>, ptr %182, align 16, !tbaa !89
+  %183 = load <4 x float>, ptr %182, align 16, !tbaa !88
   %184 = getelementptr inbounds nuw i8, ptr %.11142810, i64 144
-  %185 = load <4 x float>, ptr %184, align 16, !tbaa !89
+  %185 = load <4 x float>, ptr %184, align 16, !tbaa !88
   %186 = getelementptr inbounds nuw i8, ptr %.11142810, i64 160
-  %187 = load <4 x float>, ptr %186, align 16, !tbaa !89
+  %187 = load <4 x float>, ptr %186, align 16, !tbaa !88
   %188 = getelementptr inbounds nuw i8, ptr %.11142810, i64 176
-  %189 = load <4 x float>, ptr %188, align 16, !tbaa !89
+  %189 = load <4 x float>, ptr %188, align 16, !tbaa !88
   br label %.thread565
 
 .thread565:                                       ; preds = %91, %89, %.thread537, %92, %83, %117, %166
@@ -11259,7 +11259,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %.4390782 = phi <4 x float> [ %249, %.lr.ph ], [ %.3389, %.thread565 ]
   %.4395781 = phi <4 x float> [ %255, %.lr.ph ], [ %.3394, %.thread565 ]
   %.4400780 = phi <4 x float> [ %261, %.lr.ph ], [ %.3399, %.thread565 ]
-  %190 = load <4 x float>, ptr %.01192793, align 16, !tbaa !89
+  %190 = load <4 x float>, ptr %.01192793, align 16, !tbaa !88
   %191 = load float, ptr %.11178794, align 4, !tbaa !61
   %192 = insertelement <4 x float> poison, float %191, i64 0
   %193 = shufflevector <4 x float> %192, <4 x float> poison, <4 x i32> zeroinitializer
@@ -11335,7 +11335,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %263 = getelementptr inbounds nuw i8, ptr %.11178794, i64 48
   %264 = add nuw nsw i32 %.01193792, 1
   %exitcond.not = icmp eq i32 %264, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !182
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread565
   %.4400.lcssa = phi <4 x float> [ %.3399, %.thread565 ], [ %261, %.lr.ph ]
@@ -11360,29 +11360,29 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 .thread579:                                       ; preds = %265
-  store <4 x float> %.4327.lcssa, ptr %.01162809, align 16, !tbaa !89
+  store <4 x float> %.4327.lcssa, ptr %.01162809, align 16, !tbaa !88
   %266 = getelementptr inbounds nuw i8, ptr %.01162809, i64 16
-  store <4 x float> %.4332.lcssa, ptr %266, align 16, !tbaa !89
+  store <4 x float> %.4332.lcssa, ptr %266, align 16, !tbaa !88
   %267 = getelementptr inbounds nuw i8, ptr %.01162809, i64 32
-  store <4 x float> %.4340.lcssa, ptr %267, align 16, !tbaa !89
+  store <4 x float> %.4340.lcssa, ptr %267, align 16, !tbaa !88
   %268 = getelementptr inbounds nuw i8, ptr %.01162809, i64 48
-  store <4 x float> %.4345.lcssa, ptr %268, align 16, !tbaa !89
+  store <4 x float> %.4345.lcssa, ptr %268, align 16, !tbaa !88
   %269 = getelementptr inbounds nuw i8, ptr %.01162809, i64 64
-  store <4 x float> %.4350.lcssa, ptr %269, align 16, !tbaa !89
+  store <4 x float> %.4350.lcssa, ptr %269, align 16, !tbaa !88
   %270 = getelementptr inbounds nuw i8, ptr %.01162809, i64 80
-  store <4 x float> %.4361.lcssa, ptr %270, align 16, !tbaa !89
+  store <4 x float> %.4361.lcssa, ptr %270, align 16, !tbaa !88
   %271 = getelementptr inbounds nuw i8, ptr %.01162809, i64 96
-  store <4 x float> %.4366.lcssa, ptr %271, align 16, !tbaa !89
+  store <4 x float> %.4366.lcssa, ptr %271, align 16, !tbaa !88
   %272 = getelementptr inbounds nuw i8, ptr %.01162809, i64 112
-  store <4 x float> %.4371.lcssa, ptr %272, align 16, !tbaa !89
+  store <4 x float> %.4371.lcssa, ptr %272, align 16, !tbaa !88
   %273 = getelementptr inbounds nuw i8, ptr %.01162809, i64 128
-  store <4 x float> %.4376.lcssa, ptr %273, align 16, !tbaa !89
+  store <4 x float> %.4376.lcssa, ptr %273, align 16, !tbaa !88
   %274 = getelementptr inbounds nuw i8, ptr %.01162809, i64 144
-  store <4 x float> %.4390.lcssa, ptr %274, align 16, !tbaa !89
+  store <4 x float> %.4390.lcssa, ptr %274, align 16, !tbaa !88
   %275 = getelementptr inbounds nuw i8, ptr %.01162809, i64 160
-  store <4 x float> %.4395.lcssa, ptr %275, align 16, !tbaa !89
+  store <4 x float> %.4395.lcssa, ptr %275, align 16, !tbaa !88
   %276 = getelementptr inbounds nuw i8, ptr %.01162809, i64 176
-  store <4 x float> %.4400.lcssa, ptr %276, align 16, !tbaa !89
+  store <4 x float> %.4400.lcssa, ptr %276, align 16, !tbaa !88
   %277 = getelementptr inbounds nuw i8, ptr %.01162809, i64 192
   br label %327
 
@@ -11411,56 +11411,56 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %300 = shufflevector <4 x float> %296, <4 x float> %295, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %301 = shufflevector <4 x float> %297, <4 x float> %298, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %302 = shufflevector <4 x float> %298, <4 x float> %297, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %283, ptr %.01162809, align 1, !tbaa !89
+  store <4 x float> %283, ptr %.01162809, align 1, !tbaa !88
   %303 = getelementptr inbounds float, ptr %.01162809, i64 %34
-  store <4 x float> %284, ptr %303, align 1, !tbaa !89
+  store <4 x float> %284, ptr %303, align 1, !tbaa !88
   %304 = getelementptr inbounds float, ptr %.01162809, i64 %36
-  store <4 x float> %285, ptr %304, align 1, !tbaa !89
+  store <4 x float> %285, ptr %304, align 1, !tbaa !88
   %305 = getelementptr inbounds float, ptr %.01162809, i64 %38
-  store <4 x float> %286, ptr %305, align 1, !tbaa !89
+  store <4 x float> %286, ptr %305, align 1, !tbaa !88
   %306 = getelementptr inbounds nuw i8, ptr %.01162809, i64 16
-  store <4 x float> %291, ptr %306, align 1, !tbaa !89
+  store <4 x float> %291, ptr %306, align 1, !tbaa !88
   %307 = getelementptr inbounds nuw i8, ptr %303, i64 16
-  store <4 x float> %292, ptr %307, align 1, !tbaa !89
+  store <4 x float> %292, ptr %307, align 1, !tbaa !88
   %308 = getelementptr inbounds nuw i8, ptr %304, i64 16
-  store <4 x float> %293, ptr %308, align 1, !tbaa !89
+  store <4 x float> %293, ptr %308, align 1, !tbaa !88
   %309 = getelementptr inbounds nuw i8, ptr %305, i64 16
-  store <4 x float> %294, ptr %309, align 1, !tbaa !89
+  store <4 x float> %294, ptr %309, align 1, !tbaa !88
   %310 = getelementptr inbounds nuw i8, ptr %.01162809, i64 32
-  store <4 x float> %299, ptr %310, align 1, !tbaa !89
+  store <4 x float> %299, ptr %310, align 1, !tbaa !88
   %311 = getelementptr inbounds nuw i8, ptr %303, i64 32
-  store <4 x float> %300, ptr %311, align 1, !tbaa !89
+  store <4 x float> %300, ptr %311, align 1, !tbaa !88
   %312 = getelementptr inbounds nuw i8, ptr %304, i64 32
-  store <4 x float> %301, ptr %312, align 1, !tbaa !89
+  store <4 x float> %301, ptr %312, align 1, !tbaa !88
   %313 = getelementptr inbounds nuw i8, ptr %305, i64 32
-  store <4 x float> %302, ptr %313, align 1, !tbaa !89
+  store <4 x float> %302, ptr %313, align 1, !tbaa !88
   %314 = getelementptr inbounds nuw i8, ptr %.01162809, i64 48
   br label %327
 
 315:                                              ; preds = %._crit_edge
-  store <4 x float> %.4327.lcssa, ptr %.11142810, align 16, !tbaa !89
+  store <4 x float> %.4327.lcssa, ptr %.11142810, align 16, !tbaa !88
   %316 = getelementptr inbounds nuw i8, ptr %.11142810, i64 16
-  store <4 x float> %.4332.lcssa, ptr %316, align 16, !tbaa !89
+  store <4 x float> %.4332.lcssa, ptr %316, align 16, !tbaa !88
   %317 = getelementptr inbounds nuw i8, ptr %.11142810, i64 32
-  store <4 x float> %.4340.lcssa, ptr %317, align 16, !tbaa !89
+  store <4 x float> %.4340.lcssa, ptr %317, align 16, !tbaa !88
   %318 = getelementptr inbounds nuw i8, ptr %.11142810, i64 48
-  store <4 x float> %.4345.lcssa, ptr %318, align 16, !tbaa !89
+  store <4 x float> %.4345.lcssa, ptr %318, align 16, !tbaa !88
   %319 = getelementptr inbounds nuw i8, ptr %.11142810, i64 64
-  store <4 x float> %.4350.lcssa, ptr %319, align 16, !tbaa !89
+  store <4 x float> %.4350.lcssa, ptr %319, align 16, !tbaa !88
   %320 = getelementptr inbounds nuw i8, ptr %.11142810, i64 80
-  store <4 x float> %.4361.lcssa, ptr %320, align 16, !tbaa !89
+  store <4 x float> %.4361.lcssa, ptr %320, align 16, !tbaa !88
   %321 = getelementptr inbounds nuw i8, ptr %.11142810, i64 96
-  store <4 x float> %.4366.lcssa, ptr %321, align 16, !tbaa !89
+  store <4 x float> %.4366.lcssa, ptr %321, align 16, !tbaa !88
   %322 = getelementptr inbounds nuw i8, ptr %.11142810, i64 112
-  store <4 x float> %.4371.lcssa, ptr %322, align 16, !tbaa !89
+  store <4 x float> %.4371.lcssa, ptr %322, align 16, !tbaa !88
   %323 = getelementptr inbounds nuw i8, ptr %.11142810, i64 128
-  store <4 x float> %.4376.lcssa, ptr %323, align 16, !tbaa !89
+  store <4 x float> %.4376.lcssa, ptr %323, align 16, !tbaa !88
   %324 = getelementptr inbounds nuw i8, ptr %.11142810, i64 144
-  store <4 x float> %.4390.lcssa, ptr %324, align 16, !tbaa !89
+  store <4 x float> %.4390.lcssa, ptr %324, align 16, !tbaa !88
   %325 = getelementptr inbounds nuw i8, ptr %.11142810, i64 160
-  store <4 x float> %.4395.lcssa, ptr %325, align 16, !tbaa !89
+  store <4 x float> %.4395.lcssa, ptr %325, align 16, !tbaa !88
   %326 = getelementptr inbounds nuw i8, ptr %.11142810, i64 176
-  store <4 x float> %.4400.lcssa, ptr %326, align 16, !tbaa !89
+  store <4 x float> %.4400.lcssa, ptr %326, align 16, !tbaa !88
   br label %327
 
 327:                                              ; preds = %265, %.thread579, %278, %315
@@ -11469,7 +11469,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %329 = add nuw nsw i32 %.01187807, 12
   %330 = add nuw nsw i32 %.01187807, 23
   %331 = icmp slt i32 %330, %6
-  br i1 %331, label %.lr.ph813, label %.preheader779, !llvm.loop !183
+  br i1 %331, label %.lr.ph813, label %.preheader779, !llvm.loop !179
 
 .preheader778:                                    ; preds = %502, %.preheader779
   %.11188.lcssa = phi i32 [ %.01187.lcssa, %.preheader779 ], [ %504, %502 ]
@@ -11506,7 +11506,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %or.cond, label %340, label %342
 
 340:                                              ; preds = %339
-  %341 = load <4 x float>, ptr %.61135845, align 1, !tbaa !89
+  %341 = load <4 x float>, ptr %.61135845, align 1, !tbaa !88
   br label %.thread602
 
 342:                                              ; preds = %339
@@ -11516,21 +11516,21 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 343:                                              ; preds = %342
-  %344 = load <4 x float>, ptr %.61135845, align 1, !tbaa !89
+  %344 = load <4 x float>, ptr %.61135845, align 1, !tbaa !88
   %345 = getelementptr inbounds nuw i8, ptr %.61135845, i64 16
-  %346 = load <4 x float>, ptr %345, align 1, !tbaa !89
+  %346 = load <4 x float>, ptr %345, align 1, !tbaa !88
   %347 = getelementptr inbounds nuw i8, ptr %.61135845, i64 32
-  %348 = load <4 x float>, ptr %347, align 1, !tbaa !89
+  %348 = load <4 x float>, ptr %347, align 1, !tbaa !88
   %349 = getelementptr inbounds nuw i8, ptr %.61135845, i64 48
-  %350 = load <4 x float>, ptr %349, align 1, !tbaa !89
+  %350 = load <4 x float>, ptr %349, align 1, !tbaa !88
   %351 = getelementptr inbounds nuw i8, ptr %.61135845, i64 64
-  %352 = load <4 x float>, ptr %351, align 1, !tbaa !89
+  %352 = load <4 x float>, ptr %351, align 1, !tbaa !88
   %353 = getelementptr inbounds nuw i8, ptr %.61135845, i64 80
-  %354 = load <4 x float>, ptr %353, align 1, !tbaa !89
+  %354 = load <4 x float>, ptr %353, align 1, !tbaa !88
   %355 = getelementptr inbounds nuw i8, ptr %.61135845, i64 96
-  %356 = load <4 x float>, ptr %355, align 1, !tbaa !89
+  %356 = load <4 x float>, ptr %355, align 1, !tbaa !88
   %357 = getelementptr inbounds nuw i8, ptr %.61135845, i64 112
-  %358 = load <4 x float>, ptr %357, align 1, !tbaa !89
+  %358 = load <4 x float>, ptr %357, align 1, !tbaa !88
   %359 = getelementptr inbounds nuw i8, ptr %.61135845, i64 128
   br label %.thread602
 
@@ -11570,21 +11570,21 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread602
 
 393:                                              ; preds = %.lr.ph846
-  %394 = load <4 x float>, ptr %.21143844, align 16, !tbaa !89
+  %394 = load <4 x float>, ptr %.21143844, align 16, !tbaa !88
   %395 = getelementptr inbounds nuw i8, ptr %.21143844, i64 16
-  %396 = load <4 x float>, ptr %395, align 16, !tbaa !89
+  %396 = load <4 x float>, ptr %395, align 16, !tbaa !88
   %397 = getelementptr inbounds nuw i8, ptr %.21143844, i64 32
-  %398 = load <4 x float>, ptr %397, align 16, !tbaa !89
+  %398 = load <4 x float>, ptr %397, align 16, !tbaa !88
   %399 = getelementptr inbounds nuw i8, ptr %.21143844, i64 48
-  %400 = load <4 x float>, ptr %399, align 16, !tbaa !89
+  %400 = load <4 x float>, ptr %399, align 16, !tbaa !88
   %401 = getelementptr inbounds nuw i8, ptr %.21143844, i64 64
-  %402 = load <4 x float>, ptr %401, align 16, !tbaa !89
+  %402 = load <4 x float>, ptr %401, align 16, !tbaa !88
   %403 = getelementptr inbounds nuw i8, ptr %.21143844, i64 80
-  %404 = load <4 x float>, ptr %403, align 16, !tbaa !89
+  %404 = load <4 x float>, ptr %403, align 16, !tbaa !88
   %405 = getelementptr inbounds nuw i8, ptr %.21143844, i64 96
-  %406 = load <4 x float>, ptr %405, align 16, !tbaa !89
+  %406 = load <4 x float>, ptr %405, align 16, !tbaa !88
   %407 = getelementptr inbounds nuw i8, ptr %.21143844, i64 112
-  %408 = load <4 x float>, ptr %407, align 16, !tbaa !89
+  %408 = load <4 x float>, ptr %407, align 16, !tbaa !88
   br label %.thread602
 
 .thread602:                                       ; preds = %342, %340, %.thread581, %343, %334, %360, %393
@@ -11611,7 +11611,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %.4460821 = phi <4 x float> [ %444, %.lr.ph830 ], [ %.3459, %.thread602 ]
   %.4465820 = phi <4 x float> [ %450, %.lr.ph830 ], [ %.3464, %.thread602 ]
   %.4470819 = phi <4 x float> [ %456, %.lr.ph830 ], [ %.3469, %.thread602 ]
-  %409 = load <4 x float>, ptr %.01194828, align 16, !tbaa !89
+  %409 = load <4 x float>, ptr %.01194828, align 16, !tbaa !88
   %410 = load float, ptr %.31180829, align 4, !tbaa !61
   %411 = insertelement <4 x float> poison, float %410, i64 0
   %412 = shufflevector <4 x float> %411, <4 x float> poison, <4 x i32> zeroinitializer
@@ -11663,7 +11663,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %458 = getelementptr inbounds nuw i8, ptr %.31180829, i64 32
   %459 = add nuw nsw i32 %.01197827, 1
   %exitcond1266.not = icmp eq i32 %459, %8
-  br i1 %exitcond1266.not, label %._crit_edge831, label %.lr.ph830, !llvm.loop !184
+  br i1 %exitcond1266.not, label %._crit_edge831, label %.lr.ph830, !llvm.loop !180
 
 ._crit_edge831:                                   ; preds = %.lr.ph830, %.thread602
   %.4470.lcssa = phi <4 x float> [ %.3469, %.thread602 ], [ %456, %.lr.ph830 ]
@@ -11684,21 +11684,21 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 .thread612:                                       ; preds = %460
-  store <4 x float> %.4415.lcssa, ptr %.31165843, align 16, !tbaa !89
+  store <4 x float> %.4415.lcssa, ptr %.31165843, align 16, !tbaa !88
   %461 = getelementptr inbounds nuw i8, ptr %.31165843, i64 16
-  store <4 x float> %.4420.lcssa, ptr %461, align 16, !tbaa !89
+  store <4 x float> %.4420.lcssa, ptr %461, align 16, !tbaa !88
   %462 = getelementptr inbounds nuw i8, ptr %.31165843, i64 32
-  store <4 x float> %.4425.lcssa, ptr %462, align 16, !tbaa !89
+  store <4 x float> %.4425.lcssa, ptr %462, align 16, !tbaa !88
   %463 = getelementptr inbounds nuw i8, ptr %.31165843, i64 48
-  store <4 x float> %.4430.lcssa, ptr %463, align 16, !tbaa !89
+  store <4 x float> %.4430.lcssa, ptr %463, align 16, !tbaa !88
   %464 = getelementptr inbounds nuw i8, ptr %.31165843, i64 64
-  store <4 x float> %.4455.lcssa, ptr %464, align 16, !tbaa !89
+  store <4 x float> %.4455.lcssa, ptr %464, align 16, !tbaa !88
   %465 = getelementptr inbounds nuw i8, ptr %.31165843, i64 80
-  store <4 x float> %.4460.lcssa, ptr %465, align 16, !tbaa !89
+  store <4 x float> %.4460.lcssa, ptr %465, align 16, !tbaa !88
   %466 = getelementptr inbounds nuw i8, ptr %.31165843, i64 96
-  store <4 x float> %.4465.lcssa, ptr %466, align 16, !tbaa !89
+  store <4 x float> %.4465.lcssa, ptr %466, align 16, !tbaa !88
   %467 = getelementptr inbounds nuw i8, ptr %.31165843, i64 112
-  store <4 x float> %.4470.lcssa, ptr %467, align 16, !tbaa !89
+  store <4 x float> %.4470.lcssa, ptr %467, align 16, !tbaa !88
   %468 = getelementptr inbounds nuw i8, ptr %.31165843, i64 128
   br label %502
 
@@ -11719,40 +11719,40 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %483 = shufflevector <4 x float> %479, <4 x float> %478, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %484 = shufflevector <4 x float> %480, <4 x float> %481, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %485 = shufflevector <4 x float> %481, <4 x float> %480, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %474, ptr %.31165843, align 1, !tbaa !89
+  store <4 x float> %474, ptr %.31165843, align 1, !tbaa !88
   %486 = getelementptr inbounds float, ptr %.31165843, i64 %34
-  store <4 x float> %475, ptr %486, align 1, !tbaa !89
+  store <4 x float> %475, ptr %486, align 1, !tbaa !88
   %487 = getelementptr inbounds float, ptr %.31165843, i64 %36
-  store <4 x float> %476, ptr %487, align 1, !tbaa !89
+  store <4 x float> %476, ptr %487, align 1, !tbaa !88
   %488 = getelementptr inbounds float, ptr %.31165843, i64 %38
-  store <4 x float> %477, ptr %488, align 1, !tbaa !89
+  store <4 x float> %477, ptr %488, align 1, !tbaa !88
   %489 = getelementptr inbounds nuw i8, ptr %.31165843, i64 16
-  store <4 x float> %482, ptr %489, align 1, !tbaa !89
+  store <4 x float> %482, ptr %489, align 1, !tbaa !88
   %490 = getelementptr inbounds nuw i8, ptr %486, i64 16
-  store <4 x float> %483, ptr %490, align 1, !tbaa !89
+  store <4 x float> %483, ptr %490, align 1, !tbaa !88
   %491 = getelementptr inbounds nuw i8, ptr %487, i64 16
-  store <4 x float> %484, ptr %491, align 1, !tbaa !89
+  store <4 x float> %484, ptr %491, align 1, !tbaa !88
   %492 = getelementptr inbounds nuw i8, ptr %488, i64 16
-  store <4 x float> %485, ptr %492, align 1, !tbaa !89
+  store <4 x float> %485, ptr %492, align 1, !tbaa !88
   %493 = getelementptr inbounds nuw i8, ptr %.31165843, i64 32
   br label %502
 
 494:                                              ; preds = %._crit_edge831
-  store <4 x float> %.4415.lcssa, ptr %.21143844, align 16, !tbaa !89
+  store <4 x float> %.4415.lcssa, ptr %.21143844, align 16, !tbaa !88
   %495 = getelementptr inbounds nuw i8, ptr %.21143844, i64 16
-  store <4 x float> %.4420.lcssa, ptr %495, align 16, !tbaa !89
+  store <4 x float> %.4420.lcssa, ptr %495, align 16, !tbaa !88
   %496 = getelementptr inbounds nuw i8, ptr %.21143844, i64 32
-  store <4 x float> %.4425.lcssa, ptr %496, align 16, !tbaa !89
+  store <4 x float> %.4425.lcssa, ptr %496, align 16, !tbaa !88
   %497 = getelementptr inbounds nuw i8, ptr %.21143844, i64 48
-  store <4 x float> %.4430.lcssa, ptr %497, align 16, !tbaa !89
+  store <4 x float> %.4430.lcssa, ptr %497, align 16, !tbaa !88
   %498 = getelementptr inbounds nuw i8, ptr %.21143844, i64 64
-  store <4 x float> %.4455.lcssa, ptr %498, align 16, !tbaa !89
+  store <4 x float> %.4455.lcssa, ptr %498, align 16, !tbaa !88
   %499 = getelementptr inbounds nuw i8, ptr %.21143844, i64 80
-  store <4 x float> %.4460.lcssa, ptr %499, align 16, !tbaa !89
+  store <4 x float> %.4460.lcssa, ptr %499, align 16, !tbaa !88
   %500 = getelementptr inbounds nuw i8, ptr %.21143844, i64 96
-  store <4 x float> %.4465.lcssa, ptr %500, align 16, !tbaa !89
+  store <4 x float> %.4465.lcssa, ptr %500, align 16, !tbaa !88
   %501 = getelementptr inbounds nuw i8, ptr %.21143844, i64 112
-  store <4 x float> %.4470.lcssa, ptr %501, align 16, !tbaa !89
+  store <4 x float> %.4470.lcssa, ptr %501, align 16, !tbaa !88
   br label %502
 
 502:                                              ; preds = %460, %.thread612, %469, %494
@@ -11761,7 +11761,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %504 = add nuw nsw i32 %.11188841, 8
   %505 = add nuw nsw i32 %.11188841, 15
   %506 = icmp slt i32 %505, %6
-  br i1 %506, label %.lr.ph846, label %.preheader778, !llvm.loop !185
+  br i1 %506, label %.lr.ph846, label %.preheader778, !llvm.loop !181
 
 .preheader777:                                    ; preds = %601, %.preheader778
   %.21189.lcssa = phi i32 [ %.11188.lcssa, %.preheader778 ], [ %603, %601 ]
@@ -11798,7 +11798,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %or.cond, label %515, label %517
 
 515:                                              ; preds = %514
-  %516 = load <4 x float>, ptr %.91138870, align 1, !tbaa !89
+  %516 = load <4 x float>, ptr %.91138870, align 1, !tbaa !88
   br label %.thread627
 
 517:                                              ; preds = %514
@@ -11808,13 +11808,13 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 518:                                              ; preds = %517
-  %519 = load <4 x float>, ptr %.91138870, align 1, !tbaa !89
+  %519 = load <4 x float>, ptr %.91138870, align 1, !tbaa !88
   %520 = getelementptr inbounds nuw i8, ptr %.91138870, i64 16
-  %521 = load <4 x float>, ptr %520, align 1, !tbaa !89
+  %521 = load <4 x float>, ptr %520, align 1, !tbaa !88
   %522 = getelementptr inbounds nuw i8, ptr %.91138870, i64 32
-  %523 = load <4 x float>, ptr %522, align 1, !tbaa !89
+  %523 = load <4 x float>, ptr %522, align 1, !tbaa !88
   %524 = getelementptr inbounds nuw i8, ptr %.91138870, i64 48
-  %525 = load <4 x float>, ptr %524, align 1, !tbaa !89
+  %525 = load <4 x float>, ptr %524, align 1, !tbaa !88
   %526 = getelementptr inbounds nuw i8, ptr %.91138870, i64 64
   br label %.thread627
 
@@ -11838,13 +11838,13 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread627
 
 544:                                              ; preds = %.lr.ph871
-  %545 = load <4 x float>, ptr %.31144869, align 16, !tbaa !89
+  %545 = load <4 x float>, ptr %.31144869, align 16, !tbaa !88
   %546 = getelementptr inbounds nuw i8, ptr %.31144869, i64 16
-  %547 = load <4 x float>, ptr %546, align 16, !tbaa !89
+  %547 = load <4 x float>, ptr %546, align 16, !tbaa !88
   %548 = getelementptr inbounds nuw i8, ptr %.31144869, i64 32
-  %549 = load <4 x float>, ptr %548, align 16, !tbaa !89
+  %549 = load <4 x float>, ptr %548, align 16, !tbaa !88
   %550 = getelementptr inbounds nuw i8, ptr %.31144869, i64 48
-  %551 = load <4 x float>, ptr %550, align 16, !tbaa !89
+  %551 = load <4 x float>, ptr %550, align 16, !tbaa !88
   br label %.thread627
 
 .thread627:                                       ; preds = %517, %515, %.thread614, %518, %509, %527, %544
@@ -11863,7 +11863,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %.4510854 = phi <4 x float> [ %563, %.lr.ph859 ], [ %.3509, %.thread627 ]
   %.4515853 = phi <4 x float> [ %569, %.lr.ph859 ], [ %.3514, %.thread627 ]
   %.4520852 = phi <4 x float> [ %575, %.lr.ph859 ], [ %.3519, %.thread627 ]
-  %552 = load <4 x float>, ptr %.01198857, align 16, !tbaa !89
+  %552 = load <4 x float>, ptr %.01198857, align 16, !tbaa !88
   %553 = load float, ptr %.51182858, align 4, !tbaa !61
   %554 = insertelement <4 x float> poison, float %553, i64 0
   %555 = shufflevector <4 x float> %554, <4 x float> poison, <4 x i32> zeroinitializer
@@ -11891,7 +11891,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %577 = getelementptr inbounds nuw i8, ptr %.51182858, i64 16
   %578 = add nuw nsw i32 %.01199856, 1
   %exitcond1267.not = icmp eq i32 %578, %8
-  br i1 %exitcond1267.not, label %._crit_edge860, label %.lr.ph859, !llvm.loop !186
+  br i1 %exitcond1267.not, label %._crit_edge860, label %.lr.ph859, !llvm.loop !182
 
 ._crit_edge860:                                   ; preds = %.lr.ph859, %.thread627
   %.4520.lcssa = phi <4 x float> [ %.3519, %.thread627 ], [ %575, %.lr.ph859 ]
@@ -11908,13 +11908,13 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 .thread633:                                       ; preds = %579
-  store <4 x float> %.4475.lcssa, ptr %.61168868, align 16, !tbaa !89
+  store <4 x float> %.4475.lcssa, ptr %.61168868, align 16, !tbaa !88
   %580 = getelementptr inbounds nuw i8, ptr %.61168868, i64 16
-  store <4 x float> %.4510.lcssa, ptr %580, align 16, !tbaa !89
+  store <4 x float> %.4510.lcssa, ptr %580, align 16, !tbaa !88
   %581 = getelementptr inbounds nuw i8, ptr %.61168868, i64 32
-  store <4 x float> %.4515.lcssa, ptr %581, align 16, !tbaa !89
+  store <4 x float> %.4515.lcssa, ptr %581, align 16, !tbaa !88
   %582 = getelementptr inbounds nuw i8, ptr %.61168868, i64 48
-  store <4 x float> %.4520.lcssa, ptr %582, align 16, !tbaa !89
+  store <4 x float> %.4520.lcssa, ptr %582, align 16, !tbaa !88
   %583 = getelementptr inbounds nuw i8, ptr %.61168868, i64 64
   br label %601
 
@@ -11927,24 +11927,24 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %590 = shufflevector <4 x float> %586, <4 x float> %585, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %591 = shufflevector <4 x float> %587, <4 x float> %588, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %592 = shufflevector <4 x float> %588, <4 x float> %587, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %589, ptr %.61168868, align 1, !tbaa !89
+  store <4 x float> %589, ptr %.61168868, align 1, !tbaa !88
   %593 = getelementptr inbounds float, ptr %.61168868, i64 %34
-  store <4 x float> %590, ptr %593, align 1, !tbaa !89
+  store <4 x float> %590, ptr %593, align 1, !tbaa !88
   %594 = getelementptr inbounds float, ptr %.61168868, i64 %36
-  store <4 x float> %591, ptr %594, align 1, !tbaa !89
+  store <4 x float> %591, ptr %594, align 1, !tbaa !88
   %595 = getelementptr inbounds float, ptr %.61168868, i64 %38
-  store <4 x float> %592, ptr %595, align 1, !tbaa !89
+  store <4 x float> %592, ptr %595, align 1, !tbaa !88
   %596 = getelementptr inbounds nuw i8, ptr %.61168868, i64 16
   br label %601
 
 597:                                              ; preds = %._crit_edge860
-  store <4 x float> %.4475.lcssa, ptr %.31144869, align 16, !tbaa !89
+  store <4 x float> %.4475.lcssa, ptr %.31144869, align 16, !tbaa !88
   %598 = getelementptr inbounds nuw i8, ptr %.31144869, i64 16
-  store <4 x float> %.4510.lcssa, ptr %598, align 16, !tbaa !89
+  store <4 x float> %.4510.lcssa, ptr %598, align 16, !tbaa !88
   %599 = getelementptr inbounds nuw i8, ptr %.31144869, i64 32
-  store <4 x float> %.4515.lcssa, ptr %599, align 16, !tbaa !89
+  store <4 x float> %.4515.lcssa, ptr %599, align 16, !tbaa !88
   %600 = getelementptr inbounds nuw i8, ptr %.31144869, i64 48
-  store <4 x float> %.4520.lcssa, ptr %600, align 16, !tbaa !89
+  store <4 x float> %.4520.lcssa, ptr %600, align 16, !tbaa !88
   br label %601
 
 601:                                              ; preds = %579, %.thread633, %584, %597
@@ -11953,7 +11953,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %603 = add nuw nsw i32 %.21189866, 4
   %604 = or disjoint i32 %603, 3
   %605 = icmp slt i32 %604, %6
-  br i1 %605, label %.lr.ph871, label %.preheader777, !llvm.loop !187
+  br i1 %605, label %.lr.ph871, label %.preheader777, !llvm.loop !183
 
 .preheader776:                                    ; preds = %663, %.preheader777
   %.31190.lcssa = phi i32 [ %.21189.lcssa, %.preheader777 ], [ %665, %663 ]
@@ -11989,7 +11989,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %or.cond, label %613, label %615
 
 613:                                              ; preds = %612
-  %614 = load <4 x float>, ptr %.12891, align 1, !tbaa !89
+  %614 = load <4 x float>, ptr %.12891, align 1, !tbaa !88
   br label %.thread644
 
 615:                                              ; preds = %612
@@ -11999,9 +11999,9 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 616:                                              ; preds = %615
-  %617 = load <4 x float>, ptr %.12891, align 1, !tbaa !89
+  %617 = load <4 x float>, ptr %.12891, align 1, !tbaa !88
   %618 = getelementptr inbounds nuw i8, ptr %.12891, i64 16
-  %619 = load <4 x float>, ptr %618, align 1, !tbaa !89
+  %619 = load <4 x float>, ptr %618, align 1, !tbaa !88
   %620 = getelementptr inbounds nuw i8, ptr %.12891, i64 32
   br label %.thread644
 
@@ -12017,9 +12017,9 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread644
 
 630:                                              ; preds = %.lr.ph892
-  %631 = load <4 x float>, ptr %.41145890, align 16, !tbaa !89
+  %631 = load <4 x float>, ptr %.41145890, align 16, !tbaa !88
   %632 = getelementptr inbounds nuw i8, ptr %.41145890, i64 16
-  %633 = load <4 x float>, ptr %632, align 16, !tbaa !89
+  %633 = load <4 x float>, ptr %632, align 16, !tbaa !88
   br label %.thread644
 
 .thread644:                                       ; preds = %615, %613, %.thread635, %616, %607, %621, %630
@@ -12034,7 +12034,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %.01201879 = phi i32 [ %648, %.lr.ph882 ], [ 0, %.thread644 ]
   %.4530878 = phi <4 x float> [ %639, %.lr.ph882 ], [ %.3529, %.thread644 ]
   %.4535877 = phi <4 x float> [ %645, %.lr.ph882 ], [ %.3534, %.thread644 ]
-  %634 = load <4 x float>, ptr %.01200880, align 16, !tbaa !89
+  %634 = load <4 x float>, ptr %.01200880, align 16, !tbaa !88
   %635 = load float, ptr %.71184881, align 4, !tbaa !61
   %636 = insertelement <4 x float> poison, float %635, i64 0
   %637 = shufflevector <4 x float> %636, <4 x float> poison, <4 x i32> zeroinitializer
@@ -12050,7 +12050,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %647 = getelementptr inbounds nuw i8, ptr %.71184881, i64 8
   %648 = add nuw nsw i32 %.01201879, 1
   %exitcond1268.not = icmp eq i32 %648, %8
-  br i1 %exitcond1268.not, label %._crit_edge883, label %.lr.ph882, !llvm.loop !188
+  br i1 %exitcond1268.not, label %._crit_edge883, label %.lr.ph882, !llvm.loop !184
 
 ._crit_edge883:                                   ; preds = %.lr.ph882, %.thread644
   %.4535.lcssa = phi <4 x float> [ %.3534, %.thread644 ], [ %645, %.lr.ph882 ]
@@ -12065,9 +12065,9 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 .thread648:                                       ; preds = %649
-  store <4 x float> %.4530.lcssa, ptr %.91171889, align 16, !tbaa !89
+  store <4 x float> %.4530.lcssa, ptr %.91171889, align 16, !tbaa !88
   %650 = getelementptr inbounds nuw i8, ptr %.91171889, i64 16
-  store <4 x float> %.4535.lcssa, ptr %650, align 16, !tbaa !89
+  store <4 x float> %.4535.lcssa, ptr %650, align 16, !tbaa !88
   %651 = getelementptr inbounds nuw i8, ptr %.91171889, i64 32
   br label %663
 
@@ -12099,9 +12099,9 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %663
 
 661:                                              ; preds = %._crit_edge883
-  store <4 x float> %.4530.lcssa, ptr %.41145890, align 16, !tbaa !89
+  store <4 x float> %.4530.lcssa, ptr %.41145890, align 16, !tbaa !88
   %662 = getelementptr inbounds nuw i8, ptr %.41145890, i64 16
-  store <4 x float> %.4535.lcssa, ptr %662, align 16, !tbaa !89
+  store <4 x float> %.4535.lcssa, ptr %662, align 16, !tbaa !88
   br label %663
 
 663:                                              ; preds = %649, %.thread648, %652, %661
@@ -12110,7 +12110,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %665 = add nuw nsw i32 %.31190887, 2
   %666 = or disjoint i32 %665, 1
   %667 = icmp slt i32 %666, %6
-  br i1 %667, label %.lr.ph892, label %.preheader776, !llvm.loop !189
+  br i1 %667, label %.lr.ph892, label %.preheader776, !llvm.loop !185
 
 .lr.ph911:                                        ; preds = %.preheader776, %704
   %.15910 = phi ptr [ %.17, %704 ], [ %.12.lcssa, %.preheader776 ]
@@ -12137,7 +12137,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %or.cond, label %674, label %676
 
 674:                                              ; preds = %673
-  %675 = load <4 x float>, ptr %.15910, align 1, !tbaa !89
+  %675 = load <4 x float>, ptr %.15910, align 1, !tbaa !88
   br label %.thread657
 
 676:                                              ; preds = %673
@@ -12147,7 +12147,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 677:                                              ; preds = %676
-  %678 = load <4 x float>, ptr %.15910, align 1, !tbaa !89
+  %678 = load <4 x float>, ptr %.15910, align 1, !tbaa !88
   %679 = getelementptr inbounds nuw i8, ptr %.15910, i64 16
   br label %.thread657
 
@@ -12159,7 +12159,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread657
 
 685:                                              ; preds = %.lr.ph911
-  %686 = load <4 x float>, ptr %.51146909, align 16, !tbaa !89
+  %686 = load <4 x float>, ptr %.51146909, align 16, !tbaa !88
   br label %.thread657
 
 .thread657:                                       ; preds = %676, %674, %.thread650, %677, %668, %680, %685
@@ -12172,7 +12172,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %.01202900 = phi ptr [ %693, %.lr.ph902 ], [ %.01126918, %.thread657 ]
   %.01203899 = phi i32 [ %695, %.lr.ph902 ], [ 0, %.thread657 ]
   %.4525898 = phi <4 x float> [ %692, %.lr.ph902 ], [ %.3524, %.thread657 ]
-  %687 = load <4 x float>, ptr %.01202900, align 16, !tbaa !89
+  %687 = load <4 x float>, ptr %.01202900, align 16, !tbaa !88
   %688 = load float, ptr %.91186901, align 4, !tbaa !61
   %689 = insertelement <4 x float> poison, float %688, i64 0
   %690 = shufflevector <4 x float> %689, <4 x float> poison, <4 x i32> zeroinitializer
@@ -12182,7 +12182,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %694 = getelementptr inbounds nuw i8, ptr %.91186901, i64 4
   %695 = add nuw nsw i32 %.01203899, 1
   %exitcond1269.not = icmp eq i32 %695, %8
-  br i1 %exitcond1269.not, label %._crit_edge903, label %.lr.ph902, !llvm.loop !190
+  br i1 %exitcond1269.not, label %._crit_edge903, label %.lr.ph902, !llvm.loop !186
 
 ._crit_edge903:                                   ; preds = %.lr.ph902, %.thread657
   %.4525.lcssa = phi <4 x float> [ %.3524, %.thread657 ], [ %692, %.lr.ph902 ]
@@ -12196,7 +12196,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 .thread660:                                       ; preds = %696
-  store <4 x float> %.4525.lcssa, ptr %.121174908, align 16, !tbaa !89
+  store <4 x float> %.4525.lcssa, ptr %.121174908, align 16, !tbaa !88
   %697 = getelementptr inbounds nuw i8, ptr %.121174908, i64 16
   br label %704
 
@@ -12216,7 +12216,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %704
 
 703:                                              ; preds = %._crit_edge903
-  store <4 x float> %.4525.lcssa, ptr %.51146909, align 16, !tbaa !89
+  store <4 x float> %.4525.lcssa, ptr %.51146909, align 16, !tbaa !88
   br label %704
 
 704:                                              ; preds = %696, %.thread660, %698, %703
@@ -12224,7 +12224,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %705 = getelementptr inbounds nuw i8, ptr %.51146909, i64 16
   %706 = add nuw nsw i32 %.41191906, 1
   %exitcond1270.not = icmp eq i32 %706, %6
-  br i1 %exitcond1270.not, label %._crit_edge912, label %.lr.ph911, !llvm.loop !191
+  br i1 %exitcond1270.not, label %._crit_edge912, label %.lr.ph911, !llvm.loop !187
 
 ._crit_edge912:                                   ; preds = %704, %.preheader776
   %.51146.lcssa = phi ptr [ %.41145.lcssa, %.preheader776 ], [ %705, %704 ]
@@ -12233,7 +12233,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %708 = or disjoint i64 %indvars.iv.next, 3
   %709 = icmp samesign ult i64 %708, %45
-  br i1 %709, label %66, label %.preheader775.loopexit, !llvm.loop !192
+  br i1 %709, label %66, label %.preheader775.loopexit, !llvm.loop !188
 
 .preheader770.loopexit:                           ; preds = %._crit_edge1042
   %710 = trunc nuw nsw i64 %indvars.iv.next1279 to i32
@@ -12354,17 +12354,17 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 759:                                              ; preds = %758
-  %760 = load <4 x float>, ptr %.21947, align 1, !tbaa !89
+  %760 = load <4 x float>, ptr %.21947, align 1, !tbaa !88
   %761 = getelementptr inbounds nuw i8, ptr %.21947, i64 16
-  %762 = load <4 x float>, ptr %761, align 1, !tbaa !89
+  %762 = load <4 x float>, ptr %761, align 1, !tbaa !88
   %763 = getelementptr inbounds nuw i8, ptr %.21947, i64 32
-  %764 = load <4 x float>, ptr %763, align 1, !tbaa !89
+  %764 = load <4 x float>, ptr %763, align 1, !tbaa !88
   %765 = getelementptr inbounds nuw i8, ptr %.21947, i64 48
-  %766 = load <4 x float>, ptr %765, align 1, !tbaa !89
+  %766 = load <4 x float>, ptr %765, align 1, !tbaa !88
   %767 = getelementptr inbounds nuw i8, ptr %.21947, i64 64
-  %768 = load <4 x float>, ptr %767, align 1, !tbaa !89
+  %768 = load <4 x float>, ptr %767, align 1, !tbaa !88
   %769 = getelementptr inbounds nuw i8, ptr %.21947, i64 80
-  %770 = load <4 x float>, ptr %769, align 1, !tbaa !89
+  %770 = load <4 x float>, ptr %769, align 1, !tbaa !88
   %771 = shufflevector <4 x float> %760, <4 x float> %762, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %772 = shufflevector <4 x float> %764, <4 x float> %766, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %773 = shufflevector <4 x float> %768, <4 x float> %770, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
@@ -12375,26 +12375,26 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread681
 
 778:                                              ; preds = %758
-  %779 = load <4 x float>, ptr %.21947, align 1, !tbaa !89
+  %779 = load <4 x float>, ptr %.21947, align 1, !tbaa !88
   %780 = getelementptr inbounds nuw i8, ptr %.21947, i64 16
-  %781 = load <4 x float>, ptr %780, align 1, !tbaa !89
+  %781 = load <4 x float>, ptr %780, align 1, !tbaa !88
   %782 = getelementptr inbounds nuw i8, ptr %.21947, i64 32
-  %783 = load <4 x float>, ptr %782, align 1, !tbaa !89
+  %783 = load <4 x float>, ptr %782, align 1, !tbaa !88
   %784 = getelementptr inbounds nuw i8, ptr %.21947, i64 48
   br label %.thread681
 
 785:                                              ; preds = %.lr.ph949
-  %786 = load <4 x float>, ptr %.71148946, align 1, !tbaa !89
+  %786 = load <4 x float>, ptr %.71148946, align 1, !tbaa !88
   %787 = getelementptr inbounds nuw i8, ptr %.71148946, i64 16
-  %788 = load <4 x float>, ptr %787, align 1, !tbaa !89
+  %788 = load <4 x float>, ptr %787, align 1, !tbaa !88
   %789 = getelementptr inbounds nuw i8, ptr %.71148946, i64 32
-  %790 = load <4 x float>, ptr %789, align 1, !tbaa !89
+  %790 = load <4 x float>, ptr %789, align 1, !tbaa !88
   %791 = getelementptr inbounds nuw i8, ptr %.71148946, i64 48
-  %792 = load <4 x float>, ptr %791, align 1, !tbaa !89
+  %792 = load <4 x float>, ptr %791, align 1, !tbaa !88
   %793 = getelementptr inbounds nuw i8, ptr %.71148946, i64 64
-  %794 = load <4 x float>, ptr %793, align 1, !tbaa !89
+  %794 = load <4 x float>, ptr %793, align 1, !tbaa !88
   %795 = getelementptr inbounds nuw i8, ptr %.71148946, i64 80
-  %796 = load <4 x float>, ptr %795, align 1, !tbaa !89
+  %796 = load <4 x float>, ptr %795, align 1, !tbaa !88
   %797 = shufflevector <4 x float> %786, <4 x float> %788, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %798 = shufflevector <4 x float> %790, <4 x float> %792, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %799 = shufflevector <4 x float> %794, <4 x float> %796, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
@@ -12423,11 +12423,11 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %.4495927 = phi <4 x float> [ %816, %.lr.ph934 ], [ %.3494, %.thread681 ]
   %.4500926 = phi <4 x float> [ %814, %.lr.ph934 ], [ %.3499, %.thread681 ]
   %.4505925 = phi <4 x float> [ %812, %.lr.ph934 ], [ %.3504, %.thread681 ]
-  %803 = load <4 x float>, ptr %.11215933, align 16, !tbaa !89
+  %803 = load <4 x float>, ptr %.11215933, align 16, !tbaa !88
   %804 = getelementptr inbounds nuw i8, ptr %.11215933, i64 16
-  %805 = load <4 x float>, ptr %804, align 16, !tbaa !89
+  %805 = load <4 x float>, ptr %804, align 16, !tbaa !88
   %806 = getelementptr inbounds nuw i8, ptr %.11215933, i64 32
-  %807 = load <4 x float>, ptr %806, align 16, !tbaa !89
+  %807 = load <4 x float>, ptr %806, align 16, !tbaa !88
   %808 = load float, ptr %.01229932, align 4, !tbaa !61
   %809 = insertelement <4 x float> poison, float %808, i64 0
   %810 = shufflevector <4 x float> %809, <4 x float> poison, <4 x i32> zeroinitializer
@@ -12451,7 +12451,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %828 = getelementptr inbounds nuw i8, ptr %.11215933, i64 48
   %829 = add nuw nsw i32 %.01230931, 1
   %exitcond1272.not = icmp eq i32 %829, %8
-  br i1 %exitcond1272.not, label %._crit_edge935, label %.lr.ph934, !llvm.loop !193
+  br i1 %exitcond1272.not, label %._crit_edge935, label %.lr.ph934, !llvm.loop !189
 
 ._crit_edge935:                                   ; preds = %.lr.ph934, %.thread681
   %.4505.lcssa = phi <4 x float> [ %.3504, %.thread681 ], [ %812, %.lr.ph934 ]
@@ -12464,17 +12464,17 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %9, label %830, label %837
 
 830:                                              ; preds = %._crit_edge935
-  store <4 x float> %.4505.lcssa, ptr %.01204945, align 1, !tbaa !89
+  store <4 x float> %.4505.lcssa, ptr %.01204945, align 1, !tbaa !88
   %831 = getelementptr inbounds nuw i8, ptr %.01204945, i64 16
-  store <4 x float> %.4500.lcssa, ptr %831, align 1, !tbaa !89
+  store <4 x float> %.4500.lcssa, ptr %831, align 1, !tbaa !88
   %832 = getelementptr inbounds nuw i8, ptr %.01204945, i64 32
-  store <4 x float> %.4495.lcssa, ptr %832, align 1, !tbaa !89
+  store <4 x float> %.4495.lcssa, ptr %832, align 1, !tbaa !88
   %833 = getelementptr inbounds float, ptr %.01204945, i64 %57
-  store <4 x float> %.4490.lcssa, ptr %833, align 1, !tbaa !89
+  store <4 x float> %.4490.lcssa, ptr %833, align 1, !tbaa !88
   %834 = getelementptr inbounds nuw i8, ptr %833, i64 16
-  store <4 x float> %.4485.lcssa, ptr %834, align 1, !tbaa !89
+  store <4 x float> %.4485.lcssa, ptr %834, align 1, !tbaa !88
   %835 = getelementptr inbounds nuw i8, ptr %833, i64 32
-  store <4 x float> %.4480.lcssa, ptr %835, align 1, !tbaa !89
+  store <4 x float> %.4480.lcssa, ptr %835, align 1, !tbaa !88
   %836 = getelementptr inbounds nuw i8, ptr %.01204945, i64 48
   br label %849
 
@@ -12485,17 +12485,17 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %841 = shufflevector <4 x float> %.4500.lcssa, <4 x float> %.4485.lcssa, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %842 = shufflevector <4 x float> %.4495.lcssa, <4 x float> %.4480.lcssa, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %843 = shufflevector <4 x float> %.4495.lcssa, <4 x float> %.4480.lcssa, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %838, ptr %.71148946, align 16, !tbaa !89
+  store <4 x float> %838, ptr %.71148946, align 16, !tbaa !88
   %844 = getelementptr inbounds nuw i8, ptr %.71148946, i64 16
-  store <4 x float> %839, ptr %844, align 16, !tbaa !89
+  store <4 x float> %839, ptr %844, align 16, !tbaa !88
   %845 = getelementptr inbounds nuw i8, ptr %.71148946, i64 32
-  store <4 x float> %840, ptr %845, align 16, !tbaa !89
+  store <4 x float> %840, ptr %845, align 16, !tbaa !88
   %846 = getelementptr inbounds nuw i8, ptr %.71148946, i64 48
-  store <4 x float> %841, ptr %846, align 16, !tbaa !89
+  store <4 x float> %841, ptr %846, align 16, !tbaa !88
   %847 = getelementptr inbounds nuw i8, ptr %.71148946, i64 64
-  store <4 x float> %842, ptr %847, align 16, !tbaa !89
+  store <4 x float> %842, ptr %847, align 16, !tbaa !88
   %848 = getelementptr inbounds nuw i8, ptr %.71148946, i64 80
-  store <4 x float> %843, ptr %848, align 16, !tbaa !89
+  store <4 x float> %843, ptr %848, align 16, !tbaa !88
   br label %849
 
 849:                                              ; preds = %837, %830
@@ -12504,7 +12504,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %851 = add nuw nsw i32 %.01224943, 12
   %852 = add nuw nsw i32 %.01224943, 23
   %853 = icmp slt i32 %852, %6
-  br i1 %853, label %.lr.ph949, label %.preheader774, !llvm.loop !194
+  br i1 %853, label %.lr.ph949, label %.preheader774, !llvm.loop !190
 
 .preheader773:                                    ; preds = %935, %.preheader774
   %.11225.lcssa = phi i32 [ %.01224.lcssa, %.preheader774 ], [ %937, %935 ]
@@ -12557,13 +12557,13 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 871:                                              ; preds = %870
-  %872 = load <4 x float>, ptr %.24973, align 1, !tbaa !89
+  %872 = load <4 x float>, ptr %.24973, align 1, !tbaa !88
   %873 = getelementptr inbounds nuw i8, ptr %.24973, i64 16
-  %874 = load <4 x float>, ptr %873, align 1, !tbaa !89
+  %874 = load <4 x float>, ptr %873, align 1, !tbaa !88
   %875 = getelementptr inbounds nuw i8, ptr %.24973, i64 32
-  %876 = load <4 x float>, ptr %875, align 1, !tbaa !89
+  %876 = load <4 x float>, ptr %875, align 1, !tbaa !88
   %877 = getelementptr inbounds nuw i8, ptr %.24973, i64 48
-  %878 = load <4 x float>, ptr %877, align 1, !tbaa !89
+  %878 = load <4 x float>, ptr %877, align 1, !tbaa !88
   %879 = shufflevector <4 x float> %872, <4 x float> %874, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %880 = shufflevector <4 x float> %876, <4 x float> %878, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %881 = shufflevector <4 x float> %872, <4 x float> %874, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
@@ -12572,20 +12572,20 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br label %.thread702
 
 884:                                              ; preds = %870
-  %885 = load <4 x float>, ptr %.24973, align 1, !tbaa !89
+  %885 = load <4 x float>, ptr %.24973, align 1, !tbaa !88
   %886 = getelementptr inbounds nuw i8, ptr %.24973, i64 16
-  %887 = load <4 x float>, ptr %886, align 1, !tbaa !89
+  %887 = load <4 x float>, ptr %886, align 1, !tbaa !88
   %888 = getelementptr inbounds nuw i8, ptr %.24973, i64 32
   br label %.thread702
 
 889:                                              ; preds = %.lr.ph974
-  %890 = load <4 x float>, ptr %.81149972, align 1, !tbaa !89
+  %890 = load <4 x float>, ptr %.81149972, align 1, !tbaa !88
   %891 = getelementptr inbounds nuw i8, ptr %.81149972, i64 16
-  %892 = load <4 x float>, ptr %891, align 1, !tbaa !89
+  %892 = load <4 x float>, ptr %891, align 1, !tbaa !88
   %893 = getelementptr inbounds nuw i8, ptr %.81149972, i64 32
-  %894 = load <4 x float>, ptr %893, align 1, !tbaa !89
+  %894 = load <4 x float>, ptr %893, align 1, !tbaa !88
   %895 = getelementptr inbounds nuw i8, ptr %.81149972, i64 48
-  %896 = load <4 x float>, ptr %895, align 1, !tbaa !89
+  %896 = load <4 x float>, ptr %895, align 1, !tbaa !88
   %897 = shufflevector <4 x float> %890, <4 x float> %892, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %898 = shufflevector <4 x float> %894, <4 x float> %896, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %899 = shufflevector <4 x float> %890, <4 x float> %892, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
@@ -12608,9 +12608,9 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %.4440957 = phi <4 x float> [ %916, %.lr.ph962 ], [ %.3439, %.thread702 ]
   %.4445956 = phi <4 x float> [ %910, %.lr.ph962 ], [ %.3444, %.thread702 ]
   %.4450955 = phi <4 x float> [ %908, %.lr.ph962 ], [ %.3449, %.thread702 ]
-  %901 = load <4 x float>, ptr %.31217959, align 16, !tbaa !89
+  %901 = load <4 x float>, ptr %.31217959, align 16, !tbaa !88
   %902 = getelementptr inbounds nuw i8, ptr %.31217959, i64 16
-  %903 = load <4 x float>, ptr %902, align 16, !tbaa !89
+  %903 = load <4 x float>, ptr %902, align 16, !tbaa !88
   %904 = load float, ptr %.01196960, align 4, !tbaa !61
   %905 = insertelement <4 x float> poison, float %904, i64 0
   %906 = shufflevector <4 x float> %905, <4 x float> poison, <4 x i32> zeroinitializer
@@ -12630,7 +12630,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %920 = getelementptr inbounds nuw i8, ptr %.31217959, i64 32
   %921 = add nuw nsw i32 %.01195961, 1
   %exitcond1273.not = icmp eq i32 %921, %8
-  br i1 %exitcond1273.not, label %._crit_edge963, label %.lr.ph962, !llvm.loop !195
+  br i1 %exitcond1273.not, label %._crit_edge963, label %.lr.ph962, !llvm.loop !191
 
 ._crit_edge963:                                   ; preds = %.lr.ph962, %.thread702
   %.4450.lcssa = phi <4 x float> [ %.3449, %.thread702 ], [ %908, %.lr.ph962 ]
@@ -12641,13 +12641,13 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %9, label %922, label %927
 
 922:                                              ; preds = %._crit_edge963
-  store <4 x float> %.4450.lcssa, ptr %.21206971, align 1, !tbaa !89
+  store <4 x float> %.4450.lcssa, ptr %.21206971, align 1, !tbaa !88
   %923 = getelementptr inbounds nuw i8, ptr %.21206971, i64 16
-  store <4 x float> %.4445.lcssa, ptr %923, align 1, !tbaa !89
+  store <4 x float> %.4445.lcssa, ptr %923, align 1, !tbaa !88
   %924 = getelementptr inbounds float, ptr %.21206971, i64 %57
-  store <4 x float> %.4440.lcssa, ptr %924, align 1, !tbaa !89
+  store <4 x float> %.4440.lcssa, ptr %924, align 1, !tbaa !88
   %925 = getelementptr inbounds nuw i8, ptr %924, i64 16
-  store <4 x float> %.4435.lcssa, ptr %925, align 1, !tbaa !89
+  store <4 x float> %.4435.lcssa, ptr %925, align 1, !tbaa !88
   %926 = getelementptr inbounds nuw i8, ptr %.21206971, i64 32
   br label %935
 
@@ -12656,13 +12656,13 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %929 = shufflevector <4 x float> %.4450.lcssa, <4 x float> %.4440.lcssa, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %930 = shufflevector <4 x float> %.4445.lcssa, <4 x float> %.4435.lcssa, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %931 = shufflevector <4 x float> %.4445.lcssa, <4 x float> %.4435.lcssa, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %928, ptr %.81149972, align 16, !tbaa !89
+  store <4 x float> %928, ptr %.81149972, align 16, !tbaa !88
   %932 = getelementptr inbounds nuw i8, ptr %.81149972, i64 16
-  store <4 x float> %929, ptr %932, align 16, !tbaa !89
+  store <4 x float> %929, ptr %932, align 16, !tbaa !88
   %933 = getelementptr inbounds nuw i8, ptr %.81149972, i64 32
-  store <4 x float> %930, ptr %933, align 16, !tbaa !89
+  store <4 x float> %930, ptr %933, align 16, !tbaa !88
   %934 = getelementptr inbounds nuw i8, ptr %.81149972, i64 48
-  store <4 x float> %931, ptr %934, align 16, !tbaa !89
+  store <4 x float> %931, ptr %934, align 16, !tbaa !88
   br label %935
 
 935:                                              ; preds = %927, %922
@@ -12671,7 +12671,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %937 = add nuw nsw i32 %.11225969, 8
   %938 = add nuw nsw i32 %.11225969, 15
   %939 = icmp slt i32 %938, %6
-  br i1 %939, label %.lr.ph974, label %.preheader773, !llvm.loop !196
+  br i1 %939, label %.lr.ph974, label %.preheader773, !llvm.loop !192
 
 .preheader772:                                    ; preds = %995, %.preheader773
   %.21226.lcssa = phi i32 [ %.11225.lcssa, %.preheader773 ], [ %997, %995 ]
@@ -12724,23 +12724,23 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   ]
 
 957:                                              ; preds = %956
-  %958 = load <4 x float>, ptr %.27994, align 1, !tbaa !89
+  %958 = load <4 x float>, ptr %.27994, align 1, !tbaa !88
   %959 = getelementptr inbounds nuw i8, ptr %.27994, i64 16
-  %960 = load <4 x float>, ptr %959, align 1, !tbaa !89
+  %960 = load <4 x float>, ptr %959, align 1, !tbaa !88
   %961 = shufflevector <4 x float> %958, <4 x float> %960, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %962 = shufflevector <4 x float> %958, <4 x float> %960, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
   %963 = getelementptr inbounds nuw i8, ptr %.27994, i64 32
   br label %.thread717
 
 964:                                              ; preds = %956
-  %965 = load <4 x float>, ptr %.27994, align 1, !tbaa !89
+  %965 = load <4 x float>, ptr %.27994, align 1, !tbaa !88
   %966 = getelementptr inbounds nuw i8, ptr %.27994, i64 16
   br label %.thread717
 
 967:                                              ; preds = %.lr.ph995
-  %968 = load <4 x float>, ptr %.91150993, align 1, !tbaa !89
+  %968 = load <4 x float>, ptr %.91150993, align 1, !tbaa !88
   %969 = getelementptr inbounds nuw i8, ptr %.91150993, i64 16
-  %970 = load <4 x float>, ptr %969, align 1, !tbaa !89
+  %970 = load <4 x float>, ptr %969, align 1, !tbaa !88
   %971 = shufflevector <4 x float> %968, <4 x float> %970, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %972 = shufflevector <4 x float> %968, <4 x float> %970, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
   br label %.thread717
@@ -12757,7 +12757,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %.51219982 = phi ptr [ %986, %.lr.ph985 ], [ %.41218991, %.thread717 ]
   %.4405981 = phi <4 x float> [ %984, %.lr.ph985 ], [ %.3404, %.thread717 ]
   %.4410980 = phi <4 x float> [ %978, %.lr.ph985 ], [ %.3409, %.thread717 ]
-  %973 = load <4 x float>, ptr %.51219982, align 16, !tbaa !89
+  %973 = load <4 x float>, ptr %.51219982, align 16, !tbaa !88
   %974 = load float, ptr %.01140983, align 4, !tbaa !61
   %975 = insertelement <4 x float> poison, float %974, i64 0
   %976 = shufflevector <4 x float> %975, <4 x float> poison, <4 x i32> zeroinitializer
@@ -12773,7 +12773,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %986 = getelementptr inbounds nuw i8, ptr %.51219982, i64 16
   %987 = add nuw nsw i32 %.01139984, 1
   %exitcond1274.not = icmp eq i32 %987, %8
-  br i1 %exitcond1274.not, label %._crit_edge986, label %.lr.ph985, !llvm.loop !197
+  br i1 %exitcond1274.not, label %._crit_edge986, label %.lr.ph985, !llvm.loop !193
 
 ._crit_edge986:                                   ; preds = %.lr.ph985, %.thread717
   %.4410.lcssa = phi <4 x float> [ %.3409, %.thread717 ], [ %978, %.lr.ph985 ]
@@ -12782,18 +12782,18 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %9, label %988, label %991
 
 988:                                              ; preds = %._crit_edge986
-  store <4 x float> %.4410.lcssa, ptr %.41208992, align 1, !tbaa !89
+  store <4 x float> %.4410.lcssa, ptr %.41208992, align 1, !tbaa !88
   %989 = getelementptr inbounds float, ptr %.41208992, i64 %57
-  store <4 x float> %.4405.lcssa, ptr %989, align 1, !tbaa !89
+  store <4 x float> %.4405.lcssa, ptr %989, align 1, !tbaa !88
   %990 = getelementptr inbounds nuw i8, ptr %.41208992, i64 16
   br label %995
 
 991:                                              ; preds = %._crit_edge986
   %992 = shufflevector <4 x float> %.4410.lcssa, <4 x float> %.4405.lcssa, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %993 = shufflevector <4 x float> %.4410.lcssa, <4 x float> %.4405.lcssa, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
-  store <4 x float> %992, ptr %.91150993, align 1, !tbaa !89
+  store <4 x float> %992, ptr %.91150993, align 1, !tbaa !88
   %994 = getelementptr inbounds nuw i8, ptr %.91150993, i64 16
-  store <4 x float> %993, ptr %994, align 1, !tbaa !89
+  store <4 x float> %993, ptr %994, align 1, !tbaa !88
   br label %995
 
 995:                                              ; preds = %991, %988
@@ -12802,7 +12802,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %997 = add nuw nsw i32 %.21226990, 4
   %998 = or disjoint i32 %997, 3
   %999 = icmp slt i32 %998, %6
-  br i1 %999, label %.lr.ph995, label %.preheader772, !llvm.loop !198
+  br i1 %999, label %.lr.ph995, label %.preheader772, !llvm.loop !194
 
 .preheader771:                                    ; preds = %1058, %.preheader772
   %.31227.lcssa = phi i32 [ %.21226.lcssa, %.preheader772 ], [ %1060, %1058 ]
@@ -12909,7 +12909,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1047 = getelementptr inbounds nuw i8, ptr %.712211001, i64 8
   %1048 = add nuw nsw i32 %.011041007, 1
   %exitcond1275.not = icmp eq i32 %1048, %8
-  br i1 %exitcond1275.not, label %._crit_edge1009, label %.lr.ph1008, !llvm.loop !199
+  br i1 %exitcond1275.not, label %._crit_edge1009, label %.lr.ph1008, !llvm.loop !195
 
 ._crit_edge1009:                                  ; preds = %.lr.ph1008, %.thread729
   %.71221.lcssa = phi ptr [ %.612201016, %.thread729 ], [ %1047, %.lr.ph1008 ]
@@ -12946,7 +12946,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1060 = add nuw nsw i32 %.312271015, 2
   %1061 = or disjoint i32 %1060, 1
   %1062 = icmp slt i32 %1061, %6
-  br i1 %1062, label %.lr.ph1020, label %.preheader771, !llvm.loop !200
+  br i1 %1062, label %.lr.ph1020, label %.preheader771, !llvm.loop !196
 
 .lr.ph1041:                                       ; preds = %.preheader771, %1100
   %.331040 = phi ptr [ %.35, %1100 ], [ %.30.lcssa, %.preheader771 ]
@@ -13024,7 +13024,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1093 = getelementptr inbounds nuw i8, ptr %.912231026, i64 4
   %1094 = add nuw nsw i32 %.010921030, 1
   %exitcond1276.not = icmp eq i32 %1094, %8
-  br i1 %exitcond1276.not, label %._crit_edge1032, label %.lr.ph1031, !llvm.loop !201
+  br i1 %exitcond1276.not, label %._crit_edge1032, label %.lr.ph1031, !llvm.loop !197
 
 ._crit_edge1032:                                  ; preds = %.lr.ph1031, %.thread743
   %.91223.lcssa = phi ptr [ %.812221037, %.thread743 ], [ %1093, %.lr.ph1031 ]
@@ -13050,7 +13050,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1101 = getelementptr inbounds nuw i8, ptr %.1111521039, i64 8
   %1102 = add nuw nsw i32 %.412281036, 1
   %exitcond1277.not = icmp eq i32 %1102, %6
-  br i1 %exitcond1277.not, label %._crit_edge1042, label %.lr.ph1041, !llvm.loop !202
+  br i1 %exitcond1277.not, label %._crit_edge1042, label %.lr.ph1041, !llvm.loop !198
 
 ._crit_edge1042:                                  ; preds = %1100, %.preheader771
   %.111152.lcssa = phi ptr [ %.101151.lcssa, %.preheader771 ], [ %1101, %1100 ]
@@ -13059,7 +13059,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %indvars.iv.next1279 = add nuw nsw i64 %indvars.iv1278, 2
   %1104 = or disjoint i64 %indvars.iv.next1279, 1
   %1105 = icmp slt i64 %1104, %65
-  br i1 %1105, label %727, label %.preheader770.loopexit, !llvm.loop !203
+  br i1 %1105, label %727, label %.preheader770.loopexit, !llvm.loop !199
 
 1106:                                             ; preds = %.lr.ph1165, %._crit_edge1158
   %indvars.iv1287 = phi i64 [ %725, %.lr.ph1165 ], [ %indvars.iv.next1288, %._crit_edge1158 ]
@@ -13130,20 +13130,20 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %or.cond31, label %1129, label %1142
 
 1129:                                             ; preds = %1128
-  %1130 = load <4 x float>, ptr %.391068, align 1, !tbaa !89
+  %1130 = load <4 x float>, ptr %.391068, align 1, !tbaa !88
   %1131 = getelementptr inbounds nuw i8, ptr %.391068, i64 16
-  %1132 = load <4 x float>, ptr %1131, align 1, !tbaa !89
+  %1132 = load <4 x float>, ptr %1131, align 1, !tbaa !88
   %1133 = getelementptr inbounds nuw i8, ptr %.391068, i64 32
-  %1134 = load <4 x float>, ptr %1133, align 1, !tbaa !89
+  %1134 = load <4 x float>, ptr %1133, align 1, !tbaa !88
   %1135 = getelementptr inbounds nuw i8, ptr %.391068, i64 48
   br label %1142
 
 1136:                                             ; preds = %.lr.ph1073
-  %1137 = load <4 x float>, ptr %.1311541067, align 1, !tbaa !89
+  %1137 = load <4 x float>, ptr %.1311541067, align 1, !tbaa !88
   %1138 = getelementptr inbounds nuw i8, ptr %.1311541067, i64 16
-  %1139 = load <4 x float>, ptr %1138, align 1, !tbaa !89
+  %1139 = load <4 x float>, ptr %1138, align 1, !tbaa !88
   %1140 = getelementptr inbounds nuw i8, ptr %.1311541067, i64 32
-  %1141 = load <4 x float>, ptr %1140, align 1, !tbaa !89
+  %1141 = load <4 x float>, ptr %1140, align 1, !tbaa !88
   br label %1142
 
 1142:                                             ; preds = %.thread749, %1123, %1128, %1129, %1136
@@ -13160,11 +13160,11 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %.23791056 = phi <4 x float> [ %1156, %.lr.ph1061 ], [ %.1378, %1142 ]
   %.23821055 = phi <4 x float> [ %1154, %.lr.ph1061 ], [ %.1381, %1142 ]
   %.23851054 = phi <4 x float> [ %1152, %.lr.ph1061 ], [ %.1384, %1142 ]
-  %1143 = load <4 x float>, ptr %.110781057, align 16, !tbaa !89
+  %1143 = load <4 x float>, ptr %.110781057, align 16, !tbaa !88
   %1144 = getelementptr inbounds nuw i8, ptr %.110781057, i64 16
-  %1145 = load <4 x float>, ptr %1144, align 16, !tbaa !89
+  %1145 = load <4 x float>, ptr %1144, align 16, !tbaa !88
   %1146 = getelementptr inbounds nuw i8, ptr %.110781057, i64 32
-  %1147 = load <4 x float>, ptr %1146, align 16, !tbaa !89
+  %1147 = load <4 x float>, ptr %1146, align 16, !tbaa !88
   %1148 = load float, ptr %.010731058, align 4, !tbaa !61
   %1149 = insertelement <4 x float> poison, float %1148, i64 0
   %1150 = shufflevector <4 x float> %1149, <4 x float> poison, <4 x i32> zeroinitializer
@@ -13178,7 +13178,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1158 = getelementptr inbounds nuw i8, ptr %.110781057, i64 48
   %1159 = add nuw nsw i32 %.010721059, 1
   %exitcond1281.not = icmp eq i32 %1159, %8
-  br i1 %exitcond1281.not, label %._crit_edge1062, label %.lr.ph1061, !llvm.loop !204
+  br i1 %exitcond1281.not, label %._crit_edge1062, label %.lr.ph1061, !llvm.loop !200
 
 ._crit_edge1062:                                  ; preds = %.lr.ph1061, %1142
   %.2385.lcssa = phi <4 x float> [ %.1384, %1142 ], [ %1152, %.lr.ph1061 ]
@@ -13188,20 +13188,20 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %9, label %1160, label %1164
 
 1160:                                             ; preds = %._crit_edge1062
-  store <4 x float> %.2385.lcssa, ptr %.010821069, align 1, !tbaa !89
+  store <4 x float> %.2385.lcssa, ptr %.010821069, align 1, !tbaa !88
   %1161 = getelementptr inbounds nuw i8, ptr %.010821069, i64 16
-  store <4 x float> %.2382.lcssa, ptr %1161, align 1, !tbaa !89
+  store <4 x float> %.2382.lcssa, ptr %1161, align 1, !tbaa !88
   %1162 = getelementptr inbounds nuw i8, ptr %.010821069, i64 32
-  store <4 x float> %.2379.lcssa, ptr %1162, align 1, !tbaa !89
+  store <4 x float> %.2379.lcssa, ptr %1162, align 1, !tbaa !88
   %1163 = getelementptr inbounds nuw i8, ptr %.010821069, i64 48
   br label %1167
 
 1164:                                             ; preds = %._crit_edge1062
-  store <4 x float> %.2385.lcssa, ptr %.1311541067, align 1, !tbaa !89
+  store <4 x float> %.2385.lcssa, ptr %.1311541067, align 1, !tbaa !88
   %1165 = getelementptr inbounds nuw i8, ptr %.1311541067, i64 16
-  store <4 x float> %.2382.lcssa, ptr %1165, align 1, !tbaa !89
+  store <4 x float> %.2382.lcssa, ptr %1165, align 1, !tbaa !88
   %1166 = getelementptr inbounds nuw i8, ptr %.1311541067, i64 32
-  store <4 x float> %.2379.lcssa, ptr %1166, align 1, !tbaa !89
+  store <4 x float> %.2379.lcssa, ptr %1166, align 1, !tbaa !88
   br label %1167
 
 1167:                                             ; preds = %1164, %1160
@@ -13210,7 +13210,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1169 = add nuw nsw i32 %.010741071, 12
   %1170 = add nuw nsw i32 %.010741071, 23
   %1171 = icmp slt i32 %1170, %6
-  br i1 %1171, label %.lr.ph1073, label %.preheader769, !llvm.loop !205
+  br i1 %1171, label %.lr.ph1073, label %.preheader769, !llvm.loop !201
 
 .preheader768:                                    ; preds = %1208, %.preheader769
   %.141155.lcssa = phi ptr [ %.131154.lcssa, %.preheader769 ], [ %1209, %1208 ]
@@ -13247,16 +13247,16 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %or.cond31, label %1180, label %1189
 
 1180:                                             ; preds = %1179
-  %1181 = load <4 x float>, ptr %.411091, align 1, !tbaa !89
+  %1181 = load <4 x float>, ptr %.411091, align 1, !tbaa !88
   %1182 = getelementptr inbounds nuw i8, ptr %.411091, i64 16
-  %1183 = load <4 x float>, ptr %1182, align 1, !tbaa !89
+  %1183 = load <4 x float>, ptr %1182, align 1, !tbaa !88
   %1184 = getelementptr inbounds nuw i8, ptr %.411091, i64 32
   br label %1189
 
 1185:                                             ; preds = %.lr.ph1095
-  %1186 = load <4 x float>, ptr %.1411551090, align 1, !tbaa !89
+  %1186 = load <4 x float>, ptr %.1411551090, align 1, !tbaa !88
   %1187 = getelementptr inbounds nuw i8, ptr %.1411551090, i64 16
-  %1188 = load <4 x float>, ptr %1187, align 1, !tbaa !89
+  %1188 = load <4 x float>, ptr %1187, align 1, !tbaa !88
   br label %1189
 
 1189:                                             ; preds = %.thread754, %1174, %1179, %1180, %1185
@@ -13271,9 +13271,9 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %.310801081 = phi ptr [ %1201, %.lr.ph1085 ], [ %.210791093, %1189 ]
   %.23531080 = phi <4 x float> [ %1199, %.lr.ph1085 ], [ %.1352, %1189 ]
   %.23561079 = phi <4 x float> [ %1197, %.lr.ph1085 ], [ %.1355, %1189 ]
-  %1190 = load <4 x float>, ptr %.310801081, align 16, !tbaa !89
+  %1190 = load <4 x float>, ptr %.310801081, align 16, !tbaa !88
   %1191 = getelementptr inbounds nuw i8, ptr %.310801081, i64 16
-  %1192 = load <4 x float>, ptr %1191, align 16, !tbaa !89
+  %1192 = load <4 x float>, ptr %1191, align 16, !tbaa !88
   %1193 = load float, ptr %.010711082, align 4, !tbaa !61
   %1194 = insertelement <4 x float> poison, float %1193, i64 0
   %1195 = shufflevector <4 x float> %1194, <4 x float> poison, <4 x i32> zeroinitializer
@@ -13285,7 +13285,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1201 = getelementptr inbounds nuw i8, ptr %.310801081, i64 32
   %1202 = add nuw nsw i32 %.010701083, 1
   %exitcond1282.not = icmp eq i32 %1202, %8
-  br i1 %exitcond1282.not, label %._crit_edge1086, label %.lr.ph1085, !llvm.loop !206
+  br i1 %exitcond1282.not, label %._crit_edge1086, label %.lr.ph1085, !llvm.loop !202
 
 ._crit_edge1086:                                  ; preds = %.lr.ph1085, %1189
   %.2356.lcssa = phi <4 x float> [ %.1355, %1189 ], [ %1197, %.lr.ph1085 ]
@@ -13294,16 +13294,16 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %9, label %1203, label %1206
 
 1203:                                             ; preds = %._crit_edge1086
-  store <4 x float> %.2356.lcssa, ptr %.210841092, align 1, !tbaa !89
+  store <4 x float> %.2356.lcssa, ptr %.210841092, align 1, !tbaa !88
   %1204 = getelementptr inbounds nuw i8, ptr %.210841092, i64 16
-  store <4 x float> %.2353.lcssa, ptr %1204, align 1, !tbaa !89
+  store <4 x float> %.2353.lcssa, ptr %1204, align 1, !tbaa !88
   %1205 = getelementptr inbounds nuw i8, ptr %.210841092, i64 32
   br label %1208
 
 1206:                                             ; preds = %._crit_edge1086
-  store <4 x float> %.2356.lcssa, ptr %.1411551090, align 1, !tbaa !89
+  store <4 x float> %.2356.lcssa, ptr %.1411551090, align 1, !tbaa !88
   %1207 = getelementptr inbounds nuw i8, ptr %.1411551090, i64 16
-  store <4 x float> %.2353.lcssa, ptr %1207, align 1, !tbaa !89
+  store <4 x float> %.2353.lcssa, ptr %1207, align 1, !tbaa !88
   br label %1208
 
 1208:                                             ; preds = %1206, %1203
@@ -13312,7 +13312,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1210 = add nuw nsw i32 %.110751094, 8
   %1211 = add nuw nsw i32 %.110751094, 15
   %1212 = icmp slt i32 %1211, %6
-  br i1 %1212, label %.lr.ph1095, label %.preheader768, !llvm.loop !207
+  br i1 %1212, label %.lr.ph1095, label %.preheader768, !llvm.loop !203
 
 .preheader767:                                    ; preds = %1239, %.preheader768
   %.151156.lcssa = phi ptr [ %.141155.lcssa, %.preheader768 ], [ %1240, %1239 ]
@@ -13349,12 +13349,12 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %or.cond31, label %1221, label %1226
 
 1221:                                             ; preds = %1220
-  %1222 = load <4 x float>, ptr %.431111, align 1, !tbaa !89
+  %1222 = load <4 x float>, ptr %.431111, align 1, !tbaa !88
   %1223 = getelementptr inbounds nuw i8, ptr %.431111, i64 16
   br label %1226
 
 1224:                                             ; preds = %.lr.ph1115
-  %1225 = load <4 x float>, ptr %.1511561110, align 1, !tbaa !89
+  %1225 = load <4 x float>, ptr %.1511561110, align 1, !tbaa !88
   br label %1226
 
 1226:                                             ; preds = %.thread758, %1215, %1220, %1221, %1224
@@ -13367,7 +13367,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %.010691103 = phi ptr [ %1233, %.lr.ph1106 ], [ %.211281164, %1226 ]
   %.51102 = phi ptr [ %1234, %.lr.ph1106 ], [ %.410811113, %1226 ]
   %.23351101 = phi <4 x float> [ %1232, %.lr.ph1106 ], [ %.1334, %1226 ]
-  %1227 = load <4 x float>, ptr %.51102, align 16, !tbaa !89
+  %1227 = load <4 x float>, ptr %.51102, align 16, !tbaa !88
   %1228 = load float, ptr %.010691103, align 4, !tbaa !61
   %1229 = insertelement <4 x float> poison, float %1228, i64 0
   %1230 = shufflevector <4 x float> %1229, <4 x float> poison, <4 x i32> zeroinitializer
@@ -13377,7 +13377,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1234 = getelementptr inbounds nuw i8, ptr %.51102, i64 16
   %1235 = add nuw nsw i32 %.010681104, 1
   %exitcond1283.not = icmp eq i32 %1235, %8
-  br i1 %exitcond1283.not, label %._crit_edge1107, label %.lr.ph1106, !llvm.loop !208
+  br i1 %exitcond1283.not, label %._crit_edge1107, label %.lr.ph1106, !llvm.loop !204
 
 ._crit_edge1107:                                  ; preds = %.lr.ph1106, %1226
   %.2335.lcssa = phi <4 x float> [ %.1334, %1226 ], [ %1232, %.lr.ph1106 ]
@@ -13385,12 +13385,12 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   br i1 %9, label %1236, label %1238
 
 1236:                                             ; preds = %._crit_edge1107
-  store <4 x float> %.2335.lcssa, ptr %.410861112, align 1, !tbaa !89
+  store <4 x float> %.2335.lcssa, ptr %.410861112, align 1, !tbaa !88
   %1237 = getelementptr inbounds nuw i8, ptr %.410861112, i64 16
   br label %1239
 
 1238:                                             ; preds = %._crit_edge1107
-  store <4 x float> %.2335.lcssa, ptr %.1511561110, align 1, !tbaa !89
+  store <4 x float> %.2335.lcssa, ptr %.1511561110, align 1, !tbaa !88
   br label %1239
 
 1239:                                             ; preds = %1238, %1236
@@ -13399,7 +13399,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1241 = add nuw nsw i32 %.210761114, 4
   %1242 = or disjoint i32 %1241, 3
   %1243 = icmp slt i32 %1242, %6
-  br i1 %1243, label %.lr.ph1115, label %.preheader767, !llvm.loop !209
+  br i1 %1243, label %.lr.ph1115, label %.preheader767, !llvm.loop !205
 
 .preheader:                                       ; preds = %1275, %.preheader767
   %.161157.lcssa = phi ptr [ %.151156.lcssa, %.preheader767 ], [ %1276, %1275 ]
@@ -13469,7 +13469,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1268 = getelementptr inbounds nuw i8, ptr %.71121, i64 8
   %1269 = add nuw nsw i32 %.010601125, 1
   %exitcond1284.not = icmp eq i32 %1269, %8
-  br i1 %exitcond1284.not, label %._crit_edge1128, label %.lr.ph1127, !llvm.loop !210
+  br i1 %exitcond1284.not, label %._crit_edge1128, label %.lr.ph1127, !llvm.loop !206
 
 ._crit_edge1128:                                  ; preds = %.lr.ph1127, %1258
   %.7.lcssa = phi ptr [ %.61135, %1258 ], [ %1268, %.lr.ph1127 ]
@@ -13496,7 +13496,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1277 = add nuw nsw i32 %.31136, 2
   %1278 = or disjoint i32 %1277, 1
   %1279 = icmp slt i32 %1278, %6
-  br i1 %1279, label %.lr.ph1137, label %.preheader, !llvm.loop !211
+  br i1 %1279, label %.lr.ph1137, label %.preheader, !llvm.loop !207
 
 .lr.ph1157:                                       ; preds = %.preheader, %1300
   %.41156 = phi i32 [ %1302, %1300 ], [ %.3.lcssa, %.preheader ]
@@ -13547,7 +13547,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1295 = getelementptr inbounds nuw i8, ptr %.91143, i64 4
   %1296 = add nuw nsw i32 %.01146, 1
   %exitcond1285.not = icmp eq i32 %1296, %8
-  br i1 %exitcond1285.not, label %._crit_edge1149, label %.lr.ph1148, !llvm.loop !212
+  br i1 %exitcond1285.not, label %._crit_edge1149, label %.lr.ph1148, !llvm.loop !208
 
 ._crit_edge1149:                                  ; preds = %.lr.ph1148, %1289
   %.9.lcssa = phi ptr [ %.81155, %1289 ], [ %1295, %.lr.ph1148 ]
@@ -13568,7 +13568,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1301 = getelementptr inbounds nuw i8, ptr %.1711581152, i64 4
   %1302 = add nuw nsw i32 %.41156, 1
   %exitcond1286.not = icmp eq i32 %1302, %6
-  br i1 %exitcond1286.not, label %._crit_edge1158, label %.lr.ph1157, !llvm.loop !213
+  br i1 %exitcond1286.not, label %._crit_edge1158, label %.lr.ph1157, !llvm.loop !209
 
 ._crit_edge1158:                                  ; preds = %1300, %.preheader
   %.171158.lcssa = phi ptr [ %.161157.lcssa, %.preheader ], [ %1301, %1300 ]
@@ -13576,7 +13576,7 @@ define internal fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_
   %1303 = getelementptr inbounds float, ptr %.211281164, i64 %720
   %indvars.iv.next1288 = add nuw nsw i64 %indvars.iv1287, 1
   %exitcond1290.not = icmp eq i64 %indvars.iv.next1288, %wide.trip.count
-  br i1 %exitcond1290.not, label %._crit_edge1166, label %1106, !llvm.loop !214
+  br i1 %exitcond1290.not, label %._crit_edge1166, label %1106, !llvm.loop !210
 
 ._crit_edge1166:                                  ; preds = %._crit_edge1158, %.preheader770
   ret void
@@ -13640,31 +13640,31 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 4
   %36 = or disjoint i64 %indvars.iv.next99, 3
   %37 = icmp samesign ult i64 %36, %28
-  br i1 %37, label %.lr.ph17.split.us, label %.preheader4.loopexit, !llvm.loop !215
+  br i1 %37, label %.lr.ph17.split.us, label %.preheader4.loopexit, !llvm.loop !211
 
 .lr.ph13.us:                                      ; preds = %.lr.ph13.us.preheader, %.lr.ph13.us
   %.312.us = phi ptr [ %39, %.lr.ph13.us ], [ %.2.lcssa.us, %.lr.ph13.us.preheader ]
   %.015211.us = phi i32 [ %41, %.lr.ph13.us ], [ 0, %.lr.ph13.us.preheader ]
   %.015310.us = phi ptr [ %40, %.lr.ph13.us ], [ %35, %.lr.ph13.us.preheader ]
-  %38 = load <4 x float>, ptr %.312.us, align 16, !tbaa !89
-  store <4 x float> %38, ptr %.015310.us, align 1, !tbaa !89
+  %38 = load <4 x float>, ptr %.312.us, align 16, !tbaa !88
+  store <4 x float> %38, ptr %.015310.us, align 1, !tbaa !88
   %39 = getelementptr inbounds nuw i8, ptr %.312.us, i64 16
   %40 = getelementptr inbounds float, ptr %.015310.us, i64 %26
   %41 = add nuw nsw i32 %.015211.us, 1
   %exitcond97.not = icmp eq i32 %41, %4
-  br i1 %exitcond97.not, label %.loopexit5.us, label %.lr.ph13.us, !llvm.loop !216
+  br i1 %exitcond97.not, label %.loopexit5.us, label %.lr.ph13.us, !llvm.loop !212
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %.29.us = phi ptr [ %60, %.lr.ph.us ], [ %.014216.us, %.lr.ph.us.preheader ]
   %.01548.us = phi ptr [ %61, %.lr.ph.us ], [ %32, %.lr.ph.us.preheader ]
   %.01557.us = phi i32 [ %62, %.lr.ph.us ], [ 0, %.lr.ph.us.preheader ]
-  %42 = load <4 x float>, ptr %.29.us, align 16, !tbaa !89
+  %42 = load <4 x float>, ptr %.29.us, align 16, !tbaa !88
   %43 = getelementptr inbounds nuw i8, ptr %.29.us, i64 16
-  %44 = load <4 x float>, ptr %43, align 16, !tbaa !89
+  %44 = load <4 x float>, ptr %43, align 16, !tbaa !88
   %45 = getelementptr inbounds nuw i8, ptr %.29.us, i64 32
-  %46 = load <4 x float>, ptr %45, align 16, !tbaa !89
+  %46 = load <4 x float>, ptr %45, align 16, !tbaa !88
   %47 = getelementptr inbounds nuw i8, ptr %.29.us, i64 48
-  %48 = load <4 x float>, ptr %47, align 16, !tbaa !89
+  %48 = load <4 x float>, ptr %47, align 16, !tbaa !88
   %49 = shufflevector <4 x float> %42, <4 x float> %44, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %50 = shufflevector <4 x float> %46, <4 x float> %48, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %51 = shufflevector <4 x float> %42, <4 x float> %44, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -13673,19 +13673,19 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %54 = shufflevector <4 x float> %50, <4 x float> %49, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %55 = shufflevector <4 x float> %51, <4 x float> %52, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %56 = shufflevector <4 x float> %52, <4 x float> %51, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %53, ptr %.01548.us, align 1, !tbaa !89
+  store <4 x float> %53, ptr %.01548.us, align 1, !tbaa !88
   %57 = getelementptr inbounds nuw i8, ptr %.01548.us, i64 16
-  store <4 x float> %54, ptr %57, align 1, !tbaa !89
+  store <4 x float> %54, ptr %57, align 1, !tbaa !88
   %58 = getelementptr inbounds nuw i8, ptr %.01548.us, i64 32
-  store <4 x float> %55, ptr %58, align 1, !tbaa !89
+  store <4 x float> %55, ptr %58, align 1, !tbaa !88
   %59 = getelementptr inbounds nuw i8, ptr %.01548.us, i64 48
-  store <4 x float> %56, ptr %59, align 1, !tbaa !89
+  store <4 x float> %56, ptr %59, align 1, !tbaa !88
   %60 = getelementptr inbounds nuw i8, ptr %.29.us, i64 64
   %61 = getelementptr inbounds float, ptr %.01548.us, i64 %23
   %62 = add nuw nsw i32 %.01557.us, 4
   %63 = or disjoint i32 %62, 3
   %64 = icmp slt i32 %63, %4
-  br i1 %64, label %.lr.ph.us, label %.loopexit6.us, !llvm.loop !217
+  br i1 %64, label %.lr.ph.us, label %.loopexit6.us, !llvm.loop !213
 
 .loopexit6.us:                                    ; preds = %.lr.ph.us, %.lr.ph17.split.us
   %.2.lcssa.us = phi ptr [ %.014216.us, %.lr.ph17.split.us ], [ %60, %.lr.ph.us ]
@@ -13719,20 +13719,20 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %.312.us24 = phi ptr [ %73, %.lr.ph13.us29 ], [ %.014216.us21, %.lr.ph13.us29.preheader ]
   %.015211.us25 = phi i32 [ %75, %.lr.ph13.us29 ], [ 0, %.lr.ph13.us29.preheader ]
   %.015310.us26 = phi ptr [ %74, %.lr.ph13.us29 ], [ %71, %.lr.ph13.us29.preheader ]
-  %72 = load <4 x float>, ptr %.312.us24, align 16, !tbaa !89
-  store <4 x float> %72, ptr %.015310.us26, align 1, !tbaa !89
+  %72 = load <4 x float>, ptr %.312.us24, align 16, !tbaa !88
+  store <4 x float> %72, ptr %.015310.us26, align 1, !tbaa !88
   %73 = getelementptr inbounds nuw i8, ptr %.312.us24, i64 16
   %74 = getelementptr inbounds float, ptr %.015310.us26, i64 %26
   %75 = add nuw nsw i32 %.015211.us25, 1
   %exitcond.not = icmp eq i32 %75, %4
-  br i1 %exitcond.not, label %.loopexit5.us27, label %.lr.ph13.us29, !llvm.loop !216
+  br i1 %exitcond.not, label %.loopexit5.us27, label %.lr.ph13.us29, !llvm.loop !212
 
 .loopexit5.us27:                                  ; preds = %.lr.ph13.us29, %.lr.ph17.split.split.us
   %.3.lcssa.us28 = phi ptr [ %.014216.us21, %.lr.ph17.split.split.us ], [ %73, %.lr.ph13.us29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %76 = or disjoint i64 %indvars.iv.next, 3
   %77 = icmp samesign ult i64 %76, %67
-  br i1 %77, label %.lr.ph17.split.split.us, label %.preheader4.loopexit81, !llvm.loop !218
+  br i1 %77, label %.lr.ph17.split.split.us, label %.preheader4.loopexit81, !llvm.loop !214
 
 .preheader4.loopexit:                             ; preds = %.loopexit5.us
   %78 = trunc nuw nsw i64 %indvars.iv.next99 to i32
@@ -13790,7 +13790,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 2
   %99 = or disjoint i64 %indvars.iv.next107, 1
   %100 = icmp slt i64 %99, %95
-  br i1 %100, label %.lr.ph46.split.us, label %.preheader.loopexit, !llvm.loop !219
+  br i1 %100, label %.lr.ph46.split.us, label %.preheader.loopexit, !llvm.loop !215
 
 .lr.ph42.us:                                      ; preds = %.lr.ph42.us.preheader, %.lr.ph42.us
   %.841.us = phi ptr [ %105, %.lr.ph42.us ], [ %.7.lcssa.us, %.lr.ph42.us.preheader ]
@@ -13806,7 +13806,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %106 = getelementptr inbounds float, ptr %.014639.us, i64 %92
   %107 = add nuw nsw i32 %.014540.us, 1
   %exitcond105.not = icmp eq i32 %107, %4
-  br i1 %exitcond105.not, label %.loopexit2.us, label %.lr.ph42.us, !llvm.loop !220
+  br i1 %exitcond105.not, label %.loopexit2.us, label %.lr.ph42.us, !llvm.loop !216
 
 .lr.ph.us49:                                      ; preds = %.lr.ph.us49.preheader, %.lr.ph.us49
   %.738.us = phi ptr [ %130, %.lr.ph.us49 ], [ %.545.us, %.lr.ph.us49.preheader ]
@@ -13847,7 +13847,7 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %132 = add nuw nsw i32 %.014737.us, 4
   %133 = or disjoint i32 %132, 3
   %134 = icmp slt i32 %133, %4
-  br i1 %134, label %.lr.ph.us49, label %.loopexit3.us, !llvm.loop !221
+  br i1 %134, label %.lr.ph.us49, label %.loopexit3.us, !llvm.loop !217
 
 .loopexit3.us:                                    ; preds = %.lr.ph.us49, %.lr.ph46.split.us
   %.7.lcssa.us = phi ptr [ %.545.us, %.lr.ph46.split.us ], [ %130, %.lr.ph.us49 ]
@@ -13894,14 +13894,14 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %148 = getelementptr inbounds float, ptr %.014639.us58, i64 %92
   %149 = add nuw nsw i32 %.014540.us57, 1
   %exitcond101.not = icmp eq i32 %149, %4
-  br i1 %exitcond101.not, label %.loopexit2.us59, label %.lr.ph42.us61, !llvm.loop !220
+  br i1 %exitcond101.not, label %.loopexit2.us59, label %.lr.ph42.us61, !llvm.loop !216
 
 .loopexit2.us59:                                  ; preds = %.lr.ph42.us61, %.lr.ph46.split.split.us
   %.8.lcssa.us60 = phi ptr [ %.545.us53, %.lr.ph46.split.split.us ], [ %147, %.lr.ph42.us61 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 2
   %150 = or disjoint i64 %indvars.iv.next103, 1
   %151 = icmp slt i64 %150, %142
-  br i1 %151, label %.lr.ph46.split.split.us, label %.preheader.loopexit79, !llvm.loop !222
+  br i1 %151, label %.lr.ph46.split.split.us, label %.preheader.loopexit79, !llvm.loop !218
 
 .preheader.loopexit:                              ; preds = %.loopexit2.us
   %152 = trunc nsw i64 %indvars.iv.next107 to i32
@@ -13953,14 +13953,14 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %.1270 = phi ptr [ %171, %.lr.ph ], [ %.1077, %.lr.ph.preheader ]
   %.014369 = phi i32 [ %173, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.014468 = phi ptr [ %172, %.lr.ph ], [ %169, %.lr.ph.preheader ]
-  %170 = load <4 x float>, ptr %.1270, align 1, !tbaa !89
-  store <4 x float> %170, ptr %.014468, align 16, !tbaa !89
+  %170 = load <4 x float>, ptr %.1270, align 1, !tbaa !88
+  store <4 x float> %170, ptr %.014468, align 16, !tbaa !88
   %171 = getelementptr inbounds nuw i8, ptr %.1270, i64 16
   %172 = getelementptr inbounds float, ptr %.014468, i64 %159
   %173 = add nuw nsw i32 %.014369, 4
   %174 = or disjoint i32 %173, 3
   %175 = icmp slt i32 %174, %4
-  br i1 %175, label %.lr.ph, label %.loopexit, !llvm.loop !223
+  br i1 %175, label %.lr.ph, label %.loopexit, !llvm.loop !219
 
 176:                                              ; preds = %164
   br i1 %160, label %.lr.ph74.preheader, label %.loopexit
@@ -13982,13 +13982,13 @@ define internal fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatER
   %183 = getelementptr inbounds float, ptr %.014172, i64 %161
   %184 = add nuw nsw i32 %.073, 1
   %exitcond109.not = icmp eq i32 %184, %4
-  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph74, !llvm.loop !224
+  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph74, !llvm.loop !220
 
 .loopexit:                                        ; preds = %.lr.ph74, %.lr.ph, %164, %165, %176
   %.14 = phi ptr [ %.1077, %176 ], [ %.1077, %165 ], [ %.1077, %164 ], [ %171, %.lr.ph ], [ %182, %.lr.ph74 ]
   %indvars.iv.next111 = add nsw i64 %indvars.iv110, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count
-  br i1 %exitcond113.not, label %._crit_edge, label %164, !llvm.loop !225
+  br i1 %exitcond113.not, label %._crit_edge, label %164, !llvm.loop !221
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   ret void
@@ -14044,12 +14044,12 @@ define internal void @_ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6
   %36 = load i32, ptr %7, align 4, !tbaa !37
   %37 = sub nsw i32 %36, %33
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %32, i32 %37)
-  %38 = load i32, ptr %24, align 4, !tbaa !55, !noalias !226
-  %39 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !226
-  %40 = load i64, ptr %25, align 8, !tbaa !17, !noalias !226
+  %38 = load i32, ptr %24, align 4, !tbaa !55, !noalias !222
+  %39 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !222
+  %40 = load i64, ptr %25, align 8, !tbaa !17, !noalias !222
   %41 = sext i32 %28 to i64
   %42 = mul i64 %40, %41
-  %43 = load i64, ptr %26, align 8, !tbaa !52, !noalias !226
+  %43 = load i64, ptr %26, align 8, !tbaa !52, !noalias !222
   %44 = mul i64 %42, %43
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 %44
   %46 = sext i32 %38 to i64
@@ -14073,7 +14073,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %53, %52
   %54 = add nsw i32 %.067, 1
   %55 = load i32, ptr %13, align 4, !tbaa !37
   %.not.not = icmp slt i32 %.067, %55
-  br i1 %.not.not, label %.noexc45, label %._crit_edge, !llvm.loop !229
+  br i1 %.not.not, label %.noexc45, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
@@ -14171,29 +14171,29 @@ define internal void @_ZN4ncnnL11gemm_AT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6
           to label %_ZN4ncnn3MatD2Ev.exit68 unwind label %156
 
 _ZN4ncnn3MatD2Ev.exit68:                          ; preds = %65
-  %67 = load i32, ptr %47, align 8, !tbaa !54, !noalias !230
+  %67 = load i32, ptr %47, align 8, !tbaa !54, !noalias !225
   %68 = icmp eq i32 %67, 4
-  %69 = load i32, ptr %41, align 8, !tbaa !56, !noalias !230
+  %69 = load i32, ptr %41, align 8, !tbaa !56, !noalias !225
   %70 = sext i32 %69 to i64
-  %71 = load i32, ptr %40, align 4, !tbaa !55, !noalias !230
+  %71 = load i32, ptr %40, align 4, !tbaa !55, !noalias !225
   %72 = sext i32 %71 to i64
   %73 = mul nsw i64 %70, %72
-  %74 = load i64, ptr %44, align 8, !tbaa !52, !noalias !230
+  %74 = load i64, ptr %44, align 8, !tbaa !52, !noalias !225
   %75 = mul i64 %74, %73
   %76 = add i64 %75, 15
   %77 = and i64 %76, -16
   %78 = udiv i64 %77, %74
   %spec.select = select i1 %68, i64 %73, i64 %78
   %79 = add nsw i32 %67, -1
-  %80 = load ptr, ptr %46, align 8, !tbaa !15, !noalias !230
-  %81 = load i32, ptr %45, align 8, !tbaa !53, !noalias !230
-  %82 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !230
-  %83 = load i64, ptr %43, align 8, !tbaa !17, !noalias !230
+  %80 = load ptr, ptr %46, align 8, !tbaa !15, !noalias !225
+  %81 = load i32, ptr %45, align 8, !tbaa !53, !noalias !225
+  %82 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !225
+  %83 = load i64, ptr %43, align 8, !tbaa !17, !noalias !225
   %84 = sext i32 %66 to i64
   %85 = mul i64 %83, %84
   %86 = mul i64 %85, %74
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 %86
-  %88 = load i32, ptr %42, align 4, !tbaa !57, !noalias !230
+  %88 = load i32, ptr %42, align 4, !tbaa !57, !noalias !225
   store ptr %87, ptr %21, align 8, !tbaa !16
   store ptr null, ptr %30, align 8, !tbaa !7
   store i64 %74, ptr %31, align 8, !tbaa !52
@@ -14222,7 +14222,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %150, %89
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %21) #9
   %92 = add nsw i32 %.0195, 1
   %.not.not = icmp slt i32 %.0195, %.pre206
-  br i1 %.not.not, label %54, label %._crit_edge198, !llvm.loop !233
+  br i1 %.not.not, label %54, label %._crit_edge198
 
 93:                                               ; preds = %.lr.ph, %150
   %94 = phi i32 [ %.pre, %.lr.ph ], [ %151, %150 ]
@@ -14264,12 +14264,12 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %150, %89
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %107, i32 %109)
   %110 = load i32, ptr %3, align 4, !tbaa !37
   %111 = sdiv i32 %56, %110
-  %112 = load i32, ptr %48, align 4, !tbaa !55, !noalias !234
-  %113 = load ptr, ptr %13, align 8, !tbaa !16, !noalias !234
-  %114 = load i64, ptr %49, align 8, !tbaa !17, !noalias !234
+  %112 = load i32, ptr %48, align 4, !tbaa !55, !noalias !228
+  %113 = load ptr, ptr %13, align 8, !tbaa !16, !noalias !228
+  %114 = load i64, ptr %49, align 8, !tbaa !17, !noalias !228
   %115 = sext i32 %111 to i64
   %116 = mul i64 %114, %115
-  %117 = load i64, ptr %50, align 8, !tbaa !52, !noalias !234
+  %117 = load i64, ptr %50, align 8, !tbaa !52, !noalias !228
   %118 = mul i64 %116, %117
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 %118
   %120 = sext i32 %112 to i64
@@ -14280,12 +14280,12 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %150, %89
   %125 = getelementptr inbounds nuw i8, ptr %119, i64 %124
   %126 = load i32, ptr %11, align 4, !tbaa !37
   %127 = sdiv i32 %.057191, %126
-  %128 = load i32, ptr %51, align 4, !tbaa !55, !noalias !237
-  %129 = load ptr, ptr %14, align 8, !tbaa !16, !noalias !237
-  %130 = load i64, ptr %52, align 8, !tbaa !17, !noalias !237
+  %128 = load i32, ptr %51, align 4, !tbaa !55, !noalias !231
+  %129 = load ptr, ptr %14, align 8, !tbaa !16, !noalias !231
+  %130 = load i64, ptr %52, align 8, !tbaa !17, !noalias !231
   %131 = sext i32 %127 to i64
   %132 = mul i64 %130, %131
-  %133 = load i64, ptr %53, align 8, !tbaa !52, !noalias !237
+  %133 = load i64, ptr %53, align 8, !tbaa !52, !noalias !231
   %134 = mul i64 %132, %133
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 %134
   %136 = sext i32 %128 to i64
@@ -14303,7 +14303,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %150, %89
   %146 = add nsw i32 %145, %.058190
   %147 = load i32, ptr %5, align 4, !tbaa !37
   %148 = icmp slt i32 %146, %147
-  br i1 %148, label %.noexc100, label %._crit_edge, !llvm.loop !240
+  br i1 %148, label %.noexc100, label %._crit_edge, !llvm.loop !234
 
 149:                                              ; preds = %._crit_edge
   call fastcc void @_ZN4ncnnL28transpose_unpack_output_tileERKNS_3MatERS0_iiii(ptr %.val, ptr noundef nonnull align 8 dereferenceable(72) %15, i32 noundef %56, i32 noundef %.sroa.speculated184, i32 noundef %.057191, i32 noundef %.sroa.speculated164)
@@ -14314,7 +14314,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %150, %89
   %152 = add nsw i32 %151, %.057191
   %153 = load i32, ptr %10, align 4, !tbaa !37
   %154 = icmp slt i32 %152, %153
-  br i1 %154, label %93, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !241
+  br i1 %154, label %93, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !235
 
 ._crit_edge198:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit, %24
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %26)
@@ -14450,29 +14450,29 @@ define internal void @_ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6
           to label %_ZN4ncnn3MatD2Ev.exit98 unwind label %.loopexit.split-lp
 
 _ZN4ncnn3MatD2Ev.exit98:                          ; preds = %84
-  %86 = load i32, ptr %50, align 8, !tbaa !54, !noalias !242
+  %86 = load i32, ptr %50, align 8, !tbaa !54, !noalias !236
   %87 = icmp eq i32 %86, 4
-  %88 = load i32, ptr %44, align 8, !tbaa !56, !noalias !242
+  %88 = load i32, ptr %44, align 8, !tbaa !56, !noalias !236
   %89 = sext i32 %88 to i64
-  %90 = load i32, ptr %43, align 4, !tbaa !55, !noalias !242
+  %90 = load i32, ptr %43, align 4, !tbaa !55, !noalias !236
   %91 = sext i32 %90 to i64
   %92 = mul nsw i64 %89, %91
-  %93 = load i64, ptr %47, align 8, !tbaa !52, !noalias !242
+  %93 = load i64, ptr %47, align 8, !tbaa !52, !noalias !236
   %94 = mul i64 %93, %92
   %95 = add i64 %94, 15
   %96 = and i64 %95, -16
   %97 = udiv i64 %96, %93
   %spec.select = select i1 %87, i64 %92, i64 %97
   %98 = add nsw i32 %86, -1
-  %99 = load ptr, ptr %49, align 8, !tbaa !15, !noalias !242
-  %100 = load i32, ptr %48, align 8, !tbaa !53, !noalias !242
-  %101 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !242
-  %102 = load i64, ptr %46, align 8, !tbaa !17, !noalias !242
+  %99 = load ptr, ptr %49, align 8, !tbaa !15, !noalias !236
+  %100 = load i32, ptr %48, align 8, !tbaa !53, !noalias !236
+  %101 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !236
+  %102 = load i64, ptr %46, align 8, !tbaa !17, !noalias !236
   %103 = sext i32 %85 to i64
   %104 = mul i64 %102, %103
   %105 = mul i64 %104, %93
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 %105
-  %107 = load i32, ptr %45, align 4, !tbaa !57, !noalias !242
+  %107 = load i32, ptr %45, align 4, !tbaa !57, !noalias !236
   store ptr %106, ptr %21, align 8, !tbaa !16
   store ptr null, ptr %33, align 8, !tbaa !7
   store i64 %93, ptr %34, align 8, !tbaa !52
@@ -14529,7 +14529,7 @@ _ZN4ncnn3MatD2Ev.exit98:                          ; preds = %84
   %125 = add nsw i32 %124, %.082221.us
   %126 = load i32, ptr %10, align 4, !tbaa !37
   %127 = icmp slt i32 %125, %126
-  br i1 %127, label %.lr.ph223.split.us, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !245
+  br i1 %127, label %.lr.ph223.split.us, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !239
 
 128:                                              ; preds = %.lr.ph.us, %_ZN4ncnn3MatD2Ev.exit94.us
   %129 = phi i32 [ %.pre234, %.lr.ph.us ], [ %171, %_ZN4ncnn3MatD2Ev.exit94.us ]
@@ -14540,12 +14540,12 @@ _ZN4ncnn3MatD2Ev.exit98:                          ; preds = %84
           to label %.noexc130.us unwind label %.loopexit.split.us
 
 .noexc130.us:                                     ; preds = %128
-  %132 = load i32, ptr %51, align 4, !tbaa !55, !noalias !246
-  %133 = load ptr, ptr %13, align 8, !tbaa !16, !noalias !246
-  %134 = load i64, ptr %52, align 8, !tbaa !17, !noalias !246
+  %132 = load i32, ptr %51, align 4, !tbaa !55, !noalias !240
+  %133 = load ptr, ptr %13, align 8, !tbaa !16, !noalias !240
+  %134 = load i64, ptr %52, align 8, !tbaa !17, !noalias !240
   %135 = sext i32 %131 to i64
   %136 = mul i64 %134, %135
-  %137 = load i64, ptr %53, align 8, !tbaa !52, !noalias !246
+  %137 = load i64, ptr %53, align 8, !tbaa !52, !noalias !240
   %138 = mul i64 %136, %137
   %139 = getelementptr inbounds nuw i8, ptr %133, i64 %138
   %140 = sext i32 %132 to i64
@@ -14557,12 +14557,12 @@ _ZN4ncnn3MatD2Ev.exit98:                          ; preds = %84
   %146 = getelementptr inbounds nuw i8, ptr %139, i64 %145
   %147 = load i32, ptr %11, align 4, !tbaa !37
   %148 = sdiv i32 %.082221.us, %147
-  %149 = load i32, ptr %54, align 4, !tbaa !55, !noalias !249
-  %150 = load ptr, ptr %14, align 8, !tbaa !16, !noalias !249
-  %151 = load i64, ptr %55, align 8, !tbaa !17, !noalias !249
+  %149 = load i32, ptr %54, align 4, !tbaa !55, !noalias !243
+  %150 = load ptr, ptr %14, align 8, !tbaa !16, !noalias !243
+  %151 = load i64, ptr %55, align 8, !tbaa !17, !noalias !243
   %152 = sext i32 %148 to i64
   %153 = mul i64 %151, %152
-  %154 = load i64, ptr %56, align 8, !tbaa !52, !noalias !249
+  %154 = load i64, ptr %56, align 8, !tbaa !52, !noalias !243
   %155 = mul i64 %153, %154
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 %155
   %157 = sext i32 %149 to i64
@@ -14596,7 +14596,7 @@ _ZN4ncnn3MatD2Ev.exit94.us:                       ; preds = %164, %163, %.noexc1
   %171 = load i32, ptr %6, align 4, !tbaa !37
   %172 = add nsw i32 %171, %.083220.us
   %173 = icmp slt i32 %172, %.fr227
-  br i1 %173, label %128, label %._crit_edge.us, !llvm.loop !252
+  br i1 %173, label %128, label %._crit_edge.us, !llvm.loop !246
 
 ._crit_edge.us:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit94.us
   %174 = load i32, ptr %8, align 4, !tbaa !37
@@ -14613,7 +14613,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %185, %123, %108
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %21) #9
   %175 = add nsw i32 %.0226, 1
   %.not.not = icmp slt i32 %.0226, %.pre237
-  br i1 %.not.not, label %57, label %._crit_edge, !llvm.loop !253
+  br i1 %.not.not, label %57, label %._crit_edge
 
 .lr.ph223.split:                                  ; preds = %.lr.ph223, %185
   %176 = phi i32 [ %186, %185 ], [ %.pre232, %.lr.ph223 ]
@@ -14643,7 +14643,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %185, %123, %108
   %187 = add nsw i32 %186, %.082221
   %188 = load i32, ptr %10, align 4, !tbaa !37
   %189 = icmp slt i32 %187, %188
-  br i1 %189, label %.lr.ph223.split, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !254
+  br i1 %189, label %.lr.ph223.split, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !247
 
 ._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit, %24
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %26)
@@ -14718,12 +14718,12 @@ define internal void @_ZN4ncnnL8gemm_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiRKNS_6Optio
   %36 = load i32, ptr %7, align 4, !tbaa !37
   %37 = sub nsw i32 %36, %33
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %32, i32 %37)
-  %38 = load i32, ptr %24, align 4, !tbaa !55, !noalias !255
-  %39 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !255
-  %40 = load i64, ptr %25, align 8, !tbaa !17, !noalias !255
+  %38 = load i32, ptr %24, align 4, !tbaa !55, !noalias !248
+  %39 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !248
+  %40 = load i64, ptr %25, align 8, !tbaa !17, !noalias !248
   %41 = sext i32 %28 to i64
   %42 = mul i64 %40, %41
-  %43 = load i64, ptr %26, align 8, !tbaa !52, !noalias !255
+  %43 = load i64, ptr %26, align 8, !tbaa !52, !noalias !248
   %44 = mul i64 %42, %43
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 %44
   %46 = sext i32 %38 to i64
@@ -14747,7 +14747,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %53, %52
   %54 = add nsw i32 %.067, 1
   %55 = load i32, ptr %13, align 4, !tbaa !37
   %.not.not = icmp slt i32 %.067, %55
-  br i1 %.not.not, label %.noexc45, label %._crit_edge, !llvm.loop !258
+  br i1 %.not.not, label %.noexc45, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
@@ -14876,29 +14876,29 @@ define internal void @_ZN4ncnnL8gemm_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiRKNS_6Optio
           to label %_ZN4ncnn3MatD2Ev.exit97 unwind label %.loopexit.split-lp
 
 _ZN4ncnn3MatD2Ev.exit97:                          ; preds = %84
-  %86 = load i32, ptr %50, align 8, !tbaa !54, !noalias !259
+  %86 = load i32, ptr %50, align 8, !tbaa !54, !noalias !251
   %87 = icmp eq i32 %86, 4
-  %88 = load i32, ptr %44, align 8, !tbaa !56, !noalias !259
+  %88 = load i32, ptr %44, align 8, !tbaa !56, !noalias !251
   %89 = sext i32 %88 to i64
-  %90 = load i32, ptr %43, align 4, !tbaa !55, !noalias !259
+  %90 = load i32, ptr %43, align 4, !tbaa !55, !noalias !251
   %91 = sext i32 %90 to i64
   %92 = mul nsw i64 %89, %91
-  %93 = load i64, ptr %47, align 8, !tbaa !52, !noalias !259
+  %93 = load i64, ptr %47, align 8, !tbaa !52, !noalias !251
   %94 = mul i64 %93, %92
   %95 = add i64 %94, 15
   %96 = and i64 %95, -16
   %97 = udiv i64 %96, %93
   %spec.select = select i1 %87, i64 %92, i64 %97
   %98 = add nsw i32 %86, -1
-  %99 = load ptr, ptr %49, align 8, !tbaa !15, !noalias !259
-  %100 = load i32, ptr %48, align 8, !tbaa !53, !noalias !259
-  %101 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !259
-  %102 = load i64, ptr %46, align 8, !tbaa !17, !noalias !259
+  %99 = load ptr, ptr %49, align 8, !tbaa !15, !noalias !251
+  %100 = load i32, ptr %48, align 8, !tbaa !53, !noalias !251
+  %101 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !251
+  %102 = load i64, ptr %46, align 8, !tbaa !17, !noalias !251
   %103 = sext i32 %85 to i64
   %104 = mul i64 %102, %103
   %105 = mul i64 %104, %93
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 %105
-  %107 = load i32, ptr %45, align 4, !tbaa !57, !noalias !259
+  %107 = load i32, ptr %45, align 4, !tbaa !57, !noalias !251
   store ptr %106, ptr %21, align 8, !tbaa !16
   store ptr null, ptr %33, align 8, !tbaa !7
   store i64 %93, ptr %34, align 8, !tbaa !52
@@ -14955,7 +14955,7 @@ _ZN4ncnn3MatD2Ev.exit97:                          ; preds = %84
   %125 = add nsw i32 %124, %.081222.us
   %126 = load i32, ptr %10, align 4, !tbaa !37
   %127 = icmp slt i32 %125, %126
-  br i1 %127, label %.lr.ph224.split.us, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !262
+  br i1 %127, label %.lr.ph224.split.us, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !254
 
 128:                                              ; preds = %.lr.ph.us, %_ZN4ncnn3MatD2Ev.exit93.us
   %129 = phi i32 [ %.pre235, %.lr.ph.us ], [ %171, %_ZN4ncnn3MatD2Ev.exit93.us ]
@@ -14966,12 +14966,12 @@ _ZN4ncnn3MatD2Ev.exit97:                          ; preds = %84
           to label %.noexc130.us unwind label %.loopexit.split.us
 
 .noexc130.us:                                     ; preds = %128
-  %132 = load i32, ptr %51, align 4, !tbaa !55, !noalias !263
-  %133 = load ptr, ptr %13, align 8, !tbaa !16, !noalias !263
-  %134 = load i64, ptr %52, align 8, !tbaa !17, !noalias !263
+  %132 = load i32, ptr %51, align 4, !tbaa !55, !noalias !255
+  %133 = load ptr, ptr %13, align 8, !tbaa !16, !noalias !255
+  %134 = load i64, ptr %52, align 8, !tbaa !17, !noalias !255
   %135 = sext i32 %131 to i64
   %136 = mul i64 %134, %135
-  %137 = load i64, ptr %53, align 8, !tbaa !52, !noalias !263
+  %137 = load i64, ptr %53, align 8, !tbaa !52, !noalias !255
   %138 = mul i64 %136, %137
   %139 = getelementptr inbounds nuw i8, ptr %133, i64 %138
   %140 = sext i32 %132 to i64
@@ -14983,12 +14983,12 @@ _ZN4ncnn3MatD2Ev.exit97:                          ; preds = %84
   %146 = getelementptr inbounds nuw i8, ptr %139, i64 %145
   %147 = load i32, ptr %11, align 4, !tbaa !37
   %148 = sdiv i32 %.081222.us, %147
-  %149 = load i32, ptr %54, align 4, !tbaa !55, !noalias !266
-  %150 = load ptr, ptr %14, align 8, !tbaa !16, !noalias !266
-  %151 = load i64, ptr %55, align 8, !tbaa !17, !noalias !266
+  %149 = load i32, ptr %54, align 4, !tbaa !55, !noalias !258
+  %150 = load ptr, ptr %14, align 8, !tbaa !16, !noalias !258
+  %151 = load i64, ptr %55, align 8, !tbaa !17, !noalias !258
   %152 = sext i32 %148 to i64
   %153 = mul i64 %151, %152
-  %154 = load i64, ptr %56, align 8, !tbaa !52, !noalias !266
+  %154 = load i64, ptr %56, align 8, !tbaa !52, !noalias !258
   %155 = mul i64 %153, %154
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 %155
   %157 = sext i32 %149 to i64
@@ -15022,7 +15022,7 @@ _ZN4ncnn3MatD2Ev.exit93.us:                       ; preds = %164, %163, %.noexc1
   %171 = load i32, ptr %6, align 4, !tbaa !37
   %172 = add nsw i32 %171, %.082221.us
   %173 = icmp slt i32 %172, %.fr228
-  br i1 %173, label %128, label %._crit_edge.us, !llvm.loop !269
+  br i1 %173, label %128, label %._crit_edge.us, !llvm.loop !261
 
 ._crit_edge.us:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit93.us
   %174 = load i32, ptr %8, align 4, !tbaa !37
@@ -15039,7 +15039,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %185, %123, %108
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %21) #9
   %175 = add nsw i32 %.0227, 1
   %.not.not = icmp slt i32 %.0227, %.pre238
-  br i1 %.not.not, label %57, label %._crit_edge, !llvm.loop !270
+  br i1 %.not.not, label %57, label %._crit_edge
 
 .lr.ph224.split:                                  ; preds = %.lr.ph224, %185
   %176 = phi i32 [ %186, %185 ], [ %.pre233, %.lr.ph224 ]
@@ -15069,7 +15069,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %185, %123, %108
   %187 = add nsw i32 %186, %.081222
   %188 = load i32, ptr %10, align 4, !tbaa !37
   %189 = icmp slt i32 %187, %188
-  br i1 %189, label %.lr.ph224.split, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !271
+  br i1 %189, label %.lr.ph224.split, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !262
 
 ._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit, %24
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %26)
@@ -15304,7 +15304,7 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %38 = phi i32 [ %219, %._crit_edge.loopexit ], [ %32, %.lr.ph.split ]
   %39 = add nsw i32 %.071, 1
   %.not.not = icmp slt i32 %.071, %37
-  br i1 %.not.not, label %.lr.ph.split, label %._crit_edge73, !llvm.loop !272
+  br i1 %.not.not, label %.lr.ph.split, label %._crit_edge73, !llvm.loop !263
 
 .noexc40:                                         ; preds = %.noexc40.lr.ph, %_ZN4ncnn3MatD2Ev.exit
   %40 = phi i32 [ %.pre, %.noexc40.lr.ph ], [ %217, %_ZN4ncnn3MatD2Ev.exit ]
@@ -15317,12 +15317,12 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %45 = sub nsw i32 %41, %.03069
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %40, i32 %45)
   %46 = sdiv i32 %34, %44
-  %47 = load i32, ptr %22, align 4, !tbaa !55, !noalias !273
-  %48 = load ptr, ptr %21, align 8, !tbaa !16, !noalias !273
-  %49 = load i64, ptr %23, align 8, !tbaa !17, !noalias !273
+  %47 = load i32, ptr %22, align 4, !tbaa !55, !noalias !264
+  %48 = load ptr, ptr %21, align 8, !tbaa !16, !noalias !264
+  %49 = load i64, ptr %23, align 8, !tbaa !17, !noalias !264
   %50 = sext i32 %46 to i64
   %51 = mul i64 %49, %50
-  %52 = load i64, ptr %24, align 8, !tbaa !52, !noalias !273
+  %52 = load i64, ptr %24, align 8, !tbaa !52, !noalias !264
   %53 = mul i64 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 %53
   %55 = sext i32 %47 to i64
@@ -15331,7 +15331,7 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %58 = mul i64 %52, %55
   %59 = mul i64 %58, %57
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 %59
-  %61 = load i32, ptr %25, align 8, !tbaa !68
+  %61 = load i32, ptr %25, align 8, !tbaa !67
   %.not31 = icmp eq i32 %61, 0
   br i1 %.not31, label %216, label %62
 
@@ -15373,72 +15373,72 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 4
   %81 = or disjoint i64 %indvars.iv.next79.i, 3
   %82 = icmp samesign ult i64 %81, %71
-  br i1 %82, label %.lr.ph.us.i, label %.preheader2.loopexit.i, !llvm.loop !276
+  br i1 %82, label %.lr.ph.us.i, label %.preheader2.loopexit.i, !llvm.loop !267
 
 .lr.ph12.us.i:                                    ; preds = %..preheader3_crit_edge.us.i, %.lr.ph12.us.i
   %.110111.us.i = phi i32 [ %95, %.lr.ph12.us.i ], [ %70, %..preheader3_crit_edge.us.i ]
   %.110310.us.i = phi ptr [ %94, %.lr.ph12.us.i ], [ %120, %..preheader3_crit_edge.us.i ]
   %.21089.us.i = phi ptr [ %93, %.lr.ph12.us.i ], [ %119, %..preheader3_crit_edge.us.i ]
-  %83 = load i8, ptr %.110310.us.i, align 1, !tbaa !89
-  store i8 %83, ptr %.21089.us.i, align 1, !tbaa !89
+  %83 = load i8, ptr %.110310.us.i, align 1, !tbaa !88
+  store i8 %83, ptr %.21089.us.i, align 1, !tbaa !88
   %84 = getelementptr inbounds nuw i8, ptr %.110310.us.i, i64 1
-  %85 = load i8, ptr %84, align 1, !tbaa !89
+  %85 = load i8, ptr %84, align 1, !tbaa !88
   %86 = getelementptr inbounds nuw i8, ptr %.21089.us.i, i64 1
-  store i8 %85, ptr %86, align 1, !tbaa !89
+  store i8 %85, ptr %86, align 1, !tbaa !88
   %87 = getelementptr inbounds nuw i8, ptr %.110310.us.i, i64 2
-  %88 = load i8, ptr %87, align 1, !tbaa !89
+  %88 = load i8, ptr %87, align 1, !tbaa !88
   %89 = getelementptr inbounds nuw i8, ptr %.21089.us.i, i64 2
-  store i8 %88, ptr %89, align 1, !tbaa !89
+  store i8 %88, ptr %89, align 1, !tbaa !88
   %90 = getelementptr inbounds nuw i8, ptr %.110310.us.i, i64 3
-  %91 = load i8, ptr %90, align 1, !tbaa !89
+  %91 = load i8, ptr %90, align 1, !tbaa !88
   %92 = getelementptr inbounds nuw i8, ptr %.21089.us.i, i64 3
-  store i8 %91, ptr %92, align 1, !tbaa !89
+  store i8 %91, ptr %92, align 1, !tbaa !88
   %93 = getelementptr inbounds nuw i8, ptr %.21089.us.i, i64 4
   %94 = getelementptr inbounds i8, ptr %.110310.us.i, i64 %67
   %95 = add nuw nsw i32 %.110111.us.i, 1
   %exitcond.not.i = icmp eq i32 %95, %.sroa.speculated
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph12.us.i, !llvm.loop !277
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.lr.ph12.us.i, !llvm.loop !268
 
 96:                                               ; preds = %96, %.lr.ph.us.i
   %.01006.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %121, %96 ]
   %.01025.us.i = phi ptr [ %80, %.lr.ph.us.i ], [ %120, %96 ]
   %.11074.us.i = phi ptr [ %.010614.us.i, %.lr.ph.us.i ], [ %119, %96 ]
-  %97 = load i8, ptr %.01025.us.i, align 1, !tbaa !89
-  store i8 %97, ptr %.11074.us.i, align 1, !tbaa !89
+  %97 = load i8, ptr %.01025.us.i, align 1, !tbaa !88
+  store i8 %97, ptr %.11074.us.i, align 1, !tbaa !88
   %98 = getelementptr inbounds i8, ptr %.01025.us.i, i64 %67
-  %99 = load i8, ptr %98, align 1, !tbaa !89
+  %99 = load i8, ptr %98, align 1, !tbaa !88
   %100 = getelementptr inbounds nuw i8, ptr %.11074.us.i, i64 1
-  store i8 %99, ptr %100, align 1, !tbaa !89
+  store i8 %99, ptr %100, align 1, !tbaa !88
   %101 = getelementptr inbounds nuw i8, ptr %.01025.us.i, i64 1
-  %102 = load i8, ptr %101, align 1, !tbaa !89
+  %102 = load i8, ptr %101, align 1, !tbaa !88
   %103 = getelementptr inbounds nuw i8, ptr %.11074.us.i, i64 2
-  store i8 %102, ptr %103, align 1, !tbaa !89
+  store i8 %102, ptr %103, align 1, !tbaa !88
   %104 = getelementptr i8, ptr %98, i64 1
-  %105 = load i8, ptr %104, align 1, !tbaa !89
+  %105 = load i8, ptr %104, align 1, !tbaa !88
   %106 = getelementptr inbounds nuw i8, ptr %.11074.us.i, i64 3
-  store i8 %105, ptr %106, align 1, !tbaa !89
+  store i8 %105, ptr %106, align 1, !tbaa !88
   %107 = getelementptr inbounds nuw i8, ptr %.01025.us.i, i64 2
-  %108 = load i8, ptr %107, align 1, !tbaa !89
+  %108 = load i8, ptr %107, align 1, !tbaa !88
   %109 = getelementptr inbounds nuw i8, ptr %.11074.us.i, i64 4
-  store i8 %108, ptr %109, align 1, !tbaa !89
+  store i8 %108, ptr %109, align 1, !tbaa !88
   %110 = getelementptr i8, ptr %98, i64 2
-  %111 = load i8, ptr %110, align 1, !tbaa !89
+  %111 = load i8, ptr %110, align 1, !tbaa !88
   %112 = getelementptr inbounds nuw i8, ptr %.11074.us.i, i64 5
-  store i8 %111, ptr %112, align 1, !tbaa !89
+  store i8 %111, ptr %112, align 1, !tbaa !88
   %113 = getelementptr inbounds nuw i8, ptr %.01025.us.i, i64 3
-  %114 = load i8, ptr %113, align 1, !tbaa !89
+  %114 = load i8, ptr %113, align 1, !tbaa !88
   %115 = getelementptr inbounds nuw i8, ptr %.11074.us.i, i64 6
-  store i8 %114, ptr %115, align 1, !tbaa !89
+  store i8 %114, ptr %115, align 1, !tbaa !88
   %116 = getelementptr i8, ptr %98, i64 3
-  %117 = load i8, ptr %116, align 1, !tbaa !89
+  %117 = load i8, ptr %116, align 1, !tbaa !88
   %118 = getelementptr inbounds nuw i8, ptr %.11074.us.i, i64 7
-  store i8 %117, ptr %118, align 1, !tbaa !89
+  store i8 %117, ptr %118, align 1, !tbaa !88
   %119 = getelementptr inbounds nuw i8, ptr %.11074.us.i, i64 8
   %120 = getelementptr inbounds i8, ptr %.01025.us.i, i64 %69
   %121 = add nuw nsw i32 %.01006.us.i, 2
   %122 = or disjoint i32 %121, 1
   %123 = icmp slt i32 %122, %.sroa.speculated
-  br i1 %123, label %96, label %..preheader3_crit_edge.us.i, !llvm.loop !278
+  br i1 %123, label %96, label %..preheader3_crit_edge.us.i, !llvm.loop !269
 
 ..preheader3_crit_edge.us.i:                      ; preds = %96
   br i1 %.not61, label %._crit_edge.us.i, label %.lr.ph12.us.i
@@ -15468,24 +15468,24 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 %133
   %135 = getelementptr i8, ptr %134, i64 %indvars.iv.i
   %136 = getelementptr i8, ptr %135, i64 %36
-  %137 = load i8, ptr %136, align 1, !tbaa !89
-  store i8 %137, ptr %.010614.us23.i, align 1, !tbaa !89
+  %137 = load i8, ptr %136, align 1, !tbaa !88
+  store i8 %137, ptr %.010614.us23.i, align 1, !tbaa !88
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 1
-  %139 = load i8, ptr %138, align 1, !tbaa !89
+  %139 = load i8, ptr %138, align 1, !tbaa !88
   %140 = getelementptr inbounds nuw i8, ptr %.010614.us23.i, i64 1
-  store i8 %139, ptr %140, align 1, !tbaa !89
+  store i8 %139, ptr %140, align 1, !tbaa !88
   %141 = getelementptr inbounds nuw i8, ptr %136, i64 2
-  %142 = load i8, ptr %141, align 1, !tbaa !89
+  %142 = load i8, ptr %141, align 1, !tbaa !88
   %143 = getelementptr inbounds nuw i8, ptr %.010614.us23.i, i64 2
-  store i8 %142, ptr %143, align 1, !tbaa !89
+  store i8 %142, ptr %143, align 1, !tbaa !88
   %144 = getelementptr inbounds nuw i8, ptr %136, i64 3
-  %145 = load i8, ptr %144, align 1, !tbaa !89
+  %145 = load i8, ptr %144, align 1, !tbaa !88
   %146 = getelementptr inbounds nuw i8, ptr %.010614.us23.i, i64 3
-  store i8 %145, ptr %146, align 1, !tbaa !89
+  store i8 %145, ptr %146, align 1, !tbaa !88
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %147 = or disjoint i64 %indvars.iv.next.i, 3
   %148 = icmp samesign ult i64 %147, %126
-  br i1 %148, label %._crit_edge.us29.i, label %.preheader2.loopexit62.i, !llvm.loop !279
+  br i1 %148, label %._crit_edge.us29.i, label %.preheader2.loopexit62.i, !llvm.loop !270
 
 .preheader2.loopexit.i:                           ; preds = %._crit_edge.us.i
   %149 = trunc nuw nsw i64 %indvars.iv.next79.i to i32
@@ -15552,18 +15552,18 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %.052.us.i = phi i32 [ 0, %.lr.ph54.us.i ], [ %180, %176 ]
   %.09651.us.i = phi ptr [ %175, %.lr.ph54.us.i ], [ %179, %176 ]
   %.750.us.i = phi ptr [ %.657.us.i, %.lr.ph54.us.i ], [ %178, %176 ]
-  %177 = load i8, ptr %.09651.us.i, align 1, !tbaa !89
-  store i8 %177, ptr %.750.us.i, align 1, !tbaa !89
+  %177 = load i8, ptr %.09651.us.i, align 1, !tbaa !88
+  store i8 %177, ptr %.750.us.i, align 1, !tbaa !88
   %178 = getelementptr inbounds nuw i8, ptr %.750.us.i, i64 1
   %179 = getelementptr inbounds i8, ptr %.09651.us.i, i64 %165
   %180 = add nuw nsw i32 %.052.us.i, 1
   %exitcond85.not.i = icmp eq i32 %180, %.sroa.speculated
-  br i1 %exitcond85.not.i, label %._crit_edge55.us.i, label %176, !llvm.loop !280
+  br i1 %exitcond85.not.i, label %._crit_edge55.us.i, label %176, !llvm.loop !271
 
 ._crit_edge55.us.i:                               ; preds = %176
   %indvars.iv.next87.i = add nsw i64 %indvars.iv86.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next87.i, %wide.trip.count.i
-  br i1 %exitcond89.not.i, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph54.us.i, !llvm.loop !281
+  br i1 %exitcond89.not.i, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph54.us.i, !llvm.loop !272
 
 181:                                              ; preds = %._crit_edge.i, %.lr.ph47.i
   %indvars.iv82.i = phi i64 [ %159, %.lr.ph47.i ], [ %indvars.iv.next83.i, %._crit_edge.i ]
@@ -15590,49 +15590,49 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %.09737.i = phi i32 [ %204, %.lr.ph.i ], [ 0, %181 ]
   %.09836.i = phi ptr [ %203, %.lr.ph.i ], [ %190, %181 ]
   %.435.i = phi ptr [ %202, %.lr.ph.i ], [ %.345.i, %181 ]
-  %192 = load i8, ptr %.09836.i, align 1, !tbaa !89
-  store i8 %192, ptr %.435.i, align 1, !tbaa !89
+  %192 = load i8, ptr %.09836.i, align 1, !tbaa !88
+  store i8 %192, ptr %.435.i, align 1, !tbaa !88
   %193 = getelementptr inbounds i8, ptr %.09836.i, i64 %155
-  %194 = load i8, ptr %193, align 1, !tbaa !89
+  %194 = load i8, ptr %193, align 1, !tbaa !88
   %195 = getelementptr inbounds nuw i8, ptr %.435.i, i64 1
-  store i8 %194, ptr %195, align 1, !tbaa !89
+  store i8 %194, ptr %195, align 1, !tbaa !88
   %196 = getelementptr inbounds nuw i8, ptr %.09836.i, i64 1
-  %197 = load i8, ptr %196, align 1, !tbaa !89
+  %197 = load i8, ptr %196, align 1, !tbaa !88
   %198 = getelementptr inbounds nuw i8, ptr %.435.i, i64 2
-  store i8 %197, ptr %198, align 1, !tbaa !89
+  store i8 %197, ptr %198, align 1, !tbaa !88
   %199 = getelementptr i8, ptr %193, i64 1
-  %200 = load i8, ptr %199, align 1, !tbaa !89
+  %200 = load i8, ptr %199, align 1, !tbaa !88
   %201 = getelementptr inbounds nuw i8, ptr %.435.i, i64 3
-  store i8 %200, ptr %201, align 1, !tbaa !89
+  store i8 %200, ptr %201, align 1, !tbaa !88
   %202 = getelementptr inbounds nuw i8, ptr %.435.i, i64 4
   %203 = getelementptr inbounds i8, ptr %.09836.i, i64 %157
   %204 = add nuw nsw i32 %.09737.i, 2
   %205 = or disjoint i32 %204, 1
   %206 = icmp slt i32 %205, %.sroa.speculated
-  br i1 %206, label %.lr.ph.i, label %.preheader1.i, !llvm.loop !282
+  br i1 %206, label %.lr.ph.i, label %.preheader1.i, !llvm.loop !273
 
 .lr.ph43.i:                                       ; preds = %.preheader1.i, %.lr.ph43.i
   %.142.i = phi i32 [ %213, %.lr.ph43.i ], [ %.097.lcssa.i, %.preheader1.i ]
   %.19941.i = phi ptr [ %212, %.lr.ph43.i ], [ %.098.lcssa.i, %.preheader1.i ]
   %.540.i = phi ptr [ %211, %.lr.ph43.i ], [ %.4.lcssa.i, %.preheader1.i ]
-  %207 = load i8, ptr %.19941.i, align 1, !tbaa !89
-  store i8 %207, ptr %.540.i, align 1, !tbaa !89
+  %207 = load i8, ptr %.19941.i, align 1, !tbaa !88
+  store i8 %207, ptr %.540.i, align 1, !tbaa !88
   %208 = getelementptr inbounds nuw i8, ptr %.19941.i, i64 1
-  %209 = load i8, ptr %208, align 1, !tbaa !89
+  %209 = load i8, ptr %208, align 1, !tbaa !88
   %210 = getelementptr inbounds nuw i8, ptr %.540.i, i64 1
-  store i8 %209, ptr %210, align 1, !tbaa !89
+  store i8 %209, ptr %210, align 1, !tbaa !88
   %211 = getelementptr inbounds nuw i8, ptr %.540.i, i64 2
   %212 = getelementptr inbounds i8, ptr %.19941.i, i64 %155
   %213 = add nuw nsw i32 %.142.i, 1
   %exitcond81.not.i = icmp eq i32 %213, %.sroa.speculated
-  br i1 %exitcond81.not.i, label %._crit_edge.i, label %.lr.ph43.i, !llvm.loop !283
+  br i1 %exitcond81.not.i, label %._crit_edge.i, label %.lr.ph43.i, !llvm.loop !274
 
 ._crit_edge.i:                                    ; preds = %.lr.ph43.i, %.preheader1.i
   %.5.lcssa.i = phi ptr [ %.4.lcssa.i, %.preheader1.i ], [ %211, %.lr.ph43.i ]
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 2
   %214 = or disjoint i64 %indvars.iv.next83.i, 1
   %215 = icmp slt i64 %214, %160
-  br i1 %215, label %181, label %.preheader.loopexit.i, !llvm.loop !284
+  br i1 %215, label %181, label %.preheader.loopexit.i, !llvm.loop !275
 
 216:                                              ; preds = %.noexc40
   call fastcc void @_ZN4ncnnL16pack_A_tile_int8ERKNS_3MatERS0_iiii(ptr noundef nonnull align 8 dereferenceable(72) %26, ptr %60, i32 noundef %34, i32 noundef %.sroa.speculated58, i32 noundef %.03069, i32 noundef %.sroa.speculated)
@@ -15643,7 +15643,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge55.us.i,
   %218 = add nsw i32 %217, %.03069
   %219 = load i32, ptr %4, align 4, !tbaa !37
   %220 = icmp slt i32 %218, %219
-  br i1 %220, label %.noexc40, label %._crit_edge.loopexit, !llvm.loop !285
+  br i1 %220, label %.noexc40, label %._crit_edge.loopexit, !llvm.loop !276
 
 ._crit_edge73:                                    ; preds = %._crit_edge, %.lr.ph, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -15707,7 +15707,7 @@ define internal fastcc void @_ZN4ncnnL16pack_A_tile_int8ERKNS_3MatERS0_iiii(ptr 
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 4
   %36 = or disjoint i64 %indvars.iv.next81, 3
   %37 = icmp samesign ult i64 %36, %13
-  br i1 %37, label %.lr.ph.us, label %.preheader2.loopexit, !llvm.loop !286
+  br i1 %37, label %.lr.ph.us, label %.preheader2.loopexit, !llvm.loop !277
 
 .lr.ph21.us:                                      ; preds = %..preheader3_crit_edge.us, %.lr.ph21.us
   %.111520.us = phi i32 [ %50, %.lr.ph21.us ], [ %11, %..preheader3_crit_edge.us ]
@@ -15716,17 +15716,17 @@ define internal fastcc void @_ZN4ncnnL16pack_A_tile_int8ERKNS_3MatERS0_iiii(ptr 
   %.112117.us = phi ptr [ %47, %.lr.ph21.us ], [ %73, %..preheader3_crit_edge.us ]
   %.112316.us = phi ptr [ %46, %.lr.ph21.us ], [ %72, %..preheader3_crit_edge.us ]
   %.212815.us = phi ptr [ %45, %.lr.ph21.us ], [ %71, %..preheader3_crit_edge.us ]
-  %38 = load i8, ptr %.112316.us, align 1, !tbaa !89
-  store i8 %38, ptr %.212815.us, align 1, !tbaa !89
-  %39 = load i8, ptr %.112117.us, align 1, !tbaa !89
+  %38 = load i8, ptr %.112316.us, align 1, !tbaa !88
+  store i8 %38, ptr %.212815.us, align 1, !tbaa !88
+  %39 = load i8, ptr %.112117.us, align 1, !tbaa !88
   %40 = getelementptr inbounds nuw i8, ptr %.212815.us, i64 1
-  store i8 %39, ptr %40, align 1, !tbaa !89
-  %41 = load i8, ptr %.111918.us, align 1, !tbaa !89
+  store i8 %39, ptr %40, align 1, !tbaa !88
+  %41 = load i8, ptr %.111918.us, align 1, !tbaa !88
   %42 = getelementptr inbounds nuw i8, ptr %.212815.us, i64 2
-  store i8 %41, ptr %42, align 1, !tbaa !89
-  %43 = load i8, ptr %.111719.us, align 1, !tbaa !89
+  store i8 %41, ptr %42, align 1, !tbaa !88
+  %43 = load i8, ptr %.111719.us, align 1, !tbaa !88
   %44 = getelementptr inbounds nuw i8, ptr %.212815.us, i64 3
-  store i8 %43, ptr %44, align 1, !tbaa !89
+  store i8 %43, ptr %44, align 1, !tbaa !88
   %45 = getelementptr inbounds nuw i8, ptr %.212815.us, i64 4
   %46 = getelementptr inbounds nuw i8, ptr %.112316.us, i64 1
   %47 = getelementptr inbounds nuw i8, ptr %.112117.us, i64 1
@@ -15734,7 +15734,7 @@ define internal fastcc void @_ZN4ncnnL16pack_A_tile_int8ERKNS_3MatERS0_iiii(ptr 
   %49 = getelementptr inbounds nuw i8, ptr %.111719.us, i64 1
   %50 = add nuw nsw i32 %.111520.us, 1
   %exitcond.not = icmp eq i32 %50, %4
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph21.us, !llvm.loop !287
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph21.us, !llvm.loop !278
 
 51:                                               ; preds = %.lr.ph.us, %51
   %.01149.us = phi i32 [ 0, %.lr.ph.us ], [ %76, %51 ]
@@ -15743,33 +15743,33 @@ define internal fastcc void @_ZN4ncnnL16pack_A_tile_int8ERKNS_3MatERS0_iiii(ptr 
   %.01206.us = phi ptr [ %27, %.lr.ph.us ], [ %73, %51 ]
   %.01225.us = phi ptr [ %23, %.lr.ph.us ], [ %72, %51 ]
   %.11274.us = phi ptr [ %.012623.us, %.lr.ph.us ], [ %71, %51 ]
-  %52 = load i8, ptr %.01225.us, align 1, !tbaa !89
-  store i8 %52, ptr %.11274.us, align 1, !tbaa !89
+  %52 = load i8, ptr %.01225.us, align 1, !tbaa !88
+  store i8 %52, ptr %.11274.us, align 1, !tbaa !88
   %53 = getelementptr inbounds nuw i8, ptr %.01225.us, i64 1
-  %54 = load i8, ptr %53, align 1, !tbaa !89
+  %54 = load i8, ptr %53, align 1, !tbaa !88
   %55 = getelementptr inbounds nuw i8, ptr %.11274.us, i64 1
-  store i8 %54, ptr %55, align 1, !tbaa !89
-  %56 = load i8, ptr %.01206.us, align 1, !tbaa !89
+  store i8 %54, ptr %55, align 1, !tbaa !88
+  %56 = load i8, ptr %.01206.us, align 1, !tbaa !88
   %57 = getelementptr inbounds nuw i8, ptr %.11274.us, i64 2
-  store i8 %56, ptr %57, align 1, !tbaa !89
+  store i8 %56, ptr %57, align 1, !tbaa !88
   %58 = getelementptr inbounds nuw i8, ptr %.01206.us, i64 1
-  %59 = load i8, ptr %58, align 1, !tbaa !89
+  %59 = load i8, ptr %58, align 1, !tbaa !88
   %60 = getelementptr inbounds nuw i8, ptr %.11274.us, i64 3
-  store i8 %59, ptr %60, align 1, !tbaa !89
-  %61 = load i8, ptr %.01187.us, align 1, !tbaa !89
+  store i8 %59, ptr %60, align 1, !tbaa !88
+  %61 = load i8, ptr %.01187.us, align 1, !tbaa !88
   %62 = getelementptr inbounds nuw i8, ptr %.11274.us, i64 4
-  store i8 %61, ptr %62, align 1, !tbaa !89
+  store i8 %61, ptr %62, align 1, !tbaa !88
   %63 = getelementptr inbounds nuw i8, ptr %.01187.us, i64 1
-  %64 = load i8, ptr %63, align 1, !tbaa !89
+  %64 = load i8, ptr %63, align 1, !tbaa !88
   %65 = getelementptr inbounds nuw i8, ptr %.11274.us, i64 5
-  store i8 %64, ptr %65, align 1, !tbaa !89
-  %66 = load i8, ptr %.01168.us, align 1, !tbaa !89
+  store i8 %64, ptr %65, align 1, !tbaa !88
+  %66 = load i8, ptr %.01168.us, align 1, !tbaa !88
   %67 = getelementptr inbounds nuw i8, ptr %.11274.us, i64 6
-  store i8 %66, ptr %67, align 1, !tbaa !89
+  store i8 %66, ptr %67, align 1, !tbaa !88
   %68 = getelementptr inbounds nuw i8, ptr %.01168.us, i64 1
-  %69 = load i8, ptr %68, align 1, !tbaa !89
+  %69 = load i8, ptr %68, align 1, !tbaa !88
   %70 = getelementptr inbounds nuw i8, ptr %.11274.us, i64 7
-  store i8 %69, ptr %70, align 1, !tbaa !89
+  store i8 %69, ptr %70, align 1, !tbaa !88
   %71 = getelementptr inbounds nuw i8, ptr %.11274.us, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %.01225.us, i64 2
   %73 = getelementptr inbounds nuw i8, ptr %.01206.us, i64 2
@@ -15778,7 +15778,7 @@ define internal fastcc void @_ZN4ncnnL16pack_A_tile_int8ERKNS_3MatERS0_iiii(ptr 
   %76 = add nuw nsw i32 %.01149.us, 2
   %77 = or disjoint i32 %76, 1
   %78 = icmp slt i32 %77, %4
-  br i1 %78, label %51, label %..preheader3_crit_edge.us, !llvm.loop !288
+  br i1 %78, label %51, label %..preheader3_crit_edge.us, !llvm.loop !279
 
 ..preheader3_crit_edge.us:                        ; preds = %51
   br i1 %14, label %.lr.ph21.us, label %._crit_edge.us
@@ -15844,17 +15844,17 @@ define internal fastcc void @_ZN4ncnnL16pack_A_tile_int8ERKNS_3MatERS0_iiii(ptr 
   %113 = getelementptr inbounds nuw i8, ptr %94, i64 %112
   %114 = getelementptr inbounds i8, ptr %113, i64 %9
   %115 = getelementptr inbounds nuw i8, ptr %.012623, i64 4
-  %116 = load i8, ptr %114, align 1, !tbaa !89
-  store i8 %116, ptr %.012623, align 1, !tbaa !89
-  %117 = load i8, ptr %111, align 1, !tbaa !89
+  %116 = load i8, ptr %114, align 1, !tbaa !88
+  store i8 %116, ptr %.012623, align 1, !tbaa !88
+  %117 = load i8, ptr %111, align 1, !tbaa !88
   %118 = getelementptr inbounds nuw i8, ptr %.012623, i64 1
-  store i8 %117, ptr %118, align 1, !tbaa !89
-  %119 = load i8, ptr %107, align 1, !tbaa !89
+  store i8 %117, ptr %118, align 1, !tbaa !88
+  %119 = load i8, ptr %107, align 1, !tbaa !88
   %120 = getelementptr inbounds nuw i8, ptr %.012623, i64 2
-  store i8 %119, ptr %120, align 1, !tbaa !89
-  %121 = load i8, ptr %103, align 1, !tbaa !89
+  store i8 %119, ptr %120, align 1, !tbaa !88
+  %121 = load i8, ptr %103, align 1, !tbaa !88
   %122 = getelementptr inbounds nuw i8, ptr %.012623, i64 3
-  store i8 %121, ptr %122, align 1, !tbaa !89
+  store i8 %121, ptr %122, align 1, !tbaa !88
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader3
@@ -15862,7 +15862,7 @@ define internal fastcc void @_ZN4ncnnL16pack_A_tile_int8ERKNS_3MatERS0_iiii(ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %123 = or disjoint i64 %indvars.iv.next, 3
   %124 = icmp samesign ult i64 %123, %80
-  br i1 %124, label %.preheader3, label %.preheader2.loopexit62, !llvm.loop !289
+  br i1 %124, label %.preheader3, label %.preheader2.loopexit62, !llvm.loop !280
 
 .preheader.loopexit:                              ; preds = %._crit_edge43
   %125 = trunc nuw nsw i64 %indvars.iv.next85 to i32
@@ -15905,18 +15905,18 @@ define internal fastcc void @_ZN4ncnnL16pack_A_tile_int8ERKNS_3MatERS0_iiii(ptr 
   %.052.us = phi i32 [ 0, %.lr.ph54.us ], [ %146, %142 ]
   %.010851.us = phi ptr [ %141, %.lr.ph54.us ], [ %145, %142 ]
   %.750.us = phi ptr [ %.657.us, %.lr.ph54.us ], [ %144, %142 ]
-  %143 = load i8, ptr %.010851.us, align 1, !tbaa !89
-  store i8 %143, ptr %.750.us, align 1, !tbaa !89
+  %143 = load i8, ptr %.010851.us, align 1, !tbaa !88
+  store i8 %143, ptr %.750.us, align 1, !tbaa !88
   %144 = getelementptr inbounds nuw i8, ptr %.750.us, i64 1
   %145 = getelementptr inbounds nuw i8, ptr %.010851.us, i64 1
   %146 = add nuw nsw i32 %.052.us, 1
   %exitcond87.not = icmp eq i32 %146, %4
-  br i1 %exitcond87.not, label %._crit_edge55.us, label %142, !llvm.loop !290
+  br i1 %exitcond87.not, label %._crit_edge55.us, label %142, !llvm.loop !281
 
 ._crit_edge55.us:                                 ; preds = %142
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count
-  br i1 %exitcond91.not, label %._crit_edge60, label %.lr.ph54.us, !llvm.loop !291
+  br i1 %exitcond91.not, label %._crit_edge60, label %.lr.ph54.us, !llvm.loop !282
 
 147:                                              ; preds = %.lr.ph47, %._crit_edge43
   %indvars.iv84 = phi i64 [ %91, %.lr.ph47 ], [ %indvars.iv.next85, %._crit_edge43 ]
@@ -15951,50 +15951,50 @@ define internal fastcc void @_ZN4ncnnL16pack_A_tile_int8ERKNS_3MatERS0_iiii(ptr 
   %.011032 = phi ptr [ %174, %.lr.ph ], [ %161, %147 ]
   %.011231 = phi ptr [ %173, %.lr.ph ], [ %156, %147 ]
   %.430 = phi ptr [ %172, %.lr.ph ], [ %.345, %147 ]
-  %163 = load i8, ptr %.011231, align 1, !tbaa !89
-  store i8 %163, ptr %.430, align 1, !tbaa !89
+  %163 = load i8, ptr %.011231, align 1, !tbaa !88
+  store i8 %163, ptr %.430, align 1, !tbaa !88
   %164 = getelementptr inbounds nuw i8, ptr %.011231, i64 1
-  %165 = load i8, ptr %164, align 1, !tbaa !89
+  %165 = load i8, ptr %164, align 1, !tbaa !88
   %166 = getelementptr inbounds nuw i8, ptr %.430, i64 1
-  store i8 %165, ptr %166, align 1, !tbaa !89
-  %167 = load i8, ptr %.011032, align 1, !tbaa !89
+  store i8 %165, ptr %166, align 1, !tbaa !88
+  %167 = load i8, ptr %.011032, align 1, !tbaa !88
   %168 = getelementptr inbounds nuw i8, ptr %.430, i64 2
-  store i8 %167, ptr %168, align 1, !tbaa !89
+  store i8 %167, ptr %168, align 1, !tbaa !88
   %169 = getelementptr inbounds nuw i8, ptr %.011032, i64 1
-  %170 = load i8, ptr %169, align 1, !tbaa !89
+  %170 = load i8, ptr %169, align 1, !tbaa !88
   %171 = getelementptr inbounds nuw i8, ptr %.430, i64 3
-  store i8 %170, ptr %171, align 1, !tbaa !89
+  store i8 %170, ptr %171, align 1, !tbaa !88
   %172 = getelementptr inbounds nuw i8, ptr %.430, i64 4
   %173 = getelementptr inbounds nuw i8, ptr %.011231, i64 2
   %174 = getelementptr inbounds nuw i8, ptr %.011032, i64 2
   %175 = add nuw nsw i32 %.010933, 2
   %176 = or disjoint i32 %175, 1
   %177 = icmp slt i32 %176, %4
-  br i1 %177, label %.lr.ph, label %.preheader1, !llvm.loop !292
+  br i1 %177, label %.lr.ph, label %.preheader1, !llvm.loop !283
 
 .lr.ph42:                                         ; preds = %.preheader1, %.lr.ph42
   %.141 = phi i32 [ %184, %.lr.ph42 ], [ %.0109.lcssa, %.preheader1 ]
   %.111140 = phi ptr [ %183, %.lr.ph42 ], [ %.0110.lcssa, %.preheader1 ]
   %.111339 = phi ptr [ %182, %.lr.ph42 ], [ %.0112.lcssa, %.preheader1 ]
   %.538 = phi ptr [ %181, %.lr.ph42 ], [ %.4.lcssa, %.preheader1 ]
-  %178 = load i8, ptr %.111339, align 1, !tbaa !89
-  store i8 %178, ptr %.538, align 1, !tbaa !89
-  %179 = load i8, ptr %.111140, align 1, !tbaa !89
+  %178 = load i8, ptr %.111339, align 1, !tbaa !88
+  store i8 %178, ptr %.538, align 1, !tbaa !88
+  %179 = load i8, ptr %.111140, align 1, !tbaa !88
   %180 = getelementptr inbounds nuw i8, ptr %.538, i64 1
-  store i8 %179, ptr %180, align 1, !tbaa !89
+  store i8 %179, ptr %180, align 1, !tbaa !88
   %181 = getelementptr inbounds nuw i8, ptr %.538, i64 2
   %182 = getelementptr inbounds nuw i8, ptr %.111339, i64 1
   %183 = getelementptr inbounds nuw i8, ptr %.111140, i64 1
   %184 = add nuw nsw i32 %.141, 1
   %exitcond83.not = icmp eq i32 %184, %4
-  br i1 %exitcond83.not, label %._crit_edge43, label %.lr.ph42, !llvm.loop !293
+  br i1 %exitcond83.not, label %._crit_edge43, label %.lr.ph42, !llvm.loop !284
 
 ._crit_edge43:                                    ; preds = %.lr.ph42, %.preheader1
   %.5.lcssa = phi ptr [ %.4.lcssa, %.preheader1 ], [ %181, %.lr.ph42 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 2
   %185 = or disjoint i64 %indvars.iv.next85, 1
   %186 = icmp slt i64 %185, %92
-  br i1 %186, label %147, label %.preheader.loopexit, !llvm.loop !294
+  br i1 %186, label %147, label %.preheader.loopexit, !llvm.loop !285
 
 ._crit_edge60:                                    ; preds = %._crit_edge55.us, %.lr.ph59, %.preheader
   ret void
@@ -16066,7 +16066,7 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %38 = phi i32 [ %513, %._crit_edge.loopexit ], [ %32, %.lr.ph.split ]
   %39 = add nsw i32 %.0118, 1
   %.not.not = icmp slt i32 %.0118, %37
-  br i1 %.not.not, label %.lr.ph.split, label %._crit_edge120, !llvm.loop !295
+  br i1 %.not.not, label %.lr.ph.split, label %._crit_edge120, !llvm.loop !286
 
 .noexc40:                                         ; preds = %.noexc40.lr.ph, %_ZN4ncnn3MatD2Ev.exit
   %40 = phi i32 [ %.pre, %.noexc40.lr.ph ], [ %511, %_ZN4ncnn3MatD2Ev.exit ]
@@ -16079,12 +16079,12 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %45 = sub nsw i32 %41, %.030116
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %40, i32 %45)
   %46 = sdiv i32 %34, %44
-  %47 = load i32, ptr %22, align 4, !tbaa !55, !noalias !296
-  %48 = load ptr, ptr %21, align 8, !tbaa !16, !noalias !296
-  %49 = load i64, ptr %23, align 8, !tbaa !17, !noalias !296
+  %47 = load i32, ptr %22, align 4, !tbaa !55, !noalias !287
+  %48 = load ptr, ptr %21, align 8, !tbaa !16, !noalias !287
+  %49 = load i64, ptr %23, align 8, !tbaa !17, !noalias !287
   %50 = sext i32 %46 to i64
   %51 = mul i64 %49, %50
-  %52 = load i64, ptr %24, align 8, !tbaa !52, !noalias !296
+  %52 = load i64, ptr %24, align 8, !tbaa !52, !noalias !287
   %53 = mul i64 %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 %53
   %55 = sext i32 %47 to i64
@@ -16093,7 +16093,7 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %58 = mul i64 %52, %55
   %59 = mul i64 %58, %57
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 %59
-  %61 = load i32, ptr %25, align 4, !tbaa !67
+  %61 = load i32, ptr %25, align 4, !tbaa !66
   %.not31 = icmp eq i32 %61, 0
   br i1 %.not31, label %325, label %62
 
@@ -16194,61 +16194,61 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %.02458.i = phi ptr [ %156, %.lr.ph.i ], [ %89, %76 ]
   %.02477.i = phi ptr [ %155, %.lr.ph.i ], [ %85, %76 ]
   %.12526.i = phi ptr [ %154, %.lr.ph.i ], [ %.025137.i, %76 ]
-  %115 = load i8, ptr %.02477.i, align 1, !tbaa !89
-  store i8 %115, ptr %.12526.i, align 1, !tbaa !89
+  %115 = load i8, ptr %.02477.i, align 1, !tbaa !88
+  store i8 %115, ptr %.12526.i, align 1, !tbaa !88
   %116 = getelementptr inbounds nuw i8, ptr %.02477.i, i64 1
-  %117 = load i8, ptr %116, align 1, !tbaa !89
+  %117 = load i8, ptr %116, align 1, !tbaa !88
   %118 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 1
-  store i8 %117, ptr %118, align 1, !tbaa !89
-  %119 = load i8, ptr %.02458.i, align 1, !tbaa !89
+  store i8 %117, ptr %118, align 1, !tbaa !88
+  %119 = load i8, ptr %.02458.i, align 1, !tbaa !88
   %120 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 2
-  store i8 %119, ptr %120, align 1, !tbaa !89
+  store i8 %119, ptr %120, align 1, !tbaa !88
   %121 = getelementptr inbounds nuw i8, ptr %.02458.i, i64 1
-  %122 = load i8, ptr %121, align 1, !tbaa !89
+  %122 = load i8, ptr %121, align 1, !tbaa !88
   %123 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 3
-  store i8 %122, ptr %123, align 1, !tbaa !89
-  %124 = load i8, ptr %.02439.i, align 1, !tbaa !89
+  store i8 %122, ptr %123, align 1, !tbaa !88
+  %124 = load i8, ptr %.02439.i, align 1, !tbaa !88
   %125 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 4
-  store i8 %124, ptr %125, align 1, !tbaa !89
+  store i8 %124, ptr %125, align 1, !tbaa !88
   %126 = getelementptr inbounds nuw i8, ptr %.02439.i, i64 1
-  %127 = load i8, ptr %126, align 1, !tbaa !89
+  %127 = load i8, ptr %126, align 1, !tbaa !88
   %128 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 5
-  store i8 %127, ptr %128, align 1, !tbaa !89
-  %129 = load i8, ptr %.024110.i, align 1, !tbaa !89
+  store i8 %127, ptr %128, align 1, !tbaa !88
+  %129 = load i8, ptr %.024110.i, align 1, !tbaa !88
   %130 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 6
-  store i8 %129, ptr %130, align 1, !tbaa !89
+  store i8 %129, ptr %130, align 1, !tbaa !88
   %131 = getelementptr inbounds nuw i8, ptr %.024110.i, i64 1
-  %132 = load i8, ptr %131, align 1, !tbaa !89
+  %132 = load i8, ptr %131, align 1, !tbaa !88
   %133 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 7
-  store i8 %132, ptr %133, align 1, !tbaa !89
-  %134 = load i8, ptr %.023911.i, align 1, !tbaa !89
+  store i8 %132, ptr %133, align 1, !tbaa !88
+  %134 = load i8, ptr %.023911.i, align 1, !tbaa !88
   %135 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 8
-  store i8 %134, ptr %135, align 1, !tbaa !89
+  store i8 %134, ptr %135, align 1, !tbaa !88
   %136 = getelementptr inbounds nuw i8, ptr %.023911.i, i64 1
-  %137 = load i8, ptr %136, align 1, !tbaa !89
+  %137 = load i8, ptr %136, align 1, !tbaa !88
   %138 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 9
-  store i8 %137, ptr %138, align 1, !tbaa !89
-  %139 = load i8, ptr %.023712.i, align 1, !tbaa !89
+  store i8 %137, ptr %138, align 1, !tbaa !88
+  %139 = load i8, ptr %.023712.i, align 1, !tbaa !88
   %140 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 10
-  store i8 %139, ptr %140, align 1, !tbaa !89
+  store i8 %139, ptr %140, align 1, !tbaa !88
   %141 = getelementptr inbounds nuw i8, ptr %.023712.i, i64 1
-  %142 = load i8, ptr %141, align 1, !tbaa !89
+  %142 = load i8, ptr %141, align 1, !tbaa !88
   %143 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 11
-  store i8 %142, ptr %143, align 1, !tbaa !89
-  %144 = load i8, ptr %.023513.i, align 1, !tbaa !89
+  store i8 %142, ptr %143, align 1, !tbaa !88
+  %144 = load i8, ptr %.023513.i, align 1, !tbaa !88
   %145 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 12
-  store i8 %144, ptr %145, align 1, !tbaa !89
+  store i8 %144, ptr %145, align 1, !tbaa !88
   %146 = getelementptr inbounds nuw i8, ptr %.023513.i, i64 1
-  %147 = load i8, ptr %146, align 1, !tbaa !89
+  %147 = load i8, ptr %146, align 1, !tbaa !88
   %148 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 13
-  store i8 %147, ptr %148, align 1, !tbaa !89
-  %149 = load i8, ptr %.023314.i, align 1, !tbaa !89
+  store i8 %147, ptr %148, align 1, !tbaa !88
+  %149 = load i8, ptr %.023314.i, align 1, !tbaa !88
   %150 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 14
-  store i8 %149, ptr %150, align 1, !tbaa !89
+  store i8 %149, ptr %150, align 1, !tbaa !88
   %151 = getelementptr inbounds nuw i8, ptr %.023314.i, i64 1
-  %152 = load i8, ptr %151, align 1, !tbaa !89
+  %152 = load i8, ptr %151, align 1, !tbaa !88
   %153 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 15
-  store i8 %152, ptr %153, align 1, !tbaa !89
+  store i8 %152, ptr %153, align 1, !tbaa !88
   %154 = getelementptr inbounds nuw i8, ptr %.12526.i, i64 16
   %155 = getelementptr inbounds nuw i8, ptr %.02477.i, i64 2
   %156 = getelementptr inbounds nuw i8, ptr %.02458.i, i64 2
@@ -16261,7 +16261,7 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %163 = add nuw nsw i32 %.023115.i, 2
   %164 = or disjoint i32 %163, 1
   %165 = icmp slt i32 %164, %.sroa.speculated
-  br i1 %165, label %.lr.ph.i, label %.preheader5.i, !llvm.loop !299
+  br i1 %165, label %.lr.ph.i, label %.preheader5.i, !llvm.loop !290
 
 .lr.ph35.i:                                       ; preds = %.preheader5.i, %.lr.ph35.i
   %.123234.i = phi i32 [ %190, %.lr.ph35.i ], [ %.0231.lcssa.i, %.preheader5.i ]
@@ -16274,29 +16274,29 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %.124627.i = phi ptr [ %183, %.lr.ph35.i ], [ %.0245.lcssa.i, %.preheader5.i ]
   %.124826.i = phi ptr [ %182, %.lr.ph35.i ], [ %.0247.lcssa.i, %.preheader5.i ]
   %.225325.i = phi ptr [ %181, %.lr.ph35.i ], [ %.1252.lcssa.i, %.preheader5.i ]
-  %166 = load i8, ptr %.124826.i, align 1, !tbaa !89
-  store i8 %166, ptr %.225325.i, align 1, !tbaa !89
-  %167 = load i8, ptr %.124627.i, align 1, !tbaa !89
+  %166 = load i8, ptr %.124826.i, align 1, !tbaa !88
+  store i8 %166, ptr %.225325.i, align 1, !tbaa !88
+  %167 = load i8, ptr %.124627.i, align 1, !tbaa !88
   %168 = getelementptr inbounds nuw i8, ptr %.225325.i, i64 1
-  store i8 %167, ptr %168, align 1, !tbaa !89
-  %169 = load i8, ptr %.124428.i, align 1, !tbaa !89
+  store i8 %167, ptr %168, align 1, !tbaa !88
+  %169 = load i8, ptr %.124428.i, align 1, !tbaa !88
   %170 = getelementptr inbounds nuw i8, ptr %.225325.i, i64 2
-  store i8 %169, ptr %170, align 1, !tbaa !89
-  %171 = load i8, ptr %.124229.i, align 1, !tbaa !89
+  store i8 %169, ptr %170, align 1, !tbaa !88
+  %171 = load i8, ptr %.124229.i, align 1, !tbaa !88
   %172 = getelementptr inbounds nuw i8, ptr %.225325.i, i64 3
-  store i8 %171, ptr %172, align 1, !tbaa !89
-  %173 = load i8, ptr %.124030.i, align 1, !tbaa !89
+  store i8 %171, ptr %172, align 1, !tbaa !88
+  %173 = load i8, ptr %.124030.i, align 1, !tbaa !88
   %174 = getelementptr inbounds nuw i8, ptr %.225325.i, i64 4
-  store i8 %173, ptr %174, align 1, !tbaa !89
-  %175 = load i8, ptr %.123831.i, align 1, !tbaa !89
+  store i8 %173, ptr %174, align 1, !tbaa !88
+  %175 = load i8, ptr %.123831.i, align 1, !tbaa !88
   %176 = getelementptr inbounds nuw i8, ptr %.225325.i, i64 5
-  store i8 %175, ptr %176, align 1, !tbaa !89
-  %177 = load i8, ptr %.123632.i, align 1, !tbaa !89
+  store i8 %175, ptr %176, align 1, !tbaa !88
+  %177 = load i8, ptr %.123632.i, align 1, !tbaa !88
   %178 = getelementptr inbounds nuw i8, ptr %.225325.i, i64 6
-  store i8 %177, ptr %178, align 1, !tbaa !89
-  %179 = load i8, ptr %.123433.i, align 1, !tbaa !89
+  store i8 %177, ptr %178, align 1, !tbaa !88
+  %179 = load i8, ptr %.123433.i, align 1, !tbaa !88
   %180 = getelementptr inbounds nuw i8, ptr %.225325.i, i64 7
-  store i8 %179, ptr %180, align 1, !tbaa !89
+  store i8 %179, ptr %180, align 1, !tbaa !88
   %181 = getelementptr inbounds nuw i8, ptr %.225325.i, i64 8
   %182 = getelementptr inbounds nuw i8, ptr %.124826.i, i64 1
   %183 = getelementptr inbounds nuw i8, ptr %.124627.i, i64 1
@@ -16308,14 +16308,14 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %189 = getelementptr inbounds nuw i8, ptr %.123433.i, i64 1
   %190 = add nuw nsw i32 %.123234.i, 1
   %exitcond.not.i = icmp eq i32 %190, %.sroa.speculated
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph35.i, !llvm.loop !300
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph35.i, !llvm.loop !291
 
 ._crit_edge.i:                                    ; preds = %.lr.ph35.i, %.preheader5.i
   %.2253.lcssa.i = phi ptr [ %.1252.lcssa.i, %.preheader5.i ], [ %181, %.lr.ph35.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %191 = or disjoint i64 %indvars.iv.next.i, 7
   %192 = icmp samesign ult i64 %191, %67
-  br i1 %192, label %76, label %.preheader4.loopexit.i, !llvm.loop !301
+  br i1 %192, label %76, label %.preheader4.loopexit.i, !llvm.loop !292
 
 .preheader2.loopexit.i:                           ; preds = %._crit_edge64.i
   %193 = trunc nuw nsw i64 %indvars.iv.next134.i to i32
@@ -16379,33 +16379,33 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %.022745.i = phi ptr [ %245, %.lr.ph50.i ], [ %214, %201 ]
   %.022944.i = phi ptr [ %244, %.lr.ph50.i ], [ %210, %201 ]
   %.443.i = phi ptr [ %243, %.lr.ph50.i ], [ %.325466.i, %201 ]
-  %224 = load i8, ptr %.022944.i, align 1, !tbaa !89
-  store i8 %224, ptr %.443.i, align 1, !tbaa !89
+  %224 = load i8, ptr %.022944.i, align 1, !tbaa !88
+  store i8 %224, ptr %.443.i, align 1, !tbaa !88
   %225 = getelementptr inbounds nuw i8, ptr %.022944.i, i64 1
-  %226 = load i8, ptr %225, align 1, !tbaa !89
+  %226 = load i8, ptr %225, align 1, !tbaa !88
   %227 = getelementptr inbounds nuw i8, ptr %.443.i, i64 1
-  store i8 %226, ptr %227, align 1, !tbaa !89
-  %228 = load i8, ptr %.022745.i, align 1, !tbaa !89
+  store i8 %226, ptr %227, align 1, !tbaa !88
+  %228 = load i8, ptr %.022745.i, align 1, !tbaa !88
   %229 = getelementptr inbounds nuw i8, ptr %.443.i, i64 2
-  store i8 %228, ptr %229, align 1, !tbaa !89
+  store i8 %228, ptr %229, align 1, !tbaa !88
   %230 = getelementptr inbounds nuw i8, ptr %.022745.i, i64 1
-  %231 = load i8, ptr %230, align 1, !tbaa !89
+  %231 = load i8, ptr %230, align 1, !tbaa !88
   %232 = getelementptr inbounds nuw i8, ptr %.443.i, i64 3
-  store i8 %231, ptr %232, align 1, !tbaa !89
-  %233 = load i8, ptr %.022546.i, align 1, !tbaa !89
+  store i8 %231, ptr %232, align 1, !tbaa !88
+  %233 = load i8, ptr %.022546.i, align 1, !tbaa !88
   %234 = getelementptr inbounds nuw i8, ptr %.443.i, i64 4
-  store i8 %233, ptr %234, align 1, !tbaa !89
+  store i8 %233, ptr %234, align 1, !tbaa !88
   %235 = getelementptr inbounds nuw i8, ptr %.022546.i, i64 1
-  %236 = load i8, ptr %235, align 1, !tbaa !89
+  %236 = load i8, ptr %235, align 1, !tbaa !88
   %237 = getelementptr inbounds nuw i8, ptr %.443.i, i64 5
-  store i8 %236, ptr %237, align 1, !tbaa !89
-  %238 = load i8, ptr %.022347.i, align 1, !tbaa !89
+  store i8 %236, ptr %237, align 1, !tbaa !88
+  %238 = load i8, ptr %.022347.i, align 1, !tbaa !88
   %239 = getelementptr inbounds nuw i8, ptr %.443.i, i64 6
-  store i8 %238, ptr %239, align 1, !tbaa !89
+  store i8 %238, ptr %239, align 1, !tbaa !88
   %240 = getelementptr inbounds nuw i8, ptr %.022347.i, i64 1
-  %241 = load i8, ptr %240, align 1, !tbaa !89
+  %241 = load i8, ptr %240, align 1, !tbaa !88
   %242 = getelementptr inbounds nuw i8, ptr %.443.i, i64 7
-  store i8 %241, ptr %242, align 1, !tbaa !89
+  store i8 %241, ptr %242, align 1, !tbaa !88
   %243 = getelementptr inbounds nuw i8, ptr %.443.i, i64 8
   %244 = getelementptr inbounds nuw i8, ptr %.022944.i, i64 2
   %245 = getelementptr inbounds nuw i8, ptr %.022745.i, i64 2
@@ -16414,7 +16414,7 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %248 = add nuw nsw i32 %.022148.i, 2
   %249 = or disjoint i32 %248, 1
   %250 = icmp slt i32 %249, %.sroa.speculated
-  br i1 %250, label %.lr.ph50.i, label %.preheader3.i, !llvm.loop !302
+  br i1 %250, label %.lr.ph50.i, label %.preheader3.i, !llvm.loop !293
 
 .lr.ph63.i:                                       ; preds = %.preheader3.i, %.lr.ph63.i
   %.122262.i = phi i32 [ %263, %.lr.ph63.i ], [ %.0221.lcssa.i, %.preheader3.i ]
@@ -16423,17 +16423,17 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %.122859.i = phi ptr [ %260, %.lr.ph63.i ], [ %.0227.lcssa.i, %.preheader3.i ]
   %.123058.i = phi ptr [ %259, %.lr.ph63.i ], [ %.0229.lcssa.i, %.preheader3.i ]
   %.557.i = phi ptr [ %258, %.lr.ph63.i ], [ %.4.lcssa.i, %.preheader3.i ]
-  %251 = load i8, ptr %.123058.i, align 1, !tbaa !89
-  store i8 %251, ptr %.557.i, align 1, !tbaa !89
-  %252 = load i8, ptr %.122859.i, align 1, !tbaa !89
+  %251 = load i8, ptr %.123058.i, align 1, !tbaa !88
+  store i8 %251, ptr %.557.i, align 1, !tbaa !88
+  %252 = load i8, ptr %.122859.i, align 1, !tbaa !88
   %253 = getelementptr inbounds nuw i8, ptr %.557.i, i64 1
-  store i8 %252, ptr %253, align 1, !tbaa !89
-  %254 = load i8, ptr %.122660.i, align 1, !tbaa !89
+  store i8 %252, ptr %253, align 1, !tbaa !88
+  %254 = load i8, ptr %.122660.i, align 1, !tbaa !88
   %255 = getelementptr inbounds nuw i8, ptr %.557.i, i64 2
-  store i8 %254, ptr %255, align 1, !tbaa !89
-  %256 = load i8, ptr %.122461.i, align 1, !tbaa !89
+  store i8 %254, ptr %255, align 1, !tbaa !88
+  %256 = load i8, ptr %.122461.i, align 1, !tbaa !88
   %257 = getelementptr inbounds nuw i8, ptr %.557.i, i64 3
-  store i8 %256, ptr %257, align 1, !tbaa !89
+  store i8 %256, ptr %257, align 1, !tbaa !88
   %258 = getelementptr inbounds nuw i8, ptr %.557.i, i64 4
   %259 = getelementptr inbounds nuw i8, ptr %.123058.i, i64 1
   %260 = getelementptr inbounds nuw i8, ptr %.122859.i, i64 1
@@ -16441,14 +16441,14 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %262 = getelementptr inbounds nuw i8, ptr %.122461.i, i64 1
   %263 = add nuw nsw i32 %.122262.i, 1
   %exitcond132.not.i = icmp eq i32 %263, %.sroa.speculated
-  br i1 %exitcond132.not.i, label %._crit_edge64.i, label %.lr.ph63.i, !llvm.loop !303
+  br i1 %exitcond132.not.i, label %._crit_edge64.i, label %.lr.ph63.i, !llvm.loop !294
 
 ._crit_edge64.i:                                  ; preds = %.lr.ph63.i, %.preheader3.i
   %.5.lcssa.i = phi ptr [ %.4.lcssa.i, %.preheader3.i ], [ %258, %.lr.ph63.i ]
   %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 4
   %264 = or disjoint i64 %indvars.iv.next134.i, 3
   %265 = icmp slt i64 %264, %75
-  br i1 %265, label %201, label %.preheader2.loopexit.i, !llvm.loop !304
+  br i1 %265, label %201, label %.preheader2.loopexit.i, !llvm.loop !295
 
 .preheader.loopexit.i:                            ; preds = %._crit_edge86.i
   %266 = trunc nsw i64 %indvars.iv.next138.i to i32
@@ -16488,18 +16488,18 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %.095.us.i = phi i32 [ 0, %.lr.ph97.us.i ], [ %284, %280 ]
   %.021594.us.i = phi ptr [ %279, %.lr.ph97.us.i ], [ %283, %280 ]
   %.1093.us.i = phi ptr [ %.9100.us.i, %.lr.ph97.us.i ], [ %282, %280 ]
-  %281 = load i8, ptr %.021594.us.i, align 1, !tbaa !89
-  store i8 %281, ptr %.1093.us.i, align 1, !tbaa !89
+  %281 = load i8, ptr %.021594.us.i, align 1, !tbaa !88
+  store i8 %281, ptr %.1093.us.i, align 1, !tbaa !88
   %282 = getelementptr inbounds nuw i8, ptr %.1093.us.i, i64 1
   %283 = getelementptr inbounds nuw i8, ptr %.021594.us.i, i64 1
   %284 = add nuw nsw i32 %.095.us.i, 1
   %exitcond140.not.i = icmp eq i32 %284, %.sroa.speculated
-  br i1 %exitcond140.not.i, label %._crit_edge98.us.i, label %280, !llvm.loop !305
+  br i1 %exitcond140.not.i, label %._crit_edge98.us.i, label %280, !llvm.loop !296
 
 ._crit_edge98.us.i:                               ; preds = %280
   %indvars.iv.next142.i = add nsw i64 %indvars.iv141.i, 1
   %exitcond144.not.i = icmp eq i64 %indvars.iv.next142.i, %wide.trip.count.i
-  br i1 %exitcond144.not.i, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph97.us.i, !llvm.loop !306
+  br i1 %exitcond144.not.i, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph97.us.i, !llvm.loop !297
 
 285:                                              ; preds = %._crit_edge86.i, %.lr.ph90.i
   %indvars.iv137.i = phi i64 [ %199, %.lr.ph90.i ], [ %indvars.iv.next138.i, %._crit_edge86.i ]
@@ -16534,50 +16534,50 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %.021773.i = phi ptr [ %312, %.lr.ph76.i ], [ %299, %285 ]
   %.021972.i = phi ptr [ %311, %.lr.ph76.i ], [ %294, %285 ]
   %.771.i = phi ptr [ %310, %.lr.ph76.i ], [ %.688.i, %285 ]
-  %301 = load i8, ptr %.021972.i, align 1, !tbaa !89
-  store i8 %301, ptr %.771.i, align 1, !tbaa !89
+  %301 = load i8, ptr %.021972.i, align 1, !tbaa !88
+  store i8 %301, ptr %.771.i, align 1, !tbaa !88
   %302 = getelementptr inbounds nuw i8, ptr %.021972.i, i64 1
-  %303 = load i8, ptr %302, align 1, !tbaa !89
+  %303 = load i8, ptr %302, align 1, !tbaa !88
   %304 = getelementptr inbounds nuw i8, ptr %.771.i, i64 1
-  store i8 %303, ptr %304, align 1, !tbaa !89
-  %305 = load i8, ptr %.021773.i, align 1, !tbaa !89
+  store i8 %303, ptr %304, align 1, !tbaa !88
+  %305 = load i8, ptr %.021773.i, align 1, !tbaa !88
   %306 = getelementptr inbounds nuw i8, ptr %.771.i, i64 2
-  store i8 %305, ptr %306, align 1, !tbaa !89
+  store i8 %305, ptr %306, align 1, !tbaa !88
   %307 = getelementptr inbounds nuw i8, ptr %.021773.i, i64 1
-  %308 = load i8, ptr %307, align 1, !tbaa !89
+  %308 = load i8, ptr %307, align 1, !tbaa !88
   %309 = getelementptr inbounds nuw i8, ptr %.771.i, i64 3
-  store i8 %308, ptr %309, align 1, !tbaa !89
+  store i8 %308, ptr %309, align 1, !tbaa !88
   %310 = getelementptr inbounds nuw i8, ptr %.771.i, i64 4
   %311 = getelementptr inbounds nuw i8, ptr %.021972.i, i64 2
   %312 = getelementptr inbounds nuw i8, ptr %.021773.i, i64 2
   %313 = add nuw nsw i32 %.021674.i, 2
   %314 = or disjoint i32 %313, 1
   %315 = icmp slt i32 %314, %.sroa.speculated
-  br i1 %315, label %.lr.ph76.i, label %.preheader1.i, !llvm.loop !307
+  br i1 %315, label %.lr.ph76.i, label %.preheader1.i, !llvm.loop !298
 
 .lr.ph85.i:                                       ; preds = %.preheader1.i, %.lr.ph85.i
   %.184.i = phi i32 [ %322, %.lr.ph85.i ], [ %.0216.lcssa.i, %.preheader1.i ]
   %.121883.i = phi ptr [ %321, %.lr.ph85.i ], [ %.0217.lcssa.i, %.preheader1.i ]
   %.122082.i = phi ptr [ %320, %.lr.ph85.i ], [ %.0219.lcssa.i, %.preheader1.i ]
   %.881.i = phi ptr [ %319, %.lr.ph85.i ], [ %.7.lcssa.i, %.preheader1.i ]
-  %316 = load i8, ptr %.122082.i, align 1, !tbaa !89
-  store i8 %316, ptr %.881.i, align 1, !tbaa !89
-  %317 = load i8, ptr %.121883.i, align 1, !tbaa !89
+  %316 = load i8, ptr %.122082.i, align 1, !tbaa !88
+  store i8 %316, ptr %.881.i, align 1, !tbaa !88
+  %317 = load i8, ptr %.121883.i, align 1, !tbaa !88
   %318 = getelementptr inbounds nuw i8, ptr %.881.i, i64 1
-  store i8 %317, ptr %318, align 1, !tbaa !89
+  store i8 %317, ptr %318, align 1, !tbaa !88
   %319 = getelementptr inbounds nuw i8, ptr %.881.i, i64 2
   %320 = getelementptr inbounds nuw i8, ptr %.122082.i, i64 1
   %321 = getelementptr inbounds nuw i8, ptr %.121883.i, i64 1
   %322 = add nuw nsw i32 %.184.i, 1
   %exitcond136.not.i = icmp eq i32 %322, %.sroa.speculated
-  br i1 %exitcond136.not.i, label %._crit_edge86.i, label %.lr.ph85.i, !llvm.loop !308
+  br i1 %exitcond136.not.i, label %._crit_edge86.i, label %.lr.ph85.i, !llvm.loop !299
 
 ._crit_edge86.i:                                  ; preds = %.lr.ph85.i, %.preheader1.i
   %.8.lcssa.i = phi ptr [ %.7.lcssa.i, %.preheader1.i ], [ %319, %.lr.ph85.i ]
   %indvars.iv.next138.i = add nuw nsw i64 %indvars.iv137.i, 2
   %323 = or disjoint i64 %indvars.iv.next138.i, 1
   %324 = icmp slt i64 %323, %200
-  br i1 %324, label %285, label %.preheader.loopexit.i, !llvm.loop !309
+  br i1 %324, label %285, label %.preheader.loopexit.i, !llvm.loop !300
 
 325:                                              ; preds = %.noexc40
   %326 = load i32, ptr %27, align 4, !tbaa !55
@@ -16617,39 +16617,39 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 8
   %344 = or disjoint i64 %indvars.iv.next105.i, 7
   %345 = icmp samesign ult i64 %344, %334
-  br i1 %345, label %.lr.ph.us.i, label %.preheader4.loopexit.i63, !llvm.loop !310
+  br i1 %345, label %.lr.ph.us.i, label %.preheader4.loopexit.i63, !llvm.loop !301
 
 .lr.ph14.us.i:                                    ; preds = %..preheader5_crit_edge.us.i, %.lr.ph14.us.i
   %.213.us.i = phi ptr [ %347, %.lr.ph14.us.i ], [ %359, %..preheader5_crit_edge.us.i ]
   %.114012.us.i = phi ptr [ %348, %.lr.ph14.us.i ], [ %360, %..preheader5_crit_edge.us.i ]
   %.114211.us.i = phi i32 [ %349, %.lr.ph14.us.i ], [ %333, %..preheader5_crit_edge.us.i ]
-  %346 = load i64, ptr %.114012.us.i, align 1, !tbaa !89
-  store i64 %346, ptr %.213.us.i, align 1, !tbaa !89
+  %346 = load i64, ptr %.114012.us.i, align 1, !tbaa !88
+  store i64 %346, ptr %.213.us.i, align 1, !tbaa !88
   %347 = getelementptr inbounds nuw i8, ptr %.213.us.i, i64 8
   %348 = getelementptr inbounds i8, ptr %.114012.us.i, i64 %330
   %349 = add nuw nsw i32 %.114211.us.i, 1
   %exitcond.not.i64 = icmp eq i32 %349, %.sroa.speculated
-  br i1 %exitcond.not.i64, label %._crit_edge.us.i, label %.lr.ph14.us.i, !llvm.loop !311
+  br i1 %exitcond.not.i64, label %._crit_edge.us.i, label %.lr.ph14.us.i, !llvm.loop !302
 
 350:                                              ; preds = %350, %.lr.ph.us.i
   %.11348.us.i = phi ptr [ %.013317.us.i, %.lr.ph.us.i ], [ %359, %350 ]
   %.01397.us.i = phi ptr [ %343, %.lr.ph.us.i ], [ %360, %350 ]
   %.01416.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %361, %350 ]
-  %351 = load i64, ptr %.01397.us.i, align 1, !tbaa !89
+  %351 = load i64, ptr %.01397.us.i, align 1, !tbaa !88
   %352 = insertelement <2 x i64> poison, i64 %351, i64 0
   %353 = getelementptr inbounds i8, ptr %.01397.us.i, i64 %330
-  %354 = load i64, ptr %353, align 1, !tbaa !89
+  %354 = load i64, ptr %353, align 1, !tbaa !88
   %355 = insertelement <2 x i64> poison, i64 %354, i64 0
   %356 = bitcast <2 x i64> %352 to <16 x i8>
   %357 = bitcast <2 x i64> %355 to <16 x i8>
   %358 = shufflevector <16 x i8> %356, <16 x i8> %357, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  store <16 x i8> %358, ptr %.11348.us.i, align 1, !tbaa !89
+  store <16 x i8> %358, ptr %.11348.us.i, align 1, !tbaa !88
   %359 = getelementptr inbounds nuw i8, ptr %.11348.us.i, i64 16
   %360 = getelementptr inbounds i8, ptr %.01397.us.i, i64 %332
   %361 = add nuw nsw i32 %.01416.us.i, 2
   %362 = or disjoint i32 %361, 1
   %363 = icmp slt i32 %362, %.sroa.speculated
-  br i1 %363, label %350, label %..preheader5_crit_edge.us.i, !llvm.loop !312
+  br i1 %363, label %350, label %..preheader5_crit_edge.us.i, !llvm.loop !303
 
 ..preheader5_crit_edge.us.i:                      ; preds = %350
   br i1 %.not83, label %._crit_edge.us.i, label %.lr.ph14.us.i
@@ -16679,12 +16679,12 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %374 = getelementptr inbounds nuw i8, ptr %368, i64 %373
   %375 = getelementptr i8, ptr %374, i64 %indvars.iv.i61
   %376 = getelementptr i8, ptr %375, i64 %36
-  %377 = load i64, ptr %376, align 1, !tbaa !89
-  store i64 %377, ptr %.013317.us24.i, align 1, !tbaa !89
+  %377 = load i64, ptr %376, align 1, !tbaa !88
+  store i64 %377, ptr %.013317.us24.i, align 1, !tbaa !88
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 8
   %378 = or disjoint i64 %indvars.iv.next.i62, 7
   %379 = icmp samesign ult i64 %378, %366
-  br i1 %379, label %._crit_edge.us31.i, label %.preheader4.loopexit83.i, !llvm.loop !313
+  br i1 %379, label %._crit_edge.us31.i, label %.preheader4.loopexit83.i, !llvm.loop !304
 
 .preheader4.loopexit.i63:                         ; preds = %._crit_edge.us.i
   %380 = trunc nuw nsw i64 %indvars.iv.next105.i to i32
@@ -16759,73 +16759,73 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %.012939.i = phi i32 [ %438, %.lr.ph.i60 ], [ 0, %403 ]
   %.013138.i = phi ptr [ %437, %.lr.ph.i60 ], [ %412, %403 ]
   %.437.i = phi ptr [ %436, %.lr.ph.i60 ], [ %.348.i, %403 ]
-  %414 = load i8, ptr %.013138.i, align 1, !tbaa !89
-  store i8 %414, ptr %.437.i, align 1, !tbaa !89
+  %414 = load i8, ptr %.013138.i, align 1, !tbaa !88
+  store i8 %414, ptr %.437.i, align 1, !tbaa !88
   %415 = getelementptr inbounds i8, ptr %.013138.i, i64 %386
-  %416 = load i8, ptr %415, align 1, !tbaa !89
+  %416 = load i8, ptr %415, align 1, !tbaa !88
   %417 = getelementptr inbounds nuw i8, ptr %.437.i, i64 1
-  store i8 %416, ptr %417, align 1, !tbaa !89
+  store i8 %416, ptr %417, align 1, !tbaa !88
   %418 = getelementptr inbounds nuw i8, ptr %.013138.i, i64 1
-  %419 = load i8, ptr %418, align 1, !tbaa !89
+  %419 = load i8, ptr %418, align 1, !tbaa !88
   %420 = getelementptr inbounds nuw i8, ptr %.437.i, i64 2
-  store i8 %419, ptr %420, align 1, !tbaa !89
+  store i8 %419, ptr %420, align 1, !tbaa !88
   %421 = getelementptr i8, ptr %415, i64 1
-  %422 = load i8, ptr %421, align 1, !tbaa !89
+  %422 = load i8, ptr %421, align 1, !tbaa !88
   %423 = getelementptr inbounds nuw i8, ptr %.437.i, i64 3
-  store i8 %422, ptr %423, align 1, !tbaa !89
+  store i8 %422, ptr %423, align 1, !tbaa !88
   %424 = getelementptr inbounds nuw i8, ptr %.013138.i, i64 2
-  %425 = load i8, ptr %424, align 1, !tbaa !89
+  %425 = load i8, ptr %424, align 1, !tbaa !88
   %426 = getelementptr inbounds nuw i8, ptr %.437.i, i64 4
-  store i8 %425, ptr %426, align 1, !tbaa !89
+  store i8 %425, ptr %426, align 1, !tbaa !88
   %427 = getelementptr i8, ptr %415, i64 2
-  %428 = load i8, ptr %427, align 1, !tbaa !89
+  %428 = load i8, ptr %427, align 1, !tbaa !88
   %429 = getelementptr inbounds nuw i8, ptr %.437.i, i64 5
-  store i8 %428, ptr %429, align 1, !tbaa !89
+  store i8 %428, ptr %429, align 1, !tbaa !88
   %430 = getelementptr inbounds nuw i8, ptr %.013138.i, i64 3
-  %431 = load i8, ptr %430, align 1, !tbaa !89
+  %431 = load i8, ptr %430, align 1, !tbaa !88
   %432 = getelementptr inbounds nuw i8, ptr %.437.i, i64 6
-  store i8 %431, ptr %432, align 1, !tbaa !89
+  store i8 %431, ptr %432, align 1, !tbaa !88
   %433 = getelementptr i8, ptr %415, i64 3
-  %434 = load i8, ptr %433, align 1, !tbaa !89
+  %434 = load i8, ptr %433, align 1, !tbaa !88
   %435 = getelementptr inbounds nuw i8, ptr %.437.i, i64 7
-  store i8 %434, ptr %435, align 1, !tbaa !89
+  store i8 %434, ptr %435, align 1, !tbaa !88
   %436 = getelementptr inbounds nuw i8, ptr %.437.i, i64 8
   %437 = getelementptr inbounds i8, ptr %.013138.i, i64 %388
   %438 = add nuw nsw i32 %.012939.i, 2
   %439 = or disjoint i32 %438, 1
   %440 = icmp slt i32 %439, %.sroa.speculated
-  br i1 %440, label %.lr.ph.i60, label %.preheader3.i55, !llvm.loop !314
+  br i1 %440, label %.lr.ph.i60, label %.preheader3.i55, !llvm.loop !305
 
 .lr.ph45.i:                                       ; preds = %.preheader3.i55, %.lr.ph45.i
   %.113044.i = phi i32 [ %453, %.lr.ph45.i ], [ %.0129.lcssa.i, %.preheader3.i55 ]
   %.113243.i = phi ptr [ %452, %.lr.ph45.i ], [ %.0131.lcssa.i, %.preheader3.i55 ]
   %.542.i = phi ptr [ %451, %.lr.ph45.i ], [ %.4.lcssa.i56, %.preheader3.i55 ]
-  %441 = load i8, ptr %.113243.i, align 1, !tbaa !89
-  store i8 %441, ptr %.542.i, align 1, !tbaa !89
+  %441 = load i8, ptr %.113243.i, align 1, !tbaa !88
+  store i8 %441, ptr %.542.i, align 1, !tbaa !88
   %442 = getelementptr inbounds nuw i8, ptr %.113243.i, i64 1
-  %443 = load i8, ptr %442, align 1, !tbaa !89
+  %443 = load i8, ptr %442, align 1, !tbaa !88
   %444 = getelementptr inbounds nuw i8, ptr %.542.i, i64 1
-  store i8 %443, ptr %444, align 1, !tbaa !89
+  store i8 %443, ptr %444, align 1, !tbaa !88
   %445 = getelementptr inbounds nuw i8, ptr %.113243.i, i64 2
-  %446 = load i8, ptr %445, align 1, !tbaa !89
+  %446 = load i8, ptr %445, align 1, !tbaa !88
   %447 = getelementptr inbounds nuw i8, ptr %.542.i, i64 2
-  store i8 %446, ptr %447, align 1, !tbaa !89
+  store i8 %446, ptr %447, align 1, !tbaa !88
   %448 = getelementptr inbounds nuw i8, ptr %.113243.i, i64 3
-  %449 = load i8, ptr %448, align 1, !tbaa !89
+  %449 = load i8, ptr %448, align 1, !tbaa !88
   %450 = getelementptr inbounds nuw i8, ptr %.542.i, i64 3
-  store i8 %449, ptr %450, align 1, !tbaa !89
+  store i8 %449, ptr %450, align 1, !tbaa !88
   %451 = getelementptr inbounds nuw i8, ptr %.542.i, i64 4
   %452 = getelementptr inbounds i8, ptr %.113243.i, i64 %386
   %453 = add nuw nsw i32 %.113044.i, 1
   %exitcond107.not.i = icmp eq i32 %453, %.sroa.speculated
-  br i1 %exitcond107.not.i, label %._crit_edge.i57, label %.lr.ph45.i, !llvm.loop !315
+  br i1 %exitcond107.not.i, label %._crit_edge.i57, label %.lr.ph45.i, !llvm.loop !306
 
 ._crit_edge.i57:                                  ; preds = %.lr.ph45.i, %.preheader3.i55
   %.5.lcssa.i58 = phi ptr [ %.4.lcssa.i56, %.preheader3.i55 ], [ %451, %.lr.ph45.i ]
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 4
   %454 = or disjoint i64 %indvars.iv.next109.i, 3
   %455 = icmp slt i64 %454, %391
-  br i1 %455, label %403, label %.preheader2.loopexit.i59, !llvm.loop !316
+  br i1 %455, label %403, label %.preheader2.loopexit.i59, !llvm.loop !307
 
 .preheader.loopexit.i53:                          ; preds = %._crit_edge64.i51
   %456 = trunc nsw i64 %indvars.iv.next113.i to i32
@@ -16866,18 +16866,18 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %.073.us.i = phi i32 [ 0, %.lr.ph75.us.i ], [ %475, %471 ]
   %.012572.us.i = phi ptr [ %470, %.lr.ph75.us.i ], [ %474, %471 ]
   %.1071.us.i = phi ptr [ %.979.us.i, %.lr.ph75.us.i ], [ %473, %471 ]
-  %472 = load i8, ptr %.012572.us.i, align 1, !tbaa !89
-  store i8 %472, ptr %.1071.us.i, align 1, !tbaa !89
+  %472 = load i8, ptr %.012572.us.i, align 1, !tbaa !88
+  store i8 %472, ptr %.1071.us.i, align 1, !tbaa !88
   %473 = getelementptr inbounds nuw i8, ptr %.1071.us.i, i64 1
   %474 = getelementptr inbounds i8, ptr %.012572.us.i, i64 %460
   %475 = add nuw nsw i32 %.073.us.i, 1
   %exitcond115.not.i = icmp eq i32 %475, %.sroa.speculated
-  br i1 %exitcond115.not.i, label %._crit_edge76.us.i, label %471, !llvm.loop !317
+  br i1 %exitcond115.not.i, label %._crit_edge76.us.i, label %471, !llvm.loop !308
 
 ._crit_edge76.us.i:                               ; preds = %471
   %indvars.iv.next117.i = add nsw i64 %indvars.iv116.i, 1
   %exitcond119.not.i = icmp eq i64 %indvars.iv.next117.i, %wide.trip.count.i47
-  br i1 %exitcond119.not.i, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph75.us.i, !llvm.loop !318
+  br i1 %exitcond119.not.i, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph75.us.i, !llvm.loop !309
 
 476:                                              ; preds = %._crit_edge64.i51, %.lr.ph68.i48
   %indvars.iv112.i = phi i64 [ %401, %.lr.ph68.i48 ], [ %indvars.iv.next113.i, %._crit_edge64.i51 ]
@@ -16904,56 +16904,56 @@ define internal void @_ZN4ncnn8Gemm_x8620create_pipeline_int8ERKNS_6OptionE.omp_
   %.012654.i = phi i32 [ %499, %.lr.ph56.i ], [ 0, %476 ]
   %.012753.i = phi ptr [ %498, %.lr.ph56.i ], [ %485, %476 ]
   %.752.i = phi ptr [ %497, %.lr.ph56.i ], [ %.667.i, %476 ]
-  %487 = load i8, ptr %.012753.i, align 1, !tbaa !89
-  store i8 %487, ptr %.752.i, align 1, !tbaa !89
+  %487 = load i8, ptr %.012753.i, align 1, !tbaa !88
+  store i8 %487, ptr %.752.i, align 1, !tbaa !88
   %488 = getelementptr inbounds i8, ptr %.012753.i, i64 %397
-  %489 = load i8, ptr %488, align 1, !tbaa !89
+  %489 = load i8, ptr %488, align 1, !tbaa !88
   %490 = getelementptr inbounds nuw i8, ptr %.752.i, i64 1
-  store i8 %489, ptr %490, align 1, !tbaa !89
+  store i8 %489, ptr %490, align 1, !tbaa !88
   %491 = getelementptr inbounds nuw i8, ptr %.012753.i, i64 1
-  %492 = load i8, ptr %491, align 1, !tbaa !89
+  %492 = load i8, ptr %491, align 1, !tbaa !88
   %493 = getelementptr inbounds nuw i8, ptr %.752.i, i64 2
-  store i8 %492, ptr %493, align 1, !tbaa !89
+  store i8 %492, ptr %493, align 1, !tbaa !88
   %494 = getelementptr i8, ptr %488, i64 1
-  %495 = load i8, ptr %494, align 1, !tbaa !89
+  %495 = load i8, ptr %494, align 1, !tbaa !88
   %496 = getelementptr inbounds nuw i8, ptr %.752.i, i64 3
-  store i8 %495, ptr %496, align 1, !tbaa !89
+  store i8 %495, ptr %496, align 1, !tbaa !88
   %497 = getelementptr inbounds nuw i8, ptr %.752.i, i64 4
   %498 = getelementptr inbounds i8, ptr %.012753.i, i64 %399
   %499 = add nuw nsw i32 %.012654.i, 2
   %500 = or disjoint i32 %499, 1
   %501 = icmp slt i32 %500, %.sroa.speculated
-  br i1 %501, label %.lr.ph56.i, label %.preheader1.i49, !llvm.loop !319
+  br i1 %501, label %.lr.ph56.i, label %.preheader1.i49, !llvm.loop !310
 
 .lr.ph63.i54:                                     ; preds = %.preheader1.i49, %.lr.ph63.i54
   %.162.i = phi i32 [ %508, %.lr.ph63.i54 ], [ %.0126.lcssa.i, %.preheader1.i49 ]
   %.112861.i = phi ptr [ %507, %.lr.ph63.i54 ], [ %.0127.lcssa.i, %.preheader1.i49 ]
   %.860.i = phi ptr [ %506, %.lr.ph63.i54 ], [ %.7.lcssa.i50, %.preheader1.i49 ]
-  %502 = load i8, ptr %.112861.i, align 1, !tbaa !89
-  store i8 %502, ptr %.860.i, align 1, !tbaa !89
+  %502 = load i8, ptr %.112861.i, align 1, !tbaa !88
+  store i8 %502, ptr %.860.i, align 1, !tbaa !88
   %503 = getelementptr inbounds nuw i8, ptr %.112861.i, i64 1
-  %504 = load i8, ptr %503, align 1, !tbaa !89
+  %504 = load i8, ptr %503, align 1, !tbaa !88
   %505 = getelementptr inbounds nuw i8, ptr %.860.i, i64 1
-  store i8 %504, ptr %505, align 1, !tbaa !89
+  store i8 %504, ptr %505, align 1, !tbaa !88
   %506 = getelementptr inbounds nuw i8, ptr %.860.i, i64 2
   %507 = getelementptr inbounds i8, ptr %.112861.i, i64 %397
   %508 = add nuw nsw i32 %.162.i, 1
   %exitcond111.not.i = icmp eq i32 %508, %.sroa.speculated
-  br i1 %exitcond111.not.i, label %._crit_edge64.i51, label %.lr.ph63.i54, !llvm.loop !320
+  br i1 %exitcond111.not.i, label %._crit_edge64.i51, label %.lr.ph63.i54, !llvm.loop !311
 
 ._crit_edge64.i51:                                ; preds = %.lr.ph63.i54, %.preheader1.i49
   %.8.lcssa.i52 = phi ptr [ %.7.lcssa.i50, %.preheader1.i49 ], [ %506, %.lr.ph63.i54 ]
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 2
   %509 = or disjoint i64 %indvars.iv.next113.i, 1
   %510 = icmp slt i64 %509, %402
-  br i1 %510, label %476, label %.preheader.loopexit.i53, !llvm.loop !321
+  br i1 %510, label %476, label %.preheader.loopexit.i53, !llvm.loop !312
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge98.us.i, %._crit_edge76.us.i, %.lr.ph80.i, %.preheader.i45, %.lr.ph102.i, %.preheader.i
   %511 = load i32, ptr %5, align 4, !tbaa !37
   %512 = add nsw i32 %511, %.030116
   %513 = load i32, ptr %4, align 4, !tbaa !37
   %514 = icmp slt i32 %512, %513
-  br i1 %514, label %.noexc40, label %._crit_edge.loopexit, !llvm.loop !322
+  br i1 %514, label %.noexc40, label %._crit_edge.loopexit, !llvm.loop !313
 
 ._crit_edge120:                                   ; preds = %._crit_edge, %.lr.ph, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -17059,13 +17059,13 @@ define internal void @_ZN4ncnnL19gemm_AT_BT_x86_int8ERKNS_3MatES2_S2_fS2_RS0_iii
 
 84:                                               ; preds = %.lr.ph140, %_ZN4ncnn3MatD2Ev.exit
   %indvars.iv = phi i64 [ %83, %.lr.ph140 ], [ %indvars.iv.next, %_ZN4ncnn3MatD2Ev.exit ]
-  %85 = load i32, ptr %3, align 4, !tbaa !155
-  %86 = load i32, ptr %29, align 4, !tbaa !157
-  %87 = load i32, ptr %30, align 4, !tbaa !158
-  %88 = load i32, ptr %31, align 4, !tbaa !159
-  %89 = load i32, ptr %32, align 4, !tbaa !161
-  %90 = load float, ptr %33, align 4, !tbaa !162
-  %91 = load float, ptr %34, align 4, !tbaa !163
+  %85 = load i32, ptr %3, align 4, !tbaa !153
+  %86 = load i32, ptr %29, align 4, !tbaa !155
+  %87 = load i32, ptr %30, align 4, !tbaa !156
+  %88 = load i32, ptr %31, align 4, !tbaa !157
+  %89 = load i32, ptr %32, align 4, !tbaa !159
+  %90 = load float, ptr %33, align 4, !tbaa !160
+  %91 = load float, ptr %34, align 4, !tbaa !161
   %92 = trunc nsw i64 %indvars.iv to i32
   %93 = mul nsw i32 %85, %92
   %94 = load i32, ptr %4, align 4, !tbaa !37
@@ -17076,19 +17076,19 @@ define internal void @_ZN4ncnnL19gemm_AT_BT_x86_int8ERKNS_3MatES2_S2_fS2_RS0_iii
           to label %.noexc81 unwind label %.loopexit.split-lp
 
 .noexc81:                                         ; preds = %84
-  call void @llvm.experimental.noalias.scope.decl(metadata !323)
-  %97 = load i32, ptr %35, align 4, !tbaa !55, !noalias !323
-  %98 = load i32, ptr %36, align 8, !tbaa !56, !noalias !323
-  %99 = load i32, ptr %37, align 4, !tbaa !57, !noalias !323
-  %100 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !323
-  %101 = load i64, ptr %38, align 8, !tbaa !17, !noalias !323
+  call void @llvm.experimental.noalias.scope.decl(metadata !314)
+  %97 = load i32, ptr %35, align 4, !tbaa !55, !noalias !314
+  %98 = load i32, ptr %36, align 8, !tbaa !56, !noalias !314
+  %99 = load i32, ptr %37, align 4, !tbaa !57, !noalias !314
+  %100 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !314
+  %101 = load i64, ptr %38, align 8, !tbaa !17, !noalias !314
   %102 = sext i32 %96 to i64
   %103 = mul i64 %101, %102
-  %104 = load i64, ptr %39, align 8, !tbaa !52, !noalias !323
+  %104 = load i64, ptr %39, align 8, !tbaa !52, !noalias !314
   %105 = mul i64 %103, %104
   %106 = getelementptr inbounds nuw i8, ptr %100, i64 %105
-  %107 = load i32, ptr %40, align 8, !tbaa !53, !noalias !323
-  %108 = load ptr, ptr %41, align 8, !tbaa !15, !noalias !323
+  %107 = load i32, ptr %40, align 8, !tbaa !53, !noalias !314
+  %108 = load ptr, ptr %41, align 8, !tbaa !15, !noalias !314
   store ptr %106, ptr %18, align 8, !tbaa !16
   store ptr null, ptr %42, align 8, !tbaa !7
   store i64 %104, ptr %43, align 8, !tbaa !52
@@ -17106,14 +17106,14 @@ define internal void @_ZN4ncnnL19gemm_AT_BT_x86_int8ERKNS_3MatES2_S2_fS2_RS0_iii
   %114 = and i64 %113, -16
   %115 = udiv i64 %114, %104
   store i64 %115, ptr %51, align 8, !tbaa !17
-  %116 = load i32, ptr %52, align 8, !tbaa !54, !noalias !323
+  %116 = load i32, ptr %52, align 8, !tbaa !54, !noalias !314
   %117 = add nsw i32 %116, -1
-  store i32 %117, ptr %46, align 8, !tbaa !54, !alias.scope !323
+  store i32 %117, ptr %46, align 8, !tbaa !54, !alias.scope !314
   %118 = icmp eq i32 %116, 4
   br i1 %118, label %119, label %_ZN4ncnn3Mat7channelEi.exit
 
 119:                                              ; preds = %.noexc81
-  store i64 %111, ptr %51, align 8, !tbaa !17, !alias.scope !323
+  store i64 %111, ptr %51, align 8, !tbaa !17, !alias.scope !314
   br label %_ZN4ncnn3Mat7channelEi.exit
 
 _ZN4ncnn3Mat7channelEi.exit:                      ; preds = %.noexc81, %119
@@ -17165,7 +17165,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnn3Mat7channe
   %137 = load i32, ptr %15, align 4, !tbaa !37
   %138 = sext i32 %137 to i64
   %.not.not = icmp slt i64 %indvars.iv, %138
-  br i1 %.not.not, label %84, label %._crit_edge141, !llvm.loop !326
+  br i1 %.not.not, label %84, label %._crit_edge141
 
 .lr.ph:                                           ; preds = %_ZN4ncnn3Mat7channelEi.exit, %._crit_edge
   %139 = phi i32 [ %146, %._crit_edge ], [ %120, %_ZN4ncnn3Mat7channelEi.exit ]
@@ -17187,7 +17187,7 @@ _ZN4ncnn3MatD2Ev.exit55.lr.ph:                    ; preds = %.lr.ph
   %145 = add nsw i32 %.051135, %86
   %146 = load i32, ptr %6, align 4, !tbaa !37
   %147 = icmp slt i32 %145, %146
-  br i1 %147, label %.lr.ph, label %._crit_edge136, !llvm.loop !327
+  br i1 %147, label %.lr.ph, label %._crit_edge136, !llvm.loop !317
 
 _ZN4ncnn3MatD2Ev.exit55:                          ; preds = %_ZN4ncnn3MatD2Ev.exit55.lr.ph, %_ZN4ncnn3MatD2Ev.exit52
   %148 = phi i32 [ %141, %_ZN4ncnn3MatD2Ev.exit55.lr.ph ], [ %212, %_ZN4ncnn3MatD2Ev.exit52 ]
@@ -17195,57 +17195,57 @@ _ZN4ncnn3MatD2Ev.exit55:                          ; preds = %_ZN4ncnn3MatD2Ev.ex
   %149 = sub nsw i32 %148, %.050134
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %87, i32 %149)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %19) #9
-  %150 = load i32, ptr %53, align 4, !tbaa !55, !noalias !328
-  %151 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !328
-  %152 = load i64, ptr %54, align 8, !tbaa !17, !noalias !328
+  %150 = load i32, ptr %53, align 4, !tbaa !55, !noalias !318
+  %151 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !318
+  %152 = load i64, ptr %54, align 8, !tbaa !17, !noalias !318
   %153 = mul i64 %152, %indvars.iv
-  %154 = load i64, ptr %55, align 8, !tbaa !52, !noalias !328
+  %154 = load i64, ptr %55, align 8, !tbaa !52, !noalias !318
   %155 = mul i64 %153, %154
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 %155
-  %157 = load i32, ptr %56, align 8, !tbaa !53, !noalias !328
-  %158 = load ptr, ptr %57, align 8, !tbaa !15, !noalias !328
+  %157 = load i32, ptr %56, align 8, !tbaa !53, !noalias !318
+  %158 = load ptr, ptr %57, align 8, !tbaa !15, !noalias !318
   %159 = sext i32 %150 to i64
   %160 = sdiv i32 %.050134, %87
   %161 = sext i32 %160 to i64
   %162 = mul i64 %154, %159
   %163 = mul i64 %162, %161
   %164 = getelementptr inbounds nuw i8, ptr %156, i64 %163
-  store ptr %164, ptr %19, align 8, !tbaa !16, !alias.scope !331
-  store ptr null, ptr %58, align 8, !tbaa !7, !alias.scope !331
-  store i64 %154, ptr %59, align 8, !tbaa !52, !alias.scope !331
-  store i32 %157, ptr %60, align 8, !tbaa !53, !alias.scope !331
-  store ptr %158, ptr %61, align 8, !tbaa !15, !alias.scope !331
-  store i32 2, ptr %62, align 8, !tbaa !54, !alias.scope !331
-  store i32 %150, ptr %63, align 4, !tbaa !55, !alias.scope !331
-  store i32 1, ptr %64, align 8, !tbaa !56, !alias.scope !331
-  store i32 1, ptr %65, align 4, !tbaa !57, !alias.scope !331
-  store i32 1, ptr %66, align 8, !tbaa !44, !alias.scope !331
-  store i64 %159, ptr %67, align 8, !tbaa !17, !alias.scope !331
+  store ptr %164, ptr %19, align 8, !tbaa !16, !alias.scope !321
+  store ptr null, ptr %58, align 8, !tbaa !7, !alias.scope !321
+  store i64 %154, ptr %59, align 8, !tbaa !52, !alias.scope !321
+  store i32 %157, ptr %60, align 8, !tbaa !53, !alias.scope !321
+  store ptr %158, ptr %61, align 8, !tbaa !15, !alias.scope !321
+  store i32 2, ptr %62, align 8, !tbaa !54, !alias.scope !321
+  store i32 %150, ptr %63, align 4, !tbaa !55, !alias.scope !321
+  store i32 1, ptr %64, align 8, !tbaa !56, !alias.scope !321
+  store i32 1, ptr %65, align 4, !tbaa !57, !alias.scope !321
+  store i32 1, ptr %66, align 8, !tbaa !44, !alias.scope !321
+  store i64 %159, ptr %67, align 8, !tbaa !17, !alias.scope !321
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %20) #9
-  %165 = load i32, ptr %68, align 4, !tbaa !55, !noalias !334
-  %166 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !334
-  %167 = load i64, ptr %69, align 8, !tbaa !17, !noalias !334
+  %165 = load i32, ptr %68, align 4, !tbaa !55, !noalias !324
+  %166 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !324
+  %167 = load i64, ptr %69, align 8, !tbaa !17, !noalias !324
   %168 = mul i64 %167, %144
-  %169 = load i64, ptr %70, align 8, !tbaa !52, !noalias !334
+  %169 = load i64, ptr %70, align 8, !tbaa !52, !noalias !324
   %170 = mul i64 %168, %169
   %171 = getelementptr inbounds nuw i8, ptr %166, i64 %170
-  %172 = load i32, ptr %71, align 8, !tbaa !53, !noalias !334
-  %173 = load ptr, ptr %72, align 8, !tbaa !15, !noalias !334
+  %172 = load i32, ptr %71, align 8, !tbaa !53, !noalias !324
+  %173 = load ptr, ptr %72, align 8, !tbaa !15, !noalias !324
   %174 = sext i32 %165 to i64
   %175 = mul nsw i64 %174, %161
   %176 = mul i64 %175, %169
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 %176
-  store ptr %177, ptr %20, align 8, !tbaa !16, !alias.scope !337
-  store ptr null, ptr %73, align 8, !tbaa !7, !alias.scope !337
-  store i64 %169, ptr %74, align 8, !tbaa !52, !alias.scope !337
-  store i32 %172, ptr %75, align 8, !tbaa !53, !alias.scope !337
-  store ptr %173, ptr %76, align 8, !tbaa !15, !alias.scope !337
-  store i32 2, ptr %77, align 8, !tbaa !54, !alias.scope !337
-  store i32 %165, ptr %78, align 4, !tbaa !55, !alias.scope !337
-  store i32 1, ptr %79, align 8, !tbaa !56, !alias.scope !337
-  store i32 1, ptr %80, align 4, !tbaa !57, !alias.scope !337
-  store i32 1, ptr %81, align 8, !tbaa !44, !alias.scope !337
-  store i64 %174, ptr %82, align 8, !tbaa !17, !alias.scope !337
+  store ptr %177, ptr %20, align 8, !tbaa !16, !alias.scope !327
+  store ptr null, ptr %73, align 8, !tbaa !7, !alias.scope !327
+  store i64 %169, ptr %74, align 8, !tbaa !52, !alias.scope !327
+  store i32 %172, ptr %75, align 8, !tbaa !53, !alias.scope !327
+  store ptr %173, ptr %76, align 8, !tbaa !15, !alias.scope !327
+  store i32 2, ptr %77, align 8, !tbaa !54, !alias.scope !327
+  store i32 %165, ptr %78, align 4, !tbaa !55, !alias.scope !327
+  store i32 1, ptr %79, align 8, !tbaa !56, !alias.scope !327
+  store i32 1, ptr %80, align 4, !tbaa !57, !alias.scope !327
+  store i32 1, ptr %81, align 8, !tbaa !44, !alias.scope !327
+  store i64 %174, ptr %82, align 8, !tbaa !17, !alias.scope !327
   invoke fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_iiiiii(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(72) %20, ptr noundef nonnull align 8 dereferenceable(72) %18, i32 noundef %93, i32 noundef %.sroa.speculated118, i32 noundef %.051135, i32 noundef %.sroa.speculated114, i32 noundef %.050134, i32 noundef %.sroa.speculated)
           to label %178 unwind label %.loopexit
 
@@ -17331,7 +17331,7 @@ _ZN4ncnn3MatD2Ev.exit52:                          ; preds = %196, %_ZN4ncnn3MatD
   %211 = add nsw i32 %.050134, %87
   %212 = load i32, ptr %7, align 4, !tbaa !37
   %213 = icmp slt i32 %211, %212
-  br i1 %213, label %_ZN4ncnn3MatD2Ev.exit55, label %._crit_edge, !llvm.loop !340
+  br i1 %213, label %_ZN4ncnn3MatD2Ev.exit55, label %._crit_edge, !llvm.loop !330
 
 ._crit_edge141:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit, %23
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %25)
@@ -17431,21 +17431,21 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   br i1 %18, label %52, label %36
 
 36:                                               ; preds = %.lr.ph1061
-  %37 = load <4 x i32>, ptr %.17511060, align 16, !tbaa !89
+  %37 = load <4 x i32>, ptr %.17511060, align 16, !tbaa !88
   %38 = getelementptr inbounds nuw i8, ptr %.17511060, i64 16
-  %39 = load <4 x i32>, ptr %38, align 16, !tbaa !89
+  %39 = load <4 x i32>, ptr %38, align 16, !tbaa !88
   %40 = getelementptr inbounds nuw i8, ptr %.17511060, i64 32
-  %41 = load <4 x i32>, ptr %40, align 16, !tbaa !89
+  %41 = load <4 x i32>, ptr %40, align 16, !tbaa !88
   %42 = getelementptr inbounds nuw i8, ptr %.17511060, i64 48
-  %43 = load <4 x i32>, ptr %42, align 16, !tbaa !89
+  %43 = load <4 x i32>, ptr %42, align 16, !tbaa !88
   %44 = getelementptr inbounds nuw i8, ptr %.17511060, i64 64
-  %45 = load <4 x i32>, ptr %44, align 16, !tbaa !89
+  %45 = load <4 x i32>, ptr %44, align 16, !tbaa !88
   %46 = getelementptr inbounds nuw i8, ptr %.17511060, i64 80
-  %47 = load <4 x i32>, ptr %46, align 16, !tbaa !89
+  %47 = load <4 x i32>, ptr %46, align 16, !tbaa !88
   %48 = getelementptr inbounds nuw i8, ptr %.17511060, i64 96
-  %49 = load <4 x i32>, ptr %48, align 16, !tbaa !89
+  %49 = load <4 x i32>, ptr %48, align 16, !tbaa !88
   %50 = getelementptr inbounds nuw i8, ptr %.17511060, i64 112
-  %51 = load <4 x i32>, ptr %50, align 16, !tbaa !89
+  %51 = load <4 x i32>, ptr %50, align 16, !tbaa !88
   br label %52
 
 52:                                               ; preds = %.lr.ph1061, %36
@@ -17486,11 +17486,11 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %68 = phi <4 x i32> [ %104, %.lr.ph ], [ %54, %52 ]
   %69 = phi <4 x i32> [ %106, %.lr.ph ], [ %53, %52 ]
   %.08051032 = phi i32 [ %109, %.lr.ph ], [ 0, %52 ]
-  %70 = load double, ptr %.07721033, align 1, !tbaa !89
+  %70 = load double, ptr %.07721033, align 1, !tbaa !88
   %71 = insertelement <2 x double> poison, double %70, i64 0
   %72 = bitcast <2 x double> %71 to <2 x i64>
   %73 = shufflevector <2 x i64> %72, <2 x i64> poison, <2 x i32> zeroinitializer
-  %74 = load <16 x i8>, ptr %.17571034, align 1, !tbaa !89
+  %74 = load <16 x i8>, ptr %.17571034, align 1, !tbaa !88
   %75 = bitcast <2 x i64> %73 to <16 x i8>
   %.lobit.i = ashr <16 x i8> %75, splat (i8 7)
   %76 = shufflevector <16 x i8> %75, <16 x i8> %.lobit.i, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
@@ -17530,7 +17530,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %109 = add nuw nsw i32 %.08051032, 2
   %110 = or disjoint i32 %109, 1
   %111 = icmp slt i32 %110, %8
-  br i1 %111, label %.lr.ph, label %.preheader980, !llvm.loop !341
+  br i1 %111, label %.lr.ph, label %.preheader980, !llvm.loop !331
 
 .lr.ph1048:                                       ; preds = %.preheader980, %.lr.ph1048
   %.27581047 = phi ptr [ %168, %.lr.ph1048 ], [ %.1757.lcssa, %.preheader980 ]
@@ -17544,10 +17544,10 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %118 = phi <4 x i32> [ %164, %.lr.ph1048 ], [ %.lcssa1008, %.preheader980 ]
   %119 = phi <4 x i32> [ %166, %.lr.ph1048 ], [ %.lcssa1009, %.preheader980 ]
   %.18061045 = phi i32 [ %169, %.lr.ph1048 ], [ %.0805.lcssa, %.preheader980 ]
-  %120 = load float, ptr %.17731046, align 1, !tbaa !89
+  %120 = load float, ptr %.17731046, align 1, !tbaa !88
   %121 = insertelement <4 x float> poison, float %120, i64 0
   %122 = shufflevector <4 x float> %121, <4 x float> poison, <4 x i32> zeroinitializer
-  %123 = load i64, ptr %.27581047, align 1, !tbaa !89
+  %123 = load i64, ptr %.27581047, align 1, !tbaa !88
   %124 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %123, i64 0
   %125 = bitcast <4 x float> %122 to <16 x i8>
   %.lobit.i934 = ashr <16 x i8> %125, splat (i8 7)
@@ -17597,7 +17597,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %168 = getelementptr inbounds nuw i8, ptr %.27581047, i64 8
   %169 = add nuw nsw i32 %.18061045, 1
   %exitcond.not = icmp eq i32 %169, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph1048, !llvm.loop !342
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph1048, !llvm.loop !332
 
 ._crit_edge:                                      ; preds = %.lr.ph1048, %.preheader980
   %.lcssa1017 = phi <4 x i32> [ %.lcssa1009, %.preheader980 ], [ %166, %.lr.ph1048 ]
@@ -17609,26 +17609,26 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.lcssa1011 = phi <4 x i32> [ %.lcssa1003, %.preheader980 ], [ %154, %.lr.ph1048 ]
   %.lcssa1010 = phi <4 x i32> [ %.lcssa1002, %.preheader980 ], [ %152, %.lr.ph1048 ]
   %.2758.lcssa = phi ptr [ %.1757.lcssa, %.preheader980 ], [ %168, %.lr.ph1048 ]
-  store <4 x i32> %.lcssa1010, ptr %.17511060, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1010, ptr %.17511060, align 16, !tbaa !88
   %170 = getelementptr inbounds nuw i8, ptr %.17511060, i64 16
-  store <4 x i32> %.lcssa1011, ptr %170, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1011, ptr %170, align 16, !tbaa !88
   %171 = getelementptr inbounds nuw i8, ptr %.17511060, i64 32
-  store <4 x i32> %.lcssa1012, ptr %171, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1012, ptr %171, align 16, !tbaa !88
   %172 = getelementptr inbounds nuw i8, ptr %.17511060, i64 48
-  store <4 x i32> %.lcssa1013, ptr %172, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1013, ptr %172, align 16, !tbaa !88
   %173 = getelementptr inbounds nuw i8, ptr %.17511060, i64 64
-  store <4 x i32> %.lcssa1014, ptr %173, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1014, ptr %173, align 16, !tbaa !88
   %174 = getelementptr inbounds nuw i8, ptr %.17511060, i64 80
-  store <4 x i32> %.lcssa1015, ptr %174, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1015, ptr %174, align 16, !tbaa !88
   %175 = getelementptr inbounds nuw i8, ptr %.17511060, i64 96
-  store <4 x i32> %.lcssa1016, ptr %175, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1016, ptr %175, align 16, !tbaa !88
   %176 = getelementptr inbounds nuw i8, ptr %.17511060, i64 112
-  store <4 x i32> %.lcssa1017, ptr %176, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1017, ptr %176, align 16, !tbaa !88
   %177 = getelementptr inbounds nuw i8, ptr %.17511060, i64 128
   %178 = add nuw nsw i32 %.07681058, 8
   %179 = or disjoint i32 %178, 7
   %180 = icmp slt i32 %179, %6
-  br i1 %180, label %.lr.ph1061, label %.preheader983, !llvm.loop !343
+  br i1 %180, label %.lr.ph1061, label %.preheader983, !llvm.loop !333
 
 .preheader982:                                    ; preds = %._crit_edge1081, %.preheader983
   %.1769.lcssa = phi i32 [ %.0768.lcssa, %.preheader983 ], [ %273, %._crit_edge1081 ]
@@ -17645,13 +17645,13 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   br i1 %18, label %191, label %183
 
 183:                                              ; preds = %.lr.ph1090
-  %184 = load <4 x i32>, ptr %.27521089, align 16, !tbaa !89
+  %184 = load <4 x i32>, ptr %.27521089, align 16, !tbaa !88
   %185 = getelementptr inbounds nuw i8, ptr %.27521089, i64 16
-  %186 = load <4 x i32>, ptr %185, align 16, !tbaa !89
+  %186 = load <4 x i32>, ptr %185, align 16, !tbaa !88
   %187 = getelementptr inbounds nuw i8, ptr %.27521089, i64 32
-  %188 = load <4 x i32>, ptr %187, align 16, !tbaa !89
+  %188 = load <4 x i32>, ptr %187, align 16, !tbaa !88
   %189 = getelementptr inbounds nuw i8, ptr %.27521089, i64 48
-  %190 = load <4 x i32>, ptr %189, align 16, !tbaa !89
+  %190 = load <4 x i32>, ptr %189, align 16, !tbaa !88
   br label %191
 
 191:                                              ; preds = %.lr.ph1090, %183
@@ -17680,9 +17680,9 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %199 = phi <4 x i32> [ %222, %.lr.ph1069 ], [ %193, %191 ]
   %200 = phi <4 x i32> [ %224, %.lr.ph1069 ], [ %192, %191 ]
   %.08721065 = phi i32 [ %227, %.lr.ph1069 ], [ 0, %191 ]
-  %201 = load i64, ptr %.08071066, align 1, !tbaa !89
+  %201 = load i64, ptr %.08071066, align 1, !tbaa !88
   %202 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %201, i64 0
-  %203 = load i64, ptr %.47601067, align 1, !tbaa !89
+  %203 = load i64, ptr %.47601067, align 1, !tbaa !88
   %204 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %203, i64 0
   %205 = bitcast <2 x i64> %202 to <16 x i8>
   %.lobit.i936 = ashr <16 x i8> %205, splat (i8 7)
@@ -17711,7 +17711,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %227 = add nuw nsw i32 %.08721065, 2
   %228 = or disjoint i32 %227, 1
   %229 = icmp slt i32 %228, %8
-  br i1 %229, label %.lr.ph1069, label %.preheader979, !llvm.loop !344
+  br i1 %229, label %.lr.ph1069, label %.preheader979, !llvm.loop !334
 
 .lr.ph1080:                                       ; preds = %.preheader979, %.lr.ph1080
   %.57611079 = phi ptr [ %267, %.lr.ph1080 ], [ %.4760.lcssa, %.preheader979 ]
@@ -17721,10 +17721,10 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %232 = phi <4 x i32> [ %263, %.lr.ph1080 ], [ %.lcssa1020, %.preheader979 ]
   %233 = phi <4 x i32> [ %265, %.lr.ph1080 ], [ %.lcssa1021, %.preheader979 ]
   %.18731077 = phi i32 [ %268, %.lr.ph1080 ], [ %.0872.lcssa, %.preheader979 ]
-  %234 = load float, ptr %.18081078, align 1, !tbaa !89
+  %234 = load float, ptr %.18081078, align 1, !tbaa !88
   %235 = insertelement <4 x float> poison, float %234, i64 0
   %236 = shufflevector <4 x float> %235, <4 x float> poison, <4 x i32> zeroinitializer
-  %237 = load float, ptr %.57611079, align 1, !tbaa !89
+  %237 = load float, ptr %.57611079, align 1, !tbaa !88
   %238 = insertelement <4 x float> poison, float %237, i64 0
   %239 = shufflevector <4 x float> %238, <4 x float> poison, <4 x i32> zeroinitializer
   %240 = bitcast <4 x float> %236 to <16 x i8>
@@ -17759,7 +17759,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %267 = getelementptr inbounds nuw i8, ptr %.57611079, i64 4
   %268 = add nuw nsw i32 %.18731077, 1
   %exitcond1512.not = icmp eq i32 %268, %8
-  br i1 %exitcond1512.not, label %._crit_edge1081, label %.lr.ph1080, !llvm.loop !345
+  br i1 %exitcond1512.not, label %._crit_edge1081, label %.lr.ph1080, !llvm.loop !335
 
 ._crit_edge1081:                                  ; preds = %.lr.ph1080, %.preheader979
   %.lcssa1025 = phi <4 x i32> [ %.lcssa1021, %.preheader979 ], [ %265, %.lr.ph1080 ]
@@ -17767,18 +17767,18 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.lcssa1023 = phi <4 x i32> [ %.lcssa1019, %.preheader979 ], [ %261, %.lr.ph1080 ]
   %.lcssa1022 = phi <4 x i32> [ %.lcssa1018, %.preheader979 ], [ %259, %.lr.ph1080 ]
   %.5761.lcssa = phi ptr [ %.4760.lcssa, %.preheader979 ], [ %267, %.lr.ph1080 ]
-  store <4 x i32> %.lcssa1022, ptr %.27521089, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1022, ptr %.27521089, align 16, !tbaa !88
   %269 = getelementptr inbounds nuw i8, ptr %.27521089, i64 16
-  store <4 x i32> %.lcssa1023, ptr %269, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1023, ptr %269, align 16, !tbaa !88
   %270 = getelementptr inbounds nuw i8, ptr %.27521089, i64 32
-  store <4 x i32> %.lcssa1024, ptr %270, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1024, ptr %270, align 16, !tbaa !88
   %271 = getelementptr inbounds nuw i8, ptr %.27521089, i64 48
-  store <4 x i32> %.lcssa1025, ptr %271, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1025, ptr %271, align 16, !tbaa !88
   %272 = getelementptr inbounds nuw i8, ptr %.27521089, i64 64
   %273 = add nuw nsw i32 %.17691087, 4
   %274 = or disjoint i32 %273, 3
   %275 = icmp slt i32 %274, %6
-  br i1 %275, label %.lr.ph1090, label %.preheader982, !llvm.loop !346
+  br i1 %275, label %.lr.ph1090, label %.preheader982, !llvm.loop !336
 
 .preheader981:                                    ; preds = %._crit_edge1108, %.preheader982
   %.2770.lcssa = phi i32 [ %.1769.lcssa, %.preheader982 ], [ %338, %._crit_edge1108 ]
@@ -17794,9 +17794,9 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   br i1 %18, label %281, label %277
 
 277:                                              ; preds = %.lr.ph1115
-  %278 = load <4 x i32>, ptr %.31114, align 16, !tbaa !89
+  %278 = load <4 x i32>, ptr %.31114, align 16, !tbaa !88
   %279 = getelementptr inbounds nuw i8, ptr %.31114, i64 16
-  %280 = load <4 x i32>, ptr %279, align 16, !tbaa !89
+  %280 = load <4 x i32>, ptr %279, align 16, !tbaa !88
   br label %281
 
 281:                                              ; preds = %.lr.ph1115, %277
@@ -17819,9 +17819,9 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %285 = phi <4 x i32> [ %301, %.lr.ph1098 ], [ %283, %281 ]
   %286 = phi <4 x i32> [ %304, %.lr.ph1098 ], [ %282, %281 ]
   %.08821094 = phi i32 [ %307, %.lr.ph1098 ], [ 0, %281 ]
-  %287 = load i64, ptr %.08741095, align 1, !tbaa !89
+  %287 = load i64, ptr %.08741095, align 1, !tbaa !88
   %288 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %287, i64 0
-  %289 = load float, ptr %.77631096, align 1, !tbaa !89
+  %289 = load float, ptr %.77631096, align 1, !tbaa !88
   %290 = insertelement <4 x float> poison, float %289, i64 0
   %291 = shufflevector <4 x float> %290, <4 x float> poison, <4 x i32> zeroinitializer
   %292 = bitcast <2 x i64> %288 to <16 x i8>
@@ -17844,7 +17844,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %307 = add nuw nsw i32 %.08821094, 2
   %308 = or disjoint i32 %307, 1
   %309 = icmp slt i32 %308, %8
-  br i1 %309, label %.lr.ph1098, label %.preheader978, !llvm.loop !347
+  br i1 %309, label %.lr.ph1098, label %.preheader978, !llvm.loop !337
 
 .lr.ph1107:                                       ; preds = %.preheader978, %.lr.ph1107
   %.87641106 = phi ptr [ %334, %.lr.ph1107 ], [ %.7763.lcssa, %.preheader978 ]
@@ -17852,10 +17852,10 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %310 = phi <4 x i32> [ %330, %.lr.ph1107 ], [ %.lcssa1026, %.preheader978 ]
   %311 = phi <4 x i32> [ %332, %.lr.ph1107 ], [ %.lcssa1027, %.preheader978 ]
   %.18831104 = phi i32 [ %335, %.lr.ph1107 ], [ %.0882.lcssa, %.preheader978 ]
-  %312 = load float, ptr %.18751105, align 1, !tbaa !89
+  %312 = load float, ptr %.18751105, align 1, !tbaa !88
   %313 = insertelement <4 x float> poison, float %312, i64 0
   %314 = shufflevector <4 x float> %313, <4 x float> poison, <4 x i32> zeroinitializer
-  %315 = load i16, ptr %.87641106, align 2, !tbaa !348
+  %315 = load i16, ptr %.87641106, align 2, !tbaa !338
   %316 = insertelement <8 x i16> poison, i16 %315, i64 0
   %317 = shufflevector <8 x i16> %316, <8 x i16> poison, <8 x i32> zeroinitializer
   %318 = bitcast <4 x float> %314 to <16 x i8>
@@ -17879,20 +17879,20 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %334 = getelementptr inbounds nuw i8, ptr %.87641106, i64 2
   %335 = add nuw nsw i32 %.18831104, 1
   %exitcond1513.not = icmp eq i32 %335, %8
-  br i1 %exitcond1513.not, label %._crit_edge1108, label %.lr.ph1107, !llvm.loop !350
+  br i1 %exitcond1513.not, label %._crit_edge1108, label %.lr.ph1107, !llvm.loop !340
 
 ._crit_edge1108:                                  ; preds = %.lr.ph1107, %.preheader978
   %.lcssa1029 = phi <4 x i32> [ %.lcssa1027, %.preheader978 ], [ %332, %.lr.ph1107 ]
   %.lcssa1028 = phi <4 x i32> [ %.lcssa1026, %.preheader978 ], [ %330, %.lr.ph1107 ]
   %.8764.lcssa = phi ptr [ %.7763.lcssa, %.preheader978 ], [ %334, %.lr.ph1107 ]
-  store <4 x i32> %.lcssa1028, ptr %.31114, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1028, ptr %.31114, align 16, !tbaa !88
   %336 = getelementptr inbounds nuw i8, ptr %.31114, i64 16
-  store <4 x i32> %.lcssa1029, ptr %336, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1029, ptr %336, align 16, !tbaa !88
   %337 = getelementptr inbounds nuw i8, ptr %.31114, i64 32
   %338 = add nuw nsw i32 %.27701112, 2
   %339 = or disjoint i32 %338, 1
   %340 = icmp slt i32 %339, %6
-  br i1 %340, label %.lr.ph1115, label %.preheader981, !llvm.loop !351
+  br i1 %340, label %.lr.ph1115, label %.preheader981, !llvm.loop !341
 
 .lr.ph1138:                                       ; preds = %.preheader981, %._crit_edge1132
   %.41137 = phi ptr [ %383, %._crit_edge1132 ], [ %.3.lcssa, %.preheader981 ]
@@ -17901,7 +17901,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   br i1 %18, label %343, label %341
 
 341:                                              ; preds = %.lr.ph1138
-  %342 = load <4 x i32>, ptr %.41137, align 16, !tbaa !89
+  %342 = load <4 x i32>, ptr %.41137, align 16, !tbaa !88
   br label %343
 
 343:                                              ; preds = %.lr.ph1138, %341
@@ -17921,9 +17921,9 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.08841120 = phi ptr [ %360, %.lr.ph1123 ], [ %.07471143, %343 ]
   %346 = phi <4 x i32> [ %359, %.lr.ph1123 ], [ %344, %343 ]
   %.08891119 = phi i32 [ %362, %.lr.ph1123 ], [ 0, %343 ]
-  %347 = load i64, ptr %.08841120, align 1, !tbaa !89
+  %347 = load i64, ptr %.08841120, align 1, !tbaa !88
   %348 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %347, i64 0
-  %349 = load i16, ptr %.107661121, align 2, !tbaa !348
+  %349 = load i16, ptr %.107661121, align 2, !tbaa !338
   %350 = insertelement <8 x i16> poison, i16 %349, i64 0
   %351 = shufflevector <8 x i16> %350, <8 x i16> poison, <8 x i32> zeroinitializer
   %352 = bitcast <2 x i64> %348 to <16 x i8>
@@ -17941,16 +17941,16 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %362 = add nuw nsw i32 %.08891119, 2
   %363 = or disjoint i32 %362, 1
   %364 = icmp slt i32 %363, %8
-  br i1 %364, label %.lr.ph1123, label %.preheader977, !llvm.loop !352
+  br i1 %364, label %.lr.ph1123, label %.preheader977, !llvm.loop !342
 
 .lr.ph1131:                                       ; preds = %.preheader977, %.lr.ph1131
   %.117671130 = phi ptr [ %381, %.lr.ph1131 ], [ %.10766.lcssa, %.preheader977 ]
   %.18851129 = phi ptr [ %380, %.lr.ph1131 ], [ %.0884.lcssa, %.preheader977 ]
   %365 = phi <4 x i32> [ %379, %.lr.ph1131 ], [ %.lcssa1030, %.preheader977 ]
   %.18901128 = phi i32 [ %382, %.lr.ph1131 ], [ %.0889.lcssa, %.preheader977 ]
-  %366 = load i64, ptr %.18851129, align 1, !tbaa !89
+  %366 = load i64, ptr %.18851129, align 1, !tbaa !88
   %367 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %366, i64 0
-  %368 = load i8, ptr %.117671130, align 1, !tbaa !89
+  %368 = load i8, ptr %.117671130, align 1, !tbaa !88
   %369 = sext i8 %368 to i16
   %370 = insertelement <8 x i16> poison, i16 %369, i64 0
   %371 = shufflevector <8 x i16> %370, <8 x i16> poison, <8 x i32> zeroinitializer
@@ -17967,16 +17967,16 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %381 = getelementptr inbounds nuw i8, ptr %.117671130, i64 1
   %382 = add nuw nsw i32 %.18901128, 1
   %exitcond1514.not = icmp eq i32 %382, %8
-  br i1 %exitcond1514.not, label %._crit_edge1132, label %.lr.ph1131, !llvm.loop !353
+  br i1 %exitcond1514.not, label %._crit_edge1132, label %.lr.ph1131, !llvm.loop !343
 
 ._crit_edge1132:                                  ; preds = %.lr.ph1131, %.preheader977
   %.lcssa1031 = phi <4 x i32> [ %.lcssa1030, %.preheader977 ], [ %379, %.lr.ph1131 ]
   %.11767.lcssa = phi ptr [ %.10766.lcssa, %.preheader977 ], [ %381, %.lr.ph1131 ]
-  store <4 x i32> %.lcssa1031, ptr %.41137, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1031, ptr %.41137, align 16, !tbaa !88
   %383 = getelementptr inbounds nuw i8, ptr %.41137, i64 16
   %384 = add nuw nsw i32 %.37711135, 1
   %exitcond1515.not = icmp eq i32 %384, %6
-  br i1 %exitcond1515.not, label %._crit_edge1139, label %.lr.ph1138, !llvm.loop !354
+  br i1 %exitcond1515.not, label %._crit_edge1139, label %.lr.ph1138, !llvm.loop !344
 
 ._crit_edge1139:                                  ; preds = %._crit_edge1132, %.preheader981
   %.4.lcssa = phi ptr [ %.3.lcssa, %.preheader981 ], [ %383, %._crit_edge1132 ]
@@ -17984,7 +17984,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %386 = add nuw nsw i32 %.07531141, 4
   %387 = or disjoint i32 %386, 3
   %388 = icmp slt i32 %387, %4
-  br i1 %388, label %.preheader984, label %.preheader976.loopexit, !llvm.loop !355
+  br i1 %388, label %.preheader984, label %.preheader976.loopexit, !llvm.loop !345
 
 .preheader975:                                    ; preds = %.preheader975.lr.ph, %._crit_edge1264
   %.17481268 = phi ptr [ %.0747.lcssa, %.preheader975.lr.ph ], [ %689, %._crit_edge1264 ]
@@ -18027,13 +18027,13 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   br i1 %28, label %410, label %402
 
 402:                                              ; preds = %.lr.ph1172
-  %403 = load <4 x i32>, ptr %.61171, align 16, !tbaa !89
+  %403 = load <4 x i32>, ptr %.61171, align 16, !tbaa !88
   %404 = getelementptr inbounds nuw i8, ptr %.61171, i64 16
-  %405 = load <4 x i32>, ptr %404, align 16, !tbaa !89
+  %405 = load <4 x i32>, ptr %404, align 16, !tbaa !88
   %406 = getelementptr inbounds nuw i8, ptr %.61171, i64 32
-  %407 = load <4 x i32>, ptr %406, align 16, !tbaa !89
+  %407 = load <4 x i32>, ptr %406, align 16, !tbaa !88
   %408 = getelementptr inbounds nuw i8, ptr %.61171, i64 48
-  %409 = load <4 x i32>, ptr %408, align 16, !tbaa !89
+  %409 = load <4 x i32>, ptr %408, align 16, !tbaa !88
   br label %410
 
 410:                                              ; preds = %.lr.ph1172, %402
@@ -18062,10 +18062,10 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %419 = phi <4 x i32> [ %441, %.lr.ph1151 ], [ %411, %410 ]
   %.09291148 = phi ptr [ %442, %.lr.ph1151 ], [ %.17481268, %410 ]
   %.09311147 = phi i32 [ %444, %.lr.ph1151 ], [ 0, %410 ]
-  %420 = load float, ptr %.09291148, align 1, !tbaa !89
+  %420 = load float, ptr %.09291148, align 1, !tbaa !88
   %421 = insertelement <4 x float> poison, float %420, i64 0
   %422 = shufflevector <4 x float> %421, <4 x float> poison, <4 x i32> zeroinitializer
-  %423 = load <16 x i8>, ptr %.18921149, align 1, !tbaa !89
+  %423 = load <16 x i8>, ptr %.18921149, align 1, !tbaa !88
   %424 = bitcast <4 x float> %422 to <16 x i8>
   %.lobit.i947 = ashr <16 x i8> %424, splat (i8 7)
   %425 = shufflevector <16 x i8> %424, <16 x i8> %.lobit.i947, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
@@ -18091,7 +18091,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %444 = add nuw nsw i32 %.09311147, 2
   %445 = or disjoint i32 %444, 1
   %446 = icmp slt i32 %445, %8
-  br i1 %446, label %.lr.ph1151, label %.preheader971, !llvm.loop !356
+  br i1 %446, label %.lr.ph1151, label %.preheader971, !llvm.loop !346
 
 .lr.ph1162:                                       ; preds = %.preheader971, %.lr.ph1162
   %.28931161 = phi ptr [ %480, %.lr.ph1162 ], [ %.1892.lcssa, %.preheader971 ]
@@ -18101,10 +18101,10 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %450 = phi <4 x i32> [ %478, %.lr.ph1162 ], [ %.lcssa993, %.preheader971 ]
   %.19301160 = phi ptr [ %479, %.lr.ph1162 ], [ %.0929.lcssa, %.preheader971 ]
   %.19321159 = phi i32 [ %481, %.lr.ph1162 ], [ %.0931.lcssa, %.preheader971 ]
-  %451 = load i16, ptr %.19301160, align 2, !tbaa !348
+  %451 = load i16, ptr %.19301160, align 2, !tbaa !338
   %452 = insertelement <8 x i16> poison, i16 %451, i64 0
   %453 = shufflevector <8 x i16> %452, <8 x i16> poison, <8 x i32> zeroinitializer
-  %454 = load i64, ptr %.28931161, align 1, !tbaa !89
+  %454 = load i64, ptr %.28931161, align 1, !tbaa !88
   %455 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %454, i64 0
   %456 = bitcast <8 x i16> %453 to <16 x i8>
   %.lobit.i949 = ashr <16 x i8> %456, splat (i8 7)
@@ -18135,7 +18135,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %480 = getelementptr inbounds nuw i8, ptr %.28931161, i64 8
   %481 = add nuw nsw i32 %.19321159, 1
   %exitcond1516.not = icmp eq i32 %481, %8
-  br i1 %exitcond1516.not, label %._crit_edge1163, label %.lr.ph1162, !llvm.loop !357
+  br i1 %exitcond1516.not, label %._crit_edge1163, label %.lr.ph1162, !llvm.loop !347
 
 ._crit_edge1163:                                  ; preds = %.lr.ph1162, %.preheader971
   %.lcssa997 = phi <4 x i32> [ %.lcssa993, %.preheader971 ], [ %478, %.lr.ph1162 ]
@@ -18143,18 +18143,18 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.lcssa995 = phi <4 x i32> [ %.lcssa991, %.preheader971 ], [ %474, %.lr.ph1162 ]
   %.lcssa994 = phi <4 x i32> [ %.lcssa990, %.preheader971 ], [ %472, %.lr.ph1162 ]
   %.2893.lcssa = phi ptr [ %.1892.lcssa, %.preheader971 ], [ %480, %.lr.ph1162 ]
-  store <4 x i32> %.lcssa994, ptr %.61171, align 16, !tbaa !89
+  store <4 x i32> %.lcssa994, ptr %.61171, align 16, !tbaa !88
   %482 = getelementptr inbounds nuw i8, ptr %.61171, i64 16
-  store <4 x i32> %.lcssa995, ptr %482, align 16, !tbaa !89
+  store <4 x i32> %.lcssa995, ptr %482, align 16, !tbaa !88
   %483 = getelementptr inbounds nuw i8, ptr %.61171, i64 32
-  store <4 x i32> %.lcssa996, ptr %483, align 16, !tbaa !89
+  store <4 x i32> %.lcssa996, ptr %483, align 16, !tbaa !88
   %484 = getelementptr inbounds nuw i8, ptr %.61171, i64 48
-  store <4 x i32> %.lcssa997, ptr %484, align 16, !tbaa !89
+  store <4 x i32> %.lcssa997, ptr %484, align 16, !tbaa !88
   %485 = getelementptr inbounds nuw i8, ptr %.61171, i64 64
   %486 = add nuw nsw i32 %.09031169, 8
   %487 = or disjoint i32 %486, 7
   %488 = icmp slt i32 %487, %6
-  br i1 %488, label %.lr.ph1172, label %.preheader974, !llvm.loop !358
+  br i1 %488, label %.lr.ph1172, label %.preheader974, !llvm.loop !348
 
 .preheader973:                                    ; preds = %._crit_edge1190, %.preheader974
   %.1904.lcssa = phi i32 [ %.0903.lcssa, %.preheader974 ], [ %552, %._crit_edge1190 ]
@@ -18171,9 +18171,9 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   br i1 %28, label %495, label %491
 
 491:                                              ; preds = %.lr.ph1197
-  %492 = load <4 x i32>, ptr %.71196, align 16, !tbaa !89
+  %492 = load <4 x i32>, ptr %.71196, align 16, !tbaa !88
   %493 = getelementptr inbounds nuw i8, ptr %.71196, i64 16
-  %494 = load <4 x i32>, ptr %493, align 16, !tbaa !89
+  %494 = load <4 x i32>, ptr %493, align 16, !tbaa !88
   br label %495
 
 495:                                              ; preds = %.lr.ph1197, %491
@@ -18196,10 +18196,10 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.09091176 = phi ptr [ %519, %.lr.ph1180 ], [ %.17481268, %495 ]
   %499 = phi <4 x i32> [ %518, %.lr.ph1180 ], [ %497, %495 ]
   %500 = phi <4 x i32> [ %515, %.lr.ph1180 ], [ %496, %495 ]
-  %501 = load float, ptr %.09091176, align 1, !tbaa !89
+  %501 = load float, ptr %.09091176, align 1, !tbaa !88
   %502 = insertelement <4 x float> poison, float %501, i64 0
   %503 = shufflevector <4 x float> %502, <4 x float> poison, <4 x i32> zeroinitializer
-  %504 = load i64, ptr %.48951178, align 1, !tbaa !89
+  %504 = load i64, ptr %.48951178, align 1, !tbaa !88
   %505 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %504, i64 0
   %506 = bitcast <4 x float> %503 to <16 x i8>
   %.lobit.i951 = ashr <16 x i8> %506, splat (i8 7)
@@ -18221,7 +18221,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %521 = add nuw nsw i32 %.09071177, 2
   %522 = or disjoint i32 %521, 1
   %523 = icmp slt i32 %522, %8
-  br i1 %523, label %.lr.ph1180, label %.preheader970, !llvm.loop !359
+  br i1 %523, label %.lr.ph1180, label %.preheader970, !llvm.loop !349
 
 .lr.ph1189:                                       ; preds = %.preheader970, %.lr.ph1189
   %.58961188 = phi ptr [ %548, %.lr.ph1189 ], [ %.4895.lcssa, %.preheader970 ]
@@ -18229,10 +18229,10 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.19101186 = phi ptr [ %547, %.lr.ph1189 ], [ %.0909.lcssa, %.preheader970 ]
   %524 = phi <4 x i32> [ %546, %.lr.ph1189 ], [ %.lcssa998, %.preheader970 ]
   %525 = phi <4 x i32> [ %544, %.lr.ph1189 ], [ %.lcssa999, %.preheader970 ]
-  %526 = load i16, ptr %.19101186, align 2, !tbaa !348
+  %526 = load i16, ptr %.19101186, align 2, !tbaa !338
   %527 = insertelement <8 x i16> poison, i16 %526, i64 0
   %528 = shufflevector <8 x i16> %527, <8 x i16> poison, <8 x i32> zeroinitializer
-  %529 = load float, ptr %.58961188, align 1, !tbaa !89
+  %529 = load float, ptr %.58961188, align 1, !tbaa !88
   %530 = insertelement <4 x float> poison, float %529, i64 0
   %531 = shufflevector <4 x float> %530, <4 x float> poison, <4 x i32> zeroinitializer
   %532 = bitcast <8 x i16> %528 to <16 x i8>
@@ -18256,20 +18256,20 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %548 = getelementptr inbounds nuw i8, ptr %.58961188, i64 4
   %549 = add nuw nsw i32 %.19081187, 1
   %exitcond1517.not = icmp eq i32 %549, %8
-  br i1 %exitcond1517.not, label %._crit_edge1190, label %.lr.ph1189, !llvm.loop !360
+  br i1 %exitcond1517.not, label %._crit_edge1190, label %.lr.ph1189, !llvm.loop !350
 
 ._crit_edge1190:                                  ; preds = %.lr.ph1189, %.preheader970
   %.lcssa1001 = phi <4 x i32> [ %.lcssa999, %.preheader970 ], [ %544, %.lr.ph1189 ]
   %.lcssa1000 = phi <4 x i32> [ %.lcssa998, %.preheader970 ], [ %546, %.lr.ph1189 ]
   %.5896.lcssa = phi ptr [ %.4895.lcssa, %.preheader970 ], [ %548, %.lr.ph1189 ]
-  store <4 x i32> %.lcssa1001, ptr %.71196, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1001, ptr %.71196, align 16, !tbaa !88
   %550 = getelementptr inbounds nuw i8, ptr %.71196, i64 16
-  store <4 x i32> %.lcssa1000, ptr %550, align 16, !tbaa !89
+  store <4 x i32> %.lcssa1000, ptr %550, align 16, !tbaa !88
   %551 = getelementptr inbounds nuw i8, ptr %.71196, i64 32
   %552 = add nuw nsw i32 %.19041194, 4
   %553 = or disjoint i32 %552, 3
   %554 = icmp slt i32 %553, %6
-  br i1 %554, label %.lr.ph1197, label %.preheader973, !llvm.loop !361
+  br i1 %554, label %.lr.ph1197, label %.preheader973, !llvm.loop !351
 
 .preheader972:                                    ; preds = %._crit_edge1225, %.preheader973
   %.2905.lcssa = phi i32 [ %.1904.lcssa, %.preheader973 ], [ %634, %._crit_edge1225 ]
@@ -18320,37 +18320,37 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.18641203 = phi i32 [ %589, %.lr.ph1209 ], [ %.0863, %564 ]
   %.18671202 = phi i32 [ %579, %.lr.ph1209 ], [ %.0866, %564 ]
   %.78981201 = phi ptr [ %605, %.lr.ph1209 ], [ %.68971232, %564 ]
-  %566 = load i8, ptr %.08551206, align 1, !tbaa !89
+  %566 = load i8, ptr %.08551206, align 1, !tbaa !88
   %567 = sext i8 %566 to i32
-  %568 = load i8, ptr %.78981201, align 1, !tbaa !89
+  %568 = load i8, ptr %.78981201, align 1, !tbaa !88
   %569 = sext i8 %568 to i32
   %570 = mul nsw i32 %569, %567
   %571 = add nsw i32 %570, %.18671202
   %572 = getelementptr inbounds nuw i8, ptr %.08551206, i64 1
-  %573 = load i8, ptr %572, align 1, !tbaa !89
+  %573 = load i8, ptr %572, align 1, !tbaa !88
   %574 = sext i8 %573 to i32
   %575 = getelementptr inbounds nuw i8, ptr %.78981201, i64 1
-  %576 = load i8, ptr %575, align 1, !tbaa !89
+  %576 = load i8, ptr %575, align 1, !tbaa !88
   %577 = sext i8 %576 to i32
   %578 = mul nsw i32 %577, %574
   %579 = add nsw i32 %571, %578
   %580 = getelementptr inbounds nuw i8, ptr %.78981201, i64 2
-  %581 = load i8, ptr %580, align 1, !tbaa !89
+  %581 = load i8, ptr %580, align 1, !tbaa !88
   %582 = sext i8 %581 to i32
   %583 = mul nsw i32 %582, %567
   %584 = add nsw i32 %583, %.18641203
   %585 = getelementptr inbounds nuw i8, ptr %.78981201, i64 3
-  %586 = load i8, ptr %585, align 1, !tbaa !89
+  %586 = load i8, ptr %585, align 1, !tbaa !88
   %587 = sext i8 %586 to i32
   %588 = mul nsw i32 %587, %574
   %589 = add nsw i32 %584, %588
   %590 = getelementptr inbounds nuw i8, ptr %.08551206, i64 2
-  %591 = load i8, ptr %590, align 1, !tbaa !89
+  %591 = load i8, ptr %590, align 1, !tbaa !88
   %592 = sext i8 %591 to i32
   %593 = mul nsw i32 %592, %569
   %594 = add nsw i32 %593, %.18611204
   %595 = getelementptr inbounds nuw i8, ptr %.08551206, i64 3
-  %596 = load i8, ptr %595, align 1, !tbaa !89
+  %596 = load i8, ptr %595, align 1, !tbaa !88
   %597 = sext i8 %596 to i32
   %598 = mul nsw i32 %597, %577
   %599 = add nsw i32 %594, %598
@@ -18363,7 +18363,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %606 = add nuw nsw i32 %.08531207, 2
   %607 = or disjoint i32 %606, 1
   %608 = icmp slt i32 %607, %8
-  br i1 %608, label %.lr.ph1209, label %.preheader969, !llvm.loop !362
+  br i1 %608, label %.lr.ph1209, label %.preheader969, !llvm.loop !352
 
 .lr.ph1224:                                       ; preds = %.preheader969, %.lr.ph1224
   %.18541223 = phi i32 [ %629, %.lr.ph1224 ], [ %.0853.lcssa, %.preheader969 ]
@@ -18373,19 +18373,19 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.28651219 = phi i32 [ %619, %.lr.ph1224 ], [ %.1864.lcssa, %.preheader969 ]
   %.28681218 = phi i32 [ %614, %.lr.ph1224 ], [ %.1867.lcssa, %.preheader969 ]
   %.88991217 = phi ptr [ %628, %.lr.ph1224 ], [ %.7898.lcssa, %.preheader969 ]
-  %609 = load i8, ptr %.18561222, align 1, !tbaa !89
+  %609 = load i8, ptr %.18561222, align 1, !tbaa !88
   %610 = sext i8 %609 to i32
-  %611 = load i8, ptr %.88991217, align 1, !tbaa !89
+  %611 = load i8, ptr %.88991217, align 1, !tbaa !88
   %612 = sext i8 %611 to i32
   %613 = mul nsw i32 %612, %610
   %614 = add nsw i32 %613, %.28681218
   %615 = getelementptr inbounds nuw i8, ptr %.88991217, i64 1
-  %616 = load i8, ptr %615, align 1, !tbaa !89
+  %616 = load i8, ptr %615, align 1, !tbaa !88
   %617 = sext i8 %616 to i32
   %618 = mul nsw i32 %617, %610
   %619 = add nsw i32 %618, %.28651219
   %620 = getelementptr inbounds nuw i8, ptr %.18561222, i64 1
-  %621 = load i8, ptr %620, align 1, !tbaa !89
+  %621 = load i8, ptr %620, align 1, !tbaa !88
   %622 = sext i8 %621 to i32
   %623 = mul nsw i32 %622, %612
   %624 = add nsw i32 %623, %.28621220
@@ -18395,7 +18395,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %628 = getelementptr inbounds nuw i8, ptr %.88991217, i64 2
   %629 = add nuw nsw i32 %.18541223, 1
   %exitcond1518.not = icmp eq i32 %629, %8
-  br i1 %exitcond1518.not, label %._crit_edge1225, label %.lr.ph1224, !llvm.loop !363
+  br i1 %exitcond1518.not, label %._crit_edge1225, label %.lr.ph1224, !llvm.loop !353
 
 ._crit_edge1225:                                  ; preds = %.lr.ph1224, %.preheader969
   %.8899.lcssa = phi ptr [ %.7898.lcssa, %.preheader969 ], [ %628, %.lr.ph1224 ]
@@ -18414,7 +18414,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %634 = add nuw nsw i32 %.29051231, 2
   %635 = or disjoint i32 %634, 1
   %636 = icmp slt i32 %635, %6
-  br i1 %636, label %.lr.ph1234, label %.preheader972, !llvm.loop !364
+  br i1 %636, label %.lr.ph1234, label %.preheader972, !llvm.loop !354
 
 .lr.ph1263:                                       ; preds = %.preheader972, %._crit_edge1256
   %.91262 = phi ptr [ %687, %._crit_edge1256 ], [ %.8.lcssa, %.preheader972 ]
@@ -18448,27 +18448,27 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.18481240 = phi i32 [ %666, %.lr.ph1244 ], [ %.0847, %641 ]
   %.18511239 = phi i32 [ %656, %.lr.ph1244 ], [ %.0850, %641 ]
   %.109011238 = phi ptr [ %668, %.lr.ph1244 ], [ %.99001261, %641 ]
-  %643 = load i8, ptr %.08451241, align 1, !tbaa !89
+  %643 = load i8, ptr %.08451241, align 1, !tbaa !88
   %644 = sext i8 %643 to i32
-  %645 = load i8, ptr %.109011238, align 1, !tbaa !89
+  %645 = load i8, ptr %.109011238, align 1, !tbaa !88
   %646 = sext i8 %645 to i32
   %647 = mul nsw i32 %646, %644
   %648 = add nsw i32 %647, %.18511239
   %649 = getelementptr inbounds nuw i8, ptr %.08451241, i64 1
-  %650 = load i8, ptr %649, align 1, !tbaa !89
+  %650 = load i8, ptr %649, align 1, !tbaa !88
   %651 = sext i8 %650 to i32
   %652 = getelementptr inbounds nuw i8, ptr %.109011238, i64 1
-  %653 = load i8, ptr %652, align 1, !tbaa !89
+  %653 = load i8, ptr %652, align 1, !tbaa !88
   %654 = sext i8 %653 to i32
   %655 = mul nsw i32 %654, %651
   %656 = add nsw i32 %648, %655
   %657 = getelementptr inbounds nuw i8, ptr %.08451241, i64 2
-  %658 = load i8, ptr %657, align 1, !tbaa !89
+  %658 = load i8, ptr %657, align 1, !tbaa !88
   %659 = sext i8 %658 to i32
   %660 = mul nsw i32 %659, %646
   %661 = add nsw i32 %660, %.18481240
   %662 = getelementptr inbounds nuw i8, ptr %.08451241, i64 3
-  %663 = load i8, ptr %662, align 1, !tbaa !89
+  %663 = load i8, ptr %662, align 1, !tbaa !88
   %664 = sext i8 %663 to i32
   %665 = mul nsw i32 %664, %654
   %666 = add nsw i32 %661, %665
@@ -18477,7 +18477,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %669 = add nuw nsw i32 %.08431242, 2
   %670 = or disjoint i32 %669, 1
   %671 = icmp slt i32 %670, %8
-  br i1 %671, label %.lr.ph1244, label %.preheader968, !llvm.loop !365
+  br i1 %671, label %.lr.ph1244, label %.preheader968, !llvm.loop !355
 
 .lr.ph1255:                                       ; preds = %.preheader968, %.lr.ph1255
   %.18441254 = phi i32 [ %685, %.lr.ph1255 ], [ %.0843.lcssa, %.preheader968 ]
@@ -18485,14 +18485,14 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.28491252 = phi i32 [ %682, %.lr.ph1255 ], [ %.1848.lcssa, %.preheader968 ]
   %.28521251 = phi i32 [ %677, %.lr.ph1255 ], [ %.1851.lcssa, %.preheader968 ]
   %.119021250 = phi ptr [ %684, %.lr.ph1255 ], [ %.10901.lcssa, %.preheader968 ]
-  %672 = load i8, ptr %.18461253, align 1, !tbaa !89
+  %672 = load i8, ptr %.18461253, align 1, !tbaa !88
   %673 = sext i8 %672 to i32
-  %674 = load i8, ptr %.119021250, align 1, !tbaa !89
+  %674 = load i8, ptr %.119021250, align 1, !tbaa !88
   %675 = sext i8 %674 to i32
   %676 = mul nsw i32 %675, %673
   %677 = add nsw i32 %676, %.28521251
   %678 = getelementptr inbounds nuw i8, ptr %.18461253, i64 1
-  %679 = load i8, ptr %678, align 1, !tbaa !89
+  %679 = load i8, ptr %678, align 1, !tbaa !88
   %680 = sext i8 %679 to i32
   %681 = mul nsw i32 %680, %675
   %682 = add nsw i32 %681, %.28491252
@@ -18500,7 +18500,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %684 = getelementptr inbounds nuw i8, ptr %.119021250, i64 1
   %685 = add nuw nsw i32 %.18441254, 1
   %exitcond1519.not = icmp eq i32 %685, %8
-  br i1 %exitcond1519.not, label %._crit_edge1256, label %.lr.ph1255, !llvm.loop !366
+  br i1 %exitcond1519.not, label %._crit_edge1256, label %.lr.ph1255, !llvm.loop !356
 
 ._crit_edge1256:                                  ; preds = %.lr.ph1255, %.preheader968
   %.11902.lcssa = phi ptr [ %.10901.lcssa, %.preheader968 ], [ %684, %.lr.ph1255 ]
@@ -18512,7 +18512,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %687 = getelementptr inbounds nuw i8, ptr %.91262, i64 8
   %688 = add nuw nsw i32 %.39061260, 1
   %exitcond1520.not = icmp eq i32 %688, %6
-  br i1 %exitcond1520.not, label %._crit_edge1264, label %.lr.ph1263, !llvm.loop !367
+  br i1 %exitcond1520.not, label %._crit_edge1264, label %.lr.ph1263, !llvm.loop !357
 
 ._crit_edge1264:                                  ; preds = %._crit_edge1256, %.preheader972
   %.9.lcssa = phi ptr [ %.8.lcssa, %.preheader972 ], [ %687, %._crit_edge1256 ]
@@ -18520,7 +18520,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %690 = add nuw nsw i32 %.17541266, 2
   %691 = or disjoint i32 %690, 1
   %692 = icmp slt i32 %691, %4
-  br i1 %692, label %.preheader975, label %.preheader967, !llvm.loop !368
+  br i1 %692, label %.preheader975, label %.preheader967, !llvm.loop !358
 
 .preheader966:                                    ; preds = %.preheader966.lr.ph, %._crit_edge1362
   %.27491371 = phi ptr [ %.1748.lcssa, %.preheader966.lr.ph ], [ %878, %._crit_edge1362 ]
@@ -18543,9 +18543,9 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   br i1 %391, label %699, label %695
 
 695:                                              ; preds = %.lr.ph1293
-  %696 = load <4 x i32>, ptr %.111292, align 1, !tbaa !89
+  %696 = load <4 x i32>, ptr %.111292, align 1, !tbaa !88
   %697 = getelementptr inbounds nuw i8, ptr %.111292, i64 16
-  %698 = load <4 x i32>, ptr %697, align 1, !tbaa !89
+  %698 = load <4 x i32>, ptr %697, align 1, !tbaa !88
   br label %699
 
 699:                                              ; preds = %.lr.ph1293, %695
@@ -18568,10 +18568,10 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %703 = phi <4 x i32> [ %719, %.lr.ph1276 ], [ %701, %699 ]
   %704 = phi <4 x i32> [ %716, %.lr.ph1276 ], [ %700, %699 ]
   %.18331272 = phi ptr [ %721, %.lr.ph1276 ], [ %.08321290, %699 ]
-  %705 = load i16, ptr %.08201273, align 2, !tbaa !348
+  %705 = load i16, ptr %.08201273, align 2, !tbaa !338
   %706 = insertelement <8 x i16> poison, i16 %705, i64 0
   %707 = shufflevector <8 x i16> %706, <8 x i16> poison, <8 x i32> zeroinitializer
-  %708 = load <16 x i8>, ptr %.18331272, align 1, !tbaa !89
+  %708 = load <16 x i8>, ptr %.18331272, align 1, !tbaa !88
   %709 = bitcast <8 x i16> %707 to <16 x i8>
   %.lobit.i955 = ashr <16 x i8> %709, splat (i8 7)
   %710 = shufflevector <16 x i8> %709, <16 x i8> %.lobit.i955, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
@@ -18590,7 +18590,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %722 = add nuw nsw i32 %.08181274, 2
   %723 = or disjoint i32 %722, 1
   %724 = icmp slt i32 %723, %8
-  br i1 %724, label %.lr.ph1276, label %.preheader962, !llvm.loop !369
+  br i1 %724, label %.lr.ph1276, label %.preheader962, !llvm.loop !359
 
 .lr.ph1285:                                       ; preds = %.preheader962, %.lr.ph1285
   %.18191284 = phi i32 [ %746, %.lr.ph1285 ], [ %.0818.lcssa, %.preheader962 ]
@@ -18598,11 +18598,11 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %725 = phi <4 x i32> [ %743, %.lr.ph1285 ], [ %.lcssa, %.preheader962 ]
   %726 = phi <4 x i32> [ %741, %.lr.ph1285 ], [ %.lcssa985, %.preheader962 ]
   %.28341282 = phi ptr [ %745, %.lr.ph1285 ], [ %.1833.lcssa, %.preheader962 ]
-  %727 = load i8, ptr %.18211283, align 1, !tbaa !89
+  %727 = load i8, ptr %.18211283, align 1, !tbaa !88
   %728 = sext i8 %727 to i16
   %729 = insertelement <8 x i16> poison, i16 %728, i64 0
   %730 = shufflevector <8 x i16> %729, <8 x i16> poison, <8 x i32> zeroinitializer
-  %731 = load i64, ptr %.28341282, align 1, !tbaa !89
+  %731 = load i64, ptr %.28341282, align 1, !tbaa !88
   %732 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %731, i64 0
   %733 = bitcast <2 x i64> %732 to <16 x i8>
   %.lobit.i957 = ashr <16 x i8> %733, splat (i8 7)
@@ -18620,20 +18620,20 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %745 = getelementptr inbounds nuw i8, ptr %.28341282, i64 8
   %746 = add nuw nsw i32 %.18191284, 1
   %exitcond1521.not = icmp eq i32 %746, %8
-  br i1 %exitcond1521.not, label %._crit_edge1286, label %.lr.ph1285, !llvm.loop !370
+  br i1 %exitcond1521.not, label %._crit_edge1286, label %.lr.ph1285, !llvm.loop !360
 
 ._crit_edge1286:                                  ; preds = %.lr.ph1285, %.preheader962
   %.2834.lcssa = phi ptr [ %.1833.lcssa, %.preheader962 ], [ %745, %.lr.ph1285 ]
   %.lcssa987 = phi <4 x i32> [ %.lcssa985, %.preheader962 ], [ %741, %.lr.ph1285 ]
   %.lcssa986 = phi <4 x i32> [ %.lcssa, %.preheader962 ], [ %743, %.lr.ph1285 ]
-  store <4 x i32> %.lcssa987, ptr %.111292, align 1, !tbaa !89
+  store <4 x i32> %.lcssa987, ptr %.111292, align 1, !tbaa !88
   %747 = getelementptr inbounds nuw i8, ptr %.111292, i64 16
-  store <4 x i32> %.lcssa986, ptr %747, align 1, !tbaa !89
+  store <4 x i32> %.lcssa986, ptr %747, align 1, !tbaa !88
   %748 = getelementptr inbounds nuw i8, ptr %.111292, i64 32
   %749 = add nuw nsw i32 %.08281291, 8
   %750 = or disjoint i32 %749, 7
   %751 = icmp slt i32 %750, %6
-  br i1 %751, label %.lr.ph1293, label %.preheader965, !llvm.loop !371
+  br i1 %751, label %.lr.ph1293, label %.preheader965, !llvm.loop !361
 
 .preheader964:                                    ; preds = %._crit_edge1310, %.preheader965
   %.3835.lcssa = phi ptr [ %.0832.lcssa, %.preheader965 ], [ %.5837.lcssa, %._crit_edge1310 ]
@@ -18650,7 +18650,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   br i1 %391, label %756, label %754
 
 754:                                              ; preds = %.lr.ph1316
-  %755 = load <4 x i32>, ptr %.121315, align 1, !tbaa !89
+  %755 = load <4 x i32>, ptr %.121315, align 1, !tbaa !88
   br label %756
 
 756:                                              ; preds = %.lr.ph1316, %754
@@ -18670,10 +18670,10 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.07821298 = phi ptr [ %775, %.lr.ph1301 ], [ %.27491371, %756 ]
   %759 = phi <4 x i32> [ %774, %.lr.ph1301 ], [ %757, %756 ]
   %.48361297 = phi ptr [ %776, %.lr.ph1301 ], [ %.38351313, %756 ]
-  %760 = load float, ptr %.07821298, align 1, !tbaa !89
+  %760 = load float, ptr %.07821298, align 1, !tbaa !88
   %761 = insertelement <4 x float> poison, float %760, i64 0
   %762 = shufflevector <4 x float> %761, <4 x float> poison, <4 x i32> zeroinitializer
-  %763 = load i64, ptr %.48361297, align 1, !tbaa !89
+  %763 = load i64, ptr %.48361297, align 1, !tbaa !88
   %764 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %763, i64 0
   %765 = bitcast <4 x float> %762 to <16 x i8>
   %.lobit.i958 = ashr <16 x i8> %765, splat (i8 7)
@@ -18692,18 +18692,18 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %777 = add nuw nsw i32 %.07801299, 2
   %778 = or disjoint i32 %777, 1
   %779 = icmp slt i32 %778, %8
-  br i1 %779, label %.lr.ph1301, label %.preheader961, !llvm.loop !372
+  br i1 %779, label %.lr.ph1301, label %.preheader961, !llvm.loop !362
 
 .lr.ph1309:                                       ; preds = %.preheader961, %.lr.ph1309
   %.17811308 = phi i32 [ %797, %.lr.ph1309 ], [ %.0780.lcssa, %.preheader961 ]
   %.17831307 = phi ptr [ %795, %.lr.ph1309 ], [ %.0782.lcssa, %.preheader961 ]
   %780 = phi <4 x i32> [ %794, %.lr.ph1309 ], [ %.lcssa988, %.preheader961 ]
   %.58371306 = phi ptr [ %796, %.lr.ph1309 ], [ %.4836.lcssa, %.preheader961 ]
-  %781 = load i8, ptr %.17831307, align 1, !tbaa !89
+  %781 = load i8, ptr %.17831307, align 1, !tbaa !88
   %782 = sext i8 %781 to i16
   %783 = insertelement <8 x i16> poison, i16 %782, i64 0
   %784 = shufflevector <8 x i16> %783, <8 x i16> poison, <8 x i32> zeroinitializer
-  %785 = load i64, ptr %.58371306, align 1, !tbaa !89
+  %785 = load i64, ptr %.58371306, align 1, !tbaa !88
   %786 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %785, i64 0
   %787 = bitcast <2 x i64> %786 to <16 x i8>
   %.lobit.i960 = ashr <16 x i8> %787, splat (i8 7)
@@ -18718,17 +18718,17 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %796 = getelementptr inbounds nuw i8, ptr %.58371306, i64 4
   %797 = add nuw nsw i32 %.17811308, 1
   %exitcond1522.not = icmp eq i32 %797, %8
-  br i1 %exitcond1522.not, label %._crit_edge1310, label %.lr.ph1309, !llvm.loop !373
+  br i1 %exitcond1522.not, label %._crit_edge1310, label %.lr.ph1309, !llvm.loop !363
 
 ._crit_edge1310:                                  ; preds = %.lr.ph1309, %.preheader961
   %.5837.lcssa = phi ptr [ %.4836.lcssa, %.preheader961 ], [ %796, %.lr.ph1309 ]
   %.lcssa989 = phi <4 x i32> [ %.lcssa988, %.preheader961 ], [ %794, %.lr.ph1309 ]
-  store <4 x i32> %.lcssa989, ptr %.121315, align 1, !tbaa !89
+  store <4 x i32> %.lcssa989, ptr %.121315, align 1, !tbaa !88
   %798 = getelementptr inbounds nuw i8, ptr %.121315, i64 16
   %799 = add nuw nsw i32 %.18291314, 4
   %800 = or disjoint i32 %799, 3
   %801 = icmp slt i32 %800, %6
-  br i1 %801, label %.lr.ph1316, label %.preheader964, !llvm.loop !374
+  br i1 %801, label %.lr.ph1316, label %.preheader964, !llvm.loop !364
 
 .preheader963:                                    ; preds = %._crit_edge1338, %.preheader964
   %.6838.lcssa = phi ptr [ %.3835.lcssa, %.preheader964 ], [ %.8840.lcssa, %._crit_edge1338 ]
@@ -18759,9 +18759,9 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.07361351.us = phi ptr [ %811, %.lr.ph1354.us ], [ %.27491371, %.lr.ph1354.us.preheader ]
   %.11350.us = phi i32 [ %810, %.lr.ph1354.us ], [ %.11350.us.ph, %.lr.ph1354.us.preheader ]
   %.108421349.us = phi ptr [ %812, %.lr.ph1354.us ], [ %.98411358.us, %.lr.ph1354.us.preheader ]
-  %805 = load i8, ptr %.07361351.us, align 1, !tbaa !89
+  %805 = load i8, ptr %.07361351.us, align 1, !tbaa !88
   %806 = sext i8 %805 to i32
-  %807 = load i8, ptr %.108421349.us, align 1, !tbaa !89
+  %807 = load i8, ptr %.108421349.us, align 1, !tbaa !88
   %808 = sext i8 %807 to i32
   %809 = mul nsw i32 %808, %806
   %810 = add nsw i32 %809, %.11350.us
@@ -18769,7 +18769,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %812 = getelementptr inbounds nuw i8, ptr %.108421349.us, i64 1
   %813 = add nuw nsw i32 %.01352.us, 1
   %exitcond1528.not = icmp eq i32 %813, %8
-  br i1 %exitcond1528.not, label %._crit_edge1355.us, label %.lr.ph1354.us, !llvm.loop !375
+  br i1 %exitcond1528.not, label %._crit_edge1355.us, label %.lr.ph1354.us, !llvm.loop !365
 
 ._crit_edge1355.us:                               ; preds = %.lr.ph1354.us
   %814 = getelementptr i8, ptr %.98411358.us, i64 %399
@@ -18778,7 +18778,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %815 = getelementptr inbounds nuw i8, ptr %.141360.us, i64 4
   %816 = add nuw nsw i32 %.38311359.us, 1
   %exitcond1529.not = icmp eq i32 %816, %6
-  br i1 %exitcond1529.not, label %._crit_edge1362, label %.lr.ph1361.split.us, !llvm.loop !376
+  br i1 %exitcond1529.not, label %._crit_edge1362, label %.lr.ph1361.split.us, !llvm.loop !366
 
 .lr.ph1361.split:                                 ; preds = %.lr.ph1361
   br i1 %391, label %.lr.ph1361.split.split.us.preheader, label %.lr.ph1361.split.split.preheader
@@ -18833,27 +18833,27 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.17431322 = phi i32 [ %853, %.lr.ph1326 ], [ %.0742, %828 ]
   %.17451321 = phi i32 [ %843, %.lr.ph1326 ], [ %.0744, %828 ]
   %.78391320 = phi ptr [ %855, %.lr.ph1326 ], [ %.68381342, %828 ]
-  %830 = load i8, ptr %.07401323, align 1, !tbaa !89
+  %830 = load i8, ptr %.07401323, align 1, !tbaa !88
   %831 = sext i8 %830 to i32
-  %832 = load i8, ptr %.78391320, align 1, !tbaa !89
+  %832 = load i8, ptr %.78391320, align 1, !tbaa !88
   %833 = sext i8 %832 to i32
   %834 = mul nsw i32 %833, %831
   %835 = add nsw i32 %834, %.17451321
   %836 = getelementptr inbounds nuw i8, ptr %.07401323, i64 1
-  %837 = load i8, ptr %836, align 1, !tbaa !89
+  %837 = load i8, ptr %836, align 1, !tbaa !88
   %838 = sext i8 %837 to i32
   %839 = getelementptr inbounds nuw i8, ptr %.78391320, i64 1
-  %840 = load i8, ptr %839, align 1, !tbaa !89
+  %840 = load i8, ptr %839, align 1, !tbaa !88
   %841 = sext i8 %840 to i32
   %842 = mul nsw i32 %841, %838
   %843 = add nsw i32 %835, %842
   %844 = getelementptr inbounds nuw i8, ptr %.78391320, i64 2
-  %845 = load i8, ptr %844, align 1, !tbaa !89
+  %845 = load i8, ptr %844, align 1, !tbaa !88
   %846 = sext i8 %845 to i32
   %847 = mul nsw i32 %846, %831
   %848 = add nsw i32 %847, %.17431322
   %849 = getelementptr inbounds nuw i8, ptr %.78391320, i64 3
-  %850 = load i8, ptr %849, align 1, !tbaa !89
+  %850 = load i8, ptr %849, align 1, !tbaa !88
   %851 = sext i8 %850 to i32
   %852 = mul nsw i32 %851, %838
   %853 = add nsw i32 %848, %852
@@ -18862,7 +18862,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %856 = add nuw nsw i32 %.07381324, 2
   %857 = or disjoint i32 %856, 1
   %858 = icmp slt i32 %857, %8
-  br i1 %858, label %.lr.ph1326, label %.preheader, !llvm.loop !377
+  br i1 %858, label %.lr.ph1326, label %.preheader, !llvm.loop !367
 
 .lr.ph1337:                                       ; preds = %.preheader, %.lr.ph1337
   %.17391336 = phi i32 [ %872, %.lr.ph1337 ], [ %.0738.lcssa, %.preheader ]
@@ -18870,14 +18870,14 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %.21334 = phi i32 [ %869, %.lr.ph1337 ], [ %.1743.lcssa, %.preheader ]
   %.27461333 = phi i32 [ %864, %.lr.ph1337 ], [ %.1745.lcssa, %.preheader ]
   %.88401332 = phi ptr [ %871, %.lr.ph1337 ], [ %.7839.lcssa, %.preheader ]
-  %859 = load i8, ptr %.17411335, align 1, !tbaa !89
+  %859 = load i8, ptr %.17411335, align 1, !tbaa !88
   %860 = sext i8 %859 to i32
-  %861 = load i8, ptr %.88401332, align 1, !tbaa !89
+  %861 = load i8, ptr %.88401332, align 1, !tbaa !88
   %862 = sext i8 %861 to i32
   %863 = mul nsw i32 %862, %860
   %864 = add nsw i32 %863, %.27461333
   %865 = getelementptr inbounds nuw i8, ptr %.88401332, i64 1
-  %866 = load i8, ptr %865, align 1, !tbaa !89
+  %866 = load i8, ptr %865, align 1, !tbaa !88
   %867 = sext i8 %866 to i32
   %868 = mul nsw i32 %867, %860
   %869 = add nsw i32 %868, %.21334
@@ -18885,7 +18885,7 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %871 = getelementptr inbounds nuw i8, ptr %.88401332, i64 2
   %872 = add nuw nsw i32 %.17391336, 1
   %exitcond1523.not = icmp eq i32 %872, %8
-  br i1 %exitcond1523.not, label %._crit_edge1338, label %.lr.ph1337, !llvm.loop !378
+  br i1 %exitcond1523.not, label %._crit_edge1338, label %.lr.ph1337, !llvm.loop !368
 
 ._crit_edge1338:                                  ; preds = %.lr.ph1337, %.preheader
   %.8840.lcssa = phi ptr [ %.7839.lcssa, %.preheader ], [ %871, %.lr.ph1337 ]
@@ -18898,14 +18898,14 @@ define internal fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES
   %875 = add nuw nsw i32 %.28301343, 2
   %876 = or disjoint i32 %875, 1
   %877 = icmp slt i32 %876, %6
-  br i1 %877, label %.lr.ph1345, label %.preheader963, !llvm.loop !379
+  br i1 %877, label %.lr.ph1345, label %.preheader963, !llvm.loop !369
 
 ._crit_edge1362:                                  ; preds = %._crit_edge1355.us, %.lr.ph1361.split.split.preheader, %.lr.ph1361.split.split.us.preheader, %.preheader963
   %.14.lcssa = phi ptr [ %.13.lcssa, %.preheader963 ], [ %scevgep1526, %.lr.ph1361.split.split.us.preheader ], [ %scevgep1524, %.lr.ph1361.split.split.preheader ], [ %815, %._crit_edge1355.us ]
   %878 = getelementptr inbounds i8, ptr %.27491371, i64 %394
   %879 = add nuw nsw i32 %.27551369, 1
   %exitcond1530.not = icmp eq i32 %879, %4
-  br i1 %exitcond1530.not, label %.loopexit, label %.preheader966, !llvm.loop !380
+  br i1 %exitcond1530.not, label %.loopexit, label %.preheader966, !llvm.loop !370
 
 .loopexit:                                        ; preds = %._crit_edge1362, %.preheader967, %11
   ret void
@@ -19064,7 +19064,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %128 = load ptr, ptr %7, align 8, !tbaa !16
   %129 = getelementptr inbounds float, ptr %128, i64 %40
   %130 = getelementptr inbounds nuw float, ptr %129, i64 %indvars.iv.i
-  %131 = load <4 x float>, ptr %130, align 16, !tbaa !89
+  %131 = load <4 x float>, ptr %130, align 16, !tbaa !88
   %.not1204.i = icmp eq ptr %.01083921.i, null
   br i1 %.not1204.i, label %.thread678.i, label %132
 
@@ -19085,7 +19085,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %139 = load ptr, ptr %0, align 8, !tbaa !16
   %140 = getelementptr inbounds float, ptr %139, i64 %40
   %141 = getelementptr inbounds nuw float, ptr %140, i64 %indvars.iv.i
-  %142 = load <4 x float>, ptr %141, align 1, !tbaa !89
+  %142 = load <4 x float>, ptr %141, align 1, !tbaa !88
   %143 = fmul fast <4 x float> %142, %47
   br label %.thread678.i
 
@@ -19129,28 +19129,28 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.11144882.i = phi ptr [ %.21145.i, %431 ], [ %.01143.i, %.thread678.i ]
   %.01156881.i = phi i32 [ %433, %431 ], [ 0, %.thread678.i ]
   %.3489880.i = phi <4 x float> [ %.7493.i, %431 ], [ %.2488.i, %.thread678.i ]
-  %156 = load <4 x i32>, ptr %.11093883.i, align 16, !tbaa !89
+  %156 = load <4 x i32>, ptr %.11093883.i, align 16, !tbaa !88
   %157 = sitofp <4 x i32> %156 to <4 x float>
   %158 = getelementptr inbounds nuw i8, ptr %.11093883.i, i64 16
-  %159 = load <4 x i32>, ptr %158, align 16, !tbaa !89
+  %159 = load <4 x i32>, ptr %158, align 16, !tbaa !88
   %160 = sitofp <4 x i32> %159 to <4 x float>
   %161 = getelementptr inbounds nuw i8, ptr %.11093883.i, i64 32
-  %162 = load <4 x i32>, ptr %161, align 16, !tbaa !89
+  %162 = load <4 x i32>, ptr %161, align 16, !tbaa !88
   %163 = sitofp <4 x i32> %162 to <4 x float>
   %164 = getelementptr inbounds nuw i8, ptr %.11093883.i, i64 48
-  %165 = load <4 x i32>, ptr %164, align 16, !tbaa !89
+  %165 = load <4 x i32>, ptr %164, align 16, !tbaa !88
   %166 = sitofp <4 x i32> %165 to <4 x float>
   %167 = getelementptr inbounds nuw i8, ptr %.11093883.i, i64 64
-  %168 = load <4 x i32>, ptr %167, align 16, !tbaa !89
+  %168 = load <4 x i32>, ptr %167, align 16, !tbaa !88
   %169 = sitofp <4 x i32> %168 to <4 x float>
   %170 = getelementptr inbounds nuw i8, ptr %.11093883.i, i64 80
-  %171 = load <4 x i32>, ptr %170, align 16, !tbaa !89
+  %171 = load <4 x i32>, ptr %170, align 16, !tbaa !88
   %172 = sitofp <4 x i32> %171 to <4 x float>
   %173 = getelementptr inbounds nuw i8, ptr %.11093883.i, i64 96
-  %174 = load <4 x i32>, ptr %173, align 16, !tbaa !89
+  %174 = load <4 x i32>, ptr %173, align 16, !tbaa !88
   %175 = sitofp <4 x i32> %174 to <4 x float>
   %176 = getelementptr inbounds nuw i8, ptr %.11093883.i, i64 112
-  %177 = load <4 x i32>, ptr %176, align 16, !tbaa !89
+  %177 = load <4 x i32>, ptr %176, align 16, !tbaa !88
   %178 = sitofp <4 x i32> %177 to <4 x float>
   %179 = shufflevector <4 x float> %157, <4 x float> %175, <4 x i32> <i32 0, i32 7, i32 1, i32 4>
   %180 = shufflevector <4 x float> %157, <4 x float> %175, <4 x i32> <i32 2, i32 5, i32 3, i32 6>
@@ -19218,25 +19218,25 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   ]
 
 227:                                              ; preds = %226
-  %228 = load <4 x float>, ptr %.4884.i, align 1, !tbaa !89
+  %228 = load <4 x float>, ptr %.4884.i, align 1, !tbaa !88
   br i1 %49, label %229, label %236
 
 229:                                              ; preds = %227
   %230 = getelementptr inbounds nuw i8, ptr %.4884.i, i64 16
-  %231 = load <4 x float>, ptr %230, align 1, !tbaa !89
+  %231 = load <4 x float>, ptr %230, align 1, !tbaa !88
   %232 = getelementptr inbounds nuw i8, ptr %.4884.i, i64 32
-  %233 = load <4 x float>, ptr %232, align 1, !tbaa !89
+  %233 = load <4 x float>, ptr %232, align 1, !tbaa !88
   %234 = getelementptr inbounds nuw i8, ptr %.4884.i, i64 48
-  %235 = load <4 x float>, ptr %234, align 1, !tbaa !89
+  %235 = load <4 x float>, ptr %234, align 1, !tbaa !88
   br label %251
 
 236:                                              ; preds = %227
   %237 = getelementptr inbounds float, ptr %.4884.i, i64 %50
-  %238 = load <4 x float>, ptr %237, align 1, !tbaa !89
+  %238 = load <4 x float>, ptr %237, align 1, !tbaa !88
   %239 = getelementptr inbounds float, ptr %.4884.i, i64 %52
-  %240 = load <4 x float>, ptr %239, align 1, !tbaa !89
+  %240 = load <4 x float>, ptr %239, align 1, !tbaa !88
   %241 = getelementptr inbounds float, ptr %.4884.i, i64 %54
-  %242 = load <4 x float>, ptr %241, align 1, !tbaa !89
+  %242 = load <4 x float>, ptr %241, align 1, !tbaa !88
   %243 = shufflevector <4 x float> %228, <4 x float> %238, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %244 = shufflevector <4 x float> %240, <4 x float> %242, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %245 = shufflevector <4 x float> %228, <4 x float> %238, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -19274,27 +19274,27 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
 
 258:                                              ; preds = %257
   %259 = getelementptr inbounds nuw i8, ptr %.4884.i, i64 64
-  %260 = load <4 x float>, ptr %259, align 1, !tbaa !89
+  %260 = load <4 x float>, ptr %259, align 1, !tbaa !88
   %261 = getelementptr inbounds nuw i8, ptr %.4884.i, i64 80
-  %262 = load <4 x float>, ptr %261, align 1, !tbaa !89
+  %262 = load <4 x float>, ptr %261, align 1, !tbaa !88
   %263 = getelementptr inbounds nuw i8, ptr %.4884.i, i64 96
-  %264 = load <4 x float>, ptr %263, align 1, !tbaa !89
+  %264 = load <4 x float>, ptr %263, align 1, !tbaa !88
   %265 = getelementptr inbounds nuw i8, ptr %.4884.i, i64 112
-  %266 = load <4 x float>, ptr %265, align 1, !tbaa !89
+  %266 = load <4 x float>, ptr %265, align 1, !tbaa !88
   br label %287
 
 267:                                              ; preds = %257
   %268 = getelementptr inbounds nuw i8, ptr %.4884.i, i64 16
-  %269 = load <4 x float>, ptr %268, align 1, !tbaa !89
+  %269 = load <4 x float>, ptr %268, align 1, !tbaa !88
   %270 = getelementptr inbounds float, ptr %.4884.i, i64 %50
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 16
-  %272 = load <4 x float>, ptr %271, align 1, !tbaa !89
+  %272 = load <4 x float>, ptr %271, align 1, !tbaa !88
   %273 = getelementptr inbounds float, ptr %.4884.i, i64 %52
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 16
-  %275 = load <4 x float>, ptr %274, align 1, !tbaa !89
+  %275 = load <4 x float>, ptr %274, align 1, !tbaa !88
   %276 = getelementptr inbounds float, ptr %.4884.i, i64 %54
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 16
-  %278 = load <4 x float>, ptr %277, align 1, !tbaa !89
+  %278 = load <4 x float>, ptr %277, align 1, !tbaa !88
   %279 = shufflevector <4 x float> %269, <4 x float> %272, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %280 = shufflevector <4 x float> %275, <4 x float> %278, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %281 = shufflevector <4 x float> %269, <4 x float> %272, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -19441,39 +19441,39 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %377 = shufflevector <4 x float> %373, <4 x float> %372, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %378 = shufflevector <4 x float> %374, <4 x float> %375, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %379 = shufflevector <4 x float> %375, <4 x float> %374, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %368, ptr %.11144882.i, align 16, !tbaa !89
+  store <4 x float> %368, ptr %.11144882.i, align 16, !tbaa !88
   %380 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 16
-  store <4 x float> %369, ptr %380, align 16, !tbaa !89
+  store <4 x float> %369, ptr %380, align 16, !tbaa !88
   %381 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 32
-  store <4 x float> %370, ptr %381, align 16, !tbaa !89
+  store <4 x float> %370, ptr %381, align 16, !tbaa !88
   %382 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 48
-  store <4 x float> %371, ptr %382, align 16, !tbaa !89
+  store <4 x float> %371, ptr %382, align 16, !tbaa !88
   %383 = getelementptr inbounds float, ptr %.11144882.i, i64 %65
-  store <4 x float> %376, ptr %383, align 16, !tbaa !89
+  store <4 x float> %376, ptr %383, align 16, !tbaa !88
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 16
-  store <4 x float> %377, ptr %384, align 16, !tbaa !89
+  store <4 x float> %377, ptr %384, align 16, !tbaa !88
   %385 = getelementptr inbounds nuw i8, ptr %383, i64 32
-  store <4 x float> %378, ptr %385, align 16, !tbaa !89
+  store <4 x float> %378, ptr %385, align 16, !tbaa !88
   %386 = getelementptr inbounds nuw i8, ptr %383, i64 48
-  store <4 x float> %379, ptr %386, align 16, !tbaa !89
+  store <4 x float> %379, ptr %386, align 16, !tbaa !88
   br label %395
 
 387:                                              ; preds = %362
-  store <4 x float> %.5511.i, ptr %.11144882.i, align 1, !tbaa !89
+  store <4 x float> %.5511.i, ptr %.11144882.i, align 1, !tbaa !88
   %388 = getelementptr inbounds float, ptr %.11144882.i, i64 %59
-  store <4 x float> %.5519.i, ptr %388, align 1, !tbaa !89
+  store <4 x float> %.5519.i, ptr %388, align 1, !tbaa !88
   %389 = getelementptr inbounds float, ptr %.11144882.i, i64 %61
-  store <4 x float> %.5525.i, ptr %389, align 1, !tbaa !89
+  store <4 x float> %.5525.i, ptr %389, align 1, !tbaa !88
   %390 = getelementptr inbounds float, ptr %.11144882.i, i64 %63
-  store <4 x float> %.5531.i, ptr %390, align 1, !tbaa !89
+  store <4 x float> %.5531.i, ptr %390, align 1, !tbaa !88
   %391 = getelementptr inbounds float, ptr %.11144882.i, i64 %65
-  store <4 x float> %.5537.i, ptr %391, align 1, !tbaa !89
+  store <4 x float> %.5537.i, ptr %391, align 1, !tbaa !88
   %392 = getelementptr inbounds float, ptr %.11144882.i, i64 %67
-  store <4 x float> %.5543.i, ptr %392, align 1, !tbaa !89
+  store <4 x float> %.5543.i, ptr %392, align 1, !tbaa !88
   %393 = getelementptr inbounds float, ptr %.11144882.i, i64 %69
-  store <4 x float> %.5562.i, ptr %393, align 1, !tbaa !89
+  store <4 x float> %.5562.i, ptr %393, align 1, !tbaa !88
   %394 = getelementptr inbounds float, ptr %.11144882.i, i64 %71
-  store <4 x float> %.5568.i, ptr %394, align 1, !tbaa !89
+  store <4 x float> %.5568.i, ptr %394, align 1, !tbaa !88
   br label %395
 
 395:                                              ; preds = %387, %363, %362
@@ -19487,21 +19487,21 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   ]
 
 .thread713.i:                                     ; preds = %397
-  store <4 x float> %.5511.i, ptr %.11144882.i, align 16, !tbaa !89
+  store <4 x float> %.5511.i, ptr %.11144882.i, align 16, !tbaa !88
   %398 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 16
-  store <4 x float> %.5519.i, ptr %398, align 16, !tbaa !89
+  store <4 x float> %.5519.i, ptr %398, align 16, !tbaa !88
   %399 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 32
-  store <4 x float> %.5525.i, ptr %399, align 16, !tbaa !89
+  store <4 x float> %.5525.i, ptr %399, align 16, !tbaa !88
   %400 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 48
-  store <4 x float> %.5531.i, ptr %400, align 16, !tbaa !89
+  store <4 x float> %.5531.i, ptr %400, align 16, !tbaa !88
   %401 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 64
-  store <4 x float> %.5537.i, ptr %401, align 16, !tbaa !89
+  store <4 x float> %.5537.i, ptr %401, align 16, !tbaa !88
   %402 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 80
-  store <4 x float> %.5543.i, ptr %402, align 16, !tbaa !89
+  store <4 x float> %.5543.i, ptr %402, align 16, !tbaa !88
   %403 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 96
-  store <4 x float> %.5562.i, ptr %403, align 16, !tbaa !89
+  store <4 x float> %.5562.i, ptr %403, align 16, !tbaa !88
   %404 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 112
-  store <4 x float> %.5568.i, ptr %404, align 16, !tbaa !89
+  store <4 x float> %.5568.i, ptr %404, align 16, !tbaa !88
   %405 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 128
   br label %431
 
@@ -19522,21 +19522,21 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %420 = shufflevector <4 x float> %416, <4 x float> %415, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %421 = shufflevector <4 x float> %417, <4 x float> %418, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %422 = shufflevector <4 x float> %418, <4 x float> %417, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %411, ptr %.11144882.i, align 1, !tbaa !89
+  store <4 x float> %411, ptr %.11144882.i, align 1, !tbaa !88
   %423 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 16
-  store <4 x float> %419, ptr %423, align 1, !tbaa !89
+  store <4 x float> %419, ptr %423, align 1, !tbaa !88
   %424 = getelementptr inbounds float, ptr %.11144882.i, i64 %59
-  store <4 x float> %412, ptr %424, align 1, !tbaa !89
+  store <4 x float> %412, ptr %424, align 1, !tbaa !88
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 16
-  store <4 x float> %420, ptr %425, align 1, !tbaa !89
+  store <4 x float> %420, ptr %425, align 1, !tbaa !88
   %426 = getelementptr inbounds float, ptr %.11144882.i, i64 %61
-  store <4 x float> %413, ptr %426, align 1, !tbaa !89
+  store <4 x float> %413, ptr %426, align 1, !tbaa !88
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 16
-  store <4 x float> %421, ptr %427, align 1, !tbaa !89
+  store <4 x float> %421, ptr %427, align 1, !tbaa !88
   %428 = getelementptr inbounds float, ptr %.11144882.i, i64 %63
-  store <4 x float> %414, ptr %428, align 1, !tbaa !89
+  store <4 x float> %414, ptr %428, align 1, !tbaa !88
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 16
-  store <4 x float> %422, ptr %429, align 1, !tbaa !89
+  store <4 x float> %422, ptr %429, align 1, !tbaa !88
   %430 = getelementptr inbounds nuw i8, ptr %.11144882.i, i64 32
   br label %431
 
@@ -19546,7 +19546,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %433 = add nuw nsw i32 %.01156881.i, 8
   %434 = or disjoint i32 %433, 7
   %435 = icmp slt i32 %434, %6
-  br i1 %435, label %.lr.ph.i, label %.preheader879.i, !llvm.loop !381
+  br i1 %435, label %.lr.ph.i, label %.preheader879.i, !llvm.loop !371
 
 .preheader878.i:                                  ; preds = %583, %.preheader879.i
   %.8494.lcssa.i = phi <4 x float> [ %.3489.lcssa.i, %.preheader879.i ], [ %.11497.i, %583 ]
@@ -19564,16 +19564,16 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.41147891.i = phi ptr [ %.51148.i, %583 ], [ %.11144.lcssa.i, %.preheader879.i ]
   %.11157890.i = phi i32 [ %585, %583 ], [ %.01156.lcssa.i, %.preheader879.i ]
   %.8494889.i = phi <4 x float> [ %.11497.i, %583 ], [ %.3489.lcssa.i, %.preheader879.i ]
-  %438 = load <4 x i32>, ptr %.21094892.i, align 16, !tbaa !89
+  %438 = load <4 x i32>, ptr %.21094892.i, align 16, !tbaa !88
   %439 = sitofp <4 x i32> %438 to <4 x float>
   %440 = getelementptr inbounds nuw i8, ptr %.21094892.i, i64 16
-  %441 = load <4 x i32>, ptr %440, align 16, !tbaa !89
+  %441 = load <4 x i32>, ptr %440, align 16, !tbaa !88
   %442 = sitofp <4 x i32> %441 to <4 x float>
   %443 = getelementptr inbounds nuw i8, ptr %.21094892.i, i64 32
-  %444 = load <4 x i32>, ptr %443, align 16, !tbaa !89
+  %444 = load <4 x i32>, ptr %443, align 16, !tbaa !88
   %445 = sitofp <4 x i32> %444 to <4 x float>
   %446 = getelementptr inbounds nuw i8, ptr %.21094892.i, i64 48
-  %447 = load <4 x i32>, ptr %446, align 16, !tbaa !89
+  %447 = load <4 x i32>, ptr %446, align 16, !tbaa !88
   %448 = sitofp <4 x i32> %447 to <4 x float>
   %449 = shufflevector <4 x float> %439, <4 x float> %448, <4 x i32> <i32 0, i32 7, i32 1, i32 4>
   %450 = shufflevector <4 x float> %439, <4 x float> %448, <4 x i32> <i32 2, i32 5, i32 3, i32 6>
@@ -19619,25 +19619,25 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   ]
 
 475:                                              ; preds = %474
-  %476 = load <4 x float>, ptr %.8893.i, align 1, !tbaa !89
+  %476 = load <4 x float>, ptr %.8893.i, align 1, !tbaa !88
   br i1 %49, label %477, label %484
 
 477:                                              ; preds = %475
   %478 = getelementptr inbounds nuw i8, ptr %.8893.i, i64 16
-  %479 = load <4 x float>, ptr %478, align 1, !tbaa !89
+  %479 = load <4 x float>, ptr %478, align 1, !tbaa !88
   %480 = getelementptr inbounds nuw i8, ptr %.8893.i, i64 32
-  %481 = load <4 x float>, ptr %480, align 1, !tbaa !89
+  %481 = load <4 x float>, ptr %480, align 1, !tbaa !88
   %482 = getelementptr inbounds nuw i8, ptr %.8893.i, i64 48
-  %483 = load <4 x float>, ptr %482, align 1, !tbaa !89
+  %483 = load <4 x float>, ptr %482, align 1, !tbaa !88
   br label %499
 
 484:                                              ; preds = %475
   %485 = getelementptr inbounds float, ptr %.8893.i, i64 %50
-  %486 = load <4 x float>, ptr %485, align 1, !tbaa !89
+  %486 = load <4 x float>, ptr %485, align 1, !tbaa !88
   %487 = getelementptr inbounds float, ptr %.8893.i, i64 %52
-  %488 = load <4 x float>, ptr %487, align 1, !tbaa !89
+  %488 = load <4 x float>, ptr %487, align 1, !tbaa !88
   %489 = getelementptr inbounds float, ptr %.8893.i, i64 %54
-  %490 = load <4 x float>, ptr %489, align 1, !tbaa !89
+  %490 = load <4 x float>, ptr %489, align 1, !tbaa !88
   %491 = shufflevector <4 x float> %476, <4 x float> %486, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %492 = shufflevector <4 x float> %488, <4 x float> %490, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %493 = shufflevector <4 x float> %476, <4 x float> %486, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -19740,23 +19740,23 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %553 = shufflevector <4 x float> %549, <4 x float> %548, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %554 = shufflevector <4 x float> %550, <4 x float> %551, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %555 = shufflevector <4 x float> %551, <4 x float> %550, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %552, ptr %.41147891.i, align 16, !tbaa !89
+  store <4 x float> %552, ptr %.41147891.i, align 16, !tbaa !88
   %556 = getelementptr inbounds nuw i8, ptr %.41147891.i, i64 16
-  store <4 x float> %553, ptr %556, align 16, !tbaa !89
+  store <4 x float> %553, ptr %556, align 16, !tbaa !88
   %557 = getelementptr inbounds nuw i8, ptr %.41147891.i, i64 32
-  store <4 x float> %554, ptr %557, align 16, !tbaa !89
+  store <4 x float> %554, ptr %557, align 16, !tbaa !88
   %558 = getelementptr inbounds nuw i8, ptr %.41147891.i, i64 48
-  store <4 x float> %555, ptr %558, align 16, !tbaa !89
+  store <4 x float> %555, ptr %558, align 16, !tbaa !88
   br label %563
 
 559:                                              ; preds = %546
-  store <4 x float> %.5591.i, ptr %.41147891.i, align 1, !tbaa !89
+  store <4 x float> %.5591.i, ptr %.41147891.i, align 1, !tbaa !88
   %560 = getelementptr inbounds float, ptr %.41147891.i, i64 %59
-  store <4 x float> %.5597.i, ptr %560, align 1, !tbaa !89
+  store <4 x float> %.5597.i, ptr %560, align 1, !tbaa !88
   %561 = getelementptr inbounds float, ptr %.41147891.i, i64 %61
-  store <4 x float> %.5603.i, ptr %561, align 1, !tbaa !89
+  store <4 x float> %.5603.i, ptr %561, align 1, !tbaa !88
   %562 = getelementptr inbounds float, ptr %.41147891.i, i64 %63
-  store <4 x float> %.5609.i, ptr %562, align 1, !tbaa !89
+  store <4 x float> %.5609.i, ptr %562, align 1, !tbaa !88
   br label %563
 
 563:                                              ; preds = %559, %547, %546
@@ -19770,13 +19770,13 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   ]
 
 .thread735.i:                                     ; preds = %565
-  store <4 x float> %.5591.i, ptr %.41147891.i, align 16, !tbaa !89
+  store <4 x float> %.5591.i, ptr %.41147891.i, align 16, !tbaa !88
   %566 = getelementptr inbounds nuw i8, ptr %.41147891.i, i64 16
-  store <4 x float> %.5597.i, ptr %566, align 16, !tbaa !89
+  store <4 x float> %.5597.i, ptr %566, align 16, !tbaa !88
   %567 = getelementptr inbounds nuw i8, ptr %.41147891.i, i64 32
-  store <4 x float> %.5603.i, ptr %567, align 16, !tbaa !89
+  store <4 x float> %.5603.i, ptr %567, align 16, !tbaa !88
   %568 = getelementptr inbounds nuw i8, ptr %.41147891.i, i64 48
-  store <4 x float> %.5609.i, ptr %568, align 16, !tbaa !89
+  store <4 x float> %.5609.i, ptr %568, align 16, !tbaa !88
   %569 = getelementptr inbounds nuw i8, ptr %.41147891.i, i64 64
   br label %583
 
@@ -19789,13 +19789,13 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %576 = shufflevector <4 x float> %572, <4 x float> %571, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
   %577 = shufflevector <4 x float> %573, <4 x float> %574, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %578 = shufflevector <4 x float> %574, <4 x float> %573, <4 x i32> <i32 6, i32 7, i32 2, i32 3>
-  store <4 x float> %575, ptr %.41147891.i, align 1, !tbaa !89
+  store <4 x float> %575, ptr %.41147891.i, align 1, !tbaa !88
   %579 = getelementptr inbounds float, ptr %.41147891.i, i64 %59
-  store <4 x float> %576, ptr %579, align 1, !tbaa !89
+  store <4 x float> %576, ptr %579, align 1, !tbaa !88
   %580 = getelementptr inbounds float, ptr %.41147891.i, i64 %61
-  store <4 x float> %577, ptr %580, align 1, !tbaa !89
+  store <4 x float> %577, ptr %580, align 1, !tbaa !88
   %581 = getelementptr inbounds float, ptr %.41147891.i, i64 %63
-  store <4 x float> %578, ptr %581, align 1, !tbaa !89
+  store <4 x float> %578, ptr %581, align 1, !tbaa !88
   %582 = getelementptr inbounds nuw i8, ptr %.41147891.i, i64 16
   br label %583
 
@@ -19805,7 +19805,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %585 = add nuw nsw i32 %.11157890.i, 4
   %586 = or disjoint i32 %585, 3
   %587 = icmp slt i32 %586, %6
-  br i1 %587, label %.lr.ph894.i, label %.preheader878.i, !llvm.loop !382
+  br i1 %587, label %.lr.ph894.i, label %.preheader878.i, !llvm.loop !372
 
 .preheader877.i:                                  ; preds = %673, %.preheader878.i
   %.12498.lcssa.i = phi <4 x float> [ %.8494.lcssa.i, %.preheader878.i ], [ %.15501.i, %673 ]
@@ -19822,10 +19822,10 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.71150902.i = phi ptr [ %.81151.i, %673 ], [ %.41147.lcssa.i, %.preheader878.i ]
   %.21158901.i = phi i32 [ %675, %673 ], [ %.11157.lcssa.i, %.preheader878.i ]
   %.12498900.i = phi <4 x float> [ %.15501.i, %673 ], [ %.8494.lcssa.i, %.preheader878.i ]
-  %589 = load <4 x i32>, ptr %.31095903.i, align 16, !tbaa !89
+  %589 = load <4 x i32>, ptr %.31095903.i, align 16, !tbaa !88
   %590 = sitofp <4 x i32> %589 to <4 x float>
   %591 = getelementptr inbounds nuw i8, ptr %.31095903.i, i64 16
-  %592 = load <4 x i32>, ptr %591, align 16, !tbaa !89
+  %592 = load <4 x i32>, ptr %591, align 16, !tbaa !88
   %593 = sitofp <4 x i32> %592 to <4 x float>
   %594 = shufflevector <4 x float> %590, <4 x float> %593, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
   %595 = shufflevector <4 x float> %593, <4 x float> %590, <4 x i32> <i32 0, i32 5, i32 2, i32 7>
@@ -19860,9 +19860,9 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %49, label %607, label %611
 
 607:                                              ; preds = %606
-  %608 = load <4 x float>, ptr %.12904.i, align 1, !tbaa !89
+  %608 = load <4 x float>, ptr %.12904.i, align 1, !tbaa !88
   %609 = getelementptr inbounds nuw i8, ptr %.12904.i, i64 16
-  %610 = load <4 x float>, ptr %609, align 1, !tbaa !89
+  %610 = load <4 x float>, ptr %609, align 1, !tbaa !88
   br label %635
 
 611:                                              ; preds = %606
@@ -19935,9 +19935,9 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %.not1203.i, label %661, label %658
 
 658:                                              ; preds = %.thread746.i
-  store <4 x float> %.5663.i, ptr %.71150902.i, align 1, !tbaa !89
+  store <4 x float> %.5663.i, ptr %.71150902.i, align 1, !tbaa !88
   %659 = getelementptr inbounds float, ptr %.71150902.i, i64 %59
-  store <4 x float> %.5669.i, ptr %659, align 1, !tbaa !89
+  store <4 x float> %.5669.i, ptr %659, align 1, !tbaa !88
   %660 = getelementptr inbounds float, ptr %.71150902.i, i64 %61
   br label %673
 
@@ -19948,9 +19948,9 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   ]
 
 .thread751.i:                                     ; preds = %661
-  store <4 x float> %.5663.i, ptr %.71150902.i, align 16, !tbaa !89
+  store <4 x float> %.5663.i, ptr %.71150902.i, align 16, !tbaa !88
   %662 = getelementptr inbounds nuw i8, ptr %.71150902.i, i64 16
-  store <4 x float> %.5669.i, ptr %662, align 16, !tbaa !89
+  store <4 x float> %.5669.i, ptr %662, align 16, !tbaa !88
   %663 = getelementptr inbounds nuw i8, ptr %.71150902.i, i64 32
   br label %673
 
@@ -19987,7 +19987,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %675 = add nuw nsw i32 %.21158901.i, 2
   %676 = or disjoint i32 %675, 1
   %677 = icmp slt i32 %676, %6
-  br i1 %677, label %.lr.ph905.i, label %.preheader877.i, !llvm.loop !383
+  br i1 %677, label %.lr.ph905.i, label %.preheader877.i, !llvm.loop !373
 
 .lr.ph916.i:                                      ; preds = %.preheader877.i, %723
   %.16915.i = phi ptr [ %.17.i, %723 ], [ %.12.lcssa.i, %.preheader877.i ]
@@ -19995,7 +19995,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.101153913.i = phi ptr [ %.111154.i, %723 ], [ %.71150.lcssa.i, %.preheader877.i ]
   %.31159912.i = phi i32 [ %725, %723 ], [ %.21158.lcssa.i, %.preheader877.i ]
   %.16502911.i = phi <4 x float> [ %.19505.i, %723 ], [ %.12498.lcssa.i, %.preheader877.i ]
-  %678 = load <4 x i32>, ptr %.41096914.i, align 16, !tbaa !89
+  %678 = load <4 x i32>, ptr %.41096914.i, align 16, !tbaa !88
   %679 = sitofp <4 x i32> %678 to <4 x float>
   %680 = fmul fast <4 x float> %131, %679
   %.not1205.i = icmp eq ptr %.16915.i, null
@@ -20025,7 +20025,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %49, label %688, label %690
 
 688:                                              ; preds = %687
-  %689 = load <4 x float>, ptr %.16915.i, align 1, !tbaa !89
+  %689 = load <4 x float>, ptr %.16915.i, align 1, !tbaa !88
   br label %702
 
 690:                                              ; preds = %687
@@ -20067,7 +20067,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %.not1203.i, label %716, label %714
 
 714:                                              ; preds = %.thread760.i
-  store <4 x float> %713, ptr %.101153913.i, align 1, !tbaa !89
+  store <4 x float> %713, ptr %.101153913.i, align 1, !tbaa !88
   %715 = getelementptr inbounds float, ptr %.101153913.i, i64 %59
   br label %723
 
@@ -20078,7 +20078,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   ]
 
 .thread764.i:                                     ; preds = %716
-  store <4 x float> %713, ptr %.101153913.i, align 16, !tbaa !89
+  store <4 x float> %713, ptr %.101153913.i, align 16, !tbaa !88
   %717 = getelementptr inbounds nuw i8, ptr %.101153913.i, i64 16
   br label %723
 
@@ -20102,7 +20102,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %724 = getelementptr inbounds nuw i8, ptr %.41096914.i, i64 16
   %725 = add nuw nsw i32 %.31159912.i, 1
   %exitcond.not.i = icmp eq i32 %725, %6
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph916.i, !llvm.loop !384
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph916.i, !llvm.loop !374
 
 ._crit_edge.i:                                    ; preds = %723, %.preheader877.i
   %.41096.lcssa.i = phi ptr [ %.31095.lcssa.i, %.preheader877.i ], [ %724, %723 ]
@@ -20110,7 +20110,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %726 = or disjoint i64 %indvars.iv.next.i, 3
   %727 = icmp samesign ult i64 %726, %76
-  br i1 %727, label %115, label %.preheader876.loopexit.i, !llvm.loop !385
+  br i1 %727, label %115, label %.preheader876.loopexit.i, !llvm.loop !375
 
 .preheader872.loopexit.i:                         ; preds = %._crit_edge965.i
   %728 = trunc nuw nsw i64 %indvars.iv.next1049.i to i32
@@ -20271,16 +20271,16 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.01174929.i = phi i32 [ %914, %912 ], [ 0, %.thread782.i ]
   %.2637928.i = phi <4 x float> [ %.4639.i, %912 ], [ %.1636.i, %.thread782.i ]
   %.3646927.i = phi <4 x float> [ %.5648.i, %912 ], [ %.2645.i, %.thread782.i ]
-  %815 = load <4 x i32>, ptr %.61098931.i, align 16, !tbaa !89
+  %815 = load <4 x i32>, ptr %.61098931.i, align 16, !tbaa !88
   %816 = sitofp <4 x i32> %815 to <4 x float>
   %817 = getelementptr inbounds nuw i8, ptr %.61098931.i, i64 16
-  %818 = load <4 x i32>, ptr %817, align 16, !tbaa !89
+  %818 = load <4 x i32>, ptr %817, align 16, !tbaa !88
   %819 = sitofp <4 x i32> %818 to <4 x float>
   %820 = getelementptr inbounds nuw i8, ptr %.61098931.i, i64 32
-  %821 = load <4 x i32>, ptr %820, align 16, !tbaa !89
+  %821 = load <4 x i32>, ptr %820, align 16, !tbaa !88
   %822 = sitofp <4 x i32> %821 to <4 x float>
   %823 = getelementptr inbounds nuw i8, ptr %.61098931.i, i64 48
-  %824 = load <4 x i32>, ptr %823, align 16, !tbaa !89
+  %824 = load <4 x i32>, ptr %823, align 16, !tbaa !88
   %825 = sitofp <4 x i32> %824 to <4 x float>
   %826 = shufflevector <4 x float> %816, <4 x float> %822, <4 x i32> <i32 0, i32 5, i32 1, i32 4>
   %827 = shufflevector <4 x float> %816, <4 x float> %822, <4 x i32> <i32 2, i32 7, i32 3, i32 6>
@@ -20326,13 +20326,13 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   ]
 
 852:                                              ; preds = %851
-  %853 = load <4 x float>, ptr %.24932.i, align 1, !tbaa !89
+  %853 = load <4 x float>, ptr %.24932.i, align 1, !tbaa !88
   %854 = getelementptr inbounds nuw i8, ptr %.24932.i, i64 16
-  %855 = load <4 x float>, ptr %854, align 1, !tbaa !89
+  %855 = load <4 x float>, ptr %854, align 1, !tbaa !88
   %856 = getelementptr inbounds float, ptr %.24932.i, i64 %89
-  %857 = load <4 x float>, ptr %856, align 1, !tbaa !89
+  %857 = load <4 x float>, ptr %856, align 1, !tbaa !88
   %858 = getelementptr inbounds nuw i8, ptr %856, i64 16
-  %859 = load <4 x float>, ptr %858, align 1, !tbaa !89
+  %859 = load <4 x float>, ptr %858, align 1, !tbaa !88
   br i1 %90, label %865, label %860
 
 860:                                              ; preds = %852
@@ -20355,9 +20355,9 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %.thread801.i
 
 867:                                              ; preds = %851
-  %868 = load <4 x float>, ptr %.24932.i, align 1, !tbaa !89
+  %868 = load <4 x float>, ptr %.24932.i, align 1, !tbaa !88
   %869 = getelementptr inbounds nuw i8, ptr %.24932.i, i64 16
-  %870 = load <4 x float>, ptr %869, align 1, !tbaa !89
+  %870 = load <4 x float>, ptr %869, align 1, !tbaa !88
   %871 = fmul fast <4 x float> %868, %88
   %872 = fmul fast <4 x float> %870, %88
   %873 = fadd fast <4 x float> %871, %836
@@ -20398,13 +20398,13 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   ]
 
 885:                                              ; preds = %884
-  store <4 x float> %.5634.i, ptr %.11161930.i, align 16, !tbaa !89
+  store <4 x float> %.5634.i, ptr %.11161930.i, align 16, !tbaa !88
   %886 = getelementptr inbounds nuw i8, ptr %.11161930.i, i64 16
-  store <4 x float> %.5622.i, ptr %886, align 16, !tbaa !89
+  store <4 x float> %.5622.i, ptr %886, align 16, !tbaa !88
   %887 = getelementptr inbounds float, ptr %.11161930.i, i64 %100
-  store <4 x float> %.5628.i, ptr %887, align 16, !tbaa !89
+  store <4 x float> %.5628.i, ptr %887, align 16, !tbaa !88
   %888 = getelementptr inbounds nuw i8, ptr %887, i64 16
-  store <4 x float> %.5616.i, ptr %888, align 16, !tbaa !89
+  store <4 x float> %.5616.i, ptr %888, align 16, !tbaa !88
   br label %905
 
 889:                                              ; preds = %884
@@ -20462,13 +20462,13 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %912
 
 907:                                              ; preds = %883
-  store <4 x float> %.5634.i, ptr %.11161930.i, align 1, !tbaa !89
+  store <4 x float> %.5634.i, ptr %.11161930.i, align 1, !tbaa !88
   %908 = getelementptr inbounds nuw i8, ptr %.11161930.i, i64 16
-  store <4 x float> %.5628.i, ptr %908, align 1, !tbaa !89
+  store <4 x float> %.5628.i, ptr %908, align 1, !tbaa !88
   %909 = getelementptr inbounds float, ptr %.11161930.i, i64 %94
-  store <4 x float> %.5622.i, ptr %909, align 1, !tbaa !89
+  store <4 x float> %.5622.i, ptr %909, align 1, !tbaa !88
   %910 = getelementptr inbounds nuw i8, ptr %909, i64 16
-  store <4 x float> %.5616.i, ptr %910, align 1, !tbaa !89
+  store <4 x float> %.5616.i, ptr %910, align 1, !tbaa !88
   %911 = getelementptr inbounds nuw i8, ptr %.11161930.i, i64 32
   br label %912
 
@@ -20478,7 +20478,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %914 = add nuw nsw i32 %.01174929.i, 8
   %915 = or disjoint i32 %914, 7
   %916 = icmp slt i32 %915, %6
-  br i1 %916, label %.lr.ph933.i, label %.preheader875.i, !llvm.loop !386
+  br i1 %916, label %.lr.ph933.i, label %.preheader875.i, !llvm.loop !376
 
 .preheader874.i:                                  ; preds = %968, %.preheader875.i
   %.11175.lcssa.i = phi i32 [ %.01174.lcssa.i, %.preheader875.i ], [ %970, %968 ]
@@ -20496,10 +20496,10 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.11175942.i = phi i32 [ %970, %968 ], [ %.01174.lcssa.i, %.preheader875.i ]
   %.5640941.i = phi <4 x float> [ %.7642.i, %968 ], [ %.2637.lcssa.i, %.preheader875.i ]
   %.6649940.i = phi <4 x float> [ %.8651.i, %968 ], [ %.3646.lcssa.i, %.preheader875.i ]
-  %919 = load <4 x i32>, ptr %.71099944.i, align 16, !tbaa !89
+  %919 = load <4 x i32>, ptr %.71099944.i, align 16, !tbaa !88
   %920 = sitofp <4 x i32> %919 to <4 x float>
   %921 = getelementptr inbounds nuw i8, ptr %.71099944.i, i64 16
-  %922 = load <4 x i32>, ptr %921, align 16, !tbaa !89
+  %922 = load <4 x i32>, ptr %921, align 16, !tbaa !88
   %923 = sitofp <4 x i32> %922 to <4 x float>
   %924 = shufflevector <4 x float> %920, <4 x float> %923, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %925 = shufflevector <4 x float> %920, <4 x float> %923, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
@@ -20534,9 +20534,9 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   ]
 
 939:                                              ; preds = %938
-  %940 = load <4 x float>, ptr %.27945.i, align 1, !tbaa !89
+  %940 = load <4 x float>, ptr %.27945.i, align 1, !tbaa !88
   %941 = getelementptr inbounds float, ptr %.27945.i, i64 %89
-  %942 = load <4 x float>, ptr %941, align 1, !tbaa !89
+  %942 = load <4 x float>, ptr %941, align 1, !tbaa !88
   %943 = fmul fast <4 x float> %940, %88
   %944 = fmul fast <4 x float> %942, %88
   %.pn1022.i = select i1 %90, <4 x float> %940, <4 x float> %943
@@ -20547,7 +20547,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %.thread818.i
 
 946:                                              ; preds = %938
-  %947 = load <4 x float>, ptr %.27945.i, align 1, !tbaa !89
+  %947 = load <4 x float>, ptr %.27945.i, align 1, !tbaa !88
   %948 = fmul fast <4 x float> %947, %88
   %949 = fadd fast <4 x float> %948, %929
   %950 = fadd fast <4 x float> %948, %930
@@ -20571,9 +20571,9 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   ]
 
 953:                                              ; preds = %952
-  store <4 x float> %.5582.i, ptr %.31163943.i, align 16, !tbaa !89
+  store <4 x float> %.5582.i, ptr %.31163943.i, align 16, !tbaa !88
   %954 = getelementptr inbounds nuw i8, ptr %.31163943.i, i64 16
-  store <4 x float> %.5576.i, ptr %954, align 16, !tbaa !89
+  store <4 x float> %.5576.i, ptr %954, align 16, !tbaa !88
   br label %963
 
 955:                                              ; preds = %952
@@ -20607,9 +20607,9 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %968
 
 965:                                              ; preds = %.thread818.i
-  store <4 x float> %.5582.i, ptr %.31163943.i, align 1, !tbaa !89
+  store <4 x float> %.5582.i, ptr %.31163943.i, align 1, !tbaa !88
   %966 = getelementptr inbounds float, ptr %.31163943.i, i64 %94
-  store <4 x float> %.5576.i, ptr %966, align 1, !tbaa !89
+  store <4 x float> %.5576.i, ptr %966, align 1, !tbaa !88
   %967 = getelementptr inbounds nuw i8, ptr %.31163943.i, i64 16
   br label %968
 
@@ -20619,7 +20619,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %970 = add nuw nsw i32 %.11175942.i, 4
   %971 = or disjoint i32 %970, 3
   %972 = icmp slt i32 %971, %6
-  br i1 %972, label %.lr.ph946.i, label %.preheader874.i, !llvm.loop !387
+  br i1 %972, label %.lr.ph946.i, label %.preheader874.i, !llvm.loop !377
 
 .preheader873.i:                                  ; preds = %.thread837.i, %.preheader874.i
   %.21176.lcssa.i = phi i32 [ %.11175.lcssa.i, %.preheader874.i ], [ %1042, %.thread837.i ]
@@ -20744,7 +20744,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %1042 = add nuw nsw i32 %.21176951.i, 2
   %1043 = or disjoint i32 %1042, 1
   %1044 = icmp slt i32 %1043, %6
-  br i1 %1044, label %.lr.ph955.i, label %.preheader873.i, !llvm.loop !388
+  br i1 %1044, label %.lr.ph955.i, label %.preheader873.i, !llvm.loop !378
 
 1045:                                             ; preds = %1077, %.lr.ph964.i
   %.33963.i = phi ptr [ %.30.lcssa.i, %.lr.ph964.i ], [ %.34.i, %1077 ]
@@ -20814,7 +20814,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %1078 = getelementptr inbounds nuw i8, ptr %.91101962.i, i64 8
   %1079 = add nuw nsw i32 %.31177960.i, 1
   %exitcond1047.not.i = icmp eq i32 %1079, %6
-  br i1 %exitcond1047.not.i, label %._crit_edge965.i, label %1045, !llvm.loop !389
+  br i1 %exitcond1047.not.i, label %._crit_edge965.i, label %1045, !llvm.loop !379
 
 ._crit_edge965.i:                                 ; preds = %1077, %.preheader873.i
   %.91101.lcssa.i = phi ptr [ %.81100.lcssa.i, %.preheader873.i ], [ %1078, %1077 ]
@@ -20822,7 +20822,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %indvars.iv.next1049.i = add nuw nsw i64 %indvars.iv1048.i, 2
   %1080 = or disjoint i64 %indvars.iv.next1049.i, 1
   %1081 = icmp slt i64 %1080, %112
-  br i1 %1081, label %763, label %.preheader872.loopexit.i, !llvm.loop !390
+  br i1 %1081, label %763, label %.preheader872.loopexit.i, !llvm.loop !380
 
 1082:                                             ; preds = %._crit_edge1011.i, %.lr.ph1017.i
   %indvars.iv1052.i = phi i64 [ %760, %.lr.ph1017.i ], [ %indvars.iv.next1053.i, %._crit_edge1011.i ]
@@ -20919,11 +20919,11 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.111103978.i = phi ptr [ %1166, %1165 ], [ %.1011021015.i, %.thread859.i ]
   %.11111977.i = phi ptr [ %.21112.i, %1165 ], [ %.01110.i, %.thread859.i ]
   %.3553976.i = phi <4 x float> [ %.4554.i, %1165 ], [ %.2552.i, %.thread859.i ]
-  %1125 = load <4 x i32>, ptr %.111103978.i, align 1, !tbaa !89
+  %1125 = load <4 x i32>, ptr %.111103978.i, align 1, !tbaa !88
   %1126 = sitofp <4 x i32> %1125 to <4 x float>
   %1127 = fmul fast <4 x float> %1099, %1126
   %1128 = getelementptr inbounds nuw i8, ptr %.111103978.i, i64 16
-  %1129 = load <4 x i32>, ptr %1128, align 1, !tbaa !89
+  %1129 = load <4 x i32>, ptr %1128, align 1, !tbaa !88
   %1130 = sitofp <4 x i32> %1129 to <4 x float>
   %1131 = fmul fast <4 x float> %1099, %1130
   %.not1196.i = icmp eq ptr %.40980.i, null
@@ -20941,9 +20941,9 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %or.cond27.i, label %1136, label %1145
 
 1136:                                             ; preds = %1135
-  %1137 = load <4 x float>, ptr %.40980.i, align 1, !tbaa !89
+  %1137 = load <4 x float>, ptr %.40980.i, align 1, !tbaa !88
   %1138 = getelementptr inbounds nuw i8, ptr %.40980.i, i64 16
-  %1139 = load <4 x float>, ptr %1138, align 1, !tbaa !89
+  %1139 = load <4 x float>, ptr %1138, align 1, !tbaa !88
   %1140 = fmul fast <4 x float> %1137, %738
   %1141 = fadd fast <4 x float> %1140, %1127
   %1142 = fmul fast <4 x float> %1139, %738
@@ -20964,9 +20964,9 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %743, label %1147, label %1149
 
 1147:                                             ; preds = %1146
-  store <4 x float> %.2549.i, ptr %.11111977.i, align 1, !tbaa !89
+  store <4 x float> %.2549.i, ptr %.11111977.i, align 1, !tbaa !88
   %1148 = getelementptr inbounds nuw i8, ptr %.11111977.i, i64 16
-  store <4 x float> %.2546.i, ptr %1148, align 1, !tbaa !89
+  store <4 x float> %.2546.i, ptr %1148, align 1, !tbaa !88
   br label %1160
 
 1149:                                             ; preds = %1146
@@ -20976,9 +20976,9 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   ]
 
 1150:                                             ; preds = %1149
-  store <4 x float> %.2549.i, ptr %.11111977.i, align 1, !tbaa !89
+  store <4 x float> %.2549.i, ptr %.11111977.i, align 1, !tbaa !88
   %1151 = getelementptr inbounds float, ptr %.11111977.i, i64 %750
-  store <4 x float> %.2546.i, ptr %1151, align 1, !tbaa !89
+  store <4 x float> %.2546.i, ptr %1151, align 1, !tbaa !88
   br label %1160
 
 1152:                                             ; preds = %1149
@@ -21012,9 +21012,9 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %1165
 
 1162:                                             ; preds = %1145
-  store <4 x float> %.2549.i, ptr %.11111977.i, align 1, !tbaa !89
+  store <4 x float> %.2549.i, ptr %.11111977.i, align 1, !tbaa !88
   %1163 = getelementptr inbounds nuw i8, ptr %.11111977.i, i64 16
-  store <4 x float> %.2546.i, ptr %1163, align 1, !tbaa !89
+  store <4 x float> %.2546.i, ptr %1163, align 1, !tbaa !88
   %1164 = getelementptr inbounds nuw i8, ptr %.11111977.i, i64 32
   br label %1165
 
@@ -21024,7 +21024,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %1167 = add nuw nsw i32 %.01085979.i, 8
   %1168 = or disjoint i32 %1167, 7
   %1169 = icmp slt i32 %1168, %6
-  br i1 %1169, label %.lr.ph981.i, label %.preheader871.i, !llvm.loop !391
+  br i1 %1169, label %.lr.ph981.i, label %.preheader871.i, !llvm.loop !381
 
 .preheader870.i:                                  ; preds = %1198, %.preheader871.i
   %.31113.lcssa.i = phi ptr [ %.11111.lcssa.i, %.preheader871.i ], [ %.41114.i, %1198 ]
@@ -21045,7 +21045,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.121104989.i = phi ptr [ %1199, %1198 ], [ %.111103.lcssa.i, %.preheader871.i ]
   %.31113988.i = phi ptr [ %.41114.i, %1198 ], [ %.11111.lcssa.i, %.preheader871.i ]
   %.5555987.i = phi <4 x float> [ %.6556.i, %1198 ], [ %.3553.lcssa.i, %.preheader871.i ]
-  %1173 = load <4 x i32>, ptr %.121104989.i, align 1, !tbaa !89
+  %1173 = load <4 x i32>, ptr %.121104989.i, align 1, !tbaa !88
   %1174 = sitofp <4 x i32> %1173 to <4 x float>
   %1175 = fmul fast <4 x float> %1099, %1174
   %.not1195.i = icmp eq ptr %.42991.i, null
@@ -21062,7 +21062,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %or.cond27.i, label %1179, label %1184
 
 1179:                                             ; preds = %1178
-  %1180 = load <4 x float>, ptr %.42991.i, align 1, !tbaa !89
+  %1180 = load <4 x float>, ptr %.42991.i, align 1, !tbaa !88
   %1181 = fmul fast <4 x float> %1180, %738
   %1182 = fadd fast <4 x float> %1181, %1175
   %1183 = getelementptr inbounds nuw i8, ptr %.42991.i, i64 16
@@ -21079,7 +21079,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br i1 %743, label %1187, label %1188
 
 1187:                                             ; preds = %1186
-  store <4 x float> %1185, ptr %.31113988.i, align 1, !tbaa !89
+  store <4 x float> %1185, ptr %.31113988.i, align 1, !tbaa !88
   br label %1194
 
 1188:                                             ; preds = %1186
@@ -21089,7 +21089,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   ]
 
 1189:                                             ; preds = %1188
-  store <4 x float> %1185, ptr %.31113988.i, align 1, !tbaa !89
+  store <4 x float> %1185, ptr %.31113988.i, align 1, !tbaa !88
   br label %1194
 
 1190:                                             ; preds = %1188
@@ -21111,7 +21111,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   br label %1198
 
 1196:                                             ; preds = %1184
-  store <4 x float> %1185, ptr %.31113988.i, align 1, !tbaa !89
+  store <4 x float> %1185, ptr %.31113988.i, align 1, !tbaa !88
   %1197 = getelementptr inbounds nuw i8, ptr %.31113988.i, i64 16
   br label %1198
 
@@ -21121,7 +21121,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %1200 = add nuw nsw i32 %.11086990.i, 4
   %1201 = or disjoint i32 %1200, 3
   %1202 = icmp slt i32 %1201, %6
-  br i1 %1202, label %.lr.ph992.i, label %.preheader870.i, !llvm.loop !392
+  br i1 %1202, label %.lr.ph992.i, label %.preheader870.i, !llvm.loop !382
 
 .preheader.i:                                     ; preds = %1232, %.preheader870.i
   %.51115.lcssa.i = phi ptr [ %.31113.lcssa.i, %.preheader870.i ], [ %.61116.i, %1232 ]
@@ -21193,7 +21193,7 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %1234 = add nuw nsw i32 %.21087999.i, 2
   %1235 = or disjoint i32 %1234, 1
   %1236 = icmp slt i32 %1235, %6
-  br i1 %1236, label %1205, label %.preheader.i, !llvm.loop !393
+  br i1 %1236, label %1205, label %.preheader.i, !llvm.loop !383
 
 1237:                                             ; preds = %1247, %.lr.ph1010.i
   %.461009.i = phi ptr [ %.44.lcssa.i, %.lr.ph1010.i ], [ %.47.i, %1247 ]
@@ -21228,14 +21228,14 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %1251 = getelementptr inbounds nuw i8, ptr %.1411061007.i, i64 4
   %1252 = add nuw nsw i32 %.310881008.i, 1
   %exitcond1051.not.i = icmp eq i32 %1252, %6
-  br i1 %exitcond1051.not.i, label %._crit_edge1011.i, label %1237, !llvm.loop !394
+  br i1 %exitcond1051.not.i, label %._crit_edge1011.i, label %1237, !llvm.loop !384
 
 ._crit_edge1011.i:                                ; preds = %1247, %.preheader.i
   %.141106.lcssa.i = phi ptr [ %.131105.lcssa.i, %.preheader.i ], [ %1251, %1247 ]
   %.46.lcssa.i = phi ptr [ %.44.lcssa.i, %.preheader.i ], [ %.47.i, %1247 ]
   %indvars.iv.next1053.i = add nuw nsw i64 %indvars.iv1052.i, 1
   %exitcond1055.not.i = icmp eq i64 %indvars.iv.next1053.i, %wide.trip.count.i
-  br i1 %exitcond1055.not.i, label %_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3MatES2_RS0_iiiiiS2_ffi.exit, label %1082, !llvm.loop !395
+  br i1 %exitcond1055.not.i, label %_ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3MatES2_RS0_iiiiiS2_ffi.exit, label %1082, !llvm.loop !385
 
 _ZN4ncnnL32unpack_output_tile_int32_to_fp32ERKNS_3MatES2_RS0_iiiiiS2_ffi.exit: ; preds = %._crit_edge1011.i, %.preheader872.i
   ret void
@@ -21303,12 +21303,12 @@ define internal void @_ZN4ncnnL16gemm_AT_x86_int8ERKNS_3MatES2_S2_S2_RS0_iiiiiff
   %37 = load i32, ptr %7, align 4, !tbaa !37
   %38 = sub nsw i32 %37, %34
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %33, i32 %38)
-  %39 = load i32, ptr %25, align 4, !tbaa !55, !noalias !396
-  %40 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !396
-  %41 = load i64, ptr %26, align 8, !tbaa !17, !noalias !396
+  %39 = load i32, ptr %25, align 4, !tbaa !55, !noalias !386
+  %40 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !386
+  %41 = load i64, ptr %26, align 8, !tbaa !17, !noalias !386
   %42 = sext i32 %29 to i64
   %43 = mul i64 %41, %42
-  %44 = load i64, ptr %27, align 8, !tbaa !52, !noalias !396
+  %44 = load i64, ptr %27, align 8, !tbaa !52, !noalias !386
   %45 = mul i64 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 %45
   %47 = sext i32 %39 to i64
@@ -21333,7 +21333,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %55, %54
   %56 = add nsw i32 %.068, 1
   %57 = load i32, ptr %14, align 4, !tbaa !37
   %.not.not = icmp slt i32 %.068, %57
-  br i1 %.not.not, label %.noexc46, label %._crit_edge, !llvm.loop !399
+  br i1 %.not.not, label %.noexc46, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %21)
@@ -21409,13 +21409,13 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %.282.i.us = phi ptr [ %80, %.lr.ph.i.us ], [ %.0104.i.us, %.preheader79.i.us ]
   %.128181.i.us = phi ptr [ %81, %.lr.ph.i.us ], [ %45, %.preheader79.i.us ]
   %.028580.i.us = phi i32 [ %82, %.lr.ph.i.us ], [ 0, %.preheader79.i.us ]
-  %46 = load <4 x float>, ptr %.128181.i.us, align 16, !tbaa !89
+  %46 = load <4 x float>, ptr %.128181.i.us, align 16, !tbaa !88
   %47 = getelementptr inbounds nuw i8, ptr %.128181.i.us, i64 16
-  %48 = load <4 x float>, ptr %47, align 16, !tbaa !89
+  %48 = load <4 x float>, ptr %47, align 16, !tbaa !88
   %49 = getelementptr inbounds float, ptr %.128181.i.us, i64 %25
-  %50 = load <4 x float>, ptr %49, align 16, !tbaa !89
+  %50 = load <4 x float>, ptr %49, align 16, !tbaa !88
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %52 = load <4 x float>, ptr %51, align 16, !tbaa !89
+  %52 = load <4 x float>, ptr %51, align 16, !tbaa !88
   %53 = shufflevector <4 x float> %46, <4 x float> %48, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %54 = shufflevector <4 x float> %46, <4 x float> %48, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %55 = shufflevector <4 x float> %50, <4 x float> %52, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -21443,13 +21443,13 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %77 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %74, <8 x i16> splat (i16 -127))
   %78 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %77, <8 x i16> splat (i16 127))
   %79 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %76, <8 x i16> %78)
-  store <16 x i8> %79, ptr %.282.i.us, align 1, !tbaa !89
+  store <16 x i8> %79, ptr %.282.i.us, align 1, !tbaa !88
   %80 = getelementptr inbounds nuw i8, ptr %.282.i.us, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %.128181.i.us, i64 32
   %82 = add nuw nsw i32 %.028580.i.us, 2
   %83 = or disjoint i32 %82, 1
   %84 = icmp slt i32 %83, %4
-  br i1 %84, label %.lr.ph.i.us, label %.preheader77.i.us, !llvm.loop !400
+  br i1 %84, label %.lr.ph.i.us, label %.preheader77.i.us, !llvm.loop !389
 
 .preheader77.i.us:                                ; preds = %.lr.ph.i.us, %.preheader79.i.us
   %.0285.lcssa.i.us = phi i32 [ 0, %.preheader79.i.us ], [ %37, %.lr.ph.i.us ]
@@ -21462,9 +21462,9 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %.387.i.us = phi ptr [ %103, %.lr.ph88.i.us ], [ %.2.lcssa.i.us, %.preheader77.i.us ]
   %.228286.i.us = phi ptr [ %104, %.lr.ph88.i.us ], [ %.1281.lcssa.i.us, %.preheader77.i.us ]
   %.128685.i.us = phi i32 [ %105, %.lr.ph88.i.us ], [ %.0285.lcssa.i.us, %.preheader77.i.us ]
-  %86 = load <4 x float>, ptr %.228286.i.us, align 16, !tbaa !89
+  %86 = load <4 x float>, ptr %.228286.i.us, align 16, !tbaa !88
   %87 = getelementptr inbounds float, ptr %.228286.i.us, i64 %25
-  %88 = load <4 x float>, ptr %87, align 16, !tbaa !89
+  %88 = load <4 x float>, ptr %87, align 16, !tbaa !88
   %89 = fmul fast <4 x float> %86, %22
   %90 = fmul fast <4 x float> %88, %22
   %91 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %89)
@@ -21479,19 +21479,19 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %100 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %99, <8 x i16> poison)
   %101 = bitcast <16 x i8> %100 to <2 x i64>
   %102 = extractelement <2 x i64> %101, i64 0
-  store i64 %102, ptr %.387.i.us, align 8, !tbaa !401
+  store i64 %102, ptr %.387.i.us, align 8, !tbaa !390
   %103 = getelementptr inbounds nuw i8, ptr %.387.i.us, i64 8
   %104 = getelementptr inbounds nuw i8, ptr %.228286.i.us, i64 16
   %105 = add nuw nsw i32 %.128685.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %105, %4
-  br i1 %exitcond.not.i.us, label %.loopexit75.i.us, label %.lr.ph88.i.us, !llvm.loop !402
+  br i1 %exitcond.not.i.us, label %.loopexit75.i.us, label %.lr.ph88.i.us, !llvm.loop !391
 
 .loopexit75.i.us:                                 ; preds = %.lr.ph88.i.us, %.preheader77.i.us
   %.4.i.us = phi ptr [ %.2.lcssa.i.us, %.preheader77.i.us ], [ %103, %.lr.ph88.i.us ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 8
   %106 = or disjoint i64 %indvars.iv.next.i.us, 7
   %107 = icmp samesign ult i64 %106, %38
-  br i1 %107, label %.preheader79.i.us, label %.preheader73.loopexit.i, !llvm.loop !403
+  br i1 %107, label %.preheader79.i.us, label %.preheader73.loopexit.i, !llvm.loop !392
 
 .preheader76.i.us:                                ; preds = %.lr.ph105.i, %.loopexit75.i.us27
   %indvars.iv.i.us25 = phi i64 [ %indvars.iv.next.i.us29, %.loopexit75.i.us27 ], [ 0, %.lr.ph105.i ]
@@ -21577,13 +21577,13 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %180 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %177, <8 x i16> splat (i16 -127))
   %181 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %180, <8 x i16> splat (i16 127))
   %182 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %179, <8 x i16> %181)
-  store <16 x i8> %182, ptr %.593.i.us, align 1, !tbaa !89
+  store <16 x i8> %182, ptr %.593.i.us, align 1, !tbaa !88
   %183 = getelementptr inbounds nuw i8, ptr %.593.i.us, i64 16
   %184 = getelementptr inbounds nuw i8, ptr %.328392.i.us, i64 8
   %185 = add nuw nsw i32 %.028791.i.us, 2
   %186 = or disjoint i32 %185, 1
   %187 = icmp slt i32 %186, %4
-  br i1 %187, label %.lr.ph94.i.us, label %.preheader74.i.us, !llvm.loop !404
+  br i1 %187, label %.lr.ph94.i.us, label %.preheader74.i.us, !llvm.loop !393
 
 .preheader74.i.us:                                ; preds = %.lr.ph94.i.us, %.preheader76.i.us
   %.0287.lcssa.i.us = phi i32 [ 0, %.preheader76.i.us ], [ %37, %.lr.ph94.i.us ]
@@ -21633,19 +21633,19 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %223 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %222, <8 x i16> poison)
   %224 = bitcast <16 x i8> %223 to <2 x i64>
   %225 = extractelement <2 x i64> %224, i64 0
-  store i64 %225, ptr %.6100.i.us, align 8, !tbaa !401
+  store i64 %225, ptr %.6100.i.us, align 8, !tbaa !390
   %226 = getelementptr inbounds nuw i8, ptr %.6100.i.us, i64 8
   %227 = getelementptr inbounds nuw i8, ptr %.428499.i.us, i64 4
   %228 = add nuw nsw i32 %.128898.i.us, 1
   %exitcond211.not.i.us = icmp eq i32 %228, %4
-  br i1 %exitcond211.not.i.us, label %.loopexit75.i.us27, label %.lr.ph101.i.us, !llvm.loop !405
+  br i1 %exitcond211.not.i.us, label %.loopexit75.i.us27, label %.lr.ph101.i.us, !llvm.loop !394
 
 .loopexit75.i.us27:                               ; preds = %.lr.ph101.i.us, %.preheader74.i.us
   %.4.i.us28 = phi ptr [ %.5.lcssa.i.us, %.preheader74.i.us ], [ %226, %.lr.ph101.i.us ]
   %indvars.iv.next.i.us29 = add nuw nsw i64 %indvars.iv.i.us25, 8
   %229 = or disjoint i64 %indvars.iv.next.i.us29, 7
   %230 = icmp samesign ult i64 %229, %38
-  br i1 %230, label %.preheader76.i.us, label %.preheader73.loopexit.i, !llvm.loop !406
+  br i1 %230, label %.preheader76.i.us, label %.preheader73.loopexit.i, !llvm.loop !395
 
 .preheader73.loopexit.i:                          ; preds = %.loopexit75.i.us27, %.loopexit75.i.us, %.loopexit75.i.preheader
   %.us-phi = phi ptr [ %.0.val, %.loopexit75.i.preheader ], [ %.4.i.us, %.loopexit75.i.us ], [ %.4.i.us28, %.loopexit75.i.us27 ]
@@ -21704,9 +21704,9 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %.9110.i.us = phi ptr [ %276, %.lr.ph111.i.us ], [ %.7134.i.us, %.preheader72.i.us ]
   %.1290109.i.us = phi ptr [ %277, %.lr.ph111.i.us ], [ %gep.i.us, %.preheader72.i.us ]
   %.0294108.i.us = phi i32 [ %278, %.lr.ph111.i.us ], [ 0, %.preheader72.i.us ]
-  %257 = load <4 x float>, ptr %.1290109.i.us, align 16, !tbaa !89
+  %257 = load <4 x float>, ptr %.1290109.i.us, align 16, !tbaa !88
   %258 = getelementptr inbounds nuw i8, ptr %.1290109.i.us, i64 16
-  %259 = load <4 x float>, ptr %258, align 16, !tbaa !89
+  %259 = load <4 x float>, ptr %258, align 16, !tbaa !88
   %260 = fmul fast <4 x float> %257, %238
   %261 = fmul fast <4 x float> %259, %238
   %262 = shufflevector <4 x float> %260, <4 x float> %261, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -21723,13 +21723,13 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %273 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %272, <8 x i16> poison)
   %274 = bitcast <16 x i8> %273 to <2 x i64>
   %275 = extractelement <2 x i64> %274, i64 0
-  store i64 %275, ptr %.9110.i.us, align 8, !tbaa !401
+  store i64 %275, ptr %.9110.i.us, align 8, !tbaa !390
   %276 = getelementptr inbounds nuw i8, ptr %.9110.i.us, i64 8
   %277 = getelementptr inbounds nuw i8, ptr %.1290109.i.us, i64 32
   %278 = add nuw nsw i32 %.0294108.i.us, 2
   %279 = or disjoint i32 %278, 1
   %280 = icmp slt i32 %279, %4
-  br i1 %280, label %.lr.ph111.i.us, label %.preheader70.i.us, !llvm.loop !407
+  br i1 %280, label %.lr.ph111.i.us, label %.preheader70.i.us, !llvm.loop !396
 
 .preheader70.i.us:                                ; preds = %.lr.ph111.i.us, %.preheader72.i.us
   %.0294.lcssa.i.us = phi i32 [ 0, %.preheader72.i.us ], [ %245, %.lr.ph111.i.us ]
@@ -21742,7 +21742,7 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %.10117.i.us = phi ptr [ %293, %.lr.ph118.i.us ], [ %.9.lcssa.i.us, %.preheader70.i.us ]
   %.2291116.i.us = phi ptr [ %294, %.lr.ph118.i.us ], [ %.1290.lcssa.i.us, %.preheader70.i.us ]
   %.1295115.i.us = phi i32 [ %295, %.lr.ph118.i.us ], [ %.0294.lcssa.i.us, %.preheader70.i.us ]
-  %282 = load <4 x float>, ptr %.2291116.i.us, align 16, !tbaa !89
+  %282 = load <4 x float>, ptr %.2291116.i.us, align 16, !tbaa !88
   %283 = fmul fast <4 x float> %282, %238
   %284 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %283)
   %285 = fadd fast <4 x float> %284, %283
@@ -21758,14 +21758,14 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %294 = getelementptr inbounds nuw i8, ptr %.2291116.i.us, i64 16
   %295 = add nuw nsw i32 %.1295115.i.us, 1
   %exitcond213.not.i.us = icmp eq i32 %295, %4
-  br i1 %exitcond213.not.i.us, label %.loopexit.i.us, label %.lr.ph118.i.us, !llvm.loop !408
+  br i1 %exitcond213.not.i.us, label %.loopexit.i.us, label %.lr.ph118.i.us, !llvm.loop !397
 
 .loopexit.i.us:                                   ; preds = %.lr.ph118.i.us, %.preheader70.i.us
   %.11.i.us = phi ptr [ %.9.lcssa.i.us, %.preheader70.i.us ], [ %293, %.lr.ph118.i.us ]
   %indvars.iv.next216.i.us = add nuw nsw i64 %indvars.iv215.i.us, 4
   %296 = or disjoint i64 %indvars.iv.next216.i.us, 3
   %297 = icmp slt i64 %296, %247
-  br i1 %297, label %.preheader72.i.us, label %.preheader67.loopexit.i, !llvm.loop !409
+  br i1 %297, label %.preheader72.i.us, label %.preheader67.loopexit.i, !llvm.loop !398
 
 .preheader69.i.us:                                ; preds = %.lr.ph135.i, %.loopexit.i.us40
   %indvars.iv215.i.us37 = phi i64 [ %indvars.iv.next216.i.us42, %.loopexit.i.us40 ], [ %246, %.lr.ph135.i ]
@@ -21816,13 +21816,13 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %334 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %333, <8 x i16> poison)
   %335 = bitcast <16 x i8> %334 to <2 x i64>
   %336 = extractelement <2 x i64> %335, i64 0
-  store i64 %336, ptr %.12123.i.us, align 8, !tbaa !401
+  store i64 %336, ptr %.12123.i.us, align 8, !tbaa !390
   %337 = getelementptr inbounds nuw i8, ptr %.12123.i.us, i64 8
   %338 = getelementptr inbounds nuw i8, ptr %.3292122.i.us, i64 8
   %339 = add nuw nsw i32 %.0296121.i.us, 2
   %340 = or disjoint i32 %339, 1
   %341 = icmp slt i32 %340, %4
-  br i1 %341, label %.lr.ph124.i.us, label %.preheader68.i.us, !llvm.loop !410
+  br i1 %341, label %.lr.ph124.i.us, label %.preheader68.i.us, !llvm.loop !399
 
 .preheader68.i.us:                                ; preds = %.lr.ph124.i.us, %.preheader69.i.us
   %.0296.lcssa.i.us = phi i32 [ 0, %.preheader69.i.us ], [ %245, %.lr.ph124.i.us ]
@@ -21861,14 +21861,14 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %365 = getelementptr inbounds nuw i8, ptr %.4293129.i.us, i64 4
   %366 = add nuw nsw i32 %.1297128.i.us, 1
   %exitcond214.not.i.us = icmp eq i32 %366, %4
-  br i1 %exitcond214.not.i.us, label %.loopexit.i.us40, label %.lr.ph131.i.us, !llvm.loop !411
+  br i1 %exitcond214.not.i.us, label %.loopexit.i.us40, label %.lr.ph131.i.us, !llvm.loop !400
 
 .loopexit.i.us40:                                 ; preds = %.lr.ph131.i.us, %.preheader68.i.us
   %.11.i.us41 = phi ptr [ %.12.lcssa.i.us, %.preheader68.i.us ], [ %364, %.lr.ph131.i.us ]
   %indvars.iv.next216.i.us42 = add nuw nsw i64 %indvars.iv215.i.us37, 4
   %367 = or disjoint i64 %indvars.iv.next216.i.us42, 3
   %368 = icmp slt i64 %367, %247
-  br i1 %368, label %.preheader69.i.us, label %.preheader67.loopexit.i, !llvm.loop !412
+  br i1 %368, label %.preheader69.i.us, label %.preheader67.loopexit.i, !llvm.loop !401
 
 .preheader67.loopexit.i:                          ; preds = %.loopexit.i.us40, %.loopexit.i.us, %.loopexit.i.preheader
   %.us-phi34 = phi ptr [ %.0.lcssa.i, %.loopexit.i.preheader ], [ %.11.i.us, %.loopexit.i.us ], [ %.11.i.us41, %.loopexit.i.us40 ]
@@ -21939,9 +21939,9 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %.15140.i = phi ptr [ %418, %.lr.ph141.i ], [ %.14158.i, %391 ]
   %.0298139.i = phi i32 [ %420, %.lr.ph141.i ], [ 0, %391 ]
   %.0301138.i = phi ptr [ %419, %.lr.ph141.i ], [ %396, %391 ]
-  %399 = load <4 x float>, ptr %.0301138.i, align 1, !tbaa !89
+  %399 = load <4 x float>, ptr %.0301138.i, align 1, !tbaa !88
   %400 = getelementptr inbounds float, ptr %.0301138.i, i64 %376
-  %401 = load <4 x float>, ptr %400, align 1, !tbaa !89
+  %401 = load <4 x float>, ptr %400, align 1, !tbaa !88
   %402 = fmul fast <4 x float> %399, %374
   %403 = fmul fast <4 x float> %401, %374
   %404 = shufflevector <4 x float> %402, <4 x float> %403, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -21958,13 +21958,13 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %415 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %414, <8 x i16> poison)
   %416 = bitcast <16 x i8> %415 to <2 x i64>
   %417 = extractelement <2 x i64> %416, i64 0
-  store i64 %417, ptr %.15140.i, align 8, !tbaa !401
+  store i64 %417, ptr %.15140.i, align 8, !tbaa !390
   %418 = getelementptr inbounds nuw i8, ptr %.15140.i, i64 8
   %419 = getelementptr inbounds nuw i8, ptr %.0301138.i, i64 16
   %420 = add nuw nsw i32 %.0298139.i, 4
   %421 = or disjoint i32 %420, 3
   %422 = icmp slt i32 %421, %4
-  br i1 %422, label %.lr.ph141.i, label %.preheader66.i, !llvm.loop !413
+  br i1 %422, label %.lr.ph141.i, label %.preheader66.i, !llvm.loop !402
 
 .preheader65.i:                                   ; preds = %.lr.ph148.i, %.preheader66.i
   %.1302.lcssa.i = phi ptr [ %.0301.lcssa.i, %.preheader66.i ], [ %440, %.lr.ph148.i ]
@@ -21977,10 +21977,10 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %.16147.i = phi ptr [ %439, %.lr.ph148.i ], [ %.15.lcssa.i, %.preheader66.i ]
   %.1299146.i = phi i32 [ %441, %.lr.ph148.i ], [ %.0298.lcssa.i, %.preheader66.i ]
   %.1302145.i = phi ptr [ %440, %.lr.ph148.i ], [ %.0301.lcssa.i, %.preheader66.i ]
-  %424 = load i64, ptr %.1302145.i, align 1, !tbaa !89
+  %424 = load i64, ptr %.1302145.i, align 1, !tbaa !88
   %425 = insertelement <2 x i64> poison, i64 %424, i64 0
   %426 = getelementptr inbounds float, ptr %.1302145.i, i64 %376
-  %427 = load i64, ptr %426, align 1, !tbaa !89
+  %427 = load i64, ptr %426, align 1, !tbaa !88
   %.uncasted.i = insertelement <2 x i64> %425, i64 %427, i64 1
   %428 = bitcast <2 x i64> %.uncasted.i to <4 x float>
   %429 = fmul fast <4 x float> %374, %428
@@ -21999,7 +21999,7 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %441 = add nuw nsw i32 %.1299146.i, 2
   %442 = or disjoint i32 %441, 1
   %443 = icmp slt i32 %442, %4
-  br i1 %443, label %.lr.ph148.i, label %.preheader65.i, !llvm.loop !414
+  br i1 %443, label %.lr.ph148.i, label %.preheader65.i, !llvm.loop !403
 
 .lr.ph155.i:                                      ; preds = %.preheader65.i, %.lr.ph155.i
   %.17154.i = phi ptr [ %454, %.lr.ph155.i ], [ %.16.lcssa.i, %.preheader65.i ]
@@ -22012,7 +22012,7 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %spec.select.i60.i = tail call i32 @llvm.smax.i32(i32 %447, i32 -127)
   %.0.i61.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i60.i, i32 127)
   %.0.i.i = trunc nsw i32 %.0.i61.i to i8
-  store i8 %.0.i.i, ptr %.17154.i, align 1, !tbaa !89
+  store i8 %.0.i.i, ptr %.17154.i, align 1, !tbaa !88
   %448 = getelementptr inbounds float, ptr %.2303152.i, i64 %376
   %449 = load float, ptr %448, align 4, !tbaa !61
   %450 = fmul fast float %449, %5
@@ -22022,19 +22022,19 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %.0.i30563.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i30462.i, i32 127)
   %.0.i305.i = trunc nsw i32 %.0.i30563.i to i8
   %453 = getelementptr inbounds nuw i8, ptr %.17154.i, i64 1
-  store i8 %.0.i305.i, ptr %453, align 1, !tbaa !89
+  store i8 %.0.i305.i, ptr %453, align 1, !tbaa !88
   %454 = getelementptr inbounds nuw i8, ptr %.17154.i, i64 2
   %455 = getelementptr inbounds nuw i8, ptr %.2303152.i, i64 4
   %456 = add nuw nsw i32 %.2300153.i, 1
   %exitcond218.not.i = icmp eq i32 %456, %4
-  br i1 %exitcond218.not.i, label %._crit_edge.i, label %.lr.ph155.i, !llvm.loop !415
+  br i1 %exitcond218.not.i, label %._crit_edge.i, label %.lr.ph155.i, !llvm.loop !404
 
 ._crit_edge.i:                                    ; preds = %.lr.ph155.i, %.preheader65.i
   %.17.lcssa.i = phi ptr [ %.16.lcssa.i, %.preheader65.i ], [ %454, %.lr.ph155.i ]
   %indvars.iv.next220.i = add nuw nsw i64 %indvars.iv219.i, 2
   %457 = or disjoint i64 %indvars.iv.next220.i, 1
   %458 = icmp slt i64 %457, %379
-  br i1 %458, label %391, label %.preheader64.loopexit.i, !llvm.loop !416
+  br i1 %458, label %391, label %.preheader64.loopexit.i, !llvm.loop !405
 
 459:                                              ; preds = %._crit_edge174.i, %.lr.ph178.i
   %indvars.iv223.i = phi i64 [ %388, %.lr.ph178.i ], [ %indvars.iv.next224.i, %._crit_edge174.i ]
@@ -22057,7 +22057,7 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %.19164.i = phi ptr [ %477, %.lr.ph166.i ], [ %.18177.i, %459 ]
   %.0272163.i = phi i32 [ %479, %.lr.ph166.i ], [ 0, %459 ]
   %.0278162.i = phi ptr [ %478, %.lr.ph166.i ], [ %464, %459 ]
-  %466 = load <4 x float>, ptr %.0278162.i, align 1, !tbaa !89
+  %466 = load <4 x float>, ptr %.0278162.i, align 1, !tbaa !88
   %467 = fmul fast <4 x float> %466, %385
   %468 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %467)
   %469 = fadd fast <4 x float> %468, %467
@@ -22074,7 +22074,7 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %479 = add nuw nsw i32 %.0272163.i, 4
   %480 = or disjoint i32 %479, 3
   %481 = icmp slt i32 %480, %4
-  br i1 %481, label %.lr.ph166.i, label %.preheader.i, !llvm.loop !417
+  br i1 %481, label %.lr.ph166.i, label %.preheader.i, !llvm.loop !406
 
 .lr.ph173.i:                                      ; preds = %.preheader.i, %.lr.ph173.i
   %.20172.i = phi ptr [ %486, %.lr.ph173.i ], [ %.19.lcssa.i, %.preheader.i ]
@@ -22087,18 +22087,18 @@ define internal fastcc void @_ZN4ncnnL20pack_B_tile_quantizeERKNS_3MatERS0_iiiif
   %spec.select.i30658.i = tail call i32 @llvm.smax.i32(i32 %485, i32 -127)
   %.0.i30759.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i30658.i, i32 127)
   %.0.i307.i = trunc nsw i32 %.0.i30759.i to i8
-  store i8 %.0.i307.i, ptr %.20172.i, align 1, !tbaa !89
+  store i8 %.0.i307.i, ptr %.20172.i, align 1, !tbaa !88
   %486 = getelementptr inbounds nuw i8, ptr %.20172.i, i64 1
   %487 = getelementptr inbounds nuw i8, ptr %.1279170.i, i64 4
   %488 = add nuw nsw i32 %.1273171.i, 1
   %exitcond222.not.i = icmp eq i32 %488, %4
-  br i1 %exitcond222.not.i, label %._crit_edge174.i, label %.lr.ph173.i, !llvm.loop !418
+  br i1 %exitcond222.not.i, label %._crit_edge174.i, label %.lr.ph173.i, !llvm.loop !407
 
 ._crit_edge174.i:                                 ; preds = %.lr.ph173.i, %.preheader.i
   %.20.lcssa.i = phi ptr [ %.19.lcssa.i, %.preheader.i ], [ %486, %.lr.ph173.i ]
   %indvars.iv.next224.i = add nsw i64 %indvars.iv223.i, 1
   %exitcond226.not.i = icmp eq i64 %indvars.iv.next224.i, %wide.trip.count.i
-  br i1 %exitcond226.not.i, label %_ZN4ncnnL24pack_B_tile_fp32_to_int8ERKNS_3MatERS0_iiiif.exit, label %459, !llvm.loop !419
+  br i1 %exitcond226.not.i, label %_ZN4ncnnL24pack_B_tile_fp32_to_int8ERKNS_3MatERS0_iiiif.exit, label %459, !llvm.loop !408
 
 _ZN4ncnnL24pack_B_tile_fp32_to_int8ERKNS_3MatERS0_iiiif.exit: ; preds = %._crit_edge174.i, %.preheader64.i
   ret void
@@ -22158,13 +22158,13 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.4100.i.us = phi ptr [ %76, %.lr.ph101.i.us ], [ %.0111.i.us, %36 ]
   %.229799.i.us = phi ptr [ %77, %.lr.ph101.i.us ], [ %41, %36 ]
   %.030598.i.us = phi i32 [ %78, %.lr.ph101.i.us ], [ 0, %36 ]
-  %42 = load <4 x float>, ptr %.229799.i.us, align 1, !tbaa !89
+  %42 = load <4 x float>, ptr %.229799.i.us, align 1, !tbaa !88
   %43 = getelementptr inbounds nuw i8, ptr %.229799.i.us, i64 16
-  %44 = load <4 x float>, ptr %43, align 1, !tbaa !89
+  %44 = load <4 x float>, ptr %43, align 1, !tbaa !88
   %45 = getelementptr inbounds float, ptr %.229799.i.us, i64 %29
-  %46 = load <4 x float>, ptr %45, align 1, !tbaa !89
+  %46 = load <4 x float>, ptr %45, align 1, !tbaa !88
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %48 = load <4 x float>, ptr %47, align 1, !tbaa !89
+  %48 = load <4 x float>, ptr %47, align 1, !tbaa !88
   %49 = shufflevector <4 x float> %42, <4 x float> %46, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %50 = shufflevector <4 x float> %42, <4 x float> %46, <4 x i32> <i32 2, i32 6, i32 3, i32 7>
   %51 = shufflevector <4 x float> %44, <4 x float> %48, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -22192,13 +22192,13 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %73 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %70, <8 x i16> splat (i16 -127))
   %74 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %73, <8 x i16> splat (i16 127))
   %75 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %72, <8 x i16> %74)
-  store <16 x i8> %75, ptr %.4100.i.us, align 1, !tbaa !89
+  store <16 x i8> %75, ptr %.4100.i.us, align 1, !tbaa !88
   %76 = getelementptr inbounds nuw i8, ptr %.4100.i.us, i64 16
   %77 = getelementptr inbounds float, ptr %.229799.i.us, i64 %31
   %78 = add nuw nsw i32 %.030598.i.us, 2
   %79 = or disjoint i32 %78, 1
   %80 = icmp slt i32 %79, %4
-  br i1 %80, label %.lr.ph101.i.us, label %.preheader91.i.us, !llvm.loop !420
+  br i1 %80, label %.lr.ph101.i.us, label %.preheader91.i.us, !llvm.loop !409
 
 .preheader91.i.us:                                ; preds = %.lr.ph101.i.us, %36
   %.0305.lcssa.i.us = phi i32 [ 0, %36 ], [ %32, %.lr.ph101.i.us ]
@@ -22211,9 +22211,9 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.5107.i.us = phi ptr [ %99, %.lr.ph108.i.us ], [ %.4.lcssa.i.us, %.preheader91.i.us ]
   %.3298106.i.us = phi ptr [ %100, %.lr.ph108.i.us ], [ %.2297.lcssa.i.us, %.preheader91.i.us ]
   %.1306105.i.us = phi i32 [ %101, %.lr.ph108.i.us ], [ %.0305.lcssa.i.us, %.preheader91.i.us ]
-  %82 = load <4 x float>, ptr %.3298106.i.us, align 1, !tbaa !89
+  %82 = load <4 x float>, ptr %.3298106.i.us, align 1, !tbaa !88
   %83 = getelementptr inbounds nuw i8, ptr %.3298106.i.us, i64 16
-  %84 = load <4 x float>, ptr %83, align 1, !tbaa !89
+  %84 = load <4 x float>, ptr %83, align 1, !tbaa !88
   %85 = fmul fast <4 x float> %82, %23
   %86 = fmul fast <4 x float> %84, %23
   %87 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %85)
@@ -22228,19 +22228,19 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %96 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %95, <8 x i16> poison)
   %97 = bitcast <16 x i8> %96 to <2 x i64>
   %98 = extractelement <2 x i64> %97, i64 0
-  store i64 %98, ptr %.5107.i.us, align 8, !tbaa !401
+  store i64 %98, ptr %.5107.i.us, align 8, !tbaa !390
   %99 = getelementptr inbounds nuw i8, ptr %.5107.i.us, i64 8
   %100 = getelementptr inbounds float, ptr %.3298106.i.us, i64 %29
   %101 = add nuw nsw i32 %.1306105.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %101, %4
-  br i1 %exitcond.not.i.us, label %.loopexit92.i.us, label %.lr.ph108.i.us, !llvm.loop !421
+  br i1 %exitcond.not.i.us, label %.loopexit92.i.us, label %.lr.ph108.i.us, !llvm.loop !410
 
 .loopexit92.i.us:                                 ; preds = %.lr.ph108.i.us, %.preheader91.i.us, %.loopexit93.i.us
   %.3.i.us = phi ptr [ %.0111.i.us, %.loopexit93.i.us ], [ %.4.lcssa.i.us, %.preheader91.i.us ], [ %99, %.lr.ph108.i.us ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 8
   %102 = or disjoint i64 %indvars.iv.next.i.us, 7
   %103 = icmp samesign ult i64 %102, %33
-  br i1 %103, label %.loopexit93.i.us, label %.preheader90.loopexit.i, !llvm.loop !422
+  br i1 %103, label %.loopexit93.i.us, label %.preheader90.loopexit.i, !llvm.loop !411
 
 .preheader90.loopexit.i:                          ; preds = %.loopexit92.i.loopexit4, %.loopexit92.i.us
   %.us-phi = phi ptr [ %.3.i.us, %.loopexit92.i.us ], [ %243, %.loopexit92.i.loopexit4 ]
@@ -22297,9 +22297,9 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.10123.i.us = phi ptr [ %150, %.lr.ph124.i.us ], [ %.6134.i.us, %127 ]
   %.2309122.i.us = phi ptr [ %151, %.lr.ph124.i.us ], [ %130, %127 ]
   %.0312121.i.us = phi i32 [ %152, %.lr.ph124.i.us ], [ 0, %127 ]
-  %131 = load <4 x float>, ptr %.2309122.i.us, align 1, !tbaa !89
+  %131 = load <4 x float>, ptr %.2309122.i.us, align 1, !tbaa !88
   %132 = getelementptr inbounds float, ptr %.2309122.i.us, i64 %117
-  %133 = load <4 x float>, ptr %132, align 1, !tbaa !89
+  %133 = load <4 x float>, ptr %132, align 1, !tbaa !88
   %134 = fmul fast <4 x float> %131, %111
   %135 = fmul fast <4 x float> %133, %111
   %136 = shufflevector <4 x float> %134, <4 x float> %135, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -22316,13 +22316,13 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %147 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %146, <8 x i16> poison)
   %148 = bitcast <16 x i8> %147 to <2 x i64>
   %149 = extractelement <2 x i64> %148, i64 0
-  store i64 %149, ptr %.10123.i.us, align 8, !tbaa !401
+  store i64 %149, ptr %.10123.i.us, align 8, !tbaa !390
   %150 = getelementptr inbounds nuw i8, ptr %.10123.i.us, i64 8
   %151 = getelementptr inbounds float, ptr %.2309122.i.us, i64 %119
   %152 = add nuw nsw i32 %.0312121.i.us, 2
   %153 = or disjoint i32 %152, 1
   %154 = icmp slt i32 %153, %4
-  br i1 %154, label %.lr.ph124.i.us, label %.preheader87.i.us, !llvm.loop !423
+  br i1 %154, label %.lr.ph124.i.us, label %.preheader87.i.us, !llvm.loop !412
 
 .preheader87.i.us:                                ; preds = %.lr.ph124.i.us, %127
   %.0312.lcssa.i.us = phi i32 [ 0, %127 ], [ %120, %.lr.ph124.i.us ]
@@ -22335,7 +22335,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.11130.i.us = phi ptr [ %167, %.lr.ph131.i.us ], [ %.10.lcssa.i.us, %.preheader87.i.us ]
   %.3310129.i.us = phi ptr [ %168, %.lr.ph131.i.us ], [ %.2309.lcssa.i.us, %.preheader87.i.us ]
   %.1313128.i.us = phi i32 [ %169, %.lr.ph131.i.us ], [ %.0312.lcssa.i.us, %.preheader87.i.us ]
-  %156 = load <4 x float>, ptr %.3310129.i.us, align 1, !tbaa !89
+  %156 = load <4 x float>, ptr %.3310129.i.us, align 1, !tbaa !88
   %157 = fmul fast <4 x float> %156, %111
   %158 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %157)
   %159 = fadd fast <4 x float> %158, %157
@@ -22351,14 +22351,14 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %168 = getelementptr inbounds float, ptr %.3310129.i.us, i64 %117
   %169 = add nuw nsw i32 %.1313128.i.us, 1
   %exitcond229.not.i.us = icmp eq i32 %169, %4
-  br i1 %exitcond229.not.i.us, label %.loopexit88.i.us, label %.lr.ph131.i.us, !llvm.loop !424
+  br i1 %exitcond229.not.i.us, label %.loopexit88.i.us, label %.lr.ph131.i.us, !llvm.loop !413
 
 .loopexit88.i.us:                                 ; preds = %.lr.ph131.i.us, %.preheader87.i.us, %.loopexit89.i.us
   %.9.i.us = phi ptr [ %.6134.i.us, %.loopexit89.i.us ], [ %.10.lcssa.i.us, %.preheader87.i.us ], [ %167, %.lr.ph131.i.us ]
   %indvars.iv.next231.i.us = add nuw nsw i64 %indvars.iv230.i.us, 4
   %170 = or disjoint i64 %indvars.iv.next231.i.us, 3
   %171 = icmp slt i64 %170, %122
-  br i1 %171, label %.loopexit89.i.us, label %.preheader86.loopexit.i, !llvm.loop !425
+  br i1 %171, label %.loopexit89.i.us, label %.preheader86.loopexit.i, !llvm.loop !414
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph112.i, %.loopexit92.i.loopexit4
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit92.i.loopexit4 ], [ 0, %.lr.ph112.i ]
@@ -22374,21 +22374,21 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.296.i = phi ptr [ %243, %.lr.ph.i ], [ %.0111.i, %.lr.ph.i.preheader ]
   %.129695.i = phi ptr [ %244, %.lr.ph.i ], [ %176, %.lr.ph.i.preheader ]
   %.030094.i = phi i32 [ %245, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %177 = load <4 x float>, ptr %.129695.i, align 16, !tbaa !89
+  %177 = load <4 x float>, ptr %.129695.i, align 16, !tbaa !88
   %178 = getelementptr inbounds nuw i8, ptr %.129695.i, i64 16
-  %179 = load <4 x float>, ptr %178, align 16, !tbaa !89
+  %179 = load <4 x float>, ptr %178, align 16, !tbaa !88
   %180 = getelementptr inbounds nuw i8, ptr %.129695.i, i64 32
-  %181 = load <4 x float>, ptr %180, align 16, !tbaa !89
+  %181 = load <4 x float>, ptr %180, align 16, !tbaa !88
   %182 = getelementptr inbounds nuw i8, ptr %.129695.i, i64 48
-  %183 = load <4 x float>, ptr %182, align 16, !tbaa !89
+  %183 = load <4 x float>, ptr %182, align 16, !tbaa !88
   %184 = getelementptr inbounds nuw i8, ptr %.129695.i, i64 64
-  %185 = load <4 x float>, ptr %184, align 16, !tbaa !89
+  %185 = load <4 x float>, ptr %184, align 16, !tbaa !88
   %186 = getelementptr inbounds nuw i8, ptr %.129695.i, i64 80
-  %187 = load <4 x float>, ptr %186, align 16, !tbaa !89
+  %187 = load <4 x float>, ptr %186, align 16, !tbaa !88
   %188 = getelementptr inbounds nuw i8, ptr %.129695.i, i64 96
-  %189 = load <4 x float>, ptr %188, align 16, !tbaa !89
+  %189 = load <4 x float>, ptr %188, align 16, !tbaa !88
   %190 = getelementptr inbounds nuw i8, ptr %.129695.i, i64 112
-  %191 = load <4 x float>, ptr %190, align 16, !tbaa !89
+  %191 = load <4 x float>, ptr %190, align 16, !tbaa !88
   %192 = fmul fast <4 x float> %177, %23
   %193 = fmul fast <4 x float> %179, %23
   %194 = fmul fast <4 x float> %181, %23
@@ -22439,21 +22439,21 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %239 = bitcast <16 x i8> %237 to <8 x i16>
   %240 = shufflevector <8 x i16> %238, <8 x i16> %239, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
   %241 = shufflevector <8 x i16> %238, <8 x i16> %239, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  store <8 x i16> %240, ptr %.296.i, align 16, !tbaa !89
+  store <8 x i16> %240, ptr %.296.i, align 16, !tbaa !88
   %242 = getelementptr inbounds nuw i8, ptr %.296.i, i64 16
-  store <8 x i16> %241, ptr %242, align 16, !tbaa !89
+  store <8 x i16> %241, ptr %242, align 16, !tbaa !88
   %243 = getelementptr inbounds nuw i8, ptr %.296.i, i64 32
   %244 = getelementptr inbounds float, ptr %.129695.i, i64 %26
   %245 = add nuw nsw i32 %.030094.i, 4
   %246 = or disjoint i32 %245, 3
   %247 = icmp slt i32 %246, %4
-  br i1 %247, label %.lr.ph.i, label %.loopexit92.i.loopexit4, !llvm.loop !426
+  br i1 %247, label %.lr.ph.i, label %.loopexit92.i.loopexit4, !llvm.loop !415
 
 .loopexit92.i.loopexit4:                          ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %248 = or disjoint i64 %indvars.iv.next.i, 7
   %249 = icmp samesign ult i64 %248, %33
-  br i1 %249, label %.lr.ph.i.preheader, label %.preheader90.loopexit.i, !llvm.loop !427
+  br i1 %249, label %.lr.ph.i.preheader, label %.preheader90.loopexit.i, !llvm.loop !416
 
 .preheader86.loopexit.i:                          ; preds = %.loopexit88.i.loopexit3, %.loopexit88.i.us
   %.us-phi24 = phi ptr [ %.9.i.us, %.loopexit88.i.us ], [ %400, %.loopexit88.i.loopexit3 ]
@@ -22514,19 +22514,19 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.16146.i.us = phi ptr [ %315, %.lr.ph147.i.us ], [ %.12164.i.us, %274 ]
   %.2316145.i.us = phi ptr [ %316, %.lr.ph147.i.us ], [ %279, %274 ]
   %.0320144.i.us = phi i32 [ %317, %.lr.ph147.i.us ], [ 0, %274 ]
-  %280 = load i64, ptr %.2316145.i.us, align 1, !tbaa !89
+  %280 = load i64, ptr %.2316145.i.us, align 1, !tbaa !88
   %281 = insertelement <2 x i64> poison, i64 %280, i64 0
   %282 = bitcast <2 x i64> %281 to <4 x float>
   %283 = getelementptr inbounds float, ptr %.2316145.i.us, i64 %263
-  %284 = load i64, ptr %283, align 1, !tbaa !89
+  %284 = load i64, ptr %283, align 1, !tbaa !88
   %285 = insertelement <2 x i64> poison, i64 %284, i64 0
   %286 = bitcast <2 x i64> %285 to <4 x float>
   %287 = getelementptr inbounds float, ptr %.2316145.i.us, i64 %265
-  %288 = load i64, ptr %287, align 1, !tbaa !89
+  %288 = load i64, ptr %287, align 1, !tbaa !88
   %289 = insertelement <2 x i64> poison, i64 %288, i64 0
   %290 = bitcast <2 x i64> %289 to <4 x float>
   %291 = getelementptr inbounds float, ptr %.2316145.i.us, i64 %267
-  %292 = load i64, ptr %291, align 1, !tbaa !89
+  %292 = load i64, ptr %291, align 1, !tbaa !88
   %293 = insertelement <2 x i64> poison, i64 %292, i64 0
   %294 = bitcast <2 x i64> %293 to <4 x float>
   %295 = shufflevector <4 x float> %282, <4 x float> %286, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -22549,13 +22549,13 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %312 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %311, <8 x i16> poison)
   %313 = bitcast <16 x i8> %312 to <2 x i64>
   %314 = extractelement <2 x i64> %313, i64 0
-  store i64 %314, ptr %.16146.i.us, align 8, !tbaa !401
+  store i64 %314, ptr %.16146.i.us, align 8, !tbaa !390
   %315 = getelementptr inbounds nuw i8, ptr %.16146.i.us, i64 8
   %316 = getelementptr inbounds float, ptr %.2316145.i.us, i64 %260
   %317 = add nuw nsw i32 %.0320144.i.us, 4
   %318 = or disjoint i32 %317, 3
   %319 = icmp slt i32 %318, %4
-  br i1 %319, label %.lr.ph147.i.us, label %.preheader84.i.us, !llvm.loop !428
+  br i1 %319, label %.lr.ph147.i.us, label %.preheader84.i.us, !llvm.loop !417
 
 .preheader84.i.us:                                ; preds = %.lr.ph147.i.us, %274
   %.0320.lcssa.i.us = phi i32 [ 0, %274 ], [ %268, %.lr.ph147.i.us ]
@@ -22569,11 +22569,11 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.17153.i.us = phi ptr [ %340, %.lr.ph154.i.us ], [ %.16.lcssa.i.us, %.preheader84.i.us ]
   %.3317152.i.us = phi ptr [ %341, %.lr.ph154.i.us ], [ %.2316.lcssa.i.us, %.preheader84.i.us ]
   %.1321151.i.us = phi i32 [ %342, %.lr.ph154.i.us ], [ %.0320.lcssa.i.us, %.preheader84.i.us ]
-  %322 = load i64, ptr %.3317152.i.us, align 1, !tbaa !89
+  %322 = load i64, ptr %.3317152.i.us, align 1, !tbaa !88
   %323 = insertelement <2 x i64> poison, i64 %322, i64 0
   %324 = bitcast <2 x i64> %323 to <4 x float>
   %325 = getelementptr inbounds float, ptr %.3317152.i.us, i64 %263
-  %326 = load i64, ptr %325, align 1, !tbaa !89
+  %326 = load i64, ptr %325, align 1, !tbaa !88
   %327 = insertelement <2 x i64> poison, i64 %326, i64 0
   %328 = bitcast <2 x i64> %327 to <4 x float>
   %329 = shufflevector <4 x float> %324, <4 x float> %328, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -22593,7 +22593,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %342 = add nuw nsw i32 %.1321151.i.us, 2
   %343 = or disjoint i32 %342, 1
   %344 = icmp slt i32 %343, %4
-  br i1 %344, label %.lr.ph154.i.us, label %.preheader82.i.us, !llvm.loop !429
+  br i1 %344, label %.lr.ph154.i.us, label %.preheader82.i.us, !llvm.loop !418
 
 .preheader82.i.us:                                ; preds = %.lr.ph154.i.us, %.preheader84.i.us
   %.1321.lcssa.i.us = phi i32 [ %.0320.lcssa.i.us, %.preheader84.i.us ], [ %342, %.lr.ph154.i.us ]
@@ -22613,7 +22613,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %spec.select.i32576.i.us = tail call i32 @llvm.smax.i32(i32 %349, i32 -127)
   %.0.i32677.i.us = tail call i32 @llvm.smin.i32(i32 %spec.select.i32576.i.us, i32 127)
   %.0.i326.i.us = trunc nsw i32 %.0.i32677.i.us to i8
-  store i8 %.0.i326.i.us, ptr %.18160.i.us, align 1, !tbaa !89
+  store i8 %.0.i326.i.us, ptr %.18160.i.us, align 1, !tbaa !88
   %350 = getelementptr inbounds nuw i8, ptr %.4318159.i.us, i64 4
   %351 = load float, ptr %350, align 4, !tbaa !61
   %352 = fmul fast float %351, %5
@@ -22623,19 +22623,19 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.0.i32479.i.us = tail call i32 @llvm.smin.i32(i32 %spec.select.i32378.i.us, i32 127)
   %.0.i324.i.us = trunc nsw i32 %.0.i32479.i.us to i8
   %355 = getelementptr inbounds nuw i8, ptr %.18160.i.us, i64 1
-  store i8 %.0.i324.i.us, ptr %355, align 1, !tbaa !89
+  store i8 %.0.i324.i.us, ptr %355, align 1, !tbaa !88
   %356 = getelementptr inbounds nuw i8, ptr %.18160.i.us, i64 2
   %357 = getelementptr inbounds float, ptr %.4318159.i.us, i64 %263
   %358 = add nuw nsw i32 %.2322158.i.us, 1
   %exitcond233.not.i.us = icmp eq i32 %358, %4
-  br i1 %exitcond233.not.i.us, label %.loopexit83.i.us, label %.lr.ph161.i.us, !llvm.loop !430
+  br i1 %exitcond233.not.i.us, label %.loopexit83.i.us, label %.lr.ph161.i.us, !llvm.loop !419
 
 .loopexit83.i.us:                                 ; preds = %.lr.ph161.i.us, %.preheader82.i.us, %.loopexit85.i.us
   %.15.i.us = phi ptr [ %.12164.i.us, %.loopexit85.i.us ], [ %.17.lcssa.i.us, %.preheader82.i.us ], [ %356, %.lr.ph161.i.us ]
   %indvars.iv.next235.i.us = add nuw nsw i64 %indvars.iv234.i.us, 2
   %359 = or disjoint i64 %indvars.iv.next235.i.us, 1
   %360 = icmp slt i64 %359, %270
-  br i1 %360, label %.loopexit85.i.us, label %.preheader81.loopexit.i, !llvm.loop !431
+  br i1 %360, label %.loopexit85.i.us, label %.preheader81.loopexit.i, !llvm.loop !420
 
 .lr.ph118.i.preheader:                            ; preds = %.lr.ph135.i, %.loopexit88.i.loopexit3
   %indvars.iv230.i = phi i64 [ %indvars.iv.next231.i, %.loopexit88.i.loopexit3 ], [ %121, %.lr.ph135.i ]
@@ -22651,13 +22651,13 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.8117.i = phi ptr [ %400, %.lr.ph118.i ], [ %.6134.i, %.lr.ph118.i.preheader ]
   %.1308116.i = phi ptr [ %401, %.lr.ph118.i ], [ %365, %.lr.ph118.i.preheader ]
   %.0311115.i = phi i32 [ %402, %.lr.ph118.i ], [ 0, %.lr.ph118.i.preheader ]
-  %366 = load <4 x float>, ptr %.1308116.i, align 16, !tbaa !89
+  %366 = load <4 x float>, ptr %.1308116.i, align 16, !tbaa !88
   %367 = getelementptr inbounds nuw i8, ptr %.1308116.i, i64 16
-  %368 = load <4 x float>, ptr %367, align 16, !tbaa !89
+  %368 = load <4 x float>, ptr %367, align 16, !tbaa !88
   %369 = getelementptr inbounds nuw i8, ptr %.1308116.i, i64 32
-  %370 = load <4 x float>, ptr %369, align 16, !tbaa !89
+  %370 = load <4 x float>, ptr %369, align 16, !tbaa !88
   %371 = getelementptr inbounds nuw i8, ptr %.1308116.i, i64 48
-  %372 = load <4 x float>, ptr %371, align 16, !tbaa !89
+  %372 = load <4 x float>, ptr %371, align 16, !tbaa !88
   %373 = fmul fast <4 x float> %366, %111
   %374 = fmul fast <4 x float> %368, %111
   %375 = fmul fast <4 x float> %370, %111
@@ -22685,19 +22685,19 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %397 = shufflevector <8 x i16> %396, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 1, i32 3, i32 4, i32 6, i32 5, i32 7>
   %398 = bitcast <8 x i16> %397 to <4 x i32>
   %399 = shufflevector <4 x i32> %398, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  store <4 x i32> %399, ptr %.8117.i, align 16, !tbaa !89
+  store <4 x i32> %399, ptr %.8117.i, align 16, !tbaa !88
   %400 = getelementptr inbounds nuw i8, ptr %.8117.i, i64 16
   %401 = getelementptr inbounds float, ptr %.1308116.i, i64 %114
   %402 = add nuw nsw i32 %.0311115.i, 4
   %403 = or disjoint i32 %402, 3
   %404 = icmp slt i32 %403, %4
-  br i1 %404, label %.lr.ph118.i, label %.loopexit88.i.loopexit3, !llvm.loop !432
+  br i1 %404, label %.lr.ph118.i, label %.loopexit88.i.loopexit3, !llvm.loop !421
 
 .loopexit88.i.loopexit3:                          ; preds = %.lr.ph118.i
   %indvars.iv.next231.i = add nuw nsw i64 %indvars.iv230.i, 4
   %405 = or disjoint i64 %indvars.iv.next231.i, 3
   %406 = icmp slt i64 %405, %122
-  br i1 %406, label %.lr.ph118.i.preheader, label %.preheader86.loopexit.i, !llvm.loop !433
+  br i1 %406, label %.lr.ph118.i.preheader, label %.preheader86.loopexit.i, !llvm.loop !422
 
 .preheader81.loopexit.i:                          ; preds = %.loopexit83.i.loopexit2, %.loopexit83.i.us
   %.us-phi26 = phi ptr [ %.15.i.us, %.loopexit83.i.us ], [ %491, %.loopexit83.i.loopexit2 ]
@@ -22784,7 +22784,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %458 = add nuw nsw i32 %.0293175.i.us, 4
   %459 = or disjoint i32 %458, 3
   %460 = icmp slt i32 %459, %4
-  br i1 %460, label %.lr.ph177.i.us, label %.preheader.i.us, !llvm.loop !434
+  br i1 %460, label %.lr.ph177.i.us, label %.preheader.i.us, !llvm.loop !423
 
 .preheader.i.us:                                  ; preds = %.lr.ph177.i.us, %429
   %.2303.lcssa.i.us = phi ptr [ %434, %429 ], [ %457, %.lr.ph177.i.us ]
@@ -22804,18 +22804,18 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %spec.select.i74.i.us = tail call i32 @llvm.smax.i32(i32 %465, i32 -127)
   %.0.i75.i.us = tail call i32 @llvm.smin.i32(i32 %spec.select.i74.i.us, i32 127)
   %.0.i.i.us = trunc nsw i32 %.0.i75.i.us to i8
-  store i8 %.0.i.i.us, ptr %.24183.i.us, align 1, !tbaa !89
+  store i8 %.0.i.i.us, ptr %.24183.i.us, align 1, !tbaa !88
   %466 = getelementptr inbounds nuw i8, ptr %.24183.i.us, i64 1
   %467 = getelementptr inbounds float, ptr %.3304181.i.us, i64 %419
   %468 = add nuw nsw i32 %.1294182.i.us, 1
   %exitcond237.not.i.us = icmp eq i32 %468, %4
-  br i1 %exitcond237.not.i.us, label %.loopexit.i.us, label %.lr.ph184.i.us, !llvm.loop !435
+  br i1 %exitcond237.not.i.us, label %.loopexit.i.us, label %.lr.ph184.i.us, !llvm.loop !424
 
 .loopexit.i.us:                                   ; preds = %.lr.ph184.i.us, %.preheader.i.us, %.loopexit80.i.us
   %.22.i.us = phi ptr [ %.19187.i.us, %.loopexit80.i.us ], [ %.23.lcssa.i.us, %.preheader.i.us ], [ %466, %.lr.ph184.i.us ]
   %indvars.iv.next239.i.us = add nsw i64 %indvars.iv238.i.us, 1
   %exitcond241.not.i.us = icmp eq i64 %indvars.iv.next239.i.us, %wide.trip.count.i
-  br i1 %exitcond241.not.i.us, label %_ZN4ncnnL34transpose_pack_B_tile_fp32_to_int8ERKNS_3MatERS0_iiiif.exit, label %.loopexit80.i.us, !llvm.loop !436
+  br i1 %exitcond241.not.i.us, label %_ZN4ncnnL34transpose_pack_B_tile_fp32_to_int8ERKNS_3MatERS0_iiiif.exit, label %.loopexit80.i.us, !llvm.loop !425
 
 .lr.ph141.i.preheader:                            ; preds = %.lr.ph141.i.preheader.preheader, %.loopexit83.i.loopexit2
   %indvars.iv234.i = phi i64 [ %indvars.iv.next235.i, %.loopexit83.i.loopexit2 ], [ %269, %.lr.ph141.i.preheader.preheader ]
@@ -22829,9 +22829,9 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.14140.i = phi ptr [ %491, %.lr.ph141.i ], [ %.12164.i, %.lr.ph141.i.preheader ]
   %.1315139.i = phi ptr [ %492, %.lr.ph141.i ], [ %471, %.lr.ph141.i.preheader ]
   %.0319138.i = phi i32 [ %493, %.lr.ph141.i ], [ 0, %.lr.ph141.i.preheader ]
-  %472 = load <4 x float>, ptr %.1315139.i, align 16, !tbaa !89
+  %472 = load <4 x float>, ptr %.1315139.i, align 16, !tbaa !88
   %473 = getelementptr inbounds nuw i8, ptr %.1315139.i, i64 16
-  %474 = load <4 x float>, ptr %473, align 16, !tbaa !89
+  %474 = load <4 x float>, ptr %473, align 16, !tbaa !88
   %475 = fmul fast <4 x float> %472, %257
   %476 = fmul fast <4 x float> %474, %257
   %477 = shufflevector <4 x float> %475, <4 x float> %476, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -22848,19 +22848,19 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %488 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %487, <8 x i16> poison)
   %489 = bitcast <16 x i8> %488 to <2 x i64>
   %490 = extractelement <2 x i64> %489, i64 0
-  store i64 %490, ptr %.14140.i, align 8, !tbaa !401
+  store i64 %490, ptr %.14140.i, align 8, !tbaa !390
   %491 = getelementptr inbounds nuw i8, ptr %.14140.i, i64 8
   %492 = getelementptr inbounds float, ptr %.1315139.i, i64 %260
   %493 = add nuw nsw i32 %.0319138.i, 4
   %494 = or disjoint i32 %493, 3
   %495 = icmp slt i32 %494, %4
-  br i1 %495, label %.lr.ph141.i, label %.loopexit83.i.loopexit2, !llvm.loop !437
+  br i1 %495, label %.lr.ph141.i, label %.loopexit83.i.loopexit2, !llvm.loop !426
 
 .loopexit83.i.loopexit2:                          ; preds = %.lr.ph141.i
   %indvars.iv.next235.i = add nuw nsw i64 %indvars.iv234.i, 2
   %496 = or disjoint i64 %indvars.iv.next235.i, 1
   %497 = icmp slt i64 %496, %270
-  br i1 %497, label %.lr.ph141.i.preheader, label %.preheader81.loopexit.i, !llvm.loop !438
+  br i1 %497, label %.lr.ph141.i.preheader, label %.preheader81.loopexit.i, !llvm.loop !427
 
 .lr.ph171.i.preheader:                            ; preds = %.lr.ph171.i.preheader.preheader, %.loopexit.i.loopexit1
   %indvars.iv238.i = phi i64 [ %indvars.iv.next239.i, %.loopexit.i.loopexit1 ], [ %425, %.lr.ph171.i.preheader.preheader ]
@@ -22874,7 +22874,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %.21170.i = phi ptr [ %512, %.lr.ph171.i ], [ %.19187.i, %.lr.ph171.i.preheader ]
   %.0299169.i = phi i32 [ %514, %.lr.ph171.i ], [ 0, %.lr.ph171.i.preheader ]
   %.1302168.i = phi ptr [ %513, %.lr.ph171.i ], [ %500, %.lr.ph171.i.preheader ]
-  %501 = load <4 x float>, ptr %.1302168.i, align 16, !tbaa !89
+  %501 = load <4 x float>, ptr %.1302168.i, align 16, !tbaa !88
   %502 = fmul fast <4 x float> %501, %413
   %503 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %502)
   %504 = fadd fast <4 x float> %503, %502
@@ -22891,12 +22891,12 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_B_tile_quantizeERKNS_3Mat
   %514 = add nuw nsw i32 %.0299169.i, 4
   %515 = or disjoint i32 %514, 3
   %516 = icmp slt i32 %515, %4
-  br i1 %516, label %.lr.ph171.i, label %.loopexit.i.loopexit1, !llvm.loop !439
+  br i1 %516, label %.lr.ph171.i, label %.loopexit.i.loopexit1, !llvm.loop !428
 
 .loopexit.i.loopexit1:                            ; preds = %.lr.ph171.i
   %indvars.iv.next239.i = add nsw i64 %indvars.iv238.i, 1
   %exitcond241.not.i = icmp eq i64 %indvars.iv.next239.i, %wide.trip.count.i
-  br i1 %exitcond241.not.i, label %_ZN4ncnnL34transpose_pack_B_tile_fp32_to_int8ERKNS_3MatERS0_iiiif.exit, label %.lr.ph171.i.preheader, !llvm.loop !440
+  br i1 %exitcond241.not.i, label %_ZN4ncnnL34transpose_pack_B_tile_fp32_to_int8ERKNS_3MatERS0_iiiif.exit, label %.lr.ph171.i.preheader, !llvm.loop !429
 
 _ZN4ncnnL34transpose_pack_B_tile_fp32_to_int8ERKNS_3MatERS0_iiiif.exit: ; preds = %.loopexit.i.loopexit1, %.loopexit.i.us, %.preheader81.i
   ret void
@@ -22994,13 +22994,13 @@ define internal void @_ZN4ncnnL16gemm_AT_x86_int8ERKNS_3MatES2_S2_S2_RS0_iiiiiff
 
 84:                                               ; preds = %.lr.ph140, %_ZN4ncnn3MatD2Ev.exit
   %indvars.iv = phi i64 [ %83, %.lr.ph140 ], [ %indvars.iv.next, %_ZN4ncnn3MatD2Ev.exit ]
-  %85 = load i32, ptr %3, align 4, !tbaa !155
-  %86 = load i32, ptr %29, align 4, !tbaa !157
-  %87 = load i32, ptr %30, align 4, !tbaa !158
-  %88 = load i32, ptr %31, align 4, !tbaa !159
-  %89 = load i32, ptr %32, align 4, !tbaa !161
-  %90 = load float, ptr %33, align 4, !tbaa !162
-  %91 = load float, ptr %34, align 4, !tbaa !163
+  %85 = load i32, ptr %3, align 4, !tbaa !153
+  %86 = load i32, ptr %29, align 4, !tbaa !155
+  %87 = load i32, ptr %30, align 4, !tbaa !156
+  %88 = load i32, ptr %31, align 4, !tbaa !157
+  %89 = load i32, ptr %32, align 4, !tbaa !159
+  %90 = load float, ptr %33, align 4, !tbaa !160
+  %91 = load float, ptr %34, align 4, !tbaa !161
   %92 = trunc nsw i64 %indvars.iv to i32
   %93 = mul nsw i32 %85, %92
   %94 = load i32, ptr %4, align 4, !tbaa !37
@@ -23011,19 +23011,19 @@ define internal void @_ZN4ncnnL16gemm_AT_x86_int8ERKNS_3MatES2_S2_S2_RS0_iiiiiff
           to label %.noexc81 unwind label %.loopexit.split-lp
 
 .noexc81:                                         ; preds = %84
-  call void @llvm.experimental.noalias.scope.decl(metadata !441)
-  %97 = load i32, ptr %35, align 4, !tbaa !55, !noalias !441
-  %98 = load i32, ptr %36, align 8, !tbaa !56, !noalias !441
-  %99 = load i32, ptr %37, align 4, !tbaa !57, !noalias !441
-  %100 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !441
-  %101 = load i64, ptr %38, align 8, !tbaa !17, !noalias !441
+  call void @llvm.experimental.noalias.scope.decl(metadata !430)
+  %97 = load i32, ptr %35, align 4, !tbaa !55, !noalias !430
+  %98 = load i32, ptr %36, align 8, !tbaa !56, !noalias !430
+  %99 = load i32, ptr %37, align 4, !tbaa !57, !noalias !430
+  %100 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !430
+  %101 = load i64, ptr %38, align 8, !tbaa !17, !noalias !430
   %102 = sext i32 %96 to i64
   %103 = mul i64 %101, %102
-  %104 = load i64, ptr %39, align 8, !tbaa !52, !noalias !441
+  %104 = load i64, ptr %39, align 8, !tbaa !52, !noalias !430
   %105 = mul i64 %103, %104
   %106 = getelementptr inbounds nuw i8, ptr %100, i64 %105
-  %107 = load i32, ptr %40, align 8, !tbaa !53, !noalias !441
-  %108 = load ptr, ptr %41, align 8, !tbaa !15, !noalias !441
+  %107 = load i32, ptr %40, align 8, !tbaa !53, !noalias !430
+  %108 = load ptr, ptr %41, align 8, !tbaa !15, !noalias !430
   store ptr %106, ptr %18, align 8, !tbaa !16
   store ptr null, ptr %42, align 8, !tbaa !7
   store i64 %104, ptr %43, align 8, !tbaa !52
@@ -23041,14 +23041,14 @@ define internal void @_ZN4ncnnL16gemm_AT_x86_int8ERKNS_3MatES2_S2_S2_RS0_iiiiiff
   %114 = and i64 %113, -16
   %115 = udiv i64 %114, %104
   store i64 %115, ptr %51, align 8, !tbaa !17
-  %116 = load i32, ptr %52, align 8, !tbaa !54, !noalias !441
+  %116 = load i32, ptr %52, align 8, !tbaa !54, !noalias !430
   %117 = add nsw i32 %116, -1
-  store i32 %117, ptr %46, align 8, !tbaa !54, !alias.scope !441
+  store i32 %117, ptr %46, align 8, !tbaa !54, !alias.scope !430
   %118 = icmp eq i32 %116, 4
   br i1 %118, label %119, label %_ZN4ncnn3Mat7channelEi.exit82
 
 119:                                              ; preds = %.noexc81
-  store i64 %111, ptr %51, align 8, !tbaa !17, !alias.scope !441
+  store i64 %111, ptr %51, align 8, !tbaa !17, !alias.scope !430
   br label %_ZN4ncnn3Mat7channelEi.exit82
 
 _ZN4ncnn3Mat7channelEi.exit82:                    ; preds = %.noexc81, %119
@@ -23100,7 +23100,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnn3Mat7channe
   %137 = load i32, ptr %15, align 4, !tbaa !37
   %138 = sext i32 %137 to i64
   %.not.not = icmp slt i64 %indvars.iv, %138
-  br i1 %.not.not, label %84, label %._crit_edge141, !llvm.loop !444
+  br i1 %.not.not, label %84, label %._crit_edge141
 
 .lr.ph:                                           ; preds = %_ZN4ncnn3Mat7channelEi.exit82, %._crit_edge
   %139 = phi i32 [ %146, %._crit_edge ], [ %120, %_ZN4ncnn3Mat7channelEi.exit82 ]
@@ -23122,7 +23122,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnn3Mat7channe
   %145 = add nsw i32 %.050135, %86
   %146 = load i32, ptr %6, align 4, !tbaa !37
   %147 = icmp slt i32 %145, %146
-  br i1 %147, label %.lr.ph, label %._crit_edge136, !llvm.loop !445
+  br i1 %147, label %.lr.ph, label %._crit_edge136, !llvm.loop !433
 
 .noexc80:                                         ; preds = %.noexc80.lr.ph, %_ZN4ncnn3MatD2Ev.exit51
   %148 = phi i32 [ %141, %.noexc80.lr.ph ], [ %212, %_ZN4ncnn3MatD2Ev.exit51 ]
@@ -23130,42 +23130,42 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnn3Mat7channe
   %149 = sub nsw i32 %148, %.049134
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %87, i32 %149)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %19) #9
-  %150 = load i32, ptr %53, align 4, !tbaa !55, !noalias !446
-  %151 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !446
-  %152 = load i64, ptr %54, align 8, !tbaa !17, !noalias !446
+  %150 = load i32, ptr %53, align 4, !tbaa !55, !noalias !434
+  %151 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !434
+  %152 = load i64, ptr %54, align 8, !tbaa !17, !noalias !434
   %153 = mul i64 %152, %indvars.iv
-  %154 = load i64, ptr %55, align 8, !tbaa !52, !noalias !446
+  %154 = load i64, ptr %55, align 8, !tbaa !52, !noalias !434
   %155 = mul i64 %153, %154
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 %155
-  %157 = load i32, ptr %56, align 8, !tbaa !53, !noalias !446
-  %158 = load ptr, ptr %57, align 8, !tbaa !15, !noalias !446
+  %157 = load i32, ptr %56, align 8, !tbaa !53, !noalias !434
+  %158 = load ptr, ptr %57, align 8, !tbaa !15, !noalias !434
   %159 = sext i32 %150 to i64
   %160 = sdiv i32 %.049134, %87
   %161 = sext i32 %160 to i64
   %162 = mul i64 %154, %159
   %163 = mul i64 %162, %161
   %164 = getelementptr inbounds nuw i8, ptr %156, i64 %163
-  store ptr %164, ptr %19, align 8, !tbaa !16, !alias.scope !449
-  store ptr null, ptr %58, align 8, !tbaa !7, !alias.scope !449
-  store i64 %154, ptr %59, align 8, !tbaa !52, !alias.scope !449
-  store i32 %157, ptr %60, align 8, !tbaa !53, !alias.scope !449
-  store ptr %158, ptr %61, align 8, !tbaa !15, !alias.scope !449
-  store i32 2, ptr %62, align 8, !tbaa !54, !alias.scope !449
-  store i32 %150, ptr %63, align 4, !tbaa !55, !alias.scope !449
-  store i32 1, ptr %64, align 8, !tbaa !56, !alias.scope !449
-  store i32 1, ptr %65, align 4, !tbaa !57, !alias.scope !449
-  store i32 1, ptr %66, align 8, !tbaa !44, !alias.scope !449
-  store i64 %159, ptr %67, align 8, !tbaa !17, !alias.scope !449
+  store ptr %164, ptr %19, align 8, !tbaa !16, !alias.scope !437
+  store ptr null, ptr %58, align 8, !tbaa !7, !alias.scope !437
+  store i64 %154, ptr %59, align 8, !tbaa !52, !alias.scope !437
+  store i32 %157, ptr %60, align 8, !tbaa !53, !alias.scope !437
+  store ptr %158, ptr %61, align 8, !tbaa !15, !alias.scope !437
+  store i32 2, ptr %62, align 8, !tbaa !54, !alias.scope !437
+  store i32 %150, ptr %63, align 4, !tbaa !55, !alias.scope !437
+  store i32 1, ptr %64, align 8, !tbaa !56, !alias.scope !437
+  store i32 1, ptr %65, align 4, !tbaa !57, !alias.scope !437
+  store i32 1, ptr %66, align 8, !tbaa !44, !alias.scope !437
+  store i64 %159, ptr %67, align 8, !tbaa !17, !alias.scope !437
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %20) #9
-  %165 = load i32, ptr %68, align 4, !tbaa !55, !noalias !452
-  %166 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !452
-  %167 = load i64, ptr %69, align 8, !tbaa !17, !noalias !452
+  %165 = load i32, ptr %68, align 4, !tbaa !55, !noalias !440
+  %166 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !440
+  %167 = load i64, ptr %69, align 8, !tbaa !17, !noalias !440
   %168 = mul i64 %167, %144
-  %169 = load i64, ptr %70, align 8, !tbaa !52, !noalias !452
+  %169 = load i64, ptr %70, align 8, !tbaa !52, !noalias !440
   %170 = mul i64 %168, %169
   %171 = getelementptr inbounds nuw i8, ptr %166, i64 %170
-  %172 = load i32, ptr %71, align 8, !tbaa !53, !noalias !452
-  %173 = load ptr, ptr %72, align 8, !tbaa !15, !noalias !452
+  %172 = load i32, ptr %71, align 8, !tbaa !53, !noalias !440
+  %173 = load ptr, ptr %72, align 8, !tbaa !15, !noalias !440
   %174 = sext i32 %165 to i64
   %175 = mul nsw i64 %174, %161
   %176 = mul i64 %175, %169
@@ -23266,7 +23266,7 @@ _ZN4ncnn3MatD2Ev.exit51:                          ; preds = %196, %_ZN4ncnn3MatD
   %211 = add nsw i32 %.049134, %87
   %212 = load i32, ptr %7, align 4, !tbaa !37
   %213 = icmp slt i32 %211, %212
-  br i1 %213, label %.noexc80, label %._crit_edge, !llvm.loop !455
+  br i1 %213, label %.noexc80, label %._crit_edge, !llvm.loop !443
 
 ._crit_edge141:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit, %23
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %25)
@@ -23419,14 +23419,14 @@ define internal void @_ZN4ncnnL16gemm_BT_x86_int8ERKNS_3MatES2_fS2_RS0_iiiiiffii
 
 89:                                               ; preds = %.lr.ph, %_ZN4ncnn3MatD2Ev.exit
   %.0191 = phi i32 [ %29, %.lr.ph ], [ %335, %_ZN4ncnn3MatD2Ev.exit ]
-  %90 = load i32, ptr %3, align 4, !tbaa !155
-  %91 = load i32, ptr %30, align 4, !tbaa !157
-  %92 = load i32, ptr %31, align 4, !tbaa !158
-  %93 = load i32, ptr %32, align 4, !tbaa !159
-  %94 = load i32, ptr %33, align 4, !tbaa !160
-  %95 = load i32, ptr %34, align 4, !tbaa !161
-  %96 = load float, ptr %35, align 4, !tbaa !162
-  %97 = load float, ptr %36, align 4, !tbaa !163
+  %90 = load i32, ptr %3, align 4, !tbaa !153
+  %91 = load i32, ptr %30, align 4, !tbaa !155
+  %92 = load i32, ptr %31, align 4, !tbaa !156
+  %93 = load i32, ptr %32, align 4, !tbaa !157
+  %94 = load i32, ptr %33, align 4, !tbaa !158
+  %95 = load i32, ptr %34, align 4, !tbaa !159
+  %96 = load float, ptr %35, align 4, !tbaa !160
+  %97 = load float, ptr %36, align 4, !tbaa !161
   %98 = mul nsw i32 %90, %.0191
   %.not87 = icmp eq i32 %94, 0
   br i1 %.not87, label %106, label %99
@@ -23463,19 +23463,19 @@ define internal void @_ZN4ncnnL16gemm_BT_x86_int8ERKNS_3MatES2_fS2_RS0_iiiiiffii
           to label %.noexc119 unwind label %.loopexit.split-lp
 
 .noexc119:                                        ; preds = %113
-  call void @llvm.experimental.noalias.scope.decl(metadata !456)
-  %118 = load i32, ptr %40, align 4, !tbaa !55, !noalias !456
-  %119 = load i32, ptr %41, align 8, !tbaa !56, !noalias !456
-  %120 = load i32, ptr %42, align 4, !tbaa !57, !noalias !456
-  %121 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !456
-  %122 = load i64, ptr %43, align 8, !tbaa !17, !noalias !456
+  call void @llvm.experimental.noalias.scope.decl(metadata !444)
+  %118 = load i32, ptr %40, align 4, !tbaa !55, !noalias !444
+  %119 = load i32, ptr %41, align 8, !tbaa !56, !noalias !444
+  %120 = load i32, ptr %42, align 4, !tbaa !57, !noalias !444
+  %121 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !444
+  %122 = load i64, ptr %43, align 8, !tbaa !17, !noalias !444
   %123 = sext i32 %117 to i64
   %124 = mul i64 %122, %123
-  %125 = load i64, ptr %44, align 8, !tbaa !52, !noalias !456
+  %125 = load i64, ptr %44, align 8, !tbaa !52, !noalias !444
   %126 = mul i64 %124, %125
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 %126
-  %128 = load i32, ptr %45, align 8, !tbaa !53, !noalias !456
-  %129 = load ptr, ptr %46, align 8, !tbaa !15, !noalias !456
+  %128 = load i32, ptr %45, align 8, !tbaa !53, !noalias !444
+  %129 = load ptr, ptr %46, align 8, !tbaa !15, !noalias !444
   store ptr %127, ptr %19, align 8, !tbaa !16
   store ptr null, ptr %47, align 8, !tbaa !7
   store i64 %125, ptr %48, align 8, !tbaa !52
@@ -23493,14 +23493,14 @@ define internal void @_ZN4ncnnL16gemm_BT_x86_int8ERKNS_3MatES2_fS2_RS0_iiiiiffii
   %135 = and i64 %134, -16
   %136 = udiv i64 %135, %125
   store i64 %136, ptr %56, align 8, !tbaa !17
-  %137 = load i32, ptr %57, align 8, !tbaa !54, !noalias !456
+  %137 = load i32, ptr %57, align 8, !tbaa !54, !noalias !444
   %138 = add nsw i32 %137, -1
-  store i32 %138, ptr %51, align 8, !tbaa !54, !alias.scope !456
+  store i32 %138, ptr %51, align 8, !tbaa !54, !alias.scope !444
   %139 = icmp eq i32 %137, 4
   br i1 %139, label %140, label %_ZN4ncnn3Mat7channelEi.exit120
 
 140:                                              ; preds = %.noexc119
-  store i64 %132, ptr %56, align 8, !tbaa !17, !alias.scope !456
+  store i64 %132, ptr %56, align 8, !tbaa !17, !alias.scope !444
   br label %_ZN4ncnn3Mat7channelEi.exit120
 
 _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
@@ -23530,16 +23530,16 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
           to label %.noexc118.us unwind label %.loopexit.split.us
 
 .noexc118.us:                                     ; preds = %148
-  %151 = load i32, ptr %58, align 4, !tbaa !55, !noalias !459
-  %152 = load ptr, ptr %7, align 8, !tbaa !16, !noalias !459
-  %153 = load i64, ptr %59, align 8, !tbaa !17, !noalias !459
+  %151 = load i32, ptr %58, align 4, !tbaa !55, !noalias !447
+  %152 = load ptr, ptr %7, align 8, !tbaa !16, !noalias !447
+  %153 = load i64, ptr %59, align 8, !tbaa !17, !noalias !447
   %154 = sext i32 %150 to i64
   %155 = mul i64 %153, %154
-  %156 = load i64, ptr %60, align 8, !tbaa !52, !noalias !459
+  %156 = load i64, ptr %60, align 8, !tbaa !52, !noalias !447
   %157 = mul i64 %155, %156
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 %157
-  %159 = load i32, ptr %61, align 8, !tbaa !53, !noalias !459
-  %160 = load ptr, ptr %62, align 8, !tbaa !15, !noalias !459
+  %159 = load i32, ptr %61, align 8, !tbaa !53, !noalias !447
+  %160 = load ptr, ptr %62, align 8, !tbaa !15, !noalias !447
   %161 = sext i32 %151 to i64
   %162 = sdiv i32 %.084182.us, %92
   %163 = sext i32 %162 to i64
@@ -23559,31 +23559,31 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
   store i64 %161, ptr %72, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21) #9
   %167 = sdiv i32 %.085183.us, %91
-  %168 = load i32, ptr %73, align 4, !tbaa !55, !noalias !462
-  %169 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !462
-  %170 = load i64, ptr %74, align 8, !tbaa !17, !noalias !462
+  %168 = load i32, ptr %73, align 4, !tbaa !55, !noalias !450
+  %169 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !450
+  %170 = load i64, ptr %74, align 8, !tbaa !17, !noalias !450
   %171 = sext i32 %167 to i64
   %172 = mul i64 %170, %171
-  %173 = load i64, ptr %75, align 8, !tbaa !52, !noalias !462
+  %173 = load i64, ptr %75, align 8, !tbaa !52, !noalias !450
   %174 = mul i64 %172, %173
   %175 = getelementptr inbounds nuw i8, ptr %169, i64 %174
-  %176 = load i32, ptr %76, align 8, !tbaa !53, !noalias !462
-  %177 = load ptr, ptr %77, align 8, !tbaa !15, !noalias !462
+  %176 = load i32, ptr %76, align 8, !tbaa !53, !noalias !450
+  %177 = load ptr, ptr %77, align 8, !tbaa !15, !noalias !450
   %178 = sext i32 %168 to i64
   %179 = mul nsw i64 %178, %163
   %180 = mul i64 %179, %173
   %181 = getelementptr inbounds nuw i8, ptr %175, i64 %180
-  store ptr %181, ptr %21, align 8, !tbaa !16, !alias.scope !465
-  store ptr null, ptr %78, align 8, !tbaa !7, !alias.scope !465
-  store i64 %173, ptr %79, align 8, !tbaa !52, !alias.scope !465
-  store i32 %176, ptr %80, align 8, !tbaa !53, !alias.scope !465
-  store ptr %177, ptr %81, align 8, !tbaa !15, !alias.scope !465
-  store i32 2, ptr %82, align 8, !tbaa !54, !alias.scope !465
-  store i32 %168, ptr %83, align 4, !tbaa !55, !alias.scope !465
-  store i32 1, ptr %84, align 8, !tbaa !56, !alias.scope !465
-  store i32 1, ptr %85, align 4, !tbaa !57, !alias.scope !465
-  store i32 1, ptr %86, align 8, !tbaa !44, !alias.scope !465
-  store i64 %178, ptr %87, align 8, !tbaa !17, !alias.scope !465
+  store ptr %181, ptr %21, align 8, !tbaa !16, !alias.scope !453
+  store ptr null, ptr %78, align 8, !tbaa !7, !alias.scope !453
+  store i64 %173, ptr %79, align 8, !tbaa !52, !alias.scope !453
+  store i32 %176, ptr %80, align 8, !tbaa !53, !alias.scope !453
+  store ptr %177, ptr %81, align 8, !tbaa !15, !alias.scope !453
+  store i32 2, ptr %82, align 8, !tbaa !54, !alias.scope !453
+  store i32 %168, ptr %83, align 4, !tbaa !55, !alias.scope !453
+  store i32 1, ptr %84, align 8, !tbaa !56, !alias.scope !453
+  store i32 1, ptr %85, align 4, !tbaa !57, !alias.scope !453
+  store i32 1, ptr %86, align 8, !tbaa !44, !alias.scope !453
+  store i64 %178, ptr %87, align 8, !tbaa !17, !alias.scope !453
   br i1 %147, label %182, label %282
 
 182:                                              ; preds = %.noexc118.us
@@ -23653,19 +23653,19 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
   %213 = getelementptr inbounds nuw i8, ptr %.05123.us54.i.i.us, i64 4
   %214 = add nuw nsw i32 %.05422.us55.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i32 %214, %197
-  br i1 %exitcond.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.thread.us, label %.preheader.us52.i.i.us, !llvm.loop !468
+  br i1 %exitcond.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.thread.us, label %.preheader.us52.i.i.us, !llvm.loop !456
 
 .preheader.us44.i.i.us:                           ; preds = %.lr.ph26.split.split.i.i.us, %.preheader.us44.i.i.us
   %.024.us45.i.i.us = phi ptr [ %215, %.preheader.us44.i.i.us ], [ %195, %.lr.ph26.split.split.i.i.us ]
   %.05123.us46.i.i.us = phi ptr [ %216, %.preheader.us44.i.i.us ], [ %196, %.lr.ph26.split.split.i.i.us ]
   %.05422.us47.i.i.us = phi i32 [ %217, %.preheader.us44.i.i.us ], [ 0, %.lr.ph26.split.split.i.i.us ]
-  store <4 x float> splat (float 0x7FF0000000000000), ptr %.024.us45.i.i.us, align 16, !tbaa !89
-  store <4 x float> zeroinitializer, ptr %.05123.us46.i.i.us, align 16, !tbaa !89
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %.024.us45.i.i.us, align 16, !tbaa !88
+  store <4 x float> zeroinitializer, ptr %.05123.us46.i.i.us, align 16, !tbaa !88
   %215 = getelementptr inbounds nuw i8, ptr %.024.us45.i.i.us, i64 16
   %216 = getelementptr inbounds nuw i8, ptr %.05123.us46.i.i.us, i64 16
   %217 = add nuw nsw i32 %.05422.us47.i.i.us, 1
   %exitcond65.not.i.i.us = icmp eq i32 %217, %197
-  br i1 %exitcond65.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.thread.us, label %.preheader.us44.i.i.us, !llvm.loop !469
+  br i1 %exitcond65.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.thread.us, label %.preheader.us44.i.i.us, !llvm.loop !457
 
 .preheader.us28.preheader.i.i.us:                 ; preds = %.lr.ph26.split.i.i.us
   %218 = sext i32 %188 to i64
@@ -23695,7 +23695,7 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
   %229 = getelementptr inbounds nuw i8, ptr %.15918.us38.i.i.us, i64 4
   %230 = add nuw nsw i32 %.15619.us37.i.i.us, 1
   %exitcond66.not.i.i.us = icmp eq i32 %230, %198
-  br i1 %exitcond66.not.i.i.us, label %._crit_edge.us42.i.i.us, label %225, !llvm.loop !470
+  br i1 %exitcond66.not.i.i.us, label %._crit_edge.us42.i.i.us, label %225, !llvm.loop !458
 
 ._crit_edge.us42.i.i.us:                          ; preds = %225
   switch i32 %188, label %243 [
@@ -23719,8 +23719,8 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
   br label %243
 
 .thread.us34.i.i.us:                              ; preds = %._crit_edge.us42.i.i.us
-  store <4 x float> splat (float 0x7FF0000000000000), ptr %.024.us29.i.i.us, align 16, !tbaa !89
-  store <4 x float> zeroinitializer, ptr %.05123.us30.i.i.us, align 16, !tbaa !89
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %.024.us29.i.i.us, align 16, !tbaa !88
+  store <4 x float> zeroinitializer, ptr %.05123.us30.i.i.us, align 16, !tbaa !88
   %241 = getelementptr inbounds nuw i8, ptr %.024.us29.i.i.us, i64 16
   %242 = getelementptr inbounds nuw i8, ptr %.05123.us30.i.i.us, i64 16
   br label %243
@@ -23730,7 +23730,7 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
   %.2.us36.i.i.us = phi ptr [ %239, %231 ], [ %241, %.thread.us34.i.i.us ], [ %.024.us29.i.i.us, %._crit_edge.us42.i.i.us ]
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond68.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count.i.i.us
-  br i1 %exitcond68.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.us, label %.preheader.us28.i.i.us, !llvm.loop !471
+  br i1 %exitcond68.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.us, label %.preheader.us28.i.i.us, !llvm.loop !459
 
 .lr.ph.us.preheader.i.i.us:                       ; preds = %.lr.ph26.i.i.us
   %244 = and i32 %198, 2147483644
@@ -23755,7 +23755,7 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
   %.05514.us.i.i.us = phi i32 [ 0, %.lr.ph.us.i.i.us ], [ %258, %252 ]
   %.05713.us.i.i.us = phi <4 x float> [ zeroinitializer, %.lr.ph.us.i.i.us ], [ %256, %252 ]
   %.05812.us.i.i.us = phi ptr [ %251, %.lr.ph.us.i.i.us ], [ %257, %252 ]
-  %253 = load <4 x i32>, ptr %.05812.us.i.i.us, align 1, !tbaa !89
+  %253 = load <4 x i32>, ptr %.05812.us.i.i.us, align 1, !tbaa !88
   %254 = and <4 x i32> %253, splat (i32 2147483647)
   %255 = bitcast <4 x i32> %254 to <4 x float>
   %256 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.05713.us.i.i.us, <4 x float> nofpclass(nan inf) %255)
@@ -23763,7 +23763,7 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
   %258 = add nuw nsw i32 %.05514.us.i.i.us, 4
   %259 = or disjoint i32 %258, 3
   %260 = icmp slt i32 %259, %198
-  br i1 %260, label %252, label %..preheader_crit_edge.us.i.i.us, !llvm.loop !472
+  br i1 %260, label %252, label %..preheader_crit_edge.us.i.i.us, !llvm.loop !460
 
 ..preheader_crit_edge.us.i.i.us:                  ; preds = %252
   br i1 %.not.i129.us, label %._crit_edge.us.i.i.us, label %.lr.ph20.us.i.i.us
@@ -23779,7 +23779,7 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
   %264 = getelementptr inbounds nuw i8, ptr %.15918.us.i.i.us, i64 4
   %265 = add nuw nsw i32 %.15619.us.i.i.us, 1
   %exitcond69.not.i.i.us = icmp eq i32 %265, %198
-  br i1 %exitcond69.not.i.i.us, label %._crit_edge.us.i.i.us, label %.lr.ph20.us.i.i.us, !llvm.loop !470
+  br i1 %exitcond69.not.i.i.us, label %._crit_edge.us.i.i.us, label %.lr.ph20.us.i.i.us, !llvm.loop !458
 
 ._crit_edge.us.i.i.us:                            ; preds = %.lr.ph20.us.i.i.us, %..preheader_crit_edge.us.i.i.us
   %.09.lcssa.us.i.i.us = phi float [ 0.000000e+00, %..preheader_crit_edge.us.i.i.us ], [ %.sroa.speculated4.us.i.i.us, %.lr.ph20.us.i.i.us ]
@@ -23807,8 +23807,8 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
 .thread.us.i.i.us:                                ; preds = %._crit_edge.us.i.i.us
   %277 = fdiv fast <4 x float> splat (float 1.270000e+02), %256
   %278 = fmul fast <4 x float> %256, %201
-  store <4 x float> %277, ptr %.024.us.i.i.us, align 16, !tbaa !89
-  store <4 x float> %278, ptr %.05123.us.i.i.us, align 16, !tbaa !89
+  store <4 x float> %277, ptr %.024.us.i.i.us, align 16, !tbaa !88
+  store <4 x float> %278, ptr %.05123.us.i.i.us, align 16, !tbaa !88
   %279 = getelementptr inbounds nuw i8, ptr %.024.us.i.i.us, i64 16
   %280 = getelementptr inbounds nuw i8, ptr %.05123.us.i.i.us, i64 16
   br label %281
@@ -23818,7 +23818,7 @@ _ZN4ncnn3Mat7channelEi.exit120:                   ; preds = %.noexc119, %140
   %.2.us.i.i.us = phi ptr [ %275, %266 ], [ %279, %.thread.us.i.i.us ], [ %.024.us.i.i.us, %._crit_edge.us.i.i.us ]
   %indvars.iv.next71.i.i.us = add nuw nsw i64 %indvars.iv70.i.i.us, 1
   %exitcond74.not.i.i.us = icmp eq i64 %indvars.iv.next71.i.i.us, %wide.trip.count73.i.i.us
-  br i1 %exitcond74.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.us, label %.lr.ph.us.i.i.us, !llvm.loop !473
+  br i1 %exitcond74.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.us, label %.lr.ph.us.i.i.us, !llvm.loop !461
 
 _ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.us: ; preds = %243, %281, %182
   br i1 %.not87, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.thread.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.thread178.us
@@ -23904,7 +23904,7 @@ _ZN4ncnn3MatD2Ev.exit89.us:                       ; preds = %309, %308, %304, %2
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %20) #9
   %310 = add nsw i32 %.084182.us, %92
   %311 = icmp slt i32 %310, %115
-  br i1 %311, label %148, label %._crit_edge.us, !llvm.loop !474
+  br i1 %311, label %148, label %._crit_edge.us, !llvm.loop !462
 
 ._crit_edge.us:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit89.us
   %.val.us = load ptr, ptr %19, align 8, !tbaa !16
@@ -23912,7 +23912,7 @@ _ZN4ncnn3MatD2Ev.exit89.us:                       ; preds = %309, %308, %304, %2
   %312 = add nsw i32 %.085183.us, %91
   %313 = load i32, ptr %6, align 4, !tbaa !37
   %314 = icmp slt i32 %312, %313
-  br i1 %314, label %.lr.ph.us, label %._crit_edge185, !llvm.loop !475
+  br i1 %314, label %.lr.ph.us, label %._crit_edge185, !llvm.loop !463
 
 .loopexit.split.us:                               ; preds = %282, %148
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -23976,7 +23976,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %320, %._crit_edge18
   %335 = add nsw i32 %.0191, 1
   %336 = load i32, ptr %16, align 4, !tbaa !37
   %.not.not = icmp slt i32 %.0191, %336
-  br i1 %.not.not, label %89, label %._crit_edge, !llvm.loop !476
+  br i1 %.not.not, label %89, label %._crit_edge
 
 .lr.ph184.split:                                  ; preds = %.lr.ph184, %.lr.ph184.split
   %337 = phi i32 [ %340, %.lr.ph184.split ], [ %141, %.lr.ph184 ]
@@ -23988,7 +23988,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %320, %._crit_edge18
   %339 = add nsw i32 %.085183, %91
   %340 = load i32, ptr %6, align 4, !tbaa !37
   %341 = icmp slt i32 %339, %340
-  br i1 %341, label %.lr.ph184.split, label %._crit_edge185, !llvm.loop !477
+  br i1 %341, label %.lr.ph184.split, label %._crit_edge185, !llvm.loop !464
 
 ._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit, %24
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %26)
@@ -24100,13 +24100,13 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %.031737.i = phi <4 x float> [ %70, %.lr.ph.i ], [ zeroinitializer, %.lr.ph.preheader.i ]
   %.031836.i = phi <4 x float> [ %73, %.lr.ph.i ], [ zeroinitializer, %.lr.ph.preheader.i ]
   %.031935.i = phi i32 [ %75, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %55 = load <4 x i32>, ptr %.031240.i, align 1, !tbaa !89
+  %55 = load <4 x i32>, ptr %.031240.i, align 1, !tbaa !88
   %56 = getelementptr inbounds nuw i8, ptr %.031240.i, i64 16
-  %57 = load <4 x i32>, ptr %56, align 1, !tbaa !89
+  %57 = load <4 x i32>, ptr %56, align 1, !tbaa !88
   %58 = getelementptr inbounds nuw i8, ptr %.031240.i, i64 32
-  %59 = load <4 x i32>, ptr %58, align 1, !tbaa !89
+  %59 = load <4 x i32>, ptr %58, align 1, !tbaa !88
   %60 = getelementptr inbounds nuw i8, ptr %.031240.i, i64 48
-  %61 = load <4 x i32>, ptr %60, align 1, !tbaa !89
+  %61 = load <4 x i32>, ptr %60, align 1, !tbaa !88
   %62 = and <4 x i32> %55, splat (i32 2147483647)
   %63 = bitcast <4 x i32> %62 to <4 x float>
   %64 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.031339.i, <4 x float> nofpclass(nan inf) %63)
@@ -24122,7 +24122,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %74 = getelementptr inbounds float, ptr %.031240.i, i64 %28
   %75 = add nuw nsw i32 %.031935.i, 1
   %exitcond.not.i = icmp eq i32 %75, %16
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !478
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !465
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %51
   %.0318.lcssa.i = phi <4 x float> [ zeroinitializer, %51 ], [ %73, %.lr.ph.i ]
@@ -24146,8 +24146,8 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %84 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %82, <4 x float> nofpclass(nan inf) %83)
   %85 = fdiv fast <4 x float> splat (float 1.270000e+02), %84
   %86 = fmul fast <4 x float> %84, %34
-  store <4 x float> %85, ptr %.029546.i, align 16, !tbaa !89
-  store <4 x float> %86, ptr %.029645.i, align 16, !tbaa !89
+  store <4 x float> %85, ptr %.029546.i, align 16, !tbaa !88
+  store <4 x float> %86, ptr %.029645.i, align 16, !tbaa !88
   %87 = getelementptr inbounds nuw i8, ptr %.029546.i, i64 16
   %88 = getelementptr inbounds nuw i8, ptr %.029645.i, i64 16
   br label %106
@@ -24161,20 +24161,20 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %95 = fmul fast <4 x float> %.0315.lcssa.i, %31
   %96 = fmul fast <4 x float> %.0317.lcssa.i, %32
   %97 = fmul fast <4 x float> %.0318.lcssa.i, %33
-  store <4 x float> %90, ptr %.029546.i, align 16, !tbaa !89
+  store <4 x float> %90, ptr %.029546.i, align 16, !tbaa !88
   %98 = getelementptr inbounds nuw i8, ptr %.029546.i, i64 16
-  store <4 x float> %91, ptr %98, align 16, !tbaa !89
+  store <4 x float> %91, ptr %98, align 16, !tbaa !88
   %99 = getelementptr inbounds nuw i8, ptr %.029546.i, i64 32
-  store <4 x float> %92, ptr %99, align 16, !tbaa !89
+  store <4 x float> %92, ptr %99, align 16, !tbaa !88
   %100 = getelementptr inbounds nuw i8, ptr %.029546.i, i64 48
-  store <4 x float> %93, ptr %100, align 16, !tbaa !89
-  store <4 x float> %94, ptr %.029645.i, align 16, !tbaa !89
+  store <4 x float> %93, ptr %100, align 16, !tbaa !88
+  store <4 x float> %94, ptr %.029645.i, align 16, !tbaa !88
   %101 = getelementptr inbounds nuw i8, ptr %.029645.i, i64 16
-  store <4 x float> %95, ptr %101, align 16, !tbaa !89
+  store <4 x float> %95, ptr %101, align 16, !tbaa !88
   %102 = getelementptr inbounds nuw i8, ptr %.029645.i, i64 32
-  store <4 x float> %96, ptr %102, align 16, !tbaa !89
+  store <4 x float> %96, ptr %102, align 16, !tbaa !88
   %103 = getelementptr inbounds nuw i8, ptr %.029645.i, i64 48
-  store <4 x float> %97, ptr %103, align 16, !tbaa !89
+  store <4 x float> %97, ptr %103, align 16, !tbaa !88
   %104 = getelementptr inbounds nuw i8, ptr %.029546.i, i64 64
   %105 = getelementptr inbounds nuw i8, ptr %.029645.i, i64 64
   br label %106
@@ -24185,7 +24185,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 16
   %107 = or disjoint i64 %indvars.iv.next.i, 15
   %108 = icmp samesign ult i64 %107, %29
-  br i1 %108, label %51, label %.preheader34.loopexit.i, !llvm.loop !479
+  br i1 %108, label %51, label %.preheader34.loopexit.i, !llvm.loop !466
 
 .preheader33.loopexit.i:                          ; preds = %196
   %109 = trunc nuw nsw i64 %indvars.iv.next189.i to i32
@@ -24232,13 +24232,13 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %.033954.i = phi <4 x float> [ %145, %.lr.ph59.i ], [ zeroinitializer, %126 ]
   %.034053.i = phi <4 x float> [ %148, %.lr.ph59.i ], [ zeroinitializer, %126 ]
   %.034152.i = phi i32 [ %150, %.lr.ph59.i ], [ 0, %126 ]
-  %130 = load <4 x i32>, ptr %.032057.i, align 1, !tbaa !89
+  %130 = load <4 x i32>, ptr %.032057.i, align 1, !tbaa !88
   %131 = getelementptr inbounds nuw i8, ptr %.032057.i, i64 16
-  %132 = load <4 x i32>, ptr %131, align 1, !tbaa !89
+  %132 = load <4 x i32>, ptr %131, align 1, !tbaa !88
   %133 = getelementptr inbounds float, ptr %.032057.i, i64 %41
-  %134 = load <4 x i32>, ptr %133, align 1, !tbaa !89
+  %134 = load <4 x i32>, ptr %133, align 1, !tbaa !88
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %136 = load <4 x i32>, ptr %135, align 1, !tbaa !89
+  %136 = load <4 x i32>, ptr %135, align 1, !tbaa !88
   %137 = and <4 x i32> %130, splat (i32 2147483647)
   %138 = bitcast <4 x i32> %137 to <4 x float>
   %139 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.033556.i, <4 x float> nofpclass(nan inf) %138)
@@ -24255,7 +24255,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %150 = add nuw nsw i32 %.034152.i, 2
   %151 = or disjoint i32 %150, 1
   %152 = icmp slt i32 %151, %16
-  br i1 %152, label %.lr.ph59.i, label %._crit_edge60.i, !llvm.loop !480
+  br i1 %152, label %.lr.ph59.i, label %._crit_edge60.i, !llvm.loop !467
 
 ._crit_edge60.i:                                  ; preds = %.lr.ph59.i, %126
   %.0341.lcssa.i = phi i32 [ 0, %126 ], [ %44, %.lr.ph59.i ]
@@ -24274,9 +24274,9 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %.133669.i = phi <4 x float> [ %161, %.lr.ph72.i ], [ %153, %._crit_edge60.i ]
   %.133868.i = phi <4 x float> [ %164, %.lr.ph72.i ], [ %154, %._crit_edge60.i ]
   %.134267.i = phi i32 [ %166, %.lr.ph72.i ], [ %.0341.lcssa.i, %._crit_edge60.i ]
-  %156 = load <4 x i32>, ptr %.132170.i, align 1, !tbaa !89
+  %156 = load <4 x i32>, ptr %.132170.i, align 1, !tbaa !88
   %157 = getelementptr inbounds nuw i8, ptr %.132170.i, i64 16
-  %158 = load <4 x i32>, ptr %157, align 1, !tbaa !89
+  %158 = load <4 x i32>, ptr %157, align 1, !tbaa !88
   %159 = and <4 x i32> %156, splat (i32 2147483647)
   %160 = bitcast <4 x i32> %159 to <4 x float>
   %161 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.133669.i, <4 x float> nofpclass(nan inf) %160)
@@ -24286,7 +24286,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %165 = getelementptr inbounds float, ptr %.132170.i, i64 %41
   %166 = add nuw nsw i32 %.134267.i, 1
   %exitcond187.not.i = icmp eq i32 %166, %16
-  br i1 %exitcond187.not.i, label %._crit_edge73.i, label %.lr.ph72.i, !llvm.loop !481
+  br i1 %exitcond187.not.i, label %._crit_edge73.i, label %.lr.ph72.i, !llvm.loop !468
 
 ._crit_edge73.i:                                  ; preds = %.lr.ph72.i, %._crit_edge60.i
   %.1338.lcssa.i = phi <4 x float> [ %154, %._crit_edge60.i ], [ %164, %.lr.ph72.i ]
@@ -24328,12 +24328,12 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %189 = fdiv fast <4 x float> splat (float 1.270000e+02), %.1338.lcssa.i
   %190 = fmul fast <4 x float> %.1336.lcssa.i, %47
   %191 = fmul fast <4 x float> %.1338.lcssa.i, %48
-  store <4 x float> %188, ptr %.378.i, align 16, !tbaa !89
+  store <4 x float> %188, ptr %.378.i, align 16, !tbaa !88
   %192 = getelementptr inbounds nuw i8, ptr %.378.i, i64 16
-  store <4 x float> %189, ptr %192, align 16, !tbaa !89
-  store <4 x float> %190, ptr %.329977.i, align 16, !tbaa !89
+  store <4 x float> %189, ptr %192, align 16, !tbaa !88
+  store <4 x float> %190, ptr %.329977.i, align 16, !tbaa !88
   %193 = getelementptr inbounds nuw i8, ptr %.329977.i, i64 16
-  store <4 x float> %191, ptr %193, align 16, !tbaa !89
+  store <4 x float> %191, ptr %193, align 16, !tbaa !88
   %194 = getelementptr inbounds nuw i8, ptr %.378.i, i64 32
   %195 = getelementptr inbounds nuw i8, ptr %.329977.i, i64 32
   br label %196
@@ -24344,7 +24344,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %indvars.iv.next189.i = add nuw nsw i64 %indvars.iv188.i, 8
   %197 = or disjoint i64 %indvars.iv.next189.i, 7
   %198 = icmp slt i64 %197, %46
-  br i1 %198, label %126, label %.preheader33.loopexit.i, !llvm.loop !482
+  br i1 %198, label %126, label %.preheader33.loopexit.i, !llvm.loop !469
 
 .preheader32.i:                                   ; preds = %301, %.preheader33.i
   %.2309.lcssa.i = phi i32 [ %.1308.lcssa.i, %.preheader33.i ], [ %302, %301 ]
@@ -24393,7 +24393,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %219 = getelementptr inbounds float, ptr %.0294125.us.i, i64 %206
   %220 = add nuw nsw i32 %.0293126.us.i, 1
   %exitcond195.not.i = icmp eq i32 %220, %16
-  br i1 %exitcond195.not.i, label %._crit_edge129.us.i, label %211, !llvm.loop !483
+  br i1 %exitcond195.not.i, label %._crit_edge129.us.i, label %211, !llvm.loop !470
 
 ._crit_edge129.us.i:                              ; preds = %211
   %221 = fdiv fast float 1.270000e+02, %.sroa.speculated10.us.i
@@ -24414,7 +24414,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %231 = trunc i64 %indvars.iv.next197.i to i32
   %232 = or i32 %231, 1
   %233 = icmp slt i32 %232, %21
-  br i1 %233, label %.lr.ph128.us.i, label %.preheader.i, !llvm.loop !484
+  br i1 %233, label %.lr.ph128.us.i, label %.preheader.i, !llvm.loop !471
 
 234:                                              ; preds = %301, %.lr.ph119.i
   %indvars.iv192.i = phi i64 [ %123, %.lr.ph119.i ], [ %indvars.iv.next193.i, %301 ]
@@ -24432,13 +24432,13 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %.032785.i = phi <4 x float> [ %250, %.lr.ph90.i ], [ zeroinitializer, %234 ]
   %.032984.i = phi <4 x float> [ %247, %.lr.ph90.i ], [ zeroinitializer, %234 ]
   %.033283.i = phi ptr [ %257, %.lr.ph90.i ], [ %237, %234 ]
-  %238 = load <4 x i32>, ptr %.033283.i, align 1, !tbaa !89
+  %238 = load <4 x i32>, ptr %.033283.i, align 1, !tbaa !88
   %239 = getelementptr inbounds float, ptr %.033283.i, i64 %115
-  %240 = load <4 x i32>, ptr %239, align 1, !tbaa !89
+  %240 = load <4 x i32>, ptr %239, align 1, !tbaa !88
   %241 = getelementptr inbounds float, ptr %.033283.i, i64 %117
-  %242 = load <4 x i32>, ptr %241, align 1, !tbaa !89
+  %242 = load <4 x i32>, ptr %241, align 1, !tbaa !88
   %243 = getelementptr inbounds float, ptr %.033283.i, i64 %119
-  %244 = load <4 x i32>, ptr %243, align 1, !tbaa !89
+  %244 = load <4 x i32>, ptr %243, align 1, !tbaa !88
   %245 = and <4 x i32> %238, splat (i32 2147483647)
   %246 = bitcast <4 x i32> %245 to <4 x float>
   %247 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.032984.i, <4 x float> nofpclass(nan inf) %246)
@@ -24455,7 +24455,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %258 = add nuw nsw i32 %.032288.i, 4
   %259 = or disjoint i32 %258, 3
   %260 = icmp slt i32 %259, %16
-  br i1 %260, label %.lr.ph90.i, label %._crit_edge91.i, !llvm.loop !485
+  br i1 %260, label %.lr.ph90.i, label %._crit_edge91.i, !llvm.loop !472
 
 ._crit_edge91.i:                                  ; preds = %.lr.ph90.i, %234
   %.0332.lcssa.i = phi ptr [ %237, %234 ], [ %257, %.lr.ph90.i ]
@@ -24475,9 +24475,9 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %.1328100.i = phi <4 x float> [ %273, %.lr.ph103.i ], [ %262, %._crit_edge91.i ]
   %.133099.i = phi <4 x float> [ %270, %.lr.ph103.i ], [ %261, %._crit_edge91.i ]
   %.133398.i = phi ptr [ %274, %.lr.ph103.i ], [ %.0332.lcssa.i, %._crit_edge91.i ]
-  %265 = load <4 x i32>, ptr %.133398.i, align 1, !tbaa !89
+  %265 = load <4 x i32>, ptr %.133398.i, align 1, !tbaa !88
   %266 = getelementptr inbounds float, ptr %.133398.i, i64 %115
-  %267 = load <4 x i32>, ptr %266, align 1, !tbaa !89
+  %267 = load <4 x i32>, ptr %266, align 1, !tbaa !88
   %268 = and <4 x i32> %265, splat (i32 2147483647)
   %269 = bitcast <4 x i32> %268 to <4 x float>
   %270 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.133099.i, <4 x float> nofpclass(nan inf) %269)
@@ -24488,7 +24488,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %275 = add nuw nsw i32 %.1323101.i, 2
   %276 = or disjoint i32 %275, 1
   %277 = icmp slt i32 %276, %16
-  br i1 %277, label %.lr.ph103.i, label %._crit_edge104.i, !llvm.loop !486
+  br i1 %277, label %.lr.ph103.i, label %._crit_edge104.i, !llvm.loop !473
 
 ._crit_edge104.i:                                 ; preds = %.lr.ph103.i, %._crit_edge91.i
   %.1333.lcssa.i = phi ptr [ %.0332.lcssa.i, %._crit_edge91.i ], [ %274, %.lr.ph103.i ]
@@ -24503,14 +24503,14 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %.2324111.i = phi i32 [ %285, %.lr.ph113.i ], [ %.1323.lcssa.i, %._crit_edge104.i ]
   %.2331110.i = phi <4 x float> [ %283, %.lr.ph113.i ], [ %278, %._crit_edge104.i ]
   %.2334109.i = phi ptr [ %284, %.lr.ph113.i ], [ %.1333.lcssa.i, %._crit_edge104.i ]
-  %280 = load <4 x i32>, ptr %.2334109.i, align 1, !tbaa !89
+  %280 = load <4 x i32>, ptr %.2334109.i, align 1, !tbaa !88
   %281 = and <4 x i32> %280, splat (i32 2147483647)
   %282 = bitcast <4 x i32> %281 to <4 x float>
   %283 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.2331110.i, <4 x float> nofpclass(nan inf) %282)
   %284 = getelementptr inbounds float, ptr %.2334109.i, i64 %115
   %285 = add nuw nsw i32 %.2324111.i, 1
   %exitcond191.not.i = icmp eq i32 %285, %16
-  br i1 %exitcond191.not.i, label %._crit_edge114.i, label %.lr.ph113.i, !llvm.loop !487
+  br i1 %exitcond191.not.i, label %._crit_edge114.i, label %.lr.ph113.i, !llvm.loop !474
 
 ._crit_edge114.i:                                 ; preds = %.lr.ph113.i, %._crit_edge104.i
   %.2331.lcssa.i = phi <4 x float> [ %278, %._crit_edge104.i ], [ %283, %.lr.ph113.i ]
@@ -24537,8 +24537,8 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
 296:                                              ; preds = %._crit_edge114.i
   %297 = fdiv fast <4 x float> splat (float 1.270000e+02), %.2331.lcssa.i
   %298 = fmul fast <4 x float> %.2331.lcssa.i, %124
-  store <4 x float> %297, ptr %.6118.i, align 16, !tbaa !89
-  store <4 x float> %298, ptr %.6302117.i, align 16, !tbaa !89
+  store <4 x float> %297, ptr %.6118.i, align 16, !tbaa !88
+  store <4 x float> %298, ptr %.6302117.i, align 16, !tbaa !88
   %299 = getelementptr inbounds nuw i8, ptr %.6118.i, i64 16
   %300 = getelementptr inbounds nuw i8, ptr %.6302117.i, i64 16
   br label %301
@@ -24550,7 +24550,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %302 = trunc i64 %indvars.iv.next193.i to i32
   %303 = or i32 %302, 3
   %304 = icmp slt i32 %303, %21
-  br i1 %304, label %234, label %.preheader32.i, !llvm.loop !488
+  br i1 %304, label %234, label %.preheader32.i, !llvm.loop !475
 
 .preheader.i:                                     ; preds = %.lr.ph135.split.i, %._crit_edge129.us.i, %.preheader32.i
   %.3310.lcssa.i = phi i32 [ %.2309.lcssa.i, %.preheader32.i ], [ %231, %._crit_edge129.us.i ], [ %332, %.lr.ph135.split.i ]
@@ -24591,7 +24591,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %319 = getelementptr inbounds float, ptr %.0292142.us.i, i64 %311
   %320 = add nuw nsw i32 %.0143.us.i, 1
   %exitcond200.not.i = icmp eq i32 %320, %16
-  br i1 %exitcond200.not.i, label %._crit_edge146.us.i, label %315, !llvm.loop !489
+  br i1 %exitcond200.not.i, label %._crit_edge146.us.i, label %315, !llvm.loop !476
 
 ._crit_edge146.us.i:                              ; preds = %315
   %321 = fdiv fast float 1.270000e+02, %.sroa.speculated.us.i
@@ -24604,7 +24604,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %indvars.iv.next202.i = add nuw nsw i64 %indvars.iv201.i, 1
   %326 = trunc nuw i64 %indvars.iv.next202.i to i32
   %327 = icmp sgt i32 %21, %326
-  br i1 %327, label %.lr.ph145.us.i, label %_ZN4ncnnL41transpose_compute_A_tile_fp32_int8_scalesERKNS_3MatERS0_fS3_ii.exit, !llvm.loop !490
+  br i1 %327, label %.lr.ph145.us.i, label %_ZN4ncnnL41transpose_compute_A_tile_fp32_int8_scalesERKNS_3MatERS0_fS3_ii.exit, !llvm.loop !477
 
 .lr.ph135.split.i:                                ; preds = %.lr.ph135.i, %.lr.ph135.split.i
   %.9134.i = phi ptr [ %330, %.lr.ph135.split.i ], [ %.6.lcssa.i, %.lr.ph135.i ]
@@ -24621,7 +24621,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %332 = add nuw nsw i32 %.3310132.i, 2
   %333 = or disjoint i32 %332, 1
   %334 = icmp slt i32 %333, %21
-  br i1 %334, label %.lr.ph135.split.i, label %.preheader.i, !llvm.loop !491
+  br i1 %334, label %.lr.ph135.split.i, label %.preheader.i, !llvm.loop !478
 
 .lr.ph151.split.i:                                ; preds = %.lr.ph151.i, %.lr.ph151.split.i
   %.10150.i = phi ptr [ %335, %.lr.ph151.split.i ], [ %.9.lcssa.i, %.lr.ph151.i ]
@@ -24633,7 +24633,7 @@ define internal fastcc void @_ZN4ncnnL36transpose_compute_A_tile_int8_scalesERKN
   %336 = getelementptr inbounds nuw i8, ptr %.10306149.i, i64 4
   %337 = add nuw nsw i32 %.4311148.i, 1
   %exitcond199.not.i = icmp eq i32 %337, %21
-  br i1 %exitcond199.not.i, label %_ZN4ncnnL41transpose_compute_A_tile_fp32_int8_scalesERKNS_3MatERS0_fS3_ii.exit, label %.lr.ph151.split.i, !llvm.loop !492
+  br i1 %exitcond199.not.i, label %_ZN4ncnnL41transpose_compute_A_tile_fp32_int8_scalesERKNS_3MatERS0_fS3_ii.exit, label %.lr.ph151.split.i, !llvm.loop !479
 
 _ZN4ncnnL41transpose_compute_A_tile_fp32_int8_scalesERKNS_3MatERS0_fS3_ii.exit: ; preds = %.lr.ph151.split.i, %._crit_edge146.us.i, %.preheader.i
   ret void
@@ -24713,13 +24713,13 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %.250.i.us = phi ptr [ %89, %.lr.ph.i.us ], [ %.065.i.us, %.lr.ph.i.us.preheader ]
   %.124049.i.us = phi ptr [ %90, %.lr.ph.i.us ], [ %54, %.lr.ph.i.us.preheader ]
   %.024448.i.us = phi i32 [ %91, %.lr.ph.i.us ], [ 0, %.lr.ph.i.us.preheader ]
-  %55 = load <4 x float>, ptr %.124049.i.us, align 16, !tbaa !89
+  %55 = load <4 x float>, ptr %.124049.i.us, align 16, !tbaa !88
   %56 = getelementptr inbounds nuw i8, ptr %.124049.i.us, i64 16
-  %57 = load <4 x float>, ptr %56, align 16, !tbaa !89
+  %57 = load <4 x float>, ptr %56, align 16, !tbaa !88
   %58 = getelementptr inbounds nuw i8, ptr %.124049.i.us, i64 32
-  %59 = load <4 x float>, ptr %58, align 16, !tbaa !89
+  %59 = load <4 x float>, ptr %58, align 16, !tbaa !88
   %60 = getelementptr inbounds nuw i8, ptr %.124049.i.us, i64 48
-  %61 = load <4 x float>, ptr %60, align 16, !tbaa !89
+  %61 = load <4 x float>, ptr %60, align 16, !tbaa !88
   %62 = fmul fast <4 x float> %55, %38
   %63 = fmul fast <4 x float> %57, %42
   %64 = fmul fast <4 x float> %59, %46
@@ -24747,20 +24747,20 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %86 = shufflevector <8 x i16> %85, <8 x i16> poison, <8 x i32> <i32 0, i32 2, i32 1, i32 3, i32 4, i32 6, i32 5, i32 7>
   %87 = bitcast <8 x i16> %86 to <4 x i32>
   %88 = shufflevector <4 x i32> %87, <4 x i32> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
-  store <4 x i32> %88, ptr %.250.i.us, align 16, !tbaa !89
+  store <4 x i32> %88, ptr %.250.i.us, align 16, !tbaa !88
   %89 = getelementptr inbounds nuw i8, ptr %.250.i.us, i64 16
   %90 = getelementptr inbounds float, ptr %.124049.i.us, i64 %23
   %91 = add nuw nsw i32 %.024448.i.us, 4
   %92 = or disjoint i32 %91, 3
   %93 = icmp slt i32 %92, %4
-  br i1 %93, label %.lr.ph.i.us, label %.loopexit46.i.us, !llvm.loop !493
+  br i1 %93, label %.lr.ph.i.us, label %.loopexit46.i.us, !llvm.loop !480
 
 .loopexit46.i.us:                                 ; preds = %.lr.ph.i.us, %.lr.ph66.i.split.us
   %.3.i.us = phi ptr [ %.065.i.us, %.lr.ph66.i.split.us ], [ %89, %.lr.ph.i.us ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 4
   %94 = or disjoint i64 %indvars.iv.next.i.us, 3
   %95 = icmp samesign ult i64 %94, %30
-  br i1 %95, label %.lr.ph66.i.split.us, label %.preheader44.loopexit.i, !llvm.loop !494
+  br i1 %95, label %.lr.ph66.i.split.us, label %.preheader44.loopexit.i, !llvm.loop !481
 
 .lr.ph66.i.split.us20:                            ; preds = %.lr.ph66.i
   %96 = load ptr, ptr %0, align 8, !tbaa !16
@@ -24776,16 +24776,16 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %102 = mul nsw i64 %101, %31
   %103 = getelementptr inbounds float, ptr %97, i64 %102
   %104 = getelementptr inbounds nuw float, ptr %99, i64 %indvars.iv.i.us21
-  %105 = load <4 x float>, ptr %104, align 16, !tbaa !89
+  %105 = load <4 x float>, ptr %104, align 16, !tbaa !88
   br i1 %25, label %.lr.ph55.i.us, label %.preheader45.i.us
 
 .lr.ph55.i.us:                                    ; preds = %100, %.lr.ph55.i.us
   %.454.i.us = phi ptr [ %125, %.lr.ph55.i.us ], [ %.065.i.us22, %100 ]
   %.224153.i.us = phi ptr [ %126, %.lr.ph55.i.us ], [ %103, %100 ]
   %.024552.i.us = phi i32 [ %127, %.lr.ph55.i.us ], [ 0, %100 ]
-  %106 = load <4 x float>, ptr %.224153.i.us, align 1, !tbaa !89
+  %106 = load <4 x float>, ptr %.224153.i.us, align 1, !tbaa !88
   %107 = getelementptr inbounds float, ptr %.224153.i.us, i64 %26
-  %108 = load <4 x float>, ptr %107, align 1, !tbaa !89
+  %108 = load <4 x float>, ptr %107, align 1, !tbaa !88
   %109 = fmul fast <4 x float> %106, %105
   %110 = fmul fast <4 x float> %108, %105
   %111 = shufflevector <4 x float> %109, <4 x float> %110, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -24802,13 +24802,13 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %122 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %121, <8 x i16> poison)
   %123 = bitcast <16 x i8> %122 to <2 x i64>
   %124 = extractelement <2 x i64> %123, i64 0
-  store i64 %124, ptr %.454.i.us, align 8, !tbaa !401
+  store i64 %124, ptr %.454.i.us, align 8, !tbaa !390
   %125 = getelementptr inbounds nuw i8, ptr %.454.i.us, i64 8
   %126 = getelementptr inbounds float, ptr %.224153.i.us, i64 %28
   %127 = add nuw nsw i32 %.024552.i.us, 2
   %128 = or disjoint i32 %127, 1
   %129 = icmp slt i32 %128, %4
-  br i1 %129, label %.lr.ph55.i.us, label %.preheader45.i.us, !llvm.loop !495
+  br i1 %129, label %.lr.ph55.i.us, label %.preheader45.i.us, !llvm.loop !482
 
 .preheader45.i.us:                                ; preds = %.lr.ph55.i.us, %100
   %.0245.lcssa.i.us = phi i32 [ 0, %100 ], [ %29, %.lr.ph55.i.us ]
@@ -24821,7 +24821,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %.561.i.us = phi ptr [ %142, %.lr.ph62.i.us ], [ %.4.lcssa.i.us, %.preheader45.i.us ]
   %.324260.i.us = phi ptr [ %143, %.lr.ph62.i.us ], [ %.2241.lcssa.i.us, %.preheader45.i.us ]
   %.124659.i.us = phi i32 [ %144, %.lr.ph62.i.us ], [ %.0245.lcssa.i.us, %.preheader45.i.us ]
-  %131 = load <4 x float>, ptr %.324260.i.us, align 1, !tbaa !89
+  %131 = load <4 x float>, ptr %.324260.i.us, align 1, !tbaa !88
   %132 = fmul fast <4 x float> %131, %105
   %133 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %132)
   %134 = fadd fast <4 x float> %133, %132
@@ -24837,14 +24837,14 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %143 = getelementptr inbounds float, ptr %.324260.i.us, i64 %26
   %144 = add nuw nsw i32 %.124659.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %144, %4
-  br i1 %exitcond.not.i.us, label %.loopexit46.i.us23, label %.lr.ph62.i.us, !llvm.loop !496
+  br i1 %exitcond.not.i.us, label %.loopexit46.i.us23, label %.lr.ph62.i.us, !llvm.loop !483
 
 .loopexit46.i.us23:                               ; preds = %.lr.ph62.i.us, %.preheader45.i.us
   %.3.i.us24 = phi ptr [ %.4.lcssa.i.us, %.preheader45.i.us ], [ %142, %.lr.ph62.i.us ]
   %indvars.iv.next.i.us25 = add nuw nsw i64 %indvars.iv.i.us21, 4
   %145 = or disjoint i64 %indvars.iv.next.i.us25, 3
   %146 = icmp samesign ult i64 %145, %30
-  br i1 %146, label %100, label %.preheader44.loopexit.i, !llvm.loop !497
+  br i1 %146, label %100, label %.preheader44.loopexit.i, !llvm.loop !484
 
 .preheader44.loopexit.i:                          ; preds = %.loopexit46.i.us23, %.loopexit46.i.us, %.loopexit46.i.preheader
   %.us-phi = phi ptr [ %.0.val, %.loopexit46.i.preheader ], [ %.3.i.us, %.loopexit46.i.us ], [ %.3.i.us24, %.loopexit46.i.us23 ]
@@ -24912,7 +24912,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %spec.select.i26234.us.i = tail call i32 @llvm.smax.i32(i32 %174, i32 -127)
   %.0.i26335.us.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i26234.us.i, i32 127)
   %.0.i263.us.i = trunc nsw i32 %.0.i26335.us.i to i8
-  store i8 %.0.i263.us.i, ptr %.1291.us.i, align 1, !tbaa !89
+  store i8 %.0.i263.us.i, ptr %.1291.us.i, align 1, !tbaa !88
   %175 = getelementptr inbounds nuw i8, ptr %.425590.us.i, i64 4
   %176 = load float, ptr %175, align 4, !tbaa !61
   %177 = fmul fast float %176, %.pre179.i
@@ -24922,22 +24922,22 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %.0.i26137.us.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i26036.us.i, i32 127)
   %.0.i261.us.i = trunc nsw i32 %.0.i26137.us.i to i8
   %180 = getelementptr inbounds nuw i8, ptr %.1291.us.i, i64 1
-  store i8 %.0.i261.us.i, ptr %180, align 1, !tbaa !89
+  store i8 %.0.i261.us.i, ptr %180, align 1, !tbaa !88
   %181 = getelementptr inbounds nuw i8, ptr %.1291.us.i, i64 2
   %182 = getelementptr inbounds float, ptr %.425590.us.i, i64 %155
   %183 = add nuw nsw i32 %.225989.us.i, 1
   %exitcond167.not.i = icmp eq i32 %183, %4
-  br i1 %exitcond167.not.i, label %.loopexit41.us.i, label %.lr.ph92.us.i, !llvm.loop !498
+  br i1 %exitcond167.not.i, label %.loopexit41.us.i, label %.lr.ph92.us.i, !llvm.loop !485
 
 .lr.ph85.us.i:                                    ; preds = %.preheader42.us.i, %.lr.ph85.us.i
   %.1184.us.i = phi ptr [ %202, %.lr.ph85.us.i ], [ %.10.lcssa.us.i, %.preheader42.us.i ]
   %.325483.us.i = phi ptr [ %203, %.lr.ph85.us.i ], [ %.2253.lcssa.us.i, %.preheader42.us.i ]
   %.125882.us.i = phi i32 [ %204, %.lr.ph85.us.i ], [ %.0257.lcssa.us.i, %.preheader42.us.i ]
-  %184 = load i64, ptr %.325483.us.i, align 1, !tbaa !89
+  %184 = load i64, ptr %.325483.us.i, align 1, !tbaa !88
   %185 = insertelement <2 x i64> poison, i64 %184, i64 0
   %186 = bitcast <2 x i64> %185 to <4 x float>
   %187 = getelementptr inbounds float, ptr %.325483.us.i, i64 %155
-  %188 = load i64, ptr %187, align 1, !tbaa !89
+  %188 = load i64, ptr %187, align 1, !tbaa !88
   %189 = insertelement <2 x i64> poison, i64 %188, i64 0
   %190 = bitcast <2 x i64> %189 to <4 x float>
   %191 = shufflevector <4 x float> %186, <4 x float> %190, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -24957,25 +24957,25 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %204 = add nuw nsw i32 %.125882.us.i, 2
   %205 = or disjoint i32 %204, 1
   %206 = icmp slt i32 %205, %4
-  br i1 %206, label %.lr.ph85.us.i, label %.preheader40.us.i, !llvm.loop !499
+  br i1 %206, label %.lr.ph85.us.i, label %.preheader40.us.i, !llvm.loop !486
 
 .lr.ph78.us.i:                                    ; preds = %.lr.ph96.split.us.i, %.lr.ph78.us.i
   %.1077.us.i = phi ptr [ %242, %.lr.ph78.us.i ], [ %.695.us.i, %.lr.ph96.split.us.i ]
   %.225376.us.i = phi ptr [ %243, %.lr.ph78.us.i ], [ %167, %.lr.ph96.split.us.i ]
   %.025775.us.i = phi i32 [ %244, %.lr.ph78.us.i ], [ 0, %.lr.ph96.split.us.i ]
-  %207 = load i64, ptr %.225376.us.i, align 1, !tbaa !89
+  %207 = load i64, ptr %.225376.us.i, align 1, !tbaa !88
   %208 = insertelement <2 x i64> poison, i64 %207, i64 0
   %209 = bitcast <2 x i64> %208 to <4 x float>
   %210 = getelementptr inbounds float, ptr %.225376.us.i, i64 %155
-  %211 = load i64, ptr %210, align 1, !tbaa !89
+  %211 = load i64, ptr %210, align 1, !tbaa !88
   %212 = insertelement <2 x i64> poison, i64 %211, i64 0
   %213 = bitcast <2 x i64> %212 to <4 x float>
   %214 = getelementptr inbounds float, ptr %.225376.us.i, i64 %157
-  %215 = load i64, ptr %214, align 1, !tbaa !89
+  %215 = load i64, ptr %214, align 1, !tbaa !88
   %216 = insertelement <2 x i64> poison, i64 %215, i64 0
   %217 = bitcast <2 x i64> %216 to <4 x float>
   %218 = getelementptr inbounds float, ptr %.225376.us.i, i64 %159
-  %219 = load i64, ptr %218, align 1, !tbaa !89
+  %219 = load i64, ptr %218, align 1, !tbaa !88
   %220 = insertelement <2 x i64> poison, i64 %219, i64 0
   %221 = bitcast <2 x i64> %220 to <4 x float>
   %222 = shufflevector <4 x float> %209, <4 x float> %213, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -24998,13 +24998,13 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %239 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %238, <8 x i16> poison)
   %240 = bitcast <16 x i8> %239 to <2 x i64>
   %241 = extractelement <2 x i64> %240, i64 0
-  store i64 %241, ptr %.1077.us.i, align 8, !tbaa !401
+  store i64 %241, ptr %.1077.us.i, align 8, !tbaa !390
   %242 = getelementptr inbounds nuw i8, ptr %.1077.us.i, i64 8
   %243 = getelementptr inbounds float, ptr %.225376.us.i, i64 %154
   %244 = add nuw nsw i32 %.025775.us.i, 4
   %245 = or disjoint i32 %244, 3
   %246 = icmp slt i32 %245, %4
-  br i1 %246, label %.lr.ph78.us.i, label %.preheader42.us.i, !llvm.loop !500
+  br i1 %246, label %.lr.ph78.us.i, label %.preheader42.us.i, !llvm.loop !487
 
 .preheader40.us.i:                                ; preds = %.lr.ph85.us.i, %.preheader42.us.i
   %.1258.lcssa.us.i = phi i32 [ %.0257.lcssa.us.i, %.preheader42.us.i ], [ %204, %.lr.ph85.us.i ]
@@ -25018,7 +25018,7 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %indvars.iv.next169.i = add nuw nsw i64 %indvars.iv168.i, 2
   %248 = or disjoint i64 %indvars.iv.next169.i, 1
   %249 = icmp slt i64 %248, %163
-  br i1 %249, label %.lr.ph96.split.us.i, label %.preheader39.loopexit.i, !llvm.loop !501
+  br i1 %249, label %.lr.ph96.split.us.i, label %.preheader39.loopexit.i, !llvm.loop !488
 
 .preheader42.us.i:                                ; preds = %.lr.ph78.us.i, %.lr.ph96.split.us.i
   %.0257.lcssa.us.i = phi i32 [ 0, %.lr.ph96.split.us.i ], [ %160, %.lr.ph78.us.i ]
@@ -25040,7 +25040,6 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %257 = load ptr, ptr %0, align 8, !tbaa !16
   %258 = getelementptr inbounds float, ptr %257, i64 %151
   %259 = load ptr, ptr %5, align 8, !tbaa !16
-  %invariant.gep.i = getelementptr i8, ptr %259, i64 4
   %260 = zext nneg i32 %.0234.lcssa.i to i64
   %261 = sext i32 %1 to i64
   %262 = sext i32 %2 to i64
@@ -25050,203 +25049,203 @@ define internal fastcc void @_ZN4ncnnL30transpose_pack_A_tile_quantizeERKNS_3Mat
   %indvars.iv164.i = phi i64 [ %indvars.iv.next165.i, %.loopexit43.us106.i ], [ %260, %.lr.ph96.split.split.us.i ]
   %.695.us100.i = phi ptr [ %.8.lcssa.us107.i, %.loopexit43.us106.i ], [ %.0.lcssa.i, %.lr.ph96.split.split.us.i ]
   %264 = add nsw i64 %indvars.iv164.i, %261
-  %265 = getelementptr inbounds nuw float, ptr %259, i64 %264
+  %265 = getelementptr float, ptr %259, i64 %264
   %266 = load float, ptr %265, align 4, !tbaa !61
   %267 = insertelement <4 x float> poison, float %266, i64 0
   %268 = shufflevector <4 x float> %267, <4 x float> poison, <4 x i32> zeroinitializer
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %264
-  %269 = load float, ptr %gep.i, align 4, !tbaa !61
-  %270 = insertelement <4 x float> poison, float %269, i64 0
-  %271 = shufflevector <4 x float> %270, <4 x float> poison, <4 x i32> zeroinitializer
+  %269 = getelementptr i8, ptr %265, i64 4
+  %270 = load float, ptr %269, align 4, !tbaa !61
+  %271 = insertelement <4 x float> poison, float %270, i64 0
+  %272 = shufflevector <4 x float> %271, <4 x float> poison, <4 x i32> zeroinitializer
   br i1 %152, label %.lr.ph72.us108.preheader.i, label %.loopexit43.us106.i
 
 .lr.ph72.us108.preheader.i:                       ; preds = %263
   %.idx.i = shl nsw i64 %264, 4
-  %272 = getelementptr inbounds i8, ptr %258, i64 %.idx.i
+  %273 = getelementptr inbounds i8, ptr %258, i64 %.idx.i
   br label %.lr.ph72.us108.i
 
 .lr.ph72.us108.i:                                 ; preds = %.lr.ph72.us108.i, %.lr.ph72.us108.preheader.i
-  %.871.us103.i = phi ptr [ %292, %.lr.ph72.us108.i ], [ %.695.us100.i, %.lr.ph72.us108.preheader.i ]
-  %.125270.us104.i = phi ptr [ %293, %.lr.ph72.us108.i ], [ %272, %.lr.ph72.us108.preheader.i ]
-  %.025669.us105.i = phi i32 [ %294, %.lr.ph72.us108.i ], [ 0, %.lr.ph72.us108.preheader.i ]
-  %273 = load <4 x float>, ptr %.125270.us104.i, align 16, !tbaa !89
-  %274 = getelementptr inbounds nuw i8, ptr %.125270.us104.i, i64 16
-  %275 = load <4 x float>, ptr %274, align 16, !tbaa !89
-  %276 = fmul fast <4 x float> %273, %268
-  %277 = fmul fast <4 x float> %275, %271
-  %278 = shufflevector <4 x float> %276, <4 x float> %277, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %279 = shufflevector <4 x float> %276, <4 x float> %277, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  %280 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %278)
+  %.871.us103.i = phi ptr [ %293, %.lr.ph72.us108.i ], [ %.695.us100.i, %.lr.ph72.us108.preheader.i ]
+  %.125270.us104.i = phi ptr [ %294, %.lr.ph72.us108.i ], [ %273, %.lr.ph72.us108.preheader.i ]
+  %.025669.us105.i = phi i32 [ %295, %.lr.ph72.us108.i ], [ 0, %.lr.ph72.us108.preheader.i ]
+  %274 = load <4 x float>, ptr %.125270.us104.i, align 16, !tbaa !88
+  %275 = getelementptr inbounds nuw i8, ptr %.125270.us104.i, i64 16
+  %276 = load <4 x float>, ptr %275, align 16, !tbaa !88
+  %277 = fmul fast <4 x float> %274, %268
+  %278 = fmul fast <4 x float> %276, %272
+  %279 = shufflevector <4 x float> %277, <4 x float> %278, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %280 = shufflevector <4 x float> %277, <4 x float> %278, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   %281 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %279)
-  %282 = fadd fast <4 x float> %280, %278
+  %282 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %280)
   %283 = fadd fast <4 x float> %281, %279
-  %284 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %282)
+  %284 = fadd fast <4 x float> %282, %280
   %285 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %283)
-  %286 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %284, <4 x i32> %285)
-  %287 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %286, <8 x i16> splat (i16 -127))
-  %288 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %287, <8 x i16> splat (i16 127))
-  %289 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %288, <8 x i16> poison)
-  %290 = bitcast <16 x i8> %289 to <2 x i64>
-  %291 = extractelement <2 x i64> %290, i64 0
-  store i64 %291, ptr %.871.us103.i, align 8, !tbaa !401
-  %292 = getelementptr inbounds nuw i8, ptr %.871.us103.i, i64 8
-  %293 = getelementptr inbounds float, ptr %.125270.us104.i, i64 %154
-  %294 = add nuw nsw i32 %.025669.us105.i, 4
-  %295 = or disjoint i32 %294, 3
-  %296 = icmp slt i32 %295, %4
-  br i1 %296, label %.lr.ph72.us108.i, label %.loopexit43.us106.i, !llvm.loop !502
+  %286 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %284)
+  %287 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %285, <4 x i32> %286)
+  %288 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %287, <8 x i16> splat (i16 -127))
+  %289 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %288, <8 x i16> splat (i16 127))
+  %290 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %289, <8 x i16> poison)
+  %291 = bitcast <16 x i8> %290 to <2 x i64>
+  %292 = extractelement <2 x i64> %291, i64 0
+  store i64 %292, ptr %.871.us103.i, align 8, !tbaa !390
+  %293 = getelementptr inbounds nuw i8, ptr %.871.us103.i, i64 8
+  %294 = getelementptr inbounds float, ptr %.125270.us104.i, i64 %154
+  %295 = add nuw nsw i32 %.025669.us105.i, 4
+  %296 = or disjoint i32 %295, 3
+  %297 = icmp slt i32 %296, %4
+  br i1 %297, label %.lr.ph72.us108.i, label %.loopexit43.us106.i, !llvm.loop !489
 
 .loopexit43.us106.i:                              ; preds = %.lr.ph72.us108.i, %263
-  %.8.lcssa.us107.i = phi ptr [ %.695.us100.i, %263 ], [ %292, %.lr.ph72.us108.i ]
+  %.8.lcssa.us107.i = phi ptr [ %.695.us100.i, %263 ], [ %293, %.lr.ph72.us108.i ]
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 2
-  %297 = or disjoint i64 %indvars.iv.next165.i, 1
-  %298 = icmp slt i64 %297, %262
-  br i1 %298, label %263, label %.preheader39.loopexit136.i, !llvm.loop !503
+  %298 = or disjoint i64 %indvars.iv.next165.i, 1
+  %299 = icmp slt i64 %298, %262
+  br i1 %299, label %263, label %.preheader39.loopexit136.i, !llvm.loop !490
 
 .preheader39.loopexit.i:                          ; preds = %.loopexit41.us.i
-  %299 = trunc nuw nsw i64 %indvars.iv.next169.i to i32
+  %300 = trunc nuw nsw i64 %indvars.iv.next169.i to i32
   br label %.preheader39.i
 
 .preheader39.loopexit136.i:                       ; preds = %.loopexit43.us106.i
-  %300 = trunc nuw nsw i64 %indvars.iv.next165.i to i32
+  %301 = trunc nuw nsw i64 %indvars.iv.next165.i to i32
   br label %.preheader39.i
 
 .preheader39.i:                                   ; preds = %.preheader39.loopexit136.i, %.preheader39.loopexit.i, %.lr.ph96.split.split.preheader.i, %.preheader44.i
-  %.1235.lcssa.i = phi i32 [ %.0234.lcssa.i, %.preheader44.i ], [ %299, %.preheader39.loopexit.i ], [ %300, %.preheader39.loopexit136.i ], [ %256, %.lr.ph96.split.split.preheader.i ]
+  %.1235.lcssa.i = phi i32 [ %.0234.lcssa.i, %.preheader44.i ], [ %300, %.preheader39.loopexit.i ], [ %301, %.preheader39.loopexit136.i ], [ %256, %.lr.ph96.split.split.preheader.i ]
   %.6.lcssa.i = phi ptr [ %.0.lcssa.i, %.preheader44.i ], [ %.12.lcssa.us.i, %.preheader39.loopexit.i ], [ %.8.lcssa.us107.i, %.preheader39.loopexit136.i ], [ %.0.lcssa.i, %.lr.ph96.split.split.preheader.i ]
-  %301 = icmp slt i32 %.1235.lcssa.i, %2
-  br i1 %301, label %.lr.ph135.i, label %_ZN4ncnnL34transpose_pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit
+  %302 = icmp slt i32 %.1235.lcssa.i, %2
+  br i1 %302, label %.lr.ph135.i, label %_ZN4ncnnL34transpose_pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit
 
 .lr.ph135.i:                                      ; preds = %.preheader39.i
-  %302 = mul nsw i32 %17, %3
-  %303 = sext i32 %302 to i64
-  %304 = icmp sgt i32 %4, 3
-  %305 = shl nsw i32 %17, 2
-  %306 = sext i32 %305 to i64
-  %307 = sext i32 %17 to i64
-  %308 = shl nsw i32 %17, 1
-  %309 = sext i32 %308 to i64
-  %310 = mul nsw i32 %17, 3
-  %311 = sext i32 %310 to i64
-  %312 = and i32 %4, -4
-  %313 = sext i32 %.1235.lcssa.i to i64
-  %314 = sext i32 %1 to i64
-  %315 = sext i32 %8 to i64
+  %303 = mul nsw i32 %17, %3
+  %304 = sext i32 %303 to i64
+  %305 = icmp sgt i32 %4, 3
+  %306 = shl nsw i32 %17, 2
+  %307 = sext i32 %306 to i64
+  %308 = sext i32 %17 to i64
+  %309 = shl nsw i32 %17, 1
+  %310 = sext i32 %309 to i64
+  %311 = mul nsw i32 %17, 3
+  %312 = sext i32 %311 to i64
+  %313 = and i32 %4, -4
+  %314 = sext i32 %.1235.lcssa.i to i64
+  %315 = sext i32 %1 to i64
+  %316 = sext i32 %8 to i64
   %wide.trip.count.i = sext i32 %2 to i64
-  br label %316
+  br label %317
 
-316:                                              ; preds = %.loopexit.i, %.lr.ph135.i
-  %indvars.iv172.i = phi i64 [ %313, %.lr.ph135.i ], [ %indvars.iv.next173.i, %.loopexit.i ]
+317:                                              ; preds = %.loopexit.i, %.lr.ph135.i
+  %indvars.iv172.i = phi i64 [ %314, %.lr.ph135.i ], [ %indvars.iv.next173.i, %.loopexit.i ]
   %.13134.i = phi ptr [ %.6.lcssa.i, %.lr.ph135.i ], [ %.16.i, %.loopexit.i ]
-  %317 = load ptr, ptr %0, align 8, !tbaa !16
-  %318 = getelementptr inbounds float, ptr %317, i64 %303
-  %319 = add nsw i64 %indvars.iv172.i, %314
-  %320 = mul nsw i64 %319, %315
-  %321 = getelementptr inbounds float, ptr %318, i64 %320
-  %322 = load ptr, ptr %5, align 8, !tbaa !16
-  %323 = getelementptr inbounds nuw float, ptr %322, i64 %319
-  %324 = load float, ptr %323, align 4, !tbaa !61
+  %318 = load ptr, ptr %0, align 8, !tbaa !16
+  %319 = getelementptr inbounds float, ptr %318, i64 %304
+  %320 = add nsw i64 %indvars.iv172.i, %315
+  %321 = mul nsw i64 %320, %316
+  %322 = getelementptr inbounds float, ptr %319, i64 %321
+  %323 = load ptr, ptr %5, align 8, !tbaa !16
+  %324 = getelementptr inbounds nuw float, ptr %323, i64 %320
+  %325 = load float, ptr %324, align 4, !tbaa !61
   switch i32 %8, label %.loopexit.i [
-    i32 4, label %325
-    i32 1, label %344
+    i32 4, label %326
+    i32 1, label %345
   ]
 
-325:                                              ; preds = %316
-  %326 = insertelement <4 x float> poison, float %324, i64 0
-  %327 = shufflevector <4 x float> %326, <4 x float> poison, <4 x i32> zeroinitializer
-  br i1 %304, label %.lr.ph118.i, label %.loopexit.i
+326:                                              ; preds = %317
+  %327 = insertelement <4 x float> poison, float %325, i64 0
+  %328 = shufflevector <4 x float> %327, <4 x float> poison, <4 x i32> zeroinitializer
+  br i1 %305, label %.lr.ph118.i, label %.loopexit.i
 
-.lr.ph118.i:                                      ; preds = %325, %.lr.ph118.i
-  %.15117.i = phi ptr [ %339, %.lr.ph118.i ], [ %.13134.i, %325 ]
-  %.0243116.i = phi i32 [ %341, %.lr.ph118.i ], [ 0, %325 ]
-  %.1248115.i = phi ptr [ %340, %.lr.ph118.i ], [ %321, %325 ]
-  %328 = load <4 x float>, ptr %.1248115.i, align 16, !tbaa !89
-  %329 = fmul fast <4 x float> %328, %327
-  %330 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %329)
-  %331 = fadd fast <4 x float> %330, %329
-  %332 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %331)
-  %333 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %332, <4 x i32> %332)
-  %334 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %333, <8 x i16> splat (i16 -127))
-  %335 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %334, <8 x i16> splat (i16 127))
-  %336 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %335, <8 x i16> poison)
-  %337 = bitcast <16 x i8> %336 to <4 x i32>
-  %338 = extractelement <4 x i32> %337, i64 0
-  store i32 %338, ptr %.15117.i, align 4, !tbaa !37
-  %339 = getelementptr inbounds nuw i8, ptr %.15117.i, i64 4
-  %340 = getelementptr inbounds float, ptr %.1248115.i, i64 %306
-  %341 = add nuw nsw i32 %.0243116.i, 4
-  %342 = or disjoint i32 %341, 3
-  %343 = icmp slt i32 %342, %4
-  br i1 %343, label %.lr.ph118.i, label %.loopexit.i, !llvm.loop !504
+.lr.ph118.i:                                      ; preds = %326, %.lr.ph118.i
+  %.15117.i = phi ptr [ %340, %.lr.ph118.i ], [ %.13134.i, %326 ]
+  %.0243116.i = phi i32 [ %342, %.lr.ph118.i ], [ 0, %326 ]
+  %.1248115.i = phi ptr [ %341, %.lr.ph118.i ], [ %322, %326 ]
+  %329 = load <4 x float>, ptr %.1248115.i, align 16, !tbaa !88
+  %330 = fmul fast <4 x float> %329, %328
+  %331 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %330)
+  %332 = fadd fast <4 x float> %331, %330
+  %333 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %332)
+  %334 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %333, <4 x i32> %333)
+  %335 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %334, <8 x i16> splat (i16 -127))
+  %336 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %335, <8 x i16> splat (i16 127))
+  %337 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %336, <8 x i16> poison)
+  %338 = bitcast <16 x i8> %337 to <4 x i32>
+  %339 = extractelement <4 x i32> %338, i64 0
+  store i32 %339, ptr %.15117.i, align 4, !tbaa !37
+  %340 = getelementptr inbounds nuw i8, ptr %.15117.i, i64 4
+  %341 = getelementptr inbounds float, ptr %.1248115.i, i64 %307
+  %342 = add nuw nsw i32 %.0243116.i, 4
+  %343 = or disjoint i32 %342, 3
+  %344 = icmp slt i32 %343, %4
+  br i1 %344, label %.lr.ph118.i, label %.loopexit.i, !llvm.loop !491
 
-344:                                              ; preds = %316
-  %345 = insertelement <4 x float> poison, float %324, i64 0
-  %346 = shufflevector <4 x float> %345, <4 x float> poison, <4 x i32> zeroinitializer
-  br i1 %304, label %.lr.ph124.i, label %.preheader.i
+345:                                              ; preds = %317
+  %346 = insertelement <4 x float> poison, float %325, i64 0
+  %347 = shufflevector <4 x float> %346, <4 x float> poison, <4 x i32> zeroinitializer
+  br i1 %305, label %.lr.ph124.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.lr.ph124.i, %344
-  %.2249.lcssa.i = phi ptr [ %321, %344 ], [ %370, %.lr.ph124.i ]
-  %.0237.lcssa.i = phi i32 [ 0, %344 ], [ %312, %.lr.ph124.i ]
-  %.17.lcssa.i = phi ptr [ %.13134.i, %344 ], [ %369, %.lr.ph124.i ]
-  %347 = icmp slt i32 %.0237.lcssa.i, %4
-  br i1 %347, label %.lr.ph131.i, label %.loopexit.i
+.preheader.i:                                     ; preds = %.lr.ph124.i, %345
+  %.2249.lcssa.i = phi ptr [ %322, %345 ], [ %371, %.lr.ph124.i ]
+  %.0237.lcssa.i = phi i32 [ 0, %345 ], [ %313, %.lr.ph124.i ]
+  %.17.lcssa.i = phi ptr [ %.13134.i, %345 ], [ %370, %.lr.ph124.i ]
+  %348 = icmp slt i32 %.0237.lcssa.i, %4
+  br i1 %348, label %.lr.ph131.i, label %.loopexit.i
 
-.lr.ph124.i:                                      ; preds = %344, %.lr.ph124.i
-  %.17123.i = phi ptr [ %369, %.lr.ph124.i ], [ %.13134.i, %344 ]
-  %.0237122.i = phi i32 [ %371, %.lr.ph124.i ], [ 0, %344 ]
-  %.2249121.i = phi ptr [ %370, %.lr.ph124.i ], [ %321, %344 ]
-  %348 = load float, ptr %.2249121.i, align 4, !tbaa !61
-  %349 = getelementptr inbounds float, ptr %.2249121.i, i64 %307
-  %350 = load float, ptr %349, align 4, !tbaa !61
-  %351 = getelementptr inbounds float, ptr %.2249121.i, i64 %309
-  %352 = load float, ptr %351, align 4, !tbaa !61
-  %353 = getelementptr inbounds float, ptr %.2249121.i, i64 %311
-  %354 = load float, ptr %353, align 4, !tbaa !61
-  %355 = insertelement <4 x float> poison, float %348, i64 0
-  %356 = insertelement <4 x float> %355, float %350, i64 1
-  %357 = insertelement <4 x float> %356, float %352, i64 2
-  %358 = insertelement <4 x float> %357, float %354, i64 3
-  %359 = fmul fast <4 x float> %358, %346
-  %360 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %359)
-  %361 = fadd fast <4 x float> %360, %359
-  %362 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %361)
-  %363 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %362, <4 x i32> %362)
-  %364 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %363, <8 x i16> splat (i16 -127))
-  %365 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %364, <8 x i16> splat (i16 127))
-  %366 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %365, <8 x i16> poison)
-  %367 = bitcast <16 x i8> %366 to <4 x i32>
-  %368 = extractelement <4 x i32> %367, i64 0
-  store i32 %368, ptr %.17123.i, align 4, !tbaa !37
-  %369 = getelementptr inbounds nuw i8, ptr %.17123.i, i64 4
-  %370 = getelementptr inbounds float, ptr %.2249121.i, i64 %306
-  %371 = add nuw nsw i32 %.0237122.i, 4
-  %372 = or disjoint i32 %371, 3
-  %373 = icmp slt i32 %372, %4
-  br i1 %373, label %.lr.ph124.i, label %.preheader.i, !llvm.loop !505
+.lr.ph124.i:                                      ; preds = %345, %.lr.ph124.i
+  %.17123.i = phi ptr [ %370, %.lr.ph124.i ], [ %.13134.i, %345 ]
+  %.0237122.i = phi i32 [ %372, %.lr.ph124.i ], [ 0, %345 ]
+  %.2249121.i = phi ptr [ %371, %.lr.ph124.i ], [ %322, %345 ]
+  %349 = load float, ptr %.2249121.i, align 4, !tbaa !61
+  %350 = getelementptr inbounds float, ptr %.2249121.i, i64 %308
+  %351 = load float, ptr %350, align 4, !tbaa !61
+  %352 = getelementptr inbounds float, ptr %.2249121.i, i64 %310
+  %353 = load float, ptr %352, align 4, !tbaa !61
+  %354 = getelementptr inbounds float, ptr %.2249121.i, i64 %312
+  %355 = load float, ptr %354, align 4, !tbaa !61
+  %356 = insertelement <4 x float> poison, float %349, i64 0
+  %357 = insertelement <4 x float> %356, float %351, i64 1
+  %358 = insertelement <4 x float> %357, float %353, i64 2
+  %359 = insertelement <4 x float> %358, float %355, i64 3
+  %360 = fmul fast <4 x float> %359, %347
+  %361 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %360)
+  %362 = fadd fast <4 x float> %361, %360
+  %363 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> nofpclass(nan inf) %362)
+  %364 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %363, <4 x i32> %363)
+  %365 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %364, <8 x i16> splat (i16 -127))
+  %366 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %365, <8 x i16> splat (i16 127))
+  %367 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %366, <8 x i16> poison)
+  %368 = bitcast <16 x i8> %367 to <4 x i32>
+  %369 = extractelement <4 x i32> %368, i64 0
+  store i32 %369, ptr %.17123.i, align 4, !tbaa !37
+  %370 = getelementptr inbounds nuw i8, ptr %.17123.i, i64 4
+  %371 = getelementptr inbounds float, ptr %.2249121.i, i64 %307
+  %372 = add nuw nsw i32 %.0237122.i, 4
+  %373 = or disjoint i32 %372, 3
+  %374 = icmp slt i32 %373, %4
+  br i1 %374, label %.lr.ph124.i, label %.preheader.i, !llvm.loop !492
 
 .lr.ph131.i:                                      ; preds = %.preheader.i, %.lr.ph131.i
-  %.18130.i = phi ptr [ %378, %.lr.ph131.i ], [ %.17.lcssa.i, %.preheader.i ]
-  %.1238129.i = phi i32 [ %380, %.lr.ph131.i ], [ %.0237.lcssa.i, %.preheader.i ]
-  %.3250128.i = phi ptr [ %379, %.lr.ph131.i ], [ %.2249.lcssa.i, %.preheader.i ]
-  %374 = load float, ptr %.3250128.i, align 4, !tbaa !61
-  %375 = fmul fast float %374, %324
-  %376 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %375)
-  %377 = fptosi float %376 to i32
-  %spec.select.i32.i = tail call i32 @llvm.smax.i32(i32 %377, i32 -127)
+  %.18130.i = phi ptr [ %379, %.lr.ph131.i ], [ %.17.lcssa.i, %.preheader.i ]
+  %.1238129.i = phi i32 [ %381, %.lr.ph131.i ], [ %.0237.lcssa.i, %.preheader.i ]
+  %.3250128.i = phi ptr [ %380, %.lr.ph131.i ], [ %.2249.lcssa.i, %.preheader.i ]
+  %375 = load float, ptr %.3250128.i, align 4, !tbaa !61
+  %376 = fmul fast float %375, %325
+  %377 = tail call fast noundef float @llvm.round.f32(float nofpclass(nan inf) %376)
+  %378 = fptosi float %377 to i32
+  %spec.select.i32.i = tail call i32 @llvm.smax.i32(i32 %378, i32 -127)
   %.0.i33.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i32.i, i32 127)
   %.0.i.i = trunc nsw i32 %.0.i33.i to i8
-  store i8 %.0.i.i, ptr %.18130.i, align 1, !tbaa !89
-  %378 = getelementptr inbounds nuw i8, ptr %.18130.i, i64 1
-  %379 = getelementptr inbounds float, ptr %.3250128.i, i64 %307
-  %380 = add nuw nsw i32 %.1238129.i, 1
-  %exitcond171.not.i = icmp eq i32 %380, %4
-  br i1 %exitcond171.not.i, label %.loopexit.i, label %.lr.ph131.i, !llvm.loop !506
+  store i8 %.0.i.i, ptr %.18130.i, align 1, !tbaa !88
+  %379 = getelementptr inbounds nuw i8, ptr %.18130.i, i64 1
+  %380 = getelementptr inbounds float, ptr %.3250128.i, i64 %308
+  %381 = add nuw nsw i32 %.1238129.i, 1
+  %exitcond171.not.i = icmp eq i32 %381, %4
+  br i1 %exitcond171.not.i, label %.loopexit.i, label %.lr.ph131.i, !llvm.loop !493
 
-.loopexit.i:                                      ; preds = %.lr.ph131.i, %.lr.ph118.i, %.preheader.i, %325, %316
-  %.16.i = phi ptr [ %.17.lcssa.i, %.preheader.i ], [ %.13134.i, %325 ], [ %.13134.i, %316 ], [ %339, %.lr.ph118.i ], [ %378, %.lr.ph131.i ]
+.loopexit.i:                                      ; preds = %.lr.ph131.i, %.lr.ph118.i, %.preheader.i, %326, %317
+  %.16.i = phi ptr [ %.17.lcssa.i, %.preheader.i ], [ %.13134.i, %326 ], [ %.13134.i, %317 ], [ %340, %.lr.ph118.i ], [ %379, %.lr.ph131.i ]
   %indvars.iv.next173.i = add nsw i64 %indvars.iv172.i, 1
   %exitcond175.not.i = icmp eq i64 %indvars.iv.next173.i, %wide.trip.count.i
-  br i1 %exitcond175.not.i, label %_ZN4ncnnL34transpose_pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit, label %316, !llvm.loop !507
+  br i1 %exitcond175.not.i, label %_ZN4ncnnL34transpose_pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit, label %317, !llvm.loop !494
 
 _ZN4ncnnL34transpose_pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit: ; preds = %.loopexit.i, %.preheader39.i
   ret void
@@ -25301,16 +25300,16 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %35 = mul nsw i64 %34, %26
   %gep.i.us = getelementptr float, ptr %invariant.gep.i, i64 %35
   %36 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv.i.us
-  %37 = load <4 x float>, ptr %36, align 16, !tbaa !89
+  %37 = load <4 x float>, ptr %36, align 16, !tbaa !88
   br i1 %25, label %.lr.ph.i.us, label %.preheader32.i.us
 
 .lr.ph.i.us:                                      ; preds = %.preheader34.i.us, %.lr.ph.i.us
   %.237.i.us = phi ptr [ %57, %.lr.ph.i.us ], [ %.059.i.us, %.preheader34.i.us ]
   %.118436.i.us = phi ptr [ %58, %.lr.ph.i.us ], [ %gep.i.us, %.preheader34.i.us ]
   %.019035.i.us = phi i32 [ %59, %.lr.ph.i.us ], [ 0, %.preheader34.i.us ]
-  %38 = load <4 x float>, ptr %.118436.i.us, align 16, !tbaa !89
+  %38 = load <4 x float>, ptr %.118436.i.us, align 16, !tbaa !88
   %39 = getelementptr inbounds nuw i8, ptr %.118436.i.us, i64 16
-  %40 = load <4 x float>, ptr %39, align 16, !tbaa !89
+  %40 = load <4 x float>, ptr %39, align 16, !tbaa !88
   %41 = fmul fast <4 x float> %38, %37
   %42 = fmul fast <4 x float> %40, %37
   %43 = shufflevector <4 x float> %41, <4 x float> %42, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -25327,13 +25326,13 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %54 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %53, <8 x i16> poison)
   %55 = bitcast <16 x i8> %54 to <2 x i64>
   %56 = extractelement <2 x i64> %55, i64 0
-  store i64 %56, ptr %.237.i.us, align 8, !tbaa !401
+  store i64 %56, ptr %.237.i.us, align 8, !tbaa !390
   %57 = getelementptr inbounds nuw i8, ptr %.237.i.us, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %.118436.i.us, i64 32
   %59 = add nuw nsw i32 %.019035.i.us, 2
   %60 = or disjoint i32 %59, 1
   %61 = icmp slt i32 %60, %4
-  br i1 %61, label %.lr.ph.i.us, label %.preheader32.i.us, !llvm.loop !508
+  br i1 %61, label %.lr.ph.i.us, label %.preheader32.i.us, !llvm.loop !495
 
 .preheader32.i.us:                                ; preds = %.lr.ph.i.us, %.preheader34.i.us
   %.0190.lcssa.i.us = phi i32 [ 0, %.preheader34.i.us ], [ %31, %.lr.ph.i.us ]
@@ -25346,7 +25345,7 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %.342.i.us = phi ptr [ %74, %.lr.ph43.i.us ], [ %.2.lcssa.i.us, %.preheader32.i.us ]
   %.218541.i.us = phi ptr [ %75, %.lr.ph43.i.us ], [ %.1184.lcssa.i.us, %.preheader32.i.us ]
   %.119140.i.us = phi i32 [ %76, %.lr.ph43.i.us ], [ %.0190.lcssa.i.us, %.preheader32.i.us ]
-  %63 = load <4 x float>, ptr %.218541.i.us, align 16, !tbaa !89
+  %63 = load <4 x float>, ptr %.218541.i.us, align 16, !tbaa !88
   %64 = fmul fast <4 x float> %63, %37
   %65 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %64)
   %66 = fadd fast <4 x float> %65, %64
@@ -25362,14 +25361,14 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %75 = getelementptr inbounds nuw i8, ptr %.218541.i.us, i64 16
   %76 = add nuw nsw i32 %.119140.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %76, %4
-  br i1 %exitcond.not.i.us, label %.loopexit.i.us, label %.lr.ph43.i.us, !llvm.loop !509
+  br i1 %exitcond.not.i.us, label %.loopexit.i.us, label %.lr.ph43.i.us, !llvm.loop !496
 
 .loopexit.i.us:                                   ; preds = %.lr.ph43.i.us, %.preheader32.i.us
   %.4.i.us = phi ptr [ %.2.lcssa.i.us, %.preheader32.i.us ], [ %74, %.lr.ph43.i.us ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 4
   %77 = or disjoint i64 %indvars.iv.next.i.us, 3
   %78 = icmp samesign ult i64 %77, %32
-  br i1 %78, label %.preheader34.i.us, label %.preheader29.loopexit.i, !llvm.loop !510
+  br i1 %78, label %.preheader34.i.us, label %.preheader29.loopexit.i, !llvm.loop !497
 
 .preheader31.i.us:                                ; preds = %.lr.ph60.i, %.loopexit.i.us23
   %indvars.iv.i.us20 = phi i64 [ %indvars.iv.next.i.us25, %.loopexit.i.us23 ], [ 0, %.lr.ph60.i ]
@@ -25378,7 +25377,7 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %80 = mul nsw i64 %79, %26
   %gep.i.us22 = getelementptr float, ptr %invariant.gep.i, i64 %80
   %81 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv.i.us20
-  %82 = load <4 x float>, ptr %81, align 16, !tbaa !89
+  %82 = load <4 x float>, ptr %81, align 16, !tbaa !88
   br i1 %25, label %.lr.ph49.i.us, label %.preheader30.i.us
 
 .lr.ph49.i.us:                                    ; preds = %.preheader31.i.us, %.lr.ph49.i.us
@@ -25424,13 +25423,13 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %119 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %118, <8 x i16> poison)
   %120 = bitcast <16 x i8> %119 to <2 x i64>
   %121 = extractelement <2 x i64> %120, i64 0
-  store i64 %121, ptr %.548.i.us, align 8, !tbaa !401
+  store i64 %121, ptr %.548.i.us, align 8, !tbaa !390
   %122 = getelementptr inbounds nuw i8, ptr %.548.i.us, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %.318647.i.us, i64 8
   %124 = add nuw nsw i32 %.019246.i.us, 2
   %125 = or disjoint i32 %124, 1
   %126 = icmp slt i32 %125, %4
-  br i1 %126, label %.lr.ph49.i.us, label %.preheader30.i.us, !llvm.loop !511
+  br i1 %126, label %.lr.ph49.i.us, label %.preheader30.i.us, !llvm.loop !498
 
 .preheader30.i.us:                                ; preds = %.lr.ph49.i.us, %.preheader31.i.us
   %.0192.lcssa.i.us = phi i32 [ 0, %.preheader31.i.us ], [ %31, %.lr.ph49.i.us ]
@@ -25469,14 +25468,14 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %150 = getelementptr inbounds nuw i8, ptr %.418754.i.us, i64 4
   %151 = add nuw nsw i32 %.119353.i.us, 1
   %exitcond142.not.i.us = icmp eq i32 %151, %4
-  br i1 %exitcond142.not.i.us, label %.loopexit.i.us23, label %.lr.ph56.i.us, !llvm.loop !512
+  br i1 %exitcond142.not.i.us, label %.loopexit.i.us23, label %.lr.ph56.i.us, !llvm.loop !499
 
 .loopexit.i.us23:                                 ; preds = %.lr.ph56.i.us, %.preheader30.i.us
   %.4.i.us24 = phi ptr [ %.5.lcssa.i.us, %.preheader30.i.us ], [ %149, %.lr.ph56.i.us ]
   %indvars.iv.next.i.us25 = add nuw nsw i64 %indvars.iv.i.us20, 4
   %152 = or disjoint i64 %indvars.iv.next.i.us25, 3
   %153 = icmp samesign ult i64 %152, %32
-  br i1 %153, label %.preheader31.i.us, label %.preheader29.loopexit.i, !llvm.loop !513
+  br i1 %153, label %.preheader31.i.us, label %.preheader29.loopexit.i, !llvm.loop !500
 
 .preheader29.loopexit.i:                          ; preds = %.loopexit.i.us23, %.loopexit.i.us, %.loopexit.i.preheader
   %.us-phi = phi ptr [ %.0.val, %.loopexit.i.preheader ], [ %.4.i.us, %.loopexit.i.us ], [ %.4.i.us24, %.loopexit.i.us23 ]
@@ -25544,7 +25543,7 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %.13.lcssa.us.i = phi ptr [ %202, %..preheader_crit_edge.us.i ], [ %186, %.lr.ph98.us.i ]
   %indvars.iv.next154.i = add nuw nsw i64 %indvars.iv153.i, 1
   %exitcond157.not.i = icmp eq i64 %indvars.iv.next154.i, %wide.trip.count156.i
-  br i1 %exitcond157.not.i, label %_ZN4ncnnL24pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit, label %.lr.ph91.us.i, !llvm.loop !514
+  br i1 %exitcond157.not.i, label %_ZN4ncnnL24pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit, label %.lr.ph91.us.i, !llvm.loop !501
 
 .lr.ph98.us.i:                                    ; preds = %..preheader_crit_edge.us.i, %.lr.ph98.us.i
   %.1397.us.i = phi ptr [ %186, %.lr.ph98.us.i ], [ %202, %..preheader_crit_edge.us.i ]
@@ -25557,18 +25556,18 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %spec.select.i20.us.i = tail call i32 @llvm.smax.i32(i32 %185, i32 -127)
   %.0.i21.us.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i20.us.i, i32 127)
   %.0.i.us.i = trunc nsw i32 %.0.i21.us.i to i8
-  store i8 %.0.i.us.i, ptr %.1397.us.i, align 1, !tbaa !89
+  store i8 %.0.i.us.i, ptr %.1397.us.i, align 1, !tbaa !88
   %186 = getelementptr inbounds nuw i8, ptr %.1397.us.i, i64 1
   %187 = getelementptr inbounds nuw i8, ptr %.118995.us.i, i64 4
   %188 = add nuw nsw i32 %.117996.us.i, 1
   %189 = icmp slt i32 %188, %4
-  br i1 %189, label %.lr.ph98.us.i, label %._crit_edge99.us.i, !llvm.loop !515
+  br i1 %189, label %.lr.ph98.us.i, label %._crit_edge99.us.i, !llvm.loop !502
 
 190:                                              ; preds = %190, %.lr.ph91.us.i
   %.1289.us.i = phi ptr [ %.11102.us.i, %.lr.ph91.us.i ], [ %202, %190 ]
   %.017888.us.i = phi i32 [ 0, %.lr.ph91.us.i ], [ %204, %190 ]
   %.018887.us.i = phi ptr [ %176, %.lr.ph91.us.i ], [ %203, %190 ]
-  %191 = load <4 x float>, ptr %.018887.us.i, align 1, !tbaa !89
+  %191 = load <4 x float>, ptr %.018887.us.i, align 1, !tbaa !88
   %192 = fmul fast <4 x float> %191, %181
   %193 = tail call <4 x float> @llvm.copysign.v4f32(<4 x float> splat (float 5.000000e-01), <4 x float> %192)
   %194 = fadd fast <4 x float> %193, %192
@@ -25585,7 +25584,7 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %204 = add nuw nsw i32 %.017888.us.i, 4
   %205 = or disjoint i32 %204, 3
   %206 = icmp slt i32 %205, %4
-  br i1 %206, label %190, label %..preheader_crit_edge.us.i, !llvm.loop !516
+  br i1 %206, label %190, label %..preheader_crit_edge.us.i, !llvm.loop !503
 
 ..preheader_crit_edge.us.i:                       ; preds = %190
   br i1 %.not, label %._crit_edge99.us.i, label %.lr.ph98.us.i
@@ -25625,17 +25624,17 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %spec.select.i20.us112.i = tail call i32 @llvm.smax.i32(i32 %223, i32 -127)
   %.0.i21.us113.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i20.us112.i, i32 127)
   %.0.i.us114.i = trunc nsw i32 %.0.i21.us113.i to i8
-  store i8 %.0.i.us114.i, ptr %.1397.us109.i, align 1, !tbaa !89
+  store i8 %.0.i.us114.i, ptr %.1397.us109.i, align 1, !tbaa !88
   %224 = getelementptr inbounds nuw i8, ptr %.1397.us109.i, i64 1
   %225 = getelementptr inbounds nuw i8, ptr %.118995.us111.i, i64 4
   %226 = add nuw nsw i32 %.117996.us110.i, 1
   %exitcond148.not.i = icmp eq i32 %226, %4
-  br i1 %exitcond148.not.i, label %._crit_edge99.us116.i, label %219, !llvm.loop !515
+  br i1 %exitcond148.not.i, label %._crit_edge99.us116.i, label %219, !llvm.loop !502
 
 ._crit_edge99.us116.i:                            ; preds = %219
   %indvars.iv.next150.i = add nuw nsw i64 %indvars.iv149.i, 1
   %exitcond152.not.i = icmp eq i64 %indvars.iv.next150.i, %wide.trip.count.i
-  br i1 %exitcond152.not.i, label %_ZN4ncnnL24pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit, label %.preheader.us105.i, !llvm.loop !517
+  br i1 %exitcond152.not.i, label %_ZN4ncnnL24pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit, label %.preheader.us105.i, !llvm.loop !504
 
 227:                                              ; preds = %._crit_edge.i, %.lr.ph84.i
   %indvars.iv145.i = phi i64 [ %161, %.lr.ph84.i ], [ %indvars.iv.next146.i, %._crit_edge.i ]
@@ -25669,9 +25668,9 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %.865.i = phi ptr [ %264, %.lr.ph66.i ], [ %.783.i, %227 ]
   %.019464.i = phi ptr [ %265, %.lr.ph66.i ], [ %232, %227 ]
   %.019763.i = phi i32 [ %266, %.lr.ph66.i ], [ 0, %227 ]
-  %245 = load <4 x float>, ptr %.019464.i, align 1, !tbaa !89
+  %245 = load <4 x float>, ptr %.019464.i, align 1, !tbaa !88
   %246 = getelementptr inbounds float, ptr %.019464.i, i64 %159
-  %247 = load <4 x float>, ptr %246, align 1, !tbaa !89
+  %247 = load <4 x float>, ptr %246, align 1, !tbaa !88
   %248 = fmul fast <4 x float> %245, %239
   %249 = fmul fast <4 x float> %247, %241
   %250 = shufflevector <4 x float> %248, <4 x float> %249, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
@@ -25688,13 +25687,13 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %261 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %260, <8 x i16> poison)
   %262 = bitcast <16 x i8> %261 to <2 x i64>
   %263 = extractelement <2 x i64> %262, i64 0
-  store i64 %263, ptr %.865.i, align 8, !tbaa !401
+  store i64 %263, ptr %.865.i, align 8, !tbaa !390
   %264 = getelementptr inbounds nuw i8, ptr %.865.i, i64 8
   %265 = getelementptr inbounds nuw i8, ptr %.019464.i, i64 16
   %266 = add nuw nsw i32 %.019763.i, 4
   %267 = or disjoint i32 %266, 3
   %268 = icmp slt i32 %267, %4
-  br i1 %268, label %.lr.ph66.i, label %.preheader28.i, !llvm.loop !518
+  br i1 %268, label %.lr.ph66.i, label %.preheader28.i, !llvm.loop !505
 
 .preheader27.i:                                   ; preds = %.lr.ph73.i, %.preheader28.i
   %.1198.lcssa.i = phi i32 [ %.0197.lcssa.i, %.preheader28.i ], [ %287, %.lr.ph73.i ]
@@ -25707,10 +25706,10 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %.972.i = phi ptr [ %285, %.lr.ph73.i ], [ %.8.lcssa.i, %.preheader28.i ]
   %.119571.i = phi ptr [ %286, %.lr.ph73.i ], [ %.0194.lcssa.i, %.preheader28.i ]
   %.119870.i = phi i32 [ %287, %.lr.ph73.i ], [ %.0197.lcssa.i, %.preheader28.i ]
-  %270 = load i64, ptr %.119571.i, align 1, !tbaa !89
+  %270 = load i64, ptr %.119571.i, align 1, !tbaa !88
   %271 = insertelement <2 x i64> poison, i64 %270, i64 0
   %272 = getelementptr inbounds float, ptr %.119571.i, i64 %159
-  %273 = load i64, ptr %272, align 1, !tbaa !89
+  %273 = load i64, ptr %272, align 1, !tbaa !88
   %.uncasted.i = insertelement <2 x i64> %271, i64 %273, i64 1
   %274 = bitcast <2 x i64> %.uncasted.i to <4 x float>
   %275 = fmul fast <4 x float> %242, %274
@@ -25729,7 +25728,7 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %287 = add nuw nsw i32 %.119870.i, 2
   %288 = or disjoint i32 %287, 1
   %289 = icmp slt i32 %288, %4
-  br i1 %289, label %.lr.ph73.i, label %.preheader27.i, !llvm.loop !519
+  br i1 %289, label %.lr.ph73.i, label %.preheader27.i, !llvm.loop !506
 
 .lr.ph80.i:                                       ; preds = %.preheader27.i, %.lr.ph80.i
   %.1079.i = phi ptr [ %300, %.lr.ph80.i ], [ %.9.lcssa.i, %.preheader27.i ]
@@ -25742,7 +25741,7 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %spec.select.i20222.i = tail call i32 @llvm.smax.i32(i32 %293, i32 -127)
   %.0.i20323.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i20222.i, i32 127)
   %.0.i203.i = trunc nsw i32 %.0.i20323.i to i8
-  store i8 %.0.i203.i, ptr %.1079.i, align 1, !tbaa !89
+  store i8 %.0.i203.i, ptr %.1079.i, align 1, !tbaa !88
   %294 = getelementptr inbounds float, ptr %.219678.i, i64 %159
   %295 = load float, ptr %294, align 4, !tbaa !61
   %296 = fmul fast float %295, %237
@@ -25752,19 +25751,19 @@ define internal fastcc void @_ZN4ncnnL20pack_A_tile_quantizeERKNS_3MatERS0_iiiiS
   %.0.i20125.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i20024.i, i32 127)
   %.0.i201.i = trunc nsw i32 %.0.i20125.i to i8
   %299 = getelementptr inbounds nuw i8, ptr %.1079.i, i64 1
-  store i8 %.0.i201.i, ptr %299, align 1, !tbaa !89
+  store i8 %.0.i201.i, ptr %299, align 1, !tbaa !88
   %300 = getelementptr inbounds nuw i8, ptr %.1079.i, i64 2
   %301 = getelementptr inbounds nuw i8, ptr %.219678.i, i64 4
   %302 = add nuw nsw i32 %.219977.i, 1
   %exitcond144.not.i = icmp eq i32 %302, %4
-  br i1 %exitcond144.not.i, label %._crit_edge.i, label %.lr.ph80.i, !llvm.loop !520
+  br i1 %exitcond144.not.i, label %._crit_edge.i, label %.lr.ph80.i, !llvm.loop !507
 
 ._crit_edge.i:                                    ; preds = %.lr.ph80.i, %.preheader27.i
   %.10.lcssa.i = phi ptr [ %.9.lcssa.i, %.preheader27.i ], [ %300, %.lr.ph80.i ]
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 2
   %303 = or disjoint i64 %indvars.iv.next146.i, 1
   %304 = icmp slt i64 %303, %162
-  br i1 %304, label %227, label %.preheader26.loopexit.i, !llvm.loop !521
+  br i1 %304, label %227, label %.preheader26.loopexit.i, !llvm.loop !508
 
 _ZN4ncnnL24pack_A_tile_fp32_to_int8ERKNS_3MatERS0_iiiiS2_.exit: ; preds = %._crit_edge99.us116.i, %._crit_edge99.us.i, %.preheader26.i, %.lr.ph103.split.i
   ret void
@@ -25820,12 +25819,12 @@ define internal void @_ZN4ncnnL13gemm_x86_int8ERKNS_3MatES2_S2_RS0_iiiiffiiiiRKN
   %37 = load i32, ptr %7, align 4, !tbaa !37
   %38 = sub nsw i32 %37, %34
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %33, i32 %38)
-  %39 = load i32, ptr %25, align 4, !tbaa !55, !noalias !522
-  %40 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !522
-  %41 = load i64, ptr %26, align 8, !tbaa !17, !noalias !522
+  %39 = load i32, ptr %25, align 4, !tbaa !55, !noalias !509
+  %40 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !509
+  %41 = load i64, ptr %26, align 8, !tbaa !17, !noalias !509
   %42 = sext i32 %29 to i64
   %43 = mul i64 %41, %42
-  %44 = load i64, ptr %27, align 8, !tbaa !52, !noalias !522
+  %44 = load i64, ptr %27, align 8, !tbaa !52, !noalias !509
   %45 = mul i64 %43, %44
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 %45
   %47 = sext i32 %39 to i64
@@ -25850,7 +25849,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %55, %54
   %56 = add nsw i32 %.068, 1
   %57 = load i32, ptr %14, align 4, !tbaa !37
   %.not.not = icmp slt i32 %.068, %57
-  br i1 %.not.not, label %.noexc46, label %._crit_edge, !llvm.loop !525
+  br i1 %.not.not, label %.noexc46, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %21)
@@ -25960,14 +25959,14 @@ define internal void @_ZN4ncnnL13gemm_x86_int8ERKNS_3MatES2_S2_RS0_iiiiffiiiiRKN
 
 89:                                               ; preds = %.lr.ph, %_ZN4ncnn3MatD2Ev.exit
   %.0192 = phi i32 [ %29, %.lr.ph ], [ %335, %_ZN4ncnn3MatD2Ev.exit ]
-  %90 = load i32, ptr %3, align 4, !tbaa !155
-  %91 = load i32, ptr %30, align 4, !tbaa !157
-  %92 = load i32, ptr %31, align 4, !tbaa !158
-  %93 = load i32, ptr %32, align 4, !tbaa !159
-  %94 = load i32, ptr %33, align 4, !tbaa !160
-  %95 = load i32, ptr %34, align 4, !tbaa !161
-  %96 = load float, ptr %35, align 4, !tbaa !162
-  %97 = load float, ptr %36, align 4, !tbaa !163
+  %90 = load i32, ptr %3, align 4, !tbaa !153
+  %91 = load i32, ptr %30, align 4, !tbaa !155
+  %92 = load i32, ptr %31, align 4, !tbaa !156
+  %93 = load i32, ptr %32, align 4, !tbaa !157
+  %94 = load i32, ptr %33, align 4, !tbaa !158
+  %95 = load i32, ptr %34, align 4, !tbaa !159
+  %96 = load float, ptr %35, align 4, !tbaa !160
+  %97 = load float, ptr %36, align 4, !tbaa !161
   %.not86 = icmp eq i32 %94, 0
   br i1 %.not86, label %105, label %98
 
@@ -26004,19 +26003,19 @@ define internal void @_ZN4ncnnL13gemm_x86_int8ERKNS_3MatES2_S2_RS0_iiiiffiiiiRKN
           to label %.noexc120 unwind label %.loopexit.split-lp
 
 .noexc120:                                        ; preds = %112
-  call void @llvm.experimental.noalias.scope.decl(metadata !526)
-  %118 = load i32, ptr %40, align 4, !tbaa !55, !noalias !526
-  %119 = load i32, ptr %41, align 8, !tbaa !56, !noalias !526
-  %120 = load i32, ptr %42, align 4, !tbaa !57, !noalias !526
-  %121 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !526
-  %122 = load i64, ptr %43, align 8, !tbaa !17, !noalias !526
+  call void @llvm.experimental.noalias.scope.decl(metadata !512)
+  %118 = load i32, ptr %40, align 4, !tbaa !55, !noalias !512
+  %119 = load i32, ptr %41, align 8, !tbaa !56, !noalias !512
+  %120 = load i32, ptr %42, align 4, !tbaa !57, !noalias !512
+  %121 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !512
+  %122 = load i64, ptr %43, align 8, !tbaa !17, !noalias !512
   %123 = sext i32 %117 to i64
   %124 = mul i64 %122, %123
-  %125 = load i64, ptr %44, align 8, !tbaa !52, !noalias !526
+  %125 = load i64, ptr %44, align 8, !tbaa !52, !noalias !512
   %126 = mul i64 %124, %125
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 %126
-  %128 = load i32, ptr %45, align 8, !tbaa !53, !noalias !526
-  %129 = load ptr, ptr %46, align 8, !tbaa !15, !noalias !526
+  %128 = load i32, ptr %45, align 8, !tbaa !53, !noalias !512
+  %129 = load ptr, ptr %46, align 8, !tbaa !15, !noalias !512
   store ptr %127, ptr %19, align 8, !tbaa !16
   store ptr null, ptr %47, align 8, !tbaa !7
   store i64 %125, ptr %48, align 8, !tbaa !52
@@ -26034,14 +26033,14 @@ define internal void @_ZN4ncnnL13gemm_x86_int8ERKNS_3MatES2_S2_RS0_iiiiffiiiiRKN
   %135 = and i64 %134, -16
   %136 = udiv i64 %135, %125
   store i64 %136, ptr %56, align 8, !tbaa !17
-  %137 = load i32, ptr %57, align 8, !tbaa !54, !noalias !526
+  %137 = load i32, ptr %57, align 8, !tbaa !54, !noalias !512
   %138 = add nsw i32 %137, -1
-  store i32 %138, ptr %51, align 8, !tbaa !54, !alias.scope !526
+  store i32 %138, ptr %51, align 8, !tbaa !54, !alias.scope !512
   %139 = icmp eq i32 %137, 4
   br i1 %139, label %140, label %_ZN4ncnn3Mat7channelEi.exit121
 
 140:                                              ; preds = %.noexc120
-  store i64 %132, ptr %56, align 8, !tbaa !17, !alias.scope !526
+  store i64 %132, ptr %56, align 8, !tbaa !17, !alias.scope !512
   br label %_ZN4ncnn3Mat7channelEi.exit121
 
 _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
@@ -26071,16 +26070,16 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
           to label %.noexc118.us unwind label %.loopexit.split.us
 
 .noexc118.us:                                     ; preds = %148
-  %151 = load i32, ptr %58, align 4, !tbaa !55, !noalias !529
-  %152 = load ptr, ptr %7, align 8, !tbaa !16, !noalias !529
-  %153 = load i64, ptr %59, align 8, !tbaa !17, !noalias !529
+  %151 = load i32, ptr %58, align 4, !tbaa !55, !noalias !515
+  %152 = load ptr, ptr %7, align 8, !tbaa !16, !noalias !515
+  %153 = load i64, ptr %59, align 8, !tbaa !17, !noalias !515
   %154 = sext i32 %150 to i64
   %155 = mul i64 %153, %154
-  %156 = load i64, ptr %60, align 8, !tbaa !52, !noalias !529
+  %156 = load i64, ptr %60, align 8, !tbaa !52, !noalias !515
   %157 = mul i64 %155, %156
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 %157
-  %159 = load i32, ptr %61, align 8, !tbaa !53, !noalias !529
-  %160 = load ptr, ptr %62, align 8, !tbaa !15, !noalias !529
+  %159 = load i32, ptr %61, align 8, !tbaa !53, !noalias !515
+  %160 = load ptr, ptr %62, align 8, !tbaa !15, !noalias !515
   %161 = sext i32 %151 to i64
   %162 = sdiv i32 %.083183.us, %92
   %163 = sext i32 %162 to i64
@@ -26100,16 +26099,16 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
   store i64 %161, ptr %72, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %21) #9
   %167 = sdiv i32 %.084184.us, %91
-  %168 = load i32, ptr %73, align 4, !tbaa !55, !noalias !532
-  %169 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !532
-  %170 = load i64, ptr %74, align 8, !tbaa !17, !noalias !532
+  %168 = load i32, ptr %73, align 4, !tbaa !55, !noalias !518
+  %169 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !518
+  %170 = load i64, ptr %74, align 8, !tbaa !17, !noalias !518
   %171 = sext i32 %167 to i64
   %172 = mul i64 %170, %171
-  %173 = load i64, ptr %75, align 8, !tbaa !52, !noalias !532
+  %173 = load i64, ptr %75, align 8, !tbaa !52, !noalias !518
   %174 = mul i64 %172, %173
   %175 = getelementptr inbounds nuw i8, ptr %169, i64 %174
-  %176 = load i32, ptr %76, align 8, !tbaa !53, !noalias !532
-  %177 = load ptr, ptr %77, align 8, !tbaa !15, !noalias !532
+  %176 = load i32, ptr %76, align 8, !tbaa !53, !noalias !518
+  %177 = load ptr, ptr %77, align 8, !tbaa !15, !noalias !518
   %178 = sext i32 %168 to i64
   %179 = mul nsw i64 %178, %163
   %180 = mul i64 %179, %173
@@ -26194,19 +26193,19 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
   %213 = getelementptr inbounds nuw i8, ptr %.05123.us54.i.i.us, i64 4
   %214 = add nuw nsw i32 %.05422.us55.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i32 %214, %197
-  br i1 %exitcond.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.thread.us, label %.preheader.us52.i.i.us, !llvm.loop !468
+  br i1 %exitcond.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.thread.us, label %.preheader.us52.i.i.us, !llvm.loop !456
 
 .preheader.us44.i.i.us:                           ; preds = %.lr.ph26.split.split.i.i.us, %.preheader.us44.i.i.us
   %.024.us45.i.i.us = phi ptr [ %215, %.preheader.us44.i.i.us ], [ %195, %.lr.ph26.split.split.i.i.us ]
   %.05123.us46.i.i.us = phi ptr [ %216, %.preheader.us44.i.i.us ], [ %196, %.lr.ph26.split.split.i.i.us ]
   %.05422.us47.i.i.us = phi i32 [ %217, %.preheader.us44.i.i.us ], [ 0, %.lr.ph26.split.split.i.i.us ]
-  store <4 x float> splat (float 0x7FF0000000000000), ptr %.024.us45.i.i.us, align 16, !tbaa !89
-  store <4 x float> zeroinitializer, ptr %.05123.us46.i.i.us, align 16, !tbaa !89
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %.024.us45.i.i.us, align 16, !tbaa !88
+  store <4 x float> zeroinitializer, ptr %.05123.us46.i.i.us, align 16, !tbaa !88
   %215 = getelementptr inbounds nuw i8, ptr %.024.us45.i.i.us, i64 16
   %216 = getelementptr inbounds nuw i8, ptr %.05123.us46.i.i.us, i64 16
   %217 = add nuw nsw i32 %.05422.us47.i.i.us, 1
   %exitcond65.not.i.i.us = icmp eq i32 %217, %197
-  br i1 %exitcond65.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.thread.us, label %.preheader.us44.i.i.us, !llvm.loop !469
+  br i1 %exitcond65.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.thread.us, label %.preheader.us44.i.i.us, !llvm.loop !457
 
 .preheader.us28.preheader.i.i.us:                 ; preds = %.lr.ph26.split.i.i.us
   %218 = sext i32 %188 to i64
@@ -26236,7 +26235,7 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
   %229 = getelementptr inbounds nuw i8, ptr %.15918.us38.i.i.us, i64 4
   %230 = add nuw nsw i32 %.15619.us37.i.i.us, 1
   %exitcond66.not.i.i.us = icmp eq i32 %230, %198
-  br i1 %exitcond66.not.i.i.us, label %._crit_edge.us42.i.i.us, label %225, !llvm.loop !470
+  br i1 %exitcond66.not.i.i.us, label %._crit_edge.us42.i.i.us, label %225, !llvm.loop !458
 
 ._crit_edge.us42.i.i.us:                          ; preds = %225
   switch i32 %188, label %243 [
@@ -26260,8 +26259,8 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
   br label %243
 
 .thread.us34.i.i.us:                              ; preds = %._crit_edge.us42.i.i.us
-  store <4 x float> splat (float 0x7FF0000000000000), ptr %.024.us29.i.i.us, align 16, !tbaa !89
-  store <4 x float> zeroinitializer, ptr %.05123.us30.i.i.us, align 16, !tbaa !89
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %.024.us29.i.i.us, align 16, !tbaa !88
+  store <4 x float> zeroinitializer, ptr %.05123.us30.i.i.us, align 16, !tbaa !88
   %241 = getelementptr inbounds nuw i8, ptr %.024.us29.i.i.us, i64 16
   %242 = getelementptr inbounds nuw i8, ptr %.05123.us30.i.i.us, i64 16
   br label %243
@@ -26271,7 +26270,7 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
   %.2.us36.i.i.us = phi ptr [ %239, %231 ], [ %241, %.thread.us34.i.i.us ], [ %.024.us29.i.i.us, %._crit_edge.us42.i.i.us ]
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond68.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count.i.i.us
-  br i1 %exitcond68.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.us, label %.preheader.us28.i.i.us, !llvm.loop !471
+  br i1 %exitcond68.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.us, label %.preheader.us28.i.i.us, !llvm.loop !459
 
 .lr.ph.us.preheader.i.i.us:                       ; preds = %.lr.ph26.i.i.us
   %244 = and i32 %198, 2147483644
@@ -26296,7 +26295,7 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
   %.05514.us.i.i.us = phi i32 [ 0, %.lr.ph.us.i.i.us ], [ %258, %252 ]
   %.05713.us.i.i.us = phi <4 x float> [ zeroinitializer, %.lr.ph.us.i.i.us ], [ %256, %252 ]
   %.05812.us.i.i.us = phi ptr [ %251, %.lr.ph.us.i.i.us ], [ %257, %252 ]
-  %253 = load <4 x i32>, ptr %.05812.us.i.i.us, align 1, !tbaa !89
+  %253 = load <4 x i32>, ptr %.05812.us.i.i.us, align 1, !tbaa !88
   %254 = and <4 x i32> %253, splat (i32 2147483647)
   %255 = bitcast <4 x i32> %254 to <4 x float>
   %256 = call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> nofpclass(nan inf) %.05713.us.i.i.us, <4 x float> nofpclass(nan inf) %255)
@@ -26304,7 +26303,7 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
   %258 = add nuw nsw i32 %.05514.us.i.i.us, 4
   %259 = or disjoint i32 %258, 3
   %260 = icmp slt i32 %259, %198
-  br i1 %260, label %252, label %..preheader_crit_edge.us.i.i.us, !llvm.loop !472
+  br i1 %260, label %252, label %..preheader_crit_edge.us.i.i.us, !llvm.loop !460
 
 ..preheader_crit_edge.us.i.i.us:                  ; preds = %252
   br i1 %.not.i130.us, label %._crit_edge.us.i.i.us, label %.lr.ph20.us.i.i.us
@@ -26320,7 +26319,7 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
   %264 = getelementptr inbounds nuw i8, ptr %.15918.us.i.i.us, i64 4
   %265 = add nuw nsw i32 %.15619.us.i.i.us, 1
   %exitcond69.not.i.i.us = icmp eq i32 %265, %198
-  br i1 %exitcond69.not.i.i.us, label %._crit_edge.us.i.i.us, label %.lr.ph20.us.i.i.us, !llvm.loop !470
+  br i1 %exitcond69.not.i.i.us, label %._crit_edge.us.i.i.us, label %.lr.ph20.us.i.i.us, !llvm.loop !458
 
 ._crit_edge.us.i.i.us:                            ; preds = %.lr.ph20.us.i.i.us, %..preheader_crit_edge.us.i.i.us
   %.09.lcssa.us.i.i.us = phi float [ 0.000000e+00, %..preheader_crit_edge.us.i.i.us ], [ %.sroa.speculated4.us.i.i.us, %.lr.ph20.us.i.i.us ]
@@ -26348,8 +26347,8 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
 .thread.us.i.i.us:                                ; preds = %._crit_edge.us.i.i.us
   %277 = fdiv fast <4 x float> splat (float 1.270000e+02), %256
   %278 = fmul fast <4 x float> %256, %201
-  store <4 x float> %277, ptr %.024.us.i.i.us, align 16, !tbaa !89
-  store <4 x float> %278, ptr %.05123.us.i.i.us, align 16, !tbaa !89
+  store <4 x float> %277, ptr %.024.us.i.i.us, align 16, !tbaa !88
+  store <4 x float> %278, ptr %.05123.us.i.i.us, align 16, !tbaa !88
   %279 = getelementptr inbounds nuw i8, ptr %.024.us.i.i.us, i64 16
   %280 = getelementptr inbounds nuw i8, ptr %.05123.us.i.i.us, i64 16
   br label %281
@@ -26359,7 +26358,7 @@ _ZN4ncnn3Mat7channelEi.exit121:                   ; preds = %.noexc120, %140
   %.2.us.i.i.us = phi ptr [ %275, %266 ], [ %279, %.thread.us.i.i.us ], [ %.024.us.i.i.us, %._crit_edge.us.i.i.us ]
   %indvars.iv.next71.i.i.us = add nuw nsw i64 %indvars.iv70.i.i.us, 1
   %exitcond74.not.i.i.us = icmp eq i64 %indvars.iv.next71.i.i.us, %wide.trip.count73.i.i.us
-  br i1 %exitcond74.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.us, label %.lr.ph.us.i.i.us, !llvm.loop !473
+  br i1 %exitcond74.not.i.i.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.us, label %.lr.ph.us.i.i.us, !llvm.loop !461
 
 _ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.us: ; preds = %243, %281, %182
   br i1 %.not86, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.thread.us, label %_ZN4ncnnL26compute_A_tile_int8_scalesERKNS_3MatERS0_fS3_ii.exit.thread179.us
@@ -26445,7 +26444,7 @@ _ZN4ncnn3MatD2Ev.exit88.us:                       ; preds = %309, %308, %304, %2
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %20) #9
   %310 = add nsw i32 %.083183.us, %92
   %311 = icmp slt i32 %310, %114
-  br i1 %311, label %148, label %._crit_edge.us, !llvm.loop !535
+  br i1 %311, label %148, label %._crit_edge.us, !llvm.loop !521
 
 ._crit_edge.us:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit88.us
   %.val.us = load ptr, ptr %19, align 8, !tbaa !16
@@ -26453,7 +26452,7 @@ _ZN4ncnn3MatD2Ev.exit88.us:                       ; preds = %309, %308, %304, %2
   %312 = add nsw i32 %.084184.us, %91
   %313 = load i32, ptr %6, align 4, !tbaa !37
   %314 = icmp slt i32 %312, %313
-  br i1 %314, label %.lr.ph.us, label %._crit_edge186, !llvm.loop !536
+  br i1 %314, label %.lr.ph.us, label %._crit_edge186, !llvm.loop !522
 
 .loopexit.split.us:                               ; preds = %282, %148
   %lpad.loopexit.us = landingpad { ptr, i32 }
@@ -26517,7 +26516,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %320, %._crit_edge18
   %335 = add nsw i32 %.0192, 1
   %336 = load i32, ptr %16, align 4, !tbaa !37
   %.not.not = icmp slt i32 %.0192, %336
-  br i1 %.not.not, label %89, label %._crit_edge, !llvm.loop !537
+  br i1 %.not.not, label %89, label %._crit_edge
 
 .lr.ph185.split:                                  ; preds = %.lr.ph185, %.lr.ph185.split
   %337 = phi i32 [ %340, %.lr.ph185.split ], [ %141, %.lr.ph185 ]
@@ -26529,7 +26528,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %320, %._crit_edge18
   %339 = add nsw i32 %.084184, %91
   %340 = load i32, ptr %6, align 4, !tbaa !37
   %341 = icmp slt i32 %339, %340
-  br i1 %341, label %.lr.ph185.split, label %._crit_edge186, !llvm.loop !538
+  br i1 %341, label %.lr.ph185.split, label %._crit_edge186, !llvm.loop !523
 
 ._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit, %24
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %26)
@@ -26687,480 +26686,465 @@ attributes #24 = { cold nounwind }
 !59 = !{!60, !13, i64 752}
 !60 = !{!"_ZTSN4ncnn8Gemm_x86E", !19, i64 0, !13, i64 580, !8, i64 584, !8, i64 656, !8, i64 728}
 !61 = !{!34, !34, i64 0}
-!62 = distinct !{!62, !63, !64}
+!62 = distinct !{!62, !63}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!"llvm.loop.estimated_trip_count"}
-!65 = !{!60, !13, i64 580}
-!66 = !{!32, !33, i64 0}
-!67 = !{!19, !13, i64 220}
-!68 = !{!19, !13, i64 216}
-!69 = !{!32, !33, i64 8}
-!70 = !{!43, !14, i64 16}
-!71 = distinct !{!71, !63, !64}
-!72 = !{!43, !21, i64 39}
-!73 = !{!19, !13, i64 264}
-!74 = !{!19, !13, i64 256}
-!75 = !{!19, !13, i64 252}
-!76 = !{!43, !14, i64 8}
-!77 = !{!78, !78, i64 0}
-!78 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!79 = !{!19, !34, i64 208}
-!80 = !{!20, !21, i64 11}
-!81 = distinct !{!81, !64, !82}
-!82 = !{!"llvm.loop.unswitch.partial.disable"}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!85 = distinct !{!85, !"_ZN4ncnn3Mat7channelEi"}
-!86 = distinct !{!86, !63, !64}
-!87 = distinct !{!87, !63, !64, !88}
-!88 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!89 = !{!10, !10, i64 0}
-!90 = distinct !{!90, !63, !64}
-!91 = distinct !{!91, !63, !64}
-!92 = distinct !{!92, !63, !64, !88}
-!93 = distinct !{!93, !63, !64, !88}
-!94 = distinct !{!94, !63, !64}
-!95 = distinct !{!95, !63, !64}
-!96 = distinct !{!96, !63, !64, !88}
-!97 = distinct !{!97, !63, !64}
-!98 = distinct !{!98, !63, !64}
-!99 = distinct !{!99, !63, !64}
-!100 = distinct !{!100, !63, !64}
-!101 = distinct !{!101, !63, !64}
-!102 = distinct !{!102, !63, !64}
-!103 = distinct !{!103, !63, !64, !88}
-!104 = distinct !{!104, !63, !64, !88}
-!105 = distinct !{!105, !63, !64, !88}
-!106 = distinct !{!106, !63, !64}
-!107 = distinct !{!107, !63, !64}
-!108 = distinct !{!108, !63, !64, !88}
-!109 = distinct !{!109, !63, !64}
-!110 = distinct !{!110, !63, !64}
-!111 = distinct !{!111, !63, !64}
-!112 = !{!113}
-!113 = !{i64 2, i64 -1, i64 -1, i1 true}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!116 = distinct !{!116, !"_ZN4ncnn3Mat7channelEi"}
-!117 = distinct !{!117, !64}
-!118 = distinct !{!118, !63, !64}
-!119 = distinct !{!119, !63, !64}
-!120 = distinct !{!120, !63, !64}
-!121 = distinct !{!121, !63, !64, !88}
-!122 = distinct !{!122, !63, !64, !88}
-!123 = distinct !{!123, !63, !64}
-!124 = distinct !{!124, !63, !64}
-!125 = distinct !{!125, !63, !64}
-!126 = distinct !{!126, !63, !64}
-!127 = distinct !{!127, !63, !64}
-!128 = distinct !{!128, !63, !64}
-!129 = distinct !{!129, !63, !64}
-!130 = distinct !{!130, !63, !64}
-!131 = distinct !{!131, !63, !64}
-!132 = distinct !{!132, !63, !64}
-!133 = distinct !{!133, !63, !64}
-!134 = distinct !{!134, !63, !64}
-!135 = distinct !{!135, !63, !64}
-!136 = distinct !{!136, !63, !64}
-!137 = distinct !{!137, !63, !64, !88}
-!138 = distinct !{!138, !63, !64}
-!139 = distinct !{!139, !63, !64}
-!140 = distinct !{!140, !63, !64, !88}
-!141 = distinct !{!141, !63, !64}
-!142 = distinct !{!142, !63, !64}
-!143 = distinct !{!143, !63, !64}
-!144 = distinct !{!144, !63, !64}
-!145 = distinct !{!145, !63, !64}
-!146 = distinct !{!146, !63, !64}
-!147 = distinct !{!147, !63, !64}
-!148 = distinct !{!148, !63, !64}
-!149 = distinct !{!149, !63, !64}
-!150 = distinct !{!150, !63, !64}
-!151 = distinct !{!151, !63, !64}
-!152 = distinct !{!152, !63, !64}
-!153 = !{!19, !34, i64 576}
-!154 = distinct !{!154, !63, !64}
-!155 = !{!156, !13, i64 0}
-!156 = !{!"_ZTSN4ncnn22gemm_x86_int8_omp_argsE", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !34, i64 24, !34, i64 28}
-!157 = !{!156, !13, i64 4}
-!158 = !{!156, !13, i64 8}
-!159 = !{!156, !13, i64 12}
-!160 = !{!156, !13, i64 16}
-!161 = !{!156, !13, i64 20}
-!162 = !{!156, !34, i64 24}
-!163 = !{!156, !34, i64 28}
-!164 = distinct !{!164, !63, !64, !88}
-!165 = distinct !{!165, !63, !64}
-!166 = distinct !{!166, !63, !64}
-!167 = distinct !{!167, !63, !64, !88}
-!168 = distinct !{!168, !63, !64}
-!169 = distinct !{!169, !64}
+!64 = !{!60, !13, i64 580}
+!65 = !{!32, !33, i64 0}
+!66 = !{!19, !13, i64 220}
+!67 = !{!19, !13, i64 216}
+!68 = !{!32, !33, i64 8}
+!69 = !{!43, !14, i64 16}
+!70 = distinct !{!70, !63}
+!71 = !{!43, !21, i64 39}
+!72 = !{!19, !13, i64 264}
+!73 = !{!19, !13, i64 256}
+!74 = !{!19, !13, i64 252}
+!75 = !{!43, !14, i64 8}
+!76 = !{!77, !77, i64 0}
+!77 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!78 = !{!19, !34, i64 208}
+!79 = !{!20, !21, i64 11}
+!80 = distinct !{!80, !81}
+!81 = !{!"llvm.loop.unswitch.partial.disable"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!84 = distinct !{!84, !"_ZN4ncnn3Mat7channelEi"}
+!85 = distinct !{!85, !63}
+!86 = distinct !{!86, !63, !87}
+!87 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!88 = !{!10, !10, i64 0}
+!89 = distinct !{!89, !63}
+!90 = distinct !{!90, !63}
+!91 = distinct !{!91, !63, !87}
+!92 = distinct !{!92, !63, !87}
+!93 = distinct !{!93, !63}
+!94 = distinct !{!94, !63}
+!95 = distinct !{!95, !63, !87}
+!96 = distinct !{!96, !63}
+!97 = distinct !{!97, !63}
+!98 = distinct !{!98, !63}
+!99 = distinct !{!99, !63}
+!100 = distinct !{!100, !63}
+!101 = distinct !{!101, !63}
+!102 = distinct !{!102, !63, !87}
+!103 = distinct !{!103, !63, !87}
+!104 = distinct !{!104, !63, !87}
+!105 = distinct !{!105, !63}
+!106 = distinct !{!106, !63}
+!107 = distinct !{!107, !63, !87}
+!108 = distinct !{!108, !63}
+!109 = distinct !{!109, !63}
+!110 = distinct !{!110, !63}
+!111 = !{!112}
+!112 = !{i64 2, i64 -1, i64 -1, i1 true}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!115 = distinct !{!115, !"_ZN4ncnn3Mat7channelEi"}
+!116 = distinct !{!116, !63}
+!117 = distinct !{!117, !63}
+!118 = distinct !{!118, !63}
+!119 = distinct !{!119, !63, !87}
+!120 = distinct !{!120, !63, !87}
+!121 = distinct !{!121, !63}
+!122 = distinct !{!122, !63}
+!123 = distinct !{!123, !63}
+!124 = distinct !{!124, !63}
+!125 = distinct !{!125, !63}
+!126 = distinct !{!126, !63}
+!127 = distinct !{!127, !63}
+!128 = distinct !{!128, !63}
+!129 = distinct !{!129, !63}
+!130 = distinct !{!130, !63}
+!131 = distinct !{!131, !63}
+!132 = distinct !{!132, !63}
+!133 = distinct !{!133, !63}
+!134 = distinct !{!134, !63}
+!135 = distinct !{!135, !63, !87}
+!136 = distinct !{!136, !63}
+!137 = distinct !{!137, !63}
+!138 = distinct !{!138, !63, !87}
+!139 = distinct !{!139, !63}
+!140 = distinct !{!140, !63}
+!141 = distinct !{!141, !63}
+!142 = distinct !{!142, !63}
+!143 = distinct !{!143, !63}
+!144 = distinct !{!144, !63}
+!145 = distinct !{!145, !63}
+!146 = distinct !{!146, !63}
+!147 = distinct !{!147, !63}
+!148 = distinct !{!148, !63}
+!149 = distinct !{!149, !63}
+!150 = distinct !{!150, !63}
+!151 = !{!19, !34, i64 576}
+!152 = distinct !{!152, !63}
+!153 = !{!154, !13, i64 0}
+!154 = !{!"_ZTSN4ncnn22gemm_x86_int8_omp_argsE", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !34, i64 24, !34, i64 28}
+!155 = !{!154, !13, i64 4}
+!156 = !{!154, !13, i64 8}
+!157 = !{!154, !13, i64 12}
+!158 = !{!154, !13, i64 16}
+!159 = !{!154, !13, i64 20}
+!160 = !{!154, !34, i64 24}
+!161 = !{!154, !34, i64 28}
+!162 = distinct !{!162, !63, !87}
+!163 = distinct !{!163, !63}
+!164 = distinct !{!164, !63}
+!165 = distinct !{!165, !63, !87}
+!166 = distinct !{!166, !63}
+!167 = !{!168}
+!168 = distinct !{!168, !169, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!169 = distinct !{!169, !"_ZN4ncnn3Mat7channelEi"}
 !170 = !{!171}
-!171 = distinct !{!171, !172, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!172 = distinct !{!172, !"_ZN4ncnn3Mat7channelEi"}
-!173 = distinct !{!173, !64}
-!174 = !{!175}
-!175 = distinct !{!175, !176, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!176 = distinct !{!176, !"_ZNK4ncnn3Mat7channelEi"}
-!177 = !{!178}
-!178 = distinct !{!178, !179, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!179 = distinct !{!179, !"_ZNK4ncnn3Mat7channelEi"}
-!180 = distinct !{!180, !63, !64}
-!181 = distinct !{!181, !63, !64}
-!182 = distinct !{!182, !63, !64}
-!183 = distinct !{!183, !63, !64}
-!184 = distinct !{!184, !63, !64}
-!185 = distinct !{!185, !63, !64}
-!186 = distinct !{!186, !63, !64}
-!187 = distinct !{!187, !63, !64}
-!188 = distinct !{!188, !63, !64}
-!189 = distinct !{!189, !63, !64}
-!190 = distinct !{!190, !63, !64}
-!191 = distinct !{!191, !63, !64}
-!192 = distinct !{!192, !63, !64}
-!193 = distinct !{!193, !63, !64}
-!194 = distinct !{!194, !63, !64}
-!195 = distinct !{!195, !63, !64}
-!196 = distinct !{!196, !63, !64}
-!197 = distinct !{!197, !63, !64}
-!198 = distinct !{!198, !63, !64}
-!199 = distinct !{!199, !63, !64}
-!200 = distinct !{!200, !63, !64}
-!201 = distinct !{!201, !63, !64}
-!202 = distinct !{!202, !63, !64}
-!203 = distinct !{!203, !63, !64}
-!204 = distinct !{!204, !63, !64}
-!205 = distinct !{!205, !63, !64}
-!206 = distinct !{!206, !63, !64}
-!207 = distinct !{!207, !63, !64}
-!208 = distinct !{!208, !63, !64}
-!209 = distinct !{!209, !63, !64}
-!210 = distinct !{!210, !63, !64}
-!211 = distinct !{!211, !63, !64}
-!212 = distinct !{!212, !63, !64}
-!213 = distinct !{!213, !63, !64}
-!214 = distinct !{!214, !63, !64}
-!215 = distinct !{!215, !63, !64, !88}
-!216 = distinct !{!216, !63, !64}
-!217 = distinct !{!217, !63, !64}
-!218 = distinct !{!218, !63, !64, !88}
-!219 = distinct !{!219, !63, !64, !88}
-!220 = distinct !{!220, !63, !64}
-!221 = distinct !{!221, !63, !64}
-!222 = distinct !{!222, !63, !64, !88}
-!223 = distinct !{!223, !63, !64}
-!224 = distinct !{!224, !63, !64}
-!225 = distinct !{!225, !63, !64}
-!226 = !{!227}
-!227 = distinct !{!227, !228, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!228 = distinct !{!228, !"_ZN4ncnn3Mat7channelEi"}
-!229 = distinct !{!229, !64}
-!230 = !{!231}
-!231 = distinct !{!231, !232, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!232 = distinct !{!232, !"_ZN4ncnn3Mat7channelEi"}
-!233 = distinct !{!233, !64}
-!234 = !{!235}
-!235 = distinct !{!235, !236, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!236 = distinct !{!236, !"_ZNK4ncnn3Mat7channelEi"}
-!237 = !{!238}
-!238 = distinct !{!238, !239, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!239 = distinct !{!239, !"_ZN4ncnn3Mat7channelEi"}
-!240 = distinct !{!240, !63, !64}
-!241 = distinct !{!241, !63, !64}
-!242 = !{!243}
-!243 = distinct !{!243, !244, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!244 = distinct !{!244, !"_ZN4ncnn3Mat7channelEi"}
-!245 = distinct !{!245, !63, !64, !88}
-!246 = !{!247}
-!247 = distinct !{!247, !248, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!248 = distinct !{!248, !"_ZN4ncnn3Mat7channelEi"}
-!249 = !{!250}
-!250 = distinct !{!250, !251, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!251 = distinct !{!251, !"_ZNK4ncnn3Mat7channelEi"}
-!252 = distinct !{!252, !63, !64}
-!253 = distinct !{!253, !64}
-!254 = distinct !{!254, !63, !64}
+!171 = distinct !{!171, !172, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!172 = distinct !{!172, !"_ZNK4ncnn3Mat7channelEi"}
+!173 = !{!174}
+!174 = distinct !{!174, !175, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!175 = distinct !{!175, !"_ZNK4ncnn3Mat7channelEi"}
+!176 = distinct !{!176, !63}
+!177 = distinct !{!177, !63}
+!178 = distinct !{!178, !63}
+!179 = distinct !{!179, !63}
+!180 = distinct !{!180, !63}
+!181 = distinct !{!181, !63}
+!182 = distinct !{!182, !63}
+!183 = distinct !{!183, !63}
+!184 = distinct !{!184, !63}
+!185 = distinct !{!185, !63}
+!186 = distinct !{!186, !63}
+!187 = distinct !{!187, !63}
+!188 = distinct !{!188, !63}
+!189 = distinct !{!189, !63}
+!190 = distinct !{!190, !63}
+!191 = distinct !{!191, !63}
+!192 = distinct !{!192, !63}
+!193 = distinct !{!193, !63}
+!194 = distinct !{!194, !63}
+!195 = distinct !{!195, !63}
+!196 = distinct !{!196, !63}
+!197 = distinct !{!197, !63}
+!198 = distinct !{!198, !63}
+!199 = distinct !{!199, !63}
+!200 = distinct !{!200, !63}
+!201 = distinct !{!201, !63}
+!202 = distinct !{!202, !63}
+!203 = distinct !{!203, !63}
+!204 = distinct !{!204, !63}
+!205 = distinct !{!205, !63}
+!206 = distinct !{!206, !63}
+!207 = distinct !{!207, !63}
+!208 = distinct !{!208, !63}
+!209 = distinct !{!209, !63}
+!210 = distinct !{!210, !63}
+!211 = distinct !{!211, !63, !87}
+!212 = distinct !{!212, !63}
+!213 = distinct !{!213, !63}
+!214 = distinct !{!214, !63, !87}
+!215 = distinct !{!215, !63, !87}
+!216 = distinct !{!216, !63}
+!217 = distinct !{!217, !63}
+!218 = distinct !{!218, !63, !87}
+!219 = distinct !{!219, !63}
+!220 = distinct !{!220, !63}
+!221 = distinct !{!221, !63}
+!222 = !{!223}
+!223 = distinct !{!223, !224, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!224 = distinct !{!224, !"_ZN4ncnn3Mat7channelEi"}
+!225 = !{!226}
+!226 = distinct !{!226, !227, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!227 = distinct !{!227, !"_ZN4ncnn3Mat7channelEi"}
+!228 = !{!229}
+!229 = distinct !{!229, !230, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!230 = distinct !{!230, !"_ZNK4ncnn3Mat7channelEi"}
+!231 = !{!232}
+!232 = distinct !{!232, !233, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!233 = distinct !{!233, !"_ZN4ncnn3Mat7channelEi"}
+!234 = distinct !{!234, !63}
+!235 = distinct !{!235, !63}
+!236 = !{!237}
+!237 = distinct !{!237, !238, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!238 = distinct !{!238, !"_ZN4ncnn3Mat7channelEi"}
+!239 = distinct !{!239, !63, !87}
+!240 = !{!241}
+!241 = distinct !{!241, !242, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!242 = distinct !{!242, !"_ZN4ncnn3Mat7channelEi"}
+!243 = !{!244}
+!244 = distinct !{!244, !245, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!245 = distinct !{!245, !"_ZNK4ncnn3Mat7channelEi"}
+!246 = distinct !{!246, !63}
+!247 = distinct !{!247, !63}
+!248 = !{!249}
+!249 = distinct !{!249, !250, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!250 = distinct !{!250, !"_ZN4ncnn3Mat7channelEi"}
+!251 = !{!252}
+!252 = distinct !{!252, !253, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!253 = distinct !{!253, !"_ZN4ncnn3Mat7channelEi"}
+!254 = distinct !{!254, !63, !87}
 !255 = !{!256}
 !256 = distinct !{!256, !257, !"_ZN4ncnn3Mat7channelEi: argument 0"}
 !257 = distinct !{!257, !"_ZN4ncnn3Mat7channelEi"}
-!258 = distinct !{!258, !64}
-!259 = !{!260}
-!260 = distinct !{!260, !261, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!261 = distinct !{!261, !"_ZN4ncnn3Mat7channelEi"}
-!262 = distinct !{!262, !63, !64, !88}
-!263 = !{!264}
-!264 = distinct !{!264, !265, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!265 = distinct !{!265, !"_ZN4ncnn3Mat7channelEi"}
-!266 = !{!267}
-!267 = distinct !{!267, !268, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!268 = distinct !{!268, !"_ZN4ncnn3Mat7channelEi"}
-!269 = distinct !{!269, !63, !64}
-!270 = distinct !{!270, !64}
-!271 = distinct !{!271, !63, !64}
-!272 = distinct !{!272, !64, !82}
-!273 = !{!274}
-!274 = distinct !{!274, !275, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!275 = distinct !{!275, !"_ZN4ncnn3Mat7channelEi"}
-!276 = distinct !{!276, !63, !64, !88}
-!277 = distinct !{!277, !63, !64}
-!278 = distinct !{!278, !63, !64}
-!279 = distinct !{!279, !63, !64, !88}
-!280 = distinct !{!280, !63, !64}
-!281 = distinct !{!281, !63, !64, !88}
-!282 = distinct !{!282, !63, !64}
-!283 = distinct !{!283, !63, !64}
-!284 = distinct !{!284, !63, !64}
-!285 = distinct !{!285, !63, !64}
-!286 = distinct !{!286, !63, !64, !88}
-!287 = distinct !{!287, !63, !64}
-!288 = distinct !{!288, !63, !64}
-!289 = distinct !{!289, !63, !64}
-!290 = distinct !{!290, !63, !64}
-!291 = distinct !{!291, !63, !64, !88}
-!292 = distinct !{!292, !63, !64}
-!293 = distinct !{!293, !63, !64}
-!294 = distinct !{!294, !63, !64}
-!295 = distinct !{!295, !64, !82}
-!296 = !{!297}
-!297 = distinct !{!297, !298, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!298 = distinct !{!298, !"_ZN4ncnn3Mat7channelEi"}
-!299 = distinct !{!299, !63, !64}
-!300 = distinct !{!300, !63, !64}
-!301 = distinct !{!301, !63, !64}
-!302 = distinct !{!302, !63, !64}
-!303 = distinct !{!303, !63, !64}
-!304 = distinct !{!304, !63, !64}
-!305 = distinct !{!305, !63, !64}
-!306 = distinct !{!306, !63, !64, !88}
-!307 = distinct !{!307, !63, !64}
-!308 = distinct !{!308, !63, !64}
-!309 = distinct !{!309, !63, !64}
-!310 = distinct !{!310, !63, !64, !88}
-!311 = distinct !{!311, !63, !64}
-!312 = distinct !{!312, !63, !64}
-!313 = distinct !{!313, !63, !64, !88}
-!314 = distinct !{!314, !63, !64}
-!315 = distinct !{!315, !63, !64}
-!316 = distinct !{!316, !63, !64}
-!317 = distinct !{!317, !63, !64}
-!318 = distinct !{!318, !63, !64, !88}
-!319 = distinct !{!319, !63, !64}
-!320 = distinct !{!320, !63, !64}
-!321 = distinct !{!321, !63, !64}
-!322 = distinct !{!322, !63, !64}
-!323 = !{!324}
-!324 = distinct !{!324, !325, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!325 = distinct !{!325, !"_ZN4ncnn3Mat7channelEi"}
-!326 = distinct !{!326, !64}
-!327 = distinct !{!327, !63, !64}
-!328 = !{!329}
-!329 = distinct !{!329, !330, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!330 = distinct !{!330, !"_ZNK4ncnn3Mat7channelEi"}
-!331 = !{!332}
-!332 = distinct !{!332, !333, !"_ZNK4ncnn3Mat9row_rangeEii: argument 0"}
-!333 = distinct !{!333, !"_ZNK4ncnn3Mat9row_rangeEii"}
-!334 = !{!335}
-!335 = distinct !{!335, !336, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!336 = distinct !{!336, !"_ZNK4ncnn3Mat7channelEi"}
-!337 = !{!338}
-!338 = distinct !{!338, !339, !"_ZNK4ncnn3Mat9row_rangeEii: argument 0"}
-!339 = distinct !{!339, !"_ZNK4ncnn3Mat9row_rangeEii"}
-!340 = distinct !{!340, !63, !64}
-!341 = distinct !{!341, !63, !64}
-!342 = distinct !{!342, !63, !64}
-!343 = distinct !{!343, !63, !64}
-!344 = distinct !{!344, !63, !64}
-!345 = distinct !{!345, !63, !64}
-!346 = distinct !{!346, !63, !64}
-!347 = distinct !{!347, !63, !64}
-!348 = !{!349, !349, i64 0}
-!349 = !{!"short", !10, i64 0}
-!350 = distinct !{!350, !63, !64}
-!351 = distinct !{!351, !63, !64}
-!352 = distinct !{!352, !63, !64}
-!353 = distinct !{!353, !63, !64}
-!354 = distinct !{!354, !63, !64}
-!355 = distinct !{!355, !63, !64}
-!356 = distinct !{!356, !63, !64}
-!357 = distinct !{!357, !63, !64}
-!358 = distinct !{!358, !63, !64}
-!359 = distinct !{!359, !63, !64}
-!360 = distinct !{!360, !63, !64}
-!361 = distinct !{!361, !63, !64}
-!362 = distinct !{!362, !63, !64}
-!363 = distinct !{!363, !63, !64}
-!364 = distinct !{!364, !63, !64}
-!365 = distinct !{!365, !63, !64}
-!366 = distinct !{!366, !63, !64}
-!367 = distinct !{!367, !63, !64}
-!368 = distinct !{!368, !63, !64}
-!369 = distinct !{!369, !63, !64}
-!370 = distinct !{!370, !63, !64}
-!371 = distinct !{!371, !63, !64}
-!372 = distinct !{!372, !63, !64}
-!373 = distinct !{!373, !63, !64}
-!374 = distinct !{!374, !63, !64}
-!375 = distinct !{!375, !63, !64}
-!376 = distinct !{!376, !63, !64, !88}
-!377 = distinct !{!377, !63, !64}
-!378 = distinct !{!378, !63, !64}
-!379 = distinct !{!379, !63, !64}
-!380 = distinct !{!380, !63, !64}
-!381 = distinct !{!381, !63, !64}
-!382 = distinct !{!382, !63, !64}
-!383 = distinct !{!383, !63, !64}
-!384 = distinct !{!384, !63, !64}
-!385 = distinct !{!385, !63, !64}
-!386 = distinct !{!386, !63, !64}
-!387 = distinct !{!387, !63, !64}
-!388 = distinct !{!388, !63, !64}
-!389 = distinct !{!389, !63, !64}
-!390 = distinct !{!390, !63, !64}
-!391 = distinct !{!391, !63, !64}
-!392 = distinct !{!392, !63, !64}
-!393 = distinct !{!393, !63, !64}
-!394 = distinct !{!394, !63, !64}
-!395 = distinct !{!395, !63, !64}
-!396 = !{!397}
-!397 = distinct !{!397, !398, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!398 = distinct !{!398, !"_ZN4ncnn3Mat7channelEi"}
-!399 = distinct !{!399, !64}
-!400 = distinct !{!400, !63, !64}
-!401 = !{!12, !12, i64 0}
-!402 = distinct !{!402, !63, !64}
-!403 = distinct !{!403, !63, !64, !88}
-!404 = distinct !{!404, !63, !64}
-!405 = distinct !{!405, !63, !64}
-!406 = distinct !{!406, !63, !64, !88}
-!407 = distinct !{!407, !63, !64}
-!408 = distinct !{!408, !63, !64}
-!409 = distinct !{!409, !63, !64, !88}
-!410 = distinct !{!410, !63, !64}
-!411 = distinct !{!411, !63, !64}
-!412 = distinct !{!412, !63, !64, !88}
-!413 = distinct !{!413, !63, !64}
-!414 = distinct !{!414, !63, !64}
-!415 = distinct !{!415, !63, !64}
-!416 = distinct !{!416, !63, !64}
-!417 = distinct !{!417, !63, !64}
-!418 = distinct !{!418, !63, !64}
-!419 = distinct !{!419, !63, !64}
-!420 = distinct !{!420, !63, !64}
-!421 = distinct !{!421, !63, !64}
-!422 = distinct !{!422, !63, !64, !88}
-!423 = distinct !{!423, !63, !64}
-!424 = distinct !{!424, !63, !64}
-!425 = distinct !{!425, !63, !64, !88}
-!426 = distinct !{!426, !63, !64}
-!427 = distinct !{!427, !63, !64}
-!428 = distinct !{!428, !63, !64}
-!429 = distinct !{!429, !63, !64}
-!430 = distinct !{!430, !63, !64}
-!431 = distinct !{!431, !63, !64, !88}
-!432 = distinct !{!432, !63, !64}
-!433 = distinct !{!433, !63, !64}
-!434 = distinct !{!434, !63, !64}
-!435 = distinct !{!435, !63, !64}
-!436 = distinct !{!436, !63, !64, !88}
-!437 = distinct !{!437, !63, !64}
-!438 = distinct !{!438, !63, !64}
-!439 = distinct !{!439, !63, !64}
-!440 = distinct !{!440, !63, !64}
-!441 = !{!442}
-!442 = distinct !{!442, !443, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!443 = distinct !{!443, !"_ZN4ncnn3Mat7channelEi"}
-!444 = distinct !{!444, !64}
-!445 = distinct !{!445, !63, !64}
-!446 = !{!447}
-!447 = distinct !{!447, !448, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!448 = distinct !{!448, !"_ZNK4ncnn3Mat7channelEi"}
-!449 = !{!450}
-!450 = distinct !{!450, !451, !"_ZNK4ncnn3Mat9row_rangeEii: argument 0"}
-!451 = distinct !{!451, !"_ZNK4ncnn3Mat9row_rangeEii"}
-!452 = !{!453}
-!453 = distinct !{!453, !454, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!454 = distinct !{!454, !"_ZN4ncnn3Mat7channelEi"}
-!455 = distinct !{!455, !63, !64}
-!456 = !{!457}
-!457 = distinct !{!457, !458, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!458 = distinct !{!458, !"_ZN4ncnn3Mat7channelEi"}
-!459 = !{!460}
-!460 = distinct !{!460, !461, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!461 = distinct !{!461, !"_ZN4ncnn3Mat7channelEi"}
-!462 = !{!463}
-!463 = distinct !{!463, !464, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!464 = distinct !{!464, !"_ZNK4ncnn3Mat7channelEi"}
-!465 = !{!466}
-!466 = distinct !{!466, !467, !"_ZNK4ncnn3Mat9row_rangeEii: argument 0"}
-!467 = distinct !{!467, !"_ZNK4ncnn3Mat9row_rangeEii"}
-!468 = distinct !{!468, !63, !64, !88}
-!469 = distinct !{!469, !63, !64, !88}
-!470 = distinct !{!470, !63, !64}
-!471 = distinct !{!471, !63, !64, !88}
-!472 = distinct !{!472, !63, !64}
-!473 = distinct !{!473, !63, !64, !88}
-!474 = distinct !{!474, !63, !64}
-!475 = distinct !{!475, !63, !64, !88}
-!476 = distinct !{!476, !64}
-!477 = distinct !{!477, !63, !64}
-!478 = distinct !{!478, !63, !64}
-!479 = distinct !{!479, !63, !64}
-!480 = distinct !{!480, !63, !64}
-!481 = distinct !{!481, !63, !64}
-!482 = distinct !{!482, !63, !64}
-!483 = distinct !{!483, !63, !64}
-!484 = distinct !{!484, !63, !64, !88}
-!485 = distinct !{!485, !63, !64}
-!486 = distinct !{!486, !63, !64}
-!487 = distinct !{!487, !63, !64}
-!488 = distinct !{!488, !63, !64}
-!489 = distinct !{!489, !63, !64}
-!490 = distinct !{!490, !63, !64, !88}
-!491 = distinct !{!491, !63, !64}
-!492 = distinct !{!492, !63, !64}
-!493 = distinct !{!493, !63, !64}
-!494 = distinct !{!494, !63, !64, !88}
-!495 = distinct !{!495, !63, !64}
-!496 = distinct !{!496, !63, !64}
-!497 = distinct !{!497, !63, !64, !88}
-!498 = distinct !{!498, !63, !64}
-!499 = distinct !{!499, !63, !64}
-!500 = distinct !{!500, !63, !64}
-!501 = distinct !{!501, !63, !64, !88}
-!502 = distinct !{!502, !63, !64}
-!503 = distinct !{!503, !63, !64, !88}
-!504 = distinct !{!504, !63, !64}
-!505 = distinct !{!505, !63, !64}
-!506 = distinct !{!506, !63, !64}
-!507 = distinct !{!507, !63, !64}
-!508 = distinct !{!508, !63, !64}
-!509 = distinct !{!509, !63, !64}
-!510 = distinct !{!510, !63, !64, !88}
-!511 = distinct !{!511, !63, !64}
-!512 = distinct !{!512, !63, !64}
-!513 = distinct !{!513, !63, !64, !88}
-!514 = distinct !{!514, !63, !64, !88}
-!515 = distinct !{!515, !63, !64}
-!516 = distinct !{!516, !63, !64}
-!517 = distinct !{!517, !63, !64, !88}
-!518 = distinct !{!518, !63, !64}
-!519 = distinct !{!519, !63, !64}
-!520 = distinct !{!520, !63, !64}
-!521 = distinct !{!521, !63, !64}
-!522 = !{!523}
-!523 = distinct !{!523, !524, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!524 = distinct !{!524, !"_ZN4ncnn3Mat7channelEi"}
-!525 = distinct !{!525, !64}
-!526 = !{!527}
-!527 = distinct !{!527, !528, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!528 = distinct !{!528, !"_ZN4ncnn3Mat7channelEi"}
-!529 = !{!530}
-!530 = distinct !{!530, !531, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!531 = distinct !{!531, !"_ZN4ncnn3Mat7channelEi"}
-!532 = !{!533}
-!533 = distinct !{!533, !534, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!534 = distinct !{!534, !"_ZN4ncnn3Mat7channelEi"}
-!535 = distinct !{!535, !63, !64}
-!536 = distinct !{!536, !63, !64, !88}
-!537 = distinct !{!537, !64}
-!538 = distinct !{!538, !63, !64}
+!258 = !{!259}
+!259 = distinct !{!259, !260, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!260 = distinct !{!260, !"_ZN4ncnn3Mat7channelEi"}
+!261 = distinct !{!261, !63}
+!262 = distinct !{!262, !63}
+!263 = distinct !{!263, !81}
+!264 = !{!265}
+!265 = distinct !{!265, !266, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!266 = distinct !{!266, !"_ZN4ncnn3Mat7channelEi"}
+!267 = distinct !{!267, !63, !87}
+!268 = distinct !{!268, !63}
+!269 = distinct !{!269, !63}
+!270 = distinct !{!270, !63, !87}
+!271 = distinct !{!271, !63}
+!272 = distinct !{!272, !63, !87}
+!273 = distinct !{!273, !63}
+!274 = distinct !{!274, !63}
+!275 = distinct !{!275, !63}
+!276 = distinct !{!276, !63}
+!277 = distinct !{!277, !63, !87}
+!278 = distinct !{!278, !63}
+!279 = distinct !{!279, !63}
+!280 = distinct !{!280, !63}
+!281 = distinct !{!281, !63}
+!282 = distinct !{!282, !63, !87}
+!283 = distinct !{!283, !63}
+!284 = distinct !{!284, !63}
+!285 = distinct !{!285, !63}
+!286 = distinct !{!286, !81}
+!287 = !{!288}
+!288 = distinct !{!288, !289, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!289 = distinct !{!289, !"_ZN4ncnn3Mat7channelEi"}
+!290 = distinct !{!290, !63}
+!291 = distinct !{!291, !63}
+!292 = distinct !{!292, !63}
+!293 = distinct !{!293, !63}
+!294 = distinct !{!294, !63}
+!295 = distinct !{!295, !63}
+!296 = distinct !{!296, !63}
+!297 = distinct !{!297, !63, !87}
+!298 = distinct !{!298, !63}
+!299 = distinct !{!299, !63}
+!300 = distinct !{!300, !63}
+!301 = distinct !{!301, !63, !87}
+!302 = distinct !{!302, !63}
+!303 = distinct !{!303, !63}
+!304 = distinct !{!304, !63, !87}
+!305 = distinct !{!305, !63}
+!306 = distinct !{!306, !63}
+!307 = distinct !{!307, !63}
+!308 = distinct !{!308, !63}
+!309 = distinct !{!309, !63, !87}
+!310 = distinct !{!310, !63}
+!311 = distinct !{!311, !63}
+!312 = distinct !{!312, !63}
+!313 = distinct !{!313, !63}
+!314 = !{!315}
+!315 = distinct !{!315, !316, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!316 = distinct !{!316, !"_ZN4ncnn3Mat7channelEi"}
+!317 = distinct !{!317, !63}
+!318 = !{!319}
+!319 = distinct !{!319, !320, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!320 = distinct !{!320, !"_ZNK4ncnn3Mat7channelEi"}
+!321 = !{!322}
+!322 = distinct !{!322, !323, !"_ZNK4ncnn3Mat9row_rangeEii: argument 0"}
+!323 = distinct !{!323, !"_ZNK4ncnn3Mat9row_rangeEii"}
+!324 = !{!325}
+!325 = distinct !{!325, !326, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!326 = distinct !{!326, !"_ZNK4ncnn3Mat7channelEi"}
+!327 = !{!328}
+!328 = distinct !{!328, !329, !"_ZNK4ncnn3Mat9row_rangeEii: argument 0"}
+!329 = distinct !{!329, !"_ZNK4ncnn3Mat9row_rangeEii"}
+!330 = distinct !{!330, !63}
+!331 = distinct !{!331, !63}
+!332 = distinct !{!332, !63}
+!333 = distinct !{!333, !63}
+!334 = distinct !{!334, !63}
+!335 = distinct !{!335, !63}
+!336 = distinct !{!336, !63}
+!337 = distinct !{!337, !63}
+!338 = !{!339, !339, i64 0}
+!339 = !{!"short", !10, i64 0}
+!340 = distinct !{!340, !63}
+!341 = distinct !{!341, !63}
+!342 = distinct !{!342, !63}
+!343 = distinct !{!343, !63}
+!344 = distinct !{!344, !63}
+!345 = distinct !{!345, !63}
+!346 = distinct !{!346, !63}
+!347 = distinct !{!347, !63}
+!348 = distinct !{!348, !63}
+!349 = distinct !{!349, !63}
+!350 = distinct !{!350, !63}
+!351 = distinct !{!351, !63}
+!352 = distinct !{!352, !63}
+!353 = distinct !{!353, !63}
+!354 = distinct !{!354, !63}
+!355 = distinct !{!355, !63}
+!356 = distinct !{!356, !63}
+!357 = distinct !{!357, !63}
+!358 = distinct !{!358, !63}
+!359 = distinct !{!359, !63}
+!360 = distinct !{!360, !63}
+!361 = distinct !{!361, !63}
+!362 = distinct !{!362, !63}
+!363 = distinct !{!363, !63}
+!364 = distinct !{!364, !63}
+!365 = distinct !{!365, !63}
+!366 = distinct !{!366, !63, !87}
+!367 = distinct !{!367, !63}
+!368 = distinct !{!368, !63}
+!369 = distinct !{!369, !63}
+!370 = distinct !{!370, !63}
+!371 = distinct !{!371, !63}
+!372 = distinct !{!372, !63}
+!373 = distinct !{!373, !63}
+!374 = distinct !{!374, !63}
+!375 = distinct !{!375, !63}
+!376 = distinct !{!376, !63}
+!377 = distinct !{!377, !63}
+!378 = distinct !{!378, !63}
+!379 = distinct !{!379, !63}
+!380 = distinct !{!380, !63}
+!381 = distinct !{!381, !63}
+!382 = distinct !{!382, !63}
+!383 = distinct !{!383, !63}
+!384 = distinct !{!384, !63}
+!385 = distinct !{!385, !63}
+!386 = !{!387}
+!387 = distinct !{!387, !388, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!388 = distinct !{!388, !"_ZN4ncnn3Mat7channelEi"}
+!389 = distinct !{!389, !63}
+!390 = !{!12, !12, i64 0}
+!391 = distinct !{!391, !63}
+!392 = distinct !{!392, !63, !87}
+!393 = distinct !{!393, !63}
+!394 = distinct !{!394, !63}
+!395 = distinct !{!395, !63, !87}
+!396 = distinct !{!396, !63}
+!397 = distinct !{!397, !63}
+!398 = distinct !{!398, !63, !87}
+!399 = distinct !{!399, !63}
+!400 = distinct !{!400, !63}
+!401 = distinct !{!401, !63, !87}
+!402 = distinct !{!402, !63}
+!403 = distinct !{!403, !63}
+!404 = distinct !{!404, !63}
+!405 = distinct !{!405, !63}
+!406 = distinct !{!406, !63}
+!407 = distinct !{!407, !63}
+!408 = distinct !{!408, !63}
+!409 = distinct !{!409, !63}
+!410 = distinct !{!410, !63}
+!411 = distinct !{!411, !63, !87}
+!412 = distinct !{!412, !63}
+!413 = distinct !{!413, !63}
+!414 = distinct !{!414, !63, !87}
+!415 = distinct !{!415, !63}
+!416 = distinct !{!416, !63}
+!417 = distinct !{!417, !63}
+!418 = distinct !{!418, !63}
+!419 = distinct !{!419, !63}
+!420 = distinct !{!420, !63, !87}
+!421 = distinct !{!421, !63}
+!422 = distinct !{!422, !63}
+!423 = distinct !{!423, !63}
+!424 = distinct !{!424, !63}
+!425 = distinct !{!425, !63, !87}
+!426 = distinct !{!426, !63}
+!427 = distinct !{!427, !63}
+!428 = distinct !{!428, !63}
+!429 = distinct !{!429, !63}
+!430 = !{!431}
+!431 = distinct !{!431, !432, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!432 = distinct !{!432, !"_ZN4ncnn3Mat7channelEi"}
+!433 = distinct !{!433, !63}
+!434 = !{!435}
+!435 = distinct !{!435, !436, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!436 = distinct !{!436, !"_ZNK4ncnn3Mat7channelEi"}
+!437 = !{!438}
+!438 = distinct !{!438, !439, !"_ZNK4ncnn3Mat9row_rangeEii: argument 0"}
+!439 = distinct !{!439, !"_ZNK4ncnn3Mat9row_rangeEii"}
+!440 = !{!441}
+!441 = distinct !{!441, !442, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!442 = distinct !{!442, !"_ZN4ncnn3Mat7channelEi"}
+!443 = distinct !{!443, !63}
+!444 = !{!445}
+!445 = distinct !{!445, !446, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!446 = distinct !{!446, !"_ZN4ncnn3Mat7channelEi"}
+!447 = !{!448}
+!448 = distinct !{!448, !449, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!449 = distinct !{!449, !"_ZN4ncnn3Mat7channelEi"}
+!450 = !{!451}
+!451 = distinct !{!451, !452, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!452 = distinct !{!452, !"_ZNK4ncnn3Mat7channelEi"}
+!453 = !{!454}
+!454 = distinct !{!454, !455, !"_ZNK4ncnn3Mat9row_rangeEii: argument 0"}
+!455 = distinct !{!455, !"_ZNK4ncnn3Mat9row_rangeEii"}
+!456 = distinct !{!456, !63, !87}
+!457 = distinct !{!457, !63, !87}
+!458 = distinct !{!458, !63}
+!459 = distinct !{!459, !63, !87}
+!460 = distinct !{!460, !63}
+!461 = distinct !{!461, !63, !87}
+!462 = distinct !{!462, !63}
+!463 = distinct !{!463, !63, !87}
+!464 = distinct !{!464, !63}
+!465 = distinct !{!465, !63}
+!466 = distinct !{!466, !63}
+!467 = distinct !{!467, !63}
+!468 = distinct !{!468, !63}
+!469 = distinct !{!469, !63}
+!470 = distinct !{!470, !63}
+!471 = distinct !{!471, !63, !87}
+!472 = distinct !{!472, !63}
+!473 = distinct !{!473, !63}
+!474 = distinct !{!474, !63}
+!475 = distinct !{!475, !63}
+!476 = distinct !{!476, !63}
+!477 = distinct !{!477, !63, !87}
+!478 = distinct !{!478, !63}
+!479 = distinct !{!479, !63}
+!480 = distinct !{!480, !63}
+!481 = distinct !{!481, !63, !87}
+!482 = distinct !{!482, !63}
+!483 = distinct !{!483, !63}
+!484 = distinct !{!484, !63, !87}
+!485 = distinct !{!485, !63}
+!486 = distinct !{!486, !63}
+!487 = distinct !{!487, !63}
+!488 = distinct !{!488, !63, !87}
+!489 = distinct !{!489, !63}
+!490 = distinct !{!490, !63, !87}
+!491 = distinct !{!491, !63}
+!492 = distinct !{!492, !63}
+!493 = distinct !{!493, !63}
+!494 = distinct !{!494, !63}
+!495 = distinct !{!495, !63}
+!496 = distinct !{!496, !63}
+!497 = distinct !{!497, !63, !87}
+!498 = distinct !{!498, !63}
+!499 = distinct !{!499, !63}
+!500 = distinct !{!500, !63, !87}
+!501 = distinct !{!501, !63, !87}
+!502 = distinct !{!502, !63}
+!503 = distinct !{!503, !63}
+!504 = distinct !{!504, !63, !87}
+!505 = distinct !{!505, !63}
+!506 = distinct !{!506, !63}
+!507 = distinct !{!507, !63}
+!508 = distinct !{!508, !63}
+!509 = !{!510}
+!510 = distinct !{!510, !511, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!511 = distinct !{!511, !"_ZN4ncnn3Mat7channelEi"}
+!512 = !{!513}
+!513 = distinct !{!513, !514, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!514 = distinct !{!514, !"_ZN4ncnn3Mat7channelEi"}
+!515 = !{!516}
+!516 = distinct !{!516, !517, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!517 = distinct !{!517, !"_ZN4ncnn3Mat7channelEi"}
+!518 = !{!519}
+!519 = distinct !{!519, !520, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!520 = distinct !{!520, !"_ZN4ncnn3Mat7channelEi"}
+!521 = distinct !{!521, !63}
+!522 = distinct !{!522, !63, !87}
+!523 = distinct !{!523, !63}

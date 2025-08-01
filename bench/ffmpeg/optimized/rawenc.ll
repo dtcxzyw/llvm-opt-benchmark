@@ -136,10 +136,10 @@ define internal range(i32 -2147483648, 1) i32 @raw_encode(ptr noundef %0, ptr no
   %69 = mul nsw i32 %68, %67
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %71, label %.lr.ph, label %.thread, !llvm.loop !44
+  br i1 %71, label %.lr.ph, label %.thread, !llvm.loop !43
 
 .thread:                                          ; preds = %.lr.ph, %.lr.ph54, %.preheader50, %.preheader, %33, %51, %53
-  store i32 1, ptr %3, align 4, !tbaa !45
+  store i32 1, ptr %3, align 4, !tbaa !44
   br label %72
 
 72:                                               ; preds = %17, %13, %4, %.thread
@@ -216,8 +216,7 @@ attributes #4 = { nounwind }
 !38 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !39 = !{!38, !10, i64 32}
 !40 = !{!8, !8, i64 0}
-!41 = distinct !{!41, !42, !43}
+!41 = distinct !{!41, !42}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!"llvm.loop.estimated_trip_count"}
-!44 = distinct !{!44, !42, !43}
-!45 = !{!10, !10, i64 0}
+!43 = distinct !{!43, !42}
+!44 = !{!10, !10, i64 0}

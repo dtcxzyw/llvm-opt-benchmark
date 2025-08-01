@@ -1015,7 +1015,7 @@ for.body11:                                       ; preds = %for.body11.lr.ph, %
   %121 = load i32, ptr %oneof_decl_count_.i, align 8
   %122 = sext i32 %121 to i64
   %cmp10 = icmp slt i64 %indvars.iv.next46, %122
-  br i1 %cmp10, label %for.body11, label %for.end16, !llvm.loop !28
+  br i1 %cmp10, label %for.body11, label %for.end16, !llvm.loop !27
 
 for.end16:                                        ; preds = %for.body11, %for.cond8.preheader
   %123 = getelementptr inbounds nuw i8, ptr %type, i64 16
@@ -1266,7 +1266,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit36: ; preds = %if.then.i.i32, %
   %31 = load i32, ptr %value_count_.i, align 4
   %32 = sext i32 %31 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %32
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !29
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !28
 
 for.end:                                          ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit36, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit27
   %options_.i37 = getelementptr inbounds nuw i8, ptr %descriptor, i64 32
@@ -1910,7 +1910,7 @@ invoke.cont12:                                    ; preds = %for.body11
 for.inc:                                          ; preds = %invoke.cont12
   %inc = add nuw nsw i32 %i.030, 1
   %exitcond.not = icmp eq i32 %inc, %call9
-  br i1 %exitcond.not, label %for.inc18, label %for.body11, !llvm.loop !30
+  br i1 %exitcond.not, label %for.inc18, label %for.body11, !llvm.loop !29
 
 lpad.loopexit:                                    ; preds = %invoke.cont12, %for.body11
   %lpad.loopexit24 = landingpad { ptr, i32 }
@@ -1951,7 +1951,7 @@ invoke.cont15:                                    ; preds = %if.else
 for.inc18:                                        ; preds = %for.inc, %for.cond10.preheader, %invoke.cont15
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.032, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
-  br i1 %cmp.i.not, label %for.end20.loopexit, label %for.body, !llvm.loop !31
+  br i1 %cmp.i.not, label %for.end20.loopexit, label %for.body
 
 for.end20.loopexit:                               ; preds = %for.inc18
   %.pre = load ptr, ptr %fields, align 8
@@ -2169,7 +2169,7 @@ cond.end19:                                       ; preds = %cond.false17, %cond
   %cond = phi double [ %call16, %cond.true15 ], [ %call18, %cond.false17 ]
   call void @_ZN6google8protobuf11DoubleValueC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef null)
   %28 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  store double %cond, ptr %28, align 8, !alias.scope !32
+  store double %cond, ptr %28, align 8, !alias.scope !30
   %_internal_metadata_.i.i110 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %29 = load i64, ptr %_internal_metadata_.i.i110, align 8
   %and.i.i.i111 = and i64 %29, 1
@@ -2220,7 +2220,7 @@ cond.end28:                                       ; preds = %cond.false26, %cond
   %cond29 = phi float [ %call25, %cond.true24 ], [ %call27, %cond.false26 ]
   call void @_ZN6google8protobuf10FloatValueC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp22, ptr noundef null)
   %35 = getelementptr inbounds nuw i8, ptr %ref.tmp22, i64 16
-  store float %cond29, ptr %35, align 8, !alias.scope !35
+  store float %cond29, ptr %35, align 8, !alias.scope !33
   %_internal_metadata_.i.i124 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %36 = load i64, ptr %_internal_metadata_.i.i124, align 8
   %and.i.i.i125 = and i64 %36, 1
@@ -2271,7 +2271,7 @@ cond.end40:                                       ; preds = %cond.false38, %cond
   %cond41 = phi i64 [ %call37, %cond.true36 ], [ %call39, %cond.false38 ]
   call void @_ZN6google8protobuf10Int64ValueC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, ptr noundef null)
   %42 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 16
-  store i64 %cond41, ptr %42, align 8, !alias.scope !38
+  store i64 %cond41, ptr %42, align 8, !alias.scope !36
   %_internal_metadata_.i.i139 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %43 = load i64, ptr %_internal_metadata_.i.i139, align 8
   %and.i.i.i140 = and i64 %43, 1
@@ -2322,7 +2322,7 @@ cond.end52:                                       ; preds = %cond.false50, %cond
   %cond53 = phi i64 [ %call49, %cond.true48 ], [ %call51, %cond.false50 ]
   call void @_ZN6google8protobuf11UInt64ValueC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef null)
   %49 = getelementptr inbounds nuw i8, ptr %ref.tmp46, i64 16
-  store i64 %cond53, ptr %49, align 8, !alias.scope !41
+  store i64 %cond53, ptr %49, align 8, !alias.scope !39
   %_internal_metadata_.i.i154 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %50 = load i64, ptr %_internal_metadata_.i.i154, align 8
   %and.i.i.i155 = and i64 %50, 1
@@ -2373,7 +2373,7 @@ cond.end64:                                       ; preds = %cond.false62, %cond
   %cond65 = phi i32 [ %call61, %cond.true60 ], [ %call63, %cond.false62 ]
   call void @_ZN6google8protobuf10Int32ValueC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp58, ptr noundef null)
   %56 = getelementptr inbounds nuw i8, ptr %ref.tmp58, i64 16
-  store i32 %cond65, ptr %56, align 8, !alias.scope !44
+  store i32 %cond65, ptr %56, align 8, !alias.scope !42
   %_internal_metadata_.i.i169 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %57 = load i64, ptr %_internal_metadata_.i.i169, align 8
   %and.i.i.i170 = and i64 %57, 1
@@ -2424,7 +2424,7 @@ cond.end76:                                       ; preds = %cond.false74, %cond
   %cond77 = phi i32 [ %call73, %cond.true72 ], [ %call75, %cond.false74 ]
   call void @_ZN6google8protobuf11UInt32ValueC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp70, ptr noundef null)
   %63 = getelementptr inbounds nuw i8, ptr %ref.tmp70, i64 16
-  store i32 %cond77, ptr %63, align 8, !alias.scope !47
+  store i32 %cond77, ptr %63, align 8, !alias.scope !45
   %_internal_metadata_.i.i184 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %64 = load i64, ptr %_internal_metadata_.i.i184, align 8
   %and.i.i.i185 = and i64 %64, 1
@@ -2476,7 +2476,7 @@ cond.end88:                                       ; preds = %cond.false86, %cond
   call void @_ZN6google8protobuf9BoolValueC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp82, ptr noundef null)
   %frombool.i.i.i = zext i1 %cond89 to i8
   %70 = getelementptr inbounds nuw i8, ptr %ref.tmp82, i64 16
-  store i8 %frombool.i.i.i, ptr %70, align 8, !alias.scope !50
+  store i8 %frombool.i.i.i, ptr %70, align 8, !alias.scope !48
   %_internal_metadata_.i.i199 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %71 = load i64, ptr %_internal_metadata_.i.i199, align 8
   %and.i.i.i200 = and i64 %71, 1
@@ -2574,7 +2574,7 @@ invoke.cont103:                                   ; preds = %if.then
 
 .noexc226:                                        ; preds = %invoke.cont103
   %_internal_metadata_.i.i219 = getelementptr inbounds nuw i8, ptr %ref.tmp102, i64 8
-  %83 = load i64, ptr %_internal_metadata_.i.i219, align 8, !alias.scope !53
+  %83 = load i64, ptr %_internal_metadata_.i.i219, align 8, !alias.scope !51
   %and.i.i.i220 = and i64 %83, 1
   %tobool.i.not.i.i221 = icmp eq i64 %and.i.i.i220, 0
   br i1 %tobool.i.not.i.i221, label %if.else.i.i.i225, label %if.then.i.i.i222
@@ -2659,7 +2659,7 @@ invoke.cont111:                                   ; preds = %if.else
 
 .noexc248:                                        ; preds = %invoke.cont111
   %_internal_metadata_.i.i239 = getelementptr inbounds nuw i8, ptr %ref.tmp109, i64 8
-  %96 = load i64, ptr %_internal_metadata_.i.i239, align 8, !alias.scope !56
+  %96 = load i64, ptr %_internal_metadata_.i.i239, align 8, !alias.scope !54
   %and.i.i.i240 = and i64 %96, 1
   %tobool.i.not.i.i241 = icmp eq i64 %and.i.i.i240, 0
   br i1 %tobool.i.not.i.i241, label %if.else.i.i.i247, label %if.then.i.i.i242
@@ -2760,7 +2760,7 @@ cond.end127:                                      ; preds = %cond.false125, %con
   %109 = load i32, ptr %number_.i, align 4
   call void @_ZN6google8protobuf10Int32ValueC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp129, ptr noundef null)
   %110 = getelementptr inbounds nuw i8, ptr %ref.tmp129, i64 16
-  store i32 %109, ptr %110, align 8, !alias.scope !59
+  store i32 %109, ptr %110, align 8, !alias.scope !57
   %_internal_metadata_.i.i265 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %111 = load i64, ptr %_internal_metadata_.i.i265, align 8
   %and.i.i.i266 = and i64 %111, 1
@@ -3036,40 +3036,38 @@ attributes #17 = { allocsize(0) }
 !22 = !{!23}
 !23 = distinct !{!23, !24, !"_ZN6google8protobuf4util12_GLOBAL__N_110GetTypeUrlINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS8_ERKT_: %agg.result"}
 !24 = distinct !{!24, !"_ZN6google8protobuf4util12_GLOBAL__N_110GetTypeUrlINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS8_ERKT_"}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
-!29 = distinct !{!29, !26, !27}
-!30 = distinct !{!30, !26, !27}
-!31 = distinct !{!31, !27}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11DoubleValueEdEET_T0_: %agg.result"}
-!34 = distinct !{!34, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11DoubleValueEdEET_T0_"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10FloatValueEfEET_T0_: %agg.result"}
-!37 = distinct !{!37, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10FloatValueEfEET_T0_"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10Int64ValueElEET_T0_: %agg.result"}
-!40 = distinct !{!40, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10Int64ValueElEET_T0_"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11UInt64ValueEmEET_T0_: %agg.result"}
-!43 = distinct !{!43, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11UInt64ValueEmEET_T0_"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10Int32ValueEiEET_T0_: %agg.result"}
-!46 = distinct !{!46, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10Int32ValueEiEET_T0_"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11UInt32ValueEjEET_T0_: %agg.result"}
-!49 = distinct !{!49, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11UInt32ValueEjEET_T0_"}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_9BoolValueEbEET_T0_: %agg.result"}
-!52 = distinct !{!52, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_9BoolValueEbEET_T0_"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11StringValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_T0_: %agg.result"}
-!55 = distinct !{!55, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11StringValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_T0_"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10BytesValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_T0_: %agg.result"}
-!58 = distinct !{!58, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10BytesValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_T0_"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10Int32ValueEiEET_T0_: %agg.result"}
-!61 = distinct !{!61, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10Int32ValueEiEET_T0_"}
+!27 = distinct !{!27, !26}
+!28 = distinct !{!28, !26}
+!29 = distinct !{!29, !26}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11DoubleValueEdEET_T0_: %agg.result"}
+!32 = distinct !{!32, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11DoubleValueEdEET_T0_"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10FloatValueEfEET_T0_: %agg.result"}
+!35 = distinct !{!35, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10FloatValueEfEET_T0_"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10Int64ValueElEET_T0_: %agg.result"}
+!38 = distinct !{!38, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10Int64ValueElEET_T0_"}
+!39 = !{!40}
+!40 = distinct !{!40, !41, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11UInt64ValueEmEET_T0_: %agg.result"}
+!41 = distinct !{!41, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11UInt64ValueEmEET_T0_"}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10Int32ValueEiEET_T0_: %agg.result"}
+!44 = distinct !{!44, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10Int32ValueEiEET_T0_"}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11UInt32ValueEjEET_T0_: %agg.result"}
+!47 = distinct !{!47, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11UInt32ValueEjEET_T0_"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_9BoolValueEbEET_T0_: %agg.result"}
+!50 = distinct !{!50, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_9BoolValueEbEET_T0_"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11StringValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_T0_: %agg.result"}
+!53 = distinct !{!53, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_11StringValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_T0_"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10BytesValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_T0_: %agg.result"}
+!56 = distinct !{!56, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10BytesValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_T0_"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10Int32ValueEiEET_T0_: %agg.result"}
+!59 = distinct !{!59, !"_ZN6google8protobuf4util12_GLOBAL__N_19WrapValueINS0_10Int32ValueEiEET_T0_"}

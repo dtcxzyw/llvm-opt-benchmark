@@ -5530,7 +5530,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %add = add i64 %2, %msg_size.057
   %inc = add nuw i64 %i.058, 1
   %exitcond.not = icmp eq i64 %inc, %count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %msg_size.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %add, %for.body ]
@@ -5539,26 +5539,26 @@ for.end:                                          ; preds = %for.body, %for.cond
   %env_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 176
   %4 = load ptr, ptr %env_.i.i, align 8
   %options_.i = getelementptr inbounds nuw i8, ptr %4, i64 1696
-  %5 = load ptr, ptr %options_.i, align 8, !noalias !9
+  %5 = load ptr, ptr %options_.i, align 8, !noalias !8
   %_M_refcount3.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 1704
-  %6 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !9
+  %6 = load ptr, ptr %_M_refcount3.i.i.i, align 8, !noalias !8
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4node11Environment7optionsEv.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.end
   %_M_use_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !9
+  %7 = load i8, ptr @__libc_single_threaded, align 1, !noalias !8
   %tobool.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %8 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !9
+  %8 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !8
   %add.i.i.i.i.i.i = add nsw i32 %8, 1
-  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !9
+  store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !8
   br label %if.then.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
-  %9 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !9
+  %9 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !8
   br label %if.then.i.i.i
 
 _ZN4node11Environment7optionsEv.exit:             ; preds = %for.end
@@ -5671,7 +5671,7 @@ while.body:                                       ; preds = %land.rhs
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %bufs_ptr.addr.161, i64 16
   %dec = add i64 %count.addr.160, -1
   %cmp14.not = icmp eq i64 %dec, 0
-  br i1 %cmp14.not, label %do.body33, label %land.rhs, !llvm.loop !12
+  br i1 %cmp14.not, label %do.body33, label %land.rhs, !llvm.loop !11
 
 do.body33:                                        ; preds = %while.body, %if.then12
   %cmp35.not = icmp eq i64 %msg_size.0.lcssa, %conv13
@@ -7911,11 +7911,10 @@ attributes #24 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN4node11Environment7optionsEv: %agg.result"}
-!11 = distinct !{!11, !"_ZN4node11Environment7optionsEv"}
-!12 = distinct !{!12, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN4node11Environment7optionsEv: %agg.result"}
+!10 = distinct !{!10, !"_ZN4node11Environment7optionsEv"}
+!11 = distinct !{!11, !6}

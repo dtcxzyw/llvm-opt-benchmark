@@ -392,7 +392,7 @@ define internal noundef i32 @_msg_socket_accept(ptr noundef captures(none) %0, p
     i32 4, label %12
     i32 11, label %.loopexit
     i32 103, label %.loopexit
-  ], !llvm.loop !14
+  ]
 
 19:                                               ; preds = %16
   %20 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25) #13
@@ -827,7 +827,7 @@ define dso_local void @wait_for_resumed(i16 noundef zeroext %0) local_unnamed_ad
 
 .thread6:                                         ; preds = %.thread, %10, %7
   %11 = add nuw nsw i32 %.0, 1
-  br label %3, !llvm.loop !15
+  br label %3, !llvm.loop !13
 }
 
 declare i32 @sleep(i32 noundef) local_unnamed_addr #3
@@ -1062,7 +1062,7 @@ define internal noalias noundef ptr @_handle_accept(ptr noundef %0) #0 {
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %58, %55
-  br label %.lr.ph, !llvm.loop !16
+  br label %.lr.ph, !llvm.loop !14
 
 .outer91._crit_edge:                              ; preds = %.split107.us
   %59 = load i32, ptr %4, align 4
@@ -1151,7 +1151,7 @@ define internal noalias noundef ptr @_handle_accept(ptr noundef %0) #0 {
   br label %.lr.ph152.split.backedge
 
 .lr.ph152.split.backedge:                         ; preds = %90, %87
-  br label %.lr.ph152.split, !llvm.loop !17
+  br label %.lr.ph152.split, !llvm.loop !15
 
 .preheader:                                       ; preds = %.split154.us, %_handle_request.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
@@ -1608,7 +1608,7 @@ _handle_request.exit.thread:                      ; preds = %97, %102, %99
 _handle_request.exit:                             ; preds = %271, %274
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #13
   %.not83 = icmp eq i32 %.0.i, 0
-  br i1 %.not83, label %.preheader, label %.loopexit, !llvm.loop !18
+  br i1 %.not83, label %.preheader, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_handle_request.exit, %_handle_request.exit.thread
   %275 = call i32 @close(i32 noundef %8) #13
@@ -1684,7 +1684,7 @@ _handle_request.exit:                             ; preds = %271, %274
   br label %.lr.ph135.split.backedge
 
 .lr.ph135.split.backedge:                         ; preds = %301, %298
-  br label %.lr.ph135.split, !llvm.loop !19
+  br label %.lr.ph135.split, !llvm.loop !17
 
 .thread:                                          ; preds = %.split137.us, %.split157.us, %83, %.split110.us, %51, %41, %36, %294, %.split140.us
   %302 = call i32 @close(i32 noundef %8) #13
@@ -1907,7 +1907,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %58, %55
-  br label %.lr.ph, !llvm.loop !20
+  br label %.lr.ph, !llvm.loop !18
 
 .split402:                                        ; preds = %.lr.ph390.split.split, %71
   %59 = tail call i32 @get_log_level() #13
@@ -1982,7 +1982,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br label %.lr.ph390.backedge
 
 .lr.ph390.backedge:                               ; preds = %84, %81
-  br label %.lr.ph390, !llvm.loop !21
+  br label %.lr.ph390, !llvm.loop !19
 
 .lr.ph390:                                        ; preds = %.split362.us, %.lr.ph390.backedge
   %.0209.ph421 = phi i64 [ %80, %.lr.ph390.backedge ], [ 4, %.split362.us ]
@@ -2103,7 +2103,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br label %.lr.ph424.backedge
 
 .lr.ph424.backedge:                               ; preds = %128, %125
-  br label %.lr.ph424, !llvm.loop !22
+  br label %.lr.ph424, !llvm.loop !20
 
 .lr.ph424:                                        ; preds = %.split395, %.lr.ph424.backedge
   %.0212.ph455 = phi i64 [ %124, %.lr.ph424.backedge ], [ 4, %.split395 ]
@@ -2283,7 +2283,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br label %.lr.ph458.backedge
 
 .lr.ph458.backedge:                               ; preds = %192, %189
-  br label %.lr.ph458, !llvm.loop !23
+  br label %.lr.ph458, !llvm.loop !21
 
 .split506:                                        ; preds = %.lr.ph493.split.split, %205
   %193 = tail call i32 @get_log_level() #13
@@ -2358,7 +2358,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br label %.lr.ph493.backedge
 
 .lr.ph493.backedge:                               ; preds = %218, %216
-  br label %.lr.ph493, !llvm.loop !24
+  br label %.lr.ph493, !llvm.loop !22
 
 .lr.ph493:                                        ; preds = %.lr.ph493.backedge, %.lr.ph493.preheader
   %.0214.ph525 = phi ptr [ %10, %.lr.ph493.preheader ], [ %213, %.lr.ph493.backedge ]
@@ -2511,7 +2511,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %289 = zext i32 %288 to i64
   %290 = icmp samesign ult i64 %indvars.iv.next, %289
-  br i1 %290, label %271, label %.loopexit312, !llvm.loop !25
+  br i1 %290, label %271, label %.loopexit312, !llvm.loop !23
 
 .loopexit312:                                     ; preds = %287, %267, %265
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -2715,7 +2715,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   %373 = load i32, ptr %363, align 4
   %374 = zext i32 %373 to i64
   %375 = icmp samesign ult i64 %indvars.iv.next695, %374
-  br i1 %375, label %367, label %._crit_edge533, !llvm.loop !26
+  br i1 %375, label %367, label %._crit_edge533, !llvm.loop !24
 
 376:                                              ; preds = %._crit_edge533
   %377 = tail call ptr @__errno_location() #14
@@ -2907,7 +2907,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br label %.lr.ph534.split.backedge
 
 .lr.ph534.split.backedge:                         ; preds = %457, %454
-  br label %.lr.ph534.split, !llvm.loop !27
+  br label %.lr.ph534.split, !llvm.loop !25
 
 458:                                              ; preds = %.lr.ph562, %460
   %459 = load i32, ptr %475, align 4
@@ -2949,7 +2949,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   br label %.lr.ph551.split.backedge
 
 .lr.ph551.split.backedge:                         ; preds = %472, %469
-  br label %.lr.ph551.split, !llvm.loop !28
+  br label %.lr.ph551.split, !llvm.loop !26
 
 .lr.ph551.split:                                  ; preds = %.split536.us, %.lr.ph551.split.backedge
   %.0201.ph566 = phi ptr [ %467, %.lr.ph551.split.backedge ], [ %5, %.split536.us ]
@@ -3036,7 +3036,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_state(i32 noundef %0, ptr n
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %21, %18
-  br label %.lr.ph.split, !llvm.loop !29
+  br label %.lr.ph.split, !llvm.loop !27
 
 .thread:                                          ; preds = %.split.us, %.split27.us, %14
   %22 = phi i32 [ -1, %14 ], [ -1, %.split27.us ], [ 0, %.split.us ]
@@ -3100,7 +3100,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_mem_limits(i32 noundef %0, 
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %21, %18
-  br label %.lr.ph.split, !llvm.loop !30
+  br label %.lr.ph.split, !llvm.loop !28
 
 .outer52._crit_edge:                              ; preds = %.split.us
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -3158,7 +3158,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_mem_limits(i32 noundef %0, 
   br label %.lr.ph71.split.backedge
 
 .lr.ph71.split.backedge:                          ; preds = %40, %37
-  br label %.lr.ph71.split, !llvm.loop !31
+  br label %.lr.ph71.split, !llvm.loop !29
 
 .thread:                                          ; preds = %.split73.us, %.split76.us, %33, %.split59.us, %14
   %.0 = phi i32 [ -1, %14 ], [ -1, %.split59.us ], [ -1, %33 ], [ -1, %.split76.us ], [ 0, %.split73.us ]
@@ -3222,7 +3222,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_uid(i32 noundef %0, ptr nou
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %21, %18
-  br label %.lr.ph.split, !llvm.loop !32
+  br label %.lr.ph.split, !llvm.loop !30
 
 .thread:                                          ; preds = %.split.us, %.split27.us, %14
   %22 = phi i32 [ -1, %14 ], [ -1, %.split27.us ], [ 0, %.split.us ]
@@ -3286,7 +3286,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_nodeid(i32 noundef %0, ptr 
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %21, %18
-  br label %.lr.ph.split, !llvm.loop !33
+  br label %.lr.ph.split, !llvm.loop !31
 
 .thread:                                          ; preds = %.split.us, %.split27.us, %14
   %22 = phi i32 [ -1, %14 ], [ -1, %.split27.us ], [ 0, %.split.us ]
@@ -3453,7 +3453,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %64, %61
-  br label %.lr.ph, !llvm.loop !34
+  br label %.lr.ph, !llvm.loop !32
 
 .outer405._crit_edge:                             ; preds = %.split471.us
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -3578,7 +3578,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.lr.ph499.backedge
 
 .lr.ph499.backedge:                               ; preds = %109, %106
-  br label %.lr.ph499, !llvm.loop !35
+  br label %.lr.ph499, !llvm.loop !33
 
 .split546:                                        ; preds = %.lr.ph533.split.split, %122
   %110 = tail call i32 @get_log_level() #13
@@ -3653,7 +3653,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.lr.ph533.backedge
 
 .lr.ph533.backedge:                               ; preds = %135, %132
-  br label %.lr.ph533, !llvm.loop !36
+  br label %.lr.ph533, !llvm.loop !34
 
 .lr.ph533:                                        ; preds = %.split504.us, %.lr.ph533.backedge
   %.0257.ph565 = phi i64 [ %131, %.lr.ph533.backedge ], [ 4, %.split504.us ]
@@ -3834,7 +3834,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.lr.ph568.backedge
 
 .lr.ph568.backedge:                               ; preds = %203, %200
-  br label %.lr.ph568, !llvm.loop !37
+  br label %.lr.ph568, !llvm.loop !35
 
 .outer401._crit_edge:                             ; preds = %.split574.us, %.outer403._crit_edge
   %204 = getelementptr inbounds nuw i8, ptr %158, i64 264
@@ -3959,7 +3959,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.lr.ph604.backedge
 
 .lr.ph604.backedge:                               ; preds = %248, %245
-  br label %.lr.ph604, !llvm.loop !38
+  br label %.lr.ph604, !llvm.loop !36
 
 .outer400._crit_edge:                             ; preds = %.split610.us
   %249 = getelementptr inbounds nuw i8, ptr %158, i64 268
@@ -4084,7 +4084,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.lr.ph639.backedge
 
 .lr.ph639.backedge:                               ; preds = %293, %290
-  br label %.lr.ph639, !llvm.loop !39
+  br label %.lr.ph639, !llvm.loop !37
 
 .outer399._crit_edge:                             ; preds = %.split645.us
   %294 = load i16, ptr %249, align 4
@@ -4191,7 +4191,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_attach(i32 noundef %0, ptr 
   br label %.lr.ph674.split.backedge
 
 .lr.ph674.split.backedge:                         ; preds = %336, %334
-  br label %.lr.ph674.split, !llvm.loop !40
+  br label %.lr.ph674.split, !llvm.loop !38
 
 .outer398._crit_edge:                             ; preds = %.split677.us
   %337 = icmp sgt i32 %333, 4
@@ -4265,7 +4265,7 @@ thread-pre-split:                                 ; preds = %.outer398._crit_edg
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %373 = zext i32 %372 to i64
   %374 = icmp samesign ult i64 %indvars.iv.next, %373
-  br i1 %374, label %.lr.ph693, label %.lr.ph694.split.preheader, !llvm.loop !41
+  br i1 %374, label %.lr.ph693, label %.lr.ph694.split.preheader, !llvm.loop !39
 
 .lr.ph694.split.preheader:                        ; preds = %371, %.preheader, %344
   br label %.lr.ph694.split
@@ -4322,7 +4322,7 @@ thread-pre-split:                                 ; preds = %.outer398._crit_edg
   br label %.lr.ph694.split.backedge
 
 .lr.ph694.split.backedge:                         ; preds = %392, %389
-  br label %.lr.ph694.split, !llvm.loop !42
+  br label %.lr.ph694.split, !llvm.loop !40
 
 .outer396._crit_edge:                             ; preds = %.split697.us
   %.not330727 = icmp eq i32 %347, 0
@@ -4384,7 +4384,7 @@ thread-pre-split:                                 ; preds = %.outer398._crit_edg
   br label %.lr.ph713.split.backedge
 
 .lr.ph713.split.backedge:                         ; preds = %411, %408
-  br label %.lr.ph713.split, !llvm.loop !43
+  br label %.lr.ph713.split, !llvm.loop !41
 
 .lr.ph733.preheader:                              ; preds = %.split716.us
   %412 = load ptr, ptr %6, align 8
@@ -4442,7 +4442,7 @@ thread-pre-split:                                 ; preds = %.outer398._crit_edg
   br label %.lr.ph733.split.backedge
 
 .lr.ph733.split.backedge:                         ; preds = %430, %427
-  br label %.lr.ph733.split, !llvm.loop !44
+  br label %.lr.ph733.split, !llvm.loop !42
 
 .outer394._crit_edge:                             ; preds = %.split736.us, %.outer396._crit_edge
   call void @slurm_xfree(ptr noundef nonnull %7) #13
@@ -4529,7 +4529,7 @@ thread-pre-split:                                 ; preds = %.outer398._crit_edg
   br label %.lr.ph753.split.backedge
 
 .lr.ph753.split.backedge:                         ; preds = %461, %458
-  br label %.lr.ph753.split, !llvm.loop !45
+  br label %.lr.ph753.split, !llvm.loop !43
 
 ._crit_edge754.split.us:                          ; preds = %.split756.us
   %.not346786 = icmp eq i32 %443, 0
@@ -4597,7 +4597,7 @@ thread-pre-split:                                 ; preds = %.outer398._crit_edg
   br label %.lr.ph772.split.backedge
 
 .lr.ph772.split.backedge:                         ; preds = %486, %483
-  br label %.lr.ph772.split, !llvm.loop !46
+  br label %.lr.ph772.split, !llvm.loop !44
 
 487:                                              ; preds = %436, %433, %.lr.ph813
   store i32 0, ptr %9, align 4
@@ -4655,14 +4655,14 @@ thread-pre-split:                                 ; preds = %.outer398._crit_edg
   br label %.lr.ph792.split.backedge
 
 .lr.ph792.split.backedge:                         ; preds = %505, %502
-  br label %.lr.ph792.split, !llvm.loop !47
+  br label %.lr.ph792.split, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.split774.us, %.split794.us, %._crit_edge754.split.us
   %indvars.iv.next991 = add nuw nsw i64 %indvars.iv990, 1
   %506 = load i32, ptr %345, align 4
   %507 = zext i32 %506 to i64
   %508 = icmp samesign ult i64 %indvars.iv.next991, %507
-  br i1 %508, label %.lr.ph813, label %.loopexit393, !llvm.loop !48
+  br i1 %508, label %.lr.ph813, label %.loopexit393, !llvm.loop !46
 
 .loopexit393:                                     ; preds = %.loopexit, %.outer394._crit_edge, %thread-pre-split
   %509 = load ptr, ptr %4, align 8
@@ -4835,7 +4835,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_pid_in_container(i32 nounde
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %52, %49
-  br label %.lr.ph, !llvm.loop !49
+  br label %.lr.ph, !llvm.loop !47
 
 .outer55._crit_edge:                              ; preds = %.split66.us
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 696
@@ -4898,7 +4898,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_pid_in_container(i32 nounde
   br label %.lr.ph94.split.backedge
 
 .lr.ph94.split.backedge:                          ; preds = %75, %73
-  br label %.lr.ph94.split, !llvm.loop !50
+  br label %.lr.ph94.split, !llvm.loop !48
 
 .outer._crit_edge:                                ; preds = %.split97.us
   %76 = icmp sgt i32 %72, 4
@@ -4972,7 +4972,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_daemon_pid(i32 noundef %0, 
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %21, %18
-  br label %.lr.ph.split, !llvm.loop !51
+  br label %.lr.ph.split, !llvm.loop !49
 
 .thread:                                          ; preds = %.split.us, %.split27.us, %14
   %22 = phi i32 [ -1, %14 ], [ -1, %.split27.us ], [ 0, %.split.us ]
@@ -5181,7 +5181,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_suspend(i32 noundef %0, ptr
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %85, %82
-  br label %.lr.ph.split, !llvm.loop !52
+  br label %.lr.ph.split, !llvm.loop !50
 
 86:                                               ; preds = %.lr.ph113, %88
   %87 = load i32, ptr %103, align 4
@@ -5223,7 +5223,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_suspend(i32 noundef %0, ptr
   br label %.lr.ph102.split.backedge
 
 .lr.ph102.split.backedge:                         ; preds = %100, %97
-  br label %.lr.ph102.split, !llvm.loop !53
+  br label %.lr.ph102.split, !llvm.loop !51
 
 .lr.ph102.split:                                  ; preds = %.split.us, %.lr.ph102.split.backedge
   %.047.ph117 = phi ptr [ %95, %.lr.ph102.split.backedge ], [ %5, %.split.us ]
@@ -5425,7 +5425,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_resume(i32 noundef %0, ptr 
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %72, %69
-  br label %.lr.ph.split, !llvm.loop !54
+  br label %.lr.ph.split, !llvm.loop !52
 
 73:                                               ; preds = %.lr.ph111, %75
   %74 = load i32, ptr %90, align 4
@@ -5467,7 +5467,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_resume(i32 noundef %0, ptr 
   br label %.lr.ph100.split.backedge
 
 .lr.ph100.split.backedge:                         ; preds = %87, %84
-  br label %.lr.ph100.split, !llvm.loop !55
+  br label %.lr.ph100.split, !llvm.loop !53
 
 .lr.ph100.split:                                  ; preds = %.split.us, %.lr.ph100.split.backedge
   %.045.ph115 = phi ptr [ %82, %.lr.ph100.split.backedge ], [ %5, %.split.us ]
@@ -5586,7 +5586,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_terminate(i32 noundef %0, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %31, label %._crit_edge, !llvm.loop !56
+  br i1 %50, label %31, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %47, %.preheader90
   %51 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @suspend_mutex) #13
@@ -5721,7 +5721,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_terminate(i32 noundef %0, p
   br label %.lr.ph97.split.backedge
 
 .lr.ph97.split.backedge:                          ; preds = %99, %96
-  br label %.lr.ph97.split, !llvm.loop !57
+  br label %.lr.ph97.split, !llvm.loop !55
 
 100:                                              ; preds = %.lr.ph122, %102
   %101 = load i32, ptr %117, align 4
@@ -5763,7 +5763,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_terminate(i32 noundef %0, p
   br label %.lr.ph111.split.backedge
 
 .lr.ph111.split.backedge:                         ; preds = %114, %111
-  br label %.lr.ph111.split, !llvm.loop !58
+  br label %.lr.ph111.split, !llvm.loop !56
 
 .lr.ph111.split:                                  ; preds = %.split.us, %.lr.ph111.split.backedge
   %.053.ph126 = phi ptr [ %109, %.lr.ph111.split.backedge ], [ %5, %.split.us ]
@@ -5906,7 +5906,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %53, %50
-  br label %.lr.ph.split, !llvm.loop !59
+  br label %.lr.ph.split, !llvm.loop !57
 
 54:                                               ; preds = %.lr.ph538, %56
   %55 = load i32, ptr %71, align 4
@@ -5948,7 +5948,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph527.split.backedge
 
 .lr.ph527.split.backedge:                         ; preds = %68, %65
-  br label %.lr.ph527.split, !llvm.loop !60
+  br label %.lr.ph527.split, !llvm.loop !58
 
 .lr.ph527.split:                                  ; preds = %.split.us, %.lr.ph527.split.backedge
   %.0256.ph542 = phi i64 [ %64, %.lr.ph527.split.backedge ], [ 4, %.split.us ]
@@ -6035,7 +6035,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph545.backedge
 
 .lr.ph545.backedge:                               ; preds = %97, %94
-  br label %.lr.ph545, !llvm.loop !61
+  br label %.lr.ph545, !llvm.loop !59
 
 .lr.ph545:                                        ; preds = %25, %.lr.ph545.backedge
   %.0258.ph575 = phi i64 [ %93, %.lr.ph545.backedge ], [ 4, %25 ]
@@ -6156,7 +6156,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph578.backedge
 
 .lr.ph578.backedge:                               ; preds = %141, %138
-  br label %.lr.ph578, !llvm.loop !62
+  br label %.lr.ph578, !llvm.loop !60
 
 .lr.ph578:                                        ; preds = %.split550, %.lr.ph578.backedge
   %.0260.ph609 = phi i64 [ %137, %.lr.ph578.backedge ], [ 4, %.split550 ]
@@ -6277,7 +6277,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph612.backedge
 
 .lr.ph612.backedge:                               ; preds = %185, %182
-  br label %.lr.ph612, !llvm.loop !63
+  br label %.lr.ph612, !llvm.loop !61
 
 .lr.ph612:                                        ; preds = %.split583, %.lr.ph612.backedge
   %.0262.ph643 = phi i64 [ %181, %.lr.ph612.backedge ], [ 4, %.split583 ]
@@ -6398,7 +6398,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph646.backedge
 
 .lr.ph646.backedge:                               ; preds = %229, %226
-  br label %.lr.ph646, !llvm.loop !64
+  br label %.lr.ph646, !llvm.loop !62
 
 .lr.ph646:                                        ; preds = %.split617, %.lr.ph646.backedge
   %.0268.ph677 = phi i64 [ %225, %.lr.ph646.backedge ], [ 4, %.split617 ]
@@ -6519,7 +6519,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph680.backedge
 
 .lr.ph680.backedge:                               ; preds = %273, %270
-  br label %.lr.ph680, !llvm.loop !65
+  br label %.lr.ph680, !llvm.loop !63
 
 .lr.ph680:                                        ; preds = %.split651, %.lr.ph680.backedge
   %.0270.ph711 = phi i64 [ %269, %.lr.ph680.backedge ], [ 1, %.split651 ]
@@ -6640,7 +6640,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph714.backedge
 
 .lr.ph714.backedge:                               ; preds = %317, %314
-  br label %.lr.ph714, !llvm.loop !66
+  br label %.lr.ph714, !llvm.loop !64
 
 .lr.ph714:                                        ; preds = %.split685, %.lr.ph714.backedge
   %.0272.ph745 = phi i64 [ %313, %.lr.ph714.backedge ], [ 4, %.split685 ]
@@ -6815,7 +6815,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph748.backedge
 
 .lr.ph748.backedge:                               ; preds = %382, %379
-  br label %.lr.ph748, !llvm.loop !67
+  br label %.lr.ph748, !llvm.loop !65
 
 .outer432._crit_edge:                             ; preds = %.split754.us, %.outer434._crit_edge
   %383 = tail call ptr @create_buf(ptr noundef %338, i32 noundef %336) #13
@@ -6941,7 +6941,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph821.split.backedge
 
 .lr.ph821.split.backedge:                         ; preds = %428, %425
-  br label %.lr.ph821.split, !llvm.loop !68
+  br label %.lr.ph821.split, !llvm.loop !66
 
 429:                                              ; preds = %.lr.ph851, %431
   %430 = load i32, ptr %446, align 4
@@ -6983,7 +6983,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph839.split.backedge
 
 .lr.ph839.split.backedge:                         ; preds = %443, %440
-  br label %.lr.ph839.split, !llvm.loop !69
+  br label %.lr.ph839.split, !llvm.loop !67
 
 .lr.ph839.split:                                  ; preds = %.split823.us, %.lr.ph839.split.backedge
   %.0263.ph855 = phi ptr [ %438, %.lr.ph839.split.backedge ], [ %5, %.split823.us ]
@@ -7161,7 +7161,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph784.split.backedge
 
 .lr.ph784.split.backedge:                         ; preds = %515, %512
-  br label %.lr.ph784.split, !llvm.loop !70
+  br label %.lr.ph784.split, !llvm.loop !68
 
 516:                                              ; preds = %.lr.ph814, %518
   %517 = load i32, ptr %533, align 4
@@ -7203,7 +7203,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_completion(i32 noundef %0, 
   br label %.lr.ph802.split.backedge
 
 .lr.ph802.split.backedge:                         ; preds = %530, %527
-  br label %.lr.ph802.split, !llvm.loop !71
+  br label %.lr.ph802.split, !llvm.loop !69
 
 .lr.ph802.split:                                  ; preds = %.split786.us, %.lr.ph802.split.backedge
   %.0251.ph818 = phi ptr [ %525, %.lr.ph802.split.backedge ], [ %5, %.split786.us ]
@@ -7369,7 +7369,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_task_info(i32 noundef %0, p
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %28, %25
-  br label %.lr.ph.split, !llvm.loop !72
+  br label %.lr.ph.split, !llvm.loop !70
 
 29:                                               ; preds = %.lr.ph298, %._crit_edge279.split.us
   %indvars.iv = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next, %._crit_edge279.split.us ]
@@ -7431,7 +7431,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_task_info(i32 noundef %0, p
   br label %.lr.ph203.split.backedge
 
 .lr.ph203.split.backedge:                         ; preds = %51, %48
-  br label %.lr.ph203.split, !llvm.loop !73
+  br label %.lr.ph203.split, !llvm.loop !71
 
 ._crit_edge.split.us:                             ; preds = %.split205.us
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 60
@@ -7489,7 +7489,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_task_info(i32 noundef %0, p
   br label %.lr.ph221.split.backedge
 
 .lr.ph221.split.backedge:                         ; preds = %70, %67
-  br label %.lr.ph221.split, !llvm.loop !74
+  br label %.lr.ph221.split, !llvm.loop !72
 
 ._crit_edge222.split.us:                          ; preds = %.split224.us
   %71 = getelementptr inbounds nuw i8, ptr %32, i64 64
@@ -7547,7 +7547,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_task_info(i32 noundef %0, p
   br label %.lr.ph240.split.backedge
 
 .lr.ph240.split.backedge:                         ; preds = %89, %86
-  br label %.lr.ph240.split, !llvm.loop !75
+  br label %.lr.ph240.split, !llvm.loop !73
 
 ._crit_edge241.split.us:                          ; preds = %.split243.us
   %90 = getelementptr inbounds nuw i8, ptr %32, i64 147
@@ -7605,7 +7605,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_task_info(i32 noundef %0, p
   br label %.lr.ph259.split.backedge
 
 .lr.ph259.split.backedge:                         ; preds = %108, %105
-  br label %.lr.ph259.split, !llvm.loop !76
+  br label %.lr.ph259.split, !llvm.loop !74
 
 ._crit_edge260.split.us:                          ; preds = %.split262.us
   %109 = getelementptr inbounds nuw i8, ptr %32, i64 148
@@ -7663,14 +7663,14 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_task_info(i32 noundef %0, p
   br label %.lr.ph278.split.backedge
 
 .lr.ph278.split.backedge:                         ; preds = %127, %124
-  br label %.lr.ph278.split, !llvm.loop !77
+  br label %.lr.ph278.split, !llvm.loop !75
 
 ._crit_edge279.split.us:                          ; preds = %.split281.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %128 = load i32, ptr %8, align 4
   %129 = zext i32 %128 to i64
   %130 = icmp samesign ult i64 %indvars.iv.next, %129
-  br i1 %130, label %29, label %.thread, !llvm.loop !78
+  br i1 %130, label %29, label %.thread, !llvm.loop !76
 
 .thread:                                          ; preds = %._crit_edge279.split.us, %.preheader, %120, %.split284.us, %101, %.split265.us, %82, %.split246.us, %63, %.split227.us, %44, %.split208.us, %.split191.us, %21
   %.0 = phi i32 [ -1, %21 ], [ -1, %.split191.us ], [ -1, %.split208.us ], [ -1, %44 ], [ -1, %.split227.us ], [ -1, %63 ], [ -1, %.split246.us ], [ -1, %82 ], [ -1, %.split265.us ], [ -1, %101 ], [ -1, %.split284.us ], [ -1, %120 ], [ 0, %.preheader ], [ 0, %._crit_edge279.split.us ]
@@ -7829,7 +7829,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_stat_jobacct(i32 noundef %0
   %75 = load i32, ptr %11, align 4
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %indvars.iv.next99, %76
-  br i1 %77, label %.lr.ph76, label %._crit_edge, !llvm.loop !79
+  br i1 %77, label %.lr.ph76, label %._crit_edge, !llvm.loop !77
 
 78:                                               ; preds = %.lr.ph, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
@@ -7856,7 +7856,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_stat_jobacct(i32 noundef %0
   %90 = load i32, ptr %48, align 4
   %91 = zext i32 %90 to i64
   %92 = icmp samesign ult i64 %indvars.iv.next, %91
-  br i1 %92, label %78, label %.loopexit, !llvm.loop !80
+  br i1 %92, label %78, label %.loopexit, !llvm.loop !78
 
 .loopexit:                                        ; preds = %88, %.preheader
   %.lcssa71 = phi i32 [ 0, %.preheader ], [ %89, %88 ]
@@ -7921,7 +7921,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_stat_jobacct(i32 noundef %0
   br label %.lr.ph77.split.backedge
 
 .lr.ph77.split.backedge:                          ; preds = %114, %111
-  br label %.lr.ph77.split, !llvm.loop !81
+  br label %.lr.ph77.split, !llvm.loop !79
 
 .outer._crit_edge:                                ; preds = %.split.us
   call void @jobacctinfo_destroy(ptr noundef %38) #13
@@ -8055,7 +8055,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_list_pids(i32 noundef %0, p
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %33, %30
-  br label %.lr.ph.split, !llvm.loop !82
+  br label %.lr.ph.split, !llvm.loop !80
 
 .lr.ph93:                                         ; preds = %.preheader, %._crit_edge.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split.us ], [ 0, %.preheader ]
@@ -8117,14 +8117,14 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_list_pids(i32 noundef %0, p
   br label %.lr.ph74.split.backedge
 
 .lr.ph74.split.backedge:                          ; preds = %54, %51
-  br label %.lr.ph74.split, !llvm.loop !83
+  br label %.lr.ph74.split, !llvm.loop !81
 
 ._crit_edge.split.us:                             ; preds = %.split76.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %4, align 4
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph93, label %._crit_edge, !llvm.loop !84
+  br i1 %57, label %.lr.ph93, label %._crit_edge, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %._crit_edge.split.us
   %58 = icmp sgt i32 %55, 0
@@ -8253,7 +8253,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %43, %40
-  br label %.lr.ph, !llvm.loop !85
+  br label %.lr.ph, !llvm.loop !83
 
 .lr.ph:                                           ; preds = %3, %.lr.ph.backedge
   %.076.ph176 = phi i64 [ %39, %.lr.ph.backedge ], [ 4, %3 ]
@@ -8429,7 +8429,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
   br label %.lr.ph179.backedge
 
 .lr.ph179.backedge:                               ; preds = %108, %105
-  br label %.lr.ph179, !llvm.loop !86
+  br label %.lr.ph179, !llvm.loop !84
 
 .outer128._crit_edge:                             ; preds = %.split185.us
   tail call void @unpack_stepd_reconf(ptr noundef %64) #13
@@ -8513,7 +8513,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
   br label %.lr.ph214.split.backedge
 
 .lr.ph214.split.backedge:                         ; preds = %137, %134
-  br label %.lr.ph214.split, !llvm.loop !87
+  br label %.lr.ph214.split, !llvm.loop !85
 
 138:                                              ; preds = %.lr.ph242, %140
   %139 = load i32, ptr %155, align 4
@@ -8555,7 +8555,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_reconfig(i32 noundef %0, pt
   br label %.lr.ph231.split.backedge
 
 .lr.ph231.split.backedge:                         ; preds = %152, %149
-  br label %.lr.ph231.split, !llvm.loop !88
+  br label %.lr.ph231.split, !llvm.loop !86
 
 .lr.ph231.split:                                  ; preds = %.split216.us, %.lr.ph231.split.backedge
   %.071.ph246 = phi ptr [ %147, %.lr.ph231.split.backedge ], [ %6, %.split216.us ]
@@ -8852,7 +8852,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %54, %51
-  br label %.lr.ph, !llvm.loop !89
+  br label %.lr.ph, !llvm.loop !87
 
 .outer93._crit_edge:                              ; preds = %.split111.us
   %55 = load i32, ptr %5, align 4
@@ -8983,7 +8983,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
   br label %.lr.ph139.backedge
 
 .lr.ph139.backedge:                               ; preds = %101, %98
-  br label %.lr.ph139, !llvm.loop !90
+  br label %.lr.ph139, !llvm.loop !88
 
 .loopexit:                                        ; preds = %.split144.us, %.outer93._crit_edge
   %102 = tail call i32 @get_log_level() #13
@@ -9083,7 +9083,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_notify_job(i32 noundef %0, 
   br label %.lr.ph173.split.backedge
 
 .lr.ph173.split.backedge:                         ; preds = %140, %137
-  br label %.lr.ph173.split, !llvm.loop !91
+  br label %.lr.ph173.split, !llvm.loop !89
 
 .outer._crit_edge:                                ; preds = %.split176.us, %32, %37, %47, %.split114.us, %79, %84, %94, %.split147.us, %133, %.split179.us
   %.0 = phi i32 [ -1, %.split179.us ], [ -1, %133 ], [ -1, %.split147.us ], [ -1, %94 ], [ -1, %84 ], [ -1, %79 ], [ -1, %.split114.us ], [ -1, %47 ], [ -1, %37 ], [ -1, %32 ], [ 0, %.split176.us ]
@@ -9221,7 +9221,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_add_extern_pid(i32 noundef 
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %49, %46
-  br label %.lr.ph, !llvm.loop !92
+  br label %.lr.ph, !llvm.loop !90
 
 .outer57._crit_edge:                              ; preds = %.split68.us
   %50 = icmp eq i32 %2, 0
@@ -9297,7 +9297,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_add_extern_pid(i32 noundef 
   br label %.lr.ph96.split.backedge
 
 .lr.ph96.split.backedge:                          ; preds = %78, %76
-  br label %.lr.ph96.split, !llvm.loop !93
+  br label %.lr.ph96.split, !llvm.loop !91
 
 .outer._crit_edge:                                ; preds = %.split99.us
   %79 = icmp sgt i32 %75, 4
@@ -9374,7 +9374,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_x11_display(i32 noundef %0,
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %22, %19
-  br label %.lr.ph.split, !llvm.loop !94
+  br label %.lr.ph.split, !llvm.loop !92
 
 .outer110._crit_edge:                             ; preds = %.split.us
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 880
@@ -9441,7 +9441,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_x11_display(i32 noundef %0,
   br label %.lr.ph135.split.backedge
 
 .lr.ph135.split.backedge:                         ; preds = %46, %43
-  br label %.lr.ph135.split, !llvm.loop !95
+  br label %.lr.ph135.split, !llvm.loop !93
 
 .outer109._crit_edge:                             ; preds = %.split138.us
   %.not87167 = icmp eq i32 %28, 0
@@ -9504,7 +9504,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_x11_display(i32 noundef %0,
   br label %.lr.ph154.split.backedge
 
 .lr.ph154.split.backedge:                         ; preds = %66, %63
-  br label %.lr.ph154.split, !llvm.loop !96
+  br label %.lr.ph154.split, !llvm.loop !94
 
 67:                                               ; preds = %.lr.ph184, %69
   %68 = load i32, ptr %84, align 4
@@ -9546,7 +9546,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_x11_display(i32 noundef %0,
   br label %.lr.ph173.split.backedge
 
 .lr.ph173.split.backedge:                         ; preds = %81, %78
-  br label %.lr.ph173.split, !llvm.loop !97
+  br label %.lr.ph173.split, !llvm.loop !95
 
 .lr.ph173.split:                                  ; preds = %.outer110._crit_edge, %.lr.ph173.split.backedge
   %.056.ph188 = phi ptr [ %76, %.lr.ph173.split.backedge ], [ %3, %.outer110._crit_edge ]
@@ -9712,7 +9712,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %52, %49
-  br label %.lr.ph, !llvm.loop !98
+  br label %.lr.ph, !llvm.loop !96
 
 .split586:                                        ; preds = %.lr.ph574.split.split, %65
   %53 = tail call i32 @get_log_level() #13
@@ -9787,7 +9787,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph574.backedge
 
 .lr.ph574.backedge:                               ; preds = %78, %75
-  br label %.lr.ph574, !llvm.loop !99
+  br label %.lr.ph574, !llvm.loop !97
 
 .lr.ph574:                                        ; preds = %.split546.us, %.lr.ph574.backedge
   %.0277.ph605 = phi i64 [ %74, %.lr.ph574.backedge ], [ 4, %.split546.us ]
@@ -9908,7 +9908,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph608.backedge
 
 .lr.ph608.backedge:                               ; preds = %122, %119
-  br label %.lr.ph608, !llvm.loop !100
+  br label %.lr.ph608, !llvm.loop !98
 
 .lr.ph608:                                        ; preds = %.split579, %.lr.ph608.backedge
   %.0283.ph639 = phi i64 [ %118, %.lr.ph608.backedge ], [ 4, %.split579 ]
@@ -10085,7 +10085,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph642.backedge
 
 .lr.ph642.backedge:                               ; preds = %187, %184
-  br label %.lr.ph642, !llvm.loop !101
+  br label %.lr.ph642, !llvm.loop !99
 
 .loopexit:                                        ; preds = %.split647.us, %.outer475._crit_edge
   %188 = phi ptr [ null, %.outer475._crit_edge ], [ %145, %.split647.us ]
@@ -10213,7 +10213,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph676.split.backedge
 
 .lr.ph676.split.backedge:                         ; preds = %238, %235
-  br label %.lr.ph676.split, !llvm.loop !102
+  br label %.lr.ph676.split, !llvm.loop !100
 
 .outer472._crit_edge:                             ; preds = %.split679.us
   %.not368 = icmp eq i32 %220, 0
@@ -10278,7 +10278,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph694.split.backedge
 
 .lr.ph694.split.backedge:                         ; preds = %260, %257
-  br label %.lr.ph694.split, !llvm.loop !103
+  br label %.lr.ph694.split, !llvm.loop !101
 
 .outer471._crit_edge:                             ; preds = %.split697.us
   %sext = shl i64 %241, 32
@@ -10342,7 +10342,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph713.split.backedge
 
 .lr.ph713.split.backedge:                         ; preds = %280, %277
-  br label %.lr.ph713.split, !llvm.loop !104
+  br label %.lr.ph713.split, !llvm.loop !102
 
 .outer470._crit_edge:                             ; preds = %.split716.us, %.outer471._crit_edge
   store i32 1, ptr %6, align 4
@@ -10400,7 +10400,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph733.split.backedge
 
 .lr.ph733.split.backedge:                         ; preds = %298, %295
-  br label %.lr.ph733.split, !llvm.loop !105
+  br label %.lr.ph733.split, !llvm.loop !103
 
 299:                                              ; preds = %.lr.ph762, %301
   %300 = load i32, ptr %316, align 4
@@ -10442,7 +10442,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph751.split.backedge
 
 .lr.ph751.split.backedge:                         ; preds = %313, %310
-  br label %.lr.ph751.split, !llvm.loop !106
+  br label %.lr.ph751.split, !llvm.loop !104
 
 .lr.ph751.split:                                  ; preds = %.split735.us, %.lr.ph751.split.backedge
   %.0287.ph766 = phi ptr [ %308, %.lr.ph751.split.backedge ], [ @.str.151, %.split735.us ]
@@ -10496,7 +10496,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph769.split.backedge
 
 .lr.ph769.split.backedge:                         ; preds = %331, %328
-  br label %.lr.ph769.split, !llvm.loop !107
+  br label %.lr.ph769.split, !llvm.loop !105
 
 .lr.ph769.split:                                  ; preds = %.split753, %.lr.ph769.split.backedge
   %.0284.ph785 = phi ptr [ %326, %.lr.ph769.split.backedge ], [ %193, %.split753 ]
@@ -10566,7 +10566,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph788.split.backedge
 
 .lr.ph788.split.backedge:                         ; preds = %353, %350
-  br label %.lr.ph788.split, !llvm.loop !108
+  br label %.lr.ph788.split, !llvm.loop !106
 
 .outer465._crit_edge:                             ; preds = %.split791.us
   %354 = getelementptr inbounds nuw i8, ptr %1, i64 392
@@ -10628,7 +10628,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph807.split.backedge
 
 .lr.ph807.split.backedge:                         ; preds = %375, %372
-  br label %.lr.ph807.split, !llvm.loop !109
+  br label %.lr.ph807.split, !llvm.loop !107
 
 .outer464._crit_edge:                             ; preds = %.split810.us
   %sext457 = shl i64 %356, 32
@@ -10692,7 +10692,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph826.split.backedge
 
 .lr.ph826.split.backedge:                         ; preds = %395, %392
-  br label %.lr.ph826.split, !llvm.loop !110
+  br label %.lr.ph826.split, !llvm.loop !108
 
 .outer463._crit_edge:                             ; preds = %.split829.us, %.outer464._crit_edge
   %396 = getelementptr inbounds nuw i8, ptr %1, i64 400
@@ -10754,7 +10754,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph846.split.backedge
 
 .lr.ph846.split.backedge:                         ; preds = %417, %414
-  br label %.lr.ph846.split, !llvm.loop !111
+  br label %.lr.ph846.split, !llvm.loop !109
 
 .outer462._crit_edge:                             ; preds = %.split849.us
   %sext458 = shl i64 %398, 32
@@ -10818,7 +10818,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph865.split.backedge
 
 .lr.ph865.split.backedge:                         ; preds = %437, %434
-  br label %.lr.ph865.split, !llvm.loop !112
+  br label %.lr.ph865.split, !llvm.loop !110
 
 .outer461._crit_edge:                             ; preds = %.split868.us, %.outer462._crit_edge
   %438 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -10880,7 +10880,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph885.split.backedge
 
 .lr.ph885.split.backedge:                         ; preds = %459, %456
-  br label %.lr.ph885.split, !llvm.loop !113
+  br label %.lr.ph885.split, !llvm.loop !111
 
 .outer460._crit_edge:                             ; preds = %.split888.us
   %sext459 = shl i64 %440, 32
@@ -10944,7 +10944,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getpw(i32 noundef %0, ptr n
   br label %.lr.ph904.split.backedge
 
 .lr.ph904.split.backedge:                         ; preds = %479, %476
-  br label %.lr.ph904.split, !llvm.loop !114
+  br label %.lr.ph904.split, !llvm.loop !112
 
 .outer._crit_edge:                                ; preds = %.split907.us, %.outer460._crit_edge
   %480 = tail call i32 @get_log_level() #13
@@ -11106,7 +11106,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %52, %49
-  br label %.lr.ph, !llvm.loop !115
+  br label %.lr.ph, !llvm.loop !113
 
 .split259:                                        ; preds = %.lr.ph247.split.split, %65
   %53 = tail call i32 @get_log_level() #13
@@ -11181,7 +11181,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   br label %.lr.ph247.backedge
 
 .lr.ph247.backedge:                               ; preds = %78, %75
-  br label %.lr.ph247, !llvm.loop !116
+  br label %.lr.ph247, !llvm.loop !114
 
 .lr.ph247:                                        ; preds = %.split219.us, %.lr.ph247.backedge
   %.0123.ph278 = phi ptr [ %73, %.lr.ph247.backedge ], [ %4, %.split219.us ]
@@ -11302,7 +11302,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   br label %.lr.ph281.backedge
 
 .lr.ph281.backedge:                               ; preds = %122, %119
-  br label %.lr.ph281, !llvm.loop !117
+  br label %.lr.ph281, !llvm.loop !115
 
 .lr.ph281:                                        ; preds = %.split252, %.lr.ph281.backedge
   %.0120.ph312 = phi ptr [ %117, %.lr.ph281.backedge ], [ %6, %.split252 ]
@@ -11479,7 +11479,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   br label %.lr.ph315.backedge
 
 .lr.ph315.backedge:                               ; preds = %187, %184
-  br label %.lr.ph315, !llvm.loop !118
+  br label %.lr.ph315, !llvm.loop !116
 
 .loopexit:                                        ; preds = %.split320.us, %.outer184._crit_edge
   %188 = phi ptr [ null, %.outer184._crit_edge ], [ %145, %.split320.us ]
@@ -11531,7 +11531,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   %211 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv.next
   %212 = load i32, ptr %211, align 4
   %213 = icmp eq i32 %205, %212
-  br i1 %213, label %._crit_edge351, label %.lr.ph617, !llvm.loop !119
+  br i1 %213, label %._crit_edge351, label %.lr.ph617, !llvm.loop !117
 
 .lr.ph617:                                        ; preds = %.lr.ph350, %209
   %indvars.iv616 = phi i64 [ %indvars.iv.next, %209 ], [ 0, %.lr.ph350 ]
@@ -11547,10 +11547,10 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv616, 1
   %219 = sext i32 %.pre.pre to i64
   %220 = icmp slt i64 %indvars.iv.next, %219
-  br i1 %220, label %209, label %.._crit_edge351_crit_edge, !llvm.loop !119
+  br i1 %220, label %209, label %.._crit_edge351_crit_edge, !llvm.loop !117
 
 .._crit_edge351_crit_edge:                        ; preds = %218
-  br label %._crit_edge351, !llvm.loop !119
+  br label %._crit_edge351, !llvm.loop !117
 
 ._crit_edge351:                                   ; preds = %.lr.ph617, %209, %.._crit_edge351_crit_edge, %.lr.ph350
   %.pre = phi i32 [ %.pre.pre, %.._crit_edge351_crit_edge ], [ %193, %.lr.ph350 ], [ %.pre.pre, %209 ], [ %.pre.pre, %.lr.ph617 ]
@@ -11630,7 +11630,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   br label %.lr.ph356.split.backedge
 
 .lr.ph356.split.backedge:                         ; preds = %243, %240
-  br label %.lr.ph356.split, !llvm.loop !120
+  br label %.lr.ph356.split, !llvm.loop !118
 
 .outer._crit_edge:                                ; preds = %.split359.us
   br i1 %.not160, label %259, label %244
@@ -11654,7 +11654,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
   %252 = add nuw nsw i32 %.0375, 1
   %253 = load i32, ptr %192, align 4
   %254 = icmp slt i32 %252, %253
-  br i1 %254, label %.lr.ph376, label %.thread179, !llvm.loop !121
+  br i1 %254, label %.lr.ph376, label %.thread179, !llvm.loop !119
 
 .lr.ph376:                                        ; preds = %.preheader, %251
   %.0375 = phi i32 [ %252, %251 ], [ 0, %.preheader ]
@@ -11760,7 +11760,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_get_ns_fd(i32 noundef %0, p
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %32, %29
-  br label %.lr.ph.split, !llvm.loop !122
+  br label %.lr.ph.split, !llvm.loop !120
 
 .outer._crit_edge:                                ; preds = %.split.us
   %33 = icmp sgt i32 %14, 0
@@ -11943,7 +11943,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %57, %54
-  br label %.lr.ph, !llvm.loop !123
+  br label %.lr.ph, !llvm.loop !121
 
 .split494:                                        ; preds = %.lr.ph482.split.split, %70
   %58 = tail call i32 @get_log_level() #13
@@ -12018,7 +12018,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph482.backedge
 
 .lr.ph482.backedge:                               ; preds = %83, %80
-  br label %.lr.ph482, !llvm.loop !124
+  br label %.lr.ph482, !llvm.loop !122
 
 .lr.ph482:                                        ; preds = %.split454.us, %.lr.ph482.backedge
   %.0217.ph513 = phi i64 [ %79, %.lr.ph482.backedge ], [ 4, %.split454.us ]
@@ -12195,7 +12195,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph516.backedge
 
 .lr.ph516.backedge:                               ; preds = %148, %145
-  br label %.lr.ph516, !llvm.loop !125
+  br label %.lr.ph516, !llvm.loop !123
 
 .loopexit395:                                     ; preds = %.split521.us, %.outer398._crit_edge
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 696
@@ -12368,7 +12368,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph550.split.backedge
 
 .lr.ph550.split.backedge:                         ; preds = %209, %206
-  br label %.lr.ph550.split, !llvm.loop !126
+  br label %.lr.ph550.split, !llvm.loop !124
 
 .outer394._crit_edge:                             ; preds = %.split553.us
   br i1 %.not300, label %408, label %210
@@ -12432,7 +12432,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph568.split.backedge
 
 .lr.ph568.split.backedge:                         ; preds = %231, %228
-  br label %.lr.ph568.split, !llvm.loop !127
+  br label %.lr.ph568.split, !llvm.loop !125
 
 .outer393._crit_edge:                             ; preds = %.split571.us
   %sext = shl i64 %212, 32
@@ -12496,7 +12496,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph587.split.backedge
 
 .lr.ph587.split.backedge:                         ; preds = %251, %248
-  br label %.lr.ph587.split, !llvm.loop !128
+  br label %.lr.ph587.split, !llvm.loop !126
 
 .outer392._crit_edge:                             ; preds = %.split590.us, %.outer393._crit_edge
   store i32 1, ptr %5, align 4
@@ -12554,7 +12554,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph607.split.backedge
 
 .lr.ph607.split.backedge:                         ; preds = %269, %266
-  br label %.lr.ph607.split, !llvm.loop !129
+  br label %.lr.ph607.split, !llvm.loop !127
 
 .outer391._crit_edge:                             ; preds = %.split610.us
   %270 = load ptr, ptr %7, align 8
@@ -12615,7 +12615,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph626.split.backedge
 
 .lr.ph626.split.backedge:                         ; preds = %290, %287
-  br label %.lr.ph626.split, !llvm.loop !130
+  br label %.lr.ph626.split, !llvm.loop !128
 
 .outer390._crit_edge:                             ; preds = %.split629.us
   %sext381 = shl i64 %271, 32
@@ -12682,7 +12682,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph645.split.backedge
 
 .lr.ph645.split.backedge:                         ; preds = %310, %307
-  br label %.lr.ph645.split, !llvm.loop !131
+  br label %.lr.ph645.split, !llvm.loop !129
 
 311:                                              ; preds = %.lr.ph676, %313
   %312 = load i32, ptr %328, align 4
@@ -12724,7 +12724,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph664.split.backedge
 
 .lr.ph664.split.backedge:                         ; preds = %325, %322
-  br label %.lr.ph664.split, !llvm.loop !132
+  br label %.lr.ph664.split, !llvm.loop !130
 
 .lr.ph664.split:                                  ; preds = %.lr.ph664.split.backedge, %.lr.ph664.split.preheader
   %.0215.ph680 = phi ptr [ %11, %.lr.ph664.split.preheader ], [ %320, %.lr.ph664.split.backedge ]
@@ -12801,7 +12801,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph719.split.backedge
 
 .lr.ph719.split.backedge:                         ; preds = %347, %344
-  br label %.lr.ph719.split, !llvm.loop !133
+  br label %.lr.ph719.split, !llvm.loop !131
 
 348:                                              ; preds = %.lr.ph748, %350
   %349 = load i32, ptr %365, align 4
@@ -12843,7 +12843,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph737.split.backedge
 
 .lr.ph737.split.backedge:                         ; preds = %362, %359
-  br label %.lr.ph737.split, !llvm.loop !134
+  br label %.lr.ph737.split, !llvm.loop !132
 
 .lr.ph737.split:                                  ; preds = %.split721.us, %.lr.ph737.split.backedge
   %.0209.ph752 = phi ptr [ %357, %.lr.ph737.split.backedge ], [ %10, %.split721.us ]
@@ -12913,7 +12913,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph683.split.backedge
 
 .lr.ph683.split.backedge:                         ; preds = %384, %381
-  br label %.lr.ph683.split, !llvm.loop !135
+  br label %.lr.ph683.split, !llvm.loop !133
 
 385:                                              ; preds = %.lr.ph712, %387
   %386 = load i32, ptr %402, align 4
@@ -12955,7 +12955,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_gethost(i32 noundef %0, ptr
   br label %.lr.ph701.split.backedge
 
 .lr.ph701.split.backedge:                         ; preds = %399, %396
-  br label %.lr.ph701.split, !llvm.loop !136
+  br label %.lr.ph701.split, !llvm.loop !134
 
 .lr.ph701.split:                                  ; preds = %.split685.us, %.lr.ph701.split.backedge
   %.0204.ph716 = phi ptr [ %394, %.lr.ph701.split.backedge ], [ %10, %.split685.us ]
@@ -13466,7 +13466,7 @@ define internal fastcc range(i32 0, 4028) i32 @_wait_for_job_running(ptr noundef
   %20 = load i32, ptr %5, align 8
   %21 = icmp ult i32 %20, 2
   %22 = and i1 %21, %12
-  br i1 %22, label %11, label %._crit_edge, !llvm.loop !137
+  br i1 %22, label %11, label %._crit_edge, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %19
   br i1 %21, label %23, label %._crit_edge.thread
@@ -13707,7 +13707,7 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %52, %49
-  br label %.lr.ph, !llvm.loop !138
+  br label %.lr.ph, !llvm.loop !136
 
 .outer121._crit_edge:                             ; preds = %.split141.us
   %53 = tail call i32 @receive_fd_over_socket(i32 noundef %0) #13
@@ -13832,7 +13832,7 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
   br label %.lr.ph169.backedge
 
 .lr.ph169.backedge:                               ; preds = %97, %94
-  br label %.lr.ph169, !llvm.loop !139
+  br label %.lr.ph169, !llvm.loop !137
 
 .outer120._crit_edge:                             ; preds = %.split175.us
   %98 = load i32, ptr %8, align 4
@@ -13961,7 +13961,7 @@ define internal fastcc i32 @_handle_stepmgr_relay_msg(i32 noundef %0, i32 nounde
   br label %.lr.ph204.backedge
 
 .lr.ph204.backedge:                               ; preds = %144, %141
-  br label %.lr.ph204, !llvm.loop !140
+  br label %.lr.ph204, !llvm.loop !138
 
 .outer._crit_edge:                                ; preds = %.split210.us, %.outer120._crit_edge
   tail call void @slurm_msg_t_init(ptr noundef nonnull %2) #13
@@ -14252,7 +14252,7 @@ define internal noalias noundef ptr @_wait_extern_pid(ptr noundef %0) #0 {
   %13 = call i32 @sleep(i32 noundef 1) #13
   %14 = call i32 @kill(i32 noundef %11, i32 noundef 0) #13
   %.not.i = icmp eq i32 %14, -1
-  br i1 %.not.i, label %_block_on_pid.exit, label %.lr.ph.i, !llvm.loop !141
+  br i1 %.not.i, label %_block_on_pid.exit, label %.lr.ph.i, !llvm.loop !139
 
 _block_on_pid.exit:                               ; preds = %.lr.ph.i, %1
   %15 = call ptr @jobacct_gather_remove_task(i32 noundef %11) #13
@@ -14348,7 +14348,7 @@ _block_on_pid.exit:                               ; preds = %.lr.ph.i, %1
   %67 = load i32, ptr %4, align 4
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !142
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !140
 
 ._crit_edge:                                      ; preds = %66, %21
   call void @slurm_xfree(ptr noundef nonnull %3) #13
@@ -14455,7 +14455,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef 
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %30, %27
-  br label %.lr.ph.split, !llvm.loop !143
+  br label %.lr.ph.split, !llvm.loop !141
 
 .outer210._crit_edge:                             ; preds = %.split.us
   %sext = shl i64 %11, 32
@@ -14521,7 +14521,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef 
   br label %.lr.ph244.split.backedge
 
 .lr.ph244.split.backedge:                         ; preds = %52, %49
-  br label %.lr.ph244.split, !llvm.loop !144
+  br label %.lr.ph244.split, !llvm.loop !142
 
 .outer209._crit_edge:                             ; preds = %.split247.us, %.outer210._crit_edge
   store i32 1, ptr %4, align 4
@@ -14579,7 +14579,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef 
   br label %.lr.ph264.split.backedge
 
 .lr.ph264.split.backedge:                         ; preds = %70, %67
-  br label %.lr.ph264.split, !llvm.loop !145
+  br label %.lr.ph264.split, !llvm.loop !143
 
 71:                                               ; preds = %.lr.ph294, %73
   %72 = load i32, ptr %88, align 4
@@ -14621,7 +14621,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef 
   br label %.lr.ph282.split.backedge
 
 .lr.ph282.split.backedge:                         ; preds = %85, %82
-  br label %.lr.ph282.split, !llvm.loop !146
+  br label %.lr.ph282.split, !llvm.loop !144
 
 .lr.ph282.split:                                  ; preds = %.split266.us, %.lr.ph282.split.backedge
   %.0110.ph298 = phi ptr [ %80, %.lr.ph282.split.backedge ], [ @.str.151, %.split266.us ]
@@ -14693,7 +14693,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef 
   br label %.lr.ph301.split.backedge
 
 .lr.ph301.split.backedge:                         ; preds = %109, %106
-  br label %.lr.ph301.split, !llvm.loop !147
+  br label %.lr.ph301.split, !llvm.loop !145
 
 .outer206._crit_edge:                             ; preds = %.split304.us
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 384
@@ -14755,7 +14755,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef 
   br label %.lr.ph320.split.backedge
 
 .lr.ph320.split.backedge:                         ; preds = %131, %128
-  br label %.lr.ph320.split, !llvm.loop !148
+  br label %.lr.ph320.split, !llvm.loop !146
 
 .outer205._crit_edge:                             ; preds = %.split323.us
   %sext204 = shl i64 %112, 32
@@ -14819,7 +14819,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef 
   br label %.lr.ph339.split.backedge
 
 .lr.ph339.split.backedge:                         ; preds = %151, %148
-  br label %.lr.ph339.split, !llvm.loop !149
+  br label %.lr.ph339.split, !llvm.loop !147
 
 .thread:                                          ; preds = %.split341.us, %.outer205._crit_edge, %.split344.us, %144, %.split326.us, %124, %.split307.us, %102, %.split288, %78, %.split269.us, %63, %.split250.us, %45, %.split232.us, %23, %3
   %.0 = phi i32 [ -1, %3 ], [ -1, %23 ], [ -1, %.split232.us ], [ -1, %45 ], [ -1, %.split250.us ], [ -1, %63 ], [ -1, %.split269.us ], [ -1, %78 ], [ -1, %.split288 ], [ -1, %102 ], [ -1, %.split307.us ], [ -1, %124 ], [ -1, %.split326.us ], [ -1, %144 ], [ -1, %.split344.us ], [ 0, %.outer205._crit_edge ], [ 0, %.split341.us ]
@@ -14916,143 +14916,141 @@ attributes #16 = { nounwind willreturn memory(read) }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !12, !13}
-!16 = distinct !{!16, !11, !12, !13}
-!17 = distinct !{!17, !11, !12, !13}
-!18 = distinct !{!18, !12, !13}
-!19 = distinct !{!19, !11, !12, !13}
-!20 = distinct !{!20, !11, !12, !13}
-!21 = distinct !{!21, !11, !12, !13}
-!22 = distinct !{!22, !11, !12, !13}
-!23 = distinct !{!23, !11, !12, !13}
-!24 = distinct !{!24, !11, !12, !13}
-!25 = distinct !{!25, !11, !12, !13}
-!26 = distinct !{!26, !11, !12, !13}
-!27 = distinct !{!27, !11, !12, !13}
-!28 = distinct !{!28, !11, !12, !13}
-!29 = distinct !{!29, !11, !12, !13}
-!30 = distinct !{!30, !11, !12, !13}
-!31 = distinct !{!31, !11, !12, !13}
-!32 = distinct !{!32, !11, !12, !13}
-!33 = distinct !{!33, !11, !12, !13}
-!34 = distinct !{!34, !11, !12, !13}
-!35 = distinct !{!35, !11, !12, !13}
-!36 = distinct !{!36, !11, !12, !13}
-!37 = distinct !{!37, !11, !12, !13}
-!38 = distinct !{!38, !11, !12, !13}
-!39 = distinct !{!39, !11, !12, !13}
-!40 = distinct !{!40, !11, !12, !13}
-!41 = distinct !{!41, !11, !12, !13}
-!42 = distinct !{!42, !11, !12, !13}
-!43 = distinct !{!43, !11, !12, !13}
-!44 = distinct !{!44, !11, !12, !13}
-!45 = distinct !{!45, !11, !12, !13}
-!46 = distinct !{!46, !11, !12, !13}
-!47 = distinct !{!47, !11, !12, !13}
-!48 = distinct !{!48, !11, !12, !13}
-!49 = distinct !{!49, !11, !12, !13}
-!50 = distinct !{!50, !11, !12, !13}
-!51 = distinct !{!51, !11, !12, !13}
-!52 = distinct !{!52, !11, !12, !13}
-!53 = distinct !{!53, !11, !12, !13}
-!54 = distinct !{!54, !11, !12, !13}
-!55 = distinct !{!55, !11, !12, !13}
-!56 = distinct !{!56, !11, !12, !13}
-!57 = distinct !{!57, !11, !12, !13}
-!58 = distinct !{!58, !11, !12, !13}
-!59 = distinct !{!59, !11, !12, !13}
-!60 = distinct !{!60, !11, !12, !13}
-!61 = distinct !{!61, !11, !12, !13}
-!62 = distinct !{!62, !11, !12, !13}
-!63 = distinct !{!63, !11, !12, !13}
-!64 = distinct !{!64, !11, !12, !13}
-!65 = distinct !{!65, !11, !12, !13}
-!66 = distinct !{!66, !11, !12, !13}
-!67 = distinct !{!67, !11, !12, !13}
-!68 = distinct !{!68, !11, !12, !13}
-!69 = distinct !{!69, !11, !12, !13}
-!70 = distinct !{!70, !11, !12, !13}
-!71 = distinct !{!71, !11, !12, !13}
-!72 = distinct !{!72, !11, !12, !13}
-!73 = distinct !{!73, !11, !12, !13}
-!74 = distinct !{!74, !11, !12, !13}
-!75 = distinct !{!75, !11, !12, !13}
-!76 = distinct !{!76, !11, !12, !13}
-!77 = distinct !{!77, !11, !12, !13}
-!78 = distinct !{!78, !11, !12, !13}
-!79 = distinct !{!79, !11, !12, !13}
-!80 = distinct !{!80, !11, !12, !13}
-!81 = distinct !{!81, !11, !12, !13}
-!82 = distinct !{!82, !11, !12, !13}
-!83 = distinct !{!83, !11, !12, !13}
-!84 = distinct !{!84, !11, !12, !13}
-!85 = distinct !{!85, !11, !12, !13}
-!86 = distinct !{!86, !11, !12, !13}
-!87 = distinct !{!87, !11, !12, !13}
-!88 = distinct !{!88, !11, !12, !13}
-!89 = distinct !{!89, !11, !12, !13}
-!90 = distinct !{!90, !11, !12, !13}
-!91 = distinct !{!91, !11, !12, !13}
-!92 = distinct !{!92, !11, !12, !13}
-!93 = distinct !{!93, !11, !12, !13}
-!94 = distinct !{!94, !11, !12, !13}
-!95 = distinct !{!95, !11, !12, !13}
-!96 = distinct !{!96, !11, !12, !13}
-!97 = distinct !{!97, !11, !12, !13}
-!98 = distinct !{!98, !11, !12, !13}
-!99 = distinct !{!99, !11, !12, !13}
-!100 = distinct !{!100, !11, !12, !13}
-!101 = distinct !{!101, !11, !12, !13}
-!102 = distinct !{!102, !11, !12, !13}
-!103 = distinct !{!103, !11, !12, !13}
-!104 = distinct !{!104, !11, !12, !13}
-!105 = distinct !{!105, !11, !12, !13}
-!106 = distinct !{!106, !11, !12, !13}
-!107 = distinct !{!107, !11, !12, !13}
-!108 = distinct !{!108, !11, !12, !13}
-!109 = distinct !{!109, !11, !12, !13}
-!110 = distinct !{!110, !11, !12, !13}
-!111 = distinct !{!111, !11, !12, !13}
-!112 = distinct !{!112, !11, !12, !13}
-!113 = distinct !{!113, !11, !12, !13}
-!114 = distinct !{!114, !11, !12, !13}
-!115 = distinct !{!115, !11, !12, !13}
-!116 = distinct !{!116, !11, !12, !13}
-!117 = distinct !{!117, !11, !12, !13}
-!118 = distinct !{!118, !11, !12, !13}
-!119 = distinct !{!119, !11, !12, !13}
-!120 = distinct !{!120, !11, !12, !13}
-!121 = distinct !{!121, !11, !12, !13}
-!122 = distinct !{!122, !11, !12, !13}
-!123 = distinct !{!123, !11, !12, !13}
-!124 = distinct !{!124, !11, !12, !13}
-!125 = distinct !{!125, !11, !12, !13}
-!126 = distinct !{!126, !11, !12, !13}
-!127 = distinct !{!127, !11, !12, !13}
-!128 = distinct !{!128, !11, !12, !13}
-!129 = distinct !{!129, !11, !12, !13}
-!130 = distinct !{!130, !11, !12, !13}
-!131 = distinct !{!131, !11, !12, !13}
-!132 = distinct !{!132, !11, !12, !13}
-!133 = distinct !{!133, !11, !12, !13}
-!134 = distinct !{!134, !11, !12, !13}
-!135 = distinct !{!135, !11, !12, !13}
-!136 = distinct !{!136, !11, !12, !13}
-!137 = distinct !{!137, !11, !12, !13}
-!138 = distinct !{!138, !11, !12, !13}
-!139 = distinct !{!139, !11, !12, !13}
-!140 = distinct !{!140, !11, !12, !13}
-!141 = distinct !{!141, !11, !12, !13}
-!142 = distinct !{!142, !11, !12, !13}
-!143 = distinct !{!143, !11, !12, !13}
-!144 = distinct !{!144, !11, !12, !13}
-!145 = distinct !{!145, !11, !12, !13}
-!146 = distinct !{!146, !11, !12, !13}
-!147 = distinct !{!147, !11, !12, !13}
-!148 = distinct !{!148, !11, !12, !13}
-!149 = distinct !{!149, !11, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}
+!23 = distinct !{!23, !11, !12}
+!24 = distinct !{!24, !11, !12}
+!25 = distinct !{!25, !11, !12}
+!26 = distinct !{!26, !11, !12}
+!27 = distinct !{!27, !11, !12}
+!28 = distinct !{!28, !11, !12}
+!29 = distinct !{!29, !11, !12}
+!30 = distinct !{!30, !11, !12}
+!31 = distinct !{!31, !11, !12}
+!32 = distinct !{!32, !11, !12}
+!33 = distinct !{!33, !11, !12}
+!34 = distinct !{!34, !11, !12}
+!35 = distinct !{!35, !11, !12}
+!36 = distinct !{!36, !11, !12}
+!37 = distinct !{!37, !11, !12}
+!38 = distinct !{!38, !11, !12}
+!39 = distinct !{!39, !11, !12}
+!40 = distinct !{!40, !11, !12}
+!41 = distinct !{!41, !11, !12}
+!42 = distinct !{!42, !11, !12}
+!43 = distinct !{!43, !11, !12}
+!44 = distinct !{!44, !11, !12}
+!45 = distinct !{!45, !11, !12}
+!46 = distinct !{!46, !11, !12}
+!47 = distinct !{!47, !11, !12}
+!48 = distinct !{!48, !11, !12}
+!49 = distinct !{!49, !11, !12}
+!50 = distinct !{!50, !11, !12}
+!51 = distinct !{!51, !11, !12}
+!52 = distinct !{!52, !11, !12}
+!53 = distinct !{!53, !11, !12}
+!54 = distinct !{!54, !11, !12}
+!55 = distinct !{!55, !11, !12}
+!56 = distinct !{!56, !11, !12}
+!57 = distinct !{!57, !11, !12}
+!58 = distinct !{!58, !11, !12}
+!59 = distinct !{!59, !11, !12}
+!60 = distinct !{!60, !11, !12}
+!61 = distinct !{!61, !11, !12}
+!62 = distinct !{!62, !11, !12}
+!63 = distinct !{!63, !11, !12}
+!64 = distinct !{!64, !11, !12}
+!65 = distinct !{!65, !11, !12}
+!66 = distinct !{!66, !11, !12}
+!67 = distinct !{!67, !11, !12}
+!68 = distinct !{!68, !11, !12}
+!69 = distinct !{!69, !11, !12}
+!70 = distinct !{!70, !11, !12}
+!71 = distinct !{!71, !11, !12}
+!72 = distinct !{!72, !11, !12}
+!73 = distinct !{!73, !11, !12}
+!74 = distinct !{!74, !11, !12}
+!75 = distinct !{!75, !11, !12}
+!76 = distinct !{!76, !11, !12}
+!77 = distinct !{!77, !11, !12}
+!78 = distinct !{!78, !11, !12}
+!79 = distinct !{!79, !11, !12}
+!80 = distinct !{!80, !11, !12}
+!81 = distinct !{!81, !11, !12}
+!82 = distinct !{!82, !11, !12}
+!83 = distinct !{!83, !11, !12}
+!84 = distinct !{!84, !11, !12}
+!85 = distinct !{!85, !11, !12}
+!86 = distinct !{!86, !11, !12}
+!87 = distinct !{!87, !11, !12}
+!88 = distinct !{!88, !11, !12}
+!89 = distinct !{!89, !11, !12}
+!90 = distinct !{!90, !11, !12}
+!91 = distinct !{!91, !11, !12}
+!92 = distinct !{!92, !11, !12}
+!93 = distinct !{!93, !11, !12}
+!94 = distinct !{!94, !11, !12}
+!95 = distinct !{!95, !11, !12}
+!96 = distinct !{!96, !11, !12}
+!97 = distinct !{!97, !11, !12}
+!98 = distinct !{!98, !11, !12}
+!99 = distinct !{!99, !11, !12}
+!100 = distinct !{!100, !11, !12}
+!101 = distinct !{!101, !11, !12}
+!102 = distinct !{!102, !11, !12}
+!103 = distinct !{!103, !11, !12}
+!104 = distinct !{!104, !11, !12}
+!105 = distinct !{!105, !11, !12}
+!106 = distinct !{!106, !11, !12}
+!107 = distinct !{!107, !11, !12}
+!108 = distinct !{!108, !11, !12}
+!109 = distinct !{!109, !11, !12}
+!110 = distinct !{!110, !11, !12}
+!111 = distinct !{!111, !11, !12}
+!112 = distinct !{!112, !11, !12}
+!113 = distinct !{!113, !11, !12}
+!114 = distinct !{!114, !11, !12}
+!115 = distinct !{!115, !11, !12}
+!116 = distinct !{!116, !11, !12}
+!117 = distinct !{!117, !11, !12}
+!118 = distinct !{!118, !11, !12}
+!119 = distinct !{!119, !11, !12}
+!120 = distinct !{!120, !11, !12}
+!121 = distinct !{!121, !11, !12}
+!122 = distinct !{!122, !11, !12}
+!123 = distinct !{!123, !11, !12}
+!124 = distinct !{!124, !11, !12}
+!125 = distinct !{!125, !11, !12}
+!126 = distinct !{!126, !11, !12}
+!127 = distinct !{!127, !11, !12}
+!128 = distinct !{!128, !11, !12}
+!129 = distinct !{!129, !11, !12}
+!130 = distinct !{!130, !11, !12}
+!131 = distinct !{!131, !11, !12}
+!132 = distinct !{!132, !11, !12}
+!133 = distinct !{!133, !11, !12}
+!134 = distinct !{!134, !11, !12}
+!135 = distinct !{!135, !11, !12}
+!136 = distinct !{!136, !11, !12}
+!137 = distinct !{!137, !11, !12}
+!138 = distinct !{!138, !11, !12}
+!139 = distinct !{!139, !11, !12}
+!140 = distinct !{!140, !11, !12}
+!141 = distinct !{!141, !11, !12}
+!142 = distinct !{!142, !11, !12}
+!143 = distinct !{!143, !11, !12}
+!144 = distinct !{!144, !11, !12}
+!145 = distinct !{!145, !11, !12}
+!146 = distinct !{!146, !11, !12}
+!147 = distinct !{!147, !11, !12}

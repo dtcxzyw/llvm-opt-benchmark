@@ -452,7 +452,7 @@ _ZN2cveqIdEEbRKNS_7Scalar_IT_EES5_.exit.thread:   ; preds = %93, %107
   %201 = sub i64 %199, %200
   %202 = sdiv exact i64 %201, 68
   %203 = icmp ult i64 %196, %202
-  br i1 %203, label %182, label %.loopexit, !llvm.loop !73
+  br i1 %203, label %182, label %.loopexit, !llvm.loop !72
 
 204:                                              ; preds = %182
   %205 = landingpad { ptr, i32 }
@@ -462,8 +462,8 @@ _ZN2cveqIdEEbRKNS_7Scalar_IT_EES5_.exit.thread:   ; preds = %93, %107
 
 .loopexit:                                        ; preds = %195, %.preheader, %141
   %206 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %207 = load ptr, ptr %206, align 8, !tbaa !74
-  %208 = load ptr, ptr %4, align 8, !tbaa !77
+  %207 = load ptr, ptr %206, align 8, !tbaa !73
+  %208 = load ptr, ptr %4, align 8, !tbaa !76
   %.not258 = icmp eq ptr %207, %208
   br i1 %.not258, label %._crit_edge, label %.lr.ph255
 
@@ -495,7 +495,7 @@ _ZN2cveqIdEEbRKNS_7Scalar_IT_EES5_.exit.thread:   ; preds = %93, %107
   %223 = phi ptr [ %208, %.lr.ph255 ], [ %292, %291 ]
   %224 = phi ptr [ %207, %.lr.ph255 ], [ %293, %291 ]
   %.0120254 = phi i64 [ 0, %.lr.ph255 ], [ %294, %291 ]
-  %225 = load ptr, ptr %8, align 8, !tbaa !78
+  %225 = load ptr, ptr %8, align 8, !tbaa !77
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 %.0120254
   %227 = load i8, ptr %226, align 1, !tbaa !40
   %.not130 = icmp eq i8 %227, 0
@@ -503,9 +503,9 @@ _ZN2cveqIdEEbRKNS_7Scalar_IT_EES5_.exit.thread:   ; preds = %93, %107
 
 228:                                              ; preds = %222
   %229 = getelementptr inbounds nuw %"class.cv::DMatch", ptr %223, i64 %.0120254
-  %.sroa.019.0.copyload = load i32, ptr %229, align 4, !tbaa !80
+  %.sroa.019.0.copyload = load i32, ptr %229, align 4, !tbaa !79
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %229, i64 4
-  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !80
+  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !79
   %230 = sext i32 %.sroa.019.0.copyload to i64
   %231 = load ptr, ptr %1, align 8, !tbaa !67
   %232 = getelementptr inbounds nuw %"struct.cv::line_descriptor::KeyLine", ptr %231, i64 %230
@@ -647,8 +647,8 @@ _ZN2cveqIdEEbRKNS_7Scalar_IT_EES5_.exit166.thread: ; preds = %244, %_ZN2cveqIdEE
 283:                                              ; preds = %282
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #15
-  %.pre = load ptr, ptr %206, align 8, !tbaa !74
-  %.pre262 = load ptr, ptr %4, align 8, !tbaa !77
+  %.pre = load ptr, ptr %206, align 8, !tbaa !73
+  %.pre262 = load ptr, ptr %4, align 8, !tbaa !76
   br label %291
 
 284:                                              ; preds = %_ZN2cveqIdEEbRKNS_7Scalar_IT_EES5_.exit166.thread
@@ -683,7 +683,7 @@ _ZN2cveqIdEEbRKNS_7Scalar_IT_EES5_.exit166.thread: ; preds = %244, %_ZN2cveqIdEE
   %297 = sub i64 %295, %296
   %298 = ashr exact i64 %297, 4
   %299 = icmp ult i64 %294, %298
-  br i1 %299, label %222, label %._crit_edge, !llvm.loop !81
+  br i1 %299, label %222, label %._crit_edge, !llvm.loop !80
 
 300:                                              ; preds = %180, %204, %290, %158, %156
   %.pn146.pn.pn.pn = phi { ptr, i32 } [ %159, %158 ], [ %157, %156 ], [ %181, %180 ], [ %205, %204 ], [ %.pn139.pn.pn, %290 ]
@@ -879,7 +879,7 @@ _ZN2cveqIdEEbRKNS_7Scalar_IT_EES5_.exit.thread:   ; preds = %27
   %63 = sub i64 %61, %62
   %64 = sdiv exact i64 %63, 68
   %65 = icmp ult i64 %58, %64
-  br i1 %65, label %27, label %._crit_edge, !llvm.loop !82
+  br i1 %65, label %27, label %._crit_edge, !llvm.loop !81
 }
 
 declare void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
@@ -1009,16 +1009,15 @@ attributes #16 = { builtin nounwind }
 !67 = !{!65, !66, i64 0}
 !68 = !{!69, !69, i64 0}
 !69 = !{!"float", !6, i64 0}
-!70 = distinct !{!70, !71, !72}
+!70 = distinct !{!70, !71}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!"llvm.loop.estimated_trip_count"}
-!73 = distinct !{!73, !71, !72}
-!74 = !{!75, !76, i64 8}
-!75 = !{!"_ZTSNSt12_Vector_baseIN2cv6DMatchESaIS1_EE17_Vector_impl_dataE", !76, i64 0, !76, i64 8, !76, i64 16}
-!76 = !{!"p1 _ZTSN2cv6DMatchE", !9, i64 0}
-!77 = !{!75, !76, i64 0}
-!78 = !{!79, !8, i64 0}
-!79 = !{!"_ZTSNSt12_Vector_baseIcSaIcEE17_Vector_impl_dataE", !8, i64 0, !8, i64 8, !8, i64 16}
-!80 = !{!5, !5, i64 0}
-!81 = distinct !{!81, !71, !72}
-!82 = distinct !{!82, !71, !72}
+!72 = distinct !{!72, !71}
+!73 = !{!74, !75, i64 8}
+!74 = !{!"_ZTSNSt12_Vector_baseIN2cv6DMatchESaIS1_EE17_Vector_impl_dataE", !75, i64 0, !75, i64 8, !75, i64 16}
+!75 = !{!"p1 _ZTSN2cv6DMatchE", !9, i64 0}
+!76 = !{!74, !75, i64 0}
+!77 = !{!78, !8, i64 0}
+!78 = !{!"_ZTSNSt12_Vector_baseIcSaIcEE17_Vector_impl_dataE", !8, i64 0, !8, i64 8, !8, i64 16}
+!79 = !{!5, !5, i64 0}
+!80 = distinct !{!80, !71}
+!81 = distinct !{!81, !71}

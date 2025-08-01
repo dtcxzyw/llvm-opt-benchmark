@@ -105,7 +105,7 @@ define internal ptr @euctw_left_adjust_char_head(ptr noundef readnone captures(a
   br i1 %7, label %.preheader, label %9, !llvm.loop !9
 
 9:                                                ; preds = %.preheader
-  %10 = load ptr, ptr @OnigEncodingEUC_TW, align 8, !tbaa !12
+  %10 = load ptr, ptr @OnigEncodingEUC_TW, align 8, !tbaa !11
   %11 = tail call i32 %10(ptr noundef nonnull %.018) #5
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %.018, i64 %12
@@ -204,7 +204,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   %.sink = phi i64 [ 1, %.lr.ph ], [ 4, %22 ], [ 2, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %.02947, i64 %.sink
   %33 = icmp ult ptr %32, %1
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %10, %12, %15, %17, %20, %22, %8, %26, %28, %25, %31, %2
   %.0 = phi i32 [ 1, %2 ], [ 1, %31 ], [ 0, %25 ], [ 0, %28 ], [ 0, %26 ], [ 0, %8 ], [ 0, %22 ], [ 0, %20 ], [ 0, %17 ], [ 0, %15 ], [ 0, %12 ], [ 0, %10 ]
@@ -237,11 +237,10 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"OnigEncodingTypeST", !14, i64 0, !15, i64 8, !8, i64 16, !8, i64 20, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !14, i64 104, !14, i64 112, !14, i64 120, !14, i64 128, !14, i64 136, !8, i64 144, !8, i64 148, !8, i64 152}
-!14 = !{!"any pointer", !5, i64 0}
-!15 = !{!"p1 omnipotent char", !14, i64 0}
-!16 = distinct !{!16, !10, !11}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"OnigEncodingTypeST", !13, i64 0, !14, i64 8, !8, i64 16, !8, i64 20, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !8, i64 144, !8, i64 148, !8, i64 152}
+!13 = !{!"any pointer", !5, i64 0}
+!14 = !{!"p1 omnipotent char", !13, i64 0}
+!15 = distinct !{!15, !10}

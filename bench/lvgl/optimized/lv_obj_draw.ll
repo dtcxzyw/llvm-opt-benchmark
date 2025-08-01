@@ -867,27 +867,27 @@ define void @lv_obj_refresh_ext_draw_size(ptr noundef %0) local_unnamed_addr #0 
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !83
+  br label %.preheader
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !85
+  %5 = load ptr, ptr %4, align 8, !tbaa !83
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %lv_obj_get_ext_draw_size.exit, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  %8 = load i32, ptr %7, align 4, !tbaa !90
+  %8 = load i32, ptr %7, align 4, !tbaa !88
   br label %lv_obj_get_ext_draw_size.exit
 
 lv_obj_get_ext_draw_size.exit:                    ; preds = %3, %6
   %.0.i = phi i32 [ %8, %6 ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  store i32 0, ptr %2, align 4, !tbaa !96
+  store i32 0, ptr %2, align 4, !tbaa !94
   %9 = call i32 @lv_obj_send_event(ptr noundef nonnull %0, i32 noundef 27, ptr noundef nonnull %2) #5
-  %10 = load ptr, ptr %4, align 8, !tbaa !85
+  %10 = load ptr, ptr %4, align 8, !tbaa !83
   %.not9 = icmp eq ptr %10, null
-  %11 = load i32, ptr %2, align 4, !tbaa !96
+  %11 = load i32, ptr %2, align 4, !tbaa !94
   br i1 %.not9, label %12, label %.sink.split
 
 12:                                               ; preds = %lv_obj_get_ext_draw_size.exit
@@ -896,15 +896,15 @@ lv_obj_get_ext_draw_size.exit:                    ; preds = %3, %6
 
 13:                                               ; preds = %12
   call void @lv_obj_allocate_spec_attr(ptr noundef nonnull %0) #5
-  %14 = load i32, ptr %2, align 4, !tbaa !96
-  %15 = load ptr, ptr %4, align 8, !tbaa !85
+  %14 = load i32, ptr %2, align 4, !tbaa !94
+  %15 = load ptr, ptr %4, align 8, !tbaa !83
   br label %.sink.split
 
 .sink.split:                                      ; preds = %lv_obj_get_ext_draw_size.exit, %13
   %.sink13 = phi ptr [ %15, %13 ], [ %10, %lv_obj_get_ext_draw_size.exit ]
   %.sink = phi i32 [ %14, %13 ], [ %11, %lv_obj_get_ext_draw_size.exit ]
   %16 = getelementptr inbounds nuw i8, ptr %.sink13, i64 60
-  store i32 %.sink, ptr %16, align 4, !tbaa !90
+  store i32 %.sink, ptr %16, align 4, !tbaa !88
   br label %17
 
 17:                                               ; preds = %.sink.split, %12
@@ -924,13 +924,13 @@ lv_obj_get_ext_draw_size.exit:                    ; preds = %3, %6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @lv_obj_get_ext_draw_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !85
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  %6 = load i32, ptr %5, align 4, !tbaa !90
+  %6 = load i32, ptr %5, align 4, !tbaa !88
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -947,7 +947,7 @@ declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 4) i32 @lv_obj_get_layer_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !85
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
@@ -1071,17 +1071,15 @@ attributes #5 = { nounwind }
 !80 = !{!78, !10, i64 52}
 !81 = !{!78, !8, i64 88}
 !82 = !{!78, !7, i64 80}
-!83 = distinct !{!83, !84}
-!84 = !{!"llvm.loop.estimated_trip_count"}
-!85 = !{!86, !88, i64 16}
-!86 = !{!"_lv_obj_t", !87, i64 0, !6, i64 8, !88, i64 16, !89, i64 24, !7, i64 32, !20, i64 40, !10, i64 56, !58, i64 60, !58, i64 62, !58, i64 62, !58, i64 62, !58, i64 62, !58, i64 62, !58, i64 63, !58, i64 63, !58, i64 63}
-!87 = !{!"p1 _ZTS15_lv_obj_class_t", !7, i64 0}
-!88 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !7, i64 0}
-!89 = !{!"p1 _ZTS15_lv_obj_style_t", !7, i64 0}
-!90 = !{!91, !10, i64 60}
-!91 = !{!"_lv_obj_spec_attr_t", !92, i64 0, !93, i64 8, !94, i64 16, !57, i64 48, !10, i64 56, !10, i64 60, !58, i64 64, !58, i64 66, !58, i64 66, !58, i64 66, !58, i64 66, !58, i64 67}
-!92 = !{!"p2 _ZTS9_lv_obj_t", !7, i64 0}
-!93 = !{!"p1 _ZTS11_lv_group_t", !7, i64 0}
-!94 = !{!"", !95, i64 0, !8, i64 24, !8, i64 24}
-!95 = !{!"_lv_array_t", !45, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !22, i64 20}
-!96 = !{!10, !10, i64 0}
+!83 = !{!84, !86, i64 16}
+!84 = !{!"_lv_obj_t", !85, i64 0, !6, i64 8, !86, i64 16, !87, i64 24, !7, i64 32, !20, i64 40, !10, i64 56, !58, i64 60, !58, i64 62, !58, i64 62, !58, i64 62, !58, i64 62, !58, i64 62, !58, i64 63, !58, i64 63, !58, i64 63}
+!85 = !{!"p1 _ZTS15_lv_obj_class_t", !7, i64 0}
+!86 = !{!"p1 _ZTS19_lv_obj_spec_attr_t", !7, i64 0}
+!87 = !{!"p1 _ZTS15_lv_obj_style_t", !7, i64 0}
+!88 = !{!89, !10, i64 60}
+!89 = !{!"_lv_obj_spec_attr_t", !90, i64 0, !91, i64 8, !92, i64 16, !57, i64 48, !10, i64 56, !10, i64 60, !58, i64 64, !58, i64 66, !58, i64 66, !58, i64 66, !58, i64 66, !58, i64 67}
+!90 = !{!"p2 _ZTS9_lv_obj_t", !7, i64 0}
+!91 = !{!"p1 _ZTS11_lv_group_t", !7, i64 0}
+!92 = !{!"", !93, i64 0, !8, i64 24, !8, i64 24}
+!93 = !{!"_lv_array_t", !45, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !22, i64 20}
+!94 = !{!10, !10, i64 0}

@@ -187,7 +187,7 @@ define hidden noundef ptr @FindExecName(ptr noundef %0) local_unnamed_addr #0 {
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds nuw i8, ptr %.129, i64 1
   %.pr = load i8, ptr %28, align 1
-  br label %.preheader, !llvm.loop !9
+  br label %.preheader, !llvm.loop !8
 
 29:                                               ; preds = %.preheader
   %30 = getelementptr inbounds nuw i8, ptr %.129, i64 1
@@ -210,7 +210,7 @@ define hidden noundef ptr @FindExecName(ptr noundef %0) local_unnamed_addr #0 {
   %.sink = phi ptr [ %3, %33 ], [ %.028, %.loopexit ]
   %37 = call fastcc ptr @Resolve(ptr noundef nonnull %.sink, ptr noundef nonnull %0)
   %.not40 = icmp eq ptr %37, null
-  br i1 %.not40, label %24, label %38, !llvm.loop !10
+  br i1 %.not40, label %24, label %38, !llvm.loop !9
 
 38:                                               ; preds = %36, %24
   %.1 = phi ptr [ %37, %36 ], [ null, %24 ]
@@ -388,7 +388,7 @@ define hidden range(i32 -1, 1) i32 @UnsetEnv(ptr noundef readonly %0) local_unna
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %17 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 1
   %18 = icmp eq i8 %12, 61
-  br i1 %18, label %match_noeq.exit.thread.i.preheader, label %11, !llvm.loop !11
+  br i1 %18, label %match_noeq.exit.thread.i.preheader, label %11, !llvm.loop !10
 
 match_noeq.exit.thread.i.preheader:               ; preds = %match_noeq.exit.i, %15
   br label %match_noeq.exit.thread.i
@@ -404,7 +404,7 @@ match_noeq.exit.i:                                ; preds = %11
   %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not14.i = icmp eq ptr %24, null
-  br i1 %.not14.i, label %borrowed_unsetenv.exit, label %.preheader.i, !llvm.loop !12
+  br i1 %.not14.i, label %borrowed_unsetenv.exit, label %.preheader.i, !llvm.loop !11
 
 match_noeq.exit.thread.i:                         ; preds = %match_noeq.exit.thread.i.preheader, %match_noeq.exit.thread.i
   %25 = phi ptr [ %30, %match_noeq.exit.thread.i ], [ %8, %match_noeq.exit.thread.i.preheader ]
@@ -418,7 +418,7 @@ match_noeq.exit.thread.i:                         ; preds = %match_noeq.exit.thr
   %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %26
   %32 = load ptr, ptr %31, align 8
   %.not16.i = icmp eq ptr %32, null
-  br i1 %.not16.i, label %borrowed_unsetenv.exit, label %match_noeq.exit.thread.i, !llvm.loop !13
+  br i1 %.not16.i, label %borrowed_unsetenv.exit, label %match_noeq.exit.thread.i, !llvm.loop !12
 
 borrowed_unsetenv.exit:                           ; preds = %21, %match_noeq.exit.thread.i, %1, %3, %6, %.preheader21.i
   %.011.i = phi i32 [ -1, %6 ], [ -1, %3 ], [ -1, %1 ], [ 0, %.preheader21.i ], [ 0, %match_noeq.exit.thread.i ], [ 0, %21 ]
@@ -555,11 +555,10 @@ attributes #19 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

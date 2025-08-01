@@ -76,14 +76,14 @@ define dso_local i64 @meshopt_analyzeVertexFetch(ptr noundef readonly captures(n
   %.04042 = phi i64 [ %27, %.lr.ph ], [ %19, %13 ]
   %24 = and i64 %.04042, 2047
   %25 = getelementptr inbounds nuw [2048 x i64], ptr %6, i64 0, i64 %24
-  %26 = load i64, ptr %25, align 8, !tbaa !14
+  %26 = load i64, ptr %25, align 8, !tbaa !13
   %27 = add nuw nsw i64 %.04042, 1
   %.not = icmp eq i64 %26, %27
   %28 = select i1 %.not, i32 0, i32 64
   %29 = add i32 %28, %.sroa.0.143
-  store i64 %27, ptr %25, align 8, !tbaa !14
+  store i64 %27, ptr %25, align 8, !tbaa !13
   %exitcond.not = icmp eq i64 %27, %21
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge52:                                    ; preds = %.lr.ph51
   %30 = icmp eq i64 %34, 0
@@ -98,7 +98,7 @@ define dso_local i64 @meshopt_analyzeVertexFetch(ptr noundef readonly captures(n
   %34 = add i64 %.03949, %33
   %35 = add nuw i64 %.050, 1
   %exitcond58.not = icmp eq i64 %35, %2
-  br i1 %exitcond58.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !17
+  br i1 %exitcond58.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !16
 
 36:                                               ; preds = %._crit_edge52
   %37 = uitofp i32 %.sroa.0.0.lcssa to float
@@ -126,7 +126,7 @@ define dso_local i64 @meshopt_analyzeVertexFetch(ptr noundef readonly captures(n
   %48 = getelementptr inbounds nuw [24 x ptr], ptr %5, i64 0, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !4
   invoke void %46(ptr noundef %49)
-          to label %44 unwind label %50, !llvm.loop !18
+          to label %44 unwind label %50, !llvm.loop !17
 
 50:                                               ; preds = %45
   %51 = landingpad { ptr, i32 }
@@ -156,7 +156,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load i64, ptr %2, align 8, !tbaa !19
+  %3 = load i64, ptr %2, align 8, !tbaa !18
   br label %4
 
 4:                                                ; preds = %6, %1
@@ -173,7 +173,7 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
   %9 = getelementptr inbounds nuw [24 x ptr], ptr %0, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   invoke void %7(ptr noundef %10)
-          to label %4 unwind label %11, !llvm.loop !18
+          to label %4 unwind label %11, !llvm.loop !17
 
 11:                                               ; preds = %6
   %12 = landingpad { ptr, i32 }
@@ -225,13 +225,12 @@ attributes #9 = { noreturn nounwind }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !6, i64 0}
 !10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"long", !6, i64 0}
-!16 = distinct !{!16, !12, !13}
-!17 = distinct !{!17, !12, !13}
-!18 = distinct !{!18, !12, !13}
-!19 = !{!20, !15, i64 192}
-!20 = !{!"_ZTS17meshopt_Allocator", !6, i64 0, !15, i64 192}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !6, i64 0}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !12}
+!18 = !{!19, !14, i64 192}
+!19 = !{!"_ZTS17meshopt_Allocator", !6, i64 0, !14, i64 192}

@@ -24,12 +24,12 @@ define ptr @ossl_dh_gen_type_id2name(i32 noundef %0) local_unnamed_addr #0 {
   %.06 = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw [4 x %struct.dh_name2id_st], ptr @dhtype2id, i64 0, i64 %.06
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !5
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 16, !tbaa !13
+  %10 = load ptr, ptr %5, align 16, !tbaa !12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %9
@@ -45,27 +45,27 @@ define i32 @ossl_dh_gen_type_name2id(ptr noundef readonly captures(none) %0, i32
   %.010 = phi i64 [ 0, %2 ], [ %17, %16 ]
   %4 = getelementptr inbounds nuw [4 x %struct.dh_name2id_st], ptr @dhtype2id, i64 0, i64 %.010
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !14
+  %6 = load i32, ptr %5, align 4, !tbaa !13
   %7 = icmp eq i32 %6, -1
   %8 = icmp eq i32 %1, %6
   %or.cond = or i1 %7, %8
   br i1 %or.cond, label %9, label %16
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %4, align 16, !tbaa !13
+  %10 = load ptr, ptr %4, align 16, !tbaa !12
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %0) #3
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !6
+  %15 = load i32, ptr %14, align 8, !tbaa !5
   br label %.loopexit
 
 16:                                               ; preds = %3, %9
   %17 = add nuw nsw i64 %.010, 1
   %exitcond.not = icmp eq i64 %17, 4
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !14
 
 .loopexit:                                        ; preds = %16, %13
   %.08 = phi i32 [ %15, %13 ], [ -1, %16 ]
@@ -85,16 +85,15 @@ attributes #3 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !12, i64 8}
-!7 = !{!"dh_name2id_st", !8, i64 0, !12, i64 8, !12, i64 12}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"int", !10, i64 0}
-!13 = !{!7, !8, i64 0}
-!14 = !{!7, !12, i64 12}
-!15 = distinct !{!15, !4, !5}
+!5 = !{!6, !11, i64 8}
+!6 = !{!"dh_name2id_st", !7, i64 0, !11, i64 8, !11, i64 12}
+!7 = !{!"p1 omnipotent char", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"int", !9, i64 0}
+!12 = !{!6, !7, i64 0}
+!13 = !{!6, !11, i64 12}
+!14 = distinct !{!14, !4}

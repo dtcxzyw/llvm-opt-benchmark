@@ -153,6 +153,5 @@ attributes #2 = { nounwind }
 !40 = !{!41, !41, i64 0}
 !41 = !{!"p1 _ZTS10H264RawPPS", !7, i64 0}
 !42 = !{!39, !8, i64 2157}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}

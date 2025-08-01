@@ -175,14 +175,14 @@ ossl_param_is_empty.exit:                         ; preds = %4
 17:                                               ; preds = %15, %12
   %.06.i = phi i64 [ 0, %12 ], [ %16, %15 ]
   %18 = getelementptr inbounds nuw [3 x %struct.dh_name2id_st], ptr @dsatype2id, i64 0, i64 %.06.i
-  %19 = load ptr, ptr %18, align 16, !tbaa !32
+  %19 = load ptr, ptr %18, align 16, !tbaa !31
   %20 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %19, ptr noundef %14) #7
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %dsa_gen_type_name2id.exit, label %15
 
 dsa_gen_type_name2id.exit:                        ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !34
+  %23 = load i32, ptr %22, align 8, !tbaa !33
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %dsa_gen_type_name2id.exit.thread, label %25
 
@@ -245,7 +245,7 @@ dsa_gen_type_name2id.exit.thread:                 ; preds = %15, %dsa_gen_type_n
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !28
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %51 = load i64, ptr %50, align 8, !tbaa !35
+  %51 = load i64, ptr %50, align 8, !tbaa !34
   %52 = tail call fastcc i32 @dsa_set_gen_seed(ptr noundef %0, ptr noundef %49, i64 noundef %51)
   %.not69 = icmp eq i32 %52, 0
   br i1 %.not69, label %ossl_param_is_empty.exit.thread, label %53
@@ -372,7 +372,7 @@ define internal ptr @dsa_gen(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
 
 19:                                               ; preds = %11
   %spec.select = icmp ult i32 %13, 3
-  br i1 %spec.select, label %22, label %20, !prof !36
+  br i1 %spec.select, label %22, label %20, !prof !35
 
 20:                                               ; preds = %19
   tail call void @ERR_new() #7
@@ -383,9 +383,9 @@ define internal ptr @dsa_gen(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
 
 22:                                               ; preds = %.thread, %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %1, ptr %23, align 8, !tbaa !37
+  store ptr %1, ptr %23, align 8, !tbaa !36
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %2, ptr %24, align 8, !tbaa !38
+  store ptr %2, ptr %24, align 8, !tbaa !37
   %25 = tail call ptr @BN_GENCB_new() #7
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %27, label %26
@@ -488,19 +488,19 @@ define internal ptr @dsa_gen(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 
   br i1 %.not78, label %92, label %77
 
 77:                                               ; preds = %71
-  %78 = load ptr, ptr %28, align 8, !tbaa !39
+  %78 = load ptr, ptr %28, align 8, !tbaa !38
   %79 = icmp eq ptr %78, null
   br i1 %79, label %91, label %80
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !42
+  %82 = load ptr, ptr %81, align 8, !tbaa !41
   %83 = icmp eq ptr %82, null
   br i1 %83, label %91, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !43
+  %86 = load ptr, ptr %85, align 8, !tbaa !42
   %87 = icmp eq ptr %86, null
   br i1 %87, label %91, label %88
 
@@ -558,8 +558,8 @@ define internal ptr @dsa_load(ptr noundef captures(none) %0, i64 noundef %1) #0 
   br i1 %or.cond, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %0, align 8, !tbaa !44
-  store ptr null, ptr %0, align 8, !tbaa !44
+  %7 = load ptr, ptr %0, align 8, !tbaa !43
+  store ptr null, ptr %0, align 8, !tbaa !43
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -627,9 +627,9 @@ define internal range(i32 0, 2) i32 @dsa_get_params(ptr noundef %0, ptr noundef 
 
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
-  store ptr null, ptr %3, align 8, !tbaa !46
+  store ptr null, ptr %3, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  store ptr null, ptr %4, align 8, !tbaa !46
+  store ptr null, ptr %4, align 8, !tbaa !45
   %27 = icmp eq ptr %0, null
   br i1 %27, label %dsa_key_todata.exit, label %28
 
@@ -645,7 +645,7 @@ define internal range(i32 0, 2) i32 @dsa_get_params(ptr noundef %0, ptr noundef 
   br i1 %.not.i, label %dsa_key_todata.exit, label %32
 
 32:                                               ; preds = %30, %28
-  %33 = load ptr, ptr %4, align 8, !tbaa !46
+  %33 = load ptr, ptr %4, align 8, !tbaa !45
   %.not11.i = icmp eq ptr %33, null
   br i1 %.not11.i, label %36, label %34
 
@@ -839,7 +839,7 @@ define internal range(i32 0, 2) i32 @dsa_validate(ptr noundef %0, i32 noundef %1
 
 15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
-  store i32 0, ptr %8, align 4, !tbaa !47
+  store i32 0, ptr %8, align 4, !tbaa !46
   %16 = call i32 @ossl_dsa_check_params(ptr noundef %0, i32 noundef %2, ptr noundef nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
   %17 = icmp ne i32 %16, 0
@@ -858,11 +858,11 @@ define internal range(i32 0, 2) i32 @dsa_validate(ptr noundef %0, i32 noundef %1
 
 .thread27:                                        ; preds = %15, %.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #7
-  store i32 0, ptr %6, align 4, !tbaa !47
+  store i32 0, ptr %6, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  store ptr null, ptr %7, align 8, !tbaa !46
+  store ptr null, ptr %7, align 8, !tbaa !45
   call void @DSA_get0_key(ptr noundef %0, ptr noundef nonnull %7, ptr noundef null) #7
-  %20 = load ptr, ptr %7, align 8, !tbaa !46
+  %20 = load ptr, ptr %7, align 8, !tbaa !45
   %21 = icmp eq ptr %20, null
   br i1 %21, label %dsa_validate_public.exit, label %22
 
@@ -895,11 +895,11 @@ dsa_validate_public.exit:                         ; preds = %.thread27, %22
 
 .thread34:                                        ; preds = %.thread30, %29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
-  store i32 0, ptr %4, align 4, !tbaa !47
+  store i32 0, ptr %4, align 4, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  store ptr null, ptr %5, align 8, !tbaa !46
+  store ptr null, ptr %5, align 8, !tbaa !45
   call void @DSA_get0_key(ptr noundef %0, ptr noundef null, ptr noundef nonnull %5) #7
-  %30 = load ptr, ptr %5, align 8, !tbaa !46
+  %30 = load ptr, ptr %5, align 8, !tbaa !45
   %31 = icmp eq ptr %30, null
   br i1 %31, label %dsa_validate_private.exit, label %32
 
@@ -980,7 +980,7 @@ define internal ptr @dsa_import_types(i32 noundef %0) #1 {
   %.1.i = select i1 %.not5.i, i32 %spec.select.i, i32 %4
   %5 = zext nneg i32 %.1.i to i64
   %6 = getelementptr inbounds nuw [4 x ptr], ptr @dsa_types, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !48
+  %7 = load ptr, ptr %6, align 8, !tbaa !47
   ret ptr %7
 }
 
@@ -1026,9 +1026,9 @@ define internal i32 @dsa_export(ptr noundef %0, i32 noundef %1, ptr noundef read
 .thread36:                                        ; preds = %.thread, %22
   %23 = and i32 %1, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  store ptr null, ptr %5, align 8, !tbaa !46
+  store ptr null, ptr %5, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store ptr null, ptr %6, align 8, !tbaa !46
+  store ptr null, ptr %6, align 8, !tbaa !45
   call void @DSA_get0_key(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %5) #7
   %24 = icmp ne i32 %23, 0
   %25 = load ptr, ptr %5, align 8
@@ -1042,7 +1042,7 @@ define internal i32 @dsa_export(ptr noundef %0, i32 noundef %1, ptr noundef read
   br i1 %.not.i, label %dsa_key_todata.exit.thread, label %29
 
 29:                                               ; preds = %27, %.thread36
-  %30 = load ptr, ptr %6, align 8, !tbaa !46
+  %30 = load ptr, ptr %6, align 8, !tbaa !45
   %.not11.i = icmp eq ptr %30, null
   br i1 %.not11.i, label %dsa_key_todata.exit, label %31
 
@@ -1095,7 +1095,7 @@ define internal ptr @dsa_export_types(i32 noundef %0) #1 {
   %.1.i = select i1 %.not5.i, i32 %spec.select.i, i32 %4
   %5 = zext nneg i32 %.1.i to i64
   %6 = getelementptr inbounds nuw [4 x ptr], ptr @dsa_types, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !48
+  %7 = load ptr, ptr %6, align 8, !tbaa !47
   ret ptr %7
 }
 
@@ -1190,8 +1190,8 @@ define internal i32 @dsa_gencb(i32 noundef %0, i32 noundef %1, ptr noundef %2) #
   %5 = alloca i32, align 4
   %6 = alloca [3 x %struct.ossl_param_st], align 16
   %7 = alloca %struct.ossl_param_st, align 8
-  store i32 %0, ptr %4, align 4, !tbaa !47
-  store i32 %1, ptr %5, align 4, !tbaa !47
+  store i32 %0, ptr %4, align 4, !tbaa !46
+  store i32 %1, ptr %5, align 4, !tbaa !46
   %8 = tail call ptr @BN_GENCB_get_arg(ptr noundef %2) #7
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #7
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.15, ptr noundef nonnull %4) #7
@@ -1200,12 +1200,12 @@ define internal i32 @dsa_gencb(i32 noundef %0, i32 noundef %1, ptr noundef %2) #
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.16, ptr noundef nonnull %5) #7
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, i8 0, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !49
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  %12 = load ptr, ptr %11, align 8, !tbaa !36
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %14 = load ptr, ptr %13, align 8, !tbaa !38
+  %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = call i32 %12(ptr noundef nonnull %6, ptr noundef %14) #7
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #7
   ret i32 %15
@@ -1335,28 +1335,27 @@ attributes #7 = { nounwind }
 !26 = !{!"ossl_param_st", !12, i64 0, !10, i64 8, !6, i64 16, !11, i64 24, !11, i64 32}
 !27 = !{!26, !10, i64 8}
 !28 = !{!26, !6, i64 16}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!33, !12, i64 0}
-!33 = !{!"dh_name2id_st", !12, i64 0, !10, i64 8}
-!34 = !{!33, !10, i64 8}
-!35 = !{!26, !11, i64 24}
-!36 = !{!"branch_weights", !"expected", i32 2145337238, i32 2146410}
-!37 = !{!4, !6, i64 88}
-!38 = !{!4, !6, i64 96}
-!39 = !{!40, !41, i64 0}
-!40 = !{!"ffc_params_st", !41, i64 0, !41, i64 8, !41, i64 16, !41, i64 24, !12, i64 32, !11, i64 40, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64, !12, i64 72, !12, i64 80, !10, i64 88}
-!41 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
-!42 = !{!40, !41, i64 8}
-!43 = !{!40, !41, i64 16}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p1 _ZTS6dsa_st", !6, i64 0}
-!46 = !{!41, !41, i64 0}
-!47 = !{!10, !10, i64 0}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS13ossl_param_st", !6, i64 0}
-!50 = !{i64 0, i64 8, !51, i64 8, i64 4, !47, i64 16, i64 8, !52, i64 24, i64 8, !53, i64 32, i64 8, !53}
-!51 = !{!12, !12, i64 0}
-!52 = !{!6, !6, i64 0}
-!53 = !{!11, !11, i64 0}
+!31 = !{!32, !12, i64 0}
+!32 = !{!"dh_name2id_st", !12, i64 0, !10, i64 8}
+!33 = !{!32, !10, i64 8}
+!34 = !{!26, !11, i64 24}
+!35 = !{!"branch_weights", !"expected", i32 2145337238, i32 2146410}
+!36 = !{!4, !6, i64 88}
+!37 = !{!4, !6, i64 96}
+!38 = !{!39, !40, i64 0}
+!39 = !{!"ffc_params_st", !40, i64 0, !40, i64 8, !40, i64 16, !40, i64 24, !12, i64 32, !11, i64 40, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64, !12, i64 72, !12, i64 80, !10, i64 88}
+!40 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
+!41 = !{!39, !40, i64 8}
+!42 = !{!39, !40, i64 16}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS6dsa_st", !6, i64 0}
+!45 = !{!40, !40, i64 0}
+!46 = !{!10, !10, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS13ossl_param_st", !6, i64 0}
+!49 = !{i64 0, i64 8, !50, i64 8, i64 4, !46, i64 16, i64 8, !51, i64 24, i64 8, !52, i64 32, i64 8, !52}
+!50 = !{!12, !12, i64 0}
+!51 = !{!6, !6, i64 0}
+!52 = !{!11, !11, i64 0}

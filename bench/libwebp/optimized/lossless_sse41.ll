@@ -125,7 +125,7 @@ define internal void @ConvertBGRAToRGB_SSE41(ptr noalias noundef %0, i32 noundef
   %22 = getelementptr inbounds nuw i8, ptr %.03738, i64 48
   %23 = add nsw i32 %.040, -16
   %24 = icmp samesign ugt i32 %.040, 31
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.037.lcssa = phi ptr [ %2, %3 ], [ %22, %.lr.ph ]
@@ -174,7 +174,7 @@ define internal void @ConvertBGRAToBGR_SSE41(ptr noalias noundef %0, i32 noundef
   %22 = getelementptr inbounds nuw i8, ptr %.03738, i64 48
   %23 = add nsw i32 %.040, -16
   %24 = icmp samesign ugt i32 %.040, 31
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.037.lcssa = phi ptr [ %2, %3 ], [ %22, %.lr.ph ]
@@ -220,8 +220,7 @@ attributes #4 = { nounwind }
 !9 = !{!8, !5, i64 0}
 !10 = !{!8, !5, i64 1}
 !11 = !{!5, !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = distinct !{!16, !13, !14}
+!14 = distinct !{!14, !13}
+!15 = distinct !{!15, !13}

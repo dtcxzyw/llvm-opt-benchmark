@@ -307,12 +307,12 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_bool(ptr noundef readnone captur
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %19 = load i8, ptr %18, align 1, !tbaa !38, !range !39, !noundef !40
+  %19 = load i8, ptr %18, align 1, !tbaa !37, !range !38, !noundef !39
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
-  store i8 %19, ptr %20, align 1, !tbaa !41
+  store i8 %19, ptr %20, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -582,13 +582,13 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_int16(ptr noundef readnone captu
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.021 = phi ptr [ %16, %.lr.ph.preheader ], [ %21, %.lr.ph ]
   %19 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
-  %20 = load i16, ptr %19, align 2, !tbaa !43
+  %20 = load i16, ptr %19, align 2, !tbaa !42
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %20)
   store i16 %rev.i, ptr %.021, align 1
   %21 = getelementptr inbounds nuw i8, ptr %.021, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -675,7 +675,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_int64(ptr noundef readnone captu
   %21 = getelementptr inbounds nuw i8, ptr %.01823, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -707,7 +707,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_string(ptr readnone captures(non
 9:                                                ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %10 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !46
+  %11 = load ptr, ptr %10, align 8, !tbaa !45
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %24
 
@@ -769,7 +769,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_string(ptr readnone captures(non
   %41 = load i64, ptr %8, align 8, !tbaa !24
   %42 = add i64 %41, 4
   store i64 %42, ptr %8, align 8, !tbaa !24
-  %43 = load ptr, ptr %10, align 8, !tbaa !46
+  %43 = load ptr, ptr %10, align 8, !tbaa !45
   %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i36 = icmp ult i32 %44, 64
   br i1 %or.cond.i36, label %45, label %51
@@ -805,7 +805,7 @@ pmix20_bfrop_pack_byte.exit.thread:               ; preds = %51
   store i64 %59, ptr %8, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_int32.exit, label %9, !llvm.loop !47
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_int32.exit, label %9, !llvm.loop !46
 
 pmix20_bfrop_pack_int32.exit:                     ; preds = %55, %21, %35, %51, %5
   %.0 = phi i32 [ 0, %5 ], [ -29, %51 ], [ -29, %35 ], [ -29, %21 ], [ 0, %55 ]
@@ -829,7 +829,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_pack_float(ptr noundef readnone captu
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
   %8 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %9 = load float, ptr %8, align 4, !tbaa !48
+  %9 = load float, ptr %8, align 4, !tbaa !47
   %10 = fpext float %9 to double
   %11 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, double noundef %10) #8
   %12 = icmp slt i32 %11, 0
@@ -838,14 +838,14 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_pack_float(ptr noundef readnone captu
 13:                                               ; preds = %.lr.ph
   %14 = call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
   %.not = icmp eq i32 %14, 0
-  %15 = load ptr, ptr %6, align 8, !tbaa !46
+  %15 = load ptr, ptr %6, align 8, !tbaa !45
   call void @free(ptr noundef %15) #8
   br i1 %.not, label %16, label %.loopexit
 
 16:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %13, %5
   %.0 = phi i32 [ 0, %5 ], [ -32, %.lr.ph ], [ 0, %16 ], [ %14, %13 ]
@@ -873,7 +873,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_pack_double(ptr noundef readnone capt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
   %8 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %9 = load double, ptr %8, align 8, !tbaa !51
+  %9 = load double, ptr %8, align 8, !tbaa !50
   %10 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, double noundef %9) #8
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %.loopexit, label %12
@@ -881,14 +881,14 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_pack_double(ptr noundef readnone capt
 12:                                               ; preds = %.lr.ph
   %13 = call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
   %.not = icmp eq i32 %13, 0
-  %14 = load ptr, ptr %6, align 8, !tbaa !46
+  %14 = load ptr, ptr %6, align 8, !tbaa !45
   call void @free(ptr noundef %14) #8
   br i1 %.not, label %15, label %.loopexit
 
 15:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %12, %5
   %.0 = phi i32 [ 0, %5 ], [ -32, %.lr.ph ], [ 0, %15 ], [ %13, %12 ]
@@ -913,11 +913,11 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_timeval(ptr noundef readnone cap
 11:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %12 = getelementptr inbounds nuw %struct.timeval, ptr %2, i64 %indvars.iv
-  %13 = load i64, ptr %12, align 8, !tbaa !54
-  store i64 %13, ptr %6, align 16, !tbaa !56
+  %13 = load i64, ptr %12, align 8, !tbaa !53
+  store i64 %13, ptr %6, align 16, !tbaa !55
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !57
-  store i64 %15, ptr %8, align 8, !tbaa !56
+  %15 = load i64, ptr %14, align 8, !tbaa !56
+  store i64 %15, ptr %8, align 8, !tbaa !55
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i = icmp ult i32 %16, 64
   br i1 %or.cond.i, label %17, label %23
@@ -949,7 +949,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_timeval(ptr noundef readnone cap
   %28 = getelementptr inbounds nuw i8, ptr %.01823.i, i64 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond.not.i, label %29, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %29, label %.lr.ph.i, !llvm.loop !44
 
 29:                                               ; preds = %.lr.ph.i
   %30 = load ptr, ptr %9, align 8, !tbaa !23
@@ -960,7 +960,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_timeval(ptr noundef readnone cap
   store i64 %33, ptr %10, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_int64.exit, label %11, !llvm.loop !58
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_int64.exit, label %11, !llvm.loop !57
 
 pmix20_bfrop_pack_int64.exit:                     ; preds = %29, %23, %5
   %.0 = phi i32 [ 0, %5 ], [ -29, %23 ], [ 0, %29 ]
@@ -982,7 +982,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_time(ptr noundef readnone captur
 9:                                                ; preds = %.lr.ph, %.lr.ph.i.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.lr.ph.i.preheader ]
   %10 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
-  %11 = load i64, ptr %10, align 8, !tbaa !56
+  %11 = load i64, ptr %10, align 8, !tbaa !55
   %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i = icmp ult i32 %12, 64
   br i1 %or.cond.i, label %13, label %19
@@ -1014,7 +1014,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_time(ptr noundef readnone captur
   store i64 %25, ptr %8, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_int64.exit, label %9, !llvm.loop !59
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_int64.exit, label %9, !llvm.loop !58
 
 pmix20_bfrop_pack_int64.exit:                     ; preds = %.lr.ph.i.preheader, %19, %5
   %.0 = phi i32 [ 0, %5 ], [ -29, %19 ], [ 0, %.lr.ph.i.preheader ]
@@ -1067,7 +1067,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_status(ptr noundef readnone capt
   store i64 %26, ptr %8, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_int32.exit, label %9, !llvm.loop !60
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_int32.exit, label %9, !llvm.loop !59
 
 pmix20_bfrop_pack_int32.exit:                     ; preds = %.lr.ph.i.preheader, %19, %5
   %.0 = phi i32 [ 0, %5 ], [ -29, %19 ], [ 0, %.lr.ph.i.preheader ]
@@ -1086,12 +1086,12 @@ define i32 @pmix20_bfrop_pack_value(ptr noundef %0, ptr noundef %1, ptr noundef 
 7:                                                ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
   %8 = getelementptr inbounds nuw %struct.pmix_value, ptr %2, i64 %indvars.iv
-  %9 = load i16, ptr %8, align 8, !tbaa !62
+  %9 = load i16, ptr %8, align 8, !tbaa !61
   %10 = tail call i32 @pmix20_bfrop_store_data_type(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %9) #8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %._crit_edge
@@ -1108,7 +1108,7 @@ define i32 @pmix20_bfrop_pack_value(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @pack_val(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = load i16, ptr %2, align 8, !tbaa !62
+  %4 = load i16, ptr %2, align 8, !tbaa !61
   switch i16 %4, label %753 [
     i16 0, label %755
     i16 1, label %5
@@ -2087,7 +2087,7 @@ pmix20_bfrop_pack_buffer.exit300:                 ; preds = %pmix_pointer_array_
 
 485:                                              ; preds = %3
   %486 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %487 = load ptr, ptr %486, align 8, !tbaa !41
+  %487 = load ptr, ptr %486, align 8, !tbaa !40
   %488 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i301 = icmp ult i32 %488, 64
   br i1 %or.cond.i301, label %489, label %495
@@ -2464,7 +2464,7 @@ pmix20_bfrop_pack_buffer.exit348:                 ; preds = %pmix_pointer_array_
 
 678:                                              ; preds = %3
   %679 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %680 = load ptr, ptr %679, align 8, !tbaa !41
+  %680 = load ptr, ptr %679, align 8, !tbaa !40
   %681 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i349 = icmp ult i32 %681, 64
   br i1 %or.cond.i349, label %682, label %688
@@ -2512,7 +2512,7 @@ pmix20_bfrop_pack_buffer.exit354:                 ; preds = %pmix_pointer_array_
 
 703:                                              ; preds = %3
   %704 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %705 = load ptr, ptr %704, align 8, !tbaa !41
+  %705 = load ptr, ptr %704, align 8, !tbaa !40
   %706 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i355 = icmp ult i32 %706, 64
   br i1 %or.cond.i355, label %707, label %713
@@ -2560,7 +2560,7 @@ pmix20_bfrop_pack_buffer.exit360:                 ; preds = %pmix_pointer_array_
 
 728:                                              ; preds = %3
   %729 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %730 = load ptr, ptr %729, align 8, !tbaa !41
+  %730 = load ptr, ptr %729, align 8, !tbaa !40
   %731 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i361 = icmp ult i32 %731, 64
   br i1 %or.cond.i361, label %732, label %738
@@ -2636,12 +2636,12 @@ define i32 @pmix20_bfrop_pack_info(ptr noundef %0, ptr noundef %1, ptr noundef %
 11:                                               ; preds = %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_infodirs.exit, label %12, !llvm.loop !64
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_infodirs.exit, label %12, !llvm.loop !63
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %13 = getelementptr inbounds nuw %struct.pmix_info, ptr %2, i64 %indvars.iv
-  store ptr %13, ptr %6, align 8, !tbaa !46
+  store ptr %13, ptr %6, align 8, !tbaa !45
   %14 = call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %15, label %pmix20_bfrop_pack_infodirs.exit
@@ -2817,13 +2817,13 @@ define i32 @pmix20_bfrop_pack_pdata(ptr noundef %0, ptr noundef %1, ptr noundef 
 12:                                               ; preds = %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_int.exit.thread, label %13, !llvm.loop !65
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_int.exit.thread, label %13, !llvm.loop !64
 
 13:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %14 = getelementptr inbounds nuw %struct.pmix_pdata, ptr %2, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr %14, ptr %6, align 8, !tbaa !46
+  store ptr %14, ptr %6, align 8, !tbaa !45
   %15 = call i32 @pmix20_bfrop_pack_string(ptr readnone poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %pmix20_bfrop_pack_proc.exit
@@ -2862,7 +2862,7 @@ define i32 @pmix20_bfrop_pack_pdata(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i64 %33, ptr %10, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 260
-  store ptr %34, ptr %7, align 8, !tbaa !46
+  store ptr %34, ptr %7, align 8, !tbaa !45
   %35 = call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef 1, i16 zeroext poison)
   %.not29 = icmp eq i32 %35, 0
   br i1 %.not29, label %36, label %pmix20_bfrop_pack_int.exit.thread
@@ -2950,7 +2950,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_proc(ptr noundef readnone captur
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.lr.ph.i.i.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   %11 = getelementptr inbounds nuw %struct.pmix_proc, ptr %2, i64 %indvars.iv
-  store ptr %11, ptr %6, align 8, !tbaa !46
+  store ptr %11, ptr %6, align 8, !tbaa !45
   %12 = call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %.loopexit.sink.split
@@ -2990,7 +2990,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_pack_proc(ptr noundef readnone captur
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !66
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !65
 
 .loopexit.sink.split:                             ; preds = %22, %10
   %.2.ph = phi i32 [ %12, %10 ], [ -29, %22 ]
@@ -3074,7 +3074,7 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 128
-  %40 = load ptr, ptr %39, align 8, !tbaa !67
+  %40 = load ptr, ptr %39, align 8, !tbaa !66
   %41 = trunc i64 %37 to i32
   %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i = icmp ult i32 %42, 64
@@ -3111,7 +3111,7 @@ pmix20_bfrop_pack_byte.exit.thread:               ; preds = %49
 57:                                               ; preds = %pmix20_bfrop_pack_byte.exit.thread, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_byte.exit, label %10, !llvm.loop !68
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_byte.exit, label %10, !llvm.loop !67
 
 pmix20_bfrop_pack_byte.exit:                      ; preds = %pmix20_bfrop_pack_sizet.exit, %57, %49, %10, %25, %pmix_pointer_array_get_item.exit.i.i, %27, %5
   %.018 = phi i32 [ 0, %5 ], [ -21, %27 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %26, %25 ], [ %13, %10 ], [ -29, %49 ], [ 0, %57 ], [ %35, %pmix20_bfrop_pack_sizet.exit ]
@@ -3201,7 +3201,7 @@ define i32 @pmix20_bfrop_pack_app(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !69
+  %16 = load ptr, ptr %15, align 8, !tbaa !68
   %17 = call i32 @PMIx_Argv_count(ptr noundef %16) #8
   store i32 %17, ptr %6, align 4, !tbaa !34
   %18 = call i32 @pmix20_bfrop_store_data_type(ptr noundef %0, ptr noundef %1, i16 noundef zeroext 9) #8
@@ -3263,11 +3263,11 @@ pmix20_bfrop_pack_int.exit:                       ; preds = %pmix_pointer_array_
   %44 = load i32, ptr %6, align 4, !tbaa !34
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !73
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 .lr.ph:                                           ; preds = %.preheader, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.preheader ]
-  %47 = load ptr, ptr %15, align 8, !tbaa !69
+  %47 = load ptr, ptr %15, align 8, !tbaa !68
   %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
   %49 = call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef nonnull %1, ptr noundef %48, i32 noundef 1, i16 zeroext poison)
   %.not79 = icmp eq i32 %49, 0
@@ -3275,7 +3275,7 @@ pmix20_bfrop_pack_int.exit:                       ; preds = %pmix_pointer_array_
 
 ._crit_edge:                                      ; preds = %43, %.preheader
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !74
+  %51 = load ptr, ptr %50, align 8, !tbaa !73
   %52 = call i32 @PMIx_Argv_count(ptr noundef %51) #8
   store i32 %52, ptr %6, align 4, !tbaa !34
   %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
@@ -3317,11 +3317,11 @@ pmix20_bfrop_pack_int.exit:                       ; preds = %pmix_pointer_array_
   %72 = load i32, ptr %6, align 4, !tbaa !34
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next150, %73
-  br i1 %74, label %.lr.ph106, label %._crit_edge107, !llvm.loop !75
+  br i1 %74, label %.lr.ph106, label %._crit_edge107, !llvm.loop !74
 
 .lr.ph106:                                        ; preds = %.lr.ph.i.preheader, %71
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %71 ], [ 0, %.lr.ph.i.preheader ]
-  %75 = load ptr, ptr %50, align 8, !tbaa !74
+  %75 = load ptr, ptr %50, align 8, !tbaa !73
   %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv149
   %77 = call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef nonnull %1, ptr noundef %76, i32 noundef 1, i16 zeroext poison)
   %.not78 = icmp eq i32 %77, 0
@@ -3436,13 +3436,13 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   br i1 %.not75, label %130, label %pmix20_bfrop_pack_int.exit.thread
 
 130:                                              ; preds = %pmix20_bfrop_pack_sizet.exit
-  %131 = load i64, ptr %106, align 8, !tbaa !76
+  %131 = load i64, ptr %106, align 8, !tbaa !75
   %.not76 = icmp eq i64 %131, 0
   br i1 %.not76, label %137, label %132
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %134 = load ptr, ptr %133, align 8, !tbaa !77
+  %134 = load ptr, ptr %133, align 8, !tbaa !76
   %135 = trunc i64 %131 to i32
   %136 = call i32 @pmix20_bfrop_pack_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %134, i32 noundef %135, i16 zeroext poison)
   %.not77 = icmp eq i32 %136, 0
@@ -3451,7 +3451,7 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
 137:                                              ; preds = %130, %132
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_int.exit.thread, label %11, !llvm.loop !78
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_int.exit.thread, label %11, !llvm.loop !77
 
 pmix20_bfrop_pack_int.exit.thread:                ; preds = %11, %pmix20_bfrop_pack_int.exit, %._crit_edge107, %pmix20_bfrop_pack_int.exit86, %pmix20_bfrop_pack_sizet.exit, %132, %137, %14, %30, %pmix_pointer_array_get_item.exit.i.i, %32, %60, %80, %94, %pmix_pointer_array_get_item.exit.i.i84, %96, %105, %119, %pmix_pointer_array_get_item.exit.i.i91, %121, %.lr.ph, %.lr.ph106, %5
   %.060 = phi i32 [ 0, %5 ], [ %77, %.lr.ph106 ], [ %49, %.lr.ph ], [ %13, %11 ], [ %40, %pmix20_bfrop_pack_int.exit ], [ %79, %._crit_edge107 ], [ %104, %pmix20_bfrop_pack_int.exit86 ], [ %129, %pmix20_bfrop_pack_sizet.exit ], [ %136, %132 ], [ 0, %137 ], [ %18, %14 ], [ %31, %30 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ -21, %32 ], [ -29, %60 ], [ %82, %80 ], [ %95, %94 ], [ -21, %pmix_pointer_array_get_item.exit.i.i84 ], [ -21, %96 ], [ %107, %105 ], [ %120, %119 ], [ -21, %pmix_pointer_array_get_item.exit.i.i91 ], [ -21, %121 ]
@@ -3476,16 +3476,16 @@ define i32 @pmix20_bfrop_pack_kval(ptr noundef %0, ptr noundef %1, ptr noundef r
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %pmix20_bfrop_pack_value.exit ]
   %8 = getelementptr inbounds nuw %struct.pmix_kval_t, ptr %2, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %10 = load ptr, ptr %9, align 8, !tbaa !79
-  store ptr %10, ptr %6, align 8, !tbaa !46
+  %10 = load ptr, ptr %9, align 8, !tbaa !78
+  store ptr %10, ptr %6, align 8, !tbaa !45
   %11 = call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %.lr.ph.i, label %pmix20_bfrop_pack_value.exit.thread
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  %13 = load ptr, ptr %12, align 8, !tbaa !82
-  %14 = load i16, ptr %13, align 8, !tbaa !62
+  %13 = load ptr, ptr %12, align 8, !tbaa !81
+  %14 = load i16, ptr %13, align 8, !tbaa !61
   %15 = tail call i32 @pmix20_bfrop_store_data_type(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %14) #8
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %pmix20_bfrop_pack_value.exit.thread
@@ -3493,7 +3493,7 @@ define i32 @pmix20_bfrop_pack_kval(ptr noundef %0, ptr noundef %1, ptr noundef r
 pmix20_bfrop_pack_value.exit:                     ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_value.exit.thread, label %.lr.ph, !llvm.loop !83
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_value.exit.thread, label %.lr.ph, !llvm.loop !82
 
 16:                                               ; preds = %.lr.ph.i
   %17 = tail call fastcc i32 @pack_val(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %13)
@@ -3572,13 +3572,13 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   br i1 %.not, label %36, label %pmix20_bfrop_pack_byte.exit
 
 36:                                               ; preds = %pmix20_bfrop_pack_sizet.exit
-  %37 = load i64, ptr %12, align 8, !tbaa !84
+  %37 = load i64, ptr %12, align 8, !tbaa !83
   %.not22 = icmp eq i64 %37, 0
   br i1 %.not22, label %57, label %38
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 264
-  %40 = load ptr, ptr %39, align 8, !tbaa !86
+  %40 = load ptr, ptr %39, align 8, !tbaa !85
   %41 = trunc i64 %37 to i32
   %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i = icmp ult i32 %42, 64
@@ -3615,7 +3615,7 @@ pmix20_bfrop_pack_byte.exit.thread:               ; preds = %49
 57:                                               ; preds = %pmix20_bfrop_pack_byte.exit.thread, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_byte.exit, label %10, !llvm.loop !87
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_byte.exit, label %10, !llvm.loop !86
 
 pmix20_bfrop_pack_byte.exit:                      ; preds = %pmix20_bfrop_pack_sizet.exit, %57, %49, %10, %25, %pmix_pointer_array_get_item.exit.i.i, %27, %5
   %.018 = phi i32 [ 0, %5 ], [ -21, %27 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %26, %25 ], [ %13, %10 ], [ -29, %49 ], [ 0, %57 ], [ %35, %pmix20_bfrop_pack_sizet.exit ]
@@ -3848,12 +3848,12 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   br i1 %.not, label %36, label %pmix20_bfrop_pack_byte.exit
 
 36:                                               ; preds = %pmix20_bfrop_pack_sizet.exit
-  %37 = load i64, ptr %12, align 8, !tbaa !88
+  %37 = load i64, ptr %12, align 8, !tbaa !87
   %.not22 = icmp eq i64 %37, 0
   br i1 %.not22, label %56, label %38
 
 38:                                               ; preds = %36
-  %39 = load ptr, ptr %11, align 8, !tbaa !90
+  %39 = load ptr, ptr %11, align 8, !tbaa !89
   %40 = trunc i64 %37 to i32
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i = icmp ult i32 %41, 64
@@ -3890,7 +3890,7 @@ pmix20_bfrop_pack_byte.exit.thread:               ; preds = %48
 56:                                               ; preds = %pmix20_bfrop_pack_byte.exit.thread, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_byte.exit, label %10, !llvm.loop !91
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_byte.exit, label %10, !llvm.loop !90
 
 pmix20_bfrop_pack_byte.exit:                      ; preds = %pmix20_bfrop_pack_sizet.exit, %56, %48, %10, %25, %pmix_pointer_array_get_item.exit.i.i, %27, %5
   %.0 = phi i32 [ 0, %5 ], [ -21, %27 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %26, %25 ], [ %13, %10 ], [ -29, %48 ], [ 0, %56 ], [ %35, %pmix20_bfrop_pack_sizet.exit ]
@@ -3993,7 +3993,7 @@ define i32 @pmix20_bfrop_pack_pinfo(ptr noundef %0, ptr noundef %1, ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %12 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %2, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr %12, ptr %6, align 8, !tbaa !46
+  store ptr %12, ptr %6, align 8, !tbaa !45
   %13 = call i32 @pmix20_bfrop_pack_string(ptr readnone poison, ptr noundef %1, ptr noundef nonnull %6, i32 noundef 1, i16 zeroext poison)
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %14, label %pmix20_bfrop_pack_proc.exit
@@ -4131,7 +4131,7 @@ pmix20_bfrop_pack_pid.exit:                       ; preds = %pmix_pointer_array_
   store i64 %79, ptr %9, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_pstate.exit, label %11, !llvm.loop !92
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_pstate.exit, label %11, !llvm.loop !91
 
 pmix20_bfrop_pack_pstate.exit:                    ; preds = %.lr.ph.i.i.preheader.i, %34, %pmix20_bfrop_pack_pid.exit, %74, %71, %37, %51, %pmix_pointer_array_get_item.exit.i.i, %53, %5, %pmix20_bfrop_pack_proc.exit
   %.029 = phi i32 [ %.2.ph.i, %pmix20_bfrop_pack_proc.exit ], [ 0, %5 ], [ %33, %.lr.ph.i.i.preheader.i ], [ %36, %34 ], [ %61, %pmix20_bfrop_pack_pid.exit ], [ 0, %74 ], [ -29, %71 ], [ %39, %37 ], [ %52, %51 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ -21, %53 ]
@@ -4223,18 +4223,18 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   br i1 %.not32, label %45, label %pmix20_bfrop_pack_datatype.exit.thread
 
 45:                                               ; preds = %pmix20_bfrop_pack_sizet.exit
-  %46 = load i64, ptr %21, align 8, !tbaa !93
+  %46 = load i64, ptr %21, align 8, !tbaa !92
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %80, label %48
 
 48:                                               ; preds = %45
-  %49 = load i16, ptr %11, align 8, !tbaa !95
+  %49 = load i16, ptr %11, align 8, !tbaa !94
   %50 = icmp eq i16 %49, 0
   br i1 %50, label %80, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %53 = load ptr, ptr %52, align 8, !tbaa !96
+  %53 = load ptr, ptr %52, align 8, !tbaa !95
   %54 = trunc i64 %46 to i32
   %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i = icmp ult i32 %55, 64
@@ -4290,7 +4290,7 @@ pmix20_bfrop_pack_buffer.exit:                    ; preds = %pmix_pointer_array_
 80:                                               ; preds = %pmix20_bfrop_pack_buffer.exit, %45, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_datatype.exit.thread, label %10, !llvm.loop !97
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_datatype.exit.thread, label %10, !llvm.loop !96
 
 pmix20_bfrop_pack_datatype.exit.thread:           ; preds = %pmix20_bfrop_pack_datatype.exit, %pmix20_bfrop_pack_sizet.exit, %pmix20_bfrop_pack_buffer.exit, %80, %pmix_pointer_array_get_item.exit.i, %10, %20, %34, %pmix_pointer_array_get_item.exit.i.i, %36, %67, %pmix_pointer_array_get_item.exit.i38, %69, %5
   %.027 = phi i32 [ 0, %5 ], [ -21, %69 ], [ -21, %pmix_pointer_array_get_item.exit.i38 ], [ %68, %67 ], [ -21, %36 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %35, %34 ], [ %22, %20 ], [ -16, %10 ], [ -16, %pmix_pointer_array_get_item.exit.i ], [ 0, %80 ], [ %79, %pmix20_bfrop_pack_buffer.exit ], [ %44, %pmix20_bfrop_pack_sizet.exit ], [ %19, %pmix20_bfrop_pack_datatype.exit ]
@@ -4312,7 +4312,7 @@ define i32 @pmix20_bfrop_pack_query(ptr noundef %0, ptr noundef %1, ptr noundef 
 10:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
   %11 = getelementptr inbounds nuw %struct.pmix_query, ptr %2, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !98
+  %12 = load ptr, ptr %11, align 8, !tbaa !97
   %13 = tail call i32 @PMIx_Argv_count(ptr noundef %12) #8
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4, !tbaa !14
   %or.cond.i = icmp ult i32 %14, 64
@@ -4347,7 +4347,7 @@ define i32 @pmix20_bfrop_pack_query(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %.lr.ph.i.preheader
-  %31 = load ptr, ptr %11, align 8, !tbaa !98
+  %31 = load ptr, ptr %11, align 8, !tbaa !97
   %32 = tail call i32 @pmix20_bfrop_pack_string(ptr poison, ptr noundef nonnull %1, ptr noundef %31, i32 noundef %13, i16 zeroext poison)
   %.not35 = icmp eq i32 %32, 0
   br i1 %.not35, label %33, label %pmix20_bfrop_pack_int32.exit
@@ -4404,13 +4404,13 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
   br i1 %.not36, label %58, label %pmix20_bfrop_pack_int32.exit
 
 58:                                               ; preds = %pmix20_bfrop_pack_sizet.exit
-  %59 = load i64, ptr %34, align 8, !tbaa !100
+  %59 = load i64, ptr %34, align 8, !tbaa !99
   %.not37 = icmp eq i64 %59, 0
   br i1 %.not37, label %65, label %60
 
 60:                                               ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !101
+  %62 = load ptr, ptr %61, align 8, !tbaa !100
   %63 = trunc i64 %59 to i32
   %64 = tail call i32 @pmix20_bfrop_pack_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %62, i32 noundef %63, i16 zeroext poison)
   %.not38 = icmp eq i32 %64, 0
@@ -4419,7 +4419,7 @@ pmix20_bfrop_pack_sizet.exit:                     ; preds = %pmix_pointer_array_
 65:                                               ; preds = %58, %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %pmix20_bfrop_pack_int32.exit, label %10, !llvm.loop !102
+  br i1 %exitcond.not, label %pmix20_bfrop_pack_int32.exit, label %10, !llvm.loop !101
 
 pmix20_bfrop_pack_int32.exit:                     ; preds = %30, %pmix20_bfrop_pack_sizet.exit, %60, %65, %21, %33, %47, %pmix_pointer_array_get_item.exit.i.i, %49, %5
   %.028 = phi i32 [ 0, %5 ], [ -21, %49 ], [ -21, %pmix_pointer_array_get_item.exit.i.i ], [ %48, %47 ], [ %35, %33 ], [ -29, %21 ], [ 0, %65 ], [ %64, %60 ], [ %57, %pmix20_bfrop_pack_sizet.exit ], [ %32, %30 ]
@@ -4483,13 +4483,13 @@ define i32 @pmix20_bfrop_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %9, label %._crit_edge
 
 9:                                                ; preds = %.lr.ph
-  %10 = load i64, ptr %7, align 8, !tbaa !103
+  %10 = load i64, ptr %7, align 8, !tbaa !102
   %.not22 = icmp eq i64 %10, 0
   br i1 %.not22, label %16, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !105
+  %13 = load ptr, ptr %12, align 8, !tbaa !104
   %14 = trunc i64 %10 to i32
   %15 = tail call i32 @pmix_bfrops_base_pack_info(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef %14, i16 noundef zeroext 24) #8
   %.not23 = icmp eq i32 %15, 0
@@ -4498,7 +4498,7 @@ define i32 @pmix20_bfrop_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef 
 16:                                               ; preds = %9, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %16, %5
   %.018 = phi i32 [ 0, %5 ], [ 0, %16 ], [ %15, %11 ], [ %8, %.lr.ph ]
@@ -4566,75 +4566,74 @@ attributes #9 = { nounwind willreturn memory(read) }
 !32 = !{!"", !5, i64 0, !33, i64 120, !12, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160}
 !33 = !{!"short", !6, i64 0}
 !34 = !{!10, !10, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!22, !22, i64 0}
-!39 = !{i8 0, i8 2}
-!40 = !{}
-!41 = !{!6, !6, i64 0}
-!42 = distinct !{!42, !36, !37}
-!43 = !{!33, !33, i64 0}
-!44 = distinct !{!44, !36, !37}
-!45 = distinct !{!45, !36, !37}
-!46 = !{!12, !12, i64 0}
-!47 = distinct !{!47, !36, !37}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"float", !6, i64 0}
-!50 = distinct !{!50, !36, !37}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"double", !6, i64 0}
-!53 = distinct !{!53, !36, !37}
-!54 = !{!55, !13, i64 0}
-!55 = !{!"timeval", !13, i64 0, !13, i64 8}
-!56 = !{!13, !13, i64 0}
-!57 = !{!55, !13, i64 8}
-!58 = distinct !{!58, !36, !37}
-!59 = distinct !{!59, !36, !37}
-!60 = distinct !{!60, !36, !37}
-!61 = distinct !{!61, !36, !37}
-!62 = !{!63, !33, i64 0}
-!63 = !{!"pmix_value", !33, i64 0, !6, i64 8}
-!64 = distinct !{!64, !36, !37}
-!65 = distinct !{!65, !36, !37}
-!66 = distinct !{!66, !36, !37}
-!67 = !{!4, !12, i64 128}
-!68 = distinct !{!68, !36, !37}
-!69 = !{!70, !71, i64 8}
-!70 = !{!"pmix_app", !12, i64 0, !71, i64 8, !71, i64 16, !12, i64 24, !10, i64 32, !72, i64 40, !13, i64 48}
-!71 = !{!"p2 omnipotent char", !9, i64 0}
-!72 = !{!"p1 _ZTS9pmix_info", !9, i64 0}
-!73 = distinct !{!73, !36, !37}
-!74 = !{!70, !71, i64 16}
-!75 = distinct !{!75, !36, !37}
-!76 = !{!70, !13, i64 48}
-!77 = !{!70, !72, i64 40}
-!78 = distinct !{!78, !36, !37}
-!79 = !{!80, !12, i64 144}
-!80 = !{!"", !18, i64 0, !12, i64 144, !81, i64 152}
-!81 = !{!"p1 _ZTS10pmix_value", !9, i64 0}
-!82 = !{!80, !81, i64 152}
-!83 = distinct !{!83, !36, !37}
-!84 = !{!85, !13, i64 272}
-!85 = !{!"pmix_modex_data", !6, i64 0, !10, i64 256, !12, i64 264, !13, i64 272}
-!86 = !{!85, !12, i64 264}
-!87 = distinct !{!87, !36, !37}
-!88 = !{!89, !13, i64 8}
-!89 = !{!"pmix_byte_object", !12, i64 0, !13, i64 8}
-!90 = !{!89, !12, i64 0}
-!91 = distinct !{!91, !36, !37}
-!92 = distinct !{!92, !36, !37}
-!93 = !{!94, !13, i64 8}
-!94 = !{!"pmix_data_array", !33, i64 0, !13, i64 8, !9, i64 16}
-!95 = !{!94, !33, i64 0}
-!96 = !{!94, !9, i64 16}
-!97 = distinct !{!97, !36, !37}
-!98 = !{!99, !71, i64 0}
-!99 = !{!"pmix_query", !71, i64 0, !72, i64 8, !13, i64 16}
-!100 = !{!99, !13, i64 16}
-!101 = !{!99, !72, i64 8}
-!102 = distinct !{!102, !36, !37}
-!103 = !{!104, !13, i64 0}
-!104 = !{!"pmix_info_array", !13, i64 0, !72, i64 8}
-!105 = !{!104, !72, i64 8}
-!106 = distinct !{!106, !36, !37}
+!37 = !{!22, !22, i64 0}
+!38 = !{i8 0, i8 2}
+!39 = !{}
+!40 = !{!6, !6, i64 0}
+!41 = distinct !{!41, !36}
+!42 = !{!33, !33, i64 0}
+!43 = distinct !{!43, !36}
+!44 = distinct !{!44, !36}
+!45 = !{!12, !12, i64 0}
+!46 = distinct !{!46, !36}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"float", !6, i64 0}
+!49 = distinct !{!49, !36}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"double", !6, i64 0}
+!52 = distinct !{!52, !36}
+!53 = !{!54, !13, i64 0}
+!54 = !{!"timeval", !13, i64 0, !13, i64 8}
+!55 = !{!13, !13, i64 0}
+!56 = !{!54, !13, i64 8}
+!57 = distinct !{!57, !36}
+!58 = distinct !{!58, !36}
+!59 = distinct !{!59, !36}
+!60 = distinct !{!60, !36}
+!61 = !{!62, !33, i64 0}
+!62 = !{!"pmix_value", !33, i64 0, !6, i64 8}
+!63 = distinct !{!63, !36}
+!64 = distinct !{!64, !36}
+!65 = distinct !{!65, !36}
+!66 = !{!4, !12, i64 128}
+!67 = distinct !{!67, !36}
+!68 = !{!69, !70, i64 8}
+!69 = !{!"pmix_app", !12, i64 0, !70, i64 8, !70, i64 16, !12, i64 24, !10, i64 32, !71, i64 40, !13, i64 48}
+!70 = !{!"p2 omnipotent char", !9, i64 0}
+!71 = !{!"p1 _ZTS9pmix_info", !9, i64 0}
+!72 = distinct !{!72, !36}
+!73 = !{!69, !70, i64 16}
+!74 = distinct !{!74, !36}
+!75 = !{!69, !13, i64 48}
+!76 = !{!69, !71, i64 40}
+!77 = distinct !{!77, !36}
+!78 = !{!79, !12, i64 144}
+!79 = !{!"", !18, i64 0, !12, i64 144, !80, i64 152}
+!80 = !{!"p1 _ZTS10pmix_value", !9, i64 0}
+!81 = !{!79, !80, i64 152}
+!82 = distinct !{!82, !36}
+!83 = !{!84, !13, i64 272}
+!84 = !{!"pmix_modex_data", !6, i64 0, !10, i64 256, !12, i64 264, !13, i64 272}
+!85 = !{!84, !12, i64 264}
+!86 = distinct !{!86, !36}
+!87 = !{!88, !13, i64 8}
+!88 = !{!"pmix_byte_object", !12, i64 0, !13, i64 8}
+!89 = !{!88, !12, i64 0}
+!90 = distinct !{!90, !36}
+!91 = distinct !{!91, !36}
+!92 = !{!93, !13, i64 8}
+!93 = !{!"pmix_data_array", !33, i64 0, !13, i64 8, !9, i64 16}
+!94 = !{!93, !33, i64 0}
+!95 = !{!93, !9, i64 16}
+!96 = distinct !{!96, !36}
+!97 = !{!98, !70, i64 0}
+!98 = !{!"pmix_query", !70, i64 0, !71, i64 8, !13, i64 16}
+!99 = !{!98, !13, i64 16}
+!100 = !{!98, !71, i64 8}
+!101 = distinct !{!101, !36}
+!102 = !{!103, !13, i64 0}
+!103 = !{!"pmix_info_array", !13, i64 0, !71, i64 8}
+!104 = !{!103, !71, i64 8}
+!105 = distinct !{!105, !36}

@@ -23,7 +23,7 @@ define i64 @cli_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
   %6 = add i64 %.in, -1
   %7 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %5, %3
   %.025.lcssa = phi ptr [ %0, %3 ], [ %scevgep, %5 ], [ %.02533, %.lr.ph ]
@@ -63,7 +63,7 @@ define i64 @cli_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
   %21 = getelementptr inbounds nuw i8, ptr %.02438, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !3
   %.not30 = icmp eq i8 %22, 0
-  br i1 %.not30, label %._crit_edge, label %.lr.ph40, !llvm.loop !8
+  br i1 %.not30, label %._crit_edge, label %.lr.ph40
 
 ._crit_edge:                                      ; preds = %20, %.preheader
   %.126.lcssa = phi ptr [ %.025.lcssa, %.preheader ], [ %.227, %20 ]
@@ -95,6 +95,3 @@ attributes #2 = { nounwind willreturn memory(read) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}

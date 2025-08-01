@@ -469,7 +469,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %142 = tail call noundef i32 @llvm.fshl.i32(i32 %141, i32 %141, i32 7)
   %143 = add nsw i32 %.1333, -2
   %.not = icmp eq i32 %143, 0
-  br i1 %.not, label %144, label %46, !llvm.loop !7
+  br i1 %.not, label %144, label %46, !llvm.loop !6
 
 144:                                              ; preds = %46
   %145 = add i32 %101, %6
@@ -586,7 +586,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   store i8 %229, ptr %230, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %231 = icmp samesign ult i64 %indvars.iv.next, %.0294
-  br i1 %231, label %.lr.ph335, label %.loopexit, !llvm.loop !8
+  br i1 %231, label %.lr.ph335, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph335, %227
   store i32 %208, ptr %29, align 4
@@ -597,7 +597,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
 232:                                              ; preds = %144
   %233 = getelementptr i8, ptr %.1290, i64 64
   %234 = getelementptr i8, ptr %.1288, i64 64
-  br label %37, !llvm.loop !9
+  br label %37
 }
 
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -625,9 +625,7 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}

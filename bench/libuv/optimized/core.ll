@@ -533,7 +533,7 @@ uv__queue_move.exit.i:                            ; preds = %44
   call void %58(ptr noundef nonnull %0, ptr noundef nonnull %57, i32 noundef 4) #23
   %59 = load ptr, ptr %4, align 8
   %.not.i54 = icmp eq ptr %4, %59
-  br i1 %.not.i54, label %uv__run_pending.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %.not.i54, label %uv__run_pending.exit, label %.lr.ph.i
 
 uv__run_pending.exit:                             ; preds = %.lr.ph.i, %.thread, %uv__queue_move.exit.i
   %60 = phi i1 [ %47, %.thread ], [ false, %uv__queue_move.exit.i ], [ false, %.lr.ph.i ]
@@ -631,13 +631,13 @@ uv__queue_move.exit.i57:                          ; preds = %85
   call void %97(ptr noundef nonnull %0, ptr noundef nonnull %96, i32 noundef 4) #23
   %98 = load ptr, ptr %3, align 8
   %.not.i61 = icmp eq ptr %3, %98
-  br i1 %.not.i61, label %uv__run_pending.exit62, label %.lr.ph.i60, !llvm.loop !4
+  br i1 %.not.i61, label %uv__run_pending.exit62, label %.lr.ph.i60
 
 uv__run_pending.exit62:                           ; preds = %.lr.ph.i60, %uv__queue_move.exit.i57
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
   %99 = add nuw nsw i32 %.274, 1
   %exitcond.not = icmp eq i32 %99, 8
-  br i1 %exitcond.not, label %.critedge7, label %85, !llvm.loop !6
+  br i1 %exitcond.not, label %.critedge7, label %85
 
 .critedge7:                                       ; preds = %uv__run_pending.exit62, %85
   call void @uv__metrics_update_idle_time(ptr noundef nonnull %0) #23
@@ -734,7 +734,7 @@ uv__run_pending.exit62:                           ; preds = %.lr.ph.i60, %uv__qu
 
 uv__finish_close.exit.i:                          ; preds = %144, %135, %114
   %.not.i65 = icmp eq ptr %102, null
-  br i1 %.not.i65, label %uv__run_closing_handles.exit, label %.lr.ph.i64, !llvm.loop !7
+  br i1 %.not.i65, label %uv__run_closing_handles.exit, label %.lr.ph.i64
 
 uv__run_closing_handles.exit:                     ; preds = %uv__finish_close.exit.i, %.critedge7
   %145 = call i64 @uv__hrtime(i32 noundef 1) #23
@@ -765,7 +765,7 @@ uv__loop_alive.exit69:                            ; preds = %uv__run_closing_han
   %156 = phi i32 [ 1, %150 ], [ 1, %148 ], [ 1, %uv__run_closing_handles.exit ], [ %155, %152 ]
   %157 = icmp ne i32 %156, 0
   %or.cond11 = select i1 %or.cond9, i1 %157, i1 false
-  br i1 %or.cond11, label %41, label %.critedge, !llvm.loop !8
+  br i1 %or.cond11, label %41, label %.critedge
 
 .critedge:                                        ; preds = %uv__loop_alive.exit69, %41, %.thread71
   %.1 = phi i32 [ 0, %.thread71 ], [ 1, %41 ], [ %156, %uv__loop_alive.exit69 ]
@@ -863,7 +863,7 @@ uv__nonblock_ioctl.exit.thread:                   ; preds = %19
 21:                                               ; preds = %19
   %22 = load i32, ptr %8, align 4
   %23 = icmp eq i32 %22, 4
-  br i1 %23, label %19, label %uv__nonblock_ioctl.exit, !llvm.loop !9
+  br i1 %23, label %19, label %uv__nonblock_ioctl.exit
 
 uv__nonblock_ioctl.exit:                          ; preds = %21, %.uv__nonblock_ioctl.exit_crit_edge
   %24 = phi i32 [ %.pre, %.uv__nonblock_ioctl.exit_crit_edge ], [ %22, %21 ]
@@ -888,7 +888,7 @@ uv__nonblock_ioctl.exit:                          ; preds = %21, %.uv__nonblock_
 28:                                               ; preds = %26
   %29 = load i32, ptr %8, align 4
   %30 = icmp eq i32 %29, 4
-  br i1 %30, label %26, label %uv__cloexec.exit, !llvm.loop !10
+  br i1 %30, label %26, label %uv__cloexec.exit
 
 uv__cloexec.exit:                                 ; preds = %28, %..critedge.i25_crit_edge
   %31 = phi i32 [ %.pre32, %..critedge.i25_crit_edge ], [ %29, %28 ]
@@ -936,7 +936,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__nonblock_ioctl(i32 no
   %7 = tail call ptr @__errno_location() #24
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 4
-  br i1 %9, label %4, label %.critedge, !llvm.loop !9
+  br i1 %9, label %4, label %.critedge
 
 .critedge:                                        ; preds = %6, %..critedge_crit_edge
   %.pre-phi = phi ptr [ %.pre, %..critedge_crit_edge ], [ %7, %6 ]
@@ -970,7 +970,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__cloexec(i32 noundef %
   %6 = tail call ptr @__errno_location() #24
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 4
-  br i1 %8, label %3, label %.critedge, !llvm.loop !10
+  br i1 %8, label %3, label %.critedge
 
 .critedge:                                        ; preds = %5, %..critedge_crit_edge
   %.pre-phi = phi ptr [ %.pre, %..critedge_crit_edge ], [ %6, %5 ]
@@ -1080,7 +1080,7 @@ define hidden i32 @uv__accept(i32 noundef %0) local_unnamed_addr #0 {
   %6 = tail call ptr @__errno_location() #24
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 4
-  br i1 %8, label %2, label %.critedge, !llvm.loop !11
+  br i1 %8, label %2, label %.critedge
 
 .critedge:                                        ; preds = %5
   %9 = sub nsw i32 0, %7
@@ -1143,7 +1143,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__nonblock_fcntl(i32 no
   %7 = tail call ptr @__errno_location() #24
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 4
-  br i1 %9, label %3, label %.critedge, !llvm.loop !12
+  br i1 %9, label %3, label %.critedge
 
 .critedge:                                        ; preds = %6
   %10 = sub nsw i32 0, %8
@@ -1177,7 +1177,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__nonblock_fcntl(i32 no
   %20 = tail call ptr @__errno_location() #24
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 4
-  br i1 %22, label %17, label %.critedge2, !llvm.loop !13
+  br i1 %22, label %17, label %.critedge2
 
 .critedge2:                                       ; preds = %19, %..critedge2_crit_edge
   %.pre-phi = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %20, %19 ]
@@ -1337,7 +1337,7 @@ define dso_local void @uv_disable_stdio_inheritance() local_unnamed_addr #0 {
   %5 = tail call ptr @__errno_location() #24
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 4
-  br i1 %7, label %2, label %uv__cloexec.exit, !llvm.loop !10
+  br i1 %7, label %2, label %uv__cloexec.exit
 
 uv__cloexec.exit:                                 ; preds = %4, %..critedge_crit_edge.i
   %8 = phi i32 [ %.pre, %..critedge_crit_edge.i ], [ %6, %4 ]
@@ -1348,7 +1348,7 @@ uv__cloexec.exit:                                 ; preds = %4, %..critedge_crit
 
 uv__cloexec.exit.thread:                          ; preds = %2, %uv__cloexec.exit
   %11 = add nuw nsw i32 %.0, 1
-  br label %1, !llvm.loop !14
+  br label %1
 
 12:                                               ; preds = %uv__cloexec.exit
   ret void
@@ -1973,7 +1973,7 @@ uv__open_cloexec.exit:                            ; preds = %3, %6
 16:                                               ; preds = %12
   %17 = load i32, ptr %15, align 4
   %18 = icmp eq i32 %17, 4
-  br i1 %18, label %12, label %.critedge, !llvm.loop !15
+  br i1 %18, label %12, label %.critedge
 
 .critedge:                                        ; preds = %16, %12
   %19 = load i32, ptr %15, align 4
@@ -2260,7 +2260,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_get_group(ptr no
   %9 = shl i64 %.05069, 1
   %10 = call ptr @uv__malloc(i64 noundef %9) #23
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %11, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader61, %8
   %12 = phi ptr [ %10, %8 ], [ %6, %.preheader61 ]
@@ -2270,7 +2270,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_get_group(ptr no
 13:                                               ; preds = %.preheader, %13
   %14 = call i32 @getgrgid_r(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %12, i64 noundef %.05069, ptr noundef nonnull %4) #23
   %15 = icmp eq i32 %14, 4
-  br i1 %15, label %13, label %16, !llvm.loop !17
+  br i1 %15, label %13, label %16
 
 16:                                               ; preds = %13
   %17 = icmp ne i32 %14, 0
@@ -2317,7 +2317,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_get_group(ptr no
   %37 = getelementptr inbounds nuw ptr, ptr %30, i64 %36
   %38 = load ptr, ptr %37, align 8
   %.not57 = icmp eq ptr %38, null
-  br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread60
   %.048.lcssa = phi i64 [ 0, %.thread60 ], [ %36, %.lr.ph ]
@@ -2357,7 +2357,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_get_group(ptr no
   %57 = getelementptr i8, ptr %56, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.048.lcssa
-  br i1 %exitcond.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge79, label %.lr.ph78
 
 ._crit_edge79:                                    ; preds = %.lr.ph78, %43
   %.051.lcssa = phi ptr [ %48, %43 ], [ %57, %.lr.ph78 ]
@@ -2406,7 +2406,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(p
   %9 = shl i64 %.03549, 1
   %10 = call ptr @uv__malloc(i64 noundef %9) #23
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %11, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader42, %8
   %12 = phi ptr [ %10, %8 ], [ %6, %.preheader42 ]
@@ -2416,7 +2416,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(p
 13:                                               ; preds = %.preheader, %13
   %14 = call i32 @getpwuid_r(i32 noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %12, i64 noundef %.03549, ptr noundef nonnull %4) #23
   %15 = icmp eq i32 %14, 4
-  br i1 %15, label %13, label %16, !llvm.loop !21
+  br i1 %15, label %13, label %16
 
 16:                                               ; preds = %13
   %17 = icmp ne i32 %14, 0
@@ -2531,7 +2531,7 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr noundef captures(none)
   %.not = icmp eq ptr %6, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next65 = add nuw i32 %indvars.iv64, 1
-  br i1 %.not, label %7, label %4, !llvm.loop !22
+  br i1 %.not, label %7, label %4
 
 7:                                                ; preds = %4
   %8 = tail call ptr @uv__calloc(i64 noundef %indvars.iv, i64 noundef 16) #23
@@ -2594,7 +2594,7 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr noundef captures(none)
   %.2.ph = phi i32 [ %29, %23 ], [ %.03853, %22 ]
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count
-  br i1 %exitcond.not, label %.sink.split, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.sink.split, label %.lr.ph
 
 31:                                               ; preds = %.lr.ph57, %31
   %.156 = phi i32 [ 0, %.lr.ph57 ], [ %35, %31 ]
@@ -2604,7 +2604,7 @@ define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr noundef captures(none)
   tail call void @uv__free(ptr noundef %34) #23
   %35 = add nuw nsw i32 %.156, 1
   %exitcond67.not = icmp eq i32 %35, %.03853
-  br i1 %exitcond67.not, label %._crit_edge, label %31, !llvm.loop !24
+  br i1 %exitcond67.not, label %._crit_edge, label %31
 
 ._crit_edge:                                      ; preds = %31, %.preheader
   %36 = load ptr, ptr %0, align 8
@@ -3184,7 +3184,7 @@ define dso_local void @uv_sleep(i32 noundef %0) local_unnamed_addr #0 {
   %13 = tail call ptr @__errno_location() #24
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 4
-  br i1 %15, label %9, label %.critedge, !llvm.loop !25
+  br i1 %15, label %9, label %.critedge
 
 .critedge:                                        ; preds = %9, %12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
@@ -3282,7 +3282,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__search_path(ptr nound
 46:                                               ; preds = %37, %.lr.ph
   %47 = call ptr @uv__strtok(ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef nonnull %6) #23
   %.not41 = icmp eq ptr %47, null
-  br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %46, %32
   call void @uv__free(ptr noundef nonnull %30) #23
@@ -3455,26 +3455,3 @@ attributes #26 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}

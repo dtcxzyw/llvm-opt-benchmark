@@ -440,7 +440,7 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   %20 = add i64 %19, %.066107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader94, label %17, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader94, label %17, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader94
   %.0.lcssa = phi i32 [ 0, %.preheader94 ], [ %.1, %.loopexit ]
@@ -466,7 +466,7 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
 
 30:                                               ; preds = %26
   %31 = icmp eq i32 %28, 0
-  br i1 %31, label %.loopexit, label %32, !llvm.loop !13
+  br i1 %31, label %.loopexit, label %32, !llvm.loop !12
 
 32:                                               ; preds = %30
   %33 = tail call ptr @__errno_location() #12
@@ -474,7 +474,7 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   switch i32 %34, label %35 [
     i32 4, label %.loopexit
     i32 11, label %.loopexit
-  ], !llvm.loop !13
+  ], !llvm.loop !12
 
 35:                                               ; preds = %32
   %36 = call i32 @get_log_level() #11
@@ -591,7 +591,7 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   %84 = tail call ptr @__errno_location() #12
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, 4
-  br i1 %86, label %.loopexit, label %87, !llvm.loop !13
+  br i1 %86, label %.loopexit, label %87, !llvm.loop !12
 
 87:                                               ; preds = %83
   %88 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -615,7 +615,7 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
 
 97:                                               ; preds = %94
   %98 = call i32 @usleep(i32 noundef 10000) #11
-  br label %.loopexit, !llvm.loop !13
+  br label %.loopexit, !llvm.loop !12
 
 99:                                               ; preds = %94
   store i32 1002, ptr %84, align 4
@@ -629,16 +629,16 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   %103 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %104 = and i64 %103, 1024
   %.not84 = icmp eq i64 %104, 0
-  br i1 %.not84, label %.loopexit, label %105, !llvm.loop !13
+  br i1 %.not84, label %.loopexit, label %105, !llvm.loop !12
 
 105:                                              ; preds = %102
   %106 = call i32 @get_log_level() #11
   %107 = icmp sgt i32 %106, 3
-  br i1 %107, label %108, label %.loopexit, !llvm.loop !13
+  br i1 %107, label %108, label %.loopexit, !llvm.loop !12
 
 108:                                              ; preds = %105
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__._writev_timeout, i32 noundef %0, i32 noundef %.0110, i64 noundef %20) #11
-  br label %.loopexit, !llvm.loop !13
+  br label %.loopexit, !llvm.loop !12
 
 109:                                              ; preds = %100
   %110 = trunc i64 %81 to i32
@@ -685,14 +685,14 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, i8 0, i64 16, i1 false)
-  br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %129, %124, %102, %108, %105, %83, %30, %32, %32, %97
   %.1 = phi i32 [ %.0110, %97 ], [ %.0110, %32 ], [ %.0110, %32 ], [ %.0110, %30 ], [ %.0110, %83 ], [ %.0110, %105 ], [ %.0110, %108 ], [ %.0110, %102 ], [ %111, %124 ], [ %111, %129 ]
   %131 = call i32 @timeval_tot_wait(ptr noundef nonnull %6) #11
   %132 = sub nsw i32 %3, %131
   %133 = icmp slt i32 %132, 1
-  br i1 %133, label %._crit_edge, label %26, !llvm.loop !15
+  br i1 %133, label %._crit_edge, label %26
 
 .thread:                                          ; preds = %113, %119, %116, %99, %71, %54, %41, %24
   %.193 = phi i32 [ %111, %113 ], [ %111, %119 ], [ %111, %116 ], [ -1, %99 ], [ -1, %71 ], [ -1, %54 ], [ -1, %41 ], [ -1, %24 ]
@@ -1035,7 +1035,7 @@ define dso_local range(i32 -1, -2147483648) i32 @slurm_open_stream(ptr noundef %
   call void @slurm_set_port(ptr noundef nonnull %5, i16 noundef zeroext %48) #11
   %49 = add nuw nsw i32 %.05.i, 1
   %exitcond.not.i = icmp eq i32 %49, 3
-  br i1 %exitcond.not.i, label %_sock_bind_wild.exit, label %41, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_sock_bind_wild.exit, label %41, !llvm.loop !14
 
 _sock_bind_wild.exit:                             ; preds = %41, %44
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #11
@@ -1110,7 +1110,7 @@ _sock_bind_wild.exit:                             ; preds = %41, %44
   br label %.backedge
 
 .backedge:                                        ; preds = %81, %78
-  br label %69, !llvm.loop !17
+  br label %69
 
 .thread39.i:                                      ; preds = %74
   %83 = call ptr @slurm_strerror(i32 noundef %76) #11
@@ -1245,7 +1245,7 @@ _slurm_connect.exit:                              ; preds = %64, %.thread39.i, %
   %139 = zext i16 %138 to i32
   %140 = call i32 @socket(i32 noundef %139, i32 noundef 524289, i32 noundef 6) #11
   %141 = icmp slt i32 %140, 0
-  br i1 %141, label %._crit_edge, label %23, !llvm.loop !18
+  br i1 %141, label %._crit_edge, label %23, !llvm.loop !15
 
 .loopexit:                                        ; preds = %_slurm_connect.exit, %_slurm_connect.exit.thread
   %142 = tail call ptr @__errno_location() #12
@@ -1330,7 +1330,7 @@ define dso_local i32 @slurm_open_unix_stream(ptr noundef %0, i32 noundef %1, ptr
   %29 = tail call ptr @__errno_location() #12
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 4
-  br i1 %31, label %22, label %.critedge, !llvm.loop !19
+  br i1 %31, label %22, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %28
   %32 = icmp slt i32 %27, 0
@@ -1445,7 +1445,7 @@ define dso_local void @slurm_set_addr(ptr noundef %0, i16 noundef zeroext %1, pt
   %30 = getelementptr inbounds nuw i8, ptr %.126, i64 40
   %31 = load ptr, ptr %30, align 8
   %.not24 = icmp eq ptr %31, null
-  br i1 %.not24, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %.not24, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %29, %.preheader, %22, %23
   %.0 = phi ptr [ %12, %23 ], [ %12, %22 ], [ %12, %29 ], [ %.126, %.preheader ]
@@ -1651,16 +1651,13 @@ attributes #13 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

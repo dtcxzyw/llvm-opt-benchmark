@@ -1047,7 +1047,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @inotify_read(ptr noundef
   call void @_raw_spin_lock(ptr noundef nonnull %17) #10
   %113 = call ptr @fsnotify_peek_first_event(ptr noundef %14) #10
   %114 = icmp eq ptr %113, null
-  br i1 %114, label %.lr.ph.split, label %._crit_edge, !llvm.loop !48
+  br i1 %114, label %.lr.ph.split, label %._crit_edge, !llvm.loop !45
 
 .loopexit.loopexit:                               ; preds = %45
   %115 = ptrtoint ptr %.lcssa to i64
@@ -1096,8 +1096,8 @@ define internal range(i32 0, 66) i32 @inotify_poll(ptr noundef %0, ptr noundef %
   br i1 %13, label %14, label %15, !prof !12
 
 14:                                               ; preds = %10
-  tail call void asm sideeffect "297: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 297b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 297) #10, !srcloc !49
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 643, i32 0, i64 12) #10, !srcloc !50
+  tail call void asm sideeffect "297: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 297b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 297) #10, !srcloc !47
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 643, i32 0, i64 12) #10, !srcloc !48
   unreachable
 
 15:                                               ; preds = %10
@@ -1138,13 +1138,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @inotify_ioctl(ptr nounde
   %22 = add i32 %15, %21
   %23 = load ptr, ptr %13, align 8
   %24 = icmp eq ptr %23, %10
-  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !51
+  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.preheader, %6
   %25 = phi i32 [ 0, %6 ], [ %22, %.preheader ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %9) #10
   %26 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %27 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %4, i32 %25, i64 4, i64 %26) #10, !srcloc !53
+  %27 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %4, i32 %25, i64 4, i64 %26) #10, !srcloc !51
   %28 = extractvalue { ptr, i64 } %27, 0
   %29 = extractvalue { ptr, i64 } %27, 1
   %30 = ptrtoint ptr %28 to i64
@@ -1335,12 +1335,10 @@ attributes #14 = { nounwind allocsize(2) }
 !42 = !{i64 2152297935, i64 2152297963, i64 2152297969, i64 2152297985, i64 2152298001, i64 2152298028, i64 2152298342, i64 2152297685, i64 2152298348, i64 2152298396, i64 2152298460, i64 2152298524, i64 2152298581, i64 2152297766, i64 2152297791, i64 2152298788, i64 2152298924, i64 2152298849, i64 2152298938, i64 2152297883}
 !43 = !{i64 5309913, i64 5309918, i64 2152798139, i64 2152798145, i64 2152798161, i64 2152798177, i64 2152798204, i64 2152798527, i64 2152797738, i64 2152798533, i64 2152798581, i64 2152798645, i64 2152798709, i64 2152798766, i64 2152797819, i64 2152797844, i64 2152799050, i64 2152799191, i64 2152799111, i64 2152799205, i64 2152797936, i64 5310015, i64 2152799270, i64 2152799314, i64 2152799337, i64 2152799370, i64 2152799401, i64 2152799440}
 !44 = !{i64 2152296268, i64 2152296296, i64 2152296302, i64 2152296318, i64 2152296334, i64 2152296361, i64 2152296675, i64 2152296018, i64 2152296681, i64 2152296729, i64 2152296793, i64 2152296857, i64 2152296914, i64 2152296099, i64 2152296124, i64 2152297121, i64 2152297257, i64 2152297182, i64 2152297271, i64 2152296216}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.unroll.disable"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = distinct !{!48, !46, !47}
-!49 = !{i64 2153429675, i64 2153429484, i64 2153429536, i64 2153429582, i64 2153429610}
-!50 = !{i64 2153429749, i64 2153429778, i64 2153429824, i64 2153429882, i64 2153429936, i64 2153429990, i64 2153430045, i64 2153430076}
-!51 = distinct !{!51, !52, !46, !47}
-!52 = !{!"llvm.loop.mustprogress"}
-!53 = !{i64 2156039431}
+!47 = !{i64 2153429675, i64 2153429484, i64 2153429536, i64 2153429582, i64 2153429610}
+!48 = !{i64 2153429749, i64 2153429778, i64 2153429824, i64 2153429882, i64 2153429936, i64 2153429990, i64 2153430045, i64 2153430076}
+!49 = distinct !{!49, !50, !46}
+!50 = !{!"llvm.loop.mustprogress"}
+!51 = !{i64 2156039431}

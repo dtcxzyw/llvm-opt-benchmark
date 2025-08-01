@@ -354,7 +354,7 @@ check_flag.exit107:                               ; preds = %.lr.ph
   %161 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, double noundef %155, double noundef %160)
   %162 = load double, ptr %11, align 8, !tbaa !23
   %163 = fcmp olt double %162, 1.000000e+00
-  br i1 %163, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %163, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %154
   %puts54 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -490,7 +490,7 @@ define internal range(i32 0, 2) i32 @f_advection(double %0, ptr noundef %1, ptr 
 check_flag.exit:                                  ; preds = %4
   %7 = load ptr, ptr @stderr, align 8, !tbaa !15
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.30) #9
-  br label %47
+  br label %49
 
 9:                                                ; preds = %4
   %10 = tail call ptr @N_VGetArrayPointer(ptr noundef %2) #8
@@ -500,7 +500,7 @@ check_flag.exit:                                  ; preds = %4
 check_flag.exit40:                                ; preds = %9
   %12 = load ptr, ptr @stderr, align 8, !tbaa !15
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.30) #9
-  br label %47
+  br label %49
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -520,7 +520,6 @@ check_flag.exit40:                                ; preds = %9
   store double %28, ptr %10, align 8, !tbaa !23
   %29 = load i64, ptr %3, align 8, !tbaa !4
   %30 = add i64 %29, -1
-  %invariant.gep = getelementptr i8, ptr %5, i64 -8
   %31 = icmp sgt i64 %29, 2
   br i1 %31, label %.lr.ph, label %._crit_edge
 
@@ -532,25 +531,26 @@ check_flag.exit40:                                ; preds = %9
   %36 = fmul double %20, %35
   %37 = getelementptr inbounds double, ptr %10, i64 %30
   store double %36, ptr %37, align 8, !tbaa !23
-  br label %47
+  br label %49
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %.045 = phi i64 [ %38, %.lr.ph ], [ 1, %14 ]
   %38 = add nuw nsw i64 %.045, 1
   %39 = getelementptr inbounds nuw double, ptr %5, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !23
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.045
-  %41 = load double, ptr %gep, align 8, !tbaa !23
-  %42 = fneg double %41
-  %43 = fmul double %41, %42
-  %44 = tail call double @llvm.fmuladd.f64(double %40, double %40, double %43)
-  %45 = fmul double %20, %44
-  %46 = getelementptr inbounds nuw double, ptr %10, i64 %.045
-  store double %45, ptr %46, align 8, !tbaa !23
+  %41 = getelementptr double, ptr %5, i64 %.045
+  %42 = getelementptr i8, ptr %41, i64 -8
+  %43 = load double, ptr %42, align 8, !tbaa !23
+  %44 = fneg double %43
+  %45 = fmul double %43, %44
+  %46 = tail call double @llvm.fmuladd.f64(double %40, double %40, double %45)
+  %47 = fmul double %20, %46
+  %48 = getelementptr inbounds nuw double, ptr %10, i64 %.045
+  store double %47, ptr %48, align 8, !tbaa !23
   %exitcond.not = icmp eq i64 %38, %30
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-47:                                               ; preds = %check_flag.exit40, %check_flag.exit, %._crit_edge
+49:                                               ; preds = %check_flag.exit40, %check_flag.exit, %._crit_edge
   %.036 = phi i32 [ 1, %check_flag.exit ], [ 0, %._crit_edge ], [ 1, %check_flag.exit40 ]
   ret i32 %.036
 }
@@ -634,7 +634,7 @@ check_flag.exit37:                                ; preds = %9
   %52 = getelementptr inbounds nuw double, ptr %10, i64 %.043
   store double %51, ptr %52, align 8, !tbaa !23
   %exitcond.not = icmp eq i64 %42, %30
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 53:                                               ; preds = %check_flag.exit37, %check_flag.exit, %._crit_edge
   %.033 = phi i32 [ 1, %check_flag.exit ], [ 0, %._crit_edge ], [ 1, %check_flag.exit37 ]
@@ -660,12 +660,12 @@ define internal noundef i32 @jac_diffusion(double %0, ptr readnone captures(none
   %13 = fmul double %12, %12
   %14 = fdiv double %10, %13
   %15 = fmul double %14, -2.000000e+00
-  %16 = load ptr, ptr %3, align 8, !tbaa !30
+  %16 = load ptr, ptr %3, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %18 = load ptr, ptr %17, align 8, !tbaa !33
-  %19 = load ptr, ptr %18, align 8, !tbaa !37
+  %18 = load ptr, ptr %17, align 8, !tbaa !29
+  %19 = load ptr, ptr %18, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %21 = load i64, ptr %20, align 8, !tbaa !38
+  %21 = load i64, ptr %20, align 8, !tbaa !34
   %22 = getelementptr inbounds double, ptr %19, i64 %21
   store double %15, ptr %22, align 8, !tbaa !23
   %23 = load i64, ptr %4, align 8, !tbaa !4
@@ -678,19 +678,19 @@ define internal noundef i32 @jac_diffusion(double %0, ptr readnone captures(none
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %8 ]
   %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
-  %26 = load ptr, ptr %25, align 8, !tbaa !37
+  %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = getelementptr double, ptr %26, i64 %21
   %28 = getelementptr i8, ptr %27, i64 -8
   store double %14, ptr %28, align 8, !tbaa !23
   store double %15, ptr %27, align 8, !tbaa !23
   %29 = getelementptr i8, ptr %25, i64 -8
-  %30 = load ptr, ptr %29, align 8, !tbaa !37
+  %30 = load ptr, ptr %29, align 8, !tbaa !33
   %31 = getelementptr double, ptr %30, i64 %21
   %32 = getelementptr i8, ptr %31, i64 8
   store double %14, ptr %32, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %23
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 declare i32 @ARKodeSetLinear(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -728,7 +728,7 @@ check_flag.exit20:                                ; preds = %.lr.ph, %check_flag
   store double %19, ptr %20, align 8, !tbaa !23
   %21 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %21, %10
-  br i1 %exitcond.not, label %.loopexit, label %check_flag.exit20, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %check_flag.exit20
 
 .loopexit.sink.split:                             ; preds = %7, %4
   %22 = load ptr, ptr @stderr, align 8, !tbaa !15
@@ -820,18 +820,12 @@ attributes #9 = { cold nounwind }
 !23 = !{!9, !9, i64 0}
 !24 = !{!25, !25, i64 0}
 !25 = !{!"int", !7, i64 0}
-!26 = distinct !{!26, !27}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !27}
-!29 = distinct !{!29, !27}
-!30 = !{!31, !17, i64 0}
-!31 = !{!"_generic_SUNMatrix", !17, i64 0, !32, i64 8, !19, i64 16}
-!32 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !17, i64 0}
-!33 = !{!34, !36, i64 64}
-!34 = !{!"_SUNMatrixContent_Band", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !35, i64 48, !6, i64 56, !36, i64 64}
-!35 = !{!"p1 double", !17, i64 0}
-!36 = !{!"p2 double", !17, i64 0}
-!37 = !{!35, !35, i64 0}
-!38 = !{!34, !6, i64 40}
-!39 = distinct !{!39, !27}
-!40 = distinct !{!40, !27}
+!26 = !{!27, !17, i64 0}
+!27 = !{!"_generic_SUNMatrix", !17, i64 0, !28, i64 8, !19, i64 16}
+!28 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !17, i64 0}
+!29 = !{!30, !32, i64 64}
+!30 = !{!"_SUNMatrixContent_Band", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !31, i64 48, !6, i64 56, !32, i64 64}
+!31 = !{!"p1 double", !17, i64 0}
+!32 = !{!"p2 double", !17, i64 0}
+!33 = !{!31, !31, i64 0}
+!34 = !{!30, !6, i64 40}

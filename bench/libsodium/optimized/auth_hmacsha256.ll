@@ -81,7 +81,7 @@ define dso_local noundef i32 @crypto_auth_hmacsha256_init(ptr noundef nonnull %0
   store i8 %26, ptr %24, align 1
   %27 = add nuw nsw i64 %.126, 1
   %exitcond31.not = icmp eq i64 %27, %.021
-  br i1 %exitcond31.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !7
+  br i1 %exitcond31.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !6
 
 ._crit_edge29:                                    ; preds = %.lr.ph28, %._crit_edge
   %28 = call i32 @crypto_hash_sha256_update(ptr noundef nonnull %20, ptr noundef nonnull %4, i64 noundef 64) #5
@@ -189,7 +189,6 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

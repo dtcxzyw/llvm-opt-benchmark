@@ -348,7 +348,7 @@ define hidden void @_ZN6google8protobuf8internal11SerialArena11CleanupListEv(ptr
 .loopexit:                                        ; preds = %.lr.ph, %7
   %24 = load ptr, ptr %.0, align 8, !tbaa !3
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %25, label %7, !llvm.loop !32
+  br i1 %.not, label %25, label %7, !llvm.loop !31
 
 25:                                               ; preds = %.loopexit
   ret void
@@ -357,10 +357,10 @@ define hidden void @_ZN6google8protobuf8internal11SerialArena11CleanupListEv(ptr
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN6google8protobuf8internal15ThreadSafeArena14InitializeFromEPvm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %5 = load i64, ptr %4, align 64, !tbaa !33
+  %5 = load i64, ptr %4, align 64, !tbaa !32
   %6 = and i64 %5, 511
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %8, label %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit, !prof !35
+  br i1 %7, label %8, label %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit, !prof !34
 
 8:                                                ; preds = %3
   %9 = atomicrmw add ptr @_ZN6google8protobuf8internal15ThreadSafeArena23lifecycle_id_generator_E, i64 1 monotonic, align 8
@@ -370,11 +370,11 @@ define hidden void @_ZN6google8protobuf8internal15ThreadSafeArena14InitializeFro
 _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %3, %8
   %.0.i = phi i64 [ %10, %8 ], [ %5, %3 ]
   %11 = add i64 %.0.i, 2
-  store i64 %11, ptr %4, align 64, !tbaa !33
-  %12 = load i64, ptr %0, align 8, !tbaa !36
+  store i64 %11, ptr %4, align 64, !tbaa !32
+  %12 = load i64, ptr %0, align 8, !tbaa !35
   %13 = and i64 %12, 1
   %14 = or i64 %13, %.0.i
-  store i64 %14, ptr %0, align 8, !tbaa !36
+  store i64 %14, ptr %0, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i64 0, ptr %15 monotonic, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -388,7 +388,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %3, %8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8
   %storemerge.i.i = or i64 %21, 1
-  store i64 %storemerge.i.i, ptr %20, align 8, !tbaa !41
+  store i64 %storemerge.i.i, ptr %20, align 8, !tbaa !40
   store ptr null, ptr %1, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %2, ptr %22, align 8, !tbaa !11
@@ -410,13 +410,13 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %3, %8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %31, ptr %32, align 8, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %33, align 8, !tbaa !42
+  store ptr null, ptr %33, align 8, !tbaa !41
   %34 = ptrtoint ptr %24 to i64
   store atomic i64 %34, ptr %16 monotonic, align 8
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %24, ptr %35, align 16, !tbaa !43
+  store ptr %24, ptr %35, align 16, !tbaa !42
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %14, ptr %36, align 8, !tbaa !44
+  store i64 %14, ptr %36, align 8, !tbaa !43
   store atomic i64 %34, ptr %15 release, align 8
   br label %37
 
@@ -427,10 +427,10 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %3, %8
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN6google8protobuf8internal15ThreadSafeArena4InitEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #8 align 2 {
   %2 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %3 = load i64, ptr %2, align 64, !tbaa !33
+  %3 = load i64, ptr %2, align 64, !tbaa !32
   %4 = and i64 %3, 511
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %6, label %9, !prof !35
+  br i1 %5, label %6, label %9, !prof !34
 
 6:                                                ; preds = %1
   %7 = atomicrmw add ptr @_ZN6google8protobuf8internal15ThreadSafeArena23lifecycle_id_generator_E, i64 1 monotonic, align 8
@@ -440,11 +440,11 @@ define hidden void @_ZN6google8protobuf8internal15ThreadSafeArena4InitEv(ptr nou
 9:                                                ; preds = %6, %1
   %.0 = phi i64 [ %8, %6 ], [ %3, %1 ]
   %10 = add i64 %.0, 2
-  store i64 %10, ptr %2, align 64, !tbaa !33
-  %11 = load i64, ptr %0, align 8, !tbaa !36
+  store i64 %10, ptr %2, align 64, !tbaa !32
+  %11 = load i64, ptr %0, align 8, !tbaa !35
   %12 = and i64 %11, 1
   %13 = or i64 %12, %.0
-  store i64 %13, ptr %0, align 8, !tbaa !36
+  store i64 %13, ptr %0, align 8, !tbaa !35
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i64 0, ptr %14 monotonic, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -476,15 +476,15 @@ define hidden void @_ZN6google8protobuf8internal15ThreadSafeArena15SetInitialBlo
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %14, ptr %15, align 8, !tbaa !23
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %16, align 8, !tbaa !42
+  store ptr null, ptr %16, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = ptrtoint ptr %7 to i64
   store atomic i64 %18, ptr %17 monotonic, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %7, ptr %19, align 16, !tbaa !43
-  %20 = load i64, ptr %0, align 8, !tbaa !36
+  store ptr %7, ptr %19, align 16, !tbaa !42
+  %20 = load i64, ptr %0, align 8, !tbaa !35
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %20, ptr %21, align 8, !tbaa !44
+  store i64 %20, ptr %21, align 8, !tbaa !43
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i64 %18, ptr %22 release, align 8
   ret void
@@ -494,7 +494,7 @@ define hidden void @_ZN6google8protobuf8internal15ThreadSafeArena15SetInitialBlo
 define hidden void @_ZN6google8protobuf8internal15ThreadSafeArena20InitializeWithPolicyEPvmNS1_16AllocationPolicyE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly byval(%"struct.google::protobuf::internal::AllocationPolicy") align 8 captures(none) %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %6 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
-  %7 = load i64, ptr %3, align 8, !tbaa !45
+  %7 = load i64, ptr %3, align 8, !tbaa !44
   %8 = icmp eq i64 %7, 8192
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i64, ptr %9, align 8
@@ -513,13 +513,13 @@ define hidden void @_ZN6google8protobuf8internal15ThreadSafeArena20InitializeWit
   %20 = icmp eq ptr %19, null
   %or.cond28 = select i1 %or.cond8.i, i1 %20, i1 false
   %21 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
-  %22 = load i64, ptr %21, align 64, !tbaa !33
+  %22 = load i64, ptr %21, align 64, !tbaa !32
   %23 = and i64 %22, 511
   %24 = icmp eq i64 %23, 0
   br i1 %or.cond28, label %25, label %_ZNK6google8protobuf8internal16AllocationPolicy9IsDefaultEv.exit.thread
 
 25:                                               ; preds = %4
-  br i1 %24, label %26, label %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i, !prof !35
+  br i1 %24, label %26, label %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i, !prof !34
 
 26:                                               ; preds = %25
   %27 = atomicrmw add ptr @_ZN6google8protobuf8internal15ThreadSafeArena23lifecycle_id_generator_E, i64 1 monotonic, align 8
@@ -529,11 +529,11 @@ define hidden void @_ZN6google8protobuf8internal15ThreadSafeArena20InitializeWit
 _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i: ; preds = %26, %25
   %.0.i.i = phi i64 [ %28, %26 ], [ %22, %25 ]
   %29 = add i64 %.0.i.i, 2
-  store i64 %29, ptr %21, align 64, !tbaa !33
-  %30 = load i64, ptr %0, align 8, !tbaa !36
+  store i64 %29, ptr %21, align 64, !tbaa !32
+  %30 = load i64, ptr %0, align 8, !tbaa !35
   %31 = and i64 %30, 1
   %32 = or i64 %31, %.0.i.i
-  store i64 %32, ptr %0, align 8, !tbaa !36
+  store i64 %32, ptr %0, align 8, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i64 0, ptr %33 monotonic, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -547,7 +547,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i: ; preds = %26, %25
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i64, ptr %38, align 8
   %storemerge.i.i.i = or i64 %39, 1
-  store i64 %storemerge.i.i.i, ptr %38, align 8, !tbaa !41
+  store i64 %storemerge.i.i.i, ptr %38, align 8, !tbaa !40
   store ptr null, ptr %1, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %2, ptr %40, align 8, !tbaa !11
@@ -569,18 +569,18 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i: ; preds = %26, %25
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %49, ptr %50, align 8, !tbaa !23
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %51, align 8, !tbaa !42
+  store ptr null, ptr %51, align 8, !tbaa !41
   %52 = ptrtoint ptr %42 to i64
   store atomic i64 %52, ptr %34 monotonic, align 8
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %42, ptr %53, align 16, !tbaa !43
+  store ptr %42, ptr %53, align 16, !tbaa !42
   %54 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %32, ptr %54, align 8, !tbaa !44
+  store i64 %32, ptr %54, align 8, !tbaa !43
   store atomic i64 %52, ptr %33 release, align 8
   br label %_ZN6google8protobuf8internal15ThreadSafeArena14InitializeFromEPvm.exit
 
 _ZNK6google8protobuf8internal16AllocationPolicy9IsDefaultEv.exit.thread: ; preds = %4
-  br i1 %24, label %55, label %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit, !prof !35
+  br i1 %24, label %55, label %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit, !prof !34
 
 55:                                               ; preds = %_ZNK6google8protobuf8internal16AllocationPolicy9IsDefaultEv.exit.thread
   %56 = atomicrmw add ptr @_ZN6google8protobuf8internal15ThreadSafeArena23lifecycle_id_generator_E, i64 1 monotonic, align 8
@@ -590,11 +590,11 @@ _ZNK6google8protobuf8internal16AllocationPolicy9IsDefaultEv.exit.thread: ; preds
 _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %_ZNK6google8protobuf8internal16AllocationPolicy9IsDefaultEv.exit.thread, %55
   %.0.i = phi i64 [ %57, %55 ], [ %22, %_ZNK6google8protobuf8internal16AllocationPolicy9IsDefaultEv.exit.thread ]
   %58 = add i64 %.0.i, 2
-  store i64 %58, ptr %21, align 64, !tbaa !33
-  %59 = load i64, ptr %0, align 8, !tbaa !36
+  store i64 %58, ptr %21, align 64, !tbaa !32
+  %59 = load i64, ptr %0, align 8, !tbaa !35
   %60 = and i64 %59, 1
   %61 = or i64 %60, %.0.i
-  store i64 %61, ptr %0, align 8, !tbaa !36
+  store i64 %61, ptr %0, align 8, !tbaa !35
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i64 0, ptr %62 monotonic, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -604,7 +604,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %_ZNK6googl
 
 65:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit
   %66 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %67 = load i8, ptr %66, align 8, !tbaa !48, !range !51, !noundef !52
+  %67 = load i8, ptr %66, align 8, !tbaa !47, !range !50, !noundef !51
   %68 = shl nuw nsw i8 %67, 1
   %spec.select = zext nneg i8 %68 to i64
   br label %.thread
@@ -614,7 +614,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %_ZNK6googl
   %.in = load i64, ptr %64, align 8
   %70 = and i64 %.in, -3
   %storemerge.i.i = or disjoint i64 %70, %69
-  store i64 %storemerge.i.i, ptr %64, align 8, !tbaa !41
+  store i64 %storemerge.i.i, ptr %64, align 8, !tbaa !40
   %71 = icmp ne ptr %1, null
   %72 = icmp ugt i64 %2, 119
   %or.cond = and i1 %71, %72
@@ -622,7 +622,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %_ZNK6googl
 
 73:                                               ; preds = %.thread
   %storemerge.i.i21 = or i64 %storemerge.i.i, 1
-  store i64 %storemerge.i.i21, ptr %64, align 8, !tbaa !41
+  store i64 %storemerge.i.i21, ptr %64, align 8, !tbaa !40
   br label %_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit
 
 74:                                               ; preds = %.thread
@@ -661,14 +661,14 @@ _ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit: 
   %89 = getelementptr inbounds nuw i8, ptr %.0, i64 72
   store ptr %88, ptr %89, align 8, !tbaa !23
   %90 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  store ptr null, ptr %90, align 8, !tbaa !42
+  store ptr null, ptr %90, align 8, !tbaa !41
   %91 = ptrtoint ptr %81 to i64
   store atomic i64 %91, ptr %63 monotonic, align 8
   %92 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %81, ptr %92, align 16, !tbaa !43
-  %93 = load i64, ptr %0, align 8, !tbaa !36
+  store ptr %81, ptr %92, align 16, !tbaa !42
+  %93 = load i64, ptr %0, align 8, !tbaa !35
   %94 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %93, ptr %94, align 8, !tbaa !44
+  store i64 %93, ptr %94, align 8, !tbaa !43
   store atomic i64 %91, ptr %62 release, align 8
   %95 = load atomic i64, ptr %63 monotonic, align 8
   %.not18 = icmp eq i64 %95, 0
@@ -684,7 +684,7 @@ _ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit: 
   %102 = ptrtoint ptr %100 to i64
   %103 = sub i64 %101, %102
   %104 = icmp ugt i64 %103, 39
-  br i1 %104, label %113, label %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit, !prof !53
+  br i1 %104, label %113, label %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit, !prof !52
 
 _ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit: ; preds = %96, %_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #21
@@ -723,11 +723,11 @@ _ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit: ; pre
 113:                                              ; preds = %96
   %114 = getelementptr inbounds nuw i8, ptr %100, i64 40
   store ptr %114, ptr %99, align 8, !tbaa !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %100, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !54
-  %115 = load i64, ptr %64, align 8, !tbaa !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %100, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !53
+  %115 = load i64, ptr %64, align 8, !tbaa !40
   %116 = and i64 %115, 7
   %117 = or i64 %116, %102
-  store i64 %117, ptr %64, align 8, !tbaa !41
+  store i64 %117, ptr %64, align 8, !tbaa !40
   br label %_ZN6google8protobuf8internal15ThreadSafeArena14InitializeFromEPvm.exit
 
 _ZN6google8protobuf8internal15ThreadSafeArena14InitializeFromEPvm.exit: ; preds = %107, %113, %37, %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i
@@ -791,13 +791,13 @@ define hidden void @_ZN6google8protobuf8internal15ThreadSafeArenaD2Ev(ptr nounde
 .loopexit.i.i.i.i:                                ; preds = %.noexc, %8
   %25 = load ptr, ptr %.0.i.i5.i.i, align 8, !tbaa !3
   %.not.i.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS1_11SerialArenaE.exit.i.i", label %8, !llvm.loop !32
+  br i1 %.not.i.i.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS1_11SerialArenaE.exit.i.i", label %8, !llvm.loop !31
 
 "_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS1_11SerialArenaE.exit.i.i": ; preds = %.loopexit.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !42
+  %27 = load ptr, ptr %26, align 8, !tbaa !41
   %.not.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i, label %_ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit, label %.lr.ph.i.i, !llvm.loop !56
+  br i1 %.not.i.i, label %_ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit, label %.lr.ph.i.i, !llvm.loop !55
 
 _ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit: ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS1_11SerialArenaE.exit.i.i", %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
@@ -809,7 +809,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit: ; preds = %"_
   %30 = extractvalue { ptr, i64 } %28, 0
   %31 = extractvalue { ptr, i64 } %28, 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !41
+  %33 = load i64, ptr %32, align 8, !tbaa !40
   %34 = and i64 %33, -8
   %35 = inttoptr i64 %34 to ptr
   %.not = icmp eq i64 %34, 0
@@ -822,14 +822,14 @@ _ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit: ; preds = %"_
 
 .thread:                                          ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !57
+  %39 = load ptr, ptr %38, align 8, !tbaa !56
   %40 = and i64 %33, 1
   %.not13 = icmp eq i64 %40, 0
   br i1 %.not13, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit, label %45
 
 _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit: ; preds = %.thread
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !58
+  %42 = load ptr, ptr %41, align 8, !tbaa !57
   %.not.i9 = icmp eq ptr %42, null
   br i1 %.not.i9, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread, label %43
 
@@ -851,7 +851,7 @@ _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.
   br i1 %.not8, label %.thread15, label %47
 
 47:                                               ; preds = %45
-  %48 = load ptr, ptr %46, align 8, !tbaa !59
+  %48 = load ptr, ptr %46, align 8, !tbaa !58
   %49 = load ptr, ptr %48, align 8
   invoke void %49(ptr noundef nonnull align 8 dereferenceable(9) %46, i64 noundef %storemerge)
           to label %.thread15 unwind label %.loopexit.split-lp
@@ -927,13 +927,13 @@ define hidden void @_ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i, %7
   %24 = load ptr, ptr %.0.i.i5.i, align 8, !tbaa !3
   %.not.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS1_11SerialArenaE.exit.i", label %7, !llvm.loop !32
+  br i1 %.not.i.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS1_11SerialArenaE.exit.i", label %7, !llvm.loop !31
 
 "_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS1_11SerialArenaE.exit.i": ; preds = %.loopexit.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !42
+  %26 = load ptr, ptr %25, align 8, !tbaa !41
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena14PerSerialArenaIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %.lr.ph.i, !llvm.loop !56
+  br i1 %.not.i, label %"_ZN6google8protobuf8internal15ThreadSafeArena14PerSerialArenaIZNS2_11CleanupListEvE3$_0EEvT_.exit", label %.lr.ph.i, !llvm.loop !55
 
 "_ZN6google8protobuf8internal15ThreadSafeArena14PerSerialArenaIZNS2_11CleanupListEvE3$_0EEvT_.exit": ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS1_11SerialArenaE.exit.i", %1
   ret void
@@ -954,7 +954,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #13
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, i64 } @_ZN6google8protobuf8internal15ThreadSafeArena4FreeEPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !41
+  %4 = load i64, ptr %3, align 8, !tbaa !40
   %5 = and i64 %4, -8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit
@@ -962,7 +962,7 @@ define hidden { ptr, i64 } @_ZN6google8protobuf8internal15ThreadSafeArena4FreeEP
 _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit: ; preds = %2
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !58
+  %8 = load ptr, ptr %7, align 8, !tbaa !57
   %9 = freeze ptr %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load atomic i64, ptr %10 monotonic, align 8
@@ -1023,15 +1023,15 @@ _ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit.u
   %.sroa.49.0.us.i.i.i.us = load i64, ptr %.sroa.49.0.in.us.i.i.i.us, align 8, !tbaa !11
   %22 = load ptr, ptr %19, align 8, !tbaa !3
   %.not.us.i.i.i.us = icmp eq ptr %22, null
-  br i1 %.not.us.i.i.i.us, label %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i.us", label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit.us.i.i.i.us, !llvm.loop !61
+  br i1 %.not.us.i.i.i.us, label %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i.us", label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit.us.i.i.i.us, !llvm.loop !60
 
 "_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i.us": ; preds = %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit.us.i.i.i.us, %._crit_edge.i.i.us
   %.sroa.08.0.lcssa.i.i.i.us = phi ptr [ %17, %._crit_edge.i.i.us ], [ %19, %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit.us.i.i.i.us ]
   %.sroa.49.0.lcssa.i.i.i.us = phi i64 [ %.sroa.49.013.i.i.i.us, %._crit_edge.i.i.us ], [ %.sroa.49.0.us.i.i.i.us, %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit.us.i.i.i.us ]
   %23 = getelementptr inbounds nuw i8, ptr %.07.i.us, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !42
+  %24 = load ptr, ptr %23, align 8, !tbaa !41
   %.not.i2.us = icmp eq ptr %24, null
-  br i1 %.not.i2.us, label %"_ZN6google8protobuf8internal15ThreadSafeArena14PerSerialArenaIZNS2_4FreeEPmE3$_0EEvT_.exit", label %.lr.ph.i.split.us, !llvm.loop !63
+  br i1 %.not.i2.us, label %"_ZN6google8protobuf8internal15ThreadSafeArena14PerSerialArenaIZNS2_4FreeEPmE3$_0EEvT_.exit", label %.lr.ph.i.split.us, !llvm.loop !62
 
 .lr.ph.i.split.split:                             ; preds = %.lr.ph.i, %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i"
   %.sroa.4.0 = phi i64 [ %.sroa.49.0.lcssa.i.i.i, %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i" ], [ 0, %.lr.ph.i ]
@@ -1068,15 +1068,15 @@ _ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit.i
   %.sroa.49.0.i.i.i = load i64, ptr %.sroa.49.0.in.i.i.i, align 8, !tbaa !11
   %34 = load ptr, ptr %31, align 8, !tbaa !3
   %.not.i5.i.i = icmp eq ptr %34, null
-  br i1 %.not.i5.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i", label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit.i.i.i, !llvm.loop !64
+  br i1 %.not.i5.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i", label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit.i.i.i, !llvm.loop !63
 
 "_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i": ; preds = %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit.i.i.i, %._crit_edge.i.i
   %.sroa.08.0.lcssa.i.i.i = phi ptr [ %29, %._crit_edge.i.i ], [ %31, %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit.i.i.i ]
   %.sroa.49.0.lcssa.i.i.i = phi i64 [ %.sroa.49.013.i.i.i, %._crit_edge.i.i ], [ %.sroa.49.0.i.i.i, %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !42
+  %36 = load ptr, ptr %35, align 8, !tbaa !41
   %.not.i2 = icmp eq ptr %36, null
-  br i1 %.not.i2, label %"_ZN6google8protobuf8internal15ThreadSafeArena14PerSerialArenaIZNS2_4FreeEPmE3$_0EEvT_.exit", label %.lr.ph.i.split.split, !llvm.loop !65
+  br i1 %.not.i2, label %"_ZN6google8protobuf8internal15ThreadSafeArena14PerSerialArenaIZNS2_4FreeEPmE3$_0EEvT_.exit", label %.lr.ph.i.split.split, !llvm.loop !64
 
 "_ZN6google8protobuf8internal15ThreadSafeArena14PerSerialArenaIZNS2_4FreeEPmE3$_0EEvT_.exit": ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i", %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i.us", %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread, %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit
   %.sroa.0.0 = phi ptr [ null, %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit ], [ null, %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit.thread ], [ %.sroa.08.0.lcssa.i.i.i.us, %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i.us" ], [ %.sroa.08.0.lcssa.i.i.i, %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS1_11SerialArenaE.exit.i" ]
@@ -1139,13 +1139,13 @@ define hidden noundef i64 @_ZN6google8protobuf8internal15ThreadSafeArena5ResetEv
 .loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i, %9
   %26 = load ptr, ptr %.0.i.i5.i.i, align 8, !tbaa !3
   %.not.i.i.i.i = icmp eq ptr %26, null
-  br i1 %.not.i.i.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS1_11SerialArenaE.exit.i.i", label %9, !llvm.loop !32
+  br i1 %.not.i.i.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS1_11SerialArenaE.exit.i.i", label %9, !llvm.loop !31
 
 "_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS1_11SerialArenaE.exit.i.i": ; preds = %.loopexit.i.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !42
+  %28 = load ptr, ptr %27, align 8, !tbaa !41
   %.not.i.i = icmp eq ptr %28, null
-  br i1 %.not.i.i, label %_ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit, label %.lr.ph.i.i, !llvm.loop !56
+  br i1 %.not.i.i, label %_ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit, label %.lr.ph.i.i, !llvm.loop !55
 
 _ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit: ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena11CleanupListEvENK3$_0clEPNS1_11SerialArenaE.exit.i.i", %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
@@ -1154,7 +1154,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit: ; preds = %"_
   %30 = extractvalue { ptr, i64 } %29, 0
   %31 = extractvalue { ptr, i64 } %29, 1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !41
+  %33 = load i64, ptr %32, align 8, !tbaa !40
   %34 = and i64 %33, -8
   %35 = inttoptr i64 %34 to ptr
   %.not = icmp eq i64 %34, 0
@@ -1162,16 +1162,16 @@ _ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit: ; preds = %"_
 
 36:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena11CleanupListEv.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.04)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !53
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !54
   %37 = and i64 %33, 1
   %.not25 = icmp eq i64 %37, 0
   br i1 %.not25, label %_ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit, label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit
 
 _ZN6google8protobuf8internal14GetDeallocatorC2EPKNS1_16AllocationPolicyEPm.exit: ; preds = %36
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !58
+  %39 = load ptr, ptr %38, align 8, !tbaa !57
   %.not.i18 = icmp eq ptr %39, null
   br i1 %.not.i18, label %41, label %40
 
@@ -1192,16 +1192,16 @@ _ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit: 
   br i1 %.not17, label %46, label %42
 
 42:                                               ; preds = %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit
-  %43 = load ptr, ptr %.sroa.4.0.copyload, align 8, !tbaa !59
+  %43 = load ptr, ptr %.sroa.4.0.copyload, align 8, !tbaa !58
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.4.0.copyload, i64 noundef %storemerge)
   br label %46
 
 46:                                               ; preds = %42, %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04, i64 32, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.04, i64 32, i1 false), !tbaa.struct !53
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx5, align 8, !tbaa !55
+  store ptr %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx5, align 8, !tbaa !54
   tail call void @_ZN6google8protobuf8internal15ThreadSafeArena20InitializeWithPolicyEPvmNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.sroa.09.0, i64 noundef %.sroa.8.0, ptr noundef nonnull byval(%"struct.google::protobuf::internal::AllocationPolicy") align 8 %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.04)
   br label %_ZN6google8protobuf8internal15ThreadSafeArena14InitializeFromEPvm.exit
@@ -1216,10 +1216,10 @@ _ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit: 
   %51 = load i64, ptr %2, align 8, !tbaa !24
   %52 = add i64 %51, %31
   store i64 %52, ptr %2, align 8, !tbaa !24
-  %53 = load i64, ptr %49, align 64, !tbaa !33
+  %53 = load i64, ptr %49, align 64, !tbaa !32
   %54 = and i64 %53, 511
   %55 = icmp eq i64 %54, 0
-  br i1 %55, label %56, label %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i, !prof !35
+  br i1 %55, label %56, label %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i, !prof !34
 
 56:                                               ; preds = %50
   %57 = atomicrmw add ptr @_ZN6google8protobuf8internal15ThreadSafeArena23lifecycle_id_generator_E, i64 1 monotonic, align 8
@@ -1229,11 +1229,11 @@ _ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit: 
 _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i: ; preds = %56, %50
   %.0.i.i = phi i64 [ %58, %56 ], [ %53, %50 ]
   %59 = add i64 %.0.i.i, 2
-  store i64 %59, ptr %49, align 64, !tbaa !33
-  %60 = load i64, ptr %0, align 8, !tbaa !36
+  store i64 %59, ptr %49, align 64, !tbaa !32
+  %60 = load i64, ptr %0, align 8, !tbaa !35
   %61 = and i64 %60, 1
   %62 = or i64 %61, %.0.i.i
-  store i64 %62, ptr %0, align 8, !tbaa !36
+  store i64 %62, ptr %0, align 8, !tbaa !35
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i64 0, ptr %63 monotonic, align 8
   store atomic i64 0, ptr %4 monotonic, align 8
@@ -1243,7 +1243,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i: ; preds = %56, %50
   br i1 %or.cond.i, label %66, label %_ZN6google8protobuf8internal15ThreadSafeArena14InitializeFromEPvm.exit
 
 66:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i
-  store i64 %33, ptr %32, align 8, !tbaa !41
+  store i64 %33, ptr %32, align 8, !tbaa !40
   store ptr null, ptr %30, align 8, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %31, ptr %67, align 8, !tbaa !11
@@ -1265,13 +1265,13 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit.i: ; preds = %56, %50
   %77 = getelementptr inbounds nuw i8, ptr %30, i64 72
   store ptr %76, ptr %77, align 8, !tbaa !23
   %78 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  store ptr null, ptr %78, align 8, !tbaa !42
+  store ptr null, ptr %78, align 8, !tbaa !41
   %79 = ptrtoint ptr %69 to i64
   store atomic i64 %79, ptr %4 monotonic, align 8
   %80 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %69, ptr %80, align 16, !tbaa !43
+  store ptr %69, ptr %80, align 16, !tbaa !42
   %81 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %62, ptr %81, align 8, !tbaa !44
+  store i64 %62, ptr %81, align 8, !tbaa !43
   store atomic i64 %79, ptr %63 release, align 8
   br label %_ZN6google8protobuf8internal15ThreadSafeArena14InitializeFromEPvm.exit
 
@@ -1279,10 +1279,10 @@ _ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit22
   tail call void @_ZdlPv(ptr noundef %30) #21
   %82 = load i64, ptr %2, align 8, !tbaa !24
   %83 = add i64 %82, %31
-  %84 = load i64, ptr %49, align 64, !tbaa !33
+  %84 = load i64, ptr %49, align 64, !tbaa !32
   %85 = and i64 %84, 511
   %86 = icmp eq i64 %85, 0
-  br i1 %86, label %87, label %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit, !prof !35
+  br i1 %86, label %87, label %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit, !prof !34
 
 87:                                               ; preds = %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit22
   %88 = atomicrmw add ptr @_ZN6google8protobuf8internal15ThreadSafeArena23lifecycle_id_generator_E, i64 1 monotonic, align 8
@@ -1292,11 +1292,11 @@ _ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit22
 _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit22, %87
   %.0.i = phi i64 [ %89, %87 ], [ %84, %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_11SerialArena6MemoryE.exit22 ]
   %90 = add i64 %.0.i, 2
-  store i64 %90, ptr %49, align 64, !tbaa !33
-  %91 = load i64, ptr %0, align 8, !tbaa !36
+  store i64 %90, ptr %49, align 64, !tbaa !32
+  %91 = load i64, ptr %0, align 8, !tbaa !35
   %92 = and i64 %91, 1
   %93 = or i64 %92, %.0.i
-  store i64 %93, ptr %0, align 8, !tbaa !36
+  store i64 %93, ptr %0, align 8, !tbaa !35
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i64 0, ptr %94 monotonic, align 8
   store atomic i64 0, ptr %4 monotonic, align 8
@@ -1311,35 +1311,35 @@ _ZN6google8protobuf8internal15ThreadSafeArena14InitializeFromEPvm.exit: ; preds 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZN6google8protobuf8internal15ThreadSafeArena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !41
+  %5 = load i64, ptr %4, align 8, !tbaa !40
   %6 = and i64 %5, 2
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %7, label %.critedge, !prof !53
+  br i1 %.not, label %7, label %.critedge, !prof !52
 
 7:                                                ; preds = %3
   %8 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !44
-  %11 = load i64, ptr %0, align 8, !tbaa !36
+  %10 = load i64, ptr %9, align 8, !tbaa !43
+  %11 = load i64, ptr %0, align 8, !tbaa !35
   %12 = icmp eq i64 %10, %11
-  br i1 %12, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit, !prof !53
+  br i1 %12, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit, !prof !52
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread: ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %14 = load ptr, ptr %13, align 16, !tbaa !43
+  %14 = load ptr, ptr %13, align 16, !tbaa !42
   br label %20
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit: ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load atomic i64, ptr %15 acquire, align 8
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %.critedge, label %17, !prof !35
+  br i1 %.not.i, label %.critedge, label %17, !prof !34
 
 17:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit
   %.0.i.i = inttoptr i64 %16 to ptr
   %18 = load ptr, ptr %.0.i.i, align 8, !tbaa !20
   %19 = icmp eq ptr %18, %8
-  br i1 %19, label %20, label %.critedge, !prof !66
+  br i1 %19, label %20, label %.critedge, !prof !65
 
 20:                                               ; preds = %17, %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread
   %.0.ph = phi ptr [ %14, %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread ], [ %.0.i.i, %17 ]
@@ -1352,10 +1352,10 @@ _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPN
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %.not.i4 = icmp ugt i64 %21, %28
-  br i1 %.not.i4, label %29, label %34, !prof !35
+  br i1 %.not.i4, label %29, label %34, !prof !34
 
 29:                                               ; preds = %20
-  %30 = load i64, ptr %4, align 8, !tbaa !41
+  %30 = load i64, ptr %4, align 8, !tbaa !40
   %31 = and i64 %30, -8
   %32 = inttoptr i64 %31 to ptr
   %33 = tail call { ptr, ptr } @_ZN6google8protobuf8internal11SerialArena34AllocateAlignedWithCleanupFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(56) %.0.ph, i64 noundef %1, ptr noundef %32)
@@ -1382,7 +1382,7 @@ _ZN6google8protobuf8internal11SerialArena26AllocateAlignedWithCleanupEmPKNS1_16A
 ; Function Attrs: mustprogress noinline uwtable
 define hidden { ptr, ptr } @_ZN6google8protobuf8internal15ThreadSafeArena34AllocateAlignedWithCleanupFallbackEmPKSt9type_info(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !41
+  %5 = load i64, ptr %4, align 8, !tbaa !40
   %6 = and i64 %5, 2
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread18_crit_edge, label %7
@@ -1395,34 +1395,34 @@ define hidden { ptr, ptr } @_ZN6google8protobuf8internal15ThreadSafeArena34Alloc
   %8 = and i64 %5, -8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !57
-  %12 = load ptr, ptr %11, align 8, !tbaa !59
+  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %12 = load ptr, ptr %11, align 8, !tbaa !58
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(9) %11, ptr noundef %2, i64 noundef %1)
   %15 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !44
-  %18 = load i64, ptr %0, align 8, !tbaa !36
+  %17 = load i64, ptr %16, align 8, !tbaa !43
+  %18 = load i64, ptr %0, align 8, !tbaa !35
   %19 = icmp eq i64 %17, %18
-  br i1 %19, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit, !prof !53
+  br i1 %19, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit, !prof !52
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread: ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %21 = load ptr, ptr %20, align 16, !tbaa !43
+  %21 = load ptr, ptr %20, align 16, !tbaa !42
   br label %27
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit: ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load atomic i64, ptr %22 acquire, align 8
   %.not.i = icmp eq i64 %23, 0
-  br i1 %.not.i, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread18, label %24, !prof !35
+  br i1 %.not.i, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread18, label %24, !prof !34
 
 24:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit
   %.0.i.i = inttoptr i64 %23 to ptr
   %25 = load ptr, ptr %.0.i.i, align 8, !tbaa !20
   %26 = icmp eq ptr %25, %15
-  br i1 %26, label %27, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread18, !prof !66
+  br i1 %26, label %27, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread18, !prof !65
 
 27:                                               ; preds = %24, %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread
   %.0.ph = phi ptr [ %21, %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread ], [ %.0.i.i, %24 ]
@@ -1435,10 +1435,10 @@ _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPN
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %.not.i5 = icmp ugt i64 %28, %35
-  br i1 %.not.i5, label %36, label %41, !prof !35
+  br i1 %.not.i5, label %36, label %41, !prof !34
 
 36:                                               ; preds = %27
-  %37 = load i64, ptr %4, align 8, !tbaa !41
+  %37 = load i64, ptr %4, align 8, !tbaa !40
   %38 = and i64 %37, -8
   %39 = inttoptr i64 %38 to ptr
   %40 = tail call { ptr, ptr } @_ZN6google8protobuf8internal11SerialArena34AllocateAlignedWithCleanupFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(56) %.0.ph, i64 noundef %1, ptr noundef %39)
@@ -1465,10 +1465,10 @@ _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11Serial
   %51 = ptrtoint ptr %49 to i64
   %52 = sub i64 %50, %51
   %.not.i6 = icmp ugt i64 %45, %52
-  br i1 %.not.i6, label %53, label %58, !prof !35
+  br i1 %.not.i6, label %53, label %58, !prof !34
 
 53:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread18
-  %54 = load i64, ptr %4, align 8, !tbaa !41
+  %54 = load i64, ptr %4, align 8, !tbaa !40
   %55 = and i64 %54, -8
   %56 = inttoptr i64 %55 to ptr
   %57 = tail call { ptr, ptr } @_ZN6google8protobuf8internal11SerialArena34AllocateAlignedWithCleanupFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(56) %44, i64 noundef %1, ptr noundef %56)
@@ -1492,27 +1492,27 @@ _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11Serial
 define hidden void @_ZN6google8protobuf8internal15ThreadSafeArena10AddCleanupEPvPFvS3_E(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !44
-  %7 = load i64, ptr %0, align 8, !tbaa !36
+  %6 = load i64, ptr %5, align 8, !tbaa !43
+  %7 = load i64, ptr %0, align 8, !tbaa !35
   %8 = icmp eq i64 %6, %7
-  br i1 %8, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit, !prof !53
+  br i1 %8, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit, !prof !52
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread: ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %10 = load ptr, ptr %9, align 16, !tbaa !43
+  %10 = load ptr, ptr %9, align 16, !tbaa !42
   br label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load atomic i64, ptr %11 acquire, align 8
   %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit, label %13, !prof !35
+  br i1 %.not.i, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit, label %13, !prof !34
 
 13:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit
   %.0.i.i = inttoptr i64 %12 to ptr
   %14 = load ptr, ptr %.0.i.i, align 8, !tbaa !20
   %15 = icmp eq ptr %14, %4
-  br i1 %15, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit, !prof !66
+  br i1 %15, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit, !prof !65
 
 _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit: ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit, %13
   %16 = tail call noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEPv(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4)
@@ -1528,11 +1528,11 @@ _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11Serial
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
   %.not.i.i = icmp ult i64 %23, 16
-  br i1 %.not.i.i, label %24, label %31, !prof !35
+  br i1 %.not.i.i, label %24, label %31, !prof !34
 
 24:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !41
+  %26 = load i64, ptr %25, align 8, !tbaa !40
   %27 = and i64 %26, -8
   %28 = inttoptr i64 %27 to ptr
   %29 = tail call { ptr, ptr } @_ZN6google8protobuf8internal11SerialArena34AllocateAlignedWithCleanupFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(56) %.0, i64 noundef 0, ptr noundef %28)
@@ -1571,13 +1571,13 @@ define hidden noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena22GetSer
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.024, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !42
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !67
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !66
 
 .critedge:                                        ; preds = %7, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !41
+  %11 = load i64, ptr %10, align 8, !tbaa !40
   %12 = and i64 %11, -8
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %.thread, label %13
@@ -1627,7 +1627,7 @@ _ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit: 
   %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %32 = ptrtoint ptr %21 to i64
   %.01225 = inttoptr i64 %30 to ptr
-  store ptr %.01225, ptr %31, align 8, !tbaa !42
+  store ptr %.01225, ptr %31, align 8, !tbaa !41
   %33 = cmpxchg weak ptr %3, i64 %30, i64 %32 release monotonic, align 8
   %34 = extractvalue { i64, i1 } %33, 1
   br i1 %34, label %.loopexit, label %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit
@@ -1636,10 +1636,10 @@ _ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakER
   %35 = phi { i64, i1 } [ %37, %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit ], [ %33, %_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit ]
   %36 = extractvalue { i64, i1 } %35, 0
   %.012 = inttoptr i64 %36 to ptr
-  store ptr %.012, ptr %31, align 8, !tbaa !42
+  store ptr %.012, ptr %31, align 8, !tbaa !41
   %37 = cmpxchg weak ptr %3, i64 %36, i64 %32 release monotonic, align 8
   %38 = extractvalue { i64, i1 } %37, 1
-  br i1 %38, label %.loopexit, label %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit, !llvm.loop !68
+  br i1 %38, label %.loopexit, label %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit, !llvm.loop !67
 
 .loopexit.loopexit26:                             ; preds = %.lr.ph
   %.pre = ptrtoint ptr %.024 to i64
@@ -1650,10 +1650,10 @@ _ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakER
   %.1 = phi ptr [ %.024, %.loopexit.loopexit26 ], [ %21, %_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit ], [ %21, %_ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit ]
   %39 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %.1, ptr %40, align 16, !tbaa !43
-  %41 = load i64, ptr %0, align 8, !tbaa !36
+  store ptr %.1, ptr %40, align 16, !tbaa !42
+  %41 = load i64, ptr %0, align 8, !tbaa !35
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i64 %41, ptr %42, align 8, !tbaa !44
+  store i64 %41, ptr %42, align 8, !tbaa !43
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store atomic i64 %.pre-phi, ptr %43 release, align 8
   ret ptr %.1
@@ -1662,7 +1662,7 @@ _ZNSt6atomicIPN6google8protobuf8internal11SerialArenaEE21compare_exchange_weakER
 ; Function Attrs: mustprogress noinline uwtable
 define hidden noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena23AllocateAlignedFallbackEmPKSt9type_info(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !41
+  %5 = load i64, ptr %4, align 8, !tbaa !40
   %6 = and i64 %5, 2
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %._ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread20_crit_edge, label %7
@@ -1675,34 +1675,34 @@ define hidden noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena23Alloca
   %8 = and i64 %5, -8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !57
-  %12 = load ptr, ptr %11, align 8, !tbaa !59
+  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %12 = load ptr, ptr %11, align 8, !tbaa !58
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(9) %11, ptr noundef %2, i64 noundef %1)
   %15 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !44
-  %18 = load i64, ptr %0, align 8, !tbaa !36
+  %17 = load i64, ptr %16, align 8, !tbaa !43
+  %18 = load i64, ptr %0, align 8, !tbaa !35
   %19 = icmp eq i64 %17, %18
-  br i1 %19, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit, !prof !53
+  br i1 %19, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit, !prof !52
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread: ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %21 = load ptr, ptr %20, align 16, !tbaa !43
+  %21 = load ptr, ptr %20, align 16, !tbaa !42
   br label %27
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit: ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load atomic i64, ptr %22 acquire, align 8
   %.not.i = icmp eq i64 %23, 0
-  br i1 %.not.i, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread20, label %24, !prof !35
+  br i1 %.not.i, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread20, label %24, !prof !34
 
 24:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit
   %.0.i.i = inttoptr i64 %23 to ptr
   %25 = load ptr, ptr %.0.i.i, align 8, !tbaa !20
   %26 = icmp eq ptr %25, %15
-  br i1 %26, label %27, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread20, !prof !66
+  br i1 %26, label %27, label %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread20, !prof !65
 
 27:                                               ; preds = %24, %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread
   %.0.ph = phi ptr [ %21, %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread ], [ %.0.i.i, %24 ]
@@ -1714,10 +1714,10 @@ _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPN
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
   %.not.i7 = icmp ugt i64 %1, %34
-  br i1 %.not.i7, label %35, label %40, !prof !35
+  br i1 %.not.i7, label %35, label %40, !prof !34
 
 35:                                               ; preds = %27
-  %36 = load i64, ptr %4, align 8, !tbaa !41
+  %36 = load i64, ptr %4, align 8, !tbaa !40
   %37 = and i64 %36, -8
   %38 = inttoptr i64 %37 to ptr
   %39 = tail call noundef ptr @_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(56) %.0.ph, i64 noundef %1, ptr noundef %38)
@@ -1739,10 +1739,10 @@ _ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11Serial
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %47, %48
   %.not.i9 = icmp ugt i64 %1, %49
-  br i1 %.not.i9, label %50, label %55, !prof !35
+  br i1 %.not.i9, label %50, label %55, !prof !34
 
 50:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena18GetSerialArenaFastEPPNS1_11SerialArenaE.exit.thread20
-  %51 = load i64, ptr %4, align 8, !tbaa !41
+  %51 = load i64, ptr %4, align 8, !tbaa !40
   %52 = and i64 %51, -8
   %53 = inttoptr i64 %52 to ptr
   %54 = tail call noundef ptr @_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(56) %42, i64 noundef %1, ptr noundef %53)
@@ -1776,9 +1776,9 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal15ThreadSafeArena14Space
   %5 = load atomic i64, ptr %4 monotonic, align 8
   %6 = add i64 %5, %.08
   %7 = getelementptr inbounds nuw i8, ptr %.057, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !42
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %6, %.lr.ph ]
@@ -1813,14 +1813,14 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal15ThreadSafeArena9SpaceU
   %15 = add i64 %14, %12
   %16 = sub i64 %15, %10
   %17 = getelementptr inbounds nuw i8, ptr %.059, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !42
+  %18 = load ptr, ptr %17, align 8, !tbaa !41
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %16, %.lr.ph ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !41
+  %20 = load i64, ptr %19, align 8, !tbaa !40
   %.not6 = icmp ult i64 %20, 8
   %.neg = select i1 %.not6, i64 0, i64 -40
   %21 = add i64 %.neg, %.0.lcssa
@@ -1830,35 +1830,35 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal15ThreadSafeArena9SpaceU
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #6 align 32 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !41
+  %4 = load i64, ptr %3, align 8, !tbaa !40
   %5 = and i64 %4, 2
   %.not.i = icmp eq i64 %5, 0
-  br i1 %.not.i, label %6, label %.critedge.i, !prof !53
+  br i1 %.not.i, label %6, label %.critedge.i, !prof !52
 
 6:                                                ; preds = %2
   %7 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !44
-  %10 = load i64, ptr %0, align 8, !tbaa !36
+  %9 = load i64, ptr %8, align 8, !tbaa !43
+  %10 = load i64, ptr %0, align 8, !tbaa !35
   %11 = icmp eq i64 %9, %10
-  br i1 %11, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.i, !prof !53
+  br i1 %11, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.i, !prof !52
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i: ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %13 = load ptr, ptr %12, align 16, !tbaa !43
+  %13 = load ptr, ptr %12, align 16, !tbaa !42
   br label %19
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.i: ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load atomic i64, ptr %14 acquire, align 8
   %.not.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i, label %.critedge.i, label %16, !prof !35
+  br i1 %.not.i.i, label %.critedge.i, label %16, !prof !34
 
 16:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.i
   %.0.i.i.i = inttoptr i64 %15 to ptr
   %17 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !20
   %18 = icmp eq ptr %17, %7
-  br i1 %18, label %19, label %.critedge.i, !prof !66
+  br i1 %18, label %19, label %.critedge.i, !prof !65
 
 19:                                               ; preds = %16, %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i
   %.06.ph.i = phi ptr [ %13, %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i ], [ %.0.i.i.i, %16 ]
@@ -1870,10 +1870,10 @@ _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPN
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
   %.not.i4.i = icmp ugt i64 %1, %26
-  br i1 %.not.i4.i, label %27, label %32, !prof !35
+  br i1 %.not.i4.i, label %27, label %32, !prof !34
 
 27:                                               ; preds = %19
-  %28 = load i64, ptr %3, align 8, !tbaa !41
+  %28 = load i64, ptr %3, align 8, !tbaa !40
   %29 = and i64 %28, -8
   %30 = inttoptr i64 %29 to ptr
   %31 = tail call noundef ptr @_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(56) %.06.ph.i, i64 noundef %1, ptr noundef %30)
@@ -1896,35 +1896,35 @@ _ZN6google8protobuf8internal15ThreadSafeArena15AllocateAlignedEmPKSt9type_info.e
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 align 32 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !41
+  %5 = load i64, ptr %4, align 8, !tbaa !40
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %7, label %.critedge.i, !prof !53
+  br i1 %.not.i, label %7, label %.critedge.i, !prof !52
 
 7:                                                ; preds = %3
   %8 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !44
-  %11 = load i64, ptr %0, align 8, !tbaa !36
+  %10 = load i64, ptr %9, align 8, !tbaa !43
+  %11 = load i64, ptr %0, align 8, !tbaa !35
   %12 = icmp eq i64 %10, %11
-  br i1 %12, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.i, !prof !53
+  br i1 %12, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.i, !prof !52
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i: ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %14 = load ptr, ptr %13, align 16, !tbaa !43
+  %14 = load ptr, ptr %13, align 16, !tbaa !42
   br label %20
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.i: ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load atomic i64, ptr %15 acquire, align 8
   %.not.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i.i, label %.critedge.i, label %17, !prof !35
+  br i1 %.not.i.i, label %.critedge.i, label %17, !prof !34
 
 17:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.i
   %.0.i.i.i = inttoptr i64 %16 to ptr
   %18 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !20
   %19 = icmp eq ptr %18, %8
-  br i1 %19, label %20, label %.critedge.i, !prof !66
+  br i1 %19, label %20, label %.critedge.i, !prof !65
 
 20:                                               ; preds = %17, %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i
   %.06.ph.i = phi ptr [ %14, %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i ], [ %.0.i.i.i, %17 ]
@@ -1936,10 +1936,10 @@ _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPN
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %.not.i4.i = icmp ugt i64 %1, %27
-  br i1 %.not.i4.i, label %28, label %33, !prof !35
+  br i1 %.not.i4.i, label %28, label %33, !prof !34
 
 28:                                               ; preds = %20
-  %29 = load i64, ptr %4, align 8, !tbaa !41
+  %29 = load i64, ptr %4, align 8, !tbaa !40
   %30 = and i64 %29, -8
   %31 = inttoptr i64 %30 to ptr
   %32 = tail call noundef ptr @_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(56) %.06.ph.i, i64 noundef %1, ptr noundef %31)
@@ -1962,35 +1962,35 @@ _ZN6google8protobuf8internal15ThreadSafeArena15AllocateAlignedEmPKSt9type_info.e
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 align 32 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !41
+  %5 = load i64, ptr %4, align 8, !tbaa !40
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %7, label %.critedge.i, !prof !53
+  br i1 %.not.i, label %7, label %.critedge.i, !prof !52
 
 7:                                                ; preds = %3
   %8 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !44
-  %11 = load i64, ptr %0, align 8, !tbaa !36
+  %10 = load i64, ptr %9, align 8, !tbaa !43
+  %11 = load i64, ptr %0, align 8, !tbaa !35
   %12 = icmp eq i64 %10, %11
-  br i1 %12, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.i, !prof !53
+  br i1 %12, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i, label %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.i, !prof !52
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i: ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %14 = load ptr, ptr %13, align 16, !tbaa !43
+  %14 = load ptr, ptr %13, align 16, !tbaa !42
   br label %20
 
 _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.i: ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load atomic i64, ptr %15 acquire, align 8
   %.not.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i.i, label %.critedge.i, label %17, !prof !35
+  br i1 %.not.i.i, label %.critedge.i, label %17, !prof !34
 
 17:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.i
   %.0.i.i.i = inttoptr i64 %16 to ptr
   %18 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !20
   %19 = icmp eq ptr %18, %8
-  br i1 %19, label %20, label %.critedge.i, !prof !66
+  br i1 %19, label %20, label %.critedge.i, !prof !65
 
 20:                                               ; preds = %17, %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i
   %.0.ph.i = phi ptr [ %14, %_ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPNS1_11SerialArenaE.exit.thread.i ], [ %.0.i.i.i, %17 ]
@@ -2003,10 +2003,10 @@ _ZN6google8protobuf8internal15ThreadSafeArena29GetSerialArenaFromThreadCacheEPPN
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
   %.not.i4.i = icmp ugt i64 %21, %28
-  br i1 %.not.i4.i, label %29, label %34, !prof !35
+  br i1 %.not.i4.i, label %29, label %34, !prof !34
 
 29:                                               ; preds = %20
-  %30 = load i64, ptr %4, align 8, !tbaa !41
+  %30 = load i64, ptr %4, align 8, !tbaa !40
   %31 = and i64 %30, -8
   %32 = inttoptr i64 %31 to ptr
   %33 = tail call { ptr, ptr } @_ZN6google8protobuf8internal11SerialArena34AllocateAlignedWithCleanupFallbackEmPKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(56) %.0.ph.i, i64 noundef %1, ptr noundef %32)
@@ -2108,45 +2108,44 @@ attributes #23 = { noreturn nounwind }
 !26 = !{!27, !6, i64 8}
 !27 = !{!"_ZTSN6google8protobuf8internal11SerialArena11CleanupNodeE", !6, i64 0, !6, i64 8}
 !28 = !{!27, !6, i64 0}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = distinct !{!32, !30, !31}
-!33 = !{!34, !9, i64 0}
-!34 = !{!"_ZTSN6google8protobuf8internal15ThreadSafeArena11ThreadCacheE", !9, i64 0, !9, i64 8, !15, i64 16}
-!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!36 = !{!37, !9, i64 0}
-!37 = !{!"_ZTSN6google8protobuf8internal15ThreadSafeArenaE", !9, i64 0, !38, i64 8, !39, i64 16, !39, i64 24}
-!38 = !{!"_ZTSN6google8protobuf8internal25TaggedAllocationPolicyPtrE", !9, i64 0}
-!39 = !{!"_ZTSSt6atomicIPN6google8protobuf8internal11SerialArenaEE", !40, i64 0}
-!40 = !{!"_ZTSSt13__atomic_baseIPN6google8protobuf8internal11SerialArenaEE", !15, i64 0}
-!41 = !{!38, !9, i64 0}
-!42 = !{!14, !15, i64 16}
-!43 = !{!34, !15, i64 16}
-!44 = !{!34, !9, i64 8}
-!45 = !{!46, !9, i64 0}
-!46 = !{!"_ZTSN6google8protobuf8internal16AllocationPolicyE", !9, i64 0, !9, i64 8, !6, i64 16, !6, i64 24, !47, i64 32}
-!47 = !{!"p1 _ZTSN6google8protobuf8internal21ArenaMetricsCollectorE", !6, i64 0}
-!48 = !{!49, !50, i64 8}
-!49 = !{!"_ZTSN6google8protobuf8internal21ArenaMetricsCollectorE", !50, i64 8}
-!50 = !{!"bool", !7, i64 0}
-!51 = !{i8 0, i8 2}
-!52 = !{}
-!53 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!54 = !{i64 0, i64 8, !24, i64 8, i64 8, !24, i64 16, i64 8, !25, i64 24, i64 8, !25, i64 32, i64 8, !55}
-!55 = !{!47, !47, i64 0}
-!56 = distinct !{!56, !30, !31}
-!57 = !{!46, !47, i64 32}
-!58 = !{!46, !6, i64 24}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"vtable pointer", !8, i64 0}
-!61 = distinct !{!61, !30, !31, !62}
-!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!63 = distinct !{!63, !30, !31, !62}
-!64 = distinct !{!64, !30, !31}
-!65 = distinct !{!65, !30, !31}
-!66 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!67 = distinct !{!67, !30, !31}
-!68 = distinct !{!68, !30, !31}
-!69 = distinct !{!69, !30, !31}
-!70 = distinct !{!70, !30, !31}
+!31 = distinct !{!31, !30}
+!32 = !{!33, !9, i64 0}
+!33 = !{!"_ZTSN6google8protobuf8internal15ThreadSafeArena11ThreadCacheE", !9, i64 0, !9, i64 8, !15, i64 16}
+!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!35 = !{!36, !9, i64 0}
+!36 = !{!"_ZTSN6google8protobuf8internal15ThreadSafeArenaE", !9, i64 0, !37, i64 8, !38, i64 16, !38, i64 24}
+!37 = !{!"_ZTSN6google8protobuf8internal25TaggedAllocationPolicyPtrE", !9, i64 0}
+!38 = !{!"_ZTSSt6atomicIPN6google8protobuf8internal11SerialArenaEE", !39, i64 0}
+!39 = !{!"_ZTSSt13__atomic_baseIPN6google8protobuf8internal11SerialArenaEE", !15, i64 0}
+!40 = !{!37, !9, i64 0}
+!41 = !{!14, !15, i64 16}
+!42 = !{!33, !15, i64 16}
+!43 = !{!33, !9, i64 8}
+!44 = !{!45, !9, i64 0}
+!45 = !{!"_ZTSN6google8protobuf8internal16AllocationPolicyE", !9, i64 0, !9, i64 8, !6, i64 16, !6, i64 24, !46, i64 32}
+!46 = !{!"p1 _ZTSN6google8protobuf8internal21ArenaMetricsCollectorE", !6, i64 0}
+!47 = !{!48, !49, i64 8}
+!48 = !{!"_ZTSN6google8protobuf8internal21ArenaMetricsCollectorE", !49, i64 8}
+!49 = !{!"bool", !7, i64 0}
+!50 = !{i8 0, i8 2}
+!51 = !{}
+!52 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!53 = !{i64 0, i64 8, !24, i64 8, i64 8, !24, i64 16, i64 8, !25, i64 24, i64 8, !25, i64 32, i64 8, !54}
+!54 = !{!46, !46, i64 0}
+!55 = distinct !{!55, !30}
+!56 = !{!45, !46, i64 32}
+!57 = !{!45, !6, i64 24}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"vtable pointer", !8, i64 0}
+!60 = distinct !{!60, !30, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !30, !61}
+!63 = distinct !{!63, !30}
+!64 = distinct !{!64, !30}
+!65 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!66 = distinct !{!66, !30}
+!67 = distinct !{!67, !30}
+!68 = distinct !{!68, !30}
+!69 = distinct !{!69, !30}

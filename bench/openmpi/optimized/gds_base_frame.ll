@@ -64,41 +64,41 @@ define internal i32 @pmix_gds_open(i32 noundef %0) #0 {
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %5
   %11 = tail call i32 @pmix_mca_base_framework_components_open(ptr noundef nonnull @pmix_gds_base_framework, i32 noundef %0) #8
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 76), align 4, !tbaa !29
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_base_framework, i64 76), align 4, !tbaa !28
   store i32 %12, ptr @pmix_gds_base_output, align 4, !tbaa !19
   ret i32 %11
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pmix_gds_close() #0 {
-  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 272), align 8, !tbaa !3, !range !32, !noundef !33
+  %1 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 272), align 8, !tbaa !3, !range !31, !noundef !32
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %3, label %52
 
 3:                                                ; preds = %0
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 272), align 8, !tbaa !3
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 273), align 1, !tbaa !34
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 240), align 8, !tbaa !35
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 273), align 1, !tbaa !33
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 240), align 8, !tbaa !34
   %.not29 = icmp eq ptr %4, getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120)
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %40
   %.01530 = phi ptr [ %.01431, %40 ], [ %4, %3 ]
   %.01431.in = getelementptr inbounds nuw i8, ptr %.01530, i64 120
-  %.01431 = load ptr, ptr %.01431.in, align 8, !tbaa !36
+  %.01431 = load ptr, ptr %.01431.in, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %.01530, i64 128
-  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  store volatile ptr %.01431, ptr %7, align 8, !tbaa !36
+  store volatile ptr %.01431, ptr %7, align 8, !tbaa !35
   %8 = getelementptr inbounds nuw i8, ptr %.01431, i64 128
-  store volatile ptr %6, ptr %8, align 8, !tbaa !37
-  %9 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 264), align 8, !tbaa !38
+  store volatile ptr %6, ptr %8, align 8, !tbaa !36
+  %9 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 264), align 8, !tbaa !37
   %10 = add i64 %9, -1
-  store volatile i64 %10, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 264), align 8, !tbaa !38
+  store volatile i64 %10, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 264), align 8, !tbaa !37
   %11 = getelementptr inbounds nuw i8, ptr %.01530, i64 152
-  %12 = load ptr, ptr %11, align 8, !tbaa !39
+  %12 = load ptr, ptr %11, align 8, !tbaa !38
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !42
+  %14 = load ptr, ptr %13, align 8, !tbaa !41
   %.not19 = icmp eq ptr %14, null
   br i1 %.not19, label %16, label %15
 
@@ -131,7 +131,7 @@ pmix_obj_update.exit:                             ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %.01530, i64 40
   %28 = load ptr, ptr %27, align 8, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !44
+  %30 = load ptr, ptr %29, align 8, !tbaa !43
   %31 = load ptr, ptr %30, align 8, !tbaa !25
   %.not6.i = icmp eq ptr %31, null
   br i1 %.not6.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i
@@ -143,11 +143,11 @@ pmix_obj_update.exit:                             ; preds = %16
   %33 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !25
   %.not.i = icmp eq ptr %34, null
-  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.i, label %pmix_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !44
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %26
   %35 = getelementptr inbounds nuw i8, ptr %.01530, i64 96
-  %36 = load ptr, ptr %35, align 8, !tbaa !46
+  %36 = load ptr, ptr %35, align 8, !tbaa !45
   %.not20 = icmp eq ptr %36, null
   br i1 %.not20, label %39, label %37
 
@@ -162,12 +162,12 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %26
 
 40:                                               ; preds = %37, %39, %pmix_obj_update.exit
   %.not = icmp eq ptr %.01431, getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 120)
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %40, %3
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 40), align 8, !tbaa !22
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !44
+  %43 = load ptr, ptr %42, align 8, !tbaa !43
   %44 = load ptr, ptr %43, align 8, !tbaa !25
   %.not6.i22 = icmp eq ptr %44, null
   br i1 %.not6.i22, label %pmix_obj_run_destructors.exit26, label %.lr.ph.i23
@@ -179,7 +179,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %26
   %46 = getelementptr inbounds nuw i8, ptr %.07.i24, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %.not.i25 = icmp eq ptr %47, null
-  br i1 %.not.i25, label %pmix_obj_run_destructors.exit26, label %.lr.ph.i23, !llvm.loop !45
+  br i1 %.not.i25, label %pmix_obj_run_destructors.exit26, label %.lr.ph.i23, !llvm.loop !44
 
 pmix_obj_run_destructors.exit26:                  ; preds = %.lr.ph.i23, %._crit_edge
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_gds_globals, i64 280), align 8, !tbaa !18
@@ -267,25 +267,24 @@ attributes #11 = { noreturn nounwind }
 !23 = !{!6, !11, i64 48}
 !24 = !{!21, !10, i64 40}
 !25 = !{!10, !10, i64 0}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!30, !11, i64 76}
-!30 = !{!"pmix_mca_base_framework_t", !17, i64 0, !17, i64 8, !17, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !11, i64 48, !11, i64 52, !31, i64 56, !17, i64 64, !11, i64 72, !11, i64 76, !5, i64 80, !5, i64 352}
-!31 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !10, i64 0}
-!32 = !{i8 0, i8 2}
-!33 = !{}
-!34 = !{!4, !16, i64 273}
-!35 = !{!4, !14, i64 240}
-!36 = !{!13, !14, i64 120}
-!37 = !{!13, !14, i64 128}
-!38 = !{!5, !15, i64 264}
-!39 = !{!40, !10, i64 152}
-!40 = !{!"pmix_gds_base_active_module_t", !13, i64 0, !11, i64 144, !10, i64 152, !41, i64 160}
-!41 = !{!"p1 _ZTS31pmix_mca_base_component_2_1_0_t", !10, i64 0}
-!42 = !{!43, !10, i64 24}
-!43 = !{!"", !17, i64 0, !16, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144}
-!44 = !{!21, !10, i64 48}
-!45 = distinct !{!45, !27, !28}
-!46 = !{!6, !10, i64 96}
-!47 = distinct !{!47, !27, !28}
+!28 = !{!29, !11, i64 76}
+!29 = !{!"pmix_mca_base_framework_t", !17, i64 0, !17, i64 8, !17, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !11, i64 48, !11, i64 52, !30, i64 56, !17, i64 64, !11, i64 72, !11, i64 76, !5, i64 80, !5, i64 352}
+!30 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !10, i64 0}
+!31 = !{i8 0, i8 2}
+!32 = !{}
+!33 = !{!4, !16, i64 273}
+!34 = !{!4, !14, i64 240}
+!35 = !{!13, !14, i64 120}
+!36 = !{!13, !14, i64 128}
+!37 = !{!5, !15, i64 264}
+!38 = !{!39, !10, i64 152}
+!39 = !{!"pmix_gds_base_active_module_t", !13, i64 0, !11, i64 144, !10, i64 152, !40, i64 160}
+!40 = !{!"p1 _ZTS31pmix_mca_base_component_2_1_0_t", !10, i64 0}
+!41 = !{!42, !10, i64 24}
+!42 = !{!"", !17, i64 0, !16, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !10, i64 80, !10, i64 88, !10, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !10, i64 144}
+!43 = !{!21, !10, i64 48}
+!44 = distinct !{!44, !27}
+!45 = !{!6, !10, i64 96}
+!46 = distinct !{!46, !27}

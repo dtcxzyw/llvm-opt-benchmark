@@ -279,7 +279,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %.585 = phi i1 [ %.6, %81 ], [ %spec.select, %67 ]
   %75 = load ptr, ptr %6, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv
-  %77 = load i8, ptr %76, align 1, !range !7, !noundef !8
+  %77 = load i8, ptr %76, align 1, !range !6, !noundef !7
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %81
 
@@ -295,7 +295,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = sext i32 %82 to i64
   %84 = icmp slt i64 %indvars.iv.next, %83
-  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %84, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %81, %67
   %85 = phi i32 [ %72, %67 ], [ %82, %81 ]
@@ -338,7 +338,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %100 = load i32, ptr %16, align 8
   %101 = sext i32 %100 to i64
   %102 = icmp slt i64 %indvars.iv.next100, %101
-  br i1 %102, label %39, label %.loopexit82, !llvm.loop !10
+  br i1 %102, label %39, label %.loopexit82, !llvm.loop !9
 
 .loopexit82:                                      ; preds = %99, %1, %98
   %.06784 = phi i1 [ %.06787, %98 ], [ false, %1 ], [ %.4, %99 ]
@@ -363,7 +363,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %113 = zext i16 %112 to i64
   %114 = add nsw i64 %113, -1
   %115 = getelementptr inbounds [32 x i8], ptr %2, i64 0, i64 %114
-  %116 = load i8, ptr %115, align 1, !range !7, !noundef !8
+  %116 = load i8, ptr %115, align 1, !range !6, !noundef !7
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %131, label %118
 
@@ -391,14 +391,14 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %132 = phi i32 [ %104, %110 ], [ %.pre101, %118 ], [ %104, %.lr.ph92 ]
   %133 = add nuw i32 %.191, 1
   %134 = icmp ult i32 %133, %132
-  br i1 %134, label %.lr.ph92, label %._crit_edge, !llvm.loop !11
+  br i1 %134, label %.lr.ph92, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %131
   %135 = icmp eq i32 %132, 0
   br i1 %135, label %._crit_edge.thread, label %162
 
 ._crit_edge.thread:                               ; preds = %.loopexit82, %._crit_edge
-  %136 = load i8, ptr %29, align 8, !range !7, !noundef !8
+  %136 = load i8, ptr %29, align 8, !range !6, !noundef !7
   %137 = trunc nuw i8 %136 to i1
   br i1 %137, label %162, label %.thread80
 
@@ -450,7 +450,7 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   br i1 %.06784, label %163, label %182
 
 163:                                              ; preds = %.thread80, %162
-  %164 = load i8, ptr %29, align 8, !range !7, !noundef !8
+  %164 = load i8, ptr %29, align 8, !range !6, !noundef !7
   %165 = trunc nuw i8 %164 to i1
   br i1 %165, label %182, label %166
 
@@ -488,11 +488,11 @@ define dso_local void @ginNewScanKey(ptr noundef readonly captures(none) %0) loc
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 480
   %186 = load ptr, ptr %185, align 8
   %.not74 = icmp eq ptr %186, null
-  br i1 %.not74, label %187, label %192, !prof !12
+  br i1 %.not74, label %187, label %192, !prof !11
 
 187:                                              ; preds = %182
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 476
-  %189 = load i8, ptr %188, align 4, !range !7, !noundef !8
+  %189 = load i8, ptr %188, align 4, !range !6, !noundef !7
   %190 = trunc nuw i8 %189 to i1
   br i1 %190, label %191, label %197
 
@@ -609,7 +609,7 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   store ptr %55, ptr %57, align 8
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
-  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %exitcond87.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -620,13 +620,13 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv78
   %61 = load i8, ptr %60, align 1
-  %62 = load i8, ptr %45, align 1, !range !7, !noundef !8
+  %62 = load i8, ptr %45, align 1, !range !6, !noundef !7
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %.lr.ph.split.split.us
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv78
-  %66 = load i8, ptr %65, align 1, !range !7, !noundef !8
+  %66 = load i8, ptr %65, align 1, !range !6, !noundef !7
   %67 = icmp ne i8 %66, 0
   br label %68
 
@@ -638,7 +638,7 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   store ptr %70, ptr %72, align 8
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count86
-  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !15
+  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !14
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %83
   %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %.lr.ph.split ]
@@ -646,13 +646,13 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   %74 = load i64, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %76 = load i8, ptr %75, align 1
-  %77 = load i8, ptr %45, align 1, !range !7, !noundef !8
+  %77 = load i8, ptr %45, align 1, !range !6, !noundef !7
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %.lr.ph.split.split
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
-  %81 = load i8, ptr %80, align 1, !range !7, !noundef !8
+  %81 = load i8, ptr %80, align 1, !range !6, !noundef !7
   %82 = icmp ne i8 %81, 0
   br label %83
 
@@ -666,7 +666,7 @@ define internal fastcc void @ginFillScanKey(ptr noundef %0, i16 noundef zeroext 
   store ptr %87, ptr %89, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count86
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %83, %68, %53, %10
   switch i32 %3, label %99 [
@@ -787,7 +787,7 @@ define internal fastcc ptr @ginFillScanEntry(ptr noundef %0, i16 noundef zeroext
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 9
-  %25 = load i8, ptr %24, align 1, !range !7, !noundef !8
+  %25 = load i8, ptr %24, align 1, !range !6, !noundef !7
   %26 = icmp eq i8 %25, %9
   br i1 %26, label %27, label %45
 
@@ -826,7 +826,7 @@ define internal fastcc ptr @ginFillScanEntry(ptr noundef %0, i16 noundef zeroext
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = zext i32 %46 to i64
   %48 = icmp samesign ult i64 %indvars.iv.next, %47
-  br i1 %48, label %15, label %.loopexit, !llvm.loop !17
+  br i1 %48, label %15, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %45, %.preheader, %8
   %49 = tail call ptr @palloc(i64 noundef 224) #7
@@ -909,17 +909,16 @@ attributes #8 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!13 = distinct !{!13, !5, !6, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !5, !6, !14}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!12 = distinct !{!12, !5, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !5, !13}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}

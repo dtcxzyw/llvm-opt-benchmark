@@ -332,8 +332,8 @@ define range(i32 -1, 1) i32 @H5FA__dblock_debug(ptr noundef %0, i64 noundef %1, 
   %.0124170 = phi i64 [ 0, %.lr.ph ], [ %110, %109 ]
   %112 = load ptr, ptr %40, align 8, !tbaa !17
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
-  %114 = load ptr, ptr %113, align 8, !tbaa !54
-  %115 = load ptr, ptr %108, align 8, !tbaa !55
+  %114 = load ptr, ptr %113, align 8, !tbaa !53
+  %115 = load ptr, ptr %108, align 8, !tbaa !54
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %117 = load i64, ptr %116, align 8, !tbaa !34
   %118 = mul i64 %117, %.0124170
@@ -360,7 +360,7 @@ define range(i32 -1, 1) i32 @H5FA__dblock_debug(ptr noundef %0, i64 noundef %1, 
   br label %.thread
 
 132:                                              ; preds = %._crit_edge
-  %133 = load i64, ptr %79, align 8, !tbaa !57
+  %133 = load i64, ptr %79, align 8, !tbaa !56
   %134 = add i64 %133, %.0116172
   br label %135
 
@@ -370,7 +370,7 @@ define range(i32 -1, 1) i32 @H5FA__dblock_debug(ptr noundef %0, i64 noundef %1, 
   %.2 = phi i64 [ %134, %132 ], [ %.0116172, %90 ]
   %136 = load i64, ptr %54, align 8, !tbaa !44
   %137 = icmp ult i64 %.pre-phi, %136
-  br i1 %137, label %80, label %.thread, !llvm.loop !58
+  br i1 %137, label %80, label %.thread, !llvm.loop !57
 
 138:                                              ; preds = %38
   %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.33, i32 noundef %3, ptr noundef nonnull @.str.4) #4
@@ -389,14 +389,14 @@ define range(i32 -1, 1) i32 @H5FA__dblock_debug(ptr noundef %0, i64 noundef %1, 
   %146 = add nuw i64 %.1125176, 1
   %147 = load i64, ptr %51, align 8, !tbaa !43
   %148 = icmp ult i64 %146, %147
-  br i1 %148, label %149, label %.thread, !llvm.loop !59
+  br i1 %148, label %149, label %.thread, !llvm.loop !58
 
 149:                                              ; preds = %.lr.ph178, %145
   %.1125176 = phi i64 [ 0, %.lr.ph178 ], [ %146, %145 ]
   %150 = load ptr, ptr %40, align 8, !tbaa !17
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 64
-  %152 = load ptr, ptr %151, align 8, !tbaa !54
-  %153 = load ptr, ptr %144, align 8, !tbaa !60
+  %152 = load ptr, ptr %151, align 8, !tbaa !53
+  %153 = load ptr, ptr %144, align 8, !tbaa !59
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %155 = load i64, ptr %154, align 8, !tbaa !34
   %156 = mul i64 %155, %.1125176
@@ -536,13 +536,12 @@ attributes #4 = { nounwind }
 !48 = !{!40, !15, i64 328}
 !49 = !{!40, !13, i64 248}
 !50 = !{!5, !5, i64 0}
-!51 = distinct !{!51, !52, !53}
+!51 = distinct !{!51, !52}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!"llvm.loop.estimated_trip_count"}
-!54 = !{!11, !14, i64 64}
-!55 = !{!56, !14, i64 248}
-!56 = !{!"H5FA_dbk_page_t", !19, i64 0, !14, i64 248, !41, i64 256, !30, i64 264, !15, i64 272, !15, i64 280, !15, i64 288}
-!57 = !{!40, !15, i64 320}
-!58 = distinct !{!58, !52, !53}
-!59 = distinct !{!59, !52, !53}
-!60 = !{!40, !14, i64 256}
+!53 = !{!11, !14, i64 64}
+!54 = !{!55, !14, i64 248}
+!55 = !{!"H5FA_dbk_page_t", !19, i64 0, !14, i64 248, !41, i64 256, !30, i64 264, !15, i64 272, !15, i64 280, !15, i64 288}
+!56 = !{!40, !15, i64 320}
+!57 = distinct !{!57, !52}
+!58 = distinct !{!58, !52}
+!59 = !{!40, !14, i64 256}

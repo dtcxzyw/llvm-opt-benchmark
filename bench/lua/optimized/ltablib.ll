@@ -79,7 +79,7 @@ addfield.exit:                                    ; preds = %.lr.ph, %11
   call void @luaL_addlstring(ptr noundef nonnull %2, ptr noundef %5, i64 noundef %15) #3
   %16 = add i64 %.019, 1
   %exitcond.not = icmp eq i64 %16, %7
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %1
   %17 = icmp eq i64 %6, %7
@@ -113,7 +113,7 @@ define internal noundef i32 @tcreate(ptr noundef %0) #0 {
   %2 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 1) #3
   %3 = tail call i64 @luaL_optinteger(ptr noundef %0, i32 noundef 2, i64 noundef 0) #3
   %4 = icmp ult i64 %2, 2147483648
-  br i1 %4, label %7, label %5, !prof !11
+  br i1 %4, label %7, label %5, !prof !9
 
 5:                                                ; preds = %1
   %6 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.13) #3
@@ -121,7 +121,7 @@ define internal noundef i32 @tcreate(ptr noundef %0) #0 {
 
 7:                                                ; preds = %5, %1
   %8 = icmp ult i64 %3, 2147483648
-  br i1 %8, label %11, label %9, !prof !11
+  br i1 %8, label %11, label %9, !prof !9
 
 9:                                                ; preds = %7
   %10 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.13) #3
@@ -149,7 +149,7 @@ define internal i32 @tinsert(ptr noundef %0) #0 {
   %6 = tail call i64 @luaL_checkinteger(ptr noundef %0, i32 noundef 2) #3
   %7 = add i64 %6, -1
   %8 = icmp ult i64 %7, %3
-  br i1 %8, label %11, label %9, !prof !11
+  br i1 %8, label %11, label %9, !prof !9
 
 9:                                                ; preds = %5
   %10 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.14) #3
@@ -165,7 +165,7 @@ define internal i32 @tinsert(ptr noundef %0) #0 {
   %14 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %13) #3
   tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %.023) #3
   %15 = icmp sgt i64 %13, %6
-  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %15, label %.lr.ph, label %.loopexit
 
 16:                                               ; preds = %1
   %17 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.15) #3
@@ -198,7 +198,7 @@ define internal noundef i32 @tpack(ptr noundef %0) #0 {
   tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %indvars.iv) #3
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %5 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %6 = sext i32 %2 to i64
@@ -252,7 +252,7 @@ define internal i32 @tunpack(ptr noundef %0) #0 {
   %21 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %.02025) #3
   %22 = add i64 %.02025, 1
   %exitcond.not = icmp eq i64 %22, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %23 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %10) #3
@@ -272,7 +272,7 @@ define internal noundef i32 @tremove(ptr noundef %0) #0 {
   %4 = add i64 %3, -1
   %.not22 = icmp ugt i64 %4, %2
   %or.cond = and i1 %.not, %.not22
-  br i1 %or.cond, label %5, label %7, !prof !15
+  br i1 %or.cond, label %5, label %7, !prof !10
 
 5:                                                ; preds = %1
   %6 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.14) #3
@@ -289,7 +289,7 @@ define internal noundef i32 @tremove(ptr noundef %0) #0 {
   %11 = tail call i32 @lua_geti(ptr noundef %0, i32 noundef 1, i64 noundef %10) #3
   tail call void @lua_seti(ptr noundef %0, i32 noundef 1, i64 noundef %.023) #3
   %exitcond.not = icmp eq i64 %10, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.0.lcssa = phi i64 [ %3, %7 ], [ %2, %.lr.ph ]
@@ -362,7 +362,7 @@ checktab.exit55:                                  ; preds = %checktab.exit, %22,
   %26 = add nsw i64 %2, 9223372036854775807
   %27 = icmp slt i64 %3, %26
   %28 = select i1 %25, i1 true, i1 %27
-  br i1 %28, label %31, label %29, !prof !11
+  br i1 %28, label %31, label %29, !prof !9
 
 29:                                               ; preds = %24
   %30 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.18) #3
@@ -409,7 +409,7 @@ checktab.exit55:                                  ; preds = %checktab.exit, %22,
   tail call void @lua_seti(ptr noundef %0, i32 noundef %7, i64 noundef %46) #3
   %47 = add nuw i64 %.059, 1
   %exitcond.not = icmp eq i64 %47, %43
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph60, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph60
 
 48:                                               ; preds = %39, %38
   %49 = icmp sgt i64 %32, -1
@@ -423,7 +423,7 @@ checktab.exit55:                                  ; preds = %checktab.exit, %22,
   tail call void @lua_seti(ptr noundef %0, i32 noundef %7, i64 noundef %52) #3
   %53 = add nsw i64 %.157, -1
   %.not63 = icmp eq i64 %.157, 0
-  br i1 %.not63, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not63, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph60, %48, %41, %checktab.exit55
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef %7) #3
@@ -439,7 +439,7 @@ define internal noundef i32 @sort(ptr noundef %0) #0 {
 
 4:                                                ; preds = %1
   %5 = icmp samesign ult i64 %2, 2147483647
-  br i1 %5, label %8, label %6, !prof !11
+  br i1 %5, label %8, label %6, !prof !9
 
 6:                                                ; preds = %4
   %7 = tail call i32 @luaL_argerror(ptr noundef %0, i32 noundef 1, ptr noundef nonnull @.str.20) #3
@@ -729,7 +729,7 @@ sort_comp.exit.i:                                 ; preds = %57, %55
 
 63:                                               ; preds = %61, %59
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #3
-  br label %49, !llvm.loop !19
+  br label %49
 
 .preheader.i:                                     ; preds = %sort_comp.exit.i, %77
   %.1.i = phi i32 [ %64, %77 ], [ %.0.i, %sort_comp.exit.i ]
@@ -768,10 +768,10 @@ sort_comp.exit32.i:                               ; preds = %71, %69
 
 77:                                               ; preds = %75, %74
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #3
-  br label %.preheader.i, !llvm.loop !20
+  br label %.preheader.i
 
 78:                                               ; preds = %sort_comp.exit32.i
-  br i1 %73, label %partition.exit, label %48, !llvm.loop !21
+  br i1 %73, label %partition.exit, label %48
 
 partition.exit:                                   ; preds = %78
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #3
@@ -808,7 +808,7 @@ partition.exit:                                   ; preds = %78
 92:                                               ; preds = %86, %90
   %.1 = phi i32 [ %91, %90 ], [ %.07597, %86 ]
   %93 = icmp ult i32 %.281, %.278
-  br i1 %93, label %.lr.ph, label %.thread, !llvm.loop !22
+  br i1 %93, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %92, %13, %41, %4
   ret void
@@ -862,17 +862,5 @@ attributes #3 = { nounwind }
 !6 = !{!"long", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = !{!"branch_weights", i32 1, i32 4001}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = !{!"branch_weights", i32 1, i32 4001}

@@ -129,7 +129,7 @@ define void @col_setup(ptr noundef captures(none) initializes((8, 12), (16, 40))
   store i32 -1, ptr %26, align 4
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next93, 47
-  br i1 %exitcond95.not, label %27, label %22, !llvm.loop !9
+  br i1 %exitcond95.not, label %27, label %22, !llvm.loop !8
 
 27:                                               ; preds = %22
   %28 = tail call ptr @g_regex_new(ptr noundef nonnull @.str, i32 noundef 2048, i32 noundef 0, ptr noundef null)
@@ -210,7 +210,7 @@ col_custom_fields_ids_free.exit:                  ; preds = %7, %25
   %26 = load i32, ptr %2, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %7, label %._crit_edge, !llvm.loop !10
+  br i1 %28, label %7, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %col_custom_fields_ids_free.exit, %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -292,7 +292,7 @@ define hidden void @col_init(ptr noundef captures(address_is_null) %0, ptr nound
   %23 = load i32, ptr %3, align 8
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %9, label %._crit_edge, !llvm.loop !11
+  br i1 %25, label %9, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %9, %.preheader
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -312,7 +312,7 @@ define zeroext i1 @col_get_writable(ptr noundef readonly captures(address_is_nul
 4:                                                ; preds = %2
   %5 = icmp eq i32 %1, -1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !12
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !11
   br i1 %5, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %4
@@ -348,7 +348,7 @@ define zeroext i1 @col_get_writable(ptr noundef readonly captures(address_is_nul
 22:                                               ; preds = %24
   %23 = add i32 %.01722, 1
   %.not = icmp sgt i32 %23, %19
-  br i1 %.not, label %.loopexit, label %24, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %24, !llvm.loop !12
 
 24:                                               ; preds = %.lr.ph, %22
   %.01722 = phi i32 [ %14, %.lr.ph ], [ %23, %22 ]
@@ -357,13 +357,13 @@ define zeroext i1 @col_get_writable(ptr noundef readonly captures(address_is_nul
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 %12
-  %30 = load i8, ptr %29, align 1, !range !12, !noundef !14
+  %30 = load i8, ptr %29, align 1, !range !11, !noundef !13
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %22
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 76
-  %34 = load i8, ptr %33, align 4, !range !12, !noundef !14
+  %34 = load i8, ptr %33, align 4, !range !11, !noundef !13
   %35 = trunc nuw i8 %34 to i1
   br label %.loopexit
 
@@ -417,7 +417,7 @@ define void @col_set_writable(ptr noundef captures(address_is_null) %0, i32 noun
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 %12
-  %29 = load i8, ptr %28, align 1, !range !12, !noundef !14
+  %29 = load i8, ptr %28, align 1, !range !11, !noundef !13
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %33
 
@@ -433,7 +433,7 @@ define void @col_set_writable(ptr noundef captures(address_is_null) %0, i32 noun
   %36 = getelementptr i32, ptr %34, i64 %12
   %37 = load i32, ptr %36, align 4
   %.not20 = icmp sgt i32 %35, %37
-  br i1 %.not20, label %.loopexit, label %21, !llvm.loop !15
+  br i1 %.not20, label %.loopexit, label %21, !llvm.loop !14
 
 .loopexit:                                        ; preds = %33, %.preheader, %7, %9, %3
   ret void
@@ -447,7 +447,7 @@ define void @col_set_fence(ptr noundef readonly captures(address_is_null) %0, i3
 4:                                                ; preds = %2
   %5 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %5, label %col_get_writable.exit, label %6
 
 6:                                                ; preds = %4
@@ -479,7 +479,7 @@ define void @col_set_fence(ptr noundef readonly captures(address_is_null) %0, i3
 21:                                               ; preds = %23
   %22 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %22, %18
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %23, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %23, !llvm.loop !12
 
 23:                                               ; preds = %21, %.lr.ph.i
   %.01722.i = phi i32 [ %13, %.lr.ph.i ], [ %22, %21 ]
@@ -488,13 +488,13 @@ define void @col_set_fence(ptr noundef readonly captures(address_is_null) %0, i3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 %11
-  %29 = load i8, ptr %28, align 1, !range !12, !noundef !14
+  %29 = load i8, ptr %28, align 1, !range !11, !noundef !13
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %21
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 76
-  %33 = load i8, ptr %32, align 4, !range !12, !noundef !14
+  %33 = load i8, ptr %32, align 4, !range !11, !noundef !13
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %36, label %col_get_writable.exit.thread
 
@@ -536,7 +536,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr i8, ptr %50, i64 %.pre-phi
-  %52 = load i8, ptr %51, align 1, !range !12, !noundef !14
+  %52 = load i8, ptr %51, align 1, !range !11, !noundef !13
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %60
 
@@ -556,7 +556,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %63 = getelementptr i32, ptr %61, i64 %.pre-phi
   %64 = load i32, ptr %63, align 4
   %.not = icmp sgt i32 %62, %64
-  br i1 %.not, label %col_get_writable.exit.thread, label %44, !llvm.loop !16
+  br i1 %.not, label %col_get_writable.exit.thread, label %44, !llvm.loop !15
 
 col_get_writable.exit.thread:                     ; preds = %21, %60, %.preheader, %6, %.preheader.i, %8, %2, %31, %col_get_writable.exit, %36
   ret void
@@ -573,7 +573,7 @@ define void @col_clear_fence(ptr noundef readonly captures(address_is_null) %0, 
 4:                                                ; preds = %2
   %5 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %5, label %col_get_writable.exit, label %6
 
 6:                                                ; preds = %4
@@ -605,7 +605,7 @@ define void @col_clear_fence(ptr noundef readonly captures(address_is_null) %0, 
 21:                                               ; preds = %23
   %22 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %22, %18
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %23, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %23, !llvm.loop !12
 
 23:                                               ; preds = %21, %.lr.ph.i
   %.01722.i = phi i32 [ %13, %.lr.ph.i ], [ %22, %21 ]
@@ -614,13 +614,13 @@ define void @col_clear_fence(ptr noundef readonly captures(address_is_null) %0, 
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 %11
-  %29 = load i8, ptr %28, align 1, !range !12, !noundef !14
+  %29 = load i8, ptr %28, align 1, !range !11, !noundef !13
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %21
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 76
-  %33 = load i8, ptr %32, align 4, !range !12, !noundef !14
+  %33 = load i8, ptr %32, align 4, !range !11, !noundef !13
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %36, label %col_get_writable.exit.thread
 
@@ -662,7 +662,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr i8, ptr %50, i64 %.pre-phi
-  %52 = load i8, ptr %51, align 1, !range !12, !noundef !14
+  %52 = load i8, ptr %51, align 1, !range !11, !noundef !13
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %56
 
@@ -678,7 +678,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %59 = getelementptr i32, ptr %57, i64 %.pre-phi
   %60 = load i32, ptr %59, align 4
   %.not = icmp sgt i32 %58, %60
-  br i1 %.not, label %col_get_writable.exit.thread, label %44, !llvm.loop !17
+  br i1 %.not, label %col_get_writable.exit.thread, label %44, !llvm.loop !16
 
 col_get_writable.exit.thread:                     ; preds = %21, %56, %.preheader, %6, %.preheader.i, %8, %2, %31, %col_get_writable.exit, %36
   ret void
@@ -719,7 +719,7 @@ define ptr @col_get_text(ptr noundef readonly captures(address_is_null) %0, i32 
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 %6
-  %22 = load i8, ptr %21, align 1, !range !12, !noundef !14
+  %22 = load i8, ptr %21, align 1, !range !11, !noundef !13
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %27
 
@@ -732,7 +732,7 @@ define ptr @col_get_text(ptr noundef readonly captures(address_is_null) %0, i32 
   %.1 = phi ptr [ %26, %24 ], [ %.01522, %16 ]
   %28 = add i32 %.01621, 1
   %.not19 = icmp sgt i32 %28, %13
-  br i1 %.not19, label %.loopexit, label %16, !llvm.loop !18
+  br i1 %.not19, label %.loopexit, label %16, !llvm.loop !17
 
 .loopexit:                                        ; preds = %27, %.preheader, %2, %3
   %.0 = phi ptr [ null, %3 ], [ null, %2 ], [ null, %.preheader ], [ %.1, %27 ]
@@ -747,7 +747,7 @@ define void @col_clear(ptr noundef readonly captures(address_is_null) %0, i32 no
 4:                                                ; preds = %2
   %5 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %5, label %col_get_writable.exit, label %6
 
 6:                                                ; preds = %4
@@ -779,7 +779,7 @@ define void @col_clear(ptr noundef readonly captures(address_is_null) %0, i32 no
 21:                                               ; preds = %23
   %22 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %22, %18
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %23, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %23, !llvm.loop !12
 
 23:                                               ; preds = %21, %.lr.ph.i
   %.01722.i = phi i32 [ %13, %.lr.ph.i ], [ %22, %21 ]
@@ -788,13 +788,13 @@ define void @col_clear(ptr noundef readonly captures(address_is_null) %0, i32 no
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 %11
-  %29 = load i8, ptr %28, align 1, !range !12, !noundef !14
+  %29 = load i8, ptr %28, align 1, !range !11, !noundef !13
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %31, label %21
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 76
-  %33 = load i8, ptr %32, align 4, !range !12, !noundef !14
+  %33 = load i8, ptr %32, align 4, !range !11, !noundef !13
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %36, label %col_get_writable.exit.thread
 
@@ -838,7 +838,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr i8, ptr %52, i64 %.pre-phi
-  %54 = load i8, ptr %53, align 1, !range !12, !noundef !14
+  %54 = load i8, ptr %53, align 1, !range !11, !noundef !13
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %75
 
@@ -885,7 +885,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %78 = getelementptr i32, ptr %76, i64 %.pre-phi
   %79 = load i32, ptr %78, align 4
   %.not = icmp sgt i32 %77, %79
-  br i1 %.not, label %col_get_writable.exit.thread, label %46, !llvm.loop !19
+  br i1 %.not, label %col_get_writable.exit.thread, label %46, !llvm.loop !18
 
 col_get_writable.exit.thread:                     ; preds = %21, %75, %.preheader, %6, %.preheader.i, %8, %2, %31, %col_get_writable.exit, %36
   ret void
@@ -950,7 +950,7 @@ define hidden void @col_custom_set_edt(ptr noundef %0, ptr noundef readonly capt
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i8, ptr %22, i64 4
-  %24 = load i8, ptr %23, align 1, !range !12, !noundef !14
+  %24 = load i8, ptr %23, align 1, !range !11, !noundef !13
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %47
 
@@ -992,7 +992,7 @@ define hidden void @col_custom_set_edt(ptr noundef %0, ptr noundef readonly capt
   %50 = getelementptr i8, ptr %48, i64 16
   %51 = load i32, ptr %50, align 4
   %.not23 = icmp sgt i32 %49, %51
-  br i1 %.not23, label %.loopexit, label %16, !llvm.loop !20
+  br i1 %.not23, label %.loopexit, label %16, !llvm.loop !19
 
 .loopexit:                                        ; preds = %47, %.preheader, %2, %3
   ret void
@@ -1037,7 +1037,7 @@ define void @col_custom_prime_edt(ptr noundef %0, ptr noundef readonly captures(
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 4
-  %21 = load i8, ptr %20, align 1, !range !12, !noundef !14
+  %21 = load i8, ptr %20, align 1, !range !11, !noundef !13
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %32
 
@@ -1067,7 +1067,7 @@ define void @col_custom_prime_edt(ptr noundef %0, ptr noundef readonly captures(
   %35 = getelementptr i8, ptr %34, i64 16
   %36 = load i32, ptr %35, align 4
   %.not16 = icmp sgt i32 %33, %36
-  br i1 %.not16, label %.loopexit, label %14, !llvm.loop !21
+  br i1 %.not16, label %.loopexit, label %14, !llvm.loop !20
 
 .loopexit:                                        ; preds = %32, %.preheader, %2, %3
   ret void
@@ -1088,7 +1088,7 @@ define ptr @col_custom_get_filter(ptr noundef %0, ptr noundef readonly captures(
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 4
-  %11 = load i8, ptr %10, align 1, !range !12, !noundef !14
+  %11 = load i8, ptr %10, align 1, !range !11, !noundef !13
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %23
 
@@ -1128,7 +1128,7 @@ define void @col_append_lstr(ptr noundef readonly captures(address_is_null) %0, 
 6:                                                ; preds = %3
   %7 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %7, label %col_get_writable.exit, label %8
 
 8:                                                ; preds = %6
@@ -1160,7 +1160,7 @@ define void @col_append_lstr(ptr noundef readonly captures(address_is_null) %0, 
 23:                                               ; preds = %25
   %24 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %24, %20
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %25, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %25, !llvm.loop !12
 
 25:                                               ; preds = %23, %.lr.ph.i
   %.01722.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
@@ -1169,13 +1169,13 @@ define void @col_append_lstr(ptr noundef readonly captures(address_is_null) %0, 
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 %13
-  %31 = load i8, ptr %30, align 1, !range !12, !noundef !14
+  %31 = load i8, ptr %30, align 1, !range !11, !noundef !13
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %23
 
 33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 76
-  %35 = load i8, ptr %34, align 4, !range !12, !noundef !14
+  %35 = load i8, ptr %34, align 4, !range !11, !noundef !13
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %38, label %col_get_writable.exit.thread
 
@@ -1221,7 +1221,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %56, i64 %.pre-phi
-  %58 = load i8, ptr %57, align 1, !range !12, !noundef !14
+  %58 = load i8, ptr %57, align 1, !range !11, !noundef !13
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %92
 
@@ -1253,7 +1253,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.036 = phi ptr [ %2, %71 ], [ %91, %89 ]
   %.0 = phi i64 [ %70, %71 ], [ %76, %89 ]
   %.not47 = icmp eq ptr %.036, null
-  br i1 %.not47, label %73, label %74, !prof !22
+  br i1 %.not47, label %73, label %74, !prof !21
 
 73:                                               ; preds = %72
   br label %74
@@ -1288,7 +1288,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %90 = phi ptr [ %84, %81 ], [ %87, %86 ]
   %91 = load ptr, ptr %90, align 8
   %.not48 = icmp eq ptr %91, inttoptr (i64 -1 to ptr)
-  br i1 %.not48, label %.critedge, label %72, !llvm.loop !23
+  br i1 %.not48, label %.critedge, label %72, !llvm.loop !22
 
 .critedge:                                        ; preds = %74, %89
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -1301,7 +1301,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %95 = getelementptr i32, ptr %93, i64 %.pre-phi
   %96 = load i32, ptr %95, align 4
   %.not = icmp sgt i32 %94, %96
-  br i1 %.not, label %col_get_writable.exit.thread, label %50, !llvm.loop !24
+  br i1 %.not, label %col_get_writable.exit.thread, label %50, !llvm.loop !23
 
 col_get_writable.exit.thread:                     ; preds = %23, %68, %92, %41, %8, %.preheader.i, %10, %3, %33, %col_get_writable.exit, %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
@@ -1330,7 +1330,7 @@ define void @col_append_str_uint(ptr noundef readonly captures(address_is_null) 
 8:                                                ; preds = %5
   %9 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %9, label %col_get_writable.exit, label %10
 
 10:                                               ; preds = %8
@@ -1362,7 +1362,7 @@ define void @col_append_str_uint(ptr noundef readonly captures(address_is_null) 
 25:                                               ; preds = %27
   %26 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %26, %22
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %27, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %25, %.lr.ph.i
   %.01722.i = phi i32 [ %17, %.lr.ph.i ], [ %26, %25 ]
@@ -1371,13 +1371,13 @@ define void @col_append_str_uint(ptr noundef readonly captures(address_is_null) 
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %31, i64 %15
-  %33 = load i8, ptr %32, align 1, !range !12, !noundef !14
+  %33 = load i8, ptr %32, align 1, !range !11, !noundef !13
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %25
 
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 76
-  %37 = load i8, ptr %36, align 4, !range !12, !noundef !14
+  %37 = load i8, ptr %36, align 4, !range !11, !noundef !13
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %40, label %col_get_writable.exit.thread
 
@@ -1424,7 +1424,7 @@ define void @col_append_ports(ptr noundef readonly captures(address_is_null) %0,
 9:                                                ; preds = %5
   %10 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %10, label %col_get_writable.exit, label %11
 
 11:                                               ; preds = %9
@@ -1456,7 +1456,7 @@ define void @col_append_ports(ptr noundef readonly captures(address_is_null) %0,
 26:                                               ; preds = %28
   %27 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %27, %23
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %28, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %28, !llvm.loop !12
 
 28:                                               ; preds = %26, %.lr.ph.i
   %.01722.i = phi i32 [ %18, %.lr.ph.i ], [ %27, %26 ]
@@ -1465,13 +1465,13 @@ define void @col_append_ports(ptr noundef readonly captures(address_is_null) %0,
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 %16
-  %34 = load i8, ptr %33, align 1, !range !12, !noundef !14
+  %34 = load i8, ptr %33, align 1, !range !11, !noundef !13
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %26
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 76
-  %38 = load i8, ptr %37, align 4, !range !12, !noundef !14
+  %38 = load i8, ptr %37, align 4, !range !11, !noundef !13
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %41, label %col_get_writable.exit.thread
 
@@ -1492,7 +1492,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   br i1 %43, label %44, label %col_get_writable.exit.thread
 
 44:                                               ; preds = %41
-  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 2), align 1, !range !12, !noundef !14
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 2), align 1, !range !11, !noundef !13
   %46 = trunc nuw i8 %45 to i1
   %47 = zext i16 %3 to i32
   br i1 %46, label %48, label %._crit_edge.i9
@@ -1511,7 +1511,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   br label %col_snprint_port.exit
 
 col_snprint_port.exit:                            ; preds = %50, %._crit_edge.i9
-  %53 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 2), align 1, !range !12, !noundef !14
+  %53 = load i8, ptr getelementptr inbounds nuw (i8, ptr @gbl_resolv_flags, i64 2), align 1, !range !11, !noundef !13
   %54 = trunc nuw i8 %53 to i1
   %55 = zext i16 %4 to i32
   br i1 %54, label %56, label %._crit_edge.i11
@@ -1570,7 +1570,7 @@ define void @col_append_fstr(ptr noundef readonly captures(address_is_null) %0, 
 6:                                                ; preds = %3
   %7 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %7, label %col_get_writable.exit, label %8
 
 8:                                                ; preds = %6
@@ -1602,7 +1602,7 @@ define void @col_append_fstr(ptr noundef readonly captures(address_is_null) %0, 
 23:                                               ; preds = %25
   %24 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %24, %20
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %25, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %25, !llvm.loop !12
 
 25:                                               ; preds = %23, %.lr.ph.i
   %.01722.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
@@ -1611,13 +1611,13 @@ define void @col_append_fstr(ptr noundef readonly captures(address_is_null) %0, 
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 %13
-  %31 = load i8, ptr %30, align 1, !range !12, !noundef !14
+  %31 = load i8, ptr %30, align 1, !range !11, !noundef !13
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %23
 
 33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 76
-  %35 = load i8, ptr %34, align 4, !range !12, !noundef !14
+  %35 = load i8, ptr %34, align 4, !range !11, !noundef !13
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %38, label %col_get_writable.exit.thread
 
@@ -1690,7 +1690,7 @@ define internal fastcc void @col_do_append_fstr(ptr noundef readonly captures(no
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %30, i64 %15
-  %32 = load i8, ptr %31, align 1, !range !12, !noundef !14
+  %32 = load i8, ptr %31, align 1, !range !11, !noundef !13
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %59
 
@@ -1750,7 +1750,7 @@ define internal fastcc void @col_do_append_fstr(ptr noundef readonly captures(no
   %62 = getelementptr i32, ptr %61, i64 %15
   %63 = load i32, ptr %62, align 4
   %.not45 = icmp sgt i32 %60, %63
-  br i1 %.not45, label %._crit_edge, label %25, !llvm.loop !25
+  br i1 %.not45, label %._crit_edge, label %25, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %59, %10
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #17
@@ -1767,7 +1767,7 @@ define void @col_append_sep_fstr(ptr noundef readonly captures(address_is_null) 
 7:                                                ; preds = %4
   %8 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %8, label %col_get_writable.exit, label %9
 
 9:                                                ; preds = %7
@@ -1799,7 +1799,7 @@ define void @col_append_sep_fstr(ptr noundef readonly captures(address_is_null) 
 24:                                               ; preds = %26
   %25 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %25, %21
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %26, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %26, !llvm.loop !12
 
 26:                                               ; preds = %24, %.lr.ph.i
   %.01722.i = phi i32 [ %16, %.lr.ph.i ], [ %25, %24 ]
@@ -1808,13 +1808,13 @@ define void @col_append_sep_fstr(ptr noundef readonly captures(address_is_null) 
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %30, i64 %14
-  %32 = load i8, ptr %31, align 1, !range !12, !noundef !14
+  %32 = load i8, ptr %31, align 1, !range !11, !noundef !13
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %24
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 76
-  %36 = load i8, ptr %35, align 4, !range !12, !noundef !14
+  %36 = load i8, ptr %35, align 4, !range !11, !noundef !13
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %39, label %col_get_writable.exit.thread
 
@@ -1861,7 +1861,7 @@ define void @col_prepend_fstr(ptr noundef readonly captures(address_is_null) %0,
 8:                                                ; preds = %3
   %9 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %9, label %col_get_writable.exit, label %10
 
 10:                                               ; preds = %8
@@ -1893,7 +1893,7 @@ define void @col_prepend_fstr(ptr noundef readonly captures(address_is_null) %0,
 25:                                               ; preds = %27
   %26 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %26, %22
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %27, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %25, %.lr.ph.i
   %.01722.i = phi i32 [ %17, %.lr.ph.i ], [ %26, %25 ]
@@ -1902,13 +1902,13 @@ define void @col_prepend_fstr(ptr noundef readonly captures(address_is_null) %0,
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %31, i64 %15
-  %33 = load i8, ptr %32, align 1, !range !12, !noundef !14
+  %33 = load i8, ptr %32, align 1, !range !11, !noundef !13
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %25
 
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 76
-  %37 = load i8, ptr %36, align 4, !range !12, !noundef !14
+  %37 = load i8, ptr %36, align 4, !range !11, !noundef !13
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %40, label %col_get_writable.exit.thread
 
@@ -1953,7 +1953,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 %.pre-phi
-  %59 = load i8, ptr %58, align 1, !range !12, !noundef !14
+  %59 = load i8, ptr %58, align 1, !range !11, !noundef !13
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %86
 
@@ -2011,7 +2011,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %89 = getelementptr i32, ptr %87, i64 %.pre-phi
   %90 = load i32, ptr %89, align 4
   %.not = icmp sgt i32 %88, %90
-  br i1 %.not, label %col_get_writable.exit.thread, label %51, !llvm.loop !26
+  br i1 %.not, label %col_get_writable.exit.thread, label %51, !llvm.loop !25
 
 col_get_writable.exit.thread:                     ; preds = %25, %86, %43, %10, %.preheader.i, %12, %3, %35, %col_get_writable.exit, %40
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #17
@@ -2037,7 +2037,7 @@ define void @col_prepend_fence_fstr(ptr noundef readonly captures(address_is_nul
 8:                                                ; preds = %3
   %9 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %9, label %col_get_writable.exit, label %10
 
 10:                                               ; preds = %8
@@ -2069,7 +2069,7 @@ define void @col_prepend_fence_fstr(ptr noundef readonly captures(address_is_nul
 25:                                               ; preds = %27
   %26 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %26, %22
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %27, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %27, !llvm.loop !12
 
 27:                                               ; preds = %25, %.lr.ph.i
   %.01722.i = phi i32 [ %17, %.lr.ph.i ], [ %26, %25 ]
@@ -2078,13 +2078,13 @@ define void @col_prepend_fence_fstr(ptr noundef readonly captures(address_is_nul
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %31, i64 %15
-  %33 = load i8, ptr %32, align 1, !range !12, !noundef !14
+  %33 = load i8, ptr %32, align 1, !range !11, !noundef !13
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %25
 
 35:                                               ; preds = %27
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 76
-  %37 = load i8, ptr %36, align 4, !range !12, !noundef !14
+  %37 = load i8, ptr %36, align 4, !range !11, !noundef !13
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %40, label %col_get_writable.exit.thread
 
@@ -2129,7 +2129,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 %.pre-phi
-  %59 = load i8, ptr %58, align 1, !range !12, !noundef !14
+  %59 = load i8, ptr %58, align 1, !range !11, !noundef !13
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %84
 
@@ -2181,7 +2181,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %87 = getelementptr i32, ptr %85, i64 %.pre-phi
   %88 = load i32, ptr %87, align 4
   %.not = icmp sgt i32 %86, %88
-  br i1 %.not, label %col_get_writable.exit.thread, label %51, !llvm.loop !27
+  br i1 %.not, label %col_get_writable.exit.thread, label %51, !llvm.loop !26
 
 col_get_writable.exit.thread:                     ; preds = %25, %84, %43, %10, %.preheader.i, %12, %3, %35, %col_get_writable.exit, %40
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6) #17
@@ -2198,7 +2198,7 @@ define void @col_add_str(ptr noundef readonly captures(address_is_null) %0, i32 
 5:                                                ; preds = %3
   %6 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %6, label %col_get_writable.exit, label %7
 
 7:                                                ; preds = %5
@@ -2230,7 +2230,7 @@ define void @col_add_str(ptr noundef readonly captures(address_is_null) %0, i32 
 22:                                               ; preds = %24
   %23 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %23, %19
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %24, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %24, !llvm.loop !12
 
 24:                                               ; preds = %22, %.lr.ph.i
   %.01722.i = phi i32 [ %14, %.lr.ph.i ], [ %23, %22 ]
@@ -2239,13 +2239,13 @@ define void @col_add_str(ptr noundef readonly captures(address_is_null) %0, i32 
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 %12
-  %30 = load i8, ptr %29, align 1, !range !12, !noundef !14
+  %30 = load i8, ptr %29, align 1, !range !11, !noundef !13
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %22
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 76
-  %34 = load i8, ptr %33, align 4, !range !12, !noundef !14
+  %34 = load i8, ptr %33, align 4, !range !11, !noundef !13
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %37, label %col_get_writable.exit.thread
 
@@ -2289,7 +2289,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr i8, ptr %53, i64 %.pre-phi
-  %55 = load i8, ptr %54, align 1, !range !12, !noundef !14
+  %55 = load i8, ptr %54, align 1, !range !11, !noundef !13
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %77
 
@@ -2335,7 +2335,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %80 = getelementptr i32, ptr %78, i64 %.pre-phi
   %81 = load i32, ptr %80, align 4
   %.not = icmp sgt i32 %79, %81
-  br i1 %.not, label %col_get_writable.exit.thread, label %47, !llvm.loop !28
+  br i1 %.not, label %col_get_writable.exit.thread, label %47, !llvm.loop !27
 
 col_get_writable.exit.thread:                     ; preds = %22, %77, %40, %7, %.preheader.i, %9, %3, %32, %col_get_writable.exit, %37
   ret void
@@ -2357,7 +2357,7 @@ define void @col_set_str(ptr noundef readonly captures(address_is_null) %0, i32 
 7:                                                ; preds = %5
   %8 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %8, label %col_get_writable.exit, label %9
 
 9:                                                ; preds = %7
@@ -2389,7 +2389,7 @@ define void @col_set_str(ptr noundef readonly captures(address_is_null) %0, i32 
 24:                                               ; preds = %26
   %25 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %25, %21
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %26, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %26, !llvm.loop !12
 
 26:                                               ; preds = %24, %.lr.ph.i
   %.01722.i = phi i32 [ %16, %.lr.ph.i ], [ %25, %24 ]
@@ -2398,13 +2398,13 @@ define void @col_set_str(ptr noundef readonly captures(address_is_null) %0, i32 
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %30, i64 %14
-  %32 = load i8, ptr %31, align 1, !range !12, !noundef !14
+  %32 = load i8, ptr %31, align 1, !range !11, !noundef !13
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %24
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 76
-  %36 = load i8, ptr %35, align 4, !range !12, !noundef !14
+  %36 = load i8, ptr %35, align 4, !range !11, !noundef !13
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %39, label %col_get_writable.exit.thread
 
@@ -2447,7 +2447,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr i8, ptr %54, i64 %.pre-phi
-  %56 = load i8, ptr %55, align 1, !range !12, !noundef !14
+  %56 = load i8, ptr %55, align 1, !range !11, !noundef !13
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %58, label %77
 
@@ -2491,7 +2491,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %80 = getelementptr i32, ptr %79, i64 %.pre-phi
   %81 = load i32, ptr %80, align 4
   %.not34 = icmp sgt i32 %78, %81
-  br i1 %.not34, label %col_get_writable.exit.thread, label %49, !llvm.loop !29
+  br i1 %.not34, label %col_get_writable.exit.thread, label %49, !llvm.loop !28
 
 col_get_writable.exit.thread:                     ; preds = %24, %77, %42, %9, %.preheader.i, %11, %5, %34, %col_get_writable.exit, %39
   ret void
@@ -2510,7 +2510,7 @@ define void @col_add_lstr(ptr noundef readonly captures(address_is_null) %0, i32
 6:                                                ; preds = %3
   %7 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %7, label %col_get_writable.exit, label %8
 
 8:                                                ; preds = %6
@@ -2542,7 +2542,7 @@ define void @col_add_lstr(ptr noundef readonly captures(address_is_null) %0, i32
 23:                                               ; preds = %25
   %24 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %24, %20
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %25, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %25, !llvm.loop !12
 
 25:                                               ; preds = %23, %.lr.ph.i
   %.01722.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
@@ -2551,13 +2551,13 @@ define void @col_add_lstr(ptr noundef readonly captures(address_is_null) %0, i32
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 %13
-  %31 = load i8, ptr %30, align 1, !range !12, !noundef !14
+  %31 = load i8, ptr %30, align 1, !range !11, !noundef !13
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %23
 
 33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 76
-  %35 = load i8, ptr %34, align 4, !range !12, !noundef !14
+  %35 = load i8, ptr %34, align 4, !range !11, !noundef !13
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %38, label %col_get_writable.exit.thread
 
@@ -2603,7 +2603,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %56, i64 %.pre-phi
-  %58 = load i8, ptr %57, align 1, !range !12, !noundef !14
+  %58 = load i8, ptr %57, align 1, !range !11, !noundef !13
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %98
 
@@ -2644,7 +2644,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %.037 = phi ptr [ %2, %76 ], [ %97, %95 ]
   %.036 = phi i64 [ %63, %76 ], [ %82, %95 ]
   %.not47 = icmp eq ptr %.037, null
-  br i1 %.not47, label %79, label %80, !prof !22
+  br i1 %.not47, label %79, label %80, !prof !21
 
 79:                                               ; preds = %78
   br label %80
@@ -2679,7 +2679,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %96 = phi ptr [ %90, %87 ], [ %93, %92 ]
   %97 = load ptr, ptr %96, align 8
   %.not48 = icmp eq ptr %97, inttoptr (i64 -1 to ptr)
-  br i1 %.not48, label %.critedge, label %78, !llvm.loop !30
+  br i1 %.not48, label %.critedge, label %78, !llvm.loop !29
 
 .critedge:                                        ; preds = %80, %95
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -2692,7 +2692,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %101 = getelementptr i32, ptr %99, i64 %.pre-phi
   %102 = load i32, ptr %101, align 4
   %.not = icmp sgt i32 %100, %102
-  br i1 %.not, label %col_get_writable.exit.thread, label %50, !llvm.loop !31
+  br i1 %.not, label %col_get_writable.exit.thread, label %50, !llvm.loop !30
 
 col_get_writable.exit.thread:                     ; preds = %23, %98, %41, %8, %.preheader.i, %10, %3, %33, %col_get_writable.exit, %38
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #17
@@ -2711,7 +2711,7 @@ define void @col_add_fstr(ptr noundef readonly captures(address_is_null) %0, i32
 7:                                                ; preds = %3
   %8 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %8, label %col_get_writable.exit, label %9
 
 9:                                                ; preds = %7
@@ -2743,7 +2743,7 @@ define void @col_add_fstr(ptr noundef readonly captures(address_is_null) %0, i32
 24:                                               ; preds = %26
   %25 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %25, %21
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %26, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %26, !llvm.loop !12
 
 26:                                               ; preds = %24, %.lr.ph.i
   %.01722.i = phi i32 [ %16, %.lr.ph.i ], [ %25, %24 ]
@@ -2752,13 +2752,13 @@ define void @col_add_fstr(ptr noundef readonly captures(address_is_null) %0, i32
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %30, i64 %14
-  %32 = load i8, ptr %31, align 1, !range !12, !noundef !14
+  %32 = load i8, ptr %31, align 1, !range !11, !noundef !13
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %24
 
 34:                                               ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 76
-  %36 = load i8, ptr %35, align 4, !range !12, !noundef !14
+  %36 = load i8, ptr %35, align 4, !range !11, !noundef !13
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %39, label %col_get_writable.exit.thread
 
@@ -2805,7 +2805,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %58, i64 %.pre-phi
-  %60 = load i8, ptr %59, align 1, !range !12, !noundef !14
+  %60 = load i8, ptr %59, align 1, !range !11, !noundef !13
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %62, label %87
 
@@ -2862,7 +2862,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %90 = getelementptr i32, ptr %88, i64 %.pre-phi
   %91 = load i32, ptr %90, align 4
   %.not = icmp sgt i32 %89, %91
-  br i1 %.not, label %col_get_writable.exit.thread, label %52, !llvm.loop !32
+  br i1 %.not, label %col_get_writable.exit.thread, label %52, !llvm.loop !31
 
 col_get_writable.exit.thread:                     ; preds = %24, %87, %42, %9, %.preheader.i, %11, %3, %34, %col_get_writable.exit, %39
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #17
@@ -2878,7 +2878,7 @@ define void @col_append_str(ptr noundef readonly captures(address_is_null) %0, i
 5:                                                ; preds = %3
   %6 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %6, label %col_get_writable.exit, label %7
 
 7:                                                ; preds = %5
@@ -2910,7 +2910,7 @@ define void @col_append_str(ptr noundef readonly captures(address_is_null) %0, i
 22:                                               ; preds = %24
   %23 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %23, %19
-  br i1 %.not.i, label %col_do_append_str.exit, label %24, !llvm.loop !13
+  br i1 %.not.i, label %col_do_append_str.exit, label %24, !llvm.loop !12
 
 24:                                               ; preds = %22, %.lr.ph.i
   %.01722.i = phi i32 [ %14, %.lr.ph.i ], [ %23, %22 ]
@@ -2919,13 +2919,13 @@ define void @col_append_str(ptr noundef readonly captures(address_is_null) %0, i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr i8, ptr %28, i64 %12
-  %30 = load i8, ptr %29, align 1, !range !12, !noundef !14
+  %30 = load i8, ptr %29, align 1, !range !11, !noundef !13
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %22
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 76
-  %34 = load i8, ptr %33, align 4, !range !12, !noundef !14
+  %34 = load i8, ptr %33, align 4, !range !11, !noundef !13
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %37, label %col_do_append_str.exit
 
@@ -2969,7 +2969,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr i8, ptr %52, i64 %.pre-phi
-  %54 = load i8, ptr %53, align 1, !range !12, !noundef !14
+  %54 = load i8, ptr %53, align 1, !range !11, !noundef !13
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %67
 
@@ -2999,7 +2999,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %70 = getelementptr i32, ptr %68, i64 %.pre-phi
   %71 = load i32, ptr %70, align 4
   %.not.us.i = icmp sgt i32 %69, %71
-  br i1 %.not.us.i, label %col_do_append_str.exit, label %.lr.ph.split.us.i, !llvm.loop !33
+  br i1 %.not.us.i, label %col_do_append_str.exit, label %.lr.ph.split.us.i, !llvm.loop !32
 
 col_do_append_str.exit:                           ; preds = %22, %67, %7, %.preheader.i, %9, %3, %40, %32, %col_get_writable.exit, %37
   ret void
@@ -3013,7 +3013,7 @@ define void @col_append_sep_str(ptr noundef readonly captures(address_is_null) %
 6:                                                ; preds = %4
   %7 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %7, label %col_get_writable.exit, label %8
 
 8:                                                ; preds = %6
@@ -3045,7 +3045,7 @@ define void @col_append_sep_str(ptr noundef readonly captures(address_is_null) %
 23:                                               ; preds = %25
   %24 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %24, %20
-  br i1 %.not.i, label %col_do_append_str.exit, label %25, !llvm.loop !13
+  br i1 %.not.i, label %col_do_append_str.exit, label %25, !llvm.loop !12
 
 25:                                               ; preds = %23, %.lr.ph.i
   %.01722.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
@@ -3054,13 +3054,13 @@ define void @col_append_sep_str(ptr noundef readonly captures(address_is_null) %
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 %13
-  %31 = load i8, ptr %30, align 1, !range !12, !noundef !14
+  %31 = load i8, ptr %30, align 1, !range !11, !noundef !13
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %23
 
 33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 76
-  %35 = load i8, ptr %34, align 4, !range !12, !noundef !14
+  %35 = load i8, ptr %34, align 4, !range !11, !noundef !13
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %38, label %col_do_append_str.exit
 
@@ -3106,7 +3106,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr i8, ptr %54, i64 %.pre-phi
-  %56 = load i8, ptr %55, align 1, !range !12, !noundef !14
+  %56 = load i8, ptr %55, align 1, !range !11, !noundef !13
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %58, label %74
 
@@ -3147,7 +3147,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %77 = getelementptr i32, ptr %75, i64 %.pre-phi
   %78 = load i32, ptr %77, align 4
   %.not.i9 = icmp sgt i32 %76, %78
-  br i1 %.not.i9, label %col_do_append_str.exit, label %.lr.ph.split.i, !llvm.loop !35
+  br i1 %.not.i9, label %col_do_append_str.exit, label %.lr.ph.split.i, !llvm.loop !34
 
 col_do_append_str.exit:                           ; preds = %23, %74, %8, %.preheader.i, %10, %4, %41, %33, %col_get_writable.exit, %38
   ret void
@@ -3161,60 +3161,60 @@ define zeroext i1 @col_has_time_fmt(ptr noundef readonly captures(none) %0, i32 
   %6 = getelementptr %struct.col_item_t, ptr %4, i64 %5, i32 1
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 46
-  %9 = load i8, ptr %8, align 1, !range !12, !noundef !14
+  %9 = load i8, ptr %8, align 1, !range !11, !noundef !13
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %46, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr i8, ptr %7, i64 2
-  %13 = load i8, ptr %12, align 1, !range !12, !noundef !14
+  %13 = load i8, ptr %12, align 1, !range !11, !noundef !13
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %46, label %15
 
 15:                                               ; preds = %11
-  %16 = load i8, ptr %7, align 1, !range !12, !noundef !14
+  %16 = load i8, ptr %7, align 1, !range !11, !noundef !13
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %46, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr i8, ptr %7, i64 1
-  %20 = load i8, ptr %19, align 1, !range !12, !noundef !14
+  %20 = load i8, ptr %19, align 1, !range !11, !noundef !13
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %46, label %22
 
 22:                                               ; preds = %18
   %23 = getelementptr i8, ptr %7, i64 45
-  %24 = load i8, ptr %23, align 1, !range !12, !noundef !14
+  %24 = load i8, ptr %23, align 1, !range !11, !noundef !13
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %46, label %26
 
 26:                                               ; preds = %22
   %27 = getelementptr i8, ptr %7, i64 43
-  %28 = load i8, ptr %27, align 1, !range !12, !noundef !14
+  %28 = load i8, ptr %27, align 1, !range !11, !noundef !13
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %46, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr i8, ptr %7, i64 44
-  %32 = load i8, ptr %31, align 1, !range !12, !noundef !14
+  %32 = load i8, ptr %31, align 1, !range !11, !noundef !13
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %46, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr i8, ptr %7, i64 36
-  %36 = load i8, ptr %35, align 1, !range !12, !noundef !14
+  %36 = load i8, ptr %35, align 1, !range !11, !noundef !13
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %46, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr i8, ptr %7, i64 5
-  %40 = load i8, ptr %39, align 1, !range !12, !noundef !14
+  %40 = load i8, ptr %39, align 1, !range !11, !noundef !13
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr i8, ptr %7, i64 6
-  %44 = load i8, ptr %43, align 1, !range !12, !noundef !14
+  %44 = load i8, ptr %43, align 1, !range !11, !noundef !13
   %45 = trunc nuw i8 %44 to i1
   br label %46
 
@@ -3929,7 +3929,7 @@ define void @col_set_time(ptr noundef readonly captures(address_is_null) %0, i32
 6:                                                ; preds = %4
   %7 = icmp eq i32 %1, -1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !12
+  %.pre.i = load i8, ptr %.phi.trans.insert.i, align 8, !range !11
   br i1 %7, label %col_get_writable.exit, label %8
 
 8:                                                ; preds = %6
@@ -3961,7 +3961,7 @@ define void @col_set_time(ptr noundef readonly captures(address_is_null) %0, i32
 23:                                               ; preds = %25
   %24 = add i32 %.01722.i, 1
   %.not.i = icmp sgt i32 %24, %20
-  br i1 %.not.i, label %col_get_writable.exit.thread, label %25, !llvm.loop !13
+  br i1 %.not.i, label %col_get_writable.exit.thread, label %25, !llvm.loop !12
 
 25:                                               ; preds = %23, %.lr.ph.i
   %.01722.i = phi i32 [ %15, %.lr.ph.i ], [ %24, %23 ]
@@ -3970,13 +3970,13 @@ define void @col_set_time(ptr noundef readonly captures(address_is_null) %0, i32
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 %13
-  %31 = load i8, ptr %30, align 1, !range !12, !noundef !14
+  %31 = load i8, ptr %30, align 1, !range !11, !noundef !13
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %23
 
 33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 76
-  %35 = load i8, ptr %34, align 4, !range !12, !noundef !14
+  %35 = load i8, ptr %34, align 4, !range !11, !noundef !13
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %38, label %col_get_writable.exit.thread
 
@@ -4020,7 +4020,7 @@ col_get_writable.exit._crit_edge:                 ; preds = %col_get_writable.ex
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr i8, ptr %54, i64 %.pre-phi
-  %56 = load i8, ptr %55, align 1, !range !12, !noundef !14
+  %56 = load i8, ptr %55, align 1, !range !11, !noundef !13
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %58, label %75
 
@@ -4063,7 +4063,7 @@ get_default_timestamp_precision.exit:             ; preds = %58, %63
   %78 = getelementptr i32, ptr %76, i64 %.pre-phi
   %79 = load i32, ptr %78, align 4
   %.not = icmp sgt i32 %77, %79
-  br i1 %.not, label %col_get_writable.exit.thread, label %48, !llvm.loop !36
+  br i1 %.not, label %col_get_writable.exit.thread, label %48, !llvm.loop !35
 
 col_get_writable.exit.thread:                     ; preds = %23, %75, %.preheader, %8, %.preheader.i, %10, %4, %33, %col_get_writable.exit, %38
   ret void
@@ -4752,7 +4752,7 @@ define void @col_fill_in(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroe
   %89 = load i32, ptr %88, align 8
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next, %90
-  br i1 %91, label %16, label %.loopexit, !llvm.loop !37
+  br i1 %91, label %16, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %86, %.preheader, %3
   ret void
@@ -5127,7 +5127,7 @@ define void @col_fill_in_error(ptr noundef readonly captures(address_is_null) %0
   %17 = load i32, ptr %5, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next33, %18
-  br i1 %19, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !38
+  br i1 %19, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !37
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %30
   %20 = phi i32 [ %31, %30 ], [ %6, %.lr.ph ]
@@ -5179,7 +5179,7 @@ define void @col_fill_in_error(ptr noundef readonly captures(address_is_null) %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph.split, label %.loopexit, !llvm.loop !39
+  br i1 %33, label %.lr.ph.split, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %30, %16, %.preheader, %28, %4
   ret void
@@ -5316,7 +5316,7 @@ proto_item_set_hidden.exit36:                     ; preds = %45, %42, %41, %25
   %49 = load i32, ptr %21, align 8
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %25, label %.loopexit, !llvm.loop !40
+  br i1 %51, label %25, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %proto_item_set_hidden.exit36, %proto_item_set_hidden.exit, %6, %3
   ret void
@@ -5996,38 +5996,37 @@ attributes #21 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = !{i8 0, i8 2}
-!13 = distinct !{!13, !7, !8}
-!14 = !{}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8, !34}
-!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8, !34}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = !{i8 0, i8 2}
+!12 = distinct !{!12, !7}
+!13 = !{}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7, !33}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}

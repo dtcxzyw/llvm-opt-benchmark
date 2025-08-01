@@ -175,7 +175,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   %66 = add nuw nsw i32 %.074160, 1
   %.076 = load ptr, ptr %.076161, align 8, !tbaa !31
   %.not96 = icmp eq ptr %.076, null
-  br i1 %.not96, label %.thread127.thread, label %26, !llvm.loop !65
+  br i1 %.not96, label %.thread127.thread, label %26
 
 67:                                               ; preds = %64, %56
   %.280.ph = phi i32 [ 10, %64 ], [ %58, %56 ]
@@ -196,7 +196,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
 .thread127.thread:                                ; preds = %49, %37, %.thread115, %26, %19, %.thread141
   %.078133145 = phi i32 [ %.280.ph, %.thread141 ], [ 0, %19 ], [ 20, %49 ], [ 0, %37 ], [ 0, %.thread115 ], [ %32, %26 ]
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !67
+  %75 = load ptr, ptr %74, align 8, !tbaa !65
   call void %75(ptr noundef nonnull %9, ptr noundef nonnull %17) #15
   br label %76
 
@@ -264,7 +264,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   br label %69
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr %8, align 8, !tbaa !68
+  %10 = load ptr, ptr %8, align 8, !tbaa !66
   %11 = call ptr %10(ptr noundef nonnull %8, ptr noundef nonnull %2) #15
   %.not91 = icmp eq ptr %11, null
   br i1 %.not91, label %.thread121.thread.thread, label %12
@@ -275,7 +275,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.071152 = load ptr, ptr %13, align 8, !tbaa !70
+  %.071152 = load ptr, ptr %13, align 8, !tbaa !68
   %.not92153 = icmp eq ptr %.071152, null
   br i1 %.not92153, label %.thread121.thread, label %.lr.ph
 
@@ -291,9 +291,9 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   %.071155 = phi ptr [ %.071152, %.lr.ph ], [ %.071, %.thread110 ]
   %.069154 = phi i32 [ 0, %.lr.ph ], [ %58, %.thread110 ]
   %20 = getelementptr inbounds nuw i8, ptr %.071155, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !72
+  %21 = load ptr, ptr %20, align 8, !tbaa !70
   %22 = getelementptr inbounds nuw i8, ptr %.071155, i64 24
-  %23 = load i64, ptr %22, align 8, !tbaa !75
+  %23 = load i64, ptr %22, align 8, !tbaa !73
   %24 = call i32 @cli_matchmeta(ptr noundef nonnull %0, ptr noundef %21, i64 noundef 0, i64 noundef %23, i32 noundef 0, i32 noundef %.069154, i32 noundef 0) #15
   %.not93 = icmp eq i32 %24, 0
   br i1 %.not93, label %25, label %.thread121.thread
@@ -345,7 +345,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
 
 44:                                               ; preds = %41
   store i64 %.064, ptr %17, align 8, !tbaa !60
-  %45 = load ptr, ptr %18, align 8, !tbaa !76
+  %45 = load ptr, ptr %18, align 8, !tbaa !74
   %46 = call i32 %45(ptr noundef nonnull %8, ptr noundef nonnull %.071155, ptr noundef nonnull %43) #15
   %.not102 = icmp eq i32 %46, 0
   br i1 %.not102, label %48, label %47
@@ -355,7 +355,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   br label %48
 
 48:                                               ; preds = %47, %44
-  %49 = load ptr, ptr %20, align 8, !tbaa !72
+  %49 = load ptr, ptr %20, align 8, !tbaa !70
   %50 = call i32 @cli_magic_scan_file(ptr noundef nonnull %43, ptr noundef nonnull %0, ptr noundef %49, i32 noundef 0) #15
   switch i32 %50, label %59 [
     i32 8, label %.thread110
@@ -377,7 +377,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
 .thread110:                                       ; preds = %48, %51, %56
   call void @free(ptr noundef nonnull %43) #15
   %58 = add nuw nsw i32 %.069154, 1
-  %.071 = load ptr, ptr %.071155, align 8, !tbaa !70
+  %.071 = load ptr, ptr %.071155, align 8, !tbaa !68
   %.not92 = icmp eq ptr %.071, null
   br i1 %.not92, label %.thread121.thread, label %19
 
@@ -400,7 +400,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
 .thread121.thread:                                ; preds = %41, %29, %.thread110, %19, %12, %.thread135
   %.073127139 = phi i32 [ %.275.ph, %.thread135 ], [ 0, %12 ], [ 20, %41 ], [ 0, %29 ], [ 0, %.thread110 ], [ %24, %19 ]
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !77
+  %67 = load ptr, ptr %66, align 8, !tbaa !75
   call void %67(ptr noundef nonnull %8, ptr noundef nonnull %11) #15
   br label %68
 
@@ -447,16 +447,16 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captu
   ]
 
 8:                                                ; preds = %7
-  store i32 1, ptr %calloc, align 8, !tbaa !78
+  store i32 1, ptr %calloc, align 8, !tbaa !76
   %9 = load ptr, ptr %1, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
-  store ptr %9, ptr %10, align 8, !tbaa !81
+  store ptr %9, ptr %10, align 8, !tbaa !79
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  store i64 %12, ptr %13, align 8, !tbaa !82
+  store i64 %12, ptr %13, align 8, !tbaa !80
   %14 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  store i64 0, ptr %14, align 8, !tbaa !83
+  store i64 0, ptr %14, align 8, !tbaa !81
   br label %27
 
 15:                                               ; preds = %7
@@ -471,10 +471,10 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captu
 
 18:                                               ; preds = %7, %16, %15
   %.024 = phi ptr [ @.str.3, %15 ], [ @.str.4, %16 ], [ @.str.2, %7 ]
-  store i32 2, ptr %calloc, align 8, !tbaa !78
+  store i32 2, ptr %calloc, align 8, !tbaa !76
   %19 = tail call noalias ptr @fopen(ptr noundef nonnull %1, ptr noundef nonnull %.024)
   %20 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
-  store ptr %19, ptr %20, align 8, !tbaa !84
+  store ptr %19, ptr %20, align 8, !tbaa !82
   %.not28 = icmp eq ptr %19, null
   br i1 %.not28, label %21, label %22
 
@@ -486,7 +486,7 @@ define internal noalias noundef ptr @mspack_fmap_open(ptr noundef readonly captu
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %24 = load i64, ptr %23, align 8, !tbaa !60
   %25 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
-  store i64 %24, ptr %25, align 8, !tbaa !85
+  store i64 %24, ptr %25, align 8, !tbaa !83
   br label %27
 
 26:                                               ; preds = %21, %17
@@ -504,13 +504,13 @@ define internal void @mspack_fmap_close(ptr noundef captures(address_is_null) %0
   br i1 %.not, label %11, label %2
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8, !tbaa !78
+  %3 = load i32, ptr %0, align 8, !tbaa !76
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !84
+  %7 = load ptr, ptr %6, align 8, !tbaa !82
   %.not8 = icmp eq ptr %7, null
   br i1 %.not8, label %10, label %8
 
@@ -544,21 +544,21 @@ define internal i32 @mspack_fmap_read(ptr noundef captures(address_is_null) %0, 
   br label %48
 
 8:                                                ; preds = %6
-  %9 = load i32, ptr %0, align 8, !tbaa !78
+  %9 = load i32, ptr %0, align 8, !tbaa !76
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %39
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i64, ptr %12, align 8, !tbaa !83
+  %13 = load i64, ptr %12, align 8, !tbaa !81
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !82
+  %15 = load i64, ptr %14, align 8, !tbaa !80
   %16 = add nsw i64 %15, %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !81
+  %18 = load ptr, ptr %17, align 8, !tbaa !79
   %19 = zext nneg i32 %2 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  %21 = load i64, ptr %20, align 8, !tbaa !86
+  %21 = load i64, ptr %20, align 8, !tbaa !84
   %22 = icmp ne i64 %16, %21
   %23 = icmp ne i32 %2, 0
   %or.cond.i = and i1 %23, %22
@@ -572,7 +572,7 @@ define internal i32 @mspack_fmap_read(ptr noundef captures(address_is_null) %0, 
   %27 = sub nuw i64 %21, %16
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 2147483648) %19, i64 %27)
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  %29 = load ptr, ptr %28, align 8, !tbaa !88
+  %29 = load ptr, ptr %28, align 8, !tbaa !86
   %30 = tail call ptr %29(ptr noundef nonnull %18, i64 noundef %16, i64 noundef range(i64 0, 2147483648) %spec.select.i, i32 noundef 0) #15
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %32, label %31
@@ -596,15 +596,15 @@ fmap_readn.exit:                                  ; preds = %31, %11
   br label %36
 
 36:                                               ; preds = %fmap_readn.exit, %35
-  %37 = load i64, ptr %12, align 8, !tbaa !83
+  %37 = load i64, ptr %12, align 8, !tbaa !81
   %38 = add nsw i64 %37, %.0.i
-  store i64 %38, ptr %12, align 8, !tbaa !83
+  store i64 %38, ptr %12, align 8, !tbaa !81
   br label %48
 
 39:                                               ; preds = %8
   %40 = zext nneg i32 %2 to i64
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !84
+  %42 = load ptr, ptr %41, align 8, !tbaa !82
   %43 = tail call i64 @fread(ptr noundef %1, i64 noundef %40, i64 noundef 1, ptr noundef %42)
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %45, label %46
@@ -634,7 +634,7 @@ define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef ca
   br label %24
 
 7:                                                ; preds = %3
-  %8 = load i32, ptr %0, align 8, !tbaa !78
+  %8 = load i32, ptr %0, align 8, !tbaa !76
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %11
 
@@ -648,7 +648,7 @@ define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef ca
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load i64, ptr %13, align 8, !tbaa !85
+  %14 = load i64, ptr %13, align 8, !tbaa !83
   %.not26 = icmp eq i64 %14, 0
   br i1 %.not26, label %24, label %15
 
@@ -656,9 +656,9 @@ define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef ca
   %16 = zext nneg i32 %2 to i64
   %17 = tail call i64 @llvm.umin.i64(i64 %14, i64 %16)
   %18 = sub i64 %14, %17
-  store i64 %18, ptr %13, align 8, !tbaa !85
+  store i64 %18, ptr %13, align 8, !tbaa !83
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !84
+  %20 = load ptr, ptr %19, align 8, !tbaa !82
   %21 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %17, i64 noundef 1, ptr noundef %20)
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %24
@@ -682,7 +682,7 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef captures(address_is_nu
   br label %37
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr %0, align 8, !tbaa !78
+  %6 = load i32, ptr %0, align 8, !tbaa !76
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %31
 
@@ -695,15 +695,15 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef captures(address_is_nu
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i64, ptr %10, align 8, !tbaa !83
+  %11 = load i64, ptr %10, align 8, !tbaa !81
   %12 = add nsw i64 %11, %1
   br label %20
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !81
+  %15 = load ptr, ptr %14, align 8, !tbaa !79
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  %17 = load i64, ptr %16, align 8, !tbaa !86
+  %17 = load i64, ptr %16, align 8, !tbaa !84
   %18 = add i64 %17, %1
   br label %20
 
@@ -718,9 +718,9 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef captures(address_is_nu
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !81
+  %24 = load ptr, ptr %23, align 8, !tbaa !79
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
-  %26 = load i64, ptr %25, align 8, !tbaa !86
+  %26 = load i64, ptr %25, align 8, !tbaa !84
   %27 = icmp sgt i64 %.0, %26
   br i1 %27, label %28, label %29
 
@@ -730,7 +730,7 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef captures(address_is_nu
 
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.0, ptr %30, align 8, !tbaa !83
+  store i64 %.0, ptr %30, align 8, !tbaa !81
   br label %37
 
 31:                                               ; preds = %5
@@ -743,7 +743,7 @@ define internal noundef i32 @mspack_fmap_seek(ptr noundef captures(address_is_nu
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !84
+  %35 = load ptr, ptr %34, align 8, !tbaa !82
   %36 = tail call i32 @fseek(ptr noundef %35, i64 noundef %1, i32 noundef %2)
   br label %37
 
@@ -758,18 +758,18 @@ define internal i64 @mspack_fmap_tell(ptr noundef readonly captures(address_is_n
   br i1 %.not, label %12, label %2
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8, !tbaa !78
+  %3 = load i32, ptr %0, align 8, !tbaa !76
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !83
+  %7 = load i64, ptr %6, align 8, !tbaa !81
   br label %12
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !84
+  %10 = load ptr, ptr %9, align 8, !tbaa !82
   %11 = tail call i64 @ftell(ptr noundef %10)
   br label %12
 
@@ -782,9 +782,9 @@ define internal i64 @mspack_fmap_tell(ptr noundef readonly captures(address_is_n
 define internal void @mspack_fmap_message(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [8192 x i8], align 16
-  %5 = load i8, ptr @cli_debug_flag, align 1, !tbaa !89
+  %5 = load i8, ptr @cli_debug_flag, align 1, !tbaa !87
   %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %15, label %6, !prof !90
+  br i1 %.not, label %15, label %6, !prof !88
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
@@ -798,11 +798,11 @@ define internal void @mspack_fmap_message(ptr readnone captures(none) %0, ptr no
   call void @llvm.va_end.p0(ptr nonnull %3)
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
   %11 = getelementptr inbounds nuw [8192 x i8], ptr %4, i64 0, i64 %10
-  store i8 10, ptr %11, align 1, !tbaa !89
+  store i8 10, ptr %11, align 1, !tbaa !87
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
   %13 = add i64 %12, 1
   %14 = getelementptr inbounds nuw [8192 x i8], ptr %4, i64 0, i64 %13
-  store i8 0, ptr %14, align 1, !tbaa !89
+  store i8 0, ptr %14, align 1, !tbaa !87
   call void @clrs_eprint(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
@@ -960,29 +960,27 @@ attributes #16 = { nounwind willreturn memory(read) }
 !62 = !{!"mspack_system", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80}
 !63 = !{!29, !6, i64 40}
 !64 = !{!39, !14, i64 40}
-!65 = distinct !{!65, !66}
-!66 = !{!"llvm.loop.estimated_trip_count"}
-!67 = !{!29, !6, i64 8}
-!68 = !{!69, !6, i64 0}
-!69 = !{!"mschm_decompressor", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}
-!70 = !{!71, !71, i64 0}
-!71 = !{!"p1 _ZTS11mschmd_file", !6, i64 0}
-!72 = !{!73, !5, i64 32}
-!73 = !{!"mschmd_file", !71, i64 0, !74, i64 8, !12, i64 16, !12, i64 24, !5, i64 32}
-!74 = !{!"p1 _ZTS14mschmd_section", !6, i64 0}
-!75 = !{!73, !12, i64 24}
-!76 = !{!69, !6, i64 16}
-!77 = !{!69, !6, i64 8}
-!78 = !{!79, !14, i64 0}
-!79 = !{!"mspack_handle", !14, i64 0, !16, i64 8, !12, i64 16, !12, i64 24, !80, i64 32, !12, i64 40}
-!80 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!81 = !{!79, !16, i64 8}
-!82 = !{!79, !12, i64 16}
-!83 = !{!79, !12, i64 24}
-!84 = !{!79, !80, i64 32}
-!85 = !{!79, !12, i64 40}
-!86 = !{!87, !12, i64 88}
-!87 = !{!"cl_fmap", !6, i64 0, !6, i64 8, !6, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !22, i64 56, !22, i64 57, !22, i64 58, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !22, i64 152, !7, i64 153, !22, i64 169, !7, i64 170, !22, i64 190, !7, i64 191, !9, i64 224, !5, i64 232}
-!88 = !{!87, !6, i64 104}
-!89 = !{!7, !7, i64 0}
-!90 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!65 = !{!29, !6, i64 8}
+!66 = !{!67, !6, i64 0}
+!67 = !{!"mschm_decompressor", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 _ZTS11mschmd_file", !6, i64 0}
+!70 = !{!71, !5, i64 32}
+!71 = !{!"mschmd_file", !69, i64 0, !72, i64 8, !12, i64 16, !12, i64 24, !5, i64 32}
+!72 = !{!"p1 _ZTS14mschmd_section", !6, i64 0}
+!73 = !{!71, !12, i64 24}
+!74 = !{!67, !6, i64 16}
+!75 = !{!67, !6, i64 8}
+!76 = !{!77, !14, i64 0}
+!77 = !{!"mspack_handle", !14, i64 0, !16, i64 8, !12, i64 16, !12, i64 24, !78, i64 32, !12, i64 40}
+!78 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!79 = !{!77, !16, i64 8}
+!80 = !{!77, !12, i64 16}
+!81 = !{!77, !12, i64 24}
+!82 = !{!77, !78, i64 32}
+!83 = !{!77, !12, i64 40}
+!84 = !{!85, !12, i64 88}
+!85 = !{!"cl_fmap", !6, i64 0, !6, i64 8, !6, i64 16, !12, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !22, i64 56, !22, i64 57, !22, i64 58, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !22, i64 152, !7, i64 153, !22, i64 169, !7, i64 170, !22, i64 190, !7, i64 191, !9, i64 224, !5, i64 232}
+!86 = !{!85, !6, i64 104}
+!87 = !{!7, !7, i64 0}
+!88 = !{!"branch_weights", !"expected", i32 2000, i32 1}

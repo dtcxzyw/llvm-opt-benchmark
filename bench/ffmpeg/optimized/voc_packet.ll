@@ -236,7 +236,7 @@ define i32 @ff_voc_get_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %119 = load i32, ptr %118, align 4, !tbaa !46
+  %119 = load i32, ptr %118, align 4, !tbaa !45
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %121, label %122
 
@@ -262,7 +262,7 @@ define i32 @ff_voc_get_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %132 = sext i32 %131 to i64
   %133 = mul nsw i64 %129, %132
   %134 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i64 %133, ptr %134, align 8, !tbaa !47
+  store i64 %133, ptr %134, align 8, !tbaa !46
   %135 = icmp slt i32 %.0113.lcssa156160, 1
   %spec.store.select1 = select i1 %135, i32 2048, i32 %.0113.lcssa156160
   %136 = load i64, ptr %6, align 8, !tbaa !34
@@ -276,9 +276,9 @@ define i32 @ff_voc_get_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %142 = tail call i32 @av_get_packet(ptr noundef %10, ptr noundef %1, i32 noundef %139) #3
   %143 = load i64, ptr %12, align 8, !tbaa !32
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %143, ptr %144, align 8, !tbaa !48
+  store i64 %143, ptr %144, align 8, !tbaa !47
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %143, ptr %145, align 8, !tbaa !49
+  store i64 %143, ptr %145, align 8, !tbaa !48
   %146 = load ptr, ptr %7, align 8, !tbaa !24
   %147 = tail call i32 @av_get_audio_frame_duration2(ptr noundef %146, i32 noundef %139) #3
   %148 = icmp sgt i32 %147, 0
@@ -383,10 +383,9 @@ attributes #3 = { nounwind }
 !40 = !{!38, !13, i64 132}
 !41 = !{!38, !13, i64 4}
 !42 = !{!38, !13, i64 56}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!5, !13, i64 180}
-!47 = !{!38, !19, i64 48}
-!48 = !{!28, !19, i64 8}
-!49 = !{!28, !19, i64 16}
+!45 = !{!5, !13, i64 180}
+!46 = !{!38, !19, i64 48}
+!47 = !{!28, !19, i64 8}
+!48 = !{!28, !19, i64 16}

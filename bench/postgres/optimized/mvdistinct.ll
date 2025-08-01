@@ -55,7 +55,7 @@ define dso_local noundef ptr @statext_ndistinct_build(double noundef %0, ptr nou
   br label %18
 
 18:                                               ; preds = %.lr.ph57, %generator_next.exit.thread
-  %.03455 = phi i32 [ 2, %.lr.ph57 ], [ %163, %generator_next.exit.thread ]
+  %.03455 = phi i32 [ 2, %.lr.ph57 ], [ %164, %generator_next.exit.thread ]
   %.03554 = phi i32 [ 0, %.lr.ph57 ], [ %.1.lcssa, %generator_next.exit.thread ]
   %19 = tail call ptr @palloc(i64 noundef 24) #10
   %20 = sub i32 %4, %.03455
@@ -111,8 +111,8 @@ generator_next.exit.lr.ph:                        ; preds = %generator_init.exit
   br label %generator_next.exit
 
 generator_next.exit:                              ; preds = %generator_next.exit.lr.ph, %ndistinct_for_combination.exit
-  %42 = phi i32 [ 0, %generator_next.exit.lr.ph ], [ %159, %ndistinct_for_combination.exit ]
-  %.151 = phi i32 [ %.03554, %generator_next.exit.lr.ph ], [ %158, %ndistinct_for_combination.exit ]
+  %42 = phi i32 [ 0, %generator_next.exit.lr.ph ], [ %160, %ndistinct_for_combination.exit ]
+  %.151 = phi i32 [ %.03554, %generator_next.exit.lr.ph ], [ %159, %ndistinct_for_combination.exit ]
   %43 = load ptr, ptr %33, align 8
   %44 = load i32, ptr %19, align 8
   %45 = add i32 %42, 1
@@ -146,7 +146,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
   store i16 %60, ptr %62, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count107.i
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %63 = load i32, ptr %1, align 8
@@ -218,19 +218,19 @@ generator_next.exit:                              ; preds = %generator_next.exit
   %102 = getelementptr inbounds ptr, ptr %99, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 %indvars.iv109.i
-  %105 = load i8, ptr %104, align 1, !range !8, !noundef !9
+  %105 = load i8, ptr %104, align 1, !range !7, !noundef !8
   %106 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 %indvars.iv114.i
   store i8 %105, ptr %108, align 1
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
   %exitcond113.not.i = icmp eq i64 %indvars.iv.next110.i, %wide.trip.count.i
-  br i1 %exitcond113.not.i, label %._crit_edge.us.i, label %88, !llvm.loop !10
+  br i1 %exitcond113.not.i, label %._crit_edge.us.i, label %88, !llvm.loop !9
 
 ._crit_edge.us.i:                                 ; preds = %88
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
   %exitcond118.not.i = icmp eq i64 %indvars.iv.next115.i, %wide.trip.count107.i
-  br i1 %exitcond118.not.i, label %._crit_edge88.i, label %.lr.ph87.split.us.i, !llvm.loop !11
+  br i1 %exitcond118.not.i, label %._crit_edge88.i, label %.lr.ph87.split.us.i, !llvm.loop !10
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -245,7 +245,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
   store ptr %114, ptr %115, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !12
 
 .lr.ph87.split.i:                                 ; preds = %.preheader.thread.i, %132
   %indvars.iv104.i = phi i64 [ %indvars.iv.next105.i, %132 ], [ 0, %.preheader.thread.i ]
@@ -278,11 +278,10 @@ generator_next.exit:                              ; preds = %generator_next.exit
   tail call void @multi_sort_add_dimension(ptr noundef %64, i32 noundef %133, i32 noundef %128, i32 noundef %125) #10
   %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
   %exitcond108.not.i = icmp eq i64 %indvars.iv.next105.i, %wide.trip.count107.i
-  br i1 %exitcond108.not.i, label %._crit_edge88.i, label %.lr.ph87.split.i, !llvm.loop !14
+  br i1 %exitcond108.not.i, label %._crit_edge88.i, label %.lr.ph87.split.i, !llvm.loop !13
 
 ._crit_edge88.i:                                  ; preds = %132, %._crit_edge.us.i, %.preheader.i
   tail call void @qsort_interruptible(ptr noundef %67, i64 noundef %65, i64 noundef 24, ptr noundef nonnull @multi_sort_compare, ptr noundef %64) #10
-  %invariant.gep.i = getelementptr i8, ptr %67, i64 -24
   %134 = icmp sgt i32 %.fr96.i, 1
   br i1 %134, label %.lr.ph93.preheader.i, label %ndistinct_for_combination.exit
 
@@ -293,64 +292,64 @@ generator_next.exit:                              ; preds = %generator_next.exit
 .lr.ph93.i:                                       ; preds = %.lr.ph93.i, %.lr.ph93.preheader.i
   %indvars.iv119.i = phi i64 [ 1, %.lr.ph93.preheader.i ], [ %indvars.iv.next120.i, %.lr.ph93.i ]
   %.07391.i = phi i32 [ 0, %.lr.ph93.preheader.i ], [ %.174.i, %.lr.ph93.i ]
-  %.07690.i = phi i32 [ 1, %.lr.ph93.preheader.i ], [ %140, %.lr.ph93.i ]
+  %.07690.i = phi i32 [ 1, %.lr.ph93.preheader.i ], [ %141, %.lr.ph93.i ]
   %.07889.i = phi i32 [ 1, %.lr.ph93.preheader.i ], [ %.179.i, %.lr.ph93.i ]
-  %135 = getelementptr inbounds nuw %struct.SortItem, ptr %67, i64 %indvars.iv119.i
-  %gep.i = getelementptr %struct.SortItem, ptr %invariant.gep.i, i64 %indvars.iv119.i
-  %136 = tail call i32 @multi_sort_compare(ptr noundef nonnull %135, ptr noundef %gep.i, ptr noundef %64) #10
-  %.not.i = icmp ne i32 %136, 0
-  %137 = icmp eq i32 %.07690.i, 1
-  %138 = zext i1 %.not.i to i32
-  %.179.i = add i32 %.07889.i, %138
-  %narrow.i = select i1 %.not.i, i1 %137, i1 false
+  %135 = getelementptr %struct.SortItem, ptr %67, i64 %indvars.iv119.i
+  %136 = getelementptr i8, ptr %135, i64 -24
+  %137 = tail call i32 @multi_sort_compare(ptr noundef nonnull %135, ptr noundef %136, ptr noundef %64) #10
+  %.not.i = icmp ne i32 %137, 0
+  %138 = icmp eq i32 %.07690.i, 1
+  %139 = zext i1 %.not.i to i32
+  %.179.i = add i32 %.07889.i, %139
+  %narrow.i = select i1 %.not.i, i1 %138, i1 false
   %spec.select.i = zext i1 %narrow.i to i32
   %.174.i = add i32 %.07391.i, %spec.select.i
-  %139 = add i32 %.07690.i, 1
-  %140 = select i1 %.not.i, i32 1, i32 %139
+  %140 = add i32 %.07690.i, 1
+  %141 = select i1 %.not.i, i32 1, i32 %140
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
   %exitcond123.not.i = icmp eq i64 %indvars.iv.next120.i, %wide.trip.count122.i
-  br i1 %exitcond123.not.i, label %._crit_edge.loopexit.i, label %.lr.ph93.i, !llvm.loop !15
+  br i1 %exitcond123.not.i, label %._crit_edge.loopexit.i, label %.lr.ph93.i, !llvm.loop !14
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph93.i
-  %141 = icmp eq i32 %140, 1
-  %142 = zext i1 %141 to i32
-  %143 = add i32 %.174.i, %142
-  %144 = sitofp i32 %.179.i to double
+  %142 = icmp eq i32 %141, 1
+  %143 = zext i1 %142 to i32
+  %144 = add i32 %.174.i, %143
+  %145 = sitofp i32 %.179.i to double
   br label %ndistinct_for_combination.exit
 
 ndistinct_for_combination.exit:                   ; preds = %._crit_edge88.thread.i, %._crit_edge88.i, %._crit_edge.loopexit.i
-  %.078.lcssa.i = phi double [ 1.000000e+00, %._crit_edge88.i ], [ %144, %._crit_edge.loopexit.i ], [ 1.000000e+00, %._crit_edge88.thread.i ]
-  %spec.select82.i = phi i32 [ 1, %._crit_edge88.i ], [ %143, %._crit_edge.loopexit.i ], [ 1, %._crit_edge88.thread.i ]
-  %145 = sitofp i32 %.fr96.i to double
-  %146 = fmul double %.078.lcssa.i, %145
-  %147 = sub i32 %.fr96.i, %spec.select82.i
-  %148 = sitofp i32 %147 to double
-  %149 = sitofp i32 %spec.select82.i to double
-  %150 = fmul double %145, %149
-  %151 = fdiv double %150, %0
-  %152 = fadd double %151, %148
-  %153 = fdiv double %146, %152
-  %154 = fcmp olt double %153, %.078.lcssa.i
-  %.0.i.i = select i1 %154, double %.078.lcssa.i, double %153
-  %155 = fcmp ogt double %.0.i.i, %0
-  %.1.i.i = select i1 %155, double %0, double %.0.i.i
-  %156 = fadd double %.1.i.i, 5.000000e-01
-  %157 = tail call double @llvm.floor.f64(double %156)
-  store double %157, ptr %51, align 8
-  %158 = add i32 %.151, 1
-  %159 = load i32, ptr %34, align 8
-  %160 = load i32, ptr %27, align 4
-  %161 = icmp eq i32 %159, %160
-  br i1 %161, label %generator_next.exit.thread, label %generator_next.exit, !llvm.loop !16
+  %.078.lcssa.i = phi double [ 1.000000e+00, %._crit_edge88.i ], [ %145, %._crit_edge.loopexit.i ], [ 1.000000e+00, %._crit_edge88.thread.i ]
+  %spec.select82.i = phi i32 [ 1, %._crit_edge88.i ], [ %144, %._crit_edge.loopexit.i ], [ 1, %._crit_edge88.thread.i ]
+  %146 = sitofp i32 %.fr96.i to double
+  %147 = fmul double %.078.lcssa.i, %146
+  %148 = sub i32 %.fr96.i, %spec.select82.i
+  %149 = sitofp i32 %148 to double
+  %150 = sitofp i32 %spec.select82.i to double
+  %151 = fmul double %146, %150
+  %152 = fdiv double %151, %0
+  %153 = fadd double %152, %149
+  %154 = fdiv double %147, %153
+  %155 = fcmp olt double %154, %.078.lcssa.i
+  %.0.i.i = select i1 %155, double %.078.lcssa.i, double %154
+  %156 = fcmp ogt double %.0.i.i, %0
+  %.1.i.i = select i1 %156, double %0, double %.0.i.i
+  %157 = fadd double %.1.i.i, 5.000000e-01
+  %158 = tail call double @llvm.floor.f64(double %157)
+  store double %158, ptr %51, align 8
+  %159 = add i32 %.151, 1
+  %160 = load i32, ptr %34, align 8
+  %161 = load i32, ptr %27, align 4
+  %162 = icmp eq i32 %160, %161
+  br i1 %162, label %generator_next.exit.thread, label %generator_next.exit, !llvm.loop !15
 
 generator_next.exit.thread:                       ; preds = %generator_next.exit, %ndistinct_for_combination.exit, %generator_init.exit
-  %.1.lcssa = phi i32 [ %.03554, %generator_init.exit ], [ %158, %ndistinct_for_combination.exit ], [ %.151, %generator_next.exit ]
-  %162 = load ptr, ptr %33, align 8
-  tail call void @pfree(ptr noundef %162) #10
+  %.1.lcssa = phi i32 [ %.03554, %generator_init.exit ], [ %159, %ndistinct_for_combination.exit ], [ %.151, %generator_next.exit ]
+  %163 = load ptr, ptr %33, align 8
+  tail call void @pfree(ptr noundef %163) #10
   tail call void @pfree(ptr noundef nonnull %19) #10
-  %163 = add i32 %.03455, 1
-  %.not = icmp sgt i32 %163, %4
-  br i1 %.not, label %._crit_edge58, label %18, !llvm.loop !17
+  %164 = add i32 %.03455, 1
+  %.not = icmp sgt i32 %164, %4
+  br i1 %.not, label %._crit_edge58, label %18, !llvm.loop !16
 
 ._crit_edge58:                                    ; preds = %generator_next.exit.thread, %2
   ret ptr %10
@@ -383,7 +382,7 @@ define dso_local noundef ptr @statext_ndistinct_load(i32 noundef %0, i1 noundef 
 
 10:                                               ; preds = %2
   %11 = call i64 @SysCacheGetAttr(i32 noundef 62, ptr noundef nonnull %6, i16 noundef signext 3, ptr noundef nonnull %3) #10
-  %12 = load i8, ptr %3, align 1, !range !8, !noundef !9
+  %12 = load i8, ptr %3, align 1, !range !7, !noundef !8
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %17
 
@@ -666,7 +665,7 @@ define dso_local noundef ptr @statext_ndistinct_deserialize(ptr noundef readonly
   %150 = add nuw i32 %.07093, 1
   %151 = load i32, ptr %129, align 8
   %152 = icmp ult i32 %150, %151
-  br i1 %152, label %131, label %.loopexit, !llvm.loop !18
+  br i1 %152, label %131, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %131, %1
   %.0 = phi ptr [ null, %1 ], [ %127, %131 ]
@@ -701,7 +700,7 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr noundef readonly c
   %12 = add i64 %11, %10
   %13 = add nuw i32 %.038, 1
   %exitcond.not = icmp eq i32 %13, %3
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %5, %1
   %.036.lcssa = phi i64 [ 16, %1 ], [ %12, %5 ]
@@ -749,7 +748,7 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr noundef readonly c
   %35 = add nuw i32 %.140, 1
   %36 = load i32, ptr %2, align 8
   %37 = icmp ult i32 %35, %36
-  br i1 %37, label %27, label %._crit_edge43, !llvm.loop !20
+  br i1 %37, label %27, label %._crit_edge43, !llvm.loop !19
 
 ._crit_edge43:                                    ; preds = %27, %._crit_edge
   ret ptr %14
@@ -828,7 +827,7 @@ define dso_local i64 @pg_ndistinct_out(ptr noundef readonly captures(none) %0) l
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %21, i32 noundef %22) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %23 = fptosi double %.sroa.0.0.copyload to i32
@@ -836,7 +835,7 @@ define dso_local i64 @pg_ndistinct_out(ptr noundef readonly captures(none) %0) l
   %24 = add nuw i32 %.015, 1
   %25 = load i32, ptr %8, align 8
   %26 = icmp ult i32 %24, %25
-  br i1 %26, label %11, label %._crit_edge18, !llvm.loop !22
+  br i1 %26, label %11, label %._crit_edge18, !llvm.loop !21
 
 ._crit_edge18:                                    ; preds = %._crit_edge, %1
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 125) #10
@@ -910,7 +909,7 @@ define internal fastcc void @generate_combinations_recurse(ptr noundef captures(
   tail call fastcc void @generate_combinations_recurse(ptr noundef nonnull %0, i32 noundef %12, i32 noundef %14, ptr noundef %3)
   %15 = load i32, ptr %7, align 4
   %16 = icmp slt i32 %14, %15
-  br i1 %16, label %13, label %.loopexit, !llvm.loop !23
+  br i1 %16, label %13, label %.loopexit, !llvm.loop !22
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -962,23 +961,22 @@ attributes #11 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}

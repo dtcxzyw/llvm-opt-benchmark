@@ -238,7 +238,7 @@ define hidden void @_ZN28ShenandoahHeapRegionCounters6updateEv(ptr noundef nonnu
   br i1 %12, label %13, label %103
 
 13:                                               ; preds = %4
-  %14 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, i64 %8, ptr nonnull %7) #8, !srcloc !9
+  %14 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, i64 %8, ptr nonnull %7) #8, !srcloc !8
   %15 = icmp eq i64 %14, %8
   br i1 %15, label %16, label %103
 
@@ -246,16 +246,16 @@ define hidden void @_ZN28ShenandoahHeapRegionCounters6updateEv(ptr noundef nonnu
   %17 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 769
   %19 = load volatile i8, ptr %18, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   %20 = lshr i8 %19, 1
   %.lobit = and i8 %20, 1
   %21 = load volatile i8, ptr %18, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   %22 = lshr i8 %21, 1
   %23 = and i8 %22, 2
   %.140 = or disjoint i8 %23, %.lobit
   %24 = load volatile i8, ptr %18, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   %25 = lshr i8 %24, 1
   %26 = and i8 %25, 4
   %.241 = or disjoint i8 %.140, %26
@@ -274,7 +274,7 @@ define hidden void @_ZN28ShenandoahHeapRegionCounters6updateEv(ptr noundef nonnu
   %36 = getelementptr inbounds nuw i8, ptr %17, i64 544
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %17, i64 176
-  %39 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %38) #8, !srcloc !11
+  %39 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %38) #8, !srcloc !10
   %.not.i.i = icmp eq i32 %39, 0
   br i1 %.not.i.i, label %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit, label %40
 
@@ -368,11 +368,11 @@ switch.lookup:                                    ; preds = %_ZNK14ShenandoahHea
   %100 = add i32 %.03842, 1
   %101 = zext i32 %100 to i64
   %102 = icmp ugt i64 %37, %101
-  br i1 %102, label %45, label %_ZN16ShenandoahLockerD2Ev.exit, !llvm.loop !12
+  br i1 %102, label %45, label %_ZN16ShenandoahLockerD2Ev.exit, !llvm.loop !11
 
 _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %switch.lookup, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !13
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   store volatile i32 0, ptr %38, align 4
   br label %103
 
@@ -514,11 +514,10 @@ attributes #10 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2145412694}
-!10 = !{i64 2145392468}
-!11 = !{i64 2145411161}
-!12 = distinct !{!12, !7, !8}
-!13 = !{i64 2145392998}
+!8 = !{i64 2145412694}
+!9 = !{i64 2145392468}
+!10 = !{i64 2145411161}
+!11 = distinct !{!11, !7}
+!12 = !{i64 2145392998}

@@ -1720,7 +1720,7 @@ dissect_mgcp_firstline.exit.i:                    ; preds = %165, %477
 
 493:                                              ; preds = %491
   %494 = call zeroext i1 @tvb_offset_exists(ptr noundef %110, i32 noundef %492)
-  br i1 %494, label %486, label %.critedge.i43.i, !llvm.loop !9
+  br i1 %494, label %486, label %.critedge.i43.i, !llvm.loop !8
 
 .critedge.i43.i:                                  ; preds = %493, %491, %486, %486
   %495 = load i32, ptr %6, align 4
@@ -1750,7 +1750,7 @@ tvb_find_null_line.exit.i:                        ; preds = %498, %496
 503:                                              ; preds = %501, %tvb_find_null_line.exit.i, %479
   %504 = load i32, ptr %14, align 4
   call void @proto_item_set_len(ptr noundef %78, i32 noundef %504)
-  %505 = load i8, ptr @global_mgcp_raw_text, align 1, !range !10, !noundef !11
+  %505 = load i8, ptr @global_mgcp_raw_text, align 1, !range !9, !noundef !10
   %506 = trunc nuw i8 %505 to i1
   br i1 %506, label %507, label %515
 
@@ -1766,7 +1766,7 @@ tvb_find_null_line.exit.i:                        ; preds = %498, %496
   %512 = call ptr @proto_tree_add_format_text(ptr noundef %80, ptr noundef %110, i32 noundef %.0.i46.i, i32 noundef %511)
   %513 = load i32, ptr %5, align 4
   %514 = call zeroext i1 @tvb_offset_exists(ptr noundef %110, i32 noundef %513)
-  br i1 %514, label %508, label %mgcp_raw_text_add.exit.i, !llvm.loop !12
+  br i1 %514, label %508, label %mgcp_raw_text_add.exit.i, !llvm.loop !11
 
 mgcp_raw_text_add.exit.i:                         ; preds = %508
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
@@ -1779,7 +1779,7 @@ mgcp_raw_text_add.exit.i:                         ; preds = %508
 
 518:                                              ; preds = %515
   %519 = getelementptr inbounds nuw i8, ptr %112, i64 73
-  %520 = load i8, ptr %519, align 1, !range !10, !noundef !11
+  %520 = load i8, ptr %519, align 1, !range !9, !noundef !10
   store i8 %520, ptr %74, align 1
   %521 = call ptr @tvb_new_subset_remaining(ptr noundef %110, i32 noundef %516)
   %522 = load ptr, ptr @sdp_handle, align 8
@@ -1793,7 +1793,7 @@ dissect_mgcp_message.exit:                        ; preds = %is_mgcp_rspcode.exi
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #12
   %524 = load i32, ptr %19, align 4
   %525 = icmp slt i32 %524, %21
-  br i1 %525, label %75, label %526, !llvm.loop !13
+  br i1 %525, label %75, label %526, !llvm.loop !12
 
 526:                                              ; preds = %tvb_find_dot_line.exit, %dissect_mgcp_message.exit
   %527 = load i32, ptr @hf_mgcp_messagecount, align 4
@@ -1815,7 +1815,7 @@ dissect_mgcp_message.exit:                        ; preds = %is_mgcp_rspcode.exi
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %526, %529, %532
-  %536 = load i8, ptr @global_mgcp_message_count, align 1, !range !10, !noundef !11
+  %536 = load i8, ptr @global_mgcp_message_count, align 1, !range !9, !noundef !10
   %537 = trunc nuw i8 %536 to i1
   br i1 %537, label %.sink.split, label %540
 
@@ -1925,7 +1925,7 @@ define internal range(i32 0, 2) i32 @mgcpstat_packet(ptr noundef readonly captur
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %10 = load i8, ptr %9, align 8, !range !10, !noundef !11
+  %10 = load i8, ptr %9, align 8, !range !9, !noundef !10
   %11 = trunc nuw i8 %10 to i1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -1947,7 +1947,7 @@ define internal range(i32 0, 2) i32 @mgcpstat_packet(ptr noundef readonly captur
 
 22:                                               ; preds = %5
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %24 = load i8, ptr %23, align 8, !range !10, !noundef !11
+  %24 = load i8, ptr %23, align 8, !range !9, !noundef !10
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %32
 
@@ -1962,7 +1962,7 @@ define internal range(i32 0, 2) i32 @mgcpstat_packet(ptr noundef readonly captur
 
 32:                                               ; preds = %22
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  %34 = load i8, ptr %33, align 1, !range !10, !noundef !11
+  %34 = load i8, ptr %33, align 1, !range !9, !noundef !10
   %35 = trunc nuw i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
@@ -2498,7 +2498,7 @@ define internal fastcc void @dissect_mgcp_params(ptr noundef %0, ptr noundef %1,
 75:                                               ; preds = %68
   %76 = add nuw nsw i32 %.0222272.i, 1
   %exitcond.not.i = icmp eq i32 %76, %67
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %68, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %68, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %75, %68
   %.0222.lcssa.ph.i = phi i32 [ %67, %75 ], [ %.0222272.i, %68 ]
@@ -2943,7 +2943,7 @@ tvb_parse_param.exit:                             ; preds = %153, %151, %147, %1
   %301 = getelementptr ptr, ptr %203, i64 %300
   %302 = load ptr, ptr %301, align 8
   %.not.i60 = icmp eq ptr %302, null
-  br i1 %.not.i60, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i59, !llvm.loop !15
+  br i1 %.not.i60, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i59, !llvm.loop !14
 
 303:                                              ; preds = %189
   %304 = load i32, ptr @hf_mgcp_param_localconnoptions, align 4
@@ -3220,7 +3220,7 @@ select.unfold.i:                                  ; preds = %447, %442, %437, %4
   %471 = getelementptr ptr, ptr %315, i64 %470
   %472 = load ptr, ptr %471, align 8
   %.not.i74 = icmp eq ptr %472, null
-  br i1 %.not.i74, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i62, !llvm.loop !16
+  br i1 %.not.i74, label %dissect_mgcp_connectionparams.exit, label %.lr.ph.i62, !llvm.loop !15
 
 473:                                              ; preds = %303
   %474 = load i32, ptr @hf_mgcp_param_localvoicemetrics, align 4
@@ -3585,7 +3585,7 @@ select.unfold.i:                                  ; preds = %447, %442, %437, %4
   %684 = getelementptr ptr, ptr %489, i64 %683
   %685 = load ptr, ptr %684, align 8
   %.not73.i101 = icmp eq ptr %685, null
-  br i1 %.not73.i101, label %dissect_mgcp_connectionparams.exit, label %491, !llvm.loop !17
+  br i1 %.not73.i101, label %dissect_mgcp_connectionparams.exit, label %491, !llvm.loop !16
 
 686:                                              ; preds = %473
   %687 = load i32, ptr @hf_mgcp_param_remotevoicemetrics, align 4
@@ -3950,7 +3950,7 @@ select.unfold.i:                                  ; preds = %447, %442, %437, %4
   %897 = getelementptr ptr, ptr %702, i64 %896
   %898 = load ptr, ptr %897, align 8
   %.not73.i137 = icmp eq ptr %898, null
-  br i1 %.not73.i137, label %dissect_mgcp_connectionparams.exit, label %704, !llvm.loop !18
+  br i1 %.not73.i137, label %dissect_mgcp_connectionparams.exit, label %704, !llvm.loop !17
 
 899:                                              ; preds = %686
   %900 = load i32, ptr @hf_mgcp_param_x_osmux, align 4
@@ -3967,7 +3967,7 @@ select.unfold.i:                                  ; preds = %447, %442, %437, %4
 dissect_mgcp_connectionparams.exit:               ; preds = %892, %679, %468, %296, %899, %696, %483, %306, %194, %905, %tvb_parse_param.exit
   %906 = load i32, ptr %4, align 4
   %.not58 = icmp slt i32 %19, %906
-  br i1 %.not58, label %15, label %907, !llvm.loop !19
+  br i1 %.not58, label %15, label %907, !llvm.loop !18
 
 907:                                              ; preds = %dissect_mgcp_connectionparams.exit, %15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
@@ -4122,17 +4122,16 @@ attributes #15 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

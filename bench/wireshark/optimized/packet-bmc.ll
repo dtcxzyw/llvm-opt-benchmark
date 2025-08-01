@@ -199,7 +199,7 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.1.lcssa.i = phi i32 [ %.07.i, %.preheader.i ], [ %.2.i, %58 ]
   %60 = add nuw nsw i32 %.0875.i, 1
   %exitcond.not.i = icmp eq i32 %60, %41
-  br i1 %exitcond.not.i, label %._crit_edge8.i, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge8.i, label %.preheader.i, !llvm.loop !8
 
 ._crit_edge8.i:                                   ; preds = %._crit_edge.i, %32
   %.0.lcssa.i = phi i32 [ %43, %32 ], [ %.1.lcssa.i, %._crit_edge.i ]
@@ -238,7 +238,7 @@ define internal i32 @dissect_bmc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %80 = add i32 %.411.i, 3
   %81 = add nuw i8 %.08610.i, 1
   %exitcond18.not.i = icmp eq i8 %81, %71
-  br i1 %exitcond18.not.i, label %dissect_bmc_schedule_message.exit, label %.lr.ph13.i, !llvm.loop !10
+  br i1 %exitcond18.not.i, label %dissect_bmc_schedule_message.exit, label %.lr.ph13.i, !llvm.loop !9
 
 dissect_bmc_schedule_message.exit:                ; preds = %.lr.ph13.i, %._crit_edge8.i, %64, %70
   %.3.i = phi i32 [ %68, %64 ], [ %.0.lcssa.i, %._crit_edge8.i ], [ %74, %70 ], [ %80, %.lr.ph13.i ]
@@ -350,8 +350,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

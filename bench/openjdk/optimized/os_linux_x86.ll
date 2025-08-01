@@ -1427,7 +1427,7 @@ define hidden void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef
 
 40:                                               ; preds = %.sink.split, %23
   %exitcond.not = icmp eq i32 %24, 16
-  br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %23, !llvm.loop !15
 
 .loopexit:                                        ; preds = %40, %.thread, %3
   ret void
@@ -1571,7 +1571,6 @@ attributes #13 = { nounwind willreturn memory(read) }
 !10 = !{!11}
 !11 = distinct !{!11, !12, !"_ZN2os22get_sender_for_C_frameEP5frame: argument 0"}
 !12 = distinct !{!12, !"_ZN2os22get_sender_for_C_frameEP5frame"}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !14, !15}
+!15 = distinct !{!15, !14}

@@ -2961,7 +2961,7 @@ default.unreachable:                              ; preds = %48
 proto_item_set_generated.exit:                    ; preds = %123, %120, %114, %105, %102, %96, %127, %129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %131, label %48, !llvm.loop !11
+  br i1 %exitcond.not, label %131, label %48, !llvm.loop !10
 
 131:                                              ; preds = %proto_item_set_generated.exit
   switch i8 %23, label %164 [
@@ -3054,7 +3054,7 @@ define internal fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %1
 18:                                               ; preds = %.preheader
   %19 = add nuw i32 %.030, 1
   %exitcond.not = icmp eq i32 %.030, %6
-  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !11
 
 20:                                               ; preds = %.preheader
   %21 = add i32 %7, %13
@@ -3200,7 +3200,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_qnet6_kif_cred(ptr noundef 
   store i32 %81, ptr %2, align 4
   %82 = add nuw i32 %.13, 4
   %83 = icmp samesign ugt i32 %.11152, 4
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %72, %73
   %.01177 = phi ptr [ %75, %73 ], [ null, %72 ], [ %75, %.lr.ph ]
@@ -4709,7 +4709,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit375:      ; preds = %800, %821, %825
   %.1.i = phi i32 [ %959, %949 ], [ %.0.i343483, %947 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %961, label %932, !llvm.loop !14
+  br i1 %exitcond.not, label %961, label %932, !llvm.loop !13
 
 961:                                              ; preds = %960
   %962 = load i32, ptr @hf_qnet6_kif_msg_io_notify_fds, align 4
@@ -4720,7 +4720,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit375:      ; preds = %800, %821, %825
   store i32 %966, ptr %3, align 4
   %967 = add nuw i32 %.0146.i484, 1
   %exitcond492.not = icmp eq i32 %967, %883
-  br i1 %exitcond492.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond492.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %961, %919
   %968 = sub i32 %917, %918
@@ -4994,11 +4994,10 @@ attributes #6 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}

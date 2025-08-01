@@ -225,7 +225,7 @@ define dso_local i32 @pmi2_setup_stepd(ptr noundef readonly captures(none) %0, p
   %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @job_info, i64 40), align 8
   %73 = zext i32 %72 to i64
   %74 = icmp samesign ult i64 %indvars.iv.next82.i, %73
-  br i1 %74, label %64, label %.loopexit.i, !llvm.loop !12
+  br i1 %74, label %64, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %38, %64, %51, %21
   %75 = load ptr, ptr %1, align 8
@@ -547,7 +547,7 @@ define dso_local i32 @pmi2_setup_stepd(ptr noundef readonly captures(none) %0, p
   %245 = load i32, ptr %235, align 4
   %246 = zext i32 %245 to i64
   %247 = icmp samesign ult i64 %indvars.iv.next.i30, %246
-  br i1 %247, label %.lr.ph.i28, label %.loopexit43, !llvm.loop !13
+  br i1 %247, label %.lr.ph.i28, label %.loopexit43, !llvm.loop !12
 
 _setup_stepd_sockets.exit.thread:                 ; preds = %188, %204, %217, %224, %231
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
@@ -591,7 +591,7 @@ _setup_stepd_sockets.exit.thread:                 ; preds = %188, %204, %217, %2
   %264 = call i32 @kvs_put(ptr noundef %260, ptr noundef %263) #13
   %265 = add nuw nsw i32 %.01925.i, 1
   %exitcond.not.i = icmp eq i32 %265, %256
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i34, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i34, !llvm.loop !13
 
 _setup_stepd_kvs.exit.thread:                     ; preds = %.loopexit43, %249
   %.0.i33.ph = phi i32 [ %250, %249 ], [ %248, %.loopexit43 ]
@@ -787,7 +787,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   %75 = trunc nsw i64 %indvars.iv.next90.i.i to i32
   %76 = icmp ugt i32 %47, %75
   %indvars.iv.next96.i.i = add i32 %indvars.iv95.i.i, -1
-  br i1 %76, label %64, label %.critedge.thread.us.i.i, !llvm.loop !15
+  br i1 %76, label %64, label %.critedge.thread.us.i.i, !llvm.loop !14
 
 .lr.ph52.us.i.i:                                  ; preds = %.critedge.preheader.us.i.i, %.critedge.us.i.i
   %indvars.iv93.i.i = phi i64 [ %indvars.iv.next94.i.i, %.critedge.us.i.i ], [ %indvars.iv89.i.i, %.critedge.preheader.us.i.i ]
@@ -824,7 +824,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
 .preheader.us.i.i.backedge:                       ; preds = %.critedge4.us.i.i, %.critedge.thread.us.i.i
   %.013161.us.i.i.be = phi i32 [ %.0.lcssa.us.i.i, %.critedge4.us.i.i ], [ 0, %.critedge.thread.us.i.i ]
   %.113660.us.i.i.be = phi i32 [ %.2137.lcssa.us.i.i, %.critedge4.us.i.i ], [ %.11369.us.i.i, %.critedge.thread.us.i.i ]
-  br label %.preheader.us.i.i, !llvm.loop !16
+  br label %.preheader.us.i.i, !llvm.loop !15
 
 .critedge.us.i.i:                                 ; preds = %83
   %93 = add nuw i16 %79, 1
@@ -833,7 +833,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   %indvars.iv.next94.i.i = add nuw nsw i64 %indvars.iv93.i.i, 1
   %95 = trunc nsw i64 %indvars.iv.next94.i.i to i32
   %96 = icmp ugt i32 %47, %95
-  br i1 %96, label %.lr.ph52.us.i.i, label %.critedge4.us.thread.i.i, !llvm.loop !18
+  br i1 %96, label %.lr.ph52.us.i.i, label %.critedge4.us.thread.i.i, !llvm.loop !17
 
 .critedge4.us.thread.i.i:                         ; preds = %.critedge.us.i.i
   %97 = sub nsw i32 %47, %98
@@ -909,7 +909,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
 
 .critedge9.us.i.i:                                ; preds = %118, %113
   %124 = icmp ugt i32 %47, %indvars.i
-  br i1 %124, label %113, label %.critedge7.thread.us.i.i, !llvm.loop !19
+  br i1 %124, label %113, label %.critedge7.thread.us.i.i, !llvm.loop !18
 
 .lr.ph21.us.i.i:                                  ; preds = %.critedge7.preheader.us.i.i, %.critedge7.us.i.i
   %125 = phi i16 [ %161, %.critedge7.us.i.i ], [ %171, %.critedge7.preheader.us.i.i ]
@@ -973,7 +973,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
 .preheader4.us.i.i.backedge:                      ; preds = %.critedge13.us.i.i, %.critedge7.thread.us.i.i
   %.245.us.i.i.be = phi i32 [ %.1.lcssa.us.i.i, %.critedge13.us.i.i ], [ 0, %.critedge7.thread.us.i.i ]
   %.413944.us.i.i.be = phi i32 [ %.6.lcssa.us.i.i, %.critedge13.us.i.i ], [ %.413912.us.i.i, %.critedge7.thread.us.i.i ]
-  br label %.preheader4.us.i.i, !llvm.loop !20
+  br label %.preheader4.us.i.i, !llvm.loop !19
 
 149:                                              ; preds = %._crit_edge28.us.i.i
   %150 = add i16 %136, %180
@@ -982,7 +982,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   %indvars.iv.next87.i.i = add nuw nsw i64 %indvars.iv86.i.i, 1
   %152 = trunc nsw i64 %indvars.iv.next87.i.i to i32
   %153 = icmp ugt i32 %47, %152
-  br i1 %153, label %133, label %.critedge13.us.thread.i.i, !llvm.loop !21
+  br i1 %153, label %133, label %.critedge13.us.thread.i.i, !llvm.loop !20
 
 .critedge13.us.thread.i.i:                        ; preds = %149
   %154 = sub nsw i32 %47, %166
@@ -992,7 +992,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
 155:                                              ; preds = %143
   %indvars.iv.next79.i.i = add nuw nsw i64 %indvars.iv78.i.i, 1
   %exitcond82.not.i.i = icmp eq i64 %indvars.iv.next79.i.i, %wide.trip.count81.i.i
-  br i1 %exitcond82.not.i.i, label %._crit_edge28.us.i.i, label %143, !llvm.loop !22
+  br i1 %exitcond82.not.i.i, label %._crit_edge28.us.i.i, label %143, !llvm.loop !21
 
 .critedge7.us.i.i:                                ; preds = %.lr.ph21.us.i.i
   %156 = add i32 %.014119.us.i.i, 1
@@ -1004,7 +1004,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   %161 = load i16, ptr %160, align 2
   %162 = load i16, ptr %169, align 2
   %163 = icmp ult i16 %161, %162
-  br i1 %163, label %.lr.ph21.us.i.i, label %.critedge11.us.i.i, !llvm.loop !23
+  br i1 %163, label %.lr.ph21.us.i.i, label %.critedge11.us.i.i, !llvm.loop !22
 
 .preheader3.us.i.i:                               ; preds = %133
   %164 = sub nsw i32 %141, %137
@@ -1086,7 +1086,7 @@ define dso_local i32 @pmi2_setup_srun(ptr noundef readonly captures(none) %0, pt
   %.5.i.i = phi i32 [ %.415.i.i, %.lr.ph.i.i ], [ %191, %190 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %195, %182
   %.0142.lcssa.i.i = phi i32 [ %184, %182 ], [ %.1143.i.i, %195 ]
@@ -1397,7 +1397,7 @@ _get_proc_mapping.exit.i:                         ; preds = %200, %197
 328:                                              ; preds = %325, %.lr.ph
   %329 = load i32, ptr @pmi2_setup_srun.global_rc, align 4
   %330 = icmp eq i32 %329, 65534
-  br i1 %330, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %330, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %328, %.preheader
   %.lcssa96 = phi i32 [ %320, %.preheader ], [ %329, %328 ]
@@ -1475,7 +1475,7 @@ define internal noalias noundef ptr @_task_launch_detection(ptr readnone capture
 7:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_tasks_launched.exit.thread, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %_tasks_launched.exit.thread, label %.lr.ph.i, !llvm.loop !25
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %7 ]
@@ -1489,7 +1489,7 @@ _tasks_launched.exit:                             ; preds = %.lr.ph.i
   %12 = tail call i64 @time(ptr noundef null) #13
   %13 = sub nsw i64 %12, %2
   %14 = icmp sgt i64 %13, 600
-  br i1 %14, label %_tasks_launched.exit.thread, label %3, !llvm.loop !27
+  br i1 %14, label %_tasks_launched.exit.thread, label %3, !llvm.loop !26
 
 _tasks_launched.exit.thread:                      ; preds = %.preheader.i, %3, %_tasks_launched.exit, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %.preheader.i ], [ 0, %3 ], [ 1, %_tasks_launched.exit ]
@@ -1661,23 +1661,22 @@ attributes #16 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = distinct !{!20, !9, !10, !11, !17}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !9, !10, !11}
-!27 = distinct !{!27, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10, !16}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}

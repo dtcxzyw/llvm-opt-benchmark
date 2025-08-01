@@ -31,7 +31,7 @@ define void @ff_init_half2float_tables(ptr noundef captures(none) initializes((0
   store i32 %9, ptr %10, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %.preheader47, label %2, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader47, label %2, !llvm.loop !10
 
 .preheader47:                                     ; preds = %._crit_edge.loopexit.i, %.preheader47
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.preheader47 ], [ 1024, %._crit_edge.loopexit.i ]
@@ -42,7 +42,7 @@ define void @ff_init_half2float_tables(ptr noundef captures(none) initializes((0
   store i32 %13, ptr %11, align 4, !tbaa !4
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, 2048
-  br i1 %exitcond59.not, label %.preheader46, label %.preheader47, !llvm.loop !12
+  br i1 %exitcond59.not, label %.preheader46, label %.preheader47, !llvm.loop !11
 
 14:                                               ; preds = %.preheader46
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4096
@@ -63,7 +63,7 @@ define void @ff_init_half2float_tables(ptr noundef captures(none) initializes((0
   store i32 %22, ptr %23, align 4, !tbaa !4
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 3072
-  br i1 %exitcond63.not, label %14, label %.preheader46, !llvm.loop !13
+  br i1 %exitcond63.not, label %14, label %.preheader46, !llvm.loop !12
 
 24:                                               ; preds = %14, %24
   %indvars.iv64 = phi i64 [ 1, %14 ], [ %indvars.iv.next65, %24 ]
@@ -73,7 +73,7 @@ define void @ff_init_half2float_tables(ptr noundef captures(none) initializes((0
   store i32 %26, ptr %25, align 4, !tbaa !4
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 31
-  br i1 %exitcond67.not, label %.preheader, label %24, !llvm.loop !14
+  br i1 %exitcond67.not, label %.preheader, label %24, !llvm.loop !13
 
 27:                                               ; preds = %.preheader
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 12412
@@ -83,7 +83,7 @@ define void @ff_init_half2float_tables(ptr noundef captures(none) initializes((0
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 12540
   store i32 -947912704, ptr %30, align 4, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 12544
-  store i16 0, ptr %31, align 4, !tbaa !15
+  store i16 0, ptr %31, align 4, !tbaa !14
   br label %39
 
 .preheader:                                       ; preds = %24, %.preheader
@@ -95,24 +95,24 @@ define void @ff_init_half2float_tables(ptr noundef captures(none) initializes((0
   store i32 %34, ptr %32, align 4, !tbaa !4
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, 63
-  br i1 %exitcond72.not, label %27, label %.preheader, !llvm.loop !17
+  br i1 %exitcond72.not, label %27, label %.preheader, !llvm.loop !16
 
 35:                                               ; preds = %39
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 12606
-  store i16 2048, ptr %36, align 2, !tbaa !15
+  store i16 2048, ptr %36, align 2, !tbaa !14
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 12608
-  store i16 0, ptr %37, align 4, !tbaa !15
+  store i16 0, ptr %37, align 4, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 12670
-  store i16 2048, ptr %38, align 2, !tbaa !15
+  store i16 2048, ptr %38, align 2, !tbaa !14
   ret void
 
 39:                                               ; preds = %27, %39
   %indvars.iv73 = phi i64 [ 1, %27 ], [ %indvars.iv.next74, %39 ]
   %40 = getelementptr inbounds nuw [64 x i16], ptr %31, i64 0, i64 %indvars.iv73
-  store i16 1024, ptr %40, align 2, !tbaa !15
+  store i16 1024, ptr %40, align 2, !tbaa !14
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 64
-  br i1 %exitcond76.not, label %35, label %39, !llvm.loop !18
+  br i1 %exitcond76.not, label %35, label %39, !llvm.loop !17
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -127,14 +127,13 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !6, i64 0}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"short", !6, i64 0}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

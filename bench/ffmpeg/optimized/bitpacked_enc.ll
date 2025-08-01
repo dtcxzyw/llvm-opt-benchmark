@@ -162,17 +162,17 @@ define internal range(i32 -2147483648, 1) i32 @encode_yuv422p10(ptr noundef %0, 
   br i1 %47, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph92.split
-  %48 = load ptr, ptr %28, align 8, !tbaa !41
+  %48 = load ptr, ptr %28, align 8, !tbaa !40
   %49 = load i32, ptr %29, align 8, !tbaa !33
   %50 = mul nsw i32 %49, %.03190
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %48, i64 %51
-  %53 = load ptr, ptr %26, align 8, !tbaa !41
+  %53 = load ptr, ptr %26, align 8, !tbaa !40
   %54 = load i32, ptr %27, align 4, !tbaa !33
   %55 = mul nsw i32 %54, %.03190
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  %58 = load ptr, ptr %2, align 8, !tbaa !41
+  %58 = load ptr, ptr %2, align 8, !tbaa !40
   %59 = load i32, ptr %25, align 8, !tbaa !33
   %60 = mul nsw i32 %59, %.03190
   %61 = sext i32 %60 to i64
@@ -191,7 +191,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_yuv422p10(ptr noundef %0, 
   %.sroa.0.1.lcssa = phi i32 [ %.sroa.0.089, %.lr.ph92.split ], [ %.026.i.i50, %._crit_edge.loopexit ]
   %65 = add nuw nsw i32 %.03190, 1
   %66 = icmp slt i32 %65, %63
-  br i1 %66, label %.lr.ph92.split, label %._crit_edge93, !llvm.loop !42
+  br i1 %66, label %.lr.ph92.split, label %._crit_edge93, !llvm.loop !41
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %put_bits.exit51
   %.084 = phi i32 [ %143, %put_bits.exit51 ], [ 0, %.lr.ph.preheader ]
@@ -202,7 +202,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_yuv422p10(ptr noundef %0, 
   %.sroa.17.179 = phi i32 [ %142, %put_bits.exit51 ], [ %.sroa.17.088, %.lr.ph.preheader ]
   %.sroa.31.178 = phi ptr [ %.sroa.31.6, %put_bits.exit51 ], [ %.sroa.31.087, %.lr.ph.preheader ]
   %67 = getelementptr inbounds nuw i8, ptr %.03382, i64 2
-  %68 = load i16, ptr %.03382, align 2, !tbaa !44
+  %68 = load i16, ptr %.03382, align 2, !tbaa !43
   %narrow = tail call i16 @llvm.umin.i16(i16 %68, i16 1023)
   %..i = zext nneg i16 %narrow to i32
   %69 = icmp sgt i32 %.sroa.17.179, 10
@@ -239,7 +239,7 @@ put_bits.exit:                                    ; preds = %70, %77, %84
   %.026.i.i = phi i32 [ %72, %70 ], [ %..i, %77 ], [ %..i, %84 ]
   %85 = add nsw i32 %.sink.i.i, %.sroa.17.179
   %86 = getelementptr inbounds nuw i8, ptr %.03481, i64 2
-  %87 = load i16, ptr %.03481, align 2, !tbaa !44
+  %87 = load i16, ptr %.03481, align 2, !tbaa !43
   %narrow75 = tail call i16 @llvm.umin.i16(i16 %87, i16 1023)
   %..i38 = zext nneg i16 %narrow75 to i32
   %88 = icmp sgt i32 %85, 10
@@ -276,7 +276,7 @@ put_bits.exit45:                                  ; preds = %89, %96, %103
   %.026.i.i44 = phi i32 [ %91, %89 ], [ %..i38, %96 ], [ %..i38, %103 ]
   %104 = add nsw i32 %.sink.i.i43, %85
   %105 = getelementptr inbounds nuw i8, ptr %.03283, i64 2
-  %106 = load i16, ptr %.03283, align 2, !tbaa !44
+  %106 = load i16, ptr %.03283, align 2, !tbaa !43
   %narrow76 = tail call i16 @llvm.umin.i16(i16 %106, i16 1023)
   %..i40 = zext nneg i16 %narrow76 to i32
   %107 = icmp sgt i32 %104, 10
@@ -313,7 +313,7 @@ put_bits.exit48:                                  ; preds = %108, %115, %122
   %.026.i.i47 = phi i32 [ %110, %108 ], [ %..i40, %115 ], [ %..i40, %122 ]
   %123 = add nsw i32 %.sink.i.i46, %104
   %124 = getelementptr inbounds nuw i8, ptr %.03481, i64 4
-  %125 = load i16, ptr %86, align 2, !tbaa !44
+  %125 = load i16, ptr %86, align 2, !tbaa !43
   %narrow77 = tail call i16 @llvm.umin.i16(i16 %125, i16 1023)
   %..i42 = zext nneg i16 %narrow77 to i32
   %126 = icmp sgt i32 %123, 10
@@ -352,7 +352,7 @@ put_bits.exit51:                                  ; preds = %127, %134, %141
   %143 = add nuw nsw i32 %.084, 2
   %144 = load i32, ptr %6, align 8, !tbaa !28
   %145 = icmp slt i32 %143, %144
-  br i1 %145, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !46
+  br i1 %145, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !45
 
 flush_put_bits.exit:                              ; preds = %38, %.lr.ph92, %17, %._crit_edge93, %16
   %.035 = phi i32 [ %14, %16 ], [ 0, %._crit_edge93 ], [ 0, %17 ], [ 0, %.lr.ph92 ], [ 0, %38 ]
@@ -421,12 +421,11 @@ attributes #6 = { noreturn nounwind }
 !35 = !{!36, !14, i64 24}
 !36 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !37 = !{!8, !8, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!14, !14, i64 0}
-!42 = distinct !{!42, !39, !40, !43}
-!43 = !{!"llvm.loop.unswitch.partial.disable"}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"short", !8, i64 0}
-!46 = distinct !{!46, !39, !40}
+!40 = !{!14, !14, i64 0}
+!41 = distinct !{!41, !39, !42}
+!42 = !{!"llvm.loop.unswitch.partial.disable"}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"short", !8, i64 0}
+!45 = distinct !{!45, !39}

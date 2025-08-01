@@ -266,7 +266,7 @@ default.unreachable:                              ; preds = %21, %108
   %140 = xor i32 %106, %102
   %141 = add nsw i64 %.1178186, -8
   %142 = icmp sgt i64 %.1178186, 8
-  br i1 %142, label %77, label %.loopexit, !llvm.loop !11
+  br i1 %142, label %77, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %61, %135, %.thread, %9, %72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
@@ -296,7 +296,6 @@ attributes #3 = { nounwind }
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

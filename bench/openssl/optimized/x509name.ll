@@ -70,7 +70,7 @@ X509_NAME_get_entry.exit:                         ; preds = %17
 
 23:                                               ; preds = %X509_NAME_get_entry.exit
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !19
+  %25 = load ptr, ptr %24, align 8, !tbaa !18
   br label %X509_NAME_ENTRY_get_data.exit
 
 X509_NAME_ENTRY_get_data.exit:                    ; preds = %17, %X509_NAME_get_entry.exit, %23
@@ -79,7 +79,7 @@ X509_NAME_ENTRY_get_data.exit:                    ; preds = %17, %X509_NAME_get_
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %X509_NAME_ENTRY_get_data.exit
-  %28 = load i32, ptr %.0.i24, align 8, !tbaa !20
+  %28 = load i32, ptr %.0.i24, align 8, !tbaa !19
   br label %X509_NAME_get_index_by_OBJ.exit.thread
 
 29:                                               ; preds = %X509_NAME_ENTRY_get_data.exit
@@ -87,15 +87,15 @@ X509_NAME_ENTRY_get_data.exit:                    ; preds = %17, %X509_NAME_get_
   br i1 %30, label %X509_NAME_get_index_by_OBJ.exit.thread, label %31
 
 31:                                               ; preds = %29
-  %32 = load i32, ptr %.0.i24, align 8, !tbaa !20
+  %32 = load i32, ptr %.0.i24, align 8, !tbaa !19
   %33 = add nsw i32 %3, -1
   %34 = tail call i32 @llvm.smin.i32(i32 %32, i32 %33)
   %35 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !23
+  %36 = load ptr, ptr %35, align 8, !tbaa !22
   %37 = sext i32 %34 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr align 1 %36, i64 %37, i1 false)
   %38 = getelementptr inbounds i8, ptr %2, i64 %37
-  store i8 0, ptr %38, align 1, !tbaa !24
+  store i8 0, ptr %38, align 1, !tbaa !23
   br label %X509_NAME_get_index_by_OBJ.exit.thread
 
 X509_NAME_get_index_by_OBJ.exit.thread:           ; preds = %10, %4, %29, %X509_NAME_get_index_by_OBJ.exit, %31, %27
@@ -139,7 +139,7 @@ define ptr @X509_NAME_ENTRY_get_data(ptr noundef readonly captures(address_is_nu
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
   br label %6
 
 6:                                                ; preds = %1, %3
@@ -247,7 +247,7 @@ define ptr @X509_NAME_delete_entry(ptr noundef captures(address_is_null) %0, i32
   %11 = tail call ptr @OPENSSL_sk_delete(ptr noundef %10, i32 noundef %1) #6
   %12 = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %13, align 8, !tbaa !25
+  store i32 1, ptr %13, align 8, !tbaa !24
   %14 = icmp eq i32 %1, %12
   br i1 %14, label %.loopexit, label %15
 
@@ -259,20 +259,20 @@ define ptr @X509_NAME_delete_entry(ptr noundef captures(address_is_null) %0, i32
   %17 = add nsw i32 %1, -1
   %18 = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %17) #6
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !26
+  %20 = load i32, ptr %19, align 8, !tbaa !25
   %21 = add nsw i32 %20, 1
   br label %25
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !26
+  %24 = load i32, ptr %23, align 8, !tbaa !25
   br label %25
 
 25:                                               ; preds = %22, %16
   %.029 = phi i32 [ %21, %16 ], [ %24, %22 ]
   %26 = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %1) #6
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load i32, ptr %27, align 8, !tbaa !26
+  %28 = load i32, ptr %27, align 8, !tbaa !25
   %29 = icmp slt i32 %.029, %28
   %30 = icmp slt i32 %1, %12
   %or.cond34 = and i1 %29, %30
@@ -282,12 +282,12 @@ define ptr @X509_NAME_delete_entry(ptr noundef captures(address_is_null) %0, i32
   %.02833 = phi i32 [ %35, %.lr.ph ], [ %1, %25 ]
   %31 = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %.02833) #6
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = load i32, ptr %32, align 8, !tbaa !26
+  %33 = load i32, ptr %32, align 8, !tbaa !25
   %34 = add nsw i32 %33, -1
-  store i32 %34, ptr %32, align 8, !tbaa !26
+  store i32 %34, ptr %32, align 8, !tbaa !25
   %35 = add i32 %.02833, 1
   %exitcond.not = icmp eq i32 %35, %12
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %9, %2, %4
   %.0 = phi ptr [ null, %4 ], [ null, %2 ], [ %11, %9 ], [ %11, %25 ], [ %11, %.lr.ph ]
@@ -318,7 +318,7 @@ define ptr @X509_NAME_ENTRY_create_by_OBJ(ptr noundef captures(address_is_null) 
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !28
+  %8 = load ptr, ptr %0, align 8, !tbaa !27
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %13
 
@@ -355,19 +355,19 @@ X509_NAME_ENTRY_set_object.exit:                  ; preds = %13
   br i1 %6, label %28, label %20
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr %0, align 8, !tbaa !28
+  %21 = load ptr, ptr %0, align 8, !tbaa !27
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %20
-  store ptr %.0, ptr %0, align 8, !tbaa !28
+  store ptr %.0, ptr %0, align 8, !tbaa !27
   br label %28
 
 24:                                               ; preds = %X509_NAME_ENTRY_set_object.exit.thread, %17, %X509_NAME_ENTRY_set_object.exit
   br i1 %6, label %27, label %25
 
 25:                                               ; preds = %24
-  %26 = load ptr, ptr %0, align 8, !tbaa !28
+  %26 = load ptr, ptr %0, align 8, !tbaa !27
   %.not23 = icmp eq ptr %.0, %26
   br i1 %.not23, label %28, label %27
 
@@ -393,7 +393,7 @@ define range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(address_is_
   %.039 = select i1 %9, i32 %8, i32 %10
   %11 = icmp eq i32 %3, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %12, align 8, !tbaa !25
+  store i32 1, ptr %12, align 8, !tbaa !24
   %13 = icmp eq i32 %3, -1
   br i1 %13, label %14, label %21
 
@@ -405,7 +405,7 @@ define range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(address_is_
   %17 = add nsw i32 %.039, -1
   %18 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %17) #6
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !26
+  %20 = load i32, ptr %19, align 8, !tbaa !25
   br label %33
 
 21:                                               ; preds = %6
@@ -420,14 +420,14 @@ define range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(address_is_
   %24 = add nsw i32 %.039, -1
   %25 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %24) #6
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !26
+  %27 = load i32, ptr %26, align 8, !tbaa !25
   %28 = add nsw i32 %27, 1
   br label %33
 
 29:                                               ; preds = %21
   %30 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %.039) #6
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load i32, ptr %31, align 8, !tbaa !26
+  %32 = load i32, ptr %31, align 8, !tbaa !25
   br label %33
 
 33:                                               ; preds = %22, %14, %29, %23, %16
@@ -439,7 +439,7 @@ define range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(address_is_
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i32 %.038, ptr %37, align 8, !tbaa !26
+  store i32 %.038, ptr %37, align 8, !tbaa !25
   %38 = tail call i32 @OPENSSL_sk_insert(ptr noundef %7, ptr noundef nonnull %34, i32 noundef %.039) #6
   %.not45 = icmp eq i32 %38, 0
   br i1 %.not45, label %39, label %40
@@ -463,12 +463,12 @@ define range(i32 0, 2) i32 @X509_NAME_add_entry(ptr noundef captures(address_is_
   %.03747 = phi i32 [ %.037, %.lr.ph ], [ %.03746, %41 ]
   %44 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %.03747) #6
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = load i32, ptr %45, align 8, !tbaa !26
+  %46 = load i32, ptr %45, align 8, !tbaa !25
   %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %45, align 8, !tbaa !26
+  store i32 %47, ptr %45, align 8, !tbaa !25
   %.037 = add nsw i32 %.03747, 1
   %exitcond.not = icmp eq i32 %.037, %42
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 48:                                               ; preds = %33, %39
   tail call void @X509_NAME_ENTRY_free(ptr noundef %34) #6
@@ -514,7 +514,7 @@ define noundef ptr @X509_NAME_ENTRY_create_by_NID(ptr noundef captures(address_i
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %0, align 8, !tbaa !28
+  %12 = load ptr, ptr %0, align 8, !tbaa !27
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %X509_NAME_ENTRY_set_object.exit.i
 
@@ -541,19 +541,19 @@ X509_NAME_ENTRY_set_object.exit.i:                ; preds = %11, %14
   br i1 %10, label %X509_NAME_ENTRY_create_by_OBJ.exit, label %22
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !28
+  %23 = load ptr, ptr %0, align 8, !tbaa !27
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %X509_NAME_ENTRY_create_by_OBJ.exit
 
 25:                                               ; preds = %22
-  store ptr %.0.i, ptr %0, align 8, !tbaa !28
+  store ptr %.0.i, ptr %0, align 8, !tbaa !27
   br label %X509_NAME_ENTRY_create_by_OBJ.exit
 
 26:                                               ; preds = %19, %X509_NAME_ENTRY_set_object.exit.i
   br i1 %10, label %29, label %27
 
 27:                                               ; preds = %26
-  %28 = load ptr, ptr %0, align 8, !tbaa !28
+  %28 = load ptr, ptr %0, align 8, !tbaa !27
   %.not23.i = icmp eq ptr %.0.i, %28
   br i1 %.not23.i, label %X509_NAME_ENTRY_create_by_OBJ.exit, label %29
 
@@ -604,7 +604,7 @@ define noundef ptr @X509_NAME_ENTRY_create_by_txt(ptr noundef captures(address_i
   br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %0, align 8, !tbaa !28
+  %12 = load ptr, ptr %0, align 8, !tbaa !27
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %X509_NAME_ENTRY_set_object.exit.i
 
@@ -631,19 +631,19 @@ X509_NAME_ENTRY_set_object.exit.i:                ; preds = %11, %14
   br i1 %10, label %X509_NAME_ENTRY_create_by_OBJ.exit, label %22
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr %0, align 8, !tbaa !28
+  %23 = load ptr, ptr %0, align 8, !tbaa !27
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %X509_NAME_ENTRY_create_by_OBJ.exit
 
 25:                                               ; preds = %22
-  store ptr %.0.i, ptr %0, align 8, !tbaa !28
+  store ptr %.0.i, ptr %0, align 8, !tbaa !27
   br label %X509_NAME_ENTRY_create_by_OBJ.exit
 
 26:                                               ; preds = %19, %X509_NAME_ENTRY_set_object.exit.i
   br i1 %10, label %29, label %27
 
 27:                                               ; preds = %26
-  %28 = load ptr, ptr %0, align 8, !tbaa !28
+  %28 = load ptr, ptr %0, align 8, !tbaa !27
   %.not23.i = icmp eq ptr %.0.i, %28
   br i1 %.not23.i, label %X509_NAME_ENTRY_create_by_OBJ.exit, label %29
 
@@ -743,7 +743,7 @@ define range(i32 0, 2) i32 @X509_NAME_ENTRY_set_data(ptr noundef %0, i32 noundef
 23:                                               ; preds = %20, %18
   %.024 = phi i32 [ %22, %20 ], [ %3, %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !19
+  %25 = load ptr, ptr %24, align 8, !tbaa !18
   %26 = tail call i32 @ASN1_STRING_set(ptr noundef %25, ptr noundef %2, i32 noundef %.024) #6
   %.not28 = icmp eq i32 %26, 0
   br i1 %.not28, label %35, label %27
@@ -756,15 +756,15 @@ define range(i32 0, 2) i32 @X509_NAME_ENTRY_set_data(ptr noundef %0, i32 noundef
 
 28:                                               ; preds = %27
   %29 = tail call i32 @ASN1_PRINTABLE_type(ptr noundef %2, i32 noundef %.024) #6
-  %30 = load ptr, ptr %24, align 8, !tbaa !19
+  %30 = load ptr, ptr %24, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i32 %29, ptr %31, align 4, !tbaa !31
+  store i32 %29, ptr %31, align 4, !tbaa !30
   br label %35
 
 32:                                               ; preds = %27
-  %33 = load ptr, ptr %24, align 8, !tbaa !19
+  %33 = load ptr, ptr %24, align 8, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  store i32 %1, ptr %34, align 4, !tbaa !31
+  store i32 %1, ptr %34, align 4, !tbaa !30
   br label %35
 
 35:                                               ; preds = %32, %28, %27, %23, %4, %6, %12
@@ -802,7 +802,7 @@ define ptr @X509_NAME_ENTRY_get_object(ptr noundef readonly captures(address_is_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @X509_NAME_ENTRY_set(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !26
+  %3 = load i32, ptr %2, align 8, !tbaa !25
   ret i32 %3
 }
 
@@ -839,19 +839,18 @@ attributes #7 = { nounwind willreturn memory(read) }
 !13 = !{!"X509_name_entry_st", !14, i64 0, !15, i64 8, !9, i64 16, !9, i64 20}
 !14 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
 !15 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!13, !15, i64 8}
-!20 = !{!21, !9, i64 0}
-!21 = !{!"asn1_string_st", !9, i64 0, !9, i64 4, !11, i64 8, !22, i64 16}
-!22 = !{!"long", !7, i64 0}
-!23 = !{!21, !11, i64 8}
-!24 = !{!7, !7, i64 0}
-!25 = !{!4, !9, i64 8}
-!26 = !{!13, !9, i64 16}
-!27 = distinct !{!27, !17, !18}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTS18X509_name_entry_st", !6, i64 0}
-!30 = distinct !{!30, !17, !18}
-!31 = !{!21, !9, i64 4}
+!18 = !{!13, !15, i64 8}
+!19 = !{!20, !9, i64 0}
+!20 = !{!"asn1_string_st", !9, i64 0, !9, i64 4, !11, i64 8, !21, i64 16}
+!21 = !{!"long", !7, i64 0}
+!22 = !{!20, !11, i64 8}
+!23 = !{!7, !7, i64 0}
+!24 = !{!4, !9, i64 8}
+!25 = !{!13, !9, i64 16}
+!26 = distinct !{!26, !17}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS18X509_name_entry_st", !6, i64 0}
+!29 = distinct !{!29, !17}
+!30 = !{!20, !9, i64 4}

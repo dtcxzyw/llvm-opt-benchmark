@@ -766,6 +766,5 @@ attributes #6 = { nounwind willreturn memory(read) }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
 !14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}

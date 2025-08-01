@@ -316,7 +316,7 @@ define internal fastcc void @SDL_HIDAPI_StopRumbleThread() unnamed_addr #0 {
   call void @SDL_free_REAL(ptr noundef nonnull %10) #6
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rumble_context, i64 32), align 8
   %.not24 = icmp eq ptr %26, null
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %22, %7
   %27 = load ptr, ptr @SDL_HIDAPI_rumble_lock, align 8
@@ -442,7 +442,7 @@ define internal noundef i32 @SDL_HIDAPI_RumbleThread(ptr noundef %0) #0 {
 46:                                               ; preds = %.critedge, %41
   %47 = tail call i32 @SDL_GetAtomicInt_REAL(ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %46, %1
   ret i32 0
@@ -478,8 +478,7 @@ attributes #7 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

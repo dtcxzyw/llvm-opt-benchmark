@@ -131,7 +131,7 @@ tailrecurse:                                      ; preds = %19
 41:                                               ; preds = %38
   %42 = zext nneg i32 %39 to i64
   %43 = getelementptr inbounds nuw i8, ptr %.tr108145, i64 24
-  %44 = load i64, ptr %43, align 8, !tbaa !28
+  %44 = load i64, ptr %43, align 8, !tbaa !27
   %45 = icmp sgt i64 %44, %42
   br i1 %45, label %46, label %51
 
@@ -165,7 +165,7 @@ tailrecurse:                                      ; preds = %19
 
 57:                                               ; preds = %.split154
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !29
+  %59 = load ptr, ptr %58, align 8, !tbaa !28
   %.not101 = icmp eq ptr %59, null
   br i1 %.not101, label %ASN1_template_free.exit, label %60
 
@@ -179,7 +179,7 @@ tailrecurse:                                      ; preds = %19
 
 62:                                               ; preds = %.split158
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !31
+  %64 = load ptr, ptr %63, align 8, !tbaa !30
   %.not99 = icmp eq ptr %64, null
   br i1 %.not99, label %ASN1_template_free.exit, label %65
 
@@ -204,7 +204,7 @@ tailrecurse:                                      ; preds = %19
 71:                                               ; preds = %68, %67
   tail call void @asn1_enc_free(ptr noundef nonnull %0, ptr noundef nonnull %.tr108145) #4
   %72 = getelementptr inbounds nuw i8, ptr %.tr108145, i64 24
-  %73 = load i64, ptr %72, align 8, !tbaa !28
+  %73 = load i64, ptr %72, align 8, !tbaa !27
   %74 = icmp sgt i64 %73, 0
   br i1 %74, label %.lr.ph179.preheader, label %._crit_edge180
 
@@ -267,9 +267,9 @@ tailrecurse:                                      ; preds = %19
 
 ASN1_template_free.exit107:                       ; preds = %93, %._crit_edge, %.lr.ph179
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = load i64, ptr %72, align 8, !tbaa !28
+  %98 = load i64, ptr %72, align 8, !tbaa !27
   %99 = icmp sgt i64 %98, %indvars.iv.next
-  br i1 %99, label %.lr.ph179, label %._crit_edge180, !llvm.loop !33
+  br i1 %99, label %.lr.ph179, label %._crit_edge180, !llvm.loop !32
 
 ._crit_edge180:                                   ; preds = %ASN1_template_free.exit107, %71
   br i1 %.not95, label %102, label %100
@@ -371,7 +371,7 @@ define hidden void @ASN1_primitive_free(ptr noundef %0, ptr noundef %1) local_un
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !34
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
   %.not39 = icmp eq ptr %8, null
   br i1 %.not39, label %13, label %.critedge
 
@@ -381,7 +381,7 @@ define hidden void @ASN1_primitive_free(ptr noundef %0, ptr noundef %1) local_un
 
 .critedge45:                                      ; preds = %2
   %9 = load ptr, ptr %0, align 8, !tbaa !6
-  %10 = load i32, ptr %9, align 8, !tbaa !36
+  %10 = load i32, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !6
   %.not40.not = icmp eq ptr %12, null
@@ -399,7 +399,7 @@ define hidden void @ASN1_primitive_free(ptr noundef %0, ptr noundef %1) local_un
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !38
+  %20 = load i64, ptr %19, align 8, !tbaa !37
   %21 = trunc i64 %20 to i32
   %.not41 = icmp eq i32 %21, 1
   br i1 %.not41, label %.thread54, label %22
@@ -430,14 +430,14 @@ define hidden void @ASN1_primitive_free(ptr noundef %0, ptr noundef %1) local_un
 .thread54:                                        ; preds = %18, %27
   %.05356 = phi ptr [ %.0, %27 ], [ %0, %18 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %29 = load i64, ptr %28, align 8, !tbaa !39
+  %29 = load i64, ptr %28, align 8, !tbaa !38
   %30 = trunc i64 %29 to i32
   br label %31
 
 31:                                               ; preds = %27, %.thread54
   %.05357 = phi ptr [ %.05356, %.thread54 ], [ %.0, %27 ]
   %storemerge = phi i32 [ %30, %.thread54 ], [ -1, %27 ]
-  store i32 %storemerge, ptr %.05357, align 4, !tbaa !40
+  store i32 %storemerge, ptr %.05357, align 4, !tbaa !39
   br label %36
 
 32:                                               ; preds = %24
@@ -512,19 +512,18 @@ attributes #4 = { nounwind }
 !22 = !{!"ASN1_TEMPLATE_st", !13, i64 0, !13, i64 8, !13, i64 16, !15, i64 24, !23, i64 32}
 !23 = !{!"p1 _ZTS12ASN1_ITEM_st", !8, i64 0}
 !24 = !{!22, !23, i64 32}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!12, !13, i64 24}
-!29 = !{!30, !8, i64 8}
-!30 = !{!"ASN1_COMPAT_FUNCS_st", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
-!31 = !{!32, !8, i64 16}
-!32 = !{!"ASN1_EXTERN_FUNCS_st", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48}
-!33 = distinct !{!33, !26, !27}
-!34 = !{!35, !8, i64 24}
-!35 = !{!"ASN1_PRIMITIVE_FUNCS_st", !8, i64 0, !13, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56}
-!36 = !{!37, !19, i64 0}
-!37 = !{!"asn1_type_st", !19, i64 0, !9, i64 8}
-!38 = !{!12, !13, i64 8}
-!39 = !{!12, !13, i64 40}
-!40 = !{!19, !19, i64 0}
+!27 = !{!12, !13, i64 24}
+!28 = !{!29, !8, i64 8}
+!29 = !{!"ASN1_COMPAT_FUNCS_st", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
+!30 = !{!31, !8, i64 16}
+!31 = !{!"ASN1_EXTERN_FUNCS_st", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48}
+!32 = distinct !{!32, !26}
+!33 = !{!34, !8, i64 24}
+!34 = !{!"ASN1_PRIMITIVE_FUNCS_st", !8, i64 0, !13, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56}
+!35 = !{!36, !19, i64 0}
+!36 = !{!"asn1_type_st", !19, i64 0, !9, i64 8}
+!37 = !{!12, !13, i64 8}
+!38 = !{!12, !13, i64 40}
+!39 = !{!19, !19, i64 0}

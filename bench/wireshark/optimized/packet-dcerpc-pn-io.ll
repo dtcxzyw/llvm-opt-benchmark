@@ -5685,7 +5685,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
   %35 = call fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %.03543, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %.03444)
   %36 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %35)
   %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 38:                                               ; preds = %28
   %39 = load i32, ptr %22, align 4
@@ -5758,7 +5758,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 88
-  %76 = load i8, ptr %75, align 8, !range !10, !noundef !11
+  %76 = load i8, ptr %75, align 8, !range !9, !noundef !10
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %78, label %84
 
@@ -5775,7 +5775,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
 84:                                               ; preds = %78, %74, %69
   %85 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.085118.i)
   %.not95.i = icmp eq ptr %85, null
-  br i1 %.not95.i, label %.loopexit.i, label %69, !llvm.loop !12
+  br i1 %.not95.i, label %.loopexit.i, label %69, !llvm.loop !11
 
 86:                                               ; preds = %58
   br i1 %.not95117.i, label %._crit_edge.i, label %.lr.ph.i
@@ -5794,7 +5794,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
 
 93:                                               ; preds = %88
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 88
-  %95 = load i8, ptr %94, align 8, !range !10, !noundef !11
+  %95 = load i8, ptr %94, align 8, !range !9, !noundef !10
   %96 = trunc nuw i8 %95 to i1
   br i1 %96, label %97, label %99
 
@@ -5805,7 +5805,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
 99:                                               ; preds = %93, %88
   %100 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.1112.i)
   %.not96.i = icmp eq ptr %100, null
-  br i1 %.not96.i, label %._crit_edge.i, label %88, !llvm.loop !13
+  br i1 %.not96.i, label %._crit_edge.i, label %88, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %99, %86
   %101 = getelementptr inbounds nuw i8, ptr %57, i64 64
@@ -5828,7 +5828,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
 
 110:                                              ; preds = %105
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 88
-  %112 = load i8, ptr %111, align 8, !range !10, !noundef !11
+  %112 = load i8, ptr %111, align 8, !range !9, !noundef !10
   %113 = trunc nuw i8 %112 to i1
   br i1 %113, label %114, label %116
 
@@ -5839,7 +5839,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
 116:                                              ; preds = %110, %105
   %117 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.2114.i)
   %.not97.i = icmp eq ptr %117, null
-  br i1 %.not97.i, label %.loopexit.i, label %105, !llvm.loop !14
+  br i1 %.not97.i, label %.loopexit.i, label %105, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %116, %84, %._crit_edge.i, %67, %56
   switch i16 %41, label %221 [
@@ -5956,7 +5956,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
   %192 = load i8, ptr %11, align 1
   %193 = zext i8 %192 to i32
   %194 = icmp samesign ult i32 %156, %193
-  br i1 %194, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !15
+  br i1 %194, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %191
   %195 = icmp ne i8 %192, 0
@@ -6000,7 +6000,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
   %217 = add i8 %216, -1
   store i8 %217, ptr %17, align 1
   %.not.i.i = icmp eq i8 %216, 0
-  br i1 %.not.i.i, label %._crit_edge93.i.i, label %.lr.ph92.i.i, !llvm.loop !16
+  br i1 %.not.i.i, label %._crit_edge93.i.i, label %.lr.ph92.i.i, !llvm.loop !15
 
 ._crit_edge93.i.i:                                ; preds = %.lr.ph92.i.i, %.lr.ph97.i.i
   %.3.lcssa.i.i = phi i32 [ %206, %.lr.ph97.i.i ], [ %215, %.lr.ph92.i.i ]
@@ -6009,7 +6009,7 @@ define internal fastcc i32 @dissect_IODWriteReq(ptr noundef %0, i32 noundef %1, 
   %218 = load i8, ptr %11, align 1
   %219 = zext i8 %218 to i32
   %220 = icmp samesign ult i32 %202, %219
-  br i1 %220, label %.lr.ph97.i.i, label %dissect_ProfiDriveParameterRequest.exit.i, !llvm.loop !17
+  br i1 %220, label %.lr.ph97.i.i, label %dissect_ProfiDriveParameterRequest.exit.i, !llvm.loop !16
 
 dissect_ProfiDriveParameterRequest.exit.i:        ; preds = %._crit_edge93.i.i, %._crit_edge.i.i, %118
   %.1.i.i = phi i32 [ %164, %._crit_edge.i.i ], [ %130, %118 ], [ %.3.lcssa.i.i, %._crit_edge93.i.i ]
@@ -6159,7 +6159,7 @@ define internal fastcc i32 @dissect_IODWriteRes(ptr noundef %0, i32 noundef %1, 
   %14 = call fastcc i32 @dissect_block(ptr noundef %0, i32 noundef %.116, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %15 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %14)
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %16, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %5
   %.0 = phi i32 [ %9, %5 ], [ %9, %.preheader ], [ %14, %.lr.ph ]
@@ -6329,7 +6329,7 @@ define internal void @pnio_load_gsd_files() #0 {
 
 25:                                               ; preds = %.lr.ph43
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.3223, i32 noundef 3, ptr noundef null, i64 noundef -1, ptr noundef null, ptr noundef nonnull @.str.3224, ptr noundef %22)
-  br label %247, !llvm.loop !19
+  br label %247, !llvm.loop !18
 
 26:                                               ; preds = %.lr.ph43
   %27 = call ptr @xmlXPathNewContext(ptr noundef nonnull %23)
@@ -6339,7 +6339,7 @@ define internal void @pnio_load_gsd_files() #0 {
 29:                                               ; preds = %26
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.3223, i32 noundef 5, ptr noundef nonnull @.str.3225, i64 noundef 4254, ptr noundef nonnull @__func__.pnio_load_gsd_files, ptr noundef nonnull @.str.3226)
   call void @xmlFreeDoc(ptr noundef nonnull %23)
-  br label %247, !llvm.loop !19
+  br label %247, !llvm.loop !18
 
 30:                                               ; preds = %26
   %31 = call i32 @xmlXPathRegisterNs(ptr noundef nonnull %27, ptr noundef nonnull @.str.3227, ptr noundef nonnull @.str.3221)
@@ -6350,7 +6350,7 @@ define internal void @pnio_load_gsd_files() #0 {
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.3223, i32 noundef 5, ptr noundef nonnull @.str.3225, i64 noundef 4261, ptr noundef nonnull @__func__.pnio_load_gsd_files, ptr noundef nonnull @.str.3228)
   call void @xmlXPathFreeContext(ptr noundef nonnull %27)
   call void @xmlFreeDoc(ptr noundef nonnull %23)
-  br label %247, !llvm.loop !19
+  br label %247, !llvm.loop !18
 
 33:                                               ; preds = %30
   %34 = call ptr @xmlXPathEvalExpression(ptr noundef nonnull @.str.3229, ptr noundef nonnull %27)
@@ -6653,7 +6653,7 @@ define internal void @pnio_load_gsd_files() #0 {
 .thread95.i.i:                                    ; preds = %173, %155, %150, %140, %134, %128, %119, %114, %107
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %90, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %90, !llvm.loop !19
 
 pnio_load_gsd_device_modules.exit.i:              ; preds = %._crit_edge.i.i, %66
   %175 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -6766,7 +6766,7 @@ pnio_load_gsd_device_modules.exit.i:              ; preds = %._crit_edge.i.i, %6
   br i1 %.not64.i.i, label %229, label %225
 
 225:                                              ; preds = %220
-  %226 = load i8, ptr %224, align 4, !range !10, !noundef !11
+  %226 = load i8, ptr %224, align 4, !range !9, !noundef !10
   %.not65.i.i = icmp eq i8 %226, %202
   br i1 %.not65.i.i, label %239, label %227
 
@@ -6808,7 +6808,7 @@ pnio_load_gsd_device_modules.exit.i:              ; preds = %._crit_edge.i.i, %6
 243:                                              ; preds = %241, %.thread72.i.i
   %indvars.iv.next.i38.i = add nuw nsw i64 %indvars.iv.i37.i, 1
   %exitcond.not.i39.i = icmp eq i64 %indvars.iv.next.i38.i, %wide.trip.count.i36.i
-  br i1 %exitcond.not.i39.i, label %._crit_edge.i34.i, label %186, !llvm.loop !21
+  br i1 %exitcond.not.i39.i, label %._crit_edge.i34.i, label %186, !llvm.loop !20
 
 pnio_load_gsd_device_submodules.exit.i:           ; preds = %._crit_edge.i34.i, %pnio_load_gsd_device_modules.exit.i
   %244 = getelementptr inbounds nuw i8, ptr %73, i64 16
@@ -6823,7 +6823,7 @@ pnio_load_gsd_device_submodules.exit.i:           ; preds = %._crit_edge.i34.i, 
 pnio_load_gsd_device_profile.exit:                ; preds = %42, %.critedge.i, %245
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !21
 
 246:                                              ; preds = %._crit_edge, %33
   call void @xmlXPathFreeContext(ptr noundef nonnull %27)
@@ -6834,7 +6834,7 @@ pnio_load_gsd_device_profile.exit:                ; preds = %42, %.critedge.i, %
   call void @wmem_free(ptr noundef null, ptr noundef %22)
   %248 = call ptr @g_dir_read_name(ptr noundef nonnull %18)
   %.not37 = icmp eq ptr %248, null
-  br i1 %.not37, label %.loopexit, label %.lr.ph43, !llvm.loop !23
+  br i1 %.not37, label %.loopexit, label %.lr.ph43
 
 .loopexit:                                        ; preds = %247, %.preheader, %17
   call void @g_dir_close(ptr noundef %18)
@@ -7345,7 +7345,7 @@ define internal fastcc void @dissect_AlarmNotification_block(ptr noundef %0, i32
   %37 = call fastcc i32 @dissect_AlarmUserStructure(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %10, i16 noundef zeroext %36)
   %.pr = load i16, ptr %10, align 2
   %.not = icmp eq i16 %.pr, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
   call void @decrement_dissection_depth(ptr noundef %2)
@@ -7385,7 +7385,7 @@ define internal fastcc void @dissect_IODWriteReqHeader_block(ptr noundef %0, i32
   %23 = getelementptr inbounds nuw i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %20, %22
   %.083.i = phi ptr [ %.08.i, %22 ], [ %.081.i, %20 ]
@@ -7457,7 +7457,7 @@ define internal fastcc void @dissect_IODReadReqHeader_block(ptr noundef %0, i32 
   %23 = getelementptr inbounds nuw i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %20, %22
   %.083.i = phi ptr [ %.08.i, %22 ], [ %.081.i, %20 ]
@@ -7616,7 +7616,7 @@ define internal fastcc void @dissect_DiagnosisData_block(ptr noundef %0, i32 nou
   %63 = call fastcc i32 @dissect_AlarmUserStructure(ptr noundef %0, i32 noundef %.284, ptr noundef %2, ptr noundef %3, ptr noundef %5, ptr noundef nonnull %10, i16 noundef zeroext %62)
   %.pr = load i16, ptr %10, align 2
   %.not81 = icmp eq i16 %.pr, 0
-  br i1 %.not81, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not81, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %55
   call void @decrement_dissection_depth(ptr noundef %2)
@@ -7687,7 +7687,7 @@ define internal fastcc void @dissect_IdentificationData_block(ptr noundef %0, i3
   %32 = add i16 %31, -1
   store i16 %32, ptr %9, align 2
   %.not70 = icmp eq i16 %31, 0
-  br i1 %.not70, label %.loopexit74, label %.lr.ph85, !llvm.loop !27
+  br i1 %.not70, label %.loopexit74, label %.lr.ph85, !llvm.loop !25
 
 .lr.ph85:                                         ; preds = %27, %.loopexit
   %.183 = phi i32 [ %.3.lcssa, %.loopexit ], [ %.069, %27 ]
@@ -7753,7 +7753,7 @@ define internal fastcc void @dissect_IdentificationData_block(ptr noundef %0, i3
   %72 = add i16 %71, -1
   store i16 %72, ptr %14, align 2
   %.not72 = icmp eq i16 %71, 0
-  br i1 %.not72, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not72, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph80
   %.4.lcssa = phi i32 [ %52, %.lr.ph80 ], [ %67, %.lr.ph ]
@@ -7763,7 +7763,7 @@ define internal fastcc void @dissect_IdentificationData_block(ptr noundef %0, i3
   %75 = add i16 %74, -1
   store i16 %75, ptr %11, align 2
   %.not71 = icmp eq i16 %74, 0
-  br i1 %.not71, label %.loopexit, label %.lr.ph80, !llvm.loop !29
+  br i1 %.not71, label %.loopexit, label %.lr.ph80, !llvm.loop !27
 
 .loopexit74:                                      ; preds = %.loopexit, %27, %17
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16) #11
@@ -8135,7 +8135,7 @@ define internal fastcc void @dissect_ARData_block(ptr noundef %0, i32 noundef %1
   %165 = add i16 %164, -1
   store i16 %165, ptr %21, align 2
   %.not434 = icmp eq i16 %164, 0
-  br i1 %.not434, label %._crit_edge464, label %.lr.ph463, !llvm.loop !30
+  br i1 %.not434, label %._crit_edge464, label %.lr.ph463, !llvm.loop !28
 
 ._crit_edge464:                                   ; preds = %157, %68
   %.1.lcssa = phi i32 [ %86, %68 ], [ %162, %157 ]
@@ -8172,7 +8172,7 @@ define internal fastcc void @dissect_ARData_block(ptr noundef %0, i32 noundef %1
   %190 = add i16 %189, -1
   store i16 %190, ptr %29, align 2
   %.not435 = icmp eq i16 %189, 0
-  br i1 %.not435, label %._crit_edge470, label %.lr.ph469, !llvm.loop !31
+  br i1 %.not435, label %._crit_edge470, label %.lr.ph469, !llvm.loop !29
 
 ._crit_edge470:                                   ; preds = %.lr.ph469, %._crit_edge464
   %.2.lcssa = phi i32 [ %184, %._crit_edge464 ], [ %188, %.lr.ph469 ]
@@ -8182,7 +8182,7 @@ define internal fastcc void @dissect_ARData_block(ptr noundef %0, i32 noundef %1
   %193 = add i16 %192, -1
   store i16 %193, ptr %15, align 2
   %.not432 = icmp eq i16 %192, 0
-  br i1 %.not432, label %.loopexit, label %53, !llvm.loop !32
+  br i1 %.not432, label %.loopexit, label %53, !llvm.loop !30
 
 194:                                              ; preds = %.lr.ph458, %._crit_edge454
   %.4457 = phi i32 [ %41, %.lr.ph458 ], [ %.8.lcssa, %._crit_edge454 ]
@@ -8361,7 +8361,7 @@ define internal fastcc void @dissect_ARData_block(ptr noundef %0, i32 noundef %1
   %331 = add i16 %330, -1
   store i16 %331, ptr %21, align 2
   %.not425 = icmp eq i16 %330, 0
-  br i1 %.not425, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not425, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %327, %252
   %.6.lcssa = phi i32 [ %256, %252 ], [ %328, %327 ]
@@ -8382,7 +8382,7 @@ define internal fastcc void @dissect_ARData_block(ptr noundef %0, i32 noundef %1
   %340 = add i16 %339, -1
   store i16 %340, ptr %29, align 2
   %.not426 = icmp eq i16 %339, 0
-  br i1 %.not426, label %._crit_edge449, label %.lr.ph448, !llvm.loop !34
+  br i1 %.not426, label %._crit_edge449, label %.lr.ph448, !llvm.loop !32
 
 ._crit_edge449:                                   ; preds = %.lr.ph448, %._crit_edge
   %.7.lcssa = phi i32 [ %334, %._crit_edge ], [ %338, %.lr.ph448 ]
@@ -8421,7 +8421,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph453, %350
   %353 = icmp slt i32 %348, %39
   %354 = icmp ne i16 %352, 0
   %355 = select i1 %353, i1 %354, i1 false
-  br i1 %355, label %.lr.ph453, label %._crit_edge454, !llvm.loop !35
+  br i1 %355, label %.lr.ph453, label %._crit_edge454, !llvm.loop !33
 
 ._crit_edge454:                                   ; preds = %dissect_a_block.exit, %._crit_edge449
   %.8.lcssa = phi i32 [ %343, %._crit_edge449 ], [ %348, %dissect_a_block.exit ]
@@ -8431,7 +8431,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph453, %350
   %358 = add i16 %357, -1
   store i16 %358, ptr %15, align 2
   %.not = icmp eq i16 %357, 0
-  br i1 %.not, label %.loopexit, label %194, !llvm.loop !36
+  br i1 %.not, label %.loopexit, label %194, !llvm.loop !34
 
 .loopexit:                                        ; preds = %._crit_edge454, %._crit_edge470, %.preheader441, %.preheader
   call void @decrement_dissection_depth(ptr noundef %2)
@@ -8537,7 +8537,7 @@ define internal fastcc void @dissect_LogData_block(ptr noundef %0, i32 noundef %
   %54 = add i16 %53, -1
   store i16 %54, ptr %10, align 2
   %.not = icmp eq i16 %53, 0
-  br i1 %.not, label %.loopexit, label %36, !llvm.loop !37
+  br i1 %.not, label %.loopexit, label %36, !llvm.loop !35
 
 .loopexit:                                        ; preds = %49, %22, %18
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %15) #11
@@ -8584,7 +8584,7 @@ define internal fastcc void @dissect_APIData_block(ptr noundef %0, i32 noundef %
   %25 = add i16 %24, -1
   store i16 %25, ptr %9, align 2
   %.not = icmp eq i16 %24, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
@@ -8876,7 +8876,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph, %24
   %26 = add i16 %25, -1
   store i16 %26, ptr %12, align 2
   %.not = icmp eq i16 %26, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 .loopexit:                                        ; preds = %dissect_a_block.exit, %19, %15
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #11
@@ -8927,7 +8927,7 @@ define internal fastcc void @dissect_IandM0FilterData_block(ptr noundef %0, i32 
   %29 = add i16 %28, -1
   store i16 %29, ptr %9, align 2
   %.not = icmp eq i16 %28, 0
-  br i1 %.not, label %.loopexit67, label %.lr.ph78, !llvm.loop !40
+  br i1 %.not, label %.loopexit67, label %.lr.ph78, !llvm.loop !38
 
 .lr.ph78:                                         ; preds = %23, %.loopexit
   %.06476 = phi i32 [ %.1.lcssa, %.loopexit ], [ %25, %23 ]
@@ -8983,7 +8983,7 @@ define internal fastcc void @dissect_IandM0FilterData_block(ptr noundef %0, i32 
   %65 = add i16 %64, -1
   store i16 %65, ptr %14, align 2
   %.not66 = icmp eq i16 %64, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not66, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph73
   %.2.lcssa = phi i32 [ %45, %.lr.ph73 ], [ %60, %.lr.ph ]
@@ -8993,7 +8993,7 @@ define internal fastcc void @dissect_IandM0FilterData_block(ptr noundef %0, i32 
   %68 = add i16 %67, -1
   store i16 %68, ptr %11, align 2
   %.not65 = icmp eq i16 %67, 0
-  br i1 %.not65, label %.loopexit, label %.lr.ph73, !llvm.loop !42
+  br i1 %.not65, label %.loopexit, label %.lr.ph73, !llvm.loop !40
 
 .loopexit67:                                      ; preds = %.loopexit, %23, %19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #11
@@ -9111,7 +9111,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph, %31
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #11
   %32 = load i16, ptr %12, align 2
   %.not.i = icmp eq i16 %32, 0
-  br i1 %.not.i, label %dissect_AssetManagementInfo.exit, label %.lr.ph, !llvm.loop !43
+  br i1 %.not.i, label %dissect_AssetManagementInfo.exit, label %.lr.ph, !llvm.loop !41
 
 dissect_AssetManagementInfo.exit:                 ; preds = %dissect_a_block.exit, %19
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #11
@@ -9645,7 +9645,7 @@ decode_ARType_spezial.exit162:                    ; preds = %160, %160, %180, %1
   %209 = getelementptr inbounds nuw i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %209, align 8
   %.not.i163 = icmp eq ptr %.08.i, null
-  br i1 %.not.i163, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i163, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %207, %208
   %.083.i = phi ptr [ %.08.i, %208 ], [ %.081.i, %207 ]
@@ -10020,7 +10020,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
 209:                                              ; preds = %.lr.ph, %204
   %210 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0264302)
   %cond = icmp eq ptr %210, null
-  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %209, %186
   call void @wmem_list_append(ptr noundef %.0262, ptr noundef %188)
@@ -10028,7 +10028,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
 
 .loopexit300:                                     ; preds = %204, %._crit_edge, %162
   %.not293 = icmp eq i16 %163, 0
-  br i1 %.not293, label %._crit_edge307, label %162, !llvm.loop !45
+  br i1 %.not293, label %._crit_edge307, label %162, !llvm.loop !43
 
 ._crit_edge307:                                   ; preds = %.loopexit300, %159
   %.1268.lcssa = phi i32 [ %129, %159 ], [ %173, %.loopexit300 ]
@@ -10108,7 +10108,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
 257:                                              ; preds = %.lr.ph311, %252
   %258 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.1265309)
   %cond299 = icmp eq ptr %258, null
-  br i1 %cond299, label %._crit_edge312, label %.lr.ph311, !llvm.loop !46
+  br i1 %cond299, label %._crit_edge312, label %.lr.ph311, !llvm.loop !44
 
 ._crit_edge312:                                   ; preds = %257, %244
   %259 = call ptr @wmem_file_scope()
@@ -10126,7 +10126,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
 
 .loopexit:                                        ; preds = %252, %._crit_edge312, %220
   %.not295 = icmp eq i16 %221, 0
-  br i1 %.not295, label %._crit_edge317.loopexit, label %220, !llvm.loop !47
+  br i1 %.not295, label %._crit_edge317.loopexit, label %220, !llvm.loop !45
 
 ._crit_edge317.loopexit:                          ; preds = %.loopexit
   %.pre = load i16, ptr %30, align 2
@@ -10146,7 +10146,7 @@ define internal fastcc void @dissect_IOCRBlockReq_block(ptr noundef %0, i32 noun
   %273 = add i16 %272, -1
   store i16 %273, ptr %24, align 2
   %.not = icmp eq i16 %272, 0
-  br i1 %.not, label %._crit_edge327, label %121, !llvm.loop !48
+  br i1 %.not, label %._crit_edge327, label %121, !llvm.loop !46
 
 ._crit_edge327:                                   ; preds = %._crit_edge317
   %274 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -10781,7 +10781,7 @@ resolve_pa_profile_submodule_name.exit:           ; preds = %.lr.ph, %230, %224,
   br i1 %.not209, label %267, label %263
 
 263:                                              ; preds = %250
-  %264 = load i8, ptr %262, align 4, !range !10, !noundef !11
+  %264 = load i8, ptr %262, align 4, !range !9, !noundef !10
   store i8 %264, ptr %21, align 8
   %265 = getelementptr inbounds nuw i8, ptr %262, i64 4
   %266 = load i32, ptr %265, align 4
@@ -10820,7 +10820,7 @@ resolve_pa_profile_submodule_name.exit:           ; preds = %.lr.ph, %230, %224,
   %288 = add i16 %287, -1
   store i16 %288, ptr %14, align 2
   %.not206 = icmp eq i16 %287, 0
-  br i1 %.not206, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %.not206, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %280, %91
   %289 = phi ptr [ %92, %91 ], [ %268, %280 ]
@@ -10837,7 +10837,7 @@ resolve_pa_profile_submodule_name.exit:           ; preds = %.lr.ph, %230, %224,
   %298 = add i16 %297, -1
   store i16 %298, ptr %9, align 2
   %.not205 = icmp eq i16 %297, 0
-  br i1 %.not205, label %.loopexit, label %91, !llvm.loop !50
+  br i1 %.not205, label %.loopexit, label %91, !llvm.loop !48
 
 .loopexit:                                        ; preds = %._crit_edge, %79, %28
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17) #11
@@ -10958,7 +10958,7 @@ define internal fastcc void @dissect_SubFrameBlock_block(ptr noundef %0, i32 nou
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %28, ptr noundef nonnull @.str.1623, i32 noundef %41, i32 noundef %42)
   %43 = add i16 %.054, -4
   %.not = icmp eq i16 %43, 0
-  br i1 %.not, label %44, label %26, !llvm.loop !51
+  br i1 %.not, label %44, label %26, !llvm.loop !49
 
 44:                                               ; preds = %26
   %45 = load i16, ptr %10, align 2
@@ -11116,7 +11116,7 @@ define internal fastcc void @dissect_IRInfoBlock_block(ptr noundef %0, i32 nound
   %36 = add i16 %35, -1
   store i16 %36, ptr %9, align 2
   %.not = icmp eq i16 %35, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #11
@@ -11241,7 +11241,7 @@ define internal fastcc void @dissect_ControlPlugOrConnect_block(ptr noundef %0, 
   %27 = getelementptr inbounds nuw i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %21, %26
   %.083.i = phi ptr [ %.08.i, %26 ], [ %.081.i, %21 ]
@@ -11403,7 +11403,7 @@ pnio_ar_find_by_aruuid.exit:                      ; preds = %26, %.lr.ph.i, %21
 113:                                              ; preds = %105, %110
   %114 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0139)
   %.not137 = icmp eq ptr %114, null
-  br i1 %.not137, label %.loopexit, label %105, !llvm.loop !53
+  br i1 %.not137, label %.loopexit, label %105, !llvm.loop !51
 
 .loopexit:                                        ; preds = %113, %102, %100, %90, %87
   %115 = load i16, ptr %14, align 2
@@ -11476,7 +11476,7 @@ define internal fastcc void @dissect_ControlBlockPrmBegin(ptr noundef %0, i32 no
   %40 = getelementptr inbounds nuw i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %38, %39
   %.083.i = phi ptr [ %.08.i, %39 ], [ %.081.i, %38 ]
@@ -11564,7 +11564,7 @@ define internal fastcc void @dissect_SubmoduleListBlock(ptr noundef %0, i32 noun
   %31 = add i16 %30, -1
   store i16 %31, ptr %9, align 2
   %.not = icmp eq i16 %30, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %15
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #11
@@ -12113,7 +12113,7 @@ define internal fastcc void @dissect_PDIRGlobalData_block(ptr noundef %0, i32 no
   %41 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %15)
   %42 = add i32 %33, -1
   %.not.us = icmp eq i32 %33, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !55
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !53
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %43 = phi i32 [ %48, %.lr.ph.split ], [ %31, %.lr.ph ]
@@ -12124,7 +12124,7 @@ define internal fastcc void @dissect_PDIRGlobalData_block(ptr noundef %0, i32 no
   %47 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %46, ptr noundef nonnull %13)
   %48 = add i32 %43, -1
   %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %22
   %49 = load i32, ptr %10, align 4
@@ -12288,7 +12288,7 @@ define internal fastcc void @dissect_PDIRFrameData_block(ptr noundef %0, i32 nou
   %109 = add i32 %.2184, 1
   %110 = add nsw i16 %.0176183, -1
   %.not180 = icmp eq i16 %110, 0
-  br i1 %.not180, label %._crit_edge, label %.lr.ph, !llvm.loop !58
+  br i1 %.not180, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %87
   %.2.lcssa = phi i32 [ %82, %87 ], [ %109, %.lr.ph ]
@@ -12304,7 +12304,7 @@ define internal fastcc void @dissect_PDIRFrameData_block(ptr noundef %0, i32 nou
   %120 = zext i16 %119 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef nonnull @.str.1644, i32 noundef %112, i32 noundef %114, i32 noundef %116, i32 noundef %118, i32 noundef %120)
   %121 = icmp slt i32 %111, %47
-  br i1 %121, label %.lr.ph188, label %._crit_edge189.loopexit, !llvm.loop !59
+  br i1 %121, label %.lr.ph188, label %._crit_edge189.loopexit, !llvm.loop !57
 
 ._crit_edge189.loopexit:                          ; preds = %._crit_edge
   %122 = zext i16 %49 to i32
@@ -12444,7 +12444,7 @@ define internal fastcc void @dissect_PDIRBeginEndData_block(ptr noundef %0, i32 
   store i32 %73, ptr %74, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not149 = icmp eq i32 %50, 0
-  br i1 %.not149, label %.loopexit152, label %.lr.ph, !llvm.loop !60
+  br i1 %.not149, label %.loopexit152, label %.lr.ph, !llvm.loop !58
 
 .loopexit152:                                     ; preds = %.lr.ph, %.lr.ph164
   %.1 = phi i32 [ %47, %.lr.ph164 ], [ %72, %.lr.ph ]
@@ -12518,7 +12518,7 @@ define internal fastcc void @dissect_PDIRBeginEndData_block(ptr noundef %0, i32 
   %135 = load i32, ptr %134, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %109, ptr noundef nonnull @.str.1646, i32 noundef %121, i32 noundef %125, i32 noundef %130, i32 noundef %135)
   %.not150 = icmp eq i32 %79, 0
-  br i1 %.not150, label %.loopexit.loopexit, label %.lr.ph160, !llvm.loop !61
+  br i1 %.not150, label %.loopexit.loopexit, label %.lr.ph160, !llvm.loop !59
 
 .loopexit.loopexit:                               ; preds = %.lr.ph160
   %.pre = load i32, ptr %14, align 4
@@ -12532,7 +12532,7 @@ define internal fastcc void @dissect_PDIRBeginEndData_block(ptr noundef %0, i32 
   %138 = sub i32 %.3, %.0142163
   call void @proto_item_set_len(ptr noundef %43, i32 noundef %138)
   %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph164, !llvm.loop !62
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph164, !llvm.loop !60
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre170 = load i32, ptr %12, align 4
@@ -12677,7 +12677,7 @@ define internal fastcc void @dissect_CheckPeers_block(ptr noundef %0, i32 nounde
   %39 = zext i8 %38 to i32
   %40 = add i32 %33, %39
   %.not = icmp eq i8 %22, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !63
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !61
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i8, ptr %9, align 1
@@ -12925,7 +12925,7 @@ define internal fastcc void @dissect_PDPortDataReal_block(ptr noundef %0, i32 no
   %93 = load ptr, ptr %19, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %56, ptr noundef nonnull @.str.1655, ptr noundef %92, ptr noundef %93)
   %.not = icmp eq i8 %54, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph, %33
   %.0126.lcssa = phi i32 [ %52, %33 ], [ %91, %.lr.ph ]
@@ -13091,7 +13091,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph78, %50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #11
   %51 = icmp sgt i32 %21, %48
-  br i1 %51, label %.lr.ph78, label %.loopexit, !llvm.loop !65
+  br i1 %51, label %.lr.ph78, label %.loopexit, !llvm.loop !63
 
 52:                                               ; preds = %28
   %53 = tail call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
@@ -13134,7 +13134,7 @@ dissect_a_block.exit73:                           ; preds = %.lr.ph, %63
   %65 = add i8 %64, -1
   store i8 %65, ptr %19, align 1
   %.not = icmp eq i8 %65, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !66
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !64
 
 .loopexit:                                        ; preds = %dissect_a_block.exit73, %dissect_a_block.exit, %.preheader, %30, %58, %24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #11
@@ -13239,7 +13239,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph86, %60
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #11
   %61 = icmp sgt i32 %22, %58
-  br i1 %61, label %.lr.ph86, label %.loopexit, !llvm.loop !67
+  br i1 %61, label %.lr.ph86, label %.loopexit, !llvm.loop !65
 
 62:                                               ; preds = %29
   %63 = tail call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
@@ -13282,7 +13282,7 @@ dissect_a_block.exit81:                           ; preds = %.lr.ph, %73
   %75 = add i8 %74, -1
   store i8 %75, ptr %20, align 1
   %.not = icmp eq i8 %75, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !66
 
 .loopexit:                                        ; preds = %dissect_a_block.exit81, %dissect_a_block.exit, %.preheader, %55, %68, %25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #11
@@ -13376,7 +13376,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph, %48
   %50 = add i8 %49, -1
   store i8 %50, ptr %14, align 1
   %.not = icmp eq i8 %50, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !69
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !67
 
 .loopexit:                                        ; preds = %dissect_a_block.exit, %.preheader, %23, %43, %17
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14) #11
@@ -14176,7 +14176,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph, %26
   %28 = add i16 %27, -1
   store i16 %28, ptr %12, align 2
   %.not = icmp eq i16 %27, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !70
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
 
 .loopexit:                                        ; preds = %dissect_a_block.exit, %19, %15
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #11
@@ -14251,7 +14251,7 @@ define internal fastcc void @dissect_PDSubFrameBlock_block(ptr noundef %0, i32 n
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull @.str.1663, i32 noundef %59, i32 noundef %59, i32 noundef %57)
   %60 = add i16 %.09193, -4
   %61 = icmp ugt i16 %60, 3
-  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !71
+  br i1 %61, label %.lr.ph, label %.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %15
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #11
@@ -14308,7 +14308,7 @@ define internal fastcc void @dissect_PDPortDataRealExtended_block(ptr noundef %0
   %36 = add i16 %35, 1
   store i16 %36, ptr %12, align 2
   %37 = icmp sgt i32 %16, %34
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !72
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.lr.ph, %23, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #11
@@ -14388,7 +14388,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph, %47
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #11
   %48 = icmp sgt i32 %18, %45
-  br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !73
+  br i1 %48, label %.lr.ph, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %dissect_a_block.exit, %25, %21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #11
@@ -14470,7 +14470,7 @@ dissect_a_block.exit:                             ; preds = %.lr.ph, %49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #11
   %50 = icmp sgt i32 %19, %47
-  br i1 %50, label %.lr.ph, label %.loopexit, !llvm.loop !74
+  br i1 %50, label %.lr.ph, label %.loopexit, !llvm.loop !72
 
 .loopexit:                                        ; preds = %dissect_a_block.exit, %26, %22
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #11
@@ -14877,7 +14877,7 @@ define internal fastcc void @dissect_Neighbors_block(ptr noundef %0, i32 noundef
   %75 = load ptr, ptr %13, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef nonnull @.str.1655, ptr noundef %74, ptr noundef %75)
   %.not = icmp eq i8 %33, 0
-  br i1 %.not, label %.loopexit, label %32, !llvm.loop !75
+  br i1 %.not, label %.loopexit, label %32, !llvm.loop !73
 
 .loopexit:                                        ; preds = %32, %25, %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #11
@@ -15016,7 +15016,7 @@ dissect_a_block.exit120:                          ; preds = %.lr.ph, %79
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #11
   %80 = load i16, ptr %18, align 2
   %.not = icmp eq i16 %80, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %dissect_a_block.exit120, %dissect_a_block.exit
   %.0118.lcssa = phi i32 [ %73, %dissect_a_block.exit ], [ %77, %dissect_a_block.exit120 ]
@@ -15178,7 +15178,7 @@ dissect_a_block.exit103:                          ; preds = %.lr.ph, %77
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #11
   %78 = load i16, ptr %18, align 2
   %.not = icmp eq i16 %78, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %dissect_a_block.exit103, %dissect_a_block.exit
   %.0101.lcssa = phi i32 [ %71, %dissect_a_block.exit ], [ %75, %dissect_a_block.exit103 ]
@@ -15319,7 +15319,7 @@ dissect_a_block.exit67:                           ; preds = %dissect_a_block.exi
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #11
   %58 = load i16, ptr %18, align 2
   %.not = icmp eq i16 %58, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !78
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !76
 
 .loopexit:                                        ; preds = %dissect_a_block.exit67, %28, %24
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #11
@@ -15382,7 +15382,7 @@ define internal fastcc void @dissect_TSNDomainQueueConfig_block(ptr noundef %0, 
   %41 = call i32 @dissect_dcerpc_uint64(ptr noundef %0, i32 noundef %.04951, ptr noundef %2, ptr noundef %29, ptr noundef nonnull %11, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %10)
   %42 = load i16, ptr %9, align 2
   %.not = icmp eq i16 %42, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !79
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !77
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %16
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %12) #11
@@ -15527,7 +15527,7 @@ define internal fastcc void @dissect_TSNStreamPathDataReal_block(ptr noundef %0,
   %47 = call i32 @dissect_dcerpc_uint16(ptr noundef %0, i32 noundef %45, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %46, ptr noundef nonnull %15)
   %48 = load i16, ptr %11, align 2
   %.not = icmp eq i16 %48, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !80
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !78
 
 .loopexit:                                        ; preds = %.lr.ph, %29, %18
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #11
@@ -15589,7 +15589,7 @@ define internal fastcc void @dissect_TSNSyncTreeData_block(ptr noundef %0, i32 n
   %38 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %37, ptr noundef %2, ptr noundef %3, i32 noundef 1)
   %39 = load i16, ptr %9, align 2
   %.not = icmp eq i16 %39, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !81
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !79
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #11
@@ -15727,7 +15727,7 @@ define internal fastcc void @dissect_TSNForwardingDelay_block(ptr noundef %0, i3
   %34 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %32, ptr noundef %2, ptr noundef %3, ptr noundef %5, i32 noundef %33, ptr noundef nonnull %14)
   %35 = load i16, ptr %11, align 2
   %.not42 = icmp eq i16 %35, 0
-  br i1 %.not42, label %.loopexit, label %.lr.ph, !llvm.loop !82
+  br i1 %.not42, label %.loopexit, label %.lr.ph, !llvm.loop !80
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #11
@@ -15872,7 +15872,7 @@ define internal fastcc void @dissect_TSNDomainPortIngressRateLimiter_block(ptr n
   %37 = call i32 @dissect_dcerpc_uint64(ptr noundef %0, i32 noundef %.03941, ptr noundef %2, ptr noundef %29, ptr noundef nonnull %11, ptr noundef %5, i32 noundef %36, ptr noundef nonnull %10)
   %38 = load i16, ptr %9, align 2
   %.not = icmp eq i16 %38, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !83
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %16
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %12) #11
@@ -15935,7 +15935,7 @@ define internal fastcc void @dissect_TSNDomainQueueRateLimiter_block(ptr noundef
   %41 = call i32 @dissect_dcerpc_uint64(ptr noundef %0, i32 noundef %.04951, ptr noundef %2, ptr noundef %29, ptr noundef nonnull %11, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %10)
   %42 = load i16, ptr %9, align 2
   %.not = icmp eq i16 %42, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !84
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !82
 
 .loopexit:                                        ; preds = %.lr.ph, %20, %16
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %12) #11
@@ -16009,7 +16009,7 @@ define internal fastcc void @dissect_TSNPortID_block(ptr noundef %0, i32 noundef
   %47 = call i32 @dissect_pn_padding(ptr noundef %0, i32 noundef %46, ptr noundef %2, ptr noundef %3, i32 noundef 1)
   %48 = load i16, ptr %12, align 2
   %.not71 = icmp eq i16 %48, 0
-  br i1 %.not71, label %.loopexit, label %.lr.ph, !llvm.loop !85
+  br i1 %.not71, label %.loopexit, label %.lr.ph, !llvm.loop !83
 
 .loopexit:                                        ; preds = %.lr.ph, %21, %17
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16) #11
@@ -16062,7 +16062,7 @@ define internal fastcc void @dissect_TSNExpectedNeighbor_block(ptr noundef %0, i
   %.1.lcssa = phi i32 [ %34, %.lr.ph74 ], [ %64, %.lr.ph ]
   %25 = load i16, ptr %13, align 2
   %.not65 = icmp eq i16 %25, 0
-  br i1 %.not65, label %.loopexit68, label %.lr.ph74, !llvm.loop !86
+  br i1 %.not65, label %.loopexit68, label %.lr.ph74, !llvm.loop !84
 
 .lr.ph74:                                         ; preds = %21, %.loopexit
   %26 = phi i16 [ %25, %.loopexit ], [ %24, %21 ]
@@ -16118,7 +16118,7 @@ define internal fastcc void @dissect_TSNExpectedNeighbor_block(ptr noundef %0, i
   %64 = call i32 @dissect_dcerpc_uint32(ptr noundef %0, i32 noundef %55, ptr noundef %2, ptr noundef %59, ptr noundef %5, i32 noundef %63, ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
   %.not66 = icmp eq i8 %36, 0
-  br i1 %.not66, label %.loopexit, label %.lr.ph, !llvm.loop !87
+  br i1 %.not66, label %.loopexit, label %.lr.ph, !llvm.loop !85
 
 .loopexit68:                                      ; preds = %.loopexit, %21, %17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #11
@@ -16730,7 +16730,7 @@ define internal fastcc void @dissect_PE_ServiceRequest_block(ptr noundef %0, i32
   %82 = add i8 %81, -1
   store i8 %82, ptr %16, align 1
   %.not156.us = icmp eq i8 %81, 0
-  br i1 %.not156.us, label %.thread160, label %.lr.ph168.split.us, !llvm.loop !88
+  br i1 %.not156.us, label %.thread160, label %.lr.ph168.split.us, !llvm.loop !86
 
 .lr.ph168.split:                                  ; preds = %.lr.ph168, %.lr.ph168.split
   %.2167 = phi i32 [ %84, %.lr.ph168.split ], [ %73, %.lr.ph168 ]
@@ -16740,7 +16740,7 @@ define internal fastcc void @dissect_PE_ServiceRequest_block(ptr noundef %0, i32
   %86 = add i8 %85, -1
   store i8 %86, ptr %16, align 1
   %.not156 = icmp eq i8 %85, 0
-  br i1 %.not156, label %.thread160, label %.lr.ph168.split, !llvm.loop !89
+  br i1 %.not156, label %.thread160, label %.lr.ph168.split, !llvm.loop !87
 
 87:                                               ; preds = %47, %47, %47, %47
   %88 = call ptr @val_to_str_const(i32 noundef %44, ptr noundef nonnull @pn_io_pe_services_modifier_with_details, ptr noundef nonnull @.str.1400)
@@ -16815,7 +16815,7 @@ define internal fastcc void @dissect_PE_ServiceRequest_block(ptr noundef %0, i32
   %126 = add i8 %125, -1
   store i8 %126, ptr %16, align 1
   %.not155 = icmp eq i8 %125, 0
-  br i1 %.not155, label %.thread160, label %100, !llvm.loop !90
+  br i1 %.not155, label %.thread160, label %100, !llvm.loop !88
 
 127:                                              ; preds = %47
   %128 = load i32, ptr @hf_pn_io_pe_pause_time, align 4
@@ -17177,7 +17177,7 @@ switch.lookup:                                    ; preds = %93
   %137 = add i8 %136, -1
   store i8 %137, ptr %14, align 1
   %.not531 = icmp eq i8 %136, 0
-  br i1 %.not531, label %.loopexit, label %.lr.ph552, !llvm.loop !91
+  br i1 %.not531, label %.loopexit, label %.lr.ph552, !llvm.loop !89
 
 138:                                              ; preds = %127
   %139 = load i32, ptr @hf_pn_io_pe_mode_id, align 4
@@ -17384,7 +17384,7 @@ switch.lookup:                                    ; preds = %93
   %221 = add i8 %220, -1
   store i8 %221, ptr %14, align 1
   %.not530 = icmp eq i8 %220, 0
-  br i1 %.not530, label %.loopexit, label %.lr.ph548, !llvm.loop !92
+  br i1 %.not530, label %.loopexit, label %.lr.ph548, !llvm.loop !90
 
 222:                                              ; preds = %105
   %223 = load i32, ptr @hf_pn_io_pe_version_major, align 4
@@ -17488,7 +17488,7 @@ switch.lookup:                                    ; preds = %93
   %295 = add i8 %294, -1
   store i8 %295, ptr %14, align 1
   %.not529 = icmp eq i8 %294, 0
-  br i1 %.not529, label %.loopexit, label %.lr.ph540, !llvm.loop !93
+  br i1 %.not529, label %.loopexit, label %.lr.ph540, !llvm.loop !91
 
 296:                                              ; preds = %264
   %297 = and i8 %265, -3
@@ -17594,7 +17594,7 @@ switch.lookup:                                    ; preds = %93
   %353 = add i8 %352, -1
   store i8 %353, ptr %14, align 1
   %.not527 = icmp eq i8 %352, 0
-  br i1 %.not527, label %.loopexit, label %305, !llvm.loop !94
+  br i1 %.not527, label %.loopexit, label %305, !llvm.loop !92
 
 354:                                              ; preds = %105
   %355 = load i32, ptr @hf_pn_io_pe_data_count, align 4
@@ -17620,7 +17620,7 @@ switch.lookup:                                    ; preds = %93
   %369 = add i8 %368, -1
   store i8 %369, ptr %14, align 1
   %.not = icmp eq i8 %368, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !95
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !93
 
 370:                                              ; preds = %105
   %371 = load i32, ptr @hf_pn_io_pe_regular_time_to_operate, align 4
@@ -17950,7 +17950,7 @@ define internal fastcc void @dissect_PE_EntityFilterData_block(ptr noundef %0, i
   %77 = add i16 %76, -1
   store i16 %77, ptr %14, align 2
   %.not82 = icmp eq i16 %76, 0
-  br i1 %.not82, label %._crit_edge, label %.lr.ph, !llvm.loop !96
+  br i1 %.not82, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph88
   %.2.lcssa = phi i32 [ %54, %.lr.ph88 ], [ %71, %.lr.ph ]
@@ -17960,7 +17960,7 @@ define internal fastcc void @dissect_PE_EntityFilterData_block(ptr noundef %0, i
   %80 = add i16 %79, -1
   store i16 %80, ptr %11, align 2
   %.not81 = icmp eq i16 %79, 0
-  br i1 %.not81, label %._crit_edge89, label %.lr.ph88, !llvm.loop !97
+  br i1 %.not81, label %._crit_edge89, label %.lr.ph88, !llvm.loop !95
 
 ._crit_edge89:                                    ; preds = %._crit_edge, %.lr.ph94
   %.1.lcssa = phi i32 [ %37, %.lr.ph94 ], [ %.2.lcssa, %._crit_edge ]
@@ -17970,7 +17970,7 @@ define internal fastcc void @dissect_PE_EntityFilterData_block(ptr noundef %0, i
   %83 = add i16 %82, -1
   store i16 %83, ptr %9, align 2
   %.not = icmp eq i16 %82, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph94, !llvm.loop !98
+  br i1 %.not, label %.loopexit, label %.lr.ph94, !llvm.loop !96
 
 .loopexit:                                        ; preds = %._crit_edge89, %23, %19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #11
@@ -18090,7 +18090,7 @@ define internal fastcc void @dissect_PE_EntityStatusData_block(ptr noundef %0, i
   %73 = add i16 %72, -1
   store i16 %73, ptr %13, align 2
   %.not81 = icmp eq i16 %72, 0
-  br i1 %.not81, label %._crit_edge, label %.lr.ph, !llvm.loop !99
+  br i1 %.not81, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph87
   %.2.lcssa = phi i32 [ %51, %.lr.ph87 ], [ %70, %.lr.ph ]
@@ -18100,7 +18100,7 @@ define internal fastcc void @dissect_PE_EntityStatusData_block(ptr noundef %0, i
   %76 = add i16 %75, -1
   store i16 %76, ptr %11, align 2
   %.not80 = icmp eq i16 %75, 0
-  br i1 %.not80, label %._crit_edge88, label %.lr.ph87, !llvm.loop !100
+  br i1 %.not80, label %._crit_edge88, label %.lr.ph87, !llvm.loop !98
 
 ._crit_edge88:                                    ; preds = %._crit_edge, %.lr.ph93
   %.1.lcssa = phi i32 [ %36, %.lr.ph93 ], [ %.2.lcssa, %._crit_edge ]
@@ -18110,7 +18110,7 @@ define internal fastcc void @dissect_PE_EntityStatusData_block(ptr noundef %0, i
   %79 = add i16 %78, -1
   store i16 %79, ptr %9, align 2
   %.not = icmp eq i16 %78, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph93, !llvm.loop !101
+  br i1 %.not, label %.loopexit, label %.lr.ph93, !llvm.loop !99
 
 .loopexit:                                        ; preds = %._crit_edge88, %22, %18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #11
@@ -18207,7 +18207,7 @@ dissect_RS_AdjustBlock.exit.i:                    ; preds = %51, %37
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #11
   %54 = load i16, ptr %15, align 2
   %.not.i = icmp eq i16 %54, 0
-  br i1 %.not.i, label %dissect_RS_AdjustInfo.exit, label %.lr.ph.i, !llvm.loop !102
+  br i1 %.not.i, label %dissect_RS_AdjustInfo.exit, label %.lr.ph.i, !llvm.loop !100
 
 dissect_RS_AdjustInfo.exit:                       ; preds = %dissect_RS_AdjustBlock.exit.i, %22
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #11
@@ -18399,7 +18399,7 @@ define internal fastcc void @dissect_IODWriteResHeader_block(ptr noundef %0, i32
   %24 = getelementptr inbounds nuw i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %21, %23
   %.083.i = phi ptr [ %.08.i, %23 ], [ %.081.i, %21 ]
@@ -18488,7 +18488,7 @@ define internal fastcc void @dissect_IODReadResHeader_block(ptr noundef %0, i32 
   %24 = getelementptr inbounds nuw i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit, label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %21, %23
   %.083.i = phi ptr [ %.08.i, %23 ], [ %.081.i, %21 ]
@@ -18615,7 +18615,7 @@ define internal fastcc void @dissect_ARBlockRes_block(ptr noundef %0, i32 nounde
   %69 = getelementptr inbounds nuw i8, ptr %.083.i, i64 8
   %.08.i = load ptr, ptr %69, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %pnio_ar_find_by_aruuid.exit.thread, label %.lr.ph.i, !llvm.loop !23
 
 .lr.ph.i:                                         ; preds = %37, %68
   %.083.i = phi ptr [ %.08.i, %68 ], [ %.081.i, %37 ]
@@ -19010,7 +19010,7 @@ define internal fastcc void @dissect_ModuleDiffBlock_block(ptr noundef %0, i32 n
 97:                                               ; preds = %.lr.ph
   %98 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0165179)
   %cond = icmp eq ptr %98, null
-  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !103
+  br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %97, %89
   %99 = call ptr @wmem_file_scope()
@@ -19086,7 +19086,7 @@ define internal fastcc void @dissect_ModuleDiffBlock_block(ptr noundef %0, i32 n
   %147 = add i16 %146, -1
   store i16 %147, ptr %15, align 2
   %.not175 = icmp eq i16 %146, 0
-  br i1 %.not175, label %._crit_edge184, label %.lr.ph183, !llvm.loop !104
+  br i1 %.not175, label %._crit_edge184, label %.lr.ph183, !llvm.loop !102
 
 ._crit_edge184:                                   ; preds = %137, %.loopexit
   %.2163.lcssa = phi i32 [ %63, %.loopexit ], [ %139, %137 ]
@@ -19096,7 +19096,7 @@ define internal fastcc void @dissect_ModuleDiffBlock_block(ptr noundef %0, i32 n
   %150 = add i16 %149, -1
   store i16 %150, ptr %11, align 2
   %.not170 = icmp eq i16 %149, 0
-  br i1 %.not170, label %._crit_edge190, label %.lr.ph189, !llvm.loop !105
+  br i1 %.not170, label %._crit_edge190, label %.lr.ph189, !llvm.loop !103
 
 ._crit_edge190:                                   ; preds = %._crit_edge184, %36
   %.1162.lcssa = phi i32 [ %44, %36 ], [ %.2163.lcssa, %._crit_edge184 ]
@@ -19107,7 +19107,7 @@ define internal fastcc void @dissect_ModuleDiffBlock_block(ptr noundef %0, i32 n
   %153 = add i16 %152, -1
   store i16 %153, ptr %9, align 2
   %.not = icmp eq i16 %152, 0
-  br i1 %.not, label %.loopexit177, label %36, !llvm.loop !106
+  br i1 %.not, label %.loopexit177, label %36, !llvm.loop !104
 
 .loopexit177:                                     ; preds = %._crit_edge190, %25, %21
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18) #11
@@ -19749,7 +19749,7 @@ dissect_RS_EventDataExtension_Data.exit.i.i.i:    ; preds = %174, %138, %123, %1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #11
   %.not.i.i.i = icmp eq i8 %188, 0
-  br i1 %.not.i.i.i, label %dissect_RS_EventDataExtension.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !107
+  br i1 %.not.i.i.i, label %dissect_RS_EventDataExtension.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !105
 
 dissect_RS_EventDataExtension.exit.i.i:           ; preds = %dissect_RS_EventDataExtension_Data.exit.i.i.i, %dissect_RS_EventDataExtension_Data.exit.thread.i.i.i, %.lr.ph.i.i
   %189 = phi i16 [ %100, %.lr.ph.i.i ], [ %105, %dissect_RS_EventDataExtension_Data.exit.thread.i.i.i ], [ %105, %dissect_RS_EventDataExtension_Data.exit.i.i.i ]
@@ -19757,7 +19757,7 @@ dissect_RS_EventDataExtension.exit.i.i:           ; preds = %dissect_RS_EventDat
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18) #11
   %.not.i.i = icmp eq i16 %189, 0
-  br i1 %.not.i.i, label %dissect_RS_EventBlock.exit, label %.lr.ph.i.i, !llvm.loop !108
+  br i1 %.not.i.i, label %dissect_RS_EventBlock.exit, label %.lr.ph.i.i, !llvm.loop !106
 
 dissect_RS_EventBlock.exit:                       ; preds = %dissect_RS_EventDataExtension.exit.i.i, %45
   %.0.lcssa.i.i = phi i32 [ %90, %45 ], [ %.0.lcssa.i.i.i, %dissect_RS_EventDataExtension.exit.i.i ]
@@ -19765,7 +19765,7 @@ dissect_RS_EventBlock.exit:                       ; preds = %dissect_RS_EventDat
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %32) #11
   %190 = load i16, ptr %34, align 2
   %.not = icmp eq i16 %190, 0
-  br i1 %.not, label %._crit_edge, label %45, !llvm.loop !109
+  br i1 %.not, label %._crit_edge, label %45, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %dissect_RS_EventBlock.exit, %5
   %.0.lcssa = phi i32 [ %40, %5 ], [ %.0.lcssa.i.i, %dissect_RS_EventBlock.exit ]
@@ -20415,11 +20415,11 @@ define internal fastcc i32 @dissect_DataDescription(ptr noundef %0, i32 noundef 
   %85 = getelementptr inbounds nuw i8, ptr %60, i64 96
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %87 = load i8, ptr %86, align 8, !range !10, !noundef !11
+  %87 = load i8, ptr %86, align 8, !range !9, !noundef !10
   %88 = getelementptr inbounds nuw i8, ptr %60, i64 88
   store i8 %87, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 89
-  %90 = load i8, ptr %89, align 1, !range !10, !noundef !11
+  %90 = load i8, ptr %89, align 1, !range !9, !noundef !10
   %91 = getelementptr inbounds nuw i8, ptr %60, i64 89
   store i8 %90, ptr %91, align 1
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -20435,7 +20435,7 @@ define internal fastcc i32 @dissect_DataDescription(ptr noundef %0, i32 noundef 
 98:                                               ; preds = %59, %64
   %99 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.07382)
   %.not80 = icmp eq ptr %99, null
-  br i1 %.not80, label %.loopexit, label %59, !llvm.loop !110
+  br i1 %.not80, label %.loopexit, label %59, !llvm.loop !108
 
 .loopexit:                                        ; preds = %98, %54, %52, %69, %6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #11
@@ -20808,7 +20808,7 @@ define internal fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %0, pt
 
 163:                                              ; preds = %158
   %164 = getelementptr inbounds nuw i8, ptr %159, i64 88
-  %165 = load i8, ptr %164, align 8, !range !10, !noundef !11
+  %165 = load i8, ptr %164, align 8, !range !9, !noundef !10
   %166 = trunc nuw i8 %165 to i1
   br i1 %166, label %167, label %181
 
@@ -20843,7 +20843,7 @@ define internal fastcc i32 @dissect_ProfiSafeParameterRequest(ptr noundef %0, pt
 181:                                              ; preds = %158, %163, %167
   %182 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0141164)
   %.not156 = icmp eq ptr %182, null
-  br i1 %.not156, label %.loopexit, label %158, !llvm.loop !111
+  br i1 %.not156, label %.loopexit, label %158, !llvm.loop !109
 
 .loopexit:                                        ; preds = %181, %.loopexit.sink.split, %153, %137, %171, %117
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20) #11
@@ -21193,7 +21193,7 @@ define internal i32 @dissect_IPNIO_Read_resp(ptr noundef %0, i32 noundef %1, ptr
   %84 = add i8 %83, -1
   store i8 %84, ptr %14, align 1
   %.not136.i.i = icmp eq i8 %83, 0
-  br i1 %.not136.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !112
+  br i1 %.not136.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !110
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph149.i.i
   %.2.lcssa.i.i = phi i32 [ %73, %.lr.ph149.i.i ], [ %82, %.lr.ph.i.i ]
@@ -21202,7 +21202,7 @@ define internal i32 @dissect_IPNIO_Read_resp(ptr noundef %0, i32 noundef %1, ptr
   %85 = load i8, ptr %12, align 1
   %86 = zext i8 %85 to i32
   %87 = icmp samesign ult i32 %69, %86
-  br i1 %87, label %.lr.ph149.i.i, label %thread-pre-split.loopexit.i.i, !llvm.loop !113
+  br i1 %87, label %.lr.ph149.i.i, label %thread-pre-split.loopexit.i.i, !llvm.loop !111
 
 thread-pre-split.loopexit.i.i:                    ; preds = %._crit_edge.i.i
   %.pr.pre.i.i = load i8, ptr %10, align 1
@@ -21295,7 +21295,7 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.lo
   %128 = add i8 %127, -1
   store i8 %128, ptr %16, align 1
   %.not135.i.i = icmp eq i8 %128, 0
-  br i1 %.not135.i.i, label %.loopexit139.i.i, label %.lr.ph158.i.i, !llvm.loop !114
+  br i1 %.not135.i.i, label %.loopexit139.i.i, label %.lr.ph158.i.i, !llvm.loop !112
 
 .lr.ph153.i.i:                                    ; preds = %.preheader140.i.i, %.lr.ph153.i.i
   %.8152.i.i = phi i32 [ %130, %.lr.ph153.i.i ], [ %101, %.preheader140.i.i ]
@@ -21305,7 +21305,7 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.lo
   %132 = add i8 %131, -1
   store i8 %132, ptr %16, align 1
   %.not134.i.i = icmp eq i8 %131, 0
-  br i1 %.not134.i.i, label %.loopexit139.i.i, label %.lr.ph153.i.i, !llvm.loop !115
+  br i1 %.not134.i.i, label %.loopexit139.i.i, label %.lr.ph153.i.i, !llvm.loop !113
 
 .loopexit139.i.i:                                 ; preds = %.lr.ph153.i.i, %126, %111, %.preheader140.i.i
   %.3127.i.i = phi i8 [ %spec.select.i.i, %111 ], [ %.1125160.i.i, %.preheader140.i.i ], [ %spec.select.i.i, %126 ], [ %.1125160.i.i, %.lr.ph153.i.i ]
@@ -21316,7 +21316,7 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.lo
   %133 = add i8 %.3127.i.i, 1
   %134 = load i8, ptr %12, align 1
   %135 = icmp ult i8 %133, %134
-  br i1 %135, label %.lr.ph162.i.i, label %.loopexit143.loopexit.i.i, !llvm.loop !116
+  br i1 %135, label %.lr.ph162.i.i, label %.loopexit143.loopexit.i.i, !llvm.loop !114
 
 .loopexit143.loopexit.i.i:                        ; preds = %.loopexit139.i.i
   %.pre181.i.i = load i8, ptr %10, align 1
@@ -21402,7 +21402,7 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.lo
   %174 = add i8 %173, -1
   store i8 %174, ptr %19, align 1
   %.not.i.i = icmp eq i8 %174, 0
-  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph167.i.i, !llvm.loop !117
+  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph167.i.i, !llvm.loop !115
 
 .loopexit.i.i:                                    ; preds = %172, %157, %.lr.ph171.i.i
   %.5129.i.i = phi i8 [ %.4128169.i.i, %.lr.ph171.i.i ], [ %spec.select137.i.i, %157 ], [ %spec.select137.i.i, %172 ]
@@ -21413,7 +21413,7 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.lo
   %175 = add i8 %.5129.i.i, 1
   %176 = load i8, ptr %12, align 1
   %177 = icmp ult i8 %175, %176
-  br i1 %177, label %.lr.ph171.i.i, label %dissect_ProfiDriveParameterResponse.exit.i, !llvm.loop !118
+  br i1 %177, label %.lr.ph171.i.i, label %dissect_ProfiDriveParameterResponse.exit.i, !llvm.loop !116
 
 dissect_ProfiDriveParameterResponse.exit.i:       ; preds = %.loopexit.i.i, %.loopexit143.i.i, %.preheader144.i.i
   %.9.i.i = phi i32 [ %.3.i.i, %.loopexit143.i.i ], [ %46, %.preheader144.i.i ], [ %.11.i.i, %.loopexit.i.i ]
@@ -21966,116 +21966,114 @@ attributes #12 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
-!33 = distinct !{!33, !7, !8}
-!34 = distinct !{!34, !7, !8}
-!35 = distinct !{!35, !7, !8}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = distinct !{!40, !7, !8}
-!41 = distinct !{!41, !7, !8}
-!42 = distinct !{!42, !7, !8}
-!43 = distinct !{!43, !7, !8}
-!44 = distinct !{!44, !7, !8}
-!45 = distinct !{!45, !7, !8}
-!46 = distinct !{!46, !7, !8}
-!47 = distinct !{!47, !7, !8}
-!48 = distinct !{!48, !7, !8}
-!49 = distinct !{!49, !7, !8}
-!50 = distinct !{!50, !7, !8}
-!51 = distinct !{!51, !7, !8}
-!52 = distinct !{!52, !7, !8}
-!53 = distinct !{!53, !7, !8}
-!54 = distinct !{!54, !7, !8}
-!55 = distinct !{!55, !7, !8, !56}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = distinct !{!57, !7, !8}
-!58 = distinct !{!58, !7, !8}
-!59 = distinct !{!59, !7, !8}
-!60 = distinct !{!60, !7, !8}
-!61 = distinct !{!61, !7, !8}
-!62 = distinct !{!62, !7, !8}
-!63 = distinct !{!63, !7, !8}
-!64 = distinct !{!64, !7, !8}
-!65 = distinct !{!65, !7, !8}
-!66 = distinct !{!66, !7, !8}
-!67 = distinct !{!67, !7, !8}
-!68 = distinct !{!68, !7, !8}
-!69 = distinct !{!69, !7, !8}
-!70 = distinct !{!70, !7, !8}
-!71 = distinct !{!71, !7, !8}
-!72 = distinct !{!72, !7, !8}
-!73 = distinct !{!73, !7, !8}
-!74 = distinct !{!74, !7, !8}
-!75 = distinct !{!75, !7, !8}
-!76 = distinct !{!76, !7, !8}
-!77 = distinct !{!77, !7, !8}
-!78 = distinct !{!78, !7, !8}
-!79 = distinct !{!79, !7, !8}
-!80 = distinct !{!80, !7, !8}
-!81 = distinct !{!81, !7, !8}
-!82 = distinct !{!82, !7, !8}
-!83 = distinct !{!83, !7, !8}
-!84 = distinct !{!84, !7, !8}
-!85 = distinct !{!85, !7, !8}
-!86 = distinct !{!86, !7, !8}
-!87 = distinct !{!87, !7, !8}
-!88 = distinct !{!88, !7, !8, !56}
-!89 = distinct !{!89, !7, !8}
-!90 = distinct !{!90, !7, !8}
-!91 = distinct !{!91, !7, !8}
-!92 = distinct !{!92, !7, !8}
-!93 = distinct !{!93, !7, !8}
-!94 = distinct !{!94, !7, !8}
-!95 = distinct !{!95, !7, !8}
-!96 = distinct !{!96, !7, !8}
-!97 = distinct !{!97, !7, !8}
-!98 = distinct !{!98, !7, !8}
-!99 = distinct !{!99, !7, !8}
-!100 = distinct !{!100, !7, !8}
-!101 = distinct !{!101, !7, !8}
-!102 = distinct !{!102, !7, !8}
-!103 = distinct !{!103, !7, !8}
-!104 = distinct !{!104, !7, !8}
-!105 = distinct !{!105, !7, !8}
-!106 = distinct !{!106, !7, !8}
-!107 = distinct !{!107, !7, !8}
-!108 = distinct !{!108, !7, !8}
-!109 = distinct !{!109, !7, !8}
-!110 = distinct !{!110, !7, !8}
-!111 = distinct !{!111, !7, !8}
-!112 = distinct !{!112, !7, !8}
-!113 = distinct !{!113, !7, !8}
-!114 = distinct !{!114, !7, !8}
-!115 = distinct !{!115, !7, !8}
-!116 = distinct !{!116, !7, !8}
-!117 = distinct !{!117, !7, !8}
-!118 = distinct !{!118, !7, !8}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}
+!31 = distinct !{!31, !7}
+!32 = distinct !{!32, !7}
+!33 = distinct !{!33, !7}
+!34 = distinct !{!34, !7}
+!35 = distinct !{!35, !7}
+!36 = distinct !{!36, !7}
+!37 = distinct !{!37, !7}
+!38 = distinct !{!38, !7}
+!39 = distinct !{!39, !7}
+!40 = distinct !{!40, !7}
+!41 = distinct !{!41, !7}
+!42 = distinct !{!42, !7}
+!43 = distinct !{!43, !7}
+!44 = distinct !{!44, !7}
+!45 = distinct !{!45, !7}
+!46 = distinct !{!46, !7}
+!47 = distinct !{!47, !7}
+!48 = distinct !{!48, !7}
+!49 = distinct !{!49, !7}
+!50 = distinct !{!50, !7}
+!51 = distinct !{!51, !7}
+!52 = distinct !{!52, !7}
+!53 = distinct !{!53, !7, !54}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = distinct !{!55, !7}
+!56 = distinct !{!56, !7}
+!57 = distinct !{!57, !7}
+!58 = distinct !{!58, !7}
+!59 = distinct !{!59, !7}
+!60 = distinct !{!60, !7}
+!61 = distinct !{!61, !7}
+!62 = distinct !{!62, !7}
+!63 = distinct !{!63, !7}
+!64 = distinct !{!64, !7}
+!65 = distinct !{!65, !7}
+!66 = distinct !{!66, !7}
+!67 = distinct !{!67, !7}
+!68 = distinct !{!68, !7}
+!69 = distinct !{!69, !7}
+!70 = distinct !{!70, !7}
+!71 = distinct !{!71, !7}
+!72 = distinct !{!72, !7}
+!73 = distinct !{!73, !7}
+!74 = distinct !{!74, !7}
+!75 = distinct !{!75, !7}
+!76 = distinct !{!76, !7}
+!77 = distinct !{!77, !7}
+!78 = distinct !{!78, !7}
+!79 = distinct !{!79, !7}
+!80 = distinct !{!80, !7}
+!81 = distinct !{!81, !7}
+!82 = distinct !{!82, !7}
+!83 = distinct !{!83, !7}
+!84 = distinct !{!84, !7}
+!85 = distinct !{!85, !7}
+!86 = distinct !{!86, !7, !54}
+!87 = distinct !{!87, !7}
+!88 = distinct !{!88, !7}
+!89 = distinct !{!89, !7}
+!90 = distinct !{!90, !7}
+!91 = distinct !{!91, !7}
+!92 = distinct !{!92, !7}
+!93 = distinct !{!93, !7}
+!94 = distinct !{!94, !7}
+!95 = distinct !{!95, !7}
+!96 = distinct !{!96, !7}
+!97 = distinct !{!97, !7}
+!98 = distinct !{!98, !7}
+!99 = distinct !{!99, !7}
+!100 = distinct !{!100, !7}
+!101 = distinct !{!101, !7}
+!102 = distinct !{!102, !7}
+!103 = distinct !{!103, !7}
+!104 = distinct !{!104, !7}
+!105 = distinct !{!105, !7}
+!106 = distinct !{!106, !7}
+!107 = distinct !{!107, !7}
+!108 = distinct !{!108, !7}
+!109 = distinct !{!109, !7}
+!110 = distinct !{!110, !7}
+!111 = distinct !{!111, !7}
+!112 = distinct !{!112, !7}
+!113 = distinct !{!113, !7}
+!114 = distinct !{!114, !7}
+!115 = distinct !{!115, !7}
+!116 = distinct !{!116, !7}

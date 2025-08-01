@@ -125,7 +125,7 @@ _ZN12_GLOBAL__N_19Demangler12isSymbolNameESt17basic_string_viewIcSt11char_traits
   br i1 %.not.i.i.i, label %55, label %42
 
 42:                                               ; preds = %41
-  %43 = load i64, ptr %26, align 8, !tbaa !27
+  %43 = load i64, ptr %26, align 8, !tbaa !26
   %44 = add i64 %43, 1
   %45 = load i64, ptr %27, align 8, !tbaa !13
   %46 = icmp ugt i64 %44, %45
@@ -148,7 +148,7 @@ _ZN12_GLOBAL__N_19Demangler12isSymbolNameESt17basic_string_viewIcSt11char_traits
 
 _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit.i.i.i: ; preds = %47, %42
   %53 = phi ptr [ %.pre.i.i.i.i.i, %42 ], [ %50, %47 ]
-  store i64 %44, ptr %26, align 8, !tbaa !27
+  store i64 %44, ptr %26, align 8, !tbaa !26
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %43
   store i8 46, ptr %54, align 1, !tbaa !23
   br label %55
@@ -206,7 +206,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit.i.i.i: ; preds = %47, %42
   %83 = add i64 %65, -1
   store i64 %83, ptr %4, align 8, !tbaa !22
   %84 = icmp eq i64 %83, 0
-  br i1 %84, label %_ZN12_GLOBAL__N_19Demangler18parseSymbolBackrefEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !28
+  br i1 %84, label %_ZN12_GLOBAL__N_19Demangler18parseSymbolBackrefEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !27
 
 85:                                               ; preds = %73
   %86 = getelementptr inbounds nuw i8, ptr %64, i64 1
@@ -241,7 +241,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit.i.i.i: ; preds = %47, %42
   %101 = sub nsw i64 4294967343, %100
   %102 = udiv i64 %101, 10
   %.not.i.i.i.i.i.i = icmp ugt i64 %113, %102
-  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_19Demangler18parseSymbolBackrefEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i.i.i.i, label %103, !llvm.loop !29
+  br i1 %.not.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_19Demangler18parseSymbolBackrefEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.sink.split.i.i.i.i, label %103, !llvm.loop !28
 
 103:                                              ; preds = %.preheader.i.i.i.i.i.i, %.preheader.i.preheader.i.i.i.i.i
   %104 = phi i64 [ %99, %.preheader.i.preheader.i.i.i.i.i ], [ %100, %.preheader.i.i.i.i.i.i ]
@@ -261,7 +261,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit.i.i.i: ; preds = %47, %42
   %115 = sext i8 %114 to i32
   %isdigittmp18.i.i.i.i.i.i = add nsw i32 %115, -48
   %isdigit19.i.i.i.i.i.i = icmp ult i32 %isdigittmp18.i.i.i.i.i.i, 10
-  br i1 %isdigit19.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_19Demangler12decodeNumberERSt17basic_string_viewIcSt11char_traitsIcEERm.exit.i.i.i.i.i, !llvm.loop !29
+  br i1 %isdigit19.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_19Demangler12decodeNumberERSt17basic_string_viewIcSt11char_traitsIcEERm.exit.i.i.i.i.i, !llvm.loop !28
 
 _ZN12_GLOBAL__N_19Demangler12decodeNumberERSt17basic_string_viewIcSt11char_traitsIcEERm.exit.i.i.i.i.i: ; preds = %110
   store ptr %107, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !21
@@ -317,7 +317,7 @@ _ZN12_GLOBAL__N_19Demangler18parseSymbolBackrefEPN4llvm16itanium_demangle12Outpu
   %137 = sext i8 %136 to i32
   %isdigittmp18.i.i.i.i.i = add nsw i32 %137, -48
   %isdigit19.i.i.i.i.i = icmp ult i32 %isdigittmp18.i.i.i.i.i, 10
-  br i1 %isdigit19.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %_ZN12_GLOBAL__N_19Demangler12decodeNumberERSt17basic_string_viewIcSt11char_traitsIcEERm.exit.i.i.i.i, !llvm.loop !29
+  br i1 %isdigit19.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %_ZN12_GLOBAL__N_19Demangler12decodeNumberERSt17basic_string_viewIcSt11char_traitsIcEERm.exit.i.i.i.i, !llvm.loop !28
 
 _ZN12_GLOBAL__N_19Demangler12decodeNumberERSt17basic_string_viewIcSt11char_traitsIcEERm.exit.i.i.i.i: ; preds = %132
   %138 = add nsw i64 %135, -1
@@ -358,7 +358,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i: ; preds = %
   %150 = getelementptr inbounds nuw i8, ptr %.sroa.8.073.i.i.i.i, i64 1
   %151 = add i64 %.sroa.0.074.i.i.i.i, -1
   %152 = icmp ugt i64 %151, %143
-  br i1 %152, label %.lr.ph.i.i.i.i, label %tailrecurse.i.i.i.i, !llvm.loop !30
+  br i1 %152, label %.lr.ph.i.i.i.i, label %tailrecurse.i.i.i.i, !llvm.loop !29
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i
   %.sroa.0.0.lcssa.i.i.i.i = phi i64 [ %144, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.i.i.i ], [ %.sroa.0.074.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -440,7 +440,7 @@ tailrecurse.i.i.i.i:                              ; preds = %149, %.critedge.i.i
   %180 = add i64 %179, %178
   %181 = add i64 %.sroa.0.0.i.i.i.i, -1
   %182 = icmp eq i64 %181, 0
-  br i1 %182, label %_ZN12_GLOBAL__N_19Demangler14parseQualifiedEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.thread.i, label %.preheader.i.i15.i.i.i, !llvm.loop !28
+  br i1 %182, label %_ZN12_GLOBAL__N_19Demangler14parseQualifiedEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.thread.i, label %.preheader.i.i15.i.i.i, !llvm.loop !27
 
 183:                                              ; preds = %169
   %184 = sub nsw i64 0, %172
@@ -452,7 +452,7 @@ tailrecurse.i.i.i.i:                              ; preds = %149, %.critedge.i.i
   br i1 %isdigit5.i.i.i.i, label %_ZN12_GLOBAL__N_19Demangler12isSymbolNameESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.backedge, label %_ZN12_GLOBAL__N_19Demangler14parseQualifiedEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.thread.i
 
 _ZN12_GLOBAL__N_19Demangler12isSymbolNameESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.backedge: ; preds = %183, %.critedge.thread19.i.i.i
-  br label %_ZN12_GLOBAL__N_19Demangler12isSymbolNameESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i, !llvm.loop !31
+  br label %_ZN12_GLOBAL__N_19Demangler12isSymbolNameESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i, !llvm.loop !30
 
 _ZN12_GLOBAL__N_19Demangler14parseQualifiedEPN4llvm16itanium_demangle12OutputBufferERSt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i: ; preds = %159
   %188 = icmp eq i8 %157, 90
@@ -491,7 +491,7 @@ _ZN12_GLOBAL__N_19Demangler11parseMangleEPN4llvm16itanium_demangle12OutputBuffer
 
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %192
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
-  %.pre = load i64, ptr %26, align 8, !tbaa !27
+  %.pre = load i64, ptr %26, align 8, !tbaa !26
   %196 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not9 = icmp eq i64 %.pre, 0
   br i1 %.not9, label %212, label %197
@@ -522,7 +522,7 @@ _ZN4llvm16itanium_demangle12OutputBufferlsEc.exit: ; preds = %204, %197
   %210 = phi ptr [ %.pre.i.i10, %197 ], [ %207, %204 ]
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 %199
   store i8 0, ptr %211, align 1, !tbaa !23
-  store i64 %199, ptr %198, align 8, !tbaa !27
+  store i64 %199, ptr %198, align 8, !tbaa !26
   br label %214
 
 212:                                              ; preds = %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -649,7 +649,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19Demangler9parseType
   %48 = add i64 %30, -1
   store i64 %48, ptr %1, align 8, !tbaa !22
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %.sink.split, label %.preheader.i.i, !llvm.loop !28
+  br i1 %49, label %.sink.split, label %.preheader.i.i, !llvm.loop !27
 
 50:                                               ; preds = %38
   %51 = getelementptr inbounds nuw i8, ptr %29, i64 1
@@ -726,7 +726,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %4
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !27
+  %8 = load i64, ptr %7, align 8, !tbaa !26
   %9 = add i64 %8, 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !13
@@ -745,7 +745,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %17, label %18, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i
 
 ._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i: ; preds = %13
-  %.pre4.i = load i64, ptr %7, align 8, !tbaa !27
+  %.pre4.i = load i64, ptr %7, align 8, !tbaa !26
   br label %_ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 18:                                               ; preds = %13
@@ -759,9 +759,9 @@ _ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %20, i64 %19, i1 false)
   %22 = load ptr, ptr %0, align 8, !tbaa !14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %22, ptr noundef nonnull align 1 dereferenceable(16) @.str.7, i64 16, i1 false)
-  %23 = load i64, ptr %7, align 8, !tbaa !27
+  %23 = load i64, ptr %7, align 8, !tbaa !26
   %24 = add i64 %23, 15
-  store i64 %24, ptr %7, align 8, !tbaa !27
+  store i64 %24, ptr %7, align 8, !tbaa !26
   %25 = load ptr, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 6
   store ptr %26, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !21
@@ -776,7 +776,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i45: ; preds = %_ZNSt11char_trait
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit49: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i45
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !27
+  %31 = load i64, ptr %30, align 8, !tbaa !26
   %32 = add i64 %31, 11
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !tbaa !13
@@ -795,7 +795,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %40, label %41, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i52
 
 ._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i52: ; preds = %36
-  %.pre4.i53 = load i64, ptr %30, align 8, !tbaa !27
+  %.pre4.i53 = load i64, ptr %30, align 8, !tbaa !26
   br label %_ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit54
 
 41:                                               ; preds = %36
@@ -809,9 +809,9 @@ _ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %44, ptr align 1 %43, i64 %42, i1 false)
   %45 = load ptr, ptr %0, align 8, !tbaa !14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %45, ptr noundef nonnull align 1 dereferenceable(11) @.str.9, i64 11, i1 false)
-  %46 = load i64, ptr %30, align 8, !tbaa !27
+  %46 = load i64, ptr %30, align 8, !tbaa !26
   %47 = add i64 %46, 10
-  store i64 %47, ptr %30, align 8, !tbaa !27
+  store i64 %47, ptr %30, align 8, !tbaa !26
   %48 = load ptr, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 6
   store ptr %49, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !21
@@ -832,7 +832,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i55: ; preds = %52
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit59: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i55
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load i64, ptr %55, align 8, !tbaa !27
+  %56 = load i64, ptr %55, align 8, !tbaa !26
   %57 = add i64 %56, 14
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load i64, ptr %58, align 8, !tbaa !13
@@ -851,7 +851,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %65, label %66, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i62
 
 ._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i62: ; preds = %61
-  %.pre4.i63 = load i64, ptr %55, align 8, !tbaa !27
+  %.pre4.i63 = load i64, ptr %55, align 8, !tbaa !26
   br label %_ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit64
 
 66:                                               ; preds = %61
@@ -865,9 +865,9 @@ _ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %69, ptr align 1 %68, i64 %67, i1 false)
   %70 = load ptr, ptr %0, align 8, !tbaa !14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %70, ptr noundef nonnull align 1 dereferenceable(14) @.str.11, i64 14, i1 false)
-  %71 = load i64, ptr %55, align 8, !tbaa !27
+  %71 = load i64, ptr %55, align 8, !tbaa !26
   %72 = add i64 %71, 13
-  store i64 %72, ptr %55, align 8, !tbaa !27
+  store i64 %72, ptr %55, align 8, !tbaa !26
   %73 = load ptr, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !21
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 7
   store ptr %74, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !21
@@ -888,7 +888,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i65: ; preds = %77
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit69: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i65
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %81 = load i64, ptr %80, align 8, !tbaa !27
+  %81 = load i64, ptr %80, align 8, !tbaa !26
   %82 = add i64 %81, 14
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %84 = load i64, ptr %83, align 8, !tbaa !13
@@ -907,7 +907,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %90, label %91, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i72
 
 ._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i72: ; preds = %86
-  %.pre4.i73 = load i64, ptr %80, align 8, !tbaa !27
+  %.pre4.i73 = load i64, ptr %80, align 8, !tbaa !26
   br label %_ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit74
 
 91:                                               ; preds = %86
@@ -921,9 +921,9 @@ _ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %94, ptr align 1 %93, i64 %92, i1 false)
   %95 = load ptr, ptr %0, align 8, !tbaa !14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %95, ptr noundef nonnull align 1 dereferenceable(14) @.str.13, i64 14, i1 false)
-  %96 = load i64, ptr %80, align 8, !tbaa !27
+  %96 = load i64, ptr %80, align 8, !tbaa !26
   %97 = add i64 %96, 13
-  store i64 %97, ptr %80, align 8, !tbaa !27
+  store i64 %97, ptr %80, align 8, !tbaa !26
   %98 = load ptr, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !21
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 11
   store ptr %99, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !21
@@ -944,7 +944,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i75: ; preds = %102
 
 _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit79: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i75
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %106 = load i64, ptr %105, align 8, !tbaa !27
+  %106 = load i64, ptr %105, align 8, !tbaa !26
   %107 = add i64 %106, 15
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %109 = load i64, ptr %108, align 8, !tbaa !13
@@ -963,7 +963,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %115, label %116, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i82
 
 ._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i82: ; preds = %111
-  %.pre4.i83 = load i64, ptr %105, align 8, !tbaa !27
+  %.pre4.i83 = load i64, ptr %105, align 8, !tbaa !26
   br label %_ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char_traitsIcEE.exit84
 
 116:                                              ; preds = %111
@@ -977,9 +977,9 @@ _ZN4llvm16itanium_demangle12OutputBuffer7prependESt17basic_string_viewIcSt11char
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %119, ptr align 1 %118, i64 %117, i1 false)
   %120 = load ptr, ptr %0, align 8, !tbaa !14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %120, ptr noundef nonnull align 1 dereferenceable(15) @.str.15, i64 15, i1 false)
-  %121 = load i64, ptr %105, align 8, !tbaa !27
+  %121 = load i64, ptr %105, align 8, !tbaa !26
   %122 = add i64 %121, 14
-  store i64 %122, ptr %105, align 8, !tbaa !27
+  store i64 %122, ptr %105, align 8, !tbaa !26
   %123 = load ptr, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !21
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 12
   store ptr %124, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !21
@@ -996,7 +996,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
 
 129:                                              ; preds = %_ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIcEES4_.exit49.thread
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %131 = load i64, ptr %130, align 8, !tbaa !27
+  %131 = load i64, ptr %130, align 8, !tbaa !26
   %132 = add i64 %131, %.sroa.speculated.i
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %134 = load i64, ptr %133, align 8, !tbaa !13
@@ -1015,7 +1015,7 @@ _ZN4llvm16itanium_demangle11starts_withESt17basic_string_viewIcSt11char_traitsIc
   br i1 %140, label %141, label %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i
 
 ._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i: ; preds = %136
-  %.pre4.i.i = load i64, ptr %130, align 8, !tbaa !27
+  %.pre4.i.i = load i64, ptr %130, align 8, !tbaa !26
   br label %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i
 
 141:                                              ; preds = %136
@@ -1027,9 +1027,9 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %143 = phi ptr [ %.pre.i.i, %129 ], [ %139, %._ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit_crit_edge.i.i ]
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 %142
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %144, ptr align 1 %128, i64 %.sroa.speculated.i, i1 false)
-  %145 = load i64, ptr %130, align 8, !tbaa !27
+  %145 = load i64, ptr %130, align 8, !tbaa !26
   %146 = add i64 %145, %.sroa.speculated.i
-  store i64 %146, ptr %130, align 8, !tbaa !27
+  store i64 %146, ptr %130, align 8, !tbaa !26
   %.pre24 = load ptr, ptr %127, align 8, !tbaa !21
   %.pre25 = load i64, ptr %1, align 8, !tbaa !22
   br label %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -1113,11 +1113,10 @@ attributes #16 = { nounwind willreturn memory(read) }
 !21 = !{!19, !5, i64 8}
 !22 = !{!19, !9, i64 0}
 !23 = !{!7, !7, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!4, !9, i64 8}
-!28 = distinct !{!28, !25, !26}
-!29 = distinct !{!29, !25, !26}
-!30 = distinct !{!30, !25, !26}
-!31 = distinct !{!31, !25, !26}
+!26 = !{!4, !9, i64 8}
+!27 = distinct !{!27, !25}
+!28 = distinct !{!28, !25}
+!29 = distinct !{!29, !25}
+!30 = distinct !{!30, !25}

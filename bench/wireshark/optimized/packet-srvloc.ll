@@ -859,7 +859,7 @@ define internal i32 @dissect_srvloc(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.4.i.i = phi i32 [ %269, %266 ], [ %.358.i.i, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %unicode_to_bytes.exit.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %unicode_to_bytes.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 unicode_to_bytes.exit.i:                          ; preds = %270
   %271 = sext i32 %.4.i.i to i64
@@ -896,7 +896,7 @@ unicode_to_bytes.exit.i:                          ; preds = %270
   %.4.i257.i = phi i32 [ %286, %283 ], [ %.358.i255.i, %.lr.ph.i253.i ]
   %indvars.iv.next.i258.i = add nuw nsw i64 %indvars.iv.i254.i, 1
   %exitcond.not.i259.i = icmp eq i64 %indvars.iv.next.i258.i, 8
-  br i1 %exitcond.not.i259.i, label %unicode_to_bytes.exit260.i, label %.lr.ph.i253.i, !llvm.loop !9
+  br i1 %exitcond.not.i259.i, label %unicode_to_bytes.exit260.i, label %.lr.ph.i253.i, !llvm.loop !8
 
 unicode_to_bytes.exit260.i:                       ; preds = %287
   %288 = sext i32 %.4.i257.i to i64
@@ -967,7 +967,7 @@ unicode_to_bytes.exit260.i:                       ; preds = %287
   %.1.i.i = phi i32 [ %322, %316 ], [ %.04760.i.i, %.lr.ph61.i.i ]
   %324 = add nsw i32 %.250.i.i, -1
   %325 = icmp sgt i32 %.250.i.i, 1
-  br i1 %325, label %.lr.ph61.i.i, label %unicode_to_bytes.exit261.i, !llvm.loop !10
+  br i1 %325, label %.lr.ph61.i.i, label %unicode_to_bytes.exit261.i, !llvm.loop !9
 
 unicode_to_bytes.exit261.i:                       ; preds = %323, %309
   %.2.i.i = phi i32 [ %.04760.i.i, %309 ], [ %.1.i.i, %323 ]
@@ -1004,7 +1004,7 @@ unicode_to_bytes.exit261.i:                       ; preds = %323, %309
   %.4.i266.i = phi i32 [ %342, %339 ], [ %.358.i264.i, %.lr.ph.i262.i ]
   %indvars.iv.next.i267.i = add nuw nsw i64 %indvars.iv.i263.i, 1
   %exitcond.not.i268.i = icmp eq i64 %indvars.iv.next.i267.i, 8
-  br i1 %exitcond.not.i268.i, label %unicode_to_bytes.exit270.i, label %.lr.ph.i262.i, !llvm.loop !9
+  br i1 %exitcond.not.i268.i, label %unicode_to_bytes.exit270.i, label %.lr.ph.i262.i, !llvm.loop !8
 
 344:                                              ; preds = %294
   %345 = load ptr, ptr %210, align 8
@@ -1032,7 +1032,7 @@ unicode_to_bytes.exit261.i:                       ; preds = %323, %309
   %.4.i275.i = phi i32 [ %354, %351 ], [ %.358.i273.i, %.lr.ph.i271.i ]
   %indvars.iv.next.i276.i = add nuw nsw i64 %indvars.iv.i272.i, 1
   %exitcond.not.i277.i = icmp eq i64 %indvars.iv.next.i276.i, 16
-  br i1 %exitcond.not.i277.i, label %unicode_to_bytes.exit279.i, label %.lr.ph.i271.i, !llvm.loop !9
+  br i1 %exitcond.not.i277.i, label %unicode_to_bytes.exit279.i, label %.lr.ph.i271.i, !llvm.loop !8
 
 unicode_to_bytes.exit279.i:                       ; preds = %355
   %356 = sext i32 %.4.i275.i to i64
@@ -1068,7 +1068,7 @@ unicode_to_bytes.exit279.i:                       ; preds = %355
   %.4.i284.i = phi i32 [ %371, %368 ], [ %.358.i282.i, %.lr.ph.i280.i ]
   %indvars.iv.next.i285.i = add nuw nsw i64 %indvars.iv.i281.i, 1
   %exitcond.not.i286.i = icmp eq i64 %indvars.iv.next.i285.i, 24
-  br i1 %exitcond.not.i286.i, label %unicode_to_bytes.exit288.i, label %.lr.ph.i280.i, !llvm.loop !9
+  br i1 %exitcond.not.i286.i, label %unicode_to_bytes.exit288.i, label %.lr.ph.i280.i, !llvm.loop !8
 
 unicode_to_bytes.exit288.i:                       ; preds = %372
   %373 = sext i32 %.4.i284.i to i64
@@ -1104,7 +1104,7 @@ unicode_to_bytes.exit288.i:                       ; preds = %372
   %.4.i293.i = phi i32 [ %388, %385 ], [ %.358.i291.i, %.lr.ph.i289.i ]
   %indvars.iv.next.i294.i = add nuw nsw i64 %indvars.iv.i290.i, 1
   %exitcond.not.i295.i = icmp eq i64 %indvars.iv.next.i294.i, 8
-  br i1 %exitcond.not.i295.i, label %unicode_to_bytes.exit270.i, label %.lr.ph.i289.i, !llvm.loop !9
+  br i1 %exitcond.not.i295.i, label %unicode_to_bytes.exit270.i, label %.lr.ph.i289.i, !llvm.loop !8
 
 unicode_to_bytes.exit270.i:                       ; preds = %389, %343
   %.4.i293.lcssa.sink.i = phi i32 [ %.4.i266.i, %343 ], [ %.4.i293.i, %389 ]
@@ -1123,7 +1123,7 @@ unicode_to_bytes.exit270.i:                       ; preds = %389, %343
   %396 = add i32 %.0244398.i, 1
   %397 = add i32 %.1387.i, 59
   %398 = icmp slt i32 %397, %204
-  br i1 %398, label %.lr.ph400.i, label %.loopexit.i, !llvm.loop !11
+  br i1 %398, label %.lr.ph400.i, label %.loopexit.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %unicode_to_bytes.exit270.i, %.preheader.i, %239, %228
   %.1248.i = phi i32 [ %238, %228 ], [ %225, %239 ], [ %225, %.preheader.i ], [ %397, %unicode_to_bytes.exit270.i ]
@@ -1154,7 +1154,7 @@ unicode_to_bytes.exit270.i:                       ; preds = %389, %343
   %.be.i = phi i32 [ %.old.i, %405 ], [ %403, %402 ]
   %406 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 4)
   %407 = icmp slt i32 %406, %204
-  br i1 %407, label %._crit_edge, label %.lr.ph913, !llvm.loop !12
+  br i1 %407, label %._crit_edge, label %.lr.ph913, !llvm.loop !11
 
 408:                                              ; preds = %207
   %409 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -1194,7 +1194,7 @@ unicode_to_bytes.exit270.i:                       ; preds = %389, %343
   %.4.i302.i = phi i32 [ %426, %423 ], [ %.358.i300.i, %.lr.ph.i298.i ]
   %indvars.iv.next.i303.i = add nuw nsw i64 %indvars.iv.i299.i, 1
   %exitcond.not.i304.i = icmp eq i64 %indvars.iv.next.i303.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i304.i, label %.loopexit.i.i, label %.lr.ph.i298.i, !llvm.loop !9
+  br i1 %exitcond.not.i304.i, label %.loopexit.i.i, label %.lr.ph.i298.i, !llvm.loop !8
 
 .loopexit.i.i:                                    ; preds = %427
   %428 = sext i32 %.4.i302.i to i64
@@ -1261,7 +1261,7 @@ unicode_to_bytes.exit306.i:                       ; preds = %.loopexit.i.i, %408
   %.4.i311.i = phi i32 [ %459, %456 ], [ %.358.i309.i, %.lr.ph.i307.i ]
   %indvars.iv.next.i312.i = add nuw nsw i64 %indvars.iv.i308.i, 1
   %exitcond.not.i313.i = icmp eq i64 %indvars.iv.next.i312.i, 2
-  br i1 %exitcond.not.i313.i, label %unicode_to_bytes.exit317.i, label %.lr.ph.i307.i, !llvm.loop !9
+  br i1 %exitcond.not.i313.i, label %unicode_to_bytes.exit317.i, label %.lr.ph.i307.i, !llvm.loop !8
 
 461:                                              ; preds = %.lr.ph.i
   %462 = load ptr, ptr %409, align 8
@@ -1288,7 +1288,7 @@ unicode_to_bytes.exit306.i:                       ; preds = %.loopexit.i.i, %408
   %.4.i322.i = phi i32 [ %470, %467 ], [ %.358.i320.i, %.lr.ph.i318.i ]
   %indvars.iv.next.i323.i = add nuw nsw i64 %indvars.iv.i319.i, 1
   %exitcond.not.i324.i = icmp eq i64 %indvars.iv.next.i323.i, 4
-  br i1 %exitcond.not.i324.i, label %unicode_to_bytes.exit317.i, label %.lr.ph.i318.i, !llvm.loop !9
+  br i1 %exitcond.not.i324.i, label %unicode_to_bytes.exit317.i, label %.lr.ph.i318.i, !llvm.loop !8
 
 unicode_to_bytes.exit317.i:                       ; preds = %471, %460
   %.4.i311.lcssa.sink.i = phi i32 [ %.4.i311.i, %460 ], [ %.4.i322.i, %471 ]
@@ -1358,7 +1358,7 @@ unicode_to_bytes.exit317.i:                       ; preds = %471, %460
   %.1.i336.i = phi i32 [ %505, %499 ], [ %.04760.i330.i, %.lr.ph61.i329.i ]
   %507 = add nsw i32 %.250.i335.i, -1
   %508 = icmp sgt i32 %.250.i335.i, 1
-  br i1 %508, label %.lr.ph61.i329.i, label %unicode_to_bytes.exit340.i, !llvm.loop !10
+  br i1 %508, label %.lr.ph61.i329.i, label %unicode_to_bytes.exit340.i, !llvm.loop !9
 
 unicode_to_bytes.exit340.i:                       ; preds = %506, %492
   %.2.i338.i = phi i32 [ %.04760.i330.i, %492 ], [ %.1.i336.i, %506 ]
@@ -1395,7 +1395,7 @@ unicode_to_bytes.exit340.i:                       ; preds = %506, %492
   %.4.i345.i = phi i32 [ %525, %522 ], [ %.358.i343.i, %.lr.ph.i341.i ]
   %indvars.iv.next.i346.i = add nuw nsw i64 %indvars.iv.i342.i, 1
   %exitcond.not.i347.i = icmp eq i64 %indvars.iv.next.i346.i, 4
-  br i1 %exitcond.not.i347.i, label %unicode_to_bytes.exit351.i, label %.lr.ph.i341.i, !llvm.loop !9
+  br i1 %exitcond.not.i347.i, label %unicode_to_bytes.exit351.i, label %.lr.ph.i341.i, !llvm.loop !8
 
 527:                                              ; preds = %unicode_to_bytes.exit317.i
   %528 = load ptr, ptr %409, align 8
@@ -1423,7 +1423,7 @@ unicode_to_bytes.exit340.i:                       ; preds = %506, %492
   %.4.i356.i = phi i32 [ %537, %534 ], [ %.358.i354.i, %.lr.ph.i352.i ]
   %indvars.iv.next.i357.i = add nuw nsw i64 %indvars.iv.i353.i, 1
   %exitcond.not.i358.i = icmp eq i64 %indvars.iv.next.i357.i, 8
-  br i1 %exitcond.not.i358.i, label %unicode_to_bytes.exit362.i, label %.lr.ph.i352.i, !llvm.loop !9
+  br i1 %exitcond.not.i358.i, label %unicode_to_bytes.exit362.i, label %.lr.ph.i352.i, !llvm.loop !8
 
 unicode_to_bytes.exit362.i:                       ; preds = %538
   %539 = sext i32 %.4.i356.i to i64
@@ -1459,7 +1459,7 @@ unicode_to_bytes.exit362.i:                       ; preds = %538
   %.4.i367.i = phi i32 [ %554, %551 ], [ %.358.i365.i, %.lr.ph.i363.i ]
   %indvars.iv.next.i368.i = add nuw nsw i64 %indvars.iv.i364.i, 1
   %exitcond.not.i369.i = icmp eq i64 %indvars.iv.next.i368.i, 12
-  br i1 %exitcond.not.i369.i, label %unicode_to_bytes.exit373.i, label %.lr.ph.i363.i, !llvm.loop !9
+  br i1 %exitcond.not.i369.i, label %unicode_to_bytes.exit373.i, label %.lr.ph.i363.i, !llvm.loop !8
 
 unicode_to_bytes.exit373.i:                       ; preds = %555
   %556 = sext i32 %.4.i367.i to i64
@@ -1495,7 +1495,7 @@ unicode_to_bytes.exit373.i:                       ; preds = %555
   %.4.i378.i = phi i32 [ %571, %568 ], [ %.358.i376.i, %.lr.ph.i374.i ]
   %indvars.iv.next.i379.i = add nuw nsw i64 %indvars.iv.i375.i, 1
   %exitcond.not.i380.i = icmp eq i64 %indvars.iv.next.i379.i, 4
-  br i1 %exitcond.not.i380.i, label %unicode_to_bytes.exit351.i, label %.lr.ph.i374.i, !llvm.loop !9
+  br i1 %exitcond.not.i380.i, label %unicode_to_bytes.exit351.i, label %.lr.ph.i374.i, !llvm.loop !8
 
 unicode_to_bytes.exit351.i:                       ; preds = %572, %526
   %.4.i378.lcssa.sink.i = phi i32 [ %.4.i345.i, %526 ], [ %.4.i378.i, %572 ]
@@ -1513,7 +1513,7 @@ unicode_to_bytes.exit351.i:                       ; preds = %572, %526
   %579 = add i32 %.1245396.i, 1
   %580 = add i32 %.3391.i, 29
   %581 = icmp slt i32 %580, %204
-  br i1 %581, label %.lr.ph.i, label %attr_list.exit, !llvm.loop !13
+  br i1 %581, label %.lr.ph.i, label %attr_list.exit, !llvm.loop !12
 
 582:                                              ; preds = %207
   %583 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %208, ptr noundef %0, i32 noundef 16, i32 noundef range(i32 1, 0) %204, i32 noundef 0)
@@ -1642,7 +1642,7 @@ attr_list.exit:                                   ; preds = %unicode_to_bytes.ex
   %663 = add i32 %660, %657
   %664 = add nsw i32 %.1758908, -1
   %.not843 = icmp eq i32 %664, 0
-  br i1 %.not843, label %.loopexit, label %655, !llvm.loop !14
+  br i1 %.not843, label %.loopexit, label %655, !llvm.loop !13
 
 665:                                              ; preds = %25
   %666 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_srvloc_function_unknown, ptr noundef %0, i32 noundef 12, i32 noundef -1, ptr noundef nonnull @.str.276, i32 noundef %13)
@@ -1806,7 +1806,7 @@ attr_list.exit:                                   ; preds = %unicode_to_bytes.ex
   %762 = call fastcc i32 @dissect_url_entry_v2(ptr noundef %0, i32 noundef %.9904, ptr noundef %18)
   %763 = add nsw i32 %.2759903, -1
   %.not836 = icmp eq i32 %763, 0
-  br i1 %.not836, label %.loopexit, label %.lr.ph905, !llvm.loop !15
+  br i1 %.not836, label %.loopexit, label %.lr.ph905, !llvm.loop !14
 
 764:                                              ; preds = %667
   %765 = call fastcc i32 @dissect_url_entry_v2(ptr noundef %0, i32 noundef %686, ptr noundef %18)
@@ -2188,7 +2188,7 @@ attr_list.exit:                                   ; preds = %unicode_to_bytes.ex
   %1007 = add i32 %1004, %1002
   %1008 = add nsw i32 %.5762898, -1
   %.not819 = icmp eq i32 %1008, 0
-  br i1 %.not819, label %.loopexit, label %.lr.ph900, !llvm.loop !16
+  br i1 %.not819, label %.loopexit, label %.lr.ph900, !llvm.loop !15
 
 1009:                                             ; preds = %667
   %1010 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %686)
@@ -2379,7 +2379,7 @@ attr_list.exit:                                   ; preds = %unicode_to_bytes.ex
   %1130 = add i32 %1127, %1125
   %1131 = add nsw i32 %.6763895, -1
   %.not808 = icmp eq i32 %1131, 0
-  br i1 %.not808, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not808, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 1132:                                             ; preds = %667
   %1133 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %18, ptr noundef %1, ptr noundef nonnull @ei_srvloc_function_unknown, ptr noundef %0, i32 noundef %686, i32 noundef -1, ptr noundef nonnull @.str.276, i32 noundef %13)
@@ -2394,7 +2394,7 @@ attr_list.exit:                                   ; preds = %unicode_to_bytes.ex
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_srvloc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = load i8, ptr @srvloc_desegment, align 1, !range !18, !noundef !19
+  %5 = load i8, ptr @srvloc_desegment, align 1, !range !17, !noundef !18
   %6 = trunc nuw i8 %5 to i1
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %6, i32 noundef 5, ptr noundef nonnull @get_srvloc_pdu_len, ptr noundef nonnull @dissect_srvloc, ptr noundef %3)
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -2578,7 +2578,7 @@ define internal fastcc noundef i32 @dissect_url_entry_v2(ptr noundef %0, i32 nou
   %41 = add i32 %38, %36
   %42 = add i8 %.039, -1
   %.not = icmp eq i8 %42, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.036.lcssa = phi i32 [ %24, %3 ], [ %41, %.lr.ph ]
@@ -2621,13 +2621,13 @@ define internal fastcc void @attr_list2(ptr noundef readonly captures(none) %0, 
   %21 = add i32 %.0.ph, %20
   %22 = zext i32 %20 to i64
   %23 = getelementptr i8, ptr %.041.ph, i64 %22
-  br label %.outer, !llvm.loop !21
+  br label %.outer, !llvm.loop !20
 
 24:                                               ; preds = %13
   %25 = add i32 %.045, 1
   %26 = zext i32 %25 to i64
   %27 = getelementptr i8, ptr %.041.ph, i64 %26
-  br label %13, !llvm.loop !21
+  br label %13, !llvm.loop !20
 
 28:                                               ; preds = %13
   %.not49 = icmp eq i32 %.045, 0
@@ -2727,19 +2727,18 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = !{i8 0, i8 2}
+!18 = !{}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}

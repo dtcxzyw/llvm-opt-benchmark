@@ -185,7 +185,7 @@ define hidden void @uv__async_close(ptr noundef captures(none) %0) local_unnamed
 
 .backedge:                                        ; preds = %7, %9
   %.07.i.be = phi i32 [ %8, %7 ], [ 0, %9 ]
-  br label %4, !llvm.loop !5
+  br label %4
 
 9:                                                ; preds = %7
   %10 = tail call i32 @sched_yield() #8
@@ -271,7 +271,7 @@ uv__queue_move.exit:                              ; preds = %7
 uv__async_spin.exit.loopexit:                     ; preds = %28
   %17 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %2, %17
-  br i1 %.not, label %uv__async_spin.exit._crit_edge, label %18, !llvm.loop !7
+  br i1 %.not, label %uv__async_spin.exit._crit_edge, label %18
 
 18:                                               ; preds = %.lr.ph, %uv__async_spin.exit.loopexit
   %19 = phi ptr [ %.pre, %.lr.ph ], [ %17, %uv__async_spin.exit.loopexit ]
@@ -306,7 +306,7 @@ uv__async_spin.exit.loopexit:                     ; preds = %28
 
 .backedge:                                        ; preds = %31, %33
   %.07.i.be = phi i32 [ %32, %31 ], [ 0, %33 ]
-  br label %28, !llvm.loop !5
+  br label %28
 
 33:                                               ; preds = %31
   %34 = call i32 @sched_yield() #8
@@ -409,7 +409,7 @@ uv__queue_move.exit:                              ; preds = %7
   store i32 0, ptr %26, align 8
   %27 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %2, %27
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %17
 
 ._crit_edge:                                      ; preds = %17, %uv__queue_move.exit.thread, %uv__queue_move.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 512
@@ -492,7 +492,7 @@ define internal void @uv__async_io(ptr noundef %0, ptr noundef readonly captures
   ]
 
 .backedge17.backedge:                             ; preds = %.backedge17, %9
-  br label %.backedge17, !llvm.loop !9
+  br label %.backedge17
 
 9:                                                ; preds = %.backedge17
   %10 = tail call ptr @__errno_location() #9
@@ -565,7 +565,7 @@ uv__queue_move.exit:                              ; preds = %13
 .backedge:                                        ; preds = %38, %22, %34
   %39 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %5, %39
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %22
 
 ._crit_edge:                                      ; preds = %.backedge, %13, %uv__queue_move.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #8
@@ -597,9 +597,3 @@ attributes #10 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i64 11005}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}

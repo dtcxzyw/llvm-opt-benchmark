@@ -181,7 +181,7 @@ _ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.us: ; preds = %49
 .thread.us42:                                     ; preds = %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.us, %47, %42, %40, %.lr.ph.split.us38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not.us43 = icmp eq i64 %indvars.iv.next, %19
-  br i1 %.not.us43, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25, label %.lr.ph.split.us38, !llvm.loop !41
+  br i1 %.not.us43, label %_ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25, label %.lr.ph.split.us38, !llvm.loop !40
 
 _ZNK4llvm22RISCVConstantPoolValue6equalsEPKS0_.exit.thread25.loopexit.split.loop.exit: ; preds = %32
   %51 = trunc nuw i64 %indvars.iv52 to i32
@@ -268,52 +268,52 @@ define dso_local void @_ZN4llvm22RISCVConstantPoolValue20addSelectionDAGCSEIdERN
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !42
+  %12 = load i32, ptr %11, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !44
+  %14 = load i32, ptr %13, align 4, !tbaa !43
   %.not.i.i.not.i.i.i.i.i = icmp ult i32 %12, %14
-  br i1 %.not.i.i.not.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i, label %15, !prof !45
+  br i1 %.not.i.i.not.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i, label %15, !prof !44
 
 15:                                               ; preds = %6
   %16 = zext i32 %12 to i64
   %17 = add nuw nsw i64 %16, 1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %18, i64 noundef %17, i64 noundef 4) #9
-  %.pre.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !42
+  %.pre.i.i.i.i.i = load i32, ptr %11, align 8, !tbaa !41
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i
 
 _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %15, %6
   %19 = phi i32 [ %12, %6 ], [ %.pre.i.i.i.i.i, %15 ]
-  %20 = load ptr, ptr %1, align 8, !tbaa !46
+  %20 = load ptr, ptr %1, align 8, !tbaa !45
   %21 = zext i32 %19 to i64
   %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
   store i32 %10, ptr %22, align 1
-  %23 = load i32, ptr %11, align 8, !tbaa !42
+  %23 = load i32, ptr %11, align 8, !tbaa !41
   %24 = add i32 %23, 1
-  store i32 %24, ptr %11, align 8, !tbaa !42
-  %25 = load i32, ptr %13, align 4, !tbaa !44
+  store i32 %24, ptr %11, align 8, !tbaa !41
+  %25 = load i32, ptr %13, align 4, !tbaa !43
   %.not.i.i.not.i.i2.i.i.i = icmp ult i32 %24, %25
-  br i1 %.not.i.i.not.i.i2.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit, label %26, !prof !45
+  br i1 %.not.i.i.not.i.i2.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit, label %26, !prof !44
 
 26:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i
   %27 = zext i32 %24 to i64
   %28 = add nuw nsw i64 %27, 1
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %29, i64 noundef %28, i64 noundef 4) #9
-  %.pre.i.i3.i.i.i = load i32, ptr %11, align 8, !tbaa !42
+  %.pre.i.i3.i.i.i = load i32, ptr %11, align 8, !tbaa !41
   br label %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit
 
 _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i, %26
   %30 = phi i32 [ %24, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i ], [ %.pre.i.i3.i.i.i, %26 ]
   %31 = lshr i64 %9, 32
   %32 = trunc nuw i64 %31 to i32
-  %33 = load ptr, ptr %1, align 8, !tbaa !46
+  %33 = load ptr, ptr %1, align 8, !tbaa !45
   %34 = zext i32 %30 to i64
   %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
   store i32 %32, ptr %35, align 1
-  %36 = load i32, ptr %11, align 8, !tbaa !42
+  %36 = load i32, ptr %11, align 8, !tbaa !41
   %37 = add i32 %36, 1
-  store i32 %37, ptr %11, align 8, !tbaa !42
+  store i32 %37, ptr %11, align 8, !tbaa !41
   br label %40
 
 38:                                               ; preds = %2
@@ -344,9 +344,9 @@ define dso_local void @_ZNK4llvm22RISCVConstantPoolValue5printERNS_11raw_ostream
   %10 = extractvalue { ptr, i64 } %9, 0
   %11 = extractvalue { ptr, i64 } %9, 1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !47
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !51
+  %15 = load ptr, ptr %14, align 8, !tbaa !50
   %16 = ptrtoint ptr %13 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
@@ -363,9 +363,9 @@ define dso_local void @_ZNK4llvm22RISCVConstantPoolValue5printERNS_11raw_ostream
 
 23:                                               ; preds = %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr align 1 %10, i64 %11, i1 false)
-  %24 = load ptr, ptr %14, align 8, !tbaa !51
+  %24 = load ptr, ptr %14, align 8, !tbaa !50
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %11
-  store ptr %25, ptr %14, align 8, !tbaa !51
+  store ptr %25, ptr %14, align 8, !tbaa !50
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 26:                                               ; preds = %2
@@ -374,9 +374,9 @@ define dso_local void @_ZNK4llvm22RISCVConstantPoolValue5printERNS_11raw_ostream
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !47
+  %29 = load ptr, ptr %28, align 8, !tbaa !46
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !51
+  %31 = load ptr, ptr %30, align 8, !tbaa !50
   %32 = ptrtoint ptr %29 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
@@ -393,9 +393,9 @@ define dso_local void @_ZNK4llvm22RISCVConstantPoolValue5printERNS_11raw_ostream
 
 39:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i1 false)
-  %40 = load ptr, ptr %30, align 8, !tbaa !51
+  %40 = load ptr, ptr %30, align 8, !tbaa !50
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 %.sroa.2.0.copyload
-  store ptr %41, ptr %30, align 8, !tbaa !51
+  store ptr %41, ptr %30, align 8, !tbaa !50
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %39, %38, %36, %23, %22, %20
@@ -484,18 +484,17 @@ attributes #11 = { builtin nounwind }
 !34 = !{i8 0, i8 2}
 !35 = !{}
 !36 = !{!7, !7, i64 0}
-!37 = distinct !{!37, !38, !39, !40}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !38, !39, !40}
-!42 = !{!43, !24, i64 8}
-!43 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !24, i64 8, !24, i64 12}
-!44 = !{!43, !24, i64 12}
-!45 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!46 = !{!43, !6, i64 0}
-!47 = !{!48, !15, i64 24}
-!48 = !{!"_ZTSN4llvm11raw_ostreamE", !49, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !33, i64 40, !50, i64 44}
-!49 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !7, i64 0}
-!50 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !7, i64 0}
-!51 = !{!48, !15, i64 32}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = distinct !{!40, !38, !39}
+!41 = !{!42, !24, i64 8}
+!42 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !24, i64 8, !24, i64 12}
+!43 = !{!42, !24, i64 12}
+!44 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!45 = !{!42, !6, i64 0}
+!46 = !{!47, !15, i64 24}
+!47 = !{!"_ZTSN4llvm11raw_ostreamE", !48, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !33, i64 40, !49, i64 44}
+!48 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !7, i64 0}
+!49 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !7, i64 0}
+!50 = !{!47, !15, i64 32}

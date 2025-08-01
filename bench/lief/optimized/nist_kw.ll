@@ -224,7 +224,7 @@ calc_a_xor_t.exit:                                ; preds = %55
   %spec.select90 = select i1 %.not86, ptr %65, ptr %43
   %66 = add nuw i64 %.069103, 1
   %exitcond.not = icmp eq i64 %.069103, %umax
-  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !10
 
 .loopexit:                                        ; preds = %calc_a_xor_t.exit, %40
   %67 = shl i64 %36, 3
@@ -299,7 +299,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
 
 22:                                               ; preds = %19
   %23 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV1, ptr noundef nonnull %9, i64 noundef 8) #11
-  store i32 %23, ptr %10, align 4, !tbaa !12
+  store i32 %23, ptr %10, align 4, !tbaa !11
   %.not72 = icmp eq i32 %23, 0
   br i1 %.not72, label %.thread90, label %.thread85
 
@@ -351,9 +351,9 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   %41 = call i32 @llvm.bswap.i32(i32 %.0.copyload.i)
   %42 = zext i32 %41 to i64
   %43 = sub nsw i64 %13, %42
-  %44 = call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 7, i64 %43) #11, !srcloc !14
+  %44 = call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 7, i64 %43) #11, !srcloc !13
   %45 = extractvalue { i64, i64, i64 } %44, 1
-  %46 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %45, i64 25344, i64 range(i64 -2147483647, 2147483648) %spec.select76.neg) #11, !srcloc !15
+  %46 = call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %45, i64 25344, i64 range(i64 -2147483647, 2147483648) %spec.select76.neg) #11, !srcloc !14
   %47 = extractvalue { i64, i64, i64 } %46, 2
   %48 = trunc i64 %47 to i32
   %49 = sub nsw i32 0, %48
@@ -365,7 +365,7 @@ define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr no
   %53 = getelementptr i8, ptr %52, i64 -8
   %54 = sub nuw nsw i64 8, %50
   %55 = call i32 @mbedtls_ct_memcmp_partial(ptr noundef %53, ptr noundef nonnull %12, i64 noundef 8, i64 noundef %54, i64 noundef 0) #11
-  store i32 %55, ptr %10, align 4, !tbaa !12
+  store i32 %55, ptr %10, align 4, !tbaa !11
   %.not68 = icmp eq i32 %55, 0
   %.4 = select i1 %.not68, i32 %49, i32 -25344
   %.not69 = icmp eq i32 %.4, 0
@@ -468,7 +468,7 @@ calc_a_xor_t.exit:                                ; preds = %21
   %.1 = select i1 %36, ptr %17, ptr %37
   %38 = add nsw i64 %.03245, -1
   %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %.thread, label %.preheader, !llvm.loop !16
+  br i1 %.not, label %.thread, label %.preheader, !llvm.loop !15
 
 .thread:                                          ; preds = %33
   store i64 %14, ptr %5, align 8, !tbaa !3
@@ -512,7 +512,7 @@ define hidden i32 @mbedtls_nist_kw_self_test(i32 noundef %0) local_unnamed_addr 
 7:                                                ; preds = %1, %59
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %59 ]
   %.phi.trans.insert = getelementptr inbounds nuw [3 x i32], ptr @key_len, i64 0, i64 %indvars.iv
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !12
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !11
   %.pre136 = shl i32 %.pre, 3
   br i1 %.not71, label %._crit_edge, label %8
 
@@ -626,7 +626,7 @@ mbedtls_nist_kw_setkey.exit89.thread:             ; preds = %41, %38, %35, %mbed
 
 51:                                               ; preds = %48
   %52 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull @NIST_KW_ICV1, ptr noundef nonnull %2, i64 noundef 8) #11
-  store i32 %52, ptr %3, align 4, !tbaa !12
+  store i32 %52, ptr %3, align 4, !tbaa !11
   %.not72.i = icmp eq i32 %52, 0
   br i1 %.not72.i, label %.mbedtls_nist_kw_unwrap.exit_crit_edge, label %.thread85.i
 
@@ -678,12 +678,12 @@ mbedtls_nist_kw_unwrap.exit:                      ; preds = %.mbedtls_nist_kw_un
 59:                                               ; preds = %57, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader, label %7, !llvm.loop !16
 
 .preheader:                                       ; preds = %59, %107
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %107 ], [ 0, %59 ]
   %.phi.trans.insert134 = getelementptr inbounds nuw [3 x i32], ptr @key_len, i64 0, i64 %indvars.iv128
-  %.pre135 = load i32, ptr %.phi.trans.insert134, align 4, !tbaa !12
+  %.pre135 = load i32, ptr %.phi.trans.insert134, align 4, !tbaa !11
   %.pre137 = shl i32 %.pre135, 3
   br i1 %.not71, label %._crit_edge133, label %60
 
@@ -812,7 +812,7 @@ mbedtls_nist_kw_setkey.exit100.thread:            ; preds = %93, %90, %87, %mbed
 107:                                              ; preds = %105, %106
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 3
-  br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %exitcond131.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %107, %102, %103, %84, %85, %.loopexit116, %56, %32, %33, %mbedtls_nist_kw_setkey.exit100.thread, %96, %mbedtls_nist_kw_setkey.exit95.thread, %71, %mbedtls_nist_kw_setkey.exit89.thread, %44, %mbedtls_nist_kw_setkey.exit.thread, %19
   %.1 = phi i32 [ %.0.i103, %19 ], [ %.0.i103, %mbedtls_nist_kw_setkey.exit.thread ], [ %.0.i87106, %44 ], [ %.0.i87106, %mbedtls_nist_kw_setkey.exit89.thread ], [ %.0.i93111, %71 ], [ %.0.i93111, %mbedtls_nist_kw_setkey.exit95.thread ], [ %.0.i98114, %96 ], [ %.0.i98114, %mbedtls_nist_kw_setkey.exit100.thread ], [ 1, %33 ], [ 1, %32 ], [ 1, %56 ], [ 1, %.loopexit116 ], [ 1, %85 ], [ 1, %84 ], [ 1, %103 ], [ 1, %102 ], [ 0, %107 ]
@@ -869,14 +869,13 @@ attributes #11 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !5, i64 0}
-!14 = !{i64 1011032, i64 1011082, i64 1011154, i64 1011226, i64 1011298, i64 1011370, i64 1011442, i64 1011514, i64 1011586}
-!15 = !{i64 1007800, i64 1007850, i64 1007922, i64 1007994, i64 1008066}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"int", !5, i64 0}
+!13 = !{i64 1011032, i64 1011082, i64 1011154, i64 1011226, i64 1011298, i64 1011370, i64 1011442, i64 1011514, i64 1011586}
+!14 = !{i64 1007800, i64 1007850, i64 1007922, i64 1007994, i64 1008066}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}

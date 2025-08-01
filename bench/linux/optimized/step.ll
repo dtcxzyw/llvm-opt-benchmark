@@ -465,7 +465,7 @@ define dso_local void @user_disable_single_step(ptr noundef %0) local_unnamed_ad
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i32 -17, ptr elementtype(i8) %0) #5, !srcloc !11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %25, i32 -65, ptr nonnull elementtype(i8) %25) #5, !srcloc !11
-  %26 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 24, ptr elementtype(i64) %0) #5, !srcloc !20
+  %26 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 24, ptr elementtype(i64) %0) #5, !srcloc !19
   %27 = icmp ult i8 %26, 2
   tail call void @llvm.assume(i1 %27)
   %28 = icmp eq i8 %26, 0
@@ -528,8 +528,7 @@ attributes #6 = { nounwind memory(none) }
 !13 = !{i64 913218, i64 913239, i64 2149231985, i64 2149232029, i64 2149232052, i64 2149232085, i64 2149232116, i64 2149232155}
 !14 = !{i64 1781324}
 !15 = !{!"auto-init"}
-!16 = distinct !{!16, !17, !18, !19}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
 !18 = !{!"llvm.loop.unroll.disable"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{i64 2148321953, i64 2148321992, i64 2148322013, i64 2148322050, i64 2148322073, i64 2148322082, i64 2148322185}
+!19 = !{i64 2148321953, i64 2148321992, i64 2148322013, i64 2148322050, i64 2148322073, i64 2148322082, i64 2148322185}

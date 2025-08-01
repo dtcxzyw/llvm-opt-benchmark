@@ -454,7 +454,7 @@ _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0
   call void @_ZN4lean17check_interruptedEv()
   %34 = add nuw i32 %.011, 1
   %exitcond.not = icmp eq i32 %34, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !38
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -737,7 +737,6 @@ attributes #27 = { noreturn nounwind }
 !33 = !{!"_ZTS8timespec", !4, i64 0, !4, i64 8}
 !34 = !{!33, !4, i64 8}
 !35 = !{!27, !27, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = distinct !{!39, !37, !38}
+!38 = distinct !{!38, !37}

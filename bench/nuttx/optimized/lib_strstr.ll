@@ -92,7 +92,7 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %27, %30
   %.not108 = icmp eq i64 %.183.idx140, 0
-  br i1 %.not108, label %._crit_edge, label %.lr.ph142, !llvm.loop !9
+  br i1 %.not108, label %._crit_edge, label %.lr.ph142, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph142
   %32 = icmp ugt i64 %19, 9
@@ -124,7 +124,7 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
 44:                                               ; preds = %42, %.lr.ph159
   %45 = load i8, ptr %37, align 1
   %.not112 = icmp eq i8 %45, 0
-  br i1 %.not112, label %.loopexit, label %.lr.ph159, !llvm.loop !10
+  br i1 %.not112, label %.loopexit, label %.lr.ph159, !llvm.loop !9
 
 46:                                               ; preds = %._crit_edge
   switch i64 %19, label %68 [
@@ -157,7 +157,7 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
 57:                                               ; preds = %54, %.lr.ph150
   %58 = load i8, ptr %49, align 1
   %.not111 = icmp eq i8 %58, 0
-  br i1 %.not111, label %.loopexit, label %.lr.ph150, !llvm.loop !11
+  br i1 %.not111, label %.loopexit, label %.lr.ph150, !llvm.loop !10
 
 .preheader118:                                    ; preds = %46, %60
   %.390 = phi i64 [ %64, %60 ], [ %31, %46 ]
@@ -172,7 +172,7 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   %63 = zext i8 %59 to i64
   %64 = or disjoint i64 %61, %63
   %65 = icmp eq i64 %64, %26
-  br i1 %65, label %66, label %.preheader118, !llvm.loop !12
+  br i1 %65, label %66, label %.preheader118, !llvm.loop !11
 
 66:                                               ; preds = %60
   %67 = getelementptr inbounds i8, ptr %.4, i64 -7
@@ -199,7 +199,7 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   %78 = or disjoint i64 %75, %77
   %79 = and i64 %78, %70
   %80 = icmp eq i64 %79, %71
-  br i1 %80, label %81, label %72, !llvm.loop !13
+  br i1 %80, label %81, label %72, !llvm.loop !12
 
 81:                                               ; preds = %74
   %82 = sub nsw i64 0, %19
@@ -234,11 +234,10 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

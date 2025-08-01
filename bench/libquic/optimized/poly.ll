@@ -158,7 +158,7 @@ define hidden void @newhope_poly_tobytes(ptr noundef writeonly captures(none) %0
   store i8 %53, ptr %54, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %55, label %3, !llvm.loop !14
+  br i1 %exitcond.not, label %55, label %3, !llvm.loop !13
 
 55:                                               ; preds = %3
   ret void
@@ -183,7 +183,7 @@ define hidden void @newhope_poly_uniform(ptr noundef writeonly captures(none) %0
   call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %6) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2688) %6, i8 0, i64 2688, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  store i32 0, ptr %7, align 4, !tbaa !15
+  store i32 0, ptr %7, align 4, !tbaa !14
   call void @AES_ctr128_encrypt(ptr noundef nonnull %6, ptr noundef nonnull %6, i64 noundef 2688, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7) #6
   br label %10
 
@@ -223,7 +223,7 @@ define hidden void @newhope_poly_uniform(ptr noundef writeonly captures(none) %0
 28:                                               ; preds = %27, %24
   %.1 = phi i64 [ 0, %27 ], [ %25, %24 ]
   %29 = icmp ult i64 %.111, 1024
-  br i1 %29, label %10, label %30, !llvm.loop !17
+  br i1 %29, label %10, label %30, !llvm.loop !16
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
@@ -254,7 +254,7 @@ define hidden void @newhope_poly_getnoise(ptr noundef writeonly captures(none) %
 4:                                                ; preds = %1, %13
   %.021 = phi i64 [ 0, %1 ], [ %25, %13 ]
   %5 = getelementptr inbounds nuw [1024 x i32], ptr %2, i64 0, i64 %.021
-  %6 = load i32, ptr %5, align 4, !tbaa !15
+  %6 = load i32, ptr %5, align 4, !tbaa !14
   br label %7
 
 7:                                                ; preds = %4, %7
@@ -266,7 +266,7 @@ define hidden void @newhope_poly_getnoise(ptr noundef writeonly captures(none) %
   %11 = add i32 %10, %.01619
   %12 = add nuw nsw i64 %.01520, 1
   %exitcond.not = icmp eq i64 %12, 8
-  br i1 %exitcond.not, label %13, label %7, !llvm.loop !18
+  br i1 %exitcond.not, label %13, label %7, !llvm.loop !17
 
 13:                                               ; preds = %7
   %14 = lshr i32 %11, 8
@@ -284,7 +284,7 @@ define hidden void @newhope_poly_getnoise(ptr noundef writeonly captures(none) %
   store i16 %23, ptr %24, align 2, !tbaa !9
   %25 = add nuw nsw i64 %.021, 1
   %exitcond22.not = icmp eq i64 %25, 1024
-  br i1 %exitcond22.not, label %26, label %4, !llvm.loop !19
+  br i1 %exitcond22.not, label %26, label %4, !llvm.loop !18
 
 26:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #6
@@ -314,7 +314,7 @@ define hidden void @newhope_poly_pointwise(ptr noundef writeonly captures(none) 
   store i16 %15, ptr %16, align 2, !tbaa !9
   %17 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %17, 1024
-  br i1 %exitcond.not, label %18, label %4, !llvm.loop !20
+  br i1 %exitcond.not, label %18, label %4, !llvm.loop !19
 
 18:                                               ; preds = %4
   ret void
@@ -338,7 +338,7 @@ define hidden void @newhope_poly_add(ptr noundef writeonly captures(none) %0, pt
   store i16 %10, ptr %11, align 2, !tbaa !9
   %12 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %12, 1024
-  br i1 %exitcond.not, label %13, label %4, !llvm.loop !21
+  br i1 %exitcond.not, label %13, label %4, !llvm.loop !20
 
 13:                                               ; preds = %4
   ret void
@@ -386,14 +386,13 @@ attributes #6 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"short", !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !7, i64 0}
-!17 = distinct !{!17, !12, !13}
-!18 = distinct !{!18, !12, !13}
-!19 = distinct !{!19, !12, !13}
-!20 = distinct !{!20, !12, !13}
-!21 = distinct !{!21, !12, !13}
+!13 = distinct !{!13, !12}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"int", !7, i64 0}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !12}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !12}
+!20 = distinct !{!20, !12}

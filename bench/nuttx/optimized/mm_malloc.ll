@@ -63,7 +63,7 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
   %23 = getelementptr inbounds nuw i8, ptr %.04863, i64 16
   %.048 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.048, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !11
 
 24:                                               ; preds = %.lr.ph
   %25 = getelementptr inbounds nuw i8, ptr %.04863, i64 8
@@ -175,7 +175,6 @@ attributes #4 = { nounwind }
 !6 = !{i64 610727, i64 610745}
 !7 = !{i64 611346}
 !8 = !{i64 611467}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
+!11 = distinct !{!11, !10}

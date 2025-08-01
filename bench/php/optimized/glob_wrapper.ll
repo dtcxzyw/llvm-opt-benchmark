@@ -438,7 +438,7 @@ zend_string_alloc.exit:                           ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i64, ptr %20, align 8, !tbaa !37
   %51 = icmp ugt i64 %50, %indvars.iv.next
-  br i1 %51, label %34, label %.loopexit, !llvm.loop !52
+  br i1 %51, label %34, label %.loopexit
 
 .loopexit:                                        ; preds = %49, %28, %25
   %52 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.043, i32 noundef 47) #9
@@ -617,5 +617,3 @@ attributes #12 = { nounwind allocsize(0,1) }
 !49 = !{!48, !20, i64 16}
 !50 = !{!51, !51, i64 0}
 !51 = !{!"p1 _ZTS12_zend_string", !7, i64 0}
-!52 = distinct !{!52, !53}
-!53 = !{!"llvm.loop.estimated_trip_count"}

@@ -254,7 +254,7 @@ define internal fastcc noundef i64 @_ZN4core4iter6traits12double_ended19DoubleEn
   %43 = phi ptr [ %8, %7 ], [ %38, %"_ZN96_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h75023d51bf268b81E.exit" ]
   %44 = add nuw i64 %.sroa.01.013, 1
   %exitcond.not = icmp eq i64 %44, %1
-  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %5
 
 "_ZN96_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h75023d51bf268b81E.exit.thread": ; preds = %5, %"_ZN96_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h75023d51bf268b81E.exit"
   %45 = sub i64 %1, %.sroa.01.013
@@ -287,28 +287,28 @@ define void @_ZN18ruff_python_trivia9tokenizer22first_non_trivia_token17h1d5542d
 
 .split2.i:                                        ; preds = %4
   %11 = trunc nuw i64 %3 to i32
-  %12 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %11), !noalias !37
+  %12 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %11), !noalias !35
   %.not.i = icmp ugt i32 %1, %12
-  br i1 %.not.i, label %13, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE.exit, !prof !41
+  br i1 %.not.i, label %13, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE.exit, !prof !39
 
 .split.i:                                         ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5), !noalias !37
-  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.7, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8baf24e32ef2d80fa0bffab8ea311b23.6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.56) #13, !noalias !37
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5), !noalias !35
+  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.7, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8baf24e32ef2d80fa0bffab8ea311b23.6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.56) #13, !noalias !35
   unreachable
 
 13:                                               ; preds = %.split2.i
-  tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.58) #13, !noalias !37
+  tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.58) #13, !noalias !35
   unreachable
 
 _ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE.exit: ; preds = %.split2.i
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i32 noundef %1, i32 noundef %12)
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store ptr %14, ptr %8, align 8, !noalias !42
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !42
-  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %9), !noalias !47
+  store ptr %14, ptr %8, align 8, !noalias !40
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !40
+  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %9), !noalias !45
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %16 = load i8, ptr %15, align 4, !range !48, !noalias !42, !noundef !6
+  %16 = load i8, ptr %15, align 4, !range !46, !noalias !40, !noundef !6
   %.not21.i = icmp eq i8 %16, 90
   br i1 %.not21.i, label %.loopexit, label %.lr.ph.i
 
@@ -318,45 +318,45 @@ _ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE
   br label %17
 
 17:                                               ; preds = %19, %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6), !noalias !42
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false), !noalias !42
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6), !noalias !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 12, i1 false), !noalias !40
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %.sroa.78.i)
-  call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %18 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h106e2560b0b85e87E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %6), !noalias !52
+  call void @llvm.experimental.noalias.scope.decl(metadata !47)
+  %18 = call noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h106e2560b0b85e87E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %6), !noalias !50
   br i1 %18, label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE.exit.i", label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE.exit.thread.i"
 
 "_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE.exit.thread.i": ; preds = %17
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !42
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !40
   br label %19
 
 "_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE.exit.i": ; preds = %17
-  %.sroa.07.0.copyload.i = load i64, ptr %6, align 8, !alias.scope !53, !noalias !55
-  %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !53, !noalias !55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.78.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.78.0..sroa_idx.i, i64 3, i1 false), !alias.scope !53, !noalias !55
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !42
+  %.sroa.07.0.copyload.i = load i64, ptr %6, align 8, !alias.scope !51, !noalias !53
+  %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !51, !noalias !53
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.78.i, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.78.0..sroa_idx.i, i64 3, i1 false), !alias.scope !51, !noalias !53
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !40
   %.not.i.i = icmp eq i8 %.sroa.4.0.copyload.i, 90
   br i1 %.not.i.i, label %19, label %21
 
 19:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE.exit.i", %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE.exit.thread.i"
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.78.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !42
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !42
-  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %9), !noalias !47
-  %20 = load i8, ptr %15, align 4, !range !48, !noalias !42, !noundef !6
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !40
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !40
+  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %9), !noalias !45
+  %20 = load i8, ptr %15, align 4, !range !46, !noalias !40, !noundef !6
   %.not.i1 = icmp eq i8 %20, 90
-  br i1 %.not.i1, label %.loopexit, label %17, !llvm.loop !57
+  br i1 %.not.i1, label %.loopexit, label %17
 
 21:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE.exit.i"
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.78.i, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %.sroa.78.i)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !42
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   store i64 %.sroa.07.0.copyload.i, ptr %0, align 4
   br label %22
 
 .loopexit:                                        ; preds = %19, %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE.exit
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !42
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %22
 
@@ -376,10 +376,10 @@ define void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c6
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i32 noundef %1, i32 noundef %2)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i8 0, ptr %9, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !58
-  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %8), !noalias !62
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !55
+  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %8), !noalias !59
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load i8, ptr %10, align 8, !range !48, !noalias !58, !noundef !6
+  %11 = load i8, ptr %10, align 8, !range !46, !noalias !55, !noundef !6
   %.not26.i = icmp eq i8 %11, 90
   br i1 %.not26.i, label %.loopexit, label %.lr.ph.i
 
@@ -393,26 +393,26 @@ define void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c6
   ]
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = load i8, ptr %9, align 8, !range !63, !noalias !64, !noundef !6
+  %14 = load i8, ptr %9, align 8, !range !60, !noalias !61, !noundef !6
   %15 = trunc nuw i8 %14 to i1
   %16 = icmp ne i8 %12, 6
   %or.cond.not.i.i.i.i = or i1 %16, %15
   br i1 %or.cond.not.i.i.i.i, label %19, label %17
 
 17:                                               ; preds = %13, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !58
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !58
-  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %8), !noalias !62
-  %18 = load i8, ptr %10, align 8, !range !48, !noalias !58, !noundef !6
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !55
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7), !noalias !55
+  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %7, ptr noalias noundef nonnull align 8 dereferenceable(48) %8), !noalias !59
+  %18 = load i8, ptr %10, align 8, !range !46, !noalias !55, !noundef !6
   %.not.i = icmp eq i8 %18, 90
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !71
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 19:                                               ; preds = %13
-  %.sroa.010.0.copyload.i = load i64, ptr %7, align 8, !noalias !58
+  %.sroa.010.0.copyload.i = load i64, ptr %7, align 8, !noalias !55
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 9
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.6.0..sroa_idx4, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.3.0..sroa_idx.i, i64 3, i1 false)
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !58
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !55
   store i64 %.sroa.010.0.copyload.i, ptr %0, align 4
   %.sroa.4.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %12, ptr %.sroa.4.0..sroa_idx2, align 4
@@ -420,7 +420,7 @@ define void @_ZN18ruff_python_trivia9tokenizer24find_only_token_in_range17h758c6
   ret void
 
 .loopexit:                                        ; preds = %17, %6
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !58
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7), !noalias !55
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.10, i64 noundef 16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.12) #13
   unreachable
 }
@@ -461,7 +461,7 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer12lines_before17h8f41c76bfe
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %8
-  %19 = load i8, ptr %18, align 1, !alias.scope !72, !noundef !6
+  %19 = load i8, ptr %18, align 1, !alias.scope !68, !noundef !6
   %20 = icmp sgt i8 %19, -65
   br i1 %20, label %13, label %31
 
@@ -475,7 +475,7 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer12lines_before17h8f41c76bfe
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %9
-  %26 = load i8, ptr %25, align 1, !alias.scope !72, !noundef !6
+  %26 = load i8, ptr %25, align 1, !alias.scope !68, !noundef !6
   %27 = icmp sgt i8 %26, -65
   br i1 %27, label %28, label %31
 
@@ -503,7 +503,7 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer12lines_before17h8f41c76bfe
 
 34:                                               ; preds = %32
   %35 = call noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h4b88a9bee0e343fbE(i32 noundef %33)
-  br i1 %35, label %32, label %38, !llvm.loop !75
+  br i1 %35, label %32, label %38
 
 36:                                               ; preds = %32
   %37 = call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor13eat_char_back17h58f4a5f44f0712bcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %6, i32 noundef 13)
@@ -511,7 +511,7 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer12lines_before17h8f41c76bfe
 
 .loopexit:                                        ; preds = %32, %36
   %.sroa.0.1 = add i32 %.sroa.0.0.ph, 1
-  br label %.outer, !llvm.loop !75
+  br label %.outer
 
 38:                                               ; preds = %34, %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -538,7 +538,7 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer11lines_after17h52a509f1e52
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %6
-  %13 = load i8, ptr %12, align 1, !alias.scope !76, !noundef !6
+  %13 = load i8, ptr %12, align 1, !alias.scope !71, !noundef !6
   %14 = icmp sgt i8 %13, -65
   br i1 %14, label %15, label %18
 
@@ -566,7 +566,7 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer11lines_after17h52a509f1e52
 
 21:                                               ; preds = %19
   %22 = call noundef zeroext i1 @_ZN18ruff_python_trivia10whitespace20is_python_whitespace17h4b88a9bee0e343fbE(i32 noundef %20)
-  br i1 %22, label %19, label %25, !llvm.loop !79
+  br i1 %22, label %19, label %25
 
 23:                                               ; preds = %19
   %24 = call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i32 noundef 10)
@@ -574,7 +574,7 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer11lines_after17h52a509f1e52
 
 .loopexit:                                        ; preds = %19, %23
   %.sroa.0.1 = add i32 %.sroa.0.0.ph, 1
-  br label %.outer, !llvm.loop !79
+  br label %.outer
 
 25:                                               ; preds = %21, %19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -591,17 +591,17 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer27lines_after_ignoring_triv
 
 .split2.i:                                        ; preds = %3
   %8 = trunc nuw i64 %2 to i32
-  %9 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %8), !noalias !80
+  %9 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %8), !noalias !74
   %.not.i = icmp ugt i32 %0, %9
-  br i1 %.not.i, label %10, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE.exit, !prof !41
+  br i1 %.not.i, label %10, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE.exit, !prof !39
 
 .split.i:                                         ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !80
-  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.7, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8baf24e32ef2d80fa0bffab8ea311b23.6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.56) #13, !noalias !80
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !74
+  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.7, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8baf24e32ef2d80fa0bffab8ea311b23.6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.56) #13, !noalias !74
   unreachable
 
 10:                                               ; preds = %.split2.i
-  tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.58) #13, !noalias !80
+  tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.58) #13, !noalias !74
   unreachable
 
 _ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE.exit: ; preds = %.split2.i
@@ -614,7 +614,7 @@ _ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE
   %.sroa.0.0 = phi i32 [ 0, %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE.exit ], [ %.sroa.0.1, %16 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
-  %13 = load i8, ptr %11, align 4, !range !48, !noundef !6
+  %13 = load i8, ptr %11, align 4, !range !46, !noundef !6
   switch i8 %13, label %14 [
     i8 4, label %17
     i8 0, label %15
@@ -632,7 +632,7 @@ _ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE
 16:                                               ; preds = %12, %17, %15
   %.sroa.0.1 = phi i32 [ 0, %15 ], [ %18, %17 ], [ %.sroa.0.0, %12 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
-  br label %12, !llvm.loop !84
+  br label %12
 
 17:                                               ; preds = %12
   %18 = add i32 %.sroa.0.0, 1
@@ -650,17 +650,17 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer39lines_after_ignoring_end_
 
 .split2.i:                                        ; preds = %3
   %9 = trunc nuw i64 %2 to i32
-  %10 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %9), !noalias !85
+  %10 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %9), !noalias !78
   %.not.i = icmp ugt i32 %0, %10
-  br i1 %.not.i, label %11, label %12, !prof !41
+  br i1 %.not.i, label %11, label %12, !prof !39
 
 .split.i:                                         ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !85
-  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.7, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8baf24e32ef2d80fa0bffab8ea311b23.6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.56) #13, !noalias !85
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !78
+  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.7, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8baf24e32ef2d80fa0bffab8ea311b23.6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.56) #13, !noalias !78
   unreachable
 
 11:                                               ; preds = %.split2.i
-  tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.58) #13, !noalias !85
+  tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.58) #13, !noalias !78
   unreachable
 
 12:                                               ; preds = %.split2.i
@@ -669,15 +669,15 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer39lines_after_ignoring_end_
   store i8 0, ptr %.sroa.4.0..sroa_idx, align 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i8 0, ptr %13, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6), !noalias !104
-  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %7), !noalias !110
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6), !noalias !97
+  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %7), !noalias !103
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %15 = load i8, ptr %14, align 4, !range !48, !noalias !104, !noundef !6
+  %15 = load i8, ptr %14, align 4, !range !46, !noalias !97, !noundef !6
   %.not29.i.i.i.i.i = icmp eq i8 %15, 90
   br i1 %.not29.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE.exit.thread7.i.i", label %.lr.ph.split.i.i.i.i.i
 
@@ -690,12 +690,12 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer39lines_after_ignoring_end_
   ]
 
 17:                                               ; preds = %.lr.ph.split.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !104
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6), !noalias !104
-  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %7), !noalias !110
-  %18 = load i8, ptr %14, align 4, !range !48, !noalias !104, !noundef !6
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !97
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6), !noalias !97
+  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %7), !noalias !103
+  %18 = load i8, ptr %14, align 4, !range !46, !noalias !97, !noundef !6
   %.not.i.i.i.i.i = icmp eq i8 %18, 90
-  br i1 %.not.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE.exit.thread7.i.i", label %.lr.ph.split.i.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE.exit.thread7.i.i", label %.lr.ph.split.i.i.i.i.i
 
 19:                                               ; preds = %27
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -703,9 +703,9 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer39lines_after_ignoring_end_
 
 21:                                               ; preds = %23, %19
   %.sroa.01.0.i.i.i.i = phi i32 [ 1, %19 ], [ %26, %23 ]
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !112
-  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %7), !noalias !116
-  %22 = load i8, ptr %20, align 4, !range !48, !noalias !112, !noundef !6
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5), !noalias !104
+  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %7), !noalias !108
+  %22 = load i8, ptr %20, align 4, !range !46, !noalias !104, !noundef !6
   switch i8 %22, label %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE.exit.thread11.i.i" [
     i8 90, label %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE.exit.i.i"
     i8 4, label %23
@@ -713,28 +713,28 @@ define noundef i32 @_ZN18ruff_python_trivia9tokenizer39lines_after_ignoring_end_
   ]
 
 "_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE.exit.thread11.i.i": ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !112
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !104
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h989db7fc9ce9fa10E.exit"
 
 23:                                               ; preds = %21, %21
   %24 = icmp eq i8 %22, 4
   %25 = zext i1 %24 to i32
   %26 = add i32 %.sroa.01.0.i.i.i.i, %25
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !112
-  br label %21, !llvm.loop !117
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !104
+  br label %21
 
 27:                                               ; preds = %.lr.ph.split.i.i.i.i.i
-  store i8 1, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !118, !noalias !119
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !104
+  store i8 1, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !109, !noalias !110
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !97
   %cond.i.i.i = icmp eq i8 %16, 4
   br i1 %cond.i.i.i, label %19, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h989db7fc9ce9fa10E.exit"
 
 "_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE.exit.thread7.i.i": ; preds = %17, %12
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !104
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6), !noalias !97
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h989db7fc9ce9fa10E.exit"
 
 "_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE.exit.i.i": ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !112
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5), !noalias !104
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h989db7fc9ce9fa10E.exit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h989db7fc9ce9fa10E.exit": ; preds = %27, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE.exit.thread11.i.i", %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE.exit.thread7.i.i", %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE.exit.i.i"
@@ -926,7 +926,7 @@ define internal fastcc noundef range(i8 52, 88) i8 @_ZN18ruff_python_trivia9toke
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i8 0, 90) i8 @_ZN18ruff_python_trivia9tokenizer11SimpleToken4kind17h2948ca33a2c6cad2E(ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i8, ptr %2, align 4, !range !123, !noundef !6
+  %3 = load i8, ptr %2, align 4, !range !114, !noundef !6
   ret i8 %3
 }
 
@@ -989,7 +989,7 @@ define void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b979
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %8
-  %19 = load i8, ptr %18, align 1, !alias.scope !124, !noundef !6
+  %19 = load i8, ptr %18, align 1, !alias.scope !115, !noundef !6
   %20 = icmp sgt i8 %19, -65
   br i1 %20, label %13, label %35
 
@@ -1003,7 +1003,7 @@ define void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b979
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %9
-  %26 = load i8, ptr %25, align 1, !alias.scope !124, !noundef !6
+  %26 = load i8, ptr %25, align 1, !alias.scope !115, !noundef !6
   %27 = icmp sgt i8 %26, -65
   br i1 %27, label %28, label %35
 
@@ -1036,7 +1036,7 @@ define void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f
   %7 = trunc nuw i64 %3 to i32
   %8 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %7)
   %.not = icmp ugt i32 %1, %8
-  br i1 %.not, label %9, label %10, !prof !41
+  br i1 %.not, label %9, label %10, !prof !39
 
 .split:                                           ; preds = %4
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %5)
@@ -1066,26 +1066,26 @@ define void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u
   %6 = alloca [4 x i8], align 4
   %7 = alloca [4 x i8], align 4
   %8 = alloca [24 x i8], align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @_ZN18ruff_python_trivia6cursor6Cursor11start_token17hbfdf1c1dac81a87cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !130
-  %10 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor4bump17h73b075b2b931ac3aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !130
+  tail call void @_ZN18ruff_python_trivia6cursor6Cursor11start_token17hbfdf1c1dac81a87cE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !121
+  %10 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor4bump17h73b075b2b931ac3aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !121
   %.not.i = icmp eq i32 %10, 1114112
   br i1 %.not.i, label %226, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %13 = load i8, ptr %12, align 4, !range !63, !alias.scope !127, !noalias !130, !noundef !6
+  %13 = load i8, ptr %12, align 4, !range !60, !alias.scope !118, !noalias !121, !noundef !6
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %209, label %15
 
 15:                                               ; preds = %11
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   %16 = icmp samesign ult i32 %10, 128
   br i1 %16, label %_ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit.i.i, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call noundef zeroext i1 @_ZN13unicode_ident12is_xid_start17h24b2d0b06842d41dE(i32 noundef range(i32 0, 1114112) %10), !noalias !130
+  %18 = tail call noundef zeroext i1 @_ZN13unicode_ident12is_xid_start17h24b2d0b06842d41dE(i32 noundef range(i32 0, 1114112) %10), !noalias !121
   br i1 %18, label %23, label %22
 
 _ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit.i.i: ; preds = %15
@@ -1132,89 +1132,89 @@ _ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit.
   ]
 
 23:                                               ; preds = %_ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit.i.i, %17
-  tail call void @_ZN18ruff_python_trivia6cursor6Cursor9eat_while17h6662adc87d916b79E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !130
-  %24 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor9token_len17h42560f7ba955619bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !130
+  tail call void @_ZN18ruff_python_trivia6cursor6Cursor9eat_while17h6662adc87d916b79E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !121
+  %24 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor9token_len17h42560f7ba955619bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !121
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %26 = load i32, ptr %25, align 8, !alias.scope !135, !noalias !130, !noundef !6
+  %26 = load i32, ptr %25, align 8, !alias.scope !126, !noalias !121, !noundef !6
   %27 = add i32 %26, %24
   %.not.i.i = icmp ugt i32 %26, %27
-  br i1 %.not.i.i, label %97, label %98, !prof !41
+  br i1 %.not.i.i, label %97, label %98, !prof !39
 
 28:                                               ; preds = %22
-  store i8 1, ptr %12, align 4, !alias.scope !135, !noalias !130
+  store i8 1, ptr %12, align 4, !alias.scope !126, !noalias !121
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 29:                                               ; preds = %22, %22, %22
-  tail call void @_ZN18ruff_python_trivia6cursor6Cursor9eat_while17h31835fa855d21aefE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !130
+  tail call void @_ZN18ruff_python_trivia6cursor6Cursor9eat_while17h31835fa855d21aefE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !121
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 30:                                               ; preds = %22
-  %31 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 10), !noalias !130
+  %31 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 10), !noalias !121
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 32:                                               ; preds = %22
-  tail call void @_ZN18ruff_python_trivia6cursor6Cursor9eat_while17h24e6b9e075814637E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !130
+  tail call void @_ZN18ruff_python_trivia6cursor6Cursor9eat_while17h24e6b9e075814637E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !121
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 33:                                               ; preds = %22
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 34:                                               ; preds = %22
-  %35 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %35 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   %..i.i = select i1 %35, i8 28, i8 19
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 36:                                               ; preds = %22
-  %37 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %37 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   %.12.i.i = select i1 %37, i8 36, i8 17
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 38:                                               ; preds = %22
-  %39 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %39 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   br i1 %39, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i, label %76
 
 40:                                               ; preds = %22
-  %41 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %41 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   br i1 %41, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i, label %80
 
 42:                                               ; preds = %22
-  %43 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %43 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   %.13.i.i = select i1 %43, i8 40, i8 22
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 44:                                               ; preds = %22
-  %45 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %45 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   %.14.i.i = select i1 %45, i8 42, i8 25
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 46:                                               ; preds = %22
-  %47 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %47 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   %.15.i.i = select i1 %47, i8 43, i8 24
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 48:                                               ; preds = %22
-  %49 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %49 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   %.16.i.i = select i1 %49, i8 41, i8 23
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 50:                                               ; preds = %22
-  %51 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %51 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   br i1 %51, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i, label %84
 
 52:                                               ; preds = %22
-  %53 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %53 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   %.17.i.i = select i1 %53, i8 50, i8 26
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 54:                                               ; preds = %22
-  %55 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %55 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   br i1 %55, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i, label %86
 
 56:                                               ; preds = %22
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 57:                                               ; preds = %22
-  %58 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %58 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   %.18.i.i = select i1 %58, i8 48, i8 12
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
@@ -1222,20 +1222,20 @@ _ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit.
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 60:                                               ; preds = %22
-  %61 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 60), !noalias !130
-  %62 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %61 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 60), !noalias !121
+  %62 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   br i1 %61, label %88, label %87
 
 63:                                               ; preds = %22
-  %64 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 62), !noalias !130
-  %65 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %64 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 62), !noalias !121
+  %65 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   br i1 %64, label %90, label %89
 
 66:                                               ; preds = %22
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 67:                                               ; preds = %22
-  %68 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !130
+  %68 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !121
   %69 = icmp eq i32 %68, 46
   br i1 %69, label %91, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
@@ -1258,30 +1258,30 @@ _ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit.
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 76:                                               ; preds = %38
-  %77 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 42), !noalias !130
+  %77 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 42), !noalias !121
   br i1 %77, label %78, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 78:                                               ; preds = %76
-  %79 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %79 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   %.19.i.i = select i1 %79, i8 35, i8 34
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 80:                                               ; preds = %40
-  %81 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 47), !noalias !130
+  %81 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 47), !noalias !121
   br i1 %81, label %82, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 82:                                               ; preds = %80
-  %83 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !130
+  %83 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 61), !noalias !121
   %.20.i.i = select i1 %83, i8 47, i8 46
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 84:                                               ; preds = %50
-  %85 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 62), !noalias !130
+  %85 = tail call noundef zeroext i1 @_ZN18ruff_python_trivia6cursor6Cursor8eat_char17h4da48c940332d8a6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 62), !noalias !121
   %.21.i.i = select i1 %85, i8 51, i8 18
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 86:                                               ; preds = %54
-  store i8 1, ptr %12, align 4, !alias.scope !135, !noalias !130
+  store i8 1, ptr %12, align 4, !alias.scope !126, !noalias !121
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 87:                                               ; preds = %60
@@ -1301,31 +1301,31 @@ _ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit.
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 91:                                               ; preds = %67
-  %92 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor6second17h65cda6f63a8c1391E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !130
+  %92 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor6second17h65cda6f63a8c1391E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !121
   %93 = icmp eq i32 %92, 46
   br i1 %93, label %94, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 94:                                               ; preds = %91
-  %95 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor4bump17h73b075b2b931ac3aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !130
-  %96 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor4bump17h73b075b2b931ac3aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !130
+  %95 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor4bump17h73b075b2b931ac3aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !121
+  %96 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor4bump17h73b075b2b931ac3aE(ptr noalias noundef nonnull align 8 dereferenceable(24) %9), !noalias !121
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 97:                                               ; preds = %23
-  tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.60) #13, !noalias !130
+  tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.60) #13, !noalias !121
   unreachable
 
 98:                                               ; preds = %23
-  %99 = load ptr, ptr %1, align 8, !alias.scope !135, !noalias !130, !nonnull !6, !align !136, !noundef !6
+  %99 = load ptr, ptr %1, align 8, !alias.scope !126, !noalias !121, !nonnull !6, !align !127, !noundef !6
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %101 = load i64, ptr %100, align 8, !alias.scope !135, !noalias !130, !noundef !6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !137
-  store i32 %26, ptr %7, align 4, !noalias !137
-  %102 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !noalias !130
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !137
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !137
-  store i32 %27, ptr %6, align 4, !noalias !137
-  %103 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !noalias !130
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !137
+  %101 = load i64, ptr %100, align 8, !alias.scope !126, !noalias !121, !noundef !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7), !noalias !128
+  store i32 %26, ptr %7, align 4, !noalias !128
+  %102 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !noalias !121
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7), !noalias !128
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !128
+  store i32 %27, ptr %6, align 4, !noalias !128
+  %103 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !noalias !121
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !128
   %.not.i.i.i = icmp ugt i64 %102, %103
   br i1 %.not.i.i.i, label %127, label %104
 
@@ -1347,7 +1347,7 @@ _ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit.
 
 111:                                              ; preds = %106
   %112 = getelementptr inbounds nuw i8, ptr %99, i64 %102
-  %113 = load i8, ptr %112, align 1, !alias.scope !138, !noalias !130, !noundef !6
+  %113 = load i8, ptr %112, align 1, !alias.scope !129, !noalias !121, !noundef !6
   %114 = icmp sgt i8 %113, -65
   br i1 %114, label %107, label %127
 
@@ -1361,39 +1361,39 @@ _ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit.
 
 118:                                              ; preds = %115
   %119 = getelementptr inbounds nuw i8, ptr %99, i64 %103
-  %120 = load i8, ptr %119, align 1, !alias.scope !138, !noalias !130, !noundef !6
+  %120 = load i8, ptr %119, align 1, !alias.scope !129, !noalias !121, !noundef !6
   %121 = icmp sgt i8 %120, -65
   br i1 %121, label %122, label %127
 
 122:                                              ; preds = %118, %116, %107
   %123 = sub nuw i64 %103, %102
   %124 = getelementptr inbounds nuw i8, ptr %99, i64 %102
-  %125 = call fastcc noundef i8 @_ZN18ruff_python_trivia9tokenizer19to_keyword_or_other17h17d0534e043347edE(ptr noalias noundef nonnull readonly align 1 %124, i64 noundef %123), !noalias !130
+  %125 = call fastcc noundef i8 @_ZN18ruff_python_trivia9tokenizer19to_keyword_or_other17h17d0534e043347edE(ptr noalias noundef nonnull readonly align 1 %124, i64 noundef %123), !noalias !121
   %126 = icmp eq i8 %125, 87
   br i1 %126, label %128, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 127:                                              ; preds = %118, %116, %111, %109, %98
-  call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %99, i64 noundef %101, i64 noundef %102, i64 noundef %103, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.62) #13, !noalias !130
+  call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %99, i64 noundef %101, i64 noundef %102, i64 noundef %103, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.62) #13, !noalias !121
   unreachable
 
 128:                                              ; preds = %122
-  %129 = call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !130
+  %129 = call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor5first17ha2a59ae7d1882b15E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !121
   switch i32 %129, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i [
     i32 34, label %130
     i32 39, label %130
   ]
 
 130:                                              ; preds = %128, %128
-  %131 = load ptr, ptr %1, align 8, !alias.scope !135, !noalias !130, !nonnull !6, !align !136, !noundef !6
-  %132 = load i64, ptr %100, align 8, !alias.scope !135, !noalias !130, !noundef !6
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !137
-  store i32 %26, ptr %5, align 4, !noalias !137
-  %133 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !noalias !130
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !137
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !137
-  store i32 %27, ptr %4, align 4, !noalias !137
-  %134 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4), !noalias !130
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !137
+  %131 = load ptr, ptr %1, align 8, !alias.scope !126, !noalias !121, !nonnull !6, !align !127, !noundef !6
+  %132 = load i64, ptr %100, align 8, !alias.scope !126, !noalias !121, !noundef !6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !128
+  store i32 %26, ptr %5, align 4, !noalias !128
+  %133 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !noalias !121
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !128
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !128
+  store i32 %27, ptr %4, align 4, !noalias !128
+  %134 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4), !noalias !121
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !128
   %.not.i26.i.i = icmp ugt i64 %133, %134
   br i1 %.not.i26.i.i, label %157, label %135
 
@@ -1415,7 +1415,7 @@ _ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit.
 
 142:                                              ; preds = %137
   %143 = getelementptr inbounds nuw i8, ptr %131, i64 %133
-  %144 = load i8, ptr %143, align 1, !alias.scope !141, !noalias !130, !noundef !6
+  %144 = load i8, ptr %143, align 1, !alias.scope !132, !noalias !121, !noundef !6
   %145 = icmp sgt i8 %144, -65
   br i1 %145, label %138, label %157
 
@@ -1429,174 +1429,174 @@ _ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit.
 
 149:                                              ; preds = %146
   %150 = getelementptr inbounds nuw i8, ptr %131, i64 %134
-  %151 = load i8, ptr %150, align 1, !alias.scope !141, !noalias !130, !noundef !6
+  %151 = load i8, ptr %150, align 1, !alias.scope !132, !noalias !121, !noundef !6
   %152 = icmp sgt i8 %151, -65
   br i1 %152, label %153, label %157
 
 153:                                              ; preds = %149, %147, %138
   %154 = sub nuw i64 %134, %133
   %155 = getelementptr inbounds nuw i8, ptr %131, i64 %133
-  %156 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.65, i64 noundef 1), !noalias !130
+  %156 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.65, i64 noundef 1), !noalias !121
   br i1 %156, label %204, label %158
 
 157:                                              ; preds = %149, %147, %142, %140, %130
-  call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %131, i64 noundef %132, i64 noundef %133, i64 noundef %134, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.64) #13, !noalias !130
+  call void @_ZN4core3str16slice_error_fail17h9782f1ca63c1749dE(ptr noalias noundef nonnull readonly align 1 %131, i64 noundef %132, i64 noundef %133, i64 noundef %134, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.64) #13, !noalias !121
   unreachable
 
 158:                                              ; preds = %153
-  %159 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.66, i64 noundef 2), !noalias !130
+  %159 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.66, i64 noundef 2), !noalias !121
   br i1 %159, label %204, label %160
 
 160:                                              ; preds = %158
-  %161 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.67, i64 noundef 2), !noalias !130
+  %161 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.67, i64 noundef 2), !noalias !121
   br i1 %161, label %204, label %162
 
 162:                                              ; preds = %160
-  %163 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.68, i64 noundef 1), !noalias !130
+  %163 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.68, i64 noundef 1), !noalias !121
   br i1 %163, label %204, label %164
 
 164:                                              ; preds = %162
-  %165 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.69, i64 noundef 2), !noalias !130
+  %165 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.69, i64 noundef 2), !noalias !121
   br i1 %165, label %204, label %166
 
 166:                                              ; preds = %164
-  %167 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.70, i64 noundef 2), !noalias !130
+  %167 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.70, i64 noundef 2), !noalias !121
   br i1 %167, label %204, label %168
 
 168:                                              ; preds = %166
-  %169 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.71, i64 noundef 1), !noalias !130
+  %169 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.71, i64 noundef 1), !noalias !121
   br i1 %169, label %204, label %170
 
 170:                                              ; preds = %168
-  %171 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.72, i64 noundef 2), !noalias !130
+  %171 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.72, i64 noundef 2), !noalias !121
   br i1 %171, label %204, label %172
 
 172:                                              ; preds = %170
-  %173 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.73, i64 noundef 2), !noalias !130
+  %173 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.73, i64 noundef 2), !noalias !121
   br i1 %173, label %204, label %174
 
 174:                                              ; preds = %172
-  %175 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.74, i64 noundef 2), !noalias !130
+  %175 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.74, i64 noundef 2), !noalias !121
   br i1 %175, label %204, label %176
 
 176:                                              ; preds = %174
-  %177 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.75, i64 noundef 2), !noalias !130
+  %177 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.75, i64 noundef 2), !noalias !121
   br i1 %177, label %204, label %178
 
 178:                                              ; preds = %176
-  %179 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.76, i64 noundef 1), !noalias !130
+  %179 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.76, i64 noundef 1), !noalias !121
   br i1 %179, label %204, label %180
 
 180:                                              ; preds = %178
-  %181 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.77, i64 noundef 1), !noalias !130
+  %181 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.77, i64 noundef 1), !noalias !121
   br i1 %181, label %204, label %182
 
 182:                                              ; preds = %180
-  %183 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.78, i64 noundef 2), !noalias !130
+  %183 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.78, i64 noundef 2), !noalias !121
   br i1 %183, label %204, label %184
 
 184:                                              ; preds = %182
-  %185 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.79, i64 noundef 2), !noalias !130
+  %185 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.79, i64 noundef 2), !noalias !121
   br i1 %185, label %204, label %186
 
 186:                                              ; preds = %184
-  %187 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.80, i64 noundef 1), !noalias !130
+  %187 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.80, i64 noundef 1), !noalias !121
   br i1 %187, label %204, label %188
 
 188:                                              ; preds = %186
-  %189 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.81, i64 noundef 2), !noalias !130
+  %189 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.81, i64 noundef 2), !noalias !121
   br i1 %189, label %204, label %190
 
 190:                                              ; preds = %188
-  %191 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.82, i64 noundef 2), !noalias !130
+  %191 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.82, i64 noundef 2), !noalias !121
   br i1 %191, label %204, label %192
 
 192:                                              ; preds = %190
-  %193 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.83, i64 noundef 1), !noalias !130
+  %193 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.83, i64 noundef 1), !noalias !121
   br i1 %193, label %204, label %194
 
 194:                                              ; preds = %192
-  %195 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.84, i64 noundef 2), !noalias !130
+  %195 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.84, i64 noundef 2), !noalias !121
   br i1 %195, label %204, label %196
 
 196:                                              ; preds = %194
-  %197 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.85, i64 noundef 2), !noalias !130
+  %197 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.85, i64 noundef 2), !noalias !121
   br i1 %197, label %204, label %198
 
 198:                                              ; preds = %196
-  %199 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.86, i64 noundef 2), !noalias !130
+  %199 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.86, i64 noundef 2), !noalias !121
   br i1 %199, label %204, label %200
 
 200:                                              ; preds = %198
-  %201 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.87, i64 noundef 2), !noalias !130
+  %201 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.87, i64 noundef 2), !noalias !121
   br i1 %201, label %204, label %202
 
 202:                                              ; preds = %200
-  %203 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.88, i64 noundef 1), !noalias !130
+  %203 = call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4076a9e9aaa3a843E"(ptr noalias noundef nonnull readonly align 1 %155, i64 noundef %154, ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.88, i64 noundef 1), !noalias !121
   br i1 %203, label %204, label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 204:                                              ; preds = %202, %200, %198, %196, %194, %192, %190, %188, %186, %184, %182, %180, %178, %176, %174, %172, %170, %168, %166, %164, %162, %160, %158, %153
-  store i8 1, ptr %12, align 4, !alias.scope !135, !noalias !130
+  store i8 1, ptr %12, align 4, !alias.scope !126, !noalias !121
   br label %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
 
 _ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i: ; preds = %204, %202, %128, %122, %94, %91, %90, %89, %88, %87, %86, %84, %82, %80, %78, %76, %75, %74, %73, %72, %71, %70, %67, %66, %59, %57, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %33, %32, %30, %29, %28, %22
   %.sroa.02.0.i.i = phi i8 [ 87, %128 ], [ 88, %204 ], [ 87, %202 ], [ %125, %122 ], [ 88, %28 ], [ 1, %29 ], [ 4, %30 ], [ 0, %32 ], [ 3, %33 ], [ 88, %86 ], [ 27, %56 ], [ 13, %59 ], [ 11, %66 ], [ 49, %94 ], [ 5, %70 ], [ 6, %71 ], [ 9, %72 ], [ 10, %73 ], [ 7, %74 ], [ 8, %75 ], [ 4, %22 ], [ %..i.i, %34 ], [ %.12.i.i, %36 ], [ %.13.i.i, %42 ], [ %.14.i.i, %44 ], [ %.15.i.i, %46 ], [ %.16.i.i, %48 ], [ %.17.i.i, %52 ], [ %.18.i.i, %57 ], [ 38, %38 ], [ 15, %76 ], [ %.19.i.i, %78 ], [ 39, %40 ], [ 14, %80 ], [ %.20.i.i, %82 ], [ %.21.i.i, %84 ], [ 37, %50 ], [ 29, %54 ], [ %.22.i.i, %87 ], [ %.23.i.i, %88 ], [ %.24.i.i, %89 ], [ %.25.i.i, %90 ], [ 16, %91 ], [ 16, %67 ]
-  %205 = call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor9token_len17h42560f7ba955619bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !130
+  %205 = call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor9token_len17h42560f7ba955619bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9), !noalias !121
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %207 = load i32, ptr %206, align 8, !alias.scope !127, !noalias !130, !noundef !6
+  %207 = load i32, ptr %206, align 8, !alias.scope !118, !noalias !121, !noundef !6
   %208 = add i32 %207, %205
   %.not16.i = icmp ugt i32 %207, %208
-  br i1 %.not16.i, label %215, label %216, !prof !41
+  br i1 %.not16.i, label %215, label %216, !prof !39
 
 209:                                              ; preds = %11
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %211 = load i32, ptr %210, align 8, !alias.scope !127, !noalias !130, !noundef !6
+  %211 = load i32, ptr %210, align 8, !alias.scope !118, !noalias !121, !noundef !6
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %213 = load i64, ptr %212, align 8, !alias.scope !127, !noalias !130, !noundef !6
+  %213 = load i64, ptr %212, align 8, !alias.scope !118, !noalias !121, !noundef !6
   %214 = icmp ugt i64 %213, 4294967295
   br i1 %214, label %.split.i, label %.split6.i
 
 215:                                              ; preds = %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
-  call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.60) #13, !noalias !130
+  call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.60) #13, !noalias !121
   unreachable
 
 216:                                              ; preds = %_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE.exit.i
-  store i32 %208, ptr %206, align 8, !alias.scope !127, !noalias !130
+  store i32 %208, ptr %206, align 8, !alias.scope !118, !noalias !121
   br label %225
 
 .split6.i:                                        ; preds = %209
   %217 = trunc nuw i64 %213 to i32
-  %218 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %217), !noalias !130
+  %218 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %217), !noalias !121
   %.not17.i = icmp ugt i32 %211, %218
-  br i1 %.not17.i, label %219, label %220, !prof !41
+  br i1 %.not17.i, label %219, label %220, !prof !39
 
 .split.i:                                         ; preds = %209
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !144
-  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.7, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8baf24e32ef2d80fa0bffab8ea311b23.6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.56) #13, !noalias !130
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !135
+  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.7, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8baf24e32ef2d80fa0bffab8ea311b23.6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.56) #13, !noalias !121
   unreachable
 
 219:                                              ; preds = %.split6.i
-  tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.61) #13, !noalias !130
+  tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.61) #13, !noalias !121
   unreachable
 
 220:                                              ; preds = %.split6.i
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !144
-  call void @_ZN18ruff_python_trivia6cursor6Cursor3new17h266684f77946ca74E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0), !noalias !130
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !130
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !144
-  %221 = load i64, ptr %212, align 8, !alias.scope !127, !noalias !130, !noundef !6
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !135
+  call void @_ZN18ruff_python_trivia6cursor6Cursor3new17h266684f77946ca74E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0), !noalias !121
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !121
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !135
+  %221 = load i64, ptr %212, align 8, !alias.scope !118, !noalias !121, !noundef !6
   %222 = icmp ugt i64 %221, 4294967295
   br i1 %222, label %.split8.i, label %.split10.i
 
 .split10.i:                                       ; preds = %220
   %223 = trunc nuw i64 %221 to i32
-  %224 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %223), !noalias !130
-  store i32 %224, ptr %210, align 8, !alias.scope !127, !noalias !130
+  %224 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %223), !noalias !121
+  store i32 %224, ptr %210, align 8, !alias.scope !118, !noalias !121
   br label %225
 
 .split8.i:                                        ; preds = %220
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !144
-  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.7, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8baf24e32ef2d80fa0bffab8ea311b23.6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.56) #13, !noalias !130
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !135
+  call void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.7, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.8baf24e32ef2d80fa0bffab8ea311b23.6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.56) #13, !noalias !121
   unreachable
 
 225:                                              ; preds = %.split10.i, %216
@@ -1625,10 +1625,10 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer3new17h17b313d
   store i32 %4, ptr %11, align 4
   %12 = call noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point17h49f38513068902deE"(ptr noalias noundef nonnull readonly align 4 %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %10)
   %13 = icmp ugt i64 %12, %6
-  br i1 %13, label %14, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc64b7f8488c8e8dcE.exit", !prof !41
+  br i1 %13, label %14, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc64b7f8488c8e8dcE.exit", !prof !39
 
 14:                                               ; preds = %7
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %12, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.90) #13, !noalias !145
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %12, i64 noundef %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.90) #13, !noalias !136
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc64b7f8488c8e8dcE.exit": ; preds = %7
@@ -1661,7 +1661,7 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer3new17h17b313d
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %15
-  %26 = load i8, ptr %25, align 1, !alias.scope !148, !noundef !6
+  %26 = load i8, ptr %25, align 1, !alias.scope !139, !noundef !6
   %27 = icmp sgt i8 %26, -65
   br i1 %27, label %20, label %45
 
@@ -1675,7 +1675,7 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer3new17h17b313d
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %16
-  %33 = load i8, ptr %32, align 1, !alias.scope !148, !noundef !6
+  %33 = load i8, ptr %32, align 1, !alias.scope !139, !noundef !6
   %34 = icmp sgt i8 %33, -65
   br i1 %34, label %35, label %45
 
@@ -1737,7 +1737,7 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token17
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %16 = load i8, ptr %15, align 8, !range !63, !noundef !6
+  %16 = load i8, ptr %15, align 8, !range !60, !noundef !6
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %32, label %22
 
@@ -1754,7 +1754,7 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token17
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i64, ptr %23, align 8, !noundef !6
   %.not12 = icmp eq i64 %24, 0
-  %25 = load ptr, ptr %1, align 8, !nonnull !6, !align !151
+  %25 = load ptr, ptr %1, align 8, !nonnull !6, !align !142
   %26 = getelementptr { i32, i32 }, ptr %25, i64 %24
   %27 = getelementptr i8, ptr %26, i64 -8
   %.val = load i32, ptr %12, align 4
@@ -1763,13 +1763,13 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token17
   br i1 %.not.i, label %"_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token28_$u7b$$u7b$closure$u7d$$u7d$17hb46b07bd21a94b2fE.exit.thread.i", label %28
 
 28:                                               ; preds = %22
-  %29 = load i32, ptr %27, align 4, !alias.scope !152, !noundef !6
+  %29 = load i32, ptr %27, align 4, !alias.scope !143, !noundef !6
   %.not.i.i = icmp ugt i32 %29, %.val
   br i1 %.not.i.i, label %"_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token28_$u7b$$u7b$closure$u7d$$u7d$17hb46b07bd21a94b2fE.exit.thread.i", label %"_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token28_$u7b$$u7b$closure$u7d$$u7d$17hb46b07bd21a94b2fE.exit.i"
 
 "_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token28_$u7b$$u7b$closure$u7d$$u7d$17hb46b07bd21a94b2fE.exit.i": ; preds = %28
   %30 = getelementptr i8, ptr %26, i64 -4
-  %31 = load i32, ptr %30, align 4, !alias.scope !152, !noundef !6
+  %31 = load i32, ptr %30, align 4, !alias.scope !143, !noundef !6
   %.not2.i = icmp ugt i32 %.val, %31
   br i1 %.not2.i, label %"_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token28_$u7b$$u7b$closure$u7d$$u7d$17hb46b07bd21a94b2fE.exit.thread.i", label %"_ZN4core6option15Option$LT$T$GT$6filter17h9b42a90650017208E.exit"
 
@@ -1794,14 +1794,14 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token17
   store i64 %38, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = load ptr, ptr %39, align 8, !nonnull !6, !align !136, !noundef !6
+  %40 = load ptr, ptr %39, align 8, !nonnull !6, !align !127, !noundef !6
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load i64, ptr %41, align 8, !noundef !6
   %43 = load i32, ptr %9, align 8, !noundef !6
   %44 = tail call { i32, i32 } @"_ZN83_$LT$ruff_text_size..range..TextRange$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hdd35f970b7d73e86E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %27)
   %45 = extractvalue { i32, i32 } %44, 0
   %.not15 = icmp ugt i32 %43, %45
-  br i1 %.not15, label %46, label %47, !prof !41
+  br i1 %.not15, label %46, label %47, !prof !39
 
 "_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token28_$u7b$$u7b$closure$u7d$$u7d$17hb46b07bd21a94b2fE.exit.thread.i": ; preds = %28, %"_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token28_$u7b$$u7b$closure$u7d$$u7d$17hb46b07bd21a94b2fE.exit.i", %22
   switch i32 %13, label %78 [
@@ -1846,7 +1846,7 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token17
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %40, i64 %48
-  %59 = load i8, ptr %58, align 1, !alias.scope !155, !noundef !6
+  %59 = load i8, ptr %58, align 1, !alias.scope !146, !noundef !6
   %60 = icmp sgt i8 %59, -65
   br i1 %60, label %53, label %76
 
@@ -1860,7 +1860,7 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token17
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %40, i64 %49
-  %66 = load i8, ptr %65, align 1, !alias.scope !155, !noundef !6
+  %66 = load i8, ptr %65, align 1, !alias.scope !146, !noundef !6
   %67 = icmp sgt i8 %66, -65
   br i1 %67, label %68, label %76
 
@@ -1904,7 +1904,7 @@ define void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token17
   %84 = tail call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor9token_len17h42560f7ba955619bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %85 = load i32, ptr %12, align 4, !noundef !6
   %.not14 = icmp ugt i32 %84, %85
-  br i1 %.not14, label %86, label %87, !prof !41
+  br i1 %.not14, label %86, label %87, !prof !39
 
 86:                                               ; preds = %83
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.8baf24e32ef2d80fa0bffab8ea311b23.57, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8baf24e32ef2d80fa0bffab8ea311b23.60) #13
@@ -2001,7 +2001,7 @@ _ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h53b95741bc662d0b
   %32 = load i32, ptr %31, align 4, !noundef !6
   %33 = sub i32 %32, %30
   %.not34 = icmp ugt i32 %30, %32
-  br i1 %.not34, label %155, label %156, !prof !41
+  br i1 %.not34, label %155, label %156, !prof !39
 
 34:                                               ; preds = %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h53b95741bc662d0bE.exit.thread68
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2074,7 +2074,7 @@ _ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h53b95741bc662d0b
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %63 = load i32, ptr %62, align 4, !noundef !6
   %.not = icmp ugt i32 %61, %63
-  br i1 %.not, label %65, label %66, !prof !41
+  br i1 %.not, label %65, label %66, !prof !39
 
 64:                                               ; preds = %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h53b95741bc662d0bE.exit.thread68, %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread, %252, %153, %51, %50, %49, %48, %47, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %34
   %.sroa.02.0 = phi i8 [ %255, %252 ], [ 88, %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread ], [ 88, %34 ], [ 12, %36 ], [ 27, %37 ], [ 22, %38 ], [ 25, %39 ], [ 11, %40 ], [ 13, %41 ], [ 5, %42 ], [ 6, %43 ], [ 9, %44 ], [ 10, %45 ], [ 7, %46 ], [ 8, %47 ], [ 23, %48 ], [ 24, %49 ], [ 17, %50 ], [ 18, %51 ], [ %.sroa.02.1, %153 ], [ 3, %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h53b95741bc662d0bE.exit.thread68 ]
@@ -2087,30 +2087,30 @@ _ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h53b95741bc662d0b
 66:                                               ; preds = %52
   %67 = sub nuw i32 %63, %61
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %69 = load ptr, ptr %68, align 8, !nonnull !6, !align !136, !noundef !6
+  %69 = load ptr, ptr %68, align 8, !nonnull !6, !align !127, !noundef !6
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load i64, ptr %70, align 8, !noundef !6
   call void @_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer3new17h8fa3f2b97970decbE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 1 %69, i64 noundef %71, i32 noundef %67, i32 noundef %63)
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9), !noalias !158
-  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %11), !noalias !163
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9), !noalias !149
+  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %11), !noalias !154
   %72 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %73 = load i8, ptr %72, align 8, !range !48, !noalias !158, !noundef !6
+  %73 = load i8, ptr %72, align 8, !range !46, !noalias !149, !noundef !6
   %.not2.i = icmp eq i8 %73, 90
   br i1 %.not2.i, label %98, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %66, %.lr.ph.i
   %.sroa.565.0.copyload = phi i8 [ %74, %.lr.ph.i ], [ %73, %66 ]
-  %.sroa.064.0.copyload = load i64, ptr %9, align 8, !noalias !158
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !158
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9), !noalias !158
-  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %11), !noalias !163
-  %74 = load i8, ptr %72, align 8, !range !48, !noalias !158, !noundef !6
+  %.sroa.064.0.copyload = load i64, ptr %9, align 8, !noalias !149
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !149
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9), !noalias !149
+  call void @"_ZN105_$LT$ruff_python_trivia..tokenizer..SimpleTokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h352aac41d5da77ffE"(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %11), !noalias !154
+  %74 = load i8, ptr %72, align 8, !range !46, !noalias !149, !noundef !6
   %.not.i = icmp eq i8 %74, 90
-  br i1 %.not.i, label %75, label %.lr.ph.i, !llvm.loop !164
+  br i1 %.not.i, label %75, label %.lr.ph.i
 
 75:                                               ; preds = %.lr.ph.i
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !158
-  %76 = load ptr, ptr %68, align 8, !nonnull !6, !align !136, !noundef !6
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !149
+  %76 = load ptr, ptr %68, align 8, !nonnull !6, !align !127, !noundef !6
   %77 = load i64, ptr %70, align 8, !noundef !6
   %.sroa.061.0.extract.trunc = trunc i64 %.sroa.064.0.copyload to i32
   %.sroa.061.4.extract.shift = lshr i64 %.sroa.064.0.copyload, 32
@@ -2144,7 +2144,7 @@ _ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h53b95741bc662d0b
 
 87:                                               ; preds = %82
   %88 = getelementptr inbounds nuw i8, ptr %76, i64 %78
-  %89 = load i8, ptr %88, align 1, !alias.scope !165, !noundef !6
+  %89 = load i8, ptr %88, align 1, !alias.scope !155, !noundef !6
   %90 = icmp sgt i8 %89, -65
   br i1 %90, label %83, label %103
 
@@ -2158,12 +2158,12 @@ _ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h53b95741bc662d0b
 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %76, i64 %79
-  %96 = load i8, ptr %95, align 1, !alias.scope !165, !noundef !6
+  %96 = load i8, ptr %95, align 1, !alias.scope !155, !noundef !6
   %97 = icmp sgt i8 %96, -65
   br i1 %97, label %100, label %103
 
 98:                                               ; preds = %66
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !158
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9), !noalias !149
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 1, ptr %99, align 8
   br label %153
@@ -2190,19 +2190,19 @@ thread-pre-split:                                 ; preds = %select.unfold.threa
 104:                                              ; preds = %thread-pre-split, %100
   %105 = phi i64 [ %.pr, %thread-pre-split ], [ 1, %100 ]
   %.not30 = icmp eq i64 %105, 0
-  br i1 %.not30, label %106, label %145, !prof !168
+  br i1 %.not30, label %106, label %145, !prof !158
 
 106:                                              ; preds = %104
-  call void @llvm.experimental.noalias.scope.decl(metadata !169)
-  %107 = load ptr, ptr %.sroa.27.0..sroa_idx, align 8, !alias.scope !172, !nonnull !6, !noundef !6
-  %108 = load ptr, ptr %10, align 8, !alias.scope !172, !nonnull !6, !noundef !6
+  call void @llvm.experimental.noalias.scope.decl(metadata !159)
+  %107 = load ptr, ptr %.sroa.27.0..sroa_idx, align 8, !alias.scope !162, !nonnull !6, !noundef !6
+  %108 = load ptr, ptr %10, align 8, !alias.scope !162, !nonnull !6, !noundef !6
   %109 = icmp eq ptr %108, %107
   br i1 %109, label %.thread, label %110
 
 110:                                              ; preds = %106
   %111 = getelementptr inbounds i8, ptr %107, i64 -1
-  store ptr %111, ptr %.sroa.27.0..sroa_idx, align 8, !alias.scope !172
-  %112 = load i8, ptr %111, align 1, !noalias !169, !noundef !6
+  store ptr %111, ptr %.sroa.27.0..sroa_idx, align 8, !alias.scope !162
+  %112 = load i8, ptr %111, align 1, !noalias !159, !noundef !6
   %113 = icmp sgt i8 %112, -1
   br i1 %113, label %select.unfold.thread, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE.exit17.i"
 
@@ -2210,8 +2210,8 @@ thread-pre-split:                                 ; preds = %select.unfold.threa
   %114 = icmp ne ptr %108, %111
   call void @llvm.assume(i1 %114)
   %115 = getelementptr inbounds i8, ptr %107, i64 -2
-  store ptr %115, ptr %.sroa.27.0..sroa_idx, align 8, !alias.scope !175
-  %116 = load i8, ptr %115, align 1, !noalias !169, !noundef !6
+  store ptr %115, ptr %.sroa.27.0..sroa_idx, align 8, !alias.scope !165
+  %116 = load i8, ptr %115, align 1, !noalias !159, !noundef !6
   %117 = and i8 %116, 31
   %118 = zext nneg i8 %117 to i32
   %119 = icmp slt i8 %116, -64
@@ -2221,8 +2221,8 @@ thread-pre-split:                                 ; preds = %select.unfold.threa
   %120 = icmp ne ptr %108, %115
   call void @llvm.assume(i1 %120)
   %121 = getelementptr inbounds i8, ptr %107, i64 -3
-  store ptr %121, ptr %.sroa.27.0..sroa_idx, align 8, !alias.scope !178
-  %122 = load i8, ptr %121, align 1, !noalias !169, !noundef !6
+  store ptr %121, ptr %.sroa.27.0..sroa_idx, align 8, !alias.scope !168
+  %122 = load i8, ptr %121, align 1, !noalias !159, !noundef !6
   %123 = and i8 %122, 15
   %124 = zext nneg i8 %123 to i32
   %125 = icmp slt i8 %122, -64
@@ -2240,8 +2240,8 @@ thread-pre-split:                                 ; preds = %select.unfold.threa
   %131 = icmp ne ptr %108, %121
   call void @llvm.assume(i1 %131)
   %132 = getelementptr inbounds i8, ptr %107, i64 -4
-  store ptr %132, ptr %.sroa.27.0..sroa_idx, align 8, !alias.scope !181
-  %133 = load i8, ptr %132, align 1, !noalias !169, !noundef !6
+  store ptr %132, ptr %.sroa.27.0..sroa_idx, align 8, !alias.scope !171
+  %133 = load i8, ptr %132, align 1, !noalias !159, !noundef !6
   %134 = and i8 %133, 7
   %135 = zext nneg i8 %134 to i32
   %136 = shl nuw nsw i32 %135, 6
@@ -2279,7 +2279,7 @@ select.unfold:                                    ; preds = %147, %126
 select.unfold.thread:                             ; preds = %110, %select.unfold
   %152 = call noundef i32 @_ZN18ruff_python_trivia6cursor6Cursor9bump_back17h02c92c1cbe8eefd0E(ptr noalias noundef nonnull align 8 dereferenceable(24) %53)
   %.not33 = icmp eq i32 %152, 1114112
-  br i1 %.not33, label %154, label %thread-pre-split, !prof !41, !llvm.loop !184
+  br i1 %.not33, label %154, label %thread-pre-split, !prof !39
 
 .thread:                                          ; preds = %106, %147, %145, %select.unfold
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -2300,7 +2300,7 @@ select.unfold.thread:                             ; preds = %110, %select.unfold
 
 156:                                              ; preds = %_ZN18ruff_python_trivia9tokenizer26is_identifier_continuation17h53b95741bc662d0bE.exit.thread
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %158 = load ptr, ptr %157, align 8, !nonnull !6, !align !136, !noundef !6
+  %158 = load ptr, ptr %157, align 8, !nonnull !6, !align !127, !noundef !6
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %160 = load i64, ptr %159, align 8, !noundef !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -2332,7 +2332,7 @@ select.unfold.thread:                             ; preds = %110, %select.unfold
 
 170:                                              ; preds = %165
   %171 = getelementptr inbounds nuw i8, ptr %158, i64 %161
-  %172 = load i8, ptr %171, align 1, !alias.scope !186, !noundef !6
+  %172 = load i8, ptr %171, align 1, !alias.scope !174, !noundef !6
   %173 = icmp sgt i8 %172, -65
   br i1 %173, label %166, label %221
 
@@ -2346,7 +2346,7 @@ select.unfold.thread:                             ; preds = %110, %select.unfold
 
 177:                                              ; preds = %174
   %178 = getelementptr inbounds nuw i8, ptr %158, i64 %162
-  %179 = load i8, ptr %178, align 1, !alias.scope !186, !noundef !6
+  %179 = load i8, ptr %178, align 1, !alias.scope !174, !noundef !6
   %180 = icmp sgt i8 %179, -65
   br i1 %180, label %181, label %221
 
@@ -2356,7 +2356,7 @@ select.unfold.thread:                             ; preds = %110, %select.unfold
   br i1 %183, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread, label %184
 
 184:                                              ; preds = %181
-  %185 = load i8, ptr %182, align 1, !noalias !189, !noundef !6
+  %185 = load i8, ptr %182, align 1, !noalias !177, !noundef !6
   %186 = icmp sgt i8 %185, -1
   br i1 %186, label %_ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95.thread, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haff5eb24e43505d5E.exit12.i"
 
@@ -2367,7 +2367,7 @@ select.unfold.thread:                             ; preds = %110, %select.unfold
   %190 = add nuw nsw i64 %161, 1
   %191 = icmp samesign ne i64 %190, %162
   call void @llvm.assume(i1 %191)
-  %192 = load i8, ptr %187, align 1, !noalias !189, !noundef !6
+  %192 = load i8, ptr %187, align 1, !noalias !177, !noundef !6
   %193 = shl nuw nsw i32 %189, 6
   %194 = and i8 %192, 63
   %195 = zext nneg i8 %194 to i32
@@ -2384,7 +2384,7 @@ _ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread95.thr
   %200 = add nuw nsw i64 %161, 2
   %201 = icmp samesign ne i64 %200, %162
   call void @llvm.assume(i1 %201)
-  %202 = load i8, ptr %199, align 1, !noalias !189, !noundef !6
+  %202 = load i8, ptr %199, align 1, !noalias !177, !noundef !6
   %203 = shl nuw nsw i32 %195, 6
   %204 = and i8 %202, 63
   %205 = zext nneg i8 %204 to i32
@@ -2399,7 +2399,7 @@ _ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit: ; preds = %
   %211 = add nuw nsw i64 %161, 3
   %212 = icmp samesign ne i64 %211, %162
   call void @llvm.assume(i1 %212)
-  %213 = load i8, ptr %210, align 1, !noalias !189, !noundef !6
+  %213 = load i8, ptr %210, align 1, !noalias !177, !noundef !6
   %214 = shl nuw nsw i32 %189, 18
   %215 = and i32 %214, 1835008
   %216 = shl nuw nsw i32 %206, 6
@@ -2441,7 +2441,7 @@ _ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread: ; pr
   br label %64
 
 229:                                              ; preds = %223, %_ZN18ruff_python_trivia9tokenizer19is_identifier_start17hfd4bab2240722bd5E.exit
-  %230 = load ptr, ptr %157, align 8, !nonnull !6, !align !136, !noundef !6
+  %230 = load ptr, ptr %157, align 8, !nonnull !6, !align !127, !noundef !6
   %231 = load i64, ptr %159, align 8, !noundef !6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %33, ptr %4, align 4
@@ -2472,7 +2472,7 @@ _ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread: ; pr
 
 241:                                              ; preds = %236
   %242 = getelementptr inbounds nuw i8, ptr %230, i64 %232
-  %243 = load i8, ptr %242, align 1, !alias.scope !192, !noundef !6
+  %243 = load i8, ptr %242, align 1, !alias.scope !180, !noundef !6
   %244 = icmp sgt i8 %243, -65
   br i1 %244, label %237, label %256
 
@@ -2486,7 +2486,7 @@ _ZN4core3str11validations15next_code_point17h07106129c9344eeaE.exit.thread: ; pr
 
 248:                                              ; preds = %245
   %249 = getelementptr inbounds nuw i8, ptr %230, i64 %233
-  %250 = load i8, ptr %249, align 1, !alias.scope !192, !noundef !6
+  %250 = load i8, ptr %249, align 1, !alias.scope !180, !noundef !6
   %251 = icmp sgt i8 %250, -65
   br i1 %251, label %252, label %256
 
@@ -2506,7 +2506,7 @@ define void @"_ZN108_$LT$ruff_python_trivia..tokenizer..BackwardsTokenizer$u20$a
   %3 = alloca [12 x i8], align 4
   call void @_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token17he6b8bc7e14813c85E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %3, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i8, ptr %4, align 4, !range !123, !noundef !6
+  %5 = load i8, ptr %4, align 4, !range !114, !noundef !6
   %6 = icmp eq i8 %5, 2
   br i1 %6, label %8, label %7
 
@@ -2693,163 +2693,151 @@ attributes #13 = { noreturn }
 !32 = !{!33, !19, !21}
 !33 = distinct !{!33, !34, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE: argument 0"}
 !34 = distinct !{!34, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE"}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!38, !40}
-!38 = distinct !{!38, !39, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE: argument 0"}
-!39 = distinct !{!39, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE"}
-!40 = distinct !{!40, !39, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE: argument 1"}
-!41 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!42 = !{!43, !45, !46}
-!43 = distinct !{!43, !44, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7039944150405850E: argument 0"}
-!44 = distinct !{!44, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7039944150405850E"}
-!45 = distinct !{!45, !44, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7039944150405850E: argument 1"}
-!46 = distinct !{!46, !44, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7039944150405850E: argument 2"}
-!47 = !{!43}
-!48 = !{i8 0, i8 91}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE: argument 0"}
-!51 = distinct !{!51, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE"}
-!52 = !{!50, !43}
-!53 = !{!50, !54}
-!54 = distinct !{!54, !51, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE: argument 2"}
-!55 = !{!56, !43, !45, !46}
-!56 = distinct !{!56, !51, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE: argument 1"}
-!57 = distinct !{!57, !36}
-!58 = !{!59, !61}
-!59 = distinct !{!59, !60, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hc7bab5b6ed5cf7e9E: argument 0"}
-!60 = distinct !{!60, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hc7bab5b6ed5cf7e9E"}
-!61 = distinct !{!61, !60, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hc7bab5b6ed5cf7e9E: argument 1"}
-!62 = !{!59}
-!63 = !{i8 0, i8 2}
-!64 = !{!65, !67, !68, !70, !59, !61}
-!65 = distinct !{!65, !66, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h53b2bdccccae1d2aE: argument 0"}
-!66 = distinct !{!66, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h53b2bdccccae1d2aE"}
-!67 = distinct !{!67, !66, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h53b2bdccccae1d2aE: argument 1"}
-!68 = distinct !{!68, !69, !"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5c9d46ec083ba301E: argument 0"}
-!69 = distinct !{!69, !"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5c9d46ec083ba301E"}
-!70 = distinct !{!70, !69, !"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5c9d46ec083ba301E: argument 1"}
-!71 = distinct !{!71, !36}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
-!74 = distinct !{!74, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
-!75 = distinct !{!75, !36}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE: argument 0"}
-!78 = distinct !{!78, !"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE"}
-!79 = distinct !{!79, !36}
-!80 = !{!81, !83}
-!81 = distinct !{!81, !82, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE: argument 0"}
-!82 = distinct !{!82, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE"}
-!83 = distinct !{!83, !82, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE: argument 1"}
-!84 = distinct !{!84, !36}
-!85 = !{!86, !88}
-!86 = distinct !{!86, !87, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE: argument 0"}
-!87 = distinct !{!87, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE"}
-!88 = distinct !{!88, !87, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE: argument 1"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h989db7fc9ce9fa10E: argument 0"}
-!91 = distinct !{!91, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h989db7fc9ce9fa10E"}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd5b431224f05c0c5E: argument 0"}
-!94 = distinct !{!94, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd5b431224f05c0c5E"}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE: argument 0"}
-!97 = distinct !{!97, !"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE"}
-!98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZN4core4iter6traits8iterator8Iterator4find17hb495b3b9f0b9b6efE: argument 2"}
-!100 = distinct !{!100, !"_ZN4core4iter6traits8iterator8Iterator4find17hb495b3b9f0b9b6efE"}
-!101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hccb77628c682c92cE: argument 2"}
-!103 = distinct !{!103, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hccb77628c682c92cE"}
-!104 = !{!105, !106, !102, !107, !108, !99, !96, !109, !93, !90}
-!105 = distinct !{!105, !103, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hccb77628c682c92cE: argument 0"}
-!106 = distinct !{!106, !103, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hccb77628c682c92cE: argument 1"}
-!107 = distinct !{!107, !100, !"_ZN4core4iter6traits8iterator8Iterator4find17hb495b3b9f0b9b6efE: argument 0"}
-!108 = distinct !{!108, !100, !"_ZN4core4iter6traits8iterator8Iterator4find17hb495b3b9f0b9b6efE: argument 1"}
-!109 = distinct !{!109, !97, !"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE: argument 1"}
-!110 = !{!105, !102, !107, !99, !109}
-!111 = distinct !{!111, !36}
-!112 = !{!113, !115, !96, !109, !93, !90}
-!113 = distinct !{!113, !114, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h923dea58ec106de3E: argument 0"}
-!114 = distinct !{!114, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h923dea58ec106de3E"}
-!115 = distinct !{!115, !114, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h923dea58ec106de3E: argument 1"}
-!116 = !{!115, !109}
-!117 = distinct !{!117, !36}
-!118 = !{!102, !99, !96, !93, !90}
-!119 = !{!120, !122, !105, !106, !107, !108, !109}
-!120 = distinct !{!120, !121, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h9d4e751c1cfaf5aaE: argument 0"}
-!121 = distinct !{!121, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h9d4e751c1cfaf5aaE"}
-!122 = distinct !{!122, !121, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h9d4e751c1cfaf5aaE: argument 1"}
-!123 = !{i8 0, i8 90}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
-!126 = distinct !{!126, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer10next_token17h7ada11ce51999fbcE: argument 1"}
-!129 = distinct !{!129, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer10next_token17h7ada11ce51999fbcE"}
-!130 = !{!131}
-!131 = distinct !{!131, !129, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer10next_token17h7ada11ce51999fbcE: argument 0"}
+!35 = !{!36, !38}
+!36 = distinct !{!36, !37, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE: argument 0"}
+!37 = distinct !{!37, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE"}
+!38 = distinct !{!38, !37, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE: argument 1"}
+!39 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!40 = !{!41, !43, !44}
+!41 = distinct !{!41, !42, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7039944150405850E: argument 0"}
+!42 = distinct !{!42, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7039944150405850E"}
+!43 = distinct !{!43, !42, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7039944150405850E: argument 1"}
+!44 = distinct !{!44, !42, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7039944150405850E: argument 2"}
+!45 = !{!41}
+!46 = !{i8 0, i8 91}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE: argument 0"}
+!49 = distinct !{!49, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE"}
+!50 = !{!48, !41}
+!51 = !{!48, !52}
+!52 = distinct !{!52, !49, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE: argument 2"}
+!53 = !{!54, !41, !43, !44}
+!54 = distinct !{!54, !49, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hae04a8716f03804eE: argument 1"}
+!55 = !{!56, !58}
+!56 = distinct !{!56, !57, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hc7bab5b6ed5cf7e9E: argument 0"}
+!57 = distinct !{!57, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hc7bab5b6ed5cf7e9E"}
+!58 = distinct !{!58, !57, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hc7bab5b6ed5cf7e9E: argument 1"}
+!59 = !{!56}
+!60 = !{i8 0, i8 2}
+!61 = !{!62, !64, !65, !67, !56, !58}
+!62 = distinct !{!62, !63, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h53b2bdccccae1d2aE: argument 0"}
+!63 = distinct !{!63, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h53b2bdccccae1d2aE"}
+!64 = distinct !{!64, !63, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h53b2bdccccae1d2aE: argument 1"}
+!65 = distinct !{!65, !66, !"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5c9d46ec083ba301E: argument 0"}
+!66 = distinct !{!66, !"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5c9d46ec083ba301E"}
+!67 = distinct !{!67, !66, !"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5c9d46ec083ba301E: argument 1"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
+!70 = distinct !{!70, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE: argument 0"}
+!73 = distinct !{!73, !"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h22a549b3ee3047beE"}
+!74 = !{!75, !77}
+!75 = distinct !{!75, !76, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE: argument 0"}
+!76 = distinct !{!76, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE"}
+!77 = distinct !{!77, !76, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE: argument 1"}
+!78 = !{!79, !81}
+!79 = distinct !{!79, !80, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE: argument 0"}
+!80 = distinct !{!80, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE"}
+!81 = distinct !{!81, !80, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer9starts_at17h939f4b0c1786e3daE: argument 1"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h989db7fc9ce9fa10E: argument 0"}
+!84 = distinct !{!84, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h989db7fc9ce9fa10E"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd5b431224f05c0c5E: argument 0"}
+!87 = distinct !{!87, !"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd5b431224f05c0c5E"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE: argument 0"}
+!90 = distinct !{!90, !"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE"}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"_ZN4core4iter6traits8iterator8Iterator4find17hb495b3b9f0b9b6efE: argument 2"}
+!93 = distinct !{!93, !"_ZN4core4iter6traits8iterator8Iterator4find17hb495b3b9f0b9b6efE"}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hccb77628c682c92cE: argument 2"}
+!96 = distinct !{!96, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hccb77628c682c92cE"}
+!97 = !{!98, !99, !95, !100, !101, !92, !89, !102, !86, !83}
+!98 = distinct !{!98, !96, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hccb77628c682c92cE: argument 0"}
+!99 = distinct !{!99, !96, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hccb77628c682c92cE: argument 1"}
+!100 = distinct !{!100, !93, !"_ZN4core4iter6traits8iterator8Iterator4find17hb495b3b9f0b9b6efE: argument 0"}
+!101 = distinct !{!101, !93, !"_ZN4core4iter6traits8iterator8Iterator4find17hb495b3b9f0b9b6efE: argument 1"}
+!102 = distinct !{!102, !90, !"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h488da2b44583276aE: argument 1"}
+!103 = !{!98, !95, !100, !92, !102}
+!104 = !{!105, !107, !89, !102, !86, !83}
+!105 = distinct !{!105, !106, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h923dea58ec106de3E: argument 0"}
+!106 = distinct !{!106, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h923dea58ec106de3E"}
+!107 = distinct !{!107, !106, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h923dea58ec106de3E: argument 1"}
+!108 = !{!107, !102}
+!109 = !{!95, !92, !89, !86, !83}
+!110 = !{!111, !113, !98, !99, !100, !101, !102}
+!111 = distinct !{!111, !112, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h9d4e751c1cfaf5aaE: argument 0"}
+!112 = distinct !{!112, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h9d4e751c1cfaf5aaE"}
+!113 = distinct !{!113, !112, !"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h9d4e751c1cfaf5aaE: argument 1"}
+!114 = !{i8 0, i8 90}
+!115 = !{!116}
+!116 = distinct !{!116, !117, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
+!117 = distinct !{!117, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer10next_token17h7ada11ce51999fbcE: argument 1"}
+!120 = distinct !{!120, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer10next_token17h7ada11ce51999fbcE"}
+!121 = !{!122}
+!122 = distinct !{!122, !120, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer10next_token17h7ada11ce51999fbcE: argument 0"}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE: argument 0"}
+!125 = distinct !{!125, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE"}
+!126 = !{!124, !119}
+!127 = !{i64 1}
+!128 = !{!124, !122, !119}
+!129 = !{!130}
+!130 = distinct !{!130, !131, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
+!131 = distinct !{!131, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
 !132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE: argument 0"}
-!134 = distinct !{!134, !"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner17hf8565821ec0d0b0fE"}
-!135 = !{!133, !128}
-!136 = !{i64 1}
-!137 = !{!133, !131, !128}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
-!140 = distinct !{!140, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
-!141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
-!143 = distinct !{!143, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
-!144 = !{!131, !128}
-!145 = !{!146}
-!146 = distinct !{!146, !147, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc64b7f8488c8e8dcE: argument 0"}
-!147 = distinct !{!147, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc64b7f8488c8e8dcE"}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
-!150 = distinct !{!150, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
-!151 = !{i64 4}
-!152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZN4core6option15Option$LT$T$GT$6filter17h9b42a90650017208E: argument 0"}
-!154 = distinct !{!154, !"_ZN4core6option15Option$LT$T$GT$6filter17h9b42a90650017208E"}
+!133 = distinct !{!133, !134, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
+!134 = distinct !{!134, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
+!135 = !{!122, !119}
+!136 = !{!137}
+!137 = distinct !{!137, !138, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc64b7f8488c8e8dcE: argument 0"}
+!138 = distinct !{!138, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc64b7f8488c8e8dcE"}
+!139 = !{!140}
+!140 = distinct !{!140, !141, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
+!141 = distinct !{!141, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
+!142 = !{i64 4}
+!143 = !{!144}
+!144 = distinct !{!144, !145, !"_ZN4core6option15Option$LT$T$GT$6filter17h9b42a90650017208E: argument 0"}
+!145 = distinct !{!145, !"_ZN4core6option15Option$LT$T$GT$6filter17h9b42a90650017208E"}
+!146 = !{!147}
+!147 = distinct !{!147, !148, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
+!148 = distinct !{!148, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
+!149 = !{!150, !152, !153}
+!150 = distinct !{!150, !151, !"_ZN4core4iter6traits8iterator8Iterator4fold17h807404cee2c1356aE: argument 0"}
+!151 = distinct !{!151, !"_ZN4core4iter6traits8iterator8Iterator4fold17h807404cee2c1356aE"}
+!152 = distinct !{!152, !151, !"_ZN4core4iter6traits8iterator8Iterator4fold17h807404cee2c1356aE: argument 1"}
+!153 = distinct !{!153, !151, !"_ZN4core4iter6traits8iterator8Iterator4fold17h807404cee2c1356aE: argument 2"}
+!154 = !{!150, !153}
 !155 = !{!156}
 !156 = distinct !{!156, !157, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
 !157 = distinct !{!157, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
-!158 = !{!159, !161, !162}
-!159 = distinct !{!159, !160, !"_ZN4core4iter6traits8iterator8Iterator4fold17h807404cee2c1356aE: argument 0"}
-!160 = distinct !{!160, !"_ZN4core4iter6traits8iterator8Iterator4fold17h807404cee2c1356aE"}
-!161 = distinct !{!161, !160, !"_ZN4core4iter6traits8iterator8Iterator4fold17h807404cee2c1356aE: argument 1"}
-!162 = distinct !{!162, !160, !"_ZN4core4iter6traits8iterator8Iterator4fold17h807404cee2c1356aE: argument 2"}
-!163 = !{!159, !162}
-!164 = distinct !{!164, !36}
-!165 = !{!166}
-!166 = distinct !{!166, !167, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
-!167 = distinct !{!167, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
-!168 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZN4core3str11validations23next_code_point_reverse17h33d4a8b7fb08afeaE: argument 0"}
-!171 = distinct !{!171, !"_ZN4core3str11validations23next_code_point_reverse17h33d4a8b7fb08afeaE"}
-!172 = !{!173, !170}
-!173 = distinct !{!173, !174, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE: argument 0"}
-!174 = distinct !{!174, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE"}
-!175 = !{!176, !170}
-!176 = distinct !{!176, !177, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE: argument 0"}
-!177 = distinct !{!177, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE"}
-!178 = !{!179, !170}
-!179 = distinct !{!179, !180, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE: argument 0"}
-!180 = distinct !{!180, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE"}
-!181 = !{!182, !170}
-!182 = distinct !{!182, !183, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE: argument 0"}
-!183 = distinct !{!183, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE"}
-!184 = distinct !{!184, !185}
-!185 = !{!"llvm.loop.estimated_trip_count", i32 2001}
-!186 = !{!187}
-!187 = distinct !{!187, !188, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
-!188 = distinct !{!188, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
-!189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZN4core3str11validations15next_code_point17h07106129c9344eeaE: argument 0"}
-!191 = distinct !{!191, !"_ZN4core3str11validations15next_code_point17h07106129c9344eeaE"}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
-!194 = distinct !{!194, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
+!158 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!159 = !{!160}
+!160 = distinct !{!160, !161, !"_ZN4core3str11validations23next_code_point_reverse17h33d4a8b7fb08afeaE: argument 0"}
+!161 = distinct !{!161, !"_ZN4core3str11validations23next_code_point_reverse17h33d4a8b7fb08afeaE"}
+!162 = !{!163, !160}
+!163 = distinct !{!163, !164, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE: argument 0"}
+!164 = distinct !{!164, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE"}
+!165 = !{!166, !160}
+!166 = distinct !{!166, !167, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE: argument 0"}
+!167 = distinct !{!167, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE"}
+!168 = !{!169, !160}
+!169 = distinct !{!169, !170, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE: argument 0"}
+!170 = distinct !{!170, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE"}
+!171 = !{!172, !160}
+!172 = distinct !{!172, !173, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE: argument 0"}
+!173 = distinct !{!173, !"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h37b2d0fa974cfdccE"}
+!174 = !{!175}
+!175 = distinct !{!175, !176, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
+!176 = distinct !{!176, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}
+!177 = !{!178}
+!178 = distinct !{!178, !179, !"_ZN4core3str11validations15next_code_point17h07106129c9344eeaE: argument 0"}
+!179 = distinct !{!179, !"_ZN4core3str11validations15next_code_point17h07106129c9344eeaE"}
+!180 = !{!181}
+!181 = distinct !{!181, !182, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E: argument 0"}
+!182 = distinct !{!182, !"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h48b5fc281fcfd004E"}

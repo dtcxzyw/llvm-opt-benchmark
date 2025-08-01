@@ -760,6 +760,5 @@ attributes #10 = { builtin nounwind }
 !40 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !7, i64 8, !7, i64 16, !7, i64 24, !7, i64 32, !7, i64 40, !7, i64 48, !22, i64 56}
 !41 = !{!40, !7, i64 24}
 !42 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}

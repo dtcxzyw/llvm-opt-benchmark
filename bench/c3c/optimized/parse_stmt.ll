@@ -325,7 +325,7 @@ parse_default_stmt.exit:                          ; preds = %parse_case_stmts.ex
   %111 = getelementptr inbounds nuw ptr, ptr %107, i64 %110
   store ptr %.044, ptr %111, align 8
   %112 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #5
-  br i1 %112, label %.loopexit, label %15, !llvm.loop !10
+  br i1 %112, label %.loopexit, label %15, !llvm.loop !9
 
 .loopexit:                                        ; preds = %21, %76, %104, %.critedge54, %8, %79
   %.043 = phi i1 [ false, %79 ], [ false, %8 ], [ true, %.critedge54 ], [ false, %21 ], [ false, %76 ], [ true, %104 ]
@@ -1361,7 +1361,7 @@ define dso_local ptr @parse_compound_stmt(ptr noundef %0) local_unnamed_addr #0 
   store i32 %phi.call, ptr %.03439, align 4
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %26 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #5
-  br i1 %26, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %26, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.critedge, %.critedge38
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1673,7 +1673,7 @@ extend_span_with_token.exit:                      ; preds = %25, %26
   store i64 %108, ptr %105, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %98, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %98, !llvm.loop !11
 
 .loopexit:                                        ; preds = %98, %90, %91, %72, %62, %58, %51, %40, %37, %15
   %.077 = phi ptr [ %8, %40 ], [ %39, %37 ], [ %16, %15 ], [ %53, %72 ], [ %65, %62 ], [ %59, %58 ], [ %52, %51 ], [ %53, %91 ], [ %53, %90 ], [ %53, %98 ]
@@ -3643,7 +3643,7 @@ define internal fastcc ptr @parse_asm_block_stmt(ptr noundef %0) unnamed_addr #0
 
 .critedge63.backedge.i:                           ; preds = %86, %78
   %85 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 9) #5
-  br i1 %85, label %parse_asm_stmt.exit.thread, label %.lr.ph.i, !llvm.loop !13
+  br i1 %85, label %parse_asm_stmt.exit.thread, label %.lr.ph.i, !llvm.loop !12
 
 86:                                               ; preds = %78
   %87 = load i32, ptr %6, align 8
@@ -3693,7 +3693,7 @@ parse_asm_stmt.exit:                              ; preds = %51, %33, %42, %89
   store i32 %phi.call, ptr %.085102, align 4
   %102 = getelementptr inbounds nuw i8, ptr %.056.i99, i64 8
   %103 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 24) #5
-  br i1 %103, label %._crit_edge, label %28, !llvm.loop !14
+  br i1 %103, label %._crit_edge, label %28, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.critedge, %23
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3916,7 +3916,7 @@ define internal fastcc ptr @parse_ct_if_stmt(ptr noundef %0) unnamed_addr #0 {
   %34 = load i32, ptr %15, align 8
   %35 = and i32 %34, -5
   %or.cond.i = icmp eq i32 %35, 153
-  br i1 %or.cond.i, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %or.cond.i, label %._crit_edge, label %.lr.ph
 
 parse_ct_compound_stmt.exit:                      ; preds = %27
   %36 = load ptr, ptr @poisoned_ast, align 8
@@ -3975,7 +3975,7 @@ parse_ct_compound_stmt.exit:                      ; preds = %27
   %55 = load i32, ptr %15, align 8
   %56 = and i32 %55, -5
   %or.cond.i53 = icmp eq i32 %56, 153
-  br i1 %or.cond.i53, label %._crit_edge67, label %.lr.ph66, !llvm.loop !15
+  br i1 %or.cond.i53, label %._crit_edge67, label %.lr.ph66
 
 parse_ct_compound_stmt.exit59:                    ; preds = %48
   %57 = load ptr, ptr @poisoned_ast, align 8
@@ -4330,7 +4330,7 @@ parse_default_stmt.exit:                          ; preds = %86, %47
   %128 = getelementptr inbounds nuw ptr, ptr %126, i64 %127
   store ptr %.051, ptr %128, align 8
   %129 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 158) #5
-  br i1 %129, label %._crit_edge, label %37, !llvm.loop !16
+  br i1 %129, label %._crit_edge, label %37, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %123, %34
   %.050.lcssa = phi ptr [ null, %34 ], [ %126, %123 ]
@@ -4515,7 +4515,7 @@ define internal fastcc ptr @parse_ct_foreach_stmt(ptr noundef %0) unnamed_addr #
   store i32 %phi.call76, ptr %.07184, align 4
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %93 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 156) #5
-  br i1 %93, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %93, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.critedge2, %.critedge83, %88, %66, %59, %49, %45, %29, %9
   %.072 = phi ptr [ %89, %88 ], [ %69, %66 ], [ %60, %59 ], [ %50, %49 ], [ %46, %45 ], [ %30, %29 ], [ %12, %9 ], [ %4, %.critedge83 ], [ %4, %.critedge2 ]
@@ -4728,7 +4728,7 @@ define internal fastcc ptr @parse_ct_for_stmt(ptr noundef %0) unnamed_addr #0 {
   store i32 %phi.call98, ptr %.087112, align 4
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %95 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 155) #5
-  br i1 %95, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %95, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.critedge6, %.critedge109, %90, %68, %62, %47, %40, %29, %23, %9
   %.088 = phi ptr [ %91, %90 ], [ %71, %68 ], [ %63, %62 ], [ %50, %47 ], [ %41, %40 ], [ %32, %29 ], [ %24, %23 ], [ %12, %9 ], [ %4, %.critedge109 ], [ %4, %.critedge6 ]
@@ -4885,7 +4885,7 @@ define internal fastcc ptr @parse_assert_stmt(ptr noundef %0) unnamed_addr #0 {
   %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %72
   store ptr %37, ptr %73, align 8
   %74 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #5
-  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %74, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %68, %.critedge2
   %.048.lcssa = phi ptr [ null, %.critedge2 ], [ %71, %68 ]
@@ -5329,7 +5329,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
   %135 = getelementptr inbounds nuw ptr, ptr %133, i64 %134
   store ptr %84, ptr %135, align 8
   %136 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #5
-  br i1 %136, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %136, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %130
   %.not127 = icmp eq ptr %.1, null
@@ -5360,7 +5360,7 @@ extend_span_with_token.exit:                      ; preds = %52, %53
 145:                                              ; preds = %.lr.ph169, %142
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph169, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph169, !llvm.loop !19
 
 .loopexit:                                        ; preds = %145, %76, %137, %._crit_edge
   %.0112.lcssa185 = phi ptr [ %133, %137 ], [ %133, %._crit_edge ], [ %79, %76 ], [ %133, %145 ]
@@ -6143,18 +6143,16 @@ attributes #6 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}

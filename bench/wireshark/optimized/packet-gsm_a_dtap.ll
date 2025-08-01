@@ -2487,7 +2487,7 @@ define hidden zeroext i16 @de_sup_codec_list(ptr noundef %0, ptr noundef %1, ptr
   %30 = add i32 %.1, %.039
   %31 = sub i32 %30, %3
   %32 = icmp ugt i32 %4, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  br i1 %32, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %29
   %33 = trunc i32 %31 to i16
@@ -2862,7 +2862,7 @@ define internal noundef zeroext i16 @de_emerg_num_list(ptr noundef %0, ptr nound
   %47 = add i8 %.04648, 1
   %48 = sub i32 %46, %3
   %49 = icmp ult i32 %48, %4
-  br i1 %49, label %10, label %._crit_edge, !llvm.loop !10
+  br i1 %49, label %10, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %45, %7
   %50 = trunc i32 %4 to i16
@@ -3551,7 +3551,7 @@ define internal noundef zeroext i16 @de_facility(ptr noundef %0, ptr noundef %1,
   %27 = add i32 %26, %.023
   %28 = sub i32 %27, %3
   %29 = icmp ugt i32 %4, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %30 = trunc i32 %4 to i16
@@ -4191,7 +4191,7 @@ define internal noundef zeroext i16 @de_tp_ue_test_loop_mode(ptr noundef %0, ptr
   %28 = icmp samesign ult i32 %27, %16
   %29 = icmp samesign ult i32 %indvars.iv, 3
   %30 = select i1 %28, i1 %29, i1 false
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 31:                                               ; preds = %7
   %32 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %11)
@@ -4269,7 +4269,7 @@ define internal noundef zeroext i16 @de_tp_epc_ue_tl_a_lb_setup(ptr noundef %0, 
   %23 = add i32 %.047, 3
   %24 = add nuw nsw i32 %.04346, 1
   %exitcond.not = icmp eq i32 %24, %invariant.umin
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.0.lcssa = phi i32 [ %3, %7 ], [ %23, %.lr.ph ]
@@ -4334,7 +4334,7 @@ define internal noundef zeroext i16 @de_tp_epc_ue_tl_d_setup(ptr noundef %0, ptr
   %21 = add i32 %.019, 2
   %22 = sub i32 %21, %3
   %23 = icmp ult i32 %22, %4
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %24 = trunc i32 %4 to i16
@@ -4362,7 +4362,7 @@ define internal noundef zeroext i16 @de_tp_epc_ue_tl_e_setup(ptr noundef %0, ptr
   %.0 = add i32 %.018, 1
   %16 = sub i32 %.0, %3
   %17 = icmp ult i32 %16, %4
-  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %18 = trunc i32 %4 to i16
@@ -4748,7 +4748,7 @@ define hidden void @proto_register_gsm_a_dtap() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %.preheader45, label %23, !llvm.loop !16
+  br i1 %exitcond.not, label %.preheader45, label %23, !llvm.loop !15
 
 .preheader45:                                     ; preds = %23, %.preheader45
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.preheader45 ], [ 46, %23 ]
@@ -4759,7 +4759,7 @@ define hidden void @proto_register_gsm_a_dtap() local_unnamed_addr #1 {
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next68, 36
-  br i1 %exitcond74.not, label %.preheader44, label %.preheader45, !llvm.loop !17
+  br i1 %exitcond74.not, label %.preheader44, label %.preheader45, !llvm.loop !16
 
 .preheader44:                                     ; preds = %.preheader45, %.preheader44
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %.preheader44 ], [ 82, %.preheader45 ]
@@ -4770,7 +4770,7 @@ define hidden void @proto_register_gsm_a_dtap() local_unnamed_addr #1 {
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next76, 4
-  br i1 %exitcond82.not, label %.preheader43, label %.preheader44, !llvm.loop !18
+  br i1 %exitcond82.not, label %.preheader43, label %.preheader44, !llvm.loop !17
 
 .preheader43:                                     ; preds = %.preheader44, %.preheader43
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.preheader43 ], [ 86, %.preheader44 ]
@@ -4781,7 +4781,7 @@ define hidden void @proto_register_gsm_a_dtap() local_unnamed_addr #1 {
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next84, 4
-  br i1 %exitcond90.not, label %.preheader42, label %.preheader43, !llvm.loop !19
+  br i1 %exitcond90.not, label %.preheader42, label %.preheader43, !llvm.loop !18
 
 .preheader42:                                     ; preds = %.preheader43, %.preheader42
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %.preheader42 ], [ 90, %.preheader43 ]
@@ -4792,7 +4792,7 @@ define hidden void @proto_register_gsm_a_dtap() local_unnamed_addr #1 {
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next92, 42
-  br i1 %exitcond98.not, label %.preheader, label %.preheader42, !llvm.loop !20
+  br i1 %exitcond98.not, label %.preheader, label %.preheader42, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader42, %.preheader
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.preheader ], [ 132, %.preheader42 ]
@@ -4803,7 +4803,7 @@ define hidden void @proto_register_gsm_a_dtap() local_unnamed_addr #1 {
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next100, 97
-  br i1 %exitcond106.not, label %36, label %.preheader, !llvm.loop !21
+  br i1 %exitcond106.not, label %36, label %.preheader, !llvm.loop !20
 
 36:                                               ; preds = %.preheader
   %37 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.677, ptr noundef nonnull @.str.678, ptr noundef nonnull @.str.679)
@@ -5382,7 +5382,7 @@ define internal fastcc void @de_sub_addr(ptr noundef %0, ptr noundef %1, ptr nou
   store i8 %44, ptr %39, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %33
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %46 = load ptr, ptr %5, align 8
@@ -9822,20 +9822,19 @@ attributes #10 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

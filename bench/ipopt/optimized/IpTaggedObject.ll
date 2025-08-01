@@ -68,6 +68,5 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !20 = !{!"p1 _ZTSN5Ipopt8ObserverE", !17, i64 0}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"vtable pointer", !6, i64 0}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}

@@ -140,7 +140,7 @@ default.unreachable:                              ; preds = %3
 50:                                               ; preds = %48
   %51 = load i64, ptr %5, align 8
   %52 = icmp eq i64 %51, -9223372036854775808
-  br i1 %52, label %40, label %53, !llvm.loop !3
+  br i1 %52, label %40, label %53
 
 53:                                               ; preds = %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
@@ -211,5 +211,3 @@ attributes #7 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}

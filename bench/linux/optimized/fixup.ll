@@ -635,7 +635,7 @@ define internal void @pci_fixup_umc_ide(ptr noundef %0) #0 align 16 {
   store i64 %8, ptr %6, align 8
   %9 = add nuw nsw i64 %5, 1
   %10 = icmp eq i64 %9, 4
-  br i1 %10, label %11, label %4, !llvm.loop !10
+  br i1 %10, label %11, label %4, !llvm.loop !9
 
 11:                                               ; preds = %4
   ret void
@@ -811,7 +811,7 @@ define internal void @pcie_rootport_aspm_quirk(ptr noundef readonly captures(non
   store i32 %33, ptr %39, align 4
   %40 = load ptr, ptr %29, align 8
   %41 = icmp eq ptr %40, %11
-  br i1 %41, label %42, label %28, !llvm.loop !11
+  br i1 %41, label %42, label %28, !llvm.loop !10
 
 42:                                               ; preds = %28
   %43 = tail call ptr @pci_bus_set_ops(ptr noundef nonnull %3, ptr noundef nonnull @quirk_pcie_aspm_ops) #12
@@ -858,7 +858,7 @@ define internal void @pci_fixup_video(ptr noundef %0) #3 align 16 {
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.loopexit3, label %.preheader, !llvm.loop !12
+  br i1 %23, label %.loopexit3, label %.preheader, !llvm.loop !11
 
 .loopexit3:                                       ; preds = %20, %1
   %24 = call ptr @vga_default_device() #12
@@ -1012,13 +1012,13 @@ define internal void @sb600_disable_hpet_bar(ptr noundef %0) #3 align 16 {
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 85, i16 3286) #12, !srcloc !13
-  %7 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 3287) #12, !srcloc !14
+  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 85, i16 3286) #12, !srcloc !12
+  %7 = call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 3287) #12, !srcloc !13
   store i8 %7, ptr %2, align 1
-  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 85, i16 3286) #12, !srcloc !13
+  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 85, i16 3286) #12, !srcloc !12
   %8 = load i8, ptr %2, align 1
   %9 = or i8 %8, -128
-  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %9, i16 3287) #12, !srcloc !13
+  call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %9, i16 3287) #12, !srcloc !12
   br label %10
 
 10:                                               ; preds = %6, %1
@@ -1238,7 +1238,7 @@ define internal void @pci_amd_enable_64bit_bar(ptr noundef %0) #3 align 16 {
   %39 = add nuw nsw i32 %25, 1
   %40 = icmp eq i32 %39, 8
   %or.cond = select i1 %38, i1 true, i1 %40
-  br i1 %or.cond, label %.thread, label %.preheader, !llvm.loop !15
+  br i1 %or.cond, label %.thread, label %.preheader, !llvm.loop !14
 
 41:                                               ; preds = %.preheader
   %42 = icmp eq i32 %25, 8
@@ -1410,7 +1410,7 @@ define internal void @chromeos_save_apl_pci_l1ss_capability(ptr noundef %0) #3 a
   %9 = load i32, ptr %2, align 4
   %10 = and i32 %9, 65535
   %11 = icmp eq i32 %10, 30
-  br i1 %11, label %12, label %.preheader, !llvm.loop !16
+  br i1 %11, label %12, label %.preheader, !llvm.loop !15
 
 12:                                               ; preds = %7
   %13 = trunc nuw nsw i32 %21 to i16
@@ -1434,7 +1434,7 @@ define internal void @chromeos_save_apl_pci_l1ss_capability(ptr noundef %0) #3 a
   %22 = lshr i32 %20, 20
   %23 = and i32 %22, 4092
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %.loopexit, label %7, !llvm.loop !17
+  br i1 %24, label %.loopexit, label %7, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
@@ -1537,7 +1537,7 @@ define internal void @amd_rp_pme_suspend(ptr noundef %0) #3 align 16 {
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %.thread, label %.preheader, !llvm.loop !18
+  br i1 %24, label %.thread, label %.preheader, !llvm.loop !16
 
 .thread:                                          ; preds = %15, %21, %10, %4
   %25 = phi ptr [ null, %4 ], [ null, %15 ], [ null, %21 ], [ %6, %10 ]
@@ -1597,7 +1597,7 @@ define internal void @amd_rp_pme_resume(ptr noundef %0) #3 align 16 {
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.thread, label %.preheader, !llvm.loop !19
+  br i1 %22, label %.thread, label %.preheader, !llvm.loop !16
 
 .thread:                                          ; preds = %13, %19, %8, %1
   %23 = phi ptr [ null, %1 ], [ null, %13 ], [ null, %19 ], [ %4, %8 ]
@@ -1792,17 +1792,14 @@ attributes #14 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = !{i64 2154325593}
-!14 = !{i64 2154325789}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8, !9}
-!19 = distinct !{!19, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i64 2154325593}
+!13 = !{i64 2154325789}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

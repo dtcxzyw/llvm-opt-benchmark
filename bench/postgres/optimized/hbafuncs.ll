@@ -235,7 +235,7 @@ switch.lookup:                                    ; preds = %64
   %100 = load i32, ptr %91, align 4
   %101 = sext i32 %100 to i64
   %.not94.i.i = icmp slt i64 %indvars.iv.next128.i.i, %101
-  br i1 %.not94.i.i, label %94, label %.critedge102.i.i, !llvm.loop !7
+  br i1 %.not94.i.i, label %94, label %.critedge102.i.i, !llvm.loop !6
 
 .critedge102.i.i:                                 ; preds = %94, %.preheader.i.i
   %.074.lcssa.i.i = phi ptr [ null, %.preheader.i.i ], [ %99, %94 ]
@@ -363,7 +363,7 @@ switch.lookup:                                    ; preds = %64
 
 154:                                              ; preds = %147
   %155 = getelementptr inbounds nuw i8, ptr %.0.i, i64 464
-  %156 = load i8, ptr %155, align 8, !range !8, !noundef !9
+  %156 = load i8, ptr %155, align 8, !range !7, !noundef !8
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %158, label %161
 
@@ -502,7 +502,7 @@ switch.lookup:                                    ; preds = %64
 236:                                              ; preds = %229, %226
   %.8.i.i.i = phi i32 [ %233, %229 ], [ %.7.i.i.i, %226 ]
   %237 = getelementptr inbounds nuw i8, ptr %.0.i, i64 353
-  %238 = load i8, ptr %237, align 1, !range !8, !noundef !9
+  %238 = load i8, ptr %237, align 1, !range !7, !noundef !8
   %239 = trunc nuw i8 %238 to i1
   br i1 %239, label %240, label %246
 
@@ -1001,9 +1001,8 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}

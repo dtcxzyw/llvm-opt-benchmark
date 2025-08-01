@@ -236,10 +236,10 @@ _ZNSt3__111lower_boundB8ne210000IPKNS_12_GLOBAL__N_114collationnamesEPKcNS1_10us
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEc.exit: ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
-  %15 = load i8, ptr %14, align 8, !tbaa !21
+  %15 = load i8, ptr %14, align 8, !tbaa !20
   store i8 2, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %15, ptr %16, align 1, !tbaa !22
+  store i8 %15, ptr %16, align 1, !tbaa !21
   br label %17
 
 17:                                               ; preds = %_ZNSt3__111lower_boundB8ne210000IPKNS_12_GLOBAL__N_114collationnamesEPKcNS1_10use_strcmpEEET_S8_S8_RKT0_T1_.exit, %10, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSEc.exit
@@ -260,7 +260,7 @@ define dso_local noundef zeroext i16 @_ZNSt3__115__get_classnameEPKcb(ptr nounde
   %.0103.i.i.i = phi i64 [ 15, %2 ], [ %.111.i.i.i, %3 ]
   %4 = lshr i64 %.0103.i.i.i, 1
   %5 = getelementptr inbounds nuw %"struct.std::__1::(anonymous namespace)::classnames", ptr %.04.i.i.i, i64 %4
-  %.val.i.i.i = load ptr, ptr %5, align 8, !tbaa !23
+  %.val.i.i.i = load ptr, ptr %5, align 8, !tbaa !22
   %6 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.val.i.i.i, ptr noundef nonnull readonly dereferenceable(1) %0) #12
   %7 = icmp slt i32 %6, 0
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -269,21 +269,21 @@ define dso_local noundef zeroext i16 @_ZNSt3__115__get_classnameEPKcb(ptr nounde
   %.111.i.i.i = select i1 %7, i64 %9, i64 %4
   %.1.i.i.i = select i1 %7, ptr %8, ptr %.04.i.i.i
   %.not.i.i.i = icmp eq i64 %.111.i.i.i, 0
-  br i1 %.not.i.i.i, label %_ZNSt3__111lower_boundB8ne210000IPKNS_12_GLOBAL__N_110classnamesEPKcNS1_10use_strcmpEEET_S8_S8_RKT0_T1_.exit, label %3, !llvm.loop !26
+  br i1 %.not.i.i.i, label %_ZNSt3__111lower_boundB8ne210000IPKNS_12_GLOBAL__N_110classnamesEPKcNS1_10use_strcmpEEET_S8_S8_RKT0_T1_.exit, label %3, !llvm.loop !25
 
 _ZNSt3__111lower_boundB8ne210000IPKNS_12_GLOBAL__N_110classnamesEPKcNS1_10use_strcmpEEET_S8_S8_RKT0_T1_.exit: ; preds = %3
   %.not = icmp eq ptr %.1.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZNSt3__112_GLOBAL__N_110ClassNamesE, i64 240)
   br i1 %.not, label %21, label %10
 
 10:                                               ; preds = %_ZNSt3__111lower_boundB8ne210000IPKNS_12_GLOBAL__N_110classnamesEPKcNS1_10use_strcmpEEET_S8_S8_RKT0_T1_.exit
-  %11 = load ptr, ptr %.1.i.i.i, align 8, !tbaa !23
+  %11 = load ptr, ptr %.1.i.i.i, align 8, !tbaa !22
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %11) #12
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
-  %16 = load i16, ptr %15, align 8, !tbaa !27
+  %16 = load i16, ptr %15, align 8, !tbaa !26
   %17 = icmp ne i16 %16, 128
   %brmerge.not = and i1 %1, %17
   %.mux = select i1 %17, i16 %16, i16 3968
@@ -304,53 +304,53 @@ _ZNSt3__111lower_boundB8ne210000IPKNS_12_GLOBAL__N_110classnamesEPKcNS1_10use_st
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZNKSt3__123__match_any_but_newlineIcE6__execERNS_7__stateIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(93) initializes((0, 4), (80, 88)) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !38
+  %6 = load ptr, ptr %5, align 8, !tbaa !37
   %.not = icmp eq ptr %4, %6
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
-  %8 = load i8, ptr %4, align 1, !tbaa !22
+  %8 = load i8, ptr %4, align 1, !tbaa !21
   switch i8 %8, label %10 [
     i8 13, label %9
     i8 10, label %9
   ]
 
 9:                                                ; preds = %7, %7
-  store i32 -993, ptr %1, align 8, !tbaa !39
+  store i32 -993, ptr %1, align 8, !tbaa !38
   br label %15
 
 10:                                               ; preds = %7
-  store i32 -995, ptr %1, align 8, !tbaa !39
+  store i32 -995, ptr %1, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %11, ptr %3, align 8, !tbaa !28
+  store ptr %11, ptr %3, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !40
+  %13 = load ptr, ptr %12, align 8, !tbaa !39
   br label %15
 
 14:                                               ; preds = %2
-  store i32 -993, ptr %1, align 8, !tbaa !39
+  store i32 -993, ptr %1, align 8, !tbaa !38
   br label %15
 
 15:                                               ; preds = %9, %10, %14
   %.sink = phi ptr [ null, %9 ], [ %13, %10 ], [ null, %14 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr %.sink, ptr %16, align 8, !tbaa !43
+  store ptr %.sink, ptr %16, align 8, !tbaa !42
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZNKSt3__123__match_any_but_newlineIwE6__execERNS_7__stateIwEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(93) initializes((0, 4), (80, 88)) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !44
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !52
+  %6 = load ptr, ptr %5, align 8, !tbaa !51
   %.not = icmp eq ptr %4, %6
   br i1 %.not, label %14, label %7
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr %4, align 4, !tbaa !53
+  %8 = load i32, ptr %4, align 4, !tbaa !52
   switch i32 %8, label %10 [
     i32 13, label %9
     i32 10, label %9
@@ -359,25 +359,25 @@ define dso_local void @_ZNKSt3__123__match_any_but_newlineIwE6__execERNS_7__stat
   ]
 
 9:                                                ; preds = %7, %7, %7, %7
-  store i32 -993, ptr %1, align 8, !tbaa !55
+  store i32 -993, ptr %1, align 8, !tbaa !54
   br label %15
 
 10:                                               ; preds = %7
-  store i32 -995, ptr %1, align 8, !tbaa !55
+  store i32 -995, ptr %1, align 8, !tbaa !54
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store ptr %11, ptr %3, align 8, !tbaa !44
+  store ptr %11, ptr %3, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !56
+  %13 = load ptr, ptr %12, align 8, !tbaa !55
   br label %15
 
 14:                                               ; preds = %2
-  store i32 -993, ptr %1, align 8, !tbaa !55
+  store i32 -993, ptr %1, align 8, !tbaa !54
   br label %15
 
 15:                                               ; preds = %9, %10, %14
   %.sink = phi ptr [ null, %9 ], [ %13, %10 ], [ null, %14 ]
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store ptr %.sink, ptr %16, align 8, !tbaa !59
+  store ptr %.sink, ptr %16, align 8, !tbaa !58
   ret void
 }
 
@@ -422,45 +422,44 @@ attributes #12 = { nounwind willreturn memory(read) }
 !15 = !{!"_ZTSNSt3__115regex_constants10error_typeE", !14, i64 0}
 !16 = !{!17, !12, i64 0}
 !17 = !{!"_ZTSNSt3__112_GLOBAL__N_114collationnamesE", !12, i64 0, !14, i64 8}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!17, !14, i64 8}
-!22 = !{!14, !14, i64 0}
-!23 = !{!24, !12, i64 0}
-!24 = !{!"_ZTSNSt3__112_GLOBAL__N_110classnamesE", !12, i64 0, !25, i64 8}
-!25 = !{!"short", !14, i64 0}
-!26 = distinct !{!26, !19, !20}
-!27 = !{!24, !25, i64 8}
-!28 = !{!29, !12, i64 16}
-!29 = !{!"_ZTSNSt3__17__stateIcEE", !30, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !31, i64 32, !33, i64 56, !35, i64 80, !36, i64 88, !37, i64 92}
-!30 = !{!"int", !14, i64 0}
-!31 = !{!"_ZTSNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEEE", !32, i64 0, !32, i64 8, !32, i64 16}
-!32 = !{!"p1 _ZTSNSt3__19sub_matchIPKcEE", !13, i64 0}
-!33 = !{!"_ZTSNSt3__16vectorINS_4pairImPKcEENS_9allocatorIS4_EEEE", !34, i64 0, !34, i64 8, !34, i64 16}
-!34 = !{!"p1 _ZTSNSt3__14pairImPKcEE", !13, i64 0}
-!35 = !{!"p1 _ZTSNSt3__16__nodeIcEE", !13, i64 0}
-!36 = !{!"_ZTSNSt3__115regex_constants15match_flag_typeE", !14, i64 0}
-!37 = !{!"bool", !14, i64 0}
-!38 = !{!29, !12, i64 24}
-!39 = !{!29, !30, i64 0}
-!40 = !{!41, !35, i64 8}
-!41 = !{!"_ZTSNSt3__115__has_one_stateIcEE", !42, i64 0, !35, i64 8}
-!42 = !{!"_ZTSNSt3__16__nodeIcEE"}
-!43 = !{!29, !35, i64 80}
-!44 = !{!45, !46, i64 16}
-!45 = !{!"_ZTSNSt3__17__stateIwEE", !30, i64 0, !46, i64 8, !46, i64 16, !46, i64 24, !47, i64 32, !49, i64 56, !51, i64 80, !36, i64 88, !37, i64 92}
-!46 = !{!"p1 wchar_t", !13, i64 0}
-!47 = !{!"_ZTSNSt3__16vectorINS_9sub_matchIPKwEENS_9allocatorIS4_EEEE", !48, i64 0, !48, i64 8, !48, i64 16}
-!48 = !{!"p1 _ZTSNSt3__19sub_matchIPKwEE", !13, i64 0}
-!49 = !{!"_ZTSNSt3__16vectorINS_4pairImPKwEENS_9allocatorIS4_EEEE", !50, i64 0, !50, i64 8, !50, i64 16}
-!50 = !{!"p1 _ZTSNSt3__14pairImPKwEE", !13, i64 0}
-!51 = !{!"p1 _ZTSNSt3__16__nodeIwEE", !13, i64 0}
-!52 = !{!45, !46, i64 24}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"wchar_t", !14, i64 0}
-!55 = !{!45, !30, i64 0}
-!56 = !{!57, !51, i64 8}
-!57 = !{!"_ZTSNSt3__115__has_one_stateIwEE", !58, i64 0, !51, i64 8}
-!58 = !{!"_ZTSNSt3__16__nodeIwEE"}
-!59 = !{!45, !51, i64 80}
+!20 = !{!17, !14, i64 8}
+!21 = !{!14, !14, i64 0}
+!22 = !{!23, !12, i64 0}
+!23 = !{!"_ZTSNSt3__112_GLOBAL__N_110classnamesE", !12, i64 0, !24, i64 8}
+!24 = !{!"short", !14, i64 0}
+!25 = distinct !{!25, !19}
+!26 = !{!23, !24, i64 8}
+!27 = !{!28, !12, i64 16}
+!28 = !{!"_ZTSNSt3__17__stateIcEE", !29, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !30, i64 32, !32, i64 56, !34, i64 80, !35, i64 88, !36, i64 92}
+!29 = !{!"int", !14, i64 0}
+!30 = !{!"_ZTSNSt3__16vectorINS_9sub_matchIPKcEENS_9allocatorIS4_EEEE", !31, i64 0, !31, i64 8, !31, i64 16}
+!31 = !{!"p1 _ZTSNSt3__19sub_matchIPKcEE", !13, i64 0}
+!32 = !{!"_ZTSNSt3__16vectorINS_4pairImPKcEENS_9allocatorIS4_EEEE", !33, i64 0, !33, i64 8, !33, i64 16}
+!33 = !{!"p1 _ZTSNSt3__14pairImPKcEE", !13, i64 0}
+!34 = !{!"p1 _ZTSNSt3__16__nodeIcEE", !13, i64 0}
+!35 = !{!"_ZTSNSt3__115regex_constants15match_flag_typeE", !14, i64 0}
+!36 = !{!"bool", !14, i64 0}
+!37 = !{!28, !12, i64 24}
+!38 = !{!28, !29, i64 0}
+!39 = !{!40, !34, i64 8}
+!40 = !{!"_ZTSNSt3__115__has_one_stateIcEE", !41, i64 0, !34, i64 8}
+!41 = !{!"_ZTSNSt3__16__nodeIcEE"}
+!42 = !{!28, !34, i64 80}
+!43 = !{!44, !45, i64 16}
+!44 = !{!"_ZTSNSt3__17__stateIwEE", !29, i64 0, !45, i64 8, !45, i64 16, !45, i64 24, !46, i64 32, !48, i64 56, !50, i64 80, !35, i64 88, !36, i64 92}
+!45 = !{!"p1 wchar_t", !13, i64 0}
+!46 = !{!"_ZTSNSt3__16vectorINS_9sub_matchIPKwEENS_9allocatorIS4_EEEE", !47, i64 0, !47, i64 8, !47, i64 16}
+!47 = !{!"p1 _ZTSNSt3__19sub_matchIPKwEE", !13, i64 0}
+!48 = !{!"_ZTSNSt3__16vectorINS_4pairImPKwEENS_9allocatorIS4_EEEE", !49, i64 0, !49, i64 8, !49, i64 16}
+!49 = !{!"p1 _ZTSNSt3__14pairImPKwEE", !13, i64 0}
+!50 = !{!"p1 _ZTSNSt3__16__nodeIwEE", !13, i64 0}
+!51 = !{!44, !45, i64 24}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"wchar_t", !14, i64 0}
+!54 = !{!44, !29, i64 0}
+!55 = !{!56, !50, i64 8}
+!56 = !{!"_ZTSNSt3__115__has_one_stateIwEE", !57, i64 0, !50, i64 8}
+!57 = !{!"_ZTSNSt3__16__nodeIwEE"}
+!58 = !{!44, !50, i64 80}

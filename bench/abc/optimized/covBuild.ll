@@ -126,7 +126,7 @@ Vec_IntFree.exit:                                 ; preds = %14
 
 ._crit_edge:                                      ; preds = %53, %47
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %78 = load ptr, ptr %77, align 8, !tbaa !38
+  %78 = load ptr, ptr %77, align 8, !tbaa !37
   %79 = tail call ptr @Abc_SopCreateAnd(ptr noundef %78, i32 noundef %49, ptr noundef %.pre) #7
   %80 = getelementptr inbounds nuw i8, ptr %48, i64 56
   store ptr %79, ptr %80, align 8, !tbaa !34
@@ -260,7 +260,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 48:                                               ; preds = %14, %Vec_IntPush.exit
   %49 = add nuw nsw i32 %.01415, 2
   %50 = icmp samesign ult i32 %.01415, 30
-  br i1 %50, label %14, label %51, !llvm.loop !39
+  br i1 %50, label %14, label %51, !llvm.loop !38
 
 51:                                               ; preds = %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -269,7 +269,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %54 = and i32 %53, 4095
   %55 = zext nneg i32 %54 to i64
   %56 = icmp samesign ult i64 %indvars.iv.next, %55
-  br i1 %56, label %8, label %._crit_edge, !llvm.loop !40
+  br i1 %56, label %8, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %51, %2
   ret void
@@ -307,20 +307,20 @@ define ptr @Abc_NtkCovDeriveNode_rec(ptr noundef readnone captures(none) %0, ptr
 13:                                               ; preds = %10
   %.val50 = load ptr, ptr %2, align 8, !tbaa !13
   %14 = getelementptr i8, ptr %2, i64 16
-  %.val51 = load i32, ptr %14, align 8, !tbaa !41
+  %.val51 = load i32, ptr %14, align 8, !tbaa !40
   %15 = getelementptr i8, ptr %.val50, i64 272
-  %.val50.val = load ptr, ptr %15, align 8, !tbaa !42
+  %.val50.val = load ptr, ptr %15, align 8, !tbaa !41
   %16 = getelementptr i8, ptr %.val50.val, i64 24
-  %.val50.val.val = load ptr, ptr %16, align 8, !tbaa !43
+  %.val50.val.val = load ptr, ptr %16, align 8, !tbaa !42
   %17 = getelementptr i8, ptr %.val50.val.val, i64 8
   %.val50.val.val.val = load ptr, ptr %17, align 8, !tbaa !31
   %18 = sext i32 %.val51 to i64
   %19 = getelementptr inbounds ptr, ptr %.val50.val.val.val, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !46
+  %22 = load ptr, ptr %21, align 8, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !48
+  %24 = load ptr, ptr %23, align 8, !tbaa !47
   %25 = getelementptr i8, ptr %22, i64 4
   %.val5458 = load i32, ptr %25, align 4, !tbaa !3
   %26 = icmp sgt i32 %.val5458, 0
@@ -349,7 +349,7 @@ define ptr @Abc_NtkCovDeriveNode_rec(ptr noundef readnone captures(none) %0, ptr
   %.val54 = load i32, ptr %25, align 4, !tbaa !3
   %39 = sext i32 %.val54 to i64
   %40 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %40, label %29, label %.critedge, !llvm.loop !50
+  br i1 %40, label %29, label %.critedge, !llvm.loop !49
 
 .critedge:                                        ; preds = %29, %13
   %.not5.i = icmp eq ptr %24, null
@@ -359,9 +359,9 @@ define ptr @Abc_NtkCovDeriveNode_rec(ptr noundef readnone captures(none) %0, ptr
   %.07.i = phi i32 [ %41, %.lr.ph.i ], [ 0, %.critedge ]
   %.046.i = phi ptr [ %42, %.lr.ph.i ], [ %24, %.critedge ]
   %41 = add nuw nsw i32 %.07.i, 1
-  %42 = load ptr, ptr %.046.i, align 8, !tbaa !51
+  %42 = load ptr, ptr %.046.i, align 8, !tbaa !50
   %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %Min_CoverCountCubes.exit, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %Min_CoverCountCubes.exit, label %.lr.ph.i, !llvm.loop !52
 
 Min_CoverCountCubes.exit:                         ; preds = %.lr.ph.i
   %cond = icmp eq i32 %.07.i, 0
@@ -383,13 +383,13 @@ Min_CoverCountCubes.exit.thread:                  ; preds = %.critedge
   %.04260 = phi ptr [ %24, %46 ], [ %50, %48 ]
   %49 = tail call ptr @Abc_NtkCovDeriveCube(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.04260, ptr noundef nonnull %22, i32 noundef 0)
   tail call void @Abc_ObjAddFanin(ptr noundef %47, ptr noundef %49) #7
-  %50 = load ptr, ptr %.04260, align 8, !tbaa !51
+  %50 = load ptr, ptr %.04260, align 8, !tbaa !50
   %.not47 = icmp eq ptr %50, null
-  br i1 %.not47, label %51, label %48, !llvm.loop !54
+  br i1 %.not47, label %51, label %48, !llvm.loop !53
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %53 = load ptr, ptr %52, align 8, !tbaa !38
+  %53 = load ptr, ptr %52, align 8, !tbaa !37
   %54 = tail call ptr @Abc_SopCreateXorSpecial(ptr noundef %53, i32 noundef %41) #7
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 56
   store ptr %54, ptr %55, align 8, !tbaa !34
@@ -411,9 +411,9 @@ declare ptr @Abc_SopCreateXorSpecial(ptr noundef, i32 noundef) local_unnamed_add
 define ptr @Abc_NtkCovDerive(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Abc_NtkStartFrom(ptr noundef %1, i32 noundef 2, i32 noundef 1) #7
   %4 = getelementptr i8, ptr %1, i64 64
-  %.val19 = load ptr, ptr %4, align 8, !tbaa !55
+  %.val19 = load ptr, ptr %4, align 8, !tbaa !54
   %5 = getelementptr i8, ptr %.val19, i64 4
-  %.val.val20 = load i32, ptr %5, align 4, !tbaa !56
+  %.val.val20 = load i32, ptr %5, align 4, !tbaa !55
   %6 = icmp sgt i32 %.val.val20, 0
   br i1 %6, label %.lr.ph, label %.critedge
 
@@ -426,7 +426,7 @@ define ptr @Abc_NtkCovDerive(ptr noundef readnone captures(none) %0, ptr noundef
   %9 = load ptr, ptr %8, align 8, !tbaa !33
   %.val17 = load ptr, ptr %9, align 8, !tbaa !13
   %10 = getelementptr i8, ptr %9, i64 32
-  %.val18 = load ptr, ptr %10, align 8, !tbaa !57
+  %.val18 = load ptr, ptr %10, align 8, !tbaa !56
   %11 = getelementptr i8, ptr %.val17, i64 32
   %.val17.val = load ptr, ptr %11, align 8, !tbaa !17
   %.val18.val = load i32, ptr %.val18, align 4, !tbaa !12
@@ -437,12 +437,12 @@ define ptr @Abc_NtkCovDerive(ptr noundef readnone captures(none) %0, ptr noundef
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = tail call ptr @Abc_NtkCovDeriveNode_rec(ptr noundef %0, ptr noundef %3, ptr noundef %15, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val = load ptr, ptr %4, align 8, !tbaa !55
+  %.val = load ptr, ptr %4, align 8, !tbaa !54
   %17 = getelementptr i8, ptr %.val, i64 4
-  %.val.val = load i32, ptr %17, align 4, !tbaa !56
+  %.val.val = load i32, ptr %17, align 4, !tbaa !55
   %18 = sext i32 %.val.val to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %.critedge, !llvm.loop !58
+  br i1 %19, label %.lr.ph, label %.critedge, !llvm.loop !57
 
 .critedge:                                        ; preds = %.lr.ph, %2
   tail call void @Abc_NtkFinalize(ptr noundef nonnull %1, ptr noundef %3) #7
@@ -641,11 +641,11 @@ Abc_NtkCovDeriveInv.exit52:                       ; preds = %53, %75, %81
   tail call void @Abc_ObjAddFanin(ptr noundef %48, ptr noundef %.0.i50) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %53, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %Abc_NtkCovDeriveInv.exit52, %47
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %86 = load ptr, ptr %85, align 8, !tbaa !38
+  %86 = load ptr, ptr %85, align 8, !tbaa !37
   %87 = tail call ptr @Abc_SopCreateAnd(ptr noundef %86, i32 noundef %49, ptr noundef null) #7
   %88 = getelementptr inbounds nuw i8, ptr %48, i64 56
   store ptr %87, ptr %88, align 8, !tbaa !34
@@ -686,20 +686,20 @@ define ptr @Abc_NtkCovDeriveNodeInv_rec(ptr noundef readnone captures(none) %0, 
 12:                                               ; preds = %4
   %.val48 = load ptr, ptr %2, align 8, !tbaa !13
   %13 = getelementptr i8, ptr %2, i64 16
-  %.val49 = load i32, ptr %13, align 8, !tbaa !41
+  %.val49 = load i32, ptr %13, align 8, !tbaa !40
   %14 = getelementptr i8, ptr %.val48, i64 272
-  %.val48.val = load ptr, ptr %14, align 8, !tbaa !42
+  %.val48.val = load ptr, ptr %14, align 8, !tbaa !41
   %15 = getelementptr i8, ptr %.val48.val, i64 24
-  %.val48.val.val = load ptr, ptr %15, align 8, !tbaa !43
+  %.val48.val.val = load ptr, ptr %15, align 8, !tbaa !42
   %16 = getelementptr i8, ptr %.val48.val.val, i64 8
   %.val48.val.val.val = load ptr, ptr %16, align 8, !tbaa !31
   %17 = sext i32 %.val49 to i64
   %18 = getelementptr inbounds ptr, ptr %.val48.val.val.val, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !46
+  %21 = load ptr, ptr %20, align 8, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !48
+  %23 = load ptr, ptr %22, align 8, !tbaa !47
   %24 = getelementptr i8, ptr %21, i64 4
   %.val5261 = load i32, ptr %24, align 4, !tbaa !3
   %25 = icmp sgt i32 %.val5261, 0
@@ -727,7 +727,7 @@ define ptr @Abc_NtkCovDeriveNodeInv_rec(ptr noundef readnone captures(none) %0, 
   %.val52 = load i32, ptr %24, align 4, !tbaa !3
   %37 = sext i32 %.val52 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %27, label %.critedge, !llvm.loop !60
+  br i1 %38, label %27, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %27, %12
   %.not5.i = icmp eq ptr %23, null
@@ -737,9 +737,9 @@ define ptr @Abc_NtkCovDeriveNodeInv_rec(ptr noundef readnone captures(none) %0, 
   %.07.i = phi i32 [ %39, %.lr.ph.i ], [ 0, %.critedge ]
   %.046.i = phi ptr [ %40, %.lr.ph.i ], [ %23, %.critedge ]
   %39 = add nuw nsw i32 %.07.i, 1
-  %40 = load ptr, ptr %.046.i, align 8, !tbaa !51
+  %40 = load ptr, ptr %.046.i, align 8, !tbaa !50
   %.not.i53 = icmp eq ptr %40, null
-  br i1 %.not.i53, label %Min_CoverCountCubes.exit, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i53, label %Min_CoverCountCubes.exit, label %.lr.ph.i, !llvm.loop !52
 
 Min_CoverCountCubes.exit:                         ; preds = %.lr.ph.i
   %cond = icmp eq i32 %.07.i, 0
@@ -761,13 +761,13 @@ Min_CoverCountCubes.exit.thread:                  ; preds = %.critedge
   %.04363 = phi ptr [ %23, %44 ], [ %48, %46 ]
   %47 = tail call ptr @Abc_NtkCovDeriveCubeInv(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.04363, ptr noundef nonnull %21)
   tail call void @Abc_ObjAddFanin(ptr noundef %45, ptr noundef %47) #7
-  %48 = load ptr, ptr %.04363, align 8, !tbaa !51
+  %48 = load ptr, ptr %.04363, align 8, !tbaa !50
   %.not46 = icmp eq ptr %48, null
-  br i1 %.not46, label %49, label %46, !llvm.loop !61
+  br i1 %.not46, label %49, label %46, !llvm.loop !60
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %51 = load ptr, ptr %50, align 8, !tbaa !38
+  %51 = load ptr, ptr %50, align 8, !tbaa !37
   %52 = tail call ptr @Abc_SopCreateXorSpecial(ptr noundef %51, i32 noundef %39) #7
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 56
   store ptr %52, ptr %53, align 8, !tbaa !34
@@ -805,9 +805,9 @@ Abc_NtkCovDeriveInv.exit:                         ; preds = %Abc_NtkCovDeriveInv
 define ptr @Abc_NtkCovDeriveClean(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Abc_NtkStartFrom(ptr noundef %1, i32 noundef 2, i32 noundef 1) #7
   %4 = getelementptr i8, ptr %1, i64 64
-  %.val21 = load ptr, ptr %4, align 8, !tbaa !55
+  %.val21 = load ptr, ptr %4, align 8, !tbaa !54
   %5 = getelementptr i8, ptr %.val21, i64 4
-  %.val.val22 = load i32, ptr %5, align 4, !tbaa !56
+  %.val.val22 = load i32, ptr %5, align 4, !tbaa !55
   %6 = icmp sgt i32 %.val.val22, 0
   br i1 %6, label %.lr.ph, label %.critedge
 
@@ -820,7 +820,7 @@ define ptr @Abc_NtkCovDeriveClean(ptr noundef readnone captures(none) %0, ptr no
   %9 = load ptr, ptr %8, align 8, !tbaa !33
   %.val18 = load ptr, ptr %9, align 8, !tbaa !13
   %10 = getelementptr i8, ptr %9, i64 32
-  %.val19 = load ptr, ptr %10, align 8, !tbaa !57
+  %.val19 = load ptr, ptr %10, align 8, !tbaa !56
   %11 = getelementptr i8, ptr %.val18, i64 32
   %.val18.val = load ptr, ptr %11, align 8, !tbaa !17
   %.val19.val = load i32, ptr %.val19, align 4, !tbaa !12
@@ -838,12 +838,12 @@ define ptr @Abc_NtkCovDeriveClean(ptr noundef readnone captures(none) %0, ptr no
   %21 = load ptr, ptr %20, align 8, !tbaa !34
   tail call void @Abc_ObjAddFanin(ptr noundef %21, ptr noundef %19) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val = load ptr, ptr %4, align 8, !tbaa !55
+  %.val = load ptr, ptr %4, align 8, !tbaa !54
   %22 = getelementptr i8, ptr %.val, i64 4
-  %.val.val = load i32, ptr %22, align 4, !tbaa !56
+  %.val.val = load i32, ptr %22, align 4, !tbaa !55
   %23 = sext i32 %.val.val to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !62
+  br i1 %24, label %.lr.ph, label %.critedge, !llvm.loop !61
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %25 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %3, i32 noundef 0) #7
@@ -871,23 +871,23 @@ define ptr @Abc_NtkCovDerive_rec(ptr noundef readnone captures(none) %0, ptr nou
 6:                                                ; preds = %3
   %.val105 = load ptr, ptr %2, align 8, !tbaa !13
   %7 = getelementptr i8, ptr %2, i64 16
-  %.val106 = load i32, ptr %7, align 8, !tbaa !41
+  %.val106 = load i32, ptr %7, align 8, !tbaa !40
   %8 = getelementptr i8, ptr %.val105, i64 272
-  %.val105.val = load ptr, ptr %8, align 8, !tbaa !42
+  %.val105.val = load ptr, ptr %8, align 8, !tbaa !41
   %9 = getelementptr i8, ptr %.val105.val, i64 24
-  %.val105.val.val = load ptr, ptr %9, align 8, !tbaa !43
+  %.val105.val.val = load ptr, ptr %9, align 8, !tbaa !42
   %10 = getelementptr i8, ptr %.val105.val.val, i64 8
   %.val105.val.val.val = load ptr, ptr %10, align 8, !tbaa !31
   %11 = sext i32 %.val106 to i64
   %12 = getelementptr inbounds ptr, ptr %.val105.val.val.val, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !46
-  %16 = load ptr, ptr %13, align 8, !tbaa !48
+  %15 = load ptr, ptr %14, align 8, !tbaa !45
+  %16 = load ptr, ptr %13, align 8, !tbaa !47
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !48
+  %18 = load ptr, ptr %17, align 8, !tbaa !47
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !48
+  %20 = load ptr, ptr %19, align 8, !tbaa !47
   %.not92 = icmp eq ptr %16, null
   %.not97 = icmp eq ptr %18, null
   br i1 %.not92, label %31, label %21
@@ -899,17 +899,17 @@ define ptr @Abc_NtkCovDerive_rec(ptr noundef readnone captures(none) %0, ptr nou
   %.07.i = phi i32 [ %22, %.lr.ph.i ], [ 0, %21 ]
   %.046.i = phi ptr [ %23, %.lr.ph.i ], [ %16, %21 ]
   %22 = add nuw nsw i32 %.07.i, 1
-  %23 = load ptr, ptr %.046.i, align 8, !tbaa !51
+  %23 = load ptr, ptr %.046.i, align 8, !tbaa !50
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %.lr.ph.i117, label %.lr.ph.i, !llvm.loop !53
+  br i1 %.not.i, label %.lr.ph.i117, label %.lr.ph.i, !llvm.loop !52
 
 .lr.ph.i117:                                      ; preds = %.lr.ph.i, %.lr.ph.i117
   %.07.i118 = phi i32 [ %24, %.lr.ph.i117 ], [ 0, %.lr.ph.i ]
   %.046.i119 = phi ptr [ %25, %.lr.ph.i117 ], [ %18, %.lr.ph.i ]
   %24 = add nuw nsw i32 %.07.i118, 1
-  %25 = load ptr, ptr %.046.i119, align 8, !tbaa !51
+  %25 = load ptr, ptr %.046.i119, align 8, !tbaa !50
   %.not.i120 = icmp eq ptr %25, null
-  br i1 %.not.i120, label %Min_CoverCountCubes.exit122, label %.lr.ph.i117, !llvm.loop !53
+  br i1 %.not.i120, label %Min_CoverCountCubes.exit122, label %.lr.ph.i117, !llvm.loop !52
 
 Min_CoverCountCubes.exit122:                      ; preds = %.lr.ph.i117
   %.not94 = icmp samesign ugt i32 %.07.i, %.07.i118
@@ -923,17 +923,17 @@ Min_CoverCountCubes.exit122:                      ; preds = %.lr.ph.i117
   %.07.i125 = phi i32 [ %27, %.lr.ph.i124 ], [ 0, %26 ]
   %.046.i126 = phi ptr [ %28, %.lr.ph.i124 ], [ %16, %26 ]
   %27 = add nuw nsw i32 %.07.i125, 1
-  %28 = load ptr, ptr %.046.i126, align 8, !tbaa !51
+  %28 = load ptr, ptr %.046.i126, align 8, !tbaa !50
   %.not.i127 = icmp eq ptr %28, null
-  br i1 %.not.i127, label %.lr.ph.i131, label %.lr.ph.i124, !llvm.loop !53
+  br i1 %.not.i127, label %.lr.ph.i131, label %.lr.ph.i124, !llvm.loop !52
 
 .lr.ph.i131:                                      ; preds = %.lr.ph.i124, %.lr.ph.i131
   %.07.i132 = phi i32 [ %29, %.lr.ph.i131 ], [ 0, %.lr.ph.i124 ]
   %.046.i133 = phi ptr [ %30, %.lr.ph.i131 ], [ %20, %.lr.ph.i124 ]
   %29 = add nuw nsw i32 %.07.i132, 1
-  %30 = load ptr, ptr %.046.i133, align 8, !tbaa !51
+  %30 = load ptr, ptr %.046.i133, align 8, !tbaa !50
   %.not.i134 = icmp eq ptr %30, null
-  br i1 %.not.i134, label %Min_CoverCountCubes.exit136, label %.lr.ph.i131, !llvm.loop !53
+  br i1 %.not.i134, label %Min_CoverCountCubes.exit136, label %.lr.ph.i131, !llvm.loop !52
 
 Min_CoverCountCubes.exit136:                      ; preds = %.lr.ph.i131
   %.not96 = icmp samesign ugt i32 %.07.i125, %.07.i132
@@ -952,17 +952,17 @@ Min_CoverCountCubes.exit136:                      ; preds = %.lr.ph.i131
   %.07.i139 = phi i32 [ %32, %.lr.ph.i138 ], [ 0, %.lr.ph.i138.preheader ]
   %.046.i140 = phi ptr [ %33, %.lr.ph.i138 ], [ %18, %.lr.ph.i138.preheader ]
   %32 = add nuw nsw i32 %.07.i139, 1
-  %33 = load ptr, ptr %.046.i140, align 8, !tbaa !51
+  %33 = load ptr, ptr %.046.i140, align 8, !tbaa !50
   %.not.i141 = icmp eq ptr %33, null
-  br i1 %.not.i141, label %.lr.ph.i145, label %.lr.ph.i138, !llvm.loop !53
+  br i1 %.not.i141, label %.lr.ph.i145, label %.lr.ph.i138, !llvm.loop !52
 
 .lr.ph.i145:                                      ; preds = %.lr.ph.i138, %.lr.ph.i145
   %.07.i146 = phi i32 [ %34, %.lr.ph.i145 ], [ 0, %.lr.ph.i138 ]
   %.046.i147 = phi ptr [ %35, %.lr.ph.i145 ], [ %16, %.lr.ph.i138 ]
   %34 = add nuw nsw i32 %.07.i146, 1
-  %35 = load ptr, ptr %.046.i147, align 8, !tbaa !51
+  %35 = load ptr, ptr %.046.i147, align 8, !tbaa !50
   %.not.i148 = icmp eq ptr %35, null
-  br i1 %.not.i148, label %Min_CoverCountCubes.exit150, label %.lr.ph.i145, !llvm.loop !53
+  br i1 %.not.i148, label %Min_CoverCountCubes.exit150, label %.lr.ph.i145, !llvm.loop !52
 
 Min_CoverCountCubes.exit150:                      ; preds = %.lr.ph.i145
   %.not98 = icmp samesign ugt i32 %.07.i139, %.07.i146
@@ -976,17 +976,17 @@ Min_CoverCountCubes.exit150:                      ; preds = %.lr.ph.i145
   %.07.i153 = phi i32 [ %37, %.lr.ph.i152 ], [ 0, %36 ]
   %.046.i154 = phi ptr [ %38, %.lr.ph.i152 ], [ %18, %36 ]
   %37 = add nuw nsw i32 %.07.i153, 1
-  %38 = load ptr, ptr %.046.i154, align 8, !tbaa !51
+  %38 = load ptr, ptr %.046.i154, align 8, !tbaa !50
   %.not.i155 = icmp eq ptr %38, null
-  br i1 %.not.i155, label %.lr.ph.i159, label %.lr.ph.i152, !llvm.loop !53
+  br i1 %.not.i155, label %.lr.ph.i159, label %.lr.ph.i152, !llvm.loop !52
 
 .lr.ph.i159:                                      ; preds = %.lr.ph.i152, %.lr.ph.i159
   %.07.i160 = phi i32 [ %39, %.lr.ph.i159 ], [ 0, %.lr.ph.i152 ]
   %.046.i161 = phi ptr [ %40, %.lr.ph.i159 ], [ %20, %.lr.ph.i152 ]
   %39 = add nuw nsw i32 %.07.i160, 1
-  %40 = load ptr, ptr %.046.i161, align 8, !tbaa !51
+  %40 = load ptr, ptr %.046.i161, align 8, !tbaa !50
   %.not.i162 = icmp eq ptr %40, null
-  br i1 %.not.i162, label %Min_CoverCountCubes.exit164, label %.lr.ph.i159, !llvm.loop !53
+  br i1 %.not.i162, label %Min_CoverCountCubes.exit164, label %.lr.ph.i159, !llvm.loop !52
 
 Min_CoverCountCubes.exit164:                      ; preds = %.lr.ph.i159
   %.not100 = icmp samesign ugt i32 %.07.i153, %.07.i160
@@ -1008,17 +1008,17 @@ Min_CoverCountCubes.exit164:                      ; preds = %.lr.ph.i159
   %.07.i167 = phi i32 [ %42, %.lr.ph.i166 ], [ 0, %.thread212.thread ]
   %.046.i168 = phi ptr [ %43, %.lr.ph.i166 ], [ %20, %.thread212.thread ]
   %42 = add nuw nsw i32 %.07.i167, 1
-  %43 = load ptr, ptr %.046.i168, align 8, !tbaa !51
+  %43 = load ptr, ptr %.046.i168, align 8, !tbaa !50
   %.not.i169 = icmp eq ptr %43, null
-  br i1 %.not.i169, label %.lr.ph.i173, label %.lr.ph.i166, !llvm.loop !53
+  br i1 %.not.i169, label %.lr.ph.i173, label %.lr.ph.i166, !llvm.loop !52
 
 .lr.ph.i173:                                      ; preds = %.lr.ph.i166, %.lr.ph.i173
   %.07.i174 = phi i32 [ %44, %.lr.ph.i173 ], [ 0, %.lr.ph.i166 ]
   %.046.i175 = phi ptr [ %45, %.lr.ph.i173 ], [ %16, %.lr.ph.i166 ]
   %44 = add nuw nsw i32 %.07.i174, 1
-  %45 = load ptr, ptr %.046.i175, align 8, !tbaa !51
+  %45 = load ptr, ptr %.046.i175, align 8, !tbaa !50
   %.not.i176 = icmp eq ptr %45, null
-  br i1 %.not.i176, label %Min_CoverCountCubes.exit178, label %.lr.ph.i173, !llvm.loop !53
+  br i1 %.not.i176, label %Min_CoverCountCubes.exit178, label %.lr.ph.i173, !llvm.loop !52
 
 Min_CoverCountCubes.exit178:                      ; preds = %.lr.ph.i173
   %46 = icmp samesign ult i32 %.07.i167, %.07.i174
@@ -1032,17 +1032,17 @@ Min_CoverCountCubes.exit178:                      ; preds = %.lr.ph.i173
   %.07.i181 = phi i32 [ %48, %.lr.ph.i180 ], [ 0, %47 ]
   %.046.i182 = phi ptr [ %49, %.lr.ph.i180 ], [ %20, %47 ]
   %48 = add nuw nsw i32 %.07.i181, 1
-  %49 = load ptr, ptr %.046.i182, align 8, !tbaa !51
+  %49 = load ptr, ptr %.046.i182, align 8, !tbaa !50
   %.not.i183 = icmp eq ptr %49, null
-  br i1 %.not.i183, label %.lr.ph.i187, label %.lr.ph.i180, !llvm.loop !53
+  br i1 %.not.i183, label %.lr.ph.i187, label %.lr.ph.i180, !llvm.loop !52
 
 .lr.ph.i187:                                      ; preds = %.lr.ph.i180, %.lr.ph.i187
   %.07.i188 = phi i32 [ %50, %.lr.ph.i187 ], [ 0, %.lr.ph.i180 ]
   %.046.i189 = phi ptr [ %51, %.lr.ph.i187 ], [ %18, %.lr.ph.i180 ]
   %50 = add nuw nsw i32 %.07.i188, 1
-  %51 = load ptr, ptr %.046.i189, align 8, !tbaa !51
+  %51 = load ptr, ptr %.046.i189, align 8, !tbaa !50
   %.not.i190 = icmp eq ptr %51, null
-  br i1 %.not.i190, label %Min_CoverCountCubes.exit192, label %.lr.ph.i187, !llvm.loop !53
+  br i1 %.not.i190, label %Min_CoverCountCubes.exit192, label %.lr.ph.i187, !llvm.loop !52
 
 Min_CoverCountCubes.exit192:                      ; preds = %.lr.ph.i187
   %52 = icmp samesign ult i32 %.07.i181, %.07.i188
@@ -1082,7 +1082,7 @@ Min_CoverCountCubes.exit192:                      ; preds = %.lr.ph.i187
   %.val110 = load i32, ptr %56, align 4, !tbaa !3
   %69 = sext i32 %.val110 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %59, label %.critedge2, !llvm.loop !63
+  br i1 %70, label %59, label %.critedge2, !llvm.loop !62
 
 .critedge2:                                       ; preds = %59, %54
   %.not5.i193 = icmp eq ptr %.079, null
@@ -1092,9 +1092,9 @@ Min_CoverCountCubes.exit192:                      ; preds = %.lr.ph.i187
   %.07.i195 = phi i32 [ %71, %.lr.ph.i194 ], [ 0, %.critedge2 ]
   %.046.i196 = phi ptr [ %72, %.lr.ph.i194 ], [ %.079, %.critedge2 ]
   %71 = add nuw nsw i32 %.07.i195, 1
-  %72 = load ptr, ptr %.046.i196, align 8, !tbaa !51
+  %72 = load ptr, ptr %.046.i196, align 8, !tbaa !50
   %.not.i197 = icmp eq ptr %72, null
-  br i1 %.not.i197, label %Min_CoverCountCubes.exit199, label %.lr.ph.i194, !llvm.loop !53
+  br i1 %.not.i197, label %Min_CoverCountCubes.exit199, label %.lr.ph.i194, !llvm.loop !52
 
 Min_CoverCountCubes.exit199:                      ; preds = %.lr.ph.i194
   %cond = icmp eq i32 %.07.i195, 0
@@ -1138,24 +1138,24 @@ Min_CoverCountCubes.exit199.thread:               ; preds = %.critedge2
   %.val109 = load i32, ptr %56, align 4, !tbaa !3
   %91 = sext i32 %.val109 to i64
   %92 = icmp slt i64 %indvars.iv.next227, %91
-  br i1 %92, label %80, label %.critedge4, !llvm.loop !64
+  br i1 %92, label %80, label %.critedge4, !llvm.loop !63
 
 .critedge4:                                       ; preds = %80, %76
   %93 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
-  store i32 0, ptr %94, align 4, !tbaa !65
-  store i32 100, ptr %93, align 8, !tbaa !67
+  store i32 0, ptr %94, align 4, !tbaa !64
+  store i32 100, ptr %93, align 8, !tbaa !66
   %95 = tail call noalias dereferenceable_or_null(100) ptr @malloc(i64 noundef 100) #8
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store ptr %95, ptr %96, align 8, !tbaa !68
+  store ptr %95, ptr %96, align 8, !tbaa !67
   tail call void @Min_CoverCreate(ptr noundef nonnull %93, ptr noundef nonnull %.079, i8 noundef signext %.0) #7
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %98 = load ptr, ptr %97, align 8, !tbaa !38
-  %.val115 = load ptr, ptr %96, align 8, !tbaa !68
+  %98 = load ptr, ptr %97, align 8, !tbaa !37
+  %.val115 = load ptr, ptr %96, align 8, !tbaa !67
   %99 = tail call ptr @Abc_SopRegister(ptr noundef %98, ptr noundef %.val115) #7
   %100 = getelementptr inbounds nuw i8, ptr %77, i64 56
   store ptr %99, ptr %100, align 8, !tbaa !34
-  %101 = load ptr, ptr %96, align 8, !tbaa !68
+  %101 = load ptr, ptr %96, align 8, !tbaa !67
   %.not.i200 = icmp eq ptr %101, null
   br i1 %.not.i200, label %Vec_StrFree.exit, label %102
 
@@ -1186,7 +1186,7 @@ define ptr @Abc_NtkCovDeriveRegular(ptr noundef readnone captures(none) %0, ptr 
   %3 = tail call ptr @Abc_NtkStartFrom(ptr noundef %1, i32 noundef 2, i32 noundef 1) #7
   %4 = tail call ptr @Abc_AigConst1(ptr noundef %1) #7
   %5 = getelementptr i8, ptr %4, i64 44
-  %.val34 = load i32, ptr %5, align 4, !tbaa !69
+  %.val34 = load i32, ptr %5, align 4, !tbaa !68
   %6 = icmp sgt i32 %.val34, 0
   br i1 %6, label %7, label %11
 
@@ -1199,9 +1199,9 @@ define ptr @Abc_NtkCovDeriveRegular(ptr noundef readnone captures(none) %0, ptr 
 
 11:                                               ; preds = %7, %2
   %12 = getelementptr i8, ptr %1, i64 64
-  %.val36 = load ptr, ptr %12, align 8, !tbaa !55
+  %.val36 = load ptr, ptr %12, align 8, !tbaa !54
   %13 = getelementptr i8, ptr %.val36, i64 4
-  %.val.val37 = load i32, ptr %13, align 4, !tbaa !56
+  %.val.val37 = load i32, ptr %13, align 4, !tbaa !55
   %14 = icmp sgt i32 %.val.val37, 0
   br i1 %14, label %.lr.ph, label %.critedge
 
@@ -1214,7 +1214,7 @@ define ptr @Abc_NtkCovDeriveRegular(ptr noundef readnone captures(none) %0, ptr 
   %17 = load ptr, ptr %16, align 8, !tbaa !33
   %.val31 = load ptr, ptr %17, align 8, !tbaa !13
   %18 = getelementptr i8, ptr %17, i64 32
-  %.val32 = load ptr, ptr %18, align 8, !tbaa !57
+  %.val32 = load ptr, ptr %18, align 8, !tbaa !56
   %19 = getelementptr i8, ptr %.val31, i64 32
   %.val31.val = load ptr, ptr %19, align 8, !tbaa !17
   %.val32.val = load i32, ptr %.val32, align 4, !tbaa !12
@@ -1238,7 +1238,7 @@ define ptr @Abc_NtkCovDeriveRegular(ptr noundef readnone captures(none) %0, ptr 
 
 30:                                               ; preds = %27
   %.val29 = load ptr, ptr %17, align 8, !tbaa !13
-  %.val30 = load ptr, ptr %18, align 8, !tbaa !57
+  %.val30 = load ptr, ptr %18, align 8, !tbaa !56
   %31 = getelementptr i8, ptr %.val29, i64 32
   %.val29.val = load ptr, ptr %31, align 8, !tbaa !17
   %.val30.val = load i32, ptr %.val30, align 4, !tbaa !12
@@ -1248,7 +1248,7 @@ define ptr @Abc_NtkCovDeriveRegular(ptr noundef readnone captures(none) %0, ptr 
   %34 = getelementptr inbounds ptr, ptr %.val29.val.val, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !33
   %36 = getelementptr i8, ptr %35, i64 44
-  %.val35 = load i32, ptr %36, align 4, !tbaa !69
+  %.val35 = load i32, ptr %36, align 4, !tbaa !68
   %37 = icmp eq i32 %.val35, 1
   br i1 %37, label %38, label %39
 
@@ -1266,12 +1266,12 @@ define ptr @Abc_NtkCovDeriveRegular(ptr noundef readnone captures(none) %0, ptr 
   %43 = load ptr, ptr %42, align 8, !tbaa !34
   tail call void @Abc_ObjAddFanin(ptr noundef %43, ptr noundef %.024) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val = load ptr, ptr %12, align 8, !tbaa !55
+  %.val = load ptr, ptr %12, align 8, !tbaa !54
   %44 = getelementptr i8, ptr %.val, i64 4
-  %.val.val = load i32, ptr %44, align 4, !tbaa !56
+  %.val.val = load i32, ptr %44, align 4, !tbaa !55
   %45 = sext i32 %.val.val to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !70
+  br i1 %46, label %.lr.ph, label %.critedge, !llvm.loop !69
 
 .critedge:                                        ; preds = %41, %11
   %47 = tail call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %3, i32 noundef 0) #7
@@ -1353,39 +1353,38 @@ attributes #9 = { nounwind allocsize(1) }
 !32 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !9, i64 8}
 !33 = !{!9, !9, i64 0}
 !34 = !{!6, !6, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!18, !9, i64 256}
-!39 = distinct !{!39, !36, !37}
-!40 = distinct !{!40, !36, !37}
-!41 = !{!14, !5, i64 16}
-!42 = !{!18, !9, i64 272}
-!43 = !{!44, !21, i64 24}
-!44 = !{!"Cov_Man_t_", !5, i64 0, !5, i64 4, !5, i64 8, !28, i64 16, !21, i64 24, !9, i64 32, !45, i64 40, !5, i64 48, !5, i64 52, !28, i64 56, !28, i64 64, !28, i64 72, !28, i64 80, !28, i64 88, !28, i64 96, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116}
-!45 = !{!"p1 _ZTS10Min_Man_t_", !9, i64 0}
-!46 = !{!47, !28, i64 24}
-!47 = !{!"Cov_Obj_t_", !6, i64 0, !28, i64 24}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS11Min_Cube_t_", !9, i64 0}
-!50 = distinct !{!50, !36, !37}
-!51 = !{!52, !49, i64 0}
-!52 = !{!"Min_Cube_t_", !49, i64 0, !5, i64 8, !5, i64 9, !5, i64 10, !6, i64 12}
-!53 = distinct !{!53, !36, !37}
-!54 = distinct !{!54, !36, !37}
-!55 = !{!18, !21, i64 64}
-!56 = !{!32, !5, i64 4}
-!57 = !{!14, !8, i64 32}
-!58 = distinct !{!58, !36, !37}
-!59 = distinct !{!59, !36, !37}
-!60 = distinct !{!60, !36, !37}
-!61 = distinct !{!61, !36, !37}
-!62 = distinct !{!62, !36, !37}
-!63 = distinct !{!63, !36, !37}
-!64 = distinct !{!64, !36, !37}
-!65 = !{!66, !5, i64 4}
-!66 = !{!"Vec_Str_t_", !5, i64 0, !5, i64 4, !19, i64 8}
-!67 = !{!66, !5, i64 0}
-!68 = !{!66, !19, i64 8}
-!69 = !{!14, !5, i64 44}
-!70 = distinct !{!70, !36, !37}
+!37 = !{!18, !9, i64 256}
+!38 = distinct !{!38, !36}
+!39 = distinct !{!39, !36}
+!40 = !{!14, !5, i64 16}
+!41 = !{!18, !9, i64 272}
+!42 = !{!43, !21, i64 24}
+!43 = !{!"Cov_Man_t_", !5, i64 0, !5, i64 4, !5, i64 8, !28, i64 16, !21, i64 24, !9, i64 32, !44, i64 40, !5, i64 48, !5, i64 52, !28, i64 56, !28, i64 64, !28, i64 72, !28, i64 80, !28, i64 88, !28, i64 96, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116}
+!44 = !{!"p1 _ZTS10Min_Man_t_", !9, i64 0}
+!45 = !{!46, !28, i64 24}
+!46 = !{!"Cov_Obj_t_", !6, i64 0, !28, i64 24}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS11Min_Cube_t_", !9, i64 0}
+!49 = distinct !{!49, !36}
+!50 = !{!51, !48, i64 0}
+!51 = !{!"Min_Cube_t_", !48, i64 0, !5, i64 8, !5, i64 9, !5, i64 10, !6, i64 12}
+!52 = distinct !{!52, !36}
+!53 = distinct !{!53, !36}
+!54 = !{!18, !21, i64 64}
+!55 = !{!32, !5, i64 4}
+!56 = !{!14, !8, i64 32}
+!57 = distinct !{!57, !36}
+!58 = distinct !{!58, !36}
+!59 = distinct !{!59, !36}
+!60 = distinct !{!60, !36}
+!61 = distinct !{!61, !36}
+!62 = distinct !{!62, !36}
+!63 = distinct !{!63, !36}
+!64 = !{!65, !5, i64 4}
+!65 = !{!"Vec_Str_t_", !5, i64 0, !5, i64 4, !19, i64 8}
+!66 = !{!65, !5, i64 0}
+!67 = !{!65, !19, i64 8}
+!68 = !{!14, !5, i64 44}
+!69 = distinct !{!69, !36}

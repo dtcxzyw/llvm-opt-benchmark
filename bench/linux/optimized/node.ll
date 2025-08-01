@@ -116,7 +116,7 @@ declare dso_local void @device_unregister(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @register_cpu_under_node(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = sext i32 %1 to i64
-  %4 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %3) #9, !srcloc !9
+  %4 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %3) #9, !srcloc !8
   %5 = icmp ult i8 %4, 2
   tail call void @llvm.assume(i1 %5)
   %6 = icmp eq i8 %4, 0
@@ -162,7 +162,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @register_memory_node_under_compute_node(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = sext i32 %1 to i64
-  %5 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %4) #9, !srcloc !9
+  %5 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %4) #9, !srcloc !8
   %6 = icmp ult i8 %5, 2
   tail call void @llvm.assume(i1 %6)
   %7 = icmp eq i8 %5, 0
@@ -170,7 +170,7 @@ define dso_local i32 @register_memory_node_under_compute_node(i32 noundef %0, i3
 
 8:                                                ; preds = %3
   %9 = sext i32 %0 to i64
-  %10 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %9) #9, !srcloc !9
+  %10 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %9) #9, !srcloc !8
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i8 %10, 0
@@ -256,7 +256,7 @@ define internal fastcc ptr @node_init_node_access(ptr noundef %0, i32 noundef %1
   %9 = getelementptr i8, ptr %6, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, %1
-  br i1 %11, label %34, label %4, !llvm.loop !10
+  br i1 %11, label %34, label %4, !llvm.loop !9
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
@@ -321,7 +321,7 @@ declare dso_local void @sysfs_remove_link_from_group(ptr noundef, ptr noundef, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @unregister_cpu_under_node(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = sext i32 %1 to i64
-  %4 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %3) #9, !srcloc !9
+  %4 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %3) #9, !srcloc !8
   %5 = icmp ult i8 %4, 2
   tail call void @llvm.assume(i1 %5)
   %6 = icmp eq i8 %4, 0
@@ -400,7 +400,7 @@ define dso_local i32 @__register_one_node(i32 noundef %0) local_unnamed_addr #0 
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %22
-  %29 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %26) #11, !srcloc !11
+  %29 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %26) #11, !srcloc !10
   %30 = trunc i64 %29 to i32
   %31 = icmp ult i32 %30, 64
   br i1 %31, label %32, label %.thread
@@ -416,7 +416,7 @@ define dso_local i32 @__register_one_node(i32 noundef %0) local_unnamed_addr #0 
   br i1 %39, label %40, label %56
 
 40:                                               ; preds = %32
-  %41 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %8) #9, !srcloc !9
+  %41 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %8) #9, !srcloc !8
   %42 = icmp ult i8 %41, 2
   tail call void @llvm.assume(i1 %42)
   %43 = icmp eq i8 %41, 0
@@ -444,7 +444,7 @@ define dso_local i32 @__register_one_node(i32 noundef %0) local_unnamed_addr #0 
   %57 = add nuw nsw i64 %29, 1
   %58 = and i64 %57, 127
   %59 = icmp samesign ugt i64 %58, 63
-  br i1 %59, label %.thread, label %22, !prof !12, !llvm.loop !13
+  br i1 %59, label %.thread, label %22, !prof !11, !llvm.loop !12
 
 .thread:                                          ; preds = %22, %56, %28, %1
   %60 = phi i32 [ -12, %1 ], [ %14, %28 ], [ %14, %56 ], [ %14, %22 ]
@@ -482,7 +482,7 @@ define dso_local void @unregister_one_node(i32 noundef %0) local_unnamed_addr #0
   tail call void @device_unregister(ptr noundef %11) #9
   %17 = getelementptr i8, ptr %13, i64 -728
   %18 = icmp eq ptr %17, %4
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.preheader, %6
   tail call void @device_unregister(ptr noundef nonnull %4) #9
@@ -509,7 +509,7 @@ define dso_local void @node_dev_init() local_unnamed_addr #3 section ".init.text
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %5) #11, !srcloc !11
+  %8 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %5) #11, !srcloc !10
   %9 = trunc i64 %8 to i32
   %10 = icmp ult i32 %9, 64
   br i1 %10, label %.preheader, label %.thread
@@ -517,7 +517,7 @@ define dso_local void @node_dev_init() local_unnamed_addr #3 section ".init.text
 .preheader:                                       ; preds = %7, %28
   %11 = phi i32 [ %30, %28 ], [ %9, %7 ]
   %12 = zext nneg i32 %11 to i64
-  %13 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %12) #9, !srcloc !9
+  %13 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @node_states, i64 8), i64 %12) #9, !srcloc !8
   %14 = icmp ult i8 %13, 2
   tail call void @llvm.assume(i1 %14)
   %15 = icmp eq i8 %13, 0
@@ -534,7 +534,7 @@ define dso_local void @node_dev_init() local_unnamed_addr #3 section ".init.text
 
 .thread6:                                         ; preds = %.preheader, %16
   %20 = icmp eq i32 %11, 63
-  br i1 %20, label %.thread, label %21, !prof !15
+  br i1 %20, label %.thread, label %21, !prof !13
 
 21:                                               ; preds = %.thread6
   %22 = add nuw nsw i32 %11, 1
@@ -546,10 +546,10 @@ define dso_local void @node_dev_init() local_unnamed_addr #3 section ".init.text
   br i1 %27, label %.thread, label %28
 
 28:                                               ; preds = %21
-  %29 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %26) #11, !srcloc !11
+  %29 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %26) #11, !srcloc !10
   %30 = trunc i64 %29 to i32
   %31 = icmp ult i32 %30, 64
-  br i1 %31, label %.preheader, label %.thread, !llvm.loop !16
+  br i1 %31, label %.preheader, label %.thread, !llvm.loop !14
 
 .thread:                                          ; preds = %21, %.thread6, %28, %4, %7
   ret void
@@ -612,7 +612,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @node_read_meminfo(ptr no
   %8 = getelementptr [0 x ptr], ptr @node_data, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false), !annotation !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, i8 0, i64 112, i1 false), !annotation !15
   call void @si_meminfo_node(ptr noundef nonnull %4, i32 noundef %6) #9
   %10 = call i64 @node_page_state_pages(ptr noundef %9, i32 noundef 5) #9
   %11 = call i64 @node_page_state_pages(ptr noundef %9, i32 noundef 6) #9
@@ -745,7 +745,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @node_read_distance(ptr n
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %6) #11, !srcloc !11
+  %9 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %6) #11, !srcloc !10
   %10 = trunc i64 %9 to i32
   %11 = icmp ult i32 %10, 64
   br i1 %11, label %.preheader, label %.thread
@@ -759,7 +759,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @node_read_distance(ptr n
   %17 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %13, ptr noundef nonnull @.str.12, ptr noundef nonnull %15, i32 noundef %16) #9
   %18 = add i32 %17, %13
   %19 = icmp eq i32 %12, 63
-  br i1 %19, label %.thread, label %20, !prof !15
+  br i1 %19, label %.thread, label %20, !prof !13
 
 20:                                               ; preds = %.preheader
   %21 = add nuw nsw i32 %12, 1
@@ -771,10 +771,10 @@ define internal range(i64 -2147483648, 2147483648) i64 @node_read_distance(ptr n
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %20
-  %28 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %25) #11, !srcloc !11
+  %28 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %25) #11, !srcloc !10
   %29 = trunc i64 %28 to i32
   %30 = icmp ult i32 %29, 64
-  br i1 %30, label %.preheader, label %.thread, !llvm.loop !18
+  br i1 %30, label %.preheader, label %.thread, !llvm.loop !16
 
 .thread:                                          ; preds = %20, %.preheader, %27, %3, %8
   %31 = phi i32 [ 0, %8 ], [ 0, %3 ], [ %18, %27 ], [ %18, %.preheader ], [ %18, %20 ]
@@ -807,7 +807,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @node_read_vmstat(ptr nou
   %17 = add i32 %16, %11
   %18 = add nuw nsw i64 %10, 1
   %19 = icmp eq i64 %18, 10
-  br i1 %19, label %20, label %9, !llvm.loop !19
+  br i1 %19, label %20, label %9, !llvm.loop !17
 
 20:                                               ; preds = %9
   tail call void @fold_vm_numa_events() #9
@@ -825,7 +825,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @node_read_vmstat(ptr nou
   %30 = add i32 %29, %23
   %31 = add nuw nsw i64 %22, 1
   %32 = icmp eq i64 %31, 6
-  br i1 %32, label %.preheader, label %21, !llvm.loop !20
+  br i1 %32, label %.preheader, label %21, !llvm.loop !18
 
 .preheader:                                       ; preds = %21, %.preheader
   %33 = phi i64 [ %42, %.preheader ], [ 0, %21 ]
@@ -839,7 +839,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @node_read_vmstat(ptr nou
   %41 = add i32 %40, %34
   %42 = add nuw nsw i64 %33, 1
   %43 = icmp eq i64 %42, 44
-  br i1 %43, label %44, label %.preheader, !llvm.loop !21
+  br i1 %43, label %44, label %.preheader, !llvm.loop !19
 
 44:                                               ; preds = %.preheader
   %45 = sext i32 %41 to i64
@@ -926,20 +926,18 @@ attributes #12 = { cold noreturn nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2148494762, i64 2148494836}
-!10 = distinct !{!10, !6, !7, !8}
-!11 = !{i64 989608}
-!12 = !{!"branch_weights", i32 1, i32 1999}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7, !8}
-!15 = !{!"branch_weights", i32 1, i32 2000}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = !{!"auto-init"}
-!18 = distinct !{!18, !6, !7, !8}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !6, !7, !8}
+!8 = !{i64 2148494762, i64 2148494836}
+!9 = distinct !{!9, !6, !7}
+!10 = !{i64 989608}
+!11 = !{!"branch_weights", i32 1, i32 1999}
+!12 = distinct !{!12, !6, !7}
+!13 = !{!"branch_weights", i32 1, i32 2000}
+!14 = distinct !{!14, !6, !7}
+!15 = !{!"auto-init"}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}

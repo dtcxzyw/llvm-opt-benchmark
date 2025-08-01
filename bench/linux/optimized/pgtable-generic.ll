@@ -331,7 +331,7 @@ define dso_local ptr @__pte_offset_map_lock(ptr noundef readnone captures(none) 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %37 = and i64 %36, -97
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %.thread, label %.lr.ph, !prof !11, !llvm.loop !12
+  br i1 %38, label %.thread, label %.lr.ph, !prof !11
 
 .loopexit:                                        ; preds = %19, %.thread, %34
   %39 = phi ptr [ null, %.thread ], [ %25, %34 ], [ null, %19 ]
@@ -378,5 +378,3 @@ attributes #6 = { nounwind }
 !9 = !{!"branch_weights", i32 0, i32 -2147483648}
 !10 = !{!"branch_weights", i32 1, i32 127}
 !11 = !{!"branch_weights", i32 127, i32 255873}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}

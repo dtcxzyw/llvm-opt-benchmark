@@ -844,7 +844,7 @@ define internal fastcc void @sr_revalidate_disk(ptr noundef %0) unnamed_addr #2 
   %19 = icmp ne i32 %17, 0
   %20 = icmp ne i32 %18, 0
   %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %14, label %22, !llvm.loop !12
+  br i1 %21, label %14, label %22, !llvm.loop !11
 
 22:                                               ; preds = %14
   br i1 %19, label %23, label %24
@@ -1723,8 +1723,7 @@ attributes #11 = { nounwind allocsize(2) }
 !5 = !{i64 2148481951}
 !6 = !{!"auto-init"}
 !7 = !{i64 2148482598, i64 2148482637, i64 2148482658, i64 2148482695, i64 2148482718, i64 2148482588}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}

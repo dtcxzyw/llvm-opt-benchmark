@@ -1320,7 +1320,7 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   %indvars.iv.next153 = add nuw nsw i32 %indvars.iv152, 2
   %46 = add nuw nsw i32 %.0135.us, 1
   %exitcond155.not = icmp eq i32 %46, %31
-  br i1 %exitcond155.not, label %._crit_edge.loopexit, label %.lr.ph.split.us, !llvm.loop !9
+  br i1 %exitcond155.not, label %._crit_edge.loopexit, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %74
   %indvars.iv148 = phi i32 [ %indvars.iv.next149, %74 ], [ 16, %.lr.ph ]
@@ -1373,7 +1373,7 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
 74:                                               ; preds = %72, %70
   %75 = add nuw nsw i32 %.0135.us136, 1
   %exitcond151.not = icmp eq i32 %75, %26
-  br i1 %exitcond151.not, label %._crit_edge.loopexit143, label %.lr.ph.split.split.us, !llvm.loop !11
+  br i1 %exitcond151.not, label %._crit_edge.loopexit143, label %.lr.ph.split.split.us, !llvm.loop !10
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %.lr.ph.split.split
   %indvars.iv = phi i32 [ %indvars.iv.next, %.lr.ph.split.split ], [ 16, %.lr.ph ]
@@ -1414,7 +1414,7 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, %.0119
   %109 = add nuw nsw i32 %.0135, 1
   %exitcond.not = icmp eq i32 %109, %26
-  br i1 %exitcond.not, label %._crit_edge.loopexit144, label %.lr.ph.split.split, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.loopexit144, label %.lr.ph.split.split, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph.split.us
   %110 = trunc nuw nsw i32 %indvars.iv.next153 to i16
@@ -1530,7 +1530,7 @@ dissect_clear_transfers_block.exit:               ; preds = %42, %49
   %68 = add i16 %.sink.i, %.128
   %69 = add nuw nsw i32 %.029, 1
   %exitcond.not = icmp eq i32 %69, %17
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %dissect_clear_transfers_block.exit, %16
   %.1.lcssa = phi i16 [ 16, %16 ], [ %68, %dissect_clear_transfers_block.exit ]
@@ -1615,11 +1615,10 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7, !8, !10}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7, !9}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

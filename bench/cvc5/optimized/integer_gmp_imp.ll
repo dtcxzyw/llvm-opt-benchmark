@@ -777,10 +777,10 @@ _ZN10__gmp_exprIA1_12__mpz_structS1_ED2Ev.exit11: ; preds = %17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4cvc58internal7Integer13toUnsignedIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !11
-  %6 = load i64, ptr %3, align 8, !tbaa !19
+  %6 = load i64, ptr %3, align 8, !tbaa !18
   %.not.i = icmp eq i32 %5, 0
   %7 = trunc i64 %6 to i32
   %8 = select i1 %.not.i, i32 0, i32 %7
@@ -1678,9 +1678,9 @@ define linkonce_odr hidden void @_ZNK10__gmp_exprIA1_12__mpz_structS1_E7get_strB
   %6 = alloca %struct.__gmp_alloc_cstring, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
   %7 = tail call ptr @__gmpz_get_str(ptr noundef null, i32 noundef %2, ptr noundef nonnull %1)
-  store ptr %7, ptr %6, align 8, !tbaa !20
+  store ptr %7, ptr %6, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %0, align 8, !tbaa !22
+  store ptr %8, ptr %0, align 8, !tbaa !21
   %9 = icmp eq ptr %7, null
   br i1 %9, label %10, label %11
 
@@ -1694,7 +1694,7 @@ define linkonce_odr hidden void @_ZNK10__gmp_exprIA1_12__mpz_structS1_E7get_strB
 11:                                               ; preds = %3
   %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  store i64 %12, ptr %5, align 8, !tbaa !19
+  store i64 %12, ptr %5, align 8, !tbaa !18
   %13 = icmp ugt i64 %12, 15
   br i1 %13, label %.noexc.i, label %._crit_edge.i.i
 
@@ -1704,8 +1704,8 @@ define linkonce_odr hidden void @_ZNK10__gmp_exprIA1_12__mpz_structS1_E7get_strB
 
 .noexc3:                                          ; preds = %.noexc.i
   store ptr %14, ptr %0, align 8, !tbaa !3
-  %15 = load i64, ptr %5, align 8, !tbaa !19
-  store i64 %15, ptr %8, align 8, !tbaa !23
+  %15 = load i64, ptr %5, align 8, !tbaa !18
+  store i64 %15, ptr %8, align 8, !tbaa !22
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc3, %11
@@ -1716,8 +1716,8 @@ define linkonce_odr hidden void @_ZNK10__gmp_exprIA1_12__mpz_structS1_E7get_strB
   ]
 
 17:                                               ; preds = %._crit_edge.i.i
-  %18 = load i8, ptr %7, align 1, !tbaa !23
-  store i8 %18, ptr %16, align 1, !tbaa !23
+  %18 = load i8, ptr %7, align 1, !tbaa !22
+  store i8 %18, ptr %16, align 1, !tbaa !22
   br label %20
 
 19:                                               ; preds = %._crit_edge.i.i
@@ -1725,16 +1725,16 @@ define linkonce_odr hidden void @_ZNK10__gmp_exprIA1_12__mpz_structS1_E7get_strB
   br label %20
 
 20:                                               ; preds = %19, %17, %._crit_edge.i.i
-  %21 = load i64, ptr %5, align 8, !tbaa !19
+  %21 = load i64, ptr %5, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %21, ptr %22, align 8, !tbaa !24
+  store i64 %21, ptr %22, align 8, !tbaa !23
   %23 = load ptr, ptr %0, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
-  store i8 0, ptr %24, align 1, !tbaa !23
+  store i8 0, ptr %24, align 1, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   call void @__gmp_get_memory_functions(ptr noundef null, ptr noundef null, ptr noundef nonnull %4) #16
-  %25 = load ptr, ptr %4, align 8, !tbaa !25
+  %25 = load ptr, ptr %4, align 8, !tbaa !24
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
   %27 = add i64 %26, 1
   invoke void %25(ptr noundef nonnull %7, i64 noundef %27)
@@ -1778,8 +1778,8 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal7Integer15fitsUnsignedIntEv(
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !18
-  %7 = load i64, ptr %6, align 8, !tbaa !19
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
+  %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = icmp ult i64 %7, 4294967296
   br label %_ZNK10__gmp_exprIA1_12__mpz_structS1_E11fits_uint_pEv.exit
 
@@ -1801,10 +1801,10 @@ define hidden noundef i32 @_ZNK4cvc58internal7Integer12getSignedIntEv(ptr nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK4cvc58internal7Integer14getUnsignedIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !11
-  %6 = load i64, ptr %3, align 8, !tbaa !19
+  %6 = load i64, ptr %3, align 8, !tbaa !18
   %.not.i.i = icmp eq i32 %5, 0
   %7 = trunc i64 %6 to i32
   %8 = select i1 %.not.i.i, i32 0, i32 %7
@@ -1820,10 +1820,10 @@ define hidden noundef i64 @_ZNK4cvc58internal7Integer7getLongEv(ptr noundef nonn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK4cvc58internal7Integer15getUnsignedLongEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !11
-  %6 = load i64, ptr %3, align 8, !tbaa !19
+  %6 = load i64, ptr %3, align 8, !tbaa !18
   %.not.i.i = icmp eq i32 %5, 0
   %7 = select i1 %.not.i.i, i64 0, i64 %6
   ret i64 %7
@@ -1838,10 +1838,10 @@ define hidden noundef i64 @_ZNK4cvc58internal7Integer11getSigned64Ev(ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZNK4cvc58internal7Integer13getUnsigned64Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !11
-  %6 = load i64, ptr %3, align 8, !tbaa !19
+  %6 = load i64, ptr %3, align 8, !tbaa !18
   %.not.i.i.i = icmp eq i32 %5, 0
   %7 = select i1 %.not.i.i.i, i64 0, i64 %6
   ret i64 %7
@@ -1856,7 +1856,7 @@ define hidden noundef i64 @_ZNK4cvc58internal7Integer4hashEv(ptr noundef nonnull
 
 __gmpz_getlimbn.exit.lr.ph.i:                     ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   %smax.i = tail call i32 @llvm.abs.i32(i32 %3, i1 false)
   %wide.trip.count.i = zext i32 %smax.i to i64
   br label %__gmpz_getlimbn.exit.i
@@ -1865,12 +1865,12 @@ __gmpz_getlimbn.exit.i:                           ; preds = %__gmpz_getlimbn.exi
   %indvars.iv.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i ], [ %indvars.iv.next.i, %__gmpz_getlimbn.exit.i ]
   %.011.i = phi i64 [ 0, %__gmpz_getlimbn.exit.lr.ph.i ], [ %9, %__gmpz_getlimbn.exit.i ]
   %6 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
-  %7 = load i64, ptr %6, align 8, !tbaa !19
+  %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = shl i64 %.011.i, 1
   %9 = xor i64 %7, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit, label %__gmpz_getlimbn.exit.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit, label %__gmpz_getlimbn.exit.i, !llvm.loop !25
 
 _ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit: ; preds = %__gmpz_getlimbn.exit.i, %1
   %.0.lcssa.i = phi i64 [ 0, %1 ], [ %9, %__gmpz_getlimbn.exit.i ]
@@ -1893,12 +1893,12 @@ define hidden noundef i32 @_ZNK4cvc58internal7Integer6isPow2Ev(ptr noundef nonnu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !11
   %or.cond = icmp slt i32 %3, 1
-  br i1 %or.cond, label %_ZleIA1_12__mpz_structS1_EbRK10__gmp_exprIT_T0_Ei.exit.thread, label %__gmpz_popcount.exit, !prof !27
+  br i1 %or.cond, label %_ZleIA1_12__mpz_structS1_EbRK10__gmp_exprIT_T0_Ei.exit.thread, label %__gmpz_popcount.exit, !prof !26
 
 __gmpz_popcount.exit:                             ; preds = %1
   %4 = zext nneg i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !18
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = tail call i64 @__gmpn_popcount(ptr noundef %6, i64 noundef %4) #18
   %8 = icmp eq i64 %7, 1
   br i1 %8, label %9, label %_ZleIA1_12__mpz_structS1_EbRK10__gmp_exprIT_T0_Ei.exit.thread
@@ -2014,8 +2014,8 @@ define linkonce_odr hidden void @_ZN19__gmp_alloc_cstringD2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   call void @__gmp_get_memory_functions(ptr noundef null, ptr noundef null, ptr noundef nonnull %2) #16
-  %3 = load ptr, ptr %2, align 8, !tbaa !25
-  %4 = load ptr, ptr %0, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %4 = load ptr, ptr %0, align 8, !tbaa !19
   %5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
   %6 = add i64 %5, 1
   invoke void %3(ptr noundef nonnull %4, i64 noundef %6)
@@ -2105,16 +2105,15 @@ attributes #19 = { noreturn nounwind }
 !12 = !{!"_ZTS12__mpz_struct", !13, i64 0, !13, i64 4, !14, i64 8}
 !13 = !{!"int", !8, i64 0}
 !14 = !{!"p1 long", !7, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!12, !14, i64 8}
-!19 = !{!10, !10, i64 0}
-!20 = !{!21, !6, i64 0}
-!21 = !{!"_ZTS19__gmp_alloc_cstring", !6, i64 0}
-!22 = !{!5, !6, i64 0}
-!23 = !{!8, !8, i64 0}
-!24 = !{!4, !10, i64 8}
-!25 = !{!7, !7, i64 0}
-!26 = distinct !{!26, !16, !17}
-!27 = !{!"branch_weights", i32 6004, i32 2000}
+!17 = !{!12, !14, i64 8}
+!18 = !{!10, !10, i64 0}
+!19 = !{!20, !6, i64 0}
+!20 = !{!"_ZTS19__gmp_alloc_cstring", !6, i64 0}
+!21 = !{!5, !6, i64 0}
+!22 = !{!8, !8, i64 0}
+!23 = !{!4, !10, i64 8}
+!24 = !{!7, !7, i64 0}
+!25 = distinct !{!25, !16}
+!26 = !{!"branch_weights", i32 6004, i32 2000}

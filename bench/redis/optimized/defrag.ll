@@ -523,9 +523,9 @@ define dso_local void @zslUpdateNode(ptr noundef captures(none) %0, ptr noundef 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %15, %4
-  %16 = load ptr, ptr %0, align 8, !tbaa !57
+  %16 = load ptr, ptr %0, align 8, !tbaa !56
   %.not = icmp eq ptr %16, %1
-  br i1 %.not, label %17, label %18, !prof !58
+  br i1 %.not, label %17, label %18, !prof !57
 
 17:                                               ; preds = %._crit_edge
   tail call void @_serverAssert(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 204) #10
@@ -542,7 +542,7 @@ define dso_local void @zslUpdateNode(ptr noundef captures(none) %0, ptr noundef 
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !51
   %24 = icmp eq ptr %23, %1
-  br i1 %24, label %26, label %25, !prof !59
+  br i1 %24, label %26, label %25, !prof !58
 
 25:                                               ; preds = %21
   tail call void @_serverAssert(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 206) #10
@@ -555,9 +555,9 @@ define dso_local void @zslUpdateNode(ptr noundef captures(none) %0, ptr noundef 
 
 27:                                               ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !60
+  %29 = load ptr, ptr %28, align 8, !tbaa !59
   %30 = icmp eq ptr %29, %1
-  br i1 %30, label %32, label %31, !prof !59
+  br i1 %30, label %32, label %31, !prof !58
 
 31:                                               ; preds = %27
   tail call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i32 noundef 209) #10
@@ -565,7 +565,7 @@ define dso_local void @zslUpdateNode(ptr noundef captures(none) %0, ptr noundef 
   unreachable
 
 32:                                               ; preds = %27
-  store ptr %2, ptr %28, align 8, !tbaa !60
+  store ptr %2, ptr %28, align 8, !tbaa !59
   br label %33
 
 33:                                               ; preds = %32, %26
@@ -580,7 +580,7 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #10
   %.not = icmp eq ptr %3, null
   %6 = select i1 %.not, ptr %2, ptr %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !57
+  %7 = load ptr, ptr %0, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !48
   %10 = icmp sgt i32 %9, 0
@@ -601,14 +601,14 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
   br i1 %.not5359, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %15 = load ptr, ptr %14, align 8, !tbaa !61
+  %15 = load ptr, ptr %14, align 8, !tbaa !60
   %.not5476 = icmp eq ptr %15, %2
   br i1 %.not5476, label %.critedge, label %.lr.ph78
 
 .lr.ph:                                           ; preds = %.critedge2
-  %16 = load ptr, ptr %31, align 8, !tbaa !61
+  %16 = load ptr, ptr %31, align 8, !tbaa !60
   %.not54 = icmp eq ptr %16, %2
-  br i1 %.not54, label %.critedge, label %.lr.ph78, !llvm.loop !62
+  br i1 %.not54, label %.critedge, label %.lr.ph78, !llvm.loop !61
 
 .lr.ph78:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %17 = phi ptr [ %16, %.lr.ph ], [ %15, %.lr.ph.preheader ]
@@ -616,7 +616,7 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
   %18 = phi ptr [ %30, %.lr.ph ], [ %13, %.lr.ph.preheader ]
   %19 = phi ptr [ %31, %.lr.ph ], [ %14, %.lr.ph.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load double, ptr %20, align 8, !tbaa !63
+  %21 = load double, ptr %20, align 8, !tbaa !62
   %22 = fcmp olt double %21, %1
   br i1 %22, label %.critedge2, label %23
 
@@ -639,35 +639,35 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
   %30 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %29, i64 0, i64 %indvars.iv.next
   %31 = load ptr, ptr %30, align 8, !tbaa !52
   %.not53 = icmp eq ptr %31, null
-  br i1 %.not53, label %.critedge2..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !62
+  br i1 %.not53, label %.critedge2..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !61
 
 .critedge2..critedge.loopexit_crit_edge:          ; preds = %.critedge2
-  br label %.critedge, !llvm.loop !62
+  br label %.critedge, !llvm.loop !61
 
 .critedge:                                        ; preds = %.lr.ph, %23, %25, %.lr.ph.preheader, %.critedge2..critedge.loopexit_crit_edge, %.preheader
   %.1.lcssa = phi ptr [ %.04372, %.preheader ], [ %28, %.critedge2..critedge.loopexit_crit_edge ], [ %.04372, %.lr.ph.preheader ], [ %.16077, %25 ], [ %.16077, %23 ], [ %28, %.lr.ph ]
   %32 = getelementptr inbounds [32 x ptr], ptr %5, i64 0, i64 %indvars.iv.next
   store ptr %.1.lcssa, ptr %32, align 8, !tbaa !51
   %33 = icmp sgt i64 %indvars.iv, 1
-  br i1 %33, label %.preheader, label %._crit_edge, !llvm.loop !64
+  br i1 %33, label %.preheader, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.critedge, %4
   %.043.lcssa = phi ptr [ %7, %4 ], [ %.1.lcssa, %.critedge ]
   %34 = getelementptr inbounds nuw i8, ptr %.043.lcssa, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !52
   %.not51 = icmp eq ptr %35, null
-  br i1 %.not51, label %.critedge56, label %36, !prof !58
+  br i1 %.not51, label %.critedge56, label %36, !prof !57
 
 36:                                               ; preds = %._crit_edge
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %38 = load double, ptr %37, align 8, !tbaa !63
+  %38 = load double, ptr %37, align 8, !tbaa !62
   %39 = fcmp oeq double %1, %38
-  br i1 %39, label %40, label %.critedge56, !prof !59
+  br i1 %39, label %40, label %.critedge56, !prof !58
 
 40:                                               ; preds = %36
-  %41 = load ptr, ptr %35, align 8, !tbaa !61
+  %41 = load ptr, ptr %35, align 8, !tbaa !60
   %42 = icmp eq ptr %41, %2
-  br i1 %42, label %43, label %.critedge56, !prof !59
+  br i1 %42, label %43, label %.critedge56, !prof !58
 
 .critedge56:                                      ; preds = %36, %._crit_edge, %40
   tail call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str, i32 noundef 243) #10
@@ -678,7 +678,7 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
   br i1 %.not, label %45, label %44
 
 44:                                               ; preds = %43
-  store ptr %3, ptr %35, align 8, !tbaa !61
+  store ptr %3, ptr %35, align 8, !tbaa !60
   br label %45
 
 45:                                               ; preds = %44, %43
@@ -746,22 +746,22 @@ activeDefragSds.exit:                             ; preds = %2
   %13 = ptrtoint ptr %4 to i64
   %14 = sub i64 %12, %13
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
-  %16 = load ptr, ptr %0, align 8, !tbaa !65
+  %16 = load ptr, ptr %0, align 8, !tbaa !64
   tail call void @dictSetKey(ptr noundef %16, ptr noundef %1, ptr noundef nonnull %15) #10
   br label %.split
 
 .split:                                           ; preds = %activeDefragSds.exit, %activeDefragSds.exit.thread, %.split14
   %.sink20 = phi ptr [ %15, %.split14 ], [ null, %activeDefragSds.exit.thread ], [ null, %activeDefragSds.exit ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !68
+  %18 = load ptr, ptr %17, align 8, !tbaa !67
   %19 = tail call ptr @dictGetVal(ptr noundef %1) #10
-  %20 = load double, ptr %19, align 8, !tbaa !63
+  %20 = load double, ptr %19, align 8, !tbaa !62
   %21 = tail call ptr @zslDefrag(ptr noundef %18, double noundef %20, ptr noundef %3, ptr noundef %.sink20)
   %.not15 = icmp eq ptr %21, null
   br i1 %.not15, label %24, label %22
 
 22:                                               ; preds = %.split
-  %23 = load ptr, ptr %0, align 8, !tbaa !65
+  %23 = load ptr, ptr %0, align 8, !tbaa !64
   tail call void @dictSetVal(ptr noundef %23, ptr noundef %1, ptr noundef nonnull %21) #10
   br label %24
 
@@ -837,7 +837,7 @@ activeDefragHfield.exit:                          ; preds = %6
   store i16 %29, ptr %24, align 8
   %30 = tail call ptr @dictFindByHashAndPtr(ptr noundef %0, ptr noundef %3, i64 noundef %27) #10
   %.not19 = icmp eq ptr %30, null
-  br i1 %.not19, label %31, label %32, !prof !58
+  br i1 %.not19, label %31, label %32, !prof !57
 
 31:                                               ; preds = %23
   tail call void @_serverAssert(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str, i32 noundef 301) #10
@@ -866,9 +866,9 @@ declare ptr @dictFindByHashAndPtr(ptr noundef, ptr noundef, i64 noundef) local_u
 define dso_local void @activeDefragSdsDict(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.dictDefragFunctions, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
-  store ptr @activeDefragAlloc, ptr %3, align 8, !tbaa !69
+  store ptr @activeDefragAlloc, ptr %3, align 8, !tbaa !68
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @activeDefragSds, ptr %4, align 8, !tbaa !71
+  store ptr @activeDefragSds, ptr %4, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   switch i32 %1, label %6 [
     i32 1, label %11
@@ -887,14 +887,14 @@ define dso_local void @activeDefragSdsDict(ptr noundef %0, i32 noundef %1) local
 
 11:                                               ; preds = %2, %.fold.split, %6
   %12 = phi ptr [ @activeDefragSds, %2 ], [ %10, %6 ], [ @activeDefragStringOb, %.fold.split ]
-  store ptr %12, ptr %5, align 8, !tbaa !72
+  store ptr %12, ptr %5, align 8, !tbaa !71
   br label %13
 
 13:                                               ; preds = %13, %11
   %.0 = phi i64 [ 0, %11 ], [ %14, %13 ]
   %14 = call i64 @dictScanDefrag(ptr noundef %0, i64 noundef %.0, ptr noundef nonnull @activeDefragSdsDictCallback, ptr noundef nonnull %3, ptr noundef null) #10
   %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %15, label %13, !llvm.loop !73
+  br i1 %.not, label %15, label %13, !llvm.loop !72
 
 15:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
@@ -914,7 +914,7 @@ define dso_local void @activeDefragHfieldDict(ptr noundef %0) local_unnamed_addr
   %.0 = phi i64 [ 0, %1 ], [ %4, %3 ]
   %4 = call i64 @dictScanDefrag(ptr noundef %0, i64 noundef %.0, ptr noundef nonnull @activeDefragHfieldDictCallback, ptr noundef nonnull %2, ptr noundef %0) #10
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %5, label %3, !llvm.loop !74
+  br i1 %.not, label %5, label %3, !llvm.loop !73
 
 5:                                                ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #10
@@ -923,7 +923,7 @@ define dso_local void @activeDefragHfieldDict(ptr noundef %0) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @activeDefragList(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %.052 = load ptr, ptr %0, align 8, !tbaa !75
+  %.052 = load ptr, ptr %0, align 8, !tbaa !74
   %.not53 = icmp eq ptr %.052, null
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
@@ -955,31 +955,31 @@ activeDefragAlloc.exit:                           ; preds = %4
   br i1 %.not36, label %22, label %12
 
 12:                                               ; preds = %activeDefragAlloc.exit
-  %13 = load ptr, ptr %9, align 8, !tbaa !76
+  %13 = load ptr, ptr %9, align 8, !tbaa !75
   %.not37 = icmp eq ptr %13, null
   br i1 %.not37, label %16, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %9, ptr %15, align 8, !tbaa !78
+  store ptr %9, ptr %15, align 8, !tbaa !77
   br label %17
 
 16:                                               ; preds = %12
-  store ptr %9, ptr %0, align 8, !tbaa !79
+  store ptr %9, ptr %0, align 8, !tbaa !78
   br label %17
 
 17:                                               ; preds = %16, %14
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !78
+  %19 = load ptr, ptr %18, align 8, !tbaa !77
   %.not38 = icmp eq ptr %19, null
   br i1 %.not38, label %21, label %20
 
 20:                                               ; preds = %17
-  store ptr %9, ptr %19, align 8, !tbaa !76
+  store ptr %9, ptr %19, align 8, !tbaa !75
   br label %22
 
 21:                                               ; preds = %17
-  store ptr %9, ptr %3, align 8, !tbaa !81
+  store ptr %9, ptr %3, align 8, !tbaa !80
   br label %22
 
 22:                                               ; preds = %activeDefragAlloc.exit.thread, %20, %21, %activeDefragAlloc.exit
@@ -992,7 +992,7 @@ activeDefragAlloc.exit:                           ; preds = %4
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !82
+  %25 = load ptr, ptr %24, align 8, !tbaa !81
   %26 = tail call ptr @sdsAllocPtr(ptr noundef %25) #10
   %27 = tail call i32 @je_get_defrag_hint(ptr noundef %26) #10
   %.not.i.i = icmp eq i32 %27, 0
@@ -1020,23 +1020,23 @@ activeDefragSds.exit:                             ; preds = %23
   %36 = ptrtoint ptr %26 to i64
   %37 = sub i64 %35, %36
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 %37
-  store ptr %38, ptr %24, align 8, !tbaa !82
+  store ptr %38, ptr %24, align 8, !tbaa !81
   br label %55
 
 39:                                               ; preds = %22
   %40 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !82
+  %41 = load ptr, ptr %40, align 8, !tbaa !81
   %42 = tail call ptr @activeDefragStringObEx(ptr noundef %41, i32 noundef 1)
   %.not40 = icmp eq ptr %42, null
   br i1 %.not40, label %55, label %43
 
 43:                                               ; preds = %39
-  store ptr %42, ptr %40, align 8, !tbaa !82
+  store ptr %42, ptr %40, align 8, !tbaa !81
   br label %55
 
 44:                                               ; preds = %22
   %45 = getelementptr inbounds nuw i8, ptr %.1, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !82
+  %46 = load ptr, ptr %45, align 8, !tbaa !81
   %47 = tail call i32 @je_get_defrag_hint(ptr noundef %46) #10
   %.not.i44 = icmp eq i32 %47, 0
   br i1 %.not.i44, label %activeDefragAlloc.exit46.thread, label %activeDefragAlloc.exit46
@@ -1059,14 +1059,14 @@ activeDefragAlloc.exit46:                         ; preds = %44
   br i1 %.not39, label %55, label %54
 
 54:                                               ; preds = %activeDefragAlloc.exit46
-  store ptr %51, ptr %45, align 8, !tbaa !82
+  store ptr %51, ptr %45, align 8, !tbaa !81
   br label %55
 
 55:                                               ; preds = %activeDefragSds.exit.thread, %activeDefragAlloc.exit46.thread, %activeDefragAlloc.exit46, %54, %22, %39, %43, %activeDefragSds.exit, %34
   %56 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %.0 = load ptr, ptr %56, align 8, !tbaa !75
+  %.0 = load ptr, ptr %56, align 8, !tbaa !74
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !83
+  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %55, %2
   ret void
@@ -1074,7 +1074,7 @@ activeDefragAlloc.exit46:                         ; preds = %44
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @activeDefragQuickListNode(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !84
+  %3 = load ptr, ptr %1, align 8, !tbaa !83
   %4 = tail call i32 @je_get_defrag_hint(ptr noundef %3) #10
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %activeDefragAlloc.exit.thread, label %activeDefragAlloc.exit
@@ -1097,42 +1097,42 @@ activeDefragAlloc.exit:                           ; preds = %2
   br i1 %.not, label %23, label %11
 
 11:                                               ; preds = %activeDefragAlloc.exit
-  %12 = load ptr, ptr %8, align 8, !tbaa !86
+  %12 = load ptr, ptr %8, align 8, !tbaa !85
   %.not21 = icmp eq ptr %12, null
   br i1 %.not21, label %15, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %8, ptr %14, align 8, !tbaa !88
+  store ptr %8, ptr %14, align 8, !tbaa !87
   br label %16
 
 15:                                               ; preds = %11
-  store ptr %8, ptr %0, align 8, !tbaa !84
+  store ptr %8, ptr %0, align 8, !tbaa !83
   br label %16
 
 16:                                               ; preds = %15, %13
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !88
+  %18 = load ptr, ptr %17, align 8, !tbaa !87
   %.not22 = icmp eq ptr %18, null
   br i1 %.not22, label %20, label %19
 
 19:                                               ; preds = %16
-  store ptr %8, ptr %18, align 8, !tbaa !86
+  store ptr %8, ptr %18, align 8, !tbaa !85
   br label %22
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %21, align 8, !tbaa !84
+  store ptr %8, ptr %21, align 8, !tbaa !83
   br label %22
 
 22:                                               ; preds = %20, %19
-  store ptr %8, ptr %1, align 8, !tbaa !84
+  store ptr %8, ptr %1, align 8, !tbaa !83
   br label %23
 
 23:                                               ; preds = %activeDefragAlloc.exit.thread, %22, %activeDefragAlloc.exit
   %.0 = phi ptr [ %8, %22 ], [ %3, %activeDefragAlloc.exit ], [ %3, %activeDefragAlloc.exit.thread ]
   %24 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !89
+  %25 = load ptr, ptr %24, align 8, !tbaa !88
   %26 = tail call i32 @je_get_defrag_hint(ptr noundef %25) #10
   %.not.i24 = icmp eq i32 %26, 0
   br i1 %.not.i24, label %activeDefragAlloc.exit26.thread, label %activeDefragAlloc.exit26
@@ -1155,7 +1155,7 @@ activeDefragAlloc.exit26:                         ; preds = %23
   br i1 %.not23, label %34, label %33
 
 33:                                               ; preds = %activeDefragAlloc.exit26
-  store ptr %30, ptr %24, align 8, !tbaa !89
+  store ptr %30, ptr %24, align 8, !tbaa !88
   br label %34
 
 34:                                               ; preds = %activeDefragAlloc.exit26.thread, %33, %activeDefragAlloc.exit26
@@ -1166,19 +1166,19 @@ activeDefragAlloc.exit26:                         ; preds = %23
 define dso_local void @activeDefragQuickListNodes(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
-  %storemerge2 = load ptr, ptr %0, align 8, !tbaa !84
-  store ptr %storemerge2, ptr %2, align 8, !tbaa !84
+  %storemerge2 = load ptr, ptr %0, align 8, !tbaa !83
+  store ptr %storemerge2, ptr %2, align 8, !tbaa !83
   %.not3 = icmp eq ptr %storemerge2, null
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   call void @activeDefragQuickListNode(ptr noundef nonnull %0, ptr noundef nonnull %2)
-  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !83
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %storemerge = load ptr, ptr %4, align 8, !tbaa !84
-  store ptr %storemerge, ptr %2, align 8, !tbaa !84
+  %storemerge = load ptr, ptr %4, align 8, !tbaa !83
+  store ptr %storemerge, ptr %2, align 8, !tbaa !83
   %.not = icmp eq ptr %storemerge, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
@@ -1190,7 +1190,7 @@ define dso_local void @defragLater(ptr noundef readonly captures(none) %0, ptr n
   %3 = tail call ptr @dictGetKey(ptr noundef %1) #10
   %4 = tail call ptr @sdsdup(ptr noundef %3) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !91
+  %6 = load ptr, ptr %5, align 8, !tbaa !90
   %7 = tail call ptr @listAddNodeTail(ptr noundef %6, ptr noundef %4) #10
   ret void
 }
@@ -1206,7 +1206,7 @@ define dso_local range(i64 0, 2) i64 @scanLaterList(ptr noundef captures(none) %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !41
-  store ptr %7, ptr %4, align 8, !tbaa !93
+  store ptr %7, ptr %4, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   %8 = load i32, ptr %0, align 8
   %9 = and i32 %8, 255
@@ -1214,7 +1214,7 @@ define dso_local range(i64 0, 2) i64 @scanLaterList(ptr noundef captures(none) %
   br i1 %or.cond22, label %10, label %41
 
 10:                                               ; preds = %3
-  %11 = load i64, ptr %1, align 8, !tbaa !95
+  %11 = load i64, ptr %1, align 8, !tbaa !94
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %19, label %13
 
@@ -1224,32 +1224,32 @@ define dso_local range(i64 0, 2) i64 @scanLaterList(ptr noundef captures(none) %
   br i1 %.not18, label %15, label %16
 
 15:                                               ; preds = %13
-  store i64 0, ptr %1, align 8, !tbaa !95
+  store i64 0, ptr %1, align 8, !tbaa !94
   br label %41
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.pre = load i64, ptr %1, align 8, !tbaa !95
+  %.pre = load i64, ptr %1, align 8, !tbaa !94
   %18 = add i64 %.pre, 1
   br label %19
 
 19:                                               ; preds = %10, %16
   %20 = phi i64 [ %18, %16 ], [ 1, %10 ]
   %storemerge.in = phi ptr [ %17, %16 ], [ %7, %10 ]
-  %storemerge = load ptr, ptr %storemerge.in, align 8, !tbaa !84
-  store ptr %storemerge, ptr %5, align 8, !tbaa !84
-  store i64 %20, ptr %1, align 8, !tbaa !95
+  %storemerge = load ptr, ptr %storemerge.in, align 8, !tbaa !83
+  store ptr %storemerge, ptr %5, align 8, !tbaa !83
+  store i64 %20, ptr %1, align 8, !tbaa !94
   %.not1924 = icmp eq ptr %storemerge, null
   br i1 %.not1924, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %34
   %.026 = phi i32 [ %.1, %34 ], [ 0, %19 ]
   %.01325 = phi i64 [ %.114, %34 ], [ 0, %19 ]
-  %21 = load ptr, ptr %4, align 8, !tbaa !93
+  %21 = load ptr, ptr %4, align 8, !tbaa !92
   call void @activeDefragQuickListNode(ptr noundef %21, ptr noundef nonnull %5)
-  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %23 = add nsw i64 %22, 1
-  store i64 %23, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  store i64 %23, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %24 = icmp slt i64 %.01325, 128
   %25 = icmp ne i32 %.026, 0
   %or.cond = select i1 %24, i1 true, i1 %25
@@ -1257,13 +1257,13 @@ define dso_local range(i64 0, 2) i64 @scanLaterList(ptr noundef captures(none) %
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
   %26 = add nsw i64 %.01325, 1
-  %.pre27 = load ptr, ptr %5, align 8, !tbaa !84
+  %.pre27 = load ptr, ptr %5, align 8, !tbaa !83
   br label %34
 
 27:                                               ; preds = %.lr.ph
   %28 = call i64 @ustime() #10
   %29 = icmp sgt i64 %28, %2
-  %.pre28 = load ptr, ptr %5, align 8, !tbaa !84
+  %.pre28 = load ptr, ptr %5, align 8, !tbaa !83
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27
@@ -1272,7 +1272,7 @@ define dso_local range(i64 0, 2) i64 @scanLaterList(ptr noundef captures(none) %
   br i1 %.not21, label %34, label %32
 
 32:                                               ; preds = %30
-  %33 = load ptr, ptr %4, align 8, !tbaa !93
+  %33 = load ptr, ptr %4, align 8, !tbaa !92
   store ptr %33, ptr %6, align 8, !tbaa !41
   br label %41
 
@@ -1281,13 +1281,13 @@ define dso_local range(i64 0, 2) i64 @scanLaterList(ptr noundef captures(none) %
   %.114 = phi i64 [ %26, %.lr.ph._crit_edge ], [ 0, %30 ], [ 0, %27 ]
   %.1 = phi i32 [ %.026, %.lr.ph._crit_edge ], [ 1, %30 ], [ 0, %27 ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !88
-  store ptr %37, ptr %5, align 8, !tbaa !84
+  %37 = load ptr, ptr %36, align 8, !tbaa !87
+  store ptr %37, ptr %5, align 8, !tbaa !83
   %.not19 = icmp eq ptr %37, null
-  br i1 %.not19, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !97
+  br i1 %.not19, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !96
 
 ._crit_edge.loopexit:                             ; preds = %34
-  %.pre29 = load ptr, ptr %4, align 8, !tbaa !93
+  %.pre29 = load ptr, ptr %4, align 8, !tbaa !92
   %38 = zext nneg i32 %.1 to i64
   br label %._crit_edge
 
@@ -1295,7 +1295,7 @@ define dso_local range(i64 0, 2) i64 @scanLaterList(ptr noundef captures(none) %
   %39 = phi ptr [ %7, %19 ], [ %.pre29, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %19 ], [ %38, %._crit_edge.loopexit ]
   %40 = call i32 @quicklistBookmarkDelete(ptr noundef %39, ptr noundef nonnull @.str.7) #10
-  store i64 0, ptr %1, align 8, !tbaa !95
+  store i64 0, ptr %1, align 8, !tbaa !94
   br label %41
 
 41:                                               ; preds = %3, %._crit_edge, %32, %15
@@ -1315,11 +1315,11 @@ declare i32 @quicklistBookmarkDelete(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @scanLaterZsetCallback(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !98
+  %3 = load ptr, ptr %0, align 8, !tbaa !97
   tail call void @activeDefragZsetEntry(ptr noundef %3, ptr noundef %1)
-  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %5 = add nsw i64 %4, 1
-  store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   ret void
 }
 
@@ -1335,14 +1335,14 @@ define dso_local void @scanLaterZset(ptr noundef readonly captures(none) %0, ptr
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !41
-  %10 = load ptr, ptr %9, align 8, !tbaa !65
+  %10 = load ptr, ptr %9, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  store ptr %9, ptr %3, align 8, !tbaa !98
+  store ptr %9, ptr %3, align 8, !tbaa !97
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.activeDefragCycle.defragfns, i64 24, i1 false)
-  %11 = load i64, ptr %1, align 8, !tbaa !95
+  %11 = load i64, ptr %1, align 8, !tbaa !94
   %12 = call i64 @dictScanDefrag(ptr noundef %10, i64 noundef %11, ptr noundef nonnull @scanLaterZsetCallback, ptr noundef nonnull %4, ptr noundef nonnull %3) #10
-  store i64 %12, ptr %1, align 8, !tbaa !95
+  store i64 %12, ptr %1, align 8, !tbaa !94
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   br label %13
@@ -1353,9 +1353,9 @@ define dso_local void @scanLaterZset(ptr noundef readonly captures(none) %0, ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @scanCallbackCountScanned(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #7 {
-  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %4 = add nsw i64 %3, 1
-  store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   ret void
 }
 
@@ -1372,9 +1372,9 @@ define dso_local void @scanLaterSet(ptr noundef readonly captures(none) %0, ptr 
   %8 = load ptr, ptr %7, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterSet.defragfns, i64 24, i1 false)
-  %9 = load i64, ptr %1, align 8, !tbaa !95
+  %9 = load i64, ptr %1, align 8, !tbaa !94
   %10 = call i64 @dictScanDefrag(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @scanCallbackCountScanned, ptr noundef nonnull %3, ptr noundef null) #10
-  store i64 %10, ptr %1, align 8, !tbaa !95
+  store i64 %10, ptr %1, align 8, !tbaa !94
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
   br label %11
 
@@ -1395,9 +1395,9 @@ define dso_local void @scanLaterHash(ptr noundef readonly captures(none) %0, ptr
   %8 = load ptr, ptr %7, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterHash.defragfns, i64 24, i1 false)
-  %9 = load i64, ptr %1, align 8, !tbaa !95
+  %9 = load i64, ptr %1, align 8, !tbaa !94
   %10 = call i64 @dictScanDefrag(ptr noundef %8, i64 noundef %9, ptr noundef nonnull @activeDefragHfieldDictCallback, ptr noundef nonnull %3, ptr noundef %8) #10
-  store i64 %10, ptr %1, align 8, !tbaa !95
+  store i64 %10, ptr %1, align 8, !tbaa !94
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
   br label %11
 
@@ -1414,7 +1414,7 @@ define dso_local void @defragQuicklist(ptr noundef readonly captures(none) %0, p
   %7 = load i32, ptr %4, align 8
   %8 = and i32 %7, 255
   %9 = icmp eq i32 %8, 145
-  br i1 %9, label %11, label %10, !prof !59
+  br i1 %9, label %11, label %10, !prof !58
 
 10:                                               ; preds = %2
   tail call void @_serverAssert(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str, i32 noundef 501) #10
@@ -1450,8 +1450,8 @@ activeDefragAlloc.exit:                           ; preds = %11
 20:                                               ; preds = %activeDefragAlloc.exit.thread, %19, %activeDefragAlloc.exit
   %.0 = phi ptr [ %16, %19 ], [ %6, %activeDefragAlloc.exit ], [ %6, %activeDefragAlloc.exit.thread ]
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %22 = load i64, ptr %21, align 8, !tbaa !95
-  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6360), align 8, !tbaa !101
+  %22 = load i64, ptr %21, align 8, !tbaa !94
+  %23 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6360), align 8, !tbaa !100
   %24 = icmp ugt i64 %22, %23
   br i1 %24, label %25, label %31
 
@@ -1459,25 +1459,25 @@ activeDefragAlloc.exit:                           ; preds = %11
   %26 = tail call ptr @dictGetKey(ptr noundef %1) #10
   %27 = tail call ptr @sdsdup(ptr noundef %26) #10
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %29 = load ptr, ptr %28, align 8, !tbaa !91
+  %29 = load ptr, ptr %28, align 8, !tbaa !90
   %30 = tail call ptr @listAddNodeTail(ptr noundef %29, ptr noundef %27) #10
   br label %34
 
 31:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  %storemerge2.i = load ptr, ptr %.0, align 8, !tbaa !84
-  store ptr %storemerge2.i, ptr %3, align 8, !tbaa !84
+  %storemerge2.i = load ptr, ptr %.0, align 8, !tbaa !83
+  store ptr %storemerge2.i, ptr %3, align 8, !tbaa !83
   %.not3.i = icmp eq ptr %storemerge2.i, null
   br i1 %.not3.i, label %activeDefragQuickListNodes.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.i
   call void @activeDefragQuickListNode(ptr noundef nonnull %.0, ptr noundef nonnull %3)
-  %32 = load ptr, ptr %3, align 8, !tbaa !84
+  %32 = load ptr, ptr %3, align 8, !tbaa !83
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %storemerge.i = load ptr, ptr %33, align 8, !tbaa !84
-  store ptr %storemerge.i, ptr %3, align 8, !tbaa !84
+  %storemerge.i = load ptr, ptr %33, align 8, !tbaa !83
+  store ptr %storemerge.i, ptr %3, align 8, !tbaa !83
   %.not.i12 = icmp eq ptr %storemerge.i, null
-  br i1 %.not.i12, label %activeDefragQuickListNodes.exit, label %.lr.ph.i, !llvm.loop !90
+  br i1 %.not.i12, label %activeDefragQuickListNodes.exit, label %.lr.ph.i, !llvm.loop !89
 
 activeDefragQuickListNodes.exit:                  ; preds = %.lr.ph.i, %31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
@@ -1495,7 +1495,7 @@ define dso_local void @defragZsetSkiplist(ptr noundef readonly captures(none) %0
   %6 = load i32, ptr %3, align 8
   %7 = and i32 %6, 255
   %8 = icmp eq i32 %7, 115
-  br i1 %8, label %10, label %9, !prof !59
+  br i1 %8, label %10, label %9, !prof !58
 
 9:                                                ; preds = %2
   tail call void @_serverAssert(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str, i32 noundef 518) #10
@@ -1531,7 +1531,7 @@ activeDefragAlloc.exit:                           ; preds = %10
 19:                                               ; preds = %activeDefragAlloc.exit.thread, %18, %activeDefragAlloc.exit
   %.0 = phi ptr [ %15, %18 ], [ %5, %activeDefragAlloc.exit ], [ %5, %activeDefragAlloc.exit.thread ]
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !68
+  %21 = load ptr, ptr %20, align 8, !tbaa !67
   %22 = tail call i32 @je_get_defrag_hint(ptr noundef %21) #10
   %.not.i34 = icmp eq i32 %22, 0
   br i1 %.not.i34, label %activeDefragAlloc.exit36.thread, label %activeDefragAlloc.exit36
@@ -1554,12 +1554,12 @@ activeDefragAlloc.exit36:                         ; preds = %19
   br i1 %.not30, label %30, label %29
 
 29:                                               ; preds = %activeDefragAlloc.exit36
-  store ptr %26, ptr %20, align 8, !tbaa !68
+  store ptr %26, ptr %20, align 8, !tbaa !67
   br label %30
 
 30:                                               ; preds = %activeDefragAlloc.exit36.thread, %29, %activeDefragAlloc.exit36
-  %31 = load ptr, ptr %20, align 8, !tbaa !68
-  %32 = load ptr, ptr %31, align 8, !tbaa !57
+  %31 = load ptr, ptr %20, align 8, !tbaa !67
+  %32 = load ptr, ptr %31, align 8, !tbaa !56
   %33 = tail call i32 @je_get_defrag_hint(ptr noundef %32) #10
   %.not.i37 = icmp eq i32 %33, 0
   br i1 %.not.i37, label %activeDefragAlloc.exit39.thread, label %activeDefragAlloc.exit39
@@ -1582,18 +1582,18 @@ activeDefragAlloc.exit39:                         ; preds = %30
   br i1 %.not31, label %42, label %40
 
 40:                                               ; preds = %activeDefragAlloc.exit39
-  %41 = load ptr, ptr %20, align 8, !tbaa !68
-  store ptr %37, ptr %41, align 8, !tbaa !57
+  %41 = load ptr, ptr %20, align 8, !tbaa !67
+  store ptr %37, ptr %41, align 8, !tbaa !56
   br label %42
 
 42:                                               ; preds = %activeDefragAlloc.exit39.thread, %40, %activeDefragAlloc.exit39
-  %43 = load ptr, ptr %.0, align 8, !tbaa !65
+  %43 = load ptr, ptr %.0, align 8, !tbaa !64
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load i64, ptr %44, align 8, !tbaa !95
+  %45 = load i64, ptr %44, align 8, !tbaa !94
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %47 = load i64, ptr %46, align 8, !tbaa !95
+  %47 = load i64, ptr %46, align 8, !tbaa !94
   %48 = add i64 %47, %45
-  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6360), align 8, !tbaa !101
+  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6360), align 8, !tbaa !100
   %50 = icmp ugt i64 %48, %49
   br i1 %50, label %51, label %57
 
@@ -1601,7 +1601,7 @@ activeDefragAlloc.exit39:                         ; preds = %30
   %52 = tail call ptr @dictGetKey(ptr noundef %1) #10
   %53 = tail call ptr @sdsdup(ptr noundef %52) #10
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %55 = load ptr, ptr %54, align 8, !tbaa !91
+  %55 = load ptr, ptr %54, align 8, !tbaa !90
   %56 = tail call ptr @listAddNodeTail(ptr noundef %55, ptr noundef %53) #10
   br label %62
 
@@ -1616,20 +1616,20 @@ activeDefragAlloc.exit39:                         ; preds = %30
   tail call void @activeDefragZsetEntry(ptr noundef nonnull %.0, ptr noundef nonnull %60)
   %61 = tail call ptr @dictNext(ptr noundef %58) #10
   %.not32 = icmp eq ptr %61, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !102
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph, %57
   tail call void @dictReleaseIterator(ptr noundef %58) #10
   br label %62
 
 62:                                               ; preds = %._crit_edge, %51
-  %63 = load ptr, ptr %.0, align 8, !tbaa !65
+  %63 = load ptr, ptr %.0, align 8, !tbaa !64
   %64 = tail call ptr @dictDefragTables(ptr noundef %63)
   %.not33 = icmp eq ptr %64, null
   br i1 %.not33, label %66, label %65
 
 65:                                               ; preds = %62
-  store ptr %64, ptr %.0, align 8, !tbaa !65
+  store ptr %64, ptr %.0, align 8, !tbaa !64
   br label %66
 
 66:                                               ; preds = %65, %62
@@ -1649,7 +1649,7 @@ define dso_local void @defragHash(ptr noundef readonly captures(none) %0, ptr no
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 36
-  br i1 %7, label %9, label %8, !prof !59
+  br i1 %7, label %9, label %8, !prof !58
 
 8:                                                ; preds = %2
   tail call void @_serverAssert(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, i32 noundef 542) #10
@@ -1660,11 +1660,11 @@ define dso_local void @defragHash(ptr noundef readonly captures(none) %0, ptr no
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load i64, ptr %12, align 8, !tbaa !95
+  %13 = load i64, ptr %12, align 8, !tbaa !94
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %15 = load i64, ptr %14, align 8, !tbaa !95
+  %15 = load i64, ptr %14, align 8, !tbaa !94
   %16 = add i64 %15, %13
-  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6360), align 8, !tbaa !101
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6360), align 8, !tbaa !100
   %18 = icmp ugt i64 %16, %17
   br i1 %18, label %19, label %25
 
@@ -1672,7 +1672,7 @@ define dso_local void @defragHash(ptr noundef readonly captures(none) %0, ptr no
   %20 = tail call ptr @dictGetKey(ptr noundef %1) #10
   %21 = tail call ptr @sdsdup(ptr noundef %20) #10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %23 = load ptr, ptr %22, align 8, !tbaa !91
+  %23 = load ptr, ptr %22, align 8, !tbaa !90
   %24 = tail call ptr @listAddNodeTail(ptr noundef %23, ptr noundef %21) #10
   br label %28
 
@@ -1685,7 +1685,7 @@ define dso_local void @defragHash(ptr noundef readonly captures(none) %0, ptr no
   %.0.i = phi i64 [ 0, %25 ], [ %27, %26 ]
   %27 = call i64 @dictScanDefrag(ptr noundef nonnull %11, i64 noundef %.0.i, ptr noundef nonnull @activeDefragHfieldDictCallback, ptr noundef nonnull %3, ptr noundef nonnull %11) #10
   %.not.i = icmp eq i64 %27, 0
-  br i1 %.not.i, label %activeDefragHfieldDict.exit, label %26, !llvm.loop !74
+  br i1 %.not.i, label %activeDefragHfieldDict.exit, label %26, !llvm.loop !73
 
 activeDefragHfieldDict.exit:                      ; preds = %26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
@@ -1712,7 +1712,7 @@ define dso_local void @defragSet(ptr noundef readonly captures(none) %0, ptr nou
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 255
   %7 = icmp eq i32 %6, 34
-  br i1 %7, label %9, label %8, !prof !59
+  br i1 %7, label %9, label %8, !prof !58
 
 8:                                                ; preds = %2
   tail call void @_serverAssert(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str, i32 noundef 556) #10
@@ -1723,11 +1723,11 @@ define dso_local void @defragSet(ptr noundef readonly captures(none) %0, ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load i64, ptr %12, align 8, !tbaa !95
+  %13 = load i64, ptr %12, align 8, !tbaa !94
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %15 = load i64, ptr %14, align 8, !tbaa !95
+  %15 = load i64, ptr %14, align 8, !tbaa !94
   %16 = add i64 %15, %13
-  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6360), align 8, !tbaa !101
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6360), align 8, !tbaa !100
   %18 = icmp ugt i64 %16, %17
   br i1 %18, label %19, label %25
 
@@ -1735,24 +1735,24 @@ define dso_local void @defragSet(ptr noundef readonly captures(none) %0, ptr nou
   %20 = tail call ptr @dictGetKey(ptr noundef %1) #10
   %21 = tail call ptr @sdsdup(ptr noundef %20) #10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %23 = load ptr, ptr %22, align 8, !tbaa !91
+  %23 = load ptr, ptr %22, align 8, !tbaa !90
   %24 = tail call ptr @listAddNodeTail(ptr noundef %23, ptr noundef %21) #10
   br label %30
 
 25:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
-  store ptr @activeDefragAlloc, ptr %3, align 8, !tbaa !69
+  store ptr @activeDefragAlloc, ptr %3, align 8, !tbaa !68
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @activeDefragSds, ptr %26, align 8, !tbaa !71
+  store ptr @activeDefragSds, ptr %26, align 8, !tbaa !70
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %27, align 8, !tbaa !72
+  store ptr null, ptr %27, align 8, !tbaa !71
   br label %28
 
 28:                                               ; preds = %28, %25
   %.0.i = phi i64 [ 0, %25 ], [ %29, %28 ]
   %29 = call i64 @dictScanDefrag(ptr noundef nonnull %11, i64 noundef %.0.i, ptr noundef nonnull @activeDefragSdsDictCallback, ptr noundef nonnull %3, ptr noundef null) #10
   %.not.i = icmp eq i64 %29, 0
-  br i1 %.not.i, label %activeDefragSdsDict.exit, label %28, !llvm.loop !73
+  br i1 %.not.i, label %activeDefragSdsDict.exit, label %28, !llvm.loop !72
 
 activeDefragSdsDict.exit:                         ; preds = %28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
@@ -1774,7 +1774,7 @@ activeDefragSdsDict.exit:                         ; preds = %28
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @defragRaxNode(ptr noundef captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !103
+  %2 = load ptr, ptr %0, align 8, !tbaa !102
   %3 = tail call i32 @je_get_defrag_hint(ptr noundef %2) #10
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %activeDefragAlloc.exit.thread, label %activeDefragAlloc.exit
@@ -1797,7 +1797,7 @@ activeDefragAlloc.exit:                           ; preds = %1
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %activeDefragAlloc.exit
-  store ptr %7, ptr %0, align 8, !tbaa !103
+  store ptr %7, ptr %0, align 8, !tbaa !102
   br label %11
 
 11:                                               ; preds = %activeDefragAlloc.exit.thread, %activeDefragAlloc.exit, %10
@@ -1815,21 +1815,21 @@ define dso_local range(i32 0, 2) i32 @scanLaterStreamListpacks(ptr noundef reado
   br i1 %or.cond, label %8, label %7
 
 7:                                                ; preds = %3
-  store i64 0, ptr %1, align 8, !tbaa !95
+  store i64 0, ptr %1, align 8, !tbaa !94
   br label %66
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !41
-  %11 = load ptr, ptr %10, align 8, !tbaa !105
+  %11 = load ptr, ptr %10, align 8, !tbaa !104
   call void @raxStart(ptr noundef nonnull %4, ptr noundef %11) #10
-  %12 = load i64, ptr %1, align 8, !tbaa !95
+  %12 = load i64, ptr %1, align 8, !tbaa !94
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %27
 
 14:                                               ; preds = %8
-  %15 = load ptr, ptr %10, align 8, !tbaa !105
-  %16 = load ptr, ptr %15, align 8, !tbaa !103
+  %15 = load ptr, ptr %10, align 8, !tbaa !104
+  %16 = load ptr, ptr %15, align 8, !tbaa !102
   %17 = call i32 @je_get_defrag_hint(ptr noundef %16) #10
   %.not.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i, label %activeDefragAlloc.exit.thread.i, label %activeDefragAlloc.exit.i
@@ -1852,12 +1852,12 @@ activeDefragAlloc.exit.i:                         ; preds = %14
   br i1 %.not.i, label %defragRaxNode.exit, label %24
 
 24:                                               ; preds = %activeDefragAlloc.exit.i
-  store ptr %21, ptr %15, align 8, !tbaa !103
+  store ptr %21, ptr %15, align 8, !tbaa !102
   br label %defragRaxNode.exit
 
 defragRaxNode.exit:                               ; preds = %activeDefragAlloc.exit.thread.i, %activeDefragAlloc.exit.i, %24
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 472
-  store ptr @defragRaxNode, ptr %25, align 8, !tbaa !108
+  store ptr @defragRaxNode, ptr %25, align 8, !tbaa !107
   %26 = call i32 @raxSeek(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, ptr noundef null, i64 noundef 0) #10
   br label %32
 
@@ -1867,19 +1867,19 @@ defragRaxNode.exit:                               ; preds = %activeDefragAlloc.e
   br i1 %.not24, label %29, label %30
 
 29:                                               ; preds = %27
-  store i64 0, ptr %1, align 8, !tbaa !95
+  store i64 0, ptr %1, align 8, !tbaa !94
   call void @raxStop(ptr noundef nonnull %4) #10
   br label %66
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 472
-  store ptr @defragRaxNode, ptr %31, align 8, !tbaa !108
+  store ptr @defragRaxNode, ptr %31, align 8, !tbaa !107
   br label %32
 
 32:                                               ; preds = %30, %defragRaxNode.exit
-  %33 = load i64, ptr %1, align 8, !tbaa !95
+  %33 = load i64, ptr %1, align 8, !tbaa !94
   %34 = add i64 %33, 1
-  store i64 %34, ptr %1, align 8, !tbaa !95
+  store i64 %34, ptr %1, align 8, !tbaa !94
   %35 = call i32 @raxNext(ptr noundef nonnull %4) #10
   %.not2531 = icmp eq i32 %35, 0
   br i1 %.not2531, label %._crit_edge, label %.lr.ph
@@ -1891,7 +1891,7 @@ defragRaxNode.exit:                               ; preds = %activeDefragAlloc.e
 
 38:                                               ; preds = %.lr.ph, %64
   %.01532 = phi i64 [ 0, %.lr.ph ], [ %.217, %64 ]
-  %39 = load ptr, ptr %36, align 8, !tbaa !111
+  %39 = load ptr, ptr %36, align 8, !tbaa !110
   %40 = call i32 @je_get_defrag_hint(ptr noundef %39) #10
   %.not.i27 = icmp eq i32 %40, 0
   br i1 %.not.i27, label %activeDefragAlloc.exit.thread, label %activeDefragAlloc.exit
@@ -1914,15 +1914,15 @@ activeDefragAlloc.exit:                           ; preds = %38
   br i1 %.not26, label %49, label %47
 
 47:                                               ; preds = %activeDefragAlloc.exit
-  %48 = load ptr, ptr %37, align 8, !tbaa !112
-  store ptr %44, ptr %36, align 8, !tbaa !111
+  %48 = load ptr, ptr %37, align 8, !tbaa !111
+  store ptr %44, ptr %36, align 8, !tbaa !110
   call void @raxSetData(ptr noundef %48, ptr noundef nonnull %44) #10
   br label %49
 
 49:                                               ; preds = %activeDefragAlloc.exit.thread, %47, %activeDefragAlloc.exit
-  %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %51 = add nsw i64 %50, 1
-  store i64 %51, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  store i64 %51, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %52 = add nsw i64 %.01532, 1
   %53 = icmp sgt i64 %.01532, 127
   br i1 %53, label %54, label %64
@@ -1934,9 +1934,9 @@ activeDefragAlloc.exit:                           ; preds = %38
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %59 = load i64, ptr %58, align 8, !tbaa !113
+  %59 = load i64, ptr %58, align 8, !tbaa !112
   %60 = icmp eq i64 %59, 16
-  br i1 %60, label %.critedge, label %61, !prof !59
+  br i1 %60, label %.critedge, label %61, !prof !58
 
 61:                                               ; preds = %57
   call void @_serverAssert(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str, i32 noundef 617) #10
@@ -1945,7 +1945,7 @@ activeDefragAlloc.exit:                           ; preds = %38
 
 .critedge:                                        ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !114
+  %63 = load ptr, ptr %62, align 8, !tbaa !113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @scanLaterStreamListpacks.last, ptr noundef nonnull align 1 dereferenceable(16) %63, i64 16, i1 false)
   call void @raxStop(ptr noundef nonnull %4) #10
   br label %66
@@ -1954,11 +1954,11 @@ activeDefragAlloc.exit:                           ; preds = %38
   %.217 = phi i64 [ %52, %49 ], [ 0, %54 ]
   %65 = call i32 @raxNext(ptr noundef nonnull %4) #10
   %.not25 = icmp eq i32 %65, 0
-  br i1 %.not25, label %._crit_edge, label %38, !llvm.loop !115
+  br i1 %.not25, label %._crit_edge, label %38, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %64, %32
   call void @raxStop(ptr noundef nonnull %4) #10
-  store i64 0, ptr %1, align 8, !tbaa !95
+  store i64 0, ptr %1, align 8, !tbaa !94
   br label %66
 
 66:                                               ; preds = %29, %._crit_edge, %.critedge, %7
@@ -1981,7 +1981,7 @@ declare void @raxSetData(ptr noundef, ptr noundef) local_unnamed_addr #2
 define dso_local void @defragRadixTree(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.raxIterator, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %5) #10
-  %6 = load ptr, ptr %0, align 8, !tbaa !116
+  %6 = load ptr, ptr %0, align 8, !tbaa !115
   %7 = tail call i32 @je_get_defrag_hint(ptr noundef %6) #10
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %activeDefragAlloc.exit.thread, label %activeDefragAlloc.exit
@@ -2004,15 +2004,15 @@ activeDefragAlloc.exit:                           ; preds = %4
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %activeDefragAlloc.exit
-  store ptr %11, ptr %0, align 8, !tbaa !116
+  store ptr %11, ptr %0, align 8, !tbaa !115
   br label %15
 
 15:                                               ; preds = %activeDefragAlloc.exit.thread, %14, %activeDefragAlloc.exit
-  %16 = load ptr, ptr %0, align 8, !tbaa !116
+  %16 = load ptr, ptr %0, align 8, !tbaa !115
   call void @raxStart(ptr noundef nonnull %5, ptr noundef %16) #10
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 472
-  store ptr @defragRaxNode, ptr %17, align 8, !tbaa !108
-  %18 = load ptr, ptr %16, align 8, !tbaa !103
+  store ptr @defragRaxNode, ptr %17, align 8, !tbaa !107
+  %18 = load ptr, ptr %16, align 8, !tbaa !102
   %19 = call i32 @je_get_defrag_hint(ptr noundef %18) #10
   %.not.i.i = icmp eq i32 %19, 0
   br i1 %.not.i.i, label %activeDefragAlloc.exit.thread.i, label %activeDefragAlloc.exit.i
@@ -2035,7 +2035,7 @@ activeDefragAlloc.exit.i:                         ; preds = %15
   br i1 %.not.i18, label %defragRaxNode.exit, label %26
 
 26:                                               ; preds = %activeDefragAlloc.exit.i
-  store ptr %23, ptr %16, align 8, !tbaa !103
+  store ptr %23, ptr %16, align 8, !tbaa !102
   br label %defragRaxNode.exit
 
 defragRaxNode.exit:                               ; preds = %activeDefragAlloc.exit.thread.i, %activeDefragAlloc.exit.i, %26
@@ -2060,21 +2060,21 @@ activeDefragAlloc.exit22.us:                      ; preds = %.lr.ph.split.us
   br i1 %.not17.us, label %activeDefragAlloc.exit22.us.thread, label %33
 
 33:                                               ; preds = %activeDefragAlloc.exit22.us
-  %34 = load ptr, ptr %31, align 8, !tbaa !112
-  store ptr %32, ptr %30, align 8, !tbaa !111
+  %34 = load ptr, ptr %31, align 8, !tbaa !111
+  store ptr %32, ptr %30, align 8, !tbaa !110
   call void @raxSetData(ptr noundef %34, ptr noundef nonnull %32) #10
   br label %activeDefragAlloc.exit22.us.thread
 
 activeDefragAlloc.exit22.us.thread:               ; preds = %.lr.ph.split.us, %33, %activeDefragAlloc.exit22.us
   %35 = call i32 @raxNext(ptr noundef nonnull %5) #10
   %.not15.us = icmp eq i32 %35, 0
-  br i1 %.not15.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !117
+  br i1 %.not15.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !116
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not16, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %46
-  %36 = load ptr, ptr %30, align 8, !tbaa !111
+  %36 = load ptr, ptr %30, align 8, !tbaa !110
   %37 = call i32 @je_get_defrag_hint(ptr noundef %36) #10
   %.not.i20.us = icmp eq i32 %37, 0
   br i1 %.not.i20.us, label %activeDefragAlloc.exit22.thread.us, label %activeDefragAlloc.exit22.us29
@@ -2097,15 +2097,15 @@ activeDefragAlloc.exit22.thread.us:               ; preds = %.lr.ph.split.split.
   br label %46
 
 44:                                               ; preds = %activeDefragAlloc.exit22.us29
-  %45 = load ptr, ptr %31, align 8, !tbaa !112
-  store ptr %39, ptr %30, align 8, !tbaa !111
+  %45 = load ptr, ptr %31, align 8, !tbaa !111
+  store ptr %39, ptr %30, align 8, !tbaa !110
   call void @raxSetData(ptr noundef %45, ptr noundef nonnull %39) #10
   br label %46
 
 46:                                               ; preds = %44, %activeDefragAlloc.exit22.us29, %activeDefragAlloc.exit22.thread.us
   %47 = call i32 @raxNext(ptr noundef nonnull %5) #10
   %.not15.us32 = icmp eq i32 %47, 0
-  br i1 %.not15.us32, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !119
+  br i1 %.not15.us32, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !118
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %59
   %48 = call ptr %2(ptr noundef nonnull %5, ptr noundef %3) #10
@@ -2113,7 +2113,7 @@ activeDefragAlloc.exit22.thread.us:               ; preds = %.lr.ph.split.split.
   br i1 %.not33, label %49, label %activeDefragAlloc.exit22.thread38
 
 49:                                               ; preds = %.lr.ph.split.split
-  %50 = load ptr, ptr %30, align 8, !tbaa !111
+  %50 = load ptr, ptr %30, align 8, !tbaa !110
   %51 = call i32 @je_get_defrag_hint(ptr noundef %50) #10
   %.not.i20 = icmp eq i32 %51, 0
   br i1 %.not.i20, label %activeDefragAlloc.exit22.thread, label %activeDefragAlloc.exit22
@@ -2137,15 +2137,15 @@ activeDefragAlloc.exit22:                         ; preds = %49
 
 activeDefragAlloc.exit22.thread38:                ; preds = %.lr.ph.split.split, %activeDefragAlloc.exit22
   %.141 = phi ptr [ %55, %activeDefragAlloc.exit22 ], [ %48, %.lr.ph.split.split ]
-  %58 = load ptr, ptr %31, align 8, !tbaa !112
-  store ptr %.141, ptr %30, align 8, !tbaa !111
+  %58 = load ptr, ptr %31, align 8, !tbaa !111
+  store ptr %.141, ptr %30, align 8, !tbaa !110
   call void @raxSetData(ptr noundef %58, ptr noundef nonnull %.141) #10
   br label %59
 
 59:                                               ; preds = %activeDefragAlloc.exit22.thread, %activeDefragAlloc.exit22.thread38, %activeDefragAlloc.exit22
   %60 = call i32 @raxNext(ptr noundef nonnull %5) #10
   %.not15 = icmp eq i32 %60, 0
-  br i1 %.not15, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !120
+  br i1 %.not15, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !119
 
 ._crit_edge:                                      ; preds = %59, %46, %activeDefragAlloc.exit22.us.thread, %defragRaxNode.exit
   call void @raxStop(ptr noundef nonnull %5) #10
@@ -2157,11 +2157,11 @@ activeDefragAlloc.exit22.thread38:                ; preds = %.lr.ph.split.split,
 define dso_local ptr @defragStreamConsumerPendingEntry(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !111
+  %5 = load ptr, ptr %4, align 8, !tbaa !110
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !121
+  %7 = load ptr, ptr %6, align 8, !tbaa !120
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %7, ptr %8, align 8, !tbaa !125
+  store ptr %7, ptr %8, align 8, !tbaa !124
   %9 = tail call i32 @je_get_defrag_hint(ptr noundef %5) #10
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %activeDefragAlloc.exit.thread, label %activeDefragAlloc.exit
@@ -2185,17 +2185,17 @@ activeDefragAlloc.exit:                           ; preds = %2
 
 16:                                               ; preds = %activeDefragAlloc.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  %17 = load ptr, ptr %1, align 8, !tbaa !127
+  %17 = load ptr, ptr %1, align 8, !tbaa !126
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !128
+  %19 = load ptr, ptr %18, align 8, !tbaa !127
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !114
+  %21 = load ptr, ptr %20, align 8, !tbaa !113
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = load i64, ptr %22, align 8, !tbaa !113
+  %23 = load i64, ptr %22, align 8, !tbaa !112
   %24 = call i32 @raxInsert(ptr noundef %19, ptr noundef %21, i64 noundef %23, ptr noundef nonnull %13, ptr noundef nonnull %3) #10
-  %25 = load ptr, ptr %3, align 8, !tbaa !130
+  %25 = load ptr, ptr %3, align 8, !tbaa !129
   %26 = icmp eq ptr %25, %5
-  br i1 %26, label %28, label %27, !prof !59
+  br i1 %26, label %28, label %27, !prof !58
 
 27:                                               ; preds = %16
   call void @_serverAssert(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str, i32 noundef 674) #10
@@ -2217,7 +2217,7 @@ declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr n
 define dso_local ptr @defragStreamConsumer(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.PendingEntryContext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !111
+  %5 = load ptr, ptr %4, align 8, !tbaa !110
   %6 = tail call i32 @je_get_defrag_hint(ptr noundef %5) #10
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %7, label %10
@@ -2243,7 +2243,7 @@ activeDefragAlloc.exit:                           ; preds = %7, %10
   %.not = icmp eq ptr %.0.i, null
   %spec.select = select i1 %.not, ptr %5, ptr %.0.i
   %15 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !131
+  %16 = load ptr, ptr %15, align 8, !tbaa !130
   %17 = tail call ptr @sdsAllocPtr(ptr noundef %16) #10
   %18 = tail call i32 @je_get_defrag_hint(ptr noundef %17) #10
   %.not.i.i = icmp eq i32 %18, 0
@@ -2271,20 +2271,20 @@ activeDefragSds.exit:                             ; preds = %activeDefragAlloc.e
   %27 = ptrtoint ptr %17 to i64
   %28 = sub i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 %28
-  store ptr %29, ptr %15, align 8, !tbaa !131
+  store ptr %29, ptr %15, align 8, !tbaa !130
   br label %30
 
 30:                                               ; preds = %activeDefragSds.exit.thread, %25, %activeDefragSds.exit
   %31 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !133
+  %32 = load ptr, ptr %31, align 8, !tbaa !132
   %.not17 = icmp eq ptr %32, null
   br i1 %.not17, label %35, label %33
 
 33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
-  store ptr %1, ptr %3, align 8, !tbaa !127
+  store ptr %1, ptr %3, align 8, !tbaa !126
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %spec.select, ptr %34, align 8, !tbaa !121
+  store ptr %spec.select, ptr %34, align 8, !tbaa !120
   call void @defragRadixTree(ptr noundef nonnull %31, i32 noundef 0, ptr noundef nonnull @defragStreamConsumerPendingEntry, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
   br label %35
@@ -2296,9 +2296,9 @@ activeDefragSds.exit:                             ; preds = %activeDefragAlloc.e
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @defragStreamConsumerGroup(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !111
+  %4 = load ptr, ptr %3, align 8, !tbaa !110
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !134
+  %6 = load ptr, ptr %5, align 8, !tbaa !133
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
 
@@ -2308,7 +2308,7 @@ define dso_local noalias noundef ptr @defragStreamConsumerGroup(ptr noundef read
 
 8:                                                ; preds = %7, %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !128
+  %10 = load ptr, ptr %9, align 8, !tbaa !127
   %.not6 = icmp eq ptr %10, null
   br i1 %.not6, label %12, label %11
 
@@ -2326,7 +2326,7 @@ define dso_local void @defragStream(ptr noundef readonly captures(none) %0, ptr 
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 255
   %6 = icmp eq i32 %5, 166
-  br i1 %6, label %8, label %7, !prof !59
+  br i1 %6, label %8, label %7, !prof !58
 
 7:                                                ; preds = %2
   tail call void @_serverAssert(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str, i32 noundef 708) #10
@@ -2363,14 +2363,14 @@ activeDefragAlloc.exit:                           ; preds = %8
 
 19:                                               ; preds = %activeDefragAlloc.exit.thread, %18, %activeDefragAlloc.exit
   %.0 = phi ptr [ %15, %18 ], [ %10, %activeDefragAlloc.exit ], [ %10, %activeDefragAlloc.exit.thread ]
-  %20 = load ptr, ptr %.0, align 8, !tbaa !105
+  %20 = load ptr, ptr %.0, align 8, !tbaa !104
   %21 = tail call i64 @raxSize(ptr noundef %20) #10
-  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6360), align 8, !tbaa !101
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6360), align 8, !tbaa !100
   %23 = icmp ugt i64 %21, %22
   br i1 %23, label %24, label %40
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr %.0, align 8, !tbaa !105
+  %25 = load ptr, ptr %.0, align 8, !tbaa !104
   %26 = tail call i32 @je_get_defrag_hint(ptr noundef %25) #10
   %.not.i21 = icmp eq i32 %26, 0
   br i1 %.not.i21, label %activeDefragAlloc.exit23.thread, label %activeDefragAlloc.exit23
@@ -2393,14 +2393,14 @@ activeDefragAlloc.exit23:                         ; preds = %24
   br i1 %.not19, label %34, label %33
 
 33:                                               ; preds = %activeDefragAlloc.exit23
-  store ptr %30, ptr %.0, align 8, !tbaa !105
+  store ptr %30, ptr %.0, align 8, !tbaa !104
   br label %34
 
 34:                                               ; preds = %activeDefragAlloc.exit23.thread, %33, %activeDefragAlloc.exit23
   %35 = tail call ptr @dictGetKey(ptr noundef %1) #10
   %36 = tail call ptr @sdsdup(ptr noundef %35) #10
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %38 = load ptr, ptr %37, align 8, !tbaa !91
+  %38 = load ptr, ptr %37, align 8, !tbaa !90
   %39 = tail call ptr @listAddNodeTail(ptr noundef %38, ptr noundef %36) #10
   br label %41
 
@@ -2410,7 +2410,7 @@ activeDefragAlloc.exit23:                         ; preds = %24
 
 41:                                               ; preds = %40, %34
   %42 = getelementptr inbounds nuw i8, ptr %.0, i64 72
-  %43 = load ptr, ptr %42, align 8, !tbaa !135
+  %43 = load ptr, ptr %42, align 8, !tbaa !134
   %.not20 = icmp eq ptr %43, null
   br i1 %.not20, label %45, label %44
 
@@ -2431,7 +2431,7 @@ define dso_local void @defragModule(ptr noundef readonly captures(none) %0, ptr 
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 15
   %7 = icmp eq i32 %6, 5
-  br i1 %7, label %9, label %8, !prof !59
+  br i1 %7, label %9, label %8, !prof !58
 
 8:                                                ; preds = %2
   tail call void @_serverAssert(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str, i32 noundef 732) #10
@@ -2447,7 +2447,7 @@ define dso_local void @defragModule(ptr noundef readonly captures(none) %0, ptr 
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = load i32, ptr %13, align 8, !tbaa !136
+  %14 = load i32, ptr %13, align 8, !tbaa !135
   %15 = call i32 @moduleDefragValue(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %14) #10
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %22
@@ -2456,7 +2456,7 @@ define dso_local void @defragModule(ptr noundef readonly captures(none) %0, ptr 
   %17 = call ptr @dictGetKey(ptr noundef %1) #10
   %18 = call ptr @sdsdup(ptr noundef %17) #10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !91
+  %20 = load ptr, ptr %19, align 8, !tbaa !90
   %21 = call ptr @listAddNodeTail(ptr noundef %20, ptr noundef %18) #10
   br label %22
 
@@ -2471,9 +2471,9 @@ declare i32 @moduleDefragValue(ptr noundef, ptr noundef, i32 noundef) local_unna
 define dso_local void @defragKey(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dictGetKey(ptr noundef %1) #10
   %4 = tail call ptr @dictGetVal(ptr noundef %1) #10
-  %5 = load ptr, ptr %0, align 8, !tbaa !137
+  %5 = load ptr, ptr %0, align 8, !tbaa !136
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !139
+  %7 = load i32, ptr %6, align 8, !tbaa !138
   %8 = tail call ptr @sdsAllocPtr(ptr noundef %3) #10
   %9 = tail call i32 @je_get_defrag_hint(ptr noundef %8) #10
   %.not.i.i = icmp eq i32 %9, 0
@@ -2501,24 +2501,24 @@ activeDefragSds.exit:                             ; preds = %2
   br i1 %.not138, label %37, label %20
 
 20:                                               ; preds = %activeDefragSds.exit
-  %21 = load ptr, ptr %5, align 8, !tbaa !140
+  %21 = load ptr, ptr %5, align 8, !tbaa !139
   tail call void @kvstoreDictSetKey(ptr noundef %21, i32 noundef %7, ptr noundef %1, ptr noundef nonnull %19) #10
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !141
+  %23 = load ptr, ptr %22, align 8, !tbaa !140
   %24 = tail call i64 @kvstoreDictSize(ptr noundef %23, i32 noundef %7) #10
   %.not100 = icmp eq i64 %24, 0
   br i1 %.not100, label %32, label %25
 
 25:                                               ; preds = %20
-  %26 = load ptr, ptr %22, align 8, !tbaa !141
+  %26 = load ptr, ptr %22, align 8, !tbaa !140
   %27 = tail call i64 @kvstoreGetHash(ptr noundef %26, ptr noundef nonnull %19) #10
-  %28 = load ptr, ptr %22, align 8, !tbaa !141
+  %28 = load ptr, ptr %22, align 8, !tbaa !140
   %29 = tail call ptr @kvstoreDictFindByHashAndPtr(ptr noundef %28, i32 noundef %7, ptr noundef %3, i64 noundef %27) #10
   %.not101 = icmp eq ptr %29, null
   br i1 %.not101, label %32, label %30
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr %22, align 8, !tbaa !141
+  %31 = load ptr, ptr %22, align 8, !tbaa !140
   tail call void @kvstoreDictSetKey(ptr noundef %31, i32 noundef %7, ptr noundef nonnull %29, ptr noundef nonnull %19) #10
   br label %32
 
@@ -2526,7 +2526,7 @@ activeDefragSds.exit:                             ; preds = %2
   %33 = load i32, ptr %4, align 8
   %34 = and i32 %33, 15
   %35 = icmp eq i32 %34, 4
-  br i1 %35, label %36, label %37, !prof !58
+  br i1 %35, label %36, label %37, !prof !57
 
 36:                                               ; preds = %32
   tail call void @hashTypeUpdateKeyRef(ptr noundef nonnull %4, ptr noundef nonnull %19) #10
@@ -2541,7 +2541,7 @@ activeDefragSds.exit:                             ; preds = %2
 41:                                               ; preds = %37
   %42 = tail call i64 @hashTypeGetMinExpire(ptr noundef nonnull %4, i32 noundef 0) #10
   %.not = icmp eq i64 %42, 281474976710656
-  br i1 %.not, label %.critedge, label %43, !prof !59
+  br i1 %.not, label %.critedge, label %43, !prof !58
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2558,7 +2558,7 @@ activeDefragSds.exit:                             ; preds = %2
   br i1 %.not102, label %50, label %48
 
 48:                                               ; preds = %47
-  %49 = load ptr, ptr %5, align 8, !tbaa !140
+  %49 = load ptr, ptr %5, align 8, !tbaa !139
   tail call void @kvstoreDictSetVal(ptr noundef %49, i32 noundef %7, ptr noundef %1, ptr noundef nonnull %.085) #10
   br label %50
 
@@ -2780,7 +2780,7 @@ activeDefragAlloc.exit122:                        ; preds = %115
 126:                                              ; preds = %activeDefragAlloc.exit122.thread, %125, %activeDefragAlloc.exit122
   %.0 = phi ptr [ %122, %125 ], [ %117, %activeDefragAlloc.exit122 ], [ %117, %activeDefragAlloc.exit122.thread ]
   %127 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %128 = load ptr, ptr %127, align 8, !tbaa !142
+  %128 = load ptr, ptr %127, align 8, !tbaa !141
   %129 = tail call i32 @je_get_defrag_hint(ptr noundef %128) #10
   %.not.i123 = icmp eq i32 %129, 0
   br i1 %.not.i123, label %activeDefragAlloc.exit125.thread, label %activeDefragAlloc.exit125
@@ -2803,7 +2803,7 @@ activeDefragAlloc.exit125:                        ; preds = %126
   br i1 %.not104, label %142, label %136
 
 136:                                              ; preds = %activeDefragAlloc.exit125
-  store ptr %133, ptr %127, align 8, !tbaa !142
+  store ptr %133, ptr %127, align 8, !tbaa !141
   br label %142
 
 137:                                              ; preds = %101
@@ -2855,21 +2855,21 @@ define dso_local void @defragScanCallback(ptr noundef readonly captures(none) %0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2600), align 8, !tbaa !146
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2600), align 8, !tbaa !145
   %7 = add nsw i64 %6, 1
-  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2600), align 8, !tbaa !146
+  store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2600), align 8, !tbaa !145
   br label %11
 
 8:                                                ; preds = %2
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2608), align 8, !tbaa !147
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2608), align 8, !tbaa !146
   %10 = add nsw i64 %9, 1
-  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2608), align 8, !tbaa !147
+  store i64 %10, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2608), align 8, !tbaa !146
   br label %11
 
 11:                                               ; preds = %8, %5
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %13 = add nsw i64 %12, 1
-  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   ret void
 }
 
@@ -2888,14 +2888,14 @@ define dso_local float @getAllocatorFragmentation(ptr noundef writeonly captures
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   %10 = call i32 @zmalloc_get_allocator_info(i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef nonnull %5) #10
-  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8020), align 4, !tbaa !148
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8020), align 4, !tbaa !147
   %.not = icmp eq i32 %11, -1
   br i1 %.not, label %._crit_edge, label %12
 
 ._crit_edge:                                      ; preds = %1
-  %.pre = load i64, ptr %5, align 8, !tbaa !95
-  %.pre6 = load i64, ptr %4, align 8, !tbaa !95
-  %.pre7 = load i64, ptr %2, align 8, !tbaa !95
+  %.pre = load i64, ptr %5, align 8, !tbaa !94
+  %.pre6 = load i64, ptr %4, align 8, !tbaa !94
+  %.pre7 = load i64, ptr %2, align 8, !tbaa !94
   br label %26
 
 12:                                               ; preds = %1
@@ -2904,22 +2904,22 @@ define dso_local float @getAllocatorFragmentation(ptr noundef writeonly captures
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
   %13 = call i32 @zmalloc_get_allocator_info_by_arena(i32 noundef %11, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %9) #10
-  %14 = load i64, ptr %6, align 8, !tbaa !95
-  %15 = load i64, ptr %2, align 8, !tbaa !95
+  %14 = load i64, ptr %6, align 8, !tbaa !94
+  %15 = load i64, ptr %2, align 8, !tbaa !94
   %16 = sub i64 %15, %14
-  store i64 %16, ptr %2, align 8, !tbaa !95
-  %17 = load i64, ptr %7, align 8, !tbaa !95
-  %18 = load i64, ptr %3, align 8, !tbaa !95
+  store i64 %16, ptr %2, align 8, !tbaa !94
+  %17 = load i64, ptr %7, align 8, !tbaa !94
+  %18 = load i64, ptr %3, align 8, !tbaa !94
   %19 = sub i64 %18, %17
-  store i64 %19, ptr %3, align 8, !tbaa !95
-  %20 = load i64, ptr %8, align 8, !tbaa !95
-  %21 = load i64, ptr %4, align 8, !tbaa !95
+  store i64 %19, ptr %3, align 8, !tbaa !94
+  %20 = load i64, ptr %8, align 8, !tbaa !94
+  %21 = load i64, ptr %4, align 8, !tbaa !94
   %22 = sub i64 %21, %20
-  store i64 %22, ptr %4, align 8, !tbaa !95
-  %23 = load i64, ptr %9, align 8, !tbaa !95
-  %24 = load i64, ptr %5, align 8, !tbaa !95
+  store i64 %22, ptr %4, align 8, !tbaa !94
+  %23 = load i64, ptr %9, align 8, !tbaa !94
+  %24 = load i64, ptr %5, align 8, !tbaa !94
   %25 = sub i64 %24, %23
-  store i64 %25, ptr %5, align 8, !tbaa !95
+  store i64 %25, ptr %5, align 8, !tbaa !94
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
@@ -2942,16 +2942,16 @@ define dso_local float @getAllocatorFragmentation(ptr noundef writeonly captures
   br i1 %.not5, label %39, label %38
 
 38:                                               ; preds = %26
-  store i64 %29, ptr %0, align 8, !tbaa !95
+  store i64 %29, ptr %0, align 8, !tbaa !94
   br label %39
 
 39:                                               ; preds = %26, %38
-  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !149
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !148
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %39
-  %43 = load i64, ptr %3, align 8, !tbaa !95
+  %43 = load i64, ptr %3, align 8, !tbaa !94
   %44 = fpext float %33 to double
   %45 = fpext float %36 to double
   call void (i32, ptr, ...) @_serverLog(i32 noundef 0, ptr noundef nonnull @.str.23, i64 noundef %28, i64 noundef %43, i64 noundef %27, double noundef %44, double noundef %45, i64 noundef %29, i64 noundef %37) #10
@@ -2976,21 +2976,21 @@ declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @defragPubsubScanCallback(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !137
-  %4 = load ptr, ptr %3, align 8, !tbaa !150
+  %3 = load ptr, ptr %0, align 8, !tbaa !136
+  %4 = load ptr, ptr %3, align 8, !tbaa !149
   %5 = tail call ptr @dictGetKey(ptr noundef %1) #10
   %6 = tail call ptr @dictGetVal(ptr noundef %1) #10
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !39
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !95
+  %10 = load i64, ptr %9, align 8, !tbaa !94
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %12 = load i64, ptr %11, align 8, !tbaa !95
+  %12 = load i64, ptr %11, align 8, !tbaa !94
   %13 = add i64 %12, %10
   %14 = trunc i64 %13 to i32
   %15 = add nsw i32 %14, 1
   %16 = icmp eq i32 %8, %15
-  br i1 %16, label %18, label %17, !prof !59
+  br i1 %16, label %18, label %17, !prof !58
 
 17:                                               ; preds = %2
   tail call void @_serverAssert(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str, i32 noundef 890) #10
@@ -3004,7 +3004,7 @@ define dso_local void @defragPubsubScanCallback(ptr noundef readonly captures(no
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !139
+  %22 = load i32, ptr %21, align 8, !tbaa !138
   tail call void @kvstoreDictSetKey(ptr noundef %4, i32 noundef %22, ptr noundef %1, ptr noundef nonnull %19) #10
   %23 = tail call ptr @dictGetIterator(ptr noundef nonnull %6) #10
   %24 = tail call ptr @dictNext(ptr noundef %23) #10
@@ -3018,11 +3018,11 @@ define dso_local void @defragPubsubScanCallback(ptr noundef readonly captures(no
 26:                                               ; preds = %.lr.ph, %33
   %27 = phi ptr [ %24, %.lr.ph ], [ %36, %33 ]
   %28 = tail call ptr @dictGetKey(ptr noundef nonnull %27) #10
-  %29 = load ptr, ptr %25, align 8, !tbaa !152
+  %29 = load ptr, ptr %25, align 8, !tbaa !151
   %30 = tail call ptr %29(ptr noundef %28) #10
   %31 = tail call ptr @dictFind(ptr noundef %30, ptr noundef nonnull %19) #10
   %.not38 = icmp eq ptr %31, null
-  br i1 %.not38, label %32, label %33, !prof !58
+  br i1 %.not38, label %32, label %33, !prof !57
 
 32:                                               ; preds = %26
   tail call void @_serverAssert(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str, i32 noundef 903) #10
@@ -3030,12 +3030,12 @@ define dso_local void @defragPubsubScanCallback(ptr noundef readonly captures(no
   unreachable
 
 33:                                               ; preds = %26
-  %34 = load ptr, ptr %25, align 8, !tbaa !152
+  %34 = load ptr, ptr %25, align 8, !tbaa !151
   %35 = tail call ptr %34(ptr noundef %28) #10
   tail call void @dictSetKey(ptr noundef %35, ptr noundef nonnull %31, ptr noundef nonnull %19) #10
   %36 = tail call ptr @dictNext(ptr noundef %23) #10
   %.not36 = icmp eq ptr %36, null
-  br i1 %.not36, label %._crit_edge, label %26, !llvm.loop !153
+  br i1 %.not36, label %._crit_edge, label %26, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %33, %20
   tail call void @dictReleaseIterator(ptr noundef %23) #10
@@ -3048,14 +3048,14 @@ define dso_local void @defragPubsubScanCallback(ptr noundef readonly captures(no
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !139
+  %41 = load i32, ptr %40, align 8, !tbaa !138
   tail call void @kvstoreDictSetVal(ptr noundef %4, i32 noundef %41, ptr noundef %1, ptr noundef nonnull %38) #10
   br label %42
 
 42:                                               ; preds = %39, %37
-  %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %44 = add nsw i64 %43, 1
-  store i64 %44, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  store i64 %44, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   ret void
 }
 
@@ -3066,25 +3066,25 @@ define dso_local void @defragOtherGlobals() local_unnamed_addr #0 {
   %1 = alloca %struct.dictDefragFunctions, align 8
   %2 = tail call ptr @evalScriptsDict() #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #10
-  store ptr @activeDefragAlloc, ptr %1, align 8, !tbaa !69
+  store ptr @activeDefragAlloc, ptr %1, align 8, !tbaa !68
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr @activeDefragSds, ptr %3, align 8, !tbaa !71
+  store ptr @activeDefragSds, ptr %3, align 8, !tbaa !70
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr @activeDefragLuaScript, ptr %4, align 8, !tbaa !72
+  store ptr @activeDefragLuaScript, ptr %4, align 8, !tbaa !71
   br label %5
 
 5:                                                ; preds = %5, %0
   %.0.i = phi i64 [ 0, %0 ], [ %6, %5 ]
   %6 = call i64 @dictScanDefrag(ptr noundef %2, i64 noundef %.0.i, ptr noundef nonnull @activeDefragSdsDictCallback, ptr noundef nonnull %1, ptr noundef null) #10
   %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %activeDefragSdsDict.exit, label %5, !llvm.loop !73
+  br i1 %.not.i, label %activeDefragSdsDict.exit, label %5, !llvm.loop !72
 
 activeDefragSdsDict.exit:                         ; preds = %5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #10
   call void @moduleDefragGlobals() #10
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !154
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !153
   call void @kvstoreDictLUTDefrag(ptr noundef %7, ptr noundef nonnull @dictDefragTables) #10
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7872), align 8, !tbaa !155
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7872), align 8, !tbaa !154
   call void @kvstoreDictLUTDefrag(ptr noundef %8, ptr noundef nonnull @dictDefragTables) #10
   ret void
 }
@@ -3133,9 +3133,9 @@ define dso_local i32 @defragLaterItem(ptr noundef %0, ptr noundef %1, i64 nounde
   %21 = load ptr, ptr %20, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterSet.defragfns, i64 24, i1 false)
-  %22 = load i64, ptr %1, align 8, !tbaa !95
+  %22 = load i64, ptr %1, align 8, !tbaa !94
   %23 = call i64 @dictScanDefrag(ptr noundef %21, i64 noundef %22, ptr noundef nonnull @scanCallbackCountScanned, ptr noundef nonnull %8, ptr noundef null) #10
-  store i64 %23, ptr %1, align 8, !tbaa !95
+  store i64 %23, ptr %1, align 8, !tbaa !94
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #10
   br label %scanLaterSet.exit
 
@@ -3147,14 +3147,14 @@ define dso_local i32 @defragLaterItem(ptr noundef %0, ptr noundef %1, i64 nounde
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !41
-  %29 = load ptr, ptr %28, align 8, !tbaa !65
+  %29 = load ptr, ptr %28, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store ptr %28, ptr %6, align 8, !tbaa !98
+  store ptr %28, ptr %6, align 8, !tbaa !97
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.activeDefragCycle.defragfns, i64 24, i1 false)
-  %30 = load i64, ptr %1, align 8, !tbaa !95
+  %30 = load i64, ptr %1, align 8, !tbaa !94
   %31 = call i64 @dictScanDefrag(ptr noundef %29, i64 noundef %30, ptr noundef nonnull @scanLaterZsetCallback, ptr noundef nonnull %7, ptr noundef nonnull %6) #10
-  store i64 %31, ptr %1, align 8, !tbaa !95
+  store i64 %31, ptr %1, align 8, !tbaa !94
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   br label %scanLaterSet.exit
@@ -3169,9 +3169,9 @@ define dso_local i32 @defragLaterItem(ptr noundef %0, ptr noundef %1, i64 nounde
   %36 = load ptr, ptr %35, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterHash.defragfns, i64 24, i1 false)
-  %37 = load i64, ptr %1, align 8, !tbaa !95
+  %37 = load i64, ptr %1, align 8, !tbaa !94
   %38 = call i64 @dictScanDefrag(ptr noundef %36, i64 noundef %37, ptr noundef nonnull @activeDefragHfieldDictCallback, ptr noundef nonnull %5, ptr noundef %36) #10
-  store i64 %38, ptr %1, align 8, !tbaa !95
+  store i64 %38, ptr %1, align 8, !tbaa !94
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
   br label %scanLaterSet.exit
 
@@ -3192,11 +3192,11 @@ define dso_local i32 @defragLaterItem(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %scanLaterSet.exit
 
 46:                                               ; preds = %10
-  store i64 0, ptr %1, align 8, !tbaa !95
+  store i64 0, ptr %1, align 8, !tbaa !94
   br label %scanLaterSet.exit
 
 47:                                               ; preds = %4
-  store i64 0, ptr %1, align 8, !tbaa !95
+  store i64 0, ptr %1, align 8, !tbaa !94
   br label %scanLaterSet.exit
 
 scanLaterSet.exit:                                ; preds = %34, %32, %26, %24, %19, %17, %46, %47, %14, %39, %41
@@ -3209,10 +3209,10 @@ declare i32 @moduleLateDefrag(ptr noundef, ptr noundef, ptr noundef, i64 noundef
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.pre = load i64, ptr @defrag_later_cursor, align 8, !tbaa !95
+  %.pre = load i64, ptr @defrag_later_cursor, align 8, !tbaa !94
   %8 = icmp eq i64 %.pre, 0
   br label %9
 
@@ -3221,20 +3221,20 @@ define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr noundef readonly captu
   %.038 = phi i64 [ %4, %3 ], [ %.341.ph, %.backedge ]
   %.034 = phi i64 [ %5, %3 ], [ %.337.ph, %.backedge ]
   %.029 = phi i32 [ 0, %3 ], [ %.433.ph, %.backedge ]
-  %.pre72 = load ptr, ptr @defrag_later_current_key, align 8, !tbaa !61
+  %.pre72 = load ptr, ptr @defrag_later_current_key, align 8, !tbaa !60
   br i1 %.not, label %10, label %24
 
 10:                                               ; preds = %9
-  %11 = load ptr, ptr %6, align 8, !tbaa !91
-  %12 = load ptr, ptr %11, align 8, !tbaa !79
+  %11 = load ptr, ptr %6, align 8, !tbaa !90
+  %12 = load ptr, ptr %11, align 8, !tbaa !78
   %.not46 = icmp eq ptr %.pre72, null
   br i1 %.not46, label %19, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !82
+  %15 = load ptr, ptr %14, align 8, !tbaa !81
   %16 = icmp eq ptr %.pre72, %15
-  br i1 %16, label %18, label %17, !prof !59
+  br i1 %16, label %18, label %17, !prof !58
 
 17:                                               ; preds = %13
   tail call void @_serverAssert(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str, i32 noundef 975) #10
@@ -3243,10 +3243,10 @@ define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr noundef readonly captu
 
 18:                                               ; preds = %13
   tail call void @listDelNode(ptr noundef nonnull %11, ptr noundef nonnull %12) #10
-  store i64 0, ptr @defrag_later_cursor, align 8, !tbaa !95
-  store ptr null, ptr @defrag_later_current_key, align 8, !tbaa !61
-  %.pre70 = load ptr, ptr %6, align 8, !tbaa !91
-  %.pre71 = load ptr, ptr %.pre70, align 8, !tbaa !79
+  store i64 0, ptr @defrag_later_cursor, align 8, !tbaa !94
+  store ptr null, ptr @defrag_later_current_key, align 8, !tbaa !60
+  %.pre70 = load ptr, ptr %6, align 8, !tbaa !90
+  %.pre71 = load ptr, ptr %.pre70, align 8, !tbaa !78
   br label %19
 
 19:                                               ; preds = %18, %10
@@ -3256,14 +3256,14 @@ define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr noundef readonly captu
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !82
-  store ptr %23, ptr @defrag_later_current_key, align 8, !tbaa !61
-  store i64 0, ptr @defrag_later_cursor, align 8, !tbaa !95
+  %23 = load ptr, ptr %22, align 8, !tbaa !81
+  store ptr %23, ptr @defrag_later_current_key, align 8, !tbaa !60
+  store i64 0, ptr @defrag_later_cursor, align 8, !tbaa !94
   br label %24
 
 24:                                               ; preds = %21, %9
   %25 = phi ptr [ %23, %21 ], [ %.pre72, %9 ]
-  %26 = load ptr, ptr %0, align 8, !tbaa !140
+  %26 = load ptr, ptr %0, align 8, !tbaa !139
   %27 = tail call ptr @kvstoreDictFind(ptr noundef %26, i32 noundef %1, ptr noundef %25) #10
   %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
   br label %29
@@ -3272,7 +3272,7 @@ define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr noundef readonly captu
   %.139 = phi i64 [ %.038, %24 ], [ %.341.ph, %57 ]
   %.135 = phi i64 [ %.034, %24 ], [ %.337.ph, %57 ]
   %.130 = phi i32 [ %.029, %24 ], [ %.433.ph, %57 ]
-  %30 = load i32, ptr %7, align 8, !tbaa !136
+  %30 = load i32, ptr %7, align 8, !tbaa !135
   %31 = tail call i32 @defragLaterItem(ptr noundef %27, ptr noundef nonnull @defrag_later_cursor, i64 noundef %2, i32 noundef %30)
   %.not48 = icmp eq i32 %31, 0
   br i1 %.not48, label %32, label %46
@@ -3289,7 +3289,7 @@ define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr noundef readonly captu
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %35
-  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %41 = sub i64 %40, %.135
   %42 = icmp ugt i64 %41, 64
   br i1 %42, label %43, label %57
@@ -3305,20 +3305,20 @@ define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr noundef readonly captu
   br i1 %.not50, label %51, label %48
 
 48:                                               ; preds = %46
-  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2600), align 8, !tbaa !146
+  %49 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2600), align 8, !tbaa !145
   %50 = add nsw i64 %49, 1
-  store i64 %50, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2600), align 8, !tbaa !146
+  store i64 %50, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2600), align 8, !tbaa !145
   br label %.critedge
 
 51:                                               ; preds = %46
-  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2608), align 8, !tbaa !147
+  %52 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2608), align 8, !tbaa !146
   %53 = add nsw i64 %52, 1
-  store i64 %53, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2608), align 8, !tbaa !147
+  store i64 %53, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2608), align 8, !tbaa !146
   br label %.critedge
 
 54:                                               ; preds = %43
   %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  %56 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  %56 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   br label %57
 
 57:                                               ; preds = %54, %39
@@ -3326,27 +3326,27 @@ define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr noundef readonly captu
   %.341.ph = phi i64 [ %.139, %39 ], [ %55, %54 ]
   %.337.ph = phi i64 [ %.135, %39 ], [ %56, %54 ]
   %.433.ph = phi i32 [ %33, %39 ], [ 0, %54 ]
-  %59 = load i64, ptr @defrag_later_cursor, align 8, !tbaa !95
+  %59 = load i64, ptr @defrag_later_cursor, align 8, !tbaa !94
   %.not51 = icmp eq i64 %59, 0
-  br i1 %.not51, label %60, label %29, !llvm.loop !156
+  br i1 %.not51, label %60, label %29, !llvm.loop !155
 
 60:                                               ; preds = %57
   %.not52 = icmp eq i64 %28, %58
   br i1 %.not52, label %64, label %61
 
 61:                                               ; preds = %60
-  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2600), align 8, !tbaa !146
+  %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2600), align 8, !tbaa !145
   %63 = add nsw i64 %62, 1
-  store i64 %63, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2600), align 8, !tbaa !146
+  store i64 %63, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2600), align 8, !tbaa !145
   br label %.backedge
 
 .backedge:                                        ; preds = %61, %64
-  br label %9, !llvm.loop !157
+  br label %9
 
 64:                                               ; preds = %60
-  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2608), align 8, !tbaa !147
+  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2608), align 8, !tbaa !146
   %66 = add nsw i64 %65, 1
-  store i64 %66, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2608), align 8, !tbaa !147
+  store i64 %66, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2608), align 8, !tbaa !146
   br label %.backedge
 
 .critedge:                                        ; preds = %19, %51, %48
@@ -3363,9 +3363,9 @@ define dso_local void @computeDefragCycles(float noundef %0) local_unnamed_addr 
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   %3 = call float @getAllocatorFragmentation(ptr noundef nonnull %2)
-  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !158
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !156
   %.not = icmp eq i32 %4, 0
-  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6344), align 8, !tbaa !159
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6344), align 8, !tbaa !157
   %5 = sitofp i32 %.pre to float
   br i1 %.not, label %6, label %._crit_edge
 
@@ -3374,20 +3374,20 @@ define dso_local void @computeDefragCycles(float noundef %0) local_unnamed_addr 
   br i1 %7, label %40, label %8
 
 8:                                                ; preds = %6
-  %9 = load i64, ptr %2, align 8, !tbaa !95
-  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6336), align 8, !tbaa !160
+  %9 = load i64, ptr %2, align 8, !tbaa !94
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6336), align 8, !tbaa !158
   %11 = icmp ult i64 %9, %10
   br i1 %11, label %40, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1, %8
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6352), align 8, !tbaa !161
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6352), align 8, !tbaa !159
   %13 = sitofp i32 %12 to float
   %14 = fsub float %3, %5
-  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6356), align 4, !tbaa !162
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6356), align 4, !tbaa !160
   %16 = sub nsw i32 %15, %12
   %17 = sitofp i32 %16 to float
   %18 = fmul float %14, %17
-  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6348), align 4, !tbaa !163
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6348), align 4, !tbaa !161
   %20 = sub nsw i32 %19, %.pre
   %21 = sitofp i32 %20 to float
   %22 = fdiv float %18, %21
@@ -3406,15 +3406,15 @@ define dso_local void @computeDefragCycles(float noundef %0) local_unnamed_addr 
   br i1 %or.cond, label %34, label %40
 
 34:                                               ; preds = %._crit_edge
-  store i32 %30, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !158
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6332), align 4, !tbaa !164
-  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !149
+  store i32 %30, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !156
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6332), align 4, !tbaa !162
+  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !148
   %36 = icmp sgt i32 %35, 1
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %34
   %38 = fpext float %3 to double
-  %39 = load i64, ptr %2, align 8, !tbaa !95
+  %39 = load i64, ptr %2, align 8, !tbaa !94
   call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef nonnull @.str.27, double noundef %38, i64 noundef %39, i32 noundef %30) #10
   br label %40
 
@@ -3433,38 +3433,38 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
   %6 = alloca %struct.defragPubSubCtx, align 8
   %7 = alloca %struct.defragCtx, align 8
   %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6316), align 4, !tbaa !165
+  %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6316), align 4, !tbaa !163
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %19
 
 11:                                               ; preds = %0
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !158
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !156
   %.not71 = icmp eq i32 %12, 0
   br i1 %.not71, label %247, label %13
 
 13:                                               ; preds = %11
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !158
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6332), align 4, !tbaa !164
-  %14 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !166
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !156
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6332), align 4, !tbaa !162
+  %14 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !164
   %.not72 = icmp eq ptr %14, null
   br i1 %.not72, label %18, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  %17 = load ptr, ptr %16, align 8, !tbaa !91
+  %17 = load ptr, ptr %16, align 8, !tbaa !90
   tail call void @listEmpty(ptr noundef %17) #10
   br label %18
 
 18:                                               ; preds = %15, %13
-  store ptr null, ptr @defrag_later_current_key, align 8, !tbaa !61
-  store i64 0, ptr @defrag_later_cursor, align 8, !tbaa !95
-  store i32 -1, ptr @activeDefragCycle.current_db, align 4, !tbaa !167
-  store i32 0, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !167
-  store i64 0, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !95
-  store i32 -1, ptr @activeDefragCycle.slot, align 4, !tbaa !167
+  store ptr null, ptr @defrag_later_current_key, align 8, !tbaa !60
+  store i64 0, ptr @defrag_later_cursor, align 8, !tbaa !94
+  store i32 -1, ptr @activeDefragCycle.current_db, align 4, !tbaa !165
+  store i32 0, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !165
+  store i64 0, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
+  store i32 -1, ptr @activeDefragCycle.slot, align 4, !tbaa !165
   store i1 false, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
-  store ptr null, ptr @activeDefragCycle.db, align 8, !tbaa !166
+  store ptr null, ptr @activeDefragCycle.db, align 8, !tbaa !164
   tail call void @moduleDefragEnd() #10
   br label %.thread145
 
@@ -3474,13 +3474,13 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
   br i1 %.not73, label %21, label %247
 
 21:                                               ; preds = %19
-  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 52), align 4, !tbaa !168
+  %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 52), align 4, !tbaa !166
   %23 = sdiv i32 1000, %22
   %24 = icmp sgt i32 %23, 999
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %21
-  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 156), align 4, !tbaa !169
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 156), align 4, !tbaa !167
   %.rhs.trunc = trunc nsw i32 %23 to i16
   %27 = sdiv i16 1000, %.rhs.trunc
   %.sext = sext i16 %27 to i32
@@ -3489,37 +3489,37 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
   br i1 %.not74, label %29, label %31
 
 29:                                               ; preds = %25, %21
-  %30 = load float, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !170
+  %30 = load float, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !168
   tail call void @computeDefragCycles(float noundef %30)
   br label %31
 
 31:                                               ; preds = %29, %25
-  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6332), align 4, !tbaa !164
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6332), align 4, !tbaa !162
   %.not75 = icmp eq i32 %32, 0
   br i1 %.not75, label %35, label %33
 
 33:                                               ; preds = %31
-  %34 = load float, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !170
+  %34 = load float, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !168
   tail call void @computeDefragCycles(float noundef %34)
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6332), align 4, !tbaa !164
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6332), align 4, !tbaa !162
   br label %35
 
 35:                                               ; preds = %33, %31
-  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !158
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !156
   %.not76 = icmp eq i32 %36, 0
   br i1 %.not76, label %247, label %37
 
 37:                                               ; preds = %35
   %38 = tail call i64 @ustime() #10
-  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !158
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !156
   %40 = mul nsw i32 %39, 1000000
-  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 52), align 4, !tbaa !168
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 52), align 4, !tbaa !166
   %42 = sdiv i32 %40, %41
   %43 = sdiv i32 %42, 100
   %44 = tail call i32 @llvm.smax.i32(i32 %43, i32 1)
   %spec.store.select = zext nneg i32 %44 to i64
   %45 = add nsw i64 %38, %spec.store.select
-  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !172
+  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !170
   %.not77 = icmp eq i64 %46, 0
   br i1 %.not77, label %.outer, label %47
 
@@ -3547,7 +3547,7 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %66 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !167
+  %66 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !165
   %67 = icmp eq i32 %66, 0
   %68 = load i64, ptr @activeDefragCycle.defrag_cursor, align 8
   %69 = icmp eq i64 %68, 0
@@ -3555,7 +3555,7 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
   %70 = load i32, ptr @activeDefragCycle.slot, align 4
   %71 = icmp slt i32 %70, 0
   %or.cond3167 = select i1 %or.cond.not80166, i1 %71, i1 false
-  %.pre142168 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !166
+  %.pre142168 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !164
   br i1 %or.cond3167, label %.lr.ph, label %.loopexit154
 
 .lr.ph:                                           ; preds = %.outer, %220
@@ -3570,80 +3570,80 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
   br i1 %.not82, label %75, label %.loopexit
 
 75:                                               ; preds = %73, %.lr.ph
-  %76 = load i32, ptr @activeDefragCycle.current_db, align 4, !tbaa !167
+  %76 = load i32, ptr @activeDefragCycle.current_db, align 4, !tbaa !165
   %77 = icmp eq i32 %76, -1
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %75
   call void @moduleDefragStart() #10
-  %.pre = load i32, ptr @activeDefragCycle.current_db, align 4, !tbaa !167
+  %.pre = load i32, ptr @activeDefragCycle.current_db, align 4, !tbaa !165
   br label %79
 
 79:                                               ; preds = %78, %75
   %80 = phi i32 [ %.pre, %78 ], [ %76, %75 ]
   %81 = add nsw i32 %80, 1
-  store i32 %81, ptr @activeDefragCycle.current_db, align 4, !tbaa !167
-  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8, !tbaa !173
+  store i32 %81, ptr @activeDefragCycle.current_db, align 4, !tbaa !165
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8, !tbaa !171
   %.not83 = icmp slt i32 %81, %82
   br i1 %.not83, label %135, label %83
 
 83:                                               ; preds = %79
   %84 = call ptr @evalScriptsDict() #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1) #10
-  store ptr @activeDefragAlloc, ptr %1, align 8, !tbaa !69
-  store ptr @activeDefragSds, ptr %49, align 8, !tbaa !71
-  store ptr @activeDefragLuaScript, ptr %50, align 8, !tbaa !72
+  store ptr @activeDefragAlloc, ptr %1, align 8, !tbaa !68
+  store ptr @activeDefragSds, ptr %49, align 8, !tbaa !70
+  store ptr @activeDefragLuaScript, ptr %50, align 8, !tbaa !71
   br label %85
 
 85:                                               ; preds = %85, %83
   %.0.i.i = phi i64 [ 0, %83 ], [ %86, %85 ]
   %86 = call i64 @dictScanDefrag(ptr noundef %84, i64 noundef %.0.i.i, ptr noundef nonnull @activeDefragSdsDictCallback, ptr noundef nonnull %1, ptr noundef null) #10
   %.not.i.i = icmp eq i64 %86, 0
-  br i1 %.not.i.i, label %defragOtherGlobals.exit, label %85, !llvm.loop !73
+  br i1 %.not.i.i, label %defragOtherGlobals.exit, label %85, !llvm.loop !72
 
 defragOtherGlobals.exit:                          ; preds = %85
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #10
   call void @moduleDefragGlobals() #10
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !154
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !153
   call void @kvstoreDictLUTDefrag(ptr noundef %87, ptr noundef nonnull @dictDefragTables) #10
-  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7872), align 8, !tbaa !155
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7872), align 8, !tbaa !154
   call void @kvstoreDictLUTDefrag(ptr noundef %88, ptr noundef nonnull @dictDefragTables) #10
   %89 = call i64 @ustime() #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
   %90 = call float @getAllocatorFragmentation(ptr noundef nonnull %3)
-  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !149
+  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6288), align 8, !tbaa !148
   %92 = icmp sgt i32 %91, 1
   br i1 %92, label %104, label %93
 
 93:                                               ; preds = %defragOtherGlobals.exit
-  %94 = load i64, ptr @activeDefragCycle.start_scan, align 8, !tbaa !174
+  %94 = load i64, ptr @activeDefragCycle.start_scan, align 8, !tbaa !172
   %95 = sub nsw i64 %89, %94
   %96 = sdiv i64 %95, 1000
   %97 = trunc i64 %96 to i32
   %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  %99 = load i64, ptr @activeDefragCycle.start_hits, align 8, !tbaa !174
+  %99 = load i64, ptr @activeDefragCycle.start_hits, align 8, !tbaa !172
   %100 = sub nsw i64 %98, %99
   %101 = trunc i64 %100 to i32
   %102 = fpext float %90 to double
-  %103 = load i64, ptr %3, align 8, !tbaa !95
+  %103 = load i64, ptr %3, align 8, !tbaa !94
   call void (i32, ptr, ...) @_serverLog(i32 noundef 1, ptr noundef nonnull @.str.28, i32 noundef %97, i32 noundef %101, double noundef %102, i64 noundef %103) #10
   br label %104
 
 104:                                              ; preds = %defragOtherGlobals.exit, %93
-  store i64 %89, ptr @activeDefragCycle.start_scan, align 8, !tbaa !174
-  store i32 -1, ptr @activeDefragCycle.current_db, align 4, !tbaa !167
-  store i32 0, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !167
-  store i64 0, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !95
-  store i32 -1, ptr @activeDefragCycle.slot, align 4, !tbaa !167
+  store i64 %89, ptr @activeDefragCycle.start_scan, align 8, !tbaa !172
+  store i32 -1, ptr @activeDefragCycle.current_db, align 4, !tbaa !165
+  store i32 0, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !165
+  store i64 0, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
+  store i32 -1, ptr @activeDefragCycle.slot, align 4, !tbaa !165
   store i1 false, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
-  store ptr null, ptr @activeDefragCycle.db, align 8, !tbaa !166
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !158
+  store ptr null, ptr @activeDefragCycle.db, align 8, !tbaa !164
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !156
   %105 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  %106 = load i64, ptr @activeDefragCycle.start_hits, align 8, !tbaa !174
+  %106 = load i64, ptr @activeDefragCycle.start_hits, align 8, !tbaa !172
   %107 = sub nsw i64 %105, %106
   %108 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2592), align 8, !tbaa !5
-  %109 = load i64, ptr @activeDefragCycle.start_misses, align 8, !tbaa !174
-  %110 = load float, ptr @activeDefragCycle.start_frag_pct, align 4, !tbaa !170
+  %109 = load i64, ptr @activeDefragCycle.start_misses, align 8, !tbaa !172
+  %110 = load float, ptr @activeDefragCycle.start_frag_pct, align 4, !tbaa !168
   %111 = fsub float %110, %90
   %112 = call float @llvm.fabs.f32(float %111)
   %113 = fcmp ogt float %112, 2.000000e+00
@@ -3663,7 +3663,7 @@ defragOtherGlobals.exit:                          ; preds = %85
   br i1 %122, label %123, label %128
 
 123:                                              ; preds = %116, %114
-  %124 = load float, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !170
+  %124 = load float, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !168
   %125 = fpext float %124 to double
   %126 = fmul double %125, 9.000000e-01
   %127 = fptrunc double %126 to float
@@ -3671,11 +3671,11 @@ defragOtherGlobals.exit:                          ; preds = %85
 
 128:                                              ; preds = %104, %116, %123
   %storemerge = phi float [ %127, %123 ], [ 1.000000e+00, %116 ], [ 1.000000e+00, %104 ]
-  store float %storemerge, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !170
+  store float %storemerge, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !168
   call void @moduleDefragEnd() #10
-  %129 = load float, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !170
+  %129 = load float, ptr @activeDefragCycle.decay_rate, align 4, !tbaa !168
   call void @computeDefragCycles(float noundef %129)
-  %130 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !158
+  %130 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !156
   %.not90 = icmp eq i32 %130, 0
   br i1 %.not90, label %134, label %131
 
@@ -3694,62 +3694,62 @@ defragOtherGlobals.exit:                          ; preds = %85
 
 137:                                              ; preds = %135
   %138 = call i64 @ustime() #10
-  store i64 %138, ptr @activeDefragCycle.start_scan, align 8, !tbaa !174
+  store i64 %138, ptr @activeDefragCycle.start_scan, align 8, !tbaa !172
   %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  store i64 %139, ptr @activeDefragCycle.start_hits, align 8, !tbaa !174
+  store i64 %139, ptr @activeDefragCycle.start_hits, align 8, !tbaa !172
   %140 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2592), align 8, !tbaa !5
-  store i64 %140, ptr @activeDefragCycle.start_misses, align 8, !tbaa !174
+  store i64 %140, ptr @activeDefragCycle.start_misses, align 8, !tbaa !172
   %141 = call float @getAllocatorFragmentation(ptr noundef null)
-  store float %141, ptr @activeDefragCycle.start_frag_pct, align 4, !tbaa !170
-  %.pre140 = load i32, ptr @activeDefragCycle.current_db, align 4, !tbaa !167
+  store float %141, ptr @activeDefragCycle.start_frag_pct, align 4, !tbaa !168
+  %.pre140 = load i32, ptr @activeDefragCycle.current_db, align 4, !tbaa !165
   br label %142
 
 142:                                              ; preds = %135, %137
   %143 = phi i32 [ %81, %135 ], [ %.pre140, %137 ]
-  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !175
+  %144 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !173
   %145 = sext i32 %143 to i64
   %146 = getelementptr inbounds %struct.redisDb, ptr %144, i64 %145
-  store ptr %146, ptr @activeDefragCycle.db, align 8, !tbaa !166
-  %147 = load ptr, ptr %146, align 8, !tbaa !140
+  store ptr %146, ptr @activeDefragCycle.db, align 8, !tbaa !164
+  %147 = load ptr, ptr %146, align 8, !tbaa !139
   call void @kvstoreDictLUTDefrag(ptr noundef %147, ptr noundef nonnull @dictDefragTables) #10
-  %148 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !166
+  %148 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !164
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %150 = load ptr, ptr %149, align 8, !tbaa !141
+  %150 = load ptr, ptr %149, align 8, !tbaa !140
   call void @kvstoreDictLUTDefrag(ptr noundef %150, ptr noundef nonnull @dictDefragTables) #10
-  store i32 0, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !167
-  store i64 0, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !95
-  store i32 -1, ptr @activeDefragCycle.slot, align 4, !tbaa !167
+  store i32 0, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !165
+  store i64 0, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
+  store i32 -1, ptr @activeDefragCycle.slot, align 4, !tbaa !165
   store i1 false, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
-  %.pre141 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !166
+  %.pre141 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !164
   br label %.loopexit154
 
 .loopexit154:                                     ; preds = %220, %.outer, %142
   %151 = phi ptr [ %.pre141, %142 ], [ %.pre142168, %.outer ], [ %.pre142, %220 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #10
-  %152 = load ptr, ptr %151, align 8, !tbaa !140
-  store ptr %152, ptr %4, align 16, !tbaa !176
-  store ptr @defragScanCallback, ptr %51, align 8, !tbaa !178
-  store ptr %151, ptr %52, align 16, !tbaa !179
+  %152 = load ptr, ptr %151, align 8, !tbaa !139
+  store ptr %152, ptr %4, align 16, !tbaa !174
+  store ptr @defragScanCallback, ptr %51, align 8, !tbaa !176
+  store ptr %151, ptr %52, align 16, !tbaa !177
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  %154 = load ptr, ptr %153, align 8, !tbaa !141
-  store ptr %154, ptr %53, align 8, !tbaa !176
-  store ptr @scanCallbackCountScanned, ptr %54, align 16, !tbaa !178
-  store ptr null, ptr %55, align 8, !tbaa !179
-  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !154
-  store ptr %155, ptr %56, align 16, !tbaa !176
-  store ptr @defragPubsubScanCallback, ptr %57, align 8, !tbaa !178
-  store ptr %155, ptr %5, align 8, !tbaa !150
-  store ptr @getClientPubSubChannels, ptr %59, align 8, !tbaa !152
-  store ptr %5, ptr %58, align 16, !tbaa !179
-  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7872), align 8, !tbaa !155
-  store ptr %156, ptr %60, align 8, !tbaa !176
-  store ptr @defragPubsubScanCallback, ptr %61, align 16, !tbaa !178
-  store ptr %156, ptr %6, align 8, !tbaa !150
-  store ptr @getClientPubSubShardChannels, ptr %63, align 8, !tbaa !152
-  store ptr %6, ptr %62, align 8, !tbaa !179
-  %157 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !167
+  %154 = load ptr, ptr %153, align 8, !tbaa !140
+  store ptr %154, ptr %53, align 8, !tbaa !174
+  store ptr @scanCallbackCountScanned, ptr %54, align 16, !tbaa !176
+  store ptr null, ptr %55, align 8, !tbaa !177
+  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7848), align 8, !tbaa !153
+  store ptr %155, ptr %56, align 16, !tbaa !174
+  store ptr @defragPubsubScanCallback, ptr %57, align 8, !tbaa !176
+  store ptr %155, ptr %5, align 8, !tbaa !149
+  store ptr @getClientPubSubChannels, ptr %59, align 8, !tbaa !151
+  store ptr %5, ptr %58, align 16, !tbaa !177
+  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7872), align 8, !tbaa !154
+  store ptr %156, ptr %60, align 8, !tbaa !174
+  store ptr @defragPubsubScanCallback, ptr %61, align 16, !tbaa !176
+  store ptr %156, ptr %6, align 8, !tbaa !149
+  store ptr @getClientPubSubShardChannels, ptr %63, align 8, !tbaa !151
+  store ptr %6, ptr %62, align 8, !tbaa !177
+  %157 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !165
   %158 = icmp slt i32 %157, 4
-  br i1 %158, label %.lr.ph173, label %._crit_edge, !prof !180
+  br i1 %158, label %.lr.ph173, label %._crit_edge, !prof !178
 
 ._crit_edge:                                      ; preds = %217, %.loopexit154
   call void @_serverAssert(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str, i32 noundef 1223) #10
@@ -3763,8 +3763,8 @@ defragOtherGlobals.exit:                          ; preds = %85
   %.245170 = phi i64 [ %.346, %217 ], [ %9, %.loopexit154 ]
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds [4 x %struct.defragStage], ptr %4, i64 0, i64 %160
-  %162 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !166
-  %163 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !167
+  %162 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !164
+  %163 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !165
   %164 = call i32 @defragLaterStep(ptr noundef %162, i32 noundef %163, i64 noundef %45)
   %.not84 = icmp eq i32 %164, 0
   br i1 %.not84, label %165, label %.thread113.thread
@@ -3774,32 +3774,32 @@ defragOtherGlobals.exit:                          ; preds = %85
   br i1 %.b, label %thread-pre-split, label %166
 
 166:                                              ; preds = %165
-  %167 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !167
+  %167 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !165
   %168 = icmp eq i32 %167, -1
-  %.pre143 = load ptr, ptr %161, align 8, !tbaa !176
+  %.pre143 = load ptr, ptr %161, align 8, !tbaa !174
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %166
   %170 = call i32 @kvstoreGetFirstNonEmptyDictIndex(ptr noundef %.pre143) #10
-  store i32 %170, ptr @activeDefragCycle.slot, align 4, !tbaa !167
+  store i32 %170, ptr @activeDefragCycle.slot, align 4, !tbaa !165
   br label %171
 
 171:                                              ; preds = %169, %166
   %172 = phi i32 [ %170, %169 ], [ %167, %166 ]
-  %173 = load i64, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !95
+  %173 = load i64, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
   %174 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %175 = load ptr, ptr %174, align 8, !tbaa !178
+  %175 = load ptr, ptr %174, align 8, !tbaa !176
   %176 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %177 = load ptr, ptr %176, align 8, !tbaa !179
-  store ptr %177, ptr %7, align 8, !tbaa !137
-  store i32 %172, ptr %64, align 8, !tbaa !139
+  %177 = load ptr, ptr %176, align 8, !tbaa !177
+  store ptr %177, ptr %7, align 8, !tbaa !136
+  store i32 %172, ptr %64, align 8, !tbaa !138
   store i32 0, ptr %65, align 4
   %178 = call i64 @kvstoreDictScanDefrag(ptr noundef %.pre143, i32 noundef %172, i64 noundef %173, ptr noundef %175, ptr noundef nonnull %2, ptr noundef nonnull %7) #10
-  store i64 %178, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !95
+  store i64 %178, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
   br label %179
 
 thread-pre-split:                                 ; preds = %165
-  %.pr = load i64, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !95
+  %.pr = load i64, ptr @activeDefragCycle.defrag_cursor, align 8, !tbaa !94
   br label %179
 
 179:                                              ; preds = %thread-pre-split, %171
@@ -3808,11 +3808,11 @@ thread-pre-split:                                 ; preds = %165
   br i1 %.not85, label %181, label %197
 
 181:                                              ; preds = %179
-  %182 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !166
+  %182 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !164
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 80
-  %184 = load ptr, ptr %183, align 8, !tbaa !91
+  %184 = load ptr, ptr %183, align 8, !tbaa !90
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 40
-  %186 = load i64, ptr %185, align 8, !tbaa !181
+  %186 = load i64, ptr %185, align 8, !tbaa !179
   %.not86 = icmp eq i64 %186, 0
   br i1 %.not86, label %188, label %187
 
@@ -3821,17 +3821,17 @@ thread-pre-split:                                 ; preds = %165
   br label %217
 
 188:                                              ; preds = %181
-  %189 = load ptr, ptr %161, align 8, !tbaa !176
-  %190 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !167
+  %189 = load ptr, ptr %161, align 8, !tbaa !174
+  %190 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !165
   %191 = call i32 @kvstoreGetNextNonEmptyDictIndex(ptr noundef %189, i32 noundef %190) #10
-  store i32 %191, ptr @activeDefragCycle.slot, align 4, !tbaa !167
+  store i32 %191, ptr @activeDefragCycle.slot, align 4, !tbaa !165
   %192 = icmp eq i32 %191, -1
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %188
-  %194 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !167
+  %194 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !165
   %195 = add nsw i32 %194, 1
-  store i32 %195, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !167
+  store i32 %195, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !165
   br label %196
 
 196:                                              ; preds = %193, %188
@@ -3839,12 +3839,12 @@ thread-pre-split:                                 ; preds = %165
   br label %197
 
 197:                                              ; preds = %196, %179
-  %198 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !167
+  %198 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !165
   %199 = icmp eq i32 %198, 4
   br i1 %199, label %.thread101, label %200
 
 .thread101:                                       ; preds = %197
-  store i32 0, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !167
+  store i32 0, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !165
   br label %.thread113.thread
 
 200:                                              ; preds = %197
@@ -3859,7 +3859,7 @@ thread-pre-split:                                 ; preds = %165
   br i1 %206, label %211, label %207
 
 207:                                              ; preds = %203
-  %208 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  %208 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   %209 = sub i64 %208, %.245170
   %210 = icmp ugt i64 %209, 64
   br i1 %210, label %211, label %217
@@ -3871,16 +3871,16 @@ thread-pre-split:                                 ; preds = %165
 
 214:                                              ; preds = %211
   %215 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  %216 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !96
+  %216 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
   br label %217
 
 217:                                              ; preds = %187, %214, %207
   %.346 = phi i64 [ %.245170, %187 ], [ %216, %214 ], [ %.245170, %207 ]
   %.341 = phi i64 [ %.240171, %187 ], [ %215, %214 ], [ %.240171, %207 ]
   %.3 = phi i32 [ %.2172, %187 ], [ 0, %214 ], [ %201, %207 ]
-  %218 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !167
+  %218 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !165
   %219 = icmp slt i32 %218, 4
-  br i1 %219, label %.lr.ph173, label %._crit_edge, !prof !182, !llvm.loop !183
+  br i1 %219, label %.lr.ph173, label %._crit_edge, !prof !180, !llvm.loop !181
 
 .thread113.thread:                                ; preds = %211, %.lr.ph173, %.thread101
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #10
@@ -3888,7 +3888,7 @@ thread-pre-split:                                 ; preds = %165
 
 220:                                              ; preds = %131
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
-  %221 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !167
+  %221 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !165
   %222 = icmp eq i32 %221, 0
   %223 = load i64, ptr @activeDefragCycle.defrag_cursor, align 8
   %224 = icmp eq i64 %223, 0
@@ -3896,18 +3896,18 @@ thread-pre-split:                                 ; preds = %165
   %225 = load i32, ptr @activeDefragCycle.slot, align 4
   %226 = icmp slt i32 %225, 0
   %or.cond3 = select i1 %or.cond.not80, i1 %226, i1 false
-  %.pre142 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !166
-  br i1 %or.cond3, label %.lr.ph, label %.loopexit154, !llvm.loop !184
+  %.pre142 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !164
+  br i1 %or.cond3, label %.lr.ph, label %.loopexit154, !llvm.loop !182
 
 .loopexit:                                        ; preds = %73, %.thread113.thread, %134
-  %227 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !172
+  %227 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !170
   %.not92 = icmp eq i64 %227, 0
   br i1 %.not92, label %.thread145, label %228
 
 228:                                              ; preds = %.loopexit
   %229 = call i64 @mstime() #10
   %230 = sub nsw i64 %229, %.048
-  %.pre144 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !172
+  %.pre144 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8064), align 8, !tbaa !170
   %.not93 = icmp eq i64 %.pre144, 0
   %.not94 = icmp slt i64 %230, %.pre144
   %or.cond = select i1 %.not93, i1 true, i1 %.not94
@@ -3918,9 +3918,9 @@ thread-pre-split:                                 ; preds = %165
   br label %.thread145
 
 .thread145:                                       ; preds = %.loopexit, %228, %231, %18
-  %232 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !158
+  %232 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 140), align 4, !tbaa !156
   %233 = icmp sgt i32 %232, 0
-  %234 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2632), align 8, !tbaa !185
+  %234 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2632), align 8, !tbaa !183
   %235 = icmp eq i64 %234, 0
   br i1 %233, label %236, label %240
 
@@ -3928,7 +3928,7 @@ thread-pre-split:                                 ; preds = %165
   br i1 %235, label %237, label %247
 
 237:                                              ; preds = %236
-  %238 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !130
+  %238 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !129
   %239 = call i64 %238() #10
   br label %.sink.split
 
@@ -3936,17 +3936,17 @@ thread-pre-split:                                 ; preds = %165
   br i1 %235, label %247, label %241
 
 241:                                              ; preds = %240
-  %242 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !130
+  %242 = load ptr, ptr @getMonotonicUs, align 8, !tbaa !129
   %243 = call i64 %242() #10
   %244 = sub i64 %243, %234
-  %245 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2624), align 8, !tbaa !186
+  %245 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2624), align 8, !tbaa !184
   %246 = add i64 %244, %245
-  store i64 %246, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2624), align 8, !tbaa !186
+  store i64 %246, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2624), align 8, !tbaa !184
   br label %.sink.split
 
 .sink.split:                                      ; preds = %241, %237
   %.sink = phi i64 [ %239, %237 ], [ 0, %241 ]
-  store i64 %.sink, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2632), align 8, !tbaa !95
+  store i64 %.sink, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2632), align 8, !tbaa !94
   br label %247
 
 247:                                              ; preds = %.sink.split, %236, %240, %35, %19, %11
@@ -4055,136 +4055,134 @@ attributes #11 = { noreturn nounwind }
 !51 = !{!50, !50, i64 0}
 !52 = !{!53, !50, i64 0}
 !53 = !{!"zskiplistLevel", !50, i64 0, !10, i64 8}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.estimated_trip_count"}
-!57 = !{!49, !50, i64 0}
-!58 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!59 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!60 = !{!49, !50, i64 8}
-!61 = !{!11, !11, i64 0}
-!62 = distinct !{!62, !55, !56}
-!63 = !{!23, !23, i64 0}
-!64 = distinct !{!64, !55, !56}
-!65 = !{!66, !15, i64 0}
-!66 = !{!"zset", !15, i64 0, !67, i64 8}
-!67 = !{!"p1 _ZTS9zskiplist", !12, i64 0}
-!68 = !{!66, !67, i64 8}
-!69 = !{!70, !12, i64 0}
-!70 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16}
-!71 = !{!70, !12, i64 8}
-!72 = !{!70, !12, i64 16}
-!73 = distinct !{!73, !55, !56}
-!74 = distinct !{!74, !55, !56}
-!75 = !{!45, !45, i64 0}
-!76 = !{!77, !45, i64 0}
-!77 = !{!"listNode", !45, i64 0, !45, i64 8, !12, i64 16}
-!78 = !{!77, !45, i64 8}
-!79 = !{!80, !45, i64 0}
-!80 = !{!"list", !45, i64 0, !45, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !10, i64 40}
-!81 = !{!80, !45, i64 8}
-!82 = !{!77, !12, i64 16}
-!83 = distinct !{!83, !55, !56}
-!84 = !{!85, !85, i64 0}
-!85 = !{!"p1 _ZTS13quicklistNode", !12, i64 0}
-!86 = !{!87, !85, i64 0}
-!87 = !{!"quicklistNode", !85, i64 0, !85, i64 8, !11, i64 16, !10, i64 24, !7, i64 32, !7, i64 34, !7, i64 34, !7, i64 34, !7, i64 34, !7, i64 34, !7, i64 34}
-!88 = !{!87, !85, i64 8}
-!89 = !{!87, !11, i64 16}
-!90 = distinct !{!90, !55, !56}
-!91 = !{!92, !19, i64 80}
-!92 = !{!"redisDb", !33, i64 0, !33, i64 8, !12, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !7, i64 56, !18, i64 64, !10, i64 72, !19, i64 80}
-!93 = !{!94, !94, i64 0}
-!94 = !{!"p1 _ZTS9quicklist", !12, i64 0}
-!95 = !{!10, !10, i64 0}
-!96 = !{!6, !18, i64 2616}
-!97 = distinct !{!97, !55, !56}
-!98 = !{!99, !100, i64 0}
-!99 = !{!"", !100, i64 0}
-!100 = !{!"p1 _ZTS4zset", !12, i64 0}
-!101 = !{!6, !10, i64 6360}
-!102 = distinct !{!102, !55, !56}
-!103 = !{!104, !104, i64 0}
-!104 = !{!"p1 _ZTS7raxNode", !12, i64 0}
-!105 = !{!106, !17, i64 0}
-!106 = !{!"stream", !17, i64 0, !10, i64 8, !107, i64 16, !107, i64 32, !107, i64 48, !10, i64 64, !17, i64 72}
-!107 = !{!"streamID", !10, i64 0, !10, i64 8}
-!108 = !{!109, !12, i64 472}
-!109 = !{!"raxIterator", !7, i64 0, !17, i64 8, !11, i64 16, !12, i64 24, !10, i64 32, !10, i64 40, !8, i64 48, !104, i64 176, !110, i64 184, !12, i64 472}
-!110 = !{!"raxStack", !12, i64 0, !10, i64 8, !10, i64 16, !8, i64 24, !7, i64 280}
-!111 = !{!109, !12, i64 24}
-!112 = !{!109, !104, i64 176}
-!113 = !{!109, !10, i64 32}
-!114 = !{!109, !11, i64 16}
-!115 = distinct !{!115, !55, !56}
-!116 = !{!17, !17, i64 0}
-!117 = distinct !{!117, !55, !56, !118}
-!118 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!119 = distinct !{!119, !55, !56, !118}
-!120 = distinct !{!120, !55, !56}
-!121 = !{!122, !124, i64 8}
-!122 = !{!"", !123, i64 0, !124, i64 8}
-!123 = !{!"p1 _ZTS8streamCG", !12, i64 0}
-!124 = !{!"p1 _ZTS14streamConsumer", !12, i64 0}
-!125 = !{!126, !124, i64 16}
-!126 = !{!"streamNACK", !18, i64 0, !10, i64 8, !124, i64 16}
-!127 = !{!122, !123, i64 0}
-!128 = !{!129, !17, i64 24}
-!129 = !{!"streamCG", !107, i64 0, !18, i64 16, !17, i64 24, !17, i64 32}
-!130 = !{!12, !12, i64 0}
-!131 = !{!132, !11, i64 16}
-!132 = !{!"streamConsumer", !18, i64 0, !18, i64 8, !11, i64 16, !17, i64 24}
-!133 = !{!132, !17, i64 24}
-!134 = !{!129, !17, i64 32}
-!135 = !{!106, !17, i64 72}
-!136 = !{!92, !7, i64 56}
-!137 = !{!138, !12, i64 0}
-!138 = !{!"defragCtx", !12, i64 0, !7, i64 8}
-!139 = !{!138, !7, i64 8}
-!140 = !{!92, !33, i64 0}
-!141 = !{!92, !33, i64 8}
-!142 = !{!143, !12, i64 24}
-!143 = !{!"listpackEx", !144, i64 0, !11, i64 16, !12, i64 24}
-!144 = !{!"ExpireMeta", !7, i64 0, !145, i64 4, !7, i64 6, !7, i64 6, !7, i64 6, !7, i64 6, !7, i64 7, !7, i64 7, !7, i64 7, !12, i64 8}
-!145 = !{!"short", !8, i64 0}
-!146 = !{!6, !18, i64 2600}
-!147 = !{!6, !18, i64 2608}
-!148 = !{!6, !7, i64 8020}
-!149 = !{!6, !7, i64 6288}
-!150 = !{!151, !33, i64 0}
-!151 = !{!"defragPubSubCtx", !33, i64 0, !12, i64 8}
-!152 = !{!151, !12, i64 8}
-!153 = distinct !{!153, !55, !56}
-!154 = !{!6, !33, i64 7848}
-!155 = !{!6, !33, i64 7872}
-!156 = distinct !{!156, !55, !56}
-!157 = distinct !{!157, !56}
-!158 = !{!6, !7, i64 140}
-!159 = !{!6, !7, i64 6344}
-!160 = !{!6, !10, i64 6336}
-!161 = !{!6, !7, i64 6352}
-!162 = !{!6, !7, i64 6356}
-!163 = !{!6, !7, i64 6348}
-!164 = !{!6, !7, i64 6332}
-!165 = !{!6, !7, i64 6316}
-!166 = !{!14, !14, i64 0}
-!167 = !{!7, !7, i64 0}
-!168 = !{!6, !7, i64 52}
-!169 = !{!6, !7, i64 156}
-!170 = !{!171, !171, i64 0}
-!171 = !{!"float", !8, i64 0}
-!172 = !{!6, !18, i64 8064}
-!173 = !{!6, !7, i64 6376}
-!174 = !{!18, !18, i64 0}
-!175 = !{!6, !14, i64 64}
-!176 = !{!177, !33, i64 0}
-!177 = !{!"defragStage", !33, i64 0, !12, i64 8, !12, i64 16}
-!178 = !{!177, !12, i64 8}
-!179 = !{!177, !12, i64 16}
-!180 = !{!"branch_weights", i32 127, i32 1}
-!181 = !{!80, !10, i64 40}
-!182 = !{!"branch_weights", i32 255873, i32 127}
-!183 = distinct !{!183, !55, !56}
-!184 = distinct !{!184, !55, !56}
-!185 = !{!6, !10, i64 2632}
-!186 = !{!6, !18, i64 2624}
+!56 = !{!49, !50, i64 0}
+!57 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!58 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!59 = !{!49, !50, i64 8}
+!60 = !{!11, !11, i64 0}
+!61 = distinct !{!61, !55}
+!62 = !{!23, !23, i64 0}
+!63 = distinct !{!63, !55}
+!64 = !{!65, !15, i64 0}
+!65 = !{!"zset", !15, i64 0, !66, i64 8}
+!66 = !{!"p1 _ZTS9zskiplist", !12, i64 0}
+!67 = !{!65, !66, i64 8}
+!68 = !{!69, !12, i64 0}
+!69 = !{!"", !12, i64 0, !12, i64 8, !12, i64 16}
+!70 = !{!69, !12, i64 8}
+!71 = !{!69, !12, i64 16}
+!72 = distinct !{!72, !55}
+!73 = distinct !{!73, !55}
+!74 = !{!45, !45, i64 0}
+!75 = !{!76, !45, i64 0}
+!76 = !{!"listNode", !45, i64 0, !45, i64 8, !12, i64 16}
+!77 = !{!76, !45, i64 8}
+!78 = !{!79, !45, i64 0}
+!79 = !{!"list", !45, i64 0, !45, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !10, i64 40}
+!80 = !{!79, !45, i64 8}
+!81 = !{!76, !12, i64 16}
+!82 = distinct !{!82, !55}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"p1 _ZTS13quicklistNode", !12, i64 0}
+!85 = !{!86, !84, i64 0}
+!86 = !{!"quicklistNode", !84, i64 0, !84, i64 8, !11, i64 16, !10, i64 24, !7, i64 32, !7, i64 34, !7, i64 34, !7, i64 34, !7, i64 34, !7, i64 34, !7, i64 34}
+!87 = !{!86, !84, i64 8}
+!88 = !{!86, !11, i64 16}
+!89 = distinct !{!89, !55}
+!90 = !{!91, !19, i64 80}
+!91 = !{!"redisDb", !33, i64 0, !33, i64 8, !12, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !7, i64 56, !18, i64 64, !10, i64 72, !19, i64 80}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTS9quicklist", !12, i64 0}
+!94 = !{!10, !10, i64 0}
+!95 = !{!6, !18, i64 2616}
+!96 = distinct !{!96, !55}
+!97 = !{!98, !99, i64 0}
+!98 = !{!"", !99, i64 0}
+!99 = !{!"p1 _ZTS4zset", !12, i64 0}
+!100 = !{!6, !10, i64 6360}
+!101 = distinct !{!101, !55}
+!102 = !{!103, !103, i64 0}
+!103 = !{!"p1 _ZTS7raxNode", !12, i64 0}
+!104 = !{!105, !17, i64 0}
+!105 = !{!"stream", !17, i64 0, !10, i64 8, !106, i64 16, !106, i64 32, !106, i64 48, !10, i64 64, !17, i64 72}
+!106 = !{!"streamID", !10, i64 0, !10, i64 8}
+!107 = !{!108, !12, i64 472}
+!108 = !{!"raxIterator", !7, i64 0, !17, i64 8, !11, i64 16, !12, i64 24, !10, i64 32, !10, i64 40, !8, i64 48, !103, i64 176, !109, i64 184, !12, i64 472}
+!109 = !{!"raxStack", !12, i64 0, !10, i64 8, !10, i64 16, !8, i64 24, !7, i64 280}
+!110 = !{!108, !12, i64 24}
+!111 = !{!108, !103, i64 176}
+!112 = !{!108, !10, i64 32}
+!113 = !{!108, !11, i64 16}
+!114 = distinct !{!114, !55}
+!115 = !{!17, !17, i64 0}
+!116 = distinct !{!116, !55, !117}
+!117 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!118 = distinct !{!118, !55, !117}
+!119 = distinct !{!119, !55}
+!120 = !{!121, !123, i64 8}
+!121 = !{!"", !122, i64 0, !123, i64 8}
+!122 = !{!"p1 _ZTS8streamCG", !12, i64 0}
+!123 = !{!"p1 _ZTS14streamConsumer", !12, i64 0}
+!124 = !{!125, !123, i64 16}
+!125 = !{!"streamNACK", !18, i64 0, !10, i64 8, !123, i64 16}
+!126 = !{!121, !122, i64 0}
+!127 = !{!128, !17, i64 24}
+!128 = !{!"streamCG", !106, i64 0, !18, i64 16, !17, i64 24, !17, i64 32}
+!129 = !{!12, !12, i64 0}
+!130 = !{!131, !11, i64 16}
+!131 = !{!"streamConsumer", !18, i64 0, !18, i64 8, !11, i64 16, !17, i64 24}
+!132 = !{!131, !17, i64 24}
+!133 = !{!128, !17, i64 32}
+!134 = !{!105, !17, i64 72}
+!135 = !{!91, !7, i64 56}
+!136 = !{!137, !12, i64 0}
+!137 = !{!"defragCtx", !12, i64 0, !7, i64 8}
+!138 = !{!137, !7, i64 8}
+!139 = !{!91, !33, i64 0}
+!140 = !{!91, !33, i64 8}
+!141 = !{!142, !12, i64 24}
+!142 = !{!"listpackEx", !143, i64 0, !11, i64 16, !12, i64 24}
+!143 = !{!"ExpireMeta", !7, i64 0, !144, i64 4, !7, i64 6, !7, i64 6, !7, i64 6, !7, i64 6, !7, i64 7, !7, i64 7, !7, i64 7, !12, i64 8}
+!144 = !{!"short", !8, i64 0}
+!145 = !{!6, !18, i64 2600}
+!146 = !{!6, !18, i64 2608}
+!147 = !{!6, !7, i64 8020}
+!148 = !{!6, !7, i64 6288}
+!149 = !{!150, !33, i64 0}
+!150 = !{!"defragPubSubCtx", !33, i64 0, !12, i64 8}
+!151 = !{!150, !12, i64 8}
+!152 = distinct !{!152, !55}
+!153 = !{!6, !33, i64 7848}
+!154 = !{!6, !33, i64 7872}
+!155 = distinct !{!155, !55}
+!156 = !{!6, !7, i64 140}
+!157 = !{!6, !7, i64 6344}
+!158 = !{!6, !10, i64 6336}
+!159 = !{!6, !7, i64 6352}
+!160 = !{!6, !7, i64 6356}
+!161 = !{!6, !7, i64 6348}
+!162 = !{!6, !7, i64 6332}
+!163 = !{!6, !7, i64 6316}
+!164 = !{!14, !14, i64 0}
+!165 = !{!7, !7, i64 0}
+!166 = !{!6, !7, i64 52}
+!167 = !{!6, !7, i64 156}
+!168 = !{!169, !169, i64 0}
+!169 = !{!"float", !8, i64 0}
+!170 = !{!6, !18, i64 8064}
+!171 = !{!6, !7, i64 6376}
+!172 = !{!18, !18, i64 0}
+!173 = !{!6, !14, i64 64}
+!174 = !{!175, !33, i64 0}
+!175 = !{!"defragStage", !33, i64 0, !12, i64 8, !12, i64 16}
+!176 = !{!175, !12, i64 8}
+!177 = !{!175, !12, i64 16}
+!178 = !{!"branch_weights", i32 127, i32 1}
+!179 = !{!79, !10, i64 40}
+!180 = !{!"branch_weights", i32 255873, i32 127}
+!181 = distinct !{!181, !55}
+!182 = distinct !{!182, !55}
+!183 = !{!6, !10, i64 2632}
+!184 = !{!6, !18, i64 2624}

@@ -135,7 +135,7 @@ lv_matrix_is_identity_or_translation.exit.thread: ; preds = %3, %8, %12, %16, %2
   store float %63, ptr %64, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %53, label %54, !llvm.loop !10
+  br i1 %exitcond.not.i, label %53, label %54, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %53
   %65 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
@@ -241,7 +241,7 @@ define void @lv_matrix_multiply(ptr noundef %0, ptr noundef readonly captures(no
   store float %25, ptr %26, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %15, label %16, !llvm.loop !10
+  br i1 %exitcond.not, label %15, label %16, !llvm.loop !9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -303,7 +303,7 @@ define void @lv_matrix_scale(ptr noundef %0, float noundef %1, float noundef %2)
   store float %31, ptr %32, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %21, label %22, !llvm.loop !10
+  br i1 %exitcond.not.i, label %21, label %22, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %21
   %33 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
@@ -318,8 +318,8 @@ define void @lv_matrix_rotate(ptr noundef %0, float noundef %1) local_unnamed_ad
   %4 = alloca %struct._lv_matrix_t, align 4
   %5 = fdiv float %1, 1.800000e+02
   %6 = fmul float %5, 0x400921FB60000000
-  %7 = tail call float @cosf(float noundef %6) #9, !tbaa !11
-  %8 = tail call float @sinf(float noundef %6) #9, !tbaa !11
+  %7 = tail call float @cosf(float noundef %6) #9, !tbaa !10
+  %8 = tail call float @sinf(float noundef %6) #9, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #9
   store float %7, ptr %4, align 4, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -373,7 +373,7 @@ define void @lv_matrix_rotate(ptr noundef %0, float noundef %1) local_unnamed_ad
   store float %35, ptr %36, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %25, label %26, !llvm.loop !10
+  br i1 %exitcond.not.i, label %25, label %26, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %25
   %37 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
@@ -396,8 +396,8 @@ define void @lv_matrix_skew(ptr noundef %0, float noundef %1, float noundef %2) 
   %7 = fmul float %6, 0x400921FB60000000
   %8 = fdiv float %2, 1.800000e+02
   %9 = fmul float %8, 0x400921FB60000000
-  %10 = tail call float @tanf(float noundef %7) #9, !tbaa !11
-  %11 = tail call float @tanf(float noundef %9) #9, !tbaa !11
+  %10 = tail call float @tanf(float noundef %7) #9, !tbaa !10
+  %11 = tail call float @tanf(float noundef %9) #9, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #9
   store float 1.000000e+00, ptr %5, align 4, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -450,7 +450,7 @@ define void @lv_matrix_skew(ptr noundef %0, float noundef %1, float noundef %2) 
   store float %37, ptr %38, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %27, label %28, !llvm.loop !10
+  br i1 %exitcond.not.i, label %27, label %28, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %27
   %39 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
@@ -620,10 +620,10 @@ define noundef zeroext i1 @lv_matrix_inverse(ptr noundef writeonly captures(none
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define <2 x float> @lv_matrix_transform_precise_point(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
-  %3 = load float, ptr %1, align 4, !tbaa !13
+  %3 = load float, ptr %1, align 4, !tbaa !12
   %4 = load float, ptr %0, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load float, ptr %5, align 4, !tbaa !15
+  %6 = load float, ptr %5, align 4, !tbaa !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load float, ptr %7, align 4, !tbaa !3
   %9 = fmul float %6, %8
@@ -652,16 +652,16 @@ declare float @llvm.round.f32(float) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { i64, i64 } @lv_matrix_transform_area(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
-  %3 = load i32, ptr %1, align 4, !tbaa !16
+  %3 = load i32, ptr %1, align 4, !tbaa !15
   %4 = sitofp i32 %3 to float
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !18
+  %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = sitofp i32 %6 to float
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !19
+  %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = sitofp i32 %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i32, ptr %11, align 4, !tbaa !20
+  %12 = load i32, ptr %11, align 4, !tbaa !19
   %13 = sitofp i32 %12 to float
   %14 = load float, ptr %0, align 4, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -763,17 +763,16 @@ attributes #9 = { nounwind }
 !4 = !{!"float", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !5, i64 0}
-!13 = !{!14, !4, i64 0}
-!14 = !{!"", !4, i64 0, !4, i64 4}
-!15 = !{!14, !4, i64 4}
-!16 = !{!17, !12, i64 0}
-!17 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12}
-!18 = !{!17, !12, i64 4}
-!19 = !{!17, !12, i64 12}
-!20 = !{!17, !12, i64 8}
+!9 = distinct !{!9, !8}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !5, i64 0}
+!12 = !{!13, !4, i64 0}
+!13 = !{!"", !4, i64 0, !4, i64 4}
+!14 = !{!13, !4, i64 4}
+!15 = !{!16, !11, i64 0}
+!16 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12}
+!17 = !{!16, !11, i64 4}
+!18 = !{!16, !11, i64 12}
+!19 = !{!16, !11, i64 8}

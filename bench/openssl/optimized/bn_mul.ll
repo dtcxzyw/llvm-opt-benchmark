@@ -77,7 +77,7 @@ define i64 @bn_sub_part_words(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %.not143 = icmp eq i64 %41, 0
   %spec.select = select i1 %.not143, i64 %spec.select149, i64 1
   %44 = icmp eq i32 %38, -1
-  br i1 %44, label %.thread157, label %.lr.ph190, !llvm.loop !7
+  br i1 %44, label %.thread157, label %.lr.ph190
 
 45:                                               ; preds = %8
   %46 = getelementptr inbounds i64, ptr %1, i64 %9
@@ -135,7 +135,7 @@ define i64 @bn_sub_part_words(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %70 = getelementptr inbounds nuw i8, ptr %.0111172, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %.1115171, i64 32
   %.not = icmp eq i64 %spec.select153, 0
-  br i1 %.not, label %.preheader163, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.preheader163, label %.lr.ph, !llvm.loop !7
 
 .preheader163:                                    ; preds = %68, %45
   %.1115.lcssa = phi ptr [ %10, %45 ], [ %71, %68 ]
@@ -180,7 +180,7 @@ define i64 @bn_sub_part_words(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %92 = load i64, ptr %90, align 8, !tbaa !3
   store i64 %92, ptr %91, align 8, !tbaa !3
   %93 = icmp samesign ult i32 %89, 2
-  br i1 %93, label %.thread157, label %.lr.ph180, !llvm.loop !11
+  br i1 %93, label %.thread157, label %.lr.ph180
 
 .thread157:                                       ; preds = %.lr.ph, %50, %56, %62, %83, %78, %.lr.ph180, %88, %37, %.lr.ph190, %23, %30, %.preheader163, %.preheader, %5
   %.0109 = phi i64 [ %6, %5 ], [ %spec.select185, %.preheader ], [ 0, %.preheader163 ], [ %spec.select, %37 ], [ %spec.select147, %.lr.ph190 ], [ %spec.select148, %23 ], [ %spec.select149, %30 ], [ 0, %88 ], [ 0, %.lr.ph180 ], [ 0, %78 ], [ 0, %83 ], [ %spec.select150, %.lr.ph ], [ %spec.select151, %50 ], [ %spec.select152, %56 ], [ %spec.select153, %62 ]
@@ -389,7 +389,7 @@ define void @bn_mul_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %124 = add i64 %123, 1
   store i64 %124, ptr %122, align 8, !tbaa !3
   %125 = icmp eq i64 %124, 0
-  br i1 %125, label %.preheader, label %.loopexit, !llvm.loop !12
+  br i1 %125, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %107, %114, %17, %22, %14
   ret void
@@ -469,7 +469,7 @@ define void @bn_mul_normal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   %44 = getelementptr inbounds nuw i8, ptr %.04661, i64 32
   store i64 %43, ptr %44, align 8, !tbaa !3
   %45 = icmp samesign ult i32 %39, 2
-  br i1 %45, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %45, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %38, %.lr.ph, %24, %31, %12, %10
   ret void
@@ -643,7 +643,7 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
   %100 = icmp eq i32 %95, %4
   %101 = icmp eq i32 %95, %5
   %or.cond271 = or i1 %100, %101
-  br i1 %or.cond271, label %102, label %.preheader275, !llvm.loop !14
+  br i1 %or.cond271, label %102, label %.preheader275
 
 102:                                              ; preds = %99
   %103 = sub nsw i32 %4, %95
@@ -699,7 +699,7 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
   %134 = add i64 %133, 1
   store i64 %134, ptr %132, align 8, !tbaa !3
   %135 = icmp eq i64 %134, 0
-  br i1 %135, label %.preheader, label %.loopexit, !llvm.loop !15
+  br i1 %135, label %.preheader, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %118, %124, %10
   ret void
@@ -785,7 +785,7 @@ define void @bn_mul_low_normal(ptr noundef %0, ptr noundef %1, ptr noundef reado
   %32 = load i64, ptr %31, align 8, !tbaa !3
   %33 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %30, ptr noundef %1, i32 noundef %29, i64 noundef %32) #4
   %34 = icmp samesign ult i32 %.033, 6
-  br i1 %34, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %34, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %28, %.lr.ph, %14, %21, %4
   ret void
@@ -801,9 +801,9 @@ define range(i32 0, 2) i32 @BN_mul(ptr noundef %0, ptr noundef readonly captures
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @bn_mul_fixed_top(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !17
+  %6 = load i32, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !17
+  %8 = load i32, ptr %7, align 8, !tbaa !11
   %9 = icmp eq i32 %6, 0
   %10 = icmp eq i32 %8, 0
   %or.cond = select i1 %9, i1 true, i1 %10
@@ -841,10 +841,10 @@ define range(i32 0, 2) i32 @bn_mul_fixed_top(ptr noundef %0, ptr noundef readonl
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %.096, i64 8
-  store i32 16, ptr %27, align 8, !tbaa !17
-  %28 = load ptr, ptr %.096, align 8, !tbaa !22
-  %29 = load ptr, ptr %1, align 8, !tbaa !22
-  %30 = load ptr, ptr %2, align 8, !tbaa !22
+  store i32 16, ptr %27, align 8, !tbaa !11
+  %28 = load ptr, ptr %.096, align 8, !tbaa !16
+  %29 = load ptr, ptr %1, align 8, !tbaa !16
+  %30 = load ptr, ptr %2, align 8, !tbaa !16
   tail call void @bn_mul_comba8(ptr noundef %28, ptr noundef %29, ptr noundef %30) #4
   br label %84
 
@@ -886,12 +886,12 @@ define range(i32 0, 2) i32 @bn_mul_fixed_top(ptr noundef %0, ptr noundef readonl
   br i1 %52, label %95, label %53
 
 53:                                               ; preds = %50
-  %54 = load ptr, ptr %.096, align 8, !tbaa !22
-  %55 = load ptr, ptr %1, align 8, !tbaa !22
-  %56 = load ptr, ptr %2, align 8, !tbaa !22
+  %54 = load ptr, ptr %.096, align 8, !tbaa !16
+  %55 = load ptr, ptr %1, align 8, !tbaa !16
+  %56 = load ptr, ptr %2, align 8, !tbaa !16
   %57 = sub nsw i32 %6, %40
   %58 = sub nsw i32 %8, %40
-  %59 = load ptr, ptr %41, align 8, !tbaa !22
+  %59 = load ptr, ptr %41, align 8, !tbaa !16
   tail call void @bn_mul_part_recursive(ptr noundef %54, ptr noundef %55, ptr noundef %56, i32 noundef %40, i32 noundef %57, i32 noundef %58, ptr noundef %59)
   br label %74
 
@@ -907,18 +907,18 @@ define range(i32 0, 2) i32 @bn_mul_fixed_top(ptr noundef %0, ptr noundef readonl
   br i1 %66, label %95, label %67
 
 67:                                               ; preds = %64
-  %68 = load ptr, ptr %.096, align 8, !tbaa !22
-  %69 = load ptr, ptr %1, align 8, !tbaa !22
-  %70 = load ptr, ptr %2, align 8, !tbaa !22
+  %68 = load ptr, ptr %.096, align 8, !tbaa !16
+  %69 = load ptr, ptr %1, align 8, !tbaa !16
+  %70 = load ptr, ptr %2, align 8, !tbaa !16
   %71 = sub nsw i32 %6, %40
   %72 = sub nsw i32 %8, %40
-  %73 = load ptr, ptr %41, align 8, !tbaa !22
+  %73 = load ptr, ptr %41, align 8, !tbaa !16
   tail call void @bn_mul_recursive(ptr noundef %68, ptr noundef %69, ptr noundef %70, i32 noundef %40, i32 noundef %71, i32 noundef %72, ptr noundef %73)
   br label %74
 
 74:                                               ; preds = %67, %53
   %75 = getelementptr inbounds nuw i8, ptr %.096, i64 8
-  store i32 %13, ptr %75, align 8, !tbaa !17
+  store i32 %13, ptr %75, align 8, !tbaa !11
   br label %84
 
 76:                                               ; preds = %31
@@ -928,21 +928,21 @@ define range(i32 0, 2) i32 @bn_mul_fixed_top(ptr noundef %0, ptr noundef readonl
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %.096, i64 8
-  store i32 %13, ptr %80, align 8, !tbaa !17
-  %81 = load ptr, ptr %.096, align 8, !tbaa !22
-  %82 = load ptr, ptr %1, align 8, !tbaa !22
-  %83 = load ptr, ptr %2, align 8, !tbaa !22
+  store i32 %13, ptr %80, align 8, !tbaa !11
+  %81 = load ptr, ptr %.096, align 8, !tbaa !16
+  %82 = load ptr, ptr %1, align 8, !tbaa !16
+  %83 = load ptr, ptr %2, align 8, !tbaa !16
   tail call void @bn_mul_normal(ptr noundef %81, ptr noundef %82, i32 noundef %6, ptr noundef %83, i32 noundef %8)
   br label %84
 
 84:                                               ; preds = %79, %74, %26
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %86 = load i32, ptr %85, align 8, !tbaa !23
+  %86 = load i32, ptr %85, align 8, !tbaa !17
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %88 = load i32, ptr %87, align 8, !tbaa !23
+  %88 = load i32, ptr %87, align 8, !tbaa !17
   %89 = xor i32 %88, %86
   %90 = getelementptr inbounds nuw i8, ptr %.096, i64 16
-  store i32 %89, ptr %90, align 8, !tbaa !23
+  store i32 %89, ptr %90, align 8, !tbaa !17
   %.not = icmp eq ptr %0, %.096
   br i1 %.not, label %94, label %91
 
@@ -1003,19 +1003,13 @@ attributes #4 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !10, !8}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !10, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !10, !8}
-!16 = distinct !{!16, !8}
-!17 = !{!18, !21, i64 8}
-!18 = !{!"bignum_st", !19, i64 0, !21, i64 8, !21, i64 12, !21, i64 16, !21, i64 20}
-!19 = !{!"p1 long", !20, i64 0}
-!20 = !{!"any pointer", !5, i64 0}
-!21 = !{!"int", !5, i64 0}
-!22 = !{!18, !19, i64 0}
-!23 = !{!18, !21, i64 16}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = !{!12, !15, i64 8}
+!12 = !{!"bignum_st", !13, i64 0, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20}
+!13 = !{!"p1 long", !14, i64 0}
+!14 = !{!"any pointer", !5, i64 0}
+!15 = !{!"int", !5, i64 0}
+!16 = !{!12, !13, i64 0}
+!17 = !{!12, !15, i64 16}

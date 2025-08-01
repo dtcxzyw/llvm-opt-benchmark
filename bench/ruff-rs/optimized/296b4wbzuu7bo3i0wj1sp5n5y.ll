@@ -191,7 +191,7 @@ define hidden void @"_ZN93_$LT$bitflags..iter..IterNames$LT$B$GT$$u20$as$u20$cor
   %31 = load i64, ptr %3, align 8, !noundef !3
   %32 = load i64, ptr %4, align 8, !noundef !3
   %33 = icmp ult i64 %32, %31
-  br i1 %33, label %10, label %._crit_edge, !llvm.loop !19
+  br i1 %33, label %10, label %._crit_edge
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -294,5 +294,3 @@ attributes #5 = { nocallback nofree nounwind nonlazybind willreturn memory(argme
 !16 = !{!17}
 !17 = distinct !{!17, !18, !"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE: argument 0"}
 !18 = distinct !{!18, !"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_fmt17h66ba0efc176212deE"}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}

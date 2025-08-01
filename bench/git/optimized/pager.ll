@@ -235,7 +235,7 @@ setup_pager_env.exit:                             ; preds = %29, %.preheader.i
   call void @free(ptr noundef %30) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr @.str.5, ptr %31, align 8, !tbaa !19
+  store ptr @.str.5, ptr %31, align 8, !tbaa !18
   ret void
 }
 
@@ -346,7 +346,7 @@ term_columns.exit:                                ; preds = %git_pager.exit, %22
   %36 = call i32 @setenv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, i32 noundef 1) #12
   call void @child_process_init(ptr noundef nonnull @pager_process) #12
   call void @prepare_pager_args(ptr noundef nonnull @pager_process, ptr noundef nonnull %spec.store.select.i)
-  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @pager_process, i64 80), align 8, !tbaa !23
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @pager_process, i64 80), align 8, !tbaa !22
   %37 = call ptr @strvec_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pager_process, i64 24), ptr noundef nonnull @.str) #12
   %38 = call i32 @start_command(ptr noundef nonnull @pager_process) #12
   %.not6 = icmp eq i32 %38, 0
@@ -359,7 +359,7 @@ term_columns.exit:                                ; preds = %git_pager.exit, %22
 40:                                               ; preds = %35
   %41 = call i32 @dup(i32 noundef 1) #12
   store i32 %41, ptr @old_fd1, align 4, !tbaa !4
-  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pager_process, i64 80), align 8, !tbaa !23
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pager_process, i64 80), align 8, !tbaa !22
   %43 = call i32 @dup2(i32 noundef %42, i32 noundef 1) #12
   %44 = call i32 @isatty(i32 noundef 2) #12
   %.not7 = icmp eq i32 %44, 0
@@ -368,12 +368,12 @@ term_columns.exit:                                ; preds = %git_pager.exit, %22
 45:                                               ; preds = %40
   %46 = call i32 @dup(i32 noundef 2) #12
   store i32 %46, ptr @old_fd2, align 4, !tbaa !4
-  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pager_process, i64 80), align 8, !tbaa !23
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pager_process, i64 80), align 8, !tbaa !22
   %48 = call i32 @dup2(i32 noundef %47, i32 noundef 2) #12
   br label %49
 
 49:                                               ; preds = %45, %40
-  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pager_process, i64 80), align 8, !tbaa !23
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pager_process, i64 80), align 8, !tbaa !22
   %51 = call i32 @close(i32 noundef %50) #12
   call void @sigchain_push_common(ptr noundef nonnull @wait_for_pager_signal) #12
   %.b = load i1, ptr @setup_pager.once, align 4
@@ -621,7 +621,7 @@ define dso_local range(i32 1, 0) i32 @decimal_width(i64 noundef %0) local_unname
   %3 = udiv i64 %.045, 10
   %4 = add nuw nsw i32 %.06, 1
   %5 = icmp ugt i64 %.045, 99
-  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 1, %1 ], [ %4, %.lr.ph ]
@@ -632,13 +632,13 @@ define dso_local range(i32 1, 0) i32 @decimal_width(i64 noundef %0) local_unname
 define dso_local i32 @check_pager_config(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pager_command_config_data, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
-  store ptr %1, ptr %3, align 8, !tbaa !25
+  store ptr %1, ptr %3, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 -1, ptr %4, align 8, !tbaa !27
+  store i32 -1, ptr %4, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr null, ptr %5, align 8, !tbaa !28
+  store ptr null, ptr %5, align 8, !tbaa !27
   call void @read_early_config(ptr noundef %0, ptr noundef nonnull @pager_command_config, ptr noundef nonnull %3) #12
-  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !27
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
 
@@ -647,7 +647,7 @@ define dso_local i32 @check_pager_config(ptr noundef %0, ptr noundef %1) local_u
   br label %8
 
 8:                                                ; preds = %7, %2
-  %9 = load i32, ptr %4, align 8, !tbaa !27
+  %9 = load i32, ptr %4, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
   ret i32 %9
 }
@@ -670,14 +670,14 @@ define internal noundef i32 @pager_command_config(ptr noundef readonly captures(
   %9 = load i8, ptr %.07.i, align 1, !tbaa !13
   %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
   %10 = icmp eq i8 %9, %6
-  br i1 %10, label %5, label %skip_prefix.exit, !llvm.loop !29
+  br i1 %10, label %5, label %skip_prefix.exit, !llvm.loop !28
 
 skip_prefix.exit:                                 ; preds = %5, %7
   %.not.i = icmp eq i8 %6, 0
   br i1 %.not.i, label %11, label %22
 
 11:                                               ; preds = %skip_prefix.exit
-  %12 = load ptr, ptr %3, align 8, !tbaa !25
+  %12 = load ptr, ptr %3, align 8, !tbaa !24
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(1) %12) #13
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %22
@@ -689,14 +689,14 @@ skip_prefix.exit:                                 ; preds = %5, %7
   br i1 %16, label %18, label %19
 
 18:                                               ; preds = %14
-  store i32 %15, ptr %17, align 8, !tbaa !27
+  store i32 %15, ptr %17, align 8, !tbaa !26
   br label %22
 
 19:                                               ; preds = %14
-  store i32 1, ptr %17, align 8, !tbaa !27
+  store i32 1, ptr %17, align 8, !tbaa !26
   %20 = tail call ptr @xstrdup(ptr noundef %1) #12
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %20, ptr %21, align 8, !tbaa !28
+  store ptr %20, ptr %21, align 8, !tbaa !27
   br label %22
 
 22:                                               ; preds = %18, %19, %11, %skip_prefix.exit
@@ -773,17 +773,16 @@ attributes #16 = { cold }
 !13 = !{!6, !6, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"p2 omnipotent char", !10, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !12, i64 64}
-!20 = !{!"child_process", !21, i64 0, !21, i64 24, !5, i64 48, !5, i64 52, !22, i64 56, !12, i64 64, !12, i64 72, !5, i64 80, !5, i64 84, !5, i64 88, !12, i64 96, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 105, !5, i64 105, !10, i64 112}
-!21 = !{!"strvec", !15, i64 0, !22, i64 8, !22, i64 16}
-!22 = !{!"long", !6, i64 0}
-!23 = !{!20, !5, i64 80}
-!24 = distinct !{!24, !17, !18}
-!25 = !{!26, !12, i64 0}
-!26 = !{!"pager_command_config_data", !12, i64 0, !5, i64 8, !12, i64 16}
-!27 = !{!26, !5, i64 8}
-!28 = !{!26, !12, i64 16}
-!29 = distinct !{!29, !17, !18}
+!18 = !{!19, !12, i64 64}
+!19 = !{!"child_process", !20, i64 0, !20, i64 24, !5, i64 48, !5, i64 52, !21, i64 56, !12, i64 64, !12, i64 72, !5, i64 80, !5, i64 84, !5, i64 88, !12, i64 96, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 105, !5, i64 105, !10, i64 112}
+!20 = !{!"strvec", !15, i64 0, !21, i64 8, !21, i64 16}
+!21 = !{!"long", !6, i64 0}
+!22 = !{!19, !5, i64 80}
+!23 = distinct !{!23, !17}
+!24 = !{!25, !12, i64 0}
+!25 = !{!"pager_command_config_data", !12, i64 0, !5, i64 8, !12, i64 16}
+!26 = !{!25, !5, i64 8}
+!27 = !{!25, !12, i64 16}
+!28 = distinct !{!28, !17}

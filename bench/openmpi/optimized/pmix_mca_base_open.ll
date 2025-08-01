@@ -352,7 +352,7 @@ parse_verbose.exit:                               ; preds = %.critedge.i, %.crit
 
 set_defaults.exit:                                ; preds = %.lr.ph.i.i, %122
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  store ptr @.str.23, ptr %131, align 8, !tbaa !37
+  store ptr @.str.23, ptr %131, align 8, !tbaa !36
   %132 = getelementptr inbounds nuw i8, ptr %4, i64 155
   store i8 1, ptr %132, align 1, !tbaa !22
   br label %133
@@ -367,7 +367,7 @@ set_defaults.exit:                                ; preds = %.lr.ph.i.i, %122
 
 139:                                              ; preds = %133
   %140 = call i32 @pmix_output_reopen(i32 noundef 0, ptr noundef nonnull %4) #10
-  %141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_output_info, i64 4), align 4, !tbaa !38
+  %141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_output_info, i64 4), align 4, !tbaa !37
   %142 = icmp sgt i32 %141, 9
   br i1 %142, label %143, label %145
 
@@ -377,7 +377,7 @@ set_defaults.exit:                                ; preds = %.lr.ph.i.i, %122
   br label %145
 
 145:                                              ; preds = %143, %139
-  %146 = load ptr, ptr %135, align 8, !tbaa !40
+  %146 = load ptr, ptr %135, align 8, !tbaa !39
   call void @free(ptr noundef %146) #10
   %147 = call i32 @pmix_mca_base_component_repository_init() #10
   br label %148
@@ -503,10 +503,9 @@ attributes #11 = { nounwind willreturn memory(read) }
 !31 = !{!19, !9, i64 48}
 !32 = !{!28, !5, i64 40}
 !33 = !{!5, !5, i64 0}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!18, !11, i64 128}
-!38 = !{!39, !9, i64 4}
-!39 = !{!"", !15, i64 0, !15, i64 1, !9, i64 4, !15, i64 8, !9, i64 12, !11, i64 16, !11, i64 24, !9, i64 32, !11, i64 40, !9, i64 48, !15, i64 52, !15, i64 53, !15, i64 54, !15, i64 55, !11, i64 56, !9, i64 64, !9, i64 68}
-!40 = !{!18, !11, i64 136}
+!36 = !{!18, !11, i64 128}
+!37 = !{!38, !9, i64 4}
+!38 = !{!"", !15, i64 0, !15, i64 1, !9, i64 4, !15, i64 8, !9, i64 12, !11, i64 16, !11, i64 24, !9, i64 32, !11, i64 40, !9, i64 48, !15, i64 52, !15, i64 53, !15, i64 54, !15, i64 55, !11, i64 56, !9, i64 64, !9, i64 68}
+!39 = !{!18, !11, i64 136}

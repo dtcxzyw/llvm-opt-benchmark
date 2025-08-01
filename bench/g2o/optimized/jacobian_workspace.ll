@@ -74,7 +74,7 @@ _ZSt8_DestroyIPN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_EvT_S4_RSaIT0_E.exit.i
 
 8:                                                ; preds = %_ZSt8_DestroyIPN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_EvT_S4_RSaIT0_E.exit.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
@@ -113,7 +113,7 @@ define noundef zeroext i1 @_ZN3g2o17JacobianWorkspace8allocateEv(ptr noundef non
 19:                                               ; preds = %9
   %20 = sub nuw nsw i64 %10, %17
   tail call void @_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %20)
-  %.pre = load ptr, ptr %11, align 8, !tbaa !25
+  %.pre = load ptr, ptr %11, align 8, !tbaa !24
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit
 
 21:                                               ; preds = %9
@@ -139,7 +139,7 @@ _ZSt8_DestroyIPN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit: ; preds = %19, %21, %23, %_ZSt8_DestroyIPN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_EvT_S4_RSaIT0_E.exit.i.i
   %27 = phi ptr [ %.pre, %19 ], [ %12, %21 ], [ %12, %23 ], [ %24, %_ZSt8_DestroyIPN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_EvT_S4_RSaIT0_E.exit.i.i ]
-  %28 = load ptr, ptr %0, align 8, !tbaa !25
+  %28 = load ptr, ptr %0, align 8, !tbaa !24
   %.not8 = icmp eq ptr %28, %27
   br i1 %.not8, label %.loopexit, label %.lr.ph
 
@@ -148,7 +148,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit: ; p
   %29 = load i32, ptr %6, align 4, !tbaa !14
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !26
+  %32 = load i64, ptr %31, align 8, !tbaa !25
   %.not.i.i3 = icmp eq i64 %32, %30
   br i1 %.not.i.i3, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit, label %33
 
@@ -166,7 +166,7 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i: ; preds = %33
 
 39:                                               ; preds = %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i
   %40 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %40, align 8, !tbaa !27
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %40, align 8, !tbaa !26
   tail call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #26
   unreachable
 
@@ -176,21 +176,21 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i: ; preds = %33
   br label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: ; preds = %.lr.ph, %.sink.split.i.i
-  store i64 %30, ptr %31, align 8, !tbaa !26
+  store i64 %30, ptr %31, align 8, !tbaa !25
   %41 = icmp slt i32 %29, 1
   br i1 %41, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit
   %42 = load ptr, ptr %.sroa.04.09, align 8, !tbaa !17
   %43 = shl nuw nsw i64 %30, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %42, i8 0, i64 %43, i1 false), !tbaa !29
+  tail call void @llvm.memset.p0.i64(ptr align 8 %42, i8 0, i64 %43, i1 false), !tbaa !28
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.04.09, i64 16
-  %45 = load ptr, ptr %11, align 8, !tbaa !25
+  %45 = load ptr, ptr %11, align 8, !tbaa !24
   %.not = icmp eq ptr %44, %45
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit, %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit, %1, %5
   %.0 = phi i1 [ false, %5 ], [ false, %1 ], [ true, %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE6resizeEm.exit ], [ true, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit ]
@@ -199,9 +199,9 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; pred
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3g2o17JacobianWorkspace7setZeroEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !25
+  %2 = load ptr, ptr %0, align 8, !tbaa !24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !25
+  %4 = load ptr, ptr %3, align 8, !tbaa !24
   %.not7 = icmp eq ptr %2, %4
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -211,20 +211,20 @@ define void @_ZN3g2o17JacobianWorkspace7setZeroEv(ptr noundef nonnull readonly a
 .lr.ph:                                           ; preds = %1, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit
   %.sroa.04.08 = phi ptr [ %10, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit ], [ %2, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !26
+  %6 = load i64, ptr %5, align 8, !tbaa !25
   %7 = icmp slt i64 %6, 1
   br i1 %7, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit, label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i: ; preds = %.lr.ph
   %8 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !17
   %9 = shl i64 %6, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %9, i1 false), !tbaa !29
+  tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %9, i1 false), !tbaa !28
   br label %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit
 
 _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit: ; preds = %.lr.ph, %_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantERKd.exit.loopexit.i
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 16
   %.not = icmp eq ptr %10, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -240,25 +240,25 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeEb(ptr
 
 7:                                                ; preds = %4, %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %9 = load i32, ptr %8, align 8, !tbaa !33
+  %9 = load i32, ptr %8, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !61
-  %13 = load ptr, ptr %10, align 8, !tbaa !62
+  %12 = load ptr, ptr %11, align 8, !tbaa !59
+  %13 = load ptr, ptr %10, align 8, !tbaa !60
   %.not25.i = icmp eq ptr %13, %12
   br i1 %.not25.i, label %_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.027.i = phi i32 [ %.sroa.speculated.i, %.lr.ph.i ], [ -1, %7 ]
   %.sroa.012.026.i = phi ptr [ %18, %.lr.ph.i ], [ %13, %7 ]
-  %14 = load ptr, ptr %.sroa.012.026.i, align 8, !tbaa !63
+  %14 = load ptr, ptr %.sroa.012.026.i, align 8, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  %16 = load i32, ptr %15, align 8, !tbaa !65
+  %16 = load i32, ptr %15, align 8, !tbaa !63
   %17 = mul nsw i32 %16, %9
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %17, i32 %.027.i)
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.012.026.i, i64 8
   %.not.i = icmp eq ptr %18, %12
-  br i1 %.not.i, label %_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit, label %.lr.ph.i, !llvm.loop !81
+  br i1 %.not.i, label %_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit, label %.lr.ph.i
 
 _ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit: ; preds = %.lr.ph.i, %7
   %.0.lcssa.i = phi i32 [ -1, %7 ], [ %.sroa.speculated.i, %.lr.ph.i ]
@@ -268,11 +268,11 @@ _ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit: ; preds = %
   %22 = lshr exact i64 %21, 3
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load i32, ptr %24, align 8, !tbaa !82
+  %25 = load i32, ptr %24, align 8, !tbaa !79
   %.sroa.speculated22.i = tail call i32 @llvm.smax.i32(i32 %25, i32 %23)
   store i32 %.sroa.speculated22.i, ptr %24, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %27 = load i32, ptr %26, align 4, !tbaa !82
+  %27 = load i32, ptr %26, align 4, !tbaa !79
   %.sroa.speculated17.i = tail call i32 @llvm.smax.i32(i32 %.0.lcssa.i, i32 %27)
   store i32 %.sroa.speculated17.i, ptr %26, align 4, !tbaa !14
   ret void
@@ -281,11 +281,11 @@ _ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit: ; preds = %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %4 = load i32, ptr %3, align 8, !tbaa !33
+  %4 = load i32, ptr %3, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !61
-  %8 = load ptr, ptr %5, align 8, !tbaa !62
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %8 = load ptr, ptr %5, align 8, !tbaa !60
   %.not25 = icmp eq ptr %8, %7
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
@@ -297,11 +297,11 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE(ptr 
   %12 = lshr exact i64 %11, 3
   %13 = trunc i64 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i32, ptr %14, align 8, !tbaa !82
+  %15 = load i32, ptr %14, align 8, !tbaa !79
   %.sroa.speculated22 = tail call i32 @llvm.smax.i32(i32 %15, i32 %13)
   store i32 %.sroa.speculated22, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %17 = load i32, ptr %16, align 4, !tbaa !82
+  %17 = load i32, ptr %16, align 4, !tbaa !79
   %.sroa.speculated17 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa, i32 %17)
   store i32 %.sroa.speculated17, ptr %16, align 4, !tbaa !14
   ret void
@@ -309,14 +309,14 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE(ptr 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.027 = phi i32 [ %.sroa.speculated, %.lr.ph ], [ -1, %2 ]
   %.sroa.012.026 = phi ptr [ %22, %.lr.ph ], [ %8, %2 ]
-  %18 = load ptr, ptr %.sroa.012.026, align 8, !tbaa !63
+  %18 = load ptr, ptr %.sroa.012.026, align 8, !tbaa !61
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  %20 = load i32, ptr %19, align 8, !tbaa !65
+  %20 = load i32, ptr %19, align 8, !tbaa !63
   %21 = mul nsw i32 %20, %4
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %21, i32 %.027)
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.026, i64 8
   %.not = icmp eq ptr %22, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
@@ -332,7 +332,7 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeERKNS_16OptimizableGraphEb(pt
 
 7:                                                ; preds = %4, %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %9 = load ptr, ptr %8, align 8, !tbaa !83
+  %9 = load ptr, ptr %8, align 8, !tbaa !80
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.not7 = icmp eq ptr %9, %10
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -340,8 +340,8 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeERKNS_16OptimizableGraphEb(pt
 .lr.ph:                                           ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %.promoted = load i32, ptr %11, align 8, !tbaa !82
-  %.promoted10 = load i32, ptr %12, align 4, !tbaa !82
+  %.promoted = load i32, ptr %11, align 8, !tbaa !79
+  %.promoted10 = load i32, ptr %12, align 4, !tbaa !79
   br label %13
 
 ._crit_edge:                                      ; preds = %_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit, %7
@@ -352,27 +352,27 @@ define void @_ZN3g2o17JacobianWorkspace10updateSizeERKNS_16OptimizableGraphEb(pt
   %.sroa.speculated22.i9 = phi i32 [ %.promoted, %.lr.ph ], [ %.sroa.speculated22.i, %_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit ]
   %.sroa.04.08 = phi ptr [ %9, %.lr.ph ], [ %32, %_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit ]
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 32
-  %15 = load ptr, ptr %14, align 8, !tbaa !84
+  %15 = load ptr, ptr %14, align 8, !tbaa !81
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %17 = load i32, ptr %16, align 8, !tbaa !33
+  %17 = load i32, ptr %16, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !61
-  %21 = load ptr, ptr %18, align 8, !tbaa !62
+  %20 = load ptr, ptr %19, align 8, !tbaa !59
+  %21 = load ptr, ptr %18, align 8, !tbaa !60
   %.not25.i = icmp eq ptr %21, %20
   br i1 %.not25.i, label %_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %.027.i = phi i32 [ %.sroa.speculated.i, %.lr.ph.i ], [ -1, %13 ]
   %.sroa.012.026.i = phi ptr [ %26, %.lr.ph.i ], [ %21, %13 ]
-  %22 = load ptr, ptr %.sroa.012.026.i, align 8, !tbaa !63
+  %22 = load ptr, ptr %.sroa.012.026.i, align 8, !tbaa !61
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 104
-  %24 = load i32, ptr %23, align 8, !tbaa !65
+  %24 = load i32, ptr %23, align 8, !tbaa !63
   %25 = mul nsw i32 %24, %17
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %25, i32 %.027.i)
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.012.026.i, i64 8
   %.not.i = icmp eq ptr %26, %20
-  br i1 %.not.i, label %_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit, label %.lr.ph.i, !llvm.loop !81
+  br i1 %.not.i, label %_ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit, label %.lr.ph.i
 
 _ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit: ; preds = %.lr.ph.i, %13
   %.0.lcssa.i = phi i32 [ -1, %13 ], [ %.sroa.speculated.i, %.lr.ph.i ]
@@ -387,7 +387,7 @@ _ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit: ; preds = %
   store i32 %.sroa.speculated17.i, ptr %12, align 4, !tbaa !14
   %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.08) #27
   %.not = icmp eq ptr %32, %10
-  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !86
+  br i1 %.not, label %._crit_edge, label %13, !llvm.loop !83
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -429,7 +429,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !24
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 4
@@ -471,26 +471,26 @@ _ZNKSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE12_M_check_lenEmPK
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i ], [ %26, %_ZNKSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
-  %29 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !92, !alias.scope !90, !noalias !87
-  store ptr %29, ptr %.012.i.i.i, align 8, !tbaa !17, !alias.scope !87, !noalias !90
+  %29 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !89, !alias.scope !87, !noalias !84
+  store ptr %29, ptr %.012.i.i.i, align 8, !tbaa !17, !alias.scope !84, !noalias !87
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !93, !alias.scope !90, !noalias !87
-  store i64 %32, ptr %30, align 8, !tbaa !26, !alias.scope !87, !noalias !90
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i8 0, i64 16, i1 false), !alias.scope !90, !noalias !87
+  %32 = load i64, ptr %31, align 8, !tbaa !90, !alias.scope !87, !noalias !84
+  store i64 %32, ptr %30, align 8, !tbaa !25, !alias.scope !84, !noalias !87
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i, i8 0, i64 16, i1 false), !alias.scope !87, !noalias !84
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %33, %5
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !94
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !91
 
 _ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit
   %.not.i36 = icmp eq ptr %6, null
   br i1 %.not.i36, label %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit37, label %35
 
 35:                                               ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
-  %36 = load ptr, ptr %11, align 8, !tbaa !24
+  %36 = load ptr, ptr %11, align 8, !tbaa !23
   %37 = ptrtoint ptr %36 to i64
   %38 = sub i64 %37, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %38) #24
@@ -501,7 +501,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE13_M_dealloc
   %39 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %27, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !16
   %40 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %26, i64 %24
-  store ptr %40, ptr %11, align 8, !tbaa !24
+  store ptr %40, ptr %11, align 8, !tbaa !23
   br label %41
 
 41:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEEmS2_ET_S4_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit37, %2
@@ -609,77 +609,74 @@ attributes #28 = { builtin allocsize(0) }
 !18 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EEE", !19, i64 0, !20, i64 8}
 !19 = !{!"p1 double", !10, i64 0}
 !20 = !{!"long", !11, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}
-!24 = !{!8, !9, i64 16}
-!25 = !{!9, !9, i64 0}
-!26 = !{!18, !20, i64 8}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"vtable pointer", !12, i64 0}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"double", !11, i64 0}
-!31 = distinct !{!31, !22, !23}
-!32 = distinct !{!32, !23}
-!33 = !{!34, !13, i64 56}
-!34 = !{!"_ZTSN3g2o16OptimizableGraph4EdgeE", !35, i64 0, !42, i64 40, !13, i64 56, !13, i64 60, !44, i64 64, !45, i64 72, !46, i64 80, !51, i64 104, !56, i64 128, !46, i64 152}
-!35 = !{!"_ZTSN3g2o10HyperGraph4EdgeE", !36, i64 0, !37, i64 8, !13, i64 32}
-!36 = !{!"_ZTSN3g2o10HyperGraph17HyperGraphElementE"}
-!37 = !{!"_ZTSSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE", !38, i64 0}
-!38 = !{!"_ZTSSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE", !39, i64 0}
-!39 = !{!"_ZTSNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE12_Vector_implE", !40, i64 0}
-!40 = !{!"_ZTSNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE17_Vector_impl_dataE", !41, i64 0, !41, i64 8, !41, i64 16}
-!41 = !{!"p2 _ZTSN3g2o10HyperGraph6VertexE", !10, i64 0}
-!42 = !{!"_ZTSN3g2o10HyperGraph13DataContainerE", !43, i64 8}
-!43 = !{!"p1 _ZTSN3g2o10HyperGraph4DataE", !10, i64 0}
-!44 = !{!"p1 _ZTSN3g2o12RobustKernelE", !10, i64 0}
-!45 = !{!"long long", !11, i64 0}
-!46 = !{!"_ZTSSt6vectorIiSaIiEE", !47, i64 0}
-!47 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !48, i64 0}
-!48 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !49, i64 0}
-!49 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !50, i64 0, !50, i64 8, !50, i64 16}
-!50 = !{!"p1 int", !10, i64 0}
-!51 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !52, i64 0}
-!52 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !53, i64 0}
-!53 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !54, i64 0}
-!54 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !55, i64 0, !55, i64 8, !55, i64 16}
-!55 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !10, i64 0}
-!56 = !{!"_ZTSSt6vectorIPPN3g2o9ParameterESaIS3_EE", !57, i64 0}
-!57 = !{!"_ZTSSt12_Vector_baseIPPN3g2o9ParameterESaIS3_EE", !58, i64 0}
-!58 = !{!"_ZTSNSt12_Vector_baseIPPN3g2o9ParameterESaIS3_EE12_Vector_implE", !59, i64 0}
-!59 = !{!"_ZTSNSt12_Vector_baseIPPN3g2o9ParameterESaIS3_EE17_Vector_impl_dataE", !60, i64 0, !60, i64 8, !60, i64 16}
-!60 = !{!"p3 _ZTSN3g2o9ParameterE", !10, i64 0}
-!61 = !{!40, !41, i64 8}
-!62 = !{!40, !41, i64 0}
-!63 = !{!64, !64, i64 0}
-!64 = !{!"p1 _ZTSN3g2o10HyperGraph6VertexE", !10, i64 0}
-!65 = !{!66, !13, i64 104}
-!66 = !{!"_ZTSN3g2o16OptimizableGraph6VertexE", !67, i64 0, !42, i64 64, !77, i64 80, !43, i64 88, !13, i64 96, !78, i64 100, !78, i64 101, !13, i64 104, !13, i64 108, !79, i64 112, !80, i64 120}
-!67 = !{!"_ZTSN3g2o10HyperGraph6VertexE", !36, i64 0, !13, i64 8, !68, i64 16}
-!68 = !{!"_ZTSSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE", !69, i64 0}
-!69 = !{!"_ZTSSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE", !70, i64 0}
-!70 = !{!"_ZTSNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EEE", !71, i64 0, !73, i64 8}
-!71 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIPN3g2o10HyperGraph4EdgeEEE", !72, i64 0}
-!72 = !{!"_ZTSSt4lessIPN3g2o10HyperGraph4EdgeEE"}
-!73 = !{!"_ZTSSt15_Rb_tree_header", !74, i64 0, !20, i64 32}
-!74 = !{!"_ZTSSt18_Rb_tree_node_base", !75, i64 0, !76, i64 8, !76, i64 16, !76, i64 24}
-!75 = !{!"_ZTSSt14_Rb_tree_color", !11, i64 0}
-!76 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !10, i64 0}
-!77 = !{!"p1 _ZTSN3g2o16OptimizableGraphE", !10, i64 0}
-!78 = !{!"bool", !11, i64 0}
-!79 = !{!"_ZTSN3g2o11OpenMPMutexE"}
-!80 = !{!"p1 _ZTSN3g2o14CacheContainerE", !10, i64 0}
-!81 = distinct !{!81, !23}
-!82 = !{!13, !13, i64 0}
-!83 = !{!73, !76, i64 16}
-!84 = !{!85, !85, i64 0}
-!85 = !{!"p1 _ZTSN3g2o10HyperGraph4EdgeE", !10, i64 0}
-!86 = distinct !{!86, !22, !23}
+!23 = !{!8, !9, i64 16}
+!24 = !{!9, !9, i64 0}
+!25 = !{!18, !20, i64 8}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"vtable pointer", !12, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"double", !11, i64 0}
+!30 = distinct !{!30, !22}
+!31 = !{!32, !13, i64 56}
+!32 = !{!"_ZTSN3g2o16OptimizableGraph4EdgeE", !33, i64 0, !40, i64 40, !13, i64 56, !13, i64 60, !42, i64 64, !43, i64 72, !44, i64 80, !49, i64 104, !54, i64 128, !44, i64 152}
+!33 = !{!"_ZTSN3g2o10HyperGraph4EdgeE", !34, i64 0, !35, i64 8, !13, i64 32}
+!34 = !{!"_ZTSN3g2o10HyperGraph17HyperGraphElementE"}
+!35 = !{!"_ZTSSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE", !36, i64 0}
+!36 = !{!"_ZTSSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE", !37, i64 0}
+!37 = !{!"_ZTSNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE12_Vector_implE", !38, i64 0}
+!38 = !{!"_ZTSNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE17_Vector_impl_dataE", !39, i64 0, !39, i64 8, !39, i64 16}
+!39 = !{!"p2 _ZTSN3g2o10HyperGraph6VertexE", !10, i64 0}
+!40 = !{!"_ZTSN3g2o10HyperGraph13DataContainerE", !41, i64 8}
+!41 = !{!"p1 _ZTSN3g2o10HyperGraph4DataE", !10, i64 0}
+!42 = !{!"p1 _ZTSN3g2o12RobustKernelE", !10, i64 0}
+!43 = !{!"long long", !11, i64 0}
+!44 = !{!"_ZTSSt6vectorIiSaIiEE", !45, i64 0}
+!45 = !{!"_ZTSSt12_Vector_baseIiSaIiEE", !46, i64 0}
+!46 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE12_Vector_implE", !47, i64 0}
+!47 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !48, i64 0, !48, i64 8, !48, i64 16}
+!48 = !{!"p1 int", !10, i64 0}
+!49 = !{!"_ZTSSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !50, i64 0}
+!50 = !{!"_ZTSSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE", !51, i64 0}
+!51 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implE", !52, i64 0}
+!52 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !53, i64 0, !53, i64 8, !53, i64 16}
+!53 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !10, i64 0}
+!54 = !{!"_ZTSSt6vectorIPPN3g2o9ParameterESaIS3_EE", !55, i64 0}
+!55 = !{!"_ZTSSt12_Vector_baseIPPN3g2o9ParameterESaIS3_EE", !56, i64 0}
+!56 = !{!"_ZTSNSt12_Vector_baseIPPN3g2o9ParameterESaIS3_EE12_Vector_implE", !57, i64 0}
+!57 = !{!"_ZTSNSt12_Vector_baseIPPN3g2o9ParameterESaIS3_EE17_Vector_impl_dataE", !58, i64 0, !58, i64 8, !58, i64 16}
+!58 = !{!"p3 _ZTSN3g2o9ParameterE", !10, i64 0}
+!59 = !{!38, !39, i64 8}
+!60 = !{!38, !39, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTSN3g2o10HyperGraph6VertexE", !10, i64 0}
+!63 = !{!64, !13, i64 104}
+!64 = !{!"_ZTSN3g2o16OptimizableGraph6VertexE", !65, i64 0, !40, i64 64, !75, i64 80, !41, i64 88, !13, i64 96, !76, i64 100, !76, i64 101, !13, i64 104, !13, i64 108, !77, i64 112, !78, i64 120}
+!65 = !{!"_ZTSN3g2o10HyperGraph6VertexE", !34, i64 0, !13, i64 8, !66, i64 16}
+!66 = !{!"_ZTSSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE", !67, i64 0}
+!67 = !{!"_ZTSSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE", !68, i64 0}
+!68 = !{!"_ZTSNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EEE", !69, i64 0, !71, i64 8}
+!69 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIPN3g2o10HyperGraph4EdgeEEE", !70, i64 0}
+!70 = !{!"_ZTSSt4lessIPN3g2o10HyperGraph4EdgeEE"}
+!71 = !{!"_ZTSSt15_Rb_tree_header", !72, i64 0, !20, i64 32}
+!72 = !{!"_ZTSSt18_Rb_tree_node_base", !73, i64 0, !74, i64 8, !74, i64 16, !74, i64 24}
+!73 = !{!"_ZTSSt14_Rb_tree_color", !11, i64 0}
+!74 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !10, i64 0}
+!75 = !{!"p1 _ZTSN3g2o16OptimizableGraphE", !10, i64 0}
+!76 = !{!"bool", !11, i64 0}
+!77 = !{!"_ZTSN3g2o11OpenMPMutexE"}
+!78 = !{!"p1 _ZTSN3g2o14CacheContainerE", !10, i64 0}
+!79 = !{!13, !13, i64 0}
+!80 = !{!71, !74, i64 16}
+!81 = !{!82, !82, i64 0}
+!82 = !{!"p1 _ZTSN3g2o10HyperGraph4EdgeE", !10, i64 0}
+!83 = distinct !{!83, !22}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZSt19__relocate_object_aIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!86 = distinct !{!86, !"_ZSt19__relocate_object_aIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_SaIS2_EEvPT_PT0_RT1_"}
 !87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZSt19__relocate_object_aIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!89 = distinct !{!89, !"_ZSt19__relocate_object_aIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_SaIS2_EEvPT_PT0_RT1_"}
-!90 = !{!91}
-!91 = distinct !{!91, !89, !"_ZSt19__relocate_object_aIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!92 = !{!19, !19, i64 0}
-!93 = !{!20, !20, i64 0}
-!94 = distinct !{!94, !22, !23}
+!88 = distinct !{!88, !86, !"_ZSt19__relocate_object_aIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!89 = !{!19, !19, i64 0}
+!90 = !{!20, !20, i64 0}
+!91 = distinct !{!91, !22}

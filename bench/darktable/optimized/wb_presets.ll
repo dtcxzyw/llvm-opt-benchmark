@@ -538,7 +538,7 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   call void @json_reader_end_element(ptr noundef %40) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %199, label %204, !llvm.loop !60
+  br i1 %exitcond.not, label %199, label %204
 
 213:                                              ; preds = %199
   %214 = add nsw i32 %200, 2001
@@ -573,21 +573,21 @@ define void @dt_wb_presets_init(ptr noundef %0) local_unnamed_addr #1 {
   call void @json_reader_end_element(ptr noundef %40) #11
   %229 = add nuw nsw i32 %.087193, 1
   %exitcond226.not = icmp eq i32 %229, %151
-  br i1 %exitcond226.not, label %._crit_edge, label %158, !llvm.loop !62
+  br i1 %exitcond226.not, label %._crit_edge, label %158
 
 ._crit_edge:                                      ; preds = %228, %155
   call void @json_reader_end_member(ptr noundef %40) #11
   call void @json_reader_end_element(ptr noundef %40) #11
   %230 = add nuw nsw i32 %.097194, 1
   %exitcond227.not = icmp eq i32 %230, %108
-  br i1 %exitcond227.not, label %._crit_edge197, label %115, !llvm.loop !63
+  br i1 %exitcond227.not, label %._crit_edge197, label %115
 
 ._crit_edge197:                                   ; preds = %._crit_edge, %112
   call void @json_reader_end_member(ptr noundef %40) #11
   call void @json_reader_end_element(ptr noundef %40) #11
   %231 = add nuw nsw i32 %.098198, 1
   %exitcond228.not = icmp eq i32 %231, %67
-  br i1 %exitcond228.not, label %._crit_edge201, label %.lr.ph200, !llvm.loop !64
+  br i1 %exitcond228.not, label %._crit_edge201, label %.lr.ph200
 
 ._crit_edge201:                                   ; preds = %._crit_edge197, %71
   %232 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !14
@@ -745,7 +745,7 @@ define void @dt_wb_preset_interpolate(ptr noundef readonly captures(none) %0, pt
   store double %34, ptr %35, align 8, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %25, label %26, !llvm.loop !65
+  br i1 %exitcond.not, label %25, label %26
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
@@ -825,9 +825,3 @@ attributes #13 = { cold noreturn nounwind }
 !57 = !{!55, !42, i64 16}
 !58 = !{!55, !7, i64 24}
 !59 = !{!44, !44, i64 0}
-!60 = distinct !{!60, !61}
-!61 = !{!"llvm.loop.estimated_trip_count"}
-!62 = distinct !{!62, !61}
-!63 = distinct !{!63, !61}
-!64 = distinct !{!64, !61}
-!65 = distinct !{!65, !61}

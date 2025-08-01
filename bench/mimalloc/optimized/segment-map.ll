@@ -130,7 +130,7 @@ mi_segment_map_index_of.exit:                     ; preds = %8
   %25 = cmpxchg weak ptr %19, i64 %.0, i64 %24 release monotonic, align 8
   %26 = extractvalue { i64, i1 } %25, 1
   %27 = extractvalue { i64, i1 } %25, 0
-  br i1 %26, label %mi_segment_map_index_of.exit.thread, label %23, !llvm.loop !21
+  br i1 %26, label %mi_segment_map_index_of.exit.thread, label %23, !llvm.loop !20
 
 mi_segment_map_index_of.exit.thread:              ; preds = %23, %8, %5, %1
   ret void
@@ -206,7 +206,7 @@ define hidden void @_mi_segment_map_unsafe_destroy() local_unnamed_addr #0 {
 7:                                                ; preds = %5, %2
   %8 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %8, 196
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !22
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !21
 }
 
 declare void @_mi_os_free(ptr noundef, i64 noundef, ptr noundef byval(%struct.mi_memid_s) align 8) local_unnamed_addr #3
@@ -246,8 +246,7 @@ attributes #6 = { nounwind "no-builtin-malloc" }
 !15 = !{!6, !6, i64 0}
 !16 = !{!8, !8, i64 0}
 !17 = !{!9, !9, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}

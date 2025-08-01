@@ -60,7 +60,7 @@ define hidden noundef zeroext i1 @_ZNK8nanobind17intrusive_counter7dec_refEv(ptr
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !9
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str, ptr noundef nonnull %0) #6
   tail call void @abort() #7
   unreachable
@@ -70,7 +70,7 @@ define hidden noundef zeroext i1 @_ZNK8nanobind17intrusive_counter7dec_refEv(ptr
   %12 = cmpxchg weak ptr %0, i64 %.010, i64 %11 monotonic monotonic, align 8
   %13 = extractvalue { i64, i1 } %12, 1
   %14 = extractvalue { i64, i1 } %12, 0
-  br i1 %13, label %15, label %3, !llvm.loop !12
+  br i1 %13, label %15, label %3, !llvm.loop !11
 
 15:                                               ; preds = %10
   %16 = icmp eq i64 %.010, 3
@@ -119,10 +119,10 @@ define hidden void @_ZN8nanobind17intrusive_counter11set_self_pyEP7_object(ptr n
   tail call void %8(ptr noundef %1) #5
   %9 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %9, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 10:                                               ; preds = %2
-  %11 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !9
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #6
   tail call void @abort() #7
   unreachable
@@ -156,10 +156,9 @@ attributes #7 = { noreturn nounwind optsize }
 !4 = !{!"any pointer", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"p1 _ZTS8_IO_FILE", !4, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS8_IO_FILE", !4, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

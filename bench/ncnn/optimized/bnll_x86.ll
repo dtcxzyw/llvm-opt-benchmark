@@ -233,7 +233,7 @@ define internal void @_ZNK4ncnn8BNLL_x8615forward_inplaceERNS_3MatERKNS_6OptionE
 .lr.ph131:                                        ; preds = %.preheader, %122
   %.1130 = phi ptr [ %123, %122 ], [ %.039.lcssa, %.preheader ]
   %.141129 = phi i32 [ %124, %122 ], [ %.040.lcssa, %.preheader ]
-  %110 = load float, ptr %.1130, align 4, !tbaa !47
+  %110 = load float, ptr %.1130, align 4, !tbaa !46
   %111 = fcmp fast ogt float %110, 0.000000e+00
   br i1 %111, label %112, label %118
 
@@ -253,17 +253,17 @@ define internal void @_ZNK4ncnn8BNLL_x8615forward_inplaceERNS_3MatERKNS_6OptionE
 
 122:                                              ; preds = %118, %112
   %storemerge = phi float [ %121, %118 ], [ %117, %112 ]
-  store float %storemerge, ptr %.1130, align 4, !tbaa !47
+  store float %storemerge, ptr %.1130, align 4, !tbaa !46
   %123 = getelementptr inbounds nuw i8, ptr %.1130, i64 4
   %124 = add nuw nsw i32 %.141129, 1
   %exitcond.not = icmp eq i32 %124, %30
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph131, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph131, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %122, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond139.not = icmp eq i32 %21, %lftr.wideiv
-  br i1 %exitcond139.not, label %._crit_edge134, label %.noexc, !llvm.loop !50
+  br i1 %exitcond139.not, label %._crit_edge134, label %.noexc
 
 ._crit_edge134:                                   ; preds = %._crit_edge, %12
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %14)
@@ -301,7 +301,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #7
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare !callback !51 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
+declare !callback !49 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #9
@@ -381,12 +381,10 @@ attributes #12 = { builtin nounwind }
 !41 = !{!5, !10, i64 64}
 !42 = !{!5, !10, i64 16}
 !43 = !{!7, !7, i64 0}
-!44 = distinct !{!44, !45, !46}
+!44 = distinct !{!44, !45}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"float", !7, i64 0}
-!49 = distinct !{!49, !45, !46}
-!50 = distinct !{!50, !46}
-!51 = !{!52}
-!52 = !{i64 2, i64 -1, i64 -1, i1 true}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"float", !7, i64 0}
+!48 = distinct !{!48, !45}
+!49 = !{!50}
+!50 = !{i64 2, i64 -1, i64 -1, i1 true}

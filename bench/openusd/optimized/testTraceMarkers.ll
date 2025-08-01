@@ -2561,7 +2561,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadData12EmplaceEv
   %44 = tail call ptr @__errno_location() #20
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, 4
-  br i1 %46, label %40, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !8
+  br i1 %46, label %40, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, !llvm.loop !7
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %40, %43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -2629,7 +2629,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadData12EmplaceEv
   %78 = tail call ptr @__errno_location() #20
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, 4
-  br i1 %80, label %74, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit15, !llvm.loop !8
+  br i1 %80, label %74, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit15, !llvm.loop !7
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit15: ; preds = %74, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -2697,7 +2697,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadData12EmplaceEv
   %112 = tail call ptr @__errno_location() #20
   %113 = load i32, ptr %112, align 4
   %114 = icmp eq i32 %113, 4
-  br i1 %114, label %108, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit20, !llvm.loop !8
+  br i1 %114, label %108, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit20, !llvm.loop !7
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit20: ; preds = %108, %111
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -2763,7 +2763,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector11MarkerEventINS0_15Default
   %144 = tail call ptr @__errno_location() #20
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, 4
-  br i1 %146, label %140, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit23, !llvm.loop !8
+  br i1 %146, label %140, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit23, !llvm.loop !7
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit23: ; preds = %140, %143
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -2829,7 +2829,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector11MarkerEventINS0_15Default
   %176 = tail call ptr @__errno_location() #20
   %177 = load i32, ptr %176, align 4
   %178 = icmp eq i32 %177, 4
-  br i1 %178, label %172, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit33, !llvm.loop !8
+  br i1 %178, label %172, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit33, !llvm.loop !7
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit33: ; preds = %172, %175
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -2895,7 +2895,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector11MarkerEventINS0_15Default
   %208 = tail call ptr @__errno_location() #20
   %209 = load i32, ptr %208, align 4
   %210 = icmp eq i32 %209, 4
-  br i1 %210, label %204, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit43, !llvm.loop !8
+  br i1 %210, label %204, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit43, !llvm.loop !7
 
 _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000EEEEvRKNSt6chrono8durationIT_T0_EE.exit43: ; preds = %204, %207
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
@@ -3009,7 +3009,7 @@ define internal fastcc void @_ZL15GetTimeOfMarkerRKNSt7__cxx1112basic_stringIcSt
   %16 = ptrtoint ptr %15 to i64
   %17 = xor i64 %16, %11
   %18 = icmp ult i64 %17, 8
-  br i1 %18, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, label %12, !llvm.loop !9
+  br i1 %18, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, label %12, !llvm.loop !8
 
 19:                                               ; preds = %3
   %20 = load ptr, ptr %5, align 8
@@ -3047,7 +3047,7 @@ define internal fastcc void @_ZL15GetTimeOfMarkerRKNSt7__cxx1112basic_stringIcSt
   %47 = xor i64 %46, %21
   %48 = icmp ult i64 %47, 8
   %49 = select i1 %44, i1 %48, i1 false
-  br i1 %49, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !10
+  br i1 %49, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 .lr.ph.i.i.i.i:                                   ; preds = %31, %42
   %.018.i.i.i.i = phi ptr [ %50, %42 ], [ %32, %31 ]
@@ -3060,10 +3060,10 @@ define internal fastcc void @_ZL15GetTimeOfMarkerRKNSt7__cxx1112basic_stringIcSt
   %53 = load i64, ptr %52, align 8
   %54 = urem i64 %53, %26
   %.not17.i.i.i.i = icmp eq i64 %54, %27
-  br i1 %.not17.i.i.i.i, label %42, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !10
+  br i1 %.not17.i.i.i.i, label %42, label %..loopexit_crit_edge21.i.i.i.i, !llvm.loop !9
 
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %51
-  br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, !llvm.loop !10
+  br label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit, !llvm.loop !9
 
 _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorISt4pairImNS0_13TraceThreadIdEESaIS5_EENS1_11HashFunctorESt8equal_toIS1_ESaIS3_IKS1_S7_EEE4findERSB_.exit: ; preds = %.lr.ph.i.i.i.i, %42, %13, %12, %..loopexit_crit_edge21.i.i.i.i, %31, %19
   %.pre-phi = phi i64 [ %21, %..loopexit_crit_edge21.i.i.i.i ], [ %21, %31 ], [ %21, %19 ], [ %11, %12 ], [ %11, %13 ], [ %21, %42 ], [ %21, %.lr.ph.i.i.i.i ]
@@ -3303,7 +3303,7 @@ _ZSt10_ConstructISt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEEJR
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 40
   %24 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 40
   %.not.i.i.i.i = icmp eq ptr %23, %19
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN32pxrInternal_v0_24__pxrReserved__13TraceThreadIdEESt6vectorIS5_SaIS5_EEEEPS5_S5_ET0_T_SE_SD_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
 25:                                               ; preds = %.lr.ph.i.i.i.i
   %26 = landingpad { ptr, i32 }
@@ -3526,10 +3526,9 @@ attributes #21 = { builtin allocsize(0) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

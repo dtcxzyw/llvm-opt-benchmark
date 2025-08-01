@@ -350,7 +350,7 @@ openFontConfig.exit.i.i:                          ; preds = %25, %22
   %78 = load i32, ptr %48, align 8
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next85.i.i, %79
-  br i1 %80, label %59, label %._crit_edge.i.i, !llvm.loop !9
+  br i1 %80, label %59, label %._crit_edge.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %77, %.preheader.i.i
   call void %34(ptr noundef nonnull %48) #13
@@ -502,7 +502,7 @@ getFontConfigLocations.exit.i:                    ; preds = %81, %43, %19, %.tai
   %.1.i62.i = phi i32 [ %.03344.i.i, %.lr.ph.i60.i ], [ %.03344.i.i, %123 ], [ %.03344.i.i, %125 ], [ %.03344.i.i, %127 ], [ %.03344.i.i, %129 ], [ %.03344.i.i, %131 ], [ %148, %147 ]
   %indvars.iv.next.i63.i = add nuw nsw i64 %indvars.iv.i61.i, 1
   %exitcond.not.i64.i = icmp eq i64 %indvars.iv.next.i63.i, %wide.trip.count.i59.i
-  br i1 %exitcond.not.i64.i, label %._crit_edge.i65.i, label %.lr.ph.i60.i, !llvm.loop !10
+  br i1 %exitcond.not.i64.i, label %._crit_edge.i65.i, label %.lr.ph.i60.i, !llvm.loop !9
 
 ._crit_edge.i65.i:                                ; preds = %149
   %150 = icmp eq i32 %.1.i62.i, 0
@@ -583,7 +583,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
   %185 = add nuw nsw i32 %.110411.i.i, 1
   %186 = load ptr, ptr %184, align 8
   %.not111.i.i = icmp eq ptr %186, null
-  br i1 %.not111.i.i, label %.loopexit9.i.i, label %.lr.ph.i67.i, !llvm.loop !11
+  br i1 %.not111.i.i, label %.loopexit9.i.i, label %.lr.ph.i67.i, !llvm.loop !10
 
 .loopexit9.i.i:                                   ; preds = %.lr.ph.i67.i, %.preheader8.i.i, %182
   %.0103.i.i = phi i32 [ 0, %182 ], [ 0, %.preheader8.i.i ], [ %185, %.lr.ph.i67.i ]
@@ -602,7 +602,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
   %189 = add nuw nsw i32 %.110214.i.i, 1
   %190 = load ptr, ptr %188, align 8
   %.not113.i.i = icmp eq ptr %190, null
-  br i1 %.not113.i.i, label %.lr.ph21.i.i.preheader, label %.lr.ph16.i.i, !llvm.loop !12
+  br i1 %.not113.i.i, label %.lr.ph21.i.i.preheader, label %.lr.ph16.i.i, !llvm.loop !11
 
 .lr.ph21.i.i.preheader:                           ; preds = %.lr.ph16.i.i, %.loopexit9.i.i, %.preheader6.i.i
   %.0101.i.i = phi i32 [ 0, %.loopexit9.i.i ], [ 0, %.preheader6.i.i ], [ %189, %.lr.ph16.i.i ]
@@ -615,7 +615,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
   %192 = add nuw nsw i32 %.110019.i.i, 1
   %193 = load ptr, ptr %191, align 8
   %.not114.i.i = icmp eq ptr %193, null
-  br i1 %.not114.i.i, label %._crit_edge.i68.i, label %.lr.ph21.i.i, !llvm.loop !13
+  br i1 %.not114.i.i, label %._crit_edge.i68.i, label %.lr.ph21.i.i, !llvm.loop !12
 
 ._crit_edge.i68.i:                                ; preds = %.lr.ph21.i.i
   %194 = add nuw nsw i32 %.0101.i.i, %.0103.i.i
@@ -671,7 +671,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
   %.195.i.i = phi i32 [ %.09423.i.i, %.lr.ph25.split.i.i ], [ %205, %204 ]
   %indvars.iv.next.i70.i = add nuw nsw i64 %indvars.iv.i69.i, 1
   %exitcond.not.i71.i = icmp eq i64 %indvars.iv.next.i70.i, %199
-  br i1 %exitcond.not.i71.i, label %.preheader4.i.i, label %.lr.ph25.split.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i71.i, label %.preheader4.i.i, label %.lr.ph25.split.i.i, !llvm.loop !13
 
 .lr.ph41.i.i:                                     ; preds = %.preheader4.i.i, %.loopexit3.i.i
   %.296.lcssa.i.i = phi i32 [ %.094.lcssa.i.i, %.preheader4.i.i ], [ %.397.i.i, %.loopexit3.i.i ]
@@ -699,7 +699,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
 212:                                              ; preds = %.lr.ph30.i.i
   %indvars.iv.next68.i.i = add nuw nsw i64 %indvars.iv67.i.i, 1
   %exitcond71.not.i.i = icmp eq i64 %indvars.iv.next68.i.i, %wide.trip.count70.i.i
-  br i1 %exitcond71.not.i.i, label %.critedge.i74.i, label %.lr.ph30.i.i, !llvm.loop !15
+  br i1 %exitcond71.not.i.i, label %.critedge.i74.i, label %.lr.ph30.i.i, !llvm.loop !14
 
 .lr.ph30.i.i:                                     ; preds = %._crit_edge88.i, %212
   %indvars.iv67.i.i = phi i64 [ %indvars.iv.next68.i.i, %212 ], [ 0, %._crit_edge88.i ]
@@ -720,7 +720,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
   %.397.i.i = phi i32 [ %.29631.i.i, %210 ], [ %217, %.critedge.i74.i ], [ %.29631.i.i, %.lr.ph30.i.i ]
   %indvars.iv.next73.i.i = add nuw nsw i64 %indvars.iv72.i.i, 1
   %exitcond76.not.i.i = icmp eq i64 %indvars.iv.next73.i.i, %wide.trip.count75.i.i
-  br i1 %exitcond76.not.i.i, label %.lr.ph41.i.i, label %209, !llvm.loop !16
+  br i1 %exitcond76.not.i.i, label %.lr.ph41.i.i, label %209, !llvm.loop !15
 
 .preheader.i72.i:                                 ; preds = %.loopexit1.i.i
   %220 = icmp sgt i32 %.5.i.i, 0
@@ -748,7 +748,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
 224:                                              ; preds = %.lr.ph38.i.i
   %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
   %exitcond81.not.i.i = icmp eq i64 %indvars.iv.next78.i.i, %wide.trip.count80.i.i
-  br i1 %exitcond81.not.i.i, label %.critedge128.i.i, label %.lr.ph38.i.i, !llvm.loop !17
+  br i1 %exitcond81.not.i.i, label %.critedge128.i.i, label %.lr.ph38.i.i, !llvm.loop !16
 
 .lr.ph38.i.i:                                     ; preds = %._crit_edge89.i, %224
   %indvars.iv77.i.i = phi i64 [ %indvars.iv.next78.i.i, %224 ], [ 0, %._crit_edge89.i ]
@@ -769,7 +769,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
   %.5.i.i = phi i32 [ %.49839.i.i, %222 ], [ %229, %.critedge128.i.i ], [ %.49839.i.i, %.lr.ph38.i.i ]
   %indvars.iv.next83.i.i = add nuw nsw i64 %indvars.iv82.i.i, 1
   %exitcond86.not.i.i = icmp eq i64 %indvars.iv.next83.i.i, %wide.trip.count85.i.i
-  br i1 %exitcond86.not.i.i, label %.preheader.i72.i, label %221, !llvm.loop !18
+  br i1 %exitcond86.not.i.i, label %.preheader.i72.i, label %221, !llvm.loop !17
 
 .lr.ph45.i.i:                                     ; preds = %.lr.ph45.i.i, %.lr.ph45.preheader.i.i
   %indvars.iv87.i.i = phi i64 [ 0, %.lr.ph45.preheader.i.i ], [ %indvars.iv.next88.i.i, %.lr.ph45.i.i ]
@@ -782,7 +782,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
   %237 = add i32 %236, %235
   %indvars.iv.next88.i.i = add nuw nsw i64 %indvars.iv87.i.i, 1
   %exitcond91.not.i.i = icmp eq i64 %indvars.iv.next88.i.i, %wide.trip.count90.i.i
-  br i1 %exitcond91.not.i.i, label %._crit_edge46.i.i, label %.lr.ph45.i.i, !llvm.loop !19
+  br i1 %exitcond91.not.i.i, label %._crit_edge46.i.i, label %.lr.ph45.i.i, !llvm.loop !18
 
 ._crit_edge46.i.i:                                ; preds = %.lr.ph45.i.i
   %238 = icmp sgt i32 %237, 0
@@ -815,7 +815,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
   %246 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %241, ptr noundef nonnull dereferenceable(1) %245) #13
   %indvars.iv.next93.i.i = add nuw nsw i64 %indvars.iv92.i.i, 1
   %exitcond96.not.i.i = icmp eq i64 %indvars.iv.next93.i.i, %wide.trip.count90.i.i
-  br i1 %exitcond96.not.i.i, label %.loopexit.i.i, label %.lr.ph50.i.i, !llvm.loop !20
+  br i1 %exitcond96.not.i.i, label %.loopexit.i.i, label %.lr.ph50.i.i, !llvm.loop !19
 
 .loopexit.i.i:                                    ; preds = %243, %239, %._crit_edge46.i.i, %.preheader.i72.i
   %.0.i73.i = phi ptr [ null, %239 ], [ null, %._crit_edge46.i.i ], [ null, %.preheader.i72.i ], [ %241, %243 ]
@@ -838,7 +838,7 @@ mergePaths.exit.i:                                ; preds = %.loopexit.i.i, %._c
   call void @free(ptr noundef nonnull %248) #13
   %250 = load ptr, ptr %249, align 8
   %.not53.i = icmp eq ptr %250, null
-  br i1 %.not53.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not53.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader75.i
   call void @free(ptr noundef nonnull %.0.i.i) #13
@@ -859,7 +859,7 @@ mergePaths.exit.i:                                ; preds = %.loopexit.i.i, %._c
   call void @free(ptr noundef nonnull %253) #13
   %255 = load ptr, ptr %254, align 8
   %.not55.i = icmp eq ptr %255, null
-  br i1 %.not55.i, label %._crit_edge84.i, label %.lr.ph83.i, !llvm.loop !22
+  br i1 %.not55.i, label %._crit_edge84.i, label %.lr.ph83.i, !llvm.loop !21
 
 ._crit_edge84.i:                                  ; preds = %.lr.ph83.i, %.preheader.i
   call void @free(ptr noundef nonnull %.041.i) #13
@@ -1354,7 +1354,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %163 = load ptr, ptr %162, align 8
   tail call void %163(ptr noundef nonnull %0, ptr noundef nonnull %152) #13
   %exitcond.not = icmp eq i32 %160, %144
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph, %156, %.preheader
   %164 = tail call ptr %132(ptr noundef nonnull %145) #13
@@ -1633,7 +1633,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %.2 = phi ptr [ %.0434557, %267 ], [ %.3, %291 ], [ %.0434557, %283 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond612.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond612.not, label %._crit_edge, label %257, !llvm.loop !24
+  br i1 %exitcond612.not, label %._crit_edge, label %257, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %302, %291
   %.1445 = phi i32 [ %.2446, %302 ], [ %292, %291 ]
@@ -1824,7 +1824,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %.1441 = phi i32 [ %401, %397 ], [ %.0440564, %.lr.ph566 ]
   %indvars.iv.next614 = add nuw nsw i64 %indvars.iv613, 1
   %exitcond617.not = icmp eq i64 %indvars.iv.next614, %wide.trip.count616
-  br i1 %exitcond617.not, label %._crit_edge567, label %.lr.ph566, !llvm.loop !25
+  br i1 %exitcond617.not, label %._crit_edge567, label %.lr.ph566, !llvm.loop !24
 
 ._crit_edge567:                                   ; preds = %405, %323, %329, %345, %361, %377, %320
   br i1 %180, label %409, label %.sink.split
@@ -1853,7 +1853,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
 413:                                              ; preds = %409, %195
   %414 = add nuw nsw i32 %.0573, 1
   %exitcond618.not = icmp eq i32 %414, %178
-  br i1 %exitcond618.not, label %._crit_edge576, label %181, !llvm.loop !26
+  br i1 %exitcond618.not, label %._crit_edge576, label %181, !llvm.loop !25
 
 ._crit_edge576:                                   ; preds = %413, %175
   %415 = load ptr, ptr %0, align 8
@@ -1999,24 +1999,23 @@ attributes #16 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}

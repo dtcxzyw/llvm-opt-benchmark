@@ -109,7 +109,7 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %27, %35, %Saig_ObjI
   %.1 = phi i32 [ %.061, %Saig_ObjIsPi.exit ], [ %spec.select36, %35 ], [ %.061, %27 ]
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %.critedge2, label %27, !llvm.loop !32
+  br i1 %exitcond70.not, label %.critedge2, label %27, !llvm.loop !31
 
 .critedge2:                                       ; preds = %Saig_ObjIsPi.exit.thread, %.critedge.preheader
   %.0.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.1, %Saig_ObjIsPi.exit.thread ]
@@ -142,14 +142,14 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define i32 @Saig_ManReportComplements(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
 .critedge:
   %1 = getelementptr i8, ptr %0, i64 140
-  %.val39 = load i32, ptr %1, align 4, !tbaa !33
+  %.val39 = load i32, ptr %1, align 4, !tbaa !32
   %2 = getelementptr i8, ptr %0, i64 104
   %.val41 = load i32, ptr %2, align 8, !tbaa !24
   %3 = sub nsw i32 %.val39, %.val41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !21
   %6 = getelementptr i8, ptr %5, i64 4
-  %.val3743 = load i32, ptr %6, align 4, !tbaa !34
+  %.val3743 = load i32, ptr %6, align 4, !tbaa !33
   %7 = icmp slt i32 %3, %.val3743
   br i1 %7, label %.lr.ph.preheader, label %.critedge4
 
@@ -191,13 +191,13 @@ define i32 @Saig_ManReportComplements(ptr noundef readonly captures(none) %0) lo
   %.1 = phi i32 [ %21, %20 ], [ %.045, %22 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %26 = getelementptr i8, ptr %25, i64 4
-  %.val37 = load i32, ptr %26, align 4, !tbaa !34
+  %.val37 = load i32, ptr %26, align 4, !tbaa !33
   %27 = sext i32 %.val37 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %.critedge2, !llvm.loop !35
+  br i1 %28, label %.lr.ph, label %.critedge2, !llvm.loop !34
 
 .critedge2:                                       ; preds = %24
-  %.val40.pre = load i32, ptr %1, align 4, !tbaa !33
+  %.val40.pre = load i32, ptr %1, align 4, !tbaa !32
   %.val42.pre = load i32, ptr %2, align 8, !tbaa !24
   %.pre56 = sub nsw i32 %.val40.pre, %.val42.pre
   %29 = icmp slt i32 %.pre56, %.val37
@@ -226,10 +226,10 @@ define i32 @Saig_ManReportComplements(ptr noundef readonly captures(none) %0) lo
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
   %42 = load ptr, ptr %4, align 8, !tbaa !21
   %43 = getelementptr i8, ptr %42, i64 4
-  %.val38 = load i32, ptr %43, align 4, !tbaa !34
+  %.val38 = load i32, ptr %43, align 4, !tbaa !33
   %44 = sext i32 %.val38 to i64
   %45 = icmp slt i64 %indvars.iv.next51, %44
-  br i1 %45, label %.lr.ph48, label %.critedge4, !llvm.loop !36
+  br i1 %45, label %.lr.ph48, label %.critedge4, !llvm.loop !35
 
 .critedge4:                                       ; preds = %.lr.ph48, %.critedge, %.critedge2
   %.0.lcssa60 = phi i32 [ %.1, %.critedge2 ], [ 0, %.critedge ], [ %.1, %.lr.ph48 ]
@@ -273,11 +273,10 @@ attributes #4 = { nounwind }
 !26 = !{!11, !10, i64 8}
 !27 = !{!7, !7, i64 0}
 !28 = !{!4, !12, i64 108}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = distinct !{!32, !30, !31}
-!33 = !{!12, !12, i64 0}
-!34 = !{!23, !12, i64 4}
-!35 = distinct !{!35, !30, !31}
-!36 = distinct !{!36, !30, !31}
+!31 = distinct !{!31, !30}
+!32 = !{!12, !12, i64 0}
+!33 = !{!23, !12, i64 4}
+!34 = distinct !{!34, !30}
+!35 = distinct !{!35, !30}

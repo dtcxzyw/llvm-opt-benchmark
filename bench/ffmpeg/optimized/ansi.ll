@@ -133,7 +133,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 39:                                               ; preds = %._crit_edge, %16
   %40 = load ptr, ptr %6, align 8, !tbaa !36
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 120
-  store i32 1, ptr %41, align 8, !tbaa !46
+  store i32 1, ptr %41, align 8, !tbaa !45
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %43, ptr noundef nonnull align 16 dereferenceable(64) @ff_cga_palette, i64 64, i1 false)
@@ -166,17 +166,17 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i32 %.reass.i.reass, ptr %.223.i, align 4, !tbaa !42
   %53 = add nuw nsw i32 %.024.i, 1
   %exitcond.not.i = icmp eq i32 %53, 6
-  br i1 %exitcond.not.i, label %54, label %49, !llvm.loop !51
+  br i1 %exitcond.not.i, label %54, label %49, !llvm.loop !50
 
 54:                                               ; preds = %49
   %55 = add nuw nsw i32 %.01726.i, 1
   %exitcond31.not.i = icmp eq i32 %55, 6
-  br i1 %exitcond31.not.i, label %56, label %.preheader21.i, !llvm.loop !52
+  br i1 %exitcond31.not.i, label %56, label %.preheader21.i, !llvm.loop !51
 
 56:                                               ; preds = %54
   %57 = add nuw nsw i32 %.01828.i, 1
   %exitcond32.not.i = icmp eq i32 %57, 6
-  br i1 %exitcond32.not.i, label %.preheader.i, label %.preheader22.i, !llvm.loop !53
+  br i1 %exitcond32.not.i, label %.preheader.i, label %.preheader22.i, !llvm.loop !52
 
 .preheader.i:                                     ; preds = %56, %.preheader.i
   %.130.i = phi i32 [ %66, %.preheader.i ], [ 0, %56 ]
@@ -192,11 +192,11 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i32 %64, ptr %.329.i, align 4, !tbaa !42
   %66 = add nuw nsw i32 %.130.i, 1
   %exitcond33.not.i = icmp eq i32 %66, 24
-  br i1 %exitcond33.not.i, label %set_palette.exit, label %.preheader.i, !llvm.loop !54
+  br i1 %exitcond33.not.i, label %set_palette.exit, label %.preheader.i, !llvm.loop !53
 
 set_palette.exit:                                 ; preds = %.preheader.i
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %68 = load i32, ptr %67, align 8, !tbaa !55
+  %68 = load i32, ptr %67, align 8, !tbaa !54
   %.not98 = icmp eq i32 %68, 0
   br i1 %.not98, label %69, label %90
 
@@ -226,14 +226,14 @@ set_palette.exit:                                 ; preds = %.preheader.i
   %85 = add nuw nsw i32 %.09.i, 1
   %86 = load i32, ptr %71, align 4, !tbaa !35
   %87 = icmp slt i32 %85, %86
-  br i1 %87, label %75, label %erase_screen.exit, !llvm.loop !56
+  br i1 %87, label %75, label %erase_screen.exit, !llvm.loop !55
 
 erase_screen.exit:                                ; preds = %75, %69
   %88 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  store i32 0, ptr %88, align 4, !tbaa !57
+  store i32 0, ptr %88, align 4, !tbaa !56
   %89 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i32 0, ptr %89, align 8, !tbaa !58
-  store i32 1, ptr %67, align 8, !tbaa !55
+  store i32 0, ptr %89, align 8, !tbaa !57
+  store i32 1, ptr %67, align 8, !tbaa !54
   br label %90
 
 90:                                               ; preds = %erase_screen.exit, %set_palette.exit
@@ -254,7 +254,7 @@ erase_screen.exit:                                ; preds = %75, %69
   br label %.lr.ph123.split.us
 
 .lr.ph123.split.us:                               ; preds = %.lr.ph123.split.us.preheader, %102
-  %98 = load i32, ptr %92, align 4, !tbaa !59
+  %98 = load i32, ptr %92, align 4, !tbaa !58
   switch i32 %98, label %.thread [
     i32 0, label %.split.us
     i32 1, label %99
@@ -263,17 +263,17 @@ erase_screen.exit:                                ; preds = %75, %69
   ]
 
 99:                                               ; preds = %.lr.ph123.split.us
-  %100 = load i8, ptr %.086.ph139, align 1, !tbaa !60
+  %100 = load i8, ptr %.086.ph139, align 1, !tbaa !59
   %101 = icmp eq i8 %100, 91
   br i1 %101, label %.split132.us, label %102
 
 102:                                              ; preds = %99
-  store i32 0, ptr %92, align 4, !tbaa !59
+  store i32 0, ptr %92, align 4, !tbaa !58
   tail call fastcc void @draw_char(ptr noundef %0, i32 noundef 27)
-  br label %.lr.ph123.split.us, !llvm.loop !61
+  br label %.lr.ph123.split.us, !llvm.loop !60
 
 .split.us:                                        ; preds = %.lr.ph123.split.us
-  %103 = load i8, ptr %.086.ph139, align 1, !tbaa !60
+  %103 = load i8, ptr %.086.ph139, align 1, !tbaa !59
   switch i8 %103, label %176 [
     i8 0, label %.thread
     i8 7, label %.thread
@@ -287,14 +287,14 @@ erase_screen.exit:                                ; preds = %75, %69
   ]
 
 104:                                              ; preds = %.split.us
-  %105 = load i32, ptr %97, align 8, !tbaa !58
+  %105 = load i32, ptr %97, align 8, !tbaa !57
   %106 = tail call i32 @llvm.smax.i32(i32 %105, i32 1)
   %spec.select = add nsw i32 %106, -1
-  store i32 %spec.select, ptr %97, align 8, !tbaa !58
+  store i32 %spec.select, ptr %97, align 8, !tbaa !57
   br label %.thread
 
 .lr.ph138.preheader:                              ; preds = %.split.us
-  %107 = load i32, ptr %97, align 8, !tbaa !58
+  %107 = load i32, ptr %97, align 8, !tbaa !57
   %108 = sdiv i32 %107, 8
   %109 = and i32 %108, 7
   %110 = sub nuw nsw i32 8, %109
@@ -305,12 +305,12 @@ erase_screen.exit:                                ; preds = %75, %69
   tail call fastcc void @draw_char(ptr noundef %0, i32 noundef 32)
   %111 = add nuw nsw i32 %.1136, 1
   %exitcond.not = icmp eq i32 %111, %110
-  br i1 %exitcond.not, label %.thread, label %.lr.ph138, !llvm.loop !63
+  br i1 %exitcond.not, label %.thread, label %.lr.ph138, !llvm.loop !62
 
 112:                                              ; preds = %.split.us
   %113 = load ptr, ptr %5, align 8, !tbaa !4
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 12
-  %115 = load i32, ptr %114, align 4, !tbaa !57
+  %115 = load i32, ptr %114, align 4, !tbaa !56
   %116 = load i32, ptr %96, align 4, !tbaa !35
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %118 = load i32, ptr %117, align 8, !tbaa !31
@@ -325,7 +325,7 @@ erase_screen.exit:                                ; preds = %75, %69
 
 122:                                              ; preds = %112
   %123 = add nsw i32 %118, %115
-  store i32 %123, ptr %114, align 4, !tbaa !57
+  store i32 %123, ptr %114, align 4, !tbaa !56
   br label %hscroll.exit
 
 .preheader.i100:                                  ; preds = %.lr.ph.i101, %.preheader25.i
@@ -356,7 +356,7 @@ erase_screen.exit:                                ; preds = %75, %69
   %142 = load i32, ptr %117, align 8, !tbaa !31
   %143 = sub nsw i32 %141, %142
   %144 = icmp slt i32 %140, %143
-  br i1 %144, label %.lr.ph.i101, label %.preheader.i100, !llvm.loop !64
+  br i1 %144, label %.lr.ph.i101, label %.preheader.i100, !llvm.loop !63
 
 .lr.ph28.i:                                       ; preds = %.preheader.i100, %.lr.ph28.i
   %.127.i = phi i32 [ %154, %.lr.ph28.i ], [ %.0.lcssa.i, %.preheader.i100 ]
@@ -373,10 +373,10 @@ erase_screen.exit:                                ; preds = %75, %69
   %154 = add nuw nsw i32 %.127.i, 1
   %155 = load i32, ptr %96, align 4, !tbaa !35
   %156 = icmp slt i32 %154, %155
-  br i1 %156, label %.lr.ph28.i, label %hscroll.exit, !llvm.loop !65
+  br i1 %156, label %.lr.ph28.i, label %hscroll.exit, !llvm.loop !64
 
 hscroll.exit:                                     ; preds = %.lr.ph28.i, %.preheader.i100, %122, %.split.us
-  store i32 0, ptr %97, align 8, !tbaa !58
+  store i32 0, ptr %97, align 8, !tbaa !57
   br label %.thread
 
 157:                                              ; preds = %.split.us
@@ -400,17 +400,17 @@ hscroll.exit:                                     ; preds = %.lr.ph28.i, %.prehe
   %170 = add nuw nsw i32 %.09.i103, 1
   %171 = load i32, ptr %96, align 4, !tbaa !35
   %172 = icmp slt i32 %170, %171
-  br i1 %172, label %.lr.ph.i102, label %erase_screen.exit104, !llvm.loop !56
+  br i1 %172, label %.lr.ph.i102, label %erase_screen.exit104, !llvm.loop !55
 
 erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   %173 = getelementptr inbounds nuw i8, ptr %158, i64 12
-  store i32 0, ptr %173, align 4, !tbaa !57
+  store i32 0, ptr %173, align 4, !tbaa !56
   %174 = getelementptr inbounds nuw i8, ptr %158, i64 8
-  store i32 0, ptr %174, align 8, !tbaa !58
+  store i32 0, ptr %174, align 8, !tbaa !57
   br label %.thread
 
 175:                                              ; preds = %.split.us
-  store i32 1, ptr %92, align 4, !tbaa !59
+  store i32 1, ptr %92, align 4, !tbaa !58
   br label %.thread
 
 176:                                              ; preds = %.split.us
@@ -419,13 +419,13 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   br label %.thread
 
 .split132.us:                                     ; preds = %99
-  store i32 2, ptr %92, align 4, !tbaa !59
-  store i32 0, ptr %93, align 8, !tbaa !66
+  store i32 2, ptr %92, align 4, !tbaa !58
+  store i32 0, ptr %93, align 8, !tbaa !65
   store i32 -1, ptr %94, align 8, !tbaa !42
   br label %.thread
 
 .split126.us:                                     ; preds = %.lr.ph123.split.us
-  %.pre149 = load i8, ptr %.086.ph139, align 1, !tbaa !60
+  %.pre149 = load i8, ptr %.086.ph139, align 1, !tbaa !59
   switch i8 %.pre149, label %200 [
     i8 48, label %178
     i8 49, label %178
@@ -444,7 +444,7 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   ]
 
 178:                                              ; preds = %.split126.us, %.split126.us, %.split126.us, %.split126.us, %.split126.us, %.split126.us, %.split126.us, %.split126.us, %.split126.us, %.split126.us
-  %179 = load i32, ptr %93, align 8, !tbaa !66
+  %179 = load i32, ptr %93, align 8, !tbaa !65
   %180 = icmp slt i32 %179, 4
   br i1 %180, label %181, label %.thread
 
@@ -465,13 +465,13 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   br label %.thread
 
 191:                                              ; preds = %.split126.us
-  %192 = load i32, ptr %93, align 8, !tbaa !66
+  %192 = load i32, ptr %93, align 8, !tbaa !65
   %193 = icmp slt i32 %192, 4
   br i1 %193, label %194, label %.thread
 
 194:                                              ; preds = %191
   %195 = add nsw i32 %192, 1
-  store i32 %195, ptr %93, align 8, !tbaa !66
+  store i32 %195, ptr %93, align 8, !tbaa !65
   %.not109 = icmp eq i32 %192, 3
   br i1 %.not109, label %.thread, label %196
 
@@ -482,17 +482,17 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   br label %.thread
 
 199:                                              ; preds = %.split126.us
-  store i32 3, ptr %92, align 4, !tbaa !59
+  store i32 3, ptr %92, align 4, !tbaa !58
   br label %.thread
 
 200:                                              ; preds = %.split126.us
-  %201 = load i32, ptr %93, align 8, !tbaa !66
+  %201 = load i32, ptr %93, align 8, !tbaa !65
   %202 = icmp sgt i32 %201, 4
   br i1 %202, label %203, label %204
 
 203:                                              ; preds = %200
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.5, i32 noundef %201) #7
-  %.pr = load i32, ptr %93, align 8, !tbaa !66
+  %.pr = load i32, ptr %93, align 8, !tbaa !65
   br label %204
 
 204:                                              ; preds = %203, %200
@@ -509,11 +509,11 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
 
 212:                                              ; preds = %207
   %213 = add nsw i32 %205, 1
-  store i32 %213, ptr %93, align 8, !tbaa !66
+  store i32 %213, ptr %93, align 8, !tbaa !65
   br label %214
 
 214:                                              ; preds = %212, %207, %204
-  %215 = load i8, ptr %.086.ph139, align 1, !tbaa !60
+  %215 = load i8, ptr %.086.ph139, align 1, !tbaa !59
   %216 = load ptr, ptr %5, align 8, !tbaa !4
   %217 = load i32, ptr %95, align 8, !tbaa !34
   %218 = load i32, ptr %96, align 4, !tbaa !35
@@ -537,9 +537,9 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
 
 219:                                              ; preds = %214
   %220 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %221 = load i32, ptr %220, align 4, !tbaa !57
+  %221 = load i32, ptr %220, align 4, !tbaa !56
   %222 = getelementptr inbounds nuw i8, ptr %216, i64 72
-  %223 = load i32, ptr %222, align 8, !tbaa !66
+  %223 = load i32, ptr %222, align 8, !tbaa !65
   %224 = icmp sgt i32 %223, 0
   br i1 %224, label %225, label %.thread.i
 
@@ -565,14 +565,14 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
 
 237:                                              ; preds = %.thread277.i, %.thread.i, %225
   %238 = phi i32 [ %236, %.thread277.i ], [ 0, %225 ], [ 0, %.thread.i ]
-  store i32 %238, ptr %220, align 4, !tbaa !57
+  store i32 %238, ptr %220, align 4, !tbaa !56
   br label %.loopexit
 
 239:                                              ; preds = %214
   %240 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %241 = load i32, ptr %240, align 4, !tbaa !57
+  %241 = load i32, ptr %240, align 4, !tbaa !56
   %242 = getelementptr inbounds nuw i8, ptr %216, i64 72
-  %243 = load i32, ptr %242, align 8, !tbaa !66
+  %243 = load i32, ptr %242, align 8, !tbaa !65
   %244 = icmp sgt i32 %243, 0
   br i1 %244, label %245, label %.thread278.i
 
@@ -601,14 +601,14 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
 
 259:                                              ; preds = %.thread279.i, %.thread278.i, %245
   %260 = phi i32 [ %.pre-phi.i, %.thread279.i ], [ %252, %245 ], [ %257, %.thread278.i ]
-  store i32 %260, ptr %240, align 4, !tbaa !57
+  store i32 %260, ptr %240, align 4, !tbaa !56
   br label %.loopexit
 
 261:                                              ; preds = %214
   %262 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %263 = load i32, ptr %262, align 8, !tbaa !58
+  %263 = load i32, ptr %262, align 8, !tbaa !57
   %264 = getelementptr inbounds nuw i8, ptr %216, i64 72
-  %265 = load i32, ptr %264, align 8, !tbaa !66
+  %265 = load i32, ptr %264, align 8, !tbaa !65
   %266 = icmp sgt i32 %265, 0
   br i1 %266, label %267, label %.thread280.i
 
@@ -633,14 +633,14 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
 
 277:                                              ; preds = %.thread281.i, %.thread280.i, %267
   %278 = phi i32 [ %.pre-phi300.i, %.thread281.i ], [ %272, %267 ], [ %275, %.thread280.i ]
-  store i32 %278, ptr %262, align 8, !tbaa !58
+  store i32 %278, ptr %262, align 8, !tbaa !57
   br label %.loopexit
 
 279:                                              ; preds = %214
   %280 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %281 = load i32, ptr %280, align 8, !tbaa !58
+  %281 = load i32, ptr %280, align 8, !tbaa !57
   %282 = getelementptr inbounds nuw i8, ptr %216, i64 72
-  %283 = load i32, ptr %282, align 8, !tbaa !66
+  %283 = load i32, ptr %282, align 8, !tbaa !65
   %284 = icmp sgt i32 %283, 0
   br i1 %284, label %285, label %.thread282.i
 
@@ -662,18 +662,18 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
 
 293:                                              ; preds = %.thread283.i, %.thread282.i, %285
   %294 = phi i32 [ %292, %.thread283.i ], [ 0, %285 ], [ 0, %.thread282.i ]
-  store i32 %294, ptr %280, align 8, !tbaa !58
+  store i32 %294, ptr %280, align 8, !tbaa !57
   br label %.loopexit
 
 295:                                              ; preds = %214, %214
   %296 = getelementptr inbounds nuw i8, ptr %216, i64 72
-  %297 = load i32, ptr %296, align 8, !tbaa !66
+  %297 = load i32, ptr %296, align 8, !tbaa !65
   %298 = icmp sgt i32 %297, 0
   br i1 %298, label %300, label %.thread284.i
 
 .thread284.i:                                     ; preds = %295
   %299 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  store i32 0, ptr %299, align 4, !tbaa !57
+  store i32 0, ptr %299, align 4, !tbaa !56
   br label %317
 
 300:                                              ; preds = %295
@@ -688,7 +688,7 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   %..i.i = tail call i32 @llvm.smin.i32(i32 %306, i32 %307)
   %.0.i.i = select i1 %308, i32 0, i32 %..i.i
   %309 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  store i32 %.0.i.i, ptr %309, align 4, !tbaa !57
+  store i32 %.0.i.i, ptr %309, align 4, !tbaa !56
   %.not288.i = icmp eq i32 %297, 1
   br i1 %.not288.i, label %317, label %310
 
@@ -706,12 +706,12 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
 317:                                              ; preds = %310, %300, %.thread284.i
   %318 = phi i32 [ %.0.i247.i, %310 ], [ 0, %300 ], [ 0, %.thread284.i ]
   %319 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  store i32 %318, ptr %319, align 8, !tbaa !58
+  store i32 %318, ptr %319, align 8, !tbaa !57
   br label %.loopexit
 
 320:                                              ; preds = %214, %214
   %321 = getelementptr inbounds nuw i8, ptr %216, i64 72
-  %322 = load i32, ptr %321, align 8, !tbaa !66
+  %322 = load i32, ptr %321, align 8, !tbaa !65
   %323 = icmp slt i32 %322, 2
   %324 = getelementptr inbounds nuw i8, ptr %216, i64 56
   br i1 %323, label %.thread301.i, label %325
@@ -783,21 +783,21 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   %.0228.i = phi i32 [ %217, %341 ], [ 320, %326 ], [ 640, %329 ], [ 640, %332 ], [ %217, %325 ], [ 640, %335 ], [ 640, %338 ]
   %.0227.i = phi i32 [ %218, %341 ], [ 200, %326 ], [ 400, %329 ], [ 200, %332 ], [ %218, %325 ], [ 344, %335 ], [ 960, %338 ]
   %343 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %344 = load i32, ptr %343, align 8, !tbaa !58
+  %344 = load i32, ptr %343, align 8, !tbaa !57
   %345 = add nsw i32 %.0228.i, -8
   %346 = icmp slt i32 %344, 0
   %..i248.i = tail call i32 @llvm.smin.i32(i32 %344, i32 %345)
   %.0.i249.i = select i1 %346, i32 0, i32 %..i248.i
-  store i32 %.0.i249.i, ptr %343, align 8, !tbaa !58
+  store i32 %.0.i249.i, ptr %343, align 8, !tbaa !57
   %347 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %348 = load i32, ptr %347, align 4, !tbaa !57
+  %348 = load i32, ptr %347, align 4, !tbaa !56
   %349 = getelementptr inbounds nuw i8, ptr %216, i64 32
   %350 = load i32, ptr %349, align 8, !tbaa !31
   %351 = sub nsw i32 %.0227.i, %350
   %352 = icmp slt i32 %348, 0
   %..i250.i = tail call i32 @llvm.smin.i32(i32 %348, i32 %351)
   %.0.i251.i = select i1 %352, i32 0, i32 %..i250.i
-  store i32 %.0.i251.i, ptr %347, align 4, !tbaa !57
+  store i32 %.0.i251.i, ptr %347, align 4, !tbaa !56
   %353 = load i32, ptr %95, align 8, !tbaa !34
   %.not.i106 = icmp eq i32 %.0228.i, %353
   br i1 %.not.i106, label %354, label %356
@@ -823,7 +823,7 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
 364:                                              ; preds = %360
   %365 = load ptr, ptr %216, align 8, !tbaa !36
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 120
-  store i32 1, ptr %366, align 8, !tbaa !46
+  store i32 1, ptr %366, align 8, !tbaa !45
   %367 = getelementptr inbounds nuw i8, ptr %365, i64 8
   %368 = load ptr, ptr %367, align 8, !tbaa !41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %368, ptr noundef nonnull align 16 dereferenceable(64) @ff_cga_palette, i64 64, i1 false)
@@ -856,17 +856,17 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   store i32 %.reass.i.reass.i.reass, ptr %.223.i.i, align 4, !tbaa !42
   %378 = add nuw nsw i32 %.024.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %378, 6
-  br i1 %exitcond.not.i.i, label %379, label %374, !llvm.loop !51
+  br i1 %exitcond.not.i.i, label %379, label %374, !llvm.loop !50
 
 379:                                              ; preds = %374
   %380 = add nuw nsw i32 %.01726.i.i, 1
   %exitcond31.not.i.i = icmp eq i32 %380, 6
-  br i1 %exitcond31.not.i.i, label %381, label %.preheader21.i.i, !llvm.loop !52
+  br i1 %exitcond31.not.i.i, label %381, label %.preheader21.i.i, !llvm.loop !51
 
 381:                                              ; preds = %379
   %382 = add nuw nsw i32 %.01828.i.i, 1
   %exitcond32.not.i.i = icmp eq i32 %382, 6
-  br i1 %exitcond32.not.i.i, label %.preheader.i.i, label %.preheader22.i.i, !llvm.loop !53
+  br i1 %exitcond32.not.i.i, label %.preheader.i.i, label %.preheader22.i.i, !llvm.loop !52
 
 .preheader.i.i:                                   ; preds = %381, %.preheader.i.i
   %.130.i.i = phi i32 [ %391, %.preheader.i.i ], [ 0, %381 ]
@@ -882,7 +882,7 @@ erase_screen.exit104:                             ; preds = %.lr.ph.i102, %157
   store i32 %389, ptr %.329.i.i, align 4, !tbaa !42
   %391 = add nuw nsw i32 %.130.i.i, 1
   %exitcond33.not.i.i = icmp eq i32 %391, 24
-  br i1 %exitcond33.not.i.i, label %set_palette.exit.i, label %.preheader.i.i, !llvm.loop !54
+  br i1 %exitcond33.not.i.i, label %set_palette.exit.i, label %.preheader.i.i, !llvm.loop !53
 
 set_palette.exit.i:                               ; preds = %.preheader.i.i
   %392 = load ptr, ptr %5, align 8, !tbaa !4
@@ -905,13 +905,13 @@ set_palette.exit.i:                               ; preds = %.preheader.i.i
   %404 = add nuw nsw i32 %.09.i.i, 1
   %405 = load i32, ptr %96, align 4, !tbaa !35
   %406 = icmp slt i32 %404, %405
-  br i1 %406, label %.lr.ph.i.i, label %erase_screen.exit.i, !llvm.loop !56
+  br i1 %406, label %.lr.ph.i.i, label %erase_screen.exit.i, !llvm.loop !55
 
 erase_screen.exit.i:                              ; preds = %.lr.ph.i.i, %set_palette.exit.i
   %407 = getelementptr inbounds nuw i8, ptr %392, i64 12
-  store i32 0, ptr %407, align 4, !tbaa !57
+  store i32 0, ptr %407, align 4, !tbaa !56
   %408 = getelementptr inbounds nuw i8, ptr %392, i64 8
-  store i32 0, ptr %408, align 8, !tbaa !58
+  store i32 0, ptr %408, align 8, !tbaa !57
   br label %.loopexit
 
 409:                                              ; preds = %354
@@ -939,7 +939,7 @@ erase_screen.exit.i:                              ; preds = %.lr.ph.i.i, %set_pa
 
 .lr.ph.i264.i:                                    ; preds = %415
   %419 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %420 = load i32, ptr %419, align 8, !tbaa !58
+  %420 = load i32, ptr %419, align 8, !tbaa !57
   %421 = sub nsw i32 %217, %420
   %422 = getelementptr inbounds nuw i8, ptr %216, i64 12
   %423 = sext i32 %420 to i64
@@ -950,7 +950,7 @@ erase_screen.exit.i:                              ; preds = %.lr.ph.i.i, %set_pa
   %.01.i.i = phi i32 [ 0, %.lr.ph.i264.i ], [ %436, %425 ]
   %426 = load ptr, ptr %216, align 8, !tbaa !36
   %427 = load ptr, ptr %426, align 8, !tbaa !41
-  %428 = load i32, ptr %422, align 4, !tbaa !57
+  %428 = load i32, ptr %422, align 4, !tbaa !56
   %429 = add nsw i32 %428, %.01.i.i
   %430 = getelementptr inbounds nuw i8, ptr %426, i64 64
   %431 = load i32, ptr %430, align 8, !tbaa !42
@@ -962,7 +962,7 @@ erase_screen.exit.i:                              ; preds = %.lr.ph.i.i, %set_pa
   %436 = add nuw nsw i32 %.01.i.i, 1
   %437 = load i32, ptr %416, align 8, !tbaa !31
   %438 = icmp slt i32 %436, %437
-  br i1 %438, label %425, label %erase_line.exit.loopexit.i, !llvm.loop !67
+  br i1 %438, label %425, label %erase_line.exit.loopexit.i, !llvm.loop !66
 
 erase_line.exit.loopexit.i:                       ; preds = %425
   %.pre298.i = load i32, ptr %96, align 4, !tbaa !35
@@ -972,7 +972,7 @@ erase_line.exit.i:                                ; preds = %erase_line.exit.loo
   %439 = phi i32 [ %437, %erase_line.exit.loopexit.i ], [ %417, %415 ]
   %440 = phi i32 [ %.pre298.i, %erase_line.exit.loopexit.i ], [ %218, %415 ]
   %441 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %442 = load i32, ptr %441, align 4, !tbaa !57
+  %442 = load i32, ptr %441, align 4, !tbaa !56
   %443 = sub nsw i32 %440, %439
   %444 = icmp slt i32 %442, %443
   br i1 %444, label %445, label %.loopexit
@@ -1000,7 +1000,7 @@ erase_line.exit.i:                                ; preds = %erase_line.exit.loo
 
 .lr.ph.i265.i:                                    ; preds = %457
   %461 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %462 = load i32, ptr %461, align 8, !tbaa !58
+  %462 = load i32, ptr %461, align 8, !tbaa !57
   %463 = getelementptr inbounds nuw i8, ptr %216, i64 12
   %464 = sext i32 %462 to i64
   br label %465
@@ -1009,7 +1009,7 @@ erase_line.exit.i:                                ; preds = %erase_line.exit.loo
   %.01.i266.i = phi i32 [ 0, %.lr.ph.i265.i ], [ %475, %465 ]
   %466 = load ptr, ptr %216, align 8, !tbaa !36
   %467 = load ptr, ptr %466, align 8, !tbaa !41
-  %468 = load i32, ptr %463, align 4, !tbaa !57
+  %468 = load i32, ptr %463, align 4, !tbaa !56
   %469 = add nsw i32 %468, %.01.i266.i
   %470 = getelementptr inbounds nuw i8, ptr %466, i64 64
   %471 = load i32, ptr %470, align 8, !tbaa !42
@@ -1020,11 +1020,11 @@ erase_line.exit.i:                                ; preds = %erase_line.exit.loo
   %475 = add nuw nsw i32 %.01.i266.i, 1
   %476 = load i32, ptr %458, align 8, !tbaa !31
   %477 = icmp slt i32 %475, %476
-  br i1 %477, label %465, label %erase_line.exit267.i, !llvm.loop !67
+  br i1 %477, label %465, label %erase_line.exit267.i, !llvm.loop !66
 
 erase_line.exit267.i:                             ; preds = %465, %457
   %478 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %479 = load i32, ptr %478, align 4, !tbaa !57
+  %479 = load i32, ptr %478, align 4, !tbaa !56
   %480 = icmp sgt i32 %479, 0
   br i1 %480, label %481, label %.loopexit
 
@@ -1059,7 +1059,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
 
 .lr.ph.i268.i:                                    ; preds = %492
   %496 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %497 = load i32, ptr %496, align 8, !tbaa !58
+  %497 = load i32, ptr %496, align 8, !tbaa !57
   %498 = sub nsw i32 %217, %497
   %499 = getelementptr inbounds nuw i8, ptr %216, i64 12
   %500 = sext i32 %497 to i64
@@ -1070,7 +1070,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %.01.i269.i = phi i32 [ 0, %.lr.ph.i268.i ], [ %513, %502 ]
   %503 = load ptr, ptr %216, align 8, !tbaa !36
   %504 = load ptr, ptr %503, align 8, !tbaa !41
-  %505 = load i32, ptr %499, align 4, !tbaa !57
+  %505 = load i32, ptr %499, align 4, !tbaa !56
   %506 = add nsw i32 %505, %.01.i269.i
   %507 = getelementptr inbounds nuw i8, ptr %503, i64 64
   %508 = load i32, ptr %507, align 8, !tbaa !42
@@ -1082,7 +1082,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %513 = add nuw nsw i32 %.01.i269.i, 1
   %514 = load i32, ptr %493, align 8, !tbaa !31
   %515 = icmp slt i32 %513, %514
-  br i1 %515, label %502, label %.loopexit, !llvm.loop !67
+  br i1 %515, label %502, label %.loopexit, !llvm.loop !66
 
 516:                                              ; preds = %489
   %517 = getelementptr inbounds nuw i8, ptr %216, i64 32
@@ -1092,7 +1092,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
 
 .lr.ph.i271.i:                                    ; preds = %516
   %520 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %521 = load i32, ptr %520, align 8, !tbaa !58
+  %521 = load i32, ptr %520, align 8, !tbaa !57
   %522 = getelementptr inbounds nuw i8, ptr %216, i64 12
   %523 = sext i32 %521 to i64
   br label %524
@@ -1101,7 +1101,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %.01.i272.i = phi i32 [ 0, %.lr.ph.i271.i ], [ %534, %524 ]
   %525 = load ptr, ptr %216, align 8, !tbaa !36
   %526 = load ptr, ptr %525, align 8, !tbaa !41
-  %527 = load i32, ptr %522, align 4, !tbaa !57
+  %527 = load i32, ptr %522, align 4, !tbaa !56
   %528 = add nsw i32 %527, %.01.i272.i
   %529 = getelementptr inbounds nuw i8, ptr %525, i64 64
   %530 = load i32, ptr %529, align 8, !tbaa !42
@@ -1112,7 +1112,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %534 = add nuw nsw i32 %.01.i272.i, 1
   %535 = load i32, ptr %517, align 8, !tbaa !31
   %536 = icmp slt i32 %534, %535
-  br i1 %536, label %524, label %.loopexit, !llvm.loop !67
+  br i1 %536, label %524, label %.loopexit, !llvm.loop !66
 
 537:                                              ; preds = %489
   %538 = getelementptr inbounds nuw i8, ptr %216, i64 32
@@ -1129,7 +1129,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %.01.i275.i = phi i32 [ 0, %.lr.ph.i274.i ], [ %553, %543 ]
   %544 = load ptr, ptr %216, align 8, !tbaa !36
   %545 = load ptr, ptr %544, align 8, !tbaa !41
-  %546 = load i32, ptr %541, align 4, !tbaa !57
+  %546 = load i32, ptr %541, align 4, !tbaa !56
   %547 = add nsw i32 %546, %.01.i275.i
   %548 = getelementptr inbounds nuw i8, ptr %544, i64 64
   %549 = load i32, ptr %548, align 8, !tbaa !42
@@ -1140,16 +1140,16 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %553 = add nuw nsw i32 %.01.i275.i, 1
   %554 = load i32, ptr %538, align 8, !tbaa !31
   %555 = icmp slt i32 %553, %554
-  br i1 %555, label %543, label %.loopexit, !llvm.loop !67
+  br i1 %555, label %543, label %.loopexit, !llvm.loop !66
 
 556:                                              ; preds = %214
   %557 = getelementptr inbounds nuw i8, ptr %216, i64 72
-  %558 = load i32, ptr %557, align 8, !tbaa !66
+  %558 = load i32, ptr %557, align 8, !tbaa !65
   %559 = icmp eq i32 %558, 0
   br i1 %559, label %.thread302.i, label %561
 
 .thread302.i:                                     ; preds = %556
-  store i32 1, ptr %557, align 8, !tbaa !66
+  store i32 1, ptr %557, align 8, !tbaa !65
   %560 = getelementptr inbounds nuw i8, ptr %216, i64 56
   store i32 0, ptr %560, align 8, !tbaa !42
   br label %.lr.ph.i105
@@ -1186,7 +1186,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
   ]
 
 574:                                              ; preds = %569
-  store i32 0, ptr %566, align 4, !tbaa !68
+  store i32 0, ptr %566, align 4, !tbaa !67
   store i32 7, ptr %567, align 8, !tbaa !32
   store i32 0, ptr %568, align 4, !tbaa !33
   br label %645
@@ -1194,9 +1194,9 @@ erase_line.exit267.i:                             ; preds = %465, %457
 575:                                              ; preds = %569, %569, %569, %569, %569, %569, %569
   %576 = add nsw i32 %573, -1
   %577 = shl nuw nsw i32 1, %576
-  %578 = load i32, ptr %566, align 4, !tbaa !68
+  %578 = load i32, ptr %566, align 4, !tbaa !67
   %579 = or i32 %578, %577
-  store i32 %579, ptr %566, align 4, !tbaa !68
+  store i32 %579, ptr %566, align 4, !tbaa !67
   br label %645
 
 580:                                              ; preds = %569
@@ -1207,7 +1207,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
 582:                                              ; preds = %580
   %583 = zext nneg i32 %581 to i64
   %584 = getelementptr inbounds nuw [16 x i8], ptr @ansi_to_cga, i64 0, i64 %583
-  %585 = load i8, ptr %584, align 1, !tbaa !60
+  %585 = load i8, ptr %584, align 1, !tbaa !59
   %586 = zext i8 %585 to i32
   store i32 %586, ptr %567, align 8, !tbaa !32
   br label %645
@@ -1245,7 +1245,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
 604:                                              ; preds = %602
   %605 = sext i32 %600 to i64
   %606 = getelementptr inbounds [16 x i8], ptr @ansi_to_cga, i64 0, i64 %605
-  %607 = load i8, ptr %606, align 1, !tbaa !60
+  %607 = load i8, ptr %606, align 1, !tbaa !59
   %608 = zext i8 %607 to i32
   br label %609
 
@@ -1267,7 +1267,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %615 = add nsw i32 %573, -40
   %616 = zext nneg i32 %615 to i64
   %617 = getelementptr inbounds nuw [16 x i8], ptr @ansi_to_cga, i64 0, i64 %616
-  %618 = load i8, ptr %617, align 1, !tbaa !60
+  %618 = load i8, ptr %617, align 1, !tbaa !59
   %619 = zext i8 %618 to i32
   store i32 %619, ptr %568, align 4, !tbaa !33
   br label %645
@@ -1305,7 +1305,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
 637:                                              ; preds = %635
   %638 = sext i32 %633 to i64
   %639 = getelementptr inbounds [16 x i8], ptr @ansi_to_cga, i64 0, i64 %638
-  %640 = load i8, ptr %639, align 1, !tbaa !60
+  %640 = load i8, ptr %639, align 1, !tbaa !59
   %641 = zext i8 %640 to i32
   br label %642
 
@@ -1320,7 +1320,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
 
 .thread287.i:                                     ; preds = %630, %624, %621, %620, %597, %591, %588
   tail call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  %.pre.i = load i32, ptr %557, align 8, !tbaa !66
+  %.pre.i = load i32, ptr %557, align 8, !tbaa !65
   br label %645
 
 645:                                              ; preds = %.thread287.i, %644, %642, %614, %611, %609, %582, %575, %574
@@ -1329,30 +1329,30 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %647 = add nuw nsw i32 %.1.i, 1
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %646, i32 4)
   %648 = icmp slt i32 %647, %spec.select.i
-  br i1 %648, label %569, label %.loopexit, !llvm.loop !69
+  br i1 %648, label %569, label %.loopexit, !llvm.loop !68
 
 649:                                              ; preds = %214
   %650 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %651 = load i32, ptr %650, align 8, !tbaa !58
+  %651 = load i32, ptr %650, align 8, !tbaa !57
   %652 = getelementptr inbounds nuw i8, ptr %216, i64 16
-  store i32 %651, ptr %652, align 8, !tbaa !70
+  store i32 %651, ptr %652, align 8, !tbaa !69
   %653 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %654 = load i32, ptr %653, align 4, !tbaa !57
+  %654 = load i32, ptr %653, align 4, !tbaa !56
   %655 = getelementptr inbounds nuw i8, ptr %216, i64 20
-  store i32 %654, ptr %655, align 4, !tbaa !71
+  store i32 %654, ptr %655, align 4, !tbaa !70
   br label %.loopexit
 
 656:                                              ; preds = %214
   %657 = getelementptr inbounds nuw i8, ptr %216, i64 16
-  %658 = load i32, ptr %657, align 8, !tbaa !70
+  %658 = load i32, ptr %657, align 8, !tbaa !69
   %659 = add nsw i32 %217, -8
   %660 = icmp slt i32 %658, 0
   %..i252.i = tail call i32 @llvm.smin.i32(i32 %658, i32 %659)
   %.0.i253.i = select i1 %660, i32 0, i32 %..i252.i
   %661 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  store i32 %.0.i253.i, ptr %661, align 8, !tbaa !58
+  store i32 %.0.i253.i, ptr %661, align 8, !tbaa !57
   %662 = getelementptr inbounds nuw i8, ptr %216, i64 20
-  %663 = load i32, ptr %662, align 4, !tbaa !71
+  %663 = load i32, ptr %662, align 4, !tbaa !70
   %664 = getelementptr inbounds nuw i8, ptr %216, i64 32
   %665 = load i32, ptr %664, align 8, !tbaa !31
   %666 = sub nsw i32 %218, %665
@@ -1360,7 +1360,7 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %..i254.i = tail call i32 @llvm.smin.i32(i32 %663, i32 %666)
   %.0.i255.i = select i1 %667, i32 0, i32 %..i254.i
   %668 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  store i32 %.0.i255.i, ptr %668, align 4, !tbaa !57
+  store i32 %.0.i255.i, ptr %668, align 4, !tbaa !56
   br label %.loopexit
 
 669:                                              ; preds = %214
@@ -1369,15 +1369,15 @@ erase_line.exit267.i:                             ; preds = %465, %457
 
 .loopexit:                                        ; preds = %645, %543, %524, %502, %669, %656, %649, %561, %537, %516, %492, %489, %488, %481, %erase_line.exit267.i, %445, %erase_line.exit.i, %412, %411, %409, %erase_screen.exit.i, %317, %293, %277, %259, %237, %214, %214
   %670 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %671 = load i32, ptr %670, align 8, !tbaa !58
+  %671 = load i32, ptr %670, align 8, !tbaa !57
   %672 = load i32, ptr %95, align 8, !tbaa !34
   %673 = add nsw i32 %672, -8
   %674 = icmp slt i32 %671, 0
   %..i256.i = tail call i32 @llvm.smin.i32(i32 %671, i32 %673)
   %.0.i257.i = select i1 %674, i32 0, i32 %..i256.i
-  store i32 %.0.i257.i, ptr %670, align 8, !tbaa !58
+  store i32 %.0.i257.i, ptr %670, align 8, !tbaa !57
   %675 = getelementptr inbounds nuw i8, ptr %216, i64 12
-  %676 = load i32, ptr %675, align 4, !tbaa !57
+  %676 = load i32, ptr %675, align 4, !tbaa !56
   %677 = load i32, ptr %96, align 4, !tbaa !35
   %678 = getelementptr inbounds nuw i8, ptr %216, i64 32
   %679 = load i32, ptr %678, align 8, !tbaa !31
@@ -1385,25 +1385,25 @@ erase_line.exit267.i:                             ; preds = %465, %457
   %681 = icmp slt i32 %676, 0
   %..i258.i = tail call i32 @llvm.smin.i32(i32 %676, i32 %680)
   %.0.i259.i = select i1 %681, i32 0, i32 %..i258.i
-  store i32 %.0.i259.i, ptr %675, align 4, !tbaa !57
-  store i32 0, ptr %92, align 4, !tbaa !59
+  store i32 %.0.i259.i, ptr %675, align 4, !tbaa !56
+  store i32 0, ptr %92, align 4, !tbaa !58
   br label %.thread
 
 .split129.us:                                     ; preds = %.lr.ph123.split.us
-  %.pre = load i8, ptr %.086.ph139, align 1, !tbaa !60
+  %.pre = load i8, ptr %.086.ph139, align 1, !tbaa !59
   switch i8 %.pre, label %.thread [
     i8 14, label %682
     i8 27, label %682
   ]
 
 682:                                              ; preds = %.split129.us, %.split129.us
-  store i32 0, ptr %92, align 4, !tbaa !59
+  store i32 0, ptr %92, align 4, !tbaa !58
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph123.split.us, %.lr.ph138, %191, %.split129.us, %682, %199, %.loopexit, %186, %181, %178, %196, %194, %.split126.us, %.split126.us, %104, %hscroll.exit, %erase_screen.exit104, %175, %176, %.split.us, %.split.us, %.split.us, %.split132.us
   %683 = getelementptr inbounds nuw i8, ptr %.086.ph139, i64 1
   %684 = icmp ult ptr %683, %12
-  br i1 %684, label %.lr.ph123.split.us.preheader, label %.outer._crit_edge, !llvm.loop !72
+  br i1 %684, label %.lr.ph123.split.us.preheader, label %.outer._crit_edge, !llvm.loop !71
 
 .outer._crit_edge:                                ; preds = %.thread, %90
   store i32 1, ptr %2, align 4, !tbaa !42
@@ -1465,13 +1465,13 @@ define internal fastcc void @erase_screen(ptr noundef readonly captures(none) %0
   %18 = add nuw nsw i32 %.09, 1
   %19 = load i32, ptr %4, align 4, !tbaa !35
   %20 = icmp slt i32 %18, %19
-  br i1 %20, label %8, label %._crit_edge, !llvm.loop !56
+  br i1 %20, label %8, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %8, %1
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %21, align 4, !tbaa !57
+  store i32 0, ptr %21, align 4, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %22, align 8, !tbaa !58
+  store i32 0, ptr %22, align 8, !tbaa !57
   ret void
 }
 
@@ -1484,7 +1484,7 @@ define internal fastcc void @draw_char(ptr noundef readonly captures(none) %0, i
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !33
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %10 = load i32, ptr %9, align 4, !tbaa !68
+  %10 = load i32, ptr %9, align 4, !tbaa !67
   %11 = shl i32 %10, 3
   %12 = and i32 %11, 8
   %spec.select = add nsw i32 %12, %6
@@ -1501,14 +1501,14 @@ define internal fastcc void @draw_char(ptr noundef readonly captures(none) %0, i
   %17 = load ptr, ptr %4, align 8, !tbaa !36
   %18 = load ptr, ptr %17, align 8, !tbaa !41
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %20 = load i32, ptr %19, align 4, !tbaa !57
+  %20 = load i32, ptr %19, align 4, !tbaa !56
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %22 = load i32, ptr %21, align 8, !tbaa !42
   %23 = mul nsw i32 %22, %20
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !58
+  %27 = load i32, ptr %26, align 8, !tbaa !57
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1516,9 +1516,9 @@ define internal fastcc void @draw_char(ptr noundef readonly captures(none) %0, i
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %33 = load i32, ptr %32, align 8, !tbaa !31
   tail call void @ff_draw_pc_font(ptr noundef %29, i32 noundef %22, ptr noundef %31, i32 noundef %33, i32 noundef %1, i32 noundef %.2, i32 noundef %.128) #7
-  %34 = load i32, ptr %26, align 8, !tbaa !58
+  %34 = load i32, ptr %26, align 8, !tbaa !57
   %35 = add nsw i32 %34, 8
-  store i32 %35, ptr %26, align 8, !tbaa !58
+  store i32 %35, ptr %26, align 8, !tbaa !57
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %37 = load i32, ptr %36, align 8, !tbaa !34
   %38 = add nsw i32 %37, -8
@@ -1526,10 +1526,10 @@ define internal fastcc void @draw_char(ptr noundef readonly captures(none) %0, i
   br i1 %39, label %40, label %hscroll.exit
 
 40:                                               ; preds = %2
-  store i32 0, ptr %26, align 8, !tbaa !58
+  store i32 0, ptr %26, align 8, !tbaa !57
   %41 = load ptr, ptr %3, align 8, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !57
+  %43 = load i32, ptr %42, align 4, !tbaa !56
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %45 = load i32, ptr %44, align 4, !tbaa !35
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -1545,7 +1545,7 @@ define internal fastcc void @draw_char(ptr noundef readonly captures(none) %0, i
 
 51:                                               ; preds = %40
   %52 = add nsw i32 %47, %43
-  store i32 %52, ptr %42, align 4, !tbaa !57
+  store i32 %52, ptr %42, align 4, !tbaa !56
   br label %hscroll.exit
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader25.i
@@ -1576,7 +1576,7 @@ define internal fastcc void @draw_char(ptr noundef readonly captures(none) %0, i
   %71 = load i32, ptr %46, align 8, !tbaa !31
   %72 = sub nsw i32 %70, %71
   %73 = icmp slt i32 %69, %72
-  br i1 %73, label %.lr.ph.i, label %.preheader.i, !llvm.loop !64
+  br i1 %73, label %.lr.ph.i, label %.preheader.i, !llvm.loop !63
 
 .lr.ph28.i:                                       ; preds = %.preheader.i, %.lr.ph28.i
   %.127.i = phi i32 [ %83, %.lr.ph28.i ], [ %.0.lcssa.i, %.preheader.i ]
@@ -1593,7 +1593,7 @@ define internal fastcc void @draw_char(ptr noundef readonly captures(none) %0, i
   %83 = add nuw nsw i32 %.127.i, 1
   %84 = load i32, ptr %44, align 4, !tbaa !35
   %85 = icmp slt i32 %83, %84
-  br i1 %85, label %.lr.ph28.i, label %hscroll.exit, !llvm.loop !65
+  br i1 %85, label %.lr.ph28.i, label %hscroll.exit, !llvm.loop !64
 
 hscroll.exit:                                     ; preds = %.lr.ph28.i, %.preheader.i, %51, %2
   ret void
@@ -1677,33 +1677,32 @@ attributes #7 = { nounwind }
 !40 = !{!5, !13, i64 824}
 !41 = !{!14, !14, i64 0}
 !42 = !{!10, !10, i64 0}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!47, !10, i64 120}
-!47 = !{!"AVFrame", !8, i64 0, !8, i64 64, !48, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !49, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !50, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
-!48 = !{!"p2 omnipotent char", !26, i64 0}
-!49 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
-!50 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!51 = distinct !{!51, !44, !45}
-!52 = distinct !{!52, !44, !45}
-!53 = distinct !{!53, !44, !45}
-!54 = distinct !{!54, !44, !45}
-!55 = !{!29, !10, i64 48}
-!56 = distinct !{!56, !44, !45}
-!57 = !{!29, !10, i64 12}
-!58 = !{!29, !10, i64 8}
-!59 = !{!29, !10, i64 52}
-!60 = !{!8, !8, i64 0}
-!61 = distinct !{!61, !62}
-!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!63 = distinct !{!63, !44, !45}
-!64 = distinct !{!64, !44, !45}
-!65 = distinct !{!65, !44, !45}
-!66 = !{!29, !10, i64 72}
-!67 = distinct !{!67, !44, !45}
-!68 = !{!29, !10, i64 36}
-!69 = distinct !{!69, !44, !45}
-!70 = !{!29, !10, i64 16}
-!71 = !{!29, !10, i64 20}
-!72 = distinct !{!72, !44, !45}
+!45 = !{!46, !10, i64 120}
+!46 = !{!"AVFrame", !8, i64 0, !8, i64 64, !47, i64 96, !10, i64 104, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !15, i64 124, !13, i64 136, !13, i64 144, !15, i64 152, !10, i64 160, !7, i64 168, !10, i64 176, !10, i64 180, !8, i64 184, !48, i64 248, !10, i64 256, !25, i64 264, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !10, i64 288, !10, i64 292, !10, i64 296, !13, i64 304, !49, i64 312, !10, i64 320, !21, i64 328, !21, i64 336, !13, i64 344, !13, i64 352, !13, i64 360, !13, i64 368, !7, i64 376, !18, i64 384, !13, i64 408}
+!47 = !{!"p2 omnipotent char", !26, i64 0}
+!48 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
+!49 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!50 = distinct !{!50, !44}
+!51 = distinct !{!51, !44}
+!52 = distinct !{!52, !44}
+!53 = distinct !{!53, !44}
+!54 = !{!29, !10, i64 48}
+!55 = distinct !{!55, !44}
+!56 = !{!29, !10, i64 12}
+!57 = !{!29, !10, i64 8}
+!58 = !{!29, !10, i64 52}
+!59 = !{!8, !8, i64 0}
+!60 = distinct !{!60, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !44}
+!63 = distinct !{!63, !44}
+!64 = distinct !{!64, !44}
+!65 = !{!29, !10, i64 72}
+!66 = distinct !{!66, !44}
+!67 = !{!29, !10, i64 36}
+!68 = distinct !{!68, !44}
+!69 = !{!29, !10, i64 16}
+!70 = !{!29, !10, i64 20}
+!71 = distinct !{!71, !44}

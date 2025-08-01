@@ -889,7 +889,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i.i.i.i
   %firstAliveRate_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %firstAliveRate_11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %_M_finish.i.i72 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %18 = load ptr, ptr %_M_finish.i.i72, align 8, !tbaa !62
+  %18 = load ptr, ptr %_M_finish.i.i72, align 8, !tbaa !61
   %19 = load ptr, ptr %firstAliveRate_11, align 8, !tbaa !39
   %sub.ptr.lhs.cast.i.i73 = ptrtoint ptr %18 to i64
   %sub.ptr.rhs.cast.i.i74 = ptrtoint ptr %19 to i64
@@ -917,7 +917,7 @@ invoke.cont.i80:                                  ; preds = %_ZNSt16allocator_tr
   %cond.i.i.i.i81 = phi ptr [ null, %invoke.cont10 ], [ %call5.i.i.i.i2.i6.i7993, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i81, ptr %firstAliveRate_, align 8, !tbaa !39
   %_M_finish.i.i.i82 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr %cond.i.i.i.i81, ptr %_M_finish.i.i.i82, align 8, !tbaa !62
+  store ptr %cond.i.i.i.i81, ptr %_M_finish.i.i.i82, align 8, !tbaa !61
   %add.ptr.i.i.i83 = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i81, i64 %sub.ptr.sub.i.i75
   %_M_end_of_storage.i.i.i84 = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr %add.ptr.i.i.i83, ptr %_M_end_of_storage.i.i.i84, align 8, !tbaa !40
@@ -935,7 +935,7 @@ if.then.i.i.i.i.i.i.i.i.i89:                      ; preds = %invoke.cont.i80
 
 invoke.cont13:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i89, %invoke.cont.i80
   %add.ptr.i.i.i.i.i.i.i.i.i90 = getelementptr inbounds i8, ptr %cond.i.i.i.i81, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i87
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i90, ptr %_M_finish.i.i.i82, align 8, !tbaa !62
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i90, ptr %_M_finish.i.i.i82, align 8, !tbaa !61
   ret void
 
 lpad:                                             ; preds = %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i16, %if.then3.i.i.i.i.i.i29
@@ -1103,7 +1103,6 @@ attributes #14 = { allocsize(0) }
 !56 = !{!38, !22, i64 0}
 !57 = !{!21, !22, i64 0}
 !58 = !{!26, !4, i64 8}
-!59 = distinct !{!59, !60, !61}
+!59 = distinct !{!59, !60}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!"llvm.loop.estimated_trip_count"}
-!62 = !{!30, !4, i64 8}
+!61 = !{!30, !4, i64 8}

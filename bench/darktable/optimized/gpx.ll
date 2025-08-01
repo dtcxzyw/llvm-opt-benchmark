@@ -279,7 +279,7 @@ define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly captures(ad
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = add nsw i32 %8, -1
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %.preheader, label %7, !llvm.loop !31
+  br i1 %.not.i, label %.preheader, label %7
 
 .preheader:                                       ; preds = %9
   %.not92110 = icmp eq ptr %6, null
@@ -287,7 +287,7 @@ define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly captures(ad
 
 .lr.ph:                                           ; preds = %.preheader, %137
   %.084111 = phi ptr [ %33, %137 ], [ %6, %.preheader ]
-  %13 = load ptr, ptr %.084111, align 8, !tbaa !33
+  %13 = load ptr, ptr %.084111, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !21
   %16 = tail call i32 @g_date_time_compare(ptr noundef %1, ptr noundef %15) #11
@@ -299,18 +299,18 @@ define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly captures(ad
   br i1 %or.cond3, label %21, label %28
 
 21:                                               ; preds = %.lr.ph
-  %22 = load double, ptr %13, align 8, !tbaa !34
-  store double %22, ptr %2, align 8, !tbaa !35
+  %22 = load double, ptr %13, align 8, !tbaa !32
+  store double %22, ptr %2, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %24 = load double, ptr %23, align 8, !tbaa !37
+  %24 = load double, ptr %23, align 8, !tbaa !35
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %24, ptr %25, align 8, !tbaa !38
+  store double %24, ptr %25, align 8, !tbaa !36
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %27 = load double, ptr %26, align 8, !tbaa !39
+  %27 = load double, ptr %26, align 8, !tbaa !37
   br label %g_list_shorter_than.exit.sink.split
 
 28:                                               ; preds = %.lr.ph
-  %29 = load ptr, ptr %18, align 8, !tbaa !33
+  %29 = load ptr, ptr %18, align 8, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !21
   %32 = tail call i32 @g_date_time_compare(ptr noundef %1, ptr noundef %31) #11
@@ -334,23 +334,23 @@ define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly captures(ad
   br i1 %or.cond7, label %46, label %53
 
 46:                                               ; preds = %36
-  %47 = load double, ptr %13, align 8, !tbaa !34
-  store double %47, ptr %2, align 8, !tbaa !35
+  %47 = load double, ptr %13, align 8, !tbaa !32
+  store double %47, ptr %2, align 8, !tbaa !33
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %49 = load double, ptr %48, align 8, !tbaa !37
+  %49 = load double, ptr %48, align 8, !tbaa !35
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %49, ptr %50, align 8, !tbaa !38
+  store double %49, ptr %50, align 8, !tbaa !36
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %52 = load double, ptr %51, align 8, !tbaa !39
+  %52 = load double, ptr %51, align 8, !tbaa !37
   br label %g_list_shorter_than.exit.sink.split
 
 53:                                               ; preds = %36
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %55 = load double, ptr %54, align 8, !tbaa !37
-  %56 = load double, ptr %13, align 8, !tbaa !34
+  %55 = load double, ptr %54, align 8, !tbaa !35
+  %56 = load double, ptr %13, align 8, !tbaa !32
   %57 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %58 = load double, ptr %57, align 8, !tbaa !37
-  %59 = load double, ptr %29, align 8, !tbaa !34
+  %58 = load double, ptr %57, align 8, !tbaa !35
+  %59 = load double, ptr %29, align 8, !tbaa !32
   %60 = sitofp i64 %43 to double
   %61 = sitofp i64 %41 to double
   %62 = fdiv reassoc nsz arcp contract afn double %60, %61
@@ -391,23 +391,23 @@ define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly captures(ad
   %91 = tail call reassoc nsz arcp contract afn double @llvm.atan2.f64(double %88, double %90)
   %92 = fmul reassoc nsz arcp contract afn double %91, 2.000000e+00
   %93 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %74)
-  store double %93, ptr @dt_gpx_geodesic_intermediate_point.sin_lat_rad_1, align 8, !tbaa !40
-  store double %82, ptr @dt_gpx_geodesic_intermediate_point.cos_lat_rad_1, align 8, !tbaa !40
+  store double %93, ptr @dt_gpx_geodesic_intermediate_point.sin_lat_rad_1, align 8, !tbaa !38
+  store double %82, ptr @dt_gpx_geodesic_intermediate_point.cos_lat_rad_1, align 8, !tbaa !38
   %94 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %75)
-  store double %94, ptr @dt_gpx_geodesic_intermediate_point.sin_lat_rad_2, align 8, !tbaa !40
-  store double %83, ptr @dt_gpx_geodesic_intermediate_point.cos_lat_rad_2, align 8, !tbaa !40
+  store double %94, ptr @dt_gpx_geodesic_intermediate_point.sin_lat_rad_2, align 8, !tbaa !38
+  store double %83, ptr @dt_gpx_geodesic_intermediate_point.cos_lat_rad_2, align 8, !tbaa !38
   %95 = fmul reassoc nsz arcp contract afn double %56, 0x3F91DF46A2529D39
   %96 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %95)
-  store double %96, ptr @dt_gpx_geodesic_intermediate_point.sin_lon_rad_1, align 8, !tbaa !40
+  store double %96, ptr @dt_gpx_geodesic_intermediate_point.sin_lon_rad_1, align 8, !tbaa !38
   %97 = tail call reassoc nsz arcp contract afn double @llvm.cos.f64(double %95)
-  store double %97, ptr @dt_gpx_geodesic_intermediate_point.cos_lon_rad_1, align 8, !tbaa !40
+  store double %97, ptr @dt_gpx_geodesic_intermediate_point.cos_lon_rad_1, align 8, !tbaa !38
   %98 = fmul reassoc nsz arcp contract afn double %59, 0x3F91DF46A2529D39
   %99 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %98)
-  store double %99, ptr @dt_gpx_geodesic_intermediate_point.sin_lon_rad_2, align 8, !tbaa !40
+  store double %99, ptr @dt_gpx_geodesic_intermediate_point.sin_lon_rad_2, align 8, !tbaa !38
   %100 = tail call reassoc nsz arcp contract afn double @llvm.cos.f64(double %98)
-  store double %100, ptr @dt_gpx_geodesic_intermediate_point.cos_lon_rad_2, align 8, !tbaa !40
+  store double %100, ptr @dt_gpx_geodesic_intermediate_point.cos_lon_rad_2, align 8, !tbaa !38
   %101 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %92)
-  store double %101, ptr @dt_gpx_geodesic_intermediate_point.sin_delta, align 8, !tbaa !40
+  store double %101, ptr @dt_gpx_geodesic_intermediate_point.sin_delta, align 8, !tbaa !38
   %102 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %62
   %103 = fmul reassoc nsz arcp contract afn double %92, %102
   %104 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %103)
@@ -440,25 +440,25 @@ define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly captures(ad
   %.098 = phi nsz double [ %71, %69 ], [ %127, %._crit_edge ]
   %.097 = phi nsz double [ %73, %69 ], [ %126, %._crit_edge ]
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %.097, ptr %129, align 8, !tbaa !38
-  store double %.098, ptr %2, align 8, !tbaa !35
+  store double %.097, ptr %129, align 8, !tbaa !36
+  store double %.098, ptr %2, align 8, !tbaa !33
   %130 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %131 = load double, ptr %130, align 8, !tbaa !39
+  %131 = load double, ptr %130, align 8, !tbaa !37
   %132 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %133 = load double, ptr %132, align 8, !tbaa !39
+  %133 = load double, ptr %132, align 8, !tbaa !37
   %134 = fsub reassoc nsz arcp contract afn double %131, %133
   %135 = fmul reassoc nsz arcp contract afn double %134, %62
   %136 = fadd reassoc nsz arcp contract afn double %135, %133
   br label %g_list_shorter_than.exit.sink.split
 
 137:                                              ; preds = %28
-  br i1 %34, label %g_list_shorter_than.exit, label %.lr.ph, !llvm.loop !41
+  br i1 %34, label %g_list_shorter_than.exit, label %.lr.ph
 
 g_list_shorter_than.exit.sink.split:              ; preds = %128, %46, %21
   %.sink = phi double [ %27, %21 ], [ %52, %46 ], [ %136, %128 ]
   %.0.ph = phi i32 [ 0, %21 ], [ 1, %46 ], [ 1, %128 ]
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %.sink, ptr %138, align 8, !tbaa !42
+  store double %.sink, ptr %138, align 8, !tbaa !39
   br label %g_list_shorter_than.exit
 
 g_list_shorter_than.exit:                         ; preds = %7, %137, %g_list_shorter_than.exit.sink.split, %.preheader
@@ -495,9 +495,9 @@ define void @dt_gpx_geodesic_distance(double noundef %0, double noundef %1, doub
   %24 = tail call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %23)
   %25 = tail call reassoc nsz arcp contract afn double @llvm.atan2.f64(double %22, double %24)
   %26 = fmul reassoc nsz arcp contract afn double %25, 2.000000e+00
-  store double %26, ptr %5, align 8, !tbaa !40
+  store double %26, ptr %5, align 8, !tbaa !38
   %27 = fmul reassoc nsz arcp contract afn double %25, 1.275620e+07
-  store double %27, ptr %4, align 8, !tbaa !40
+  store double %27, ptr %4, align 8, !tbaa !38
   ret void
 }
 
@@ -507,40 +507,40 @@ define void @dt_gpx_geodesic_intermediate_point(double noundef %0, double nounde
   br i1 %.not, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %9
-  %.pre = load double, ptr @dt_gpx_geodesic_intermediate_point.sin_delta, align 8, !tbaa !40
-  %.pre26 = load double, ptr @dt_gpx_geodesic_intermediate_point.cos_lat_rad_1, align 8, !tbaa !40
-  %.pre27 = load double, ptr @dt_gpx_geodesic_intermediate_point.cos_lon_rad_1, align 8, !tbaa !40
-  %.pre28 = load double, ptr @dt_gpx_geodesic_intermediate_point.cos_lat_rad_2, align 8, !tbaa !40
-  %.pre29 = load double, ptr @dt_gpx_geodesic_intermediate_point.cos_lon_rad_2, align 8, !tbaa !40
-  %.pre30 = load double, ptr @dt_gpx_geodesic_intermediate_point.sin_lon_rad_1, align 8, !tbaa !40
-  %.pre31 = load double, ptr @dt_gpx_geodesic_intermediate_point.sin_lon_rad_2, align 8, !tbaa !40
-  %.pre32 = load double, ptr @dt_gpx_geodesic_intermediate_point.sin_lat_rad_1, align 8, !tbaa !40
-  %.pre33 = load double, ptr @dt_gpx_geodesic_intermediate_point.sin_lat_rad_2, align 8, !tbaa !40
+  %.pre = load double, ptr @dt_gpx_geodesic_intermediate_point.sin_delta, align 8, !tbaa !38
+  %.pre26 = load double, ptr @dt_gpx_geodesic_intermediate_point.cos_lat_rad_1, align 8, !tbaa !38
+  %.pre27 = load double, ptr @dt_gpx_geodesic_intermediate_point.cos_lon_rad_1, align 8, !tbaa !38
+  %.pre28 = load double, ptr @dt_gpx_geodesic_intermediate_point.cos_lat_rad_2, align 8, !tbaa !38
+  %.pre29 = load double, ptr @dt_gpx_geodesic_intermediate_point.cos_lon_rad_2, align 8, !tbaa !38
+  %.pre30 = load double, ptr @dt_gpx_geodesic_intermediate_point.sin_lon_rad_1, align 8, !tbaa !38
+  %.pre31 = load double, ptr @dt_gpx_geodesic_intermediate_point.sin_lon_rad_2, align 8, !tbaa !38
+  %.pre32 = load double, ptr @dt_gpx_geodesic_intermediate_point.sin_lat_rad_1, align 8, !tbaa !38
+  %.pre33 = load double, ptr @dt_gpx_geodesic_intermediate_point.sin_lat_rad_2, align 8, !tbaa !38
   br label %24
 
 10:                                               ; preds = %9
   %11 = fmul reassoc nsz arcp contract afn double %0, 0x3F91DF46A2529D39
   %12 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %11)
-  store double %12, ptr @dt_gpx_geodesic_intermediate_point.sin_lat_rad_1, align 8, !tbaa !40
+  store double %12, ptr @dt_gpx_geodesic_intermediate_point.sin_lat_rad_1, align 8, !tbaa !38
   %13 = tail call reassoc nsz arcp contract afn double @llvm.cos.f64(double %11)
-  store double %13, ptr @dt_gpx_geodesic_intermediate_point.cos_lat_rad_1, align 8, !tbaa !40
+  store double %13, ptr @dt_gpx_geodesic_intermediate_point.cos_lat_rad_1, align 8, !tbaa !38
   %14 = fmul reassoc nsz arcp contract afn double %2, 0x3F91DF46A2529D39
   %15 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %14)
-  store double %15, ptr @dt_gpx_geodesic_intermediate_point.sin_lat_rad_2, align 8, !tbaa !40
+  store double %15, ptr @dt_gpx_geodesic_intermediate_point.sin_lat_rad_2, align 8, !tbaa !38
   %16 = tail call reassoc nsz arcp contract afn double @llvm.cos.f64(double %14)
-  store double %16, ptr @dt_gpx_geodesic_intermediate_point.cos_lat_rad_2, align 8, !tbaa !40
+  store double %16, ptr @dt_gpx_geodesic_intermediate_point.cos_lat_rad_2, align 8, !tbaa !38
   %17 = fmul reassoc nsz arcp contract afn double %1, 0x3F91DF46A2529D39
   %18 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %17)
-  store double %18, ptr @dt_gpx_geodesic_intermediate_point.sin_lon_rad_1, align 8, !tbaa !40
+  store double %18, ptr @dt_gpx_geodesic_intermediate_point.sin_lon_rad_1, align 8, !tbaa !38
   %19 = tail call reassoc nsz arcp contract afn double @llvm.cos.f64(double %17)
-  store double %19, ptr @dt_gpx_geodesic_intermediate_point.cos_lon_rad_1, align 8, !tbaa !40
+  store double %19, ptr @dt_gpx_geodesic_intermediate_point.cos_lon_rad_1, align 8, !tbaa !38
   %20 = fmul reassoc nsz arcp contract afn double %3, 0x3F91DF46A2529D39
   %21 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %20)
-  store double %21, ptr @dt_gpx_geodesic_intermediate_point.sin_lon_rad_2, align 8, !tbaa !40
+  store double %21, ptr @dt_gpx_geodesic_intermediate_point.sin_lon_rad_2, align 8, !tbaa !38
   %22 = tail call reassoc nsz arcp contract afn double @llvm.cos.f64(double %20)
-  store double %22, ptr @dt_gpx_geodesic_intermediate_point.cos_lon_rad_2, align 8, !tbaa !40
+  store double %22, ptr @dt_gpx_geodesic_intermediate_point.cos_lon_rad_2, align 8, !tbaa !38
   %23 = tail call reassoc nsz arcp contract afn double @llvm.sin.f64(double %4)
-  store double %23, ptr @dt_gpx_geodesic_intermediate_point.sin_delta, align 8, !tbaa !40
+  store double %23, ptr @dt_gpx_geodesic_intermediate_point.sin_delta, align 8, !tbaa !38
   br label %24
 
 24:                                               ; preds = %._crit_edge, %10
@@ -578,9 +578,9 @@ define void @dt_gpx_geodesic_intermediate_point(double noundef %0, double nounde
   %56 = tail call reassoc nsz arcp contract afn double @llvm.atan2.f64(double %51, double %55)
   %57 = tail call reassoc nsz arcp contract afn double @llvm.atan2.f64(double %48, double %45)
   %58 = fmul reassoc nsz arcp contract afn double %56, 0x404CA5DC1A63C1F8
-  store double %58, ptr %7, align 8, !tbaa !40
+  store double %58, ptr %7, align 8, !tbaa !38
   %59 = fmul reassoc nsz arcp contract afn double %57, 0x404CA5DC1A63C1F8
-  store double %59, ptr %8, align 8, !tbaa !40
+  store double %59, ptr %8, align 8, !tbaa !38
   ret void
 }
 
@@ -612,10 +612,10 @@ define ptr @dt_gpx_get_trkpts(ptr noundef readonly captures(address_is_null) %0,
   br i1 %.not, label %.loopexit, label %8
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %7, align 8, !tbaa !33
+  %9 = load ptr, ptr %7, align 8, !tbaa !31
   %10 = load ptr, ptr %0, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !43
+  %12 = load ptr, ptr %11, align 8, !tbaa !40
   %13 = tail call ptr @g_list_find(ptr noundef %10, ptr noundef %12) #11
   %.not37 = icmp eq ptr %13, null
   br i1 %.not37, label %.loopexit, label %.preheader
@@ -623,27 +623,27 @@ define ptr @dt_gpx_get_trkpts(ptr noundef readonly captures(address_is_null) %0,
 .preheader:                                       ; preds = %8, %17
   %.02845 = phi ptr [ %25, %17 ], [ null, %8 ]
   %.03144 = phi ptr [ %27, %17 ], [ %13, %8 ]
-  %14 = load ptr, ptr %.03144, align 8, !tbaa !33
+  %14 = load ptr, ptr %.03144, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load i32, ptr %15, align 8, !tbaa !44
+  %16 = load i32, ptr %15, align 8, !tbaa !41
   %.not39 = icmp eq i32 %16, %1
   br i1 %.not39, label %17, label %.loopexit
 
 17:                                               ; preds = %.preheader
   %18 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #12
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %20 = load double, ptr %19, align 8, !tbaa !37
+  %20 = load double, ptr %19, align 8, !tbaa !35
   %21 = fptrunc reassoc nsz arcp contract afn double %20 to float
-  store float %21, ptr %18, align 4, !tbaa !45
-  %22 = load double, ptr %14, align 8, !tbaa !34
+  store float %21, ptr %18, align 4, !tbaa !42
+  %22 = load double, ptr %14, align 8, !tbaa !32
   %23 = fptrunc reassoc nsz arcp contract afn double %22 to float
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store float %23, ptr %24, align 4, !tbaa !48
+  store float %23, ptr %24, align 4, !tbaa !45
   %25 = tail call ptr @g_list_prepend(ptr noundef %.02845, ptr noundef nonnull %18) #11
   %26 = getelementptr inbounds nuw i8, ptr %.03144, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %.not38 = icmp eq ptr %27, null
-  br i1 %.not38, label %.loopexit, label %.preheader, !llvm.loop !49
+  br i1 %.not38, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %17, %.preheader, %4, %8, %2
   %.0 = phi ptr [ null, %2 ], [ null, %4 ], [ null, %8 ], [ %.02845, %.preheader ], [ %25, %17 ]
@@ -672,7 +672,7 @@ declare double @llvm.atan2.f64(double, double) #5
 define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef %5) #0 {
   %7 = load ptr, ptr %5, align 8, !tbaa !6
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %9, label %8, !prof !50
+  br i1 %.not, label %9, label %8, !prof !46
 
 8:                                                ; preds = %6
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gpx_parser_start_element, ptr noundef nonnull @.str.4) #11
@@ -680,7 +680,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !51
+  %11 = load i32, ptr %10, align 8, !tbaa !47
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %17
 
@@ -690,7 +690,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %13
-  store i32 1, ptr %10, align 8, !tbaa !51
+  store i32 1, ptr %10, align 8, !tbaa !47
   br label %.critedge
 
 17:                                               ; preds = %9
@@ -700,13 +700,13 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !52
+  %22 = load ptr, ptr %21, align 8, !tbaa !48
   %.not63 = icmp eq ptr %22, null
   br i1 %.not63, label %27, label %23
 
 23:                                               ; preds = %20
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7) #11
-  %24 = load ptr, ptr %21, align 8, !tbaa !52
+  %24 = load ptr, ptr %21, align 8, !tbaa !48
   tail call void @g_free(ptr noundef %24) #11
   %25 = tail call i32 @g_markup_error_quark() #11
   %26 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #11
@@ -715,24 +715,24 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 0, ptr %28, align 4, !tbaa !53
-  %29 = load ptr, ptr %2, align 8, !tbaa !54
+  store i32 0, ptr %28, align 4, !tbaa !49
+  %29 = load ptr, ptr %2, align 8, !tbaa !50
   %.not64 = icmp eq ptr %29, null
   br i1 %.not64, label %68, label %30
 
 30:                                               ; preds = %27
   %31 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0(i64 noundef 40) #12
-  store ptr %31, ptr %21, align 8, !tbaa !52
+  store ptr %31, ptr %21, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %33 = load i32, ptr %32, align 4, !tbaa !55
+  %33 = load i32, ptr %32, align 4, !tbaa !51
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store i32 %33, ptr %34, align 8, !tbaa !44
-  store double 0x7FF8000000000000, ptr %31, align 8, !tbaa !34
+  store i32 %33, ptr %34, align 8, !tbaa !41
+  store double 0x7FF8000000000000, ptr %31, align 8, !tbaa !32
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store double 0x7FF8000000000000, ptr %35, align 8, !tbaa !37
+  store double 0x7FF8000000000000, ptr %35, align 8, !tbaa !35
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store double 0x7FF8000000000000, ptr %36, align 8, !tbaa !39
-  %37 = load ptr, ptr %2, align 8, !tbaa !54
+  store double 0x7FF8000000000000, ptr %36, align 8, !tbaa !37
+  %37 = load ptr, ptr %2, align 8, !tbaa !50
   %.not6568 = icmp eq ptr %37, null
   br i1 %.not6568, label %._crit_edge.thread, label %.lr.ph
 
@@ -746,15 +746,15 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %.lr.ph
-  %43 = load ptr, ptr %.05770, align 8, !tbaa !54
+  %43 = load ptr, ptr %.05770, align 8, !tbaa !50
   %44 = load i8, ptr %43, align 1, !tbaa !11
   %.not66 = icmp eq i8 %44, 0
   br i1 %.not66, label %48, label %45
 
 45:                                               ; preds = %42
   %46 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %43, ptr noundef null) #11
-  %47 = load ptr, ptr %21, align 8, !tbaa !52
-  store double %46, ptr %47, align 8, !tbaa !34
+  %47 = load ptr, ptr %21, align 8, !tbaa !48
+  store double %46, ptr %47, align 8, !tbaa !32
   br label %58
 
 48:                                               ; preds = %42, %.lr.ph
@@ -763,40 +763,40 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
   br i1 %50, label %51, label %58
 
 51:                                               ; preds = %48
-  %52 = load ptr, ptr %.05770, align 8, !tbaa !54
+  %52 = load ptr, ptr %.05770, align 8, !tbaa !50
   %53 = load i8, ptr %52, align 1, !tbaa !11
   %.not67 = icmp eq i8 %53, 0
   br i1 %.not67, label %58, label %54
 
 54:                                               ; preds = %51
   %55 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %52, ptr noundef null) #11
-  %56 = load ptr, ptr %21, align 8, !tbaa !52
+  %56 = load ptr, ptr %21, align 8, !tbaa !48
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store double %55, ptr %57, align 8, !tbaa !37
+  store double %55, ptr %57, align 8, !tbaa !35
   br label %58
 
 58:                                               ; preds = %48, %51, %54, %45
   %59 = phi ptr [ %38, %48 ], [ %38, %51 ], [ %56, %54 ], [ %47, %45 ]
   %60 = getelementptr inbounds nuw i8, ptr %.05869, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %.05770, i64 8
-  %62 = load ptr, ptr %60, align 8, !tbaa !54
+  %62 = load ptr, ptr %60, align 8, !tbaa !50
   %.not65 = icmp eq ptr %62, null
-  br i1 %.not65, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %58
-  %.pre = load double, ptr %59, align 8, !tbaa !34
+  %.pre = load double, ptr %59, align 8, !tbaa !32
   %63 = fcmp uno double %.pre, 0.000000e+00
   br i1 %63, label %._crit_edge.thread, label %64
 
 64:                                               ; preds = %._crit_edge
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %66 = load double, ptr %65, align 8, !tbaa !37
+  %66 = load double, ptr %65, align 8, !tbaa !35
   %67 = fcmp uno double %66, 0.000000e+00
   br i1 %67, label %._crit_edge.thread, label %71
 
 ._crit_edge.thread:                               ; preds = %30, %64, %._crit_edge
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10) #11
-  store i32 1, ptr %28, align 4, !tbaa !53
+  store i32 1, ptr %28, align 4, !tbaa !49
   tail call fastcc void @_gpx_parse_error(ptr noundef nonnull %5)
   br label %.critedge
 
@@ -809,7 +809,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
 
 71:                                               ; preds = %64
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 1, ptr %72, align 8, !tbaa !57
+  store i32 1, ptr %72, align 8, !tbaa !52
   br label %.critedge
 
 73:                                               ; preds = %17
@@ -819,13 +819,13 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
 
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !52
+  %78 = load ptr, ptr %77, align 8, !tbaa !48
   %.not62 = icmp eq ptr %78, null
   br i1 %.not62, label %107, label %79
 
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 2, ptr %80, align 8, !tbaa !57
+  store i32 2, ptr %80, align 8, !tbaa !52
   br label %.critedge
 
 81:                                               ; preds = %73
@@ -835,13 +835,13 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !52
+  %86 = load ptr, ptr %85, align 8, !tbaa !48
   %.not61 = icmp eq ptr %86, null
   br i1 %.not61, label %107, label %87
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 4, ptr %88, align 8, !tbaa !57
+  store i32 4, ptr %88, align 8, !tbaa !52
   br label %.critedge
 
 89:                                               ; preds = %81
@@ -851,7 +851,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 8, ptr %93, align 8, !tbaa !57
+  store i32 8, ptr %93, align 8, !tbaa !52
   br label %.critedge
 
 94:                                               ; preds = %89
@@ -862,13 +862,13 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
 97:                                               ; preds = %94
   %98 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #12
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %100 = load ptr, ptr %99, align 8, !tbaa !58
+  %100 = load ptr, ptr %99, align 8, !tbaa !53
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 24
   store ptr %100, ptr %101, align 8, !tbaa !27
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  %103 = load i32, ptr %102, align 4, !tbaa !55
-  store i32 %103, ptr %98, align 8, !tbaa !59
-  store ptr null, ptr %99, align 8, !tbaa !58
+  %103 = load i32, ptr %102, align 4, !tbaa !51
+  store i32 %103, ptr %98, align 8, !tbaa !54
+  store ptr null, ptr %99, align 8, !tbaa !53
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !18
   %106 = tail call ptr @g_list_prepend(ptr noundef %105, ptr noundef nonnull %98) #11
@@ -890,7 +890,7 @@ define internal void @_gpx_parser_start_element(ptr readnone captures(none) %0, 
 define internal void @_gpx_parser_end_element(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = load ptr, ptr %3, align 8, !tbaa !6
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %7, label %6, !prof !50
+  br i1 %.not, label %7, label %6, !prof !46
 
 6:                                                ; preds = %4
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gpx_parser_end_element, ptr noundef nonnull @.str.4) #11
@@ -898,7 +898,7 @@ define internal void @_gpx_parser_end_element(ptr readnone captures(none) %0, pt
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %9 = load i32, ptr %8, align 8, !tbaa !51
+  %9 = load i32, ptr %8, align 8, !tbaa !47
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %40
 
@@ -908,7 +908,7 @@ define internal void @_gpx_parser_end_element(ptr readnone captures(none) %0, pt
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %11
-  store i32 0, ptr %8, align 8, !tbaa !51
+  store i32 0, ptr %8, align 8, !tbaa !47
   br label %38
 
 15:                                               ; preds = %11
@@ -918,27 +918,27 @@ define internal void @_gpx_parser_end_element(ptr readnone captures(none) %0, pt
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %20 = load i32, ptr %19, align 4, !tbaa !53
+  %20 = load i32, ptr %19, align 4, !tbaa !49
   %.not16 = icmp eq i32 %20, 0
   br i1 %.not16, label %21, label %26
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %2, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !52
+  %24 = load ptr, ptr %23, align 8, !tbaa !48
   %25 = tail call ptr @g_list_prepend(ptr noundef %22, ptr noundef %24) #11
   store ptr %25, ptr %2, align 8, !tbaa !12
   br label %29
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !52
+  %28 = load ptr, ptr %27, align 8, !tbaa !48
   tail call void @g_free(ptr noundef %28) #11
   br label %29
 
 29:                                               ; preds = %26, %21
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr null, ptr %30, align 8, !tbaa !52
+  store ptr null, ptr %30, align 8, !tbaa !48
   br label %38
 
 31:                                               ; preds = %15
@@ -948,14 +948,14 @@ define internal void @_gpx_parser_end_element(ptr readnone captures(none) %0, pt
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %36 = load i32, ptr %35, align 4, !tbaa !55
+  %36 = load i32, ptr %35, align 4, !tbaa !51
   %37 = add i32 %36, 1
-  store i32 %37, ptr %35, align 4, !tbaa !55
+  store i32 %37, ptr %35, align 4, !tbaa !51
   br label %38
 
 38:                                               ; preds = %29, %34, %31, %14
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 0, ptr %39, align 8, !tbaa !57
+  store i32 0, ptr %39, align 8, !tbaa !52
   br label %40
 
 40:                                               ; preds = %7, %38, %6
@@ -966,7 +966,7 @@ define internal void @_gpx_parser_end_element(ptr readnone captures(none) %0, pt
 define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr noundef %1, i64 %2, ptr noundef captures(none) %3, ptr noundef %4) #0 {
   %6 = load ptr, ptr %4, align 8, !tbaa !6
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %8, label %7, !prof !50
+  br i1 %.not, label %8, label %7, !prof !46
 
 7:                                                ; preds = %5
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gpx_parser_text, ptr noundef nonnull @.str.4) #11
@@ -974,13 +974,13 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !57
+  %10 = load i32, ptr %9, align 8, !tbaa !52
   %11 = icmp eq i32 %10, 8
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !58
+  %14 = load ptr, ptr %13, align 8, !tbaa !53
   %.not35 = icmp eq ptr %14, null
   br i1 %.not35, label %16, label %15
 
@@ -990,17 +990,17 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
 
 16:                                               ; preds = %15, %12
   %17 = tail call noalias ptr @g_strdup(ptr noundef %1) #11
-  store ptr %17, ptr %13, align 8, !tbaa !58
+  store ptr %17, ptr %13, align 8, !tbaa !53
   br label %18
 
 18:                                               ; preds = %16, %8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !52
+  %20 = load ptr, ptr %19, align 8, !tbaa !48
   %.not36 = icmp eq ptr %20, null
   br i1 %.not36, label %53, label %21
 
 21:                                               ; preds = %18
-  %22 = load i32, ptr %9, align 8, !tbaa !57
+  %22 = load i32, ptr %9, align 8, !tbaa !52
   switch i32 %22, label %53 [
     i32 2, label %23
     i32 4, label %49
@@ -1008,7 +1008,7 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
 
 23:                                               ; preds = %21
   %24 = tail call ptr @g_date_time_new_from_iso8601(ptr noundef %1, ptr noundef null) #11
-  %25 = load ptr, ptr %19, align 8, !tbaa !52
+  %25 = load ptr, ptr %19, align 8, !tbaa !48
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %24, ptr %26, align 8, !tbaa !21
   %.not37 = icmp eq ptr %24, null
@@ -1016,7 +1016,7 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  store i32 1, ptr %28, align 4, !tbaa !53
+  store i32 1, ptr %28, align 4, !tbaa !49
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef %1) #11
   %29 = tail call i32 @g_markup_error_quark() #11
   %30 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.17, i32 noundef 5) #11
@@ -1037,15 +1037,15 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
   br label %53
 
 37:                                               ; preds = %31
-  %38 = load ptr, ptr %33, align 8, !tbaa !33
+  %38 = load ptr, ptr %33, align 8, !tbaa !31
   %.not39 = icmp eq ptr %38, null
   br i1 %.not39, label %53, label %39
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %41 = load i32, ptr %40, align 8, !tbaa !60
+  %41 = load i32, ptr %40, align 8, !tbaa !55
   %42 = add i32 %41, 1
-  store i32 %42, ptr %40, align 8, !tbaa !60
+  store i32 %42, ptr %40, align 8, !tbaa !55
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !25
   %.not40 = icmp eq ptr %44, null
@@ -1054,19 +1054,19 @@ define internal void @_gpx_parser_text(ptr readnone captures(none) %0, ptr nound
 45:                                               ; preds = %39
   store ptr %24, ptr %43, align 8, !tbaa !25
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  store ptr %25, ptr %46, align 8, !tbaa !43
+  store ptr %25, ptr %46, align 8, !tbaa !40
   br label %47
 
 47:                                               ; preds = %45, %39
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store ptr %24, ptr %48, align 8, !tbaa !61
+  store ptr %24, ptr %48, align 8, !tbaa !56
   br label %53
 
 49:                                               ; preds = %21
   %50 = tail call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef %1, ptr noundef null) #11
-  %51 = load ptr, ptr %19, align 8, !tbaa !52
+  %51 = load ptr, ptr %19, align 8, !tbaa !48
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store double %50, ptr %52, align 8, !tbaa !39
+  store double %50, ptr %52, align 8, !tbaa !37
   br label %53
 
 53:                                               ; preds = %27, %34, %18, %21, %37, %47, %49, %7
@@ -1148,34 +1148,29 @@ attributes #14 = { nounwind willreturn memory(read) }
 !28 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !29 = !{!30, !14, i64 8}
 !30 = !{!"_GList", !8, i64 0, !14, i64 8, !14, i64 16}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!30, !8, i64 0}
-!34 = !{!22, !23, i64 0}
-!35 = !{!36, !23, i64 0}
-!36 = !{!"dt_image_geoloc_t", !23, i64 0, !23, i64 8, !23, i64 16}
-!37 = !{!22, !23, i64 8}
-!38 = !{!36, !23, i64 8}
-!39 = !{!22, !23, i64 16}
-!40 = !{!23, !23, i64 0}
-!41 = distinct !{!41, !32}
-!42 = !{!36, !23, i64 16}
-!43 = !{!26, !15, i64 32}
-!44 = !{!22, !16, i64 32}
-!45 = !{!46, !47, i64 0}
-!46 = !{!"dt_geo_map_display_point_t", !47, i64 0, !47, i64 4}
-!47 = !{!"float", !9, i64 0}
-!48 = !{!46, !47, i64 4}
-!49 = distinct !{!49, !32}
-!50 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!51 = !{!13, !16, i64 32}
-!52 = !{!13, !15, i64 16}
-!53 = !{!13, !16, i64 28}
-!54 = !{!17, !17, i64 0}
-!55 = !{!13, !16, i64 36}
-!56 = distinct !{!56, !32}
-!57 = !{!13, !16, i64 24}
-!58 = !{!13, !17, i64 40}
-!59 = !{!26, !16, i64 0}
-!60 = !{!26, !16, i64 40}
-!61 = !{!26, !24, i64 16}
+!31 = !{!30, !8, i64 0}
+!32 = !{!22, !23, i64 0}
+!33 = !{!34, !23, i64 0}
+!34 = !{!"dt_image_geoloc_t", !23, i64 0, !23, i64 8, !23, i64 16}
+!35 = !{!22, !23, i64 8}
+!36 = !{!34, !23, i64 8}
+!37 = !{!22, !23, i64 16}
+!38 = !{!23, !23, i64 0}
+!39 = !{!34, !23, i64 16}
+!40 = !{!26, !15, i64 32}
+!41 = !{!22, !16, i64 32}
+!42 = !{!43, !44, i64 0}
+!43 = !{!"dt_geo_map_display_point_t", !44, i64 0, !44, i64 4}
+!44 = !{!"float", !9, i64 0}
+!45 = !{!43, !44, i64 4}
+!46 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!47 = !{!13, !16, i64 32}
+!48 = !{!13, !15, i64 16}
+!49 = !{!13, !16, i64 28}
+!50 = !{!17, !17, i64 0}
+!51 = !{!13, !16, i64 36}
+!52 = !{!13, !16, i64 24}
+!53 = !{!13, !17, i64 40}
+!54 = !{!26, !16, i64 0}
+!55 = !{!26, !16, i64 40}
+!56 = !{!26, !24, i64 16}

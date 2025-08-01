@@ -332,7 +332,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 
 126:                                              ; preds = %123, %118
   %127 = phi ptr [ %121, %118 ], [ %124, %123 ]
-  %128 = load ptr, ptr %127, align 8, !tbaa !22
+  %128 = load ptr, ptr %127, align 8, !tbaa !21
   %129 = load ptr, ptr %4, align 16, !tbaa !3
   %130 = call i64 @CORD_len(ptr noundef %129) #11
   %131 = load ptr, ptr %9, align 8, !tbaa !9
@@ -340,7 +340,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
   %133 = sub i64 %130, %18
   %134 = add i64 %133, %132
   %135 = trunc i64 %134 to i32
-  store i32 %135, ptr %128, align 4, !tbaa !24
+  store i32 %135, ptr %128, align 4, !tbaa !23
   br label %.loopexit189
 
 136:                                              ; preds = %114
@@ -364,14 +364,14 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 
 147:                                              ; preds = %144, %139
   %148 = phi ptr [ %142, %139 ], [ %145, %144 ]
-  %149 = load ptr, ptr %148, align 8, !tbaa !25
+  %149 = load ptr, ptr %148, align 8, !tbaa !24
   %150 = load ptr, ptr %4, align 16, !tbaa !3
   %151 = call i64 @CORD_len(ptr noundef %150) #11
   %152 = load ptr, ptr %9, align 8, !tbaa !9
   %153 = ptrtoint ptr %152 to i64
   %154 = sub i64 %151, %18
   %155 = add i64 %154, %153
-  store i64 %155, ptr %149, align 8, !tbaa !27
+  store i64 %155, ptr %149, align 8, !tbaa !26
   br label %.loopexit189
 
 156:                                              ; preds = %114
@@ -399,14 +399,14 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 
 169:                                              ; preds = %166, %161
   %170 = phi ptr [ %164, %161 ], [ %167, %166 ]
-  %171 = load ptr, ptr %170, align 8, !tbaa !25
+  %171 = load ptr, ptr %170, align 8, !tbaa !24
   %172 = load ptr, ptr %4, align 16, !tbaa !3
   %173 = call i64 @CORD_len(ptr noundef %172) #11
   %174 = load ptr, ptr %9, align 8, !tbaa !9
   %175 = ptrtoint ptr %174 to i64
   %176 = sub i64 %173, %18
   %177 = add i64 %176, %175
-  store i64 %177, ptr %171, align 8, !tbaa !27
+  store i64 %177, ptr %171, align 8, !tbaa !26
   br label %.loopexit189
 
 178:                                              ; preds = %156
@@ -428,7 +428,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 
 187:                                              ; preds = %184, %179
   %188 = phi ptr [ %182, %179 ], [ %185, %184 ]
-  %189 = load ptr, ptr %188, align 8, !tbaa !28
+  %189 = load ptr, ptr %188, align 8, !tbaa !27
   %190 = load ptr, ptr %4, align 16, !tbaa !3
   %191 = call i64 @CORD_len(ptr noundef %190) #11
   %192 = load ptr, ptr %9, align 8, !tbaa !9
@@ -436,7 +436,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
   %194 = sub i64 %191, %18
   %195 = add i64 %194, %193
   %196 = trunc i64 %195 to i16
-  store i16 %196, ptr %189, align 2, !tbaa !30
+  store i16 %196, ptr %189, align 2, !tbaa !29
   br label %.loopexit189
 
 197:                                              ; preds = %113
@@ -465,7 +465,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 209:                                              ; preds = %206, %201
   %.pre214219 = phi i32 [ %205, %201 ], [ %.pre214.pre, %206 ]
   %210 = phi ptr [ %204, %201 ], [ %207, %206 ]
-  %211 = load i32, ptr %210, align 4, !tbaa !24
+  %211 = load i32, ptr %210, align 4, !tbaa !23
   br label %212
 
 212:                                              ; preds = %209, %197
@@ -495,7 +495,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 224:                                              ; preds = %221, %216
   %225 = phi i32 [ %220, %216 ], [ %.pre214, %221 ]
   %226 = phi ptr [ %219, %216 ], [ %222, %221 ]
-  %227 = load i32, ptr %226, align 4, !tbaa !24
+  %227 = load i32, ptr %226, align 4, !tbaa !23
   br label %228
 
 228:                                              ; preds = %224, %212
@@ -520,7 +520,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 
 239:                                              ; preds = %236, %231
   %240 = phi ptr [ %234, %231 ], [ %237, %236 ]
-  %241 = load ptr, ptr %240, align 8, !tbaa !32
+  %241 = load ptr, ptr %240, align 8, !tbaa !31
   %242 = call i64 @CORD_len(ptr noundef %241) #11
   %.not130 = icmp eq i32 %.2164, -1
   br i1 %.not130, label %250, label %243
@@ -558,7 +558,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 
 259:                                              ; preds = %254
   call void @CORD__call_oom_fn() #11
-  %260 = load ptr, ptr @stderr, align 8, !tbaa !33
+  %260 = load ptr, ptr @stderr, align 8, !tbaa !32
   %261 = call i64 @fwrite(ptr nonnull @.str, i64 14, i64 1, ptr %260) #13
   call void @abort() #14
   unreachable
@@ -610,7 +610,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 
 283:                                              ; preds = %280, %275
   %284 = phi ptr [ %278, %275 ], [ %281, %280 ]
-  %285 = load i32, ptr %284, align 4, !tbaa !24
+  %285 = load i32, ptr %284, align 4, !tbaa !23
   %286 = trunc i32 %285 to i8
   %287 = load ptr, ptr %9, align 8, !tbaa !9
   %288 = icmp eq ptr %287, %15
@@ -655,7 +655,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 
 307:                                              ; preds = %304, %299
   %308 = phi ptr [ %302, %299 ], [ %305, %304 ]
-  %309 = load ptr, ptr %308, align 8, !tbaa !32
+  %309 = load ptr, ptr %308, align 8, !tbaa !31
   %310 = load i8, ptr %309, align 1, !tbaa !18
   %.not129198 = icmp eq i8 %310, 0
   br i1 %.not129198, label %.loopexit189, label %.lr.ph
@@ -680,7 +680,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
   store i8 %311, ptr %317, align 1, !tbaa !18
   %319 = load i8, ptr %312, align 1, !tbaa !18
   %.not129 = icmp eq i8 %319, 0
-  br i1 %.not129, label %.loopexit189, label %.lr.ph, !llvm.loop !35
+  br i1 %.not129, label %.loopexit189, label %.lr.ph, !llvm.loop !34
 
 320:                                              ; preds = %113, %293, %269
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
@@ -709,7 +709,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 
 333:                                              ; preds = %330, %325
   %334 = phi ptr [ %328, %325 ], [ %331, %330 ]
-  %335 = load i32, ptr %334, align 4, !tbaa !24
+  %335 = load i32, ptr %334, align 4, !tbaa !23
   br label %336
 
 336:                                              ; preds = %333, %320
@@ -738,7 +738,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 
 349:                                              ; preds = %346, %341
   %350 = phi ptr [ %344, %341 ], [ %347, %346 ]
-  %351 = load i32, ptr %350, align 4, !tbaa !24
+  %351 = load i32, ptr %350, align 4, !tbaa !23
   br label %352
 
 352:                                              ; preds = %349, %336
@@ -760,7 +760,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 
 360:                                              ; preds = %355
   call void @CORD__call_oom_fn() #11
-  %361 = load ptr, ptr @stderr, align 8, !tbaa !33
+  %361 = load ptr, ptr @stderr, align 8, !tbaa !32
   %362 = call i64 @fwrite(ptr nonnull @.str, i64 14, i64 1, ptr %361) #13
   call void @abort() #14
   unreachable
@@ -938,7 +938,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
   store i8 %429, ptr %435, align 1, !tbaa !18
   %437 = load i8, ptr %430, align 1, !tbaa !18
   %.not136 = icmp eq i8 %437, 0
-  br i1 %.not136, label %.loopexit, label %.lr.ph200, !llvm.loop !36
+  br i1 %.not136, label %.loopexit, label %.lr.ph200, !llvm.loop !35
 
 438:                                              ; preds = %426
   %439 = getelementptr inbounds nuw i8, ptr %.081, i64 %.190
@@ -988,7 +988,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
 453:                                              ; preds = %452, %451
   %454 = load i32, ptr %10, align 8, !tbaa !10
   %.not = icmp eq i32 %454, 1431655765
-  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %20, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %453, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre220, %.._crit_edge_crit_edge ], [ %18, %453 ]
@@ -1002,7 +1002,7 @@ define i32 @CORD_vsprintf(ptr noundef writeonly captures(none) %0, ptr noundef %
   call void @CORD_ec_flush_buf(ptr noundef nonnull %4) #11
   %462 = load ptr, ptr %4, align 16, !tbaa !3
   %463 = call ptr @CORD_balance(ptr noundef %462) #11
-  store ptr %463, ptr %0, align 8, !tbaa !32
+  store ptr %463, ptr %0, align 8, !tbaa !31
   br label %.critedge141
 
 .critedge141:                                     ; preds = %62, %246, %40, %74, %96, %.critedge139, %._crit_edge
@@ -1080,7 +1080,7 @@ define i32 @CORD_fprintf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !tbaa !32
+  store ptr null, ptr %4, align 8, !tbaa !31
   call void @llvm.va_start.p0(ptr nonnull %3)
   %5 = call i32 @CORD_vsprintf(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -1088,7 +1088,7 @@ define i32 @CORD_fprintf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = load ptr, ptr %4, align 8, !tbaa !31
   %9 = call i32 @CORD_put(ptr noundef %8, ptr noundef %0) #11
   br label %10
 
@@ -1104,13 +1104,13 @@ declare i32 @CORD_put(ptr noundef, ptr noundef) local_unnamed_addr #2
 define i32 @CORD_vfprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
-  store ptr null, ptr %4, align 8, !tbaa !32
+  store ptr null, ptr %4, align 8, !tbaa !31
   %5 = call i32 @CORD_vsprintf(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2)
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %4, align 8, !tbaa !32
+  %8 = load ptr, ptr %4, align 8, !tbaa !31
   %9 = tail call i32 @CORD_put(ptr noundef %8, ptr noundef %0) #11
   br label %10
 
@@ -1125,7 +1125,7 @@ define i32 @CORD_printf(ptr noundef %0, ...) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  store ptr null, ptr %3, align 8, !tbaa !32
+  store ptr null, ptr %3, align 8, !tbaa !31
   call void @llvm.va_start.p0(ptr nonnull %2)
   %4 = call i32 @CORD_vsprintf(ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
@@ -1133,8 +1133,8 @@ define i32 @CORD_printf(ptr noundef %0, ...) local_unnamed_addr #0 {
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %3, align 8, !tbaa !32
-  %8 = load ptr, ptr @stdout, align 8, !tbaa !33
+  %7 = load ptr, ptr %3, align 8, !tbaa !31
+  %8 = load ptr, ptr @stdout, align 8, !tbaa !32
   %9 = call i32 @CORD_put(ptr noundef %7, ptr noundef %8) #11
   br label %10
 
@@ -1148,14 +1148,14 @@ define i32 @CORD_printf(ptr noundef %0, ...) local_unnamed_addr #0 {
 define i32 @CORD_vprintf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
-  store ptr null, ptr %3, align 8, !tbaa !32
+  store ptr null, ptr %3, align 8, !tbaa !31
   %4 = call i32 @CORD_vsprintf(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1)
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %3, align 8, !tbaa !32
-  %8 = load ptr, ptr @stdout, align 8, !tbaa !33
+  %7 = load ptr, ptr %3, align 8, !tbaa !31
+  %8 = load ptr, ptr @stdout, align 8, !tbaa !32
   %9 = tail call i32 @CORD_put(ptr noundef %7, ptr noundef %8) #11
   br label %10
 
@@ -1208,22 +1208,21 @@ attributes #15 = { nounwind willreturn memory(read) }
 !16 = !{!11, !12, i64 0}
 !17 = !{!11, !12, i64 24}
 !18 = !{!7, !7, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 int", !6, i64 0}
-!24 = !{!13, !13, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 long", !6, i64 0}
-!27 = !{!12, !12, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 short", !6, i64 0}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"short", !7, i64 0}
-!32 = !{!5, !5, i64 0}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!35 = distinct !{!35, !20, !21}
-!36 = distinct !{!36, !20, !21}
-!37 = distinct !{!37, !20, !21}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 int", !6, i64 0}
+!23 = !{!13, !13, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 long", !6, i64 0}
+!26 = !{!12, !12, i64 0}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 short", !6, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"short", !7, i64 0}
+!31 = !{!5, !5, i64 0}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!34 = distinct !{!34, !20}
+!35 = distinct !{!35, !20}
+!36 = distinct !{!36, !20}

@@ -1074,7 +1074,7 @@ _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit: ; preds = %if.then.i, %for.
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit:       ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, %sw.epilog244
   %130 = phi i64 [ %.pre, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit ], [ %inc.i, %sw.epilog244 ]
   %cmp.i.not = icmp eq i64 %130, %52
-  br i1 %cmp.i.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body, !llvm.loop !96
+  br i1 %cmp.i.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body
 
 ehcleanup251:                                     ; preds = %lpad72, %ehcleanup241, %ehcleanup191, %lpad111, %ehcleanup, %lpad64
   %.pn55.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %70, %lpad64 ], [ %71, %lpad72 ], [ %.pn55.pn.pn.pn.pn, %ehcleanup191 ], [ %.pn49.pn.pn.pn.pn, %ehcleanup241 ], [ %.pn, %ehcleanup ], [ %77, %lpad111 ]
@@ -1116,13 +1116,13 @@ entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator.37", align 1
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr %this, align 8, !tbaa !97
+  %0 = load ptr, ptr %this, align 8, !tbaa !95
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib6HandleINS_18YieldTermStructureEE5emptyEv.exit, !prof !17
 
 cond.false.i.i:                                   ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6HandleINS1_18YieldTermStructureEE4LinkEEptEv, ptr noundef nonnull @.str.9, i64 noundef 784)
-  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !97
+  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !95
   br label %_ZNK8QuantLib6HandleINS_18YieldTermStructureEE5emptyEv.exit
 
 _ZNK8QuantLib6HandleINS_18YieldTermStructureEE5emptyEv.exit: ; preds = %entry, %cond.false.i.i
@@ -1311,13 +1311,13 @@ entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator.37", align 1
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  %0 = load ptr, ptr %this, align 8, !tbaa !98
+  %0 = load ptr, ptr %this, align 8, !tbaa !96
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %cond.false.i.i, label %_ZNK8QuantLib6HandleINS_5QuoteEE5emptyEv.exit, !prof !17
 
 cond.false.i.i:                                   ; preds = %entry
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.8, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEEptEv, ptr noundef nonnull @.str.9, i64 noundef 784)
-  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !98
+  %.pre.i.i = load ptr, ptr %this, align 8, !tbaa !96
   br label %_ZNK8QuantLib6HandleINS_5QuoteEE5emptyEv.exit
 
 _ZNK8QuantLib6HandleINS_5QuoteEE5emptyEv.exit:    ; preds = %entry, %cond.false.i.i
@@ -1615,7 +1615,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !99
+  store ptr %0, ptr %this, align 8, !tbaa !97
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1945,10 +1945,8 @@ attributes #27 = { noreturn }
 !90 = !{!5, !5, i64 0}
 !91 = !{!68, !9, i64 8}
 !92 = !{!42, !42, i64 0}
-!93 = distinct !{!93, !94, !95}
+!93 = distinct !{!93, !94}
 !94 = !{!"llvm.loop.mustprogress"}
-!95 = !{!"llvm.loop.estimated_trip_count"}
-!96 = distinct !{!96, !95}
-!97 = !{!51, !9, i64 0}
-!98 = !{!53, !9, i64 0}
-!99 = !{!87, !9, i64 0}
+!95 = !{!51, !9, i64 0}
+!96 = !{!53, !9, i64 0}
+!97 = !{!87, !9, i64 0}

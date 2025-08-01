@@ -3954,22 +3954,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i14: 
 1456:                                             ; preds = %_ZNK10open_spiel5State14ActionToStringB5cxx11El.exit.i
   %1457 = getelementptr inbounds nuw i8, ptr %.sroa.072.077.i, i64 8
   %.not.i = icmp eq ptr %1457, %1455
-  br i1 %.not.i, label %.critedgethread-pre-split.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %.critedgethread-pre-split.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1452, %1456
   %.sroa.072.077.i = phi ptr [ %1457, %1456 ], [ %1453, %1452 ]
   %1458 = load i64, ptr %.sroa.072.077.i, align 8
   %1459 = load ptr, ptr %13, align 8
-  %1460 = load ptr, ptr %1459, align 8, !noalias !9
+  %1460 = load ptr, ptr %1459, align 8, !noalias !7
   %1461 = getelementptr inbounds nuw i8, ptr %1460, i64 16
-  %1462 = load ptr, ptr %1461, align 8, !noalias !9
+  %1462 = load ptr, ptr %1461, align 8, !noalias !7
   %1463 = invoke noundef i32 %1462(ptr noundef nonnull align 8 dereferenceable(60) %1459)
           to label %.noexc58.i unwind label %.loopexit.i
 
 .noexc58.i:                                       ; preds = %.lr.ph.i
-  %1464 = load ptr, ptr %1459, align 8, !noalias !9
+  %1464 = load ptr, ptr %1459, align 8, !noalias !7
   %1465 = getelementptr inbounds nuw i8, ptr %1464, i64 56
-  %1466 = load ptr, ptr %1465, align 8, !noalias !9
+  %1466 = load ptr, ptr %1465, align 8, !noalias !7
   invoke void %1466(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %41, ptr noundef nonnull align 8 dereferenceable(60) %1459, i32 noundef %1463, i64 noundef %1458)
           to label %_ZNK10open_spiel5State14ActionToStringB5cxx11El.exit.i unwind label %.loopexit.i
 
@@ -5120,7 +5120,7 @@ define linkonce_odr dso_local void @_ZN10open_spiel8internal11SpielStrOutINSt7__
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull @.str.10)
   %12 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %.not.i.i = icmp eq ptr %12, %7
-  br i1 %.not.i.i, label %_ZN10open_spiellsIdEERSoS1_RKSt6vectorIT_SaIS3_EE.exit, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %_ZN10open_spiellsIdEERSoS1_RKSt6vectorIT_SaIS3_EE.exit, label %.lr.ph.i.i
 
 _ZN10open_spiellsIdEERSoS1_RKSt6vectorIT_SaIS3_EE.exit: ; preds = %.lr.ph.i.i, %4
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.45)
@@ -5139,7 +5139,7 @@ _ZN10open_spiellsIdEERSoS1_RKSt6vectorIT_SaIS3_EE.exit: ; preds = %.lr.ph.i.i, %
   %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.10)
   %22 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %22, %17
-  br i1 %.not.i.i.i.i, label %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA38_cJRSt6vectorIdSaIdEEEEEvRT_RKT0_DpOT1_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i, label %_ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA38_cJRSt6vectorIdSaIdEEEEEvRT_RKT0_DpOT1_.exit, label %.lr.ph.i.i.i.i
 
 _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEEA38_cJRSt6vectorIdSaIdEEEEEvRT_RKT0_DpOT1_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZN10open_spiellsIdEERSoS1_RKSt6vectorIT_SaIS3_EE.exit
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @.str.45)
@@ -5254,11 +5254,8 @@ attributes #18 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZNK10open_spiel5State14ActionToStringB5cxx11El: argument 0"}
-!11 = distinct !{!11, !"_ZNK10open_spiel5State14ActionToStringB5cxx11El"}
-!12 = distinct !{!12, !7}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNK10open_spiel5State14ActionToStringB5cxx11El: argument 0"}
+!9 = distinct !{!9, !"_ZNK10open_spiel5State14ActionToStringB5cxx11El"}

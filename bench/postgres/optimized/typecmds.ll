@@ -518,7 +518,7 @@ define dso_local { i64, i32 } @DefineType(ptr noundef %0, ptr noundef %1, ptr no
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 76
   %159 = load i16, ptr %158, align 4
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 78
-  %161 = load i8, ptr %160, align 2, !range !7, !noundef !8
+  %161 = load i8, ptr %160, align 2, !range !6, !noundef !7
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 128
   %163 = load i8, ptr %162, align 4
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 129
@@ -1474,7 +1474,7 @@ declare signext i16 @get_typlen(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @AssignTypeArrayOid() local_unnamed_addr #0 {
-  %1 = load i8, ptr @IsBinaryUpgrade, align 1, !range !7, !noundef !8
+  %1 = load i8, ptr @IsBinaryUpgrade, align 1, !range !6, !noundef !7
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %3, label %10
 
@@ -1721,7 +1721,7 @@ list_length.exit:                                 ; preds = %2, %10
 
 82:                                               ; preds = %70
   %83 = getelementptr inbounds nuw i8, ptr %43, i64 78
-  %84 = load i8, ptr %83, align 2, !range !7, !noundef !8
+  %84 = load i8, ptr %83, align 2, !range !6, !noundef !7
   %85 = trunc nuw i8 %84 to i1
   %86 = getelementptr inbounds nuw i8, ptr %43, i64 128
   %87 = load i8, ptr %86, align 4
@@ -1740,7 +1740,7 @@ list_length.exit:                                 ; preds = %2, %10
   %100 = getelementptr inbounds nuw i8, ptr %43, i64 124
   %101 = load i32, ptr %100, align 4
   %102 = call i64 @SysCacheGetAttr(i32 noundef 82, ptr noundef nonnull %38, i16 noundef signext 31, ptr noundef nonnull %4) #8
-  %103 = load i8, ptr %4, align 1, !range !7, !noundef !8
+  %103 = load i8, ptr %4, align 1, !range !6, !noundef !7
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %108, label %105
 
@@ -1752,7 +1752,7 @@ list_length.exit:                                 ; preds = %2, %10
 108:                                              ; preds = %105, %82
   %.0 = phi ptr [ null, %82 ], [ %107, %105 ]
   %109 = call i64 @SysCacheGetAttr(i32 noundef 82, ptr noundef nonnull %38, i16 noundef signext 30, ptr noundef nonnull %4) #8
-  %110 = load i8, ptr %4, align 1, !range !7, !noundef !8
+  %110 = load i8, ptr %4, align 1, !range !6, !noundef !7
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %115, label %112
 
@@ -1883,7 +1883,7 @@ list_length.exit:                                 ; preds = %2, %10
 
 165:                                              ; preds = %162
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 32
-  %167 = load i8, ptr %166, align 8, !range !7, !noundef !8
+  %167 = load i8, ptr %166, align 8, !range !6, !noundef !7
   %168 = trunc nuw i8 %167 to i1
   br i1 %168, label %252, label %169
 
@@ -1912,7 +1912,7 @@ list_length.exit:                                 ; preds = %2, %10
 
 181:                                              ; preds = %172
   %182 = getelementptr inbounds nuw i8, ptr %122, i64 21
-  %183 = load i8, ptr %182, align 1, !range !7, !noundef !8
+  %183 = load i8, ptr %182, align 1, !range !6, !noundef !7
   %184 = trunc nuw i8 %183 to i1
   br i1 %184, label %.split321, label %252
 
@@ -1946,7 +1946,7 @@ list_length.exit:                                 ; preds = %2, %10
 
 200:                                              ; preds = %144
   %201 = getelementptr inbounds nuw i8, ptr %122, i64 21
-  %202 = load i8, ptr %201, align 1, !range !7, !noundef !8
+  %202 = load i8, ptr %201, align 1, !range !6, !noundef !7
   %203 = trunc nuw i8 %202 to i1
   br i1 %203, label %.split312, label %252
 
@@ -2179,7 +2179,7 @@ define internal fastcc noundef ptr @domainAddCheckConstraint(i32 noundef %0, i32
   %42 = tail call ptr @nodeToString(ptr noundef %32) #8
   %43 = load ptr, ptr %8, align 8
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 19
-  %45 = load i8, ptr %44, align 1, !range !7, !noundef !8
+  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
   %46 = trunc nuw i8 %45 to i1
   %47 = xor i1 %46, true
   %48 = tail call i32 @CreateConstraintEntry(ptr noundef %43, i32 noundef %1, i8 noundef signext 99, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext %47, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i8 noundef signext 32, i8 noundef signext 32, ptr noundef null, i32 noundef 0, i8 noundef signext 32, ptr noundef null, ptr noundef %32, ptr noundef %42, i1 noundef zeroext true, i16 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8
@@ -2230,7 +2230,7 @@ define internal fastcc void @domainAddNotNullConstraint(i32 noundef %0, i32 noun
 17:                                               ; preds = %._crit_edge, %15
   %18 = phi ptr [ %.pre, %._crit_edge ], [ %16, %15 ]
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 19
-  %20 = load i8, ptr %19, align 1, !range !7, !noundef !8
+  %20 = load i8, ptr %19, align 1, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   %22 = xor i1 %21, true
   %23 = tail call i32 @CreateConstraintEntry(ptr noundef %18, i32 noundef %1, i8 noundef signext 110, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext %22, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i8 noundef signext 32, i8 noundef signext 32, ptr noundef null, i32 noundef 0, i8 noundef signext 32, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i16 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #8
@@ -2380,10 +2380,10 @@ checkEnumOwner.exit:                              ; preds = %25, %29
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %40 = load i8, ptr %39, align 8, !range !7, !noundef !8
+  %40 = load i8, ptr %39, align 8, !range !6, !noundef !7
   %41 = trunc nuw i8 %40 to i1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  %43 = load i8, ptr %42, align 1, !range !7, !noundef !8
+  %43 = load i8, ptr %42, align 1, !range !6, !noundef !7
   %44 = trunc nuw i8 %43 to i1
   tail call void @AddEnumLabel(i32 noundef %5, ptr noundef %34, ptr noundef %38, i1 noundef zeroext %41, i1 noundef zeroext %44) #8
   br label %45
@@ -2964,7 +2964,7 @@ findRangeSubtypeDiffFunction.exit:                ; preds = %204, %207
   store i64 %.fca.0.extract.i, ptr %10, align 8
   store i32 %.fca.1.extract.i, ptr %.sroa.4.0..sroa_idx.i, align 8
   call void @recordDependencyOn(ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 105) #8
-  br i1 %255, label %254, label %makeRangeConstructors.exit, !llvm.loop !9
+  br i1 %255, label %254, label %makeRangeConstructors.exit, !llvm.loop !8
 
 makeRangeConstructors.exit:                       ; preds = %254
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #8
@@ -3045,7 +3045,7 @@ declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr no
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @AssignTypeMultirangeOid() local_unnamed_addr #0 {
-  %1 = load i8, ptr @IsBinaryUpgrade, align 1, !range !7, !noundef !8
+  %1 = load i8, ptr @IsBinaryUpgrade, align 1, !range !6, !noundef !7
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %3, label %10
 
@@ -3079,7 +3079,7 @@ define dso_local i32 @AssignTypeMultirangeOid() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @AssignTypeMultirangeArrayOid() local_unnamed_addr #0 {
-  %1 = load i8, ptr @IsBinaryUpgrade, align 1, !range !7, !noundef !8
+  %1 = load i8, ptr @IsBinaryUpgrade, align 1, !range !6, !noundef !7
   %2 = trunc nuw i8 %1 to i1
   br i1 %2, label %3, label %10
 
@@ -3241,7 +3241,7 @@ define dso_local { i64, i32 } @AlterDomainDefault(ptr noundef %0, ptr noundef %1
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %34 = load i8, ptr %33, align 8, !range !7, !noundef !8
+  %34 = load i8, ptr %33, align 8, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %40
 
@@ -3392,7 +3392,7 @@ define dso_local { i64, i32 } @AlterDomainNotNull(ptr noundef %0, i1 noundef zer
   %18 = getelementptr inbounds nuw i8, ptr %.val36, i64 %17
   tail call void @checkDomainOwner(ptr noundef nonnull %9)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 130
-  %20 = load i8, ptr %19, align 2, !range !7, !noundef !8
+  %20 = load i8, ptr %19, align 2, !range !6, !noundef !7
   %21 = icmp eq i8 %20, %4
   br i1 %21, label %22, label %24
 
@@ -3515,10 +3515,10 @@ define internal fastcc void @validateDomainNotNullConstraint(i32 noundef %0) unn
   store i32 %24, ptr %21, align 8
   %25 = load i32, ptr @CheckXidAlive, align 4
   %26 = icmp eq i32 %25, 0
-  %27 = load i8, ptr @bsysscan, align 1, !range !7
+  %27 = load i8, ptr @bsysscan, align 1, !range !6
   %28 = trunc nuw i8 %27 to i1
   %.not5.i40 = select i1 %26, i1 true, i1 %28
-  br i1 %.not5.i40, label %table_scan_getnextslot.exit.lr.ph, label %._crit_edge, !prof !10
+  br i1 %.not5.i40, label %table_scan_getnextslot.exit.lr.ph, label %._crit_edge, !prof !9
 
 table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph87
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3537,10 +3537,10 @@ table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph87
   store i32 %35, ptr %21, align 8
   %36 = load i32, ptr @CheckXidAlive, align 4
   %37 = icmp eq i32 %36, 0
-  %38 = load i8, ptr @bsysscan, align 1, !range !7
+  %38 = load i8, ptr @bsysscan, align 1, !range !6
   %39 = trunc nuw i8 %38 to i1
   %.not5.i = select i1 %37, i1 true, i1 %39
-  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge, !prof !11, !llvm.loop !12
+  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge, !prof !10, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph87, %.loopexit
   %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -3568,7 +3568,7 @@ table_scan_getnextslot.exit:                      ; preds = %table_scan_getnexts
   %51 = load i32, ptr %29, align 8
   %52 = sext i32 %51 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !13
+  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.preheader, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %.preheader ]
@@ -3590,7 +3590,7 @@ slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph
 slot_attisnull.exit:                              ; preds = %.lr.ph, %slot_getsomeattrs.exit.i
   %63 = load ptr, ptr %32, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 %59
-  %65 = load i8, ptr %64, align 1, !range !7, !noundef !8
+  %65 = load i8, ptr %64, align 1, !range !6, !noundef !7
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %50
 
@@ -3809,7 +3809,7 @@ define dso_local { i64, i32 } @AlterDomainAddConstraint(ptr noundef %0, ptr noun
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %35 = tail call fastcc ptr @domainAddCheckConstraint(i32 noundef %5, i32 noundef %29, i32 noundef %31, i32 noundef %33, ptr noundef nonnull %1, ptr noundef nonnull %34, ptr noundef %2)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 19
-  %37 = load i8, ptr %36, align 1, !range !7, !noundef !8
+  %37 = load i8, ptr %36, align 1, !range !6, !noundef !7
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %40, label %39
 
@@ -3823,7 +3823,7 @@ define dso_local { i64, i32 } @AlterDomainAddConstraint(ptr noundef %0, ptr noun
 
 41:                                               ; preds = %24
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 130
-  %43 = load i8, ptr %42, align 2, !range !7, !noundef !8
+  %43 = load i8, ptr %42, align 2, !range !6, !noundef !7
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %47
 
@@ -3838,7 +3838,7 @@ define dso_local { i64, i32 } @AlterDomainAddConstraint(ptr noundef %0, ptr noun
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 4
   tail call fastcc void @domainAddNotNullConstraint(i32 noundef %5, i32 noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %50, ptr noundef %2)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 19
-  %52 = load i8, ptr %51, align 1, !range !7, !noundef !8
+  %52 = load i8, ptr %51, align 1, !range !6, !noundef !7
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %55, label %54
 
@@ -3922,10 +3922,10 @@ define internal fastcc void @validateDomainCheckConstraint(i32 noundef %0, ptr n
   store i32 %39, ptr %36, align 8
   %40 = load i32, ptr @CheckXidAlive, align 4
   %41 = icmp eq i32 %40, 0
-  %42 = load i8, ptr @bsysscan, align 1, !range !7
+  %42 = load i8, ptr @bsysscan, align 1, !range !6
   %43 = trunc nuw i8 %42 to i1
   %.not5.i56 = select i1 %41, i1 true, i1 %43
-  br i1 %.not5.i56, label %table_scan_getnextslot.exit.lr.ph, label %._crit_edge57, !prof !10
+  br i1 %.not5.i56, label %table_scan_getnextslot.exit.lr.ph, label %._crit_edge57, !prof !9
 
 table_scan_getnextslot.exit.lr.ph:                ; preds = %.lr.ph104
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -3981,7 +3981,7 @@ slot_getsomeattrs.exit.i:                         ; preds = %.lr.ph
 slot_getattr.exit:                                ; preds = %.lr.ph, %slot_getsomeattrs.exit.i
   %68 = load ptr, ptr %47, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 %64
-  %70 = load i8, ptr %69, align 1, !range !7, !noundef !8
+  %70 = load i8, ptr %69, align 1, !range !6, !noundef !7
   store i8 %70, ptr %3, align 1
   %71 = load ptr, ptr %48, align 8
   %72 = getelementptr inbounds i64, ptr %71, i64 %64
@@ -3994,7 +3994,7 @@ slot_getattr.exit:                                ; preds = %.lr.ph, %slot_getso
   %76 = load ptr, ptr %19, align 8
   %77 = call i64 %76(ptr noundef %12, ptr noundef %11, ptr noundef nonnull %3) #8
   store ptr %75, ptr @CurrentMemoryContext, align 8
-  %78 = load i8, ptr %3, align 1, !range !7, !noundef !8
+  %78 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %79 = trunc nuw i8 %78 to i1
   %80 = icmp ne i64 %77, 0
   %or.cond = select i1 %79, i1 true, i1 %80
@@ -4024,7 +4024,7 @@ slot_getattr.exit:                                ; preds = %.lr.ph, %slot_getso
   %95 = load i32, ptr %44, align 8
   %96 = sext i32 %95 to i64
   %97 = icmp slt i64 %indvars.iv.next, %96
-  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %94, %.preheader
   %98 = load ptr, ptr %18, align 8
@@ -4035,10 +4035,10 @@ slot_getattr.exit:                                ; preds = %.lr.ph, %slot_getso
   store i32 %101, ptr %36, align 8
   %102 = load i32, ptr @CheckXidAlive, align 4
   %103 = icmp eq i32 %102, 0
-  %104 = load i8, ptr @bsysscan, align 1, !range !7
+  %104 = load i8, ptr @bsysscan, align 1, !range !6
   %105 = trunc nuw i8 %104 to i1
   %.not5.i = select i1 %103, i1 true, i1 %105
-  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge57, !prof !11, !llvm.loop !15
+  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %._crit_edge57, !prof !10, !llvm.loop !14
 
 106:                                              ; preds = %table_scan_getnextslot.exit
   call void @ExecDropSingleTupleTableSlot(ptr noundef nonnull %35) #8
@@ -4597,7 +4597,7 @@ define dso_local void @AlterTypeOwnerInternal(i32 noundef %0, i32 noundef %1) lo
   %36 = zext nneg i32 %33 to i64
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 526
-  %39 = load i8, ptr %38, align 2, !range !7, !noundef !8
+  %39 = load i8, ptr %38, align 2, !range !6, !noundef !7
   %40 = trunc nuw i8 %39 to i1
   %41 = getelementptr inbounds nuw i8, ptr %23, i64 524
   %42 = load i16, ptr %41, align 4
@@ -4662,7 +4662,7 @@ heap_getattr.exit.thread31:                       ; preds = %63
 
 heap_getattr.exit:                                ; preds = %13
   %67 = call i64 @getmissingattr(ptr noundef %23, i32 noundef 32, ptr noundef nonnull %6) #8
-  %.pre = load i8, ptr %6, align 1, !range !7
+  %.pre = load i8, ptr %6, align 1, !range !6
   %68 = trunc nuw i8 %.pre to i1
   br i1 %68, label %77, label %heap_getattr.exit.thread
 
@@ -5484,7 +5484,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false)
-  %11 = load i8, ptr %4, align 4, !range !7, !noundef !8
+  %11 = load i8, ptr %4, align 4, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %19
 
@@ -5500,7 +5500,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 
 19:                                               ; preds = %13, %5
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = load i8, ptr %20, align 1, !range !7, !noundef !8
+  %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %29
 
@@ -5516,7 +5516,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 
 29:                                               ; preds = %23, %19
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %31 = load i8, ptr %30, align 2, !range !7, !noundef !8
+  %31 = load i8, ptr %30, align 2, !range !6, !noundef !7
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %39
 
@@ -5532,7 +5532,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 
 39:                                               ; preds = %33, %29
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  %41 = load i8, ptr %40, align 1, !range !7, !noundef !8
+  %41 = load i8, ptr %40, align 1, !range !6, !noundef !7
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %49
 
@@ -5548,7 +5548,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 
 49:                                               ; preds = %43, %39
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %51 = load i8, ptr %50, align 4, !range !7, !noundef !8
+  %51 = load i8, ptr %50, align 4, !range !6, !noundef !7
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %53, label %59
 
@@ -5564,7 +5564,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 
 59:                                               ; preds = %53, %49
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %61 = load i8, ptr %60, align 1, !range !7, !noundef !8
+  %61 = load i8, ptr %60, align 1, !range !6, !noundef !7
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %63, label %69
 
@@ -5580,7 +5580,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 
 69:                                               ; preds = %63, %59
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %71 = load i8, ptr %70, align 2, !range !7, !noundef !8
+  %71 = load i8, ptr %70, align 2, !range !6, !noundef !7
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %73, label %79
 
@@ -5613,12 +5613,12 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
   br i1 %1, label %118, label %87
 
 87:                                               ; preds = %86
-  %88 = load i8, ptr %40, align 1, !range !7, !noundef !8
+  %88 = load i8, ptr %40, align 1, !range !6, !noundef !7
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %87
-  %91 = load i8, ptr %50, align 4, !range !7, !noundef !8
+  %91 = load i8, ptr %50, align 4, !range !6, !noundef !7
   %92 = trunc nuw i8 %91 to i1
   br i1 %92, label %93, label %118
 
@@ -5650,10 +5650,10 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 
 107:                                              ; preds = %101
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %10, i8 0, i64 32, i1 false)
-  %108 = load i8, ptr %40, align 1, !range !7, !noundef !8
+  %108 = load i8, ptr %40, align 1, !range !6, !noundef !7
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 3
   store i8 %108, ptr %109, align 1
-  %110 = load i8, ptr %50, align 4, !range !7, !noundef !8
+  %110 = load i8, ptr %50, align 4, !range !6, !noundef !7
   %111 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %110, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -5674,17 +5674,17 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
   store i8 0, ptr %40, align 1
   store i8 0, ptr %50, align 4
   store i8 0, ptr %70, align 2
-  %119 = load i8, ptr %4, align 4, !range !7, !noundef !8
+  %119 = load i8, ptr %4, align 4, !range !6, !noundef !7
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %127, label %121
 
 121:                                              ; preds = %118
-  %122 = load i8, ptr %30, align 2, !range !7, !noundef !8
+  %122 = load i8, ptr %30, align 2, !range !6, !noundef !7
   %123 = trunc nuw i8 %122 to i1
   br i1 %123, label %127, label %124
 
 124:                                              ; preds = %121
-  %125 = load i8, ptr %60, align 1, !range !7, !noundef !8
+  %125 = load i8, ptr %60, align 1, !range !6, !noundef !7
   %126 = trunc nuw i8 %125 to i1
   br i1 %126, label %127, label %143
 
@@ -5707,7 +5707,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 79
   %138 = load i8, ptr %137, align 1
   %.not61 = icmp eq i8 %138, 100
-  br i1 %.not61, label %139, label %141, !llvm.loop !16
+  br i1 %.not61, label %139, label %141, !llvm.loop !15
 
 139:                                              ; preds = %.lr.ph
   %140 = load i32, ptr %136, align 4
@@ -5717,7 +5717,7 @@ define internal fastcc void @AlterTypeRecurse(i32 noundef %0, i1 noundef zeroext
 141:                                              ; preds = %.lr.ph, %139
   %142 = call ptr @systable_getnext(ptr noundef %129) #8
   %.not60 = icmp eq ptr %142, null
-  br i1 %.not60, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not60, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %141, %127
   call void @systable_endscan(ptr noundef %129) #8
@@ -5790,7 +5790,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   switch i32 %15, label %112 [
     i32 1247, label %16
     i32 1259, label %26
-  ], !llvm.loop !18
+  ], !llvm.loop !16
 
 16:                                               ; preds = %.lr.ph110
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -5803,17 +5803,17 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
 22:                                               ; preds = %16
   %23 = call fastcc ptr @get_rels_with_domain(i32 noundef %21)
   %24 = call ptr @list_concat(ptr noundef %.0109, ptr noundef %23) #8
-  br label %112, !llvm.loop !18
+  br label %112, !llvm.loop !16
 
 25:                                               ; preds = %16
   call void @find_composite_type_dependencies(i32 noundef %21, ptr noundef null, ptr noundef %3) #8
-  br label %112, !llvm.loop !18
+  br label %112, !llvm.loop !16
 
 26:                                               ; preds = %.lr.ph110
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %28 = load i32, ptr %27, align 4
   %29 = icmp slt i32 %28, 1
-  br i1 %29, label %112, label %.preheader, !llvm.loop !18
+  br i1 %29, label %112, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %.0109, i64 16
@@ -5905,7 +5905,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   %72 = load i16, ptr %71, align 4
   %73 = sext i16 %72 to i32
   %74 = icmp sgt i32 %67, %73
-  br i1 %74, label %112, label %75, !llvm.loop !18
+  br i1 %74, label %112, label %75, !llvm.loop !16
 
 75:                                               ; preds = %.critedge89
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 64
@@ -5919,15 +5919,15 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   %84 = sext i32 %78 to i64
   %85 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %83, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 91
-  %87 = load i8, ptr %86, align 1, !range !7, !noundef !8
+  %87 = load i8, ptr %86, align 1, !range !6, !noundef !7
   %88 = trunc nuw i8 %87 to i1
-  br i1 %88, label %112, label %89, !llvm.loop !18
+  br i1 %88, label %112, label %89, !llvm.loop !16
 
 89:                                               ; preds = %75
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 68
   %91 = load i32, ptr %90, align 4
   %.not87 = icmp eq i32 %91, %0
-  br i1 %.not87, label %92, label %112, !llvm.loop !18
+  br i1 %.not87, label %92, label %112, !llvm.loop !16
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %.368, i64 8
@@ -5953,7 +5953,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   store i32 %102, ptr %100, align 4
   %106 = add nsw i32 %.071103, -1
   %107 = icmp sgt i32 %.071103, 1
-  br i1 %107, label %.lr.ph104, label %.critedge, !llvm.loop !19
+  br i1 %107, label %.lr.ph104, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph104, %105, %92
   %.071.lcssa = phi i32 [ %94, %92 ], [ 0, %105 ], [ %.071103, %.lr.ph104 ]
@@ -5968,7 +5968,7 @@ define internal fastcc ptr @get_rels_with_domain(i32 noundef %0) unnamed_addr #0
   %.2 = phi ptr [ %.3, %.critedge ], [ %.0109, %66 ], [ %24, %22 ], [ %.0109, %25 ], [ %.0109, %.lr.ph110 ], [ %.0109, %26 ], [ %.3, %.critedge89 ], [ %.3, %89 ], [ %.3, %75 ]
   %113 = call ptr @systable_getnext(ptr noundef %7) #8
   %.not = icmp eq ptr %113, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph110, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph110
 
 ._crit_edge:                                      ; preds = %112, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.2, %112 ]
@@ -6098,20 +6098,17 @@ attributes #11 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5, !6}
-!10 = !{!"branch_weights", i32 127, i32 1}
-!11 = !{!"branch_weights", i32 255873, i32 127}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = !{!"branch_weights", i32 127, i32 1}
+!10 = !{!"branch_weights", i32 255873, i32 127}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
 !16 = distinct !{!16, !5}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !6}
+!17 = distinct !{!17, !5}

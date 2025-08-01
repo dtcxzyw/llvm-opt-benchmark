@@ -222,7 +222,7 @@ define dso_local range(i32 -2147483648, 1) i32 @netfs_start_io_direct(ptr nounde
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %13
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 1, ptr nonnull elementtype(i8) %6) #4, !srcloc !13
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %6, i32 1, ptr nonnull elementtype(i8) %6) #4, !srcloc !12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 88
@@ -301,7 +301,6 @@ attributes #5 = { nounwind memory(none) }
 !7 = !{!"auto-init"}
 !8 = !{i64 2148616131}
 !9 = !{!"branch_weights", i32 2000, i32 1}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{i64 2147789312, i64 2147789351, i64 2147789372, i64 2147789409, i64 2147789432, i64 2147789302}
+!12 = !{i64 2147789312, i64 2147789351, i64 2147789372, i64 2147789409, i64 2147789432, i64 2147789302}

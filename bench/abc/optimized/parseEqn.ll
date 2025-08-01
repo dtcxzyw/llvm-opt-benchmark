@@ -86,7 +86,7 @@ define ptr @Parse_FormulaParserEqn(ptr noundef captures(none) %0, ptr noundef %1
   ]
 
 28:                                               ; preds = %26
-  %.val = load ptr, ptr %23, align 8, !tbaa !9
+  %.val = load ptr, ptr %23, align 8, !tbaa !8
   %29 = ptrtoint ptr %.val to i64
   %30 = xor i64 %29, 1
   %31 = inttoptr i64 %30 to ptr
@@ -99,7 +99,7 @@ define ptr @Parse_FormulaParserEqn(ptr noundef captures(none) %0, ptr noundef %1
   br label %.thread216
 
 35:                                               ; preds = %26
-  %.val196 = load ptr, ptr %23, align 8, !tbaa !9
+  %.val196 = load ptr, ptr %23, align 8, !tbaa !8
   tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %.val196) #9
   %36 = icmp eq i32 %.0147, 2
   br i1 %36, label %37, label %.preheader219
@@ -183,7 +183,7 @@ Parse_ParserPerformTopOp.exit:                    ; preds = %59, %61, %63
   %.0.i = phi ptr [ %60, %59 ], [ %62, %61 ], [ %64, %63 ]
   tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %.0.i) #9
   %65 = icmp eq ptr %.0.i, null
-  br i1 %65, label %Parse_ParserPerformTopOp.exit.thread, label %.preheader221, !llvm.loop !18
+  br i1 %65, label %Parse_ParserPerformTopOp.exit.thread, label %.preheader221
 
 Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPerformTopOp.exit
   tail call void @Parse_StackFnFree(ptr noundef %21) #9
@@ -221,7 +221,7 @@ Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPe
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1152, i64 %indvars.iv.next
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !3
-  br label %.preheader220, !llvm.loop !19
+  br label %.preheader220, !llvm.loop !17
 
 .critedge.loopexit:                               ; preds = %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220, %.preheader220
   %73 = icmp eq i32 %.0147, 2
@@ -230,19 +230,19 @@ Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPe
 .critedge:                                        ; preds = %.critedge.loopexit, %70
   %.6 = phi i1 [ false, %70 ], [ %73, %.critedge.loopexit ]
   %74 = getelementptr inbounds nuw i8, ptr %.1152, i64 %indvars.iv
-  %.val197 = load i32, ptr %24, align 4, !tbaa !20
+  %.val197 = load i32, ptr %24, align 4, !tbaa !18
   %.not187257 = icmp sgt i32 %.val197, 0
   br i1 %.not187257, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %.critedge
-  %.val198 = load ptr, ptr %25, align 8, !tbaa !22
+  %.val198 = load ptr, ptr %25, align 8, !tbaa !20
   %wide.trip.count = zext nneg i32 %.val197 to i64
   br label %75
 
 75:                                               ; preds = %.lr.ph, %83
   %indvars.iv304 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next305, %83 ]
   %76 = getelementptr inbounds nuw ptr, ptr %.val198, i64 %indvars.iv304
-  %77 = load ptr, ptr %76, align 8, !tbaa !23
+  %77 = load ptr, ptr %76, align 8, !tbaa !21
   %78 = tail call i32 @strncmp(ptr noundef nonnull %.1152, ptr noundef %77, i64 noundef %indvars.iv) #7
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %83
@@ -255,7 +255,7 @@ Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPe
 83:                                               ; preds = %75, %80
   %indvars.iv.next305 = add nuw nsw i64 %indvars.iv304, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next305, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %75, !llvm.loop !24
+  br i1 %exitcond.not, label %.critedge2, label %75, !llvm.loop !22
 
 .critedge2:                                       ; preds = %.critedge, %83
   %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %.1152) #9
@@ -311,7 +311,7 @@ Parse_ParserPerformTopOp.exit.thread:             ; preds = %56, %Parse_ParserPe
   tail call void @Parse_StackFnPush(ptr noundef %21, ptr noundef %101) #9
   %102 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
   %.not190 = icmp eq i32 %102, 0
-  br i1 %.not190, label %.lr.ph261, label %.loopexit, !llvm.loop !25
+  br i1 %.not190, label %.lr.ph261, label %.loopexit
 
 .lr.ph263:                                        ; preds = %.preheader, %116
   %103 = phi i32 [ %117, %116 ], [ %94, %.preheader ]
@@ -358,7 +358,7 @@ Parse_ParserPerformTopOp.exit201.thread:          ; preds = %105, %Parse_ParserP
   %117 = tail call i32 @Parse_StackOpPop(ptr noundef %22) #9
   %118 = tail call i32 @Parse_StackOpIsEmpty(ptr noundef %22) #9
   %.not188 = icmp eq i32 %118, 0
-  br i1 %.not188, label %.lr.ph263, label %.loopexit.sink.split, !llvm.loop !26
+  br i1 %.not188, label %.lr.ph263, label %.loopexit.sink.split
 
 119:                                              ; preds = %.lr.ph263
   tail call void @Parse_StackOpPush(ptr noundef %22, i32 noundef %104) #9
@@ -375,7 +375,7 @@ Parse_ParserPerformTopOp.exit201.thread:          ; preds = %105, %Parse_ParserP
   %.2153 = phi ptr [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %26 ], [ %.1152, %92 ], [ %.3154310, %.preheader219 ], [ %.2153.ph, %.loopexit.sink.split ], [ %.3154310, %97 ]
   %.2 = phi i32 [ %.0147, %26 ], [ %.0147, %26 ], [ %.0147, %26 ], [ %.0147, %26 ], [ 1, %92 ], [ 2, %.preheader219 ], [ %.2.ph, %.loopexit.sink.split ], [ 2, %97 ]
   %120 = getelementptr inbounds nuw i8, ptr %.2153, i64 1
-  br label %26, !llvm.loop !27
+  br label %26, !llvm.loop !23
 
 121:                                              ; preds = %26
   %122 = tail call i32 @Parse_StackFnIsEmpty(ptr noundef %21) #9
@@ -488,25 +488,21 @@ attributes #9 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10, !13, i64 24}
-!10 = !{!"Hop_Man_t_", !11, i64 0, !11, i64 8, !11, i64 16, !13, i64 24, !14, i64 32, !4, i64 72, !15, i64 96, !15, i64 100, !16, i64 104, !15, i64 112, !12, i64 120, !15, i64 128, !15, i64 132, !15, i64 136, !11, i64 144, !11, i64 152, !13, i64 160, !17, i64 168, !17, i64 176}
-!11 = !{!"p1 _ZTS10Vec_Ptr_t_", !12, i64 0}
-!12 = !{!"any pointer", !4, i64 0}
-!13 = !{!"p1 _ZTS10Hop_Obj_t_", !12, i64 0}
-!14 = !{!"Hop_Obj_t_", !4, i64 0, !4, i64 8, !13, i64 16, !13, i64 24, !15, i64 32, !15, i64 32, !15, i64 32, !15, i64 32, !15, i64 32, !15, i64 36}
-!15 = !{!"int", !4, i64 0}
-!16 = !{!"p2 _ZTS10Hop_Obj_t_", !12, i64 0}
-!17 = !{!"long", !4, i64 0}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = !{!21, !15, i64 4}
-!21 = !{!"Vec_Ptr_t_", !15, i64 0, !15, i64 4, !12, i64 8}
-!22 = !{!21, !12, i64 8}
-!23 = !{!12, !12, i64 0}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !7, !8}
+!8 = !{!9, !12, i64 24}
+!9 = !{!"Hop_Man_t_", !10, i64 0, !10, i64 8, !10, i64 16, !12, i64 24, !13, i64 32, !4, i64 72, !14, i64 96, !14, i64 100, !15, i64 104, !14, i64 112, !11, i64 120, !14, i64 128, !14, i64 132, !14, i64 136, !10, i64 144, !10, i64 152, !12, i64 160, !16, i64 168, !16, i64 176}
+!10 = !{!"p1 _ZTS10Vec_Ptr_t_", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}
+!12 = !{!"p1 _ZTS10Hop_Obj_t_", !11, i64 0}
+!13 = !{!"Hop_Obj_t_", !4, i64 0, !4, i64 8, !12, i64 16, !12, i64 24, !14, i64 32, !14, i64 32, !14, i64 32, !14, i64 32, !14, i64 32, !14, i64 36}
+!14 = !{!"int", !4, i64 0}
+!15 = !{!"p2 _ZTS10Hop_Obj_t_", !11, i64 0}
+!16 = !{!"long", !4, i64 0}
+!17 = distinct !{!17, !7}
+!18 = !{!19, !14, i64 4}
+!19 = !{!"Vec_Ptr_t_", !14, i64 0, !14, i64 4, !11, i64 8}
+!20 = !{!19, !11, i64 8}
+!21 = !{!11, !11, i64 0}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}

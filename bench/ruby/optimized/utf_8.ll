@@ -366,7 +366,7 @@ define internal noundef i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr rea
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @mbc_case_fold(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #4 {
-  %6 = load ptr, ptr %1, align 8, !tbaa !15
+  %6 = load ptr, ptr %1, align 8, !tbaa !14
   %7 = load i8, ptr %6, align 1, !tbaa !7
   %8 = icmp sgt i8 %7, -1
   br i1 %8, label %9, label %15
@@ -376,9 +376,9 @@ define internal i32 @mbc_case_fold(i32 noundef %0, ptr noundef %1, ptr noundef %
   %11 = getelementptr [0 x i8], ptr @OnigEncAsciiToLowerCaseTable, i64 0, i64 %10
   %12 = load i8, ptr %11, align 1, !tbaa !7
   store i8 %12, ptr %3, align 1, !tbaa !7
-  %13 = load ptr, ptr %1, align 8, !tbaa !15
+  %13 = load ptr, ptr %1, align 8, !tbaa !14
   %14 = getelementptr i8, ptr %13, i64 1
-  store ptr %14, ptr %1, align 8, !tbaa !15
+  store ptr %14, ptr %1, align 8, !tbaa !14
   br label %17
 
 15:                                               ; preds = %5
@@ -421,7 +421,7 @@ define internal noundef ptr @left_adjust_char_head(ptr noundef readnone captures
   %6 = icmp ugt ptr %.0, %0
   %7 = and i1 %6, %.not13
   %8 = getelementptr i8, ptr %.0, i64 -1
-  br i1 %7, label %.preheader, label %.loopexit, !llvm.loop !18
+  br i1 %7, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %4
   %.010 = phi ptr [ %1, %4 ], [ %.0, %.preheader ]
@@ -460,10 +460,9 @@ attributes #6 = { nounwind }
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"int", !8, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 omnipotent char", !17, i64 0}
-!17 = !{!"any pointer", !8, i64 0}
-!18 = distinct !{!18, !13, !14}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !16, i64 0}
+!16 = !{!"any pointer", !8, i64 0}
+!17 = distinct !{!17, !13}

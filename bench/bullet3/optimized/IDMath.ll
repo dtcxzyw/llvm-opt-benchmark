@@ -157,13 +157,13 @@ define dso_local noundef float @_ZN24btInverseDynamicsBullet36maxAbsERKNS_4vec3E
   %.1 = select i1 %7, float %6, float %.010
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !19
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef float @_ZN24btInverseDynamicsBullet311maxAbsMat3xERKNS_5mat3xE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4, !tbaa !20
+  %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.preheader.lr.ph, label %._crit_edge
 
@@ -186,7 +186,7 @@ define dso_local noundef float @_ZN24btInverseDynamicsBullet311maxAbsMat3xERKNS_
 8:                                                ; preds = %9
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, %7
-  br i1 %exitcond18.not, label %._crit_edge, label %.preheader, !llvm.loop !25
+  br i1 %exitcond18.not, label %._crit_edge, label %.preheader, !llvm.loop !24
 
 9:                                                ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
@@ -199,15 +199,15 @@ define dso_local noundef float @_ZN24btInverseDynamicsBullet311maxAbsMat3xERKNS_
   %.sroa.speculated = select i1 %13, float %.110, float %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %8, label %9, !llvm.loop !26
+  br i1 %exitcond.not, label %8, label %9, !llvm.loop !25
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3xEPS3_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !20
+  %5 = load i32, ptr %4, align 4, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 4, !tbaa !19
   %.not = icmp eq i32 %5, %7
   br i1 %.not, label %.preheader, label %25
 
@@ -230,7 +230,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3x
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !15
-  %.promoted = load i32, ptr %20, align 8, !tbaa !27
+  %.promoted = load i32, ptr %20, align 8, !tbaa !26
   %23 = zext nneg i32 %13 to i64
   %24 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
@@ -238,8 +238,8 @@ define dso_local void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3x
 
 25:                                               ; preds = %3
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 102)
-  %26 = load i32, ptr %4, align 4, !tbaa !20
-  %27 = load i32, ptr %6, align 4, !tbaa !20
+  %26 = load i32, ptr %4, align 4, !tbaa !19
+  %27 = load i32, ptr %6, align 4, !tbaa !19
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.2, i32 noundef %26, i32 noundef %27)
   tail call void @abort() #14
   unreachable
@@ -247,7 +247,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3x
 ._crit_edge:                                      ; preds = %31
   %28 = mul i32 %5, 3
   %29 = add i32 %.promoted, %28
-  store i32 %29, ptr %20, align 8, !tbaa !27
+  store i32 %29, ptr %20, align 8, !tbaa !26
   br label %30
 
 30:                                               ; preds = %._crit_edge, %.preheader
@@ -289,7 +289,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3x
   store float %57, ptr %60, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !27
 }
 
 declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #6
@@ -303,9 +303,9 @@ declare float @llvm.fmuladd.f32(float, float, float) #8
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !20
+  %5 = load i32, ptr %4, align 4, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 4, !tbaa !19
   %.not = icmp eq i32 %5, %7
   br i1 %.not, label %.preheader18, label %20
 
@@ -320,10 +320,10 @@ define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !20
+  %15 = load i32, ptr %14, align 4, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !15
-  %.promoted21 = load i32, ptr %13, align 8, !tbaa !27
+  %.promoted21 = load i32, ptr %13, align 8, !tbaa !26
   %18 = sext i32 %15 to i64
   %19 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
@@ -331,8 +331,8 @@ define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr
 
 20:                                               ; preds = %3
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 121)
-  %21 = load i32, ptr %4, align 4, !tbaa !20
-  %22 = load i32, ptr %6, align 4, !tbaa !20
+  %21 = load i32, ptr %4, align 4, !tbaa !19
+  %22 = load i32, ptr %6, align 4, !tbaa !19
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.3, i32 noundef %21, i32 noundef %22)
   tail call void @abort() #14
   unreachable
@@ -345,7 +345,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr
 ._crit_edge:                                      ; preds = %26
   %23 = mul i32 %5, 3
   %24 = add i32 %.promoted21, %23
-  store i32 %24, ptr %13, align 8, !tbaa !27
+  store i32 %24, ptr %13, align 8, !tbaa !26
   br label %25
 
 25:                                               ; preds = %._crit_edge, %.preheader18
@@ -354,7 +354,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr
 26:                                               ; preds = %27
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count
-  br i1 %exitcond27.not, label %._crit_edge, label %.preheader, !llvm.loop !29
+  br i1 %exitcond27.not, label %._crit_edge, label %.preheader, !llvm.loop !28
 
 27:                                               ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %27 ]
@@ -370,15 +370,15 @@ define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr
   store float %34, ptr %gep, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %26, label %27, !llvm.loop !30
+  br i1 %exitcond.not, label %26, label %27, !llvm.loop !29
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef captures(none) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !20
+  %5 = load i32, ptr %4, align 4, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !20
+  %7 = load i32, ptr %6, align 4, !tbaa !19
   %.not = icmp eq i32 %5, %7
   br i1 %.not, label %.preheader18, label %20
 
@@ -393,10 +393,10 @@ define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !20
+  %15 = load i32, ptr %14, align 4, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !15
-  %.promoted21 = load i32, ptr %13, align 8, !tbaa !27
+  %.promoted21 = load i32, ptr %13, align 8, !tbaa !26
   %18 = sext i32 %15 to i64
   %19 = zext nneg i32 %5 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
@@ -404,8 +404,8 @@ define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr
 
 20:                                               ; preds = %3
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 137)
-  %21 = load i32, ptr %4, align 4, !tbaa !20
-  %22 = load i32, ptr %6, align 4, !tbaa !20
+  %21 = load i32, ptr %4, align 4, !tbaa !19
+  %22 = load i32, ptr %6, align 4, !tbaa !19
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.3, i32 noundef %21, i32 noundef %22)
   tail call void @abort() #14
   unreachable
@@ -418,7 +418,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr
 ._crit_edge:                                      ; preds = %26
   %23 = mul i32 %5, 3
   %24 = add i32 %.promoted21, %23
-  store i32 %24, ptr %13, align 8, !tbaa !27
+  store i32 %24, ptr %13, align 8, !tbaa !26
   br label %25
 
 25:                                               ; preds = %._crit_edge, %.preheader18
@@ -427,7 +427,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr
 26:                                               ; preds = %27
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, %wide.trip.count
-  br i1 %exitcond27.not, label %._crit_edge, label %.preheader, !llvm.loop !31
+  br i1 %exitcond27.not, label %._crit_edge, label %.preheader, !llvm.loop !30
 
 27:                                               ; preds = %.preheader, %27
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %27 ]
@@ -443,14 +443,14 @@ define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr
   store float %34, ptr %gep, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %26, label %27, !llvm.loop !32
+  br i1 %exitcond.not, label %26, label %27, !llvm.loop !31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr dead_on_unwind noalias writable writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 captures(none) initializes((0, 12), (16, 28), (32, 44)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #9 {
   %3 = load float, ptr %1, align 4, !tbaa !4
-  %4 = tail call noundef float @cosf(float noundef %3) #15, !tbaa !33
-  %5 = tail call noundef float @sinf(float noundef %3) #15, !tbaa !33
+  %4 = tail call noundef float @cosf(float noundef %3) #15, !tbaa !32
+  %5 = tail call noundef float @sinf(float noundef %3) #15, !tbaa !32
   store float 1.000000e+00, ptr %0, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %6, align 4, !tbaa !4
@@ -475,8 +475,8 @@ define dso_local void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr dead_on
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet310transformYERKf(ptr dead_on_unwind noalias writable writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 captures(none) initializes((0, 12), (16, 28), (32, 44)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #9 {
   %3 = load float, ptr %1, align 4, !tbaa !4
-  %4 = tail call noundef float @cosf(float noundef %3) #15, !tbaa !33
-  %5 = tail call noundef float @sinf(float noundef %3) #15, !tbaa !33
+  %4 = tail call noundef float @cosf(float noundef %3) #15, !tbaa !32
+  %5 = tail call noundef float @sinf(float noundef %3) #15, !tbaa !32
   store float %4, ptr %0, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %6, align 4, !tbaa !4
@@ -501,8 +501,8 @@ define dso_local void @_ZN24btInverseDynamicsBullet310transformYERKf(ptr dead_on
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet310transformZERKf(ptr dead_on_unwind noalias writable writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 captures(none) initializes((0, 12), (16, 28), (32, 44)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #9 {
   %3 = load float, ptr %1, align 4, !tbaa !4
-  %4 = tail call noundef float @cosf(float noundef %3) #15, !tbaa !33
-  %5 = tail call noundef float @sinf(float noundef %3) #15, !tbaa !33
+  %4 = tail call noundef float @cosf(float noundef %3) #15, !tbaa !32
+  %5 = tail call noundef float @sinf(float noundef %3) #15, !tbaa !32
   store float %4, ptr %0, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %5, ptr %6, align 4, !tbaa !4
@@ -556,10 +556,10 @@ define dso_local void @_ZN24btInverseDynamicsBullet313tildeOperatorERKNS_4vec3E(
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: write, errnomem: write) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet315getVecMatFromDHEffffPNS_4vec3EPNS_5mat33E(float noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(none) initializes((0, 12)) %4, ptr noundef writeonly captures(none) initializes((0, 12), (16, 28), (32, 44)) %5) local_unnamed_addr #10 {
-  %7 = tail call noundef float @sinf(float noundef %3) #15, !tbaa !33
-  %8 = tail call noundef float @cosf(float noundef %3) #15, !tbaa !33
-  %9 = tail call noundef float @sinf(float noundef %0) #15, !tbaa !33
-  %10 = tail call noundef float @cosf(float noundef %0) #15, !tbaa !33
+  %7 = tail call noundef float @sinf(float noundef %3) #15, !tbaa !32
+  %8 = tail call noundef float @cosf(float noundef %3) #15, !tbaa !32
+  %9 = tail call noundef float @sinf(float noundef %0) #15, !tbaa !32
+  %10 = tail call noundef float @cosf(float noundef %0) #15, !tbaa !32
   store float %2, ptr %4, align 4, !tbaa !4
   %11 = fneg float %7
   %12 = fmul float %1, %11
@@ -596,8 +596,8 @@ define dso_local void @_ZN24btInverseDynamicsBullet315getVecMatFromDHEffffPNS_4v
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet324bodyTParentFromAxisAngleERKNS_4vec3ERKfPNS_5mat33E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef writeonly captures(none) initializes((0, 12), (16, 28), (32, 44)) %2) local_unnamed_addr #9 {
   %4 = load float, ptr %1, align 4, !tbaa !4
-  %5 = tail call noundef float @cosf(float noundef %4) #15, !tbaa !33
-  %6 = tail call noundef float @sinf(float noundef %4) #15, !tbaa !33
+  %5 = tail call noundef float @cosf(float noundef %4) #15, !tbaa !32
+  %6 = tail call noundef float @sinf(float noundef %4) #15, !tbaa !32
   %7 = fneg float %6
   %8 = fsub float 1.000000e+00, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1009,7 +1009,7 @@ _ZN24btInverseDynamicsBullet327isPositiveSemiDefiniteFuzzyERKNS_5mat33E.exit.thr
 116:                                              ; preds = %111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %122, label %111, !llvm.loop !34
+  br i1 %exitcond.not, label %122, label %111, !llvm.loop !33
 
 117:                                              ; preds = %111
   %118 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv
@@ -1095,7 +1095,7 @@ define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet322isValidTrans
 .critedge:                                        ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %53, label %4, !llvm.loop !35
+  br i1 %exitcond.not, label %53, label %4, !llvm.loop !34
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
@@ -1327,20 +1327,20 @@ define dso_local { <2 x float>, <2 x float> } @_ZN24btInverseDynamicsBullet313rp
   %3 = load float, ptr %2, align 4, !tbaa !4
   %4 = fneg float %3
   %5 = load float, ptr %0, align 4, !tbaa !4
-  %6 = tail call noundef float @atan2f(float noundef %4, float noundef %5) #15, !tbaa !33
+  %6 = tail call noundef float @atan2f(float noundef %4, float noundef %5) #15, !tbaa !32
   %.sroa.4.8.vec.insert = insertelement <2 x float> <float poison, float undef>, float %6, i64 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load float, ptr %7, align 4, !tbaa !4
   %9 = fneg float %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load float, ptr %10, align 4, !tbaa !4
-  %12 = tail call noundef float @atan2f(float noundef %9, float noundef %11) #15, !tbaa !33
+  %12 = tail call noundef float @atan2f(float noundef %9, float noundef %11) #15, !tbaa !32
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %12, i64 0
-  %13 = tail call noundef float @cosf(float noundef %6) #15, !tbaa !33
-  %14 = tail call noundef float @sinf(float noundef %12) #15, !tbaa !33
+  %13 = tail call noundef float @cosf(float noundef %6) #15, !tbaa !32
+  %14 = tail call noundef float @sinf(float noundef %12) #15, !tbaa !32
   %15 = fmul float %14, %4
   %16 = tail call float @llvm.fmuladd.f32(float %13, float %5, float %15)
-  %17 = tail call noundef float @atan2f(float noundef %8, float noundef %16) #15, !tbaa !33
+  %17 = tail call noundef float @atan2f(float noundef %8, float noundef %16) #15, !tbaa !32
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %17, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.4.8.vec.insert, 1
@@ -1397,23 +1397,22 @@ attributes #15 = { nounwind }
 !13 = !{!"any pointer", !6, i64 0}
 !14 = !{!"bool", !6, i64 0}
 !15 = !{!9, !12, i64 16}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = !{!21, !11, i64 4}
-!21 = !{!"_ZTS9btMatrixXIfE", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !9, i64 24, !22, i64 56}
-!22 = !{!"_ZTS20btAlignedObjectArrayIS_IiEE", !23, i64 0, !11, i64 4, !11, i64 8, !24, i64 16, !14, i64 24}
-!23 = !{!"_ZTS18btAlignedAllocatorI20btAlignedObjectArrayIiELj16EE"}
-!24 = !{!"p1 _ZTS20btAlignedObjectArrayIiE", !13, i64 0}
-!25 = distinct !{!25, !17, !18}
-!26 = distinct !{!26, !17, !18}
-!27 = !{!21, !11, i64 16}
-!28 = distinct !{!28, !17, !18}
-!29 = distinct !{!29, !17, !18}
-!30 = distinct !{!30, !17, !18}
-!31 = distinct !{!31, !17, !18}
-!32 = distinct !{!32, !17, !18}
-!33 = !{!11, !11, i64 0}
-!34 = distinct !{!34, !17, !18}
-!35 = distinct !{!35, !17, !18}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !11, i64 4}
+!20 = !{!"_ZTS9btMatrixXIfE", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !9, i64 24, !21, i64 56}
+!21 = !{!"_ZTS20btAlignedObjectArrayIS_IiEE", !22, i64 0, !11, i64 4, !11, i64 8, !23, i64 16, !14, i64 24}
+!22 = !{!"_ZTS18btAlignedAllocatorI20btAlignedObjectArrayIiELj16EE"}
+!23 = !{!"p1 _ZTS20btAlignedObjectArrayIiE", !13, i64 0}
+!24 = distinct !{!24, !17}
+!25 = distinct !{!25, !17}
+!26 = !{!20, !11, i64 16}
+!27 = distinct !{!27, !17}
+!28 = distinct !{!28, !17}
+!29 = distinct !{!29, !17}
+!30 = distinct !{!30, !17}
+!31 = distinct !{!31, !17}
+!32 = !{!11, !11, i64 0}
+!33 = distinct !{!33, !17}
+!34 = distinct !{!34, !17}

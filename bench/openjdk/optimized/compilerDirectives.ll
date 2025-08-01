@@ -424,7 +424,7 @@ _ZN20ControlIntrinsicIterppEv.exit:               ; preds = %38, %44, %45
   %58 = getelementptr inbounds nuw [27 x i32], ptr %15, i64 0, i64 %57
   %59 = shl i32 %54, 1
   %60 = and i32 %59, 30
-  %61 = load i32, ptr %58, align 4, !noalias !12
+  %61 = load i32, ptr %58, align 4, !noalias !11
   %62 = ashr i32 %61, %60
   %63 = and i32 %62, 3
   %64 = shl nuw i32 %63, %60
@@ -466,7 +466,7 @@ _ZN20ControlIntrinsicIterppEv.exit:               ; preds = %38, %44, %45
 _ZN20ControlIntrinsicIterppEv.exit10:             ; preds = %68, %74, %75
   %79 = phi ptr [ %69, %68 ], [ %.pre29, %74 ], [ %78, %75 ]
   %.not5 = icmp eq ptr %79, null
-  br i1 %.not5, label %._crit_edge28, label %52, !llvm.loop !15
+  br i1 %.not5, label %._crit_edge28, label %52, !llvm.loop !14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -488,7 +488,7 @@ define hidden void @_ZN18CompilerDirectivesD2Ev(ptr noundef nonnull readonly ali
   tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.06.i) #14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.06.i) #14
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 193
@@ -540,7 +540,7 @@ _ZN12DirectiveSetD2Ev.exit:                       ; preds = %14, %18
   tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.06.i11) #14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.06.i11) #14
   %.not.i12 = icmp eq ptr %29, null
-  br i1 %.not.i12, label %._crit_edge.i13, label %.lr.ph.i10, !llvm.loop !16
+  br i1 %.not.i12, label %._crit_edge.i13, label %.lr.ph.i10, !llvm.loop !15
 
 ._crit_edge.i13:                                  ; preds = %.lr.ph.i10, %26
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 193
@@ -587,7 +587,7 @@ _ZN12DirectiveSetD2Ev.exit14:                     ; preds = %36, %40
   tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.016) #14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.016) #14
   %.not8 = icmp eq ptr %49, null
-  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %45
   ret void
@@ -632,7 +632,7 @@ define hidden void @_ZN18CompilerDirectives5printEP12outputStream(ptr noundef no
   %.0.in = getelementptr inbounds nuw i8, ptr %.024, i64 32
   %.0 = load ptr, ptr %.0.in, align 8
   %.not18 = icmp eq ptr %.0, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #14
@@ -894,7 +894,7 @@ define hidden void @_ZN12DirectiveSet8finalizeEP12outputStream(ptr noundef nonnu
 34:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 27
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %32, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %32 ]
@@ -1097,7 +1097,7 @@ define hidden noundef ptr @_ZN12DirectiveSet30canonicalize_control_intrinsicEPKc
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   store i8 %.sink, ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %5, !llvm.loop !20
+  br label %5, !llvm.loop !19
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
@@ -1138,7 +1138,7 @@ define hidden void @_ZN20ControlIntrinsicIterC2EPKcb(ptr noundef nonnull align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
   store i8 %.sink.i, ptr %14, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %9, !llvm.loop !20
+  br label %9, !llvm.loop !19
 
 _ZN12DirectiveSet30canonicalize_control_intrinsicEPKc.exit: ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i
@@ -1374,7 +1374,7 @@ define hidden void @_ZN12DirectiveSetD2Ev(ptr noundef nonnull align 8 dereferenc
   tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.06) #14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.06) #14
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 193
@@ -2408,7 +2408,7 @@ _ZN15DirectiveSetPtr6clonedEv.exit108:            ; preds = %502, %505
   %510 = getelementptr inbounds nuw [27 x i32], ptr %507, i64 0, i64 %509
   %511 = shl i32 %501, 1
   %512 = and i32 %511, 30
-  %513 = load i32, ptr %510, align 4, !noalias !21
+  %513 = load i32, ptr %510, align 4, !noalias !20
   %514 = ashr i32 %513, %512
   %515 = and i32 %514, 3
   %516 = shl nuw i32 %515, %512
@@ -2454,7 +2454,7 @@ _ZN15DirectiveSetPtr6clonedEv.exit108:            ; preds = %502, %505
 _ZN20ControlIntrinsicIterppEv.exit:               ; preds = %523, %529, %530
   %534 = phi ptr [ %524, %523 ], [ %.pre, %529 ], [ %533, %530 ]
   %.not69 = icmp eq ptr %534, null
-  br i1 %.not69, label %._crit_edge, label %499, !llvm.loop !24
+  br i1 %.not69, label %._crit_edge, label %499, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN20ControlIntrinsicIterppEv.exit, %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit
   %.sroa.36.29.lcssa = phi ptr [ %.sroa.36.63, %_ZN12TriBoolArrayILm421EiE7fill_inERK7TriBool.exit ], [ %.sroa.36.30, %_ZN20ControlIntrinsicIterppEv.exit ]
@@ -2528,7 +2528,7 @@ _ZN15DirectiveSetPtr6clonedEv.exit117:            ; preds = %557, %559
   %564 = getelementptr inbounds nuw [27 x i32], ptr %561, i64 0, i64 %563
   %565 = shl i32 %556, 1
   %566 = and i32 %565, 30
-  %567 = load i32, ptr %564, align 4, !noalias !25
+  %567 = load i32, ptr %564, align 4, !noalias !24
   %568 = ashr i32 %567, %566
   %569 = and i32 %568, 3
   %570 = shl nuw i32 %569, %566
@@ -2571,7 +2571,7 @@ _ZN15DirectiveSetPtr6clonedEv.exit117:            ; preds = %557, %559
 _ZN20ControlIntrinsicIterppEv.exit120:            ; preds = %574, %580, %581
   %585 = phi ptr [ %575, %574 ], [ %.pre219, %580 ], [ %584, %581 ]
   %.not71 = icmp eq ptr %585, null
-  br i1 %.not71, label %._crit_edge217, label %554, !llvm.loop !28
+  br i1 %.not71, label %._crit_edge217, label %554, !llvm.loop !27
 
 ._crit_edge217:                                   ; preds = %_ZN20ControlIntrinsicIterppEv.exit120, %549
   %.sroa.36.33.lcssa = phi ptr [ %.sroa.36.32, %549 ], [ %.sroa.36.34, %_ZN20ControlIntrinsicIterppEv.exit120 ]
@@ -2644,14 +2644,14 @@ define hidden noundef zeroext i1 @_ZN12DirectiveSet13should_inlineEP8ciMethod(pt
   br i1 %7, label %10, label %9
 
 9:                                                ; preds = %2
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !29
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !30
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !28
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !29
   br label %10
 
 10:                                               ; preds = %9, %2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 1096
   %12 = load volatile i64, ptr %11, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !30
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !29
   %13 = and i64 %12, 1
   %.not.i.i.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %14
@@ -2768,7 +2768,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12DirectiveSet14
   store ptr %67, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %70) #14
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !30
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !29
   store volatile i32 4, ptr %8, align 4
   ret i1 %.0
 }
@@ -2790,14 +2790,14 @@ define hidden noundef zeroext i1 @_ZN12DirectiveSet17should_not_inlineEP8ciMetho
   br i1 %7, label %10, label %9
 
 9:                                                ; preds = %2
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !29
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !30
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !28
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !29
   br label %10
 
 10:                                               ; preds = %9, %2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 1096
   %12 = load volatile i64, ptr %11, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !30
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !29
   %13 = and i64 %12, 1
   %.not.i.i.i.i = icmp eq i64 %13, 0
   br i1 %.not.i.i.i.i, label %_ZN18SafepointMechanism20process_if_requestedEP10JavaThreadbb.exit.i.i.i, label %14
@@ -2914,7 +2914,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12DirectiveSet14
   store ptr %67, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 928
   call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %70) #14
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !30
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !29
   store volatile i32 4, ptr %8, align 4
   ret i1 %.0
 }
@@ -2941,7 +2941,7 @@ define hidden noundef zeroext i1 @_ZN12DirectiveSet20parse_and_add_inlineEPcRPKc
   %9 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %11, label %.preheader.i, !llvm.loop !31
+  br i1 %.not.i, label %11, label %.preheader.i, !llvm.loop !30
 
 11:                                               ; preds = %.preheader.i
   %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
@@ -2969,7 +2969,7 @@ define hidden void @_ZN12DirectiveSet13append_inlineEP13InlineMatcher(ptr nounde
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %.preheader, !llvm.loop !31
+  br i1 %.not, label %8, label %.preheader, !llvm.loop !30
 
 8:                                                ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %.0, i64 40
@@ -3007,7 +3007,7 @@ define hidden void @_ZN12DirectiveSet12print_inlineEP12outputStream(ptr noundef 
   %.0.in = getelementptr inbounds nuw i8, ptr %.013, i64 40
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #14
@@ -3027,7 +3027,7 @@ define hidden noundef zeroext i1 @_ZN12DirectiveSet21is_intrinsic_disabledE13vmI
   %6 = getelementptr inbounds nuw [27 x i32], ptr %3, i64 0, i64 %5
   %7 = shl i32 %1, 1
   %8 = and i32 %7, 30
-  %9 = load i32, ptr %6, align 4, !noalias !33
+  %9 = load i32, ptr %6, align 4, !noalias !32
   %10 = ashr i32 %9, %8
   %11 = and i32 %10, 3
   %.0 = icmp eq i32 %11, 2
@@ -3142,7 +3142,7 @@ define hidden noundef ptr @_ZN12DirectiveSet5cloneEPKS_(ptr noundef %0) local_un
   %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %64 = load ptr, ptr %63, align 8
   %.not.i = icmp eq ptr %64, null
-  br i1 %.not.i, label %65, label %.preheader.i, !llvm.loop !31
+  br i1 %.not.i, label %65, label %.preheader.i, !llvm.loop !30
 
 65:                                               ; preds = %.preheader.i
   %66 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
@@ -3153,7 +3153,7 @@ _ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit: ; preds = %62, %65
   %67 = getelementptr inbounds nuw i8, ptr %.077, i64 40
   %.0 = load ptr, ptr %67, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %_ZN12DirectiveSet13append_inlineEP13InlineMatcher.exit, %1
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 203
@@ -3521,7 +3521,7 @@ _ZN15DirectivesStack9pop_innerEv.exit:            ; preds = %.lr.ph.split, %11, 
   %19 = phi ptr [ %9, %.lr.ph.split ], [ %8, %11 ], [ %.pre, %18 ]
   %20 = add nuw nsw i32 %.04, 1
   %exitcond.not = icmp eq i32 %20, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.splitthread-pre-split, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.splitthread-pre-split, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %_ZN15DirectivesStack9pop_innerEv.exit, %.lr.ph, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %21
@@ -3642,7 +3642,7 @@ _ZN15DirectivesStack9pop_innerEv.exit:            ; preds = %.lr.ph, %13
   %15 = phi i32 [ %8, %.lr.ph ], [ %.pre, %13 ]
   %16 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %_ZN15DirectivesStack9pop_innerEv.exit, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %17
@@ -3676,7 +3676,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %5 = load ptr, ptr %.07, align 8
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #14
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %6
@@ -3717,7 +3717,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   tail call void @_ZN13MethodMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %.06.i) #14
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.06.i) #14
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 193
@@ -3837,7 +3837,7 @@ _ZN18CompilerDirectives5matchERK12methodHandle.exit.thread.us: ; preds = %_ZN18C
   %.0.us = phi ptr [ %20, %19 ], [ %.0.us.pre, %_ZN18CompilerDirectives5matchERK12methodHandle.exit.us._ZN18CompilerDirectives5matchERK12methodHandle.exit.thread.us_crit_edge ], [ %7, %9 ]
   %.2.us = phi ptr [ %.0.i15.us, %19 ], [ %.01322.us, %_ZN18CompilerDirectives5matchERK12methodHandle.exit.us._ZN18CompilerDirectives5matchERK12methodHandle.exit.thread.us_crit_edge ], [ %.01322.us, %9 ]
   %.not.us = icmp eq ptr %.0.us, null
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !41
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !40
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN18CompilerDirectives5matchERK12methodHandle.exit.thread
   %.023 = phi ptr [ %.0, %_ZN18CompilerDirectives5matchERK12methodHandle.exit.thread ], [ %.020, %.lr.ph ]
@@ -3890,7 +3890,7 @@ _ZN18CompilerDirectives5matchERK12methodHandle.exit.thread: ; preds = %_ZN18Comp
   %.0 = phi ptr [ %37, %36 ], [ %.0.pre, %_ZN18CompilerDirectives5matchERK12methodHandle.exit._ZN18CompilerDirectives5matchERK12methodHandle.exit.thread_crit_edge ], [ %22, %24 ]
   %.2 = phi ptr [ %.0.i15, %36 ], [ %.01322, %_ZN18CompilerDirectives5matchERK12methodHandle.exit._ZN18CompilerDirectives5matchERK12methodHandle.exit.thread_crit_edge ], [ %.01322, %24 ]
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !43
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !42
 
 .loopexit:                                        ; preds = %_ZN18CompilerDirectives5matchERK12methodHandle.exit.thread, %_ZN18CompilerDirectives5matchERK12methodHandle.exit.thread.us, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %.split.us
   %.1 = phi ptr [ %.us-phi, %.split.us ], [ null, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ], [ %.2.us, %_ZN18CompilerDirectives5matchERK12methodHandle.exit.thread.us ], [ %.2, %_ZN18CompilerDirectives5matchERK12methodHandle.exit.thread ]
@@ -4080,7 +4080,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !44
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !43
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4096,7 +4096,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !45
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !44
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -4171,40 +4171,39 @@ attributes #16 = { nounwind willreturn memory(read) }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
 !8 = distinct !{!8, !"_ZN12TriBoolArrayILm421EiEixEm"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
-!14 = distinct !{!14, !"_ZN12TriBoolArrayILm421EiEixEm"}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11}
-!20 = distinct !{!20, !10, !11}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
-!23 = distinct !{!23, !"_ZN12TriBoolArrayILm421EiEixEm"}
-!24 = distinct !{!24, !10, !11}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
-!27 = distinct !{!27, !"_ZN12TriBoolArrayILm421EiEixEm"}
-!28 = distinct !{!28, !10, !11}
-!29 = !{i64 2145392998}
-!30 = !{i64 2145392468}
-!31 = distinct !{!31, !10, !11}
-!32 = distinct !{!32, !10, !11}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
-!35 = distinct !{!35, !"_ZN12TriBoolArrayILm421EiEixEm"}
-!36 = distinct !{!36, !10, !11}
-!37 = distinct !{!37, !10, !11, !38}
-!38 = !{!"llvm.loop.unswitch.partial.disable"}
-!39 = distinct !{!39, !10, !11}
-!40 = distinct !{!40, !10, !11}
-!41 = distinct !{!41, !10, !11, !42}
-!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!43 = distinct !{!43, !10, !11}
-!44 = distinct !{!44, !10, !11}
-!45 = distinct !{!45, !10, !11}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
+!13 = distinct !{!13, !"_ZN12TriBoolArrayILm421EiEixEm"}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
+!22 = distinct !{!22, !"_ZN12TriBoolArrayILm421EiEixEm"}
+!23 = distinct !{!23, !10}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
+!26 = distinct !{!26, !"_ZN12TriBoolArrayILm421EiEixEm"}
+!27 = distinct !{!27, !10}
+!28 = !{i64 2145392998}
+!29 = !{i64 2145392468}
+!30 = distinct !{!30, !10}
+!31 = distinct !{!31, !10}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN12TriBoolArrayILm421EiEixEm: argument 0"}
+!34 = distinct !{!34, !"_ZN12TriBoolArrayILm421EiEixEm"}
+!35 = distinct !{!35, !10}
+!36 = distinct !{!36, !10, !37}
+!37 = !{!"llvm.loop.unswitch.partial.disable"}
+!38 = distinct !{!38, !10}
+!39 = distinct !{!39, !10}
+!40 = distinct !{!40, !10, !41}
+!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!42 = distinct !{!42, !10}
+!43 = distinct !{!43, !10}
+!44 = distinct !{!44, !10}

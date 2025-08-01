@@ -2563,7 +2563,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %.3541.i = phi i32 [ %415, %405 ], [ %403, %.lr.ph566.i ]
   %.3.i54 = phi i32 [ %414, %405 ], [ %402, %.lr.ph566.i ]
   %.not550.i = icmp eq i32 %.3541.i, 0
-  br i1 %.not550.i, label %dissect_unistim_message.exit, label %.lr.ph566.i, !llvm.loop !9
+  br i1 %.not550.i, label %dissect_unistim_message.exit, label %.lr.ph566.i, !llvm.loop !8
 
 417:                                              ; preds = %217
   %418 = load ptr, ptr @uinfo, align 8
@@ -2684,7 +2684,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %506 = add i32 %.4560.i, 1
   %507 = add i32 %.4542559.i, -1
   %.not548.i = icmp eq i32 %507, 0
-  br i1 %.not548.i, label %dissect_unistim_message.exit, label %.lr.ph561.i, !llvm.loop !10
+  br i1 %.not548.i, label %dissect_unistim_message.exit, label %.lr.ph561.i, !llvm.loop !9
 
 508:                                              ; preds = %217
   %509 = load i32, ptr @hf_generic_data, align 4
@@ -2765,7 +2765,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %.6544.i = phi i32 [ %537, %549 ], [ %554, %.sink.split.i52 ]
   %.6.i = phi i32 [ %536, %549 ], [ %553, %.sink.split.i52 ]
   %.not.i53 = icmp eq i32 %.6544.i, 0
-  br i1 %.not.i53, label %dissect_unistim_message.exit, label %.lr.ph.i51, !llvm.loop !11
+  br i1 %.not.i53, label %dissect_unistim_message.exit, label %.lr.ph.i51, !llvm.loop !10
 
 556:                                              ; preds = %217
   %557 = load i32, ptr @hf_audio_source_descr, align 4
@@ -3304,7 +3304,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %912 = add i32 %.9607.i, 1
   %913 = add nsw i32 %.9571606.i, -1
   %.not581.i = icmp eq i32 %913, 0
-  br i1 %.not581.i, label %dissect_unistim_message.exit, label %.lr.ph608.i, !llvm.loop !12
+  br i1 %.not581.i, label %dissect_unistim_message.exit, label %.lr.ph608.i, !llvm.loop !11
 
 914:                                              ; preds = %606
   %915 = load i32, ptr @hf_generic_data, align 4
@@ -3444,7 +3444,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %.11573.i = add i32 %.11573603.i, -2
   %.11.i = add i32 %.11604.i, 2
   %.not.i47 = icmp eq i32 %.11573.i, 0
-  br i1 %.not.i47, label %dissect_unistim_message.exit, label %.lr.ph.i46, !llvm.loop !13
+  br i1 %.not.i47, label %dissect_unistim_message.exit, label %.lr.ph.i46, !llvm.loop !12
 
 1015:                                             ; preds = %606
   %1016 = load i32, ptr @hf_display_layer_skey_id, align 4
@@ -3567,7 +3567,7 @@ dissect_expansion_switch.exit.i:                  ; preds = %145, %137, %131
   %1086 = add i32 %.1135.i, 2
   %1087 = add i32 %.1132134.i, -2
   %.not.i44 = icmp eq i32 %1087, 0
-  br i1 %.not.i44, label %dissect_unistim_message.exit, label %.lr.ph.i43, !llvm.loop !14
+  br i1 %.not.i44, label %dissect_unistim_message.exit, label %.lr.ph.i43, !llvm.loop !13
 
 1088:                                             ; preds = %1027
   %1089 = load i32, ptr @hf_keys_user_activity_timeout, align 4
@@ -3976,7 +3976,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1349 = add i32 %.1334.i, 1
   %1350 = add i32 %.1313333.i, -1
   %.not321.i = icmp eq i32 %1350, 0
-  br i1 %.not321.i, label %dissect_unistim_message.exit, label %.lr.ph335.i, !llvm.loop !15
+  br i1 %.not321.i, label %dissect_unistim_message.exit, label %.lr.ph335.i, !llvm.loop !14
 
 1351:                                             ; preds = %1318
   %1352 = load i32, ptr @hf_basic_bit_field, align 4
@@ -4184,7 +4184,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1519 = add i32 %.2329.i, 1
   %1520 = add i32 %.2314328.i, -1
   %.not320.i = icmp eq i32 %1520, 0
-  br i1 %.not320.i, label %dissect_unistim_message.exit, label %.lr.ph330.i, !llvm.loop !16
+  br i1 %.not320.i, label %dissect_unistim_message.exit, label %.lr.ph330.i, !llvm.loop !15
 
 1521:                                             ; preds = %1318
   %1522 = load i32, ptr @hf_audio_apb_number, align 4
@@ -4222,7 +4222,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %.4316.i = phi i32 [ %1542, %1532 ], [ %1530, %.lr.ph.i38 ]
   %.4.i = phi i32 [ %1541, %1532 ], [ %1529, %.lr.ph.i38 ]
   %.not.i39 = icmp eq i32 %.4316.i, 0
-  br i1 %.not.i39, label %dissect_unistim_message.exit, label %.lr.ph.i38, !llvm.loop !17
+  br i1 %.not.i39, label %dissect_unistim_message.exit, label %.lr.ph.i38, !llvm.loop !16
 
 1544:                                             ; preds = %1318
   %1545 = load i32, ptr @hf_generic_data, align 4
@@ -4682,7 +4682,7 @@ dissect_expansion_phone.exit.i:                   ; preds = %1305, %1298
   %1861 = add i32 %.1103.i, 9
   %1862 = add nuw nsw i32 %.0104.i, 1
   %exitcond.not.i = icmp eq i32 %.0104.i, %1843
-  br i1 %exitcond.not.i, label %dissect_unistim_message.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %dissect_unistim_message.exit, label %.lr.ph.i, !llvm.loop !17
 
 1863:                                             ; preds = %1796
   %1864 = load i32, ptr @hf_generic_data, align 4
@@ -4702,7 +4702,7 @@ dissect_unistim_message.exit:                     ; preds = %.lr.ph.i, %1543, %.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   %1872 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.0.i33)
   %1873 = icmp sgt i32 %1872, 0
-  br i1 %1873, label %111, label %.loopexit, !llvm.loop !19
+  br i1 %1873, label %111, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %dissect_unistim_message.exit, %dissect_uftp_message.exit, %3
   ret void
@@ -4777,17 +4777,16 @@ attributes #8 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}

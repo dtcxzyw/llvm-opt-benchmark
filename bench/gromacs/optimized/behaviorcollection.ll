@@ -121,7 +121,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN3gmx16IOptionsBehaviorEES3_EvT_S5_RSaIT0_E.exit.i
 
 31:                                               ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN3gmx16IOptionsBehaviorEES3_EvT_S5_RSaIT0_E.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !31
+  %33 = load ptr, ptr %32, align 8, !tbaa !30
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %30 to i64
   %36 = sub i64 %34, %35
@@ -152,7 +152,7 @@ define void @_ZN3gmx25OptionsBehaviorCollection11addBehaviorERKSt10shared_ptrINS
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !31
+  %16 = load ptr, ptr %15, align 8, !tbaa !30
   %17 = ptrtoint ptr %16 to i64
   %18 = sub i64 %17, %8
   %19 = ashr exact i64 %18, 4
@@ -168,20 +168,20 @@ _ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_M_allocat
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i ], [ %22, %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_M_allocateEm.exit.i ]
   %.0911.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i ], [ %6, %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
-  %23 = load ptr, ptr %.0911.i.i.i.i, align 8, !tbaa !37, !alias.scope !35, !noalias !32
-  store ptr %23, ptr %.012.i.i.i.i, align 8, !tbaa !37, !alias.scope !32, !noalias !35
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  %23 = load ptr, ptr %.0911.i.i.i.i, align 8, !tbaa !36, !alias.scope !34, !noalias !31
+  store ptr %23, ptr %.012.i.i.i.i, align 8, !tbaa !36, !alias.scope !31, !noalias !34
   %24 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !16, !alias.scope !35, !noalias !32
-  store ptr null, ptr %25, align 8, !tbaa !16, !alias.scope !35, !noalias !32
-  store ptr %26, ptr %24, align 8, !tbaa !16, !alias.scope !32, !noalias !35
-  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !37, !alias.scope !35, !noalias !32
+  %26 = load ptr, ptr %25, align 8, !tbaa !16, !alias.scope !34, !noalias !31
+  store ptr null, ptr %25, align 8, !tbaa !16, !alias.scope !34, !noalias !31
+  store ptr %26, ptr %24, align 8, !tbaa !16, !alias.scope !31, !noalias !34
+  store ptr null, ptr %.0911.i.i.i.i, align 8, !tbaa !36, !alias.scope !34, !noalias !31
   %27 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %27, %5
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !40
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !39
 
 _ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_M_allocateEm.exit.i
   %.not.i8.i = icmp eq ptr %6, null
@@ -196,24 +196,24 @@ _ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE13_M_dealloc
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store ptr %30, ptr %4, align 8, !tbaa !15
   %31 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %22, i64 %11
-  store ptr %31, ptr %15, align 8, !tbaa !31
+  store ptr %31, ptr %15, align 8, !tbaa !30
   br label %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE7reserveEm.exit
 
 _ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE7reserveEm.exit: ; preds = %14, %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE13_M_deallocateEPS3_m.exit.i
-  %32 = load ptr, ptr %1, align 8, !tbaa !37
+  %32 = load ptr, ptr %1, align 8, !tbaa !36
   %33 = load ptr, ptr %0, align 8, !tbaa !3
   %34 = load ptr, ptr %32, align 8, !tbaa !23
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
   %37 = load ptr, ptr %4, align 8, !tbaa !15
-  %38 = load ptr, ptr %15, align 8, !tbaa !31
+  %38 = load ptr, ptr %15, align 8, !tbaa !30
   %.not.i = icmp eq ptr %37, %38
   br i1 %.not.i, label %54, label %39
 
 39:                                               ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE7reserveEm.exit
-  %40 = load ptr, ptr %1, align 8, !tbaa !37
-  store ptr %40, ptr %37, align 8, !tbaa !37
+  %40 = load ptr, ptr %1, align 8, !tbaa !36
+  store ptr %40, ptr %37, align 8, !tbaa !36
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !16
@@ -255,9 +255,9 @@ _ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE9push_backERKS3_.ex
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25OptionsBehaviorCollection16optionsFinishingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !41
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
   %.not7 = icmp eq ptr %3, %5
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -266,7 +266,7 @@ define void @_ZN3gmx25OptionsBehaviorCollection16optionsFinishingEv(ptr noundef 
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.04.08 = phi ptr [ %11, %.lr.ph ], [ %3, %1 ]
-  %6 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !37
+  %6 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !36
   %7 = load ptr, ptr %0, align 8, !tbaa !3
   %8 = load ptr, ptr %6, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -274,15 +274,15 @@ define void @_ZN3gmx25OptionsBehaviorCollection16optionsFinishingEv(ptr noundef 
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 16
   %.not = icmp eq ptr %11, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx25OptionsBehaviorCollection15optionsFinishedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !41
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !41
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
   %.not7 = icmp eq ptr %3, %5
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -291,14 +291,14 @@ define void @_ZN3gmx25OptionsBehaviorCollection15optionsFinishedEv(ptr noundef n
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.sroa.04.08 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
-  %6 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !37
+  %6 = load ptr, ptr %.sroa.04.08, align 8, !tbaa !36
   %7 = load ptr, ptr %6, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 16
   %.not = icmp eq ptr %10, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
@@ -380,8 +380,8 @@ _ZNKSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE12_M_check_lenEmPK
   %19 = shl nuw nsw i64 %16, 4
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
-  %22 = load ptr, ptr %2, align 8, !tbaa !37
-  store ptr %22, ptr %21, align 8, !tbaa !37
+  %22 = load ptr, ptr %2, align 8, !tbaa !36
+  store ptr %22, ptr %21, align 8, !tbaa !36
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !16
@@ -412,20 +412,20 @@ _ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructI
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i ], [ %20, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
-  %34 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !37, !alias.scope !47, !noalias !44
-  store ptr %34, ptr %.012.i.i.i, align 8, !tbaa !37, !alias.scope !44, !noalias !47
+  %34 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !36, !alias.scope !44, !noalias !41
+  store ptr %34, ptr %.012.i.i.i, align 8, !tbaa !36, !alias.scope !41, !noalias !44
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !16, !alias.scope !47, !noalias !44
-  store ptr null, ptr %36, align 8, !tbaa !16, !alias.scope !47, !noalias !44
-  store ptr %37, ptr %35, align 8, !tbaa !16, !alias.scope !44, !noalias !47
-  store ptr null, ptr %.0911.i.i.i, align 8, !tbaa !37, !alias.scope !47, !noalias !44
+  %37 = load ptr, ptr %36, align 8, !tbaa !16, !alias.scope !44, !noalias !41
+  store ptr null, ptr %36, align 8, !tbaa !16, !alias.scope !44, !noalias !41
+  store ptr %37, ptr %35, align 8, !tbaa !16, !alias.scope !41, !noalias !44
+  store ptr null, ptr %.0911.i.i.i, align 8, !tbaa !36, !alias.scope !44, !noalias !41
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %38, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !40
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !39
 
 _ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaISt10shared_ptrIN3gmx16IOptionsBehaviorEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit ], [ %39, %.lr.ph.i.i.i ]
@@ -436,20 +436,20 @@ _ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %46, %.lr.ph.i.i.i17 ], [ %40, %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
   %.0911.i.i.i19 = phi ptr [ %45, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ]
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %41 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !37, !alias.scope !52, !noalias !49
-  store ptr %41, ptr %.012.i.i.i18, align 8, !tbaa !37, !alias.scope !49, !noalias !52
+  %41 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !36, !alias.scope !49, !noalias !46
+  store ptr %41, ptr %.012.i.i.i18, align 8, !tbaa !36, !alias.scope !46, !noalias !49
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !16, !alias.scope !52, !noalias !49
-  store ptr null, ptr %43, align 8, !tbaa !16, !alias.scope !52, !noalias !49
-  store ptr %44, ptr %42, align 8, !tbaa !16, !alias.scope !49, !noalias !52
-  store ptr null, ptr %.0911.i.i.i19, align 8, !tbaa !37, !alias.scope !52, !noalias !49
+  %44 = load ptr, ptr %43, align 8, !tbaa !16, !alias.scope !49, !noalias !46
+  store ptr null, ptr %43, align 8, !tbaa !16, !alias.scope !49, !noalias !46
+  store ptr %44, ptr %42, align 8, !tbaa !16, !alias.scope !46, !noalias !49
+  store ptr null, ptr %.0911.i.i.i19, align 8, !tbaa !36, !alias.scope !49, !noalias !46
   %45 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
   %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
   %.not.i.i.i20 = icmp eq ptr %45, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !40
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !39
 
 _ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %40, %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit ], [ %46, %.lr.ph.i.i.i17 ]
@@ -458,7 +458,7 @@ _ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S
   br i1 %.not.i23, label %_ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE13_M_deallocateEPS3_m.exit, label %48
 
 48:                                               ; preds = %_ZNSt6vectorISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22
-  %49 = load ptr, ptr %47, align 8, !tbaa !31
+  %49 = load ptr, ptr %47, align 8, !tbaa !30
   %50 = ptrtoint ptr %49 to i64
   %51 = sub i64 %50, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %51) #16
@@ -468,7 +468,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN3gmx16IOptionsBehaviorEESaIS3_EE13_M_dealloc
   store ptr %20, ptr %0, align 8, !tbaa !14
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !15
   %52 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
-  store ptr %52, ptr %47, align 8, !tbaa !31
+  store ptr %52, ptr %47, align 8, !tbaa !30
   ret void
 }
 
@@ -537,29 +537,26 @@ attributes #18 = { builtin allocsize(0) }
 !25 = !{!7, !7, i64 0}
 !26 = !{!21, !21, i64 0}
 !27 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!12, !13, i64 16}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!34 = distinct !{!34, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_"}
-!35 = !{!36}
-!36 = distinct !{!36, !34, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!37 = !{!38, !39, i64 0}
-!38 = !{!"_ZTSSt12__shared_ptrIN3gmx16IOptionsBehaviorELN9__gnu_cxx12_Lock_policyE2EE", !39, i64 0, !17, i64 8}
-!39 = !{!"p1 _ZTSN3gmx16IOptionsBehaviorE", !6, i64 0}
-!40 = distinct !{!40, !29, !30}
-!41 = !{!13, !13, i64 0}
-!42 = distinct !{!42, !30}
-!43 = distinct !{!43, !30}
+!30 = !{!12, !13, i64 16}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!33 = distinct !{!33, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_"}
+!34 = !{!35}
+!35 = distinct !{!35, !33, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!36 = !{!37, !38, i64 0}
+!37 = !{!"_ZTSSt12__shared_ptrIN3gmx16IOptionsBehaviorELN9__gnu_cxx12_Lock_policyE2EE", !38, i64 0, !17, i64 8}
+!38 = !{!"p1 _ZTSN3gmx16IOptionsBehaviorE", !6, i64 0}
+!39 = distinct !{!39, !29}
+!40 = !{!13, !13, i64 0}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!43 = distinct !{!43, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_"}
 !44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!46 = distinct !{!46, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_"}
-!47 = !{!48}
-!48 = distinct !{!48, !46, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!45 = distinct !{!45, !43, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!48 = distinct !{!48, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_"}
 !49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!51 = distinct !{!51, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_"}
-!52 = !{!53}
-!53 = distinct !{!53, !51, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!50 = distinct !{!50, !48, !"_ZSt19__relocate_object_aISt10shared_ptrIN3gmx16IOptionsBehaviorEES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}

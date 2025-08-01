@@ -264,7 +264,7 @@ define void @Mvc_CoverAddDupCubeTail(ptr noundef %0, ptr noundef readonly captur
   store i32 %22, ptr %23, align 4, !tbaa !15
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %.loopexit, label %20, !llvm.loop !19
+  br i1 %.not, label %.loopexit, label %20, !llvm.loop !18
 
 .loopexit:                                        ; preds = %20, %14, %11
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -313,7 +313,7 @@ define void @Mvc_CoverList2Array(ptr noundef %0) local_unnamed_addr #2 {
 
 .lr.ph:                                           ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !20
+  %4 = load ptr, ptr %3, align 8, !tbaa !19
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
@@ -324,7 +324,7 @@ define void @Mvc_CoverList2Array(ptr noundef %0) local_unnamed_addr #2 {
   store ptr %.0610, ptr %6, align 8, !tbaa !14
   %.06 = load ptr, ptr %.0610, align 8, !tbaa !14
   %.not = icmp eq ptr %.06, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %5, %1
   ret void
@@ -342,28 +342,28 @@ define void @Mvc_CoverArray2List(ptr noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = load ptr, ptr %5, align 8, !tbaa !14
   store ptr null, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %6, ptr %8, align 8, !tbaa !26
-  store ptr %6, ptr %7, align 8, !tbaa !27
+  store ptr %6, ptr %8, align 8, !tbaa !25
+  store ptr %6, ptr %7, align 8, !tbaa !26
   br label %.loopexit
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !20
+  %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %12, ptr %13, align 8, !tbaa !27
+  store ptr %12, ptr %13, align 8, !tbaa !26
   %14 = add nsw i32 %2, -1
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds ptr, ptr %11, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   store ptr null, ptr %17, align 8, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %17, ptr %18, align 8, !tbaa !26
+  store ptr %17, ptr %18, align 8, !tbaa !25
   %19 = icmp sgt i32 %2, 1
   br i1 %19, label %.lr.ph.preheader, label %.loopexit
 
@@ -380,7 +380,7 @@ define void @Mvc_CoverArray2List(ptr noundef %0) local_unnamed_addr #2 {
   %22 = load ptr, ptr %21, align 8, !tbaa !14
   store ptr %22, ptr %20, align 8, !tbaa !11
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %1, %3
   ret void
@@ -397,7 +397,7 @@ define noundef ptr @Mvc_ListGetTailFromHead(ptr noundef readonly captures(addres
   %.057 = phi ptr [ %2, %.lr.ph ], [ %0, %1 ]
   %2 = load ptr, ptr %.057, align 8, !tbaa !11
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.057, %.lr.ph ]
@@ -430,17 +430,16 @@ attributes #6 = { nounwind }
 !13 = !{!4, !9, i64 16}
 !14 = !{!5, !5, i64 0}
 !15 = !{!9, !9, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = !{!21, !22, i64 40}
-!21 = !{!"MvcCoverStruct", !9, i64 0, !9, i64 4, !9, i64 8, !4, i64 16, !22, i64 40, !9, i64 48, !23, i64 56, !5, i64 64, !24, i64 72}
-!22 = !{!"p2 _ZTS13MvcCubeStruct", !6, i64 0}
-!23 = !{!"p1 int", !6, i64 0}
-!24 = !{!"p1 _ZTS16MvcManagerStruct", !6, i64 0}
-!25 = distinct !{!25, !17, !18}
-!26 = !{!21, !5, i64 24}
-!27 = !{!21, !5, i64 16}
-!28 = distinct !{!28, !17, !18}
-!29 = distinct !{!29, !17, !18}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !21, i64 40}
+!20 = !{!"MvcCoverStruct", !9, i64 0, !9, i64 4, !9, i64 8, !4, i64 16, !21, i64 40, !9, i64 48, !22, i64 56, !5, i64 64, !23, i64 72}
+!21 = !{!"p2 _ZTS13MvcCubeStruct", !6, i64 0}
+!22 = !{!"p1 int", !6, i64 0}
+!23 = !{!"p1 _ZTS16MvcManagerStruct", !6, i64 0}
+!24 = distinct !{!24, !17}
+!25 = !{!20, !5, i64 24}
+!26 = !{!20, !5, i64 16}
+!27 = distinct !{!27, !17}
+!28 = distinct !{!28, !17}

@@ -1005,7 +1005,7 @@ init_csv_reader.exit.thread:                      ; preds = %294, %init_csv_read
 Py_DECREF.exit23.i:                               ; preds = %325, %322, %.lr.ph.i
   %326 = tail call ptr @PyIter_Next(ptr noundef nonnull %318) #9
   %.not20.i110 = icmp eq ptr %326, null
-  br i1 %.not20.i110, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !30
+  br i1 %.not20.i110, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !29
 
 .loopexit.i:                                      ; preds = %Py_DECREF.exit23.i, %.preheader.i109, %316
   %327 = load ptr, ptr @csv_error, align 8, !tbaa !20
@@ -1518,7 +1518,6 @@ attributes #11 = { nounwind willreturn memory(read) }
 !24 = !{!"short", !6, i64 0}
 !25 = !{!26, !26, i64 0}
 !26 = !{!"p2 _ZTS7_object", !10, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = distinct !{!30, !28, !29}
+!29 = distinct !{!29, !28}

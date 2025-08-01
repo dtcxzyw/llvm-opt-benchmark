@@ -451,7 +451,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
 
 .loopexit101:                                     ; preds = %.lr.ph.i, %47
   %62 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %63 = load i8, ptr %62, align 8, !range !7, !noundef !8
+  %63 = load i8, ptr %62, align 8, !range !6, !noundef !7
   %64 = trunc nuw i8 %63 to i1
   %. = select i1 %64, ptr %3, ptr %4
   %65 = load ptr, ptr %., align 8
@@ -673,8 +673,8 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
   %21 = tail call ptr @copyObjectImpl(ptr noundef nonnull %15) #7
   %22 = tail call ptr @lappend(ptr noundef %.0395660, ptr noundef %21) #7
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %24 = load i8, ptr %23, align 8, !range !7, !noundef !8
-  %25 = load i8, ptr %4, align 1, !range !7, !noundef !8
+  %24 = load i8, ptr %23, align 8, !range !6, !noundef !7
+  %25 = load i8, ptr %4, align 1, !range !6, !noundef !7
   %26 = or i8 %25, %24
   store i8 %26, ptr %4, align 1
   %.pre = load i32, ptr %6, align 4
@@ -712,8 +712,8 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
   %42 = tail call ptr @list_append_unique(ptr noundef %41, ptr noundef %40) #7
   store ptr %42, ptr %3, align 8
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %44 = load i8, ptr %43, align 8, !range !7, !noundef !8
-  %45 = load i8, ptr %4, align 1, !range !7, !noundef !8
+  %44 = load i8, ptr %43, align 8, !range !6, !noundef !7
+  %45 = load i8, ptr %4, align 1, !range !6, !noundef !7
   %46 = or i8 %45, %44
   store i8 %46, ptr %4, align 1
   %.pre72 = load i32, ptr %16, align 4
@@ -788,8 +788,8 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   %18 = tail call ptr @copyObjectImpl(ptr noundef nonnull %17) #7
   %19 = tail call ptr @lappend(ptr noundef %.07295.us139, ptr noundef %18) #7
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %21 = load i8, ptr %20, align 8, !range !7, !noundef !8
-  %22 = load i8, ptr %6, align 1, !range !7, !noundef !8
+  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
+  %22 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %23 = or i8 %22, %21
   store i8 %23, ptr %6, align 1
   br label %.lr.ph.split.us
@@ -833,8 +833,8 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   %37 = tail call ptr @copyObjectImpl(ptr noundef nonnull %36) #7
   %38 = tail call ptr @lappend(ptr noundef %.07295108, ptr noundef %37) #7
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %40 = load i8, ptr %39, align 8, !range !7, !noundef !8
-  %41 = load i8, ptr %6, align 1, !range !7, !noundef !8
+  %40 = load i8, ptr %39, align 8, !range !6, !noundef !7
+  %41 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %42 = or i8 %41, %40
   store i8 %42, ptr %6, align 1
   %.pre = load i32, ptr %9, align 4
@@ -933,8 +933,8 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   %90 = tail call ptr @list_append_unique(ptr noundef %89, ptr noundef nonnull %78) #7
   store ptr %90, ptr %5, align 8
   %91 = getelementptr inbounds nuw i8, ptr %74, i64 48
-  %92 = load i8, ptr %91, align 8, !range !7, !noundef !8
-  %93 = load i8, ptr %6, align 1, !range !7, !noundef !8
+  %92 = load i8, ptr %91, align 8, !range !6, !noundef !7
+  %93 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %94 = or i8 %93, %92
   store i8 %94, ptr %6, align 1
   br label %.lr.ph112.split.us
@@ -991,8 +991,8 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   %121 = tail call ptr @list_append_unique(ptr noundef %120, ptr noundef nonnull %109) #7
   store ptr %121, ptr %5, align 8
   %122 = getelementptr inbounds nuw i8, ptr %101, i64 48
-  %123 = load i8, ptr %122, align 8, !range !7, !noundef !8
-  %124 = load i8, ptr %6, align 1, !range !7, !noundef !8
+  %123 = load i8, ptr %122, align 8, !range !6, !noundef !7
+  %124 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %125 = or i8 %124, %123
   store i8 %125, ptr %6, align 1
   %.pre131 = load i32, ptr %68, align 4
@@ -1113,8 +1113,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
+!6 = !{i8 0, i8 2}
+!7 = !{}

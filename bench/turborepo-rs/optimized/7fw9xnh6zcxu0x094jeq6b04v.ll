@@ -754,7 +754,7 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4ItercENtNtNtNtBa_4iter6traits8
   %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx, 4
   %24 = load i32, ptr %.sroa.0.0.ptr, align 4, !range !37, !noundef !4
   invoke void @_ZN5alloc6string6String4push17h2eefef5338b5c74cE.llvm.6172016698289805888(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %24)
-          to label %17 unwind label %20, !llvm.loop !38
+          to label %17 unwind label %20
 
 25:                                               ; preds = %20
   %26 = landingpad { ptr, i32 }
@@ -836,7 +836,7 @@ define i32 @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell7bgcolor(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell4bold(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %3 = load i8, ptr %2, align 1, !alias.scope !40, !noundef !4
+  %3 = load i8, ptr %2, align 1, !alias.scope !38, !noundef !4
   %4 = and i8 %3, 1
   %5 = icmp ne i8 %4, 0
   ret i1 %5
@@ -845,7 +845,7 @@ define noundef zeroext i1 @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Ce
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell6italic(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %3 = load i8, ptr %2, align 1, !alias.scope !43, !noundef !4
+  %3 = load i8, ptr %2, align 1, !alias.scope !41, !noundef !4
   %4 = and i8 %3, 2
   %5 = icmp ne i8 %4, 0
   ret i1 %5
@@ -854,7 +854,7 @@ define noundef zeroext i1 @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Ce
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell9underline(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %3 = load i8, ptr %2, align 1, !alias.scope !46, !noundef !4
+  %3 = load i8, ptr %2, align 1, !alias.scope !44, !noundef !4
   %4 = and i8 %3, 4
   %5 = icmp ne i8 %4, 0
   ret i1 %5
@@ -863,11 +863,11 @@ define noundef zeroext i1 @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Ce
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell7inverse(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %3 = load i8, ptr %2, align 1, !alias.scope !49, !noundef !4
+  %3 = load i8, ptr %2, align 1, !alias.scope !47, !noundef !4
   %4 = and i8 %3, 8
   %5 = icmp ne i8 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i8, ptr %6, align 4, !range !52
+  %7 = load i8, ptr %6, align 4, !range !50
   %8 = trunc nuw i8 %7 to i1
   %.sroa.0.0 = select i1 %5, i1 true, i1 %8
   ret i1 %.sroa.0.0
@@ -876,7 +876,7 @@ define noundef zeroext i1 @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Ce
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1008tui_termNtNtB7_4cell4CellNtNtCs9JlTeAlYY2B_8tui_term6widget4Cell12has_contents(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 34
-  %3 = load i8, ptr %2, align 2, !alias.scope !53, !noundef !4
+  %3 = load i8, ptr %2, align 2, !alias.scope !51, !noundef !4
   %4 = icmp ne i8 %3, 0
   ret i1 %4
 }
@@ -1065,21 +1065,19 @@ attributes #21 = { cold noreturn nounwind }
 !35 = !{i64 0, i64 2}
 !36 = !{i64 0, i64 -9223372036854775807}
 !37 = !{i32 0, i32 1114112}
-!38 = distinct !{!38, !39}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs4bold: argument 0"}
-!42 = distinct !{!42, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs4bold"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs6italic: argument 0"}
-!45 = distinct !{!45, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs6italic"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs9underline: argument 0"}
-!48 = distinct !{!48, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs9underline"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs7inverse: argument 0"}
-!51 = distinct !{!51, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs7inverse"}
-!52 = !{i8 0, i8 2}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell12has_contents: argument 0"}
-!55 = distinct !{!55, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell12has_contents"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs4bold: argument 0"}
+!40 = distinct !{!40, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs4bold"}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs6italic: argument 0"}
+!43 = distinct !{!43, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs6italic"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs9underline: argument 0"}
+!46 = distinct !{!46, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs9underline"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs7inverse: argument 0"}
+!49 = distinct !{!49, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB4_5Attrs7inverse"}
+!50 = !{i8 0, i8 2}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell12has_contents: argument 0"}
+!53 = distinct !{!53, !"_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell12has_contents"}

@@ -575,7 +575,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
     i32 71, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
     i32 72, label %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531
     i32 70, label %1074
-  ], !llvm.loop !7
+  ], !llvm.loop !6
 
 303:                                              ; preds = %302
   %304 = load i8, ptr %247, align 8
@@ -583,7 +583,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   %305 = load ptr, ptr %256, align 8
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 1
   %307 = load i32, ptr %257, align 8
-  br label %294, !llvm.loop !8
+  br label %294
 
 308:                                              ; preds = %302
   %309 = load ptr, ptr %1, align 8
@@ -593,7 +593,7 @@ _Z30textFileFormatYy_create_bufferP8_IO_FILEiPv.exit: ; preds = %218
   br i1 %312, label %313, label %.loopexit.backedge
 
 .loopexit.backedge:                               ; preds = %302, %302, %302, %308, %1069, %326, %325
-  br label %.loopexit, !llvm.loop !7
+  br label %.loopexit, !llvm.loop !6
 
 313:                                              ; preds = %308
   %314 = load ptr, ptr %249, align 8
@@ -2836,7 +2836,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueaSEOS1_.exit528: ;
   %.2365.ph.be = phi ptr [ %1331, %_ZL18yy_get_next_bufferPv.exit.thread536 ], [ %1111, %1103 ]
   %.2313.ph.be = phi i32 [ %1330, %_ZL18yy_get_next_bufferPv.exit.thread536 ], [ %1110, %1103 ]
   %.1368.ph.be = load ptr, ptr %249, align 8
-  br label %.outer, !llvm.loop !8
+  br label %.outer
 
 1116:                                             ; preds = %1103
   %1117 = zext nneg i16 %1114 to i32
@@ -2862,7 +2862,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %1121, %1116
   %.0363.be = phi ptr [ %1123, %_ZL16yy_try_NUL_transiPv.exit ], [ %1325, %1318 ]
   %.0311.be = phi i32 [ %1117, %_ZL16yy_try_NUL_transiPv.exit ], [ %1324, %1318 ]
   %.pre1287 = load i8, ptr %.0363.be, align 1
-  br label %262, !llvm.loop !9
+  br label %262
 
 1124:                                             ; preds = %1094
   %1125 = load ptr, ptr %249, align 8
@@ -2903,7 +2903,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %1121, %1116
   store i8 %1143, ptr %.0128155.i, align 1
   %1145 = add nuw nsw i32 %.0130153.i, 1
   %exitcond.not.i = icmp eq i32 %1145, %1140
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %251, align 8
@@ -2988,7 +2988,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %1121, %1116
   %.pn.i = load i64, ptr %.pn.in.i, align 8
   %.0131.i = add i64 %.pn.i, %1156
   %1183 = icmp eq i64 %.0131.i, 0
-  br i1 %1183, label %.lr.ph160.i, label %._crit_edge161.i, !llvm.loop !11
+  br i1 %1183, label %.lr.ph160.i, label %._crit_edge161.i, !llvm.loop !8
 
 ._crit_edge161.i:                                 ; preds = %1176, %1154
   %1184 = phi ptr [ %1146, %1154 ], [ %1182, %1176 ]
@@ -3021,7 +3021,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %1121, %1116
   store i8 %1190, ptr %1198, align 1
   %1199 = add nuw nsw i64 %.0125162.i, 1
   %exitcond170.not.i = icmp eq i64 %1199, %spec.store.select.i
-  br i1 %exitcond170.not.i, label %.critedge.i, label %.preheader.i, !llvm.loop !12
+  br i1 %exitcond170.not.i, label %.critedge.i, label %.preheader.i, !llvm.loop !9
 
 .critedge.i:                                      ; preds = %1189, %.preheader.i, %.preheader.i
   %.0125.lcssa.i = phi i64 [ %.0125162.i, %.preheader.i ], [ %.0125162.i, %.preheader.i ], [ %spec.store.select.i, %1189 ]
@@ -3104,7 +3104,7 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %1121, %1116
   %1241 = tail call i64 @fread(ptr noundef %1239, i64 noundef 1, i64 noundef %spec.store.select.i, ptr noundef %1240)
   store i64 %1241, ptr %253, align 8
   %1242 = icmp eq i64 %1241, 0
-  br i1 %1242, label %.lr.ph164.i, label %.critedge2.i, !llvm.loop !13
+  br i1 %1242, label %.lr.ph164.i, label %.critedge2.i, !llvm.loop !10
 
 .critedge2.i:                                     ; preds = %1231, %.lr.ph164.i, %1214, %1213
   %1243 = phi i64 [ %1224, %1214 ], [ %.1148.i, %1213 ], [ 0, %.lr.ph164.i ], [ %1241, %1231 ]
@@ -3235,7 +3235,7 @@ _ZL18yy_get_next_bufferPv.exit.thread:            ; preds = %1136, %_ZL18yy_get_
   %1315 = add nsw i32 %1314, -1
   %1316 = sdiv i32 %1315, 2
   %1317 = add nsw i32 %1316, 71
-  br label %302, !llvm.loop !14
+  br label %302
 
 1318:                                             ; preds = %_ZL18yy_get_next_bufferPv.exit
   %1319 = ptrtoint ptr %1075 to i64
@@ -3493,7 +3493,7 @@ define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef cap
 29:                                               ; preds = %20, %28
   %30 = getelementptr inbounds nuw i8, ptr %.01417, i64 1
   %exitcond.not = icmp eq ptr %30, %7
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %29, %1
   %.0.lcssa = phi i32 [ %3, %1 ], [ %24, %29 ]
@@ -4689,7 +4689,7 @@ _Z32textFileFormatYypop_buffer_statePv.exit:      ; preds = %26, %45, %49
   %60 = getelementptr inbounds ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.critedge, label %.critedge.i, !llvm.loop !16
+  br i1 %62, label %.critedge, label %.critedge.i, !llvm.loop !12
 
 .critedge:                                        ; preds = %_Z32textFileFormatYypop_buffer_statePv.exit, %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit, %42, %.lr.ph, %1
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %42 ], [ null, %_Z30textFileFormatYy_delete_bufferP15yy_buffer_statePv.exit ], [ %58, %_Z32textFileFormatYypop_buffer_statePv.exit ]
@@ -5226,16 +5226,12 @@ attributes #37 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}

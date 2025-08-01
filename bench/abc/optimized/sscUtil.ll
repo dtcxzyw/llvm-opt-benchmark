@@ -137,7 +137,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %61 = phi ptr [ %21, %Vec_IntAlloc.exit ], [ %25, %.lr.ph ], [ %.pre.i142, %Vec_IntPush.exit ]
   %62 = tail call ptr @sat_solver_new() #7
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %64 = load i32, ptr %63, align 8, !tbaa !41
+  %64 = load i32, ptr %63, align 8, !tbaa !40
   tail call void @sat_solver_setnvars(ptr noundef %62, i32 noundef %64) #7
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -145,21 +145,21 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 67:                                               ; preds = %71, %.critedge
   %indvars.iv135 = phi i64 [ %indvars.iv.next136, %71 ], [ 0, %.critedge ]
-  %68 = load i32, ptr %65, align 8, !tbaa !42
+  %68 = load i32, ptr %65, align 8, !tbaa !41
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv135, %69
   br i1 %70, label %71, label %80
 
 71:                                               ; preds = %67
-  %72 = load ptr, ptr %66, align 8, !tbaa !43
+  %72 = load ptr, ptr %66, align 8, !tbaa !42
   %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv135
-  %74 = load ptr, ptr %73, align 8, !tbaa !44
+  %74 = load ptr, ptr %73, align 8, !tbaa !43
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %75 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.next136
-  %76 = load ptr, ptr %75, align 8, !tbaa !44
+  %76 = load ptr, ptr %75, align 8, !tbaa !43
   %77 = tail call i32 @sat_solver_addclause(ptr noundef %62, ptr noundef %74, ptr noundef %76) #7
   %.not74 = icmp eq i32 %77, 0
-  br i1 %.not74, label %78, label %67, !llvm.loop !45
+  br i1 %.not74, label %78, label %67, !llvm.loop !44
 
 78:                                               ; preds = %71
   tail call void @Cnf_DataFree(ptr noundef nonnull %7) #7
@@ -322,7 +322,7 @@ Vec_IntPush.exit115:                              ; preds = %.Vec_IntGrow.exit10
   %140 = sub nsw i32 %.val86.val, %.val85
   %141 = sext i32 %140 to i64
   %142 = icmp slt i64 %indvars.iv.next139, %141
-  br i1 %142, label %.lr.ph132, label %.critedge2.thread, !llvm.loop !46
+  br i1 %142, label %.lr.ph132, label %.critedge2.thread, !llvm.loop !45
 
 .critedge2.thread:                                ; preds = %138
   tail call void @sat_solver_delete(ptr noundef %62) #7
@@ -432,9 +432,9 @@ define ptr @Gia_ManOptimizeRing(ptr noundef %0) local_unnamed_addr #0 {
 11:                                               ; preds = %1
   call void @Ssc_ManSetDefaultParams(ptr noundef nonnull %2) #7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 1, ptr %12, align 4, !tbaa !47
+  store i32 1, ptr %12, align 4, !tbaa !46
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 0, ptr %13, align 4, !tbaa !49
+  store i32 0, ptr %13, align 4, !tbaa !48
   %.val = load i32, ptr %6, align 8, !tbaa !3
   %.val33 = load ptr, ptr %7, align 8, !tbaa !28
   %14 = getelementptr i8, ptr %.val33, i64 4
@@ -442,7 +442,7 @@ define ptr @Gia_ManOptimizeRing(ptr noundef %0) local_unnamed_addr #0 {
   %15 = xor i32 %.val, -1
   %16 = add i32 %.val33.val, %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 172
-  store i32 %16, ptr %17, align 4, !tbaa !50
+  store i32 %16, ptr %17, align 4, !tbaa !49
   %18 = icmp sgt i32 %.val33.val, %.val
   br i1 %18, label %.lr.ph, label %._crit_edge
 
@@ -470,12 +470,12 @@ define ptr @Gia_ManOptimizeRing(ptr noundef %0) local_unnamed_addr #0 {
   %.031.val32.val = load i32, ptr %27, align 4, !tbaa !29
   %28 = sub nsw i32 %.031.val32.val, %.031.val
   %29 = icmp slt i32 %24, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %.031.lcssa = phi ptr [ %4, %11 ], [ %22, %.lr.ph ]
   %30 = getelementptr inbounds nuw i8, ptr %.031.lcssa, i64 172
-  store i32 0, ptr %30, align 4, !tbaa !50
+  store i32 0, ptr %30, align 4, !tbaa !49
   br label %31
 
 31:                                               ; preds = %1, %._crit_edge
@@ -559,17 +559,16 @@ attributes #9 = { nounwind allocsize(1) }
 !35 = !{!13, !9, i64 0}
 !36 = !{!13, !11, i64 8}
 !37 = !{!4, !10, i64 32}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}
-!41 = !{!31, !9, i64 8}
-!42 = !{!31, !9, i64 16}
-!43 = !{!31, !33, i64 24}
-!44 = !{!11, !11, i64 0}
-!45 = distinct !{!45, !39, !40}
-!46 = distinct !{!46, !39, !40}
-!47 = !{!48, !9, i64 16}
-!48 = !{!"Ssc_Pars_t_", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24}
-!49 = !{!48, !9, i64 20}
-!50 = !{!4, !9, i64 172}
-!51 = distinct !{!51, !39, !40}
+!40 = !{!31, !9, i64 8}
+!41 = !{!31, !9, i64 16}
+!42 = !{!31, !33, i64 24}
+!43 = !{!11, !11, i64 0}
+!44 = distinct !{!44, !39}
+!45 = distinct !{!45, !39}
+!46 = !{!47, !9, i64 16}
+!47 = !{!"Ssc_Pars_t_", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24}
+!48 = !{!47, !9, i64 20}
+!49 = !{!4, !9, i64 172}
+!50 = distinct !{!50, !39}

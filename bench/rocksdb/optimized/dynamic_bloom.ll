@@ -67,11 +67,11 @@ _ZN7rocksdb12_GLOBAL__N_113roundUpToPow2Ej.exit:  ; preds = %11
   %19 = lshr i32 %17, %18
   %20 = mul i32 %19, %14
   %21 = lshr exact i32 %20, 3
-  store i32 %21, ptr %0, align 8, !tbaa !18
+  store i32 %21, ptr %0, align 8, !tbaa !17
   %22 = add i32 %14, -1
   %23 = add i32 %22, %20
   %24 = zext i32 %23 to i64
-  %25 = load ptr, ptr %1, align 8, !tbaa !19
+  %25 = load ptr, ptr %1, align 8, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %24, i64 noundef %4, ptr noundef %5)
@@ -85,7 +85,7 @@ _ZN7rocksdb12_GLOBAL__N_113roundUpToPow2Ej.exit:  ; preds = %11
   %.0.idx = select i1 %.not, i64 0, i64 %33
   %.0 = getelementptr inbounds nuw i8, ptr %28, i64 %.0.idx
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0, ptr %34, align 8, !tbaa !21
+  store ptr %.0, ptr %34, align 8, !tbaa !20
   ret void
 }
 
@@ -99,7 +99,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_dynamic_bloom.cc() #6 section ".text.startup" {
-  store i64 -241, ptr @_ZN7rocksdbL23kRangeTombstoneSentinelE, align 8, !tbaa !22
+  store i64 -241, ptr @_ZN7rocksdbL23kRangeTombstoneSentinelE, align 8, !tbaa !21
   %1 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN7rocksdbL23kRangeTombstoneSentinelE)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN7rocksdbL18empty_operand_listE, i8 0, i64 24, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev, ptr nonnull @_ZN7rocksdbL18empty_operand_listE, ptr nonnull @__dso_handle) #9
@@ -140,12 +140,11 @@ attributes #9 = { nounwind }
 !12 = !{!"_ZTSN7rocksdb12DynamicBloomE", !13, i64 0, !13, i64 4, !14, i64 8}
 !13 = !{!"int", !8, i64 0}
 !14 = !{!"p1 _ZTSSt6atomicImE", !7, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!12, !13, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"vtable pointer", !9, i64 0}
-!21 = !{!12, !14, i64 8}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"long", !8, i64 0}
+!17 = !{!12, !13, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"vtable pointer", !9, i64 0}
+!20 = !{!12, !14, i64 8}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"long", !8, i64 0}

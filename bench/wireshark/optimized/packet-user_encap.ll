@@ -152,12 +152,12 @@ define internal void @user_encap_encap_set_cb(ptr noundef writeonly captures(non
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %16 = tail call i32 @g_str_equal(ptr noundef nonnull %15, ptr noundef %7)
   %.not13 = icmp eq i32 %16, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !9
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !8
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %13, %.lr.ph ]
@@ -191,12 +191,12 @@ define internal void @user_encap_encap_tostr_cb(ptr noundef readonly captures(no
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !9
 
 16:                                               ; preds = %.lr.ph20
   %17 = load i32, ptr %13, align 8
   %18 = icmp eq i32 %17, %8
-  br i1 %18, label %._crit_edge21, label %.lr.ph20, !llvm.loop !10
+  br i1 %18, label %._crit_edge21, label %.lr.ph20, !llvm.loop !9
 
 ._crit_edge21:                                    ; preds = %16, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %15, %16 ]
@@ -522,7 +522,7 @@ define internal i32 @dissect_user(ptr noundef %0, ptr noundef %1, ptr noundef %2
 9:                                                ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %12, !llvm.loop !11
+  br i1 %exitcond.not, label %.thread, label %12, !llvm.loop !10
 
 .thread:                                          ; preds = %9, %4
   %10 = load i32, ptr @proto_user_encap, align 4
@@ -821,9 +821,8 @@ attributes #3 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

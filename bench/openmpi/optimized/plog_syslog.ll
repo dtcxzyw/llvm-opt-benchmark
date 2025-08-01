@@ -155,9 +155,9 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %39
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8, !tbaa !18
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8, !tbaa !17
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 136
-  %44 = load i32, ptr %43, align 8, !tbaa !43
+  %44 = load i32, ptr %43, align 8, !tbaa !42
   %45 = and i32 %44, 1073741824
   %.not63 = icmp eq i32 %45, 0
   br i1 %.not63, label %50, label %46
@@ -172,7 +172,7 @@ define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr n
 50:                                               ; preds = %29, %39, %46, %41, %35
   %51 = add nuw i64 %.15572, 1
   %exitcond83.not = icmp eq i64 %51, %2
-  br i1 %exitcond83.not, label %.loopexit, label %.lr.ph73, !llvm.loop !53
+  br i1 %exitcond83.not, label %.loopexit, label %.lr.ph73, !llvm.loop !52
 
 .loopexit:                                        ; preds = %29, %35, %46, %50, %7
   %.056 = phi i32 [ -64, %7 ], [ %32, %29 ], [ %38, %35 ], [ %49, %46 ], [ 0, %50 ]
@@ -205,19 +205,19 @@ define internal fastcc i32 @write_local(ptr noundef %0, i64 noundef %1, i32 noun
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  store i64 %1, ptr %7, align 8, !tbaa !54
+  store i64 %1, ptr %7, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_plog_base_framework, i64 76), align 4, !tbaa !55
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_plog_base_framework, i64 76), align 4, !tbaa !54
   %or.cond = icmp ult i32 %12, 64
   br i1 %or.cond, label %13, label %19
 
 13:                                               ; preds = %6
   %14 = zext nneg i32 %12 to i64
   %15 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %14, i32 2
-  %16 = load i32, ptr %15, align 4, !tbaa !58
+  %16 = load i32, ptr %15, align 4, !tbaa !57
   %17 = icmp sgt i32 %16, 4
   br i1 %17, label %18, label %19
 
@@ -246,7 +246,7 @@ define internal fastcc i32 @write_local(ptr noundef %0, i64 noundef %1, i32 noun
 
 28:                                               ; preds = %26
   %29 = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.12) #7
-  store ptr %29, ptr %9, align 8, !tbaa !60
+  store ptr %29, ptr %9, align 8, !tbaa !59
   br label %.preheader
 
 30:                                               ; preds = %26
@@ -259,38 +259,38 @@ define internal fastcc i32 @write_local(ptr noundef %0, i64 noundef %1, i32 noun
 
 33:                                               ; preds = %.preheader, %49
   %.028 = phi i64 [ %52, %49 ], [ 0, %.preheader ]
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8, !tbaa !18
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 120
-  %36 = load ptr, ptr %35, align 8, !tbaa !61
+  %36 = load ptr, ptr %35, align 8, !tbaa !60
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 488
-  %38 = load ptr, ptr %37, align 8, !tbaa !62
+  %38 = load ptr, ptr %37, align 8, !tbaa !61
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %40 = load ptr, ptr %39, align 8, !tbaa !66
+  %40 = load ptr, ptr %39, align 8, !tbaa !65
   %41 = getelementptr inbounds nuw %struct.pmix_info, ptr %4, i64 %.028
   %42 = call i32 %40(ptr noundef nonnull %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %41, i16 noundef zeroext 24) #7
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %43, label %.sink.split
 
 43:                                               ; preds = %33
-  %44 = load ptr, ptr %9, align 8, !tbaa !60
-  %45 = load ptr, ptr %10, align 8, !tbaa !60
+  %44 = load ptr, ptr %9, align 8, !tbaa !59
+  %45 = load ptr, ptr %10, align 8, !tbaa !59
   %46 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.15, ptr noundef %44, ptr noundef %45) #7
   %47 = icmp slt i32 %46, 0
-  %48 = load ptr, ptr %9, align 8, !tbaa !60
+  %48 = load ptr, ptr %9, align 8, !tbaa !59
   call void @free(ptr noundef %48) #7
   br i1 %47, label %.loopexit, label %49
 
 49:                                               ; preds = %43
-  %50 = load ptr, ptr %10, align 8, !tbaa !60
+  %50 = load ptr, ptr %10, align 8, !tbaa !59
   call void @free(ptr noundef %50) #7
-  %51 = load ptr, ptr %11, align 8, !tbaa !60
-  store ptr %51, ptr %9, align 8, !tbaa !60
+  %51 = load ptr, ptr %11, align 8, !tbaa !59
+  store ptr %51, ptr %9, align 8, !tbaa !59
   %52 = add nuw i64 %.028, 1
   %exitcond.not = icmp eq i64 %52, %5
-  br i1 %exitcond.not, label %53, label %33, !llvm.loop !68
+  br i1 %exitcond.not, label %53, label %33, !llvm.loop !67
 
 53:                                               ; preds = %49
-  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 260), align 4, !tbaa !69
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 260), align 4, !tbaa !68
   %55 = icmp ult i32 %2, 8
   br i1 %55, label %switch.lookup, label %sev2str.exit
 
@@ -303,13 +303,13 @@ switch.lookup:                                    ; preds = %53
 sev2str.exit:                                     ; preds = %53, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.24, %53 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %58 = load i32, ptr %57, align 4, !tbaa !70
+  %58 = load i32, ptr %57, align 4, !tbaa !69
   call void (i32, ptr, ...) @syslog(i32 noundef %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 4), i32 noundef %54, ptr noundef nonnull %.0.i, ptr noundef %0, i32 noundef %58, ptr noundef %51) #7
   br label %.sink.split
 
 .sink.split:                                      ; preds = %33, %sev2str.exit
   %.022.ph = phi i32 [ 0, %sev2str.exit ], [ %42, %33 ]
-  %59 = load ptr, ptr %9, align 8, !tbaa !60
+  %59 = load ptr, ptr %9, align 8, !tbaa !59
   call void @free(ptr noundef %59) #7
   br label %.loopexit
 
@@ -368,59 +368,58 @@ attributes #8 = { nounwind willreturn memory(read) }
 !12 = !{!"pmix_mca_base_component_2_1_0_t", !13, i64 0, !13, i64 4, !13, i64 8, !7, i64 12, !13, i64 28, !13, i64 32, !13, i64 36, !7, i64 40, !13, i64 72, !13, i64 76, !13, i64 80, !7, i64 84, !13, i64 148, !13, i64 152, !13, i64 156, !6, i64 160, !6, i64 168, !6, i64 176, !6, i64 184, !7, i64 192}
 !13 = !{!"int", !7, i64 0}
 !14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !23, i64 328}
-!19 = !{!"", !13, i64 0, !20, i64 4, !21, i64 264, !21, i64 296, !23, i64 328, !13, i64 336, !13, i64 340, !5, i64 344, !13, i64 352, !13, i64 356, !13, i64 360, !13, i64 364, !13, i64 368, !24, i64 376, !24, i64 384, !13, i64 392, !25, i64 400, !33, i64 1632, !33, i64 1633, !34, i64 1640, !30, i64 1656, !35, i64 1928, !13, i64 2088, !13, i64 2092, !37, i64 2096, !33, i64 2288, !30, i64 2296, !33, i64 2568, !33, i64 2569, !33, i64 2570, !29, i64 2576, !30, i64 2584, !39, i64 2856, !39, i64 2872, !33, i64 2888, !33, i64 2889, !40, i64 2896, !41, i64 2928}
-!20 = !{!"pmix_proc", !7, i64 0, !13, i64 256}
-!21 = !{!"pmix_value", !22, i64 0, !7, i64 8}
-!22 = !{!"short", !7, i64 0}
-!23 = !{!"p1 _ZTS11pmix_peer_t", !6, i64 0}
-!24 = !{!"p1 _ZTS10event_base", !6, i64 0}
-!25 = !{!"", !26, i64 0, !29, i64 120, !6, i64 128, !6, i64 136, !30, i64 144, !30, i64 416, !30, i64 688, !30, i64 960}
-!26 = !{!"pmix_object_t", !7, i64 0, !27, i64 40, !13, i64 48, !28, i64 56}
-!27 = !{!"p1 _ZTS12pmix_class_t", !6, i64 0}
-!28 = !{!"pmix_tma", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56}
-!29 = !{!"long", !7, i64 0}
-!30 = !{!"pmix_list_t", !26, i64 0, !31, i64 120, !29, i64 264}
-!31 = !{!"pmix_list_item_t", !26, i64 0, !32, i64 120, !32, i64 128, !13, i64 136}
-!32 = !{!"p1 _ZTS16pmix_list_item_t", !6, i64 0}
-!33 = !{!"_Bool", !7, i64 0}
-!34 = !{!"timeval", !29, i64 0, !29, i64 8}
-!35 = !{!"pmix_pointer_array_t", !26, i64 0, !13, i64 120, !13, i64 124, !13, i64 128, !13, i64 132, !13, i64 136, !36, i64 144, !6, i64 152}
-!36 = !{!"p1 long", !6, i64 0}
-!37 = !{!"pmix_hotel_t", !26, i64 0, !13, i64 120, !24, i64 128, !34, i64 136, !6, i64 152, !6, i64 160, !6, i64 168, !38, i64 176, !13, i64 184}
-!38 = !{!"p1 int", !6, i64 0}
-!39 = !{!"", !5, i64 0, !6, i64 8}
-!40 = !{!"", !33, i64 0, !33, i64 1, !33, i64 2, !33, i64 3, !33, i64 4, !33, i64 5, !33, i64 6, !5, i64 8, !5, i64 16, !33, i64 24, !33, i64 25, !33, i64 26, !33, i64 27, !33, i64 28, !33, i64 29}
-!41 = !{!"", !26, i64 0, !42, i64 120, !13, i64 128}
-!42 = !{!"p1 _ZTS20pmix_pointer_array_t", !6, i64 0}
-!43 = !{!44, !13, i64 136}
-!44 = !{!"pmix_peer_t", !26, i64 0, !6, i64 120, !45, i64 128, !46, i64 136, !22, i64 144, !13, i64 148, !13, i64 152, !13, i64 156, !33, i64 160, !47, i64 168, !33, i64 296, !47, i64 304, !33, i64 432, !30, i64 440, !6, i64 712, !6, i64 720, !13, i64 728, !52, i64 736}
-!45 = !{!"p1 _ZTS16pmix_rank_info_t", !6, i64 0}
-!46 = !{!"", !13, i64 0, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7}
-!47 = !{!"event", !48, i64 0, !7, i64 40, !13, i64 56, !24, i64 64, !7, i64 72, !22, i64 104, !22, i64 106, !34, i64 112}
-!48 = !{!"event_callback", !49, i64 0, !22, i64 16, !7, i64 18, !7, i64 19, !7, i64 24, !6, i64 32}
-!49 = !{!"", !50, i64 0, !51, i64 8}
-!50 = !{!"p1 _ZTS14event_callback", !6, i64 0}
-!51 = !{!"p2 _ZTS14event_callback", !6, i64 0}
-!52 = !{!"pmix_epilog_t", !13, i64 0, !13, i64 4, !30, i64 8, !30, i64 280, !30, i64 552}
-!53 = distinct !{!53, !16, !17}
-!54 = !{!29, !29, i64 0}
-!55 = !{!56, !13, i64 76}
-!56 = !{!"pmix_mca_base_framework_t", !5, i64 0, !5, i64 8, !5, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !13, i64 48, !13, i64 52, !57, i64 56, !5, i64 64, !13, i64 72, !13, i64 76, !30, i64 80, !30, i64 352}
-!57 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !6, i64 0}
-!58 = !{!59, !13, i64 4}
-!59 = !{!"", !33, i64 0, !33, i64 1, !13, i64 4, !33, i64 8, !13, i64 12, !5, i64 16, !5, i64 24, !13, i64 32, !5, i64 40, !13, i64 48, !33, i64 52, !33, i64 53, !33, i64 54, !33, i64 55, !5, i64 56, !13, i64 64, !13, i64 68}
-!60 = !{!5, !5, i64 0}
-!61 = !{!44, !6, i64 120}
-!62 = !{!63, !6, i64 488}
-!63 = !{!"", !31, i64 0, !5, i64 144, !64, i64 152, !13, i64 156, !29, i64 160, !29, i64 168, !33, i64 176, !33, i64 177, !6, i64 184, !29, i64 192, !29, i64 200, !30, i64 208, !65, i64 480, !52, i64 512, !30, i64 1336, !40, i64 1608, !30, i64 1640}
-!64 = !{!"", !7, i64 0, !7, i64 1, !7, i64 2}
-!65 = !{!"pmix_personality_t", !7, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
-!66 = !{!67, !6, i64 48}
-!67 = !{!"", !5, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96}
-!68 = distinct !{!68, !16, !17}
-!69 = !{!19, !13, i64 260}
-!70 = !{!20, !13, i64 256}
+!17 = !{!18, !22, i64 328}
+!18 = !{!"", !13, i64 0, !19, i64 4, !20, i64 264, !20, i64 296, !22, i64 328, !13, i64 336, !13, i64 340, !5, i64 344, !13, i64 352, !13, i64 356, !13, i64 360, !13, i64 364, !13, i64 368, !23, i64 376, !23, i64 384, !13, i64 392, !24, i64 400, !32, i64 1632, !32, i64 1633, !33, i64 1640, !29, i64 1656, !34, i64 1928, !13, i64 2088, !13, i64 2092, !36, i64 2096, !32, i64 2288, !29, i64 2296, !32, i64 2568, !32, i64 2569, !32, i64 2570, !28, i64 2576, !29, i64 2584, !38, i64 2856, !38, i64 2872, !32, i64 2888, !32, i64 2889, !39, i64 2896, !40, i64 2928}
+!19 = !{!"pmix_proc", !7, i64 0, !13, i64 256}
+!20 = !{!"pmix_value", !21, i64 0, !7, i64 8}
+!21 = !{!"short", !7, i64 0}
+!22 = !{!"p1 _ZTS11pmix_peer_t", !6, i64 0}
+!23 = !{!"p1 _ZTS10event_base", !6, i64 0}
+!24 = !{!"", !25, i64 0, !28, i64 120, !6, i64 128, !6, i64 136, !29, i64 144, !29, i64 416, !29, i64 688, !29, i64 960}
+!25 = !{!"pmix_object_t", !7, i64 0, !26, i64 40, !13, i64 48, !27, i64 56}
+!26 = !{!"p1 _ZTS12pmix_class_t", !6, i64 0}
+!27 = !{!"pmix_tma", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56}
+!28 = !{!"long", !7, i64 0}
+!29 = !{!"pmix_list_t", !25, i64 0, !30, i64 120, !28, i64 264}
+!30 = !{!"pmix_list_item_t", !25, i64 0, !31, i64 120, !31, i64 128, !13, i64 136}
+!31 = !{!"p1 _ZTS16pmix_list_item_t", !6, i64 0}
+!32 = !{!"_Bool", !7, i64 0}
+!33 = !{!"timeval", !28, i64 0, !28, i64 8}
+!34 = !{!"pmix_pointer_array_t", !25, i64 0, !13, i64 120, !13, i64 124, !13, i64 128, !13, i64 132, !13, i64 136, !35, i64 144, !6, i64 152}
+!35 = !{!"p1 long", !6, i64 0}
+!36 = !{!"pmix_hotel_t", !25, i64 0, !13, i64 120, !23, i64 128, !33, i64 136, !6, i64 152, !6, i64 160, !6, i64 168, !37, i64 176, !13, i64 184}
+!37 = !{!"p1 int", !6, i64 0}
+!38 = !{!"", !5, i64 0, !6, i64 8}
+!39 = !{!"", !32, i64 0, !32, i64 1, !32, i64 2, !32, i64 3, !32, i64 4, !32, i64 5, !32, i64 6, !5, i64 8, !5, i64 16, !32, i64 24, !32, i64 25, !32, i64 26, !32, i64 27, !32, i64 28, !32, i64 29}
+!40 = !{!"", !25, i64 0, !41, i64 120, !13, i64 128}
+!41 = !{!"p1 _ZTS20pmix_pointer_array_t", !6, i64 0}
+!42 = !{!43, !13, i64 136}
+!43 = !{!"pmix_peer_t", !25, i64 0, !6, i64 120, !44, i64 128, !45, i64 136, !21, i64 144, !13, i64 148, !13, i64 152, !13, i64 156, !32, i64 160, !46, i64 168, !32, i64 296, !46, i64 304, !32, i64 432, !29, i64 440, !6, i64 712, !6, i64 720, !13, i64 728, !51, i64 736}
+!44 = !{!"p1 _ZTS16pmix_rank_info_t", !6, i64 0}
+!45 = !{!"", !13, i64 0, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7}
+!46 = !{!"event", !47, i64 0, !7, i64 40, !13, i64 56, !23, i64 64, !7, i64 72, !21, i64 104, !21, i64 106, !33, i64 112}
+!47 = !{!"event_callback", !48, i64 0, !21, i64 16, !7, i64 18, !7, i64 19, !7, i64 24, !6, i64 32}
+!48 = !{!"", !49, i64 0, !50, i64 8}
+!49 = !{!"p1 _ZTS14event_callback", !6, i64 0}
+!50 = !{!"p2 _ZTS14event_callback", !6, i64 0}
+!51 = !{!"pmix_epilog_t", !13, i64 0, !13, i64 4, !29, i64 8, !29, i64 280, !29, i64 552}
+!52 = distinct !{!52, !16}
+!53 = !{!28, !28, i64 0}
+!54 = !{!55, !13, i64 76}
+!55 = !{!"pmix_mca_base_framework_t", !5, i64 0, !5, i64 8, !5, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !13, i64 48, !13, i64 52, !56, i64 56, !5, i64 64, !13, i64 72, !13, i64 76, !29, i64 80, !29, i64 352}
+!56 = !{!"p2 _ZTS31pmix_mca_base_component_2_1_0_t", !6, i64 0}
+!57 = !{!58, !13, i64 4}
+!58 = !{!"", !32, i64 0, !32, i64 1, !13, i64 4, !32, i64 8, !13, i64 12, !5, i64 16, !5, i64 24, !13, i64 32, !5, i64 40, !13, i64 48, !32, i64 52, !32, i64 53, !32, i64 54, !32, i64 55, !5, i64 56, !13, i64 64, !13, i64 68}
+!59 = !{!5, !5, i64 0}
+!60 = !{!43, !6, i64 120}
+!61 = !{!62, !6, i64 488}
+!62 = !{!"", !30, i64 0, !5, i64 144, !63, i64 152, !13, i64 156, !28, i64 160, !28, i64 168, !32, i64 176, !32, i64 177, !6, i64 184, !28, i64 192, !28, i64 200, !29, i64 208, !64, i64 480, !51, i64 512, !29, i64 1336, !39, i64 1608, !29, i64 1640}
+!63 = !{!"", !7, i64 0, !7, i64 1, !7, i64 2}
+!64 = !{!"pmix_personality_t", !7, i64 0, !6, i64 8, !6, i64 16, !6, i64 24}
+!65 = !{!66, !6, i64 48}
+!66 = !{!"", !5, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96}
+!67 = distinct !{!67, !16}
+!68 = !{!18, !13, i64 260}
+!69 = !{!19, !13, i64 256}

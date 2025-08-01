@@ -1189,7 +1189,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit53.thread104:    ; preds = %_ZNK4llvm9StringRef
   %.not114 = icmp eq ptr %47, %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  br i1 %.not114, label %39, label %.critedge, !llvm.loop !24
+  br i1 %.not114, label %39, label %.critedge
 
 .critedge:                                        ; preds = %39, %40, %_ZN4llvmeqENS_9StringRefES0_.exit53.thread104, %_ZN4llvmeqENS_9StringRefES0_.exit57, %_ZN4llvmeqENS_9StringRefES0_.exit61
   %.0 = phi i32 [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit61 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit57 ], [ %35, %_ZN4llvmeqENS_9StringRefES0_.exit53.thread104 ], [ 0, %39 ], [ 1, %40 ]
@@ -1275,7 +1275,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i486:         ; preds = %7
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit489: ; preds = %7, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i486, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i478, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i438, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i446, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i454, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i462, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit473
   %.sroa.758.7 = phi i64 [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit473 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i462 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i454 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i446 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i438 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i478 ], [ %spec.select13414, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i486 ], [ 0, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %17 = load i32, ptr %16, align 8, !tbaa !26
+  %17 = load i32, ptr %16, align 8, !tbaa !24
   %18 = add i32 %17, -1
   %19 = icmp ult i32 %18, 2
   %20 = add i32 %17, -35
@@ -1940,7 +1940,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i898:         ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit909.thread.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i898
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  %101 = load i32, ptr %100, align 4, !tbaa !37
+  %101 = load i32, ptr %100, align 4, !tbaa !35
   %102 = icmp eq i32 %101, 14
   %bcmp.i.i.i923 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1, ptr noundef nonnull dereferenceable(5) @.str.113, i64 5)
   %103 = icmp eq i32 %bcmp.i.i.i923, 0
@@ -1967,7 +1967,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i914:         ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit927.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i914, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i906, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i898, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i890, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i882, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i874, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i866, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i858, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i850
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  %107 = load i32, ptr %106, align 4, !tbaa !37
+  %107 = load i32, ptr %106, align 4, !tbaa !35
   %108 = icmp eq i32 %107, 14
   %.not.i.i.i11492071523739 = icmp eq i64 %2, 20
   %109 = add i32 %17, -13
@@ -1978,7 +1978,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit927.thread: ; preds = %
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit917: ; preds = %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit909
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  %111 = load i32, ptr %110, align 4, !tbaa !37
+  %111 = load i32, ptr %110, align 4, !tbaa !35
   %112 = icmp eq i32 %111, 14
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit927
 
@@ -1990,7 +1990,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i924:  ; preds = %_ZN4llvm12StringSwi
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit935.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i914, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i906
   %.not.i.i.i91316979.ph = phi i1 [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i906 ], [ %.not.i.i.i913, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i914 ]
   %.ph16983.in = getelementptr inbounds nuw i8, ptr %5, i64 260
-  %.ph16983 = load i32, ptr %.ph16983.in, align 4, !tbaa !37
+  %.ph16983 = load i32, ptr %.ph16983.in, align 4, !tbaa !35
   %.ph16982 = icmp eq i32 %.ph16983, 14
   %113 = and i64 %.sroa.758.49, 4294967296
   %.not1627816987 = icmp eq i64 %113, 0
@@ -2969,13 +2969,13 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1617: ; preds = %_ZN4ll
   %249 = phi i1 [ %243, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1609 ], [ %235, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1593.thread ], [ %243, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i1598 ], [ %243, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i1614 ], [ %237, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i1588 ], [ %237, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i1590 ], [ %201, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1609.thread25594 ], [ %243, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i1606 ]
   %.sroa.758.143 = phi i64 [ %.sroa.758.134, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1609 ], [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1593.thread ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i1598 ], [ %spec.select13707, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i1614 ], [ %.sroa.758.134, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i1588 ], [ %.sroa.0.0.insert.insert.i.i1592, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i1590 ], [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1609.thread25594 ], [ %spec.select25854, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i1606 ]
   %250 = getelementptr inbounds nuw i8, ptr %5, i64 268
-  %251 = load i32, ptr %250, align 4, !tbaa !38
+  %251 = load i32, ptr %250, align 4, !tbaa !36
   %252 = icmp eq i32 %251, 5
   br i1 %252, label %_ZNK5clang10TargetInfo13supportsIFuncEv.exit, label %253
 
 253:                                              ; preds = %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1617
   %254 = icmp eq i32 %248, 14
-  %255 = load i32, ptr %16, align 8, !tbaa !26
+  %255 = load i32, ptr %16, align 8, !tbaa !24
   br i1 %254, label %256, label %258
 
 256:                                              ; preds = %253
@@ -3005,7 +3005,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit1617: ; preds = %_ZN4ll
 
 264:                                              ; preds = %262
   %265 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  %266 = load i32, ptr %265, align 8, !tbaa !39
+  %266 = load i32, ptr %265, align 8, !tbaa !37
   switch i32 %266, label %_ZNK5clang10TargetInfo13supportsIFuncEv.exit [
     i32 18, label %_ZNK4llvm6Triple6isMuslEv.exit.thread.i
     i32 19, label %_ZNK4llvm6Triple6isMuslEv.exit.thread.i
@@ -5442,7 +5442,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i3533:        ; preds = %559
   %bcmp.i.i.i3534 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %1, ptr noundef nonnull dereferenceable(5) @.str.416, i64 5)
   %560 = icmp eq i32 %bcmp.i.i.i3534, 0
   %561 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  %562 = load i32, ptr %561, align 4, !tbaa !37
+  %562 = load i32, ptr %561, align 4, !tbaa !35
   %563 = icmp eq i32 %562, 14
   br i1 %560, label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3546.thread8700, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3541
 
@@ -5461,7 +5461,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3546: ; preds = %_ZN4ll
 
 565:                                              ; preds = %559
   %566 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  %567 = load i32, ptr %566, align 4, !tbaa !37
+  %567 = load i32, ptr %566, align 4, !tbaa !35
   %568 = icmp eq i32 %567, 14
   switch i64 %2, label %.thread8987 [
     i64 12, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3551
@@ -5564,7 +5564,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i3655:        ; preds = %_ZN4llvmeqENS_9Stri
   %.sroa.84.159011 = phi i64 [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3650.thread9000 ], [ 0, %.thread9007 ], [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3546.thread8700 ], [ 0, %.thread8987 ], [ 0, %.thread8987.thread ], [ 0, %.thread8946.thread13264 ], [ %.sroa.0.0.insert.insert.i.i3545, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3546 ], [ %., %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3655 ]
   %584 = phi i32 [ %567, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3650.thread9000 ], [ %567, %.thread9007 ], [ %562, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3546.thread8700 ], [ %567, %.thread8987 ], [ %567, %.thread8987.thread ], [ %.ph8930.ph, %.thread8946.thread13264 ], [ %562, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3546 ], [ %567, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3655 ]
   %585 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %586 = load i32, ptr %585, align 8, !tbaa !26
+  %586 = load i32, ptr %585, align 8, !tbaa !24
   %587 = icmp eq i32 %586, 38
   %588 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %589 = load i32, ptr %588, align 8
@@ -5614,7 +5614,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3672: ; preds = %_ZNK4l
   %.sroa.84.169037 = phi i64 [ %.sroa.0.0.insert.insert.i.i3671, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i3669 ], [ %.sroa.84.16, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3672 ]
   %604 = phi i32 [ %599, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i3669 ], [ %602, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3672 ]
   %605 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %606 = load i32, ptr %605, align 8, !tbaa !26
+  %606 = load i32, ptr %605, align 8, !tbaa !24
   %607 = icmp eq i32 %606, 38
   %608 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %609 = load i32, ptr %608, align 8
@@ -5661,7 +5661,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i3691:        ; preds = %_ZN4llvm12StringSwi
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3694: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3681, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3655, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i3669, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3691, %.thread8987.thread, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3650.thread9000, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3546.thread8700, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3686
   %.sroa.84.18 = phi i64 [ %.sroa.84.169036, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3686 ], [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3546.thread8700 ], [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit3650.thread9000 ], [ 0, %.thread8987.thread ], [ %spec.select14219, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3691 ], [ %.sroa.0.0.insert.insert.i.i3671, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i3669 ], [ %., %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3655 ], [ %spec.select25855, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i3681 ]
   %618 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %619 = load i32, ptr %618, align 8, !tbaa !26
+  %619 = load i32, ptr %618, align 8, !tbaa !24
   %620 = add i32 %619, -37
   %or.cond14220 = icmp ult i32 %620, 2
   %621 = icmp eq i32 %619, 1
@@ -6164,7 +6164,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit4115.thread13309: ; pre
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i4121:        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit4115.thread13309
   %699 = getelementptr inbounds nuw i8, ptr %5, i64 340
-  %.sroa.0.0.copyload.i4116 = load i32, ptr %699, align 4, !tbaa !40
+  %.sroa.0.0.copyload.i4116 = load i32, ptr %699, align 4, !tbaa !38
   %switch.i = icmp ult i32 %.sroa.0.0.copyload.i4116, 10
   %bcmp.i.i.i4122 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(17) %1, ptr noundef nonnull dereferenceable(17) @.str.40, i64 17)
   %700 = icmp eq i32 %bcmp.i.i.i4122, 0
@@ -6347,7 +6347,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i4313:        ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit4316: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit4155.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4313, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4193, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4177, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4209, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4217, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4225, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4233, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4265, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4257, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4281, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4289, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4305, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit4308
   %.sroa.458.19 = phi i64 [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit4308 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4305 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4289 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4297 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4281 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4257 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4233 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4265 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4225 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4217 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4209 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4177 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4193 ], [ %spec.select14288, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i4313 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit4155.thread ]
   %727 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %728 = load i32, ptr %727, align 8, !tbaa !26
+  %728 = load i32, ptr %727, align 8, !tbaa !24
   %729 = add i32 %728, -35
   %730 = icmp ult i32 %729, 2
   %731 = add i32 %728, -1
@@ -6576,7 +6576,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i4451:        ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit4454: ; preds = %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit4446
   %759 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  %760 = load i32, ptr %759, align 4, !tbaa !37
+  %760 = load i32, ptr %759, align 4, !tbaa !35
   %761 = icmp eq i32 %760, 14
   %.not.i.i.i4458 = icmp eq i64 %2, 5
   %or.cond14331 = select i1 %.not15974, i1 %.not.i.i.i4458, i1 false
@@ -8581,7 +8581,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit6003:            ; preds = %692
 
 _ZN4llvmeqENS_9StringRefES0_.exit6003.thread:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit6003
   %998 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %999 = load i32, ptr %998, align 8, !tbaa !26
+  %999 = load i32, ptr %998, align 8, !tbaa !24
   switch i32 %999, label %1000 [
     i32 1, label %1004
     i32 35, label %1004
@@ -8863,7 +8863,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6194: ; preds = %_ZN4ll
   %.not.i.i.i61481905119061 = phi i1 [ %.not.i.i.i61481905119059, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6186 ], [ %.not.i.i.i614819051, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6159 ], [ %.not.i.i.i614819051, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6167 ], [ %.not.i.i.i61481905119059, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6175 ], [ %.not.i.i.i61481905119059, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6191 ], [ %.not.i.i.i61481905119059, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6183 ]
   %.sroa.206.21 = phi i64 [ %.sroa.206.1619062, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6186 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6159 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6167 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6175 ], [ %spec.select14760, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6191 ], [ %spec.select25863, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6183 ]
   %1040 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  %1041 = load i32, ptr %1040, align 4, !tbaa !37
+  %1041 = load i32, ptr %1040, align 4, !tbaa !35
   %1042 = icmp eq i32 %1041, 14
   br i1 %1042, label %_ZNK4llvm6Triple18hasDLLImportExportEv.exit6198, label %1043
 
@@ -9078,7 +9078,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i6327: ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6330: ; preds = %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6320, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6325, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i6327
   %.sroa.206.36 = phi i64 [ %.sroa.206.33, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6320 ], [ %.sroa.0.0.insert.insert.i.i6329, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i6327 ], [ %.sroa.206.33, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6325 ]
-  %1082 = load i32, ptr %1040, align 4, !tbaa !37
+  %1082 = load i32, ptr %1040, align 4, !tbaa !35
   %1083 = icmp ne i32 %1082, 15
   %1084 = and i64 %.sroa.206.36, 4294967296
   %.not15882 = icmp eq i64 %1084, 0
@@ -9119,17 +9119,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i6353:        ; preds = %_ZN4llvm12StringSwi
   br i1 %1088, label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6366.thread, label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6356.thread
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6366.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6353, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6345, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6340.thread
-  %1089 = load i32, ptr %998, align 8, !tbaa !26
+  %1089 = load i32, ptr %998, align 8, !tbaa !24
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6382.thread
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6356.thread: ; preds = %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6348.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6353
   %.sroa.206.3719128.ph = phi i64 [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6348.thread ], [ %.sroa.206.37, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6353 ]
   %.not.i.i.i62981909119098191141912019127.ph = phi i1 [ %.not.i.i.i629819089, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6348.thread ], [ %.not.i.i.i6298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6353 ]
-  %1090 = load i32, ptr %998, align 8, !tbaa !26
+  %1090 = load i32, ptr %998, align 8, !tbaa !24
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6366
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6356: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6345, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6348
-  %1091 = load i32, ptr %998, align 8, !tbaa !26
+  %1091 = load i32, ptr %998, align 8, !tbaa !24
   %1092 = icmp eq i32 %1091, 20
   %or.cond14799 = and i1 %.not15883, %.not.i.i.i6008
   br i1 %or.cond14799, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6361, label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6366
@@ -9991,7 +9991,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i6959:        ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6962: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6959, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6951, %_ZN4llvmeqENS_9StringRefES0_.exit6945.thread
   %.sroa.10.1 = phi i64 [ %spec.select14949, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6951 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit6945.thread ], [ %spec.select14950, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6959 ]
   %1211 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %1212 = load i32, ptr %1211, align 8, !tbaa !26
+  %1212 = load i32, ptr %1211, align 8, !tbaa !24
   switch i32 %1212, label %1216 [
     i32 37, label %1213
     i32 38, label %1213
@@ -10002,7 +10002,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6962: ; preds = %_ZN4ll
 
 1213:                                             ; preds = %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6962, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6962, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6962, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6962, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit6962
   %1214 = getelementptr inbounds nuw i8, ptr %5, i64 340
-  %.sroa.0.0.copyload.i6963 = load i32, ptr %1214, align 4, !tbaa !40
+  %.sroa.0.0.copyload.i6963 = load i32, ptr %1214, align 4, !tbaa !38
   %cond.i6964 = icmp eq i32 %.sroa.0.0.copyload.i6963, 10
   %1215 = select i1 %cond.i6964, i64 4295169099, i64 4294967296
   br label %1216
@@ -10048,7 +10048,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit6993:            ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmeqENS_9StringRefES0_.exit6993.thread:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit6993
   %1223 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %1224 = load i32, ptr %1223, align 8, !tbaa !26
+  %1224 = load i32, ptr %1223, align 8, !tbaa !24
   %1225 = add i32 %1224, -27
   %narrow15833 = icmp ult i32 %1225, 2
   %.not.i.i.i6998 = icmp eq i64 %2, 9
@@ -10221,7 +10221,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i7157:        ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit7160: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7157, %_ZN4llvmeqENS_9StringRefES0_.exit7063.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7077, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7069, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7141, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7133, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7093, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7125, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7109, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7149, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit7152
   %.sroa.366.11 = phi i64 [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit7152 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7149 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7109 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7125 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7093 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7133 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7141 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7069 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7077 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit7063.thread ], [ %spec.select14956, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i7157 ]
   %1249 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %1250 = load i32, ptr %1249, align 8, !tbaa !26
+  %1250 = load i32, ptr %1249, align 8, !tbaa !24
   %1251 = add i32 %1250, -35
   %1252 = icmp ult i32 %1251, 2
   %1253 = add i32 %1250, -1
@@ -10407,7 +10407,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i7279:        ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit7282: ; preds = %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit7274
   %1276 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  %1277 = load i32, ptr %1276, align 4, !tbaa !37
+  %1277 = load i32, ptr %1276, align 4, !tbaa !35
   %1278 = icmp eq i32 %1277, 14
   %.not.i.i.i7286 = icmp eq i64 %2, 5
   %or.cond14995 = select i1 %.not15663, i1 %.not.i.i.i7286, i1 false
@@ -12076,7 +12076,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit8543:            ; preds = %1228
 
 _ZN4llvmeqENS_9StringRefES0_.exit8543.thread:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit8543
   %1476 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %1477 = load i32, ptr %1476, align 8, !tbaa !26
+  %1477 = load i32, ptr %1476, align 8, !tbaa !24
   switch i32 %1477, label %1478 [
     i32 1, label %1482
     i32 35, label %1482
@@ -12349,7 +12349,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8726: ; preds = %_ZN4ll
   %.not.i.i.i86802041120421 = phi i1 [ %.not.i.i.i86802041120419, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8718 ], [ %.not.i.i.i868020411, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8691 ], [ %.not.i.i.i868020411, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8699 ], [ %.not.i.i.i86802041120419, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8707 ], [ %.not.i.i.i86802041120419, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8723 ], [ %.not.i.i.i86802041120419, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8715 ]
   %.sroa.202.20 = phi i64 [ %.sroa.202.1520422, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8718 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8691 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8699 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8707 ], [ %spec.select15348, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8723 ], [ %spec.select25867, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8715 ]
   %1516 = getelementptr inbounds nuw i8, ptr %5, i64 260
-  %1517 = load i32, ptr %1516, align 4, !tbaa !37
+  %1517 = load i32, ptr %1516, align 4, !tbaa !35
   %1518 = icmp eq i32 %1517, 14
   br i1 %1518, label %_ZNK4llvm6Triple18hasDLLImportExportEv.exit8730, label %1519
 
@@ -12585,17 +12585,17 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i8875:        ; preds = %_ZN4llvm12StringSwi
   br i1 %1560, label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8888.thread, label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8878.thread
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8888.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8875, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8867, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8862.thread
-  %1561 = load i32, ptr %1476, align 8, !tbaa !26
+  %1561 = load i32, ptr %1476, align 8, !tbaa !24
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8904.thread
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8878.thread: ; preds = %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8870.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8875
   %.sroa.202.3520482.ph = phi i64 [ 4294967297, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8870.thread ], [ %.sroa.202.35, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8875 ]
   %.not.i.i.i883020451204582047420481.ph = phi i1 [ %.not.i.i.i883020449, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8870.thread ], [ %.not.i.i.i8830, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8875 ]
-  %1562 = load i32, ptr %1476, align 8, !tbaa !26
+  %1562 = load i32, ptr %1476, align 8, !tbaa !24
   br label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8888
 
 _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8878: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8867, %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8870
-  %1563 = load i32, ptr %1476, align 8, !tbaa !26
+  %1563 = load i32, ptr %1476, align 8, !tbaa !24
   %1564 = icmp eq i32 %1563, 20
   %or.cond15385 = and i1 %.not15574, %.not.i.i.i8548
   br i1 %or.cond15385, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i8883, label %_ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit8888
@@ -13384,7 +13384,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit9413:            ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvmeqENS_9StringRefES0_.exit9413.thread:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit9413
   %1673 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %1674 = load i32, ptr %1673, align 8, !tbaa !26
+  %1674 = load i32, ptr %1673, align 8, !tbaa !24
   %1675 = add i32 %1674, -27
   %narrow = icmp ult i32 %1675, 2
   %.not.i.i.i9418 = icmp eq i64 %2, 9
@@ -13433,7 +13433,7 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang19AttributeCommonInfo10isGNUScopeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZNK5clang14IdentifierInfo5isStrILm8EEEbRAT__Kc.exit, label %4
 
@@ -13467,7 +13467,7 @@ _ZNK5clang14IdentifierInfo5isStrILm8EEEbRAT__Kc.exit: ; preds = %_ZNK5clang14Ide
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang19AttributeCommonInfo12isClangScopeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !40
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZNK5clang14IdentifierInfo5isStrILm7EEEbRAT__Kc.exit, label %4
 
@@ -13503,9 +13503,9 @@ define dso_local noundef range(i32 0, 415) i32 @_ZN5clang19AttributeCommonInfo13
   %4 = alloca %"class.llvm::SmallString", align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #13
   call fastcc void @_ZL13normalizeNamePKN5clang14IdentifierInfoES2_NS_19AttributeCommonInfo6SyntaxE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %0, ptr noundef %1, i32 noundef %2)
-  %5 = load ptr, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !49
+  %7 = load i64, ptr %6, align 8, !tbaa !47
   %8 = call fastcc noundef i32 @_ZL11getAttrKindN4llvm9StringRefEN5clang19AttributeCommonInfo6SyntaxE(ptr %5, i64 %7, i32 noundef %2)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = icmp eq ptr %5, %9
@@ -13573,7 +13573,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   ]
 
 5:                                                ; preds = %4
-  %6 = load i8, ptr %0, align 1, !tbaa !50
+  %6 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %6, label %3901 [
     i8 102, label %7
     i8 104, label %9
@@ -13599,7 +13599,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2607, label %3902, label %3901
 
 13:                                               ; preds = %4
-  %14 = load i8, ptr %0, align 1, !tbaa !50
+  %14 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %14, label %3901 [
     i8 99, label %15
     i8 104, label %17
@@ -13660,7 +13660,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2591, label %3902, label %3901
 
 31:                                               ; preds = %4
-  %32 = load i8, ptr %0, align 1, !tbaa !50
+  %32 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %32, label %3901 [
     i8 97, label %33
     i8 99, label %35
@@ -13679,7 +13679,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %37 = load i8, ptr %36, align 1, !tbaa !50
+  %37 = load i8, ptr %36, align 1, !tbaa !48
   switch i8 %37, label %3901 [
     i8 100, label %38
     i8 111, label %40
@@ -13723,7 +13723,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 50:                                               ; preds = %31
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %52 = load i8, ptr %51, align 1, !tbaa !50
+  %52 = load i8, ptr %51, align 1, !tbaa !48
   switch i8 %52, label %3901 [
     i8 97, label %53
     i8 111, label %55
@@ -13742,7 +13742,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2573, label %3902, label %3901
 
 57:                                               ; preds = %4
-  %58 = load i8, ptr %0, align 1, !tbaa !50
+  %58 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %58, label %3901 [
     i8 97, label %59
     i8 98, label %61
@@ -13796,7 +13796,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 71:                                               ; preds = %57
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %73 = load i8, ptr %72, align 1, !tbaa !50
+  %73 = load i8, ptr %72, align 1, !tbaa !48
   switch i8 %73, label %3901 [
     i8 97, label %74
     i8 105, label %76
@@ -13823,13 +13823,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 80:                                               ; preds = %57
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %82 = load i8, ptr %81, align 1, !tbaa !50
+  %82 = load i8, ptr %81, align 1, !tbaa !48
   %.not2549 = icmp eq i8 %82, 97
   br i1 %.not2549, label %83, label %3901
 
 83:                                               ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %85 = load i8, ptr %84, align 1, !tbaa !50
+  %85 = load i8, ptr %84, align 1, !tbaa !48
   switch i8 %85, label %3901 [
     i8 99, label %86
     i8 115, label %88
@@ -13855,7 +13855,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 92:                                               ; preds = %57
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %94 = load i8, ptr %93, align 1, !tbaa !50
+  %94 = load i8, ptr %93, align 1, !tbaa !48
   switch i8 %94, label %3901 [
     i8 104, label %95
     i8 105, label %97
@@ -13886,7 +13886,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2540, label %3902, label %3901
 
 103:                                              ; preds = %4
-  %104 = load i8, ptr %0, align 1, !tbaa !50
+  %104 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %104, label %3901 [
     i8 95, label %105
     i8 97, label %107
@@ -13909,7 +13909,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %109 = load i8, ptr %108, align 1, !tbaa !50
+  %109 = load i8, ptr %108, align 1, !tbaa !48
   switch i8 %109, label %3901 [
     i8 98, label %110
     i8 108, label %112
@@ -13947,7 +13947,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 120:                                              ; preds = %103
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %122 = load i8, ptr %121, align 1, !tbaa !50
+  %122 = load i8, ptr %121, align 1, !tbaa !48
   switch i8 %122, label %3901 [
     i8 97, label %123
     i8 105, label %125
@@ -13967,7 +13967,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 127:                                              ; preds = %103
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %129 = load i8, ptr %128, align 1, !tbaa !50
+  %129 = load i8, ptr %128, align 1, !tbaa !48
   switch i8 %129, label %3901 [
     i8 111, label %130
     i8 118, label %149
@@ -13975,7 +13975,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 130:                                              ; preds = %127
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %132 = load i8, ptr %131, align 1, !tbaa !50
+  %132 = load i8, ptr %131, align 1, !tbaa !48
   switch i8 %132, label %3901 [
     i8 100, label %133
     i8 109, label %143
@@ -13985,13 +13985,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 133:                                              ; preds = %130
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %135 = load i8, ptr %134, align 1, !tbaa !50
+  %135 = load i8, ptr %134, align 1, !tbaa !48
   %.not2518 = icmp eq i8 %135, 101
   br i1 %.not2518, label %136, label %3901
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %138 = load i8, ptr %137, align 1, !tbaa !50
+  %138 = load i8, ptr %137, align 1, !tbaa !48
   switch i8 %138, label %3901 [
     i8 98, label %139
     i8 114, label %141
@@ -14035,7 +14035,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 151:                                              ; preds = %103
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %153 = load i8, ptr %152, align 1, !tbaa !50
+  %153 = load i8, ptr %152, align 1, !tbaa !48
   switch i8 %153, label %3901 [
     i8 98, label %154
     i8 112, label %156
@@ -14061,7 +14061,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 160:                                              ; preds = %158
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %162 = load i8, ptr %161, align 1, !tbaa !50
+  %162 = load i8, ptr %161, align 1, !tbaa !48
   switch i8 %162, label %3901 [
     i8 99, label %163
     i8 112, label %165
@@ -14081,7 +14081,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 167:                                              ; preds = %103
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %169 = load i8, ptr %168, align 1, !tbaa !50
+  %169 = load i8, ptr %168, align 1, !tbaa !48
   switch i8 %169, label %3901 [
     i8 101, label %170
     i8 116, label %172
@@ -14101,7 +14101,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 174:                                              ; preds = %103
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %176 = load i8, ptr %175, align 1, !tbaa !50
+  %176 = load i8, ptr %175, align 1, !tbaa !48
   switch i8 %176, label %3901 [
     i8 97, label %177
     i8 101, label %179
@@ -14120,7 +14120,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2493, label %3902, label %3901
 
 181:                                              ; preds = %4
-  %182 = load i8, ptr %0, align 1, !tbaa !50
+  %182 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %182, label %3901 [
     i8 78, label %183
     i8 97, label %185
@@ -14155,7 +14155,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 189:                                              ; preds = %181
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %191 = load i8, ptr %190, align 1, !tbaa !50
+  %191 = load i8, ptr %190, align 1, !tbaa !48
   switch i8 %191, label %3901 [
     i8 97, label %192
     i8 111, label %194
@@ -14181,13 +14181,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 198:                                              ; preds = %181
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %200 = load i8, ptr %199, align 1, !tbaa !50
+  %200 = load i8, ptr %199, align 1, !tbaa !48
   %.not2475 = icmp eq i8 %200, 98
   br i1 %.not2475, label %201, label %3901
 
 201:                                              ; preds = %198
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %203 = load i8, ptr %202, align 1, !tbaa !50
+  %203 = load i8, ptr %202, align 1, !tbaa !48
   switch i8 %203, label %3901 [
     i8 97, label %204
     i8 111, label %206
@@ -14213,7 +14213,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 210:                                              ; preds = %181
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %212 = load i8, ptr %211, align 1, !tbaa !50
+  %212 = load i8, ptr %211, align 1, !tbaa !48
   switch i8 %212, label %3901 [
     i8 54, label %213
     i8 117, label %215
@@ -14233,13 +14233,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 217:                                              ; preds = %181
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %219 = load i8, ptr %218, align 1, !tbaa !50
+  %219 = load i8, ptr %218, align 1, !tbaa !48
   %.not2458 = icmp eq i8 %219, 111
   br i1 %.not2458, label %220, label %3901
 
 220:                                              ; preds = %217
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %222 = load i8, ptr %221, align 1, !tbaa !50
+  %222 = load i8, ptr %221, align 1, !tbaa !48
   switch i8 %222, label %3901 [
     i8 99, label %223
     i8 101, label %225
@@ -14280,7 +14280,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 233:                                              ; preds = %181
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %235 = load i8, ptr %234, align 1, !tbaa !50
+  %235 = load i8, ptr %234, align 1, !tbaa !48
   %236 = sext i8 %235 to i32
   %237 = add nsw i32 %236, -101
   %238 = tail call i32 @llvm.fshl.i32(i32 %237, i32 %237, i32 30)
@@ -14322,7 +14322,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2449, label %3902, label %3901
 
 249:                                              ; preds = %4
-  %250 = load i8, ptr %0, align 1, !tbaa !50
+  %250 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %250, label %3901 [
     i8 100, label %251
     i8 101, label %260
@@ -14344,7 +14344,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 253:                                              ; preds = %251
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %255 = load i8, ptr %254, align 1, !tbaa !50
+  %255 = load i8, ptr %254, align 1, !tbaa !48
   switch i8 %255, label %3901 [
     i8 101, label %256
     i8 105, label %258
@@ -14388,7 +14388,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 268:                                              ; preds = %249
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %270 = load i8, ptr %269, align 1, !tbaa !50
+  %270 = load i8, ptr %269, align 1, !tbaa !48
   switch i8 %270, label %3901 [
     i8 97, label %271
     i8 105, label %273
@@ -14421,7 +14421,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 279:                                              ; preds = %249
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %281 = load i8, ptr %280, align 1, !tbaa !50
+  %281 = load i8, ptr %280, align 1, !tbaa !48
   switch i8 %281, label %3901 [
     i8 101, label %282
     i8 119, label %284
@@ -14452,7 +14452,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2419, label %3902, label %3901
 
 290:                                              ; preds = %4
-  %291 = load i8, ptr %0, align 1, !tbaa !50
+  %291 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %291, label %3901 [
     i8 97, label %292
     i8 99, label %306
@@ -14467,7 +14467,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 292:                                              ; preds = %290
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %294 = load i8, ptr %293, align 1, !tbaa !50
+  %294 = load i8, ptr %293, align 1, !tbaa !48
   switch i8 %294, label %3901 [
     i8 108, label %295
     i8 114, label %304
@@ -14481,7 +14481,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 297:                                              ; preds = %295
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %299 = load i8, ptr %298, align 1, !tbaa !50
+  %299 = load i8, ptr %298, align 1, !tbaa !48
   switch i8 %299, label %3901 [
     i8 95, label %300
     i8 97, label %302
@@ -14507,7 +14507,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 306:                                              ; preds = %290
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %308 = load i8, ptr %307, align 1, !tbaa !50
+  %308 = load i8, ptr %307, align 1, !tbaa !48
   switch i8 %308, label %3901 [
     i8 97, label %309
     i8 111, label %311
@@ -14521,7 +14521,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 311:                                              ; preds = %306
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %313 = load i8, ptr %312, align 1, !tbaa !50
+  %313 = load i8, ptr %312, align 1, !tbaa !48
   switch i8 %313, label %3901 [
     i8 100, label %314
     i8 110, label %316
@@ -14536,7 +14536,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 316:                                              ; preds = %311
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %318 = load i8, ptr %317, align 1, !tbaa !50
+  %318 = load i8, ptr %317, align 1, !tbaa !48
   switch i8 %318, label %3901 [
     i8 115, label %319
     i8 118, label %321
@@ -14562,13 +14562,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 325:                                              ; preds = %290
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %327 = load i8, ptr %326, align 1, !tbaa !50
+  %327 = load i8, ptr %326, align 1, !tbaa !48
   %.not2395 = icmp eq i8 %327, 101
   br i1 %.not2395, label %328, label %3901
 
 328:                                              ; preds = %325
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %330 = load i8, ptr %329, align 1, !tbaa !50
+  %330 = load i8, ptr %329, align 1, !tbaa !48
   switch i8 %330, label %3901 [
     i8 112, label %331
     i8 115, label %333
@@ -14594,7 +14594,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 337:                                              ; preds = %290
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %339 = load i8, ptr %338, align 1, !tbaa !50
+  %339 = load i8, ptr %338, align 1, !tbaa !48
   switch i8 %339, label %3901 [
     i8 110, label %340
     i8 117, label %342
@@ -14614,13 +14614,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 344:                                              ; preds = %290
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %346 = load i8, ptr %345, align 1, !tbaa !50
+  %346 = load i8, ptr %345, align 1, !tbaa !48
   %.not2382 = icmp eq i8 %346, 111
   br i1 %.not2382, label %347, label %3901
 
 347:                                              ; preds = %344
   %348 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %349 = load i8, ptr %348, align 1, !tbaa !50
+  %349 = load i8, ptr %348, align 1, !tbaa !48
   switch i8 %349, label %3901 [
     i8 95, label %350
     i8 99, label %357
@@ -14628,7 +14628,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 350:                                              ; preds = %347
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %352 = load i8, ptr %351, align 1, !tbaa !50
+  %352 = load i8, ptr %351, align 1, !tbaa !48
   switch i8 %352, label %3901 [
     i8 98, label %353
     i8 100, label %355
@@ -14654,7 +14654,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 359:                                              ; preds = %290
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %361 = load i8, ptr %360, align 1, !tbaa !50
+  %361 = load i8, ptr %360, align 1, !tbaa !48
   switch i8 %361, label %3901 [
     i8 104, label %362
     i8 119, label %364
@@ -14674,7 +14674,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 366:                                              ; preds = %364
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %368 = load i8, ptr %367, align 1, !tbaa !50
+  %368 = load i8, ptr %367, align 1, !tbaa !48
   switch i8 %368, label %3901 [
     i8 97, label %369
     i8 110, label %371
@@ -14700,7 +14700,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 375:                                              ; preds = %290
   %376 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %377 = load i8, ptr %376, align 1, !tbaa !50
+  %377 = load i8, ptr %376, align 1, !tbaa !48
   switch i8 %377, label %3901 [
     i8 101, label %378
     i8 105, label %380
@@ -14719,7 +14719,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2369, label %3902, label %3901
 
 382:                                              ; preds = %4
-  %383 = load i8, ptr %0, align 1, !tbaa !50
+  %383 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %383, label %3901 [
     i8 97, label %384
     i8 99, label %394
@@ -14740,13 +14740,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 384:                                              ; preds = %382
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %386 = load i8, ptr %385, align 1, !tbaa !50
+  %386 = load i8, ptr %385, align 1, !tbaa !48
   %.not2363 = icmp eq i8 %386, 108
   br i1 %.not2363, label %387, label %3901
 
 387:                                              ; preds = %384
   %388 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %389 = load i8, ptr %388, align 1, !tbaa !50
+  %389 = load i8, ptr %388, align 1, !tbaa !48
   switch i8 %389, label %3901 [
     i8 105, label %390
     i8 108, label %392
@@ -14766,7 +14766,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 394:                                              ; preds = %382
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %396 = load i8, ptr %395, align 1, !tbaa !50
+  %396 = load i8, ptr %395, align 1, !tbaa !48
   switch i8 %396, label %3901 [
     i8 97, label %397
     i8 102, label %399
@@ -14799,7 +14799,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 405:                                              ; preds = %382
   %406 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %407 = load i8, ptr %406, align 1, !tbaa !50
+  %407 = load i8, ptr %406, align 1, !tbaa !48
   switch i8 %407, label %3901 [
     i8 110, label %408
     i8 120, label %410
@@ -14837,13 +14837,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 418:                                              ; preds = %382
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %420 = load i8, ptr %419, align 1, !tbaa !50
+  %420 = load i8, ptr %419, align 1, !tbaa !48
   %.not2340 = icmp eq i8 %420, 97
   br i1 %.not2340, label %421, label %3901
 
 421:                                              ; preds = %418
   %422 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %423 = load i8, ptr %422, align 1, !tbaa !50
+  %423 = load i8, ptr %422, align 1, !tbaa !48
   switch i8 %423, label %3901 [
     i8 116, label %424
     i8 121, label %426
@@ -14863,7 +14863,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 428:                                              ; preds = %382
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %430 = load i8, ptr %429, align 1, !tbaa !50
+  %430 = load i8, ptr %429, align 1, !tbaa !48
   switch i8 %430, label %3901 [
     i8 111, label %431
     i8 115, label %442
@@ -14871,7 +14871,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 431:                                              ; preds = %428
   %432 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %433 = load i8, ptr %432, align 1, !tbaa !50
+  %433 = load i8, ptr %432, align 1, !tbaa !48
   switch i8 %433, label %3901 [
     i8 95, label %434
     i8 100, label %436
@@ -14911,7 +14911,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 444:                                              ; preds = %382
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %446 = load i8, ptr %445, align 1, !tbaa !50
+  %446 = load i8, ptr %445, align 1, !tbaa !48
   switch i8 %446, label %3901 [
     i8 98, label %447
     i8 115, label %456
@@ -14925,7 +14925,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 449:                                              ; preds = %447
   %450 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %451 = load i8, ptr %450, align 1, !tbaa !50
+  %451 = load i8, ptr %450, align 1, !tbaa !48
   switch i8 %451, label %3901 [
     i8 98, label %452
     i8 100, label %454
@@ -14951,7 +14951,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 458:                                              ; preds = %382
   %459 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %460 = load i8, ptr %459, align 1, !tbaa !50
+  %460 = load i8, ptr %459, align 1, !tbaa !48
   switch i8 %460, label %3901 [
     i8 119, label %461
     i8 121, label %470
@@ -14965,7 +14965,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 463:                                              ; preds = %461
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %465 = load i8, ptr %464, align 1, !tbaa !50
+  %465 = load i8, ptr %464, align 1, !tbaa !48
   switch i8 %465, label %3901 [
     i8 97, label %466
     i8 101, label %468
@@ -15009,7 +15009,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 478:                                              ; preds = %382
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %480 = load i8, ptr %479, align 1, !tbaa !50
+  %480 = load i8, ptr %479, align 1, !tbaa !48
   switch i8 %480, label %3901 [
     i8 97, label %481
     i8 101, label %483
@@ -15028,7 +15028,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2305, label %3902, label %3901
 
 485:                                              ; preds = %4
-  %486 = load i8, ptr %0, align 1, !tbaa !50
+  %486 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %486, label %3901 [
     i8 97, label %487
     i8 98, label %489
@@ -15047,7 +15047,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 489:                                              ; preds = %485
   %490 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %491 = load i8, ptr %490, align 1, !tbaa !50
+  %491 = load i8, ptr %490, align 1, !tbaa !48
   switch i8 %491, label %3901 [
     i8 112, label %492
     i8 116, label %494
@@ -15067,7 +15067,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 496:                                              ; preds = %494
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %498 = load i8, ptr %497, align 1, !tbaa !50
+  %498 = load i8, ptr %497, align 1, !tbaa !48
   switch i8 %498, label %3901 [
     i8 100, label %499
     i8 116, label %501
@@ -15087,7 +15087,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 503:                                              ; preds = %485
   %504 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %505 = load i8, ptr %504, align 1, !tbaa !50
+  %505 = load i8, ptr %504, align 1, !tbaa !48
   switch i8 %505, label %3901 [
     i8 111, label %506
     i8 112, label %508
@@ -15107,7 +15107,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 510:                                              ; preds = %508
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %512 = load i8, ptr %511, align 1, !tbaa !50
+  %512 = load i8, ptr %511, align 1, !tbaa !48
   switch i8 %512, label %3901 [
     i8 100, label %513
     i8 115, label %515
@@ -15127,7 +15127,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 517:                                              ; preds = %485
   %518 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %519 = load i8, ptr %518, align 1, !tbaa !50
+  %519 = load i8, ptr %518, align 1, !tbaa !48
   switch i8 %519, label %3901 [
     i8 111, label %520
     i8 118, label %522
@@ -15147,7 +15147,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 524:                                              ; preds = %485
   %525 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %526 = load i8, ptr %525, align 1, !tbaa !50
+  %526 = load i8, ptr %525, align 1, !tbaa !48
   switch i8 %526, label %3901 [
     i8 98, label %527
     i8 112, label %529
@@ -15185,7 +15185,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2273, label %3902, label %3901
 
 537:                                              ; preds = %4
-  %538 = load i8, ptr %0, align 1, !tbaa !50
+  %538 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %538, label %3901 [
     i8 97, label %539
     i8 99, label %548
@@ -15205,7 +15205,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 539:                                              ; preds = %537
   %540 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %541 = load i8, ptr %540, align 1, !tbaa !50
+  %541 = load i8, ptr %540, align 1, !tbaa !48
   switch i8 %541, label %3901 [
     i8 100, label %542
     i8 108, label %544
@@ -15244,7 +15244,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 552:                                              ; preds = %537
   %553 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %554 = load i8, ptr %553, align 1, !tbaa !50
+  %554 = load i8, ptr %553, align 1, !tbaa !48
   switch i8 %554, label %3901 [
     i8 109, label %555
     i8 110, label %557
@@ -15264,7 +15264,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 559:                                              ; preds = %537
   %560 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %561 = load i8, ptr %560, align 1, !tbaa !50
+  %561 = load i8, ptr %560, align 1, !tbaa !48
   switch i8 %561, label %3901 [
     i8 97, label %562
     i8 105, label %564
@@ -15303,7 +15303,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 572:                                              ; preds = %537
   %573 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %574 = load i8, ptr %573, align 1, !tbaa !50
+  %574 = load i8, ptr %573, align 1, !tbaa !48
   switch i8 %574, label %3901 [
     i8 114, label %575
     i8 116, label %584
@@ -15317,7 +15317,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 577:                                              ; preds = %575
   %578 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %579 = load i8, ptr %578, align 1, !tbaa !50
+  %579 = load i8, ptr %578, align 1, !tbaa !48
   switch i8 %579, label %3901 [
     i8 109, label %580
     i8 110, label %582
@@ -15343,13 +15343,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 586:                                              ; preds = %537
   %587 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %588 = load i8, ptr %587, align 1, !tbaa !50
+  %588 = load i8, ptr %587, align 1, !tbaa !48
   %.not2235 = icmp eq i8 %588, 101
   br i1 %.not2235, label %589, label %3901
 
 589:                                              ; preds = %586
   %590 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %591 = load i8, ptr %590, align 1, !tbaa !50
+  %591 = load i8, ptr %590, align 1, !tbaa !48
   switch i8 %591, label %3901 [
     i8 105, label %592
     i8 116, label %594
@@ -15369,7 +15369,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 596:                                              ; preds = %537
   %597 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %598 = load i8, ptr %597, align 1, !tbaa !50
+  %598 = load i8, ptr %597, align 1, !tbaa !48
   switch i8 %598, label %3901 [
     i8 101, label %599
     i8 119, label %601
@@ -15389,7 +15389,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 603:                                              ; preds = %601
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %605 = load i8, ptr %604, align 1, !tbaa !50
+  %605 = load i8, ptr %604, align 1, !tbaa !48
   switch i8 %605, label %3901 [
     i8 99, label %606
     i8 110, label %608
@@ -15446,7 +15446,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2216, label %3902, label %3901
 
 622:                                              ; preds = %4
-  %623 = load i8, ptr %0, align 1, !tbaa !50
+  %623 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %623, label %3901 [
     i8 97, label %624
     i8 99, label %640
@@ -15463,7 +15463,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 624:                                              ; preds = %622
   %625 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %626 = load i8, ptr %625, align 1, !tbaa !50
+  %626 = load i8, ptr %625, align 1, !tbaa !48
   switch i8 %626, label %3901 [
     i8 99, label %627
     i8 108, label %636
@@ -15478,7 +15478,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 629:                                              ; preds = %627
   %630 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %631 = load i8, ptr %630, align 1, !tbaa !50
+  %631 = load i8, ptr %630, align 1, !tbaa !48
   switch i8 %631, label %3901 [
     i8 95, label %632
     i8 100, label %634
@@ -15540,7 +15540,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 650:                                              ; preds = %622
   %651 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %652 = load i8, ptr %651, align 1, !tbaa !50
+  %652 = load i8, ptr %651, align 1, !tbaa !48
   switch i8 %652, label %3901 [
     i8 98, label %653
     i8 112, label %662
@@ -15554,7 +15554,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 655:                                              ; preds = %653
   %656 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %657 = load i8, ptr %656, align 1, !tbaa !50
+  %657 = load i8, ptr %656, align 1, !tbaa !48
   switch i8 %657, label %3901 [
     i8 101, label %658
     i8 111, label %660
@@ -15580,7 +15580,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 664:                                              ; preds = %662
   %665 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %666 = load i8, ptr %665, align 1, !tbaa !50
+  %666 = load i8, ptr %665, align 1, !tbaa !48
   switch i8 %666, label %3901 [
     i8 103, label %667
     i8 112, label %669
@@ -15600,7 +15600,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 671:                                              ; preds = %622
   %672 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %673 = load i8, ptr %672, align 1, !tbaa !50
+  %673 = load i8, ptr %672, align 1, !tbaa !48
   switch i8 %673, label %3901 [
     i8 114, label %674
     i8 116, label %683
@@ -15614,7 +15614,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 676:                                              ; preds = %674
   %677 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %678 = load i8, ptr %677, align 1, !tbaa !50
+  %678 = load i8, ptr %677, align 1, !tbaa !48
   switch i8 %678, label %3901 [
     i8 110, label %679
     i8 116, label %681
@@ -15652,7 +15652,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 689:                                              ; preds = %622
   %690 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %691 = load i8, ptr %690, align 1, !tbaa !50
+  %691 = load i8, ptr %690, align 1, !tbaa !48
   switch i8 %691, label %3901 [
     i8 97, label %692
     i8 101, label %694
@@ -15671,7 +15671,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2168, label %3902, label %3901
 
 696:                                              ; preds = %4
-  %697 = load i8, ptr %0, align 1, !tbaa !50
+  %697 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %697, label %3901 [
     i8 97, label %698
     i8 101, label %714
@@ -15687,7 +15687,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 698:                                              ; preds = %696
   %699 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %700 = load i8, ptr %699, align 1, !tbaa !50
+  %700 = load i8, ptr %699, align 1, !tbaa !48
   switch i8 %700, label %3901 [
     i8 97, label %701
     i8 99, label %703
@@ -15714,7 +15714,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 707:                                              ; preds = %705
   %708 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %709 = load i8, ptr %708, align 1, !tbaa !50
+  %709 = load i8, ptr %708, align 1, !tbaa !48
   switch i8 %709, label %3901 [
     i8 115, label %710
     i8 118, label %712
@@ -15746,7 +15746,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 718:                                              ; preds = %696
   %719 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %720 = load i8, ptr %719, align 1, !tbaa !50
+  %720 = load i8, ptr %719, align 1, !tbaa !48
   switch i8 %720, label %3901 [
     i8 111, label %721
     i8 115, label %723
@@ -15766,7 +15766,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 725:                                              ; preds = %696
   %726 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %727 = load i8, ptr %726, align 1, !tbaa !50
+  %727 = load i8, ptr %726, align 1, !tbaa !48
   switch i8 %727, label %3901 [
     i8 98, label %728
     i8 112, label %737
@@ -15781,7 +15781,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 730:                                              ; preds = %728
   %731 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %732 = load i8, ptr %731, align 1, !tbaa !50
+  %732 = load i8, ptr %731, align 1, !tbaa !48
   switch i8 %732, label %3901 [
     i8 99, label %733
     i8 114, label %735
@@ -15813,7 +15813,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 741:                                              ; preds = %739
   %742 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %743 = load i8, ptr %742, align 1, !tbaa !50
+  %743 = load i8, ptr %742, align 1, !tbaa !48
   switch i8 %743, label %3901 [
     i8 104, label %744
     i8 116, label %746
@@ -15839,7 +15839,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 750:                                              ; preds = %696
   %751 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %752 = load i8, ptr %751, align 1, !tbaa !50
+  %752 = load i8, ptr %751, align 1, !tbaa !48
   switch i8 %752, label %3901 [
     i8 101, label %753
     i8 105, label %755
@@ -15871,7 +15871,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 761:                                              ; preds = %696
   %762 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %763 = load i8, ptr %762, align 1, !tbaa !50
+  %763 = load i8, ptr %762, align 1, !tbaa !48
   switch i8 %763, label %3901 [
     i8 110, label %764
     i8 115, label %766
@@ -15890,7 +15890,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2122, label %3902, label %3901
 
 768:                                              ; preds = %4
-  %769 = load i8, ptr %0, align 1, !tbaa !50
+  %769 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %769, label %3901 [
     i8 99, label %770
     i8 101, label %772
@@ -15936,7 +15936,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 780:                                              ; preds = %768
   %781 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %782 = load i8, ptr %781, align 1, !tbaa !50
+  %782 = load i8, ptr %781, align 1, !tbaa !48
   switch i8 %782, label %3901 [
     i8 101, label %783
     i8 115, label %785
@@ -15968,7 +15968,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 791:                                              ; preds = %768
   %792 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %793 = load i8, ptr %792, align 1, !tbaa !50
+  %793 = load i8, ptr %792, align 1, !tbaa !48
   switch i8 %793, label %3901 [
     i8 97, label %794
     i8 101, label %796
@@ -15988,7 +15988,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 798:                                              ; preds = %768
   %799 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %800 = load i8, ptr %799, align 1, !tbaa !50
+  %800 = load i8, ptr %799, align 1, !tbaa !48
   switch i8 %800, label %3901 [
     i8 105, label %801
     i8 116, label %803
@@ -16014,7 +16014,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2094, label %3902, label %3901
 
 807:                                              ; preds = %4
-  %808 = load i8, ptr %0, align 1, !tbaa !50
+  %808 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %808, label %3901 [
     i8 97, label %809
     i8 111, label %816
@@ -16024,7 +16024,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 809:                                              ; preds = %807
   %810 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %811 = load i8, ptr %810, align 1, !tbaa !50
+  %811 = load i8, ptr %810, align 1, !tbaa !48
   switch i8 %811, label %3901 [
     i8 110, label %812
     i8 115, label %814
@@ -16044,7 +16044,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 816:                                              ; preds = %807
   %817 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %818 = load i8, ptr %817, align 1, !tbaa !50
+  %818 = load i8, ptr %817, align 1, !tbaa !48
   switch i8 %818, label %3901 [
     i8 98, label %819
     i8 119, label %821
@@ -16064,7 +16064,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 823:                                              ; preds = %807
   %824 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %825 = load i8, ptr %824, align 1, !tbaa !50
+  %825 = load i8, ptr %824, align 1, !tbaa !48
   switch i8 %825, label %3901 [
     i8 104, label %826
     i8 119, label %828
@@ -16089,7 +16089,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2080, label %3902, label %3901
 
 832:                                              ; preds = %4
-  %833 = load i8, ptr %0, align 1, !tbaa !50
+  %833 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %833, label %3901 [
     i8 97, label %834
     i8 99, label %843
@@ -16106,7 +16106,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 834:                                              ; preds = %832
   %835 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %836 = load i8, ptr %835, align 1, !tbaa !50
+  %836 = load i8, ptr %835, align 1, !tbaa !48
   switch i8 %836, label %3901 [
     i8 97, label %837
     i8 99, label %839
@@ -16133,7 +16133,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 843:                                              ; preds = %832
   %844 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %845 = load i8, ptr %844, align 1, !tbaa !50
+  %845 = load i8, ptr %844, align 1, !tbaa !48
   switch i8 %845, label %3901 [
     i8 97, label %846
     i8 111, label %848
@@ -16147,7 +16147,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 848:                                              ; preds = %843
   %849 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %850 = load i8, ptr %849, align 1, !tbaa !50
+  %850 = load i8, ptr %849, align 1, !tbaa !48
   switch i8 %850, label %3901 [
     i8 114, label %851
     i8 117, label %853
@@ -16197,7 +16197,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 865:                                              ; preds = %863
   %866 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %867 = load i8, ptr %866, align 1, !tbaa !50
+  %867 = load i8, ptr %866, align 1, !tbaa !48
   switch i8 %867, label %3901 [
     i8 97, label %868
     i8 112, label %877
@@ -16212,7 +16212,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 870:                                              ; preds = %868
   %871 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %872 = load i8, ptr %871, align 1, !tbaa !50
+  %872 = load i8, ptr %871, align 1, !tbaa !48
   switch i8 %872, label %3901 [
     i8 109, label %873
     i8 116, label %875
@@ -16244,7 +16244,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 881:                                              ; preds = %832
   %882 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %883 = load i8, ptr %882, align 1, !tbaa !50
+  %883 = load i8, ptr %882, align 1, !tbaa !48
   switch i8 %883, label %3901 [
     i8 98, label %884
     i8 112, label %893
@@ -16258,7 +16258,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 886:                                              ; preds = %884
   %887 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %888 = load i8, ptr %887, align 1, !tbaa !50
+  %888 = load i8, ptr %887, align 1, !tbaa !48
   switch i8 %888, label %3901 [
     i8 109, label %889
     i8 110, label %891
@@ -16284,7 +16284,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 895:                                              ; preds = %893
   %896 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %897 = load i8, ptr %896, align 1, !tbaa !50
+  %897 = load i8, ptr %896, align 1, !tbaa !48
   switch i8 %897, label %3901 [
     i8 103, label %898
     i8 117, label %900
@@ -16310,7 +16310,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 904:                                              ; preds = %832
   %905 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %906 = load i8, ptr %905, align 1, !tbaa !50
+  %906 = load i8, ptr %905, align 1, !tbaa !48
   switch i8 %906, label %3901 [
     i8 119, label %907
     i8 121, label %916
@@ -16324,7 +16324,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 909:                                              ; preds = %907
   %910 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %911 = load i8, ptr %910, align 1, !tbaa !50
+  %911 = load i8, ptr %910, align 1, !tbaa !48
   switch i8 %911, label %3901 [
     i8 101, label %912
     i8 111, label %914
@@ -16355,7 +16355,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not2024, label %3902, label %3901
 
 920:                                              ; preds = %4
-  %921 = load i8, ptr %0, align 1, !tbaa !50
+  %921 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %921, label %3901 [
     i8 97, label %922
     i8 99, label %929
@@ -16371,7 +16371,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 922:                                              ; preds = %920
   %923 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %924 = load i8, ptr %923, align 1, !tbaa !50
+  %924 = load i8, ptr %923, align 1, !tbaa !48
   switch i8 %924, label %3901 [
     i8 109, label %925
     i8 114, label %927
@@ -16391,7 +16391,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 929:                                              ; preds = %920
   %930 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %931 = load i8, ptr %930, align 1, !tbaa !50
+  %931 = load i8, ptr %930, align 1, !tbaa !48
   switch i8 %931, label %3901 [
     i8 102, label %932
     i8 108, label %944
@@ -16401,13 +16401,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 932:                                              ; preds = %929
   %933 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %934 = load i8, ptr %933, align 1, !tbaa !50
+  %934 = load i8, ptr %933, align 1, !tbaa !48
   %.not2012 = icmp eq i8 %934, 95
   br i1 %.not2012, label %935, label %3901
 
 935:                                              ; preds = %932
   %936 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %937 = load i8, ptr %936, align 1, !tbaa !50
+  %937 = load i8, ptr %936, align 1, !tbaa !48
   switch i8 %937, label %3901 [
     i8 97, label %938
     i8 114, label %940
@@ -16464,7 +16464,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 954:                                              ; preds = %920
   %955 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %956 = load i8, ptr %955, align 1, !tbaa !50
+  %956 = load i8, ptr %955, align 1, !tbaa !48
   switch i8 %956, label %3901 [
     i8 111, label %957
     i8 115, label %967
@@ -16472,13 +16472,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 957:                                              ; preds = %954
   %958 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %959 = load i8, ptr %958, align 1, !tbaa !50
+  %959 = load i8, ptr %958, align 1, !tbaa !48
   %.not1997 = icmp eq i8 %959, 95
   br i1 %.not1997, label %960, label %3901
 
 960:                                              ; preds = %957
   %961 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %962 = load i8, ptr %961, align 1, !tbaa !50
+  %962 = load i8, ptr %961, align 1, !tbaa !48
   switch i8 %962, label %3901 [
     i8 114, label %963
     i8 115, label %965
@@ -16504,7 +16504,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 969:                                              ; preds = %920
   %970 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %971 = load i8, ptr %970, align 1, !tbaa !50
+  %971 = load i8, ptr %970, align 1, !tbaa !48
   switch i8 %971, label %3901 [
     i8 98, label %972
     i8 115, label %990
@@ -16518,7 +16518,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 974:                                              ; preds = %972
   %975 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %976 = load i8, ptr %975, align 1, !tbaa !50
+  %976 = load i8, ptr %975, align 1, !tbaa !48
   switch i8 %976, label %3901 [
     i8 98, label %977
     i8 100, label %986
@@ -16533,7 +16533,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 979:                                              ; preds = %977
   %980 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %981 = load i8, ptr %980, align 1, !tbaa !50
+  %981 = load i8, ptr %980, align 1, !tbaa !48
   switch i8 %981, label %3901 [
     i8 109, label %982
     i8 114, label %984
@@ -16594,7 +16594,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1974, label %3902, label %3901
 
 1000:                                             ; preds = %4
-  %1001 = load i8, ptr %0, align 1, !tbaa !50
+  %1001 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1001, label %3901 [
     i8 99, label %1002
     i8 108, label %1009
@@ -16607,7 +16607,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1002:                                             ; preds = %1000
   %1003 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1004 = load i8, ptr %1003, align 1, !tbaa !50
+  %1004 = load i8, ptr %1003, align 1, !tbaa !48
   switch i8 %1004, label %3901 [
     i8 108, label %1005
     i8 109, label %1007
@@ -16639,7 +16639,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1013:                                             ; preds = %1000
   %1014 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1015 = load i8, ptr %1014, align 1, !tbaa !50
+  %1015 = load i8, ptr %1014, align 1, !tbaa !48
   switch i8 %1015, label %3901 [
     i8 98, label %1016
     i8 112, label %1018
@@ -16676,7 +16676,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1956, label %3902, label %3901
 
 1026:                                             ; preds = %4
-  %1027 = load i8, ptr %0, align 1, !tbaa !50
+  %1027 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1027, label %3901 [
     i8 97, label %1028
     i8 108, label %1030
@@ -16708,7 +16708,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1034:                                             ; preds = %1026
   %1035 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1036 = load i8, ptr %1035, align 1, !tbaa !50
+  %1036 = load i8, ptr %1035, align 1, !tbaa !48
   switch i8 %1036, label %3901 [
     i8 111, label %1037
     i8 114, label %1039
@@ -16734,7 +16734,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1043:                                             ; preds = %1026
   %1044 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1045 = load i8, ptr %1044, align 1, !tbaa !50
+  %1045 = load i8, ptr %1044, align 1, !tbaa !48
   switch i8 %1045, label %3901 [
     i8 104, label %1046
     i8 119, label %1048
@@ -16754,7 +16754,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1050:                                             ; preds = %1048
   %1051 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %1052 = load i8, ptr %1051, align 1, !tbaa !50
+  %1052 = load i8, ptr %1051, align 1, !tbaa !48
   switch i8 %1052, label %3901 [
     i8 98, label %1053
     i8 105, label %1055
@@ -16785,7 +16785,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1932, label %3902, label %3901
 
 1061:                                             ; preds = %4
-  %1062 = load i8, ptr %0, align 1, !tbaa !50
+  %1062 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1062, label %3901 [
     i8 97, label %1063
     i8 101, label %1065
@@ -16822,7 +16822,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1071:                                             ; preds = %1061
   %1072 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1073 = load i8, ptr %1072, align 1, !tbaa !50
+  %1073 = load i8, ptr %1072, align 1, !tbaa !48
   switch i8 %1073, label %3901 [
     i8 114, label %1074
     i8 116, label %1076
@@ -16853,7 +16853,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1916, label %3902, label %3901
 
 1082:                                             ; preds = %4
-  %1083 = load i8, ptr %0, align 1, !tbaa !50
+  %1083 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1083, label %3901 [
     i8 99, label %1084
     i8 101, label %1086
@@ -16889,7 +16889,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1092:                                             ; preds = %1090
   %1093 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %1094 = load i8, ptr %1093, align 1, !tbaa !50
+  %1094 = load i8, ptr %1093, align 1, !tbaa !48
   switch i8 %1094, label %3901 [
     i8 97, label %1095
     i8 110, label %1097
@@ -16915,7 +16915,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1101:                                             ; preds = %1082
   %1102 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1103 = load i8, ptr %1102, align 1, !tbaa !50
+  %1103 = load i8, ptr %1102, align 1, !tbaa !48
   switch i8 %1103, label %3901 [
     i8 104, label %1104
     i8 121, label %1106
@@ -16934,7 +16934,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1898, label %3902, label %3901
 
 1108:                                             ; preds = %4
-  %1109 = load i8, ptr %0, align 1, !tbaa !50
+  %1109 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1109, label %3901 [
     i8 97, label %1110
     i8 99, label %1112
@@ -16969,13 +16969,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1118:                                             ; preds = %1108
   %1119 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1120 = load i8, ptr %1119, align 1, !tbaa !50
+  %1120 = load i8, ptr %1119, align 1, !tbaa !48
   %.not1884 = icmp eq i8 %1120, 97
   br i1 %.not1884, label %1121, label %3901
 
 1121:                                             ; preds = %1118
   %1122 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %1123 = load i8, ptr %1122, align 1, !tbaa !50
+  %1123 = load i8, ptr %1122, align 1, !tbaa !48
   switch i8 %1123, label %3901 [
     i8 115, label %1124
     i8 116, label %1126
@@ -16994,7 +16994,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1886, label %3902, label %3901
 
 1128:                                             ; preds = %4
-  %1129 = load i8, ptr %0, align 1, !tbaa !50
+  %1129 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1129, label %3901 [
     i8 95, label %1130
     i8 97, label %1132
@@ -17030,7 +17030,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1138:                                             ; preds = %1136
   %1139 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %1140 = load i8, ptr %1139, align 1, !tbaa !50
+  %1140 = load i8, ptr %1139, align 1, !tbaa !48
   switch i8 %1140, label %3901 [
     i8 99, label %1141
     i8 116, label %1143
@@ -17061,7 +17061,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1869, label %3902, label %3901
 
 1149:                                             ; preds = %4
-  %1150 = load i8, ptr %0, align 1, !tbaa !50
+  %1150 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1150, label %3901 [
     i8 97, label %1151
     i8 99, label %1153
@@ -17080,13 +17080,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1153:                                             ; preds = %1149
   %1154 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1155 = load i8, ptr %1154, align 1, !tbaa !50
+  %1155 = load i8, ptr %1154, align 1, !tbaa !48
   %.not1861 = icmp eq i8 %1155, 111
   br i1 %.not1861, label %1156, label %3901
 
 1156:                                             ; preds = %1153
   %1157 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %1158 = load i8, ptr %1157, align 1, !tbaa !50
+  %1158 = load i8, ptr %1157, align 1, !tbaa !48
   switch i8 %1158, label %3901 [
     i8 110, label %1159
     i8 114, label %1161
@@ -17124,13 +17124,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1169:                                             ; preds = %1149
   %1170 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1171 = load i8, ptr %1170, align 1, !tbaa !50
+  %1171 = load i8, ptr %1170, align 1, !tbaa !48
   %.not1850 = icmp eq i8 %1171, 101
   br i1 %.not1850, label %1172, label %3901
 
 1172:                                             ; preds = %1169
   %1173 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %1174 = load i8, ptr %1173, align 1, !tbaa !50
+  %1174 = load i8, ptr %1173, align 1, !tbaa !48
   switch i8 %1174, label %3901 [
     i8 108, label %1175
     i8 113, label %1177
@@ -17155,7 +17155,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1849, label %3902, label %3901
 
 1181:                                             ; preds = %4
-  %1182 = load i8, ptr %0, align 1, !tbaa !50
+  %1182 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1182, label %3901 [
     i8 97, label %1183
     i8 100, label %1185
@@ -17177,7 +17177,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1187:                                             ; preds = %1185
   %1188 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %1189 = load i8, ptr %1188, align 1, !tbaa !50
+  %1189 = load i8, ptr %1188, align 1, !tbaa !48
   switch i8 %1189, label %3901 [
     i8 115, label %1190
     i8 116, label %1192
@@ -17203,7 +17203,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1196:                                             ; preds = %1181
   %1197 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1198 = load i8, ptr %1197, align 1, !tbaa !50
+  %1198 = load i8, ptr %1197, align 1, !tbaa !48
   switch i8 %1198, label %3901 [
     i8 98, label %1199
     i8 115, label %1208
@@ -17217,7 +17217,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1201:                                             ; preds = %1199
   %1202 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %1203 = load i8, ptr %1202, align 1, !tbaa !50
+  %1203 = load i8, ptr %1202, align 1, !tbaa !48
   switch i8 %1203, label %3901 [
     i8 100, label %1204
     i8 115, label %1206
@@ -17248,7 +17248,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1211:                                             ; preds = %1210
   %1212 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %1213 = load i8, ptr %1212, align 1, !tbaa !50
+  %1213 = load i8, ptr %1212, align 1, !tbaa !48
   switch i8 %1213, label %3901 [
     i8 110, label %1214
     i8 114, label %1216
@@ -17267,7 +17267,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1827, label %3902, label %3901
 
 1218:                                             ; preds = %4
-  %1219 = load i8, ptr %0, align 1, !tbaa !50
+  %1219 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1219, label %3901 [
     i8 110, label %1220
     i8 116, label %1222
@@ -17291,7 +17291,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1819, label %3902, label %3901
 
 1225:                                             ; preds = %4
-  %1226 = load i8, ptr %0, align 1, !tbaa !50
+  %1226 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1226, label %3901 [
     i8 99, label %1227
     i8 111, label %1229
@@ -17318,7 +17318,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1233:                                             ; preds = %1231
   %1234 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1235 = load i8, ptr %1234, align 1, !tbaa !50
+  %1235 = load i8, ptr %1234, align 1, !tbaa !48
   switch i8 %1235, label %3901 [
     i8 99, label %1236
     i8 101, label %1238
@@ -17347,7 +17347,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1805, label %3902, label %3901
 
 1242:                                             ; preds = %4
-  %1243 = load i8, ptr %0, align 1, !tbaa !50
+  %1243 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1243, label %3901 [
     i8 95, label %1244
     i8 101, label %1246
@@ -17407,7 +17407,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1793, label %3902, label %3901
 
 1254:                                             ; preds = %1252
-  %1255 = load i8, ptr %0, align 1, !tbaa !50
+  %1255 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1255, label %3901 [
     i8 97, label %1256
     i8 103, label %1258
@@ -17444,7 +17444,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1264:                                             ; preds = %1263
   %1265 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %1266 = load i8, ptr %1265, align 1, !tbaa !50
+  %1266 = load i8, ptr %1265, align 1, !tbaa !48
   switch i8 %1266, label %3901 [
     i8 97, label %1267
     i8 116, label %1269
@@ -17463,7 +17463,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1781, label %3902, label %3901
 
 1271:                                             ; preds = %1252
-  %1272 = load i8, ptr %0, align 1, !tbaa !50
+  %1272 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1272, label %3901 [
     i8 95, label %1273
     i8 97, label %1275
@@ -17493,13 +17493,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1279:                                             ; preds = %1271
   %1280 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1281 = load i8, ptr %1280, align 1, !tbaa !50
+  %1281 = load i8, ptr %1280, align 1, !tbaa !48
   %.not1765 = icmp eq i8 %1281, 111
   br i1 %.not1765, label %1282, label %3901
 
 1282:                                             ; preds = %1279
   %1283 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %1284 = load i8, ptr %1283, align 1, !tbaa !50
+  %1284 = load i8, ptr %1283, align 1, !tbaa !48
   switch i8 %1284, label %3901 [
     i8 105, label %1285
     i8 114, label %1287
@@ -17537,7 +17537,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1762, label %3902, label %3901
 
 1295:                                             ; preds = %1252
-  %1296 = load i8, ptr %0, align 1, !tbaa !50
+  %1296 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1296, label %3901 [
     i8 97, label %1297
     i8 100, label %1299
@@ -17558,7 +17558,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1301:                                             ; preds = %1299
   %1302 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %1303 = load i8, ptr %1302, align 1, !tbaa !50
+  %1303 = load i8, ptr %1302, align 1, !tbaa !48
   switch i8 %1303, label %3901 [
     i8 101, label %1304
     i8 105, label %1306
@@ -17583,7 +17583,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1752, label %3902, label %3901
 
 1310:                                             ; preds = %1252
-  %1311 = load i8, ptr %0, align 1, !tbaa !50
+  %1311 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1311, label %3901 [
     i8 95, label %1312
     i8 100, label %1324
@@ -17591,13 +17591,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1312:                                             ; preds = %1310
   %1313 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1314 = load i8, ptr %1313, align 1, !tbaa !50
+  %1314 = load i8, ptr %1313, align 1, !tbaa !48
   %.not1744 = icmp eq i8 %1314, 95
   br i1 %.not1744, label %1315, label %3901
 
 1315:                                             ; preds = %1312
   %1316 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %1317 = load i8, ptr %1316, align 1, !tbaa !50
+  %1317 = load i8, ptr %1316, align 1, !tbaa !48
   switch i8 %1317, label %3901 [
     i8 100, label %1318
     i8 103, label %1320
@@ -17629,7 +17629,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1743, label %3902, label %3901
 
 1326:                                             ; preds = %1252
-  %1327 = load i8, ptr %0, align 1, !tbaa !50
+  %1327 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1327, label %3901 [
     i8 95, label %1328
     i8 101, label %1330
@@ -17662,7 +17662,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1735, label %3902, label %3901
 
 1336:                                             ; preds = %1252
-  %1337 = load i8, ptr %0, align 1, !tbaa !50
+  %1337 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1337, label %3901 [
     i8 95, label %1338
     i8 99, label %1340
@@ -17683,7 +17683,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1342:                                             ; preds = %1340
   %1343 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %1344 = load i8, ptr %1343, align 1, !tbaa !50
+  %1344 = load i8, ptr %1343, align 1, !tbaa !48
   switch i8 %1344, label %3901 [
     i8 100, label %1345
     i8 115, label %1347
@@ -17729,7 +17729,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1355:                                             ; preds = %1354
   %1356 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %1357 = load i8, ptr %1356, align 1, !tbaa !50
+  %1357 = load i8, ptr %1356, align 1, !tbaa !48
   switch i8 %1357, label %3901 [
     i8 103, label %1358
     i8 108, label %1360
@@ -17754,7 +17754,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1363:                                             ; preds = %1362
   %1364 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %1365 = load i8, ptr %1364, align 1, !tbaa !50
+  %1365 = load i8, ptr %1364, align 1, !tbaa !48
   switch i8 %1365, label %3901 [
     i8 99, label %1366
     i8 100, label %1368
@@ -17779,7 +17779,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1371:                                             ; preds = %1370
   %1372 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %1373 = load i8, ptr %1372, align 1, !tbaa !50
+  %1373 = load i8, ptr %1372, align 1, !tbaa !48
   switch i8 %1373, label %3901 [
     i8 115, label %1374
     i8 116, label %1376
@@ -17807,7 +17807,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   ]
 
 1379:                                             ; preds = %1378
-  %1380 = load i8, ptr %0, align 1, !tbaa !50
+  %1380 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1380, label %3901 [
     i8 108, label %1381
     i8 117, label %1383
@@ -17826,7 +17826,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1697, label %3902, label %3901
 
 1385:                                             ; preds = %1378
-  %1386 = load i8, ptr %0, align 1, !tbaa !50
+  %1386 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1386, label %3901 [
     i8 98, label %1387
     i8 115, label %1389
@@ -17907,7 +17907,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   ]
 
 1397:                                             ; preds = %1396
-  %1398 = load i8, ptr %0, align 1, !tbaa !50
+  %1398 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1398, label %3901 [
     i8 97, label %1399
     i8 108, label %1401
@@ -17926,7 +17926,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1681, label %3902, label %3901
 
 1403:                                             ; preds = %1396
-  %1404 = load i8, ptr %0, align 1, !tbaa !50
+  %1404 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1404, label %3901 [
     i8 103, label %1405
     i8 110, label %1416
@@ -17941,7 +17941,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1407:                                             ; preds = %1405
   %1408 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %1409 = load i8, ptr %1408, align 1, !tbaa !50
+  %1409 = load i8, ptr %1408, align 1, !tbaa !48
   switch i8 %1409, label %3901 [
     i8 102, label %1410
     i8 104, label %1412
@@ -17979,7 +17979,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1669, label %3902, label %3901
 
 1420:                                             ; preds = %1396
-  %1421 = load i8, ptr %0, align 1, !tbaa !50
+  %1421 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1421, label %3901 [
     i8 103, label %1422
     i8 110, label %1441
@@ -17993,7 +17993,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1424:                                             ; preds = %1422
   %1425 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %1426 = load i8, ptr %1425, align 1, !tbaa !50
+  %1426 = load i8, ptr %1425, align 1, !tbaa !48
   switch i8 %1426, label %3901 [
     i8 99, label %1427
     i8 108, label %1429
@@ -18053,7 +18053,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1651, label %3902, label %3901
 
 1443:                                             ; preds = %1396
-  %1444 = load i8, ptr %0, align 1, !tbaa !50
+  %1444 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1444, label %3901 [
     i8 100, label %1445
     i8 103, label %1447
@@ -18067,7 +18067,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1447:                                             ; preds = %1443
   %1448 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1449 = load i8, ptr %1448, align 1, !tbaa !50
+  %1449 = load i8, ptr %1448, align 1, !tbaa !48
   switch i8 %1449, label %3901 [
     i8 110, label %1450
     i8 115, label %1472
@@ -18081,7 +18081,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1452:                                             ; preds = %1450
   %1453 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %1454 = load i8, ptr %1453, align 1, !tbaa !50
+  %1454 = load i8, ptr %1453, align 1, !tbaa !48
   switch i8 %1454, label %3901 [
     i8 97, label %1455
     i8 99, label %1457
@@ -18099,7 +18099,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1457:                                             ; preds = %1452
   %1458 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %1459 = load i8, ptr %1458, align 1, !tbaa !50
+  %1459 = load i8, ptr %1458, align 1, !tbaa !48
   switch i8 %1459, label %3901 [
     i8 100, label %1460
     i8 111, label %1462
@@ -18148,7 +18148,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1631, label %3902, label %3901
 
 1474:                                             ; preds = %1396
-  %1475 = load i8, ptr %0, align 1, !tbaa !50
+  %1475 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1475, label %3901 [
     i8 102, label %1476
     i8 103, label %1478
@@ -18169,7 +18169,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1480:                                             ; preds = %1478
   %1481 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %1482 = load i8, ptr %1481, align 1, !tbaa !50
+  %1482 = load i8, ptr %1481, align 1, !tbaa !48
   switch i8 %1482, label %3901 [
     i8 99, label %1483
     i8 102, label %1485
@@ -18195,7 +18195,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1487:                                             ; preds = %1480
   %1488 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %1489 = load i8, ptr %1488, align 1, !tbaa !50
+  %1489 = load i8, ptr %1488, align 1, !tbaa !48
   switch i8 %1489, label %3901 [
     i8 97, label %1490
     i8 105, label %1492
@@ -18257,7 +18257,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1605, label %3902, label %3901
 
 1508:                                             ; preds = %1396
-  %1509 = load i8, ptr %0, align 1, !tbaa !50
+  %1509 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1509, label %3901 [
     i8 99, label %1510
     i8 103, label %1512
@@ -18273,7 +18273,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1512:                                             ; preds = %1508
   %1513 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1514 = load i8, ptr %1513, align 1, !tbaa !50
+  %1514 = load i8, ptr %1513, align 1, !tbaa !48
   switch i8 %1514, label %3901 [
     i8 110, label %1515
     i8 115, label %1568
@@ -18287,7 +18287,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1517:                                             ; preds = %1515
   %1518 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %1519 = load i8, ptr %1518, align 1, !tbaa !50
+  %1519 = load i8, ptr %1518, align 1, !tbaa !48
   switch i8 %1519, label %3901 [
     i8 95, label %1520
     i8 97, label %1522
@@ -18307,7 +18307,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1522:                                             ; preds = %1517
   %1523 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %1524 = load i8, ptr %1523, align 1, !tbaa !50
+  %1524 = load i8, ptr %1523, align 1, !tbaa !48
   switch i8 %1524, label %3901 [
     i8 98, label %1525
     i8 108, label %1527
@@ -18339,13 +18339,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1533:                                             ; preds = %1517
   %1534 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %1535 = load i8, ptr %1534, align 1, !tbaa !50
+  %1535 = load i8, ptr %1534, align 1, !tbaa !48
   %.not1585 = icmp eq i8 %1535, 111
   br i1 %.not1585, label %1536, label %3901
 
 1536:                                             ; preds = %1533
   %1537 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %1538 = load i8, ptr %1537, align 1, !tbaa !50
+  %1538 = load i8, ptr %1537, align 1, !tbaa !48
   switch i8 %1538, label %3901 [
     i8 100, label %1539
     i8 110, label %1541
@@ -18378,7 +18378,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1547:                                             ; preds = %1545
   %1548 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1549 = load i8, ptr %1548, align 1, !tbaa !50
+  %1549 = load i8, ptr %1548, align 1, !tbaa !48
   switch i8 %1549, label %3901 [
     i8 99, label %1550
     i8 112, label %1552
@@ -18398,7 +18398,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1554:                                             ; preds = %1517
   %1555 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %1556 = load i8, ptr %1555, align 1, !tbaa !50
+  %1556 = load i8, ptr %1555, align 1, !tbaa !48
   switch i8 %1556, label %3901 [
     i8 101, label %1557
     i8 116, label %1559
@@ -18418,7 +18418,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1561:                                             ; preds = %1517
   %1562 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %1563 = load i8, ptr %1562, align 1, !tbaa !50
+  %1563 = load i8, ptr %1562, align 1, !tbaa !48
   switch i8 %1563, label %3901 [
     i8 97, label %1564
     i8 101, label %1566
@@ -18455,7 +18455,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1564, label %3902, label %3901
 
 1574:                                             ; preds = %1396
-  %1575 = load i8, ptr %0, align 1, !tbaa !50
+  %1575 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1575, label %3901 [
     i8 99, label %1576
     i8 103, label %1587
@@ -18469,7 +18469,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1578:                                             ; preds = %1576
   %1579 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %1580 = load i8, ptr %1579, align 1, !tbaa !50
+  %1580 = load i8, ptr %1579, align 1, !tbaa !48
   switch i8 %1580, label %3901 [
     i8 97, label %1581
     i8 98, label %1583
@@ -18496,7 +18496,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1587:                                             ; preds = %1574
   %1588 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1589 = load i8, ptr %1588, align 1, !tbaa !50
+  %1589 = load i8, ptr %1588, align 1, !tbaa !48
   switch i8 %1589, label %3901 [
     i8 110, label %1590
     i8 115, label %1620
@@ -18510,7 +18510,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1592:                                             ; preds = %1590
   %1593 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %1594 = load i8, ptr %1593, align 1, !tbaa !50
+  %1594 = load i8, ptr %1593, align 1, !tbaa !48
   switch i8 %1594, label %3901 [
     i8 102, label %1595
     i8 110, label %1597
@@ -18526,13 +18526,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1597:                                             ; preds = %1592
   %1598 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %1599 = load i8, ptr %1598, align 1, !tbaa !50
+  %1599 = load i8, ptr %1598, align 1, !tbaa !48
   %.not1544 = icmp eq i8 %1599, 111
   br i1 %.not1544, label %1600, label %3901
 
 1600:                                             ; preds = %1597
   %1601 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %1602 = load i8, ptr %1601, align 1, !tbaa !50
+  %1602 = load i8, ptr %1601, align 1, !tbaa !48
   switch i8 %1602, label %3901 [
     i8 99, label %1603
     i8 105, label %1605
@@ -18566,7 +18566,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1611:                                             ; preds = %1592
   %1612 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %1613 = load i8, ptr %1612, align 1, !tbaa !50
+  %1613 = load i8, ptr %1612, align 1, !tbaa !48
   switch i8 %1613, label %3901 [
     i8 101, label %1614
     i8 121, label %1616
@@ -18597,7 +18597,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1535, label %3902, label %3901
 
 1622:                                             ; preds = %1396
-  %1623 = load i8, ptr %0, align 1, !tbaa !50
+  %1623 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1623, label %3901 [
     i8 99, label %1624
     i8 103, label %1648
@@ -18612,7 +18612,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1626:                                             ; preds = %1624
   %1627 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %1628 = load i8, ptr %1627, align 1, !tbaa !50
+  %1628 = load i8, ptr %1627, align 1, !tbaa !48
   switch i8 %1628, label %3901 [
     i8 109, label %1629
     i8 110, label %1631
@@ -18627,13 +18627,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1631:                                             ; preds = %1626
   %1632 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1633 = load i8, ptr %1632, align 1, !tbaa !50
+  %1633 = load i8, ptr %1632, align 1, !tbaa !48
   %.not1527 = icmp eq i8 %1633, 111
   br i1 %.not1527, label %1634, label %3901
 
 1634:                                             ; preds = %1631
   %1635 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1636 = load i8, ptr %1635, align 1, !tbaa !50
+  %1636 = load i8, ptr %1635, align 1, !tbaa !48
   switch i8 %1636, label %3901 [
     i8 100, label %1637
     i8 109, label %1639
@@ -18653,7 +18653,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1641:                                             ; preds = %1626
   %1642 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1643 = load i8, ptr %1642, align 1, !tbaa !50
+  %1643 = load i8, ptr %1642, align 1, !tbaa !48
   switch i8 %1643, label %3901 [
     i8 98, label %1644
     i8 112, label %1646
@@ -18679,7 +18679,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1650:                                             ; preds = %1648
   %1651 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %1652 = load i8, ptr %1651, align 1, !tbaa !50
+  %1652 = load i8, ptr %1651, align 1, !tbaa !48
   switch i8 %1652, label %3901 [
     i8 100, label %1653
     i8 105, label %1662
@@ -18697,7 +18697,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1655:                                             ; preds = %1653
   %1656 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1657 = load i8, ptr %1656, align 1, !tbaa !50
+  %1657 = load i8, ptr %1656, align 1, !tbaa !48
   switch i8 %1657, label %3901 [
     i8 101, label %1658
     i8 105, label %1660
@@ -18729,7 +18729,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1666:                                             ; preds = %1650
   %1667 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %1668 = load i8, ptr %1667, align 1, !tbaa !50
+  %1668 = load i8, ptr %1667, align 1, !tbaa !48
   switch i8 %1668, label %3901 [
     i8 97, label %1669
     i8 105, label %1671
@@ -18773,7 +18773,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1498, label %3902, label %3901
 
 1681:                                             ; preds = %1396
-  %1682 = load i8, ptr %0, align 1, !tbaa !50
+  %1682 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1682, label %3901 [
     i8 99, label %1683
     i8 103, label %1730
@@ -18788,7 +18788,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1685:                                             ; preds = %1683
   %1686 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %1687 = load i8, ptr %1686, align 1, !tbaa !50
+  %1687 = load i8, ptr %1686, align 1, !tbaa !48
   switch i8 %1687, label %3901 [
     i8 78, label %1688
     i8 97, label %1690
@@ -18826,13 +18826,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1696:                                             ; preds = %1685
   %1697 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1698 = load i8, ptr %1697, align 1, !tbaa !50
+  %1698 = load i8, ptr %1697, align 1, !tbaa !48
   %.not1484 = icmp eq i8 %1698, 98
   br i1 %.not1484, label %1699, label %3901
 
 1699:                                             ; preds = %1696
   %1700 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1701 = load i8, ptr %1700, align 1, !tbaa !50
+  %1701 = load i8, ptr %1700, align 1, !tbaa !48
   switch i8 %1701, label %3901 [
     i8 97, label %1702
     i8 111, label %1704
@@ -18852,7 +18852,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1706:                                             ; preds = %1685
   %1707 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1708 = load i8, ptr %1707, align 1, !tbaa !50
+  %1708 = load i8, ptr %1707, align 1, !tbaa !48
   switch i8 %1708, label %3901 [
     i8 54, label %1709
     i8 117, label %1711
@@ -18872,13 +18872,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1713:                                             ; preds = %1685
   %1714 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1715 = load i8, ptr %1714, align 1, !tbaa !50
+  %1715 = load i8, ptr %1714, align 1, !tbaa !48
   %.not1475 = icmp eq i8 %1715, 111
   br i1 %.not1475, label %1716, label %3901
 
 1716:                                             ; preds = %1713
   %1717 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1718 = load i8, ptr %1717, align 1, !tbaa !50
+  %1718 = load i8, ptr %1717, align 1, !tbaa !48
   switch i8 %1718, label %3901 [
     i8 101, label %1719
     i8 105, label %1721
@@ -18898,7 +18898,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1723:                                             ; preds = %1685
   %1724 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1725 = load i8, ptr %1724, align 1, !tbaa !50
+  %1725 = load i8, ptr %1724, align 1, !tbaa !48
   switch i8 %1725, label %3901 [
     i8 105, label %1726
     i8 117, label %1728
@@ -18924,7 +18924,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1732:                                             ; preds = %1730
   %1733 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %1734 = load i8, ptr %1733, align 1, !tbaa !50
+  %1734 = load i8, ptr %1733, align 1, !tbaa !48
   switch i8 %1734, label %3901 [
     i8 97, label %1735
     i8 100, label %1742
@@ -18937,7 +18937,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1735:                                             ; preds = %1732
   %1736 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %1737 = load i8, ptr %1736, align 1, !tbaa !50
+  %1737 = load i8, ptr %1736, align 1, !tbaa !48
   switch i8 %1737, label %3901 [
     i8 108, label %1738
     i8 114, label %1740
@@ -18957,13 +18957,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1742:                                             ; preds = %1732
   %1743 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %1744 = load i8, ptr %1743, align 1, !tbaa !50
+  %1744 = load i8, ptr %1743, align 1, !tbaa !48
   %.not1460 = icmp eq i8 %1744, 101
   br i1 %.not1460, label %1745, label %3901
 
 1745:                                             ; preds = %1742
   %1746 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %1747 = load i8, ptr %1746, align 1, !tbaa !50
+  %1747 = load i8, ptr %1746, align 1, !tbaa !48
   switch i8 %1747, label %3901 [
     i8 112, label %1748
     i8 115, label %1750
@@ -19018,7 +19018,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1447, label %3902, label %3901
 
 1764:                                             ; preds = %1396
-  %1765 = load i8, ptr %0, align 1, !tbaa !50
+  %1765 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1765, label %3901 [
     i8 99, label %1766
     i8 103, label %1779
@@ -19034,7 +19034,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1768:                                             ; preds = %1766
   %1769 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %1770 = load i8, ptr %1769, align 1, !tbaa !50
+  %1770 = load i8, ptr %1769, align 1, !tbaa !48
   switch i8 %1770, label %3901 [
     i8 102, label %1771
     i8 110, label %1773
@@ -19074,7 +19074,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1781:                                             ; preds = %1779
   %1782 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %1783 = load i8, ptr %1782, align 1, !tbaa !50
+  %1783 = load i8, ptr %1782, align 1, !tbaa !48
   switch i8 %1783, label %3901 [
     i8 97, label %1784
     i8 99, label %1786
@@ -19133,7 +19133,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1419, label %3902, label %3901
 
 1800:                                             ; preds = %1396
-  %1801 = load i8, ptr %0, align 1, !tbaa !50
+  %1801 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1801, label %3901 [
     i8 99, label %1802
     i8 110, label %1841
@@ -19147,7 +19147,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1804:                                             ; preds = %1802
   %1805 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %1806 = load i8, ptr %1805, align 1, !tbaa !50
+  %1806 = load i8, ptr %1805, align 1, !tbaa !48
   switch i8 %1806, label %3901 [
     i8 97, label %1807
     i8 99, label %1809
@@ -19164,7 +19164,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1809:                                             ; preds = %1804
   %1810 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1811 = load i8, ptr %1810, align 1, !tbaa !50
+  %1811 = load i8, ptr %1810, align 1, !tbaa !48
   switch i8 %1811, label %3901 [
     i8 97, label %1812
     i8 111, label %1814
@@ -19178,7 +19178,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1814:                                             ; preds = %1809
   %1815 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1816 = load i8, ptr %1815, align 1, !tbaa !50
+  %1816 = load i8, ptr %1815, align 1, !tbaa !48
   switch i8 %1816, label %3901 [
     i8 100, label %1817
     i8 110, label %1819
@@ -19193,7 +19193,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1819:                                             ; preds = %1814
   %1820 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %1821 = load i8, ptr %1820, align 1, !tbaa !50
+  %1821 = load i8, ptr %1820, align 1, !tbaa !48
   switch i8 %1821, label %3901 [
     i8 115, label %1822
     i8 118, label %1824
@@ -19225,7 +19225,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1830:                                             ; preds = %1828
   %1831 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %1832 = load i8, ptr %1831, align 1, !tbaa !50
+  %1832 = load i8, ptr %1831, align 1, !tbaa !48
   switch i8 %1832, label %3901 [
     i8 98, label %1833
     i8 100, label %1835
@@ -19262,7 +19262,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1393, label %3902, label %3901
 
 1843:                                             ; preds = %1396
-  %1844 = load i8, ptr %0, align 1, !tbaa !50
+  %1844 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1844, label %3901 [
     i8 99, label %1845
     i8 103, label %1926
@@ -19270,7 +19270,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1845:                                             ; preds = %1843
   %1846 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %1847 = load i8, ptr %1846, align 1, !tbaa !50
+  %1847 = load i8, ptr %1846, align 1, !tbaa !48
   switch i8 %1847, label %3901 [
     i8 97, label %1848
     i8 108, label %1850
@@ -19290,7 +19290,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1852:                                             ; preds = %1850
   %1853 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %1854 = load i8, ptr %1853, align 1, !tbaa !50
+  %1854 = load i8, ptr %1853, align 1, !tbaa !48
   switch i8 %1854, label %3901 [
     i8 99, label %1855
     i8 101, label %1862
@@ -19308,7 +19308,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1855:                                             ; preds = %1852
   %1856 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1857 = load i8, ptr %1856, align 1, !tbaa !50
+  %1857 = load i8, ptr %1856, align 1, !tbaa !48
   switch i8 %1857, label %3901 [
     i8 97, label %1858
     i8 102, label %1860
@@ -19328,7 +19328,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1862:                                             ; preds = %1852
   %1863 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1864 = load i8, ptr %1863, align 1, !tbaa !50
+  %1864 = load i8, ptr %1863, align 1, !tbaa !48
   switch i8 %1864, label %3901 [
     i8 110, label %1865
     i8 120, label %1867
@@ -19366,13 +19366,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1875:                                             ; preds = %1852
   %1876 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1877 = load i8, ptr %1876, align 1, !tbaa !50
+  %1877 = load i8, ptr %1876, align 1, !tbaa !48
   %.not1371 = icmp eq i8 %1877, 97
   br i1 %.not1371, label %1878, label %3901
 
 1878:                                             ; preds = %1875
   %1879 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1880 = load i8, ptr %1879, align 1, !tbaa !50
+  %1880 = load i8, ptr %1879, align 1, !tbaa !48
   switch i8 %1880, label %3901 [
     i8 116, label %1881
     i8 121, label %1883
@@ -19392,7 +19392,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1885:                                             ; preds = %1852
   %1886 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1887 = load i8, ptr %1886, align 1, !tbaa !50
+  %1887 = load i8, ptr %1886, align 1, !tbaa !48
   switch i8 %1887, label %3901 [
     i8 111, label %1888
     i8 115, label %1897
@@ -19400,7 +19400,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1888:                                             ; preds = %1885
   %1889 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %1890 = load i8, ptr %1889, align 1, !tbaa !50
+  %1890 = load i8, ptr %1889, align 1, !tbaa !48
   switch i8 %1890, label %3901 [
     i8 95, label %1891
     i8 100, label %1893
@@ -19433,7 +19433,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1899:                                             ; preds = %1852
   %1900 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1901 = load i8, ptr %1900, align 1, !tbaa !50
+  %1901 = load i8, ptr %1900, align 1, !tbaa !48
   switch i8 %1901, label %3901 [
     i8 98, label %1902
     i8 115, label %1911
@@ -19447,7 +19447,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1904:                                             ; preds = %1902
   %1905 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %1906 = load i8, ptr %1905, align 1, !tbaa !50
+  %1906 = load i8, ptr %1905, align 1, !tbaa !48
   switch i8 %1906, label %3901 [
     i8 98, label %1907
     i8 100, label %1909
@@ -19473,7 +19473,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1913:                                             ; preds = %1852
   %1914 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1915 = load i8, ptr %1914, align 1, !tbaa !50
+  %1915 = load i8, ptr %1914, align 1, !tbaa !48
   switch i8 %1915, label %3901 [
     i8 119, label %1916
     i8 121, label %1918
@@ -19517,7 +19517,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1928:                                             ; preds = %1926
   %1929 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %1930 = load i8, ptr %1929, align 1, !tbaa !50
+  %1930 = load i8, ptr %1929, align 1, !tbaa !48
   switch i8 %1930, label %3901 [
     i8 97, label %1931
     i8 105, label %1933
@@ -19550,7 +19550,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1336, label %3902, label %3901
 
 1939:                                             ; preds = %1396
-  %1940 = load i8, ptr %0, align 1, !tbaa !50
+  %1940 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %1940, label %3901 [
     i8 99, label %1941
     i8 103, label %1994
@@ -19564,7 +19564,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1943:                                             ; preds = %1941
   %1944 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %1945 = load i8, ptr %1944, align 1, !tbaa !50
+  %1945 = load i8, ptr %1944, align 1, !tbaa !48
   switch i8 %1945, label %3901 [
     i8 97, label %1946
     i8 98, label %1948
@@ -19582,7 +19582,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1948:                                             ; preds = %1943
   %1949 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1950 = load i8, ptr %1949, align 1, !tbaa !50
+  %1950 = load i8, ptr %1949, align 1, !tbaa !48
   switch i8 %1950, label %3901 [
     i8 112, label %1951
     i8 116, label %1953
@@ -19602,7 +19602,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1955:                                             ; preds = %1953
   %1956 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %1957 = load i8, ptr %1956, align 1, !tbaa !50
+  %1957 = load i8, ptr %1956, align 1, !tbaa !48
   switch i8 %1957, label %3901 [
     i8 100, label %1958
     i8 116, label %1960
@@ -19622,7 +19622,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1962:                                             ; preds = %1943
   %1963 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1964 = load i8, ptr %1963, align 1, !tbaa !50
+  %1964 = load i8, ptr %1963, align 1, !tbaa !48
   switch i8 %1964, label %3901 [
     i8 111, label %1965
     i8 112, label %1967
@@ -19642,7 +19642,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1969:                                             ; preds = %1967
   %1970 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %1971 = load i8, ptr %1970, align 1, !tbaa !50
+  %1971 = load i8, ptr %1970, align 1, !tbaa !48
   switch i8 %1971, label %3901 [
     i8 100, label %1972
     i8 115, label %1974
@@ -19662,7 +19662,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1976:                                             ; preds = %1943
   %1977 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1978 = load i8, ptr %1977, align 1, !tbaa !50
+  %1978 = load i8, ptr %1977, align 1, !tbaa !48
   switch i8 %1978, label %3901 [
     i8 111, label %1979
     i8 118, label %1981
@@ -19682,7 +19682,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1983:                                             ; preds = %1943
   %1984 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1985 = load i8, ptr %1984, align 1, !tbaa !50
+  %1985 = load i8, ptr %1984, align 1, !tbaa !48
   switch i8 %1985, label %3901 [
     i8 98, label %1986
     i8 112, label %1988
@@ -19721,7 +19721,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 1996:                                             ; preds = %1994
   %1997 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %1998 = load i8, ptr %1997, align 1, !tbaa !50
+  %1998 = load i8, ptr %1997, align 1, !tbaa !48
   switch i8 %1998, label %3901 [
     i8 97, label %1999
     i8 110, label %2001
@@ -19747,7 +19747,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1296, label %3902, label %3901
 
 2005:                                             ; preds = %1396
-  %2006 = load i8, ptr %0, align 1, !tbaa !50
+  %2006 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2006, label %3901 [
     i8 99, label %2007
     i8 103, label %2057
@@ -19762,7 +19762,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2009:                                             ; preds = %2007
   %2010 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2011 = load i8, ptr %2010, align 1, !tbaa !50
+  %2011 = load i8, ptr %2010, align 1, !tbaa !48
   switch i8 %2011, label %3901 [
     i8 97, label %2012
     i8 98, label %2023
@@ -19780,7 +19780,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2012:                                             ; preds = %2009
   %2013 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2014 = load i8, ptr %2013, align 1, !tbaa !50
+  %2014 = load i8, ptr %2013, align 1, !tbaa !48
   switch i8 %2014, label %3901 [
     i8 100, label %2015
     i8 108, label %2017
@@ -19856,7 +19856,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2037:                                             ; preds = %2035
   %2038 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %2039 = load i8, ptr %2038, align 1, !tbaa !50
+  %2039 = load i8, ptr %2038, align 1, !tbaa !48
   switch i8 %2039, label %3901 [
     i8 109, label %2040
     i8 110, label %2042
@@ -19882,7 +19882,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2046:                                             ; preds = %2009
   %2047 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2048 = load i8, ptr %2047, align 1, !tbaa !50
+  %2048 = load i8, ptr %2047, align 1, !tbaa !48
   switch i8 %2048, label %3901 [
     i8 101, label %2049
     i8 119, label %2051
@@ -19920,7 +19920,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2059:                                             ; preds = %2057
   %2060 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %2061 = load i8, ptr %2060, align 1, !tbaa !50
+  %2061 = load i8, ptr %2060, align 1, !tbaa !48
   switch i8 %2061, label %3901 [
     i8 102, label %2062
     i8 114, label %2064
@@ -19946,7 +19946,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2068:                                             ; preds = %2066
   %2069 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %2070 = load i8, ptr %2069, align 1, !tbaa !50
+  %2070 = load i8, ptr %2069, align 1, !tbaa !48
   switch i8 %2070, label %3901 [
     i8 99, label %2071
     i8 114, label %2073
@@ -19965,7 +19965,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1246, label %3902, label %3901
 
 2075:                                             ; preds = %1396
-  %2076 = load i8, ptr %0, align 1, !tbaa !50
+  %2076 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2076, label %3901 [
     i8 99, label %2077
     i8 103, label %2132
@@ -19979,7 +19979,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2079:                                             ; preds = %2077
   %2080 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2081 = load i8, ptr %2080, align 1, !tbaa !50
+  %2081 = load i8, ptr %2080, align 1, !tbaa !48
   switch i8 %2081, label %3901 [
     i8 97, label %2082
     i8 105, label %2089
@@ -19992,7 +19992,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2082:                                             ; preds = %2079
   %2083 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2084 = load i8, ptr %2083, align 1, !tbaa !50
+  %2084 = load i8, ptr %2083, align 1, !tbaa !48
   switch i8 %2084, label %3901 [
     i8 99, label %2085
     i8 108, label %2087
@@ -20018,7 +20018,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2091:                                             ; preds = %2079
   %2092 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2093 = load i8, ptr %2092, align 1, !tbaa !50
+  %2093 = load i8, ptr %2092, align 1, !tbaa !48
   switch i8 %2093, label %3901 [
     i8 98, label %2094
     i8 112, label %2103
@@ -20032,7 +20032,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2096:                                             ; preds = %2094
   %2097 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %2098 = load i8, ptr %2097, align 1, !tbaa !50
+  %2098 = load i8, ptr %2097, align 1, !tbaa !48
   switch i8 %2098, label %3901 [
     i8 101, label %2099
     i8 111, label %2101
@@ -20058,7 +20058,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2105:                                             ; preds = %2103
   %2106 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %2107 = load i8, ptr %2106, align 1, !tbaa !50
+  %2107 = load i8, ptr %2106, align 1, !tbaa !48
   switch i8 %2107, label %3901 [
     i8 103, label %2108
     i8 112, label %2110
@@ -20078,7 +20078,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2112:                                             ; preds = %2079
   %2113 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2114 = load i8, ptr %2113, align 1, !tbaa !50
+  %2114 = load i8, ptr %2113, align 1, !tbaa !48
   switch i8 %2114, label %3901 [
     i8 114, label %2115
     i8 116, label %2124
@@ -20092,7 +20092,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2117:                                             ; preds = %2115
   %2118 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %2119 = load i8, ptr %2118, align 1, !tbaa !50
+  %2119 = load i8, ptr %2118, align 1, !tbaa !48
   switch i8 %2119, label %3901 [
     i8 110, label %2120
     i8 116, label %2122
@@ -20141,7 +20141,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1208, label %3902, label %3901
 
 2134:                                             ; preds = %1396
-  %2135 = load i8, ptr %0, align 1, !tbaa !50
+  %2135 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2135, label %3901 [
     i8 99, label %2136
     i8 103, label %2195
@@ -20155,7 +20155,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2138:                                             ; preds = %2136
   %2139 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2140 = load i8, ptr %2139, align 1, !tbaa !50
+  %2140 = load i8, ptr %2139, align 1, !tbaa !48
   switch i8 %2140, label %3901 [
     i8 97, label %2141
     i8 110, label %2155
@@ -20169,7 +20169,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2141:                                             ; preds = %2138
   %2142 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2143 = load i8, ptr %2142, align 1, !tbaa !50
+  %2143 = load i8, ptr %2142, align 1, !tbaa !48
   switch i8 %2143, label %3901 [
     i8 97, label %2144
     i8 109, label %2146
@@ -20189,7 +20189,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2148:                                             ; preds = %2146
   %2149 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %2150 = load i8, ptr %2149, align 1, !tbaa !50
+  %2150 = load i8, ptr %2149, align 1, !tbaa !48
   switch i8 %2150, label %3901 [
     i8 115, label %2151
     i8 118, label %2153
@@ -20215,7 +20215,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2157:                                             ; preds = %2138
   %2158 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2159 = load i8, ptr %2158, align 1, !tbaa !50
+  %2159 = load i8, ptr %2158, align 1, !tbaa !48
   switch i8 %2159, label %3901 [
     i8 98, label %2160
     i8 112, label %2169
@@ -20230,7 +20230,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2162:                                             ; preds = %2160
   %2163 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %2164 = load i8, ptr %2163, align 1, !tbaa !50
+  %2164 = load i8, ptr %2163, align 1, !tbaa !48
   switch i8 %2164, label %3901 [
     i8 99, label %2165
     i8 114, label %2167
@@ -20262,7 +20262,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2173:                                             ; preds = %2171
   %2174 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %2175 = load i8, ptr %2174, align 1, !tbaa !50
+  %2175 = load i8, ptr %2174, align 1, !tbaa !48
   switch i8 %2175, label %3901 [
     i8 104, label %2176
     i8 116, label %2178
@@ -20306,7 +20306,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2188:                                             ; preds = %2138
   %2189 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2190 = load i8, ptr %2189, align 1, !tbaa !50
+  %2190 = load i8, ptr %2189, align 1, !tbaa !48
   switch i8 %2190, label %3901 [
     i8 110, label %2191
     i8 115, label %2193
@@ -20331,7 +20331,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1168, label %3902, label %3901
 
 2197:                                             ; preds = %1396
-  %2198 = load i8, ptr %0, align 1, !tbaa !50
+  %2198 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2198, label %3901 [
     i8 99, label %2199
     i8 103, label %2234
@@ -20346,7 +20346,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2201:                                             ; preds = %2199
   %2202 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2203 = load i8, ptr %2202, align 1, !tbaa !50
+  %2203 = load i8, ptr %2202, align 1, !tbaa !48
   switch i8 %2203, label %3901 [
     i8 99, label %2204
     i8 101, label %2206
@@ -20392,7 +20392,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2214:                                             ; preds = %2201
   %2215 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2216 = load i8, ptr %2215, align 1, !tbaa !50
+  %2216 = load i8, ptr %2215, align 1, !tbaa !48
   switch i8 %2216, label %3901 [
     i8 101, label %2217
     i8 115, label %2219
@@ -20430,7 +20430,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2227:                                             ; preds = %2201
   %2228 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2229 = load i8, ptr %2228, align 1, !tbaa !50
+  %2229 = load i8, ptr %2228, align 1, !tbaa !48
   switch i8 %2229, label %3901 [
     i8 105, label %2230
     i8 116, label %2232
@@ -20456,7 +20456,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2236:                                             ; preds = %2234
   %2237 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %2238 = load i8, ptr %2237, align 1, !tbaa !50
+  %2238 = load i8, ptr %2237, align 1, !tbaa !48
   switch i8 %2238, label %3901 [
     i8 110, label %2239
     i8 119, label %2248
@@ -20470,7 +20470,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2241:                                             ; preds = %2239
   %2242 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %2243 = load i8, ptr %2242, align 1, !tbaa !50
+  %2243 = load i8, ptr %2242, align 1, !tbaa !48
   switch i8 %2243, label %3901 [
     i8 97, label %2244
     i8 116, label %2246
@@ -20501,7 +20501,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1130, label %3902, label %3901
 
 2252:                                             ; preds = %1396
-  %2253 = load i8, ptr %0, align 1, !tbaa !50
+  %2253 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2253, label %3901 [
     i8 99, label %2254
     i8 103, label %2275
@@ -20515,7 +20515,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2256:                                             ; preds = %2254
   %2257 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2258 = load i8, ptr %2257, align 1, !tbaa !50
+  %2258 = load i8, ptr %2257, align 1, !tbaa !48
   switch i8 %2258, label %3901 [
     i8 97, label %2259
     i8 111, label %2261
@@ -20530,7 +20530,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2261:                                             ; preds = %2256
   %2262 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2263 = load i8, ptr %2262, align 1, !tbaa !50
+  %2263 = load i8, ptr %2262, align 1, !tbaa !48
   switch i8 %2263, label %3901 [
     i8 98, label %2264
     i8 119, label %2266
@@ -20550,7 +20550,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2268:                                             ; preds = %2256
   %2269 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2270 = load i8, ptr %2269, align 1, !tbaa !50
+  %2270 = load i8, ptr %2269, align 1, !tbaa !48
   switch i8 %2270, label %3901 [
     i8 104, label %2271
     i8 119, label %2273
@@ -20576,7 +20576,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2277:                                             ; preds = %2275
   %2278 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %2279 = load i8, ptr %2278, align 1, !tbaa !50
+  %2279 = load i8, ptr %2278, align 1, !tbaa !48
   switch i8 %2279, label %3901 [
     i8 110, label %2280
     i8 122, label %2289
@@ -20590,7 +20590,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2282:                                             ; preds = %2280
   %2283 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2284 = load i8, ptr %2283, align 1, !tbaa !50
+  %2284 = load i8, ptr %2283, align 1, !tbaa !48
   switch i8 %2284, label %3901 [
     i8 114, label %2285
     i8 115, label %2287
@@ -20621,7 +20621,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2292:                                             ; preds = %2291
   %2293 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2294 = load i8, ptr %2293, align 1, !tbaa !50
+  %2294 = load i8, ptr %2293, align 1, !tbaa !48
   switch i8 %2294, label %3901 [
     i8 97, label %2295
     i8 99, label %2302
@@ -20638,7 +20638,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2295:                                             ; preds = %2292
   %2296 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2297 = load i8, ptr %2296, align 1, !tbaa !50
+  %2297 = load i8, ptr %2296, align 1, !tbaa !48
   switch i8 %2297, label %3901 [
     i8 97, label %2298
     i8 99, label %2300
@@ -20658,13 +20658,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2302:                                             ; preds = %2292
   %2303 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2304 = load i8, ptr %2303, align 1, !tbaa !50
+  %2304 = load i8, ptr %2303, align 1, !tbaa !48
   %.not1098 = icmp eq i8 %2304, 111
   br i1 %.not1098, label %2305, label %3901
 
 2305:                                             ; preds = %2302
   %2306 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %2307 = load i8, ptr %2306, align 1, !tbaa !50
+  %2307 = load i8, ptr %2306, align 1, !tbaa !48
   switch i8 %2307, label %3901 [
     i8 114, label %2308
     i8 117, label %2310
@@ -20714,7 +20714,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2322:                                             ; preds = %2320
   %2323 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %2324 = load i8, ptr %2323, align 1, !tbaa !50
+  %2324 = load i8, ptr %2323, align 1, !tbaa !48
   switch i8 %2324, label %3901 [
     i8 97, label %2325
     i8 112, label %2327
@@ -20741,7 +20741,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2331:                                             ; preds = %2292
   %2332 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2333 = load i8, ptr %2332, align 1, !tbaa !50
+  %2333 = load i8, ptr %2332, align 1, !tbaa !48
   switch i8 %2333, label %3901 [
     i8 98, label %2334
     i8 112, label %2343
@@ -20755,7 +20755,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2336:                                             ; preds = %2334
   %2337 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %2338 = load i8, ptr %2337, align 1, !tbaa !50
+  %2338 = load i8, ptr %2337, align 1, !tbaa !48
   switch i8 %2338, label %3901 [
     i8 109, label %2339
     i8 110, label %2341
@@ -20787,7 +20787,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2347:                                             ; preds = %2292
   %2348 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2349 = load i8, ptr %2348, align 1, !tbaa !50
+  %2349 = load i8, ptr %2348, align 1, !tbaa !48
   switch i8 %2349, label %3901 [
     i8 119, label %2350
     i8 121, label %2352
@@ -20818,7 +20818,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2357:                                             ; preds = %2356
   %2358 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2359 = load i8, ptr %2358, align 1, !tbaa !50
+  %2359 = load i8, ptr %2358, align 1, !tbaa !48
   switch i8 %2359, label %3901 [
     i8 97, label %2360
     i8 99, label %2362
@@ -20839,7 +20839,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2362:                                             ; preds = %2357
   %2363 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2364 = load i8, ptr %2363, align 1, !tbaa !50
+  %2364 = load i8, ptr %2363, align 1, !tbaa !48
   switch i8 %2364, label %3901 [
     i8 102, label %2365
     i8 111, label %2377
@@ -20847,13 +20847,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2365:                                             ; preds = %2362
   %2366 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %2367 = load i8, ptr %2366, align 1, !tbaa !50
+  %2367 = load i8, ptr %2366, align 1, !tbaa !48
   %.not1055 = icmp eq i8 %2367, 95
   br i1 %.not1055, label %2368, label %3901
 
 2368:                                             ; preds = %2365
   %2369 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %2370 = load i8, ptr %2369, align 1, !tbaa !50
+  %2370 = load i8, ptr %2369, align 1, !tbaa !48
   switch i8 %2370, label %3901 [
     i8 97, label %2371
     i8 114, label %2373
@@ -20904,7 +20904,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2385:                                             ; preds = %2357
   %2386 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2387 = load i8, ptr %2386, align 1, !tbaa !50
+  %2387 = load i8, ptr %2386, align 1, !tbaa !48
   switch i8 %2387, label %3901 [
     i8 98, label %2388
     i8 115, label %2406
@@ -20918,7 +20918,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2390:                                             ; preds = %2388
   %2391 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %2392 = load i8, ptr %2391, align 1, !tbaa !50
+  %2392 = load i8, ptr %2391, align 1, !tbaa !48
   switch i8 %2392, label %3901 [
     i8 98, label %2393
     i8 100, label %2402
@@ -20933,7 +20933,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2395:                                             ; preds = %2393
   %2396 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %2397 = load i8, ptr %2396, align 1, !tbaa !50
+  %2397 = load i8, ptr %2396, align 1, !tbaa !48
   switch i8 %2397, label %3901 [
     i8 109, label %2398
     i8 114, label %2400
@@ -20988,7 +20988,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1028, label %3902, label %3901
 
 2414:                                             ; preds = %1396
-  %2415 = load i8, ptr %0, align 1, !tbaa !50
+  %2415 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2415, label %3901 [
     i8 99, label %2416
     i8 103, label %2434
@@ -21002,7 +21002,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2418:                                             ; preds = %2416
   %2419 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2420 = load i8, ptr %2419, align 1, !tbaa !50
+  %2420 = load i8, ptr %2419, align 1, !tbaa !48
   switch i8 %2420, label %3901 [
     i8 99, label %2421
     i8 108, label %2423
@@ -21030,7 +21030,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2427:                                             ; preds = %2418
   %2428 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2429 = load i8, ptr %2428, align 1, !tbaa !50
+  %2429 = load i8, ptr %2428, align 1, !tbaa !48
   switch i8 %2429, label %3901 [
     i8 98, label %2430
     i8 112, label %2432
@@ -21055,7 +21055,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not1012, label %3902, label %3901
 
 2436:                                             ; preds = %1396
-  %2437 = load i8, ptr %0, align 1, !tbaa !50
+  %2437 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2437, label %3901 [
     i8 99, label %2438
     i8 103, label %2465
@@ -21069,7 +21069,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2440:                                             ; preds = %2438
   %2441 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2442 = load i8, ptr %2441, align 1, !tbaa !50
+  %2442 = load i8, ptr %2441, align 1, !tbaa !48
   switch i8 %2442, label %3901 [
     i8 108, label %2443
     i8 111, label %2445
@@ -21093,7 +21093,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2447:                                             ; preds = %2440
   %2448 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2449 = load i8, ptr %2448, align 1, !tbaa !50
+  %2449 = load i8, ptr %2448, align 1, !tbaa !48
   switch i8 %2449, label %3901 [
     i8 111, label %2450
     i8 114, label %2452
@@ -21113,7 +21113,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2454:                                             ; preds = %2440
   %2455 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2456 = load i8, ptr %2455, align 1, !tbaa !50
+  %2456 = load i8, ptr %2455, align 1, !tbaa !48
   switch i8 %2456, label %3901 [
     i8 104, label %2457
     i8 119, label %2459
@@ -21150,7 +21150,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not992, label %3902, label %3901
 
 2467:                                             ; preds = %1396
-  %2468 = load i8, ptr %0, align 1, !tbaa !50
+  %2468 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2468, label %3901 [
     i8 99, label %2469
     i8 103, label %2491
@@ -21164,7 +21164,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2471:                                             ; preds = %2469
   %2472 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2473 = load i8, ptr %2472, align 1, !tbaa !50
+  %2473 = load i8, ptr %2472, align 1, !tbaa !48
   switch i8 %2473, label %3901 [
     i8 97, label %2474
     i8 101, label %2476
@@ -21194,7 +21194,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2480:                                             ; preds = %2471
   %2481 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2482 = load i8, ptr %2481, align 1, !tbaa !50
+  %2482 = load i8, ptr %2481, align 1, !tbaa !48
   switch i8 %2482, label %3901 [
     i8 114, label %2483
     i8 116, label %2485
@@ -21231,7 +21231,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not974, label %3902, label %3901
 
 2493:                                             ; preds = %1396
-  %2494 = load i8, ptr %0, align 1, !tbaa !50
+  %2494 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2494, label %3901 [
     i8 99, label %2495
     i8 103, label %2515
@@ -21245,7 +21245,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2497:                                             ; preds = %2495
   %2498 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2499 = load i8, ptr %2498, align 1, !tbaa !50
+  %2499 = load i8, ptr %2498, align 1, !tbaa !48
   switch i8 %2499, label %3901 [
     i8 99, label %2500
     i8 110, label %2502
@@ -21267,7 +21267,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2504:                                             ; preds = %2502
   %2505 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %2506 = load i8, ptr %2505, align 1, !tbaa !50
+  %2506 = load i8, ptr %2505, align 1, !tbaa !48
   switch i8 %2506, label %3901 [
     i8 97, label %2507
     i8 110, label %2509
@@ -21304,7 +21304,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not958, label %3902, label %3901
 
 2517:                                             ; preds = %1396
-  %2518 = load i8, ptr %0, align 1, !tbaa !50
+  %2518 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2518, label %3901 [
     i8 99, label %2519
     i8 103, label %2534
@@ -21318,7 +21318,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2521:                                             ; preds = %2519
   %2522 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2523 = load i8, ptr %2522, align 1, !tbaa !50
+  %2523 = load i8, ptr %2522, align 1, !tbaa !48
   switch i8 %2523, label %3901 [
     i8 97, label %2524
     i8 99, label %2526
@@ -21370,7 +21370,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2537:                                             ; preds = %2536
   %2538 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2539 = load i8, ptr %2538, align 1, !tbaa !50
+  %2539 = load i8, ptr %2538, align 1, !tbaa !48
   switch i8 %2539, label %3901 [
     i8 95, label %2540
     i8 97, label %2542
@@ -21416,7 +21416,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2551:                                             ; preds = %2550
   %2552 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2553 = load i8, ptr %2552, align 1, !tbaa !50
+  %2553 = load i8, ptr %2552, align 1, !tbaa !48
   switch i8 %2553, label %3901 [
     i8 97, label %2554
     i8 99, label %2556
@@ -21433,13 +21433,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2556:                                             ; preds = %2551
   %2557 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2558 = load i8, ptr %2557, align 1, !tbaa !50
+  %2558 = load i8, ptr %2557, align 1, !tbaa !48
   %.not924 = icmp eq i8 %2558, 111
   br i1 %.not924, label %2559, label %3901
 
 2559:                                             ; preds = %2556
   %2560 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %2561 = load i8, ptr %2560, align 1, !tbaa !50
+  %2561 = load i8, ptr %2560, align 1, !tbaa !48
   switch i8 %2561, label %3901 [
     i8 110, label %2562
     i8 114, label %2564
@@ -21465,13 +21465,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2568:                                             ; preds = %2551
   %2569 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2570 = load i8, ptr %2569, align 1, !tbaa !50
+  %2570 = load i8, ptr %2569, align 1, !tbaa !48
   %.not917 = icmp eq i8 %2570, 101
   br i1 %.not917, label %2571, label %3901
 
 2571:                                             ; preds = %2568
   %2572 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %2573 = load i8, ptr %2572, align 1, !tbaa !50
+  %2573 = load i8, ptr %2572, align 1, !tbaa !48
   switch i8 %2573, label %3901 [
     i8 108, label %2574
     i8 113, label %2576
@@ -21502,7 +21502,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2581:                                             ; preds = %2580
   %2582 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2583 = load i8, ptr %2582, align 1, !tbaa !50
+  %2583 = load i8, ptr %2582, align 1, !tbaa !48
   switch i8 %2583, label %3901 [
     i8 97, label %2584
     i8 101, label %2586
@@ -21523,7 +21523,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2588:                                             ; preds = %2581
   %2589 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2590 = load i8, ptr %2589, align 1, !tbaa !50
+  %2590 = load i8, ptr %2589, align 1, !tbaa !48
   switch i8 %2590, label %3901 [
     i8 98, label %2591
     i8 115, label %2600
@@ -21537,7 +21537,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2593:                                             ; preds = %2591
   %2594 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %2595 = load i8, ptr %2594, align 1, !tbaa !50
+  %2595 = load i8, ptr %2594, align 1, !tbaa !48
   switch i8 %2595, label %3901 [
     i8 100, label %2596
     i8 115, label %2598
@@ -21562,7 +21562,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not902, label %3902, label %3901
 
 2602:                                             ; preds = %1396
-  %2603 = load i8, ptr %0, align 1, !tbaa !50
+  %2603 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2603, label %3901 [
     i8 99, label %2604
     i8 103, label %2613
@@ -21576,7 +21576,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2606:                                             ; preds = %2604
   %2607 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %2608 = load i8, ptr %2607, align 1, !tbaa !50
+  %2608 = load i8, ptr %2607, align 1, !tbaa !48
   switch i8 %2608, label %3901 [
     i8 110, label %2609
     i8 114, label %2611
@@ -21607,7 +21607,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2616:                                             ; preds = %2615
   %2617 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2618 = load i8, ptr %2617, align 1, !tbaa !50
+  %2618 = load i8, ptr %2617, align 1, !tbaa !48
   switch i8 %2618, label %3901 [
     i8 110, label %2619
     i8 116, label %2621
@@ -21632,7 +21632,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2624:                                             ; preds = %2623
   %2625 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2626 = load i8, ptr %2625, align 1, !tbaa !50
+  %2626 = load i8, ptr %2625, align 1, !tbaa !48
   switch i8 %2626, label %3901 [
     i8 99, label %2627
     i8 111, label %2629
@@ -21659,7 +21659,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2633:                                             ; preds = %2631
   %2634 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %2635 = load i8, ptr %2634, align 1, !tbaa !50
+  %2635 = load i8, ptr %2634, align 1, !tbaa !48
   switch i8 %2635, label %3901 [
     i8 99, label %2636
     i8 101, label %2638
@@ -21694,7 +21694,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2643:                                             ; preds = %2642
   %2644 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2645 = load i8, ptr %2644, align 1, !tbaa !50
+  %2645 = load i8, ptr %2644, align 1, !tbaa !48
   switch i8 %2645, label %3901 [
     i8 95, label %2646
     i8 101, label %2648
@@ -21769,7 +21769,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   ]
 
 2655:                                             ; preds = %2654
-  %2656 = load i8, ptr %0, align 1, !tbaa !50
+  %2656 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2656, label %3901 [
     i8 103, label %2657
     i8 110, label %2668
@@ -21783,7 +21783,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2659:                                             ; preds = %2657
   %2660 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %2661 = load i8, ptr %2660, align 1, !tbaa !50
+  %2661 = load i8, ptr %2660, align 1, !tbaa !48
   switch i8 %2661, label %3901 [
     i8 102, label %2662
     i8 104, label %2664
@@ -21815,7 +21815,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not848, label %3902, label %3901
 
 2670:                                             ; preds = %2654
-  %2671 = load i8, ptr %0, align 1, !tbaa !50
+  %2671 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2671, label %3901 [
     i8 95, label %2672
     i8 103, label %2674
@@ -21836,7 +21836,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2676:                                             ; preds = %2674
   %2677 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %2678 = load i8, ptr %2677, align 1, !tbaa !50
+  %2678 = load i8, ptr %2677, align 1, !tbaa !48
   switch i8 %2678, label %3901 [
     i8 99, label %2679
     i8 108, label %2681
@@ -21896,7 +21896,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not828, label %3902, label %3901
 
 2695:                                             ; preds = %2654
-  %2696 = load i8, ptr %0, align 1, !tbaa !50
+  %2696 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2696, label %3901 [
     i8 100, label %2697
     i8 103, label %2699
@@ -21916,7 +21916,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2701:                                             ; preds = %2699
   %2702 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %2703 = load i8, ptr %2702, align 1, !tbaa !50
+  %2703 = load i8, ptr %2702, align 1, !tbaa !48
   switch i8 %2703, label %3901 [
     i8 97, label %2704
     i8 99, label %2706
@@ -21934,7 +21934,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2706:                                             ; preds = %2701
   %2707 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %2708 = load i8, ptr %2707, align 1, !tbaa !50
+  %2708 = load i8, ptr %2707, align 1, !tbaa !48
   switch i8 %2708, label %3901 [
     i8 100, label %2709
     i8 111, label %2711
@@ -21977,7 +21977,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not812, label %3902, label %3901
 
 2721:                                             ; preds = %2654
-  %2722 = load i8, ptr %0, align 1, !tbaa !50
+  %2722 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2722, label %3901 [
     i8 102, label %2723
     i8 103, label %2725
@@ -21997,7 +21997,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2727:                                             ; preds = %2725
   %2728 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %2729 = load i8, ptr %2728, align 1, !tbaa !50
+  %2729 = load i8, ptr %2728, align 1, !tbaa !48
   switch i8 %2729, label %3901 [
     i8 99, label %2730
     i8 102, label %2732
@@ -22023,7 +22023,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2734:                                             ; preds = %2727
   %2735 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %2736 = load i8, ptr %2735, align 1, !tbaa !50
+  %2736 = load i8, ptr %2735, align 1, !tbaa !48
   switch i8 %2736, label %3901 [
     i8 97, label %2737
     i8 105, label %2739
@@ -22079,7 +22079,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not788, label %3902, label %3901
 
 2753:                                             ; preds = %2654
-  %2754 = load i8, ptr %0, align 1, !tbaa !50
+  %2754 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2754, label %3901 [
     i8 99, label %2755
     i8 103, label %2757
@@ -22100,7 +22100,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2759:                                             ; preds = %2757
   %2760 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %2761 = load i8, ptr %2760, align 1, !tbaa !50
+  %2761 = load i8, ptr %2760, align 1, !tbaa !48
   switch i8 %2761, label %3901 [
     i8 95, label %2762
     i8 97, label %2764
@@ -22138,13 +22138,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2770:                                             ; preds = %2759
   %2771 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %2772 = load i8, ptr %2771, align 1, !tbaa !50
+  %2772 = load i8, ptr %2771, align 1, !tbaa !48
   %.not768 = icmp eq i8 %2772, 111
   br i1 %.not768, label %2773, label %3901
 
 2773:                                             ; preds = %2770
   %2774 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2775 = load i8, ptr %2774, align 1, !tbaa !50
+  %2775 = load i8, ptr %2774, align 1, !tbaa !48
   switch i8 %2775, label %3901 [
     i8 100, label %2776
     i8 110, label %2778
@@ -22177,7 +22177,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2784:                                             ; preds = %2782
   %2785 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2786 = load i8, ptr %2785, align 1, !tbaa !50
+  %2786 = load i8, ptr %2785, align 1, !tbaa !48
   switch i8 %2786, label %3901 [
     i8 99, label %2787
     i8 112, label %2789
@@ -22197,7 +22197,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2791:                                             ; preds = %2759
   %2792 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %2793 = load i8, ptr %2792, align 1, !tbaa !50
+  %2793 = load i8, ptr %2792, align 1, !tbaa !48
   switch i8 %2793, label %3901 [
     i8 101, label %2794
     i8 116, label %2796
@@ -22217,7 +22217,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2798:                                             ; preds = %2759
   %2799 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %2800 = load i8, ptr %2799, align 1, !tbaa !50
+  %2800 = load i8, ptr %2799, align 1, !tbaa !48
   switch i8 %2800, label %3901 [
     i8 97, label %2801
     i8 101, label %2803
@@ -22242,7 +22242,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not751, label %3902, label %3901
 
 2807:                                             ; preds = %2654
-  %2808 = load i8, ptr %0, align 1, !tbaa !50
+  %2808 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2808, label %3901 [
     i8 99, label %2809
     i8 103, label %2822
@@ -22256,7 +22256,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2811:                                             ; preds = %2809
   %2812 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2813 = load i8, ptr %2812, align 1, !tbaa !50
+  %2813 = load i8, ptr %2812, align 1, !tbaa !48
   switch i8 %2813, label %3901 [
     i8 97, label %2814
     i8 98, label %2816
@@ -22296,7 +22296,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2824:                                             ; preds = %2822
   %2825 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %2826 = load i8, ptr %2825, align 1, !tbaa !50
+  %2826 = load i8, ptr %2825, align 1, !tbaa !48
   switch i8 %2826, label %3901 [
     i8 102, label %2827
     i8 110, label %2829
@@ -22312,13 +22312,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2829:                                             ; preds = %2824
   %2830 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %2831 = load i8, ptr %2830, align 1, !tbaa !50
+  %2831 = load i8, ptr %2830, align 1, !tbaa !48
   %.not729 = icmp eq i8 %2831, 111
   br i1 %.not729, label %2832, label %3901
 
 2832:                                             ; preds = %2829
   %2833 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2834 = load i8, ptr %2833, align 1, !tbaa !50
+  %2834 = load i8, ptr %2833, align 1, !tbaa !48
   switch i8 %2834, label %3901 [
     i8 99, label %2835
     i8 105, label %2837
@@ -22352,7 +22352,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2843:                                             ; preds = %2824
   %2844 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %2845 = load i8, ptr %2844, align 1, !tbaa !50
+  %2845 = load i8, ptr %2844, align 1, !tbaa !48
   switch i8 %2845, label %3901 [
     i8 101, label %2846
     i8 121, label %2848
@@ -22377,7 +22377,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not724, label %3902, label %3901
 
 2852:                                             ; preds = %2654
-  %2853 = load i8, ptr %0, align 1, !tbaa !50
+  %2853 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2853, label %3901 [
     i8 99, label %2854
     i8 103, label %2878
@@ -22392,7 +22392,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2856:                                             ; preds = %2854
   %2857 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2858 = load i8, ptr %2857, align 1, !tbaa !50
+  %2858 = load i8, ptr %2857, align 1, !tbaa !48
   switch i8 %2858, label %3901 [
     i8 109, label %2859
     i8 110, label %2861
@@ -22407,13 +22407,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2861:                                             ; preds = %2856
   %2862 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2863 = load i8, ptr %2862, align 1, !tbaa !50
+  %2863 = load i8, ptr %2862, align 1, !tbaa !48
   %.not714 = icmp eq i8 %2863, 111
   br i1 %.not714, label %2864, label %3901
 
 2864:                                             ; preds = %2861
   %2865 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %2866 = load i8, ptr %2865, align 1, !tbaa !50
+  %2866 = load i8, ptr %2865, align 1, !tbaa !48
   switch i8 %2866, label %3901 [
     i8 100, label %2867
     i8 109, label %2869
@@ -22433,7 +22433,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2871:                                             ; preds = %2856
   %2872 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2873 = load i8, ptr %2872, align 1, !tbaa !50
+  %2873 = load i8, ptr %2872, align 1, !tbaa !48
   switch i8 %2873, label %3901 [
     i8 98, label %2874
     i8 112, label %2876
@@ -22459,7 +22459,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2880:                                             ; preds = %2878
   %2881 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %2882 = load i8, ptr %2881, align 1, !tbaa !50
+  %2882 = load i8, ptr %2881, align 1, !tbaa !48
   switch i8 %2882, label %3901 [
     i8 100, label %2883
     i8 105, label %2892
@@ -22477,7 +22477,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2885:                                             ; preds = %2883
   %2886 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2887 = load i8, ptr %2886, align 1, !tbaa !50
+  %2887 = load i8, ptr %2886, align 1, !tbaa !48
   switch i8 %2887, label %3901 [
     i8 101, label %2888
     i8 105, label %2890
@@ -22509,7 +22509,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2896:                                             ; preds = %2880
   %2897 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %2898 = load i8, ptr %2897, align 1, !tbaa !50
+  %2898 = load i8, ptr %2897, align 1, !tbaa !48
   switch i8 %2898, label %3901 [
     i8 97, label %2899
     i8 105, label %2901
@@ -22553,7 +22553,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not685, label %3902, label %3901
 
 2911:                                             ; preds = %2654
-  %2912 = load i8, ptr %0, align 1, !tbaa !50
+  %2912 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2912, label %3901 [
     i8 99, label %2913
     i8 103, label %2962
@@ -22567,7 +22567,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2915:                                             ; preds = %2913
   %2916 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2917 = load i8, ptr %2916, align 1, !tbaa !50
+  %2917 = load i8, ptr %2916, align 1, !tbaa !48
   switch i8 %2917, label %3901 [
     i8 78, label %2918
     i8 97, label %2920
@@ -22606,13 +22606,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2926:                                             ; preds = %2915
   %2927 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2928 = load i8, ptr %2927, align 1, !tbaa !50
+  %2928 = load i8, ptr %2927, align 1, !tbaa !48
   %.not671 = icmp eq i8 %2928, 98
   br i1 %.not671, label %2929, label %3901
 
 2929:                                             ; preds = %2926
   %2930 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %2931 = load i8, ptr %2930, align 1, !tbaa !50
+  %2931 = load i8, ptr %2930, align 1, !tbaa !48
   switch i8 %2931, label %3901 [
     i8 97, label %2932
     i8 111, label %2934
@@ -22632,7 +22632,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2936:                                             ; preds = %2915
   %2937 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2938 = load i8, ptr %2937, align 1, !tbaa !50
+  %2938 = load i8, ptr %2937, align 1, !tbaa !48
   switch i8 %2938, label %3901 [
     i8 54, label %2939
     i8 117, label %2941
@@ -22652,13 +22652,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2943:                                             ; preds = %2915
   %2944 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2945 = load i8, ptr %2944, align 1, !tbaa !50
+  %2945 = load i8, ptr %2944, align 1, !tbaa !48
   %.not662 = icmp eq i8 %2945, 111
   br i1 %.not662, label %2946, label %3901
 
 2946:                                             ; preds = %2943
   %2947 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %2948 = load i8, ptr %2947, align 1, !tbaa !50
+  %2948 = load i8, ptr %2947, align 1, !tbaa !48
   switch i8 %2948, label %3901 [
     i8 101, label %2949
     i8 105, label %2951
@@ -22678,7 +22678,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2953:                                             ; preds = %2915
   %2954 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %2955 = load i8, ptr %2954, align 1, !tbaa !50
+  %2955 = load i8, ptr %2954, align 1, !tbaa !48
   switch i8 %2955, label %3901 [
     i8 105, label %2956
     i8 117, label %2958
@@ -22710,7 +22710,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2964:                                             ; preds = %2962
   %2965 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %2966 = load i8, ptr %2965, align 1, !tbaa !50
+  %2966 = load i8, ptr %2965, align 1, !tbaa !48
   switch i8 %2966, label %3901 [
     i8 97, label %2967
     i8 100, label %2974
@@ -22723,7 +22723,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2967:                                             ; preds = %2964
   %2968 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %2969 = load i8, ptr %2968, align 1, !tbaa !50
+  %2969 = load i8, ptr %2968, align 1, !tbaa !48
   switch i8 %2969, label %3901 [
     i8 108, label %2970
     i8 114, label %2972
@@ -22743,13 +22743,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2974:                                             ; preds = %2964
   %2975 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %2976 = load i8, ptr %2975, align 1, !tbaa !50
+  %2976 = load i8, ptr %2975, align 1, !tbaa !48
   %.not645 = icmp eq i8 %2976, 101
   br i1 %.not645, label %2977, label %3901
 
 2977:                                             ; preds = %2974
   %2978 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %2979 = load i8, ptr %2978, align 1, !tbaa !50
+  %2979 = load i8, ptr %2978, align 1, !tbaa !48
   switch i8 %2979, label %3901 [
     i8 112, label %2980
     i8 115, label %2982
@@ -22798,7 +22798,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not636, label %3902, label %3901
 
 2994:                                             ; preds = %2654
-  %2995 = load i8, ptr %0, align 1, !tbaa !50
+  %2995 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %2995, label %3901 [
     i8 99, label %2996
     i8 103, label %3007
@@ -22813,7 +22813,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 2998:                                             ; preds = %2996
   %2999 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3000 = load i8, ptr %2999, align 1, !tbaa !50
+  %3000 = load i8, ptr %2999, align 1, !tbaa !48
   switch i8 %3000, label %3901 [
     i8 102, label %3001
     i8 110, label %3003
@@ -22846,7 +22846,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3009:                                             ; preds = %3007
   %3010 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %3011 = load i8, ptr %3010, align 1, !tbaa !50
+  %3011 = load i8, ptr %3010, align 1, !tbaa !48
   switch i8 %3011, label %3901 [
     i8 97, label %3012
     i8 99, label %3014
@@ -22905,7 +22905,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3027:                                             ; preds = %3026
   %3028 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3029 = load i8, ptr %3028, align 1, !tbaa !50
+  %3029 = load i8, ptr %3028, align 1, !tbaa !48
   switch i8 %3029, label %3901 [
     i8 97, label %3030
     i8 99, label %3032
@@ -22922,13 +22922,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3032:                                             ; preds = %3027
   %3033 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3034 = load i8, ptr %3033, align 1, !tbaa !50
+  %3034 = load i8, ptr %3033, align 1, !tbaa !48
   %.not600 = icmp eq i8 %3034, 111
   br i1 %.not600, label %3035, label %3901
 
 3035:                                             ; preds = %3032
   %3036 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %3037 = load i8, ptr %3036, align 1, !tbaa !50
+  %3037 = load i8, ptr %3036, align 1, !tbaa !48
   switch i8 %3037, label %3901 [
     i8 100, label %3038
     i8 110, label %3040
@@ -22972,7 +22972,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not595, label %3902, label %3901
 
 3050:                                             ; preds = %2654
-  %3051 = load i8, ptr %0, align 1, !tbaa !50
+  %3051 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3051, label %3901 [
     i8 99, label %3052
     i8 103, label %3122
@@ -22986,7 +22986,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3054:                                             ; preds = %3052
   %3055 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3056 = load i8, ptr %3055, align 1, !tbaa !50
+  %3056 = load i8, ptr %3055, align 1, !tbaa !48
   switch i8 %3056, label %3901 [
     i8 99, label %3057
     i8 101, label %3064
@@ -23001,7 +23001,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3057:                                             ; preds = %3054
   %3058 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3059 = load i8, ptr %3058, align 1, !tbaa !50
+  %3059 = load i8, ptr %3058, align 1, !tbaa !48
   switch i8 %3059, label %3901 [
     i8 97, label %3060
     i8 102, label %3062
@@ -23021,7 +23021,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3064:                                             ; preds = %3054
   %3065 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3066 = load i8, ptr %3065, align 1, !tbaa !50
+  %3066 = load i8, ptr %3065, align 1, !tbaa !48
   switch i8 %3066, label %3901 [
     i8 110, label %3067
     i8 120, label %3069
@@ -23047,13 +23047,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3073:                                             ; preds = %3054
   %3074 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3075 = load i8, ptr %3074, align 1, !tbaa !50
+  %3075 = load i8, ptr %3074, align 1, !tbaa !48
   %.not577 = icmp eq i8 %3075, 97
   br i1 %.not577, label %3076, label %3901
 
 3076:                                             ; preds = %3073
   %3077 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %3078 = load i8, ptr %3077, align 1, !tbaa !50
+  %3078 = load i8, ptr %3077, align 1, !tbaa !48
   switch i8 %3078, label %3901 [
     i8 116, label %3079
     i8 121, label %3081
@@ -23073,7 +23073,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3083:                                             ; preds = %3054
   %3084 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3085 = load i8, ptr %3084, align 1, !tbaa !50
+  %3085 = load i8, ptr %3084, align 1, !tbaa !48
   switch i8 %3085, label %3901 [
     i8 111, label %3086
     i8 115, label %3095
@@ -23081,7 +23081,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3086:                                             ; preds = %3083
   %3087 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %3088 = load i8, ptr %3087, align 1, !tbaa !50
+  %3088 = load i8, ptr %3087, align 1, !tbaa !48
   switch i8 %3088, label %3901 [
     i8 95, label %3089
     i8 100, label %3091
@@ -23114,7 +23114,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3097:                                             ; preds = %3054
   %3098 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3099 = load i8, ptr %3098, align 1, !tbaa !50
+  %3099 = load i8, ptr %3098, align 1, !tbaa !48
   switch i8 %3099, label %3901 [
     i8 98, label %3100
     i8 115, label %3109
@@ -23128,7 +23128,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3102:                                             ; preds = %3100
   %3103 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3104 = load i8, ptr %3103, align 1, !tbaa !50
+  %3104 = load i8, ptr %3103, align 1, !tbaa !48
   switch i8 %3104, label %3901 [
     i8 98, label %3105
     i8 100, label %3107
@@ -23154,7 +23154,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3111:                                             ; preds = %3054
   %3112 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3113 = load i8, ptr %3112, align 1, !tbaa !50
+  %3113 = load i8, ptr %3112, align 1, !tbaa !48
   switch i8 %3113, label %3901 [
     i8 119, label %3114
     i8 121, label %3116
@@ -23192,7 +23192,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3124:                                             ; preds = %3122
   %3125 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %3126 = load i8, ptr %3125, align 1, !tbaa !50
+  %3126 = load i8, ptr %3125, align 1, !tbaa !48
   switch i8 %3126, label %3901 [
     i8 97, label %3127
     i8 114, label %3129
@@ -23218,7 +23218,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not546, label %3902, label %3901
 
 3133:                                             ; preds = %2654
-  %3134 = load i8, ptr %0, align 1, !tbaa !50
+  %3134 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3134, label %3901 [
     i8 99, label %3135
     i8 103, label %3188
@@ -23232,7 +23232,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3137:                                             ; preds = %3135
   %3138 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3139 = load i8, ptr %3138, align 1, !tbaa !50
+  %3139 = load i8, ptr %3138, align 1, !tbaa !48
   switch i8 %3139, label %3901 [
     i8 97, label %3140
     i8 98, label %3142
@@ -23250,7 +23250,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3142:                                             ; preds = %3137
   %3143 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3144 = load i8, ptr %3143, align 1, !tbaa !50
+  %3144 = load i8, ptr %3143, align 1, !tbaa !48
   switch i8 %3144, label %3901 [
     i8 112, label %3145
     i8 116, label %3147
@@ -23270,7 +23270,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3149:                                             ; preds = %3147
   %3150 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %3151 = load i8, ptr %3150, align 1, !tbaa !50
+  %3151 = load i8, ptr %3150, align 1, !tbaa !48
   switch i8 %3151, label %3901 [
     i8 100, label %3152
     i8 116, label %3154
@@ -23290,7 +23290,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3156:                                             ; preds = %3137
   %3157 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3158 = load i8, ptr %3157, align 1, !tbaa !50
+  %3158 = load i8, ptr %3157, align 1, !tbaa !48
   switch i8 %3158, label %3901 [
     i8 111, label %3159
     i8 112, label %3161
@@ -23310,7 +23310,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3163:                                             ; preds = %3161
   %3164 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %3165 = load i8, ptr %3164, align 1, !tbaa !50
+  %3165 = load i8, ptr %3164, align 1, !tbaa !48
   switch i8 %3165, label %3901 [
     i8 100, label %3166
     i8 115, label %3168
@@ -23330,7 +23330,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3170:                                             ; preds = %3137
   %3171 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3172 = load i8, ptr %3171, align 1, !tbaa !50
+  %3172 = load i8, ptr %3171, align 1, !tbaa !48
   switch i8 %3172, label %3901 [
     i8 111, label %3173
     i8 118, label %3175
@@ -23350,7 +23350,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3177:                                             ; preds = %3137
   %3178 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3179 = load i8, ptr %3178, align 1, !tbaa !50
+  %3179 = load i8, ptr %3178, align 1, !tbaa !48
   switch i8 %3179, label %3901 [
     i8 98, label %3180
     i8 112, label %3182
@@ -23389,7 +23389,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3190:                                             ; preds = %3188
   %3191 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %3192 = load i8, ptr %3191, align 1, !tbaa !50
+  %3192 = load i8, ptr %3191, align 1, !tbaa !48
   switch i8 %3192, label %3901 [
     i8 97, label %3193
     i8 110, label %3195
@@ -23415,7 +23415,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not506, label %3902, label %3901
 
 3199:                                             ; preds = %2654
-  %3200 = load i8, ptr %0, align 1, !tbaa !50
+  %3200 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3200, label %3901 [
     i8 99, label %3201
     i8 103, label %3238
@@ -23429,7 +23429,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3203:                                             ; preds = %3201
   %3204 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3205 = load i8, ptr %3204, align 1, !tbaa !50
+  %3205 = load i8, ptr %3204, align 1, !tbaa !48
   switch i8 %3205, label %3901 [
     i8 97, label %3206
     i8 98, label %3217
@@ -23443,7 +23443,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3206:                                             ; preds = %3203
   %3207 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3208 = load i8, ptr %3207, align 1, !tbaa !50
+  %3208 = load i8, ptr %3207, align 1, !tbaa !48
   switch i8 %3208, label %3901 [
     i8 100, label %3209
     i8 108, label %3211
@@ -23507,7 +23507,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3227:                                             ; preds = %3225
   %3228 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3229 = load i8, ptr %3228, align 1, !tbaa !50
+  %3229 = load i8, ptr %3228, align 1, !tbaa !48
   switch i8 %3229, label %3901 [
     i8 109, label %3230
     i8 110, label %3232
@@ -23545,7 +23545,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3240:                                             ; preds = %3238
   %3241 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %3242 = load i8, ptr %3241, align 1, !tbaa !50
+  %3242 = load i8, ptr %3241, align 1, !tbaa !48
   switch i8 %3242, label %3901 [
     i8 102, label %3243
     i8 114, label %3245
@@ -23564,7 +23564,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not472, label %3902, label %3901
 
 3247:                                             ; preds = %2654
-  %3248 = load i8, ptr %0, align 1, !tbaa !50
+  %3248 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3248, label %3901 [
     i8 99, label %3249
     i8 103, label %3283
@@ -23578,7 +23578,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3251:                                             ; preds = %3249
   %3252 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3253 = load i8, ptr %3252, align 1, !tbaa !50
+  %3253 = load i8, ptr %3252, align 1, !tbaa !48
   switch i8 %3253, label %3901 [
     i8 97, label %3254
     i8 111, label %3256
@@ -23595,7 +23595,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3256:                                             ; preds = %3251
   %3257 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3258 = load i8, ptr %3257, align 1, !tbaa !50
+  %3258 = load i8, ptr %3257, align 1, !tbaa !48
   switch i8 %3258, label %3901 [
     i8 98, label %3259
     i8 112, label %3268
@@ -23609,7 +23609,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3261:                                             ; preds = %3259
   %3262 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3263 = load i8, ptr %3262, align 1, !tbaa !50
+  %3263 = load i8, ptr %3262, align 1, !tbaa !48
   switch i8 %3263, label %3901 [
     i8 101, label %3264
     i8 111, label %3266
@@ -23635,7 +23635,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3270:                                             ; preds = %3268
   %3271 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %3272 = load i8, ptr %3271, align 1, !tbaa !50
+  %3272 = load i8, ptr %3271, align 1, !tbaa !48
   switch i8 %3272, label %3901 [
     i8 103, label %3273
     i8 112, label %3275
@@ -23678,7 +23678,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not446, label %3902, label %3901
 
 3285:                                             ; preds = %2654
-  %3286 = load i8, ptr %0, align 1, !tbaa !50
+  %3286 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3286, label %3901 [
     i8 99, label %3287
     i8 103, label %3323
@@ -23692,7 +23692,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3289:                                             ; preds = %3287
   %3290 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3291 = load i8, ptr %3290, align 1, !tbaa !50
+  %3291 = load i8, ptr %3290, align 1, !tbaa !48
   switch i8 %3291, label %3901 [
     i8 97, label %3292
     i8 110, label %3294
@@ -23715,7 +23715,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3296:                                             ; preds = %3289
   %3297 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3298 = load i8, ptr %3297, align 1, !tbaa !50
+  %3298 = load i8, ptr %3297, align 1, !tbaa !48
   switch i8 %3298, label %3901 [
     i8 98, label %3299
     i8 112, label %3308
@@ -23730,7 +23730,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3301:                                             ; preds = %3299
   %3302 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3303 = load i8, ptr %3302, align 1, !tbaa !50
+  %3303 = load i8, ptr %3302, align 1, !tbaa !48
   switch i8 %3303, label %3901 [
     i8 99, label %3304
     i8 114, label %3306
@@ -23762,7 +23762,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3312:                                             ; preds = %3310
   %3313 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %3314 = load i8, ptr %3313, align 1, !tbaa !50
+  %3314 = load i8, ptr %3313, align 1, !tbaa !48
   switch i8 %3314, label %3901 [
     i8 104, label %3315
     i8 116, label %3317
@@ -23799,7 +23799,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not420, label %3902, label %3901
 
 3325:                                             ; preds = %2654
-  %3326 = load i8, ptr %0, align 1, !tbaa !50
+  %3326 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3326, label %3901 [
     i8 99, label %3327
     i8 103, label %3355
@@ -23813,7 +23813,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3329:                                             ; preds = %3327
   %3330 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3331 = load i8, ptr %3330, align 1, !tbaa !50
+  %3331 = load i8, ptr %3330, align 1, !tbaa !48
   switch i8 %3331, label %3901 [
     i8 99, label %3332
     i8 101, label %3334
@@ -23858,7 +23858,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3342:                                             ; preds = %3329
   %3343 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3344 = load i8, ptr %3343, align 1, !tbaa !50
+  %3344 = load i8, ptr %3343, align 1, !tbaa !48
   switch i8 %3344, label %3901 [
     i8 101, label %3345
     i8 115, label %3347
@@ -23902,7 +23902,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3357:                                             ; preds = %3355
   %3358 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %3359 = load i8, ptr %3358, align 1, !tbaa !50
+  %3359 = load i8, ptr %3358, align 1, !tbaa !48
   switch i8 %3359, label %3901 [
     i8 110, label %3360
     i8 119, label %3369
@@ -23916,7 +23916,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3362:                                             ; preds = %3360
   %3363 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %3364 = load i8, ptr %3363, align 1, !tbaa !50
+  %3364 = load i8, ptr %3363, align 1, !tbaa !48
   switch i8 %3364, label %3901 [
     i8 97, label %3365
     i8 116, label %3367
@@ -23941,7 +23941,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not390, label %3902, label %3901
 
 3371:                                             ; preds = %2654
-  %3372 = load i8, ptr %0, align 1, !tbaa !50
+  %3372 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3372, label %3901 [
     i8 99, label %3373
     i8 103, label %3387
@@ -23955,7 +23955,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3375:                                             ; preds = %3373
   %3376 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3377 = load i8, ptr %3376, align 1, !tbaa !50
+  %3377 = load i8, ptr %3376, align 1, !tbaa !48
   switch i8 %3377, label %3901 [
     i8 111, label %3378
     i8 115, label %3385
@@ -23963,7 +23963,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3378:                                             ; preds = %3375
   %3379 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3380 = load i8, ptr %3379, align 1, !tbaa !50
+  %3380 = load i8, ptr %3379, align 1, !tbaa !48
   switch i8 %3380, label %3901 [
     i8 98, label %3381
     i8 119, label %3383
@@ -23995,7 +23995,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3389:                                             ; preds = %3387
   %3390 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %3391 = load i8, ptr %3390, align 1, !tbaa !50
+  %3391 = load i8, ptr %3390, align 1, !tbaa !48
   switch i8 %3391, label %3901 [
     i8 110, label %3392
     i8 122, label %3401
@@ -24009,7 +24009,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3394:                                             ; preds = %3392
   %3395 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3396 = load i8, ptr %3395, align 1, !tbaa !50
+  %3396 = load i8, ptr %3395, align 1, !tbaa !48
   switch i8 %3396, label %3901 [
     i8 114, label %3397
     i8 115, label %3399
@@ -24040,7 +24040,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3404:                                             ; preds = %3403
   %3405 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3406 = load i8, ptr %3405, align 1, !tbaa !50
+  %3406 = load i8, ptr %3405, align 1, !tbaa !48
   switch i8 %3406, label %3901 [
     i8 97, label %3407
     i8 99, label %3409
@@ -24061,13 +24061,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3409:                                             ; preds = %3404
   %3410 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3411 = load i8, ptr %3410, align 1, !tbaa !50
+  %3411 = load i8, ptr %3410, align 1, !tbaa !48
   %.not362 = icmp eq i8 %3411, 111
   br i1 %.not362, label %3412, label %3901
 
 3412:                                             ; preds = %3409
   %3413 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %3414 = load i8, ptr %3413, align 1, !tbaa !50
+  %3414 = load i8, ptr %3413, align 1, !tbaa !48
   switch i8 %3414, label %3901 [
     i8 114, label %3415
     i8 117, label %3417
@@ -24117,7 +24117,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3429:                                             ; preds = %3427
   %3430 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %3431 = load i8, ptr %3430, align 1, !tbaa !50
+  %3431 = load i8, ptr %3430, align 1, !tbaa !48
   switch i8 %3431, label %3901 [
     i8 97, label %3432
     i8 116, label %3434
@@ -24137,7 +24137,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3436:                                             ; preds = %3404
   %3437 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3438 = load i8, ptr %3437, align 1, !tbaa !50
+  %3438 = load i8, ptr %3437, align 1, !tbaa !48
   switch i8 %3438, label %3901 [
     i8 98, label %3439
     i8 112, label %3448
@@ -24151,7 +24151,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3441:                                             ; preds = %3439
   %3442 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3443 = load i8, ptr %3442, align 1, !tbaa !50
+  %3443 = load i8, ptr %3442, align 1, !tbaa !48
   switch i8 %3443, label %3901 [
     i8 109, label %3444
     i8 110, label %3446
@@ -24177,7 +24177,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3450:                                             ; preds = %3404
   %3451 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3452 = load i8, ptr %3451, align 1, !tbaa !50
+  %3452 = load i8, ptr %3451, align 1, !tbaa !48
   switch i8 %3452, label %3901 [
     i8 119, label %3453
     i8 121, label %3455
@@ -24202,7 +24202,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3458:                                             ; preds = %3457
   %3459 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3460 = load i8, ptr %3459, align 1, !tbaa !50
+  %3460 = load i8, ptr %3459, align 1, !tbaa !48
   switch i8 %3460, label %3901 [
     i8 99, label %3461
     i8 100, label %3478
@@ -24214,7 +24214,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3461:                                             ; preds = %3458
   %3462 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3463 = load i8, ptr %3462, align 1, !tbaa !50
+  %3463 = load i8, ptr %3462, align 1, !tbaa !48
   switch i8 %3463, label %3901 [
     i8 102, label %3464
     i8 111, label %3476
@@ -24222,13 +24222,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3464:                                             ; preds = %3461
   %3465 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %3466 = load i8, ptr %3465, align 1, !tbaa !50
+  %3466 = load i8, ptr %3465, align 1, !tbaa !48
   %.not327 = icmp eq i8 %3466, 95
   br i1 %.not327, label %3467, label %3901
 
 3467:                                             ; preds = %3464
   %3468 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %3469 = load i8, ptr %3468, align 1, !tbaa !50
+  %3469 = load i8, ptr %3468, align 1, !tbaa !48
   switch i8 %3469, label %3901 [
     i8 97, label %3470
     i8 114, label %3472
@@ -24273,7 +24273,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3482:                                             ; preds = %3458
   %3483 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3484 = load i8, ptr %3483, align 1, !tbaa !50
+  %3484 = load i8, ptr %3483, align 1, !tbaa !48
   switch i8 %3484, label %3901 [
     i8 98, label %3485
     i8 115, label %3503
@@ -24287,7 +24287,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3487:                                             ; preds = %3485
   %3488 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3489 = load i8, ptr %3488, align 1, !tbaa !50
+  %3489 = load i8, ptr %3488, align 1, !tbaa !48
   switch i8 %3489, label %3901 [
     i8 98, label %3490
     i8 100, label %3499
@@ -24302,7 +24302,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3492:                                             ; preds = %3490
   %3493 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %3494 = load i8, ptr %3493, align 1, !tbaa !50
+  %3494 = load i8, ptr %3493, align 1, !tbaa !48
   switch i8 %3494, label %3901 [
     i8 109, label %3495
     i8 114, label %3497
@@ -24351,7 +24351,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not304, label %3902, label %3901
 
 3509:                                             ; preds = %2654
-  %3510 = load i8, ptr %0, align 1, !tbaa !50
+  %3510 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3510, label %3901 [
     i8 99, label %3511
     i8 103, label %3529
@@ -24365,7 +24365,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3513:                                             ; preds = %3511
   %3514 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3515 = load i8, ptr %3514, align 1, !tbaa !50
+  %3515 = load i8, ptr %3514, align 1, !tbaa !48
   switch i8 %3515, label %3901 [
     i8 99, label %3516
     i8 108, label %3518
@@ -24393,7 +24393,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3522:                                             ; preds = %3513
   %3523 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3524 = load i8, ptr %3523, align 1, !tbaa !50
+  %3524 = load i8, ptr %3523, align 1, !tbaa !48
   switch i8 %3524, label %3901 [
     i8 98, label %3525
     i8 112, label %3527
@@ -24418,7 +24418,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not288, label %3902, label %3901
 
 3531:                                             ; preds = %2654
-  %3532 = load i8, ptr %0, align 1, !tbaa !50
+  %3532 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3532, label %3901 [
     i8 99, label %3533
     i8 103, label %3555
@@ -24432,7 +24432,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3535:                                             ; preds = %3533
   %3536 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3537 = load i8, ptr %3536, align 1, !tbaa !50
+  %3537 = load i8, ptr %3536, align 1, !tbaa !48
   switch i8 %3537, label %3901 [
     i8 108, label %3538
     i8 111, label %3540
@@ -24456,7 +24456,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3542:                                             ; preds = %3535
   %3543 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3544 = load i8, ptr %3543, align 1, !tbaa !50
+  %3544 = load i8, ptr %3543, align 1, !tbaa !48
   switch i8 %3544, label %3901 [
     i8 111, label %3545
     i8 114, label %3547
@@ -24499,7 +24499,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not270, label %3902, label %3901
 
 3557:                                             ; preds = %2654
-  %3558 = load i8, ptr %0, align 1, !tbaa !50
+  %3558 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3558, label %3901 [
     i8 99, label %3559
     i8 103, label %3579
@@ -24513,7 +24513,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3561:                                             ; preds = %3559
   %3562 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3563 = load i8, ptr %3562, align 1, !tbaa !50
+  %3563 = load i8, ptr %3562, align 1, !tbaa !48
   switch i8 %3563, label %3901 [
     i8 97, label %3564
     i8 101, label %3566
@@ -24542,7 +24542,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3570:                                             ; preds = %3561
   %3571 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3572 = load i8, ptr %3571, align 1, !tbaa !50
+  %3572 = load i8, ptr %3571, align 1, !tbaa !48
   switch i8 %3572, label %3901 [
     i8 114, label %3573
     i8 116, label %3575
@@ -24573,7 +24573,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not254, label %3902, label %3901
 
 3581:                                             ; preds = %2654
-  %3582 = load i8, ptr %0, align 1, !tbaa !50
+  %3582 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3582, label %3901 [
     i8 99, label %3583
     i8 103, label %3603
@@ -24587,7 +24587,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3585:                                             ; preds = %3583
   %3586 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3587 = load i8, ptr %3586, align 1, !tbaa !50
+  %3587 = load i8, ptr %3586, align 1, !tbaa !48
   switch i8 %3587, label %3901 [
     i8 99, label %3588
     i8 110, label %3590
@@ -24609,7 +24609,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3592:                                             ; preds = %3590
   %3593 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %3594 = load i8, ptr %3593, align 1, !tbaa !50
+  %3594 = load i8, ptr %3593, align 1, !tbaa !48
   switch i8 %3594, label %3901 [
     i8 97, label %3595
     i8 110, label %3597
@@ -24646,7 +24646,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not238, label %3902, label %3901
 
 3605:                                             ; preds = %2654
-  %3606 = load i8, ptr %0, align 1, !tbaa !50
+  %3606 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3606, label %3901 [
     i8 99, label %3607
     i8 103, label %3618
@@ -24660,7 +24660,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3609:                                             ; preds = %3607
   %3610 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3611 = load i8, ptr %3610, align 1, !tbaa !50
+  %3611 = load i8, ptr %3610, align 1, !tbaa !48
   switch i8 %3611, label %3901 [
     i8 99, label %3612
     i8 111, label %3614
@@ -24698,7 +24698,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3621:                                             ; preds = %3620
   %3622 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3623 = load i8, ptr %3622, align 1, !tbaa !50
+  %3623 = load i8, ptr %3622, align 1, !tbaa !48
   switch i8 %3623, label %3901 [
     i8 95, label %3624
     i8 110, label %3626
@@ -24730,7 +24730,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3631:                                             ; preds = %3630
   %3632 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3633 = load i8, ptr %3632, align 1, !tbaa !50
+  %3633 = load i8, ptr %3632, align 1, !tbaa !48
   switch i8 %3633, label %3901 [
     i8 99, label %3634
     i8 111, label %3636
@@ -24762,7 +24762,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3641:                                             ; preds = %3640
   %3642 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3643 = load i8, ptr %3642, align 1, !tbaa !50
+  %3643 = load i8, ptr %3642, align 1, !tbaa !48
   switch i8 %3643, label %3901 [
     i8 101, label %3644
     i8 111, label %3646
@@ -24776,7 +24776,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3646:                                             ; preds = %3641
   %3647 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3648 = load i8, ptr %3647, align 1, !tbaa !50
+  %3648 = load i8, ptr %3647, align 1, !tbaa !48
   switch i8 %3648, label %3901 [
     i8 98, label %3649
     i8 115, label %3658
@@ -24790,7 +24790,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3651:                                             ; preds = %3649
   %3652 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3653 = load i8, ptr %3652, align 1, !tbaa !50
+  %3653 = load i8, ptr %3652, align 1, !tbaa !48
   switch i8 %3653, label %3901 [
     i8 100, label %3654
     i8 115, label %3656
@@ -24815,7 +24815,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not202, label %3902, label %3901
 
 3660:                                             ; preds = %2654
-  %3661 = load i8, ptr %0, align 1, !tbaa !50
+  %3661 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3661, label %3901 [
     i8 99, label %3662
     i8 103, label %3664
@@ -24845,7 +24845,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3668:                                             ; preds = %3667
   %3669 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3670 = load i8, ptr %3669, align 1, !tbaa !50
+  %3670 = load i8, ptr %3669, align 1, !tbaa !48
   switch i8 %3670, label %3901 [
     i8 99, label %3671
     i8 111, label %3673
@@ -24887,7 +24887,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3680:                                             ; preds = %3679
   %3681 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %3682 = load i8, ptr %3681, align 1, !tbaa !50
+  %3682 = load i8, ptr %3681, align 1, !tbaa !48
   switch i8 %3682, label %3901 [
     i8 95, label %3683
     i8 101, label %3685
@@ -24959,7 +24959,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not166, label %3902, label %3901
 
 3694:                                             ; preds = %3691
-  %3695 = load i8, ptr %0, align 1, !tbaa !50
+  %3695 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3695, label %3901 [
     i8 95, label %3696
     i8 105, label %3698
@@ -24985,7 +24985,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not160, label %3902, label %3901
 
 3702:                                             ; preds = %3691
-  %3703 = load i8, ptr %0, align 1, !tbaa !50
+  %3703 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3703, label %3901 [
     i8 95, label %3704
     i8 103, label %3716
@@ -24994,7 +24994,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3704:                                             ; preds = %3702
   %3705 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %3706 = load i8, ptr %3705, align 1, !tbaa !50
+  %3706 = load i8, ptr %3705, align 1, !tbaa !48
   switch i8 %3706, label %3901 [
     i8 95, label %3707
     i8 99, label %3714
@@ -25002,7 +25002,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3707:                                             ; preds = %3704
   %3708 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %3709 = load i8, ptr %3708, align 1, !tbaa !50
+  %3709 = load i8, ptr %3708, align 1, !tbaa !48
   switch i8 %3709, label %3901 [
     i8 115, label %3710
     i8 117, label %3712
@@ -25039,7 +25039,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not150, label %3902, label %3901
 
 3720:                                             ; preds = %3691
-  %3721 = load i8, ptr %0, align 1, !tbaa !50
+  %3721 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3721, label %3901 [
     i8 95, label %3722
     i8 97, label %3745
@@ -25049,7 +25049,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3722:                                             ; preds = %3720
   %3723 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %3724 = load i8, ptr %3723, align 1, !tbaa !50
+  %3724 = load i8, ptr %3723, align 1, !tbaa !48
   switch i8 %3724, label %3901 [
     i8 95, label %3725
     i8 112, label %3743
@@ -25057,7 +25057,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3725:                                             ; preds = %3722
   %3726 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %3727 = load i8, ptr %3726, align 1, !tbaa !50
+  %3727 = load i8, ptr %3726, align 1, !tbaa !48
   switch i8 %3727, label %3901 [
     i8 99, label %3728
     i8 108, label %3730
@@ -25084,7 +25084,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3734:                                             ; preds = %3732
   %3735 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %3736 = load i8, ptr %3735, align 1, !tbaa !50
+  %3736 = load i8, ptr %3735, align 1, !tbaa !48
   switch i8 %3736, label %3901 [
     i8 51, label %3737
     i8 54, label %3740
@@ -25092,13 +25092,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3737:                                             ; preds = %3734
   %3738 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %3739 = load i8, ptr %3738, align 1, !tbaa !50
+  %3739 = load i8, ptr %3738, align 1, !tbaa !48
   %.not144 = icmp eq i8 %3739, 50
   br i1 %.not144, label %3902, label %3901
 
 3740:                                             ; preds = %3734
   %3741 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %3742 = load i8, ptr %3741, align 1, !tbaa !50
+  %3742 = load i8, ptr %3741, align 1, !tbaa !48
   %.not143 = icmp eq i8 %3742, 52
   br i1 %.not143, label %3902, label %3901
 
@@ -25127,7 +25127,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not134, label %3902, label %3901
 
 3751:                                             ; preds = %3691
-  %3752 = load i8, ptr %0, align 1, !tbaa !50
+  %3752 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3752, label %3901 [
     i8 95, label %3753
     i8 99, label %3778
@@ -25135,7 +25135,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3753:                                             ; preds = %3751
   %3754 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %3755 = load i8, ptr %3754, align 1, !tbaa !50
+  %3755 = load i8, ptr %3754, align 1, !tbaa !48
   switch i8 %3755, label %3901 [
     i8 65, label %3756
     i8 78, label %3758
@@ -25157,7 +25157,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3760:                                             ; preds = %3753
   %3761 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %3762 = load i8, ptr %3761, align 1, !tbaa !50
+  %3762 = load i8, ptr %3761, align 1, !tbaa !48
   switch i8 %3762, label %3901 [
     i8 97, label %3763
     i8 103, label %3765
@@ -25179,7 +25179,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3767:                                             ; preds = %3760
   %3768 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %3769 = load i8, ptr %3768, align 1, !tbaa !50
+  %3769 = load i8, ptr %3768, align 1, !tbaa !48
   switch i8 %3769, label %3901 [
     i8 101, label %3770
     i8 105, label %3772
@@ -25216,7 +25216,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not116, label %3902, label %3901
 
 3780:                                             ; preds = %3691
-  %3781 = load i8, ptr %0, align 1, !tbaa !50
+  %3781 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3781, label %3901 [
     i8 95, label %3782
     i8 99, label %3813
@@ -25225,7 +25225,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3782:                                             ; preds = %3780
   %3783 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %3784 = load i8, ptr %3783, align 1, !tbaa !50
+  %3784 = load i8, ptr %3783, align 1, !tbaa !48
   switch i8 %3784, label %3901 [
     i8 78, label %3785
     i8 95, label %3787
@@ -25241,7 +25241,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3787:                                             ; preds = %3782
   %3788 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %3789 = load i8, ptr %3788, align 1, !tbaa !50
+  %3789 = load i8, ptr %3788, align 1, !tbaa !48
   switch i8 %3789, label %3901 [
     i8 97, label %3790
     i8 102, label %3799
@@ -25259,7 +25259,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3792:                                             ; preds = %3790
   %3793 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %3794 = load i8, ptr %3793, align 1, !tbaa !50
+  %3794 = load i8, ptr %3793, align 1, !tbaa !48
   switch i8 %3794, label %3901 [
     i8 110, label %3795
     i8 111, label %3797
@@ -25332,7 +25332,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not90, label %3902, label %3901
 
 3817:                                             ; preds = %3691
-  %3818 = load i8, ptr %0, align 1, !tbaa !50
+  %3818 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3818, label %3901 [
     i8 95, label %3819
     i8 114, label %3831
@@ -25341,13 +25341,13 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3819:                                             ; preds = %3817
   %3820 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %3821 = load i8, ptr %3820, align 1, !tbaa !50
+  %3821 = load i8, ptr %3820, align 1, !tbaa !48
   %.not82 = icmp eq i8 %3821, 95
   br i1 %.not82, label %3822, label %3901
 
 3822:                                             ; preds = %3819
   %3823 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %3824 = load i8, ptr %3823, align 1, !tbaa !50
+  %3824 = load i8, ptr %3823, align 1, !tbaa !48
   switch i8 %3824, label %3901 [
     i8 99, label %3825
     i8 102, label %3827
@@ -25385,7 +25385,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not79, label %3902, label %3901
 
 3835:                                             ; preds = %3691
-  %3836 = load i8, ptr %0, align 1, !tbaa !50
+  %3836 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3836, label %3901 [
     i8 95, label %3837
     i8 103, label %3849
@@ -25393,7 +25393,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3837:                                             ; preds = %3835
   %3838 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %3839 = load i8, ptr %3838, align 1, !tbaa !50
+  %3839 = load i8, ptr %3838, align 1, !tbaa !48
   switch i8 %3839, label %3901 [
     i8 95, label %3840
     i8 118, label %3847
@@ -25401,7 +25401,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3840:                                             ; preds = %3837
   %3841 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %3842 = load i8, ptr %3841, align 1, !tbaa !50
+  %3842 = load i8, ptr %3841, align 1, !tbaa !48
   switch i8 %3842, label %3901 [
     i8 97, label %3843
     i8 114, label %3845
@@ -25438,7 +25438,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3852:                                             ; preds = %3851
   %3853 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %3854 = load i8, ptr %3853, align 1, !tbaa !50
+  %3854 = load i8, ptr %3853, align 1, !tbaa !48
   switch i8 %3854, label %3901 [
     i8 110, label %3855
     i8 114, label %3857
@@ -25487,7 +25487,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
 
 3866:                                             ; preds = %3865
   %3867 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %3868 = load i8, ptr %3867, align 1, !tbaa !50
+  %3868 = load i8, ptr %3867, align 1, !tbaa !48
   switch i8 %3868, label %3901 [
     i8 112, label %3869
     i8 115, label %3871
@@ -25601,7 +25601,7 @@ define internal fastcc noundef range(i32 0, 415) i32 @_ZL11getAttrKindN4llvm9Str
   br i1 %.not21, label %3902, label %3901
 
 3892:                                             ; preds = %3890
-  %3893 = load i8, ptr %0, align 1, !tbaa !50
+  %3893 = load i8, ptr %0, align 1, !tbaa !48
   switch i8 %3893, label %3901 [
     i8 83, label %3894
     i8 112, label %3896
@@ -25684,18 +25684,18 @@ _ZL22normalizeAttrScopeNamePKN5clang14IdentifierInfoENS_19AttributeCommonInfo6Sy
   %15 = extractvalue { ptr, i64 } %14, 0
   %16 = extractvalue { ptr, i64 } %14, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %17, ptr %0, align 8, !tbaa !47
+  store ptr %17, ptr %0, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %18, align 8, !tbaa !49
+  store i64 0, ptr %18, align 8, !tbaa !47
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 64, ptr %19, align 8, !tbaa !51
+  store i64 64, ptr %19, align 8, !tbaa !49
   %20 = icmp samesign ugt i64 %.sroa.7.0.i, 64
   br i1 %20, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i: ; preds = %_ZL22normalizeAttrScopeNamePKN5clang14IdentifierInfoENS_19AttributeCommonInfo6SyntaxE.exit
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %17, i64 noundef %.sroa.7.0.i, i64 noundef 1) #13
-  %.pre8.pre.i.i.i = load i64, ptr %18, align 8, !tbaa !49
-  %.pre = load ptr, ptr %0, align 8, !tbaa !47
+  %.pre8.pre.i.i.i = load i64, ptr %18, align 8, !tbaa !47
+  %.pre = load ptr, ptr %0, align 8, !tbaa !45
   br label %21
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i: ; preds = %_ZL22normalizeAttrScopeNamePKN5clang14IdentifierInfoENS_19AttributeCommonInfo6SyntaxE.exit
@@ -25707,40 +25707,40 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i: ; preds = %_ZL22normalizeAttr
   %.pre8.i.i4.i = phi i64 [ %.pre8.pre.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.pre8.i.i4.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr nonnull align 1 %.sroa.016.0.i, i64 %.sroa.7.0.i, i1 false)
-  %.pre.i.i.i = load i64, ptr %18, align 8, !tbaa !49
+  %.pre.i.i.i = load i64, ptr %18, align 8, !tbaa !47
   %24 = add i64 %.pre.i.i.i, %.sroa.7.0.i
-  store i64 %24, ptr %18, align 8, !tbaa !49
+  store i64 %24, ptr %18, align 8, !tbaa !47
   %25 = add i64 %24, 2
-  %26 = load i64, ptr %19, align 8, !tbaa !51
+  %26 = load i64, ptr %19, align 8, !tbaa !49
   %27 = icmp ult i64 %26, %25
   br i1 %27, label %28, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
 
 28:                                               ; preds = %21
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %17, i64 noundef %25, i64 noundef 1) #13
-  %.pre8.pre.i.i = load i64, ptr %18, align 8, !tbaa !49
+  %.pre8.pre.i.i = load i64, ptr %18, align 8, !tbaa !47
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i:  ; preds = %21, %28
   %.pre8.i.i = phi i64 [ %24, %21 ], [ %.pre8.pre.i.i, %28 ]
-  %29 = load ptr, ptr %0, align 8, !tbaa !47
+  %29 = load ptr, ptr %0, align 8, !tbaa !45
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.pre8.i.i
   store i16 14906, ptr %30, align 1
-  %.pre.i.i = load i64, ptr %18, align 8, !tbaa !49
+  %.pre.i.i = load i64, ptr %18, align 8, !tbaa !47
   %31 = add i64 %.pre.i.i, 2
-  %.pre18 = load i64, ptr %19, align 8, !tbaa !51
+  %.pre18 = load i64, ptr %19, align 8, !tbaa !49
   br label %_ZN4llvm11SmallStringILj64EEC2ENS_9StringRefE.exit.thread
 
 _ZN4llvm11SmallStringILj64EEC2ENS_9StringRefE.exit.thread: ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
   %32 = phi i64 [ %.pre18, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ 64, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i ]
   %storemerge = phi i64 [ %31, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ 0, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i ]
-  store i64 %storemerge, ptr %18, align 8, !tbaa !49
+  store i64 %storemerge, ptr %18, align 8, !tbaa !47
   %33 = add i64 %storemerge, %16
   %34 = icmp ult i64 %32, %33
   br i1 %34, label %35, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i9
 
 35:                                               ; preds = %_ZN4llvm11SmallStringILj64EEC2ENS_9StringRefE.exit.thread
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull %17, i64 noundef %33, i64 noundef 1) #13
-  %.pre8.pre.i.i13 = load i64, ptr %18, align 8, !tbaa !49
+  %.pre8.pre.i.i13 = load i64, ptr %18, align 8, !tbaa !47
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i9
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i9: ; preds = %35, %_ZN4llvm11SmallStringILj64EEC2ENS_9StringRefE.exit.thread
@@ -25749,16 +25749,16 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i9: ; preds = %35, %_ZN4llvm11Smal
   br i1 %.not.i.i.i11, label %_ZN4llvm11SmallStringILj64EEpLENS_9StringRefE.exit14, label %36
 
 36:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i9
-  %37 = load ptr, ptr %0, align 8, !tbaa !47
+  %37 = load ptr, ptr %0, align 8, !tbaa !45
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %.pre8.i.i10
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %15, i64 %16, i1 false)
-  %.pre.i.i12 = load i64, ptr %18, align 8, !tbaa !49
+  %.pre.i.i12 = load i64, ptr %18, align 8, !tbaa !47
   br label %_ZN4llvm11SmallStringILj64EEpLENS_9StringRefE.exit14
 
 _ZN4llvm11SmallStringILj64EEpLENS_9StringRefE.exit14: ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i9, %36
   %39 = phi i64 [ %.pre8.i.i10, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i9 ], [ %.pre.i.i12, %36 ]
   %40 = add i64 %39, %16
-  store i64 %40, ptr %18, align 8, !tbaa !49
+  store i64 %40, ptr %18, align 8, !tbaa !47
   ret void
 }
 
@@ -25935,20 +25935,20 @@ define dso_local void @_ZNK5clang19AttributeCommonInfo21getNormalizedFullNameB5c
   %3 = alloca i64, align 8
   %4 = alloca %"class.llvm::SmallString", align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #13
-  %5 = load ptr, ptr %1, align 8, !tbaa !52
+  %5 = load ptr, ptr %1, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !42
+  %7 = load ptr, ptr %6, align 8, !tbaa !40
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %9, 16
   %11 = and i32 %10, 15
   call fastcc void @_ZL13normalizeNamePKN5clang14IdentifierInfoES2_NS_19AttributeCommonInfo6SyntaxE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %5, ptr noundef %7, i32 noundef %11)
-  call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %12 = load ptr, ptr %4, align 8, !tbaa !47, !noalias !53
+  call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  %12 = load ptr, ptr %4, align 8, !tbaa !45, !noalias !51
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !49, !noalias !53
+  %14 = load i64, ptr %13, align 8, !tbaa !47, !noalias !51
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %15, ptr %0, align 8, !tbaa !56, !alias.scope !53
+  store ptr %15, ptr %0, align 8, !tbaa !54, !alias.scope !51
   %16 = icmp eq ptr %12, null
   %17 = icmp ne i64 %14, 0
   %or.cond.i.i = and i1 %16, %17
@@ -25959,16 +25959,16 @@ define dso_local void @_ZNK5clang19AttributeCommonInfo21getNormalizedFullNameB5c
   unreachable
 
 19:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13, !noalias !53
-  store i64 %14, ptr %3, align 8, !tbaa !57, !noalias !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13, !noalias !51
+  store i64 %14, ptr %3, align 8, !tbaa !55, !noalias !51
   %20 = icmp ugt i64 %14, 15
   br i1 %20, label %21, label %._crit_edge.i.i.i
 
 21:                                               ; preds = %19
   %22 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0) #13
-  store ptr %22, ptr %0, align 8, !tbaa !58, !alias.scope !53
-  %23 = load i64, ptr %3, align 8, !tbaa !57, !noalias !53
-  store i64 %23, ptr %15, align 8, !tbaa !50, !alias.scope !53
+  store ptr %22, ptr %0, align 8, !tbaa !56, !alias.scope !51
+  %23 = load i64, ptr %3, align 8, !tbaa !55, !noalias !51
+  store i64 %23, ptr %15, align 8, !tbaa !48, !alias.scope !51
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %21, %19
@@ -25979,8 +25979,8 @@ define dso_local void @_ZNK5clang19AttributeCommonInfo21getNormalizedFullNameB5c
   ]
 
 25:                                               ; preds = %._crit_edge.i.i.i
-  %26 = load i8, ptr %12, align 1, !tbaa !50
-  store i8 %26, ptr %24, align 1, !tbaa !50
+  %26 = load i8, ptr %12, align 1, !tbaa !48
+  store i8 %26, ptr %24, align 1, !tbaa !48
   br label %_ZNK4llvm11SmallStringILj64EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 27:                                               ; preds = %._crit_edge.i.i.i
@@ -25988,14 +25988,14 @@ define dso_local void @_ZNK5clang19AttributeCommonInfo21getNormalizedFullNameB5c
   br label %_ZNK4llvm11SmallStringILj64EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
 
 _ZNK4llvm11SmallStringILj64EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %._crit_edge.i.i.i, %25, %27
-  %28 = load i64, ptr %3, align 8, !tbaa !57, !noalias !53
+  %28 = load i64, ptr %3, align 8, !tbaa !55, !noalias !51
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %28, ptr %29, align 8, !tbaa !59, !alias.scope !53
-  %30 = load ptr, ptr %0, align 8, !tbaa !58, !alias.scope !53
+  store i64 %28, ptr %29, align 8, !tbaa !57, !alias.scope !51
+  %30 = load ptr, ptr %0, align 8, !tbaa !56, !alias.scope !51
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %28
-  store i8 0, ptr %31, align 1, !tbaa !50
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13, !noalias !53
-  %32 = load ptr, ptr %4, align 8, !tbaa !47
+  store i8 0, ptr %31, align 1, !tbaa !48
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13, !noalias !51
+  %32 = load ptr, ptr %4, align 8, !tbaa !45
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %34 = icmp eq ptr %32, %33
   br i1 %34, label %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit, label %35
@@ -26016,12 +26016,12 @@ define dso_local noundef range(i32 0, 12) i32 @_ZNK5clang19AttributeCommonInfo35
   %4 = lshr i32 %3, 16
   %5 = and i32 %4, 15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !42
+  %7 = load ptr, ptr %6, align 8, !tbaa !40
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZL22normalizeAttrScopeNamePKN5clang14IdentifierInfoENS_19AttributeCommonInfo6SyntaxE.exit.thread, label %10
 
 _ZL22normalizeAttrScopeNamePKN5clang14IdentifierInfoENS_19AttributeCommonInfo6SyntaxE.exit.thread: ; preds = %1
-  %8 = load ptr, ptr %0, align 8, !tbaa !52
+  %8 = load ptr, ptr %0, align 8, !tbaa !50
   %9 = tail call fastcc { ptr, i64 } @_ZL17normalizeAttrNamePKN5clang14IdentifierInfoEN4llvm9StringRefENS_19AttributeCommonInfo6SyntaxE(ptr noundef %8, ptr nonnull @.str.1, i64 0, i32 noundef %5)
   br label %_ZL31getScopeFromNormalizedScopeNameN4llvm9StringRefE.exit
 
@@ -26058,7 +26058,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit9.thread22.sink.split.i: ; preds = %_ZN4llvmeqE
 _ZL22normalizeAttrScopeNamePKN5clang14IdentifierInfoENS_19AttributeCommonInfo6SyntaxE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit9.thread22.sink.split.i, %10, %17
   %.sroa.016.0.i = phi ptr [ %13, %10 ], [ %13, %17 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit9.thread22.sink.split.i ]
   %.sroa.7.0.i = phi i64 [ %15, %10 ], [ %15, %17 ], [ %spec.select4057, %_ZN4llvmeqENS_9StringRefES0_.exit9.thread22.sink.split.i ]
-  %19 = load ptr, ptr %0, align 8, !tbaa !52
+  %19 = load ptr, ptr %0, align 8, !tbaa !50
   %20 = tail call fastcc { ptr, i64 } @_ZL17normalizeAttrNamePKN5clang14IdentifierInfoEN4llvm9StringRefENS_19AttributeCommonInfo6SyntaxE(ptr noundef %19, ptr nonnull %.sroa.016.0.i, i64 %.sroa.7.0.i, i32 noundef %5)
   switch i64 %.sroa.7.0.i, label %_ZL31getScopeFromNormalizedScopeNameN4llvm9StringRefE.exit [
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i31.i
@@ -32868,16 +32868,16 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo13supportsIFuncEv(ptr noundef nonnull align 8 dereferenceable(489) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %3 = load i32, ptr %2, align 4, !tbaa !38
+  %3 = load i32, ptr %2, align 4, !tbaa !36
   %4 = icmp eq i32 %3, 5
   br i1 %4, label %_ZNK4llvm6Triple6isMuslEv.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %7 = load i32, ptr %6, align 4, !tbaa !37
+  %7 = load i32, ptr %6, align 4, !tbaa !35
   %8 = icmp eq i32 %7, 14
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %10 = load i32, ptr %9, align 8, !tbaa !26
+  %10 = load i32, ptr %9, align 8, !tbaa !24
   br i1 %8, label %11, label %13
 
 11:                                               ; preds = %5
@@ -32907,7 +32907,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo13supportsI
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %21 = load i32, ptr %20, align 8, !tbaa !39
+  %21 = load i32, ptr %20, align 8, !tbaa !37
   switch i32 %21, label %_ZNK4llvm6Triple6isMuslEv.exit [
     i32 18, label %_ZNK4llvm6Triple6isMuslEv.exit.thread
     i32 19, label %_ZNK4llvm6Triple6isMuslEv.exit.thread
@@ -32948,20 +32948,20 @@ define linkonce_odr hidden noundef ptr @_ZSt9__find_ifIPKN5clang14ParsedAttrInfo
 12:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
   %.0161 = phi i64 [ %8, %.lr.ph ], [ %57, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread ]
   %.029160 = phi ptr [ %0, %.lr.ph ], [ %56, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread ]
-  %13 = load i32, ptr %.029160, align 8, !tbaa !60
+  %13 = load i32, ptr %.029160, align 8, !tbaa !58
   %14 = icmp eq i32 %13, %10
   br i1 %14, label %15, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.029160, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !62
+  %17 = load ptr, ptr %16, align 8, !tbaa !60
   %.not.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %15
   %18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #13
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !63
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !57
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !61
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %.not.i3.i.i = icmp eq i64 %18, %.sroa.2.0.copyload.i.i
   br i1 %.not.i3.i.i, label %19, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread
 
@@ -32975,26 +32975,26 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %15
   br i1 %22, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit: ; preds = %15
-  %.sroa.2.0.copyload6.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !57
+  %.sroa.2.0.copyload6.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %.not.i37.i.i = icmp eq i64 %.sroa.2.0.copyload6.i.i, 0
   br i1 %.not.i37.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i, %12, %21, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit
   %23 = getelementptr inbounds nuw i8, ptr %.029160, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !60
+  %24 = load i32, ptr %23, align 8, !tbaa !58
   %25 = icmp eq i32 %24, %10
   br i1 %25, label %26, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
 
 26:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread
   %27 = getelementptr inbounds nuw i8, ptr %.029160, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !62
+  %28 = load ptr, ptr %27, align 8, !tbaa !60
   %.not.i.i.i30 = icmp eq ptr %28, null
   br i1 %.not.i.i.i30, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41, label %_ZN4llvm9StringRefC2EPKc.exit.i.i31
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i31:              ; preds = %26
   %29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #13
-  %.sroa.0.0.copyload.i.i32 = load ptr, ptr %3, align 8, !tbaa !63
-  %.sroa.2.0.copyload.i.i34 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !57
+  %.sroa.0.0.copyload.i.i32 = load ptr, ptr %3, align 8, !tbaa !61
+  %.sroa.2.0.copyload.i.i34 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %.not.i3.i.i35 = icmp eq i64 %29, %.sroa.2.0.copyload.i.i34
   br i1 %.not.i3.i.i35, label %30, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
 
@@ -33008,26 +33008,26 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i31:              ; preds = %26
   br i1 %33, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit181, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41: ; preds = %26
-  %.sroa.2.0.copyload6.i.i39 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !57
+  %.sroa.2.0.copyload6.i.i39 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %.not.i37.i.i40 = icmp eq i64 %.sroa.2.0.copyload6.i.i39, 0
   br i1 %.not.i37.i.i40, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i31, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread, %32, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41
   %34 = getelementptr inbounds nuw i8, ptr %.029160, i64 32
-  %35 = load i32, ptr %34, align 8, !tbaa !60
+  %35 = load i32, ptr %34, align 8, !tbaa !58
   %36 = icmp eq i32 %35, %10
   br i1 %36, label %37, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
 
 37:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread
   %38 = getelementptr inbounds nuw i8, ptr %.029160, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !62
+  %39 = load ptr, ptr %38, align 8, !tbaa !60
   %.not.i.i.i42 = icmp eq ptr %39, null
   br i1 %.not.i.i.i42, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53, label %_ZN4llvm9StringRefC2EPKc.exit.i.i43
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i43:              ; preds = %37
   %40 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #13
-  %.sroa.0.0.copyload.i.i44 = load ptr, ptr %3, align 8, !tbaa !63
-  %.sroa.2.0.copyload.i.i46 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !57
+  %.sroa.0.0.copyload.i.i44 = load ptr, ptr %3, align 8, !tbaa !61
+  %.sroa.2.0.copyload.i.i46 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %.not.i3.i.i47 = icmp eq i64 %40, %.sroa.2.0.copyload.i.i46
   br i1 %.not.i3.i.i47, label %41, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
 
@@ -33041,26 +33041,26 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i43:              ; preds = %37
   br i1 %44, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit183, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53: ; preds = %37
-  %.sroa.2.0.copyload6.i.i51 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !57
+  %.sroa.2.0.copyload6.i.i51 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %.not.i37.i.i52 = icmp eq i64 %.sroa.2.0.copyload6.i.i51, 0
   br i1 %.not.i37.i.i52, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit177, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread: ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i43, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit41.thread, %43, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53
   %45 = getelementptr inbounds nuw i8, ptr %.029160, i64 48
-  %46 = load i32, ptr %45, align 8, !tbaa !60
+  %46 = load i32, ptr %45, align 8, !tbaa !58
   %47 = icmp eq i32 %46, %10
   br i1 %47, label %48, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
 
 48:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit53.thread
   %49 = getelementptr inbounds nuw i8, ptr %.029160, i64 56
-  %50 = load ptr, ptr %49, align 8, !tbaa !62
+  %50 = load ptr, ptr %49, align 8, !tbaa !60
   %.not.i.i.i54 = icmp eq ptr %50, null
   br i1 %.not.i.i.i54, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65, label %_ZN4llvm9StringRefC2EPKc.exit.i.i55
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i55:              ; preds = %48
   %51 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #13
-  %.sroa.0.0.copyload.i.i56 = load ptr, ptr %3, align 8, !tbaa !63
-  %.sroa.2.0.copyload.i.i58 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !57
+  %.sroa.0.0.copyload.i.i56 = load ptr, ptr %3, align 8, !tbaa !61
+  %.sroa.2.0.copyload.i.i58 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %.not.i3.i.i59 = icmp eq i64 %51, %.sroa.2.0.copyload.i.i58
   br i1 %.not.i3.i.i59, label %52, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
 
@@ -33074,7 +33074,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i55:              ; preds = %48
   br i1 %55, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit185, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65: ; preds = %48
-  %.sroa.2.0.copyload6.i.i63 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !57
+  %.sroa.2.0.copyload6.i.i63 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !55
   %.not.i37.i.i64 = icmp eq i64 %.sroa.2.0.copyload6.i.i63, 0
   br i1 %.not.i37.i.i64, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121.loopexit.split.loop.exit179, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
 
@@ -33082,7 +33082,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19Att
   %56 = getelementptr inbounds nuw i8, ptr %.029160, i64 64
   %57 = add nsw i64 %.0161, -1
   %58 = icmp sgt i64 %.0161, 1
-  br i1 %58, label %12, label %._crit_edge.loopexit, !llvm.loop !64
+  br i1 %58, label %12, label %._crit_edge.loopexit, !llvm.loop !62
 
 ._crit_edge.loopexit:                             ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit65.thread
   %.pre174 = ptrtoint ptr %scevgep to i64
@@ -33108,22 +33108,22 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19Att
   br label %73
 
 60:                                               ; preds = %._crit_edge
-  %61 = load i32, ptr %.029.lcssa, align 8, !tbaa !60
+  %61 = load i32, ptr %.029.lcssa, align 8, !tbaa !58
   %62 = load i32, ptr %2, align 4, !tbaa !18
   %63 = icmp eq i32 %61, %62
   br i1 %63, label %64, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %.029.lcssa, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !62
+  %66 = load ptr, ptr %65, align 8, !tbaa !60
   %.not.i.i.i66 = icmp eq ptr %66, null
   br i1 %.not.i.i.i66, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77, label %_ZN4llvm9StringRefC2EPKc.exit.i.i67
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i67:              ; preds = %64
   %67 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #13
-  %.sroa.0.0.copyload.i.i68 = load ptr, ptr %3, align 8, !tbaa !63
+  %.sroa.0.0.copyload.i.i68 = load ptr, ptr %3, align 8, !tbaa !61
   %.sroa.2.0..sroa_idx.i.i69 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i.i70 = load i64, ptr %.sroa.2.0..sroa_idx.i.i69, align 8, !tbaa !57
+  %.sroa.2.0.copyload.i.i70 = load i64, ptr %.sroa.2.0..sroa_idx.i.i69, align 8, !tbaa !55
   %.not.i3.i.i71 = icmp eq i64 %67, %.sroa.2.0.copyload.i.i70
   br i1 %.not.i3.i.i71, label %68, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
 
@@ -33138,7 +33138,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i67:              ; preds = %64
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77: ; preds = %64
   %.sroa.2.0..sroa_idx5.i.i74 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload6.i.i75 = load i64, ptr %.sroa.2.0..sroa_idx5.i.i74, align 8, !tbaa !57
+  %.sroa.2.0.copyload6.i.i75 = load i64, ptr %.sroa.2.0..sroa_idx5.i.i74, align 8, !tbaa !55
   %.not.i37.i.i76 = icmp eq i64 %.sroa.2.0.copyload6.i.i75, 0
   br i1 %.not.i37.i.i76, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
 
@@ -33149,21 +33149,21 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19Att
 73:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread
   %74 = phi i32 [ %62, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread ], [ %.pre, %._crit_edge._crit_edge ]
   %.1 = phi ptr [ %72, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit77.thread ], [ %.029.lcssa, %._crit_edge._crit_edge ]
-  %75 = load i32, ptr %.1, align 8, !tbaa !60
+  %75 = load i32, ptr %.1, align 8, !tbaa !58
   %76 = icmp eq i32 %75, %74
   br i1 %76, label %77, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !62
+  %79 = load ptr, ptr %78, align 8, !tbaa !60
   %.not.i.i.i78 = icmp eq ptr %79, null
   br i1 %.not.i.i.i78, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89, label %_ZN4llvm9StringRefC2EPKc.exit.i.i79
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i79:              ; preds = %77
   %80 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %79) #13
-  %.sroa.0.0.copyload.i.i80 = load ptr, ptr %3, align 8, !tbaa !63
+  %.sroa.0.0.copyload.i.i80 = load ptr, ptr %3, align 8, !tbaa !61
   %.sroa.2.0..sroa_idx.i.i81 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i.i82 = load i64, ptr %.sroa.2.0..sroa_idx.i.i81, align 8, !tbaa !57
+  %.sroa.2.0.copyload.i.i82 = load i64, ptr %.sroa.2.0..sroa_idx.i.i81, align 8, !tbaa !55
   %.not.i3.i.i83 = icmp eq i64 %80, %.sroa.2.0.copyload.i.i82
   br i1 %.not.i3.i.i83, label %81, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
 
@@ -33178,7 +33178,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i79:              ; preds = %77
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89: ; preds = %77
   %.sroa.2.0..sroa_idx5.i.i86 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload6.i.i87 = load i64, ptr %.sroa.2.0..sroa_idx5.i.i86, align 8, !tbaa !57
+  %.sroa.2.0.copyload6.i.i87 = load i64, ptr %.sroa.2.0..sroa_idx5.i.i86, align 8, !tbaa !55
   %.not.i37.i.i88 = icmp eq i64 %.sroa.2.0.copyload6.i.i87, 0
   br i1 %.not.i37.i.i88, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
 
@@ -33189,21 +33189,21 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19Att
 86:                                               ; preds = %._crit_edge._crit_edge172, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread
   %87 = phi i32 [ %74, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread ], [ %.pre173, %._crit_edge._crit_edge172 ]
   %.2 = phi ptr [ %85, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit89.thread ], [ %.029.lcssa, %._crit_edge._crit_edge172 ]
-  %88 = load i32, ptr %.2, align 8, !tbaa !60
+  %88 = load i32, ptr %.2, align 8, !tbaa !58
   %89 = icmp eq i32 %88, %87
   br i1 %89, label %90, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %.2, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !62
+  %92 = load ptr, ptr %91, align 8, !tbaa !60
   %.not.i.i.i90 = icmp eq ptr %92, null
   br i1 %.not.i.i.i90, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101, label %_ZN4llvm9StringRefC2EPKc.exit.i.i91
 
 _ZN4llvm9StringRefC2EPKc.exit.i.i91:              ; preds = %90
   %93 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #13
-  %.sroa.0.0.copyload.i.i92 = load ptr, ptr %3, align 8, !tbaa !63
+  %.sroa.0.0.copyload.i.i92 = load ptr, ptr %3, align 8, !tbaa !61
   %.sroa.2.0..sroa_idx.i.i93 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload.i.i94 = load i64, ptr %.sroa.2.0..sroa_idx.i.i93, align 8, !tbaa !57
+  %.sroa.2.0.copyload.i.i94 = load i64, ptr %.sroa.2.0..sroa_idx.i.i93, align 8, !tbaa !55
   %.not.i3.i.i95 = icmp eq i64 %93, %.sroa.2.0.copyload.i.i94
   br i1 %.not.i3.i.i95, label %94, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread
 
@@ -33218,7 +33218,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i91:              ; preds = %90
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101: ; preds = %90
   %.sroa.2.0..sroa_idx5.i.i98 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.2.0.copyload6.i.i99 = load i64, ptr %.sroa.2.0..sroa_idx5.i.i98, align 8, !tbaa !57
+  %.sroa.2.0.copyload6.i.i99 = load i64, ptr %.sroa.2.0..sroa_idx5.i.i98, align 8, !tbaa !55
   %.not.i37.i.i100 = icmp eq i64 %.sroa.2.0.copyload6.i.i99, 0
   br i1 %.not.i37.i.i100, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit.thread121, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang14ParsedAttrInfo11hasSpellingENS2_19AttributeCommonInfo6SyntaxEN4llvm9StringRefEEUlRKNS3_8SpellingEE_EclIPS9_EEbT_.exit101.thread
 
@@ -33333,45 +33333,43 @@ attributes #14 = { noreturn nounwind }
 !21 = !{!"_ZTSN4llvm8ArrayRefIN5clang14ParsedAttrInfo8SpellingEEE", !22, i64 0, !12, i64 8}
 !22 = !{!"p1 _ZTSN5clang14ParsedAttrInfo8SpellingE", !8, i64 0}
 !23 = !{!21, !12, i64 8}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!27, !31, i64 32}
-!27 = !{!"_ZTSN4llvm6TripleE", !28, i64 0, !31, i64 32, !32, i64 36, !33, i64 40, !34, i64 44, !35, i64 48, !36, i64 52}
-!28 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !29, i64 0, !12, i64 8, !6, i64 16}
-!29 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !30, i64 0}
-!30 = !{!"p1 omnipotent char", !8, i64 0}
-!31 = !{!"_ZTSN4llvm6Triple8ArchTypeE", !6, i64 0}
-!32 = !{!"_ZTSN4llvm6Triple11SubArchTypeE", !6, i64 0}
-!33 = !{!"_ZTSN4llvm6Triple10VendorTypeE", !6, i64 0}
-!34 = !{!"_ZTSN4llvm6Triple6OSTypeE", !6, i64 0}
-!35 = !{!"_ZTSN4llvm6Triple15EnvironmentTypeE", !6, i64 0}
-!36 = !{!"_ZTSN4llvm6Triple16ObjectFormatTypeE", !6, i64 0}
-!37 = !{!27, !34, i64 44}
-!38 = !{!27, !36, i64 52}
-!39 = !{!27, !35, i64 48}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"_ZTSN5clang12TargetCXXABI4KindE", !6, i64 0}
-!42 = !{!43, !44, i64 8}
-!43 = !{!"_ZTSN5clang19AttributeCommonInfoE", !44, i64 0, !44, i64 8, !45, i64 16, !46, i64 24, !5, i64 28, !5, i64 30, !5, i64 30, !5, i64 31, !5, i64 31}
-!44 = !{!"p1 _ZTSN5clang14IdentifierInfoE", !8, i64 0}
-!45 = !{!"_ZTSN5clang11SourceRangeE", !46, i64 0, !46, i64 4}
-!46 = !{!"_ZTSN5clang14SourceLocationE", !5, i64 0}
-!47 = !{!48, !8, i64 0}
-!48 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !8, i64 0, !12, i64 8, !12, i64 16}
-!49 = !{!48, !12, i64 8}
-!50 = !{!6, !6, i64 0}
-!51 = !{!48, !12, i64 16}
-!52 = !{!43, !44, i64 0}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNK4llvm11SmallStringILj64EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv: argument 0"}
-!55 = distinct !{!55, !"_ZNK4llvm11SmallStringILj64EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv"}
-!56 = !{!29, !30, i64 0}
-!57 = !{!12, !12, i64 0}
-!58 = !{!28, !30, i64 0}
-!59 = !{!28, !12, i64 8}
-!60 = !{!61, !19, i64 0}
-!61 = !{!"_ZTSN5clang14ParsedAttrInfo8SpellingE", !19, i64 0, !30, i64 8}
-!62 = !{!61, !30, i64 8}
-!63 = !{!30, !30, i64 0}
-!64 = distinct !{!64, !65, !25}
-!65 = !{!"llvm.loop.mustprogress"}
+!24 = !{!25, !29, i64 32}
+!25 = !{!"_ZTSN4llvm6TripleE", !26, i64 0, !29, i64 32, !30, i64 36, !31, i64 40, !32, i64 44, !33, i64 48, !34, i64 52}
+!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !27, i64 0, !12, i64 8, !6, i64 16}
+!27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !28, i64 0}
+!28 = !{!"p1 omnipotent char", !8, i64 0}
+!29 = !{!"_ZTSN4llvm6Triple8ArchTypeE", !6, i64 0}
+!30 = !{!"_ZTSN4llvm6Triple11SubArchTypeE", !6, i64 0}
+!31 = !{!"_ZTSN4llvm6Triple10VendorTypeE", !6, i64 0}
+!32 = !{!"_ZTSN4llvm6Triple6OSTypeE", !6, i64 0}
+!33 = !{!"_ZTSN4llvm6Triple15EnvironmentTypeE", !6, i64 0}
+!34 = !{!"_ZTSN4llvm6Triple16ObjectFormatTypeE", !6, i64 0}
+!35 = !{!25, !32, i64 44}
+!36 = !{!25, !34, i64 52}
+!37 = !{!25, !33, i64 48}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"_ZTSN5clang12TargetCXXABI4KindE", !6, i64 0}
+!40 = !{!41, !42, i64 8}
+!41 = !{!"_ZTSN5clang19AttributeCommonInfoE", !42, i64 0, !42, i64 8, !43, i64 16, !44, i64 24, !5, i64 28, !5, i64 30, !5, i64 30, !5, i64 31, !5, i64 31}
+!42 = !{!"p1 _ZTSN5clang14IdentifierInfoE", !8, i64 0}
+!43 = !{!"_ZTSN5clang11SourceRangeE", !44, i64 0, !44, i64 4}
+!44 = !{!"_ZTSN5clang14SourceLocationE", !5, i64 0}
+!45 = !{!46, !8, i64 0}
+!46 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !8, i64 0, !12, i64 8, !12, i64 16}
+!47 = !{!46, !12, i64 8}
+!48 = !{!6, !6, i64 0}
+!49 = !{!46, !12, i64 16}
+!50 = !{!41, !42, i64 0}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZNK4llvm11SmallStringILj64EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv: argument 0"}
+!53 = distinct !{!53, !"_ZNK4llvm11SmallStringILj64EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv"}
+!54 = !{!27, !28, i64 0}
+!55 = !{!12, !12, i64 0}
+!56 = !{!26, !28, i64 0}
+!57 = !{!26, !12, i64 8}
+!58 = !{!59, !19, i64 0}
+!59 = !{!"_ZTSN5clang14ParsedAttrInfo8SpellingE", !19, i64 0, !28, i64 8}
+!60 = !{!59, !28, i64 8}
+!61 = !{!28, !28, i64 0}
+!62 = distinct !{!62, !63}
+!63 = !{!"llvm.loop.mustprogress"}

@@ -155,7 +155,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 48:                                               ; preds = %.lr.ph, %44
   %.081109 = phi i64 [ 0, %.lr.ph ], [ %45, %44 ]
   %49 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 0, i64 %.081109
-  %50 = load i8, ptr %49, align 1, !tbaa !31
+  %50 = load i8, ptr %49, align 1, !tbaa !30
   %51 = zext i8 %50 to i32
   %52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %51) #3
   %53 = icmp slt i32 %52, 1
@@ -168,7 +168,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 .preheader:                                       ; preds = %._crit_edge
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 632
-  %57 = load i64, ptr %56, align 8, !tbaa !32
+  %57 = load i64, ptr %56, align 8, !tbaa !31
   %.not118 = icmp eq i64 %57, 0
   br i1 %.not118, label %._crit_edge112, label %.lr.ph111
 
@@ -178,14 +178,14 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 59:                                               ; preds = %63
   %60 = add nuw i64 %.1110, 1
-  %61 = load i64, ptr %56, align 8, !tbaa !32
+  %61 = load i64, ptr %56, align 8, !tbaa !31
   %62 = icmp ult i64 %60, %61
-  br i1 %62, label %63, label %._crit_edge112, !llvm.loop !33
+  br i1 %62, label %63, label %._crit_edge112, !llvm.loop !32
 
 63:                                               ; preds = %.lr.ph111, %59
   %.1110 = phi i64 [ 0, %.lr.ph111 ], [ %60, %59 ]
   %64 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 0, i64 %.1110
-  %65 = load i8, ptr %64, align 1, !tbaa !31
+  %65 = load i8, ptr %64, align 1, !tbaa !30
   %66 = zext i8 %65 to i32
   %67 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %66) #3
   %68 = icmp slt i32 %67, 1
@@ -206,7 +206,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 75:                                               ; preds = %72, %69
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %77 = load i64, ptr %76, align 8, !tbaa !34
+  %77 = load i64, ptr %76, align 8, !tbaa !33
   %.not119 = icmp eq i64 %77, 0
   br i1 %.not119, label %._crit_edge116, label %.lr.ph115
 
@@ -216,14 +216,14 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 79:                                               ; preds = %83
   %80 = add nuw i64 %.2113, 1
-  %81 = load i64, ptr %76, align 8, !tbaa !34
+  %81 = load i64, ptr %76, align 8, !tbaa !33
   %82 = icmp ult i64 %80, %81
-  br i1 %82, label %83, label %._crit_edge116, !llvm.loop !35
+  br i1 %82, label %83, label %._crit_edge116, !llvm.loop !34
 
 83:                                               ; preds = %.lr.ph115, %79
   %.2113 = phi i64 [ 0, %.lr.ph115 ], [ %80, %79 ]
   %84 = getelementptr inbounds nuw [512 x i8], ptr %78, i64 0, i64 %.2113
-  %85 = load i8, ptr %84, align 1, !tbaa !31
+  %85 = load i8, ptr %84, align 1, !tbaa !30
   %86 = zext i8 %85 to i32
   %87 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %86) #3
   %88 = icmp slt i32 %87, 1
@@ -236,7 +236,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 91:                                               ; preds = %._crit_edge116
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 680
-  %93 = load ptr, ptr %92, align 8, !tbaa !36
+  %93 = load ptr, ptr %92, align 8, !tbaa !35
   %.not = icmp eq ptr %93, null
   %spec.select99 = select i1 %.not, ptr @.str.14, ptr %93
   %94 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %spec.select99) #3
@@ -250,7 +250,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 672
-  %101 = load ptr, ptr %100, align 8, !tbaa !37
+  %101 = load ptr, ptr %100, align 8, !tbaa !36
   %.not90 = icmp eq ptr %101, null
   %spec.select100 = select i1 %.not90, ptr @.str.14, ptr %101
   %102 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %spec.select100) #3
@@ -264,7 +264,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 864
-  %109 = load ptr, ptr %108, align 8, !tbaa !38
+  %109 = load ptr, ptr %108, align 8, !tbaa !37
   %.not91 = icmp eq ptr %109, null
   %spec.select101 = select i1 %.not91, ptr @.str.14, ptr %109
   %110 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull %spec.select101) #3
@@ -273,7 +273,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 112:                                              ; preds = %107
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 824
-  %114 = load i64, ptr %113, align 8, !tbaa !39
+  %114 = load i64, ptr %113, align 8, !tbaa !38
   %.not92 = icmp eq i64 %114, 0
   br i1 %.not92, label %118, label %115
 
@@ -284,7 +284,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 118:                                              ; preds = %115, %112
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 808
-  %120 = load ptr, ptr %119, align 8, !tbaa !40
+  %120 = load ptr, ptr %119, align 8, !tbaa !39
   %.not93 = icmp eq ptr %120, null
   br i1 %.not93, label %131, label %121
 
@@ -294,9 +294,9 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
   br i1 %123, label %.loopexit, label %124
 
 124:                                              ; preds = %121
-  %125 = load ptr, ptr %119, align 8, !tbaa !40
+  %125 = load ptr, ptr %119, align 8, !tbaa !39
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 816
-  %127 = load i64, ptr %126, align 8, !tbaa !41
+  %127 = load i64, ptr %126, align 8, !tbaa !40
   %128 = trunc i64 %127 to i32
   %129 = tail call i32 @BIO_dump_indent(ptr noundef %0, ptr noundef %125, i32 noundef %128, i32 noundef 4) #3
   %130 = icmp slt i32 %129, 1
@@ -304,32 +304,32 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 131:                                              ; preds = %124, %118
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 752
-  %133 = load i32, ptr %132, align 8, !tbaa !42
+  %133 = load i32, ptr %132, align 8, !tbaa !41
   %.not94 = icmp eq i32 %133, 0
   br i1 %.not94, label %150, label %134
 
 134:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #3
-  store ptr null, ptr %3, align 8, !tbaa !43
+  store ptr null, ptr %3, align 8, !tbaa !42
   %135 = call i32 @ssl_cipher_get_evp(ptr noundef null, ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %3, i32 noundef 0) #3
   %.not95 = icmp eq i32 %135, 0
   br i1 %.not95, label %.thread, label %136
 
 136:                                              ; preds = %134
-  %137 = load ptr, ptr %3, align 8, !tbaa !43
+  %137 = load ptr, ptr %3, align 8, !tbaa !42
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %143
 
 139:                                              ; preds = %136
-  %140 = load i32, ptr %132, align 8, !tbaa !42
+  %140 = load i32, ptr %132, align 8, !tbaa !41
   %141 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef %140) #3
   %142 = icmp slt i32 %141, 1
   br i1 %142, label %.thread, label %149
 
 143:                                              ; preds = %136
-  %144 = load i32, ptr %137, align 8, !tbaa !45
+  %144 = load i32, ptr %137, align 8, !tbaa !44
   %145 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %146 = load ptr, ptr %145, align 8, !tbaa !48
+  %146 = load ptr, ptr %145, align 8, !tbaa !47
   %147 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %144, ptr noundef %146) #3
   %148 = icmp slt i32 %147, 1
   br i1 %148, label %.thread, label %149
@@ -378,7 +378,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 170:                                              ; preds = %167
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  %172 = load i64, ptr %171, align 8, !tbaa !49
+  %172 = load i64, ptr %171, align 8, !tbaa !48
   %173 = call ptr @X509_verify_cert_error_string(i64 noundef %172) #3
   %174 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.25, i64 noundef %172, ptr noundef %173) #3
   %175 = icmp slt i32 %174, 1
@@ -386,7 +386,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 176:                                              ; preds = %170
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 888
-  %178 = load i32, ptr %177, align 8, !tbaa !50
+  %178 = load i32, ptr %177, align 8, !tbaa !49
   %179 = and i32 %178, 1
   %.not98 = icmp eq i32 %179, 0
   %180 = select i1 %.not98, ptr @.str.28, ptr @.str.27
@@ -399,7 +399,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print(ptr noundef %0, ptr noundef %1) lo
 
 184:                                              ; preds = %183
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 836
-  %186 = load i32, ptr %185, align 4, !tbaa !51
+  %186 = load i32, ptr %185, align 4, !tbaa !50
   %187 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef %186) #3
   %188 = icmp slt i32 %187, 1
   br i1 %188, label %.loopexit, label %189
@@ -442,7 +442,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print_keylog(ptr noundef %0, ptr noundef
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !34
+  %10 = load i64, ptr %9, align 8, !tbaa !33
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %.loopexit, label %12
 
@@ -469,12 +469,12 @@ define range(i32 0, 2) i32 @SSL_SESSION_print_keylog(ptr noundef %0, ptr noundef
   %21 = add nuw i64 %.023, 1
   %22 = load i64, ptr %5, align 8, !tbaa !27
   %23 = icmp ult i64 %21, %22
-  br i1 %23, label %24, label %._crit_edge, !llvm.loop !52
+  br i1 %23, label %24, label %._crit_edge, !llvm.loop !51
 
 24:                                               ; preds = %.lr.ph, %20
   %.023 = phi i64 [ 0, %.lr.ph ], [ %21, %20 ]
   %25 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 0, i64 %.023
-  %26 = load i8, ptr %25, align 1, !tbaa !31
+  %26 = load i8, ptr %25, align 1, !tbaa !30
   %27 = zext i8 %26 to i32
   %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %27) #3
   %29 = icmp slt i32 %28, 1
@@ -486,7 +486,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_print_keylog(ptr noundef %0, ptr noundef
   br i1 %31, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %32 = load i64, ptr %9, align 8, !tbaa !34
+  %32 = load i64, ptr %9, align 8, !tbaa !33
   %.not27 = icmp eq i64 %32, 0
   br i1 %.not27, label %._crit_edge26, label %.lr.ph25
 
@@ -496,14 +496,14 @@ define range(i32 0, 2) i32 @SSL_SESSION_print_keylog(ptr noundef %0, ptr noundef
 
 34:                                               ; preds = %38
   %35 = add nuw i64 %.124, 1
-  %36 = load i64, ptr %9, align 8, !tbaa !34
+  %36 = load i64, ptr %9, align 8, !tbaa !33
   %37 = icmp ult i64 %35, %36
-  br i1 %37, label %38, label %._crit_edge26, !llvm.loop !53
+  br i1 %37, label %38, label %._crit_edge26, !llvm.loop !52
 
 38:                                               ; preds = %.lr.ph25, %34
   %.124 = phi i64 [ 0, %.lr.ph25 ], [ %35, %34 ]
   %39 = getelementptr inbounds nuw [512 x i8], ptr %33, i64 0, i64 %.124
-  %40 = load i8, ptr %39, align 1, !tbaa !31
+  %40 = load i8, ptr %39, align 1, !tbaa !30
   %41 = zext i8 %40 to i32
   %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %41) #3
   %43 = icmp slt i32 %42, 1
@@ -557,29 +557,28 @@ attributes #3 = { nounwind }
 !25 = !{!26, !9, i64 8}
 !26 = !{!"ssl_cipher_st", !5, i64 0, !9, i64 8, !9, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72}
 !27 = !{!4, !8, i64 592}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!6, !6, i64 0}
-!32 = !{!4, !8, i64 632}
-!33 = distinct !{!33, !29, !30}
-!34 = !{!4, !8, i64 8}
-!35 = distinct !{!35, !29, !30}
-!36 = !{!4, !9, i64 680}
-!37 = !{!4, !9, i64 672}
-!38 = !{!4, !9, i64 864}
-!39 = !{!4, !8, i64 824}
-!40 = !{!4, !9, i64 808}
-!41 = !{!4, !8, i64 816}
-!42 = !{!4, !5, i64 752}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS11ssl_comp_st", !10, i64 0}
-!45 = !{!46, !5, i64 0}
-!46 = !{!"ssl_comp_st", !5, i64 0, !9, i64 8, !47, i64 16}
-!47 = !{!"p1 _ZTS14comp_method_st", !10, i64 0}
-!48 = !{!46, !9, i64 8}
-!49 = !{!4, !8, i64 720}
-!50 = !{!4, !5, i64 888}
-!51 = !{!4, !5, i64 836}
-!52 = distinct !{!52, !29, !30}
-!53 = distinct !{!53, !29, !30}
+!30 = !{!6, !6, i64 0}
+!31 = !{!4, !8, i64 632}
+!32 = distinct !{!32, !29}
+!33 = !{!4, !8, i64 8}
+!34 = distinct !{!34, !29}
+!35 = !{!4, !9, i64 680}
+!36 = !{!4, !9, i64 672}
+!37 = !{!4, !9, i64 864}
+!38 = !{!4, !8, i64 824}
+!39 = !{!4, !9, i64 808}
+!40 = !{!4, !8, i64 816}
+!41 = !{!4, !5, i64 752}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS11ssl_comp_st", !10, i64 0}
+!44 = !{!45, !5, i64 0}
+!45 = !{!"ssl_comp_st", !5, i64 0, !9, i64 8, !46, i64 16}
+!46 = !{!"p1 _ZTS14comp_method_st", !10, i64 0}
+!47 = !{!45, !9, i64 8}
+!48 = !{!4, !8, i64 720}
+!49 = !{!4, !5, i64 888}
+!50 = !{!4, !5, i64 836}
+!51 = distinct !{!51, !29}
+!52 = distinct !{!52, !29}

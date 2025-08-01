@@ -361,7 +361,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 10:                                               ; preds = %2
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %11 = icmp samesign ugt i64 %indvars.iv, 2
-  br i1 %11, label %2, label %.loopexit117.preheader, !llvm.loop !7
+  br i1 %11, label %2, label %.loopexit117.preheader, !llvm.loop !6
 
 .loopexit117.preheader:                           ; preds = %10, %7
   br label %.loopexit117
@@ -384,12 +384,12 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 19:                                               ; preds = %.loopexit117
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next141, 15
-  br i1 %exitcond.not, label %.loopexit, label %.loopexit117, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.loopexit117, !llvm.loop !7
 
 .loopexit:                                        ; preds = %19, %16
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next144, 8192
-  br i1 %exitcond146.not, label %.preheader115, label %.preheader116, !llvm.loop !9
+  br i1 %exitcond146.not, label %.preheader115, label %.preheader116, !llvm.loop !8
 
 .preheader115:                                    ; preds = %.loopexit, %31
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %31 ], [ 0, %.loopexit ]
@@ -415,12 +415,12 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
   %29 = phi i32 [ %23, %22 ], [ %27, %26 ]
   %30 = add nuw nsw i32 %.0100123, 1
   %exitcond147.not = icmp eq i32 %30, 13
-  br i1 %exitcond147.not, label %31, label %22, !llvm.loop !10
+  br i1 %exitcond147.not, label %31, label %22, !llvm.loop !9
 
 31:                                               ; preds = %28
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 8192
-  br i1 %exitcond151.not, label %32, label %.preheader115, !llvm.loop !11
+  br i1 %exitcond151.not, label %32, label %.preheader115, !llvm.loop !10
 
 32:                                               ; preds = %31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(15) @relRank, i8 0, i64 15, i1 false)
@@ -452,12 +452,12 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
   %.198 = phi i8 [ %41, %40 ], [ %.097125, %35 ]
   %indvars.iv.next153 = add nsw i64 %indvars.iv152, -1
   %44 = icmp samesign ugt i64 %indvars.iv152, 2
-  br i1 %44, label %35, label %45, !llvm.loop !12
+  br i1 %44, label %35, label %45, !llvm.loop !11
 
 45:                                               ; preds = %43
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 8192
-  br i1 %exitcond157.not, label %.preheader113, label %.preheader114, !llvm.loop !13
+  br i1 %exitcond157.not, label %.preheader113, label %.preheader114, !llvm.loop !12
 
 .preheader113:                                    ; preds = %45, %62
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %62 ], [ 0, %45 ]
@@ -496,7 +496,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
   %.191 = phi i32 [ %57, %55 ], [ %.090129, %48 ]
   %indvars.iv.next159 = add nsw i64 %indvars.iv158, -1
   %59 = icmp samesign ugt i64 %indvars.iv158, 2
-  br i1 %59, label %48, label %60, !llvm.loop !14
+  br i1 %59, label %48, label %60, !llvm.loop !13
 
 60:                                               ; preds = %53, %58
   %.092.lcssa = phi i16 [ %.092128, %53 ], [ %.193, %58 ]
@@ -504,12 +504,12 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
   store i16 %.092.lcssa, ptr %61, align 2
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, 14
-  br i1 %exitcond163.not, label %62, label %.preheader, !llvm.loop !15
+  br i1 %exitcond163.not, label %62, label %.preheader, !llvm.loop !14
 
 62:                                               ; preds = %60
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, 8192
-  br i1 %exitcond167.not, label %63, label %.preheader113, !llvm.loop !16
+  br i1 %exitcond167.not, label %63, label %.preheader113, !llvm.loop !15
 
 63:                                               ; preds = %62
   store i32 -1, ptr @groupData, align 16
@@ -592,7 +592,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 109:                                              ; preds = %76, %89
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next169, 8192
-  br i1 %exitcond171.not, label %110, label %64, !llvm.loop !17
+  br i1 %exitcond171.not, label %110, label %64, !llvm.loop !16
 
 110:                                              ; preds = %109
   ret void
@@ -652,7 +652,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEj(ptr dead_on_unwind noalias w
   %17 = udiv i32 %.02230.i, 10000
   %18 = add i32 %.02329.i, 4
   %19 = icmp ult i32 %.02230.i, 100000
-  br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !17
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
   %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
@@ -712,7 +712,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   store i8 %41, ptr %44, align 1
   %45 = add i32 %.01819.i, -2
   %46 = icmp ugt i32 %.020.i, 9999
-  br i1 %46, label %.lr.ph.i3, label %._crit_edge.i, !llvm.loop !19
+  br i1 %46, label %.lr.ph.i3, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i3, %25
   %.0.lcssa.i = phi i32 [ %1, %25 ], [ %32, %.lr.ph.i3 ]
@@ -771,7 +771,7 @@ define void @_Z15CloseDebugFilesv() local_unnamed_addr #3 {
   %3 = add nuw i32 %.03, 1
   %4 = tail call noundef i32 @_ZNK6System10NumThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
   %5 = icmp ult i32 %3, %4
-  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -807,12 +807,12 @@ define void @_Z7SetDealP10ThreadData(ptr noundef captures(none) %0) local_unname
   store i16 %11, ptr %7, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %12, label %8, !llvm.loop !21
+  br i1 %exitcond.not, label %12, label %8, !llvm.loop !20
 
 12:                                               ; preds = %8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 4
-  br i1 %exitcond57.not, label %.preheader41, label %6, !llvm.loop !22
+  br i1 %exitcond57.not, label %.preheader41, label %6, !llvm.loop !21
 
 .preheader40:                                     ; preds = %.preheader41, %20
   %indvars.iv62 = phi i64 [ 0, %.preheader41 ], [ %indvars.iv.next63, %20 ]
@@ -836,12 +836,12 @@ define void @_Z7SetDealP10ThreadData(ptr noundef captures(none) %0) local_unname
   store i8 %19, ptr %gep49, align 1
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 4
-  br i1 %exitcond61.not, label %20, label %14, !llvm.loop !23
+  br i1 %exitcond61.not, label %20, label %14, !llvm.loop !22
 
 20:                                               ; preds = %14
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 4
-  br i1 %exitcond65.not, label %.preheader, label %.preheader40, !llvm.loop !24
+  br i1 %exitcond65.not, label %.preheader, label %.preheader40, !llvm.loop !23
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv66 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next67, %21 ]
@@ -862,7 +862,7 @@ define void @_Z7SetDealP10ThreadData(ptr noundef captures(none) %0) local_unname
   store i32 %34, ptr %35, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 4
-  br i1 %exitcond69.not, label %36, label %21, !llvm.loop !25
+  br i1 %exitcond69.not, label %36, label %21, !llvm.loop !24
 
 36:                                               ; preds = %21
   ret void
@@ -891,12 +891,12 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
   store i8 0, ptr %gep, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %7, label %5, !llvm.loop !26
+  br i1 %exitcond.not, label %7, label %5, !llvm.loop !25
 
 7:                                                ; preds = %5
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, 4
-  br i1 %exitcond104.not, label %.preheader81, label %.preheader82, !llvm.loop !27
+  br i1 %exitcond104.not, label %.preheader81, label %.preheader82, !llvm.loop !26
 
 .preheader80:                                     ; preds = %.preheader81, %20
   %indvars.iv112 = phi i64 [ 0, %.preheader81 ], [ %indvars.iv.next113, %20 ]
@@ -928,17 +928,17 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
 18:                                               ; preds = %13
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 4
-  br i1 %exitcond108.not, label %.loopexit, label %13, !llvm.loop !28
+  br i1 %exitcond108.not, label %.loopexit, label %13, !llvm.loop !27
 
 .loopexit:                                        ; preds = %18, %16
   %indvars.iv.next110 = add nsw i64 %indvars.iv109, -1
   %19 = icmp samesign ugt i64 %indvars.iv109, 2
-  br i1 %19, label %9, label %20, !llvm.loop !29
+  br i1 %19, label %9, label %20, !llvm.loop !28
 
 20:                                               ; preds = %.loopexit
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, 4
-  br i1 %exitcond115.not, label %21, label %.preheader80, !llvm.loop !30
+  br i1 %exitcond115.not, label %21, label %.preheader80, !llvm.loop !29
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 987984
@@ -1000,11 +1000,11 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
   store i8 %51, ptr %49, align 1
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 4
-  br i1 %exitcond119.not, label %52, label %45, !llvm.loop !31
+  br i1 %exitcond119.not, label %52, label %45, !llvm.loop !30
 
 52:                                               ; preds = %45
   %53 = icmp samesign ugt i64 %indvars.iv120, 2
-  br i1 %53, label %.preheader, label %.preheader79, !llvm.loop !32
+  br i1 %53, label %.preheader, label %.preheader79, !llvm.loop !31
 
 54:                                               ; preds = %.preheader79, %54
   %indvars.iv123 = phi i64 [ 0, %.preheader79 ], [ %indvars.iv.next124, %54 ]
@@ -1017,12 +1017,12 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
   store i8 %42, ptr %57, align 1
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next124, 4
-  br i1 %exitcond126.not, label %59, label %54, !llvm.loop !33
+  br i1 %exitcond126.not, label %59, label %54, !llvm.loop !32
 
 59:                                               ; preds = %54
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next128, 8192
-  br i1 %exitcond130.not, label %60, label %27, !llvm.loop !34
+  br i1 %exitcond130.not, label %60, label %27, !llvm.loop !33
 
 60:                                               ; preds = %59
   ret void
@@ -1074,7 +1074,7 @@ define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr noundef nonnull reado
   store i16 %31, ptr %29, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader52, label %15, !llvm.loop !35
+  br i1 %exitcond.not, label %.preheader52, label %15, !llvm.loop !34
 
 .preheader:                                       ; preds = %.preheader52, %38
   %indvars.iv70 = phi i64 [ 0, %.preheader52 ], [ %indvars.iv.next71, %38 ]
@@ -1094,7 +1094,7 @@ define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr noundef nonnull reado
   %37 = or i32 %.04860, %36
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 4
-  br i1 %exitcond69.not, label %38, label %32, !llvm.loop !36
+  br i1 %exitcond69.not, label %38, label %32, !llvm.loop !35
 
 38:                                               ; preds = %32
   %39 = zext nneg i32 %37 to i64
@@ -1123,7 +1123,7 @@ define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr noundef nonnull reado
   store i32 %57, ptr %58, align 4
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
-  br i1 %exitcond73.not, label %59, label %.preheader, !llvm.loop !37
+  br i1 %exitcond73.not, label %59, label %.preheader, !llvm.loop !36
 
 59:                                               ; preds = %38
   ret void
@@ -1131,20 +1131,20 @@ define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr noundef nonnull reado
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z14ResetBestMovesP10ThreadData(ptr noundef captures(none) %0) local_unnamed_addr #3 {
-  %2 = getelementptr i8, ptr %0, i64 3328
-  %3 = getelementptr i8, ptr %0, i64 4128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 3328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4128
   br label %4
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %5 = shl nuw nsw i64 %indvars.iv, 4
-  %6 = getelementptr i8, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 %5
   store i32 0, ptr %6, align 4
-  %7 = getelementptr i8, ptr %3, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 %5
   store i32 0, ptr %7, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 50
-  br i1 %exitcond.not, label %8, label %4, !llvm.loop !38
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !37
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 987984
@@ -1186,7 +1186,7 @@ define void @_Z13FreeThreadMemv() local_unnamed_addr #3 {
   %2 = add nuw i32 %.03, 1
   %3 = tail call noundef i32 @_ZNK6System10NumThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
   %4 = icmp ult i32 %2, %3
-  br i1 %4, label %.lr.ph, label %._crit_edge, !llvm.loop !39
+  br i1 %4, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -1206,7 +1206,7 @@ define void @FreeMemory() local_unnamed_addr #3 {
   %2 = add nuw i32 %.03, 1
   %3 = tail call noundef i32 @_ZNK6System10NumThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
   %4 = icmp ult i32 %2, %3
-  br i1 %4, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %4, label %.lr.ph, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   ret void
@@ -1446,40 +1446,39 @@ attributes #18 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !5, !6}
-!24 = distinct !{!24, !5, !6}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !5, !6}
-!27 = distinct !{!27, !5, !6}
-!28 = distinct !{!28, !5, !6}
-!29 = distinct !{!29, !5, !6}
-!30 = distinct !{!30, !5, !6}
-!31 = distinct !{!31, !5, !6}
-!32 = distinct !{!32, !5, !6}
-!33 = distinct !{!33, !5, !6}
-!34 = distinct !{!34, !5, !6}
-!35 = distinct !{!35, !5, !6}
-!36 = distinct !{!36, !5, !6}
-!37 = distinct !{!37, !5, !6}
-!38 = distinct !{!38, !5, !6}
-!39 = distinct !{!39, !5, !6}
-!40 = distinct !{!40, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
+!39 = distinct !{!39, !5}

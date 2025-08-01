@@ -70,7 +70,7 @@ define zeroext i1 @nxsched_merge_pending() local_unnamed_addr #0 {
   %23 = getelementptr inbounds nuw i8, ptr %.02840, i64 48
   store i8 %.sink, ptr %23, align 16
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %22, %5
   %.1.lcssa = phi i1 [ false, %5 ], [ %.2, %22 ]
@@ -96,7 +96,6 @@ attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

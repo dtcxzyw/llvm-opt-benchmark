@@ -988,7 +988,7 @@ define internal void @post_update_ipdum_can_mapping_cb() #0 {
   %18 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not9.i = icmp eq ptr %19, null
-  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %11
   tail call void @g_list_free(ptr noundef %12)
@@ -1017,7 +1017,7 @@ post_update_register_can.exit:                    ; preds = %._crit_edge, %8, %.
   %33 = load i32, ptr @ipdum_can_mapping_num, align 4
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1124,7 +1124,7 @@ define internal void @post_update_ipdum_flexray_mapping_cb() #0 {
   %27 = load i32, ptr @ipdum_flexray_mapping_num, align 4
   %28 = zext i32 %27 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next, %28
-  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %3
   ret void
@@ -1233,7 +1233,7 @@ define internal void @post_update_ipdum_lin_mapping_cb() #0 {
   %16 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not7.i = icmp eq ptr %17, null
-  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   tail call void @g_list_free(ptr noundef %11)
@@ -1260,7 +1260,7 @@ post_update_register_lin.exit:                    ; preds = %._crit_edge, %8, %.
   %30 = load i32, ptr @ipdum_lin_mapping_num, align 4
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1337,7 +1337,7 @@ define internal void @post_update_ipdum_pdu_transport_mapping_cb() #0 {
   %16 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not7.i = icmp eq ptr %17, null
-  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not7.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   tail call void @g_list_free(ptr noundef %11)
@@ -1359,7 +1359,7 @@ post_update_register_pdu_transport.exit:          ; preds = %._crit_edge, %8, %.
   %25 = load i32, ptr @ipdum_pdu_transport_mapping_num, align 4
   %26 = zext i32 %25 to i64
   %27 = icmp samesign ult i64 %indvars.iv.next, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1891,7 +1891,7 @@ get_message_config.exit:                          ; preds = %4, %13
   %79 = load i32, ptr %22, align 4
   %80 = zext i32 %79 to i64
   %81 = icmp samesign ult i64 %indvars.iv.next, %80
-  br i1 %81, label %29, label %.loopexit, !llvm.loop !16
+  br i1 %81, label %29, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %78, %26
   ret i32 %6
@@ -1948,14 +1948,13 @@ attributes #14 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}

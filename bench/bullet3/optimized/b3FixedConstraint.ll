@@ -523,7 +523,7 @@ _ZNK12b3Quaternion7nearestERKS_.exit.i:           ; preds = %206, %259
   %.0.i.i.i = select i1 %283, float -1.000000e+00, float %282
   %284 = fcmp ogt float %.0.i.i.i, 1.000000e+00
   %.1.i.i.i = select i1 %284, float 1.000000e+00, float %.0.i.i.i
-  %285 = tail call noundef float @acosf(float noundef %.1.i.i.i) #15, !tbaa !37
+  %285 = tail call noundef float @acosf(float noundef %.1.i.i.i) #15, !tbaa !36
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %286 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float 0.000000e+00, ptr %286, align 4, !tbaa !26
@@ -572,7 +572,7 @@ _ZN15b3TransformUtil32calculateDiffAxisAngleQuaternionERK12b3QuaternionS2_R9b3Ve
   store float %310, ptr %313, align 4, !tbaa !26
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, 3
-  br i1 %exitcond148.not, label %314, label %307, !llvm.loop !38
+  br i1 %exitcond148.not, label %314, label %307, !llvm.loop !37
 
 314:                                              ; preds = %307
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
@@ -621,7 +621,7 @@ define linkonce_odr dso_local void @_ZNK11b3Matrix3x311getRotationER12b3Quaterni
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = fadd float %10, 1.000000e+00
-  %16 = tail call noundef float @sqrtf(float noundef %15) #15, !tbaa !37
+  %16 = tail call noundef float @sqrtf(float noundef %15) #15, !tbaa !36
   %17 = fmul float %16, 5.000000e-01
   %18 = fdiv float 5.000000e-01, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -670,7 +670,7 @@ define linkonce_odr dso_local void @_ZNK11b3Matrix3x311getRotationER12b3Quaterni
   %59 = load float, ptr %58, align 4, !tbaa !26
   %60 = fsub float %55, %59
   %61 = fadd float %60, 1.000000e+00
-  %62 = tail call noundef float @sqrtf(float noundef %61) #15, !tbaa !37
+  %62 = tail call noundef float @sqrtf(float noundef %61) #15, !tbaa !36
   %63 = fmul float %62, 5.000000e-01
   %64 = getelementptr inbounds nuw [4 x float], ptr %3, i64 0, i64 %47
   store float %63, ptr %64, align 4, !tbaa !26
@@ -799,8 +799,7 @@ attributes #15 = { nounwind }
 !31 = !{!23, !17, i64 0}
 !32 = !{!23, !17, i64 4}
 !33 = !{!23, !24, i64 48}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!12, !12, i64 0}
-!38 = distinct !{!38, !35, !36}
+!36 = !{!12, !12, i64 0}
+!37 = distinct !{!37, !35}

@@ -681,7 +681,7 @@ define internal void @_lib_duplicate_init_callback(ptr readnone captures(none) %
   %123 = load ptr, ptr %3, align 8, !tbaa !103
   %124 = call i32 @sqlite3_step(ptr noundef %123) #10
   %125 = icmp eq i32 %124, 100
-  br i1 %125, label %67, label %._crit_edge.loopexit, !llvm.loop !113
+  br i1 %125, label %67, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %98
   %126 = icmp eq i32 %.072, 0
@@ -810,14 +810,14 @@ define internal void @_lib_duplicate_thumb_press_callback(ptr noundef %0, ptr no
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #10
   %7 = tail call ptr @g_object_get_data(ptr noundef %6, ptr noundef nonnull @.str.33) #10
-  %8 = load i32, ptr %7, align 8, !tbaa !115
+  %8 = load i32, ptr %7, align 8, !tbaa !113
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %10 = load i32, ptr %9, align 4, !tbaa !116
+  %10 = load i32, ptr %9, align 4, !tbaa !114
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %3
-  %13 = load i32, ptr %1, align 8, !tbaa !121
+  %13 = load i32, ptr %1, align 8, !tbaa !119
   switch i32 %13, label %28 [
     i32 4, label %14
     i32 5, label %16
@@ -920,17 +920,17 @@ define internal void @_lib_duplicate_delete(ptr noundef %0, ptr noundef readonly
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %.041 = load ptr, ptr %14, align 8, !tbaa !122
+  %.041 = load ptr, ptr %14, align 8, !tbaa !120
   %.not42 = icmp eq ptr %.041, null
   br i1 %.not42, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.thread35
   %.043 = phi ptr [ %19, %.thread35 ], [ %.041, %13 ]
-  %15 = load ptr, ptr %.043, align 8, !tbaa !123
-  %16 = load i32, ptr %15, align 8, !tbaa !115
+  %15 = load ptr, ptr %.043, align 8, !tbaa !121
+  %16 = load i32, ptr %15, align 8, !tbaa !113
   %17 = icmp eq i32 %16, %8
   %18 = getelementptr inbounds nuw i8, ptr %.043, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !122
+  %19 = load ptr, ptr %18, align 8, !tbaa !120
   %.not27 = icmp eq ptr %19, null
   br i1 %17, label %20, label %.thread35
 
@@ -939,13 +939,13 @@ define internal void @_lib_duplicate_delete(ptr noundef %0, ptr noundef readonly
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %.043, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !125
+  %23 = load ptr, ptr %22, align 8, !tbaa !123
   %.not28 = icmp eq ptr %23, null
   br i1 %.not28, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %20, %21
   %.02332 = phi ptr [ %23, %21 ], [ %19, %20 ]
-  %24 = load ptr, ptr %.02332, align 8, !tbaa !123
+  %24 = load ptr, ptr %.02332, align 8, !tbaa !121
   %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !67
   %26 = and i32 %25, 1
   %27 = icmp ne i32 %26, 0
@@ -966,12 +966,12 @@ define internal void @_lib_duplicate_delete(ptr noundef %0, ptr noundef readonly
 
 34:                                               ; preds = %30, %33, %.thread
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
-  %36 = load i32, ptr %24, align 8, !tbaa !115
+  %36 = load i32, ptr %24, align 8, !tbaa !113
   tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %35, i32 noundef 6, i32 noundef %36) #10
   br label %.loopexit
 
 .thread35:                                        ; preds = %.lr.ph
-  br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !126
+  br i1 %.not27, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.thread35, %21, %13, %34, %2
   tail call void @dt_control_delete_image(i32 noundef %8) #10
@@ -1159,17 +1159,14 @@ attributes #13 = { cold nounwind }
 !110 = !{!107, !9, i64 328}
 !111 = !{!107, !9, i64 332}
 !112 = !{!107, !16, i64 112}
-!113 = distinct !{!113, !114}
-!114 = !{!"llvm.loop.estimated_trip_count"}
-!115 = !{!107, !9, i64 0}
-!116 = !{!117, !9, i64 52}
-!117 = !{!"_GdkEventButton", !9, i64 0, !118, i64 8, !10, i64 16, !9, i64 20, !52, i64 24, !52, i64 32, !119, i64 40, !9, i64 48, !9, i64 52, !120, i64 56, !52, i64 64, !52, i64 72}
-!118 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
-!119 = !{!"p1 double", !13, i64 0}
-!120 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
-!121 = !{!117, !9, i64 0}
-!122 = !{!21, !21, i64 0}
-!123 = !{!124, !13, i64 0}
-!124 = !{!"_GList", !13, i64 0, !21, i64 8, !21, i64 16}
-!125 = !{!124, !21, i64 16}
-!126 = distinct !{!126, !114}
+!113 = !{!107, !9, i64 0}
+!114 = !{!115, !9, i64 52}
+!115 = !{!"_GdkEventButton", !9, i64 0, !116, i64 8, !10, i64 16, !9, i64 20, !52, i64 24, !52, i64 32, !117, i64 40, !9, i64 48, !9, i64 52, !118, i64 56, !52, i64 64, !52, i64 72}
+!116 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
+!117 = !{!"p1 double", !13, i64 0}
+!118 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
+!119 = !{!115, !9, i64 0}
+!120 = !{!21, !21, i64 0}
+!121 = !{!122, !13, i64 0}
+!122 = !{!"_GList", !13, i64 0, !21, i64 8, !21, i64 16}
+!123 = !{!122, !21, i64 16}

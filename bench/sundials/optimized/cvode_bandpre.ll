@@ -445,11 +445,11 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
   store double %122, ptr %120, align 8, !tbaa !46
   %123 = add nsw i64 %.0136159.i, %72
   %124 = icmp slt i64 %123, %77
-  br i1 %124, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !50
+  br i1 %124, label %.lr.ph.split.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %119, %.lr.ph.split.us.i, %76
-  %125 = load ptr, ptr %73, align 8, !tbaa !51
-  %126 = load ptr, ptr %74, align 8, !tbaa !52
+  %125 = load ptr, ptr %73, align 8, !tbaa !49
+  %126 = load ptr, ptr %74, align 8, !tbaa !50
   %127 = tail call i32 %125(double noundef %0, ptr noundef %29, ptr noundef %27, ptr noundef %126) #8
   %128 = load i64, ptr %75, align 8, !tbaa !30
   %129 = add nsw i64 %128, 1
@@ -540,18 +540,18 @@ define internal i32 @CVBandPrecSetup(double noundef %0, ptr noundef %1, ptr noun
   store double %177, ptr %179, align 8, !tbaa !46
   %180 = add nuw nsw i64 %.0135161.i, 1
   %.not155.not.i = icmp slt i64 %.0135161.i, %171
-  br i1 %.not155.not.i, label %.lr.ph163.i, label %._crit_edge164.i, !llvm.loop !53
+  br i1 %.not155.not.i, label %.lr.ph163.i, label %._crit_edge164.i
 
 ._crit_edge164.i:                                 ; preds = %.lr.ph163.i, %163
   %181 = add nsw i64 %.1137165.i, %72
   %182 = icmp slt i64 %181, %169
-  br i1 %182, label %.lr.ph166.i, label %._crit_edge167.i, !llvm.loop !54
+  br i1 %182, label %.lr.ph166.i, label %._crit_edge167.i
 
 ._crit_edge167.i:                                 ; preds = %._crit_edge164.i, %.preheader.i
   %183 = phi i64 [ %130, %.preheader.i ], [ %169, %._crit_edge164.i ]
   %184 = add nuw i64 %.0134169.i, 1
   %exitcond.not.i = icmp eq i64 %.0134169.i, %..i
-  br i1 %exitcond.not.i, label %.loopexit, label %76, !llvm.loop !55
+  br i1 %exitcond.not.i, label %.loopexit, label %76
 
 CVBandPDQJac.exit:                                ; preds = %._crit_edge.i
   %185 = icmp slt i32 %127, 0
@@ -652,38 +652,38 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr noundef 
   br label %84
 
 20:                                               ; preds = %15
-  store i64 4, ptr %2, align 8, !tbaa !56
-  store i64 0, ptr %1, align 8, !tbaa !56
+  store i64 4, ptr %2, align 8, !tbaa !51
+  store i64 0, ptr %1, align 8, !tbaa !51
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %22 = load ptr, ptr %21, align 8, !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !57
+  %26 = load ptr, ptr %25, align 8, !tbaa !52
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %36, label %27
 
 27:                                               ; preds = %20
   call void @N_VSpace(ptr noundef nonnull %22, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
-  %28 = load i64, ptr %5, align 8, !tbaa !56
+  %28 = load i64, ptr %5, align 8, !tbaa !51
   %29 = shl nsw i64 %28, 1
-  %30 = load i64, ptr %2, align 8, !tbaa !56
+  %30 = load i64, ptr %2, align 8, !tbaa !51
   %31 = add nsw i64 %30, %29
-  store i64 %31, ptr %2, align 8, !tbaa !56
-  %32 = load i64, ptr %4, align 8, !tbaa !56
+  store i64 %31, ptr %2, align 8, !tbaa !51
+  %32 = load i64, ptr %4, align 8, !tbaa !51
   %33 = shl nsw i64 %32, 1
-  %34 = load i64, ptr %1, align 8, !tbaa !56
+  %34 = load i64, ptr %1, align 8, !tbaa !51
   %35 = add nsw i64 %34, %33
-  store i64 %35, ptr %1, align 8, !tbaa !56
+  store i64 %35, ptr %1, align 8, !tbaa !51
   br label %36
 
 36:                                               ; preds = %27, %20
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !32
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !58
+  %40 = load ptr, ptr %39, align 8, !tbaa !53
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 72
-  %42 = load ptr, ptr %41, align 8, !tbaa !61
+  %42 = load ptr, ptr %41, align 8, !tbaa !56
   %.not32 = icmp eq ptr %42, null
   br i1 %.not32, label %52, label %43
 
@@ -693,23 +693,23 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr noundef 
   br i1 %.not33, label %45, label %84
 
 45:                                               ; preds = %43
-  %46 = load i64, ptr %7, align 8, !tbaa !56
-  %47 = load i64, ptr %2, align 8, !tbaa !56
+  %46 = load i64, ptr %7, align 8, !tbaa !51
+  %47 = load i64, ptr %2, align 8, !tbaa !51
   %48 = add nsw i64 %47, %46
-  store i64 %48, ptr %2, align 8, !tbaa !56
-  %49 = load i64, ptr %6, align 8, !tbaa !56
-  %50 = load i64, ptr %1, align 8, !tbaa !56
+  store i64 %48, ptr %2, align 8, !tbaa !51
+  %49 = load i64, ptr %6, align 8, !tbaa !51
+  %50 = load i64, ptr %1, align 8, !tbaa !51
   %51 = add nsw i64 %50, %49
-  store i64 %51, ptr %1, align 8, !tbaa !56
+  store i64 %51, ptr %1, align 8, !tbaa !51
   br label %52
 
 52:                                               ; preds = %45, %36
   %53 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %54 = load ptr, ptr %53, align 8, !tbaa !33
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !58
+  %56 = load ptr, ptr %55, align 8, !tbaa !53
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 72
-  %58 = load ptr, ptr %57, align 8, !tbaa !61
+  %58 = load ptr, ptr %57, align 8, !tbaa !56
   %.not34 = icmp eq ptr %58, null
   br i1 %.not34, label %68, label %59
 
@@ -719,23 +719,23 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr noundef 
   br i1 %.not35, label %61, label %84
 
 61:                                               ; preds = %59
-  %62 = load i64, ptr %7, align 8, !tbaa !56
-  %63 = load i64, ptr %2, align 8, !tbaa !56
+  %62 = load i64, ptr %7, align 8, !tbaa !51
+  %63 = load i64, ptr %2, align 8, !tbaa !51
   %64 = add nsw i64 %63, %62
-  store i64 %64, ptr %2, align 8, !tbaa !56
-  %65 = load i64, ptr %6, align 8, !tbaa !56
-  %66 = load i64, ptr %1, align 8, !tbaa !56
+  store i64 %64, ptr %2, align 8, !tbaa !51
+  %65 = load i64, ptr %6, align 8, !tbaa !51
+  %66 = load i64, ptr %1, align 8, !tbaa !51
   %67 = add nsw i64 %66, %65
-  store i64 %67, ptr %1, align 8, !tbaa !56
+  store i64 %67, ptr %1, align 8, !tbaa !51
   br label %68
 
 68:                                               ; preds = %61, %52
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %70 = load ptr, ptr %69, align 8, !tbaa !34
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !63
+  %72 = load ptr, ptr %71, align 8, !tbaa !58
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 96
-  %74 = load ptr, ptr %73, align 8, !tbaa !66
+  %74 = load ptr, ptr %73, align 8, !tbaa !61
   %.not36 = icmp eq ptr %74, null
   br i1 %.not36, label %84, label %75
 
@@ -745,14 +745,14 @@ define range(i32 -5, 1) i32 @CVBandPrecGetWorkSpace(ptr noundef %0, ptr noundef 
   br i1 %.not37, label %77, label %84
 
 77:                                               ; preds = %75
-  %78 = load i64, ptr %7, align 8, !tbaa !56
-  %79 = load i64, ptr %2, align 8, !tbaa !56
+  %78 = load i64, ptr %7, align 8, !tbaa !51
+  %79 = load i64, ptr %2, align 8, !tbaa !51
   %80 = add nsw i64 %79, %78
-  store i64 %80, ptr %2, align 8, !tbaa !56
-  %81 = load i64, ptr %6, align 8, !tbaa !56
-  %82 = load i64, ptr %1, align 8, !tbaa !56
+  store i64 %80, ptr %2, align 8, !tbaa !51
+  %81 = load i64, ptr %6, align 8, !tbaa !51
+  %82 = load i64, ptr %1, align 8, !tbaa !51
   %83 = add nsw i64 %82, %81
-  store i64 %83, ptr %1, align 8, !tbaa !56
+  store i64 %83, ptr %1, align 8, !tbaa !51
   br label %84
 
 84:                                               ; preds = %68, %77, %75, %59, %43, %19, %14, %9
@@ -802,7 +802,7 @@ define range(i32 -5, 1) i32 @CVBandPrecGetNumRhsEvals(ptr noundef %0, ptr nounde
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %17 = load i64, ptr %16, align 8, !tbaa !30
-  store i64 %17, ptr %1, align 8, !tbaa !56
+  store i64 %17, ptr %1, align 8, !tbaa !51
   br label %18
 
 18:                                               ; preds = %15, %14, %9, %4
@@ -900,24 +900,19 @@ attributes #9 = { nounwind allocsize(0) }
 !44 = !{!4, !9, i64 8}
 !45 = !{!4, !9, i64 320}
 !46 = !{!9, !9, i64 0}
-!47 = distinct !{!47, !48, !49}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!50 = distinct !{!50, !48}
-!51 = !{!4, !6, i64 16}
-!52 = !{!4, !6, i64 24}
-!53 = distinct !{!53, !48}
-!54 = distinct !{!54, !48}
-!55 = distinct !{!55, !48}
-!56 = !{!12, !12, i64 0}
-!57 = !{!22, !6, i64 32}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!49 = !{!4, !6, i64 16}
+!50 = !{!4, !6, i64 24}
+!51 = !{!12, !12, i64 0}
+!52 = !{!22, !6, i64 32}
+!53 = !{!54, !55, i64 8}
+!54 = !{!"_generic_SUNMatrix", !6, i64 0, !55, i64 8, !5, i64 16}
+!55 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
+!56 = !{!57, !6, i64 72}
+!57 = !{!"_generic_SUNMatrix_Ops", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72}
 !58 = !{!59, !60, i64 8}
-!59 = !{!"_generic_SUNMatrix", !6, i64 0, !60, i64 8, !5, i64 16}
-!60 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
-!61 = !{!62, !6, i64 72}
-!62 = !{!"_generic_SUNMatrix_Ops", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72}
-!63 = !{!64, !65, i64 8}
-!64 = !{!"_generic_SUNLinearSolver", !6, i64 0, !65, i64 8, !5, i64 16}
-!65 = !{!"p1 _ZTS28_generic_SUNLinearSolver_Ops", !6, i64 0}
-!66 = !{!67, !6, i64 96}
-!67 = !{!"_generic_SUNLinearSolver_Ops", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112}
+!59 = !{!"_generic_SUNLinearSolver", !6, i64 0, !60, i64 8, !5, i64 16}
+!60 = !{!"p1 _ZTS28_generic_SUNLinearSolver_Ops", !6, i64 0}
+!61 = !{!62, !6, i64 96}
+!62 = !{!"_generic_SUNLinearSolver_Ops", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112}

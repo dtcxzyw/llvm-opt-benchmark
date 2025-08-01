@@ -60,7 +60,7 @@ define internal void @randombytes_sysrandom_stir() #1 {
   %11 = call i64 @getrandom(ptr noundef nonnull %3, i64 noundef range(i64 0, 257) 16, i32 noundef 0) #9
   %12 = trunc i64 %11 to i32
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %.lr.ph.i.i.i, label %_randombytes_linux_getrandom.exit.i.i, !llvm.loop !4
+  br i1 %13, label %.lr.ph.i.i.i, label %_randombytes_linux_getrandom.exit.i.i
 
 _randombytes_linux_getrandom.exit.i.i:            ; preds = %.critedge2.backedge.i.i.i, %4
   %.lcssa.i.i.i = phi i32 [ %8, %4 ], [ %12, %.critedge2.backedge.i.i.i ]
@@ -102,7 +102,7 @@ _randombytes_linux_getrandom.exit.i.thread.i:     ; preds = %.lr.ph.i.i.i, %_ran
 .critedge2.backedge.i.i6.i:                       ; preds = %.lr.ph.i.i5.i, %.lr.ph.i.i5.i
   %22 = call i32 @poll(ptr noundef nonnull %1, i64 noundef 1, i32 noundef -1) #9
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %.lr.ph.i.i5.i, label %.critedge.i.i.i, !llvm.loop !6
+  br i1 %23, label %.lr.ph.i.i5.i, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.critedge2.backedge.i.i6.i, %16
   %.lcssa.i.i3.i = phi i32 [ %19, %16 ], [ %22, %.critedge2.backedge.i.i6.i ]
@@ -165,7 +165,7 @@ randombytes_block_on_dev_random.exit.i.i:         ; preds = %.critedge.i.i.i
   %46 = phi ptr [ %.pre19.i.i, %43 ], [ %29, %40 ]
   %.1.i.i = phi ptr [ %44, %43 ], [ %.09.i.i, %40 ]
   %.not12.i.i = icmp eq ptr %46, null
-  br i1 %.not12.i.i, label %47, label %28, !llvm.loop !7
+  br i1 %.not12.i.i, label %47, label %28, !llvm.loop !4
 
 47:                                               ; preds = %45
   store i32 5, ptr %5, align 4
@@ -233,7 +233,7 @@ randombytes_sysrandom_stir_if_needed.exit:        ; preds = %2, %3
   %11 = tail call i64 @getrandom(ptr noundef %.011.i, i64 noundef range(i64 0, 257) %spec.select.i, i32 noundef 0) #9
   %12 = trunc i64 %11 to i32
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %8, label %_randombytes_linux_getrandom.exit.i, !llvm.loop !4
+  br i1 %13, label %8, label %_randombytes_linux_getrandom.exit.i
 
 _randombytes_linux_getrandom.exit.i:              ; preds = %.critedge2.backedge.i.i, %8, %.preheader
   %.lcssa.i.i = phi i32 [ %5, %.preheader ], [ %9, %8 ], [ %12, %.critedge2.backedge.i.i ]
@@ -245,7 +245,7 @@ _randombytes_linux_getrandom.exit.i:              ; preds = %.critedge2.backedge
   %16 = sub i64 %.012.i, %spec.select.i
   %17 = getelementptr i8, ptr %.011.i, i64 %spec.select.i
   %.not15.i = icmp eq i64 %16, 0
-  br i1 %.not15.i, label %randombytes_linux_getrandom.exit.thread, label %.preheader, !llvm.loop !9
+  br i1 %.not15.i, label %randombytes_linux_getrandom.exit.thread, label %.preheader, !llvm.loop !6
 
 randombytes_linux_getrandom.exit:                 ; preds = %_randombytes_linux_getrandom.exit.i
   tail call void @sodium_misuse() #11
@@ -278,7 +278,7 @@ randombytes_linux_getrandom.exit:                 ; preds = %_randombytes_linux_
 .critedge2.i:                                     ; preds = %24, %24
   %27 = tail call i64 @read(i32 noundef range(i32 0, -1) %19, ptr noundef %.016.i, i64 noundef %.017.i) #9
   %28 = icmp slt i64 %27, 0
-  br i1 %28, label %24, label %.critedge22.i, !llvm.loop !10
+  br i1 %28, label %24, label %.critedge22.i, !llvm.loop !7
 
 .critedge22.i:                                    ; preds = %.critedge2.i, %.preheader8
   %.lcssa.i = phi i64 [ %21, %.preheader8 ], [ %27, %.critedge2.i ]
@@ -289,7 +289,7 @@ randombytes_linux_getrandom.exit:                 ; preds = %_randombytes_linux_
   %31 = sub i64 %.017.i, %.lcssa.i
   %32 = getelementptr i8, ptr %.016.i, i64 %.lcssa.i
   %.not.i = icmp eq i64 %31, 0
-  br i1 %.not.i, label %33, label %.preheader8, !llvm.loop !11
+  br i1 %.not.i, label %33, label %.preheader8, !llvm.loop !8
 
 33:                                               ; preds = %30, %.critedge22.i
   %.1.i = phi ptr [ %.016.i, %.critedge22.i ], [ %32, %30 ]
@@ -386,10 +386,7 @@ attributes #11 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
-!7 = distinct !{!7, !8, !5}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !5}
-!10 = distinct !{!10, !8, !5}
-!11 = distinct !{!11, !8, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}

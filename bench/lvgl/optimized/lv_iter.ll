@@ -10,16 +10,16 @@ define nonnull ptr @lv_iter_create(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not, label %.preheader, label %6
 
 .preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader, !llvm.loop !3
+  br label %.preheader
 
 6:                                                ; preds = %4
-  store ptr %0, ptr %5, align 8, !tbaa !5
+  store ptr %0, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %1, ptr %7, align 8, !tbaa !12
+  store i32 %1, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %2, ptr %8, align 8, !tbaa !13
+  store i32 %2, ptr %8, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %3, ptr %9, align 8, !tbaa !14
+  store ptr %3, ptr %9, align 8, !tbaa !12
   %.not17 = icmp eq i32 %2, 0
   br i1 %.not17, label %14, label %10
 
@@ -27,12 +27,12 @@ define nonnull ptr @lv_iter_create(ptr noundef %0, i32 noundef %1, i32 noundef %
   %11 = zext i32 %2 to i64
   %12 = tail call ptr @lv_malloc_zeroed(i64 noundef %11) #4
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %12, ptr %13, align 8, !tbaa !15
+  store ptr %12, ptr %13, align 8, !tbaa !13
   %.not18 = icmp eq ptr %12, null
   br i1 %.not18, label %.preheader19, label %14
 
 .preheader19:                                     ; preds = %10, %.preheader19
-  br label %.preheader19, !llvm.loop !16
+  br label %.preheader19
 
 14:                                               ; preds = %6, %10
   ret ptr %5
@@ -46,11 +46,11 @@ define ptr @lv_iter_get_context(ptr noundef readonly captures(address_is_null) %
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !17
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !15
+  %4 = load ptr, ptr %3, align 8, !tbaa !13
   ret ptr %4
 }
 
@@ -60,23 +60,23 @@ define void @lv_iter_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !18
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i32, ptr %3, align 8, !tbaa !13
+  %4 = load i32, ptr %3, align 8, !tbaa !11
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %8, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
   tail call void @lv_free(ptr noundef %7) #4
   br label %8
 
 8:                                                ; preds = %5, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %10 = load ptr, ptr %9, align 8, !tbaa !14
   %.not11 = icmp eq ptr %10, null
   br i1 %.not11, label %12, label %11
 
@@ -86,8 +86,8 @@ define void @lv_iter_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %11, %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %13, align 8, !tbaa !15
-  store ptr null, ptr %9, align 8, !tbaa !19
+  store ptr null, ptr %13, align 8, !tbaa !13
+  store ptr null, ptr %9, align 8, !tbaa !14
   tail call void @lv_free(ptr noundef nonnull %0) #4
   ret void
 }
@@ -102,7 +102,7 @@ define void @lv_iter_make_peekable(ptr noundef captures(address_is_null) %0, i32
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !20
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = icmp eq i32 %1, 0
@@ -110,20 +110,20 @@ define void @lv_iter_make_peekable(ptr noundef captures(address_is_null) %0, i32
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !19
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
   %.not9 = icmp eq ptr %7, null
   br i1 %.not9, label %8, label %12
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !12
+  %10 = load i32, ptr %9, align 8, !tbaa !10
   %11 = tail call ptr @lv_circle_buf_create(i32 noundef %1, i32 noundef %10) #4
-  store ptr %11, ptr %6, align 8, !tbaa !19
+  store ptr %11, ptr %6, align 8, !tbaa !14
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %.preheader11, label %12
 
 .preheader11:                                     ; preds = %8, %.preheader11
-  br label %.preheader11, !llvm.loop !21
+  br label %.preheader11
 
 12:                                               ; preds = %8, %5, %3
   ret void
@@ -137,11 +137,11 @@ define i32 @lv_iter_next(ptr noundef captures(address_is_null) %0, ptr noundef %
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !22
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   %.not22 = icmp eq ptr %5, null
   br i1 %.not22, label %13, label %6
 
@@ -163,10 +163,10 @@ define i32 @lv_iter_next(ptr noundef captures(address_is_null) %0, ptr noundef %
 
 13:                                               ; preds = %6, %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !14
-  %16 = load ptr, ptr %0, align 8, !tbaa !5
+  %15 = load ptr, ptr %14, align 8, !tbaa !12
+  %16 = load ptr, ptr %0, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !15
+  %18 = load ptr, ptr %17, align 8, !tbaa !13
   %19 = tail call i32 %15(ptr noundef %16, ptr noundef %18, ptr noundef %1) #4
   %20 = icmp eq i32 %19, 0
   %brmerge = or i1 %.not22, %20
@@ -175,7 +175,7 @@ define i32 @lv_iter_next(ptr noundef captures(address_is_null) %0, ptr noundef %
 .sink.split:                                      ; preds = %13, %9, %11
   %.1.ph = phi i32 [ 1, %11 ], [ 1, %9 ], [ %19, %13 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %21, align 8, !tbaa !23
+  store i32 0, ptr %21, align 8, !tbaa !15
   br label %22
 
 22:                                               ; preds = %.sink.split, %13
@@ -195,18 +195,18 @@ define range(i32 0, 2) i32 @lv_iter_peek(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !24
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %3
   %8 = tail call i32 @lv_circle_buf_size(ptr noundef nonnull %5) #4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load i32, ptr %9, align 8, !tbaa !23
+  %10 = load i32, ptr %9, align 8, !tbaa !15
   %.not23 = icmp ult i32 %10, %8
   br i1 %.not23, label %14, label %11
 
@@ -218,7 +218,7 @@ define range(i32 0, 2) i32 @lv_iter_peek(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not24, label %._crit_edge, label %17
 
 ._crit_edge:                                      ; preds = %11
-  %.pre = load i32, ptr %9, align 8, !tbaa !23
+  %.pre = load i32, ptr %9, align 8, !tbaa !15
   br label %14
 
 14:                                               ; preds = %._crit_edge, %7
@@ -238,10 +238,10 @@ declare i32 @lv_circle_buf_fill(ptr noundef, i32 noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @peek_fill_cb(ptr noundef %0, i32 %1, i32 %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !14
-  %7 = load ptr, ptr %3, align 8, !tbaa !5
+  %6 = load ptr, ptr %5, align 8, !tbaa !12
+  %7 = load ptr, ptr %3, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !15
+  %9 = load ptr, ptr %8, align 8, !tbaa !13
   %10 = tail call i32 %6(ptr noundef %7, ptr noundef %9, ptr noundef %0) #4
   %11 = icmp ne i32 %10, 0
   ret i1 %11
@@ -255,26 +255,26 @@ define range(i32 0, 2) i32 @lv_iter_peek_advance(ptr noundef captures(address_is
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !25
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !19
+  %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = icmp eq ptr %4, null
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i32, ptr %7, align 8, !tbaa !23
+  %8 = load i32, ptr %7, align 8, !tbaa !15
   %9 = add i32 %8, 1
   %10 = tail call i32 @lv_circle_buf_capacity(ptr noundef nonnull %4) #4
   %.not8 = icmp ult i32 %9, %10
   br i1 %.not8, label %11, label %14
 
 11:                                               ; preds = %6
-  %12 = load i32, ptr %7, align 8, !tbaa !23
+  %12 = load i32, ptr %7, align 8, !tbaa !15
   %13 = add i32 %12, 1
-  store i32 %13, ptr %7, align 8, !tbaa !23
+  store i32 %13, ptr %7, align 8, !tbaa !15
   br label %14
 
 14:                                               ; preds = %2, %6, %11
@@ -290,17 +290,17 @@ define range(i32 0, 2) i32 @lv_iter_peek_reset(ptr noundef captures(address_is_n
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !26
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !19
+  %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = icmp eq ptr %4, null
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %7, align 8, !tbaa !23
+  store i32 0, ptr %7, align 8, !tbaa !15
   br label %8
 
 8:                                                ; preds = %2, %6
@@ -314,11 +314,11 @@ define void @lv_iter_inspect(ptr noundef captures(address_is_null) %0, ptr nound
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !27
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !12
+  %5 = load i32, ptr %4, align 8, !tbaa !10
   %6 = zext i32 %5 to i64
   %7 = tail call ptr @lv_malloc_zeroed(i64 noundef %6) #4
   %.not11 = icmp eq ptr %7, null
@@ -332,10 +332,10 @@ define void @lv_iter_inspect(ptr noundef captures(address_is_null) %0, ptr nound
   br label %12
 
 .preheader12:                                     ; preds = %3, %.preheader12
-  br label %.preheader12, !llvm.loop !28
+  br label %.preheader12
 
 12:                                               ; preds = %.preheader13, %25
-  %13 = load ptr, ptr %8, align 8, !tbaa !19
+  %13 = load ptr, ptr %8, align 8, !tbaa !14
   %.not22.i = icmp eq ptr %13, null
   br i1 %.not22.i, label %18, label %14
 
@@ -348,9 +348,9 @@ define void @lv_iter_inspect(ptr noundef captures(address_is_null) %0, ptr nound
   br label %.sink.split.i
 
 18:                                               ; preds = %14, %12
-  %19 = load ptr, ptr %9, align 8, !tbaa !14
-  %20 = load ptr, ptr %0, align 8, !tbaa !5
-  %21 = load ptr, ptr %10, align 8, !tbaa !15
+  %19 = load ptr, ptr %9, align 8, !tbaa !12
+  %20 = load ptr, ptr %0, align 8, !tbaa !3
+  %21 = load ptr, ptr %10, align 8, !tbaa !13
   %22 = tail call i32 %19(ptr noundef %20, ptr noundef %21, ptr noundef nonnull %7) #4
   %23 = icmp eq i32 %22, 0
   %brmerge.i = or i1 %.not22.i, %23
@@ -358,7 +358,7 @@ define void @lv_iter_inspect(ptr noundef captures(address_is_null) %0, ptr nound
 
 .sink.split.i:                                    ; preds = %18, %16
   %.1.ph.i = phi i32 [ 1, %16 ], [ %22, %18 ]
-  store i32 0, ptr %11, align 8, !tbaa !23
+  store i32 0, ptr %11, align 8, !tbaa !15
   br label %lv_iter_next.exit
 
 lv_iter_next.exit:                                ; preds = %18, %.sink.split.i
@@ -368,7 +368,7 @@ lv_iter_next.exit:                                ; preds = %18, %.sink.split.i
 
 25:                                               ; preds = %lv_iter_next.exit
   tail call void %1(ptr noundef nonnull %7) #4
-  br label %12, !llvm.loop !29
+  br label %12, !llvm.loop !16
 
 26:                                               ; preds = %lv_iter_next.exit
   tail call void @lv_free(ptr noundef nonnull %7) #4
@@ -386,31 +386,18 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = !{!6, !7, i64 0}
-!6 = !{!"_lv_iter_t", !7, i64 0, !10, i64 8, !7, i64 16, !10, i64 24, !11, i64 32, !10, i64 40, !7, i64 48}
-!7 = !{!"any pointer", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!"int", !8, i64 0}
-!11 = !{!"p1 _ZTS16_lv_circle_buf_t", !7, i64 0}
-!12 = !{!6, !10, i64 8}
-!13 = !{!6, !10, i64 24}
-!14 = !{!6, !7, i64 48}
-!15 = !{!6, !7, i64 16}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = !{!6, !11, i64 32}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4}
-!23 = !{!6, !10, i64 40}
-!24 = distinct !{!24, !4}
-!25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4}
-!28 = distinct !{!28, !4}
-!29 = distinct !{!29, !30, !4}
-!30 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_lv_iter_t", !5, i64 0, !8, i64 8, !5, i64 16, !8, i64 24, !9, i64 32, !8, i64 40, !5, i64 48}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"int", !6, i64 0}
+!9 = !{!"p1 _ZTS16_lv_circle_buf_t", !5, i64 0}
+!10 = !{!4, !8, i64 8}
+!11 = !{!4, !8, i64 24}
+!12 = !{!4, !5, i64 48}
+!13 = !{!4, !5, i64 16}
+!14 = !{!4, !9, i64 32}
+!15 = !{!4, !8, i64 40}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}

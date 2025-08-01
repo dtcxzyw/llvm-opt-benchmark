@@ -140,7 +140,7 @@ define i32 @SUNNonlinSolSolve_Newton(ptr noundef %0, ptr readnone captures(none)
   %48 = load ptr, ptr %38, align 8, !tbaa !32
   %49 = tail call i32 %48(ptr noundef %2, ptr noundef %10, ptr noundef %6) #8
   %.not64 = icmp eq i32 %49, 0
-  br i1 %.not64, label %22, label %50, !llvm.loop !38
+  br i1 %.not64, label %22, label %50
 
 50:                                               ; preds = %31, %47, %22
   %.1 = phi i32 [ %30, %22 ], [ %49, %47 ], [ %37, %31 ]
@@ -167,9 +167,9 @@ define i32 @SUNNonlinSolSolve_Newton(ptr noundef %0, ptr readnone captures(none)
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 64
-  %60 = load i64, ptr %59, align 8, !tbaa !40
+  %60 = load i64, ptr %59, align 8, !tbaa !38
   %61 = add nsw i64 %60, 1
-  store i64 %61, ptr %59, align 8, !tbaa !40
+  store i64 %61, ptr %59, align 8, !tbaa !38
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %2) #8
   %62 = load ptr, ptr %0, align 8, !tbaa !23
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 44
@@ -177,15 +177,15 @@ define i32 @SUNNonlinSolSolve_Newton(ptr noundef %0, ptr readnone captures(none)
   %64 = load ptr, ptr %62, align 8, !tbaa !32
   %65 = tail call i32 %64(ptr noundef %2, ptr noundef %10, ptr noundef %6) #8
   %.not = icmp eq i32 %65, 0
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !41
+  br i1 %.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %58, %16, %55, %.thread, %50, %7
   %.052 = phi i32 [ %14, %7 ], [ %.1, %50 ], [ %.168, %.thread ], [ %.168, %55 ], [ %21, %16 ], [ %65, %58 ]
   %66 = load ptr, ptr %0, align 8, !tbaa !23
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
-  %68 = load i64, ptr %67, align 8, !tbaa !40
+  %68 = load i64, ptr %67, align 8, !tbaa !38
   %69 = add nsw i64 %68, 1
-  store i64 %69, ptr %67, align 8, !tbaa !40
+  store i64 %69, ptr %67, align 8, !tbaa !38
   br label %70
 
 70:                                               ; preds = %._crit_edge, %42
@@ -284,7 +284,7 @@ define noundef i32 @SUNNonlinSolGetNumIters_Newton(ptr noundef readonly captures
   %3 = load ptr, ptr %0, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load i64, ptr %4, align 8, !tbaa !34
-  store i64 %5, ptr %1, align 8, !tbaa !42
+  store i64 %5, ptr %1, align 8, !tbaa !39
   ret i32 0
 }
 
@@ -293,7 +293,7 @@ define noundef i32 @SUNNonlinSolGetCurIter_Newton(ptr noundef readonly captures(
   %3 = load ptr, ptr %0, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !31
-  store i32 %5, ptr %1, align 4, !tbaa !43
+  store i32 %5, ptr %1, align 4, !tbaa !40
   ret i32 0
 }
 
@@ -301,8 +301,8 @@ define noundef i32 @SUNNonlinSolGetCurIter_Newton(ptr noundef readonly captures(
 define noundef i32 @SUNNonlinSolGetNumConvFails_Newton(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #4 {
   %3 = load ptr, ptr %0, align 8, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %5 = load i64, ptr %4, align 8, !tbaa !40
-  store i64 %5, ptr %1, align 8, !tbaa !42
+  %5 = load i64, ptr %4, align 8, !tbaa !38
+  store i64 %5, ptr %1, align 8, !tbaa !39
   ret i32 0
 }
 
@@ -368,7 +368,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 define noundef i32 @SUNNonlinSolGetSysFn_Newton(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !tbaa !23
   %4 = load ptr, ptr %3, align 8, !tbaa !32
-  store ptr %4, ptr %1, align 8, !tbaa !44
+  store ptr %4, ptr %1, align 8, !tbaa !41
   ret i32 0
 }
 
@@ -425,10 +425,7 @@ attributes #8 = { nounwind }
 !35 = !{!25, !5, i64 16}
 !36 = !{!25, !5, i64 24}
 !37 = !{!25, !5, i64 72}
-!38 = distinct !{!38, !39}
-!39 = !{!"llvm.loop.estimated_trip_count"}
-!40 = !{!25, !28, i64 64}
-!41 = distinct !{!41, !39}
-!42 = !{!28, !28, i64 0}
-!43 = !{!27, !27, i64 0}
-!44 = !{!5, !5, i64 0}
+!38 = !{!25, !28, i64 64}
+!39 = !{!28, !28, i64 0}
+!40 = !{!27, !27, i64 0}
+!41 = !{!5, !5, i64 0}

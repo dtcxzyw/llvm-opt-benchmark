@@ -633,7 +633,7 @@ sub_0:                                            ; preds = %.lr.ph, %63
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %63, label %sub_125, !llvm.loop !9
+  br i1 %53, label %63, label %sub_125, !llvm.loop !8
 
 sub_125:                                          ; preds = %.tail
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 20
@@ -645,7 +645,7 @@ sub_125:                                          ; preds = %.tail
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 21
   %57 = load i8, ptr %56, align 1
   %58 = icmp eq i8 %57, 0
-  br i1 %58, label %63, label %.tail23.thread, !llvm.loop !9
+  br i1 %58, label %63, label %.tail23.thread, !llvm.loop !8
 
 .tail23.thread:                                   ; preds = %sub_0, %sub_125, %.tail23
   %59 = call ptr @cstring_to_text(ptr noundef nonnull %49) #9
@@ -662,7 +662,7 @@ sub_125:                                          ; preds = %.tail
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   %64 = call ptr @ReadDir(ptr noundef %31, ptr noundef %10) #9
   %.not = icmp eq ptr %64, null
-  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %sub_0
 
 ._crit_edge:                                      ; preds = %63, %.lr.ph.split.us, %37
   %65 = call i32 @FreeDir(ptr noundef %31) #9
@@ -741,7 +741,7 @@ define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 19
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 46
-  br i1 %29, label %54, label %30, !llvm.loop !12
+  br i1 %29, label %54, label %30, !llvm.loop !10
 
 30:                                               ; preds = %25
   %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 2048, ptr noundef nonnull @.str.16, ptr noundef %1, ptr noundef nonnull %27) #9
@@ -753,7 +753,7 @@ define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 
   %35 = tail call ptr @__errno_location() #11
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 2
-  br i1 %37, label %54, label %38, !llvm.loop !12
+  br i1 %37, label %54, label %38, !llvm.loop !10
 
 38:                                               ; preds = %34
   %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -767,7 +767,7 @@ define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 
   %43 = load i32, ptr %18, align 8
   %44 = and i32 %43, 61440
   %45 = icmp eq i32 %44, 32768
-  br i1 %45, label %46, label %54, !llvm.loop !12
+  br i1 %45, label %46, label %54, !llvm.loop !10
 
 46:                                               ; preds = %42
   %47 = call ptr @cstring_to_text(ptr noundef nonnull %27) #9
@@ -791,7 +791,7 @@ define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
   %55 = call ptr @ReadDir(ptr noundef %10, ptr noundef %1) #9
   %.not = icmp eq ptr %55, null
-  br i1 %.not, label %._crit_edge, label %25, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %25
 
 ._crit_edge:                                      ; preds = %54, %16
   %56 = call i32 @FreeDir(ptr noundef %10) #9
@@ -1035,7 +1035,7 @@ define internal fastcc ptr @read_binary_file(ptr noundef %0, i64 noundef %1, i64
   %72 = add i64 %68, %.144
   %73 = call i32 @feof(ptr noundef nonnull %13) #9
   %.not34 = icmp eq i32 %73, 0
-  br i1 %.not34, label %45, label %.critedge, !llvm.loop !14
+  br i1 %.not34, label %45, label %.critedge
 
 .critedge:                                        ; preds = %45, %59, %39, %.thread
   %.142 = phi i64 [ %.144, %.thread ], [ 0, %39 ], [ %.144, %45 ], [ %72, %59 ]
@@ -1135,12 +1135,8 @@ attributes #11 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

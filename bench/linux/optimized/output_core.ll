@@ -78,7 +78,7 @@ define dso_local i32 @ipv6_proxy_select_ident(ptr readnone captures(none) %0, pt
   %35 = mul nuw i64 %34, 4294967295
   %36 = and i64 %35, 4294967295
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %.preheader, label %38, !llvm.loop !7
+  br i1 %37, label %.preheader, label %38
 
 38:                                               ; preds = %.preheader
   %39 = lshr i64 %35, 32
@@ -115,7 +115,7 @@ define dso_local i32 @ipv6_select_ident(ptr readnone captures(none) %0, ptr read
   %7 = mul nuw i64 %6, 4294967295
   %8 = and i64 %7, 4294967295
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %4, label %10, !llvm.loop !9
+  br i1 %9, label %4, label %10
 
 10:                                               ; preds = %4
   %11 = lshr i64 %7, 32
@@ -187,7 +187,7 @@ define dso_local range(i32 -22, 65536) i32 @ip6_find_1stfragopt(ptr noundef read
 41:                                               ; preds = %28
   store ptr %33, ptr %1, align 8
   %42 = icmp ugt i32 %39, %12
-  br i1 %42, label %.thread, label %.lr.ph, !llvm.loop !10
+  br i1 %42, label %.thread, label %.lr.ph, !llvm.loop !7
 
 .thread:                                          ; preds = %41, %21, %.lr.ph, %23, %28, %2
   %43 = phi i32 [ -22, %2 ], [ -22, %28 ], [ -22, %23 ], [ %18, %.lr.ph ], [ %18, %21 ], [ -22, %41 ]
@@ -257,7 +257,7 @@ define dso_local i32 @__ip6_local_out(ptr noundef %0, ptr noundef %1, ptr nounde
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 54
   store i16 6, ptr %19, align 2
   %20 = icmp eq ptr %2, null
-  br i1 %20, label %42, label %21, !prof !13
+  br i1 %20, label %42, label %21, !prof !10
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 176
@@ -268,7 +268,7 @@ define dso_local i32 @__ip6_local_out(ptr noundef %0, ptr noundef %1, ptr nounde
   %26 = inttoptr i64 %25 to ptr
   %27 = load ptr, ptr %26, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @nf_hooks_needed, i64 848), i32 2) #7
-          to label %42 [label %28], !srcloc !14
+          to label %42 [label %28], !srcloc !11
 
 28:                                               ; preds = %21
   tail call void @__rcu_read_lock() #7
@@ -363,7 +363,7 @@ define dso_local i32 @ip6_local_out(ptr noundef %0, ptr noundef %1, ptr noundef 
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 54
   store i16 6, ptr %19, align 2
   %20 = icmp eq ptr %2, null
-  br i1 %20, label %.thread4, label %21, !prof !13
+  br i1 %20, label %.thread4, label %21, !prof !10
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 176
@@ -374,7 +374,7 @@ define dso_local i32 @ip6_local_out(ptr noundef %0, ptr noundef %1, ptr noundef 
   %26 = inttoptr i64 %25 to ptr
   %27 = load ptr, ptr %26, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @nf_hooks_needed, i64 848), i32 2) #7
-          to label %.thread [label %28], !srcloc !14
+          to label %.thread [label %28], !srcloc !11
 
 28:                                               ; preds = %21
   tail call void @__rcu_read_lock() #7
@@ -407,7 +407,7 @@ define dso_local i32 @ip6_local_out(ptr noundef %0, ptr noundef %1, ptr noundef 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #7
   call void @__rcu_read_unlock() #7
   %40 = icmp eq i32 %39, 1
-  br i1 %40, label %.thread, label %.thread4, !prof !15
+  br i1 %40, label %.thread, label %.thread4, !prof !12
 
 .thread:                                          ; preds = %21, %.thread5, %32
   %41 = load i64, ptr %23, align 8
@@ -478,12 +478,9 @@ attributes #7 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{!"branch_weights", i32 2000, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !11, !12, !8}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"branch_weights", i32 1, i32 2000}
-!14 = !{i64 974095, i64 974139, i64 2148458822, i64 2148458843, i64 2148458869, i64 2148458902, i64 2148458936, i64 2148458960}
-!15 = !{!"branch_weights", i32 -2147483648, i32 0}
+!7 = distinct !{!7, !8, !9}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.unroll.disable"}
+!10 = !{!"branch_weights", i32 1, i32 2000}
+!11 = !{i64 974095, i64 974139, i64 2148458822, i64 2148458843, i64 2148458869, i64 2148458902, i64 2148458936, i64 2148458960}
+!12 = !{!"branch_weights", i32 -2147483648, i32 0}

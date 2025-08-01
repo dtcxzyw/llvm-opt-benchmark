@@ -57,7 +57,7 @@ define internal void @fill_block8_c(ptr noundef writeonly captures(none) %0, i8 
   %6 = getelementptr inbounds i8, ptr %.067, i64 %2
   %7 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp eq i32 %7, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -84,7 +84,6 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!5, !6, i64 8}
 !10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
+!13 = distinct !{!13, !12}

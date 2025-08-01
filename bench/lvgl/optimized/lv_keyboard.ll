@@ -165,7 +165,7 @@ define void @lv_keyboard_set_textarea(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not11, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !20
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -199,7 +199,7 @@ define void @lv_keyboard_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !22
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -253,13 +253,13 @@ define internal fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %0) unnamed
   %7 = load i32, ptr %6, align 8, !tbaa !18
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw [10 x ptr], ptr @kb_ctrl, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !23
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
   tail call void @lv_buttonmatrix_set_ctrl_map(ptr noundef nonnull %0, ptr noundef %10) #4
   br label %33
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %13 = load i32, ptr %12, align 8, !tbaa !24
+  %13 = load i32, ptr %12, align 8, !tbaa !21
   %14 = zext i32 %13 to i64
   %15 = shl nuw nsw i64 %14, 2
   %16 = tail call ptr @lv_malloc(i64 noundef %15) #4
@@ -267,26 +267,26 @@ define internal fastcc void @lv_keyboard_update_ctrl_map(ptr noundef %0) unnamed
   %18 = load i32, ptr %17, align 8, !tbaa !18
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw [10 x ptr], ptr @kb_ctrl, i64 0, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !23
-  %22 = load i32, ptr %12, align 8, !tbaa !24
+  %21 = load ptr, ptr %20, align 8, !tbaa !20
+  %22 = load i32, ptr %12, align 8, !tbaa !21
   %23 = zext i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 2
   %25 = tail call ptr @lv_memcpy(ptr noundef %16, ptr noundef %21, i64 noundef %24) #4
-  %26 = load i32, ptr %12, align 8, !tbaa !24
+  %26 = load i32, ptr %12, align 8, !tbaa !21
   %.not17 = icmp eq i32 %26, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %11 ]
   %27 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %28 = load i32, ptr %27, align 4, !tbaa !25
+  %28 = load i32, ptr %27, align 4, !tbaa !22
   %29 = and i32 %28, -1025
-  store i32 %29, ptr %27, align 4, !tbaa !25
+  store i32 %29, ptr %27, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = load i32, ptr %12, align 8, !tbaa !24
+  %30 = load i32, ptr %12, align 8, !tbaa !21
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   tail call void @lv_buttonmatrix_set_ctrl_map(ptr noundef nonnull %0, ptr noundef %16) #4
@@ -303,14 +303,14 @@ define void @lv_keyboard_set_map(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   br i1 %.not, label %.preheader, label %5
 
 .preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader, !llvm.loop !28
+  br label %.preheader
 
 5:                                                ; preds = %4
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds nuw [10 x ptr], ptr @kb_map, i64 0, i64 %6
   store ptr %2, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw [10 x ptr], ptr @kb_ctrl, i64 0, i64 %6
-  store ptr %3, ptr %8, align 8, !tbaa !23
+  store ptr %3, ptr %8, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load i32, ptr %9, align 8, !tbaa !18
   %11 = zext i32 %10 to i64
@@ -327,7 +327,7 @@ define ptr @lv_keyboard_get_textarea(ptr noundef readonly captures(address_is_nu
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !29
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -341,7 +341,7 @@ define i32 @lv_keyboard_get_mode(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !30
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -365,7 +365,7 @@ define void @lv_keyboard_def_event_cb(ptr noundef %0) #0 {
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !31
+  br label %.preheader
 
 3:                                                ; preds = %1
   %4 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef nonnull %2) #4
@@ -529,7 +529,7 @@ define void @lv_keyboard_def_event_cb(ptr noundef %0) #0 {
   %87 = tail call i32 @lv_textarea_get_cursor_pos(ptr noundef %85) #4
   %88 = load ptr, ptr %51, align 8, !tbaa !3
   %89 = tail call ptr @lv_textarea_get_text(ptr noundef %88) #4
-  %90 = load i8, ptr %89, align 1, !tbaa !32
+  %90 = load i8, ptr %89, align 1, !tbaa !25
   %91 = load ptr, ptr %51, align 8, !tbaa !3
   switch i8 %90, label %100 [
     i8 45, label %92
@@ -667,16 +667,9 @@ attributes #4 = { nounwind }
 !17 = !{!"p2 omnipotent char", !8, i64 0}
 !18 = !{!4, !15, i64 112}
 !19 = !{!17, !17, i64 0}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !21}
-!23 = !{!8, !8, i64 0}
-!24 = !{!5, !15, i64 88}
-!25 = !{!15, !15, i64 0}
-!26 = distinct !{!26, !27, !21}
-!27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !21}
-!29 = distinct !{!29, !21}
-!30 = distinct !{!30, !21}
-!31 = distinct !{!31, !21}
-!32 = !{!9, !9, i64 0}
+!20 = !{!8, !8, i64 0}
+!21 = !{!5, !15, i64 88}
+!22 = !{!15, !15, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.mustprogress"}
+!25 = !{!9, !9, i64 0}

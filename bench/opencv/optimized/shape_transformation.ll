@@ -838,7 +838,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   %274 = sub i64 %272, %273
   %275 = sdiv exact i64 %274, 28
   %276 = icmp ult i64 %269, %275
-  br i1 %276, label %237, label %.preheader, !llvm.loop !58
+  br i1 %276, label %237, label %.preheader, !llvm.loop !57
 
 .loopexit190:                                     ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit192 = landingpad { ptr, i32 }
@@ -910,10 +910,10 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i139: ; preds = 
 .lr.ph.i.i.i.i.i.i143:                            ; preds = %.noexc152, %.lr.ph.i.i.i.i.i.i143
   %.012.i.i.i.i.i.i144 = phi ptr [ %304, %.lr.ph.i.i.i.i.i.i143 ], [ %299, %.noexc152 ]
   %.0911.i.i.i.i.i.i145 = phi ptr [ %303, %.lr.ph.i.i.i.i.i.i143 ], [ %287, %.noexc152 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  call void @llvm.experimental.noalias.scope.decl(metadata !62)
-  %302 = load i64, ptr %.0911.i.i.i.i.i.i145, align 4, !alias.scope !62, !noalias !59
-  store i64 %302, ptr %.012.i.i.i.i.i.i144, align 4, !alias.scope !59, !noalias !62
+  call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  %302 = load i64, ptr %.0911.i.i.i.i.i.i145, align 4, !alias.scope !61, !noalias !58
+  store i64 %302, ptr %.012.i.i.i.i.i.i144, align 4, !alias.scope !58, !noalias !61
   %303 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i145, i64 8
   %304 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i144, i64 8
   %.not.i.i.i.i.i.i146 = icmp eq ptr %303, %278
@@ -946,7 +946,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit153: ; preds = %_ZNSt6v
   %314 = sub i64 %312, %313
   %315 = sdiv exact i64 %314, 28
   %316 = icmp ult i64 %309, %315
-  br i1 %316, label %277, label %._crit_edge, !llvm.loop !64
+  br i1 %316, label %277, label %._crit_edge, !llvm.loop !63
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i139
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -959,7 +959,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit153: ; preds = %_ZNSt6v
   br label %423
 
 317:                                              ; preds = %._crit_edge
-  %318 = load ptr, ptr %38, align 8, !tbaa !65
+  %318 = load ptr, ptr %38, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39) #17
   %319 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i32 0, ptr %319, align 8, !tbaa !22
@@ -985,7 +985,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit153: ; preds = %_ZNSt6v
 328:                                              ; preds = %317
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39) #17
-  %329 = load ptr, ptr %38, align 8, !tbaa !65
+  %329 = load ptr, ptr %38, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41) #17
   %330 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i32 0, ptr %330, align 8, !tbaa !22
@@ -1054,7 +1054,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160: ; preds = %_Z
 
 350:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160
   %351 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %352 = load ptr, ptr %351, align 8, !tbaa !68
+  %352 = load ptr, ptr %351, align 8, !tbaa !67
   %.not.i.i = icmp eq ptr %352, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv31ThinPlateSplineShapeTransformerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %353
 
@@ -1066,9 +1066,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160: ; preds = %_Z
   br i1 %356, label %358, label %366
 
 358:                                              ; preds = %353
-  store i32 0, ptr %354, align 8, !tbaa !69
+  store i32 0, ptr %354, align 8, !tbaa !68
   %359 = getelementptr inbounds nuw i8, ptr %352, i64 12
-  store i32 0, ptr %359, align 4, !tbaa !71
+  store i32 0, ptr %359, align 4, !tbaa !70
   %360 = load ptr, ptr %352, align 8, !tbaa !29
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 16
   %362 = load ptr, ptr %361, align 8
@@ -1086,7 +1086,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160: ; preds = %_Z
 
 368:                                              ; preds = %366
   %369 = add nsw i32 %357, -1
-  store i32 %369, ptr %354, align 4, !tbaa !72
+  store i32 %369, ptr %354, align 4, !tbaa !71
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 370:                                              ; preds = %366
@@ -1096,7 +1096,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit160: ; preds = %_Z
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %370, %368
   %.0.i.i.i.i = phi i32 [ %357, %368 ], [ %371, %370 ]
   %372 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %372, label %373, label %_ZNSt12__shared_ptrIN2cv31ThinPlateSplineShapeTransformerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !73
+  br i1 %372, label %373, label %_ZNSt12__shared_ptrIN2cv31ThinPlateSplineShapeTransformerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !72
 
 373:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %352) #17
@@ -1126,7 +1126,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit164: ; preds = %_ZNSt6vectorIN2cv6P
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36) #17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #17
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %27) #17
-  %378 = load ptr, ptr %23, align 8, !tbaa !74
+  %378 = load ptr, ptr %23, align 8, !tbaa !73
   %.not.i.i.i165 = icmp eq ptr %378, null
   br i1 %.not.i.i.i165, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EED2Ev.exit, label %379
 
@@ -1163,7 +1163,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit:     ; preds = %_ZNSt6vectorIN2cv6D
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit168:  ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit, %383
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
   %384 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %385 = load ptr, ptr %384, align 8, !tbaa !68
+  %385 = load ptr, ptr %384, align 8, !tbaa !67
   %.not.i.i169 = icmp eq ptr %385, null
   br i1 %.not.i.i169, label %_ZNSt12__shared_ptrIN2cv11xfeatures2d4SURFELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %386
 
@@ -1175,9 +1175,9 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit168:  ; preds = %_ZNSt6vectorIN2cv8K
   br i1 %389, label %391, label %399
 
 391:                                              ; preds = %386
-  store i32 0, ptr %387, align 8, !tbaa !69
+  store i32 0, ptr %387, align 8, !tbaa !68
   %392 = getelementptr inbounds nuw i8, ptr %385, i64 12
-  store i32 0, ptr %392, align 4, !tbaa !71
+  store i32 0, ptr %392, align 4, !tbaa !70
   %393 = load ptr, ptr %385, align 8, !tbaa !29
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 16
   %395 = load ptr, ptr %394, align 8
@@ -1195,7 +1195,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit168:  ; preds = %_ZNSt6vectorIN2cv8K
 
 401:                                              ; preds = %399
   %402 = add nsw i32 %390, -1
-  store i32 %402, ptr %387, align 4, !tbaa !72
+  store i32 %402, ptr %387, align 4, !tbaa !71
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i171
 
 403:                                              ; preds = %399
@@ -1205,7 +1205,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit168:  ; preds = %_ZNSt6vectorIN2cv8K
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i171: ; preds = %403, %401
   %.0.i.i.i.i172 = phi i32 [ %390, %401 ], [ %404, %403 ]
   %405 = icmp eq i32 %.0.i.i.i.i172, 1
-  br i1 %405, label %406, label %_ZNSt12__shared_ptrIN2cv11xfeatures2d4SURFELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !73
+  br i1 %405, label %406, label %_ZNSt12__shared_ptrIN2cv11xfeatures2d4SURFELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !72
 
 406:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i171
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %385) #17
@@ -1304,7 +1304,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit179: ; preds = %_ZNSt6vectorIN2cv6P
 
 429:                                              ; preds = %428, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %219
   %.pn87.pn.pn = phi { ptr, i32 } [ %.pn87.pn, %428 ], [ %222, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %220, %219 ]
-  %430 = load ptr, ptr %23, align 8, !tbaa !74
+  %430 = load ptr, ptr %23, align 8, !tbaa !73
   %.not.i.i.i180 = icmp eq ptr %430, null
   br i1 %.not.i.i.i180, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EED2Ev.exit181, label %431
 
@@ -1427,7 +1427,7 @@ declare noundef i32 @_ZN2cv7waitKeyEi(i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv31ThinPlateSplineShapeTransformerELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !68
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -1439,9 +1439,9 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv31ThinPlateSplineShapeT
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !69
+  store i32 0, ptr %5, align 8, !tbaa !68
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !71
+  store i32 0, ptr %10, align 4, !tbaa !70
   %11 = load ptr, ptr %3, align 8, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -1459,7 +1459,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv31ThinPlateSplineShapeT
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !72
+  store i32 %20, ptr %5, align 4, !tbaa !71
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -1469,7 +1469,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv31ThinPlateSplineShapeT
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !73
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !72
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -1485,7 +1485,7 @@ declare void @_ZN2cv17DescriptorMatcherD2Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv11xfeatures2d4SURFELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !68
+  %3 = load ptr, ptr %2, align 8, !tbaa !67
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -1497,9 +1497,9 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv11xfeatures2d4SURFELN9_
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !69
+  store i32 0, ptr %5, align 8, !tbaa !68
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !71
+  store i32 0, ptr %10, align 4, !tbaa !70
   %11 = load ptr, ptr %3, align 8, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -1517,7 +1517,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv11xfeatures2d4SURFELN9_
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !72
+  store i32 %20, ptr %5, align 4, !tbaa !71
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -1527,7 +1527,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv11xfeatures2d4SURFELN9_
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !73
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !72
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -1549,9 +1549,9 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !72
+  %8 = load i32, ptr %5, align 4, !tbaa !71
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !72
+  store i32 %9, ptr %5, align 4, !tbaa !71
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -1695,25 +1695,24 @@ attributes #20 = { builtin allocsize(0) }
 !52 = distinct !{!52, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_"}
 !53 = !{!54}
 !54 = distinct !{!54, !52, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!55 = distinct !{!55, !56, !57}
+!55 = distinct !{!55, !56}
 !56 = !{!"llvm.loop.mustprogress"}
-!57 = !{!"llvm.loop.estimated_trip_count"}
-!58 = distinct !{!58, !56, !57}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!61 = distinct !{!61, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_"}
-!62 = !{!63}
-!63 = distinct !{!63, !61, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!64 = distinct !{!64, !56, !57}
-!65 = !{!66, !67, i64 0}
-!66 = !{!"_ZTSSt12__shared_ptrIN2cv31ThinPlateSplineShapeTransformerELN9__gnu_cxx12_Lock_policyE2EE", !67, i64 0, !20, i64 8}
-!67 = !{!"p1 _ZTSN2cv31ThinPlateSplineShapeTransformerE", !6, i64 0}
-!68 = !{!20, !21, i64 0}
-!69 = !{!70, !24, i64 8}
-!70 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !24, i64 8, !24, i64 12}
-!71 = !{!70, !24, i64 12}
-!72 = !{!24, !24, i64 0}
-!73 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!74 = !{!75, !76, i64 0}
-!75 = !{!"_ZTSNSt12_Vector_baseIN2cv6DMatchESaIS1_EE17_Vector_impl_dataE", !76, i64 0, !76, i64 8, !76, i64 16}
-!76 = !{!"p1 _ZTSN2cv6DMatchE", !6, i64 0}
+!57 = distinct !{!57, !56}
+!58 = !{!59}
+!59 = distinct !{!59, !60, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!60 = distinct !{!60, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_"}
+!61 = !{!62}
+!62 = distinct !{!62, !60, !"_ZSt19__relocate_object_aIN2cv6Point_IfEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!63 = distinct !{!63, !56}
+!64 = !{!65, !66, i64 0}
+!65 = !{!"_ZTSSt12__shared_ptrIN2cv31ThinPlateSplineShapeTransformerELN9__gnu_cxx12_Lock_policyE2EE", !66, i64 0, !20, i64 8}
+!66 = !{!"p1 _ZTSN2cv31ThinPlateSplineShapeTransformerE", !6, i64 0}
+!67 = !{!20, !21, i64 0}
+!68 = !{!69, !24, i64 8}
+!69 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !24, i64 8, !24, i64 12}
+!70 = !{!69, !24, i64 12}
+!71 = !{!24, !24, i64 0}
+!72 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!73 = !{!74, !75, i64 0}
+!74 = !{!"_ZTSNSt12_Vector_baseIN2cv6DMatchESaIS1_EE17_Vector_impl_dataE", !75, i64 0, !75, i64 8, !75, i64 16}
+!75 = !{!"p1 _ZTSN2cv6DMatchE", !6, i64 0}

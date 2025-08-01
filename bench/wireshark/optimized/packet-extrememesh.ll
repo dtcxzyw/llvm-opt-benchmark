@@ -1011,7 +1011,7 @@ dissect_extrememesh_eth_noaddr.exit:              ; preds = %dissect_extrememesh
   %64 = sext i32 %63 to i64
   %65 = icmp ne i32 %58, -1
   tail call void @llvm.assume(i1 %65)
-  %66 = tail call ptr @__memcpy_chk(ptr noundef %61, ptr noundef %62, i64 noundef range(i64 -2147483648, 2147483648) %64, i64 noundef %60) #7, !alias.scope !17
+  %66 = tail call ptr @__memcpy_chk(ptr noundef %61, ptr noundef %62, i64 noundef range(i64 -2147483648, 2147483648) %64, i64 noundef %60) #7, !alias.scope !16
   %67 = getelementptr i8, ptr %61, i64 %64
   %68 = load ptr, ptr %38, align 8
   %69 = load i32, ptr %40, align 4
@@ -1021,7 +1021,7 @@ dissect_extrememesh_eth_noaddr.exit:              ; preds = %dissect_extrememesh
   %73 = select i1 %72, i64 0, i64 %71
   %74 = icmp ne i64 %73, -1
   tail call void @llvm.assume(i1 %74)
-  %75 = tail call ptr @__memcpy_chk(ptr noundef %67, ptr noundef %68, i64 noundef range(i64 -2147483648, 2147483648) %70, i64 noundef %73) #7, !alias.scope !21
+  %75 = tail call ptr @__memcpy_chk(ptr noundef %67, ptr noundef %68, i64 noundef range(i64 -2147483648, 2147483648) %70, i64 noundef %73) #7, !alias.scope !20
   %76 = add i32 %69, %63
   %77 = zext i32 %54 to i64
   %78 = tail call ptr @tvb_memcpy(ptr noundef %36, ptr noundef %61, i32 noundef %76, i64 noundef %77)
@@ -1037,7 +1037,7 @@ dissect_extrememesh_eth_noaddr.exit:              ; preds = %dissect_extrememesh
   br label %dissect_extrememesh_eth_noaddr.exit.backedge
 
 dissect_extrememesh_eth_noaddr.exit.backedge:     ; preds = %81, %53, %51, %49, %dissect_extrememesh_eth_noaddr.exit, %44, %46, %92, %83, %48, %43
-  br label %dissect_extrememesh_eth_noaddr.exit, !llvm.loop !25
+  br label %dissect_extrememesh_eth_noaddr.exit, !llvm.loop !24
 
 83:                                               ; preds = %dissect_extrememesh_eth_noaddr.exit
   %.val = load ptr, ptr %37, align 8
@@ -1154,7 +1154,7 @@ define internal fastcc void @dissect_extrememesh_ps(ptr noundef %0, ptr noundef 
   %.0.be.i = phi i32 [ %35, %.lr.ph.i ], [ %46, %.backedge.sink.split.i ]
   %47 = call i32 @tvb_captured_length(ptr noundef %0)
   %48 = icmp ugt i32 %47, %.0.be.i
-  br i1 %48, label %.lr.ph.i, label %dissect_extrememesh_ps_areq.exit, !llvm.loop !26
+  br i1 %48, label %.lr.ph.i, label %dissect_extrememesh_ps_areq.exit, !llvm.loop !25
 
 dissect_extrememesh_ps_areq.exit:                 ; preds = %38, %.backedge.i, %17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #7
@@ -1215,7 +1215,7 @@ dissect_extrememesh_ps_areq.exit:                 ; preds = %38, %.backedge.i, %
   %.0.be.i64 = phi i32 [ %67, %.lr.ph.i61 ], [ %.1.i, %76 ]
   %79 = call i32 @tvb_captured_length(ptr noundef %0)
   %80 = icmp ugt i32 %79, %.0.be.i64
-  br i1 %80, label %.lr.ph.i61, label %dissect_extrememesh_ps_arep.exit, !llvm.loop !27
+  br i1 %80, label %.lr.ph.i61, label %dissect_extrememesh_ps_arep.exit, !llvm.loop !26
 
 dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63, %49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #7
@@ -1285,7 +1285,7 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
   %111 = add i8 %.0.i, -6
   %112 = add i32 %.281.i, 6
   %113 = icmp ugt i8 %111, 5
-  br i1 %113, label %.preheader.i, label %.backedge.i67, !llvm.loop !28
+  br i1 %113, label %.preheader.i, label %.backedge.i67, !llvm.loop !27
 
 114:                                              ; preds = %102
   br label %.backedge.sink.split.i65
@@ -1298,7 +1298,7 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
   %117 = add i8 %.18.i, -1
   %118 = add i32 %.37.i, 1
   %.not.i = icmp eq i8 %117, 0
-  br i1 %.not.i, label %.backedge.i67, label %.lr.ph.i68, !llvm.loop !29
+  br i1 %.not.i, label %.backedge.i67, label %.lr.ph.i68, !llvm.loop !28
 
 119:                                              ; preds = %102
   br label %.backedge.sink.split.i65
@@ -1315,7 +1315,7 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
   %123 = add i8 %.2.i, -2
   %124 = add i32 %.4.i, 2
   %125 = icmp ugt i8 %123, 1
-  br i1 %125, label %.preheader3.i, label %.backedge.i67, !llvm.loop !30
+  br i1 %125, label %.preheader3.i, label %.backedge.i67, !llvm.loop !29
 
 126:                                              ; preds = %102
   br label %.backedge.sink.split.i65
@@ -1333,7 +1333,7 @@ dissect_extrememesh_ps_arep.exit:                 ; preds = %70, %.backedge.i63,
   %.079.be.i = phi i32 [ %99, %.lr.ph10.i ], [ %106, %108 ], [ %106, %102 ], [ %106, %120 ], [ %106, %.preheader1.i ], [ %129, %.backedge.sink.split.i65 ], [ %112, %.preheader.i ], [ %118, %.lr.ph.i68 ], [ %124, %.preheader3.i ]
   %130 = call i32 @tvb_captured_length(ptr noundef %0)
   %131 = icmp ugt i32 %130, %.079.be.i
-  br i1 %131, label %.lr.ph10.i, label %dissect_extrememesh_ps_breq.exit, !llvm.loop !31
+  br i1 %131, label %.lr.ph10.i, label %dissect_extrememesh_ps_breq.exit, !llvm.loop !30
 
 dissect_extrememesh_ps_breq.exit:                 ; preds = %102, %.backedge.i67, %81
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #7
@@ -1385,7 +1385,7 @@ dissect_extrememesh_ps_breq.exit:                 ; preds = %102, %.backedge.i67
   %.0.be.i72 = phi i32 [ %150, %.lr.ph.i69 ], [ %158, %152 ]
   %159 = call i32 @tvb_captured_length(ptr noundef %0)
   %160 = icmp ugt i32 %159, %.0.be.i72
-  br i1 %160, label %.lr.ph.i69, label %dissect_extrememesh_ps_brep.exit, !llvm.loop !32
+  br i1 %160, label %.lr.ph.i69, label %dissect_extrememesh_ps_brep.exit, !llvm.loop !31
 
 dissect_extrememesh_ps_brep.exit:                 ; preds = %.lr.ph.i69, %.backedge.i71, %132
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #7
@@ -1447,7 +1447,7 @@ dissect_extrememesh_ps_brep.exit:                 ; preds = %.lr.ph.i69, %.backe
   %191 = add i8 %.0.i81, -6
   %192 = add i32 %.1.i80, 6
   %193 = icmp ugt i8 %191, 5
-  br i1 %193, label %.preheader.i79, label %.backedge.i77, !llvm.loop !33
+  br i1 %193, label %.preheader.i79, label %.backedge.i77, !llvm.loop !32
 
 194:                                              ; preds = %182
   br label %.backedge.sink.split.i74
@@ -1468,7 +1468,7 @@ dissect_extrememesh_ps_brep.exit:                 ; preds = %.lr.ph.i69, %.backe
   %.057.be.i = phi i32 [ %179, %.lr.ph.i73 ], [ %186, %188 ], [ %198, %.backedge.sink.split.i74 ], [ %192, %.preheader.i79 ]
   %199 = call i32 @tvb_captured_length(ptr noundef %0)
   %200 = icmp ugt i32 %199, %.057.be.i
-  br i1 %200, label %.lr.ph.i73, label %dissect_extrememesh_ps_bann.exit, !llvm.loop !34
+  br i1 %200, label %.lr.ph.i73, label %dissect_extrememesh_ps_bann.exit, !llvm.loop !33
 
 dissect_extrememesh_ps_bann.exit:                 ; preds = %182, %.backedge.i77, %161
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #7
@@ -1523,7 +1523,7 @@ dissect_extrememesh_ps_bann.exit:                 ; preds = %182, %.backedge.i77
   %.0.be.i85 = phi i32 [ %219, %.lr.ph.i82 ], [ %230, %226 ]
   %231 = call i32 @tvb_captured_length(ptr noundef %0)
   %232 = icmp ugt i32 %231, %.0.be.i85
-  br i1 %232, label %.lr.ph.i82, label %dissect_extrememesh_ps_bred.exit, !llvm.loop !35
+  br i1 %232, label %.lr.ph.i82, label %dissect_extrememesh_ps_bred.exit, !llvm.loop !34
 
 dissect_extrememesh_ps_bred.exit:                 ; preds = %222, %.backedge.i84, %201
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #7
@@ -1580,7 +1580,7 @@ dissect_extrememesh_ps_bred.exit:                 ; preds = %222, %.backedge.i84
   %.0.be.i90 = phi i32 [ %253, %.lr.ph.i86 ], [ %264, %260 ]
   %265 = call i32 @tvb_captured_length(ptr noundef %0)
   %266 = icmp ugt i32 %265, %.0.be.i90
-  br i1 %266, label %.lr.ph.i86, label %dissect_extrememesh_ps_sreq.exit, !llvm.loop !36
+  br i1 %266, label %.lr.ph.i86, label %dissect_extrememesh_ps_sreq.exit, !llvm.loop !35
 
 dissect_extrememesh_ps_sreq.exit:                 ; preds = %256, %.backedge.i89, %233
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
@@ -1645,7 +1645,7 @@ dissect_extrememesh_ps_sreq.exit:                 ; preds = %256, %.backedge.i89
   %.0.be.i95 = phi i32 [ %295, %.lr.ph.i91 ], [ %306, %302 ]
   %307 = call i32 @tvb_captured_length(ptr noundef %0)
   %308 = icmp ugt i32 %307, %.0.be.i95
-  br i1 %308, label %.lr.ph.i91, label %dissect_extrememesh_ps_srep.exit, !llvm.loop !37
+  br i1 %308, label %.lr.ph.i91, label %dissect_extrememesh_ps_srep.exit, !llvm.loop !36
 
 dissect_extrememesh_ps_srep.exit:                 ; preds = %298, %.backedge.i94, %267
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
@@ -1752,7 +1752,7 @@ dissect_extrememesh_ps_srep.exit:                 ; preds = %298, %.backedge.i94
   %385 = add i16 %.0.i104, -6
   %386 = add i32 %.1.i103, 6
   %387 = icmp ugt i16 %385, 5
-  br i1 %387, label %.preheader.i102, label %.backedge.i100, !llvm.loop !38
+  br i1 %387, label %.preheader.i102, label %.backedge.i100, !llvm.loop !37
 
 388:                                              ; preds = %376
   br label %.backedge.sink.split.i97
@@ -1770,7 +1770,7 @@ dissect_extrememesh_ps_srep.exit:                 ; preds = %298, %.backedge.i94
   %.0132.be.i = phi i32 [ %373, %.lr.ph.i96 ], [ %380, %382 ], [ %391, %.backedge.sink.split.i97 ], [ %386, %.preheader.i102 ]
   %392 = call i32 @tvb_captured_length(ptr noundef %0)
   %393 = icmp ugt i32 %392, %.0132.be.i
-  br i1 %393, label %.lr.ph.i96, label %dissect_extrememesh_ps_preq.exit, !llvm.loop !39
+  br i1 %393, label %.lr.ph.i96, label %dissect_extrememesh_ps_preq.exit, !llvm.loop !38
 
 dissect_extrememesh_ps_preq.exit:                 ; preds = %376, %.backedge.i100, %309
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #7
@@ -1869,7 +1869,7 @@ dissect_extrememesh_ps_preq.exit:                 ; preds = %376, %.backedge.i10
   %462 = add i16 %.0.i113, -6
   %463 = add i32 %.1.i112, 6
   %464 = icmp ugt i16 %462, 5
-  br i1 %464, label %.preheader.i111, label %.backedge.i109, !llvm.loop !40
+  br i1 %464, label %.preheader.i111, label %.backedge.i109, !llvm.loop !39
 
 465:                                              ; preds = %453
   br label %.backedge.sink.split.i106
@@ -1887,7 +1887,7 @@ dissect_extrememesh_ps_preq.exit:                 ; preds = %376, %.backedge.i10
   %.0119.be.i = phi i32 [ %450, %.lr.ph.i105 ], [ %457, %459 ], [ %468, %.backedge.sink.split.i106 ], [ %463, %.preheader.i111 ]
   %469 = call i32 @tvb_captured_length(ptr noundef %0)
   %470 = icmp ugt i32 %469, %.0119.be.i
-  br i1 %470, label %.lr.ph.i105, label %dissect_extrememesh_ps_prep.exit, !llvm.loop !41
+  br i1 %470, label %.lr.ph.i105, label %dissect_extrememesh_ps_prep.exit, !llvm.loop !40
 
 dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i109, %394
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
@@ -1928,7 +1928,7 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
   %495 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %494, ptr noundef %0, i32 noundef %493, i32 noundef 4, i32 noundef 0)
   %496 = add nuw nsw i32 %.0382.i, 10
   %.not.i115 = icmp eq i8 %490, 0
-  br i1 %.not.i115, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i114, !llvm.loop !42
+  br i1 %.not.i115, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i114, !llvm.loop !41
 
 497:                                              ; preds = %3
   %498 = getelementptr i8, ptr %1, i64 8
@@ -2006,7 +2006,7 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
   %545 = add i8 %.0.i124, -6
   %546 = add i32 %.158.i, 6
   %547 = icmp ugt i8 %545, 5
-  br i1 %547, label %.preheader.i123, label %.backedge.i120, !llvm.loop !43
+  br i1 %547, label %.preheader.i123, label %.backedge.i120, !llvm.loop !42
 
 548:                                              ; preds = %536
   %.old5.not.i117 = icmp eq i8 %537, 0
@@ -2020,13 +2020,13 @@ dissect_extrememesh_ps_prep.exit:                 ; preds = %453, %.backedge.i10
   %551 = add i8 %.1.i119, -2
   %552 = add i32 %.3.i, 2
   %553 = icmp ugt i8 %551, 1
-  br i1 %553, label %.preheader1.i118, label %.backedge.i120, !llvm.loop !44
+  br i1 %553, label %.preheader1.i118, label %.backedge.i120, !llvm.loop !43
 
 .backedge.i120:                                   ; preds = %.preheader1.i118, %.preheader.i123, %548, %542, %.lr.ph.i116
   %.057.be.i121 = phi i32 [ %533, %.lr.ph.i116 ], [ %540, %542 ], [ %540, %548 ], [ %546, %.preheader.i123 ], [ %552, %.preheader1.i118 ]
   %554 = call i32 @tvb_captured_length(ptr noundef %0)
   %555 = icmp ugt i32 %554, %.057.be.i121
-  br i1 %555, label %.lr.ph.i116, label %dissect_extrememesh_ps_prem.exit, !llvm.loop !45
+  br i1 %555, label %.lr.ph.i116, label %dissect_extrememesh_ps_prem.exit, !llvm.loop !44
 
 dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i120, %515
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
@@ -2068,7 +2068,7 @@ dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i12
   %581 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %580, ptr noundef %0, i32 noundef %.0422.i, i32 noundef 6, i32 noundef 0)
   %582 = add nuw nsw i32 %.0422.i, 6
   %.not.i128 = icmp eq i8 %579, 0
-  br i1 %.not.i128, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i126, !llvm.loop !46
+  br i1 %.not.i128, label %dissect_extrememesh_ps_perr.exit, label %.lr.ph.i126, !llvm.loop !45
 
 583:                                              ; preds = %3
   %584 = getelementptr i8, ptr %1, i64 8
@@ -2125,7 +2125,7 @@ dissect_extrememesh_ps_prem.exit:                 ; preds = %536, %.backedge.i12
   %.0.be.i133 = phi i32 [ %607, %.lr.ph.i129 ], [ %618, %614 ]
   %619 = call i32 @tvb_captured_length(ptr noundef %0)
   %620 = icmp ugt i32 %619, %.0.be.i133
-  br i1 %620, label %.lr.ph.i129, label %dissect_extrememesh_ps_prer.exit, !llvm.loop !47
+  br i1 %620, label %.lr.ph.i129, label %dissect_extrememesh_ps_prer.exit, !llvm.loop !46
 
 dissect_extrememesh_ps_prer.exit:                 ; preds = %610, %.backedge.i132, %583
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
@@ -2227,37 +2227,36 @@ attributes #7 = { nounwind }
 !11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
 !12 = distinct !{!12, !"memcpy.inline"}
 !13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !20}
-!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
-!19 = distinct !{!19, !"memcpy.inline"}
-!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
-!21 = !{!22, !24}
-!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
-!23 = distinct !{!23, !"memcpy.inline"}
-!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
-!25 = distinct !{!25, !15, !16}
-!26 = distinct !{!26, !15, !16}
-!27 = distinct !{!27, !15, !16}
-!28 = distinct !{!28, !15, !16}
-!29 = distinct !{!29, !15, !16}
-!30 = distinct !{!30, !15, !16}
-!31 = distinct !{!31, !15, !16}
-!32 = distinct !{!32, !16}
-!33 = distinct !{!33, !15, !16}
-!34 = distinct !{!34, !15, !16}
-!35 = distinct !{!35, !15, !16}
-!36 = distinct !{!36, !15, !16}
-!37 = distinct !{!37, !15, !16}
-!38 = distinct !{!38, !15, !16}
-!39 = distinct !{!39, !15, !16}
-!40 = distinct !{!40, !15, !16}
-!41 = distinct !{!41, !15, !16}
-!42 = distinct !{!42, !15, !16}
-!43 = distinct !{!43, !15, !16}
-!44 = distinct !{!44, !15, !16}
-!45 = distinct !{!45, !15, !16}
-!46 = distinct !{!46, !15, !16}
-!47 = distinct !{!47, !15, !16}
+!16 = !{!17, !19}
+!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
+!18 = distinct !{!18, !"memcpy.inline"}
+!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
+!22 = distinct !{!22, !"memcpy.inline"}
+!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !15}
+!26 = distinct !{!26, !15}
+!27 = distinct !{!27, !15}
+!28 = distinct !{!28, !15}
+!29 = distinct !{!29, !15}
+!30 = distinct !{!30, !15}
+!31 = distinct !{!31, !15}
+!32 = distinct !{!32, !15}
+!33 = distinct !{!33, !15}
+!34 = distinct !{!34, !15}
+!35 = distinct !{!35, !15}
+!36 = distinct !{!36, !15}
+!37 = distinct !{!37, !15}
+!38 = distinct !{!38, !15}
+!39 = distinct !{!39, !15}
+!40 = distinct !{!40, !15}
+!41 = distinct !{!41, !15}
+!42 = distinct !{!42, !15}
+!43 = distinct !{!43, !15}
+!44 = distinct !{!44, !15}
+!45 = distinct !{!45, !15}
+!46 = distinct !{!46, !15}

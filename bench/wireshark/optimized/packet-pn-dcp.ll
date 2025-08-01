@@ -612,7 +612,7 @@ switch.lookup:                                    ; preds = %12
   %74 = sub i16 %66, %73
   store i16 %74, ptr %9, align 2
   %.not.i = icmp eq i16 %66, %73
-  br i1 %.not.i, label %dissect_PNDCP_PDU.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %dissect_PNDCP_PDU.exit, label %.lr.ph.i
 
 dissect_PNDCP_PDU.exit:                           ; preds = %72, %40, %47, %50, %.thread.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #4
@@ -1549,7 +1549,7 @@ dissect_PNDCP_Suboption_IP.exit:                  ; preds = %98, %136, %174, %20
   %446 = add i16 %445, -2
   store i16 %446, ptr %43, align 2
   %.not.i93 = icmp eq i16 %446, 0
-  br i1 %.not.i93, label %dissect_PNDCP_Suboption_Device.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i93, label %dissect_PNDCP_Suboption_Device.exit, label %.lr.ph.i, !llvm.loop !6
 
 447:                                              ; preds = %229
   %448 = load i32, ptr @hf_pn_dcp_suboption_device_aliasname, align 4
@@ -2240,7 +2240,7 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %716, %718
   %indvars.iv.next223.i = add nuw nsw i64 %indvars.iv222.i, 1
   %exitcond225.i = icmp ne i64 %indvars.iv.next223.i, 8
   %or.cond.not.i = select i1 %.not208.i, i1 %exitcond225.i, i1 false
-  br i1 %or.cond.not.i, label %774, label %777, !llvm.loop !10
+  br i1 %or.cond.not.i, label %774, label %777, !llvm.loop !8
 
 777:                                              ; preds = %774
   %778 = zext i16 %772 to i32
@@ -2366,7 +2366,7 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %716, %718
   %indvars.iv.next219.i = add nuw nsw i64 %indvars.iv218.i, 1
   %exitcond221.i = icmp ne i64 %indvars.iv.next219.i, 8
   %or.cond226.not.i = select i1 %.not207.i, i1 %exitcond221.i, i1 false
-  br i1 %or.cond226.not.i, label %832, label %835, !llvm.loop !11
+  br i1 %or.cond226.not.i, label %832, label %835, !llvm.loop !9
 
 835:                                              ; preds = %832
   %836 = load i32, ptr %16, align 4
@@ -2423,7 +2423,7 @@ dissect_PNDCP_Suboption_DeviceInitiative.exit:    ; preds = %716, %718
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp ne i64 %indvars.iv.next.i, 8
   %or.cond227.not.i = select i1 %.not.i113, i1 %exitcond.i, i1 false
-  br i1 %or.cond227.not.i, label %859, label %862, !llvm.loop !12
+  br i1 %or.cond227.not.i, label %859, label %862, !llvm.loop !10
 
 862:                                              ; preds = %859
   %863 = load i32, ptr %17, align 4
@@ -2746,9 +2746,7 @@ attributes #5 = { allocsize(1) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !9, !7}
-!12 = distinct !{!12, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

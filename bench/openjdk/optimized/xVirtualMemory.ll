@@ -165,7 +165,7 @@ define hidden noundef zeroext i1 @_ZN21XVirtualMemoryManager7reserveEm(ptr nound
   %35 = load i64, ptr @XAddressOffsetMax, align 8
   %36 = icmp ult i64 %33, %35
   %37 = select i1 %34, i1 %36, i1 false
-  br i1 %37, label %.lr.ph.i17, label %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit, !llvm.loop !9
+  br i1 %37, label %.lr.ph.i17, label %_ZN21XVirtualMemoryManager18reserve_contiguousEm.exit, !llvm.loop !8
 
 _ZN21XVirtualMemoryManager18reserve_contiguousEm.exit.loopexit21: ; preds = %.lr.ph.i
   %.pre = load i64, ptr @XAddressOffsetMax, align 8
@@ -314,7 +314,7 @@ define hidden noundef i64 @_ZN21XVirtualMemoryManager21reserve_discontiguousEm(p
   %18 = load i64, ptr @XAddressOffsetMax, align 8
   %19 = icmp ult i64 %16, %18
   %20 = select i1 %17, i1 %19, i1 false
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.014.lcssa = phi i64 [ 0, %2 ], [ %15, %.lr.ph ]
@@ -550,7 +550,6 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

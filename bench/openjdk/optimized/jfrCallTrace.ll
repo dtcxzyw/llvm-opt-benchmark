@@ -946,6 +946,5 @@ attributes #5 = { nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
 !8 = distinct !{!8, !"_ZNK5frame6senderEP11RegisterMap"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}

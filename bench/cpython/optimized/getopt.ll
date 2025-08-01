@@ -130,7 +130,7 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
   store i32 %48, ptr %2, align 4, !tbaa !4
   %49 = sext i32 %48 to i64
   %50 = getelementptr [5 x %struct._PyOS_LongOption], ptr @longopts, i64 0, i64 %49
-  %51 = load ptr, ptr %50, align 16, !tbaa !18
+  %51 = load ptr, ptr %50, align 16, !tbaa !17
   %.not44 = icmp eq ptr %51, null
   br i1 %.not44, label %52, label %45, !llvm.loop !15
 
@@ -152,13 +152,13 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
   %.053.lcssa = phi ptr [ @longopts, %43 ], [ %50, %45 ]
   store ptr @.str, ptr @opt_ptr, align 8, !tbaa !10
   %61 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 8
-  %62 = load i32, ptr %61, align 8, !tbaa !20
+  %62 = load i32, ptr %61, align 8, !tbaa !19
   %.not48 = icmp eq i32 %62, 0
   br i1 %.not48, label %63, label %66
 
 63:                                               ; preds = %._crit_edge
   %64 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !21
+  %65 = load i32, ptr %64, align 4, !tbaa !20
   br label %115
 
 66:                                               ; preds = %._crit_edge
@@ -186,7 +186,7 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
   %79 = load ptr, ptr %78, align 8, !tbaa !10
   store ptr %79, ptr @_PyOS_optarg, align 8, !tbaa !10
   %80 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 12
-  %81 = load i32, ptr %80, align 4, !tbaa !21
+  %81 = load i32, ptr %80, align 4, !tbaa !20
   br label %115
 
 82:                                               ; preds = %31
@@ -300,10 +300,9 @@ attributes #7 = { cold nounwind }
 !12 = !{!"any pointer", !6, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !11, i64 0}
-!19 = !{!"", !11, i64 0, !5, i64 8, !5, i64 12}
-!20 = !{!19, !5, i64 8}
-!21 = !{!19, !5, i64 12}
+!17 = !{!18, !11, i64 0}
+!18 = !{!"", !11, i64 0, !5, i64 8, !5, i64 12}
+!19 = !{!18, !5, i64 8}
+!20 = !{!18, !5, i64 12}

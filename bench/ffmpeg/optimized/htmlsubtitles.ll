@@ -178,7 +178,7 @@ scanbraces.exit.i:                                ; preds = %37, %31, %29
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %54 = load i8, ptr %53, align 1, !tbaa !4
   %55 = icmp eq i8 %54, 60
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre = load i8, ptr %52, align 1, !tbaa !4
@@ -216,7 +216,7 @@ scanbraces.exit.i:                                ; preds = %37, %31, %29
   store i8 %64, ptr %66, align 1, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %scantag.exit.thread, label %63, !llvm.loop !18
+  br i1 %exitcond.not.i, label %scantag.exit.thread, label %63, !llvm.loop !17
 
 scantag.exit:                                     ; preds = %63
   %67 = and i64 %indvars.iv.i, 4294967295
@@ -230,7 +230,7 @@ scantag.exit:                                     ; preds = %63
   %70 = load i8, ptr %.0142, align 1, !tbaa !4
   %71 = icmp eq i8 %70, 32
   %72 = getelementptr inbounds nuw i8, ptr %.0142, i64 1
-  br i1 %71, label %69, label %73, !llvm.loop !19
+  br i1 %71, label %69, label %73, !llvm.loop !18
 
 73:                                               ; preds = %69
   %74 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -274,7 +274,7 @@ scantag.exit:                                     ; preds = %63
   %89 = getelementptr inbounds nuw i8, ptr %.0142, i64 %indvars.iv.next
   %90 = load i8, ptr %89, align 1, !tbaa !4
   %.not174 = icmp eq i8 %90, 0
-  br i1 %.not174, label %._crit_edge278, label %.lr.ph277, !llvm.loop !20
+  br i1 %.not174, label %._crit_edge278, label %.lr.ph277, !llvm.loop !19
 
 ._crit_edge278:                                   ; preds = %88, %87, %80
   %.3148 = phi i32 [ %.2147, %80 ], [ 0, %87 ], [ %.2147, %88 ]
@@ -294,13 +294,13 @@ scantag.exit:                                     ; preds = %63
   %98 = zext nneg i32 %95 to i64
   %99 = getelementptr inbounds nuw [16 x %struct.font_tag], ptr %6, i64 0, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 128
-  %101 = load i32, ptr %100, align 8, !tbaa !21
+  %101 = load i32, ptr %100, align 8, !tbaa !20
   %.not182 = icmp eq i32 %101, 0
   br i1 %.not182, label %108, label %102
 
 102:                                              ; preds = %94
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 128
-  %104 = load i32, ptr %103, align 8, !tbaa !21
+  %104 = load i32, ptr %103, align 8, !tbaa !20
   %.not183 = icmp eq i32 %104, 0
   br i1 %.not183, label %105, label %106
 
@@ -318,13 +318,13 @@ scantag.exit:                                     ; preds = %63
 
 108:                                              ; preds = %105, %107, %106, %94
   %109 = getelementptr inbounds nuw i8, ptr %97, i64 132
-  %110 = load i32, ptr %109, align 4, !tbaa !23
+  %110 = load i32, ptr %109, align 4, !tbaa !22
   %.not185 = icmp ult i32 %110, 16777216
   br i1 %.not185, label %118, label %111
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %99, i64 132
-  %113 = load i32, ptr %112, align 4, !tbaa !23
+  %113 = load i32, ptr %112, align 4, !tbaa !22
   %.not186 = icmp ult i32 %113, 16777216
   br i1 %.not186, label %114, label %115
 
@@ -375,7 +375,7 @@ scantag.exit:                                     ; preds = %63
   %131 = zext nneg i32 %130 to i64
   %132 = getelementptr inbounds nuw [16 x %struct.font_tag], ptr %6, i64 0, i64 %131
   %133 = getelementptr inbounds nuw [16 x %struct.font_tag], ptr %6, i64 0, i64 %129
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %132, ptr noundef nonnull align 8 dereferenceable(136) %133, i64 136, i1 false), !tbaa.struct !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %132, ptr noundef nonnull align 8 dereferenceable(136) %133, i64 136, i1 false), !tbaa.struct !23
   %.not177282 = icmp eq ptr %.0134, null
   br i1 %.not177282, label %.loopexit, label %.lr.ph285
 
@@ -401,7 +401,7 @@ scantag.exit:                                     ; preds = %63
   br i1 %145, label %146, label %select.unfold
 
 146:                                              ; preds = %138
-  %147 = load i32, ptr %135, align 8, !tbaa !21
+  %147 = load i32, ptr %135, align 8, !tbaa !20
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %147) #10
   br label %select.unfold
 
@@ -425,7 +425,7 @@ scantag.exit:                                     ; preds = %63
   %158 = load i8, ptr %157, align 1, !tbaa !4
   %159 = icmp eq i8 %158, 35
   %indvars.iv.next.i215 = add nuw nsw i64 %indvars.iv.i214, 1
-  br i1 %159, label %156, label %html_color_parse.exit, !llvm.loop !26
+  br i1 %159, label %156, label %html_color_parse.exit, !llvm.loop !25
 
 html_color_parse.exit:                            ; preds = %156
   %160 = trunc nuw nsw i64 %indvars.iv.i214 to i32
@@ -450,7 +450,7 @@ html_color_parse.exit:                            ; preds = %156
 
 175:                                              ; preds = %html_color_parse.exit
   %176 = or i32 %.09.i, -16777216
-  store i32 %176, ptr %134, align 4, !tbaa !23
+  store i32 %176, ptr %134, align 4, !tbaa !22
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef %.09.i) #10
   br label %select.unfold
 
@@ -598,7 +598,7 @@ handle_open_brace.exit.thread:                    ; preds = %27, %10, %handle_op
   %.1247260 = phi ptr [ %.1247.ph, %233 ], [ %.1247.ph, %handle_open_brace.exit ], [ %.1247.ph, %handle_open_brace.exit ], [ %.1247.ph, %handle_open_brace.exit ], [ %.0246286, %10 ], [ %.0246286, %27 ]
   %.2141 = phi i32 [ 0, %233 ], [ %.1140.ph, %handle_open_brace.exit ], [ %.1140.ph, %handle_open_brace.exit ], [ %.1140.ph, %handle_open_brace.exit ], [ %.0139289, %10 ], [ 1, %27 ]
   %234 = getelementptr inbounds nuw i8, ptr %.1247260, i64 1
-  br label %10, !llvm.loop !27
+  br label %10, !llvm.loop !26
 
 .critedge:                                        ; preds = %16, %10
   %.val = load i32, ptr %8, align 8, !tbaa !7
@@ -638,7 +638,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %244
 244:                                              ; preds = %.tail
   store i32 %indvars, ptr %8, align 8, !tbaa !7
   %245 = icmp ugt i32 %indvars, 1
-  br i1 %245, label %sub_0, label %.critedge8, !llvm.loop !28
+  br i1 %245, label %sub_0, label %.critedge8, !llvm.loop !27
 
 .critedge8.loopexit.split.loop.exit321:           ; preds = %.tail
   %246 = trunc nuw i64 %indvars.iv297 to i32
@@ -763,18 +763,17 @@ attributes #12 = { noreturn nounwind }
 !11 = !{!"int", !5, i64 0}
 !12 = !{!8, !11, i64 12}
 !13 = !{!8, !9, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = distinct !{!18, !15, !16}
-!19 = distinct !{!19, !15, !16}
-!20 = distinct !{!20, !15, !16}
-!21 = !{!22, !11, i64 128}
-!22 = !{!"font_tag", !5, i64 0, !11, i64 128, !11, i64 132}
-!23 = !{!22, !11, i64 132}
-!24 = !{i64 0, i64 128, !4, i64 128, i64 4, !25, i64 132, i64 4, !25}
-!25 = !{!11, !11, i64 0}
-!26 = distinct !{!26, !15, !16}
-!27 = distinct !{!27, !15, !16}
-!28 = distinct !{!28, !15, !16}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15}
+!20 = !{!21, !11, i64 128}
+!21 = !{!"font_tag", !5, i64 0, !11, i64 128, !11, i64 132}
+!22 = !{!21, !11, i64 132}
+!23 = !{i64 0, i64 128, !4, i64 128, i64 4, !24, i64 132, i64 4, !24}
+!24 = !{!11, !11, i64 0}
+!25 = distinct !{!25, !15}
+!26 = distinct !{!26, !15}
+!27 = distinct !{!27, !15}

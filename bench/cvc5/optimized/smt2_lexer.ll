@@ -254,7 +254,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
   store i8 %16, ptr %14, align 1, !tbaa !13
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, 103
-  br i1 %exitcond55.not, label %.preheader37, label %.preheader38, !llvm.loop !38
+  br i1 %exitcond55.not, label %.preheader37, label %.preheader38, !llvm.loop !37
 
 .preheader37:                                     ; preds = %.preheader38, %.preheader37
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.preheader37 ], [ 65, %.preheader38 ]
@@ -264,7 +264,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
   store i8 %19, ptr %17, align 1, !tbaa !13
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 91
-  br i1 %exitcond59.not, label %.preheader36, label %.preheader37, !llvm.loop !39
+  br i1 %exitcond59.not, label %.preheader36, label %.preheader37, !llvm.loop !38
 
 .preheader36:                                     ; preds = %.preheader37, %.preheader36
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.preheader36 ], [ 65, %.preheader37 ]
@@ -274,7 +274,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
   store i8 %22, ptr %20, align 1, !tbaa !13
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 71
-  br i1 %exitcond63.not, label %.preheader, label %.preheader36, !llvm.loop !40
+  br i1 %exitcond63.not, label %.preheader, label %.preheader36, !llvm.loop !39
 
 23:                                               ; preds = %.preheader
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32970
@@ -299,7 +299,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
   store i8 %35, ptr %33, align 1, !tbaa !13
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 58
-  br i1 %exitcond67.not, label %23, label %.preheader, !llvm.loop !41
+  br i1 %exitcond67.not, label %23, label %.preheader, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %36 = load ptr, ptr @_ZN4cvc56parser9Smt2Lexer21s_printableAsciiCharsB5cxx11E, align 8, !tbaa !11
@@ -318,7 +318,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
   store i8 %43, ptr %41, align 1, !tbaa !13
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.032.045, i64 1
   %.not = icmp eq ptr %44, %32
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge50:                                    ; preds = %.lr.ph49, %._crit_edge
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32954
@@ -349,7 +349,7 @@ define hidden void @_ZN4cvc56parser9Smt2LexerC2Ebb(ptr noundef nonnull align 8 d
   store i8 %61, ptr %59, align 1, !tbaa !13
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.028.047, i64 1
   %.not35 = icmp eq ptr %62, %38
-  br i1 %.not35, label %._crit_edge50, label %.lr.ph49, !llvm.loop !43
+  br i1 %.not35, label %._crit_edge50, label %.lr.ph49
 }
 
 declare void @_ZN4cvc56parser5LexerC2Ev(ptr noundef nonnull align 8 dereferenceable(32892)) unnamed_addr #5
@@ -360,14 +360,14 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK4cvc56parser9Smt2Lexer8tokenStrEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33178) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32896
-  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2Lexer8isStrictEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33178) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32920
-  %3 = load i8, ptr %2, align 8, !tbaa !17, !range !45, !noundef !46
+  %3 = load i8, ptr %2, align 8, !tbaa !17, !range !42, !noundef !43
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -375,7 +375,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2Lexer8isStrictEv(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2Lexer7isSygusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33178) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32921
-  %3 = load i8, ptr %2, align 1, !tbaa !34, !range !45, !noundef !46
+  %3 = load i8, ptr %2, align 1, !tbaa !34, !range !42, !noundef !43
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -383,33 +383,33 @@ define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2Lexer7isSygusEv(ptr nound
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i32 0, 86) i32 @_ZN4cvc56parser9Smt2Lexer17nextTokenInternalEv(ptr noundef nonnull align 8 dereferenceable(33178) initializes((8, 16)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32896
-  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %5 = load ptr, ptr %4, align 8, !tbaa !47
+  %5 = load ptr, ptr %4, align 8, !tbaa !44
   %.not.i.i = icmp eq ptr %5, %3
   br i1 %.not.i.i, label %_ZNSt6vectorIcSaIcEE5clearEv.exit, label %6
 
 6:                                                ; preds = %1
-  store ptr %3, ptr %4, align 8, !tbaa !47
+  store ptr %3, ptr %4, align 8, !tbaa !44
   br label %_ZNSt6vectorIcSaIcEE5clearEv.exit
 
 _ZNSt6vectorIcSaIcEE5clearEv.exit:                ; preds = %1, %6
   %7 = tail call noundef i32 @_ZN4cvc56parser9Smt2Lexer16computeNextTokenEv(ptr noundef nonnull align 8 dereferenceable(33178) %0)
-  %8 = load ptr, ptr %4, align 8, !tbaa !47
+  %8 = load ptr, ptr %4, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %10 = load ptr, ptr %9, align 8, !tbaa !48
+  %10 = load ptr, ptr %9, align 8, !tbaa !45
   %.not.i.i4 = icmp eq ptr %8, %10
   br i1 %.not.i.i4, label %14, label %11
 
 11:                                               ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit
   store i8 0, ptr %8, align 1, !tbaa !13
-  %12 = load ptr, ptr %4, align 8, !tbaa !47
+  %12 = load ptr, ptr %4, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  store ptr %13, ptr %4, align 8, !tbaa !47
+  store ptr %13, ptr %4, align 8, !tbaa !44
   br label %34
 
 14:                                               ; preds = %_ZNSt6vectorIcSaIcEE5clearEv.exit
-  %15 = load ptr, ptr %2, align 8, !tbaa !44
+  %15 = load ptr, ptr %2, align 8, !tbaa !41
   %16 = ptrtoint ptr %8 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
@@ -454,10 +454,10 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %30, %_ZN
   br label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
-  store ptr %27, ptr %2, align 8, !tbaa !44
-  store ptr %31, ptr %4, align 8, !tbaa !47
+  store ptr %27, ptr %2, align 8, !tbaa !41
+  store ptr %31, ptr %4, align 8, !tbaa !44
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 %24
-  store ptr %33, ptr %9, align 8, !tbaa !48
+  store ptr %33, ptr %9, align 8, !tbaa !45
   br label %34
 
 34:                                               ; preds = %11, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i
@@ -493,12 +493,12 @@ define hidden noundef range(i32 0, 86) i32 @_ZN4cvc56parser9Smt2Lexer16computeNe
   %23 = alloca %"class.std::allocator", align 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !49
-  store i32 %26, ptr %24, align 8, !tbaa !50
+  %26 = load i32, ptr %25, align 8, !tbaa !46
+  store i32 %26, ptr %24, align 8, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %28 = load i32, ptr %27, align 4, !tbaa !51
+  %28 = load i32, ptr %27, align 4, !tbaa !48
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %28, ptr %29, align 4, !tbaa !52
+  store i32 %28, ptr %29, align 4, !tbaa !49
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32884
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32864
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32872
@@ -509,26 +509,22 @@ define hidden noundef range(i32 0, 86) i32 @_ZN4cvc56parser9Smt2Lexer16computeNe
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32932
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32888
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32922
-  br label %.backedge
+  br label %.loopexit203
 
-.backedge.backedge:                               ; preds = %_ZN4cvc56parser5Lexer8nextCharEv.exit86.thread, %_ZN4cvc56parser5Lexer8nextCharEv.exit86, %77, %.thread
-  %.be = phi i32 [ %75, %77 ], [ 0, %.thread ], [ 0, %_ZN4cvc56parser5Lexer8nextCharEv.exit86.thread ], [ %125, %_ZN4cvc56parser5Lexer8nextCharEv.exit86 ]
-  br label %.backedge, !llvm.loop !53
-
-.backedge:                                        ; preds = %.backedge.backedge, %1
-  %40 = phi i32 [ %28, %1 ], [ %.be, %.backedge.backedge ]
-  %41 = load i8, ptr %30, align 4, !tbaa !54, !range !45, !noundef !46
+.loopexit203:                                     ; preds = %.loopexit203.backedge, %1
+  %40 = phi i32 [ %28, %1 ], [ %.be, %.loopexit203.backedge ]
+  %41 = load i8, ptr %30, align 4, !tbaa !50, !range !42, !noundef !43
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %45
 
-43:                                               ; preds = %.backedge
-  %44 = load i32, ptr %38, align 8, !tbaa !55
-  store i8 0, ptr %30, align 4, !tbaa !54
+43:                                               ; preds = %.loopexit203
+  %44 = load i32, ptr %38, align 8, !tbaa !51
+  store i8 0, ptr %30, align 4, !tbaa !50
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
-45:                                               ; preds = %.backedge
-  %46 = load i64, ptr %31, align 8, !tbaa !56
-  %47 = load i64, ptr %32, align 8, !tbaa !57
+45:                                               ; preds = %.loopexit203
+  %46 = load i64, ptr %31, align 8, !tbaa !52
+  %47 = load i64, ptr %32, align 8, !tbaa !53
   %48 = icmp ult i64 %46, %47
   br i1 %48, label %49, label %54
 
@@ -536,41 +532,41 @@ define hidden noundef range(i32 0, 86) i32 @_ZN4cvc56parser9Smt2Lexer16computeNe
   %50 = getelementptr inbounds nuw [32768 x i8], ptr %35, i64 0, i64 %46
   %51 = load i8, ptr %50, align 1, !tbaa !13
   %52 = sext i8 %51 to i32
-  store i32 %52, ptr %36, align 8, !tbaa !58
+  store i32 %52, ptr %36, align 8, !tbaa !54
   %53 = add nuw i64 %46, 1
-  store i64 %53, ptr %31, align 8, !tbaa !56
+  store i64 %53, ptr %31, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 54:                                               ; preds = %45
-  %55 = load i8, ptr %33, align 8, !tbaa !59, !range !45, !noundef !46
+  %55 = load i8, ptr %33, align 8, !tbaa !55, !range !42, !noundef !43
   %56 = trunc nuw i8 %55 to i1
-  %57 = load ptr, ptr %34, align 8, !tbaa !60
+  %57 = load ptr, ptr %34, align 8, !tbaa !56
   br i1 %56, label %58, label %60
 
 58:                                               ; preds = %54
   %59 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %57)
-  store i32 %59, ptr %36, align 8, !tbaa !58
+  store i32 %59, ptr %36, align 8, !tbaa !54
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 60:                                               ; preds = %54
   %61 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull %35, i64 noundef 32768)
-  %62 = load ptr, ptr %34, align 8, !tbaa !60
+  %62 = load ptr, ptr %34, align 8, !tbaa !56
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load i64, ptr %63, align 8, !tbaa !61
-  store i64 %64, ptr %32, align 8, !tbaa !57
+  %64 = load i64, ptr %63, align 8, !tbaa !57
+  store i64 %64, ptr %32, align 8, !tbaa !53
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i, label %66
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i: ; preds = %60
-  store i32 -1, ptr %36, align 8, !tbaa !58
-  store i64 0, ptr %31, align 8, !tbaa !56
+  store i32 -1, ptr %36, align 8, !tbaa !54
+  store i64 0, ptr %31, align 8, !tbaa !52
   br label %71
 
 66:                                               ; preds = %60
   %67 = load i8, ptr %35, align 1, !tbaa !13
   %68 = sext i8 %67 to i32
-  store i32 %68, ptr %36, align 8, !tbaa !58
-  store i64 1, ptr %31, align 8, !tbaa !56
+  store i32 %68, ptr %36, align 8, !tbaa !54
+  store i64 1, ptr %31, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.i:     ; preds = %66, %58, %49
@@ -580,9 +576,9 @@ _ZN4cvc56parser5Lexer12readNextCharEv.exit.i:     ; preds = %66, %58, %49
 
 71:                                               ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i
   %72 = phi i32 [ -1, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i ], [ %69, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i ]
-  %73 = load i32, ptr %27, align 4, !tbaa !51
+  %73 = load i32, ptr %27, align 4, !tbaa !48
   %74 = add i32 %73, 1
-  store i32 %74, ptr %27, align 4, !tbaa !51
+  store i32 %74, ptr %27, align 4, !tbaa !48
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %43, %71
@@ -598,17 +594,17 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %43, %71
   %81 = load i8, ptr %80, align 1, !tbaa !13
   %82 = and i8 %81, 1
   %.not195 = icmp eq i8 %82, 0
-  br i1 %.not195, label %87, label %.backedge.backedge
+  br i1 %.not195, label %87, label %.loopexit203.backedge
 
 .thread:                                          ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
-  %83 = load i32, ptr %25, align 8, !tbaa !49
+  %83 = load i32, ptr %25, align 8, !tbaa !46
   %84 = add i32 %83, 1
-  store i32 %84, ptr %25, align 8, !tbaa !49
-  store i32 0, ptr %27, align 4, !tbaa !51
+  store i32 %84, ptr %25, align 8, !tbaa !46
+  store i32 0, ptr %27, align 4, !tbaa !48
   %85 = load i8, ptr %37, align 4, !tbaa !13
   %86 = and i8 %85, 1
   %.not194 = icmp eq i8 %86, 0
-  br i1 %.not194, label %.thread180, label %.backedge.backedge
+  br i1 %.not194, label %.thread180, label %.loopexit203.backedge
 
 87:                                               ; preds = %77
   %.not = icmp eq i32 %.0.i, 59
@@ -616,18 +612,18 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %43, %71
 
 .preheader202:                                    ; preds = %87, %_ZN4cvc56parser5Lexer8nextCharEv.exit86
   %88 = phi i32 [ %125, %_ZN4cvc56parser5Lexer8nextCharEv.exit86 ], [ %75, %87 ]
-  %89 = load i8, ptr %30, align 4, !tbaa !54, !range !45, !noundef !46
+  %89 = load i8, ptr %30, align 4, !tbaa !50, !range !42, !noundef !43
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %.preheader202
-  %92 = load i32, ptr %38, align 8, !tbaa !55
-  store i8 0, ptr %30, align 4, !tbaa !54
+  %92 = load i32, ptr %38, align 8, !tbaa !51
+  store i8 0, ptr %30, align 4, !tbaa !50
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit86
 
 93:                                               ; preds = %.preheader202
-  %94 = load i64, ptr %31, align 8, !tbaa !56
-  %95 = load i64, ptr %32, align 8, !tbaa !57
+  %94 = load i64, ptr %31, align 8, !tbaa !52
+  %95 = load i64, ptr %32, align 8, !tbaa !53
   %96 = icmp ult i64 %94, %95
   br i1 %96, label %97, label %102
 
@@ -635,41 +631,41 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %43, %71
   %98 = getelementptr inbounds nuw [32768 x i8], ptr %35, i64 0, i64 %94
   %99 = load i8, ptr %98, align 1, !tbaa !13
   %100 = sext i8 %99 to i32
-  store i32 %100, ptr %36, align 8, !tbaa !58
+  store i32 %100, ptr %36, align 8, !tbaa !54
   %101 = add nuw i64 %94, 1
-  store i64 %101, ptr %31, align 8, !tbaa !56
+  store i64 %101, ptr %31, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i83
 
 102:                                              ; preds = %93
-  %103 = load i8, ptr %33, align 8, !tbaa !59, !range !45, !noundef !46
+  %103 = load i8, ptr %33, align 8, !tbaa !55, !range !42, !noundef !43
   %104 = trunc nuw i8 %103 to i1
-  %105 = load ptr, ptr %34, align 8, !tbaa !60
+  %105 = load ptr, ptr %34, align 8, !tbaa !56
   br i1 %104, label %106, label %108
 
 106:                                              ; preds = %102
   %107 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %105)
-  store i32 %107, ptr %36, align 8, !tbaa !58
+  store i32 %107, ptr %36, align 8, !tbaa !54
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i83
 
 108:                                              ; preds = %102
   %109 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull %35, i64 noundef 32768)
-  %110 = load ptr, ptr %34, align 8, !tbaa !60
+  %110 = load ptr, ptr %34, align 8, !tbaa !56
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = load i64, ptr %111, align 8, !tbaa !61
-  store i64 %112, ptr %32, align 8, !tbaa !57
+  %112 = load i64, ptr %111, align 8, !tbaa !57
+  store i64 %112, ptr %32, align 8, !tbaa !53
   %113 = icmp eq i64 %112, 0
   br i1 %113, label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i85, label %114
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i85: ; preds = %108
-  store i32 -1, ptr %36, align 8, !tbaa !58
-  store i64 0, ptr %31, align 8, !tbaa !56
+  store i32 -1, ptr %36, align 8, !tbaa !54
+  store i64 0, ptr %31, align 8, !tbaa !52
   br label %121
 
 114:                                              ; preds = %108
   %115 = load i8, ptr %35, align 1, !tbaa !13
   %116 = sext i8 %115 to i32
-  store i32 %116, ptr %36, align 8, !tbaa !58
-  store i64 1, ptr %31, align 8, !tbaa !56
+  store i32 %116, ptr %36, align 8, !tbaa !54
+  store i64 1, ptr %31, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i83
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.i83:   ; preds = %114, %106, %97
@@ -678,30 +674,34 @@ _ZN4cvc56parser5Lexer12readNextCharEv.exit.i83:   ; preds = %114, %106, %97
   br i1 %118, label %_ZN4cvc56parser5Lexer8nextCharEv.exit86.thread, label %121
 
 _ZN4cvc56parser5Lexer8nextCharEv.exit86.thread:   ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i83
-  %119 = load i32, ptr %25, align 8, !tbaa !49
+  %119 = load i32, ptr %25, align 8, !tbaa !46
   %120 = add i32 %119, 1
-  store i32 %120, ptr %25, align 8, !tbaa !49
-  store i32 0, ptr %27, align 4, !tbaa !51
-  br label %.backedge.backedge
+  store i32 %120, ptr %25, align 8, !tbaa !46
+  store i32 0, ptr %27, align 4, !tbaa !48
+  br label %.loopexit203.backedge
+
+.loopexit203.backedge:                            ; preds = %_ZN4cvc56parser5Lexer8nextCharEv.exit86, %_ZN4cvc56parser5Lexer8nextCharEv.exit86.thread, %77, %.thread
+  %.be = phi i32 [ 0, %_ZN4cvc56parser5Lexer8nextCharEv.exit86.thread ], [ %75, %77 ], [ 0, %.thread ], [ %125, %_ZN4cvc56parser5Lexer8nextCharEv.exit86 ]
+  br label %.loopexit203, !llvm.loop !59
 
 121:                                              ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i83, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i85
   %122 = phi i32 [ -1, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i85 ], [ %117, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i83 ]
-  %123 = load i32, ptr %27, align 4, !tbaa !51
+  %123 = load i32, ptr %27, align 4, !tbaa !48
   %124 = add i32 %123, 1
-  store i32 %124, ptr %27, align 4, !tbaa !51
+  store i32 %124, ptr %27, align 4, !tbaa !48
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit86
 
 _ZN4cvc56parser5Lexer8nextCharEv.exit86:          ; preds = %91, %121
   %125 = phi i32 [ %88, %91 ], [ %124, %121 ]
   %.0.i84 = phi i32 [ %92, %91 ], [ %122, %121 ]
   switch i32 %.0.i84, label %.preheader202 [
-    i32 10, label %.backedge.backedge
+    i32 10, label %.loopexit203.backedge
     i32 -1, label %.loopexit
-  ], !llvm.loop !63
+  ]
 
 .thread180.loopexit206:                           ; preds = %87
   %126 = getelementptr inbounds nuw [256 x i8], ptr %39, i64 0, i64 %79
-  %.pre = load i32, ptr %25, align 8, !tbaa !49
+  %.pre = load i32, ptr %25, align 8, !tbaa !46
   br label %.thread180
 
 .thread180:                                       ; preds = %.thread, %.thread180.loopexit206
@@ -709,26 +709,26 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit86:          ; preds = %91, %121
   %128 = phi i32 [ %.pre, %.thread180.loopexit206 ], [ %84, %.thread ]
   %.0.i177179183 = phi i32 [ %.0.i, %.thread180.loopexit206 ], [ 10, %.thread ]
   %129 = phi ptr [ %126, %.thread180.loopexit206 ], [ %37, %.thread ]
-  store i32 %128, ptr %24, align 8, !tbaa !50
-  store i32 %127, ptr %29, align 4, !tbaa !52
+  store i32 %128, ptr %24, align 8, !tbaa !47
+  store i32 %127, ptr %29, align 4, !tbaa !49
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 32896
   %131 = trunc i32 %.0.i177179183 to i8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %133 = load ptr, ptr %132, align 8, !tbaa !47
+  %133 = load ptr, ptr %132, align 8, !tbaa !44
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %135 = load ptr, ptr %134, align 8, !tbaa !48
+  %135 = load ptr, ptr %134, align 8, !tbaa !45
   %.not.i.i.i = icmp eq ptr %133, %135
   br i1 %.not.i.i.i, label %139, label %136
 
 136:                                              ; preds = %.thread180
   store i8 %131, ptr %133, align 1, !tbaa !13
-  %137 = load ptr, ptr %132, align 8, !tbaa !47
+  %137 = load ptr, ptr %132, align 8, !tbaa !44
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
-  store ptr %138, ptr %132, align 8, !tbaa !47
+  store ptr %138, ptr %132, align 8, !tbaa !44
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
 
 139:                                              ; preds = %.thread180
-  %140 = load ptr, ptr %130, align 8, !tbaa !44
+  %140 = load ptr, ptr %130, align 8, !tbaa !41
   %141 = ptrtoint ptr %133 to i64
   %142 = ptrtoint ptr %140 to i64
   %143 = sub i64 %141, %142
@@ -773,10 +773,10 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i: ; preds = %155, %
   br label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i: ; preds = %157, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i
-  store ptr %152, ptr %130, align 8, !tbaa !44
-  store ptr %156, ptr %132, align 8, !tbaa !47
+  store ptr %152, ptr %130, align 8, !tbaa !41
+  store ptr %156, ptr %132, align 8, !tbaa !44
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 %149
-  store ptr %158, ptr %134, align 8, !tbaa !48
+  store ptr %158, ptr %134, align 8, !tbaa !45
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
 
 _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %136, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i
@@ -798,18 +798,18 @@ _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %136, %_ZNSt6vectorI
   br label %.loopexit
 
 .preheader:                                       ; preds = %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit, %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit99
-  %162 = load i8, ptr %30, align 4, !tbaa !54, !range !45, !noundef !46
+  %162 = load i8, ptr %30, align 4, !tbaa !50, !range !42, !noundef !43
   %163 = trunc nuw i8 %162 to i1
   br i1 %163, label %164, label %166
 
 164:                                              ; preds = %.preheader
-  %165 = load i32, ptr %38, align 8, !tbaa !55
-  store i8 0, ptr %30, align 4, !tbaa !54
+  %165 = load i32, ptr %38, align 8, !tbaa !51
+  store i8 0, ptr %30, align 4, !tbaa !50
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit90
 
 166:                                              ; preds = %.preheader
-  %167 = load i64, ptr %31, align 8, !tbaa !56
-  %168 = load i64, ptr %32, align 8, !tbaa !57
+  %167 = load i64, ptr %31, align 8, !tbaa !52
+  %168 = load i64, ptr %32, align 8, !tbaa !53
   %169 = icmp ult i64 %167, %168
   br i1 %169, label %170, label %175
 
@@ -817,41 +817,41 @@ _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %136, %_ZNSt6vectorI
   %171 = getelementptr inbounds nuw [32768 x i8], ptr %35, i64 0, i64 %167
   %172 = load i8, ptr %171, align 1, !tbaa !13
   %173 = sext i8 %172 to i32
-  store i32 %173, ptr %36, align 8, !tbaa !58
+  store i32 %173, ptr %36, align 8, !tbaa !54
   %174 = add nuw i64 %167, 1
-  store i64 %174, ptr %31, align 8, !tbaa !56
+  store i64 %174, ptr %31, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i87
 
 175:                                              ; preds = %166
-  %176 = load i8, ptr %33, align 8, !tbaa !59, !range !45, !noundef !46
+  %176 = load i8, ptr %33, align 8, !tbaa !55, !range !42, !noundef !43
   %177 = trunc nuw i8 %176 to i1
-  %178 = load ptr, ptr %34, align 8, !tbaa !60
+  %178 = load ptr, ptr %34, align 8, !tbaa !56
   br i1 %177, label %179, label %181
 
 179:                                              ; preds = %175
   %180 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %178)
-  store i32 %180, ptr %36, align 8, !tbaa !58
+  store i32 %180, ptr %36, align 8, !tbaa !54
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i87
 
 181:                                              ; preds = %175
   %182 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %178, ptr noundef nonnull %35, i64 noundef 32768)
-  %183 = load ptr, ptr %34, align 8, !tbaa !60
+  %183 = load ptr, ptr %34, align 8, !tbaa !56
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = load i64, ptr %184, align 8, !tbaa !61
-  store i64 %185, ptr %32, align 8, !tbaa !57
+  %185 = load i64, ptr %184, align 8, !tbaa !57
+  store i64 %185, ptr %32, align 8, !tbaa !53
   %186 = icmp eq i64 %185, 0
   br i1 %186, label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i89, label %187
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i89: ; preds = %181
-  store i32 -1, ptr %36, align 8, !tbaa !58
-  store i64 0, ptr %31, align 8, !tbaa !56
+  store i32 -1, ptr %36, align 8, !tbaa !54
+  store i64 0, ptr %31, align 8, !tbaa !52
   br label %194
 
 187:                                              ; preds = %181
   %188 = load i8, ptr %35, align 1, !tbaa !13
   %189 = sext i8 %188 to i32
-  store i32 %189, ptr %36, align 8, !tbaa !58
-  store i64 1, ptr %31, align 8, !tbaa !56
+  store i32 %189, ptr %36, align 8, !tbaa !54
+  store i64 1, ptr %31, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i87
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.i87:   ; preds = %187, %179, %170
@@ -860,17 +860,17 @@ _ZN4cvc56parser5Lexer12readNextCharEv.exit.i87:   ; preds = %187, %179, %170
   br i1 %191, label %_ZN4cvc56parser5Lexer8nextCharEv.exit90.thread, label %194
 
 _ZN4cvc56parser5Lexer8nextCharEv.exit90.thread:   ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i87
-  %192 = load i32, ptr %25, align 8, !tbaa !49
+  %192 = load i32, ptr %25, align 8, !tbaa !46
   %193 = add i32 %192, 1
-  store i32 %193, ptr %25, align 8, !tbaa !49
-  store i32 0, ptr %27, align 4, !tbaa !51
+  store i32 %193, ptr %25, align 8, !tbaa !46
+  store i32 0, ptr %27, align 4, !tbaa !48
   br label %199
 
 194:                                              ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i87, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i89
   %195 = phi i32 [ -1, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i89 ], [ %190, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i87 ]
-  %196 = load i32, ptr %27, align 4, !tbaa !51
+  %196 = load i32, ptr %27, align 4, !tbaa !48
   %197 = add i32 %196, 1
-  store i32 %197, ptr %27, align 4, !tbaa !51
+  store i32 %197, ptr %27, align 4, !tbaa !48
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit90
 
 _ZN4cvc56parser5Lexer8nextCharEv.exit90:          ; preds = %164, %194
@@ -881,20 +881,20 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit90:          ; preds = %164, %194
 199:                                              ; preds = %_ZN4cvc56parser5Lexer8nextCharEv.exit90.thread, %_ZN4cvc56parser5Lexer8nextCharEv.exit90
   %.0.i88185 = phi i32 [ 10, %_ZN4cvc56parser5Lexer8nextCharEv.exit90.thread ], [ %.0.i88, %_ZN4cvc56parser5Lexer8nextCharEv.exit90 ]
   %200 = trunc i32 %.0.i88185 to i8
-  %201 = load ptr, ptr %132, align 8, !tbaa !47
-  %202 = load ptr, ptr %134, align 8, !tbaa !48
+  %201 = load ptr, ptr %132, align 8, !tbaa !44
+  %202 = load ptr, ptr %134, align 8, !tbaa !45
   %.not.i.i.i91 = icmp eq ptr %201, %202
   br i1 %.not.i.i.i91, label %206, label %203
 
 203:                                              ; preds = %199
   store i8 %200, ptr %201, align 1, !tbaa !13
-  %204 = load ptr, ptr %132, align 8, !tbaa !47
+  %204 = load ptr, ptr %132, align 8, !tbaa !44
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 1
-  store ptr %205, ptr %132, align 8, !tbaa !47
+  store ptr %205, ptr %132, align 8, !tbaa !44
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit99
 
 206:                                              ; preds = %199
-  %207 = load ptr, ptr %130, align 8, !tbaa !44
+  %207 = load ptr, ptr %130, align 8, !tbaa !41
   %208 = ptrtoint ptr %201 to i64
   %209 = ptrtoint ptr %207 to i64
   %210 = sub i64 %208, %209
@@ -939,15 +939,15 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i96: ; preds = %222,
   br label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i98
 
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i98: ; preds = %224, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i96
-  store ptr %219, ptr %130, align 8, !tbaa !44
-  store ptr %223, ptr %132, align 8, !tbaa !47
+  store ptr %219, ptr %130, align 8, !tbaa !41
+  store ptr %223, ptr %132, align 8, !tbaa !44
   %225 = getelementptr inbounds nuw i8, ptr %219, i64 %216
-  store ptr %225, ptr %134, align 8, !tbaa !48
+  store ptr %225, ptr %134, align 8, !tbaa !45
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit99
 
 _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit99:  ; preds = %203, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i98
   %.not74 = icmp eq i32 %.0.i88185, 124
-  br i1 %.not74, label %.loopexit, label %.preheader, !llvm.loop !64
+  br i1 %.not74, label %.loopexit, label %.preheader, !llvm.loop !60
 
 226:                                              ; preds = %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
   %227 = tail call noundef i32 @_ZN4cvc56parser5Lexer8nextCharEv(ptr noundef nonnull align 8 dereferenceable(32892) %0)
@@ -1377,18 +1377,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %_Z
   br label %583
 
 _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit151: ; preds = %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit151.backedge, %.preheader200
-  %376 = load i8, ptr %30, align 4, !tbaa !54, !range !45, !noundef !46
+  %376 = load i8, ptr %30, align 4, !tbaa !50, !range !42, !noundef !43
   %377 = trunc nuw i8 %376 to i1
   br i1 %377, label %378, label %380
 
 378:                                              ; preds = %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit151
-  %379 = load i32, ptr %38, align 8, !tbaa !55
-  store i8 0, ptr %30, align 4, !tbaa !54
+  %379 = load i32, ptr %38, align 8, !tbaa !51
+  store i8 0, ptr %30, align 4, !tbaa !50
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit136
 
 380:                                              ; preds = %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit151
-  %381 = load i64, ptr %31, align 8, !tbaa !56
-  %382 = load i64, ptr %32, align 8, !tbaa !57
+  %381 = load i64, ptr %31, align 8, !tbaa !52
+  %382 = load i64, ptr %32, align 8, !tbaa !53
   %383 = icmp ult i64 %381, %382
   br i1 %383, label %384, label %389
 
@@ -1396,41 +1396,41 @@ _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit151: ; preds = %_ZN4cvc56parser9Smt
   %385 = getelementptr inbounds nuw [32768 x i8], ptr %35, i64 0, i64 %381
   %386 = load i8, ptr %385, align 1, !tbaa !13
   %387 = sext i8 %386 to i32
-  store i32 %387, ptr %36, align 8, !tbaa !58
+  store i32 %387, ptr %36, align 8, !tbaa !54
   %388 = add nuw i64 %381, 1
-  store i64 %388, ptr %31, align 8, !tbaa !56
+  store i64 %388, ptr %31, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i133
 
 389:                                              ; preds = %380
-  %390 = load i8, ptr %33, align 8, !tbaa !59, !range !45, !noundef !46
+  %390 = load i8, ptr %33, align 8, !tbaa !55, !range !42, !noundef !43
   %391 = trunc nuw i8 %390 to i1
-  %392 = load ptr, ptr %34, align 8, !tbaa !60
+  %392 = load ptr, ptr %34, align 8, !tbaa !56
   br i1 %391, label %393, label %395
 
 393:                                              ; preds = %389
   %394 = call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %392)
-  store i32 %394, ptr %36, align 8, !tbaa !58
+  store i32 %394, ptr %36, align 8, !tbaa !54
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i133
 
 395:                                              ; preds = %389
   %396 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %392, ptr noundef nonnull %35, i64 noundef 32768)
-  %397 = load ptr, ptr %34, align 8, !tbaa !60
+  %397 = load ptr, ptr %34, align 8, !tbaa !56
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
-  %399 = load i64, ptr %398, align 8, !tbaa !61
-  store i64 %399, ptr %32, align 8, !tbaa !57
+  %399 = load i64, ptr %398, align 8, !tbaa !57
+  store i64 %399, ptr %32, align 8, !tbaa !53
   %400 = icmp eq i64 %399, 0
   br i1 %400, label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i135, label %401
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i135: ; preds = %395
-  store i32 -1, ptr %36, align 8, !tbaa !58
-  store i64 0, ptr %31, align 8, !tbaa !56
+  store i32 -1, ptr %36, align 8, !tbaa !54
+  store i64 0, ptr %31, align 8, !tbaa !52
   br label %406
 
 401:                                              ; preds = %395
   %402 = load i8, ptr %35, align 1, !tbaa !13
   %403 = sext i8 %402 to i32
-  store i32 %403, ptr %36, align 8, !tbaa !58
-  store i64 1, ptr %31, align 8, !tbaa !56
+  store i32 %403, ptr %36, align 8, !tbaa !54
+  store i64 1, ptr %31, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i133
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.i133:  ; preds = %401, %393, %384
@@ -1440,9 +1440,9 @@ _ZN4cvc56parser5Lexer12readNextCharEv.exit.i133:  ; preds = %401, %393, %384
 
 406:                                              ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i133, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i135
   %407 = phi i32 [ -1, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i135 ], [ %404, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i133 ]
-  %408 = load i32, ptr %27, align 4, !tbaa !51
+  %408 = load i32, ptr %27, align 4, !tbaa !48
   %409 = add i32 %408, 1
-  store i32 %409, ptr %27, align 4, !tbaa !51
+  store i32 %409, ptr %27, align 4, !tbaa !48
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit136
 
 _ZN4cvc56parser5Lexer8nextCharEv.exit136:         ; preds = %378, %406
@@ -1460,10 +1460,10 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit136:         ; preds = %378, %406
   br i1 %.not197, label %.noexc.i, label %441
 
 .thread188:                                       ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i133
-  %417 = load i32, ptr %25, align 8, !tbaa !49
+  %417 = load i32, ptr %25, align 8, !tbaa !46
   %418 = add i32 %417, 1
-  store i32 %418, ptr %25, align 8, !tbaa !49
-  store i32 0, ptr %27, align 4, !tbaa !51
+  store i32 %418, ptr %25, align 8, !tbaa !46
+  store i32 0, ptr %27, align 4, !tbaa !48
   %419 = load i8, ptr %37, align 4, !tbaa !13
   %420 = and i8 %419, 64
   %.not196 = icmp eq i8 %420, 0
@@ -1551,30 +1551,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %_Z
   br i1 %.not61, label %.thread192, label %445
 
 445:                                              ; preds = %443
-  store i8 1, ptr %30, align 4, !tbaa !54
-  store i32 %444, ptr %38, align 8, !tbaa !55
+  store i8 1, ptr %30, align 4, !tbaa !50
+  store i32 %444, ptr %38, align 8, !tbaa !51
   br label %.loopexit
 
 .thread192:                                       ; preds = %.thread188, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139, %443, %441
   %.044 = phi i32 [ 34, %443 ], [ %.0.i134, %441 ], [ %.0.i134187191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139 ], [ 10, %.thread188 ]
   %446 = trunc i32 %.044 to i8
-  %447 = load ptr, ptr %132, align 8, !tbaa !47
-  %448 = load ptr, ptr %134, align 8, !tbaa !48
+  %447 = load ptr, ptr %132, align 8, !tbaa !44
+  %448 = load ptr, ptr %134, align 8, !tbaa !45
   %.not.i.i.i143 = icmp eq ptr %447, %448
   br i1 %.not.i.i.i143, label %452, label %449
 
 449:                                              ; preds = %.thread192
   store i8 %446, ptr %447, align 1, !tbaa !13
-  %450 = load ptr, ptr %132, align 8, !tbaa !47
+  %450 = load ptr, ptr %132, align 8, !tbaa !44
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 1
-  store ptr %451, ptr %132, align 8, !tbaa !47
+  store ptr %451, ptr %132, align 8, !tbaa !44
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit151.backedge
 
 _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit151.backedge: ; preds = %449, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i150
-  br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit151, !llvm.loop !65
+  br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit151, !llvm.loop !61
 
 452:                                              ; preds = %.thread192
-  %453 = load ptr, ptr %130, align 8, !tbaa !44
+  %453 = load ptr, ptr %130, align 8, !tbaa !41
   %454 = ptrtoint ptr %447 to i64
   %455 = ptrtoint ptr %453 to i64
   %456 = sub i64 %454, %455
@@ -1619,10 +1619,10 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i148: ; preds = %468
   br label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i150
 
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i150: ; preds = %470, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i148
-  store ptr %465, ptr %130, align 8, !tbaa !44
-  store ptr %469, ptr %132, align 8, !tbaa !47
+  store ptr %465, ptr %130, align 8, !tbaa !41
+  store ptr %469, ptr %132, align 8, !tbaa !44
   %471 = getelementptr inbounds nuw i8, ptr %465, i64 %462
-  store ptr %471, ptr %134, align 8, !tbaa !48
+  store ptr %471, ptr %134, align 8, !tbaa !45
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit151.backedge
 
 472:                                              ; preds = %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
@@ -1857,8 +1857,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169: ; preds = %_Z
   br label %583
 
 555:                                              ; preds = %503
-  store i8 1, ptr %30, align 4, !tbaa !54
-  store i32 %504, ptr %38, align 8, !tbaa !55
+  store i8 1, ptr %30, align 4, !tbaa !50
+  store i32 %504, ptr %38, align 8, !tbaa !51
   br label %.loopexit
 
 556:                                              ; preds = %499
@@ -1949,21 +1949,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %_Z
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN4cvc56parser5Lexer8nextCharEv(ptr noundef nonnull align 8 dereferenceable(32892) %0) local_unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32884
-  %3 = load i8, ptr %2, align 4, !tbaa !54, !range !45, !noundef !46
+  %3 = load i8, ptr %2, align 4, !tbaa !50, !range !42, !noundef !43
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32888
-  %7 = load i32, ptr %6, align 8, !tbaa !55
-  store i8 0, ptr %2, align 4, !tbaa !54
+  %7 = load i32, ptr %6, align 8, !tbaa !51
+  store i8 0, ptr %2, align 4, !tbaa !50
   br label %54
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32864
-  %10 = load i64, ptr %9, align 8, !tbaa !56
+  %10 = load i64, ptr %9, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32872
-  %12 = load i64, ptr %11, align 8, !tbaa !57
+  %12 = load i64, ptr %11, align 8, !tbaa !53
   %13 = icmp ult i64 %10, %12
   br i1 %13, label %14, label %21
 
@@ -1973,47 +1973,47 @@ define linkonce_odr hidden noundef i32 @_ZN4cvc56parser5Lexer8nextCharEv(ptr nou
   %17 = load i8, ptr %16, align 1, !tbaa !13
   %18 = sext i8 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 %18, ptr %19, align 8, !tbaa !58
+  store i32 %18, ptr %19, align 8, !tbaa !54
   %20 = add nuw i64 %10, 1
-  store i64 %20, ptr %9, align 8, !tbaa !56
+  store i64 %20, ptr %9, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit
 
 21:                                               ; preds = %8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %23 = load i8, ptr %22, align 8, !tbaa !59, !range !45, !noundef !46
+  %23 = load i8, ptr %22, align 8, !tbaa !55, !range !42, !noundef !43
   %24 = trunc nuw i8 %23 to i1
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %26 = load ptr, ptr %25, align 8, !tbaa !60
+  %26 = load ptr, ptr %25, align 8, !tbaa !56
   br i1 %24, label %27, label %30
 
 27:                                               ; preds = %21
   %28 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 %28, ptr %29, align 8, !tbaa !58
+  store i32 %28, ptr %29, align 8, !tbaa !54
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %32 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %31, i64 noundef 32768)
-  %33 = load ptr, ptr %25, align 8, !tbaa !60
+  %33 = load ptr, ptr %25, align 8, !tbaa !56
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !61
-  store i64 %35, ptr %11, align 8, !tbaa !57
+  %35 = load i64, ptr %34, align 8, !tbaa !57
+  store i64 %35, ptr %11, align 8, !tbaa !53
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread, label %38
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.thread: ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 -1, ptr %37, align 8, !tbaa !58
-  store i64 0, ptr %9, align 8, !tbaa !56
+  store i32 -1, ptr %37, align 8, !tbaa !54
+  store i64 0, ptr %9, align 8, !tbaa !52
   br label %49
 
 38:                                               ; preds = %30
   %39 = load i8, ptr %31, align 1, !tbaa !13
   %40 = sext i8 %39 to i32
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 %40, ptr %41, align 8, !tbaa !58
-  store i64 1, ptr %9, align 8, !tbaa !56
+  store i32 %40, ptr %41, align 8, !tbaa !54
+  store i64 1, ptr %9, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit:       ; preds = %14, %27, %38
@@ -2023,19 +2023,19 @@ _ZN4cvc56parser5Lexer12readNextCharEv.exit:       ; preds = %14, %27, %38
 
 44:                                               ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load i32, ptr %45, align 8, !tbaa !49
+  %46 = load i32, ptr %45, align 8, !tbaa !46
   %47 = add i32 %46, 1
-  store i32 %47, ptr %45, align 8, !tbaa !49
+  store i32 %47, ptr %45, align 8, !tbaa !46
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %48, align 4, !tbaa !51
+  store i32 0, ptr %48, align 4, !tbaa !48
   br label %54
 
 49:                                               ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread, %_ZN4cvc56parser5Lexer12readNextCharEv.exit
   %50 = phi i32 [ -1, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread ], [ %42, %_ZN4cvc56parser5Lexer12readNextCharEv.exit ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %52 = load i32, ptr %51, align 4, !tbaa !51
+  %52 = load i32, ptr %51, align 4, !tbaa !48
   %53 = add i32 %52, 1
-  store i32 %53, ptr %51, align 4, !tbaa !51
+  store i32 %53, ptr %51, align 4, !tbaa !48
   br label %54
 
 54:                                               ; preds = %44, %49, %5
@@ -2048,21 +2048,21 @@ define linkonce_odr hidden void @_ZN4cvc56parser9Smt2Lexer11pushToTokenEi(ptr no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32896
   %4 = trunc i32 %1 to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %6 = load ptr, ptr %5, align 8, !tbaa !47
+  %6 = load ptr, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %8 = load ptr, ptr %7, align 8, !tbaa !48
+  %8 = load ptr, ptr %7, align 8, !tbaa !45
   %.not.i.i = icmp eq ptr %6, %8
   br i1 %.not.i.i, label %12, label %9
 
 9:                                                ; preds = %2
   store i8 %4, ptr %6, align 1, !tbaa !13
-  %10 = load ptr, ptr %5, align 8, !tbaa !47
+  %10 = load ptr, ptr %5, align 8, !tbaa !44
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store ptr %11, ptr %5, align 8, !tbaa !47
+  store ptr %11, ptr %5, align 8, !tbaa !44
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8, !tbaa !44
+  %13 = load ptr, ptr %3, align 8, !tbaa !41
   %14 = ptrtoint ptr %6 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -2107,10 +2107,10 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i: ; preds = %28, %_ZN
   br label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i: ; preds = %30, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i
-  store ptr %25, ptr %3, align 8, !tbaa !44
-  store ptr %29, ptr %5, align 8, !tbaa !47
+  store ptr %25, ptr %3, align 8, !tbaa !41
+  store ptr %29, ptr %5, align 8, !tbaa !44
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 %22
-  store ptr %31, ptr %7, align 8, !tbaa !48
+  store ptr %31, ptr %7, align 8, !tbaa !45
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %9, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i
@@ -2120,21 +2120,21 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %9, %_ZNSt6vectorIcS
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2Lexer21parseNonEmptyCharListENS1_14CharacterClassE(ptr noundef nonnull align 8 dereferenceable(33178) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32884
-  %4 = load i8, ptr %3, align 4, !tbaa !54, !range !45, !noundef !46
+  %4 = load i8, ptr %3, align 4, !tbaa !50, !range !42, !noundef !43
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32888
-  %8 = load i32, ptr %7, align 8, !tbaa !55
-  store i8 0, ptr %3, align 4, !tbaa !54
+  %8 = load i32, ptr %7, align 8, !tbaa !51
+  store i8 0, ptr %3, align 4, !tbaa !50
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32864
-  %11 = load i64, ptr %10, align 8, !tbaa !56
+  %11 = load i64, ptr %10, align 8, !tbaa !52
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32872
-  %13 = load i64, ptr %12, align 8, !tbaa !57
+  %13 = load i64, ptr %12, align 8, !tbaa !53
   %14 = icmp ult i64 %11, %13
   br i1 %14, label %15, label %22
 
@@ -2144,47 +2144,47 @@ define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2Lexer21parseNonEmptyCharLi
   %18 = load i8, ptr %17, align 1, !tbaa !13
   %19 = sext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 %19, ptr %20, align 8, !tbaa !58
+  store i32 %19, ptr %20, align 8, !tbaa !54
   %21 = add nuw i64 %11, 1
-  store i64 %21, ptr %10, align 8, !tbaa !56
+  store i64 %21, ptr %10, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load i8, ptr %23, align 8, !tbaa !59, !range !45, !noundef !46
+  %24 = load i8, ptr %23, align 8, !tbaa !55, !range !42, !noundef !43
   %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %27 = load ptr, ptr %26, align 8, !tbaa !60
+  %27 = load ptr, ptr %26, align 8, !tbaa !56
   br i1 %25, label %28, label %31
 
 28:                                               ; preds = %22
   %29 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 %29, ptr %30, align 8, !tbaa !58
+  store i32 %29, ptr %30, align 8, !tbaa !54
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %33 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %32, i64 noundef 32768)
-  %34 = load ptr, ptr %26, align 8, !tbaa !60
+  %34 = load ptr, ptr %26, align 8, !tbaa !56
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !61
-  store i64 %36, ptr %12, align 8, !tbaa !57
+  %36 = load i64, ptr %35, align 8, !tbaa !57
+  store i64 %36, ptr %12, align 8, !tbaa !53
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i, label %39
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i: ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 -1, ptr %38, align 8, !tbaa !58
-  store i64 0, ptr %10, align 8, !tbaa !56
+  store i32 -1, ptr %38, align 8, !tbaa !54
+  store i64 0, ptr %10, align 8, !tbaa !52
   br label %50
 
 39:                                               ; preds = %31
   %40 = load i8, ptr %32, align 1, !tbaa !13
   %41 = sext i8 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 %41, ptr %42, align 8, !tbaa !58
-  store i64 1, ptr %10, align 8, !tbaa !56
+  store i32 %41, ptr %42, align 8, !tbaa !54
+  store i64 1, ptr %10, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.i:     ; preds = %39, %28, %15
@@ -2194,19 +2194,19 @@ _ZN4cvc56parser5Lexer12readNextCharEv.exit.i:     ; preds = %39, %28, %15
 
 45:                                               ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load i32, ptr %46, align 8, !tbaa !49
+  %47 = load i32, ptr %46, align 8, !tbaa !46
   %48 = add i32 %47, 1
-  store i32 %48, ptr %46, align 8, !tbaa !49
+  store i32 %48, ptr %46, align 8, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %49, align 4, !tbaa !51
+  store i32 0, ptr %49, align 4, !tbaa !48
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 50:                                               ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i
   %51 = phi i32 [ -1, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i ], [ %43, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %53 = load i32, ptr %52, align 4, !tbaa !51
+  %53 = load i32, ptr %52, align 4, !tbaa !48
   %54 = add i32 %53, 1
-  store i32 %54, ptr %52, align 4, !tbaa !51
+  store i32 %54, ptr %52, align 4, !tbaa !48
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %6, %45, %50
@@ -2225,21 +2225,21 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %6, %45, %50
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32896
   %65 = trunc i32 %.0.i to i8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %67 = load ptr, ptr %66, align 8, !tbaa !47
+  %67 = load ptr, ptr %66, align 8, !tbaa !44
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %69 = load ptr, ptr %68, align 8, !tbaa !48
+  %69 = load ptr, ptr %68, align 8, !tbaa !45
   %.not.i.i.i = icmp eq ptr %67, %69
   br i1 %.not.i.i.i, label %73, label %70
 
 70:                                               ; preds = %63
   store i8 %65, ptr %67, align 1, !tbaa !13
-  %71 = load ptr, ptr %66, align 8, !tbaa !47
+  %71 = load ptr, ptr %66, align 8, !tbaa !44
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
-  store ptr %72, ptr %66, align 8, !tbaa !47
+  store ptr %72, ptr %66, align 8, !tbaa !44
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
 
 73:                                               ; preds = %63
-  %74 = load ptr, ptr %64, align 8, !tbaa !44
+  %74 = load ptr, ptr %64, align 8, !tbaa !41
   %75 = ptrtoint ptr %67 to i64
   %76 = ptrtoint ptr %74 to i64
   %77 = sub i64 %75, %76
@@ -2284,10 +2284,10 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i: ; preds = %89, %_
   br label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i: ; preds = %91, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i
-  store ptr %86, ptr %64, align 8, !tbaa !44
-  store ptr %90, ptr %66, align 8, !tbaa !47
+  store ptr %86, ptr %64, align 8, !tbaa !41
+  store ptr %90, ptr %66, align 8, !tbaa !44
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 %83
-  store ptr %92, ptr %68, align 8, !tbaa !48
+  store ptr %92, ptr %68, align 8, !tbaa !45
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
 
 _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %70, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i
@@ -2303,21 +2303,21 @@ declare void @_ZN4cvc56parser5Lexer10parseErrorERKNSt7__cxx1112basic_stringIcSt1
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2Lexer16parseLiteralCharEi(ptr noundef nonnull align 8 dereferenceable(33178) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32884
-  %4 = load i8, ptr %3, align 4, !tbaa !54, !range !45, !noundef !46
+  %4 = load i8, ptr %3, align 4, !tbaa !50, !range !42, !noundef !43
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32888
-  %8 = load i32, ptr %7, align 8, !tbaa !55
-  store i8 0, ptr %3, align 4, !tbaa !54
+  %8 = load i32, ptr %7, align 8, !tbaa !51
+  store i8 0, ptr %3, align 4, !tbaa !50
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32864
-  %11 = load i64, ptr %10, align 8, !tbaa !56
+  %11 = load i64, ptr %10, align 8, !tbaa !52
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32872
-  %13 = load i64, ptr %12, align 8, !tbaa !57
+  %13 = load i64, ptr %12, align 8, !tbaa !53
   %14 = icmp ult i64 %11, %13
   br i1 %14, label %15, label %22
 
@@ -2327,47 +2327,47 @@ define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2Lexer16parseLiteralCharEi(
   %18 = load i8, ptr %17, align 1, !tbaa !13
   %19 = sext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 %19, ptr %20, align 8, !tbaa !58
+  store i32 %19, ptr %20, align 8, !tbaa !54
   %21 = add nuw i64 %11, 1
-  store i64 %21, ptr %10, align 8, !tbaa !56
+  store i64 %21, ptr %10, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load i8, ptr %23, align 8, !tbaa !59, !range !45, !noundef !46
+  %24 = load i8, ptr %23, align 8, !tbaa !55, !range !42, !noundef !43
   %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %27 = load ptr, ptr %26, align 8, !tbaa !60
+  %27 = load ptr, ptr %26, align 8, !tbaa !56
   br i1 %25, label %28, label %31
 
 28:                                               ; preds = %22
   %29 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 %29, ptr %30, align 8, !tbaa !58
+  store i32 %29, ptr %30, align 8, !tbaa !54
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %33 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %32, i64 noundef 32768)
-  %34 = load ptr, ptr %26, align 8, !tbaa !60
+  %34 = load ptr, ptr %26, align 8, !tbaa !56
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !61
-  store i64 %36, ptr %12, align 8, !tbaa !57
+  %36 = load i64, ptr %35, align 8, !tbaa !57
+  store i64 %36, ptr %12, align 8, !tbaa !53
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i, label %39
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i: ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 -1, ptr %38, align 8, !tbaa !58
-  store i64 0, ptr %10, align 8, !tbaa !56
+  store i32 -1, ptr %38, align 8, !tbaa !54
+  store i64 0, ptr %10, align 8, !tbaa !52
   br label %50
 
 39:                                               ; preds = %31
   %40 = load i8, ptr %32, align 1, !tbaa !13
   %41 = sext i8 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 %41, ptr %42, align 8, !tbaa !58
-  store i64 1, ptr %10, align 8, !tbaa !56
+  store i32 %41, ptr %42, align 8, !tbaa !54
+  store i64 1, ptr %10, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.i:     ; preds = %39, %28, %15
@@ -2377,19 +2377,19 @@ _ZN4cvc56parser5Lexer12readNextCharEv.exit.i:     ; preds = %39, %28, %15
 
 45:                                               ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load i32, ptr %46, align 8, !tbaa !49
+  %47 = load i32, ptr %46, align 8, !tbaa !46
   %48 = add i32 %47, 1
-  store i32 %48, ptr %46, align 8, !tbaa !49
+  store i32 %48, ptr %46, align 8, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %49, align 4, !tbaa !51
+  store i32 0, ptr %49, align 4, !tbaa !48
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 50:                                               ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i
   %51 = phi i32 [ -1, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i ], [ %43, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %53 = load i32, ptr %52, align 4, !tbaa !51
+  %53 = load i32, ptr %52, align 4, !tbaa !48
   %54 = add i32 %53, 1
-  store i32 %54, ptr %52, align 4, !tbaa !51
+  store i32 %54, ptr %52, align 4, !tbaa !48
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %6, %45, %50
@@ -2401,21 +2401,21 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %6, %45, %50
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 32896
   %57 = trunc i32 %1 to i8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %59 = load ptr, ptr %58, align 8, !tbaa !47
+  %59 = load ptr, ptr %58, align 8, !tbaa !44
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %61 = load ptr, ptr %60, align 8, !tbaa !48
+  %61 = load ptr, ptr %60, align 8, !tbaa !45
   %.not.i.i.i = icmp eq ptr %59, %61
   br i1 %.not.i.i.i, label %65, label %62
 
 62:                                               ; preds = %55
   store i8 %57, ptr %59, align 1, !tbaa !13
-  %63 = load ptr, ptr %58, align 8, !tbaa !47
+  %63 = load ptr, ptr %58, align 8, !tbaa !44
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 1
-  store ptr %64, ptr %58, align 8, !tbaa !47
+  store ptr %64, ptr %58, align 8, !tbaa !44
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
 
 65:                                               ; preds = %55
-  %66 = load ptr, ptr %56, align 8, !tbaa !44
+  %66 = load ptr, ptr %56, align 8, !tbaa !41
   %67 = ptrtoint ptr %59 to i64
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68
@@ -2460,10 +2460,10 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i: ; preds = %81, %_
   br label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i: ; preds = %83, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i
-  store ptr %78, ptr %56, align 8, !tbaa !44
-  store ptr %82, ptr %58, align 8, !tbaa !47
+  store ptr %78, ptr %56, align 8, !tbaa !41
+  store ptr %82, ptr %58, align 8, !tbaa !44
   %84 = getelementptr inbounds nuw i8, ptr %78, i64 %75
-  store ptr %84, ptr %60, align 8, !tbaa !48
+  store ptr %84, ptr %60, align 8, !tbaa !45
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
 
 _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i, %62, %_ZN4cvc56parser5Lexer8nextCharEv.exit
@@ -2473,21 +2473,21 @@ _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %_ZNSt6vectorIcSaIcE
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2Lexer9parseCharENS1_14CharacterClassE(ptr noundef nonnull align 8 dereferenceable(33178) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32884
-  %4 = load i8, ptr %3, align 4, !tbaa !54, !range !45, !noundef !46
+  %4 = load i8, ptr %3, align 4, !tbaa !50, !range !42, !noundef !43
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32888
-  %8 = load i32, ptr %7, align 8, !tbaa !55
-  store i8 0, ptr %3, align 4, !tbaa !54
+  %8 = load i32, ptr %7, align 8, !tbaa !51
+  store i8 0, ptr %3, align 4, !tbaa !50
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32864
-  %11 = load i64, ptr %10, align 8, !tbaa !56
+  %11 = load i64, ptr %10, align 8, !tbaa !52
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32872
-  %13 = load i64, ptr %12, align 8, !tbaa !57
+  %13 = load i64, ptr %12, align 8, !tbaa !53
   %14 = icmp ult i64 %11, %13
   br i1 %14, label %15, label %22
 
@@ -2497,47 +2497,47 @@ define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2Lexer9parseCharENS1_14Char
   %18 = load i8, ptr %17, align 1, !tbaa !13
   %19 = sext i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 %19, ptr %20, align 8, !tbaa !58
+  store i32 %19, ptr %20, align 8, !tbaa !54
   %21 = add nuw i64 %11, 1
-  store i64 %21, ptr %10, align 8, !tbaa !56
+  store i64 %21, ptr %10, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load i8, ptr %23, align 8, !tbaa !59, !range !45, !noundef !46
+  %24 = load i8, ptr %23, align 8, !tbaa !55, !range !42, !noundef !43
   %25 = trunc nuw i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %27 = load ptr, ptr %26, align 8, !tbaa !60
+  %27 = load ptr, ptr %26, align 8, !tbaa !56
   br i1 %25, label %28, label %31
 
 28:                                               ; preds = %22
   %29 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %27)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 %29, ptr %30, align 8, !tbaa !58
+  store i32 %29, ptr %30, align 8, !tbaa !54
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %33 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %32, i64 noundef 32768)
-  %34 = load ptr, ptr %26, align 8, !tbaa !60
+  %34 = load ptr, ptr %26, align 8, !tbaa !56
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !61
-  store i64 %36, ptr %12, align 8, !tbaa !57
+  %36 = load i64, ptr %35, align 8, !tbaa !57
+  store i64 %36, ptr %12, align 8, !tbaa !53
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i, label %39
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i: ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 -1, ptr %38, align 8, !tbaa !58
-  store i64 0, ptr %10, align 8, !tbaa !56
+  store i32 -1, ptr %38, align 8, !tbaa !54
+  store i64 0, ptr %10, align 8, !tbaa !52
   br label %50
 
 39:                                               ; preds = %31
   %40 = load i8, ptr %32, align 1, !tbaa !13
   %41 = sext i8 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32880
-  store i32 %41, ptr %42, align 8, !tbaa !58
-  store i64 1, ptr %10, align 8, !tbaa !56
+  store i32 %41, ptr %42, align 8, !tbaa !54
+  store i64 1, ptr %10, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.i:     ; preds = %39, %28, %15
@@ -2547,19 +2547,19 @@ _ZN4cvc56parser5Lexer12readNextCharEv.exit.i:     ; preds = %39, %28, %15
 
 45:                                               ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load i32, ptr %46, align 8, !tbaa !49
+  %47 = load i32, ptr %46, align 8, !tbaa !46
   %48 = add i32 %47, 1
-  store i32 %48, ptr %46, align 8, !tbaa !49
+  store i32 %48, ptr %46, align 8, !tbaa !46
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %49, align 4, !tbaa !51
+  store i32 0, ptr %49, align 4, !tbaa !48
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 50:                                               ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i
   %51 = phi i32 [ -1, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i ], [ %43, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %53 = load i32, ptr %52, align 4, !tbaa !51
+  %53 = load i32, ptr %52, align 4, !tbaa !48
   %54 = add i32 %53, 1
-  store i32 %54, ptr %52, align 4, !tbaa !51
+  store i32 %54, ptr %52, align 4, !tbaa !48
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %6, %45, %50
@@ -2578,21 +2578,21 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %6, %45, %50
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32896
   %65 = trunc i32 %.0.i to i8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %67 = load ptr, ptr %66, align 8, !tbaa !47
+  %67 = load ptr, ptr %66, align 8, !tbaa !44
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %69 = load ptr, ptr %68, align 8, !tbaa !48
+  %69 = load ptr, ptr %68, align 8, !tbaa !45
   %.not.i.i.i = icmp eq ptr %67, %69
   br i1 %.not.i.i.i, label %73, label %70
 
 70:                                               ; preds = %63
   store i8 %65, ptr %67, align 1, !tbaa !13
-  %71 = load ptr, ptr %66, align 8, !tbaa !47
+  %71 = load ptr, ptr %66, align 8, !tbaa !44
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
-  store ptr %72, ptr %66, align 8, !tbaa !47
+  store ptr %72, ptr %66, align 8, !tbaa !44
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
 
 73:                                               ; preds = %63
-  %74 = load ptr, ptr %64, align 8, !tbaa !44
+  %74 = load ptr, ptr %64, align 8, !tbaa !41
   %75 = ptrtoint ptr %67 to i64
   %76 = ptrtoint ptr %74 to i64
   %77 = sub i64 %75, %76
@@ -2637,10 +2637,10 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i: ; preds = %89, %_
   br label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i: ; preds = %91, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i
-  store ptr %86, ptr %64, align 8, !tbaa !44
-  store ptr %90, ptr %66, align 8, !tbaa !47
+  store ptr %86, ptr %64, align 8, !tbaa !41
+  store ptr %90, ptr %66, align 8, !tbaa !44
   %92 = getelementptr inbounds nuw i8, ptr %86, i64 %83
-  store ptr %92, ptr %68, align 8, !tbaa !48
+  store ptr %92, ptr %68, align 8, !tbaa !45
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
 
 _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i, %70, %_ZN4cvc56parser5Lexer8nextCharEv.exit
@@ -2666,18 +2666,18 @@ define hidden void @_ZN4cvc56parser9Smt2Lexer13parseCharListENS1_14CharacterClas
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
 
 _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit.backedge, %2
-  %17 = load i8, ptr %3, align 4, !tbaa !54, !range !45, !noundef !46
+  %17 = load i8, ptr %3, align 4, !tbaa !50, !range !42, !noundef !43
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
-  %20 = load i32, ptr %12, align 8, !tbaa !55
-  store i8 0, ptr %3, align 4, !tbaa !54
+  %20 = load i32, ptr %12, align 8, !tbaa !51
+  store i8 0, ptr %3, align 4, !tbaa !50
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 21:                                               ; preds = %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit
-  %22 = load i64, ptr %4, align 8, !tbaa !56
-  %23 = load i64, ptr %5, align 8, !tbaa !57
+  %22 = load i64, ptr %4, align 8, !tbaa !52
+  %23 = load i64, ptr %5, align 8, !tbaa !53
   %24 = icmp ult i64 %22, %23
   br i1 %24, label %25, label %30
 
@@ -2685,41 +2685,41 @@ _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit:    ; preds = %_ZN4cvc56parser9Smt
   %26 = getelementptr inbounds nuw [32768 x i8], ptr %8, i64 0, i64 %22
   %27 = load i8, ptr %26, align 1, !tbaa !13
   %28 = sext i8 %27 to i32
-  store i32 %28, ptr %9, align 8, !tbaa !58
+  store i32 %28, ptr %9, align 8, !tbaa !54
   %29 = add nuw i64 %22, 1
-  store i64 %29, ptr %4, align 8, !tbaa !56
+  store i64 %29, ptr %4, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 30:                                               ; preds = %21
-  %31 = load i8, ptr %6, align 8, !tbaa !59, !range !45, !noundef !46
+  %31 = load i8, ptr %6, align 8, !tbaa !55, !range !42, !noundef !43
   %32 = trunc nuw i8 %31 to i1
-  %33 = load ptr, ptr %7, align 8, !tbaa !60
+  %33 = load ptr, ptr %7, align 8, !tbaa !56
   br i1 %32, label %34, label %36
 
 34:                                               ; preds = %30
   %35 = tail call noundef i32 @_ZNSi3getEv(ptr noundef nonnull align 8 dereferenceable(16) %33)
-  store i32 %35, ptr %9, align 8, !tbaa !58
+  store i32 %35, ptr %9, align 8, !tbaa !54
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 36:                                               ; preds = %30
   %37 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %8, i64 noundef 32768)
-  %38 = load ptr, ptr %7, align 8, !tbaa !60
+  %38 = load ptr, ptr %7, align 8, !tbaa !56
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !61
-  store i64 %40, ptr %5, align 8, !tbaa !57
+  %40 = load i64, ptr %39, align 8, !tbaa !57
+  store i64 %40, ptr %5, align 8, !tbaa !53
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i, label %42
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i: ; preds = %36
-  store i32 -1, ptr %9, align 8, !tbaa !58
-  store i64 0, ptr %4, align 8, !tbaa !56
+  store i32 -1, ptr %9, align 8, !tbaa !54
+  store i64 0, ptr %4, align 8, !tbaa !52
   br label %50
 
 42:                                               ; preds = %36
   %43 = load i8, ptr %8, align 1, !tbaa !13
   %44 = sext i8 %43 to i32
-  store i32 %44, ptr %9, align 8, !tbaa !58
-  store i64 1, ptr %4, align 8, !tbaa !56
+  store i32 %44, ptr %9, align 8, !tbaa !54
+  store i64 1, ptr %4, align 8, !tbaa !52
   br label %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
 
 _ZN4cvc56parser5Lexer12readNextCharEv.exit.i:     ; preds = %42, %34, %25
@@ -2728,17 +2728,17 @@ _ZN4cvc56parser5Lexer12readNextCharEv.exit.i:     ; preds = %42, %34, %25
   br i1 %46, label %47, label %50
 
 47:                                               ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i
-  %48 = load i32, ptr %11, align 8, !tbaa !49
+  %48 = load i32, ptr %11, align 8, !tbaa !46
   %49 = add i32 %48, 1
-  store i32 %49, ptr %11, align 8, !tbaa !49
-  store i32 0, ptr %10, align 4, !tbaa !51
+  store i32 %49, ptr %11, align 8, !tbaa !46
+  store i32 0, ptr %10, align 4, !tbaa !48
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 50:                                               ; preds = %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i
   %51 = phi i32 [ -1, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.thread.i ], [ %45, %_ZN4cvc56parser5Lexer12readNextCharEv.exit.i ]
-  %52 = load i32, ptr %10, align 4, !tbaa !51
+  %52 = load i32, ptr %10, align 4, !tbaa !48
   %53 = add i32 %52, 1
-  store i32 %53, ptr %10, align 4, !tbaa !51
+  store i32 %53, ptr %10, align 4, !tbaa !48
   br label %_ZN4cvc56parser5Lexer8nextCharEv.exit
 
 _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %19, %47, %50
@@ -2753,29 +2753,29 @@ _ZN4cvc56parser5Lexer8nextCharEv.exit:            ; preds = %19, %47, %50
   br i1 %.not, label %60, label %61
 
 60:                                               ; preds = %_ZN4cvc56parser5Lexer8nextCharEv.exit
-  store i8 1, ptr %3, align 4, !tbaa !54
-  store i32 %.0.i, ptr %12, align 8, !tbaa !55
+  store i8 1, ptr %3, align 4, !tbaa !50
+  store i32 %.0.i, ptr %12, align 8, !tbaa !51
   ret void
 
 61:                                               ; preds = %_ZN4cvc56parser5Lexer8nextCharEv.exit
   %62 = trunc i32 %.0.i to i8
-  %63 = load ptr, ptr %15, align 8, !tbaa !47
-  %64 = load ptr, ptr %16, align 8, !tbaa !48
+  %63 = load ptr, ptr %15, align 8, !tbaa !44
+  %64 = load ptr, ptr %16, align 8, !tbaa !45
   %.not.i.i.i = icmp eq ptr %63, %64
   br i1 %.not.i.i.i, label %68, label %65
 
 65:                                               ; preds = %61
   store i8 %62, ptr %63, align 1, !tbaa !13
-  %66 = load ptr, ptr %15, align 8, !tbaa !47
+  %66 = load ptr, ptr %15, align 8, !tbaa !44
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
-  store ptr %67, ptr %15, align 8, !tbaa !47
+  store ptr %67, ptr %15, align 8, !tbaa !44
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit.backedge
 
 _ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit.backedge: ; preds = %65, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i
-  br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit, !llvm.loop !66
+  br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit, !llvm.loop !62
 
 68:                                               ; preds = %61
-  %69 = load ptr, ptr %14, align 8, !tbaa !44
+  %69 = load ptr, ptr %14, align 8, !tbaa !41
   %70 = ptrtoint ptr %63 to i64
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
@@ -2820,17 +2820,17 @@ _ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i: ; preds = %84, %_
   br label %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i.i: ; preds = %86, %_ZNSt6vectorIcSaIcEE11_S_relocateEPcS2_S2_RS0_.exit16.i.i.i.i
-  store ptr %81, ptr %14, align 8, !tbaa !44
-  store ptr %85, ptr %15, align 8, !tbaa !47
+  store ptr %81, ptr %14, align 8, !tbaa !41
+  store ptr %85, ptr %15, align 8, !tbaa !44
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 %78
-  store ptr %87, ptr %16, align 8, !tbaa !48
+  store ptr %87, ptr %16, align 8, !tbaa !45
   br label %_ZN4cvc56parser9Smt2Lexer11pushToTokenEi.exit.backedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef range(i32 4, 81) i32 @_ZNK4cvc56parser9Smt2Lexer21tokenizeCurrentSymbolEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33178) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32896
-  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
   %4 = load i8, ptr %3, align 1, !tbaa !13
   switch i8 %4, label %107 [
     i8 33, label %5
@@ -2844,7 +2844,7 @@ define hidden noundef range(i32 4, 81) i32 @_ZNK4cvc56parser9Smt2Lexer21tokenize
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %7 = load ptr, ptr %6, align 8, !tbaa !47
+  %7 = load ptr, ptr %6, align 8, !tbaa !44
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %3 to i64
   %10 = sub i64 %8, %9
@@ -2853,7 +2853,7 @@ define hidden noundef range(i32 4, 81) i32 @_ZNK4cvc56parser9Smt2Lexer21tokenize
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %14 = load ptr, ptr %13, align 8, !tbaa !47
+  %14 = load ptr, ptr %13, align 8, !tbaa !44
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %3 to i64
   %17 = sub i64 %15, %16
@@ -2868,7 +2868,7 @@ define hidden noundef range(i32 4, 81) i32 @_ZNK4cvc56parser9Smt2Lexer21tokenize
 
 23:                                               ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %25 = load ptr, ptr %24, align 8, !tbaa !47
+  %25 = load ptr, ptr %24, align 8, !tbaa !44
   %26 = ptrtoint ptr %25 to i64
   %27 = ptrtoint ptr %3 to i64
   %28 = sub i64 %26, %27
@@ -2889,7 +2889,7 @@ define hidden noundef range(i32 4, 81) i32 @_ZNK4cvc56parser9Smt2Lexer21tokenize
 
 38:                                               ; preds = %1
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %40 = load ptr, ptr %39, align 8, !tbaa !47
+  %40 = load ptr, ptr %39, align 8, !tbaa !44
   %41 = ptrtoint ptr %40 to i64
   %42 = ptrtoint ptr %3 to i64
   %43 = sub i64 %41, %42
@@ -2910,7 +2910,7 @@ define hidden noundef range(i32 4, 81) i32 @_ZNK4cvc56parser9Smt2Lexer21tokenize
 
 53:                                               ; preds = %1
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %55 = load ptr, ptr %54, align 8, !tbaa !47
+  %55 = load ptr, ptr %54, align 8, !tbaa !44
   %56 = ptrtoint ptr %55 to i64
   %57 = ptrtoint ptr %3 to i64
   %58 = sub i64 %56, %57
@@ -2943,7 +2943,7 @@ define hidden noundef range(i32 4, 81) i32 @_ZNK4cvc56parser9Smt2Lexer21tokenize
 
 76:                                               ; preds = %1
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %78 = load ptr, ptr %77, align 8, !tbaa !47
+  %78 = load ptr, ptr %77, align 8, !tbaa !44
   %79 = ptrtoint ptr %78 to i64
   %80 = ptrtoint ptr %3 to i64
   %81 = sub i64 %79, %80
@@ -2952,13 +2952,13 @@ define hidden noundef range(i32 4, 81) i32 @_ZNK4cvc56parser9Smt2Lexer21tokenize
 
 83:                                               ; preds = %1
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 32920
-  %85 = load i8, ptr %84, align 8, !tbaa !17, !range !45, !noundef !46
+  %85 = load i8, ptr %84, align 8, !tbaa !17, !range !42, !noundef !43
   %86 = trunc nuw i8 %85 to i1
   br i1 %86, label %107, label %87
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 32904
-  %89 = load ptr, ptr %88, align 8, !tbaa !47
+  %89 = load ptr, ptr %88, align 8, !tbaa !44
   %90 = ptrtoint ptr %89 to i64
   %91 = ptrtoint ptr %3 to i64
   %92 = sub i64 %90, %91
@@ -3000,7 +3000,7 @@ define hidden noundef range(i32 4, 81) i32 @_ZNK4cvc56parser9Smt2Lexer21tokenize
 ._crit_edge:                                      ; preds = %95, %106, %.fold.split
   %.116 = phi i32 [ 14, %106 ], [ 70, %.fold.split ], [ %.01519, %95 ]
   %exitcond.not = icmp eq i64 %102, %92
-  br i1 %exitcond.not, label %.loopexit, label %95, !llvm.loop !67
+  br i1 %exitcond.not, label %.loopexit, label %95, !llvm.loop !63
 
 107:                                              ; preds = %1, %83, %87, %76, %53, %60, %64, %68, %72, %38, %45, %49, %23, %30, %34, %12, %19, %5
   br label %.loopexit
@@ -3014,13 +3014,13 @@ define hidden noundef range(i32 4, 81) i32 @_ZNK4cvc56parser9Smt2Lexer21tokenize
 define linkonce_odr hidden void @_ZN4cvc56parser9Smt2LexerD2Ev(ptr noundef nonnull align 8 dereferenceable(33178) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4cvc56parser9Smt2LexerE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32896
-  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %6 = load ptr, ptr %5, align 8, !tbaa !48
+  %6 = load ptr, ptr %5, align 8, !tbaa !45
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -3030,13 +3030,13 @@ define linkonce_odr hidden void @_ZN4cvc56parser9Smt2LexerD2Ev(ptr noundef nonnu
 _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %1, %4
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4cvc56parser5LexerE, i64 16), ptr %0, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !68
+  %11 = load ptr, ptr %10, align 8, !tbaa !64
   %.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4cvc56parser5TokenESaIS2_EED2Ev.exit.i, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !69
+  %14 = load ptr, ptr %13, align 8, !tbaa !65
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
@@ -3071,13 +3071,13 @@ _ZN4cvc56parser5LexerD2Ev.exit:                   ; preds = %_ZNKSt7__cxx1112bas
 define linkonce_odr hidden void @_ZN4cvc56parser9Smt2LexerD0Ev(ptr noundef nonnull align 8 dereferenceable(33178) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4cvc56parser9Smt2LexerE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32896
-  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !41
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %6 = load ptr, ptr %5, align 8, !tbaa !48
+  %6 = load ptr, ptr %5, align 8, !tbaa !45
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -3087,13 +3087,13 @@ define linkonce_odr hidden void @_ZN4cvc56parser9Smt2LexerD0Ev(ptr noundef nonnu
 _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %4, %1
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN4cvc56parser5LexerE, i64 16), ptr %0, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !68
+  %11 = load ptr, ptr %10, align 8, !tbaa !64
   %.not.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4cvc56parser5TokenESaIS2_EED2Ev.exit.i.i, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !69
+  %14 = load ptr, ptr %13, align 8, !tbaa !65
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
@@ -3227,38 +3227,34 @@ attributes #21 = { builtin nounwind }
 !32 = !{!"_ZTSNSt12_Vector_baseIcSaIcEE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
 !33 = !{!"_ZTSSt5arrayIhLm256EE", !7, i64 0}
 !34 = !{!18, !28, i64 32921}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !36, !37}
-!39 = distinct !{!39, !36, !37}
-!40 = distinct !{!40, !36, !37}
-!41 = distinct !{!41, !36, !37}
-!42 = distinct !{!42, !37}
-!43 = distinct !{!43, !37}
-!44 = !{!32, !5, i64 0}
-!45 = !{i8 0, i8 2}
-!46 = !{}
-!47 = !{!32, !5, i64 8}
-!48 = !{!32, !5, i64 16}
-!49 = !{!19, !22, i64 16}
-!50 = !{!19, !22, i64 8}
-!51 = !{!19, !22, i64 20}
-!52 = !{!19, !22, i64 12}
-!53 = distinct !{!53, !36, !37}
-!54 = !{!19, !28, i64 32884}
-!55 = !{!19, !22, i64 32888}
-!56 = !{!19, !10, i64 32864}
-!57 = !{!19, !10, i64 32872}
-!58 = !{!19, !22, i64 32880}
-!59 = !{!19, !28, i64 88}
-!60 = !{!19, !27, i64 80}
-!61 = !{!62, !10, i64 8}
-!62 = !{!"_ZTSSi", !10, i64 8}
-!63 = distinct !{!63, !37}
-!64 = distinct !{!64, !36, !37}
-!65 = distinct !{!65, !36, !37}
-!66 = distinct !{!66, !36, !37}
-!67 = distinct !{!67, !36, !37}
-!68 = !{!26, !6, i64 0}
-!69 = !{!26, !6, i64 16}
+!37 = distinct !{!37, !36}
+!38 = distinct !{!38, !36}
+!39 = distinct !{!39, !36}
+!40 = distinct !{!40, !36}
+!41 = !{!32, !5, i64 0}
+!42 = !{i8 0, i8 2}
+!43 = !{}
+!44 = !{!32, !5, i64 8}
+!45 = !{!32, !5, i64 16}
+!46 = !{!19, !22, i64 16}
+!47 = !{!19, !22, i64 8}
+!48 = !{!19, !22, i64 20}
+!49 = !{!19, !22, i64 12}
+!50 = !{!19, !28, i64 32884}
+!51 = !{!19, !22, i64 32888}
+!52 = !{!19, !10, i64 32864}
+!53 = !{!19, !10, i64 32872}
+!54 = !{!19, !22, i64 32880}
+!55 = !{!19, !28, i64 88}
+!56 = !{!19, !27, i64 80}
+!57 = !{!58, !10, i64 8}
+!58 = !{!"_ZTSSi", !10, i64 8}
+!59 = distinct !{!59, !36}
+!60 = distinct !{!60, !36}
+!61 = distinct !{!61, !36}
+!62 = distinct !{!62, !36}
+!63 = distinct !{!63, !36}
+!64 = !{!26, !6, i64 0}
+!65 = !{!26, !6, i64 16}

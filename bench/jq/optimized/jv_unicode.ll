@@ -45,7 +45,7 @@ define dso_local noundef ptr @jvp_utf8_backtrack(ptr noundef readonly captures(a
   br i1 %.not29, label %.critedge.thread, label %17
 
 17:                                               ; preds = %16
-  store i32 %14, ptr %2, align 4, !tbaa !10
+  store i32 %14, ptr %2, align 4, !tbaa !9
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %9, %.lr.ph, %.preheader, %12, %17, %16, %3
@@ -119,7 +119,7 @@ define dso_local ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr noundef 
   %40 = or disjoint i32 %37, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit.split.loop.exit56:           ; preds = %.lr.ph
   %41 = trunc nuw nsw i64 %indvars.iv to i32
@@ -130,7 +130,7 @@ define dso_local ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.2 = phi i32 [ %10, %25 ], [ %41, %._crit_edge.loopexit.split.loop.exit56 ], [ %10, %36 ]
   %42 = zext nneg i32 %.2 to i64
   %43 = getelementptr inbounds nuw [5 x i32], ptr @utf8_first_codepoint, i64 0, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !9
   %45 = icmp slt i32 %.244, %44
   %spec.store.select4 = select i1 %45, i32 -1, i32 %.244
   %46 = and i32 %spec.store.select4, -2048
@@ -143,7 +143,7 @@ define dso_local ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr noundef 
 48:                                               ; preds = %14, %._crit_edge, %20, %12
   %.042 = phi i32 [ %13, %12 ], [ -1, %20 ], [ %spec.store.select, %._crit_edge ], [ -1, %14 ]
   %.041 = phi i32 [ 1, %12 ], [ %24, %20 ], [ %.2, %._crit_edge ], [ 1, %14 ]
-  store i32 %.042, ptr %2, align 4, !tbaa !10
+  store i32 %.042, ptr %2, align 4, !tbaa !9
   %49 = sext i32 %.041 to i64
   %50 = getelementptr inbounds i8, ptr %0, i64 %49
   br label %51
@@ -205,7 +205,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   %31 = or disjoint i32 %28, %30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %13
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.loopexit.split.loop.exit56.i:         ; preds = %.lr.ph.i
   %32 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -216,7 +216,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
   %.2.i = phi i32 [ %8, %16 ], [ %32, %._crit_edge.loopexit.split.loop.exit56.i ], [ %8, %27 ]
   %33 = zext nneg i32 %.2.i to i64
   %34 = getelementptr inbounds nuw [5 x i32], ptr @utf8_first_codepoint, i64 0, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !10
+  %35 = load i32, ptr %34, align 4, !tbaa !9
   %36 = icmp slt i32 %.244.i, %35
   %spec.store.select4.i = select i1 %36, i32 -1, i32 %.244.i
   %37 = and i32 %spec.store.select4.i, -2048
@@ -232,7 +232,7 @@ define dso_local range(i32 0, 2) i32 @jvp_utf8_is_valid(ptr noundef readonly cap
 .backedge:                                        ; preds = %._crit_edge.i, %jvp_utf8_next.exit
   %.02.be = phi ptr [ %44, %jvp_utf8_next.exit ], [ %42, %._crit_edge.i ]
   %43 = icmp eq ptr %.02.be, %1
-  br i1 %43, label %jvp_utf8_next.exit.thread, label %.lr.ph, !llvm.loop !13
+  br i1 %43, label %jvp_utf8_next.exit.thread, label %.lr.ph, !llvm.loop !12
 
 jvp_utf8_next.exit:                               ; preds = %.lr.ph
   %44 = getelementptr inbounds nuw i8, ptr %.0214, i64 1
@@ -421,10 +421,9 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}

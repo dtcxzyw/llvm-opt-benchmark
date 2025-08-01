@@ -82,7 +82,7 @@ define dso_local ptr @GenericXLogRegisterBuffer(ptr noundef captures(none) %0, i
 5:                                                ; preds = %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %31, label %6, !llvm.loop !7
+  br i1 %exitcond.not, label %31, label %6, !llvm.loop !6
 
 6:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
@@ -155,7 +155,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @GenericXLogFinish(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 65664
-  %3 = load i8, ptr %2, align 128, !range !8, !noundef !9
+  %3 = load i8, ptr %2, align 128, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %235
 
@@ -256,7 +256,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
   %62 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.next.i.i
   %63 = load i8, ptr %62, align 1
   %.not76.i.i = icmp eq i8 %61, %63
-  br i1 %.not76.i.i, label %.critedge.thread.loopexit.i.i, label %56, !llvm.loop !10
+  br i1 %.not76.i.i, label %.critedge.thread.loopexit.i.i, label %56, !llvm.loop !9
 
 .critedge.thread.loopexit.i.i:                    ; preds = %59
   %.pre.i.i = and i64 %indvars.iv.next.i.i, 4294967295
@@ -283,7 +283,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
   %71 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.next94.i.i
   %72 = load i8, ptr %71, align 1
   %73 = icmp eq i8 %70, %72
-  br i1 %73, label %65, label %.critedge2.i.i, !llvm.loop !11
+  br i1 %73, label %65, label %.critedge2.i.i, !llvm.loop !10
 
 .critedge2.i.i:                                   ; preds = %68, %65
   %.369.lcssa.i.i = phi i32 [ %smax.i.i, %65 ], [ %66, %68 ]
@@ -320,7 +320,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
   %.5.i.i = phi i32 [ -1, %78 ], [ %.363.i.i, %75 ], [ -1, %.critedge2.i.i ]
   %.2.i.i = phi i32 [ -1, %78 ], [ %.167.i.i, %75 ], [ %.167.i.i, %.critedge2.i.i ]
   %93 = icmp slt i32 %.369.lcssa.i.i, %45
-  br i1 %93, label %47, label %.critedge.i.i, !llvm.loop !12
+  br i1 %93, label %47, label %.critedge.i.i, !llvm.loop !11
 
 .critedge.i.i:                                    ; preds = %91, %56, %32
   %94 = phi i32 [ 0, %32 ], [ %48, %56 ], [ %92, %91 ]
@@ -400,7 +400,7 @@ computeRegionDelta.exit.i:                        ; preds = %99, %.critedge.i.i
   %134 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.next.i27.i
   %135 = load i8, ptr %134, align 1
   %.not76.i28.i = icmp eq i8 %133, %135
-  br i1 %.not76.i28.i, label %.critedge.thread.i31.i, label %128, !llvm.loop !10
+  br i1 %.not76.i28.i, label %.critedge.thread.i31.i, label %128, !llvm.loop !9
 
 .critedge.thread.i31.i:                           ; preds = %131, %119
   %.pre-phi.i32.i = phi i64 [ %121, %119 ], [ %indvars.iv.next.i27.i, %131 ]
@@ -421,7 +421,7 @@ computeRegionDelta.exit.i:                        ; preds = %99, %.critedge.i.i
   %142 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.next94.i37.i
   %143 = load i8, ptr %142, align 1
   %144 = icmp eq i8 %141, %143
-  br i1 %144, label %136, label %.critedge2.i38.i, !llvm.loop !11
+  br i1 %144, label %136, label %.critedge2.i38.i, !llvm.loop !10
 
 .critedge2.i38.i:                                 ; preds = %139, %136
   %.369.lcssa.i39.i = phi i32 [ 8192, %136 ], [ %137, %139 ]
@@ -458,7 +458,7 @@ computeRegionDelta.exit.i:                        ; preds = %99, %.critedge.i.i
   %.5.i40.i = phi i32 [ -1, %149 ], [ %.363.i34.i, %146 ], [ -1, %.critedge2.i38.i ]
   %.2.i41.i = phi i32 [ -1, %149 ], [ %.167.i33.i, %146 ], [ %.167.i33.i, %.critedge2.i38.i ]
   %164 = icmp slt i32 %.369.lcssa.i39.i, 8192
-  br i1 %164, label %119, label %.critedge.i14.i, !llvm.loop !12
+  br i1 %164, label %119, label %.critedge.i14.i, !llvm.loop !11
 
 .critedge.i14.i:                                  ; preds = %162, %128, %computeRegionDelta.exit.i
   %165 = phi i32 [ %114, %computeRegionDelta.exit.i ], [ %120, %128 ], [ %163, %162 ]
@@ -535,7 +535,7 @@ computeDelta.exit:                                ; preds = %167, %.critedge.i14
 209:                                              ; preds = %204, %205, %9
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 4
-  br i1 %exitcond89.not, label %210, label %9, !llvm.loop !13
+  br i1 %exitcond89.not, label %210, label %9, !llvm.loop !12
 
 210:                                              ; preds = %209
   %211 = tail call i64 @XLogInsert(i8 noundef zeroext 20, i8 noundef zeroext 0) #8
@@ -581,7 +581,7 @@ BufferGetPage.exit55:                             ; preds = %221, %227
 234:                                              ; preds = %215, %BufferGetPage.exit55
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next91, 4
-  br i1 %exitcond93.not, label %.loopexit, label %215, !llvm.loop !14
+  br i1 %exitcond93.not, label %.loopexit, label %215, !llvm.loop !13
 
 235:                                              ; preds = %1
   %236 = load volatile i32, ptr @CritSectionCount, align 4
@@ -629,7 +629,7 @@ BufferGetPage.exit57:                             ; preds = %245, %251
 260:                                              ; preds = %239, %BufferGetPage.exit57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %239, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %239, !llvm.loop !14
 
 .loopexit:                                        ; preds = %260, %234
   %.0 = phi i64 [ %211, %234 ], [ 0, %260 ]
@@ -691,7 +691,7 @@ define dso_local void @generic_redo(ptr noundef %0) local_unnamed_addr #0 {
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %17 = zext i8 %.033 to i64
   %18 = getelementptr inbounds nuw [0 x %struct.DecodedBkpBlock], ptr %16, i64 0, i64 %17
-  %19 = load i8, ptr %18, align 8, !range !8, !noundef !9
+  %19 = load i8, ptr %18, align 8, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   %21 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %17
   br i1 %20, label %23, label %22
@@ -747,7 +747,7 @@ BufferGetPage.exit:                               ; preds = %29, %35
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr nonnull align 1 %45, i64 %48, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 %48
   %50 = icmp ult ptr %49, %43
-  br i1 %50, label %.lr.ph.i, label %applyPageRedo.exit, !llvm.loop !16
+  br i1 %50, label %.lr.ph.i, label %applyPageRedo.exit, !llvm.loop !15
 
 applyPageRedo.exit:                               ; preds = %.lr.ph.i, %BufferGetPage.exit
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
@@ -774,7 +774,7 @@ applyPageRedo.exit:                               ; preds = %.lr.ph.i, %BufferGe
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 84
   %66 = load i32, ptr %65, align 4
   %.not = icmp slt i32 %66, %63
-  br i1 %.not, label %.preheader, label %14, !llvm.loop !17
+  br i1 %.not, label %.preheader, label %14, !llvm.loop !16
 
 .lr.ph36:                                         ; preds = %.preheader, %72
   %67 = phi ptr [ %73, %72 ], [ %64, %.preheader ]
@@ -797,7 +797,7 @@ applyPageRedo.exit:                               ; preds = %.lr.ph.i, %BufferGe
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 84
   %77 = load i32, ptr %76, align 4
   %.not30 = icmp slt i32 %77, %75
-  br i1 %.not30, label %._crit_edge, label %.lr.ph36, !llvm.loop !18
+  br i1 %.not30, label %._crit_edge, label %.lr.ph36, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %72, %1, %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #8
@@ -850,18 +850,17 @@ attributes #9 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}

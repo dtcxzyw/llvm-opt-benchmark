@@ -1070,7 +1070,7 @@ if.end:                                           ; preds = %while.body
   %add15 = add i32 %add, 2
   %4 = load i8, ptr %add.ptr, align 8
   %cmp.i.not = icmp eq i8 %4, 0
-  br i1 %cmp.i.not, label %land.rhs, label %if.end22, !llvm.loop !13
+  br i1 %cmp.i.not, label %land.rhs, label %if.end22, !llvm.loop !12
 
 while.end:                                        ; preds = %land.rhs
   %.pr = load i8, ptr %add.ptr, align 8
@@ -2158,7 +2158,7 @@ while.body:                                       ; preds = %land.rhs
   call void @_ZN8proxygen12QPACKDecoder30decodeEncoderStreamInstructionERNS_17HPACKDecodeBufferE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf)
   %21 = load i8, ptr %add.ptr, align 8
   %cmp32 = icmp eq i8 %21, 7
-  br i1 %cmp32, label %if.then, label %while.cond, !llvm.loop !14
+  br i1 %cmp32, label %if.then, label %while.cond, !llvm.loop !13
 
 if.then:                                          ; preds = %while.body
   %consumed = getelementptr inbounds nuw i8, ptr %this, i64 228
@@ -2408,7 +2408,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end55, %for.body
   call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i) #19
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %22
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !15
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !14
 
 invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   %.pr.i = load ptr, ptr %emitted, align 8
@@ -2510,7 +2510,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i: ; preds = %invoke.cont15
 
 _ZN8proxygen12QPACKDecoder12PendingBlockD2Ev.exit: ; preds = %invoke.cont15, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i
   store ptr null, ptr %block.i, align 8
-  br i1 %call16, label %while.end, label %while.cond, !llvm.loop !16
+  br i1 %call16, label %while.end, label %while.cond
 
 while.end:                                        ; preds = %_ZN8proxygen12QPACKDecoder12PendingBlockD2Ev.exit, %land.lhs.true, %while.cond
   ret void
@@ -2600,7 +2600,7 @@ land.rhs.lr.ph:                                   ; preds = %if.then.i, %entry
 land.rhs:                                         ; preds = %_ZN8proxygen12QPACKDecoder12PendingBlockD2Ev.exit
   %2 = load i64, ptr %_M_node_count.i.i, align 8
   %cmp.i.i = icmp eq i64 %2, 0
-  br i1 %cmp.i.i, label %if.then.i8, label %while.body, !llvm.loop !17
+  br i1 %cmp.i.i, label %if.then.i8, label %while.body, !llvm.loop !15
 
 while.body:                                       ; preds = %land.rhs.lr.ph, %land.rhs
   %3 = load ptr, ptr %_M_left.i.i, align 8
@@ -2649,7 +2649,7 @@ _ZN8proxygen12QPACKDecoder12PendingBlockD2Ev.exit: ; preds = %invoke.cont12, %_Z
   store ptr null, ptr %block.i, align 8
   %10 = load ptr, ptr %prev_.i, align 8
   %cmp.i = icmp eq ptr %10, null
-  br i1 %cmp.i, label %_ZN5folly15DestructorCheck6SafetyD2Ev.exit12, label %land.rhs, !llvm.loop !17
+  br i1 %cmp.i, label %_ZN5folly15DestructorCheck6SafetyD2Ev.exit12, label %land.rhs, !llvm.loop !15
 
 lpad8:                                            ; preds = %invoke.cont9
   %11 = landingpad { ptr, i32 }
@@ -2776,7 +2776,7 @@ for.body.i.i.i:                                   ; preds = %entry, %for.body.i.
   tail call void @_ZN8proxygen11HPACKHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i) #19
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i, i64 32
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
-  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !15
+  br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split, label %for.body.i.i.i, !llvm.loop !14
 
 invoke.contthread-pre-split:                      ; preds = %for.body.i.i.i
   %.pr = load ptr, ptr %this, align 8
@@ -2975,42 +2975,42 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
 invoke.cont19:                                    ; preds = %cleanup.done
   %4 = load i32, ptr %insertCount_.i, align 8
   store i32 %4, ptr %lastAcked_, align 4
-  call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  call void @llvm.experimental.noalias.scope.decl(metadata !16)
   %bufQueuePtr_.i = getelementptr inbounds nuw i8, ptr %ackEncoder, i64 72
-  %5 = load ptr, ptr %bufQueuePtr_.i, align 8, !noalias !18
-  call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  %5 = load ptr, ptr %bufQueuePtr_.i, align 8, !noalias !16
+  call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %tailStart_.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %6 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !24
+  %6 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !22
   %cachePtr_.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !24
-  %8 = load ptr, ptr %7, align 8, !noalias !24
+  %7 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !22
+  %8 = load ptr, ptr %7, align 8, !noalias !22
   %cmp.not.i.i.i.i = icmp eq ptr %6, %8
   br i1 %cmp.not.i.i.i.i, label %invoke.cont26, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont19
   %head_.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load ptr, ptr %head_.i.i.i.i, align 8, !noalias !24
+  %9 = load ptr, ptr %head_.i.i.i.i, align 8, !noalias !22
   %prev_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %10 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !noalias !24
+  %10 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !noalias !22
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %11 = load i64, ptr %10, align 8, !noalias !24
+  %11 = load i64, ptr %10, align 8, !noalias !22
   %add.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i, %11
-  store i64 %add.i.i.i.i.i, ptr %10, align 8, !noalias !24
-  %.pre.i.i = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !27
+  store i64 %add.i.i.i.i.i, ptr %10, align 8, !noalias !22
+  %.pre.i.i = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !25
   br label %invoke.cont26
 
 invoke.cont26:                                    ; preds = %if.then.i.i.i.i, %invoke.cont19
   %12 = phi ptr [ %7, %invoke.cont19 ], [ %.pre.i.i, %if.then.i.i.i.i ]
   %head_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %13 = load i64, ptr %head_.i.i, align 8, !noalias !27
-  store i64 %13, ptr %agg.result, align 8, !alias.scope !27
+  %13 = load i64, ptr %head_.i.i, align 8, !noalias !25
+  store i64 %13, ptr %agg.result, align 8, !alias.scope !25
   %chainLength_.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %reusableTail_5.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr null, ptr %reusableTail_5.i.i.i.i.i.i, align 8, !noalias !27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !27
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !noalias !27
+  store ptr null, ptr %reusableTail_5.i.i.i.i.i.i, align 8, !noalias !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !noalias !25
   %attached.i.i.i = getelementptr inbounds nuw i8, ptr %ackEncoder, i64 96
   %14 = load i8, ptr %attached.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %14 to i1
@@ -3216,42 +3216,42 @@ cleanup.done:                                     ; preds = %cond.false, %cond.e
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %cleanup.done
-  call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %bufQueuePtr_.i = getelementptr inbounds nuw i8, ptr %ackEncoder, i64 72
-  %2 = load ptr, ptr %bufQueuePtr_.i, align 8, !noalias !28
-  call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  %2 = load ptr, ptr %bufQueuePtr_.i, align 8, !noalias !26
+  call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %tailStart_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %3 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !34
+  %3 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !32
   %cachePtr_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !34
-  %5 = load ptr, ptr %4, align 8, !noalias !34
+  %4 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !32
+  %5 = load ptr, ptr %4, align 8, !noalias !32
   %cmp.not.i.i.i.i = icmp eq ptr %3, %5
   br i1 %cmp.not.i.i.i.i, label %invoke.cont22, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont20
   %head_.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = load ptr, ptr %head_.i.i.i.i, align 8, !noalias !34
+  %6 = load ptr, ptr %head_.i.i.i.i, align 8, !noalias !32
   %prev_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %7 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !noalias !34
+  %7 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !noalias !32
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %8 = load i64, ptr %7, align 8, !noalias !34
+  %8 = load i64, ptr %7, align 8, !noalias !32
   %add.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i, %8
-  store i64 %add.i.i.i.i.i, ptr %7, align 8, !noalias !34
-  %.pre.i.i = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !37
+  store i64 %add.i.i.i.i.i, ptr %7, align 8, !noalias !32
+  %.pre.i.i = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !35
   br label %invoke.cont22
 
 invoke.cont22:                                    ; preds = %if.then.i.i.i.i, %invoke.cont20
   %9 = phi ptr [ %4, %invoke.cont20 ], [ %.pre.i.i, %if.then.i.i.i.i ]
   %head_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = load i64, ptr %head_.i.i, align 8, !noalias !37
-  store i64 %10, ptr %agg.result, align 8, !alias.scope !37
+  %10 = load i64, ptr %head_.i.i, align 8, !noalias !35
+  store i64 %10, ptr %agg.result, align 8, !alias.scope !35
   %chainLength_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %reusableTail_5.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr null, ptr %reusableTail_5.i.i.i.i.i.i, align 8, !noalias !37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !noalias !37
+  store ptr null, ptr %reusableTail_5.i.i.i.i.i.i, align 8, !noalias !35
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !35
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !noalias !35
   %attached.i.i.i = getelementptr inbounds nuw i8, ptr %ackEncoder, i64 96
   %11 = load i8, ptr %attached.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %11 to i1
@@ -3413,7 +3413,7 @@ lpad:                                             ; preds = %invoke.cont7, %invo
 
 if.end:                                           ; preds = %while.body, %_ZNSt8multimapIjN8proxygen12QPACKDecoder12PendingBlockESt4lessIjESaISt4pairIKjS2_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS7_E.exit
   %cmp.i.not = icmp eq ptr %call.i.i.i, %add.ptr.i.i
-  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !38
+  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !36
 
 while.end:                                        ; preds = %if.end, %cleanup.done
   call void @_ZN8proxygen17HPACKEncodeBufferC1Ejb(ptr noundef nonnull align 8 dereferenceable(132) %ackEncoder, i32 noundef 100, i1 noundef zeroext false)
@@ -3421,42 +3421,42 @@ while.end:                                        ; preds = %if.end, %cleanup.do
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %while.end
-  call void @llvm.experimental.noalias.scope.decl(metadata !39)
+  call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %bufQueuePtr_.i = getelementptr inbounds nuw i8, ptr %ackEncoder, i64 72
-  %7 = load ptr, ptr %bufQueuePtr_.i, align 8, !noalias !39
-  call void @llvm.experimental.noalias.scope.decl(metadata !42)
+  %7 = load ptr, ptr %bufQueuePtr_.i, align 8, !noalias !37
+  call void @llvm.experimental.noalias.scope.decl(metadata !40)
   %tailStart_.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %8 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !45
+  %8 = load ptr, ptr %tailStart_.i.i.i.i, align 8, !noalias !43
   %cachePtr_.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !45
-  %10 = load ptr, ptr %9, align 8, !noalias !45
+  %9 = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !43
+  %10 = load ptr, ptr %9, align 8, !noalias !43
   %cmp.not.i.i.i.i = icmp eq ptr %8, %10
   br i1 %cmp.not.i.i.i.i, label %invoke.cont34, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont32
   %head_.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %11 = load ptr, ptr %head_.i.i.i.i, align 8, !noalias !45
+  %11 = load ptr, ptr %head_.i.i.i.i, align 8, !noalias !43
   %prev_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %12 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !noalias !45
+  %12 = load ptr, ptr %prev_.i.i.i.i.i, align 8, !noalias !43
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %10 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %13 = load i64, ptr %12, align 8, !noalias !45
+  %13 = load i64, ptr %12, align 8, !noalias !43
   %add.i.i.i.i.i = add i64 %sub.ptr.sub.i.i.i.i, %13
-  store i64 %add.i.i.i.i.i, ptr %12, align 8, !noalias !45
-  %.pre.i.i = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !48
+  store i64 %add.i.i.i.i.i, ptr %12, align 8, !noalias !43
+  %.pre.i.i = load ptr, ptr %cachePtr_.i.i.i.i, align 8, !noalias !46
   br label %invoke.cont34
 
 invoke.cont34:                                    ; preds = %if.then.i.i.i.i, %invoke.cont32
   %14 = phi ptr [ %9, %invoke.cont32 ], [ %.pre.i.i, %if.then.i.i.i.i ]
   %head_.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %15 = load i64, ptr %head_.i.i, align 8, !noalias !48
-  store i64 %15, ptr %agg.result, align 8, !alias.scope !48
+  %15 = load i64, ptr %head_.i.i, align 8, !noalias !46
+  store i64 %15, ptr %agg.result, align 8, !alias.scope !46
   %chainLength_.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %reusableTail_5.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store ptr null, ptr %reusableTail_5.i.i.i.i.i.i, align 8, !noalias !48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !noalias !48
+  store ptr null, ptr %reusableTail_5.i.i.i.i.i.i, align 8, !noalias !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %chainLength_.i.i, i8 0, i64 24, i1 false), !noalias !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !noalias !46
   %attached.i.i.i = getelementptr inbounds nuw i8, ptr %ackEncoder, i64 96
   %16 = load i8, ptr %attached.i.i.i, align 8
   %tobool.i.i.i = trunc i8 %16 to i1
@@ -3924,42 +3924,40 @@ attributes #24 = { nounwind willreturn memory(read) }
 !7 = !{!8, !5}
 !8 = distinct !{!8, !9, !"_ZN5folly10IOBufQueue11updateGuardEv: %agg.result"}
 !9 = distinct !{!9, !"_ZN5folly10IOBufQueue11updateGuardEv"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN8proxygen17HPACKEncodeBuffer7releaseEv: %agg.result"}
-!20 = distinct !{!20, !"_ZN8proxygen17HPACKEncodeBuffer7releaseEv"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN5folly10IOBufQueue4moveEv: %agg.result"}
-!23 = distinct !{!23, !"_ZN5folly10IOBufQueue4moveEv"}
-!24 = !{!25, !22, !19}
-!25 = distinct !{!25, !26, !"_ZN5folly10IOBufQueue11updateGuardEv: %agg.result"}
-!26 = distinct !{!26, !"_ZN5folly10IOBufQueue11updateGuardEv"}
-!27 = !{!22, !19}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN8proxygen17HPACKEncodeBuffer7releaseEv: %agg.result"}
-!30 = distinct !{!30, !"_ZN8proxygen17HPACKEncodeBuffer7releaseEv"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN5folly10IOBufQueue4moveEv: %agg.result"}
-!33 = distinct !{!33, !"_ZN5folly10IOBufQueue4moveEv"}
-!34 = !{!35, !32, !29}
-!35 = distinct !{!35, !36, !"_ZN5folly10IOBufQueue11updateGuardEv: %agg.result"}
-!36 = distinct !{!36, !"_ZN5folly10IOBufQueue11updateGuardEv"}
-!37 = !{!32, !29}
-!38 = distinct !{!38, !11, !12}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN8proxygen17HPACKEncodeBuffer7releaseEv: %agg.result"}
-!41 = distinct !{!41, !"_ZN8proxygen17HPACKEncodeBuffer7releaseEv"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN5folly10IOBufQueue4moveEv: %agg.result"}
-!44 = distinct !{!44, !"_ZN5folly10IOBufQueue4moveEv"}
-!45 = !{!46, !43, !40}
-!46 = distinct !{!46, !47, !"_ZN5folly10IOBufQueue11updateGuardEv: %agg.result"}
-!47 = distinct !{!47, !"_ZN5folly10IOBufQueue11updateGuardEv"}
-!48 = !{!43, !40}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN8proxygen17HPACKEncodeBuffer7releaseEv: %agg.result"}
+!18 = distinct !{!18, !"_ZN8proxygen17HPACKEncodeBuffer7releaseEv"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN5folly10IOBufQueue4moveEv: %agg.result"}
+!21 = distinct !{!21, !"_ZN5folly10IOBufQueue4moveEv"}
+!22 = !{!23, !20, !17}
+!23 = distinct !{!23, !24, !"_ZN5folly10IOBufQueue11updateGuardEv: %agg.result"}
+!24 = distinct !{!24, !"_ZN5folly10IOBufQueue11updateGuardEv"}
+!25 = !{!20, !17}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN8proxygen17HPACKEncodeBuffer7releaseEv: %agg.result"}
+!28 = distinct !{!28, !"_ZN8proxygen17HPACKEncodeBuffer7releaseEv"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN5folly10IOBufQueue4moveEv: %agg.result"}
+!31 = distinct !{!31, !"_ZN5folly10IOBufQueue4moveEv"}
+!32 = !{!33, !30, !27}
+!33 = distinct !{!33, !34, !"_ZN5folly10IOBufQueue11updateGuardEv: %agg.result"}
+!34 = distinct !{!34, !"_ZN5folly10IOBufQueue11updateGuardEv"}
+!35 = !{!30, !27}
+!36 = distinct !{!36, !11}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN8proxygen17HPACKEncodeBuffer7releaseEv: %agg.result"}
+!39 = distinct !{!39, !"_ZN8proxygen17HPACKEncodeBuffer7releaseEv"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZN5folly10IOBufQueue4moveEv: %agg.result"}
+!42 = distinct !{!42, !"_ZN5folly10IOBufQueue4moveEv"}
+!43 = !{!44, !41, !38}
+!44 = distinct !{!44, !45, !"_ZN5folly10IOBufQueue11updateGuardEv: %agg.result"}
+!45 = distinct !{!45, !"_ZN5folly10IOBufQueue11updateGuardEv"}
+!46 = !{!41, !38}

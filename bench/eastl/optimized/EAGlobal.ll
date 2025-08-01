@@ -296,22 +296,22 @@ if.then:                                          ; preds = %entry
 
 for.cond.i.i:                                     ; preds = %for.body.i.i, %if.then
   %p.0.in.i.i = phi ptr [ %3, %if.then ], [ %p.0.i.i, %for.body.i.i ]
-  %p.0.i.i = load ptr, ptr %p.0.in.i.i, align 8, !noalias !8
+  %p.0.i.i = load ptr, ptr %p.0.in.i.i, align 8, !noalias !7
   %cmp.not.i.i = icmp eq ptr %p.0.i.i, %3
   br i1 %cmp.not.i.i, label %_ZN12_GLOBAL__N_115OSGlobalManager6RemoveEPN2EA4StdC12OSGlobalNodeE.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %cmp3.i.i = icmp eq ptr %p.0.i.i, %p
-  br i1 %cmp3.i.i, label %_ZN12_GLOBAL__N_115OSGlobalManager6RemoveEPN2EA4StdC12OSGlobalNodeE.exit, label %for.cond.i.i, !llvm.loop !11
+  br i1 %cmp3.i.i, label %_ZN12_GLOBAL__N_115OSGlobalManager6RemoveEPN2EA4StdC12OSGlobalNodeE.exit, label %for.cond.i.i, !llvm.loop !10
 
 _ZN12_GLOBAL__N_115OSGlobalManager6RemoveEPN2EA4StdC12OSGlobalNodeE.exit: ; preds = %for.cond.i.i, %for.body.i.i
   %storemerge.i.i = phi ptr [ %p.0.i.i, %for.body.i.i ], [ %3, %for.cond.i.i ]
   %mpPrev.i.i = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 8
-  %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !12
-  %5 = load ptr, ptr %storemerge.i.i, align 8, !noalias !12
-  store ptr %5, ptr %4, align 8, !noalias !12
+  %4 = load ptr, ptr %mpPrev.i.i, align 8, !noalias !11
+  %5 = load ptr, ptr %storemerge.i.i, align 8, !noalias !11
+  store ptr %5, ptr %4, align 8, !noalias !11
   %mpPrev4.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %4, ptr %mpPrev4.i.i, align 8, !noalias !12
+  store ptr %4, ptr %mpPrev4.i.i, align 8, !noalias !11
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12_GLOBAL__N_115OSGlobalManager6RemoveEPN2EA4StdC12OSGlobalNodeE.exit, %entry
@@ -527,13 +527,12 @@ attributes #13 = { noreturn nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN2EA4StdC14intrusive_listINS0_12OSGlobalNodeEE6locateERS2_: %agg.result"}
-!10 = distinct !{!10, !"_ZN2EA4StdC14intrusive_listINS0_12OSGlobalNodeEE6locateERS2_"}
-!11 = distinct !{!11, !6, !7}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN2EA4StdC14intrusive_listINS0_12OSGlobalNodeEE5eraseENS0_23intrusive_list_iteratorIS2_PS2_RS2_EE: %agg.result"}
-!14 = distinct !{!14, !"_ZN2EA4StdC14intrusive_listINS0_12OSGlobalNodeEE5eraseENS0_23intrusive_list_iteratorIS2_PS2_RS2_EE"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN2EA4StdC14intrusive_listINS0_12OSGlobalNodeEE6locateERS2_: %agg.result"}
+!9 = distinct !{!9, !"_ZN2EA4StdC14intrusive_listINS0_12OSGlobalNodeEE6locateERS2_"}
+!10 = distinct !{!10, !6}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN2EA4StdC14intrusive_listINS0_12OSGlobalNodeEE5eraseENS0_23intrusive_list_iteratorIS2_PS2_RS2_EE: %agg.result"}
+!13 = distinct !{!13, !"_ZN2EA4StdC14intrusive_listINS0_12OSGlobalNodeEE5eraseENS0_23intrusive_list_iteratorIS2_PS2_RS2_EE"}

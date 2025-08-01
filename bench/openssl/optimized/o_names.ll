@@ -119,9 +119,9 @@ define i32 @OBJ_NAME_new_index(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %.lr.ph
-  store ptr @ossl_lh_strcasehash, ptr %25, align 8, !tbaa !16
+  store ptr @ossl_lh_strcasehash, ptr %25, align 8, !tbaa !15
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr @OPENSSL_strcasecmp, ptr %28, align 8, !tbaa !18
+  store ptr @OPENSSL_strcasecmp, ptr %28, align 8, !tbaa !17
   %29 = load ptr, ptr @name_funcs_stack, align 8, !tbaa !11
   %30 = tail call i32 @OPENSSL_sk_push(ptr noundef %29, ptr noundef nonnull %25) #8
   %.not29 = icmp eq i32 %30, 0
@@ -141,7 +141,7 @@ define i32 @OBJ_NAME_new_index(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   br i1 %.not26, label %35, label %34
 
 34:                                               ; preds = %._crit_edge
-  store ptr %0, ptr %33, align 8, !tbaa !16
+  store ptr %0, ptr %33, align 8, !tbaa !15
   br label %35
 
 35:                                               ; preds = %34, %._crit_edge
@@ -150,7 +150,7 @@ define i32 @OBJ_NAME_new_index(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %1, ptr %37, align 8, !tbaa !18
+  store ptr %1, ptr %37, align 8, !tbaa !17
   br label %38
 
 38:                                               ; preds = %36, %35
@@ -159,7 +159,7 @@ define i32 @OBJ_NAME_new_index(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 39:                                               ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %2, ptr %40, align 8, !tbaa !19
+  store ptr %2, ptr %40, align 8, !tbaa !18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %38, %39, %12, %31
@@ -221,8 +221,8 @@ define ptr @OBJ_NAME_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 11:                                               ; preds = %8
   %12 = and i32 %1, -32769
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %13, align 8, !tbaa !20
-  store i32 %12, ptr %3, align 8, !tbaa !23
+  store ptr %0, ptr %13, align 8, !tbaa !19
+  store i32 %12, ptr %3, align 8, !tbaa !22
   %14 = load ptr, ptr @names_lh, align 8, !tbaa !3
   %15 = call ptr @OPENSSL_LH_retrieve(ptr noundef %14, ptr noundef nonnull %3) #8
   %16 = icmp eq ptr %15, null
@@ -237,7 +237,7 @@ define ptr @OBJ_NAME_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %18 = phi ptr [ %28, %23 ], [ %15, %.lr.ph ]
   %.01421 = phi i32 [ %24, %23 ], [ 0, %.lr.ph ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !24
+  %20 = load i32, ptr %19, align 4, !tbaa !23
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.split.us, label %22
 
@@ -248,17 +248,17 @@ define ptr @OBJ_NAME_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 23:                                               ; preds = %22
   %24 = add nuw nsw i32 %.01421, 1
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !25
-  store ptr %26, ptr %13, align 8, !tbaa !20
+  %26 = load ptr, ptr %25, align 8, !tbaa !24
+  store ptr %26, ptr %13, align 8, !tbaa !19
   %27 = load ptr, ptr @names_lh, align 8, !tbaa !3
   %28 = call ptr @OPENSSL_LH_retrieve(ptr noundef %27, ptr noundef nonnull %3) #8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit, label %.lr.ph.split, !llvm.loop !26
+  br i1 %29, label %.loopexit, label %.lr.ph.split
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph
   %.us-phi = phi ptr [ %15, %.lr.ph ], [ %18, %.lr.ph.split ]
   %30 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !25
+  %31 = load ptr, ptr %30, align 8, !tbaa !24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %22, %11, %.split.us
@@ -293,12 +293,12 @@ define range(i32 0, 2) i32 @OBJ_NAME_add(ptr noundef %0, i32 noundef %1, ptr nou
   %10 = and i32 %1, -32769
   %11 = and i32 %1, 32768
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %0, ptr %12, align 8, !tbaa !20
+  store ptr %0, ptr %12, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %11, ptr %13, align 4, !tbaa !24
-  store i32 %10, ptr %7, align 8, !tbaa !23
+  store i32 %11, ptr %13, align 4, !tbaa !23
+  store i32 %10, ptr %7, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %2, ptr %14, align 8, !tbaa !25
+  store ptr %2, ptr %14, align 8, !tbaa !24
   %15 = load ptr, ptr @obj_lock, align 8, !tbaa !8
   %16 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %15) #8
   %.not27 = icmp eq i32 %16, 0
@@ -321,7 +321,7 @@ define range(i32 0, 2) i32 @OBJ_NAME_add(ptr noundef %0, i32 noundef %1, ptr nou
 
 23:                                               ; preds = %21
   %24 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %22) #8
-  %25 = load i32, ptr %20, align 8, !tbaa !23
+  %25 = load i32, ptr %20, align 8, !tbaa !22
   %26 = icmp sgt i32 %24, %25
   br i1 %26, label %27, label %37
 
@@ -329,12 +329,12 @@ define range(i32 0, 2) i32 @OBJ_NAME_add(ptr noundef %0, i32 noundef %1, ptr nou
   %28 = load ptr, ptr @name_funcs_stack, align 8, !tbaa !11
   %29 = tail call ptr @OPENSSL_sk_value(ptr noundef %28, i32 noundef %25) #8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !19
+  %31 = load ptr, ptr %30, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !20
-  %34 = load i32, ptr %20, align 8, !tbaa !23
+  %33 = load ptr, ptr %32, align 8, !tbaa !19
+  %34 = load i32, ptr %20, align 8, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !25
+  %36 = load ptr, ptr %35, align 8, !tbaa !24
   tail call void %31(ptr noundef %33, i32 noundef %34, ptr noundef %36) #8
   br label %37
 
@@ -385,8 +385,8 @@ define range(i32 0, 2) i32 @OBJ_NAME_remove(ptr noundef %0, i32 noundef %1) loca
 9:                                                ; preds = %6
   %10 = and i32 %1, -32769
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %11, align 8, !tbaa !20
-  store i32 %10, ptr %3, align 8, !tbaa !23
+  store ptr %0, ptr %11, align 8, !tbaa !19
+  store i32 %10, ptr %3, align 8, !tbaa !22
   %12 = load ptr, ptr @names_lh, align 8, !tbaa !3
   %13 = call ptr @OPENSSL_LH_delete(ptr noundef %12, ptr noundef nonnull %3) #8
   %.not16 = icmp eq ptr %13, null
@@ -399,7 +399,7 @@ define range(i32 0, 2) i32 @OBJ_NAME_remove(ptr noundef %0, i32 noundef %1) loca
 
 16:                                               ; preds = %14
   %17 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %15) #8
-  %18 = load i32, ptr %13, align 8, !tbaa !23
+  %18 = load i32, ptr %13, align 8, !tbaa !22
   %19 = icmp sgt i32 %17, %18
   br i1 %19, label %20, label %30
 
@@ -407,12 +407,12 @@ define range(i32 0, 2) i32 @OBJ_NAME_remove(ptr noundef %0, i32 noundef %1) loca
   %21 = load ptr, ptr @name_funcs_stack, align 8, !tbaa !11
   %22 = call ptr @OPENSSL_sk_value(ptr noundef %21, i32 noundef %18) #8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !19
+  %24 = load ptr, ptr %23, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !20
-  %27 = load i32, ptr %13, align 8, !tbaa !23
+  %26 = load ptr, ptr %25, align 8, !tbaa !19
+  %27 = load i32, ptr %13, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !25
+  %29 = load ptr, ptr %28, align 8, !tbaa !24
   call void %24(ptr noundef %26, i32 noundef %27, ptr noundef %29) #8
   br label %30
 
@@ -436,11 +436,11 @@ define range(i32 0, 2) i32 @OBJ_NAME_remove(ptr noundef %0, i32 noundef %1) loca
 define void @OBJ_NAME_do_all(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.OBJ_DOALL, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  store i32 %0, ptr %4, align 8, !tbaa !27
+  store i32 %0, ptr %4, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %1, ptr %5, align 8, !tbaa !29
+  store ptr %1, ptr %5, align 8, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %2, ptr %6, align 8, !tbaa !30
+  store ptr %2, ptr %6, align 8, !tbaa !28
   %7 = load ptr, ptr @names_lh, align 8, !tbaa !3
   call void @OPENSSL_LH_doall_arg_thunk(ptr noundef %7, ptr noundef nonnull @lh_OBJ_NAME_doall_OBJ_DOALL_thunk, ptr noundef nonnull @do_all_fn, ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
@@ -449,16 +449,16 @@ define void @OBJ_NAME_do_all(i32 noundef %0, ptr noundef %1, ptr noundef %2) loc
 
 ; Function Attrs: nounwind uwtable
 define internal void @do_all_fn(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !23
-  %4 = load i32, ptr %1, align 8, !tbaa !27
+  %3 = load i32, ptr %0, align 8, !tbaa !22
+  %4 = load i32, ptr %1, align 8, !tbaa !25
   %5 = icmp eq i32 %3, %4
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  %10 = load ptr, ptr %9, align 8, !tbaa !28
   tail call void %8(ptr noundef nonnull %0, ptr noundef %10) #8
   br label %11
 
@@ -471,50 +471,50 @@ define void @OBJ_NAME_do_all_sorted(i32 noundef %0, ptr noundef readonly capture
   %4 = alloca %struct.OBJ_DOALL, align 8
   %5 = alloca %struct.doall_sorted, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #8
-  store i32 %0, ptr %5, align 8, !tbaa !31
+  store i32 %0, ptr %5, align 8, !tbaa !29
   %6 = load ptr, ptr @names_lh, align 8, !tbaa !3
   %7 = tail call i64 @OPENSSL_LH_num_items(ptr noundef %6) #8
   %8 = shl i64 %7, 3
   %9 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %8, ptr noundef nonnull @.str, i32 noundef 336) #8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %9, ptr %10, align 8, !tbaa !34
+  store ptr %9, ptr %10, align 8, !tbaa !32
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %28, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %12, align 4, !tbaa !35
+  store i32 0, ptr %12, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  store i32 %0, ptr %4, align 8, !tbaa !27
+  store i32 %0, ptr %4, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @do_all_sorted_fn, ptr %13, align 8, !tbaa !29
+  store ptr @do_all_sorted_fn, ptr %13, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %5, ptr %14, align 8, !tbaa !30
+  store ptr %5, ptr %14, align 8, !tbaa !28
   %15 = load ptr, ptr @names_lh, align 8, !tbaa !3
   call void @OPENSSL_LH_doall_arg_thunk(ptr noundef %15, ptr noundef nonnull @lh_OBJ_NAME_doall_OBJ_DOALL_thunk, ptr noundef nonnull @do_all_fn, ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #8
-  %16 = load ptr, ptr %10, align 8, !tbaa !34
-  %17 = load i32, ptr %12, align 4, !tbaa !35
+  %16 = load ptr, ptr %10, align 8, !tbaa !32
+  %17 = load i32, ptr %12, align 4, !tbaa !33
   %18 = sext i32 %17 to i64
   call void @qsort(ptr noundef %16, i64 noundef %18, i64 noundef 8, ptr noundef nonnull @do_all_sorted_cmp) #8
-  %19 = load i32, ptr %12, align 4, !tbaa !35
+  %19 = load i32, ptr %12, align 4, !tbaa !33
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %11 ]
-  %21 = load ptr, ptr %10, align 8, !tbaa !34
+  %21 = load ptr, ptr %10, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !36
+  %23 = load ptr, ptr %22, align 8, !tbaa !34
   call void %1(ptr noundef %23, ptr noundef %2) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i32, ptr %12, align 4, !tbaa !35
+  %24 = load i32, ptr %12, align 4, !tbaa !33
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  %27 = load ptr, ptr %10, align 8, !tbaa !34
+  %27 = load ptr, ptr %10, align 8, !tbaa !32
   call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str, i32 noundef 347) #8
   br label %28
 
@@ -525,21 +525,21 @@ define void @OBJ_NAME_do_all_sorted(i32 noundef %0, ptr noundef readonly capture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @do_all_sorted_fn(ptr noundef %0, ptr noundef captures(none) %1) #3 {
-  %3 = load i32, ptr %0, align 8, !tbaa !23
-  %4 = load i32, ptr %1, align 8, !tbaa !31
+  %3 = load i32, ptr %0, align 8, !tbaa !22
+  %4 = load i32, ptr %1, align 8, !tbaa !29
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %5, label %13
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %7 = load ptr, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !35
+  %9 = load i32, ptr %8, align 4, !tbaa !33
   %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %8, align 4, !tbaa !35
+  store i32 %10, ptr %8, align 4, !tbaa !33
   %11 = sext i32 %9 to i64
   %12 = getelementptr inbounds ptr, ptr %7, i64 %11
-  store ptr %0, ptr %12, align 8, !tbaa !36
+  store ptr %0, ptr %12, align 8, !tbaa !34
   br label %13
 
 13:                                               ; preds = %2, %5
@@ -551,12 +551,12 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @do_all_sorted_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !36
+  %3 = load ptr, ptr %0, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !20
-  %6 = load ptr, ptr %1, align 8, !tbaa !36
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
+  %6 = load ptr, ptr %1, align 8, !tbaa !34
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !20
+  %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #9
   ret i32 %9
 }
@@ -605,14 +605,14 @@ define internal void @names_lh_free_doall(ptr noundef readonly captures(address_
 3:                                                ; preds = %1
   %4 = load i32, ptr @free_type, align 4, !tbaa !9
   %5 = icmp slt i32 %4, 0
-  %.pre = load i32, ptr %0, align 8, !tbaa !23
+  %.pre = load i32, ptr %0, align 8, !tbaa !22
   %6 = icmp eq i32 %4, %.pre
   %or.cond = select i1 %5, i1 true, i1 %6
   br i1 %or.cond, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !20
+  %9 = load ptr, ptr %8, align 8, !tbaa !19
   %10 = tail call i32 @OBJ_NAME_remove(ptr noundef %9, i32 noundef %.pre)
   br label %11
 
@@ -638,28 +638,28 @@ define internal i64 @obj_name_hash(ptr noundef readonly captures(none) %0) #0 {
 
 3:                                                ; preds = %1
   %4 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %2) #8
-  %5 = load i32, ptr %0, align 8, !tbaa !23
+  %5 = load i32, ptr %0, align 8, !tbaa !22
   %6 = icmp sgt i32 %4, %5
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr @name_funcs_stack, align 8, !tbaa !11
   %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %5) #8
-  %10 = load ptr, ptr %9, align 8, !tbaa !16
+  %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !20
+  %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = tail call i64 %10(ptr noundef %12) #8
   br label %18
 
 14:                                               ; preds = %3, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !20
+  %16 = load ptr, ptr %15, align 8, !tbaa !19
   %17 = tail call i64 @ossl_lh_strcasehash(ptr noundef %16) #8
   br label %18
 
 18:                                               ; preds = %14, %7
   %.0 = phi i64 [ %13, %7 ], [ %17, %14 ]
-  %19 = load i32, ptr %0, align 8, !tbaa !23
+  %19 = load i32, ptr %0, align 8, !tbaa !22
   %20 = sext i32 %19 to i64
   %21 = xor i64 %.0, %20
   ret i64 %21
@@ -667,8 +667,8 @@ define internal i64 @obj_name_hash(ptr noundef readonly captures(none) %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @obj_name_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load i32, ptr %0, align 8, !tbaa !23
-  %4 = load i32, ptr %1, align 8, !tbaa !23
+  %3 = load i32, ptr %0, align 8, !tbaa !22
+  %4 = load i32, ptr %1, align 8, !tbaa !22
   %5 = sub nsw i32 %3, %4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %29
@@ -680,7 +680,7 @@ define internal i32 @obj_name_cmp(ptr noundef readonly captures(none) %0, ptr no
 
 9:                                                ; preds = %7
   %10 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %8) #8
-  %11 = load i32, ptr %0, align 8, !tbaa !23
+  %11 = load i32, ptr %0, align 8, !tbaa !22
   %12 = icmp sgt i32 %10, %11
   br i1 %12, label %13, label %23
 
@@ -688,19 +688,19 @@ define internal i32 @obj_name_cmp(ptr noundef readonly captures(none) %0, ptr no
   %14 = load ptr, ptr @name_funcs_stack, align 8, !tbaa !11
   %15 = tail call ptr @OPENSSL_sk_value(ptr noundef %14, i32 noundef %11) #8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !18
+  %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !20
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !20
+  %21 = load ptr, ptr %20, align 8, !tbaa !19
   %22 = tail call i32 %17(ptr noundef %19, ptr noundef %21) #8
   br label %29
 
 23:                                               ; preds = %9, %7
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !20
+  %25 = load ptr, ptr %24, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !20
+  %27 = load ptr, ptr %26, align 8, !tbaa !19
   %28 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %25, ptr noundef %27) #8
   br label %29
 
@@ -802,29 +802,27 @@ attributes #9 = { nounwind willreturn memory(read) }
 !10 = !{!"int", !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS19stack_st_NAME_FUNCS", !5, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !5, i64 0}
-!17 = !{!"name_funcs_st", !5, i64 0, !5, i64 8, !5, i64 16}
-!18 = !{!17, !5, i64 8}
-!19 = !{!17, !5, i64 16}
-!20 = !{!21, !22, i64 8}
-!21 = !{!"obj_name_st", !10, i64 0, !10, i64 4, !22, i64 8, !22, i64 16}
-!22 = !{!"p1 omnipotent char", !5, i64 0}
-!23 = !{!21, !10, i64 0}
-!24 = !{!21, !10, i64 4}
-!25 = !{!21, !22, i64 16}
-!26 = distinct !{!26, !15}
-!27 = !{!28, !10, i64 0}
-!28 = !{!"", !10, i64 0, !5, i64 8, !5, i64 16}
-!29 = !{!28, !5, i64 8}
-!30 = !{!28, !5, i64 16}
-!31 = !{!32, !10, i64 0}
-!32 = !{!"doall_sorted", !10, i64 0, !10, i64 4, !33, i64 8}
-!33 = !{!"p2 _ZTS11obj_name_st", !5, i64 0}
-!34 = !{!32, !33, i64 8}
-!35 = !{!32, !10, i64 4}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 _ZTS11obj_name_st", !5, i64 0}
-!38 = distinct !{!38, !14, !15}
+!15 = !{!16, !5, i64 0}
+!16 = !{!"name_funcs_st", !5, i64 0, !5, i64 8, !5, i64 16}
+!17 = !{!16, !5, i64 8}
+!18 = !{!16, !5, i64 16}
+!19 = !{!20, !21, i64 8}
+!20 = !{!"obj_name_st", !10, i64 0, !10, i64 4, !21, i64 8, !21, i64 16}
+!21 = !{!"p1 omnipotent char", !5, i64 0}
+!22 = !{!20, !10, i64 0}
+!23 = !{!20, !10, i64 4}
+!24 = !{!20, !21, i64 16}
+!25 = !{!26, !10, i64 0}
+!26 = !{!"", !10, i64 0, !5, i64 8, !5, i64 16}
+!27 = !{!26, !5, i64 8}
+!28 = !{!26, !5, i64 16}
+!29 = !{!30, !10, i64 0}
+!30 = !{!"doall_sorted", !10, i64 0, !10, i64 4, !31, i64 8}
+!31 = !{!"p2 _ZTS11obj_name_st", !5, i64 0}
+!32 = !{!30, !31, i64 8}
+!33 = !{!30, !10, i64 4}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS11obj_name_st", !5, i64 0}
+!36 = distinct !{!36, !14}

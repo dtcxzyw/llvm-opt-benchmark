@@ -119,7 +119,7 @@ gv_calloc.exit25.i.i:                             ; preds = %25
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph31.i.i
   %49 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.030.i.i) #13
   %.not.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i, label %patchwork_init_graph.exit, label %.lr.ph31.i.i, !llvm.loop !49
+  br i1 %.not.i.i, label %patchwork_init_graph.exit, label %.lr.ph31.i.i, !llvm.loop !48
 
 patchwork_init_graph.exit:                        ; preds = %._crit_edge.i.i, %gv_calloc.exit25.i.i
   %50 = tail call i32 @agnnodes(ptr noundef nonnull %0) #13
@@ -129,7 +129,7 @@ patchwork_init_graph.exit:                        ; preds = %._crit_edge.i.i, %g
 52:                                               ; preds = %patchwork_init_graph.exit
   %53 = load ptr, ptr %3, align 8, !tbaa !8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 236
-  %55 = load i32, ptr %54, align 4, !tbaa !50
+  %55 = load i32, ptr %54, align 4, !tbaa !49
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %58, label %57
 
@@ -173,13 +173,13 @@ define void @patchwork_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @gv_cleanup_edge(ptr noundef nonnull %.019) #13
   %10 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.019) #13
   %.not17 = icmp eq ptr %10, null
-  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   tail call void @gv_cleanup_node(ptr noundef nonnull %.01420) #13
   %11 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01420) #13
   %.not16 = icmp eq ptr %11, null
-  br i1 %.not16, label %12, label %8, !llvm.loop !52
+  br i1 %.not16, label %12, label %8, !llvm.loop !51
 
 12:                                               ; preds = %._crit_edge
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -189,7 +189,7 @@ define void @patchwork_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @free(ptr noundef %16) #13
   %17 = load ptr, ptr %13, align 8, !tbaa !8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 240
-  %19 = load ptr, ptr %18, align 8, !tbaa !53
+  %19 = load ptr, ptr %18, align 8, !tbaa !52
   tail call void @free(ptr noundef %19) #13
   br label %20
 
@@ -249,10 +249,10 @@ define internal fastcc void @mkClusters(ptr noundef %0, ptr noundef captures(add
   unreachable
 
 clist_append.exit:                                ; preds = %5
-  store ptr %malloc, ptr %3, align 8, !tbaa !54
-  store i64 1, ptr %.0.sroa.gep3, align 8, !tbaa !56
-  store ptr null, ptr %malloc, align 8, !tbaa !57
-  store i64 1, ptr %.0.sroa.gep, align 8, !tbaa !58
+  store ptr %malloc, ptr %3, align 8, !tbaa !53
+  store i64 1, ptr %.0.sroa.gep3, align 8, !tbaa !55
+  store ptr null, ptr %malloc, align 8, !tbaa !56
+  store i64 1, ptr %.0.sroa.gep, align 8, !tbaa !57
   br label %11
 
 11:                                               ; preds = %2, %clist_append.exit
@@ -271,14 +271,14 @@ clist_append.exit:                                ; preds = %5
 
 14:                                               ; preds = %.lr.ph
   %15 = call ptr @agbindrec(ptr noundef nonnull %.01712, ptr noundef nonnull @.str.2, i32 noundef 400, i32 noundef 1) #13
-  %16 = load i64, ptr %.0.sroa.phi, align 8, !tbaa !58
-  %17 = load i64, ptr %.0.sroa.phi2, align 8, !tbaa !56
+  %16 = load i64, ptr %.0.sroa.phi, align 8, !tbaa !57
+  %17 = load i64, ptr %.0.sroa.phi2, align 8, !tbaa !55
   %18 = icmp eq i64 %16, %17
   br i1 %18, label %19, label %._crit_edge.i.i20
 
 ._crit_edge.i.i20:                                ; preds = %14
-  %.pre.i.i22 = load i64, ptr %.0.sroa.phi5, align 8, !tbaa !59
-  %.pre46.i.i23 = load ptr, ptr %.0, align 8, !tbaa !54
+  %.pre.i.i22 = load i64, ptr %.0.sroa.phi5, align 8, !tbaa !58
+  %.pre46.i.i23 = load ptr, ptr %.0, align 8, !tbaa !53
   br label %clist_append.exit27
 
 19:                                               ; preds = %14
@@ -289,20 +289,20 @@ clist_append.exit:                                ; preds = %5
   br i1 %mul.ov.i.i25, label %44, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr %.0, align 8, !tbaa !54
+  %23 = load ptr, ptr %.0, align 8, !tbaa !53
   %24 = shl nuw i64 %spec.select.i.i24, 3
   %25 = call ptr @realloc(ptr noundef %23, i64 noundef %24) #17
   %26 = icmp eq ptr %25, null
   br i1 %26, label %44, label %27
 
 27:                                               ; preds = %22
-  %28 = load i64, ptr %.0.sroa.phi2, align 8, !tbaa !56
+  %28 = load i64, ptr %.0.sroa.phi2, align 8, !tbaa !55
   %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
   %30 = sub i64 %spec.select.i.i24, %28
   %31 = shl i64 %30, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %31, i1 false)
-  %32 = load i64, ptr %.0.sroa.phi5, align 8, !tbaa !59
-  %33 = load i64, ptr %.0.sroa.phi, align 8, !tbaa !58
+  %32 = load i64, ptr %.0.sroa.phi5, align 8, !tbaa !58
+  %33 = load i64, ptr %.0.sroa.phi, align 8, !tbaa !57
   %34 = add i64 %33, %32
   %35 = icmp ugt i64 %34, %28
   br i1 %35, label %36, label %42
@@ -314,13 +314,13 @@ clist_append.exit:                                ; preds = %5
   %40 = getelementptr inbounds nuw ptr, ptr %25, i64 %32
   %41 = shl i64 %37, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 8 %40, i64 %41, i1 false)
-  store i64 %38, ptr %.0.sroa.phi5, align 8, !tbaa !59
+  store i64 %38, ptr %.0.sroa.phi5, align 8, !tbaa !58
   br label %42
 
 42:                                               ; preds = %36, %27
   %43 = phi i64 [ %32, %27 ], [ %38, %36 ]
-  store ptr %25, ptr %.0, align 8, !tbaa !54
-  store i64 %spec.select.i.i24, ptr %.0.sroa.phi2, align 8, !tbaa !56
+  store ptr %25, ptr %.0, align 8, !tbaa !53
+  store i64 %spec.select.i.i24, ptr %.0.sroa.phi2, align 8, !tbaa !55
   br label %clist_append.exit27
 
 44:                                               ; preds = %22, %19
@@ -339,9 +339,9 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i20, 
   %52 = add i64 %51, %50
   %53 = urem i64 %52, %49
   %54 = getelementptr inbounds nuw ptr, ptr %48, i64 %53
-  store ptr %.01712, ptr %54, align 8, !tbaa !57
+  store ptr %.01712, ptr %54, align 8, !tbaa !56
   %55 = add i64 %50, 1
-  store i64 %55, ptr %.0.sroa.phi, align 8, !tbaa !58
+  store i64 %55, ptr %.0.sroa.phi, align 8, !tbaa !57
   br label %56
 
 56:                                               ; preds = %.lr.ph, %clist_append.exit27
@@ -349,56 +349,56 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i20, 
   call fastcc void @mkClusters(ptr noundef nonnull %.01712, ptr noundef %.sink)
   %57 = call ptr @agnxtsubg(ptr noundef nonnull %.01712) #13
   %.not = icmp eq ptr %57, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %56, %11
   br i1 %4, label %58, label %99
 
 58:                                               ; preds = %._crit_edge
-  %.val = load i64, ptr %.0.sroa.gep, align 8, !tbaa !58
+  %.val = load i64, ptr %.0.sroa.gep, align 8, !tbaa !57
   %59 = trunc i64 %.val to i32
   %60 = add i32 %59, -1
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 236
-  store i32 %60, ptr %63, align 4, !tbaa !50
+  store i32 %60, ptr %63, align 4, !tbaa !49
   %64 = icmp ugt i64 %.val, 1
   br i1 %64, label %65, label %97
 
 65:                                               ; preds = %58
-  %.promoted.i.i = load i64, ptr %.0.sroa.gep6, align 8, !tbaa !59
+  %.promoted.i.i = load i64, ptr %.0.sroa.gep6, align 8, !tbaa !58
   %.not16.i.i = icmp eq i64 %.promoted.i.i, 0
   br i1 %.not16.i.i, label %.clist_sync.exit_crit_edge.i, label %.lr.ph18.i.i
 
 .clist_sync.exit_crit_edge.i:                     ; preds = %65
-  %.pre.i = load i64, ptr %.0.sroa.gep3, align 8, !tbaa !56
+  %.pre.i = load i64, ptr %.0.sroa.gep3, align 8, !tbaa !55
   br label %clist_sync.exit.i
 
 .lr.ph18.i.i:                                     ; preds = %65
-  %66 = load ptr, ptr %3, align 8, !tbaa !54
-  %67 = load i64, ptr %.0.sroa.gep3, align 8, !tbaa !56
+  %66 = load ptr, ptr %3, align 8, !tbaa !53
+  %67 = load i64, ptr %.0.sroa.gep3, align 8, !tbaa !55
   %.not1213.i.i = icmp eq i64 %67, 0
   br i1 %.not1213.i.i, label %clist_sync.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph18.i.i, %._crit_edge.i.i28
   %68 = phi i64 [ %70, %._crit_edge.i.i28 ], [ %.promoted.i.i, %.lr.ph18.i.i ]
-  %69 = load ptr, ptr %66, align 8, !tbaa !57
+  %69 = load ptr, ptr %66, align 8, !tbaa !56
   br label %71
 
 ._crit_edge.i.i28:                                ; preds = %71
   %70 = add i64 %68, -1
   %.not.i.i = icmp eq i64 %70, 0
-  br i1 %.not.i.i, label %clist_sync.exit.i, label %.lr.ph.i.i, !llvm.loop !61
+  br i1 %.not.i.i, label %clist_sync.exit.i, label %.lr.ph.i.i, !llvm.loop !60
 
 71:                                               ; preds = %71, %.lr.ph.i.i
   %.015.i.i = phi ptr [ %69, %.lr.ph.i.i ], [ %73, %71 ]
   %.011.in14.i.i = phi i64 [ %67, %.lr.ph.i.i ], [ %.011.i.i, %71 ]
   %.011.i.i = add i64 %.011.in14.i.i, -1
   %72 = getelementptr inbounds nuw ptr, ptr %66, i64 %.011.i.i
-  %73 = load ptr, ptr %72, align 8, !tbaa !57
-  store ptr %.015.i.i, ptr %72, align 8, !tbaa !57
+  %73 = load ptr, ptr %72, align 8, !tbaa !56
+  store ptr %.015.i.i, ptr %72, align 8, !tbaa !56
   %.not12.i.i = icmp eq i64 %.011.i.i, 0
-  br i1 %.not12.i.i, label %._crit_edge.i.i28, label %71, !llvm.loop !62
+  br i1 %.not12.i.i, label %._crit_edge.i.i28, label %71, !llvm.loop !61
 
 clist_sync.exit.i:                                ; preds = %._crit_edge.i.i28, %.lr.ph18.i.i, %.clist_sync.exit_crit_edge.i
   %74 = phi i64 [ %.pre.i, %.clist_sync.exit_crit_edge.i ], [ %67, %.lr.ph18.i.i ], [ %67, %._crit_edge.i.i28 ]
@@ -406,7 +406,7 @@ clist_sync.exit.i:                                ; preds = %._crit_edge.i.i28, 
   br i1 %75, label %76, label %clist_sync.exit.i.clist_shrink_to_fit.exit_crit_edge
 
 clist_sync.exit.i.clist_shrink_to_fit.exit_crit_edge: ; preds = %clist_sync.exit.i
-  %.pre.i31.pre = load ptr, ptr %3, align 8, !tbaa !54
+  %.pre.i31.pre = load ptr, ptr %3, align 8, !tbaa !53
   br label %clist_detach.exit
 
 76:                                               ; preds = %clist_sync.exit.i
@@ -420,7 +420,7 @@ clist_sync.exit.i.clist_shrink_to_fit.exit_crit_edge: ; preds = %clist_sync.exit
   unreachable
 
 81:                                               ; preds = %76
-  %82 = load ptr, ptr %3, align 8, !tbaa !54
+  %82 = load ptr, ptr %3, align 8, !tbaa !53
   %83 = shl i64 %74, 3
   %84 = shl nuw i64 %.val, 3
   %85 = call ptr @realloc(ptr noundef %82, i64 noundef range(i64 0, -7) %84) #17
@@ -447,11 +447,11 @@ clist_detach.exit:                                ; preds = %90, %92, %clist_syn
   %.pre.i31 = phi ptr [ %.pre.i31.pre, %clist_sync.exit.i.clist_shrink_to_fit.exit_crit_edge ], [ %85, %92 ], [ %85, %90 ]
   %95 = load ptr, ptr %61, align 8, !tbaa !8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 240
-  store ptr %.pre.i31, ptr %96, align 8, !tbaa !53
+  store ptr %.pre.i31, ptr %96, align 8, !tbaa !52
   br label %99
 
 97:                                               ; preds = %58
-  %98 = load ptr, ptr %3, align 8, !tbaa !54
+  %98 = load ptr, ptr %3, align 8, !tbaa !53
   call void @free(ptr noundef %98) #13
   br label %99
 
@@ -568,20 +568,19 @@ attributes #18 = { cold noreturn nounwind }
 !43 = !{!"p2 _ZTS8Agedge_s", !5, i64 0}
 !44 = !{!"p1 _ZTS8Agedge_s", !5, i64 0}
 !45 = !{!31, !31, i64 0}
-!46 = distinct !{!46, !47, !48}
+!46 = distinct !{!46, !47}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!"llvm.loop.estimated_trip_count"}
-!49 = distinct !{!49, !47, !48}
-!50 = !{!15, !11, i64 236}
-!51 = distinct !{!51, !47, !48}
-!52 = distinct !{!52, !47, !48}
-!53 = !{!15, !29, i64 240}
-!54 = !{!55, !29, i64 0}
-!55 = !{!"", !29, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
-!56 = !{!55, !12, i64 24}
-!57 = !{!30, !30, i64 0}
-!58 = !{!55, !12, i64 16}
-!59 = !{!55, !12, i64 8}
-!60 = distinct !{!60, !47, !48}
-!61 = distinct !{!61, !47, !48}
-!62 = distinct !{!62, !47, !48}
+!48 = distinct !{!48, !47}
+!49 = !{!15, !11, i64 236}
+!50 = distinct !{!50, !47}
+!51 = distinct !{!51, !47}
+!52 = !{!15, !29, i64 240}
+!53 = !{!54, !29, i64 0}
+!54 = !{!"", !29, i64 0, !12, i64 8, !12, i64 16, !12, i64 24}
+!55 = !{!54, !12, i64 24}
+!56 = !{!30, !30, i64 0}
+!57 = !{!54, !12, i64 16}
+!58 = !{!54, !12, i64 8}
+!59 = distinct !{!59, !47}
+!60 = distinct !{!60, !47}
+!61 = distinct !{!61, !47}

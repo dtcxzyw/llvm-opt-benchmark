@@ -660,7 +660,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %143, %149, %151
 187:                                              ; preds = %184
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond192.not = icmp eq i64 %indvars.iv.next188, %161
-  br i1 %exitcond192.not, label %.split164.us, label %.preheader.split.split.us, !llvm.loop !10
+  br i1 %exitcond192.not, label %.split164.us, label %.preheader.split.split.us, !llvm.loop !9
 
 .split.split.us:                                  ; preds = %184
   %188 = landingpad { ptr, i32 }
@@ -687,7 +687,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %143, %149, %151
 196:                                              ; preds = %.preheader.split.split.split.us
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next182, %161
-  br i1 %exitcond186.not, label %.split164.us, label %.preheader.split.split.split.us, !llvm.loop !11
+  br i1 %exitcond186.not, label %.split164.us, label %.preheader.split.split.split.us, !llvm.loop !10
 
 .split.split.split.us:                            ; preds = %.preheader.split.split.split.us
   %197 = landingpad { ptr, i32 }
@@ -774,7 +774,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %143, %149, %151
 229:                                              ; preds = %.preheader.split.split.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %161
-  br i1 %exitcond.not, label %.split164.us, label %.preheader.split.split.split, !llvm.loop !12
+  br i1 %exitcond.not, label %.split164.us, label %.preheader.split.split.split, !llvm.loop !11
 
 230:                                              ; preds = %.split164.us
   invoke void @_ZN3ue213ReportManager18logicalKeyRenumberEv(ptr noundef nonnull align 8 dereferenceable(505) %198)
@@ -872,7 +872,7 @@ _ZN3ue214CompileContextD2Ev.exit156:              ; preds = %_ZNKSt7__cxx1112bas
   store ptr null, ptr %7, align 8
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 40
-  %264 = load i8, ptr %263, align 8, !range !13, !noundef !14
+  %264 = load i8, ptr %263, align 8, !range !12, !noundef !13
   %265 = trunc nuw i8 %264 to i1
   br i1 %265, label %266, label %269
 
@@ -2069,7 +2069,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
 201:                                              ; preds = %196
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond219.not = icmp eq i64 %indvars.iv.next215, %185
-  br i1 %exitcond219.not, label %.split185.us, label %.preheader.split.us, !llvm.loop !15
+  br i1 %exitcond219.not, label %.split185.us, label %.preheader.split.us, !llvm.loop !14
 
 .split.us:                                        ; preds = %196
   %202 = landingpad { ptr, i32 }
@@ -2105,7 +2105,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
 215:                                              ; preds = %210
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next209, %185
-  br i1 %exitcond213.not, label %.split185.us, label %.preheader.split.split.us, !llvm.loop !16
+  br i1 %exitcond213.not, label %.split185.us, label %.preheader.split.split.us, !llvm.loop !15
 
 .split.split.us:                                  ; preds = %210
   %216 = landingpad { ptr, i32 }
@@ -2134,7 +2134,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
 226:                                              ; preds = %.preheader.split.split.split.us
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond207.not = icmp eq i64 %indvars.iv.next203, %185
-  br i1 %exitcond207.not, label %.split185.us, label %.preheader.split.split.split.us, !llvm.loop !17
+  br i1 %exitcond207.not, label %.split185.us, label %.preheader.split.split.split.us, !llvm.loop !16
 
 .split.split.split.us:                            ; preds = %.preheader.split.split.split.us
   %227 = landingpad { ptr, i32 }
@@ -2223,7 +2223,7 @@ _ZL15getSomPrecisionj.exit:                       ; preds = %167, %173, %175
 261:                                              ; preds = %.preheader.split.split.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %185
-  br i1 %exitcond.not, label %.split185.us, label %.preheader.split.split.split, !llvm.loop !18
+  br i1 %exitcond.not, label %.split185.us, label %.preheader.split.split.split, !llvm.loop !17
 
 262:                                              ; preds = %.split185.us
   invoke void @_ZN3ue213ReportManager18logicalKeyRenumberEv(ptr noundef nonnull align 8 dereferenceable(505) %228)
@@ -2321,7 +2321,7 @@ _ZN3ue214CompileContextD2Ev.exit176:              ; preds = %_ZNKSt7__cxx1112bas
   store ptr null, ptr %8, align 8
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 8
   %295 = getelementptr inbounds nuw i8, ptr %293, i64 40
-  %296 = load i8, ptr %295, align 8, !range !13, !noundef !14
+  %296 = load i8, ptr %295, align 8, !range !12, !noundef !13
   %297 = trunc nuw i8 %296 to i1
   br i1 %297, label %298, label %301
 
@@ -3350,7 +3350,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %15
 
 163:                                              ; preds = %162
   %164 = getelementptr inbounds nuw i8, ptr %21, i64 11
-  %165 = load i8, ptr %164, align 1, !range !13, !noundef !14
+  %165 = load i8, ptr %164, align 1, !range !12, !noundef !13
   %166 = trunc nuw i8 %165 to i1
   br i1 %166, label %167, label %177
 
@@ -3798,7 +3798,7 @@ _ZNSt3mapIxjSt4lessIxESaISt4pairIKxjEEED2Ev.exit: ; preds = %1
   %11 = load ptr, ptr %.06.i.i.i.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i) #16
   %.not.i.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
+  br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
 
 _ZNSt10_HashtableIjSt4pairIKjN3ue220external_report_infoEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt3mapIxjSt4lessIxESaISt4pairIKxjEEED2Ev.exit
   %12 = load ptr, ptr %8, align 8
@@ -3828,7 +3828,7 @@ _ZNSt13unordered_mapIjN3ue220external_report_infoESt4hashIjESt8equal_toIjESaISt4
   %23 = load ptr, ptr %.06.i.i.i.i3, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i3) #16
   %.not.i.i.i.i4 = icmp eq ptr %23, null
-  br i1 %.not.i.i.i.i4, label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i2, !llvm.loop !20
+  br i1 %.not.i.i.i.i4, label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i2, !llvm.loop !19
 
 _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i2, %_ZNSt13unordered_mapIjN3ue220external_report_infoESt4hashIjESt8equal_toIjESaISt4pairIKjS1_EEED2Ev.exit
   %24 = load ptr, ptr %20, align 8
@@ -3858,7 +3858,7 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit: ; pre
   %35 = load ptr, ptr %.06.i.i.i.i7, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i7) #16
   %.not.i.i.i.i8 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i.i8, label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i9, label %.lr.ph.i.i.i.i6, !llvm.loop !20
+  br i1 %.not.i.i.i.i8, label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i9, label %.lr.ph.i.i.i.i6, !llvm.loop !19
 
 _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i9: ; preds = %.lr.ph.i.i.i.i6, %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit
   %36 = load ptr, ptr %32, align 8
@@ -3888,7 +3888,7 @@ _ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit10: ; p
   %47 = load ptr, ptr %.06.i.i.i.i13, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i13) #16
   %.not.i.i.i.i14 = icmp eq ptr %47, null
-  br i1 %.not.i.i.i.i14, label %_ZNSt10_HashtableIN3ue26ReportESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i12, !llvm.loop !21
+  br i1 %.not.i.i.i.i14, label %_ZNSt10_HashtableIN3ue26ReportESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i12, !llvm.loop !20
 
 _ZNSt10_HashtableIN3ue26ReportESt4pairIKS1_mESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i12, %_ZNSt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEED2Ev.exit10
   %48 = load ptr, ptr %44, align 8
@@ -4002,7 +4002,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIxSt4pairIKxjESt10_Select1stIS
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #16
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -4039,7 +4039,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjE
 _ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit: ; preds = %.lr.ph
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #16
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E.exit, %2
   ret void
@@ -4059,7 +4059,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESa
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #16
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -4079,7 +4079,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIjSt4pairIKjjESt10_Select1stIS
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #16
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -4123,23 +4123,22 @@ attributes #20 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{i64 2187536938, i64 2187536974, i64 2187536998}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = distinct !{!17, !7, !8, !9}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}

@@ -6948,7 +6948,7 @@ define internal void @dcm_init() #0 {
   %17 = tail call ptr @wmem_map_insert(ptr noundef %12, ptr noundef %16, ptr noundef %13)
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 5179
-  br i1 %exitcond22.not, label %18, label %11, !llvm.loop !9
+  br i1 %exitcond22.not, label %18, label %11, !llvm.loop !8
 
 18:                                               ; preds = %11
   %19 = tail call ptr @wmem_file_scope()
@@ -6966,7 +6966,7 @@ define internal void @dcm_init() #0 {
   %27 = tail call ptr @wmem_map_insert(ptr noundef %22, ptr noundef %26, ptr noundef %23)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 53
-  br i1 %exitcond26.not, label %28, label %21, !llvm.loop !10
+  br i1 %exitcond26.not, label %28, label %21, !llvm.loop !9
 
 28:                                               ; preds = %21
   ret void
@@ -7159,7 +7159,7 @@ dcm_state_get.exit.thread.i:                      ; preds = %dcm_state_get.exit.
 .lr.ph.i.i:                                       ; preds = %66, %.lr.ph.i
   %72 = load ptr, ptr %63, align 8
   %.not17.i.i = icmp eq ptr %72, null
-  br i1 %.not17.i.i, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not17.i.i, label %.lr.ph.i._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i._crit_edge.i, %dcm_state_get.exit.thread.i
   %73 = call ptr @wmem_file_scope()
@@ -7260,7 +7260,7 @@ col_set_str_conditional.exit.i:                   ; preds = %90, %88
   %114 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
   %115 = load i8, ptr %114, align 8
   %116 = icmp eq i8 %115, %111
-  br i1 %116, label %dcm_state_pctx_get.exit.i.i.i.i, label %112, !llvm.loop !12
+  br i1 %116, label %dcm_state_pctx_get.exit.i.i.i.i, label %112, !llvm.loop !11
 
 dcm_state_pctx_get.exit.i.i.i.i:                  ; preds = %113
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 40
@@ -7348,7 +7348,7 @@ dcm_state_pctx_new.exit.i.i.i.i:                  ; preds = %149, %146
 163:                                              ; preds = %159, %.lr.ph.i.i.i.i.i
   %.0.i118.i.i.i.i = load ptr, ptr %.016.i.i.i.i.i, align 8
   %cond.i.i.i.i.i = icmp eq ptr %.0.i118.i.i.i.i, null
-  br i1 %cond.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
+  br i1 %cond.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %163, %150
   %164 = call ptr @wmem_file_scope()
@@ -7494,14 +7494,14 @@ default.unreachable:                              ; preds = %dcm_state_pdv_get.e
 
 224:                                              ; preds = %221
   %225 = getelementptr inbounds nuw i8, ptr %223, i64 75
-  %226 = load i8, ptr %225, align 1, !range !14, !noundef !15
+  %226 = load i8, ptr %225, align 1, !range !13, !noundef !14
   %227 = trunc nuw i8 %226 to i1
-  br i1 %227, label %dcm_state_pdv_get_obj_start.exit.i.i.i.i, label %221, !llvm.loop !16
+  br i1 %227, label %dcm_state_pdv_get_obj_start.exit.i.i.i.i, label %221, !llvm.loop !15
 
 dcm_state_pdv_get_obj_start.exit.i.i.i.i:         ; preds = %224
   %228 = getelementptr inbounds nuw i8, ptr %.0.i120.i.i.i.i, i64 8
   %229 = getelementptr inbounds nuw i8, ptr %223, i64 74
-  %230 = load i8, ptr %229, align 2, !range !14, !noundef !15
+  %230 = load i8, ptr %229, align 2, !range !13, !noundef !14
   %231 = trunc nuw i8 %230 to i1
   br i1 %231, label %232, label %dcm_state_pdv_get_obj_start.exit.thread.i.i.i.i
 
@@ -7568,7 +7568,7 @@ dcm_state_pdv_get_obj_start.exit.thread.i.i.i.i:  ; preds = %221, %dcm_state_pdv
 dissect_dcm_pdv_header.exit.i.i.i:                ; preds = %261, %dcm_state_pdv_get.exit.i.i.i.i
   %.1.i.i.i = phi ptr [ null, %dcm_state_pdv_get.exit.i.i.i.i ], [ %.087.i.i.i, %261 ]
   %.0102.i.i.i.i = phi i32 [ 0, %dcm_state_pdv_get.exit.i.i.i.i ], [ %262, %261 ]
-  %263 = load i8, ptr @global_dcm_reassemble, align 1, !range !14, !noundef !15
+  %263 = load i8, ptr @global_dcm_reassemble, align 1, !range !13, !noundef !14
   %264 = trunc nuw i8 %263 to i1
   br i1 %264, label %265, label %319
 
@@ -7596,7 +7596,7 @@ dissect_dcm_pdv_header.exit.i.i.i:                ; preds = %261, %dcm_state_pdv
   %280 = zext nneg i8 %279 to i32
   %281 = or disjoint i32 %276, %280
   %282 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 75
-  %283 = load i8, ptr %282, align 1, !range !14, !noundef !15
+  %283 = load i8, ptr %282, align 1, !range !13, !noundef !14
   %284 = trunc nuw i8 %283 to i1
   %285 = xor i1 %284, true
   %286 = call ptr @fragment_add_seq_next(ptr noundef nonnull @dcm_pdv_reassembly_table, ptr noundef %0, i32 noundef %.0102.i.i.i.i, ptr noundef %1, i32 noundef %281, ptr noundef null, i32 noundef %110, i1 noundef zeroext %285)
@@ -7695,7 +7695,7 @@ dissect_dcm_pdv_fragmented.exit.i.i:              ; preds = %dissect_dcm_pdv_fra
   %330 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %329, ptr noundef nonnull @.str.218, ptr noundef %330)
   %331 = icmp ult i32 %.0.i.i.i, %91
-  br i1 %331, label %95, label %dissect_dcm_pdu_data.exit.i, !llvm.loop !17
+  br i1 %331, label %95, label %dissect_dcm_pdu_data.exit.i, !llvm.loop !16
 
 dissect_dcm_pdu_data.exit.thread.i.sink.split:    ; preds = %107, %105, %95
   %.str.222.sink = phi ptr [ @.str.220, %95 ], [ @.str.221, %105 ], [ @.str.222, %107 ]
@@ -8088,7 +8088,7 @@ define internal fastcc noundef i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr nou
   store i8 0, ptr %10, align 1
   %11 = add i32 %6, %5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 74
-  %13 = load i8, ptr %12, align 2, !range !14, !noundef !15
+  %13 = load i8, ptr %12, align 2, !range !13, !noundef !14
   %14 = trunc nuw i8 %13 to i1
   %15 = icmp ne ptr %2, null
   %or.cond = or i1 %15, %14
@@ -8132,19 +8132,19 @@ define internal fastcc noundef i32 @dissect_dcm_pdv_body(ptr noundef %0, ptr nou
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 73
-  %35 = load i8, ptr %34, align 1, !range !14, !noundef !15
+  %35 = load i8, ptr %34, align 1, !range !13, !noundef !14
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 75
-  %39 = load i8, ptr %38, align 1, !range !14, !noundef !15
+  %39 = load i8, ptr %38, align 1, !range !13, !noundef !14
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %dissect_dcm_tag_open.exit.thread, label %41
 
 41:                                               ; preds = %37, %33
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 121
-  %43 = load i8, ptr %42, align 1, !range !14, !noundef !15
+  %43 = load i8, ptr %42, align 1, !range !13, !noundef !14
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %64, label %45
 
@@ -8210,19 +8210,19 @@ dissect_dcm_tag_open.exit:                        ; preds = %64, %26, %29
   %.0110113 = phi i1 [ false, %.lr.ph ], [ %.1, %dissect_dcm_tag_open.exit ]
   %81 = call fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i32 noundef %.0114, i32 noundef %11, i1 noundef zeroext %.0110113, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %82 = icmp ult i32 %81, %11
-  br i1 %82, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %82, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %dissect_dcm_tag_open.exit.thread, %dissect_dcm_tag_open.exit, %23, %16
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %84 = load ptr, ptr %83, align 8
   store ptr %84, ptr %7, align 8
-  %85 = load i8, ptr %12, align 2, !range !14, !noundef !15
+  %85 = load i8, ptr %12, align 2, !range !13, !noundef !14
   %86 = trunc nuw i8 %85 to i1
   br i1 %86, label %87, label %162
 
 87:                                               ; preds = %.loopexit
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %89 = load i8, ptr %88, align 8, !range !14, !noundef !15
+  %89 = load i8, ptr %88, align 8, !range !13, !noundef !14
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %91, label %102
 
@@ -8245,7 +8245,7 @@ dissect_dcm_tag_open.exit:                        ; preds = %64, %26, %29
   br label %.sink.split
 
 102:                                              ; preds = %87
-  %103 = load i8, ptr @global_dcm_cmd_details, align 1, !range !14, !noundef !15
+  %103 = load i8, ptr @global_dcm_cmd_details, align 1, !range !13, !noundef !14
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %105, label %162
 
@@ -8331,7 +8331,7 @@ dissect_dcm_tag_open.exit:                        ; preds = %64, %26, %29
 151:                                              ; preds = %147, %143
   %152 = phi ptr [ %150, %147 ], [ %144, %143 ]
   %153 = getelementptr inbounds nuw i8, ptr %4, i64 105
-  %154 = load i8, ptr %153, align 1, !range !14, !noundef !15
+  %154 = load i8, ptr %153, align 1, !range !13, !noundef !14
   %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %162, label %156
 
@@ -8378,7 +8378,7 @@ dissect_dcm_tag_open.exit:                        ; preds = %64, %26, %29
 
 176:                                              ; preds = %175
   %177 = getelementptr inbounds nuw i8, ptr %4, i64 75
-  %178 = load i8, ptr %177, align 1, !range !14, !noundef !15
+  %178 = load i8, ptr %177, align 1, !range !13, !noundef !14
   %179 = trunc nuw i8 %178 to i1
   br i1 %179, label %180, label %dcm_export_create_object.exit
 
@@ -8391,15 +8391,15 @@ dissect_dcm_tag_open.exit:                        ; preds = %64, %26, %29
 
 .lr.ph.i.preheader:                               ; preds = %180
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 75
-  %185 = load i8, ptr %184, align 1, !range !14, !noundef !15
+  %185 = load i8, ptr %184, align 1, !range !13, !noundef !14
   %186 = trunc nuw i8 %185 to i1
   br i1 %186, label %.critedge.i, label %.lr.ph116
 
 .lr.ph.i:                                         ; preds = %.lr.ph116
   %187 = getelementptr inbounds nuw i8, ptr %195, i64 75
-  %188 = load i8, ptr %187, align 1, !range !14, !noundef !15
+  %188 = load i8, ptr %187, align 1, !range !13, !noundef !14
   %189 = trunc nuw i8 %188 to i1
-  br i1 %189, label %.critedge.i, label %.lr.ph116, !llvm.loop !19
+  br i1 %189, label %.critedge.i, label %.lr.ph116, !llvm.loop !18
 
 .lr.ph116:                                        ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.088125.i115 = phi i32 [ %193, %.lr.ph.i ], [ %181, %.lr.ph.i.preheader ]
@@ -8410,10 +8410,10 @@ dissect_dcm_tag_open.exit:                        ; preds = %64, %26, %29
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %195 = load ptr, ptr %194, align 8
   %.not.i107 = icmp eq ptr %195, null
-  br i1 %.not.i107, label %..critedge.i_crit_edge, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i107, label %..critedge.i_crit_edge, label %.lr.ph.i, !llvm.loop !18
 
 ..critedge.i_crit_edge:                           ; preds = %.lr.ph116
-  br label %.critedge.i, !llvm.loop !19
+  br label %.critedge.i, !llvm.loop !18
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %..critedge.i_crit_edge, %.lr.ph.i.preheader
   %.092.lcssa.i = phi ptr [ %190, %..critedge.i_crit_edge ], [ %4, %.lr.ph.i.preheader ], [ %190, %.lr.ph.i ]
@@ -8435,7 +8435,7 @@ dissect_dcm_tag_open.exit:                        ; preds = %64, %26, %29
   %202 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %203 = load ptr, ptr %202, align 8
   %.not104.i = icmp eq ptr %203, null
-  br i1 %.not104.i, label %.critedge2.loopexit.i, label %.lr.ph133.i, !llvm.loop !20
+  br i1 %.not104.i, label %.critedge2.loopexit.i, label %.lr.ph133.i, !llvm.loop !19
 
 .critedge2.loopexit.i:                            ; preds = %200, %.lr.ph133.i
   %.087.lcssa.ph.i = phi i16 [ %.087132.i, %.lr.ph133.i ], [ %201, %200 ]
@@ -8461,7 +8461,7 @@ dissect_dcm_tag_open.exit:                        ; preds = %64, %26, %29
   %210 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %211 = load i8, ptr %210, align 8
   %212 = icmp eq i8 %211, %206
-  br i1 %212, label %dcm_state_pctx_get.exit.i, label %208, !llvm.loop !12
+  br i1 %212, label %dcm_state_pctx_get.exit.i, label %208, !llvm.loop !11
 
 dcm_state_pctx_get.exit.i:                        ; preds = %209, %208
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -8494,7 +8494,7 @@ dcm_state_pctx_get.exit.i:                        ; preds = %209, %208
 224:                                              ; preds = %220, %219, %216, %215, %dcm_state_pctx_get.exit.i
   %.085.i = phi ptr [ %223, %220 ], [ @.str.350, %219 ], [ @.str.350, %216 ], [ @.str.350, %215 ], [ @.str.350, %dcm_state_pctx_get.exit.i ]
   %225 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %226 = load i8, ptr %225, align 8, !range !14, !noundef !15
+  %226 = load i8, ptr %225, align 8, !range !13, !noundef !14
   %227 = trunc nuw i8 %226 to i1
   br i1 %227, label %228, label %249
 
@@ -8554,7 +8554,7 @@ dcm_state_pctx_get.exit.i:                        ; preds = %209, %208
   %.086.i = phi ptr [ %248, %236 ], [ %261, %249 ]
   %.084.i = phi ptr [ %239, %236 ], [ %252, %249 ]
   %.0.i = phi ptr [ %242, %236 ], [ %256, %249 ]
-  %263 = load i8, ptr @global_dcm_export_header, align 1, !range !14, !noundef !15
+  %263 = load i8, ptr @global_dcm_export_header, align 1, !range !13, !noundef !14
   %264 = trunc nuw i8 %263 to i1
   br i1 %264, label %265, label %384
 
@@ -8802,7 +8802,7 @@ dcm_export_create_header.exit:                    ; preds = %320, %325, %333, %d
   %397 = phi i64 [ %393, %392 ], [ 0, %387 ]
   %.090.i = phi ptr [ %395, %392 ], [ %391, %387 ]
   %398 = getelementptr inbounds nuw i8, ptr %.092.lcssa146.i, i64 75
-  %399 = load i8, ptr %398, align 1, !range !14, !noundef !15
+  %399 = load i8, ptr %398, align 1, !range !13, !noundef !14
   %400 = trunc nuw i8 %399 to i1
   br i1 %400, label %._crit_edge.i, label %.lr.ph139.i
 
@@ -8825,9 +8825,9 @@ dcm_export_create_header.exit:                    ; preds = %320, %325, %333, %d
   %414 = getelementptr i8, ptr %.1138.i, i64 %411
   %415 = load ptr, ptr %.193137.i, align 8
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 75
-  %417 = load i8, ptr %416, align 1, !range !14, !noundef !15
+  %417 = load i8, ptr %416, align 1, !range !13, !noundef !14
   %418 = trunc nuw i8 %417 to i1
-  br i1 %418, label %._crit_edge.i, label %.lr.ph139.i, !llvm.loop !21
+  br i1 %418, label %._crit_edge.i, label %.lr.ph139.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %.lr.ph139.i, %396
   %.lcssa.i = phi i64 [ %397, %396 ], [ %413, %.lr.ph139.i ]
@@ -9418,7 +9418,7 @@ dcm_tag_is_open.exit346:                          ; preds = %.thread387
   %254 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr inbounds nuw i8, ptr %113, i64 32
-  %257 = load i8, ptr %256, align 8, !range !14, !noundef !15
+  %257 = load i8, ptr %256, align 8, !range !13, !noundef !14
   %258 = trunc nuw i8 %257 to i1
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %260 = load ptr, ptr %259, align 8
@@ -9473,7 +9473,7 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0464, %sub_1465
   %282 = icmp eq i16 %.0321, -8192
   %283 = and i1 %114, %282
   %284 = or i1 %283, %281
-  %285 = load i8, ptr @global_dcm_seq_subtree, align 1, !range !14
+  %285 = load i8, ptr @global_dcm_seq_subtree, align 1, !range !13
   %286 = trunc nuw i8 %285 to i1
   %or.cond9 = select i1 %284, i1 %286, i1 false
   %287 = load i32, ptr @ett_dcm_data_seq, align 4
@@ -9510,16 +9510,16 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0464, %sub_1465
   br i1 %284, label %304, label %309
 
 304:                                              ; preds = %303
-  %305 = load i8, ptr @global_dcm_seq_subtree, align 1, !range !14, !noundef !15
+  %305 = load i8, ptr @global_dcm_seq_subtree, align 1, !range !13, !noundef !14
   %306 = trunc nuw i8 %305 to i1
-  %307 = load i8, ptr @global_dcm_tag_subtree, align 1, !range !14, !noundef !15
+  %307 = load i8, ptr @global_dcm_tag_subtree, align 1, !range !13, !noundef !14
   %308 = trunc nuw i8 %307 to i1
   %spec.select = select i1 %308, ptr %.0313, ptr null
   %.0313. = select i1 %306, ptr %.0313, ptr %2
   br label %312
 
 309:                                              ; preds = %303
-  %310 = load i8, ptr @global_dcm_tag_subtree, align 1, !range !14, !noundef !15
+  %310 = load i8, ptr @global_dcm_tag_subtree, align 1, !range !13, !noundef !14
   %311 = trunc nuw i8 %310 to i1
   %spec.select339 = select i1 %311, ptr %.0313, ptr null
   br label %312
@@ -9566,7 +9566,7 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0464, %sub_1465
 328:                                              ; preds = %.lr.ph473, %341
   %.0307471 = phi i1 [ true, %.lr.ph473 ], [ %.1, %341 ]
   %.7470 = phi i32 [ %.6, %.lr.ph473 ], [ %333, %341 ]
-  %329 = load i8, ptr %327, align 8, !range !14, !noundef !15
+  %329 = load i8, ptr %327, align 8, !range !13, !noundef !14
   %330 = trunc nuw i8 %329 to i1
   %331 = icmp uge i32 %.7470, %5
   %or.cond341.not = select i1 %330, i1 true, i1 %331
@@ -9576,7 +9576,7 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0464, %sub_1465
   %333 = call fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %.0327, ptr noundef %3, i32 noundef %.7470, i32 noundef %5, i1 noundef zeroext false, ptr noundef nonnull %13, ptr noundef nonnull %12)
   %334 = load ptr, ptr %13, align 8
   %335 = icmp ne ptr %334, null
-  %336 = load i8, ptr @global_dcm_seq_subtree, align 1, !range !14
+  %336 = load i8, ptr @global_dcm_seq_subtree, align 1, !range !13
   %337 = trunc nuw i8 %336 to i1
   %or.cond15 = select i1 %335, i1 %337, i1 false
   br i1 %or.cond15, label %338, label %341
@@ -9589,9 +9589,9 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0464, %sub_1465
 
 341:                                              ; preds = %338, %332
   %.1 = phi i1 [ false, %338 ], [ %.0307471, %332 ]
-  %342 = load i8, ptr %12, align 1, !range !14, !noundef !15
+  %342 = load i8, ptr %12, align 1, !range !13, !noundef !14
   %343 = trunc nuw i8 %342 to i1
-  br i1 %343, label %.critedge, label %328, !llvm.loop !22
+  br i1 %343, label %.critedge, label %328, !llvm.loop !21
 
 344:                                              ; preds = %326
   %345 = add i32 %.0323, %.6
@@ -9605,7 +9605,7 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0464, %sub_1465
   %347 = call fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %.0327, ptr noundef %3, i32 noundef %.9468, i32 noundef %345, i1 noundef zeroext false, ptr noundef nonnull %13, ptr noundef nonnull %12)
   %348 = load ptr, ptr %13, align 8
   %349 = icmp ne ptr %348, null
-  %350 = load i8, ptr @global_dcm_seq_subtree, align 1, !range !14
+  %350 = load i8, ptr @global_dcm_seq_subtree, align 1, !range !13
   %351 = trunc nuw i8 %350 to i1
   %or.cond17 = select i1 %349, i1 %351, i1 false
   br i1 %or.cond17, label %352, label %355
@@ -9619,7 +9619,7 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0464, %sub_1465
 355:                                              ; preds = %352, %.lr.ph
   %.3 = phi i1 [ false, %352 ], [ %.2469, %.lr.ph ]
   %356 = icmp ult i32 %347, %345
-  br i1 %356, label %.lr.ph, label %.critedge, !llvm.loop !23
+  br i1 %356, label %.lr.ph, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %355, %328, %341, %344
   %.8 = phi i32 [ %.6, %344 ], [ %333, %341 ], [ %.7470, %328 ], [ %347, %355 ]
@@ -9668,7 +9668,7 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0464, %sub_1465
   store ptr %374, ptr %11, align 8
   %375 = add i32 %.0323, %.6
   %376 = load ptr, ptr %254, align 8
-  %377 = load i8, ptr %256, align 8, !range !14, !noundef !15
+  %377 = load i8, ptr %256, align 8, !range !13, !noundef !14
   %378 = trunc nuw i8 %377 to i1
   %379 = call fastcc ptr @dcm_tag_summary(ptr noundef %1, i16 noundef zeroext %.0322357, i16 noundef zeroext %.0321, i32 noundef %.0326, ptr noundef %376, ptr noundef %.0328366379, i1 noundef zeroext %378, i1 noundef zeroext %18)
   %380 = getelementptr inbounds nuw i8, ptr %3, i64 160
@@ -9713,9 +9713,9 @@ dcm_tag_summary.exit.tail:                        ; preds = %sub_0464, %sub_1465
 
 401:                                              ; preds = %398
   %402 = getelementptr inbounds nuw i8, ptr %400, i64 75
-  %403 = load i8, ptr %402, align 1, !range !14, !noundef !15
+  %403 = load i8, ptr %402, align 1, !range !13, !noundef !14
   %404 = trunc nuw i8 %403 to i1
-  br i1 %404, label %dcm_state_pdv_get_obj_start.exit, label %398, !llvm.loop !16
+  br i1 %404, label %dcm_state_pdv_get_obj_start.exit, label %398, !llvm.loop !15
 
 dcm_state_pdv_get_obj_start.exit:                 ; preds = %398, %401
   %405 = getelementptr inbounds nuw i8, ptr %.0.i347, i64 56
@@ -9742,9 +9742,9 @@ dcm_state_pdv_get_obj_start.exit:                 ; preds = %398, %401
 
 415:                                              ; preds = %412
   %416 = getelementptr inbounds nuw i8, ptr %414, i64 75
-  %417 = load i8, ptr %416, align 1, !range !14, !noundef !15
+  %417 = load i8, ptr %416, align 1, !range !13, !noundef !14
   %418 = trunc nuw i8 %417 to i1
-  br i1 %418, label %dcm_state_pdv_get_obj_start.exit350, label %412, !llvm.loop !16
+  br i1 %418, label %dcm_state_pdv_get_obj_start.exit350, label %412, !llvm.loop !15
 
 dcm_state_pdv_get_obj_start.exit350:              ; preds = %412, %415
   %419 = getelementptr inbounds nuw i8, ptr %.0.i348, i64 64
@@ -9771,7 +9771,7 @@ dcm_state_pdv_get_obj_start.exit350:              ; preds = %412, %415
   %430 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %429, ptr noundef nonnull @.str.273, ptr noundef %430)
   %431 = getelementptr inbounds nuw i8, ptr %113, i64 33
-  %432 = load i8, ptr %431, align 1, !range !14, !noundef !15
+  %432 = load i8, ptr %431, align 1, !range !13, !noundef !14
   %433 = trunc nuw i8 %432 to i1
   br i1 %433, label %434, label %439
 
@@ -10116,7 +10116,7 @@ sub_0335:                                         ; preds = %64, %74
   %.1 = phi i1 [ %.0265389, %125 ], [ %.0265389, %128 ], [ %.0265389, %125 ], [ %.0265389, %125 ], [ %.0265., %130 ]
   %134 = add nuw i32 %.0263390, 1
   %exitcond420.not = icmp eq i32 %134, %8
-  br i1 %exitcond420.not, label %135, label %125, !llvm.loop !24
+  br i1 %exitcond420.not, label %135, label %125, !llvm.loop !23
 
 135:                                              ; preds = %133
   br i1 %.1, label %136, label %144
@@ -10174,7 +10174,7 @@ sub_0335:                                         ; preds = %64, %74
   %169 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %168, ptr noundef nonnull @.str.310, ptr noundef %.0264386, i32 noundef %163, i32 noundef %165)
   %170 = add nuw nsw i32 %.0262387, 1
   %exitcond.not = icmp eq i32 %170, %.0.i
-  br i1 %exitcond.not, label %._crit_edge, label %156, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %156, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %156
   store ptr %169, ptr %10, align 8
@@ -10383,7 +10383,7 @@ sub_0335:                                         ; preds = %64, %74
   %273 = load ptr, ptr %10, align 8
   %274 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %2, i32 noundef %272, ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef %.pre-phi, ptr noundef nonnull @.str.306, ptr noundef %273)
   %275 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %276 = load i8, ptr %275, align 8, !range !14, !noundef !15
+  %276 = load i8, ptr %275, align 8, !range !13, !noundef !14
   %277 = trunc nuw i8 %276 to i1
   %or.cond22 = and i1 %.0275, %277
   br i1 %or.cond22, label %278, label %287
@@ -10947,7 +10947,7 @@ dissect_dcm_assoc_async_negotiation.exit.i:       ; preds = %265, %254, %225, %2
   %.pn.i = zext i16 %50 to i32
   %.1.i = add i32 %51, %.pn.i
   %279 = icmp ult i32 %.1.i, %33
-  br i1 %279, label %.lr.ph.i, label %dissect_dcm_userinfo.exit, !llvm.loop !26
+  br i1 %279, label %.lr.ph.i, label %dissect_dcm_userinfo.exit, !llvm.loop !25
 
 dissect_dcm_userinfo.exit:                        ; preds = %dissect_dcm_assoc_async_negotiation.exit.i, %32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
@@ -10959,7 +10959,7 @@ dissect_dcm_userinfo.exit:                        ; preds = %dissect_dcm_assoc_a
 280:                                              ; preds = %26, %dissect_dcm_userinfo.exit, %31, %30, %28
   %.1 = add i32 %27, %22
   %281 = icmp ult i32 %.1, %13
-  br i1 %281, label %18, label %.loopexit, !llvm.loop !27
+  br i1 %281, label %18, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %280, %6, %24
   %.0 = phi i32 [ %13, %24 ], [ %4, %6 ], [ %.1, %280 ]
@@ -11104,7 +11104,7 @@ define internal fastcc void @dissect_dcm_pctx(ptr noundef %0, ptr noundef %1, pt
   %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %29 = load i8, ptr %28, align 8
   %30 = icmp eq i8 %29, %22
-  br i1 %30, label %dcm_state_pctx_get.exit.thread, label %26, !llvm.loop !12
+  br i1 %30, label %dcm_state_pctx_get.exit.thread, label %26, !llvm.loop !11
 
 31:                                               ; preds = %26
   %32 = call ptr @wmem_file_scope()
@@ -11211,7 +11211,7 @@ dcm_set_syntax.exit.us:                           ; preds = %.lr.ph.split.us
   %.pn.us = zext i16 %69 to i32
   %.1103.us = add i32 %70, %.pn.us
   %77 = icmp ult i32 %.1103.us, %13
-  br i1 %77, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !28
+  br i1 %77, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %121
   %.06 = phi i32 [ %.1, %121 ], [ 0, %.lr.ph ]
@@ -11305,7 +11305,7 @@ dcm_set_syntax.exit:                              ; preds = %.sink.split.i, %117
   %.pn = zext i16 %80 to i32
   %.1103 = add i32 %81, %.pn
   %122 = icmp ult i32 %.1103, %13
-  br i1 %122, label %.lr.ph.split, label %._crit_edge, !llvm.loop !30
+  br i1 %122, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %121, %76
   %.097.lcssa = phi i32 [ %.198.us, %76 ], [ %.198, %121 ]
@@ -11507,28 +11507,27 @@ attributes #14 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !7}

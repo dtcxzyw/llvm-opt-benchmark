@@ -777,7 +777,7 @@ select.unfold:                                    ; preds = %_ZNSt7__cxx1112basi
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %15) #14
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #14
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14) #14
-  br i1 %.not, label %.loopexit, label %250, !llvm.loop !48
+  br i1 %.not, label %.loopexit, label %250
 
 285:                                              ; preds = %261
   %286 = landingpad { ptr, i32 }
@@ -1283,5 +1283,3 @@ attributes #15 = { builtin nounwind }
 !45 = !{!46, !17, i64 0}
 !46 = !{!"_ZTSN2cv11_InputArrayE", !17, i64 0, !15, i64 8, !43, i64 16}
 !47 = !{!46, !15, i64 8}
-!48 = distinct !{!48, !49}
-!49 = !{!"llvm.loop.estimated_trip_count"}

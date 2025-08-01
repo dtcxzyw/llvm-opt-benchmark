@@ -1080,7 +1080,7 @@ define internal noundef i32 @H5D__btree_new_node(ptr readnone captures(none) %0,
   store i64 %42, ptr %43, align 8, !tbaa !20
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
-  br i1 %exitcond37.not, label %.loopexit, label %39, !llvm.loop !66
+  br i1 %exitcond37.not, label %.loopexit, label %39, !llvm.loop !65
 
 .loopexit:                                        ; preds = %39, %32, %._crit_edge.thread, %._crit_edge, %6
   ret i32 0
@@ -1104,7 +1104,7 @@ define internal range(i32 -1, 2) i32 @H5D__btree_cmp2(ptr noundef readonly captu
   %.not18.i = select i1 %not..i, i1 %7, i1 false
   %14 = icmp eq ptr %0, %2
   %or.cond.i = or i1 %14, %.not18.i
-  br i1 %or.cond.i, label %H5VM_vector_cmp_u.exit, label %15, !prof !67
+  br i1 %or.cond.i, label %H5VM_vector_cmp_u.exit, label %15, !prof !66
 
 15:                                               ; preds = %10
   %16 = icmp eq ptr %0, null
@@ -1136,7 +1136,7 @@ define internal range(i32 -1, 2) i32 @H5D__btree_cmp2(ptr noundef readonly captu
   %26 = getelementptr inbounds nuw i8, ptr %.01220.i, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 8
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i, !llvm.loop !68
+  br i1 %.not.i, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i, !llvm.loop !67
 
 H5VM_vector_cmp_u.exit:                           ; preds = %25, %23, %.lr.ph.i, %.preheader.i, %17, %15, %10, %3
   %.0 = phi i32 [ -1, %3 ], [ 0, %10 ], [ -1, %15 ], [ 1, %17 ], [ 0, %.preheader.i ], [ 1, %23 ], [ -1, %.lr.ph.i ], [ 0, %25 ]
@@ -1159,7 +1159,7 @@ define internal range(i32 -1, 2) i32 @H5D__btree_cmp3(ptr noundef readonly captu
   %13 = load i32, ptr %12, align 8, !tbaa !40
   %14 = icmp eq i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !69
+  %16 = load ptr, ptr %15, align 8, !tbaa !68
   br i1 %14, label %17, label %31
 
 17:                                               ; preds = %10
@@ -1191,7 +1191,7 @@ define internal range(i32 -1, 2) i32 @H5D__btree_cmp3(ptr noundef readonly captu
   %.not18.i = select i1 %not..i, i1 %7, i1 false
   %32 = icmp eq ptr %16, %2
   %or.cond.i = or i1 %.not18.i, %32
-  br i1 %or.cond.i, label %H5VM_vector_cmp_u.exit33, label %33, !prof !67
+  br i1 %or.cond.i, label %H5VM_vector_cmp_u.exit33, label %33, !prof !66
 
 33:                                               ; preds = %31
   %34 = icmp eq ptr %16, null
@@ -1219,17 +1219,17 @@ define internal range(i32 -1, 2) i32 @H5D__btree_cmp3(ptr noundef readonly captu
   %44 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 8
   %.not.i = icmp eq i32 %41, 0
   %or.cond40 = select i1 %42, i1 true, i1 %.not.i
-  br i1 %or.cond40, label %H5VM_vector_cmp_u.exit33, label %.lr.ph.i, !llvm.loop !68
+  br i1 %or.cond40, label %H5VM_vector_cmp_u.exit33, label %.lr.ph.i, !llvm.loop !67
 
 H5VM_vector_cmp_u.exit:                           ; preds = %.lr.ph.i
   %45 = icmp eq ptr %16, %0
   %46 = icmp eq ptr %0, null
   %47 = or i1 %45, %46
-  br i1 %47, label %H5VM_vector_cmp_u.exit33.thread, label %.lr.ph.i27, !prof !70
+  br i1 %47, label %H5VM_vector_cmp_u.exit33.thread, label %.lr.ph.i27, !prof !69
 
 H5VM_vector_cmp_u.exit.thread35:                  ; preds = %33
   %48 = icmp eq ptr %0, null
-  br i1 %48, label %H5VM_vector_cmp_u.exit33.thread, label %H5VM_vector_cmp_u.exit33, !prof !67
+  br i1 %48, label %H5VM_vector_cmp_u.exit33.thread, label %H5VM_vector_cmp_u.exit33, !prof !66
 
 .lr.ph.i27:                                       ; preds = %H5VM_vector_cmp_u.exit, %52
   %.in.i28 = phi i32 [ %53, %52 ], [ %13, %H5VM_vector_cmp_u.exit ]
@@ -1247,7 +1247,7 @@ H5VM_vector_cmp_u.exit.thread35:                  ; preds = %33
   %56 = getelementptr inbounds nuw i8, ptr %.01121.i29, i64 8
   %.not.i31 = icmp eq i32 %53, 0
   %or.cond43 = select i1 %54, i1 true, i1 %.not.i31
-  br i1 %or.cond43, label %H5VM_vector_cmp_u.exit33.thread, label %.lr.ph.i27, !llvm.loop !68
+  br i1 %or.cond43, label %H5VM_vector_cmp_u.exit33.thread, label %.lr.ph.i27, !llvm.loop !67
 
 H5VM_vector_cmp_u.exit33.thread:                  ; preds = %52, %H5VM_vector_cmp_u.exit, %H5VM_vector_cmp_u.exit.thread35
   br label %H5VM_vector_cmp_u.exit33
@@ -1283,7 +1283,7 @@ define internal noundef i32 @H5D__btree_found(ptr readnone captures(none) %0, i6
 17:                                               ; preds = %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !70
 
 18:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
@@ -1334,7 +1334,7 @@ define internal range(i32 -1, 4) i32 @H5D__btree_insert(ptr readnone captures(no
   %19 = load i32, ptr %18, align 8, !tbaa !40
   %20 = icmp eq i32 %19, 2
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !69
+  %22 = load ptr, ptr %21, align 8, !tbaa !68
   br i1 %20, label %23, label %34
 
 23:                                               ; preds = %16
@@ -1360,7 +1360,7 @@ define internal range(i32 -1, 4) i32 @H5D__btree_insert(ptr readnone captures(no
   %.not18.i.i = select i1 %not..i.i, i1 %13, i1 false
   %35 = icmp eq ptr %22, %6
   %or.cond.i.i = or i1 %.not18.i.i, %35
-  br i1 %or.cond.i.i, label %H5D__btree_cmp3.exit.thread, label %36, !prof !67
+  br i1 %or.cond.i.i, label %H5D__btree_cmp3.exit.thread, label %36, !prof !66
 
 36:                                               ; preds = %34
   %37 = icmp eq ptr %22, null
@@ -1388,17 +1388,17 @@ define internal range(i32 -1, 4) i32 @H5D__btree_insert(ptr readnone captures(no
   %47 = getelementptr inbounds nuw i8, ptr %.01121.i.i, i64 8
   %.not.i.i = icmp eq i32 %44, 0
   %or.cond40.i = select i1 %45, i1 true, i1 %.not.i.i
-  br i1 %or.cond40.i, label %H5D__btree_cmp3.exit.thread, label %.lr.ph.i.i, !llvm.loop !68
+  br i1 %or.cond40.i, label %H5D__btree_cmp3.exit.thread, label %.lr.ph.i.i, !llvm.loop !67
 
 H5VM_vector_cmp_u.exit.i:                         ; preds = %.lr.ph.i.i
   %48 = icmp eq ptr %22, %2
   %49 = icmp eq ptr %2, null
   %50 = or i1 %49, %48
-  br i1 %50, label %H5D__btree_cmp3.exit.thread, label %.lr.ph.i27.i, !prof !70
+  br i1 %50, label %H5D__btree_cmp3.exit.thread, label %.lr.ph.i27.i, !prof !69
 
 H5VM_vector_cmp_u.exit.thread35.i:                ; preds = %36
   %51 = icmp eq ptr %2, null
-  br i1 %51, label %H5D__btree_cmp3.exit.thread, label %H5D__btree_cmp3.exit.thread50, !prof !67
+  br i1 %51, label %H5D__btree_cmp3.exit.thread, label %H5D__btree_cmp3.exit.thread50, !prof !66
 
 .lr.ph.i27.i:                                     ; preds = %H5VM_vector_cmp_u.exit.i, %55
   %.in.i28.i = phi i32 [ %56, %55 ], [ %19, %H5VM_vector_cmp_u.exit.i ]
@@ -1416,7 +1416,7 @@ H5VM_vector_cmp_u.exit.thread35.i:                ; preds = %36
   %59 = getelementptr inbounds nuw i8, ptr %.01121.i29.i, i64 8
   %.not.i31.i = icmp eq i32 %56, 0
   %or.cond43.i = select i1 %57, i1 true, i1 %.not.i31.i
-  br i1 %or.cond43.i, label %H5D__btree_cmp3.exit.thread, label %.lr.ph.i27.i, !llvm.loop !68
+  br i1 %or.cond43.i, label %H5D__btree_cmp3.exit.thread, label %.lr.ph.i27.i, !llvm.loop !67
 
 H5D__btree_cmp3.exit:                             ; preds = %27, %29
   %60 = load i64, ptr %2, align 8, !tbaa !20
@@ -1434,7 +1434,7 @@ H5D__btree_cmp3.exit.thread:                      ; preds = %43, %55, %H5VM_vect
   %.not18.i = select i1 %not..i, i1 %13, i1 false
   %65 = icmp eq ptr %22, %2
   %or.cond.i42 = or i1 %.not18.i, %65
-  br i1 %or.cond.i42, label %H5VM_vector_cmp_u.exit, label %66, !prof !67
+  br i1 %or.cond.i42, label %H5VM_vector_cmp_u.exit, label %66, !prof !66
 
 66:                                               ; preds = %H5D__btree_cmp3.exit.thread
   %67 = icmp eq ptr %22, null
@@ -1460,7 +1460,7 @@ H5D__btree_cmp3.exit.thread:                      ; preds = %43, %55, %H5VM_vect
   %73 = getelementptr inbounds nuw i8, ptr %.01220.i, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 8
   %.not.i43 = icmp eq i32 %72, 0
-  br i1 %.not.i43, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i, !llvm.loop !68
+  br i1 %.not.i43, label %H5VM_vector_cmp_u.exit, label %.lr.ph.i, !llvm.loop !67
 
 H5VM_vector_cmp_u.exit:                           ; preds = %71, %.preheader.i, %H5D__btree_cmp3.exit.thread
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 264
@@ -1491,7 +1491,7 @@ H5VM_vector_cmp_u.exit:                           ; preds = %71, %.preheader.i, 
 
 H5VM_vector_cmp_u.exit.thread:                    ; preds = %.lr.ph.i, %66, %H5VM_vector_cmp_u.exit
   %.not55 = icmp eq i32 %19, 0
-  br i1 %.not55, label %.loopexit, label %.lr.ph.preheader.i, !prof !67
+  br i1 %.not55, label %.loopexit, label %.lr.ph.preheader.i, !prof !66
 
 .lr.ph.preheader.i:                               ; preds = %H5VM_vector_cmp_u.exit.thread
   %wide.trip.count.i = zext i32 %19 to i64
@@ -1500,7 +1500,7 @@ H5VM_vector_cmp_u.exit.thread:                    ; preds = %.lr.ph.i, %66, %H5V
 89:                                               ; preds = %.lr.ph.i46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i46, !llvm.loop !72
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i46, !llvm.loop !71
 
 .lr.ph.i46:                                       ; preds = %89, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %89 ]
@@ -1535,7 +1535,7 @@ H5D__chunk_disjoint.exit:                         ; preds = %.lr.ph.i46
   store i64 %105, ptr %106, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond.not, label %107, label %103, !llvm.loop !73
+  br i1 %exitcond.not, label %107, label %103, !llvm.loop !72
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -1695,7 +1695,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_decode_key(ptr noundef readonly
   %75 = or disjoint i64 %71, %74
   %76 = add nuw nsw i64 %.063, 1
   %exitcond.not = icmp eq i64 %76, 8
-  br i1 %exitcond.not, label %77, label %70, !llvm.loop !74
+  br i1 %exitcond.not, label %77, label %70, !llvm.loop !73
 
 77:                                               ; preds = %70
   %78 = zext i32 %62 to i64
@@ -1716,7 +1716,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_decode_key(ptr noundef readonly
   store i64 %80, ptr %86, align 8, !tbaa !20
   %87 = add nuw i32 %.05365, 1
   %exitcond70.not = icmp eq i32 %87, %14
-  br i1 %exitcond70.not, label %.loopexit, label %59, !llvm.loop !75
+  br i1 %exitcond70.not, label %.loopexit, label %59, !llvm.loop !74
 
 .loopexit:                                        ; preds = %85, %20, %64, %81, %3, %16
   %.056 = phi i32 [ -1, %16 ], [ 0, %3 ], [ -1, %64 ], [ -1, %81 ], [ 0, %20 ], [ 0, %85 ]
@@ -1806,14 +1806,14 @@ define internal noundef i32 @H5D__btree_encode_key(ptr noundef readonly captures
   %57 = add nuw nsw i64 %.04349, 1
   %58 = lshr i64 %.04548, 8
   %exitcond.not = icmp eq i64 %57, 8
-  br i1 %exitcond.not, label %59, label %54, !llvm.loop !76
+  br i1 %exitcond.not, label %59, label %54, !llvm.loop !75
 
 59:                                               ; preds = %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = load i32, ptr %44, align 8, !tbaa !40
   %61 = zext i32 %60 to i64
   %62 = icmp samesign ult i64 %indvars.iv.next, %61
-  br i1 %62, label %47, label %.loopexit, !llvm.loop !77
+  br i1 %62, label %47, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %59, %10, %3
   ret i32 0
@@ -1859,7 +1859,7 @@ define internal noundef i32 @H5D__btree_debug_key(ptr noundef captures(none) %0,
   %32 = load i32, ptr %20, align 8, !tbaa !46
   %33 = zext i32 %32 to i64
   %34 = icmp samesign ult i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !78
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
   %35 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 2, i64 1, ptr %0)
@@ -1956,19 +1956,18 @@ attributes #15 = { nounwind }
 !60 = !{!58, !28, i64 268}
 !61 = !{!54, !15, i64 0}
 !62 = !{!54, !24, i64 16}
-!63 = distinct !{!63, !64, !65}
+!63 = distinct !{!63, !64}
 !64 = !{!"llvm.loop.mustprogress"}
-!65 = !{!"llvm.loop.estimated_trip_count"}
-!66 = distinct !{!66, !64, !65}
-!67 = !{!"branch_weights", i32 2002, i32 2000}
-!68 = distinct !{!68, !64, !65}
-!69 = !{!23, !24, i64 16}
-!70 = !{!"branch_weights", i32 6004, i32 2000}
-!71 = distinct !{!71, !64, !65}
-!72 = distinct !{!72, !64, !65}
-!73 = distinct !{!73, !64, !65}
-!74 = distinct !{!74, !64, !65}
-!75 = distinct !{!75, !64, !65}
-!76 = distinct !{!76, !64, !65}
-!77 = distinct !{!77, !64, !65}
-!78 = distinct !{!78, !64, !65}
+!65 = distinct !{!65, !64}
+!66 = !{!"branch_weights", i32 2002, i32 2000}
+!67 = distinct !{!67, !64}
+!68 = !{!23, !24, i64 16}
+!69 = !{!"branch_weights", i32 6004, i32 2000}
+!70 = distinct !{!70, !64}
+!71 = distinct !{!71, !64}
+!72 = distinct !{!72, !64}
+!73 = distinct !{!73, !64}
+!74 = distinct !{!74, !64}
+!75 = distinct !{!75, !64}
+!76 = distinct !{!76, !64}
+!77 = distinct !{!77, !64}

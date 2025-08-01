@@ -302,7 +302,7 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr noundef %0, i32 nounde
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %20 = load ptr, ptr %19, align 8, !tbaa !27
   %21 = tail call ptr %20(ptr noundef nonnull %3, ptr noundef %15, i64 noundef range(i64 -17179869184, 17179869177) %17) #6
   br label %pmix_tma_realloc.exit
 
@@ -335,7 +335,7 @@ pmix_tma_realloc.exit:                            ; preds = %18, %22
   store ptr null, ptr %35, align 8, !tbaa !22
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
   %36 = add nsw i64 %16, 63
@@ -356,7 +356,7 @@ pmix_tma_realloc.exit:                            ; preds = %18, %22
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %48 = load ptr, ptr %47, align 8, !tbaa !28
+  %48 = load ptr, ptr %47, align 8, !tbaa !27
   %49 = tail call ptr %48(ptr noundef nonnull %3, ptr noundef %44, i64 noundef range(i64 -17179869184, 17179869177) %45) #6
   br label %pmix_tma_realloc.exit55
 
@@ -403,7 +403,7 @@ pmix_tma_realloc.exit55:                          ; preds = %46, %50
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %1, 0
-  br i1 %4, label %91, label %5, !prof !30
+  br i1 %4, label %91, label %5, !prof !29
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -495,7 +495,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   %61 = load i64, ptr %60, align 8, !tbaa !23
   %62 = icmp eq i64 %61, -1
   %63 = add i32 %.070, 1
-  br i1 %62, label %.preheader, label %64, !llvm.loop !31
+  br i1 %62, label %.preheader, label %64, !llvm.loop !30
 
 64:                                               ; preds = %.preheader
   %65 = and i64 %61, 4294967295
@@ -611,7 +611,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
   %37 = load i64, ptr %36, align 8, !tbaa !23
   %38 = icmp eq i64 %37, -1
   %39 = add i32 %.060, 1
-  br i1 %38, label %.preheader, label %40, !llvm.loop !32
+  br i1 %38, label %.preheader, label %40, !llvm.loop !31
 
 40:                                               ; preds = %.preheader
   %41 = and i64 %37, 4294967295
@@ -730,11 +730,10 @@ attributes #8 = { nounwind allocsize(1) }
 !22 = !{!9, !9, i64 0}
 !23 = !{!24, !24, i64 0}
 !24 = !{!"long", !6, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = !{!11, !9, i64 16}
-!29 = distinct !{!29, !26, !27}
-!30 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!31 = distinct !{!31, !26, !27}
-!32 = distinct !{!32, !26, !27}
+!27 = !{!11, !9, i64 16}
+!28 = distinct !{!28, !26}
+!29 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!30 = distinct !{!30, !26}
+!31 = distinct !{!31, !26}

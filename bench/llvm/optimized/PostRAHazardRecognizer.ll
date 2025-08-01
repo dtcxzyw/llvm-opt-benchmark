@@ -216,7 +216,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_122PostRAHazardRecognizer20r
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.024.047, i64 8
   %.sroa.024.0 = load ptr, ptr %18, align 8, !tbaa !144
   %.not38 = icmp eq ptr %.sroa.024.0, %15
-  br i1 %.not38, label %_ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i, label %.lr.ph49, !llvm.loop !150
+  br i1 %.not38, label %_ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i, label %.lr.ph49
 
 .lr.ph:                                           ; preds = %.lr.ph49, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
   %.sroa.021.043 = phi ptr [ %.sroa.021.0, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ %.sroa.021.040, %.lr.ph49 ]
@@ -273,14 +273,14 @@ _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1E
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, 8
   %.not3.i.i.i = icmp eq i32 %49, 0
-  br i1 %.not3.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, !llvm.loop !152
+  br i1 %.not3.i.i.i, label %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit, label %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, !llvm.loop !150
 
 _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds = %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i, %40, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i
   %.sroa.0.0.i.i.i = phi ptr [ %.sroa.021.043, %40 ], [ %.sroa.021.043, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.preheader.i.i.i ], [ %46, %_ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EE5isEndEv.exit.i.i.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %.sroa.021.0 = load ptr, ptr %50, align 8, !tbaa !145
   %.not39 = icmp eq ptr %.sroa.021.0, %17
-  br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !154
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 _ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i: ; preds = %._crit_edge, %13
   %.019.lcssa = phi i1 [ false, %13 ], [ %.1.lcssa, %._crit_edge ]
@@ -332,10 +332,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #5 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !155
+  %3 = load ptr, ptr %2, align 8, !tbaa !152
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !157
-  %6 = load ptr, ptr %5, align 8, !tbaa !158
+  %5 = load ptr, ptr %4, align 8, !tbaa !154
+  %6 = load ptr, ptr %5, align 8, !tbaa !155
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #10
   ret void
 }
@@ -510,13 +510,10 @@ attributes #13 = { builtin nounwind }
 !148 = !{!"_ZTSN4llvm6detail13PunnedPointerIPNS_15ilist_node_baseILb1EvEEEE", !5, i64 0}
 !149 = !{!"p1 _ZTSN4llvm15ilist_node_baseILb1EvEE", !4, i64 0}
 !150 = distinct !{!150, !151}
-!151 = !{!"llvm.loop.estimated_trip_count"}
-!152 = distinct !{!152, !153, !151}
-!153 = !{!"llvm.loop.mustprogress"}
-!154 = distinct !{!154, !151}
-!155 = !{!156, !4, i64 0}
-!156 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0, !8, i64 8}
-!157 = !{!156, !8, i64 8}
-!158 = !{!159, !160, i64 0}
-!159 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !160, i64 0}
-!160 = !{!"p1 _ZTSN4llvm12PassRegistryE", !4, i64 0}
+!151 = !{!"llvm.loop.mustprogress"}
+!152 = !{!153, !4, i64 0}
+!153 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0, !8, i64 8}
+!154 = !{!153, !8, i64 8}
+!155 = !{!156, !157, i64 0}
+!156 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !157, i64 0}
+!157 = !{!"p1 _ZTSN4llvm12PassRegistryE", !4, i64 0}

@@ -818,22 +818,22 @@ define dso_local noundef i32 @_ZN5clang6driver5types26lookupTypeForTypeSpecifier
   br i1 %6, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit, label %7
 
 7:                                                ; preds = %3
-  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDEE19kStaticLangageTypes, i64 4), i64 %.02946.i.i.i.idx.i.i
-  %8 = load i32, ptr %gep, align 4, !tbaa !15
+  %.ptr8.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.ptr.i.i, i64 4
+  %8 = load i32, ptr %.ptr8.i.i, align 4, !tbaa !15
   %9 = zext i32 %8 to i64
   %10 = icmp eq i64 %indvars.iv.next, %9
   br i1 %10, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread, label %11
 
 11:                                               ; preds = %7
-  %gep27 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDEE19kStaticLangageTypes, i64 8), i64 %.02946.i.i.i.idx.i.i
-  %12 = load i32, ptr %gep27, align 8, !tbaa !15
+  %.ptr7.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.ptr.i.i, i64 8
+  %12 = load i32, ptr %.ptr7.i.i, align 8, !tbaa !15
   %13 = zext i32 %12 to i64
   %14 = icmp eq i64 %indvars.iv.next, %13
   br i1 %14, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread, label %15
 
 15:                                               ; preds = %11
-  %gep28 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDEE19kStaticLangageTypes, i64 12), i64 %.02946.i.i.i.idx.i.i
-  %16 = load i32, ptr %gep28, align 4, !tbaa !15
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.ptr.i.i, i64 12
+  %16 = load i32, ptr %.ptr.i.i, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
   %18 = icmp eq i64 %indvars.iv.next, %17
   br i1 %18, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread, label %19
@@ -857,7 +857,7 @@ _ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15: ; preds =
 
 _ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread: ; preds = %15, %11, %7, %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit, %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15
   %exitcond.not = icmp eq i64 %indvars.iv.next, 67
-  br i1 %exitcond.not, label %sub_0, label %2, !llvm.loop !19
+  br i1 %exitcond.not, label %sub_0, label %2, !llvm.loop !18
 
 sub_0:                                            ; preds = %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread
   %26 = load i8, ptr %0, align 1
@@ -867,8 +867,8 @@ sub_0:                                            ; preds = %_ZN5clang6driver5ty
 sub_1:                                            ; preds = %sub_0
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %28 = load i8, ptr %27, align 1
-  %.not30 = icmp eq i8 %28, 117
-  br i1 %.not30, label %sub_2, label %.loopexit
+  %.not28 = icmp eq i8 %28, 117
+  br i1 %.not28, label %sub_2, label %.loopexit
 
 sub_2:                                            ; preds = %sub_1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -892,11 +892,11 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !20
+  store ptr %4, ptr %0, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %5, align 8, !tbaa !22
+  store i32 0, ptr %5, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 7, ptr %6, align 4, !tbaa !23
+  store i32 7, ptr %6, align 4, !tbaa !22
   %.not8 = icmp slt i32 %2, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -916,33 +916,33 @@ define dso_local void @_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_
   br i1 %.not7, label %26, label %15
 
 15:                                               ; preds = %11
-  %16 = load i32, ptr %6, align 4, !tbaa !23
+  %16 = load i32, ptr %6, align 4, !tbaa !22
   %.not.i.i.not.i = icmp ult i32 %12, %16
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit, label %17, !prof !24
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit, label %17, !prof !23
 
 17:                                               ; preds = %15
   %18 = zext i32 %12 to i64
   %19 = add nuw nsw i64 %18, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %19, i64 noundef 4) #9
-  %.pre.i = load i32, ptr %5, align 8, !tbaa !22
+  %.pre.i = load i32, ptr %5, align 8, !tbaa !21
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit: ; preds = %15, %17
   %20 = phi i32 [ %12, %15 ], [ %.pre.i, %17 ]
-  %21 = load ptr, ptr %0, align 8, !tbaa !20
+  %21 = load ptr, ptr %0, align 8, !tbaa !19
   %22 = zext i32 %20 to i64
   %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
   store i32 %.09, ptr %23, align 1
-  %24 = load i32, ptr %5, align 8, !tbaa !22
+  %24 = load i32, ptr %5, align 8, !tbaa !21
   %25 = add i32 %24, 1
-  store i32 %25, ptr %5, align 8, !tbaa !22
+  store i32 %25, ptr %5, align 8, !tbaa !21
   br label %26
 
 26:                                               ; preds = %11, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit
   %27 = phi i32 [ %12, %11 ], [ %25, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit ]
   %28 = add nuw i32 %.09, 1
   %exitcond.not = icmp eq i32 %.09, %2
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %26, %3
   ret void
@@ -951,13 +951,13 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.e
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang6driver5types20getCompilationPhasesERKNS0_6DriverERN4llvm3opt14DerivedArgListENS1_2IDE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1224) %1, ptr noundef nonnull align 8 dereferenceable(328) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = tail call noundef i32 @_ZNK5clang6driver6Driver13getFinalPhaseERKN4llvm3opt14DerivedArgListEPPNS3_3ArgE(ptr noundef nonnull align 8 dereferenceable(1224) %1, ptr noundef nonnull align 8 dereferenceable(328) %2, ptr noundef null) #9
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %0, align 8, !tbaa !20, !alias.scope !26
+  store ptr %6, ptr %0, align 8, !tbaa !19, !alias.scope !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %7, align 8, !tbaa !22, !alias.scope !26
+  store i32 0, ptr %7, align 8, !tbaa !21, !alias.scope !25
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 7, ptr %8, align 4, !tbaa !23, !alias.scope !26
+  store i32 7, ptr %8, align 4, !tbaa !22, !alias.scope !25
   %.not8.i = icmp slt i32 %5, 0
   br i1 %.not8.i, label %_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE.exit, label %.lr.ph.i
 
@@ -965,7 +965,7 @@ define dso_local void @_ZN5clang6driver5types20getCompilationPhasesERKNS0_6Drive
   %9 = add i32 %3, -1
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw [67 x %struct.TypeInfo], ptr @_ZL9TypeInfos, i64 0, i64 %10, i32 3
-  %12 = load i32, ptr %11, align 4, !tbaa !13, !noalias !26
+  %12 = load i32, ptr %11, align 4, !tbaa !13, !noalias !25
   br label %13
 
 13:                                               ; preds = %28, %.lr.ph.i
@@ -977,33 +977,33 @@ define dso_local void @_ZN5clang6driver5types20getCompilationPhasesERKNS0_6Drive
   br i1 %.not7.i, label %28, label %17
 
 17:                                               ; preds = %13
-  %18 = load i32, ptr %8, align 4, !tbaa !23, !alias.scope !26
+  %18 = load i32, ptr %8, align 4, !tbaa !22, !alias.scope !25
   %.not.i.i.not.i.i = icmp ult i32 %14, %18
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i, label %19, !prof !24
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i, label %19, !prof !23
 
 19:                                               ; preds = %17
   %20 = zext i32 %14 to i64
   %21 = add nuw nsw i64 %20, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6, i64 noundef %21, i64 noundef 4) #9
-  %.pre.i.i = load i32, ptr %7, align 8, !tbaa !22, !alias.scope !26
+  %.pre.i.i = load i32, ptr %7, align 8, !tbaa !21, !alias.scope !25
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i: ; preds = %19, %17
   %22 = phi i32 [ %14, %17 ], [ %.pre.i.i, %19 ]
-  %23 = load ptr, ptr %0, align 8, !tbaa !20, !alias.scope !26
+  %23 = load ptr, ptr %0, align 8, !tbaa !19, !alias.scope !25
   %24 = zext i32 %22 to i64
   %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
   store i32 %.09.i, ptr %25, align 1
-  %26 = load i32, ptr %7, align 8, !tbaa !22, !alias.scope !26
+  %26 = load i32, ptr %7, align 8, !tbaa !21, !alias.scope !25
   %27 = add i32 %26, 1
-  store i32 %27, ptr %7, align 8, !tbaa !22, !alias.scope !26
+  store i32 %27, ptr %7, align 8, !tbaa !21, !alias.scope !25
   br label %28
 
 28:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i, %13
   %29 = phi i32 [ %14, %13 ], [ %27, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6phases2IDELb1EE9push_backES4_.exit.i ]
   %30 = add nuw i32 %.09.i, 1
   %exitcond.not.i = icmp eq i32 %.09.i, %5
-  br i1 %exitcond.not.i, label %_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE.exit, label %13, !llvm.loop !25
+  br i1 %exitcond.not.i, label %_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE.exit, label %13, !llvm.loop !24
 
 _ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE.exit: ; preds = %28, %4
   ret void
@@ -1106,16 +1106,15 @@ attributes #9 = { nounwind }
 !13 = !{!10, !11, i64 0}
 !14 = !{!4, !5, i64 8}
 !15 = !{!9, !9, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = !{!21, !6, i64 0}
-!21 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !11, i64 8, !11, i64 12}
-!22 = !{!21, !11, i64 8}
-!23 = !{!21, !11, i64 12}
-!24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!25 = distinct !{!25, !17, !18}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE: argument 0"}
-!28 = distinct !{!28, !"_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE"}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !6, i64 0}
+!20 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !11, i64 8, !11, i64 12}
+!21 = !{!20, !11, i64 8}
+!22 = !{!20, !11, i64 12}
+!23 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!24 = distinct !{!24, !17}
+!25 = !{!26}
+!26 = distinct !{!26, !27, !"_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE: argument 0"}
+!27 = distinct !{!27, !"_ZN5clang6driver5types20getCompilationPhasesENS1_2IDENS0_6phases2IDE"}

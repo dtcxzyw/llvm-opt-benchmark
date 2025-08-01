@@ -1648,7 +1648,7 @@ paritystr.exit.i:                                 ; preds = %421, %420, %389
   %797 = sub i16 %.0442530.i, %796
   %798 = icmp eq i16 %797, 0
   %.not492.i = select i1 %.not493.i, i1 true, i1 %798
-  br i1 %.not492.i, label %dissect_pgmopts.exit, label %.lr.ph533.i, !llvm.loop !13
+  br i1 %.not492.i, label %dissect_pgmopts.exit, label %.lr.ph533.i, !llvm.loop !12
 
 .critedge497.i:                                   ; preds = %466, %459
   %.str.205.sink = phi ptr [ @.str.204, %459 ], [ @.str.205, %466 ]
@@ -1898,7 +1898,6 @@ attributes #9 = { nounwind memory(none) }
 !7 = !{}
 !8 = !{i64 2150860700}
 !9 = !{i64 2150861380}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
+!12 = distinct !{!12, !11}

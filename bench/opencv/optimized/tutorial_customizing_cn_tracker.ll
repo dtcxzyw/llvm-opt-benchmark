@@ -505,7 +505,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
   %171 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %172 = load ptr, ptr %171, align 8, !tbaa !73
+  %172 = load ptr, ptr %171, align 8, !tbaa !72
   %.not.i.i = icmp eq ptr %172, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN2cv8tracking10TrackerKCFELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %173
 
@@ -517,9 +517,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
   br i1 %176, label %178, label %186
 
 178:                                              ; preds = %173
-  store i32 0, ptr %174, align 8, !tbaa !74
+  store i32 0, ptr %174, align 8, !tbaa !73
   %179 = getelementptr inbounds nuw i8, ptr %172, i64 12
-  store i32 0, ptr %179, align 4, !tbaa !76
+  store i32 0, ptr %179, align 4, !tbaa !75
   %180 = load ptr, ptr %172, align 8, !tbaa !4
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = load ptr, ptr %181, align 8
@@ -537,7 +537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
 
 188:                                              ; preds = %186
   %189 = add nsw i32 %177, -1
-  store i32 %189, ptr %174, align 4, !tbaa !77
+  store i32 %189, ptr %174, align 4, !tbaa !76
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 190:                                              ; preds = %186
@@ -547,7 +547,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %190, %188
   %.0.i.i.i.i = phi i32 [ %177, %188 ], [ %191, %190 ]
   %192 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %192, label %193, label %_ZNSt12__shared_ptrIN2cv8tracking10TrackerKCFELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !78
+  br i1 %192, label %193, label %_ZNSt12__shared_ptrIN2cv8tracking10TrackerKCFELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !77
 
 193:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %172) #17
@@ -651,7 +651,7 @@ define hidden void @_Z14sobelExtractorN2cv3MatENS_5Rect_IiEERS0_(ptr noundef %0,
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr) #17
   %.add = add nuw nsw i64 %.idx, 96
   %24 = icmp eq i64 %.add, 192
-  br i1 %24, label %25, label %23, !llvm.loop !79
+  br i1 %24, label %25, label %23
 
 25:                                               ; preds = %23
   %.sroa.0.sroa.0.0.extract.trunc = trunc i64 %1 to i32
@@ -671,7 +671,7 @@ define hidden void @_Z14sobelExtractorN2cv3MatENS_5Rect_IiEERS0_(ptr noundef %0,
   br i1 %27, label %31, label %33
 
 31:                                               ; preds = %25
-  store i32 0, ptr %7, align 8, !tbaa !80
+  store i32 0, ptr %7, align 8, !tbaa !78
   %32 = add nsw i32 %28, %.sroa.0.sroa.0.0.extract.trunc
   store i32 %32, ptr %.sroa.16.0..sroa_idx, align 8, !tbaa !59
   br label %33
@@ -683,17 +683,17 @@ define hidden void @_Z14sobelExtractorN2cv3MatENS_5Rect_IiEERS0_(ptr noundef %0,
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 0, ptr %37, align 4, !tbaa !81
+  store i32 0, ptr %37, align 4, !tbaa !79
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %39 = add nsw i32 %30, %.sroa.0.sroa.9.0.extract.trunc
-  store i32 %39, ptr %38, align 4, !tbaa !82
+  store i32 %39, ptr %38, align 4, !tbaa !80
   br label %40
 
 40:                                               ; preds = %36, %33
   %41 = phi i32 [ %39, %36 ], [ %30, %33 ]
   %42 = add nsw i32 %28, %.sroa.0.sroa.0.0.extract.trunc
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %44 = load i32, ptr %43, align 4, !tbaa !83
+  %44 = load i32, ptr %43, align 4, !tbaa !81
   %45 = icmp sgt i32 %42, %44
   br i1 %45, label %46, label %48
 
@@ -713,7 +713,7 @@ define hidden void @_Z14sobelExtractorN2cv3MatENS_5Rect_IiEERS0_(ptr noundef %0,
 54:                                               ; preds = %48
   %55 = sub nsw i32 %52, %.sroa.0.sroa.9.0.extract.trunc
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %55, ptr %56, align 4, !tbaa !82
+  store i32 %55, ptr %56, align 4, !tbaa !80
   br label %57
 
 57:                                               ; preds = %54, %48
@@ -731,7 +731,7 @@ define hidden void @_Z14sobelExtractorN2cv3MatENS_5Rect_IiEERS0_(ptr noundef %0,
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %52, ptr %64, align 4, !tbaa !82
+  store i32 %52, ptr %64, align 4, !tbaa !80
   br label %65
 
 65:                                               ; preds = %63, %61
@@ -774,15 +774,15 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %65
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %76 = load i32, ptr %75, align 4, !tbaa !81
+  %76 = load i32, ptr %75, align 4, !tbaa !79
   %77 = sub nsw i32 %76, %.sroa.0.sroa.9.0.extract.trunc
   %78 = load i32, ptr %51, align 8, !tbaa !61
   %79 = icmp sgt i32 %50, %78
   %80 = sub nsw i32 %50, %78
   %spec.select = select i1 %79, i32 %80, i32 0
-  %81 = load i32, ptr %7, align 8, !tbaa !80
+  %81 = load i32, ptr %7, align 8, !tbaa !78
   %82 = sub nsw i32 %81, %.sroa.0.sroa.0.0.extract.trunc
-  %83 = load i32, ptr %43, align 4, !tbaa !83
+  %83 = load i32, ptr %43, align 4, !tbaa !81
   %84 = icmp sgt i32 %42, %83
   %85 = sub nsw i32 %42, %83
   %86 = select i1 %84, i32 %85, i32 0
@@ -875,7 +875,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %65
           to label %111 unwind label %147
 
 111:                                              ; preds = %109
-  %112 = load ptr, ptr %20, align 8, !tbaa !84
+  %112 = load ptr, ptr %20, align 8, !tbaa !82
   %113 = load ptr, ptr %112, align 8, !tbaa !4
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %115 = load ptr, ptr %114, align 8
@@ -908,7 +908,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %111
   %124 = getelementptr inbounds i8, ptr %123, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %124) #17
   %125 = icmp eq ptr %124, %5
-  br i1 %125, label %126, label %122, !llvm.loop !90
+  br i1 %125, label %126, label %122
 
 126:                                              ; preds = %122
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #17
@@ -1016,7 +1016,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %111
   %156 = getelementptr inbounds i8, ptr %155, i64 -96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %156) #17
   %157 = icmp eq ptr %156, %5
-  br i1 %157, label %158, label %154, !llvm.loop !91
+  br i1 %157, label %158, label %154
 
 158:                                              ; preds = %154
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %5) #17
@@ -1047,7 +1047,7 @@ declare void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8tracking10TrackerKCFELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8, !tbaa !72
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -1059,9 +1059,9 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8tracking10TrackerKCFEL
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !74
+  store i32 0, ptr %5, align 8, !tbaa !73
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !76
+  store i32 0, ptr %10, align 4, !tbaa !75
   %11 = load ptr, ptr %3, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -1079,7 +1079,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8tracking10TrackerKCFEL
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !77
+  store i32 %20, ptr %5, align 4, !tbaa !76
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -1089,7 +1089,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv8tracking10TrackerKCFEL
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !78
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !77
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -1141,9 +1141,9 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !77
+  %8 = load i32, ptr %5, align 4, !tbaa !76
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !77
+  store i32 %9, ptr %5, align 4, !tbaa !76
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -1298,25 +1298,21 @@ attributes #18 = { builtin nounwind }
 !67 = !{!"p1 long", !15, i64 0}
 !68 = !{!69, !69, i64 0}
 !69 = !{!"double", !11, i64 0}
-!70 = distinct !{!70, !71, !72}
+!70 = distinct !{!70, !71}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!"llvm.loop.estimated_trip_count"}
-!73 = !{!43, !44, i64 0}
-!74 = !{!75, !17, i64 8}
-!75 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !17, i64 8, !17, i64 12}
-!76 = !{!75, !17, i64 12}
-!77 = !{!17, !17, i64 0}
-!78 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!79 = distinct !{!79, !72}
-!80 = !{!60, !17, i64 0}
-!81 = !{!60, !17, i64 4}
-!82 = !{!60, !17, i64 12}
-!83 = !{!62, !17, i64 12}
-!84 = !{!85, !86, i64 0}
-!85 = !{!"_ZTSN2cv7MatExprE", !86, i64 0, !17, i64 8, !62, i64 16, !62, i64 112, !62, i64 208, !69, i64 304, !69, i64 312, !87, i64 320}
-!86 = !{!"p1 _ZTSN2cv5MatOpE", !15, i64 0}
-!87 = !{!"_ZTSN2cv7Scalar_IdEE", !88, i64 0}
-!88 = !{!"_ZTSN2cv3VecIdLi4EEE", !89, i64 0}
-!89 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !11, i64 0}
-!90 = distinct !{!90, !72}
-!91 = distinct !{!91, !72}
+!72 = !{!43, !44, i64 0}
+!73 = !{!74, !17, i64 8}
+!74 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !17, i64 8, !17, i64 12}
+!75 = !{!74, !17, i64 12}
+!76 = !{!17, !17, i64 0}
+!77 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!78 = !{!60, !17, i64 0}
+!79 = !{!60, !17, i64 4}
+!80 = !{!60, !17, i64 12}
+!81 = !{!62, !17, i64 12}
+!82 = !{!83, !84, i64 0}
+!83 = !{!"_ZTSN2cv7MatExprE", !84, i64 0, !17, i64 8, !62, i64 16, !62, i64 112, !62, i64 208, !69, i64 304, !69, i64 312, !85, i64 320}
+!84 = !{!"p1 _ZTSN2cv5MatOpE", !15, i64 0}
+!85 = !{!"_ZTSN2cv7Scalar_IdEE", !86, i64 0}
+!86 = !{!"_ZTSN2cv3VecIdLi4EEE", !87, i64 0}
+!87 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !11, i64 0}

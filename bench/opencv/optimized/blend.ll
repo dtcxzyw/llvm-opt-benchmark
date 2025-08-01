@@ -788,7 +788,7 @@ define linkonce_odr hidden void @_ZNK2cv18BlendLinearInvokerIhEclERKNS_5RangeE(p
   %87 = load i32, ptr %13, align 4, !tbaa !51
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next40, %88
-  br i1 %89, label %.lr.ph.us, label %._crit_edge36, !llvm.loop !72
+  br i1 %89, label %.lr.ph.us, label %._crit_edge36, !llvm.loop !71
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.lr.ph35, %2
   ret void
@@ -903,12 +903,12 @@ define linkonce_odr hidden void @_ZNK2cv18BlendLinearInvokerIfEclERKNS_5RangeE(p
   store float %77, ptr %78, align 4, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %61, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.us, label %61, !llvm.loop !73
 
 ._crit_edge.us:                                   ; preds = %61
   %indvars.iv.next40 = add nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %._crit_edge36, label %.lr.ph.us, !llvm.loop !75
+  br i1 %exitcond43.not, label %._crit_edge36, label %.lr.ph.us, !llvm.loop !74
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.lr.ph35, %2
   ret void
@@ -1013,10 +1013,9 @@ attributes #17 = { noreturn nounwind }
 !66 = !{!67, !67, i64 0}
 !67 = !{!"float", !8, i64 0}
 !68 = !{!8, !8, i64 0}
-!69 = distinct !{!69, !70, !71}
+!69 = distinct !{!69, !70}
 !70 = !{!"llvm.loop.mustprogress"}
-!71 = !{!"llvm.loop.estimated_trip_count"}
-!72 = distinct !{!72, !70, !71, !73}
-!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!74 = distinct !{!74, !70, !71}
-!75 = distinct !{!75, !70, !71, !73}
+!71 = distinct !{!71, !70, !72}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!73 = distinct !{!73, !70}
+!74 = distinct !{!74, !70, !72}

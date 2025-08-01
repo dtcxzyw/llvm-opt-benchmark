@@ -470,8 +470,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #15
   %174 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %175 = load ptr, ptr %174, align 8, !tbaa !36
-  %176 = load ptr, ptr %22, align 8, !tbaa !39
+  %175 = load ptr, ptr %174, align 8, !tbaa !35
+  %176 = load ptr, ptr %22, align 8, !tbaa !38
   %.not150 = icmp eq ptr %175, %176
   br i1 %.not150, label %._crit_edge.i.i102, label %.lr.ph149
 
@@ -531,14 +531,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26) #15
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25) #15
   %193 = add nuw i64 %.0147, 1
-  %194 = load ptr, ptr %174, align 8, !tbaa !36
-  %195 = load ptr, ptr %22, align 8, !tbaa !39
+  %194 = load ptr, ptr %174, align 8, !tbaa !35
+  %195 = load ptr, ptr %22, align 8, !tbaa !38
   %196 = ptrtoint ptr %194 to i64
   %197 = ptrtoint ptr %195 to i64
   %198 = sub i64 %196, %197
   %199 = ashr exact i64 %198, 4
   %200 = icmp ult i64 %193, %199
-  br i1 %200, label %189, label %._crit_edge.i.i102, !llvm.loop !40
+  br i1 %200, label %189, label %._crit_edge.i.i102, !llvm.loop !39
 
 201:                                              ; preds = %189
   %202 = landingpad { ptr, i32 }
@@ -663,7 +663,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122: ; preds = %_Z
           to label %235 unwind label %262
 
 235:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122
-  %236 = load ptr, ptr %22, align 8, !tbaa !39
+  %236 = load ptr, ptr %22, align 8, !tbaa !38
   %.not.i.i.i = icmp eq ptr %236, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit, label %237
 
@@ -770,7 +770,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %_Z
 
 264:                                              ; preds = %262, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, %201, %187
   %.pn82.pn.pn = phi { ptr, i32 } [ %202, %201 ], [ %263, %262 ], [ %.pn79.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132 ], [ %.pn76.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129 ], [ %241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ %188, %187 ]
-  %265 = load ptr, ptr %22, align 8, !tbaa !39
+  %265 = load ptr, ptr %22, align 8, !tbaa !38
   %.not.i.i.i133 = icmp eq ptr %265, null
   br i1 %.not.i.i.i133, label %_ZNSt6vectorIN2cv3VecIiLi4EEESaIS2_EED2Ev.exit134, label %266
 
@@ -955,11 +955,10 @@ attributes #17 = { builtin nounwind }
 !30 = !{!19, !19, i64 0}
 !31 = !{!32, !32, i64 0}
 !32 = !{!"double", !8, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!37, !38, i64 8}
-!37 = !{!"_ZTSNSt12_Vector_baseIN2cv3VecIiLi4EEESaIS2_EE17_Vector_impl_dataE", !38, i64 0, !38, i64 8, !38, i64 16}
-!38 = !{!"p1 _ZTSN2cv3VecIiLi4EEE", !7, i64 0}
-!39 = !{!37, !38, i64 0}
-!40 = distinct !{!40, !34, !35}
+!35 = !{!36, !37, i64 8}
+!36 = !{!"_ZTSNSt12_Vector_baseIN2cv3VecIiLi4EEESaIS2_EE17_Vector_impl_dataE", !37, i64 0, !37, i64 8, !37, i64 16}
+!37 = !{!"p1 _ZTSN2cv3VecIiLi4EEE", !7, i64 0}
+!38 = !{!36, !37, i64 0}
+!39 = distinct !{!39, !34}

@@ -109,7 +109,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
 
 37:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #4
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @cpu_caps_cleared, i64 %6) #4, !srcloc !18
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @cpu_caps_cleared, i64 %6) #4, !srcloc !17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 %6) #4, !srcloc !11
   br label %.split.us.outer
@@ -192,7 +192,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %72 = getelementptr i8, ptr %56, i64 8
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %54, !llvm.loop !19
+  br i1 %74, label %75, label %54, !llvm.loop !14
 
 75:                                               ; preds = %71
   %76 = icmp eq i8 %.ph17, 0
@@ -202,7 +202,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %.ph.be = phi i32 [ 24, %.thread6.us ], [ %69, %.thread5.us ], [ 24, %75 ]
   %.ph16.be = phi ptr [ @cpuid_deps, %.thread6.us ], [ %68, %.thread5.us ], [ @cpuid_deps, %75 ]
   %.ph17.be = phi i8 [ 0, %.thread6.us ], [ 1, %.thread5.us ], [ 0, %75 ]
-  br label %.outer, !llvm.loop !19
+  br label %.outer, !llvm.loop !14
 
 77:                                               ; preds = %51
   call void asm sideeffect "303: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 303b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 303) #4, !srcloc !6
@@ -214,11 +214,11 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %79 = getelementptr i8, ptr %39, i64 8
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %85, label %.split.us, !llvm.loop !20
+  br i1 %81, label %85, label %.split.us, !llvm.loop !18
 
 .thread10:                                        ; preds = %75, %77
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3) #4
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @cpu_caps_cleared, i64 %47) #4, !srcloc !18
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @cpu_caps_cleared, i64 %47) #4, !srcloc !17
   %82 = getelementptr i8, ptr %39, i64 8
   %83 = load i32, ptr %82, align 4
   %84 = icmp eq i32 %83, 0
@@ -235,7 +235,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %.ph18.be = phi i32 [ 24, %.thread11 ], [ %83, %.thread10 ], [ 24, %85 ]
   %.ph19.be = phi ptr [ @cpuid_deps, %.thread11 ], [ %82, %.thread10 ], [ @cpuid_deps, %85 ]
   %.ph20.be = phi i8 [ 0, %.thread11 ], [ 1, %.thread10 ], [ 0, %85 ]
-  br label %.split.us.outer, !llvm.loop !20
+  br label %.split.us.outer, !llvm.loop !18
 
 .split:                                           ; preds = %.split.outer, %100
   %87 = phi i32 [ %102, %100 ], [ %.ph36, %.split.outer ]
@@ -261,7 +261,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %101 = getelementptr i8, ptr %88, i64 8
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %102, 0
-  br i1 %103, label %107, label %.split, !llvm.loop !22
+  br i1 %103, label %107, label %.split, !llvm.loop !14
 
 .thread12:                                        ; preds = %95
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %36, i64 %96) #4, !srcloc !10
@@ -287,7 +287,7 @@ define internal fastcc void @do_clear_cpu_cap(ptr noundef %0, i32 noundef %1) un
   %.ph36.be = phi i32 [ 24, %.thread13 ], [ %105, %.thread12 ], [ 24, %107 ]
   %.ph37.be = phi ptr [ @cpuid_deps, %.thread13 ], [ %104, %.thread12 ], [ @cpuid_deps, %107 ]
   %.ph38.be = phi i8 [ 0, %.thread13 ], [ 1, %.thread12 ], [ 0, %107 ]
-  br label %.split.outer, !llvm.loop !22
+  br label %.split.outer, !llvm.loop !14
 
 .loopexit7:                                       ; preds = %107, %85, %8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #4
@@ -334,12 +334,9 @@ attributes #4 = { nounwind }
 !11 = !{i64 2147789380}
 !12 = !{i64 2147802066, i64 2147802140}
 !13 = !{i64 2147795708, i64 2147795785}
-!14 = distinct !{!14, !15, !16, !17}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
 !16 = !{!"llvm.loop.unroll.disable"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{i64 2147788739, i64 2147788778, i64 2147788799, i64 2147788836, i64 2147788859, i64 2147788729}
-!19 = distinct !{!19, !15, !16, !17}
-!20 = distinct !{!20, !15, !16, !17, !21}
-!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!22 = distinct !{!22, !15, !16, !17}
+!17 = !{i64 2147788739, i64 2147788778, i64 2147788799, i64 2147788836, i64 2147788859, i64 2147788729}
+!18 = distinct !{!18, !15, !16, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}

@@ -116,7 +116,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %43 = add i32 %.018.i, 1
   %44 = add i32 %.120.i, 1
   %exitcond.not.i = icmp eq i32 %43, %35
-  br i1 %exitcond.not.i, label %45, label %36, !llvm.loop !7
+  br i1 %exitcond.not.i, label %45, label %36, !llvm.loop !6
 
 45:                                               ; preds = %42, %36
   %.lcssa.i = phi i64 [ %41, %36 ], [ %.026.i, %42 ]
@@ -138,7 +138,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef 0, i32 noundef %.1.i, ptr noundef nonnull readonly %47, i32 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 131072) %.026.i)
   tail call void @LWLockRelease(ptr noundef %55) #9
   %57 = icmp slt i32 %.2.i, %27
-  br i1 %57, label %.preheader.i, label %set_status_by_pages.exit, !llvm.loop !8
+  br i1 %57, label %.preheader.i, label %set_status_by_pages.exit, !llvm.loop !7
 
 .split35:                                         ; preds = %16
   %58 = sub i32 %1, %.0.lcssa
@@ -176,7 +176,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %74 = add i32 %.018.i44, 1
   %75 = add i32 %.120.i43, 1
   %exitcond.not.i51 = icmp eq i32 %74, %66
-  br i1 %exitcond.not.i51, label %76, label %67, !llvm.loop !7
+  br i1 %exitcond.not.i51, label %76, label %67, !llvm.loop !6
 
 76:                                               ; preds = %73, %67
   %.lcssa.i46 = phi i64 [ %72, %67 ], [ %.026.i40, %73 ]
@@ -198,7 +198,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef 0, i32 noundef %.1.i48, ptr noundef nonnull readonly %78, i32 noundef 3, i64 noundef %4, i64 noundef range(i64 0, 131072) %.026.i40)
   tail call void @LWLockRelease(ptr noundef %86) #9
   %88 = icmp slt i32 %.2.i47, %58
-  br i1 %88, label %.preheader.i39, label %set_status_by_pages.exit52, !llvm.loop !8
+  br i1 %88, label %.preheader.i39, label %set_status_by_pages.exit52, !llvm.loop !7
 
 set_status_by_pages.exit52:                       ; preds = %76, %.split35
   %89 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
@@ -244,7 +244,7 @@ set_status_by_pages.exit52:                       ; preds = %76, %.split35
   %110 = add i32 %.018.i60, 1
   %111 = add i32 %.120.i59, 1
   %exitcond.not.i67 = icmp eq i32 %110, %102
-  br i1 %exitcond.not.i67, label %112, label %103, !llvm.loop !7
+  br i1 %exitcond.not.i67, label %112, label %103, !llvm.loop !6
 
 112:                                              ; preds = %109, %103
   %.lcssa.i62 = phi i64 [ %108, %103 ], [ %.026.i56, %109 ]
@@ -266,7 +266,7 @@ set_status_by_pages.exit52:                       ; preds = %76, %.split35
   tail call fastcc void @TransactionIdSetPageStatusInternal(i32 noundef 0, i32 noundef %.1.i64, ptr noundef nonnull readonly %114, i32 noundef 1, i64 noundef %4, i64 noundef range(i64 0, 131072) %.026.i56)
   tail call void @LWLockRelease(ptr noundef %122) #9
   %124 = icmp slt i32 %.2.i63, %58
-  br i1 %124, label %.preheader.i55, label %set_status_by_pages.exit, !llvm.loop !8
+  br i1 %124, label %.preheader.i55, label %set_status_by_pages.exit, !llvm.loop !7
 
 set_status_by_pages.exit:                         ; preds = %45, %112, %set_status_by_pages.exit52, %.split, %._crit_edge.thread
   ret void
@@ -357,11 +357,11 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
 55:                                               ; preds = %48, %47
   store volatile i32 %.072.i, ptr %46, align 4
   %56 = load i32, ptr @MyProcNumber, align 4
-  %57 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, i32 %.072.i, i32 %56, ptr nonnull elementtype(i32) %44) #9, !srcloc !9
+  %57 = tail call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %44, i32 %.072.i, i32 %56, ptr nonnull elementtype(i32) %44) #9, !srcloc !8
   %58 = extractvalue { i32, i8 } %57, 0
   %59 = extractvalue { i32, i8 } %57, 1
   %.not73.i = icmp eq i8 %59, 0
-  br i1 %.not73.i, label %47, label %60, !llvm.loop !10
+  br i1 %.not73.i, label %47, label %60
 
 60:                                               ; preds = %55
   %.not62.i = icmp eq i32 %58, -1
@@ -377,10 +377,10 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %.054.i = phi i32 [ 0, %61 ], [ %68, %64 ]
   %65 = load ptr, ptr %63, align 8
   tail call void @PGSemaphoreLock(ptr noundef %65) #9
-  %66 = load i8, ptr %39, align 4, !range !11, !noundef !12
+  %66 = load i8, ptr %39, align 4, !range !9, !noundef !10
   %67 = trunc nuw i8 %66 to i1
   %68 = add i32 %.054.i, 1
-  br i1 %67, label %64, label %69, !llvm.loop !13
+  br i1 %67, label %64, label %69
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr @my_wait_event_info, align 8
@@ -394,7 +394,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %73 = load ptr, ptr %63, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %73) #9
   %74 = icmp samesign ugt i32 %.15576.i, 1
-  br i1 %74, label %.lr.ph.i, label %TransactionGroupUpdateXidStatus.exit.thread, !llvm.loop !14
+  br i1 %74, label %.lr.ph.i, label %TransactionGroupUpdateXidStatus.exit.thread, !llvm.loop !11
 
 75:                                               ; preds = %60
   %76 = load i64, ptr %42, align 8
@@ -460,7 +460,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %116 = getelementptr inbounds nuw i8, ptr %90, i64 720
   %117 = load volatile i32, ptr %116, align 4
   %.not63.i = icmp eq i32 %117, -1
-  br i1 %.not63.i, label %._crit_edge.i, label %.lr.ph81.i, !llvm.loop !15
+  br i1 %.not63.i, label %._crit_edge.i, label %.lr.ph81.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %104, %75
   %.052.lcssa.i = phi ptr [ %84, %75 ], [ %.153.i, %104 ]
@@ -483,7 +483,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 720
   %125 = load volatile i32, ptr %124, align 4
   store volatile i32 -1, ptr %124, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 716
   store i8 0, ptr %126, align 4
   %127 = load ptr, ptr @MyProc, align 8
@@ -498,7 +498,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
 
 131:                                              ; preds = %128, %.lr.ph85.i
   %.not65.i = icmp eq i32 %125, -1
-  br i1 %.not65.i, label %TransactionGroupUpdateXidStatus.exit.thread, label %.lr.ph85.i, !llvm.loop !17
+  br i1 %.not65.i, label %TransactionGroupUpdateXidStatus.exit.thread, label %.lr.ph85.i, !llvm.loop !14
 
 TransactionGroupUpdateXidStatus.exit:             ; preds = %48
   store i8 0, ptr %39, align 4
@@ -985,7 +985,7 @@ define internal fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, 
   br i1 %7, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %.pre62 = load i8, ptr @InRecovery, align 1, !range !11
+  %.pre62 = load i8, ptr @InRecovery, align 1, !range !9
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %TransactionIdSetStatusBit.exit33.us
@@ -1019,7 +1019,7 @@ define internal fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, 
   %37 = or i8 %28, %36
   store i8 %37, ptr %27, align 1
   %.pre59 = load ptr, ptr @XactCtlData, align 8
-  %.pre61 = load i8, ptr @InRecovery, align 1, !range !11
+  %.pre61 = load i8, ptr @InRecovery, align 1, !range !9
   br label %TransactionIdSetStatusBit.exit33.us
 
 TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.us
@@ -1027,7 +1027,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %39 = phi ptr [ %.pre59, %34 ], [ %15, %.lr.ph.split.us ]
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
-  br i1 %exitcond47.not, label %.split24, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %exitcond47.not, label %.split24, label %.lr.ph.split.us, !llvm.loop !15
 
 .split:                                           ; preds = %9
   %40 = and i32 %0, 32767
@@ -1046,7 +1046,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %53 = sext i8 %52 to i32
   %54 = ashr i32 %53, %43
   %55 = and i32 %54, 3
-  %56 = load i8, ptr @InRecovery, align 1, !range !11, !noundef !12
+  %56 = load i8, ptr @InRecovery, align 1, !range !9, !noundef !10
   %57 = trunc nuw i8 %56 to i1
   %58 = icmp eq i32 %3, 3
   %or.cond.i = and i1 %58, %57
@@ -1142,7 +1142,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %125 = sext i8 %124 to i32
   %126 = ashr i32 %125, %117
   %127 = and i32 %126, 3
-  %128 = load i8, ptr @InRecovery, align 1, !range !11, !noundef !12
+  %128 = load i8, ptr @InRecovery, align 1, !range !9, !noundef !10
   %129 = trunc nuw i8 %128 to i1
   %130 = icmp eq i32 %127, 1
   %or.cond4.i32 = select i1 %129, i1 %130, i1 false
@@ -1173,7 +1173,7 @@ TransactionIdSetStatusBit.exit33:                 ; preds = %.lr.ph.split, %131,
   %145 = phi ptr [ %111, %.lr.ph.split ], [ %137, %131 ], [ %.pre, %144 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count46
-  br i1 %exitcond.not, label %.split24, label %.lr.ph.split, !llvm.loop !20
+  br i1 %exitcond.not, label %.split24, label %.lr.ph.split, !llvm.loop !17
 
 TransactionIdSetStatusBit.exit:                   ; preds = %110, %99, %.split24, %79, %68, %60, %.split, %6
   %146 = icmp sgt i32 %1, 0
@@ -1193,7 +1193,7 @@ TransactionIdSetStatusBit.exit.._crit_edge_crit_edge: ; preds = %TransactionIdSe
   br i1 %7, label %.lr.ph39.split.us.preheader, label %.lr.ph39.split
 
 .lr.ph39.split.us.preheader:                      ; preds = %.lr.ph39
-  %.pre70 = load i8, ptr @InRecovery, align 1, !range !11
+  %.pre70 = load i8, ptr @InRecovery, align 1, !range !9
   br label %.lr.ph39.split.us
 
 .lr.ph39.split.us:                                ; preds = %.lr.ph39.split.us.preheader, %TransactionIdSetStatusBit.exit36.us
@@ -1232,7 +1232,7 @@ TransactionIdSetStatusBit.exit.._crit_edge_crit_edge: ; preds = %TransactionIdSe
   %177 = or i8 %174, %176
   store i8 %177, ptr %163, align 1
   %.pre67 = load ptr, ptr @XactCtlData, align 8
-  %.pre69 = load i8, ptr @InRecovery, align 1, !range !11
+  %.pre69 = load i8, ptr @InRecovery, align 1, !range !9
   br label %TransactionIdSetStatusBit.exit36.us
 
 TransactionIdSetStatusBit.exit36.us:              ; preds = %170, %.lr.ph39.split.us
@@ -1240,7 +1240,7 @@ TransactionIdSetStatusBit.exit36.us:              ; preds = %170, %.lr.ph39.spli
   %179 = phi ptr [ %.pre67, %170 ], [ %151, %.lr.ph39.split.us ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph39.split.us, !llvm.loop !21
+  br i1 %exitcond57.not, label %._crit_edge, label %.lr.ph39.split.us, !llvm.loop !18
 
 .lr.ph39.split:                                   ; preds = %.lr.ph39, %TransactionIdSetStatusBit.exit36
   %180 = phi ptr [ %218, %TransactionIdSetStatusBit.exit36 ], [ %.pre68, %.lr.ph39 ]
@@ -1261,7 +1261,7 @@ TransactionIdSetStatusBit.exit36.us:              ; preds = %170, %.lr.ph39.spli
   %194 = sext i8 %193 to i32
   %195 = ashr i32 %194, %186
   %196 = and i32 %195, 3
-  %197 = load i8, ptr @InRecovery, align 1, !range !11, !noundef !12
+  %197 = load i8, ptr @InRecovery, align 1, !range !9, !noundef !10
   %198 = trunc nuw i8 %197 to i1
   %or.cond.i34 = and i1 %148, %198
   %199 = icmp eq i32 %196, 1
@@ -1297,7 +1297,7 @@ TransactionIdSetStatusBit.exit36:                 ; preds = %.lr.ph39.split, %20
   %218 = phi ptr [ %180, %.lr.ph39.split ], [ %210, %200 ], [ %.pre65, %217 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count56
-  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph39.split, !llvm.loop !22
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph39.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %TransactionIdSetStatusBit.exit36, %TransactionIdSetStatusBit.exit36.us, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge
   %.pre-phi73 = phi i64 [ %.pre72, %TransactionIdSetStatusBit.exit.._crit_edge_crit_edge ], [ %147, %TransactionIdSetStatusBit.exit36.us ], [ %147, %TransactionIdSetStatusBit.exit36 ]
@@ -1360,22 +1360,19 @@ attributes #10 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = !{i64 1690920, i64 1690937, i64 1690960}
-!10 = distinct !{!10, !6}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = !{i64 2150825149}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !5, !6}
-!21 = distinct !{!21, !5, !6, !19}
-!22 = distinct !{!22, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = !{i64 1690920, i64 1690937, i64 1690960}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = !{i64 2150825149}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5, !16}
+!19 = distinct !{!19, !5}

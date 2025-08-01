@@ -138,7 +138,7 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   br label %14, !llvm.loop !15
 
 .loopexit:                                        ; preds = %14, %54
-  %16 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %16 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %16, ptr noundef nonnull @.str.45, ptr noundef %13) #3
   br label %.loopexit90
 
@@ -214,7 +214,7 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %49
-  %52 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %52 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %53 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %52, ptr noundef nonnull @.str.46, i32 noundef 16384, i32 noundef %47) #3
   br label %56
 
@@ -239,7 +239,7 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   br i1 %.not78, label %62, label %65
 
 62:                                               ; preds = %60
-  %63 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %63 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %64 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %63, ptr noundef nonnull @.str.47) #3
   br label %.loopexit90
 
@@ -266,7 +266,7 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
 
 75:                                               ; preds = %73, %72
   %76 = load ptr, ptr %3, align 8, !tbaa !4
-  %77 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %77 = load ptr, ptr @bio_err, align 8, !tbaa !17
   call void @EVP_PKEY_CTX_set_app_data(ptr noundef %76, ptr noundef %77) #3
   %78 = load ptr, ptr %3, align 8, !tbaa !4
   %79 = load i32, ptr %5, align 4, !tbaa !11
@@ -275,7 +275,7 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   br i1 %81, label %82, label %85
 
 82:                                               ; preds = %75
-  %83 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %83 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %84 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %83, ptr noundef nonnull @.str.49) #3
   br label %.loopexit90
 
@@ -285,7 +285,7 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   br i1 %.not80, label %87, label %90
 
 87:                                               ; preds = %85
-  %88 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %88 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %89 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %88, ptr noundef nonnull @.str.50) #3
   br label %.loopexit90
 
@@ -296,7 +296,7 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %90
-  %95 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %95 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %96 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %95, ptr noundef nonnull @.str.51) #3
   br label %.loopexit90
 
@@ -307,7 +307,7 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   br i1 %100, label %101, label %104
 
 101:                                              ; preds = %97
-  %102 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %102 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %103 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %102, ptr noundef nonnull @.str.52) #3
   br label %.loopexit90
 
@@ -326,15 +326,15 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
 
 111:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
-  store ptr null, ptr %7, align 8, !tbaa !20
+  store ptr null, ptr %7, align 8, !tbaa !19
   %112 = call i32 @EVP_PKEY_get_bn_param(ptr noundef nonnull %108, ptr noundef nonnull @.str.53, ptr noundef nonnull %7) #3
-  %113 = load ptr, ptr %7, align 8, !tbaa !20
+  %113 = load ptr, ptr %7, align 8, !tbaa !19
   %114 = icmp eq ptr %113, null
   br i1 %114, label %125, label %115
 
 115:                                              ; preds = %111
   %116 = call ptr @BN_bn2hex(ptr noundef nonnull %113) #3
-  %117 = load ptr, ptr %7, align 8, !tbaa !20
+  %117 = load ptr, ptr %7, align 8, !tbaa !19
   %118 = call ptr @BN_bn2dec(ptr noundef %117) #3
   %119 = icmp ne ptr %116, null
   %120 = icmp ne ptr %118, null
@@ -342,20 +342,20 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   br i1 %or.cond5, label %121, label %.thread
 
 121:                                              ; preds = %115
-  %122 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %122 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %123 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %122, ptr noundef nonnull @.str.55, ptr noundef nonnull %118, ptr noundef nonnull %116) #3
   br label %.thread
 
 .thread:                                          ; preds = %115, %121
   call void @CRYPTO_free(ptr noundef %116, ptr noundef nonnull @.str.56, i32 noundef 224) #3
   call void @CRYPTO_free(ptr noundef %118, ptr noundef nonnull @.str.56, i32 noundef 225) #3
-  %124 = load ptr, ptr %7, align 8, !tbaa !20
+  %124 = load ptr, ptr %7, align 8, !tbaa !19
   call void @BN_free(ptr noundef %124) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
   br label %128
 
 125:                                              ; preds = %111
-  %126 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %126 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %127 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %126, ptr noundef nonnull @.str.54) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
   br label %.loopexit90
@@ -399,7 +399,7 @@ define dso_local range(i32 0, 2) i32 @genrsa_main(i32 noundef %0, ptr noundef %1
   br i1 %.not86, label %141, label %139
 
 139:                                              ; preds = %.loopexit90
-  %140 = load ptr, ptr @bio_err, align 8, !tbaa !18
+  %140 = load ptr, ptr @bio_err, align 8, !tbaa !17
   call void @ERR_print_errors(ptr noundef %140) #3
   br label %141
 
@@ -531,10 +531,9 @@ attributes #3 = { nounwind }
 !12 = !{!"int", !7, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 omnipotent char", !6, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS9bignum_st", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS9bignum_st", !6, i64 0}

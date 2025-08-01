@@ -88,7 +88,7 @@ _ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477: ; preds = %17
 33:                                               ; preds = %41
   %34 = add nuw nsw i64 %.0315509, 1
   %exitcond.not = icmp eq i64 %34, 47
-  br i1 %exitcond.not, label %.preheader504, label %35, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader504, label %35, !llvm.loop !10
 
 35:                                               ; preds = %28, %33
   %.0315509 = phi i64 [ 5, %28 ], [ %34, %33 ]
@@ -640,7 +640,7 @@ _ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit477: ; preds = %17
   %spec.select = add i64 %.0318, %380
   %spec.select468 = select i1 %379, i64 0, i64 %378
   %381 = mul i64 %spec.select, 210
-  br label %28, !llvm.loop !12
+  br label %28, !llvm.loop !11
 
 .thread485:                                       ; preds = %35, %370, %363, %356, %349, %342, %335, %328, %321, %314, %307, %300, %293, %286, %279, %272, %265, %258, %251, %244, %237, %230, %223, %216, %209, %202, %195, %188, %181, %174, %167, %160, %153, %146, %139, %132, %125, %118, %111, %104, %97, %90, %83, %76, %69, %62, %55, %48, %.preheader504, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit
   %.0309 = phi i64 [ %11, %_ZNSt3__111lower_boundB8ne210000IPKjmEET_S3_S3_RKT0_.exit ], [ %32, %.preheader504 ], [ %32, %48 ], [ %32, %55 ], [ %32, %62 ], [ %32, %69 ], [ %32, %76 ], [ %32, %83 ], [ %32, %90 ], [ %32, %97 ], [ %32, %104 ], [ %32, %111 ], [ %32, %118 ], [ %32, %125 ], [ %32, %132 ], [ %32, %139 ], [ %32, %146 ], [ %32, %153 ], [ %32, %160 ], [ %32, %167 ], [ %32, %174 ], [ %32, %181 ], [ %32, %188 ], [ %32, %195 ], [ %32, %202 ], [ %32, %209 ], [ %32, %216 ], [ %32, %223 ], [ %32, %230 ], [ %32, %237 ], [ %32, %244 ], [ %32, %251 ], [ %32, %258 ], [ %32, %265 ], [ %32, %272 ], [ %32, %279 ], [ %32, %286 ], [ %32, %293 ], [ %32, %300 ], [ %32, %307 ], [ %32, %314 ], [ %32, %321 ], [ %32, %328 ], [ %32, %335 ], [ %32, %342 ], [ %32, %349 ], [ %32, %356 ], [ %32, %363 ], [ %32, %370 ], [ %32, %35 ]
@@ -669,7 +669,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt14overflow_errorC2B8ne210000EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt14overflow_error, i64 16), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt14overflow_error, i64 16), ptr %0, align 8, !tbaa !12
   ret void
 }
 
@@ -704,10 +704,9 @@ attributes #6 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"vtable pointer", !7, i64 0}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"vtable pointer", !7, i64 0}

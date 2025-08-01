@@ -864,7 +864,7 @@ proto_item_set_generated.exit427:                 ; preds = %273, %278, %281
   %340 = load ptr, ptr %313, align 8
   %341 = call i32 @wmem_array_get_count(ptr noundef %340)
   %342 = icmp ult i32 %339, %341
-  br i1 %342, label %333, label %._crit_edge486, !llvm.loop !9
+  br i1 %342, label %333, label %._crit_edge486, !llvm.loop !8
 
 343:                                              ; preds = %293
   store i8 0, ptr %296, align 8
@@ -955,7 +955,7 @@ proto_item_set_generated.exit430:                 ; preds = %362, %371, %374
 
 386:                                              ; preds = %384
   %387 = getelementptr inbounds nuw i8, ptr %385, i64 1
-  %388 = load i8, ptr %387, align 1, !range !10, !noundef !11
+  %388 = load i8, ptr %387, align 1, !range !9, !noundef !10
   %389 = trunc nuw i8 %388 to i1
   br i1 %389, label %390, label %.thread467
 
@@ -1132,7 +1132,7 @@ proto_item_set_generated.exit435:                 ; preds = %475, %472, %469, %f
   %479 = add nuw i16 %.0377474, 1
   %480 = add i32 %.8475, 4
   %exitcond.not = icmp eq i16 %479, %445
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph476, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph476, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %proto_item_set_generated.exit435, %442
   %.8.lcssa = phi i32 [ %457, %442 ], [ %480, %proto_item_set_generated.exit435 ]
@@ -1140,7 +1140,7 @@ proto_item_set_generated.exit435:                 ; preds = %475, %472, %469, %f
   %482 = zext i16 %481 to i32
   %483 = load i32, ptr %8, align 4
   %484 = icmp ugt i32 %483, %482
-  br i1 %484, label %442, label %.loopexit, !llvm.loop !13
+  br i1 %484, label %442, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %._crit_edge, %437, %421
   %.6 = phi i32 [ %434, %421 ], [ %434, %437 ], [ %.8.lcssa, %._crit_edge ]
@@ -1178,7 +1178,7 @@ proto_item_set_generated.exit435:                 ; preds = %475, %472, %469, %f
   %501 = add i32 %.10472, 4
   %502 = load i32, ptr %10, align 4
   %503 = icmp ult i32 %500, %502
-  br i1 %503, label %.lr.ph, label %.loopexit470, !llvm.loop !14
+  br i1 %503, label %.lr.ph, label %.loopexit470, !llvm.loop !13
 
 .loopexit470:                                     ; preds = %.lr.ph, %494, %485
   %.9 = phi i32 [ %492, %485 ], [ %492, %494 ], [ %501, %.lr.ph ]
@@ -1437,12 +1437,11 @@ attributes #9 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

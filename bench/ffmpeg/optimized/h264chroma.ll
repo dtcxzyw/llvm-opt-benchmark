@@ -373,7 +373,7 @@ define internal void @put_h264_chroma_mc8_16_c(ptr noundef writeonly captures(no
   %294 = getelementptr inbounds i16, ptr %.1202214, i64 %13
   %295 = add nuw nsw i32 %.1199215, 1
   %exitcond224.not = icmp eq i32 %295, %3
-  br i1 %exitcond224.not, label %.loopexit, label %.lr.ph217, !llvm.loop !13
+  br i1 %exitcond224.not, label %.loopexit, label %.lr.ph217, !llvm.loop !12
 
 .lr.ph221:                                        ; preds = %.preheader, %.lr.ph221
   %.2220 = phi ptr [ %358, %.lr.ph221 ], [ %0, %.preheader ]
@@ -453,7 +453,7 @@ define internal void @put_h264_chroma_mc8_16_c(ptr noundef writeonly captures(no
   %359 = getelementptr inbounds i16, ptr %.2203218, i64 %13
   %360 = add nuw nsw i32 %.2200219, 1
   %exitcond225.not = icmp eq i32 %360, %3
-  br i1 %exitcond225.not, label %.loopexit, label %.lr.ph221, !llvm.loop !14
+  br i1 %exitcond225.not, label %.loopexit, label %.lr.ph221, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph217, %.lr.ph221, %.preheader209, %188, %.preheader
   ret void
@@ -570,7 +570,7 @@ define internal void @put_h264_chroma_mc4_16_c(ptr noundef writeonly captures(no
   %99 = getelementptr inbounds i16, ptr %.0133, i64 %13
   %100 = add nuw nsw i32 %.0118132, 1
   %exitcond.not = icmp eq i32 %100, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 101:                                              ; preds = %6
   %102 = add nsw i32 %10, %11
@@ -649,7 +649,7 @@ define internal void @put_h264_chroma_mc4_16_c(ptr noundef writeonly captures(no
   %158 = getelementptr inbounds i16, ptr %.1122134, i64 %13
   %159 = add nuw nsw i32 %.1119135, 1
   %exitcond144.not = icmp eq i32 %159, %3
-  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph137, !llvm.loop !16
+  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph137, !llvm.loop !15
 
 .lr.ph141:                                        ; preds = %.preheader, %.lr.ph141
   %.2140 = phi ptr [ %190, %.lr.ph141 ], [ %0, %.preheader ]
@@ -693,7 +693,7 @@ define internal void @put_h264_chroma_mc4_16_c(ptr noundef writeonly captures(no
   %191 = getelementptr inbounds i16, ptr %.2123138, i64 %13
   %192 = add nuw nsw i32 %.2120139, 1
   %exitcond145.not = icmp eq i32 %192, %3
-  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph141, !llvm.loop !17
+  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph141, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph137, %.lr.ph141, %.preheader129, %104, %.preheader
   ret void
@@ -766,7 +766,7 @@ define internal void @put_h264_chroma_mc2_16_c(ptr noundef writeonly captures(no
   %57 = getelementptr inbounds i16, ptr %.093, i64 %13
   %58 = add nuw nsw i32 %.07892, 1
   %exitcond.not = icmp eq i32 %58, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 59:                                               ; preds = %6
   %60 = add nsw i32 %10, %11
@@ -817,7 +817,7 @@ define internal void @put_h264_chroma_mc2_16_c(ptr noundef writeonly captures(no
   %90 = getelementptr inbounds i16, ptr %.18294, i64 %13
   %91 = add nuw nsw i32 %.17995, 1
   %exitcond104.not = icmp eq i32 %91, %3
-  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph97, !llvm.loop !19
+  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph97, !llvm.loop !18
 
 .lr.ph101:                                        ; preds = %.preheader, %.lr.ph101
   %.2100 = phi ptr [ %106, %.lr.ph101 ], [ %0, %.preheader ]
@@ -843,7 +843,7 @@ define internal void @put_h264_chroma_mc2_16_c(ptr noundef writeonly captures(no
   %107 = getelementptr inbounds i16, ptr %.28398, i64 %13
   %108 = add nuw nsw i32 %.28099, 1
   %exitcond105.not = icmp eq i32 %108, %3
-  br i1 %exitcond105.not, label %.loopexit, label %.lr.ph101, !llvm.loop !20
+  br i1 %exitcond105.not, label %.loopexit, label %.lr.ph101, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph97, %.lr.ph101, %.preheader89, %62, %.preheader
   ret void
@@ -894,7 +894,7 @@ define internal void @put_h264_chroma_mc1_16_c(ptr noundef writeonly captures(no
   %36 = getelementptr inbounds i16, ptr %.073, i64 %13
   %37 = add nuw nsw i32 %.05872, 1
   %exitcond.not = icmp eq i32 %37, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 38:                                               ; preds = %6
   %39 = add nsw i32 %10, %11
@@ -935,7 +935,7 @@ define internal void @put_h264_chroma_mc1_16_c(ptr noundef writeonly captures(no
   %58 = getelementptr inbounds i16, ptr %.16274, i64 %13
   %59 = add nuw nsw i32 %.15975, 1
   %exitcond84.not = icmp eq i32 %59, %3
-  br i1 %exitcond84.not, label %.loopexit, label %45, !llvm.loop !22
+  br i1 %exitcond84.not, label %.loopexit, label %45, !llvm.loop !21
 
 .lr.ph81:                                         ; preds = %.preheader, %.lr.ph81
   %.280 = phi ptr [ %66, %.lr.ph81 ], [ %0, %.preheader ]
@@ -952,7 +952,7 @@ define internal void @put_h264_chroma_mc1_16_c(ptr noundef writeonly captures(no
   %67 = getelementptr inbounds i16, ptr %.26378, i64 %13
   %68 = add nuw nsw i32 %.26079, 1
   %exitcond85.not = icmp eq i32 %68, %3
-  br i1 %exitcond85.not, label %.loopexit, label %.lr.ph81, !llvm.loop !23
+  br i1 %exitcond85.not, label %.loopexit, label %.lr.ph81, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %45, %.lr.ph81, %.preheader69, %41, %.preheader
   ret void
@@ -1197,7 +1197,7 @@ define internal void @avg_h264_chroma_mc8_16_c(ptr noundef captures(none) %0, pt
   %223 = getelementptr inbounds i16, ptr %.0237, i64 %13
   %224 = add nuw nsw i32 %.0222236, 1
   %exitcond.not = icmp eq i32 %224, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 225:                                              ; preds = %6
   %226 = add nsw i32 %10, %11
@@ -1372,7 +1372,7 @@ define internal void @avg_h264_chroma_mc8_16_c(ptr noundef captures(none) %0, pt
   %374 = getelementptr inbounds i16, ptr %.1226238, i64 %13
   %375 = add nuw nsw i32 %.1223239, 1
   %exitcond248.not = icmp eq i32 %375, %3
-  br i1 %exitcond248.not, label %.loopexit, label %.lr.ph241, !llvm.loop !25
+  br i1 %exitcond248.not, label %.loopexit, label %.lr.ph241, !llvm.loop !24
 
 .lr.ph245:                                        ; preds = %.preheader, %.lr.ph245
   %.2244 = phi ptr [ %478, %.lr.ph245 ], [ %0, %.preheader ]
@@ -1492,7 +1492,7 @@ define internal void @avg_h264_chroma_mc8_16_c(ptr noundef captures(none) %0, pt
   %479 = getelementptr inbounds i16, ptr %.2227242, i64 %13
   %480 = add nuw nsw i32 %.2224243, 1
   %exitcond249.not = icmp eq i32 %480, %3
-  br i1 %exitcond249.not, label %.loopexit, label %.lr.ph245, !llvm.loop !26
+  br i1 %exitcond249.not, label %.loopexit, label %.lr.ph245, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph241, %.lr.ph245, %.preheader233, %228, %.preheader
   ret void
@@ -1629,7 +1629,7 @@ define internal void @avg_h264_chroma_mc4_16_c(ptr noundef captures(none) %0, pt
   %119 = getelementptr inbounds i16, ptr %.0145, i64 %13
   %120 = add nuw nsw i32 %.0130144, 1
   %exitcond.not = icmp eq i32 %120, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 121:                                              ; preds = %6
   %122 = add nsw i32 %10, %11
@@ -1728,7 +1728,7 @@ define internal void @avg_h264_chroma_mc4_16_c(ptr noundef captures(none) %0, pt
   %198 = getelementptr inbounds i16, ptr %.1134146, i64 %13
   %199 = add nuw nsw i32 %.1131147, 1
   %exitcond156.not = icmp eq i32 %199, %3
-  br i1 %exitcond156.not, label %.loopexit, label %.lr.ph149, !llvm.loop !28
+  br i1 %exitcond156.not, label %.loopexit, label %.lr.ph149, !llvm.loop !27
 
 .lr.ph153:                                        ; preds = %.preheader, %.lr.ph153
   %.2152 = phi ptr [ %250, %.lr.ph153 ], [ %0, %.preheader ]
@@ -1792,7 +1792,7 @@ define internal void @avg_h264_chroma_mc4_16_c(ptr noundef captures(none) %0, pt
   %251 = getelementptr inbounds i16, ptr %.2135150, i64 %13
   %252 = add nuw nsw i32 %.2132151, 1
   %exitcond157.not = icmp eq i32 %252, %3
-  br i1 %exitcond157.not, label %.loopexit, label %.lr.ph153, !llvm.loop !29
+  br i1 %exitcond157.not, label %.loopexit, label %.lr.ph153, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph149, %.lr.ph153, %.preheader141, %124, %.preheader
   ret void
@@ -1875,7 +1875,7 @@ define internal void @avg_h264_chroma_mc2_16_c(ptr noundef captures(none) %0, pt
   %67 = getelementptr inbounds i16, ptr %.099, i64 %13
   %68 = add nuw nsw i32 %.08498, 1
   %exitcond.not = icmp eq i32 %68, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 69:                                               ; preds = %6
   %70 = add nsw i32 %10, %11
@@ -1936,7 +1936,7 @@ define internal void @avg_h264_chroma_mc2_16_c(ptr noundef captures(none) %0, pt
   %110 = getelementptr inbounds i16, ptr %.188100, i64 %13
   %111 = add nuw nsw i32 %.185101, 1
   %exitcond110.not = icmp eq i32 %111, %3
-  br i1 %exitcond110.not, label %.loopexit, label %.lr.ph103, !llvm.loop !31
+  br i1 %exitcond110.not, label %.loopexit, label %.lr.ph103, !llvm.loop !30
 
 .lr.ph107:                                        ; preds = %.preheader, %.lr.ph107
   %.2106 = phi ptr [ %136, %.lr.ph107 ], [ %0, %.preheader ]
@@ -1972,7 +1972,7 @@ define internal void @avg_h264_chroma_mc2_16_c(ptr noundef captures(none) %0, pt
   %137 = getelementptr inbounds i16, ptr %.289104, i64 %13
   %138 = add nuw nsw i32 %.286105, 1
   %exitcond111.not = icmp eq i32 %138, %3
-  br i1 %exitcond111.not, label %.loopexit, label %.lr.ph107, !llvm.loop !32
+  br i1 %exitcond111.not, label %.loopexit, label %.lr.ph107, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph103, %.lr.ph107, %.preheader95, %72, %.preheader
   ret void
@@ -2028,7 +2028,7 @@ define internal void @avg_h264_chroma_mc1_16_c(ptr noundef captures(none) %0, pt
   %41 = getelementptr inbounds i16, ptr %.076, i64 %13
   %42 = add nuw nsw i32 %.06175, 1
   %exitcond.not = icmp eq i32 %42, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 43:                                               ; preds = %6
   %44 = add nsw i32 %10, %11
@@ -2074,7 +2074,7 @@ define internal void @avg_h264_chroma_mc1_16_c(ptr noundef captures(none) %0, pt
   %68 = getelementptr inbounds i16, ptr %.16577, i64 %13
   %69 = add nuw nsw i32 %.16278, 1
   %exitcond87.not = icmp eq i32 %69, %3
-  br i1 %exitcond87.not, label %.loopexit, label %50, !llvm.loop !34
+  br i1 %exitcond87.not, label %.loopexit, label %50, !llvm.loop !33
 
 .lr.ph84:                                         ; preds = %.preheader, %.lr.ph84
   %.283 = phi ptr [ %81, %.lr.ph84 ], [ %0, %.preheader ]
@@ -2096,7 +2096,7 @@ define internal void @avg_h264_chroma_mc1_16_c(ptr noundef captures(none) %0, pt
   %82 = getelementptr inbounds i16, ptr %.26681, i64 %13
   %83 = add nuw nsw i32 %.26382, 1
   %exitcond88.not = icmp eq i32 %83, %3
-  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph84, !llvm.loop !35
+  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph84, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.lr.ph, %50, %.lr.ph84, %.preheader72, %46, %.preheader
   ret void
@@ -2121,19 +2121,19 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %.0213 = phi ptr [ %182, %.lr.ph ], [ %0, %.preheader209 ]
   %.0198212 = phi i32 [ %183, %.lr.ph ], [ 0, %.preheader209 ]
   %.0201211 = phi ptr [ %21, %.lr.ph ], [ %1, %.preheader209 ]
-  %14 = load i8, ptr %.0201211, align 1, !tbaa !36
+  %14 = load i8, ptr %.0201211, align 1, !tbaa !35
   %15 = zext i8 %14 to i32
   %16 = mul nsw i32 %9, %15
   %17 = getelementptr inbounds nuw i8, ptr %.0201211, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !36
+  %18 = load i8, ptr %17, align 1, !tbaa !35
   %19 = zext i8 %18 to i32
   %20 = mul nsw i32 %10, %19
   %21 = getelementptr inbounds i8, ptr %.0201211, i64 %2
-  %22 = load i8, ptr %21, align 1, !tbaa !36
+  %22 = load i8, ptr %21, align 1, !tbaa !35
   %23 = zext i8 %22 to i32
   %24 = mul nsw i32 %11, %23
   %25 = getelementptr i8, ptr %21, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !36
+  %26 = load i8, ptr %25, align 1, !tbaa !35
   %27 = zext i8 %26 to i32
   %28 = mul nsw i32 %12, %27
   %29 = add i32 %16, 32
@@ -2142,19 +2142,19 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %32 = add i32 %31, %28
   %33 = lshr i32 %32, 6
   %34 = trunc i32 %33 to i8
-  store i8 %34, ptr %.0213, align 1, !tbaa !36
-  %35 = load i8, ptr %17, align 1, !tbaa !36
+  store i8 %34, ptr %.0213, align 1, !tbaa !35
+  %35 = load i8, ptr %17, align 1, !tbaa !35
   %36 = zext i8 %35 to i32
   %37 = mul nsw i32 %9, %36
   %38 = getelementptr inbounds nuw i8, ptr %.0201211, i64 2
-  %39 = load i8, ptr %38, align 1, !tbaa !36
+  %39 = load i8, ptr %38, align 1, !tbaa !35
   %40 = zext i8 %39 to i32
   %41 = mul nsw i32 %10, %40
-  %42 = load i8, ptr %25, align 1, !tbaa !36
+  %42 = load i8, ptr %25, align 1, !tbaa !35
   %43 = zext i8 %42 to i32
   %44 = mul nsw i32 %11, %43
   %45 = getelementptr i8, ptr %21, i64 2
-  %46 = load i8, ptr %45, align 1, !tbaa !36
+  %46 = load i8, ptr %45, align 1, !tbaa !35
   %47 = zext i8 %46 to i32
   %48 = mul nsw i32 %12, %47
   %49 = add i32 %37, 32
@@ -2164,19 +2164,19 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %53 = lshr i32 %52, 6
   %54 = trunc i32 %53 to i8
   %55 = getelementptr inbounds nuw i8, ptr %.0213, i64 1
-  store i8 %54, ptr %55, align 1, !tbaa !36
-  %56 = load i8, ptr %38, align 1, !tbaa !36
+  store i8 %54, ptr %55, align 1, !tbaa !35
+  %56 = load i8, ptr %38, align 1, !tbaa !35
   %57 = zext i8 %56 to i32
   %58 = mul nsw i32 %9, %57
   %59 = getelementptr inbounds nuw i8, ptr %.0201211, i64 3
-  %60 = load i8, ptr %59, align 1, !tbaa !36
+  %60 = load i8, ptr %59, align 1, !tbaa !35
   %61 = zext i8 %60 to i32
   %62 = mul nsw i32 %10, %61
-  %63 = load i8, ptr %45, align 1, !tbaa !36
+  %63 = load i8, ptr %45, align 1, !tbaa !35
   %64 = zext i8 %63 to i32
   %65 = mul nsw i32 %11, %64
   %66 = getelementptr i8, ptr %21, i64 3
-  %67 = load i8, ptr %66, align 1, !tbaa !36
+  %67 = load i8, ptr %66, align 1, !tbaa !35
   %68 = zext i8 %67 to i32
   %69 = mul nsw i32 %12, %68
   %70 = add i32 %58, 32
@@ -2186,19 +2186,19 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %74 = lshr i32 %73, 6
   %75 = trunc i32 %74 to i8
   %76 = getelementptr inbounds nuw i8, ptr %.0213, i64 2
-  store i8 %75, ptr %76, align 1, !tbaa !36
-  %77 = load i8, ptr %59, align 1, !tbaa !36
+  store i8 %75, ptr %76, align 1, !tbaa !35
+  %77 = load i8, ptr %59, align 1, !tbaa !35
   %78 = zext i8 %77 to i32
   %79 = mul nsw i32 %9, %78
   %80 = getelementptr inbounds nuw i8, ptr %.0201211, i64 4
-  %81 = load i8, ptr %80, align 1, !tbaa !36
+  %81 = load i8, ptr %80, align 1, !tbaa !35
   %82 = zext i8 %81 to i32
   %83 = mul nsw i32 %10, %82
-  %84 = load i8, ptr %66, align 1, !tbaa !36
+  %84 = load i8, ptr %66, align 1, !tbaa !35
   %85 = zext i8 %84 to i32
   %86 = mul nsw i32 %11, %85
   %87 = getelementptr i8, ptr %21, i64 4
-  %88 = load i8, ptr %87, align 1, !tbaa !36
+  %88 = load i8, ptr %87, align 1, !tbaa !35
   %89 = zext i8 %88 to i32
   %90 = mul nsw i32 %12, %89
   %91 = add i32 %79, 32
@@ -2208,19 +2208,19 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %95 = lshr i32 %94, 6
   %96 = trunc i32 %95 to i8
   %97 = getelementptr inbounds nuw i8, ptr %.0213, i64 3
-  store i8 %96, ptr %97, align 1, !tbaa !36
-  %98 = load i8, ptr %80, align 1, !tbaa !36
+  store i8 %96, ptr %97, align 1, !tbaa !35
+  %98 = load i8, ptr %80, align 1, !tbaa !35
   %99 = zext i8 %98 to i32
   %100 = mul nsw i32 %9, %99
   %101 = getelementptr inbounds nuw i8, ptr %.0201211, i64 5
-  %102 = load i8, ptr %101, align 1, !tbaa !36
+  %102 = load i8, ptr %101, align 1, !tbaa !35
   %103 = zext i8 %102 to i32
   %104 = mul nsw i32 %10, %103
-  %105 = load i8, ptr %87, align 1, !tbaa !36
+  %105 = load i8, ptr %87, align 1, !tbaa !35
   %106 = zext i8 %105 to i32
   %107 = mul nsw i32 %11, %106
   %108 = getelementptr i8, ptr %21, i64 5
-  %109 = load i8, ptr %108, align 1, !tbaa !36
+  %109 = load i8, ptr %108, align 1, !tbaa !35
   %110 = zext i8 %109 to i32
   %111 = mul nsw i32 %12, %110
   %112 = add i32 %100, 32
@@ -2230,19 +2230,19 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %116 = lshr i32 %115, 6
   %117 = trunc i32 %116 to i8
   %118 = getelementptr inbounds nuw i8, ptr %.0213, i64 4
-  store i8 %117, ptr %118, align 1, !tbaa !36
-  %119 = load i8, ptr %101, align 1, !tbaa !36
+  store i8 %117, ptr %118, align 1, !tbaa !35
+  %119 = load i8, ptr %101, align 1, !tbaa !35
   %120 = zext i8 %119 to i32
   %121 = mul nsw i32 %9, %120
   %122 = getelementptr inbounds nuw i8, ptr %.0201211, i64 6
-  %123 = load i8, ptr %122, align 1, !tbaa !36
+  %123 = load i8, ptr %122, align 1, !tbaa !35
   %124 = zext i8 %123 to i32
   %125 = mul nsw i32 %10, %124
-  %126 = load i8, ptr %108, align 1, !tbaa !36
+  %126 = load i8, ptr %108, align 1, !tbaa !35
   %127 = zext i8 %126 to i32
   %128 = mul nsw i32 %11, %127
   %129 = getelementptr i8, ptr %21, i64 6
-  %130 = load i8, ptr %129, align 1, !tbaa !36
+  %130 = load i8, ptr %129, align 1, !tbaa !35
   %131 = zext i8 %130 to i32
   %132 = mul nsw i32 %12, %131
   %133 = add i32 %121, 32
@@ -2252,19 +2252,19 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %137 = lshr i32 %136, 6
   %138 = trunc i32 %137 to i8
   %139 = getelementptr inbounds nuw i8, ptr %.0213, i64 5
-  store i8 %138, ptr %139, align 1, !tbaa !36
-  %140 = load i8, ptr %122, align 1, !tbaa !36
+  store i8 %138, ptr %139, align 1, !tbaa !35
+  %140 = load i8, ptr %122, align 1, !tbaa !35
   %141 = zext i8 %140 to i32
   %142 = mul nsw i32 %9, %141
   %143 = getelementptr inbounds nuw i8, ptr %.0201211, i64 7
-  %144 = load i8, ptr %143, align 1, !tbaa !36
+  %144 = load i8, ptr %143, align 1, !tbaa !35
   %145 = zext i8 %144 to i32
   %146 = mul nsw i32 %10, %145
-  %147 = load i8, ptr %129, align 1, !tbaa !36
+  %147 = load i8, ptr %129, align 1, !tbaa !35
   %148 = zext i8 %147 to i32
   %149 = mul nsw i32 %11, %148
   %150 = getelementptr i8, ptr %21, i64 7
-  %151 = load i8, ptr %150, align 1, !tbaa !36
+  %151 = load i8, ptr %150, align 1, !tbaa !35
   %152 = zext i8 %151 to i32
   %153 = mul nsw i32 %12, %152
   %154 = add i32 %142, 32
@@ -2274,19 +2274,19 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %158 = lshr i32 %157, 6
   %159 = trunc i32 %158 to i8
   %160 = getelementptr inbounds nuw i8, ptr %.0213, i64 6
-  store i8 %159, ptr %160, align 1, !tbaa !36
-  %161 = load i8, ptr %143, align 1, !tbaa !36
+  store i8 %159, ptr %160, align 1, !tbaa !35
+  %161 = load i8, ptr %143, align 1, !tbaa !35
   %162 = zext i8 %161 to i32
   %163 = mul nsw i32 %9, %162
   %164 = getelementptr inbounds nuw i8, ptr %.0201211, i64 8
-  %165 = load i8, ptr %164, align 1, !tbaa !36
+  %165 = load i8, ptr %164, align 1, !tbaa !35
   %166 = zext i8 %165 to i32
   %167 = mul nsw i32 %10, %166
-  %168 = load i8, ptr %150, align 1, !tbaa !36
+  %168 = load i8, ptr %150, align 1, !tbaa !35
   %169 = zext i8 %168 to i32
   %170 = mul nsw i32 %11, %169
   %171 = getelementptr i8, ptr %21, i64 8
-  %172 = load i8, ptr %171, align 1, !tbaa !36
+  %172 = load i8, ptr %171, align 1, !tbaa !35
   %173 = zext i8 %172 to i32
   %174 = mul nsw i32 %12, %173
   %175 = add i32 %163, 32
@@ -2296,11 +2296,11 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %179 = lshr i32 %178, 6
   %180 = trunc i32 %179 to i8
   %181 = getelementptr inbounds nuw i8, ptr %.0213, i64 7
-  store i8 %180, ptr %181, align 1, !tbaa !36
+  store i8 %180, ptr %181, align 1, !tbaa !35
   %182 = getelementptr inbounds i8, ptr %.0213, i64 %2
   %183 = add nuw nsw i32 %.0198212, 1
   %exitcond.not = icmp eq i32 %183, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 184:                                              ; preds = %6
   %185 = add nsw i32 %10, %11
@@ -2321,24 +2321,24 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %.1216 = phi ptr [ %292, %.lr.ph217 ], [ %0, %187 ]
   %.1199215 = phi i32 [ %294, %.lr.ph217 ], [ 0, %187 ]
   %.1202214 = phi ptr [ %293, %.lr.ph217 ], [ %1, %187 ]
-  %190 = load i8, ptr %.1202214, align 1, !tbaa !36
+  %190 = load i8, ptr %.1202214, align 1, !tbaa !35
   %191 = zext i8 %190 to i32
   %192 = mul nsw i32 %9, %191
   %193 = getelementptr inbounds i8, ptr %.1202214, i64 %188
-  %194 = load i8, ptr %193, align 1, !tbaa !36
+  %194 = load i8, ptr %193, align 1, !tbaa !35
   %195 = zext i8 %194 to i32
   %196 = mul nsw i32 %185, %195
   %197 = add i32 %192, 32
   %198 = add i32 %197, %196
   %199 = lshr i32 %198, 6
   %200 = trunc i32 %199 to i8
-  store i8 %200, ptr %.1216, align 1, !tbaa !36
+  store i8 %200, ptr %.1216, align 1, !tbaa !35
   %201 = getelementptr inbounds nuw i8, ptr %.1202214, i64 1
-  %202 = load i8, ptr %201, align 1, !tbaa !36
+  %202 = load i8, ptr %201, align 1, !tbaa !35
   %203 = zext i8 %202 to i32
   %204 = mul nsw i32 %9, %203
   %205 = getelementptr i8, ptr %193, i64 1
-  %206 = load i8, ptr %205, align 1, !tbaa !36
+  %206 = load i8, ptr %205, align 1, !tbaa !35
   %207 = zext i8 %206 to i32
   %208 = mul nsw i32 %185, %207
   %209 = add i32 %204, 32
@@ -2346,13 +2346,13 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %211 = lshr i32 %210, 6
   %212 = trunc i32 %211 to i8
   %213 = getelementptr inbounds nuw i8, ptr %.1216, i64 1
-  store i8 %212, ptr %213, align 1, !tbaa !36
+  store i8 %212, ptr %213, align 1, !tbaa !35
   %214 = getelementptr inbounds nuw i8, ptr %.1202214, i64 2
-  %215 = load i8, ptr %214, align 1, !tbaa !36
+  %215 = load i8, ptr %214, align 1, !tbaa !35
   %216 = zext i8 %215 to i32
   %217 = mul nsw i32 %9, %216
   %218 = getelementptr i8, ptr %193, i64 2
-  %219 = load i8, ptr %218, align 1, !tbaa !36
+  %219 = load i8, ptr %218, align 1, !tbaa !35
   %220 = zext i8 %219 to i32
   %221 = mul nsw i32 %185, %220
   %222 = add i32 %217, 32
@@ -2360,13 +2360,13 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %224 = lshr i32 %223, 6
   %225 = trunc i32 %224 to i8
   %226 = getelementptr inbounds nuw i8, ptr %.1216, i64 2
-  store i8 %225, ptr %226, align 1, !tbaa !36
+  store i8 %225, ptr %226, align 1, !tbaa !35
   %227 = getelementptr inbounds nuw i8, ptr %.1202214, i64 3
-  %228 = load i8, ptr %227, align 1, !tbaa !36
+  %228 = load i8, ptr %227, align 1, !tbaa !35
   %229 = zext i8 %228 to i32
   %230 = mul nsw i32 %9, %229
   %231 = getelementptr i8, ptr %193, i64 3
-  %232 = load i8, ptr %231, align 1, !tbaa !36
+  %232 = load i8, ptr %231, align 1, !tbaa !35
   %233 = zext i8 %232 to i32
   %234 = mul nsw i32 %185, %233
   %235 = add i32 %230, 32
@@ -2374,13 +2374,13 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %237 = lshr i32 %236, 6
   %238 = trunc i32 %237 to i8
   %239 = getelementptr inbounds nuw i8, ptr %.1216, i64 3
-  store i8 %238, ptr %239, align 1, !tbaa !36
+  store i8 %238, ptr %239, align 1, !tbaa !35
   %240 = getelementptr inbounds nuw i8, ptr %.1202214, i64 4
-  %241 = load i8, ptr %240, align 1, !tbaa !36
+  %241 = load i8, ptr %240, align 1, !tbaa !35
   %242 = zext i8 %241 to i32
   %243 = mul nsw i32 %9, %242
   %244 = getelementptr i8, ptr %193, i64 4
-  %245 = load i8, ptr %244, align 1, !tbaa !36
+  %245 = load i8, ptr %244, align 1, !tbaa !35
   %246 = zext i8 %245 to i32
   %247 = mul nsw i32 %185, %246
   %248 = add i32 %243, 32
@@ -2388,13 +2388,13 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %250 = lshr i32 %249, 6
   %251 = trunc i32 %250 to i8
   %252 = getelementptr inbounds nuw i8, ptr %.1216, i64 4
-  store i8 %251, ptr %252, align 1, !tbaa !36
+  store i8 %251, ptr %252, align 1, !tbaa !35
   %253 = getelementptr inbounds nuw i8, ptr %.1202214, i64 5
-  %254 = load i8, ptr %253, align 1, !tbaa !36
+  %254 = load i8, ptr %253, align 1, !tbaa !35
   %255 = zext i8 %254 to i32
   %256 = mul nsw i32 %9, %255
   %257 = getelementptr i8, ptr %193, i64 5
-  %258 = load i8, ptr %257, align 1, !tbaa !36
+  %258 = load i8, ptr %257, align 1, !tbaa !35
   %259 = zext i8 %258 to i32
   %260 = mul nsw i32 %185, %259
   %261 = add i32 %256, 32
@@ -2402,13 +2402,13 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %263 = lshr i32 %262, 6
   %264 = trunc i32 %263 to i8
   %265 = getelementptr inbounds nuw i8, ptr %.1216, i64 5
-  store i8 %264, ptr %265, align 1, !tbaa !36
+  store i8 %264, ptr %265, align 1, !tbaa !35
   %266 = getelementptr inbounds nuw i8, ptr %.1202214, i64 6
-  %267 = load i8, ptr %266, align 1, !tbaa !36
+  %267 = load i8, ptr %266, align 1, !tbaa !35
   %268 = zext i8 %267 to i32
   %269 = mul nsw i32 %9, %268
   %270 = getelementptr i8, ptr %193, i64 6
-  %271 = load i8, ptr %270, align 1, !tbaa !36
+  %271 = load i8, ptr %270, align 1, !tbaa !35
   %272 = zext i8 %271 to i32
   %273 = mul nsw i32 %185, %272
   %274 = add i32 %269, 32
@@ -2416,13 +2416,13 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %276 = lshr i32 %275, 6
   %277 = trunc i32 %276 to i8
   %278 = getelementptr inbounds nuw i8, ptr %.1216, i64 6
-  store i8 %277, ptr %278, align 1, !tbaa !36
+  store i8 %277, ptr %278, align 1, !tbaa !35
   %279 = getelementptr inbounds nuw i8, ptr %.1202214, i64 7
-  %280 = load i8, ptr %279, align 1, !tbaa !36
+  %280 = load i8, ptr %279, align 1, !tbaa !35
   %281 = zext i8 %280 to i32
   %282 = mul nsw i32 %9, %281
   %283 = getelementptr i8, ptr %193, i64 7
-  %284 = load i8, ptr %283, align 1, !tbaa !36
+  %284 = load i8, ptr %283, align 1, !tbaa !35
   %285 = zext i8 %284 to i32
   %286 = mul nsw i32 %185, %285
   %287 = add i32 %282, 32
@@ -2430,92 +2430,92 @@ define internal void @put_h264_chroma_mc8_8_c(ptr noundef writeonly captures(non
   %289 = lshr i32 %288, 6
   %290 = trunc i32 %289 to i8
   %291 = getelementptr inbounds nuw i8, ptr %.1216, i64 7
-  store i8 %290, ptr %291, align 1, !tbaa !36
+  store i8 %290, ptr %291, align 1, !tbaa !35
   %292 = getelementptr inbounds i8, ptr %.1216, i64 %2
   %293 = getelementptr inbounds i8, ptr %.1202214, i64 %2
   %294 = add nuw nsw i32 %.1199215, 1
   %exitcond224.not = icmp eq i32 %294, %3
-  br i1 %exitcond224.not, label %.loopexit, label %.lr.ph217, !llvm.loop !38
+  br i1 %exitcond224.not, label %.loopexit, label %.lr.ph217, !llvm.loop !37
 
 .lr.ph221:                                        ; preds = %.preheader, %.lr.ph221
   %.2220 = phi ptr [ %357, %.lr.ph221 ], [ %0, %.preheader ]
   %.2200219 = phi i32 [ %359, %.lr.ph221 ], [ 0, %.preheader ]
   %.2203218 = phi ptr [ %358, %.lr.ph221 ], [ %1, %.preheader ]
-  %295 = load i8, ptr %.2203218, align 1, !tbaa !36
+  %295 = load i8, ptr %.2203218, align 1, !tbaa !35
   %296 = zext i8 %295 to i32
   %297 = mul nsw i32 %9, %296
   %298 = add nsw i32 %297, 32
   %299 = lshr i32 %298, 6
   %300 = trunc i32 %299 to i8
-  store i8 %300, ptr %.2220, align 1, !tbaa !36
+  store i8 %300, ptr %.2220, align 1, !tbaa !35
   %301 = getelementptr inbounds nuw i8, ptr %.2203218, i64 1
-  %302 = load i8, ptr %301, align 1, !tbaa !36
+  %302 = load i8, ptr %301, align 1, !tbaa !35
   %303 = zext i8 %302 to i32
   %304 = mul nsw i32 %9, %303
   %305 = add nsw i32 %304, 32
   %306 = lshr i32 %305, 6
   %307 = trunc i32 %306 to i8
   %308 = getelementptr inbounds nuw i8, ptr %.2220, i64 1
-  store i8 %307, ptr %308, align 1, !tbaa !36
+  store i8 %307, ptr %308, align 1, !tbaa !35
   %309 = getelementptr inbounds nuw i8, ptr %.2203218, i64 2
-  %310 = load i8, ptr %309, align 1, !tbaa !36
+  %310 = load i8, ptr %309, align 1, !tbaa !35
   %311 = zext i8 %310 to i32
   %312 = mul nsw i32 %9, %311
   %313 = add nsw i32 %312, 32
   %314 = lshr i32 %313, 6
   %315 = trunc i32 %314 to i8
   %316 = getelementptr inbounds nuw i8, ptr %.2220, i64 2
-  store i8 %315, ptr %316, align 1, !tbaa !36
+  store i8 %315, ptr %316, align 1, !tbaa !35
   %317 = getelementptr inbounds nuw i8, ptr %.2203218, i64 3
-  %318 = load i8, ptr %317, align 1, !tbaa !36
+  %318 = load i8, ptr %317, align 1, !tbaa !35
   %319 = zext i8 %318 to i32
   %320 = mul nsw i32 %9, %319
   %321 = add nsw i32 %320, 32
   %322 = lshr i32 %321, 6
   %323 = trunc i32 %322 to i8
   %324 = getelementptr inbounds nuw i8, ptr %.2220, i64 3
-  store i8 %323, ptr %324, align 1, !tbaa !36
+  store i8 %323, ptr %324, align 1, !tbaa !35
   %325 = getelementptr inbounds nuw i8, ptr %.2203218, i64 4
-  %326 = load i8, ptr %325, align 1, !tbaa !36
+  %326 = load i8, ptr %325, align 1, !tbaa !35
   %327 = zext i8 %326 to i32
   %328 = mul nsw i32 %9, %327
   %329 = add nsw i32 %328, 32
   %330 = lshr i32 %329, 6
   %331 = trunc i32 %330 to i8
   %332 = getelementptr inbounds nuw i8, ptr %.2220, i64 4
-  store i8 %331, ptr %332, align 1, !tbaa !36
+  store i8 %331, ptr %332, align 1, !tbaa !35
   %333 = getelementptr inbounds nuw i8, ptr %.2203218, i64 5
-  %334 = load i8, ptr %333, align 1, !tbaa !36
+  %334 = load i8, ptr %333, align 1, !tbaa !35
   %335 = zext i8 %334 to i32
   %336 = mul nsw i32 %9, %335
   %337 = add nsw i32 %336, 32
   %338 = lshr i32 %337, 6
   %339 = trunc i32 %338 to i8
   %340 = getelementptr inbounds nuw i8, ptr %.2220, i64 5
-  store i8 %339, ptr %340, align 1, !tbaa !36
+  store i8 %339, ptr %340, align 1, !tbaa !35
   %341 = getelementptr inbounds nuw i8, ptr %.2203218, i64 6
-  %342 = load i8, ptr %341, align 1, !tbaa !36
+  %342 = load i8, ptr %341, align 1, !tbaa !35
   %343 = zext i8 %342 to i32
   %344 = mul nsw i32 %9, %343
   %345 = add nsw i32 %344, 32
   %346 = lshr i32 %345, 6
   %347 = trunc i32 %346 to i8
   %348 = getelementptr inbounds nuw i8, ptr %.2220, i64 6
-  store i8 %347, ptr %348, align 1, !tbaa !36
+  store i8 %347, ptr %348, align 1, !tbaa !35
   %349 = getelementptr inbounds nuw i8, ptr %.2203218, i64 7
-  %350 = load i8, ptr %349, align 1, !tbaa !36
+  %350 = load i8, ptr %349, align 1, !tbaa !35
   %351 = zext i8 %350 to i32
   %352 = mul nsw i32 %9, %351
   %353 = add nsw i32 %352, 32
   %354 = lshr i32 %353, 6
   %355 = trunc i32 %354 to i8
   %356 = getelementptr inbounds nuw i8, ptr %.2220, i64 7
-  store i8 %355, ptr %356, align 1, !tbaa !36
+  store i8 %355, ptr %356, align 1, !tbaa !35
   %357 = getelementptr inbounds i8, ptr %.2220, i64 %2
   %358 = getelementptr inbounds i8, ptr %.2203218, i64 %2
   %359 = add nuw nsw i32 %.2200219, 1
   %exitcond225.not = icmp eq i32 %359, %3
-  br i1 %exitcond225.not, label %.loopexit, label %.lr.ph221, !llvm.loop !39
+  br i1 %exitcond225.not, label %.loopexit, label %.lr.ph221, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph217, %.lr.ph221, %.preheader209, %187, %.preheader
   ret void
@@ -2540,19 +2540,19 @@ define internal void @put_h264_chroma_mc4_8_c(ptr noundef writeonly captures(non
   %.0133 = phi ptr [ %98, %.lr.ph ], [ %0, %.preheader129 ]
   %.0118132 = phi i32 [ %99, %.lr.ph ], [ 0, %.preheader129 ]
   %.0121131 = phi ptr [ %21, %.lr.ph ], [ %1, %.preheader129 ]
-  %14 = load i8, ptr %.0121131, align 1, !tbaa !36
+  %14 = load i8, ptr %.0121131, align 1, !tbaa !35
   %15 = zext i8 %14 to i32
   %16 = mul nsw i32 %9, %15
   %17 = getelementptr inbounds nuw i8, ptr %.0121131, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !36
+  %18 = load i8, ptr %17, align 1, !tbaa !35
   %19 = zext i8 %18 to i32
   %20 = mul nsw i32 %10, %19
   %21 = getelementptr inbounds i8, ptr %.0121131, i64 %2
-  %22 = load i8, ptr %21, align 1, !tbaa !36
+  %22 = load i8, ptr %21, align 1, !tbaa !35
   %23 = zext i8 %22 to i32
   %24 = mul nsw i32 %11, %23
   %25 = getelementptr i8, ptr %21, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !36
+  %26 = load i8, ptr %25, align 1, !tbaa !35
   %27 = zext i8 %26 to i32
   %28 = mul nsw i32 %12, %27
   %29 = add i32 %16, 32
@@ -2561,19 +2561,19 @@ define internal void @put_h264_chroma_mc4_8_c(ptr noundef writeonly captures(non
   %32 = add i32 %31, %28
   %33 = lshr i32 %32, 6
   %34 = trunc i32 %33 to i8
-  store i8 %34, ptr %.0133, align 1, !tbaa !36
-  %35 = load i8, ptr %17, align 1, !tbaa !36
+  store i8 %34, ptr %.0133, align 1, !tbaa !35
+  %35 = load i8, ptr %17, align 1, !tbaa !35
   %36 = zext i8 %35 to i32
   %37 = mul nsw i32 %9, %36
   %38 = getelementptr inbounds nuw i8, ptr %.0121131, i64 2
-  %39 = load i8, ptr %38, align 1, !tbaa !36
+  %39 = load i8, ptr %38, align 1, !tbaa !35
   %40 = zext i8 %39 to i32
   %41 = mul nsw i32 %10, %40
-  %42 = load i8, ptr %25, align 1, !tbaa !36
+  %42 = load i8, ptr %25, align 1, !tbaa !35
   %43 = zext i8 %42 to i32
   %44 = mul nsw i32 %11, %43
   %45 = getelementptr i8, ptr %21, i64 2
-  %46 = load i8, ptr %45, align 1, !tbaa !36
+  %46 = load i8, ptr %45, align 1, !tbaa !35
   %47 = zext i8 %46 to i32
   %48 = mul nsw i32 %12, %47
   %49 = add i32 %37, 32
@@ -2583,19 +2583,19 @@ define internal void @put_h264_chroma_mc4_8_c(ptr noundef writeonly captures(non
   %53 = lshr i32 %52, 6
   %54 = trunc i32 %53 to i8
   %55 = getelementptr inbounds nuw i8, ptr %.0133, i64 1
-  store i8 %54, ptr %55, align 1, !tbaa !36
-  %56 = load i8, ptr %38, align 1, !tbaa !36
+  store i8 %54, ptr %55, align 1, !tbaa !35
+  %56 = load i8, ptr %38, align 1, !tbaa !35
   %57 = zext i8 %56 to i32
   %58 = mul nsw i32 %9, %57
   %59 = getelementptr inbounds nuw i8, ptr %.0121131, i64 3
-  %60 = load i8, ptr %59, align 1, !tbaa !36
+  %60 = load i8, ptr %59, align 1, !tbaa !35
   %61 = zext i8 %60 to i32
   %62 = mul nsw i32 %10, %61
-  %63 = load i8, ptr %45, align 1, !tbaa !36
+  %63 = load i8, ptr %45, align 1, !tbaa !35
   %64 = zext i8 %63 to i32
   %65 = mul nsw i32 %11, %64
   %66 = getelementptr i8, ptr %21, i64 3
-  %67 = load i8, ptr %66, align 1, !tbaa !36
+  %67 = load i8, ptr %66, align 1, !tbaa !35
   %68 = zext i8 %67 to i32
   %69 = mul nsw i32 %12, %68
   %70 = add i32 %58, 32
@@ -2605,19 +2605,19 @@ define internal void @put_h264_chroma_mc4_8_c(ptr noundef writeonly captures(non
   %74 = lshr i32 %73, 6
   %75 = trunc i32 %74 to i8
   %76 = getelementptr inbounds nuw i8, ptr %.0133, i64 2
-  store i8 %75, ptr %76, align 1, !tbaa !36
-  %77 = load i8, ptr %59, align 1, !tbaa !36
+  store i8 %75, ptr %76, align 1, !tbaa !35
+  %77 = load i8, ptr %59, align 1, !tbaa !35
   %78 = zext i8 %77 to i32
   %79 = mul nsw i32 %9, %78
   %80 = getelementptr inbounds nuw i8, ptr %.0121131, i64 4
-  %81 = load i8, ptr %80, align 1, !tbaa !36
+  %81 = load i8, ptr %80, align 1, !tbaa !35
   %82 = zext i8 %81 to i32
   %83 = mul nsw i32 %10, %82
-  %84 = load i8, ptr %66, align 1, !tbaa !36
+  %84 = load i8, ptr %66, align 1, !tbaa !35
   %85 = zext i8 %84 to i32
   %86 = mul nsw i32 %11, %85
   %87 = getelementptr i8, ptr %21, i64 4
-  %88 = load i8, ptr %87, align 1, !tbaa !36
+  %88 = load i8, ptr %87, align 1, !tbaa !35
   %89 = zext i8 %88 to i32
   %90 = mul nsw i32 %12, %89
   %91 = add i32 %79, 32
@@ -2627,11 +2627,11 @@ define internal void @put_h264_chroma_mc4_8_c(ptr noundef writeonly captures(non
   %95 = lshr i32 %94, 6
   %96 = trunc i32 %95 to i8
   %97 = getelementptr inbounds nuw i8, ptr %.0133, i64 3
-  store i8 %96, ptr %97, align 1, !tbaa !36
+  store i8 %96, ptr %97, align 1, !tbaa !35
   %98 = getelementptr inbounds i8, ptr %.0133, i64 %2
   %99 = add nuw nsw i32 %.0118132, 1
   %exitcond.not = icmp eq i32 %99, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 100:                                              ; preds = %6
   %101 = add nsw i32 %10, %11
@@ -2652,24 +2652,24 @@ define internal void @put_h264_chroma_mc4_8_c(ptr noundef writeonly captures(non
   %.1136 = phi ptr [ %156, %.lr.ph137 ], [ %0, %103 ]
   %.1119135 = phi i32 [ %158, %.lr.ph137 ], [ 0, %103 ]
   %.1122134 = phi ptr [ %157, %.lr.ph137 ], [ %1, %103 ]
-  %106 = load i8, ptr %.1122134, align 1, !tbaa !36
+  %106 = load i8, ptr %.1122134, align 1, !tbaa !35
   %107 = zext i8 %106 to i32
   %108 = mul nsw i32 %9, %107
   %109 = getelementptr inbounds i8, ptr %.1122134, i64 %104
-  %110 = load i8, ptr %109, align 1, !tbaa !36
+  %110 = load i8, ptr %109, align 1, !tbaa !35
   %111 = zext i8 %110 to i32
   %112 = mul nsw i32 %101, %111
   %113 = add i32 %108, 32
   %114 = add i32 %113, %112
   %115 = lshr i32 %114, 6
   %116 = trunc i32 %115 to i8
-  store i8 %116, ptr %.1136, align 1, !tbaa !36
+  store i8 %116, ptr %.1136, align 1, !tbaa !35
   %117 = getelementptr inbounds nuw i8, ptr %.1122134, i64 1
-  %118 = load i8, ptr %117, align 1, !tbaa !36
+  %118 = load i8, ptr %117, align 1, !tbaa !35
   %119 = zext i8 %118 to i32
   %120 = mul nsw i32 %9, %119
   %121 = getelementptr i8, ptr %109, i64 1
-  %122 = load i8, ptr %121, align 1, !tbaa !36
+  %122 = load i8, ptr %121, align 1, !tbaa !35
   %123 = zext i8 %122 to i32
   %124 = mul nsw i32 %101, %123
   %125 = add i32 %120, 32
@@ -2677,13 +2677,13 @@ define internal void @put_h264_chroma_mc4_8_c(ptr noundef writeonly captures(non
   %127 = lshr i32 %126, 6
   %128 = trunc i32 %127 to i8
   %129 = getelementptr inbounds nuw i8, ptr %.1136, i64 1
-  store i8 %128, ptr %129, align 1, !tbaa !36
+  store i8 %128, ptr %129, align 1, !tbaa !35
   %130 = getelementptr inbounds nuw i8, ptr %.1122134, i64 2
-  %131 = load i8, ptr %130, align 1, !tbaa !36
+  %131 = load i8, ptr %130, align 1, !tbaa !35
   %132 = zext i8 %131 to i32
   %133 = mul nsw i32 %9, %132
   %134 = getelementptr i8, ptr %109, i64 2
-  %135 = load i8, ptr %134, align 1, !tbaa !36
+  %135 = load i8, ptr %134, align 1, !tbaa !35
   %136 = zext i8 %135 to i32
   %137 = mul nsw i32 %101, %136
   %138 = add i32 %133, 32
@@ -2691,13 +2691,13 @@ define internal void @put_h264_chroma_mc4_8_c(ptr noundef writeonly captures(non
   %140 = lshr i32 %139, 6
   %141 = trunc i32 %140 to i8
   %142 = getelementptr inbounds nuw i8, ptr %.1136, i64 2
-  store i8 %141, ptr %142, align 1, !tbaa !36
+  store i8 %141, ptr %142, align 1, !tbaa !35
   %143 = getelementptr inbounds nuw i8, ptr %.1122134, i64 3
-  %144 = load i8, ptr %143, align 1, !tbaa !36
+  %144 = load i8, ptr %143, align 1, !tbaa !35
   %145 = zext i8 %144 to i32
   %146 = mul nsw i32 %9, %145
   %147 = getelementptr i8, ptr %109, i64 3
-  %148 = load i8, ptr %147, align 1, !tbaa !36
+  %148 = load i8, ptr %147, align 1, !tbaa !35
   %149 = zext i8 %148 to i32
   %150 = mul nsw i32 %101, %149
   %151 = add i32 %146, 32
@@ -2705,56 +2705,56 @@ define internal void @put_h264_chroma_mc4_8_c(ptr noundef writeonly captures(non
   %153 = lshr i32 %152, 6
   %154 = trunc i32 %153 to i8
   %155 = getelementptr inbounds nuw i8, ptr %.1136, i64 3
-  store i8 %154, ptr %155, align 1, !tbaa !36
+  store i8 %154, ptr %155, align 1, !tbaa !35
   %156 = getelementptr inbounds i8, ptr %.1136, i64 %2
   %157 = getelementptr inbounds i8, ptr %.1122134, i64 %2
   %158 = add nuw nsw i32 %.1119135, 1
   %exitcond144.not = icmp eq i32 %158, %3
-  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph137, !llvm.loop !41
+  br i1 %exitcond144.not, label %.loopexit, label %.lr.ph137, !llvm.loop !40
 
 .lr.ph141:                                        ; preds = %.preheader, %.lr.ph141
   %.2140 = phi ptr [ %189, %.lr.ph141 ], [ %0, %.preheader ]
   %.2120139 = phi i32 [ %191, %.lr.ph141 ], [ 0, %.preheader ]
   %.2123138 = phi ptr [ %190, %.lr.ph141 ], [ %1, %.preheader ]
-  %159 = load i8, ptr %.2123138, align 1, !tbaa !36
+  %159 = load i8, ptr %.2123138, align 1, !tbaa !35
   %160 = zext i8 %159 to i32
   %161 = mul nsw i32 %9, %160
   %162 = add nsw i32 %161, 32
   %163 = lshr i32 %162, 6
   %164 = trunc i32 %163 to i8
-  store i8 %164, ptr %.2140, align 1, !tbaa !36
+  store i8 %164, ptr %.2140, align 1, !tbaa !35
   %165 = getelementptr inbounds nuw i8, ptr %.2123138, i64 1
-  %166 = load i8, ptr %165, align 1, !tbaa !36
+  %166 = load i8, ptr %165, align 1, !tbaa !35
   %167 = zext i8 %166 to i32
   %168 = mul nsw i32 %9, %167
   %169 = add nsw i32 %168, 32
   %170 = lshr i32 %169, 6
   %171 = trunc i32 %170 to i8
   %172 = getelementptr inbounds nuw i8, ptr %.2140, i64 1
-  store i8 %171, ptr %172, align 1, !tbaa !36
+  store i8 %171, ptr %172, align 1, !tbaa !35
   %173 = getelementptr inbounds nuw i8, ptr %.2123138, i64 2
-  %174 = load i8, ptr %173, align 1, !tbaa !36
+  %174 = load i8, ptr %173, align 1, !tbaa !35
   %175 = zext i8 %174 to i32
   %176 = mul nsw i32 %9, %175
   %177 = add nsw i32 %176, 32
   %178 = lshr i32 %177, 6
   %179 = trunc i32 %178 to i8
   %180 = getelementptr inbounds nuw i8, ptr %.2140, i64 2
-  store i8 %179, ptr %180, align 1, !tbaa !36
+  store i8 %179, ptr %180, align 1, !tbaa !35
   %181 = getelementptr inbounds nuw i8, ptr %.2123138, i64 3
-  %182 = load i8, ptr %181, align 1, !tbaa !36
+  %182 = load i8, ptr %181, align 1, !tbaa !35
   %183 = zext i8 %182 to i32
   %184 = mul nsw i32 %9, %183
   %185 = add nsw i32 %184, 32
   %186 = lshr i32 %185, 6
   %187 = trunc i32 %186 to i8
   %188 = getelementptr inbounds nuw i8, ptr %.2140, i64 3
-  store i8 %187, ptr %188, align 1, !tbaa !36
+  store i8 %187, ptr %188, align 1, !tbaa !35
   %189 = getelementptr inbounds i8, ptr %.2140, i64 %2
   %190 = getelementptr inbounds i8, ptr %.2123138, i64 %2
   %191 = add nuw nsw i32 %.2120139, 1
   %exitcond145.not = icmp eq i32 %191, %3
-  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph141, !llvm.loop !42
+  br i1 %exitcond145.not, label %.loopexit, label %.lr.ph141, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph137, %.lr.ph141, %.preheader129, %103, %.preheader
   ret void
@@ -2779,19 +2779,19 @@ define internal void @put_h264_chroma_mc2_8_c(ptr noundef writeonly captures(non
   %.093 = phi ptr [ %56, %.lr.ph ], [ %0, %.preheader89 ]
   %.07892 = phi i32 [ %57, %.lr.ph ], [ 0, %.preheader89 ]
   %.08191 = phi ptr [ %21, %.lr.ph ], [ %1, %.preheader89 ]
-  %14 = load i8, ptr %.08191, align 1, !tbaa !36
+  %14 = load i8, ptr %.08191, align 1, !tbaa !35
   %15 = zext i8 %14 to i32
   %16 = mul nsw i32 %9, %15
   %17 = getelementptr inbounds nuw i8, ptr %.08191, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !36
+  %18 = load i8, ptr %17, align 1, !tbaa !35
   %19 = zext i8 %18 to i32
   %20 = mul nsw i32 %10, %19
   %21 = getelementptr inbounds i8, ptr %.08191, i64 %2
-  %22 = load i8, ptr %21, align 1, !tbaa !36
+  %22 = load i8, ptr %21, align 1, !tbaa !35
   %23 = zext i8 %22 to i32
   %24 = mul nsw i32 %11, %23
   %25 = getelementptr i8, ptr %21, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !36
+  %26 = load i8, ptr %25, align 1, !tbaa !35
   %27 = zext i8 %26 to i32
   %28 = mul nsw i32 %12, %27
   %29 = add i32 %16, 32
@@ -2800,19 +2800,19 @@ define internal void @put_h264_chroma_mc2_8_c(ptr noundef writeonly captures(non
   %32 = add i32 %31, %28
   %33 = lshr i32 %32, 6
   %34 = trunc i32 %33 to i8
-  store i8 %34, ptr %.093, align 1, !tbaa !36
-  %35 = load i8, ptr %17, align 1, !tbaa !36
+  store i8 %34, ptr %.093, align 1, !tbaa !35
+  %35 = load i8, ptr %17, align 1, !tbaa !35
   %36 = zext i8 %35 to i32
   %37 = mul nsw i32 %9, %36
   %38 = getelementptr inbounds nuw i8, ptr %.08191, i64 2
-  %39 = load i8, ptr %38, align 1, !tbaa !36
+  %39 = load i8, ptr %38, align 1, !tbaa !35
   %40 = zext i8 %39 to i32
   %41 = mul nsw i32 %10, %40
-  %42 = load i8, ptr %25, align 1, !tbaa !36
+  %42 = load i8, ptr %25, align 1, !tbaa !35
   %43 = zext i8 %42 to i32
   %44 = mul nsw i32 %11, %43
   %45 = getelementptr i8, ptr %21, i64 2
-  %46 = load i8, ptr %45, align 1, !tbaa !36
+  %46 = load i8, ptr %45, align 1, !tbaa !35
   %47 = zext i8 %46 to i32
   %48 = mul nsw i32 %12, %47
   %49 = add i32 %37, 32
@@ -2822,11 +2822,11 @@ define internal void @put_h264_chroma_mc2_8_c(ptr noundef writeonly captures(non
   %53 = lshr i32 %52, 6
   %54 = trunc i32 %53 to i8
   %55 = getelementptr inbounds nuw i8, ptr %.093, i64 1
-  store i8 %54, ptr %55, align 1, !tbaa !36
+  store i8 %54, ptr %55, align 1, !tbaa !35
   %56 = getelementptr inbounds i8, ptr %.093, i64 %2
   %57 = add nuw nsw i32 %.07892, 1
   %exitcond.not = icmp eq i32 %57, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
 
 58:                                               ; preds = %6
   %59 = add nsw i32 %10, %11
@@ -2847,24 +2847,24 @@ define internal void @put_h264_chroma_mc2_8_c(ptr noundef writeonly captures(non
   %.196 = phi ptr [ %88, %.lr.ph97 ], [ %0, %61 ]
   %.17995 = phi i32 [ %90, %.lr.ph97 ], [ 0, %61 ]
   %.18294 = phi ptr [ %89, %.lr.ph97 ], [ %1, %61 ]
-  %64 = load i8, ptr %.18294, align 1, !tbaa !36
+  %64 = load i8, ptr %.18294, align 1, !tbaa !35
   %65 = zext i8 %64 to i32
   %66 = mul nsw i32 %9, %65
   %67 = getelementptr inbounds i8, ptr %.18294, i64 %62
-  %68 = load i8, ptr %67, align 1, !tbaa !36
+  %68 = load i8, ptr %67, align 1, !tbaa !35
   %69 = zext i8 %68 to i32
   %70 = mul nsw i32 %59, %69
   %71 = add i32 %66, 32
   %72 = add i32 %71, %70
   %73 = lshr i32 %72, 6
   %74 = trunc i32 %73 to i8
-  store i8 %74, ptr %.196, align 1, !tbaa !36
+  store i8 %74, ptr %.196, align 1, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %.18294, i64 1
-  %76 = load i8, ptr %75, align 1, !tbaa !36
+  %76 = load i8, ptr %75, align 1, !tbaa !35
   %77 = zext i8 %76 to i32
   %78 = mul nsw i32 %9, %77
   %79 = getelementptr i8, ptr %67, i64 1
-  %80 = load i8, ptr %79, align 1, !tbaa !36
+  %80 = load i8, ptr %79, align 1, !tbaa !35
   %81 = zext i8 %80 to i32
   %82 = mul nsw i32 %59, %81
   %83 = add i32 %78, 32
@@ -2872,38 +2872,38 @@ define internal void @put_h264_chroma_mc2_8_c(ptr noundef writeonly captures(non
   %85 = lshr i32 %84, 6
   %86 = trunc i32 %85 to i8
   %87 = getelementptr inbounds nuw i8, ptr %.196, i64 1
-  store i8 %86, ptr %87, align 1, !tbaa !36
+  store i8 %86, ptr %87, align 1, !tbaa !35
   %88 = getelementptr inbounds i8, ptr %.196, i64 %2
   %89 = getelementptr inbounds i8, ptr %.18294, i64 %2
   %90 = add nuw nsw i32 %.17995, 1
   %exitcond104.not = icmp eq i32 %90, %3
-  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph97, !llvm.loop !44
+  br i1 %exitcond104.not, label %.loopexit, label %.lr.ph97, !llvm.loop !43
 
 .lr.ph101:                                        ; preds = %.preheader, %.lr.ph101
   %.2100 = phi ptr [ %105, %.lr.ph101 ], [ %0, %.preheader ]
   %.28099 = phi i32 [ %107, %.lr.ph101 ], [ 0, %.preheader ]
   %.28398 = phi ptr [ %106, %.lr.ph101 ], [ %1, %.preheader ]
-  %91 = load i8, ptr %.28398, align 1, !tbaa !36
+  %91 = load i8, ptr %.28398, align 1, !tbaa !35
   %92 = zext i8 %91 to i32
   %93 = mul nsw i32 %9, %92
   %94 = add nsw i32 %93, 32
   %95 = lshr i32 %94, 6
   %96 = trunc i32 %95 to i8
-  store i8 %96, ptr %.2100, align 1, !tbaa !36
+  store i8 %96, ptr %.2100, align 1, !tbaa !35
   %97 = getelementptr inbounds nuw i8, ptr %.28398, i64 1
-  %98 = load i8, ptr %97, align 1, !tbaa !36
+  %98 = load i8, ptr %97, align 1, !tbaa !35
   %99 = zext i8 %98 to i32
   %100 = mul nsw i32 %9, %99
   %101 = add nsw i32 %100, 32
   %102 = lshr i32 %101, 6
   %103 = trunc i32 %102 to i8
   %104 = getelementptr inbounds nuw i8, ptr %.2100, i64 1
-  store i8 %103, ptr %104, align 1, !tbaa !36
+  store i8 %103, ptr %104, align 1, !tbaa !35
   %105 = getelementptr inbounds i8, ptr %.2100, i64 %2
   %106 = getelementptr inbounds i8, ptr %.28398, i64 %2
   %107 = add nuw nsw i32 %.28099, 1
   %exitcond105.not = icmp eq i32 %107, %3
-  br i1 %exitcond105.not, label %.loopexit, label %.lr.ph101, !llvm.loop !45
+  br i1 %exitcond105.not, label %.loopexit, label %.lr.ph101, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph97, %.lr.ph101, %.preheader89, %61, %.preheader
   ret void
@@ -2928,19 +2928,19 @@ define internal void @put_h264_chroma_mc1_8_c(ptr noundef writeonly captures(non
   %.073 = phi ptr [ %35, %.lr.ph ], [ %0, %.preheader69 ]
   %.05872 = phi i32 [ %36, %.lr.ph ], [ 0, %.preheader69 ]
   %.06171 = phi ptr [ %21, %.lr.ph ], [ %1, %.preheader69 ]
-  %14 = load i8, ptr %.06171, align 1, !tbaa !36
+  %14 = load i8, ptr %.06171, align 1, !tbaa !35
   %15 = zext i8 %14 to i32
   %16 = mul nsw i32 %9, %15
   %17 = getelementptr inbounds nuw i8, ptr %.06171, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !36
+  %18 = load i8, ptr %17, align 1, !tbaa !35
   %19 = zext i8 %18 to i32
   %20 = mul nsw i32 %10, %19
   %21 = getelementptr inbounds i8, ptr %.06171, i64 %2
-  %22 = load i8, ptr %21, align 1, !tbaa !36
+  %22 = load i8, ptr %21, align 1, !tbaa !35
   %23 = zext i8 %22 to i32
   %24 = mul nsw i32 %11, %23
   %25 = getelementptr i8, ptr %21, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !36
+  %26 = load i8, ptr %25, align 1, !tbaa !35
   %27 = zext i8 %26 to i32
   %28 = mul nsw i32 %12, %27
   %29 = add i32 %16, 32
@@ -2949,11 +2949,11 @@ define internal void @put_h264_chroma_mc1_8_c(ptr noundef writeonly captures(non
   %32 = add i32 %31, %28
   %33 = lshr i32 %32, 6
   %34 = trunc i32 %33 to i8
-  store i8 %34, ptr %.073, align 1, !tbaa !36
+  store i8 %34, ptr %.073, align 1, !tbaa !35
   %35 = getelementptr inbounds i8, ptr %.073, i64 %2
   %36 = add nuw nsw i32 %.05872, 1
   %exitcond.not = icmp eq i32 %36, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !45
 
 37:                                               ; preds = %6
   %38 = add nsw i32 %10, %11
@@ -2978,40 +2978,40 @@ define internal void @put_h264_chroma_mc1_8_c(ptr noundef writeonly captures(non
   %.176 = phi ptr [ %0, %.lr.ph77 ], [ %56, %44 ]
   %.15975 = phi i32 [ 0, %.lr.ph77 ], [ %58, %44 ]
   %.16274 = phi ptr [ %1, %.lr.ph77 ], [ %57, %44 ]
-  %45 = load i8, ptr %.16274, align 1, !tbaa !36
+  %45 = load i8, ptr %.16274, align 1, !tbaa !35
   %46 = zext i8 %45 to i32
   %47 = mul nsw i32 %9, %46
   %48 = getelementptr inbounds i8, ptr %.16274, i64 %43
-  %49 = load i8, ptr %48, align 1, !tbaa !36
+  %49 = load i8, ptr %48, align 1, !tbaa !35
   %50 = zext i8 %49 to i32
   %51 = mul nsw i32 %38, %50
   %52 = add i32 %47, 32
   %53 = add i32 %52, %51
   %54 = lshr i32 %53, 6
   %55 = trunc i32 %54 to i8
-  store i8 %55, ptr %.176, align 1, !tbaa !36
+  store i8 %55, ptr %.176, align 1, !tbaa !35
   %56 = getelementptr inbounds i8, ptr %.176, i64 %2
   %57 = getelementptr inbounds i8, ptr %.16274, i64 %2
   %58 = add nuw nsw i32 %.15975, 1
   %exitcond84.not = icmp eq i32 %58, %3
-  br i1 %exitcond84.not, label %.loopexit, label %44, !llvm.loop !47
+  br i1 %exitcond84.not, label %.loopexit, label %44, !llvm.loop !46
 
 .lr.ph81:                                         ; preds = %.preheader, %.lr.ph81
   %.280 = phi ptr [ %65, %.lr.ph81 ], [ %0, %.preheader ]
   %.26079 = phi i32 [ %67, %.lr.ph81 ], [ 0, %.preheader ]
   %.26378 = phi ptr [ %66, %.lr.ph81 ], [ %1, %.preheader ]
-  %59 = load i8, ptr %.26378, align 1, !tbaa !36
+  %59 = load i8, ptr %.26378, align 1, !tbaa !35
   %60 = zext i8 %59 to i32
   %61 = mul nsw i32 %9, %60
   %62 = add nsw i32 %61, 32
   %63 = lshr i32 %62, 6
   %64 = trunc i32 %63 to i8
-  store i8 %64, ptr %.280, align 1, !tbaa !36
+  store i8 %64, ptr %.280, align 1, !tbaa !35
   %65 = getelementptr inbounds i8, ptr %.280, i64 %2
   %66 = getelementptr inbounds i8, ptr %.26378, i64 %2
   %67 = add nuw nsw i32 %.26079, 1
   %exitcond85.not = icmp eq i32 %67, %3
-  br i1 %exitcond85.not, label %.loopexit, label %.lr.ph81, !llvm.loop !48
+  br i1 %exitcond85.not, label %.loopexit, label %.lr.ph81, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.lr.ph, %44, %.lr.ph81, %.preheader69, %40, %.preheader
   ret void
@@ -3040,21 +3040,21 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %.0237.lver.orig = phi ptr [ %222, %.lr.ph.lver.orig ], [ %0, %.lr.ph.lver.check ]
   %.0222236.lver.orig = phi i32 [ %223, %.lr.ph.lver.orig ], [ 0, %.lr.ph.lver.check ]
   %.0225235.lver.orig = phi ptr [ %23, %.lr.ph.lver.orig ], [ %1, %.lr.ph.lver.check ]
-  %14 = load i8, ptr %.0237.lver.orig, align 1, !tbaa !36
+  %14 = load i8, ptr %.0237.lver.orig, align 1, !tbaa !35
   %15 = zext i8 %14 to i32
-  %16 = load i8, ptr %.0225235.lver.orig, align 1, !tbaa !36
+  %16 = load i8, ptr %.0225235.lver.orig, align 1, !tbaa !35
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %9, %17
   %19 = getelementptr inbounds nuw i8, ptr %.0225235.lver.orig, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !36
+  %20 = load i8, ptr %19, align 1, !tbaa !35
   %21 = zext i8 %20 to i32
   %22 = mul nsw i32 %10, %21
   %23 = getelementptr inbounds i8, ptr %.0225235.lver.orig, i64 %2
-  %24 = load i8, ptr %23, align 1, !tbaa !36
+  %24 = load i8, ptr %23, align 1, !tbaa !35
   %25 = zext i8 %24 to i32
   %26 = mul nsw i32 %11, %25
   %27 = getelementptr i8, ptr %23, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !36
+  %28 = load i8, ptr %27, align 1, !tbaa !35
   %29 = zext i8 %28 to i32
   %30 = mul nsw i32 %12, %29
   %31 = add i32 %18, 32
@@ -3066,22 +3066,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %37 = add nuw nsw i32 %36, %35
   %38 = lshr i32 %37, 1
   %39 = trunc i32 %38 to i8
-  store i8 %39, ptr %.0237.lver.orig, align 1, !tbaa !36
+  store i8 %39, ptr %.0237.lver.orig, align 1, !tbaa !35
   %40 = getelementptr inbounds nuw i8, ptr %.0237.lver.orig, i64 1
-  %41 = load i8, ptr %40, align 1, !tbaa !36
+  %41 = load i8, ptr %40, align 1, !tbaa !35
   %42 = zext i8 %41 to i32
-  %43 = load i8, ptr %19, align 1, !tbaa !36
+  %43 = load i8, ptr %19, align 1, !tbaa !35
   %44 = zext i8 %43 to i32
   %45 = mul nsw i32 %9, %44
   %46 = getelementptr inbounds nuw i8, ptr %.0225235.lver.orig, i64 2
-  %47 = load i8, ptr %46, align 1, !tbaa !36
+  %47 = load i8, ptr %46, align 1, !tbaa !35
   %48 = zext i8 %47 to i32
   %49 = mul nsw i32 %10, %48
-  %50 = load i8, ptr %27, align 1, !tbaa !36
+  %50 = load i8, ptr %27, align 1, !tbaa !35
   %51 = zext i8 %50 to i32
   %52 = mul nsw i32 %11, %51
   %53 = getelementptr i8, ptr %23, i64 2
-  %54 = load i8, ptr %53, align 1, !tbaa !36
+  %54 = load i8, ptr %53, align 1, !tbaa !35
   %55 = zext i8 %54 to i32
   %56 = mul nsw i32 %12, %55
   %57 = add i32 %45, 32
@@ -3093,22 +3093,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %63 = add nuw nsw i32 %62, %61
   %64 = lshr i32 %63, 1
   %65 = trunc i32 %64 to i8
-  store i8 %65, ptr %40, align 1, !tbaa !36
+  store i8 %65, ptr %40, align 1, !tbaa !35
   %66 = getelementptr inbounds nuw i8, ptr %.0237.lver.orig, i64 2
-  %67 = load i8, ptr %66, align 1, !tbaa !36
+  %67 = load i8, ptr %66, align 1, !tbaa !35
   %68 = zext i8 %67 to i32
-  %69 = load i8, ptr %46, align 1, !tbaa !36
+  %69 = load i8, ptr %46, align 1, !tbaa !35
   %70 = zext i8 %69 to i32
   %71 = mul nsw i32 %9, %70
   %72 = getelementptr inbounds nuw i8, ptr %.0225235.lver.orig, i64 3
-  %73 = load i8, ptr %72, align 1, !tbaa !36
+  %73 = load i8, ptr %72, align 1, !tbaa !35
   %74 = zext i8 %73 to i32
   %75 = mul nsw i32 %10, %74
-  %76 = load i8, ptr %53, align 1, !tbaa !36
+  %76 = load i8, ptr %53, align 1, !tbaa !35
   %77 = zext i8 %76 to i32
   %78 = mul nsw i32 %11, %77
   %79 = getelementptr i8, ptr %23, i64 3
-  %80 = load i8, ptr %79, align 1, !tbaa !36
+  %80 = load i8, ptr %79, align 1, !tbaa !35
   %81 = zext i8 %80 to i32
   %82 = mul nsw i32 %12, %81
   %83 = add i32 %71, 32
@@ -3120,22 +3120,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %89 = add nuw nsw i32 %88, %87
   %90 = lshr i32 %89, 1
   %91 = trunc i32 %90 to i8
-  store i8 %91, ptr %66, align 1, !tbaa !36
+  store i8 %91, ptr %66, align 1, !tbaa !35
   %92 = getelementptr inbounds nuw i8, ptr %.0237.lver.orig, i64 3
-  %93 = load i8, ptr %92, align 1, !tbaa !36
+  %93 = load i8, ptr %92, align 1, !tbaa !35
   %94 = zext i8 %93 to i32
-  %95 = load i8, ptr %72, align 1, !tbaa !36
+  %95 = load i8, ptr %72, align 1, !tbaa !35
   %96 = zext i8 %95 to i32
   %97 = mul nsw i32 %9, %96
   %98 = getelementptr inbounds nuw i8, ptr %.0225235.lver.orig, i64 4
-  %99 = load i8, ptr %98, align 1, !tbaa !36
+  %99 = load i8, ptr %98, align 1, !tbaa !35
   %100 = zext i8 %99 to i32
   %101 = mul nsw i32 %10, %100
-  %102 = load i8, ptr %79, align 1, !tbaa !36
+  %102 = load i8, ptr %79, align 1, !tbaa !35
   %103 = zext i8 %102 to i32
   %104 = mul nsw i32 %11, %103
   %105 = getelementptr i8, ptr %23, i64 4
-  %106 = load i8, ptr %105, align 1, !tbaa !36
+  %106 = load i8, ptr %105, align 1, !tbaa !35
   %107 = zext i8 %106 to i32
   %108 = mul nsw i32 %12, %107
   %109 = add i32 %97, 32
@@ -3147,22 +3147,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %115 = add nuw nsw i32 %114, %113
   %116 = lshr i32 %115, 1
   %117 = trunc i32 %116 to i8
-  store i8 %117, ptr %92, align 1, !tbaa !36
+  store i8 %117, ptr %92, align 1, !tbaa !35
   %118 = getelementptr inbounds nuw i8, ptr %.0237.lver.orig, i64 4
-  %119 = load i8, ptr %118, align 1, !tbaa !36
+  %119 = load i8, ptr %118, align 1, !tbaa !35
   %120 = zext i8 %119 to i32
-  %121 = load i8, ptr %98, align 1, !tbaa !36
+  %121 = load i8, ptr %98, align 1, !tbaa !35
   %122 = zext i8 %121 to i32
   %123 = mul nsw i32 %9, %122
   %124 = getelementptr inbounds nuw i8, ptr %.0225235.lver.orig, i64 5
-  %125 = load i8, ptr %124, align 1, !tbaa !36
+  %125 = load i8, ptr %124, align 1, !tbaa !35
   %126 = zext i8 %125 to i32
   %127 = mul nsw i32 %10, %126
-  %128 = load i8, ptr %105, align 1, !tbaa !36
+  %128 = load i8, ptr %105, align 1, !tbaa !35
   %129 = zext i8 %128 to i32
   %130 = mul nsw i32 %11, %129
   %131 = getelementptr i8, ptr %23, i64 5
-  %132 = load i8, ptr %131, align 1, !tbaa !36
+  %132 = load i8, ptr %131, align 1, !tbaa !35
   %133 = zext i8 %132 to i32
   %134 = mul nsw i32 %12, %133
   %135 = add i32 %123, 32
@@ -3174,22 +3174,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %141 = add nuw nsw i32 %140, %139
   %142 = lshr i32 %141, 1
   %143 = trunc i32 %142 to i8
-  store i8 %143, ptr %118, align 1, !tbaa !36
+  store i8 %143, ptr %118, align 1, !tbaa !35
   %144 = getelementptr inbounds nuw i8, ptr %.0237.lver.orig, i64 5
-  %145 = load i8, ptr %144, align 1, !tbaa !36
+  %145 = load i8, ptr %144, align 1, !tbaa !35
   %146 = zext i8 %145 to i32
-  %147 = load i8, ptr %124, align 1, !tbaa !36
+  %147 = load i8, ptr %124, align 1, !tbaa !35
   %148 = zext i8 %147 to i32
   %149 = mul nsw i32 %9, %148
   %150 = getelementptr inbounds nuw i8, ptr %.0225235.lver.orig, i64 6
-  %151 = load i8, ptr %150, align 1, !tbaa !36
+  %151 = load i8, ptr %150, align 1, !tbaa !35
   %152 = zext i8 %151 to i32
   %153 = mul nsw i32 %10, %152
-  %154 = load i8, ptr %131, align 1, !tbaa !36
+  %154 = load i8, ptr %131, align 1, !tbaa !35
   %155 = zext i8 %154 to i32
   %156 = mul nsw i32 %11, %155
   %157 = getelementptr i8, ptr %23, i64 6
-  %158 = load i8, ptr %157, align 1, !tbaa !36
+  %158 = load i8, ptr %157, align 1, !tbaa !35
   %159 = zext i8 %158 to i32
   %160 = mul nsw i32 %12, %159
   %161 = add i32 %149, 32
@@ -3201,22 +3201,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %167 = add nuw nsw i32 %166, %165
   %168 = lshr i32 %167, 1
   %169 = trunc i32 %168 to i8
-  store i8 %169, ptr %144, align 1, !tbaa !36
+  store i8 %169, ptr %144, align 1, !tbaa !35
   %170 = getelementptr inbounds nuw i8, ptr %.0237.lver.orig, i64 6
-  %171 = load i8, ptr %170, align 1, !tbaa !36
+  %171 = load i8, ptr %170, align 1, !tbaa !35
   %172 = zext i8 %171 to i32
-  %173 = load i8, ptr %150, align 1, !tbaa !36
+  %173 = load i8, ptr %150, align 1, !tbaa !35
   %174 = zext i8 %173 to i32
   %175 = mul nsw i32 %9, %174
   %176 = getelementptr inbounds nuw i8, ptr %.0225235.lver.orig, i64 7
-  %177 = load i8, ptr %176, align 1, !tbaa !36
+  %177 = load i8, ptr %176, align 1, !tbaa !35
   %178 = zext i8 %177 to i32
   %179 = mul nsw i32 %10, %178
-  %180 = load i8, ptr %157, align 1, !tbaa !36
+  %180 = load i8, ptr %157, align 1, !tbaa !35
   %181 = zext i8 %180 to i32
   %182 = mul nsw i32 %11, %181
   %183 = getelementptr i8, ptr %23, i64 7
-  %184 = load i8, ptr %183, align 1, !tbaa !36
+  %184 = load i8, ptr %183, align 1, !tbaa !35
   %185 = zext i8 %184 to i32
   %186 = mul nsw i32 %12, %185
   %187 = add i32 %175, 32
@@ -3228,22 +3228,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %193 = add nuw nsw i32 %192, %191
   %194 = lshr i32 %193, 1
   %195 = trunc i32 %194 to i8
-  store i8 %195, ptr %170, align 1, !tbaa !36
+  store i8 %195, ptr %170, align 1, !tbaa !35
   %196 = getelementptr inbounds nuw i8, ptr %.0237.lver.orig, i64 7
-  %197 = load i8, ptr %196, align 1, !tbaa !36
+  %197 = load i8, ptr %196, align 1, !tbaa !35
   %198 = zext i8 %197 to i32
-  %199 = load i8, ptr %176, align 1, !tbaa !36
+  %199 = load i8, ptr %176, align 1, !tbaa !35
   %200 = zext i8 %199 to i32
   %201 = mul nsw i32 %9, %200
   %202 = getelementptr inbounds nuw i8, ptr %.0225235.lver.orig, i64 8
-  %203 = load i8, ptr %202, align 1, !tbaa !36
+  %203 = load i8, ptr %202, align 1, !tbaa !35
   %204 = zext i8 %203 to i32
   %205 = mul nsw i32 %10, %204
-  %206 = load i8, ptr %183, align 1, !tbaa !36
+  %206 = load i8, ptr %183, align 1, !tbaa !35
   %207 = zext i8 %206 to i32
   %208 = mul nsw i32 %11, %207
   %209 = getelementptr i8, ptr %23, i64 8
-  %210 = load i8, ptr %209, align 1, !tbaa !36
+  %210 = load i8, ptr %209, align 1, !tbaa !35
   %211 = zext i8 %210 to i32
   %212 = mul nsw i32 %12, %211
   %213 = add i32 %201, 32
@@ -3255,11 +3255,11 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %219 = add nuw nsw i32 %218, %217
   %220 = lshr i32 %219, 1
   %221 = trunc i32 %220 to i8
-  store i8 %221, ptr %196, align 1, !tbaa !36
+  store i8 %221, ptr %196, align 1, !tbaa !35
   %222 = getelementptr inbounds i8, ptr %.0237.lver.orig, i64 %2
   %223 = add nuw nsw i32 %.0222236.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %223, %3
-  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !49
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !48
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
   %scevgep262 = getelementptr i8, ptr %0, i64 6
@@ -3271,21 +3271,21 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %.0237 = phi ptr [ %0, %.lr.ph.ph ], [ %431, %.lr.ph ]
   %.0222236 = phi i32 [ 0, %.lr.ph.ph ], [ %432, %.lr.ph ]
   %.0225235 = phi ptr [ %1, %.lr.ph.ph ], [ %233, %.lr.ph ]
-  %224 = load i8, ptr %.0237, align 1, !tbaa !36
+  %224 = load i8, ptr %.0237, align 1, !tbaa !35
   %225 = zext i8 %224 to i32
-  %226 = load i8, ptr %.0225235, align 1, !tbaa !36
+  %226 = load i8, ptr %.0225235, align 1, !tbaa !35
   %227 = zext i8 %226 to i32
   %228 = mul nsw i32 %9, %227
   %229 = getelementptr inbounds nuw i8, ptr %.0225235, i64 1
-  %230 = load i8, ptr %229, align 1, !tbaa !36
+  %230 = load i8, ptr %229, align 1, !tbaa !35
   %231 = zext i8 %230 to i32
   %232 = mul nsw i32 %10, %231
   %233 = getelementptr inbounds nuw i8, ptr %.0225235, i64 %2
-  %234 = load i8, ptr %233, align 1, !tbaa !36
+  %234 = load i8, ptr %233, align 1, !tbaa !35
   %235 = zext i8 %234 to i32
   %236 = mul nsw i32 %11, %235
   %237 = getelementptr i8, ptr %233, i64 1
-  %238 = load i8, ptr %237, align 1, !tbaa !36
+  %238 = load i8, ptr %237, align 1, !tbaa !35
   %239 = zext i8 %238 to i32
   %240 = mul nsw i32 %12, %239
   %241 = add i32 %228, 32
@@ -3297,22 +3297,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %247 = add nuw nsw i32 %246, %245
   %248 = lshr i32 %247, 1
   %249 = trunc i32 %248 to i8
-  store i8 %249, ptr %.0237, align 1, !tbaa !36
+  store i8 %249, ptr %.0237, align 1, !tbaa !35
   %250 = getelementptr inbounds nuw i8, ptr %.0237, i64 1
-  %251 = load i8, ptr %250, align 1, !tbaa !36
+  %251 = load i8, ptr %250, align 1, !tbaa !35
   %252 = zext i8 %251 to i32
-  %253 = load i8, ptr %229, align 1, !tbaa !36
+  %253 = load i8, ptr %229, align 1, !tbaa !35
   %254 = zext i8 %253 to i32
   %255 = mul nsw i32 %9, %254
   %256 = getelementptr inbounds nuw i8, ptr %.0225235, i64 2
-  %257 = load i8, ptr %256, align 1, !tbaa !36
+  %257 = load i8, ptr %256, align 1, !tbaa !35
   %258 = zext i8 %257 to i32
   %259 = mul nsw i32 %10, %258
-  %260 = load i8, ptr %237, align 1, !tbaa !36
+  %260 = load i8, ptr %237, align 1, !tbaa !35
   %261 = zext i8 %260 to i32
   %262 = mul nsw i32 %11, %261
   %263 = getelementptr i8, ptr %233, i64 2
-  %264 = load i8, ptr %263, align 1, !tbaa !36
+  %264 = load i8, ptr %263, align 1, !tbaa !35
   %265 = zext i8 %264 to i32
   %266 = mul nsw i32 %12, %265
   %267 = add i32 %255, 32
@@ -3324,22 +3324,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %273 = add nuw nsw i32 %272, %271
   %274 = lshr i32 %273, 1
   %275 = trunc i32 %274 to i8
-  store i8 %275, ptr %250, align 1, !tbaa !36
+  store i8 %275, ptr %250, align 1, !tbaa !35
   %276 = getelementptr inbounds nuw i8, ptr %.0237, i64 2
-  %277 = load i8, ptr %276, align 1, !tbaa !36
+  %277 = load i8, ptr %276, align 1, !tbaa !35
   %278 = zext i8 %277 to i32
-  %279 = load i8, ptr %256, align 1, !tbaa !36
+  %279 = load i8, ptr %256, align 1, !tbaa !35
   %280 = zext i8 %279 to i32
   %281 = mul nsw i32 %9, %280
   %282 = getelementptr inbounds nuw i8, ptr %.0225235, i64 3
-  %283 = load i8, ptr %282, align 1, !tbaa !36
+  %283 = load i8, ptr %282, align 1, !tbaa !35
   %284 = zext i8 %283 to i32
   %285 = mul nsw i32 %10, %284
-  %286 = load i8, ptr %263, align 1, !tbaa !36
+  %286 = load i8, ptr %263, align 1, !tbaa !35
   %287 = zext i8 %286 to i32
   %288 = mul nsw i32 %11, %287
   %289 = getelementptr i8, ptr %233, i64 3
-  %290 = load i8, ptr %289, align 1, !tbaa !36
+  %290 = load i8, ptr %289, align 1, !tbaa !35
   %291 = zext i8 %290 to i32
   %292 = mul nsw i32 %12, %291
   %293 = add i32 %281, 32
@@ -3351,22 +3351,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %299 = add nuw nsw i32 %298, %297
   %300 = lshr i32 %299, 1
   %301 = trunc i32 %300 to i8
-  store i8 %301, ptr %276, align 1, !tbaa !36
+  store i8 %301, ptr %276, align 1, !tbaa !35
   %302 = getelementptr inbounds nuw i8, ptr %.0237, i64 3
-  %303 = load i8, ptr %302, align 1, !tbaa !36
+  %303 = load i8, ptr %302, align 1, !tbaa !35
   %304 = zext i8 %303 to i32
-  %305 = load i8, ptr %282, align 1, !tbaa !36
+  %305 = load i8, ptr %282, align 1, !tbaa !35
   %306 = zext i8 %305 to i32
   %307 = mul nsw i32 %9, %306
   %308 = getelementptr inbounds nuw i8, ptr %.0225235, i64 4
-  %309 = load i8, ptr %308, align 1, !tbaa !36
+  %309 = load i8, ptr %308, align 1, !tbaa !35
   %310 = zext i8 %309 to i32
   %311 = mul nsw i32 %10, %310
-  %312 = load i8, ptr %289, align 1, !tbaa !36
+  %312 = load i8, ptr %289, align 1, !tbaa !35
   %313 = zext i8 %312 to i32
   %314 = mul nsw i32 %11, %313
   %315 = getelementptr i8, ptr %233, i64 4
-  %316 = load i8, ptr %315, align 1, !tbaa !36
+  %316 = load i8, ptr %315, align 1, !tbaa !35
   %317 = zext i8 %316 to i32
   %318 = mul nsw i32 %12, %317
   %319 = add i32 %307, 32
@@ -3378,22 +3378,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %325 = add nuw nsw i32 %324, %323
   %326 = lshr i32 %325, 1
   %327 = trunc i32 %326 to i8
-  store i8 %327, ptr %302, align 1, !tbaa !36
+  store i8 %327, ptr %302, align 1, !tbaa !35
   %328 = getelementptr inbounds nuw i8, ptr %.0237, i64 4
-  %329 = load i8, ptr %328, align 1, !tbaa !36
+  %329 = load i8, ptr %328, align 1, !tbaa !35
   %330 = zext i8 %329 to i32
-  %331 = load i8, ptr %308, align 1, !tbaa !36
+  %331 = load i8, ptr %308, align 1, !tbaa !35
   %332 = zext i8 %331 to i32
   %333 = mul nsw i32 %9, %332
   %334 = getelementptr inbounds nuw i8, ptr %.0225235, i64 5
-  %335 = load i8, ptr %334, align 1, !tbaa !36
+  %335 = load i8, ptr %334, align 1, !tbaa !35
   %336 = zext i8 %335 to i32
   %337 = mul nsw i32 %10, %336
-  %338 = load i8, ptr %315, align 1, !tbaa !36
+  %338 = load i8, ptr %315, align 1, !tbaa !35
   %339 = zext i8 %338 to i32
   %340 = mul nsw i32 %11, %339
   %341 = getelementptr i8, ptr %233, i64 5
-  %342 = load i8, ptr %341, align 1, !tbaa !36
+  %342 = load i8, ptr %341, align 1, !tbaa !35
   %343 = zext i8 %342 to i32
   %344 = mul nsw i32 %12, %343
   %345 = add i32 %333, 32
@@ -3405,22 +3405,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %351 = add nuw nsw i32 %350, %349
   %352 = lshr i32 %351, 1
   %353 = trunc i32 %352 to i8
-  store i8 %353, ptr %328, align 1, !tbaa !36
+  store i8 %353, ptr %328, align 1, !tbaa !35
   %354 = getelementptr inbounds nuw i8, ptr %.0237, i64 5
-  %355 = load i8, ptr %354, align 1, !tbaa !36
+  %355 = load i8, ptr %354, align 1, !tbaa !35
   %356 = zext i8 %355 to i32
-  %357 = load i8, ptr %334, align 1, !tbaa !36
+  %357 = load i8, ptr %334, align 1, !tbaa !35
   %358 = zext i8 %357 to i32
   %359 = mul nsw i32 %9, %358
   %360 = getelementptr inbounds nuw i8, ptr %.0225235, i64 6
-  %361 = load i8, ptr %360, align 1, !tbaa !36
+  %361 = load i8, ptr %360, align 1, !tbaa !35
   %362 = zext i8 %361 to i32
   %363 = mul nsw i32 %10, %362
-  %364 = load i8, ptr %341, align 1, !tbaa !36
+  %364 = load i8, ptr %341, align 1, !tbaa !35
   %365 = zext i8 %364 to i32
   %366 = mul nsw i32 %11, %365
   %367 = getelementptr i8, ptr %233, i64 6
-  %368 = load i8, ptr %367, align 1, !tbaa !36
+  %368 = load i8, ptr %367, align 1, !tbaa !35
   %369 = zext i8 %368 to i32
   %370 = mul nsw i32 %12, %369
   %371 = add i32 %359, 32
@@ -3432,21 +3432,21 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %377 = add nuw nsw i32 %376, %375
   %378 = lshr i32 %377, 1
   %379 = trunc i32 %378 to i8
-  store i8 %379, ptr %354, align 1, !tbaa !36
+  store i8 %379, ptr %354, align 1, !tbaa !35
   %380 = getelementptr inbounds nuw i8, ptr %.0237, i64 6
   %381 = zext i8 %store_forwarded264 to i32
-  %382 = load i8, ptr %360, align 1, !tbaa !36
+  %382 = load i8, ptr %360, align 1, !tbaa !35
   %383 = zext i8 %382 to i32
   %384 = mul nsw i32 %9, %383
   %385 = getelementptr inbounds nuw i8, ptr %.0225235, i64 7
-  %386 = load i8, ptr %385, align 1, !tbaa !36
+  %386 = load i8, ptr %385, align 1, !tbaa !35
   %387 = zext i8 %386 to i32
   %388 = mul nsw i32 %10, %387
-  %389 = load i8, ptr %367, align 1, !tbaa !36
+  %389 = load i8, ptr %367, align 1, !tbaa !35
   %390 = zext i8 %389 to i32
   %391 = mul nsw i32 %11, %390
   %392 = getelementptr i8, ptr %233, i64 7
-  %393 = load i8, ptr %392, align 1, !tbaa !36
+  %393 = load i8, ptr %392, align 1, !tbaa !35
   %394 = zext i8 %393 to i32
   %395 = mul nsw i32 %12, %394
   %396 = add i32 %384, 32
@@ -3458,22 +3458,22 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %402 = add nuw nsw i32 %401, %400
   %403 = lshr i32 %402, 1
   %404 = trunc i32 %403 to i8
-  store i8 %404, ptr %380, align 1, !tbaa !36
+  store i8 %404, ptr %380, align 1, !tbaa !35
   %405 = getelementptr inbounds nuw i8, ptr %.0237, i64 7
-  %406 = load i8, ptr %405, align 1, !tbaa !36
+  %406 = load i8, ptr %405, align 1, !tbaa !35
   %407 = zext i8 %406 to i32
-  %408 = load i8, ptr %385, align 1, !tbaa !36
+  %408 = load i8, ptr %385, align 1, !tbaa !35
   %409 = zext i8 %408 to i32
   %410 = mul nsw i32 %9, %409
   %411 = getelementptr inbounds nuw i8, ptr %.0225235, i64 8
-  %412 = load i8, ptr %411, align 1, !tbaa !36
+  %412 = load i8, ptr %411, align 1, !tbaa !35
   %413 = zext i8 %412 to i32
   %414 = mul nsw i32 %10, %413
-  %415 = load i8, ptr %392, align 1, !tbaa !36
+  %415 = load i8, ptr %392, align 1, !tbaa !35
   %416 = zext i8 %415 to i32
   %417 = mul nsw i32 %11, %416
   %418 = getelementptr i8, ptr %233, i64 8
-  %419 = load i8, ptr %418, align 1, !tbaa !36
+  %419 = load i8, ptr %418, align 1, !tbaa !35
   %420 = zext i8 %419 to i32
   %421 = mul nsw i32 %12, %420
   %422 = add i32 %410, 32
@@ -3485,11 +3485,11 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %428 = add nuw nsw i32 %427, %426
   %429 = lshr i32 %428, 1
   %430 = trunc i32 %429 to i8
-  store i8 %430, ptr %405, align 1, !tbaa !36
+  store i8 %430, ptr %405, align 1, !tbaa !35
   %431 = getelementptr inbounds nuw i8, ptr %.0237, i64 %2
   %432 = add nuw nsw i32 %.0222236, 1
   %exitcond.not = icmp eq i32 %432, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !48
 
 433:                                              ; preds = %6
   %434 = add nsw i32 %10, %11
@@ -3508,9 +3508,9 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %.2244.lver.orig = phi ptr [ %538, %.lr.ph245.lver.orig ], [ %0, %.lr.ph245.lver.check ]
   %.2224243.lver.orig = phi i32 [ %540, %.lr.ph245.lver.orig ], [ 0, %.lr.ph245.lver.check ]
   %.2227242.lver.orig = phi ptr [ %539, %.lr.ph245.lver.orig ], [ %1, %.lr.ph245.lver.check ]
-  %436 = load i8, ptr %.2244.lver.orig, align 1, !tbaa !36
+  %436 = load i8, ptr %.2244.lver.orig, align 1, !tbaa !35
   %437 = zext i8 %436 to i32
-  %438 = load i8, ptr %.2227242.lver.orig, align 1, !tbaa !36
+  %438 = load i8, ptr %.2227242.lver.orig, align 1, !tbaa !35
   %439 = zext i8 %438 to i32
   %440 = mul nsw i32 %9, %439
   %441 = add nsw i32 %440, 32
@@ -3519,12 +3519,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %444 = add nuw nsw i32 %443, %442
   %445 = lshr i32 %444, 1
   %446 = trunc i32 %445 to i8
-  store i8 %446, ptr %.2244.lver.orig, align 1, !tbaa !36
+  store i8 %446, ptr %.2244.lver.orig, align 1, !tbaa !35
   %447 = getelementptr inbounds nuw i8, ptr %.2244.lver.orig, i64 1
-  %448 = load i8, ptr %447, align 1, !tbaa !36
+  %448 = load i8, ptr %447, align 1, !tbaa !35
   %449 = zext i8 %448 to i32
   %450 = getelementptr inbounds nuw i8, ptr %.2227242.lver.orig, i64 1
-  %451 = load i8, ptr %450, align 1, !tbaa !36
+  %451 = load i8, ptr %450, align 1, !tbaa !35
   %452 = zext i8 %451 to i32
   %453 = mul nsw i32 %9, %452
   %454 = add nsw i32 %453, 32
@@ -3533,12 +3533,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %457 = add nuw nsw i32 %456, %455
   %458 = lshr i32 %457, 1
   %459 = trunc i32 %458 to i8
-  store i8 %459, ptr %447, align 1, !tbaa !36
+  store i8 %459, ptr %447, align 1, !tbaa !35
   %460 = getelementptr inbounds nuw i8, ptr %.2244.lver.orig, i64 2
-  %461 = load i8, ptr %460, align 1, !tbaa !36
+  %461 = load i8, ptr %460, align 1, !tbaa !35
   %462 = zext i8 %461 to i32
   %463 = getelementptr inbounds nuw i8, ptr %.2227242.lver.orig, i64 2
-  %464 = load i8, ptr %463, align 1, !tbaa !36
+  %464 = load i8, ptr %463, align 1, !tbaa !35
   %465 = zext i8 %464 to i32
   %466 = mul nsw i32 %9, %465
   %467 = add nsw i32 %466, 32
@@ -3547,12 +3547,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %470 = add nuw nsw i32 %469, %468
   %471 = lshr i32 %470, 1
   %472 = trunc i32 %471 to i8
-  store i8 %472, ptr %460, align 1, !tbaa !36
+  store i8 %472, ptr %460, align 1, !tbaa !35
   %473 = getelementptr inbounds nuw i8, ptr %.2244.lver.orig, i64 3
-  %474 = load i8, ptr %473, align 1, !tbaa !36
+  %474 = load i8, ptr %473, align 1, !tbaa !35
   %475 = zext i8 %474 to i32
   %476 = getelementptr inbounds nuw i8, ptr %.2227242.lver.orig, i64 3
-  %477 = load i8, ptr %476, align 1, !tbaa !36
+  %477 = load i8, ptr %476, align 1, !tbaa !35
   %478 = zext i8 %477 to i32
   %479 = mul nsw i32 %9, %478
   %480 = add nsw i32 %479, 32
@@ -3561,12 +3561,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %483 = add nuw nsw i32 %482, %481
   %484 = lshr i32 %483, 1
   %485 = trunc i32 %484 to i8
-  store i8 %485, ptr %473, align 1, !tbaa !36
+  store i8 %485, ptr %473, align 1, !tbaa !35
   %486 = getelementptr inbounds nuw i8, ptr %.2244.lver.orig, i64 4
-  %487 = load i8, ptr %486, align 1, !tbaa !36
+  %487 = load i8, ptr %486, align 1, !tbaa !35
   %488 = zext i8 %487 to i32
   %489 = getelementptr inbounds nuw i8, ptr %.2227242.lver.orig, i64 4
-  %490 = load i8, ptr %489, align 1, !tbaa !36
+  %490 = load i8, ptr %489, align 1, !tbaa !35
   %491 = zext i8 %490 to i32
   %492 = mul nsw i32 %9, %491
   %493 = add nsw i32 %492, 32
@@ -3575,12 +3575,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %496 = add nuw nsw i32 %495, %494
   %497 = lshr i32 %496, 1
   %498 = trunc i32 %497 to i8
-  store i8 %498, ptr %486, align 1, !tbaa !36
+  store i8 %498, ptr %486, align 1, !tbaa !35
   %499 = getelementptr inbounds nuw i8, ptr %.2244.lver.orig, i64 5
-  %500 = load i8, ptr %499, align 1, !tbaa !36
+  %500 = load i8, ptr %499, align 1, !tbaa !35
   %501 = zext i8 %500 to i32
   %502 = getelementptr inbounds nuw i8, ptr %.2227242.lver.orig, i64 5
-  %503 = load i8, ptr %502, align 1, !tbaa !36
+  %503 = load i8, ptr %502, align 1, !tbaa !35
   %504 = zext i8 %503 to i32
   %505 = mul nsw i32 %9, %504
   %506 = add nsw i32 %505, 32
@@ -3589,12 +3589,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %509 = add nuw nsw i32 %508, %507
   %510 = lshr i32 %509, 1
   %511 = trunc i32 %510 to i8
-  store i8 %511, ptr %499, align 1, !tbaa !36
+  store i8 %511, ptr %499, align 1, !tbaa !35
   %512 = getelementptr inbounds nuw i8, ptr %.2244.lver.orig, i64 6
-  %513 = load i8, ptr %512, align 1, !tbaa !36
+  %513 = load i8, ptr %512, align 1, !tbaa !35
   %514 = zext i8 %513 to i32
   %515 = getelementptr inbounds nuw i8, ptr %.2227242.lver.orig, i64 6
-  %516 = load i8, ptr %515, align 1, !tbaa !36
+  %516 = load i8, ptr %515, align 1, !tbaa !35
   %517 = zext i8 %516 to i32
   %518 = mul nsw i32 %9, %517
   %519 = add nsw i32 %518, 32
@@ -3603,12 +3603,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %522 = add nuw nsw i32 %521, %520
   %523 = lshr i32 %522, 1
   %524 = trunc i32 %523 to i8
-  store i8 %524, ptr %512, align 1, !tbaa !36
+  store i8 %524, ptr %512, align 1, !tbaa !35
   %525 = getelementptr inbounds nuw i8, ptr %.2244.lver.orig, i64 7
-  %526 = load i8, ptr %525, align 1, !tbaa !36
+  %526 = load i8, ptr %525, align 1, !tbaa !35
   %527 = zext i8 %526 to i32
   %528 = getelementptr inbounds nuw i8, ptr %.2227242.lver.orig, i64 7
-  %529 = load i8, ptr %528, align 1, !tbaa !36
+  %529 = load i8, ptr %528, align 1, !tbaa !35
   %530 = zext i8 %529 to i32
   %531 = mul nsw i32 %9, %530
   %532 = add nsw i32 %531, 32
@@ -3617,12 +3617,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %535 = add nuw nsw i32 %534, %533
   %536 = lshr i32 %535, 1
   %537 = trunc i32 %536 to i8
-  store i8 %537, ptr %525, align 1, !tbaa !36
+  store i8 %537, ptr %525, align 1, !tbaa !35
   %538 = getelementptr inbounds i8, ptr %.2244.lver.orig, i64 %2
   %539 = getelementptr inbounds i8, ptr %.2227242.lver.orig, i64 %2
   %540 = add nuw nsw i32 %.2224243.lver.orig, 1
   %exitcond249.not.lver.orig = icmp eq i32 %540, %3
-  br i1 %exitcond249.not.lver.orig, label %.loopexit, label %.lr.ph245.lver.orig, !llvm.loop !50
+  br i1 %exitcond249.not.lver.orig, label %.loopexit, label %.lr.ph245.lver.orig, !llvm.loop !49
 
 .lr.ph245.ph:                                     ; preds = %.lr.ph245.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 6
@@ -3643,13 +3643,13 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %.1240.lver.orig = phi ptr [ %686, %.lr.ph241.lver.orig ], [ %0, %.lr.ph241.lver.check ]
   %.1223239.lver.orig = phi i32 [ %688, %.lr.ph241.lver.orig ], [ 0, %.lr.ph241.lver.check ]
   %.1226238.lver.orig = phi ptr [ %687, %.lr.ph241.lver.orig ], [ %1, %.lr.ph241.lver.check ]
-  %544 = load i8, ptr %.1240.lver.orig, align 1, !tbaa !36
+  %544 = load i8, ptr %.1240.lver.orig, align 1, !tbaa !35
   %545 = zext i8 %544 to i32
-  %546 = load i8, ptr %.1226238.lver.orig, align 1, !tbaa !36
+  %546 = load i8, ptr %.1226238.lver.orig, align 1, !tbaa !35
   %547 = zext i8 %546 to i32
   %548 = mul nsw i32 %9, %547
   %549 = getelementptr inbounds i8, ptr %.1226238.lver.orig, i64 %542
-  %550 = load i8, ptr %549, align 1, !tbaa !36
+  %550 = load i8, ptr %549, align 1, !tbaa !35
   %551 = zext i8 %550 to i32
   %552 = mul nsw i32 %434, %551
   %553 = add i32 %548, 32
@@ -3659,16 +3659,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %557 = add nuw nsw i32 %556, %555
   %558 = lshr i32 %557, 1
   %559 = trunc i32 %558 to i8
-  store i8 %559, ptr %.1240.lver.orig, align 1, !tbaa !36
+  store i8 %559, ptr %.1240.lver.orig, align 1, !tbaa !35
   %560 = getelementptr inbounds nuw i8, ptr %.1240.lver.orig, i64 1
-  %561 = load i8, ptr %560, align 1, !tbaa !36
+  %561 = load i8, ptr %560, align 1, !tbaa !35
   %562 = zext i8 %561 to i32
   %563 = getelementptr inbounds nuw i8, ptr %.1226238.lver.orig, i64 1
-  %564 = load i8, ptr %563, align 1, !tbaa !36
+  %564 = load i8, ptr %563, align 1, !tbaa !35
   %565 = zext i8 %564 to i32
   %566 = mul nsw i32 %9, %565
   %567 = getelementptr i8, ptr %549, i64 1
-  %568 = load i8, ptr %567, align 1, !tbaa !36
+  %568 = load i8, ptr %567, align 1, !tbaa !35
   %569 = zext i8 %568 to i32
   %570 = mul nsw i32 %434, %569
   %571 = add i32 %566, 32
@@ -3678,16 +3678,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %575 = add nuw nsw i32 %574, %573
   %576 = lshr i32 %575, 1
   %577 = trunc i32 %576 to i8
-  store i8 %577, ptr %560, align 1, !tbaa !36
+  store i8 %577, ptr %560, align 1, !tbaa !35
   %578 = getelementptr inbounds nuw i8, ptr %.1240.lver.orig, i64 2
-  %579 = load i8, ptr %578, align 1, !tbaa !36
+  %579 = load i8, ptr %578, align 1, !tbaa !35
   %580 = zext i8 %579 to i32
   %581 = getelementptr inbounds nuw i8, ptr %.1226238.lver.orig, i64 2
-  %582 = load i8, ptr %581, align 1, !tbaa !36
+  %582 = load i8, ptr %581, align 1, !tbaa !35
   %583 = zext i8 %582 to i32
   %584 = mul nsw i32 %9, %583
   %585 = getelementptr i8, ptr %549, i64 2
-  %586 = load i8, ptr %585, align 1, !tbaa !36
+  %586 = load i8, ptr %585, align 1, !tbaa !35
   %587 = zext i8 %586 to i32
   %588 = mul nsw i32 %434, %587
   %589 = add i32 %584, 32
@@ -3697,16 +3697,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %593 = add nuw nsw i32 %592, %591
   %594 = lshr i32 %593, 1
   %595 = trunc i32 %594 to i8
-  store i8 %595, ptr %578, align 1, !tbaa !36
+  store i8 %595, ptr %578, align 1, !tbaa !35
   %596 = getelementptr inbounds nuw i8, ptr %.1240.lver.orig, i64 3
-  %597 = load i8, ptr %596, align 1, !tbaa !36
+  %597 = load i8, ptr %596, align 1, !tbaa !35
   %598 = zext i8 %597 to i32
   %599 = getelementptr inbounds nuw i8, ptr %.1226238.lver.orig, i64 3
-  %600 = load i8, ptr %599, align 1, !tbaa !36
+  %600 = load i8, ptr %599, align 1, !tbaa !35
   %601 = zext i8 %600 to i32
   %602 = mul nsw i32 %9, %601
   %603 = getelementptr i8, ptr %549, i64 3
-  %604 = load i8, ptr %603, align 1, !tbaa !36
+  %604 = load i8, ptr %603, align 1, !tbaa !35
   %605 = zext i8 %604 to i32
   %606 = mul nsw i32 %434, %605
   %607 = add i32 %602, 32
@@ -3716,16 +3716,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %611 = add nuw nsw i32 %610, %609
   %612 = lshr i32 %611, 1
   %613 = trunc i32 %612 to i8
-  store i8 %613, ptr %596, align 1, !tbaa !36
+  store i8 %613, ptr %596, align 1, !tbaa !35
   %614 = getelementptr inbounds nuw i8, ptr %.1240.lver.orig, i64 4
-  %615 = load i8, ptr %614, align 1, !tbaa !36
+  %615 = load i8, ptr %614, align 1, !tbaa !35
   %616 = zext i8 %615 to i32
   %617 = getelementptr inbounds nuw i8, ptr %.1226238.lver.orig, i64 4
-  %618 = load i8, ptr %617, align 1, !tbaa !36
+  %618 = load i8, ptr %617, align 1, !tbaa !35
   %619 = zext i8 %618 to i32
   %620 = mul nsw i32 %9, %619
   %621 = getelementptr i8, ptr %549, i64 4
-  %622 = load i8, ptr %621, align 1, !tbaa !36
+  %622 = load i8, ptr %621, align 1, !tbaa !35
   %623 = zext i8 %622 to i32
   %624 = mul nsw i32 %434, %623
   %625 = add i32 %620, 32
@@ -3735,16 +3735,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %629 = add nuw nsw i32 %628, %627
   %630 = lshr i32 %629, 1
   %631 = trunc i32 %630 to i8
-  store i8 %631, ptr %614, align 1, !tbaa !36
+  store i8 %631, ptr %614, align 1, !tbaa !35
   %632 = getelementptr inbounds nuw i8, ptr %.1240.lver.orig, i64 5
-  %633 = load i8, ptr %632, align 1, !tbaa !36
+  %633 = load i8, ptr %632, align 1, !tbaa !35
   %634 = zext i8 %633 to i32
   %635 = getelementptr inbounds nuw i8, ptr %.1226238.lver.orig, i64 5
-  %636 = load i8, ptr %635, align 1, !tbaa !36
+  %636 = load i8, ptr %635, align 1, !tbaa !35
   %637 = zext i8 %636 to i32
   %638 = mul nsw i32 %9, %637
   %639 = getelementptr i8, ptr %549, i64 5
-  %640 = load i8, ptr %639, align 1, !tbaa !36
+  %640 = load i8, ptr %639, align 1, !tbaa !35
   %641 = zext i8 %640 to i32
   %642 = mul nsw i32 %434, %641
   %643 = add i32 %638, 32
@@ -3754,16 +3754,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %647 = add nuw nsw i32 %646, %645
   %648 = lshr i32 %647, 1
   %649 = trunc i32 %648 to i8
-  store i8 %649, ptr %632, align 1, !tbaa !36
+  store i8 %649, ptr %632, align 1, !tbaa !35
   %650 = getelementptr inbounds nuw i8, ptr %.1240.lver.orig, i64 6
-  %651 = load i8, ptr %650, align 1, !tbaa !36
+  %651 = load i8, ptr %650, align 1, !tbaa !35
   %652 = zext i8 %651 to i32
   %653 = getelementptr inbounds nuw i8, ptr %.1226238.lver.orig, i64 6
-  %654 = load i8, ptr %653, align 1, !tbaa !36
+  %654 = load i8, ptr %653, align 1, !tbaa !35
   %655 = zext i8 %654 to i32
   %656 = mul nsw i32 %9, %655
   %657 = getelementptr i8, ptr %549, i64 6
-  %658 = load i8, ptr %657, align 1, !tbaa !36
+  %658 = load i8, ptr %657, align 1, !tbaa !35
   %659 = zext i8 %658 to i32
   %660 = mul nsw i32 %434, %659
   %661 = add i32 %656, 32
@@ -3773,16 +3773,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %665 = add nuw nsw i32 %664, %663
   %666 = lshr i32 %665, 1
   %667 = trunc i32 %666 to i8
-  store i8 %667, ptr %650, align 1, !tbaa !36
+  store i8 %667, ptr %650, align 1, !tbaa !35
   %668 = getelementptr inbounds nuw i8, ptr %.1240.lver.orig, i64 7
-  %669 = load i8, ptr %668, align 1, !tbaa !36
+  %669 = load i8, ptr %668, align 1, !tbaa !35
   %670 = zext i8 %669 to i32
   %671 = getelementptr inbounds nuw i8, ptr %.1226238.lver.orig, i64 7
-  %672 = load i8, ptr %671, align 1, !tbaa !36
+  %672 = load i8, ptr %671, align 1, !tbaa !35
   %673 = zext i8 %672 to i32
   %674 = mul nsw i32 %9, %673
   %675 = getelementptr i8, ptr %549, i64 7
-  %676 = load i8, ptr %675, align 1, !tbaa !36
+  %676 = load i8, ptr %675, align 1, !tbaa !35
   %677 = zext i8 %676 to i32
   %678 = mul nsw i32 %434, %677
   %679 = add i32 %674, 32
@@ -3792,12 +3792,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %683 = add nuw nsw i32 %682, %681
   %684 = lshr i32 %683, 1
   %685 = trunc i32 %684 to i8
-  store i8 %685, ptr %668, align 1, !tbaa !36
+  store i8 %685, ptr %668, align 1, !tbaa !35
   %686 = getelementptr inbounds i8, ptr %.1240.lver.orig, i64 %2
   %687 = getelementptr inbounds i8, ptr %.1226238.lver.orig, i64 %2
   %688 = add nuw nsw i32 %.1223239.lver.orig, 1
   %exitcond248.not.lver.orig = icmp eq i32 %688, %3
-  br i1 %exitcond248.not.lver.orig, label %.loopexit, label %.lr.ph241.lver.orig, !llvm.loop !51
+  br i1 %exitcond248.not.lver.orig, label %.loopexit, label %.lr.ph241.lver.orig, !llvm.loop !50
 
 .lr.ph241.ph:                                     ; preds = %.lr.ph241.lver.check
   %scevgep257 = getelementptr i8, ptr %0, i64 6
@@ -3809,13 +3809,13 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %.1240 = phi ptr [ %0, %.lr.ph241.ph ], [ %830, %.lr.ph241 ]
   %.1223239 = phi i32 [ 0, %.lr.ph241.ph ], [ %832, %.lr.ph241 ]
   %.1226238 = phi ptr [ %1, %.lr.ph241.ph ], [ %831, %.lr.ph241 ]
-  %689 = load i8, ptr %.1240, align 1, !tbaa !36
+  %689 = load i8, ptr %.1240, align 1, !tbaa !35
   %690 = zext i8 %689 to i32
-  %691 = load i8, ptr %.1226238, align 1, !tbaa !36
+  %691 = load i8, ptr %.1226238, align 1, !tbaa !35
   %692 = zext i8 %691 to i32
   %693 = mul nsw i32 %9, %692
   %694 = getelementptr inbounds nuw i8, ptr %.1226238, i64 %542
-  %695 = load i8, ptr %694, align 1, !tbaa !36
+  %695 = load i8, ptr %694, align 1, !tbaa !35
   %696 = zext i8 %695 to i32
   %697 = mul nsw i32 %434, %696
   %698 = add i32 %693, 32
@@ -3825,16 +3825,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %702 = add nuw nsw i32 %701, %700
   %703 = lshr i32 %702, 1
   %704 = trunc i32 %703 to i8
-  store i8 %704, ptr %.1240, align 1, !tbaa !36
+  store i8 %704, ptr %.1240, align 1, !tbaa !35
   %705 = getelementptr inbounds nuw i8, ptr %.1240, i64 1
-  %706 = load i8, ptr %705, align 1, !tbaa !36
+  %706 = load i8, ptr %705, align 1, !tbaa !35
   %707 = zext i8 %706 to i32
   %708 = getelementptr inbounds nuw i8, ptr %.1226238, i64 1
-  %709 = load i8, ptr %708, align 1, !tbaa !36
+  %709 = load i8, ptr %708, align 1, !tbaa !35
   %710 = zext i8 %709 to i32
   %711 = mul nsw i32 %9, %710
   %712 = getelementptr i8, ptr %694, i64 1
-  %713 = load i8, ptr %712, align 1, !tbaa !36
+  %713 = load i8, ptr %712, align 1, !tbaa !35
   %714 = zext i8 %713 to i32
   %715 = mul nsw i32 %434, %714
   %716 = add i32 %711, 32
@@ -3844,16 +3844,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %720 = add nuw nsw i32 %719, %718
   %721 = lshr i32 %720, 1
   %722 = trunc i32 %721 to i8
-  store i8 %722, ptr %705, align 1, !tbaa !36
+  store i8 %722, ptr %705, align 1, !tbaa !35
   %723 = getelementptr inbounds nuw i8, ptr %.1240, i64 2
-  %724 = load i8, ptr %723, align 1, !tbaa !36
+  %724 = load i8, ptr %723, align 1, !tbaa !35
   %725 = zext i8 %724 to i32
   %726 = getelementptr inbounds nuw i8, ptr %.1226238, i64 2
-  %727 = load i8, ptr %726, align 1, !tbaa !36
+  %727 = load i8, ptr %726, align 1, !tbaa !35
   %728 = zext i8 %727 to i32
   %729 = mul nsw i32 %9, %728
   %730 = getelementptr i8, ptr %694, i64 2
-  %731 = load i8, ptr %730, align 1, !tbaa !36
+  %731 = load i8, ptr %730, align 1, !tbaa !35
   %732 = zext i8 %731 to i32
   %733 = mul nsw i32 %434, %732
   %734 = add i32 %729, 32
@@ -3863,16 +3863,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %738 = add nuw nsw i32 %737, %736
   %739 = lshr i32 %738, 1
   %740 = trunc i32 %739 to i8
-  store i8 %740, ptr %723, align 1, !tbaa !36
+  store i8 %740, ptr %723, align 1, !tbaa !35
   %741 = getelementptr inbounds nuw i8, ptr %.1240, i64 3
-  %742 = load i8, ptr %741, align 1, !tbaa !36
+  %742 = load i8, ptr %741, align 1, !tbaa !35
   %743 = zext i8 %742 to i32
   %744 = getelementptr inbounds nuw i8, ptr %.1226238, i64 3
-  %745 = load i8, ptr %744, align 1, !tbaa !36
+  %745 = load i8, ptr %744, align 1, !tbaa !35
   %746 = zext i8 %745 to i32
   %747 = mul nsw i32 %9, %746
   %748 = getelementptr i8, ptr %694, i64 3
-  %749 = load i8, ptr %748, align 1, !tbaa !36
+  %749 = load i8, ptr %748, align 1, !tbaa !35
   %750 = zext i8 %749 to i32
   %751 = mul nsw i32 %434, %750
   %752 = add i32 %747, 32
@@ -3882,16 +3882,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %756 = add nuw nsw i32 %755, %754
   %757 = lshr i32 %756, 1
   %758 = trunc i32 %757 to i8
-  store i8 %758, ptr %741, align 1, !tbaa !36
+  store i8 %758, ptr %741, align 1, !tbaa !35
   %759 = getelementptr inbounds nuw i8, ptr %.1240, i64 4
-  %760 = load i8, ptr %759, align 1, !tbaa !36
+  %760 = load i8, ptr %759, align 1, !tbaa !35
   %761 = zext i8 %760 to i32
   %762 = getelementptr inbounds nuw i8, ptr %.1226238, i64 4
-  %763 = load i8, ptr %762, align 1, !tbaa !36
+  %763 = load i8, ptr %762, align 1, !tbaa !35
   %764 = zext i8 %763 to i32
   %765 = mul nsw i32 %9, %764
   %766 = getelementptr i8, ptr %694, i64 4
-  %767 = load i8, ptr %766, align 1, !tbaa !36
+  %767 = load i8, ptr %766, align 1, !tbaa !35
   %768 = zext i8 %767 to i32
   %769 = mul nsw i32 %434, %768
   %770 = add i32 %765, 32
@@ -3901,16 +3901,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %774 = add nuw nsw i32 %773, %772
   %775 = lshr i32 %774, 1
   %776 = trunc i32 %775 to i8
-  store i8 %776, ptr %759, align 1, !tbaa !36
+  store i8 %776, ptr %759, align 1, !tbaa !35
   %777 = getelementptr inbounds nuw i8, ptr %.1240, i64 5
-  %778 = load i8, ptr %777, align 1, !tbaa !36
+  %778 = load i8, ptr %777, align 1, !tbaa !35
   %779 = zext i8 %778 to i32
   %780 = getelementptr inbounds nuw i8, ptr %.1226238, i64 5
-  %781 = load i8, ptr %780, align 1, !tbaa !36
+  %781 = load i8, ptr %780, align 1, !tbaa !35
   %782 = zext i8 %781 to i32
   %783 = mul nsw i32 %9, %782
   %784 = getelementptr i8, ptr %694, i64 5
-  %785 = load i8, ptr %784, align 1, !tbaa !36
+  %785 = load i8, ptr %784, align 1, !tbaa !35
   %786 = zext i8 %785 to i32
   %787 = mul nsw i32 %434, %786
   %788 = add i32 %783, 32
@@ -3920,15 +3920,15 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %792 = add nuw nsw i32 %791, %790
   %793 = lshr i32 %792, 1
   %794 = trunc i32 %793 to i8
-  store i8 %794, ptr %777, align 1, !tbaa !36
+  store i8 %794, ptr %777, align 1, !tbaa !35
   %795 = getelementptr inbounds nuw i8, ptr %.1240, i64 6
   %796 = zext i8 %store_forwarded259 to i32
   %797 = getelementptr inbounds nuw i8, ptr %.1226238, i64 6
-  %798 = load i8, ptr %797, align 1, !tbaa !36
+  %798 = load i8, ptr %797, align 1, !tbaa !35
   %799 = zext i8 %798 to i32
   %800 = mul nsw i32 %9, %799
   %801 = getelementptr i8, ptr %694, i64 6
-  %802 = load i8, ptr %801, align 1, !tbaa !36
+  %802 = load i8, ptr %801, align 1, !tbaa !35
   %803 = zext i8 %802 to i32
   %804 = mul nsw i32 %434, %803
   %805 = add i32 %800, 32
@@ -3938,16 +3938,16 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %809 = add nuw nsw i32 %808, %807
   %810 = lshr i32 %809, 1
   %811 = trunc i32 %810 to i8
-  store i8 %811, ptr %795, align 1, !tbaa !36
+  store i8 %811, ptr %795, align 1, !tbaa !35
   %812 = getelementptr inbounds nuw i8, ptr %.1240, i64 7
-  %813 = load i8, ptr %812, align 1, !tbaa !36
+  %813 = load i8, ptr %812, align 1, !tbaa !35
   %814 = zext i8 %813 to i32
   %815 = getelementptr inbounds nuw i8, ptr %.1226238, i64 7
-  %816 = load i8, ptr %815, align 1, !tbaa !36
+  %816 = load i8, ptr %815, align 1, !tbaa !35
   %817 = zext i8 %816 to i32
   %818 = mul nsw i32 %9, %817
   %819 = getelementptr i8, ptr %694, i64 7
-  %820 = load i8, ptr %819, align 1, !tbaa !36
+  %820 = load i8, ptr %819, align 1, !tbaa !35
   %821 = zext i8 %820 to i32
   %822 = mul nsw i32 %434, %821
   %823 = add i32 %818, 32
@@ -3957,21 +3957,21 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %827 = add nuw nsw i32 %826, %825
   %828 = lshr i32 %827, 1
   %829 = trunc i32 %828 to i8
-  store i8 %829, ptr %812, align 1, !tbaa !36
+  store i8 %829, ptr %812, align 1, !tbaa !35
   %830 = getelementptr inbounds nuw i8, ptr %.1240, i64 %2
   %831 = getelementptr inbounds nuw i8, ptr %.1226238, i64 %2
   %832 = add nuw nsw i32 %.1223239, 1
   %exitcond248.not = icmp eq i32 %832, %3
-  br i1 %exitcond248.not, label %.loopexit, label %.lr.ph241, !llvm.loop !51
+  br i1 %exitcond248.not, label %.loopexit, label %.lr.ph241, !llvm.loop !50
 
 .lr.ph245:                                        ; preds = %.lr.ph245.ph, %.lr.ph245
   %store_forwarded = phi i8 [ %load_initial, %.lr.ph245.ph ], [ %933, %.lr.ph245 ]
   %.2244 = phi ptr [ %0, %.lr.ph245.ph ], [ %934, %.lr.ph245 ]
   %.2224243 = phi i32 [ 0, %.lr.ph245.ph ], [ %936, %.lr.ph245 ]
   %.2227242 = phi ptr [ %1, %.lr.ph245.ph ], [ %935, %.lr.ph245 ]
-  %833 = load i8, ptr %.2244, align 1, !tbaa !36
+  %833 = load i8, ptr %.2244, align 1, !tbaa !35
   %834 = zext i8 %833 to i32
-  %835 = load i8, ptr %.2227242, align 1, !tbaa !36
+  %835 = load i8, ptr %.2227242, align 1, !tbaa !35
   %836 = zext i8 %835 to i32
   %837 = mul nsw i32 %9, %836
   %838 = add nsw i32 %837, 32
@@ -3980,12 +3980,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %841 = add nuw nsw i32 %840, %839
   %842 = lshr i32 %841, 1
   %843 = trunc i32 %842 to i8
-  store i8 %843, ptr %.2244, align 1, !tbaa !36
+  store i8 %843, ptr %.2244, align 1, !tbaa !35
   %844 = getelementptr inbounds nuw i8, ptr %.2244, i64 1
-  %845 = load i8, ptr %844, align 1, !tbaa !36
+  %845 = load i8, ptr %844, align 1, !tbaa !35
   %846 = zext i8 %845 to i32
   %847 = getelementptr inbounds nuw i8, ptr %.2227242, i64 1
-  %848 = load i8, ptr %847, align 1, !tbaa !36
+  %848 = load i8, ptr %847, align 1, !tbaa !35
   %849 = zext i8 %848 to i32
   %850 = mul nsw i32 %9, %849
   %851 = add nsw i32 %850, 32
@@ -3994,12 +3994,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %854 = add nuw nsw i32 %853, %852
   %855 = lshr i32 %854, 1
   %856 = trunc i32 %855 to i8
-  store i8 %856, ptr %844, align 1, !tbaa !36
+  store i8 %856, ptr %844, align 1, !tbaa !35
   %857 = getelementptr inbounds nuw i8, ptr %.2244, i64 2
-  %858 = load i8, ptr %857, align 1, !tbaa !36
+  %858 = load i8, ptr %857, align 1, !tbaa !35
   %859 = zext i8 %858 to i32
   %860 = getelementptr inbounds nuw i8, ptr %.2227242, i64 2
-  %861 = load i8, ptr %860, align 1, !tbaa !36
+  %861 = load i8, ptr %860, align 1, !tbaa !35
   %862 = zext i8 %861 to i32
   %863 = mul nsw i32 %9, %862
   %864 = add nsw i32 %863, 32
@@ -4008,12 +4008,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %867 = add nuw nsw i32 %866, %865
   %868 = lshr i32 %867, 1
   %869 = trunc i32 %868 to i8
-  store i8 %869, ptr %857, align 1, !tbaa !36
+  store i8 %869, ptr %857, align 1, !tbaa !35
   %870 = getelementptr inbounds nuw i8, ptr %.2244, i64 3
-  %871 = load i8, ptr %870, align 1, !tbaa !36
+  %871 = load i8, ptr %870, align 1, !tbaa !35
   %872 = zext i8 %871 to i32
   %873 = getelementptr inbounds nuw i8, ptr %.2227242, i64 3
-  %874 = load i8, ptr %873, align 1, !tbaa !36
+  %874 = load i8, ptr %873, align 1, !tbaa !35
   %875 = zext i8 %874 to i32
   %876 = mul nsw i32 %9, %875
   %877 = add nsw i32 %876, 32
@@ -4022,12 +4022,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %880 = add nuw nsw i32 %879, %878
   %881 = lshr i32 %880, 1
   %882 = trunc i32 %881 to i8
-  store i8 %882, ptr %870, align 1, !tbaa !36
+  store i8 %882, ptr %870, align 1, !tbaa !35
   %883 = getelementptr inbounds nuw i8, ptr %.2244, i64 4
-  %884 = load i8, ptr %883, align 1, !tbaa !36
+  %884 = load i8, ptr %883, align 1, !tbaa !35
   %885 = zext i8 %884 to i32
   %886 = getelementptr inbounds nuw i8, ptr %.2227242, i64 4
-  %887 = load i8, ptr %886, align 1, !tbaa !36
+  %887 = load i8, ptr %886, align 1, !tbaa !35
   %888 = zext i8 %887 to i32
   %889 = mul nsw i32 %9, %888
   %890 = add nsw i32 %889, 32
@@ -4036,12 +4036,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %893 = add nuw nsw i32 %892, %891
   %894 = lshr i32 %893, 1
   %895 = trunc i32 %894 to i8
-  store i8 %895, ptr %883, align 1, !tbaa !36
+  store i8 %895, ptr %883, align 1, !tbaa !35
   %896 = getelementptr inbounds nuw i8, ptr %.2244, i64 5
-  %897 = load i8, ptr %896, align 1, !tbaa !36
+  %897 = load i8, ptr %896, align 1, !tbaa !35
   %898 = zext i8 %897 to i32
   %899 = getelementptr inbounds nuw i8, ptr %.2227242, i64 5
-  %900 = load i8, ptr %899, align 1, !tbaa !36
+  %900 = load i8, ptr %899, align 1, !tbaa !35
   %901 = zext i8 %900 to i32
   %902 = mul nsw i32 %9, %901
   %903 = add nsw i32 %902, 32
@@ -4050,11 +4050,11 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %906 = add nuw nsw i32 %905, %904
   %907 = lshr i32 %906, 1
   %908 = trunc i32 %907 to i8
-  store i8 %908, ptr %896, align 1, !tbaa !36
+  store i8 %908, ptr %896, align 1, !tbaa !35
   %909 = getelementptr inbounds nuw i8, ptr %.2244, i64 6
   %910 = zext i8 %store_forwarded to i32
   %911 = getelementptr inbounds nuw i8, ptr %.2227242, i64 6
-  %912 = load i8, ptr %911, align 1, !tbaa !36
+  %912 = load i8, ptr %911, align 1, !tbaa !35
   %913 = zext i8 %912 to i32
   %914 = mul nsw i32 %9, %913
   %915 = add nsw i32 %914, 32
@@ -4063,12 +4063,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %918 = add nuw nsw i32 %917, %916
   %919 = lshr i32 %918, 1
   %920 = trunc i32 %919 to i8
-  store i8 %920, ptr %909, align 1, !tbaa !36
+  store i8 %920, ptr %909, align 1, !tbaa !35
   %921 = getelementptr inbounds nuw i8, ptr %.2244, i64 7
-  %922 = load i8, ptr %921, align 1, !tbaa !36
+  %922 = load i8, ptr %921, align 1, !tbaa !35
   %923 = zext i8 %922 to i32
   %924 = getelementptr inbounds nuw i8, ptr %.2227242, i64 7
-  %925 = load i8, ptr %924, align 1, !tbaa !36
+  %925 = load i8, ptr %924, align 1, !tbaa !35
   %926 = zext i8 %925 to i32
   %927 = mul nsw i32 %9, %926
   %928 = add nsw i32 %927, 32
@@ -4077,12 +4077,12 @@ define internal void @avg_h264_chroma_mc8_8_c(ptr noundef captures(none) %0, ptr
   %931 = add nuw nsw i32 %930, %929
   %932 = lshr i32 %931, 1
   %933 = trunc i32 %932 to i8
-  store i8 %933, ptr %921, align 1, !tbaa !36
+  store i8 %933, ptr %921, align 1, !tbaa !35
   %934 = getelementptr inbounds nuw i8, ptr %.2244, i64 %2
   %935 = getelementptr inbounds nuw i8, ptr %.2227242, i64 %2
   %936 = add nuw nsw i32 %.2224243, 1
   %exitcond249.not = icmp eq i32 %936, %3
-  br i1 %exitcond249.not, label %.loopexit, label %.lr.ph245, !llvm.loop !50
+  br i1 %exitcond249.not, label %.loopexit, label %.lr.ph245, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.lr.ph.lver.orig, %.lr.ph, %.lr.ph241.lver.orig, %.lr.ph241, %.lr.ph245.lver.orig, %.lr.ph245, %.preheader233, %541, %.preheader
   ret void
@@ -4111,21 +4111,21 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %.0145.lver.orig = phi ptr [ %118, %.lr.ph.lver.orig ], [ %0, %.lr.ph.lver.check ]
   %.0130144.lver.orig = phi i32 [ %119, %.lr.ph.lver.orig ], [ 0, %.lr.ph.lver.check ]
   %.0133143.lver.orig = phi ptr [ %23, %.lr.ph.lver.orig ], [ %1, %.lr.ph.lver.check ]
-  %14 = load i8, ptr %.0145.lver.orig, align 1, !tbaa !36
+  %14 = load i8, ptr %.0145.lver.orig, align 1, !tbaa !35
   %15 = zext i8 %14 to i32
-  %16 = load i8, ptr %.0133143.lver.orig, align 1, !tbaa !36
+  %16 = load i8, ptr %.0133143.lver.orig, align 1, !tbaa !35
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %9, %17
   %19 = getelementptr inbounds nuw i8, ptr %.0133143.lver.orig, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !36
+  %20 = load i8, ptr %19, align 1, !tbaa !35
   %21 = zext i8 %20 to i32
   %22 = mul nsw i32 %10, %21
   %23 = getelementptr inbounds i8, ptr %.0133143.lver.orig, i64 %2
-  %24 = load i8, ptr %23, align 1, !tbaa !36
+  %24 = load i8, ptr %23, align 1, !tbaa !35
   %25 = zext i8 %24 to i32
   %26 = mul nsw i32 %11, %25
   %27 = getelementptr i8, ptr %23, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !36
+  %28 = load i8, ptr %27, align 1, !tbaa !35
   %29 = zext i8 %28 to i32
   %30 = mul nsw i32 %12, %29
   %31 = add i32 %18, 32
@@ -4137,22 +4137,22 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %37 = add nuw nsw i32 %36, %35
   %38 = lshr i32 %37, 1
   %39 = trunc i32 %38 to i8
-  store i8 %39, ptr %.0145.lver.orig, align 1, !tbaa !36
+  store i8 %39, ptr %.0145.lver.orig, align 1, !tbaa !35
   %40 = getelementptr inbounds nuw i8, ptr %.0145.lver.orig, i64 1
-  %41 = load i8, ptr %40, align 1, !tbaa !36
+  %41 = load i8, ptr %40, align 1, !tbaa !35
   %42 = zext i8 %41 to i32
-  %43 = load i8, ptr %19, align 1, !tbaa !36
+  %43 = load i8, ptr %19, align 1, !tbaa !35
   %44 = zext i8 %43 to i32
   %45 = mul nsw i32 %9, %44
   %46 = getelementptr inbounds nuw i8, ptr %.0133143.lver.orig, i64 2
-  %47 = load i8, ptr %46, align 1, !tbaa !36
+  %47 = load i8, ptr %46, align 1, !tbaa !35
   %48 = zext i8 %47 to i32
   %49 = mul nsw i32 %10, %48
-  %50 = load i8, ptr %27, align 1, !tbaa !36
+  %50 = load i8, ptr %27, align 1, !tbaa !35
   %51 = zext i8 %50 to i32
   %52 = mul nsw i32 %11, %51
   %53 = getelementptr i8, ptr %23, i64 2
-  %54 = load i8, ptr %53, align 1, !tbaa !36
+  %54 = load i8, ptr %53, align 1, !tbaa !35
   %55 = zext i8 %54 to i32
   %56 = mul nsw i32 %12, %55
   %57 = add i32 %45, 32
@@ -4164,22 +4164,22 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %63 = add nuw nsw i32 %62, %61
   %64 = lshr i32 %63, 1
   %65 = trunc i32 %64 to i8
-  store i8 %65, ptr %40, align 1, !tbaa !36
+  store i8 %65, ptr %40, align 1, !tbaa !35
   %66 = getelementptr inbounds nuw i8, ptr %.0145.lver.orig, i64 2
-  %67 = load i8, ptr %66, align 1, !tbaa !36
+  %67 = load i8, ptr %66, align 1, !tbaa !35
   %68 = zext i8 %67 to i32
-  %69 = load i8, ptr %46, align 1, !tbaa !36
+  %69 = load i8, ptr %46, align 1, !tbaa !35
   %70 = zext i8 %69 to i32
   %71 = mul nsw i32 %9, %70
   %72 = getelementptr inbounds nuw i8, ptr %.0133143.lver.orig, i64 3
-  %73 = load i8, ptr %72, align 1, !tbaa !36
+  %73 = load i8, ptr %72, align 1, !tbaa !35
   %74 = zext i8 %73 to i32
   %75 = mul nsw i32 %10, %74
-  %76 = load i8, ptr %53, align 1, !tbaa !36
+  %76 = load i8, ptr %53, align 1, !tbaa !35
   %77 = zext i8 %76 to i32
   %78 = mul nsw i32 %11, %77
   %79 = getelementptr i8, ptr %23, i64 3
-  %80 = load i8, ptr %79, align 1, !tbaa !36
+  %80 = load i8, ptr %79, align 1, !tbaa !35
   %81 = zext i8 %80 to i32
   %82 = mul nsw i32 %12, %81
   %83 = add i32 %71, 32
@@ -4191,22 +4191,22 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %89 = add nuw nsw i32 %88, %87
   %90 = lshr i32 %89, 1
   %91 = trunc i32 %90 to i8
-  store i8 %91, ptr %66, align 1, !tbaa !36
+  store i8 %91, ptr %66, align 1, !tbaa !35
   %92 = getelementptr inbounds nuw i8, ptr %.0145.lver.orig, i64 3
-  %93 = load i8, ptr %92, align 1, !tbaa !36
+  %93 = load i8, ptr %92, align 1, !tbaa !35
   %94 = zext i8 %93 to i32
-  %95 = load i8, ptr %72, align 1, !tbaa !36
+  %95 = load i8, ptr %72, align 1, !tbaa !35
   %96 = zext i8 %95 to i32
   %97 = mul nsw i32 %9, %96
   %98 = getelementptr inbounds nuw i8, ptr %.0133143.lver.orig, i64 4
-  %99 = load i8, ptr %98, align 1, !tbaa !36
+  %99 = load i8, ptr %98, align 1, !tbaa !35
   %100 = zext i8 %99 to i32
   %101 = mul nsw i32 %10, %100
-  %102 = load i8, ptr %79, align 1, !tbaa !36
+  %102 = load i8, ptr %79, align 1, !tbaa !35
   %103 = zext i8 %102 to i32
   %104 = mul nsw i32 %11, %103
   %105 = getelementptr i8, ptr %23, i64 4
-  %106 = load i8, ptr %105, align 1, !tbaa !36
+  %106 = load i8, ptr %105, align 1, !tbaa !35
   %107 = zext i8 %106 to i32
   %108 = mul nsw i32 %12, %107
   %109 = add i32 %97, 32
@@ -4218,11 +4218,11 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %115 = add nuw nsw i32 %114, %113
   %116 = lshr i32 %115, 1
   %117 = trunc i32 %116 to i8
-  store i8 %117, ptr %92, align 1, !tbaa !36
+  store i8 %117, ptr %92, align 1, !tbaa !35
   %118 = getelementptr inbounds i8, ptr %.0145.lver.orig, i64 %2
   %119 = add nuw nsw i32 %.0130144.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %119, %3
-  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !52
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !51
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
   %scevgep170 = getelementptr i8, ptr %0, i64 2
@@ -4234,21 +4234,21 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %.0145 = phi ptr [ %0, %.lr.ph.ph ], [ %223, %.lr.ph ]
   %.0130144 = phi i32 [ 0, %.lr.ph.ph ], [ %224, %.lr.ph ]
   %.0133143 = phi ptr [ %1, %.lr.ph.ph ], [ %129, %.lr.ph ]
-  %120 = load i8, ptr %.0145, align 1, !tbaa !36
+  %120 = load i8, ptr %.0145, align 1, !tbaa !35
   %121 = zext i8 %120 to i32
-  %122 = load i8, ptr %.0133143, align 1, !tbaa !36
+  %122 = load i8, ptr %.0133143, align 1, !tbaa !35
   %123 = zext i8 %122 to i32
   %124 = mul nsw i32 %9, %123
   %125 = getelementptr inbounds nuw i8, ptr %.0133143, i64 1
-  %126 = load i8, ptr %125, align 1, !tbaa !36
+  %126 = load i8, ptr %125, align 1, !tbaa !35
   %127 = zext i8 %126 to i32
   %128 = mul nsw i32 %10, %127
   %129 = getelementptr inbounds nuw i8, ptr %.0133143, i64 %2
-  %130 = load i8, ptr %129, align 1, !tbaa !36
+  %130 = load i8, ptr %129, align 1, !tbaa !35
   %131 = zext i8 %130 to i32
   %132 = mul nsw i32 %11, %131
   %133 = getelementptr i8, ptr %129, i64 1
-  %134 = load i8, ptr %133, align 1, !tbaa !36
+  %134 = load i8, ptr %133, align 1, !tbaa !35
   %135 = zext i8 %134 to i32
   %136 = mul nsw i32 %12, %135
   %137 = add i32 %124, 32
@@ -4260,22 +4260,22 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %143 = add nuw nsw i32 %142, %141
   %144 = lshr i32 %143, 1
   %145 = trunc i32 %144 to i8
-  store i8 %145, ptr %.0145, align 1, !tbaa !36
+  store i8 %145, ptr %.0145, align 1, !tbaa !35
   %146 = getelementptr inbounds nuw i8, ptr %.0145, i64 1
-  %147 = load i8, ptr %146, align 1, !tbaa !36
+  %147 = load i8, ptr %146, align 1, !tbaa !35
   %148 = zext i8 %147 to i32
-  %149 = load i8, ptr %125, align 1, !tbaa !36
+  %149 = load i8, ptr %125, align 1, !tbaa !35
   %150 = zext i8 %149 to i32
   %151 = mul nsw i32 %9, %150
   %152 = getelementptr inbounds nuw i8, ptr %.0133143, i64 2
-  %153 = load i8, ptr %152, align 1, !tbaa !36
+  %153 = load i8, ptr %152, align 1, !tbaa !35
   %154 = zext i8 %153 to i32
   %155 = mul nsw i32 %10, %154
-  %156 = load i8, ptr %133, align 1, !tbaa !36
+  %156 = load i8, ptr %133, align 1, !tbaa !35
   %157 = zext i8 %156 to i32
   %158 = mul nsw i32 %11, %157
   %159 = getelementptr i8, ptr %129, i64 2
-  %160 = load i8, ptr %159, align 1, !tbaa !36
+  %160 = load i8, ptr %159, align 1, !tbaa !35
   %161 = zext i8 %160 to i32
   %162 = mul nsw i32 %12, %161
   %163 = add i32 %151, 32
@@ -4287,21 +4287,21 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %169 = add nuw nsw i32 %168, %167
   %170 = lshr i32 %169, 1
   %171 = trunc i32 %170 to i8
-  store i8 %171, ptr %146, align 1, !tbaa !36
+  store i8 %171, ptr %146, align 1, !tbaa !35
   %172 = getelementptr inbounds nuw i8, ptr %.0145, i64 2
   %173 = zext i8 %store_forwarded172 to i32
-  %174 = load i8, ptr %152, align 1, !tbaa !36
+  %174 = load i8, ptr %152, align 1, !tbaa !35
   %175 = zext i8 %174 to i32
   %176 = mul nsw i32 %9, %175
   %177 = getelementptr inbounds nuw i8, ptr %.0133143, i64 3
-  %178 = load i8, ptr %177, align 1, !tbaa !36
+  %178 = load i8, ptr %177, align 1, !tbaa !35
   %179 = zext i8 %178 to i32
   %180 = mul nsw i32 %10, %179
-  %181 = load i8, ptr %159, align 1, !tbaa !36
+  %181 = load i8, ptr %159, align 1, !tbaa !35
   %182 = zext i8 %181 to i32
   %183 = mul nsw i32 %11, %182
   %184 = getelementptr i8, ptr %129, i64 3
-  %185 = load i8, ptr %184, align 1, !tbaa !36
+  %185 = load i8, ptr %184, align 1, !tbaa !35
   %186 = zext i8 %185 to i32
   %187 = mul nsw i32 %12, %186
   %188 = add i32 %176, 32
@@ -4313,22 +4313,22 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %194 = add nuw nsw i32 %193, %192
   %195 = lshr i32 %194, 1
   %196 = trunc i32 %195 to i8
-  store i8 %196, ptr %172, align 1, !tbaa !36
+  store i8 %196, ptr %172, align 1, !tbaa !35
   %197 = getelementptr inbounds nuw i8, ptr %.0145, i64 3
-  %198 = load i8, ptr %197, align 1, !tbaa !36
+  %198 = load i8, ptr %197, align 1, !tbaa !35
   %199 = zext i8 %198 to i32
-  %200 = load i8, ptr %177, align 1, !tbaa !36
+  %200 = load i8, ptr %177, align 1, !tbaa !35
   %201 = zext i8 %200 to i32
   %202 = mul nsw i32 %9, %201
   %203 = getelementptr inbounds nuw i8, ptr %.0133143, i64 4
-  %204 = load i8, ptr %203, align 1, !tbaa !36
+  %204 = load i8, ptr %203, align 1, !tbaa !35
   %205 = zext i8 %204 to i32
   %206 = mul nsw i32 %10, %205
-  %207 = load i8, ptr %184, align 1, !tbaa !36
+  %207 = load i8, ptr %184, align 1, !tbaa !35
   %208 = zext i8 %207 to i32
   %209 = mul nsw i32 %11, %208
   %210 = getelementptr i8, ptr %129, i64 4
-  %211 = load i8, ptr %210, align 1, !tbaa !36
+  %211 = load i8, ptr %210, align 1, !tbaa !35
   %212 = zext i8 %211 to i32
   %213 = mul nsw i32 %12, %212
   %214 = add i32 %202, 32
@@ -4340,11 +4340,11 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %220 = add nuw nsw i32 %219, %218
   %221 = lshr i32 %220, 1
   %222 = trunc i32 %221 to i8
-  store i8 %222, ptr %197, align 1, !tbaa !36
+  store i8 %222, ptr %197, align 1, !tbaa !35
   %223 = getelementptr inbounds nuw i8, ptr %.0145, i64 %2
   %224 = add nuw nsw i32 %.0130144, 1
   %exitcond.not = icmp eq i32 %224, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !51
 
 225:                                              ; preds = %6
   %226 = add nsw i32 %10, %11
@@ -4363,9 +4363,9 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %.2152.lver.orig = phi ptr [ %278, %.lr.ph153.lver.orig ], [ %0, %.lr.ph153.lver.check ]
   %.2132151.lver.orig = phi i32 [ %280, %.lr.ph153.lver.orig ], [ 0, %.lr.ph153.lver.check ]
   %.2135150.lver.orig = phi ptr [ %279, %.lr.ph153.lver.orig ], [ %1, %.lr.ph153.lver.check ]
-  %228 = load i8, ptr %.2152.lver.orig, align 1, !tbaa !36
+  %228 = load i8, ptr %.2152.lver.orig, align 1, !tbaa !35
   %229 = zext i8 %228 to i32
-  %230 = load i8, ptr %.2135150.lver.orig, align 1, !tbaa !36
+  %230 = load i8, ptr %.2135150.lver.orig, align 1, !tbaa !35
   %231 = zext i8 %230 to i32
   %232 = mul nsw i32 %9, %231
   %233 = add nsw i32 %232, 32
@@ -4374,12 +4374,12 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %236 = add nuw nsw i32 %235, %234
   %237 = lshr i32 %236, 1
   %238 = trunc i32 %237 to i8
-  store i8 %238, ptr %.2152.lver.orig, align 1, !tbaa !36
+  store i8 %238, ptr %.2152.lver.orig, align 1, !tbaa !35
   %239 = getelementptr inbounds nuw i8, ptr %.2152.lver.orig, i64 1
-  %240 = load i8, ptr %239, align 1, !tbaa !36
+  %240 = load i8, ptr %239, align 1, !tbaa !35
   %241 = zext i8 %240 to i32
   %242 = getelementptr inbounds nuw i8, ptr %.2135150.lver.orig, i64 1
-  %243 = load i8, ptr %242, align 1, !tbaa !36
+  %243 = load i8, ptr %242, align 1, !tbaa !35
   %244 = zext i8 %243 to i32
   %245 = mul nsw i32 %9, %244
   %246 = add nsw i32 %245, 32
@@ -4388,12 +4388,12 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %249 = add nuw nsw i32 %248, %247
   %250 = lshr i32 %249, 1
   %251 = trunc i32 %250 to i8
-  store i8 %251, ptr %239, align 1, !tbaa !36
+  store i8 %251, ptr %239, align 1, !tbaa !35
   %252 = getelementptr inbounds nuw i8, ptr %.2152.lver.orig, i64 2
-  %253 = load i8, ptr %252, align 1, !tbaa !36
+  %253 = load i8, ptr %252, align 1, !tbaa !35
   %254 = zext i8 %253 to i32
   %255 = getelementptr inbounds nuw i8, ptr %.2135150.lver.orig, i64 2
-  %256 = load i8, ptr %255, align 1, !tbaa !36
+  %256 = load i8, ptr %255, align 1, !tbaa !35
   %257 = zext i8 %256 to i32
   %258 = mul nsw i32 %9, %257
   %259 = add nsw i32 %258, 32
@@ -4402,12 +4402,12 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %262 = add nuw nsw i32 %261, %260
   %263 = lshr i32 %262, 1
   %264 = trunc i32 %263 to i8
-  store i8 %264, ptr %252, align 1, !tbaa !36
+  store i8 %264, ptr %252, align 1, !tbaa !35
   %265 = getelementptr inbounds nuw i8, ptr %.2152.lver.orig, i64 3
-  %266 = load i8, ptr %265, align 1, !tbaa !36
+  %266 = load i8, ptr %265, align 1, !tbaa !35
   %267 = zext i8 %266 to i32
   %268 = getelementptr inbounds nuw i8, ptr %.2135150.lver.orig, i64 3
-  %269 = load i8, ptr %268, align 1, !tbaa !36
+  %269 = load i8, ptr %268, align 1, !tbaa !35
   %270 = zext i8 %269 to i32
   %271 = mul nsw i32 %9, %270
   %272 = add nsw i32 %271, 32
@@ -4416,12 +4416,12 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %275 = add nuw nsw i32 %274, %273
   %276 = lshr i32 %275, 1
   %277 = trunc i32 %276 to i8
-  store i8 %277, ptr %265, align 1, !tbaa !36
+  store i8 %277, ptr %265, align 1, !tbaa !35
   %278 = getelementptr inbounds i8, ptr %.2152.lver.orig, i64 %2
   %279 = getelementptr inbounds i8, ptr %.2135150.lver.orig, i64 %2
   %280 = add nuw nsw i32 %.2132151.lver.orig, 1
   %exitcond157.not.lver.orig = icmp eq i32 %280, %3
-  br i1 %exitcond157.not.lver.orig, label %.loopexit, label %.lr.ph153.lver.orig, !llvm.loop !53
+  br i1 %exitcond157.not.lver.orig, label %.loopexit, label %.lr.ph153.lver.orig, !llvm.loop !52
 
 .lr.ph153.ph:                                     ; preds = %.lr.ph153.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 2
@@ -4442,13 +4442,13 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %.1148.lver.orig = phi ptr [ %354, %.lr.ph149.lver.orig ], [ %0, %.lr.ph149.lver.check ]
   %.1131147.lver.orig = phi i32 [ %356, %.lr.ph149.lver.orig ], [ 0, %.lr.ph149.lver.check ]
   %.1134146.lver.orig = phi ptr [ %355, %.lr.ph149.lver.orig ], [ %1, %.lr.ph149.lver.check ]
-  %284 = load i8, ptr %.1148.lver.orig, align 1, !tbaa !36
+  %284 = load i8, ptr %.1148.lver.orig, align 1, !tbaa !35
   %285 = zext i8 %284 to i32
-  %286 = load i8, ptr %.1134146.lver.orig, align 1, !tbaa !36
+  %286 = load i8, ptr %.1134146.lver.orig, align 1, !tbaa !35
   %287 = zext i8 %286 to i32
   %288 = mul nsw i32 %9, %287
   %289 = getelementptr inbounds i8, ptr %.1134146.lver.orig, i64 %282
-  %290 = load i8, ptr %289, align 1, !tbaa !36
+  %290 = load i8, ptr %289, align 1, !tbaa !35
   %291 = zext i8 %290 to i32
   %292 = mul nsw i32 %226, %291
   %293 = add i32 %288, 32
@@ -4458,16 +4458,16 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %297 = add nuw nsw i32 %296, %295
   %298 = lshr i32 %297, 1
   %299 = trunc i32 %298 to i8
-  store i8 %299, ptr %.1148.lver.orig, align 1, !tbaa !36
+  store i8 %299, ptr %.1148.lver.orig, align 1, !tbaa !35
   %300 = getelementptr inbounds nuw i8, ptr %.1148.lver.orig, i64 1
-  %301 = load i8, ptr %300, align 1, !tbaa !36
+  %301 = load i8, ptr %300, align 1, !tbaa !35
   %302 = zext i8 %301 to i32
   %303 = getelementptr inbounds nuw i8, ptr %.1134146.lver.orig, i64 1
-  %304 = load i8, ptr %303, align 1, !tbaa !36
+  %304 = load i8, ptr %303, align 1, !tbaa !35
   %305 = zext i8 %304 to i32
   %306 = mul nsw i32 %9, %305
   %307 = getelementptr i8, ptr %289, i64 1
-  %308 = load i8, ptr %307, align 1, !tbaa !36
+  %308 = load i8, ptr %307, align 1, !tbaa !35
   %309 = zext i8 %308 to i32
   %310 = mul nsw i32 %226, %309
   %311 = add i32 %306, 32
@@ -4477,16 +4477,16 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %315 = add nuw nsw i32 %314, %313
   %316 = lshr i32 %315, 1
   %317 = trunc i32 %316 to i8
-  store i8 %317, ptr %300, align 1, !tbaa !36
+  store i8 %317, ptr %300, align 1, !tbaa !35
   %318 = getelementptr inbounds nuw i8, ptr %.1148.lver.orig, i64 2
-  %319 = load i8, ptr %318, align 1, !tbaa !36
+  %319 = load i8, ptr %318, align 1, !tbaa !35
   %320 = zext i8 %319 to i32
   %321 = getelementptr inbounds nuw i8, ptr %.1134146.lver.orig, i64 2
-  %322 = load i8, ptr %321, align 1, !tbaa !36
+  %322 = load i8, ptr %321, align 1, !tbaa !35
   %323 = zext i8 %322 to i32
   %324 = mul nsw i32 %9, %323
   %325 = getelementptr i8, ptr %289, i64 2
-  %326 = load i8, ptr %325, align 1, !tbaa !36
+  %326 = load i8, ptr %325, align 1, !tbaa !35
   %327 = zext i8 %326 to i32
   %328 = mul nsw i32 %226, %327
   %329 = add i32 %324, 32
@@ -4496,16 +4496,16 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %333 = add nuw nsw i32 %332, %331
   %334 = lshr i32 %333, 1
   %335 = trunc i32 %334 to i8
-  store i8 %335, ptr %318, align 1, !tbaa !36
+  store i8 %335, ptr %318, align 1, !tbaa !35
   %336 = getelementptr inbounds nuw i8, ptr %.1148.lver.orig, i64 3
-  %337 = load i8, ptr %336, align 1, !tbaa !36
+  %337 = load i8, ptr %336, align 1, !tbaa !35
   %338 = zext i8 %337 to i32
   %339 = getelementptr inbounds nuw i8, ptr %.1134146.lver.orig, i64 3
-  %340 = load i8, ptr %339, align 1, !tbaa !36
+  %340 = load i8, ptr %339, align 1, !tbaa !35
   %341 = zext i8 %340 to i32
   %342 = mul nsw i32 %9, %341
   %343 = getelementptr i8, ptr %289, i64 3
-  %344 = load i8, ptr %343, align 1, !tbaa !36
+  %344 = load i8, ptr %343, align 1, !tbaa !35
   %345 = zext i8 %344 to i32
   %346 = mul nsw i32 %226, %345
   %347 = add i32 %342, 32
@@ -4515,12 +4515,12 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %351 = add nuw nsw i32 %350, %349
   %352 = lshr i32 %351, 1
   %353 = trunc i32 %352 to i8
-  store i8 %353, ptr %336, align 1, !tbaa !36
+  store i8 %353, ptr %336, align 1, !tbaa !35
   %354 = getelementptr inbounds i8, ptr %.1148.lver.orig, i64 %2
   %355 = getelementptr inbounds i8, ptr %.1134146.lver.orig, i64 %2
   %356 = add nuw nsw i32 %.1131147.lver.orig, 1
   %exitcond156.not.lver.orig = icmp eq i32 %356, %3
-  br i1 %exitcond156.not.lver.orig, label %.loopexit, label %.lr.ph149.lver.orig, !llvm.loop !54
+  br i1 %exitcond156.not.lver.orig, label %.loopexit, label %.lr.ph149.lver.orig, !llvm.loop !53
 
 .lr.ph149.ph:                                     ; preds = %.lr.ph149.lver.check
   %scevgep165 = getelementptr i8, ptr %0, i64 2
@@ -4532,13 +4532,13 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %.1148 = phi ptr [ %0, %.lr.ph149.ph ], [ %426, %.lr.ph149 ]
   %.1131147 = phi i32 [ 0, %.lr.ph149.ph ], [ %428, %.lr.ph149 ]
   %.1134146 = phi ptr [ %1, %.lr.ph149.ph ], [ %427, %.lr.ph149 ]
-  %357 = load i8, ptr %.1148, align 1, !tbaa !36
+  %357 = load i8, ptr %.1148, align 1, !tbaa !35
   %358 = zext i8 %357 to i32
-  %359 = load i8, ptr %.1134146, align 1, !tbaa !36
+  %359 = load i8, ptr %.1134146, align 1, !tbaa !35
   %360 = zext i8 %359 to i32
   %361 = mul nsw i32 %9, %360
   %362 = getelementptr inbounds nuw i8, ptr %.1134146, i64 %282
-  %363 = load i8, ptr %362, align 1, !tbaa !36
+  %363 = load i8, ptr %362, align 1, !tbaa !35
   %364 = zext i8 %363 to i32
   %365 = mul nsw i32 %226, %364
   %366 = add i32 %361, 32
@@ -4548,16 +4548,16 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %370 = add nuw nsw i32 %369, %368
   %371 = lshr i32 %370, 1
   %372 = trunc i32 %371 to i8
-  store i8 %372, ptr %.1148, align 1, !tbaa !36
+  store i8 %372, ptr %.1148, align 1, !tbaa !35
   %373 = getelementptr inbounds nuw i8, ptr %.1148, i64 1
-  %374 = load i8, ptr %373, align 1, !tbaa !36
+  %374 = load i8, ptr %373, align 1, !tbaa !35
   %375 = zext i8 %374 to i32
   %376 = getelementptr inbounds nuw i8, ptr %.1134146, i64 1
-  %377 = load i8, ptr %376, align 1, !tbaa !36
+  %377 = load i8, ptr %376, align 1, !tbaa !35
   %378 = zext i8 %377 to i32
   %379 = mul nsw i32 %9, %378
   %380 = getelementptr i8, ptr %362, i64 1
-  %381 = load i8, ptr %380, align 1, !tbaa !36
+  %381 = load i8, ptr %380, align 1, !tbaa !35
   %382 = zext i8 %381 to i32
   %383 = mul nsw i32 %226, %382
   %384 = add i32 %379, 32
@@ -4567,15 +4567,15 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %388 = add nuw nsw i32 %387, %386
   %389 = lshr i32 %388, 1
   %390 = trunc i32 %389 to i8
-  store i8 %390, ptr %373, align 1, !tbaa !36
+  store i8 %390, ptr %373, align 1, !tbaa !35
   %391 = getelementptr inbounds nuw i8, ptr %.1148, i64 2
   %392 = zext i8 %store_forwarded167 to i32
   %393 = getelementptr inbounds nuw i8, ptr %.1134146, i64 2
-  %394 = load i8, ptr %393, align 1, !tbaa !36
+  %394 = load i8, ptr %393, align 1, !tbaa !35
   %395 = zext i8 %394 to i32
   %396 = mul nsw i32 %9, %395
   %397 = getelementptr i8, ptr %362, i64 2
-  %398 = load i8, ptr %397, align 1, !tbaa !36
+  %398 = load i8, ptr %397, align 1, !tbaa !35
   %399 = zext i8 %398 to i32
   %400 = mul nsw i32 %226, %399
   %401 = add i32 %396, 32
@@ -4585,16 +4585,16 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %405 = add nuw nsw i32 %404, %403
   %406 = lshr i32 %405, 1
   %407 = trunc i32 %406 to i8
-  store i8 %407, ptr %391, align 1, !tbaa !36
+  store i8 %407, ptr %391, align 1, !tbaa !35
   %408 = getelementptr inbounds nuw i8, ptr %.1148, i64 3
-  %409 = load i8, ptr %408, align 1, !tbaa !36
+  %409 = load i8, ptr %408, align 1, !tbaa !35
   %410 = zext i8 %409 to i32
   %411 = getelementptr inbounds nuw i8, ptr %.1134146, i64 3
-  %412 = load i8, ptr %411, align 1, !tbaa !36
+  %412 = load i8, ptr %411, align 1, !tbaa !35
   %413 = zext i8 %412 to i32
   %414 = mul nsw i32 %9, %413
   %415 = getelementptr i8, ptr %362, i64 3
-  %416 = load i8, ptr %415, align 1, !tbaa !36
+  %416 = load i8, ptr %415, align 1, !tbaa !35
   %417 = zext i8 %416 to i32
   %418 = mul nsw i32 %226, %417
   %419 = add i32 %414, 32
@@ -4604,21 +4604,21 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %423 = add nuw nsw i32 %422, %421
   %424 = lshr i32 %423, 1
   %425 = trunc i32 %424 to i8
-  store i8 %425, ptr %408, align 1, !tbaa !36
+  store i8 %425, ptr %408, align 1, !tbaa !35
   %426 = getelementptr inbounds nuw i8, ptr %.1148, i64 %2
   %427 = getelementptr inbounds nuw i8, ptr %.1134146, i64 %2
   %428 = add nuw nsw i32 %.1131147, 1
   %exitcond156.not = icmp eq i32 %428, %3
-  br i1 %exitcond156.not, label %.loopexit, label %.lr.ph149, !llvm.loop !54
+  br i1 %exitcond156.not, label %.loopexit, label %.lr.ph149, !llvm.loop !53
 
 .lr.ph153:                                        ; preds = %.lr.ph153.ph, %.lr.ph153
   %store_forwarded = phi i8 [ %load_initial, %.lr.ph153.ph ], [ %477, %.lr.ph153 ]
   %.2152 = phi ptr [ %0, %.lr.ph153.ph ], [ %478, %.lr.ph153 ]
   %.2132151 = phi i32 [ 0, %.lr.ph153.ph ], [ %480, %.lr.ph153 ]
   %.2135150 = phi ptr [ %1, %.lr.ph153.ph ], [ %479, %.lr.ph153 ]
-  %429 = load i8, ptr %.2152, align 1, !tbaa !36
+  %429 = load i8, ptr %.2152, align 1, !tbaa !35
   %430 = zext i8 %429 to i32
-  %431 = load i8, ptr %.2135150, align 1, !tbaa !36
+  %431 = load i8, ptr %.2135150, align 1, !tbaa !35
   %432 = zext i8 %431 to i32
   %433 = mul nsw i32 %9, %432
   %434 = add nsw i32 %433, 32
@@ -4627,12 +4627,12 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %437 = add nuw nsw i32 %436, %435
   %438 = lshr i32 %437, 1
   %439 = trunc i32 %438 to i8
-  store i8 %439, ptr %.2152, align 1, !tbaa !36
+  store i8 %439, ptr %.2152, align 1, !tbaa !35
   %440 = getelementptr inbounds nuw i8, ptr %.2152, i64 1
-  %441 = load i8, ptr %440, align 1, !tbaa !36
+  %441 = load i8, ptr %440, align 1, !tbaa !35
   %442 = zext i8 %441 to i32
   %443 = getelementptr inbounds nuw i8, ptr %.2135150, i64 1
-  %444 = load i8, ptr %443, align 1, !tbaa !36
+  %444 = load i8, ptr %443, align 1, !tbaa !35
   %445 = zext i8 %444 to i32
   %446 = mul nsw i32 %9, %445
   %447 = add nsw i32 %446, 32
@@ -4641,11 +4641,11 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %450 = add nuw nsw i32 %449, %448
   %451 = lshr i32 %450, 1
   %452 = trunc i32 %451 to i8
-  store i8 %452, ptr %440, align 1, !tbaa !36
+  store i8 %452, ptr %440, align 1, !tbaa !35
   %453 = getelementptr inbounds nuw i8, ptr %.2152, i64 2
   %454 = zext i8 %store_forwarded to i32
   %455 = getelementptr inbounds nuw i8, ptr %.2135150, i64 2
-  %456 = load i8, ptr %455, align 1, !tbaa !36
+  %456 = load i8, ptr %455, align 1, !tbaa !35
   %457 = zext i8 %456 to i32
   %458 = mul nsw i32 %9, %457
   %459 = add nsw i32 %458, 32
@@ -4654,12 +4654,12 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %462 = add nuw nsw i32 %461, %460
   %463 = lshr i32 %462, 1
   %464 = trunc i32 %463 to i8
-  store i8 %464, ptr %453, align 1, !tbaa !36
+  store i8 %464, ptr %453, align 1, !tbaa !35
   %465 = getelementptr inbounds nuw i8, ptr %.2152, i64 3
-  %466 = load i8, ptr %465, align 1, !tbaa !36
+  %466 = load i8, ptr %465, align 1, !tbaa !35
   %467 = zext i8 %466 to i32
   %468 = getelementptr inbounds nuw i8, ptr %.2135150, i64 3
-  %469 = load i8, ptr %468, align 1, !tbaa !36
+  %469 = load i8, ptr %468, align 1, !tbaa !35
   %470 = zext i8 %469 to i32
   %471 = mul nsw i32 %9, %470
   %472 = add nsw i32 %471, 32
@@ -4668,12 +4668,12 @@ define internal void @avg_h264_chroma_mc4_8_c(ptr noundef captures(none) %0, ptr
   %475 = add nuw nsw i32 %474, %473
   %476 = lshr i32 %475, 1
   %477 = trunc i32 %476 to i8
-  store i8 %477, ptr %465, align 1, !tbaa !36
+  store i8 %477, ptr %465, align 1, !tbaa !35
   %478 = getelementptr inbounds nuw i8, ptr %.2152, i64 %2
   %479 = getelementptr inbounds nuw i8, ptr %.2135150, i64 %2
   %480 = add nuw nsw i32 %.2132151, 1
   %exitcond157.not = icmp eq i32 %480, %3
-  br i1 %exitcond157.not, label %.loopexit, label %.lr.ph153, !llvm.loop !53
+  br i1 %exitcond157.not, label %.loopexit, label %.lr.ph153, !llvm.loop !52
 
 .loopexit:                                        ; preds = %.lr.ph.lver.orig, %.lr.ph, %.lr.ph149.lver.orig, %.lr.ph149, %.lr.ph153.lver.orig, %.lr.ph153, %.preheader141, %281, %.preheader
   ret void
@@ -4702,21 +4702,21 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %.099.lver.orig = phi ptr [ %66, %.lr.ph.lver.orig ], [ %0, %.lr.ph.lver.check ]
   %.08498.lver.orig = phi i32 [ %67, %.lr.ph.lver.orig ], [ 0, %.lr.ph.lver.check ]
   %.08797.lver.orig = phi ptr [ %23, %.lr.ph.lver.orig ], [ %1, %.lr.ph.lver.check ]
-  %14 = load i8, ptr %.099.lver.orig, align 1, !tbaa !36
+  %14 = load i8, ptr %.099.lver.orig, align 1, !tbaa !35
   %15 = zext i8 %14 to i32
-  %16 = load i8, ptr %.08797.lver.orig, align 1, !tbaa !36
+  %16 = load i8, ptr %.08797.lver.orig, align 1, !tbaa !35
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %9, %17
   %19 = getelementptr inbounds nuw i8, ptr %.08797.lver.orig, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !36
+  %20 = load i8, ptr %19, align 1, !tbaa !35
   %21 = zext i8 %20 to i32
   %22 = mul nsw i32 %10, %21
   %23 = getelementptr inbounds i8, ptr %.08797.lver.orig, i64 %2
-  %24 = load i8, ptr %23, align 1, !tbaa !36
+  %24 = load i8, ptr %23, align 1, !tbaa !35
   %25 = zext i8 %24 to i32
   %26 = mul nsw i32 %11, %25
   %27 = getelementptr i8, ptr %23, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !36
+  %28 = load i8, ptr %27, align 1, !tbaa !35
   %29 = zext i8 %28 to i32
   %30 = mul nsw i32 %12, %29
   %31 = add i32 %18, 32
@@ -4728,22 +4728,22 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %37 = add nuw nsw i32 %36, %35
   %38 = lshr i32 %37, 1
   %39 = trunc i32 %38 to i8
-  store i8 %39, ptr %.099.lver.orig, align 1, !tbaa !36
+  store i8 %39, ptr %.099.lver.orig, align 1, !tbaa !35
   %40 = getelementptr inbounds nuw i8, ptr %.099.lver.orig, i64 1
-  %41 = load i8, ptr %40, align 1, !tbaa !36
+  %41 = load i8, ptr %40, align 1, !tbaa !35
   %42 = zext i8 %41 to i32
-  %43 = load i8, ptr %19, align 1, !tbaa !36
+  %43 = load i8, ptr %19, align 1, !tbaa !35
   %44 = zext i8 %43 to i32
   %45 = mul nsw i32 %9, %44
   %46 = getelementptr inbounds nuw i8, ptr %.08797.lver.orig, i64 2
-  %47 = load i8, ptr %46, align 1, !tbaa !36
+  %47 = load i8, ptr %46, align 1, !tbaa !35
   %48 = zext i8 %47 to i32
   %49 = mul nsw i32 %10, %48
-  %50 = load i8, ptr %27, align 1, !tbaa !36
+  %50 = load i8, ptr %27, align 1, !tbaa !35
   %51 = zext i8 %50 to i32
   %52 = mul nsw i32 %11, %51
   %53 = getelementptr i8, ptr %23, i64 2
-  %54 = load i8, ptr %53, align 1, !tbaa !36
+  %54 = load i8, ptr %53, align 1, !tbaa !35
   %55 = zext i8 %54 to i32
   %56 = mul nsw i32 %12, %55
   %57 = add i32 %45, 32
@@ -4755,11 +4755,11 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %63 = add nuw nsw i32 %62, %61
   %64 = lshr i32 %63, 1
   %65 = trunc i32 %64 to i8
-  store i8 %65, ptr %40, align 1, !tbaa !36
+  store i8 %65, ptr %40, align 1, !tbaa !35
   %66 = getelementptr inbounds i8, ptr %.099.lver.orig, i64 %2
   %67 = add nuw nsw i32 %.08498.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %67, %3
-  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !55
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.lr.ph.lver.orig, !llvm.loop !54
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
   %load_initial123 = load i8, ptr %0, align 1
@@ -4771,19 +4771,19 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %.08498 = phi i32 [ 0, %.lr.ph.ph ], [ %120, %.lr.ph ]
   %.08797 = phi ptr [ %1, %.lr.ph.ph ], [ %76, %.lr.ph ]
   %68 = zext i8 %store_forwarded124 to i32
-  %69 = load i8, ptr %.08797, align 1, !tbaa !36
+  %69 = load i8, ptr %.08797, align 1, !tbaa !35
   %70 = zext i8 %69 to i32
   %71 = mul nsw i32 %9, %70
   %72 = getelementptr inbounds nuw i8, ptr %.08797, i64 1
-  %73 = load i8, ptr %72, align 1, !tbaa !36
+  %73 = load i8, ptr %72, align 1, !tbaa !35
   %74 = zext i8 %73 to i32
   %75 = mul nsw i32 %10, %74
   %76 = getelementptr inbounds nuw i8, ptr %.08797, i64 %2
-  %77 = load i8, ptr %76, align 1, !tbaa !36
+  %77 = load i8, ptr %76, align 1, !tbaa !35
   %78 = zext i8 %77 to i32
   %79 = mul nsw i32 %11, %78
   %80 = getelementptr i8, ptr %76, i64 1
-  %81 = load i8, ptr %80, align 1, !tbaa !36
+  %81 = load i8, ptr %80, align 1, !tbaa !35
   %82 = zext i8 %81 to i32
   %83 = mul nsw i32 %12, %82
   %84 = add i32 %71, 32
@@ -4795,22 +4795,22 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %90 = add nuw nsw i32 %89, %88
   %91 = lshr i32 %90, 1
   %92 = trunc i32 %91 to i8
-  store i8 %92, ptr %.099, align 1, !tbaa !36
+  store i8 %92, ptr %.099, align 1, !tbaa !35
   %93 = getelementptr inbounds nuw i8, ptr %.099, i64 1
-  %94 = load i8, ptr %93, align 1, !tbaa !36
+  %94 = load i8, ptr %93, align 1, !tbaa !35
   %95 = zext i8 %94 to i32
-  %96 = load i8, ptr %72, align 1, !tbaa !36
+  %96 = load i8, ptr %72, align 1, !tbaa !35
   %97 = zext i8 %96 to i32
   %98 = mul nsw i32 %9, %97
   %99 = getelementptr inbounds nuw i8, ptr %.08797, i64 2
-  %100 = load i8, ptr %99, align 1, !tbaa !36
+  %100 = load i8, ptr %99, align 1, !tbaa !35
   %101 = zext i8 %100 to i32
   %102 = mul nsw i32 %10, %101
-  %103 = load i8, ptr %80, align 1, !tbaa !36
+  %103 = load i8, ptr %80, align 1, !tbaa !35
   %104 = zext i8 %103 to i32
   %105 = mul nsw i32 %11, %104
   %106 = getelementptr i8, ptr %76, i64 2
-  %107 = load i8, ptr %106, align 1, !tbaa !36
+  %107 = load i8, ptr %106, align 1, !tbaa !35
   %108 = zext i8 %107 to i32
   %109 = mul nsw i32 %12, %108
   %110 = add i32 %98, 32
@@ -4822,11 +4822,11 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %116 = add nuw nsw i32 %115, %114
   %117 = lshr i32 %116, 1
   %118 = trunc i32 %117 to i8
-  store i8 %118, ptr %93, align 1, !tbaa !36
+  store i8 %118, ptr %93, align 1, !tbaa !35
   %119 = getelementptr inbounds nuw i8, ptr %.099, i64 %2
   %120 = add nuw nsw i32 %.08498, 1
   %exitcond.not = icmp eq i32 %120, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !54
 
 121:                                              ; preds = %6
   %122 = add nsw i32 %10, %11
@@ -4845,9 +4845,9 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %.2106.lver.orig = phi ptr [ %148, %.lr.ph107.lver.orig ], [ %0, %.lr.ph107.lver.check ]
   %.286105.lver.orig = phi i32 [ %150, %.lr.ph107.lver.orig ], [ 0, %.lr.ph107.lver.check ]
   %.289104.lver.orig = phi ptr [ %149, %.lr.ph107.lver.orig ], [ %1, %.lr.ph107.lver.check ]
-  %124 = load i8, ptr %.2106.lver.orig, align 1, !tbaa !36
+  %124 = load i8, ptr %.2106.lver.orig, align 1, !tbaa !35
   %125 = zext i8 %124 to i32
-  %126 = load i8, ptr %.289104.lver.orig, align 1, !tbaa !36
+  %126 = load i8, ptr %.289104.lver.orig, align 1, !tbaa !35
   %127 = zext i8 %126 to i32
   %128 = mul nsw i32 %9, %127
   %129 = add nsw i32 %128, 32
@@ -4856,12 +4856,12 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %132 = add nuw nsw i32 %131, %130
   %133 = lshr i32 %132, 1
   %134 = trunc i32 %133 to i8
-  store i8 %134, ptr %.2106.lver.orig, align 1, !tbaa !36
+  store i8 %134, ptr %.2106.lver.orig, align 1, !tbaa !35
   %135 = getelementptr inbounds nuw i8, ptr %.2106.lver.orig, i64 1
-  %136 = load i8, ptr %135, align 1, !tbaa !36
+  %136 = load i8, ptr %135, align 1, !tbaa !35
   %137 = zext i8 %136 to i32
   %138 = getelementptr inbounds nuw i8, ptr %.289104.lver.orig, i64 1
-  %139 = load i8, ptr %138, align 1, !tbaa !36
+  %139 = load i8, ptr %138, align 1, !tbaa !35
   %140 = zext i8 %139 to i32
   %141 = mul nsw i32 %9, %140
   %142 = add nsw i32 %141, 32
@@ -4870,12 +4870,12 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %145 = add nuw nsw i32 %144, %143
   %146 = lshr i32 %145, 1
   %147 = trunc i32 %146 to i8
-  store i8 %147, ptr %135, align 1, !tbaa !36
+  store i8 %147, ptr %135, align 1, !tbaa !35
   %148 = getelementptr inbounds i8, ptr %.2106.lver.orig, i64 %2
   %149 = getelementptr inbounds i8, ptr %.289104.lver.orig, i64 %2
   %150 = add nuw nsw i32 %.286105.lver.orig, 1
   %exitcond111.not.lver.orig = icmp eq i32 %150, %3
-  br i1 %exitcond111.not.lver.orig, label %.loopexit, label %.lr.ph107.lver.orig, !llvm.loop !56
+  br i1 %exitcond111.not.lver.orig, label %.loopexit, label %.lr.ph107.lver.orig, !llvm.loop !55
 
 .lr.ph107.ph:                                     ; preds = %.lr.ph107.lver.check
   %load_initial = load i8, ptr %0, align 1
@@ -4895,13 +4895,13 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %.1102.lver.orig = phi ptr [ %188, %.lr.ph103.lver.orig ], [ %0, %.lr.ph103.lver.check ]
   %.185101.lver.orig = phi i32 [ %190, %.lr.ph103.lver.orig ], [ 0, %.lr.ph103.lver.check ]
   %.188100.lver.orig = phi ptr [ %189, %.lr.ph103.lver.orig ], [ %1, %.lr.ph103.lver.check ]
-  %154 = load i8, ptr %.1102.lver.orig, align 1, !tbaa !36
+  %154 = load i8, ptr %.1102.lver.orig, align 1, !tbaa !35
   %155 = zext i8 %154 to i32
-  %156 = load i8, ptr %.188100.lver.orig, align 1, !tbaa !36
+  %156 = load i8, ptr %.188100.lver.orig, align 1, !tbaa !35
   %157 = zext i8 %156 to i32
   %158 = mul nsw i32 %9, %157
   %159 = getelementptr inbounds i8, ptr %.188100.lver.orig, i64 %152
-  %160 = load i8, ptr %159, align 1, !tbaa !36
+  %160 = load i8, ptr %159, align 1, !tbaa !35
   %161 = zext i8 %160 to i32
   %162 = mul nsw i32 %122, %161
   %163 = add i32 %158, 32
@@ -4911,16 +4911,16 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %167 = add nuw nsw i32 %166, %165
   %168 = lshr i32 %167, 1
   %169 = trunc i32 %168 to i8
-  store i8 %169, ptr %.1102.lver.orig, align 1, !tbaa !36
+  store i8 %169, ptr %.1102.lver.orig, align 1, !tbaa !35
   %170 = getelementptr inbounds nuw i8, ptr %.1102.lver.orig, i64 1
-  %171 = load i8, ptr %170, align 1, !tbaa !36
+  %171 = load i8, ptr %170, align 1, !tbaa !35
   %172 = zext i8 %171 to i32
   %173 = getelementptr inbounds nuw i8, ptr %.188100.lver.orig, i64 1
-  %174 = load i8, ptr %173, align 1, !tbaa !36
+  %174 = load i8, ptr %173, align 1, !tbaa !35
   %175 = zext i8 %174 to i32
   %176 = mul nsw i32 %9, %175
   %177 = getelementptr i8, ptr %159, i64 1
-  %178 = load i8, ptr %177, align 1, !tbaa !36
+  %178 = load i8, ptr %177, align 1, !tbaa !35
   %179 = zext i8 %178 to i32
   %180 = mul nsw i32 %122, %179
   %181 = add i32 %176, 32
@@ -4930,12 +4930,12 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %185 = add nuw nsw i32 %184, %183
   %186 = lshr i32 %185, 1
   %187 = trunc i32 %186 to i8
-  store i8 %187, ptr %170, align 1, !tbaa !36
+  store i8 %187, ptr %170, align 1, !tbaa !35
   %188 = getelementptr inbounds i8, ptr %.1102.lver.orig, i64 %2
   %189 = getelementptr inbounds i8, ptr %.188100.lver.orig, i64 %2
   %190 = add nuw nsw i32 %.185101.lver.orig, 1
   %exitcond110.not.lver.orig = icmp eq i32 %190, %3
-  br i1 %exitcond110.not.lver.orig, label %.loopexit, label %.lr.ph103.lver.orig, !llvm.loop !57
+  br i1 %exitcond110.not.lver.orig, label %.loopexit, label %.lr.ph103.lver.orig, !llvm.loop !56
 
 .lr.ph103.ph:                                     ; preds = %.lr.ph103.lver.check
   %load_initial119 = load i8, ptr %0, align 1
@@ -4947,11 +4947,11 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %.185101 = phi i32 [ 0, %.lr.ph103.ph ], [ %226, %.lr.ph103 ]
   %.188100 = phi ptr [ %1, %.lr.ph103.ph ], [ %225, %.lr.ph103 ]
   %191 = zext i8 %store_forwarded120 to i32
-  %192 = load i8, ptr %.188100, align 1, !tbaa !36
+  %192 = load i8, ptr %.188100, align 1, !tbaa !35
   %193 = zext i8 %192 to i32
   %194 = mul nsw i32 %9, %193
   %195 = getelementptr inbounds nuw i8, ptr %.188100, i64 %152
-  %196 = load i8, ptr %195, align 1, !tbaa !36
+  %196 = load i8, ptr %195, align 1, !tbaa !35
   %197 = zext i8 %196 to i32
   %198 = mul nsw i32 %122, %197
   %199 = add i32 %194, 32
@@ -4961,16 +4961,16 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %203 = add nuw nsw i32 %202, %201
   %204 = lshr i32 %203, 1
   %205 = trunc i32 %204 to i8
-  store i8 %205, ptr %.1102, align 1, !tbaa !36
+  store i8 %205, ptr %.1102, align 1, !tbaa !35
   %206 = getelementptr inbounds nuw i8, ptr %.1102, i64 1
-  %207 = load i8, ptr %206, align 1, !tbaa !36
+  %207 = load i8, ptr %206, align 1, !tbaa !35
   %208 = zext i8 %207 to i32
   %209 = getelementptr inbounds nuw i8, ptr %.188100, i64 1
-  %210 = load i8, ptr %209, align 1, !tbaa !36
+  %210 = load i8, ptr %209, align 1, !tbaa !35
   %211 = zext i8 %210 to i32
   %212 = mul nsw i32 %9, %211
   %213 = getelementptr i8, ptr %195, i64 1
-  %214 = load i8, ptr %213, align 1, !tbaa !36
+  %214 = load i8, ptr %213, align 1, !tbaa !35
   %215 = zext i8 %214 to i32
   %216 = mul nsw i32 %122, %215
   %217 = add i32 %212, 32
@@ -4980,12 +4980,12 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %221 = add nuw nsw i32 %220, %219
   %222 = lshr i32 %221, 1
   %223 = trunc i32 %222 to i8
-  store i8 %223, ptr %206, align 1, !tbaa !36
+  store i8 %223, ptr %206, align 1, !tbaa !35
   %224 = getelementptr inbounds nuw i8, ptr %.1102, i64 %2
   %225 = getelementptr inbounds nuw i8, ptr %.188100, i64 %2
   %226 = add nuw nsw i32 %.185101, 1
   %exitcond110.not = icmp eq i32 %226, %3
-  br i1 %exitcond110.not, label %.loopexit, label %.lr.ph103, !llvm.loop !57
+  br i1 %exitcond110.not, label %.loopexit, label %.lr.ph103, !llvm.loop !56
 
 .lr.ph107:                                        ; preds = %.lr.ph107.ph, %.lr.ph107
   %store_forwarded = phi i8 [ %load_initial, %.lr.ph107.ph ], [ %249, %.lr.ph107 ]
@@ -4993,7 +4993,7 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %.286105 = phi i32 [ 0, %.lr.ph107.ph ], [ %252, %.lr.ph107 ]
   %.289104 = phi ptr [ %1, %.lr.ph107.ph ], [ %251, %.lr.ph107 ]
   %227 = zext i8 %store_forwarded to i32
-  %228 = load i8, ptr %.289104, align 1, !tbaa !36
+  %228 = load i8, ptr %.289104, align 1, !tbaa !35
   %229 = zext i8 %228 to i32
   %230 = mul nsw i32 %9, %229
   %231 = add nsw i32 %230, 32
@@ -5002,12 +5002,12 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %234 = add nuw nsw i32 %233, %232
   %235 = lshr i32 %234, 1
   %236 = trunc i32 %235 to i8
-  store i8 %236, ptr %.2106, align 1, !tbaa !36
+  store i8 %236, ptr %.2106, align 1, !tbaa !35
   %237 = getelementptr inbounds nuw i8, ptr %.2106, i64 1
-  %238 = load i8, ptr %237, align 1, !tbaa !36
+  %238 = load i8, ptr %237, align 1, !tbaa !35
   %239 = zext i8 %238 to i32
   %240 = getelementptr inbounds nuw i8, ptr %.289104, i64 1
-  %241 = load i8, ptr %240, align 1, !tbaa !36
+  %241 = load i8, ptr %240, align 1, !tbaa !35
   %242 = zext i8 %241 to i32
   %243 = mul nsw i32 %9, %242
   %244 = add nsw i32 %243, 32
@@ -5016,12 +5016,12 @@ define internal void @avg_h264_chroma_mc2_8_c(ptr noundef captures(none) %0, ptr
   %247 = add nuw nsw i32 %246, %245
   %248 = lshr i32 %247, 1
   %249 = trunc i32 %248 to i8
-  store i8 %249, ptr %237, align 1, !tbaa !36
+  store i8 %249, ptr %237, align 1, !tbaa !35
   %250 = getelementptr inbounds nuw i8, ptr %.2106, i64 %2
   %251 = getelementptr inbounds nuw i8, ptr %.289104, i64 %2
   %252 = add nuw nsw i32 %.286105, 1
   %exitcond111.not = icmp eq i32 %252, %3
-  br i1 %exitcond111.not, label %.loopexit, label %.lr.ph107, !llvm.loop !56
+  br i1 %exitcond111.not, label %.loopexit, label %.lr.ph107, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.lr.ph.lver.orig, %.lr.ph, %.lr.ph103.lver.orig, %.lr.ph103, %.lr.ph107.lver.orig, %.lr.ph107, %.preheader95, %151, %.preheader
   ret void
@@ -5046,21 +5046,21 @@ define internal void @avg_h264_chroma_mc1_8_c(ptr noundef captures(none) %0, ptr
   %.076 = phi ptr [ %40, %.lr.ph ], [ %0, %.preheader72 ]
   %.06175 = phi i32 [ %41, %.lr.ph ], [ 0, %.preheader72 ]
   %.06474 = phi ptr [ %23, %.lr.ph ], [ %1, %.preheader72 ]
-  %14 = load i8, ptr %.076, align 1, !tbaa !36
+  %14 = load i8, ptr %.076, align 1, !tbaa !35
   %15 = zext i8 %14 to i32
-  %16 = load i8, ptr %.06474, align 1, !tbaa !36
+  %16 = load i8, ptr %.06474, align 1, !tbaa !35
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %9, %17
   %19 = getelementptr inbounds nuw i8, ptr %.06474, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !36
+  %20 = load i8, ptr %19, align 1, !tbaa !35
   %21 = zext i8 %20 to i32
   %22 = mul nsw i32 %10, %21
   %23 = getelementptr inbounds i8, ptr %.06474, i64 %2
-  %24 = load i8, ptr %23, align 1, !tbaa !36
+  %24 = load i8, ptr %23, align 1, !tbaa !35
   %25 = zext i8 %24 to i32
   %26 = mul nsw i32 %11, %25
   %27 = getelementptr i8, ptr %23, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !36
+  %28 = load i8, ptr %27, align 1, !tbaa !35
   %29 = zext i8 %28 to i32
   %30 = mul nsw i32 %12, %29
   %31 = add i32 %18, 32
@@ -5072,11 +5072,11 @@ define internal void @avg_h264_chroma_mc1_8_c(ptr noundef captures(none) %0, ptr
   %37 = add nuw nsw i32 %36, %35
   %38 = lshr i32 %37, 1
   %39 = trunc i32 %38 to i8
-  store i8 %39, ptr %.076, align 1, !tbaa !36
+  store i8 %39, ptr %.076, align 1, !tbaa !35
   %40 = getelementptr inbounds i8, ptr %.076, i64 %2
   %41 = add nuw nsw i32 %.06175, 1
   %exitcond.not = icmp eq i32 %41, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !58
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !57
 
 42:                                               ; preds = %6
   %43 = add nsw i32 %10, %11
@@ -5101,13 +5101,13 @@ define internal void @avg_h264_chroma_mc1_8_c(ptr noundef captures(none) %0, ptr
   %.179 = phi ptr [ %0, %.lr.ph80 ], [ %66, %49 ]
   %.16278 = phi i32 [ 0, %.lr.ph80 ], [ %68, %49 ]
   %.16577 = phi ptr [ %1, %.lr.ph80 ], [ %67, %49 ]
-  %50 = load i8, ptr %.179, align 1, !tbaa !36
+  %50 = load i8, ptr %.179, align 1, !tbaa !35
   %51 = zext i8 %50 to i32
-  %52 = load i8, ptr %.16577, align 1, !tbaa !36
+  %52 = load i8, ptr %.16577, align 1, !tbaa !35
   %53 = zext i8 %52 to i32
   %54 = mul nsw i32 %9, %53
   %55 = getelementptr inbounds i8, ptr %.16577, i64 %48
-  %56 = load i8, ptr %55, align 1, !tbaa !36
+  %56 = load i8, ptr %55, align 1, !tbaa !35
   %57 = zext i8 %56 to i32
   %58 = mul nsw i32 %43, %57
   %59 = add i32 %54, 32
@@ -5117,20 +5117,20 @@ define internal void @avg_h264_chroma_mc1_8_c(ptr noundef captures(none) %0, ptr
   %63 = add nuw nsw i32 %62, %61
   %64 = lshr i32 %63, 1
   %65 = trunc i32 %64 to i8
-  store i8 %65, ptr %.179, align 1, !tbaa !36
+  store i8 %65, ptr %.179, align 1, !tbaa !35
   %66 = getelementptr inbounds i8, ptr %.179, i64 %2
   %67 = getelementptr inbounds i8, ptr %.16577, i64 %2
   %68 = add nuw nsw i32 %.16278, 1
   %exitcond87.not = icmp eq i32 %68, %3
-  br i1 %exitcond87.not, label %.loopexit, label %49, !llvm.loop !59
+  br i1 %exitcond87.not, label %.loopexit, label %49, !llvm.loop !58
 
 .lr.ph84:                                         ; preds = %.preheader, %.lr.ph84
   %.283 = phi ptr [ %80, %.lr.ph84 ], [ %0, %.preheader ]
   %.26382 = phi i32 [ %82, %.lr.ph84 ], [ 0, %.preheader ]
   %.26681 = phi ptr [ %81, %.lr.ph84 ], [ %1, %.preheader ]
-  %69 = load i8, ptr %.283, align 1, !tbaa !36
+  %69 = load i8, ptr %.283, align 1, !tbaa !35
   %70 = zext i8 %69 to i32
-  %71 = load i8, ptr %.26681, align 1, !tbaa !36
+  %71 = load i8, ptr %.26681, align 1, !tbaa !35
   %72 = zext i8 %71 to i32
   %73 = mul nsw i32 %9, %72
   %74 = add nsw i32 %73, 32
@@ -5139,12 +5139,12 @@ define internal void @avg_h264_chroma_mc1_8_c(ptr noundef captures(none) %0, ptr
   %77 = add nuw nsw i32 %76, %75
   %78 = lshr i32 %77, 1
   %79 = trunc i32 %78 to i8
-  store i8 %79, ptr %.283, align 1, !tbaa !36
+  store i8 %79, ptr %.283, align 1, !tbaa !35
   %80 = getelementptr inbounds i8, ptr %.283, i64 %2
   %81 = getelementptr inbounds i8, ptr %.26681, i64 %2
   %82 = add nuw nsw i32 %.26382, 1
   %exitcond88.not = icmp eq i32 %82, %3
-  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph84, !llvm.loop !60
+  br i1 %exitcond88.not, label %.loopexit, label %.lr.ph84, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.lr.ph, %49, %.lr.ph84, %.preheader72, %45, %.preheader
   ret void
@@ -5165,54 +5165,53 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"short", !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
-!20 = distinct !{!20, !11, !12}
-!21 = distinct !{!21, !11, !12}
-!22 = distinct !{!22, !11, !12}
-!23 = distinct !{!23, !11, !12}
-!24 = distinct !{!24, !11, !12}
-!25 = distinct !{!25, !11, !12}
-!26 = distinct !{!26, !11, !12}
-!27 = distinct !{!27, !11, !12}
-!28 = distinct !{!28, !11, !12}
-!29 = distinct !{!29, !11, !12}
-!30 = distinct !{!30, !11, !12}
-!31 = distinct !{!31, !11, !12}
-!32 = distinct !{!32, !11, !12}
-!33 = distinct !{!33, !11, !12}
-!34 = distinct !{!34, !11, !12}
-!35 = distinct !{!35, !11, !12}
-!36 = !{!6, !6, i64 0}
-!37 = distinct !{!37, !11, !12}
-!38 = distinct !{!38, !11, !12}
-!39 = distinct !{!39, !11, !12}
-!40 = distinct !{!40, !11, !12}
-!41 = distinct !{!41, !11, !12}
-!42 = distinct !{!42, !11, !12}
-!43 = distinct !{!43, !11, !12}
-!44 = distinct !{!44, !11, !12}
-!45 = distinct !{!45, !11, !12}
-!46 = distinct !{!46, !11, !12}
-!47 = distinct !{!47, !11, !12}
-!48 = distinct !{!48, !11, !12}
-!49 = distinct !{!49, !11, !12}
-!50 = distinct !{!50, !11, !12}
-!51 = distinct !{!51, !11, !12}
-!52 = distinct !{!52, !11, !12}
-!53 = distinct !{!53, !11, !12}
-!54 = distinct !{!54, !11, !12}
-!55 = distinct !{!55, !11, !12}
-!56 = distinct !{!56, !11, !12}
-!57 = distinct !{!57, !11, !12}
-!58 = distinct !{!58, !11, !12}
-!59 = distinct !{!59, !11, !12}
-!60 = distinct !{!60, !11, !12}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11}
+!21 = distinct !{!21, !11}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !11}
+!24 = distinct !{!24, !11}
+!25 = distinct !{!25, !11}
+!26 = distinct !{!26, !11}
+!27 = distinct !{!27, !11}
+!28 = distinct !{!28, !11}
+!29 = distinct !{!29, !11}
+!30 = distinct !{!30, !11}
+!31 = distinct !{!31, !11}
+!32 = distinct !{!32, !11}
+!33 = distinct !{!33, !11}
+!34 = distinct !{!34, !11}
+!35 = !{!6, !6, i64 0}
+!36 = distinct !{!36, !11}
+!37 = distinct !{!37, !11}
+!38 = distinct !{!38, !11}
+!39 = distinct !{!39, !11}
+!40 = distinct !{!40, !11}
+!41 = distinct !{!41, !11}
+!42 = distinct !{!42, !11}
+!43 = distinct !{!43, !11}
+!44 = distinct !{!44, !11}
+!45 = distinct !{!45, !11}
+!46 = distinct !{!46, !11}
+!47 = distinct !{!47, !11}
+!48 = distinct !{!48, !11}
+!49 = distinct !{!49, !11}
+!50 = distinct !{!50, !11}
+!51 = distinct !{!51, !11}
+!52 = distinct !{!52, !11}
+!53 = distinct !{!53, !11}
+!54 = distinct !{!54, !11}
+!55 = distinct !{!55, !11}
+!56 = distinct !{!56, !11}
+!57 = distinct !{!57, !11}
+!58 = distinct !{!58, !11}
+!59 = distinct !{!59, !11}

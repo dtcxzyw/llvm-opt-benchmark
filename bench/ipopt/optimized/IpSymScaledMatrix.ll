@@ -1685,17 +1685,17 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_E
   %69 = ptrtoint ptr %66 to i64
   %70 = sub i64 %68, %69
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %65, ptr nonnull align 8 %66, i64 %70, i1 false)
-  %.pre.i.i.i = load ptr, ptr %16, align 8, !tbaa !120
+  %.pre.i.i.i = load ptr, ptr %16, align 8, !tbaa !119
   br label %71
 
 71:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i, %.noexc
   %72 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i ], [ %67, %.noexc ]
   %73 = getelementptr inbounds i8, ptr %72, i64 -8
-  store ptr %73, ptr %16, align 8, !tbaa !120
+  store ptr %73, ptr %16, align 8, !tbaa !119
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.02.014, i64 8
   %75 = load ptr, ptr %4, align 8, !tbaa !108
   %.not = icmp eq ptr %74, %75
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !122
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !121
 
 76:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i
   %77 = landingpad { ptr, i32 }
@@ -1824,7 +1824,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   store i8 0, ptr %41, align 1, !tbaa !89
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %3, ptr %42, align 8, !tbaa !123
+  store i32 %3, ptr %42, align 8, !tbaa !122
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %44, ptr %43, align 8, !tbaa !82
@@ -2208,11 +2208,10 @@ attributes #19 = { noreturn nounwind }
 !114 = !{!"p2 _ZTSN5Ipopt7SubjectE", !23, i64 0}
 !115 = !{!116, !116, i64 0}
 !116 = !{!"p1 _ZTSN5Ipopt7SubjectE", !13, i64 0}
-!117 = distinct !{!117, !118, !119}
+!117 = distinct !{!117, !118}
 !118 = !{!"llvm.loop.mustprogress"}
-!119 = !{!"llvm.loop.estimated_trip_count"}
-!120 = !{!121, !114, i64 8}
-!121 = !{!"_ZTSNSt12_Vector_baseIPKN5Ipopt7SubjectESaIS3_EE17_Vector_impl_dataE", !114, i64 0, !114, i64 8, !114, i64 16}
-!122 = distinct !{!122, !118, !119}
-!123 = !{!124, !5, i64 72}
-!124 = !{!"_ZTSN5Ipopt14IpoptExceptionE", !88, i64 8, !88, i64 40, !5, i64 72, !88, i64 80}
+!119 = !{!120, !114, i64 8}
+!120 = !{!"_ZTSNSt12_Vector_baseIPKN5Ipopt7SubjectESaIS3_EE17_Vector_impl_dataE", !114, i64 0, !114, i64 8, !114, i64 16}
+!121 = distinct !{!121, !118}
+!122 = !{!123, !5, i64 72}
+!123 = !{!"_ZTSN5Ipopt14IpoptExceptionE", !88, i64 8, !88, i64 40, !5, i64 72, !88, i64 80}

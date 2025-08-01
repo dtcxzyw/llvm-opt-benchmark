@@ -706,7 +706,7 @@ declare noundef i32 @_ZN5folly10closeNoIntEi(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_ProcessBase.cpp() #13 section ".text.startup" {
 entry:
-  %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #20, !srcloc !13
+  %0 = tail call i32 asm "cpuid", "={ax},{ax},~{ebx},~{ecx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #20, !srcloc !12
   %cmp.i.not.i = icmp eq i32 %0, 0
   br i1 %cmp.i.not.i, label %__cxx_global_var_init.exit, label %if.end.i.i
 
@@ -784,7 +784,6 @@ attributes #20 = { nounwind memory(none) }
 !7 = !{!8}
 !8 = distinct !{!8, !9, !"_ZN5folly6detailplIZNS_8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbiRT_mEUlvE_EENS0_14ScopeGuardImplINSt5decayIS9_E4typeELb1EEENS0_16ScopeGuardOnExitEOS9_: %agg.result"}
 !9 = distinct !{!9, !"_ZN5folly6detailplIZNS_8readFileINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbiRT_mEUlvE_EENS0_14ScopeGuardImplINSt5decayIS9_E4typeELb1EEENS0_16ScopeGuardOnExitEOS9_"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{i64 1908038}
+!12 = !{i64 1908038}

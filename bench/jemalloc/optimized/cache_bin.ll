@@ -87,17 +87,17 @@ define hidden void @je_cache_bin_init(ptr noundef writeonly captures(none) initi
   %10 = add i64 %5, %9
   store i64 %10, ptr %3, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %10
-  store ptr %11, ptr %0, align 8, !tbaa !16
+  store ptr %11, ptr %0, align 8, !tbaa !15
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %13, ptr %14, align 8, !tbaa !20
+  store i16 %13, ptr %14, align 8, !tbaa !19
   %15 = ptrtoint ptr %6 to i64
   %16 = trunc i64 %15 to i16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %16, ptr %17, align 2, !tbaa !21
+  store i16 %16, ptr %17, align 2, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 %13, ptr %18, align 4, !tbaa !22
+  store i16 %13, ptr %18, align 4, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 %7, ptr %19, align 2, !tbaa !4
   ret void
@@ -105,13 +105,13 @@ define hidden void @je_cache_bin_init(ptr noundef writeonly captures(none) initi
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @je_cache_bin_init_disabled(ptr noundef writeonly captures(none) initializes((0, 8), (16, 24)) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
-  store ptr @je_disabled_bin, ptr %0, align 8, !tbaa !16
+  store ptr @je_disabled_bin, ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 ptrtoint (ptr @je_disabled_bin to i16), ptr %3, align 8, !tbaa !20
+  store i16 ptrtoint (ptr @je_disabled_bin to i16), ptr %3, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 ptrtoint (ptr @je_disabled_bin to i16), ptr %4, align 2, !tbaa !21
+  store i16 ptrtoint (ptr @je_disabled_bin to i16), ptr %4, align 2, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i16 ptrtoint (ptr @je_disabled_bin to i16), ptr %5, align 4, !tbaa !22
+  store i16 ptrtoint (ptr @je_disabled_bin to i16), ptr %5, align 4, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i16 %1, ptr %6, align 2, !tbaa !4
   ret void
@@ -137,13 +137,12 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !10 = !{!"int", !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"long", !7, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"cache_bin_s", !18, i64 0, !19, i64 8, !6, i64 16, !6, i64 18, !6, i64 20, !5, i64 22}
-!18 = !{!"any pointer", !7, i64 0}
-!19 = !{!"cache_bin_stats_s", !12, i64 0}
-!20 = !{!17, !6, i64 16}
-!21 = !{!17, !6, i64 18}
-!22 = !{!17, !6, i64 20}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"cache_bin_s", !17, i64 0, !18, i64 8, !6, i64 16, !6, i64 18, !6, i64 20, !5, i64 22}
+!17 = !{!"any pointer", !7, i64 0}
+!18 = !{!"cache_bin_stats_s", !12, i64 0}
+!19 = !{!16, !6, i64 16}
+!20 = !{!16, !6, i64 18}
+!21 = !{!16, !6, i64 20}

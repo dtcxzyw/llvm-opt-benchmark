@@ -357,7 +357,7 @@ define linkonce_odr void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8
 
 20:                                               ; preds = %._crit_edge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %22 = load ptr, ptr %21, align 8, !tbaa !172
+  %22 = load ptr, ptr %21, align 8, !tbaa !171
   %23 = load ptr, ptr %22, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -370,20 +370,20 @@ define linkonce_odr void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8
 28:                                               ; preds = %27
   %29 = add i64 %14, 4096
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %31 = load ptr, ptr %30, align 8, !tbaa !173
+  %31 = load ptr, ptr %30, align 8, !tbaa !172
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %33 = load ptr, ptr %32, align 8, !tbaa !173
+  %33 = load ptr, ptr %32, align 8, !tbaa !172
   %.not.i = icmp eq ptr %31, %33
   br i1 %.not.i, label %_ZN16memtracer_list_t16clean_invalidateEmmbb.exit, label %.lr.ph.i
 
 34:                                               ; preds = %.noexc
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.011.014.i, i64 8
   %.not17.i = icmp eq ptr %35, %33
-  br i1 %.not17.i, label %_ZN16memtracer_list_t16clean_invalidateEmmbb.exit, label %.lr.ph.i, !llvm.loop !174
+  br i1 %.not17.i, label %_ZN16memtracer_list_t16clean_invalidateEmmbb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28, %34
   %.sroa.011.014.i = phi ptr [ %35, %34 ], [ %31, %28 ]
-  %36 = load ptr, ptr %.sroa.011.014.i, align 8, !tbaa !175
+  %36 = load ptr, ptr %.sroa.011.014.i, align 8, !tbaa !173
   %37 = load ptr, ptr %36, align 8, !tbaa !14
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
@@ -395,14 +395,14 @@ define linkonce_odr void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8
 
 _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.noexc
   %41 = load i64, ptr %9, align 8, !tbaa !148
-  %42 = load ptr, ptr %30, align 8, !tbaa !173
-  %43 = load ptr, ptr %32, align 8, !tbaa !173
+  %42 = load ptr, ptr %30, align 8, !tbaa !172
+  %43 = load ptr, ptr %32, align 8, !tbaa !172
   %44 = icmp eq ptr %42, %43
   br i1 %44, label %_ZN16memtracer_list_t16clean_invalidateEmmbb.exit, label %.lr.ph.i58
 
 .lr.ph.i58:                                       ; preds = %_ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit, %.noexc59
   %.sroa.07.010.i = phi ptr [ %49, %.noexc59 ], [ %42, %_ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit ]
-  %45 = load ptr, ptr %.sroa.07.010.i, align 8, !tbaa !175
+  %45 = load ptr, ptr %.sroa.07.010.i, align 8, !tbaa !173
   %46 = load ptr, ptr %45, align 8, !tbaa !14
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %48 = load ptr, ptr %47, align 8
@@ -412,7 +412,7 @@ _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.noe
 .noexc59:                                         ; preds = %.lr.ph.i58
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.07.010.i, i64 8
   %50 = icmp eq ptr %49, %43
-  br i1 %50, label %_ZN16memtracer_list_t16clean_invalidateEmmbb.exit, label %.lr.ph.i58, !llvm.loop !177
+  br i1 %50, label %_ZN16memtracer_list_t16clean_invalidateEmmbb.exit, label %.lr.ph.i58
 
 .loopexit:                                        ; preds = %.lr.ph.i58
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -452,13 +452,13 @@ _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.noe
 53:                                               ; preds = %27
   %54 = call ptr @__cxa_allocate_exception(i64 48) #16
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %56 = load ptr, ptr %55, align 8, !tbaa !178
+  %56 = load ptr, ptr %55, align 8, !tbaa !175
   %.not = icmp eq ptr %56, null
   br i1 %.not, label %60, label %57
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 1098
-  %59 = load i8, ptr %58, align 2, !tbaa !179, !range !94, !noundef !180
+  %59 = load i8, ptr %58, align 2, !tbaa !176, !range !94, !noundef !177
   br label %60
 
 60:                                               ; preds = %57, %53
@@ -466,9 +466,9 @@ _ZN16memtracer_list_t19interested_in_rangeEmm11access_type.exit: ; preds = %.noe
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 7, ptr %62, align 8, !tbaa !8
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i8 %61, ptr %63, align 8, !tbaa !181
+  store i8 %61, ptr %63, align 8, !tbaa !178
   %64 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store i64 %8, ptr %64, align 8, !tbaa !183
+  store i64 %8, ptr %64, align 8, !tbaa !180
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %54, align 8, !tbaa !14
@@ -513,13 +513,13 @@ _ZN16memtracer_list_t16clean_invalidateEmmbb.exit: ; preds = %34, %.noexc59, %28
   %89 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 6, ptr %89, align 8, !tbaa !8
   %90 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store i8 %88, ptr %90, align 8, !tbaa !181
+  store i8 %88, ptr %90, align 8, !tbaa !178
   %91 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  store i64 %76, ptr %91, align 8, !tbaa !183
+  store i64 %76, ptr %91, align 8, !tbaa !180
   %92 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  store i64 %81, ptr %92, align 8, !tbaa !184
+  store i64 %81, ptr %92, align 8, !tbaa !181
   %93 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  store i64 %86, ptr %93, align 8, !tbaa !185
+  store i64 %86, ptr %93, align 8, !tbaa !182
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV29trap_store_address_misaligned, i64 16), ptr %68, align 8, !tbaa !14
   invoke void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN6trap_tD2Ev) #17
           to label %206 unwind label %199
@@ -563,13 +563,13 @@ _ZN16memtracer_list_t16clean_invalidateEmmbb.exit: ; preds = %34, %.noexc59, %28
   %120 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i64 15, ptr %120, align 8, !tbaa !8
   %121 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  store i8 %119, ptr %121, align 8, !tbaa !181
+  store i8 %119, ptr %121, align 8, !tbaa !178
   %122 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  store i64 %107, ptr %122, align 8, !tbaa !183
+  store i64 %107, ptr %122, align 8, !tbaa !180
   %123 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  store i64 %112, ptr %123, align 8, !tbaa !184
+  store i64 %112, ptr %123, align 8, !tbaa !181
   %124 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  store i64 %117, ptr %124, align 8, !tbaa !185
+  store i64 %117, ptr %124, align 8, !tbaa !182
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV21trap_store_page_fault, i64 16), ptr %99, align 8, !tbaa !14
   invoke void @__cxa_throw(ptr nonnull %99, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN6trap_tD2Ev) #17
           to label %206 unwind label %194
@@ -613,13 +613,13 @@ _ZN16memtracer_list_t16clean_invalidateEmmbb.exit: ; preds = %34, %.noexc59, %28
   %151 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i64 7, ptr %151, align 8, !tbaa !8
   %152 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  store i8 %150, ptr %152, align 8, !tbaa !181
+  store i8 %150, ptr %152, align 8, !tbaa !178
   %153 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  store i64 %138, ptr %153, align 8, !tbaa !183
+  store i64 %138, ptr %153, align 8, !tbaa !180
   %154 = getelementptr inbounds nuw i8, ptr %130, i64 32
-  store i64 %143, ptr %154, align 8, !tbaa !184
+  store i64 %143, ptr %154, align 8, !tbaa !181
   %155 = getelementptr inbounds nuw i8, ptr %130, i64 40
-  store i64 %148, ptr %155, align 8, !tbaa !185
+  store i64 %148, ptr %155, align 8, !tbaa !182
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV23trap_store_access_fault, i64 16), ptr %130, align 8, !tbaa !14
   invoke void @__cxa_throw(ptr nonnull %130, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN6trap_tD2Ev) #17
           to label %206 unwind label %189
@@ -656,13 +656,13 @@ _ZN16memtracer_list_t16clean_invalidateEmmbb.exit: ; preds = %34, %.noexc59, %28
   %177 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store i64 23, ptr %177, align 8, !tbaa !8
   %178 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  store i8 1, ptr %178, align 8, !tbaa !181
+  store i8 1, ptr %178, align 8, !tbaa !178
   %179 = getelementptr inbounds nuw i8, ptr %161, i64 24
-  store i64 %165, ptr %179, align 8, !tbaa !183
+  store i64 %165, ptr %179, align 8, !tbaa !180
   %180 = getelementptr inbounds nuw i8, ptr %161, i64 32
-  store i64 %170, ptr %180, align 8, !tbaa !184
+  store i64 %170, ptr %180, align 8, !tbaa !181
   %181 = getelementptr inbounds nuw i8, ptr %161, i64 40
-  store i64 %175, ptr %181, align 8, !tbaa !185
+  store i64 %175, ptr %181, align 8, !tbaa !182
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV27trap_store_guest_page_fault, i64 16), ptr %161, align 8, !tbaa !14
   invoke void @__cxa_throw(ptr nonnull %161, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN6trap_tD2Ev) #17
           to label %206 unwind label %184
@@ -1735,7 +1735,7 @@ define noundef i64 @_Z22logged_rv64e_cbo_invalP11processor_t6insn_tm(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i8, ptr %2, align 8, !tbaa !10, !range !94, !noundef !180
+  %3 = load i8, ptr %2, align 8, !tbaa !10, !range !94, !noundef !177
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -1777,13 +1777,13 @@ define linkonce_odr void @_ZN24trap_illegal_instruction4nameB5cxx11Ev(ptr dead_o
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #19
-  store ptr %3, ptr %0, align 8, !tbaa !186
-  store i64 24, ptr %2, align 8, !tbaa !187
+  store ptr %3, ptr %0, align 8, !tbaa !183
+  store i64 24, ptr %2, align 8, !tbaa !184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) @.str.6, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 24, ptr %4, align 8, !tbaa !188
+  store i64 24, ptr %4, align 8, !tbaa !185
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 0, ptr %5, align 1, !tbaa !187
+  store i8 0, ptr %5, align 1, !tbaa !184
   ret void
 }
 
@@ -1819,13 +1819,13 @@ define linkonce_odr void @_ZN24trap_virtual_instruction4nameB5cxx11Ev(ptr dead_o
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #19
-  store ptr %3, ptr %0, align 8, !tbaa !186
-  store i64 24, ptr %2, align 8, !tbaa !187
+  store ptr %3, ptr %0, align 8, !tbaa !183
+  store i64 24, ptr %2, align 8, !tbaa !184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) @.str.8, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 24, ptr %4, align 8, !tbaa !188
+  store i64 24, ptr %4, align 8, !tbaa !185
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 0, ptr %5, align 1, !tbaa !187
+  store i8 0, ptr %5, align 1, !tbaa !184
   ret void
 }
 
@@ -1854,7 +1854,7 @@ define linkonce_odr void @_ZN6trap_tD2Ev(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN10mem_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i8, ptr %2, align 8, !tbaa !181, !range !94, !noundef !180
+  %3 = load i8, ptr %2, align 8, !tbaa !178, !range !94, !noundef !177
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -1867,7 +1867,7 @@ define linkonce_odr noundef zeroext i1 @_ZN10mem_trap_t8has_tvalEv(ptr noundef n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZN10mem_trap_t8get_tvalEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8, !tbaa !183
+  %3 = load i64, ptr %2, align 8, !tbaa !180
   ret i64 %3
 }
 
@@ -1879,7 +1879,7 @@ define linkonce_odr noundef zeroext i1 @_ZN10mem_trap_t9has_tval2Ev(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZN10mem_trap_t9get_tval2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i64, ptr %2, align 8, !tbaa !184
+  %3 = load i64, ptr %2, align 8, !tbaa !181
   ret i64 %3
 }
 
@@ -1891,7 +1891,7 @@ define linkonce_odr noundef zeroext i1 @_ZN10mem_trap_t9has_tinstEv(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZN10mem_trap_t9get_tinstEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i64, ptr %2, align 8, !tbaa !185
+  %3 = load i64, ptr %2, align 8, !tbaa !182
   ret i64 %3
 }
 
@@ -1900,13 +1900,13 @@ define linkonce_odr void @_ZN23trap_store_access_fault4nameB5cxx11Ev(ptr dead_on
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
-  store ptr %3, ptr %0, align 8, !tbaa !186
-  store i64 23, ptr %2, align 8, !tbaa !187
+  store ptr %3, ptr %0, align 8, !tbaa !183
+  store i64 23, ptr %2, align 8, !tbaa !184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %3, ptr noundef nonnull align 1 dereferenceable(23) @.str.9, i64 23, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 23, ptr %4, align 8, !tbaa !188
+  store i64 23, ptr %4, align 8, !tbaa !185
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 23
-  store i8 0, ptr %5, align 1, !tbaa !187
+  store i8 0, ptr %5, align 1, !tbaa !184
   ret void
 }
 
@@ -1921,13 +1921,13 @@ define linkonce_odr void @_ZN27trap_store_guest_page_fault4nameB5cxx11Ev(ptr dea
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noalias noundef nonnull dereferenceable(28) ptr @_Znwm(i64 noundef 28) #19
-  store ptr %3, ptr %0, align 8, !tbaa !186
-  store i64 27, ptr %2, align 8, !tbaa !187
+  store ptr %3, ptr %0, align 8, !tbaa !183
+  store i64 27, ptr %2, align 8, !tbaa !184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %3, ptr noundef nonnull align 1 dereferenceable(27) @.str.10, i64 27, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 27, ptr %4, align 8, !tbaa !188
+  store i64 27, ptr %4, align 8, !tbaa !185
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 27
-  store i8 0, ptr %5, align 1, !tbaa !187
+  store i8 0, ptr %5, align 1, !tbaa !184
   ret void
 }
 
@@ -1942,13 +1942,13 @@ define linkonce_odr void @_ZN21trap_store_page_fault4nameB5cxx11Ev(ptr dead_on_u
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noalias noundef nonnull dereferenceable(22) ptr @_Znwm(i64 noundef 22) #19
-  store ptr %3, ptr %0, align 8, !tbaa !186
-  store i64 21, ptr %2, align 8, !tbaa !187
+  store ptr %3, ptr %0, align 8, !tbaa !183
+  store i64 21, ptr %2, align 8, !tbaa !184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %3, ptr noundef nonnull align 1 dereferenceable(21) @.str.11, i64 21, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 21, ptr %4, align 8, !tbaa !188
+  store i64 21, ptr %4, align 8, !tbaa !185
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 21
-  store i8 0, ptr %5, align 1, !tbaa !187
+  store i8 0, ptr %5, align 1, !tbaa !184
   ret void
 }
 
@@ -1963,13 +1963,13 @@ define linkonce_odr void @_ZN29trap_store_address_misaligned4nameB5cxx11Ev(ptr d
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noalias noundef nonnull dereferenceable(30) ptr @_Znwm(i64 noundef 30) #19
-  store ptr %3, ptr %0, align 8, !tbaa !186
-  store i64 29, ptr %2, align 8, !tbaa !187
+  store ptr %3, ptr %0, align 8, !tbaa !183
+  store i64 29, ptr %2, align 8, !tbaa !184
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %3, ptr noundef nonnull align 1 dereferenceable(29) @.str.12, i64 29, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 29, ptr %4, align 8, !tbaa !188
+  store i64 29, ptr %4, align 8, !tbaa !185
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 29
-  store i8 0, ptr %5, align 1, !tbaa !187
+  store i8 0, ptr %5, align 1, !tbaa !184
   ret void
 }
 
@@ -2180,23 +2180,20 @@ attributes #20 = { builtin nounwind }
 !166 = !{!"p1 _ZTSN8triggers9matched_tE", !19, i64 0}
 !167 = !{!168, !12, i64 8}
 !168 = !{!"_ZTSSt22_Optional_payload_baseImE", !5, i64 0, !12, i64 8}
-!169 = distinct !{!169, !170, !171}
+!169 = distinct !{!169, !170}
 !170 = !{!"llvm.loop.mustprogress"}
-!171 = !{!"llvm.loop.estimated_trip_count"}
-!172 = !{!149, !111, i64 72}
-!173 = !{!164, !164, i64 0}
-!174 = distinct !{!174, !171}
-!175 = !{!176, !176, i64 0}
-!176 = !{!"p1 _ZTS11memtracer_t", !19, i64 0}
-!177 = distinct !{!177, !171}
-!178 = !{!149, !134, i64 80}
-!179 = !{!96, !12, i64 1098}
-!180 = !{}
-!181 = !{!182, !12, i64 16}
-!182 = !{!"_ZTS10mem_trap_t", !9, i64 0, !12, i64 16, !4, i64 24, !4, i64 32, !4, i64 40}
-!183 = !{!182, !4, i64 24}
-!184 = !{!182, !4, i64 32}
-!185 = !{!182, !4, i64 40}
-!186 = !{!102, !104, i64 0}
-!187 = !{!5, !5, i64 0}
-!188 = !{!102, !4, i64 8}
+!171 = !{!149, !111, i64 72}
+!172 = !{!164, !164, i64 0}
+!173 = !{!174, !174, i64 0}
+!174 = !{!"p1 _ZTS11memtracer_t", !19, i64 0}
+!175 = !{!149, !134, i64 80}
+!176 = !{!96, !12, i64 1098}
+!177 = !{}
+!178 = !{!179, !12, i64 16}
+!179 = !{!"_ZTS10mem_trap_t", !9, i64 0, !12, i64 16, !4, i64 24, !4, i64 32, !4, i64 40}
+!180 = !{!179, !4, i64 24}
+!181 = !{!179, !4, i64 32}
+!182 = !{!179, !4, i64 40}
+!183 = !{!102, !104, i64 0}
+!184 = !{!5, !5, i64 0}
+!185 = !{!102, !4, i64 8}

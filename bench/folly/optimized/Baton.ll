@@ -163,13 +163,13 @@ define void @_ZN5folly6fibers5Baton4waitEv(ptr noundef nonnull align 8 dereferen
   %4 = alloca %class.anon, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly6fibers12FiberManager22getCurrentFiberManagerEv()
-  %6 = load ptr, ptr %5, align 8, !tbaa !15
+  %6 = load ptr, ptr %5, align 8, !tbaa !14
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !19
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   %.not6.i = icmp eq ptr %9, null
   br i1 %.not6.i, label %10, label %11
 
@@ -181,30 +181,30 @@ define void @_ZN5folly6fibers5Baton4waitEv(ptr noundef nonnull align 8 dereferen
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly6fibers5Baton11FiberWaiterE, i64 16), ptr %2, align 8, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %12, align 8, !tbaa !88
+  store ptr null, ptr %12, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
-  store ptr %0, ptr %3, align 8, !tbaa !91
+  store ptr %0, ptr %3, align 8, !tbaa !90
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %4, ptr %13, align 8, !tbaa !95
+  store ptr %4, ptr %13, align 8, !tbaa !94
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %14, align 8, !tbaa !96
+  store ptr %2, ptr %14, align 8, !tbaa !95
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 280
-  %17 = load ptr, ptr %16, align 8, !tbaa !97
+  %17 = load ptr, ptr %16, align 8, !tbaa !96
   %.not.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i.i, label %"_ZN5folly6fibers5Baton9waitFiberIZNS1_4waitEvE3$_0EEvRNS0_12FiberManagerEOT_.exit.i", label %18
 
 18:                                               ; preds = %11
   %19 = call noundef i64 %17(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %15, ptr noundef null) #14
-  %.pre.i = load ptr, ptr %8, align 8, !tbaa !19
+  %.pre.i = load ptr, ptr %8, align 8, !tbaa !18
   br label %"_ZN5folly6fibers5Baton9waitFiberIZNS1_4waitEvE3$_0EEvRNS0_12FiberManagerEOT_.exit.i"
 
 "_ZN5folly6fibers5Baton9waitFiberIZNS1_4waitEvE3$_0EEvRNS0_12FiberManagerEOT_.exit.i": ; preds = %18, %11
   %20 = phi ptr [ %9, %11 ], [ %.pre.i, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 272
   store ptr %3, ptr %15, align 16
-  store ptr @"_ZN5folly6detail8function5call_ISt17reference_wrapperIZNS_6fibers5Baton9waitFiberIZNS5_4waitEvE3$_0EEvRNS4_12FiberManagerEOT_EUlRNS4_5FiberEE_ELb1ELb0EvJSD_EEET2_DpT3_RNS1_4DataE", ptr %21, align 16, !tbaa !98
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %16, align 8, !tbaa !97
+  store ptr @"_ZN5folly6detail8function5call_ISt17reference_wrapperIZNS_6fibers5Baton9waitFiberIZNS5_4waitEvE3$_0EEvRNS4_12FiberManagerEOT_EUlRNS4_5FiberEE_ELb1ELb0EvJSD_EEET2_DpT3_RNS1_4DataE", ptr %21, align 16, !tbaa !97
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %16, align 8, !tbaa !96
   call void @_ZN5folly6fibers5Fiber7preemptENS1_5StateE(ptr noundef nonnull align 64 dereferenceable(928) %20, i8 noundef signext 4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
@@ -222,12 +222,12 @@ define void @_ZN5folly6fibers5Baton10waitThreadEv(ptr noundef nonnull align 8 de
   %4 = load atomic i64, ptr %0 seq_cst, align 8
   %5 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
   %6 = icmp eq i64 %4, 0
-  br i1 %6, label %7, label %.critedge, !prof !99
+  br i1 %6, label %7, label %.critedge, !prof !98
 
 7:                                                ; preds = %1
   %8 = cmpxchg ptr %0, i64 0, i64 -3 seq_cst seq_cst, align 8
   %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread, !prof !100
+  br i1 %9, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread, !prof !99
 
 _ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread: ; preds = %7
   %10 = extractvalue { i64, i1 } %8, 0
@@ -250,7 +250,7 @@ _ZN5folly6detail11MemoryIdler9futexWaitISt6atomicIjENSt6chrono8durationIlSt5rati
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #14
   %15 = load atomic i64, ptr %0 acquire, align 8
   %16 = icmp eq i64 %15, -3
-  br i1 %16, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit, label %.critedge, !llvm.loop !101
+  br i1 %16, label %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit, label %.critedge, !llvm.loop !100
 
 .critedge:                                        ; preds = %_ZN5folly6detail11MemoryIdler9futexWaitISt6atomicIjENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultERT_jjRKT0_mf.exit, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread, %1
   %.0 = phi i64 [ %4, %1 ], [ %10, %_ZNSt13__atomic_baseIlE23compare_exchange_strongERllSt12memory_orderS2_.exit.thread ], [ %15, %_ZN5folly6detail11MemoryIdler9futexWaitISt6atomicIjENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultERT_jjRKT0_mf.exit ]
@@ -262,7 +262,7 @@ _ZN5folly6detail11MemoryIdler9futexWaitISt6atomicIjENSt6chrono8durationIlSt5rati
     i64 -1, label %20
     i64 -2, label %21
     i64 -3, label %26
-  ], !prof !102
+  ], !prof !101
 
 20:                                               ; preds = %.critedge
   ret void
@@ -328,7 +328,7 @@ define linkonce_odr void @_ZN5folly6fibers5Baton6WaiterD2Ev(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly6fibers5Baton11FiberWaiter4postEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !88
+  %3 = load ptr, ptr %2, align 8, !tbaa !87
   tail call void @_ZN5folly6fibers5Fiber6resumeEv(ptr noundef nonnull align 64 dereferenceable(928) %3)
   ret void
 }
@@ -349,12 +349,12 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZN5folly6detail8function5call_ISt17reference_wrapperIZNS_6fibers5Baton9waitFiberIZNS5_4waitEvE3$_0EEvRNS4_12FiberManagerEOT_EUlRNS4_5FiberEE_ELb1ELb0EvJSD_EEET2_DpT3_RNS1_4DataE"(ptr noundef nonnull align 64 dereferenceable(928) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %1) #0 personality ptr @__gxx_personality_v0 {
-  %.val.i = load ptr, ptr %1, align 16, !tbaa !103
-  %3 = load ptr, ptr %.val.i, align 8, !tbaa !91
+  %.val.i = load ptr, ptr %1, align 16, !tbaa !102
+  %3 = load ptr, ptr %.val.i, align 8, !tbaa !90
   %4 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !105
+  %5 = load ptr, ptr %4, align 8, !tbaa !104
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %0, ptr %6, align 8, !tbaa !88
+  store ptr %0, ptr %6, align 8, !tbaa !87
   %7 = load atomic i64, ptr %3 seq_cst, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !prof !7
@@ -425,7 +425,7 @@ define void @_ZN5folly6fibers5Baton4waitERNS1_14TimeoutHandlerE(ptr noundef nonn
   %6 = alloca %"class.std::function", align 8
   %7 = alloca %class.anon.34, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  store ptr %0, ptr %7, align 8, !tbaa !106
+  store ptr %0, ptr %7, align 8, !tbaa !105
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
   %9 = ptrtoint ptr %7 to i64
@@ -435,18 +435,18 @@ define void @_ZN5folly6fibers5Baton4waitERNS1_14TimeoutHandlerE(ptr noundef nonn
   store i64 0, ptr %12, align 8
   store i64 %9, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false), !tbaa.struct !108
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false), !tbaa.struct !108
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 16, i1 false), !tbaa.struct !107
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 16, i1 false), !tbaa.struct !107
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false), !tbaa.struct !107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !95
-  store ptr %14, ptr %10, align 8, !tbaa !95
-  store ptr @"_ZNSt17_Function_handlerIFvvESt17reference_wrapperIZN5folly6fibers5Baton4waitERNS4_14TimeoutHandlerEE3$_0EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %13, align 8, !tbaa !95
+  %14 = load ptr, ptr %13, align 8, !tbaa !94
+  store ptr %14, ptr %10, align 8, !tbaa !94
+  store ptr @"_ZNSt17_Function_handlerIFvvESt17reference_wrapperIZN5folly6fibers5Baton4waitERNS4_14TimeoutHandlerEE3$_0EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %13, align 8, !tbaa !94
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %16 = load ptr, ptr %15, align 8, !tbaa !95
-  store ptr %16, ptr %11, align 8, !tbaa !95
-  store ptr @"_ZNSt17_Function_handlerIFvvESt17reference_wrapperIZN5folly6fibers5Baton4waitERNS4_14TimeoutHandlerEE3$_0EE9_M_invokeERKSt9_Any_data", ptr %15, align 8, !tbaa !95
+  %16 = load ptr, ptr %15, align 8, !tbaa !94
+  store ptr %16, ptr %11, align 8, !tbaa !94
+  store ptr @"_ZNSt17_Function_handlerIFvvESt17reference_wrapperIZN5folly6fibers5Baton4waitERNS4_14TimeoutHandlerEE3$_0EE9_M_invokeERKSt9_Any_data", ptr %15, align 8, !tbaa !94
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %"_ZNSt8functionIFvvEEaSIZN5folly6fibers5Baton4waitERNS5_14TimeoutHandlerEE3$_0EERS1_St17reference_wrapperIT_E.exit", label %17
 
@@ -464,18 +464,18 @@ define void @_ZN5folly6fibers5Baton4waitERNS1_14TimeoutHandlerE(ptr noundef nonn
 "_ZNSt8functionIFvvEEaSIZN5folly6fibers5Baton4waitERNS5_14TimeoutHandlerEE3$_0EERS1_St17reference_wrapperIT_E.exit": ; preds = %2, %17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #14
   %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly6fibers12FiberManager22getCurrentFiberManagerEv()
-  %23 = load ptr, ptr %22, align 8, !tbaa !15
+  %23 = load ptr, ptr %22, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store ptr %23, ptr %24, align 8, !tbaa !110
+  store ptr %23, ptr %24, align 8, !tbaa !109
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
   %25 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly6fibers12FiberManager22getCurrentFiberManagerEv()
-  %26 = load ptr, ptr %25, align 8, !tbaa !15
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
   %.not.i.i4 = icmp eq ptr %26, null
   br i1 %.not.i.i4, label %30, label %27
 
 27:                                               ; preds = %"_ZNSt8functionIFvvEEaSIZN5folly6fibers5Baton4waitERNS5_14TimeoutHandlerEE3$_0EERS1_St17reference_wrapperIT_E.exit"
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !19
+  %29 = load ptr, ptr %28, align 8, !tbaa !18
   %.not6.i.i = icmp eq ptr %29, null
   br i1 %.not6.i.i, label %30, label %31
 
@@ -487,30 +487,30 @@ define void @_ZN5folly6fibers5Baton4waitERNS1_14TimeoutHandlerE(ptr noundef nonn
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly6fibers5Baton11FiberWaiterE, i64 16), ptr %3, align 8, !tbaa !8
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %32, align 8, !tbaa !88
+  store ptr null, ptr %32, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #14
-  store ptr %0, ptr %4, align 8, !tbaa !91
+  store ptr %0, ptr %4, align 8, !tbaa !90
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %5, ptr %33, align 8, !tbaa !95
+  store ptr %5, ptr %33, align 8, !tbaa !94
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %34, align 8, !tbaa !96
+  store ptr %3, ptr %34, align 8, !tbaa !95
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 224
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 280
-  %37 = load ptr, ptr %36, align 8, !tbaa !97
+  %37 = load ptr, ptr %36, align 8, !tbaa !96
   %.not.i.i.i.i.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i.i.i.i.i, label %"_ZN5folly6fibers5Baton9waitFiberIZNS1_4waitEvE3$_0EEvRNS0_12FiberManagerEOT_.exit.i.i", label %38
 
 38:                                               ; preds = %31
   %39 = call noundef i64 %37(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %35, ptr noundef null) #14
-  %.pre.i.i = load ptr, ptr %28, align 8, !tbaa !19
+  %.pre.i.i = load ptr, ptr %28, align 8, !tbaa !18
   br label %"_ZN5folly6fibers5Baton9waitFiberIZNS1_4waitEvE3$_0EEvRNS0_12FiberManagerEOT_.exit.i.i"
 
 "_ZN5folly6fibers5Baton9waitFiberIZNS1_4waitEvE3$_0EEvRNS0_12FiberManagerEOT_.exit.i.i": ; preds = %38, %31
   %40 = phi ptr [ %29, %31 ], [ %.pre.i.i, %38 ]
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 272
   store ptr %4, ptr %35, align 16
-  store ptr @"_ZN5folly6detail8function5call_ISt17reference_wrapperIZNS_6fibers5Baton9waitFiberIZNS5_4waitEvE3$_0EEvRNS4_12FiberManagerEOT_EUlRNS4_5FiberEE_ELb1ELb0EvJSD_EEET2_DpT3_RNS1_4DataE", ptr %41, align 16, !tbaa !98
-  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %36, align 8, !tbaa !97
+  store ptr @"_ZN5folly6detail8function5call_ISt17reference_wrapperIZNS_6fibers5Baton9waitFiberIZNS5_4waitEvE3$_0EEvRNS4_12FiberManagerEOT_EUlRNS4_5FiberEE_ELb1ELb0EvJSD_EEET2_DpT3_RNS1_4DataE", ptr %41, align 16, !tbaa !97
+  store ptr @_ZN5folly6detail8function20DispatchSmallTrivial5exec_ILm16EEEmNS1_2OpEPNS1_4DataES6_, ptr %36, align 8, !tbaa !96
   call void @_ZN5folly6fibers5Fiber7preemptENS1_5StateE(ptr noundef nonnull align 64 dereferenceable(928) %40, i8 noundef signext 4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
@@ -519,7 +519,7 @@ define void @_ZN5folly6fibers5Baton4waitERNS1_14TimeoutHandlerE(ptr noundef nonn
 _ZN5folly6fibers5Baton4waitEv.exit:               ; preds = %30, %"_ZN5folly6fibers5Baton9waitFiberIZNS1_4waitEvE3$_0EEvRNS0_12FiberManagerEOT_.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !114
+  %43 = load ptr, ptr %42, align 8, !tbaa !113
   %44 = icmp eq ptr %43, null
   br i1 %44, label %_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callback13cancelTimeoutEv.exit, label %45
 
@@ -534,8 +534,8 @@ _ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8Callba
 
 ; Function Attrs: mustprogress uwtable
 define internal void @"_ZNSt17_Function_handlerIFvvESt17reference_wrapperIZN5folly6fibers5Baton4waitERNS4_14TimeoutHandlerEE3$_0EE9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
-  %.val.i.i.i = load ptr, ptr %0, align 8, !tbaa !115
-  %2 = load ptr, ptr %.val.i.i.i, align 8, !tbaa !106
+  %.val.i.i.i = load ptr, ptr %0, align 8, !tbaa !114
+  %2 = load ptr, ptr %.val.i.i.i, align 8, !tbaa !105
   %3 = load atomic i64, ptr %2 seq_cst, align 8
   %4 = icmp eq i64 %3, -1
   br i1 %4, label %"_ZSt10__invoke_rIvRSt17reference_wrapperIZN5folly6fibers5Baton4waitERNS3_14TimeoutHandlerEE3$_0EJEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %5
@@ -567,7 +567,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvESt17reference_wrapperIZN5fol
 
 _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i.i.i.i.i.i.i: ; preds = %13
   %16 = extractvalue { i64, i1 } %14, 0
-  br label %7, !llvm.loop !117
+  br label %7, !llvm.loop !116
 
 17:                                               ; preds = %13
   switch i64 %.0.i.i.i.i.i.i.i, label %18 [
@@ -595,11 +595,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvESt17reference_
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTISt17reference_wrapperIZN5folly6fibers5Baton4waitERNS2_14TimeoutHandlerEE3$_0E", ptr %0, align 8, !tbaa !118
+  store ptr @"_ZTISt17reference_wrapperIZN5folly6fibers5Baton4waitERNS2_14TimeoutHandlerEE3$_0E", ptr %0, align 8, !tbaa !117
   br label %"_ZNSt14_Function_base13_Base_managerISt17reference_wrapperIZN5folly6fibers5Baton4waitERNS4_14TimeoutHandlerEE3$_0EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr %1, ptr %0, align 8, !tbaa !119
+  store ptr %1, ptr %0, align 8, !tbaa !118
   br label %"_ZNSt14_Function_base13_Base_managerISt17reference_wrapperIZN5folly6fibers5Baton4waitERNS4_14TimeoutHandlerEE3$_0EE10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -646,7 +646,7 @@ define void @_ZN5folly6fibers5Baton10postHelperEl(ptr noundef nonnull align 8 de
 
 _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit: ; preds = %10
   %13 = extractvalue { i64, i1 } %11, 0
-  br label %4, !llvm.loop !117
+  br label %4, !llvm.loop !116
 
 14:                                               ; preds = %10
   switch i64 %.0, label %15 [
@@ -726,7 +726,7 @@ _ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratio
   %.sroa.024.039 = phi i64 [ %44, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit ], [ %5, %12 ]
   %45 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #14
   %46 = add nsw i64 %45, %.sroa.024.039
-  %.sroa.0.0.copyload.i2.i = load i64, ptr %3, align 8, !tbaa !121
+  %.sroa.0.0.copyload.i2.i = load i64, ptr %3, align 8, !tbaa !120
   %47 = icmp slt i64 %46, %.sroa.0.0.copyload.i2.i
   br i1 %47, label %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit, label %.thread
 
@@ -739,7 +739,7 @@ _ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8d
   br i1 %.not, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread, label %49
 
 49:                                               ; preds = %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit
-  store i32 %48, ptr %0, align 4, !tbaa !122
+  store i32 %48, ptr %0, align 4, !tbaa !121
   br label %.thread
 
 _ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread: ; preds = %11, %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit
@@ -791,7 +791,7 @@ define void @_ZN5folly6fibers5Baton4postEv(ptr noundef nonnull align 8 dereferen
 
 _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i: ; preds = %9
   %12 = extractvalue { i64, i1 } %10, 0
-  br label %3, !llvm.loop !117
+  br label %3, !llvm.loop !116
 
 13:                                               ; preds = %9
   switch i64 %.0.i, label %14 [
@@ -839,9 +839,9 @@ define void @_ZN5folly6fibers5Baton14TimeoutHandler15scheduleTimeoutENSt6chrono8
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load ptr, ptr %5, align 8, !tbaa !110
+  %6 = load ptr, ptr %5, align 8, !tbaa !109
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %8 = load ptr, ptr %7, align 8, !tbaa !124
+  %8 = load ptr, ptr %7, align 8, !tbaa !123
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
@@ -897,116 +897,115 @@ attributes #17 = { builtin nounwind }
 !9 = !{!"vtable pointer", !10, i64 0}
 !10 = !{!"Simple C++ TBAA"}
 !11 = !{!"branch_weights", i32 255873, i32 127}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTSN5folly6fibers12FiberManagerE", !17, i64 0}
-!17 = !{!"any pointer", !18, i64 0}
-!18 = !{!"omnipotent char", !10, i64 0}
-!19 = !{!20, !22, i64 8}
-!20 = !{!"_ZTSN5folly6fibers12FiberManagerE", !21, i64 0, !22, i64 8, !22, i64 16, !23, i64 24, !30, i64 40, !23, i64 48, !31, i64 64, !35, i64 80, !35, i64 88, !35, i64 96, !37, i64 104, !37, i64 112, !38, i64 120, !45, i64 128, !46, i64 136, !55, i64 160, !35, i64 208, !57, i64 224, !58, i64 288, !59, i64 352, !60, i64 360, !64, i64 384, !65, i64 448, !68, i64 456, !37, i64 464, !37, i64 472, !72, i64 480, !73, i64 488, !45, i64 560, !86, i64 568, !45, i64 576}
-!21 = !{!"_ZTSN5folly8ExecutorE"}
-!22 = !{!"p1 _ZTSN5folly6fibers5FiberE", !17, i64 0}
-!23 = !{!"_ZTSN5boost9intrusive4listIN5folly6fibers5FiberEJNS0_11member_hookIS4_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_9listHook_EEEEENS0_18constant_time_sizeILb0EEEEEE", !24, i64 0}
-!24 = !{!"_ZTSN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers5FiberENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_9listHook_EEEEEmLb0EvEE", !25, i64 0}
-!25 = !{!"_ZTSN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers5FiberENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_9listHook_EEEEEmLb0EvE6data_tE", !26, i64 0}
-!26 = !{!"_ZTSN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers5FiberENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_9listHook_EEEEEmLb0EvE14root_plus_sizeE", !27, i64 0}
-!27 = !{!"_ZTSN5boost9intrusive6detail21default_header_holderINS0_16list_node_traitsIPvEEEE", !28, i64 0}
-!28 = !{!"_ZTSN5boost9intrusive9list_nodeIPvEE", !29, i64 0, !29, i64 8}
-!29 = !{!"p1 _ZTSN5boost9intrusive9list_nodeIPvEE", !17, i64 0}
-!30 = !{!"p1 _ZTSN5boost9intrusive4listIN5folly6fibers5FiberEJNS0_11member_hookIS4_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_9listHook_EEEEENS0_18constant_time_sizeILb0EEEEEE", !17, i64 0}
-!31 = !{!"_ZTSN5boost9intrusive4listIN5folly6fibers5FiberEJNS0_11member_hookIS4_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_15globalListHook_EEEEENS0_18constant_time_sizeILb0EEEEEE", !32, i64 0}
-!32 = !{!"_ZTSN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers5FiberENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_15globalListHook_EEEEEmLb0EvEE", !33, i64 0}
-!33 = !{!"_ZTSN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers5FiberENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_15globalListHook_EEEEEmLb0EvE6data_tE", !34, i64 0}
-!34 = !{!"_ZTSN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers5FiberENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_15globalListHook_EEEEEmLb0EvE14root_plus_sizeE", !27, i64 0}
-!35 = !{!"_ZTSSt6atomicImE", !36, i64 0}
-!36 = !{!"_ZTSSt13__atomic_baseImE", !37, i64 0}
-!37 = !{!"long", !18, i64 0}
-!38 = !{!"_ZTSSt10unique_ptrIN5folly6fibers14LoopControllerESt14default_deleteIS2_EE", !39, i64 0}
-!39 = !{!"_ZTSSt15__uniq_ptr_dataIN5folly6fibers14LoopControllerESt14default_deleteIS2_ELb1ELb1EE", !40, i64 0}
-!40 = !{!"_ZTSSt15__uniq_ptr_implIN5folly6fibers14LoopControllerESt14default_deleteIS2_EE", !41, i64 0}
-!41 = !{!"_ZTSSt5tupleIJPN5folly6fibers14LoopControllerESt14default_deleteIS2_EEE", !42, i64 0}
-!42 = !{!"_ZTSSt11_Tuple_implILm0EJPN5folly6fibers14LoopControllerESt14default_deleteIS2_EEE", !43, i64 0}
-!43 = !{!"_ZTSSt10_Head_baseILm0EPN5folly6fibers14LoopControllerELb0EE", !44, i64 0}
-!44 = !{!"p1 _ZTSN5folly6fibers14LoopControllerE", !17, i64 0}
-!45 = !{!"bool", !18, i64 0}
-!46 = !{!"_ZTSN5folly6fibers18GuardPageAllocatorE", !47, i64 0, !54, i64 8, !37, i64 16}
-!47 = !{!"_ZTSSt10unique_ptrIN5folly6fibers15StackCacheEntryESt14default_deleteIS2_EE", !48, i64 0}
-!48 = !{!"_ZTSSt15__uniq_ptr_dataIN5folly6fibers15StackCacheEntryESt14default_deleteIS2_ELb1ELb1EE", !49, i64 0}
-!49 = !{!"_ZTSSt15__uniq_ptr_implIN5folly6fibers15StackCacheEntryESt14default_deleteIS2_EE", !50, i64 0}
-!50 = !{!"_ZTSSt5tupleIJPN5folly6fibers15StackCacheEntryESt14default_deleteIS2_EEE", !51, i64 0}
-!51 = !{!"_ZTSSt11_Tuple_implILm0EJPN5folly6fibers15StackCacheEntryESt14default_deleteIS2_EEE", !52, i64 0}
-!52 = !{!"_ZTSSt10_Head_baseILm0EPN5folly6fibers15StackCacheEntryELb0EE", !53, i64 0}
-!53 = !{!"p1 _ZTSN5folly6fibers15StackCacheEntryE", !17, i64 0}
-!54 = !{!"_ZTSSaIhE"}
-!55 = !{!"_ZTSN5folly6fibers12FiberManager7OptionsE", !37, i64 0, !37, i64 8, !37, i64 16, !37, i64 24, !37, i64 32, !56, i64 40}
-!56 = !{!"int", !18, i64 0}
-!57 = !{!"_ZTSN5folly8FunctionIFvRNS_6fibers5FiberEEEE", !18, i64 0, !17, i64 48, !17, i64 56}
-!58 = !{!"_ZTSN5folly8FunctionIFvvEEE", !18, i64 0, !17, i64 48, !17, i64 56}
-!59 = !{!"p1 _ZTSN5folly6fibers20InlineFunctionRunnerE", !17, i64 0}
-!60 = !{!"_ZTSN5boost9intrusive4listIN5folly17ExecutionObserverEJNS0_18constant_time_sizeILb0EEEEEE", !61, i64 0}
-!61 = !{!"_ZTSN5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvEE", !62, i64 0}
-!62 = !{!"_ZTSN5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE6data_tE", !63, i64 0}
-!63 = !{!"_ZTSN5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE14root_plus_sizeE", !27, i64 0}
-!64 = !{!"_ZTSN5folly8FunctionIFvRKNSt15__exception_ptr13exception_ptrENS_5RangeIPKcEEEEE", !18, i64 0, !17, i64 48, !17, i64 56}
-!65 = !{!"_ZTSN5folly25AtomicIntrusiveLinkedListINS_6fibers5FiberEXadL_ZNS2_16nextRemoteReady_EEEEE", !66, i64 0}
-!66 = !{!"_ZTSSt6atomicIPN5folly6fibers5FiberEE", !67, i64 0}
-!67 = !{!"_ZTSSt13__atomic_baseIPN5folly6fibers5FiberEE", !22, i64 0}
-!68 = !{!"_ZTSN5folly25AtomicIntrusiveLinkedListINS_6fibers12FiberManager10RemoteTaskEXadL_ZNS3_14nextRemoteTaskEEEEE", !69, i64 0}
-!69 = !{!"_ZTSSt6atomicIPN5folly6fibers12FiberManager10RemoteTaskEE", !70, i64 0}
-!70 = !{!"_ZTSSt13__atomic_baseIPN5folly6fibers12FiberManager10RemoteTaskEE", !71, i64 0}
-!71 = !{!"p1 _ZTSN5folly6fibers12FiberManager10RemoteTaskE", !17, i64 0}
-!72 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !17, i64 0}
-!73 = !{!"_ZTSN5folly6fibers12FiberManager17FibersPoolResizerE", !74, i64 0, !16, i64 64}
-!74 = !{!"_ZTSN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackE", !75, i64 8, !78, i64 24, !79, i64 32, !56, i64 40, !81, i64 48}
-!75 = !{!"_ZTSN5boost9intrusive14list_base_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEE", !76, i64 0}
-!76 = !{!"_ZTSN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EEE", !77, i64 0}
-!77 = !{!"_ZTSN5boost9intrusive11node_holderINS0_9list_nodeIPvEENS0_7dft_tagELj1EEE", !28, i64 0}
-!78 = !{!"p1 _ZTSN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE", !17, i64 0}
-!79 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEE", !80, i64 0}
-!80 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !37, i64 0}
-!81 = !{!"_ZTSSt10shared_ptrIN5folly14RequestContextEE", !82, i64 0}
-!82 = !{!"_ZTSSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EE", !83, i64 0, !84, i64 8}
-!83 = !{!"p1 _ZTSN5folly14RequestContextE", !17, i64 0}
-!84 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !85, i64 0}
-!85 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !17, i64 0}
-!86 = !{!"_ZTSSt10type_index", !87, i64 0}
-!87 = !{!"p1 _ZTSSt9type_info", !17, i64 0}
-!88 = !{!89, !22, i64 8}
-!89 = !{!"_ZTSN5folly6fibers5Baton11FiberWaiterE", !90, i64 0, !22, i64 8}
-!90 = !{!"_ZTSN5folly6fibers5Baton6WaiterE"}
-!91 = !{!92, !93, i64 0}
-!92 = !{!"_ZTSZN5folly6fibers5Baton9waitFiberIZNS1_4waitEvE3$_0EEvRNS0_12FiberManagerEOT_EUlRNS0_5FiberEE_", !93, i64 0, !17, i64 8, !94, i64 16}
-!93 = !{!"p1 _ZTSN5folly6fibers5BatonE", !17, i64 0}
-!94 = !{!"p1 _ZTSN5folly6fibers5Baton11FiberWaiterE", !17, i64 0}
-!95 = !{!17, !17, i64 0}
-!96 = !{!94, !94, i64 0}
-!97 = !{!57, !17, i64 56}
-!98 = !{!57, !17, i64 48}
-!99 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!100 = !{!"branch_weights", i32 2146410443, i32 1073205}
-!101 = distinct !{!101, !13, !14}
-!102 = !{!"branch_weights", i32 1, i32 8000, i32 2, i32 1}
-!103 = !{!104, !17, i64 0}
-!104 = !{!"_ZTSSt17reference_wrapperIZN5folly6fibers5Baton9waitFiberIZNS2_4waitEvE3$_0EEvRNS1_12FiberManagerEOT_EUlRNS1_5FiberEE_E", !17, i64 0}
-!105 = !{!92, !94, i64 16}
-!106 = !{!107, !93, i64 0}
-!107 = !{!"_ZTSZN5folly6fibers5Baton4waitERNS1_14TimeoutHandlerEE3$_0", !93, i64 0}
-!108 = !{i64 0, i64 16, !109}
-!109 = !{!18, !18, i64 0}
-!110 = !{!111, !16, i64 96}
-!111 = !{!"_ZTSN5folly6fibers5Baton14TimeoutHandlerE", !74, i64 0, !112, i64 64, !16, i64 96}
-!112 = !{!"_ZTSSt8functionIFvvEE", !113, i64 0, !17, i64 24}
-!113 = !{!"_ZTSSt14_Function_base", !18, i64 0, !17, i64 16}
-!114 = !{!74, !78, i64 24}
-!115 = !{!116, !17, i64 0}
-!116 = !{!"_ZTSSt17reference_wrapperIZN5folly6fibers5Baton4waitERNS2_14TimeoutHandlerEE3$_0E", !17, i64 0}
-!117 = distinct !{!117, !13, !14}
-!118 = !{!87, !87, i64 0}
-!119 = !{!120, !120, i64 0}
-!120 = !{!"p1 _ZTSSt17reference_wrapperIZN5folly6fibers5Baton4waitERNS2_14TimeoutHandlerEE3$_0E", !17, i64 0}
-!121 = !{!37, !37, i64 0}
-!122 = !{!123, !123, i64 0}
-!123 = !{!"_ZTSN5folly6detail11FutexResultE", !18, i64 0}
-!124 = !{!44, !44, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSN5folly6fibers12FiberManagerE", !16, i64 0}
+!16 = !{!"any pointer", !17, i64 0}
+!17 = !{!"omnipotent char", !10, i64 0}
+!18 = !{!19, !21, i64 8}
+!19 = !{!"_ZTSN5folly6fibers12FiberManagerE", !20, i64 0, !21, i64 8, !21, i64 16, !22, i64 24, !29, i64 40, !22, i64 48, !30, i64 64, !34, i64 80, !34, i64 88, !34, i64 96, !36, i64 104, !36, i64 112, !37, i64 120, !44, i64 128, !45, i64 136, !54, i64 160, !34, i64 208, !56, i64 224, !57, i64 288, !58, i64 352, !59, i64 360, !63, i64 384, !64, i64 448, !67, i64 456, !36, i64 464, !36, i64 472, !71, i64 480, !72, i64 488, !44, i64 560, !85, i64 568, !44, i64 576}
+!20 = !{!"_ZTSN5folly8ExecutorE"}
+!21 = !{!"p1 _ZTSN5folly6fibers5FiberE", !16, i64 0}
+!22 = !{!"_ZTSN5boost9intrusive4listIN5folly6fibers5FiberEJNS0_11member_hookIS4_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_9listHook_EEEEENS0_18constant_time_sizeILb0EEEEEE", !23, i64 0}
+!23 = !{!"_ZTSN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers5FiberENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_9listHook_EEEEEmLb0EvEE", !24, i64 0}
+!24 = !{!"_ZTSN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers5FiberENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_9listHook_EEEEEmLb0EvE6data_tE", !25, i64 0}
+!25 = !{!"_ZTSN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers5FiberENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_9listHook_EEEEEmLb0EvE14root_plus_sizeE", !26, i64 0}
+!26 = !{!"_ZTSN5boost9intrusive6detail21default_header_holderINS0_16list_node_traitsIPvEEEE", !27, i64 0}
+!27 = !{!"_ZTSN5boost9intrusive9list_nodeIPvEE", !28, i64 0, !28, i64 8}
+!28 = !{!"p1 _ZTSN5boost9intrusive9list_nodeIPvEE", !16, i64 0}
+!29 = !{!"p1 _ZTSN5boost9intrusive4listIN5folly6fibers5FiberEJNS0_11member_hookIS4_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_9listHook_EEEEENS0_18constant_time_sizeILb0EEEEEE", !16, i64 0}
+!30 = !{!"_ZTSN5boost9intrusive4listIN5folly6fibers5FiberEJNS0_11member_hookIS4_NS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_15globalListHook_EEEEENS0_18constant_time_sizeILb0EEEEEE", !31, i64 0}
+!31 = !{!"_ZTSN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers5FiberENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_15globalListHook_EEEEEmLb0EvEE", !32, i64 0}
+!32 = !{!"_ZTSN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers5FiberENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_15globalListHook_EEEEEmLb0EvE6data_tE", !33, i64 0}
+!33 = !{!"_ZTSN5boost9intrusive9list_implINS0_8mhtraitsIN5folly6fibers5FiberENS0_16list_member_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS5_15globalListHook_EEEEEmLb0EvE14root_plus_sizeE", !26, i64 0}
+!34 = !{!"_ZTSSt6atomicImE", !35, i64 0}
+!35 = !{!"_ZTSSt13__atomic_baseImE", !36, i64 0}
+!36 = !{!"long", !17, i64 0}
+!37 = !{!"_ZTSSt10unique_ptrIN5folly6fibers14LoopControllerESt14default_deleteIS2_EE", !38, i64 0}
+!38 = !{!"_ZTSSt15__uniq_ptr_dataIN5folly6fibers14LoopControllerESt14default_deleteIS2_ELb1ELb1EE", !39, i64 0}
+!39 = !{!"_ZTSSt15__uniq_ptr_implIN5folly6fibers14LoopControllerESt14default_deleteIS2_EE", !40, i64 0}
+!40 = !{!"_ZTSSt5tupleIJPN5folly6fibers14LoopControllerESt14default_deleteIS2_EEE", !41, i64 0}
+!41 = !{!"_ZTSSt11_Tuple_implILm0EJPN5folly6fibers14LoopControllerESt14default_deleteIS2_EEE", !42, i64 0}
+!42 = !{!"_ZTSSt10_Head_baseILm0EPN5folly6fibers14LoopControllerELb0EE", !43, i64 0}
+!43 = !{!"p1 _ZTSN5folly6fibers14LoopControllerE", !16, i64 0}
+!44 = !{!"bool", !17, i64 0}
+!45 = !{!"_ZTSN5folly6fibers18GuardPageAllocatorE", !46, i64 0, !53, i64 8, !36, i64 16}
+!46 = !{!"_ZTSSt10unique_ptrIN5folly6fibers15StackCacheEntryESt14default_deleteIS2_EE", !47, i64 0}
+!47 = !{!"_ZTSSt15__uniq_ptr_dataIN5folly6fibers15StackCacheEntryESt14default_deleteIS2_ELb1ELb1EE", !48, i64 0}
+!48 = !{!"_ZTSSt15__uniq_ptr_implIN5folly6fibers15StackCacheEntryESt14default_deleteIS2_EE", !49, i64 0}
+!49 = !{!"_ZTSSt5tupleIJPN5folly6fibers15StackCacheEntryESt14default_deleteIS2_EEE", !50, i64 0}
+!50 = !{!"_ZTSSt11_Tuple_implILm0EJPN5folly6fibers15StackCacheEntryESt14default_deleteIS2_EEE", !51, i64 0}
+!51 = !{!"_ZTSSt10_Head_baseILm0EPN5folly6fibers15StackCacheEntryELb0EE", !52, i64 0}
+!52 = !{!"p1 _ZTSN5folly6fibers15StackCacheEntryE", !16, i64 0}
+!53 = !{!"_ZTSSaIhE"}
+!54 = !{!"_ZTSN5folly6fibers12FiberManager7OptionsE", !36, i64 0, !36, i64 8, !36, i64 16, !36, i64 24, !36, i64 32, !55, i64 40}
+!55 = !{!"int", !17, i64 0}
+!56 = !{!"_ZTSN5folly8FunctionIFvRNS_6fibers5FiberEEEE", !17, i64 0, !16, i64 48, !16, i64 56}
+!57 = !{!"_ZTSN5folly8FunctionIFvvEEE", !17, i64 0, !16, i64 48, !16, i64 56}
+!58 = !{!"p1 _ZTSN5folly6fibers20InlineFunctionRunnerE", !16, i64 0}
+!59 = !{!"_ZTSN5boost9intrusive4listIN5folly17ExecutionObserverEJNS0_18constant_time_sizeILb0EEEEEE", !60, i64 0}
+!60 = !{!"_ZTSN5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvEE", !61, i64 0}
+!61 = !{!"_ZTSN5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE6data_tE", !62, i64 0}
+!62 = !{!"_ZTSN5boost9intrusive9list_implINS0_8bhtraitsIN5folly17ExecutionObserverENS0_16list_node_traitsIPvEELNS0_14link_mode_typeE2ENS0_7dft_tagELj1EEEmLb0EvE14root_plus_sizeE", !26, i64 0}
+!63 = !{!"_ZTSN5folly8FunctionIFvRKNSt15__exception_ptr13exception_ptrENS_5RangeIPKcEEEEE", !17, i64 0, !16, i64 48, !16, i64 56}
+!64 = !{!"_ZTSN5folly25AtomicIntrusiveLinkedListINS_6fibers5FiberEXadL_ZNS2_16nextRemoteReady_EEEEE", !65, i64 0}
+!65 = !{!"_ZTSSt6atomicIPN5folly6fibers5FiberEE", !66, i64 0}
+!66 = !{!"_ZTSSt13__atomic_baseIPN5folly6fibers5FiberEE", !21, i64 0}
+!67 = !{!"_ZTSN5folly25AtomicIntrusiveLinkedListINS_6fibers12FiberManager10RemoteTaskEXadL_ZNS3_14nextRemoteTaskEEEEE", !68, i64 0}
+!68 = !{!"_ZTSSt6atomicIPN5folly6fibers12FiberManager10RemoteTaskEE", !69, i64 0}
+!69 = !{!"_ZTSSt13__atomic_baseIPN5folly6fibers12FiberManager10RemoteTaskEE", !70, i64 0}
+!70 = !{!"p1 _ZTSN5folly6fibers12FiberManager10RemoteTaskE", !16, i64 0}
+!71 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !16, i64 0}
+!72 = !{!"_ZTSN5folly6fibers12FiberManager17FibersPoolResizerE", !73, i64 0, !15, i64 64}
+!73 = !{!"_ZTSN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackE", !74, i64 8, !77, i64 24, !78, i64 32, !55, i64 40, !80, i64 48}
+!74 = !{!"_ZTSN5boost9intrusive14list_base_hookIJNS0_9link_modeILNS0_14link_mode_typeE2EEEEEE", !75, i64 0}
+!75 = !{!"_ZTSN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE1EEE", !76, i64 0}
+!76 = !{!"_ZTSN5boost9intrusive11node_holderINS0_9list_nodeIPvEENS0_7dft_tagELj1EEE", !27, i64 0}
+!77 = !{!"p1 _ZTSN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE", !16, i64 0}
+!78 = !{!"_ZTSNSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEE", !79, i64 0}
+!79 = !{!"_ZTSNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE", !36, i64 0}
+!80 = !{!"_ZTSSt10shared_ptrIN5folly14RequestContextEE", !81, i64 0}
+!81 = !{!"_ZTSSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EE", !82, i64 0, !83, i64 8}
+!82 = !{!"p1 _ZTSN5folly14RequestContextE", !16, i64 0}
+!83 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !84, i64 0}
+!84 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !16, i64 0}
+!85 = !{!"_ZTSSt10type_index", !86, i64 0}
+!86 = !{!"p1 _ZTSSt9type_info", !16, i64 0}
+!87 = !{!88, !21, i64 8}
+!88 = !{!"_ZTSN5folly6fibers5Baton11FiberWaiterE", !89, i64 0, !21, i64 8}
+!89 = !{!"_ZTSN5folly6fibers5Baton6WaiterE"}
+!90 = !{!91, !92, i64 0}
+!91 = !{!"_ZTSZN5folly6fibers5Baton9waitFiberIZNS1_4waitEvE3$_0EEvRNS0_12FiberManagerEOT_EUlRNS0_5FiberEE_", !92, i64 0, !16, i64 8, !93, i64 16}
+!92 = !{!"p1 _ZTSN5folly6fibers5BatonE", !16, i64 0}
+!93 = !{!"p1 _ZTSN5folly6fibers5Baton11FiberWaiterE", !16, i64 0}
+!94 = !{!16, !16, i64 0}
+!95 = !{!93, !93, i64 0}
+!96 = !{!56, !16, i64 56}
+!97 = !{!56, !16, i64 48}
+!98 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!99 = !{!"branch_weights", i32 2146410443, i32 1073205}
+!100 = distinct !{!100, !13}
+!101 = !{!"branch_weights", i32 1, i32 8000, i32 2, i32 1}
+!102 = !{!103, !16, i64 0}
+!103 = !{!"_ZTSSt17reference_wrapperIZN5folly6fibers5Baton9waitFiberIZNS2_4waitEvE3$_0EEvRNS1_12FiberManagerEOT_EUlRNS1_5FiberEE_E", !16, i64 0}
+!104 = !{!91, !93, i64 16}
+!105 = !{!106, !92, i64 0}
+!106 = !{!"_ZTSZN5folly6fibers5Baton4waitERNS1_14TimeoutHandlerEE3$_0", !92, i64 0}
+!107 = !{i64 0, i64 16, !108}
+!108 = !{!17, !17, i64 0}
+!109 = !{!110, !15, i64 96}
+!110 = !{!"_ZTSN5folly6fibers5Baton14TimeoutHandlerE", !73, i64 0, !111, i64 64, !15, i64 96}
+!111 = !{!"_ZTSSt8functionIFvvEE", !112, i64 0, !16, i64 24}
+!112 = !{!"_ZTSSt14_Function_base", !17, i64 0, !16, i64 16}
+!113 = !{!73, !77, i64 24}
+!114 = !{!115, !16, i64 0}
+!115 = !{!"_ZTSSt17reference_wrapperIZN5folly6fibers5Baton4waitERNS2_14TimeoutHandlerEE3$_0E", !16, i64 0}
+!116 = distinct !{!116, !13}
+!117 = !{!86, !86, i64 0}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"p1 _ZTSSt17reference_wrapperIZN5folly6fibers5Baton4waitERNS2_14TimeoutHandlerEE3$_0E", !16, i64 0}
+!120 = !{!36, !36, i64 0}
+!121 = !{!122, !122, i64 0}
+!122 = !{!"_ZTSN5folly6detail11FutexResultE", !17, i64 0}
+!123 = !{!43, !43, i64 0}

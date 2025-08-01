@@ -334,13 +334,13 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.03353, 1
   %exitcond.not = icmp eq i64 %4, 3
-  br i1 %exitcond.not, label %11, label %5, !llvm.loop !42
+  br i1 %exitcond.not, label %11, label %5, !llvm.loop !41
 
 5:                                                ; preds = %2, %3
   %.03353 = phi i64 [ 0, %2 ], [ %4, %3 ]
   %.03652 = phi i64 [ 0, %2 ], [ %9, %3 ]
   %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %.03353
-  %7 = load ptr, ptr %6, align 8, !tbaa !43
+  %7 = load ptr, ptr %6, align 8, !tbaa !42
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #6
   %9 = add i64 %8, %.03652
   %10 = and i64 %9, 1
@@ -357,8 +357,8 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
   %.13458 = phi i64 [ %38, %._crit_edge ], [ 0, %11 ]
   %.03857 = phi i64 [ %.139.lcssa, %._crit_edge ], [ 0, %11 ]
   %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %.13458
-  %16 = load ptr, ptr %15, align 8, !tbaa !43
-  %17 = load i8, ptr %16, align 1, !tbaa !44
+  %16 = load ptr, ptr %15, align 8, !tbaa !42
+  %17 = load i8, ptr %16, align 1, !tbaa !43
   %.not54 = icmp eq i8 %17, 0
   br i1 %.not54, label %._crit_edge, label %.lr.ph
 
@@ -367,10 +367,10 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
   %.03756 = phi i64 [ %34, %28 ], [ 0, %.preheader ]
   %.13955 = phi i64 [ %32, %28 ], [ %.03857, %.preheader ]
   %19 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %18) #5
-  %20 = load ptr, ptr %15, align 8, !tbaa !43
+  %20 = load ptr, ptr %15, align 8, !tbaa !42
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.03756
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %23 = load i8, ptr %22, align 1, !tbaa !44
+  %23 = load i8, ptr %22, align 1, !tbaa !43
   %24 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %23) #5
   %25 = icmp sgt i32 %19, -1
   %26 = icmp sgt i32 %24, -1
@@ -387,19 +387,19 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
   %31 = trunc i32 %30 to i8
   %32 = add i64 %.13955, 1
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 %.13955
-  store i8 %31, ptr %33, align 1, !tbaa !44
+  store i8 %31, ptr %33, align 1, !tbaa !43
   %34 = add i64 %.03756, 2
-  %35 = load ptr, ptr %15, align 8, !tbaa !43
+  %35 = load ptr, ptr %15, align 8, !tbaa !42
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
-  %37 = load i8, ptr %36, align 1, !tbaa !44
+  %37 = load i8, ptr %36, align 1, !tbaa !43
   %.not = icmp eq i8 %37, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %28, %.preheader
   %.139.lcssa = phi i64 [ %.03857, %.preheader ], [ %32, %28 ]
   %38 = add nuw nsw i64 %.13458, 1
   %exitcond61.not = icmp eq i64 %38, 3
-  br i1 %exitcond61.not, label %39, label %.preheader, !llvm.loop !46
+  br i1 %exitcond61.not, label %39, label %.preheader, !llvm.loop !45
 
 39:                                               ; preds = %._crit_edge
   store i64 %12, ptr %1, align 8, !tbaa !21
@@ -470,11 +470,10 @@ attributes #6 = { nounwind willreturn memory(read) }
 !36 = !{!"p1 _ZTS19record_functions_st", !6, i64 0}
 !37 = !{!38, !6, i64 8}
 !38 = !{!"record_functions_st", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = distinct !{!42, !40, !41}
-!43 = !{!13, !13, i64 0}
-!44 = !{!7, !7, i64 0}
-!45 = distinct !{!45, !40, !41}
-!46 = distinct !{!46, !40, !41}
+!41 = distinct !{!41, !40}
+!42 = !{!13, !13, i64 0}
+!43 = !{!7, !7, i64 0}
+!44 = distinct !{!44, !40}
+!45 = distinct !{!45, !40}

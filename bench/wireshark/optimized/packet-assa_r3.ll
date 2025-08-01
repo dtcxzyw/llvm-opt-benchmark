@@ -3571,7 +3571,7 @@ define internal void @dissect_r3_cmd_setconfig(ptr noundef %0, i32 noundef %1, i
 66:                                               ; preds = %61, %57, %53, %50, %47, %44, %41, %37
   %67 = add i32 %.072, %22
   %68 = icmp ult i32 %67, %10
-  br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %66, %6, %.thread, %5
   ret void
@@ -3606,7 +3606,7 @@ define internal void @dissect_r3_cmd_getconfig(ptr noundef %0, i32 noundef %1, i
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef 1, i32 noundef -2147483648)
   %24 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %24, %8
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %5
   ret void
@@ -3776,7 +3776,7 @@ define internal void @dissect_r3_cmd_manageuser(ptr noundef %0, i32 noundef %1, 
   %95 = add i32 %.092, %39
   %96 = tail call i32 @tvb_reported_length(ptr noundef %10)
   %97 = icmp ult i32 %95, %96
-  br i1 %97, label %17, label %._crit_edge, !llvm.loop !11
+  br i1 %97, label %17, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %94, %5
   ret void
@@ -3908,12 +3908,12 @@ define internal void @dissect_r3_cmd_defineexceptiongroup(ptr noundef %0, i32 no
   %30 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %20, i32 noundef %25, ptr noundef %11, i32 noundef %.035, i32 noundef 1, ptr noundef nonnull @.str.2137, i32 noundef %.132, ptr noundef nonnull %29)
   %31 = add nuw nsw i32 %.02833, 1
   %exitcond.not = icmp eq i32 %31, 8
-  br i1 %exitcond.not, label %32, label %24, !llvm.loop !12
+  br i1 %exitcond.not, label %32, label %24, !llvm.loop !11
 
 32:                                               ; preds = %24
   %33 = add nuw i32 %.035, 1
   %exitcond36.not = icmp eq i32 %33, %10
-  br i1 %exitcond36.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond36.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %32, %6, %5
   ret void
@@ -3941,7 +3941,7 @@ define internal void @dissect_r3_cmd_definecalendar(ptr noundef %0, i32 noundef 
 
 .loopexit:                                        ; preds = %28
   %exitcond39.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond39.not, label %.loopexit35, label %19, !llvm.loop !14
+  br i1 %exitcond39.not, label %.loopexit35, label %19, !llvm.loop !13
 
 19:                                               ; preds = %6, %.loopexit
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %.loopexit ]
@@ -3968,7 +3968,7 @@ define internal void @dissect_r3_cmd_definecalendar(ptr noundef %0, i32 noundef 
   %34 = select i1 %.not34, ptr @.str.2139, ptr @.str.2138
   %35 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %27, i32 noundef %29, ptr noundef %11, i32 noundef %21, i32 noundef 4, ptr noundef nonnull @.str.2142, ptr noundef %31, ptr noundef %26, ptr noundef nonnull %34)
   %exitcond.not = icmp eq i32 %30, 31
-  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %28, !llvm.loop !14
 
 .loopexit35:                                      ; preds = %.loopexit, %5
   ret void
@@ -4094,7 +4094,7 @@ define internal void @dissect_r3_cmd_filters(ptr noundef %0, i32 noundef %1, i32
   %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %11, i32 noundef 0)
   %29 = zext i8 %28 to i32
   %30 = icmp samesign ult i32 %27, %29
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %5
   ret void
@@ -4173,7 +4173,7 @@ define internal void @dissect_r3_cmd_alarmconfigure(ptr noundef %0, i32 noundef 
   %48 = add i32 %.05066, 1
   %49 = add i32 %.067, %42
   %50 = icmp ult i32 %49, %11
-  br i1 %50, label %.lr.ph, label %.loopexit, !llvm.loop !17
+  br i1 %50, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %41, %.thread
   %.05065 = phi i32 [ %.05066, %.thread ], [ %48, %41 ]
@@ -5082,7 +5082,7 @@ define internal void @dissect_r3_upstreamcommand_queryconfig(ptr noundef %0, i32
   %56 = add i32 %.059, %15
   %57 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %58 = icmp ult i32 %56, %57
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %55, %.preheader, %.thread, %8
   ret void
@@ -5715,7 +5715,7 @@ define internal fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 nound
   %224 = add i32 %.0234, %27
   %225 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %226 = icmp ult i32 %224, %225
-  br i1 %226, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %226, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %223, %.preheader
   ret void
@@ -5854,7 +5854,7 @@ define internal void @dissect_r3_upstreammfgfield_iopins(ptr noundef %0, i32 nou
   %31 = add i8 %.036, 1
   %32 = select i1 %19, i8 75, i8 %31
   %33 = icmp slt i32 %30, %12
-  br i1 %33, label %.lr.ph, label %.critedge, !llvm.loop !20
+  br i1 %33, label %.lr.ph, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph, %8, %.thread, %14
   ret void
@@ -5895,7 +5895,7 @@ define internal void @dissect_r3_upstreammfgfield_adcs(ptr noundef %0, i32 nound
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.2031, double noundef %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %19 = icmp ugt i32 %10, 8
@@ -6012,7 +6012,7 @@ define internal void @dissect_r3_upstreammfgfield_checkpointlog(ptr noundef %0, 
   %44 = add i32 %.03744, 2
   %45 = add i32 %.045, 1
   %46 = icmp slt i32 %44, %11
-  br i1 %46, label %.lr.ph, label %.loopexit, !llvm.loop !22
+  br i1 %46, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %36, %10, %5
   ret void
@@ -6460,7 +6460,7 @@ define internal void @dissect_r3_upstreammfgfield_taskflags(ptr noundef %0, i32 
   %28 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %27, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef -2147483648)
   %29 = add i32 %.021, 5
   %30 = icmp slt i32 %29, %14
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13
   ret void
@@ -6512,7 +6512,7 @@ define internal void @dissect_r3_upstreammfgfield_timerchain(ptr noundef %0, i32
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef 4, i32 noundef -2147483648)
   %36 = add i32 %.031, 12
   %37 = icmp slt i32 %36, %10
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !24
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %5
   ret void
@@ -6681,7 +6681,7 @@ define internal void @dissect_r3_upstreammfgfield_peekpoke(ptr noundef %0, i32 n
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   %91 = add i32 %.2, 3
   %92 = icmp slt i32 %91, %10
-  br i1 %92, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %92, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %90, %9, %.critedge
   ret void
@@ -6738,7 +6738,7 @@ define internal void @dissect_r3_upstreammfgfield_capabilities(ptr noundef %0, i
   %19 = add i32 %.056, 1
   %20 = add i32 %.04655, %18
   %21 = icmp slt i32 %20, %12
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %17, %11
   %.0.lcssa = phi i32 [ 0, %11 ], [ %19, %17 ]
@@ -6789,7 +6789,7 @@ define internal void @dissect_r3_upstreammfgfield_capabilities(ptr noundef %0, i
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %47, ptr noundef %0, i32 noundef %40, i32 noundef 2, i32 noundef -2147483648)
   %49 = add i32 %.157, %29
   %50 = icmp slt i32 %49, %12
-  br i1 %50, label %.lr.ph59, label %.critedge, !llvm.loop !27
+  br i1 %50, label %.lr.ph59, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %28, %.lr.ph59, %.thread64, %._crit_edge.thread, %24, %._crit_edge, %15
   ret void
@@ -7095,7 +7095,7 @@ define internal void @dissect_r3_upstreammfgfield_checksumresults(ptr noundef %0
   %24 = or i32 %.062, %23
   %25 = add i32 %.04961, %20
   %26 = icmp slt i32 %25, %12
-  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !28
+  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !26
 
 .critedge.thread:                                 ; preds = %.preheader, %.thread.thread
   %.ph69 = phi i32 [ %12, %.preheader ], [ 0, %.thread.thread ]
@@ -7142,7 +7142,7 @@ define internal void @dissect_r3_upstreammfgfield_checksumresults(ptr noundef %0
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %53, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef -2147483648)
   %55 = add i32 %.165, %35
   %56 = icmp slt i32 %55, %12
-  br i1 %56, label %.lr.ph66, label %.critedge59, !llvm.loop !29
+  br i1 %56, label %.lr.ph66, label %.critedge59, !llvm.loop !27
 
 .critedge59:                                      ; preds = %.lr.ph66, %34, %.critedge.thread, %.thread.thread, %.thread, %14
   ret void
@@ -7194,7 +7194,7 @@ define internal void @dissect_r3_upstreammfgfield_mortisestatelog(ptr noundef %0
   %35 = load i32, ptr @hf_r3_mortisestatelog_event, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %30, i32 noundef %35, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef -2147483648)
   %37 = icmp slt i32 %18, %10
-  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !30
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %5
   ret void
@@ -7584,7 +7584,7 @@ switch.lookup:                                    ; preds = %17
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef %switch.offset, i32 noundef -2147483648)
   %39 = add i32 %.05862, %16
   %40 = icmp slt i32 %39, %12
-  br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !31
+  br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %switch.lookup, %.lr.ph, %5, %.critedge61
   ret void
@@ -7867,7 +7867,7 @@ define internal void @dissect_r3_cmdmfg_peekpoke(ptr noundef %0, i32 noundef %1,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   %117 = add i32 %.2, 3
   %118 = icmp slt i32 %117, %13
-  br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !32
+  br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %116, %5, %.critedge
   ret void
@@ -8045,30 +8045,28 @@ attributes #6 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = distinct !{!30, !7, !8}
-!31 = distinct !{!31, !7, !8}
-!32 = distinct !{!32, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}
+!30 = distinct !{!30, !7}

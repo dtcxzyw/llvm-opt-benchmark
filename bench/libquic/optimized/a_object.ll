@@ -210,7 +210,7 @@ define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_nul
   %.1115165 = phi i32 [ %.1115166, %46 ], [ 0, %50 ]
   %.199 = phi i64 [ %.098229, %46 ], [ %54, %50 ]
   %56 = icmp samesign ult i32 %.2130226, 2
-  br i1 %56, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %56, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %55, %.lr.ph, %.lr.ph
   %.0114.lcssa.ph = phi i32 [ %.1115165, %55 ], [ %.0114227, %.lr.ph ], [ %.0114227, %.lr.ph ]
@@ -288,7 +288,7 @@ define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_nul
   %81 = getelementptr inbounds nuw i8, ptr %.2111, i64 %indvars.iv
   store i8 %80, ptr %81, align 1, !tbaa !15
   %.not151 = icmp eq i32 %78, 0
-  br i1 %.not151, label %.thread172.loopexit274, label %.lr.ph254, !llvm.loop !18
+  br i1 %.not151, label %.thread172.loopexit274, label %.lr.ph254, !llvm.loop !16
 
 .preheader192:                                    ; preds = %.preheader192.preheader, %.preheader192
   %indvars.iv306 = phi i64 [ %indvars.iv.next307, %.preheader192 ], [ 0, %.preheader192.preheader ]
@@ -300,7 +300,7 @@ define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_nul
   store i8 %83, ptr %84, align 1, !tbaa !15
   %85 = lshr i64 %.3101, 7
   %86 = icmp ult i64 %.3101, 128
-  br i1 %86, label %.thread172.loopexit, label %.preheader192, !llvm.loop !20
+  br i1 %86, label %.thread172.loopexit, label %.preheader192
 
 .thread172.loopexit:                              ; preds = %.preheader192
   %87 = trunc nuw nsw i64 %indvars.iv.next307 to i32
@@ -345,7 +345,7 @@ define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_nul
   %99 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv309
   store i8 %98, ptr %99, align 1, !tbaa !15
   %100 = icmp samesign ugt i64 %indvars.iv311, 2
-  br i1 %100, label %.lr.ph258, label %._crit_edge259.loopexit, !llvm.loop !21
+  br i1 %100, label %.lr.ph258, label %._crit_edge259.loopexit, !llvm.loop !18
 
 ._crit_edge259.loopexit:                          ; preds = %.lr.ph258
   %101 = trunc nsw i64 %indvars.iv.next310 to i32
@@ -363,7 +363,7 @@ define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly captures(address_is_nul
 106:                                              ; preds = %.thread172, %._crit_edge259
   %.2121 = phi i32 [ %103, %._crit_edge259 ], [ %89, %.thread172 ]
   %107 = icmp eq i32 %.3131.ph, 0
-  br i1 %107, label %._crit_edge270, label %28, !llvm.loop !22
+  br i1 %107, label %._crit_edge270, label %28
 
 ._crit_edge270:                                   ; preds = %106
   %.not153 = icmp eq ptr %.4113, %5
@@ -514,12 +514,12 @@ define hidden ptr @d2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %0, ptr
   br i1 %.not, label %11, label %18
 
 11:                                               ; preds = %3
-  %12 = load i32, ptr %6, align 4, !tbaa !23
+  %12 = load i32, ptr %6, align 4, !tbaa !19
   %.not9 = icmp eq i32 %12, 6
   br i1 %.not9, label %13, label %18
 
 13:                                               ; preds = %11
-  %14 = load i64, ptr %5, align 8, !tbaa !24
+  %14 = load i64, ptr %5, align 8, !tbaa !20
   %15 = call ptr @c2i_ASN1_OBJECT(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %14)
   %.not10 = icmp eq ptr %15, null
   br i1 %.not10, label %19, label %16
@@ -598,20 +598,20 @@ define hidden ptr @c2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %0, ptr
   %23 = add nuw nsw i32 %.05677, 1
   %24 = getelementptr inbounds nuw i8, ptr %.05876, i64 1
   %exitcond.not = icmp eq i32 %23, %14
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %22
   %25 = icmp eq ptr %0, null
   br i1 %25, label %33, label %26
 
 26:                                               ; preds = %._crit_edge
-  %27 = load ptr, ptr %0, align 8, !tbaa !27
+  %27 = load ptr, ptr %0, align 8, !tbaa !23
   %28 = icmp eq ptr %27, null
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %31 = load i32, ptr %30, align 8, !tbaa !29
+  %31 = load i32, ptr %30, align 8, !tbaa !25
   %32 = and i32 %31, 1
   %.not70 = icmp eq i32 %32, 0
   br i1 %.not70, label %33, label %37
@@ -628,7 +628,7 @@ ASN1_OBJECT_new.exit.thread:                      ; preds = %33
 ASN1_OBJECT_new.exit:                             ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
-  store i32 1, ptr %36, align 8, !tbaa !29
+  store i32 1, ptr %36, align 8, !tbaa !25
   br label %37
 
 37:                                               ; preds = %ASN1_OBJECT_new.exit, %29
@@ -665,9 +665,9 @@ ASN1_OBJECT_new.exit:                             ; preds = %33
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %.059, i64 32
-  %52 = load i32, ptr %51, align 8, !tbaa !29
+  %52 = load i32, ptr %51, align 8, !tbaa !25
   %53 = or i32 %52, 8
-  store i32 %53, ptr %51, align 8, !tbaa !29
+  store i32 %53, ptr %51, align 8, !tbaa !25
   br label %54
 
 54:                                               ; preds = %50, %42
@@ -680,7 +680,7 @@ ASN1_OBJECT_new.exit:                             ; preds = %33
   br i1 %25, label %57, label %56
 
 56:                                               ; preds = %54
-  store ptr %.059, ptr %0, align 8, !tbaa !27
+  store ptr %.059, ptr %0, align 8, !tbaa !23
   br label %57
 
 57:                                               ; preds = %56, %54
@@ -688,7 +688,7 @@ ASN1_OBJECT_new.exit:                             ; preds = %33
   br label %61
 
 58:                                               ; preds = %49
-  %59 = load ptr, ptr %0, align 8, !tbaa !27
+  %59 = load ptr, ptr %0, align 8, !tbaa !23
   %.not73 = icmp eq ptr %59, %.059
   br i1 %.not73, label %61, label %60
 
@@ -714,7 +714,7 @@ define hidden noalias noundef ptr @ASN1_OBJECT_new() local_unnamed_addr #0 {
 4:                                                ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
-  store i32 1, ptr %5, align 8, !tbaa !29
+  store i32 1, ptr %5, align 8, !tbaa !25
   br label %6
 
 6:                                                ; preds = %4, %3
@@ -728,13 +728,13 @@ define hidden void @ASN1_OBJECT_free(ptr noundef captures(address_is_null) %0) l
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !29
+  %5 = load i32, ptr %4, align 8, !tbaa !25
   %6 = and i32 %5, 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %0, align 8, !tbaa !30
+  %8 = load ptr, ptr %0, align 8, !tbaa !26
   %.not18 = icmp eq ptr %8, null
   br i1 %.not18, label %10, label %9
 
@@ -744,7 +744,7 @@ define hidden void @ASN1_OBJECT_free(ptr noundef captures(address_is_null) %0) l
 
 10:                                               ; preds = %9, %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !31
+  %12 = load ptr, ptr %11, align 8, !tbaa !27
   %.not19 = icmp eq ptr %12, null
   br i1 %.not19, label %14, label %13
 
@@ -754,7 +754,7 @@ define hidden void @ASN1_OBJECT_free(ptr noundef captures(address_is_null) %0) l
 
 14:                                               ; preds = %13, %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %.pre = load i32, ptr %4, align 8, !tbaa !29
+  %.pre = load i32, ptr %4, align 8, !tbaa !25
   br label %15
 
 15:                                               ; preds = %14, %3
@@ -771,7 +771,7 @@ define hidden void @ASN1_OBJECT_free(ptr noundef captures(address_is_null) %0) l
 
 21:                                               ; preds = %18
   tail call void @free(ptr noundef nonnull %20) #9
-  %.pre23.pre = load i32, ptr %4, align 8, !tbaa !29
+  %.pre23.pre = load i32, ptr %4, align 8, !tbaa !25
   br label %22
 
 22:                                               ; preds = %21, %18
@@ -799,17 +799,17 @@ define hidden void @ASN1_OBJECT_free(ptr noundef captures(address_is_null) %0) l
 define hidden ptr @ASN1_OBJECT_create(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.asn1_object_st, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
-  store ptr %3, ptr %6, align 8, !tbaa !30
+  store ptr %3, ptr %6, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %4, ptr %7, align 8, !tbaa !31
+  store ptr %4, ptr %7, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %8, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %0, ptr %9, align 8, !tbaa !32
+  store i32 %0, ptr %9, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %2, ptr %10, align 4, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 13, ptr %11, align 8, !tbaa !29
+  store i32 13, ptr %11, align 8, !tbaa !25
   %12 = call ptr @OBJ_dup(ptr noundef nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9
   ret ptr %12
@@ -852,19 +852,15 @@ attributes #11 = { nounwind allocsize(0) }
 !14 = !{!8, !8, i64 0}
 !15 = !{!10, !10, i64 0}
 !16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !19, !17}
-!19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !19, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = distinct !{!18, !17}
+!19 = !{!12, !12, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !10, i64 0}
 !22 = distinct !{!22, !17}
-!23 = !{!12, !12, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"long", !10, i64 0}
-!26 = distinct !{!26, !19, !17}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
-!29 = !{!7, !12, i64 32}
-!30 = !{!7, !8, i64 0}
-!31 = !{!7, !8, i64 8}
-!32 = !{!7, !12, i64 16}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
+!25 = !{!7, !12, i64 32}
+!26 = !{!7, !8, i64 0}
+!27 = !{!7, !8, i64 8}
+!28 = !{!7, !12, i64 16}

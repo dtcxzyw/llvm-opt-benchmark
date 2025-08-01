@@ -90,7 +90,7 @@ trivial.exit.thread6:                             ; preds = %21, %19, %17, %15, 
   %29 = getelementptr inbounds nuw [10 x i32], ptr %1, i64 0, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4, !tbaa !6
   %31 = trunc i32 %30 to i8
-  store i8 %31, ptr %26, align 1, !tbaa !13
+  store i8 %31, ptr %26, align 1, !tbaa !12
   %32 = call ptr @pitem_new(ptr noundef nonnull %2, ptr noundef nonnull %29) #5
   %33 = icmp eq ptr %32, null
   br i1 %33, label %fixed_random.exit.thread, label %34
@@ -105,7 +105,7 @@ trivial.exit.thread6:                             ; preds = %21, %19, %17, %15, 
   %36 = getelementptr inbounds nuw [10 x i32], ptr %1, i64 0, i64 %indvars.iv55.i
   %37 = load i32, ptr %36, align 4, !tbaa !6
   %38 = trunc i32 %37 to i8
-  store i8 %38, ptr %26, align 1, !tbaa !13
+  store i8 %38, ptr %26, align 1, !tbaa !12
   %39 = call ptr @pitem_new(ptr noundef nonnull %2, ptr noundef nonnull %36) #5
   %40 = icmp eq ptr %39, null
   br i1 %40, label %fixed_random.exit.thread, label %41
@@ -119,7 +119,7 @@ trivial.exit.thread6:                             ; preds = %21, %19, %17, %15, 
   call void @pitem_free(ptr noundef nonnull %39) #5
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next56.i, 10
-  br i1 %exitcond58.not.i, label %44, label %.preheader46.i, !llvm.loop !14
+  br i1 %exitcond58.not.i, label %44, label %.preheader46.i, !llvm.loop !13
 
 44:                                               ; preds = %43
   %45 = call i64 @pqueue_size(ptr noundef nonnull %24) #5
@@ -128,7 +128,7 @@ trivial.exit.thread6:                             ; preds = %21, %19, %17, %15, 
 
 46:                                               ; preds = %44
   %47 = call ptr @pqueue_iterator(ptr noundef nonnull %24) #5
-  store ptr %47, ptr %3, align 8, !tbaa !15
+  store ptr %47, ptr %3, align 8, !tbaa !14
   %48 = call ptr @pqueue_next(ptr noundef nonnull %3) #5
   %49 = icmp eq ptr %48, null
   br i1 %49, label %fixed_random.exit.thread, label %.preheader.i
@@ -141,9 +141,9 @@ trivial.exit.thread6:                             ; preds = %21, %19, %17, %15, 
 
 52:                                               ; preds = %.preheader.i
   %53 = getelementptr inbounds nuw i8, ptr %.030.i, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !18
+  %54 = load ptr, ptr %53, align 8, !tbaa !17
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !18
+  %56 = load ptr, ptr %55, align 8, !tbaa !17
   %57 = load i32, ptr %54, align 4, !tbaa !6
   %58 = load i32, ptr %56, align 4, !tbaa !6
   %.not38.i = icmp slt i32 %57, %58
@@ -198,7 +198,7 @@ define internal fastcc void @clear_and_free_queue(ptr noundef nonnull %0) unname
   tail call void @pitem_free(ptr noundef nonnull %4) #5
   %5 = tail call ptr @pqueue_pop(ptr noundef nonnull %0) #5
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %6, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @pqueue_free(ptr noundef nonnull %0) #5
@@ -239,14 +239,12 @@ attributes #5 = { nounwind }
 !7 = !{!"int", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!8, !8, i64 0}
-!14 = distinct !{!14, !11, !12}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS6_pitem", !17, i64 0}
-!17 = !{!"any pointer", !8, i64 0}
-!18 = !{!19, !17, i64 8}
-!19 = !{!"_pitem", !8, i64 0, !17, i64 8, !16, i64 16}
-!20 = distinct !{!20, !12}
+!12 = !{!8, !8, i64 0}
+!13 = distinct !{!13, !11}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS6_pitem", !16, i64 0}
+!16 = !{!"any pointer", !8, i64 0}
+!17 = !{!18, !16, i64 8}
+!18 = !{!"_pitem", !8, i64 0, !16, i64 8, !15, i64 16}

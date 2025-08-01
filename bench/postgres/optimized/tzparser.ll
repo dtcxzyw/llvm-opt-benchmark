@@ -248,7 +248,7 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   %83 = getelementptr inbounds nuw i8, ptr %.059162, i64 1
   %84 = load i8, ptr %83, align 1
   %cond = icmp eq i8 %84, 0
-  br i1 %cond, label %.backedge, label %76, !llvm.loop !7
+  br i1 %cond, label %.backedge, label %76, !llvm.loop !6
 
 .critedge:                                        ; preds = %76
   %cond208 = icmp eq i8 %77, 35
@@ -257,7 +257,7 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
 .backedge:                                        ; preds = %82, %.critedge, %.preheader
   %85 = call i32 @feof(ptr noundef nonnull %36) #9
   %.not69 = icmp eq i32 %85, 0
-  br i1 %.not69, label %56, label %.loopexit129, !llvm.loop !8
+  br i1 %.not69, label %56, label %.loopexit129
 
 86:                                               ; preds = %.critedge
   %87 = call i32 @pg_strncasecmp(ptr noundef nonnull %.059162, ptr noundef nonnull @.str.11, i64 noundef 8) #9
@@ -296,7 +296,7 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   %.053.ph132.be = phi i32 [ %.2.i, %addToArray.exit ], [ %99, %98 ]
   %101 = call i32 @feof(ptr noundef nonnull %36) #9
   %.not69164 = icmp eq i32 %101, 0
-  br i1 %.not69164, label %.lr.ph166, label %.loopexit129, !llvm.loop !8
+  br i1 %.not69164, label %.lr.ph166, label %.loopexit129, !llvm.loop !7
 
 .lr.ph166:                                        ; preds = %.lr.ph166.lr.ph, %.outer130.backedge
   %.053.ph132170 = phi i32 [ %.053.ph176, %.lr.ph166.lr.ph ], [ %.053.ph132.be, %.outer130.backedge ]
@@ -311,7 +311,7 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
 .outer.loopexit:                                  ; preds = %102
   %105 = call i32 @feof(ptr noundef nonnull %36) #9
   %.not69164168 = icmp eq i32 %105, 0
-  br i1 %.not69164168, label %.lr.ph166.lr.ph, label %.loopexit129, !llvm.loop !8
+  br i1 %.not69164168, label %.lr.ph166.lr.ph, label %.loopexit129, !llvm.loop !7
 
 .lr.ph166.lr.ph:                                  ; preds = %.lr.ph166.lr.ph.lr.ph, %.outer.loopexit
   %.053.ph176 = phi i32 [ %4, %.lr.ph166.lr.ph.lr.ph ], [ %.053.ph132170, %.outer.loopexit ]
@@ -445,7 +445,7 @@ splitTzLine.exit:                                 ; preds = %106, %108, %118, %1
   %153 = getelementptr inbounds nuw i8, ptr %.019.i, i64 1
   %154 = load i8, ptr %153, align 1
   %.not.i77 = icmp eq i8 %154, 0
-  br i1 %.not.i77, label %.loopexit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i77, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
 
 validateTzEntry.exit:                             ; preds = %140, %147
   %.sink.i = phi ptr [ %150, %147 ], [ %143, %140 ]
@@ -500,7 +500,7 @@ validateTzEntry.exit:                             ; preds = %140, %147
 
 179:                                              ; preds = %175
   %180 = getelementptr inbounds nuw i8, ptr %160, i64 20
-  %181 = load i8, ptr %180, align 4, !range !10, !noundef !11
+  %181 = load i8, ptr %180, align 4, !range !9, !noundef !10
   %182 = icmp eq i8 %181, %.sroa.17.3.ph
   br i1 %182, label %addToArray.exit, label %.thread.i
 
@@ -544,7 +544,7 @@ addToArray.exit.thread:                           ; preds = %.thread.i
   %.260.i = phi i32 [ %165, %164 ], [ %.05877.i, %167 ]
   %.257.i = phi i32 [ %.05578.i, %164 ], [ %168, %167 ]
   %.not.i79 = icmp sgt i32 %.257.i, %.260.i
-  br i1 %.not.i79, label %._crit_edge.i, label %.lr.ph.i78, !llvm.loop !12
+  br i1 %.not.i79, label %._crit_edge.i, label %.lr.ph.i78, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %200, %.loopexit
   %.055.lcssa.i = phi i32 [ 0, %.loopexit ], [ %.257.i, %200 ]
@@ -685,12 +685,11 @@ attributes #11 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !5}

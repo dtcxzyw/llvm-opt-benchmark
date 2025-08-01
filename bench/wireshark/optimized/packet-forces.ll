@@ -649,7 +649,7 @@ define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr 
   %141 = add i32 %211, %.026.i.i
   %142 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %141)
   %143 = icmp sgt i32 %142, 3
-  br i1 %143, label %.lr.ph.i.i, label %dissect_operation_tlv.exit.i, !llvm.loop !9
+  br i1 %143, label %.lr.ph.i.i, label %dissect_operation_tlv.exit.i, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %140
   %.026.i.i = phi i32 [ %141, %140 ], [ %.024.i, %.lr.ph.i ]
@@ -734,7 +734,7 @@ define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr 
   %200 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %197, ptr noundef %0, i32 noundef %199, i32 noundef 4, i32 noundef 0)
   %201 = add nuw nsw i32 %.05461.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %201, %194
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 .thread.i.i.i:                                    ; preds = %176
   %202 = load i32, ptr @hf_forces_lfbselect_tlv_type_operation_path_data, align 4
@@ -751,7 +751,7 @@ define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr 
   %208 = add i32 %.062.i.i.i, %169
   %209 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %208)
   %210 = icmp sgt i32 %209, 3
-  br i1 %210, label %.lr.ph64.i.i.i, label %dissect_path_data_tlv.exit.i.i, !llvm.loop !11
+  br i1 %210, label %.lr.ph64.i.i.i, label %dissect_path_data_tlv.exit.i.i, !llvm.loop !10
 
 dissect_path_data_tlv.exit.i.i:                   ; preds = %207, %._crit_edge.i.i.i, %.thread.i.i.i, %174, %155
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
@@ -829,7 +829,7 @@ dissect_operation_tlv.exit.i:                     ; preds = %dissect_path_data_t
   %261 = icmp sgt i32 %260, 7
   %262 = icmp sgt i32 %241, %.1.i
   %or.cond.i = and i1 %262, %261
-  br i1 %or.cond.i, label %.lr.ph.i142, label %.critedge.i, !llvm.loop !12
+  br i1 %or.cond.i, label %.lr.ph.i142, label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %257, %214
   %.0.lcssa.i = phi i32 [ %116, %214 ], [ %.1.i, %257 ]
@@ -919,7 +919,7 @@ dissect_lfbselecttlv.exit:                        ; preds = %dissect_operation_t
   %307 = add i32 %101, %.0148
   %308 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %307)
   %309 = icmp sgt i32 %308, 3
-  br i1 %309, label %92, label %.loopexit, !llvm.loop !13
+  br i1 %309, label %92, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %dissect_lfbselecttlv.exit, %41, %112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #4
@@ -1006,11 +1006,10 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

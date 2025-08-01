@@ -1265,7 +1265,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i.i.i: ; preds = %54, %50
   %57 = getelementptr i64, ptr %56, i64 %.pre-phi.i.i.i
   %58 = sub nsw i64 %44, %.pre-phi.i.i.i
   %59 = shl nsw i64 %58, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %57, i8 0, i64 %59, i1 false), !tbaa !36
+  tail call void @llvm.memset.p0.i64(ptr align 8 %57, i8 0, i64 %59, i1 false), !tbaa !35
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %.lr.ph.preheader.i.i.i, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i.i.i, %48
@@ -1322,10 +1322,10 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %67, %65
   %85 = sub i32 %.023.i, %42
   %86 = zext i32 %85 to i64
   %87 = getelementptr inbounds nuw i64, ptr %61, i64 %86
-  store i64 %.0.i.i17.i, ptr %87, align 8, !tbaa !36
+  store i64 %.0.i.i17.i, ptr %87, align 8, !tbaa !35
   %88 = add i32 %.023.i, 1
   %.not.i = icmp eq i32 %88, %.0.i.i20.i
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_125extractFromBranchWeightMDImSt9enable_ifILb1EvEEEvPKN4llvm6MDNodeERNS3_15SmallVectorImplIT_EE.exit, label %62, !llvm.loop !37
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_125extractFromBranchWeightMDImSt9enable_ifILb1EvEEEvPKN4llvm6MDNodeERNS3_15SmallVectorImplIT_EE.exit, label %62, !llvm.loop !36
 
 _ZN12_GLOBAL__N_125extractFromBranchWeightMDImSt9enable_ifILb1EvEEEvPKN4llvm6MDNodeERNS3_15SmallVectorImplIT_EE.exit: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i, %_ZN4llvm15SmallVectorImplImE6resizeEm.exit.i
   ret void
@@ -1545,11 +1545,11 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i:  ; preds = %_ZN4llvm9StringRefC
   %39 = load ptr, ptr %4, align 8, !tbaa !9
   %40 = load i32, ptr %39, align 4, !tbaa !21
   %41 = zext i32 %40 to i64
-  store i64 %41, ptr %1, align 8, !tbaa !36
+  store i64 %41, ptr %1, align 8, !tbaa !35
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !21
   %44 = zext i32 %43 to i64
-  store i64 %44, ptr %2, align 8, !tbaa !36
+  store i64 %44, ptr %2, align 8, !tbaa !35
   br label %_ZN4llvm20extractBranchWeightsEPKNS_6MDNodeERNS_15SmallVectorImplIjEE.exit.thread
 
 _ZN4llvm20extractBranchWeightsEPKNS_6MDNodeERNS_15SmallVectorImplIjEE.exit.thread: ; preds = %3, %_ZN4llvm9StringRefC2EPKc.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %_ZNK4llvm11Instruction11getMetadataEj.exit, %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.i, %35, %38
@@ -1569,7 +1569,7 @@ _ZN4llvm11SmallVectorIjLj2EED2Ev.exit:            ; preds = %_ZN4llvm20extractBr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm22extractProfTotalWeightEPKNS_6MDNodeERm(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 {
-  store i64 0, ptr %1, align 8, !tbaa !36
+  store i64 0, ptr %1, align 8, !tbaa !35
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit32.thread51, label %3
 
@@ -1736,11 +1736,11 @@ _ZNK4llvm6MDNode10getOperandEj.exit27:            ; preds = %.thread, %71
   %84 = load ptr, ptr %80, align 8
   %.0.in.i = select i1 %83, ptr %80, ptr %84
   %.0.i28 = load i64, ptr %.0.in.i, align 8, !tbaa !32
-  %85 = load i64, ptr %1, align 8, !tbaa !36
+  %85 = load i64, ptr %1, align 8, !tbaa !35
   %86 = add i64 %85, %.0.i28
-  store i64 %86, ptr %1, align 8, !tbaa !36
+  store i64 %86, ptr %1, align 8, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %61, !llvm.loop !38
+  br label %61, !llvm.loop !37
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread47:       ; preds = %17, %_ZN4llvmeqENS_9StringRefES0_.exit
   %87 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %15) #10
@@ -1802,7 +1802,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit38:            ; preds = %.thread54, %99
   %115 = load ptr, ptr %111, align 8
   %.0.in.i42 = select i1 %114, ptr %111, ptr %115
   %.0.i43 = load i64, ptr %.0.in.i42, align 8, !tbaa !32
-  store i64 %.0.i43, ptr %1, align 8, !tbaa !36
+  store i64 %.0.i43, ptr %1, align 8, !tbaa !35
   br label %_ZN4llvmeqENS_9StringRefES0_.exit32.thread51
 
 _ZN4llvmeqENS_9StringRefES0_.exit32.thread51:     ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread47, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35.thread, %_ZNK4llvm6MDNode10getOperandEj.exit38, %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit35, %_ZN4llvmeqENS_9StringRefES0_.exit32, %2
@@ -1835,7 +1835,7 @@ define dso_local void @_ZN4llvm16setBranchWeightsERNS_11InstructionENS_8ArrayRef
   %5 = alloca %"class.llvm::MDBuilder", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #10
-  store ptr %6, ptr %5, align 8, !tbaa !39
+  store ptr %6, ptr %5, align 8, !tbaa !38
   %7 = call noundef ptr @_ZN4llvm9MDBuilder19createBranchWeightsENS_8ArrayRefIjEEb(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %1, i64 %2, i1 noundef zeroext %3) #10
   call void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 2, ptr noundef %7) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
@@ -1926,7 +1926,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread117:      ; preds = %_ZN4llvmneENS_9Stri
 39:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread117
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store ptr %40, ptr %4, align 8, !tbaa !39
+  store ptr %40, ptr %4, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #10
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %41, ptr %5, align 8, !tbaa !9
@@ -2139,7 +2139,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZNK4llvm5APInt13ge
   %136 = load i32, ptr %42, align 8, !tbaa !3
   %137 = load i32, ptr %43, align 4, !tbaa !20
   %.not.i.i.not.i61 = icmp ult i32 %136, %137
-  br i1 %.not.i.i.not.i61, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit63, label %138, !prof !40
+  br i1 %.not.i.i.not.i61, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit63, label %138, !prof !39
 
 138:                                              ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit
   %139 = zext i32 %136 to i64
@@ -2247,7 +2247,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit74:            ; preds = %.thread, %178
   %186 = load i32, ptr %42, align 8, !tbaa !3
   %187 = load i32, ptr %43, align 4, !tbaa !20
   %.not.i.i.not.i75 = icmp ult i32 %186, %187
-  br i1 %.not.i.i.not.i75, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit77, label %188, !prof !40
+  br i1 %.not.i.i.not.i75, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit77, label %188, !prof !39
 
 188:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit74
   %189 = zext i32 %186 to i64
@@ -2326,7 +2326,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit89:            ; preds = %223, %225
   %231 = load ptr, ptr %230, align 8, !tbaa !10
   %232 = load i32, ptr %43, align 4, !tbaa !20
   %.not.i.i.not.i90 = icmp ult i32 %197, %232
-  br i1 %.not.i.i.not.i90, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit92, label %233, !prof !40
+  br i1 %.not.i.i.not.i90, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit92, label %233, !prof !39
 
 233:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit89
   %234 = zext i32 %197 to i64
@@ -2378,7 +2378,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit98:        ; preds = %_ZNK4llvm5APInt13ge
   %255 = load i32, ptr %42, align 8, !tbaa !3
   %256 = load i32, ptr %43, align 4, !tbaa !20
   %.not.i.i.not.i99 = icmp ult i32 %255, %256
-  br i1 %.not.i.i.not.i99, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit101, label %257, !prof !40
+  br i1 %.not.i.i.not.i99, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit101, label %257, !prof !39
 
 257:                                              ; preds = %_ZNK4llvm5APInt15getLimitedValueEm.exit98
   %258 = zext i32 %255 to i64
@@ -2431,7 +2431,7 @@ _ZN4llvm5APIntD2Ev.exit103:                       ; preds = %_ZN4llvm5APIntD2Ev.
 
 279:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit103, %_ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit92
   %280 = add i32 %.0, 2
-  br label %_ZN4llvmeqENS_9StringRefES0_.exit68, !llvm.loop !41
+  br label %_ZN4llvmeqENS_9StringRefES0_.exit68, !llvm.loop !40
 
 _ZN4llvmeqENS_9StringRefES0_.exit68.thread:       ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit71.thread, %_ZNK4llvm6MDNode14getNumOperandsEv.exit71, %_ZN4llvmeqENS_9StringRefES0_.exit.thread123, %162, %_ZN4llvm5APIntD2Ev.exit64
   %281 = load ptr, ptr %5, align 8, !tbaa !9
@@ -2576,12 +2576,11 @@ attributes #12 = { builtin nounwind }
 !30 = !{!31, !8, i64 8}
 !31 = !{!"_ZTSN4llvm5APIntE", !6, i64 0, !8, i64 8}
 !32 = !{!6, !6, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = !{!26, !26, i64 0}
-!37 = distinct !{!37, !34, !35}
-!38 = distinct !{!38, !34, !35}
-!39 = !{!25, !25, i64 0}
-!40 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!41 = distinct !{!41, !34, !35}
+!35 = !{!26, !26, i64 0}
+!36 = distinct !{!36, !34}
+!37 = distinct !{!37, !34}
+!38 = !{!25, !25, i64 0}
+!39 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!40 = distinct !{!40, !34}

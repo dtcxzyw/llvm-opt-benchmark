@@ -300,7 +300,7 @@ select.unfold.i:                                  ; preds = %44, %55
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 112
   store i32 %.019.i, ptr %81, align 8
-  br label %26, !llvm.loop !9
+  br label %26, !llvm.loop !8
 
 _ZN19SamplePriorityQueue8moveDownEi.exit:         ; preds = %52, %55
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -428,7 +428,7 @@ select.unfold:                                    ; preds = %33, %22
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 112
   store i32 %.019, ptr %64, align 8
-  br label %4, !llvm.loop !9
+  br label %4, !llvm.loop !8
 
 .critedge:                                        ; preds = %33, %30, %select.unfold
   ret void
@@ -625,7 +625,6 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

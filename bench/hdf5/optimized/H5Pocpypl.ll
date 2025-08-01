@@ -655,7 +655,7 @@ define range(i32 -1, 1) i32 @H5Pfree_merge_committed_dtype_paths(i64 noundef %0)
   %64 = call ptr @H5MM_xfree(ptr noundef %63) #8
   %65 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_copy_dtype_merge_list_t_reg_free_list, ptr noundef nonnull %.0.i) #8
   %.old1.not.i = icmp eq ptr %62, null
-  br i1 %.old1.not.i, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !llvm.loop !28
+  br i1 %.old1.not.i, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i
 
 H5P__free_merge_comm_dtype_list.exit:             ; preds = %.preheader.i, %52
   store ptr null, ptr %2, align 8, !tbaa !18
@@ -775,9 +775,9 @@ define range(i32 -1, 1) i32 @H5Pset_mcdt_search_cb(i64 noundef %0, ptr noundef %
   br label %.thread32
 
 54:                                               ; preds = %46
-  store ptr %1, ptr %4, align 8, !tbaa !30
+  store ptr %1, ptr %4, align 8, !tbaa !28
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %2, ptr %55, align 8, !tbaa !32
+  store ptr %2, ptr %55, align 8, !tbaa !30
   %56 = call i32 @H5P_set(ptr noundef nonnull %48, ptr noundef nonnull @.str.20, ptr noundef nonnull %4) #8
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %63, !prof !17
@@ -897,8 +897,8 @@ define range(i32 -1, 1) i32 @H5Pget_mcdt_search_cb(i64 noundef %0, ptr noundef w
   br i1 %.not, label %57, label %55
 
 55:                                               ; preds = %54
-  %56 = load ptr, ptr %4, align 8, !tbaa !30
-  store ptr %56, ptr %1, align 8, !tbaa !33
+  %56 = load ptr, ptr %4, align 8, !tbaa !28
+  store ptr %56, ptr %1, align 8, !tbaa !31
   br label %57
 
 57:                                               ; preds = %55, %54
@@ -907,8 +907,8 @@ define range(i32 -1, 1) i32 @H5Pget_mcdt_search_cb(i64 noundef %0, ptr noundef w
 
 58:                                               ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !32
-  store ptr %60, ptr %2, align 8, !tbaa !33
+  %60 = load ptr, ptr %59, align 8, !tbaa !30
+  store ptr %60, ptr %2, align 8, !tbaa !31
   br label %62
 
 .thread33:                                        ; preds = %50, %43
@@ -1001,7 +1001,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr noundef readon
 .preheader:                                       ; preds = %3
   %.020 = load ptr, ptr %0, align 8, !tbaa !18
   %.not21 = icmp eq ptr %.020, null
-  %.pre = load ptr, ptr %1, align 8, !tbaa !34
+  %.pre = load ptr, ptr %1, align 8, !tbaa !32
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -1023,7 +1023,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr noundef readon
   %17 = getelementptr inbounds nuw i8, ptr %.022.us, i64 8
   %.0.us = load ptr, ptr %17, align 8, !tbaa !18
   %.not.us = icmp eq ptr %.0.us, null
-  br i1 %.not.us, label %._crit_edge.thread, label %11, !llvm.loop !35
+  br i1 %.not.us, label %._crit_edge.thread, label %11, !llvm.loop !33
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %26
   %18 = phi ptr [ %27, %26 ], [ %.pre, %.lr.ph ]
@@ -1037,9 +1037,9 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr noundef readon
 
 23:                                               ; preds = %.lr.ph.split
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %20, i64 %22, i1 false)
-  %24 = load ptr, ptr %1, align 8, !tbaa !34
+  %24 = load ptr, ptr %1, align 8, !tbaa !32
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %22
-  store ptr %25, ptr %1, align 8, !tbaa !34
+  store ptr %25, ptr %1, align 8, !tbaa !32
   br label %26
 
 26:                                               ; preds = %23, %.lr.ph.split
@@ -1051,7 +1051,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr noundef readon
   %31 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %.0 = load ptr, ptr %31, align 8, !tbaa !18
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %26, %.preheader
   %32 = phi ptr [ %.pre, %.preheader ], [ %27, %26 ]
@@ -1060,7 +1060,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr noundef readon
 
 33:                                               ; preds = %._crit_edge
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  store ptr %34, ptr %1, align 8, !tbaa !34
+  store ptr %34, ptr %1, align 8, !tbaa !32
   store i8 0, ptr %32, align 1, !tbaa !22
   br label %._crit_edge.thread
 
@@ -1086,7 +1086,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_dec(ptr nound
 
 9:                                                ; preds = %2
   store ptr null, ptr %1, align 8, !tbaa !18
-  %10 = load ptr, ptr %0, align 8, !tbaa !34
+  %10 = load ptr, ptr %0, align 8, !tbaa !32
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #9
   %.not.not38 = icmp eq i64 %11, 0
   br i1 %.not.not38, label %._crit_edge, label %.lr.ph
@@ -1099,17 +1099,17 @@ define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_dec(ptr nound
   br i1 %13, label %29, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = load ptr, ptr %0, align 8, !tbaa !34
+  %15 = load ptr, ptr %0, align 8, !tbaa !32
   %16 = tail call noalias ptr @H5MM_strdup(ptr noundef %15) #8
   store ptr %16, ptr %12, align 8, !tbaa !23
   %17 = icmp eq ptr %16, null
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr %0, align 8, !tbaa !34
+  %19 = load ptr, ptr %0, align 8, !tbaa !32
   %20 = getelementptr i8, ptr %19, i64 %.02740
   %21 = getelementptr i8, ptr %20, i64 1
-  store ptr %21, ptr %0, align 8, !tbaa !34
+  store ptr %21, ptr %0, align 8, !tbaa !32
   %.not34 = icmp eq ptr %.03039, null
   br i1 %.not34, label %24, label %22
 
@@ -1125,12 +1125,12 @@ define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_dec(ptr nound
 25:                                               ; preds = %24, %22
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #9
   %.not.not = icmp eq i64 %26, 0
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %25, %9
   %27 = phi ptr [ %10, %9 ], [ %21, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store ptr %28, ptr %0, align 8, !tbaa !34
+  store ptr %28, ptr %0, align 8, !tbaa !32
   br label %50
 
 29:                                               ; preds = %14, %.lr.ph
@@ -1157,7 +1157,7 @@ define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_dec(ptr nound
   %44 = tail call ptr @H5MM_xfree(ptr noundef %43) #8
   %45 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_copy_dtype_merge_list_t_reg_free_list, ptr noundef nonnull %.0.i) #8
   %.old1.not.i = icmp eq ptr %42, null
-  br i1 %.old1.not.i, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !llvm.loop !28
+  br i1 %.old1.not.i, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i
 
 H5P__free_merge_comm_dtype_list.exit:             ; preds = %.preheader.i, %29
   store ptr null, ptr %1, align 8, !tbaa !18
@@ -1189,7 +1189,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_del(i64 %0, ptr readno
 11:                                               ; preds = %4
   %12 = load ptr, ptr %3, align 8, !tbaa !18
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !prof !41
+  br i1 %.not, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !prof !39
 
 .preheader.i:                                     ; preds = %11, %.preheader.i
   %.0.i = phi ptr [ %14, %.preheader.i ], [ %12, %11 ]
@@ -1199,7 +1199,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_del(i64 %0, ptr readno
   %16 = tail call ptr @H5MM_xfree(ptr noundef %15) #8
   %17 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_copy_dtype_merge_list_t_reg_free_list, ptr noundef nonnull %.0.i) #8
   %.old1.not.i = icmp eq ptr %14, null
-  br i1 %.old1.not.i, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !llvm.loop !28
+  br i1 %.old1.not.i, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i
 
 H5P__free_merge_comm_dtype_list.exit:             ; preds = %.preheader.i, %11, %4
   ret i32 0
@@ -1266,7 +1266,7 @@ define internal i32 @H5P__ocpy_merge_comm_dt_list_cmp(ptr noundef readonly captu
   %19 = icmp ne ptr %.013, null
   %20 = icmp ne ptr %.012, null
   %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %16, %.preheader
   %.lcssa18 = phi i1 [ %10, %.preheader ], [ %19, %16 ]
@@ -1293,7 +1293,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_close(ptr readnone cap
 10:                                               ; preds = %3
   %11 = load ptr, ptr %2, align 8, !tbaa !18
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !prof !41
+  br i1 %.not, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !prof !39
 
 .preheader.i:                                     ; preds = %10, %.preheader.i
   %.0.i = phi ptr [ %13, %.preheader.i ], [ %11, %10 ]
@@ -1303,7 +1303,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_close(ptr readnone cap
   %15 = tail call ptr @H5MM_xfree(ptr noundef %14) #8
   %16 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_copy_dtype_merge_list_t_reg_free_list, ptr noundef nonnull %.0.i) #8
   %.old1.not.i = icmp eq ptr %13, null
-  br i1 %.old1.not.i, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !llvm.loop !28
+  br i1 %.old1.not.i, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i
 
 H5P__free_merge_comm_dtype_list.exit:             ; preds = %.preheader.i, %10, %3
   ret i32 0
@@ -1353,7 +1353,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__copy_merge_comm_dt_list(ptr no
   %18 = getelementptr inbounds nuw i8, ptr %.02741, i64 8
   %.027 = load ptr, ptr %18, align 8, !tbaa !18
   %.not.not = icmp eq ptr %.027, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %17, %.preheader
   %.025.lcssa = phi ptr [ null, %.preheader ], [ %.126, %17 ]
@@ -1383,7 +1383,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5P__copy_merge_comm_dt_list(ptr no
   %33 = tail call ptr @H5MM_xfree(ptr noundef %32) #8
   %34 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5O_copy_dtype_merge_list_t_reg_free_list, ptr noundef nonnull %.0.i) #8
   %.old1.not.i = icmp eq ptr %31, null
-  br i1 %.old1.not.i, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i, !llvm.loop !28
+  br i1 %.old1.not.i, label %H5P__free_merge_comm_dtype_list.exit, label %.preheader.i
 
 H5P__free_merge_comm_dtype_list.exit:             ; preds = %.preheader.i, %19
   %.not = icmp eq ptr %8, null
@@ -1451,19 +1451,17 @@ attributes #9 = { nounwind willreturn memory(read) }
 !25 = !{!"p1 omnipotent char", !20, i64 0}
 !26 = !{!24, !19, i64 8}
 !27 = !{!"branch_weights", i32 2000, i32 2002}
-!28 = distinct !{!28, !29}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!31, !20, i64 0}
-!31 = !{!"H5O_mcdt_cb_info_t", !20, i64 0, !20, i64 8}
-!32 = !{!31, !20, i64 8}
-!33 = !{!20, !20, i64 0}
-!34 = !{!25, !25, i64 0}
-!35 = distinct !{!35, !36, !29, !37}
-!36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !36, !29, !39}
-!39 = !{!"llvm.loop.unswitch.partial.disable"}
-!40 = distinct !{!40, !36, !29}
-!41 = !{!"branch_weights", i32 2002, i32 2000}
-!42 = distinct !{!42, !36, !29}
-!43 = distinct !{!43, !36, !29}
+!28 = !{!29, !20, i64 0}
+!29 = !{!"H5O_mcdt_cb_info_t", !20, i64 0, !20, i64 8}
+!30 = !{!29, !20, i64 8}
+!31 = !{!20, !20, i64 0}
+!32 = !{!25, !25, i64 0}
+!33 = distinct !{!33, !34, !35}
+!34 = !{!"llvm.loop.mustprogress"}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !34, !37}
+!37 = !{!"llvm.loop.unswitch.partial.disable"}
+!38 = distinct !{!38, !34}
+!39 = !{!"branch_weights", i32 2002, i32 2000}
+!40 = distinct !{!40, !34}
+!41 = distinct !{!41, !34}

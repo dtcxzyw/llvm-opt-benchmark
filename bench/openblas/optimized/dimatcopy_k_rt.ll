@@ -41,7 +41,7 @@ define noundef i32 @dimatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %23 = getelementptr inbounds double, ptr %.03539, i64 %4
   %exitcond41.not = icmp eq i64 %13, %0
-  br i1 %exitcond41.not, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %exitcond41.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %._crit_edge, %5
   ret i32 0
@@ -58,7 +58,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

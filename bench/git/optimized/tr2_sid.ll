@@ -80,7 +80,7 @@ define internal fastcc void @tr2_sid_compute() unnamed_addr #0 {
 19:                                               ; preds = %11
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
   tail call void @strbuf_add(ptr noundef nonnull @tr2sid_buf, ptr noundef nonnull %8, i64 noundef %20) #6
-  %21 = load i64, ptr @tr2sid_buf, align 8, !tbaa !18
+  %21 = load i64, ptr @tr2sid_buf, align 8, !tbaa !17
   %.not.i.i = icmp eq i64 %21, 0
   %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tr2sid_buf, i64 8), align 8
   %.neg.i = add i64 %22, 1
@@ -120,7 +120,7 @@ strbuf_addch.exit:                                ; preds = %19, %23
   call void @tr2_tbuf_utc_datetime(ptr noundef nonnull %1) #6
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   call void @strbuf_add(ptr noundef nonnull @tr2sid_buf, ptr noundef nonnull %1, i64 noundef %34) #6
-  %35 = load i64, ptr @tr2sid_buf, align 8, !tbaa !18
+  %35 = load i64, ptr @tr2sid_buf, align 8, !tbaa !17
   %.not.i.i.i = icmp eq i64 %35, 0
   %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tr2sid_buf, i64 8), align 8
   %.neg.i.i = add i64 %36, 1
@@ -154,15 +154,15 @@ strbuf_addch.exit.i:                              ; preds = %37, %32
   br label %tr2_sid_append_my_sid_component.exit
 
 46:                                               ; preds = %strbuf_addch.exit.i
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 152), align 8, !tbaa !19
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 152), align 8, !tbaa !18
   call void %47(ptr noundef nonnull %2) #6
-  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 168), align 8, !tbaa !23
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 168), align 8, !tbaa !22
   %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #7
   call void %48(ptr noundef nonnull %2, ptr noundef nonnull %5, i64 noundef %49) #6
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 176), align 16, !tbaa !24
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 176), align 16, !tbaa !23
   call void %50(ptr noundef nonnull %3, ptr noundef nonnull %2) #6
   %51 = call ptr @hash_to_hex_algop_r(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @hash_algos, i64 112)) #6
-  %52 = load i64, ptr @tr2sid_buf, align 8, !tbaa !18
+  %52 = load i64, ptr @tr2sid_buf, align 8, !tbaa !17
   %.not.i.i4.i = icmp eq i64 %52, 0
   %53 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tr2sid_buf, i64 8), align 8
   %.neg.i5.i = add i64 %53, 1
@@ -284,13 +284,12 @@ attributes #7 = { nounwind willreturn memory(read) }
 !12 = !{!7, !7, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"int", !7, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = !{!5, !6, i64 0}
-!19 = !{!20, !10, i64 40}
-!20 = !{!"git_hash_algo", !9, i64 0, !14, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !21, i64 80, !21, i64 88, !21, i64 96, !22, i64 104}
-!21 = !{!"p1 _ZTS9object_id", !10, i64 0}
-!22 = !{!"p1 _ZTS13git_hash_algo", !10, i64 0}
-!23 = !{!20, !10, i64 56}
-!24 = !{!20, !10, i64 64}
+!17 = !{!5, !6, i64 0}
+!18 = !{!19, !10, i64 40}
+!19 = !{!"git_hash_algo", !9, i64 0, !14, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !20, i64 80, !20, i64 88, !20, i64 96, !21, i64 104}
+!20 = !{!"p1 _ZTS9object_id", !10, i64 0}
+!21 = !{!"p1 _ZTS13git_hash_algo", !10, i64 0}
+!22 = !{!19, !10, i64 56}
+!23 = !{!19, !10, i64 64}

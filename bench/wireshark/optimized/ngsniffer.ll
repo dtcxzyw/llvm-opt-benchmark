@@ -556,7 +556,7 @@ process_rec_header2_v145.exit.thread:             ; preds = %process_rec_header2
 108:                                              ; preds = %103, %process_rec_header2_v145.exit.thread, %97
   %109 = load ptr, ptr %0, align 8
   %110 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %109, ptr noundef nonnull %6, i32 noundef 2, ptr noundef %1, ptr noundef %2)
-  br i1 %110, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
+  br i1 %110, label %.lr.ph.split, label %._crit_edge
 
 process_rec_header2_v145.exit:                    ; preds = %28, %25, %49, %58, %97, %103, %70, %66, %93, %87, %75, %.split.us, %._crit_edge
   %.0 = phi i32 [ %., %._crit_edge ], [ %.72, %.split.us ], [ -1, %75 ], [ -1, %87 ], [ -1, %93 ], [ -1, %66 ], [ -1, %70 ], [ -1, %103 ], [ -1, %97 ], [ -1, %58 ], [ -1, %49 ], [ -1, %25 ], [ -1, %28 ]
@@ -686,7 +686,7 @@ read_rec_header.exit.thread:                      ; preds = %._crit_edge, %19, %
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
   %42 = call fastcc zeroext i1 @ng_read_bytes_or_eof(ptr noundef readonly %0, ptr noundef nonnull %6, i32 noundef 2, i1 noundef zeroext false, ptr noundef %2, ptr noundef %3)
-  br i1 %42, label %17, label %._crit_edge, !llvm.loop !10
+  br i1 %42, label %17, label %._crit_edge
 
 .loopexit:                                        ; preds = %37, %read_rec_header.exit.thread, %32, %28, %24, %35, %30
   %.0 = phi i1 [ true, %30 ], [ false, %35 ], [ false, %24 ], [ false, %28 ], [ false, %32 ], [ false, %read_rec_header.exit.thread ], [ false, %37 ]
@@ -704,7 +704,7 @@ define internal noundef zeroext i1 @ngsniffer_seek_read(ptr noundef readonly cap
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i8, ptr %11, align 8, !range !11, !noundef !12
+  %12 = load i8, ptr %11, align 8, !range !8, !noundef !9
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %ng_file_seek_rand.exit
 
@@ -753,7 +753,7 @@ define internal noundef zeroext i1 @ngsniffer_seek_read(ptr noundef readonly cap
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = icmp sgt i64 %42, %1
-  br i1 %43, label %.loopexit.loopexit.i, label %34, !llvm.loop !13
+  br i1 %43, label %.loopexit.loopexit.i, label %34, !llvm.loop !10
 
 44:                                               ; preds = %34
   store i32 -18, ptr %3, align 4
@@ -794,7 +794,7 @@ define internal noundef zeroext i1 @ngsniffer_seek_read(ptr noundef readonly cap
   %63 = getelementptr inbounds nuw i8, ptr %.483.i, i64 16
   %.4.i = load ptr, ptr %63, align 8
   %cond75.i = icmp eq ptr %.4.i, null
-  br i1 %cond75.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %cond75.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %62, %53
   store i32 -18, ptr %3, align 4
@@ -1803,7 +1803,7 @@ ng_read_bytes.exit130:                            ; preds = %325
 369:                                              ; preds = %.thread23.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %334
-  br i1 %exitcond.not.i.i, label %fix_pseudo_header.exit, label %.thread23.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %fix_pseudo_header.exit, label %.thread23.i.i, !llvm.loop !13
 
 .critedge.i.i:                                    ; preds = %.thread23.i.i
   %370 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -1915,7 +1915,7 @@ define internal fastcc zeroext i1 @ng_skip_bytes_seq(ptr noundef readonly captur
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i8, ptr %7, align 8, !range !11, !noundef !12
+  %8 = load i8, ptr %7, align 8, !range !8, !noundef !9
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %17, label %10
 
@@ -1936,7 +1936,7 @@ define internal fastcc zeroext i1 @ng_skip_bytes_seq(ptr noundef readonly captur
 19:                                               ; preds = %ng_read_bytes.exit
   %20 = sub i32 %.02122, %..021
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %27, label %ng_read_bytes.exit, !llvm.loop !17
+  br i1 %.not, label %27, label %ng_read_bytes.exit, !llvm.loop !14
 
 ng_read_bytes.exit:                               ; preds = %17, %19
   %.02122 = phi i32 [ %1, %17 ], [ %20, %19 ]
@@ -1976,7 +1976,7 @@ define internal fastcc noundef zeroext i1 @ng_read_bytes_or_eof(ptr noundef read
   %.0102.in = select i1 %3, ptr %9, ptr %0
   %.0102 = load ptr, ptr %.0102.in, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i8, ptr %10, align 8, !range !11, !noundef !12
+  %11 = load i8, ptr %10, align 8, !range !8, !noundef !9
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %23, label %13
 
@@ -2106,7 +2106,7 @@ define internal fastcc noundef zeroext i1 @ng_read_bytes_or_eof(ptr noundef read
   %80 = add i64 %79, %74
   store i64 %80, ptr %53, align 8
   %.not110.us = icmp eq i32 %75, 0
-  br i1 %.not110.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %.not110.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %100
   %81 = phi i32 [ %109, %100 ], [ %.pre126, %.lr.ph ]
@@ -2166,7 +2166,7 @@ define internal fastcc noundef zeroext i1 @ng_read_bytes_or_eof(ptr noundef read
   %111 = add i64 %110, %105
   store i64 %111, ptr %53, align 8
   %.not110 = icmp eq i32 %106, 0
-  br i1 %.not110, label %.loopexit, label %.lr.ph.split, !llvm.loop !19
+  br i1 %.not110, label %.loopexit, label %.lr.ph.split, !llvm.loop !16
 
 .loopexit:                                        ; preds = %94, %100, %63, %69, %46, %44, %13, %.loopexit115, %15
   %.0 = phi i1 [ false, %.loopexit115 ], [ true, %15 ], [ false, %13 ], [ false, %44 ], [ true, %46 ], [ false, %63 ], [ true, %69 ], [ false, %94 ], [ true, %100 ]
@@ -2479,7 +2479,7 @@ define internal fastcc noundef zeroext i1 @read_blob(ptr noundef %0, ptr noundef
   %.1129.i = phi ptr [ %125, %145 ], [ %57, %63 ], [ %77, %83 ], [ %103, %118 ], [ %42, %45 ]
   %.2.i = phi ptr [ %123, %145 ], [ %64, %63 ], [ %84, %83 ], [ %99, %118 ], [ %46, %45 ]
   %147 = icmp ult ptr %.2.i, %28
-  br i1 %147, label %.lr.ph.i, label %SnifferDecompress.exit, !llvm.loop !20
+  br i1 %147, label %.lr.ph.i, label %SnifferDecompress.exit, !llvm.loop !17
 
 SnifferDecompress.exit:                           ; preds = %146, %.preheader.i
   %.0128.lcssa.i = phi ptr [ %26, %.preheader.i ], [ %.1129.i, %146 ]
@@ -2631,7 +2631,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   br label %154
 
 25:                                               ; preds = %21
-  %26 = load i8, ptr %12, align 8, !range !11, !noundef !12
+  %26 = load i8, ptr %12, align 8, !range !8, !noundef !9
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %75
 
@@ -2782,7 +2782,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   br label %142
 
 123:                                              ; preds = %89, %89
-  %124 = load i8, ptr %10, align 8, !range !11, !noundef !12
+  %124 = load i8, ptr %10, align 8, !range !8, !noundef !9
   %125 = xor i8 %124, -1
   %126 = shl i8 %125, 7
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2790,7 +2790,7 @@ define internal zeroext i1 @ngsniffer_dump(ptr noundef %0, ptr noundef %1, ptr n
   br label %142
 
 128:                                              ; preds = %89
-  %129 = load i8, ptr %10, align 8, !range !11, !noundef !12
+  %129 = load i8, ptr %10, align 8, !range !8, !noundef !9
   %130 = shl nuw i8 %129, 7
   %131 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 %130, ptr %131, align 2
@@ -2903,18 +2903,15 @@ attributes #14 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !14, !7}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14, !7}
-!16 = distinct !{!16, !14, !7}
-!17 = distinct !{!17, !14, !7}
-!18 = distinct !{!18, !14, !7, !8}
-!19 = distinct !{!19, !14, !7}
-!20 = distinct !{!20, !14, !7}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11, !7}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}

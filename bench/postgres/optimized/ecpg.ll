@@ -305,7 +305,7 @@ add_include_path.exit:                            ; preds = %65, %68
 88:                                               ; preds = %.preheader.i142
   %89 = load i8, ptr %.0.i143, align 1
   %90 = icmp eq i8 %89, 32
-  br i1 %90, label %.preheader.i142, label %.critedge.i, !llvm.loop !7
+  br i1 %90, label %.preheader.i142, label %.critedge.i, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %88, %.preheader.i142
   store i8 0, ptr %.pn.i, align 1
@@ -366,7 +366,7 @@ add_include_path.exit147.backedge:                ; preds = %109, %106, %add_inc
   %.0112.be = phi i8 [ %.0112, %46 ], [ %.0112, %add_include_path.exit ], [ %.0112, %74 ], [ %.0112, %79 ], [ %.0112, %add_preprocessor_define.exit ], [ 1, %98 ], [ %.0112, %99 ], [ %.0112, %122 ], [ %.0112, %131 ], [ %.0112, %136 ], [ %.0112, %141 ], [ %.0112, %146 ], [ %.0112, %147 ], [ %.0112, %120 ], [ %.0112, %add_include_path.exit147 ], [ %.0112, %106 ], [ %.0112, %109 ]
   %.0104.be = phi i1 [ %.0104, %46 ], [ %.0104, %add_include_path.exit ], [ %.0104, %74 ], [ %.0104, %79 ], [ %.0104, %add_preprocessor_define.exit ], [ %.0104, %98 ], [ %.0104, %99 ], [ %.0104, %122 ], [ %.0104, %131 ], [ %.0104, %136 ], [ %.0104, %141 ], [ %.0104, %146 ], [ %.0104, %147 ], [ %.0104, %120 ], [ true, %add_include_path.exit147 ], [ %.0104, %106 ], [ %.0104, %109 ]
   %.0100.be = phi i32 [ %.0100, %46 ], [ %.0100, %add_include_path.exit ], [ %.0100, %74 ], [ %.0100, %79 ], [ %.0100, %add_preprocessor_define.exit ], [ %.0100, %98 ], [ %.0100, %99 ], [ %.0100, %122 ], [ %.0100, %131 ], [ %.0100, %136 ], [ %.0100, %141 ], [ %.0100, %146 ], [ %.0100, %147 ], [ 1, %120 ], [ %.0100, %add_include_path.exit147 ], [ %.0100, %106 ], [ %.0100, %109 ]
-  br label %add_include_path.exit147, !llvm.loop !8
+  br label %add_include_path.exit147, !llvm.loop !7
 
 sub_0172:                                         ; preds = %add_include_path.exit147
   %111 = load ptr, ptr @optarg, align 8
@@ -578,7 +578,7 @@ add_include_path.exit163:                         ; preds = %184, %187
   %198 = getelementptr inbounds nuw i8, ptr %.0111234, i64 8
   %.0111 = load ptr, ptr %198, align 8
   %.not138 = icmp eq ptr %.0111, null
-  br i1 %.not138, label %._crit_edge237, label %.lr.ph236, !llvm.loop !9
+  br i1 %.not138, label %._crit_edge237, label %.lr.ph236, !llvm.loop !8
 
 ._crit_edge237:                                   ; preds = %.lr.ph236, %189
   %199 = load ptr, ptr @stderr, align 8
@@ -762,7 +762,7 @@ thread-pre-split:                                 ; preds = %254, %.thread-pre-s
   %292 = load ptr, ptr %291, align 8
   call void @free(ptr noundef nonnull %.099198) #11
   %.not136 = icmp eq ptr %292, null
-  br i1 %.not136, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not136, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph207
   %293 = getelementptr inbounds nuw i8, ptr %.0109205, i64 56
@@ -776,14 +776,14 @@ thread-pre-split:                                 ; preds = %254, %.thread-pre-s
   %296 = load ptr, ptr %295, align 8
   call void @free(ptr noundef nonnull %.1200) #11
   %.not137 = icmp eq ptr %296, null
-  br i1 %.not137, label %._crit_edge203, label %.lr.ph202, !llvm.loop !11
+  br i1 %.not137, label %._crit_edge203, label %.lr.ph202, !llvm.loop !10
 
 ._crit_edge203:                                   ; preds = %.lr.ph202, %._crit_edge
   %297 = getelementptr inbounds nuw i8, ptr %.0109205, i64 72
   %298 = load ptr, ptr %297, align 8
   call void @free(ptr noundef nonnull %.0109205) #11
   %.not123 = icmp eq ptr %298, null
-  br i1 %.not123, label %._crit_edge208, label %.lr.ph207, !llvm.loop !12
+  br i1 %.not123, label %._crit_edge208, label %.lr.ph207, !llvm.loop !11
 
 ._crit_edge208:                                   ; preds = %._crit_edge203, %282
   store ptr null, ptr @cur, align 8
@@ -797,7 +797,7 @@ thread-pre-split:                                 ; preds = %254, %.thread-pre-s
   %301 = load ptr, ptr %300, align 8
   call void @free(ptr noundef nonnull %.0102210) #11
   %.not124 = icmp eq ptr %301, null
-  br i1 %.not124, label %._crit_edge213, label %.lr.ph212, !llvm.loop !13
+  br i1 %.not124, label %._crit_edge213, label %.lr.ph212, !llvm.loop !12
 
 ._crit_edge213:                                   ; preds = %.lr.ph212, %._crit_edge208
   %302 = load ptr, ptr @defines, align 8
@@ -848,7 +848,7 @@ thread-pre-split:                                 ; preds = %254, %.thread-pre-s
 320:                                              ; preds = %307, %316
   %.1107 = phi ptr [ %.0108215, %307 ], [ %.0106216, %316 ]
   %.not125 = icmp eq ptr %304, null
-  br i1 %.not125, label %._crit_edge219, label %.lr.ph218, !llvm.loop !14
+  br i1 %.not125, label %._crit_edge219, label %.lr.ph218, !llvm.loop !13
 
 ._crit_edge219:                                   ; preds = %320, %._crit_edge213
   %321 = load ptr, ptr @types, align 8
@@ -869,7 +869,7 @@ thread-pre-split:                                 ; preds = %254, %.thread-pre-s
   %328 = load ptr, ptr %327, align 8
   call void @free(ptr noundef nonnull %.0103221) #11
   %.not126 = icmp eq ptr %328, null
-  br i1 %.not126, label %._crit_edge224, label %.lr.ph223, !llvm.loop !15
+  br i1 %.not126, label %._crit_edge224, label %.lr.ph223, !llvm.loop !14
 
 ._crit_edge224:                                   ; preds = %.lr.ph223, %._crit_edge219
   store ptr null, ptr @types, align 8
@@ -880,7 +880,7 @@ thread-pre-split:                                 ; preds = %254, %.thread-pre-s
   store i32 0, ptr @ecpg_internal_var, align 4
   store ptr null, ptr @connection, align 8
   call void @lex_init() #11
-  %329 = load i8, ptr @regression_mode, align 1, !range !16, !noundef !17
+  %329 = load i8, ptr @regression_mode, align 1, !range !15, !noundef !16
   %330 = trunc nuw i8 %329 to i1
   %331 = load ptr, ptr @base_yyout, align 8
   br i1 %330, label %332, label %334
@@ -915,7 +915,7 @@ thread-pre-split:                                 ; preds = %254, %.thread-pre-s
   br label %348
 
 348:                                              ; preds = %345, %336
-  %349 = load i8, ptr @regression_mode, align 1, !range !16, !noundef !17
+  %349 = load i8, ptr @regression_mode, align 1, !range !15, !noundef !16
   %350 = trunc nuw i8 %349 to i1
   br i1 %350, label %351, label %354
 
@@ -934,7 +934,7 @@ thread-pre-split:                                 ; preds = %254, %.thread-pre-s
 .lr.ph229:                                        ; preds = %354, %361
   %.1110227 = phi ptr [ %.1110, %361 ], [ %.1110225, %354 ]
   %356 = getelementptr inbounds nuw i8, ptr %.1110227, i64 32
-  %357 = load i8, ptr %356, align 8, !range !16, !noundef !17
+  %357 = load i8, ptr %356, align 8, !range !15, !noundef !16
   %358 = trunc nuw i8 %357 to i1
   br i1 %358, label %361, label %359
 
@@ -947,7 +947,7 @@ thread-pre-split:                                 ; preds = %254, %.thread-pre-s
   %362 = getelementptr inbounds nuw i8, ptr %.1110227, i64 72
   %.1110 = load ptr, ptr %362, align 8
   %.not127 = icmp eq ptr %.1110, null
-  br i1 %.not127, label %._crit_edge230, label %.lr.ph229, !llvm.loop !18
+  br i1 %.not127, label %._crit_edge230, label %.lr.ph229, !llvm.loop !17
 
 ._crit_edge230:                                   ; preds = %361, %354
   %363 = load ptr, ptr @base_yyin, align 8
@@ -1019,7 +1019,7 @@ sub_0180:                                         ; preds = %373
   call void @free(ptr noundef %389) #11
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %390, label %sub_0176, !llvm.loop !19
+  br i1 %exitcond.not, label %390, label %sub_0176, !llvm.loop !18
 
 390:                                              ; preds = %388
   %391 = load i32, ptr @ret_value, align 4
@@ -1155,19 +1155,18 @@ attributes #13 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = !{i8 0, i8 2}
-!17 = !{}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}

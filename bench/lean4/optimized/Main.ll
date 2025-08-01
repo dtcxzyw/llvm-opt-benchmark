@@ -180360,7 +180360,7 @@ lean_inc.exit:                                    ; preds = %34, %33, %31, %lean
 lean_dec.exit:                                    ; preds = %41, %40, %38, %lean_inc.exit
   %42 = tail call ptr @l_Lake_stringToLegalOrSimpleName(ptr noundef %16) #5
   %43 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameSet_insert___spec__1(ptr noundef %.0, ptr noundef %42, ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
-  br label %3, !llvm.loop !19
+  br label %3
 }
 
 declare ptr @l_Lean_RBNode_insert___at_Lean_NameSet_insert___spec__1(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -273239,7 +273239,7 @@ define ptr @l_Array_filterMapM___at___private_Lake_CLI_Main_0__Lake_lake_evalLea
   %7 = ptrtoint ptr %3 to i64
   %8 = and i64 %6, %7
   %or.cond.not = icmp eq i64 %8, 0
-  br i1 %or.cond.not, label %lean_nat_lt.exit, label %9, !prof !21
+  br i1 %or.cond.not, label %lean_nat_lt.exit, label %9, !prof !19
 
 9:                                                ; preds = %4
   %10 = icmp ult ptr %2, %3
@@ -308077,7 +308077,7 @@ define noalias ptr @l_Array_filterMapM___at_Lake_lake_reservoirConfig___spec__2(
   %9 = ptrtoint ptr %3 to i64
   %10 = and i64 %8, %9
   %or.cond.not = icmp eq i64 %10, 0
-  br i1 %or.cond.not, label %lean_nat_lt.exit, label %11, !prof !21
+  br i1 %or.cond.not, label %lean_nat_lt.exit, label %11, !prof !19
 
 11:                                               ; preds = %6
   %12 = icmp ult ptr %2, %3
@@ -308709,7 +308709,7 @@ lean_dec.exit55:                                  ; preds = %153, %152, %150, %l
 
 lean_dec.exit58.backedge:                         ; preds = %156, %160, %162, %163, %79, %83, %85, %86, %lean_alloc_ctor.exit, %87
   %.051.be = phi ptr [ %.0, %87 ], [ %165, %lean_alloc_ctor.exit ], [ %.051, %86 ], [ %.051, %85 ], [ %.051, %83 ], [ %.051, %79 ], [ %.051, %163 ], [ %.051, %162 ], [ %.051, %160 ], [ %.051, %156 ]
-  br label %lean_dec.exit58, !llvm.loop !22
+  br label %lean_dec.exit58
 
 157:                                              ; preds = %156
   %158 = load i32, ptr %29, align 4, !tbaa !9
@@ -309946,7 +309946,7 @@ define noalias ptr @l_Array_filterMapM___at_Lake_lake_reservoirConfig___spec__6(
   %9 = ptrtoint ptr %3 to i64
   %10 = and i64 %8, %9
   %or.cond.not = icmp eq i64 %10, 0
-  br i1 %or.cond.not, label %lean_nat_lt.exit, label %11, !prof !21
+  br i1 %or.cond.not, label %lean_nat_lt.exit, label %11, !prof !19
 
 11:                                               ; preds = %6
   %12 = icmp ult ptr %2, %3
@@ -310578,7 +310578,7 @@ lean_dec.exit55:                                  ; preds = %153, %152, %150, %l
 
 lean_dec.exit58.backedge:                         ; preds = %156, %160, %162, %163, %79, %83, %85, %86, %lean_alloc_ctor.exit, %87
   %.051.be = phi ptr [ %.0, %87 ], [ %165, %lean_alloc_ctor.exit ], [ %.051, %86 ], [ %.051, %85 ], [ %.051, %83 ], [ %.051, %79 ], [ %.051, %163 ], [ %.051, %162 ], [ %.051, %160 ], [ %.051, %156 ]
-  br label %lean_dec.exit58, !llvm.loop !23
+  br label %lean_dec.exit58
 
 157:                                              ; preds = %156
   %158 = load i32, ptr %29, align 4, !tbaa !9
@@ -361259,8 +361259,4 @@ attributes #6 = { noreturn nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !6, i64 0}
 !18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!"branch_weights", i32 4001, i32 4000000}
-!22 = distinct !{!22, !20}
-!23 = distinct !{!23, !20}
+!19 = !{!"branch_weights", i32 4001, i32 4000000}

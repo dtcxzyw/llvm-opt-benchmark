@@ -1709,7 +1709,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__obj_remove_update_linfo(ptr no
 64:                                               ; preds = %.lr.ph, %59
   %.04466 = phi i64 [ 0, %.lr.ph ], [ %60, %59 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !45
-  %66 = load ptr, ptr %54, align 8, !tbaa !78
+  %66 = load ptr, ptr %54, align 8, !tbaa !77
   %67 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %66, i64 %.04466
   %68 = call i64 @H5O_msg_size_oh(ptr noundef %65, ptr noundef nonnull %51, i32 noundef 6, ptr noundef %67, i64 noundef 0) #5
   %69 = icmp ugt i64 %68, 65535
@@ -1719,12 +1719,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__obj_remove_update_linfo(ptr no
   %70 = add nuw i64 %.14567, 1
   %71 = load i64, ptr %12, align 8, !tbaa !43
   %72 = icmp ult i64 %70, %71
-  br i1 %72, label %73, label %.critedge._crit_edge, !llvm.loop !81
+  br i1 %72, label %73, label %.critedge._crit_edge, !llvm.loop !80
 
 73:                                               ; preds = %.lr.ph68, %.critedge
   %.14567 = phi i64 [ 0, %.lr.ph68 ], [ %70, %.critedge ]
   %74 = load ptr, ptr %0, align 8, !tbaa !45
-  %75 = load ptr, ptr %63, align 8, !tbaa !78
+  %75 = load ptr, ptr %63, align 8, !tbaa !77
   %76 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %75, i64 %.14567
   %77 = call i32 @H5O_msg_append_oh(ptr noundef %74, ptr noundef nonnull %51, i32 noundef 6, i32 noundef 0, i32 noundef 1, ptr noundef %76) #5
   %78 = icmp slt i32 %77, 0
@@ -2275,10 +2275,9 @@ attributes #5 = { nounwind }
 !72 = !{!70, !12, i64 16}
 !73 = !{!70, !13, i64 0}
 !74 = !{!33, !34, i64 8}
-!75 = distinct !{!75, !76, !77}
+!75 = distinct !{!75, !76}
 !76 = !{!"llvm.loop.mustprogress"}
-!77 = !{!"llvm.loop.estimated_trip_count"}
-!78 = !{!79, !80, i64 8}
-!79 = !{!"", !12, i64 0, !80, i64 8}
-!80 = !{!"p1 _ZTS10H5O_link_t", !21, i64 0}
-!81 = distinct !{!81, !76, !77}
+!77 = !{!78, !79, i64 8}
+!78 = !{!"", !12, i64 0, !79, i64 8}
+!79 = !{!"p1 _ZTS10H5O_link_t", !21, i64 0}
+!80 = distinct !{!80, !76}

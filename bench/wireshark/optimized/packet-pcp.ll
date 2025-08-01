@@ -1022,7 +1022,7 @@ add_candidate_name_for_pmid_resolution.exit.i:    ; preds = %154, %is_unvisited_
   %.2.i = phi i32 [ %167, %163 ], [ %161, %158 ]
   %169 = add nuw i32 %.084.i, 1
   %exitcond.not.i126 = icmp eq i32 %169, %118
-  br i1 %exitcond.not.i126, label %._crit_edge.i, label %120, !llvm.loop !9
+  br i1 %exitcond.not.i126, label %._crit_edge.i, label %120, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %168, %104
   %.val74.i = load i32, ptr %30, align 8
@@ -1154,7 +1154,7 @@ get_pcp_conversation_info.exit.i.i129:            ; preds = %212
   %238 = add i32 %.014.i.i.i, 4
   %239 = add nuw i32 %.01213.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %239, %209
-  br i1 %exitcond.not.i.i.i, label %create_pmid_to_name_map_from_candidates.exit.loopexit.i.i, label %224, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %create_pmid_to_name_map_from_candidates.exit.loopexit.i.i, label %224, !llvm.loop !9
 
 create_pmid_to_name_map_from_candidates.exit.loopexit.i.i: ; preds = %237
   %.pre.i.i = load i32, ptr %220, align 8
@@ -1178,7 +1178,7 @@ populate_pmids_to_names.exit.i:                   ; preds = %create_pmid_to_name
   %243 = tail call fastcc i32 @dissect_pcp_partial_pmid(ptr noundef %0, ptr noundef %1, ptr noundef %204, i32 noundef %.02627.i)
   %244 = add nuw i32 %.028.i, 1
   %exitcond.not.i132 = icmp eq i32 %244, %209
-  br i1 %exitcond.not.i132, label %dissect_pcp_message_creds.exit, label %.lr.ph.i131, !llvm.loop !11
+  br i1 %exitcond.not.i132, label %dissect_pcp_message_creds.exit, label %.lr.ph.i131, !llvm.loop !10
 
 245:                                              ; preds = %24
   %.val115 = load ptr, ptr %7, align 8
@@ -1221,7 +1221,7 @@ populate_pmids_to_names.exit.i:                   ; preds = %create_pmid_to_name
   %275 = add i32 %.0461.i, 16
   %276 = add nuw i32 %.02.i, 1
   %exitcond.not.i137 = icmp eq i32 %276, %257
-  br i1 %exitcond.not.i137, label %dissect_pcp_message_creds.exit, label %.lr.ph.i136, !llvm.loop !12
+  br i1 %exitcond.not.i137, label %dissect_pcp_message_creds.exit, label %.lr.ph.i136, !llvm.loop !11
 
 277:                                              ; preds = %24
   %278 = load ptr, ptr %7, align 8
@@ -1253,7 +1253,7 @@ populate_pmids_to_names.exit.i:                   ; preds = %create_pmid_to_name
   %297 = tail call fastcc i32 @dissect_pcp_partial_pmid(ptr noundef %0, ptr noundef %1, ptr noundef %283, i32 noundef %.02627.i142)
   %298 = add nuw i32 %.028.i141, 1
   %exitcond.not.i143 = icmp eq i32 %298, %296
-  br i1 %exitcond.not.i143, label %dissect_pcp_message_creds.exit, label %.lr.ph.i140, !llvm.loop !13
+  br i1 %exitcond.not.i143, label %dissect_pcp_message_creds.exit, label %.lr.ph.i140, !llvm.loop !12
 
 299:                                              ; preds = %24
   %300 = load ptr, ptr %7, align 8
@@ -1317,7 +1317,7 @@ populate_pmids_to_names.exit.i:                   ; preds = %create_pmid_to_name
   %340 = add nuw i32 %.0123.us.i, 1
   %.2.us.i = add i32 %.2124.us.i, 8
   %exitcond130.not.i = icmp eq i32 %340, %324
-  br i1 %exitcond130.not.i, label %.loopexit.i, label %.split.us.i, !llvm.loop !14
+  br i1 %exitcond130.not.i, label %.loopexit.i, label %.split.us.i, !llvm.loop !13
 
 .split.i:                                         ; preds = %326, %398
   %.2124.i = phi i32 [ %.2.i148, %398 ], [ %.2121.i, %326 ]
@@ -1420,7 +1420,7 @@ populate_pmids_to_names.exit.i:                   ; preds = %create_pmid_to_name
   %399 = add nuw i32 %.0123.i, 1
   %.2.i148 = add i32 %.2124.i, 8
   %exitcond.not.i149 = icmp eq i32 %399, %324
-  br i1 %exitcond.not.i149, label %.loopexit.i, label %.split.i, !llvm.loop !16
+  br i1 %exitcond.not.i149, label %.loopexit.i, label %.split.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %398, %.split.us.i, %.lr.ph.i146
   %.1.i150 = phi i32 [ %325, %.lr.ph.i146 ], [ %.2.us.i, %.split.us.i ], [ %.2.i148, %398 ]
@@ -1428,7 +1428,7 @@ populate_pmids_to_names.exit.i:                   ; preds = %create_pmid_to_name
   tail call void @proto_item_set_len(ptr noundef %320, i32 noundef %400)
   %401 = add nuw i32 %.0118126.i, 1
   %exitcond131.not.i = icmp eq i32 %401, %316
-  br i1 %exitcond131.not.i, label %dissect_pcp_message_creds.exit, label %.lr.ph.i146, !llvm.loop !17
+  br i1 %exitcond131.not.i, label %dissect_pcp_message_creds.exit, label %.lr.ph.i146, !llvm.loop !16
 
 402:                                              ; preds = %24
   %403 = load ptr, ptr %7, align 8
@@ -1570,7 +1570,7 @@ populate_pmids_to_names.exit.i:                   ; preds = %create_pmid_to_name
   %.2.i156 = phi i32 [ %508, %504 ], [ %502, %499 ], [ %498, %.lr.ph.i154 ]
   %509 = add nuw i32 %.0493.i, 1
   %exitcond.not.i157 = icmp eq i32 %509, %486
-  br i1 %exitcond.not.i157, label %dissect_pcp_message_creds.exit, label %.lr.ph.i154, !llvm.loop !18
+  br i1 %exitcond.not.i157, label %dissect_pcp_message_creds.exit, label %.lr.ph.i154, !llvm.loop !17
 
 510:                                              ; preds = %24
   %511 = load ptr, ptr %7, align 8
@@ -1754,7 +1754,7 @@ dissect_pcp_message_text_req.exit:                ; preds = %519, %521, %523
 
 is_using_good_labels.exit.i.i.i:                  ; preds = %629
   %633 = getelementptr inbounds nuw i8, ptr %631, i64 24
-  %634 = load i8, ptr %633, align 8, !range !19, !noundef !20
+  %634 = load i8, ptr %633, align 8, !range !18, !noundef !19
   %635 = trunc nuw i8 %634 to i1
   br i1 %635, label %636, label %639
 
@@ -1806,7 +1806,7 @@ dissect_pcp_partial_label.exit.i.i:               ; preds = %650, %645, %636
   call void @proto_item_set_end(ptr noundef %608, ptr noundef %0, i32 noundef %655)
   %668 = add nuw nsw i32 %.042.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %668, %591
-  br i1 %exitcond.not.i.i, label %dissect_pcp_partial_labelset.exit.i, label %.lr.ph.i.i, !llvm.loop !21
+  br i1 %exitcond.not.i.i, label %dissect_pcp_partial_labelset.exit.i, label %.lr.ph.i.i, !llvm.loop !20
 
 dissect_pcp_partial_labelset.exit.i:              ; preds = %dissect_pcp_partial_label.exit.i.i, %598
   %.038.lcssa.i.i = phi i32 [ %605, %598 ], [ %655, %dissect_pcp_partial_label.exit.i.i ]
@@ -1814,7 +1814,7 @@ dissect_pcp_partial_labelset.exit.i:              ; preds = %dissect_pcp_partial
   %669 = add nuw nsw i32 %.031.i, 1
   %670 = load i32, ptr %5, align 4
   %671 = icmp slt i32 %669, %670
-  br i1 %671, label %583, label %dissect_pcp_message_label.exit, !llvm.loop !22
+  br i1 %671, label %583, label %dissect_pcp_message_label.exit, !llvm.loop !21
 
 dissect_pcp_message_label.exit:                   ; preds = %dissect_pcp_partial_labelset.exit.i, %565
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
@@ -1957,7 +1957,7 @@ define internal fastcc noundef i32 @dissect_pcp_partial_features(ptr noundef %0,
   %17 = getelementptr i8, ptr %.014.i, i64 16
   %18 = load i32, ptr %17, align 8
   %.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i, label %19, label %10, !llvm.loop !23
+  br i1 %.not.i, label %19, label %10, !llvm.loop !22
 
 19:                                               ; preds = %16
   %20 = tail call i64 @wmem_strbuf_get_len(ptr noundef %8)
@@ -2182,21 +2182,20 @@ attributes #9 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = !{i8 0, i8 2}
-!20 = !{}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = !{i8 0, i8 2}
+!19 = !{}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}

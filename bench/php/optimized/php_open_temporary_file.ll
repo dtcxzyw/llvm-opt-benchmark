@@ -272,7 +272,7 @@ define internal fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %0, p
   store i64 %40, ptr %5, align 8, !tbaa !26
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %42 = icmp ult ptr %41, %30
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %42, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %.057.lcssa = phi ptr [ %29, %24 ], [ %35, %.lr.ph ]
@@ -305,13 +305,13 @@ zend_string_alloc.exit:                           ; preds = %53
   %58 = and i64 %57, -8
   %59 = add i64 %58, 32
   %60 = call noalias ptr @_emalloc(i64 noundef %59) #11
-  store i32 1, ptr %60, align 4, !tbaa !29
+  store i32 1, ptr %60, align 4, !tbaa !27
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 22, ptr %61, align 4, !tbaa !21
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i64 0, ptr %62, align 8, !tbaa !30
+  store i64 0, ptr %62, align 8, !tbaa !28
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store i64 %57, ptr %63, align 8, !tbaa !32
+  store i64 %57, ptr %63, align 8, !tbaa !30
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %64, ptr nonnull align 16 %4, i64 %57, i1 false)
   %65 = getelementptr inbounds nuw [1 x i8], ptr %64, i64 0, i64 %57
@@ -516,9 +516,7 @@ attributes #11 = { nounwind allocsize(0) }
 !24 = !{!"_cwd_state", !10, i64 0, !6, i64 8}
 !25 = !{!24, !6, i64 8}
 !26 = !{!6, !6, i64 0}
-!27 = distinct !{!27, !28}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = !{!14, !15, i64 0}
-!30 = !{!31, !6, i64 8}
-!31 = !{!"_zend_string", !14, i64 0, !6, i64 8, !6, i64 16, !7, i64 24}
-!32 = !{!31, !6, i64 16}
+!27 = !{!14, !15, i64 0}
+!28 = !{!29, !6, i64 8}
+!29 = !{!"_zend_string", !14, i64 0, !6, i64 8, !6, i64 16, !7, i64 24}
+!30 = !{!29, !6, i64 16}

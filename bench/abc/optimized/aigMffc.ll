@@ -678,7 +678,7 @@ define i32 @Aig_NodeMffcLabelCut(ptr noundef %0, ptr noundef captures(none) %1, 
   %.val18 = load i32, ptr %4, align 4, !tbaa !27
   %31 = sext i32 %.val18 to i64
   %32 = icmp slt i64 %indvars.iv.next28, %31
-  br i1 %32, label %22, label %.critedge2, !llvm.loop !38
+  br i1 %32, label %22, label %.critedge2, !llvm.loop !37
 
 .critedge2:                                       ; preds = %22, %.critedge
   ret i32 %18
@@ -710,7 +710,7 @@ define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1
   %16 = tail call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 range(i32 0, 16777216) %.03446, i32 range(i32 0, 16777216) %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !39
+  br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !38
 
 .critedge:                                        ; preds = %8
   %17 = icmp eq i32 %16, 0
@@ -758,7 +758,7 @@ define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %35 = sext i32 %.val to i64
   %36 = icmp slt i64 %indvars.iv.next55, %35
-  br i1 %36, label %22, label %.critedge2, !llvm.loop !40
+  br i1 %36, label %22, label %.critedge2, !llvm.loop !39
 
 .critedge2:                                       ; preds = %34, %18
   %.037.lcssa = phi ptr [ null, %18 ], [ %.138, %34 ]
@@ -837,9 +837,8 @@ attributes #10 = { nounwind allocsize(0) }
 !32 = !{!15, !22, i64 464}
 !33 = !{!34, !19, i64 8}
 !34 = !{!"Vec_Int_t_", !11, i64 0, !11, i64 4, !19, i64 8}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !36, !37}
-!39 = distinct !{!39, !36, !37}
-!40 = distinct !{!40, !36, !37}
+!37 = distinct !{!37, !36}
+!38 = distinct !{!38, !36}
+!39 = distinct !{!39, !36}

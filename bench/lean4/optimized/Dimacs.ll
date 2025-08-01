@@ -1524,7 +1524,7 @@ lean_dec.exit225:                                 ; preds = %lean_dec.exit209, %
   %.sink = phi ptr [ %73, %82 ], [ %73, %81 ], [ %73, %79 ], [ %73, %lean_dec.exit226 ], [ %108, %117 ], [ %108, %116 ], [ %108, %114 ], [ %108, %lean_dec.exit224 ], [ %167, %176 ], [ %167, %175 ], [ %167, %173 ], [ %167, %lean_dec.exit221 ], [ %196, %205 ], [ %196, %204 ], [ %196, %202 ], [ %196, %lean_dec.exit219 ], [ %283, %292 ], [ %283, %291 ], [ %283, %289 ], [ %283, %lean_dec.exit216 ], [ %318, %327 ], [ %318, %326 ], [ %318, %324 ], [ %318, %lean_dec.exit214 ], [ %380, %389 ], [ %380, %388 ], [ %380, %386 ], [ %380, %lean_dec.exit211 ], [ %415, %424 ], [ %415, %423 ], [ %415, %421 ], [ %415, %lean_dec.exit209 ]
   %.1184 = phi ptr [ %.0183, %82 ], [ %.0183, %81 ], [ %.0183, %79 ], [ %.0183, %lean_dec.exit226 ], [ %.0183, %117 ], [ %.0183, %116 ], [ %.0183, %114 ], [ %.0183, %lean_dec.exit224 ], [ %.0183, %176 ], [ %.0183, %175 ], [ %.0183, %173 ], [ %.0183, %lean_dec.exit221 ], [ %.0183, %205 ], [ %.0183, %204 ], [ %.0183, %202 ], [ %.0183, %lean_dec.exit219 ], [ %244, %292 ], [ %244, %291 ], [ %244, %289 ], [ %244, %lean_dec.exit216 ], [ %244, %327 ], [ %244, %326 ], [ %244, %324 ], [ %244, %lean_dec.exit214 ], [ %343, %389 ], [ %343, %388 ], [ %343, %386 ], [ %343, %lean_dec.exit211 ], [ %343, %424 ], [ %343, %423 ], [ %343, %421 ], [ %343, %lean_dec.exit209 ]
   %425 = tail call ptr @lean_string_push(ptr noundef %.sink, i32 noundef 32) #3
-  br label %4, !llvm.loop !13
+  br label %4
 }
 
 declare ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef) local_unnamed_addr #1
@@ -1925,7 +1925,7 @@ lean_dec.exit68:                                  ; preds = %lean_inc.exit, %158
   %.162 = phi ptr [ %62, %79 ], [ %62, %78 ], [ %62, %76 ], [ %62, %lean_inc.exit73 ], [ %144, %161 ], [ %144, %160 ], [ %144, %158 ], [ %144, %lean_inc.exit ]
   %162 = tail call ptr @lean_string_push(ptr noundef %.sink125, i32 noundef 48) #3
   %163 = tail call ptr @lean_string_push(ptr noundef %162, i32 noundef 10) #3
-  br label %4, !llvm.loop !15
+  br label %4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2502,6 +2502,3 @@ attributes #4 = { noreturn nounwind }
 !10 = !{!"any pointer", !7, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}

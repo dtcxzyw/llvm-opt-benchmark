@@ -212,7 +212,7 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %89, %91
   %92 = phi i32 [ %75, %89 ], [ %.pre25, %91 ]
   %93 = phi i32 [ %90, %89 ], [ %.pre, %91 ]
   %.not20 = icmp slt i32 %93, %92
-  br i1 %.not20, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %.not20, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN15FieldStreamBase4nextEv.exit, %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit
   %94 = getelementptr inbounds nuw i8, ptr %.117, i64 120
@@ -225,7 +225,7 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %89, %91
   %.1 = phi ptr [ %.0.i.i, %79 ], [ %.015, %._crit_edge ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #8
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #8
-  br i1 %.not2022, label %.loopexit, label %45, !llvm.loop !10
+  br i1 %.not2022, label %.loopexit, label %45
 
 97:                                               ; preds = %45
   store i16 0, ptr %1, align 2
@@ -315,7 +315,7 @@ define hidden noundef nonnull ptr @_ZN9EdgeUtils4rootERK4Edge(ptr noundef nonnul
   %.06 = phi ptr [ %0, %1 ], [ %.0, %2 ]
   %.0 = load ptr, ptr %.06, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %3, label %2, !llvm.loop !11
+  br i1 %.not, label %3, label %2, !llvm.loop !9
 
 3:                                                ; preds = %2
   ret ptr %.06
@@ -333,7 +333,7 @@ define hidden noundef nonnull ptr @_ZN9EdgeUtils8ancestorERK4Edgem(ptr noundef n
   %5 = icmp ne i64 %.0, %1
   %6 = select i1 %4, i1 %5, i1 false
   %7 = add i64 %.0, 1
-  br i1 %6, label %3, label %8, !llvm.loop !12
+  br i1 %6, label %3, label %8, !llvm.loop !10
 
 8:                                                ; preds = %3
   ret ptr %.09
@@ -731,7 +731,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !13
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !11
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -747,7 +747,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !14
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !12
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -1267,12 +1267,10 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

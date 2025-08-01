@@ -409,7 +409,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %112 = add nuw nsw i32 %.062.i, 1
   %113 = call i32 @PQntuples(ptr noundef %84) #11
   %114 = icmp slt i32 %112, %113
-  br i1 %114, label %.lr.ph.i, label %reindex_all_databases.exit, !llvm.loop !7
+  br i1 %114, label %.lr.ph.i, label %reindex_all_databases.exit, !llvm.loop !6
 
 reindex_all_databases.exit:                       ; preds = %111, %79
   call void @PQclear(ptr noundef %84) #11
@@ -671,7 +671,7 @@ define internal fastcc void @reindex_one_database(ptr noundef nonnull %0, i32 no
 42:                                               ; preds = %41
   %43 = add nuw nsw i32 %.089, 1
   %exitcond.not = icmp eq i32 %43, %smax
-  br i1 %exitcond.not, label %44, label %41, !llvm.loop !8
+  br i1 %exitcond.not, label %44, label %41, !llvm.loop !7
 
 44:                                               ; preds = %42, %41
   %.190 = phi i32 [ %smax, %42 ], [ %.089, %41 ]
@@ -854,7 +854,7 @@ switch.lookup:                                    ; preds = %71, %72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #11
   %105 = load ptr, ptr %.195, align 8
   %.not117 = icmp eq ptr %105, null
-  br i1 %.not117, label %106, label %50, !llvm.loop !9
+  br i1 %.not117, label %106, label %50, !llvm.loop !8
 
 106:                                              ; preds = %104
   %107 = call zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef %46) #11
@@ -940,7 +940,7 @@ define internal fastcc ptr @get_parallel_object_list(ptr noundef %0, i32 noundef
   call void @appendStringLiteralConn(ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef %0) #11
   %.045 = load ptr, ptr %.04556, align 8
   %.not49 = icmp eq ptr %.045, null
-  br i1 %.not49, label %._crit_edge59, label %.lr.ph58, !llvm.loop !10
+  br i1 %.not49, label %._crit_edge59, label %.lr.ph58, !llvm.loop !9
 
 ._crit_edge59:                                    ; preds = %11, %8
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.34) #11
@@ -967,7 +967,7 @@ define internal fastcc ptr @get_parallel_object_list(ptr noundef %0, i32 noundef
   call void @appendQualifiedRelation(ptr noundef nonnull %5, ptr noundef nonnull %16, ptr noundef %0, i1 noundef zeroext %3) #11
   %.0 = load ptr, ptr %.052, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %15, %12
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef nonnull @.str.37) #11
@@ -1021,7 +1021,7 @@ default.unreachable66:                            ; preds = %4
   call void @resetPQExpBuffer(ptr noundef nonnull %6) #11
   %37 = add nuw nsw i32 %.04660.us, 1
   %exitcond65.not = icmp eq i32 %37, %20
-  br i1 %exitcond65.not, label %._crit_edge63, label %.lr.ph62.split.us, !llvm.loop !12
+  br i1 %exitcond65.not, label %._crit_edge63, label %.lr.ph62.split.us, !llvm.loop !11
 
 .lr.ph62.split:                                   ; preds = %.lr.ph62, %.lr.ph62.split
   %.04660 = phi i32 [ %43, %.lr.ph62.split ], [ 0, %.lr.ph62 ]
@@ -1035,7 +1035,7 @@ default.unreachable66:                            ; preds = %4
   call void @resetPQExpBuffer(ptr noundef nonnull %6) #11
   %43 = add nuw nsw i32 %.04660, 1
   %exitcond.not = icmp eq i32 %43, %20
-  br i1 %exitcond.not, label %._crit_edge63, label %.lr.ph62.split, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge63, label %.lr.ph62.split, !llvm.loop !13
 
 ._crit_edge63:                                    ; preds = %.lr.ph62.split, %.lr.ph62.split.us, %23
   call void @termPQExpBuffer(ptr noundef nonnull %6) #11
@@ -1142,14 +1142,13 @@ attributes #14 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !5}

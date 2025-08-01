@@ -481,7 +481,7 @@ dither_output_.exit.us:                           ; preds = %298, %281, %123
 ._crit_edge.us:                                   ; preds = %331
   %333 = add nuw i32 %.08195.us, 1
   %exitcond103.not = icmp eq i32 %333, %5
-  br i1 %exitcond103.not, label %._crit_edge98, label %.lr.ph.us, !llvm.loop !29
+  br i1 %exitcond103.not, label %._crit_edge98, label %.lr.ph.us, !llvm.loop !28
 
 ._crit_edge98:                                    ; preds = %._crit_edge.us, %12, %.lr.ph97
   %.pre-phi = phi i32 [ %28, %.lr.ph97 ], [ 0, %12 ], [ %28, %._crit_edge.us ]
@@ -553,8 +553,7 @@ attributes #6 = { nounwind }
 !23 = !{!"p1 int", !7, i64 0}
 !24 = !{!13, !13, i64 0}
 !25 = !{!12, !12, i64 0}
-!26 = distinct !{!26, !27, !28}
+!26 = distinct !{!26, !27}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!"llvm.loop.estimated_trip_count"}
-!29 = distinct !{!29, !27, !28, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !27, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}

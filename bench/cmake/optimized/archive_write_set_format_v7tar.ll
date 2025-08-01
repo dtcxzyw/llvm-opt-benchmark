@@ -575,7 +575,7 @@ format_number.exit107.i:                          ; preds = %172, %170
   %185 = add i32 %.067129.i, %184
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
-  br i1 %exitcond.not.i, label %186, label %181, !llvm.loop !39
+  br i1 %exitcond.not.i, label %186, label %181, !llvm.loop !38
 
 186:                                              ; preds = %181
   %187 = zext i32 %185 to i64
@@ -637,11 +637,11 @@ format_header_v7tar.exit:                         ; preds = %197, %.preheader19.
 205:                                              ; preds = %201
   %spec.select = call i32 @llvm.smin.i32(i32 %202, i32 %.11.i)
   %206 = call i64 @archive_entry_size(ptr noundef %1) #11
-  store i64 %206, ptr %9, align 8, !tbaa !40
+  store i64 %206, ptr %9, align 8, !tbaa !39
   %207 = sub nsw i64 0, %206
   %208 = and i64 %207, 511
   %209 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %208, ptr %209, align 8, !tbaa !41
+  store i64 %208, ptr %209, align 8, !tbaa !40
   call void @archive_entry_free(ptr noundef null) #11
   br label %210
 
@@ -655,12 +655,12 @@ format_header_v7tar.exit:                         ; preds = %197, %.preheader19.
 define internal i64 @archive_write_v7tar_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8, !tbaa !17
-  %6 = load i64, ptr %5, align 8, !tbaa !40
+  %6 = load i64, ptr %5, align 8, !tbaa !39
   %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
   %7 = tail call i32 @__archive_write_output(ptr noundef %0, ptr noundef %1, i64 noundef %spec.select) #11
-  %8 = load i64, ptr %5, align 8, !tbaa !40
+  %8 = load i64, ptr %5, align 8, !tbaa !39
   %9 = sub i64 %8, %spec.select
-  store i64 %9, ptr %5, align 8, !tbaa !40
+  store i64 %9, ptr %5, align 8, !tbaa !39
   %.not = icmp eq i32 %7, 0
   %10 = sext i32 %7 to i64
   %.0 = select i1 %.not, i64 %spec.select, i64 %10
@@ -686,9 +686,9 @@ define internal noundef i32 @archive_write_v7tar_free(ptr noundef captures(none)
 define internal i32 @archive_write_v7tar_finish_entry(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !17
-  %4 = load i64, ptr %3, align 8, !tbaa !40
+  %4 = load i64, ptr %3, align 8, !tbaa !39
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !41
+  %6 = load i64, ptr %5, align 8, !tbaa !40
   %7 = add i64 %6, %4
   %8 = tail call i32 @__archive_write_nulls(ptr noundef %0, i64 noundef %7) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -823,9 +823,8 @@ attributes #14 = { nounwind willreturn memory(none) }
 !33 = !{!7, !7, i64 0}
 !34 = !{!12, !12, i64 0}
 !35 = !{!14, !14, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = distinct !{!39, !37, !38}
-!40 = !{!28, !14, i64 0}
-!41 = !{!28, !14, i64 8}
+!38 = distinct !{!38, !37}
+!39 = !{!28, !14, i64 0}
+!40 = !{!28, !14, i64 8}

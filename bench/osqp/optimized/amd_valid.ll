@@ -61,7 +61,7 @@ define range(i64 -2, 2) i64 @amd_l_valid(i64 noundef %0, i64 noundef %1, ptr nou
   %spec.select = select i1 %.not48, i64 %.156, i64 1
   %25 = add i64 %.03755, 1
   %exitcond.not = icmp eq i64 %25, %18
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit50:                                      ; preds = %.lr.ph59, %.loopexit, %.lr.ph, %.preheader51, %8, %4
   %.038 = phi i64 [ -2, %4 ], [ -2, %8 ], [ 0, %.preheader51 ], [ -2, %.lr.ph ], [ -2, %.lr.ph59 ], [ %.1.lcssa, %.loopexit ]
@@ -79,7 +79,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !4 = !{!"long long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
+!9 = distinct !{!9, !8}

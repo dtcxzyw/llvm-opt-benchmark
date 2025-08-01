@@ -86,13 +86,13 @@ _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit:      ; preds = %14, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i, %6
   %.sroa.0.0.i.i.i = phi i1 [ false, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i ], [ false, %6 ], [ %16, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %18 = load ptr, ptr %17, align 8, !tbaa !19
+  %18 = load ptr, ptr %17, align 8, !tbaa !18
   %.not.i.i.i.i10 = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i10, label %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i, label %19
 
 19:                                               ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %21 = load ptr, ptr %20, align 8, !tbaa !22
+  %21 = load ptr, ptr %20, align 8, !tbaa !21
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
@@ -115,20 +115,20 @@ _ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i: ; preds = %19,
 
 _ZNSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EED2Ev.exit.i: ; preds = %_ZNSt6vectorIN3gmx7CpuInfo16LogicalProcessorESaIS2_EED2Ev.exit.i
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !23
+  %31 = load ptr, ptr %30, align 8, !tbaa !22
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = icmp eq ptr %31, %32
   br i1 %33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EED2Ev.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !27
+  %35 = load i64, ptr %34, align 8, !tbaa !26
   %36 = icmp ult i64 %35, 16
   call void @llvm.assume(i1 %36)
   br label %_ZN3gmx7CpuInfoD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt3setIN3gmx7CpuInfo7FeatureESt4lessIS2_ESaIS2_EED2Ev.exit.i
-  %37 = load i64, ptr %32, align 8, !tbaa !28
+  %37 = load i64, ptr %32, align 8, !tbaa !27
   %38 = add i64 %37, 1
   call void @_ZdlPvm(ptr noundef %31, i64 noundef %38) #12
   br label %_ZN3gmx7CpuInfoD2Ev.exit
@@ -138,20 +138,20 @@ _ZN3gmx7CpuInfoD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   br i1 %.sroa.0.0.i.i.i, label %39, label %54
 
 39:                                               ; preds = %_ZN3gmx7CpuInfoD2Ev.exit
-  %40 = call noundef i64 asm sideeffect "\09vpxord %zmm0, %zmm0, %zmm0\0A\09vmovaps %zmm0, %zmm1\0A\09vmovaps %zmm0, %zmm2\0A\09vmovaps %zmm0, %zmm3\0A\09vmovaps %zmm0, %zmm4\0A\09vmovaps %zmm0, %zmm5\0A\09vmovaps %zmm0, %zmm6\0A\09vmovaps %zmm0, %zmm7\0A\09vmovaps %zmm0, %zmm8\0A\09vmovaps %zmm0, %zmm9\0A\09vmovaps %zmm0, %zmm10\0A\09vmovaps %zmm0, %zmm11\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09movq %rdx, %rbx\0A\09orq %rax, %rbx\0A\09movq $1, %rdx\0A1:\0A\09vfmadd231pd %zmm0, %zmm0, %zmm0\0A\09vfmadd231pd %zmm1, %zmm1, %zmm1\0A\09vfmadd231pd %zmm2, %zmm2, %zmm2\0A\09vfmadd231pd %zmm3, %zmm3, %zmm3\0A\09vfmadd231pd %zmm4, %zmm4, %zmm4\0A\09vfmadd231pd %zmm5, %zmm5, %zmm5\0A\09vfmadd231pd %zmm6, %zmm6, %zmm6\0A\09vfmadd231pd %zmm7, %zmm7, %zmm7\0A\09vfmadd231pd %zmm8, %zmm8, %zmm8\0A\09vfmadd231pd %zmm9, %zmm9, %zmm9\0A\09vfmadd231pd %zmm10, %zmm10, %zmm10\0A\09vfmadd231pd %zmm11, %zmm11, %zmm11\0A\09dec %rdx\0A\09jg 1b\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09orq %rax, %rdx\0A\09subq %rbx, %rdx\0A\09movq %rdx, $0\0A", "=r,r,~{rax},~{rbx},~{rcx},~{rdx},~{zmm0},~{zmm1},~{zmm2},~{zmm3},~{zmm4},~{zmm5},~{zmm6},~{zmm7},~{zmm8},~{zmm9},~{zmm10},~{zmm11},~{dirflag},~{fpsr},~{flags}"(i64 100000) #10, !srcloc !29
+  %40 = call noundef i64 asm sideeffect "\09vpxord %zmm0, %zmm0, %zmm0\0A\09vmovaps %zmm0, %zmm1\0A\09vmovaps %zmm0, %zmm2\0A\09vmovaps %zmm0, %zmm3\0A\09vmovaps %zmm0, %zmm4\0A\09vmovaps %zmm0, %zmm5\0A\09vmovaps %zmm0, %zmm6\0A\09vmovaps %zmm0, %zmm7\0A\09vmovaps %zmm0, %zmm8\0A\09vmovaps %zmm0, %zmm9\0A\09vmovaps %zmm0, %zmm10\0A\09vmovaps %zmm0, %zmm11\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09movq %rdx, %rbx\0A\09orq %rax, %rbx\0A\09movq $1, %rdx\0A1:\0A\09vfmadd231pd %zmm0, %zmm0, %zmm0\0A\09vfmadd231pd %zmm1, %zmm1, %zmm1\0A\09vfmadd231pd %zmm2, %zmm2, %zmm2\0A\09vfmadd231pd %zmm3, %zmm3, %zmm3\0A\09vfmadd231pd %zmm4, %zmm4, %zmm4\0A\09vfmadd231pd %zmm5, %zmm5, %zmm5\0A\09vfmadd231pd %zmm6, %zmm6, %zmm6\0A\09vfmadd231pd %zmm7, %zmm7, %zmm7\0A\09vfmadd231pd %zmm8, %zmm8, %zmm8\0A\09vfmadd231pd %zmm9, %zmm9, %zmm9\0A\09vfmadd231pd %zmm10, %zmm10, %zmm10\0A\09vfmadd231pd %zmm11, %zmm11, %zmm11\0A\09dec %rdx\0A\09jg 1b\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09orq %rax, %rdx\0A\09subq %rbx, %rdx\0A\09movq %rdx, $0\0A", "=r,r,~{rax},~{rbx},~{rcx},~{rdx},~{zmm0},~{zmm1},~{zmm2},~{zmm3},~{zmm4},~{zmm5},~{zmm6},~{zmm7},~{zmm8},~{zmm9},~{zmm10},~{zmm11},~{dirflag},~{fpsr},~{flags}"(i64 100000) #10, !srcloc !28
   br label %41
 
 41:                                               ; preds = %41, %39
   %.018.i = phi i32 [ 0, %39 ], [ %44, %41 ]
   %.01417.i = phi i64 [ 1000000000, %39 ], [ %.sroa.speculated5.i, %41 ]
   %.01516.i = phi i64 [ %40, %39 ], [ %.sroa.speculated.i, %41 ]
-  %42 = call noundef i64 asm sideeffect "\09vpxord %zmm0, %zmm0, %zmm0\0A\09vmovaps %zmm0, %zmm1\0A\09vmovaps %zmm0, %zmm2\0A\09vmovaps %zmm0, %zmm3\0A\09vmovaps %zmm0, %zmm4\0A\09vmovaps %zmm0, %zmm5\0A\09vmovaps %zmm0, %zmm6\0A\09vmovaps %zmm0, %zmm7\0A\09vmovaps %zmm0, %zmm8\0A\09vmovaps %zmm0, %zmm9\0A\09vmovaps %zmm0, %zmm10\0A\09vmovaps %zmm0, %zmm11\0A\09vpxord %zmm12, %zmm12, %zmm12\0A\09vmovaps %zmm12, %zmm13\0A\09vmovaps %zmm12, %zmm14\0A\09vmovaps %zmm12, %zmm15\0A\09vmovaps %zmm12, %zmm16\0A\09vmovaps %zmm12, %zmm17\0A\09vmovaps %zmm12, %zmm18\0A\09vmovaps %zmm12, %zmm19\0A\09vmovaps %zmm12, %zmm20\0A\09vmovaps %zmm12, %zmm21\0A\09vmovaps %zmm12, %zmm22\0A\09vmovaps %zmm12, %zmm23\0A\09vmovaps %zmm12, %zmm30\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09movq %rdx, %rbx\0A\09orq %rax, %rbx\0A\09movq $1, %rdx\0A1:\0A\09vfmadd231pd %zmm0, %zmm0, %zmm0\0A\09vfmadd231pd %zmm1, %zmm1, %zmm1\0A\09vfmadd231pd %zmm2, %zmm2, %zmm2\0A\09vfmadd231pd %zmm3, %zmm3, %zmm3\0A\09vfmadd231pd %zmm4, %zmm4, %zmm4\0A\09vfmadd231pd %zmm5, %zmm5, %zmm5\0A\09vfmadd231pd %zmm6, %zmm6, %zmm6\0A\09vfmadd231pd %zmm7, %zmm7, %zmm7\0A\09vfmadd231pd %zmm8, %zmm8, %zmm8\0A\09vfmadd231pd %zmm9, %zmm9, %zmm9\0A\09vfmadd231pd %zmm10, %zmm10, %zmm10\0A\09vfmadd231pd %zmm11, %zmm11, %zmm11\0A\09vpermd %zmm30, %zmm30, %zmm12\0A\09vpermd %zmm30, %zmm30, %zmm13\0A\09vpermd %zmm30, %zmm30, %zmm14\0A\09vpermd %zmm30, %zmm30, %zmm15\0A\09vpermd %zmm30, %zmm30, %zmm16\0A\09vpermd %zmm30, %zmm30, %zmm17\0A\09vpermd %zmm30, %zmm30, %zmm18\0A\09vpermd %zmm30, %zmm30, %zmm19\0A\09vpermd %zmm30, %zmm30, %zmm20\0A\09vpermd %zmm30, %zmm30, %zmm21\0A\09vpermd %zmm30, %zmm30, %zmm22\0A\09vpermd %zmm30, %zmm30, %zmm23\0A\09dec %rdx\0A\09jg 1b\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09orq %rax, %rdx\0A\09subq %rbx, %rdx\0A\09movq %rdx, $0\0A", "=r,r,~{rax},~{rbx},~{rcx},~{rdx},~{zmm0},~{zmm1},~{zmm2},~{zmm3},~{zmm4},~{zmm5},~{zmm6},~{zmm7},~{zmm8},~{zmm9},~{zmm10},~{zmm11},~{zmm12},~{zmm13},~{zmm14},~{zmm15},~{zmm16},~{zmm17},~{zmm18},~{zmm19},~{zmm20},~{zmm21},~{zmm22},~{zmm23},~{zmm30},~{dirflag},~{fpsr},~{flags}"(i64 1000) #10, !srcloc !30
+  %42 = call noundef i64 asm sideeffect "\09vpxord %zmm0, %zmm0, %zmm0\0A\09vmovaps %zmm0, %zmm1\0A\09vmovaps %zmm0, %zmm2\0A\09vmovaps %zmm0, %zmm3\0A\09vmovaps %zmm0, %zmm4\0A\09vmovaps %zmm0, %zmm5\0A\09vmovaps %zmm0, %zmm6\0A\09vmovaps %zmm0, %zmm7\0A\09vmovaps %zmm0, %zmm8\0A\09vmovaps %zmm0, %zmm9\0A\09vmovaps %zmm0, %zmm10\0A\09vmovaps %zmm0, %zmm11\0A\09vpxord %zmm12, %zmm12, %zmm12\0A\09vmovaps %zmm12, %zmm13\0A\09vmovaps %zmm12, %zmm14\0A\09vmovaps %zmm12, %zmm15\0A\09vmovaps %zmm12, %zmm16\0A\09vmovaps %zmm12, %zmm17\0A\09vmovaps %zmm12, %zmm18\0A\09vmovaps %zmm12, %zmm19\0A\09vmovaps %zmm12, %zmm20\0A\09vmovaps %zmm12, %zmm21\0A\09vmovaps %zmm12, %zmm22\0A\09vmovaps %zmm12, %zmm23\0A\09vmovaps %zmm12, %zmm30\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09movq %rdx, %rbx\0A\09orq %rax, %rbx\0A\09movq $1, %rdx\0A1:\0A\09vfmadd231pd %zmm0, %zmm0, %zmm0\0A\09vfmadd231pd %zmm1, %zmm1, %zmm1\0A\09vfmadd231pd %zmm2, %zmm2, %zmm2\0A\09vfmadd231pd %zmm3, %zmm3, %zmm3\0A\09vfmadd231pd %zmm4, %zmm4, %zmm4\0A\09vfmadd231pd %zmm5, %zmm5, %zmm5\0A\09vfmadd231pd %zmm6, %zmm6, %zmm6\0A\09vfmadd231pd %zmm7, %zmm7, %zmm7\0A\09vfmadd231pd %zmm8, %zmm8, %zmm8\0A\09vfmadd231pd %zmm9, %zmm9, %zmm9\0A\09vfmadd231pd %zmm10, %zmm10, %zmm10\0A\09vfmadd231pd %zmm11, %zmm11, %zmm11\0A\09vpermd %zmm30, %zmm30, %zmm12\0A\09vpermd %zmm30, %zmm30, %zmm13\0A\09vpermd %zmm30, %zmm30, %zmm14\0A\09vpermd %zmm30, %zmm30, %zmm15\0A\09vpermd %zmm30, %zmm30, %zmm16\0A\09vpermd %zmm30, %zmm30, %zmm17\0A\09vpermd %zmm30, %zmm30, %zmm18\0A\09vpermd %zmm30, %zmm30, %zmm19\0A\09vpermd %zmm30, %zmm30, %zmm20\0A\09vpermd %zmm30, %zmm30, %zmm21\0A\09vpermd %zmm30, %zmm30, %zmm22\0A\09vpermd %zmm30, %zmm30, %zmm23\0A\09dec %rdx\0A\09jg 1b\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09orq %rax, %rdx\0A\09subq %rbx, %rdx\0A\09movq %rdx, $0\0A", "=r,r,~{rax},~{rbx},~{rcx},~{rdx},~{zmm0},~{zmm1},~{zmm2},~{zmm3},~{zmm4},~{zmm5},~{zmm6},~{zmm7},~{zmm8},~{zmm9},~{zmm10},~{zmm11},~{zmm12},~{zmm13},~{zmm14},~{zmm15},~{zmm16},~{zmm17},~{zmm18},~{zmm19},~{zmm20},~{zmm21},~{zmm22},~{zmm23},~{zmm30},~{dirflag},~{fpsr},~{flags}"(i64 1000) #10, !srcloc !29
   %.sroa.speculated5.i = call i64 @llvm.umin.i64(i64 %42, i64 %.01417.i)
-  %43 = call noundef i64 asm sideeffect "\09vpxord %zmm0, %zmm0, %zmm0\0A\09vmovaps %zmm0, %zmm1\0A\09vmovaps %zmm0, %zmm2\0A\09vmovaps %zmm0, %zmm3\0A\09vmovaps %zmm0, %zmm4\0A\09vmovaps %zmm0, %zmm5\0A\09vmovaps %zmm0, %zmm6\0A\09vmovaps %zmm0, %zmm7\0A\09vmovaps %zmm0, %zmm8\0A\09vmovaps %zmm0, %zmm9\0A\09vmovaps %zmm0, %zmm10\0A\09vmovaps %zmm0, %zmm11\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09movq %rdx, %rbx\0A\09orq %rax, %rbx\0A\09movq $1, %rdx\0A1:\0A\09vfmadd231pd %zmm0, %zmm0, %zmm0\0A\09vfmadd231pd %zmm1, %zmm1, %zmm1\0A\09vfmadd231pd %zmm2, %zmm2, %zmm2\0A\09vfmadd231pd %zmm3, %zmm3, %zmm3\0A\09vfmadd231pd %zmm4, %zmm4, %zmm4\0A\09vfmadd231pd %zmm5, %zmm5, %zmm5\0A\09vfmadd231pd %zmm6, %zmm6, %zmm6\0A\09vfmadd231pd %zmm7, %zmm7, %zmm7\0A\09vfmadd231pd %zmm8, %zmm8, %zmm8\0A\09vfmadd231pd %zmm9, %zmm9, %zmm9\0A\09vfmadd231pd %zmm10, %zmm10, %zmm10\0A\09vfmadd231pd %zmm11, %zmm11, %zmm11\0A\09dec %rdx\0A\09jg 1b\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09orq %rax, %rdx\0A\09subq %rbx, %rdx\0A\09movq %rdx, $0\0A", "=r,r,~{rax},~{rbx},~{rcx},~{rdx},~{zmm0},~{zmm1},~{zmm2},~{zmm3},~{zmm4},~{zmm5},~{zmm6},~{zmm7},~{zmm8},~{zmm9},~{zmm10},~{zmm11},~{dirflag},~{fpsr},~{flags}"(i64 1000) #10, !srcloc !29
+  %43 = call noundef i64 asm sideeffect "\09vpxord %zmm0, %zmm0, %zmm0\0A\09vmovaps %zmm0, %zmm1\0A\09vmovaps %zmm0, %zmm2\0A\09vmovaps %zmm0, %zmm3\0A\09vmovaps %zmm0, %zmm4\0A\09vmovaps %zmm0, %zmm5\0A\09vmovaps %zmm0, %zmm6\0A\09vmovaps %zmm0, %zmm7\0A\09vmovaps %zmm0, %zmm8\0A\09vmovaps %zmm0, %zmm9\0A\09vmovaps %zmm0, %zmm10\0A\09vmovaps %zmm0, %zmm11\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09movq %rdx, %rbx\0A\09orq %rax, %rbx\0A\09movq $1, %rdx\0A1:\0A\09vfmadd231pd %zmm0, %zmm0, %zmm0\0A\09vfmadd231pd %zmm1, %zmm1, %zmm1\0A\09vfmadd231pd %zmm2, %zmm2, %zmm2\0A\09vfmadd231pd %zmm3, %zmm3, %zmm3\0A\09vfmadd231pd %zmm4, %zmm4, %zmm4\0A\09vfmadd231pd %zmm5, %zmm5, %zmm5\0A\09vfmadd231pd %zmm6, %zmm6, %zmm6\0A\09vfmadd231pd %zmm7, %zmm7, %zmm7\0A\09vfmadd231pd %zmm8, %zmm8, %zmm8\0A\09vfmadd231pd %zmm9, %zmm9, %zmm9\0A\09vfmadd231pd %zmm10, %zmm10, %zmm10\0A\09vfmadd231pd %zmm11, %zmm11, %zmm11\0A\09dec %rdx\0A\09jg 1b\0A\09rdtscp\0A\09salq $$32, %rdx\0A\09movl %eax, %eax\0A\09orq %rax, %rdx\0A\09subq %rbx, %rdx\0A\09movq %rdx, $0\0A", "=r,r,~{rax},~{rbx},~{rcx},~{rdx},~{zmm0},~{zmm1},~{zmm2},~{zmm3},~{zmm4},~{zmm5},~{zmm6},~{zmm7},~{zmm8},~{zmm9},~{zmm10},~{zmm11},~{dirflag},~{fpsr},~{flags}"(i64 1000) #10, !srcloc !28
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %43, i64 %.01516.i)
   %44 = add nuw nsw i32 %.018.i, 1
   %exitcond.not.i = icmp eq i32 %44, 3
-  br i1 %exitcond.not.i, label %45, label %41, !llvm.loop !31
+  br i1 %exitcond.not.i, label %45, label %41, !llvm.loop !30
 
 45:                                               ; preds = %41
   %46 = uitofp nneg i64 %.sroa.speculated5.i to double
@@ -170,7 +170,7 @@ _ZN3gmx7CpuInfoD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 
 54:                                               ; preds = %_ZN3gmx7CpuInfoD2Ev.exit, %45
   %storemerge = phi i32 [ %50, %45 ], [ 0, %_ZN3gmx7CpuInfoD2Ev.exit ]
-  store i32 %storemerge, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE6result, align 4, !tbaa !32
+  store i32 %storemerge, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE6result, align 4, !tbaa !31
   store i1 true, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE11initialized, align 1
   br label %55
 
@@ -179,7 +179,7 @@ _ZN3gmx7CpuInfoD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   br label %57
 
 57:                                               ; preds = %55, %0
-  %58 = load i32, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE6result, align 4, !tbaa !32
+  %58 = load i32, ptr @_ZZN3gmx22identifyAvx512FmaUnitsEvE6result, align 4, !tbaa !31
   ret i32 %58
 }
 
@@ -222,13 +222,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !33
   tail call void @_ZNSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 40) #12
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -276,24 +276,23 @@ attributes #13 = { noreturn nounwind }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"_ZTSN3gmx7CpuInfo7FeatureE", !8, i64 0}
 !15 = !{!10, !10, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = !{!20, !21, i64 0}
-!20 = !{!"_ZTSNSt12_Vector_baseIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE17_Vector_impl_dataE", !21, i64 0, !21, i64 8, !21, i64 16}
-!21 = !{!"p1 _ZTSN3gmx7CpuInfo16LogicalProcessorE", !11, i64 0}
-!22 = !{!20, !21, i64 16}
-!23 = !{!24, !26, i64 0}
-!24 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !25, i64 0, !12, i64 8, !8, i64 16}
-!25 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !26, i64 0}
-!26 = !{!"p1 omnipotent char", !11, i64 0}
-!27 = !{!24, !12, i64 8}
-!28 = !{!8, !8, i64 0}
-!29 = !{i64 7585, i64 7634, i64 7675, i64 7716, i64 7757, i64 7798, i64 7839, i64 7880, i64 7921, i64 7962, i64 8003, i64 8045, i64 8087, i64 8112, i64 8146, i64 8182, i64 8218, i64 8253, i64 8286, i64 8305, i64 8358, i64 8411, i64 8464, i64 8517, i64 8570, i64 8623, i64 8676, i64 8729, i64 8782, i64 8835, i64 8891, i64 8947, i64 8975, i64 8999, i64 9024, i64 9058, i64 9094, i64 9129, i64 9165}
-!30 = !{i64 3246, i64 3295, i64 3336, i64 3377, i64 3418, i64 3459, i64 3500, i64 3541, i64 3582, i64 3623, i64 3664, i64 3706, i64 3748, i64 3799, i64 3842, i64 3885, i64 3928, i64 3971, i64 4014, i64 4057, i64 4100, i64 4143, i64 4186, i64 4229, i64 4272, i64 4315, i64 4340, i64 4374, i64 4410, i64 4446, i64 4481, i64 4514, i64 4533, i64 4586, i64 4639, i64 4692, i64 4745, i64 4798, i64 4851, i64 4904, i64 4957, i64 5010, i64 5063, i64 5119, i64 5175, i64 5226, i64 5277, i64 5328, i64 5379, i64 5430, i64 5481, i64 5532, i64 5583, i64 5634, i64 5685, i64 5736, i64 5787, i64 5815, i64 5839, i64 5864, i64 5898, i64 5934, i64 5969, i64 6005}
-!31 = distinct !{!31, !17, !18}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"int", !8, i64 0}
-!34 = !{!6, !10, i64 24}
-!35 = !{!6, !10, i64 16}
-!36 = distinct !{!36, !17, !18}
+!18 = !{!19, !20, i64 0}
+!19 = !{!"_ZTSNSt12_Vector_baseIN3gmx7CpuInfo16LogicalProcessorESaIS2_EE17_Vector_impl_dataE", !20, i64 0, !20, i64 8, !20, i64 16}
+!20 = !{!"p1 _ZTSN3gmx7CpuInfo16LogicalProcessorE", !11, i64 0}
+!21 = !{!19, !20, i64 16}
+!22 = !{!23, !25, i64 0}
+!23 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !24, i64 0, !12, i64 8, !8, i64 16}
+!24 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !25, i64 0}
+!25 = !{!"p1 omnipotent char", !11, i64 0}
+!26 = !{!23, !12, i64 8}
+!27 = !{!8, !8, i64 0}
+!28 = !{i64 7585, i64 7634, i64 7675, i64 7716, i64 7757, i64 7798, i64 7839, i64 7880, i64 7921, i64 7962, i64 8003, i64 8045, i64 8087, i64 8112, i64 8146, i64 8182, i64 8218, i64 8253, i64 8286, i64 8305, i64 8358, i64 8411, i64 8464, i64 8517, i64 8570, i64 8623, i64 8676, i64 8729, i64 8782, i64 8835, i64 8891, i64 8947, i64 8975, i64 8999, i64 9024, i64 9058, i64 9094, i64 9129, i64 9165}
+!29 = !{i64 3246, i64 3295, i64 3336, i64 3377, i64 3418, i64 3459, i64 3500, i64 3541, i64 3582, i64 3623, i64 3664, i64 3706, i64 3748, i64 3799, i64 3842, i64 3885, i64 3928, i64 3971, i64 4014, i64 4057, i64 4100, i64 4143, i64 4186, i64 4229, i64 4272, i64 4315, i64 4340, i64 4374, i64 4410, i64 4446, i64 4481, i64 4514, i64 4533, i64 4586, i64 4639, i64 4692, i64 4745, i64 4798, i64 4851, i64 4904, i64 4957, i64 5010, i64 5063, i64 5119, i64 5175, i64 5226, i64 5277, i64 5328, i64 5379, i64 5430, i64 5481, i64 5532, i64 5583, i64 5634, i64 5685, i64 5736, i64 5787, i64 5815, i64 5839, i64 5864, i64 5898, i64 5934, i64 5969, i64 6005}
+!30 = distinct !{!30, !17}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"int", !8, i64 0}
+!33 = !{!6, !10, i64 24}
+!34 = !{!6, !10, i64 16}
+!35 = distinct !{!35, !17}

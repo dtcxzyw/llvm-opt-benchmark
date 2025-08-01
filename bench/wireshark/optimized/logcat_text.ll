@@ -347,7 +347,7 @@ define internal fastcc noundef zeroext i1 @logcat_text_read_packet(ptr noundef %
 .lr.ph:                                           ; preds = %33
   %30 = tail call i64 @strlen(ptr noundef %25) #11
   %31 = icmp ugt i64 %30, 2
-  br i1 %31, label %.lr.ph84, label %.critedge2, !llvm.loop !10
+  br i1 %31, label %.lr.ph84, label %.critedge2, !llvm.loop !9
 
 .lr.ph84:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.0577983 = phi i64 [ %35, %.lr.ph ], [ %26, %.lr.ph.preheader ]
@@ -360,7 +360,7 @@ define internal fastcc noundef zeroext i1 @logcat_text_read_packet(ptr noundef %
   %35 = tail call i64 @file_tell(ptr noundef %0)
   %36 = tail call ptr @file_gets(ptr noundef %25, i32 noundef 262144, ptr noundef %0)
   %cond71 = icmp eq ptr %36, null
-  br i1 %cond71, label %.critedge67, label %.lr.ph, !llvm.loop !10
+  br i1 %cond71, label %.critedge67, label %.lr.ph, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph84, %.lr.ph.preheader
   %.05779.lcssa = phi i64 [ %26, %.lr.ph.preheader ], [ %35, %.lr.ph ], [ %.0577983, %.lr.ph84 ]
@@ -810,7 +810,7 @@ logcat_log.exit:                                  ; preds = %76, %78, %80, %82, 
 
 110:                                              ; preds = %105
   %.not98 = icmp eq ptr %.189105, null
-  br i1 %.not98, label %111, label %66, !llvm.loop !11
+  br i1 %.not98, label %111, label %66, !llvm.loop !10
 
 111:                                              ; preds = %110
   call void @g_free(ptr noundef %64)
@@ -1072,8 +1072,7 @@ attributes #12 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !9, !7}
-!9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !7}
-!11 = distinct !{!11, !9, !7}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

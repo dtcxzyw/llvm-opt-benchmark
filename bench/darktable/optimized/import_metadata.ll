@@ -123,7 +123,7 @@ define void @dt_import_metadata_init(ptr noundef initializes((16, 24)) %0) local
   store i64 64, ptr %40, align 8, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %15, label %39, !llvm.loop !61
+  br i1 %exitcond.not, label %15, label %39
 
 41:                                               ; preds = %74
   %42 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #10
@@ -158,11 +158,11 @@ define void @dt_import_metadata_init(ptr noundef initializes((16, 24)) %0) local
   %63 = call ptr @g_type_check_instance_cast(ptr noundef %58, i64 noundef %92) #10
   %64 = call i64 @g_signal_connect_data(ptr noundef %63, ptr noundef nonnull @.str.9, ptr noundef nonnull @_import_metadata_toggled, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #10
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !63
+  %66 = load ptr, ptr %65, align 8, !tbaa !61
   %67 = call i64 @g_signal_connect_data(ptr noundef %66, ptr noundef nonnull @.str.9, ptr noundef nonnull @_apply_metadata_toggled, ptr noundef %3, ptr noundef null, i32 noundef 0) #10
-  %68 = load ptr, ptr %65, align 8, !tbaa !63
+  %68 = load ptr, ptr %65, align 8, !tbaa !61
   call void @_apply_metadata_toggled(ptr noundef %68, ptr noundef %3)
-  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !64
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !62
   %70 = and i32 %69, 2
   %71 = icmp ne i32 %70, 0
   %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3280), align 8
@@ -203,10 +203,10 @@ define void @dt_import_metadata_init(ptr noundef initializes((16, 24)) %0) local
   %96 = call ptr @g_type_check_instance_cast(ptr noundef %90, i64 noundef %92) #10
   %97 = call i64 @g_signal_connect_data(ptr noundef %96, ptr noundef nonnull @.str.9, ptr noundef nonnull @_import_metadata_toggled, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #10
   %exitcond97.not = icmp eq i32 %80, 9
-  br i1 %exitcond97.not, label %41, label %74, !llvm.loop !65
+  br i1 %exitcond97.not, label %41, label %74
 
 98:                                               ; preds = %41
-  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !66
+  %99 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !63
   %100 = and i32 %99, 1048576
   %.not = icmp eq i32 %100, 0
   br i1 %.not, label %102, label %101
@@ -216,9 +216,9 @@ define void @dt_import_metadata_init(ptr noundef initializes((16, 24)) %0) local
   br label %102
 
 102:                                              ; preds = %98, %101, %41
-  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !67
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !64
   call void @dt_control_signal_connect(ptr noundef %103, i32 noundef 37, ptr noundef nonnull @_metadata_prefs_changed, ptr noundef nonnull %0) #10
-  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !64
+  %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !62
   %105 = and i32 %104, 2
   %106 = icmp ne i32 %105, 0
   %107 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3176), align 8
@@ -227,7 +227,7 @@ define void @dt_import_metadata_init(ptr noundef initializes((16, 24)) %0) local
   br i1 %or.cond3, label %109, label %113
 
 109:                                              ; preds = %102
-  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !66
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !63
   %111 = and i32 %110, 1048576
   %.not92 = icmp eq i32 %111, 0
   br i1 %.not92, label %113, label %112
@@ -237,9 +237,9 @@ define void @dt_import_metadata_init(ptr noundef initializes((16, 24)) %0) local
   br label %113
 
 113:                                              ; preds = %109, %112, %102
-  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !67
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !64
   call void @dt_control_signal_connect(ptr noundef %114, i32 noundef 11, ptr noundef nonnull @_metadata_list_changed, ptr noundef nonnull %0) #10
-  %115 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !64
+  %115 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !62
   %116 = and i32 %115, 2
   %117 = icmp ne i32 %116, 0
   %118 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3204), align 4
@@ -248,7 +248,7 @@ define void @dt_import_metadata_init(ptr noundef initializes((16, 24)) %0) local
   br i1 %or.cond5, label %120, label %124
 
 120:                                              ; preds = %113
-  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !66
+  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !63
   %122 = and i32 %121, 1048576
   %.not93 = icmp eq i32 %122, 0
   br i1 %.not93, label %124, label %123
@@ -258,7 +258,7 @@ define void @dt_import_metadata_init(ptr noundef initializes((16, 24)) %0) local
   br label %124
 
 124:                                              ; preds = %120, %123, %113
-  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !67
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !64
   call void @dt_control_signal_connect(ptr noundef %125, i32 noundef 18, ptr noundef nonnull @_metadata_presets_changed, ptr noundef nonnull %0) #10
   call fastcc void @_update_layout(ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #10
@@ -301,7 +301,7 @@ define internal fastcc void @_import_metadata_presets_update(ptr noundef readonl
   tail call void @gtk_list_store_clear(ptr noundef %6) #10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !66
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !63
   %8 = and i32 %7, 256
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
@@ -311,30 +311,30 @@ define internal fastcc void @_import_metadata_presets_update(ptr noundef readonl
   br label %10
 
 10:                                               ; preds = %9, %1
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !68
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !65
   %12 = tail call ptr @dt_database_get(ptr noundef %11) #10
   %13 = call i32 @sqlite3_prepare_v2(ptr noundef %12, ptr noundef nonnull @.str.26, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #10
   %.not27 = icmp eq i32 %13, 0
   br i1 %.not27, label %20, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr @stderr, align 8, !tbaa !69
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !68
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !66
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !65
   %17 = call ptr @dt_database_get(ptr noundef %16) #10
   %18 = call ptr @sqlite3_errmsg(ptr noundef %17) #10
   %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.18, i32 noundef 237, ptr noundef nonnull @__FUNCTION__._import_metadata_presets_update, ptr noundef nonnull @.str.26, ptr noundef %18) #12
   br label %20
 
 20:                                               ; preds = %14, %10
-  %21 = load ptr, ptr %3, align 8, !tbaa !71
+  %21 = load ptr, ptr %3, align 8, !tbaa !68
   %22 = call i32 @sqlite3_step(ptr noundef %21) #10
   %23 = icmp eq i32 %22, 100
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %20, %.loopexit
-  %24 = load ptr, ptr %3, align 8, !tbaa !71
+  %24 = load ptr, ptr %3, align 8, !tbaa !68
   %25 = call ptr @sqlite3_column_blob(ptr noundef %24, i32 noundef 1) #10
-  %26 = load ptr, ptr %3, align 8, !tbaa !71
+  %26 = load ptr, ptr %3, align 8, !tbaa !68
   %27 = call i32 @sqlite3_column_bytes(ptr noundef %26, i32 noundef 1) #10
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #10
   br label %30
@@ -354,7 +354,7 @@ define internal fastcc void @_import_metadata_presets_update(ptr noundef readonl
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw [9 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  store ptr %.02528, ptr %35, align 8, !tbaa !73
+  store ptr %.02528, ptr %35, align 8, !tbaa !70
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02528) #13
   %37 = trunc i64 %36 to i32
   %38 = add i32 %37, 1
@@ -368,13 +368,13 @@ define internal fastcc void @_import_metadata_presets_update(ptr noundef readonl
   %.1 = phi i32 [ %.02429, %30 ], [ %41, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %28, label %30, !llvm.loop !74
+  br i1 %exitcond.not, label %28, label %30
 
 43:                                               ; preds = %28
   %44 = load ptr, ptr %5, align 8, !tbaa !58
   call void @gtk_list_store_append(ptr noundef %44, ptr noundef nonnull %2) #10
   %45 = load ptr, ptr %5, align 8, !tbaa !58
-  %46 = load ptr, ptr %3, align 8, !tbaa !71
+  %46 = load ptr, ptr %3, align 8, !tbaa !68
   %47 = call ptr @sqlite3_column_text(ptr noundef %46, i32 noundef 0) #10
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %45, ptr noundef nonnull %2, i32 noundef 0, ptr noundef %47, i32 noundef -1) #10
   br label %48
@@ -394,7 +394,7 @@ define internal fastcc void @_import_metadata_presets_update(ptr noundef readonl
   %53 = load ptr, ptr %5, align 8, !tbaa !58
   %54 = add nuw nsw i64 %indvars.iv33, 1
   %55 = getelementptr inbounds nuw [9 x ptr], ptr %4, i64 0, i64 %indvars.iv33
-  %56 = load ptr, ptr %55, align 8, !tbaa !73
+  %56 = load ptr, ptr %55, align 8, !tbaa !70
   %57 = trunc nuw nsw i64 %54 to i32
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %53, ptr noundef nonnull %2, i32 noundef %57, ptr noundef %56, i32 noundef -1) #10
   br label %58
@@ -402,17 +402,17 @@ define internal fastcc void @_import_metadata_presets_update(ptr noundef readonl
 58:                                               ; preds = %._crit_edge37, %52
   %indvars.iv.next34.pre-phi = phi i64 [ %.pre, %._crit_edge37 ], [ %54, %52 ]
   %exitcond36.not = icmp eq i64 %indvars.iv.next34.pre-phi, 9
-  br i1 %exitcond36.not, label %.loopexit, label %48, !llvm.loop !75
+  br i1 %exitcond36.not, label %.loopexit, label %48
 
 .loopexit:                                        ; preds = %58, %28
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #10
-  %59 = load ptr, ptr %3, align 8, !tbaa !71
+  %59 = load ptr, ptr %3, align 8, !tbaa !68
   %60 = call i32 @sqlite3_step(ptr noundef %59) #10
   %61 = icmp eq i32 %60, 100
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !76
+  br i1 %61, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit, %20
-  %62 = load ptr, ptr %3, align 8, !tbaa !71
+  %62 = load ptr, ptr %3, align 8, !tbaa !68
   %63 = call i32 @sqlite3_finalize(ptr noundef %62) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
@@ -431,7 +431,7 @@ define internal fastcc void @_import_tags_presets_update(ptr noundef readonly ca
   tail call void @gtk_list_store_clear(ptr noundef %6) #10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !66
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !63
   %8 = and i32 %7, 256
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
@@ -441,43 +441,43 @@ define internal fastcc void @_import_tags_presets_update(ptr noundef readonly ca
   br label %10
 
 10:                                               ; preds = %9, %1
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !68
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !65
   %12 = tail call ptr @dt_database_get(ptr noundef %11) #10
   %13 = call i32 @sqlite3_prepare_v2(ptr noundef %12, ptr noundef nonnull @.str.28, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #10
   %.not17 = icmp eq i32 %13, 0
   br i1 %.not17, label %20, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr @stderr, align 8, !tbaa !69
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !68
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !66
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !65
   %17 = call ptr @dt_database_get(ptr noundef %16) #10
   %18 = call ptr @sqlite3_errmsg(ptr noundef %17) #10
   %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.18, i32 noundef 302, ptr noundef nonnull @__FUNCTION__._import_tags_presets_update, ptr noundef nonnull @.str.28, ptr noundef %18) #12
   br label %20
 
 20:                                               ; preds = %14, %10
-  %21 = load ptr, ptr %3, align 8, !tbaa !71
+  %21 = load ptr, ptr %3, align 8, !tbaa !68
   %22 = call i32 @sqlite3_step(ptr noundef %21) #10
   %23 = icmp eq i32 %22, 100
   br i1 %23, label %.lr.ph25, label %._crit_edge26
 
 .lr.ph25:                                         ; preds = %20, %50
-  %24 = load ptr, ptr %3, align 8, !tbaa !71
+  %24 = load ptr, ptr %3, align 8, !tbaa !68
   %25 = call ptr @sqlite3_column_blob(ptr noundef %24, i32 noundef 1) #10
-  %26 = load ptr, ptr %3, align 8, !tbaa !71
+  %26 = load ptr, ptr %3, align 8, !tbaa !68
   %27 = call i32 @sqlite3_column_bytes(ptr noundef %26, i32 noundef 1) #10
   %.not18 = icmp eq i32 %27, 0
   br i1 %.not18, label %50, label %28
 
 28:                                               ; preds = %.lr.ph25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store ptr null, ptr %4, align 8, !tbaa !73
+  store ptr null, ptr %4, align 8, !tbaa !70
   %29 = call ptr @g_strsplit(ptr noundef %25, ptr noundef nonnull @.str.29, i32 noundef 0) #10
   %.not19 = icmp eq ptr %29, null
   br i1 %.not19, label %49, label %.preheader
 
 .preheader:                                       ; preds = %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !73
+  %30 = load ptr, ptr %29, align 8, !tbaa !70
   %.not2022 = icmp eq ptr %30, null
   br i1 %.not2022, label %._crit_edge, label %.lr.ph
 
@@ -490,12 +490,12 @@ define internal fastcc void @_import_tags_presets_update(ptr noundef readonly ca
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef nonnull @.str.30, ptr noundef %34) #10
   call void @g_free(ptr noundef %34) #10
   %35 = getelementptr inbounds nuw i8, ptr %.023, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !73
+  %36 = load ptr, ptr %35, align 8, !tbaa !70
   %.not20 = icmp eq ptr %36, null
-  br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !77
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %37 = load ptr, ptr %4, align 8, !tbaa !73
+  %37 = load ptr, ptr %4, align 8, !tbaa !70
   %.not21 = icmp eq ptr %37, null
   br i1 %.not21, label %42, label %38
 
@@ -503,7 +503,7 @@ define internal fastcc void @_import_tags_presets_update(ptr noundef readonly ca
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #13
   %40 = getelementptr i8, ptr %37, i64 %39
   %41 = getelementptr i8, ptr %40, i64 -1
-  store i8 0, ptr %41, align 1, !tbaa !78
+  store i8 0, ptr %41, align 1, !tbaa !71
   br label %42
 
 42:                                               ; preds = %38, %._crit_edge
@@ -511,11 +511,11 @@ define internal fastcc void @_import_tags_presets_update(ptr noundef readonly ca
   %43 = load ptr, ptr %5, align 8, !tbaa !59
   call void @gtk_list_store_append(ptr noundef %43, ptr noundef nonnull %2) #10
   %44 = load ptr, ptr %5, align 8, !tbaa !59
-  %45 = load ptr, ptr %3, align 8, !tbaa !71
+  %45 = load ptr, ptr %3, align 8, !tbaa !68
   %46 = call ptr @sqlite3_column_text(ptr noundef %45, i32 noundef 0) #10
-  %47 = load ptr, ptr %4, align 8, !tbaa !73
+  %47 = load ptr, ptr %4, align 8, !tbaa !70
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %44, ptr noundef nonnull %2, i32 noundef 0, ptr noundef %46, i32 noundef 1, ptr noundef %47, i32 noundef -1) #10
-  %48 = load ptr, ptr %4, align 8, !tbaa !73
+  %48 = load ptr, ptr %4, align 8, !tbaa !70
   call void @g_free(ptr noundef %48) #10
   br label %49
 
@@ -524,13 +524,13 @@ define internal fastcc void @_import_tags_presets_update(ptr noundef readonly ca
   br label %50
 
 50:                                               ; preds = %49, %.lr.ph25
-  %51 = load ptr, ptr %3, align 8, !tbaa !71
+  %51 = load ptr, ptr %3, align 8, !tbaa !68
   %52 = call i32 @sqlite3_step(ptr noundef %51) #10
   %53 = icmp eq i32 %52, 100
-  br i1 %53, label %.lr.ph25, label %._crit_edge26, !llvm.loop !79
+  br i1 %53, label %.lr.ph25, label %._crit_edge26
 
 ._crit_edge26:                                    ; preds = %50, %20
-  %54 = load ptr, ptr %3, align 8, !tbaa !71
+  %54 = load ptr, ptr %3, align 8, !tbaa !68
   %55 = call i32 @sqlite3_finalize(ptr noundef %54) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #10
@@ -579,7 +579,7 @@ declare i64 @gtk_event_box_get_type() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_import_metadata_reset_all(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
-  %4 = load i32, ptr %1, align 8, !tbaa !80
+  %4 = load i32, ptr %1, align 8, !tbaa !72
   %5 = icmp eq i32 %4, 5
   br i1 %5, label %6, label %7
 
@@ -647,7 +647,7 @@ define internal void @_import_metadata_presets_changed(ptr noundef %0, ptr nound
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %14
-  %18 = load i8, ptr %16, align 1, !tbaa !78
+  %18 = load i8, ptr %16, align 1, !tbaa !71
   %.not20 = icmp eq i8 %18, 0
   br i1 %.not20, label %32, label %19
 
@@ -674,7 +674,7 @@ define internal void @_import_metadata_presets_changed(ptr noundef %0, ptr nound
 32:                                               ; preds = %19, %27, %17, %14
   call void @g_value_unset(ptr noundef nonnull %4) #10
   %exitcond.not = icmp eq i32 %15, 9
-  br i1 %exitcond.not, label %13, label %14, !llvm.loop !85
+  br i1 %exitcond.not, label %13, label %14
 
 33:                                               ; preds = %13, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
@@ -737,7 +737,7 @@ define internal void @_import_metadata_changed(ptr noundef %0, ptr noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_import_metadata_reset(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
-  %4 = load i32, ptr %1, align 8, !tbaa !80
+  %4 = load i32, ptr %1, align 8, !tbaa !72
   %5 = icmp eq i32 %4, 5
   br i1 %5, label %6, label %9
 
@@ -817,12 +817,12 @@ define internal void @_import_tags_presets_changed(ptr noundef %0, ptr noundef %
   %17 = call i32 @g_signal_handlers_block_matched(ptr noundef %16, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_import_tags_changed, ptr noundef %1) #10
   %18 = tail call i64 @gtk_entry_get_type() #11
   %19 = call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %18) #10
-  %20 = load ptr, ptr %4, align 8, !tbaa !73
+  %20 = load ptr, ptr %4, align 8, !tbaa !70
   call void @gtk_entry_set_text(ptr noundef %19, ptr noundef %20) #10
   %21 = call i32 @g_signal_handlers_unblock_matched(ptr noundef %16, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_import_tags_changed, ptr noundef %1) #10
-  %22 = load ptr, ptr %4, align 8, !tbaa !73
+  %22 = load ptr, ptr %4, align 8, !tbaa !70
   call void @dt_conf_set_string(ptr noundef nonnull @.str.12, ptr noundef %22) #10
-  %23 = load ptr, ptr %4, align 8, !tbaa !73
+  %23 = load ptr, ptr %4, align 8, !tbaa !70
   call void @g_free(ptr noundef %23) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   br label %24
@@ -874,7 +874,7 @@ define internal void @_apply_metadata_toggled(ptr noundef %0, ptr noundef %1) #0
 8:                                                ; preds = %.critedge
   %9 = add nuw nsw i32 %.027, 1
   %exitcond.not = icmp eq i32 %9, 12
-  br i1 %exitcond.not, label %7, label %.preheader, !llvm.loop !86
+  br i1 %exitcond.not, label %7, label %.preheader
 
 10:                                               ; preds = %.preheader, %.critedge
   %11 = phi i1 [ true, %.preheader ], [ false, %.critedge ]
@@ -886,12 +886,12 @@ define internal void @_apply_metadata_toggled(ptr noundef %0, ptr noundef %1) #0
   br i1 %.not, label %.critedge, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %13, align 8, !tbaa !87
+  %16 = load ptr, ptr %13, align 8, !tbaa !77
   %.not22 = icmp eq ptr %16, null
   br i1 %.not22, label %20, label %17
 
 17:                                               ; preds = %15
-  %18 = load i64, ptr %16, align 8, !tbaa !90
+  %18 = load i64, ptr %16, align 8, !tbaa !80
   %19 = icmp eq i64 %18, %14
   br i1 %19, label %.critedge25, label %20
 
@@ -905,7 +905,7 @@ define internal void @_apply_metadata_toggled(ptr noundef %0, ptr noundef %1) #0
   br label %.critedge
 
 .critedge:                                        ; preds = %10, %.critedge25, %20
-  br i1 %11, label %10, label %8, !llvm.loop !92
+  br i1 %11, label %10, label %8
 }
 
 declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #2
@@ -990,7 +990,7 @@ define internal fastcc void @_update_layout(ptr noundef readonly captures(none) 
 
 22:                                               ; preds = %23
   %exitcond29.not = icmp eq i32 %21, 9
-  br i1 %exitcond29.not, label %9, label %13, !llvm.loop !93
+  br i1 %exitcond29.not, label %9, label %13
 
 23:                                               ; preds = %13, %23
   %.027 = phi i32 [ 0, %13 ], [ %29, %23 ]
@@ -1003,24 +1003,24 @@ define internal fastcc void @_update_layout(ptr noundef readonly captures(none) 
   tail call void @gtk_widget_set_visible(ptr noundef %26, i32 noundef %28) #10
   %29 = add nuw nsw i32 %.027, 1
   %exitcond.not = icmp eq i32 %29, 3
-  br i1 %exitcond.not, label %22, label %23, !llvm.loop !94
+  br i1 %exitcond.not, label %22, label %23
 }
 
 ; Function Attrs: nounwind uwtable
 define void @dt_import_metadata_cleanup(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !67
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !64
   %3 = tail call i32 @dt_control_signal_disconnect_all(ptr noundef %2, ptr noundef %0) #10
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !64
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !62
   %6 = and i32 %5, 4
   %.not2 = icmp eq i32 %6, 0
   br i1 %.not2, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !66
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !63
   %9 = and i32 %8, 1048576
   %.not3 = icmp eq i32 %9, 0
   br i1 %.not3, label %11, label %10
@@ -1099,7 +1099,7 @@ define void @dt_import_metadata_update(ptr noundef %0) local_unnamed_addr #0 {
   %49 = tail call i32 @g_signal_handlers_unblock_matched(ptr noundef %42, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_import_metadata_toggled, ptr noundef %0) #10
   tail call void @g_free(ptr noundef %43) #10
   %exitcond.not = icmp eq i32 %31, 9
-  br i1 %exitcond.not, label %4, label %28, !llvm.loop !95
+  br i1 %exitcond.not, label %4, label %28
 }
 
 declare ptr @gtk_grid_get_child_at(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -1140,12 +1140,12 @@ define internal fastcc void @_metadata_reset_all(ptr noundef readonly captures(n
   br i1 %.not42.us, label %.critedge.us, label %9
 
 9:                                                ; preds = %.split.us
-  %10 = load ptr, ptr %7, align 8, !tbaa !87
+  %10 = load ptr, ptr %7, align 8, !tbaa !77
   %.not43.us = icmp eq ptr %10, null
   br i1 %.not43.us, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = load i64, ptr %10, align 8, !tbaa !90
+  %12 = load i64, ptr %10, align 8, !tbaa !80
   %13 = icmp eq i64 %12, %8
   br i1 %13, label %.critedge46.us, label %14
 
@@ -1163,7 +1163,7 @@ define internal fastcc void @_metadata_reset_all(ptr noundef readonly captures(n
 .critedge.us:                                     ; preds = %.critedge46.us, %14, %.split.us
   %19 = add nuw nsw i32 %.051.us, 1
   %exitcond.not = icmp eq i32 %19, 12
-  br i1 %exitcond.not, label %.split53.us, label %.split.us, !llvm.loop !96
+  br i1 %exitcond.not, label %.split53.us, label %.split.us, !llvm.loop !82
 
 .split53.us:                                      ; preds = %.critedge.us, %.critedge
   br i1 %.not55, label %.loopexit, label %.preheader
@@ -1178,12 +1178,12 @@ define internal fastcc void @_metadata_reset_all(ptr noundef readonly captures(n
   br i1 %.not42, label %.critedge, label %24
 
 24:                                               ; preds = %.split
-  %25 = load ptr, ptr %22, align 8, !tbaa !87
+  %25 = load ptr, ptr %22, align 8, !tbaa !77
   %.not43 = icmp eq ptr %25, null
   br i1 %.not43, label %29, label %26
 
 26:                                               ; preds = %24
-  %27 = load i64, ptr %25, align 8, !tbaa !90
+  %27 = load i64, ptr %25, align 8, !tbaa !80
   %28 = icmp eq i64 %27, %23
   br i1 %28, label %.critedge46, label %29
 
@@ -1205,7 +1205,7 @@ define internal fastcc void @_metadata_reset_all(ptr noundef readonly captures(n
 .critedge:                                        ; preds = %.split, %33, %.critedge46, %29
   %35 = add nuw nsw i32 %.051, 1
   %exitcond58.not = icmp eq i32 %35, 12
-  br i1 %exitcond58.not, label %.split53.us, label %.split, !llvm.loop !98
+  br i1 %exitcond58.not, label %.split53.us, label %.split
 
 .preheader:                                       ; preds = %.split53.us, %.critedge48
   %.03454 = phi i32 [ %49, %.critedge48 ], [ 1, %.split53.us ]
@@ -1217,12 +1217,12 @@ define internal fastcc void @_metadata_reset_all(ptr noundef readonly captures(n
   br i1 %.not39, label %.critedge48, label %40
 
 40:                                               ; preds = %.preheader
-  %41 = load ptr, ptr %38, align 8, !tbaa !87
+  %41 = load ptr, ptr %38, align 8, !tbaa !77
   %.not40 = icmp eq ptr %41, null
   br i1 %.not40, label %45, label %42
 
 42:                                               ; preds = %40
-  %43 = load i64, ptr %41, align 8, !tbaa !90
+  %43 = load i64, ptr %41, align 8, !tbaa !80
   %44 = icmp eq i64 %43, %39
   br i1 %44, label %.critedge50, label %45
 
@@ -1239,7 +1239,7 @@ define internal fastcc void @_metadata_reset_all(ptr noundef readonly captures(n
 .critedge48:                                      ; preds = %.preheader, %.critedge50, %45
   %49 = add nuw nsw i32 %.03454, 1
   %exitcond59.not = icmp eq i32 %49, 12
-  br i1 %exitcond59.not, label %.loopexit, label %.preheader, !llvm.loop !99
+  br i1 %exitcond59.not, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.critedge48, %.split53.us
   ret void
@@ -1461,42 +1461,26 @@ attributes #13 = { nounwind willreturn memory(read) }
 !58 = !{!7, !12, i64 24}
 !59 = !{!7, !12, i64 32}
 !60 = !{!49, !49, i64 0}
-!61 = distinct !{!61, !62}
-!62 = !{!"llvm.loop.estimated_trip_count"}
-!63 = !{!7, !8, i64 8}
-!64 = !{!15, !17, i64 3128}
-!65 = distinct !{!65, !62}
-!66 = !{!15, !17, i64 8}
-!67 = !{!15, !25, i64 96}
-!68 = !{!15, !30, i64 136}
-!69 = !{!70, !70, i64 0}
-!70 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"p1 _ZTS12sqlite3_stmt", !9, i64 0}
-!73 = !{!43, !43, i64 0}
-!74 = distinct !{!74, !62}
-!75 = distinct !{!75, !62}
-!76 = distinct !{!76, !62}
-!77 = distinct !{!77, !62}
-!78 = !{!10, !10, i64 0}
-!79 = distinct !{!79, !62}
-!80 = !{!81, !17, i64 0}
-!81 = !{!"_GdkEventButton", !17, i64 0, !82, i64 8, !10, i64 16, !17, i64 20, !45, i64 24, !45, i64 32, !83, i64 40, !17, i64 48, !17, i64 52, !84, i64 56, !45, i64 64, !45, i64 72}
-!82 = !{!"p1 _ZTS10_GdkWindow", !9, i64 0}
-!83 = !{!"p1 double", !9, i64 0}
-!84 = !{!"p1 _ZTS10_GdkDevice", !9, i64 0}
-!85 = distinct !{!85, !62}
-!86 = distinct !{!86, !62}
-!87 = !{!88, !89, i64 0}
-!88 = !{!"_GTypeInstance", !89, i64 0}
-!89 = !{!"p1 _ZTS11_GTypeClass", !9, i64 0}
-!90 = !{!91, !49, i64 0}
-!91 = !{!"_GTypeClass", !49, i64 0}
-!92 = distinct !{!92, !62}
-!93 = distinct !{!93, !62}
-!94 = distinct !{!94, !62}
-!95 = distinct !{!95, !62}
-!96 = distinct !{!96, !62, !97}
-!97 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!98 = distinct !{!98, !62}
-!99 = distinct !{!99, !62}
+!61 = !{!7, !8, i64 8}
+!62 = !{!15, !17, i64 3128}
+!63 = !{!15, !17, i64 8}
+!64 = !{!15, !25, i64 96}
+!65 = !{!15, !30, i64 136}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 _ZTS12sqlite3_stmt", !9, i64 0}
+!70 = !{!43, !43, i64 0}
+!71 = !{!10, !10, i64 0}
+!72 = !{!73, !17, i64 0}
+!73 = !{!"_GdkEventButton", !17, i64 0, !74, i64 8, !10, i64 16, !17, i64 20, !45, i64 24, !45, i64 32, !75, i64 40, !17, i64 48, !17, i64 52, !76, i64 56, !45, i64 64, !45, i64 72}
+!74 = !{!"p1 _ZTS10_GdkWindow", !9, i64 0}
+!75 = !{!"p1 double", !9, i64 0}
+!76 = !{!"p1 _ZTS10_GdkDevice", !9, i64 0}
+!77 = !{!78, !79, i64 0}
+!78 = !{!"_GTypeInstance", !79, i64 0}
+!79 = !{!"p1 _ZTS11_GTypeClass", !9, i64 0}
+!80 = !{!81, !49, i64 0}
+!81 = !{!"_GTypeClass", !49, i64 0}
+!82 = distinct !{!82, !83}
+!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}

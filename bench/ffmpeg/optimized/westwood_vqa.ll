@@ -233,7 +233,7 @@ define internal i32 @wsvqa_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %29 = zext nneg i32 %28 to i64
   %30 = call i64 @avio_skip(ptr noundef %8, i64 noundef %29) #6
   %31 = icmp slt i32 %27, 0
-  br i1 %31, label %.loopexit, label %.outer, !llvm.loop !61
+  br i1 %31, label %.loopexit, label %.outer, !llvm.loop !60
 
 32:                                               ; preds = %18, %18, %18, %18
   %33 = call i32 @av_get_packet(ptr noundef %8, ptr noundef %1, i32 noundef %16) #6
@@ -299,15 +299,15 @@ define internal i32 @wsvqa_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %60 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !39
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 152
-  store i32 %49, ptr %62, align 8, !tbaa !62
+  store i32 %49, ptr %62, align 8, !tbaa !61
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 56
-  store i32 %59, ptr %63, align 8, !tbaa !63
+  store i32 %59, ptr %63, align 8, !tbaa !62
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 128
   call void @av_channel_layout_default(ptr noundef nonnull %64, i32 noundef %54) #6
   %65 = load ptr, ptr %60, align 8, !tbaa !39
   store i32 1, ptr %65, align 8, !tbaa !40
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 152
-  %67 = load i32, ptr %66, align 8, !tbaa !62
+  %67 = load i32, ptr %66, align 8, !tbaa !61
   call void @avpriv_set_pts_info(ptr noundef nonnull %41, i32 noundef 64, i32 noundef 1, i32 noundef %67) #6
   switch i32 %19, label %default.unreachable [
     i32 1397638192, label %.thread.thread
@@ -324,7 +324,7 @@ define internal i32 @wsvqa_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   store i32 %., ptr %71, align 4, !tbaa !43
   %72 = load i32, ptr %37, align 8, !tbaa !54
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %72, ptr %73, align 4, !tbaa !64
+  store i32 %72, ptr %73, align 4, !tbaa !63
   br label %137
 
 .thread.thread124:                                ; preds = %58
@@ -333,7 +333,7 @@ define internal i32 @wsvqa_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   store i32 86033, ptr %75, align 4, !tbaa !43
   %76 = load i32, ptr %37, align 8, !tbaa !54
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %76, ptr %77, align 4, !tbaa !64
+  store i32 %76, ptr %77, align 4, !tbaa !63
   br label %91
 
 78:                                               ; preds = %58
@@ -353,7 +353,7 @@ define internal i32 @wsvqa_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   store i16 %84, ptr %87, align 1, !tbaa !12
   %88 = load i32, ptr %37, align 8, !tbaa !54
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %88, ptr %89, align 4, !tbaa !64
+  store i32 %88, ptr %89, align 4, !tbaa !63
   br label %102
 
 default.unreachable:                              ; preds = %58
@@ -361,7 +361,7 @@ default.unreachable:                              ; preds = %58
 
 .thread:                                          ; preds = %36
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %38, ptr %90, align 4, !tbaa !64
+  store i32 %38, ptr %90, align 4, !tbaa !63
   switch i32 %19, label %137 [
     i32 1397638193, label %91
     i32 1397638194, label %102
@@ -369,7 +369,7 @@ default.unreachable:                              ; preds = %58
 
 91:                                               ; preds = %.thread.thread124, %.thread
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %93 = load ptr, ptr %92, align 8, !tbaa !65
+  %93 = load ptr, ptr %92, align 8, !tbaa !64
   %.not118 = icmp eq ptr %93, null
   br i1 %.not118, label %137, label %94
 
@@ -381,7 +381,7 @@ default.unreachable:                              ; preds = %58
   %99 = sdiv i32 %96, %98
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %100, ptr %101, align 8, !tbaa !66
+  store i64 %100, ptr %101, align 8, !tbaa !65
   br label %137
 
 102:                                              ; preds = %.thread.thread127, %.thread
@@ -393,7 +393,7 @@ default.unreachable:                              ; preds = %58
   %107 = sext i32 %106 to i64
   %108 = sdiv i64 %104, %107
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %108, ptr %109, align 8, !tbaa !66
+  store i64 %108, ptr %109, align 8, !tbaa !65
   br label %137
 
 110:                                              ; preds = %35
@@ -403,7 +403,7 @@ default.unreachable:                              ; preds = %58
 
 113:                                              ; preds = %110
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %115 = load i64, ptr %114, align 8, !tbaa !67
+  %115 = load i64, ptr %114, align 8, !tbaa !66
   %116 = load i64, ptr %10, align 8, !tbaa !55
   %117 = call i64 @avio_seek(ptr noundef %8, i64 noundef %116, i32 noundef 0) #6
   %118 = icmp slt i64 %117, 0
@@ -440,9 +440,9 @@ default.unreachable:                              ; preds = %58
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %134 = load i32, ptr %133, align 4, !tbaa !37
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %134, ptr %135, align 4, !tbaa !64
+  store i32 %134, ptr %135, align 4, !tbaa !63
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 1, ptr %136, align 8, !tbaa !66
+  store i64 1, ptr %136, align 8, !tbaa !65
   br label %137
 
 137:                                              ; preds = %.thread.thread, %.thread, %102, %94, %91, %132, %35
@@ -466,7 +466,7 @@ default.unreachable:                              ; preds = %58
   %145 = call i64 @avio_skip(ptr noundef %8, i64 noundef %144) #6
   %146 = call i32 @avio_read(ptr noundef %8, ptr noundef nonnull %3, i32 noundef 8) #6
   %147 = icmp eq i32 %146, 8
-  br i1 %147, label %.lr.ph, label %.loopexit, !llvm.loop !61
+  br i1 %147, label %.lr.ph, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %.outer, %24, %21, %.lr.ph, %142, %40, %78, %137, %138, %113, %125, %129, %32
   %.0 = phi i32 [ -5, %32 ], [ -5, %129 ], [ -5, %125 ], [ -5, %113 ], [ %.1102, %138 ], [ %.1102, %137 ], [ -12, %40 ], [ %81, %78 ], [ %.0101.ph, %142 ], [ -1094995529, %.lr.ph ], [ %.0101.ph, %.outer ], [ -1094995529, %21 ], [ %27, %24 ]
@@ -580,13 +580,12 @@ attributes #6 = { nounwind }
 !55 = !{!38, !23, i64 24}
 !56 = !{!38, !10, i64 32}
 !57 = !{!14, !10, i64 40}
-!58 = distinct !{!58, !59, !60}
+!58 = distinct !{!58, !59}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!"llvm.loop.estimated_trip_count"}
-!61 = distinct !{!61, !59, !60}
-!62 = !{!41, !10, i64 152}
-!63 = !{!41, !10, i64 56}
-!64 = !{!33, !10, i64 36}
-!65 = !{!33, !6, i64 24}
-!66 = !{!33, !23, i64 64}
-!67 = !{!33, !23, i64 72}
+!60 = distinct !{!60, !59}
+!61 = !{!41, !10, i64 152}
+!62 = !{!41, !10, i64 56}
+!63 = !{!33, !10, i64 36}
+!64 = !{!33, !6, i64 24}
+!65 = !{!33, !23, i64 64}
+!66 = !{!33, !23, i64 72}

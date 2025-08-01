@@ -234,7 +234,7 @@ define range(i32 -1, 1) i32 @agclose(ptr noundef %0) local_unnamed_addr #0 {
   %7 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.04866) #11
   %8 = tail call i32 @agdelnode(ptr noundef %0, ptr noundef nonnull %.04866) #11
   %.not51 = icmp eq ptr %7, null
-  br i1 %.not51, label %._crit_edge69, label %.lr.ph68, !llvm.loop !52
+  br i1 %.not51, label %._crit_edge69, label %.lr.ph68, !llvm.loop !51
 
 ._crit_edge69:                                    ; preds = %.lr.ph68, %._crit_edge
   tail call void @aginternalmapclose(ptr noundef %0) #11
@@ -299,7 +299,7 @@ define range(i32 -1, 1) i32 @agclose(ptr noundef %0) local_unnamed_addr #0 {
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %39 = load ptr, ptr %38, align 8, !tbaa !18
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
-  %41 = load ptr, ptr %40, align 8, !tbaa !53
+  %41 = load ptr, ptr %40, align 8, !tbaa !52
   %.not6070 = icmp eq ptr %41, null
   br i1 %.not6070, label %._crit_edge72, label %.lr.ph71
 
@@ -309,19 +309,19 @@ define range(i32 -1, 1) i32 @agclose(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph71:                                         ; preds = %.preheader, %.lr.ph71
   %44 = phi ptr [ %49, %.lr.ph71 ], [ %41, %.preheader ]
-  %45 = load ptr, ptr %44, align 8, !tbaa !54
+  %45 = load ptr, ptr %44, align 8, !tbaa !53
   %46 = tail call i32 @agpopdisc(ptr noundef nonnull %0, ptr noundef %45) #11
   %47 = load ptr, ptr %38, align 8, !tbaa !18
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = load ptr, ptr %48, align 8, !tbaa !53
+  %49 = load ptr, ptr %48, align 8, !tbaa !52
   %.not60 = icmp eq ptr %49, null
-  br i1 %.not60, label %._crit_edge72, label %.lr.ph71, !llvm.loop !57
+  br i1 %.not60, label %._crit_edge72, label %.lr.ph71, !llvm.loop !56
 
 ._crit_edge72:                                    ; preds = %.lr.ph71, %.preheader
   %.lcssa = phi ptr [ %39, %.preheader ], [ %47, %.lr.ph71 ]
   %50 = load ptr, ptr %.lcssa, align 8, !tbaa !13
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %52 = load ptr, ptr %51, align 8, !tbaa !58
+  %52 = load ptr, ptr %51, align 8, !tbaa !57
   %53 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !35
   tail call void %52(ptr noundef %54) #11
@@ -408,11 +408,11 @@ define i32 @agnedges(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %4
   %7 = load ptr, ptr %3, align 8, !tbaa !41
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !59
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = tail call i32 @dtrestore(ptr noundef %7, ptr noundef %9) #11
   %11 = tail call i32 @dtsize(ptr noundef %7) #11
   %12 = tail call ptr @dtextract(ptr noundef %7) #11
-  store ptr %12, ptr %8, align 8, !tbaa !59
+  store ptr %12, ptr %8, align 8, !tbaa !58
   br label %agdegree.exit
 
 agdegree.exit:                                    ; preds = %4, %6
@@ -420,7 +420,7 @@ agdegree.exit:                                    ; preds = %4, %6
   %13 = add nsw i32 %.0.i, %.010
   %14 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.079) #11
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !60
+  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %agdegree.exit, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %13, %agdegree.exit ]
@@ -441,11 +441,11 @@ define i32 @agdegree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !59
+  %11 = load ptr, ptr %10, align 8, !tbaa !58
   %12 = tail call i32 @dtrestore(ptr noundef %9, ptr noundef %11) #11
   %13 = tail call i32 @dtsize(ptr noundef %9) #11
   %14 = tail call ptr @dtextract(ptr noundef %9) #11
-  store ptr %14, ptr %10, align 8, !tbaa !59
+  store ptr %14, ptr %10, align 8, !tbaa !58
   br label %15
 
 15:                                               ; preds = %7, %6
@@ -457,11 +457,11 @@ define i32 @agdegree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8, !tbaa !41
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %20 = load ptr, ptr %19, align 8, !tbaa !59
+  %20 = load ptr, ptr %19, align 8, !tbaa !58
   %21 = tail call i32 @dtrestore(ptr noundef %18, ptr noundef %20) #11
   %22 = tail call i32 @dtsize(ptr noundef %18) #11
   %23 = tail call ptr @dtextract(ptr noundef %18) #11
-  store ptr %23, ptr %19, align 8, !tbaa !59
+  store ptr %23, ptr %19, align 8, !tbaa !58
   %24 = add nsw i32 %22, %.1
   br label %25
 
@@ -536,11 +536,11 @@ define i32 @agcountuniqedges(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
+  %10 = load ptr, ptr %9, align 8, !tbaa !58
   %11 = tail call i32 @dtrestore(ptr noundef %8, ptr noundef %10) #11
   %12 = tail call i32 @dtsize(ptr noundef %8) #11
   %13 = tail call ptr @dtextract(ptr noundef %8) #11
-  store ptr %13, ptr %9, align 8, !tbaa !59
+  store ptr %13, ptr %9, align 8, !tbaa !58
   %.not1923 = icmp eq i32 %2, 0
   br i1 %.not1923, label %.loopexit, label %22
 
@@ -548,11 +548,11 @@ define i32 @agcountuniqedges(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load ptr, ptr %15, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !59
+  %18 = load ptr, ptr %17, align 8, !tbaa !58
   %19 = tail call i32 @dtrestore(ptr noundef %16, ptr noundef %18) #11
   %20 = tail call i32 @dtsize(ptr noundef %16) #11
   %21 = tail call ptr @dtextract(ptr noundef %16) #11
-  store ptr %21, ptr %17, align 8, !tbaa !59
+  store ptr %21, ptr %17, align 8, !tbaa !58
   br label %.loopexit
 
 22:                                               ; preds = %.thread
@@ -564,13 +564,13 @@ define i32 @agcountuniqedges(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %.230 = phi i32 [ %spec.select, %.lr.ph ], [ %12, %22 ]
   %.01829 = phi ptr [ %27, %.lr.ph ], [ %23, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %.01829, i64 56
-  %25 = load ptr, ptr %24, align 8, !tbaa !61
+  %25 = load ptr, ptr %24, align 8, !tbaa !60
   %.not21 = icmp ne ptr %25, %1
   %26 = zext i1 %.not21 to i32
   %spec.select = add nsw i32 %.230, %26
   %27 = tail call ptr @agnxtin(ptr noundef nonnull %0, ptr noundef nonnull %.01829) #11
   %.not20 = icmp eq ptr %27, null
-  br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %.thread, %14, %6
   %.1 = phi i32 [ %20, %14 ], [ 0, %6 ], [ %12, %.thread ], [ %12, %22 ], [ %spec.select, %.lr.ph ]
@@ -696,19 +696,18 @@ attributes #15 = { cold noreturn nounwind }
 !46 = !{!"dt_s_", !5, i64 0, !47, i64 8, !48, i64 16, !5, i64 56, !22, i64 64, !28, i64 72, !28, i64 80, !5, i64 88}
 !47 = !{!"p1 _ZTS9dtdisc_s_", !5, i64 0}
 !48 = !{!"", !22, i64 0, !27, i64 8, !6, i64 16, !22, i64 24, !22, i64 28, !22, i64 32}
-!49 = distinct !{!49, !50, !51}
+!49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = distinct !{!52, !50, !51}
-!53 = !{!14, !16, i64 56}
-!54 = !{!55, !56, i64 0}
-!55 = !{!"Agcbstack_s", !56, i64 0, !5, i64 8, !16, i64 16}
-!56 = !{!"p1 _ZTS10Agcbdisc_s", !5, i64 0}
-!57 = distinct !{!57, !50, !51}
-!58 = !{!34, !5, i64 32}
-!59 = !{!27, !27, i64 0}
-!60 = distinct !{!60, !50, !51}
-!61 = !{!62, !63, i64 56}
-!62 = !{!"Agedge_s", !20, i64 0, !26, i64 24, !26, i64 40, !63, i64 56}
-!63 = !{!"p1 _ZTS8Agnode_s", !5, i64 0}
-!64 = distinct !{!64, !50, !51}
+!51 = distinct !{!51, !50}
+!52 = !{!14, !16, i64 56}
+!53 = !{!54, !55, i64 0}
+!54 = !{!"Agcbstack_s", !55, i64 0, !5, i64 8, !16, i64 16}
+!55 = !{!"p1 _ZTS10Agcbdisc_s", !5, i64 0}
+!56 = distinct !{!56, !50}
+!57 = !{!34, !5, i64 32}
+!58 = !{!27, !27, i64 0}
+!59 = distinct !{!59, !50}
+!60 = !{!61, !62, i64 56}
+!61 = !{!"Agedge_s", !20, i64 0, !26, i64 24, !26, i64 40, !62, i64 56}
+!62 = !{!"p1 _ZTS8Agnode_s", !5, i64 0}
+!63 = distinct !{!63, !50}

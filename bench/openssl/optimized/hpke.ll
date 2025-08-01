@@ -1792,7 +1792,7 @@ define range(i32 0, 2) i32 @OSSL_HPKE_seal(ptr noundef captures(address_is_null)
   store i8 %50, ptr %48, align 1, !tbaa !58
   %51 = add nuw nsw i64 %.129.i, 1
   %exitcond30.not.i = icmp eq i64 %51, 12
-  br i1 %exitcond30.not.i, label %hpke_seqnonce2buf.exit, label %.preheader.i, !llvm.loop !65
+  br i1 %exitcond30.not.i, label %hpke_seqnonce2buf.exit, label %.preheader.i, !llvm.loop !64
 
 52:                                               ; preds = %36
   tail call void @ERR_new() #6
@@ -1834,7 +1834,7 @@ define internal fastcc range(i32 0, 2) i32 @hpke_aead_enc(ptr noundef nonnull re
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load i64, ptr %13, align 8, !tbaa !66
+  %14 = load i64, ptr %13, align 8, !tbaa !65
   %15 = load i64, ptr %7, align 8, !tbaa !41
   %.not = icmp ule i64 %15, %14
   %16 = sub nuw i64 %15, %14
@@ -1850,7 +1850,7 @@ define internal fastcc range(i32 0, 2) i32 @hpke_aead_enc(ptr noundef nonnull re
 
 19:                                               ; preds = %8
   %20 = icmp ult i64 %14, 17
-  br i1 %20, label %22, label %21, !prof !67
+  br i1 %20, label %22, label %21, !prof !66
 
 21:                                               ; preds = %19
   tail call void @ERR_new() #6
@@ -2093,7 +2093,7 @@ define range(i32 0, 2) i32 @OSSL_HPKE_open(ptr noundef captures(address_is_null)
   store i8 %50, ptr %48, align 1, !tbaa !58
   %51 = add nuw nsw i64 %.129.i, 1
   %exitcond30.not.i = icmp eq i64 %51, 12
-  br i1 %exitcond30.not.i, label %hpke_seqnonce2buf.exit, label %.preheader.i, !llvm.loop !65
+  br i1 %exitcond30.not.i, label %hpke_seqnonce2buf.exit, label %.preheader.i, !llvm.loop !64
 
 52:                                               ; preds = %36
   tail call void @ERR_new() #6
@@ -2134,7 +2134,7 @@ define internal fastcc range(i32 0, 2) i32 @hpke_aead_dec(ptr noundef nonnull re
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !66
+  %13 = load i64, ptr %12, align 8, !tbaa !65
   %.not = icmp ugt i64 %5, %13
   br i1 %.not, label %14, label %18
 
@@ -2653,13 +2653,13 @@ define range(i32 0, 2) i32 @OSSL_HPKE_get_grease_value(ptr noundef readonly capt
   br i1 %20, label %29, label %21
 
 21:                                               ; preds = %18
-  %22 = load i16, ptr %19, align 8, !tbaa !68
+  %22 = load i16, ptr %19, align 8, !tbaa !67
   %23 = tail call ptr @ossl_HPKE_KDF_INFO_find_random(ptr noundef %6) #6
   %24 = icmp eq ptr %23, null
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %21
-  %26 = load i16, ptr %23, align 8, !tbaa !69
+  %26 = load i16, ptr %23, align 8, !tbaa !68
   %27 = tail call ptr @ossl_HPKE_AEAD_INFO_find_random(ptr noundef %6) #6
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %hpke_random_suite.exit
@@ -2716,7 +2716,7 @@ hpke_suite_check.exit:                            ; preds = %37
   %.sroa.8.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 %.sroa.8.0, ptr %.sroa.8.0..sroa_idx49, align 2, !tbaa !22
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !66
+  %42 = load i64, ptr %41, align 8, !tbaa !65
   %.not = icmp ult i64 %42, %5
   br i1 %.not, label %44, label %43
 
@@ -2728,7 +2728,7 @@ hpke_suite_check.exit:                            ; preds = %37
 
 44:                                               ; preds = %hpke_suite_check.exit
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %46 = load i64, ptr %45, align 8, !tbaa !70
+  %46 = load i64, ptr %45, align 8, !tbaa !69
   %47 = load i64, ptr %3, align 8, !tbaa !41
   %48 = icmp ugt i64 %46, %47
   br i1 %48, label %49, label %50
@@ -2802,7 +2802,7 @@ define i64 @OSSL_HPKE_get_ciphertext_size(i48 %0, i64 noundef %1) local_unnamed_
 
 hpke_expansion.exit:                              ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !66
+  %12 = load i64, ptr %11, align 8, !tbaa !65
   %13 = add i64 %12, %1
   br label %15
 
@@ -2840,7 +2840,7 @@ define i64 @OSSL_HPKE_get_recommended_ikmelen(i48 %0) local_unnamed_addr #0 {
 
 hpke_suite_check.exit:                            ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %11 = load i64, ptr %10, align 8, !tbaa !71
+  %11 = load i64, ptr %10, align 8, !tbaa !70
   br label %hpke_suite_check.exit.thread
 
 hpke_suite_check.exit.thread:                     ; preds = %7, %4, %1, %hpke_suite_check.exit
@@ -2972,13 +2972,12 @@ attributes #7 = { nounwind willreturn memory(read) }
 !59 = !{!57, !14, i64 16}
 !60 = !{!19, !14, i64 32}
 !61 = !{!19, !14, i64 24}
-!62 = distinct !{!62, !63, !64}
+!62 = distinct !{!62, !63}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!"llvm.loop.estimated_trip_count"}
-!65 = distinct !{!65, !63, !64}
-!66 = !{!19, !14, i64 16}
-!67 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!68 = !{!44, !12, i64 0}
-!69 = !{!57, !12, i64 0}
-!70 = !{!44, !14, i64 48}
-!71 = !{!44, !14, i64 56}
+!64 = distinct !{!64, !63}
+!65 = !{!19, !14, i64 16}
+!66 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!67 = !{!44, !12, i64 0}
+!68 = !{!57, !12, i64 0}
+!69 = !{!44, !14, i64 48}
+!70 = !{!44, !14, i64 56}

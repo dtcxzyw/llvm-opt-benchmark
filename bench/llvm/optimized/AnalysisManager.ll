@@ -193,7 +193,7 @@ define dso_local void @_ZN5clang4ento15AnalysisManagerD2Ev(ptr noundef nonnull a
   call void @_ZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeE(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %2) #10
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 8
   %.not.i = icmp eq ptr %17, %15
-  br i1 %.not.i, label %_ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv.exit, label %.lr.ph.i, !llvm.loop !452
+  br i1 %.not.i, label %_ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv.exit, label %.lr.ph.i
 
 _ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv.exit: ; preds = %.lr.ph.i, %1
   call void @_ZN5clang4ento22PathDiagnosticConsumer9FilesMadeD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2) #10
@@ -224,14 +224,14 @@ _ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv.exit: ; preds = %.lr.ph.i, %
 _ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EED2Ev.exit: ; preds = %._crit_edge, %21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %29 = load ptr, ptr %28, align 8, !tbaa !454
+  %29 = load ptr, ptr %28, align 8, !tbaa !452
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %31 = load i32, ptr %30, align 8, !tbaa !455
+  %31 = load i32, ptr %30, align 8, !tbaa !453
   %32 = zext i32 %31 to i64
   %33 = mul nuw nsw i64 %32, 24
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %29, i64 noundef %33, i64 noundef 8) #10
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %35 = load ptr, ptr %34, align 8, !tbaa !456
+  %35 = load ptr, ptr %34, align 8, !tbaa !454
   %.not.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5clang12CodeInjectorESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5clang12CodeInjectorEEclEPS1_.exit.i.i
 
@@ -243,13 +243,13 @@ _ZNKSt14default_deleteIN5clang12CodeInjectorEEclEPS1_.exit.i.i: ; preds = %_ZNSt
   br label %_ZNSt10unique_ptrIN5clang12CodeInjectorESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5clang12CodeInjectorESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5clang12CodeInjectorEEclEPS1_.exit.i.i, %_ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EED2Ev.exit
-  store ptr null, ptr %34, align 8, !tbaa !456
+  store ptr null, ptr %34, align 8, !tbaa !454
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @_ZN5clang22LocationContextManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #10
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load i32, ptr %40, align 8, !tbaa !457
+  %41 = load i32, ptr %40, align 8, !tbaa !455
   %42 = icmp eq i32 %41, 0
-  %.pre1.i.i = load ptr, ptr %27, align 8, !tbaa !458
+  %.pre1.i.i = load ptr, ptr %27, align 8, !tbaa !456
   br i1 %42, label %_ZN5clang26AnalysisDeclContextManagerD2Ev.exit, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNSt10unique_ptrIN5clang12CodeInjectorESt14default_deleteIS1_EED2Ev.exit.i
@@ -260,7 +260,7 @@ _ZNSt10unique_ptrIN5clang12CodeInjectorESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 .lr.ph.i.i.i:                                     ; preds = %49, %.lr.ph.preheader.i.i.i
   %.011.i.i.i = phi ptr [ %50, %49 ], [ %.pre1.i.i, %.lr.ph.preheader.i.i.i ]
-  %45 = load ptr, ptr %.011.i.i.i, align 8, !tbaa !459
+  %45 = load ptr, ptr %.011.i.i.i, align 8, !tbaa !457
   %magicptr.i.i.i = ptrtoint ptr %45 to i64
   switch i64 %magicptr.i.i.i, label %46 [
     i64 -4096, label %49
@@ -269,7 +269,7 @@ _ZNSt10unique_ptrIN5clang12CodeInjectorESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 46:                                               ; preds = %.lr.ph.i.i.i
   %47 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !460
+  %48 = load ptr, ptr %47, align 8, !tbaa !458
   %.not.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN5clang19AnalysisDeclContextESt14default_deleteIS1_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN5clang19AnalysisDeclContextEEclEPS1_.exit.i.i.i.i
 
@@ -279,17 +279,17 @@ _ZNKSt14default_deleteIN5clang19AnalysisDeclContextEEclEPS1_.exit.i.i.i.i: ; pre
   br label %_ZNSt10unique_ptrIN5clang19AnalysisDeclContextESt14default_deleteIS1_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIN5clang19AnalysisDeclContextESt14default_deleteIS1_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang19AnalysisDeclContextEEclEPS1_.exit.i.i.i.i, %46
-  store ptr null, ptr %47, align 8, !tbaa !460
+  store ptr null, ptr %47, align 8, !tbaa !458
   br label %49
 
 49:                                               ; preds = %_ZNSt10unique_ptrIN5clang19AnalysisDeclContextESt14default_deleteIS1_EED2Ev.exit.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 16
   %.not.i.i.i4 = icmp eq ptr %50, %44
-  br i1 %.not.i.i.i4, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclESt10unique_ptrINS2_19AnalysisDeclContextESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !462
+  br i1 %.not.i.i.i4, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclESt10unique_ptrINS2_19AnalysisDeclContextESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !460
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclESt10unique_ptrINS2_19AnalysisDeclContextESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i: ; preds = %49
-  %.pre.i.i = load ptr, ptr %27, align 8, !tbaa !458
-  %.pre2.i.i = load i32, ptr %40, align 8, !tbaa !457
+  %.pre.i.i = load ptr, ptr %27, align 8, !tbaa !456
+  %.pre2.i.i = load i32, ptr %40, align 8, !tbaa !455
   %51 = zext i32 %.pre2.i.i to i64
   %52 = shl nuw nsw i64 %51, 4
   br label %_ZN5clang26AnalysisDeclContextManagerD2Ev.exit
@@ -316,7 +316,7 @@ _ZN5clang26AnalysisDeclContextManagerD2Ev.exit:   ; preds = %_ZNSt10unique_ptrIN
 61:                                               ; preds = %57, %.lr.ph
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %62, %19
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !464
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -358,7 +358,7 @@ define dso_local void @_ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv(ptr n
   call void @_ZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeE(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %2) #10
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %17, %15
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !452
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -400,7 +400,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZN5clang4ento15AnalysisManager26getPat
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(23216) ptr @_ZN5clang4ento15AnalysisManager13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %3 = load ptr, ptr %2, align 8, !tbaa !465
+  %3 = load ptr, ptr %2, align 8, !tbaa !462
   ret ptr %3
 }
 
@@ -411,21 +411,21 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(696) ptr @_ZN
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(23216) ptr %4(ptr noundef nonnull align 8 dereferenceable(264) %0) #10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2152
-  %7 = load ptr, ptr %6, align 8, !tbaa !466
+  %7 = load ptr, ptr %6, align 8, !tbaa !463
   ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(488) ptr @_ZN5clang4ento15AnalysisManager18getAnalyzerOptionsEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %3 = load ptr, ptr %2, align 8, !tbaa !467
+  %3 = load ptr, ptr %2, align 8, !tbaa !464
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(3288) ptr @_ZN5clang4ento15AnalysisManager15getPreprocessorEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load ptr, ptr %2, align 8, !tbaa !468
+  %3 = load ptr, ptr %2, align 8, !tbaa !465
   ret ptr %3
 }
 
@@ -920,20 +920,17 @@ attributes #13 = { builtin nounwind }
 !449 = !{!278, !31, i64 88}
 !450 = !{!451, !451, i64 0}
 !451 = !{!"p1 _ZTSN5clang4ento22PathDiagnosticConsumerE", !16, i64 0}
-!452 = distinct !{!452, !453}
-!453 = !{!"llvm.loop.estimated_trip_count"}
-!454 = !{!432, !433, i64 0}
-!455 = !{!432, !9, i64 16}
-!456 = !{!430, !430, i64 0}
-!457 = !{!414, !9, i64 16}
-!458 = !{!414, !415, i64 0}
-!459 = !{!348, !348, i64 0}
-!460 = !{!461, !461, i64 0}
-!461 = !{!"p1 _ZTSN5clang19AnalysisDeclContextE", !16, i64 0}
-!462 = distinct !{!462, !463, !453}
-!463 = !{!"llvm.loop.mustprogress"}
-!464 = distinct !{!464, !453}
-!465 = !{!411, !47, i64 184}
-!466 = !{!51, !255, i64 2152}
-!467 = !{!411, !438, i64 256}
-!468 = !{!411, !49, i64 192}
+!452 = !{!432, !433, i64 0}
+!453 = !{!432, !9, i64 16}
+!454 = !{!430, !430, i64 0}
+!455 = !{!414, !9, i64 16}
+!456 = !{!414, !415, i64 0}
+!457 = !{!348, !348, i64 0}
+!458 = !{!459, !459, i64 0}
+!459 = !{!"p1 _ZTSN5clang19AnalysisDeclContextE", !16, i64 0}
+!460 = distinct !{!460, !461}
+!461 = !{!"llvm.loop.mustprogress"}
+!462 = !{!411, !47, i64 184}
+!463 = !{!51, !255, i64 2152}
+!464 = !{!411, !438, i64 256}
+!465 = !{!411, !49, i64 192}

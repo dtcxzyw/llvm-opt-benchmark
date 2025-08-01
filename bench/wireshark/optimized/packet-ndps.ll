@@ -4924,7 +4924,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %185 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %185, ptr noundef %0, i32 noundef %184)
   %exitcond2297.not = icmp eq i32 %175, %167
-  br i1 %exitcond2297.not, label %.loopexit1873, label %.lr.ph2084, !llvm.loop !11
+  br i1 %exitcond2297.not, label %.loopexit1873, label %.lr.ph2084, !llvm.loop !10
 
 .loopexit1873:                                    ; preds = %181, %161, %171
   %.417701923 = phi i32 [ %.417702082, %171 ], [ %170, %161 ], [ %184, %181 ]
@@ -4951,7 +4951,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph2099:                                       ; preds = %.loopexit1871
   %exitcond2302 = icmp eq i32 %205, 100
-  br i1 %exitcond2302, label %202, label %.lr.ph2099.preheader, !llvm.loop !12
+  br i1 %exitcond2302, label %202, label %.lr.ph2099.preheader, !llvm.loop !11
 
 202:                                              ; preds = %.lr.ph2099
   %203 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.11915, ptr noundef nonnull @ei_ndps_truncated)
@@ -4976,7 +4976,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph2093:                                       ; preds = %.loopexit1870
   %exitcond2300 = icmp eq i32 %216, 100
-  br i1 %exitcond2300, label %213, label %.lr.ph2093.preheader, !llvm.loop !13
+  br i1 %exitcond2300, label %213, label %.lr.ph2093.preheader, !llvm.loop !12
 
 213:                                              ; preds = %.lr.ph2093
   %214 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %225, ptr noundef nonnull @ei_ndps_truncated)
@@ -5019,7 +5019,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %234 = load ptr, ptr %9, align 8
   call void @proto_item_set_end(ptr noundef %234, ptr noundef %0, i32 noundef %233)
   %exitcond2299.not = icmp eq i32 %231, %223
-  br i1 %exitcond2299.not, label %.loopexit1870, label %.lr.ph2088, !llvm.loop !14
+  br i1 %exitcond2299.not, label %.loopexit1870, label %.lr.ph2088, !llvm.loop !13
 
 .loopexit1870:                                    ; preds = %229, %.lr.ph2093.preheader, %227
   %.817741913 = phi i32 [ %.817742086, %227 ], [ %226, %.lr.ph2093.preheader ], [ %233, %229 ]
@@ -5034,7 +5034,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %242 = load ptr, ptr %8, align 8
   call void @proto_item_set_end(ptr noundef %242, ptr noundef %0, i32 noundef %241)
   %exitcond2301.not = icmp eq i32 %216, %209
-  br i1 %exitcond2301.not, label %.loopexit1871, label %.lr.ph2093, !llvm.loop !13
+  br i1 %exitcond2301.not, label %.loopexit1871, label %.lr.ph2093, !llvm.loop !12
 
 .loopexit1871:                                    ; preds = %.loopexit1870, %.lr.ph2099.preheader, %213
   %.717731917 = phi i32 [ %241, %213 ], [ %212, %.lr.ph2099.preheader ], [ %241, %.loopexit1870 ]
@@ -5043,7 +5043,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %244 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %244, ptr noundef %0, i32 noundef %243)
   %exitcond2303.not = icmp eq i32 %205, %198
-  br i1 %exitcond2303.not, label %.loopexit1872, label %.lr.ph2099, !llvm.loop !12
+  br i1 %exitcond2303.not, label %.loopexit1872, label %.lr.ph2099, !llvm.loop !11
 
 .loopexit1872:                                    ; preds = %.loopexit1871, %.loopexit1873, %202
   %.517711920 = phi i32 [ %243, %202 ], [ %201, %.loopexit1873 ], [ %243, %.loopexit1871 ]
@@ -5094,7 +5094,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %271 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %271, ptr noundef %0, i32 noundef %270)
   %exitcond2295.not = icmp eq i32 %268, %257
-  br i1 %exitcond2295.not, label %.loopexit1875, label %.lr.ph2080, !llvm.loop !15
+  br i1 %exitcond2295.not, label %.loopexit1875, label %.lr.ph2080, !llvm.loop !14
 
 .loopexit1875:                                    ; preds = %266, %248, %263
   %.917751925 = phi i32 [ %.917752078, %263 ], [ %260, %248 ], [ %270, %266 ]
@@ -5186,7 +5186,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %322 = load ptr, ptr %9, align 8
   call void @proto_item_set_end(ptr noundef %322, ptr noundef %0, i32 noundef %321)
   %exitcond2291.not = icmp eq i32 %319, %308
-  br i1 %exitcond2291.not, label %.loopexit1876, label %.lr.ph2072, !llvm.loop !16
+  br i1 %exitcond2291.not, label %.loopexit1876, label %.lr.ph2072, !llvm.loop !15
 
 .loopexit1876:                                    ; preds = %317, %288, %314
   %.1117771927 = phi i32 [ %.1117772070, %314 ], [ %311, %288 ], [ %321, %317 ]
@@ -5195,7 +5195,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %324 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %324, ptr noundef %0, i32 noundef %.1117771927)
   %exitcond2293.not = icmp eq i32 %290, %279
-  br i1 %exitcond2293.not, label %.loopexit1877, label %.lr.ph2076, !llvm.loop !17
+  br i1 %exitcond2293.not, label %.loopexit1877, label %.lr.ph2076, !llvm.loop !16
 
 .loopexit1877:                                    ; preds = %.loopexit1876, %278, %285
   %.1017761929 = phi i32 [ %.1017762074, %285 ], [ %282, %278 ], [ %.1117771927, %.loopexit1876 ]
@@ -5236,7 +5236,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %342 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %342, ptr noundef %0, i32 noundef %341)
   %exitcond2289.not = icmp eq i32 %339, %331
-  br i1 %exitcond2289.not, label %.loopexit1878, label %.lr.ph2068, !llvm.loop !18
+  br i1 %exitcond2289.not, label %.loopexit1878, label %.lr.ph2068, !llvm.loop !17
 
 .loopexit1878:                                    ; preds = %337, %328, %335
   %.1217781931 = phi i32 [ %.1217782066, %335 ], [ %334, %328 ], [ %341, %337 ]
@@ -5277,7 +5277,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %360 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %360, ptr noundef %0, i32 noundef %359)
   %exitcond2287.not = icmp eq i32 %357, %349
-  br i1 %exitcond2287.not, label %.loopexit1879, label %.lr.ph2064, !llvm.loop !19
+  br i1 %exitcond2287.not, label %.loopexit1879, label %.lr.ph2064, !llvm.loop !18
 
 .loopexit1879:                                    ; preds = %355, %346, %353
   %.1317791933 = phi i32 [ %.1317792062, %353 ], [ %352, %346 ], [ %359, %355 ]
@@ -5372,7 +5372,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
   %417 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %417, ptr noundef %0, i32 noundef %416)
   %exitcond2285.not = icmp eq i32 %414, %406
-  br i1 %exitcond2285.not, label %.loopexit1880, label %.lr.ph2060, !llvm.loop !20
+  br i1 %exitcond2285.not, label %.loopexit1880, label %.lr.ph2060, !llvm.loop !19
 
 .loopexit1880:                                    ; preds = %412, %394, %410
   %.1417801935 = phi i32 [ %.1417802058, %410 ], [ %409, %394 ], [ %416, %412 ]
@@ -5439,7 +5439,7 @@ define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, 
 
 450:                                              ; preds = %553
   %exitcond2310 = icmp eq i32 %455, 100
-  br i1 %exitcond2310, label %451, label %453, !llvm.loop !21
+  br i1 %exitcond2310, label %451, label %453, !llvm.loop !20
 
 451:                                              ; preds = %450
   %452 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %521, ptr noundef nonnull @ei_ndps_truncated)
@@ -5527,7 +5527,7 @@ qualifiedname.exit:                               ; preds = %453, %.sink.split.i
   call void @proto_item_set_end(ptr noundef %501, ptr noundef %0, i32 noundef %500)
   %502 = add nuw nsw i32 %.217562106, 1
   %exitcond2307.not = icmp eq i32 %502, %488
-  br i1 %exitcond2307.not, label %.loopexit1867, label %.lr.ph2107, !llvm.loop !22
+  br i1 %exitcond2307.not, label %.loopexit1867, label %.lr.ph2107, !llvm.loop !21
 
 .loopexit1867:                                    ; preds = %497, %qualifiedname.exit, %494
   %.1617821905 = phi i32 [ %.1617822105, %494 ], [ %491, %qualifiedname.exit ], [ %500, %497 ]
@@ -5588,7 +5588,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   call void @proto_item_set_end(ptr noundef %529, ptr noundef %0, i32 noundef %528)
   %530 = add nuw nsw i32 %.317572110, 1
   %exitcond2309.not = icmp eq i32 %530, %519
-  br i1 %exitcond2309.not, label %.loopexit, label %.lr.ph2111, !llvm.loop !23
+  br i1 %exitcond2309.not, label %.loopexit, label %.lr.ph2111, !llvm.loop !22
 
 .loopexit:                                        ; preds = %525, %qualifiedname.exit1863, %523
   %.1717831907 = phi i32 [ %.1717832109, %523 ], [ %522, %qualifiedname.exit1863 ], [ %528, %525 ]
@@ -5628,7 +5628,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
 553:                                              ; preds = %549, %551
   %.181784 = phi i32 [ %552, %551 ], [ %550, %549 ]
   %exitcond2311.not = icmp eq i32 %455, %446
-  br i1 %exitcond2311.not, label %.loopexit1868, label %450, !llvm.loop !21
+  br i1 %exitcond2311.not, label %.loopexit1868, label %450, !llvm.loop !20
 
 554:                                              ; preds = %98
   switch i32 %.01752, label %.loopexit1868 [
@@ -5676,7 +5676,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %574 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %574, ptr noundef %0, i32 noundef %573)
   %exitcond2283.not = icmp eq i32 %566, %558
-  br i1 %exitcond2283.not, label %.loopexit1881, label %.lr.ph2056, !llvm.loop !24
+  br i1 %exitcond2283.not, label %.loopexit1881, label %.lr.ph2056, !llvm.loop !23
 
 .loopexit1881:                                    ; preds = %564, %557, %562
   %.2017861937 = phi i32 [ %.2017862054, %562 ], [ %561, %557 ], [ %573, %564 ]
@@ -5748,7 +5748,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %603 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %603, ptr noundef %0, i32 noundef %598)
   %exitcond2281.not = icmp eq i32 %595, %587
-  br i1 %exitcond2281.not, label %.loopexit1868, label %.lr.ph2052, !llvm.loop !25
+  br i1 %exitcond2281.not, label %.loopexit1868, label %.lr.ph2052, !llvm.loop !24
 
 604:                                              ; preds = %585, %585, %585, %585, %585
   %605 = call fastcc i32 @return_code(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %82)
@@ -5780,7 +5780,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %618 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %618, ptr noundef %0, i32 noundef %617)
   %exitcond2279.not = icmp eq i32 %615, %607
-  br i1 %exitcond2279.not, label %.loopexit1883, label %.lr.ph2048, !llvm.loop !26
+  br i1 %exitcond2279.not, label %.loopexit1883, label %.lr.ph2048, !llvm.loop !25
 
 .loopexit1883:                                    ; preds = %613, %606, %611
   %.2217881940 = phi i32 [ %.2217882046, %611 ], [ %610, %606 ], [ %617, %613 ]
@@ -5829,7 +5829,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %642 = call fastcc i32 @print_address(ptr noundef %0, ptr noundef %638, i32 noundef %641)
   %643 = add nuw nsw i32 %.122043, 1
   %exitcond2277.not = icmp eq i32 %643, %628
-  br i1 %exitcond2277.not, label %.loopexit1884, label %.lr.ph2044, !llvm.loop !27
+  br i1 %exitcond2277.not, label %.loopexit1884, label %.lr.ph2044, !llvm.loop !26
 
 .loopexit1884:                                    ; preds = %634, %627, %632
   %.2317891942 = phi i32 [ %.2317892042, %632 ], [ %631, %627 ], [ %642, %634 ]
@@ -5926,7 +5926,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %684 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %684, ptr noundef %0, i32 noundef %679)
   %exitcond2275.not = icmp eq i32 %676, %668
-  br i1 %exitcond2275.not, label %.loopexit1868, label %.lr.ph2040, !llvm.loop !28
+  br i1 %exitcond2275.not, label %.loopexit1868, label %.lr.ph2040, !llvm.loop !27
 
 685:                                              ; preds = %666
   %686 = load i32, ptr @hf_ndps_session, align 4
@@ -6015,7 +6015,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %744 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %744, ptr noundef %0, i32 noundef %743)
   %exitcond2273.not = icmp eq i32 %741, %733
-  br i1 %exitcond2273.not, label %.loopexit1886, label %.lr.ph2036, !llvm.loop !29
+  br i1 %exitcond2273.not, label %.loopexit1886, label %.lr.ph2036, !llvm.loop !28
 
 .loopexit1886:                                    ; preds = %739, %722, %737
   %.2517911945 = phi i32 [ %.2517912034, %737 ], [ %736, %722 ], [ %743, %739 ]
@@ -6106,7 +6106,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %799 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %799, ptr noundef %0, i32 noundef %798)
   %exitcond2271.not = icmp eq i32 %780, %772
-  br i1 %exitcond2271.not, label %.loopexit1887, label %.lr.ph2032, !llvm.loop !30
+  br i1 %exitcond2271.not, label %.loopexit1887, label %.lr.ph2032, !llvm.loop !29
 
 .loopexit1887:                                    ; preds = %778, %771, %776
   %.2617921947 = phi i32 [ %.2617922030, %776 ], [ %775, %771 ], [ %798, %778 ]
@@ -6156,7 +6156,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %829 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %829, ptr noundef %0, i32 noundef %828)
   %exitcond2269.not = icmp eq i32 %826, %815
-  br i1 %exitcond2269.not, label %.loopexit1888, label %.lr.ph2028, !llvm.loop !31
+  br i1 %exitcond2269.not, label %.loopexit1888, label %.lr.ph2028, !llvm.loop !30
 
 .loopexit1888:                                    ; preds = %824, %801, %821
   %.2717931949 = phi i32 [ %.2717932026, %821 ], [ %818, %801 ], [ %828, %824 ]
@@ -6307,7 +6307,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %904 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %904, ptr noundef %0, i32 noundef %903)
   %exitcond2267.not = icmp eq i32 %884, %876
-  br i1 %exitcond2267.not, label %.loopexit1868, label %.lr.ph2024, !llvm.loop !32
+  br i1 %exitcond2267.not, label %.loopexit1868, label %.lr.ph2024, !llvm.loop !31
 
 905:                                              ; preds = %867
   %906 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %874)
@@ -6339,7 +6339,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %918 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %918, ptr noundef %0, i32 noundef %917)
   %exitcond2265.not = icmp eq i32 %914, %906
-  br i1 %exitcond2265.not, label %.loopexit1868, label %.lr.ph2020, !llvm.loop !33
+  br i1 %exitcond2265.not, label %.loopexit1868, label %.lr.ph2020, !llvm.loop !32
 
 919:                                              ; preds = %867
   %920 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %874)
@@ -6371,7 +6371,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %932 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %932, ptr noundef %0, i32 noundef %931)
   %exitcond2263.not = icmp eq i32 %928, %920
-  br i1 %exitcond2263.not, label %.loopexit1868, label %.lr.ph2016, !llvm.loop !34
+  br i1 %exitcond2263.not, label %.loopexit1868, label %.lr.ph2016, !llvm.loop !33
 
 933:                                              ; preds = %867
   %934 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %874)
@@ -6403,7 +6403,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %946 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %946, ptr noundef %0, i32 noundef %945)
   %exitcond2261.not = icmp eq i32 %942, %934
-  br i1 %exitcond2261.not, label %.loopexit1868, label %.lr.ph2012, !llvm.loop !35
+  br i1 %exitcond2261.not, label %.loopexit1868, label %.lr.ph2012, !llvm.loop !34
 
 947:                                              ; preds = %867, %867, %867
   %948 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %874)
@@ -6439,7 +6439,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %964 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %964, ptr noundef %0, i32 noundef %963)
   %exitcond2259.not = icmp eq i32 %956, %948
-  br i1 %exitcond2259.not, label %.loopexit1868, label %.lr.ph2008, !llvm.loop !36
+  br i1 %exitcond2259.not, label %.loopexit1868, label %.lr.ph2008, !llvm.loop !35
 
 965:                                              ; preds = %867
   %966 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %874)
@@ -6472,7 +6472,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %982 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %982, ptr noundef %0, i32 noundef %981)
   %exitcond2251.not = icmp eq i32 %974, %966
-  br i1 %exitcond2251.not, label %.loopexit1897, label %.lr.ph1992, !llvm.loop !37
+  br i1 %exitcond2251.not, label %.loopexit1897, label %.lr.ph1992, !llvm.loop !36
 
 .loopexit1897:                                    ; preds = %972, %965, %970
   %.361961 = phi i32 [ %.361990, %970 ], [ %969, %965 ], [ %981, %972 ]
@@ -6527,7 +6527,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %1006 = call fastcc i32 @ndps_string(ptr noundef %0, i32 noundef %1005, ptr noundef %999, i32 noundef %.381994, ptr noundef null)
   %1007 = add nuw nsw i32 %.41995, 1
   %exitcond2253.not = icmp eq i32 %1007, %995
-  br i1 %exitcond2253.not, label %.loopexit1895, label %.lr.ph1996, !llvm.loop !38
+  br i1 %exitcond2253.not, label %.loopexit1895, label %.lr.ph1996, !llvm.loop !37
 
 .loopexit1895:                                    ; preds = %1004, %989, %1001
   %.381956 = phi i32 [ %.381994, %1001 ], [ %1000, %989 ], [ %1006, %1004 ]
@@ -6558,7 +6558,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %1020 = call fastcc i32 @ndps_string(ptr noundef %0, i32 noundef %1019, ptr noundef %1013, i32 noundef %.391998, ptr noundef null)
   %1021 = add nuw nsw i32 %.51999, 1
   %exitcond2255.not = icmp eq i32 %1021, %1009
-  br i1 %exitcond2255.not, label %.loopexit1894, label %.lr.ph2000, !llvm.loop !39
+  br i1 %exitcond2255.not, label %.loopexit1894, label %.lr.ph2000, !llvm.loop !38
 
 .loopexit1894:                                    ; preds = %1018, %.loopexit1895, %1015
   %.391958 = phi i32 [ %.391998, %1015 ], [ %1014, %.loopexit1895 ], [ %1020, %1018 ]
@@ -6567,7 +6567,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %1023 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %1023, ptr noundef %0, i32 noundef %.391958)
   %exitcond2257.not = icmp eq i32 %991, %983
-  br i1 %exitcond2257.not, label %.loopexit1868, label %.lr.ph2004, !llvm.loop !40
+  br i1 %exitcond2257.not, label %.loopexit1868, label %.lr.ph2004, !llvm.loop !39
 
 1024:                                             ; preds = %867
   %1025 = load i32, ptr @hf_ndps_def_file_name, align 4
@@ -6584,7 +6584,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
 
 .lr.ph1988:                                       ; preds = %.loopexit1898
   %exitcond2248 = icmp eq i32 %1035, 100
-  br i1 %exitcond2248, label %1031, label %1033, !llvm.loop !41
+  br i1 %exitcond2248, label %1031, label %1033, !llvm.loop !40
 
 1031:                                             ; preds = %.lr.ph1988
   %1032 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1042, ptr noundef nonnull @ei_ndps_truncated)
@@ -6625,14 +6625,14 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %1052 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %1052, ptr noundef %0, i32 noundef %1051)
   %exitcond2247.not = icmp eq i32 %1048, %1040
-  br i1 %exitcond2247.not, label %.loopexit1898, label %.lr.ph1983, !llvm.loop !42
+  br i1 %exitcond2247.not, label %.loopexit1898, label %.lr.ph1983, !llvm.loop !41
 
 .loopexit1898:                                    ; preds = %1046, %1033, %1044
   %.411963 = phi i32 [ %.411981, %1044 ], [ %1043, %1033 ], [ %1051, %1046 ]
   %1053 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %1053, ptr noundef %0, i32 noundef %.411963)
   %exitcond2249.not = icmp eq i32 %1035, %1027
-  br i1 %exitcond2249.not, label %.loopexit1868, label %.lr.ph1988, !llvm.loop !41
+  br i1 %exitcond2249.not, label %.loopexit1868, label %.lr.ph1988, !llvm.loop !40
 
 1054:                                             ; preds = %867, %867, %867
   %1055 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %874)
@@ -6676,7 +6676,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %1079 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %1079, ptr noundef %0, i32 noundef %1078)
   %exitcond2245.not = icmp eq i32 %1063, %1055
-  br i1 %exitcond2245.not, label %.loopexit1868, label %.lr.ph1979, !llvm.loop !43
+  br i1 %exitcond2245.not, label %.loopexit1868, label %.lr.ph1979, !llvm.loop !42
 
 1080:                                             ; preds = %867
   %1081 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %874)
@@ -6709,7 +6709,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %1094 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %1094, ptr noundef %0, i32 noundef %1093)
   %exitcond2243.not = icmp eq i32 %1089, %1081
-  br i1 %exitcond2243.not, label %.loopexit1868, label %.lr.ph1975, !llvm.loop !44
+  br i1 %exitcond2243.not, label %.loopexit1868, label %.lr.ph1975, !llvm.loop !43
 
 1095:                                             ; preds = %849
   %1096 = load i32, ptr @hf_ndps_return_code, align 4
@@ -6878,7 +6878,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %1187 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %1187, ptr noundef %0, i32 noundef %1186)
   %exitcond2241.not = icmp eq i32 %1177, %1166
-  br i1 %exitcond2241.not, label %.loopexit1902, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond2241.not, label %.loopexit1902, label %.lr.ph, !llvm.loop !44
 
 .loopexit1902:                                    ; preds = %1183, %1165, %1172
   %.441970 = phi i32 [ %.441971, %1172 ], [ %1169, %1165 ], [ %1186, %1183 ]
@@ -7060,7 +7060,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %71 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %71, ptr noundef %0, i32 noundef %70)
   %exitcond3693.not = icmp eq i32 %62, %54
-  br i1 %exitcond3693.not, label %.loopexit, label %.lr.ph3480, !llvm.loop !46
+  br i1 %exitcond3693.not, label %.loopexit, label %.lr.ph3480, !llvm.loop !45
 
 .loopexit:                                        ; preds = %69, %49, %58
   %.030813225 = phi i32 [ %.030813478, %58 ], [ %57, %49 ], [ %70, %69 ]
@@ -7101,7 +7101,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
 
 .lr.ph3449:                                       ; preds = %.loopexit3190
   %exitcond3680 = icmp eq i32 %97, 100
-  br i1 %exitcond3680, label %94, label %.lr.ph3449.preheader, !llvm.loop !47
+  br i1 %exitcond3680, label %94, label %.lr.ph3449.preheader, !llvm.loop !46
 
 94:                                               ; preds = %.lr.ph3449
   %95 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %102, ptr noundef nonnull @ei_ndps_truncated)
@@ -7139,7 +7139,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %111 = load ptr, ptr %12, align 8
   call void @proto_item_set_end(ptr noundef %111, ptr noundef %0, i32 noundef %110)
   %exitcond3679.not = icmp eq i32 %108, %100
-  br i1 %exitcond3679.not, label %.loopexit3190, label %.lr.ph3443, !llvm.loop !48
+  br i1 %exitcond3679.not, label %.loopexit3190, label %.lr.ph3443, !llvm.loop !47
 
 .loopexit3190:                                    ; preds = %106, %.lr.ph3449.preheader, %104
   %.230833239 = phi i32 [ %.230833441, %104 ], [ %103, %.lr.ph3449.preheader ], [ %110, %106 ]
@@ -7149,7 +7149,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %115 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %115, ptr noundef %0, i32 noundef %114)
   %exitcond3681.not = icmp eq i32 %97, %90
-  br i1 %exitcond3681.not, label %.loopexit3191, label %.lr.ph3449, !llvm.loop !47
+  br i1 %exitcond3681.not, label %.loopexit3191, label %.lr.ph3449, !llvm.loop !46
 
 .loopexit3191:                                    ; preds = %.loopexit3190, %82, %94
   %.130823242 = phi i32 [ %114, %94 ], [ %93, %82 ], [ %114, %.loopexit3190 ]
@@ -7182,7 +7182,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %130 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %130, ptr noundef %0, i32 noundef %129)
   %exitcond3683.not = icmp eq i32 %127, %119
-  br i1 %exitcond3683.not, label %.loopexit3189, label %.lr.ph3454, !llvm.loop !49
+  br i1 %exitcond3683.not, label %.loopexit3189, label %.lr.ph3454, !llvm.loop !48
 
 .loopexit3189:                                    ; preds = %125, %.loopexit3191, %123
   %.33237 = phi i32 [ %.33452, %123 ], [ %122, %.loopexit3191 ], [ %129, %125 ]
@@ -7264,7 +7264,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %176 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %176, ptr noundef %0, i32 noundef %.5)
   %exitcond3685.not = icmp eq i32 %149, %135
-  br i1 %exitcond3685.not, label %.loopexit3188, label %144, !llvm.loop !50
+  br i1 %exitcond3685.not, label %.loopexit3188, label %144, !llvm.loop !49
 
 .loopexit3188:                                    ; preds = %175, %.loopexit3189, %145
   %.43234 = phi i32 [ %.43457, %145 ], [ %142, %.loopexit3189 ], [ %.5, %175 ]
@@ -7298,7 +7298,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
 
 .lr.ph3470:                                       ; preds = %.loopexit3186
   %exitcond3688 = icmp eq i32 %198, 100
-  br i1 %exitcond3688, label %195, label %.lr.ph3470.preheader, !llvm.loop !51
+  br i1 %exitcond3688, label %195, label %.lr.ph3470.preheader, !llvm.loop !50
 
 195:                                              ; preds = %.lr.ph3470
   %196 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %203, ptr noundef nonnull @ei_ndps_truncated)
@@ -7336,7 +7336,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %212 = load ptr, ptr %12, align 8
   call void @proto_item_set_end(ptr noundef %212, ptr noundef %0, i32 noundef %211)
   %exitcond3687.not = icmp eq i32 %209, %201
-  br i1 %exitcond3687.not, label %.loopexit3186, label %.lr.ph3464, !llvm.loop !52
+  br i1 %exitcond3687.not, label %.loopexit3186, label %.lr.ph3464, !llvm.loop !51
 
 .loopexit3186:                                    ; preds = %207, %.lr.ph3470.preheader, %205
   %.83228 = phi i32 [ %.83462, %205 ], [ %204, %.lr.ph3470.preheader ], [ %211, %207 ]
@@ -7346,7 +7346,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %216 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %216, ptr noundef %0, i32 noundef %215)
   %exitcond3689.not = icmp eq i32 %198, %191
-  br i1 %exitcond3689.not, label %.loopexit3187, label %.lr.ph3470, !llvm.loop !51
+  br i1 %exitcond3689.not, label %.loopexit3187, label %.lr.ph3470, !llvm.loop !50
 
 .loopexit3187:                                    ; preds = %.loopexit3186, %188, %195
   %.73231 = phi i32 [ %215, %195 ], [ %194, %188 ], [ %215, %.loopexit3186 ]
@@ -7382,7 +7382,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %231 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %231, ptr noundef %0, i32 noundef %230)
   %exitcond3691.not = icmp eq i32 %228, %220
-  br i1 %exitcond3691.not, label %.loopexit3185, label %.lr.ph3475, !llvm.loop !53
+  br i1 %exitcond3691.not, label %.loopexit3185, label %.lr.ph3475, !llvm.loop !52
 
 232:                                              ; preds = %76
   %233 = load i32, ptr @hf_ndps_pa_name, align 4
@@ -7420,7 +7420,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %254 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %254, ptr noundef %0, i32 noundef %253)
   %exitcond3673.not = icmp eq i32 %251, %243
-  br i1 %exitcond3673.not, label %.loopexit3194, label %.lr.ph3428, !llvm.loop !54
+  br i1 %exitcond3673.not, label %.loopexit3194, label %.lr.ph3428, !llvm.loop !53
 
 .loopexit3194:                                    ; preds = %249, %232, %247
   %.103248 = phi i32 [ %.103426, %247 ], [ %246, %232 ], [ %253, %249 ]
@@ -7456,7 +7456,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %272 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %272, ptr noundef %0, i32 noundef %271)
   %exitcond3675.not = icmp eq i32 %269, %261
-  br i1 %exitcond3675.not, label %.loopexit3193, label %.lr.ph3433, !llvm.loop !55
+  br i1 %exitcond3675.not, label %.loopexit3193, label %.lr.ph3433, !llvm.loop !54
 
 .loopexit3193:                                    ; preds = %267, %.loopexit3194, %265
   %.113246 = phi i32 [ %.113431, %265 ], [ %264, %.loopexit3194 ], [ %271, %267 ]
@@ -7494,7 +7494,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %291 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %291, ptr noundef %0, i32 noundef %290)
   %exitcond3677.not = icmp eq i32 %288, %280
-  br i1 %exitcond3677.not, label %.loopexit3192, label %.lr.ph3438, !llvm.loop !56
+  br i1 %exitcond3677.not, label %.loopexit3192, label %.lr.ph3438, !llvm.loop !55
 
 .loopexit3192:                                    ; preds = %286, %.loopexit3193, %284
   %.123244 = phi i32 [ %.123436, %284 ], [ %283, %.loopexit3193 ], [ %290, %286 ]
@@ -7547,7 +7547,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %322 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %322, ptr noundef %0, i32 noundef %321)
   %exitcond3669.not = icmp eq i32 %319, %311
-  br i1 %exitcond3669.not, label %.loopexit3196, label %.lr.ph3418, !llvm.loop !57
+  br i1 %exitcond3669.not, label %.loopexit3196, label %.lr.ph3418, !llvm.loop !56
 
 .loopexit3196:                                    ; preds = %317, %298, %315
   %.133252 = phi i32 [ %.133416, %315 ], [ %314, %298 ], [ %321, %317 ]
@@ -7580,7 +7580,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %337 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %337, ptr noundef %0, i32 noundef %336)
   %exitcond3671.not = icmp eq i32 %334, %326
-  br i1 %exitcond3671.not, label %.loopexit3195, label %.lr.ph3423, !llvm.loop !58
+  br i1 %exitcond3671.not, label %.loopexit3195, label %.lr.ph3423, !llvm.loop !57
 
 .loopexit3195:                                    ; preds = %332, %.loopexit3196, %330
   %.143250 = phi i32 [ %.143421, %330 ], [ %329, %.loopexit3196 ], [ %336, %332 ]
@@ -7676,7 +7676,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %399 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %399, ptr noundef %0, i32 noundef %398)
   %exitcond3667.not = icmp eq i32 %396, %388
-  br i1 %exitcond3667.not, label %.loopexit3185, label %.lr.ph3413, !llvm.loop !59
+  br i1 %exitcond3667.not, label %.loopexit3185, label %.lr.ph3413, !llvm.loop !58
 
 400:                                              ; preds = %367
   %401 = load i32, ptr @ett_ndps, align 4
@@ -7725,7 +7725,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %428 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %428, ptr noundef %0, i32 noundef %427)
   %exitcond3663.not = icmp eq i32 %425, %417
-  br i1 %exitcond3663.not, label %.loopexit3198, label %.lr.ph3404, !llvm.loop !60
+  br i1 %exitcond3663.not, label %.loopexit3198, label %.lr.ph3404, !llvm.loop !59
 
 .loopexit3198:                                    ; preds = %423, %414, %421
   %.173257 = phi i32 [ %.173403, %421 ], [ %420, %414 ], [ %427, %423 ]
@@ -7783,7 +7783,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %459 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %459, ptr noundef %0, i32 noundef %458)
   %exitcond3665.not = icmp eq i32 %456, %448
-  br i1 %exitcond3665.not, label %._crit_edge, label %.lr.ph3408, !llvm.loop !61
+  br i1 %exitcond3665.not, label %._crit_edge, label %.lr.ph3408, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %454, %.thread
   %.lcssa3737.sink = phi i32 [ %.183407, %.thread ], [ %458, %454 ]
@@ -7975,7 +7975,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %594 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %594, ptr noundef %0, i32 noundef %593)
   %exitcond3661.not = icmp eq i32 %591, %583
-  br i1 %exitcond3661.not, label %.loopexit3199, label %.lr.ph3400, !llvm.loop !62
+  br i1 %exitcond3661.not, label %.loopexit3199, label %.lr.ph3400, !llvm.loop !61
 
 .loopexit3199:                                    ; preds = %589, %563, %587
   %.213259 = phi i32 [ %.213399, %587 ], [ %586, %563 ], [ %593, %589 ]
@@ -8041,7 +8041,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
 
 .lr.ph3396:                                       ; preds = %.loopexit3200
   %exitcond3658 = icmp eq i32 %682, 100
-  br i1 %exitcond3658, label %639, label %.lr.ph3396.preheader, !llvm.loop !63
+  br i1 %exitcond3658, label %639, label %.lr.ph3396.preheader, !llvm.loop !62
 
 639:                                              ; preds = %.lr.ph3396
   %640 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %671, ptr noundef nonnull @ei_ndps_truncated)
@@ -8089,7 +8089,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %665 = load ptr, ptr %12, align 8
   call void @proto_item_set_end(ptr noundef %665, ptr noundef %0, i32 noundef %664)
   %exitcond3655.not = icmp eq i32 %662, %654
-  br i1 %exitcond3655.not, label %.loopexit3201, label %.lr.ph3387, !llvm.loop !64
+  br i1 %exitcond3655.not, label %.loopexit3201, label %.lr.ph3387, !llvm.loop !63
 
 .loopexit3201:                                    ; preds = %660, %.lr.ph3396.preheader, %658
   %.233261 = phi i32 [ %.233386, %658 ], [ %657, %.lr.ph3396.preheader ], [ %664, %660 ]
@@ -8122,7 +8122,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %680 = load ptr, ptr %12, align 8
   call void @proto_item_set_end(ptr noundef %680, ptr noundef %0, i32 noundef %679)
   %exitcond3657.not = icmp eq i32 %677, %669
-  br i1 %exitcond3657.not, label %.loopexit3200, label %.lr.ph3391, !llvm.loop !65
+  br i1 %exitcond3657.not, label %.loopexit3200, label %.lr.ph3391, !llvm.loop !64
 
 .loopexit3200:                                    ; preds = %675, %.loopexit3201, %673
   %.243263 = phi i32 [ %.243390, %673 ], [ %672, %.loopexit3201 ], [ %679, %675 ]
@@ -8130,7 +8130,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   call void @proto_item_set_end(ptr noundef %681, ptr noundef %0, i32 noundef %.243263)
   %682 = add nuw nsw i32 %.153100339393, 1
   %exitcond3659.not = icmp eq i32 %682, %635
-  br i1 %exitcond3659.not, label %.loopexit3202, label %.lr.ph3396, !llvm.loop !63
+  br i1 %exitcond3659.not, label %.loopexit3202, label %.lr.ph3396, !llvm.loop !62
 
 .loopexit3202:                                    ; preds = %.loopexit3200, %625, %639
   %.223266 = phi i32 [ %.243263, %639 ], [ %638, %625 ], [ %.243263, %.loopexit3200 ]
@@ -8182,7 +8182,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %712 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %712, ptr noundef %0, i32 noundef %711)
   %exitcond3653.not = icmp eq i32 %709, %701
-  br i1 %exitcond3653.not, label %.loopexit3203, label %.lr.ph3383, !llvm.loop !66
+  br i1 %exitcond3653.not, label %.loopexit3203, label %.lr.ph3383, !llvm.loop !65
 
 .loopexit3203:                                    ; preds = %707, %689, %705
   %.253268 = phi i32 [ %.253382, %705 ], [ %704, %689 ], [ %711, %707 ]
@@ -8336,7 +8336,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %823 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %823, ptr noundef %0, i32 noundef %822)
   %exitcond3651.not = icmp eq i32 %820, %812
-  br i1 %exitcond3651.not, label %.loopexit3204, label %.lr.ph3379, !llvm.loop !67
+  br i1 %exitcond3651.not, label %.loopexit3204, label %.lr.ph3379, !llvm.loop !66
 
 .loopexit3204:                                    ; preds = %818, %789, %816
   %.263270 = phi i32 [ %.263378, %816 ], [ %815, %789 ], [ %822, %818 ]
@@ -8612,7 +8612,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %1006 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %1006, ptr noundef %0, i32 noundef %1005)
   %exitcond3647.not = icmp eq i32 %1003, %995
-  br i1 %exitcond3647.not, label %.loopexit3206, label %.lr.ph3371, !llvm.loop !68
+  br i1 %exitcond3647.not, label %.loopexit3206, label %.lr.ph3371, !llvm.loop !67
 
 .loopexit3206:                                    ; preds = %1001, %969, %999
   %.323274 = phi i32 [ %.323370, %999 ], [ %998, %969 ], [ %1005, %1001 ]
@@ -8651,7 +8651,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %1026 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %1026, ptr noundef %0, i32 noundef %1025)
   %exitcond3649.not = icmp eq i32 %1023, %1015
-  br i1 %exitcond3649.not, label %.loopexit3205, label %.lr.ph3375, !llvm.loop !69
+  br i1 %exitcond3649.not, label %.loopexit3205, label %.lr.ph3375, !llvm.loop !68
 
 .loopexit3205:                                    ; preds = %1021, %.loopexit3206, %1019
   %.333272 = phi i32 [ %.333374, %1019 ], [ %1018, %.loopexit3206 ], [ %1025, %1021 ]
@@ -8800,7 +8800,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %1117 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %1117, ptr noundef %0, i32 noundef %1111)
   %exitcond3645.not = icmp eq i32 %1108, %1100
-  br i1 %exitcond3645.not, label %.loopexit3185, label %.lr.ph3367, !llvm.loop !70
+  br i1 %exitcond3645.not, label %.loopexit3185, label %.lr.ph3367, !llvm.loop !69
 
 1118:                                             ; preds = %1094
   %1119 = load i32, ptr @hf_ndps_list_services_type, align 4
@@ -8843,7 +8843,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %1138 = add i32 %1132, %1133
   %1139 = add nuw nsw i32 %.2131063361, 1
   %exitcond3643.not = icmp eq i32 %1139, %1126
-  br i1 %exitcond3643.not, label %.loopexit3208, label %.lr.ph3363, !llvm.loop !71
+  br i1 %exitcond3643.not, label %.loopexit3208, label %.lr.ph3363, !llvm.loop !70
 
 .loopexit3208:                                    ; preds = %1137, %1121, %1129
   %.373277 = phi i32 [ %.373362, %1129 ], [ 52, %1121 ], [ %1138, %1137 ]
@@ -8910,7 +8910,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %1167 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %1167, ptr noundef %0, i32 noundef %1161)
   %exitcond3641.not = icmp eq i32 %1158, %1150
-  br i1 %exitcond3641.not, label %.loopexit3185, label %.lr.ph3359, !llvm.loop !72
+  br i1 %exitcond3641.not, label %.loopexit3185, label %.lr.ph3359, !llvm.loop !71
 
 1168:                                             ; preds = %1144
   %1169 = tail call fastcc i32 @server_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 44)
@@ -8949,7 +8949,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %1187 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %1187, ptr noundef %0, i32 noundef %1186)
   %exitcond3637.not = icmp eq i32 %1184, %1177
-  br i1 %exitcond3637.not, label %.loopexit3211, label %.lr.ph3351, !llvm.loop !73
+  br i1 %exitcond3637.not, label %.loopexit3211, label %.lr.ph3351, !llvm.loop !72
 
 .loopexit3211:                                    ; preds = %1182, %1174, %1180
   %.393282 = phi i32 [ %.393350, %1180 ], [ 48, %1174 ], [ %1186, %1182 ]
@@ -8982,7 +8982,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %1202 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %1202, ptr noundef %0, i32 noundef %1201)
   %exitcond3639.not = icmp eq i32 %1199, %1191
-  br i1 %exitcond3639.not, label %.loopexit3210, label %.lr.ph3355, !llvm.loop !74
+  br i1 %exitcond3639.not, label %.loopexit3210, label %.lr.ph3355, !llvm.loop !73
 
 .loopexit3210:                                    ; preds = %1197, %.loopexit3211, %1195
   %.403280 = phi i32 [ %.403354, %1195 ], [ %1194, %.loopexit3211 ], [ %1201, %1197 ]
@@ -9087,7 +9087,7 @@ define internal fastcc void @dissect_ndps_request(ptr noundef %0, ptr noundef %1
   %1251 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %1251, ptr noundef %0, i32 noundef %1245)
   %exitcond3635.not = icmp eq i32 %1242, %1234
-  br i1 %exitcond3635.not, label %.loopexit3185, label %.lr.ph3347, !llvm.loop !75
+  br i1 %exitcond3635.not, label %.loopexit3185, label %.lr.ph3347, !llvm.loop !74
 
 1252:                                             ; preds = %1228
   %1253 = load i32, ptr @hf_ndps_supplier_name, align 4
@@ -9142,7 +9142,7 @@ qualifiedname.exit:                               ; preds = %1261, %.sink.split.
   %1274 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %1274, ptr noundef %0, i32 noundef %.0.i3174)
   %exitcond3633.not = icmp eq i32 %1263, %1255
-  br i1 %exitcond3633.not, label %.loopexit3185, label %.lr.ph3343, !llvm.loop !76
+  br i1 %exitcond3633.not, label %.loopexit3185, label %.lr.ph3343, !llvm.loop !75
 
 1275:                                             ; preds = %1228
   %1276 = load i32, ptr @hf_ndps_session, align 4
@@ -9216,7 +9216,7 @@ qualifiedname.exit:                               ; preds = %1261, %.sink.split.
   %1324 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %1324, ptr noundef %0, i32 noundef %1323)
   %exitcond3631.not = icmp eq i32 %1321, %1310
-  br i1 %exitcond3631.not, label %.loopexit3214, label %.lr.ph3339, !llvm.loop !77
+  br i1 %exitcond3631.not, label %.loopexit3214, label %.lr.ph3339, !llvm.loop !76
 
 .loopexit3214:                                    ; preds = %1319, %1301, %1316
   %.433286 = phi i32 [ %.433338, %1316 ], [ %1313, %1301 ], [ %1323, %1319 ]
@@ -9476,7 +9476,7 @@ qualifiedname.exit:                               ; preds = %1261, %.sink.split.
   %1492 = load ptr, ptr %13, align 8
   call void @proto_item_set_end(ptr noundef %1492, ptr noundef %0, i32 noundef %1491)
   %exitcond3628.not = icmp eq i32 %1489, %1478
-  br i1 %exitcond3628.not, label %.loopexit3215, label %.lr.ph3331, !llvm.loop !78
+  br i1 %exitcond3628.not, label %.loopexit3215, label %.lr.ph3331, !llvm.loop !77
 
 .loopexit3215:                                    ; preds = %1487, %1448, %1484
   %.503288 = phi i32 [ %.503330, %1484 ], [ %1481, %1448 ], [ %1491, %1487 ]
@@ -9490,7 +9490,7 @@ qualifiedname.exit:                               ; preds = %1261, %.sink.split.
   %1499 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %1499, ptr noundef %0, i32 noundef %1498)
   %1500 = icmp ult i32 %1450, %1478
-  br i1 %1500, label %.lr.ph3335, label %.loopexit3216, !llvm.loop !79
+  br i1 %1500, label %.lr.ph3335, label %.loopexit3216, !llvm.loop !78
 
 .loopexit3216:                                    ; preds = %.loopexit3215, %1437, %1445
   %.493290 = phi i32 [ %.493334, %1445 ], [ 52, %1437 ], [ %1498, %.loopexit3215 ]
@@ -9531,7 +9531,7 @@ qualifiedname.exit:                               ; preds = %1261, %.sink.split.
   %1520 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %1520, ptr noundef %0, i32 noundef %1519)
   %exitcond3624.not = icmp eq i32 %1510, %1503
-  br i1 %exitcond3624.not, label %.loopexit3218, label %.lr.ph3323, !llvm.loop !80
+  br i1 %exitcond3624.not, label %.loopexit3218, label %.lr.ph3323, !llvm.loop !79
 
 .loopexit3218:                                    ; preds = %1508, %1502, %1506
   %.513294 = phi i32 [ %.513322, %1506 ], [ 48, %1502 ], [ %1519, %1508 ]
@@ -9598,7 +9598,7 @@ qualifiedname.exit:                               ; preds = %1261, %.sink.split.
   %1564 = load ptr, ptr %11, align 8
   call void @proto_item_set_end(ptr noundef %1564, ptr noundef %0, i32 noundef %1563)
   %exitcond3626.not = icmp eq i32 %1561, %1550
-  br i1 %exitcond3626.not, label %.loopexit3217, label %.lr.ph3327, !llvm.loop !81
+  br i1 %exitcond3626.not, label %.loopexit3217, label %.lr.ph3327, !llvm.loop !80
 
 .loopexit3217:                                    ; preds = %1559, %.loopexit3218, %1556
   %.523292 = phi i32 [ %.523326, %1556 ], [ %1553, %.loopexit3218 ], [ %1563, %1559 ]
@@ -9740,7 +9740,7 @@ qualifiedname.exit:                               ; preds = %1261, %.sink.split.
   %1640 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %1640, ptr noundef %0, i32 noundef %1634)
   %exitcond3622.not = icmp eq i32 %1631, %1623
-  br i1 %exitcond3622.not, label %.loopexit3185, label %.lr.ph3319, !llvm.loop !82
+  br i1 %exitcond3622.not, label %.loopexit3185, label %.lr.ph3319, !llvm.loop !81
 
 1641:                                             ; preds = %1617
   %1642 = load i32, ptr @hf_packet_count, align 4
@@ -9788,7 +9788,7 @@ qualifiedname.exit:                               ; preds = %1261, %.sink.split.
   %1667 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %1667, ptr noundef %0, i32 noundef %1666)
   %exitcond3620.not = icmp eq i32 %1657, %1649
-  br i1 %exitcond3620.not, label %.loopexit3185, label %.lr.ph3313, !llvm.loop !83
+  br i1 %exitcond3620.not, label %.loopexit3185, label %.lr.ph3313, !llvm.loop !82
 
 1668:                                             ; preds = %1617
   %1669 = tail call fastcc i32 @res_add_input_data(ptr noundef %0, ptr noundef %2, i32 noundef 44)
@@ -10075,7 +10075,7 @@ qualifiedname.exit3179:                           ; preds = %1799, %.sink.split.
   %1847 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %1847, ptr noundef %0, i32 noundef %.0.i3178)
   %exitcond3614.not = icmp eq i32 %1786, %1779
-  br i1 %exitcond3614.not, label %.loopexit3185, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond3614.not, label %.loopexit3185, label %.lr.ph, !llvm.loop !83
 
 1848:                                             ; preds = %1775
   %1849 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 44)
@@ -10174,7 +10174,7 @@ qualifiedname.exit3179:                           ; preds = %1799, %.sink.split.
   %1909 = call fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr noundef %1904, i32 noundef %.583304)
   %1910 = add nuw nsw i32 %.531263303, 1
   %exitcond3616.not = icmp eq i32 %1910, %1899
-  br i1 %exitcond3616.not, label %.loopexit3221, label %.lr.ph3305, !llvm.loop !85
+  br i1 %exitcond3616.not, label %.loopexit3221, label %.lr.ph3305, !llvm.loop !84
 
 .loopexit3221:                                    ; preds = %1908, %1869, %1905
   %.583298 = phi i32 [ %.583304, %1905 ], [ %1902, %1869 ], [ %1909, %1908 ]
@@ -10215,7 +10215,7 @@ qualifiedname.exit3184:                           ; preds = %.loopexit3221, %.si
   %1929 = load ptr, ptr %10, align 8
   call void @proto_item_set_end(ptr noundef %1929, ptr noundef %0, i32 noundef %.0.i3183)
   %exitcond3618.not = icmp eq i32 %1856, %1849
-  br i1 %exitcond3618.not, label %.loopexit3185, label %.lr.ph3309, !llvm.loop !86
+  br i1 %exitcond3618.not, label %.loopexit3185, label %.lr.ph3309, !llvm.loop !85
 
 .loopexit3185:                                    ; preds = %qualifiedname.exit3179, %qualifiedname.exit3184, %1655, %1663, %1639, %qualifiedname.exit, %1250, %1166, %1116, %394, %226, %964, %966, %._crit_edge.thread, %1778, %1848, %1641, %1618, %1252, %1229, %1145, %1095, %381, %.loopexit3187, %46, %1088, %1077, %1070, %931, %920, %913, %._crit_edge, %392, %.loopexit3192, %293, %224, %76, %.loopexit3205, %956, %945, %937, %883, %827, %.loopexit3204, %781, %773, %765, %757, %737, %727, %715, %.loopexit3203, %.loopexit3202, %617, %609, %597, %.loopexit3199, %555, %539, %533, %500, %465, %339, %.loopexit3195, %73, %.loopexit, %47, %1094, %1104, %1141, %.loopexit3208, %1118, %1144, %1222, %1213, %1210, %1154, %.loopexit3210, %1170, %1168, %1228, %1594, %1604, %1583, %1431, %1420, %1413, %1259, %1238, %1610, %1578, %1575, %.loopexit3217, %.loopexit3216, %1380, %1327, %.loopexit3214, %1275, %1617, %1739, %1746, %1751, %1754, %1761, %1733, %1678, %1681, %1684, %1687, %1692, %1705, %1719, %1726, %1670, %1653, %1627, %1772, %1768, %1668, %1775, %1852, %1782, %1776, %45, %159
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #7
@@ -10503,7 +10503,7 @@ define internal fastcc i32 @ndps_error(ptr noundef %0, ptr noundef %1, ptr nound
   %163 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %163, ptr noundef %0, i32 noundef %162)
   %exitcond239.not = icmp eq i32 %145, %137
-  br i1 %exitcond239.not, label %.loopexit, label %.lr.ph, !llvm.loop !87
+  br i1 %exitcond239.not, label %.loopexit, label %.lr.ph, !llvm.loop !86
 
 164:                                              ; preds = %4
   %165 = load i32, ptr @hf_problem_type, align 4
@@ -10819,7 +10819,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %42 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %42, ptr noundef %0, i32 noundef %41)
   %exitcond1951.not = icmp eq i32 %39, %31
-  br i1 %exitcond1951.not, label %.loopexit, label %.lr.ph1816, !llvm.loop !88
+  br i1 %exitcond1951.not, label %.loopexit, label %.lr.ph1816, !llvm.loop !87
 
 43:                                               ; preds = %18, %18
   %44 = load i32, ptr @hf_object_name, align 4
@@ -10855,7 +10855,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %61 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %61, ptr noundef %0, i32 noundef %60)
   %exitcond1949.not = icmp eq i32 %56, %48
-  br i1 %exitcond1949.not, label %.loopexit, label %.lr.ph1812, !llvm.loop !89
+  br i1 %exitcond1949.not, label %.loopexit, label %.lr.ph1812, !llvm.loop !88
 
 62:                                               ; preds = %18, %18, %18, %18, %18, %18, %18, %18, %18, %18, %18
   %63 = load ptr, ptr @global_attribute_name, align 8
@@ -10938,7 +10938,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %109 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %109, ptr noundef %0, i32 noundef %108)
   %exitcond1947.not = icmp eq i32 %104, %96
-  br i1 %exitcond1947.not, label %.loopexit, label %.lr.ph1808, !llvm.loop !90
+  br i1 %exitcond1947.not, label %.loopexit, label %.lr.ph1808, !llvm.loop !89
 
 110:                                              ; preds = %18, %18, %18, %18
   %111 = load i32, ptr @hf_ndps_lower_range_n64, align 4
@@ -10997,7 +10997,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %143 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %143, ptr noundef %0, i32 noundef %142)
   %exitcond1945.not = icmp eq i32 %140, %132
-  br i1 %exitcond1945.not, label %.loopexit, label %.lr.ph1804, !llvm.loop !91
+  br i1 %exitcond1945.not, label %.loopexit, label %.lr.ph1804, !llvm.loop !90
 
 144:                                              ; preds = %18
   %145 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19)
@@ -11026,7 +11026,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %157 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %157, ptr noundef %0, i32 noundef %156)
   %exitcond1943.not = icmp eq i32 %153, %145
-  br i1 %exitcond1943.not, label %.loopexit, label %.lr.ph1800, !llvm.loop !92
+  br i1 %exitcond1943.not, label %.loopexit, label %.lr.ph1800, !llvm.loop !91
 
 158:                                              ; preds = %18
   %159 = load i32, ptr @hf_ndps_realization, align 4
@@ -11138,7 +11138,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %230 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %230, ptr noundef %0, i32 noundef %229)
   %exitcond1941.not = icmp eq i32 %225, %217
-  br i1 %exitcond1941.not, label %.loopexit1667, label %.lr.ph1796, !llvm.loop !93
+  br i1 %exitcond1941.not, label %.loopexit1667, label %.lr.ph1796, !llvm.loop !92
 
 231:                                              ; preds = %210
   %232 = tail call fastcc i32 @name_or_id(ptr noundef %0, ptr noundef %2, i32 noundef %214)
@@ -11206,7 +11206,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %275 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %275, ptr noundef %0, i32 noundef %274)
   %exitcond1939.not = icmp eq i32 %261, %253
-  br i1 %exitcond1939.not, label %.loopexit, label %.lr.ph1792, !llvm.loop !94
+  br i1 %exitcond1939.not, label %.loopexit, label %.lr.ph1792, !llvm.loop !93
 
 276:                                              ; preds = %18
   %277 = load i32, ptr @hf_ndps_edge_value, align 4
@@ -11324,7 +11324,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %352 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %352, ptr noundef %0, i32 noundef %351)
   %exitcond1931.not = icmp eq i32 %349, %341
-  br i1 %exitcond1931.not, label %.loopexit1672, label %.lr.ph1775, !llvm.loop !95
+  br i1 %exitcond1931.not, label %.loopexit1672, label %.lr.ph1775, !llvm.loop !94
 
 .loopexit1672:                                    ; preds = %347, %335, %345
   %.111700 = phi i32 [ %.111774, %345 ], [ %344, %335 ], [ %351, %347 ]
@@ -11395,7 +11395,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %387 = call fastcc i32 @objectidentifier(ptr noundef %0, ptr noundef %362, i32 noundef %.141782)
   %388 = add nuw nsw i32 %.016261781, 1
   %exitcond1935.not = icmp eq i32 %388, %380
-  br i1 %exitcond1935.not, label %.loopexit1669, label %.lr.ph1783, !llvm.loop !96
+  br i1 %exitcond1935.not, label %.loopexit1669, label %.lr.ph1783, !llvm.loop !95
 
 .loopexit1669:                                    ; preds = %386, %379, %384
   %.141696 = phi i32 [ %.141782, %384 ], [ %383, %379 ], [ %387, %386 ]
@@ -11432,7 +11432,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %404 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %404, ptr noundef %0, i32 noundef %403)
   %exitcond1933.not = icmp eq i32 %401, %393
-  br i1 %exitcond1933.not, label %.loopexit1670, label %.lr.ph1779, !llvm.loop !97
+  br i1 %exitcond1933.not, label %.loopexit1670, label %.lr.ph1779, !llvm.loop !96
 
 .loopexit1670:                                    ; preds = %399, %392, %397, %390, %.loopexit1669, %359
   %.13 = phi i32 [ %378, %359 ], [ %389, %.loopexit1669 ], [ %391, %390 ], [ %.151778, %397 ], [ %396, %392 ], [ %403, %399 ]
@@ -11440,7 +11440,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %405 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %405, ptr noundef %0, i32 noundef %.13)
   %exitcond1937.not = icmp eq i32 %361, %353
-  br i1 %exitcond1937.not, label %.loopexit, label %.lr.ph1788, !llvm.loop !98
+  br i1 %exitcond1937.not, label %.loopexit, label %.lr.ph1788, !llvm.loop !97
 
 406:                                              ; preds = %18, %18, %18
   %407 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19)
@@ -11560,7 +11560,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %478 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %478, ptr noundef %0, i32 noundef %477)
   %exitcond1929.not = icmp eq i32 %465, %457
-  br i1 %exitcond1929.not, label %.loopexit, label %.lr.ph1771, !llvm.loop !99
+  br i1 %exitcond1929.not, label %.loopexit, label %.lr.ph1771, !llvm.loop !98
 
 479:                                              ; preds = %18
   %480 = load i32, ptr @hf_ndps_attribute_value, align 4
@@ -11608,7 +11608,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %504 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %504, ptr noundef %0, i32 noundef %.18)
   %exitcond1927.not = icmp eq i32 %492, %484
-  br i1 %exitcond1927.not, label %.loopexit, label %.lr.ph1767, !llvm.loop !100
+  br i1 %exitcond1927.not, label %.loopexit, label %.lr.ph1767, !llvm.loop !99
 
 505:                                              ; preds = %18
   %506 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19)
@@ -11682,7 +11682,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %546 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %546, ptr noundef %0, i32 noundef %.20)
   %exitcond1925.not = icmp eq i32 %533, %525
-  br i1 %exitcond1925.not, label %.loopexit, label %.lr.ph1763, !llvm.loop !101
+  br i1 %exitcond1925.not, label %.loopexit, label %.lr.ph1763, !llvm.loop !100
 
 547:                                              ; preds = %18
   %548 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19)
@@ -11769,7 +11769,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %588 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %588, ptr noundef %0, i32 noundef %.27)
   %exitcond1923.not = icmp eq i32 %556, %548
-  br i1 %exitcond1923.not, label %.loopexit, label %.lr.ph1759, !llvm.loop !102
+  br i1 %exitcond1923.not, label %.loopexit, label %.lr.ph1759, !llvm.loop !101
 
 589:                                              ; preds = %18
   %590 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19)
@@ -11840,7 +11840,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %625 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %625, ptr noundef %0, i32 noundef %.31)
   %exitcond1921.not = icmp eq i32 %608, %600
-  br i1 %exitcond1921.not, label %.loopexit, label %.lr.ph1755, !llvm.loop !103
+  br i1 %exitcond1921.not, label %.loopexit, label %.lr.ph1755, !llvm.loop !102
 
 626:                                              ; preds = %18
   %627 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19)
@@ -12027,7 +12027,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %761 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %761, ptr noundef %0, i32 noundef %760)
   %exitcond1919.not = icmp eq i32 %753, %745
-  br i1 %exitcond1919.not, label %.loopexit, label %.lr.ph1751, !llvm.loop !104
+  br i1 %exitcond1919.not, label %.loopexit, label %.lr.ph1751, !llvm.loop !103
 
 762:                                              ; preds = %18
   %763 = load i32, ptr @hf_ndps_identifier_type, align 4
@@ -12083,7 +12083,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %794 = and i32 %786, 1
   %795 = add i32 %793, %794
   %exitcond1915.not = icmp eq i32 %784, %776
-  br i1 %exitcond1915.not, label %.loopexit1680, label %.lr.ph1743, !llvm.loop !105
+  br i1 %exitcond1915.not, label %.loopexit1680, label %.lr.ph1743, !llvm.loop !104
 
 .loopexit1680:                                    ; preds = %792, %774, %780
   %.341709 = phi i32 [ %.341742, %780 ], [ %779, %774 ], [ %795, %792 ]
@@ -12127,7 +12127,7 @@ define internal fastcc i32 @attribute_value(ptr noundef %0, ptr noundef %1, ptr 
   %817 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %817, ptr noundef %0, i32 noundef %816)
   %exitcond1917.not = icmp eq i32 %804, %796
-  br i1 %exitcond1917.not, label %.loopexit, label %.lr.ph1747, !llvm.loop !106
+  br i1 %exitcond1917.not, label %.loopexit, label %.lr.ph1747, !llvm.loop !105
 
 818:                                              ; preds = %18
   %819 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19)
@@ -12321,7 +12321,7 @@ qualifiedname.exit:                               ; preds = %926, %.sink.split.i
   %939 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %939, ptr noundef %0, i32 noundef %.0.i1649)
   %exitcond1913.not = icmp eq i32 %928, %920
-  br i1 %exitcond1913.not, label %.loopexit, label %.lr.ph1739, !llvm.loop !107
+  br i1 %exitcond1913.not, label %.loopexit, label %.lr.ph1739, !llvm.loop !106
 
 940:                                              ; preds = %18
   %941 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19)
@@ -12362,7 +12362,7 @@ qualifiedname.exit:                               ; preds = %926, %.sink.split.i
   %961 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %961, ptr noundef %0, i32 noundef %960)
   %exitcond1911.not = icmp eq i32 %958, %950
-  br i1 %exitcond1911.not, label %.loopexit, label %.lr.ph1735, !llvm.loop !108
+  br i1 %exitcond1911.not, label %.loopexit, label %.lr.ph1735, !llvm.loop !107
 
 962:                                              ; preds = %18
   %963 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19)
@@ -12395,7 +12395,7 @@ qualifiedname.exit:                               ; preds = %926, %.sink.split.i
   %979 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %979, ptr noundef %0, i32 noundef %978)
   %exitcond1909.not = icmp eq i32 %971, %963
-  br i1 %exitcond1909.not, label %.loopexit1683, label %.lr.ph1731, !llvm.loop !109
+  br i1 %exitcond1909.not, label %.loopexit1683, label %.lr.ph1731, !llvm.loop !108
 
 .loopexit1683:                                    ; preds = %969, %962, %967
   %.381713 = phi i32 [ %.381730, %967 ], [ %966, %962 ], [ %978, %969 ]
@@ -12458,7 +12458,7 @@ qualifiedname.exit:                               ; preds = %926, %.sink.split.i
   %1017 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %1017, ptr noundef %0, i32 noundef %1016)
   %exitcond1907.not = icmp eq i32 %1010, %1002
-  br i1 %exitcond1907.not, label %.loopexit, label %.lr.ph1727, !llvm.loop !110
+  br i1 %exitcond1907.not, label %.loopexit, label %.lr.ph1727, !llvm.loop !109
 
 1018:                                             ; preds = %18
   %1019 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19)
@@ -12619,7 +12619,7 @@ qualifiedname.exit:                               ; preds = %926, %.sink.split.i
   %1115 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %1115, ptr noundef %0, i32 noundef %1114)
   %exitcond1903.not = icmp eq i32 %1107, %1099
-  br i1 %exitcond1903.not, label %.loopexit1686, label %.lr.ph, !llvm.loop !111
+  br i1 %exitcond1903.not, label %.loopexit1686, label %.lr.ph, !llvm.loop !110
 
 .loopexit1686:                                    ; preds = %1105, %1098, %1103
   %.411718 = phi i32 [ %.411720, %1103 ], [ %1102, %1098 ], [ %1114, %1105 ]
@@ -12650,7 +12650,7 @@ qualifiedname.exit:                               ; preds = %926, %.sink.split.i
   %1129 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %1129, ptr noundef %0, i32 noundef %1128)
   %exitcond1905.not = icmp eq i32 %1126, %1118
-  br i1 %exitcond1905.not, label %.loopexit1685, label %.lr.ph1723, !llvm.loop !112
+  br i1 %exitcond1905.not, label %.loopexit1685, label %.lr.ph1723, !llvm.loop !111
 
 .loopexit1685:                                    ; preds = %1124, %.loopexit1686, %1122
   %.421716 = phi i32 [ %.421722, %1122 ], [ %1121, %.loopexit1686 ], [ %1128, %1124 ]
@@ -13266,7 +13266,7 @@ define internal fastcc noundef i32 @event_object_set(ptr noundef %0, ptr noundef
   %62 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %62, ptr noundef %0, i32 noundef %61)
   %exitcond106.not = icmp eq i32 %55, %47
-  br i1 %exitcond106.not, label %.loopexit, label %.lr.ph, !llvm.loop !113
+  br i1 %exitcond106.not, label %.loopexit, label %.lr.ph, !llvm.loop !112
 
 .loopexit:                                        ; preds = %53, %46, %51, %40, %16
   %.184 = phi i32 [ %39, %16 ], [ %45, %40 ], [ %.296, %51 ], [ %50, %46 ], [ %61, %53 ]
@@ -13274,7 +13274,7 @@ define internal fastcc noundef i32 @event_object_set(ptr noundef %0, ptr noundef
   %63 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %63, ptr noundef %0, i32 noundef %.184)
   %exitcond108.not = icmp eq i32 %18, %10
-  br i1 %exitcond108.not, label %.loopexit90, label %.lr.ph100, !llvm.loop !114
+  br i1 %exitcond108.not, label %.loopexit90, label %.lr.ph100, !llvm.loop !113
 
 .loopexit90:                                      ; preds = %.loopexit, %4, %14
   %.08394 = phi i32 [ %.08398, %14 ], [ %13, %4 ], [ %.184, %.loopexit ]
@@ -13418,7 +13418,7 @@ define internal fastcc noundef i32 @server_entry(ptr noundef %0, ptr noundef %1,
   %56 = load ptr, ptr %7, align 8
   call void @proto_item_set_end(ptr noundef %56, ptr noundef %0, i32 noundef %.1)
   %exitcond67.not = icmp eq i32 %30, %22
-  br i1 %exitcond67.not, label %.loopexit, label %.lr.ph, !llvm.loop !115
+  br i1 %exitcond67.not, label %.loopexit, label %.lr.ph, !llvm.loop !114
 
 .loopexit:                                        ; preds = %55, %4, %26
   %.063 = phi i32 [ %.065, %26 ], [ %25, %4 ], [ %.1, %55 ]
@@ -13562,7 +13562,7 @@ define internal fastcc i32 @credentials(ptr noundef %0, ptr noundef %1, ptr noun
   call void @proto_item_set_end(ptr noundef %27, ptr noundef %0, i32 noundef %22)
   %28 = add i32 %21, %22
   %exitcond109.not = icmp eq i32 %19, %11
-  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph, !llvm.loop !116
+  br i1 %exitcond109.not, label %.loopexit, label %.lr.ph, !llvm.loop !115
 
 29:                                               ; preds = %3
   %30 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 48)
@@ -13673,7 +13673,7 @@ define internal fastcc noundef i32 @commonarguments(ptr noundef %0, ptr noundef 
   %20 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %20, ptr noundef %0, i32 noundef %19)
   %exitcond34.not = icmp eq i32 %17, %9
-  br i1 %exitcond34.not, label %.loopexit, label %.lr.ph, !llvm.loop !117
+  br i1 %exitcond34.not, label %.loopexit, label %.lr.ph, !llvm.loop !116
 
 .loopexit:                                        ; preds = %15, %4, %13
   %.030 = phi i32 [ %.032, %13 ], [ %12, %4 ], [ %19, %15 ]
@@ -13734,7 +13734,7 @@ define internal fastcc noundef i32 @cardinal_seq(ptr noundef %0, ptr noundef %1,
   %27 = load ptr, ptr %5, align 8
   call void @proto_item_set_end(ptr noundef %27, ptr noundef %0, i32 noundef %26)
   %exitcond42.not = icmp eq i32 %14, %6
-  br i1 %exitcond42.not, label %.loopexit, label %.lr.ph, !llvm.loop !118
+  br i1 %exitcond42.not, label %.loopexit, label %.lr.ph, !llvm.loop !117
 
 .loopexit:                                        ; preds = %22, %4, %10
   %.038 = phi i32 [ %.040, %10 ], [ %9, %4 ], [ %26, %22 ]
@@ -13870,114 +13870,113 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !9, !10}
-!36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10}
-!38 = distinct !{!38, !9, !10}
-!39 = distinct !{!39, !9, !10}
-!40 = distinct !{!40, !9, !10}
-!41 = distinct !{!41, !9, !10}
-!42 = distinct !{!42, !9, !10}
-!43 = distinct !{!43, !9, !10}
-!44 = distinct !{!44, !9, !10}
-!45 = distinct !{!45, !9, !10}
-!46 = distinct !{!46, !9, !10}
-!47 = distinct !{!47, !9, !10}
-!48 = distinct !{!48, !9, !10}
-!49 = distinct !{!49, !9, !10}
-!50 = distinct !{!50, !9, !10}
-!51 = distinct !{!51, !9, !10}
-!52 = distinct !{!52, !9, !10}
-!53 = distinct !{!53, !9, !10}
-!54 = distinct !{!54, !9, !10}
-!55 = distinct !{!55, !9, !10}
-!56 = distinct !{!56, !9, !10}
-!57 = distinct !{!57, !9, !10}
-!58 = distinct !{!58, !9, !10}
-!59 = distinct !{!59, !9, !10}
-!60 = distinct !{!60, !9, !10}
-!61 = distinct !{!61, !9, !10}
-!62 = distinct !{!62, !9, !10}
-!63 = distinct !{!63, !9, !10}
-!64 = distinct !{!64, !9, !10}
-!65 = distinct !{!65, !9, !10}
-!66 = distinct !{!66, !9, !10}
-!67 = distinct !{!67, !9, !10}
-!68 = distinct !{!68, !9, !10}
-!69 = distinct !{!69, !9, !10}
-!70 = distinct !{!70, !9, !10}
-!71 = distinct !{!71, !9, !10}
-!72 = distinct !{!72, !9, !10}
-!73 = distinct !{!73, !9, !10}
-!74 = distinct !{!74, !9, !10}
-!75 = distinct !{!75, !9, !10}
-!76 = distinct !{!76, !9, !10}
-!77 = distinct !{!77, !9, !10}
-!78 = distinct !{!78, !9, !10}
-!79 = distinct !{!79, !9, !10}
-!80 = distinct !{!80, !9, !10}
-!81 = distinct !{!81, !9, !10}
-!82 = distinct !{!82, !9, !10}
-!83 = distinct !{!83, !9, !10}
-!84 = distinct !{!84, !9, !10}
-!85 = distinct !{!85, !9, !10}
-!86 = distinct !{!86, !9, !10}
-!87 = distinct !{!87, !9, !10}
-!88 = distinct !{!88, !9, !10}
-!89 = distinct !{!89, !9, !10}
-!90 = distinct !{!90, !9, !10}
-!91 = distinct !{!91, !9, !10}
-!92 = distinct !{!92, !9, !10}
-!93 = distinct !{!93, !9, !10}
-!94 = distinct !{!94, !9, !10}
-!95 = distinct !{!95, !9, !10}
-!96 = distinct !{!96, !9, !10}
-!97 = distinct !{!97, !9, !10}
-!98 = distinct !{!98, !9, !10}
-!99 = distinct !{!99, !9, !10}
-!100 = distinct !{!100, !9, !10}
-!101 = distinct !{!101, !9, !10}
-!102 = distinct !{!102, !9, !10}
-!103 = distinct !{!103, !9, !10}
-!104 = distinct !{!104, !9, !10}
-!105 = distinct !{!105, !9, !10}
-!106 = distinct !{!106, !9, !10}
-!107 = distinct !{!107, !9, !10}
-!108 = distinct !{!108, !9, !10}
-!109 = distinct !{!109, !9, !10}
-!110 = distinct !{!110, !9, !10}
-!111 = distinct !{!111, !9, !10}
-!112 = distinct !{!112, !9, !10}
-!113 = distinct !{!113, !9, !10}
-!114 = distinct !{!114, !9, !10}
-!115 = distinct !{!115, !9, !10}
-!116 = distinct !{!116, !9, !10}
-!117 = distinct !{!117, !9, !10}
-!118 = distinct !{!118, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !9}
+!31 = distinct !{!31, !9}
+!32 = distinct !{!32, !9}
+!33 = distinct !{!33, !9}
+!34 = distinct !{!34, !9}
+!35 = distinct !{!35, !9}
+!36 = distinct !{!36, !9}
+!37 = distinct !{!37, !9}
+!38 = distinct !{!38, !9}
+!39 = distinct !{!39, !9}
+!40 = distinct !{!40, !9}
+!41 = distinct !{!41, !9}
+!42 = distinct !{!42, !9}
+!43 = distinct !{!43, !9}
+!44 = distinct !{!44, !9}
+!45 = distinct !{!45, !9}
+!46 = distinct !{!46, !9}
+!47 = distinct !{!47, !9}
+!48 = distinct !{!48, !9}
+!49 = distinct !{!49, !9}
+!50 = distinct !{!50, !9}
+!51 = distinct !{!51, !9}
+!52 = distinct !{!52, !9}
+!53 = distinct !{!53, !9}
+!54 = distinct !{!54, !9}
+!55 = distinct !{!55, !9}
+!56 = distinct !{!56, !9}
+!57 = distinct !{!57, !9}
+!58 = distinct !{!58, !9}
+!59 = distinct !{!59, !9}
+!60 = distinct !{!60, !9}
+!61 = distinct !{!61, !9}
+!62 = distinct !{!62, !9}
+!63 = distinct !{!63, !9}
+!64 = distinct !{!64, !9}
+!65 = distinct !{!65, !9}
+!66 = distinct !{!66, !9}
+!67 = distinct !{!67, !9}
+!68 = distinct !{!68, !9}
+!69 = distinct !{!69, !9}
+!70 = distinct !{!70, !9}
+!71 = distinct !{!71, !9}
+!72 = distinct !{!72, !9}
+!73 = distinct !{!73, !9}
+!74 = distinct !{!74, !9}
+!75 = distinct !{!75, !9}
+!76 = distinct !{!76, !9}
+!77 = distinct !{!77, !9}
+!78 = distinct !{!78, !9}
+!79 = distinct !{!79, !9}
+!80 = distinct !{!80, !9}
+!81 = distinct !{!81, !9}
+!82 = distinct !{!82, !9}
+!83 = distinct !{!83, !9}
+!84 = distinct !{!84, !9}
+!85 = distinct !{!85, !9}
+!86 = distinct !{!86, !9}
+!87 = distinct !{!87, !9}
+!88 = distinct !{!88, !9}
+!89 = distinct !{!89, !9}
+!90 = distinct !{!90, !9}
+!91 = distinct !{!91, !9}
+!92 = distinct !{!92, !9}
+!93 = distinct !{!93, !9}
+!94 = distinct !{!94, !9}
+!95 = distinct !{!95, !9}
+!96 = distinct !{!96, !9}
+!97 = distinct !{!97, !9}
+!98 = distinct !{!98, !9}
+!99 = distinct !{!99, !9}
+!100 = distinct !{!100, !9}
+!101 = distinct !{!101, !9}
+!102 = distinct !{!102, !9}
+!103 = distinct !{!103, !9}
+!104 = distinct !{!104, !9}
+!105 = distinct !{!105, !9}
+!106 = distinct !{!106, !9}
+!107 = distinct !{!107, !9}
+!108 = distinct !{!108, !9}
+!109 = distinct !{!109, !9}
+!110 = distinct !{!110, !9}
+!111 = distinct !{!111, !9}
+!112 = distinct !{!112, !9}
+!113 = distinct !{!113, !9}
+!114 = distinct !{!114, !9}
+!115 = distinct !{!115, !9}
+!116 = distinct !{!116, !9}
+!117 = distinct !{!117, !9}

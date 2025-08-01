@@ -188,15 +188,15 @@ define range(i32 -1, 1) i32 @H5DOappend(i64 noundef %0, i64 noundef %1, i32 noun
   %88 = add nuw i64 %.067, 1
   %89 = urem i64 %88, %80
   %.not92 = icmp eq i64 %89, 0
-  br i1 %.not92, label %90, label %85, !llvm.loop !15
+  br i1 %.not92, label %90, label %85, !llvm.loop !14
 
 90:                                               ; preds = %87
-  %91 = load ptr, ptr %13, align 8, !tbaa !16
+  %91 = load ptr, ptr %13, align 8, !tbaa !15
   %.not93 = icmp eq ptr %91, null
   br i1 %.not93, label %96, label %92
 
 92:                                               ; preds = %90
-  %93 = load ptr, ptr %14, align 8, !tbaa !16
+  %93 = load ptr, ptr %14, align 8, !tbaa !15
   %94 = call i32 %91(i64 noundef %0, ptr noundef nonnull %7, ptr noundef %93) #5
   %95 = icmp slt i32 %94, 0
   br i1 %95, label %.thread, label %96
@@ -337,9 +337,8 @@ attributes #6 = { nounwind allocsize(0) }
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !5, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !13, !14}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"any pointer", !5, i64 0}
+!14 = distinct !{!14, !13}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"any pointer", !5, i64 0}

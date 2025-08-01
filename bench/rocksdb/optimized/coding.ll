@@ -143,7 +143,7 @@ define noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef readonly ca
 7:                                                ; preds = %.lr.ph
   %8 = shl i64 %5, %indvars.iv
   %9 = or i64 %8, %.02236
-  store i64 %9, ptr %2, align 8, !tbaa !12
+  store i64 %9, ptr %2, align 8, !tbaa !11
   br label %.loopexit
 
 10:                                               ; preds = %.lr.ph
@@ -154,7 +154,7 @@ define noundef ptr @_ZN7rocksdb14GetVarint64PtrEPKcS1_Pm(ptr noundef readonly ca
   %14 = icmp samesign ugt i64 %indvars.iv, 56
   %15 = icmp uge ptr %6, %1
   %.not27 = select i1 %14, i1 true, i1 %15
-  br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not27, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %10, %3, %7
   %spec.select = phi ptr [ %6, %7 ], [ null, %3 ], [ null, %10 ]
@@ -175,9 +175,8 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !5, i64 0}
-!14 = distinct !{!14, !10, !11}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"long", !5, i64 0}
+!13 = distinct !{!13, !10}

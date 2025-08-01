@@ -1309,7 +1309,7 @@ jxl_u32.exit.i285:                                ; preds = %jxl_u32.exit.sink.s
   br i1 %or.cond9.i, label %764, label %765
 
 764:                                              ; preds = %763
-  store i32 1, ptr %580, align 4, !tbaa !26
+  store i32 1, ptr %580, align 4, !tbaa !25
   br label %765
 
 765:                                              ; preds = %764, %763, %735, %jxl_u32.exit.i285
@@ -1615,7 +1615,7 @@ jxl_enum.exit250:                                 ; preds = %896, %919
 928:                                              ; preds = %jxl_u32.exit244
   %929 = add nuw nsw i32 %.0164336, 1
   %exitcond339 = icmp eq i32 %929, 6
-  br i1 %exitcond339, label %.thread322, label %930, !llvm.loop !27
+  br i1 %exitcond339, label %.thread322, label %930, !llvm.loop !26
 
 930:                                              ; preds = %.preheader, %928
   %931 = phi i32 [ %.pre360, %.preheader ], [ %.val263, %928 ]
@@ -1850,29 +1850,29 @@ jxl_enum.exit256:                                 ; preds = %998, %1022
 
 1050:                                             ; preds = %1049
   %1051 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  store i32 %.0167, ptr %1051, align 4, !tbaa !28
+  store i32 %.0167, ptr %1051, align 4, !tbaa !27
   %1052 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i32 %.0190, ptr %1052, align 4, !tbaa !29
+  store i32 %.0190, ptr %1052, align 4, !tbaa !28
   %1053 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 %.0173, ptr %1053, align 4, !tbaa !30
+  store i32 %.0173, ptr %1053, align 4, !tbaa !29
   %1054 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  store i32 %.0181, ptr %1054, align 4, !tbaa !31
+  store i32 %.0181, ptr %1054, align 4, !tbaa !30
   %1055 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %.0175, ptr %1055, align 4, !tbaa !32
+  store i32 %.0175, ptr %1055, align 4, !tbaa !31
   %1056 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i32 %.0178, ptr %1056, align 4, !tbaa !33
+  store i32 %.0178, ptr %1056, align 4, !tbaa !32
   %1057 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %1058 = load i32, ptr %1057, align 4, !tbaa !34
+  %1058 = load i32, ptr %1057, align 4, !tbaa !33
   %.not217 = icmp eq i32 %1058, 0
   br i1 %.not217, label %1059, label %1060
 
 1059:                                             ; preds = %1050
-  store i32 8, ptr %1057, align 4, !tbaa !34
+  store i32 8, ptr %1057, align 4, !tbaa !33
   br label %1060
 
 1060:                                             ; preds = %1059, %1050
   %1061 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i32 %.0172, ptr %1061, align 4, !tbaa !35
+  store i32 %.0172, ptr %1061, align 4, !tbaa !34
   br label %1062
 
 1062:                                             ; preds = %1060, %1049
@@ -2406,10 +2406,10 @@ jpegxl_width_from_ratio.exit.thread:              ; preds = %23, %60, %57, %54, 
 
 216:                                              ; preds = %215
   %217 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.024, ptr %217, align 4, !tbaa !36
+  store i32 %.024, ptr %217, align 4, !tbaa !35
   store i32 %.024, ptr %1, align 4, !tbaa !19
   %218 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %.0, ptr %218, align 4, !tbaa !37
+  store i32 %.0, ptr %218, align 4, !tbaa !36
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %.0, ptr %219, align 4, !tbaa !16
   br label %220
@@ -2633,7 +2633,7 @@ jxl_u32.exit:                                     ; preds = %81, %get_bits_long.
 
 130:                                              ; preds = %129
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %.0, ptr %131, align 4, !tbaa !34
+  store i32 %.0, ptr %131, align 4, !tbaa !33
   br label %132
 
 132:                                              ; preds = %130, %129
@@ -2657,7 +2657,7 @@ define internal fastcc range(i32 -1397118274, 1) i32 @jpegxl_skip_extensions(ptr
 6:                                                ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond, label %13, label %.preheader, !llvm.loop !38
+  br i1 %exitcond, label %13, label %.preheader, !llvm.loop !37
 
 .preheader:                                       ; preds = %5, %6
   %.val2641 = phi i32 [ %.val24, %6 ], [ %.val28, %5 ]
@@ -3100,7 +3100,7 @@ define internal fastcc i64 @jxl_u64(ptr noundef nonnull captures(none) %0) unnam
   %84 = shl nuw nsw i32 1, %83
   %85 = and i32 %84, %82
   %.not = icmp eq i32 %85, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 86:                                               ; preds = %.lr.ph
   %87 = and i32 %67, 15
@@ -3185,20 +3185,19 @@ attributes #12 = { noreturn nounwind }
 !20 = !{!10, !10, i64 0}
 !21 = !{!17, !10, i64 24}
 !22 = !{!17, !10, i64 60}
-!23 = distinct !{!23, !24, !25}
+!23 = distinct !{!23, !24}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!17, !10, i64 20}
-!27 = distinct !{!27, !24, !25}
-!28 = !{!17, !10, i64 52}
-!29 = !{!17, !10, i64 56}
-!30 = !{!17, !10, i64 36}
-!31 = !{!17, !10, i64 44}
-!32 = !{!17, !10, i64 40}
-!33 = !{!17, !10, i64 48}
-!34 = !{!17, !10, i64 16}
-!35 = !{!17, !10, i64 64}
-!36 = !{!17, !10, i64 8}
-!37 = !{!17, !10, i64 12}
-!38 = distinct !{!38, !24, !25}
-!39 = distinct !{!39, !24, !25}
+!25 = !{!17, !10, i64 20}
+!26 = distinct !{!26, !24}
+!27 = !{!17, !10, i64 52}
+!28 = !{!17, !10, i64 56}
+!29 = !{!17, !10, i64 36}
+!30 = !{!17, !10, i64 44}
+!31 = !{!17, !10, i64 40}
+!32 = !{!17, !10, i64 48}
+!33 = !{!17, !10, i64 16}
+!34 = !{!17, !10, i64 64}
+!35 = !{!17, !10, i64 8}
+!36 = !{!17, !10, i64 12}
+!37 = distinct !{!37, !24}
+!38 = distinct !{!38, !24}

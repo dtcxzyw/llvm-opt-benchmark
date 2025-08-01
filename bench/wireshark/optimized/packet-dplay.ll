@@ -1338,7 +1338,7 @@ define internal fastcc void @dissect_type29_message(ptr noundef %0, ptr noundef 
   %44 = call fastcc i32 @dissect_dplay_super_packed_player(ptr noundef %43, ptr noundef %1, i32 noundef %.181)
   %45 = add nuw nsw i32 %.07680, 1
   %exitcond.not = icmp eq i32 %45, %6
-  br i1 %exitcond.not, label %.preheader79, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader79, label %.lr.ph, !llvm.loop !8
 
 .preheader:                                       ; preds = %.lr.ph84, %.preheader79
   %.2.lcssa = phi i32 [ %.1.lcssa, %.preheader79 ], [ %49, %.lr.ph84 ]
@@ -1353,7 +1353,7 @@ define internal fastcc void @dissect_type29_message(ptr noundef %0, ptr noundef 
   %49 = call fastcc i32 @dissect_dplay_super_packed_player(ptr noundef %48, ptr noundef %1, i32 noundef %.283)
   %50 = add nuw nsw i32 %.17782, 1
   %exitcond92.not = icmp eq i32 %50, %9
-  br i1 %exitcond92.not, label %.preheader, label %.lr.ph84, !llvm.loop !10
+  br i1 %exitcond92.not, label %.preheader, label %.lr.ph84, !llvm.loop !9
 
 .lr.ph88:                                         ; preds = %.preheader, %.lr.ph88
   %.387 = phi i32 [ %53, %.lr.ph88 ], [ %.2.lcssa, %.preheader ]
@@ -1363,7 +1363,7 @@ define internal fastcc void @dissect_type29_message(ptr noundef %0, ptr noundef 
   %53 = call fastcc i32 @dissect_dplay_super_packed_player(ptr noundef %52, ptr noundef %1, i32 noundef %.387)
   %54 = add nuw nsw i32 %.27886, 1
   %exitcond93.not = icmp eq i32 %54, %14
-  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph88, !llvm.loop !11
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph88, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph88, %.preheader
   ret void
@@ -1538,7 +1538,7 @@ define internal fastcc i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1
   %77 = add i32 %.399, 4
   %78 = add nuw i32 %.09498, 1
   %exitcond.not = icmp eq i32 %78, %33
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %74
   %.3.lcssa = phi i32 [ %.2, %74 ], [ %77, %.lr.ph ]
@@ -1762,7 +1762,7 @@ spp_get_value.exit158:                            ; preds = %102, %105, %108
   %115 = add i32 %.5169, 4
   %116 = add nuw i32 %.0138170, 1
   %exitcond.not = icmp eq i32 %116, %.sink.i155
-  br i1 %exitcond.not, label %.loopexit168, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit168, label %.lr.ph, !llvm.loop !12
 
 .loopexit168:                                     ; preds = %.lr.ph, %spp_get_value.exit158, %101
   %.4 = phi i32 [ %.3, %101 ], [ %112, %spp_get_value.exit158 ], [ %115, %.lr.ph ]
@@ -1815,7 +1815,7 @@ spp_get_value.exit162:                            ; preds = %122, %125, %128
   %135 = add i32 %.8171, 4
   %136 = add nuw i32 %.0172, 1
   %exitcond178.not = icmp eq i32 %136, %.sink.i159
-  br i1 %exitcond178.not, label %.loopexit, label %.lr.ph173, !llvm.loop !14
+  br i1 %exitcond178.not, label %.loopexit, label %.lr.ph173, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph173, %spp_get_value.exit162, %121
   %.7 = phi i32 [ %.6, %121 ], [ %132, %spp_get_value.exit162 ], [ %135, %.lr.ph173 ]
@@ -1835,12 +1835,11 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

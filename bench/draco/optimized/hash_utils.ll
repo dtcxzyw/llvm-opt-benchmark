@@ -113,7 +113,7 @@ define noundef i64 @_ZN5draco17FingerprintStringEPKcm(ptr noundef readonly captu
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %indvars.iv.next55 = add i32 %indvars.iv54, -8
   %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %._crit_edge, label %11, !llvm.loop !9
+  br i1 %exitcond60.not, label %._crit_edge, label %11, !llvm.loop !8
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -126,7 +126,6 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

@@ -492,7 +492,7 @@ parse_explicit_prime_curve.exit:                  ; preds = %63
   %92 = getelementptr inbounds nuw i8, ptr %.0813.i, i64 1
   %93 = add nsw i64 %.014.i, -1
   %.not9.i = icmp eq i64 %93, 0
-  br i1 %.not9.i, label %integers_equal.exit, label %.lr.ph15.i, !llvm.loop !34
+  br i1 %.not9.i, label %integers_equal.exit, label %.lr.ph15.i, !llvm.loop !33
 
 integers_equal.exit:                              ; preds = %.lr.ph15.i, %91, %.critedge.i
   %.08.lcssa.i = phi ptr [ %80, %.critedge.i ], [ %.0813.i, %.lr.ph15.i ], [ %scevgep.i, %91 ]
@@ -540,7 +540,7 @@ integers_equal.exit:                              ; preds = %.lr.ph15.i, %91, %.
   %107 = getelementptr inbounds nuw i8, ptr %.0813.i45, i64 1
   %108 = add nsw i64 %.014.i44, -1
   %.not9.i48 = icmp eq i64 %108, 0
-  br i1 %.not9.i48, label %integers_equal.exit50, label %.lr.ph15.i43, !llvm.loop !34
+  br i1 %.not9.i48, label %integers_equal.exit50, label %.lr.ph15.i43, !llvm.loop !33
 
 integers_equal.exit50:                            ; preds = %.lr.ph15.i43, %106, %.critedge.i39
   %.08.lcssa.i46 = phi ptr [ %96, %.critedge.i39 ], [ %.0813.i45, %.lr.ph15.i43 ], [ %scevgep.i42, %106 ]
@@ -590,7 +590,7 @@ integers_equal.exit50:                            ; preds = %.lr.ph15.i43, %106,
   %124 = getelementptr inbounds nuw i8, ptr %.0813.i59, i64 1
   %125 = add nsw i64 %.014.i58, -1
   %.not9.i62 = icmp eq i64 %125, 0
-  br i1 %.not9.i62, label %integers_equal.exit64, label %.lr.ph15.i57, !llvm.loop !34
+  br i1 %.not9.i62, label %integers_equal.exit64, label %.lr.ph15.i57, !llvm.loop !33
 
 integers_equal.exit64:                            ; preds = %.lr.ph15.i57, %123, %.critedge.i53
   %.08.lcssa.i60 = phi ptr [ %113, %.critedge.i53 ], [ %.0813.i59, %.lr.ph15.i57 ], [ %scevgep.i56, %123 ]
@@ -640,7 +640,7 @@ integers_equal.exit64:                            ; preds = %.lr.ph15.i57, %123,
   %141 = getelementptr inbounds nuw i8, ptr %.0813.i73, i64 1
   %142 = add nsw i64 %.014.i72, -1
   %.not9.i76 = icmp eq i64 %142, 0
-  br i1 %.not9.i76, label %integers_equal.exit78, label %.lr.ph15.i71, !llvm.loop !34
+  br i1 %.not9.i76, label %integers_equal.exit78, label %.lr.ph15.i71, !llvm.loop !33
 
 integers_equal.exit78:                            ; preds = %.lr.ph15.i71, %140, %.critedge.i67
   %.08.lcssa.i74 = phi ptr [ %130, %.critedge.i67 ], [ %.0813.i73, %.lr.ph15.i71 ], [ %scevgep.i70, %140 ]
@@ -690,7 +690,7 @@ integers_equal.exit78:                            ; preds = %.lr.ph15.i71, %140,
   %158 = getelementptr inbounds nuw i8, ptr %.0813.i87, i64 1
   %159 = add nsw i64 %.014.i86, -1
   %.not9.i90 = icmp eq i64 %159, 0
-  br i1 %.not9.i90, label %integers_equal.exit92, label %.lr.ph15.i85, !llvm.loop !34
+  br i1 %.not9.i90, label %integers_equal.exit92, label %.lr.ph15.i85, !llvm.loop !33
 
 integers_equal.exit92:                            ; preds = %.lr.ph15.i85, %157, %.critedge.i81
   %.08.lcssa.i88 = phi ptr [ %147, %.critedge.i81 ], [ %.0813.i87, %.lr.ph15.i85 ], [ %scevgep.i84, %157 ]
@@ -740,7 +740,7 @@ integers_equal.exit92:                            ; preds = %.lr.ph15.i85, %157,
   %175 = getelementptr inbounds nuw i8, ptr %.0813.i101, i64 1
   %176 = add nsw i64 %.014.i100, -1
   %.not9.i104 = icmp eq i64 %176, 0
-  br i1 %.not9.i104, label %integers_equal.exit106, label %.lr.ph15.i99, !llvm.loop !34
+  br i1 %.not9.i104, label %integers_equal.exit106, label %.lr.ph15.i99, !llvm.loop !33
 
 integers_equal.exit106:                           ; preds = %.lr.ph15.i99, %174, %.critedge.i95
   %.08.lcssa.i102 = phi ptr [ %164, %.critedge.i95 ], [ %.0813.i101, %.lr.ph15.i99 ], [ %scevgep.i98, %174 ]
@@ -760,7 +760,7 @@ integers_equal.exit106:                           ; preds = %.lr.ph15.i99, %174,
   %183 = getelementptr inbounds nuw [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %182
   %184 = load i32, ptr %183, align 8, !tbaa !22
   %.not29 = icmp eq i32 %184, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %180, %parse_explicit_prime_curve.exit
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 404) #7
@@ -825,7 +825,7 @@ define hidden range(i32 0, 2) i32 @EC_KEY_marshal_private_key(ptr noundef %0, pt
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %1, align 8, !tbaa !36
+  %11 = load ptr, ptr %1, align 8, !tbaa !35
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %13
 
@@ -857,7 +857,7 @@ define hidden range(i32 0, 2) i32 @EC_KEY_marshal_private_key(ptr noundef %0, pt
   br i1 %.not21, label %31, label %24
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr %1, align 8, !tbaa !36
+  %25 = load ptr, ptr %1, align 8, !tbaa !35
   %26 = call ptr @EC_GROUP_get0_order(ptr noundef %25) #7
   %27 = call i32 @BN_num_bytes(ptr noundef %26) #7
   %28 = zext i32 %27 to i64
@@ -882,7 +882,7 @@ define hidden range(i32 0, 2) i32 @EC_KEY_marshal_private_key(ptr noundef %0, pt
   br i1 %.not24, label %.critedge, label %36
 
 36:                                               ; preds = %34
-  %37 = load ptr, ptr %1, align 8, !tbaa !36
+  %37 = load ptr, ptr %1, align 8, !tbaa !35
   %38 = call i32 @EC_KEY_marshal_curve_name(ptr noundef nonnull %6, ptr noundef %37)
   %.not25 = icmp eq i32 %38, 0
   br i1 %.not25, label %.critedge, label %39
@@ -930,7 +930,7 @@ define hidden range(i32 0, 2) i32 @EC_KEY_marshal_private_key(ptr noundef %0, pt
   br i1 %.not31, label %.critedge36, label %53
 
 53:                                               ; preds = %51
-  %54 = load ptr, ptr %1, align 8, !tbaa !36
+  %54 = load ptr, ptr %1, align 8, !tbaa !35
   %55 = load ptr, ptr %45, align 8, !tbaa !18
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %57 = load i32, ptr %56, align 4, !tbaa !20
@@ -1009,11 +1009,11 @@ define hidden range(i32 0, 2) i32 @EC_KEY_marshal_curve_name(ptr noundef %0, ptr
   %10 = getelementptr inbounds nuw [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %9
   %11 = load i32, ptr %10, align 8, !tbaa !22
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 .lr.ph:                                           ; preds = %.lr.ph28
   %.not18 = icmp eq i32 %11, %4
-  br i1 %.not18, label %.lr.ph._crit_edge, label %.lr.ph28, !llvm.loop !37
+  br i1 %.not18, label %.lr.ph._crit_edge, label %.lr.ph28, !llvm.loop !36
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ @OPENSSL_built_in_curves, %.lr.ph.preheader ], [ %10, %.lr.ph ]
@@ -1025,7 +1025,7 @@ define hidden range(i32 0, 2) i32 @EC_KEY_marshal_curve_name(ptr noundef %0, ptr
 13:                                               ; preds = %.lr.ph._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 4
   %15 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 12
-  %16 = load i8, ptr %15, align 4, !tbaa !38
+  %16 = load i8, ptr %15, align 4, !tbaa !37
   %17 = zext i8 %16 to i64
   %18 = call i32 @CBB_add_bytes(ptr noundef nonnull %3, ptr noundef nonnull %14, i64 noundef %17) #7
   %.not17 = icmp eq i32 %18, 0
@@ -1080,7 +1080,7 @@ define hidden ptr @EC_KEY_parse_curve_name(ptr noundef %0) local_unnamed_addr #0
   %.0917 = phi i32 [ %20, %19 ], [ 0, %.preheader ]
   %8 = call i64 @CBS_len(ptr noundef nonnull %2) #7
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %10 = load i8, ptr %9, align 4, !tbaa !38
+  %10 = load i8, ptr %9, align 4, !tbaa !37
   %11 = zext i8 %10 to i64
   %12 = icmp eq i64 %8, %11
   br i1 %12, label %13, label %19
@@ -1102,7 +1102,7 @@ define hidden ptr @EC_KEY_parse_curve_name(ptr noundef %0) local_unnamed_addr #0
   %22 = getelementptr inbounds nuw [0 x %struct.built_in_curve], ptr @OPENSSL_built_in_curves, i64 0, i64 %21
   %23 = load i32, ptr %22, align 8, !tbaa !22
   %.not11 = icmp eq i32 %23, 0
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %19, %.preheader
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 343) #7
@@ -1127,7 +1127,7 @@ define hidden ptr @d2i_ECPrivateKey(ptr noundef captures(address_is_null) %0, pt
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr %0, align 8, !tbaa !40
+  %6 = load ptr, ptr %0, align 8, !tbaa !39
   %.not20 = icmp eq ptr %6, null
   br i1 %.not20, label %9, label %7
 
@@ -1156,9 +1156,9 @@ define hidden ptr @d2i_ECPrivateKey(ptr noundef captures(address_is_null) %0, pt
   br i1 %.not, label %19, label %17
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr %0, align 8, !tbaa !40
+  %18 = load ptr, ptr %0, align 8, !tbaa !39
   call void @EC_KEY_free(ptr noundef %18) #7
-  store ptr %14, ptr %0, align 8, !tbaa !40
+  store ptr %14, ptr %0, align 8, !tbaa !39
   br label %19
 
 19:                                               ; preds = %17, %16
@@ -1250,9 +1250,9 @@ define hidden ptr @d2i_ECParameters(ptr noundef captures(address_is_null) %0, pt
   br i1 %.not20, label %19, label %17
 
 17:                                               ; preds = %16
-  %18 = load ptr, ptr %0, align 8, !tbaa !40
+  %18 = load ptr, ptr %0, align 8, !tbaa !39
   call void @EC_KEY_free(ptr noundef %18) #7
-  store ptr %11, ptr %0, align 8, !tbaa !40
+  store ptr %11, ptr %0, align 8, !tbaa !39
   br label %19
 
 19:                                               ; preds = %17, %16
@@ -1277,7 +1277,7 @@ define hidden i32 @i2d_ECParameters(ptr noundef readonly captures(address_is_nul
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !36
+  %6 = load ptr, ptr %0, align 8, !tbaa !35
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
 
@@ -1292,7 +1292,7 @@ define hidden i32 @i2d_ECParameters(ptr noundef readonly captures(address_is_nul
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr %0, align 8, !tbaa !36
+  %12 = load ptr, ptr %0, align 8, !tbaa !35
   %13 = call i32 @EC_KEY_marshal_curve_name(ptr noundef nonnull %3, ptr noundef %12)
   %.not5 = icmp eq i32 %13, 0
   br i1 %.not5, label %14, label %15
@@ -1321,12 +1321,12 @@ define hidden ptr @o2i_ECPublicKey(ptr noundef readonly captures(address_is_null
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr %0, align 8, !tbaa !40
+  %6 = load ptr, ptr %0, align 8, !tbaa !39
   %7 = icmp eq ptr %6, null
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %6, align 8, !tbaa !36
+  %9 = load ptr, ptr %6, align 8, !tbaa !35
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %12
 
@@ -1347,7 +1347,7 @@ define hidden ptr @o2i_ECPublicKey(ptr noundef readonly captures(address_is_null
   br i1 %18, label %19, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16
-  %.pre = load ptr, ptr %6, align 8, !tbaa !36
+  %.pre = load ptr, ptr %6, align 8, !tbaa !35
   br label %20
 
 19:                                               ; preds = %16
@@ -1392,7 +1392,7 @@ define hidden i32 @i2o_ECPublicKey(ptr noundef readonly captures(address_is_null
   br label %37
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !36
+  %6 = load ptr, ptr %0, align 8, !tbaa !35
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1424,7 +1424,7 @@ define hidden i32 @i2o_ECPublicKey(ptr noundef readonly captures(address_is_null
 
 22:                                               ; preds = %18, %16
   %23 = phi ptr [ %19, %18 ], [ %17, %16 ]
-  %24 = load ptr, ptr %0, align 8, !tbaa !36
+  %24 = load ptr, ptr %0, align 8, !tbaa !35
   %25 = load ptr, ptr %7, align 8, !tbaa !18
   %26 = load i32, ptr %9, align 4, !tbaa !20
   %27 = tail call i64 @EC_POINT_point2oct(ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef nonnull %23, i64 noundef %11, ptr noundef null) #7
@@ -1556,14 +1556,13 @@ attributes #8 = { nounwind allocsize(0) }
 !28 = !{!"p1 omnipotent char", !9, i64 0}
 !29 = !{!30, !30, i64 0}
 !30 = !{!"long", !10, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = distinct !{!34, !32, !33}
-!35 = distinct !{!35, !32, !33}
-!36 = !{!7, !8, i64 0}
-!37 = distinct !{!37, !32, !33}
-!38 = !{!23, !10, i64 12}
-!39 = distinct !{!39, !32, !33}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 _ZTS9ec_key_st", !9, i64 0}
+!33 = distinct !{!33, !32}
+!34 = distinct !{!34, !32}
+!35 = !{!7, !8, i64 0}
+!36 = distinct !{!36, !32}
+!37 = !{!23, !10, i64 12}
+!38 = distinct !{!38, !32}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS9ec_key_st", !9, i64 0}

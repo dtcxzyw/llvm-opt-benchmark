@@ -331,7 +331,7 @@ check_message.exit102.i:                          ; preds = %74, %78, %67, %.thr
   %79 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 323, ptr noundef nonnull @.str.71, i32 noundef %.0.i101.i) #7
   %.not82.i = icmp eq i32 %79, 0
   %80 = call i32 @X509_check_email(ptr noundef %.0.i, ptr noundef %33, i64 noundef %31, i32 noundef 0) #7
-  %81 = load i32, ptr %10, align 4, !tbaa !17
+  %81 = load i32, ptr %10, align 4, !tbaa !16
   %.not83.not.i = icmp eq i32 %81, 0
   %.not84.i = icmp eq i32 %80, 0
   br i1 %.not83.not.i, label %85, label %82
@@ -395,7 +395,7 @@ select.unfold131.i:                               ; preds = %83, %82
   %99 = getelementptr inbounds nuw i8, ptr %.068141.i, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !13
   %.not.i15 = icmp eq ptr %100, null
-  br i1 %.not.i15, label %run_cert.exit, label %.preheader, !llvm.loop !18
+  br i1 %.not.i15, label %run_cert.exit, label %.preheader, !llvm.loop !17
 
 run_cert.exit:                                    ; preds = %.loopexit.i
   %.not18 = icmp eq i32 %spec.select95.i, 0
@@ -410,7 +410,7 @@ run_cert.exit.thread:                             ; preds = %.preheader, %run_ce
   %102 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !13
   %.not = icmp eq ptr %103, null
-  br i1 %.not, label %104, label %11, !llvm.loop !19
+  br i1 %.not, label %104, label %11, !llvm.loop !18
 
 104:                                              ; preds = %101
   %105 = xor i32 %.1, 1
@@ -440,22 +440,22 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
   %7 = getelementptr inbounds nuw [27 x %struct.gennamedata], ptr @gennames, i64 0, i64 %.04461
   store ptr %7, ptr %1, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !20
+  %9 = load i64, ptr %8, align 8, !tbaa !19
   %10 = call ptr @d2i_GENERAL_NAME(ptr noundef null, ptr noundef nonnull %1, i64 noundef %9) #7
   %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04461
-  store ptr %10, ptr %11, align 8, !tbaa !23
+  store ptr %10, ptr %11, align 8, !tbaa !22
   store ptr %7, ptr %1, align 8, !tbaa !13
-  %12 = load i64, ptr %8, align 8, !tbaa !20
+  %12 = load i64, ptr %8, align 8, !tbaa !19
   %13 = call ptr @d2i_GENERAL_NAME(ptr noundef null, ptr noundef nonnull %1, i64 noundef %12) #7
   %14 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.04461
-  store ptr %13, ptr %14, align 8, !tbaa !23
-  %15 = load ptr, ptr %11, align 8, !tbaa !23
+  store ptr %13, ptr %14, align 8, !tbaa !22
+  %15 = load ptr, ptr %11, align 8, !tbaa !22
   %16 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 681, ptr noundef nonnull @.str.114, ptr noundef %15) #7
   %.not51 = icmp eq i32 %16, 0
   br i1 %.not51, label %.thread, label %17
 
 17:                                               ; preds = %.preheader60
-  %18 = load ptr, ptr %14, align 8, !tbaa !23
+  %18 = load ptr, ptr %14, align 8, !tbaa !22
   %19 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 681, ptr noundef nonnull @.str.115, ptr noundef %18) #7
   %.not52 = icmp eq i32 %19, 0
   br i1 %.not52, label %.thread, label %20
@@ -468,7 +468,7 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #7
   %21 = add nuw nsw i64 %.04461, 1
   %exitcond.not = icmp eq i64 %21, 27
-  br i1 %exitcond.not, label %.preheader, label %.preheader60, !llvm.loop !25
+  br i1 %exitcond.not, label %.preheader, label %.preheader60, !llvm.loop !24
 
 .preheader:                                       ; preds = %20, %38
   %.163 = phi i64 [ %39, %38 ], [ 0, %20 ]
@@ -479,11 +479,11 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 24:                                               ; preds = %.preheader, %36
   %.04562 = phi i64 [ 0, %.preheader ], [ %37, %36 ]
   %25 = icmp eq i64 %.163, %.04562
-  %26 = load ptr, ptr %22, align 8, !tbaa !23
+  %26 = load ptr, ptr %22, align 8, !tbaa !22
   br i1 %25, label %27, label %31
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %23, align 8, !tbaa !23
+  %28 = load ptr, ptr %23, align 8, !tbaa !22
   %29 = call i32 @GENERAL_NAME_cmp(ptr noundef %26, ptr noundef %28) #7
   %30 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 689, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.67, i32 noundef %29, i32 noundef 0) #7
   %.not50 = icmp eq i32 %30, 0
@@ -491,7 +491,7 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.04562
-  %33 = load ptr, ptr %32, align 8, !tbaa !23
+  %33 = load ptr, ptr %32, align 8, !tbaa !22
   %34 = call i32 @GENERAL_NAME_cmp(ptr noundef %26, ptr noundef %33) #7
   %35 = call i32 @test_int_ne(ptr noundef nonnull @.str.2, i32 noundef 692, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.67, i32 noundef %34, i32 noundef 0) #7
   %.not49 = icmp eq i32 %35, 0
@@ -500,12 +500,12 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 36:                                               ; preds = %27, %31
   %37 = add nuw nsw i64 %.04562, 1
   %exitcond71.not = icmp eq i64 %37, 27
-  br i1 %exitcond71.not, label %38, label %24, !llvm.loop !26
+  br i1 %exitcond71.not, label %38, label %24, !llvm.loop !25
 
 38:                                               ; preds = %36
   %39 = add nuw nsw i64 %.163, 1
   %exitcond72.not = icmp eq i64 %39, 27
-  br i1 %exitcond72.not, label %.split.split.preheader, label %.preheader, !llvm.loop !27
+  br i1 %exitcond72.not, label %.split.split.preheader, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %0, %5
   %.not53 = icmp eq ptr %2, null
@@ -518,14 +518,14 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 
 40:                                               ; preds = %.split.us
   %41 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.264.us
-  %42 = load ptr, ptr %41, align 8, !tbaa !23
+  %42 = load ptr, ptr %41, align 8, !tbaa !22
   tail call void @GENERAL_NAME_free(ptr noundef %42) #7
   br label %43
 
 43:                                               ; preds = %40, %.split.us
   %44 = add nuw nsw i64 %.264.us, 1
   %exitcond75.not = icmp eq i64 %44, 27
-  br i1 %exitcond75.not, label %.split66.us, label %.split.us, !llvm.loop !28
+  br i1 %exitcond75.not, label %.split66.us, label %.split.us, !llvm.loop !27
 
 .split:                                           ; preds = %.loopexit
   br i1 %.not54, label %.split.split.us, label %.split.split.preheader
@@ -537,23 +537,23 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 .split.split.us:                                  ; preds = %.split, %.split.split.us
   %.264.us67 = phi i64 [ %47, %.split.split.us ], [ 0, %.split ]
   %45 = getelementptr inbounds nuw ptr, ptr %2, i64 %.264.us67
-  %46 = load ptr, ptr %45, align 8, !tbaa !23
+  %46 = load ptr, ptr %45, align 8, !tbaa !22
   tail call void @GENERAL_NAME_free(ptr noundef %46) #7
   %47 = add nuw nsw i64 %.264.us67, 1
   %exitcond74.not = icmp eq i64 %47, 27
-  br i1 %exitcond74.not, label %.split66.us, label %.split.split.us, !llvm.loop !30
+  br i1 %exitcond74.not, label %.split66.us, label %.split.split.us, !llvm.loop !29
 
 .split.split:                                     ; preds = %.split.split.preheader, %.split.split
   %.264 = phi i64 [ %52, %.split.split ], [ 0, %.split.split.preheader ]
   %48 = getelementptr inbounds nuw ptr, ptr %2, i64 %.264
-  %49 = load ptr, ptr %48, align 8, !tbaa !23
+  %49 = load ptr, ptr %48, align 8, !tbaa !22
   call void @GENERAL_NAME_free(ptr noundef %49) #7
   %50 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.264
-  %51 = load ptr, ptr %50, align 8, !tbaa !23
+  %51 = load ptr, ptr %50, align 8, !tbaa !22
   call void @GENERAL_NAME_free(ptr noundef %51) #7
   %52 = add nuw nsw i64 %.264, 1
   %exitcond73.not = icmp eq i64 %52, 27
-  br i1 %exitcond73.not, label %.split66.us, label %.split.split, !llvm.loop !31
+  br i1 %exitcond73.not, label %.split66.us, label %.split.split, !llvm.loop !30
 
 .split66.us:                                      ; preds = %.split.split, %.split.split.us, %43
   %.04279 = phi i32 [ 0, %43 ], [ 0, %.split.split.us ], [ %.0428082, %.split.split ]
@@ -672,7 +672,7 @@ define internal range(i32 0, 2) i32 @set_cn(ptr noundef %0, ...) unnamed_addr #0
 18:                                               ; preds = %15, %10
   %19 = phi i32 [ %14, %10 ], [ %8, %15 ]
   %20 = phi ptr [ %13, %10 ], [ %16, %15 ]
-  %21 = load i32, ptr %20, align 4, !tbaa !32
+  %21 = load i32, ptr %20, align 4, !tbaa !31
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %37, label %23
 
@@ -765,7 +765,7 @@ define internal range(i32 0, 2) i32 @set_altname(ptr noundef %0, ...) unnamed_ad
 18:                                               ; preds = %15, %10
   %19 = phi i32 [ %14, %10 ], [ %8, %15 ]
   %20 = phi ptr [ %13, %10 ], [ %16, %15 ]
-  %21 = load i32, ptr %20, align 4, !tbaa !32
+  %21 = load i32, ptr %20, align 4, !tbaa !31
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %47, label %23
 
@@ -926,22 +926,21 @@ attributes #9 = { noreturn nounwind }
 !11 = !{!5, !6, i64 0}
 !12 = !{!5, !10, i64 16}
 !13 = !{!9, !9, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!5, !10, i64 20}
-!18 = distinct !{!18, !15, !16}
-!19 = distinct !{!19, !15, !16}
-!20 = !{!21, !22, i64 24}
-!21 = !{!"gennamedata", !7, i64 0, !22, i64 24}
-!22 = !{!"long", !7, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS15GENERAL_NAME_st", !6, i64 0}
-!25 = distinct !{!25, !15, !16}
-!26 = distinct !{!26, !15, !16}
-!27 = distinct !{!27, !15, !16}
-!28 = distinct !{!28, !15, !16, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !15, !16, !29}
-!31 = distinct !{!31, !15, !16}
-!32 = !{!10, !10, i64 0}
+!16 = !{!5, !10, i64 20}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15}
+!19 = !{!20, !21, i64 24}
+!20 = !{!"gennamedata", !7, i64 0, !21, i64 24}
+!21 = !{!"long", !7, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS15GENERAL_NAME_st", !6, i64 0}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !15}
+!26 = distinct !{!26, !15}
+!27 = distinct !{!27, !15, !28}
+!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!29 = distinct !{!29, !15, !28}
+!30 = distinct !{!30, !15}
+!31 = !{!10, !10, i64 0}

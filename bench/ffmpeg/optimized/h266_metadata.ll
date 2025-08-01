@@ -169,18 +169,18 @@ define internal range(i32 -2147483648, 1) i32 @h266_metadata_update_fragment(ptr
   %55 = trunc nuw nsw i32 %.268.ph to i8
   %56 = trunc nsw i32 %.272.ph to i8
   %57 = add nsw i8 %56, 1
-  store i8 %.279.ph, ptr %24, align 1, !tbaa !45
+  store i8 %.279.ph, ptr %24, align 1, !tbaa !44
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 81
-  store i8 20, ptr %.sroa.2.0..sroa_idx, align 1, !tbaa !45
+  store i8 20, ptr %.sroa.2.0..sroa_idx, align 1, !tbaa !44
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 82
-  store i8 %57, ptr %.sroa.3.0..sroa_idx, align 1, !tbaa !45
+  store i8 %57, ptr %.sroa.3.0..sroa_idx, align 1, !tbaa !44
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 83
-  store i8 0, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !45
+  store i8 0, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !44
   %58 = getelementptr inbounds nuw i8, ptr %5, i64 85
-  store i8 %55, ptr %58, align 1, !tbaa !46
-  %59 = load i8, ptr %.263.ph, align 2, !tbaa !47
+  store i8 %55, ptr %58, align 1, !tbaa !45
+  %59 = load i8, ptr %.263.ph, align 2, !tbaa !46
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  store i8 %59, ptr %60, align 1, !tbaa !48
+  store i8 %59, ptr %60, align 1, !tbaa !47
   %61 = tail call i32 @ff_cbs_insert_unit_content(ptr noundef nonnull %2, i32 noundef 0, i32 noundef 20, ptr noundef nonnull %24, ptr noundef null) #3
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %63, label %.thread123
@@ -255,10 +255,9 @@ attributes #3 = { nounwind }
 !39 = !{!"H266RefPicLists", !8, i64 0, !8, i64 2, !8, i64 4, !8, i64 356, !8, i64 472, !8, i64 530}
 !40 = !{!"H266RawPredWeightTable", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 18, !8, i64 33, !8, i64 48, !8, i64 63, !8, i64 94, !8, i64 154, !8, i64 155, !8, i64 170, !8, i64 185, !8, i64 200, !8, i64 215, !8, i64 246, !8, i64 306, !8, i64 307}
 !41 = !{!35, !8, i64 4}
-!42 = distinct !{!42, !43, !44}
+!42 = distinct !{!42, !43}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!"llvm.loop.estimated_trip_count"}
-!45 = !{!8, !8, i64 0}
-!46 = !{!28, !8, i64 5}
-!47 = !{!37, !8, i64 0}
-!48 = !{!28, !8, i64 4}
+!44 = !{!8, !8, i64 0}
+!45 = !{!28, !8, i64 5}
+!46 = !{!37, !8, i64 0}
+!47 = !{!28, !8, i64 4}

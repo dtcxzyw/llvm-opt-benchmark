@@ -274,7 +274,7 @@ define internal void @vcpu_init(i64 %0, i32 noundef %1) #0 {
   %32 = phi ptr [ %75, %._crit_edge.loopexit.i ], [ %24, %.lr.ph33.split.i ]
   %33 = add nuw i32 %.032.i, 1
   %34 = icmp ult i32 %33, %31
-  br i1 %34, label %.lr.ph33.split.i, label %.loopexit.thread.i, !llvm.loop !8
+  br i1 %34, label %.lr.ph33.split.i, label %.loopexit.thread.i, !llvm.loop !7
 
 35:                                               ; preds = %glib_autoptr_cleanup_GPatternSpec.exit.i, %.lr.ph.i
   %36 = phi ptr [ %24, %.lr.ph.i ], [ %75, %glib_autoptr_cleanup_GPatternSpec.exit.i ]
@@ -313,7 +313,7 @@ define internal void @vcpu_init(i64 %0, i32 noundef %1) #0 {
   store ptr %57, ptr %58, align 8
   %59 = tail call i32 @qemu_plugin_read_register(ptr noundef %52, ptr noundef %55) #7
   %60 = icmp slt i32 %59, 1
-  br i1 %60, label %61, label %init_vcpu_register.exit.i, !prof !10
+  br i1 %60, label %61, label %init_vcpu_register.exit.i, !prof !9
 
 61:                                               ; preds = %48
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 311, ptr noundef nonnull @__func__.init_vcpu_register, ptr noundef nonnull @.str.8) #10
@@ -359,7 +359,7 @@ glib_autoptr_cleanup_GPatternSpec.exit.i:         ; preds = %73, %72
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = icmp ult i32 %74, %77
-  br i1 %78, label %35, label %._crit_edge.loopexit.i, !llvm.loop !11
+  br i1 %78, label %35, label %._crit_edge.loopexit.i, !llvm.loop !10
 
 .loopexit.thread.i:                               ; preds = %._crit_edge.i, %.lr.ph33.i, %18
   %79 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -457,7 +457,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   %34 = load i32, ptr %33, align 8
   %35 = icmp ult i32 %31, %34
   %36 = select i1 %35, i1 %.not61, i1 false
-  br i1 %36, label %.lr.ph, label %.loopexit67.loopexit, !llvm.loop !12
+  br i1 %36, label %.lr.ph, label %.loopexit67.loopexit, !llvm.loop !11
 
 .loopexit67.loopexit:                             ; preds = %.lr.ph
   %.3 = zext i1 %.not61 to i8
@@ -491,7 +491,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   %48 = add nuw i32 %.05872, 1
   %49 = icmp ult i32 %48, %41
   %50 = select i1 %49, i1 %47, i1 false
-  br i1 %50, label %43, label %.loopexit65.loopexit, !llvm.loop !13
+  br i1 %50, label %43, label %.loopexit65.loopexit, !llvm.loop !12
 
 .loopexit65.loopexit:                             ; preds = %43
   %spec.select = zext i1 %47 to i8
@@ -532,7 +532,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 8
   %70 = icmp ult i32 %66, %69
-  br i1 %70, label %.lr.ph79, label %.loopexit, !llvm.loop !14
+  br i1 %70, label %.lr.ph79, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph79, %55, %.loopexit65
   %.455 = phi i8 [ %.152, %.loopexit65 ], [ 0, %55 ], [ %spec.select62, %.lr.ph79 ]
@@ -587,7 +587,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   call void @g_free(ptr noundef %15) #7
   %94 = add nuw i64 %.05982, 1
   %exitcond.not = icmp eq i64 %94, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph86, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph86, !llvm.loop !14
 }
 
 declare void @qemu_plugin_register_atexit_cb(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -629,7 +629,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp ult i32 %15, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %14, %2
   tail call void @g_rw_lock_reader_unlock(ptr noundef nonnull @expand_array_lock) #7
@@ -886,7 +886,7 @@ define internal fastcc void @insn_check_regs(ptr noundef readonly captures(none)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %.not = icmp eq i32 %16, %20
-  br i1 %.not, label %22, label %21, !prof !17
+  br i1 %.not, label %22, label %21, !prof !16
 
 21:                                               ; preds = %.lr.ph34
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 98, ptr noundef nonnull @__func__.insn_check_regs, ptr noundef nonnull @.str.12) #10
@@ -931,7 +931,7 @@ define internal fastcc void @insn_check_regs(ptr noundef readonly captures(none)
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %34, ptr noundef nonnull @.str.14, i32 noundef %39) #7
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not38 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 40:                                               ; preds = %._crit_edge, %22
   %41 = add nuw i32 %.02732, 1
@@ -939,7 +939,7 @@ define internal fastcc void @insn_check_regs(ptr noundef readonly captures(none)
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp ult i32 %41, %44
-  br i1 %45, label %.lr.ph34, label %._crit_edge35, !llvm.loop !19
+  br i1 %45, label %.lr.ph34, label %._crit_edge35, !llvm.loop !18
 }
 
 declare void @qemu_plugin_outs(ptr noundef) local_unnamed_addr #1
@@ -982,18 +982,17 @@ attributes #10 = { noreturn nounwind }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7, !9}
-!9 = !{!"llvm.loop.unswitch.partial.disable"}
-!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
+!7 = distinct !{!7, !6, !8}
+!8 = !{!"llvm.loop.unswitch.partial.disable"}
+!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}

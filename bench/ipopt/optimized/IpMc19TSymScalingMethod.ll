@@ -266,9 +266,9 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod25ComputeSymTScalingF
   %.07180 = phi double [ %.sroa.speculated.i, %.lr.ph83 ], [ 0.000000e+00, %._crit_edge ]
   %.07279 = phi double [ %67, %.lr.ph83 ], [ 0.000000e+00, %._crit_edge ]
   %58 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv91
-  %59 = load float, ptr %58, align 4, !tbaa !39
+  %59 = load float, ptr %58, align 4, !tbaa !38
   %60 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv91
-  %61 = load float, ptr %60, align 4, !tbaa !39
+  %61 = load float, ptr %60, align 4, !tbaa !38
   %62 = fadd float %59, %61
   %63 = fpext float %62 to double
   %64 = fmul double %63, 5.000000e-01
@@ -282,12 +282,12 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod25ComputeSymTScalingF
   %69 = load i32, ptr %8, align 4, !tbaa !33
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next92, %70
-  br i1 %71, label %.lr.ph83, label %._crit_edge84.loopexit, !llvm.loop !41
+  br i1 %71, label %.lr.ph83, label %._crit_edge84.loopexit, !llvm.loop !40
 
 72:                                               ; preds = %._crit_edge84
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !42
-  %75 = load ptr, ptr %74, align 8, !tbaa !43
+  %74 = load ptr, ptr %73, align 8, !tbaa !41
+  %75 = load ptr, ptr %74, align 8, !tbaa !42
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
   call void (ptr, i32, i32, ptr, ...) %77(ptr noundef nonnull align 8 dereferenceable(40) %74, i32 noundef 4, i32 noundef 7, ptr noundef nonnull @.str.1)
@@ -305,7 +305,7 @@ define noundef zeroext i1 @_ZN5Ipopt21Mc19TSymScalingMethod25ComputeSymTScalingF
   store double 1.000000e+00, ptr %80, align 8, !tbaa !34
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.loopexit, label %.lr.ph89, !llvm.loop !45
+  br i1 %exitcond98.not, label %.loopexit, label %.lr.ph89, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.lr.ph89, %72, %._crit_edge84
   call void @_ZdaPv(ptr noundef nonnull %26) #16
@@ -330,7 +330,7 @@ declare noundef zeroext i1 @_ZN5Ipopt14IsFiniteNumberEd(double noundef) local_un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt21Mc19TSymScalingMethodD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5Ipopt21Mc19TSymScalingMethodE, i64 16), ptr %0, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5Ipopt21Mc19TSymScalingMethodE, i64 16), ptr %0, align 8, !tbaa !42
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   %.not.i.i = icmp eq ptr %3, null
@@ -338,14 +338,14 @@ define linkonce_odr void @_ZN5Ipopt21Mc19TSymScalingMethodD2Ev(ptr noundef nonnu
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !46
+  %6 = load i32, ptr %5, align 8, !tbaa !45
   %7 = add nsw i32 %6, -1
-  store i32 %7, ptr %5, align 8, !tbaa !46
+  store i32 %7, ptr %5, align 8, !tbaa !45
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %_ZN5Ipopt8SmartPtrINS_13LibraryLoaderEED2Ev.exit
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %3, align 8, !tbaa !43
+  %10 = load ptr, ptr %3, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(56) %3) #15
@@ -353,96 +353,96 @@ define linkonce_odr void @_ZN5Ipopt21Mc19TSymScalingMethodD2Ev(ptr noundef nonnu
   br label %_ZN5Ipopt8SmartPtrINS_13LibraryLoaderEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrINS_13LibraryLoaderEED2Ev.exit: ; preds = %1, %4, %9
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i64 16), ptr %0, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i64 16), ptr %0, align 8, !tbaa !42
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !47
+  %14 = load ptr, ptr %13, align 8, !tbaa !46
   %.not.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i, label %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit.i, label %15
 
 15:                                               ; preds = %_ZN5Ipopt8SmartPtrINS_13LibraryLoaderEED2Ev.exit
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !46
+  %17 = load i32, ptr %16, align 8, !tbaa !45
   %18 = add nsw i32 %17, -1
-  store i32 %18, ptr %16, align 8, !tbaa !46
+  store i32 %18, ptr %16, align 8, !tbaa !45
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit.i
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %14, align 8, !tbaa !43
+  %21 = load ptr, ptr %14, align 8, !tbaa !42
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(2185) %14) #15
-  store ptr null, ptr %13, align 8, !tbaa !47
+  store ptr null, ptr %13, align 8, !tbaa !46
   br label %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit.i
 
 _ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit.i: ; preds = %20, %15, %_ZN5Ipopt8SmartPtrINS_13LibraryLoaderEED2Ev.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !48
+  %25 = load ptr, ptr %24, align 8, !tbaa !47
   %.not.i.i1.i = icmp eq ptr %25, null
   br i1 %.not.i.i1.i, label %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit.i, label %26
 
 26:                                               ; preds = %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !46
+  %28 = load i32, ptr %27, align 8, !tbaa !45
   %29 = add nsw i32 %28, -1
-  store i32 %29, ptr %27, align 8, !tbaa !46
+  store i32 %29, ptr %27, align 8, !tbaa !45
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit.i
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr %25, align 8, !tbaa !43
+  %32 = load ptr, ptr %25, align 8, !tbaa !42
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(2232) %25) #15
-  store ptr null, ptr %24, align 8, !tbaa !48
+  store ptr null, ptr %24, align 8, !tbaa !47
   br label %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit.i
 
 _ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit.i:    ; preds = %31, %26, %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !49
+  %36 = load ptr, ptr %35, align 8, !tbaa !48
   %.not.i.i2.i = icmp eq ptr %36, null
   br i1 %.not.i.i2.i, label %_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit.i, label %37
 
 37:                                               ; preds = %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit.i
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !46
+  %39 = load i32, ptr %38, align 8, !tbaa !45
   %40 = add nsw i32 %39, -1
-  store i32 %40, ptr %38, align 8, !tbaa !46
+  store i32 %40, ptr %38, align 8, !tbaa !45
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit.i
 
 42:                                               ; preds = %37
-  %43 = load ptr, ptr %36, align 8, !tbaa !43
+  %43 = load ptr, ptr %36, align 8, !tbaa !42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(24) %36) #15
-  store ptr null, ptr %35, align 8, !tbaa !49
+  store ptr null, ptr %35, align 8, !tbaa !48
   br label %_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit.i
 
 _ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit.i:     ; preds = %42, %37, %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !42
+  %47 = load ptr, ptr %46, align 8, !tbaa !41
   %.not.i.i3.i = icmp eq ptr %47, null
   br i1 %.not.i.i3.i, label %_ZN5Ipopt23AlgorithmStrategyObjectD2Ev.exit, label %48
 
 48:                                               ; preds = %_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !46
+  %50 = load i32, ptr %49, align 8, !tbaa !45
   %51 = add nsw i32 %50, -1
-  store i32 %51, ptr %49, align 8, !tbaa !46
+  store i32 %51, ptr %49, align 8, !tbaa !45
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %_ZN5Ipopt23AlgorithmStrategyObjectD2Ev.exit
 
 53:                                               ; preds = %48
-  %54 = load ptr, ptr %47, align 8, !tbaa !43
+  %54 = load ptr, ptr %47, align 8, !tbaa !42
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(40) %47) #15
-  store ptr null, ptr %46, align 8, !tbaa !42
+  store ptr null, ptr %46, align 8, !tbaa !41
   br label %_ZN5Ipopt23AlgorithmStrategyObjectD2Ev.exit
 
 _ZN5Ipopt23AlgorithmStrategyObjectD2Ev.exit:      ; preds = %_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit.i, %48, %53
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 16), ptr %0, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 16), ptr %0, align 8, !tbaa !42
   ret void
 }
 
@@ -455,96 +455,96 @@ define linkonce_odr void @_ZN5Ipopt21Mc19TSymScalingMethodD0Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt23AlgorithmStrategyObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i64 16), ptr %0, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Ipopt23AlgorithmStrategyObjectE, i64 16), ptr %0, align 8, !tbaa !42
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !46
+  %6 = load i32, ptr %5, align 8, !tbaa !45
   %7 = add nsw i32 %6, -1
-  store i32 %7, ptr %5, align 8, !tbaa !46
+  store i32 %7, ptr %5, align 8, !tbaa !45
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %3, align 8, !tbaa !43
+  %10 = load ptr, ptr %3, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(2185) %3) #15
-  store ptr null, ptr %2, align 8, !tbaa !47
+  store ptr null, ptr %2, align 8, !tbaa !46
   br label %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit: ; preds = %1, %4, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !48
+  %14 = load ptr, ptr %13, align 8, !tbaa !47
   %.not.i.i1 = icmp eq ptr %14, null
   br i1 %.not.i.i1, label %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit, label %15
 
 15:                                               ; preds = %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load i32, ptr %16, align 8, !tbaa !46
+  %17 = load i32, ptr %16, align 8, !tbaa !45
   %18 = add nsw i32 %17, -1
-  store i32 %18, ptr %16, align 8, !tbaa !46
+  store i32 %18, ptr %16, align 8, !tbaa !45
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %14, align 8, !tbaa !43
+  %21 = load ptr, ptr %14, align 8, !tbaa !42
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(2232) %14) #15
-  store ptr null, ptr %13, align 8, !tbaa !48
+  store ptr null, ptr %13, align 8, !tbaa !47
   br label %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit:      ; preds = %_ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEED2Ev.exit, %15, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !49
+  %25 = load ptr, ptr %24, align 8, !tbaa !48
   %.not.i.i2 = icmp eq ptr %25, null
   br i1 %.not.i.i2, label %_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit, label %26
 
 26:                                               ; preds = %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !46
+  %28 = load i32, ptr %27, align 8, !tbaa !45
   %29 = add nsw i32 %28, -1
-  store i32 %29, ptr %27, align 8, !tbaa !46
+  store i32 %29, ptr %27, align 8, !tbaa !45
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr %25, align 8, !tbaa !43
+  %32 = load ptr, ptr %25, align 8, !tbaa !42
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull align 8 dereferenceable(24) %25) #15
-  store ptr null, ptr %24, align 8, !tbaa !49
+  store ptr null, ptr %24, align 8, !tbaa !48
   br label %_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit:       ; preds = %_ZN5Ipopt8SmartPtrINS_9IpoptDataEED2Ev.exit, %26, %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !42
+  %36 = load ptr, ptr %35, align 8, !tbaa !41
   %.not.i.i3 = icmp eq ptr %36, null
   br i1 %.not.i.i3, label %_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev.exit, label %37
 
 37:                                               ; preds = %_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !46
+  %39 = load i32, ptr %38, align 8, !tbaa !45
   %40 = add nsw i32 %39, -1
-  store i32 %40, ptr %38, align 8, !tbaa !46
+  store i32 %40, ptr %38, align 8, !tbaa !45
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %42, label %_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev.exit
 
 42:                                               ; preds = %37
-  %43 = load ptr, ptr %36, align 8, !tbaa !43
+  %43 = load ptr, ptr %36, align 8, !tbaa !42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull align 8 dereferenceable(40) %36) #15
-  store ptr null, ptr %35, align 8, !tbaa !42
+  store ptr null, ptr %35, align 8, !tbaa !41
   br label %_ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrIKNS_10JournalistEED2Ev.exit:   ; preds = %_ZN5Ipopt8SmartPtrINS_8IpoptNLPEED2Ev.exit, %37, %42
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 16), ptr %0, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 16), ptr %0, align 8, !tbaa !42
   ret void
 }
 
@@ -558,7 +558,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #10 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 16), ptr %0, align 8, !tbaa !43
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5Ipopt16ReferencedObjectE, i64 16), ptr %0, align 8, !tbaa !42
   ret void
 }
 
@@ -645,17 +645,16 @@ attributes #18 = { noreturn nounwind }
 !33 = !{!12, !12, i64 0}
 !34 = !{!35, !35, i64 0}
 !35 = !{!"double", !5, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"float", !5, i64 0}
-!41 = distinct !{!41, !37, !38}
-!42 = !{!13, !14, i64 0}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"vtable pointer", !6, i64 0}
-!45 = distinct !{!45, !37, !38}
-!46 = !{!11, !12, i64 8}
-!47 = !{!19, !20, i64 0}
-!48 = !{!17, !18, i64 0}
-!49 = !{!15, !16, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"float", !5, i64 0}
+!40 = distinct !{!40, !37}
+!41 = !{!13, !14, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"vtable pointer", !6, i64 0}
+!44 = distinct !{!44, !37}
+!45 = !{!11, !12, i64 8}
+!46 = !{!19, !20, i64 0}
+!47 = !{!17, !18, i64 0}
+!48 = !{!15, !16, i64 0}

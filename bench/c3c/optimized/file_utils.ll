@@ -144,7 +144,7 @@ define dso_local ptr @filename(ptr noundef readonly captures(ret: address, prove
 6:                                                ; preds = %.lr.ph
   %7 = add i64 %.010, -1
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %6, %.lr.ph, %.lr.ph, %1
   %.08 = phi ptr [ %0, %1 ], [ %3, %.lr.ph ], [ %3, %.lr.ph ], [ %0, %6 ]
@@ -167,7 +167,7 @@ define dso_local noundef zeroext i1 @file_namesplit(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds i8, ptr %0, i64 %.034
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 47
-  br i1 %9, label %10, label %.preheader, !llvm.loop !11
+  br i1 %9, label %10, label %.preheader, !llvm.loop !10
 
 10:                                               ; preds = %6, %.preheader
   %.033 = phi i64 [ -1, %.preheader ], [ %.034, %6 ]
@@ -357,7 +357,7 @@ define dso_local nonnull ptr @file_read_all(ptr noundef %0, ptr noundef writeonl
   %29 = add i64 %.138, 1
   %30 = sub i64 %8, %.1
   %31 = icmp ult i64 %29, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %28, %17
   %.0.lcssa = phi i64 [ 0, %17 ], [ %.1, %28 ]
@@ -438,7 +438,7 @@ define dso_local ptr @file_read_binary(ptr noundef %0, ptr noundef captures(none
 
 24:                                               ; preds = %22, %.lr.ph.i
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
 
 file_read.exit:                                   ; preds = %22
   %25 = tail call i32 @fclose(ptr noundef nonnull %4)
@@ -515,7 +515,7 @@ define dso_local ptr @find_rel_exe_dir(ptr noundef %0) local_unnamed_addr #5 {
 30:                                               ; preds = %19, %24
   %31 = add nuw nsw i64 %.01518, 1
   %exitcond.not = icmp eq i64 %31, 5
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !13
 
 .loopexit:                                        ; preds = %30, %28
   %.0 = phi ptr [ %29, %28 ], [ null, %30 ]
@@ -748,7 +748,7 @@ define dso_local void @file_find_top_dir() local_unnamed_addr #5 {
   %25 = call ptr @getcwd(ptr noundef nonnull %3, i64 noundef 4096) #17
   %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %2) #18
   %.not3 = icmp eq i32 %26, 0
-  br i1 %.not3, label %27, label %5, !llvm.loop !15
+  br i1 %.not3, label %27, label %5
 
 27:                                               ; preds = %24
   call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.26) #16
@@ -798,7 +798,7 @@ define dso_local noundef zeroext i1 @file_has_suffix_in_list(ptr noundef readonl
 17:                                               ; preds = %10, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %10, %17, %4
   %.lcssa = phi i1 [ false, %4 ], [ false, %17 ], [ true, %10 ]
@@ -911,7 +911,7 @@ define dso_local ptr @execute_cmd(ptr noundef %0, i1 noundef zeroext %1) local_u
   %8 = call ptr @str_cat(ptr noundef %.01320, ptr noundef nonnull %3) #17
   %9 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1023, ptr noundef nonnull %4)
   %.not15 = icmp eq ptr %9, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader18
   %.013.lcssa = phi ptr [ @.str.36, %.preheader18 ], [ %8, %.lr.ph ]
@@ -938,7 +938,7 @@ define dso_local ptr @execute_cmd(ptr noundef %0, i1 noundef zeroext %1) local_u
 
 14:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.preheader, !llvm.loop !18
+  br label %.preheader, !llvm.loop !16
 
 16:                                               ; preds = %.preheader
   %17 = call ptr @str_trim(ptr noundef nonnull %.1) #17
@@ -1018,7 +1018,7 @@ define dso_local void @file_add_wildcard_files(ptr noundef captures(none) %0, pt
 39:                                               ; preds = %32, %.lr.ph.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %file_has_suffix_in_list.exit.thread.us, label %.lr.ph.i.us, !llvm.loop !16
+  br i1 %exitcond.not.i.us, label %file_has_suffix_in_list.exit.thread.us, label %.lr.ph.i.us, !llvm.loop !14
 
 file_has_suffix_in_list.exit.us:                  ; preds = %32
   %40 = load i8, ptr @debug_log, align 1
@@ -1125,7 +1125,7 @@ file_has_suffix_in_list.exit.thread.us:           ; preds = %39, %25
 .backedge.us:                                     ; preds = %.lr.ph.split.us, %22, %84, %88, %91, %file_has_suffix_in_list.exit.thread.us, %80
   %92 = tail call ptr @readdir(ptr noundef nonnull %9) #17
   %.not51.us = icmp eq ptr %92, null
-  br i1 %.not51.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %.not51.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %2, label %.lr.ph.split.split, label %.lr.ph.split.split.us
@@ -1147,7 +1147,7 @@ file_has_suffix_in_list.exit.thread.us58:         ; preds = %.lr.ph.split.split.
 .backedge.us61:                                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us, %file_has_suffix_in_list.exit.thread.us58
   %97 = tail call ptr @readdir(ptr noundef nonnull %9) #17
   %.not51.us62 = icmp eq ptr %97, null
-  br i1 %.not51.us62, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !21
+  br i1 %.not51.us62, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !19
 
 98:                                               ; preds = %5
   %99 = tail call ptr @__errno_location() #19
@@ -1168,7 +1168,7 @@ file_has_suffix_in_list.exit.thread.us58:         ; preds = %.lr.ph.split.split.
 .backedge:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.split, %107, %111, %113, %file_has_suffix_in_list.exit.thread
   %104 = tail call ptr @readdir(ptr noundef nonnull %9) #17
   %.not51 = icmp eq ptr %104, null
-  br i1 %.not51, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !22
+  br i1 %.not51, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !20
 
 file_has_suffix_in_list.exit.thread:              ; preds = %.lr.ph.split.split
   %105 = tail call ptr (ptr, ...) @str_printf(ptr noundef nonnull %16, ptr noundef nonnull %spec.select54, ptr noundef nonnull %103) #17
@@ -1232,7 +1232,7 @@ define dso_local noundef zeroext i1 @execute_cmd_failable(ptr noundef readonly c
   %6 = call ptr @str_cat(ptr noundef %.01017, ptr noundef nonnull %3) #17
   %7 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1023, ptr noundef nonnull %4)
   %.not12 = icmp eq ptr %7, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader15
   %.010.lcssa = phi ptr [ @.str.36, %.preheader15 ], [ %6, %.lr.ph ]
@@ -1252,7 +1252,7 @@ define dso_local noundef zeroext i1 @execute_cmd_failable(ptr noundef readonly c
 
 10:                                               ; preds = %.preheader, %.preheader, %.preheader, %.preheader
   %11 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %.preheader, !llvm.loop !24
+  br label %.preheader, !llvm.loop !22
 
 12:                                               ; preds = %.preheader
   %13 = call ptr @str_trim(ptr noundef nonnull %.1) #17
@@ -1308,21 +1308,19 @@ attributes #19 = { nounwind willreturn memory(none) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !8, !9, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !8, !9, !20}
-!22 = distinct !{!22, !8, !9}
-!23 = distinct !{!23, !8, !9}
-!24 = distinct !{!24, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !8, !18}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}

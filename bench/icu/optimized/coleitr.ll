@@ -1168,13 +1168,13 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %23, %32
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef i32 %67(ptr noundef nonnull align 8 dereferenceable(389) %64)
   %69 = icmp eq i32 %68, %.0
-  br i1 %69, label %58, label %70, !llvm.loop !64
+  br i1 %69, label %58, label %70, !llvm.loop !63
 
 70:                                               ; preds = %63
   %.not40 = icmp sgt i32 %68, %1
   %spec.select = select i1 %.not40, i32 %.0, i32 %68
   %71 = icmp slt i32 %68, %1
-  br i1 %71, label %53, label %.thread50, !llvm.loop !65
+  br i1 %71, label %53, label %.thread50, !llvm.loop !64
 
 .thread50:                                        ; preds = %70, %.thread, %8, %6
   %.029 = phi i32 [ %1, %8 ], [ %1, %6 ], [ %1, %.thread ], [ %spec.select, %70 ]
@@ -1232,9 +1232,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %14, %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !66
+  %22 = load ptr, ptr %21, align 8, !tbaa !65
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !73
+  %24 = load i32, ptr %23, align 8, !tbaa !72
   %25 = trunc i32 %24 to i8
   %26 = lshr i8 %25, 1
   %27 = and i8 %26, 1
@@ -1250,7 +1250,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %14, %16
 32:                                               ; preds = %29
   %33 = load ptr, ptr %19, align 8, !tbaa !19
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !79
+  %35 = load ptr, ptr %34, align 8, !tbaa !78
   %36 = load i16, ptr %9, align 8, !tbaa !17
   %37 = icmp slt i16 %36, 0
   %38 = ashr i16 %36, 5
@@ -1262,7 +1262,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %14, %16
   %44 = getelementptr inbounds i16, ptr %.0.i, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %46 = load ptr, ptr %35, align 8, !tbaa !50
-  store ptr %46, ptr %45, align 8, !tbaa !80
+  store ptr %46, ptr %45, align 8, !tbaa !79
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %35, ptr %47, align 8, !tbaa !42
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 24
@@ -1271,24 +1271,24 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %14, %16
   %50 = getelementptr inbounds nuw i8, ptr %30, i64 48
   store ptr %50, ptr %49, align 8, !tbaa !38
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  store i32 40, ptr %51, align 8, !tbaa !81
+  store i32 40, ptr %51, align 8, !tbaa !80
   %52 = getelementptr inbounds nuw i8, ptr %30, i64 44
-  store i8 0, ptr %52, align 4, !tbaa !82
+  store i8 0, ptr %52, align 4, !tbaa !81
   %53 = getelementptr inbounds nuw i8, ptr %30, i64 368
   store i32 0, ptr %53, align 8, !tbaa !37
   %54 = getelementptr inbounds nuw i8, ptr %30, i64 376
-  store ptr null, ptr %54, align 8, !tbaa !83
+  store ptr null, ptr %54, align 8, !tbaa !82
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 384
-  store i32 -1, ptr %55, align 8, !tbaa !84
+  store i32 -1, ptr %55, align 8, !tbaa !83
   %56 = getelementptr inbounds nuw i8, ptr %30, i64 388
-  store i8 %27, ptr %56, align 4, !tbaa !85
+  store i8 %27, ptr %56, align 4, !tbaa !84
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7722UTF16CollationIteratorE, i64 16), ptr %30, align 8, !tbaa !3
   %57 = getelementptr inbounds nuw i8, ptr %30, i64 392
-  store ptr %.0.i, ptr %57, align 8, !tbaa !86
+  store ptr %.0.i, ptr %57, align 8, !tbaa !85
   %58 = getelementptr inbounds nuw i8, ptr %30, i64 400
-  store ptr %.0.i, ptr %58, align 8, !tbaa !88
+  store ptr %.0.i, ptr %58, align 8, !tbaa !87
   %59 = getelementptr inbounds nuw i8, ptr %30, i64 408
-  store ptr %44, ptr %59, align 8, !tbaa !89
+  store ptr %44, ptr %59, align 8, !tbaa !88
   br label %102
 
 60:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit
@@ -1299,7 +1299,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %14, %16
 63:                                               ; preds = %60
   %64 = load ptr, ptr %19, align 8, !tbaa !19
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !79
+  %66 = load ptr, ptr %65, align 8, !tbaa !78
   %67 = load i16, ptr %9, align 8, !tbaa !17
   %68 = icmp slt i16 %67, 0
   %69 = ashr i16 %67, 5
@@ -1311,7 +1311,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %14, %16
   %75 = getelementptr inbounds i16, ptr %.0.i, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %77 = load ptr, ptr %66, align 8, !tbaa !50
-  store ptr %77, ptr %76, align 8, !tbaa !80
+  store ptr %77, ptr %76, align 8, !tbaa !79
   %78 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store ptr %66, ptr %78, align 8, !tbaa !42
   %79 = getelementptr inbounds nuw i8, ptr %61, i64 24
@@ -1320,42 +1320,42 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %14, %16
   %81 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store ptr %81, ptr %80, align 8, !tbaa !38
   %82 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  store i32 40, ptr %82, align 8, !tbaa !81
+  store i32 40, ptr %82, align 8, !tbaa !80
   %83 = getelementptr inbounds nuw i8, ptr %61, i64 44
-  store i8 0, ptr %83, align 4, !tbaa !82
+  store i8 0, ptr %83, align 4, !tbaa !81
   %84 = getelementptr inbounds nuw i8, ptr %61, i64 368
   store i32 0, ptr %84, align 8, !tbaa !37
   %85 = getelementptr inbounds nuw i8, ptr %61, i64 376
-  store ptr null, ptr %85, align 8, !tbaa !83
+  store ptr null, ptr %85, align 8, !tbaa !82
   %86 = getelementptr inbounds nuw i8, ptr %61, i64 384
-  store i32 -1, ptr %86, align 8, !tbaa !84
+  store i32 -1, ptr %86, align 8, !tbaa !83
   %87 = getelementptr inbounds nuw i8, ptr %61, i64 388
-  store i8 %27, ptr %87, align 4, !tbaa !85
+  store i8 %27, ptr %87, align 4, !tbaa !84
   %88 = getelementptr inbounds nuw i8, ptr %61, i64 392
-  store ptr %.0.i, ptr %88, align 8, !tbaa !86
+  store ptr %.0.i, ptr %88, align 8, !tbaa !85
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 400
-  store ptr %.0.i, ptr %89, align 8, !tbaa !88
+  store ptr %.0.i, ptr %89, align 8, !tbaa !87
   %90 = getelementptr inbounds nuw i8, ptr %61, i64 408
-  store ptr %75, ptr %90, align 8, !tbaa !89
+  store ptr %75, ptr %90, align 8, !tbaa !88
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN6icu_7725FCDUTF16CollationIteratorE, i64 16), ptr %61, align 8, !tbaa !3
   %91 = getelementptr inbounds nuw i8, ptr %61, i64 416
-  store ptr %.0.i, ptr %91, align 8, !tbaa !90
+  store ptr %.0.i, ptr %91, align 8, !tbaa !89
   %92 = getelementptr inbounds nuw i8, ptr %61, i64 424
-  store ptr %.0.i, ptr %92, align 8, !tbaa !92
+  store ptr %.0.i, ptr %92, align 8, !tbaa !91
   %93 = getelementptr inbounds nuw i8, ptr %61, i64 432
-  store ptr null, ptr %93, align 8, !tbaa !93
+  store ptr null, ptr %93, align 8, !tbaa !92
   %94 = getelementptr inbounds nuw i8, ptr %61, i64 440
-  store ptr %75, ptr %94, align 8, !tbaa !94
+  store ptr %75, ptr %94, align 8, !tbaa !93
   %95 = getelementptr inbounds nuw i8, ptr %61, i64 448
   %96 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %97 = load ptr, ptr %96, align 8, !tbaa !95
-  store ptr %97, ptr %95, align 8, !tbaa !96
+  %97 = load ptr, ptr %96, align 8, !tbaa !94
+  store ptr %97, ptr %95, align 8, !tbaa !95
   %98 = getelementptr inbounds nuw i8, ptr %61, i64 456
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %98, align 8, !tbaa !3
   %99 = getelementptr inbounds nuw i8, ptr %61, i64 464
   store i16 2, ptr %99, align 8, !tbaa !17
   %100 = getelementptr inbounds nuw i8, ptr %61, i64 520
-  store i8 1, ptr %100, align 8, !tbaa !97
+  store i8 1, ptr %100, align 8, !tbaa !96
   br label %102
 
 101:                                              ; preds = %29, %60
@@ -1414,9 +1414,9 @@ define noundef i32 @_ZNK6icu_7724CollationElementIterator13strengthOrderEi(ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !65
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !73
+  %8 = load i32, ptr %7, align 8, !tbaa !72
   %9 = ashr i32 %8, 12
   switch i32 %9, label %14 [
     i32 0, label %10
@@ -1539,17 +1539,17 @@ define noundef ptr @_ZN6icu_7724CollationElementIterator20computeMaxExpansionsEP
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN6icu_7712_GLOBAL__N_110MaxExpSinkE, i64 16), ptr %3, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %8, ptr %12, align 8, !tbaa !98
+  store ptr %8, ptr %12, align 8, !tbaa !97
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %1, ptr %13, align 8, !tbaa !102
+  store ptr %1, ptr %13, align 8, !tbaa !101
   call void @llvm.lifetime.start.p0(i64 768, ptr nonnull %4) #11
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  store ptr %3, ptr %14, align 8, !tbaa !103
+  store ptr %3, ptr %14, align 8, !tbaa !102
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 1, ptr %15, align 8, !tbaa !114
+  store i8 1, ptr %15, align 8, !tbaa !113
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 0, ptr %16, align 1, !tbaa !115
+  store i8 0, ptr %16, align 1, !tbaa !114
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   invoke void @_ZN6icu_7710UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %17)
           to label %.noexc unwind label %30
@@ -1571,9 +1571,9 @@ define noundef ptr @_ZN6icu_7724CollationElementIterator20computeMaxExpansionsEP
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 448
   store i16 2, ptr %23, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 504
-  store ptr null, ptr %24, align 8, !tbaa !116
+  store ptr null, ptr %24, align 8, !tbaa !115
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 760
-  store i32 0, ptr %25, align 8, !tbaa !117
+  store i32 0, ptr %25, align 8, !tbaa !116
   invoke void @_ZN6icu_7725ContractionsAndExpansions7forDataEPKNS_13CollationDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(764) %4, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %26 unwind label %32
 
@@ -1657,9 +1657,9 @@ define noundef range(i32 1, 0) i32 @_ZNK6icu_7724CollationElementIterator15getMa
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !118
+  %6 = load ptr, ptr %5, align 8, !tbaa !117
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 384
-  %8 = load ptr, ptr %7, align 8, !tbaa !119
+  %8 = load ptr, ptr %7, align 8, !tbaa !118
   %9 = icmp eq i32 %1, 0
   br i1 %9, label %_ZN6icu_7724CollationElementIterator15getMaxExpansionEPK10UHashtablei.exit, label %10
 
@@ -1766,7 +1766,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_110MaxExpSink15handleExpansionEPKli
   %23 = add nuw nsw i32 %22, %.02127
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %5, label %.preheader, !llvm.loop !125
+  br i1 %exitcond.not, label %5, label %.preheader, !llvm.loop !124
 
 24:                                               ; preds = %5
   %25 = and i32 %10, -65536
@@ -1784,15 +1784,15 @@ define internal void @_ZN6icu_7712_GLOBAL__N_110MaxExpSink15handleExpansionEPKli
 33:                                               ; preds = %31, %24
   %.0 = phi i32 [ %30, %24 ], [ %32, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !98
+  %35 = load ptr, ptr %34, align 8, !tbaa !97
   %36 = tail call i32 @uhash_igeti_77(ptr noundef %35, i32 noundef %.0)
   %37 = icmp sgt i32 %23, %36
   br i1 %37, label %38, label %43
 
 38:                                               ; preds = %33
-  %39 = load ptr, ptr %34, align 8, !tbaa !98
+  %39 = load ptr, ptr %34, align 8, !tbaa !97
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !126
+  %41 = load ptr, ptr %40, align 8, !tbaa !125
   %42 = tail call i32 @uhash_iputi_77(ptr noundef %39, i32 noundef %.0, i32 noundef %23, ptr noundef %41)
   br label %43
 
@@ -1886,69 +1886,68 @@ attributes #11 = { nounwind }
 !58 = !{!52, !13, i64 48}
 !59 = !{!60, !60, i64 0}
 !60 = !{!"char16_t", !11, i64 0}
-!61 = distinct !{!61, !62, !63}
+!61 = distinct !{!61, !62}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!"llvm.loop.estimated_trip_count"}
-!64 = distinct !{!64, !62, !63}
-!65 = distinct !{!65, !62, !63}
-!66 = !{!67, !69, i64 16}
-!67 = !{!"_ZTSN6icu_7717RuleBasedCollatorE", !68, i64 0, !30, i64 8, !69, i64 16, !70, i64 24, !71, i64 32, !72, i64 40, !13, i64 264, !11, i64 268}
-!68 = !{!"_ZTSN6icu_778CollatorE", !8, i64 0}
-!69 = !{!"p1 _ZTSN6icu_7717CollationSettingsE", !10, i64 0}
-!70 = !{!"p1 _ZTSN6icu_7718CollationTailoringE", !10, i64 0}
-!71 = !{!"p1 _ZTSN6icu_7719CollationCacheEntryE", !10, i64 0}
-!72 = !{!"_ZTSN6icu_776LocaleE", !8, i64 0, !11, i64 8, !11, i64 20, !11, i64 26, !13, i64 32, !47, i64 40, !11, i64 48, !47, i64 208, !11, i64 216}
-!73 = !{!74, !13, i64 24}
-!74 = !{!"_ZTSN6icu_7717CollationSettingsE", !75, i64 0, !13, i64 24, !13, i64 28, !47, i64 32, !13, i64 40, !24, i64 48, !13, i64 56, !24, i64 64, !13, i64 72, !13, i64 76, !13, i64 80, !11, i64 84}
-!75 = !{!"_ZTSN6icu_7712SharedObjectE", !8, i64 0, !13, i64 8, !76, i64 12, !78, i64 16}
-!76 = !{!"_ZTSSt6atomicIiE", !77, i64 0}
-!77 = !{!"_ZTSSt13__atomic_baseIiE", !13, i64 0}
-!78 = !{!"p1 _ZTSN6icu_7716UnifiedCacheBaseE", !10, i64 0}
-!79 = !{!67, !30, i64 8}
-!80 = !{!28, !29, i64 8}
-!81 = !{!32, !13, i64 8}
-!82 = !{!32, !11, i64 12}
-!83 = !{!28, !34, i64 376}
-!84 = !{!28, !13, i64 384}
-!85 = !{!28, !11, i64 388}
-!86 = !{!87, !45, i64 392}
-!87 = !{!"_ZTSN6icu_7722UTF16CollationIteratorE", !28, i64 0, !45, i64 392, !45, i64 400, !45, i64 408}
-!88 = !{!87, !45, i64 400}
-!89 = !{!87, !45, i64 408}
-!90 = !{!91, !45, i64 416}
-!91 = !{!"_ZTSN6icu_7725FCDUTF16CollationIteratorE", !87, i64 0, !45, i64 416, !45, i64 424, !45, i64 432, !45, i64 440, !46, i64 448, !15, i64 456, !11, i64 520}
-!92 = !{!91, !45, i64 424}
-!93 = !{!91, !45, i64 432}
-!94 = !{!91, !45, i64 440}
-!95 = !{!44, !46, i64 48}
-!96 = !{!46, !46, i64 0}
-!97 = !{!91, !11, i64 520}
-!98 = !{!99, !101, i64 8}
-!99 = !{!"_ZTSN6icu_7712_GLOBAL__N_110MaxExpSinkE", !100, i64 0, !101, i64 8, !10, i64 16}
-!100 = !{!"_ZTSN6icu_7725ContractionsAndExpansions6CESinkE"}
-!101 = !{!"p1 _ZTS10UHashtable", !10, i64 0}
-!102 = !{!10, !10, i64 0}
-!103 = !{!104, !105, i64 24}
-!104 = !{!"_ZTSN6icu_7725ContractionsAndExpansionsE", !30, i64 0, !48, i64 8, !48, i64 16, !105, i64 24, !11, i64 32, !11, i64 33, !106, i64 40, !106, i64 240, !15, i64 440, !113, i64 504, !11, i64 512, !26, i64 760}
-!105 = !{!"p1 _ZTSN6icu_7725ContractionsAndExpansions6CESinkE", !10, i64 0}
-!106 = !{!"_ZTSN6icu_7710UnicodeSetE", !107, i64 0, !24, i64 16, !13, i64 24, !13, i64 28, !11, i64 32, !110, i64 40, !24, i64 48, !13, i64 56, !45, i64 64, !13, i64 72, !111, i64 80, !112, i64 88, !11, i64 96}
-!107 = !{!"_ZTSN6icu_7713UnicodeFilterE", !108, i64 0, !109, i64 8}
-!108 = !{!"_ZTSN6icu_7714UnicodeFunctorE", !8, i64 0}
-!109 = !{!"_ZTSN6icu_7714UnicodeMatcherE"}
-!110 = !{!"p1 _ZTSN6icu_776BMPSetE", !10, i64 0}
-!111 = !{!"p1 _ZTSN6icu_777UVectorE", !10, i64 0}
-!112 = !{!"p1 _ZTSN6icu_7720UnicodeSetStringSpanE", !10, i64 0}
-!113 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !10, i64 0}
-!114 = !{!104, !11, i64 32}
-!115 = !{!104, !11, i64 33}
-!116 = !{!104, !113, i64 504}
-!117 = !{!104, !26, i64 760}
-!118 = !{!67, !70, i64 24}
-!119 = !{!120, !101, i64 384}
-!120 = !{!"_ZTSN6icu_7718CollationTailoringE", !75, i64 0, !30, i64 24, !69, i64 32, !15, i64 40, !72, i64 104, !11, i64 328, !30, i64 336, !121, i64 344, !122, i64 352, !123, i64 360, !29, i64 368, !48, i64 376, !101, i64 384, !124, i64 392}
-!121 = !{!"p1 _ZTSN6icu_777UObjectE", !10, i64 0}
-!122 = !{!"p1 _ZTS11UDataMemory", !10, i64 0}
-!123 = !{!"p1 _ZTS15UResourceBundle", !10, i64 0}
-!124 = !{!"_ZTSN6icu_779UInitOnceE", !76, i64 0, !26, i64 4}
-!125 = distinct !{!125, !62, !63}
-!126 = !{!99, !10, i64 16}
+!63 = distinct !{!63, !62}
+!64 = distinct !{!64, !62}
+!65 = !{!66, !68, i64 16}
+!66 = !{!"_ZTSN6icu_7717RuleBasedCollatorE", !67, i64 0, !30, i64 8, !68, i64 16, !69, i64 24, !70, i64 32, !71, i64 40, !13, i64 264, !11, i64 268}
+!67 = !{!"_ZTSN6icu_778CollatorE", !8, i64 0}
+!68 = !{!"p1 _ZTSN6icu_7717CollationSettingsE", !10, i64 0}
+!69 = !{!"p1 _ZTSN6icu_7718CollationTailoringE", !10, i64 0}
+!70 = !{!"p1 _ZTSN6icu_7719CollationCacheEntryE", !10, i64 0}
+!71 = !{!"_ZTSN6icu_776LocaleE", !8, i64 0, !11, i64 8, !11, i64 20, !11, i64 26, !13, i64 32, !47, i64 40, !11, i64 48, !47, i64 208, !11, i64 216}
+!72 = !{!73, !13, i64 24}
+!73 = !{!"_ZTSN6icu_7717CollationSettingsE", !74, i64 0, !13, i64 24, !13, i64 28, !47, i64 32, !13, i64 40, !24, i64 48, !13, i64 56, !24, i64 64, !13, i64 72, !13, i64 76, !13, i64 80, !11, i64 84}
+!74 = !{!"_ZTSN6icu_7712SharedObjectE", !8, i64 0, !13, i64 8, !75, i64 12, !77, i64 16}
+!75 = !{!"_ZTSSt6atomicIiE", !76, i64 0}
+!76 = !{!"_ZTSSt13__atomic_baseIiE", !13, i64 0}
+!77 = !{!"p1 _ZTSN6icu_7716UnifiedCacheBaseE", !10, i64 0}
+!78 = !{!66, !30, i64 8}
+!79 = !{!28, !29, i64 8}
+!80 = !{!32, !13, i64 8}
+!81 = !{!32, !11, i64 12}
+!82 = !{!28, !34, i64 376}
+!83 = !{!28, !13, i64 384}
+!84 = !{!28, !11, i64 388}
+!85 = !{!86, !45, i64 392}
+!86 = !{!"_ZTSN6icu_7722UTF16CollationIteratorE", !28, i64 0, !45, i64 392, !45, i64 400, !45, i64 408}
+!87 = !{!86, !45, i64 400}
+!88 = !{!86, !45, i64 408}
+!89 = !{!90, !45, i64 416}
+!90 = !{!"_ZTSN6icu_7725FCDUTF16CollationIteratorE", !86, i64 0, !45, i64 416, !45, i64 424, !45, i64 432, !45, i64 440, !46, i64 448, !15, i64 456, !11, i64 520}
+!91 = !{!90, !45, i64 424}
+!92 = !{!90, !45, i64 432}
+!93 = !{!90, !45, i64 440}
+!94 = !{!44, !46, i64 48}
+!95 = !{!46, !46, i64 0}
+!96 = !{!90, !11, i64 520}
+!97 = !{!98, !100, i64 8}
+!98 = !{!"_ZTSN6icu_7712_GLOBAL__N_110MaxExpSinkE", !99, i64 0, !100, i64 8, !10, i64 16}
+!99 = !{!"_ZTSN6icu_7725ContractionsAndExpansions6CESinkE"}
+!100 = !{!"p1 _ZTS10UHashtable", !10, i64 0}
+!101 = !{!10, !10, i64 0}
+!102 = !{!103, !104, i64 24}
+!103 = !{!"_ZTSN6icu_7725ContractionsAndExpansionsE", !30, i64 0, !48, i64 8, !48, i64 16, !104, i64 24, !11, i64 32, !11, i64 33, !105, i64 40, !105, i64 240, !15, i64 440, !112, i64 504, !11, i64 512, !26, i64 760}
+!104 = !{!"p1 _ZTSN6icu_7725ContractionsAndExpansions6CESinkE", !10, i64 0}
+!105 = !{!"_ZTSN6icu_7710UnicodeSetE", !106, i64 0, !24, i64 16, !13, i64 24, !13, i64 28, !11, i64 32, !109, i64 40, !24, i64 48, !13, i64 56, !45, i64 64, !13, i64 72, !110, i64 80, !111, i64 88, !11, i64 96}
+!106 = !{!"_ZTSN6icu_7713UnicodeFilterE", !107, i64 0, !108, i64 8}
+!107 = !{!"_ZTSN6icu_7714UnicodeFunctorE", !8, i64 0}
+!108 = !{!"_ZTSN6icu_7714UnicodeMatcherE"}
+!109 = !{!"p1 _ZTSN6icu_776BMPSetE", !10, i64 0}
+!110 = !{!"p1 _ZTSN6icu_777UVectorE", !10, i64 0}
+!111 = !{!"p1 _ZTSN6icu_7720UnicodeSetStringSpanE", !10, i64 0}
+!112 = !{!"p1 _ZTSN6icu_7713UnicodeStringE", !10, i64 0}
+!113 = !{!103, !11, i64 32}
+!114 = !{!103, !11, i64 33}
+!115 = !{!103, !112, i64 504}
+!116 = !{!103, !26, i64 760}
+!117 = !{!66, !69, i64 24}
+!118 = !{!119, !100, i64 384}
+!119 = !{!"_ZTSN6icu_7718CollationTailoringE", !74, i64 0, !30, i64 24, !68, i64 32, !15, i64 40, !71, i64 104, !11, i64 328, !30, i64 336, !120, i64 344, !121, i64 352, !122, i64 360, !29, i64 368, !48, i64 376, !100, i64 384, !123, i64 392}
+!120 = !{!"p1 _ZTSN6icu_777UObjectE", !10, i64 0}
+!121 = !{!"p1 _ZTS11UDataMemory", !10, i64 0}
+!122 = !{!"p1 _ZTS15UResourceBundle", !10, i64 0}
+!123 = !{!"_ZTSN6icu_779UInitOnceE", !75, i64 0, !26, i64 4}
+!124 = distinct !{!124, !62}
+!125 = !{!98, !10, i64 16}

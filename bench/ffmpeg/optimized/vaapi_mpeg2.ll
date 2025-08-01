@@ -323,14 +323,14 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_mpeg2_decode_slice(ptr noun
   %64 = add i32 %spec.select.i.i, 8
   %65 = tail call i32 @llvm.umin.i32(i32 %13, i32 %64)
   %.not8.i = icmp ult i32 %64, %.018.i
-  br i1 %.not8.i, label %.preheader.i, label %skip_1stop_8data_bits.exit.thread, !llvm.loop !87
+  br i1 %.not8.i, label %.preheader.i, label %skip_1stop_8data_bits.exit.thread, !llvm.loop !86
 
 skip_1stop_8data_bits.exit:                       ; preds = %.preheader.i, %25
   %.sroa.8.0 = phi i32 [ %spec.select.i, %25 ], [ %spec.select.i.i, %.preheader.i ]
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 3348
-  %67 = load i32, ptr %66, align 4, !tbaa !88
+  %67 = load i32, ptr %66, align 4, !tbaa !87
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 3352
-  %69 = load i32, ptr %68, align 8, !tbaa !89
+  %69 = load i32, ptr %68, align 8, !tbaa !88
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 4212
   %71 = load i32, ptr %70, align 4, !tbaa !62
   %72 = icmp ne i32 %71, 3
@@ -382,9 +382,9 @@ define internal i32 @vaapi_mpeg2_end_frame(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
-  %12 = load ptr, ptr %11, align 8, !tbaa !90
+  %12 = load ptr, ptr %11, align 8, !tbaa !89
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 116
-  %14 = load i32, ptr %13, align 4, !tbaa !91
+  %14 = load i32, ptr %13, align 4, !tbaa !90
   tail call void @ff_mpeg_draw_horiz_band(ptr noundef nonnull %3, i32 noundef 0, i32 noundef %14) #5
   br label %15
 
@@ -516,11 +516,10 @@ attributes #5 = { nounwind }
 !81 = !{!80, !10, i64 4}
 !82 = !{!80, !10, i64 8}
 !83 = !{!80, !10, i64 12}
-!84 = distinct !{!84, !85, !86}
+!84 = distinct !{!84, !85}
 !85 = !{!"llvm.loop.mustprogress"}
-!86 = !{!"llvm.loop.estimated_trip_count"}
-!87 = distinct !{!87, !85, !86}
-!88 = !{!28, !10, i64 3348}
-!89 = !{!28, !10, i64 3352}
-!90 = !{!28, !30, i64 472}
-!91 = !{!5, !10, i64 116}
+!86 = distinct !{!86, !85}
+!87 = !{!28, !10, i64 3348}
+!88 = !{!28, !10, i64 3352}
+!89 = !{!28, !30, i64 472}
+!90 = !{!5, !10, i64 116}

@@ -685,7 +685,7 @@ define noundef i32 @_ZNK6icu_7713UnicodeString9doExtractEiiPciP10UConverterR10UE
   %53 = add nsw i32 %.1, %52
   %54 = load i32, ptr %6, align 4, !tbaa !8
   %55 = icmp eq i32 %54, 15
-  br i1 %55, label %48, label %56, !llvm.loop !18
+  br i1 %55, label %48, label %56, !llvm.loop !17
 
 56:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #7
@@ -813,7 +813,6 @@ attributes #7 = { nounwind }
 !12 = !{!"any pointer", !7, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 char16_t", !12, i64 0}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !16, !17}
+!17 = distinct !{!17, !16}

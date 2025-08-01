@@ -851,7 +851,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17hc00462d3bca2dc3aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c8cd218e033b65816daa0ee5f25350f3.12.llvm.2533861537460265135)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !42
   %10 = icmp eq ptr %8, %6
-  br i1 %10, label %_ZN4core3fmt8builders9DebugList7entries17h31e43a9f4cd18859E.exit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %10, label %_ZN4core3fmt8builders9DebugList7entries17h31e43a9f4cd18859E.exit, label %.lr.ph.i
 
 _ZN4core3fmt8builders9DebugList7entries17h31e43a9f4cd18859E.exit: ; preds = %.lr.ph.i, %3
   %11 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
@@ -1285,7 +1285,7 @@ define internal fastcc noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core.
   %201 = alloca ptr, align 8
   %202 = alloca ptr, align 8
   %203 = alloca ptr, align 8
-  %204 = load i16, ptr %0, align 8, !range !47, !noundef !4
+  %204 = load i16, ptr %0, align 8, !range !45, !noundef !4
   switch i16 %204, label %default.unreachable1 [
     i16 0, label %205
     i16 1, label %207
@@ -5006,7 +5006,7 @@ default.unreachable1:                             ; preds = %2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN83_$LT$wasmparser..readers..core..operators..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h5322f312f297f84bE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
-  %3 = load i8, ptr %0, align 1, !range !48, !noundef !4
+  %3 = load i8, ptr %0, align 1, !range !46, !noundef !4
   %trunc = trunc nuw i8 %3 to i1
   %anon.e6c82912cf2b5da94ca1fbe9efa96c54.647.anon.e6c82912cf2b5da94ca1fbe9efa96c54.648 = select i1 %trunc, ptr @anon.e6c82912cf2b5da94ca1fbe9efa96c54.648, ptr @anon.e6c82912cf2b5da94ca1fbe9efa96c54.647
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.e6c82912cf2b5da94ca1fbe9efa96c54.647.anon.e6c82912cf2b5da94ca1fbe9efa96c54.648, i64 noundef 6)
@@ -5208,7 +5208,5 @@ attributes #4 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !42 = !{!43}
 !43 = distinct !{!43, !44, !"_ZN4core3fmt8builders9DebugList7entries17h31e43a9f4cd18859E: argument 0"}
 !44 = distinct !{!44, !"_ZN4core3fmt8builders9DebugList7entries17h31e43a9f4cd18859E"}
-!45 = distinct !{!45, !46}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{i16 0, i16 574}
-!48 = !{i8 0, i8 2}
+!45 = !{i16 0, i16 574}
+!46 = !{i8 0, i8 2}

@@ -4238,7 +4238,7 @@ for.body:                                         ; preds = %for.cond
   %6 = load ptr, ptr %4, align 8
   %call.i15 = tail call i64 @fread(ptr noundef %add.ptr, i64 noundef %spec.select, i64 noundef 1, ptr noundef %6)
   %cmp.i16 = icmp eq i64 %call.i15, 1
-  br i1 %cmp.i16, label %for.cond, label %if.then23, !llvm.loop !79
+  br i1 %cmp.i16, label %for.cond, label %if.then23, !llvm.loop !78
 
 if.then23:                                        ; preds = %for.body
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %item, i64 8
@@ -5153,7 +5153,6 @@ attributes #26 = { noreturn nounwind }
 !73 = distinct !{!73, !"_ZN11struct_pack6detail18calculate_one_sizeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm0EEE9size_infoRKT_"}
 !74 = distinct !{!74, !75, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_: %agg.result"}
 !75 = distinct !{!75, !"_ZN11struct_pack6detail22calculate_payload_sizeILm0EJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9size_infoDpRKT0_"}
-!76 = distinct !{!76, !77, !78}
+!76 = distinct !{!76, !77}
 !77 = !{!"llvm.loop.mustprogress"}
-!78 = !{!"llvm.loop.estimated_trip_count"}
-!79 = distinct !{!79, !77, !78}
+!78 = distinct !{!78, !77}

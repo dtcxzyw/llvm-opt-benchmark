@@ -765,7 +765,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread80: ; preds = %._ZNK6icu_
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %11) #14
   call void @_ZN6icu_7720StackUResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #14
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %10) #14
-  br i1 %.1, label %29, label %.loopexit, !llvm.loop !21
+  br i1 %.1, label %29, label %.loopexit
 
 114:                                              ; preds = %112, %56, %41
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %112 ], [ %57, %56 ], [ %42, %41 ]
@@ -911,7 +911,7 @@ define internal fastcc noundef range(i32 0, 5) i32 @_ZN12_GLOBAL__N_126_uloc_get
   resume { ptr, i32 } %24
 
 25:                                               ; preds = %19
-  %26 = load i16, ptr %18, align 2, !tbaa !23
+  %26 = load i16, ptr %18, align 2, !tbaa !21
   %27 = zext i16 %26 to i32
   %28 = add nsw i32 %27, -98
   %29 = call i32 @llvm.fshl.i32(i32 %28, i32 %28, i32 31)
@@ -1014,7 +1014,5 @@ attributes #17 = { nounwind willreturn memory(read) }
 !18 = !{!19, !9, i64 56}
 !19 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
 !20 = !{!7, !7, i64 0}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.estimated_trip_count"}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"char16_t", !7, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"char16_t", !7, i64 0}

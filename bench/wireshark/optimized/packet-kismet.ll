@@ -233,7 +233,7 @@ proto_item_set_generated.exit:                    ; preds = %41, %44, %47
   %.1.us = phi ptr [ %69, %66 ], [ %.0172194.us, %55 ], [ %.0172194.us, %.lr.ph.split.us ]
   %71 = load i32, ptr %5, align 4
   %72 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %71)
-  br i1 %72, label %.lr.ph.split.us, label %.loopexit.sink.split, !llvm.loop !9
+  br i1 %72, label %.lr.ph.split.us, label %.loopexit.sink.split, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %207
   %.0172194 = phi ptr [ %.1, %207 ], [ %9, %.lr.ph ]
@@ -410,7 +410,7 @@ proto_item_set_generated.exit:                    ; preds = %41, %44, %47
   %.1 = phi ptr [ %206, %205 ], [ %.0172194, %74 ], [ %.0172194, %.lr.ph.split ]
   %208 = load i32, ptr %5, align 4
   %209 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %208)
-  br i1 %209, label %.lr.ph.split, label %.loopexit.sink.split, !llvm.loop !11
+  br i1 %209, label %.lr.ph.split, label %.loopexit.sink.split, !llvm.loop !10
 
 .loopexit.sink.split:                             ; preds = %207, %70, %proto_item_set_generated.exit, %39
   %210 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -514,9 +514,8 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}

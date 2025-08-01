@@ -539,9 +539,9 @@ define weak_odr noundef i32 @_ZNK5draco33DynamicIntegerPointsKdTreeEncoderILi0EE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterC2Ejj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 comdat($_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterC5Ejj) align 2 {
-  store i32 %1, ptr %0, align 4, !tbaa !31
+  store i32 %1, ptr %0, align 4, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %2, ptr %4, align 4, !tbaa !33
+  store i32 %2, ptr %4, align 4, !tbaa !32
   ret void
 }
 
@@ -555,7 +555,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE12Encode
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5draco16DirectBitEncoder28EncodeLeastSignificantBits32Eij(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !34
+  %5 = load i32, ptr %4, align 4, !tbaa !33
   %6 = sub i32 32, %5
   %7 = sub nsw i32 32, %1
   %8 = shl i32 %2, %7
@@ -565,11 +565,11 @@ define linkonce_odr void @_ZN5draco16DirectBitEncoder28EncodeLeastSignificantBit
 9:                                                ; preds = %3
   %10 = lshr i32 %8, %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i32, ptr %11, align 8, !tbaa !35
+  %12 = load i32, ptr %11, align 8, !tbaa !34
   %13 = or i32 %12, %10
-  store i32 %13, ptr %11, align 8, !tbaa !35
+  store i32 %13, ptr %11, align 8, !tbaa !34
   %14 = add i32 %5, %1
-  store i32 %14, ptr %4, align 4, !tbaa !34
+  store i32 %14, ptr %4, align 4, !tbaa !33
   %15 = icmp eq i32 %14, 32
   br i1 %15, label %16, label %79
 
@@ -636,19 +636,19 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %21, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
-  store i32 0, ptr %11, align 8, !tbaa !35
-  store i32 0, ptr %4, align 4, !tbaa !34
+  store i32 0, ptr %11, align 8, !tbaa !34
+  store i32 0, ptr %4, align 4, !tbaa !33
   br label %79
 
 43:                                               ; preds = %3
   %44 = lshr exact i32 %8, %7
   %45 = sub nsw i32 %1, %6
-  store i32 %45, ptr %4, align 4, !tbaa !34
+  store i32 %45, ptr %4, align 4, !tbaa !33
   %46 = lshr i32 %44, %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = load i32, ptr %47, align 8, !tbaa !35
+  %48 = load i32, ptr %47, align 8, !tbaa !34
   %49 = or i32 %48, %46
-  store i32 %49, ptr %47, align 8, !tbaa !35
+  store i32 %49, ptr %47, align 8, !tbaa !34
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !24
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -711,10 +711,10 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit22
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit22:        ; preds = %54, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i21
-  %76 = load i32, ptr %4, align 4, !tbaa !34
+  %76 = load i32, ptr %4, align 4, !tbaa !33
   %77 = sub i32 32, %76
   %78 = shl i32 %44, %77
-  store i32 %78, ptr %47, align 8, !tbaa !35
+  store i32 %78, ptr %47, align 8, !tbaa !34
   br label %79
 
 79:                                               ; preds = %9, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit22
@@ -725,9 +725,9 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit22:        ; preds = %54, %_ZNSt6vectorIj
 define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi2EEC2Ej(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %1) unnamed_addr #3 comdat($_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi2EEC5Ej) align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.std::vector", align 8
-  store i32 0, ptr %0, align 8, !tbaa !36
+  store i32 0, ptr %0, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %5, align 8, !tbaa !44
+  store i32 %1, ptr %5, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN5draco14RAnsBitEncoderC1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1116,15 +1116,15 @@ declare void @_ZN5draco14RAnsBitEncoderD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK5draco33DynamicIntegerPointsKdTreeEncoderILi2EE9dimensionEv(ptr noundef nonnull align 8 dereferenceable(288) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !44
+  %3 = load i32, ptr %2, align 8, !tbaa !43
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterC2Ejj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 comdat($_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterC5Ejj) align 2 {
-  store i32 %1, ptr %0, align 4, !tbaa !45
+  store i32 %1, ptr %0, align 4, !tbaa !44
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %2, ptr %4, align 4, !tbaa !47
+  store i32 %2, ptr %4, align 4, !tbaa !46
   ret void
 }
 
@@ -1141,9 +1141,9 @@ declare void @_ZN5draco14RAnsBitEncoder28EncodeLeastSignificantBits32Eij(ptr nou
 define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EEC2Ej(ptr noundef nonnull align 8 dereferenceable(2080) %0, i32 noundef %1) unnamed_addr #3 comdat($_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EEC5Ej) align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.std::vector", align 8
-  store i32 0, ptr %0, align 8, !tbaa !48
+  store i32 0, ptr %0, align 8, !tbaa !47
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %5, align 8, !tbaa !52
+  store i32 %1, ptr %5, align 8, !tbaa !51
   %.ptr100 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
@@ -1157,7 +1157,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EEC2Ej(ptr
 7:                                                ; preds = %6
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 56
   %8 = icmp eq i64 %.add.i.i, 1792
-  br i1 %8, label %_ZNSt5arrayIN5draco14RAnsBitEncoderELm32EEC2Ev.exit.i, label %6, !llvm.loop !53
+  br i1 %8, label %_ZNSt5arrayIN5draco14RAnsBitEncoderELm32EEC2Ev.exit.i, label %6
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
@@ -1171,7 +1171,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EEC2Ej(ptr
   %.ptr99 = getelementptr inbounds i8, ptr %0, i64 %.add
   tail call void @_ZN5draco14RAnsBitEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr99) #18
   %12 = icmp eq i64 %.add, 16
-  br i1 %12, label %common.resume, label %.preheader.i.i, !llvm.loop !54
+  br i1 %12, label %common.resume, label %.preheader.i.i
 
 common.resume:                                    ; preds = %.preheader.i.i, %15, %9, %172
   %common.resume.op = phi { ptr, i32 } [ %.pn20.pn.pn.pn.pn.pn.pn.pn, %172 ], [ %10, %9 ], [ %14, %15 ], [ %10, %.preheader.i.i ]
@@ -1193,7 +1193,7 @@ _ZNSt5arrayIN5draco14RAnsBitEncoderELm32EEC2Ev.exit.i: ; preds = %7
   %.ptr103 = getelementptr inbounds i8, ptr %0, i64 %.add102
   tail call void @_ZN5draco14RAnsBitEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr103) #18
   %16 = icmp eq i64 %.add102, 16
-  br i1 %16, label %common.resume, label %15, !llvm.loop !55
+  br i1 %16, label %common.resume, label %15
 
 _ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEEC2Ev.exit: ; preds = %_ZNSt5arrayIN5draco14RAnsBitEncoderELm32EEC2Ev.exit.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1864
@@ -1585,7 +1585,7 @@ define linkonce_odr void @_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEED2E
   %5 = getelementptr inbounds i8, ptr %4, i64 -56
   tail call void @_ZN5draco14RAnsBitEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #18
   %6 = icmp eq ptr %5, %0
-  br i1 %6, label %_ZNSt5arrayIN5draco14RAnsBitEncoderELm32EED2Ev.exit, label %3, !llvm.loop !55
+  br i1 %6, label %_ZNSt5arrayIN5draco14RAnsBitEncoderELm32EED2Ev.exit, label %3
 
 _ZNSt5arrayIN5draco14RAnsBitEncoderELm32EED2Ev.exit: ; preds = %3
   ret void
@@ -1594,15 +1594,15 @@ _ZNSt5arrayIN5draco14RAnsBitEncoderELm32EED2Ev.exit: ; preds = %3
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK5draco33DynamicIntegerPointsKdTreeEncoderILi4EE9dimensionEv(ptr noundef nonnull align 8 dereferenceable(2080) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !52
+  %3 = load i32, ptr %2, align 8, !tbaa !51
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterC2Ejj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 comdat($_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterC5Ejj) align 2 {
-  store i32 %1, ptr %0, align 4, !tbaa !56
+  store i32 %1, ptr %0, align 4, !tbaa !52
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %2, ptr %4, align 4, !tbaa !58
+  store i32 %2, ptr %4, align 4, !tbaa !54
   ret void
 }
 
@@ -1628,7 +1628,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE12Encode
   %11 = lshr i32 %.011.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits32Eij.exit, label %.lr.ph.i, !llvm.loop !59
+  br i1 %exitcond.not.i, label %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits32Eij.exit, label %.lr.ph.i, !llvm.loop !55
 
 _ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits32Eij.exit: ; preds = %.lr.ph.i, %3
   ret void
@@ -1638,9 +1638,9 @@ _ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits3
 define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EEC2Ej(ptr noundef nonnull align 8 dereferenceable(2080) %0, i32 noundef %1) unnamed_addr #3 comdat($_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EEC5Ej) align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.std::vector", align 8
-  store i32 0, ptr %0, align 8, !tbaa !60
+  store i32 0, ptr %0, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %5, align 8, !tbaa !62
+  store i32 %1, ptr %5, align 8, !tbaa !58
   %.ptr100 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
@@ -1654,7 +1654,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EEC2Ej(ptr
 7:                                                ; preds = %6
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 56
   %8 = icmp eq i64 %.add.i.i, 1792
-  br i1 %8, label %_ZNSt5arrayIN5draco14RAnsBitEncoderELm32EEC2Ev.exit.i, label %6, !llvm.loop !53
+  br i1 %8, label %_ZNSt5arrayIN5draco14RAnsBitEncoderELm32EEC2Ev.exit.i, label %6
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
@@ -1668,7 +1668,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EEC2Ej(ptr
   %.ptr99 = getelementptr inbounds i8, ptr %0, i64 %.add
   tail call void @_ZN5draco14RAnsBitEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr99) #18
   %12 = icmp eq i64 %.add, 16
-  br i1 %12, label %common.resume, label %.preheader.i.i, !llvm.loop !54
+  br i1 %12, label %common.resume, label %.preheader.i.i
 
 common.resume:                                    ; preds = %.preheader.i.i, %15, %9, %172
   %common.resume.op = phi { ptr, i32 } [ %.pn20.pn.pn.pn.pn.pn.pn.pn, %172 ], [ %10, %9 ], [ %14, %15 ], [ %10, %.preheader.i.i ]
@@ -1690,7 +1690,7 @@ _ZNSt5arrayIN5draco14RAnsBitEncoderELm32EEC2Ev.exit.i: ; preds = %7
   %.ptr103 = getelementptr inbounds i8, ptr %0, i64 %.add102
   tail call void @_ZN5draco14RAnsBitEncoderD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %.ptr103) #18
   %16 = icmp eq i64 %.add102, 16
-  br i1 %16, label %common.resume, label %15, !llvm.loop !55
+  br i1 %16, label %common.resume, label %15
 
 _ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEEC2Ev.exit: ; preds = %_ZNSt5arrayIN5draco14RAnsBitEncoderELm32EEC2Ev.exit.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1864
@@ -2074,15 +2074,15 @@ _ZNSt6vectorIjSaIjEED2Ev.exit82:                  ; preds = %164, %_ZNSt6vectorI
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK5draco33DynamicIntegerPointsKdTreeEncoderILi6EE9dimensionEv(ptr noundef nonnull align 8 dereferenceable(2080) %0) local_unnamed_addr #5 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !62
+  %3 = load i32, ptr %2, align 8, !tbaa !58
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterC2Ejj(ptr noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #5 comdat($_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterC5Ejj) align 2 {
-  store i32 %1, ptr %0, align 4, !tbaa !63
+  store i32 %1, ptr %0, align 4, !tbaa !59
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %2, ptr %4, align 4, !tbaa !65
+  store i32 %2, ptr %4, align 4, !tbaa !61
   ret void
 }
 
@@ -2108,7 +2108,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE12Encode
   %11 = lshr i32 %.011.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits32Eij.exit, label %.lr.ph.i, !llvm.loop !59
+  br i1 %exitcond.not.i, label %_ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits32Eij.exit, label %.lr.ph.i, !llvm.loop !55
 
 _ZN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEE28EncodeLeastSignificantBits32Eij.exit: ; preds = %.lr.ph.i, %3
   ret void
@@ -2165,7 +2165,7 @@ define linkonce_odr noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIjSaIjEEmS2_
 
 11:                                               ; preds = %5
   %12 = icmp ugt i64 %10, 9223372036854775804
-  br i1 %12, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i, !prof !66
+  br i1 %12, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i, !prof !62
 
 .noexc.i.i.i:                                     ; preds = %11
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #20
@@ -2186,8 +2186,8 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %10
   %17 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   store ptr %16, ptr %17, align 8, !tbaa !22
-  %18 = load ptr, ptr %2, align 8, !tbaa !67
-  %19 = load ptr, ptr %4, align 8, !tbaa !67
+  %18 = load ptr, ptr %2, align 8, !tbaa !63
+  %19 = load ptr, ptr %4, align 8, !tbaa !63
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %18 to i64
   %22 = sub i64 %20, %21
@@ -2204,7 +2204,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %11
   %26 = add i64 %.01117, -1
   %27 = getelementptr inbounds nuw i8, ptr %.018, i64 24
   %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !68
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !64
 
 .loopexit:                                        ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2358,44 +2358,40 @@ attributes #21 = { noreturn nounwind }
 !25 = !{!18, !19, i64 0}
 !26 = !{!18, !19, i64 8}
 !27 = !{!18, !19, i64 16}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!32, !5, i64 0}
-!32 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterE", !5, i64 0, !5, i64 4}
-!33 = !{!32, !5, i64 4}
-!34 = !{!8, !5, i64 28}
-!35 = !{!8, !5, i64 24}
-!36 = !{!37, !5, i64 0}
-!37 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi2EEE", !5, i64 0, !5, i64 4, !5, i64 8, !38, i64 16, !8, i64 72, !8, i64 104, !8, i64 136, !9, i64 168, !9, i64 192, !9, i64 216, !15, i64 240, !15, i64 264}
-!38 = !{!"_ZTSN5draco14RAnsBitEncoderE", !39, i64 0, !9, i64 24, !5, i64 48, !5, i64 52}
-!39 = !{!"_ZTSSt6vectorImSaImEE", !40, i64 0}
-!40 = !{!"_ZTSSt12_Vector_baseImSaImEE", !41, i64 0}
-!41 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !42, i64 0}
-!42 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !43, i64 0, !43, i64 8, !43, i64 16}
-!43 = !{!"p1 long", !14, i64 0}
-!44 = !{!37, !5, i64 8}
-!45 = !{!46, !5, i64 0}
-!46 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterE", !5, i64 0, !5, i64 4}
-!47 = !{!46, !5, i64 4}
-!48 = !{!49, !5, i64 0}
-!49 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi4EEE", !5, i64 0, !5, i64 4, !5, i64 8, !50, i64 16, !8, i64 1864, !8, i64 1896, !8, i64 1928, !9, i64 1960, !9, i64 1984, !9, i64 2008, !15, i64 2032, !15, i64 2056}
-!50 = !{!"_ZTSN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEEE", !51, i64 0, !38, i64 1792}
-!51 = !{!"_ZTSSt5arrayIN5draco14RAnsBitEncoderELm32EE", !6, i64 0}
-!52 = !{!49, !5, i64 8}
-!53 = distinct !{!53, !30}
-!54 = distinct !{!54, !30}
-!55 = distinct !{!55, !30}
+!30 = !{!31, !5, i64 0}
+!31 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterE", !5, i64 0, !5, i64 4}
+!32 = !{!31, !5, i64 4}
+!33 = !{!8, !5, i64 28}
+!34 = !{!8, !5, i64 24}
+!35 = !{!36, !5, i64 0}
+!36 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi2EEE", !5, i64 0, !5, i64 4, !5, i64 8, !37, i64 16, !8, i64 72, !8, i64 104, !8, i64 136, !9, i64 168, !9, i64 192, !9, i64 216, !15, i64 240, !15, i64 264}
+!37 = !{!"_ZTSN5draco14RAnsBitEncoderE", !38, i64 0, !9, i64 24, !5, i64 48, !5, i64 52}
+!38 = !{!"_ZTSSt6vectorImSaImEE", !39, i64 0}
+!39 = !{!"_ZTSSt12_Vector_baseImSaImEE", !40, i64 0}
+!40 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !41, i64 0}
+!41 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !42, i64 0, !42, i64 8, !42, i64 16}
+!42 = !{!"p1 long", !14, i64 0}
+!43 = !{!36, !5, i64 8}
+!44 = !{!45, !5, i64 0}
+!45 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterE", !5, i64 0, !5, i64 4}
+!46 = !{!45, !5, i64 4}
+!47 = !{!48, !5, i64 0}
+!48 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi4EEE", !5, i64 0, !5, i64 4, !5, i64 8, !49, i64 16, !8, i64 1864, !8, i64 1896, !8, i64 1928, !9, i64 1960, !9, i64 1984, !9, i64 2008, !15, i64 2032, !15, i64 2056}
+!49 = !{!"_ZTSN5draco18FoldedBit32EncoderINS_14RAnsBitEncoderEEE", !50, i64 0, !37, i64 1792}
+!50 = !{!"_ZTSSt5arrayIN5draco14RAnsBitEncoderELm32EE", !6, i64 0}
+!51 = !{!48, !5, i64 8}
+!52 = !{!53, !5, i64 0}
+!53 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterE", !5, i64 0, !5, i64 4}
+!54 = !{!53, !5, i64 4}
+!55 = distinct !{!55, !29}
 !56 = !{!57, !5, i64 0}
-!57 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterE", !5, i64 0, !5, i64 4}
-!58 = !{!57, !5, i64 4}
-!59 = distinct !{!59, !29, !30}
-!60 = !{!61, !5, i64 0}
-!61 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi6EEE", !5, i64 0, !5, i64 4, !5, i64 8, !50, i64 16, !8, i64 1864, !8, i64 1896, !8, i64 1928, !9, i64 1960, !9, i64 1984, !9, i64 2008, !15, i64 2032, !15, i64 2056}
-!62 = !{!61, !5, i64 8}
-!63 = !{!64, !5, i64 0}
-!64 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterE", !5, i64 0, !5, i64 4}
-!65 = !{!64, !5, i64 4}
-!66 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!67 = !{!13, !13, i64 0}
-!68 = distinct !{!68, !29, !30}
+!57 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi6EEE", !5, i64 0, !5, i64 4, !5, i64 8, !49, i64 16, !8, i64 1864, !8, i64 1896, !8, i64 1928, !9, i64 1960, !9, i64 1984, !9, i64 2008, !15, i64 2032, !15, i64 2056}
+!58 = !{!57, !5, i64 8}
+!59 = !{!60, !5, i64 0}
+!60 = !{!"_ZTSN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterE", !5, i64 0, !5, i64 4}
+!61 = !{!60, !5, i64 4}
+!62 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!63 = !{!13, !13, i64 0}
+!64 = distinct !{!64, !29}

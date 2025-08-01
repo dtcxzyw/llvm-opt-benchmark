@@ -155,7 +155,7 @@ translate_postscript_fontname.exit:               ; preds = %._crit_edge.i, %bse
   br label %36
 
 36:                                               ; preds = %translate_postscript_fontname.exit, %2
-  %37 = load i8, ptr @Verbose, align 1, !tbaa !25
+  %37 = load i8, ptr @Verbose, align 1, !tbaa !24
   %.not15 = icmp eq i8 %37, 0
   br i1 %.not15, label %.thread, label %38
 
@@ -180,24 +180,24 @@ translate_postscript_fontname.exit:               ; preds = %._crit_edge.i, %bse
   %49 = and i32 %46, 2
   %50 = icmp ne i32 %49, 0
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %52 = load double, ptr %51, align 8, !tbaa !26
+  %52 = load double, ptr %51, align 8, !tbaa !25
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store double 0.000000e+00, ptr %53, align 8, !tbaa !27
+  store double 0.000000e+00, ptr %53, align 8, !tbaa !26
   %54 = fmul double %52, 1.200000e+00
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store double %54, ptr %55, align 8, !tbaa !28
+  store double %54, ptr %55, align 8, !tbaa !27
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store double 0.000000e+00, ptr %56, align 8, !tbaa !29
+  store double 0.000000e+00, ptr %56, align 8, !tbaa !28
   %57 = fmul double %52, 1.000000e-01
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store double %57, ptr %58, align 8, !tbaa !30
+  store double %57, ptr %58, align 8, !tbaa !29
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   %60 = load ptr, ptr %44, align 8, !tbaa !16
-  %61 = load ptr, ptr %1, align 8, !tbaa !31
+  %61 = load ptr, ptr %1, align 8, !tbaa !30
   %62 = call double @estimate_text_width_1pt(ptr noundef %60, ptr noundef %61, i1 noundef zeroext %48, i1 noundef zeroext %50) #15
   %63 = fmul double %52, %62
-  store double %63, ptr %53, align 8, !tbaa !27
+  store double %63, ptr %53, align 8, !tbaa !26
   %.not.i18 = icmp eq ptr %.024, null
   br i1 %.not.i18, label %estimate_textspan_size.exit.thread25, label %estimate_textspan_size.exit.thread20
 
@@ -225,9 +225,9 @@ estimate_textspan_size.exit:                      ; preds = %38
 
 estimate_textspan_size.exit.thread25:             ; preds = %43, %.thread, %68, %70, %estimate_textspan_size.exit
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.sroa.0.0.copyload = load double, ptr %72, align 8, !tbaa !32
+  %.sroa.0.0.copyload = load double, ptr %72, align 8, !tbaa !31
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !32
+  %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.2.0.copyload, 1
@@ -250,21 +250,21 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define void @textfont_dict_open(ptr noundef initializes((216, 228), (232, 256)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i32 0, ptr %2, align 8, !tbaa !33
+  store i32 0, ptr %2, align 8, !tbaa !32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 220
-  store i32 40, ptr %3, align 4, !tbaa !52
+  store i32 40, ptr %3, align 4, !tbaa !51
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 -1, ptr %4, align 8, !tbaa !53
+  store i32 -1, ptr %4, align 8, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr @textfont_makef, ptr %5, align 8, !tbaa !54
+  store ptr @textfont_makef, ptr %5, align 8, !tbaa !53
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr @textfont_freef, ptr %6, align 8, !tbaa !55
+  store ptr @textfont_freef, ptr %6, align 8, !tbaa !54
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr @textfont_comparf, ptr %7, align 8, !tbaa !56
-  %8 = load ptr, ptr @Dtoset, align 8, !tbaa !57
+  store ptr @textfont_comparf, ptr %7, align 8, !tbaa !55
+  %8 = load ptr, ptr @Dtoset, align 8, !tbaa !56
   %9 = tail call ptr @dtopen(ptr noundef nonnull %2, ptr noundef %8) #15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr %9, ptr %10, align 8, !tbaa !58
+  store ptr %9, ptr %10, align 8, !tbaa !57
   ret void
 }
 
@@ -304,7 +304,7 @@ gv_strdup.exit:                                   ; preds = %9
 
 17:                                               ; preds = %gv_strdup.exit, %gv_alloc.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !59
+  %19 = load ptr, ptr %18, align 8, !tbaa !58
   %.not15 = icmp eq ptr %19, null
   br i1 %.not15, label %29, label %20
 
@@ -323,7 +323,7 @@ gv_strdup.exit:                                   ; preds = %9
 
 gv_strdup.exit16:                                 ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %21, ptr %28, align 8, !tbaa !59
+  store ptr %21, ptr %28, align 8, !tbaa !58
   br label %29
 
 29:                                               ; preds = %gv_strdup.exit16, %17
@@ -333,9 +333,9 @@ gv_strdup.exit16:                                 ; preds = %20
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %32, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load double, ptr %34, align 8, !tbaa !26
+  %35 = load double, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store double %35, ptr %36, align 8, !tbaa !26
+  store double %35, ptr %36, align 8, !tbaa !25
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !12
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -348,7 +348,7 @@ define internal void @textfont_freef(ptr noundef captures(none) %0) #5 {
   %2 = load ptr, ptr %0, align 8, !tbaa !16
   tail call void @free(ptr noundef %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !59
+  %4 = load ptr, ptr %3, align 8, !tbaa !58
   tail call void @free(ptr noundef %4) #15
   tail call void @free(ptr noundef %0) #15
   ret void
@@ -375,10 +375,10 @@ define internal i32 @textfont_comparf(ptr noundef readonly captures(none) %0, pt
 
 9:                                                ; preds = %7, %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !59
+  %11 = load ptr, ptr %10, align 8, !tbaa !58
   %.not40 = icmp eq ptr %11, null
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !59
+  %13 = load ptr, ptr %12, align 8, !tbaa !58
   %.not41 = icmp eq ptr %13, null
   br i1 %.not40, label %14, label %15
 
@@ -409,9 +409,9 @@ define internal i32 @textfont_comparf(ptr noundef readonly captures(none) %0, pt
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load double, ptr %29, align 8, !tbaa !26
+  %30 = load double, ptr %29, align 8, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %32 = load double, ptr %31, align 8, !tbaa !26
+  %32 = load double, ptr %31, align 8, !tbaa !25
   %33 = fcmp olt double %30, %32
   br i1 %33, label %.thread, label %34
 
@@ -430,7 +430,7 @@ declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @textfont_dict_close(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !57
   %4 = tail call i32 @dtclose(ptr noundef %3) #15
   ret void
 }
@@ -515,41 +515,40 @@ attributes #20 = { cold noreturn nounwind }
 !19 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
 !20 = !{!21, !4, i64 0}
 !21 = !{!"_PostscriptAlias", !4, i64 0, !4, i64 8, !4, i64 16, !4, i64 24, !4, i64 32, !15, i64 40, !4, i64 48, !4, i64 56, !4, i64 64}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!6, !6, i64 0}
-!26 = !{!13, !10, i64 24}
-!27 = !{!9, !10, i64 48}
-!28 = !{!9, !10, i64 56}
-!29 = !{!9, !10, i64 32}
-!30 = !{!9, !10, i64 40}
-!31 = !{!9, !4, i64 0}
-!32 = !{!10, !10, i64 0}
-!33 = !{!34, !15, i64 216}
-!34 = !{!"GVC_s", !35, i64 0, !4, i64 72, !37, i64 80, !36, i64 88, !15, i64 96, !38, i64 104, !38, i64 112, !6, i64 120, !6, i64 160, !39, i64 200, !5, i64 208, !40, i64 216, !41, i64 256, !42, i64 264, !44, i64 288, !44, i64 296, !45, i64 304, !46, i64 312, !4, i64 344, !44, i64 352, !4, i64 360, !11, i64 368, !11, i64 384, !11, i64 400, !48, i64 416, !49, i64 424, !15, i64 456, !37, i64 460, !37, i64 461, !37, i64 462, !4, i64 464, !4, i64 472, !4, i64 480, !36, i64 488, !15, i64 496, !50, i64 504, !4, i64 512, !10, i64 520, !36, i64 528, !51, i64 536, !15, i64 576}
-!35 = !{!"GVCOMMON_s", !36, i64 0, !4, i64 8, !15, i64 16, !37, i64 20, !37, i64 21, !5, i64 24, !36, i64 32, !36, i64 40, !15, i64 48, !5, i64 56, !15, i64 64}
-!36 = !{!"p2 omnipotent char", !5, i64 0}
-!37 = !{!"_Bool", !6, i64 0}
-!38 = !{!"p1 _ZTS5GVG_s", !5, i64 0}
-!39 = !{!"p1 _ZTS18gvplugin_package_s", !5, i64 0}
-!40 = !{!"dtdisc_s_", !15, i64 0, !15, i64 4, !15, i64 8, !5, i64 16, !5, i64 24, !5, i64 32}
-!41 = !{!"p1 _ZTS5dt_s_", !5, i64 0}
-!42 = !{!"gvplugin_active_textlayout_s", !43, i64 0, !15, i64 8, !4, i64 16}
-!43 = !{!"p1 _ZTS21gvtextlayout_engine_s", !5, i64 0}
-!44 = !{!"p1 _ZTS5GVJ_s", !5, i64 0}
-!45 = !{!"p1 _ZTS8Agraph_s", !5, i64 0}
-!46 = !{!"gvplugin_active_layout_s", !47, i64 0, !15, i64 8, !5, i64 16, !4, i64 24}
-!47 = !{!"p1 _ZTS17gvlayout_engine_s", !5, i64 0}
-!48 = !{!"", !15, i64 0, !15, i64 4}
-!49 = !{!"", !11, i64 0, !11, i64 16}
-!50 = !{!"p1 int", !5, i64 0}
-!51 = !{!"color_s", !6, i64 0, !15, i64 32}
-!52 = !{!34, !15, i64 220}
-!53 = !{!34, !15, i64 224}
-!54 = !{!34, !5, i64 232}
-!55 = !{!34, !5, i64 240}
-!56 = !{!34, !5, i64 248}
-!57 = !{!5, !5, i64 0}
-!58 = !{!34, !41, i64 256}
-!59 = !{!13, !4, i64 8}
+!24 = !{!6, !6, i64 0}
+!25 = !{!13, !10, i64 24}
+!26 = !{!9, !10, i64 48}
+!27 = !{!9, !10, i64 56}
+!28 = !{!9, !10, i64 32}
+!29 = !{!9, !10, i64 40}
+!30 = !{!9, !4, i64 0}
+!31 = !{!10, !10, i64 0}
+!32 = !{!33, !15, i64 216}
+!33 = !{!"GVC_s", !34, i64 0, !4, i64 72, !36, i64 80, !35, i64 88, !15, i64 96, !37, i64 104, !37, i64 112, !6, i64 120, !6, i64 160, !38, i64 200, !5, i64 208, !39, i64 216, !40, i64 256, !41, i64 264, !43, i64 288, !43, i64 296, !44, i64 304, !45, i64 312, !4, i64 344, !43, i64 352, !4, i64 360, !11, i64 368, !11, i64 384, !11, i64 400, !47, i64 416, !48, i64 424, !15, i64 456, !36, i64 460, !36, i64 461, !36, i64 462, !4, i64 464, !4, i64 472, !4, i64 480, !35, i64 488, !15, i64 496, !49, i64 504, !4, i64 512, !10, i64 520, !35, i64 528, !50, i64 536, !15, i64 576}
+!34 = !{!"GVCOMMON_s", !35, i64 0, !4, i64 8, !15, i64 16, !36, i64 20, !36, i64 21, !5, i64 24, !35, i64 32, !35, i64 40, !15, i64 48, !5, i64 56, !15, i64 64}
+!35 = !{!"p2 omnipotent char", !5, i64 0}
+!36 = !{!"_Bool", !6, i64 0}
+!37 = !{!"p1 _ZTS5GVG_s", !5, i64 0}
+!38 = !{!"p1 _ZTS18gvplugin_package_s", !5, i64 0}
+!39 = !{!"dtdisc_s_", !15, i64 0, !15, i64 4, !15, i64 8, !5, i64 16, !5, i64 24, !5, i64 32}
+!40 = !{!"p1 _ZTS5dt_s_", !5, i64 0}
+!41 = !{!"gvplugin_active_textlayout_s", !42, i64 0, !15, i64 8, !4, i64 16}
+!42 = !{!"p1 _ZTS21gvtextlayout_engine_s", !5, i64 0}
+!43 = !{!"p1 _ZTS5GVJ_s", !5, i64 0}
+!44 = !{!"p1 _ZTS8Agraph_s", !5, i64 0}
+!45 = !{!"gvplugin_active_layout_s", !46, i64 0, !15, i64 8, !5, i64 16, !4, i64 24}
+!46 = !{!"p1 _ZTS17gvlayout_engine_s", !5, i64 0}
+!47 = !{!"", !15, i64 0, !15, i64 4}
+!48 = !{!"", !11, i64 0, !11, i64 16}
+!49 = !{!"p1 int", !5, i64 0}
+!50 = !{!"color_s", !6, i64 0, !15, i64 32}
+!51 = !{!33, !15, i64 220}
+!52 = !{!33, !15, i64 224}
+!53 = !{!33, !5, i64 232}
+!54 = !{!33, !5, i64 240}
+!55 = !{!33, !5, i64 248}
+!56 = !{!5, !5, i64 0}
+!57 = !{!33, !40, i64 256}
+!58 = !{!13, !4, i64 8}

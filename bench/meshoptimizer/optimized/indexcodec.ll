@@ -140,7 +140,7 @@ _ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit:         ; preds = %38, %44, %51
 81:                                               ; preds = %75
   %indvars.iv.next.i220 = add nuw nsw i64 %indvars.iv.i219, 1
   %exitcond.i221 = icmp eq i64 %indvars.iv.next.i220, 16
-  br i1 %exitcond.i221, label %_ZN7meshoptL13getVertexFifoEPjjm.exit, label %75, !llvm.loop !12
+  br i1 %exitcond.i221, label %_ZN7meshoptL13getVertexFifoEPjjm.exit, label %75, !llvm.loop !11
 
 .split.loop.exit15.i:                             ; preds = %75
   %82 = trunc nuw nsw i64 %indvars.iv.i219 to i32
@@ -206,7 +206,7 @@ _ZN7meshoptL13getVertexFifoEPjjm.exit:            ; preds = %81, %.split.loop.ex
   %111 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   store i8 %110, ptr %.8, align 1, !tbaa !8
   %112 = lshr i32 %.0.i.i, 7
-  br i1 %.inv.i.i, label %_ZN7meshoptL11encodeIndexERPhjj.exit.thread, label %106, !llvm.loop !13
+  br i1 %.inv.i.i, label %_ZN7meshoptL11encodeIndexERPhjj.exit.thread, label %106, !llvm.loop !12
 
 _ZN7meshoptL11encodeIndexERPhjj.exit:             ; preds = %.thread, %95
   %.0191286 = phi i32 [ %.0191, %95 ], [ 14, %.thread ]
@@ -276,7 +276,7 @@ _ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit.thread:  ; preds = %55, %_ZN7meshoptL11
 148:                                              ; preds = %142
   %indvars.iv.next.i225 = add nuw nsw i64 %indvars.iv.i223, 1
   %exitcond.i226 = icmp eq i64 %indvars.iv.next.i225, 16
-  br i1 %exitcond.i226, label %_ZN7meshoptL13getVertexFifoEPjjm.exit229, label %142, !llvm.loop !12
+  br i1 %exitcond.i226, label %_ZN7meshoptL13getVertexFifoEPjjm.exit229, label %142, !llvm.loop !11
 
 .split.loop.exit15.i228:                          ; preds = %142
   %149 = trunc nuw nsw i64 %indvars.iv.i223 to i32
@@ -299,7 +299,7 @@ _ZN7meshoptL13getVertexFifoEPjjm.exit229:         ; preds = %148, %.split.loop.e
 156:                                              ; preds = %150
   %indvars.iv.next.i232 = add nuw nsw i64 %indvars.iv.i230, 1
   %exitcond.i233 = icmp eq i64 %indvars.iv.next.i232, 16
-  br i1 %exitcond.i233, label %_ZN7meshoptL13getVertexFifoEPjjm.exit236, label %150, !llvm.loop !12
+  br i1 %exitcond.i233, label %_ZN7meshoptL13getVertexFifoEPjjm.exit236, label %150, !llvm.loop !11
 
 .split.loop.exit15.i235:                          ; preds = %150
   %157 = trunc nuw nsw i64 %indvars.iv.i230 to i32
@@ -360,7 +360,7 @@ _ZN7meshoptL13getVertexFifoEPjjm.exit236:         ; preds = %156, %.split.loop.e
 181:                                              ; preds = %177
   %indvars.iv.next.i238 = add nuw nsw i64 %indvars.iv.i237, 1
   %exitcond.i239 = icmp eq i64 %indvars.iv.next.i238, 16
-  br i1 %exitcond.i239, label %_ZN7meshoptL15getCodeAuxIndexEhPKh.exit.thread, label %177, !llvm.loop !14
+  br i1 %exitcond.i239, label %_ZN7meshoptL15getCodeAuxIndexEhPKh.exit.thread, label %177, !llvm.loop !13
 
 _ZN7meshoptL15getCodeAuxIndexEhPKh.exit:          ; preds = %177
   %182 = icmp samesign ult i64 %indvars.iv.i237, 14
@@ -403,7 +403,7 @@ _ZN7meshoptL15getCodeAuxIndexEhPKh.exit.thread:   ; preds = %181, %_ZN7meshoptL1
   %198 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   store i8 %197, ptr %.9, align 1, !tbaa !8
   %199 = lshr i32 %.0.i.i241, 7
-  br i1 %.inv.i.i242, label %_ZN7meshoptL11encodeIndexERPhjj.exit243, label %193, !llvm.loop !13
+  br i1 %.inv.i.i242, label %_ZN7meshoptL11encodeIndexERPhjj.exit243, label %193, !llvm.loop !12
 
 _ZN7meshoptL11encodeIndexERPhjj.exit243:          ; preds = %193, %187
   %.4 = phi ptr [ %.3272, %187 ], [ %198, %193 ]
@@ -429,7 +429,7 @@ _ZN7meshoptL11encodeIndexERPhjj.exit243:          ; preds = %193, %187
   %211 = getelementptr inbounds nuw i8, ptr %.10, i64 1
   store i8 %210, ptr %.10, align 1, !tbaa !8
   %212 = lshr i32 %.0.i.i244, 7
-  br i1 %.inv.i.i245, label %_ZN7meshoptL11encodeIndexERPhjj.exit246, label %206, !llvm.loop !13
+  br i1 %.inv.i.i245, label %_ZN7meshoptL11encodeIndexERPhjj.exit246, label %206, !llvm.loop !12
 
 _ZN7meshoptL11encodeIndexERPhjj.exit246:          ; preds = %206, %_ZN7meshoptL11encodeIndexERPhjj.exit243
   %.5273 = phi ptr [ %.4, %_ZN7meshoptL11encodeIndexERPhjj.exit243 ], [ %211, %206 ]
@@ -455,7 +455,7 @@ _ZN7meshoptL11encodeIndexERPhjj.exit246:          ; preds = %206, %_ZN7meshoptL1
   %224 = getelementptr inbounds nuw i8, ptr %.11, i64 1
   store i8 %223, ptr %.11, align 1, !tbaa !8
   %225 = lshr i32 %.0.i.i247, 7
-  br i1 %.inv.i.i248, label %_ZN7meshoptL11encodeIndexERPhjj.exit249, label %219, !llvm.loop !13
+  br i1 %.inv.i.i248, label %_ZN7meshoptL11encodeIndexERPhjj.exit249, label %219, !llvm.loop !12
 
 _ZN7meshoptL11encodeIndexERPhjj.exit249:          ; preds = %219, %_ZN7meshoptL11encodeIndexERPhjj.exit246
   %.6274 = phi ptr [ %.5273, %_ZN7meshoptL11encodeIndexERPhjj.exit246 ], [ %224, %219 ]
@@ -526,7 +526,7 @@ _ZN7meshoptL11encodeIndexERPhjj.exit249:          ; preds = %219, %_ZN7meshoptL1
   %.1187 = getelementptr inbounds nuw i8, ptr %.0186309, i64 1
   %251 = add i64 %.0189308, 3
   %.not202 = icmp ult i64 %251, %3
-  br i1 %.not202, label %.lr.ph, label %.critedge, !llvm.loop !15
+  br i1 %.not202, label %.lr.ph, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %243, %10
   %.0270.lcssa = phi ptr [ %15, %10 ], [ %.2271, %243 ]
@@ -548,7 +548,7 @@ _ZN7meshoptL11encodeIndexERPhjj.exit249:          ; preds = %219, %_ZN7meshoptL1
   store i8 %257, ptr %.7275314, align 1, !tbaa !8
   %259 = add nuw nsw i64 %.0315, 1
   %exitcond.not = icmp eq i64 %259, 16
-  br i1 %exitcond.not, label %252, label %.preheader, !llvm.loop !16
+  br i1 %exitcond.not, label %252, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge, %252
   %.2 = phi i64 [ %255, %252 ], [ 0, %.critedge ], [ 0, %.lr.ph ]
@@ -581,7 +581,7 @@ define dso_local i64 @meshopt_encodeIndexBufferBound(i64 noundef %0, i64 noundef
   %6 = icmp ugt i64 %1, %5
   %7 = select i1 %4, i1 %6, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %7, label %3, label %8, !llvm.loop !17
+  br i1 %7, label %3, label %8, !llvm.loop !16
 
 8:                                                ; preds = %3
   %9 = trunc i64 %indvars.iv to i8
@@ -714,13 +714,13 @@ define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr noundef wri
 56:                                               ; preds = %45
   %57 = trunc i32 %40 to i16
   %58 = getelementptr inbounds nuw i16, ptr %0, i64 %.0150234
-  store i16 %57, ptr %58, align 2, !tbaa !18
+  store i16 %57, ptr %58, align 2, !tbaa !17
   %59 = trunc i32 %42 to i16
   %60 = getelementptr i8, ptr %58, i64 2
-  store i16 %59, ptr %60, align 2, !tbaa !18
+  store i16 %59, ptr %60, align 2, !tbaa !17
   %61 = trunc i32 %53 to i16
   %62 = getelementptr i8, ptr %58, i64 4
-  store i16 %61, ptr %62, align 2, !tbaa !18
+  store i16 %61, ptr %62, align 2, !tbaa !17
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit
 
 63:                                               ; preds = %45
@@ -780,7 +780,7 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit:         ; preds = %56, %63
   %92 = add nuw nsw i32 %.01521.i.i, 7
   %93 = add nuw nsw i32 %.01422.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %93, 4
-  br i1 %exitcond.not.i.i, label %_ZN7meshoptL11decodeIndexERPKhj.exit, label %82, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %_ZN7meshoptL11decodeIndexERPKhj.exit, label %82, !llvm.loop !19
 
 _ZN7meshoptL11decodeIndexERPKhj.exit:             ; preds = %82, %91, %75
   %.6217 = phi ptr [ %76, %75 ], [ %84, %82 ], [ %scevgep249, %91 ]
@@ -800,13 +800,13 @@ _ZN7meshoptL11decodeIndexERPKhj.exit:             ; preds = %82, %91, %75
 101:                                              ; preds = %99
   %102 = trunc i32 %40 to i16
   %103 = getelementptr inbounds nuw i16, ptr %0, i64 %.0150234
-  store i16 %102, ptr %103, align 2, !tbaa !18
+  store i16 %102, ptr %103, align 2, !tbaa !17
   %104 = trunc i32 %42 to i16
   %105 = getelementptr i8, ptr %103, i64 2
-  store i16 %104, ptr %105, align 2, !tbaa !18
+  store i16 %104, ptr %105, align 2, !tbaa !17
   %106 = trunc i32 %100 to i16
   %107 = getelementptr i8, ptr %103, i64 4
-  store i16 %106, ptr %107, align 2, !tbaa !18
+  store i16 %106, ptr %107, align 2, !tbaa !17
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165
 
 108:                                              ; preds = %99
@@ -860,13 +860,13 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit165:      ; preds = %101, %108
 143:                                              ; preds = %116
   %144 = trunc i32 %.0139238 to i16
   %145 = getelementptr inbounds nuw i16, ptr %0, i64 %.0150234
-  store i16 %144, ptr %145, align 2, !tbaa !18
+  store i16 %144, ptr %145, align 2, !tbaa !17
   %146 = trunc i32 %131 to i16
   %147 = getelementptr i8, ptr %145, i64 2
-  store i16 %146, ptr %147, align 2, !tbaa !18
+  store i16 %146, ptr %147, align 2, !tbaa !17
   %148 = trunc i32 %140 to i16
   %149 = getelementptr i8, ptr %145, i64 4
-  store i16 %148, ptr %149, align 2, !tbaa !18
+  store i16 %148, ptr %149, align 2, !tbaa !17
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166
 
 150:                                              ; preds = %116
@@ -979,7 +979,7 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit166:      ; preds = %143, %150
   %215 = add nuw nsw i32 %.01521.i.i168, 7
   %216 = add nuw nsw i32 %.01422.i.i167, 1
   %exitcond.not.i.i171 = icmp eq i32 %216, 4
-  br i1 %exitcond.not.i.i171, label %_ZN7meshoptL11decodeIndexERPKhj.exit172, label %205, !llvm.loop !20
+  br i1 %exitcond.not.i.i171, label %_ZN7meshoptL11decodeIndexERPKhj.exit172, label %205, !llvm.loop !19
 
 _ZN7meshoptL11decodeIndexERPKhj.exit172:          ; preds = %205, %214, %198
   %.7 = phi ptr [ %199, %198 ], [ %207, %205 ], [ %scevgep, %214 ]
@@ -1028,7 +1028,7 @@ _ZN7meshoptL11decodeIndexERPKhj.exit172:          ; preds = %205, %214, %198
   %241 = add nuw nsw i32 %.01521.i.i174, 7
   %242 = add nuw nsw i32 %.01422.i.i173, 1
   %exitcond.not.i.i177 = icmp eq i32 %242, 4
-  br i1 %exitcond.not.i.i177, label %_ZN7meshoptL11decodeIndexERPKhj.exit178, label %231, !llvm.loop !20
+  br i1 %exitcond.not.i.i177, label %_ZN7meshoptL11decodeIndexERPKhj.exit178, label %231, !llvm.loop !19
 
 _ZN7meshoptL11decodeIndexERPKhj.exit178:          ; preds = %231, %240, %224
   %.8 = phi ptr [ %225, %224 ], [ %233, %231 ], [ %scevgep247, %240 ]
@@ -1077,7 +1077,7 @@ _ZN7meshoptL11decodeIndexERPKhj.exit178:          ; preds = %231, %240, %224
   %267 = add nuw nsw i32 %.01521.i.i180, 7
   %268 = add nuw nsw i32 %.01422.i.i179, 1
   %exitcond.not.i.i183 = icmp eq i32 %268, 4
-  br i1 %exitcond.not.i.i183, label %_ZN7meshoptL11decodeIndexERPKhj.exit184, label %257, !llvm.loop !20
+  br i1 %exitcond.not.i.i183, label %_ZN7meshoptL11decodeIndexERPKhj.exit184, label %257, !llvm.loop !19
 
 _ZN7meshoptL11decodeIndexERPKhj.exit184:          ; preds = %257, %266, %250
   %.9 = phi ptr [ %251, %250 ], [ %259, %257 ], [ %scevgep248, %266 ]
@@ -1098,13 +1098,13 @@ _ZN7meshoptL11decodeIndexERPKhj.exit184:          ; preds = %257, %266, %250
 275:                                              ; preds = %274
   %276 = trunc i32 %.0136 to i16
   %277 = getelementptr inbounds nuw i16, ptr %0, i64 %.0150234
-  store i16 %276, ptr %277, align 2, !tbaa !18
+  store i16 %276, ptr %277, align 2, !tbaa !17
   %278 = trunc i32 %.0135 to i16
   %279 = getelementptr i8, ptr %277, i64 2
-  store i16 %278, ptr %279, align 2, !tbaa !18
+  store i16 %278, ptr %279, align 2, !tbaa !17
   %280 = trunc i32 %.0 to i16
   %281 = getelementptr i8, ptr %277, i64 4
-  store i16 %280, ptr %281, align 2, !tbaa !18
+  store i16 %280, ptr %281, align 2, !tbaa !17
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185
 
 282:                                              ; preds = %274
@@ -1166,7 +1166,7 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit185:      ; preds = %275, %282
   %.1221 = and i64 %309, 15
   %310 = add i64 %.0150234, 3
   %.not163 = icmp ult i64 %310, %1
-  br i1 %.not163, label %26, label %.critedge, !llvm.loop !21
+  br i1 %.not163, label %26, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %302, %18
   %.0213.lcssa = phi ptr [ %22, %18 ], [ %.2, %302 ]
@@ -1243,13 +1243,13 @@ define dso_local i64 @meshopt_encodeIndexSequence(ptr noundef %0, i64 noundef %1
   %38 = getelementptr inbounds nuw i8, ptr %.244, i64 1
   store i8 %37, ptr %.244, align 1, !tbaa !8
   %39 = lshr i32 %.0.i, 7
-  br i1 %.inv.i, label %_ZN7meshoptL11encodeVByteERPhj.exit, label %33, !llvm.loop !13
+  br i1 %.inv.i, label %_ZN7meshoptL11encodeVByteERPhj.exit, label %33, !llvm.loop !12
 
 _ZN7meshoptL11encodeVByteERPhj.exit:              ; preds = %33
   store i32 %18, ptr %25, align 4, !tbaa !4
   %40 = add nuw i64 %.03448, 1
   %exitcond.not = icmp eq i64 %40, %3
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !21
 
 .critedge:                                        ; preds = %_ZN7meshoptL11encodeVByteERPhj.exit, %8
   %.043.lcssa = phi ptr [ %12, %8 ], [ %38, %_ZN7meshoptL11encodeVByteERPhj.exit ]
@@ -1285,7 +1285,7 @@ define dso_local i64 @meshopt_encodeIndexSequenceBound(i64 noundef %0, i64 nound
   %6 = icmp ugt i64 %1, %5
   %7 = select i1 %4, i1 %6, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %7, label %3, label %8, !llvm.loop !23
+  br i1 %7, label %3, label %8, !llvm.loop !22
 
 8:                                                ; preds = %3
   %9 = trunc i64 %indvars.iv to i8
@@ -1359,7 +1359,7 @@ define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexSequence(ptr noundef w
   %34 = add nuw nsw i32 %.01521.i.us, 7
   %35 = add nuw nsw i32 %.01422.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %35, 4
-  br i1 %exitcond.not.i.us, label %_ZN7meshoptL11decodeVByteERPKh.exit.us, label %24, !llvm.loop !20
+  br i1 %exitcond.not.i.us, label %_ZN7meshoptL11decodeVByteERPKh.exit.us, label %24, !llvm.loop !19
 
 _ZN7meshoptL11decodeVByteERPKh.exit.us:           ; preds = %24, %33, %17
   %.1.us = phi ptr [ %18, %17 ], [ %26, %24 ], [ %scevgep49, %33 ]
@@ -1376,10 +1376,10 @@ _ZN7meshoptL11decodeVByteERPKh.exit.us:           ; preds = %24, %33, %17
   store i32 %44, ptr %42, align 4, !tbaa !4
   %45 = trunc i32 %44 to i16
   %46 = getelementptr inbounds nuw i16, ptr %0, i64 %.03043.us
-  store i16 %45, ptr %46, align 2, !tbaa !18
+  store i16 %45, ptr %46, align 2, !tbaa !17
   %47 = add nuw i64 %.03043.us, 1
   %exitcond50.not = icmp eq i64 %47, %1
-  br i1 %exitcond50.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !24
+  br i1 %exitcond50.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN7meshoptL11decodeVByteERPKh.exit
   %.03043 = phi i64 [ %77, %_ZN7meshoptL11decodeVByteERPKh.exit ], [ 0, %.lr.ph ]
@@ -1417,7 +1417,7 @@ _ZN7meshoptL11decodeVByteERPKh.exit.us:           ; preds = %24, %33, %17
   %65 = add nuw nsw i32 %.01521.i, 7
   %66 = add nuw nsw i32 %.01422.i, 1
   %exitcond.not.i = icmp eq i32 %66, 4
-  br i1 %exitcond.not.i, label %_ZN7meshoptL11decodeVByteERPKh.exit, label %55, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZN7meshoptL11decodeVByteERPKh.exit, label %55, !llvm.loop !19
 
 _ZN7meshoptL11decodeVByteERPKh.exit:              ; preds = %55, %64, %48
   %.1 = phi ptr [ %49, %48 ], [ %57, %55 ], [ %scevgep, %64 ]
@@ -1436,7 +1436,7 @@ _ZN7meshoptL11decodeVByteERPKh.exit:              ; preds = %55, %64, %48
   store i32 %75, ptr %76, align 4, !tbaa !4
   %77 = add nuw i64 %.03043, 1
   %exitcond.not = icmp eq i64 %77, %1
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !26
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph.split, !llvm.loop !25
 
 .critedge:                                        ; preds = %_ZN7meshoptL11decodeVByteERPKh.exit, %_ZN7meshoptL11decodeVByteERPKh.exit.us, %12
   %.038.lcssa = phi ptr [ %13, %12 ], [ %.1.us, %_ZN7meshoptL11decodeVByteERPKh.exit.us ], [ %.1, %_ZN7meshoptL11decodeVByteERPKh.exit ]
@@ -1479,21 +1479,20 @@ attributes #9 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"short", !6, i64 0}
-!20 = distinct !{!20, !10, !11}
-!21 = distinct !{!21, !10, !11}
-!22 = distinct !{!22, !10, !11}
-!23 = distinct !{!23, !10, !11}
-!24 = distinct !{!24, !10, !11, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"short", !6, i64 0}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !10}

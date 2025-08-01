@@ -1310,7 +1310,7 @@ for.inc:                                          ; preds = %for.body
   store i64 %storemerge, ptr %retval.0.i.i.i.i.i.i, align 8
   %and.i.i = and i64 %storemerge.in, 281474976710655
   %tobool.i.not = icmp eq i64 %and.i.i, 0
-  br i1 %tobool.i.not, label %cleanup, label %for.body, !llvm.loop !37
+  br i1 %tobool.i.not, label %cleanup, label %for.body, !llvm.loop !36
 
 cleanup:                                          ; preds = %for.body, %for.inc, %_ZN6hermes2vm13MutableHandleINS0_12HashMapEntryEEC2ERNS0_15HandleRootOwnerEPS2_.exit
   %retval.0 = phi i32 [ 1, %_ZN6hermes2vm13MutableHandleINS0_12HashMapEntryEEC2ERNS0_15HandleRootOwnerEPS2_.exit ], [ 1, %for.inc ], [ 0, %for.body ]
@@ -1388,7 +1388,7 @@ declare ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeENS0_6HandleIS1_EE(ptr n
 define hidden { i32, i64 } @_ZN6hermes2vm24setIteratorPrototypeNextEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr readnone captures(none) %0, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
-  %1 = load ptr, ptr %args, align 8, !noalias !38
+  %1 = load ptr, ptr %args, align 8, !noalias !37
   %agg.tmp.sroa.0.0.copyload.i = load i64, ptr %1, align 8
   %cmp.i.i.i = icmp ugt i64 %agg.tmp.sroa.0.0.copyload.i, -844424930131969
   br i1 %cmp.i.i.i, label %_ZN6hermes2vm5vmisaINS0_17JSMapIteratorImplILNS0_8CellKindE49EEEEEbNS0_11HermesValueE.exit.i, label %cond.false.i
@@ -1721,10 +1721,9 @@ attributes #6 = { noreturn nounwind }
 !31 = !{!32}
 !32 = distinct !{!32, !33, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
 !33 = distinct !{!33, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = distinct !{!37, !35, !36}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
-!40 = distinct !{!40, !"_ZNK6hermes2vm10NativeArgs5beginEv"}
+!36 = distinct !{!36, !35}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNK6hermes2vm10NativeArgs5beginEv: %agg.result"}
+!39 = distinct !{!39, !"_ZNK6hermes2vm10NativeArgs5beginEv"}

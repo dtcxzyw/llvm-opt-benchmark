@@ -242,23 +242,23 @@ define internal fastcc void @update_user_maps() unnamed_addr #3 align 16 {
 54:                                               ; preds = %51, %46, %41
   %55 = add nuw nsw i64 %42, 1
   %56 = icmp eq i64 %55, 64
-  br i1 %56, label %.loopexit, label %41, !llvm.loop !12
+  br i1 %56, label %.loopexit, label %41, !llvm.loop !11
 
 .loopexit:                                        ; preds = %54, %33
   %57 = add nuw nsw i64 %34, 1
   %58 = icmp eq i64 %57, 32
-  br i1 %58, label %.loopexit10, label %33, !llvm.loop !13
+  br i1 %58, label %.loopexit10, label %33, !llvm.loop !12
 
 .loopexit10:                                      ; preds = %.loopexit, %26
   %59 = add nuw nsw i64 %27, 1
   %60 = icmp eq i64 %59, 32
-  br i1 %60, label %.loopexit11, label %26, !llvm.loop !14
+  br i1 %60, label %.loopexit11, label %26, !llvm.loop !13
 
 .loopexit11:                                      ; preds = %.loopexit10, %20, %7, %1
   %61 = phi ptr [ %3, %7 ], [ %3, %1 ], [ %12, %20 ], [ %12, %.loopexit10 ]
   %62 = add nuw nsw i64 %2, 1
   %63 = icmp eq i64 %62, 63
-  br i1 %63, label %64, label %1, !llvm.loop !15
+  br i1 %63, label %64, label %1, !llvm.loop !14
 
 64:                                               ; preds = %.loopexit11
   ret void
@@ -346,7 +346,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_trans_old(ptr noundef %0) local_
   store i8 %46, ptr %47, align 1
   %48 = add nuw nsw i64 %9, 1
   %49 = icmp eq i64 %48, 256
-  br i1 %49, label %50, label %8, !llvm.loop !16
+  br i1 %49, label %50, label %8, !llvm.loop !15
 
 50:                                               ; preds = %43
   tail call void @console_unlock() #16
@@ -505,7 +505,7 @@ define dso_local void @con_free_unimap(ptr noundef readonly captures(none) %0) l
   tail call void @kfree(ptr noundef %24) #16
   %25 = add nuw nsw i64 %22, 1
   %26 = icmp eq i64 %25, 32
-  br i1 %26, label %27, label %.preheader, !llvm.loop !17
+  br i1 %26, label %27, label %.preheader, !llvm.loop !16
 
 27:                                               ; preds = %.preheader
   tail call void @kfree(ptr noundef nonnull %20) #16
@@ -515,7 +515,7 @@ define dso_local void @con_free_unimap(ptr noundef readonly captures(none) %0) l
   store ptr null, ptr %19, align 8
   %29 = add nuw nsw i64 %18, 1
   %30 = icmp eq i64 %29, 32
-  br i1 %30, label %15, label %17, !llvm.loop !18
+  br i1 %30, label %15, label %17, !llvm.loop !17
 
 31:                                               ; preds = %31, %15
   %32 = phi i64 [ 0, %15 ], [ %35, %31 ]
@@ -525,7 +525,7 @@ define dso_local void @con_free_unimap(ptr noundef readonly captures(none) %0) l
   store ptr null, ptr %33, align 8
   %35 = add nuw nsw i64 %32, 1
   %36 = icmp eq i64 %35, 4
-  br i1 %36, label %37, label %31, !llvm.loop !19
+  br i1 %36, label %37, label %31, !llvm.loop !18
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 304
@@ -545,7 +545,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -12, 1) i32 @con_clear_unimap(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   tail call void @console_lock() #16
-  %2 = tail call fastcc i32 @con_do_clear_unimap(ptr noundef %0), !range !20
+  %2 = tail call fastcc i32 @con_do_clear_unimap(ptr noundef %0), !range !19
   tail call void @console_unlock() #16
   ret i32 %2
 }
@@ -616,7 +616,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr no
   tail call void @kfree(ptr noundef %35) #16
   %36 = add nuw nsw i64 %33, 1
   %37 = icmp eq i64 %36, 32
-  br i1 %37, label %38, label %.preheader, !llvm.loop !21
+  br i1 %37, label %38, label %.preheader, !llvm.loop !16
 
 38:                                               ; preds = %.preheader
   tail call void @kfree(ptr noundef nonnull %31) #16
@@ -626,7 +626,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr no
   store ptr null, ptr %30, align 8
   %40 = add nuw nsw i64 %29, 1
   %41 = icmp eq i64 %40, 32
-  br i1 %41, label %26, label %28, !llvm.loop !22
+  br i1 %41, label %26, label %28, !llvm.loop !17
 
 42:                                               ; preds = %42, %26
   %43 = phi i64 [ 0, %26 ], [ %46, %42 ]
@@ -636,7 +636,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr no
   store ptr null, ptr %44, align 8
   %46 = add nuw nsw i64 %43, 1
   %47 = icmp eq i64 %46, 4
-  br i1 %47, label %48, label %42, !llvm.loop !23
+  br i1 %47, label %48, label %42, !llvm.loop !18
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 304
@@ -816,7 +816,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
   tail call void @kfree(ptr noundef %103) #16
   %104 = add nuw nsw i64 %101, 1
   %105 = icmp eq i64 %104, 32
-  br i1 %105, label %106, label %.preheader39, !llvm.loop !24
+  br i1 %105, label %106, label %.preheader39, !llvm.loop !16
 
 106:                                              ; preds = %.preheader39
   tail call void @kfree(ptr noundef nonnull %99) #16
@@ -826,7 +826,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
   store ptr null, ptr %98, align 8
   %108 = add nuw nsw i64 %97, 1
   %109 = icmp eq i64 %108, 32
-  br i1 %109, label %.preheader38, label %96, !llvm.loop !25
+  br i1 %109, label %.preheader38, label %96, !llvm.loop !17
 
 .preheader38:                                     ; preds = %107, %.preheader38
   %110 = phi i64 [ %113, %.preheader38 ], [ 0, %107 ]
@@ -836,19 +836,19 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
   store ptr null, ptr %111, align 8
   %113 = add nuw nsw i64 %110, 1
   %114 = icmp eq i64 %113, 4
-  br i1 %114, label %.thread35, label %.preheader38, !llvm.loop !26
+  br i1 %114, label %.thread35, label %.preheader38, !llvm.loop !18
 
 115:                                              ; preds = %.critedge, %.preheader40
   %116 = add nuw nsw i64 %51, 1
   %117 = add i16 %52, 1
   %118 = icmp eq i64 %116, 64
-  br i1 %118, label %.loopexit41, label %.preheader40, !llvm.loop !27
+  br i1 %118, label %.loopexit41, label %.preheader40, !llvm.loop !20
 
 .loopexit41:                                      ; preds = %115, %49
   %.ph = phi i16 [ %50, %49 ], [ %117, %115 ]
   %119 = add nuw nsw i64 %44, 1
   %120 = icmp eq i64 %119, 32
-  br i1 %120, label %.loopexit43, label %.preheader42, !llvm.loop !28
+  br i1 %120, label %.loopexit43, label %.preheader42, !llvm.loop !21
 
 .thread35:                                        ; preds = %.preheader38
   %121 = load ptr, ptr %35, align 8
@@ -861,7 +861,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
   %.ph32 = phi i16 [ %43, %42 ], [ %.ph, %.loopexit41 ]
   %122 = add nuw nsw i64 %37, 1
   %123 = icmp eq i64 %122, 32
-  br i1 %123, label %.loopexit44, label %36, !llvm.loop !29
+  br i1 %123, label %.loopexit44, label %36, !llvm.loop !22
 
 .loopexit44:                                      ; preds = %.loopexit43
   %124 = icmp ugt ptr %32, inttoptr (i64 -4096 to ptr)
@@ -949,10 +949,10 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
   %177 = add i16 %138, -1
   %178 = getelementptr i8, ptr %136, i64 4
   %179 = icmp eq i16 %177, 0
-  br i1 %179, label %180, label %135, !llvm.loop !30
+  br i1 %179, label %180, label %135, !llvm.loop !23
 
 180:                                              ; preds = %175
-  %181 = tail call fastcc i32 @con_unify_unimap(ptr noundef %0, ptr noundef %133), !range !31
+  %181 = tail call fastcc i32 @con_unify_unimap(ptr noundef %0, ptr noundef %133), !range !24
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %.preheader, label %.loopexit37
 
@@ -1024,24 +1024,24 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
 223:                                              ; preds = %220, %215, %210
   %224 = add nuw nsw i64 %211, 1
   %225 = icmp eq i64 %224, 64
-  br i1 %225, label %.loopexit, label %210, !llvm.loop !32
+  br i1 %225, label %.loopexit, label %210, !llvm.loop !11
 
 .loopexit:                                        ; preds = %223, %202
   %226 = add nuw nsw i64 %203, 1
   %227 = icmp eq i64 %226, 32
-  br i1 %227, label %.loopexit36, label %202, !llvm.loop !33
+  br i1 %227, label %.loopexit36, label %202, !llvm.loop !12
 
 .loopexit36:                                      ; preds = %.loopexit, %195
   %228 = add nuw nsw i64 %196, 1
   %229 = icmp eq i64 %228, 32
-  br i1 %229, label %.loopexit37, label %195, !llvm.loop !34
+  br i1 %229, label %.loopexit37, label %195, !llvm.loop !13
 
 .preheader:                                       ; preds = %180, %.preheader
   %230 = phi i32 [ %231, %.preheader ], [ 0, %180 ]
   tail call fastcc void @set_inverse_transl(ptr noundef %0, ptr noundef %133, i32 noundef %230)
   %231 = add nuw nsw i32 %230, 1
   %232 = icmp eq i32 %231, 4
-  br i1 %232, label %183, label %.preheader, !llvm.loop !35
+  br i1 %232, label %183, label %.preheader, !llvm.loop !25
 
 .loopexit37:                                      ; preds = %.loopexit36, %189, %183, %180, %.loopexit44.thread, %13
   %233 = phi i32 [ %127, %.loopexit44.thread ], [ %176, %180 ], [ -22, %13 ], [ %176, %183 ], [ %176, %189 ], [ %176, %.loopexit36 ]
@@ -1123,12 +1123,12 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
 45:                                               ; preds = %42, %40
   %46 = add nuw nsw i64 %33, 1
   %47 = icmp eq i64 %46, 32
-  br i1 %47, label %.loopexit8, label %.preheader7, !llvm.loop !36
+  br i1 %47, label %.loopexit8, label %.preheader7, !llvm.loop !26
 
 .loopexit8:                                       ; preds = %45, %.preheader9
   %48 = add nuw nsw i64 %23, 1
   %49 = icmp eq i64 %48, 32
-  br i1 %49, label %.critedge, label %.preheader9, !llvm.loop !37
+  br i1 %49, label %.critedge, label %.preheader9, !llvm.loop !27
 
 .loopexit:                                        ; preds = %31, %40, %42, %41
   %50 = and i64 %23, 4294967295
@@ -1172,7 +1172,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
   tail call void @kfree(ptr noundef %69) #16
   %70 = add nuw nsw i64 %67, 1
   %71 = icmp eq i64 %70, 32
-  br i1 %71, label %72, label %.preheader, !llvm.loop !38
+  br i1 %71, label %72, label %.preheader, !llvm.loop !16
 
 72:                                               ; preds = %.preheader
   tail call void @kfree(ptr noundef nonnull %65) #16
@@ -1182,7 +1182,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
   store ptr null, ptr %64, align 8
   %74 = add nuw nsw i64 %63, 1
   %75 = icmp eq i64 %74, 32
-  br i1 %75, label %60, label %62, !llvm.loop !39
+  br i1 %75, label %60, label %62, !llvm.loop !17
 
 76:                                               ; preds = %76, %60
   %77 = phi i64 [ 0, %60 ], [ %80, %76 ]
@@ -1192,7 +1192,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
   store ptr null, ptr %78, align 8
   %80 = add nuw nsw i64 %77, 1
   %81 = icmp eq i64 %80, 4
-  br i1 %81, label %82, label %76, !llvm.loop !40
+  br i1 %81, label %82, label %76, !llvm.loop !18
 
 82:                                               ; preds = %76
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 304
@@ -1205,7 +1205,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
 85:                                               ; preds = %.loopexit, %18, %9, %4
   %86 = add nuw nsw i64 %5, 1
   %87 = icmp eq i64 %86, 63
-  br i1 %87, label %.loopexit12, label %4, !llvm.loop !41
+  br i1 %87, label %.loopexit12, label %4, !llvm.loop !28
 
 .loopexit12:                                      ; preds = %85, %82
   %88 = phi i32 [ 1, %82 ], [ 0, %85 ]
@@ -1310,7 +1310,7 @@ define internal fastcc void @set_inverse_transl(ptr noundef readonly captures(no
 .thread:                                          ; preds = %46, %40, %35, %31, %25, %25, %25, %25, %25, %25, %19, %56, %51
   %58 = add nuw nsw i64 %20, 1
   %59 = icmp eq i64 %58, 256
-  br i1 %59, label %.loopexit, label %19, !llvm.loop !42
+  br i1 %59, label %.loopexit, label %19, !llvm.loop !29
 
 .loopexit:                                        ; preds = %.thread, %12, %3
   ret void
@@ -1368,7 +1368,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
   tail call void @kfree(ptr noundef %28) #16
   %29 = add nuw nsw i64 %26, 1
   %30 = icmp eq i64 %29, 32
-  br i1 %30, label %31, label %.preheader23, !llvm.loop !43
+  br i1 %30, label %31, label %.preheader23, !llvm.loop !16
 
 31:                                               ; preds = %.preheader23
   tail call void @kfree(ptr noundef nonnull %24) #16
@@ -1378,7 +1378,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
   store ptr null, ptr %23, align 8
   %33 = add nuw nsw i64 %22, 1
   %34 = icmp eq i64 %33, 32
-  br i1 %34, label %20, label %.preheader24, !llvm.loop !44
+  br i1 %34, label %20, label %.preheader24, !llvm.loop !17
 
 35:                                               ; preds = %35, %20
   %36 = phi i64 [ 0, %20 ], [ %39, %35 ]
@@ -1388,7 +1388,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
   store ptr null, ptr %37, align 8
   %39 = add nuw nsw i64 %36, 1
   %40 = icmp eq i64 %39, 4
-  br i1 %40, label %41, label %35, !llvm.loop !45
+  br i1 %40, label %41, label %35, !llvm.loop !18
 
 41:                                               ; preds = %35
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 304
@@ -1399,7 +1399,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
   br label %162
 
 44:                                               ; preds = %1
-  %45 = tail call fastcc i32 @con_do_clear_unimap(ptr noundef %0), !range !20
+  %45 = tail call fastcc i32 @con_do_clear_unimap(ptr noundef %0), !range !19
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %162
 
@@ -1481,17 +1481,17 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
   %99 = phi i32 [ %65, %91 ], [ -12, %74 ], [ -12, %86 ]
   %100 = add nsw i32 %66, -1
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %.loopexit22, label %63, !llvm.loop !46
+  br i1 %101, label %.loopexit22, label %63, !llvm.loop !30
 
 .loopexit22:                                      ; preds = %98, %52
   %102 = phi i32 [ %55, %52 ], [ %99, %98 ]
   %103 = phi ptr [ %54, %52 ], [ %67, %98 ]
   %104 = add nuw nsw i64 %53, 1
   %105 = icmp eq i64 %104, 256
-  br i1 %105, label %106, label %52, !llvm.loop !47
+  br i1 %105, label %106, label %52, !llvm.loop !31
 
 106:                                              ; preds = %.loopexit22
-  %107 = tail call fastcc i32 @con_unify_unimap(ptr noundef %0, ptr noundef %50), !range !31
+  %107 = tail call fastcc i32 @con_unify_unimap(ptr noundef %0, ptr noundef %50), !range !24
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %.preheader, label %109
 
@@ -1569,17 +1569,17 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
 152:                                              ; preds = %149, %144, %139
   %153 = add nuw nsw i64 %140, 1
   %154 = icmp eq i64 %153, 64
-  br i1 %154, label %.loopexit, label %139, !llvm.loop !48
+  br i1 %154, label %.loopexit, label %139, !llvm.loop !11
 
 .loopexit:                                        ; preds = %152, %131
   %155 = add nuw nsw i64 %132, 1
   %156 = icmp eq i64 %155, 32
-  br i1 %156, label %.loopexit20, label %131, !llvm.loop !49
+  br i1 %156, label %.loopexit20, label %131, !llvm.loop !12
 
 .loopexit20:                                      ; preds = %.loopexit, %124
   %157 = add nuw nsw i64 %125, 1
   %158 = icmp eq i64 %157, 32
-  br i1 %158, label %.loopexit21, label %124, !llvm.loop !50
+  br i1 %158, label %.loopexit21, label %124, !llvm.loop !13
 
 .loopexit21:                                      ; preds = %.loopexit20, %118, %112
   store ptr %50, ptr @dflt, align 8
@@ -1590,7 +1590,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
   tail call fastcc void @set_inverse_transl(ptr noundef %0, ptr noundef %50, i32 noundef %159)
   %160 = add nuw nsw i32 %159, 1
   %161 = icmp eq i32 %160, 4
-  br i1 %161, label %112, label %.preheader, !llvm.loop !51
+  br i1 %161, label %112, label %.preheader, !llvm.loop !32
 
 162:                                              ; preds = %.loopexit21, %109, %44, %41, %15, %9, %4
   %163 = phi i32 [ %102, %109 ], [ %102, %.loopexit21 ], [ 0, %4 ], [ 0, %41 ], [ 0, %15 ], [ 0, %9 ], [ %45, %44 ]
@@ -1702,19 +1702,19 @@ define dso_local range(i32 -14, 1) i32 @con_get_unimap(ptr noundef readonly capt
   %49 = add nuw nsw i32 %33, 1
   %50 = getelementptr i8, ptr %34, i64 2
   %51 = icmp eq i32 %49, 64
-  br i1 %51, label %.loopexit, label %31, !llvm.loop !52
+  br i1 %51, label %.loopexit, label %31, !llvm.loop !33
 
 .loopexit:                                        ; preds = %47, %21
   %52 = phi i16 [ %23, %21 ], [ %48, %47 ]
   %53 = add nuw nsw i64 %22, 1
   %54 = icmp eq i64 %53, 32
-  br i1 %54, label %.loopexit7, label %21, !llvm.loop !53
+  br i1 %54, label %.loopexit7, label %21, !llvm.loop !34
 
 .loopexit7:                                       ; preds = %.loopexit, %.preheader
   %55 = phi i16 [ %15, %.preheader ], [ %52, %.loopexit ]
   %56 = add nuw nsw i64 %14, 1
   %57 = icmp eq i64 %56, 32
-  br i1 %57, label %.loopexit8, label %.preheader, !llvm.loop !54
+  br i1 %57, label %.loopexit8, label %.preheader, !llvm.loop !35
 
 .loopexit8:                                       ; preds = %.loopexit7, %9
   %58 = phi i16 [ 0, %9 ], [ %55, %.loopexit7 ]
@@ -1725,7 +1725,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_unimap(ptr noundef readonly capt
   %62 = tail call i64 @_copy_to_user(ptr noundef %3, ptr noundef nonnull %7, i64 noundef %61) #16
   %63 = icmp eq i64 %62, 0
   %64 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %65 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %2, i16 %58, i64 2, i64 %64) #16, !srcloc !55
+  %65 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %2, i16 %58, i64 2, i64 %64) #16, !srcloc !36
   %66 = extractvalue { ptr, i64 } %65, 0
   %67 = extractvalue { ptr, i64 } %65, 1
   %68 = ptrtoint ptr %66 to i64
@@ -1781,7 +1781,7 @@ define dso_local i32 @conv_uni_to_8bit(i32 noundef %0) local_unnamed_addr #10 al
 15:                                               ; preds = %9
   %16 = add nuw nsw i64 %4, 1
   %17 = icmp eq i64 %16, 256
-  br i1 %17, label %.loopexit, label %3, !llvm.loop !56
+  br i1 %17, label %.loopexit, label %3, !llvm.loop !37
 
 18:                                               ; preds = %3
   %19 = trunc i64 %4 to i32
@@ -1819,7 +1819,7 @@ define dso_local void @console_map_init() local_unnamed_addr #11 section ".init.
 15:                                               ; preds = %13, %6, %1
   %16 = add nuw nsw i64 %2, 1
   %17 = icmp eq i64 %16, 63
-  br i1 %17, label %18, label %1, !llvm.loop !57
+  br i1 %17, label %18, label %1, !llvm.loop !38
 
 18:                                               ; preds = %15
   ret void
@@ -1883,53 +1883,34 @@ attributes #18 = { nounwind allocsize(0) }
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
 !6 = !{!"auto-init"}
 !7 = !{i64 2155026644}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
-!19 = distinct !{!19, !9, !10, !11}
-!20 = !{i32 -12, i32 1}
-!21 = distinct !{!21, !9, !10, !11}
-!22 = distinct !{!22, !9, !10, !11}
-!23 = distinct !{!23, !9, !10, !11}
-!24 = distinct !{!24, !9, !10, !11}
-!25 = distinct !{!25, !9, !10, !11}
-!26 = distinct !{!26, !9, !10, !11}
-!27 = distinct !{!27, !9, !10, !11}
-!28 = distinct !{!28, !9, !10, !11}
-!29 = distinct !{!29, !9, !10, !11}
-!30 = distinct !{!30, !9, !10, !11}
-!31 = !{i32 0, i32 2}
-!32 = distinct !{!32, !9, !10, !11}
-!33 = distinct !{!33, !9, !10, !11}
-!34 = distinct !{!34, !9, !10, !11}
-!35 = distinct !{!35, !9, !10, !11}
-!36 = distinct !{!36, !9, !10, !11}
-!37 = distinct !{!37, !9, !10, !11}
-!38 = distinct !{!38, !9, !10, !11}
-!39 = distinct !{!39, !9, !10, !11}
-!40 = distinct !{!40, !9, !10, !11}
-!41 = distinct !{!41, !9, !10, !11}
-!42 = distinct !{!42, !9, !10, !11}
-!43 = distinct !{!43, !9, !10, !11}
-!44 = distinct !{!44, !9, !10, !11}
-!45 = distinct !{!45, !9, !10, !11}
-!46 = distinct !{!46, !9, !10, !11}
-!47 = distinct !{!47, !9, !10, !11}
-!48 = distinct !{!48, !9, !10, !11}
-!49 = distinct !{!49, !9, !10, !11}
-!50 = distinct !{!50, !9, !10, !11}
-!51 = distinct !{!51, !9, !10, !11}
-!52 = distinct !{!52, !9, !10, !11}
-!53 = distinct !{!53, !9, !10, !11}
-!54 = distinct !{!54, !9, !10, !11}
-!55 = !{i64 2155289243}
-!56 = distinct !{!56, !9, !10, !11}
-!57 = distinct !{!57, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = !{i32 -12, i32 1}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = !{i32 0, i32 2}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = !{i64 2155289243}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}

@@ -226,7 +226,7 @@ define internal void @key_garbage_collector(ptr readnone captures(none) %0) #0 a
 114:                                              ; preds = %110
   %115 = tail call i32 @__SCT__cond_resched() #4
   tail call void @_raw_spin_lock(ptr noundef nonnull @key_serial_lock) #4
-  br label %21, !llvm.loop !14
+  br label %21
 
 116:                                              ; preds = %110
   %117 = icmp eq i64 %111, 9223372036854775807
@@ -353,14 +353,14 @@ define internal void @key_garbage_collector(ptr readnone captures(none) %0) #0 a
   %193 = getelementptr i8, ptr %154, i64 64
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 64
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %195, ptr nonnull elementtype(i32) %195) #4, !srcloc !15
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %195, ptr nonnull elementtype(i32) %195) #4, !srcloc !13
   %196 = icmp eq i16 %157, 0
   br i1 %196, label %200, label %197
 
 197:                                              ; preds = %192
   %198 = load ptr, ptr %193, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 68
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %199, ptr nonnull elementtype(i32) %199) #4, !srcloc !15
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %199, ptr nonnull elementtype(i32) %199) #4, !srcloc !13
   br label %200
 
 200:                                              ; preds = %197, %192
@@ -373,12 +373,12 @@ define internal void @key_garbage_collector(ptr readnone captures(none) %0) #0 a
   %206 = load ptr, ptr %205, align 8
   tail call void @kfree(ptr noundef %206) #4
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(216) %155, i8 0, i64 216, i1 false)
-  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %155) #4, !srcloc !16
+  tail call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %155) #4, !srcloc !14
   %207 = load ptr, ptr @key_jar, align 8
   tail call void @kmem_cache_free(ptr noundef %207, ptr noundef %155) #4
   %208 = load volatile ptr, ptr @key_garbage_collector.graveyard, align 8
   %209 = icmp eq ptr %208, @key_garbage_collector.graveyard
-  br i1 %209, label %key_gc_unused_keys.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %209, label %key_gc_unused_keys.exit, label %.preheader.i, !llvm.loop !15
 
 key_gc_unused_keys.exit:                          ; preds = %200, %151, %148
   %210 = load i8, ptr @key_garbage_collector.gc_state, align 1
@@ -402,8 +402,8 @@ key_gc_unused_keys.exit:                          ; preds = %200, %151, %148
   br i1 %222, label %224, label %223, !prof !6
 
 223:                                              ; preds = %219
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !18
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) @key_gc_flags, i32 -5, ptr nonnull elementtype(i8) @key_gc_flags) #4, !srcloc !19
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !16
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) @key_gc_flags, i32 -5, ptr nonnull elementtype(i8) @key_gc_flags) #4, !srcloc !17
   tail call void @wake_up_bit(ptr noundef nonnull @key_gc_flags, i32 noundef 2) #4
   %.pre = load i8, ptr @key_garbage_collector.gc_state, align 1
   br label %224
@@ -577,12 +577,12 @@ define dso_local void @key_schedule_gc_links() local_unnamed_addr #0 align 16 {
 define dso_local void @key_gc_keytype(ptr noundef %0) local_unnamed_addr #0 align 16 {
   store ptr %0, ptr @key_gc_dead_keytype, align 8
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) @key_gc_flags, i32 4, ptr nonnull elementtype(i8) @key_gc_flags) #4, !srcloc !7
-  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !20
+  tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !18
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) @key_gc_flags, i32 2, ptr nonnull elementtype(i8) @key_gc_flags) #4, !srcloc !7
   %2 = load ptr, ptr @system_wq, align 8
   %3 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %2, ptr noundef nonnull @key_gc_work) #4
   %4 = tail call i32 @__SCT__might_resched() #4
-  %5 = tail call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) @key_gc_flags, i32 4) #4, !srcloc !21
+  %5 = tail call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) @key_gc_flags, i32 4) #4, !srcloc !19
   %6 = icmp ult i8 %5, 2
   tail call void @llvm.assume(i1 %6)
   %7 = icmp eq i8 %5, 0
@@ -694,15 +694,13 @@ attributes #5 = { nounwind memory(none) }
 !7 = !{i64 2148392310, i64 2148392349, i64 2148392370, i64 2148392407, i64 2148392430, i64 2148392300}
 !8 = !{!"branch_weights", i32 2000, i32 2002}
 !9 = !{i64 2147941626}
-!10 = distinct !{!10, !11, !12, !13}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !13}
-!15 = !{i64 2148876375, i64 2148876414, i64 2148876435, i64 2148876472, i64 2148876495, i64 2148876365}
-!16 = !{i64 2148838036}
-!17 = distinct !{!17, !11, !12, !13}
-!18 = !{i64 2154228017}
-!19 = !{i64 2148393598, i64 2148393637, i64 2148393658, i64 2148393695, i64 2148393718, i64 2148393588}
-!20 = !{i64 2154218429}
-!21 = !{i64 902666, i64 2148405561}
+!13 = !{i64 2148876375, i64 2148876414, i64 2148876435, i64 2148876472, i64 2148876495, i64 2148876365}
+!14 = !{i64 2148838036}
+!15 = distinct !{!15, !11, !12}
+!16 = !{i64 2154228017}
+!17 = !{i64 2148393598, i64 2148393637, i64 2148393658, i64 2148393695, i64 2148393718, i64 2148393588}
+!18 = !{i64 2154218429}
+!19 = !{i64 902666, i64 2148405561}

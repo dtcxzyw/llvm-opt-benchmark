@@ -499,9 +499,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
   br i1 %163, label %165, label %173
 
 165:                                              ; preds = %160
-  store i32 0, ptr %161, align 8, !tbaa !71
+  store i32 0, ptr %161, align 8, !tbaa !70
   %166 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  store i32 0, ptr %166, align 4, !tbaa !73
+  store i32 0, ptr %166, align 4, !tbaa !72
   %167 = load ptr, ptr %46, align 8, !tbaa !4
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load ptr, ptr %168, align 8
@@ -519,7 +519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
 
 175:                                              ; preds = %173
   %176 = add nsw i32 %164, -1
-  store i32 %176, ptr %161, align 4, !tbaa !74
+  store i32 %176, ptr %161, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62
 
 177:                                              ; preds = %173
@@ -529,7 +529,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62: ; preds = %177, %175
   %.0.i.i.i.i63 = phi i32 [ %164, %175 ], [ %178, %177 ]
   %179 = icmp eq i32 %.0.i.i.i.i63, 1
-  br i1 %179, label %180, label %_ZNSt12__shared_ptrIN2cv7TrackerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !75
+  br i1 %179, label %180, label %_ZNSt12__shared_ptrIN2cv7TrackerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !74
 
 180:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %46) #15
@@ -630,9 +630,9 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv7TrackerELN9__gnu_cxx12
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !71
+  store i32 0, ptr %5, align 8, !tbaa !70
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !73
+  store i32 0, ptr %10, align 4, !tbaa !72
   %11 = load ptr, ptr %3, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -650,7 +650,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv7TrackerELN9__gnu_cxx12
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !74
+  store i32 %20, ptr %5, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -660,7 +660,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN2cv7TrackerELN9__gnu_cxx12
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !75
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !74
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #15
@@ -685,9 +685,9 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !74
+  %8 = load i32, ptr %5, align 4, !tbaa !73
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !74
+  store i32 %9, ptr %5, align 4, !tbaa !73
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -836,11 +836,10 @@ attributes #16 = { builtin nounwind }
 !65 = !{!"p1 long", !15, i64 0}
 !66 = !{!67, !67, i64 0}
 !67 = !{!"double", !11, i64 0}
-!68 = distinct !{!68, !69, !70}
+!68 = distinct !{!68, !69}
 !69 = !{!"llvm.loop.mustprogress"}
-!70 = !{!"llvm.loop.estimated_trip_count"}
-!71 = !{!72, !17, i64 8}
-!72 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !17, i64 8, !17, i64 12}
-!73 = !{!72, !17, i64 12}
-!74 = !{!17, !17, i64 0}
-!75 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!70 = !{!71, !17, i64 8}
+!71 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !17, i64 8, !17, i64 12}
+!72 = !{!71, !17, i64 12}
+!73 = !{!17, !17, i64 0}
+!74 = !{!"branch_weights", !"expected", i32 1, i32 2000}

@@ -1117,7 +1117,7 @@ define internal i64 @kpageflags_read(ptr readnone captures(none) %0, ptr noundef
   %91 = phi ptr [ null, %.thread ], [ %89, %84 ]
   %92 = tail call i64 @stable_page_flags(ptr noundef %91)
   %93 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %94 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %22, i64 %92, i64 8, i64 %93) #7, !srcloc !20
+  %94 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %22, i64 %92, i64 8, i64 %93) #7, !srcloc !19
   %95 = extractvalue { ptr, i64 } %94, 0
   %96 = extractvalue { ptr, i64 } %94, 1
   %97 = ptrtoint ptr %95 to i64
@@ -1132,7 +1132,7 @@ define internal i64 @kpageflags_read(ptr readnone captures(none) %0, ptr noundef
   %103 = add i64 %21, -8
   %104 = tail call i32 @__SCT__cond_resched() #7
   %105 = icmp eq i64 %103, 0
-  br i1 %105, label %.loopexit.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %105, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
 
 106:                                              ; preds = %90
   %107 = ptrtoint ptr %22 to i64
@@ -1197,9 +1197,8 @@ attributes #7 = { nounwind }
 !13 = !{i64 2150445826}
 !14 = !{i64 2148532058, i64 2148532132}
 !15 = !{i64 2155793405}
-!16 = distinct !{!16, !17, !18, !19}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
 !18 = !{!"llvm.loop.unroll.disable"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{i64 2155808128}
-!21 = distinct !{!21, !17, !18, !19}
+!19 = !{i64 2155808128}
+!20 = distinct !{!20, !17, !18}

@@ -12832,7 +12832,7 @@ _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14defa
   store ptr null, ptr %.05.i.i.i, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !9
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -12893,7 +12893,7 @@ _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14defau
   store ptr null, ptr %.05.i.i.i, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -12954,7 +12954,7 @@ _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14de
   store ptr null, ptr %.05.i.i.i, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -13000,7 +13000,7 @@ _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14def
   store ptr null, ptr %.05.i.i.i, align 8
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %6, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !12
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -13046,7 +13046,7 @@ _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14defaul
   store ptr null, ptr %.05.i.i.i, align 8
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %6, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !13
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -13097,7 +13097,7 @@ _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14def
   store ptr null, ptr %.05.i.i.i, align 8
   %10 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %10, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !14
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -13158,7 +13158,7 @@ _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14defa
   store ptr null, ptr %.05.i.i.i, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !16
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !15
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -13225,7 +13225,7 @@ _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14d
   store ptr null, ptr %.05.i.i.i, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %5
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !16
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -13317,7 +13317,7 @@ _ZSt8_DestroyISt10unique_ptrIKN8WasmEdge3AST7SubTypeESt14default_deleteIS4_EEEvP
   store ptr null, ptr %.05.i.i.i, align 8
   %27 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %27, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIKN8WasmEdge3AST7SubTypeESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIKN8WasmEdge3AST7SubTypeESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !17
 
 _ZSt8_DestroyIPSt10unique_ptrIKN8WasmEdge3AST7SubTypeESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIKN8WasmEdge3AST7SubTypeESt14default_deleteIS4_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -13358,797 +13358,793 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime8Instance14ModuleInstanceD2
   %.not87 = icmp eq ptr %8, %9
   br i1 %.not87, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %17
-  %.sroa.083.088 = phi ptr [ %18, %17 ], [ %8, %1 ]
+.lr.ph:                                           ; preds = %1, %15
+  %.sroa.083.088 = phi ptr [ %16, %15 ], [ %8, %1 ]
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.083.088, i64 32
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.083.088, i64 40
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.083.088, i64 56
-  %13 = load ptr, ptr %12, align 8
-  %.not.i.i = icmp ne ptr %13, null
-  call void @llvm.assume(i1 %.not.i.i)
-  %14 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr %14, ptr %4, align 8
+  store ptr %11, ptr %4, align 8
   store ptr %0, ptr %5, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.083.088, i64 64
-  %16 = load ptr, ptr %15, align 8
-  invoke void %16(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %17 unwind label %.loopexit
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.083.088, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.083.088, i64 64
+  %14 = load ptr, ptr %13, align 8
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %15 unwind label %.loopexit
 
-17:                                               ; preds = %.lr.ph
+15:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %18 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.083.088) #22
-  %.not = icmp eq ptr %18, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  %16 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.083.088) #22
+  %.not = icmp eq ptr %16, %9
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %17, %1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %21 = load ptr, ptr %20, align 8
-  %.not.i.i8.not = icmp eq ptr %21, null
-  br i1 %.not.i.i8.not, label %_ZNSt8functionIFvPvEED2Ev.exit, label %22
+._crit_edge:                                      ; preds = %15, %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  %19 = load ptr, ptr %18, align 8
+  %.not.i.i8.not = icmp eq ptr %19, null
+  br i1 %.not.i.i8.not, label %_ZNSt8functionIFvPvEED2Ev.exit, label %20
 
-22:                                               ; preds = %._crit_edge
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %24 = load ptr, ptr %23, align 8
+20:                                               ; preds = %._crit_edge
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %22 = load ptr, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %24, ptr %3, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %26 = load ptr, ptr %25, align 8
-  invoke void %26(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %27 unwind label %.loopexit.split-lp
+  store ptr %22, ptr %3, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 912
+  %24 = load ptr, ptr %23, align 8
+  invoke void %24(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %25 unwind label %.loopexit.split-lp
 
-27:                                               ; preds = %22
+25:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %.pr = load ptr, ptr %20, align 8
+  %.pr = load ptr, ptr %18, align 8
   %.not.i.i12 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i12, label %_ZNSt8functionIFvPvEED2Ev.exit, label %28
+  br i1 %.not.i.i12, label %_ZNSt8functionIFvPvEED2Ev.exit, label %26
 
-28:                                               ; preds = %27
-  %29 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %19, i32 noundef 3)
-          to label %_ZNSt8functionIFvPvEED2Ev.exit unwind label %30
+26:                                               ; preds = %25
+  %27 = invoke noundef zeroext i1 %.pr(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 3)
+          to label %_ZNSt8functionIFvPvEED2Ev.exit unwind label %28
 
-30:                                               ; preds = %28
-  %31 = landingpad { ptr, i32 }
+28:                                               ; preds = %26
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #17
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #17
   unreachable
 
-_ZNSt8functionIFvPvEED2Ev.exit:                   ; preds = %._crit_edge, %27, %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %34 = load ptr, ptr %33, align 8
-  invoke void @_ZNSt8_Rb_treeIPN8WasmEdge7Runtime12StoreManagerESt4pairIKS3_St8functionIFvS3_PKNS1_8Instance14ModuleInstanceEEEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %34)
-          to label %_ZNSt3mapIPN8WasmEdge7Runtime12StoreManagerESt8functionIFvS3_PKNS1_8Instance14ModuleInstanceEEESt4lessIS3_ESaISt4pairIKS3_SA_EEED2Ev.exit unwind label %35
+_ZNSt8functionIFvPvEED2Ev.exit:                   ; preds = %._crit_edge, %25, %26
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %32 = load ptr, ptr %31, align 8
+  invoke void @_ZNSt8_Rb_treeIPN8WasmEdge7Runtime12StoreManagerESt4pairIKS3_St8functionIFvS3_PKNS1_8Instance14ModuleInstanceEEEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %32)
+          to label %_ZNSt3mapIPN8WasmEdge7Runtime12StoreManagerESt8functionIFvS3_PKNS1_8Instance14ModuleInstanceEEESt4lessIS3_ESaISt4pairIKS3_SA_EEED2Ev.exit unwind label %33
 
-35:                                               ; preds = %_ZNSt8functionIFvPvEED2Ev.exit
-  %36 = landingpad { ptr, i32 }
+33:                                               ; preds = %_ZNSt8functionIFvPvEED2Ev.exit
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #17
+  %35 = extractvalue { ptr, i32 } %34, 0
+  call void @__clang_call_terminate(ptr %35) #17
   unreachable
 
 _ZNSt3mapIPN8WasmEdge7Runtime12StoreManagerESt8functionIFvS3_PKNS1_8Instance14ModuleInstanceEEESt4lessIS3_ESaISt4pairIKS3_SA_EEED2Ev.exit: ; preds = %_ZNSt8functionIFvPvEED2Ev.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 792
-  %40 = load ptr, ptr %39, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN8WasmEdge7Runtime8Instance14GlobalInstanceEESt10_Select1stISD_ESt4lessIvESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef %40)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance14GlobalInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %41
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 792
+  %38 = load ptr, ptr %37, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN8WasmEdge7Runtime8Instance14GlobalInstanceEESt10_Select1stISD_ESt4lessIvESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef %38)
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance14GlobalInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %39
 
-41:                                               ; preds = %_ZNSt3mapIPN8WasmEdge7Runtime12StoreManagerESt8functionIFvS3_PKNS1_8Instance14ModuleInstanceEEESt4lessIS3_ESaISt4pairIKS3_SA_EEED2Ev.exit
-  %42 = landingpad { ptr, i32 }
+39:                                               ; preds = %_ZNSt3mapIPN8WasmEdge7Runtime12StoreManagerESt8functionIFvS3_PKNS1_8Instance14ModuleInstanceEEESt4lessIS3_ESaISt4pairIKS3_SA_EEED2Ev.exit
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #17
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #17
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance14GlobalInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit: ; preds = %_ZNSt3mapIPN8WasmEdge7Runtime12StoreManagerESt8functionIFvS3_PKNS1_8Instance14ModuleInstanceEEESt4lessIS3_ESaISt4pairIKS3_SA_EEED2Ev.exit
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 728
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  %46 = load ptr, ptr %45, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN8WasmEdge7Runtime8Instance11TagInstanceEESt10_Select1stISD_ESt4lessIvESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef %46)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance11TagInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %47
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 728
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 744
+  %44 = load ptr, ptr %43, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN8WasmEdge7Runtime8Instance11TagInstanceEESt10_Select1stISD_ESt4lessIvESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef %44)
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance11TagInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %45
 
-47:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance14GlobalInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
-  %48 = landingpad { ptr, i32 }
+45:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance14GlobalInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  call void @__clang_call_terminate(ptr %49) #17
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #17
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance11TagInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance14GlobalInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %52 = load ptr, ptr %51, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN8WasmEdge7Runtime8Instance14MemoryInstanceEESt10_Select1stISD_ESt4lessIvESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef %52)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance14MemoryInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %53
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 696
+  %50 = load ptr, ptr %49, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN8WasmEdge7Runtime8Instance14MemoryInstanceEESt10_Select1stISD_ESt4lessIvESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef %50)
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance14MemoryInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %51
 
-53:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance11TagInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
-  %54 = landingpad { ptr, i32 }
+51:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance11TagInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
+  %52 = landingpad { ptr, i32 }
           catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #17
+  %53 = extractvalue { ptr, i32 } %52, 0
+  call void @__clang_call_terminate(ptr %53) #17
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance14MemoryInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance11TagInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %58 = load ptr, ptr %57, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN8WasmEdge7Runtime8Instance13TableInstanceEESt10_Select1stISD_ESt4lessIvESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %56, ptr noundef %58)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance13TableInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %59
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %56 = load ptr, ptr %55, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN8WasmEdge7Runtime8Instance13TableInstanceEESt10_Select1stISD_ESt4lessIvESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef %56)
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance13TableInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %57
 
-59:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance14MemoryInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
-  %60 = landingpad { ptr, i32 }
+57:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance14MemoryInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #17
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #17
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance13TableInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance14MemoryInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %64 = load ptr, ptr %63, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN8WasmEdge7Runtime8Instance16FunctionInstanceEESt10_Select1stISD_ESt4lessIvESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef %64)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %65
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %62 = load ptr, ptr %61, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN8WasmEdge7Runtime8Instance16FunctionInstanceEESt10_Select1stISD_ESt4lessIvESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef %62)
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %63
 
-65:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance13TableInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
-  %66 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance13TableInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %67 = extractvalue { ptr, i32 } %66, 0
-  call void @__clang_call_terminate(ptr %67) #17
+  %65 = extractvalue { ptr, i32 } %64, 0
+  call void @__clang_call_terminate(ptr %65) #17
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance13TableInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %69 = load ptr, ptr %68, align 8
-  %.not.i.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance12DataInstanceESaIS4_EED2Ev.exit, label %70
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %67 = load ptr, ptr %66, align 8
+  %.not.i.i.i = icmp eq ptr %67, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance12DataInstanceESaIS4_EED2Ev.exit, label %68
 
-70:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %72 = load ptr, ptr %71, align 8
-  %73 = ptrtoint ptr %72 to i64
-  %74 = ptrtoint ptr %69 to i64
-  %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #19
+68:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 568
+  %70 = load ptr, ptr %69, align 8
+  %71 = ptrtoint ptr %70 to i64
+  %72 = ptrtoint ptr %67 to i64
+  %73 = sub i64 %71, %72
+  call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef %73) #19
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance12DataInstanceESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIPN8WasmEdge7Runtime8Instance12DataInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit, %70
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %77 = load ptr, ptr %76, align 8
-  %.not.i.i.i13 = icmp eq ptr %77, null
-  br i1 %.not.i.i.i13, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance15ElementInstanceESaIS4_EED2Ev.exit, label %78
+_ZNSt6vectorIPN8WasmEdge7Runtime8Instance12DataInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEED2Ev.exit, %68
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %75 = load ptr, ptr %74, align 8
+  %.not.i.i.i13 = icmp eq ptr %75, null
+  br i1 %.not.i.i.i13, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance15ElementInstanceESaIS4_EED2Ev.exit, label %76
 
-78:                                               ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance12DataInstanceESaIS4_EED2Ev.exit
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %80 = load ptr, ptr %79, align 8
-  %81 = ptrtoint ptr %80 to i64
-  %82 = ptrtoint ptr %77 to i64
-  %83 = sub i64 %81, %82
-  call void @_ZdlPvm(ptr noundef nonnull %77, i64 noundef %83) #19
+76:                                               ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance12DataInstanceESaIS4_EED2Ev.exit
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %78 = load ptr, ptr %77, align 8
+  %79 = ptrtoint ptr %78 to i64
+  %80 = ptrtoint ptr %75 to i64
+  %81 = sub i64 %79, %80
+  call void @_ZdlPvm(ptr noundef nonnull %75, i64 noundef %81) #19
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance15ElementInstanceESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIPN8WasmEdge7Runtime8Instance15ElementInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance12DataInstanceESaIS4_EED2Ev.exit, %78
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %85 = load ptr, ptr %84, align 8
-  %.not.i.i.i14 = icmp eq ptr %85, null
-  br i1 %.not.i.i.i14, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14GlobalInstanceESaIS4_EED2Ev.exit, label %86
+_ZNSt6vectorIPN8WasmEdge7Runtime8Instance15ElementInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance12DataInstanceESaIS4_EED2Ev.exit, %76
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %83 = load ptr, ptr %82, align 8
+  %.not.i.i.i14 = icmp eq ptr %83, null
+  br i1 %.not.i.i.i14, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14GlobalInstanceESaIS4_EED2Ev.exit, label %84
 
-86:                                               ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance15ElementInstanceESaIS4_EED2Ev.exit
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %88 = load ptr, ptr %87, align 8
-  %89 = ptrtoint ptr %88 to i64
-  %90 = ptrtoint ptr %85 to i64
-  %91 = sub i64 %89, %90
-  call void @_ZdlPvm(ptr noundef nonnull %85, i64 noundef %91) #19
+84:                                               ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance15ElementInstanceESaIS4_EED2Ev.exit
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %86 = load ptr, ptr %85, align 8
+  %87 = ptrtoint ptr %86 to i64
+  %88 = ptrtoint ptr %83 to i64
+  %89 = sub i64 %87, %88
+  call void @_ZdlPvm(ptr noundef nonnull %83, i64 noundef %89) #19
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14GlobalInstanceESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14GlobalInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance15ElementInstanceESaIS4_EED2Ev.exit, %86
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %93 = load ptr, ptr %92, align 8
-  %.not.i.i.i15 = icmp eq ptr %93, null
-  br i1 %.not.i.i.i15, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance11TagInstanceESaIS4_EED2Ev.exit, label %94
+_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14GlobalInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance15ElementInstanceESaIS4_EED2Ev.exit, %84
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %91 = load ptr, ptr %90, align 8
+  %.not.i.i.i15 = icmp eq ptr %91, null
+  br i1 %.not.i.i.i15, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance11TagInstanceESaIS4_EED2Ev.exit, label %92
 
-94:                                               ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14GlobalInstanceESaIS4_EED2Ev.exit
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %96 = load ptr, ptr %95, align 8
-  %97 = ptrtoint ptr %96 to i64
-  %98 = ptrtoint ptr %93 to i64
-  %99 = sub i64 %97, %98
-  call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef %99) #19
+92:                                               ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14GlobalInstanceESaIS4_EED2Ev.exit
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %94 = load ptr, ptr %93, align 8
+  %95 = ptrtoint ptr %94 to i64
+  %96 = ptrtoint ptr %91 to i64
+  %97 = sub i64 %95, %96
+  call void @_ZdlPvm(ptr noundef nonnull %91, i64 noundef %97) #19
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance11TagInstanceESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIPN8WasmEdge7Runtime8Instance11TagInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14GlobalInstanceESaIS4_EED2Ev.exit, %94
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %101 = load ptr, ptr %100, align 8
-  %.not.i.i.i16 = icmp eq ptr %101, null
-  br i1 %.not.i.i.i16, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14MemoryInstanceESaIS4_EED2Ev.exit, label %102
+_ZNSt6vectorIPN8WasmEdge7Runtime8Instance11TagInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14GlobalInstanceESaIS4_EED2Ev.exit, %92
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %99 = load ptr, ptr %98, align 8
+  %.not.i.i.i16 = icmp eq ptr %99, null
+  br i1 %.not.i.i.i16, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14MemoryInstanceESaIS4_EED2Ev.exit, label %100
 
-102:                                              ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance11TagInstanceESaIS4_EED2Ev.exit
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %104 = load ptr, ptr %103, align 8
-  %105 = ptrtoint ptr %104 to i64
-  %106 = ptrtoint ptr %101 to i64
-  %107 = sub i64 %105, %106
-  call void @_ZdlPvm(ptr noundef nonnull %101, i64 noundef %107) #19
+100:                                              ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance11TagInstanceESaIS4_EED2Ev.exit
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %102 = load ptr, ptr %101, align 8
+  %103 = ptrtoint ptr %102 to i64
+  %104 = ptrtoint ptr %99 to i64
+  %105 = sub i64 %103, %104
+  call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef %105) #19
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14MemoryInstanceESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14MemoryInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance11TagInstanceESaIS4_EED2Ev.exit, %102
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %109 = load ptr, ptr %108, align 8
-  %.not.i.i.i17 = icmp eq ptr %109, null
-  br i1 %.not.i.i.i17, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EED2Ev.exit, label %110
+_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14MemoryInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance11TagInstanceESaIS4_EED2Ev.exit, %100
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %107 = load ptr, ptr %106, align 8
+  %.not.i.i.i17 = icmp eq ptr %107, null
+  br i1 %.not.i.i.i17, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EED2Ev.exit, label %108
 
-110:                                              ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14MemoryInstanceESaIS4_EED2Ev.exit
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %112 = load ptr, ptr %111, align 8
-  %113 = ptrtoint ptr %112 to i64
-  %114 = ptrtoint ptr %109 to i64
-  %115 = sub i64 %113, %114
-  call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef %115) #19
+108:                                              ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14MemoryInstanceESaIS4_EED2Ev.exit
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  %110 = load ptr, ptr %109, align 8
+  %111 = ptrtoint ptr %110 to i64
+  %112 = ptrtoint ptr %107 to i64
+  %113 = sub i64 %111, %112
+  call void @_ZdlPvm(ptr noundef nonnull %107, i64 noundef %113) #19
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14MemoryInstanceESaIS4_EED2Ev.exit, %110
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %117 = load ptr, ptr %116, align 8
-  %.not.i.i.i18 = icmp eq ptr %117, null
-  br i1 %.not.i.i.i18, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EED2Ev.exit, label %118
+_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance14MemoryInstanceESaIS4_EED2Ev.exit, %108
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %115 = load ptr, ptr %114, align 8
+  %.not.i.i.i18 = icmp eq ptr %115, null
+  br i1 %.not.i.i.i18, label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EED2Ev.exit, label %116
 
-118:                                              ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EED2Ev.exit
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %120 = load ptr, ptr %119, align 8
-  %121 = ptrtoint ptr %120 to i64
-  %122 = ptrtoint ptr %117 to i64
-  %123 = sub i64 %121, %122
-  call void @_ZdlPvm(ptr noundef nonnull %117, i64 noundef %123) #19
+116:                                              ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EED2Ev.exit
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %118 = load ptr, ptr %117, align 8
+  %119 = ptrtoint ptr %118 to i64
+  %120 = ptrtoint ptr %115 to i64
+  %121 = sub i64 %119, %120
+  call void @_ZdlPvm(ptr noundef nonnull %115, i64 noundef %121) #19
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EED2Ev.exit, %118
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 384
+_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance13TableInstanceESaIS4_EED2Ev.exit, %116
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %127 = load ptr, ptr %126, align 8
-  %.not4.i.i.i.i = icmp eq ptr %125, %127
+  %.not4.i.i.i.i = icmp eq ptr %123, %125
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %138, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %125, %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EED2Ev.exit ]
-  %128 = load ptr, ptr %.05.i.i.i.i, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %128, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %129
+  %.05.i.i.i.i = phi ptr [ %136, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %123, %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EED2Ev.exit ]
+  %126 = load ptr, ptr %.05.i.i.i.i, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %126, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %127
 
-129:                                              ; preds = %.lr.ph.i.i.i.i
-  %130 = getelementptr inbounds nuw i8, ptr %128, i64 24
-  %131 = load ptr, ptr %130, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %131, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14StructInstanceEEclEPS3_.exit.i.i.i.i.i.i, label %132
+127:                                              ; preds = %.lr.ph.i.i.i.i
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %129 = load ptr, ptr %128, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %129, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14StructInstanceEEclEPS3_.exit.i.i.i.i.i.i, label %130
 
-132:                                              ; preds = %129
-  %133 = getelementptr inbounds nuw i8, ptr %128, i64 40
-  %134 = load ptr, ptr %133, align 8
-  %135 = ptrtoint ptr %134 to i64
-  %136 = ptrtoint ptr %131 to i64
-  %137 = sub i64 %135, %136
-  call void @_ZdlPvm(ptr noundef nonnull %131, i64 noundef %137) #19
+130:                                              ; preds = %127
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 40
+  %132 = load ptr, ptr %131, align 8
+  %133 = ptrtoint ptr %132 to i64
+  %134 = ptrtoint ptr %129 to i64
+  %135 = sub i64 %133, %134
+  call void @_ZdlPvm(ptr noundef nonnull %129, i64 noundef %135) #19
   br label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14StructInstanceEEclEPS3_.exit.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14StructInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %132, %129
-  call void @_ZdlPvm(ptr noundef nonnull %128, i64 noundef 48) #19
+_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14StructInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %130, %127
+  call void @_ZdlPvm(ptr noundef nonnull %126, i64 noundef 48) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14StructInstanceEEclEPS3_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   store ptr null, ptr %.05.i.i.i.i, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %138, %127
+  %136 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %136, %125
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %124, align 8
+  %.pr.i = load ptr, ptr %122, align 8
   br label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EED2Ev.exit
-  %139 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %125, %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EED2Ev.exit ]
-  %.not.i.i.i19 = icmp eq ptr %139, null
-  br i1 %.not.i.i.i19, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %140
+  %137 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %123, %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EED2Ev.exit ]
+  %.not.i.i.i19 = icmp eq ptr %137, null
+  br i1 %.not.i.i.i19, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %138
 
-140:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %142 = load ptr, ptr %141, align 8
-  %143 = ptrtoint ptr %142 to i64
-  %144 = ptrtoint ptr %139 to i64
-  %145 = sub i64 %143, %144
-  call void @_ZdlPvm(ptr noundef nonnull %139, i64 noundef %145) #19
+138:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %140 = load ptr, ptr %139, align 8
+  %141 = ptrtoint ptr %140 to i64
+  %142 = ptrtoint ptr %137 to i64
+  %143 = sub i64 %141, %142
+  call void @_ZdlPvm(ptr noundef nonnull %137, i64 noundef %143) #19
   br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %140
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 360
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %138
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %149 = load ptr, ptr %148, align 8
-  %.not4.i.i.i.i20 = icmp eq ptr %147, %149
+  %.not4.i.i.i.i20 = icmp eq ptr %145, %147
   br i1 %.not4.i.i.i.i20, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i21
 
 .lr.ph.i.i.i.i21:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i22 = phi ptr [ %160, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %147, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %150 = load ptr, ptr %.05.i.i.i.i22, align 8
-  %.not.i.i.i.i.i.i23 = icmp eq ptr %150, null
-  br i1 %.not.i.i.i.i.i.i23, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %151
+  %.05.i.i.i.i22 = phi ptr [ %158, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %145, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %148 = load ptr, ptr %.05.i.i.i.i22, align 8
+  %.not.i.i.i.i.i.i23 = icmp eq ptr %148, null
+  br i1 %.not.i.i.i.i.i.i23, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %149
 
-151:                                              ; preds = %.lr.ph.i.i.i.i21
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 24
-  %153 = load ptr, ptr %152, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i24 = icmp eq ptr %153, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i24, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance13ArrayInstanceEEclEPS3_.exit.i.i.i.i.i.i, label %154
+149:                                              ; preds = %.lr.ph.i.i.i.i21
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 24
+  %151 = load ptr, ptr %150, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i24 = icmp eq ptr %151, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i24, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance13ArrayInstanceEEclEPS3_.exit.i.i.i.i.i.i, label %152
 
-154:                                              ; preds = %151
-  %155 = getelementptr inbounds nuw i8, ptr %150, i64 40
-  %156 = load ptr, ptr %155, align 8
-  %157 = ptrtoint ptr %156 to i64
-  %158 = ptrtoint ptr %153 to i64
-  %159 = sub i64 %157, %158
-  call void @_ZdlPvm(ptr noundef nonnull %153, i64 noundef %159) #19
+152:                                              ; preds = %149
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 40
+  %154 = load ptr, ptr %153, align 8
+  %155 = ptrtoint ptr %154 to i64
+  %156 = ptrtoint ptr %151 to i64
+  %157 = sub i64 %155, %156
+  call void @_ZdlPvm(ptr noundef nonnull %151, i64 noundef %157) #19
   br label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance13ArrayInstanceEEclEPS3_.exit.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance13ArrayInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %154, %151
-  call void @_ZdlPvm(ptr noundef nonnull %150, i64 noundef 48) #19
+_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance13ArrayInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %152, %149
+  call void @_ZdlPvm(ptr noundef nonnull %148, i64 noundef 48) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance13ArrayInstanceEEclEPS3_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i21
   store ptr null, ptr %.05.i.i.i.i22, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i22, i64 8
-  %.not.i.i.i.i25 = icmp eq ptr %160, %149
-  br i1 %.not.i.i.i.i25, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i21, !llvm.loop !10
+  %158 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i22, i64 8
+  %.not.i.i.i.i25 = icmp eq ptr %158, %147
+  br i1 %.not.i.i.i.i25, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i21, !llvm.loop !9
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.pr.i26 = load ptr, ptr %146, align 8
+  %.pr.i26 = load ptr, ptr %144, align 8
   br label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
-  %161 = phi ptr [ %.pr.i26, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %147, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %.not.i.i.i27 = icmp eq ptr %161, null
-  br i1 %.not.i.i.i27, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %162
+  %159 = phi ptr [ %.pr.i26, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %145, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14StructInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %.not.i.i.i27 = icmp eq ptr %159, null
+  br i1 %.not.i.i.i27, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %160
 
-162:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %164 = load ptr, ptr %163, align 8
-  %165 = ptrtoint ptr %164 to i64
-  %166 = ptrtoint ptr %161 to i64
-  %167 = sub i64 %165, %166
-  call void @_ZdlPvm(ptr noundef nonnull %161, i64 noundef %167) #19
+160:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %162 = load ptr, ptr %161, align 8
+  %163 = ptrtoint ptr %162 to i64
+  %164 = ptrtoint ptr %159 to i64
+  %165 = sub i64 %163, %164
+  call void @_ZdlPvm(ptr noundef nonnull %159, i64 noundef %165) #19
   br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %162
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 336
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %160
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %171 = load ptr, ptr %170, align 8
-  %.not4.i.i.i.i28 = icmp eq ptr %169, %171
+  %.not4.i.i.i.i28 = icmp eq ptr %167, %169
   br i1 %.not4.i.i.i.i28, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i29
 
 .lr.ph.i.i.i.i29:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i30 = phi ptr [ %182, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %169, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %172 = load ptr, ptr %.05.i.i.i.i30, align 8
-  %.not.i.i.i.i.i.i31 = icmp eq ptr %172, null
-  br i1 %.not.i.i.i.i.i.i31, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %173
+  %.05.i.i.i.i30 = phi ptr [ %180, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %167, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %170 = load ptr, ptr %.05.i.i.i.i30, align 8
+  %.not.i.i.i.i.i.i31 = icmp eq ptr %170, null
+  br i1 %.not.i.i.i.i.i.i31, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %171
 
-173:                                              ; preds = %.lr.ph.i.i.i.i29
-  %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  %175 = load ptr, ptr %174, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i32 = icmp eq ptr %175, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i32, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance12DataInstanceEEclEPS3_.exit.i.i.i.i.i.i, label %176
+171:                                              ; preds = %.lr.ph.i.i.i.i29
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  %173 = load ptr, ptr %172, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i32 = icmp eq ptr %173, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i32, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance12DataInstanceEEclEPS3_.exit.i.i.i.i.i.i, label %174
 
-176:                                              ; preds = %173
-  %177 = getelementptr inbounds nuw i8, ptr %172, i64 24
-  %178 = load ptr, ptr %177, align 8
-  %179 = ptrtoint ptr %178 to i64
-  %180 = ptrtoint ptr %175 to i64
-  %181 = sub i64 %179, %180
-  call void @_ZdlPvm(ptr noundef nonnull %175, i64 noundef %181) #19
+174:                                              ; preds = %171
+  %175 = getelementptr inbounds nuw i8, ptr %170, i64 24
+  %176 = load ptr, ptr %175, align 8
+  %177 = ptrtoint ptr %176 to i64
+  %178 = ptrtoint ptr %173 to i64
+  %179 = sub i64 %177, %178
+  call void @_ZdlPvm(ptr noundef nonnull %173, i64 noundef %179) #19
   br label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance12DataInstanceEEclEPS3_.exit.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance12DataInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %176, %173
-  call void @_ZdlPvm(ptr noundef nonnull %172, i64 noundef 32) #19
+_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance12DataInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %174, %171
+  call void @_ZdlPvm(ptr noundef nonnull %170, i64 noundef 32) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance12DataInstanceEEclEPS3_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i29
   store ptr null, ptr %.05.i.i.i.i30, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i30, i64 8
-  %.not.i.i.i.i33 = icmp eq ptr %182, %171
-  br i1 %.not.i.i.i.i33, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i29, !llvm.loop !11
+  %180 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i30, i64 8
+  %.not.i.i.i.i33 = icmp eq ptr %180, %169
+  br i1 %.not.i.i.i.i33, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i29, !llvm.loop !10
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.pr.i34 = load ptr, ptr %168, align 8
+  %.pr.i34 = load ptr, ptr %166, align 8
   br label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
-  %183 = phi ptr [ %.pr.i34, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %169, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %.not.i.i.i35 = icmp eq ptr %183, null
-  br i1 %.not.i.i.i35, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %184
+  %181 = phi ptr [ %.pr.i34, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %167, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13ArrayInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %.not.i.i.i35 = icmp eq ptr %181, null
+  br i1 %.not.i.i.i35, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %182
 
-184:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %186 = load ptr, ptr %185, align 8
-  %187 = ptrtoint ptr %186 to i64
-  %188 = ptrtoint ptr %183 to i64
-  %189 = sub i64 %187, %188
-  call void @_ZdlPvm(ptr noundef nonnull %183, i64 noundef %189) #19
+182:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %184 = load ptr, ptr %183, align 8
+  %185 = ptrtoint ptr %184 to i64
+  %186 = ptrtoint ptr %181 to i64
+  %187 = sub i64 %185, %186
+  call void @_ZdlPvm(ptr noundef nonnull %181, i64 noundef %187) #19
   br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %184
-  %190 = getelementptr inbounds nuw i8, ptr %0, i64 312
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %182
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %193 = load ptr, ptr %192, align 8
-  %.not4.i.i.i.i36 = icmp eq ptr %191, %193
+  %.not4.i.i.i.i36 = icmp eq ptr %189, %191
   br i1 %.not4.i.i.i.i36, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i37
 
 .lr.ph.i.i.i.i37:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i38 = phi ptr [ %204, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %191, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %194 = load ptr, ptr %.05.i.i.i.i38, align 8
-  %.not.i.i.i.i.i.i39 = icmp eq ptr %194, null
-  br i1 %.not.i.i.i.i.i.i39, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %195
+  %.05.i.i.i.i38 = phi ptr [ %202, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %189, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %192 = load ptr, ptr %.05.i.i.i.i38, align 8
+  %.not.i.i.i.i.i.i39 = icmp eq ptr %192, null
+  br i1 %.not.i.i.i.i.i.i39, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %193
 
-195:                                              ; preds = %.lr.ph.i.i.i.i37
-  %196 = getelementptr inbounds nuw i8, ptr %194, i64 16
-  %197 = load ptr, ptr %196, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %197, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i40, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance15ElementInstanceEEclEPS3_.exit.i.i.i.i.i.i, label %198
+193:                                              ; preds = %.lr.ph.i.i.i.i37
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 16
+  %195 = load ptr, ptr %194, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %195, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i40, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance15ElementInstanceEEclEPS3_.exit.i.i.i.i.i.i, label %196
 
-198:                                              ; preds = %195
-  %199 = getelementptr inbounds nuw i8, ptr %194, i64 32
-  %200 = load ptr, ptr %199, align 8
-  %201 = ptrtoint ptr %200 to i64
-  %202 = ptrtoint ptr %197 to i64
-  %203 = sub i64 %201, %202
-  call void @_ZdlPvm(ptr noundef nonnull %197, i64 noundef %203) #19
+196:                                              ; preds = %193
+  %197 = getelementptr inbounds nuw i8, ptr %192, i64 32
+  %198 = load ptr, ptr %197, align 8
+  %199 = ptrtoint ptr %198 to i64
+  %200 = ptrtoint ptr %195 to i64
+  %201 = sub i64 %199, %200
+  call void @_ZdlPvm(ptr noundef nonnull %195, i64 noundef %201) #19
   br label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance15ElementInstanceEEclEPS3_.exit.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance15ElementInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %198, %195
-  call void @_ZdlPvm(ptr noundef nonnull %194, i64 noundef 40) #19
+_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance15ElementInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %196, %193
+  call void @_ZdlPvm(ptr noundef nonnull %192, i64 noundef 40) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance15ElementInstanceEEclEPS3_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i37
   store ptr null, ptr %.05.i.i.i.i38, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i38, i64 8
-  %.not.i.i.i.i41 = icmp eq ptr %204, %193
-  br i1 %.not.i.i.i.i41, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i37, !llvm.loop !12
+  %202 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i38, i64 8
+  %.not.i.i.i.i41 = icmp eq ptr %202, %191
+  br i1 %.not.i.i.i.i41, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i37, !llvm.loop !11
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.pr.i42 = load ptr, ptr %190, align 8
+  %.pr.i42 = load ptr, ptr %188, align 8
   br label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
-  %205 = phi ptr [ %.pr.i42, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %191, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %.not.i.i.i43 = icmp eq ptr %205, null
-  br i1 %.not.i.i.i43, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %206
+  %203 = phi ptr [ %.pr.i42, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %189, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance12DataInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %.not.i.i.i43 = icmp eq ptr %203, null
+  br i1 %.not.i.i.i43, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %204
 
-206:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %208 = load ptr, ptr %207, align 8
-  %209 = ptrtoint ptr %208 to i64
-  %210 = ptrtoint ptr %205 to i64
-  %211 = sub i64 %209, %210
-  call void @_ZdlPvm(ptr noundef nonnull %205, i64 noundef %211) #19
+204:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %206 = load ptr, ptr %205, align 8
+  %207 = ptrtoint ptr %206 to i64
+  %208 = ptrtoint ptr %203 to i64
+  %209 = sub i64 %207, %208
+  call void @_ZdlPvm(ptr noundef nonnull %203, i64 noundef %209) #19
   br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %206
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 288
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %204
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %211 = load ptr, ptr %210, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %215 = load ptr, ptr %214, align 8
-  %.not4.i.i.i.i44 = icmp eq ptr %213, %215
+  %.not4.i.i.i.i44 = icmp eq ptr %211, %213
   br i1 %.not4.i.i.i.i44, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i45
 
 .lr.ph.i.i.i.i45:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i46 = phi ptr [ %217, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %213, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %216 = load ptr, ptr %.05.i.i.i.i46, align 8
-  %.not.i.i.i.i.i.i47 = icmp eq ptr %216, null
+  %.05.i.i.i.i46 = phi ptr [ %215, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %211, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %214 = load ptr, ptr %.05.i.i.i.i46, align 8
+  %.not.i.i.i.i.i.i47 = icmp eq ptr %214, null
   br i1 %.not.i.i.i.i.i.i47, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14GlobalInstanceEEclEPS3_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14GlobalInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i45
-  call void @_ZdlPvm(ptr noundef nonnull %216, i64 noundef 32) #19
+  call void @_ZdlPvm(ptr noundef nonnull %214, i64 noundef 32) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14GlobalInstanceEEclEPS3_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i45
   store ptr null, ptr %.05.i.i.i.i46, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i46, i64 8
-  %.not.i.i.i.i48 = icmp eq ptr %217, %215
-  br i1 %.not.i.i.i.i48, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i45, !llvm.loop !13
+  %215 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i46, i64 8
+  %.not.i.i.i.i48 = icmp eq ptr %215, %213
+  br i1 %.not.i.i.i.i48, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i45, !llvm.loop !12
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.pr.i49 = load ptr, ptr %212, align 8
+  %.pr.i49 = load ptr, ptr %210, align 8
   br label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
-  %218 = phi ptr [ %.pr.i49, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %213, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %.not.i.i.i50 = icmp eq ptr %218, null
-  br i1 %.not.i.i.i50, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %219
+  %216 = phi ptr [ %.pr.i49, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %211, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance15ElementInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %.not.i.i.i50 = icmp eq ptr %216, null
+  br i1 %.not.i.i.i50, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %217
 
-219:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %221 = load ptr, ptr %220, align 8
-  %222 = ptrtoint ptr %221 to i64
-  %223 = ptrtoint ptr %218 to i64
-  %224 = sub i64 %222, %223
-  call void @_ZdlPvm(ptr noundef nonnull %218, i64 noundef %224) #19
+217:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %219 = load ptr, ptr %218, align 8
+  %220 = ptrtoint ptr %219 to i64
+  %221 = ptrtoint ptr %216 to i64
+  %222 = sub i64 %220, %221
+  call void @_ZdlPvm(ptr noundef nonnull %216, i64 noundef %222) #19
   br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %219
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 264
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %217
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %224 = load ptr, ptr %223, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %228 = load ptr, ptr %227, align 8
-  %.not4.i.i.i.i51 = icmp eq ptr %226, %228
+  %.not4.i.i.i.i51 = icmp eq ptr %224, %226
   br i1 %.not4.i.i.i.i51, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i52
 
 .lr.ph.i.i.i.i52:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i53 = phi ptr [ %230, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %226, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %229 = load ptr, ptr %.05.i.i.i.i53, align 8
-  %.not.i.i.i.i.i.i54 = icmp eq ptr %229, null
+  %.05.i.i.i.i53 = phi ptr [ %228, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %224, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %227 = load ptr, ptr %.05.i.i.i.i53, align 8
+  %.not.i.i.i.i.i.i54 = icmp eq ptr %227, null
   br i1 %.not.i.i.i.i.i.i54, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance11TagInstanceEEclEPS3_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance11TagInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i52
-  call void @_ZdlPvm(ptr noundef nonnull %229, i64 noundef 16) #19
+  call void @_ZdlPvm(ptr noundef nonnull %227, i64 noundef 16) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance11TagInstanceEEclEPS3_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i52
   store ptr null, ptr %.05.i.i.i.i53, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i53, i64 8
-  %.not.i.i.i.i55 = icmp eq ptr %230, %228
-  br i1 %.not.i.i.i.i55, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i52, !llvm.loop !14
+  %228 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i53, i64 8
+  %.not.i.i.i.i55 = icmp eq ptr %228, %226
+  br i1 %.not.i.i.i.i55, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i52, !llvm.loop !13
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.pr.i56 = load ptr, ptr %225, align 8
+  %.pr.i56 = load ptr, ptr %223, align 8
   br label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
-  %231 = phi ptr [ %.pr.i56, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %226, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %.not.i.i.i57 = icmp eq ptr %231, null
-  br i1 %.not.i.i.i57, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %232
+  %229 = phi ptr [ %.pr.i56, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %224, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14GlobalInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %.not.i.i.i57 = icmp eq ptr %229, null
+  br i1 %.not.i.i.i57, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %230
 
-232:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %234 = load ptr, ptr %233, align 8
-  %235 = ptrtoint ptr %234 to i64
-  %236 = ptrtoint ptr %231 to i64
-  %237 = sub i64 %235, %236
-  call void @_ZdlPvm(ptr noundef nonnull %231, i64 noundef %237) #19
+230:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %232 = load ptr, ptr %231, align 8
+  %233 = ptrtoint ptr %232 to i64
+  %234 = ptrtoint ptr %229 to i64
+  %235 = sub i64 %233, %234
+  call void @_ZdlPvm(ptr noundef nonnull %229, i64 noundef %235) #19
   br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %232
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 240
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %230
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %237 = load ptr, ptr %236, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %241 = load ptr, ptr %240, align 8
-  %.not4.i.i.i.i58 = icmp eq ptr %239, %241
+  %.not4.i.i.i.i58 = icmp eq ptr %237, %239
   br i1 %.not4.i.i.i.i58, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i59
 
 .lr.ph.i.i.i.i59:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i60 = phi ptr [ %247, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %239, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %242 = load ptr, ptr %.05.i.i.i.i60, align 8
-  %.not.i.i.i.i.i.i61 = icmp eq ptr %242, null
+  %.05.i.i.i.i60 = phi ptr [ %245, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %237, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %240 = load ptr, ptr %.05.i.i.i.i60, align 8
+  %.not.i.i.i.i.i.i61 = icmp eq ptr %240, null
   br i1 %.not.i.i.i.i.i.i61, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14MemoryInstanceEEclEPS3_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14MemoryInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i59
-  %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
-  %244 = load ptr, ptr %243, align 8
-  %245 = getelementptr inbounds nuw i8, ptr %242, i64 4
-  %246 = load i32, ptr %245, align 4
-  call void @_ZN8WasmEdge9Allocator7releaseEPhj(ptr noundef %244, i32 noundef %246) #18
-  call void @_ZdlPvm(ptr noundef nonnull %242, i64 noundef 32) #19
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 16
+  %242 = load ptr, ptr %241, align 8
+  %243 = getelementptr inbounds nuw i8, ptr %240, i64 4
+  %244 = load i32, ptr %243, align 4
+  call void @_ZN8WasmEdge9Allocator7releaseEPhj(ptr noundef %242, i32 noundef %244) #18
+  call void @_ZdlPvm(ptr noundef nonnull %240, i64 noundef 32) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance14MemoryInstanceEEclEPS3_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i59
   store ptr null, ptr %.05.i.i.i.i60, align 8
-  %247 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i60, i64 8
-  %.not.i.i.i.i62 = icmp eq ptr %247, %241
-  br i1 %.not.i.i.i.i62, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i59, !llvm.loop !15
+  %245 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i60, i64 8
+  %.not.i.i.i.i62 = icmp eq ptr %245, %239
+  br i1 %.not.i.i.i.i62, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i59, !llvm.loop !14
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.pr.i63 = load ptr, ptr %238, align 8
+  %.pr.i63 = load ptr, ptr %236, align 8
   br label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
-  %248 = phi ptr [ %.pr.i63, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %239, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %.not.i.i.i64 = icmp eq ptr %248, null
-  br i1 %.not.i.i.i64, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %249
+  %246 = phi ptr [ %.pr.i63, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %237, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance11TagInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %.not.i.i.i64 = icmp eq ptr %246, null
+  br i1 %.not.i.i.i64, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %247
 
-249:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %251 = load ptr, ptr %250, align 8
-  %252 = ptrtoint ptr %251 to i64
-  %253 = ptrtoint ptr %248 to i64
-  %254 = sub i64 %252, %253
-  call void @_ZdlPvm(ptr noundef nonnull %248, i64 noundef %254) #19
+247:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %249 = load ptr, ptr %248, align 8
+  %250 = ptrtoint ptr %249 to i64
+  %251 = ptrtoint ptr %246 to i64
+  %252 = sub i64 %250, %251
+  call void @_ZdlPvm(ptr noundef nonnull %246, i64 noundef %252) #19
   br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %249
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 216
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %247
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %254 = load ptr, ptr %253, align 8
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %256 = load ptr, ptr %255, align 8
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %258 = load ptr, ptr %257, align 8
-  %.not4.i.i.i.i65 = icmp eq ptr %256, %258
+  %.not4.i.i.i.i65 = icmp eq ptr %254, %256
   br i1 %.not4.i.i.i.i65, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i66
 
 .lr.ph.i.i.i.i66:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i67 = phi ptr [ %269, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %256, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %259 = load ptr, ptr %.05.i.i.i.i67, align 8
-  %.not.i.i.i.i.i.i68 = icmp eq ptr %259, null
-  br i1 %.not.i.i.i.i.i.i68, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %260
+  %.05.i.i.i.i67 = phi ptr [ %267, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %254, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %257 = load ptr, ptr %.05.i.i.i.i67, align 8
+  %.not.i.i.i.i.i.i68 = icmp eq ptr %257, null
+  br i1 %.not.i.i.i.i.i.i68, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %258
 
-260:                                              ; preds = %.lr.ph.i.i.i.i66
-  %261 = getelementptr inbounds nuw i8, ptr %259, i64 24
-  %262 = load ptr, ptr %261, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i69 = icmp eq ptr %262, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i69, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance13TableInstanceEEclEPS3_.exit.i.i.i.i.i.i, label %263
+258:                                              ; preds = %.lr.ph.i.i.i.i66
+  %259 = getelementptr inbounds nuw i8, ptr %257, i64 24
+  %260 = load ptr, ptr %259, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i69 = icmp eq ptr %260, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i69, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance13TableInstanceEEclEPS3_.exit.i.i.i.i.i.i, label %261
 
-263:                                              ; preds = %260
-  %264 = getelementptr inbounds nuw i8, ptr %259, i64 40
-  %265 = load ptr, ptr %264, align 8
-  %266 = ptrtoint ptr %265 to i64
-  %267 = ptrtoint ptr %262 to i64
-  %268 = sub i64 %266, %267
-  call void @_ZdlPvm(ptr noundef nonnull %262, i64 noundef %268) #19
+261:                                              ; preds = %258
+  %262 = getelementptr inbounds nuw i8, ptr %257, i64 40
+  %263 = load ptr, ptr %262, align 8
+  %264 = ptrtoint ptr %263 to i64
+  %265 = ptrtoint ptr %260 to i64
+  %266 = sub i64 %264, %265
+  call void @_ZdlPvm(ptr noundef nonnull %260, i64 noundef %266) #19
   br label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance13TableInstanceEEclEPS3_.exit.i.i.i.i.i.i
 
-_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance13TableInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %263, %260
-  call void @_ZdlPvm(ptr noundef nonnull %259, i64 noundef 64) #19
+_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance13TableInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %261, %258
+  call void @_ZdlPvm(ptr noundef nonnull %257, i64 noundef 64) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance13TableInstanceEEclEPS3_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i66
   store ptr null, ptr %.05.i.i.i.i67, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i67, i64 8
-  %.not.i.i.i.i70 = icmp eq ptr %269, %258
-  br i1 %.not.i.i.i.i70, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i66, !llvm.loop !16
+  %267 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i67, i64 8
+  %.not.i.i.i.i70 = icmp eq ptr %267, %256
+  br i1 %.not.i.i.i.i70, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i66, !llvm.loop !15
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.pr.i71 = load ptr, ptr %255, align 8
+  %.pr.i71 = load ptr, ptr %253, align 8
   br label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
-  %270 = phi ptr [ %.pr.i71, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %256, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %.not.i.i.i72 = icmp eq ptr %270, null
-  br i1 %.not.i.i.i72, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %271
+  %268 = phi ptr [ %.pr.i71, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %254, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance14MemoryInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %.not.i.i.i72 = icmp eq ptr %268, null
+  br i1 %.not.i.i.i72, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %269
 
-271:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
-  %272 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %273 = load ptr, ptr %272, align 8
-  %274 = ptrtoint ptr %273 to i64
-  %275 = ptrtoint ptr %270 to i64
-  %276 = sub i64 %274, %275
-  call void @_ZdlPvm(ptr noundef nonnull %270, i64 noundef %276) #19
+269:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %271 = load ptr, ptr %270, align 8
+  %272 = ptrtoint ptr %271 to i64
+  %273 = ptrtoint ptr %268 to i64
+  %274 = sub i64 %272, %273
+  call void @_ZdlPvm(ptr noundef nonnull %268, i64 noundef %274) #19
   br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %271
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 192
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %269
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %276 = load ptr, ptr %275, align 8
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %280 = load ptr, ptr %279, align 8
-  %.not4.i.i.i.i73 = icmp eq ptr %278, %280
+  %.not4.i.i.i.i73 = icmp eq ptr %276, %278
   br i1 %.not4.i.i.i.i73, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i74
 
 .lr.ph.i.i.i.i74:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i75 = phi ptr [ %290, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %278, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %281 = load ptr, ptr %.05.i.i.i.i75, align 8
-  %.not.i.i.i.i.i.i76 = icmp eq ptr %281, null
-  br i1 %.not.i.i.i.i.i.i76, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %282
+  %.05.i.i.i.i75 = phi ptr [ %288, %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i ], [ %276, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %279 = load ptr, ptr %.05.i.i.i.i75, align 8
+  %.not.i.i.i.i.i.i76 = icmp eq ptr %279, null
+  br i1 %.not.i.i.i.i.i.i76, label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i, label %280
 
-282:                                              ; preds = %.lr.ph.i.i.i.i74
+280:                                              ; preds = %.lr.ph.i.i.i.i74
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %283 = getelementptr inbounds nuw i8, ptr %281, i64 88
-  %284 = load i8, ptr %283, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %284, -1
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i.i.i.i.i.i, label %285
+  %281 = getelementptr inbounds nuw i8, ptr %279, i64 88
+  %282 = load i8, ptr %281, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %282, -1
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i.i.i.i.i.i, label %283
 
-285:                                              ; preds = %282
-  %286 = getelementptr inbounds nuw i8, ptr %281, i64 32
-  invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN8WasmEdge7Runtime8Instance16FunctionInstance12WasmFunctionENS3_6SymbolIvEESt10unique_ptrINS4_16HostFunctionBaseESt14default_deleteISB_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SE_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(57) %286)
-          to label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i.i.i.i.i.i unwind label %287
+283:                                              ; preds = %280
+  %284 = getelementptr inbounds nuw i8, ptr %279, i64 32
+  invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN8WasmEdge7Runtime8Instance16FunctionInstance12WasmFunctionENS3_6SymbolIvEESt10unique_ptrINS4_16HostFunctionBaseESt14default_deleteISB_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_SE_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(57) %284)
+          to label %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i.i.i.i.i.i unwind label %285
 
-287:                                              ; preds = %285
-  %288 = landingpad { ptr, i32 }
+285:                                              ; preds = %283
+  %286 = landingpad { ptr, i32 }
           catch ptr null
-  %289 = extractvalue { ptr, i32 } %288, 0
-  call void @__clang_call_terminate(ptr %289) #17
+  %287 = extractvalue { ptr, i32 } %286, 0
+  call void @__clang_call_terminate(ptr %287) #17
   unreachable
 
-_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %285, %282
+_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %283, %280
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
-  call void @_ZdlPvm(ptr noundef nonnull %281, i64 noundef 96) #19
+  call void @_ZdlPvm(ptr noundef nonnull %279, i64 noundef 96) #19
   br label %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge7Runtime8Instance16FunctionInstanceEEclEPS3_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i74
   store ptr null, ptr %.05.i.i.i.i75, align 8
-  %290 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i75, i64 8
-  %.not.i.i.i.i77 = icmp eq ptr %290, %280
-  br i1 %.not.i.i.i.i77, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i74, !llvm.loop !17
+  %288 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i75, i64 8
+  %.not.i.i.i.i77 = icmp eq ptr %288, %278
+  br i1 %.not.i.i.i.i77, label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i74, !llvm.loop !16
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EEEvPT_.exit.i.i.i.i
-  %.pr.i78 = load ptr, ptr %277, align 8
+  %.pr.i78 = load ptr, ptr %275, align 8
   br label %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
-  %291 = phi ptr [ %.pr.i78, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %278, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
-  %.not.i.i.i79 = icmp eq ptr %291, null
-  br i1 %.not.i.i.i79, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %292
+  %289 = phi ptr [ %.pr.i78, %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i ], [ %276, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance13TableInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit ]
+  %.not.i.i.i79 = icmp eq ptr %289, null
+  br i1 %.not.i.i.i79, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, label %290
 
-292:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
-  %293 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %294 = load ptr, ptr %293, align 8
-  %295 = ptrtoint ptr %294 to i64
-  %296 = ptrtoint ptr %291 to i64
-  %297 = sub i64 %295, %296
-  call void @_ZdlPvm(ptr noundef nonnull %291, i64 noundef %297) #19
+290:                                              ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %292 = load ptr, ptr %291, align 8
+  %293 = ptrtoint ptr %292 to i64
+  %294 = ptrtoint ptr %289 to i64
+  %295 = sub i64 %293, %294
+  call void @_ZdlPvm(ptr noundef nonnull %289, i64 noundef %295) #19
   br label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
 
-_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %292
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  call void @_ZNSt6vectorISt10unique_ptrIKN8WasmEdge3AST7SubTypeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %298) #18
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %300 = load ptr, ptr %299, align 8
-  %.not.i.i.i80 = icmp eq ptr %300, null
-  br i1 %.not.i.i.i80, label %_ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EED2Ev.exit, label %301
+_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_EvT_S9_RSaIT0_E.exit.i, %290
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  call void @_ZNSt6vectorISt10unique_ptrIKN8WasmEdge3AST7SubTypeESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %296) #18
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %298 = load ptr, ptr %297, align 8
+  %.not.i.i.i80 = icmp eq ptr %298, null
+  br i1 %.not.i.i.i80, label %_ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EED2Ev.exit, label %299
 
-301:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
-  %302 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %303 = load ptr, ptr %302, align 8
-  %304 = ptrtoint ptr %303 to i64
-  %305 = ptrtoint ptr %300 to i64
-  %306 = sub i64 %304, %305
-  call void @_ZdlPvm(ptr noundef nonnull %300, i64 noundef %306) #19
+299:                                              ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %301 = load ptr, ptr %300, align 8
+  %302 = ptrtoint ptr %301 to i64
+  %303 = ptrtoint ptr %298 to i64
+  %304 = sub i64 %302, %303
+  call void @_ZdlPvm(ptr noundef nonnull %298, i64 noundef %304) #19
   br label %_ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EED2Ev.exit
 
-_ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, %301
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %307) #18
-  %308 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %309 = load ptr, ptr %308, align 8
-  %.not.i.i.i81 = icmp eq ptr %309, null
-  br i1 %.not.i.i.i81, label %_ZNSt6vectorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISF_EED2Ev.exit, label %310
+_ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EED2Ev.exit, %299
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %305) #18
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %307 = load ptr, ptr %306, align 8
+  %.not.i.i.i81 = icmp eq ptr %307, null
+  br i1 %.not.i.i.i81, label %_ZNSt6vectorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISF_EED2Ev.exit, label %308
 
-310:                                              ; preds = %_ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EED2Ev.exit
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %312 = load ptr, ptr %311, align 8
-  %313 = ptrtoint ptr %312 to i64
-  %314 = ptrtoint ptr %309 to i64
-  %315 = sub i64 %313, %314
-  call void @_ZdlPvm(ptr noundef nonnull %309, i64 noundef %315) #19
+308:                                              ; preds = %_ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EED2Ev.exit
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %310 = load ptr, ptr %309, align 8
+  %311 = ptrtoint ptr %310 to i64
+  %312 = ptrtoint ptr %307 to i64
+  %313 = sub i64 %311, %312
+  call void @_ZdlPvm(ptr noundef nonnull %307, i64 noundef %313) #19
   br label %_ZNSt6vectorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISF_EED2Ev.exit
 
-_ZNSt6vectorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISF_EED2Ev.exit: ; preds = %_ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EED2Ev.exit, %310
-  %316 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %317 = load ptr, ptr %316, align 8
-  %.not.i.i.i82 = icmp eq ptr %317, null
-  br i1 %.not.i.i.i82, label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit, label %318
+_ZNSt6vectorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISF_EED2Ev.exit: ; preds = %_ZNSt6vectorIPKN8WasmEdge3AST7SubTypeESaIS4_EED2Ev.exit, %308
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %315 = load ptr, ptr %314, align 8
+  %.not.i.i.i82 = icmp eq ptr %315, null
+  br i1 %.not.i.i.i82, label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit, label %316
 
-318:                                              ; preds = %_ZNSt6vectorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISF_EED2Ev.exit
-  %319 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %320 = load ptr, ptr %319, align 8
-  %321 = ptrtoint ptr %320 to i64
-  %322 = ptrtoint ptr %317 to i64
-  %323 = sub i64 %321, %322
-  call void @_ZdlPvm(ptr noundef nonnull %317, i64 noundef %323) #19
+316:                                              ; preds = %_ZNSt6vectorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISF_EED2Ev.exit
+  %317 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %318 = load ptr, ptr %317, align 8
+  %319 = ptrtoint ptr %318 to i64
+  %320 = ptrtoint ptr %315 to i64
+  %321 = sub i64 %319, %320
+  call void @_ZdlPvm(ptr noundef nonnull %315, i64 noundef %321) #19
   br label %_ZNSt6vectorIPhSaIS0_EED2Ev.exit
 
-_ZNSt6vectorIPhSaIS0_EED2Ev.exit:                 ; preds = %_ZNSt6vectorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISF_EED2Ev.exit, %318
+_ZNSt6vectorIPhSaIS0_EED2Ev.exit:                 ; preds = %_ZNSt6vectorIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISF_EED2Ev.exit, %316
   ret void
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %324
+  br label %322
 
-.loopexit.split-lp:                               ; preds = %22
+.loopexit.split-lp:                               ; preds = %20
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %324
+  br label %322
 
-324:                                              ; preds = %.loopexit.split-lp, %.loopexit
+322:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %325 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %325) #17
+  %323 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %323) #17
   unreachable
 }
 
@@ -14202,7 +14198,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPN8WasmEdge7Runtime12StoreManagerESt4pa
 _ZNSt8_Rb_treeIPN8WasmEdge7Runtime12StoreManagerESt4pairIKS3_St8functionIFvS3_PKNS1_8Instance14ModuleInstanceEEEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit: ; preds = %.lr.ph, %9
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeIPN8WasmEdge7Runtime12StoreManagerESt4pairIKS3_St8functionIFvS3_PKNS1_8Instance14ModuleInstanceEEEESt10_Select1stISD_ESt4lessIS3_ESaISD_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISD_E.exit, %2
   ret void
@@ -14227,7 +14223,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -14249,7 +14245,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -14271,7 +14267,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -14293,7 +14289,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -14315,7 +14311,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -14383,7 +14379,7 @@ define linkonce_odr hidden void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Var
   tail call void @_ZN8WasmEdge3AST11Instruction5resetEv(ptr noundef nonnull align 16 dereferenceable(25) %.05.i.i.i.i.i.i.i.i.i.i) #18
   %10 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %9
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN8WasmEdge3AST11InstructionES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN8WasmEdge3AST11InstructionES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !24
 
 _ZSt8_DestroyIPN8WasmEdge3AST11InstructionES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.pr.i.i.i.i.i.i.i = load ptr, ptr %6, align 8
@@ -14892,7 +14888,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit, label %.lr.ph.i.i.i, !llvm.loop !27
+  br i1 %.not.i.i.i, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit, label %.lr.ph.i.i.i, !llvm.loop !25
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit: ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i.i.i
   %15 = icmp eq ptr %.19.i.i.i, %8
@@ -14916,8 +14912,8 @@ _ZNKSt4lessIvEclIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_EEDTl
 
 .critedge:                                        ; preds = %3, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit, %_ZNKSt4lessIvEclIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSB_OSC_.exit
   %.08.lcssa.i.i.i15 = phi ptr [ %.19.i.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN8WasmEdge7Runtime8Instance16FunctionInstanceESt4lessIvESaISt4pairIKS5_SA_EEE11lower_boundERSE_.exit ], [ %.19.i.i.i, %_ZNKSt4lessIvEclIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSB_OSC_.exit ], [ %8, %3 ]
-  store ptr %1, ptr %4, align 8, !alias.scope !28
-  store ptr %2, ptr %5, align 8, !alias.scope !31
+  store ptr %1, ptr %4, align 8, !alias.scope !26
+  store ptr %2, ptr %5, align 8, !alias.scope !29
   %23 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN8WasmEdge7Runtime8Instance16FunctionInstanceEESt10_Select1stISD_ESt4lessIvESaISD_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESO_IJRSC_EEEEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i15, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br label %27
 
@@ -14973,15 +14969,15 @@ _ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14d
 .lr.ph.i.i.i:                                     ; preds = %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %20, %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i = phi ptr [ %24, %.lr.ph.i.i.i ], [ %6, %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %23 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !37, !noalias !34
-  store i64 %23, ptr %.012.i.i.i, align 8, !alias.scope !34, !noalias !37
-  store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !37, !noalias !34
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  %23 = load i64, ptr %.0911.i.i.i, align 8, !alias.scope !35, !noalias !32
+  store i64 %23, ptr %.012.i.i.i, align 8, !alias.scope !32, !noalias !35
+  store ptr null, ptr %.0911.i.i.i, align 8, !alias.scope !35, !noalias !32
   %24 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %24, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %.lr.ph.i.i.i, !llvm.loop !39
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, label %.lr.ph.i.i.i, !llvm.loop !37
 
 _ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNKSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE12_M_check_lenEmPKc.exit ], [ %25, %.lr.ph.i.i.i ]
@@ -14992,15 +14988,15 @@ _ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14de
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit, %.lr.ph.i.i.i17
   %.012.i.i.i18 = phi ptr [ %29, %.lr.ph.i.i.i17 ], [ %26, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
   %.0911.i.i.i19 = phi ptr [ %28, %.lr.ph.i.i.i17 ], [ %1, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  %27 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !43, !noalias !40
-  store i64 %27, ptr %.012.i.i.i18, align 8, !alias.scope !40, !noalias !43
-  store ptr null, ptr %.0911.i.i.i19, align 8, !alias.scope !43, !noalias !40
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  %27 = load i64, ptr %.0911.i.i.i19, align 8, !alias.scope !41, !noalias !38
+  store i64 %27, ptr %.012.i.i.i18, align 8, !alias.scope !38, !noalias !41
+  store ptr null, ptr %.0911.i.i.i19, align 8, !alias.scope !41, !noalias !38
   %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
   %.not.i.i.i20 = icmp eq ptr %28, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !39
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !37
 
 _ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %26, %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit ], [ %29, %.lr.ph.i.i.i17 ]
@@ -15157,7 +15153,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   %.in.i = getelementptr inbounds nuw i8, ptr %.02127.i, i64 %.in.v.i
   %.021.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.021.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i
   br i1 %27, label %._crit_edge.thread.i, label %33
@@ -15265,7 +15261,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   %.in.i18 = getelementptr inbounds nuw i8, ptr %.02127.i15, i64 %.in.v.i17
   %.021.i19 = load ptr, ptr %.in.i18, align 8
   %.not.i20 = icmp eq ptr %.021.i19, null
-  br i1 %.not.i20, label %._crit_edge.i21, label %.lr.ph.i14, !llvm.loop !45
+  br i1 %.not.i20, label %._crit_edge.i21, label %.lr.ph.i14, !llvm.loop !43
 
 ._crit_edge.i21:                                  ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i16
   br i1 %70, label %._crit_edge.thread.i31, label %75
@@ -15371,7 +15367,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
   %.in.i42 = getelementptr inbounds nuw i8, ptr %.02127.i39, i64 %.in.v.i41
   %.021.i43 = load ptr, ptr %.in.i42, align 8
   %.not.i44 = icmp eq ptr %.021.i43, null
-  br i1 %.not.i44, label %._crit_edge.i45, label %.lr.ph.i38, !llvm.loop !45
+  br i1 %.not.i44, label %._crit_edge.i45, label %.lr.ph.i38, !llvm.loop !43
 
 ._crit_edge.i45:                                  ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit.i40
   br i1 %111, label %._crit_edge.thread.i55, label %117
@@ -15578,31 +15574,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !49
-  %19 = load i32, ptr %3, align 4, !noalias !49
-  call void @_ZN8WasmEdge4Host11WasiArgsGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !46
-  %20 = load i8, ptr %7, align 4, !noalias !46
+  %18 = load i32, ptr %17, align 4, !noalias !47
+  %19 = load i32, ptr %3, align 4, !noalias !47
+  call void @_ZN8WasmEdge4Host11WasiArgsGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !44
+  %20 = load i8, ptr %7, align 4, !noalias !44
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !46
+  %23 = load i32, ptr %22, align 4, !noalias !44
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !46
-  store i64 0, ptr %0, align 4, !alias.scope !46
+  store i32 %23, ptr %16, align 16, !noalias !44
+  store i64 0, ptr %0, align 4, !alias.scope !44
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !46
+  store i32 %23, ptr %26, align 4, !alias.scope !44
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !46
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -16340,31 +16336,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !55
-  %19 = load i32, ptr %3, align 4, !noalias !55
-  call void @_ZN8WasmEdge4Host16WasiArgsSizesGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !52
-  %20 = load i8, ptr %7, align 4, !noalias !52
+  %18 = load i32, ptr %17, align 4, !noalias !53
+  %19 = load i32, ptr %3, align 4, !noalias !53
+  call void @_ZN8WasmEdge4Host16WasiArgsSizesGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !50
+  %20 = load i8, ptr %7, align 4, !noalias !50
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !52
+  %23 = load i32, ptr %22, align 4, !noalias !50
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !52
-  store i64 0, ptr %0, align 4, !alias.scope !52
+  store i32 %23, ptr %16, align 16, !noalias !50
+  store i64 0, ptr %0, align 4, !alias.scope !50
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !52
+  store i32 %23, ptr %26, align 4, !alias.scope !50
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !52
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -16889,31 +16885,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !61
-  %19 = load i32, ptr %3, align 4, !noalias !61
-  call void @_ZN8WasmEdge4Host14WasiEnvironGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !58
-  %20 = load i8, ptr %7, align 4, !noalias !58
+  %18 = load i32, ptr %17, align 4, !noalias !59
+  %19 = load i32, ptr %3, align 4, !noalias !59
+  call void @_ZN8WasmEdge4Host14WasiEnvironGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !56
+  %20 = load i8, ptr %7, align 4, !noalias !56
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !58
+  %23 = load i32, ptr %22, align 4, !noalias !56
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !58
-  store i64 0, ptr %0, align 4, !alias.scope !58
+  store i32 %23, ptr %16, align 16, !noalias !56
+  store i64 0, ptr %0, align 4, !alias.scope !56
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !58
+  store i32 %23, ptr %26, align 4, !alias.scope !56
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !58
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !56
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -17438,31 +17434,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !67
-  %19 = load i32, ptr %3, align 4, !noalias !67
-  call void @_ZN8WasmEdge4Host19WasiEnvironSizesGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !64
-  %20 = load i8, ptr %7, align 4, !noalias !64
+  %18 = load i32, ptr %17, align 4, !noalias !65
+  %19 = load i32, ptr %3, align 4, !noalias !65
+  call void @_ZN8WasmEdge4Host19WasiEnvironSizesGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !62
+  %20 = load i8, ptr %7, align 4, !noalias !62
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !64
+  %23 = load i32, ptr %22, align 4, !noalias !62
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !64
-  store i64 0, ptr %0, align 4, !alias.scope !64
+  store i32 %23, ptr %16, align 16, !noalias !62
+  store i64 0, ptr %0, align 4, !alias.scope !62
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !64
+  store i32 %23, ptr %26, align 4, !alias.scope !62
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !64
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -17987,31 +17983,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !73
-  %19 = load i32, ptr %3, align 4, !noalias !73
-  call void @_ZN8WasmEdge4Host15WasiClockResGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !70
-  %20 = load i8, ptr %7, align 4, !noalias !70
+  %18 = load i32, ptr %17, align 4, !noalias !71
+  %19 = load i32, ptr %3, align 4, !noalias !71
+  call void @_ZN8WasmEdge4Host15WasiClockResGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !68
+  %20 = load i8, ptr %7, align 4, !noalias !68
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !70
+  %23 = load i32, ptr %22, align 4, !noalias !68
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !70
-  store i64 0, ptr %0, align 4, !alias.scope !70
+  store i32 %23, ptr %16, align 16, !noalias !68
+  store i64 0, ptr %0, align 4, !alias.scope !68
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !70
+  store i32 %23, ptr %26, align 4, !alias.scope !68
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !70
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -18536,33 +18532,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !79
-  %20 = load i64, ptr %17, align 8, !noalias !79
-  %21 = load i32, ptr %3, align 4, !noalias !79
-  call void @_ZN8WasmEdge4Host16WasiClockTimeGet4bodyERKNS_7Runtime12CallingFrameEjmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i64 noundef %20, i32 noundef %19), !noalias !76
-  %22 = load i8, ptr %7, align 4, !noalias !76
+  %19 = load i32, ptr %18, align 4, !noalias !77
+  %20 = load i64, ptr %17, align 8, !noalias !77
+  %21 = load i32, ptr %3, align 4, !noalias !77
+  call void @_ZN8WasmEdge4Host16WasiClockTimeGet4bodyERKNS_7Runtime12CallingFrameEjmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i64 noundef %20, i32 noundef %19), !noalias !74
+  %22 = load i8, ptr %7, align 4, !noalias !74
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !76
+  %25 = load i32, ptr %24, align 4, !noalias !74
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !76
-  store i64 0, ptr %0, align 4, !alias.scope !76
+  store i32 %25, ptr %16, align 16, !noalias !74
+  store i64 0, ptr %0, align 4, !alias.scope !74
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !76
+  store i32 %25, ptr %28, align 4, !alias.scope !74
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !76
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !74
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -19149,35 +19145,35 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %20 = load i32, ptr %19, align 4, !noalias !85
-  %21 = load i64, ptr %18, align 8, !noalias !85
-  %22 = load i64, ptr %17, align 8, !noalias !85
-  %23 = load i32, ptr %3, align 4, !noalias !85
-  call void @_ZN8WasmEdge4Host12WasiFdAdvise4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i64 noundef %22, i64 noundef %21, i32 noundef %20), !noalias !82
-  %24 = load i8, ptr %7, align 4, !noalias !82
+  %20 = load i32, ptr %19, align 4, !noalias !83
+  %21 = load i64, ptr %18, align 8, !noalias !83
+  %22 = load i64, ptr %17, align 8, !noalias !83
+  %23 = load i32, ptr %3, align 4, !noalias !83
+  call void @_ZN8WasmEdge4Host12WasiFdAdvise4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i64 noundef %22, i64 noundef %21, i32 noundef %20), !noalias !80
+  %24 = load i8, ptr %7, align 4, !noalias !80
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !82
+  %27 = load i32, ptr %26, align 4, !noalias !80
   br i1 %25, label %28, label %29
 
 28:                                               ; preds = %15
-  store i32 %27, ptr %16, align 16, !noalias !82
-  store i64 0, ptr %0, align 4, !alias.scope !82
+  store i32 %27, ptr %16, align 16, !noalias !80
+  store i64 0, ptr %0, align 4, !alias.scope !80
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %27, ptr %30, align 4, !alias.scope !82
+  store i32 %27, ptr %30, align 4, !alias.scope !80
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !82
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !80
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %31
 
@@ -19826,33 +19822,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i64, ptr %18, align 8, !noalias !91
-  %20 = load i64, ptr %17, align 8, !noalias !91
-  %21 = load i32, ptr %3, align 4, !noalias !91
-  call void @_ZN8WasmEdge4Host14WasiFdAllocate4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i64 noundef %20, i64 noundef %19), !noalias !88
-  %22 = load i8, ptr %7, align 4, !noalias !88
+  %19 = load i64, ptr %18, align 8, !noalias !89
+  %20 = load i64, ptr %17, align 8, !noalias !89
+  %21 = load i32, ptr %3, align 4, !noalias !89
+  call void @_ZN8WasmEdge4Host14WasiFdAllocate4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i64 noundef %20, i64 noundef %19), !noalias !86
+  %22 = load i8, ptr %7, align 4, !noalias !86
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !88
+  %25 = load i32, ptr %24, align 4, !noalias !86
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !88
-  store i64 0, ptr %0, align 4, !alias.scope !88
+  store i32 %25, ptr %16, align 16, !noalias !86
+  store i64 0, ptr %0, align 4, !alias.scope !86
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !88
+  store i32 %25, ptr %28, align 4, !alias.scope !86
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !88
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !86
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -20439,29 +20435,29 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %17 = load i32, ptr %3, align 4, !noalias !97
-  call void @_ZN8WasmEdge4Host11WasiFdClose4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %17), !noalias !94
-  %18 = load i8, ptr %7, align 4, !noalias !94
+  %17 = load i32, ptr %3, align 4, !noalias !95
+  call void @_ZN8WasmEdge4Host11WasiFdClose4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %17), !noalias !92
+  %18 = load i8, ptr %7, align 4, !noalias !92
   %19 = trunc i8 %18 to i1
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %21 = load i32, ptr %20, align 4, !noalias !94
+  %21 = load i32, ptr %20, align 4, !noalias !92
   br i1 %19, label %22, label %23
 
 22:                                               ; preds = %15
-  store i32 %21, ptr %16, align 16, !noalias !94
-  store i64 0, ptr %0, align 4, !alias.scope !94
+  store i32 %21, ptr %16, align 16, !noalias !92
+  store i64 0, ptr %0, align 4, !alias.scope !92
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %21, ptr %24, align 4, !alias.scope !94
+  store i32 %21, ptr %24, align 4, !alias.scope !92
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %22, %23
   %.sink.i = phi i8 [ 1, %22 ], [ 0, %23 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !94
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !92
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %25
 
@@ -20916,29 +20912,29 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %17 = load i32, ptr %3, align 4, !noalias !103
-  call void @_ZN8WasmEdge4Host14WasiFdDatasync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %17), !noalias !100
-  %18 = load i8, ptr %7, align 4, !noalias !100
+  %17 = load i32, ptr %3, align 4, !noalias !101
+  call void @_ZN8WasmEdge4Host14WasiFdDatasync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %17), !noalias !98
+  %18 = load i8, ptr %7, align 4, !noalias !98
   %19 = trunc i8 %18 to i1
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %21 = load i32, ptr %20, align 4, !noalias !100
+  %21 = load i32, ptr %20, align 4, !noalias !98
   br i1 %19, label %22, label %23
 
 22:                                               ; preds = %15
-  store i32 %21, ptr %16, align 16, !noalias !100
-  store i64 0, ptr %0, align 4, !alias.scope !100
+  store i32 %21, ptr %16, align 16, !noalias !98
+  store i64 0, ptr %0, align 4, !alias.scope !98
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %21, ptr %24, align 4, !alias.scope !100
+  store i32 %21, ptr %24, align 4, !alias.scope !98
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %22, %23
   %.sink.i = phi i8 [ 1, %22 ], [ 0, %23 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !100
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %25
 
@@ -21393,31 +21389,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !109
-  %19 = load i32, ptr %3, align 4, !noalias !109
-  call void @_ZN8WasmEdge4Host15WasiFdFdstatGet4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !106
-  %20 = load i8, ptr %7, align 4, !noalias !106
+  %18 = load i32, ptr %17, align 4, !noalias !107
+  %19 = load i32, ptr %3, align 4, !noalias !107
+  call void @_ZN8WasmEdge4Host15WasiFdFdstatGet4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !104
+  %20 = load i8, ptr %7, align 4, !noalias !104
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !106
+  %23 = load i32, ptr %22, align 4, !noalias !104
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !106
-  store i64 0, ptr %0, align 4, !alias.scope !106
+  store i32 %23, ptr %16, align 16, !noalias !104
+  store i64 0, ptr %0, align 4, !alias.scope !104
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !106
+  store i32 %23, ptr %26, align 4, !alias.scope !104
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !106
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !104
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -21942,31 +21938,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !115
-  %19 = load i32, ptr %3, align 4, !noalias !115
-  call void @_ZN8WasmEdge4Host20WasiFdFdstatSetFlags4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !112
-  %20 = load i8, ptr %7, align 4, !noalias !112
+  %18 = load i32, ptr %17, align 4, !noalias !113
+  %19 = load i32, ptr %3, align 4, !noalias !113
+  call void @_ZN8WasmEdge4Host20WasiFdFdstatSetFlags4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !110
+  %20 = load i8, ptr %7, align 4, !noalias !110
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !112
+  %23 = load i32, ptr %22, align 4, !noalias !110
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !112
-  store i64 0, ptr %0, align 4, !alias.scope !112
+  store i32 %23, ptr %16, align 16, !noalias !110
+  store i64 0, ptr %0, align 4, !alias.scope !110
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !112
+  store i32 %23, ptr %26, align 4, !alias.scope !110
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !112
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !110
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -22491,33 +22487,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i64, ptr %18, align 8, !noalias !121
-  %20 = load i64, ptr %17, align 8, !noalias !121
-  %21 = load i32, ptr %3, align 4, !noalias !121
-  call void @_ZN8WasmEdge4Host21WasiFdFdstatSetRights4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i64 noundef %20, i64 noundef %19), !noalias !118
-  %22 = load i8, ptr %7, align 4, !noalias !118
+  %19 = load i64, ptr %18, align 8, !noalias !119
+  %20 = load i64, ptr %17, align 8, !noalias !119
+  %21 = load i32, ptr %3, align 4, !noalias !119
+  call void @_ZN8WasmEdge4Host21WasiFdFdstatSetRights4bodyERKNS_7Runtime12CallingFrameEimm(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i64 noundef %20, i64 noundef %19), !noalias !116
+  %22 = load i8, ptr %7, align 4, !noalias !116
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !118
+  %25 = load i32, ptr %24, align 4, !noalias !116
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !118
-  store i64 0, ptr %0, align 4, !alias.scope !118
+  store i32 %25, ptr %16, align 16, !noalias !116
+  store i64 0, ptr %0, align 4, !alias.scope !116
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !118
+  store i32 %25, ptr %28, align 4, !alias.scope !116
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !118
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -23104,31 +23100,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !127
-  %19 = load i32, ptr %3, align 4, !noalias !127
-  call void @_ZN8WasmEdge4Host17WasiFdFilestatGet4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !124
-  %20 = load i8, ptr %7, align 4, !noalias !124
+  %18 = load i32, ptr %17, align 4, !noalias !125
+  %19 = load i32, ptr %3, align 4, !noalias !125
+  call void @_ZN8WasmEdge4Host17WasiFdFilestatGet4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !122
+  %20 = load i8, ptr %7, align 4, !noalias !122
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !124
+  %23 = load i32, ptr %22, align 4, !noalias !122
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !124
-  store i64 0, ptr %0, align 4, !alias.scope !124
+  store i32 %23, ptr %16, align 16, !noalias !122
+  store i64 0, ptr %0, align 4, !alias.scope !122
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !124
+  store i32 %23, ptr %26, align 4, !alias.scope !122
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !124
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !122
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -23653,31 +23649,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i64, ptr %17, align 8, !noalias !133
-  %19 = load i32, ptr %3, align 4, !noalias !133
-  call void @_ZN8WasmEdge4Host21WasiFdFilestatSetSize4bodyERKNS_7Runtime12CallingFrameEim(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i64 noundef %18), !noalias !130
-  %20 = load i8, ptr %7, align 4, !noalias !130
+  %18 = load i64, ptr %17, align 8, !noalias !131
+  %19 = load i32, ptr %3, align 4, !noalias !131
+  call void @_ZN8WasmEdge4Host21WasiFdFilestatSetSize4bodyERKNS_7Runtime12CallingFrameEim(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i64 noundef %18), !noalias !128
+  %20 = load i8, ptr %7, align 4, !noalias !128
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !130
+  %23 = load i32, ptr %22, align 4, !noalias !128
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !130
-  store i64 0, ptr %0, align 4, !alias.scope !130
+  store i32 %23, ptr %16, align 16, !noalias !128
+  store i64 0, ptr %0, align 4, !alias.scope !128
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !130
+  store i32 %23, ptr %26, align 4, !alias.scope !128
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !130
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !128
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -24202,35 +24198,35 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %20 = load i32, ptr %19, align 4, !noalias !139
-  %21 = load i64, ptr %18, align 8, !noalias !139
-  %22 = load i64, ptr %17, align 8, !noalias !139
-  %23 = load i32, ptr %3, align 4, !noalias !139
-  call void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimes4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i64 noundef %22, i64 noundef %21, i32 noundef %20), !noalias !136
-  %24 = load i8, ptr %7, align 4, !noalias !136
+  %20 = load i32, ptr %19, align 4, !noalias !137
+  %21 = load i64, ptr %18, align 8, !noalias !137
+  %22 = load i64, ptr %17, align 8, !noalias !137
+  %23 = load i32, ptr %3, align 4, !noalias !137
+  call void @_ZN8WasmEdge4Host22WasiFdFilestatSetTimes4bodyERKNS_7Runtime12CallingFrameEimmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i64 noundef %22, i64 noundef %21, i32 noundef %20), !noalias !134
+  %24 = load i8, ptr %7, align 4, !noalias !134
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !136
+  %27 = load i32, ptr %26, align 4, !noalias !134
   br i1 %25, label %28, label %29
 
 28:                                               ; preds = %15
-  store i32 %27, ptr %16, align 16, !noalias !136
-  store i64 0, ptr %0, align 4, !alias.scope !136
+  store i32 %27, ptr %16, align 16, !noalias !134
+  store i64 0, ptr %0, align 4, !alias.scope !134
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %27, ptr %30, align 4, !alias.scope !136
+  store i32 %27, ptr %30, align 4, !alias.scope !134
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !136
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !134
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %31
 
@@ -24879,37 +24875,37 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i32, ptr %20, align 4, !noalias !145
-  %22 = load i64, ptr %19, align 8, !noalias !145
-  %23 = load i32, ptr %18, align 4, !noalias !145
-  %24 = load i32, ptr %17, align 4, !noalias !145
-  %25 = load i32, ptr %3, align 4, !noalias !145
-  call void @_ZN8WasmEdge4Host11WasiFdPread4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i64 noundef %22, i32 noundef %21), !noalias !142
-  %26 = load i8, ptr %7, align 4, !noalias !142
+  %21 = load i32, ptr %20, align 4, !noalias !143
+  %22 = load i64, ptr %19, align 8, !noalias !143
+  %23 = load i32, ptr %18, align 4, !noalias !143
+  %24 = load i32, ptr %17, align 4, !noalias !143
+  %25 = load i32, ptr %3, align 4, !noalias !143
+  call void @_ZN8WasmEdge4Host11WasiFdPread4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i64 noundef %22, i32 noundef %21), !noalias !140
+  %26 = load i8, ptr %7, align 4, !noalias !140
   %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %29 = load i32, ptr %28, align 4, !noalias !142
+  %29 = load i32, ptr %28, align 4, !noalias !140
   br i1 %27, label %30, label %31
 
 30:                                               ; preds = %15
-  store i32 %29, ptr %16, align 16, !noalias !142
-  store i64 0, ptr %0, align 4, !alias.scope !142
+  store i32 %29, ptr %16, align 16, !noalias !140
+  store i64 0, ptr %0, align 4, !alias.scope !140
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 31:                                               ; preds = %15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %29, ptr %32, align 4, !alias.scope !142
+  store i32 %29, ptr %32, align 4, !alias.scope !140
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !142
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !140
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %33
 
@@ -25620,31 +25616,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !151
-  %19 = load i32, ptr %3, align 4, !noalias !151
-  call void @_ZN8WasmEdge4Host16WasiFdPrestatGet4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !148
-  %20 = load i8, ptr %7, align 4, !noalias !148
+  %18 = load i32, ptr %17, align 4, !noalias !149
+  %19 = load i32, ptr %3, align 4, !noalias !149
+  call void @_ZN8WasmEdge4Host16WasiFdPrestatGet4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !146
+  %20 = load i8, ptr %7, align 4, !noalias !146
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !148
+  %23 = load i32, ptr %22, align 4, !noalias !146
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !148
-  store i64 0, ptr %0, align 4, !alias.scope !148
+  store i32 %23, ptr %16, align 16, !noalias !146
+  store i64 0, ptr %0, align 4, !alias.scope !146
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !148
+  store i32 %23, ptr %26, align 4, !alias.scope !146
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !148
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !146
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -26169,33 +26165,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !157
-  %20 = load i32, ptr %17, align 4, !noalias !157
-  %21 = load i32, ptr %3, align 4, !noalias !157
-  call void @_ZN8WasmEdge4Host20WasiFdPrestatDirName4bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !154
-  %22 = load i8, ptr %7, align 4, !noalias !154
+  %19 = load i32, ptr %18, align 4, !noalias !155
+  %20 = load i32, ptr %17, align 4, !noalias !155
+  %21 = load i32, ptr %3, align 4, !noalias !155
+  call void @_ZN8WasmEdge4Host20WasiFdPrestatDirName4bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !152
+  %22 = load i8, ptr %7, align 4, !noalias !152
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !154
+  %25 = load i32, ptr %24, align 4, !noalias !152
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !154
-  store i64 0, ptr %0, align 4, !alias.scope !154
+  store i32 %25, ptr %16, align 16, !noalias !152
+  store i64 0, ptr %0, align 4, !alias.scope !152
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !154
+  store i32 %25, ptr %28, align 4, !alias.scope !152
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !154
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !152
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -26782,37 +26778,37 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i32, ptr %20, align 4, !noalias !163
-  %22 = load i64, ptr %19, align 8, !noalias !163
-  %23 = load i32, ptr %18, align 4, !noalias !163
-  %24 = load i32, ptr %17, align 4, !noalias !163
-  %25 = load i32, ptr %3, align 4, !noalias !163
-  call void @_ZN8WasmEdge4Host12WasiFdPwrite4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i64 noundef %22, i32 noundef %21), !noalias !160
-  %26 = load i8, ptr %7, align 4, !noalias !160
+  %21 = load i32, ptr %20, align 4, !noalias !161
+  %22 = load i64, ptr %19, align 8, !noalias !161
+  %23 = load i32, ptr %18, align 4, !noalias !161
+  %24 = load i32, ptr %17, align 4, !noalias !161
+  %25 = load i32, ptr %3, align 4, !noalias !161
+  call void @_ZN8WasmEdge4Host12WasiFdPwrite4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i64 noundef %22, i32 noundef %21), !noalias !158
+  %26 = load i8, ptr %7, align 4, !noalias !158
   %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %29 = load i32, ptr %28, align 4, !noalias !160
+  %29 = load i32, ptr %28, align 4, !noalias !158
   br i1 %27, label %30, label %31
 
 30:                                               ; preds = %15
-  store i32 %29, ptr %16, align 16, !noalias !160
-  store i64 0, ptr %0, align 4, !alias.scope !160
+  store i32 %29, ptr %16, align 16, !noalias !158
+  store i64 0, ptr %0, align 4, !alias.scope !158
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 31:                                               ; preds = %15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %29, ptr %32, align 4, !alias.scope !160
+  store i32 %29, ptr %32, align 4, !alias.scope !158
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !160
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !158
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %33
 
@@ -27523,35 +27519,35 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %20 = load i32, ptr %19, align 4, !noalias !169
-  %21 = load i32, ptr %18, align 4, !noalias !169
-  %22 = load i32, ptr %17, align 4, !noalias !169
-  %23 = load i32, ptr %3, align 4, !noalias !169
-  call void @_ZN8WasmEdge4Host10WasiFdRead4bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !166
-  %24 = load i8, ptr %7, align 4, !noalias !166
+  %20 = load i32, ptr %19, align 4, !noalias !167
+  %21 = load i32, ptr %18, align 4, !noalias !167
+  %22 = load i32, ptr %17, align 4, !noalias !167
+  %23 = load i32, ptr %3, align 4, !noalias !167
+  call void @_ZN8WasmEdge4Host10WasiFdRead4bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !164
+  %24 = load i8, ptr %7, align 4, !noalias !164
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !166
+  %27 = load i32, ptr %26, align 4, !noalias !164
   br i1 %25, label %28, label %29
 
 28:                                               ; preds = %15
-  store i32 %27, ptr %16, align 16, !noalias !166
-  store i64 0, ptr %0, align 4, !alias.scope !166
+  store i32 %27, ptr %16, align 16, !noalias !164
+  store i64 0, ptr %0, align 4, !alias.scope !164
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %27, ptr %30, align 4, !alias.scope !166
+  store i32 %27, ptr %30, align 4, !alias.scope !164
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !166
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !164
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %31
 
@@ -28200,37 +28196,37 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i32, ptr %20, align 4, !noalias !175
-  %22 = load i64, ptr %19, align 8, !noalias !175
-  %23 = load i32, ptr %18, align 4, !noalias !175
-  %24 = load i32, ptr %17, align 4, !noalias !175
-  %25 = load i32, ptr %3, align 4, !noalias !175
-  call void @_ZN8WasmEdge4Host13WasiFdReadDir4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i64 noundef %22, i32 noundef %21), !noalias !172
-  %26 = load i8, ptr %7, align 4, !noalias !172
+  %21 = load i32, ptr %20, align 4, !noalias !173
+  %22 = load i64, ptr %19, align 8, !noalias !173
+  %23 = load i32, ptr %18, align 4, !noalias !173
+  %24 = load i32, ptr %17, align 4, !noalias !173
+  %25 = load i32, ptr %3, align 4, !noalias !173
+  call void @_ZN8WasmEdge4Host13WasiFdReadDir4bodyERKNS_7Runtime12CallingFrameEijjmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i64 noundef %22, i32 noundef %21), !noalias !170
+  %26 = load i8, ptr %7, align 4, !noalias !170
   %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %29 = load i32, ptr %28, align 4, !noalias !172
+  %29 = load i32, ptr %28, align 4, !noalias !170
   br i1 %27, label %30, label %31
 
 30:                                               ; preds = %15
-  store i32 %29, ptr %16, align 16, !noalias !172
-  store i64 0, ptr %0, align 4, !alias.scope !172
+  store i32 %29, ptr %16, align 16, !noalias !170
+  store i64 0, ptr %0, align 4, !alias.scope !170
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 31:                                               ; preds = %15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %29, ptr %32, align 4, !alias.scope !172
+  store i32 %29, ptr %32, align 4, !alias.scope !170
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !172
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !170
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %33
 
@@ -28941,31 +28937,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !181
-  %19 = load i32, ptr %3, align 4, !noalias !181
-  call void @_ZN8WasmEdge4Host14WasiFdRenumber4bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !178
-  %20 = load i8, ptr %7, align 4, !noalias !178
+  %18 = load i32, ptr %17, align 4, !noalias !179
+  %19 = load i32, ptr %3, align 4, !noalias !179
+  call void @_ZN8WasmEdge4Host14WasiFdRenumber4bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !176
+  %20 = load i8, ptr %7, align 4, !noalias !176
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !178
+  %23 = load i32, ptr %22, align 4, !noalias !176
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !178
-  store i64 0, ptr %0, align 4, !alias.scope !178
+  store i32 %23, ptr %16, align 16, !noalias !176
+  store i64 0, ptr %0, align 4, !alias.scope !176
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !178
+  store i32 %23, ptr %26, align 4, !alias.scope !176
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !178
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !176
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -29490,35 +29486,35 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %20 = load i32, ptr %19, align 4, !noalias !187
-  %21 = load i32, ptr %18, align 4, !noalias !187
-  %22 = load i64, ptr %17, align 8, !noalias !187
-  %23 = load i32, ptr %3, align 4, !noalias !187
-  call void @_ZN8WasmEdge4Host10WasiFdSeek4bodyERKNS_7Runtime12CallingFrameEiljj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1349") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i64 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !184
-  %24 = load i8, ptr %7, align 4, !noalias !184
+  %20 = load i32, ptr %19, align 4, !noalias !185
+  %21 = load i32, ptr %18, align 4, !noalias !185
+  %22 = load i64, ptr %17, align 8, !noalias !185
+  %23 = load i32, ptr %3, align 4, !noalias !185
+  call void @_ZN8WasmEdge4Host10WasiFdSeek4bodyERKNS_7Runtime12CallingFrameEiljj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1349") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i64 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !182
+  %24 = load i8, ptr %7, align 4, !noalias !182
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !184
+  %27 = load i32, ptr %26, align 4, !noalias !182
   br i1 %25, label %28, label %29
 
 28:                                               ; preds = %15
-  store i32 %27, ptr %16, align 16, !noalias !184
-  store i64 0, ptr %0, align 4, !alias.scope !184
+  store i32 %27, ptr %16, align 16, !noalias !182
+  store i64 0, ptr %0, align 4, !alias.scope !182
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %27, ptr %30, align 4, !alias.scope !184
+  store i32 %27, ptr %30, align 4, !alias.scope !182
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !184
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !182
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %31
 
@@ -30167,29 +30163,29 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %17 = load i32, ptr %3, align 4, !noalias !193
-  call void @_ZN8WasmEdge4Host10WasiFdSync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %17), !noalias !190
-  %18 = load i8, ptr %7, align 4, !noalias !190
+  %17 = load i32, ptr %3, align 4, !noalias !191
+  call void @_ZN8WasmEdge4Host10WasiFdSync4bodyERKNS_7Runtime12CallingFrameEi(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %17), !noalias !188
+  %18 = load i8, ptr %7, align 4, !noalias !188
   %19 = trunc i8 %18 to i1
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %21 = load i32, ptr %20, align 4, !noalias !190
+  %21 = load i32, ptr %20, align 4, !noalias !188
   br i1 %19, label %22, label %23
 
 22:                                               ; preds = %15
-  store i32 %21, ptr %16, align 16, !noalias !190
-  store i64 0, ptr %0, align 4, !alias.scope !190
+  store i32 %21, ptr %16, align 16, !noalias !188
+  store i64 0, ptr %0, align 4, !alias.scope !188
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %21, ptr %24, align 4, !alias.scope !190
+  store i32 %21, ptr %24, align 4, !alias.scope !188
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %22, %23
   %.sink.i = phi i8 [ 1, %22 ], [ 0, %23 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !190
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !188
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %25
 
@@ -30644,31 +30640,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !199
-  %19 = load i32, ptr %3, align 4, !noalias !199
-  call void @_ZN8WasmEdge4Host10WasiFdTell4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !196
-  %20 = load i8, ptr %7, align 4, !noalias !196
+  %18 = load i32, ptr %17, align 4, !noalias !197
+  %19 = load i32, ptr %3, align 4, !noalias !197
+  call void @_ZN8WasmEdge4Host10WasiFdTell4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !194
+  %20 = load i8, ptr %7, align 4, !noalias !194
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !196
+  %23 = load i32, ptr %22, align 4, !noalias !194
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !196
-  store i64 0, ptr %0, align 4, !alias.scope !196
+  store i32 %23, ptr %16, align 16, !noalias !194
+  store i64 0, ptr %0, align 4, !alias.scope !194
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !196
+  store i32 %23, ptr %26, align 4, !alias.scope !194
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !196
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !194
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -31193,35 +31189,35 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %20 = load i32, ptr %19, align 4, !noalias !205
-  %21 = load i32, ptr %18, align 4, !noalias !205
-  %22 = load i32, ptr %17, align 4, !noalias !205
-  %23 = load i32, ptr %3, align 4, !noalias !205
-  call void @_ZN8WasmEdge4Host11WasiFdWrite4bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !202
-  %24 = load i8, ptr %7, align 4, !noalias !202
+  %20 = load i32, ptr %19, align 4, !noalias !203
+  %21 = load i32, ptr %18, align 4, !noalias !203
+  %22 = load i32, ptr %17, align 4, !noalias !203
+  %23 = load i32, ptr %3, align 4, !noalias !203
+  call void @_ZN8WasmEdge4Host11WasiFdWrite4bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !200
+  %24 = load i8, ptr %7, align 4, !noalias !200
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !202
+  %27 = load i32, ptr %26, align 4, !noalias !200
   br i1 %25, label %28, label %29
 
 28:                                               ; preds = %15
-  store i32 %27, ptr %16, align 16, !noalias !202
-  store i64 0, ptr %0, align 4, !alias.scope !202
+  store i32 %27, ptr %16, align 16, !noalias !200
+  store i64 0, ptr %0, align 4, !alias.scope !200
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %27, ptr %30, align 4, !alias.scope !202
+  store i32 %27, ptr %30, align 4, !alias.scope !200
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !202
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !200
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %31
 
@@ -31870,33 +31866,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !211
-  %20 = load i32, ptr %17, align 4, !noalias !211
-  %21 = load i32, ptr %3, align 4, !noalias !211
-  call void @_ZN8WasmEdge4Host23WasiPathCreateDirectory4bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !208
-  %22 = load i8, ptr %7, align 4, !noalias !208
+  %19 = load i32, ptr %18, align 4, !noalias !209
+  %20 = load i32, ptr %17, align 4, !noalias !209
+  %21 = load i32, ptr %3, align 4, !noalias !209
+  call void @_ZN8WasmEdge4Host23WasiPathCreateDirectory4bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !206
+  %22 = load i8, ptr %7, align 4, !noalias !206
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !208
+  %25 = load i32, ptr %24, align 4, !noalias !206
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !208
-  store i64 0, ptr %0, align 4, !alias.scope !208
+  store i32 %25, ptr %16, align 16, !noalias !206
+  store i64 0, ptr %0, align 4, !alias.scope !206
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !208
+  store i32 %25, ptr %28, align 4, !alias.scope !206
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !208
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !206
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -32483,37 +32479,37 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i32, ptr %20, align 4, !noalias !217
-  %22 = load i32, ptr %19, align 4, !noalias !217
-  %23 = load i32, ptr %18, align 4, !noalias !217
-  %24 = load i32, ptr %17, align 4, !noalias !217
-  %25 = load i32, ptr %3, align 4, !noalias !217
-  call void @_ZN8WasmEdge4Host19WasiPathFilestatGet4bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22, i32 noundef %21), !noalias !214
-  %26 = load i8, ptr %7, align 4, !noalias !214
+  %21 = load i32, ptr %20, align 4, !noalias !215
+  %22 = load i32, ptr %19, align 4, !noalias !215
+  %23 = load i32, ptr %18, align 4, !noalias !215
+  %24 = load i32, ptr %17, align 4, !noalias !215
+  %25 = load i32, ptr %3, align 4, !noalias !215
+  call void @_ZN8WasmEdge4Host19WasiPathFilestatGet4bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22, i32 noundef %21), !noalias !212
+  %26 = load i8, ptr %7, align 4, !noalias !212
   %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %29 = load i32, ptr %28, align 4, !noalias !214
+  %29 = load i32, ptr %28, align 4, !noalias !212
   br i1 %27, label %30, label %31
 
 30:                                               ; preds = %15
-  store i32 %29, ptr %16, align 16, !noalias !214
-  store i64 0, ptr %0, align 4, !alias.scope !214
+  store i32 %29, ptr %16, align 16, !noalias !212
+  store i64 0, ptr %0, align 4, !alias.scope !212
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 31:                                               ; preds = %15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %29, ptr %32, align 4, !alias.scope !214
+  store i32 %29, ptr %32, align 4, !alias.scope !212
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !214
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !212
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %33
 
@@ -33224,7 +33220,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -33232,33 +33228,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24Wa
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %23 = load i32, ptr %22, align 4, !noalias !223
-  %24 = load i64, ptr %21, align 8, !noalias !223
-  %25 = load i64, ptr %20, align 8, !noalias !223
-  %26 = load i32, ptr %19, align 4, !noalias !223
-  %27 = load i32, ptr %18, align 4, !noalias !223
-  %28 = load i32, ptr %17, align 4, !noalias !223
-  %29 = load i32, ptr %3, align 4, !noalias !223
-  call void @_ZN8WasmEdge4Host24WasiPathFilestatSetTimes4bodyERKNS_7Runtime12CallingFrameEijjjmmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i64 noundef %25, i64 noundef %24, i32 noundef %23), !noalias !220
-  %30 = load i8, ptr %7, align 4, !noalias !220
+  %23 = load i32, ptr %22, align 4, !noalias !221
+  %24 = load i64, ptr %21, align 8, !noalias !221
+  %25 = load i64, ptr %20, align 8, !noalias !221
+  %26 = load i32, ptr %19, align 4, !noalias !221
+  %27 = load i32, ptr %18, align 4, !noalias !221
+  %28 = load i32, ptr %17, align 4, !noalias !221
+  %29 = load i32, ptr %3, align 4, !noalias !221
+  call void @_ZN8WasmEdge4Host24WasiPathFilestatSetTimes4bodyERKNS_7Runtime12CallingFrameEijjjmmj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i64 noundef %25, i64 noundef %24, i32 noundef %23), !noalias !218
+  %30 = load i8, ptr %7, align 4, !noalias !218
   %31 = trunc i8 %30 to i1
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %33 = load i32, ptr %32, align 4, !noalias !220
+  %33 = load i32, ptr %32, align 4, !noalias !218
   br i1 %31, label %34, label %35
 
 34:                                               ; preds = %15
-  store i32 %33, ptr %16, align 16, !noalias !220
-  store i64 0, ptr %0, align 4, !alias.scope !220
+  store i32 %33, ptr %16, align 16, !noalias !218
+  store i64 0, ptr %0, align 4, !alias.scope !218
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 35:                                               ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %33, ptr %36, align 4, !alias.scope !220
+  store i32 %33, ptr %36, align 4, !alias.scope !218
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %34, %35
   %.sink.i = phi i8 [ 1, %34 ], [ 0, %35 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !220
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !218
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %37
 
@@ -34093,7 +34089,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -34101,33 +34097,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %23 = load i32, ptr %22, align 4, !noalias !229
-  %24 = load i32, ptr %21, align 4, !noalias !229
-  %25 = load i32, ptr %20, align 4, !noalias !229
-  %26 = load i32, ptr %19, align 4, !noalias !229
-  %27 = load i32, ptr %18, align 4, !noalias !229
-  %28 = load i32, ptr %17, align 4, !noalias !229
-  %29 = load i32, ptr %3, align 4, !noalias !229
-  call void @_ZN8WasmEdge4Host12WasiPathLink4bodyERKNS_7Runtime12CallingFrameEijjjijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23), !noalias !226
-  %30 = load i8, ptr %7, align 4, !noalias !226
+  %23 = load i32, ptr %22, align 4, !noalias !227
+  %24 = load i32, ptr %21, align 4, !noalias !227
+  %25 = load i32, ptr %20, align 4, !noalias !227
+  %26 = load i32, ptr %19, align 4, !noalias !227
+  %27 = load i32, ptr %18, align 4, !noalias !227
+  %28 = load i32, ptr %17, align 4, !noalias !227
+  %29 = load i32, ptr %3, align 4, !noalias !227
+  call void @_ZN8WasmEdge4Host12WasiPathLink4bodyERKNS_7Runtime12CallingFrameEijjjijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23), !noalias !224
+  %30 = load i8, ptr %7, align 4, !noalias !224
   %31 = trunc i8 %30 to i1
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %33 = load i32, ptr %32, align 4, !noalias !226
+  %33 = load i32, ptr %32, align 4, !noalias !224
   br i1 %31, label %34, label %35
 
 34:                                               ; preds = %15
-  store i32 %33, ptr %16, align 16, !noalias !226
-  store i64 0, ptr %0, align 4, !alias.scope !226
+  store i32 %33, ptr %16, align 16, !noalias !224
+  store i64 0, ptr %0, align 4, !alias.scope !224
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 35:                                               ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %33, ptr %36, align 4, !alias.scope !226
+  store i32 %33, ptr %36, align 4, !alias.scope !224
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %34, %35
   %.sink.i = phi i8 [ 1, %34 ], [ 0, %35 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !226
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !224
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %37
 
@@ -34962,7 +34958,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !232)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -34972,35 +34968,35 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %25 = load i32, ptr %24, align 4, !noalias !235
-  %26 = load i32, ptr %23, align 4, !noalias !235
-  %27 = load i64, ptr %22, align 8, !noalias !235
-  %28 = load i64, ptr %21, align 8, !noalias !235
-  %29 = load i32, ptr %20, align 4, !noalias !235
-  %30 = load i32, ptr %19, align 4, !noalias !235
-  %31 = load i32, ptr %18, align 4, !noalias !235
-  %32 = load i32, ptr %17, align 4, !noalias !235
-  %33 = load i32, ptr %3, align 4, !noalias !235
-  call void @_ZN8WasmEdge4Host12WasiPathOpen4bodyERKNS_7Runtime12CallingFrameEijjjjmmjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %33, i32 noundef %32, i32 noundef %31, i32 noundef %30, i32 noundef %29, i64 noundef %28, i64 noundef %27, i32 noundef %26, i32 noundef %25), !noalias !232
-  %34 = load i8, ptr %7, align 4, !noalias !232
+  %25 = load i32, ptr %24, align 4, !noalias !233
+  %26 = load i32, ptr %23, align 4, !noalias !233
+  %27 = load i64, ptr %22, align 8, !noalias !233
+  %28 = load i64, ptr %21, align 8, !noalias !233
+  %29 = load i32, ptr %20, align 4, !noalias !233
+  %30 = load i32, ptr %19, align 4, !noalias !233
+  %31 = load i32, ptr %18, align 4, !noalias !233
+  %32 = load i32, ptr %17, align 4, !noalias !233
+  %33 = load i32, ptr %3, align 4, !noalias !233
+  call void @_ZN8WasmEdge4Host12WasiPathOpen4bodyERKNS_7Runtime12CallingFrameEijjjjmmjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %33, i32 noundef %32, i32 noundef %31, i32 noundef %30, i32 noundef %29, i64 noundef %28, i64 noundef %27, i32 noundef %26, i32 noundef %25), !noalias !230
+  %34 = load i8, ptr %7, align 4, !noalias !230
   %35 = trunc i8 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %37 = load i32, ptr %36, align 4, !noalias !232
+  %37 = load i32, ptr %36, align 4, !noalias !230
   br i1 %35, label %38, label %39
 
 38:                                               ; preds = %15
-  store i32 %37, ptr %16, align 16, !noalias !232
-  store i64 0, ptr %0, align 4, !alias.scope !232
+  store i32 %37, ptr %16, align 16, !noalias !230
+  store i64 0, ptr %0, align 4, !alias.scope !230
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 39:                                               ; preds = %15
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %37, ptr %40, align 4, !alias.scope !232
+  store i32 %37, ptr %40, align 4, !alias.scope !230
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %38, %39
   %.sink.i = phi i8 [ 1, %38 ], [ 0, %39 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !232
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !230
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %41
 
@@ -35959,39 +35955,39 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !238)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %22 = load i32, ptr %21, align 4, !noalias !241
-  %23 = load i32, ptr %20, align 4, !noalias !241
-  %24 = load i32, ptr %19, align 4, !noalias !241
-  %25 = load i32, ptr %18, align 4, !noalias !241
-  %26 = load i32, ptr %17, align 4, !noalias !241
-  %27 = load i32, ptr %3, align 4, !noalias !241
-  call void @_ZN8WasmEdge4Host16WasiPathReadLink4bodyERKNS_7Runtime12CallingFrameEijjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22), !noalias !238
-  %28 = load i8, ptr %7, align 4, !noalias !238
+  %22 = load i32, ptr %21, align 4, !noalias !239
+  %23 = load i32, ptr %20, align 4, !noalias !239
+  %24 = load i32, ptr %19, align 4, !noalias !239
+  %25 = load i32, ptr %18, align 4, !noalias !239
+  %26 = load i32, ptr %17, align 4, !noalias !239
+  %27 = load i32, ptr %3, align 4, !noalias !239
+  call void @_ZN8WasmEdge4Host16WasiPathReadLink4bodyERKNS_7Runtime12CallingFrameEijjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22), !noalias !236
+  %28 = load i8, ptr %7, align 4, !noalias !236
   %29 = trunc i8 %28 to i1
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %31 = load i32, ptr %30, align 4, !noalias !238
+  %31 = load i32, ptr %30, align 4, !noalias !236
   br i1 %29, label %32, label %33
 
 32:                                               ; preds = %15
-  store i32 %31, ptr %16, align 16, !noalias !238
-  store i64 0, ptr %0, align 4, !alias.scope !238
+  store i32 %31, ptr %16, align 16, !noalias !236
+  store i64 0, ptr %0, align 4, !alias.scope !236
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 33:                                               ; preds = %15
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %31, ptr %34, align 4, !alias.scope !238
+  store i32 %31, ptr %34, align 4, !alias.scope !236
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %32, %33
   %.sink.i = phi i8 [ 1, %32 ], [ 0, %33 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !238
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !236
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %35
 
@@ -36764,33 +36760,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !247
-  %20 = load i32, ptr %17, align 4, !noalias !247
-  %21 = load i32, ptr %3, align 4, !noalias !247
-  call void @_ZN8WasmEdge4Host23WasiPathRemoveDirectory4bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !244
-  %22 = load i8, ptr %7, align 4, !noalias !244
+  %19 = load i32, ptr %18, align 4, !noalias !245
+  %20 = load i32, ptr %17, align 4, !noalias !245
+  %21 = load i32, ptr %3, align 4, !noalias !245
+  call void @_ZN8WasmEdge4Host23WasiPathRemoveDirectory4bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !242
+  %22 = load i8, ptr %7, align 4, !noalias !242
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !244
+  %25 = load i32, ptr %24, align 4, !noalias !242
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !244
-  store i64 0, ptr %0, align 4, !alias.scope !244
+  store i32 %25, ptr %16, align 16, !noalias !242
+  store i64 0, ptr %0, align 4, !alias.scope !242
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !244
+  store i32 %25, ptr %28, align 4, !alias.scope !242
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !244
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !242
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -37377,39 +37373,39 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !250)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %22 = load i32, ptr %21, align 4, !noalias !253
-  %23 = load i32, ptr %20, align 4, !noalias !253
-  %24 = load i32, ptr %19, align 4, !noalias !253
-  %25 = load i32, ptr %18, align 4, !noalias !253
-  %26 = load i32, ptr %17, align 4, !noalias !253
-  %27 = load i32, ptr %3, align 4, !noalias !253
-  call void @_ZN8WasmEdge4Host14WasiPathRename4bodyERKNS_7Runtime12CallingFrameEijjijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22), !noalias !250
-  %28 = load i8, ptr %7, align 4, !noalias !250
+  %22 = load i32, ptr %21, align 4, !noalias !251
+  %23 = load i32, ptr %20, align 4, !noalias !251
+  %24 = load i32, ptr %19, align 4, !noalias !251
+  %25 = load i32, ptr %18, align 4, !noalias !251
+  %26 = load i32, ptr %17, align 4, !noalias !251
+  %27 = load i32, ptr %3, align 4, !noalias !251
+  call void @_ZN8WasmEdge4Host14WasiPathRename4bodyERKNS_7Runtime12CallingFrameEijjijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22), !noalias !248
+  %28 = load i8, ptr %7, align 4, !noalias !248
   %29 = trunc i8 %28 to i1
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %31 = load i32, ptr %30, align 4, !noalias !250
+  %31 = load i32, ptr %30, align 4, !noalias !248
   br i1 %29, label %32, label %33
 
 32:                                               ; preds = %15
-  store i32 %31, ptr %16, align 16, !noalias !250
-  store i64 0, ptr %0, align 4, !alias.scope !250
+  store i32 %31, ptr %16, align 16, !noalias !248
+  store i64 0, ptr %0, align 4, !alias.scope !248
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 33:                                               ; preds = %15
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %31, ptr %34, align 4, !alias.scope !250
+  store i32 %31, ptr %34, align 4, !alias.scope !248
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %32, %33
   %.sink.i = phi i8 [ 1, %32 ], [ 0, %33 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !250
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !248
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %35
 
@@ -38182,37 +38178,37 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i32, ptr %20, align 4, !noalias !259
-  %22 = load i32, ptr %19, align 4, !noalias !259
-  %23 = load i32, ptr %18, align 4, !noalias !259
-  %24 = load i32, ptr %17, align 4, !noalias !259
-  %25 = load i32, ptr %3, align 4, !noalias !259
-  call void @_ZN8WasmEdge4Host15WasiPathSymlink4bodyERKNS_7Runtime12CallingFrameEjjijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22, i32 noundef %21), !noalias !256
-  %26 = load i8, ptr %7, align 4, !noalias !256
+  %21 = load i32, ptr %20, align 4, !noalias !257
+  %22 = load i32, ptr %19, align 4, !noalias !257
+  %23 = load i32, ptr %18, align 4, !noalias !257
+  %24 = load i32, ptr %17, align 4, !noalias !257
+  %25 = load i32, ptr %3, align 4, !noalias !257
+  call void @_ZN8WasmEdge4Host15WasiPathSymlink4bodyERKNS_7Runtime12CallingFrameEjjijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22, i32 noundef %21), !noalias !254
+  %26 = load i8, ptr %7, align 4, !noalias !254
   %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %29 = load i32, ptr %28, align 4, !noalias !256
+  %29 = load i32, ptr %28, align 4, !noalias !254
   br i1 %27, label %30, label %31
 
 30:                                               ; preds = %15
-  store i32 %29, ptr %16, align 16, !noalias !256
-  store i64 0, ptr %0, align 4, !alias.scope !256
+  store i32 %29, ptr %16, align 16, !noalias !254
+  store i64 0, ptr %0, align 4, !alias.scope !254
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 31:                                               ; preds = %15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %29, ptr %32, align 4, !alias.scope !256
+  store i32 %29, ptr %32, align 4, !alias.scope !254
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !256
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !254
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %33
 
@@ -38923,33 +38919,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !262)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !265
-  %20 = load i32, ptr %17, align 4, !noalias !265
-  %21 = load i32, ptr %3, align 4, !noalias !265
-  call void @_ZN8WasmEdge4Host18WasiPathUnlinkFile4bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !262
-  %22 = load i8, ptr %7, align 4, !noalias !262
+  %19 = load i32, ptr %18, align 4, !noalias !263
+  %20 = load i32, ptr %17, align 4, !noalias !263
+  %21 = load i32, ptr %3, align 4, !noalias !263
+  call void @_ZN8WasmEdge4Host18WasiPathUnlinkFile4bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !260
+  %22 = load i8, ptr %7, align 4, !noalias !260
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !262
+  %25 = load i32, ptr %24, align 4, !noalias !260
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !262
-  store i64 0, ptr %0, align 4, !alias.scope !262
+  store i32 %25, ptr %16, align 16, !noalias !260
+  store i64 0, ptr %0, align 4, !alias.scope !260
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !262
+  store i32 %25, ptr %28, align 4, !alias.scope !260
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !262
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !260
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -39536,35 +39532,35 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %20 = load i32, ptr %19, align 4, !noalias !271
-  %21 = load i32, ptr %18, align 4, !noalias !271
-  %22 = load i32, ptr %17, align 4, !noalias !271
-  %23 = load i32, ptr %3, align 4, !noalias !271
-  call void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EE4bodyERKNS_7Runtime12CallingFrameEjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !268
-  %24 = load i8, ptr %7, align 4, !noalias !268
+  %20 = load i32, ptr %19, align 4, !noalias !269
+  %21 = load i32, ptr %18, align 4, !noalias !269
+  %22 = load i32, ptr %17, align 4, !noalias !269
+  %23 = load i32, ptr %3, align 4, !noalias !269
+  call void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE0EE4bodyERKNS_7Runtime12CallingFrameEjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !266
+  %24 = load i8, ptr %7, align 4, !noalias !266
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !268
+  %27 = load i32, ptr %26, align 4, !noalias !266
   br i1 %25, label %28, label %29
 
 28:                                               ; preds = %15
-  store i32 %27, ptr %16, align 16, !noalias !268
-  store i64 0, ptr %0, align 4, !alias.scope !268
+  store i32 %27, ptr %16, align 16, !noalias !266
+  store i64 0, ptr %0, align 4, !alias.scope !266
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %27, ptr %30, align 4, !alias.scope !268
+  store i32 %27, ptr %30, align 4, !alias.scope !266
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !268
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !266
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %31
 
@@ -40213,35 +40209,35 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !272)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %20 = load i32, ptr %19, align 4, !noalias !277
-  %21 = load i32, ptr %18, align 4, !noalias !277
-  %22 = load i32, ptr %17, align 4, !noalias !277
-  %23 = load i32, ptr %3, align 4, !noalias !277
-  call void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EE4bodyERKNS_7Runtime12CallingFrameEjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !274
-  %24 = load i8, ptr %7, align 4, !noalias !274
+  %20 = load i32, ptr %19, align 4, !noalias !275
+  %21 = load i32, ptr %18, align 4, !noalias !275
+  %22 = load i32, ptr %17, align 4, !noalias !275
+  %23 = load i32, ptr %3, align 4, !noalias !275
+  call void @_ZN8WasmEdge4Host14WasiPollOneoffILNS0_4WASI11TriggerTypeE1EE4bodyERKNS_7Runtime12CallingFrameEjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !272
+  %24 = load i8, ptr %7, align 4, !noalias !272
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !274
+  %27 = load i32, ptr %26, align 4, !noalias !272
   br i1 %25, label %28, label %29
 
 28:                                               ; preds = %15
-  store i32 %27, ptr %16, align 16, !noalias !274
-  store i64 0, ptr %0, align 4, !alias.scope !274
+  store i32 %27, ptr %16, align 16, !noalias !272
+  store i64 0, ptr %0, align 4, !alias.scope !272
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %27, ptr %30, align 4, !alias.scope !274
+  store i32 %27, ptr %30, align 4, !alias.scope !272
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !274
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !272
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %31
 
@@ -40889,28 +40885,28 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12Wa
   br label %24
 
 15:                                               ; preds = %10
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %16 = load i32, ptr %3, align 4, !noalias !283
-  call void @_ZN8WasmEdge4Host12WasiProcExit4bodyERKNS_7Runtime12CallingFrameEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %16), !noalias !280
-  %17 = load i8, ptr %7, align 4, !noalias !280
+  %16 = load i32, ptr %3, align 4, !noalias !281
+  call void @_ZN8WasmEdge4Host12WasiProcExit4bodyERKNS_7Runtime12CallingFrameEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %16), !noalias !278
+  %17 = load i8, ptr %7, align 4, !noalias !278
   %18 = trunc i8 %17 to i1
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %21 = load i32, ptr %20, align 4, !noalias !286
+  %21 = load i32, ptr %20, align 4, !noalias !284
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %21, ptr %22, align 4, !alias.scope !280
+  store i32 %21, ptr %22, align 4, !alias.scope !278
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm0EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 23:                                               ; preds = %15
-  store i64 0, ptr %0, align 4, !alias.scope !280
+  store i64 0, ptr %0, align 4, !alias.scope !278
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm0EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm0EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %19, %23
   %.sink.i = phi i8 [ 1, %23 ], [ 0, %19 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !280
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !278
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %24
 
@@ -41263,29 +41259,29 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !289)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %17 = load i32, ptr %3, align 4, !noalias !292
-  call void @_ZN8WasmEdge4Host13WasiProcRaise4bodyERKNS_7Runtime12CallingFrameEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %17), !noalias !289
-  %18 = load i8, ptr %7, align 4, !noalias !289
+  %17 = load i32, ptr %3, align 4, !noalias !290
+  call void @_ZN8WasmEdge4Host13WasiProcRaise4bodyERKNS_7Runtime12CallingFrameEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %17), !noalias !287
+  %18 = load i8, ptr %7, align 4, !noalias !287
   %19 = trunc i8 %18 to i1
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %21 = load i32, ptr %20, align 4, !noalias !289
+  %21 = load i32, ptr %20, align 4, !noalias !287
   br i1 %19, label %22, label %23
 
 22:                                               ; preds = %15
-  store i32 %21, ptr %16, align 16, !noalias !289
-  store i64 0, ptr %0, align 4, !alias.scope !289
+  store i32 %21, ptr %16, align 16, !noalias !287
+  store i64 0, ptr %0, align 4, !alias.scope !287
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %21, ptr %24, align 4, !alias.scope !289
+  store i32 %21, ptr %24, align 4, !alias.scope !287
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %22, %23
   %.sink.i = phi i8 [ 1, %22 ], [ 0, %23 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !289
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !287
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %25
 
@@ -41740,28 +41736,28 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !295)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @_ZN8WasmEdge4Host14WasiSchedYield4bodyERKNS_7Runtime12CallingFrameE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2), !noalias !295
-  %17 = load i8, ptr %7, align 4, !noalias !295
+  call void @_ZN8WasmEdge4Host14WasiSchedYield4bodyERKNS_7Runtime12CallingFrameE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2), !noalias !293
+  %17 = load i8, ptr %7, align 4, !noalias !293
   %18 = trunc i8 %17 to i1
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %20 = load i32, ptr %19, align 4, !noalias !295
+  %20 = load i32, ptr %19, align 4, !noalias !293
   br i1 %18, label %21, label %22
 
 21:                                               ; preds = %15
-  store i32 %20, ptr %16, align 16, !noalias !295
-  store i64 0, ptr %0, align 4, !alias.scope !295
+  store i32 %20, ptr %16, align 16, !noalias !293
+  store i64 0, ptr %0, align 4, !alias.scope !293
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm0EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %20, ptr %23, align 4, !alias.scope !295
+  store i32 %20, ptr %23, align 4, !alias.scope !293
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm0EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm0EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %21, %22
   %.sink.i = phi i8 [ 1, %21 ], [ 0, %22 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !295
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !293
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %24
 
@@ -42114,31 +42110,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !296)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !301
-  %19 = load i32, ptr %3, align 4, !noalias !301
-  call void @_ZN8WasmEdge4Host13WasiRandomGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !298
-  %20 = load i8, ptr %7, align 4, !noalias !298
+  %18 = load i32, ptr %17, align 4, !noalias !299
+  %19 = load i32, ptr %3, align 4, !noalias !299
+  call void @_ZN8WasmEdge4Host13WasiRandomGet4bodyERKNS_7Runtime12CallingFrameEjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !296
+  %20 = load i8, ptr %7, align 4, !noalias !296
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !298
+  %23 = load i32, ptr %22, align 4, !noalias !296
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !298
-  store i64 0, ptr %0, align 4, !alias.scope !298
+  store i32 %23, ptr %16, align 16, !noalias !296
+  store i64 0, ptr %0, align 4, !alias.scope !296
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !298
+  store i32 %23, ptr %26, align 4, !alias.scope !296
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !298
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !296
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -42663,33 +42659,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !307
-  %20 = load i32, ptr %17, align 4, !noalias !307
-  %21 = load i32, ptr %3, align 4, !noalias !307
-  call void @_ZN8WasmEdge4Host14WasiSockOpenV14bodyERKNS_7Runtime12CallingFrameEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !304
-  %22 = load i8, ptr %7, align 4, !noalias !304
+  %19 = load i32, ptr %18, align 4, !noalias !305
+  %20 = load i32, ptr %17, align 4, !noalias !305
+  %21 = load i32, ptr %3, align 4, !noalias !305
+  call void @_ZN8WasmEdge4Host14WasiSockOpenV14bodyERKNS_7Runtime12CallingFrameEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !302
+  %22 = load i8, ptr %7, align 4, !noalias !302
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !304
+  %25 = load i32, ptr %24, align 4, !noalias !302
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !304
-  store i64 0, ptr %0, align 4, !alias.scope !304
+  store i32 %25, ptr %16, align 16, !noalias !302
+  store i64 0, ptr %0, align 4, !alias.scope !302
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !304
+  store i32 %25, ptr %28, align 4, !alias.scope !302
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !304
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !302
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -43276,33 +43272,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !313
-  %20 = load i32, ptr %17, align 4, !noalias !313
-  %21 = load i32, ptr %3, align 4, !noalias !313
-  call void @_ZN8WasmEdge4Host14WasiSockBindV14bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !310
-  %22 = load i8, ptr %7, align 4, !noalias !310
+  %19 = load i32, ptr %18, align 4, !noalias !311
+  %20 = load i32, ptr %17, align 4, !noalias !311
+  %21 = load i32, ptr %3, align 4, !noalias !311
+  call void @_ZN8WasmEdge4Host14WasiSockBindV14bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !308
+  %22 = load i8, ptr %7, align 4, !noalias !308
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !310
+  %25 = load i32, ptr %24, align 4, !noalias !308
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !310
-  store i64 0, ptr %0, align 4, !alias.scope !310
+  store i32 %25, ptr %16, align 16, !noalias !308
+  store i64 0, ptr %0, align 4, !alias.scope !308
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !310
+  store i32 %25, ptr %28, align 4, !alias.scope !308
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !310
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !308
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -43889,33 +43885,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !319
-  %20 = load i32, ptr %17, align 4, !noalias !319
-  %21 = load i32, ptr %3, align 4, !noalias !319
-  call void @_ZN8WasmEdge4Host17WasiSockConnectV14bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !316
-  %22 = load i8, ptr %7, align 4, !noalias !316
+  %19 = load i32, ptr %18, align 4, !noalias !317
+  %20 = load i32, ptr %17, align 4, !noalias !317
+  %21 = load i32, ptr %3, align 4, !noalias !317
+  call void @_ZN8WasmEdge4Host17WasiSockConnectV14bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !314
+  %22 = load i8, ptr %7, align 4, !noalias !314
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !316
+  %25 = load i32, ptr %24, align 4, !noalias !314
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !316
-  store i64 0, ptr %0, align 4, !alias.scope !316
+  store i32 %25, ptr %16, align 16, !noalias !314
+  store i64 0, ptr %0, align 4, !alias.scope !314
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !316
+  store i32 %25, ptr %28, align 4, !alias.scope !314
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !316
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !314
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -44502,31 +44498,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !322)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !320)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !325
-  %19 = load i32, ptr %3, align 4, !noalias !325
-  call void @_ZN8WasmEdge4Host16WasiSockListenV14bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !322
-  %20 = load i8, ptr %7, align 4, !noalias !322
+  %18 = load i32, ptr %17, align 4, !noalias !323
+  %19 = load i32, ptr %3, align 4, !noalias !323
+  call void @_ZN8WasmEdge4Host16WasiSockListenV14bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !320
+  %20 = load i8, ptr %7, align 4, !noalias !320
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !322
+  %23 = load i32, ptr %22, align 4, !noalias !320
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !322
-  store i64 0, ptr %0, align 4, !alias.scope !322
+  store i32 %23, ptr %16, align 16, !noalias !320
+  store i64 0, ptr %0, align 4, !alias.scope !320
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !322
+  store i32 %23, ptr %26, align 4, !alias.scope !320
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !322
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !320
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -45051,31 +45047,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !328)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !331
-  %19 = load i32, ptr %3, align 4, !noalias !331
-  call void @_ZN8WasmEdge4Host16WasiSockAcceptV14bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !328
-  %20 = load i8, ptr %7, align 4, !noalias !328
+  %18 = load i32, ptr %17, align 4, !noalias !329
+  %19 = load i32, ptr %3, align 4, !noalias !329
+  call void @_ZN8WasmEdge4Host16WasiSockAcceptV14bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !326
+  %20 = load i8, ptr %7, align 4, !noalias !326
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !328
+  %23 = load i32, ptr %22, align 4, !noalias !326
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !328
-  store i64 0, ptr %0, align 4, !alias.scope !328
+  store i32 %23, ptr %16, align 16, !noalias !326
+  store i64 0, ptr %0, align 4, !alias.scope !326
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !328
+  store i32 %23, ptr %26, align 4, !alias.scope !326
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !328
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !326
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -45600,39 +45596,39 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %22 = load i32, ptr %21, align 4, !noalias !337
-  %23 = load i32, ptr %20, align 4, !noalias !337
-  %24 = load i32, ptr %19, align 4, !noalias !337
-  %25 = load i32, ptr %18, align 4, !noalias !337
-  %26 = load i32, ptr %17, align 4, !noalias !337
-  %27 = load i32, ptr %3, align 4, !noalias !337
-  call void @_ZN8WasmEdge4Host14WasiSockRecvV14bodyERKNS_7Runtime12CallingFrameEijjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22), !noalias !334
-  %28 = load i8, ptr %7, align 4, !noalias !334
+  %22 = load i32, ptr %21, align 4, !noalias !335
+  %23 = load i32, ptr %20, align 4, !noalias !335
+  %24 = load i32, ptr %19, align 4, !noalias !335
+  %25 = load i32, ptr %18, align 4, !noalias !335
+  %26 = load i32, ptr %17, align 4, !noalias !335
+  %27 = load i32, ptr %3, align 4, !noalias !335
+  call void @_ZN8WasmEdge4Host14WasiSockRecvV14bodyERKNS_7Runtime12CallingFrameEijjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22), !noalias !332
+  %28 = load i8, ptr %7, align 4, !noalias !332
   %29 = trunc i8 %28 to i1
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %31 = load i32, ptr %30, align 4, !noalias !334
+  %31 = load i32, ptr %30, align 4, !noalias !332
   br i1 %29, label %32, label %33
 
 32:                                               ; preds = %15
-  store i32 %31, ptr %16, align 16, !noalias !334
-  store i64 0, ptr %0, align 4, !alias.scope !334
+  store i32 %31, ptr %16, align 16, !noalias !332
+  store i64 0, ptr %0, align 4, !alias.scope !332
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 33:                                               ; preds = %15
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %31, ptr %34, align 4, !alias.scope !334
+  store i32 %31, ptr %34, align 4, !alias.scope !332
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %32, %33
   %.sink.i = phi i8 [ 1, %32 ], [ 0, %33 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !334
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !332
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %35
 
@@ -46405,7 +46401,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !340)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !338)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -46413,33 +46409,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %23 = load i32, ptr %22, align 4, !noalias !343
-  %24 = load i32, ptr %21, align 4, !noalias !343
-  %25 = load i32, ptr %20, align 4, !noalias !343
-  %26 = load i32, ptr %19, align 4, !noalias !343
-  %27 = load i32, ptr %18, align 4, !noalias !343
-  %28 = load i32, ptr %17, align 4, !noalias !343
-  %29 = load i32, ptr %3, align 4, !noalias !343
-  call void @_ZN8WasmEdge4Host18WasiSockRecvFromV14bodyERKNS_7Runtime12CallingFrameEijjjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23), !noalias !340
-  %30 = load i8, ptr %7, align 4, !noalias !340
+  %23 = load i32, ptr %22, align 4, !noalias !341
+  %24 = load i32, ptr %21, align 4, !noalias !341
+  %25 = load i32, ptr %20, align 4, !noalias !341
+  %26 = load i32, ptr %19, align 4, !noalias !341
+  %27 = load i32, ptr %18, align 4, !noalias !341
+  %28 = load i32, ptr %17, align 4, !noalias !341
+  %29 = load i32, ptr %3, align 4, !noalias !341
+  call void @_ZN8WasmEdge4Host18WasiSockRecvFromV14bodyERKNS_7Runtime12CallingFrameEijjjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23), !noalias !338
+  %30 = load i8, ptr %7, align 4, !noalias !338
   %31 = trunc i8 %30 to i1
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %33 = load i32, ptr %32, align 4, !noalias !340
+  %33 = load i32, ptr %32, align 4, !noalias !338
   br i1 %31, label %34, label %35
 
 34:                                               ; preds = %15
-  store i32 %33, ptr %16, align 16, !noalias !340
-  store i64 0, ptr %0, align 4, !alias.scope !340
+  store i32 %33, ptr %16, align 16, !noalias !338
+  store i64 0, ptr %0, align 4, !alias.scope !338
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 35:                                               ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %33, ptr %36, align 4, !alias.scope !340
+  store i32 %33, ptr %36, align 4, !alias.scope !338
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %34, %35
   %.sink.i = phi i8 [ 1, %34 ], [ 0, %35 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !340
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !338
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %37
 
@@ -47274,37 +47270,37 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !346)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !344)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i32, ptr %20, align 4, !noalias !349
-  %22 = load i32, ptr %19, align 4, !noalias !349
-  %23 = load i32, ptr %18, align 4, !noalias !349
-  %24 = load i32, ptr %17, align 4, !noalias !349
-  %25 = load i32, ptr %3, align 4, !noalias !349
-  call void @_ZN8WasmEdge4Host14WasiSockSendV14bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22, i32 noundef %21), !noalias !346
-  %26 = load i8, ptr %7, align 4, !noalias !346
+  %21 = load i32, ptr %20, align 4, !noalias !347
+  %22 = load i32, ptr %19, align 4, !noalias !347
+  %23 = load i32, ptr %18, align 4, !noalias !347
+  %24 = load i32, ptr %17, align 4, !noalias !347
+  %25 = load i32, ptr %3, align 4, !noalias !347
+  call void @_ZN8WasmEdge4Host14WasiSockSendV14bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22, i32 noundef %21), !noalias !344
+  %26 = load i8, ptr %7, align 4, !noalias !344
   %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %29 = load i32, ptr %28, align 4, !noalias !346
+  %29 = load i32, ptr %28, align 4, !noalias !344
   br i1 %27, label %30, label %31
 
 30:                                               ; preds = %15
-  store i32 %29, ptr %16, align 16, !noalias !346
-  store i64 0, ptr %0, align 4, !alias.scope !346
+  store i32 %29, ptr %16, align 16, !noalias !344
+  store i64 0, ptr %0, align 4, !alias.scope !344
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 31:                                               ; preds = %15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %29, ptr %32, align 4, !alias.scope !346
+  store i32 %29, ptr %32, align 4, !alias.scope !344
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !346
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !344
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %33
 
@@ -48015,7 +48011,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !350)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -48023,33 +48019,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %23 = load i32, ptr %22, align 4, !noalias !355
-  %24 = load i32, ptr %21, align 4, !noalias !355
-  %25 = load i32, ptr %20, align 4, !noalias !355
-  %26 = load i32, ptr %19, align 4, !noalias !355
-  %27 = load i32, ptr %18, align 4, !noalias !355
-  %28 = load i32, ptr %17, align 4, !noalias !355
-  %29 = load i32, ptr %3, align 4, !noalias !355
-  call void @_ZN8WasmEdge4Host16WasiSockSendToV14bodyERKNS_7Runtime12CallingFrameEijjjijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23), !noalias !352
-  %30 = load i8, ptr %7, align 4, !noalias !352
+  %23 = load i32, ptr %22, align 4, !noalias !353
+  %24 = load i32, ptr %21, align 4, !noalias !353
+  %25 = load i32, ptr %20, align 4, !noalias !353
+  %26 = load i32, ptr %19, align 4, !noalias !353
+  %27 = load i32, ptr %18, align 4, !noalias !353
+  %28 = load i32, ptr %17, align 4, !noalias !353
+  %29 = load i32, ptr %3, align 4, !noalias !353
+  call void @_ZN8WasmEdge4Host16WasiSockSendToV14bodyERKNS_7Runtime12CallingFrameEijjjijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23), !noalias !350
+  %30 = load i8, ptr %7, align 4, !noalias !350
   %31 = trunc i8 %30 to i1
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %33 = load i32, ptr %32, align 4, !noalias !352
+  %33 = load i32, ptr %32, align 4, !noalias !350
   br i1 %31, label %34, label %35
 
 34:                                               ; preds = %15
-  store i32 %33, ptr %16, align 16, !noalias !352
-  store i64 0, ptr %0, align 4, !alias.scope !352
+  store i32 %33, ptr %16, align 16, !noalias !350
+  store i64 0, ptr %0, align 4, !alias.scope !350
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 35:                                               ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %33, ptr %36, align 4, !alias.scope !352
+  store i32 %33, ptr %36, align 4, !alias.scope !350
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %34, %35
   %.sink.i = phi i8 [ 1, %34 ], [ 0, %35 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !352
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !350
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %37
 
@@ -48884,33 +48880,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !358)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !356)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !361
-  %20 = load i32, ptr %17, align 4, !noalias !361
-  %21 = load i32, ptr %3, align 4, !noalias !361
-  call void @_ZN8WasmEdge4Host16WasiSockAcceptV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !358
-  %22 = load i8, ptr %7, align 4, !noalias !358
+  %19 = load i32, ptr %18, align 4, !noalias !359
+  %20 = load i32, ptr %17, align 4, !noalias !359
+  %21 = load i32, ptr %3, align 4, !noalias !359
+  call void @_ZN8WasmEdge4Host16WasiSockAcceptV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !356
+  %22 = load i8, ptr %7, align 4, !noalias !356
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !358
+  %25 = load i32, ptr %24, align 4, !noalias !356
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !358
-  store i64 0, ptr %0, align 4, !alias.scope !358
+  store i32 %25, ptr %16, align 16, !noalias !356
+  store i64 0, ptr %0, align 4, !alias.scope !356
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !358
+  store i32 %25, ptr %28, align 4, !alias.scope !356
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !358
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !356
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -49497,33 +49493,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !364)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !362)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !367
-  %20 = load i32, ptr %17, align 4, !noalias !367
-  %21 = load i32, ptr %3, align 4, !noalias !367
-  call void @_ZN8WasmEdge4Host14WasiSockOpenV24bodyERKNS_7Runtime12CallingFrameEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !364
-  %22 = load i8, ptr %7, align 4, !noalias !364
+  %19 = load i32, ptr %18, align 4, !noalias !365
+  %20 = load i32, ptr %17, align 4, !noalias !365
+  %21 = load i32, ptr %3, align 4, !noalias !365
+  call void @_ZN8WasmEdge4Host14WasiSockOpenV24bodyERKNS_7Runtime12CallingFrameEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !362
+  %22 = load i8, ptr %7, align 4, !noalias !362
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !364
+  %25 = load i32, ptr %24, align 4, !noalias !362
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !364
-  store i64 0, ptr %0, align 4, !alias.scope !364
+  store i32 %25, ptr %16, align 16, !noalias !362
+  store i64 0, ptr %0, align 4, !alias.scope !362
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !364
+  store i32 %25, ptr %28, align 4, !alias.scope !362
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !364
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !362
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -50110,33 +50106,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !370)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !368)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !373
-  %20 = load i32, ptr %17, align 4, !noalias !373
-  %21 = load i32, ptr %3, align 4, !noalias !373
-  call void @_ZN8WasmEdge4Host14WasiSockBindV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !370
-  %22 = load i8, ptr %7, align 4, !noalias !370
+  %19 = load i32, ptr %18, align 4, !noalias !371
+  %20 = load i32, ptr %17, align 4, !noalias !371
+  %21 = load i32, ptr %3, align 4, !noalias !371
+  call void @_ZN8WasmEdge4Host14WasiSockBindV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !368
+  %22 = load i8, ptr %7, align 4, !noalias !368
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !370
+  %25 = load i32, ptr %24, align 4, !noalias !368
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !370
-  store i64 0, ptr %0, align 4, !alias.scope !370
+  store i32 %25, ptr %16, align 16, !noalias !368
+  store i64 0, ptr %0, align 4, !alias.scope !368
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !370
+  store i32 %25, ptr %28, align 4, !alias.scope !368
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !370
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !368
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -50723,33 +50719,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !376)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !374)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !379
-  %20 = load i32, ptr %17, align 4, !noalias !379
-  %21 = load i32, ptr %3, align 4, !noalias !379
-  call void @_ZN8WasmEdge4Host17WasiSockConnectV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !376
-  %22 = load i8, ptr %7, align 4, !noalias !376
+  %19 = load i32, ptr %18, align 4, !noalias !377
+  %20 = load i32, ptr %17, align 4, !noalias !377
+  %21 = load i32, ptr %3, align 4, !noalias !377
+  call void @_ZN8WasmEdge4Host17WasiSockConnectV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !374
+  %22 = load i8, ptr %7, align 4, !noalias !374
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !376
+  %25 = load i32, ptr %24, align 4, !noalias !374
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !376
-  store i64 0, ptr %0, align 4, !alias.scope !376
+  store i32 %25, ptr %16, align 16, !noalias !374
+  store i64 0, ptr %0, align 4, !alias.scope !374
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !376
+  store i32 %25, ptr %28, align 4, !alias.scope !374
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !376
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !374
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -51336,31 +51332,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !382)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !380)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !385
-  %19 = load i32, ptr %3, align 4, !noalias !385
-  call void @_ZN8WasmEdge4Host16WasiSockListenV24bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !382
-  %20 = load i8, ptr %7, align 4, !noalias !382
+  %18 = load i32, ptr %17, align 4, !noalias !383
+  %19 = load i32, ptr %3, align 4, !noalias !383
+  call void @_ZN8WasmEdge4Host16WasiSockListenV24bodyERKNS_7Runtime12CallingFrameEii(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !380
+  %20 = load i8, ptr %7, align 4, !noalias !380
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !382
+  %23 = load i32, ptr %22, align 4, !noalias !380
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !382
-  store i64 0, ptr %0, align 4, !alias.scope !382
+  store i32 %23, ptr %16, align 16, !noalias !380
+  store i64 0, ptr %0, align 4, !alias.scope !380
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !382
+  store i32 %23, ptr %26, align 4, !alias.scope !380
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !382
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !380
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -51885,39 +51881,39 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !386)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %22 = load i32, ptr %21, align 4, !noalias !391
-  %23 = load i32, ptr %20, align 4, !noalias !391
-  %24 = load i32, ptr %19, align 4, !noalias !391
-  %25 = load i32, ptr %18, align 4, !noalias !391
-  %26 = load i32, ptr %17, align 4, !noalias !391
-  %27 = load i32, ptr %3, align 4, !noalias !391
-  call void @_ZN8WasmEdge4Host14WasiSockRecvV24bodyERKNS_7Runtime12CallingFrameEijjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22), !noalias !388
-  %28 = load i8, ptr %7, align 4, !noalias !388
+  %22 = load i32, ptr %21, align 4, !noalias !389
+  %23 = load i32, ptr %20, align 4, !noalias !389
+  %24 = load i32, ptr %19, align 4, !noalias !389
+  %25 = load i32, ptr %18, align 4, !noalias !389
+  %26 = load i32, ptr %17, align 4, !noalias !389
+  %27 = load i32, ptr %3, align 4, !noalias !389
+  call void @_ZN8WasmEdge4Host14WasiSockRecvV24bodyERKNS_7Runtime12CallingFrameEijjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22), !noalias !386
+  %28 = load i8, ptr %7, align 4, !noalias !386
   %29 = trunc i8 %28 to i1
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %31 = load i32, ptr %30, align 4, !noalias !388
+  %31 = load i32, ptr %30, align 4, !noalias !386
   br i1 %29, label %32, label %33
 
 32:                                               ; preds = %15
-  store i32 %31, ptr %16, align 16, !noalias !388
-  store i64 0, ptr %0, align 4, !alias.scope !388
+  store i32 %31, ptr %16, align 16, !noalias !386
+  store i64 0, ptr %0, align 4, !alias.scope !386
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 33:                                               ; preds = %15
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %31, ptr %34, align 4, !alias.scope !388
+  store i32 %31, ptr %34, align 4, !alias.scope !386
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %32, %33
   %.sink.i = phi i8 [ 1, %32 ], [ 0, %33 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !388
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !386
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %35
 
@@ -52690,7 +52686,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !392)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -52699,34 +52695,34 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18Wa
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %24 = load i32, ptr %23, align 4, !noalias !397
-  %25 = load i32, ptr %22, align 4, !noalias !397
-  %26 = load i32, ptr %21, align 4, !noalias !397
-  %27 = load i32, ptr %20, align 4, !noalias !397
-  %28 = load i32, ptr %19, align 4, !noalias !397
-  %29 = load i32, ptr %18, align 4, !noalias !397
-  %30 = load i32, ptr %17, align 4, !noalias !397
-  %31 = load i32, ptr %3, align 4, !noalias !397
-  call void @_ZN8WasmEdge4Host18WasiSockRecvFromV24bodyERKNS_7Runtime12CallingFrameEijjjjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %31, i32 noundef %30, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24), !noalias !394
-  %32 = load i8, ptr %7, align 4, !noalias !394
+  %24 = load i32, ptr %23, align 4, !noalias !395
+  %25 = load i32, ptr %22, align 4, !noalias !395
+  %26 = load i32, ptr %21, align 4, !noalias !395
+  %27 = load i32, ptr %20, align 4, !noalias !395
+  %28 = load i32, ptr %19, align 4, !noalias !395
+  %29 = load i32, ptr %18, align 4, !noalias !395
+  %30 = load i32, ptr %17, align 4, !noalias !395
+  %31 = load i32, ptr %3, align 4, !noalias !395
+  call void @_ZN8WasmEdge4Host18WasiSockRecvFromV24bodyERKNS_7Runtime12CallingFrameEijjjjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %31, i32 noundef %30, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24), !noalias !392
+  %32 = load i8, ptr %7, align 4, !noalias !392
   %33 = trunc i8 %32 to i1
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %35 = load i32, ptr %34, align 4, !noalias !394
+  %35 = load i32, ptr %34, align 4, !noalias !392
   br i1 %33, label %36, label %37
 
 36:                                               ; preds = %15
-  store i32 %35, ptr %16, align 16, !noalias !394
-  store i64 0, ptr %0, align 4, !alias.scope !394
+  store i32 %35, ptr %16, align 16, !noalias !392
+  store i64 0, ptr %0, align 4, !alias.scope !392
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 37:                                               ; preds = %15
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %35, ptr %38, align 4, !alias.scope !394
+  store i32 %35, ptr %38, align 4, !alias.scope !392
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %36, %37
   %.sink.i = phi i8 [ 1, %36 ], [ 0, %37 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !394
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !392
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %39
 
@@ -53623,37 +53619,37 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !400)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !398)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i32, ptr %20, align 4, !noalias !403
-  %22 = load i32, ptr %19, align 4, !noalias !403
-  %23 = load i32, ptr %18, align 4, !noalias !403
-  %24 = load i32, ptr %17, align 4, !noalias !403
-  %25 = load i32, ptr %3, align 4, !noalias !403
-  call void @_ZN8WasmEdge4Host14WasiSockSendV24bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22, i32 noundef %21), !noalias !400
-  %26 = load i8, ptr %7, align 4, !noalias !400
+  %21 = load i32, ptr %20, align 4, !noalias !401
+  %22 = load i32, ptr %19, align 4, !noalias !401
+  %23 = load i32, ptr %18, align 4, !noalias !401
+  %24 = load i32, ptr %17, align 4, !noalias !401
+  %25 = load i32, ptr %3, align 4, !noalias !401
+  call void @_ZN8WasmEdge4Host14WasiSockSendV24bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22, i32 noundef %21), !noalias !398
+  %26 = load i8, ptr %7, align 4, !noalias !398
   %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %29 = load i32, ptr %28, align 4, !noalias !400
+  %29 = load i32, ptr %28, align 4, !noalias !398
   br i1 %27, label %30, label %31
 
 30:                                               ; preds = %15
-  store i32 %29, ptr %16, align 16, !noalias !400
-  store i64 0, ptr %0, align 4, !alias.scope !400
+  store i32 %29, ptr %16, align 16, !noalias !398
+  store i64 0, ptr %0, align 4, !alias.scope !398
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 31:                                               ; preds = %15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %29, ptr %32, align 4, !alias.scope !400
+  store i32 %29, ptr %32, align 4, !alias.scope !398
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !400
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !398
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %33
 
@@ -54364,7 +54360,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !406)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !404)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -54372,33 +54368,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %23 = load i32, ptr %22, align 4, !noalias !409
-  %24 = load i32, ptr %21, align 4, !noalias !409
-  %25 = load i32, ptr %20, align 4, !noalias !409
-  %26 = load i32, ptr %19, align 4, !noalias !409
-  %27 = load i32, ptr %18, align 4, !noalias !409
-  %28 = load i32, ptr %17, align 4, !noalias !409
-  %29 = load i32, ptr %3, align 4, !noalias !409
-  call void @_ZN8WasmEdge4Host16WasiSockSendToV24bodyERKNS_7Runtime12CallingFrameEijjjijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23), !noalias !406
-  %30 = load i8, ptr %7, align 4, !noalias !406
+  %23 = load i32, ptr %22, align 4, !noalias !407
+  %24 = load i32, ptr %21, align 4, !noalias !407
+  %25 = load i32, ptr %20, align 4, !noalias !407
+  %26 = load i32, ptr %19, align 4, !noalias !407
+  %27 = load i32, ptr %18, align 4, !noalias !407
+  %28 = load i32, ptr %17, align 4, !noalias !407
+  %29 = load i32, ptr %3, align 4, !noalias !407
+  call void @_ZN8WasmEdge4Host16WasiSockSendToV24bodyERKNS_7Runtime12CallingFrameEijjjijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24, i32 noundef %23), !noalias !404
+  %30 = load i8, ptr %7, align 4, !noalias !404
   %31 = trunc i8 %30 to i1
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %33 = load i32, ptr %32, align 4, !noalias !406
+  %33 = load i32, ptr %32, align 4, !noalias !404
   br i1 %31, label %34, label %35
 
 34:                                               ; preds = %15
-  store i32 %33, ptr %16, align 16, !noalias !406
-  store i64 0, ptr %0, align 4, !alias.scope !406
+  store i32 %33, ptr %16, align 16, !noalias !404
+  store i64 0, ptr %0, align 4, !alias.scope !404
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 35:                                               ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %33, ptr %36, align 4, !alias.scope !406
+  store i32 %33, ptr %36, align 4, !alias.scope !404
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %34, %35
   %.sink.i = phi i8 [ 1, %34 ], [ 0, %35 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !406
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !404
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %37
 
@@ -55233,31 +55229,31 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !412)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load i32, ptr %17, align 4, !noalias !415
-  %19 = load i32, ptr %3, align 4, !noalias !415
-  call void @_ZN8WasmEdge4Host16WasiSockShutdown4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !412
-  %20 = load i8, ptr %7, align 4, !noalias !412
+  %18 = load i32, ptr %17, align 4, !noalias !413
+  %19 = load i32, ptr %3, align 4, !noalias !413
+  call void @_ZN8WasmEdge4Host16WasiSockShutdown4bodyERKNS_7Runtime12CallingFrameEij(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %19, i32 noundef %18), !noalias !410
+  %20 = load i8, ptr %7, align 4, !noalias !410
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !noalias !412
+  %23 = load i32, ptr %22, align 4, !noalias !410
   br i1 %21, label %24, label %25
 
 24:                                               ; preds = %15
-  store i32 %23, ptr %16, align 16, !noalias !412
-  store i64 0, ptr %0, align 4, !alias.scope !412
+  store i32 %23, ptr %16, align 16, !noalias !410
+  store i64 0, ptr %0, align 4, !alias.scope !410
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %23, ptr %26, align 4, !alias.scope !412
+  store i32 %23, ptr %26, align 4, !alias.scope !410
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %24, %25
   %.sink.i = phi i8 [ 1, %24 ], [ 0, %25 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !412
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !410
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %27
 
@@ -55782,37 +55778,37 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !418)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i32, ptr %20, align 4, !noalias !421
-  %22 = load i32, ptr %19, align 4, !noalias !421
-  %23 = load i32, ptr %18, align 4, !noalias !421
-  %24 = load i32, ptr %17, align 4, !noalias !421
-  %25 = load i32, ptr %3, align 4, !noalias !421
-  call void @_ZN8WasmEdge4Host14WasiSockGetOpt4bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22, i32 noundef %21), !noalias !418
-  %26 = load i8, ptr %7, align 4, !noalias !418
+  %21 = load i32, ptr %20, align 4, !noalias !419
+  %22 = load i32, ptr %19, align 4, !noalias !419
+  %23 = load i32, ptr %18, align 4, !noalias !419
+  %24 = load i32, ptr %17, align 4, !noalias !419
+  %25 = load i32, ptr %3, align 4, !noalias !419
+  call void @_ZN8WasmEdge4Host14WasiSockGetOpt4bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22, i32 noundef %21), !noalias !416
+  %26 = load i8, ptr %7, align 4, !noalias !416
   %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %29 = load i32, ptr %28, align 4, !noalias !418
+  %29 = load i32, ptr %28, align 4, !noalias !416
   br i1 %27, label %30, label %31
 
 30:                                               ; preds = %15
-  store i32 %29, ptr %16, align 16, !noalias !418
-  store i64 0, ptr %0, align 4, !alias.scope !418
+  store i32 %29, ptr %16, align 16, !noalias !416
+  store i64 0, ptr %0, align 4, !alias.scope !416
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 31:                                               ; preds = %15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %29, ptr %32, align 4, !alias.scope !418
+  store i32 %29, ptr %32, align 4, !alias.scope !416
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !418
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !416
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %33
 
@@ -56523,37 +56519,37 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !424)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %21 = load i32, ptr %20, align 4, !noalias !427
-  %22 = load i32, ptr %19, align 4, !noalias !427
-  %23 = load i32, ptr %18, align 4, !noalias !427
-  %24 = load i32, ptr %17, align 4, !noalias !427
-  %25 = load i32, ptr %3, align 4, !noalias !427
-  call void @_ZN8WasmEdge4Host14WasiSockSetOpt4bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22, i32 noundef %21), !noalias !424
-  %26 = load i8, ptr %7, align 4, !noalias !424
+  %21 = load i32, ptr %20, align 4, !noalias !425
+  %22 = load i32, ptr %19, align 4, !noalias !425
+  %23 = load i32, ptr %18, align 4, !noalias !425
+  %24 = load i32, ptr %17, align 4, !noalias !425
+  %25 = load i32, ptr %3, align 4, !noalias !425
+  call void @_ZN8WasmEdge4Host14WasiSockSetOpt4bodyERKNS_7Runtime12CallingFrameEijjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %25, i32 noundef %24, i32 noundef %23, i32 noundef %22, i32 noundef %21), !noalias !422
+  %26 = load i8, ptr %7, align 4, !noalias !422
   %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %29 = load i32, ptr %28, align 4, !noalias !424
+  %29 = load i32, ptr %28, align 4, !noalias !422
   br i1 %27, label %30, label %31
 
 30:                                               ; preds = %15
-  store i32 %29, ptr %16, align 16, !noalias !424
-  store i64 0, ptr %0, align 4, !alias.scope !424
+  store i32 %29, ptr %16, align 16, !noalias !422
+  store i64 0, ptr %0, align 4, !alias.scope !422
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 31:                                               ; preds = %15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %29, ptr %32, align 4, !alias.scope !424
+  store i32 %29, ptr %32, align 4, !alias.scope !422
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %30, %31
   %.sink.i = phi i8 [ 1, %30 ], [ 0, %31 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !424
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !422
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %33
 
@@ -57264,35 +57260,35 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !430)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %20 = load i32, ptr %19, align 4, !noalias !433
-  %21 = load i32, ptr %18, align 4, !noalias !433
-  %22 = load i32, ptr %17, align 4, !noalias !433
-  %23 = load i32, ptr %3, align 4, !noalias !433
-  call void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV14bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !430
-  %24 = load i8, ptr %7, align 4, !noalias !430
+  %20 = load i32, ptr %19, align 4, !noalias !431
+  %21 = load i32, ptr %18, align 4, !noalias !431
+  %22 = load i32, ptr %17, align 4, !noalias !431
+  %23 = load i32, ptr %3, align 4, !noalias !431
+  call void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV14bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !428
+  %24 = load i8, ptr %7, align 4, !noalias !428
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !430
+  %27 = load i32, ptr %26, align 4, !noalias !428
   br i1 %25, label %28, label %29
 
 28:                                               ; preds = %15
-  store i32 %27, ptr %16, align 16, !noalias !430
-  store i64 0, ptr %0, align 4, !alias.scope !430
+  store i32 %27, ptr %16, align 16, !noalias !428
+  store i64 0, ptr %0, align 4, !alias.scope !428
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %27, ptr %30, align 4, !alias.scope !430
+  store i32 %27, ptr %30, align 4, !alias.scope !428
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !430
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !428
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %31
 
@@ -57941,35 +57937,35 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !436)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %20 = load i32, ptr %19, align 4, !noalias !439
-  %21 = load i32, ptr %18, align 4, !noalias !439
-  %22 = load i32, ptr %17, align 4, !noalias !439
-  %23 = load i32, ptr %3, align 4, !noalias !439
-  call void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV14bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !436
-  %24 = load i8, ptr %7, align 4, !noalias !436
+  %20 = load i32, ptr %19, align 4, !noalias !437
+  %21 = load i32, ptr %18, align 4, !noalias !437
+  %22 = load i32, ptr %17, align 4, !noalias !437
+  %23 = load i32, ptr %3, align 4, !noalias !437
+  call void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV14bodyERKNS_7Runtime12CallingFrameEijjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %23, i32 noundef %22, i32 noundef %21, i32 noundef %20), !noalias !434
+  %24 = load i8, ptr %7, align 4, !noalias !434
   %25 = trunc i8 %24 to i1
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !436
+  %27 = load i32, ptr %26, align 4, !noalias !434
   br i1 %25, label %28, label %29
 
 28:                                               ; preds = %15
-  store i32 %27, ptr %16, align 16, !noalias !436
-  store i64 0, ptr %0, align 4, !alias.scope !436
+  store i32 %27, ptr %16, align 16, !noalias !434
+  store i64 0, ptr %0, align 4, !alias.scope !434
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %27, ptr %30, align 4, !alias.scope !436
+  store i32 %27, ptr %30, align 4, !alias.scope !434
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %28, %29
   %.sink.i = phi i8 [ 1, %28 ], [ 0, %29 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !436
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !434
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %31
 
@@ -58618,33 +58614,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !442)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !440)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !445
-  %20 = load i32, ptr %17, align 4, !noalias !445
-  %21 = load i32, ptr %3, align 4, !noalias !445
-  call void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !442
-  %22 = load i8, ptr %7, align 4, !noalias !442
+  %19 = load i32, ptr %18, align 4, !noalias !443
+  %20 = load i32, ptr %17, align 4, !noalias !443
+  %21 = load i32, ptr %3, align 4, !noalias !443
+  call void @_ZN8WasmEdge4Host22WasiSockGetLocalAddrV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !440
+  %22 = load i8, ptr %7, align 4, !noalias !440
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !442
+  %25 = load i32, ptr %24, align 4, !noalias !440
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !442
-  store i64 0, ptr %0, align 4, !alias.scope !442
+  store i32 %25, ptr %16, align 16, !noalias !440
+  store i64 0, ptr %0, align 4, !alias.scope !440
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !442
+  store i32 %25, ptr %28, align 4, !alias.scope !440
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !442
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !440
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -59231,33 +59227,33 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !448)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !446)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = load i32, ptr %18, align 4, !noalias !451
-  %20 = load i32, ptr %17, align 4, !noalias !451
-  %21 = load i32, ptr %3, align 4, !noalias !451
-  call void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !448
-  %22 = load i8, ptr %7, align 4, !noalias !448
+  %19 = load i32, ptr %18, align 4, !noalias !449
+  %20 = load i32, ptr %17, align 4, !noalias !449
+  %21 = load i32, ptr %3, align 4, !noalias !449
+  call void @_ZN8WasmEdge4Host21WasiSockGetPeerAddrV24bodyERKNS_7Runtime12CallingFrameEijj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %21, i32 noundef %20, i32 noundef %19), !noalias !446
+  %22 = load i8, ptr %7, align 4, !noalias !446
   %23 = trunc i8 %22 to i1
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %25 = load i32, ptr %24, align 4, !noalias !448
+  %25 = load i32, ptr %24, align 4, !noalias !446
   br i1 %23, label %26, label %27
 
 26:                                               ; preds = %15
-  store i32 %25, ptr %16, align 16, !noalias !448
-  store i64 0, ptr %0, align 4, !alias.scope !448
+  store i32 %25, ptr %16, align 16, !noalias !446
+  store i64 0, ptr %0, align 4, !alias.scope !446
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %25, ptr %28, align 4, !alias.scope !448
+  store i32 %25, ptr %28, align 4, !alias.scope !446
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %26, %27
   %.sink.i = phi i8 [ 1, %26 ], [ 0, %27 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !448
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !446
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %29
 
@@ -59844,7 +59840,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %5, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !454)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -59853,34 +59849,34 @@ define linkonce_odr hidden void @_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19Wa
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %24 = load i32, ptr %23, align 4, !noalias !457
-  %25 = load i32, ptr %22, align 4, !noalias !457
-  %26 = load i32, ptr %21, align 4, !noalias !457
-  %27 = load i32, ptr %20, align 4, !noalias !457
-  %28 = load i32, ptr %19, align 4, !noalias !457
-  %29 = load i32, ptr %18, align 4, !noalias !457
-  %30 = load i32, ptr %17, align 4, !noalias !457
-  %31 = load i32, ptr %3, align 4, !noalias !457
-  call void @_ZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingFrameEjjjjjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %31, i32 noundef %30, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24), !noalias !454
-  %32 = load i8, ptr %7, align 4, !noalias !454
+  %24 = load i32, ptr %23, align 4, !noalias !455
+  %25 = load i32, ptr %22, align 4, !noalias !455
+  %26 = load i32, ptr %21, align 4, !noalias !455
+  %27 = load i32, ptr %20, align 4, !noalias !455
+  %28 = load i32, ptr %19, align 4, !noalias !455
+  %29 = load i32, ptr %18, align 4, !noalias !455
+  %30 = load i32, ptr %17, align 4, !noalias !455
+  %31 = load i32, ptr %3, align 4, !noalias !455
+  call void @_ZN8WasmEdge4Host19WasiSockGetAddrinfo4bodyERKNS_7Runtime12CallingFrameEjjjjjjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.1008") align 4 %7, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %31, i32 noundef %30, i32 noundef %29, i32 noundef %28, i32 noundef %27, i32 noundef %26, i32 noundef %25, i32 noundef %24), !noalias !452
+  %32 = load i8, ptr %7, align 4, !noalias !452
   %33 = trunc i8 %32 to i1
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %35 = load i32, ptr %34, align 4, !noalias !454
+  %35 = load i32, ptr %34, align 4, !noalias !452
   br i1 %33, label %36, label %37
 
 36:                                               ; preds = %15
-  store i32 %35, ptr %16, align 16, !noalias !454
-  store i64 0, ptr %0, align 4, !alias.scope !454
+  store i32 %35, ptr %16, align 16, !noalias !452
+  store i64 0, ptr %0, align 4, !alias.scope !452
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 37:                                               ; preds = %15
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %35, ptr %38, align 4, !alias.scope !454
+  store i32 %35, ptr %38, align 4, !alias.scope !452
   br label %_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit
 
 _ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_.exit: ; preds = %36, %37
   %.sink.i = phi i8 [ 1, %36 ], [ 0, %37 ]
-  store i8 %.sink.i, ptr %0, align 4, !alias.scope !454
+  store i8 %.sink.i, ptr %0, align 4, !alias.scope !452
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %39
 
@@ -60697,456 +60693,454 @@ attributes #22 = { nounwind willreturn memory(read) }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZSt11make_uniqueIN8WasmEdge7Runtime8Instance16FunctionInstanceEJPNS2_14ModuleInstanceEjSt10unique_ptrINS1_16HostFunctionBaseESt14default_deleteIS7_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !6 = distinct !{!6, !"_ZSt11make_uniqueIN8WasmEdge7Runtime8Instance16FunctionInstanceEJPNS2_14ModuleInstanceEjSt10unique_ptrINS1_16HostFunctionBaseESt14default_deleteIS7_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !8, !9}
-!21 = distinct !{!21, !8, !9}
-!22 = distinct !{!22, !8, !9}
-!23 = distinct !{!23, !8, !9}
-!24 = distinct !{!24, !8, !9}
-!25 = distinct !{!25, !8, !9}
-!26 = distinct !{!26, !8, !9}
-!27 = distinct !{!27, !8, !9}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZSt16forward_as_tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJDpOT_EES9_: argument 0"}
-!30 = distinct !{!30, !"_ZSt16forward_as_tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJDpOT_EES9_"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZSt16forward_as_tupleIJRPN8WasmEdge7Runtime8Instance16FunctionInstanceEEESt5tupleIJDpOT_EES9_: argument 0"}
-!33 = distinct !{!33, !"_ZSt16forward_as_tupleIJRPN8WasmEdge7Runtime8Instance16FunctionInstanceEEESt5tupleIJDpOT_EES9_"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
-!36 = distinct !{!36, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_"}
-!37 = !{!38}
-!38 = distinct !{!38, !36, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!39 = distinct !{!39, !8, !9}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
-!42 = distinct !{!42, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_"}
-!43 = !{!44}
-!44 = distinct !{!44, !42, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
-!45 = distinct !{!45, !8, !9}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!48 = distinct !{!48, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!49 = !{!50, !47}
-!50 = distinct !{!50, !51, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!51 = distinct !{!51, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!54 = distinct !{!54, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!55 = !{!56, !53}
-!56 = distinct !{!56, !57, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!57 = distinct !{!57, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!60 = distinct !{!60, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!61 = !{!62, !59}
-!62 = distinct !{!62, !63, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!63 = distinct !{!63, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!66 = distinct !{!66, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!67 = !{!68, !65}
-!68 = distinct !{!68, !69, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!69 = distinct !{!69, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!72 = distinct !{!72, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!73 = !{!74, !71}
-!74 = distinct !{!74, !75, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!75 = distinct !{!75, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!78 = distinct !{!78, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!79 = !{!80, !77}
-!80 = distinct !{!80, !81, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE7toTupleISt5tupleIJjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!81 = distinct !{!81, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE7toTupleISt5tupleIJjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!84 = distinct !{!84, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!85 = !{!86, !83}
-!86 = distinct !{!86, !87, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE7toTupleISt5tupleIJimmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!87 = distinct !{!87, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE7toTupleISt5tupleIJimmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!90 = distinct !{!90, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!91 = !{!92, !89}
-!92 = distinct !{!92, !93, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE7toTupleISt5tupleIJimmEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!93 = distinct !{!93, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE7toTupleISt5tupleIJimmEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!96 = distinct !{!96, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!97 = !{!98, !95}
-!98 = distinct !{!98, !99, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE7toTupleISt5tupleIJiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!99 = distinct !{!99, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE7toTupleISt5tupleIJiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!102 = distinct !{!102, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!103 = !{!104, !101}
-!104 = distinct !{!104, !105, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE7toTupleISt5tupleIJiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!105 = distinct !{!105, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE7toTupleISt5tupleIJiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!108 = distinct !{!108, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!109 = !{!110, !107}
-!110 = distinct !{!110, !111, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!111 = distinct !{!111, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!114 = distinct !{!114, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!115 = !{!116, !113}
-!116 = distinct !{!116, !117, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!117 = distinct !{!117, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!120 = distinct !{!120, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!121 = !{!122, !119}
-!122 = distinct !{!122, !123, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE7toTupleISt5tupleIJimmEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!123 = distinct !{!123, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE7toTupleISt5tupleIJimmEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!126 = distinct !{!126, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!127 = !{!128, !125}
-!128 = distinct !{!128, !129, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!129 = distinct !{!129, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!132 = distinct !{!132, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!133 = !{!134, !131}
-!134 = distinct !{!134, !135, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE7toTupleISt5tupleIJimEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!135 = distinct !{!135, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE7toTupleISt5tupleIJimEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!136 = !{!137}
-!137 = distinct !{!137, !138, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!138 = distinct !{!138, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!139 = !{!140, !137}
-!140 = distinct !{!140, !141, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE7toTupleISt5tupleIJimmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!141 = distinct !{!141, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE7toTupleISt5tupleIJimmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!144 = distinct !{!144, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!145 = !{!146, !143}
-!146 = distinct !{!146, !147, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE7toTupleISt5tupleIJijjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!147 = distinct !{!147, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE7toTupleISt5tupleIJijjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!150 = distinct !{!150, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!151 = !{!152, !149}
-!152 = distinct !{!152, !153, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!153 = distinct !{!153, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!154 = !{!155}
-!155 = distinct !{!155, !156, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!156 = distinct !{!156, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!157 = !{!158, !155}
-!158 = distinct !{!158, !159, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!159 = distinct !{!159, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!160 = !{!161}
-!161 = distinct !{!161, !162, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!162 = distinct !{!162, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!163 = !{!164, !161}
-!164 = distinct !{!164, !165, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE7toTupleISt5tupleIJijjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!165 = distinct !{!165, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE7toTupleISt5tupleIJijjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!168 = distinct !{!168, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!169 = !{!170, !167}
-!170 = distinct !{!170, !171, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!171 = distinct !{!171, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!174 = distinct !{!174, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!175 = !{!176, !173}
-!176 = distinct !{!176, !177, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE7toTupleISt5tupleIJijjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!177 = distinct !{!177, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE7toTupleISt5tupleIJijjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!178 = !{!179}
-!179 = distinct !{!179, !180, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!180 = distinct !{!180, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!181 = !{!182, !179}
-!182 = distinct !{!182, !183, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE7toTupleISt5tupleIJiiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!183 = distinct !{!183, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE7toTupleISt5tupleIJiiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!186 = distinct !{!186, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!187 = !{!188, !185}
-!188 = distinct !{!188, !189, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE7toTupleISt5tupleIJiljjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!189 = distinct !{!189, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE7toTupleISt5tupleIJiljjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!190 = !{!191}
-!191 = distinct !{!191, !192, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!192 = distinct !{!192, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!193 = !{!194, !191}
-!194 = distinct !{!194, !195, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE7toTupleISt5tupleIJiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!195 = distinct !{!195, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE7toTupleISt5tupleIJiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!196 = !{!197}
-!197 = distinct !{!197, !198, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!198 = distinct !{!198, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!199 = !{!200, !197}
-!200 = distinct !{!200, !201, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!201 = distinct !{!201, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!202 = !{!203}
-!203 = distinct !{!203, !204, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!204 = distinct !{!204, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!205 = !{!206, !203}
-!206 = distinct !{!206, !207, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!207 = distinct !{!207, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!208 = !{!209}
-!209 = distinct !{!209, !210, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!210 = distinct !{!210, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!211 = !{!212, !209}
-!212 = distinct !{!212, !213, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!213 = distinct !{!213, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!214 = !{!215}
-!215 = distinct !{!215, !216, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!216 = distinct !{!216, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!217 = !{!218, !215}
-!218 = distinct !{!218, !219, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!219 = distinct !{!219, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!220 = !{!221}
-!221 = distinct !{!221, !222, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!222 = distinct !{!222, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!223 = !{!224, !221}
-!224 = distinct !{!224, !225, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE7toTupleISt5tupleIJijjjmmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!225 = distinct !{!225, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE7toTupleISt5tupleIJijjjmmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!226 = !{!227}
-!227 = distinct !{!227, !228, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!228 = distinct !{!228, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!229 = !{!230, !227}
-!230 = distinct !{!230, !231, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE7toTupleISt5tupleIJijjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!231 = distinct !{!231, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE7toTupleISt5tupleIJijjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!232 = !{!233}
-!233 = distinct !{!233, !234, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!234 = distinct !{!234, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!235 = !{!236, !233}
-!236 = distinct !{!236, !237, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE7toTupleISt5tupleIJijjjjmmjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7ELm8EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!237 = distinct !{!237, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE7toTupleISt5tupleIJijjjjmmjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7ELm8EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!238 = !{!239}
-!239 = distinct !{!239, !240, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!240 = distinct !{!240, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!241 = !{!242, !239}
-!242 = distinct !{!242, !243, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE7toTupleISt5tupleIJijjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!243 = distinct !{!243, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE7toTupleISt5tupleIJijjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!244 = !{!245}
-!245 = distinct !{!245, !246, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!246 = distinct !{!246, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!247 = !{!248, !245}
-!248 = distinct !{!248, !249, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!249 = distinct !{!249, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!250 = !{!251}
-!251 = distinct !{!251, !252, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!252 = distinct !{!252, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!253 = !{!254, !251}
-!254 = distinct !{!254, !255, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE7toTupleISt5tupleIJijjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!255 = distinct !{!255, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE7toTupleISt5tupleIJijjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!256 = !{!257}
-!257 = distinct !{!257, !258, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!258 = distinct !{!258, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!259 = !{!260, !257}
-!260 = distinct !{!260, !261, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE7toTupleISt5tupleIJjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!261 = distinct !{!261, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE7toTupleISt5tupleIJjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!262 = !{!263}
-!263 = distinct !{!263, !264, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!264 = distinct !{!264, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!265 = !{!266, !263}
-!266 = distinct !{!266, !267, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!267 = distinct !{!267, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!268 = !{!269}
-!269 = distinct !{!269, !270, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!270 = distinct !{!270, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!271 = !{!272, !269}
-!272 = distinct !{!272, !273, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!273 = distinct !{!273, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!274 = !{!275}
-!275 = distinct !{!275, !276, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!276 = distinct !{!276, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!277 = !{!278, !275}
-!278 = distinct !{!278, !279, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!279 = distinct !{!279, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!280 = !{!281}
-!281 = distinct !{!281, !282, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm0EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!282 = distinct !{!282, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm0EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!283 = !{!284, !281}
-!284 = distinct !{!284, !285, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE7toTupleISt5tupleIJjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!285 = distinct !{!285, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE7toTupleISt5tupleIJjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!286 = !{!287, !281}
-!287 = distinct !{!287, !288, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE: argument 0"}
-!288 = distinct !{!288, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE"}
-!289 = !{!290}
-!290 = distinct !{!290, !291, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!291 = distinct !{!291, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!292 = !{!293, !290}
-!293 = distinct !{!293, !294, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE7toTupleISt5tupleIJjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!294 = distinct !{!294, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE7toTupleISt5tupleIJjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!295 = !{!296}
-!296 = distinct !{!296, !297, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm0EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!297 = distinct !{!297, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm0EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!298 = !{!299}
-!299 = distinct !{!299, !300, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!300 = distinct !{!300, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!301 = !{!302, !299}
-!302 = distinct !{!302, !303, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!303 = distinct !{!303, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!304 = !{!305}
-!305 = distinct !{!305, !306, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!306 = distinct !{!306, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!307 = !{!308, !305}
-!308 = distinct !{!308, !309, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE7toTupleISt5tupleIJjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!309 = distinct !{!309, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE7toTupleISt5tupleIJjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!310 = !{!311}
-!311 = distinct !{!311, !312, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!312 = distinct !{!312, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!313 = !{!314, !311}
-!314 = distinct !{!314, !315, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!315 = distinct !{!315, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!316 = !{!317}
-!317 = distinct !{!317, !318, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!318 = distinct !{!318, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!319 = !{!320, !317}
-!320 = distinct !{!320, !321, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!321 = distinct !{!321, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!322 = !{!323}
-!323 = distinct !{!323, !324, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!324 = distinct !{!324, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!325 = !{!326, !323}
-!326 = distinct !{!326, !327, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE7toTupleISt5tupleIJiiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!327 = distinct !{!327, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE7toTupleISt5tupleIJiiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!328 = !{!329}
-!329 = distinct !{!329, !330, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!330 = distinct !{!330, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!331 = !{!332, !329}
-!332 = distinct !{!332, !333, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!333 = distinct !{!333, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!334 = !{!335}
-!335 = distinct !{!335, !336, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!336 = distinct !{!336, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!337 = !{!338, !335}
-!338 = distinct !{!338, !339, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE7toTupleISt5tupleIJijjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!339 = distinct !{!339, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE7toTupleISt5tupleIJijjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!340 = !{!341}
-!341 = distinct !{!341, !342, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!342 = distinct !{!342, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!343 = !{!344, !341}
-!344 = distinct !{!344, !345, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE7toTupleISt5tupleIJijjjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!345 = distinct !{!345, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE7toTupleISt5tupleIJijjjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!346 = !{!347}
-!347 = distinct !{!347, !348, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!348 = distinct !{!348, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!349 = !{!350, !347}
-!350 = distinct !{!350, !351, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!351 = distinct !{!351, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!352 = !{!353}
-!353 = distinct !{!353, !354, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!354 = distinct !{!354, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!355 = !{!356, !353}
-!356 = distinct !{!356, !357, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE7toTupleISt5tupleIJijjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!357 = distinct !{!357, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE7toTupleISt5tupleIJijjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!358 = !{!359}
-!359 = distinct !{!359, !360, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!360 = distinct !{!360, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!361 = !{!362, !359}
-!362 = distinct !{!362, !363, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!363 = distinct !{!363, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!364 = !{!365}
-!365 = distinct !{!365, !366, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!366 = distinct !{!366, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!367 = !{!368, !365}
-!368 = distinct !{!368, !369, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE7toTupleISt5tupleIJjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!369 = distinct !{!369, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE7toTupleISt5tupleIJjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!370 = !{!371}
-!371 = distinct !{!371, !372, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!372 = distinct !{!372, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!373 = !{!374, !371}
-!374 = distinct !{!374, !375, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!375 = distinct !{!375, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!376 = !{!377}
-!377 = distinct !{!377, !378, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!378 = distinct !{!378, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!379 = !{!380, !377}
-!380 = distinct !{!380, !381, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!381 = distinct !{!381, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!382 = !{!383}
-!383 = distinct !{!383, !384, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!384 = distinct !{!384, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!385 = !{!386, !383}
-!386 = distinct !{!386, !387, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE7toTupleISt5tupleIJiiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!387 = distinct !{!387, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE7toTupleISt5tupleIJiiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!388 = !{!389}
-!389 = distinct !{!389, !390, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!390 = distinct !{!390, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!391 = !{!392, !389}
-!392 = distinct !{!392, !393, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE7toTupleISt5tupleIJijjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!393 = distinct !{!393, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE7toTupleISt5tupleIJijjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!394 = !{!395}
-!395 = distinct !{!395, !396, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!396 = distinct !{!396, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!397 = !{!398, !395}
-!398 = distinct !{!398, !399, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE7toTupleISt5tupleIJijjjjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!399 = distinct !{!399, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE7toTupleISt5tupleIJijjjjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!400 = !{!401}
-!401 = distinct !{!401, !402, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!402 = distinct !{!402, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!403 = !{!404, !401}
-!404 = distinct !{!404, !405, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!405 = distinct !{!405, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!406 = !{!407}
-!407 = distinct !{!407, !408, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!408 = distinct !{!408, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!409 = !{!410, !407}
-!410 = distinct !{!410, !411, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE7toTupleISt5tupleIJijjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!411 = distinct !{!411, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE7toTupleISt5tupleIJijjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!412 = !{!413}
-!413 = distinct !{!413, !414, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!414 = distinct !{!414, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!415 = !{!416, !413}
-!416 = distinct !{!416, !417, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!417 = distinct !{!417, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!418 = !{!419}
-!419 = distinct !{!419, !420, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!420 = distinct !{!420, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!421 = !{!422, !419}
-!422 = distinct !{!422, !423, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!423 = distinct !{!423, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!424 = !{!425}
-!425 = distinct !{!425, !426, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!426 = distinct !{!426, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!427 = !{!428, !425}
-!428 = distinct !{!428, !429, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!429 = distinct !{!429, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!430 = !{!431}
-!431 = distinct !{!431, !432, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!432 = distinct !{!432, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!433 = !{!434, !431}
-!434 = distinct !{!434, !435, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!435 = distinct !{!435, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!436 = !{!437}
-!437 = distinct !{!437, !438, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!438 = distinct !{!438, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!439 = !{!440, !437}
-!440 = distinct !{!440, !441, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!441 = distinct !{!441, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!442 = !{!443}
-!443 = distinct !{!443, !444, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!444 = distinct !{!444, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!445 = !{!446, !443}
-!446 = distinct !{!446, !447, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!447 = distinct !{!447, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!448 = !{!449}
-!449 = distinct !{!449, !450, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!450 = distinct !{!450, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!451 = !{!452, !449}
-!452 = distinct !{!452, !453, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!453 = distinct !{!453, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
-!454 = !{!455}
-!455 = distinct !{!455, !456, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
-!456 = distinct !{!456, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
-!457 = !{!458, !455}
-!458 = distinct !{!458, !459, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE7toTupleISt5tupleIJjjjjjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
-!459 = distinct !{!459, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE7toTupleISt5tupleIJjjjjjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !8}
+!25 = distinct !{!25, !8}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZSt16forward_as_tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJDpOT_EES9_: argument 0"}
+!28 = distinct !{!28, !"_ZSt16forward_as_tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt5tupleIJDpOT_EES9_"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZSt16forward_as_tupleIJRPN8WasmEdge7Runtime8Instance16FunctionInstanceEEESt5tupleIJDpOT_EES9_: argument 0"}
+!31 = distinct !{!31, !"_ZSt16forward_as_tupleIJRPN8WasmEdge7Runtime8Instance16FunctionInstanceEEESt5tupleIJDpOT_EES9_"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!34 = distinct !{!34, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_"}
+!35 = !{!36}
+!36 = distinct !{!36, !34, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
+!37 = distinct !{!37, !8}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 0"}
+!40 = distinct !{!40, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_"}
+!41 = !{!42}
+!42 = distinct !{!42, !40, !"_ZSt19__relocate_object_aISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EES7_SaIS7_EEvPT_PT0_RT1_: argument 1"}
+!43 = distinct !{!43, !8}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!46 = distinct !{!46, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!47 = !{!48, !45}
+!48 = distinct !{!48, !49, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!49 = distinct !{!49, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiArgsGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!52 = distinct !{!52, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!53 = !{!54, !51}
+!54 = distinct !{!54, !55, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!55 = distinct !{!55, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiArgsSizesGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!58 = distinct !{!58, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!59 = !{!60, !57}
+!60 = distinct !{!60, !61, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!61 = distinct !{!61, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiEnvironGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!64 = distinct !{!64, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!65 = !{!66, !63}
+!66 = distinct !{!66, !67, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!67 = distinct !{!67, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiEnvironSizesGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!70 = distinct !{!70, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!71 = !{!72, !69}
+!72 = distinct !{!72, !73, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!73 = distinct !{!73, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiClockResGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!76 = distinct !{!76, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!77 = !{!78, !75}
+!78 = distinct !{!78, !79, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE7toTupleISt5tupleIJjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!79 = distinct !{!79, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiClockTimeGetEE7toTupleISt5tupleIJjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!82 = distinct !{!82, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!83 = !{!84, !81}
+!84 = distinct !{!84, !85, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE7toTupleISt5tupleIJimmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!85 = distinct !{!85, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdAdviseEE7toTupleISt5tupleIJimmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!88 = distinct !{!88, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!89 = !{!90, !87}
+!90 = distinct !{!90, !91, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE7toTupleISt5tupleIJimmEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!91 = distinct !{!91, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdAllocateEE7toTupleISt5tupleIJimmEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!94 = distinct !{!94, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!95 = !{!96, !93}
+!96 = distinct !{!96, !97, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE7toTupleISt5tupleIJiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!97 = distinct !{!97, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdCloseEE7toTupleISt5tupleIJiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!100 = distinct !{!100, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!101 = !{!102, !99}
+!102 = distinct !{!102, !103, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE7toTupleISt5tupleIJiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!103 = distinct !{!103, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdDatasyncEE7toTupleISt5tupleIJiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!106 = distinct !{!106, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!107 = !{!108, !105}
+!108 = distinct !{!108, !109, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!109 = distinct !{!109, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiFdFdstatGetEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!112 = distinct !{!112, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!113 = !{!114, !111}
+!114 = distinct !{!114, !115, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!115 = distinct !{!115, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdFdstatSetFlagsEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!118 = distinct !{!118, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!119 = !{!120, !117}
+!120 = distinct !{!120, !121, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE7toTupleISt5tupleIJimmEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!121 = distinct !{!121, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFdstatSetRightsEE7toTupleISt5tupleIJimmEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!124 = distinct !{!124, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!125 = !{!126, !123}
+!126 = distinct !{!126, !127, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!127 = distinct !{!127, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiFdFilestatGetEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!130 = distinct !{!130, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!131 = !{!132, !129}
+!132 = distinct !{!132, !133, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE7toTupleISt5tupleIJimEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!133 = distinct !{!133, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiFdFilestatSetSizeEE7toTupleISt5tupleIJimEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!134 = !{!135}
+!135 = distinct !{!135, !136, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!136 = distinct !{!136, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!137 = !{!138, !135}
+!138 = distinct !{!138, !139, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE7toTupleISt5tupleIJimmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!139 = distinct !{!139, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiFdFilestatSetTimesEE7toTupleISt5tupleIJimmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!142 = distinct !{!142, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!143 = !{!144, !141}
+!144 = distinct !{!144, !145, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE7toTupleISt5tupleIJijjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!145 = distinct !{!145, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdPreadEE7toTupleISt5tupleIJijjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!146 = !{!147}
+!147 = distinct !{!147, !148, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!148 = distinct !{!148, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!149 = !{!150, !147}
+!150 = distinct !{!150, !151, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!151 = distinct !{!151, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiFdPrestatGetEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!152 = !{!153}
+!153 = distinct !{!153, !154, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!154 = distinct !{!154, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!155 = !{!156, !153}
+!156 = distinct !{!156, !157, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!157 = distinct !{!157, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host20WasiFdPrestatDirNameEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!158 = !{!159}
+!159 = distinct !{!159, !160, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!160 = distinct !{!160, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!161 = !{!162, !159}
+!162 = distinct !{!162, !163, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE7toTupleISt5tupleIJijjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!163 = distinct !{!163, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiFdPwriteEE7toTupleISt5tupleIJijjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!164 = !{!165}
+!165 = distinct !{!165, !166, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!166 = distinct !{!166, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!167 = !{!168, !165}
+!168 = distinct !{!168, !169, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!169 = distinct !{!169, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdReadEE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!170 = !{!171}
+!171 = distinct !{!171, !172, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!172 = distinct !{!172, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!173 = !{!174, !171}
+!174 = distinct !{!174, !175, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE7toTupleISt5tupleIJijjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!175 = distinct !{!175, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiFdReadDirEE7toTupleISt5tupleIJijjmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!176 = !{!177}
+!177 = distinct !{!177, !178, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!178 = distinct !{!178, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!179 = !{!180, !177}
+!180 = distinct !{!180, !181, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE7toTupleISt5tupleIJiiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!181 = distinct !{!181, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiFdRenumberEE7toTupleISt5tupleIJiiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!182 = !{!183}
+!183 = distinct !{!183, !184, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!184 = distinct !{!184, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!185 = !{!186, !183}
+!186 = distinct !{!186, !187, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE7toTupleISt5tupleIJiljjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!187 = distinct !{!187, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSeekEE7toTupleISt5tupleIJiljjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!190 = distinct !{!190, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!191 = !{!192, !189}
+!192 = distinct !{!192, !193, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE7toTupleISt5tupleIJiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!193 = distinct !{!193, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdSyncEE7toTupleISt5tupleIJiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!194 = !{!195}
+!195 = distinct !{!195, !196, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!196 = distinct !{!196, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!197 = !{!198, !195}
+!198 = distinct !{!198, !199, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!199 = distinct !{!199, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host10WasiFdTellEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!200 = !{!201}
+!201 = distinct !{!201, !202, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!202 = distinct !{!202, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!203 = !{!204, !201}
+!204 = distinct !{!204, !205, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!205 = distinct !{!205, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host11WasiFdWriteEE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!206 = !{!207}
+!207 = distinct !{!207, !208, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!208 = distinct !{!208, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!209 = !{!210, !207}
+!210 = distinct !{!210, !211, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!211 = distinct !{!211, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathCreateDirectoryEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!212 = !{!213}
+!213 = distinct !{!213, !214, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!214 = distinct !{!214, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!215 = !{!216, !213}
+!216 = distinct !{!216, !217, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!217 = distinct !{!217, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiPathFilestatGetEE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!218 = !{!219}
+!219 = distinct !{!219, !220, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!220 = distinct !{!220, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!221 = !{!222, !219}
+!222 = distinct !{!222, !223, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE7toTupleISt5tupleIJijjjmmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!223 = distinct !{!223, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host24WasiPathFilestatSetTimesEE7toTupleISt5tupleIJijjjmmjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!224 = !{!225}
+!225 = distinct !{!225, !226, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!226 = distinct !{!226, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!227 = !{!228, !225}
+!228 = distinct !{!228, !229, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE7toTupleISt5tupleIJijjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!229 = distinct !{!229, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathLinkEE7toTupleISt5tupleIJijjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!230 = !{!231}
+!231 = distinct !{!231, !232, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!232 = distinct !{!232, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!233 = !{!234, !231}
+!234 = distinct !{!234, !235, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE7toTupleISt5tupleIJijjjjmmjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7ELm8EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!235 = distinct !{!235, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiPathOpenEE7toTupleISt5tupleIJijjjjmmjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm9EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7ELm8EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!236 = !{!237}
+!237 = distinct !{!237, !238, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!238 = distinct !{!238, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!239 = !{!240, !237}
+!240 = distinct !{!240, !241, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE7toTupleISt5tupleIJijjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!241 = distinct !{!241, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiPathReadLinkEE7toTupleISt5tupleIJijjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!242 = !{!243}
+!243 = distinct !{!243, !244, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!244 = distinct !{!244, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!245 = !{!246, !243}
+!246 = distinct !{!246, !247, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!247 = distinct !{!247, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host23WasiPathRemoveDirectoryEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!248 = !{!249}
+!249 = distinct !{!249, !250, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!250 = distinct !{!250, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!251 = !{!252, !249}
+!252 = distinct !{!252, !253, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE7toTupleISt5tupleIJijjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!253 = distinct !{!253, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPathRenameEE7toTupleISt5tupleIJijjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!254 = !{!255}
+!255 = distinct !{!255, !256, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!256 = distinct !{!256, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!257 = !{!258, !255}
+!258 = distinct !{!258, !259, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE7toTupleISt5tupleIJjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!259 = distinct !{!259, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host15WasiPathSymlinkEE7toTupleISt5tupleIJjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!260 = !{!261}
+!261 = distinct !{!261, !262, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!262 = distinct !{!262, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!263 = !{!264, !261}
+!264 = distinct !{!264, !265, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!265 = distinct !{!265, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiPathUnlinkFileEE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!266 = !{!267}
+!267 = distinct !{!267, !268, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!268 = distinct !{!268, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!269 = !{!270, !267}
+!270 = distinct !{!270, !271, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!271 = distinct !{!271, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE0EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!272 = !{!273}
+!273 = distinct !{!273, !274, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!274 = distinct !{!274, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENSA_ISO_Lm1EEEEENS9_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!275 = !{!276, !273}
+!276 = distinct !{!276, !277, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!277 = distinct !{!277, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiPollOneoffILNS2_4WASI11TriggerTypeE1EEEE7toTupleISt5tupleIJjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!278 = !{!279}
+!279 = distinct !{!279, !280, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm0EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!280 = distinct !{!280, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm0EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!281 = !{!282, !279}
+!282 = distinct !{!282, !283, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE7toTupleISt5tupleIJjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!283 = distinct !{!283, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host12WasiProcExitEE7toTupleISt5tupleIJjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!284 = !{!285, !279}
+!285 = distinct !{!285, !286, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE: argument 0"}
+!286 = distinct !{!286, !"_ZN8WasmEdge8UnexpectIvEEDaRKN5cxx208expectedIT_NS_7ErrCodeEEE"}
+!287 = !{!288}
+!288 = distinct !{!288, !289, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!289 = distinct !{!289, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!290 = !{!291, !288}
+!291 = distinct !{!291, !292, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE7toTupleISt5tupleIJjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!292 = distinct !{!292, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiProcRaiseEE7toTupleISt5tupleIJjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm1EEEJLm0EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!293 = !{!294}
+!294 = distinct !{!294, !295, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm0EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!295 = distinct !{!295, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSchedYieldEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm0EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!296 = !{!297}
+!297 = distinct !{!297, !298, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!298 = distinct !{!298, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!299 = !{!300, !297}
+!300 = distinct !{!300, !301, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!301 = distinct !{!301, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host13WasiRandomGetEE7toTupleISt5tupleIJjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!302 = !{!303}
+!303 = distinct !{!303, !304, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!304 = distinct !{!304, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!305 = !{!306, !303}
+!306 = distinct !{!306, !307, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE7toTupleISt5tupleIJjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!307 = distinct !{!307, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV1EE7toTupleISt5tupleIJjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!308 = !{!309}
+!309 = distinct !{!309, !310, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!310 = distinct !{!310, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!311 = !{!312, !309}
+!312 = distinct !{!312, !313, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!313 = distinct !{!313, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV1EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!314 = !{!315}
+!315 = distinct !{!315, !316, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!316 = distinct !{!316, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!317 = !{!318, !315}
+!318 = distinct !{!318, !319, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!319 = distinct !{!319, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV1EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!320 = !{!321}
+!321 = distinct !{!321, !322, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!322 = distinct !{!322, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!323 = !{!324, !321}
+!324 = distinct !{!324, !325, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE7toTupleISt5tupleIJiiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!325 = distinct !{!325, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV1EE7toTupleISt5tupleIJiiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!326 = !{!327}
+!327 = distinct !{!327, !328, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!328 = distinct !{!328, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!329 = !{!330, !327}
+!330 = distinct !{!330, !331, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!331 = distinct !{!331, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV1EE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!332 = !{!333}
+!333 = distinct !{!333, !334, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!334 = distinct !{!334, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!335 = !{!336, !333}
+!336 = distinct !{!336, !337, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE7toTupleISt5tupleIJijjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!337 = distinct !{!337, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV1EE7toTupleISt5tupleIJijjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!338 = !{!339}
+!339 = distinct !{!339, !340, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!340 = distinct !{!340, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!341 = !{!342, !339}
+!342 = distinct !{!342, !343, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE7toTupleISt5tupleIJijjjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!343 = distinct !{!343, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV1EE7toTupleISt5tupleIJijjjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!344 = !{!345}
+!345 = distinct !{!345, !346, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!346 = distinct !{!346, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!347 = !{!348, !345}
+!348 = distinct !{!348, !349, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!349 = distinct !{!349, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV1EE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!350 = !{!351}
+!351 = distinct !{!351, !352, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!352 = distinct !{!352, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!353 = !{!354, !351}
+!354 = distinct !{!354, !355, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE7toTupleISt5tupleIJijjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!355 = distinct !{!355, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV1EE7toTupleISt5tupleIJijjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!356 = !{!357}
+!357 = distinct !{!357, !358, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!358 = distinct !{!358, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!359 = !{!360, !357}
+!360 = distinct !{!360, !361, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!361 = distinct !{!361, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockAcceptV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!362 = !{!363}
+!363 = distinct !{!363, !364, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!364 = distinct !{!364, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!365 = !{!366, !363}
+!366 = distinct !{!366, !367, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE7toTupleISt5tupleIJjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!367 = distinct !{!367, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockOpenV2EE7toTupleISt5tupleIJjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!368 = !{!369}
+!369 = distinct !{!369, !370, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!370 = distinct !{!370, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!371 = !{!372, !369}
+!372 = distinct !{!372, !373, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!373 = distinct !{!373, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockBindV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!374 = !{!375}
+!375 = distinct !{!375, !376, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!376 = distinct !{!376, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!377 = !{!378, !375}
+!378 = distinct !{!378, !379, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!379 = distinct !{!379, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host17WasiSockConnectV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!380 = !{!381}
+!381 = distinct !{!381, !382, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!382 = distinct !{!382, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!383 = !{!384, !381}
+!384 = distinct !{!384, !385, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE7toTupleISt5tupleIJiiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!385 = distinct !{!385, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockListenV2EE7toTupleISt5tupleIJiiEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!386 = !{!387}
+!387 = distinct !{!387, !388, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!388 = distinct !{!388, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!389 = !{!390, !387}
+!390 = distinct !{!390, !391, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE7toTupleISt5tupleIJijjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!391 = distinct !{!391, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockRecvV2EE7toTupleISt5tupleIJijjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm6EEEJLm0ELm1ELm2ELm3ELm4ELm5EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!392 = !{!393}
+!393 = distinct !{!393, !394, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!394 = distinct !{!394, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!395 = !{!396, !393}
+!396 = distinct !{!396, !397, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE7toTupleISt5tupleIJijjjjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!397 = distinct !{!397, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host18WasiSockRecvFromV2EE7toTupleISt5tupleIJijjjjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!398 = !{!399}
+!399 = distinct !{!399, !400, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!400 = distinct !{!400, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!401 = !{!402, !399}
+!402 = distinct !{!402, !403, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!403 = distinct !{!403, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSendV2EE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!404 = !{!405}
+!405 = distinct !{!405, !406, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!406 = distinct !{!406, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!407 = !{!408, !405}
+!408 = distinct !{!408, !409, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE7toTupleISt5tupleIJijjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!409 = distinct !{!409, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockSendToV2EE7toTupleISt5tupleIJijjjijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm7EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!410 = !{!411}
+!411 = distinct !{!411, !412, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!412 = distinct !{!412, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!413 = !{!414, !411}
+!414 = distinct !{!414, !415, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!415 = distinct !{!415, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host16WasiSockShutdownEE7toTupleISt5tupleIJijEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm2EEEJLm0ELm1EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!416 = !{!417}
+!417 = distinct !{!417, !418, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!418 = distinct !{!418, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!419 = !{!420, !417}
+!420 = distinct !{!420, !421, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!421 = distinct !{!421, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockGetOptEE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!422 = !{!423}
+!423 = distinct !{!423, !424, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!424 = distinct !{!424, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!425 = !{!426, !423}
+!426 = distinct !{!426, !427, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!427 = distinct !{!427, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host14WasiSockSetOptEE7toTupleISt5tupleIJijjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm5EEEJLm0ELm1ELm2ELm3ELm4EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!428 = !{!429}
+!429 = distinct !{!429, !430, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!430 = distinct !{!430, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!431 = !{!432, !429}
+!432 = distinct !{!432, !433, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!433 = distinct !{!433, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV1EE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!434 = !{!435}
+!435 = distinct !{!435, !436, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!436 = distinct !{!436, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!437 = !{!438, !435}
+!438 = distinct !{!438, !439, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!439 = distinct !{!439, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV1EE7toTupleISt5tupleIJijjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm4EEEJLm0ELm1ELm2ELm3EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!440 = !{!441}
+!441 = distinct !{!441, !442, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!442 = distinct !{!442, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!443 = !{!444, !441}
+!444 = distinct !{!444, !445, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!445 = distinct !{!445, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host22WasiSockGetLocalAddrV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!446 = !{!447}
+!447 = distinct !{!447, !448, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!448 = distinct !{!448, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!449 = !{!450, !447}
+!450 = distinct !{!450, !451, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!451 = distinct !{!451, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host21WasiSockGetPeerAddrV2EE7toTupleISt5tupleIJijjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm3EEEJLm0ELm1ELm2EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}
+!452 = !{!453}
+!453 = distinct !{!453, !454, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_: argument 0"}
+!454 = distinct !{!454, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE6invokeIN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEENS7_ISL_Lm1EEEEENS6_8expectedIvNS_7ErrCodeEEERKNS0_12CallingFrameEOT_OT0_"}
+!455 = !{!456, !453}
+!456 = distinct !{!456, !457, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE7toTupleISt5tupleIJjjjjjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7EEEET_OT0_St16integer_sequenceImJXspT1_EEE: argument 0"}
+!457 = distinct !{!457, !"_ZN8WasmEdge7Runtime12HostFunctionINS_4Host19WasiSockGetAddrinfoEE7toTupleISt5tupleIJjjjjjjjjEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm8EEEJLm0ELm1ELm2ELm3ELm4ELm5ELm6ELm7EEEET_OT0_St16integer_sequenceImJXspT1_EEE"}

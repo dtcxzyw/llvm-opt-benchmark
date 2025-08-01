@@ -1374,7 +1374,7 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit.thread: ; pred
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %10) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %10, i8 0, i64 36, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  %136 = load ptr, ptr %135, align 8, !noalias !15
+  %136 = load ptr, ptr %135, align 8, !noalias !14
   %137 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %.not10.i.i.i.i = icmp eq ptr %136, null
   br i1 %.not10.i.i.i.i, label %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit, label %.lr.ph.i.i.i.i
@@ -1383,14 +1383,14 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit.thread: ; pred
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %136, %134 ]
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %137, %134 ]
   %138 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %139 = load i32, ptr %138, align 4, !noalias !15
+  %139 = load i32, ptr %138, align 4, !noalias !14
   %140 = icmp slt i32 %139, %storemerge204
   %.19.i.i.i.i = select i1 %140, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %140, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
-  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !noalias !15
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !noalias !14
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %141 = icmp eq ptr %.19.i.i.i.i, %137
@@ -1398,7 +1398,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %142 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %143 = load i32, ptr %142, align 4, !noalias !15
+  %143 = load i32, ptr %142, align 4, !noalias !14
   %144 = icmp slt i32 %storemerge204, %143
   %145 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 36
   %spec.select.i = select i1 %144, ptr %10, ptr %145
@@ -1432,13 +1432,13 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit: ; pre
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %14) #22
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %15) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %15, i8 0, i64 36, i1 false)
-  %156 = load ptr, ptr %95, align 8, !noalias !19
+  %156 = load ptr, ptr %95, align 8, !noalias !18
   %.not.i230 = icmp eq ptr %156, null
   br i1 %.not.i230, label %169, label %157
 
 157:                                              ; preds = %146
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 24
-  %159 = load ptr, ptr %158, align 8, !noalias !19
+  %159 = load ptr, ptr %158, align 8, !noalias !18
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %.not10.i.i.i.i231 = icmp eq ptr %159, null
   br i1 %.not10.i.i.i.i231, label %169, label %.lr.ph.i.i.i.i232
@@ -1447,14 +1447,14 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit: ; pre
   %.012.i.i.i.i233 = phi ptr [ %.1.i.i.i.i238, %.lr.ph.i.i.i.i232 ], [ %159, %157 ]
   %.0811.i.i.i.i234 = phi ptr [ %.19.i.i.i.i235, %.lr.ph.i.i.i.i232 ], [ %160, %157 ]
   %161 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i233, i64 32
-  %162 = load i32, ptr %161, align 4, !noalias !19
+  %162 = load i32, ptr %161, align 4, !noalias !18
   %163 = icmp slt i32 %162, %storemerge204
   %.19.i.i.i.i235 = select i1 %163, ptr %.0811.i.i.i.i234, ptr %.012.i.i.i.i233
   %.1.in.v.i.i.i.i236 = select i1 %163, i64 24, i64 16
   %.1.in.i.i.i.i237 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i233, i64 %.1.in.v.i.i.i.i236
-  %.1.i.i.i.i238 = load ptr, ptr %.1.in.i.i.i.i237, align 8, !noalias !19
+  %.1.i.i.i.i238 = load ptr, ptr %.1.in.i.i.i.i237, align 8, !noalias !18
   %.not.i.i.i.i239 = icmp eq ptr %.1.i.i.i.i238, null
-  br i1 %.not.i.i.i.i239, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i240, label %.lr.ph.i.i.i.i232, !llvm.loop !18
+  br i1 %.not.i.i.i.i239, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i240, label %.lr.ph.i.i.i.i232, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i240: ; preds = %.lr.ph.i.i.i.i232
   %164 = icmp eq ptr %.19.i.i.i.i235, %160
@@ -1462,7 +1462,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i241: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i240
   %165 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i235, i64 32
-  %166 = load i32, ptr %165, align 4, !noalias !19
+  %166 = load i32, ptr %165, align 4, !noalias !18
   %167 = icmp slt i32 %storemerge204, %166
   %168 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i235, i64 36
   %spec.select.i242 = select i1 %167, ptr %15, ptr %168
@@ -1557,13 +1557,13 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %188, %_ZN17QArrayDa
   store i64 2, ptr %105, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %18) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %18, i8 0, i64 36, i1 false)
-  %194 = load ptr, ptr %95, align 8, !noalias !22
+  %194 = load ptr, ptr %95, align 8, !noalias !21
   %.not.i255 = icmp eq ptr %194, null
   br i1 %.not.i255, label %207, label %195
 
 195:                                              ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit
   %196 = getelementptr inbounds nuw i8, ptr %194, i64 24
-  %197 = load ptr, ptr %196, align 8, !noalias !22
+  %197 = load ptr, ptr %196, align 8, !noalias !21
   %198 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %.not10.i.i.i.i256 = icmp eq ptr %197, null
   br i1 %.not10.i.i.i.i256, label %207, label %.lr.ph.i.i.i.i257
@@ -1572,14 +1572,14 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %188, %_ZN17QArrayDa
   %.012.i.i.i.i258 = phi ptr [ %.1.i.i.i.i263, %.lr.ph.i.i.i.i257 ], [ %197, %195 ]
   %.0811.i.i.i.i259 = phi ptr [ %.19.i.i.i.i260, %.lr.ph.i.i.i.i257 ], [ %198, %195 ]
   %199 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i258, i64 32
-  %200 = load i32, ptr %199, align 4, !noalias !22
+  %200 = load i32, ptr %199, align 4, !noalias !21
   %201 = icmp slt i32 %200, %storemerge204
   %.19.i.i.i.i260 = select i1 %201, ptr %.0811.i.i.i.i259, ptr %.012.i.i.i.i258
   %.1.in.v.i.i.i.i261 = select i1 %201, i64 24, i64 16
   %.1.in.i.i.i.i262 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i258, i64 %.1.in.v.i.i.i.i261
-  %.1.i.i.i.i263 = load ptr, ptr %.1.in.i.i.i.i262, align 8, !noalias !22
+  %.1.i.i.i.i263 = load ptr, ptr %.1.in.i.i.i.i262, align 8, !noalias !21
   %.not.i.i.i.i264 = icmp eq ptr %.1.i.i.i.i263, null
-  br i1 %.not.i.i.i.i264, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i265, label %.lr.ph.i.i.i.i257, !llvm.loop !18
+  br i1 %.not.i.i.i.i264, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i265, label %.lr.ph.i.i.i.i257, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i265: ; preds = %.lr.ph.i.i.i.i257
   %202 = icmp eq ptr %.19.i.i.i.i260, %198
@@ -1587,7 +1587,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i266: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i265
   %203 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i260, i64 32
-  %204 = load i32, ptr %203, align 4, !noalias !22
+  %204 = load i32, ptr %203, align 4, !noalias !21
   %205 = icmp slt i32 %storemerge204, %204
   %206 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i260, i64 36
   %spec.select.i267 = select i1 %205, ptr %18, ptr %206
@@ -1657,13 +1657,13 @@ _ZN17QArrayDataPointerIDsED2Ev.exit281:           ; preds = %220, %_ZN17QArrayDa
   store i64 2, ptr %108, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %21) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %21, i8 0, i64 36, i1 false)
-  %226 = load ptr, ptr %95, align 8, !noalias !25
+  %226 = load ptr, ptr %95, align 8, !noalias !24
   %.not.i282 = icmp eq ptr %226, null
   br i1 %.not.i282, label %239, label %227
 
 227:                                              ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit281
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 24
-  %229 = load ptr, ptr %228, align 8, !noalias !25
+  %229 = load ptr, ptr %228, align 8, !noalias !24
   %230 = getelementptr inbounds nuw i8, ptr %226, i64 16
   %.not10.i.i.i.i283 = icmp eq ptr %229, null
   br i1 %.not10.i.i.i.i283, label %239, label %.lr.ph.i.i.i.i284
@@ -1672,14 +1672,14 @@ _ZN17QArrayDataPointerIDsED2Ev.exit281:           ; preds = %220, %_ZN17QArrayDa
   %.012.i.i.i.i285 = phi ptr [ %.1.i.i.i.i290, %.lr.ph.i.i.i.i284 ], [ %229, %227 ]
   %.0811.i.i.i.i286 = phi ptr [ %.19.i.i.i.i287, %.lr.ph.i.i.i.i284 ], [ %230, %227 ]
   %231 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i285, i64 32
-  %232 = load i32, ptr %231, align 4, !noalias !25
+  %232 = load i32, ptr %231, align 4, !noalias !24
   %233 = icmp slt i32 %232, %storemerge204
   %.19.i.i.i.i287 = select i1 %233, ptr %.0811.i.i.i.i286, ptr %.012.i.i.i.i285
   %.1.in.v.i.i.i.i288 = select i1 %233, i64 24, i64 16
   %.1.in.i.i.i.i289 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i285, i64 %.1.in.v.i.i.i.i288
-  %.1.i.i.i.i290 = load ptr, ptr %.1.in.i.i.i.i289, align 8, !noalias !25
+  %.1.i.i.i.i290 = load ptr, ptr %.1.in.i.i.i.i289, align 8, !noalias !24
   %.not.i.i.i.i291 = icmp eq ptr %.1.i.i.i.i290, null
-  br i1 %.not.i.i.i.i291, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i292, label %.lr.ph.i.i.i.i284, !llvm.loop !18
+  br i1 %.not.i.i.i.i291, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i292, label %.lr.ph.i.i.i.i284, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i292: ; preds = %.lr.ph.i.i.i.i284
   %234 = icmp eq ptr %.19.i.i.i.i287, %230
@@ -1687,7 +1687,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i293: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i292
   %235 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i287, i64 32
-  %236 = load i32, ptr %235, align 4, !noalias !25
+  %236 = load i32, ptr %235, align 4, !noalias !24
   %237 = icmp slt i32 %storemerge204, %236
   %238 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i287, i64 36
   %spec.select.i294 = select i1 %237, ptr %21, ptr %238
@@ -1757,13 +1757,13 @@ _ZN17QArrayDataPointerIDsED2Ev.exit309:           ; preds = %252, %_ZN17QArrayDa
   store i64 2, ptr %111, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %24) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %24, i8 0, i64 36, i1 false)
-  %258 = load ptr, ptr %95, align 8, !noalias !28
+  %258 = load ptr, ptr %95, align 8, !noalias !27
   %.not.i310 = icmp eq ptr %258, null
   br i1 %.not.i310, label %271, label %259
 
 259:                                              ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit309
   %260 = getelementptr inbounds nuw i8, ptr %258, i64 24
-  %261 = load ptr, ptr %260, align 8, !noalias !28
+  %261 = load ptr, ptr %260, align 8, !noalias !27
   %262 = getelementptr inbounds nuw i8, ptr %258, i64 16
   %.not10.i.i.i.i311 = icmp eq ptr %261, null
   br i1 %.not10.i.i.i.i311, label %271, label %.lr.ph.i.i.i.i312
@@ -1772,14 +1772,14 @@ _ZN17QArrayDataPointerIDsED2Ev.exit309:           ; preds = %252, %_ZN17QArrayDa
   %.012.i.i.i.i313 = phi ptr [ %.1.i.i.i.i318, %.lr.ph.i.i.i.i312 ], [ %261, %259 ]
   %.0811.i.i.i.i314 = phi ptr [ %.19.i.i.i.i315, %.lr.ph.i.i.i.i312 ], [ %262, %259 ]
   %263 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i313, i64 32
-  %264 = load i32, ptr %263, align 4, !noalias !28
+  %264 = load i32, ptr %263, align 4, !noalias !27
   %265 = icmp slt i32 %264, %storemerge204
   %.19.i.i.i.i315 = select i1 %265, ptr %.0811.i.i.i.i314, ptr %.012.i.i.i.i313
   %.1.in.v.i.i.i.i316 = select i1 %265, i64 24, i64 16
   %.1.in.i.i.i.i317 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i313, i64 %.1.in.v.i.i.i.i316
-  %.1.i.i.i.i318 = load ptr, ptr %.1.in.i.i.i.i317, align 8, !noalias !28
+  %.1.i.i.i.i318 = load ptr, ptr %.1.in.i.i.i.i317, align 8, !noalias !27
   %.not.i.i.i.i319 = icmp eq ptr %.1.i.i.i.i318, null
-  br i1 %.not.i.i.i.i319, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i320, label %.lr.ph.i.i.i.i312, !llvm.loop !18
+  br i1 %.not.i.i.i.i319, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i320, label %.lr.ph.i.i.i.i312, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i320: ; preds = %.lr.ph.i.i.i.i312
   %266 = icmp eq ptr %.19.i.i.i.i315, %262
@@ -1787,7 +1787,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i321: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i320
   %267 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i315, i64 32
-  %268 = load i32, ptr %267, align 4, !noalias !28
+  %268 = load i32, ptr %267, align 4, !noalias !27
   %269 = icmp slt i32 %storemerge204, %268
   %270 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i315, i64 36
   %spec.select.i322 = select i1 %269, ptr %24, ptr %270
@@ -2076,7 +2076,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit389:           ; preds = %342, %_ZN17QArrayDa
 345:                                              ; preds = %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit, %_ZN17QArrayDataPointerIDsED2Ev.exit337
   %.1150 = phi i32 [ %286, %_ZN17QArrayDataPointerIDsED2Ev.exit337 ], [ %.0149, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit ]
   %346 = add i32 %storemerge204, 1
-  br label %113, !llvm.loop !31
+  br label %113, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %567
   %.pr.pre1292 = phi ptr [ %.pr.pre, %567 ], [ %.pr.pre1292.ph, %.loopexit.preheader ]
@@ -2105,7 +2105,7 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit391.thread: ; p
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %25) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %25, i8 0, i64 36, i1 false)
   %354 = getelementptr inbounds nuw i8, ptr %.pr.pre1292, i64 24
-  %355 = load ptr, ptr %354, align 8, !noalias !32
+  %355 = load ptr, ptr %354, align 8, !noalias !31
   %356 = getelementptr inbounds nuw i8, ptr %.pr.pre1292, i64 16
   %.not10.i.i.i.i393 = icmp eq ptr %355, null
   br i1 %.not10.i.i.i.i393, label %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit406, label %.lr.ph.i.i.i.i394
@@ -2114,14 +2114,14 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit391.thread: ; p
   %.012.i.i.i.i395 = phi ptr [ %.1.i.i.i.i400, %.lr.ph.i.i.i.i394 ], [ %355, %353 ]
   %.0811.i.i.i.i396 = phi ptr [ %.19.i.i.i.i397, %.lr.ph.i.i.i.i394 ], [ %356, %353 ]
   %357 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i395, i64 32
-  %358 = load i32, ptr %357, align 4, !noalias !32
+  %358 = load i32, ptr %357, align 4, !noalias !31
   %359 = icmp slt i32 %358, %storemerge205
   %.19.i.i.i.i397 = select i1 %359, ptr %.0811.i.i.i.i396, ptr %.012.i.i.i.i395
   %.1.in.v.i.i.i.i398 = select i1 %359, i64 24, i64 16
   %.1.in.i.i.i.i399 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i395, i64 %.1.in.v.i.i.i.i398
-  %.1.i.i.i.i400 = load ptr, ptr %.1.in.i.i.i.i399, align 8, !noalias !32
+  %.1.i.i.i.i400 = load ptr, ptr %.1.in.i.i.i.i399, align 8, !noalias !31
   %.not.i.i.i.i401 = icmp eq ptr %.1.i.i.i.i400, null
-  br i1 %.not.i.i.i.i401, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i402, label %.lr.ph.i.i.i.i394, !llvm.loop !18
+  br i1 %.not.i.i.i.i401, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i402, label %.lr.ph.i.i.i.i394, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i402: ; preds = %.lr.ph.i.i.i.i394
   %360 = icmp eq ptr %.19.i.i.i.i397, %356
@@ -2129,7 +2129,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i403: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i402
   %361 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i397, i64 32
-  %362 = load i32, ptr %361, align 4, !noalias !32
+  %362 = load i32, ptr %361, align 4, !noalias !31
   %363 = icmp slt i32 %storemerge205, %362
   %364 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i397, i64 36
   %spec.select.i404 = select i1 %363, ptr %25, ptr %364
@@ -2163,13 +2163,13 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit406: ; 
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %29) #22
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %30) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %30, i8 0, i64 36, i1 false)
-  %375 = load ptr, ptr %95, align 8, !noalias !35
+  %375 = load ptr, ptr %95, align 8, !noalias !34
   %.not.i407 = icmp eq ptr %375, null
   br i1 %.not.i407, label %388, label %376
 
 376:                                              ; preds = %365
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 24
-  %378 = load ptr, ptr %377, align 8, !noalias !35
+  %378 = load ptr, ptr %377, align 8, !noalias !34
   %379 = getelementptr inbounds nuw i8, ptr %375, i64 16
   %.not10.i.i.i.i408 = icmp eq ptr %378, null
   br i1 %.not10.i.i.i.i408, label %388, label %.lr.ph.i.i.i.i409
@@ -2178,14 +2178,14 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit406: ; 
   %.012.i.i.i.i410 = phi ptr [ %.1.i.i.i.i415, %.lr.ph.i.i.i.i409 ], [ %378, %376 ]
   %.0811.i.i.i.i411 = phi ptr [ %.19.i.i.i.i412, %.lr.ph.i.i.i.i409 ], [ %379, %376 ]
   %380 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i410, i64 32
-  %381 = load i32, ptr %380, align 4, !noalias !35
+  %381 = load i32, ptr %380, align 4, !noalias !34
   %382 = icmp slt i32 %381, %storemerge205
   %.19.i.i.i.i412 = select i1 %382, ptr %.0811.i.i.i.i411, ptr %.012.i.i.i.i410
   %.1.in.v.i.i.i.i413 = select i1 %382, i64 24, i64 16
   %.1.in.i.i.i.i414 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i410, i64 %.1.in.v.i.i.i.i413
-  %.1.i.i.i.i415 = load ptr, ptr %.1.in.i.i.i.i414, align 8, !noalias !35
+  %.1.i.i.i.i415 = load ptr, ptr %.1.in.i.i.i.i414, align 8, !noalias !34
   %.not.i.i.i.i416 = icmp eq ptr %.1.i.i.i.i415, null
-  br i1 %.not.i.i.i.i416, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i417, label %.lr.ph.i.i.i.i409, !llvm.loop !18
+  br i1 %.not.i.i.i.i416, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i417, label %.lr.ph.i.i.i.i409, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i417: ; preds = %.lr.ph.i.i.i.i409
   %383 = icmp eq ptr %.19.i.i.i.i412, %379
@@ -2193,7 +2193,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i418: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i417
   %384 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i412, i64 32
-  %385 = load i32, ptr %384, align 4, !noalias !35
+  %385 = load i32, ptr %384, align 4, !noalias !34
   %386 = icmp slt i32 %storemerge205, %385
   %387 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i412, i64 36
   %spec.select.i419 = select i1 %386, ptr %30, ptr %387
@@ -2288,13 +2288,13 @@ _ZN17QArrayDataPointerIDsED2Ev.exit439:           ; preds = %407, %_ZN17QArrayDa
   store i64 2, ptr %124, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %33) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %33, i8 0, i64 36, i1 false)
-  %413 = load ptr, ptr %95, align 8, !noalias !38
+  %413 = load ptr, ptr %95, align 8, !noalias !37
   %.not.i440 = icmp eq ptr %413, null
   br i1 %.not.i440, label %426, label %414
 
 414:                                              ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit439
   %415 = getelementptr inbounds nuw i8, ptr %413, i64 24
-  %416 = load ptr, ptr %415, align 8, !noalias !38
+  %416 = load ptr, ptr %415, align 8, !noalias !37
   %417 = getelementptr inbounds nuw i8, ptr %413, i64 16
   %.not10.i.i.i.i441 = icmp eq ptr %416, null
   br i1 %.not10.i.i.i.i441, label %426, label %.lr.ph.i.i.i.i442
@@ -2303,14 +2303,14 @@ _ZN17QArrayDataPointerIDsED2Ev.exit439:           ; preds = %407, %_ZN17QArrayDa
   %.012.i.i.i.i443 = phi ptr [ %.1.i.i.i.i448, %.lr.ph.i.i.i.i442 ], [ %416, %414 ]
   %.0811.i.i.i.i444 = phi ptr [ %.19.i.i.i.i445, %.lr.ph.i.i.i.i442 ], [ %417, %414 ]
   %418 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i443, i64 32
-  %419 = load i32, ptr %418, align 4, !noalias !38
+  %419 = load i32, ptr %418, align 4, !noalias !37
   %420 = icmp slt i32 %419, %storemerge205
   %.19.i.i.i.i445 = select i1 %420, ptr %.0811.i.i.i.i444, ptr %.012.i.i.i.i443
   %.1.in.v.i.i.i.i446 = select i1 %420, i64 24, i64 16
   %.1.in.i.i.i.i447 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i443, i64 %.1.in.v.i.i.i.i446
-  %.1.i.i.i.i448 = load ptr, ptr %.1.in.i.i.i.i447, align 8, !noalias !38
+  %.1.i.i.i.i448 = load ptr, ptr %.1.in.i.i.i.i447, align 8, !noalias !37
   %.not.i.i.i.i449 = icmp eq ptr %.1.i.i.i.i448, null
-  br i1 %.not.i.i.i.i449, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i450, label %.lr.ph.i.i.i.i442, !llvm.loop !18
+  br i1 %.not.i.i.i.i449, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i450, label %.lr.ph.i.i.i.i442, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i450: ; preds = %.lr.ph.i.i.i.i442
   %421 = icmp eq ptr %.19.i.i.i.i445, %417
@@ -2318,7 +2318,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i451: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i450
   %422 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i445, i64 32
-  %423 = load i32, ptr %422, align 4, !noalias !38
+  %423 = load i32, ptr %422, align 4, !noalias !37
   %424 = icmp slt i32 %storemerge205, %423
   %425 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i445, i64 36
   %spec.select.i452 = select i1 %424, ptr %33, ptr %425
@@ -2388,13 +2388,13 @@ _ZN17QArrayDataPointerIDsED2Ev.exit467:           ; preds = %439, %_ZN17QArrayDa
   store i64 2, ptr %126, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %36) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %36, i8 0, i64 36, i1 false)
-  %445 = load ptr, ptr %95, align 8, !noalias !41
+  %445 = load ptr, ptr %95, align 8, !noalias !40
   %.not.i468 = icmp eq ptr %445, null
   br i1 %.not.i468, label %458, label %446
 
 446:                                              ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit467
   %447 = getelementptr inbounds nuw i8, ptr %445, i64 24
-  %448 = load ptr, ptr %447, align 8, !noalias !41
+  %448 = load ptr, ptr %447, align 8, !noalias !40
   %449 = getelementptr inbounds nuw i8, ptr %445, i64 16
   %.not10.i.i.i.i469 = icmp eq ptr %448, null
   br i1 %.not10.i.i.i.i469, label %458, label %.lr.ph.i.i.i.i470
@@ -2403,14 +2403,14 @@ _ZN17QArrayDataPointerIDsED2Ev.exit467:           ; preds = %439, %_ZN17QArrayDa
   %.012.i.i.i.i471 = phi ptr [ %.1.i.i.i.i476, %.lr.ph.i.i.i.i470 ], [ %448, %446 ]
   %.0811.i.i.i.i472 = phi ptr [ %.19.i.i.i.i473, %.lr.ph.i.i.i.i470 ], [ %449, %446 ]
   %450 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i471, i64 32
-  %451 = load i32, ptr %450, align 4, !noalias !41
+  %451 = load i32, ptr %450, align 4, !noalias !40
   %452 = icmp slt i32 %451, %storemerge205
   %.19.i.i.i.i473 = select i1 %452, ptr %.0811.i.i.i.i472, ptr %.012.i.i.i.i471
   %.1.in.v.i.i.i.i474 = select i1 %452, i64 24, i64 16
   %.1.in.i.i.i.i475 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i471, i64 %.1.in.v.i.i.i.i474
-  %.1.i.i.i.i476 = load ptr, ptr %.1.in.i.i.i.i475, align 8, !noalias !41
+  %.1.i.i.i.i476 = load ptr, ptr %.1.in.i.i.i.i475, align 8, !noalias !40
   %.not.i.i.i.i477 = icmp eq ptr %.1.i.i.i.i476, null
-  br i1 %.not.i.i.i.i477, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i478, label %.lr.ph.i.i.i.i470, !llvm.loop !18
+  br i1 %.not.i.i.i.i477, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i478, label %.lr.ph.i.i.i.i470, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i478: ; preds = %.lr.ph.i.i.i.i470
   %453 = icmp eq ptr %.19.i.i.i.i473, %449
@@ -2418,7 +2418,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i479: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i478
   %454 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i473, i64 32
-  %455 = load i32, ptr %454, align 4, !noalias !41
+  %455 = load i32, ptr %454, align 4, !noalias !40
   %456 = icmp slt i32 %storemerge205, %455
   %457 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i473, i64 36
   %spec.select.i480 = select i1 %456, ptr %36, ptr %457
@@ -2488,13 +2488,13 @@ _ZN17QArrayDataPointerIDsED2Ev.exit495:           ; preds = %471, %_ZN17QArrayDa
   store i64 2, ptr %128, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %39) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %39, i8 0, i64 36, i1 false)
-  %477 = load ptr, ptr %95, align 8, !noalias !44
+  %477 = load ptr, ptr %95, align 8, !noalias !43
   %.not.i496 = icmp eq ptr %477, null
   br i1 %.not.i496, label %490, label %478
 
 478:                                              ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit495
   %479 = getelementptr inbounds nuw i8, ptr %477, i64 24
-  %480 = load ptr, ptr %479, align 8, !noalias !44
+  %480 = load ptr, ptr %479, align 8, !noalias !43
   %481 = getelementptr inbounds nuw i8, ptr %477, i64 16
   %.not10.i.i.i.i497 = icmp eq ptr %480, null
   br i1 %.not10.i.i.i.i497, label %490, label %.lr.ph.i.i.i.i498
@@ -2503,14 +2503,14 @@ _ZN17QArrayDataPointerIDsED2Ev.exit495:           ; preds = %471, %_ZN17QArrayDa
   %.012.i.i.i.i499 = phi ptr [ %.1.i.i.i.i504, %.lr.ph.i.i.i.i498 ], [ %480, %478 ]
   %.0811.i.i.i.i500 = phi ptr [ %.19.i.i.i.i501, %.lr.ph.i.i.i.i498 ], [ %481, %478 ]
   %482 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i499, i64 32
-  %483 = load i32, ptr %482, align 4, !noalias !44
+  %483 = load i32, ptr %482, align 4, !noalias !43
   %484 = icmp slt i32 %483, %storemerge205
   %.19.i.i.i.i501 = select i1 %484, ptr %.0811.i.i.i.i500, ptr %.012.i.i.i.i499
   %.1.in.v.i.i.i.i502 = select i1 %484, i64 24, i64 16
   %.1.in.i.i.i.i503 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i499, i64 %.1.in.v.i.i.i.i502
-  %.1.i.i.i.i504 = load ptr, ptr %.1.in.i.i.i.i503, align 8, !noalias !44
+  %.1.i.i.i.i504 = load ptr, ptr %.1.in.i.i.i.i503, align 8, !noalias !43
   %.not.i.i.i.i505 = icmp eq ptr %.1.i.i.i.i504, null
-  br i1 %.not.i.i.i.i505, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i506, label %.lr.ph.i.i.i.i498, !llvm.loop !18
+  br i1 %.not.i.i.i.i505, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i506, label %.lr.ph.i.i.i.i498, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i506: ; preds = %.lr.ph.i.i.i.i498
   %485 = icmp eq ptr %.19.i.i.i.i501, %481
@@ -2518,7 +2518,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i507: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i506
   %486 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i501, i64 32
-  %487 = load i32, ptr %486, align 4, !noalias !44
+  %487 = load i32, ptr %486, align 4, !noalias !43
   %488 = icmp slt i32 %storemerge205, %487
   %489 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i501, i64 36
   %spec.select.i508 = select i1 %488, ptr %39, ptr %489
@@ -2813,7 +2813,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit575:           ; preds = %564, %_ZN17QArrayDa
   %.pr.pre = phi ptr [ %.pr.pre.pre, %_ZN17QArrayDataPointerIDsED2Ev.exit523 ], [ %.pr.pre1292, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit406 ]
   %.3152 = phi i32 [ %508, %_ZN17QArrayDataPointerIDsED2Ev.exit523 ], [ %.2151, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit406 ]
   %568 = add i32 %storemerge205, 1
-  br label %.loopexit, !llvm.loop !47
+  br label %.loopexit, !llvm.loop !46
 
 569:                                              ; preds = %93
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %40) #22
@@ -2874,7 +2874,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit575:           ; preds = %564, %_ZN17QArrayDa
 .backedge:                                        ; preds = %605, %609
   %608 = call ptr @fgets(ptr noundef nonnull %40, i32 noundef 100, ptr noundef nonnull %86)
   %.not168 = icmp eq ptr %608, null
-  br i1 %.not168, label %.outer._crit_edge, label %605, !llvm.loop !48
+  br i1 %.not168, label %.outer._crit_edge, label %605, !llvm.loop !47
 
 609:                                              ; preds = %605
   %610 = call ptr @strtok(ptr noundef nonnull %40, ptr noundef nonnull @.str.10) #22
@@ -2919,8 +2919,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i579:   ; preds = %618
 _ZN7QStringD2Ev.exit581:                          ; preds = %618, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i579, %621
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46) #22
-  %623 = load ptr, ptr %575, align 8, !noalias !49
-  %624 = load i64, ptr %576, align 8, !noalias !49
+  %623 = load ptr, ptr %575, align 8, !noalias !48
+  %624 = load i64, ptr %576, align 8, !noalias !48
   invoke void @_ZN7QString18toLocal8Bit_helperEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %46, ptr noundef %623, i64 noundef %624)
           to label %_ZNKR7QString11toLocal8BitEv.exit unwind label %640
 
@@ -2952,7 +2952,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %627, %_ZN17QArrayDa
           to label %633 unwind label %648
 
 633:                                              ; preds = %_ZN10QByteArrayD2Ev.exit
-  br i1 %632, label %650, label %864, !llvm.loop !52
+  br i1 %632, label %650, label %864, !llvm.loop !47
 
 634:                                              ; preds = %_ZN7QStringC2EPKc.exit577
   %635 = landingpad { ptr, i32 }
@@ -3074,8 +3074,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i598:   ; preds = %666
 _ZN7QStringD2Ev.exit600:                          ; preds = %666, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i598, %669
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49) #22
-  %671 = load ptr, ptr %585, align 8, !noalias !53
-  %672 = load i64, ptr %586, align 8, !noalias !53
+  %671 = load ptr, ptr %585, align 8, !noalias !51
+  %672 = load i64, ptr %586, align 8, !noalias !51
   invoke void @_ZN7QString18toLocal8Bit_helperEPK5QCharx(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %49, ptr noundef %671, i64 noundef %672)
           to label %_ZNKR7QString11toLocal8BitEv.exit601 unwind label %692
 
@@ -3737,7 +3737,7 @@ _ZN7QStringD2Ev.exit739:                          ; preds = %864, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44) #22
   %869 = call ptr @fgets(ptr noundef nonnull %40, i32 noundef 100, ptr noundef nonnull %86)
   %.not1681214 = icmp eq ptr %869, null
-  br i1 %.not1681214, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not1681214, label %.outer._crit_edge, label %.lr.ph
 
 870:                                              ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit735, %858, %_ZN17QArrayDataPointerIDsED2Ev.exit723, %845, %_ZN17QArrayDataPointerIDsED2Ev.exit711, %832, %_ZN17QArrayDataPointerIDsED2Ev.exit699, %819, %_ZN7QStringD2Ev.exit623, %648, %_ZN10QByteArrayD2Ev.exit592
   %.pn198.pn.pn = phi { ptr, i32 } [ %.pn198.pn, %_ZN7QStringD2Ev.exit623 ], [ %649, %648 ], [ %.pn190, %858 ], [ %.pn190, %_ZN17QArrayDataPointerIDsED2Ev.exit735 ], [ %.pn188, %845 ], [ %.pn188, %_ZN17QArrayDataPointerIDsED2Ev.exit723 ], [ %.pn186, %832 ], [ %.pn186, %_ZN17QArrayDataPointerIDsED2Ev.exit711 ], [ %.pn183.pn, %819 ], [ %.pn183.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit699 ], [ %.pn179, %_ZN10QByteArrayD2Ev.exit592 ]
@@ -3813,7 +3813,7 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit745.thread: ; p
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %59) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %59, i8 0, i64 36, i1 false)
   %906 = getelementptr inbounds nuw i8, ptr %898, i64 24
-  %907 = load ptr, ptr %906, align 8, !noalias !56
+  %907 = load ptr, ptr %906, align 8, !noalias !54
   %908 = getelementptr inbounds nuw i8, ptr %898, i64 16
   %.not10.i.i.i.i747 = icmp eq ptr %907, null
   br i1 %.not10.i.i.i.i747, label %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit760, label %.lr.ph.i.i.i.i748
@@ -3822,14 +3822,14 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit745.thread: ; p
   %.012.i.i.i.i749 = phi ptr [ %.1.i.i.i.i754, %.lr.ph.i.i.i.i748 ], [ %907, %905 ]
   %.0811.i.i.i.i750 = phi ptr [ %.19.i.i.i.i751, %.lr.ph.i.i.i.i748 ], [ %908, %905 ]
   %909 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i749, i64 32
-  %910 = load i32, ptr %909, align 4, !noalias !56
+  %910 = load i32, ptr %909, align 4, !noalias !54
   %911 = icmp slt i32 %910, %storemerge
   %.19.i.i.i.i751 = select i1 %911, ptr %.0811.i.i.i.i750, ptr %.012.i.i.i.i749
   %.1.in.v.i.i.i.i752 = select i1 %911, i64 24, i64 16
   %.1.in.i.i.i.i753 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i749, i64 %.1.in.v.i.i.i.i752
-  %.1.i.i.i.i754 = load ptr, ptr %.1.in.i.i.i.i753, align 8, !noalias !56
+  %.1.i.i.i.i754 = load ptr, ptr %.1.in.i.i.i.i753, align 8, !noalias !54
   %.not.i.i.i.i755 = icmp eq ptr %.1.i.i.i.i754, null
-  br i1 %.not.i.i.i.i755, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i756, label %.lr.ph.i.i.i.i748, !llvm.loop !18
+  br i1 %.not.i.i.i.i755, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i756, label %.lr.ph.i.i.i.i748, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i756: ; preds = %.lr.ph.i.i.i.i748
   %912 = icmp eq ptr %.19.i.i.i.i751, %908
@@ -3837,7 +3837,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i757: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i756
   %913 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i751, i64 32
-  %914 = load i32, ptr %913, align 4, !noalias !56
+  %914 = load i32, ptr %913, align 4, !noalias !54
   %915 = icmp slt i32 %storemerge, %914
   %916 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i751, i64 36
   %spec.select.i758 = select i1 %915, ptr %59, ptr %916
@@ -3871,33 +3871,33 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit760: ; 
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %63) #22
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %64) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %64, i8 0, i64 36, i1 false)
-  %927 = load ptr, ptr %880, align 8, !noalias !59
+  %927 = load ptr, ptr %880, align 8, !noalias !57
   %.not.i761 = icmp eq ptr %927, null
   br i1 %.not.i761, label %942, label %928
 
 928:                                              ; preds = %917
   %929 = getelementptr inbounds nuw i8, ptr %927, i64 24
-  %930 = load ptr, ptr %929, align 8, !noalias !59
+  %930 = load ptr, ptr %929, align 8, !noalias !57
   %931 = getelementptr inbounds nuw i8, ptr %927, i64 16
   %.not10.i.i.i.i762 = icmp eq ptr %930, null
   br i1 %.not10.i.i.i.i762, label %942, label %.lr.ph.i.i.i.i763
 
 .lr.ph.i.i.i.i763:                                ; preds = %928
-  %932 = load i32, ptr %42, align 4, !noalias !59
+  %932 = load i32, ptr %42, align 4, !noalias !57
   br label %933
 
 933:                                              ; preds = %933, %.lr.ph.i.i.i.i763
   %.012.i.i.i.i764 = phi ptr [ %930, %.lr.ph.i.i.i.i763 ], [ %.1.i.i.i.i769, %933 ]
   %.0811.i.i.i.i765 = phi ptr [ %931, %.lr.ph.i.i.i.i763 ], [ %.19.i.i.i.i766, %933 ]
   %934 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i764, i64 32
-  %935 = load i32, ptr %934, align 4, !noalias !59
+  %935 = load i32, ptr %934, align 4, !noalias !57
   %936 = icmp slt i32 %935, %932
   %.19.i.i.i.i766 = select i1 %936, ptr %.0811.i.i.i.i765, ptr %.012.i.i.i.i764
   %.1.in.v.i.i.i.i767 = select i1 %936, i64 24, i64 16
   %.1.in.i.i.i.i768 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i764, i64 %.1.in.v.i.i.i.i767
-  %.1.i.i.i.i769 = load ptr, ptr %.1.in.i.i.i.i768, align 8, !noalias !59
+  %.1.i.i.i.i769 = load ptr, ptr %.1.in.i.i.i.i768, align 8, !noalias !57
   %.not.i.i.i.i770 = icmp eq ptr %.1.i.i.i.i769, null
-  br i1 %.not.i.i.i.i770, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i771, label %933, !llvm.loop !18
+  br i1 %.not.i.i.i.i770, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i771, label %933, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i771: ; preds = %933
   %937 = icmp eq ptr %.19.i.i.i.i766, %931
@@ -3905,7 +3905,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i772: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i771
   %938 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i766, i64 32
-  %939 = load i32, ptr %938, align 4, !noalias !59
+  %939 = load i32, ptr %938, align 4, !noalias !57
   %940 = icmp slt i32 %932, %939
   %941 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i766, i64 36
   %spec.select.i773 = select i1 %940, ptr %64, ptr %941
@@ -4000,33 +4000,33 @@ _ZN17QArrayDataPointerIDsED2Ev.exit796:           ; preds = %961, %_ZN17QArrayDa
   store i64 2, ptr %889, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %67) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %67, i8 0, i64 36, i1 false)
-  %967 = load ptr, ptr %880, align 8, !noalias !62
+  %967 = load ptr, ptr %880, align 8, !noalias !60
   %.not.i797 = icmp eq ptr %967, null
   br i1 %.not.i797, label %982, label %968
 
 968:                                              ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit796
   %969 = getelementptr inbounds nuw i8, ptr %967, i64 24
-  %970 = load ptr, ptr %969, align 8, !noalias !62
+  %970 = load ptr, ptr %969, align 8, !noalias !60
   %971 = getelementptr inbounds nuw i8, ptr %967, i64 16
   %.not10.i.i.i.i798 = icmp eq ptr %970, null
   br i1 %.not10.i.i.i.i798, label %982, label %.lr.ph.i.i.i.i799
 
 .lr.ph.i.i.i.i799:                                ; preds = %968
-  %972 = load i32, ptr %42, align 4, !noalias !62
+  %972 = load i32, ptr %42, align 4, !noalias !60
   br label %973
 
 973:                                              ; preds = %973, %.lr.ph.i.i.i.i799
   %.012.i.i.i.i800 = phi ptr [ %970, %.lr.ph.i.i.i.i799 ], [ %.1.i.i.i.i805, %973 ]
   %.0811.i.i.i.i801 = phi ptr [ %971, %.lr.ph.i.i.i.i799 ], [ %.19.i.i.i.i802, %973 ]
   %974 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i800, i64 32
-  %975 = load i32, ptr %974, align 4, !noalias !62
+  %975 = load i32, ptr %974, align 4, !noalias !60
   %976 = icmp slt i32 %975, %972
   %.19.i.i.i.i802 = select i1 %976, ptr %.0811.i.i.i.i801, ptr %.012.i.i.i.i800
   %.1.in.v.i.i.i.i803 = select i1 %976, i64 24, i64 16
   %.1.in.i.i.i.i804 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i800, i64 %.1.in.v.i.i.i.i803
-  %.1.i.i.i.i805 = load ptr, ptr %.1.in.i.i.i.i804, align 8, !noalias !62
+  %.1.i.i.i.i805 = load ptr, ptr %.1.in.i.i.i.i804, align 8, !noalias !60
   %.not.i.i.i.i806 = icmp eq ptr %.1.i.i.i.i805, null
-  br i1 %.not.i.i.i.i806, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i807, label %973, !llvm.loop !18
+  br i1 %.not.i.i.i.i806, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i807, label %973, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i807: ; preds = %973
   %977 = icmp eq ptr %.19.i.i.i.i802, %971
@@ -4034,7 +4034,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i808: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i807
   %978 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i802, i64 32
-  %979 = load i32, ptr %978, align 4, !noalias !62
+  %979 = load i32, ptr %978, align 4, !noalias !60
   %980 = icmp slt i32 %972, %979
   %981 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i802, i64 36
   %spec.select.i809 = select i1 %980, ptr %67, ptr %981
@@ -4104,33 +4104,33 @@ _ZN17QArrayDataPointerIDsED2Ev.exit824:           ; preds = %995, %_ZN17QArrayDa
   store i64 2, ptr %892, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %70) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %70, i8 0, i64 36, i1 false)
-  %1001 = load ptr, ptr %880, align 8, !noalias !65
+  %1001 = load ptr, ptr %880, align 8, !noalias !63
   %.not.i825 = icmp eq ptr %1001, null
   br i1 %.not.i825, label %1016, label %1002
 
 1002:                                             ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit824
   %1003 = getelementptr inbounds nuw i8, ptr %1001, i64 24
-  %1004 = load ptr, ptr %1003, align 8, !noalias !65
+  %1004 = load ptr, ptr %1003, align 8, !noalias !63
   %1005 = getelementptr inbounds nuw i8, ptr %1001, i64 16
   %.not10.i.i.i.i826 = icmp eq ptr %1004, null
   br i1 %.not10.i.i.i.i826, label %1016, label %.lr.ph.i.i.i.i827
 
 .lr.ph.i.i.i.i827:                                ; preds = %1002
-  %1006 = load i32, ptr %42, align 4, !noalias !65
+  %1006 = load i32, ptr %42, align 4, !noalias !63
   br label %1007
 
 1007:                                             ; preds = %1007, %.lr.ph.i.i.i.i827
   %.012.i.i.i.i828 = phi ptr [ %1004, %.lr.ph.i.i.i.i827 ], [ %.1.i.i.i.i833, %1007 ]
   %.0811.i.i.i.i829 = phi ptr [ %1005, %.lr.ph.i.i.i.i827 ], [ %.19.i.i.i.i830, %1007 ]
   %1008 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i828, i64 32
-  %1009 = load i32, ptr %1008, align 4, !noalias !65
+  %1009 = load i32, ptr %1008, align 4, !noalias !63
   %1010 = icmp slt i32 %1009, %1006
   %.19.i.i.i.i830 = select i1 %1010, ptr %.0811.i.i.i.i829, ptr %.012.i.i.i.i828
   %.1.in.v.i.i.i.i831 = select i1 %1010, i64 24, i64 16
   %.1.in.i.i.i.i832 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i828, i64 %.1.in.v.i.i.i.i831
-  %.1.i.i.i.i833 = load ptr, ptr %.1.in.i.i.i.i832, align 8, !noalias !65
+  %.1.i.i.i.i833 = load ptr, ptr %.1.in.i.i.i.i832, align 8, !noalias !63
   %.not.i.i.i.i834 = icmp eq ptr %.1.i.i.i.i833, null
-  br i1 %.not.i.i.i.i834, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i835, label %1007, !llvm.loop !18
+  br i1 %.not.i.i.i.i834, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i835, label %1007, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i835: ; preds = %1007
   %1011 = icmp eq ptr %.19.i.i.i.i830, %1005
@@ -4138,7 +4138,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i836: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i835
   %1012 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i830, i64 32
-  %1013 = load i32, ptr %1012, align 4, !noalias !65
+  %1013 = load i32, ptr %1012, align 4, !noalias !63
   %1014 = icmp slt i32 %1006, %1013
   %1015 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i830, i64 36
   %spec.select.i837 = select i1 %1014, ptr %70, ptr %1015
@@ -4208,33 +4208,33 @@ _ZN17QArrayDataPointerIDsED2Ev.exit852:           ; preds = %1029, %_ZN17QArrayD
   store i64 2, ptr %895, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %73) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %73, i8 0, i64 36, i1 false)
-  %1035 = load ptr, ptr %880, align 8, !noalias !68
+  %1035 = load ptr, ptr %880, align 8, !noalias !66
   %.not.i853 = icmp eq ptr %1035, null
   br i1 %.not.i853, label %1050, label %1036
 
 1036:                                             ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit852
   %1037 = getelementptr inbounds nuw i8, ptr %1035, i64 24
-  %1038 = load ptr, ptr %1037, align 8, !noalias !68
+  %1038 = load ptr, ptr %1037, align 8, !noalias !66
   %1039 = getelementptr inbounds nuw i8, ptr %1035, i64 16
   %.not10.i.i.i.i854 = icmp eq ptr %1038, null
   br i1 %.not10.i.i.i.i854, label %1050, label %.lr.ph.i.i.i.i855
 
 .lr.ph.i.i.i.i855:                                ; preds = %1036
-  %1040 = load i32, ptr %42, align 4, !noalias !68
+  %1040 = load i32, ptr %42, align 4, !noalias !66
   br label %1041
 
 1041:                                             ; preds = %1041, %.lr.ph.i.i.i.i855
   %.012.i.i.i.i856 = phi ptr [ %1038, %.lr.ph.i.i.i.i855 ], [ %.1.i.i.i.i861, %1041 ]
   %.0811.i.i.i.i857 = phi ptr [ %1039, %.lr.ph.i.i.i.i855 ], [ %.19.i.i.i.i858, %1041 ]
   %1042 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i856, i64 32
-  %1043 = load i32, ptr %1042, align 4, !noalias !68
+  %1043 = load i32, ptr %1042, align 4, !noalias !66
   %1044 = icmp slt i32 %1043, %1040
   %.19.i.i.i.i858 = select i1 %1044, ptr %.0811.i.i.i.i857, ptr %.012.i.i.i.i856
   %.1.in.v.i.i.i.i859 = select i1 %1044, i64 24, i64 16
   %.1.in.i.i.i.i860 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i856, i64 %.1.in.v.i.i.i.i859
-  %.1.i.i.i.i861 = load ptr, ptr %.1.in.i.i.i.i860, align 8, !noalias !68
+  %.1.i.i.i.i861 = load ptr, ptr %.1.in.i.i.i.i860, align 8, !noalias !66
   %.not.i.i.i.i862 = icmp eq ptr %.1.i.i.i.i861, null
-  br i1 %.not.i.i.i.i862, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i863, label %1041, !llvm.loop !18
+  br i1 %.not.i.i.i.i862, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i863, label %1041, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i863: ; preds = %1041
   %1045 = icmp eq ptr %.19.i.i.i.i858, %1039
@@ -4242,7 +4242,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i864: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i863
   %1046 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i858, i64 32
-  %1047 = load i32, ptr %1046, align 4, !noalias !68
+  %1047 = load i32, ptr %1046, align 4, !noalias !66
   %1048 = icmp slt i32 %1040, %1047
   %1049 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i858, i64 36
   %spec.select.i865 = select i1 %1048, ptr %73, ptr %1049
@@ -4537,7 +4537,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit932:           ; preds = %1124, %_ZN17QArrayD
   %1128 = phi i32 [ %.pre, %_ZN17QArrayDataPointerIDsED2Ev.exit880 ], [ %storemerge, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit760 ]
   %.4 = phi i32 [ %1068, %_ZN17QArrayDataPointerIDsED2Ev.exit880 ], [ %.3, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit760 ]
   %1129 = add i32 %1128, 1
-  br label %897, !llvm.loop !71
+  br label %897, !llvm.loop !69
 
 .thread1126:                                      ; preds = %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit745, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit745.thread
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %43) #22
@@ -4798,7 +4798,7 @@ _ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE6detachEv.exit: ; preds = %7
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE11lower_boundERS5_.exit.i, label %23, !llvm.loop !72
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE11lower_boundERS5_.exit.i, label %23, !llvm.loop !70
 
 _ZNSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE11lower_boundERS5_.exit.i: ; preds = %23
   %27 = icmp eq ptr %.19.i.i.i.i, %21
@@ -4813,9 +4813,9 @@ _ZNSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EE
 .critedge.i:                                      ; preds = %28, %_ZNSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE11lower_boundERS5_.exit.i, %_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE6detachEv.exit
   %.08.lcssa.i.i.i16.i = phi ptr [ %.19.i.i.i.i, %28 ], [ %.19.i.i.i.i, %_ZNSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE11lower_boundERS5_.exit.i ], [ %21, %_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE6detachEv.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
-  store ptr %1, ptr %4, align 8, !alias.scope !73
+  store ptr %1, ptr %4, align 8, !alias.scope !71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  store ptr %2, ptr %5, align 8, !alias.scope !76
+  store ptr %2, ptr %5, align 8, !alias.scope !74
   %32 = call ptr @_ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJRKS3_EEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable_or_null(48) %18, ptr %.08.lcssa.i.i.i16.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
@@ -5037,7 +5037,7 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit.thread: ; pred
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, i8 0, i64 36, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %43 = load ptr, ptr %42, align 8, !noalias !79
+  %43 = load ptr, ptr %42, align 8, !noalias !77
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %.not10.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not10.i.i.i.i, label %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit, label %.lr.ph.i.i.i.i
@@ -5046,14 +5046,14 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit.thread: ; pred
   %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %43, %41 ]
   %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %44, %41 ]
   %45 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %46 = load i32, ptr %45, align 4, !noalias !79
+  %46 = load i32, ptr %45, align 4, !noalias !77
   %47 = icmp slt i32 %46, %storemerge
   %.19.i.i.i.i = select i1 %47, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
   %.1.in.v.i.i.i.i = select i1 %47, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
-  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !noalias !79
+  %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !noalias !77
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %48 = icmp eq ptr %.19.i.i.i.i, %44
@@ -5061,7 +5061,7 @@ _ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select
 
 _ZNKSt3mapIiN25SCTPChunkStatisticsDialog10chunkTypesESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS4_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %50 = load i32, ptr %49, align 4, !noalias !79
+  %50 = load i32, ptr %49, align 4, !noalias !77
   %51 = icmp slt i32 %storemerge, %50
   %52 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 36
   %spec.select.i = select i1 %51, ptr %5, ptr %52
@@ -5091,7 +5091,7 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit: ; pre
 63:                                               ; preds = %62, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit
   call void @g_free(ptr noundef %59)
   %64 = add i32 %storemerge, 1
-  br label %31, !llvm.loop !82
+  br label %31, !llvm.loop !80
 
 .thread34:                                        ; preds = %14, %20, %38, %9, %22, %8
   ret void
@@ -5230,11 +5230,11 @@ _ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE3endEv.exit: ; preds = %48, 
 60:                                               ; preds = %_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE3endEv.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #22, !noalias !83
-  %61 = load ptr, ptr %29, align 8, !noalias !83
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #22, !noalias !81
+  %61 = load ptr, ptr %29, align 8, !noalias !81
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %63 = load ptr, ptr %62, align 8, !noalias !83
-  call void %63(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %2, ptr noundef align 8 dereferenceable_or_null(60) %29, i32 noundef 0), !noalias !83
+  %63 = load ptr, ptr %62, align 8, !noalias !81
+  call void %63(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %2, ptr noundef align 8 dereferenceable_or_null(60) %29, i32 noundef 0), !noalias !81
   invoke void @_ZNK8QVariant8toStringEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %5, ptr noundef nonnull align 8 dereferenceable_or_null(32) %2)
           to label %_ZNK16QTableWidgetItem4textEv.exit unwind label %64
 
@@ -5246,12 +5246,12 @@ common.resume:                                    ; preds = %_ZN7QStringD2Ev.exi
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %2) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22, !noalias !83
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22, !noalias !81
   br label %common.resume
 
 _ZNK16QTableWidgetItem4textEv.exit:               ; preds = %60
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %2) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22, !noalias !83
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22, !noalias !81
   invoke void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) dereferenceable_or_null(24) %5)
           to label %_ZNO7QString6toUtf8Ev.exit unwind label %80
 
@@ -5326,7 +5326,7 @@ _ZN7QStringD2Ev.exit16:                           ; preds = %80, %_ZN17QArrayDat
 86:                                               ; preds = %_ZN7QStringD2Ev.exit
   %87 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.017.0) #25
   %.pr = load ptr, ptr %30, align 8
-  br label %46, !llvm.loop !86
+  br label %46, !llvm.loop !84
 
 .loopexit:                                        ; preds = %_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE3endEv.exit, %78, %1
   ret void
@@ -6551,7 +6551,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM7QWidgetFbvENS_4ListIJEEEv
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !87
+  %17 = load ptr, ptr %16, align 8, !nosanitize !85
   br label %_ZN9QtPrivate15FunctionPointerIM7QWidgetFbvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -6604,7 +6604,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #23
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !88
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -6687,7 +6687,7 @@ define linkonce_odr void @_ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDat
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i, label %.noexc.i.i.i, !llvm.loop !89
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i, label %.noexc.i.i.i, !llvm.loop !87
 
 _ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1stIS4_ESt4lessIiESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i: ; preds = %.noexc.i.i.i
   store ptr %.0.i.i.i.i.i.i.i, ptr %18, align 8
@@ -6698,7 +6698,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisticsDialog10chunkTypesEESt10_Select1
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i7.i.i.i.i.i, i64 24
   %30 = load ptr, ptr %29, align 8
   %.not.i.i8.i.i.i.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i8.i.i.i.i.i, label %31, label %28, !llvm.loop !90
+  br i1 %.not.i.i8.i.i.i.i.i, label %31, label %28, !llvm.loop !88
 
 31:                                               ; preds = %28
   store ptr %.0.i.i7.i.i.i.i.i, ptr %19, align 8
@@ -6845,7 +6845,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatistic
   %.0.in = getelementptr inbounds nuw i8, ptr %.039, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not32 = icmp eq ptr %.0, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !91
+  br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 40:                                               ; preds = %38, %36
   %41 = landingpad { ptr, i32 }
@@ -6984,7 +6984,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisti
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !92
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !90
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -7056,7 +7056,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisti
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !92
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !90
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -7121,7 +7121,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIiSt4pairIKiN25SCTPChunkStatisti
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !92
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !90
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -7215,84 +7215,82 @@ attributes #28 = { noreturn }
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN7QObject7connectIM16QDialogButtonBoxFvP15QAbstractButtonEM7QWidgetFbvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE: argument 0"}
 !11 = distinct !{!11, !"_ZN7QObject7connectIM16QDialogButtonBoxFvP15QAbstractButtonEM7QWidgetFbvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE"}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!17 = distinct !{!17, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!18 = distinct !{!18, !13, !14}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!21 = distinct !{!21, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!24 = distinct !{!24, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!27 = distinct !{!27, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!30 = distinct !{!30, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!31 = distinct !{!31, !13, !14}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!34 = distinct !{!34, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!37 = distinct !{!37, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!40 = distinct !{!40, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!43 = distinct !{!43, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!44 = !{!45}
-!45 = distinct !{!45, !46, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!46 = distinct !{!46, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!47 = distinct !{!47, !13, !14}
-!48 = distinct !{!48, !14}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZNKR7QString11toLocal8BitEv: argument 0"}
-!51 = distinct !{!51, !"_ZNKR7QString11toLocal8BitEv"}
-!52 = distinct !{!52, !13}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZNKR7QString11toLocal8BitEv: argument 0"}
-!55 = distinct !{!55, !"_ZNKR7QString11toLocal8BitEv"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!58 = distinct !{!58, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!61 = distinct !{!61, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!62 = !{!63}
-!63 = distinct !{!63, !64, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!64 = distinct !{!64, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!65 = !{!66}
-!66 = distinct !{!66, !67, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!67 = distinct !{!67, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!70 = distinct !{!70, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!71 = distinct !{!71, !13, !14}
-!72 = distinct !{!72, !13, !14}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZSt16forward_as_tupleIJRKiEESt5tupleIJDpOT_EES5_: argument 0"}
-!75 = distinct !{!75, !"_ZSt16forward_as_tupleIJRKiEESt5tupleIJDpOT_EES5_"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZSt16forward_as_tupleIJRKN25SCTPChunkStatisticsDialog10chunkTypesEEESt5tupleIJDpOT_EES7_: argument 0"}
-!78 = distinct !{!78, !"_ZSt16forward_as_tupleIJRKN25SCTPChunkStatisticsDialog10chunkTypesEEESt5tupleIJDpOT_EES7_"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
-!81 = distinct !{!81, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
-!82 = distinct !{!82, !13, !14}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZNK16QTableWidgetItem4textEv: argument 0"}
-!85 = distinct !{!85, !"_ZNK16QTableWidgetItem4textEv"}
-!86 = distinct !{!86, !13, !14}
-!87 = !{}
-!88 = distinct !{!88, !13, !14}
-!89 = distinct !{!89, !13, !14}
-!90 = distinct !{!90, !13, !14}
-!91 = distinct !{!91, !13, !14}
-!92 = distinct !{!92, !13, !14}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!16 = distinct !{!16, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!17 = distinct !{!17, !13}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!20 = distinct !{!20, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!21 = !{!22}
+!22 = distinct !{!22, !23, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!23 = distinct !{!23, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!26 = distinct !{!26, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!29 = distinct !{!29, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!30 = distinct !{!30, !13}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!33 = distinct !{!33, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!36 = distinct !{!36, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!39 = distinct !{!39, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!42 = distinct !{!42, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!45 = distinct !{!45, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!46 = distinct !{!46, !13}
+!47 = distinct !{!47, !13}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNKR7QString11toLocal8BitEv: argument 0"}
+!50 = distinct !{!50, !"_ZNKR7QString11toLocal8BitEv"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZNKR7QString11toLocal8BitEv: argument 0"}
+!53 = distinct !{!53, !"_ZNKR7QString11toLocal8BitEv"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!56 = distinct !{!56, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!59 = distinct !{!59, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!62 = distinct !{!62, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!65 = distinct !{!65, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!68 = distinct !{!68, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!69 = distinct !{!69, !13}
+!70 = distinct !{!70, !13}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZSt16forward_as_tupleIJRKiEESt5tupleIJDpOT_EES5_: argument 0"}
+!73 = distinct !{!73, !"_ZSt16forward_as_tupleIJRKiEESt5tupleIJDpOT_EES5_"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZSt16forward_as_tupleIJRKN25SCTPChunkStatisticsDialog10chunkTypesEEESt5tupleIJDpOT_EES7_: argument 0"}
+!76 = distinct !{!76, !"_ZSt16forward_as_tupleIJRKN25SCTPChunkStatisticsDialog10chunkTypesEEESt5tupleIJDpOT_EES7_"}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_: argument 0"}
+!79 = distinct !{!79, !"_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_"}
+!80 = distinct !{!80, !13}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZNK16QTableWidgetItem4textEv: argument 0"}
+!83 = distinct !{!83, !"_ZNK16QTableWidgetItem4textEv"}
+!84 = distinct !{!84, !13}
+!85 = !{}
+!86 = distinct !{!86, !13}
+!87 = distinct !{!87, !13}
+!88 = distinct !{!88, !13}
+!89 = distinct !{!89, !13}
+!90 = distinct !{!90, !13}

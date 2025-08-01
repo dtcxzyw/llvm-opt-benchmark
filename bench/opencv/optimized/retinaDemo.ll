@@ -2009,7 +2009,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274: ; preds = %_Z
 
 780:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274
   %781 = icmp eq i32 %779, 113
-  br i1 %781, label %810, label %719, !llvm.loop !66
+  br i1 %781, label %810, label %719
 
 782:                                              ; preds = %751, %745
   %783 = landingpad { ptr, i32 }
@@ -2687,5 +2687,3 @@ attributes #20 = { noreturn nounwind }
 !63 = !{!64, !17, i64 0}
 !64 = !{!"_ZTSN2cv11_InputArrayE", !17, i64 0, !15, i64 8, !61, i64 16}
 !65 = !{!64, !15, i64 8}
-!66 = distinct !{!66, !67}
-!67 = !{!"llvm.loop.estimated_trip_count"}

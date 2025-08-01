@@ -576,7 +576,7 @@ MapConfigToTools.exit:                            ; preds = %141, %146, %148
   %181 = load i32, ptr %68, align 4, !tbaa !50
   %182 = shl nsw i32 %181, 2
   %183 = icmp slt i32 %180, %182
-  br i1 %183, label %.lr.ph16.i, label %ResetBoundaryPredictions.exit, !llvm.loop !87
+  br i1 %183, label %.lr.ph16.i, label %ResetBoundaryPredictions.exit, !llvm.loop !86
 
 ResetBoundaryPredictions.exit:                    ; preds = %.lr.ph16.i, %.preheader.i
   %184 = load ptr, ptr %82, align 8, !tbaa !54
@@ -633,11 +633,11 @@ define internal fastcc void @StoreStats(ptr noundef nonnull readonly captures(no
   %indvars.iv36 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next37, %21 ]
   %12 = getelementptr inbounds nuw [4 x %struct.VP8SegmentInfo], ptr %6, i64 0, i64 %indvars.iv36
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 684
-  %14 = load i32, ptr %13, align 4, !tbaa !88
+  %14 = load i32, ptr %13, align 4, !tbaa !87
   %15 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv36
   store i32 %14, ptr %15, align 4, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 680
-  %17 = load i32, ptr %16, align 8, !tbaa !91
+  %17 = load i32, ptr %16, align 8, !tbaa !90
   %18 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv36
   store i32 %17, ptr %18, align 4, !tbaa !12
   %invariant.gep = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv36
@@ -652,18 +652,18 @@ define internal fastcc void @StoreStats(ptr noundef nonnull readonly captures(no
   store i32 %20, ptr %gep31, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %21, label %19, !llvm.loop !92
+  br i1 %exitcond.not, label %21, label %19, !llvm.loop !91
 
 21:                                               ; preds = %19
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 4
-  br i1 %exitcond39.not, label %22, label %11, !llvm.loop !93
+  br i1 %exitcond39.not, label %22, label %11, !llvm.loop !92
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 23544
-  %24 = load i64, ptr %23, align 8, !tbaa !94
+  %24 = load i64, ptr %23, align 8, !tbaa !93
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 23512
-  %26 = load i64, ptr %25, align 8, !tbaa !95
+  %26 = load i64, ptr %25, align 8, !tbaa !94
   %27 = icmp ne i64 %26, 0
   %28 = icmp ne i64 %24, 0
   %or.cond.i.i = and i1 %28, %27
@@ -682,9 +682,9 @@ define internal fastcc void @StoreStats(ptr noundef nonnull readonly captures(no
 GetPSNR.exit.i:                                   ; preds = %29, %22
   %37 = phi float [ %36, %29 ], [ 9.900000e+01, %22 ]
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float %37, ptr %38, align 4, !tbaa !96
+  store float %37, ptr %38, align 4, !tbaa !95
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 23520
-  %40 = load i64, ptr %39, align 8, !tbaa !95
+  %40 = load i64, ptr %39, align 8, !tbaa !94
   %41 = lshr i64 %24, 2
   %42 = icmp ne i64 %40, 0
   %43 = icmp ugt i64 %24, 3
@@ -704,9 +704,9 @@ GetPSNR.exit.i:                                   ; preds = %29, %22
 GetPSNR.exit20.i:                                 ; preds = %44, %GetPSNR.exit.i
   %52 = phi float [ %51, %44 ], [ 9.900000e+01, %GetPSNR.exit.i ]
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store float %52, ptr %53, align 4, !tbaa !96
+  store float %52, ptr %53, align 4, !tbaa !95
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 23528
-  %55 = load i64, ptr %54, align 8, !tbaa !95
+  %55 = load i64, ptr %54, align 8, !tbaa !94
   %56 = icmp ne i64 %55, 0
   %or.cond.i21.i = and i1 %43, %56
   br i1 %or.cond.i21.i, label %57, label %GetPSNR.exit22.i
@@ -724,7 +724,7 @@ GetPSNR.exit20.i:                                 ; preds = %44, %GetPSNR.exit.i
 GetPSNR.exit22.i:                                 ; preds = %57, %GetPSNR.exit20.i
   %65 = phi float [ %64, %57 ], [ 9.900000e+01, %GetPSNR.exit20.i ]
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store float %65, ptr %66, align 4, !tbaa !96
+  store float %65, ptr %66, align 4, !tbaa !95
   %67 = add i64 %40, %26
   %68 = add i64 %67, %55
   %69 = mul i64 %24, 3
@@ -747,9 +747,9 @@ GetPSNR.exit22.i:                                 ; preds = %57, %GetPSNR.exit20
 GetPSNR.exit24.i:                                 ; preds = %72, %GetPSNR.exit22.i
   %81 = phi float [ %80, %72 ], [ 9.900000e+01, %GetPSNR.exit22.i ]
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store float %81, ptr %82, align 4, !tbaa !96
+  store float %81, ptr %82, align 4, !tbaa !95
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 23536
-  %84 = load i64, ptr %83, align 8, !tbaa !95
+  %84 = load i64, ptr %83, align 8, !tbaa !94
   %85 = icmp ne i64 %84, 0
   %or.cond.i25.i = and i1 %28, %85
   br i1 %or.cond.i25.i, label %86, label %FinalizePSNR.exit
@@ -767,10 +767,10 @@ GetPSNR.exit24.i:                                 ; preds = %72, %GetPSNR.exit22
 FinalizePSNR.exit:                                ; preds = %GetPSNR.exit24.i, %86
   %94 = phi float [ %93, %86 ], [ 9.900000e+01, %GetPSNR.exit24.i ]
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store float %94, ptr %95, align 4, !tbaa !96
+  store float %94, ptr %95, align 4, !tbaa !95
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 23552
-  %97 = load i32, ptr %96, align 8, !tbaa !97
-  store i32 %97, ptr %5, align 4, !tbaa !98
+  %97 = load i32, ptr %96, align 8, !tbaa !96
+  store i32 %97, ptr %5, align 4, !tbaa !97
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 23604
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %100
@@ -783,7 +783,7 @@ FinalizePSNR.exit:                                ; preds = %GetPSNR.exit24.i, %
   store i32 %102, ptr %103, align 4, !tbaa !12
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
-  br i1 %exitcond43.not, label %.loopexit, label %100, !llvm.loop !100
+  br i1 %exitcond43.not, label %.loopexit, label %100, !llvm.loop !99
 
 .loopexit:                                        ; preds = %100, %1
   ret void
@@ -923,20 +923,19 @@ attributes #8 = { nounwind }
 !81 = !{!32, !5, i64 8}
 !82 = !{!32, !5, i64 12}
 !83 = !{!6, !6, i64 0}
-!84 = distinct !{!84, !85, !86}
+!84 = distinct !{!84, !85}
 !85 = !{!"llvm.loop.mustprogress"}
-!86 = !{!"llvm.loop.estimated_trip_count"}
-!87 = distinct !{!87, !85, !86}
-!88 = !{!89, !5, i64 684}
-!89 = !{!"", !90, i64 0, !90, i64 224, !90, i64 448, !5, i64 672, !5, i64 676, !5, i64 680, !5, i64 684, !5, i64 688, !5, i64 692, !5, i64 696, !5, i64 700, !5, i64 704, !5, i64 708, !5, i64 712, !5, i64 716, !5, i64 720, !5, i64 724, !5, i64 728, !35, i64 736}
-!90 = !{!"VP8Matrix", !6, i64 0, !6, i64 32, !6, i64 64, !6, i64 128, !6, i64 192}
-!91 = !{!89, !5, i64 680}
-!92 = distinct !{!92, !85, !86}
-!93 = distinct !{!93, !85, !86}
-!94 = !{!29, !35, i64 23544}
-!95 = !{!35, !35, i64 0}
-!96 = !{!19, !19, i64 0}
-!97 = !{!29, !5, i64 23552}
-!98 = !{!99, !5, i64 0}
-!99 = !{!"WebPAuxStats", !5, i64 0, !6, i64 4, !6, i64 24, !6, i64 36, !6, i64 44, !6, i64 92, !6, i64 108, !6, i64 124, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !5, i64 156, !5, i64 160, !5, i64 164, !5, i64 168, !5, i64 172, !5, i64 176, !5, i64 180, !6, i64 184}
-!100 = distinct !{!100, !85, !86}
+!86 = distinct !{!86, !85}
+!87 = !{!88, !5, i64 684}
+!88 = !{!"", !89, i64 0, !89, i64 224, !89, i64 448, !5, i64 672, !5, i64 676, !5, i64 680, !5, i64 684, !5, i64 688, !5, i64 692, !5, i64 696, !5, i64 700, !5, i64 704, !5, i64 708, !5, i64 712, !5, i64 716, !5, i64 720, !5, i64 724, !5, i64 728, !35, i64 736}
+!89 = !{!"VP8Matrix", !6, i64 0, !6, i64 32, !6, i64 64, !6, i64 128, !6, i64 192}
+!90 = !{!88, !5, i64 680}
+!91 = distinct !{!91, !85}
+!92 = distinct !{!92, !85}
+!93 = !{!29, !35, i64 23544}
+!94 = !{!35, !35, i64 0}
+!95 = !{!19, !19, i64 0}
+!96 = !{!29, !5, i64 23552}
+!97 = !{!98, !5, i64 0}
+!98 = !{!"WebPAuxStats", !5, i64 0, !6, i64 4, !6, i64 24, !6, i64 36, !6, i64 44, !6, i64 92, !6, i64 108, !6, i64 124, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !5, i64 156, !5, i64 160, !5, i64 164, !5, i64 168, !5, i64 172, !5, i64 176, !5, i64 180, !6, i64 184}
+!99 = distinct !{!99, !85}

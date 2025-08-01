@@ -54,21 +54,21 @@ get_array_index.exit:                             ; preds = %cmpsuff.exit.i
   %14 = and i64 %indvars.iv.i, 4294967295
   %15 = getelementptr inbounds nuw [13 x %struct.anon], ptr @names, i64 0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !13
+  %17 = load ptr, ptr %16, align 8, !tbaa !12
   %18 = tail call i32 %17(ptr noundef %0) #4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %get_array_index.exit
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !14
+  %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = tail call i32 %22(ptr noundef %0) #4
   br label %25
 
 get_array_index.exit.thread:                      ; preds = %cmpsuff.exit.thread.i, %2
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str, ptr noundef %1) #4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 32768, ptr %24, align 4, !tbaa !15
+  store i32 32768, ptr %24, align 4, !tbaa !14
   br label %25
 
 25:                                               ; preds = %20, %get_array_index.exit, %get_array_index.exit.thread
@@ -142,21 +142,21 @@ get_array_index.exit25.thread28:                  ; preds = %cmpsuff.exit.i, %cm
   %26 = and i64 %.01330.in, 4294967295
   %27 = getelementptr inbounds nuw [13 x %struct.anon], ptr @names, i64 0, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !13
+  %29 = load ptr, ptr %28, align 8, !tbaa !12
   %30 = tail call i32 %29(ptr noundef %0) #4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %get_array_index.exit25.thread28
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !14
+  %34 = load ptr, ptr %33, align 8, !tbaa !13
   %35 = tail call i32 %34(ptr noundef %0) #4
   br label %37
 
 get_array_index.exit25.thread:                    ; preds = %cmpsuff.exit.thread.i20, %get_array_index.exit.thread
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str, ptr noundef %1) #4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 32768, ptr %36, align 4, !tbaa !15
+  store i32 32768, ptr %36, align 4, !tbaa !14
   br label %37
 
 37:                                               ; preds = %32, %get_array_index.exit25.thread28, %get_array_index.exit25.thread
@@ -208,15 +208,14 @@ attributes #4 = { nounwind }
 !7 = !{!"any pointer", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!5, !7, i64 8}
-!14 = !{!5, !7, i64 16}
-!15 = !{!16, !17, i64 4}
-!16 = !{!"archive", !17, i64 0, !17, i64 4, !18, i64 8, !17, i64 16, !6, i64 24, !17, i64 32, !17, i64 36, !6, i64 40, !19, i64 48, !6, i64 72, !17, i64 80, !17, i64 84, !21, i64 88, !6, i64 96, !20, i64 104, !20, i64 112, !20, i64 120, !8, i64 128, !20, i64 136}
-!17 = !{!"int", !8, i64 0}
-!18 = !{!"p1 _ZTS14archive_vtable", !7, i64 0}
-!19 = !{!"archive_string", !6, i64 0, !20, i64 8, !20, i64 16}
-!20 = !{!"long", !8, i64 0}
-!21 = !{!"p1 _ZTS19archive_string_conv", !7, i64 0}
+!12 = !{!5, !7, i64 8}
+!13 = !{!5, !7, i64 16}
+!14 = !{!15, !16, i64 4}
+!15 = !{!"archive", !16, i64 0, !16, i64 4, !17, i64 8, !16, i64 16, !6, i64 24, !16, i64 32, !16, i64 36, !6, i64 40, !18, i64 48, !6, i64 72, !16, i64 80, !16, i64 84, !20, i64 88, !6, i64 96, !19, i64 104, !19, i64 112, !19, i64 120, !8, i64 128, !19, i64 136}
+!16 = !{!"int", !8, i64 0}
+!17 = !{!"p1 _ZTS14archive_vtable", !7, i64 0}
+!18 = !{!"archive_string", !6, i64 0, !19, i64 8, !19, i64 16}
+!19 = !{!"long", !8, i64 0}
+!20 = !{!"p1 _ZTS19archive_string_conv", !7, i64 0}

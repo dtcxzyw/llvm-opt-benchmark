@@ -2128,7 +2128,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i: ; pr
   store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang6driver17getDriverOptTableEvE5Table, i64 88), align 8, !tbaa !7
   %.020.i.add = add nuw nsw i64 %.020.i.idx, 4
   %.not.i = icmp eq i64 %.020.i.add, 12
-  br i1 %.not.i, label %_ZN4llvm3opt19PrecomputedOptTableC2ERKNS_11StringTableENS_8ArrayRefINS2_6OffsetEEENS5_INS0_8OptTable4InfoEEES7_b.exit, label %0, !llvm.loop !16
+  br i1 %.not.i, label %_ZN4llvm3opt19PrecomputedOptTableC2ERKNS_11StringTableENS_8ArrayRefINS2_6OffsetEEENS5_INS0_8OptTable4InfoEEES7_b.exit, label %0
 
 _ZN4llvm3opt19PrecomputedOptTableC2ERKNS_11StringTableENS_8ArrayRefINS2_6OffsetEEENS5_INS0_8OptTable4InfoEEES7_b.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i
   tail call void @_ZN4llvm3opt8OptTable16buildPrefixCharsEv(ptr noundef nonnull align 8 dereferenceable(176) @_ZZN5clang6driver17getDriverOptTableEvE5Table) #7
@@ -2199,5 +2199,3 @@ attributes #8 = { builtin nounwind }
 !13 = !{!8, !11, i64 12}
 !14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !15 = !{!8, !9, i64 0}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}

@@ -62,7 +62,7 @@ define hidden noundef ptr @_Z26hb_paint_extents_get_funcsv() local_unnamed_addr 
 _ZN16hb_lazy_loader_tI16hb_paint_funcs_t36hb_paint_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit.i.i: ; preds = %12, %10, %9
   %13 = load atomic i64, ptr @_ZL26static_paint_extents_funcs acquire, align 8
   %.not.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %.split.loop.exit.i.i, !llvm.loop !6
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %.split.loop.exit.i.i
 
 .split.loop.exit.i.i:                             ; preds = %_ZN16hb_lazy_loader_tI16hb_paint_funcs_t36hb_paint_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit.i.i, %0
   %.lcssa.i.i = phi i64 [ %1, %0 ], [ %13, %_ZN16hb_lazy_loader_tI16hb_paint_funcs_t36hb_paint_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit.i.i ]
@@ -122,13 +122,13 @@ declare void @hb_paint_funcs_set_pop_transform_func(ptr noundef, ptr noundef, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL30hb_paint_extents_pop_transformP16hb_paint_funcs_tPvS1_(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %5 = load i32, ptr %4, align 4, !noalias !8
+  %5 = load i32, ptr %4, align 4, !noalias !6
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZN26hb_paint_extents_context_t13pop_transformEv.exit, label %6
 
 6:                                                ; preds = %3
   %7 = add i32 %5, -1
-  store i32 %7, ptr %4, align 4, !noalias !8
+  store i32 %7, ptr %4, align 4, !noalias !6
   br label %_ZN26hb_paint_extents_context_t13pop_transformEv.exit
 
 _ZN26hb_paint_extents_context_t13pop_transformEv.exit: ; preds = %3, %6
@@ -172,13 +172,13 @@ declare void @hb_paint_funcs_set_pop_clip_func(ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @_ZL25hb_paint_extents_pop_clipP16hb_paint_funcs_tPvS1_(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %5 = load i32, ptr %4, align 4, !noalias !11
+  %5 = load i32, ptr %4, align 4, !noalias !9
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %_ZN26hb_paint_extents_context_t8pop_clipEv.exit, label %6
 
 6:                                                ; preds = %3
   %7 = add i32 %5, -1
-  store i32 %7, ptr %4, align 4, !noalias !11
+  store i32 %7, ptr %4, align 4, !noalias !9
   br label %_ZN26hb_paint_extents_context_t8pop_clipEv.exit
 
 _ZN26hb_paint_extents_context_t8pop_clipEv.exit:  ; preds = %3, %6
@@ -211,7 +211,7 @@ define internal void @_ZL27hb_paint_extents_push_groupP16hb_paint_funcs_tPvS1_(p
   %13 = add i32 %.143.i.i.i, 8
   %14 = add i32 %13, %12
   %15 = icmp ugt i32 %9, %14
-  br i1 %15, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !14
+  br i1 %15, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !12
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
   %16 = icmp ugt i32 %14, 214748364
@@ -488,13 +488,13 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i: ; preds = %35, %34
   br label %_ZN26hb_paint_extents_context_t5paintEv.exit
 
 _ZN26hb_paint_extents_context_t5paintEv.exit:     ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE4tailEv.exit5.i, %42, %43, %45, %46
-  %71 = load i32, ptr %23, align 4, !noalias !16
+  %71 = load i32, ptr %23, align 4, !noalias !14
   %.not.i.i = icmp eq i32 %71, 0
   br i1 %.not.i.i, label %_ZN26hb_paint_extents_context_t8pop_clipEv.exit, label %72
 
 72:                                               ; preds = %_ZN26hb_paint_extents_context_t5paintEv.exit
   %73 = add i32 %71, -1
-  store i32 %73, ptr %23, align 4, !noalias !16
+  store i32 %73, ptr %23, align 4, !noalias !14
   br label %_ZN26hb_paint_extents_context_t8pop_clipEv.exit
 
 _ZN26hb_paint_extents_context_t8pop_clipEv.exit:  ; preds = %_ZN26hb_paint_extents_context_t5paintEv.exit, %72
@@ -875,7 +875,7 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit: ; preds = %5, %6
   %44 = add i32 %.143.i.i, 8
   %45 = add i32 %44, %43
   %46 = icmp ugt i32 %40, %45
-  br i1 %46, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !19
+  br i1 %46, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !17
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
   %47 = icmp ugt i32 %45, 178956970
@@ -1041,7 +1041,7 @@ _ZN12hb_extents_t9add_pointEff.exit.i:            ; preds = %48, %32
   %.sroa.speculated5.i.sink.i = phi float [ %.sroa.speculated5.i.i, %48 ], [ %46, %32 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit, label %32, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit, label %32, !llvm.loop !18
 
 _ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit: ; preds = %_ZN12hb_extents_t9add_pointEff.exit.i
   %.sroa.10.8.vec.insert15.le = insertelement <2 x float> poison, float %.sroa.speculated9.i.sink.i, i64 0
@@ -1076,7 +1076,7 @@ _ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit: ; preds = %_ZN12hb
   %66 = add i32 %.143.i.i, 8
   %67 = add i32 %66, %65
   %68 = icmp ugt i32 %62, %67
-  br i1 %68, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !14
+  br i1 %68, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
 
 .thread.i.i:                                      ; preds = %.preheader.i.i
   %69 = icmp ugt i32 %67, 214748364
@@ -1173,7 +1173,7 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tI15hb_draw_funcs_t
 _ZN16hb_lazy_loader_tI15hb_draw_funcs_t35hb_draw_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit: ; preds = %10, %11, %13
   %14 = load atomic i64, ptr %0 acquire, align 8
   %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %.lr.ph, label %.split.loop.exit, !llvm.loop !21
+  br i1 %.not, label %.lr.ph, label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %_ZN16hb_lazy_loader_tI15hb_draw_funcs_t35hb_draw_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit, %1
   %.lcssa = phi i64 [ %2, %1 ], [ %14, %_ZN16hb_lazy_loader_tI15hb_draw_funcs_t35hb_draw_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit ]
@@ -1416,7 +1416,7 @@ declare void @hb_draw_funcs_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN26hb_paint_extents_context_t9pop_groupE25hb_paint_composite_mode_t(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %4 = load i32, ptr %3, align 4, !noalias !22
+  %4 = load i32, ptr %3, align 4, !noalias !19
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit.thread, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit
 
@@ -1430,7 +1430,7 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit.thread: ; preds = %2
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit:   ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !noalias !22
+  %6 = load ptr, ptr %5, align 8, !noalias !19
   %7 = add i32 %4, -1
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw %struct.hb_bounds_t, ptr %6, i64 %8
@@ -1443,7 +1443,7 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv.exit:   ; preds = %2
   %.sroa.11.0.copyload24 = load float, ptr %.sroa.11.0..sroa_idx, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.13.0.copyload31 = load float, ptr %.sroa.13.0..sroa_idx, align 4
-  store i32 %7, ptr %3, align 4, !noalias !22
+  store i32 %7, ptr %3, align 4, !noalias !19
   %.not.i.not.i = icmp eq i32 %7, 0
   br i1 %.not.i.not.i, label %10, label %11
 
@@ -1640,22 +1640,19 @@ attributes #10 = { nounwind allocsize(1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN11hb_vector_tI14hb_transform_tLb0EE3popEv: argument 0"}
-!10 = distinct !{!10, !"_ZN11hb_vector_tI14hb_transform_tLb0EE3popEv"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv: argument 0"}
-!13 = distinct !{!13, !"_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv"}
-!14 = distinct !{!14, !15, !7}
-!15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv: argument 0"}
-!18 = distinct !{!18, !"_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv"}
-!19 = distinct !{!19, !15, !7}
-!20 = distinct !{!20, !15, !7}
-!21 = distinct !{!21, !7}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv: argument 0"}
-!24 = distinct !{!24, !"_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv"}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_ZN11hb_vector_tI14hb_transform_tLb0EE3popEv: argument 0"}
+!8 = distinct !{!8, !"_ZN11hb_vector_tI14hb_transform_tLb0EE3popEv"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv: argument 0"}
+!11 = distinct !{!11, !"_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv"}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv: argument 0"}
+!16 = distinct !{!16, !"_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv"}
+!17 = distinct !{!17, !13}
+!18 = distinct !{!18, !13}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv: argument 0"}
+!21 = distinct !{!21, !"_ZN11hb_vector_tI11hb_bounds_tLb0EE3popEv"}

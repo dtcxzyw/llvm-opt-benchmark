@@ -373,27 +373,27 @@ define hidden ptr @_mi_os_alloc(i64 noundef %0, ptr noundef writeonly captures(n
 _mi_os_good_alloc_size.exit:                      ; preds = %16, %23, %26
   %.010.i = phi i64 [ %0, %16 ], [ %25, %23 ], [ %28, %26 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
-  store i8 0, ptr %3, align 1, !tbaa !25
+  store i8 0, ptr %3, align 1, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
-  store i8 0, ptr %4, align 1, !tbaa !25
+  store i8 0, ptr %4, align 1, !tbaa !24
   %29 = call fastcc ptr @mi_os_prim_alloc(i64 noundef %.010.i, i64 noundef 0, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %3, ptr noundef %4) #8
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %33, label %30
 
 30:                                               ; preds = %_mi_os_good_alloc_size.exit
-  %31 = load i8, ptr %4, align 1, !tbaa !25, !range !9, !noundef !10
-  %32 = load i8, ptr %3, align 1, !tbaa !25, !range !9, !noundef !10
+  %31 = load i8, ptr %4, align 1, !tbaa !24, !range !9, !noundef !10
+  %32 = load i8, ptr %3, align 1, !tbaa !24, !range !9, !noundef !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 %32, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !25
+  store i8 %32, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 17
-  store i8 1, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !25
+  store i8 1, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !24
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i8 %31, ptr %.sroa.6.0..sroa_idx, align 2, !tbaa !25
+  store i8 %31, ptr %.sroa.6.0..sroa_idx, align 2, !tbaa !24
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 19
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.78.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 3, ptr %.sroa.78.0..sroa_idx, align 4, !tbaa !26
+  store i32 3, ptr %.sroa.78.0..sroa_idx, align 4, !tbaa !25
   br label %33
 
 33:                                               ; preds = %30, %_mi_os_good_alloc_size.exit
@@ -415,9 +415,9 @@ define internal fastcc ptr @mi_os_prim_alloc(i64 noundef %0, i64 noundef %1, i1 
 9:                                                ; preds = %6
   %spec.select.i = and i1 %2, %3
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 1, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  store ptr null, ptr %7, align 8, !tbaa !27
+  store ptr null, ptr %7, align 8, !tbaa !26
   %10 = call i32 @_mi_prim_alloc(ptr noundef null, i64 noundef %0, i64 noundef %spec.store.select.i, i1 noundef zeroext %2, i1 noundef zeroext %spec.select.i, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %7) #7
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %14, label %11
@@ -430,7 +430,7 @@ define internal fastcc ptr @mi_os_prim_alloc(i64 noundef %0, i64 noundef %1, i1 
 
 14:                                               ; preds = %11, %9
   call void @_mi_stat_counter_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 496), i64 noundef 1) #7
-  %15 = load ptr, ptr %7, align 8, !tbaa !27
+  %15 = load ptr, ptr %7, align 8, !tbaa !26
   %.not25.i = icmp eq ptr %15, null
   br i1 %.not25.i, label %18, label %16
 
@@ -443,7 +443,7 @@ define internal fastcc ptr @mi_os_prim_alloc(i64 noundef %0, i64 noundef %1, i1 
   br label %18
 
 18:                                               ; preds = %17, %16, %14
-  %19 = load ptr, ptr %7, align 8, !tbaa !27
+  %19 = load ptr, ptr %7, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   br label %mi_os_prim_alloc_at.exit
 
@@ -527,9 +527,9 @@ _mi_os_good_alloc_size.exit:                      ; preds = %20, %27, %30
 _mi_align_up.exit:                                ; preds = %38, %41
   %.0.i17 = phi i64 [ %40, %38 ], [ %43, %41 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #9
-  store i8 0, ptr %7, align 1, !tbaa !25
+  store i8 0, ptr %7, align 1, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #9
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 1, !tbaa !24
   %spec.select.i = and i1 %2, %3
   %.not.i18 = icmp uge i64 %.0.i17, %33
   %44 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.0.i17)
@@ -600,7 +600,7 @@ mi_os_prim_free.exit.i:                           ; preds = %71, %62
 
 73:                                               ; preds = %mi_os_prim_free.exit.i
   %74 = add i64 %.0.i.i, %.0.i17
-  %75 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mi_os_mem_config, i64 41), align 1, !tbaa !28, !range !9, !noundef !10
+  %75 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mi_os_mem_config, i64 41), align 1, !tbaa !27, !range !9, !noundef !10
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %92, label %77
 
@@ -609,9 +609,9 @@ mi_os_prim_free.exit.i:                           ; preds = %71, %62
   br i1 %78, label %mi_os_prim_alloc_aligned.exit.thread, label %79
 
 79:                                               ; preds = %77
-  store i8 0, ptr %8, align 1, !tbaa !25
+  store i8 0, ptr %8, align 1, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  store ptr null, ptr %6, align 8, !tbaa !27
+  store ptr null, ptr %6, align 8, !tbaa !26
   %80 = call i32 @_mi_prim_alloc(ptr noundef null, i64 noundef %74, i64 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6) #7
   %.not.i.i.i = icmp eq i32 %80, 0
   br i1 %.not.i.i.i, label %82, label %81
@@ -622,7 +622,7 @@ mi_os_prim_free.exit.i:                           ; preds = %71, %62
 
 82:                                               ; preds = %81, %79
   call void @_mi_stat_counter_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 496), i64 noundef 1) #7
-  %83 = load ptr, ptr %6, align 8, !tbaa !27
+  %83 = load ptr, ptr %6, align 8, !tbaa !26
   %.not25.i.i.i = icmp eq ptr %83, null
   br i1 %.not25.i.i.i, label %mi_os_prim_alloc.exit.thread93.i, label %mi_os_prim_alloc.exit.i
 
@@ -632,7 +632,7 @@ mi_os_prim_alloc.exit.thread93.i:                 ; preds = %82
 
 mi_os_prim_alloc.exit.i:                          ; preds = %82
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef %74) #7
-  %.pr.i = load ptr, ptr %6, align 8, !tbaa !27
+  %.pr.i = load ptr, ptr %6, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   %84 = icmp eq ptr %.pr.i, null
   br i1 %84, label %mi_os_prim_alloc_aligned.exit.thread, label %mi_align_up_ptr.exit.i
@@ -716,21 +716,21 @@ mi_os_prim_alloc_aligned.exit.thread26:           ; preds = %mi_os_prim_alloc_al
   %.pre-phi = phi i64 [ %.pre, %mi_os_prim_alloc_aligned.exit.mi_os_prim_alloc_aligned.exit.thread26_crit_edge ], [ %58, %57 ]
   %.0.i1931 = phi ptr [ %.0.i19, %mi_os_prim_alloc_aligned.exit.mi_os_prim_alloc_aligned.exit.thread26_crit_edge ], [ %55, %57 ]
   %.02130 = phi ptr [ %.021, %mi_os_prim_alloc_aligned.exit.mi_os_prim_alloc_aligned.exit.thread26_crit_edge ], [ %55, %57 ]
-  %120 = load i8, ptr %8, align 1, !tbaa !25, !range !9, !noundef !10
-  %121 = load i8, ptr %7, align 1, !tbaa !25, !range !9, !noundef !10
+  %120 = load i8, ptr %8, align 1, !tbaa !24, !range !9, !noundef !10
+  %121 = load i8, ptr %7, align 1, !tbaa !24, !range !9, !noundef !10
   %122 = zext i1 %2 to i8
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %123, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 %121, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !25
+  store i8 %121, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 17
-  store i8 %122, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !25
+  store i8 %122, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !24
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i8 %120, ptr %.sroa.6.0..sroa_idx, align 2, !tbaa !25
+  store i8 %120, ptr %.sroa.6.0..sroa_idx, align 2, !tbaa !24
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 19
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.720.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 3, ptr %.sroa.720.0..sroa_idx, align 4, !tbaa !26
+  store i32 3, ptr %.sroa.720.0..sroa_idx, align 4, !tbaa !25
   store ptr %.02130, ptr %4, align 8, !tbaa !21
   %124 = sub i64 %.pre-phi, %.pre-phi33
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -831,7 +831,7 @@ mi_align_down_ptr.exit27.i.i.i.i:                 ; preds = %44, %40
 
 51:                                               ; preds = %mi_align_down_ptr.exit27.i.i.i.i
   %52 = inttoptr i64 %.in.i.i.i.i to ptr
-  store i8 1, ptr %7, align 1, !tbaa !25
+  store i8 1, ptr %7, align 1, !tbaa !24
   %53 = call i32 @_mi_prim_decommit(ptr noundef %52, i64 noundef %49, ptr noundef nonnull %7) #7
   %.not.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i, label %_mi_os_decommit.exit, label %54
@@ -892,7 +892,7 @@ mi_align_down_ptr.exit27.i.i.i:                   ; preds = %19, %15
 
 26:                                               ; preds = %mi_align_down_ptr.exit27.i.i.i
   %27 = inttoptr i64 %.in.i.i.i to ptr
-  store i8 1, ptr %3, align 1, !tbaa !25
+  store i8 1, ptr %3, align 1, !tbaa !24
   %28 = call i32 @_mi_prim_decommit(ptr noundef %27, i64 noundef %24, ptr noundef nonnull %3) #7
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %mi_os_decommit_ex.exit, label %29
@@ -914,7 +914,7 @@ define hidden noundef zeroext i1 @_mi_os_commit_ex(ptr noundef %0, i64 noundef %
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %4
-  store i8 0, ptr %2, align 1, !tbaa !25
+  store i8 0, ptr %2, align 1, !tbaa !24
   br label %8
 
 8:                                                ; preds = %7, %4
@@ -959,7 +959,7 @@ mi_align_down_ptr.exit27.i:                       ; preds = %24, %20
 31:                                               ; preds = %mi_align_down_ptr.exit27.i
   %32 = inttoptr i64 %.in.i to ptr
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #9
-  store i8 0, ptr %5, align 1, !tbaa !25
+  store i8 0, ptr %5, align 1, !tbaa !24
   %33 = call i32 @_mi_prim_commit(ptr noundef %32, i64 noundef %29, ptr noundef nonnull %5) #7
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %35, label %34
@@ -969,13 +969,13 @@ mi_align_down_ptr.exit27.i:                       ; preds = %24, %20
   br label %39
 
 35:                                               ; preds = %31
-  %36 = load i8, ptr %5, align 1, !tbaa !25, !range !9, !noundef !10
+  %36 = load i8, ptr %5, align 1, !tbaa !24, !range !9, !noundef !10
   %37 = trunc nuw i8 %36 to i1
   %or.cond = and i1 %6, %37
   br i1 %or.cond, label %38, label %39
 
 38:                                               ; preds = %35
-  store i8 1, ptr %2, align 1, !tbaa !25
+  store i8 1, ptr %2, align 1, !tbaa !24
   br label %39
 
 39:                                               ; preds = %35, %38, %34
@@ -1077,7 +1077,7 @@ define hidden zeroext i1 @_mi_os_purge_ex(ptr noundef %0, i64 noundef %1, i1 nou
 
 12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #9
-  store i8 1, ptr %5, align 1, !tbaa !25
+  store i8 1, ptr %5, align 1, !tbaa !24
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef %3) #7
   %13 = icmp eq i64 %1, 0
   %14 = icmp eq ptr %0, null
@@ -1117,7 +1117,7 @@ mi_align_down_ptr.exit27.i.i.i:                   ; preds = %28, %24
 
 35:                                               ; preds = %mi_align_down_ptr.exit27.i.i.i
   %36 = inttoptr i64 %.in.i.i.i to ptr
-  store i8 1, ptr %5, align 1, !tbaa !25
+  store i8 1, ptr %5, align 1, !tbaa !24
   %37 = call i32 @_mi_prim_decommit(ptr noundef %36, i64 noundef %33, ptr noundef nonnull %5) #7
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %mi_os_decommit_ex.exit, label %38
@@ -1127,7 +1127,7 @@ mi_align_down_ptr.exit27.i.i.i:                   ; preds = %28, %24
   br label %mi_os_decommit_ex.exit
 
 mi_os_decommit_ex.exit:                           ; preds = %12, %mi_align_down_ptr.exit27.i.i.i, %35, %38
-  %39 = load i8, ptr %5, align 1, !tbaa !25, !range !9, !noundef !10
+  %39 = load i8, ptr %5, align 1, !tbaa !24, !range !9, !noundef !10
   %40 = trunc nuw i8 %39 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #9
   br label %_mi_os_reset.exit
@@ -1314,7 +1314,7 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %6
-  store i64 0, ptr %4, align 8, !tbaa !29
+  store i64 0, ptr %4, align 8, !tbaa !28
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -1322,7 +1322,7 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
   br i1 %.not66, label %12, label %11
 
 11:                                               ; preds = %10
-  store i64 0, ptr %3, align 8, !tbaa !29
+  store i64 0, ptr %3, align 8, !tbaa !28
   br label %12
 
 12:                                               ; preds = %11, %10
@@ -1350,7 +1350,7 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
   %26 = cmpxchg ptr @mi_huge_start, i64 %.017.i, i64 %25 acq_rel acquire, align 64
   %27 = extractvalue { i64, i1 } %26, 1
   %28 = extractvalue { i64, i1 } %26, 0
-  br i1 %27, label %29, label %16, !llvm.loop !30
+  br i1 %27, label %29, label %16, !llvm.loop !29
 
 29:                                               ; preds = %24
   %30 = inttoptr i64 %.0.i to ptr
@@ -1367,20 +1367,20 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
   %.05098.us = phi i64 [ %42, %mi_os_prim_free.exit.us ], [ 0, %.lr.ph ]
   %.05297.us = phi i8 [ %spec.select.us, %mi_os_prim_free.exit.us ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #9
-  store i8 0, ptr %7, align 1, !tbaa !25
+  store i8 0, ptr %7, align 1, !tbaa !24
   %34 = shl i64 %.05098.us, 30
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  store ptr null, ptr %8, align 8, !tbaa !27
+  store ptr null, ptr %8, align 8, !tbaa !26
   %36 = call i32 @_mi_prim_alloc_huge_os_pages(ptr noundef nonnull %35, i64 noundef 1073741824, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
-  %37 = load i8, ptr %7, align 1, !tbaa !25, !range !9, !noundef !10
+  %37 = load i8, ptr %7, align 1, !tbaa !24, !range !9, !noundef !10
   %38 = trunc nuw i8 %37 to i1
   %spec.select.us = select i1 %38, i8 %.05297.us, i8 0
   %.not67.us = icmp eq i32 %36, 0
   br i1 %.not67.us, label %39, label %.split.us
 
 39:                                               ; preds = %.lr.ph.split.us
-  %40 = load ptr, ptr %8, align 8, !tbaa !27
+  %40 = load ptr, ptr %8, align 8, !tbaa !26
   %.not68.us = icmp eq ptr %40, %35
   br i1 %.not68.us, label %41, label %.split104.us
 
@@ -1401,19 +1401,19 @@ mi_os_prim_free.exit.us:                          ; preds = %41
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
   %exitcond148.not = icmp eq i64 %42, %0
-  br i1 %exitcond148.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !31
+  br i1 %exitcond148.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !30
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %mi_os_prim_free.exit
   %.05098 = phi i64 [ %62, %mi_os_prim_free.exit ], [ 0, %.lr.ph ]
   %.05297 = phi i8 [ %spec.select, %mi_os_prim_free.exit ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #9
-  store i8 0, ptr %7, align 1, !tbaa !25
+  store i8 0, ptr %7, align 1, !tbaa !24
   %48 = shl i64 %.05098, 30
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
-  store ptr null, ptr %8, align 8, !tbaa !27
+  store ptr null, ptr %8, align 8, !tbaa !26
   %50 = call i32 @_mi_prim_alloc_huge_os_pages(ptr noundef nonnull %49, i64 noundef 1073741824, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
-  %51 = load i8, ptr %7, align 1, !tbaa !25, !range !9, !noundef !10
+  %51 = load i8, ptr %7, align 1, !tbaa !24, !range !9, !noundef !10
   %52 = trunc nuw i8 %51 to i1
   %spec.select = select i1 %52, i8 %.05297, i8 0
   %.not67 = icmp eq i32 %50, 0
@@ -1428,7 +1428,7 @@ mi_os_prim_free.exit.us:                          ; preds = %41
   br label %mi_os_prim_free.exit.thread
 
 53:                                               ; preds = %.lr.ph.split
-  %54 = load ptr, ptr %8, align 8, !tbaa !27
+  %54 = load ptr, ptr %8, align 8, !tbaa !26
   %.not68 = icmp eq ptr %54, %49
   br i1 %.not68, label %mi_os_prim_free.exit, label %.split104.us
 
@@ -1442,7 +1442,7 @@ mi_os_prim_free.exit.us:                          ; preds = %41
 
 55:                                               ; preds = %.split104.us
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.3, i64 noundef %.us-phi108, ptr noundef nonnull %.us-phi106) #7
-  %56 = load ptr, ptr %8, align 8, !tbaa !27
+  %56 = load ptr, ptr %8, align 8, !tbaa !26
   %57 = icmp eq ptr %56, null
   br i1 %57, label %mi_os_prim_free.exit.thread, label %58
 
@@ -1467,7 +1467,7 @@ mi_os_prim_free.exit:                             ; preds = %53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #9
   %exitcond.not = icmp eq i64 %62, %0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split
 
 .thread:                                          ; preds = %41
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i64 noundef %42) #7
@@ -1486,7 +1486,7 @@ mi_os_prim_free.exit.thread:                      ; preds = %.split.us, %.split1
   br i1 %.not66, label %64, label %63
 
 63:                                               ; preds = %.loopexit
-  store i64 %.151, ptr %3, align 8, !tbaa !29
+  store i64 %.151, ptr %3, align 8, !tbaa !28
   br label %64
 
 64:                                               ; preds = %63, %.loopexit
@@ -1494,7 +1494,7 @@ mi_os_prim_free.exit.thread:                      ; preds = %.split.us, %.split1
 
 65:                                               ; preds = %64
   %66 = shl i64 %.151, 30
-  store i64 %66, ptr %4, align 8, !tbaa !29
+  store i64 %66, ptr %4, align 8, !tbaa !28
   br label %67
 
 67:                                               ; preds = %65, %64
@@ -1504,11 +1504,11 @@ mi_os_prim_free.exit.thread:                      ; preds = %.split.us, %.split1
 68:                                               ; preds = %67
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !25
+  store i8 1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 17
-  store i8 1, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !25
+  store i8 1, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !24
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i8 %.153, ptr %.sroa.6.0..sroa_idx, align 2, !tbaa !25
+  store i8 %.153, ptr %.sroa.6.0..sroa_idx, align 2, !tbaa !24
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 19
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.774.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
@@ -1561,7 +1561,7 @@ declare void @_mi_verbose_message(ptr noundef, ...) local_unnamed_addr #2
 define hidden i32 @_mi_os_numa_node_get() local_unnamed_addr #1 {
   %1 = load atomic i64, ptr @_mi_numa_node_count monotonic, align 8
   %.not.i = icmp eq i64 %1, 0
-  br i1 %.not.i, label %2, label %_mi_os_numa_node_count.exit, !prof !34
+  br i1 %.not.i, label %2, label %_mi_os_numa_node_count.exit, !prof !32
 
 2:                                                ; preds = %0
   %3 = tail call i64 @_mi_os_numa_node_count_get() #8
@@ -1650,16 +1650,14 @@ attributes #9 = { nounwind }
 !19 = !{!"mi_memid_s", !6, i64 0, !8, i64 16, !8, i64 17, !8, i64 18, !20, i64 20}
 !20 = !{!"int", !6, i64 0}
 !21 = !{!6, !6, i64 0}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!8, !8, i64 0}
-!26 = !{!20, !20, i64 0}
-!27 = !{!17, !17, i64 0}
-!28 = !{!4, !8, i64 41}
-!29 = !{!5, !5, i64 0}
-!30 = distinct !{!30, !23, !24}
-!31 = distinct !{!31, !24, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = distinct !{!33, !24}
-!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!24 = !{!8, !8, i64 0}
+!25 = !{!20, !20, i64 0}
+!26 = !{!17, !17, i64 0}
+!27 = !{!4, !8, i64 41}
+!28 = !{!5, !5, i64 0}
+!29 = distinct !{!29, !23}
+!30 = distinct !{!30, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = !{!"branch_weights", !"expected", i32 1, i32 2000}

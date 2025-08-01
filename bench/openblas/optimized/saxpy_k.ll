@@ -99,7 +99,7 @@ define noundef i32 @saxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
   store <8 x float> %70, ptr %66, align 1, !tbaa !3
   %71 = add nuw nsw i64 %.12.i, 32
   %72 = icmp samesign ult i64 %71, %16
-  br i1 %72, label %.lr.ph3.i, label %saxpy_kernel_16.exit, !llvm.loop !9
+  br i1 %72, label %.lr.ph3.i, label %saxpy_kernel_16.exit, !llvm.loop !8
 
 saxpy_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.preheader.i, %15
   %.not93 = icmp eq i64 %16, %0
@@ -108,14 +108,14 @@ saxpy_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
 .lr.ph84:                                         ; preds = %saxpy_kernel_16.exit, %.lr.ph84
   %.06283 = phi i64 [ %78, %.lr.ph84 ], [ %16, %saxpy_kernel_16.exit ]
   %73 = getelementptr inbounds nuw float, ptr %4, i64 %.06283
-  %74 = load float, ptr %73, align 4, !tbaa !10
+  %74 = load float, ptr %73, align 4, !tbaa !9
   %75 = getelementptr inbounds nuw float, ptr %6, i64 %.06283
-  %76 = load float, ptr %75, align 4, !tbaa !10
+  %76 = load float, ptr %75, align 4, !tbaa !9
   %77 = tail call float @llvm.fmuladd.f32(float %3, float %74, float %76)
-  store float %77, ptr %75, align 4, !tbaa !10
+  store float %77, ptr %75, align 4, !tbaa !9
   %78 = add nuw nsw i64 %.06283, 1
   %79 = icmp slt i64 %78, %0
-  br i1 %79, label %.lr.ph84, label %.loopexit, !llvm.loop !12
+  br i1 %79, label %.lr.ph84, label %.loopexit, !llvm.loop !11
 
 80:                                               ; preds = %12
   %81 = and i64 %0, 9223372036854775804
@@ -149,54 +149,54 @@ saxpy_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   %.06375 = phi i64 [ 0, %.lr.ph ], [ %113, %88 ]
   %.06574 = phi i64 [ 0, %.lr.ph ], [ %114, %88 ]
   %89 = getelementptr inbounds float, ptr %4, i64 %.06375
-  %90 = load float, ptr %89, align 4, !tbaa !10
+  %90 = load float, ptr %89, align 4, !tbaa !9
   %91 = fmul float %3, %90
   %92 = getelementptr float, ptr %89, i64 %5
-  %93 = load float, ptr %92, align 4, !tbaa !10
+  %93 = load float, ptr %92, align 4, !tbaa !9
   %94 = fmul float %3, %93
   %95 = getelementptr i8, ptr %89, i64 %.idx
-  %96 = load float, ptr %95, align 4, !tbaa !10
+  %96 = load float, ptr %95, align 4, !tbaa !9
   %97 = fmul float %3, %96
   %98 = getelementptr i8, ptr %89, i64 %.idx68
-  %99 = load float, ptr %98, align 4, !tbaa !10
+  %99 = load float, ptr %98, align 4, !tbaa !9
   %100 = fmul float %3, %99
   %101 = getelementptr inbounds float, ptr %6, i64 %.06574
-  %102 = load float, ptr %101, align 4, !tbaa !10
+  %102 = load float, ptr %101, align 4, !tbaa !9
   %103 = fadd float %91, %102
-  store float %103, ptr %101, align 4, !tbaa !10
+  store float %103, ptr %101, align 4, !tbaa !9
   %104 = getelementptr float, ptr %101, i64 %7
-  %105 = load float, ptr %104, align 4, !tbaa !10
+  %105 = load float, ptr %104, align 4, !tbaa !9
   %106 = fadd float %94, %105
-  store float %106, ptr %104, align 4, !tbaa !10
+  store float %106, ptr %104, align 4, !tbaa !9
   %107 = getelementptr i8, ptr %101, i64 %.idx69
-  %108 = load float, ptr %107, align 4, !tbaa !10
+  %108 = load float, ptr %107, align 4, !tbaa !9
   %109 = fadd float %97, %108
-  store float %109, ptr %107, align 4, !tbaa !10
+  store float %109, ptr %107, align 4, !tbaa !9
   %110 = getelementptr i8, ptr %101, i64 %.idx70
-  %111 = load float, ptr %110, align 4, !tbaa !10
+  %111 = load float, ptr %110, align 4, !tbaa !9
   %112 = fadd float %100, %111
-  store float %112, ptr %110, align 4, !tbaa !10
+  store float %112, ptr %110, align 4, !tbaa !9
   %113 = add nsw i64 %.06375, %82
   %114 = add nsw i64 %.06574, %83
   %115 = add nuw nsw i64 %.176, 4
   %116 = icmp samesign ult i64 %115, %81
-  br i1 %116, label %88, label %.preheader.loopexit, !llvm.loop !13
+  br i1 %116, label %88, label %.preheader.loopexit, !llvm.loop !12
 
 .lr.ph82:                                         ; preds = %.preheader, %.lr.ph82
   %.281 = phi i64 [ %124, %.lr.ph82 ], [ %.1.lcssa, %.preheader ]
   %.16480 = phi i64 [ %122, %.lr.ph82 ], [ %.063.lcssa, %.preheader ]
   %.16679 = phi i64 [ %123, %.lr.ph82 ], [ %.065.lcssa, %.preheader ]
   %117 = getelementptr inbounds float, ptr %4, i64 %.16480
-  %118 = load float, ptr %117, align 4, !tbaa !10
+  %118 = load float, ptr %117, align 4, !tbaa !9
   %119 = getelementptr inbounds float, ptr %6, i64 %.16679
-  %120 = load float, ptr %119, align 4, !tbaa !10
+  %120 = load float, ptr %119, align 4, !tbaa !9
   %121 = tail call float @llvm.fmuladd.f32(float %3, float %118, float %120)
-  store float %121, ptr %119, align 4, !tbaa !10
+  store float %121, ptr %119, align 4, !tbaa !9
   %122 = add nsw i64 %.16480, %5
   %123 = add nsw i64 %.16679, %7
   %124 = add nuw nsw i64 %.281, 1
   %exitcond.not = icmp eq i64 %124, %0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph82, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph82, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph82, %.lr.ph84, %.preheader, %saxpy_kernel_16.exit, %10
   ret i32 0
@@ -222,12 +222,11 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"float", !4, i64 0}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"float", !4, i64 0}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

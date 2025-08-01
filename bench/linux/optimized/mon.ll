@@ -415,7 +415,7 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr noundef readonly captur
 77:                                               ; preds = %70, %56, %55, %.preheader14
   %78 = load ptr, ptr %50, align 8
   %79 = icmp eq ptr %78, %23
-  br i1 %79, label %.thread, label %.preheader14, !llvm.loop !15
+  br i1 %79, label %.thread, label %.preheader14, !llvm.loop !14
 
 .loopexit:                                        ; preds = %70, %66, %43
   %80 = phi ptr [ %38, %43 ], [ %50, %66 ], [ %50, %70 ]
@@ -424,9 +424,9 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr noundef readonly captur
 
 82:                                               ; preds = %.loopexit
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %84 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %83, i32 1, ptr nonnull elementtype(i32) %83) #10, !srcloc !16
+  %84 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %83, i32 1, ptr nonnull elementtype(i32) %83) #10, !srcloc !15
   %85 = icmp eq i32 %84, 0
-  br i1 %85, label %90, label %86, !prof !17
+  br i1 %85, label %90, label %86, !prof !16
 
 86:                                               ; preds = %82
   %87 = add i32 %84, 1
@@ -466,7 +466,7 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr noundef readonly captur
 99:                                               ; preds = %98
   %100 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %29, i32 noundef 3520) #13
   %101 = icmp eq ptr %100, null
-  br i1 %101, label %.thread13, label %102, !prof !17
+  br i1 %101, label %.thread13, label %102, !prof !16
 
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 16
@@ -499,7 +499,7 @@ define dso_local ptr @nsm_get_handle(ptr noundef %0, ptr noundef readonly captur
   %118 = load ptr, ptr %105, align 8
   %119 = getelementptr i8, ptr %118, i64 %4
   store i8 0, ptr %119, align 1
-  br label %30, !llvm.loop !18
+  br label %30
 
 .thread13:                                        ; preds = %99, %98, %94, %92, %19, %16
   %120 = phi ptr [ %80, %92 ], [ %31, %94 ], [ null, %19 ], [ null, %16 ], [ null, %98 ], [ null, %99 ]
@@ -540,7 +540,7 @@ define dso_local ptr @nsm_reboot_lookup(ptr noundef %0, ptr noundef readonly cap
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 177
   %17 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %16, ptr noundef nonnull dereferenceable(16) %10, i64 16)
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %11, !llvm.loop !20
+  br i1 %18, label %19, label %11, !llvm.loop !17
 
 19:                                               ; preds = %15
   %20 = icmp eq ptr %13, null
@@ -548,9 +548,9 @@ define dso_local ptr @nsm_reboot_lookup(ptr noundef %0, ptr noundef readonly cap
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %23 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %22, i32 1, ptr nonnull elementtype(i32) %22) #10, !srcloc !16
+  %23 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %22, i32 1, ptr nonnull elementtype(i32) %22) #10, !srcloc !15
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %29, label %25, !prof !17
+  br i1 %24, label %29, label %25, !prof !16
 
 25:                                               ; preds = %21
   %26 = add i32 %23, 1
@@ -650,7 +650,7 @@ define internal void @nsm_xdr_enc_mon(ptr readnone captures(none) %0, ptr nounde
 define internal noundef range(i32 -5, 1) i32 @nsm_xdr_dec_stat_res(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 8) #10
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %13, label %6, !prof !17
+  br i1 %5, label %13, label %6, !prof !16
 
 6:                                                ; preds = %3
   %7 = getelementptr i8, ptr %4, i64 4
@@ -708,7 +708,7 @@ define internal void @nsm_xdr_enc_unmon(ptr readnone captures(none) %0, ptr noun
 define internal noundef range(i32 -5, 1) i32 @nsm_xdr_dec_stat(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #10
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %10, label %6, !prof !17
+  br i1 %5, label %10, label %6, !prof !16
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %4, align 4
@@ -804,13 +804,10 @@ attributes #13 = { nounwind allocsize(0) }
 !8 = !{!"branch_weights", i32 2000, i32 1}
 !9 = !{!"branch_weights", i32 0, i32 -2147483648}
 !10 = !{i64 2148467361}
-!11 = distinct !{!11, !12, !13, !14}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !12, !13, !14}
-!16 = !{i64 2148722110, i64 2148722149, i64 2148722170, i64 2148722207, i64 2148722230, i64 2148722239}
-!17 = !{!"branch_weights", i32 1, i32 2000}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count", i32 2001}
-!20 = distinct !{!20, !12, !13, !14}
+!14 = distinct !{!14, !12, !13}
+!15 = !{i64 2148722110, i64 2148722149, i64 2148722170, i64 2148722207, i64 2148722230, i64 2148722239}
+!16 = !{!"branch_weights", i32 1, i32 2000}
+!17 = distinct !{!17, !12, !13}

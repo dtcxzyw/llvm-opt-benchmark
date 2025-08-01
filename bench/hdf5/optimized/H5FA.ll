@@ -1035,7 +1035,7 @@ define range(i32 -1, 1) i32 @H5FA_depend(ptr noundef readonly captures(none) %0,
 
 12:                                               ; preds = %.thread, %9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 392
-  %14 = load ptr, ptr %13, align 8, !tbaa !60
+  %14 = load ptr, ptr %13, align 8, !tbaa !59
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %29
 
@@ -1045,7 +1045,7 @@ define range(i32 -1, 1) i32 @H5FA_depend(ptr noundef readonly captures(none) %0,
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 328
   store ptr %18, ptr %19, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 384
-  %21 = load ptr, ptr %20, align 8, !tbaa !61
+  %21 = load ptr, ptr %20, align 8, !tbaa !60
   %22 = tail call i32 @H5AC_proxy_entry_add_child(ptr noundef %1, ptr noundef %18, ptr noundef %21) #5
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %28
@@ -1057,7 +1057,7 @@ define range(i32 -1, 1) i32 @H5FA_depend(ptr noundef readonly captures(none) %0,
   br label %29
 
 28:                                               ; preds = %16
-  store ptr %1, ptr %13, align 8, !tbaa !60
+  store ptr %1, ptr %13, align 8, !tbaa !59
   br label %29
 
 29:                                               ; preds = %24, %28, %12, %9
@@ -1180,8 +1180,7 @@ attributes #5 = { nounwind }
 !54 = !{!"H5FA_dbk_page_t", !15, i64 0, !17, i64 248, !31, i64 256, !28, i64 264, !12, i64 272, !12, i64 280, !12, i64 288}
 !55 = !{!43, !17, i64 40}
 !56 = !{!14, !12, i64 336}
-!57 = distinct !{!57, !58, !59}
+!57 = distinct !{!57, !58}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = !{!"llvm.loop.estimated_trip_count"}
-!60 = !{!14, !17, i64 392}
-!61 = !{!14, !28, i64 384}
+!59 = !{!14, !17, i64 392}
+!60 = !{!14, !28, i64 384}

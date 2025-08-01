@@ -1386,7 +1386,7 @@ define internal fastcc void @dissect_dpnss_sup_info_str(ptr noundef %0, ptr noun
   %56 = add i32 %14, 1
   %57 = add i32 %.08799, 1
   %58 = icmp slt i32 %56, %6
-  br i1 %58, label %9, label %._crit_edge, !llvm.loop !9
+  br i1 %58, label %9, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit, %.thread, %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
@@ -1469,7 +1469,6 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

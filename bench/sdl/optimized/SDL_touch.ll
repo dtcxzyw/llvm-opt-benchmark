@@ -111,7 +111,7 @@ define hidden ptr @SDL_GetTouch(i64 noundef %0) local_unnamed_addr #2 {
 10:                                               ; preds = %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetTouchIndex.exit.thread, label %5, !llvm.loop !6
+  br i1 %exitcond.not.i, label %SDL_GetTouchIndex.exit.thread, label %5, !llvm.loop !5
 
 SDL_GetTouchIndex.exit:                           ; preds = %5
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -247,7 +247,7 @@ define hidden ptr @SDL_GetTouchFingers_REAL(i64 noundef %0, ptr noundef writeonl
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %28, label %23, label %._crit_edge, !llvm.loop !7
+  br i1 %28, label %23, label %._crit_edge, !llvm.loop !6
 
 29:                                               ; preds = %._crit_edge
   store i32 %17, ptr %1, align 4
@@ -283,7 +283,7 @@ define hidden i32 @SDL_AddTouch(i64 noundef %0, i32 noundef %1, ptr noundef %2) 
 11:                                               ; preds = %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetTouchIndex.exit.thread, label %6, !llvm.loop !6
+  br i1 %exitcond.not.i, label %SDL_GetTouchIndex.exit.thread, label %6, !llvm.loop !5
 
 SDL_GetTouchIndex.exit:                           ; preds = %6
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -379,7 +379,7 @@ define hidden void @SDL_SendTouch(i64 noundef %0, i64 noundef %1, i64 noundef %2
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 228
-  %17 = load i8, ptr %16, align 4, !range !8, !noundef !9
+  %17 = load i8, ptr %16, align 4, !range !7, !noundef !8
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %.thread129
 
@@ -461,7 +461,7 @@ define hidden void @SDL_SendTouch(i64 noundef %0, i64 noundef %1, i64 noundef %2
 
 52:                                               ; preds = %13
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 229
-  %54 = load i8, ptr %53, align 1, !range !8, !noundef !9
+  %54 = load i8, ptr %53, align 1, !range !7, !noundef !8
   %55 = trunc nuw i8 %54 to i1
   %56 = icmp ne i64 %1, -1
   %or.cond3.not = or i1 %56, %55
@@ -469,7 +469,7 @@ define hidden void @SDL_SendTouch(i64 noundef %0, i64 noundef %1, i64 noundef %2
 
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %14, i64 231
-  %59 = load i8, ptr %58, align 1, !range !8, !noundef !9
+  %59 = load i8, ptr %58, align 1, !range !7, !noundef !8
   %60 = trunc nuw i8 %59 to i1
   %61 = icmp ne i64 %1, -2
   %or.cond6.not = or i1 %61, %60
@@ -498,7 +498,7 @@ define hidden void @SDL_SendTouch(i64 noundef %0, i64 noundef %1, i64 noundef %2
 72:                                               ; preds = %67
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %SDL_GetFinger.exit, label %67, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %SDL_GetFinger.exit, label %67, !llvm.loop !9
 
 SDL_GetFingerIndex.exit.i:                        ; preds = %67
   %73 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -682,7 +682,7 @@ SDL_GetFinger.exit:                               ; preds = %72, %.thread129, %S
 162:                                              ; preds = %157
   %indvars.iv.next.i.i121 = add nuw nsw i64 %indvars.iv.i.i120, 1
   %exitcond.not.i.i122 = icmp eq i64 %indvars.iv.next.i.i121, %wide.trip.count.i.i119
-  br i1 %exitcond.not.i.i122, label %SDL_DelFinger.exit, label %157, !llvm.loop !10
+  br i1 %exitcond.not.i.i122, label %SDL_DelFinger.exit, label %157, !llvm.loop !9
 
 SDL_GetFingerIndex.exit.i123:                     ; preds = %157
   %163 = trunc nuw nsw i64 %indvars.iv.i.i120 to i32
@@ -737,7 +737,7 @@ define hidden void @SDL_SendTouchMotion(i64 noundef %0, i64 noundef %1, i64 noun
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 228
-  %14 = load i8, ptr %13, align 4, !range !8, !noundef !9
+  %14 = load i8, ptr %13, align 4, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
   %16 = icmp ne ptr %3, null
   %or.cond7 = and i1 %16, %15
@@ -779,7 +779,7 @@ define hidden void @SDL_SendTouchMotion(i64 noundef %0, i64 noundef %1, i64 noun
 
 39:                                               ; preds = %10
   %40 = getelementptr inbounds nuw i8, ptr %11, i64 229
-  %41 = load i8, ptr %40, align 1, !range !8, !noundef !9
+  %41 = load i8, ptr %40, align 1, !range !7, !noundef !8
   %42 = icmp eq i8 %41, 0
   %43 = icmp eq i64 %1, -1
   %or.cond9 = and i1 %43, %42
@@ -808,7 +808,7 @@ define hidden void @SDL_SendTouchMotion(i64 noundef %0, i64 noundef %1, i64 noun
 54:                                               ; preds = %49
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %SDL_GetFinger.exit.thread, label %49, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %SDL_GetFinger.exit.thread, label %49, !llvm.loop !9
 
 SDL_GetFingerIndex.exit.i:                        ; preds = %49
   %55 = trunc nuw nsw i64 %indvars.iv.i.i to i32
@@ -914,7 +914,7 @@ define hidden void @SDL_DelTouch(i64 noundef %0) local_unnamed_addr #2 {
 12:                                               ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_GetTouchIndex.exit, label %7, !llvm.loop !6
+  br i1 %exitcond.not.i, label %SDL_GetTouchIndex.exit, label %7, !llvm.loop !5
 
 ._crit_edge.loopexit.split.loop.exit11.i:         ; preds = %7
   %sext = shl i64 %indvars.iv.i, 32
@@ -947,7 +947,7 @@ SDL_GetTouchIndex.exit:                           ; preds = %12, %4, %._crit_edg
   %23 = load i32, ptr %15, align 8
   %24 = sext i32 %23 to i64
   %25 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %25, label %19, label %._crit_edge, !llvm.loop !11
+  br i1 %25, label %19, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %19, %.preheader
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -991,7 +991,7 @@ define hidden void @SDL_QuitTouch() local_unnamed_addr #2 {
   %6 = load i64, ptr %5, align 8
   tail call void @SDL_DelTouch(i64 noundef %6)
   %.not = icmp eq i64 %indvars.iv.next, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %7 = load ptr, ptr @SDL_touchDevices, align 8
@@ -1018,13 +1018,12 @@ attributes #8 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}

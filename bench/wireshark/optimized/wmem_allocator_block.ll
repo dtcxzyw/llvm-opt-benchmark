@@ -160,7 +160,7 @@ wmem_block_verify_master_list.exit:               ; preds = %42, %18
 53:                                               ; preds = %52, %.preheader.i
   %54 = load ptr, ptr %50, align 8
   %.not37.i52 = icmp eq ptr %54, null
-  br i1 %.not37.i52, label %55, label %56, !prof !10
+  br i1 %.not37.i52, label %55, label %56, !prof !9
 
 55:                                               ; preds = %53
   tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 306, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.11)
@@ -170,7 +170,7 @@ wmem_block_verify_master_list.exit:               ; preds = %42, %18
   %57 = getelementptr i8, ptr %.027.i, i64 24
   %58 = load ptr, ptr %57, align 8
   %.not39.i53 = icmp eq ptr %58, null
-  br i1 %.not39.i53, label %59, label %60, !prof !10
+  br i1 %.not39.i53, label %59, label %60, !prof !9
 
 59:                                               ; preds = %56
   tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 307, ptr noundef nonnull @__func__.wmem_block_verify_recycler, ptr noundef nonnull @.str.12)
@@ -203,7 +203,7 @@ wmem_block_verify_master_list.exit:               ; preds = %42, %18
   %71 = phi ptr [ %66, %65 ], [ %.pre.i, %69 ]
   %72 = load ptr, ptr %44, align 8
   %.not45.i = icmp eq ptr %71, %72
-  br i1 %.not45.i, label %wmem_block_verify_recycler.exit, label %.preheader.i, !llvm.loop !11
+  br i1 %.not45.i, label %wmem_block_verify_recycler.exit, label %.preheader.i, !llvm.loop !10
 
 wmem_block_verify_recycler.exit:                  ; preds = %70, %wmem_block_verify_master_list.exit
   %.0.i55 = phi i32 [ 0, %wmem_block_verify_master_list.exit ], [ %49, %70 ]
@@ -266,7 +266,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %70, %wmem_block_ver
   %93 = lshr i32 %92, 3
   %94 = add i32 %93, %.044.i
   %95 = icmp ult i32 %92, 128
-  br i1 %95, label %96, label %97, !prof !10
+  br i1 %95, label %96, label %97, !prof !9
 
 96:                                               ; preds = %90
   tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 226, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.15)
@@ -328,7 +328,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %70, %wmem_block_ver
   %121 = getelementptr i8, ptr %.046.i, i64 24
   %122 = load ptr, ptr %121, align 8
   %.not65.i = icmp eq ptr %122, null
-  br i1 %.not65.i, label %123, label %124, !prof !10
+  br i1 %.not65.i, label %123, label %124, !prof !9
 
 123:                                              ; preds = %119
   tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 239, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.18)
@@ -337,7 +337,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %70, %wmem_block_ver
 124:                                              ; preds = %123, %119
   %125 = load ptr, ptr %120, align 8
   %.not67.i = icmp eq ptr %125, null
-  br i1 %.not67.i, label %126, label %127, !prof !10
+  br i1 %.not67.i, label %126, label %127, !prof !9
 
 126:                                              ; preds = %124
   tail call void @g_assertion_message(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 240, ptr noundef nonnull @__func__.wmem_block_verify_block, ptr noundef nonnull @.str.19)
@@ -353,7 +353,7 @@ wmem_block_verify_recycler.exit:                  ; preds = %70, %wmem_block_ver
   %132 = getelementptr i8, ptr %.046.i, i64 %131
   %.not7073.i = icmp eq ptr %132, null
   %.not70.i = select i1 %.not69.i, i1 true, i1 %.not7073.i
-  br i1 %.not70.i, label %133, label %90, !llvm.loop !12
+  br i1 %.not70.i, label %133, label %90, !llvm.loop !11
 
 133:                                              ; preds = %127
   %.not72.i = icmp eq i32 %94, 8388608
@@ -368,7 +368,7 @@ wmem_block_verify_block.exit:                     ; preds = %82, %133, %134
   %135 = add i32 %.0.i57, %.03162
   %136 = load ptr, ptr %77, align 8
   %.not40 = icmp eq ptr %136, null
-  br i1 %.not40, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not40, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %wmem_block_verify_block.exit, %76
   %.031.lcssa = phi i32 [ 0, %76 ], [ %135, %wmem_block_verify_block.exit ]
@@ -1094,7 +1094,7 @@ wmem_block_init_block.exit:                       ; preds = %18, %23
 27:                                               ; preds = %wmem_block_init_block.exit, %wmem_block_remove_from_block_list.exit
   %.1 = phi ptr [ %17, %wmem_block_remove_from_block_list.exit ], [ %26, %wmem_block_init_block.exit ]
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %27, %1
   ret void
@@ -1195,7 +1195,7 @@ wmem_block_add_to_block_list.exit:                ; preds = %36, %38
 
 39:                                               ; preds = %wmem_block_add_to_block_list.exit, %35
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %39, %1
   ret void
@@ -1296,7 +1296,7 @@ wmem_block_add_to_block_list.exit.i:              ; preds = %38, %36
 
 39:                                               ; preds = %wmem_block_add_to_block_list.exit.i, %35
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %wmem_block_gc.exit, label %5, !llvm.loop !15
+  br i1 %.not.i, label %wmem_block_gc.exit, label %5, !llvm.loop !14
 
 wmem_block_gc.exit:                               ; preds = %39, %1
   tail call void @wmem_free(ptr noundef null, ptr noundef %0)
@@ -1738,12 +1738,11 @@ attributes #10 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
+!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}

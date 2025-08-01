@@ -1111,10 +1111,10 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmp_EVP_MD(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !48
+  %3 = load ptr, ptr %0, align 8, !tbaa !47
   %4 = tail call ptr @EVP_MD_get0_provider(ptr noundef %3) #6
   %5 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %4) #6
-  %6 = load ptr, ptr %1, align 8, !tbaa !48
+  %6 = load ptr, ptr %1, align 8, !tbaa !47
   %7 = tail call ptr @EVP_MD_get0_provider(ptr noundef %6) #6
   %8 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %7) #6
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #7
@@ -1152,10 +1152,10 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmp_EVP_KDF(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !50
+  %3 = load ptr, ptr %0, align 8, !tbaa !49
   %4 = tail call ptr @EVP_KDF_get0_provider(ptr noundef %3) #6
   %5 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %4) #6
-  %6 = load ptr, ptr %1, align 8, !tbaa !50
+  %6 = load ptr, ptr %1, align 8, !tbaa !49
   %7 = tail call ptr @EVP_KDF_get0_provider(ptr noundef %6) #6
   %8 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %7) #6
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #7
@@ -1184,10 +1184,10 @@ declare i32 @EVP_KDF_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmp_EVP_CIPHER(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !52
+  %3 = load ptr, ptr %0, align 8, !tbaa !51
   %4 = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef %3) #6
   %5 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %4) #6
-  %6 = load ptr, ptr %1, align 8, !tbaa !52
+  %6 = load ptr, ptr %1, align 8, !tbaa !51
   %7 = tail call ptr @EVP_CIPHER_get0_provider(ptr noundef %6) #6
   %8 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %7) #6
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #7
@@ -1216,10 +1216,10 @@ declare i32 @EVP_CIPHER_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmp_EVP_KEM(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !54
+  %3 = load ptr, ptr %0, align 8, !tbaa !53
   %4 = tail call ptr @EVP_KEM_get0_provider(ptr noundef %3) #6
   %5 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %4) #6
-  %6 = load ptr, ptr %1, align 8, !tbaa !54
+  %6 = load ptr, ptr %1, align 8, !tbaa !53
   %7 = tail call ptr @EVP_KEM_get0_provider(ptr noundef %6) #6
   %8 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %7) #6
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #7
@@ -1248,10 +1248,10 @@ declare i32 @EVP_KEM_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmp_EVP_KEYEXCH(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !56
+  %3 = load ptr, ptr %0, align 8, !tbaa !55
   %4 = tail call ptr @EVP_KEYEXCH_get0_provider(ptr noundef %3) #6
   %5 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %4) #6
-  %6 = load ptr, ptr %1, align 8, !tbaa !56
+  %6 = load ptr, ptr %1, align 8, !tbaa !55
   %7 = tail call ptr @EVP_KEYEXCH_get0_provider(ptr noundef %6) #6
   %8 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %7) #6
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #7
@@ -1280,10 +1280,10 @@ declare i32 @EVP_KEYEXCH_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmp_EVP_RAND(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !58
+  %3 = load ptr, ptr %0, align 8, !tbaa !57
   %4 = tail call ptr @EVP_RAND_get0_provider(ptr noundef %3) #6
   %5 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %4) #6
-  %6 = load ptr, ptr %1, align 8, !tbaa !58
+  %6 = load ptr, ptr %1, align 8, !tbaa !57
   %7 = tail call ptr @EVP_RAND_get0_provider(ptr noundef %6) #6
   %8 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %7) #6
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #7
@@ -1312,10 +1312,10 @@ declare i32 @EVP_RAND_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmp_EVP_MAC(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !60
+  %3 = load ptr, ptr %0, align 8, !tbaa !59
   %4 = tail call ptr @EVP_MAC_get0_provider(ptr noundef %3) #6
   %5 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %4) #6
-  %6 = load ptr, ptr %1, align 8, !tbaa !60
+  %6 = load ptr, ptr %1, align 8, !tbaa !59
   %7 = tail call ptr @EVP_MAC_get0_provider(ptr noundef %6) #6
   %8 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %7) #6
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #7
@@ -1344,10 +1344,10 @@ declare i32 @EVP_MAC_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmp_EVP_KEYMGMT(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !62
+  %3 = load ptr, ptr %0, align 8, !tbaa !61
   %4 = tail call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %3) #6
   %5 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %4) #6
-  %6 = load ptr, ptr %1, align 8, !tbaa !62
+  %6 = load ptr, ptr %1, align 8, !tbaa !61
   %7 = tail call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %6) #6
   %8 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %7) #6
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #7
@@ -1376,10 +1376,10 @@ declare i32 @EVP_KEYMGMT_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmp_EVP_SIGNATURE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !64
+  %3 = load ptr, ptr %0, align 8, !tbaa !63
   %4 = tail call ptr @EVP_SIGNATURE_get0_provider(ptr noundef %3) #6
   %5 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %4) #6
-  %6 = load ptr, ptr %1, align 8, !tbaa !64
+  %6 = load ptr, ptr %1, align 8, !tbaa !63
   %7 = tail call ptr @EVP_SIGNATURE_get0_provider(ptr noundef %6) #6
   %8 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %7) #6
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #7
@@ -1408,10 +1408,10 @@ declare i32 @EVP_SIGNATURE_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cmp_EVP_ASYM_CIPHER(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !66
+  %3 = load ptr, ptr %0, align 8, !tbaa !65
   %4 = tail call ptr @EVP_ASYM_CIPHER_get0_provider(ptr noundef %3) #6
   %5 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %4) #6
-  %6 = load ptr, ptr %1, align 8, !tbaa !66
+  %6 = load ptr, ptr %1, align 8, !tbaa !65
   %7 = tail call ptr @EVP_ASYM_CIPHER_get0_provider(ptr noundef %6) #6
   %8 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %7) #6
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %8) #7
@@ -1586,26 +1586,25 @@ attributes #7 = { nounwind willreturn memory(read) }
 !42 = !{!43, !43, i64 0}
 !43 = !{!"double", !7, i64 0}
 !44 = !{!35, !31, i64 24}
-!45 = distinct !{!45, !46, !47}
+!45 = distinct !{!45, !46}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!"llvm.loop.estimated_trip_count"}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS9evp_md_st", !6, i64 0}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS10evp_kdf_st", !6, i64 0}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"p1 _ZTS13evp_cipher_st", !6, i64 0}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTS10evp_kem_st", !6, i64 0}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"p1 _ZTS14evp_keyexch_st", !6, i64 0}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"p1 _ZTS11evp_rand_st", !6, i64 0}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"p1 _ZTS10evp_mac_st", !6, i64 0}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"p1 _ZTS14evp_keymgmt_st", !6, i64 0}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"p1 _ZTS16evp_signature_st", !6, i64 0}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"p1 _ZTS18evp_asym_cipher_st", !6, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS9evp_md_st", !6, i64 0}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS10evp_kdf_st", !6, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS13evp_cipher_st", !6, i64 0}
+!53 = !{!54, !54, i64 0}
+!54 = !{!"p1 _ZTS10evp_kem_st", !6, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS14evp_keyexch_st", !6, i64 0}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"p1 _ZTS11evp_rand_st", !6, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTS10evp_mac_st", !6, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTS14evp_keymgmt_st", !6, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTS16evp_signature_st", !6, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTS18evp_asym_cipher_st", !6, i64 0}

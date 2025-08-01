@@ -326,7 +326,7 @@ declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly6crypto8Blake2xb6updateENS_5RangeIPKhEE(ptr noundef nonnull align 64 dereferenceable(451) %0, ptr %1, ptr %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 449
-  %5 = load i8, ptr %4, align 1, !tbaa !27, !range !34, !noundef !35
+  %5 = load i8, ptr %4, align 1, !tbaa !27, !range !33, !noundef !34
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %12, label %7
 
@@ -346,7 +346,7 @@ define void @_ZN5folly6crypto8Blake2xb6updateENS_5RangeIPKhEE(ptr noundef nonnul
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 450
-  %14 = load i8, ptr %13, align 2, !tbaa !28, !range !34, !noundef !35
+  %14 = load i8, ptr %13, align 2, !tbaa !28, !range !33, !noundef !34
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %21
 
@@ -401,7 +401,7 @@ define void @_ZN5folly6crypto8Blake2xb6updateENS_5RangeIPKhEE(ptr noundef nonnul
 define void @_ZN5folly6crypto8Blake2xb6finishENS_5RangeIPhEE(ptr noundef nonnull align 64 dereferenceable(451) %0, ptr %1, ptr %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::array.2", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 449
-  %6 = load i8, ptr %5, align 1, !tbaa !27, !range !34, !noundef !35
+  %6 = load i8, ptr %5, align 1, !tbaa !27, !range !33, !noundef !34
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %13, label %8
 
@@ -422,7 +422,7 @@ define void @_ZN5folly6crypto8Blake2xb6finishENS_5RangeIPhEE(ptr noundef nonnull
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 450
-  %15 = load i8, ptr %14, align 2, !tbaa !28, !range !34, !noundef !35
+  %15 = load i8, ptr %14, align 2, !tbaa !28, !range !33, !noundef !34
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %22
 
@@ -443,7 +443,7 @@ define void @_ZN5folly6crypto8Blake2xb6finishENS_5RangeIPhEE(ptr noundef nonnull
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %24 = load i8, ptr %23, align 64, !tbaa !12, !range !34, !noundef !35
+  %24 = load i8, ptr %23, align 64, !tbaa !12, !range !33, !noundef !34
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %38
 
@@ -501,9 +501,9 @@ define void @_ZN5folly6crypto8Blake2xb6finishENS_5RangeIPhEE(ptr noundef nonnull
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 0, ptr %49, align 1, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 64, ptr %50, align 4, !tbaa !36
+  store i32 64, ptr %50, align 4, !tbaa !35
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 64, ptr %51, align 1, !tbaa !37
+  store i8 64, ptr %51, align 1, !tbaa !36
   %52 = ptrtoint ptr %2 to i64
   %53 = ptrtoint ptr %1 to i64
   %54 = sub i64 %52, %53
@@ -519,7 +519,7 @@ define void @_ZN5folly6crypto8Blake2xb6finishENS_5RangeIPhEE(ptr noundef nonnull
   %storemerge35 = phi i64 [ %54, %.lr.ph ], [ %76, %74 ]
   %57 = lshr i64 %.01336, 6
   %58 = trunc i64 %57 to i32
-  store i32 %58, ptr %55, align 8, !tbaa !38
+  store i32 %58, ptr %55, align 8, !tbaa !37
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %storemerge35, i64 64)
   %59 = trunc nuw nsw i64 %.sroa.speculated to i8
   store i8 %59, ptr %0, align 64, !tbaa !17
@@ -566,7 +566,7 @@ define void @_ZN5folly6crypto8Blake2xb6finishENS_5RangeIPhEE(ptr noundef nonnull
   %75 = add i64 %.01336, %.sroa.speculated
   %76 = sub i64 %storemerge35, %.sroa.speculated
   %.not18 = icmp eq i64 %76, 0
-  br i1 %.not18, label %._crit_edge, label %56, !llvm.loop !39
+  br i1 %.not18, label %._crit_edge, label %56, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %74, %46
   store i8 1, ptr %14, align 2, !tbaa !28
@@ -636,12 +636,11 @@ attributes #11 = { noreturn }
 !28 = !{!13, !16, i64 450}
 !29 = !{!30, !30, i64 0}
 !30 = !{!"long", !10, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{i8 0, i8 2}
-!35 = !{}
-!36 = !{!13, !9, i64 4}
-!37 = !{!13, !10, i64 17}
-!38 = !{!13, !9, i64 8}
-!39 = distinct !{!39, !32, !33}
+!33 = !{i8 0, i8 2}
+!34 = !{}
+!35 = !{!13, !9, i64 4}
+!36 = !{!13, !10, i64 17}
+!37 = !{!13, !9, i64 8}
+!38 = distinct !{!38, !32}

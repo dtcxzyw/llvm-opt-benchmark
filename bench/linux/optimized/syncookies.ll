@@ -83,13 +83,13 @@ split:                                            ; preds = %9, %._crit_edge
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 38
   store i16 %24, ptr %33, align 2
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cookie_hash.___once_key, i1 false) #6
-          to label %38 [label %34], !srcloc !9
+          to label %38 [label %34], !srcloc !8
 
 34:                                               ; preds = %split
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  store i64 0, ptr %7, align 8, !annotation !10
+  store i64 0, ptr %7, align 8, !annotation !9
   %35 = call zeroext i1 @__do_once_start(ptr noundef nonnull @cookie_hash.___done, ptr noundef nonnull %7) #6
-  br i1 %35, label %36, label %37, !prof !11
+  br i1 %35, label %36, label %37, !prof !10
 
 36:                                               ; preds = %34
   call void @get_random_bytes(ptr noundef nonnull @syncookie6_secret, i64 noundef 32) #6
@@ -114,13 +114,13 @@ split:                                            ; preds = %9, %._crit_edge
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 38
   store i16 %24, ptr %43, align 2
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cookie_hash.___once_key, i1 false) #6
-          to label %48 [label %44], !srcloc !9
+          to label %48 [label %44], !srcloc !8
 
 44:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store i64 0, ptr %5, align 8, !annotation !10
+  store i64 0, ptr %5, align 8, !annotation !9
   %45 = call zeroext i1 @__do_once_start(ptr noundef nonnull @cookie_hash.___done, ptr noundef nonnull %5) #6
-  br i1 %45, label %46, label %47, !prof !11
+  br i1 %45, label %46, label %47, !prof !10
 
 46:                                               ; preds = %44
   call void @get_random_bytes(ptr noundef nonnull @syncookie6_secret, i64 noundef 32) #6
@@ -202,13 +202,13 @@ define dso_local range(i32 0, 65536) i32 @__cookie_v6_check(ptr noundef readonly
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 38
   store i16 %17, ptr %24, align 2
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cookie_hash.___once_key, i1 false) #6
-          to label %29 [label %25], !srcloc !9
+          to label %29 [label %25], !srcloc !8
 
 25:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  store i64 0, ptr %6, align 8, !annotation !10
+  store i64 0, ptr %6, align 8, !annotation !9
   %26 = call zeroext i1 @__do_once_start(ptr noundef nonnull @cookie_hash.___done, ptr noundef nonnull %6) #6
-  br i1 %26, label %27, label %28, !prof !11
+  br i1 %26, label %27, label %28, !prof !10
 
 27:                                               ; preds = %25
   call void @get_random_bytes(ptr noundef nonnull @syncookie6_secret, i64 noundef 32) #6
@@ -244,13 +244,13 @@ define dso_local range(i32 0, 65536) i32 @__cookie_v6_check(ptr noundef readonly
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 38
   store i16 %17, ptr %43, align 2
   callbr void asm sideeffect "1:jmp ${2:l}\0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @cookie_hash.___once_key, i1 false) #6
-          to label %48 [label %44], !srcloc !9
+          to label %48 [label %44], !srcloc !8
 
 44:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  store i64 0, ptr %4, align 8, !annotation !10
+  store i64 0, ptr %4, align 8, !annotation !9
   %45 = call zeroext i1 @__do_once_start(ptr noundef nonnull @cookie_hash.___done, ptr noundef nonnull %4) #6
-  br i1 %45, label %46, label %47, !prof !11
+  br i1 %45, label %46, label %47, !prof !10
 
 46:                                               ; preds = %44
   call void @get_random_bytes(ptr noundef nonnull @syncookie6_secret, i64 noundef 32) #6
@@ -312,7 +312,7 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #6
-  store i8 0, ptr %4, align 1, !annotation !10
+  store i8 0, ptr %4, align 1, !annotation !9
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1151
   %27 = load volatile i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
@@ -339,7 +339,7 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %43 = load volatile ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread, label %50, !prof !11
+  br i1 %44, label %.thread, label %50, !prof !10
 
 .thread:                                          ; preds = %41, %34
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1700
@@ -362,7 +362,7 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   %58 = load i16, ptr %57, align 4
   %59 = zext i16 %58 to i64
   %60 = getelementptr i8, ptr %8, i64 %59
-  %61 = tail call i32 @__cookie_v6_check(ptr noundef %60, ptr noundef %12), !range !12
+  %61 = tail call i32 @__cookie_v6_check(ptr noundef %60, ptr noundef %12), !range !11
   %62 = icmp eq i32 %61, 0
   %63 = getelementptr inbounds nuw i8, ptr %25, i64 432
   %64 = load ptr, ptr %63, align 8
@@ -370,12 +370,12 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
 
 65:                                               ; preds = %56
   %66 = getelementptr i8, ptr %64, i64 24
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %66, ptr elementtype(i64) %66) #6, !srcloc !13
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %66, ptr elementtype(i64) %66) #6, !srcloc !12
   br label %.thread9
 
 67:                                               ; preds = %56
   %68 = getelementptr i8, ptr %64, i64 16
-  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %68, ptr elementtype(i64) %68) #6, !srcloc !14
+  tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %68, ptr elementtype(i64) %68) #6, !srcloc !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @tcp_parse_options(ptr noundef %25, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null) #6
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -453,15 +453,15 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
 
 118:                                              ; preds = %113, %110
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 212
-  %120 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %119, i32 1, ptr nonnull elementtype(i32) %119) #6, !srcloc !15
+  %120 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %119, i32 1, ptr nonnull elementtype(i32) %119) #6, !srcloc !14
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %126, label %122, !prof !11
+  br i1 %121, label %126, label %122, !prof !10
 
 122:                                              ; preds = %118
   %123 = add i32 %120, 1
   %124 = or i32 %123, %120
   %125 = icmp sgt i32 %124, -1
-  br i1 %125, label %128, label %126, !prof !16
+  br i1 %125, label %128, label %126, !prof !15
 
 126:                                              ; preds = %122, %118
   %127 = phi i32 [ 2, %118 ], [ 1, %122 ]
@@ -493,7 +493,7 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
 
 141:                                              ; preds = %138, %134, %130
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #6
   %142 = getelementptr inbounds nuw i8, ptr %6, i64 18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, i8 0, i64 88, i1 false)
@@ -630,12 +630,12 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
   %235 = getelementptr inbounds nuw i8, ptr %91, i64 128
   %236 = load volatile i32, ptr %235, align 4
   %237 = icmp eq i32 %236, 0
-  br i1 %237, label %239, label %238, !prof !16
+  br i1 %237, label %239, label %238, !prof !15
 
 238:                                              ; preds = %234
-  call void asm sideeffect "670: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 670b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 670) #6, !srcloc !17
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 128, i32 2307, i64 12) #6, !srcloc !18
-  call void asm sideeffect "671: nop\0A\09.pushsection .discard.instr_end\0A\09.long 671b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 671) #6, !srcloc !19
+  call void asm sideeffect "670: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 670b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 670) #6, !srcloc !16
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 128, i32 2307, i64 12) #6, !srcloc !17
+  call void asm sideeffect "671: nop\0A\09.pushsection .discard.instr_end\0A\09.long 671b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 671) #6, !srcloc !18
   br label %239
 
 239:                                              ; preds = %238, %234
@@ -651,20 +651,20 @@ define dso_local ptr @cookie_v6_check(ptr noundef %0, ptr noundef %1) local_unna
 
 247:                                              ; preds = %239
   %248 = getelementptr inbounds nuw i8, ptr %245, i64 128
-  %249 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %248, i32 -1, ptr nonnull elementtype(i32) %248) #6, !srcloc !20
+  %249 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %248, i32 -1, ptr nonnull elementtype(i32) %248) #6, !srcloc !19
   %250 = icmp eq i32 %249, 1
   br i1 %250, label %254, label %251
 
 251:                                              ; preds = %247
   %252 = icmp sgt i32 %249, 0
-  br i1 %252, label %.thread13, label %253, !prof !16
+  br i1 %252, label %.thread13, label %253, !prof !15
 
 253:                                              ; preds = %251
   call void @refcount_warn_saturate(ptr noundef nonnull %248, i32 noundef 3) #6
   br label %.thread13
 
 254:                                              ; preds = %247
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !21
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !20
   call void @sk_free(ptr noundef nonnull %245) #6
   br label %.thread13
 
@@ -765,20 +765,19 @@ attributes #6 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 981771, i64 981794, i64 2148466541, i64 2148466562, i64 2148466588, i64 2148466621, i64 2148466655, i64 2148466679}
-!10 = !{!"auto-init"}
-!11 = !{!"branch_weights", i32 1, i32 2000}
-!12 = !{i32 0, i32 65536}
-!13 = !{i64 2160475407}
-!14 = !{i64 2160486395}
-!15 = !{i64 2148845125, i64 2148845164, i64 2148845185, i64 2148845222, i64 2148845245, i64 2148845254}
-!16 = !{!"branch_weights", i32 2000, i32 1}
-!17 = !{i64 2157693543, i64 2157693352, i64 2157693404, i64 2157693450, i64 2157693478}
-!18 = !{i64 2157693617, i64 2157693646, i64 2157693692, i64 2157693750, i64 2157693804, i64 2157693858, i64 2157693913, i64 2157693944, i64 2157694252, i64 2157694258, i64 2157694305, i64 2157694328, i64 2157694354}
-!19 = !{i64 2157694813, i64 2157694624, i64 2157694674, i64 2157694720, i64 2157694748}
-!20 = !{i64 2148847310, i64 2148847349, i64 2148847370, i64 2148847407, i64 2148847430, i64 2148847439}
-!21 = !{i64 2150822683}
+!8 = !{i64 981771, i64 981794, i64 2148466541, i64 2148466562, i64 2148466588, i64 2148466621, i64 2148466655, i64 2148466679}
+!9 = !{!"auto-init"}
+!10 = !{!"branch_weights", i32 1, i32 2000}
+!11 = !{i32 0, i32 65536}
+!12 = !{i64 2160475407}
+!13 = !{i64 2160486395}
+!14 = !{i64 2148845125, i64 2148845164, i64 2148845185, i64 2148845222, i64 2148845245, i64 2148845254}
+!15 = !{!"branch_weights", i32 2000, i32 1}
+!16 = !{i64 2157693543, i64 2157693352, i64 2157693404, i64 2157693450, i64 2157693478}
+!17 = !{i64 2157693617, i64 2157693646, i64 2157693692, i64 2157693750, i64 2157693804, i64 2157693858, i64 2157693913, i64 2157693944, i64 2157694252, i64 2157694258, i64 2157694305, i64 2157694328, i64 2157694354}
+!18 = !{i64 2157694813, i64 2157694624, i64 2157694674, i64 2157694720, i64 2157694748}
+!19 = !{i64 2148847310, i64 2148847349, i64 2148847370, i64 2148847407, i64 2148847430, i64 2148847439}
+!20 = !{i64 2150822683}

@@ -372,7 +372,7 @@ BufferGetPage.exit79:                             ; preds = %72, %78
   %87 = call ptr @_hash_getcachedmetap(ptr noundef %9, ptr noundef nonnull %7, i1 noundef zeroext true) #9
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load i32, ptr %88, align 8
-  br label %16, !llvm.loop !7
+  br label %16
 
 90:                                               ; preds = %BufferGetPage.exit79
   %91 = load volatile i32, ptr @CritSectionCount, align 4
@@ -627,7 +627,7 @@ define dso_local zeroext i1 @hashgettuple(ptr noundef initializes((112, 113)) %0
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %12 = load i8, ptr %11, align 2, !range !8, !noundef !9
+  %12 = load i8, ptr %11, align 2, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %31
 
@@ -688,7 +688,7 @@ define dso_local i64 @hashgetbitmap(ptr noundef %0, ptr noundef %1) #0 {
   tail call void @tbm_add_tuples(ptr noundef %1, ptr noundef nonnull %11, i32 noundef 1, i1 noundef zeroext true) #9
   %12 = add i64 %.0910, 1
   %13 = tail call zeroext i1 @_hash_next(ptr noundef nonnull %0, i32 noundef 1) #9
-  br i1 %13, label %8, label %._crit_edge, !llvm.loop !10
+  br i1 %13, label %8, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %8, %2
   %.09.lcssa = phi i64 [ 0, %2 ], [ %12, %8 ]
@@ -960,7 +960,7 @@ BufferGetPage.exit:                               ; preds = %25, %31
   %.1102.us = phi i32 [ %60, %.critedge.us ], [ %.0101131.us, %64 ], [ %.0101131.us, %.critedge119.us ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140 = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %exitcond140, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %89
   %indvars.iv = phi i64 [ %indvars.iv.next, %89 ], [ 1, %.lr.ph ]
@@ -1013,7 +1013,7 @@ BufferGetPage.exit:                               ; preds = %25, %31
   %.1102 = phi i32 [ %82, %.critedge ], [ %.0101131, %86 ], [ %.0101131, %.critedge119 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count139
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
+  br i1 %exitcond, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %89, %67
   %.0101.lcssa = phi i32 [ %.1102.us, %67 ], [ %.1102, %89 ]
@@ -1078,7 +1078,7 @@ BufferGetPage.exit:                               ; preds = %25, %31
   store i8 %121, ptr %22, align 1
   call void @XLogBeginInsert() #9
   call void @XLogRegisterData(ptr noundef nonnull %15, i32 noundef 2) #9
-  %122 = load i8, ptr %22, align 1, !range !8, !noundef !9
+  %122 = load i8, ptr %22, align 1, !range !6, !noundef !7
   %123 = trunc nuw i8 %122 to i1
   br i1 %123, label %125, label %124
 
@@ -1147,7 +1147,7 @@ BufferGetPage.exit122:                            ; preds = %128, %134
 
 154:                                              ; preds = %152, %153
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %14) #9
-  br label %23, !llvm.loop !14
+  br label %23
 
 155:                                              ; preds = %147
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %14) #9
@@ -1321,14 +1321,11 @@ attributes #10 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !6}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !5}

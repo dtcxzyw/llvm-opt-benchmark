@@ -247,7 +247,7 @@ common.resume:                                    ; preds = %42, %26, %79, %70
 82:                                               ; preds = %48
   call void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17hb41ce2c6af30747eE"(ptr nonnull align 8 %9)
   %83 = icmp sgt i32 %37, 0
-  br i1 %83, label %.critedge, label %36, !llvm.loop !9
+  br i1 %83, label %.critedge, label %36
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -350,7 +350,7 @@ define void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17
 
 48:                                               ; preds = %32
   invoke void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17hb41ce2c6af30747eE"(ptr nonnull align 8 %3)
-          to label %20 unwind label %.loopexit, !llvm.loop !11
+          to label %20 unwind label %.loopexit
 
 49:                                               ; preds = %43, %50
   %.pn13 = phi { ptr, i32 } [ %lpad.phi, %50 ], [ %44, %43 ]
@@ -473,6 +473,3 @@ attributes #9 = { cold noreturn nounwind }
 !6 = !{i64 0, i64 2}
 !7 = !{i64 8}
 !8 = !{i8 0, i8 2}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !10}

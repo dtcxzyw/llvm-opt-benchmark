@@ -205,7 +205,7 @@ define dso_local noundef ptr @replace_outer_placeholdervar(ptr noundef captures(
   %6 = load ptr, ptr %5, align 8
   %7 = add i32 %.03550.i, -1
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
   %.034.lcssa.i = phi ptr [ %0, %2 ], [ %6, %.lr.ph.i ]
@@ -341,7 +341,7 @@ define dso_local noundef ptr @replace_outer_agg(ptr noundef captures(none) %0, p
   %6 = load ptr, ptr %5, align 8
   %7 = add i32 %.030, -1
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.027.lcssa = phi ptr [ %0, %2 ], [ %6, %.lr.ph ]
@@ -429,7 +429,7 @@ define dso_local noundef ptr @replace_outer_grouping(ptr noundef captures(none) 
   %7 = load ptr, ptr %6, align 8
   %8 = add i32 %.02729, -1
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ %0, %2 ], [ %7, %.lr.ph ]
@@ -514,7 +514,7 @@ define dso_local noundef ptr @replace_outer_merge_support(ptr noundef readonly c
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %15, 5
-  br i1 %.not, label %16, label %4, !llvm.loop !10
+  br i1 %.not, label %16, label %4, !llvm.loop !9
 
 16:                                               ; preds = %11
   %17 = tail call ptr @copyObjectImpl(ptr noundef %1) #4
@@ -593,7 +593,7 @@ define dso_local noundef ptr @replace_outer_returning(ptr noundef captures(none)
   %9 = load ptr, ptr %8, align 8
   %10 = add i32 %.02931, -1
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ %0, %2 ], [ %9, %.lr.ph ]
@@ -1181,7 +1181,7 @@ define dso_local ptr @identify_current_nestloop_params(ptr noundef %0, ptr nound
   %.1 = phi ptr [ %.037, %26 ], [ %.037, %22 ], [ %39, %.sink.split ]
   %41 = add i32 %.sroa.8.1, 1
   %.not = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !11
 }
 
 declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1231,12 +1231,11 @@ attributes #5 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

@@ -528,7 +528,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %160, %153, %BTreeTu
   %223 = add nsw i32 %222, -1
   %224 = icmp slt i32 %.3134.i, %223
   %225 = add nsw i32 %.3134.i, 1
-  br i1 %224, label %.outer.split.i, label %.thread219.i, !llvm.loop !7
+  br i1 %224, label %.outer.split.i, label %.thread219.i
 
 .thread219.i:                                     ; preds = %219, %216, %136, %.outer.i
   %.us-phi.i = phi ptr [ %.0117.ph.i, %.outer.i ], [ %.0117.i, %136 ], [ %.2119.i, %216 ], [ %.2119.i, %219 ]
@@ -540,7 +540,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %160, %153, %BTreeTu
 
 227:                                              ; preds = %.thread219.i
   %228 = add nuw i16 %.0124.ph.i, 1
-  br label %.outer.i, !llvm.loop !7
+  br label %.outer.i
 
 229:                                              ; preds = %.thread219.i
   %230 = getelementptr inbounds nuw i8, ptr %.0158.ph.i.ph, i64 4
@@ -596,7 +596,7 @@ BufferGetPage.exit191.i:                          ; preds = %244, %238
   %258 = getelementptr inbounds nuw i8, ptr %253, i64 4
   %259 = load i32, ptr %258, align 4
   %260 = icmp eq i32 %259, 0
-  br i1 %260, label %261, label %.preheader.i, !llvm.loop !9
+  br i1 %260, label %261, label %.preheader.i
 
 261:                                              ; preds = %257
   %262 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -621,7 +621,7 @@ BufferGetPage.exit191.i:                          ; preds = %244, %238
   %275 = load i32, ptr %274, align 4
   %276 = icmp eq i32 %275, 0
   %277 = select i1 %276, i16 1, i16 2
-  br label %.outer.i.outer, !llvm.loop !7
+  br label %.outer.i.outer
 
 .thread238.i:                                     ; preds = %233, %229, %.thread210.i
   %.2150.i = phi i8 [ %.0148.i, %.thread210.i ], [ %.us-phi281.i, %229 ], [ %.us-phi281.i, %233 ]
@@ -688,7 +688,7 @@ _bt_check_unique.exit.thread76:                   ; preds = %171, %170
   br i1 %.not48, label %.backedge, label %301
 
 .backedge:                                        ; preds = %300, %301
-  br label %37, !llvm.loop !10
+  br label %37
 
 301:                                              ; preds = %300
   call void @_bt_freestack(ptr noundef nonnull %.1.i) #9
@@ -851,7 +851,7 @@ BufferGetPage.exit91.i:                           ; preds = %383, %377
   %390 = load i16, ptr %389, align 4
   %391 = zext i16 %390 to i64
   %392 = getelementptr inbounds nuw i8, ptr %.0.i.i90.i, i64 %391
-  br label %354, !llvm.loop !11
+  br label %354
 
 .loopexit.i:                                      ; preds = %371, %367, %360, %348
   %.079.i = phi ptr [ %.0.i.i.i57, %348 ], [ %.180.i, %360 ], [ %.180.i, %367 ], [ %.180.i, %371 ]
@@ -951,7 +951,7 @@ BufferGetPage.exit94.i:                           ; preds = %435, %429
   %445 = call i64 @PageGetFreeSpace(ptr noundef nonnull %.0.i.i93.i) #9
   %446 = load i64, ptr %24, align 8
   %447 = icmp ult i64 %445, %446
-  br i1 %447, label %397, label %.loopexit95.i, !llvm.loop !12
+  br i1 %447, label %397, label %.loopexit95.i, !llvm.loop !7
 
 .loopexit95.i:                                    ; preds = %BufferGetPage.exit94.i, %423, %421, %417, %410, %401, %396, %.loopexit.i, %.preheader.i59
   %448 = call zeroext i16 @_bt_binsrch_insert(ptr noundef %0, ptr noundef nonnull %11) #9
@@ -1506,7 +1506,7 @@ _bt_pgaddtup.exit307.i:                           ; preds = %290, %288
   %.2271.i = phi i16 [ %287, %286 ], [ %.1270.i, %299 ]
   %302 = add i16 %.0272334.i, 1
   %.not282.i = icmp ugt i16 %302, %.0.i.i156
-  br i1 %.not282.i, label %._crit_edge.i, label %237, !llvm.loop !14
+  br i1 %.not282.i, label %._crit_edge.i, label %237, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %301, %228
   %.1274.lcssa.i = phi i16 [ %.0273.i, %228 ], [ %.3.i, %301 ]
@@ -2839,7 +2839,7 @@ BufferGetPage.exit:                               ; preds = %12, %18
 64:                                               ; preds = %51
   %65 = add i16 %.06299, 1
   %.not75 = icmp ugt i16 %65, %.0.i
-  br i1 %.not75, label %.preheader, label %51, !llvm.loop !15
+  br i1 %.not75, label %.preheader, label %51, !llvm.loop !10
 
 66:                                               ; preds = %.preheader, %67
   %.163.in = phi i16 [ %.163, %67 ], [ %.4, %.preheader ]
@@ -2863,7 +2863,7 @@ BufferGetPage.exit:                               ; preds = %12, %18
   %77 = zext i16 %.val82 to i32
   %78 = or disjoint i32 %76, %77
   %79 = icmp eq i32 %78, %3
-  br i1 %79, label %.thread.sink.split, label %66, !llvm.loop !16
+  br i1 %79, label %.thread.sink.split, label %66, !llvm.loop !11
 
 .loopexit:                                        ; preds = %66, %34
   %80 = icmp eq i32 %37, 0
@@ -3003,7 +3003,7 @@ BufferGetPage.exit29:                             ; preds = %29, %35
 
 49:                                               ; preds = %BufferGetPage.exit29
   tail call void @_bt_finish_split(ptr noundef %0, ptr noundef %1, i32 noundef %27, ptr noundef %3)
-  br label %26, !llvm.loop !17
+  br label %26
 
 50:                                               ; preds = %BufferGetPage.exit29
   %51 = and i32 %47, 20
@@ -3014,7 +3014,7 @@ BufferGetPage.exit29:                             ; preds = %29, %35
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %.outer, !llvm.loop !17
+  br i1 %55, label %56, label %.outer
 
 56:                                               ; preds = %52
   %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -3110,7 +3110,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
   %.1 = phi i32 [ %50, %49 ], [ %.04963, %42 ]
   %54 = add i16 %.05062, 1
   %.not53 = icmp ugt i16 %54, %.0.i
-  br i1 %.not53, label %._crit_edge, label %42, !llvm.loop !18
+  br i1 %.not53, label %._crit_edge, label %42, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %53
   %55 = icmp sgt i32 %.1, 0
@@ -3188,7 +3188,7 @@ BufferGetPage.exit.i:                             ; preds = %64, %58
   %.1.i.i.i = phi i64 [ %90, %91 ], [ %.0231.i.i.i, %89 ], [ %.02.i.i.i, %.preheader.i.i.i ]
   %95 = add nuw i64 %.0231.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %95, %81
-  br i1 %exitcond.not.i.i.i, label %96, label %.preheader.i.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i.i, label %96, label %.preheader.i.i.i, !llvm.loop !13
 
 96:                                               ; preds = %94
   %97 = trunc i64 %.1.i.i.i to i32
@@ -3299,7 +3299,7 @@ BTreeTupleIsPosting.exit.thread.i.i:              ; preds = %BTreeTupleIsPosting
   store i32 %152, ptr %155, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %141, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %141, !llvm.loop !14
 
 .loopexit.i.i:                                    ; preds = %141, %139, %121
   %.253.i.i = phi ptr [ %.152.i.i, %121 ], [ %.354.i.i, %139 ], [ %.354.i.i, %141 ]
@@ -3307,7 +3307,7 @@ BTreeTupleIsPosting.exit.thread.i.i:              ; preds = %BTreeTupleIsPosting
   %.2.i.i = phi i32 [ %.1.i.i, %121 ], [ %.3.i.i, %139 ], [ %.3.i.i, %141 ]
   %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
   %exitcond78.not.i.i = icmp eq i64 %indvars.iv.next75.i.i, %wide.trip.count77.i.i
-  br i1 %exitcond78.not.i.i, label %80, label %99, !llvm.loop !21
+  br i1 %exitcond78.not.i.i, label %80, label %99, !llvm.loop !15
 
 _bt_deadblocks.exit.i:                            ; preds = %96, %80
   %.024.i.i.i = phi i32 [ %98, %96 ], [ %.149.i.i, %80 ]
@@ -3392,7 +3392,7 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting
   %.118.i.i = phi i64 [ %.01720.i.i, %197 ], [ %191, %.lr.ph.i64.i ]
   %.1.i66.i = phi i64 [ %198, %197 ], [ %.01621.i.i, %.lr.ph.i64.i ]
   %200 = icmp ult i64 %.1.i66.i, %.118.i.i
-  br i1 %200, label %.lr.ph.i64.i, label %bsearch.exit.thread.i, !llvm.loop !22
+  br i1 %200, label %.lr.ph.i64.i, label %bsearch.exit.thread.i, !llvm.loop !16
 
 bsearch.exit.i:                                   ; preds = %196
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %176, ptr noundef nonnull align 2 dereferenceable(6) %173, i64 6, i1 false)
@@ -3472,7 +3472,7 @@ bsearch.exit.i:                                   ; preds = %196
   %.118.i74.i = phi i64 [ %.01720.i72.i, %233 ], [ %227, %.lr.ph.i70.i ]
   %.1.i75.i = phi i64 [ %234, %233 ], [ %.01621.i71.i, %.lr.ph.i70.i ]
   %236 = icmp ult i64 %.1.i75.i, %.118.i74.i
-  br i1 %236, label %.lr.ph.i70.i, label %bsearch.exit77.thread.i, !llvm.loop !22
+  br i1 %236, label %.lr.ph.i70.i, label %bsearch.exit77.thread.i, !llvm.loop !16
 
 bsearch.exit77.i:                                 ; preds = %232
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.05289.i, ptr noundef nonnull align 2 dereferenceable(6) %220, i64 6, i1 false)
@@ -3503,13 +3503,13 @@ bsearch.exit77.thread.i:                          ; preds = %235, %bsearch.exit7
   %.1.i = phi ptr [ %246, %bsearch.exit77.i ], [ %.05289.i, %235 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %bsearch.exit.thread.i, label %.lr.ph.i70.preheader.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %bsearch.exit.thread.i, label %.lr.ph.i70.preheader.i, !llvm.loop !17
 
 bsearch.exit.thread.i:                            ; preds = %bsearch.exit77.thread.i, %199, %.lr.ph.i, %211, %bsearch.exit.i, %BTreeTupleIsPosting.exit.thread.i
   %251 = phi i32 [ %167, %211 ], [ %167, %BTreeTupleIsPosting.exit.thread.i ], [ %210, %bsearch.exit.i ], [ %167, %.lr.ph.i ], [ %167, %199 ], [ %250, %bsearch.exit77.thread.i ]
   %252 = add i16 %.092.i, 1
   %.not.i = icmp ugt i16 %252, %.0.i
-  br i1 %.not.i, label %_bt_simpledel_pass.exit, label %166, !llvm.loop !24
+  br i1 %.not.i, label %_bt_simpledel_pass.exit, label %166, !llvm.loop !18
 
 _bt_simpledel_pass.exit:                          ; preds = %bsearch.exit.thread.i
   tail call void @pfree(ptr noundef %.253.i.i) #9
@@ -3679,20 +3679,14 @@ attributes #10 = { cold nounwind }
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
 !11 = distinct !{!11, !8}
-!12 = distinct !{!12, !13, !8}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13, !8}
-!15 = distinct !{!15, !13, !8}
-!16 = distinct !{!16, !13, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !8}
 !17 = distinct !{!17, !8}
-!18 = distinct !{!18, !13, !8}
-!19 = distinct !{!19, !13, !8}
-!20 = distinct !{!20, !13, !8}
-!21 = distinct !{!21, !13, !8}
-!22 = distinct !{!22, !13, !8}
-!23 = distinct !{!23, !13, !8}
-!24 = distinct !{!24, !13, !8}
+!18 = distinct !{!18, !8}

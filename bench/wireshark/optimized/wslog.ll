@@ -169,7 +169,7 @@ define zeroext i1 @ws_log_msg_is_active(ptr noundef %0, i32 noundef %1) local_un
 filter_contains.exit:                             ; preds = %.lr.ph.i
   %21 = load ptr, ptr @fatal_filter, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i8, ptr %22, align 8, !range !9, !noundef !10
+  %23 = load i8, ptr %22, align 8, !range !8, !noundef !9
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %.thread, label %thread-pre-split
 
@@ -208,7 +208,7 @@ thread-pre-split:                                 ; preds = %15, %12, %filter_co
 
 filter_contains.exit.i:                           ; preds = %.lr.ph.i.i
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %41 = load i8, ptr %40, align 8, !range !9, !noundef !10
+  %41 = load i8, ptr %40, align 8, !range !8, !noundef !9
   %42 = trunc nuw i8 %41 to i1
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %44 = load i32, ptr %43, align 4
@@ -253,7 +253,7 @@ filter_contains.exit.i:                           ; preds = %.lr.ph.i.i
 
 filter_contains.exit.i29:                         ; preds = %.lr.ph.i.i25
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %63 = load i8, ptr %62, align 8, !range !9, !noundef !10
+  %63 = load i8, ptr %62, align 8, !range !8, !noundef !9
   %64 = trunc nuw i8 %63 to i1
   %65 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %66 = load i32, ptr %65, align 4
@@ -308,7 +308,7 @@ filter_contains.exit.i29:                         ; preds = %.lr.ph.i.i25
 filter_contains.exit39:                           ; preds = %.lr.ph.i35
   %87 = load ptr, ptr @domain_filter, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load i8, ptr %88, align 8, !range !9, !noundef !10
+  %89 = load i8, ptr %88, align 8, !range !8, !noundef !9
   %90 = trunc nuw i8 %89 to i1
   br label %.thread
 
@@ -319,7 +319,7 @@ filter_contains.exit39:                           ; preds = %.lr.ph.i35
 .loopexit:                                        ; preds = %.loopexit.loopexit, %78
   %91 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %73, %78 ]
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load i8, ptr %92, align 8, !range !9, !noundef !10
+  %93 = load i8, ptr %92, align 8, !range !8, !noundef !9
   %94 = trunc nuw i8 %93 to i1
   %95 = xor i1 %94, true
   br label %.thread
@@ -476,7 +476,7 @@ define i32 @ws_log_parse_args(ptr noundef captures(address_is_null) %0, ptr noun
 17:                                               ; preds = %15
   %18 = getelementptr i8, ptr %.013.i, i64 1
   %19 = getelementptr i8, ptr %.0.i, i64 1
-  br label %12, !llvm.loop !11
+  br label %12, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %14
   %switch.and.i = and i8 %13, -33
@@ -513,7 +513,7 @@ optequal.exit.thread:                             ; preds = %optequal.exit.threa
 25:                                               ; preds = %23
   %26 = getelementptr i8, ptr %.013.i95, i64 1
   %27 = getelementptr i8, ptr %.0.i96, i64 1
-  br label %optequal.exit.thread, !llvm.loop !11
+  br label %optequal.exit.thread, !llvm.loop !10
 
 .critedge.i102:                                   ; preds = %22
   %switch.and.i103 = and i8 %21, -33
@@ -550,7 +550,7 @@ optequal.exit105.thread:                          ; preds = %optequal.exit105.th
 33:                                               ; preds = %31
   %34 = getelementptr i8, ptr %.013.i106, i64 1
   %35 = getelementptr i8, ptr %.0.i107, i64 1
-  br label %optequal.exit105.thread, !llvm.loop !11
+  br label %optequal.exit105.thread, !llvm.loop !10
 
 .critedge.i113:                                   ; preds = %30
   %switch.and.i114 = and i8 %29, -33
@@ -587,7 +587,7 @@ optequal.exit116.thread:                          ; preds = %optequal.exit116.th
 41:                                               ; preds = %39
   %42 = getelementptr i8, ptr %.013.i117, i64 1
   %43 = getelementptr i8, ptr %.0.i118, i64 1
-  br label %optequal.exit116.thread, !llvm.loop !11
+  br label %optequal.exit116.thread, !llvm.loop !10
 
 .critedge.i124:                                   ; preds = %38
   %switch.and.i125 = and i8 %37, -33
@@ -624,7 +624,7 @@ optequal.exit127.thread:                          ; preds = %optequal.exit127.th
 49:                                               ; preds = %47
   %50 = getelementptr i8, ptr %.013.i128, i64 1
   %51 = getelementptr i8, ptr %.0.i129, i64 1
-  br label %optequal.exit127.thread, !llvm.loop !11
+  br label %optequal.exit127.thread, !llvm.loop !10
 
 .critedge.i135:                                   ; preds = %46
   %switch.and.i136 = and i8 %45, -33
@@ -661,7 +661,7 @@ optequal.exit138.thread:                          ; preds = %optequal.exit138.th
 57:                                               ; preds = %55
   %58 = getelementptr i8, ptr %.013.i139, i64 1
   %59 = getelementptr i8, ptr %.0.i140, i64 1
-  br label %optequal.exit138.thread, !llvm.loop !11
+  br label %optequal.exit138.thread, !llvm.loop !10
 
 .critedge.i146:                                   ; preds = %54
   %switch.and.i147 = and i8 %53, -33
@@ -698,7 +698,7 @@ optequal.exit149.thread:                          ; preds = %optequal.exit149.th
 65:                                               ; preds = %63
   %66 = getelementptr i8, ptr %.013.i150, i64 1
   %67 = getelementptr i8, ptr %.0.i151, i64 1
-  br label %optequal.exit149.thread, !llvm.loop !11
+  br label %optequal.exit149.thread, !llvm.loop !10
 
 .critedge.i157:                                   ; preds = %62
   %switch.and.i158 = and i8 %61, -33
@@ -735,7 +735,7 @@ optequal.exit160.thread:                          ; preds = %optequal.exit160.th
 73:                                               ; preds = %71
   %74 = getelementptr i8, ptr %.013.i161, i64 1
   %75 = getelementptr i8, ptr %.0.i162, i64 1
-  br label %optequal.exit160.thread, !llvm.loop !11
+  br label %optequal.exit160.thread, !llvm.loop !10
 
 .critedge.i168:                                   ; preds = %70
   %switch.and.i169 = and i8 %69, -33
@@ -772,7 +772,7 @@ optequal.exit171.thread:                          ; preds = %optequal.exit171.th
 81:                                               ; preds = %79
   %82 = getelementptr i8, ptr %.013.i172, i64 1
   %83 = getelementptr i8, ptr %.0.i173, i64 1
-  br label %optequal.exit171.thread, !llvm.loop !11
+  br label %optequal.exit171.thread, !llvm.loop !10
 
 .critedge.i179:                                   ; preds = %78
   %switch.and.i180 = and i8 %77, -33
@@ -834,7 +834,7 @@ optequal.exit182.thread:                          ; preds = %.critedge.i179, %op
   %.086.ph.be = add i32 %.086319, -1
   %103 = load ptr, ptr %10, align 8
   %.not318 = icmp eq ptr %103, null
-  br i1 %.not318, label %.loopexit, label %.preheader.lr.ph, !llvm.loop !12
+  br i1 %.not318, label %.loopexit, label %.preheader.lr.ph, !llvm.loop !11
 
 104:                                              ; preds = %98, %101
   %.081 = phi ptr [ %102, %101 ], [ %96, %98 ]
@@ -1104,7 +1104,7 @@ ws_log_set_domain_filter.exit:                    ; preds = %ws_log_set_level_st
   store i32 %221, ptr %0, align 4
   %222 = load ptr, ptr %.087.ph323, align 8
   %.not = icmp eq ptr %222, null
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.outer.backedge, %ws_log_set_domain_filter.exit, %.preheader268, %4
   %.0 = phi i32 [ -1, %4 ], [ 0, %.preheader268 ], [ %.2, %ws_log_set_domain_filter.exit ], [ %.084320, %.outer.backedge ]
@@ -2057,7 +2057,7 @@ define internal fastcc void @log_write_dispatch(ptr noundef %0, i32 noundef %1, 
 filter_contains.exit:                             ; preds = %.lr.ph.i
   %28 = load ptr, ptr @fatal_filter, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load i8, ptr %29, align 8, !range !9, !noundef !10
+  %30 = load i8, ptr %29, align 8, !range !8, !noundef !9
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %filter_contains.exit.thread
 
@@ -2101,14 +2101,14 @@ filter_contains.exit.thread:                      ; preds = %22, %19, %16, %8, %
 
 48:                                               ; preds = %44
   %49 = icmp ult i32 %1, 4
-  %50 = load i8, ptr @stdout_logging_enabled, align 1, !range !9
+  %50 = load i8, ptr @stdout_logging_enabled, align 1, !range !8
   %51 = trunc nuw i8 %50 to i1
   %or.cond.i = select i1 %49, i1 %51, i1 false
   %stdout.val.i = load ptr, ptr @stdout, align 8
   %stderr.val.i = load ptr, ptr @stderr, align 8
   %.0.i = select i1 %or.cond.i, ptr %stdout.val.i, ptr %stderr.val.i
-  %stdout_color_enabled.val.i = load i8, ptr @stdout_color_enabled, align 1, !range !9
-  %stderr_color_enabled.val.i = load i8, ptr @stderr_color_enabled, align 1, !range !9
+  %stdout_color_enabled.val.i = load i8, ptr @stdout_color_enabled, align 1, !range !8
+  %stderr_color_enabled.val.i = load i8, ptr @stderr_color_enabled, align 1, !range !8
   %.0.in.i = select i1 %or.cond.i, i8 %stdout_color_enabled.val.i, i8 %stderr_color_enabled.val.i
   %.0.i50 = trunc nuw i8 %.0.in.i to i1
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -2119,7 +2119,7 @@ filter_contains.exit.thread:                      ; preds = %22, %19, %16, %8, %
   br i1 %.not46, label %62, label %56
 
 56:                                               ; preds = %48
-  %57 = load i8, ptr @stdout_logging_enabled, align 1, !range !9
+  %57 = load i8, ptr @stdout_logging_enabled, align 1, !range !8
   %58 = trunc nuw i8 %57 to i1
   %or.cond.i51 = select i1 %49, i1 %58, i1 false
   %stdout.val.i52 = load ptr, ptr @stdout, align 8
@@ -2461,7 +2461,7 @@ define void @ws_log_utf8_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i6
   %.125.i.i = phi i64 [ %37, %34 ], [ %50, %43 ]
   %.1.i.i = phi ptr [ %36, %34 ], [ %49, %43 ]
   %.not.i.i = icmp eq i64 %.125.i.i, 0
-  br i1 %.not.i.i, label %make_utf8_display.exit, label %32, !llvm.loop !13
+  br i1 %.not.i.i, label %make_utf8_display.exit, label %32, !llvm.loop !12
 
 52:                                               ; preds = %58, %.lr.ph.i
   %.026.i = phi ptr [ %5, %.lr.ph.i ], [ %64, %58 ]
@@ -2488,7 +2488,7 @@ define void @ws_log_utf8_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i6
   %63 = sext i8 %62 to i64
   %64 = getelementptr i8, ptr %.026.i, i64 %63
   %65 = icmp ult ptr %64, %21
-  br i1 %65, label %52, label %._crit_edge.i, !llvm.loop !14
+  br i1 %65, label %52, label %._crit_edge.i, !llvm.loop !13
 
 make_utf8_display.exit:                           ; preds = %51, %._crit_edge.i
   call void @wmem_strbuf_append_c(ptr noundef %25, i8 noundef signext 10)
@@ -2519,7 +2519,7 @@ define void @ws_log_buffer_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 11:                                               ; preds = %9
   %12 = tail call ptr @bytes_to_str_punct_maxlen(ptr noundef null, ptr noundef %5, i64 noundef %6, i8 noundef signext 32, i64 noundef %7)
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %13, label %14, !prof !15
+  br i1 %.not, label %13, label %14, !prof !14
 
 13:                                               ; preds = %11
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_write_always_full(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef nonnull @.str.26, ptr noundef %5, ptr noundef %12, i64 noundef %6)
@@ -2692,14 +2692,14 @@ ws_log_level_to_string.exit:                      ; preds = %33, %level_color_on
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define void @ws_log_console_writer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = icmp ult i32 %1, 4
-  %10 = load i8, ptr @stdout_logging_enabled, align 1, !range !9
+  %10 = load i8, ptr @stdout_logging_enabled, align 1, !range !8
   %11 = trunc nuw i8 %10 to i1
   %or.cond.i = select i1 %9, i1 %11, i1 false
   %stdout.val.i = load ptr, ptr @stdout, align 8
   %stderr.val.i = load ptr, ptr @stderr, align 8
   %.0.i = select i1 %or.cond.i, ptr %stdout.val.i, ptr %stderr.val.i
-  %stdout_color_enabled.val.i = load i8, ptr @stdout_color_enabled, align 1, !range !9
-  %stderr_color_enabled.val.i = load i8, ptr @stderr_color_enabled, align 1, !range !9
+  %stdout_color_enabled.val.i = load i8, ptr @stdout_color_enabled, align 1, !range !8
+  %stderr_color_enabled.val.i = load i8, ptr @stderr_color_enabled, align 1, !range !8
   %.0.in.i = select i1 %or.cond.i, i8 %stdout_color_enabled.val.i, i8 %stderr_color_enabled.val.i
   %.0.i12 = trunc nuw i8 %.0.in.i to i1
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -2865,13 +2865,12 @@ attributes #25 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}

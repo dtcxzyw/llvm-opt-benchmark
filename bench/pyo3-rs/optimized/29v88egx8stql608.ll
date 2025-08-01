@@ -100,7 +100,7 @@ define void @_ZN17pyo3_build_config13use_pyo3_cfgs17h0765dd9db8c8d245E() unnamed
 
 24:                                               ; preds = %21
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %3)
-          to label %13 unwind label %15, !llvm.loop !3
+          to label %13 unwind label %15
 
 25:                                               ; preds = %22, %14
   %26 = landingpad { ptr, i32 }
@@ -379,7 +379,7 @@ define void @_ZN17pyo3_build_config19print_expected_cfgs17h30e16fa4bc40a009E() u
   call void @_ZN3std2io5stdio6_print17h8f9e07feda690a3dE(ptr nonnull align 8 %2)
   %65 = call { i1, i8 } @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17h29f913ad2fe03b88E"(ptr nonnull align 1 %4)
   %66 = extractvalue { i1, i8 } %65, 0
-  br i1 %66, label %62, label %.loopexit, !llvm.loop !5
+  br i1 %66, label %62, label %.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -458,6 +458,3 @@ attributes #5 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.estimated_trip_count"}
-!5 = distinct !{!5, !4}

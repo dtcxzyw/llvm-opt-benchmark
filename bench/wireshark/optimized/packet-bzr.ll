@@ -166,7 +166,7 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
 42:                                               ; preds = %get_bzr_pdu_len.exit.thread, %get_bzr_pdu_len.exit
   %43 = load i16, ptr %12, align 8
   %44 = icmp ne i16 %43, 0
-  %45 = load i8, ptr @bzr_desegment, align 1, !range !9
+  %45 = load i8, ptr @bzr_desegment, align 1, !range !8
   %46 = trunc nuw i8 %45 to i1
   %or.cond = select i1 %44, i1 %46, i1 false
   br i1 %or.cond, label %47, label %50
@@ -282,14 +282,14 @@ get_bzr_pdu_len.exit:                             ; preds = %.lr.ph.i
   %.1.i29 = phi i32 [ %84, %.lr.ph.i28 ], [ %98, %85 ], [ %111, %99 ], [ %115, %112 ]
   %117 = call i32 @tvb_reported_length_remaining(ptr noundef %53, i32 noundef %.1.i29)
   %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %.lr.ph.i28, label %dissect_bzr_pdu.exit, !llvm.loop !10
+  br i1 %118, label %.lr.ph.i28, label %dissect_bzr_pdu.exit, !llvm.loop !9
 
 dissect_bzr_pdu.exit:                             ; preds = %116, %.sink.split.i, %52
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   %119 = add i32 %.025, %.02633
   %120 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %119)
   %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %13, label %._crit_edge, !llvm.loop !11
+  br i1 %121, label %13, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %dissect_bzr_pdu.exit, %4, %47
   %122 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -373,9 +373,8 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

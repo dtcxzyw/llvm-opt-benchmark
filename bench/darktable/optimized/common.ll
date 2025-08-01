@@ -205,7 +205,7 @@ define dso_local range(i32 0, 2) i32 @get_homography(ptr noundef readonly captur
 .loopexit.i.i:                                    ; preds = %._crit_edge119.us.i.i, %.preheader109.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond144.not.i.i = icmp eq i64 %indvars.iv.next142.i.i, 9
-  br i1 %exitcond144.not.i.i, label %.lr.ph.preheader.i9.i, label %136, !llvm.loop !17
+  br i1 %exitcond144.not.i.i, label %.lr.ph.preheader.i9.i, label %136
 
 136:                                              ; preds = %.loopexit.i.i, %3
   %indvars.iv141.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next142.i.i, %.loopexit.i.i ]
@@ -265,7 +265,7 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   %.1102.i.i = select i1 %157, i32 %158, i32 %.0101110.i.i
   %indvars.iv.next123.i.i = add nuw nsw i64 %indvars.iv122.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next123.i.i, 9
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge114.i.i:                               ; preds = %.lr.ph113.i.i
   %159 = zext i32 %.0101.lcssa.i.i to i64
@@ -287,7 +287,7 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   store double %162, ptr %gep150.i.i, align 8, !tbaa !13
   %indvars.iv.next126.i.i = add nuw nsw i64 %indvars.iv125.i.i, 1
   %exitcond128.not.i.i = icmp eq i64 %indvars.iv.next126.i.i, 9
-  br i1 %exitcond128.not.i.i, label %._crit_edge114.i.i, label %.lr.ph113.i.i, !llvm.loop !20
+  br i1 %exitcond128.not.i.i, label %._crit_edge114.i.i, label %.lr.ph113.i.i
 
 .lr.ph116.i.i:                                    ; preds = %.lr.ph116.i.i, %.lr.ph116.preheader.i.i
   %indvars.iv129.i.i = phi i64 [ %indvars.iv.i.i, %.lr.ph116.preheader.i.i ], [ %indvars.iv.next130.i.i, %.lr.ph116.i.i ]
@@ -299,7 +299,7 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   store double %163, ptr %gep154.i.i, align 8, !tbaa !13
   %indvars.iv.next130.i.i = add nuw nsw i64 %indvars.iv129.i.i, 1
   %exitcond132.not.i.i = icmp eq i64 %indvars.iv.next130.i.i, 9
-  br i1 %exitcond132.not.i.i, label %.preheader.us.preheader.i.i, label %.lr.ph116.i.i, !llvm.loop !21
+  br i1 %exitcond132.not.i.i, label %.preheader.us.preheader.i.i, label %.lr.ph116.i.i
 
 .preheader.us.preheader.i.i:                      ; preds = %.lr.ph116.i.i, %._crit_edge114.i.i
   %invariant.gep155.i.i = getelementptr inbounds nuw double, ptr %4, i64 %145
@@ -324,18 +324,18 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   store double %171, ptr %gep158.i.i, align 8, !tbaa !13
   %indvars.iv.next134.i.i = add nuw nsw i64 %indvars.iv133.i.i, 1
   %exitcond136.not.i.i = icmp eq i64 %indvars.iv.next134.i.i, 9
-  br i1 %exitcond136.not.i.i, label %._crit_edge119.us.i.i, label %166, !llvm.loop !22
+  br i1 %exitcond136.not.i.i, label %._crit_edge119.us.i.i, label %166
 
 ._crit_edge119.us.i.i:                            ; preds = %166
   %indvars.iv.next138.i.i = add nuw nsw i64 %indvars.iv137.i.i, 1
   %exitcond140.not.i.i = icmp eq i64 %indvars.iv.next138.i.i, 9
-  br i1 %exitcond140.not.i.i, label %.loopexit.i.i, label %.preheader.us.i.i, !llvm.loop !23
+  br i1 %exitcond140.not.i.i, label %.loopexit.i.i, label %.preheader.us.i.i, !llvm.loop !17
 
 .loopexit.i16.i:                                  ; preds = %.lr.ph.i12.i
   %indvars.iv.next61.i.i = add nuw nsw i64 %indvars.iv60.i.i, 1
   %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i10.i, 1
   %exitcond63.not.i.i = icmp eq i64 %indvars.iv.next61.i.i, 8
-  br i1 %exitcond63.not.i.i, label %.preheader.i.i, label %.lr.ph.preheader.i9.i, !llvm.loop !25
+  br i1 %exitcond63.not.i.i, label %.preheader.i.i, label %.lr.ph.preheader.i9.i
 
 .lr.ph.preheader.i9.i:                            ; preds = %.loopexit.i.i, %.loopexit.i16.i
   %indvars.iv60.i.i = phi i64 [ %indvars.iv.next61.i.i, %.loopexit.i16.i ], [ 0, %.loopexit.i.i ]
@@ -364,7 +364,7 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   store double %183, ptr %181, align 8, !tbaa !13
   %indvars.iv.next58.i.i = add nuw nsw i64 %indvars.iv57.i.i, 1
   %exitcond.not.i15.i = icmp eq i64 %indvars.iv.next58.i.i, 9
-  br i1 %exitcond.not.i15.i, label %.loopexit.i16.i, label %.lr.ph.i12.i, !llvm.loop !26
+  br i1 %exitcond.not.i15.i, label %.loopexit.i16.i, label %.lr.ph.i12.i
 
 .preheader.i.i:                                   ; preds = %.loopexit.i16.i, %189
   %indvars.iv68.i.i = phi i64 [ %indvars.iv.next69.i.i, %189 ], [ 8, %.loopexit.i16.i ]
@@ -381,7 +381,7 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
 189:                                              ; preds = %191
   %indvars.iv.next69.i.i = add nsw i64 %indvars.iv68.i.i, -1
   %190 = icmp samesign ugt i64 %indvars.iv68.i.i, 1
-  br i1 %190, label %.preheader.i.i, label %gauss_solve.exit, !llvm.loop !27
+  br i1 %190, label %.preheader.i.i, label %gauss_solve.exit
 
 191:                                              ; preds = %191, %.preheader.i.i
   %indvars.iv64.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next65.i.i, %191 ]
@@ -395,7 +395,7 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   store double %196, ptr %194, align 8, !tbaa !13
   %indvars.iv.next65.i.i = add nuw nsw i64 %indvars.iv64.i.i, 1
   %exitcond67.not.i.i = icmp eq i64 %indvars.iv.next65.i.i, %indvars.iv68.i.i
-  br i1 %exitcond67.not.i.i, label %189, label %191, !llvm.loop !28
+  br i1 %exitcond67.not.i.i, label %189, label %191
 
 gauss_solve.exit:                                 ; preds = %189
   %197 = load double, ptr %4, align 16, !tbaa !13
@@ -411,10 +411,10 @@ gauss_solve.exit:                                 ; preds = %189
   %202 = load double, ptr %201, align 8, !tbaa !13
   %203 = fptrunc reassoc nsz arcp contract afn double %202 to float
   %204 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  store float %203, ptr %204, align 4, !tbaa !29
+  store float %203, ptr %204, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.loopexit, label %200, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %200
 
 .loopexit:                                        ; preds = %200, %gauss_solve.exit.thread
   %switch.i20.i84 = phi i32 [ 0, %gauss_solve.exit.thread ], [ 1, %200 ]
@@ -433,35 +433,35 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local <2 x float> @apply_homography(<2 x float> %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %.sroa.0.0.vec.extract = extractelement <2 x float> %0, i64 0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %4 = load float, ptr %3, align 4, !tbaa !29
+  %4 = load float, ptr %3, align 4, !tbaa !19
   %5 = fmul reassoc nsz arcp contract afn float %4, %.sroa.0.0.vec.extract
   %.sroa.0.4.vec.extract = extractelement <2 x float> %0, i64 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %7 = load float, ptr %6, align 4, !tbaa !29
+  %7 = load float, ptr %6, align 4, !tbaa !19
   %8 = fmul reassoc nsz arcp contract afn float %7, %.sroa.0.4.vec.extract
   %9 = fadd reassoc nsz arcp contract afn float %8, %5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = load float, ptr %10, align 4, !tbaa !29
+  %11 = load float, ptr %10, align 4, !tbaa !19
   %12 = fadd reassoc nsz arcp contract afn float %9, %11
-  %13 = load float, ptr %1, align 4, !tbaa !29
+  %13 = load float, ptr %1, align 4, !tbaa !19
   %14 = fmul reassoc nsz arcp contract afn float %13, %.sroa.0.0.vec.extract
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %16 = load float, ptr %15, align 4, !tbaa !29
+  %16 = load float, ptr %15, align 4, !tbaa !19
   %17 = fmul reassoc nsz arcp contract afn float %16, %.sroa.0.4.vec.extract
   %18 = fadd reassoc nsz arcp contract afn float %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = load float, ptr %19, align 4, !tbaa !29
+  %20 = load float, ptr %19, align 4, !tbaa !19
   %21 = fadd reassoc nsz arcp contract afn float %18, %20
   %22 = fdiv reassoc nsz arcp contract afn float %21, %12
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %24 = load float, ptr %23, align 4, !tbaa !29
+  %24 = load float, ptr %23, align 4, !tbaa !19
   %25 = fmul reassoc nsz arcp contract afn float %24, %.sroa.0.0.vec.extract
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = load float, ptr %26, align 4, !tbaa !29
+  %27 = load float, ptr %26, align 4, !tbaa !19
   %28 = fmul reassoc nsz arcp contract afn float %27, %.sroa.0.4.vec.extract
   %29 = fadd reassoc nsz arcp contract afn float %28, %25
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %31 = load float, ptr %30, align 4, !tbaa !29
+  %31 = load float, ptr %30, align 4, !tbaa !19
   %32 = fadd reassoc nsz arcp contract afn float %29, %31
   %33 = fdiv reassoc nsz arcp contract afn float %32, %12
   %.sroa.021.0.vec.insert = insertelement <2 x float> poison, float %22, i64 0
@@ -472,35 +472,35 @@ define dso_local <2 x float> @apply_homography(<2 x float> %0, ptr noundef reado
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local float @apply_homography_scaling(<2 x float> %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %.sroa.0.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %3 = load float, ptr %1, align 4, !tbaa !29
+  %3 = load float, ptr %1, align 4, !tbaa !19
   %4 = fmul reassoc nsz arcp contract afn float %3, %.sroa.0.0.vec.extract
   %.sroa.0.4.vec.extract = extractelement <2 x float> %0, i64 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %6 = load float, ptr %5, align 4, !tbaa !29
+  %6 = load float, ptr %5, align 4, !tbaa !19
   %7 = fmul reassoc nsz arcp contract afn float %6, %.sroa.0.4.vec.extract
   %8 = fadd reassoc nsz arcp contract afn float %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load float, ptr %9, align 4, !tbaa !29
+  %10 = load float, ptr %9, align 4, !tbaa !19
   %11 = fadd reassoc nsz arcp contract afn float %8, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %13 = load float, ptr %12, align 4, !tbaa !29
+  %13 = load float, ptr %12, align 4, !tbaa !19
   %14 = fmul reassoc nsz arcp contract afn float %13, %.sroa.0.0.vec.extract
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load float, ptr %15, align 4, !tbaa !29
+  %16 = load float, ptr %15, align 4, !tbaa !19
   %17 = fmul reassoc nsz arcp contract afn float %16, %.sroa.0.4.vec.extract
   %18 = fadd reassoc nsz arcp contract afn float %17, %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %20 = load float, ptr %19, align 4, !tbaa !29
+  %20 = load float, ptr %19, align 4, !tbaa !19
   %21 = fadd reassoc nsz arcp contract afn float %18, %20
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load float, ptr %22, align 4, !tbaa !29
+  %23 = load float, ptr %22, align 4, !tbaa !19
   %24 = fmul reassoc nsz arcp contract afn float %23, %.sroa.0.0.vec.extract
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %26 = load float, ptr %25, align 4, !tbaa !29
+  %26 = load float, ptr %25, align 4, !tbaa !19
   %27 = fmul reassoc nsz arcp contract afn float %26, %.sroa.0.4.vec.extract
   %28 = fadd reassoc nsz arcp contract afn float %27, %24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %30 = load float, ptr %29, align 4, !tbaa !29
+  %30 = load float, ptr %29, align 4, !tbaa !19
   %31 = fadd reassoc nsz arcp contract afn float %28, %30
   %32 = fmul reassoc nsz arcp contract afn float %31, %3
   %33 = fmul reassoc nsz arcp contract afn float %23, %11
@@ -569,16 +569,5 @@ attributes #8 = { nounwind allocsize(0) }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"int", !10, i64 0}
 !17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
-!23 = distinct !{!23, !18, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !18}
-!26 = distinct !{!26, !18}
-!27 = distinct !{!27, !18}
-!28 = distinct !{!28, !18}
-!29 = !{!9, !9, i64 0}
-!30 = distinct !{!30, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = !{!9, !9, i64 0}

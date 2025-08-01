@@ -1725,7 +1725,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !124
+  %20 = load ptr, ptr %19, align 8, !tbaa !123
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -1757,7 +1757,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #15
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btree_nodeINS1_10map_paramsIiiSt4lessIiESaISt4pairIKiiEELi256ELb0EEEE16clear_and_deleteEPSB_PS9_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr i8, ptr %0, i64 11
-  %4 = load i8, ptr %3, align 1, !tbaa !125
+  %4 = load i8, ptr %3, align 1, !tbaa !124
   %.not57 = icmp eq i8 %4, 0
   br i1 %.not57, label %10, label %5
 
@@ -1770,7 +1770,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
 
 10:                                               ; preds = %2
   %11 = getelementptr i8, ptr %0, i64 10
-  %12 = load i8, ptr %11, align 1, !tbaa !125
+  %12 = load i8, ptr %11, align 1, !tbaa !124
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %.loopexit.sink.split, label %.lr.ph.preheader
 
@@ -1783,13 +1783,13 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %15 = getelementptr inbounds nuw i8, ptr %.04963, i64 256
   %16 = load ptr, ptr %15, align 8, !tbaa !120
   %17 = getelementptr i8, ptr %16, i64 11
-  %18 = load i8, ptr %17, align 1, !tbaa !125
+  %18 = load i8, ptr %17, align 1, !tbaa !124
   %.not.i = icmp eq i8 %18, 0
-  br i1 %.not.i, label %.lr.ph, label %._crit_edge, !llvm.loop !126
+  br i1 %.not.i, label %.lr.ph, label %._crit_edge, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %19 = getelementptr i8, ptr %16, i64 8
-  %20 = load i8, ptr %19, align 1, !tbaa !125
+  %20 = load i8, ptr %19, align 1, !tbaa !124
   %21 = zext i8 %20 to i64
   %22 = load ptr, ptr %16, align 8, !tbaa !120
   br label %23
@@ -1801,7 +1801,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.147
   %26 = load ptr, ptr %25, align 8, !tbaa !120
   %27 = getelementptr i8, ptr %26, i64 11
-  %28 = load i8, ptr %27, align 1, !tbaa !125
+  %28 = load i8, ptr %27, align 1, !tbaa !124
   %.not.i55 = icmp eq i8 %28, 0
   br i1 %.not.i55, label %.lr.ph66, label %37
 
@@ -1810,13 +1810,13 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %29 = getelementptr inbounds nuw i8, ptr %.25165, i64 256
   %30 = load ptr, ptr %29, align 8, !tbaa !120
   %31 = getelementptr i8, ptr %30, i64 11
-  %32 = load i8, ptr %31, align 1, !tbaa !125
+  %32 = load i8, ptr %31, align 1, !tbaa !124
   %.not.i56 = icmp eq i8 %32, 0
-  br i1 %.not.i56, label %.lr.ph66, label %._crit_edge67, !llvm.loop !127
+  br i1 %.not.i56, label %.lr.ph66, label %._crit_edge67, !llvm.loop !126
 
 ._crit_edge67:                                    ; preds = %.lr.ph66
   %33 = getelementptr i8, ptr %30, i64 8
-  %34 = load i8, ptr %33, align 1, !tbaa !125
+  %34 = load i8, ptr %33, align 1, !tbaa !124
   %35 = zext i8 %34 to i64
   %36 = load ptr, ptr %30, align 8, !tbaa !120
   br label %37
@@ -1832,7 +1832,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %42 = and i64 %41, 4088
   tail call void @_ZdlPvm(ptr noundef nonnull %.150, i64 noundef %42) #21
   %43 = getelementptr i8, ptr %.2, i64 10
-  %44 = load i8, ptr %43, align 1, !tbaa !125
+  %44 = load i8, ptr %43, align 1, !tbaa !124
   %45 = zext i8 %44 to i64
   %.not.not = icmp samesign ult i64 %.248, %45
   br i1 %.not.not, label %.backedge, label %.preheader58
@@ -1841,12 +1841,12 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %.147.be.in = phi i64 [ %.248, %37 ], [ %54, %53 ]
   %.1.be = phi ptr [ %.2, %37 ], [ %48, %53 ]
   %.147.be = add nuw nsw i64 %.147.be.in, 1
-  br label %23, !llvm.loop !128
+  br label %23, !llvm.loop !127
 
 .preheader58:                                     ; preds = %37, %50
   %.3 = phi ptr [ %48, %50 ], [ %.2, %37 ]
   %46 = getelementptr i8, ptr %.3, i64 8
-  %47 = load i8, ptr %46, align 1, !tbaa !125
+  %47 = load i8, ptr %46, align 1, !tbaa !124
   %48 = load ptr, ptr %.3, align 8, !tbaa !120
   tail call void @_ZdlPvm(ptr noundef nonnull %.3, i64 noundef 504) #21
   %49 = icmp eq ptr %48, %14
@@ -1854,9 +1854,9 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
 
 50:                                               ; preds = %.preheader58
   %51 = getelementptr i8, ptr %48, i64 10
-  %52 = load i8, ptr %51, align 1, !tbaa !125
+  %52 = load i8, ptr %51, align 1, !tbaa !124
   %.not = icmp ult i8 %47, %52
-  br i1 %.not, label %53, label %.preheader58, !llvm.loop !129
+  br i1 %.not, label %53, label %.preheader58, !llvm.loop !128
 
 53:                                               ; preds = %50
   %54 = zext i8 %47 to i64
@@ -1878,11 +1878,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !130
+  store i32 %6, ptr %4, align 8, !tbaa !129
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !137
+  store ptr %9, ptr %7, align 8, !tbaa !136
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1963,9 +1963,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !138
+  %2 = load ptr, ptr %0, align 8, !tbaa !137
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !139
+  %4 = load ptr, ptr %3, align 8, !tbaa !138
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -1997,10 +1997,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !140
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !139
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !138
+  %.pr = load ptr, ptr %0, align 8, !tbaa !137
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -2010,7 +2010,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !141
+  %20 = load ptr, ptr %19, align 8, !tbaa !140
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -2040,11 +2040,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !142
+  store i32 %6, ptr %4, align 8, !tbaa !141
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !149
+  store ptr %9, ptr %7, align 8, !tbaa !148
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2125,9 +2125,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !150
+  %2 = load ptr, ptr %0, align 8, !tbaa !149
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !151
+  %4 = load ptr, ptr %3, align 8, !tbaa !150
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -2159,10 +2159,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !152
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !151
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !150
+  %.pr = load ptr, ptr %0, align 8, !tbaa !149
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -2172,7 +2172,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !153
+  %20 = load ptr, ptr %19, align 8, !tbaa !152
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -2202,11 +2202,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELin
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !154
+  store i32 %6, ptr %4, align 8, !tbaa !153
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !161
+  store ptr %9, ptr %7, align 8, !tbaa !160
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2287,9 +2287,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !162
+  %2 = load ptr, ptr %0, align 8, !tbaa !161
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !163
+  %4 = load ptr, ptr %3, align 8, !tbaa !162
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -2321,10 +2321,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkEEvPT_.exit.
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !164
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !163
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !162
+  %.pr = load ptr, ptr %0, align 8, !tbaa !161
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -2334,7 +2334,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkES4_EvT_S6_
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !165
+  %20 = load ptr, ptr %19, align 8, !tbaa !164
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -2364,11 +2364,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !166
+  store i32 %6, ptr %4, align 8, !tbaa !165
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !173
+  store ptr %9, ptr %7, align 8, !tbaa !172
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2449,9 +2449,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !174
+  %2 = load ptr, ptr %0, align 8, !tbaa !173
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !175
+  %4 = load ptr, ptr %3, align 8, !tbaa !174
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -2483,10 +2483,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !176
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !175
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !174
+  %.pr = load ptr, ptr %0, align 8, !tbaa !173
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -2496,7 +2496,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !177
+  %20 = load ptr, ptr %19, align 8, !tbaa !176
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -2526,11 +2526,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !178
+  store i32 %6, ptr %4, align 8, !tbaa !177
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !185
+  store ptr %9, ptr %7, align 8, !tbaa !184
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2611,9 +2611,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !186
+  %2 = load ptr, ptr %0, align 8, !tbaa !185
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !187
+  %4 = load ptr, ptr %3, align 8, !tbaa !186
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -2645,10 +2645,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !188
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !187
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !186
+  %.pr = load ptr, ptr %0, align 8, !tbaa !185
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -2658,7 +2658,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !189
+  %20 = load ptr, ptr %19, align 8, !tbaa !188
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -2688,11 +2688,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !190
+  store i32 %6, ptr %4, align 8, !tbaa !189
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !197
+  store ptr %9, ptr %7, align 8, !tbaa !196
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2773,9 +2773,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !198
+  %2 = load ptr, ptr %0, align 8, !tbaa !197
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !199
+  %4 = load ptr, ptr %3, align 8, !tbaa !198
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -2807,10 +2807,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !200
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !199
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !198
+  %.pr = load ptr, ptr %0, align 8, !tbaa !197
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -2820,7 +2820,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !201
+  %20 = load ptr, ptr %19, align 8, !tbaa !200
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -2850,11 +2850,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !202
+  store i32 %6, ptr %4, align 8, !tbaa !201
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !209
+  store ptr %9, ptr %7, align 8, !tbaa !208
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2935,9 +2935,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !210
+  %2 = load ptr, ptr %0, align 8, !tbaa !209
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !211
+  %4 = load ptr, ptr %3, align 8, !tbaa !210
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -2969,10 +2969,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !212
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !211
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !210
+  %.pr = load ptr, ptr %0, align 8, !tbaa !209
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -2982,7 +2982,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !213
+  %20 = load ptr, ptr %19, align 8, !tbaa !212
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -3012,11 +3012,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELin
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !214
+  store i32 %6, ptr %4, align 8, !tbaa !213
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !221
+  store ptr %9, ptr %7, align 8, !tbaa !220
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3097,9 +3097,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !222
+  %2 = load ptr, ptr %0, align 8, !tbaa !221
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !223
+  %4 = load ptr, ptr %3, align 8, !tbaa !222
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -3131,10 +3131,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkEEvPT_.exit.
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !224
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !223
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !222
+  %.pr = load ptr, ptr %0, align 8, !tbaa !221
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -3144,7 +3144,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkES4_EvT_S6_
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !225
+  %20 = load ptr, ptr %19, align 8, !tbaa !224
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -3174,11 +3174,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !226
+  store i32 %6, ptr %4, align 8, !tbaa !225
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !233
+  store ptr %9, ptr %7, align 8, !tbaa !232
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3259,9 +3259,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !234
+  %2 = load ptr, ptr %0, align 8, !tbaa !233
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !235
+  %4 = load ptr, ptr %3, align 8, !tbaa !234
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -3293,10 +3293,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !236
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !235
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !234
+  %.pr = load ptr, ptr %0, align 8, !tbaa !233
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -3306,7 +3306,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !237
+  %20 = load ptr, ptr %19, align 8, !tbaa !236
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -3336,11 +3336,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !238
+  store i32 %6, ptr %4, align 8, !tbaa !237
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !245
+  store ptr %9, ptr %7, align 8, !tbaa !244
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3421,9 +3421,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !246
+  %2 = load ptr, ptr %0, align 8, !tbaa !245
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !247
+  %4 = load ptr, ptr %3, align 8, !tbaa !246
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -3455,10 +3455,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !248
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !247
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !246
+  %.pr = load ptr, ptr %0, align 8, !tbaa !245
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -3468,7 +3468,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !249
+  %20 = load ptr, ptr %19, align 8, !tbaa !248
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -3498,11 +3498,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !250
+  store i32 %6, ptr %4, align 8, !tbaa !249
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !257
+  store ptr %9, ptr %7, align 8, !tbaa !256
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3583,9 +3583,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !258
+  %2 = load ptr, ptr %0, align 8, !tbaa !257
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !259
+  %4 = load ptr, ptr %3, align 8, !tbaa !258
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -3617,10 +3617,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !260
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !259
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !258
+  %.pr = load ptr, ptr %0, align 8, !tbaa !257
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -3630,7 +3630,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !261
+  %20 = load ptr, ptr %19, align 8, !tbaa !260
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -3660,11 +3660,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !262
+  store i32 %6, ptr %4, align 8, !tbaa !261
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !269
+  store ptr %9, ptr %7, align 8, !tbaa !268
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3745,9 +3745,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !270
+  %2 = load ptr, ptr %0, align 8, !tbaa !269
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !271
+  %4 = load ptr, ptr %3, align 8, !tbaa !270
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -3779,10 +3779,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !272
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !271
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !270
+  %.pr = load ptr, ptr %0, align 8, !tbaa !269
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -3792,7 +3792,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !273
+  %20 = load ptr, ptr %19, align 8, !tbaa !272
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -3822,11 +3822,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !274
+  store i32 %6, ptr %4, align 8, !tbaa !273
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !281
+  store ptr %9, ptr %7, align 8, !tbaa !280
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3907,9 +3907,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !282
+  %2 = load ptr, ptr %0, align 8, !tbaa !281
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !283
+  %4 = load ptr, ptr %3, align 8, !tbaa !282
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -3941,10 +3941,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !284
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !283
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !282
+  %.pr = load ptr, ptr %0, align 8, !tbaa !281
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -3954,7 +3954,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !285
+  %20 = load ptr, ptr %19, align 8, !tbaa !284
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -3984,11 +3984,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELin
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !286
+  store i32 %6, ptr %4, align 8, !tbaa !285
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !293
+  store ptr %9, ptr %7, align 8, !tbaa !292
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4069,9 +4069,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !294
+  %2 = load ptr, ptr %0, align 8, !tbaa !293
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !295
+  %4 = load ptr, ptr %3, align 8, !tbaa !294
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -4103,10 +4103,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkEEvPT_.exit.
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !296
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !295
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !294
+  %.pr = load ptr, ptr %0, align 8, !tbaa !293
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -4116,7 +4116,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkES4_EvT_S6_
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !297
+  %20 = load ptr, ptr %19, align 8, !tbaa !296
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -4146,11 +4146,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELin1ELi
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !298
+  store i32 %6, ptr %4, align 8, !tbaa !297
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !305
+  store ptr %9, ptr %7, align 8, !tbaa !304
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4231,9 +4231,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !306
+  %2 = load ptr, ptr %0, align 8, !tbaa !305
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !307
+  %4 = load ptr, ptr %3, align 8, !tbaa !306
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -4265,10 +4265,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkEEvPT_.exit
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !308
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !307
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !306
+  %.pr = load ptr, ptr %0, align 8, !tbaa !305
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -4278,7 +4278,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkES4_EvT_S6
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !309
+  %20 = load ptr, ptr %19, align 8, !tbaa !308
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -4308,11 +4308,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi3ELi3ELi3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !310
+  store i32 %6, ptr %4, align 8, !tbaa !309
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !317
+  store ptr %9, ptr %7, align 8, !tbaa !316
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4393,9 +4393,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !318
+  %2 = load ptr, ptr %0, align 8, !tbaa !317
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !319
+  %4 = load ptr, ptr %3, align 8, !tbaa !318
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -4427,10 +4427,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !320
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !319
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !318
+  %.pr = load ptr, ptr %0, align 8, !tbaa !317
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -4440,7 +4440,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !321
+  %20 = load ptr, ptr %19, align 8, !tbaa !320
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -4470,11 +4470,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !322
+  store i32 %6, ptr %4, align 8, !tbaa !321
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !329
+  store ptr %9, ptr %7, align 8, !tbaa !328
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4555,9 +4555,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !330
+  %2 = load ptr, ptr %0, align 8, !tbaa !329
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !331
+  %4 = load ptr, ptr %3, align 8, !tbaa !330
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -4589,10 +4589,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !332
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !331
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !330
+  %.pr = load ptr, ptr %0, align 8, !tbaa !329
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -4602,7 +4602,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !333
+  %20 = load ptr, ptr %19, align 8, !tbaa !332
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -4632,11 +4632,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !334
+  store i32 %6, ptr %4, align 8, !tbaa !333
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !341
+  store ptr %9, ptr %7, align 8, !tbaa !340
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4717,9 +4717,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !342
+  %2 = load ptr, ptr %0, align 8, !tbaa !341
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !343
+  %4 = load ptr, ptr %3, align 8, !tbaa !342
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -4751,10 +4751,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !344
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !343
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !342
+  %.pr = load ptr, ptr %0, align 8, !tbaa !341
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -4764,7 +4764,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !345
+  %20 = load ptr, ptr %19, align 8, !tbaa !344
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -4794,11 +4794,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !346
+  store i32 %6, ptr %4, align 8, !tbaa !345
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !353
+  store ptr %9, ptr %7, align 8, !tbaa !352
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4879,9 +4879,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !354
+  %2 = load ptr, ptr %0, align 8, !tbaa !353
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !355
+  %4 = load ptr, ptr %3, align 8, !tbaa !354
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -4913,10 +4913,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkEEvPT_.exit.i
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !356
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !355
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !354
+  %.pr = load ptr, ptr %0, align 8, !tbaa !353
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -4926,7 +4926,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkES4_EvT_S6_R
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !357
+  %20 = load ptr, ptr %19, align 8, !tbaa !356
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -4956,11 +4956,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELin
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !358
+  store i32 %6, ptr %4, align 8, !tbaa !357
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !365
+  store ptr %9, ptr %7, align 8, !tbaa !364
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5041,9 +5041,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !366
+  %2 = load ptr, ptr %0, align 8, !tbaa !365
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !367
+  %4 = load ptr, ptr %3, align 8, !tbaa !366
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -5075,10 +5075,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkEEvPT_.exit.
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !368
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !367
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !366
+  %.pr = load ptr, ptr %0, align 8, !tbaa !365
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -5088,7 +5088,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkES4_EvT_S6_
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !369
+  %20 = load ptr, ptr %19, align 8, !tbaa !368
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -5120,11 +5120,11 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1EL
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !81
-  store i32 %6, ptr %4, align 8, !tbaa !370
+  store i32 %6, ptr %4, align 8, !tbaa !369
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !102
-  store ptr %9, ptr %7, align 8, !tbaa !377
+  store ptr %9, ptr %7, align 8, !tbaa !376
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5205,9 +5205,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !378
+  %2 = load ptr, ptr %0, align 8, !tbaa !377
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !379
+  %4 = load ptr, ptr %3, align 8, !tbaa !378
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -5239,10 +5239,10 @@ _ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exi
   store i64 0, ptr %6, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %16, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !380
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !379
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !378
+  %.pr = load ptr, ptr %0, align 8, !tbaa !377
   br label %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -5252,7 +5252,7 @@ _ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S
 
 18:                                               ; preds = %_ZSt8_DestroyIPN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkES4_EvT_S6_RSaIT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !381
+  %20 = load ptr, ptr %19, align 8, !tbaa !380
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -5434,264 +5434,263 @@ attributes #24 = { cold nounwind }
 !118 = !{!"long", !6, i64 0}
 !119 = !{!113, !114, i64 0}
 !120 = !{!114, !114, i64 0}
-!121 = distinct !{!121, !122, !123}
+!121 = distinct !{!121, !122}
 !122 = !{!"llvm.loop.mustprogress"}
-!123 = !{!"llvm.loop.estimated_trip_count"}
-!124 = !{!88, !89, i64 16}
-!125 = !{!6, !6, i64 0}
-!126 = distinct !{!126, !122, !123}
-!127 = distinct !{!127, !122, !123}
-!128 = distinct !{!128, !122, !123}
-!129 = distinct !{!129, !122, !123}
-!130 = !{!131, !14, i64 8}
-!131 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi2ELi3EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !132, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!132 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EE", !133, i64 0}
-!133 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EE", !134, i64 0}
-!134 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EE12_Vector_implE", !135, i64 0}
-!135 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EE17_Vector_impl_dataE", !136, i64 0, !136, i64 8, !136, i64 16}
-!136 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkE", !21, i64 0}
-!137 = !{!131, !22, i64 16}
-!138 = !{!135, !136, i64 0}
-!139 = !{!135, !136, i64 8}
-!140 = distinct !{!140, !122, !123}
-!141 = !{!135, !136, i64 16}
-!142 = !{!143, !14, i64 8}
-!143 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi2ELi4EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !144, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!144 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EE", !145, i64 0}
-!145 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EE", !146, i64 0}
-!146 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EE12_Vector_implE", !147, i64 0}
-!147 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EE17_Vector_impl_dataE", !148, i64 0, !148, i64 8, !148, i64 16}
-!148 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkE", !21, i64 0}
-!149 = !{!143, !22, i64 16}
-!150 = !{!147, !148, i64 0}
-!151 = !{!147, !148, i64 8}
-!152 = distinct !{!152, !122, !123}
-!153 = !{!147, !148, i64 16}
-!154 = !{!155, !14, i64 8}
-!155 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi2ELin1EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !156, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!156 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EE", !157, i64 0}
-!157 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EE", !158, i64 0}
-!158 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EE12_Vector_implE", !159, i64 0}
-!159 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EE17_Vector_impl_dataE", !160, i64 0, !160, i64 8, !160, i64 16}
-!160 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkE", !21, i64 0}
-!161 = !{!155, !22, i64 16}
-!162 = !{!159, !160, i64 0}
-!163 = !{!159, !160, i64 8}
-!164 = distinct !{!164, !122, !123}
-!165 = !{!159, !160, i64 16}
-!166 = !{!167, !14, i64 8}
-!167 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !168, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!168 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EE", !169, i64 0}
-!169 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EE", !170, i64 0}
-!170 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EE12_Vector_implE", !171, i64 0}
-!171 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EE17_Vector_impl_dataE", !172, i64 0, !172, i64 8, !172, i64 16}
-!172 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkE", !21, i64 0}
-!173 = !{!167, !22, i64 16}
-!174 = !{!171, !172, i64 0}
-!175 = !{!171, !172, i64 8}
-!176 = distinct !{!176, !122, !123}
-!177 = !{!171, !172, i64 16}
-!178 = !{!179, !14, i64 8}
-!179 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !180, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!180 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EE", !181, i64 0}
-!181 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EE", !182, i64 0}
-!182 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EE12_Vector_implE", !183, i64 0}
-!183 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EE17_Vector_impl_dataE", !184, i64 0, !184, i64 8, !184, i64 16}
-!184 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkE", !21, i64 0}
-!185 = !{!179, !22, i64 16}
-!186 = !{!183, !184, i64 0}
-!187 = !{!183, !184, i64 8}
-!188 = distinct !{!188, !122, !123}
-!189 = !{!183, !184, i64 16}
-!190 = !{!191, !14, i64 8}
-!191 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !192, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!192 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EE", !193, i64 0}
-!193 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EE", !194, i64 0}
-!194 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EE12_Vector_implE", !195, i64 0}
-!195 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EE17_Vector_impl_dataE", !196, i64 0, !196, i64 8, !196, i64 16}
-!196 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkE", !21, i64 0}
-!197 = !{!191, !22, i64 16}
-!198 = !{!195, !196, i64 0}
-!199 = !{!195, !196, i64 8}
-!200 = distinct !{!200, !122, !123}
-!201 = !{!195, !196, i64 16}
-!202 = !{!203, !14, i64 8}
-!203 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !204, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!204 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EE", !205, i64 0}
-!205 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EE", !206, i64 0}
-!206 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EE12_Vector_implE", !207, i64 0}
-!207 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EE17_Vector_impl_dataE", !208, i64 0, !208, i64 8, !208, i64 16}
-!208 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkE", !21, i64 0}
-!209 = !{!203, !22, i64 16}
-!210 = !{!207, !208, i64 0}
-!211 = !{!207, !208, i64 8}
-!212 = distinct !{!212, !122, !123}
-!213 = !{!207, !208, i64 16}
-!214 = !{!215, !14, i64 8}
-!215 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !216, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!216 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EE", !217, i64 0}
-!217 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EE", !218, i64 0}
-!218 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EE12_Vector_implE", !219, i64 0}
-!219 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EE17_Vector_impl_dataE", !220, i64 0, !220, i64 8, !220, i64 16}
-!220 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkE", !21, i64 0}
-!221 = !{!215, !22, i64 16}
-!222 = !{!219, !220, i64 0}
-!223 = !{!219, !220, i64 8}
-!224 = distinct !{!224, !122, !123}
-!225 = !{!219, !220, i64 16}
-!226 = !{!227, !14, i64 8}
-!227 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !228, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!228 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EE", !229, i64 0}
-!229 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EE", !230, i64 0}
-!230 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EE12_Vector_implE", !231, i64 0}
-!231 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EE17_Vector_impl_dataE", !232, i64 0, !232, i64 8, !232, i64 16}
-!232 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkE", !21, i64 0}
-!233 = !{!227, !22, i64 16}
-!234 = !{!231, !232, i64 0}
-!235 = !{!231, !232, i64 8}
-!236 = distinct !{!236, !122, !123}
-!237 = !{!231, !232, i64 16}
-!238 = !{!239, !14, i64 8}
-!239 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !240, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!240 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EE", !241, i64 0}
-!241 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EE", !242, i64 0}
-!242 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EE12_Vector_implE", !243, i64 0}
-!243 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EE17_Vector_impl_dataE", !244, i64 0, !244, i64 8, !244, i64 16}
-!244 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkE", !21, i64 0}
-!245 = !{!239, !22, i64 16}
-!246 = !{!243, !244, i64 0}
-!247 = !{!243, !244, i64 8}
-!248 = distinct !{!248, !122, !123}
-!249 = !{!243, !244, i64 16}
-!250 = !{!251, !14, i64 8}
-!251 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !252, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!252 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EE", !253, i64 0}
-!253 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EE", !254, i64 0}
-!254 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EE12_Vector_implE", !255, i64 0}
-!255 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EE17_Vector_impl_dataE", !256, i64 0, !256, i64 8, !256, i64 16}
-!256 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkE", !21, i64 0}
-!257 = !{!251, !22, i64 16}
-!258 = !{!255, !256, i64 0}
-!259 = !{!255, !256, i64 8}
-!260 = distinct !{!260, !122, !123}
-!261 = !{!255, !256, i64 16}
-!262 = !{!263, !14, i64 8}
-!263 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !264, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!264 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EE", !265, i64 0}
-!265 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EE", !266, i64 0}
-!266 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EE12_Vector_implE", !267, i64 0}
-!267 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EE17_Vector_impl_dataE", !268, i64 0, !268, i64 8, !268, i64 16}
-!268 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkE", !21, i64 0}
-!269 = !{!263, !22, i64 16}
-!270 = !{!267, !268, i64 0}
-!271 = !{!267, !268, i64 8}
-!272 = distinct !{!272, !122, !123}
-!273 = !{!267, !268, i64 16}
-!274 = !{!275, !14, i64 8}
-!275 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !276, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!276 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EE", !277, i64 0}
-!277 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EE", !278, i64 0}
-!278 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EE12_Vector_implE", !279, i64 0}
-!279 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EE17_Vector_impl_dataE", !280, i64 0, !280, i64 8, !280, i64 16}
-!280 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkE", !21, i64 0}
-!281 = !{!275, !22, i64 16}
-!282 = !{!279, !280, i64 0}
-!283 = !{!279, !280, i64 8}
-!284 = distinct !{!284, !122, !123}
-!285 = !{!279, !280, i64 16}
-!286 = !{!287, !14, i64 8}
-!287 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !288, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!288 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EE", !289, i64 0}
-!289 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EE", !290, i64 0}
-!290 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EE12_Vector_implE", !291, i64 0}
-!291 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EE17_Vector_impl_dataE", !292, i64 0, !292, i64 8, !292, i64 16}
-!292 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkE", !21, i64 0}
-!293 = !{!287, !22, i64 16}
-!294 = !{!291, !292, i64 0}
-!295 = !{!291, !292, i64 8}
-!296 = distinct !{!296, !122, !123}
-!297 = !{!291, !292, i64 16}
-!298 = !{!299, !14, i64 8}
-!299 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !300, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!300 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EE", !301, i64 0}
-!301 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EE", !302, i64 0}
-!302 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EE12_Vector_implE", !303, i64 0}
-!303 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EE17_Vector_impl_dataE", !304, i64 0, !304, i64 8, !304, i64 16}
-!304 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkE", !21, i64 0}
-!305 = !{!299, !22, i64 16}
-!306 = !{!303, !304, i64 0}
-!307 = !{!303, !304, i64 8}
-!308 = distinct !{!308, !122, !123}
-!309 = !{!303, !304, i64 16}
-!310 = !{!311, !14, i64 8}
-!311 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !312, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!312 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EE", !313, i64 0}
-!313 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EE", !314, i64 0}
-!314 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EE12_Vector_implE", !315, i64 0}
-!315 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EE17_Vector_impl_dataE", !316, i64 0, !316, i64 8, !316, i64 16}
-!316 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkE", !21, i64 0}
-!317 = !{!311, !22, i64 16}
-!318 = !{!315, !316, i64 0}
-!319 = !{!315, !316, i64 8}
-!320 = distinct !{!320, !122, !123}
-!321 = !{!315, !316, i64 16}
-!322 = !{!323, !14, i64 8}
-!323 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !324, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!324 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EE", !325, i64 0}
-!325 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EE", !326, i64 0}
-!326 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EE12_Vector_implE", !327, i64 0}
-!327 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EE17_Vector_impl_dataE", !328, i64 0, !328, i64 8, !328, i64 16}
-!328 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkE", !21, i64 0}
-!329 = !{!323, !22, i64 16}
-!330 = !{!327, !328, i64 0}
-!331 = !{!327, !328, i64 8}
-!332 = distinct !{!332, !122, !123}
-!333 = !{!327, !328, i64 16}
-!334 = !{!335, !14, i64 8}
-!335 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !336, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!336 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EE", !337, i64 0}
-!337 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EE", !338, i64 0}
-!338 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EE12_Vector_implE", !339, i64 0}
-!339 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EE17_Vector_impl_dataE", !340, i64 0, !340, i64 8, !340, i64 16}
-!340 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkE", !21, i64 0}
-!341 = !{!335, !22, i64 16}
-!342 = !{!339, !340, i64 0}
-!343 = !{!339, !340, i64 8}
-!344 = distinct !{!344, !122, !123}
-!345 = !{!339, !340, i64 16}
-!346 = !{!347, !14, i64 8}
-!347 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !348, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!348 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EE", !349, i64 0}
-!349 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EE", !350, i64 0}
-!350 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EE12_Vector_implE", !351, i64 0}
-!351 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EE17_Vector_impl_dataE", !352, i64 0, !352, i64 8, !352, i64 16}
-!352 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkE", !21, i64 0}
-!353 = !{!347, !22, i64 16}
-!354 = !{!351, !352, i64 0}
-!355 = !{!351, !352, i64 8}
-!356 = distinct !{!356, !122, !123}
-!357 = !{!351, !352, i64 16}
-!358 = !{!359, !14, i64 8}
-!359 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !360, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!360 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EE", !361, i64 0}
-!361 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EE", !362, i64 0}
-!362 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EE12_Vector_implE", !363, i64 0}
-!363 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EE17_Vector_impl_dataE", !364, i64 0, !364, i64 8, !364, i64 16}
-!364 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkE", !21, i64 0}
-!365 = !{!359, !22, i64 16}
-!366 = !{!363, !364, i64 0}
-!367 = !{!363, !364, i64 8}
-!368 = distinct !{!368, !122, !123}
-!369 = !{!363, !364, i64 16}
-!370 = !{!371, !14, i64 8}
-!371 = !{!"_ZTSN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !372, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
-!372 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE", !373, i64 0}
-!373 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE", !374, i64 0}
-!374 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE12_Vector_implE", !375, i64 0}
-!375 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE17_Vector_impl_dataE", !376, i64 0, !376, i64 8, !376, i64 16}
-!376 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkE", !21, i64 0}
-!377 = !{!371, !22, i64 16}
-!378 = !{!375, !376, i64 0}
-!379 = !{!375, !376, i64 8}
-!380 = distinct !{!380, !122, !123}
-!381 = !{!375, !376, i64 16}
+!123 = !{!88, !89, i64 16}
+!124 = !{!6, !6, i64 0}
+!125 = distinct !{!125, !122}
+!126 = distinct !{!126, !122}
+!127 = distinct !{!127, !122}
+!128 = distinct !{!128, !122}
+!129 = !{!130, !14, i64 8}
+!130 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi2ELi3EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !131, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!131 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EE", !132, i64 0}
+!132 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EE", !133, i64 0}
+!133 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EE12_Vector_implE", !134, i64 0}
+!134 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkESaIS4_EE17_Vector_impl_dataE", !135, i64 0, !135, i64 8, !135, i64 16}
+!135 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi2ELi3EE5ChunkE", !21, i64 0}
+!136 = !{!130, !22, i64 16}
+!137 = !{!134, !135, i64 0}
+!138 = !{!134, !135, i64 8}
+!139 = distinct !{!139, !122}
+!140 = !{!134, !135, i64 16}
+!141 = !{!142, !14, i64 8}
+!142 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi2ELi4EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !143, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!143 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EE", !144, i64 0}
+!144 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EE", !145, i64 0}
+!145 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EE12_Vector_implE", !146, i64 0}
+!146 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkESaIS4_EE17_Vector_impl_dataE", !147, i64 0, !147, i64 8, !147, i64 16}
+!147 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi2ELi4EE5ChunkE", !21, i64 0}
+!148 = !{!142, !22, i64 16}
+!149 = !{!146, !147, i64 0}
+!150 = !{!146, !147, i64 8}
+!151 = distinct !{!151, !122}
+!152 = !{!146, !147, i64 16}
+!153 = !{!154, !14, i64 8}
+!154 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi2ELin1EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !155, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!155 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EE", !156, i64 0}
+!156 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EE", !157, i64 0}
+!157 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EE12_Vector_implE", !158, i64 0}
+!158 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkESaIS4_EE17_Vector_impl_dataE", !159, i64 0, !159, i64 8, !159, i64 16}
+!159 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi2ELin1EE5ChunkE", !21, i64 0}
+!160 = !{!154, !22, i64 16}
+!161 = !{!158, !159, i64 0}
+!162 = !{!158, !159, i64 8}
+!163 = distinct !{!163, !122}
+!164 = !{!158, !159, i64 16}
+!165 = !{!166, !14, i64 8}
+!166 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !167, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!167 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EE", !168, i64 0}
+!168 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EE", !169, i64 0}
+!169 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EE12_Vector_implE", !170, i64 0}
+!170 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkESaIS4_EE17_Vector_impl_dataE", !171, i64 0, !171, i64 8, !171, i64 16}
+!171 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi3EE5ChunkE", !21, i64 0}
+!172 = !{!166, !22, i64 16}
+!173 = !{!170, !171, i64 0}
+!174 = !{!170, !171, i64 8}
+!175 = distinct !{!175, !122}
+!176 = !{!170, !171, i64 16}
+!177 = !{!178, !14, i64 8}
+!178 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !179, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!179 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EE", !180, i64 0}
+!180 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EE", !181, i64 0}
+!181 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EE12_Vector_implE", !182, i64 0}
+!182 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkESaIS4_EE17_Vector_impl_dataE", !183, i64 0, !183, i64 8, !183, i64 16}
+!183 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi4EE5ChunkE", !21, i64 0}
+!184 = !{!178, !22, i64 16}
+!185 = !{!182, !183, i64 0}
+!186 = !{!182, !183, i64 8}
+!187 = distinct !{!187, !122}
+!188 = !{!182, !183, i64 16}
+!189 = !{!190, !14, i64 8}
+!190 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !191, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!191 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EE", !192, i64 0}
+!192 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EE", !193, i64 0}
+!193 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EE12_Vector_implE", !194, i64 0}
+!194 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkESaIS4_EE17_Vector_impl_dataE", !195, i64 0, !195, i64 8, !195, i64 16}
+!195 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi6EE5ChunkE", !21, i64 0}
+!196 = !{!190, !22, i64 16}
+!197 = !{!194, !195, i64 0}
+!198 = !{!194, !195, i64 8}
+!199 = distinct !{!199, !122}
+!200 = !{!194, !195, i64 16}
+!201 = !{!202, !14, i64 8}
+!202 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !203, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!203 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EE", !204, i64 0}
+!204 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EE", !205, i64 0}
+!205 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EE12_Vector_implE", !206, i64 0}
+!206 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkESaIS4_EE17_Vector_impl_dataE", !207, i64 0, !207, i64 8, !207, i64 16}
+!207 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELi9EE5ChunkE", !21, i64 0}
+!208 = !{!202, !22, i64 16}
+!209 = !{!206, !207, i64 0}
+!210 = !{!206, !207, i64 8}
+!211 = distinct !{!211, !122}
+!212 = !{!206, !207, i64 16}
+!213 = !{!214, !14, i64 8}
+!214 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !215, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!215 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EE", !216, i64 0}
+!216 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EE", !217, i64 0}
+!217 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EE12_Vector_implE", !218, i64 0}
+!218 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkESaIS4_EE17_Vector_impl_dataE", !219, i64 0, !219, i64 8, !219, i64 16}
+!219 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi3ELin1EE5ChunkE", !21, i64 0}
+!220 = !{!214, !22, i64 16}
+!221 = !{!218, !219, i64 0}
+!222 = !{!218, !219, i64 8}
+!223 = distinct !{!223, !122}
+!224 = !{!218, !219, i64 16}
+!225 = !{!226, !14, i64 8}
+!226 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !227, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!227 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EE", !228, i64 0}
+!228 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EE", !229, i64 0}
+!229 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EE12_Vector_implE", !230, i64 0}
+!230 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkESaIS4_EE17_Vector_impl_dataE", !231, i64 0, !231, i64 8, !231, i64 16}
+!231 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi3EE5ChunkE", !21, i64 0}
+!232 = !{!226, !22, i64 16}
+!233 = !{!230, !231, i64 0}
+!234 = !{!230, !231, i64 8}
+!235 = distinct !{!235, !122}
+!236 = !{!230, !231, i64 16}
+!237 = !{!238, !14, i64 8}
+!238 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !239, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!239 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EE", !240, i64 0}
+!240 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EE", !241, i64 0}
+!241 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EE12_Vector_implE", !242, i64 0}
+!242 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkESaIS4_EE17_Vector_impl_dataE", !243, i64 0, !243, i64 8, !243, i64 16}
+!243 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi4EE5ChunkE", !21, i64 0}
+!244 = !{!238, !22, i64 16}
+!245 = !{!242, !243, i64 0}
+!246 = !{!242, !243, i64 8}
+!247 = distinct !{!247, !122}
+!248 = !{!242, !243, i64 16}
+!249 = !{!250, !14, i64 8}
+!250 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !251, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!251 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EE", !252, i64 0}
+!252 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EE", !253, i64 0}
+!253 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EE12_Vector_implE", !254, i64 0}
+!254 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkESaIS4_EE17_Vector_impl_dataE", !255, i64 0, !255, i64 8, !255, i64 16}
+!255 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi6EE5ChunkE", !21, i64 0}
+!256 = !{!250, !22, i64 16}
+!257 = !{!254, !255, i64 0}
+!258 = !{!254, !255, i64 8}
+!259 = distinct !{!259, !122}
+!260 = !{!254, !255, i64 16}
+!261 = !{!262, !14, i64 8}
+!262 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !263, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!263 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EE", !264, i64 0}
+!264 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EE", !265, i64 0}
+!265 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EE12_Vector_implE", !266, i64 0}
+!266 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkESaIS4_EE17_Vector_impl_dataE", !267, i64 0, !267, i64 8, !267, i64 16}
+!267 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi8EE5ChunkE", !21, i64 0}
+!268 = !{!262, !22, i64 16}
+!269 = !{!266, !267, i64 0}
+!270 = !{!266, !267, i64 8}
+!271 = distinct !{!271, !122}
+!272 = !{!266, !267, i64 16}
+!273 = !{!274, !14, i64 8}
+!274 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !275, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!275 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EE", !276, i64 0}
+!276 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EE", !277, i64 0}
+!277 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EE12_Vector_implE", !278, i64 0}
+!278 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkESaIS4_EE17_Vector_impl_dataE", !279, i64 0, !279, i64 8, !279, i64 16}
+!279 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELi9EE5ChunkE", !21, i64 0}
+!280 = !{!274, !22, i64 16}
+!281 = !{!278, !279, i64 0}
+!282 = !{!278, !279, i64 8}
+!283 = distinct !{!283, !122}
+!284 = !{!278, !279, i64 16}
+!285 = !{!286, !14, i64 8}
+!286 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !287, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!287 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EE", !288, i64 0}
+!288 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EE", !289, i64 0}
+!289 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EE12_Vector_implE", !290, i64 0}
+!290 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkESaIS4_EE17_Vector_impl_dataE", !291, i64 0, !291, i64 8, !291, i64 16}
+!291 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELi4ELin1EE5ChunkE", !21, i64 0}
+!292 = !{!286, !22, i64 16}
+!293 = !{!290, !291, i64 0}
+!294 = !{!290, !291, i64 8}
+!295 = distinct !{!295, !122}
+!296 = !{!290, !291, i64 16}
+!297 = !{!298, !14, i64 8}
+!298 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !299, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!299 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EE", !300, i64 0}
+!300 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EE", !301, i64 0}
+!301 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EE12_Vector_implE", !302, i64 0}
+!302 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkESaIS4_EE17_Vector_impl_dataE", !303, i64 0, !303, i64 8, !303, i64 16}
+!303 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi2ELin1ELin1EE5ChunkE", !21, i64 0}
+!304 = !{!298, !22, i64 16}
+!305 = !{!302, !303, i64 0}
+!306 = !{!302, !303, i64 8}
+!307 = distinct !{!307, !122}
+!308 = !{!302, !303, i64 16}
+!309 = !{!310, !14, i64 8}
+!310 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !311, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!311 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EE", !312, i64 0}
+!312 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EE", !313, i64 0}
+!313 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EE12_Vector_implE", !314, i64 0}
+!314 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkESaIS4_EE17_Vector_impl_dataE", !315, i64 0, !315, i64 8, !315, i64 16}
+!315 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi3ELi3ELi3EE5ChunkE", !21, i64 0}
+!316 = !{!310, !22, i64 16}
+!317 = !{!314, !315, i64 0}
+!318 = !{!314, !315, i64 8}
+!319 = distinct !{!319, !122}
+!320 = !{!314, !315, i64 16}
+!321 = !{!322, !14, i64 8}
+!322 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !323, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!323 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EE", !324, i64 0}
+!324 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EE", !325, i64 0}
+!325 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EE12_Vector_implE", !326, i64 0}
+!326 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkESaIS4_EE17_Vector_impl_dataE", !327, i64 0, !327, i64 8, !327, i64 16}
+!327 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELi2EE5ChunkE", !21, i64 0}
+!328 = !{!322, !22, i64 16}
+!329 = !{!326, !327, i64 0}
+!330 = !{!326, !327, i64 8}
+!331 = distinct !{!331, !122}
+!332 = !{!326, !327, i64 16}
+!333 = !{!334, !14, i64 8}
+!334 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !335, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!335 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EE", !336, i64 0}
+!336 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EE", !337, i64 0}
+!337 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EE12_Vector_implE", !338, i64 0}
+!338 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkESaIS4_EE17_Vector_impl_dataE", !339, i64 0, !339, i64 8, !339, i64 16}
+!339 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELi3EE5ChunkE", !21, i64 0}
+!340 = !{!334, !22, i64 16}
+!341 = !{!338, !339, i64 0}
+!342 = !{!338, !339, i64 8}
+!343 = distinct !{!343, !122}
+!344 = !{!338, !339, i64 16}
+!345 = !{!346, !14, i64 8}
+!346 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !347, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!347 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EE", !348, i64 0}
+!348 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EE", !349, i64 0}
+!349 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EE12_Vector_implE", !350, i64 0}
+!350 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkESaIS4_EE17_Vector_impl_dataE", !351, i64 0, !351, i64 8, !351, i64 16}
+!351 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELi4EE5ChunkE", !21, i64 0}
+!352 = !{!346, !22, i64 16}
+!353 = !{!350, !351, i64 0}
+!354 = !{!350, !351, i64 8}
+!355 = distinct !{!355, !122}
+!356 = !{!350, !351, i64 16}
+!357 = !{!358, !14, i64 8}
+!358 = !{!"_ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !359, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!359 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EE", !360, i64 0}
+!360 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EE", !361, i64 0}
+!361 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EE12_Vector_implE", !362, i64 0}
+!362 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkESaIS4_EE17_Vector_impl_dataE", !363, i64 0, !363, i64 8, !363, i64 16}
+!363 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILi4ELi4ELin1EE5ChunkE", !21, i64 0}
+!364 = !{!358, !22, i64 16}
+!365 = !{!362, !363, i64 0}
+!366 = !{!362, !363, i64 8}
+!367 = distinct !{!367, !122}
+!368 = !{!362, !363, i64 16}
+!369 = !{!370, !14, i64 8}
+!370 = !{!"_ZTSN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEE", !84, i64 0, !14, i64 8, !22, i64 16, !14, i64 24, !13, i64 28, !16, i64 32, !371, i64 56, !90, i64 80, !90, i64 88, !14, i64 96, !14, i64 100, !97, i64 104}
+!371 = !{!"_ZTSSt6vectorIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE", !372, i64 0}
+!372 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE", !373, i64 0}
+!373 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE12_Vector_implE", !374, i64 0}
+!374 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkESaIS4_EE17_Vector_impl_dataE", !375, i64 0, !375, i64 8, !375, i64 16}
+!375 = !{!"p1 _ZTSN5ceres8internal15SchurEliminatorILin1ELin1ELin1EE5ChunkE", !21, i64 0}
+!376 = !{!370, !22, i64 16}
+!377 = !{!374, !375, i64 0}
+!378 = !{!374, !375, i64 8}
+!379 = distinct !{!379, !122}
+!380 = !{!374, !375, i64 16}

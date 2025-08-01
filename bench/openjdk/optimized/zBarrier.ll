@@ -935,7 +935,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load i64, ptr %28, align 8
   %30 = load volatile i32, ptr %24, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %31 = icmp eq i8 %26, 0
   %_ZN11ZGeneration6_youngE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -951,7 +951,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %38 = lshr i64 %36, 6
   %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
   %40 = load volatile i64, ptr %39, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %41 = and i64 %36, 63
   %42 = shl nuw i64 1, %41
   %43 = and i64 %40, %42
@@ -1116,7 +1116,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = load i64, ptr %27, align 8
   %29 = load volatile i32, ptr %24, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %30 = icmp eq i8 %26, 0
   %_ZN11ZGeneration6_youngE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1132,7 +1132,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %37 = lshr i64 %35, 6
   %38 = getelementptr inbounds nuw i64, ptr %36, i64 %37
   %39 = load volatile i64, ptr %38, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %40 = and i64 %35, 63
   %41 = shl nuw i64 1, %40
   %42 = and i64 %39, %41
@@ -1309,7 +1309,7 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = load volatile i32, ptr %33, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %37 = icmp eq i8 %35, 0
   %_ZN11ZGeneration6_youngE.val.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1331,7 +1331,7 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %47 = lshr i64 %45, 6
   %48 = getelementptr inbounds nuw i64, ptr %46, i64 %47
   %49 = load volatile i64, ptr %48, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %50 = and i64 %45, 63
   %51 = shl nuw i64 1, %50
   %52 = and i64 %51, %49
@@ -1361,7 +1361,7 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
 64:                                               ; preds = %62
   %65 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %63, i64 %.020.i.i.i, ptr nonnull %58) #6, !srcloc !6
   %66 = icmp eq i64 %65, %.020.i.i.i
-  br i1 %66, label %67, label %62, !llvm.loop !11
+  br i1 %66, label %67, label %62, !llvm.loop !10
 
 67:                                               ; preds = %64
   %68 = xor i64 %.020.i.i.i, -1
@@ -1476,7 +1476,7 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = load volatile i32, ptr %33, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %37 = icmp eq i8 %35, 0
   %_ZN11ZGeneration6_youngE.val.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1498,7 +1498,7 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %47 = lshr i64 %45, 6
   %48 = getelementptr inbounds nuw i64, ptr %46, i64 %47
   %49 = load volatile i64, ptr %48, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %50 = and i64 %45, 63
   %51 = shl nuw i64 1, %50
   %52 = and i64 %51, %49
@@ -1517,7 +1517,7 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %59 = and i64 %32, 62
   %60 = load volatile i64, ptr %58, align 8
   %61 = shl nuw nsw i64 1, %59
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   br label %62
 
 62:                                               ; preds = %64, %54
@@ -1597,8 +1597,7 @@ attributes #7 = { noreturn nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145412694}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{i64 2145392468}
-!11 = distinct !{!11, !8, !9}
+!9 = !{i64 2145392468}
+!10 = distinct !{!10, !8}

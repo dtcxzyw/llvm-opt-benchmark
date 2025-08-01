@@ -1380,7 +1380,7 @@ zend_string_alloc.exit:                           ; preds = %.lr.ph
 69:                                               ; preds = %43, %48, %52, %zend_string_alloc.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %69, %37
   %70 = load ptr, ptr %0, align 8, !tbaa !96
@@ -1432,7 +1432,7 @@ zend_call_known_fcc.exit:                         ; preds = %82, %74, %._crit_ed
   call void @zval_ptr_dtor(ptr noundef nonnull %91) #11
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %92 = icmp samesign ult i64 %indvars.iv.next121, %90
-  br i1 %92, label %.lr.ph117, label %._crit_edge118, !llvm.loop !127
+  br i1 %92, label %.lr.ph117, label %._crit_edge118
 
 ._crit_edge118:                                   ; preds = %.lr.ph117, %.preheader
   br i1 %7, label %93, label %95
@@ -1756,10 +1756,10 @@ define internal noundef zeroext i1 @sqlite_handle_preparer(ptr noundef %0, ptr n
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = tail call noalias dereferenceable_or_null(24) ptr @_ecalloc(i64 noundef 1, i64 noundef 24) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr %7, ptr %8, align 8, !tbaa !128
+  store ptr %7, ptr %8, align 8, !tbaa !125
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !131
-  store ptr @sqlite_stmt_methods, ptr %2, align 8, !tbaa !135
+  store ptr %8, ptr %9, align 8, !tbaa !128
+  store ptr @sqlite_stmt_methods, ptr %2, align 8, !tbaa !132
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 22
   %11 = load i16, ptr %10, align 2
   %12 = or i16 %11, 12
@@ -2082,7 +2082,7 @@ define internal void @pdo_sqlite_get_gc(ptr noundef readonly captures(none) %0, 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.01941 = load ptr, ptr %5, align 8, !tbaa !136
+  %.01941 = load ptr, ptr %5, align 8, !tbaa !133
   %.not42 = icmp eq ptr %.01941, null
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -2093,7 +2093,7 @@ define internal void @pdo_sqlite_get_gc(ptr noundef readonly captures(none) %0, 
 7:                                                ; preds = %.lr.ph, %zend_get_gc_buffer_add_fcc.exit30
   %.01943 = phi ptr [ %.01941, %.lr.ph ], [ %.019, %zend_get_gc_buffer_add_fcc.exit30 ]
   %8 = getelementptr inbounds nuw i8, ptr %.01943, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !137
+  %9 = load ptr, ptr %8, align 8, !tbaa !134
   %.not22 = icmp eq ptr %9, null
   br i1 %.not22, label %zend_get_gc_buffer_add_fcc.exit, label %10
 
@@ -2104,14 +2104,14 @@ define internal void @pdo_sqlite_get_gc(ptr noundef readonly captures(none) %0, 
   br i1 %.not.i, label %22, label %13
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %1, align 8, !tbaa !138
-  %15 = load ptr, ptr %6, align 8, !tbaa !139
+  %14 = load ptr, ptr %1, align 8, !tbaa !135
+  %15 = load ptr, ptr %6, align 8, !tbaa !136
   %16 = icmp eq ptr %14, %15
   br i1 %16, label %17, label %zend_get_gc_buffer_add_obj.exit40, !prof !48
 
 17:                                               ; preds = %13
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #11
-  %.pre = load ptr, ptr %1, align 8, !tbaa !138
+  %.pre = load ptr, ptr %1, align 8, !tbaa !135
   br label %zend_get_gc_buffer_add_obj.exit40
 
 zend_get_gc_buffer_add_obj.exit40:                ; preds = %13, %17
@@ -2119,9 +2119,9 @@ zend_get_gc_buffer_add_obj.exit40:                ; preds = %13, %17
   store ptr %12, ptr %18, align 8, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 776, ptr %19, align 8, !tbaa !31
-  %20 = load ptr, ptr %1, align 8, !tbaa !138
+  %20 = load ptr, ptr %1, align 8, !tbaa !135
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %21, ptr %1, align 8, !tbaa !138
+  store ptr %21, ptr %1, align 8, !tbaa !135
   br label %22
 
 22:                                               ; preds = %zend_get_gc_buffer_add_obj.exit40, %10
@@ -2131,14 +2131,14 @@ zend_get_gc_buffer_add_obj.exit40:                ; preds = %13, %17
   br i1 %.not8.i, label %zend_get_gc_buffer_add_fcc.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %1, align 8, !tbaa !138
-  %27 = load ptr, ptr %6, align 8, !tbaa !139
+  %26 = load ptr, ptr %1, align 8, !tbaa !135
+  %27 = load ptr, ptr %6, align 8, !tbaa !136
   %28 = icmp eq ptr %26, %27
   br i1 %28, label %29, label %zend_get_gc_buffer_add_obj.exit39, !prof !48
 
 29:                                               ; preds = %25
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #11
-  %.pre50 = load ptr, ptr %1, align 8, !tbaa !138
+  %.pre50 = load ptr, ptr %1, align 8, !tbaa !135
   br label %zend_get_gc_buffer_add_obj.exit39
 
 zend_get_gc_buffer_add_obj.exit39:                ; preds = %25, %29
@@ -2146,14 +2146,14 @@ zend_get_gc_buffer_add_obj.exit39:                ; preds = %25, %29
   store ptr %24, ptr %30, align 8, !tbaa !31
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 776, ptr %31, align 8, !tbaa !31
-  %32 = load ptr, ptr %1, align 8, !tbaa !138
+  %32 = load ptr, ptr %1, align 8, !tbaa !135
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %33, ptr %1, align 8, !tbaa !138
+  store ptr %33, ptr %1, align 8, !tbaa !135
   br label %zend_get_gc_buffer_add_fcc.exit
 
 zend_get_gc_buffer_add_fcc.exit:                  ; preds = %zend_get_gc_buffer_add_obj.exit39, %22, %7
   %34 = getelementptr inbounds nuw i8, ptr %.01943, i64 64
-  %35 = load ptr, ptr %34, align 8, !tbaa !140
+  %35 = load ptr, ptr %34, align 8, !tbaa !137
   %.not23 = icmp eq ptr %35, null
   br i1 %.not23, label %zend_get_gc_buffer_add_fcc.exit27, label %36
 
@@ -2164,14 +2164,14 @@ zend_get_gc_buffer_add_fcc.exit:                  ; preds = %zend_get_gc_buffer_
   br i1 %.not.i25, label %48, label %39
 
 39:                                               ; preds = %36
-  %40 = load ptr, ptr %1, align 8, !tbaa !138
-  %41 = load ptr, ptr %6, align 8, !tbaa !139
+  %40 = load ptr, ptr %1, align 8, !tbaa !135
+  %41 = load ptr, ptr %6, align 8, !tbaa !136
   %42 = icmp eq ptr %40, %41
   br i1 %42, label %43, label %zend_get_gc_buffer_add_obj.exit38, !prof !48
 
 43:                                               ; preds = %39
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #11
-  %.pre51 = load ptr, ptr %1, align 8, !tbaa !138
+  %.pre51 = load ptr, ptr %1, align 8, !tbaa !135
   br label %zend_get_gc_buffer_add_obj.exit38
 
 zend_get_gc_buffer_add_obj.exit38:                ; preds = %39, %43
@@ -2179,9 +2179,9 @@ zend_get_gc_buffer_add_obj.exit38:                ; preds = %39, %43
   store ptr %38, ptr %44, align 8, !tbaa !31
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 776, ptr %45, align 8, !tbaa !31
-  %46 = load ptr, ptr %1, align 8, !tbaa !138
+  %46 = load ptr, ptr %1, align 8, !tbaa !135
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store ptr %47, ptr %1, align 8, !tbaa !138
+  store ptr %47, ptr %1, align 8, !tbaa !135
   br label %48
 
 48:                                               ; preds = %zend_get_gc_buffer_add_obj.exit38, %36
@@ -2191,14 +2191,14 @@ zend_get_gc_buffer_add_obj.exit38:                ; preds = %39, %43
   br i1 %.not8.i26, label %zend_get_gc_buffer_add_fcc.exit27, label %51
 
 51:                                               ; preds = %48
-  %52 = load ptr, ptr %1, align 8, !tbaa !138
-  %53 = load ptr, ptr %6, align 8, !tbaa !139
+  %52 = load ptr, ptr %1, align 8, !tbaa !135
+  %53 = load ptr, ptr %6, align 8, !tbaa !136
   %54 = icmp eq ptr %52, %53
   br i1 %54, label %55, label %zend_get_gc_buffer_add_obj.exit37, !prof !48
 
 55:                                               ; preds = %51
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #11
-  %.pre52 = load ptr, ptr %1, align 8, !tbaa !138
+  %.pre52 = load ptr, ptr %1, align 8, !tbaa !135
   br label %zend_get_gc_buffer_add_obj.exit37
 
 zend_get_gc_buffer_add_obj.exit37:                ; preds = %51, %55
@@ -2206,14 +2206,14 @@ zend_get_gc_buffer_add_obj.exit37:                ; preds = %51, %55
   store ptr %50, ptr %56, align 8, !tbaa !31
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 776, ptr %57, align 8, !tbaa !31
-  %58 = load ptr, ptr %1, align 8, !tbaa !138
+  %58 = load ptr, ptr %1, align 8, !tbaa !135
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store ptr %59, ptr %1, align 8, !tbaa !138
+  store ptr %59, ptr %1, align 8, !tbaa !135
   br label %zend_get_gc_buffer_add_fcc.exit27
 
 zend_get_gc_buffer_add_fcc.exit27:                ; preds = %zend_get_gc_buffer_add_obj.exit37, %48, %zend_get_gc_buffer_add_fcc.exit
   %60 = getelementptr inbounds nuw i8, ptr %.01943, i64 104
-  %61 = load ptr, ptr %60, align 8, !tbaa !141
+  %61 = load ptr, ptr %60, align 8, !tbaa !138
   %.not24 = icmp eq ptr %61, null
   br i1 %.not24, label %zend_get_gc_buffer_add_fcc.exit30, label %62
 
@@ -2224,14 +2224,14 @@ zend_get_gc_buffer_add_fcc.exit27:                ; preds = %zend_get_gc_buffer_
   br i1 %.not.i28, label %74, label %65
 
 65:                                               ; preds = %62
-  %66 = load ptr, ptr %1, align 8, !tbaa !138
-  %67 = load ptr, ptr %6, align 8, !tbaa !139
+  %66 = load ptr, ptr %1, align 8, !tbaa !135
+  %67 = load ptr, ptr %6, align 8, !tbaa !136
   %68 = icmp eq ptr %66, %67
   br i1 %68, label %69, label %zend_get_gc_buffer_add_obj.exit36, !prof !48
 
 69:                                               ; preds = %65
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #11
-  %.pre53 = load ptr, ptr %1, align 8, !tbaa !138
+  %.pre53 = load ptr, ptr %1, align 8, !tbaa !135
   br label %zend_get_gc_buffer_add_obj.exit36
 
 zend_get_gc_buffer_add_obj.exit36:                ; preds = %65, %69
@@ -2239,9 +2239,9 @@ zend_get_gc_buffer_add_obj.exit36:                ; preds = %65, %69
   store ptr %64, ptr %70, align 8, !tbaa !31
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 776, ptr %71, align 8, !tbaa !31
-  %72 = load ptr, ptr %1, align 8, !tbaa !138
+  %72 = load ptr, ptr %1, align 8, !tbaa !135
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store ptr %73, ptr %1, align 8, !tbaa !138
+  store ptr %73, ptr %1, align 8, !tbaa !135
   br label %74
 
 74:                                               ; preds = %zend_get_gc_buffer_add_obj.exit36, %62
@@ -2251,14 +2251,14 @@ zend_get_gc_buffer_add_obj.exit36:                ; preds = %65, %69
   br i1 %.not8.i29, label %zend_get_gc_buffer_add_fcc.exit30, label %77
 
 77:                                               ; preds = %74
-  %78 = load ptr, ptr %1, align 8, !tbaa !138
-  %79 = load ptr, ptr %6, align 8, !tbaa !139
+  %78 = load ptr, ptr %1, align 8, !tbaa !135
+  %79 = load ptr, ptr %6, align 8, !tbaa !136
   %80 = icmp eq ptr %78, %79
   br i1 %80, label %81, label %zend_get_gc_buffer_add_obj.exit35, !prof !48
 
 81:                                               ; preds = %77
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #11
-  %.pre54 = load ptr, ptr %1, align 8, !tbaa !138
+  %.pre54 = load ptr, ptr %1, align 8, !tbaa !135
   br label %zend_get_gc_buffer_add_obj.exit35
 
 zend_get_gc_buffer_add_obj.exit35:                ; preds = %77, %81
@@ -2266,19 +2266,19 @@ zend_get_gc_buffer_add_obj.exit35:                ; preds = %77, %81
   store ptr %76, ptr %82, align 8, !tbaa !31
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i32 776, ptr %83, align 8, !tbaa !31
-  %84 = load ptr, ptr %1, align 8, !tbaa !138
+  %84 = load ptr, ptr %1, align 8, !tbaa !135
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store ptr %85, ptr %1, align 8, !tbaa !138
+  store ptr %85, ptr %1, align 8, !tbaa !135
   br label %zend_get_gc_buffer_add_fcc.exit30
 
 zend_get_gc_buffer_add_fcc.exit30:                ; preds = %zend_get_gc_buffer_add_obj.exit35, %74, %zend_get_gc_buffer_add_fcc.exit27
-  %.019 = load ptr, ptr %.01943, align 8, !tbaa !136
+  %.019 = load ptr, ptr %.01943, align 8, !tbaa !133
   %.not = icmp eq ptr %.019, null
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !142
+  br i1 %.not, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %zend_get_gc_buffer_add_fcc.exit30, %2
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.044 = load ptr, ptr %86, align 8, !tbaa !143
+  %.044 = load ptr, ptr %86, align 8, !tbaa !139
   %.not2045 = icmp eq ptr %.044, null
   br i1 %.not2045, label %._crit_edge49, label %.lr.ph48
 
@@ -2289,7 +2289,7 @@ zend_get_gc_buffer_add_fcc.exit30:                ; preds = %zend_get_gc_buffer_
 88:                                               ; preds = %.lr.ph48, %zend_get_gc_buffer_add_fcc.exit33
   %.046 = phi ptr [ %.044, %.lr.ph48 ], [ %.0, %zend_get_gc_buffer_add_fcc.exit33 ]
   %89 = getelementptr inbounds nuw i8, ptr %.046, i64 16
-  %90 = load ptr, ptr %89, align 8, !tbaa !144
+  %90 = load ptr, ptr %89, align 8, !tbaa !140
   %.not21 = icmp eq ptr %90, null
   br i1 %.not21, label %zend_get_gc_buffer_add_fcc.exit33, label %91
 
@@ -2300,14 +2300,14 @@ zend_get_gc_buffer_add_fcc.exit30:                ; preds = %zend_get_gc_buffer_
   br i1 %.not.i31, label %103, label %94
 
 94:                                               ; preds = %91
-  %95 = load ptr, ptr %1, align 8, !tbaa !138
-  %96 = load ptr, ptr %87, align 8, !tbaa !139
+  %95 = load ptr, ptr %1, align 8, !tbaa !135
+  %96 = load ptr, ptr %87, align 8, !tbaa !136
   %97 = icmp eq ptr %95, %96
   br i1 %97, label %98, label %zend_get_gc_buffer_add_obj.exit34, !prof !48
 
 98:                                               ; preds = %94
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #11
-  %.pre55 = load ptr, ptr %1, align 8, !tbaa !138
+  %.pre55 = load ptr, ptr %1, align 8, !tbaa !135
   br label %zend_get_gc_buffer_add_obj.exit34
 
 zend_get_gc_buffer_add_obj.exit34:                ; preds = %94, %98
@@ -2315,9 +2315,9 @@ zend_get_gc_buffer_add_obj.exit34:                ; preds = %94, %98
   store ptr %93, ptr %99, align 8, !tbaa !31
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   store i32 776, ptr %100, align 8, !tbaa !31
-  %101 = load ptr, ptr %1, align 8, !tbaa !138
+  %101 = load ptr, ptr %1, align 8, !tbaa !135
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  store ptr %102, ptr %1, align 8, !tbaa !138
+  store ptr %102, ptr %1, align 8, !tbaa !135
   br label %103
 
 103:                                              ; preds = %zend_get_gc_buffer_add_obj.exit34, %91
@@ -2327,14 +2327,14 @@ zend_get_gc_buffer_add_obj.exit34:                ; preds = %94, %98
   br i1 %.not8.i32, label %zend_get_gc_buffer_add_fcc.exit33, label %106
 
 106:                                              ; preds = %103
-  %107 = load ptr, ptr %1, align 8, !tbaa !138
-  %108 = load ptr, ptr %87, align 8, !tbaa !139
+  %107 = load ptr, ptr %1, align 8, !tbaa !135
+  %108 = load ptr, ptr %87, align 8, !tbaa !136
   %109 = icmp eq ptr %107, %108
   br i1 %109, label %110, label %zend_get_gc_buffer_add_obj.exit, !prof !48
 
 110:                                              ; preds = %106
   tail call void @zend_get_gc_buffer_grow(ptr noundef nonnull %1) #11
-  %.pre56 = load ptr, ptr %1, align 8, !tbaa !138
+  %.pre56 = load ptr, ptr %1, align 8, !tbaa !135
   br label %zend_get_gc_buffer_add_obj.exit
 
 zend_get_gc_buffer_add_obj.exit:                  ; preds = %106, %110
@@ -2342,15 +2342,15 @@ zend_get_gc_buffer_add_obj.exit:                  ; preds = %106, %110
   store ptr %105, ptr %111, align 8, !tbaa !31
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i32 776, ptr %112, align 8, !tbaa !31
-  %113 = load ptr, ptr %1, align 8, !tbaa !138
+  %113 = load ptr, ptr %1, align 8, !tbaa !135
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  store ptr %114, ptr %1, align 8, !tbaa !138
+  store ptr %114, ptr %1, align 8, !tbaa !135
   br label %zend_get_gc_buffer_add_fcc.exit33
 
 zend_get_gc_buffer_add_fcc.exit33:                ; preds = %zend_get_gc_buffer_add_obj.exit, %103, %88
-  %.0 = load ptr, ptr %.046, align 8, !tbaa !143
+  %.0 = load ptr, ptr %.046, align 8, !tbaa !139
   %.not20 = icmp eq ptr %.0, null
-  br i1 %.not20, label %._crit_edge49, label %88, !llvm.loop !145
+  br i1 %.not20, label %._crit_edge49, label %88
 
 ._crit_edge49:                                    ; preds = %zend_get_gc_buffer_add_fcc.exit33, %._crit_edge
   ret void
@@ -2421,7 +2421,7 @@ define internal fastcc void @pdo_sqlite_cleanup_callbacks(ptr noundef nonnull ca
 
 zend_string_release.exit:                         ; preds = %16, %22, %29, %30
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !137
+  %32 = load ptr, ptr %31, align 8, !tbaa !134
   %.not36 = icmp eq ptr %32, null
   br i1 %.not36, label %62, label %33
 
@@ -2492,7 +2492,7 @@ zend_fcc_dtor.exit:                               ; preds = %61, %56, %55, %zend
 
 62:                                               ; preds = %zend_fcc_dtor.exit, %zend_string_release.exit
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %64 = load ptr, ptr %63, align 8, !tbaa !140
+  %64 = load ptr, ptr %63, align 8, !tbaa !137
   %.not37 = icmp eq ptr %64, null
   br i1 %.not37, label %94, label %65
 
@@ -2563,7 +2563,7 @@ zend_fcc_dtor.exit45:                             ; preds = %93, %88, %87, %zend
 
 94:                                               ; preds = %zend_fcc_dtor.exit45, %62
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %96 = load ptr, ptr %95, align 8, !tbaa !141
+  %96 = load ptr, ptr %95, align 8, !tbaa !138
   %.not38 = icmp eq ptr %96, null
   br i1 %.not38, label %126, label %97
 
@@ -2636,7 +2636,7 @@ zend_fcc_dtor.exit48:                             ; preds = %125, %120, %119, %z
   tail call void @_efree(ptr noundef nonnull %6) #11
   %127 = load ptr, ptr %2, align 8, !tbaa !101
   %.not = icmp eq ptr %127, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !146
+  br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph61:                                         ; preds = %.preheader, %182
   %128 = phi ptr [ %183, %182 ], [ %5, %.preheader ]
@@ -2686,7 +2686,7 @@ zend_fcc_dtor.exit48:                             ; preds = %125, %120, %119, %z
 
 zend_string_release.exit41:                       ; preds = %136, %142, %149, %150
   %151 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %152 = load ptr, ptr %151, align 8, !tbaa !144
+  %152 = load ptr, ptr %151, align 8, !tbaa !140
   %.not34 = icmp eq ptr %152, null
   br i1 %.not34, label %182, label %153
 
@@ -2759,7 +2759,7 @@ zend_fcc_dtor.exit51:                             ; preds = %181, %176, %175, %z
   tail call void @_efree(ptr noundef nonnull %128) #11
   %183 = load ptr, ptr %4, align 8, !tbaa !106
   %.not32 = icmp eq ptr %183, null
-  br i1 %.not32, label %._crit_edge, label %.lr.ph61, !llvm.loop !147
+  br i1 %.not32, label %._crit_edge, label %.lr.ph61
 
 ._crit_edge:                                      ; preds = %182, %.preheader
   ret void
@@ -2943,26 +2943,19 @@ attributes #14 = { nounwind willreturn memory(read) }
 !122 = !{!"", !15, i64 0, !13, i64 16}
 !123 = !{!124, !124, i64 0}
 !124 = !{!"p1 _ZTS13sqlite3_value", !7, i64 0}
-!125 = distinct !{!125, !126}
-!126 = !{!"llvm.loop.estimated_trip_count"}
-!127 = distinct !{!127, !126}
-!128 = !{!129, !7, i64 0}
-!129 = !{!"", !7, i64 0, !130, i64 8, !11, i64 16, !11, i64 16}
-!130 = !{!"p1 _ZTS12sqlite3_stmt", !7, i64 0}
-!131 = !{!132, !7, i64 8}
-!132 = !{!"_pdo_stmt_t", !133, i64 0, !7, i64 8, !8, i64 16, !118, i64 22, !118, i64 22, !118, i64 22, !118, i64 22, !37, i64 24, !37, i64 32, !37, i64 40, !134, i64 48, !11, i64 56, !11, i64 60, !8, i64 64, !17, i64 104, !52, i64 112, !17, i64 120, !13, i64 128, !46, i64 136, !46, i64 144, !10, i64 152, !53, i64 160}
-!133 = !{!"p1 _ZTS16pdo_stmt_methods", !7, i64 0}
-!134 = !{!"p1 _ZTS15pdo_column_data", !7, i64 0}
-!135 = !{!132, !133, i64 0}
-!136 = !{!22, !22, i64 0}
-!137 = !{!94, !40, i64 24}
-!138 = !{!85, !33, i64 0}
-!139 = !{!85, !33, i64 8}
-!140 = !{!94, !40, i64 64}
-!141 = !{!94, !40, i64 104}
-!142 = distinct !{!142, !126}
-!143 = !{!23, !23, i64 0}
-!144 = !{!105, !40, i64 16}
-!145 = distinct !{!145, !126}
-!146 = distinct !{!146, !126}
-!147 = distinct !{!147, !126}
+!125 = !{!126, !7, i64 0}
+!126 = !{!"", !7, i64 0, !127, i64 8, !11, i64 16, !11, i64 16}
+!127 = !{!"p1 _ZTS12sqlite3_stmt", !7, i64 0}
+!128 = !{!129, !7, i64 8}
+!129 = !{!"_pdo_stmt_t", !130, i64 0, !7, i64 8, !8, i64 16, !118, i64 22, !118, i64 22, !118, i64 22, !118, i64 22, !37, i64 24, !37, i64 32, !37, i64 40, !131, i64 48, !11, i64 56, !11, i64 60, !8, i64 64, !17, i64 104, !52, i64 112, !17, i64 120, !13, i64 128, !46, i64 136, !46, i64 144, !10, i64 152, !53, i64 160}
+!130 = !{!"p1 _ZTS16pdo_stmt_methods", !7, i64 0}
+!131 = !{!"p1 _ZTS15pdo_column_data", !7, i64 0}
+!132 = !{!129, !130, i64 0}
+!133 = !{!22, !22, i64 0}
+!134 = !{!94, !40, i64 24}
+!135 = !{!85, !33, i64 0}
+!136 = !{!85, !33, i64 8}
+!137 = !{!94, !40, i64 64}
+!138 = !{!94, !40, i64 104}
+!139 = !{!23, !23, i64 0}
+!140 = !{!105, !40, i64 16}

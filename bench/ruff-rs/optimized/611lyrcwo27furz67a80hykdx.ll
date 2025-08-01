@@ -96,7 +96,7 @@ define hidden noundef i32 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %51 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %.sroa.0.0.i.i.i.i.i.i.i.i.i), !noalias !18
   %52 = add i32 %51, %.sroa.01.0.i.i.i.i
   %53 = icmp eq i64 %50, 0
-  br i1 %53, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h41df312fbdf3f55bE.exit", label %6, !llvm.loop !19
+  br i1 %53, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h41df312fbdf3f55bE.exit", label %6
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h41df312fbdf3f55bE.exit": ; preds = %6, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i.i.i", %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h5e31b45d25250af8E.exit.i.i.i.i", %2
   %.sroa.0.0.i.i.i = phi i32 [ %1, %2 ], [ %.sroa.01.0.i.i.i.i, %6 ], [ %.sroa.01.0.i.i.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3176e5866117e3aaE.exit.i.i.i.i" ], [ %52, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h5e31b45d25250af8E.exit.i.i.i.i" ]
@@ -138,5 +138,3 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !16 = distinct !{!16, !"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h41df312fbdf3f55bE"}
 !17 = !{}
 !18 = !{!8, !10, !11, !13, !15}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}

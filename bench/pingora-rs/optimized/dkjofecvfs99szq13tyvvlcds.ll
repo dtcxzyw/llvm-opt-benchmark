@@ -27,7 +27,7 @@ define internal fastcc void @"_ZN4core3ptr144drop_in_place$LT$alloc..vec..in_pla
   %12 = getelementptr inbounds nuw { { { i64, [2 x i64] } } }, ptr %3, i64 %.sroa.0.0.i.i
   %13 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17hf7905a64cdb21de9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
-          to label %9 unwind label %16, !noalias !3, !llvm.loop !7
+          to label %9 unwind label %16, !noalias !3
 
 14:                                               ; preds = %18, %16
   %.sroa.0.1.i.i = phi i64 [ %13, %16 ], [ %20, %18 ]
@@ -43,7 +43,7 @@ define internal fastcc void @"_ZN4core3ptr144drop_in_place$LT$alloc..vec..in_pla
   %19 = getelementptr inbounds nuw { { { i64, [2 x i64] } } }, ptr %3, i64 %.sroa.0.1.i.i
   %20 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr53drop_in_place$LT$rustls_pki_types..CertificateDer$GT$17hf7905a64cdb21de9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #8
-          to label %14 unwind label %21, !noalias !3, !llvm.loop !9
+          to label %14 unwind label %21, !noalias !3
 
 21:                                               ; preds = %18
   %22 = landingpad { ptr, i32 }
@@ -144,7 +144,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h86308c
   tail call void @llvm.assume(i1 %35)
   %36 = tail call noundef align 8 ptr @_RNvCshjvJWTf7CV5_7___rustc14___rust_realloc(ptr noundef nonnull %7, i64 noundef %10, i64 noundef 8, i64 noundef range(i64 0, -15) %29) #10
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %.thread, !prof !10
+  br i1 %37, label %38, label %.thread, !prof !7
 
 38:                                               ; preds = %34
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haa66aaa8cfcf3614E(i64 noundef 8, i64 noundef %29) #11
@@ -225,7 +225,4 @@ attributes #11 = { noreturn }
 !4 = distinct !{!4, !5, !"_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$Src$C$Dest$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2932ac88aea21115E: argument 0"}
 !5 = distinct !{!5, !"_ZN111_$LT$alloc..vec..in_place_drop..InPlaceDstDataSrcBufDrop$LT$Src$C$Dest$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2932ac88aea21115E"}
 !6 = !{}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = !{!"branch_weights", !"expected", i32 1717128, i32 2145766520}
+!7 = !{!"branch_weights", !"expected", i32 1717128, i32 2145766520}

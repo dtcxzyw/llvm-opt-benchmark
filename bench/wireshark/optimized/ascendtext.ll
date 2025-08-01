@@ -233,7 +233,7 @@ define internal fastcc i64 @ascend_find_next_packet(ptr noundef readonly capture
   %49 = load ptr, ptr %0, align 8
   %50 = tail call i32 @file_getc(ptr noundef %49)
   %.not = icmp eq i32 %50, -1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %48, %3
   %51 = load ptr, ptr %0, align 8
@@ -424,14 +424,14 @@ define internal fastcc noundef zeroext i1 @parse_ascend(ptr noundef captures(non
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load i8, ptr %28, align 8, !range !10, !noundef !11
+  %29 = load i8, ptr %28, align 8, !range !9, !noundef !10
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %45, label %31
 
 31:                                               ; preds = %27
   store i8 1, ptr %28, align 8
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %33 = load i8, ptr %32, align 8, !range !10, !noundef !11
+  %33 = load i8, ptr %32, align 8, !range !9, !noundef !10
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %._crit_edge
 
@@ -543,9 +543,8 @@ attributes #6 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}

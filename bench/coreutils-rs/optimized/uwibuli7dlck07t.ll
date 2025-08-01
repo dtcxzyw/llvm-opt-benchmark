@@ -171,7 +171,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 .noexc8:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2d16e61ce3951d2cE.exit.i.i"
   %43 = extractvalue { ptr, i64 } %42, 0
   %.not.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i, label %.loopexit9, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %.loopexit9, label %.lr.ph.i.i
 
 44:                                               ; preds = %.loopexit9, %10
   ret void
@@ -294,7 +294,7 @@ define void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_fr
 .noexc8:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2d16e61ce3951d2cE.exit.i.i"
   %43 = extractvalue { ptr, i64 } %42, 0
   %.not.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i, label %.loopexit9, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %.loopexit9, label %.lr.ph.i.i
 
 44:                                               ; preds = %.loopexit9, %10
   ret void
@@ -404,7 +404,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h3d8a4602e8082c
   call void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca90fbd2461245b7E"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, ptr align 8 %1)
   %18 = load i64, ptr %5, align 8, !range !3, !noundef !4
   %.not = icmp eq i64 %18, -9223372036854775808
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %10
 
 19:                                               ; preds = %28, %14
   %20 = landingpad { ptr, i32 }
@@ -479,7 +479,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h9279f2e7f7a9df
   %26 = call { ptr, i64 } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab8eb4b3e7f25addE"(ptr align 8 %1)
   %27 = extractvalue { ptr, i64 } %26, 0
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2d16e61ce3951d2cE.exit", %2
   ret void
@@ -532,7 +532,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h99a4df24f26cc0
   %26 = call { ptr, i64 } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h127cd5a97f9408c7E"(ptr align 8 %1)
   %27 = extractvalue { ptr, i64 } %26, 0
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2d16e61ce3951d2cE.exit", %2
   ret void
@@ -685,7 +685,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %26 = call { ptr, i64 } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hab8eb4b3e7f25addE"(ptr align 8 %1)
   %27 = extractvalue { ptr, i64 } %26, 0
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h9279f2e7f7a9df98E.exit", label %8, !llvm.loop !5
+  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h9279f2e7f7a9df98E.exit", label %8
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h9279f2e7f7a9df98E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2d16e61ce3951d2cE.exit.i", %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -740,7 +740,7 @@ define void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec
   %26 = call { ptr, i64 } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h127cd5a97f9408c7E"(ptr align 8 %1)
   %27 = extractvalue { ptr, i64 } %26, 0
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h99a4df24f26cc0b8E.exit", label %8, !llvm.loop !7
+  br i1 %.not.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h99a4df24f26cc0b8E.exit", label %8
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h99a4df24f26cc0b8E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h2d16e61ce3951d2cE.exit.i", %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -854,7 +854,3 @@ attributes #10 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{i64 0, i64 -9223372036854775807}
 !4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}

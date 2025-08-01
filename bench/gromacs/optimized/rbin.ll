@@ -213,7 +213,7 @@ define noundef i32 @_Z8add_bindP5t_biniPKd(ptr noundef captures(none) %0, i32 no
   store double %23, ptr %24, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %25 = add nsw i32 %17, %1
@@ -275,7 +275,7 @@ define noundef i32 @_Z8add_bindP5t_binN3gmx8ArrayRefIKdEE(ptr noundef captures(n
   store double %28, ptr %29, align 8, !tbaa !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_Z8add_bindP5t_biniPKd.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %_Z8add_bindP5t_biniPKd.exit, label %.lr.ph.i, !llvm.loop !20
 
 _Z8add_bindP5t_biniPKd.exit:                      ; preds = %.lr.ph.i, %21
   %30 = add nsw i32 %22, %8
@@ -335,7 +335,7 @@ define void @_Z12extract_binrP5t_biniiPf(ptr noundef readonly captures(none) %0,
   store float %12, ptr %13, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -368,7 +368,7 @@ define void @_Z12extract_binrP5t_biniN3gmx8ArrayRefIfEE(ptr noundef readonly cap
   store float %17, ptr %18, align 4, !tbaa !14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_Z12extract_binrP5t_biniiPf.exit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %_Z12extract_binrP5t_biniiPf.exit, label %.lr.ph.i, !llvm.loop !21
 
 _Z12extract_binrP5t_biniiPf.exit:                 ; preds = %.lr.ph.i, %4
   ret void
@@ -395,7 +395,7 @@ define void @_Z12extract_bindP5t_biniiPd(ptr noundef readonly captures(none) %0,
   store double %11, ptr %12, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -427,7 +427,7 @@ define void @_Z12extract_bindP5t_biniN3gmx8ArrayRefIdEE(ptr noundef readonly cap
   store double %16, ptr %17, align 8, !tbaa !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_Z12extract_bindP5t_biniiPd.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %_Z12extract_bindP5t_biniiPd.exit, label %.lr.ph.i, !llvm.loop !22
 
 _Z12extract_bindP5t_biniiPd.exit:                 ; preds = %.lr.ph.i, %4
   ret void
@@ -462,9 +462,8 @@ attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !15 = !{!"float", !7, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"double", !7, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !19, !20}
-!23 = distinct !{!23, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}

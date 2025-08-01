@@ -94,9 +94,9 @@ define i32 @prte_hwloc_base_memory_set(ptr noundef readonly captures(none) %0, i
   %.051 = phi i64 [ %13, %12 ], [ 0, %9 ]
   %14 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !7
   %15 = getelementptr inbounds nuw %struct.prte_hwloc_base_memory_segment_t, ptr %0, i64 %.051
-  %16 = load ptr, ptr %15, align 8, !tbaa !13
+  %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !16
+  %18 = load i64, ptr %17, align 8, !tbaa !15
   %19 = tail call i32 @hwloc_set_area_membind(ptr noundef %14, ptr noundef %16, i64 noundef %18, ptr noundef nonnull %7, i32 noundef 2, i32 noundef 4) #5
   %.not21 = icmp eq i32 %19, 0
   br i1 %.not21, label %12, label %20
@@ -156,15 +156,15 @@ define i32 @prte_hwloc_base_membind(ptr noundef readonly captures(none) %0, i64 
 12:                                               ; preds = %.lr.ph
   %13 = add nuw i64 %.01952, 1
   %exitcond.not = icmp eq i64 %13, %1
-  br i1 %exitcond.not, label %.thread48, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.thread48, label %.lr.ph, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %10, %12
   %.01952 = phi i64 [ %13, %12 ], [ 0, %10 ]
   %14 = load ptr, ptr @prte_hwloc_topology, align 8, !tbaa !7
   %15 = getelementptr inbounds nuw %struct.prte_hwloc_base_memory_segment_t, ptr %0, i64 %.01952
-  %16 = load ptr, ptr %15, align 8, !tbaa !13
+  %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !16
+  %18 = load i64, ptr %17, align 8, !tbaa !15
   %19 = tail call i32 @hwloc_set_area_membind(ptr noundef %14, ptr noundef %16, i64 noundef %18, ptr noundef nonnull %8, i32 noundef 2, i32 noundef 4) #5
   %.not22 = icmp eq i32 %19, 0
   br i1 %.not22, label %12, label %20
@@ -213,11 +213,10 @@ attributes #6 = { nounwind willreturn memory(none) }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"p1 _ZTS14hwloc_topology", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !9, i64 0}
-!14 = !{!"", !9, i64 0, !15, i64 8}
-!15 = !{!"long", !5, i64 0}
-!16 = !{!14, !15, i64 8}
-!17 = distinct !{!17, !11, !12}
+!12 = !{!13, !9, i64 0}
+!13 = !{!"", !9, i64 0, !14, i64 8}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!13, !14, i64 8}
+!16 = distinct !{!16, !11}

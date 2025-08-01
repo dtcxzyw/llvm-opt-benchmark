@@ -3082,7 +3082,7 @@ Py_DECREF.exit46.i:                               ; preds = %555, %552, %.lr.ph.
 556:                                              ; preds = %540
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 14
-  br i1 %exitcond.i, label %.critedge.i, label %540, !llvm.loop !28
+  br i1 %exitcond.i, label %.critedge.i, label %540, !llvm.loop !27
 
 .critedge.i:                                      ; preds = %556
   %557 = tail call ptr @PyTuple_New(i64 noundef 14) #10
@@ -3134,7 +3134,7 @@ Py_DECREF.exit46.i:                               ; preds = %555, %552, %.lr.ph.
 Py_DECREF.exit.i:                                 ; preds = %570, %567, %.preheader.i
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 14
-  br i1 %exitcond23.not.i, label %char_converter_impl.exit, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond23.not.i, label %char_converter_impl.exit, label %.preheader.i, !llvm.loop !28
 
 Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.exit.i, %.preheader1.split.split.split.i
   %indvars.iv15.i = phi i64 [ 0, %.preheader1.split.split.split.i ], [ %indvars.iv.next16.i, %PyTuple_SET_ITEM.exit.i ]
@@ -3164,7 +3164,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   store ptr %576, ptr %577, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 14
-  br i1 %exitcond19.not.i, label %char_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !30
+  br i1 %exitcond19.not.i, label %char_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !29
 
 char_converter_impl.exit:                         ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit46.i, %.preheader3.i
   %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit46.i ], [ null, %Py_DECREF.exit.i ], [ %557, %PyTuple_SET_ITEM.exit.i ]
@@ -3350,12 +3350,12 @@ define internal ptr @unsigned_char_converter(ptr readnone captures(none) %0, ptr
 Py_DECREF.exit35.i:                               ; preds = %72, %69, %.lr.ph.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count.i
-  br i1 %exitcond30.not.i, label %unsigned_char_converter_impl.exit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond30.not.i, label %unsigned_char_converter_impl.exit, label %.lr.ph.i, !llvm.loop !30
 
 73:                                               ; preds = %57
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %.critedge.i, label %57, !llvm.loop !32
+  br i1 %exitcond.i, label %.critedge.i, label %57, !llvm.loop !31
 
 .critedge.i:                                      ; preds = %73
   %74 = tail call ptr @PyTuple_New(i64 noundef 3) #10
@@ -3407,7 +3407,7 @@ Py_DECREF.exit35.i:                               ; preds = %72, %69, %.lr.ph.i
 Py_DECREF.exit.i:                                 ; preds = %87, %84, %.preheader.i
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 3
-  br i1 %exitcond23.not.i, label %unsigned_char_converter_impl.exit, label %.preheader.i, !llvm.loop !33
+  br i1 %exitcond23.not.i, label %unsigned_char_converter_impl.exit, label %.preheader.i, !llvm.loop !32
 
 Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.exit.i, %.preheader1.split.split.split.i
   %indvars.iv15.i = phi i64 [ 0, %.preheader1.split.split.split.i ], [ %indvars.iv.next16.i, %PyTuple_SET_ITEM.exit.i ]
@@ -3437,7 +3437,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   store ptr %93, ptr %94, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
-  br i1 %exitcond19.not.i, label %unsigned_char_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !34
+  br i1 %exitcond19.not.i, label %unsigned_char_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !33
 
 unsigned_char_converter_impl.exit:                ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
   %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %74, %PyTuple_SET_ITEM.exit.i ]
@@ -3593,9 +3593,9 @@ define internal ptr @unsigned_short_converter(ptr readnone captures(none) %0, pt
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #10
-  store i16 12, ptr %6, align 2, !tbaa !35
+  store i16 12, ptr %6, align 2, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #10
-  store i16 34, ptr %7, align 2, !tbaa !35
+  store i16 34, ptr %7, align 2, !tbaa !34
   %or.cond = icmp ult i64 %2, 4
   br i1 %or.cond, label %10, label %8
 
@@ -3644,8 +3644,8 @@ define internal ptr @unsigned_short_converter(ptr readnone captures(none) %0, pt
 
 31:                                               ; preds = %23, %29, %21, %15, %10
   %.0 = phi i64 [ 56, %10 ], [ 56, %15 ], [ 56, %21 ], [ %26, %29 ], [ %26, %23 ]
-  %32 = load i16, ptr %6, align 2, !tbaa !35
-  %33 = load i16, ptr %7, align 2, !tbaa !35
+  %32 = load i16, ptr %6, align 2, !tbaa !34
+  %33 = load i16, ptr %7, align 2, !tbaa !34
   %34 = call ptr @PyErr_Occurred() #10
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %36, label %35
@@ -3657,13 +3657,13 @@ define internal ptr @unsigned_short_converter(ptr readnone captures(none) %0, pt
 36:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
   %37 = zext i16 %32 to i64
-  store i64 %37, ptr %4, align 16, !tbaa !36
+  store i64 %37, ptr %4, align 16, !tbaa !35
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = zext i16 %33 to i64
-  store i64 %39, ptr %38, align 8, !tbaa !36
+  store i64 %39, ptr %38, align 8, !tbaa !35
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = and i64 %.0, 65535
-  store i64 %41, ptr %40, align 16, !tbaa !36
+  store i64 %41, ptr %40, align 16, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %42
@@ -3671,7 +3671,7 @@ define internal ptr @unsigned_short_converter(ptr readnone captures(none) %0, pt
 42:                                               ; preds = %57, %36
   %indvars.iv.i = phi i64 [ 0, %36 ], [ %indvars.iv.next.i, %57 ]
   %43 = getelementptr [3 x i64], ptr %4, i64 0, i64 %indvars.iv.i
-  %44 = load i64, ptr %43, align 8, !tbaa !36
+  %44 = load i64, ptr %43, align 8, !tbaa !35
   %45 = call ptr @PyLong_FromUnsignedLong(i64 noundef %44) #10
   %46 = getelementptr [3 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
   store ptr %45, ptr %46, align 8, !tbaa !6
@@ -3716,12 +3716,12 @@ define internal ptr @unsigned_short_converter(ptr readnone captures(none) %0, pt
 Py_DECREF.exit35.i:                               ; preds = %56, %53, %.lr.ph.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count.i
-  br i1 %exitcond30.not.i, label %unsigned_short_converter_impl.exit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %exitcond30.not.i, label %unsigned_short_converter_impl.exit, label %.lr.ph.i, !llvm.loop !36
 
 57:                                               ; preds = %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %.critedge.i, label %42, !llvm.loop !38
+  br i1 %exitcond.i, label %.critedge.i, label %42, !llvm.loop !37
 
 .critedge.i:                                      ; preds = %57
   %58 = call ptr @PyTuple_New(i64 noundef 3) #10
@@ -3773,7 +3773,7 @@ Py_DECREF.exit35.i:                               ; preds = %56, %53, %.lr.ph.i
 Py_DECREF.exit.i:                                 ; preds = %71, %68, %.preheader.i
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 3
-  br i1 %exitcond23.not.i, label %unsigned_short_converter_impl.exit, label %.preheader.i, !llvm.loop !39
+  br i1 %exitcond23.not.i, label %unsigned_short_converter_impl.exit, label %.preheader.i, !llvm.loop !38
 
 Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.exit.i, %.preheader1.split.split.split.i
   %indvars.iv15.i = phi i64 [ 0, %.preheader1.split.split.split.i ], [ %indvars.iv.next16.i, %PyTuple_SET_ITEM.exit.i ]
@@ -3803,7 +3803,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   store ptr %77, ptr %78, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
-  br i1 %exitcond19.not.i, label %unsigned_short_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !40
+  br i1 %exitcond19.not.i, label %unsigned_short_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !39
 
 unsigned_short_converter_impl.exit:               ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
   %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %58, %PyTuple_SET_ITEM.exit.i ]
@@ -3882,7 +3882,7 @@ define internal ptr @int_converter(ptr readnone captures(none) %0, ptr noundef r
 
 PyUnicode_GET_LENGTH.exit:                        ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !41
+  %35 = load i64, ptr %34, align 8, !tbaa !40
   %.not27 = icmp eq i64 %35, 1
   br i1 %.not27, label %PyUnicode_GET_LENGTH.exit.i, label %PyUnicode_GET_LENGTH.exit32
 
@@ -3953,7 +3953,7 @@ PyUnicode_IS_COMPACT.exit.i.i28.i:                ; preds = %PyUnicode_IS_COMPAC
 
 _PyUnicode_DATA.exit30.i:                         ; preds = %PyUnicode_IS_COMPACT.exit.i.i28.i, %_PyUnicode_COMPACT_DATA.exit.i23.i
   %.0.i27.i = phi ptr [ %.0.i.i26.i, %_PyUnicode_COMPACT_DATA.exit.i23.i ], [ %51, %PyUnicode_IS_COMPACT.exit.i.i28.i ]
-  %53 = load i16, ptr %.0.i27.i, align 2, !tbaa !35
+  %53 = load i16, ptr %.0.i27.i, align 2, !tbaa !34
   %54 = zext i16 %53 to i32
   br label %PyUnicode_READ_CHAR.exit
 
@@ -3985,7 +3985,7 @@ PyUnicode_IS_COMPACT.exit.i.i41.i:                ; preds = %PyUnicode_IS_COMPAC
 
 _PyUnicode_DATA.exit43.i:                         ; preds = %PyUnicode_IS_COMPACT.exit.i.i41.i, %_PyUnicode_COMPACT_DATA.exit.i36.i
   %.0.i40.i = phi ptr [ %.0.i.i39.i, %_PyUnicode_COMPACT_DATA.exit.i36.i ], [ %59, %PyUnicode_IS_COMPACT.exit.i.i41.i ]
-  %61 = load i32, ptr %.0.i40.i, align 4, !tbaa !44
+  %61 = load i32, ptr %.0.i40.i, align 4, !tbaa !43
   br label %PyUnicode_READ_CHAR.exit
 
 PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exit43.i, %_PyUnicode_DATA.exit30.i, %_PyUnicode_DATA.exit.i, %25, %16, %8
@@ -4003,13 +4003,13 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
 64:                                               ; preds = %PyUnicode_READ_CHAR.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
   %65 = sext i32 %.021 to i64
-  store i64 %65, ptr %4, align 16, !tbaa !36
+  store i64 %65, ptr %4, align 16, !tbaa !35
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %67 = sext i32 %.020 to i64
-  store i64 %67, ptr %66, align 8, !tbaa !36
+  store i64 %67, ptr %66, align 8, !tbaa !35
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %69 = sext i32 %.0 to i64
-  store i64 %69, ptr %68, align 16, !tbaa !36
+  store i64 %69, ptr %68, align 16, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %70
@@ -4017,7 +4017,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
 70:                                               ; preds = %85, %64
   %indvars.iv.i = phi i64 [ 0, %64 ], [ %indvars.iv.next.i, %85 ]
   %71 = getelementptr [3 x i64], ptr %4, i64 0, i64 %indvars.iv.i
-  %72 = load i64, ptr %71, align 8, !tbaa !36
+  %72 = load i64, ptr %71, align 8, !tbaa !35
   %73 = tail call ptr @PyLong_FromLong(i64 noundef %72) #10
   %74 = getelementptr [3 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
   store ptr %73, ptr %74, align 8, !tbaa !6
@@ -4062,12 +4062,12 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
 Py_DECREF.exit35.i:                               ; preds = %84, %81, %.lr.ph.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count.i
-  br i1 %exitcond30.not.i, label %int_converter_impl.exit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond30.not.i, label %int_converter_impl.exit, label %.lr.ph.i, !llvm.loop !44
 
 85:                                               ; preds = %70
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %.critedge.i, label %70, !llvm.loop !46
+  br i1 %exitcond.i, label %.critedge.i, label %70, !llvm.loop !45
 
 .critedge.i:                                      ; preds = %85
   %86 = tail call ptr @PyTuple_New(i64 noundef 3) #10
@@ -4119,7 +4119,7 @@ Py_DECREF.exit35.i:                               ; preds = %84, %81, %.lr.ph.i
 Py_DECREF.exit.i:                                 ; preds = %99, %96, %.preheader.i
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 3
-  br i1 %exitcond23.not.i, label %int_converter_impl.exit, label %.preheader.i, !llvm.loop !47
+  br i1 %exitcond23.not.i, label %int_converter_impl.exit, label %.preheader.i, !llvm.loop !46
 
 Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.exit.i, %.preheader1.split.split.split.i
   %indvars.iv15.i = phi i64 [ 0, %.preheader1.split.split.split.i ], [ %indvars.iv.next16.i, %PyTuple_SET_ITEM.exit.i ]
@@ -4149,7 +4149,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   store ptr %105, ptr %106, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
-  br i1 %exitcond19.not.i, label %int_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !48
+  br i1 %exitcond19.not.i, label %int_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !47
 
 int_converter_impl.exit:                          ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
   %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %86, %PyTuple_SET_ITEM.exit.i ]
@@ -4169,9 +4169,9 @@ define internal ptr @unsigned_int_converter(ptr readnone captures(none) %0, ptr 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
-  store i32 12, ptr %6, align 4, !tbaa !44
+  store i32 12, ptr %6, align 4, !tbaa !43
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
-  store i32 34, ptr %7, align 4, !tbaa !44
+  store i32 34, ptr %7, align 4, !tbaa !43
   %or.cond = icmp ult i64 %2, 4
   br i1 %or.cond, label %10, label %8
 
@@ -4220,8 +4220,8 @@ define internal ptr @unsigned_int_converter(ptr readnone captures(none) %0, ptr 
 
 31:                                               ; preds = %23, %29, %21, %15, %10
   %.0 = phi i64 [ 56, %10 ], [ 56, %15 ], [ 56, %21 ], [ 4294967295, %29 ], [ %26, %23 ]
-  %32 = load i32, ptr %6, align 4, !tbaa !44
-  %33 = load i32, ptr %7, align 4, !tbaa !44
+  %32 = load i32, ptr %6, align 4, !tbaa !43
+  %33 = load i32, ptr %7, align 4, !tbaa !43
   %34 = call ptr @PyErr_Occurred() #10
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %36, label %35
@@ -4233,13 +4233,13 @@ define internal ptr @unsigned_int_converter(ptr readnone captures(none) %0, ptr 
 36:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
   %37 = zext i32 %32 to i64
-  store i64 %37, ptr %4, align 16, !tbaa !36
+  store i64 %37, ptr %4, align 16, !tbaa !35
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = zext i32 %33 to i64
-  store i64 %39, ptr %38, align 8, !tbaa !36
+  store i64 %39, ptr %38, align 8, !tbaa !35
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %41 = and i64 %.0, 4294967295
-  store i64 %41, ptr %40, align 16, !tbaa !36
+  store i64 %41, ptr %40, align 16, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %42
@@ -4247,7 +4247,7 @@ define internal ptr @unsigned_int_converter(ptr readnone captures(none) %0, ptr 
 42:                                               ; preds = %57, %36
   %indvars.iv.i = phi i64 [ 0, %36 ], [ %indvars.iv.next.i, %57 ]
   %43 = getelementptr [3 x i64], ptr %4, i64 0, i64 %indvars.iv.i
-  %44 = load i64, ptr %43, align 8, !tbaa !36
+  %44 = load i64, ptr %43, align 8, !tbaa !35
   %45 = call ptr @PyLong_FromUnsignedLong(i64 noundef %44) #10
   %46 = getelementptr [3 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
   store ptr %45, ptr %46, align 8, !tbaa !6
@@ -4292,12 +4292,12 @@ define internal ptr @unsigned_int_converter(ptr readnone captures(none) %0, ptr 
 Py_DECREF.exit35.i:                               ; preds = %56, %53, %.lr.ph.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count.i
-  br i1 %exitcond30.not.i, label %unsigned_int_converter_impl.exit, label %.lr.ph.i, !llvm.loop !49
+  br i1 %exitcond30.not.i, label %unsigned_int_converter_impl.exit, label %.lr.ph.i, !llvm.loop !48
 
 57:                                               ; preds = %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %.critedge.i, label %42, !llvm.loop !50
+  br i1 %exitcond.i, label %.critedge.i, label %42, !llvm.loop !49
 
 .critedge.i:                                      ; preds = %57
   %58 = call ptr @PyTuple_New(i64 noundef 3) #10
@@ -4349,7 +4349,7 @@ Py_DECREF.exit35.i:                               ; preds = %56, %53, %.lr.ph.i
 Py_DECREF.exit.i:                                 ; preds = %71, %68, %.preheader.i
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 3
-  br i1 %exitcond23.not.i, label %unsigned_int_converter_impl.exit, label %.preheader.i, !llvm.loop !51
+  br i1 %exitcond23.not.i, label %unsigned_int_converter_impl.exit, label %.preheader.i, !llvm.loop !50
 
 Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.exit.i, %.preheader1.split.split.split.i
   %indvars.iv15.i = phi i64 [ 0, %.preheader1.split.split.split.i ], [ %indvars.iv.next16.i, %PyTuple_SET_ITEM.exit.i ]
@@ -4379,7 +4379,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   store ptr %77, ptr %78, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
-  br i1 %exitcond19.not.i, label %unsigned_int_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !52
+  br i1 %exitcond19.not.i, label %unsigned_int_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !51
 
 unsigned_int_converter_impl.exit:                 ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
   %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %58, %PyTuple_SET_ITEM.exit.i ]
@@ -4519,9 +4519,9 @@ define internal ptr @unsigned_long_converter(ptr readnone captures(none) %0, ptr
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store i64 12, ptr %6, align 8, !tbaa !36
+  store i64 12, ptr %6, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  store i64 34, ptr %7, align 8, !tbaa !36
+  store i64 34, ptr %7, align 8, !tbaa !35
   %or.cond = icmp ult i64 %2, 4
   br i1 %or.cond, label %10, label %8
 
@@ -4576,8 +4576,8 @@ define internal ptr @unsigned_long_converter(ptr readnone captures(none) %0, ptr
 
 32:                                               ; preds = %21, %15, %10, %30
   %.0 = phi i64 [ 56, %10 ], [ 56, %15 ], [ 56, %21 ], [ %31, %30 ]
-  %33 = load i64, ptr %6, align 8, !tbaa !36
-  %34 = load i64, ptr %7, align 8, !tbaa !36
+  %33 = load i64, ptr %6, align 8, !tbaa !35
+  %34 = load i64, ptr %7, align 8, !tbaa !35
   %35 = call ptr @PyErr_Occurred() #10
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %37, label %36
@@ -4588,11 +4588,11 @@ define internal ptr @unsigned_long_converter(ptr readnone captures(none) %0, ptr
 
 37:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  store i64 %33, ptr %4, align 16, !tbaa !36
+  store i64 %33, ptr %4, align 16, !tbaa !35
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %34, ptr %38, align 8, !tbaa !36
+  store i64 %34, ptr %38, align 8, !tbaa !35
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.0, ptr %39, align 16, !tbaa !36
+  store i64 %.0, ptr %39, align 16, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %40
@@ -4600,7 +4600,7 @@ define internal ptr @unsigned_long_converter(ptr readnone captures(none) %0, ptr
 40:                                               ; preds = %55, %37
   %indvars.iv.i = phi i64 [ 0, %37 ], [ %indvars.iv.next.i, %55 ]
   %41 = getelementptr [3 x i64], ptr %4, i64 0, i64 %indvars.iv.i
-  %42 = load i64, ptr %41, align 8, !tbaa !36
+  %42 = load i64, ptr %41, align 8, !tbaa !35
   %43 = call ptr @PyLong_FromUnsignedLong(i64 noundef %42) #10
   %44 = getelementptr [3 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
   store ptr %43, ptr %44, align 8, !tbaa !6
@@ -4645,12 +4645,12 @@ define internal ptr @unsigned_long_converter(ptr readnone captures(none) %0, ptr
 Py_DECREF.exit35.i:                               ; preds = %54, %51, %.lr.ph.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count.i
-  br i1 %exitcond30.not.i, label %unsigned_long_converter_impl.exit, label %.lr.ph.i, !llvm.loop !53
+  br i1 %exitcond30.not.i, label %unsigned_long_converter_impl.exit, label %.lr.ph.i, !llvm.loop !52
 
 55:                                               ; preds = %40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %.critedge.i, label %40, !llvm.loop !54
+  br i1 %exitcond.i, label %.critedge.i, label %40, !llvm.loop !53
 
 .critedge.i:                                      ; preds = %55
   %56 = call ptr @PyTuple_New(i64 noundef 3) #10
@@ -4702,7 +4702,7 @@ Py_DECREF.exit35.i:                               ; preds = %54, %51, %.lr.ph.i
 Py_DECREF.exit.i:                                 ; preds = %69, %66, %.preheader.i
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 3
-  br i1 %exitcond23.not.i, label %unsigned_long_converter_impl.exit, label %.preheader.i, !llvm.loop !55
+  br i1 %exitcond23.not.i, label %unsigned_long_converter_impl.exit, label %.preheader.i, !llvm.loop !54
 
 Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.exit.i, %.preheader1.split.split.split.i
   %indvars.iv15.i = phi i64 [ 0, %.preheader1.split.split.split.i ], [ %indvars.iv.next16.i, %PyTuple_SET_ITEM.exit.i ]
@@ -4732,7 +4732,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   store ptr %75, ptr %76, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
-  br i1 %exitcond19.not.i, label %unsigned_long_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !56
+  br i1 %exitcond19.not.i, label %unsigned_long_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !55
 
 unsigned_long_converter_impl.exit:                ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
   %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %56, %PyTuple_SET_ITEM.exit.i ]
@@ -4872,9 +4872,9 @@ define internal ptr @unsigned_long_long_converter(ptr readnone captures(none) %0
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store i64 12, ptr %6, align 8, !tbaa !57
+  store i64 12, ptr %6, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  store i64 34, ptr %7, align 8, !tbaa !57
+  store i64 34, ptr %7, align 8, !tbaa !56
   %or.cond = icmp ult i64 %2, 4
   br i1 %or.cond, label %10, label %8
 
@@ -4929,8 +4929,8 @@ define internal ptr @unsigned_long_long_converter(ptr readnone captures(none) %0
 
 32:                                               ; preds = %21, %15, %10, %30
   %.0 = phi i64 [ 56, %10 ], [ 56, %15 ], [ 56, %21 ], [ %31, %30 ]
-  %33 = load i64, ptr %6, align 8, !tbaa !57
-  %34 = load i64, ptr %7, align 8, !tbaa !57
+  %33 = load i64, ptr %6, align 8, !tbaa !56
+  %34 = load i64, ptr %7, align 8, !tbaa !56
   %35 = call ptr @PyErr_Occurred() #10
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %37, label %36
@@ -4941,11 +4941,11 @@ define internal ptr @unsigned_long_long_converter(ptr readnone captures(none) %0
 
 37:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  store i64 %33, ptr %4, align 16, !tbaa !57
+  store i64 %33, ptr %4, align 16, !tbaa !56
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %34, ptr %38, align 8, !tbaa !57
+  store i64 %34, ptr %38, align 8, !tbaa !56
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.0, ptr %39, align 16, !tbaa !57
+  store i64 %.0, ptr %39, align 16, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %40
@@ -4953,7 +4953,7 @@ define internal ptr @unsigned_long_long_converter(ptr readnone captures(none) %0
 40:                                               ; preds = %55, %37
   %indvars.iv.i = phi i64 [ 0, %37 ], [ %indvars.iv.next.i, %55 ]
   %41 = getelementptr [3 x i64], ptr %4, i64 0, i64 %indvars.iv.i
-  %42 = load i64, ptr %41, align 8, !tbaa !57
+  %42 = load i64, ptr %41, align 8, !tbaa !56
   %43 = call ptr @PyLong_FromUnsignedLongLong(i64 noundef %42) #10
   %44 = getelementptr [3 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
   store ptr %43, ptr %44, align 8, !tbaa !6
@@ -4998,12 +4998,12 @@ define internal ptr @unsigned_long_long_converter(ptr readnone captures(none) %0
 Py_DECREF.exit35.i:                               ; preds = %54, %51, %.lr.ph.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count.i
-  br i1 %exitcond30.not.i, label %unsigned_long_long_converter_impl.exit, label %.lr.ph.i, !llvm.loop !59
+  br i1 %exitcond30.not.i, label %unsigned_long_long_converter_impl.exit, label %.lr.ph.i, !llvm.loop !58
 
 55:                                               ; preds = %40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %.critedge.i, label %40, !llvm.loop !60
+  br i1 %exitcond.i, label %.critedge.i, label %40, !llvm.loop !59
 
 .critedge.i:                                      ; preds = %55
   %56 = call ptr @PyTuple_New(i64 noundef 3) #10
@@ -5055,7 +5055,7 @@ Py_DECREF.exit35.i:                               ; preds = %54, %51, %.lr.ph.i
 Py_DECREF.exit.i:                                 ; preds = %69, %66, %.preheader.i
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 3
-  br i1 %exitcond23.not.i, label %unsigned_long_long_converter_impl.exit, label %.preheader.i, !llvm.loop !61
+  br i1 %exitcond23.not.i, label %unsigned_long_long_converter_impl.exit, label %.preheader.i, !llvm.loop !60
 
 Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.exit.i, %.preheader1.split.split.split.i
   %indvars.iv15.i = phi i64 [ 0, %.preheader1.split.split.split.i ], [ %indvars.iv.next16.i, %PyTuple_SET_ITEM.exit.i ]
@@ -5085,7 +5085,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   store ptr %75, ptr %76, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
-  br i1 %exitcond19.not.i, label %unsigned_long_long_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !62
+  br i1 %exitcond19.not.i, label %unsigned_long_long_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !61
 
 unsigned_long_long_converter_impl.exit:           ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
   %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %56, %PyTuple_SET_ITEM.exit.i ]
@@ -5106,7 +5106,7 @@ define internal ptr @py_ssize_t_converter(ptr readnone captures(none) %0, ptr no
   %5 = alloca [3 x ptr], align 16
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store i64 56, ptr %6, align 8, !tbaa !36
+  store i64 56, ptr %6, align 8, !tbaa !35
   %or.cond = icmp ult i64 %2, 4
   br i1 %or.cond, label %9, label %7
 
@@ -5202,7 +5202,7 @@ Py_DECREF.exit.thread:                            ; preds = %25, %Py_DECREF.exit
 44:                                               ; preds = %40, %38, %23, %9
   %.032 = phi i64 [ 12, %9 ], [ %.133.ph, %23 ], [ %.133.ph, %38 ], [ %.133.ph, %40 ]
   %.030 = phi i64 [ 34, %9 ], [ 34, %23 ], [ %.131.ph, %38 ], [ %.131.ph, %40 ]
-  %45 = load i64, ptr %6, align 8, !tbaa !36
+  %45 = load i64, ptr %6, align 8, !tbaa !35
   %46 = call ptr @PyErr_Occurred() #10
   %.not.i49 = icmp eq ptr %46, null
   br i1 %.not.i49, label %48, label %47
@@ -5213,11 +5213,11 @@ Py_DECREF.exit.thread:                            ; preds = %25, %Py_DECREF.exit
 
 48:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  store i64 %.032, ptr %4, align 16, !tbaa !36
+  store i64 %.032, ptr %4, align 16, !tbaa !35
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.030, ptr %49, align 8, !tbaa !36
+  store i64 %.030, ptr %49, align 8, !tbaa !35
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %45, ptr %50, align 16, !tbaa !36
+  store i64 %45, ptr %50, align 16, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %51
@@ -5225,7 +5225,7 @@ Py_DECREF.exit.thread:                            ; preds = %25, %Py_DECREF.exit
 51:                                               ; preds = %66, %48
   %indvars.iv.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %66 ]
   %52 = getelementptr [3 x i64], ptr %4, i64 0, i64 %indvars.iv.i
-  %53 = load i64, ptr %52, align 8, !tbaa !36
+  %53 = load i64, ptr %52, align 8, !tbaa !35
   %54 = call ptr @PyLong_FromSsize_t(i64 noundef %53) #10
   %55 = getelementptr [3 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
   store ptr %54, ptr %55, align 8, !tbaa !6
@@ -5270,12 +5270,12 @@ Py_DECREF.exit.thread:                            ; preds = %25, %Py_DECREF.exit
 Py_DECREF.exit35.i:                               ; preds = %65, %62, %.lr.ph.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count.i
-  br i1 %exitcond30.not.i, label %py_ssize_t_converter_impl.exit, label %.lr.ph.i, !llvm.loop !63
+  br i1 %exitcond30.not.i, label %py_ssize_t_converter_impl.exit, label %.lr.ph.i, !llvm.loop !62
 
 66:                                               ; preds = %51
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %.critedge.i, label %51, !llvm.loop !64
+  br i1 %exitcond.i, label %.critedge.i, label %51, !llvm.loop !63
 
 .critedge.i:                                      ; preds = %66
   %67 = call ptr @PyTuple_New(i64 noundef 3) #10
@@ -5327,7 +5327,7 @@ Py_DECREF.exit35.i:                               ; preds = %65, %62, %.lr.ph.i
 Py_DECREF.exit.i:                                 ; preds = %80, %77, %.preheader.i
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 3
-  br i1 %exitcond23.not.i, label %py_ssize_t_converter_impl.exit, label %.preheader.i, !llvm.loop !65
+  br i1 %exitcond23.not.i, label %py_ssize_t_converter_impl.exit, label %.preheader.i, !llvm.loop !64
 
 Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.exit.i, %.preheader1.split.split.split.i
   %indvars.iv15.i = phi i64 [ 0, %.preheader1.split.split.split.i ], [ %indvars.iv.next16.i, %PyTuple_SET_ITEM.exit.i ]
@@ -5357,7 +5357,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   store ptr %86, ptr %87, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
-  br i1 %exitcond19.not.i, label %py_ssize_t_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !66
+  br i1 %exitcond19.not.i, label %py_ssize_t_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !65
 
 py_ssize_t_converter_impl.exit:                   ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
   %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %67, %PyTuple_SET_ITEM.exit.i ]
@@ -5379,11 +5379,11 @@ define internal ptr @slice_index_converter(ptr readnone captures(none) %0, ptr n
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store i64 12, ptr %6, align 8, !tbaa !36
+  store i64 12, ptr %6, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  store i64 34, ptr %7, align 8, !tbaa !36
+  store i64 34, ptr %7, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  store i64 56, ptr %8, align 8, !tbaa !36
+  store i64 56, ptr %8, align 8, !tbaa !35
   %or.cond = icmp ult i64 %2, 4
   br i1 %or.cond, label %11, label %9
 
@@ -5425,9 +5425,9 @@ define internal ptr @slice_index_converter(ptr readnone captures(none) %0, ptr n
   br i1 %.not14, label %74, label %28
 
 28:                                               ; preds = %24, %22, %16, %11
-  %29 = load i64, ptr %6, align 8, !tbaa !36
-  %30 = load i64, ptr %7, align 8, !tbaa !36
-  %31 = load i64, ptr %8, align 8, !tbaa !36
+  %29 = load i64, ptr %6, align 8, !tbaa !35
+  %30 = load i64, ptr %7, align 8, !tbaa !35
+  %31 = load i64, ptr %8, align 8, !tbaa !35
   %32 = call ptr @PyErr_Occurred() #10
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %34, label %33
@@ -5438,11 +5438,11 @@ define internal ptr @slice_index_converter(ptr readnone captures(none) %0, ptr n
 
 34:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
-  store i64 %29, ptr %4, align 16, !tbaa !36
+  store i64 %29, ptr %4, align 16, !tbaa !35
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %30, ptr %35, align 8, !tbaa !36
+  store i64 %30, ptr %35, align 8, !tbaa !35
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %31, ptr %36, align 16, !tbaa !36
+  store i64 %31, ptr %36, align 16, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   br label %37
@@ -5450,7 +5450,7 @@ define internal ptr @slice_index_converter(ptr readnone captures(none) %0, ptr n
 37:                                               ; preds = %52, %34
   %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %52 ]
   %38 = getelementptr [3 x i64], ptr %4, i64 0, i64 %indvars.iv.i
-  %39 = load i64, ptr %38, align 8, !tbaa !36
+  %39 = load i64, ptr %38, align 8, !tbaa !35
   %40 = call ptr @PyLong_FromSsize_t(i64 noundef %39) #10
   %41 = getelementptr [3 x ptr], ptr %5, i64 0, i64 %indvars.iv.i
   store ptr %40, ptr %41, align 8, !tbaa !6
@@ -5495,12 +5495,12 @@ define internal ptr @slice_index_converter(ptr readnone captures(none) %0, ptr n
 Py_DECREF.exit35.i:                               ; preds = %51, %48, %.lr.ph.i
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count.i
-  br i1 %exitcond30.not.i, label %slice_index_converter_impl.exit, label %.lr.ph.i, !llvm.loop !67
+  br i1 %exitcond30.not.i, label %slice_index_converter_impl.exit, label %.lr.ph.i, !llvm.loop !66
 
 52:                                               ; preds = %37
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.i, label %.critedge.i, label %37, !llvm.loop !68
+  br i1 %exitcond.i, label %.critedge.i, label %37, !llvm.loop !67
 
 .critedge.i:                                      ; preds = %52
   %53 = call ptr @PyTuple_New(i64 noundef 3) #10
@@ -5552,7 +5552,7 @@ Py_DECREF.exit35.i:                               ; preds = %51, %48, %.lr.ph.i
 Py_DECREF.exit.i:                                 ; preds = %66, %63, %.preheader.i
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 3
-  br i1 %exitcond23.not.i, label %slice_index_converter_impl.exit, label %.preheader.i, !llvm.loop !69
+  br i1 %exitcond23.not.i, label %slice_index_converter_impl.exit, label %.preheader.i, !llvm.loop !68
 
 Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.exit.i, %.preheader1.split.split.split.i
   %indvars.iv15.i = phi i64 [ 0, %.preheader1.split.split.split.i ], [ %indvars.iv.next16.i, %PyTuple_SET_ITEM.exit.i ]
@@ -5582,7 +5582,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   store ptr %72, ptr %73, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
-  br i1 %exitcond19.not.i, label %slice_index_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !70
+  br i1 %exitcond19.not.i, label %slice_index_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !69
 
 slice_index_converter_impl.exit:                  ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit35.i, %.preheader3.i
   %.1.i = phi ptr [ null, %.preheader3.i ], [ null, %Py_DECREF.exit35.i ], [ null, %Py_DECREF.exit.i ], [ %53, %PyTuple_SET_ITEM.exit.i ]
@@ -5602,7 +5602,7 @@ slice_index_converter_impl.exit:                  ; preds = %PyTuple_SET_ITEM.ex
 define internal ptr @size_t_converter(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store i64 12, ptr %4, align 8, !tbaa !36
+  store i64 12, ptr %4, align 8, !tbaa !35
   %or.cond = icmp ult i64 %2, 2
   br i1 %or.cond, label %7, label %5
 
@@ -5622,7 +5622,7 @@ define internal ptr @size_t_converter(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not7, label %size_t_converter_impl.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
-  %.pre = load i64, ptr %4, align 8, !tbaa !36
+  %.pre = load i64, ptr %4, align 8, !tbaa !35
   br label %12
 
 12:                                               ; preds = %._crit_edge, %7
@@ -5742,7 +5742,7 @@ define internal ptr @float_converter(ptr readnone captures(none) %0, ptr noundef
 
 PyFloat_AS_DOUBLE.exit:                           ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load double, ptr %11, align 8, !tbaa !71
+  %12 = load double, ptr %11, align 8, !tbaa !70
   %13 = fptrunc double %12 to float
   br label %20
 
@@ -5874,7 +5874,7 @@ define internal ptr @double_converter(ptr readnone captures(none) %0, ptr nounde
 
 PyFloat_AS_DOUBLE.exit:                           ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load double, ptr %11, align 8, !tbaa !71
+  %12 = load double, ptr %11, align 8, !tbaa !70
   br label %18
 
 13:                                               ; preds = %8
@@ -6089,21 +6089,21 @@ define internal ptr @str_converter(ptr readnone captures(none) %0, ptr noundef %
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr @.str.167, ptr %5, align 8, !tbaa !74
+  store ptr @.str.167, ptr %5, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store ptr @.str.168, ptr %6, align 8, !tbaa !74
+  store ptr @.str.168, ptr %6, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  store ptr @.str.169, ptr %7, align 8, !tbaa !74
+  store ptr @.str.169, ptr %7, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   %9 = call i32 (ptr, i64, ptr, ...) @_PyArg_ParseStack(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.170, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %53, label %10
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %5, align 8, !tbaa !74
-  %12 = load ptr, ptr %6, align 8, !tbaa !74
-  %13 = load ptr, ptr %7, align 8, !tbaa !74
-  %14 = load i64, ptr %8, align 8, !tbaa !36
+  %11 = load ptr, ptr %5, align 8, !tbaa !73
+  %12 = load ptr, ptr %6, align 8, !tbaa !73
+  %13 = load ptr, ptr %7, align 8, !tbaa !73
+  %14 = load i64, ptr %8, align 8, !tbaa !35
   %15 = call ptr @PyErr_Occurred() #10
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %17, label %16
@@ -6218,7 +6218,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   store ptr %44, ptr %45, align 8, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond6.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond6.not.i, label %str_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !75
+  br i1 %exitcond6.not.i, label %str_converter_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !74
 
 .lr.ph.preheader.i:                               ; preds = %.critedge44.i, %28, %23
   %.029.ph.i = phi i64 [ 2, %28 ], [ 1, %23 ], [ 3, %.critedge44.i ]
@@ -6245,7 +6245,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
 Py_DECREF.exit.i:                                 ; preds = %52, %49, %.lr.ph.i
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond10.not.i = icmp eq i64 %indvars.iv.next8.i, %.029.ph.i
-  br i1 %exitcond10.not.i, label %str_converter_impl.exit, label %.lr.ph.i, !llvm.loop !76
+  br i1 %exitcond10.not.i, label %str_converter_impl.exit, label %.lr.ph.i, !llvm.loop !75
 
 str_converter_impl.exit:                          ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %19
   %.028.i = phi ptr [ null, %19 ], [ null, %Py_DECREF.exit.i ], [ %32, %PyTuple_SET_ITEM.exit.i ]
@@ -6269,21 +6269,21 @@ define internal ptr @str_converter_encoding(ptr readnone captures(none) %0, ptr 
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !tbaa !74
+  store ptr null, ptr %5, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
-  store ptr null, ptr %6, align 8, !tbaa !74
+  store ptr null, ptr %6, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  store ptr null, ptr %7, align 8, !tbaa !74
+  store ptr null, ptr %7, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   %9 = call i32 (ptr, i64, ptr, ...) @_PyArg_ParseStack(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.173, ptr noundef nonnull %5, ptr noundef nonnull @.str.173, ptr noundef nonnull %6, ptr noundef nonnull @.str.173, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %56, label %10
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %5, align 8, !tbaa !74
-  %12 = load ptr, ptr %6, align 8, !tbaa !74
-  %13 = load ptr, ptr %7, align 8, !tbaa !74
-  %14 = load i64, ptr %8, align 8, !tbaa !36
+  %11 = load ptr, ptr %5, align 8, !tbaa !73
+  %12 = load ptr, ptr %6, align 8, !tbaa !73
+  %13 = load ptr, ptr %7, align 8, !tbaa !73
+  %14 = load i64, ptr %8, align 8, !tbaa !35
   %15 = call ptr @PyErr_Occurred() #10
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %17, label %16
@@ -6398,7 +6398,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   store ptr %44, ptr %45, align 8, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond6.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond6.not.i, label %str_converter_encoding_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !77
+  br i1 %exitcond6.not.i, label %str_converter_encoding_impl.exit, label %Py_SIZE.exit.i.i, !llvm.loop !76
 
 .lr.ph.preheader.i:                               ; preds = %.critedge44.i, %28, %23
   %.029.ph.i = phi i64 [ 2, %28 ], [ 1, %23 ], [ 3, %.critedge44.i ]
@@ -6425,16 +6425,16 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
 Py_DECREF.exit.i:                                 ; preds = %52, %49, %.lr.ph.i
   %indvars.iv.next8.i = add nuw nsw i64 %indvars.iv7.i, 1
   %exitcond10.not.i = icmp eq i64 %indvars.iv.next8.i, %.029.ph.i
-  br i1 %exitcond10.not.i, label %str_converter_encoding_impl.exit, label %.lr.ph.i, !llvm.loop !78
+  br i1 %exitcond10.not.i, label %str_converter_encoding_impl.exit, label %.lr.ph.i, !llvm.loop !77
 
 str_converter_encoding_impl.exit:                 ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %19
   %.028.i = phi ptr [ null, %19 ], [ null, %Py_DECREF.exit.i ], [ %32, %PyTuple_SET_ITEM.exit.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #10
-  %53 = load ptr, ptr %5, align 8, !tbaa !74
+  %53 = load ptr, ptr %5, align 8, !tbaa !73
   call void @PyMem_Free(ptr noundef %53) #10
-  %54 = load ptr, ptr %6, align 8, !tbaa !74
+  %54 = load ptr, ptr %6, align 8, !tbaa !73
   call void @PyMem_Free(ptr noundef %54) #10
-  %55 = load ptr, ptr %7, align 8, !tbaa !74
+  %55 = load ptr, ptr %7, align 8, !tbaa !73
   call void @PyMem_Free(ptr noundef %55) #10
   br label %56
 
@@ -6484,14 +6484,14 @@ define internal ptr @py_buffer_converter(ptr readnone captures(none) %0, ptr nou
   %indvars.iv.i.sroa.phi = phi ptr [ %.sroa.0, %10 ], [ %.sroa.8, %32 ]
   %indvars.iv.i.sroa.phi11.sroa.speculated.sroa.phi = phi ptr [ %indvars.iv.i.sroa.phi11.sroa.speculated.sroa.gep, %10 ], [ %indvars.iv.i.sroa.phi11.sroa.speculated.sroa.gep15, %32 ]
   %indvars.iv.i.sroa.phi11.sroa.speculated = phi ptr [ %4, %10 ], [ %5, %32 ]
-  %12 = load i64, ptr %indvars.iv.i.sroa.phi11.sroa.speculated.sroa.phi, align 8, !tbaa !79
+  %12 = load i64, ptr %indvars.iv.i.sroa.phi11.sroa.speculated.sroa.phi, align 8, !tbaa !78
   %13 = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %12) #10
   %.not.i36.i = icmp eq ptr %13, null
   br i1 %.not.i36.i, label %.loopexit10.i, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %16 = load i64, ptr %indvars.iv.i.sroa.phi11.sroa.speculated.sroa.phi, align 8, !tbaa !79
+  %16 = load i64, ptr %indvars.iv.i.sroa.phi11.sroa.speculated.sroa.phi, align 8, !tbaa !78
   %17 = call i32 @PyBuffer_ToContiguous(ptr noundef nonnull %15, ptr noundef nonnull %indvars.iv.i.sroa.phi11.sroa.speculated, i64 noundef %16, i8 noundef signext 67) #10
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %32
@@ -6524,7 +6524,7 @@ define internal ptr @py_buffer_converter(ptr readnone captures(none) %0, ptr nou
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load ptr, ptr %.sroa.0, align 16, !tbaa !6
   %26 = load i32, ptr %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., align 8, !tbaa !3
   %27 = icmp sgt i32 %26, -1
-  br i1 %27, label %.lr.ph.split.i, label %py_buffer_converter_impl.exit, !llvm.loop !82
+  br i1 %27, label %.lr.ph.split.i, label %py_buffer_converter_impl.exit, !llvm.loop !81
 
 28:                                               ; preds = %.loopexit10.i
   call void @__assert_fail(ptr noundef nonnull @.str.149, ptr noundef nonnull @.str.86, i32 noundef 667, ptr noundef nonnull @__PRETTY_FUNCTION__.py_buffer_converter_impl) #11
@@ -6542,7 +6542,7 @@ define internal ptr @py_buffer_converter(ptr readnone captures(none) %0, ptr nou
 
 32:                                               ; preds = %14
   store ptr %13, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !6
-  br i1 %.not20.i, label %11, label %.critedge.i, !llvm.loop !84
+  br i1 %.not20.i, label %11, label %.critedge.i, !llvm.loop !83
 
 .critedge.i:                                      ; preds = %32
   %33 = call ptr @PyTuple_New(i64 noundef 2) #10
@@ -6592,7 +6592,7 @@ define internal ptr @py_buffer_converter(ptr readnone captures(none) %0, ptr nou
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %46, %43, %.preheader.i
-  br i1 %40, label %.preheader.i, label %py_buffer_converter_impl.exit, !llvm.loop !85
+  br i1 %40, label %.preheader.i, label %py_buffer_converter_impl.exit, !llvm.loop !84
 
 Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.exit.i, %.preheader6.split.split.split.i
   %47 = phi i1 [ true, %.preheader6.split.split.split.i ], [ false, %PyTuple_SET_ITEM.exit.i ]
@@ -6621,7 +6621,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   %52 = load ptr, ptr %indvars.iv34.i.sroa.phi, align 8, !tbaa !6
   %53 = getelementptr [1 x ptr], ptr %38, i64 0, i64 %indvars.iv34.i
   store ptr %52, ptr %53, align 8, !tbaa !6
-  br i1 %47, label %Py_SIZE.exit.i.i, label %py_buffer_converter_impl.exit, !llvm.loop !86
+  br i1 %47, label %Py_SIZE.exit.i.i, label %py_buffer_converter_impl.exit, !llvm.loop !85
 
 py_buffer_converter_impl.exit:                    ; preds = %PyTuple_SET_ITEM.exit.i, %Py_DECREF.exit.i, %.preheader8.i, %.lr.ph.i, %.lr.ph.split.i, %31
   %.1.i = phi ptr [ null, %.preheader8.i ], [ null, %.lr.ph.i ], [ null, %31 ], [ null, %.lr.ph.split.i ], [ null, %Py_DECREF.exit.i ], [ %33, %PyTuple_SET_ITEM.exit.i ]
@@ -6632,7 +6632,7 @@ py_buffer_converter_impl.exit:                    ; preds = %PyTuple_SET_ITEM.ex
 54:                                               ; preds = %3, %py_buffer_converter_impl.exit
   %.0 = phi ptr [ %.1.i, %py_buffer_converter_impl.exit ], [ null, %3 ]
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !87
+  %56 = load ptr, ptr %55, align 8, !tbaa !86
   %.not3 = icmp eq ptr %56, null
   br i1 %.not3, label %58, label %57
 
@@ -6642,7 +6642,7 @@ py_buffer_converter_impl.exit:                    ; preds = %PyTuple_SET_ITEM.ex
 
 58:                                               ; preds = %57, %54
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !87
+  %60 = load ptr, ptr %59, align 8, !tbaa !86
   %.not4 = icmp eq ptr %60, null
   br i1 %.not4, label %62, label %61
 
@@ -8773,17 +8773,17 @@ define internal noundef ptr @gh_99240_double_free(ptr readnone captures(none) %0
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store ptr null, ptr %4, align 8, !tbaa !74
+  store ptr null, ptr %4, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
-  store ptr null, ptr %5, align 8, !tbaa !74
+  store ptr null, ptr %5, align 8, !tbaa !73
   %6 = call i32 (ptr, i64, ptr, ...) @_PyArg_ParseStack(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.184, ptr noundef nonnull @.str.173, ptr noundef nonnull %4, ptr noundef nonnull @.str.173, ptr noundef nonnull %5) #10
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %4, align 8, !tbaa !74
+  %8 = load ptr, ptr %4, align 8, !tbaa !73
   call void @PyMem_Free(ptr noundef %8) #10
-  %9 = load ptr, ptr %5, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !73
   call void @PyMem_Free(ptr noundef %9) #10
   br label %10
 
@@ -8954,7 +8954,7 @@ define internal noundef ptr @clone_f1(ptr readnone captures(none) %0, ptr nounde
 
 21:                                               ; preds = %18
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #12
-  %23 = load i64, ptr %6, align 8, !tbaa !36
+  %23 = load i64, ptr %6, align 8, !tbaa !35
   %.not25 = icmp eq i64 %22, %23
   br i1 %.not25, label %26, label %24
 
@@ -9008,7 +9008,7 @@ define internal noundef ptr @clone_f2(ptr readnone captures(none) %0, ptr nounde
 
 21:                                               ; preds = %18
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #12
-  %23 = load i64, ptr %6, align 8, !tbaa !36
+  %23 = load i64, ptr %6, align 8, !tbaa !35
   %.not25 = icmp eq i64 %22, %23
   br i1 %.not25, label %26, label %24
 
@@ -9466,7 +9466,7 @@ define internal ptr @depr_star_noinline(ptr readnone captures(none) %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   store ptr @_Py_NoneStruct, ptr %7, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  store ptr @.str.176, ptr %8, align 8, !tbaa !74
+  store ptr @.str.176, ptr %8, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
   %10 = and i64 %2, -2
   %or.cond = icmp eq i64 %10, 2
@@ -10080,7 +10080,7 @@ define internal noundef ptr @depr_kwd_noinline(ptr readnone captures(none) %0, p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   store ptr @_Py_NoneStruct, ptr %7, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  store ptr @.str.176, ptr %8, align 8, !tbaa !74
+  store ptr @.str.176, ptr %8, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
   %10 = call i32 (ptr, i64, ptr, ptr, ...) @_PyArg_ParseStackAndKeywords(ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef nonnull @depr_kwd_noinline._parser, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   %.not = icmp eq i32 %10, 0
@@ -10367,7 +10367,7 @@ PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
   store ptr %.0, ptr %53, align 8, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %.critedge29, label %14, !llvm.loop !88
+  br i1 %exitcond.not, label %.critedge29, label %14, !llvm.loop !87
 
 .critedge29:                                      ; preds = %PyTuple_SET_ITEM.exit
   call void @llvm.va_end.p0(ptr nonnull %2)
@@ -10807,8 +10807,8 @@ define internal noundef ptr @varpos_no_fastcall(ptr noundef readonly captures(ad
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !88
   %9 = icmp ne ptr %7, %8
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
@@ -10853,8 +10853,8 @@ define internal ptr @posonly_varpos_no_fastcall(ptr noundef readonly captures(ad
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !88
   %9 = icmp ne ptr %7, %8
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
@@ -10954,8 +10954,8 @@ define internal ptr @posonly_req_opt_varpos_no_fastcall(ptr noundef readonly cap
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !88
   %9 = icmp ne ptr %7, %8
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
@@ -11157,8 +11157,8 @@ define internal ptr @varpos_array_no_fastcall(ptr noundef readonly captures(addr
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !88
   %9 = icmp ne ptr %7, %8
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
@@ -11221,8 +11221,8 @@ define internal ptr @posonly_varpos_array_no_fastcall(ptr noundef readonly captu
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !88
   %9 = icmp ne ptr %7, %8
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
@@ -11341,8 +11341,8 @@ define internal ptr @posonly_req_opt_varpos_array_no_fastcall(ptr noundef readon
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %7 = load ptr, ptr %6, align 8, !tbaa !89
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !89
+  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyBaseObject_Type, i64 296), align 8, !tbaa !88
   %9 = icmp ne ptr %7, %8
   %10 = icmp eq ptr %2, null
   %or.cond = or i1 %10, %9
@@ -11687,7 +11687,7 @@ PyDict_GET_SIZE.exit:                             ; preds = %15, %PyTuple_GET_SI
 
 .thread:                                          ; preds = %32, %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %36 = load ptr, ptr %35, align 8, !tbaa !90
+  %36 = load ptr, ptr %35, align 8, !tbaa !89
   %37 = call ptr %36(ptr noundef %0, i64 noundef 0) #10
   br label %38
 
@@ -11974,7 +11974,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   store ptr @_Py_NoneStruct, ptr %6, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  store ptr @.str.176, ptr %7, align 8, !tbaa !74
+  store ptr @.str.176, ptr %7, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   %19 = and i64 %18, -2
   %or.cond = icmp eq i64 %19, 2
@@ -12085,7 +12085,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %11
 
 PyDict_GET_SIZE.exit50:                           ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !91
+  %32 = load i64, ptr %31, align 8, !tbaa !90
   %33 = icmp ne i64 %32, 0
   %34 = icmp slt i64 %14, 1
   %or.cond5 = select i1 %33, i1 %34, i1 false
@@ -12104,7 +12104,7 @@ PyDict_GET_SIZE.exit50:                           ; preds = %27
 
 .thread54:                                        ; preds = %PyDict_GET_SIZE.exit50, %35, %37, %22, %20
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %41 = load ptr, ptr %40, align 8, !tbaa !90
+  %41 = load ptr, ptr %40, align 8, !tbaa !89
   %42 = call ptr %41(ptr noundef %0, i64 noundef 0) #10
   br label %43
 
@@ -12195,7 +12195,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %11
 
 PyDict_GET_SIZE.exit50:                           ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !91
+  %32 = load i64, ptr %31, align 8, !tbaa !90
   %33 = icmp ne i64 %32, 0
   %34 = icmp slt i64 %14, 1
   %or.cond5 = select i1 %33, i1 %34, i1 false
@@ -12264,7 +12264,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   store ptr @_Py_NoneStruct, ptr %6, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  store ptr @.str.176, ptr %7, align 8, !tbaa !74
+  store ptr @.str.176, ptr %7, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   %19 = call i32 (ptr, ptr, ptr, ...) @_PyArg_ParseTupleAndKeywordsFast(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @depr_kwd_init_noinline._parser, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
   %.not = icmp eq i32 %19, 0
@@ -12289,7 +12289,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %15
 
 PyDict_GET_SIZE.exit:                             ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %27 = load i64, ptr %26, align 8, !tbaa !91
+  %27 = load i64, ptr %26, align 8, !tbaa !90
   %.not12 = icmp eq i64 %27, 0
   br i1 %.not12, label %39, label %28
 
@@ -12381,73 +12381,72 @@ attributes #12 = { nounwind willreturn memory(read) }
 !22 = !{!14, !15, i64 16}
 !23 = !{!24, !16, i64 40}
 !24 = !{!"", !14, i64 0, !15, i64 24, !16, i64 32, !16, i64 40, !15, i64 48}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
-!29 = distinct !{!29, !26, !27}
-!30 = distinct !{!30, !26, !27}
-!31 = distinct !{!31, !26, !27}
-!32 = distinct !{!32, !26, !27}
-!33 = distinct !{!33, !26, !27}
-!34 = distinct !{!34, !26, !27}
-!35 = !{!21, !21, i64 0}
-!36 = !{!15, !15, i64 0}
-!37 = distinct !{!37, !26, !27}
-!38 = distinct !{!38, !26, !27}
-!39 = distinct !{!39, !26, !27}
-!40 = distinct !{!40, !26, !27}
-!41 = !{!42, !15, i64 16}
-!42 = !{!"", !10, i64 0, !15, i64 16, !15, i64 24, !43, i64 32}
-!43 = !{!"", !21, i64 0, !21, i64 2, !21, i64 2, !21, i64 2, !21, i64 2}
-!44 = !{!20, !20, i64 0}
-!45 = distinct !{!45, !26, !27}
-!46 = distinct !{!46, !26, !27}
-!47 = distinct !{!47, !26, !27}
-!48 = distinct !{!48, !26, !27}
-!49 = distinct !{!49, !26, !27}
-!50 = distinct !{!50, !26, !27}
-!51 = distinct !{!51, !26, !27}
-!52 = distinct !{!52, !26, !27}
-!53 = distinct !{!53, !26, !27}
-!54 = distinct !{!54, !26, !27}
-!55 = distinct !{!55, !26, !27}
-!56 = distinct !{!56, !26, !27}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"long long", !4, i64 0}
-!59 = distinct !{!59, !26, !27}
-!60 = distinct !{!60, !26, !27}
-!61 = distinct !{!61, !26, !27}
-!62 = distinct !{!62, !26, !27}
-!63 = distinct !{!63, !26, !27}
-!64 = distinct !{!64, !26, !27}
-!65 = distinct !{!65, !26, !27}
-!66 = distinct !{!66, !26, !27}
-!67 = distinct !{!67, !26, !27}
-!68 = distinct !{!68, !26, !27}
-!69 = distinct !{!69, !26, !27}
-!70 = distinct !{!70, !26, !27}
-!71 = !{!72, !73, i64 16}
-!72 = !{!"", !10, i64 0, !73, i64 16}
-!73 = !{!"double", !4, i64 0}
-!74 = !{!16, !16, i64 0}
-!75 = distinct !{!75, !26, !27}
-!76 = distinct !{!76, !26, !27}
-!77 = distinct !{!77, !26, !27}
-!78 = distinct !{!78, !26, !27}
-!79 = !{!80, !15, i64 16}
-!80 = !{!"", !8, i64 0, !7, i64 8, !15, i64 16, !15, i64 24, !20, i64 32, !20, i64 36, !16, i64 40, !81, i64 48, !81, i64 56, !81, i64 64, !8, i64 72}
-!81 = !{!"p1 long", !8, i64 0}
-!82 = distinct !{!82, !26, !27, !83}
-!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!84 = distinct !{!84, !26, !27}
-!85 = distinct !{!85, !26, !27}
-!86 = distinct !{!86, !26, !27}
-!87 = !{!80, !7, i64 8}
-!88 = distinct !{!88, !26, !27}
-!89 = !{!13, !8, i64 296}
-!90 = !{!13, !8, i64 304}
-!91 = !{!92, !15, i64 16}
-!92 = !{!"", !10, i64 0, !15, i64 16, !15, i64 24, !93, i64 32, !94, i64 40}
-!93 = !{!"p1 _ZTS15_dictkeysobject", !8, i64 0}
-!94 = !{!"p1 _ZTS11_dictvalues", !8, i64 0}
+!27 = distinct !{!27, !26}
+!28 = distinct !{!28, !26}
+!29 = distinct !{!29, !26}
+!30 = distinct !{!30, !26}
+!31 = distinct !{!31, !26}
+!32 = distinct !{!32, !26}
+!33 = distinct !{!33, !26}
+!34 = !{!21, !21, i64 0}
+!35 = !{!15, !15, i64 0}
+!36 = distinct !{!36, !26}
+!37 = distinct !{!37, !26}
+!38 = distinct !{!38, !26}
+!39 = distinct !{!39, !26}
+!40 = !{!41, !15, i64 16}
+!41 = !{!"", !10, i64 0, !15, i64 16, !15, i64 24, !42, i64 32}
+!42 = !{!"", !21, i64 0, !21, i64 2, !21, i64 2, !21, i64 2, !21, i64 2}
+!43 = !{!20, !20, i64 0}
+!44 = distinct !{!44, !26}
+!45 = distinct !{!45, !26}
+!46 = distinct !{!46, !26}
+!47 = distinct !{!47, !26}
+!48 = distinct !{!48, !26}
+!49 = distinct !{!49, !26}
+!50 = distinct !{!50, !26}
+!51 = distinct !{!51, !26}
+!52 = distinct !{!52, !26}
+!53 = distinct !{!53, !26}
+!54 = distinct !{!54, !26}
+!55 = distinct !{!55, !26}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"long long", !4, i64 0}
+!58 = distinct !{!58, !26}
+!59 = distinct !{!59, !26}
+!60 = distinct !{!60, !26}
+!61 = distinct !{!61, !26}
+!62 = distinct !{!62, !26}
+!63 = distinct !{!63, !26}
+!64 = distinct !{!64, !26}
+!65 = distinct !{!65, !26}
+!66 = distinct !{!66, !26}
+!67 = distinct !{!67, !26}
+!68 = distinct !{!68, !26}
+!69 = distinct !{!69, !26}
+!70 = !{!71, !72, i64 16}
+!71 = !{!"", !10, i64 0, !72, i64 16}
+!72 = !{!"double", !4, i64 0}
+!73 = !{!16, !16, i64 0}
+!74 = distinct !{!74, !26}
+!75 = distinct !{!75, !26}
+!76 = distinct !{!76, !26}
+!77 = distinct !{!77, !26}
+!78 = !{!79, !15, i64 16}
+!79 = !{!"", !8, i64 0, !7, i64 8, !15, i64 16, !15, i64 24, !20, i64 32, !20, i64 36, !16, i64 40, !80, i64 48, !80, i64 56, !80, i64 64, !8, i64 72}
+!80 = !{!"p1 long", !8, i64 0}
+!81 = distinct !{!81, !26, !82}
+!82 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!83 = distinct !{!83, !26}
+!84 = distinct !{!84, !26}
+!85 = distinct !{!85, !26}
+!86 = !{!79, !7, i64 8}
+!87 = distinct !{!87, !26}
+!88 = !{!13, !8, i64 296}
+!89 = !{!13, !8, i64 304}
+!90 = !{!91, !15, i64 16}
+!91 = !{!"", !10, i64 0, !15, i64 16, !15, i64 24, !92, i64 32, !93, i64 40}
+!92 = !{!"p1 _ZTS15_dictkeysobject", !8, i64 0}
+!93 = !{!"p1 _ZTS11_dictvalues", !8, i64 0}

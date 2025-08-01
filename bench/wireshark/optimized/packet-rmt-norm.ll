@@ -639,7 +639,7 @@ dissect_norm_hdrext.exit.i41.i:                   ; preds = %231, %227
   %244 = add i32 %.010.i.i, 2
   %245 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %244)
   %246 = icmp sgt i32 %245, 0
-  br i1 %246, label %.lr.ph.i42.i, label %dissect_norm_cmd_cc.exit.i, !llvm.loop !9
+  br i1 %246, label %.lr.ph.i42.i, label %dissect_norm_cmd_cc.exit.i, !llvm.loop !8
 
 247:                                              ; preds = %147
   %248 = load i32, ptr @hf_flags, align 4
@@ -685,7 +685,7 @@ dissect_norm_hdrext.exit.i47.i:                   ; preds = %257, %253
   %269 = call fastcc i32 @dissect_nack_data(ptr noundef %20, ptr noundef %0, i32 noundef %.123.i.i, ptr noundef %1)
   %270 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %269)
   %271 = icmp sgt i32 %270, 0
-  br i1 %271, label %.lr.ph.i45.i, label %dissect_norm_cmd_cc.exit.i, !llvm.loop !10
+  br i1 %271, label %.lr.ph.i45.i, label %dissect_norm_cmd_cc.exit.i, !llvm.loop !9
 
 272:                                              ; preds = %147
   %273 = load i32, ptr @hf_reserved, align 4
@@ -814,7 +814,7 @@ dissect_norm_hdrext.exit.i81:                     ; preds = %337, %333
   %349 = call fastcc i32 @dissect_nack_data(ptr noundef %20, ptr noundef %0, i32 noundef %.139.i, ptr noundef %1)
   %350 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %349)
   %351 = icmp sgt i32 %350, 0
-  br i1 %351, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %351, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %346
   %.1.lcssa.i = phi i32 [ %.0.i79, %346 ], [ %349, %.lr.ph.i ]
@@ -1147,9 +1147,8 @@ attributes #8 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

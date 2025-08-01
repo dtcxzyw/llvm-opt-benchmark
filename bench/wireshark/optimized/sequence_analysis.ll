@@ -872,7 +872,7 @@ cmp_address.exit.thread23.i:                      ; preds = %cmp_address.exit.i,
 cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.thread23.i, %cmp_address.exit.i, %51, %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next.i, 40
-  br i1 %exitcond30.not.i, label %add_or_get_node_local.exit, label %47, !llvm.loop !11
+  br i1 %exitcond30.not.i, label %add_or_get_node_local.exit, label %47, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %47
   %62 = add i32 %41, 1
@@ -965,7 +965,7 @@ cmp_address.exit.thread23.i38:                    ; preds = %cmp_address.exit.i3
 cmp_address.exit.thread.i31:                      ; preds = %cmp_address.exit.thread23.i38, %cmp_address.exit.i36, %90, %87
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond30.not.i33 = icmp eq i64 %indvars.iv.next.i32, 40
-  br i1 %exitcond30.not.i33, label %.sink.split, label %86, !llvm.loop !11
+  br i1 %exitcond30.not.i33, label %.sink.split, label %86, !llvm.loop !10
 
 .critedge.i40:                                    ; preds = %86
   %104 = add i32 %81, 1
@@ -1055,7 +1055,7 @@ cmp_address.exit.thread23.i54:                    ; preds = %cmp_address.exit.i5
 cmp_address.exit.thread.i47:                      ; preds = %cmp_address.exit.thread23.i54, %cmp_address.exit.i52, %132, %129
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond30.not.i49 = icmp eq i64 %indvars.iv.next.i48, 40
-  br i1 %exitcond30.not.i49, label %add_or_get_node_local.exit58, label %128, !llvm.loop !11
+  br i1 %exitcond30.not.i49, label %add_or_get_node_local.exit58, label %128, !llvm.loop !10
 
 .critedge.i56:                                    ; preds = %128
   %143 = add i32 %122, 1
@@ -1148,7 +1148,7 @@ cmp_address.exit.thread23.i70:                    ; preds = %cmp_address.exit.i6
 cmp_address.exit.thread.i63:                      ; preds = %cmp_address.exit.thread23.i70, %cmp_address.exit.i68, %171, %168
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond30.not.i65 = icmp eq i64 %indvars.iv.next.i64, 40
-  br i1 %exitcond30.not.i65, label %.sink.split, label %167, !llvm.loop !11
+  br i1 %exitcond30.not.i65, label %.sink.split, label %167, !llvm.loop !10
 
 .critedge.i72:                                    ; preds = %167
   %185 = add i32 %162, 1
@@ -1230,7 +1230,7 @@ cmp_address.exit.i82:                             ; preds = %215
 cmp_address.exit.thread.i79:                      ; preds = %cmp_address.exit.i82, %211, %208
   %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next.i80, 40
-  br i1 %exitcond24.not.i, label %add_or_get_node.exit, label %207, !llvm.loop !12
+  br i1 %exitcond24.not.i, label %add_or_get_node.exit, label %207, !llvm.loop !11
 
 .critedge.i84:                                    ; preds = %207
   %222 = add i32 %202, 1
@@ -1315,7 +1315,7 @@ cmp_address.exit.i95:                             ; preds = %254
 cmp_address.exit.thread.i89:                      ; preds = %cmp_address.exit.i95, %250, %247
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i86, 1
   %exitcond24.not.i91 = icmp eq i64 %indvars.iv.next.i90, 40
-  br i1 %exitcond24.not.i91, label %.sink.split, label %246, !llvm.loop !12
+  br i1 %exitcond24.not.i91, label %.sink.split, label %246, !llvm.loop !11
 
 .critedge.i99:                                    ; preds = %246
   %261 = add i32 %241, 1
@@ -1397,7 +1397,7 @@ define void @sequence_analysis_dump_to_file(ptr noundef %0, ptr noundef %1, i32 
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 109
   %16 = load i8, ptr %15, align 1, !range !6, !noundef !7
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %10, !llvm.loop !13
+  br i1 %17, label %18, label %10, !llvm.loop !12
 
 18:                                               ; preds = %11
   %19 = add i32 %.0151.ph, 1
@@ -1407,7 +1407,7 @@ define void @sequence_analysis_dump_to_file(ptr noundef %0, ptr noundef %1, i32 
   %spec.select = select i1 %.not175, i1 true, i1 %.0157.ph
   %.1160 = select i1 %.0155.ph, i16 %21, i16 %.0159.ph
   %.1158 = select i1 %.0155.ph, i1 %.0157.ph, i1 %spec.select
-  br label %.outer227, !llvm.loop !13
+  br label %.outer227, !llvm.loop !12
 
 22:                                               ; preds = %10
   %23 = icmp eq i32 %.0151.ph, 0
@@ -1472,7 +1472,7 @@ define void @sequence_analysis_dump_to_file(ptr noundef %0, ptr noundef %1, i32 
 g_string_append_c_inline.exit.i:                  ; preds = %53, %47
   %55 = add i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %55, 40
-  br i1 %exitcond.not.i, label %enlarge_string.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %enlarge_string.exit, label %.lr.ph.i, !llvm.loop !13
 
 enlarge_string.exit:                              ; preds = %g_string_append_c_inline.exit.i, %36
   %56 = load ptr, ptr %25, align 8
@@ -1508,14 +1508,14 @@ enlarge_string.exit:                              ; preds = %g_string_append_c_i
 g_string_append_c_inline.exit.i178:               ; preds = %70, %64
   %72 = add i64 %.05.i177, 1
   %exitcond.not.i179 = icmp eq i64 %72, 20
-  br i1 %exitcond.not.i179, label %enlarge_string.exit180, label %.lr.ph.i176, !llvm.loop !14
+  br i1 %exitcond.not.i179, label %enlarge_string.exit180, label %.lr.ph.i176, !llvm.loop !13
 
 enlarge_string.exit180:                           ; preds = %g_string_append_c_inline.exit.i178, %enlarge_string.exit
   %73 = load ptr, ptr %25, align 8
   %74 = tail call ptr @g_string_append(ptr noundef %26, ptr noundef %73)
   %75 = add i32 %.0149231, 2
   %76 = icmp ult i32 %75, %31
-  br i1 %76, label %36, label %._crit_edge, !llvm.loop !15
+  br i1 %76, label %36, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %enlarge_string.exit180, %24
   %77 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.12, ptr noundef nonnull %.str.6..str.8)
@@ -1555,7 +1555,7 @@ enlarge_string.exit180:                           ; preds = %g_string_append_c_i
 g_string_append_c_inline.exit.i183:               ; preds = %93, %87
   %95 = add i64 %.05.i182, 1
   %exitcond.not.i184 = icmp eq i64 %95, 20
-  br i1 %exitcond.not.i184, label %enlarge_string.exit185, label %82, !llvm.loop !14
+  br i1 %exitcond.not.i184, label %enlarge_string.exit185, label %82, !llvm.loop !13
 
 enlarge_string.exit185:                           ; preds = %g_string_append_c_inline.exit.i183, %._crit_edge
   %96 = load ptr, ptr %25, align 8
@@ -1606,7 +1606,7 @@ enlarge_string.exit185:                           ; preds = %g_string_append_c_i
 g_string_append_c_inline.exit.i188:               ; preds = %118, %112
   %120 = add i64 %.05.i187, 1
   %exitcond.not.i189 = icmp eq i64 %120, 20
-  br i1 %exitcond.not.i189, label %enlarge_string.exit190, label %.lr.ph.i186, !llvm.loop !14
+  br i1 %exitcond.not.i189, label %enlarge_string.exit190, label %.lr.ph.i186, !llvm.loop !13
 
 enlarge_string.exit190:                           ; preds = %g_string_append_c_inline.exit.i188
   %121 = tail call ptr @g_string_append(ptr noundef %25, ptr noundef nonnull @.str.11)
@@ -1644,7 +1644,7 @@ enlarge_string.exit190:                           ; preds = %g_string_append_c_i
 g_string_append_c_inline.exit.i193:               ; preds = %135, %129
   %137 = add i64 %.05.i192, 1
   %exitcond.not.i194 = icmp eq i64 %137, 40
-  br i1 %exitcond.not.i194, label %enlarge_string.exit195, label %.lr.ph.i191, !llvm.loop !14
+  br i1 %exitcond.not.i194, label %enlarge_string.exit195, label %.lr.ph.i191, !llvm.loop !13
 
 enlarge_string.exit195:                           ; preds = %g_string_append_c_inline.exit.i193, %122
   %138 = load ptr, ptr %25, align 8
@@ -1680,14 +1680,14 @@ enlarge_string.exit195:                           ; preds = %g_string_append_c_i
 g_string_append_c_inline.exit.i198:               ; preds = %152, %146
   %154 = add i64 %.05.i197, 1
   %exitcond.not.i199 = icmp eq i64 %154, 20
-  br i1 %exitcond.not.i199, label %enlarge_string.exit200, label %.lr.ph.i196, !llvm.loop !14
+  br i1 %exitcond.not.i199, label %enlarge_string.exit200, label %.lr.ph.i196, !llvm.loop !13
 
 enlarge_string.exit200:                           ; preds = %g_string_append_c_inline.exit.i198, %enlarge_string.exit195
   %155 = load ptr, ptr %25, align 8
   %156 = tail call ptr @g_string_append(ptr noundef %26, ptr noundef %155)
   %157 = add i32 %.1150232, 2
   %158 = icmp ult i32 %157, %31
-  br i1 %158, label %101, label %._crit_edge234, !llvm.loop !16
+  br i1 %158, label %101, label %._crit_edge234, !llvm.loop !15
 
 ._crit_edge234:                                   ; preds = %enlarge_string.exit200, %enlarge_string.exit185
   %159 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.13)
@@ -1753,7 +1753,7 @@ g_string_append_c_inline.exit:                    ; preds = %166, %172
 g_string_append_c_inline.exit.i203:               ; preds = %192, %186
   %194 = add i64 %.05.i202, 1
   %exitcond.not.i204 = icmp eq i64 %194, %178
-  br i1 %exitcond.not.i204, label %enlarge_string.exit205, label %181, !llvm.loop !14
+  br i1 %exitcond.not.i204, label %enlarge_string.exit205, label %181, !llvm.loop !13
 
 enlarge_string.exit205:                           ; preds = %g_string_append_c_inline.exit.i203, %g_string_append_c_inline.exit
   %195 = load ptr, ptr %6, align 8
@@ -1780,7 +1780,7 @@ enlarge_string.exit205:                           ; preds = %g_string_append_c_i
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 109
   %206 = load i8, ptr %205, align 1, !range !6, !noundef !7
   %207 = trunc nuw i8 %206 to i1
-  br i1 %207, label %208, label %200, !llvm.loop !17
+  br i1 %207, label %208, label %200, !llvm.loop !16
 
 208:                                              ; preds = %201
   %209 = getelementptr inbounds nuw i8, ptr %202, i64 112
@@ -1863,7 +1863,7 @@ enlarge_string.exit205:                           ; preds = %g_string_append_c_i
 g_string_append_c_inline.exit.i208:               ; preds = %251, %245
   %253 = add i64 %.05.i207, 1
   %exitcond.not.i209 = icmp eq i64 %253, 5
-  br i1 %exitcond.not.i209, label %enlarge_string.exit210, label %.lr.ph.i206, !llvm.loop !14
+  br i1 %exitcond.not.i209, label %enlarge_string.exit210, label %.lr.ph.i206, !llvm.loop !13
 
 enlarge_string.exit210:                           ; preds = %g_string_append_c_inline.exit.i208, %237
   %254 = load ptr, ptr %25, align 8
@@ -1908,7 +1908,7 @@ enlarge_string.exit210:                           ; preds = %g_string_append_c_i
 g_string_append_c_inline.exit.i213:               ; preds = %272, %266
   %274 = add i64 %.05.i212, 1
   %exitcond.not.i214 = icmp eq i64 %274, 10
-  br i1 %exitcond.not.i214, label %enlarge_string.exit215, label %.lr.ph.i211, !llvm.loop !14
+  br i1 %exitcond.not.i214, label %enlarge_string.exit215, label %.lr.ph.i211, !llvm.loop !13
 
 enlarge_string.exit215:                           ; preds = %g_string_append_c_inline.exit.i213, %259
   %275 = load ptr, ptr %25, align 8
@@ -1966,7 +1966,7 @@ enlarge_string.exit215:                           ; preds = %g_string_append_c_i
 g_string_append_c_inline.exit.i218:               ; preds = %305, %299
   %307 = add i64 %.05.i217, 1
   %exitcond.not.i219 = icmp eq i64 %307, %293
-  br i1 %exitcond.not.i219, label %enlarge_string.exit220.loopexit, label %.lr.ph.i216, !llvm.loop !14
+  br i1 %exitcond.not.i219, label %enlarge_string.exit220.loopexit, label %.lr.ph.i216, !llvm.loop !13
 
 enlarge_string.exit220.loopexit:                  ; preds = %g_string_append_c_inline.exit.i218
   %.pre = load i64, ptr %198, align 8
@@ -2028,7 +2028,7 @@ enlarge_string.exit220:                           ; preds = %enlarge_string.exit
 g_string_append_c_inline.exit.i224:               ; preds = %335, %329
   %337 = add i64 %.05.i223, 1
   %exitcond.not.i225 = icmp eq i64 %337, %323
-  br i1 %exitcond.not.i225, label %g_string_append_c_inline.exit221, label %.lr.ph.i222, !llvm.loop !14
+  br i1 %exitcond.not.i225, label %g_string_append_c_inline.exit221, label %.lr.ph.i222, !llvm.loop !13
 
 g_string_append_c_inline.exit221:                 ; preds = %g_string_append_c_inline.exit.i224, %320, %318, %312
   %338 = load ptr, ptr %29, align 8
@@ -2063,7 +2063,7 @@ g_string_append_c_inline.exit221:                 ; preds = %g_string_append_c_i
   call fastcc void @overwrite(ptr noundef %28, ptr noundef nonnull %5, i32 noundef %353, i32 noundef %354)
   %355 = load ptr, ptr %28, align 8
   %356 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef %355)
-  br label %.outer, !llvm.loop !17
+  br label %.outer, !llvm.loop !16
 
 357:                                              ; preds = %200
   %358 = call ptr @g_string_free(ptr noundef %25, i32 noundef 1)
@@ -2217,13 +2217,12 @@ attributes #20 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

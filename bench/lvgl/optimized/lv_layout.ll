@@ -57,15 +57,15 @@ define i32 @lv_layout_register(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not, label %.preheader, label %9
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !31
+  br label %.preheader
 
 9:                                                ; preds = %2
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 168), align 8, !tbaa !3
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %8, i64 %11
-  store ptr %0, ptr %12, align 8, !tbaa !33
+  store ptr %0, ptr %12, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %8, i64 %11, i32 1
-  store ptr %1, ptr %13, align 8, !tbaa !35
+  store ptr %1, ptr %13, align 8, !tbaa !33
   %14 = add i32 %10, 1
   store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 168), align 8, !tbaa !3
   ret i32 %10
@@ -92,8 +92,8 @@ define void @lv_layout_apply(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 176), align 8, !tbaa !30
   %11 = getelementptr inbounds nuw %struct.lv_layout_dsc_t, ptr %10, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !35
-  %14 = load ptr, ptr %11, align 8, !tbaa !33
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
+  %14 = load ptr, ptr %11, align 8, !tbaa !31
   tail call void %14(ptr noundef %0, ptr noundef %13) #2
   br label %15
 
@@ -140,8 +140,6 @@ attributes #2 = { nounwind }
 !28 = !{!"p1 _ZTS14_snippet_stack", !11, i64 0}
 !29 = !{!"", !11, i64 0, !9, i64 8, !6, i64 12}
 !30 = !{!4, !11, i64 176}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!34, !11, i64 0}
-!34 = !{!"", !11, i64 0, !11, i64 8}
-!35 = !{!34, !11, i64 8}
+!31 = !{!32, !11, i64 0}
+!32 = !{!"", !11, i64 0, !11, i64 8}
+!33 = !{!32, !11, i64 8}

@@ -414,7 +414,7 @@ declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 define hidden zeroext i1 @je_pages_purge_forced(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @madvise_dont_need_zeros_is_faulty, align 4, !tbaa !4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %4, label %7, !prof !17
+  br i1 %.not, label %4, label %7, !prof !16
 
 4:                                                ; preds = %2
   %5 = tail call i32 @madvise(ptr noundef %0, i64 noundef %1, i32 noundef 4) #10
@@ -602,7 +602,7 @@ os_overcommits_proc.exit.thread:                  ; preds = %37
 
 44:                                               ; preds = %.preheader.i
   %45 = icmp slt i64 %41, 1
-  br i1 %45, label %.preheader.i, label %malloc_read_fd.exit.loopexit.i, !llvm.loop !18
+  br i1 %45, label %.preheader.i, label %malloc_read_fd.exit.loopexit.i, !llvm.loop !17
 
 malloc_read_fd.exit.loopexit.i:                   ; preds = %44, %.preheader.i
   %46 = call i64 @llvm.smax.i64(i64 %41, i64 0)
@@ -654,7 +654,7 @@ os_overcommits_proc.exit:                         ; preds = %.preheader.i, %mall
 
 66:                                               ; preds = %.preheader.i7
   %67 = icmp ult i64 %.116.i.i, 24
-  br i1 %67, label %.preheader.i7, label %malloc_read_fd.exit.i13, !llvm.loop !18
+  br i1 %67, label %.preheader.i7, label %malloc_read_fd.exit.i13, !llvm.loop !17
 
 malloc_read_fd.exit.i13.loopexit:                 ; preds = %.preheader.i7
   br label %malloc_read_fd.exit.i13
@@ -818,8 +818,7 @@ attributes #13 = { nounwind willreturn memory(read) }
 !11 = !{}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !6, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!18 = distinct !{!18, !15, !16}
+!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!17 = distinct !{!17, !15}

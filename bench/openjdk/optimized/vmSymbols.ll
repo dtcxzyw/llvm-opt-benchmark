@@ -76,7 +76,7 @@ define hidden void @_ZN9vmSymbols10initializeEv() local_unnamed_addr #0 align 2 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 1170
-  br i1 %.not, label %7, label %.preheader, !llvm.loop !6
+  br i1 %.not, label %7, label %.preheader
 
 7:                                                ; preds = %.preheader
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6960), align 8
@@ -109,7 +109,7 @@ define hidden void @_ZN9vmSymbols10initializeEv() local_unnamed_addr #0 align 2 
   store i32 %19, ptr %18, align 4
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %.not23 = icmp eq i64 %indvars.iv.next29, 1170
-  br i1 %.not23, label %20, label %17, !llvm.loop !8
+  br i1 %.not23, label %20, label %17
 
 20:                                               ; preds = %17
   tail call void @qsort(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZL15vm_symbol_index, i64 4), i64 noundef 1169, i64 noundef 4, ptr noundef nonnull @_ZL20compare_vmsymbol_sidPKvS0_) #10
@@ -155,7 +155,7 @@ define hidden void @_ZN9vmSymbols10symbols_doEP13SymbolClosure(ptr noundef %0) l
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 1170
-  br i1 %.not, label %.preheader, label %2, !llvm.loop !9
+  br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %2 ]
@@ -165,7 +165,7 @@ define hidden void @_ZN9vmSymbols10symbols_doEP13SymbolClosure(ptr noundef %0) l
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %6) #10
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next15, 15
-  br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !10
+  br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !6
 
 9:                                                ; preds = %.preheader
   ret void
@@ -189,7 +189,7 @@ define hidden void @_ZN9vmSymbols21metaspace_pointers_doEP16MetaspaceClosure(ptr
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 1170
-  br i1 %.not, label %.preheader, label %2, !llvm.loop !12
+  br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %2 ]
@@ -205,7 +205,7 @@ define hidden void @_ZN9vmSymbols21metaspace_pointers_doEP16MetaspaceClosure(ptr
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %9) #10
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next15, 15
-  br i1 %exitcond.not, label %13, label %.preheader, !llvm.loop !13
+  br i1 %exitcond.not, label %13, label %.preheader, !llvm.loop !8
 
 13:                                               ; preds = %.preheader
   ret void
@@ -229,7 +229,7 @@ define hidden void @_ZN9vmSymbols9serializeEP16SerializeClosure(ptr noundef %0) 
   %8 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
   %9 = add nsw i64 %.08.i, -8
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %_ZN16SerializeClosure7do_ptrsEPPvm.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %_ZN16SerializeClosure7do_ptrsEPPvm.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZN16SerializeClosure7do_ptrsEPPvm.exit:          ; preds = %.lr.ph.i
   %10 = load ptr, ptr %0, align 8
@@ -248,7 +248,7 @@ _ZN16SerializeClosure7do_ptrsEPPvm.exit:          ; preds = %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %.057.i4, i64 8
   %17 = add nsw i64 %.08.i3, -8
   %.not.i5 = icmp eq i64 %17, 0
-  br i1 %.not.i5, label %_ZN16SerializeClosure7do_ptrsEPPvm.exit6, label %.lr.ph.i2, !llvm.loop !14
+  br i1 %.not.i5, label %_ZN16SerializeClosure7do_ptrsEPPvm.exit6, label %.lr.ph.i2, !llvm.loop !9
 
 _ZN16SerializeClosure7do_ptrsEPPvm.exit6:         ; preds = %.lr.ph.i2
   ret void
@@ -311,7 +311,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef readnone
   %28 = add nsw i32 %.1, %.130
   %29 = sdiv i32 %28, 2
   %.not = icmp slt i32 %.1, %.130
-  br i1 %.not, label %.loopexit, label %16, !llvm.loop !15
+  br i1 %.not, label %.loopexit, label %16, !llvm.loop !10
 
 .loopexit:                                        ; preds = %25, %13, %6, %24
   %.027 = phi i32 [ %19, %24 ], [ %spec.select, %6 ], [ %spec.select34, %13 ], [ 0, %25 ]
@@ -385,7 +385,7 @@ define hidden noundef i32 @_ZN9vmSymbols8find_sidEPKc(ptr noundef %0) local_unna
   %34 = add nsw i32 %.1.i, %.130.i
   %35 = sdiv i32 %34, 2
   %.not.i = icmp slt i32 %.1.i, %.130.i
-  br i1 %.not.i, label %_ZN9vmSymbols8find_sidEPK6Symbol.exit, label %22, !llvm.loop !15
+  br i1 %.not.i, label %_ZN9vmSymbols8find_sidEPK6Symbol.exit, label %22, !llvm.loop !10
 
 _ZN9vmSymbols8find_sidEPK6Symbol.exit:            ; preds = %31, %30, %19, %12, %1
   %.0 = phi i32 [ 0, %1 ], [ %25, %30 ], [ %spec.select.i, %12 ], [ %spec.select34.i, %19 ], [ 0, %31 ]
@@ -590,12 +590,7 @@ attributes #11 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !11, !7}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !11, !7}
-!14 = distinct !{!14, !11, !7}
-!15 = distinct !{!15, !11, !7}
+!10 = distinct !{!10, !7}

@@ -71,30 +71,30 @@ define i32 @gvFreeContext(ptr noundef %0) local_unnamed_addr #2 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %7 = load ptr, ptr %6, align 8, !tbaa !42
+  %7 = load ptr, ptr %6, align 8, !tbaa !41
   %.not2630 = icmp eq ptr %7, null
   br i1 %.not2630, label %._crit_edge34, label %.lr.ph33
 
 .lr.ph33:                                         ; preds = %._crit_edge, %.lr.ph33
   %.02531 = phi ptr [ %8, %.lr.ph33 ], [ %7, %._crit_edge ]
-  %8 = load ptr, ptr %.02531, align 8, !tbaa !43
+  %8 = load ptr, ptr %.02531, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %.02531, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !45
+  %10 = load ptr, ptr %9, align 8, !tbaa !44
   tail call void @free(ptr noundef %10) #12
   %11 = getelementptr inbounds nuw i8, ptr %.02531, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !46
+  %12 = load ptr, ptr %11, align 8, !tbaa !45
   tail call void @free(ptr noundef %12) #12
   tail call void @free(ptr noundef nonnull %.02531) #12
   %.not26 = icmp eq ptr %8, null
-  br i1 %.not26, label %._crit_edge34, label %.lr.ph33, !llvm.loop !47
+  br i1 %.not26, label %._crit_edge34, label %.lr.ph33, !llvm.loop !46
 
 ._crit_edge34:                                    ; preds = %.lr.ph33, %._crit_edge
   tail call void @gvjobs_delete(ptr noundef nonnull %0) #12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %14 = load ptr, ptr %13, align 8, !tbaa !48
+  %14 = load ptr, ptr %13, align 8, !tbaa !47
   tail call void @free(ptr noundef %14) #12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %16 = load ptr, ptr %15, align 8, !tbaa !49
+  %16 = load ptr, ptr %15, align 8, !tbaa !48
   tail call void @free(ptr noundef %16) #12
   tail call void @textfont_dict_close(ptr noundef nonnull %0) #12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -102,7 +102,7 @@ define i32 @gvFreeContext(ptr noundef %0) local_unnamed_addr #2 {
 
 18:                                               ; preds = %._crit_edge39
   tail call void @free(ptr noundef nonnull %0) #12
-  %19 = load i32, ptr @graphviz_errors, align 4, !tbaa !50
+  %19 = load i32, ptr @graphviz_errors, align 4, !tbaa !49
   %20 = tail call i32 @agerrors() #12
   %21 = add nsw i32 %20, %19
   ret i32 %21
@@ -110,24 +110,24 @@ define i32 @gvFreeContext(ptr noundef %0) local_unnamed_addr #2 {
 22:                                               ; preds = %._crit_edge34, %._crit_edge39
   %.040 = phi i64 [ 0, %._crit_edge34 ], [ %28, %._crit_edge39 ]
   %23 = getelementptr inbounds nuw [5 x ptr], ptr %17, i64 0, i64 %.040
-  %24 = load ptr, ptr %23, align 8, !tbaa !51
+  %24 = load ptr, ptr %23, align 8, !tbaa !50
   %.not2735 = icmp eq ptr %24, null
   br i1 %.not2735, label %._crit_edge39, label %.lr.ph38
 
 .lr.ph38:                                         ; preds = %22, %.lr.ph38
   %.02436 = phi ptr [ %25, %.lr.ph38 ], [ %24, %22 ]
-  %25 = load ptr, ptr %.02436, align 8, !tbaa !53
+  %25 = load ptr, ptr %.02436, align 8, !tbaa !52
   %26 = getelementptr inbounds nuw i8, ptr %.02436, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !55
+  %27 = load ptr, ptr %26, align 8, !tbaa !54
   tail call void @free(ptr noundef %27) #12
   tail call void @free(ptr noundef nonnull %.02436) #12
   %.not27 = icmp eq ptr %25, null
-  br i1 %.not27, label %._crit_edge39, label %.lr.ph38, !llvm.loop !56
+  br i1 %.not27, label %._crit_edge39, label %.lr.ph38, !llvm.loop !55
 
 ._crit_edge39:                                    ; preds = %.lr.ph38, %22
   %28 = add nuw nsw i64 %.040, 1
   %exitcond.not = icmp eq i64 %28, 5
-  br i1 %exitcond.not, label %18, label %22, !llvm.loop !57
+  br i1 %exitcond.not, label %18, label %22, !llvm.loop !56
 }
 
 declare void @emit_once_reset() local_unnamed_addr #1
@@ -154,7 +154,7 @@ define noalias noundef ptr @gvCloneGVC(ptr noundef readonly captures(none) %0) l
   unreachable
 
 gv_alloc.exit:                                    ; preds = %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false), !tbaa.struct !58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %0, i64 72, i1 false), !tbaa.struct !57
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
@@ -162,9 +162,9 @@ gv_alloc.exit:                                    ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %12 = load ptr, ptr %11, align 8, !tbaa !42
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  store ptr %12, ptr %13, align 8, !tbaa !42
+  store ptr %12, ptr %13, align 8, !tbaa !41
   ret ptr %2
 }
 
@@ -249,27 +249,26 @@ attributes #13 = { cold noreturn nounwind }
 !36 = !{!37, !15, i64 8}
 !37 = !{!"GVG_s", !38, i64 0, !15, i64 8, !12, i64 16, !13, i64 24, !22, i64 32}
 !38 = !{!"p1 _ZTS5GVC_s", !5, i64 0}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!9, !16, i64 200}
-!43 = !{!44, !16, i64 0}
-!44 = !{!"gvplugin_package_s", !16, i64 0, !12, i64 8, !12, i64 16}
-!45 = !{!44, !12, i64 8}
-!46 = !{!44, !12, i64 16}
-!47 = distinct !{!47, !40, !41}
-!48 = !{!9, !12, i64 72}
-!49 = !{!9, !11, i64 88}
-!50 = !{!13, !13, i64 0}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"p1 _ZTS20gvplugin_available_s", !5, i64 0}
-!53 = !{!54, !52, i64 0}
-!54 = !{!"gvplugin_available_s", !52, i64 0, !12, i64 8, !13, i64 16, !16, i64 24, !5, i64 32}
-!55 = !{!54, !12, i64 8}
-!56 = distinct !{!56, !40, !41}
-!57 = distinct !{!57, !40, !41}
-!58 = !{i64 0, i64 8, !59, i64 8, i64 8, !60, i64 16, i64 4, !50, i64 20, i64 1, !61, i64 21, i64 1, !61, i64 24, i64 8, !62, i64 32, i64 8, !59, i64 40, i64 8, !59, i64 48, i64 4, !50, i64 56, i64 8, !62, i64 64, i64 4, !50}
-!59 = !{!11, !11, i64 0}
-!60 = !{!12, !12, i64 0}
-!61 = !{!14, !14, i64 0}
-!62 = !{!5, !5, i64 0}
+!41 = !{!9, !16, i64 200}
+!42 = !{!43, !16, i64 0}
+!43 = !{!"gvplugin_package_s", !16, i64 0, !12, i64 8, !12, i64 16}
+!44 = !{!43, !12, i64 8}
+!45 = !{!43, !12, i64 16}
+!46 = distinct !{!46, !40}
+!47 = !{!9, !12, i64 72}
+!48 = !{!9, !11, i64 88}
+!49 = !{!13, !13, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS20gvplugin_available_s", !5, i64 0}
+!52 = !{!53, !51, i64 0}
+!53 = !{!"gvplugin_available_s", !51, i64 0, !12, i64 8, !13, i64 16, !16, i64 24, !5, i64 32}
+!54 = !{!53, !12, i64 8}
+!55 = distinct !{!55, !40}
+!56 = distinct !{!56, !40}
+!57 = !{i64 0, i64 8, !58, i64 8, i64 8, !59, i64 16, i64 4, !49, i64 20, i64 1, !60, i64 21, i64 1, !60, i64 24, i64 8, !61, i64 32, i64 8, !58, i64 40, i64 8, !58, i64 48, i64 4, !49, i64 56, i64 8, !61, i64 64, i64 4, !49}
+!58 = !{!11, !11, i64 0}
+!59 = !{!12, !12, i64 0}
+!60 = !{!14, !14, i64 0}
+!61 = !{!5, !5, i64 0}

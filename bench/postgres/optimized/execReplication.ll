@@ -191,7 +191,7 @@ build_replindex_scan_key.exit.split.us:           ; preds = %build_replindex_sca
 .backedge.us:                                     ; preds = %86, %85
   call void @index_rescan(ptr noundef %77, ptr noundef nonnull %6, i32 noundef %.042.lcssa.i, ptr noundef null, i32 noundef 0) #5
   %95 = call zeroext i1 @index_getnext_slot(ptr noundef %77, i32 noundef 1, ptr noundef nonnull %4) #5
-  br i1 %95, label %.split41.us.us, label %.critedge, !llvm.loop !9
+  br i1 %95, label %.split41.us.us, label %.critedge, !llvm.loop !8
 
 .split41.us.us:                                   ; preds = %build_replindex_scan_key.exit.split.us, %.backedge.us
   %96 = load ptr, ptr %79, align 8
@@ -230,7 +230,7 @@ build_replindex_scan_key.exit.split.us:           ; preds = %build_replindex_sca
 112:                                              ; preds = %106, %104
   %.4 = phi ptr [ %111, %106 ], [ %.1, %104 ]
   %113 = call fastcc zeroext i1 @tuples_equal(ptr noundef %4, ptr noundef %3, ptr noundef %.4)
-  br i1 %113, label %.split41, label %102, !llvm.loop !11
+  br i1 %113, label %.split41, label %102, !llvm.loop !10
 
 .split41:                                         ; preds = %112
   %114 = load ptr, ptr %79, align 8
@@ -249,7 +249,7 @@ build_replindex_scan_key.exit.split.us:           ; preds = %build_replindex_sca
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %120, %121
-  br label %.split, !llvm.loop !12
+  br label %.split
 
 121:                                              ; preds = %.split41
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #5
@@ -423,7 +423,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   %79 = phi ptr [ %.pre, %.select.unfold_crit_edge ], [ %29, %38 ], [ %29, %27 ], [ %29, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not50 = icmp slt i64 %indvars.iv.next, %.pre-phi
-  br i1 %.not50, label %27, label %._crit_edge, !llvm.loop !13
+  br i1 %.not50, label %27, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %select.unfold, %67, %41, %slot_getallattrs.exit39
   %.lcssa42 = phi i1 [ true, %slot_getallattrs.exit39 ], [ false, %41 ], [ false, %67 ], [ true, %select.unfold ]
@@ -556,7 +556,7 @@ define dso_local noundef zeroext i1 @RelationFindReplTupleSeq(ptr noundef %0, i3
   %35 = load i8, ptr @bsysscan, align 1, !range !4
   %36 = trunc nuw i8 %35 to i1
   %.not5.i = select i1 %34, i1 true, i1 %36
-  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %37, !prof !14
+  br i1 %.not5.i, label %table_scan_getnextslot.exit, label %37, !prof !12
 
 37:                                               ; preds = %29
   %38 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -576,7 +576,7 @@ table_scan_getnextslot.exit:                      ; preds = %29
 
 46:                                               ; preds = %table_scan_getnextslot.exit
   %47 = call fastcc zeroext i1 @tuples_equal(ptr noundef nonnull %18, ptr noundef %2, ptr noundef %12)
-  br i1 %47, label %48, label %29, !llvm.loop !15
+  br i1 %47, label %48, label %29, !llvm.loop !13
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr %20, align 8
@@ -595,7 +595,7 @@ table_scan_getnextslot.exit:                      ; preds = %29
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %55, %56
-  br label %.backedge, !llvm.loop !16
+  br label %.backedge
 
 56:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #5
@@ -963,7 +963,7 @@ define internal fastcc void @CheckAndReportConflict(ptr noundef %0, ptr noundef 
 29:                                               ; preds = %.lr.ph
   %30 = call ptr @list_make1_impl(i32 noundef 471, ptr %25) #5
   %31 = call zeroext i1 @ExecCheckIndexConstraints(ptr noundef %0, ptr noundef %5, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %16, ptr noundef %30) #5
-  br i1 %31, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %31, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %29
   %.not.i = icmp eq ptr %33, null
@@ -985,7 +985,7 @@ define internal fastcc void @CheckAndReportConflict(ptr noundef %0, ptr noundef 
   %40 = call i32 %39(ptr noundef %24, ptr noundef nonnull %6, ptr noundef %35, ptr noundef %33, i32 noundef %36, i32 noundef 1, i32 noundef 0, i8 noundef zeroext 0, ptr noundef nonnull %7) #5
   call void @PopActiveSnapshot() #5
   %41 = call fastcc zeroext i1 @should_refetch_tuple(i32 noundef %40, ptr noundef %7)
-  br i1 %41, label %29, label %42, !llvm.loop !17
+  br i1 %41, label %29, label %42
 
 FindConflictTuple.exit.thread:                    ; preds = %23, %._crit_edge, %32
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #5
@@ -1259,15 +1259,11 @@ attributes #6 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!13 = distinct !{!13, !7}

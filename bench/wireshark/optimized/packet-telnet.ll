@@ -953,7 +953,7 @@ add_telnet_info_str.exit.i:                       ; preds = %133, %131, %129, %1
   %155 = add i32 %.0132.i.i, 1
   %156 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %154, i32 noundef %144, i8 noundef zeroext -1)
   %157 = icmp eq i32 %156, -1
-  br i1 %157, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %157, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 .loopexit.i.i:                                    ; preds = %151, %.lr.ph.i.i, %._crit_edge.i.i
   %.0131.i.i = phi i32 [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %.0132.i.i, %.lr.ph.i.i ], [ %.0132.i.i, %151 ]
@@ -1051,7 +1051,7 @@ add_telnet_info_str.exit.i:                       ; preds = %133, %131, %129, %1
   store i8 -1, ptr %.03340.i.i.i, align 1
   %203 = getelementptr i8, ptr %.03439.i.i.i, i64 2
   %204 = icmp sgt i32 %.03141.i.i.i, 2
-  br i1 %204, label %.lr.ph.i.i.i, label %.outer._crit_edge.i.i.i, !llvm.loop !10
+  br i1 %204, label %.lr.ph.i.i.i, label %.outer._crit_edge.i.i.i, !llvm.loop !9
 
 205:                                              ; preds = %196, %193
   %206 = getelementptr i8, ptr %.03439.i.i.i, i64 1
@@ -1059,7 +1059,7 @@ add_telnet_info_str.exit.i:                       ; preds = %133, %131, %129, %1
   store i8 %.pre.i.i.i, ptr %.03340.i.i.i, align 1
   %208 = add nsw i32 %.03141.i.i.i, -1
   %209 = icmp sgt i32 %.03141.i.i.i, 1
-  br i1 %209, label %193, label %.outer._crit_edge.i.i.i, !llvm.loop !10
+  br i1 %209, label %193, label %.outer._crit_edge.i.i.i, !llvm.loop !9
 
 .outer._crit_edge.i.i.i:                          ; preds = %.outer.i.i.i, %205
   %.032.ph.lcssa.i.i.i = phi i32 [ %.032.ph45.i.i.i, %205 ], [ %200, %.outer.i.i.i ]
@@ -1127,7 +1127,7 @@ unescape_and_tvbuffify_telnet_option.exit.i.i:    ; preds = %.outer._crit_edge.i
   store i8 -1, ptr %.03340.i103.i.i, align 1
   %237 = getelementptr i8, ptr %.03439.i104.i.i, i64 2
   %238 = icmp sgt i32 %.03141.i102.i.i, 2
-  br i1 %238, label %.lr.ph.i97.i.i, label %.outer._crit_edge.i107.i.i, !llvm.loop !10
+  br i1 %238, label %.lr.ph.i97.i.i, label %.outer._crit_edge.i107.i.i, !llvm.loop !9
 
 239:                                              ; preds = %230, %227
   %240 = getelementptr i8, ptr %.03439.i104.i.i, i64 1
@@ -1135,7 +1135,7 @@ unescape_and_tvbuffify_telnet_option.exit.i.i:    ; preds = %.outer._crit_edge.i
   store i8 %.pre.i105.i.i, ptr %.03340.i103.i.i, align 1
   %242 = add nsw i32 %.03141.i102.i.i, -1
   %243 = icmp sgt i32 %.03141.i102.i.i, 1
-  br i1 %243, label %227, label %.outer._crit_edge.i107.i.i, !llvm.loop !10
+  br i1 %243, label %227, label %.outer._crit_edge.i107.i.i, !llvm.loop !9
 
 .outer._crit_edge.i107.i.i:                       ; preds = %.outer.i110.i.i, %239
   %.032.ph.lcssa.i108.i.i = phi i32 [ %.032.ph45.i99.i.i, %239 ], [ %234, %.outer.i110.i.i ]
@@ -1165,7 +1165,7 @@ telnet_command.exit:                              ; preds = %119, %add_telnet_in
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   %254 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i)
   %.not = icmp eq i32 %254, 0
-  br i1 %.not, label %.loopexit76, label %19, !llvm.loop !11
+  br i1 %.not, label %.loopexit76, label %19, !llvm.loop !10
 
 .loopexit:                                        ; preds = %19, %26
   %255 = icmp ne i32 %11, 0
@@ -1330,7 +1330,7 @@ define internal fastcc void @telnet_add_text(ptr noundef %0, ptr noundef %1, i32
 28:                                               ; preds = %21
   %29 = icmp eq i8 %22, 13
   %.not35 = icmp eq i32 %25, 0
-  br i1 %.not35, label %.critedge3, label %.preheader, !llvm.loop !12
+  br i1 %.not35, label %.critedge3, label %.preheader, !llvm.loop !11
 
 .critedge3:                                       ; preds = %28, %21, %.preheader, %16, %8
   %30 = phi i32 [ %.pre42, %16 ], [ %10, %8 ], [ %24, %28 ], [ %.pre41.pre, %.preheader ], [ %24, %21 ]
@@ -1340,7 +1340,7 @@ define internal fastcc void @telnet_add_text(ptr noundef %0, ptr noundef %1, i32
   %33 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %32, ptr noundef %1, i32 noundef %.03140, i32 noundef %31, i32 noundef 0)
   %34 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %.critedge, label %6, !llvm.loop !13
+  br i1 %.not, label %.critedge, label %6, !llvm.loop !12
 
 .critedge:                                        ; preds = %.critedge3, %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #7
@@ -1463,7 +1463,7 @@ define internal void @dissect_htstops_subopt(ptr noundef %0, ptr noundef %1, ptr
 40:                                               ; preds = %37, %34, %31, %28
   %.152 = add nsw i32 %.15261, -1
   %41 = icmp sgt i32 %.15261, 1
-  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %41, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %40, %24, %15, %20
   ret void
@@ -1613,7 +1613,7 @@ define internal void @dissect_outmark_subopt(ptr readnone captures(none) %0, ptr
   %.124 = phi i32 [ %21, %18 ], [ %12, %.lr.ph ]
   %.1 = phi i32 [ %spec.select, %18 ], [ %11, %.lr.ph ]
   %23 = icmp sgt i32 %.124, 0
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %22, %7
   ret void
@@ -1659,7 +1659,7 @@ define internal void @dissect_tn3270_regime_subopt(ptr noundef %0, ptr readnone 
   %26 = add i32 %.030, 1
   %27 = add nsw i32 %.02429, -1
   %28 = icmp sgt i32 %.02429, 1
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %23, %7, %18
   ret void
@@ -1785,7 +1785,7 @@ dissect_ssl_authentication_data.exit.i:           ; preds = %29, %23
   %59 = add i32 %.027, 2
   %60 = add nsw i32 %.02526, -2
   %61 = icmp samesign ugt i32 %.02526, 2
-  br i1 %61, label %.lr.ph, label %dissect_authentication_data.exit, !llvm.loop !17
+  br i1 %61, label %.lr.ph, label %dissect_authentication_data.exit, !llvm.loop !16
 
 62:                                               ; preds = %7
   %63 = load i32, ptr @hf_telnet_auth_name, align 4
@@ -1845,7 +1845,7 @@ define internal void @dissect_encryption_subopt(ptr noundef %0, ptr readnone cap
   %30 = add i32 %.047, 1
   %31 = add nsw i32 %.04446, -1
   %32 = icmp samesign ugt i32 %.04446, 1
-  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  br i1 %32, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 33:                                               ; preds = %7
   %34 = icmp sgt i32 %13, 0
@@ -1978,7 +1978,7 @@ define internal void @dissect_tn3270e_subopt(ptr noundef %0, ptr readnone captur
   %55 = add i32 %.2, 1
   %56 = add nsw i32 %.270, -1
   %.old1 = icmp sgt i32 %.270, 1
-  br i1 %.old1, label %.preheader, label %._crit_edge, !llvm.loop !19
+  br i1 %.old1, label %.preheader, label %._crit_edge
 
 .loopexit:                                        ; preds = %.preheader, %40, %18, %25, %28, %22, %35, %10
   %.169 = phi i32 [ %.06876, %10 ], [ %34, %28 ], [ %.06876, %25 ], [ %.06876, %22 ], [ %.06876, %18 ], [ %37, %35 ], [ %.06876, %40 ], [ %.270, %.preheader ]
@@ -1986,7 +1986,7 @@ define internal void @dissect_tn3270e_subopt(ptr noundef %0, ptr readnone captur
   %57 = add i32 %.1, 1
   %58 = add nsw i32 %.169, -1
   %59 = icmp sgt i32 %.169, 1
-  br i1 %59, label %10, label %._crit_edge, !llvm.loop !20
+  br i1 %59, label %10, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.loopexit, %54, %43, %14, %7
   ret void
@@ -2214,7 +2214,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
   %133 = lshr i8 %.0205, 1
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next207, 8
-  br i1 %exitcond208.not, label %134, label %122, !llvm.loop !21
+  br i1 %exitcond208.not, label %134, label %122, !llvm.loop !19
 
 134:                                              ; preds = %132
   %135 = icmp eq i8 %13, 10
@@ -2272,7 +2272,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
   %162 = lshr i8 %.0190200, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %163, label %151, !llvm.loop !22
+  br i1 %exitcond.not, label %163, label %151, !llvm.loop !20
 
 163:                                              ; preds = %161
   %164 = icmp eq i8 %13, 11
@@ -2586,7 +2586,7 @@ define internal void @dissect_vmware_subopt(ptr noundef %0, ptr noundef %1, ptr 
   %19 = add i32 %.1144, 1
   %20 = add nsw i32 %.1129143, -1
   %21 = icmp samesign ugt i32 %.1129143, 1
-  br i1 %21, label %.lr.ph, label %.thread140, !llvm.loop !23
+  br i1 %21, label %.lr.ph, label %.thread140, !llvm.loop !21
 
 22:                                               ; preds = %7, %7
   %23 = load i32, ptr @hf_telnet_vmware_unknown_subopt_code, align 4
@@ -2850,21 +2850,19 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}

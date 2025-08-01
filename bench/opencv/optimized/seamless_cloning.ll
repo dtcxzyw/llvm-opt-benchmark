@@ -1042,7 +1042,7 @@ define void @_ZN2cv11colorChangeERKNS_11_InputArrayES2_RKNS_12_OutputArrayEfff(p
 
 18:                                               ; preds = %.noexc
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !12, !noalias !74
+  %20 = load ptr, ptr %19, align 8, !tbaa !12, !noalias !73
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %20)
           to label %22 unwind label %79
 
@@ -1089,7 +1089,7 @@ define void @_ZN2cv11colorChangeERKNS_11_InputArrayES2_RKNS_12_OutputArrayEfff(p
 
 38:                                               ; preds = %.noexc36
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !12, !noalias !77
+  %40 = load ptr, ptr %39, align 8, !tbaa !12, !noalias !76
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %40)
           to label %42 unwind label %85
 
@@ -1115,7 +1115,7 @@ define void @_ZN2cv11colorChangeERKNS_11_InputArrayES2_RKNS_12_OutputArrayEfff(p
 
 49:                                               ; preds = %42
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #11
-  %50 = load ptr, ptr %12, align 8, !tbaa !45, !noalias !80
+  %50 = load ptr, ptr %12, align 8, !tbaa !45, !noalias !79
   %51 = load ptr, ptr %50, align 8, !tbaa !55
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
@@ -1315,7 +1315,7 @@ define void @_ZN2cv18illuminationChangeERKNS_11_InputArrayES2_RKNS_12_OutputArra
 
 17:                                               ; preds = %.noexc
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !12, !noalias !83
+  %19 = load ptr, ptr %18, align 8, !tbaa !12, !noalias !82
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %19)
           to label %21 unwind label %78
 
@@ -1362,7 +1362,7 @@ define void @_ZN2cv18illuminationChangeERKNS_11_InputArrayES2_RKNS_12_OutputArra
 
 37:                                               ; preds = %.noexc35
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !12, !noalias !86
+  %39 = load ptr, ptr %38, align 8, !tbaa !12, !noalias !85
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %39)
           to label %41 unwind label %84
 
@@ -1388,7 +1388,7 @@ define void @_ZN2cv18illuminationChangeERKNS_11_InputArrayES2_RKNS_12_OutputArra
 
 48:                                               ; preds = %41
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #11
-  %49 = load ptr, ptr %11, align 8, !tbaa !45, !noalias !89
+  %49 = load ptr, ptr %11, align 8, !tbaa !45, !noalias !88
   %50 = load ptr, ptr %49, align 8, !tbaa !55
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8
@@ -1584,7 +1584,7 @@ define void @_ZN2cv17textureFlatteningERKNS_11_InputArrayES2_RKNS_12_OutputArray
 
 18:                                               ; preds = %.noexc
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !12, !noalias !92
+  %20 = load ptr, ptr %19, align 8, !tbaa !12, !noalias !91
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %20)
           to label %22 unwind label %79
 
@@ -1631,7 +1631,7 @@ define void @_ZN2cv17textureFlatteningERKNS_11_InputArrayES2_RKNS_12_OutputArray
 
 38:                                               ; preds = %.noexc36
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !12, !noalias !95
+  %40 = load ptr, ptr %39, align 8, !tbaa !12, !noalias !94
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %40)
           to label %42 unwind label %85
 
@@ -1657,7 +1657,7 @@ define void @_ZN2cv17textureFlatteningERKNS_11_InputArrayES2_RKNS_12_OutputArray
 
 49:                                               ; preds = %42
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #11
-  %50 = load ptr, ptr %12, align 8, !tbaa !45, !noalias !98
+  %50 = load ptr, ptr %12, align 8, !tbaa !45, !noalias !97
   %51 = load ptr, ptr %50, align 8, !tbaa !55
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load ptr, ptr %52, align 8
@@ -1964,33 +1964,32 @@ attributes #14 = { noreturn nounwind }
 !68 = !{!"_ZTSNSt12_Vector_baseIN2cv3MatESaIS1_EE17_Vector_impl_dataE", !69, i64 0, !69, i64 8, !69, i64 16}
 !69 = !{!"p1 _ZTSN2cv3MatE", !7, i64 0}
 !70 = !{!68, !69, i64 8}
-!71 = distinct !{!71, !72, !73}
+!71 = distinct !{!71, !72}
 !72 = !{!"llvm.loop.mustprogress"}
-!73 = !{!"llvm.loop.estimated_trip_count"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!76 = distinct !{!76, !"_ZNK2cv11_InputArray6getMatEi"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!79 = distinct !{!79, !"_ZNK2cv11_InputArray6getMatEi"}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
-!82 = distinct !{!82, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!85 = distinct !{!85, !"_ZNK2cv11_InputArray6getMatEi"}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!88 = distinct !{!88, !"_ZNK2cv11_InputArray6getMatEi"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
-!91 = distinct !{!91, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!94 = distinct !{!94, !"_ZNK2cv11_InputArray6getMatEi"}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!97 = distinct !{!97, !"_ZNK2cv11_InputArray6getMatEi"}
-!98 = !{!99}
-!99 = distinct !{!99, !100, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
-!100 = distinct !{!100, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!75 = distinct !{!75, !"_ZNK2cv11_InputArray6getMatEi"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!78 = distinct !{!78, !"_ZNK2cv11_InputArray6getMatEi"}
+!79 = !{!80}
+!80 = distinct !{!80, !81, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
+!81 = distinct !{!81, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!84 = distinct !{!84, !"_ZNK2cv11_InputArray6getMatEi"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!87 = distinct !{!87, !"_ZNK2cv11_InputArray6getMatEi"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
+!90 = distinct !{!90, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!93 = distinct !{!93, !"_ZNK2cv11_InputArray6getMatEi"}
+!94 = !{!95}
+!95 = distinct !{!95, !96, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!96 = distinct !{!96, !"_ZNK2cv11_InputArray6getMatEi"}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
+!99 = distinct !{!99, !"_ZNK2cv7MatExprcvNS_3MatEEv"}

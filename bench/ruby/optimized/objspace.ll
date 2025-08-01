@@ -296,7 +296,7 @@ rb_ull2num_inline.exit:                           ; preds = %17, %20
   %25 = call i64 @rb_intern2(ptr noundef nonnull @.str.17, i64 noundef 5) #7
   store i64 %25, ptr @count_objects_size.rbimpl_id, align 8, !tbaa !6
   %.not.i = icmp eq i64 %25, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %24
   %.lcssa.i = phi i64 [ %.pr.i, %24 ], [ %25, %.lr.ph.i ]
@@ -342,12 +342,12 @@ define internal i64 @count_symbols(i32 noundef %0, ptr noundef readonly captures
   %9 = call i64 @rb_intern2(ptr noundef nonnull @.str.73, i64 noundef 21) #7
   store i64 %9, ptr @count_symbols.rbimpl_id, align 8, !tbaa !6
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %3
   %.lcssa.i = phi i64 [ %.pr.i, %3 ], [ %9, %.lr.ph.i ]
   %10 = call i64 @rb_id2sym(i64 noundef %.lcssa.i) #7
-  %11 = load i64, ptr %5, align 8, !tbaa !20
+  %11 = load i64, ptr %5, align 8, !tbaa !19
   %12 = icmp ult i64 %11, 4611686018427387904
   br i1 %12, label %13, label %16
 
@@ -371,13 +371,13 @@ rb_ull2num_inline.exit:                           ; preds = %13, %16
   %19 = call i64 @rb_intern2(ptr noundef nonnull @.str.75, i64 noundef 23) #7
   store i64 %19, ptr @count_symbols.rbimpl_id.74, align 8, !tbaa !6
   %.not.i20 = icmp eq i64 %19, 0
-  br i1 %.not.i20, label %.lr.ph.i19, label %rbimpl_intern_const.exit21, !llvm.loop !19
+  br i1 %.not.i20, label %.lr.ph.i19, label %rbimpl_intern_const.exit21, !llvm.loop !18
 
 rbimpl_intern_const.exit21:                       ; preds = %.lr.ph.i19, %rb_ull2num_inline.exit
   %.lcssa.i18 = phi i64 [ %.pr.i16, %rb_ull2num_inline.exit ], [ %19, %.lr.ph.i19 ]
   %20 = call i64 @rb_id2sym(i64 noundef %.lcssa.i18) #7
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !22
+  %22 = load i64, ptr %21, align 8, !tbaa !21
   %23 = icmp ult i64 %22, 4611686018427387904
   br i1 %23, label %24, label %27
 
@@ -401,12 +401,12 @@ rb_ull2num_inline.exit23:                         ; preds = %24, %27
   %30 = call i64 @rb_intern2(ptr noundef nonnull @.str.77, i64 noundef 22) #7
   store i64 %30, ptr @count_symbols.rbimpl_id.76, align 8, !tbaa !6
   %.not.i28 = icmp eq i64 %30, 0
-  br i1 %.not.i28, label %.lr.ph.i27, label %rbimpl_intern_const.exit29, !llvm.loop !19
+  br i1 %.not.i28, label %.lr.ph.i27, label %rbimpl_intern_const.exit29, !llvm.loop !18
 
 rbimpl_intern_const.exit29:                       ; preds = %.lr.ph.i27, %rb_ull2num_inline.exit23
   %.lcssa.i26 = phi i64 [ %.pr.i24, %rb_ull2num_inline.exit23 ], [ %30, %.lr.ph.i27 ]
   %31 = call i64 @rb_id2sym(i64 noundef %.lcssa.i26) #7
-  %32 = load i64, ptr %21, align 8, !tbaa !22
+  %32 = load i64, ptr %21, align 8, !tbaa !21
   %33 = sub i64 %7, %32
   %34 = icmp ult i64 %33, 4611686018427387904
   br i1 %34, label %35, label %38
@@ -431,7 +431,7 @@ rb_ull2num_inline.exit31:                         ; preds = %35, %38
   %41 = call i64 @rb_intern2(ptr noundef nonnull @.str.79, i64 noundef 15) #7
   store i64 %41, ptr @count_symbols.rbimpl_id.78, align 8, !tbaa !6
   %.not.i36 = icmp eq i64 %41, 0
-  br i1 %.not.i36, label %.lr.ph.i35, label %rbimpl_intern_const.exit37, !llvm.loop !19
+  br i1 %.not.i36, label %.lr.ph.i35, label %rbimpl_intern_const.exit37, !llvm.loop !18
 
 rbimpl_intern_const.exit37:                       ; preds = %.lr.ph.i35, %rb_ull2num_inline.exit31
   %.lcssa.i34 = phi i64 [ %.pr.i32, %rb_ull2num_inline.exit31 ], [ %41, %.lr.ph.i35 ]
@@ -543,7 +543,7 @@ define internal i64 @reachable_objects_from(i64 %0, i64 noundef %1) #0 {
 10:                                               ; preds = %8
   %11 = inttoptr i64 %1 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !23
+  %13 = load ptr, ptr %12, align 8, !tbaa !22
   %14 = ptrtoint ptr %13 to i64
   br label %15
 
@@ -551,12 +551,12 @@ define internal i64 @reachable_objects_from(i64 %0, i64 noundef %1) #0 {
   %.0 = phi i64 [ %14, %10 ], [ %1, %8 ]
   %16 = tail call i64 @rb_ident_hash_new() #7
   %17 = tail call i64 @rb_obj_hide(i64 noundef %16) #7
-  store i64 %17, ptr %3, align 8, !tbaa !26
+  store i64 %17, ptr %3, align 8, !tbaa !25
   %18 = tail call i64 @rb_ary_new() #7
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %18, ptr %19, align 8, !tbaa !28
+  store i64 %18, ptr %19, align 8, !tbaa !27
   call void @rb_objspace_reachable_objects_from(i64 noundef %.0, ptr noundef nonnull @reachable_object_from_i, ptr noundef nonnull %3) #7
-  %20 = load i64, ptr %19, align 8, !tbaa !28
+  %20 = load i64, ptr %19, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   br label %21
 
@@ -570,9 +570,9 @@ define internal i64 @reachable_objects_from_root(i64 %0) #0 {
   %2 = alloca %struct.rofr_data, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #7
   %3 = tail call i64 @rb_ident_hash_new() #7
-  store i64 %3, ptr %2, align 8, !tbaa !29
+  store i64 %3, ptr %2, align 8, !tbaa !28
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !32
+  store ptr null, ptr %4, align 8, !tbaa !31
   call void @rb_objspace_reachable_objects_from_root(ptr noundef nonnull @reachable_object_from_root_i, ptr noundef nonnull %2) #7
   call void @rb_hash_foreach(i64 noundef %3, ptr noundef nonnull @collect_values_of_values, i64 noundef %3) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #7
@@ -588,7 +588,7 @@ define internal i64 @objspace_internal_class_of(i64 %0, i64 noundef %1) #0 {
 4:                                                ; preds = %2
   %5 = inttoptr i64 %1 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
   %8 = ptrtoint ptr %7 to i64
   br label %9
 
@@ -602,7 +602,7 @@ define internal i64 @objspace_internal_class_of(i64 %0, i64 noundef %1) #0 {
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %9
   %14 = inttoptr i64 %.06 to ptr
-  %15 = load i64, ptr %14, align 8, !tbaa !33
+  %15 = load i64, ptr %14, align 8, !tbaa !32
   %16 = and i64 %15, 31
   %17 = icmp eq i64 %16, 26
   br i1 %17, label %wrap_klass_iow.exit, label %18
@@ -649,7 +649,7 @@ rb_class_of.exit:                                 ; preds = %18, %20, %21, %22, 
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %29
   %31 = inttoptr i64 %.0.i7 to ptr
-  %32 = load i64, ptr %31, align 8, !tbaa !33
+  %32 = load i64, ptr %31, align 8, !tbaa !32
   %33 = and i64 %32, 31
   %34 = icmp eq i64 %33, 28
   br i1 %34, label %45, label %35
@@ -708,7 +708,7 @@ define internal i64 @objspace_internal_super_of(i64 %0, i64 noundef %1) #0 {
 4:                                                ; preds = %2
   %5 = inttoptr i64 %1 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
   %8 = ptrtoint ptr %7 to i64
   br label %9
 
@@ -722,7 +722,7 @@ define internal i64 @objspace_internal_super_of(i64 %0, i64 noundef %1) #0 {
 
 14:                                               ; preds = %9
   %15 = inttoptr i64 %.0 to ptr
-  %16 = load i64, ptr %15, align 8, !tbaa !33
+  %16 = load i64, ptr %15, align 8, !tbaa !32
   %17 = trunc i64 %16 to i32
   %18 = and i32 %17, 31
   switch i32 %18, label %.thread [
@@ -733,7 +733,7 @@ define internal i64 @objspace_internal_super_of(i64 %0, i64 noundef %1) #0 {
 
 19:                                               ; preds = %14, %14, %14
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !34
+  %21 = load i64, ptr %20, align 8, !tbaa !33
   %22 = and i64 %21, -5
   %.not.i = icmp eq i64 %22, 0
   br i1 %.not.i, label %wrap_klass_iow.exit, label %23
@@ -745,7 +745,7 @@ define internal i64 @objspace_internal_super_of(i64 %0, i64 noundef %1) #0 {
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %23
   %25 = inttoptr i64 %21 to ptr
-  %26 = load i64, ptr %25, align 8, !tbaa !33
+  %26 = load i64, ptr %25, align 8, !tbaa !32
   %27 = and i64 %26, 31
   %28 = icmp eq i64 %27, 28
   br i1 %28, label %39, label %29
@@ -810,8 +810,8 @@ declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef
 define internal i64 @iow_type(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !23
-  %5 = load i64, ptr %4, align 8, !tbaa !33
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !32
   %6 = trunc i64 %5 to i32
   %7 = and i32 %6, 31
   %8 = tail call fastcc i64 @type2sym(i32 noundef %7)
@@ -822,8 +822,8 @@ define internal i64 @iow_type(i64 noundef %0) #0 {
 define internal i64 @iow_inspect(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !23
-  %5 = load i64, ptr %4, align 8, !tbaa !33
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
+  %5 = load i64, ptr %4, align 8, !tbaa !32
   %6 = trunc i64 %5 to i32
   %7 = and i32 %6, 31
   %8 = tail call fastcc i64 @type2sym(i32 noundef %7)
@@ -836,7 +836,7 @@ define internal i64 @iow_inspect(i64 noundef %0) #0 {
 define internal i64 @iow_internal_object_id(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !23
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = ptrtoint ptr %4 to i64
   %6 = tail call i64 @rb_obj_id(i64 noundef %5) #7
   ret i64 %6
@@ -864,7 +864,7 @@ define internal void @total_i(i64 noundef %0, ptr noundef captures(none) %1) #0 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i64, ptr %5, align 8, !tbaa !37
+  %6 = load i64, ptr %5, align 8, !tbaa !36
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %10, label %8
 
@@ -907,7 +907,7 @@ define internal noundef i32 @heap_iter(ptr noundef %0, ptr noundef %1, i64 nound
   %9 = tail call ptr @rb_asan_poisoned_object_p(i64 noundef %.016) #7
   tail call void @rb_asan_unpoison_object(i64 noundef %.016, i1 noundef zeroext false) #7
   %10 = inttoptr i64 %.016 to ptr
-  %11 = load i64, ptr %10, align 8, !tbaa !33
+  %11 = load i64, ptr %10, align 8, !tbaa !32
   %.not13 = icmp eq i64 %11, 0
   br i1 %.not13, label %15, label %12
 
@@ -928,7 +928,7 @@ define internal noundef i32 @heap_iter(ptr noundef %0, ptr noundef %1, i64 nound
 17:                                               ; preds = %16, %15
   %18 = add i64 %.016, %2
   %.not = icmp eq i64 %18, %5
-  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %8, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %17, %4
   ret i32 0
@@ -971,7 +971,7 @@ define internal fastcc i64 @setup_hash(i32 noundef %0, ptr noundef readonly capt
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %7
   %12 = inttoptr i64 %4 to ptr
-  %13 = load i64, ptr %12, align 8, !tbaa !33
+  %13 = load i64, ptr %12, align 8, !tbaa !32
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 8
   br i1 %15, label %rb_scan_args_set.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -987,7 +987,7 @@ rb_scan_args_set.exit.thread10:                   ; preds = %.preheader.split.sp
 
 rb_scan_args_set.exit:                            ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
   %18 = inttoptr i64 %4 to ptr
-  %19 = load i64, ptr %18, align 8, !tbaa !33
+  %19 = load i64, ptr %18, align 8, !tbaa !32
   %20 = and i64 %19, 32768
   %.not.i.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i.i, label %21, label %24
@@ -1001,7 +1001,7 @@ rb_scan_args_set.exit:                            ; preds = %rbimpl_RB_TYPE_P_fa
   %25 = add i64 %4, 24
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !39
+  %28 = load i64, ptr %27, align 8, !tbaa !38
   br label %RHASH_EMPTY_P.exit
 
 RHASH_EMPTY_P.exit:                               ; preds = %21, %24
@@ -1022,7 +1022,7 @@ RHASH_EMPTY_P.exit:                               ; preds = %21, %24
 define internal void @cos_i(i64 noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = tail call i64 @rb_obj_memsize_of(i64 noundef %0) #7
   %4 = inttoptr i64 %0 to ptr
-  %5 = load i64, ptr %4, align 8, !tbaa !33
+  %5 = load i64, ptr %4, align 8, !tbaa !32
   %6 = and i64 %5, 31
   %7 = getelementptr inbounds nuw i64, ptr %1, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !6
@@ -1072,7 +1072,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %3 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.19, i64 noundef 6) #7
   store i64 %3, ptr @type2sym.rbimpl_id, align 8, !tbaa !6
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 4:                                                ; preds = %1
   %.pr.i57 = load i64, ptr @type2sym.rbimpl_id.20, align 8, !tbaa !6
@@ -1083,7 +1083,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %5 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.21, i64 noundef 8) #7
   store i64 %5, ptr @type2sym.rbimpl_id.20, align 8, !tbaa !6
   %.not.i61 = icmp eq i64 %5, 0
-  br i1 %.not.i61, label %.lr.ph.i60, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i61, label %.lr.ph.i60, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 6:                                                ; preds = %1
   %.pr.i63 = load i64, ptr @type2sym.rbimpl_id.22, align 8, !tbaa !6
@@ -1094,7 +1094,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %7 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.23, i64 noundef 7) #7
   store i64 %7, ptr @type2sym.rbimpl_id.22, align 8, !tbaa !6
   %.not.i67 = icmp eq i64 %7, 0
-  br i1 %.not.i67, label %.lr.ph.i66, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i67, label %.lr.ph.i66, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 8:                                                ; preds = %1
   %.pr.i69 = load i64, ptr @type2sym.rbimpl_id.24, align 8, !tbaa !6
@@ -1105,7 +1105,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %9 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.25, i64 noundef 8) #7
   store i64 %9, ptr @type2sym.rbimpl_id.24, align 8, !tbaa !6
   %.not.i73 = icmp eq i64 %9, 0
-  br i1 %.not.i73, label %.lr.ph.i72, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i73, label %.lr.ph.i72, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 10:                                               ; preds = %1
   %.pr.i75 = load i64, ptr @type2sym.rbimpl_id.26, align 8, !tbaa !6
@@ -1116,7 +1116,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %11 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.27, i64 noundef 7) #7
   store i64 %11, ptr @type2sym.rbimpl_id.26, align 8, !tbaa !6
   %.not.i79 = icmp eq i64 %11, 0
-  br i1 %.not.i79, label %.lr.ph.i78, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i79, label %.lr.ph.i78, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 12:                                               ; preds = %1
   %.pr.i81 = load i64, ptr @type2sym.rbimpl_id.28, align 8, !tbaa !6
@@ -1127,7 +1127,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.29, i64 noundef 8) #7
   store i64 %13, ptr @type2sym.rbimpl_id.28, align 8, !tbaa !6
   %.not.i85 = icmp eq i64 %13, 0
-  br i1 %.not.i85, label %.lr.ph.i84, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i85, label %.lr.ph.i84, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 14:                                               ; preds = %1
   %.pr.i87 = load i64, ptr @type2sym.rbimpl_id.30, align 8, !tbaa !6
@@ -1138,7 +1138,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %15 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.31, i64 noundef 8) #7
   store i64 %15, ptr @type2sym.rbimpl_id.30, align 8, !tbaa !6
   %.not.i91 = icmp eq i64 %15, 0
-  br i1 %.not.i91, label %.lr.ph.i90, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i91, label %.lr.ph.i90, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 16:                                               ; preds = %1
   %.pr.i93 = load i64, ptr @type2sym.rbimpl_id.32, align 8, !tbaa !6
@@ -1149,7 +1149,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %17 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.33, i64 noundef 7) #7
   store i64 %17, ptr @type2sym.rbimpl_id.32, align 8, !tbaa !6
   %.not.i97 = icmp eq i64 %17, 0
-  br i1 %.not.i97, label %.lr.ph.i96, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i97, label %.lr.ph.i96, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 18:                                               ; preds = %1
   %.pr.i99 = load i64, ptr @type2sym.rbimpl_id.34, align 8, !tbaa !6
@@ -1160,7 +1160,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %19 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.35, i64 noundef 6) #7
   store i64 %19, ptr @type2sym.rbimpl_id.34, align 8, !tbaa !6
   %.not.i103 = icmp eq i64 %19, 0
-  br i1 %.not.i103, label %.lr.ph.i102, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i103, label %.lr.ph.i102, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 20:                                               ; preds = %1
   %.pr.i105 = load i64, ptr @type2sym.rbimpl_id.36, align 8, !tbaa !6
@@ -1171,7 +1171,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.37, i64 noundef 8) #7
   store i64 %21, ptr @type2sym.rbimpl_id.36, align 8, !tbaa !6
   %.not.i109 = icmp eq i64 %21, 0
-  br i1 %.not.i109, label %.lr.ph.i108, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i109, label %.lr.ph.i108, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 22:                                               ; preds = %1
   %.pr.i111 = load i64, ptr @type2sym.rbimpl_id.38, align 8, !tbaa !6
@@ -1182,7 +1182,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %23 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.39, i64 noundef 8) #7
   store i64 %23, ptr @type2sym.rbimpl_id.38, align 8, !tbaa !6
   %.not.i115 = icmp eq i64 %23, 0
-  br i1 %.not.i115, label %.lr.ph.i114, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i115, label %.lr.ph.i114, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 24:                                               ; preds = %1
   %.pr.i117 = load i64, ptr @type2sym.rbimpl_id.40, align 8, !tbaa !6
@@ -1193,7 +1193,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %25 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.41, i64 noundef 6) #7
   store i64 %25, ptr @type2sym.rbimpl_id.40, align 8, !tbaa !6
   %.not.i121 = icmp eq i64 %25, 0
-  br i1 %.not.i121, label %.lr.ph.i120, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i121, label %.lr.ph.i120, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 26:                                               ; preds = %1
   %.pr.i123 = load i64, ptr @type2sym.rbimpl_id.42, align 8, !tbaa !6
@@ -1204,7 +1204,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %27 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.43, i64 noundef 6) #7
   store i64 %27, ptr @type2sym.rbimpl_id.42, align 8, !tbaa !6
   %.not.i127 = icmp eq i64 %27, 0
-  br i1 %.not.i127, label %.lr.ph.i126, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i127, label %.lr.ph.i126, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 28:                                               ; preds = %1
   %.pr.i129 = load i64, ptr @type2sym.rbimpl_id.44, align 8, !tbaa !6
@@ -1215,7 +1215,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %29 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.45, i64 noundef 7) #7
   store i64 %29, ptr @type2sym.rbimpl_id.44, align 8, !tbaa !6
   %.not.i133 = icmp eq i64 %29, 0
-  br i1 %.not.i133, label %.lr.ph.i132, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i133, label %.lr.ph.i132, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 30:                                               ; preds = %1
   %.pr.i135 = load i64, ptr @type2sym.rbimpl_id.46, align 8, !tbaa !6
@@ -1226,7 +1226,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %31 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.47, i64 noundef 9) #7
   store i64 %31, ptr @type2sym.rbimpl_id.46, align 8, !tbaa !6
   %.not.i139 = icmp eq i64 %31, 0
-  br i1 %.not.i139, label %.lr.ph.i138, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i139, label %.lr.ph.i138, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 32:                                               ; preds = %1
   %.pr.i141 = load i64, ptr @type2sym.rbimpl_id.48, align 8, !tbaa !6
@@ -1237,7 +1237,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %33 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.49, i64 noundef 10) #7
   store i64 %33, ptr @type2sym.rbimpl_id.48, align 8, !tbaa !6
   %.not.i145 = icmp eq i64 %33, 0
-  br i1 %.not.i145, label %.lr.ph.i144, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i145, label %.lr.ph.i144, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 34:                                               ; preds = %1
   %.pr.i147 = load i64, ptr @type2sym.rbimpl_id.50, align 8, !tbaa !6
@@ -1248,7 +1248,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %35 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.51, i64 noundef 5) #7
   store i64 %35, ptr @type2sym.rbimpl_id.50, align 8, !tbaa !6
   %.not.i151 = icmp eq i64 %35, 0
-  br i1 %.not.i151, label %.lr.ph.i150, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i151, label %.lr.ph.i150, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 36:                                               ; preds = %1
   %.pr.i153 = load i64, ptr @type2sym.rbimpl_id.52, align 8, !tbaa !6
@@ -1259,7 +1259,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %37 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.53, i64 noundef 6) #7
   store i64 %37, ptr @type2sym.rbimpl_id.52, align 8, !tbaa !6
   %.not.i157 = icmp eq i64 %37, 0
-  br i1 %.not.i157, label %.lr.ph.i156, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i157, label %.lr.ph.i156, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 38:                                               ; preds = %1
   %.pr.i159 = load i64, ptr @type2sym.rbimpl_id.54, align 8, !tbaa !6
@@ -1270,7 +1270,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %39 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.55, i64 noundef 7) #7
   store i64 %39, ptr @type2sym.rbimpl_id.54, align 8, !tbaa !6
   %.not.i163 = icmp eq i64 %39, 0
-  br i1 %.not.i163, label %.lr.ph.i162, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i163, label %.lr.ph.i162, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 40:                                               ; preds = %1
   %.pr.i165 = load i64, ptr @type2sym.rbimpl_id.56, align 8, !tbaa !6
@@ -1281,7 +1281,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %41 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.57, i64 noundef 8) #7
   store i64 %41, ptr @type2sym.rbimpl_id.56, align 8, !tbaa !6
   %.not.i169 = icmp eq i64 %41, 0
-  br i1 %.not.i169, label %.lr.ph.i168, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i169, label %.lr.ph.i168, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 42:                                               ; preds = %1
   %.pr.i171 = load i64, ptr @type2sym.rbimpl_id.58, align 8, !tbaa !6
@@ -1292,7 +1292,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %43 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.59, i64 noundef 8) #7
   store i64 %43, ptr @type2sym.rbimpl_id.58, align 8, !tbaa !6
   %.not.i175 = icmp eq i64 %43, 0
-  br i1 %.not.i175, label %.lr.ph.i174, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i175, label %.lr.ph.i174, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 44:                                               ; preds = %1
   %.pr.i177 = load i64, ptr @type2sym.rbimpl_id.60, align 8, !tbaa !6
@@ -1303,7 +1303,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %45 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.61, i64 noundef 7) #7
   store i64 %45, ptr @type2sym.rbimpl_id.60, align 8, !tbaa !6
   %.not.i181 = icmp eq i64 %45, 0
-  br i1 %.not.i181, label %.lr.ph.i180, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i181, label %.lr.ph.i180, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 46:                                               ; preds = %1
   %.pr.i183 = load i64, ptr @type2sym.rbimpl_id.62, align 8, !tbaa !6
@@ -1314,7 +1314,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %47 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.63, i64 noundef 7) #7
   store i64 %47, ptr @type2sym.rbimpl_id.62, align 8, !tbaa !6
   %.not.i187 = icmp eq i64 %47, 0
-  br i1 %.not.i187, label %.lr.ph.i186, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i187, label %.lr.ph.i186, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 48:                                               ; preds = %1
   %.pr.i189 = load i64, ptr @type2sym.rbimpl_id.64, align 8, !tbaa !6
@@ -1325,7 +1325,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %49 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.65, i64 noundef 6) #7
   store i64 %49, ptr @type2sym.rbimpl_id.64, align 8, !tbaa !6
   %.not.i193 = icmp eq i64 %49, 0
-  br i1 %.not.i193, label %.lr.ph.i192, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i193, label %.lr.ph.i192, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 50:                                               ; preds = %1
   %.pr.i195 = load i64, ptr @type2sym.rbimpl_id.66, align 8, !tbaa !6
@@ -1336,7 +1336,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %51 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.67, i64 noundef 8) #7
   store i64 %51, ptr @type2sym.rbimpl_id.66, align 8, !tbaa !6
   %.not.i199 = icmp eq i64 %51, 0
-  br i1 %.not.i199, label %.lr.ph.i198, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i199, label %.lr.ph.i198, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 52:                                               ; preds = %1
   %.pr.i201 = load i64, ptr @type2sym.rbimpl_id.68, align 8, !tbaa !6
@@ -1347,7 +1347,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %53 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.69, i64 noundef 7) #7
   store i64 %53, ptr @type2sym.rbimpl_id.68, align 8, !tbaa !6
   %.not.i205 = icmp eq i64 %53, 0
-  br i1 %.not.i205, label %.lr.ph.i204, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i205, label %.lr.ph.i204, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 54:                                               ; preds = %1
   %.pr.i207 = load i64, ptr @type2sym.rbimpl_id.70, align 8, !tbaa !6
@@ -1358,7 +1358,7 @@ define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_ad
   %55 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.71, i64 noundef 8) #7
   store i64 %55, ptr @type2sym.rbimpl_id.70, align 8, !tbaa !6
   %.not.i211 = icmp eq i64 %55, 0
-  br i1 %.not.i211, label %.lr.ph.i210, label %rbimpl_intern_const.exit, !llvm.loop !19
+  br i1 %.not.i211, label %.lr.ph.i210, label %rbimpl_intern_const.exit, !llvm.loop !18
 
 56:                                               ; preds = %1
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.72, i32 noundef %0) #9
@@ -1397,29 +1397,29 @@ declare i64 @rb_sym_immortal_count() local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @cs_i(i64 noundef %0, ptr noundef captures(none) %1) #6 {
   %3 = inttoptr i64 %0 to ptr
-  %4 = load i64, ptr %3, align 8, !tbaa !33
+  %4 = load i64, ptr %3, align 8, !tbaa !32
   %5 = and i64 %4, 31
   %6 = icmp eq i64 %5, 20
   br i1 %6, label %7, label %19
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !45
+  %9 = load i64, ptr %8, align 8, !tbaa !44
   %10 = and i64 %9, -15
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7
-  %13 = load i64, ptr %1, align 8, !tbaa !20
+  %13 = load i64, ptr %1, align 8, !tbaa !19
   %14 = add i64 %13, 1
-  store i64 %14, ptr %1, align 8, !tbaa !20
+  store i64 %14, ptr %1, align 8, !tbaa !19
   br label %19
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !22
+  %17 = load i64, ptr %16, align 8, !tbaa !21
   %18 = add i64 %17, 1
-  store i64 %18, ptr %16, align 8, !tbaa !22
+  store i64 %18, ptr %16, align 8, !tbaa !21
   br label %19
 
 19:                                               ; preds = %12, %15, %2
@@ -1430,14 +1430,14 @@ define internal void @cs_i(i64 noundef %0, ptr noundef captures(none) %1) #6 {
 define internal void @cto_i(i64 noundef %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = inttoptr i64 %0 to ptr
-  %5 = load i64, ptr %4, align 8, !tbaa !33
+  %5 = load i64, ptr %4, align 8, !tbaa !32
   %6 = and i64 %5, 31
   %7 = icmp eq i64 %6, 12
   br i1 %7, label %8, label %27
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !47
+  %10 = load i64, ptr %9, align 8, !tbaa !46
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %17
 
@@ -1482,7 +1482,7 @@ declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #2
 define internal void @count_imemo_objects_i(i64 noundef %0, ptr noundef %1) #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = inttoptr i64 %0 to ptr
-  %5 = load i64, ptr %4, align 8, !tbaa !33
+  %5 = load i64, ptr %4, align 8, !tbaa !32
   %6 = and i64 %5, 31
   %7 = icmp eq i64 %6, 26
   br i1 %7, label %8, label %23
@@ -1529,13 +1529,13 @@ define internal void @reachable_object_from_i(i64 noundef %0, ptr noundef readon
   br i1 %.not, label %4, label %20
 
 4:                                                ; preds = %2
-  %5 = load i64, ptr %1, align 8, !tbaa !26
+  %5 = load i64, ptr %1, align 8, !tbaa !25
   %6 = tail call i64 @rb_hash_lookup(i64 noundef %5, i64 noundef %0) #7
   %7 = icmp eq i64 %6, 4
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %4
-  %9 = load i64, ptr %1, align 8, !tbaa !26
+  %9 = load i64, ptr %1, align 8, !tbaa !25
   %10 = tail call i64 @rb_hash_aset(i64 noundef %9, i64 noundef %0, i64 noundef 20) #7
   %11 = tail call i32 @rb_objspace_internal_object_p(i64 noundef %0) #7
   %.not11 = icmp eq i32 %11, 0
@@ -1550,7 +1550,7 @@ define internal void @reachable_object_from_i(i64 noundef %0, ptr noundef readon
 16:                                               ; preds = %12, %8
   %.0 = phi i64 [ %15, %12 ], [ %0, %8 ]
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !28
+  %18 = load i64, ptr %17, align 8, !tbaa !27
   %19 = tail call i64 @rb_ary_push(i64 noundef %18, i64 noundef %.0) #7
   br label %20
 
@@ -1587,24 +1587,24 @@ declare void @rb_objspace_reachable_objects_from_root(ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @reachable_object_from_root_i(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !32
+  %5 = load ptr, ptr %4, align 8, !tbaa !31
   %6 = icmp eq ptr %0, %5
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !48
+  %9 = load i64, ptr %8, align 8, !tbaa !47
   br label %22
 
 10:                                               ; preds = %3
-  store ptr %0, ptr %4, align 8, !tbaa !32
+  store ptr %0, ptr %4, align 8, !tbaa !31
   %11 = tail call i64 @rb_str_new_cstr(ptr noundef %0) #7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %11, ptr %12, align 8, !tbaa !49
+  store i64 %11, ptr %12, align 8, !tbaa !48
   %13 = tail call i64 @rb_ident_hash_new() #7
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %13, ptr %14, align 8, !tbaa !48
-  %15 = load i64, ptr %2, align 8, !tbaa !29
+  store i64 %13, ptr %14, align 8, !tbaa !47
+  %15 = load i64, ptr %2, align 8, !tbaa !28
   %16 = tail call i64 @rb_hash_lookup(i64 noundef %15, i64 noundef %11) #7
   %17 = icmp eq i64 %16, 4
   br i1 %17, label %19, label %18
@@ -1614,7 +1614,7 @@ define internal void @reachable_object_from_root_i(ptr noundef %0, i64 noundef %
   unreachable
 
 19:                                               ; preds = %10
-  %20 = load i64, ptr %2, align 8, !tbaa !29
+  %20 = load i64, ptr %2, align 8, !tbaa !28
   %21 = tail call i64 @rb_hash_aset(i64 noundef %20, i64 noundef %11, i64 noundef %13) #7
   br label %22
 
@@ -1625,13 +1625,13 @@ define internal void @reachable_object_from_root_i(ptr noundef %0, i64 noundef %
   br i1 %.not, label %24, label %37
 
 24:                                               ; preds = %22
-  %25 = load i64, ptr %2, align 8, !tbaa !29
+  %25 = load i64, ptr %2, align 8, !tbaa !28
   %.not27 = icmp eq i64 %1, %25
   br i1 %.not27, label %37, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %28 = load i64, ptr %27, align 8, !tbaa !48
+  %28 = load i64, ptr %27, align 8, !tbaa !47
   %.not28 = icmp eq i64 %1, %28
   br i1 %.not28, label %37, label %29
 
@@ -1706,37 +1706,36 @@ attributes #9 = { cold noreturn nounwind }
 !13 = !{!11, !12, i64 8}
 !14 = !{!15, !7, i64 0}
 !15 = !{!"total_data", !7, i64 0, !7, i64 8}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = !{!21, !7, i64 0}
-!21 = !{!"dynamic_symbol_counts", !7, i64 0, !7, i64 8}
-!22 = !{!21, !7, i64 8}
-!23 = !{!24, !12, i64 32}
-!24 = !{!"RData", !25, i64 0, !12, i64 16, !12, i64 24, !12, i64 32}
-!25 = !{!"RBasic", !7, i64 0, !7, i64 8}
-!26 = !{!27, !7, i64 0}
-!27 = !{!"rof_data", !7, i64 0, !7, i64 8}
-!28 = !{!27, !7, i64 8}
-!29 = !{!30, !7, i64 0}
-!30 = !{!"rofr_data", !7, i64 0, !31, i64 8, !7, i64 16, !7, i64 24}
-!31 = !{!"p1 omnipotent char", !12, i64 0}
-!32 = !{!30, !31, i64 8}
-!33 = !{!25, !7, i64 0}
-!34 = !{!35, !7, i64 16}
-!35 = !{!"RClass", !25, i64 0, !7, i64 16, !36, i64 24}
-!36 = !{!"p1 _ZTS11rb_id_table", !12, i64 0}
-!37 = !{!15, !7, i64 8}
-!38 = distinct !{!38, !17, !18}
-!39 = !{!40, !7, i64 16}
-!40 = !{!"st_table", !8, i64 0, !8, i64 1, !8, i64 2, !41, i64 4, !42, i64 8, !7, i64 16, !43, i64 24, !7, i64 32, !7, i64 40, !44, i64 48}
-!41 = !{!"int", !8, i64 0}
-!42 = !{!"p1 _ZTS12st_hash_type", !12, i64 0}
-!43 = !{!"p1 long", !12, i64 0}
-!44 = !{!"p1 _ZTS14st_table_entry", !12, i64 0}
-!45 = !{!46, !7, i64 32}
-!46 = !{!"RSymbol", !25, i64 0, !7, i64 16, !7, i64 24, !7, i64 32}
-!47 = !{!25, !7, i64 8}
-!48 = !{!30, !7, i64 24}
-!49 = !{!30, !7, i64 16}
+!18 = distinct !{!18, !17}
+!19 = !{!20, !7, i64 0}
+!20 = !{!"dynamic_symbol_counts", !7, i64 0, !7, i64 8}
+!21 = !{!20, !7, i64 8}
+!22 = !{!23, !12, i64 32}
+!23 = !{!"RData", !24, i64 0, !12, i64 16, !12, i64 24, !12, i64 32}
+!24 = !{!"RBasic", !7, i64 0, !7, i64 8}
+!25 = !{!26, !7, i64 0}
+!26 = !{!"rof_data", !7, i64 0, !7, i64 8}
+!27 = !{!26, !7, i64 8}
+!28 = !{!29, !7, i64 0}
+!29 = !{!"rofr_data", !7, i64 0, !30, i64 8, !7, i64 16, !7, i64 24}
+!30 = !{!"p1 omnipotent char", !12, i64 0}
+!31 = !{!29, !30, i64 8}
+!32 = !{!24, !7, i64 0}
+!33 = !{!34, !7, i64 16}
+!34 = !{!"RClass", !24, i64 0, !7, i64 16, !35, i64 24}
+!35 = !{!"p1 _ZTS11rb_id_table", !12, i64 0}
+!36 = !{!15, !7, i64 8}
+!37 = distinct !{!37, !17}
+!38 = !{!39, !7, i64 16}
+!39 = !{!"st_table", !8, i64 0, !8, i64 1, !8, i64 2, !40, i64 4, !41, i64 8, !7, i64 16, !42, i64 24, !7, i64 32, !7, i64 40, !43, i64 48}
+!40 = !{!"int", !8, i64 0}
+!41 = !{!"p1 _ZTS12st_hash_type", !12, i64 0}
+!42 = !{!"p1 long", !12, i64 0}
+!43 = !{!"p1 _ZTS14st_table_entry", !12, i64 0}
+!44 = !{!45, !7, i64 32}
+!45 = !{!"RSymbol", !24, i64 0, !7, i64 16, !7, i64 24, !7, i64 32}
+!46 = !{!24, !7, i64 8}
+!47 = !{!29, !7, i64 24}
+!48 = !{!29, !7, i64 16}

@@ -487,7 +487,7 @@ define noundef zeroext i1 @ExportDataAsCode(ptr noundef readonly captures(none) 
   %36 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv.next
   %37 = load i8, ptr %36, align 1
   %.not = icmp eq i8 %37, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge82:                                    ; preds = %.lr.ph81, %._crit_edge
   %.072.lcssa = phi i32 [ %27, %._crit_edge ], [ %56, %.lr.ph81 ]
@@ -518,7 +518,7 @@ define noundef zeroext i1 @ExportDataAsCode(ptr noundef readonly captures(none) 
   %56 = add nsw i32 %55, %.07278
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge82, label %.lr.ph81, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge82, label %.lr.ph81
 
 57:                                               ; preds = %._crit_edge82
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.31, ptr noundef %2)
@@ -717,6 +717,3 @@ attributes #23 = { nounwind allocsize(0) }
 !3 = !{!4}
 !4 = distinct !{!4, !5, !"vprintf: argument 0"}
 !5 = distinct !{!5, !"vprintf"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !7}

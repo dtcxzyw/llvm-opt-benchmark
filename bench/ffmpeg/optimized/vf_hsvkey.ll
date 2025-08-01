@@ -229,31 +229,31 @@ define internal noundef i32 @do_hsvkey_slice(ptr noundef readonly captures(none)
 
 58:                                               ; preds = %.lr.ph, %do_hsvkey_pixel.exit
   %.04647 = phi i32 [ 0, %.lr.ph ], [ %142, %do_hsvkey_pixel.exit ]
-  %59 = load ptr, ptr %1, align 8, !tbaa !66
-  %60 = load i32, ptr %26, align 8, !tbaa !67
+  %59 = load ptr, ptr %1, align 8, !tbaa !65
+  %60 = load i32, ptr %26, align 8, !tbaa !66
   %61 = mul nsw i32 %60, %.048
   %62 = add nsw i32 %61, %.04647
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i8, ptr %59, i64 %63
-  %65 = load i8, ptr %64, align 1, !tbaa !68
-  %66 = load ptr, ptr %27, align 8, !tbaa !66
-  %67 = load i32, ptr %28, align 4, !tbaa !67
+  %65 = load i8, ptr %64, align 1, !tbaa !67
+  %66 = load ptr, ptr %27, align 8, !tbaa !65
+  %67 = load i32, ptr %28, align 4, !tbaa !66
   %68 = mul nsw i32 %67, %55
   %69 = lshr i32 %.04647, %15
   %70 = add nsw i32 %68, %69
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i8, ptr %66, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !68
-  %74 = load ptr, ptr %29, align 8, !tbaa !66
-  %75 = load i32, ptr %30, align 8, !tbaa !67
+  %73 = load i8, ptr %72, align 1, !tbaa !67
+  %74 = load ptr, ptr %29, align 8, !tbaa !65
+  %75 = load i32, ptr %30, align 8, !tbaa !66
   %76 = mul nsw i32 %75, %55
   %77 = add nsw i32 %76, %69
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %74, i64 %78
-  %80 = load i8, ptr %79, align 1, !tbaa !68
-  %81 = load float, ptr %31, align 8, !tbaa !69
+  %80 = load i8, ptr %79, align 1, !tbaa !67
+  %81 = load float, ptr %31, align 8, !tbaa !68
   %82 = load float, ptr %32, align 8, !tbaa !55
-  %83 = load float, ptr %33, align 4, !tbaa !70
+  %83 = load float, ptr %33, align 4, !tbaa !69
   %84 = load i32, ptr %34, align 4, !tbaa !53
   %85 = sitofp i32 %84 to float
   %86 = load float, ptr %35, align 4, !tbaa !54
@@ -323,17 +323,17 @@ define internal noundef i32 @do_hsvkey_slice(ptr noundef readonly captures(none)
 do_hsvkey_pixel.exit:                             ; preds = %105, %125, %127
   %.0.i = phi i32 [ %134, %127 ], [ 0, %105 ], [ %84, %125 ]
   %135 = trunc i32 %.0.i to i8
-  %136 = load ptr, ptr %49, align 8, !tbaa !66
-  %137 = load i32, ptr %50, align 4, !tbaa !67
+  %136 = load ptr, ptr %49, align 8, !tbaa !65
+  %137 = load i32, ptr %50, align 4, !tbaa !66
   %138 = mul nsw i32 %137, %.048
   %139 = add nsw i32 %138, %.04647
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds i8, ptr %136, i64 %140
-  store i8 %135, ptr %141, align 1, !tbaa !68
+  store i8 %135, ptr %141, align 1, !tbaa !67
   %142 = add nuw nsw i32 %.04647, 1
   %143 = load i32, ptr %25, align 8, !tbaa !61
   %144 = icmp slt i32 %142, %143
-  br i1 %144, label %58, label %._crit_edge, !llvm.loop !71
+  br i1 %144, label %58, label %._crit_edge, !llvm.loop !70
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -392,17 +392,17 @@ define internal noundef i32 @do_hsvkey16_slice(ptr noundef readonly captures(non
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !66
-  %54 = load i32, ptr %50, align 4, !tbaa !67
-  %55 = load ptr, ptr %1, align 8, !tbaa !66
-  %56 = load i32, ptr %51, align 8, !tbaa !67
-  %57 = load ptr, ptr %49, align 8, !tbaa !66
-  %58 = load i32, ptr %48, align 4, !tbaa !67
-  %59 = load ptr, ptr %47, align 8, !tbaa !66
-  %60 = load i32, ptr %46, align 8, !tbaa !67
-  %61 = load float, ptr %45, align 8, !tbaa !69
+  %53 = load ptr, ptr %52, align 8, !tbaa !65
+  %54 = load i32, ptr %50, align 4, !tbaa !66
+  %55 = load ptr, ptr %1, align 8, !tbaa !65
+  %56 = load i32, ptr %51, align 8, !tbaa !66
+  %57 = load ptr, ptr %49, align 8, !tbaa !65
+  %58 = load i32, ptr %48, align 4, !tbaa !66
+  %59 = load ptr, ptr %47, align 8, !tbaa !65
+  %60 = load i32, ptr %46, align 8, !tbaa !66
+  %61 = load float, ptr %45, align 8, !tbaa !68
   %62 = load float, ptr %44, align 8, !tbaa !55
-  %63 = load float, ptr %43, align 4, !tbaa !70
+  %63 = load float, ptr %43, align 4, !tbaa !69
   %64 = load i32, ptr %42, align 4, !tbaa !53
   %65 = sitofp i32 %64 to float
   %66 = load float, ptr %41, align 4, !tbaa !54
@@ -432,18 +432,18 @@ define internal noundef i32 @do_hsvkey16_slice(ptr noundef readonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %do_hsvkey_pixel.exit.us ]
   %82 = shl nuw nsw i64 %indvars.iv, 1
   %83 = getelementptr i8, ptr %80, i64 %82
-  %84 = load i16, ptr %83, align 1, !tbaa !68
+  %84 = load i16, ptr %83, align 1, !tbaa !67
   %85 = trunc nuw nsw i64 %indvars.iv to i32
   %86 = lshr i32 %85, %15
   %87 = shl nuw nsw i32 %86, 1
   %88 = add nsw i32 %78, %87
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i8, ptr %57, i64 %89
-  %91 = load i16, ptr %90, align 1, !tbaa !68
+  %91 = load i16, ptr %90, align 1, !tbaa !67
   %92 = add nsw i32 %79, %87
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i8, ptr %59, i64 %93
-  %95 = load i16, ptr %94, align 1, !tbaa !68
+  %95 = load i16, ptr %94, align 1, !tbaa !67
   %96 = uitofp i16 %91 to float
   %97 = fsub nsz float %96, %66
   %98 = uitofp i16 %95 to float
@@ -507,15 +507,15 @@ do_hsvkey_pixel.exit.us:                          ; preds = %112, %132
   %.0.i.us = phi i32 [ %139, %132 ], [ %.mux, %112 ]
   %140 = trunc i32 %.0.i.us to i16
   %141 = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv
-  store i16 %140, ptr %141, align 2, !tbaa !72
+  store i16 %140, ptr %141, align 2, !tbaa !71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %81, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.us, label %81, !llvm.loop !73
 
 ._crit_edge.us:                                   ; preds = %do_hsvkey_pixel.exit.us
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge50, label %.preheader.us, !llvm.loop !75
+  br i1 %exitcond57.not, label %._crit_edge50, label %.preheader.us, !llvm.loop !74
 
 ._crit_edge50:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -588,34 +588,34 @@ define internal noundef i32 @do_hsvhold_slice(ptr noundef readonly captures(none
 
 55:                                               ; preds = %.preheader.us, %do_hsvkey_pixel.exit.thread.us
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %do_hsvkey_pixel.exit.thread.us ]
-  %56 = load ptr, ptr %32, align 8, !tbaa !66
-  %57 = load i32, ptr %34, align 4, !tbaa !67
+  %56 = load ptr, ptr %32, align 8, !tbaa !65
+  %57 = load i32, ptr %34, align 4, !tbaa !66
   %58 = mul nsw i32 %57, %.066.us
-  %59 = load ptr, ptr %35, align 8, !tbaa !66
-  %60 = load i32, ptr %36, align 8, !tbaa !67
+  %59 = load ptr, ptr %35, align 8, !tbaa !65
+  %60 = load i32, ptr %36, align 8, !tbaa !66
   %61 = mul nsw i32 %60, %.066.us
-  %62 = load ptr, ptr %1, align 8, !tbaa !66
-  %63 = load i32, ptr %33, align 8, !tbaa !67
+  %62 = load ptr, ptr %1, align 8, !tbaa !65
+  %63 = load i32, ptr %33, align 8, !tbaa !66
   %64 = mul nsw i32 %63, %54
   %65 = trunc nuw nsw i64 %indvars.iv to i32
   %66 = shl i32 %65, %8
   %67 = add nsw i32 %64, %66
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i8, ptr %62, i64 %68
-  %70 = load i8, ptr %69, align 1, !tbaa !68
+  %70 = load i8, ptr %69, align 1, !tbaa !67
   %71 = add nsw i32 %58, %65
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i8, ptr %56, i64 %72
-  %74 = load i8, ptr %73, align 1, !tbaa !68
+  %74 = load i8, ptr %73, align 1, !tbaa !67
   %75 = zext i8 %74 to i32
   %76 = add nsw i32 %61, %65
   %77 = sext i32 %76 to i64
   %78 = getelementptr inbounds i8, ptr %59, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !68
+  %79 = load i8, ptr %78, align 1, !tbaa !67
   %80 = zext i8 %79 to i32
-  %81 = load float, ptr %37, align 8, !tbaa !69
+  %81 = load float, ptr %37, align 8, !tbaa !68
   %82 = load float, ptr %22, align 8, !tbaa !55
-  %83 = load float, ptr %38, align 4, !tbaa !70
+  %83 = load float, ptr %38, align 4, !tbaa !69
   %84 = load i32, ptr %39, align 4, !tbaa !53
   %85 = sitofp i32 %84 to float
   %86 = load float, ptr %40, align 4, !tbaa !54
@@ -700,24 +700,24 @@ do_hsvkey_pixel.exit.us:                          ; preds = %127, %125
   %146 = tail call nsz float @llvm.fmuladd.f32(float %145, float %143, float 1.280000e+02)
   %147 = fptoui float %146 to i8
   %148 = getelementptr inbounds nuw i8, ptr %140, i64 %indvars.iv
-  store i8 %147, ptr %148, align 1, !tbaa !68
+  store i8 %147, ptr %148, align 1, !tbaa !67
   %149 = add nsw i32 %80, -128
   %150 = sitofp i32 %149 to float
   %151 = tail call nsz float @llvm.fmuladd.f32(float %150, float %143, float 1.280000e+02)
   %152 = fptoui float %151 to i8
   %153 = getelementptr inbounds nuw i8, ptr %138, i64 %indvars.iv
-  store i8 %152, ptr %153, align 1, !tbaa !68
+  store i8 %152, ptr %153, align 1, !tbaa !67
   br label %do_hsvkey_pixel.exit.thread.us
 
 do_hsvkey_pixel.exit.thread.us:                   ; preds = %136, %do_hsvkey_pixel.exit.us, %105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %55, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge.us, label %55, !llvm.loop !76
 
 ._crit_edge.us:                                   ; preds = %do_hsvkey_pixel.exit.thread.us
   %154 = add nsw i32 %.066.us, 1
   %exitcond70.not = icmp eq i32 %154, %21
-  br i1 %exitcond70.not, label %._crit_edge67, label %.preheader.us, !llvm.loop !78
+  br i1 %exitcond70.not, label %._crit_edge67, label %.preheader.us, !llvm.loop !77
 
 ._crit_edge67:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -783,14 +783,14 @@ define internal noundef i32 @do_hsvhold16_slice(ptr noundef readonly captures(no
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !66
-  %58 = load i32, ptr %54, align 4, !tbaa !67
-  %59 = load ptr, ptr %53, align 8, !tbaa !66
-  %60 = load i32, ptr %52, align 8, !tbaa !67
-  %61 = load ptr, ptr %1, align 8, !tbaa !66
-  %62 = load i32, ptr %55, align 8, !tbaa !67
-  %63 = load float, ptr %51, align 8, !tbaa !69
-  %64 = load float, ptr %50, align 4, !tbaa !70
+  %57 = load ptr, ptr %56, align 8, !tbaa !65
+  %58 = load i32, ptr %54, align 4, !tbaa !66
+  %59 = load ptr, ptr %53, align 8, !tbaa !65
+  %60 = load i32, ptr %52, align 8, !tbaa !66
+  %61 = load ptr, ptr %1, align 8, !tbaa !65
+  %62 = load i32, ptr %55, align 8, !tbaa !66
+  %63 = load float, ptr %51, align 8, !tbaa !68
+  %64 = load float, ptr %50, align 4, !tbaa !69
   %65 = load i32, ptr %49, align 4, !tbaa !53
   %66 = sitofp i32 %65 to float
   %67 = fcmp nsz ogt float %64, 0x3810000000000000
@@ -822,12 +822,12 @@ define internal noundef i32 @do_hsvhold16_slice(ptr noundef readonly captures(no
   %84 = add nsw i32 %75, %83
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr %61, i64 %85
-  %87 = load i16, ptr %86, align 1, !tbaa !68
+  %87 = load i16, ptr %86, align 1, !tbaa !67
   %88 = shl nuw nsw i64 %indvars.iv, 1
   %89 = getelementptr i8, ptr %78, i64 %88
-  %90 = load i16, ptr %89, align 1, !tbaa !68
+  %90 = load i16, ptr %89, align 1, !tbaa !67
   %91 = getelementptr i8, ptr %79, i64 %88
-  %92 = load i16, ptr %91, align 1, !tbaa !68
+  %92 = load i16, ptr %91, align 1, !tbaa !67
   %93 = uitofp i16 %90 to float
   %94 = fsub nsz float %93, %25
   %95 = uitofp i16 %92 to float
@@ -900,22 +900,22 @@ do_hsvkey_pixel.exit.us:                          ; preds = %130, %129
   %143 = tail call nsz float @llvm.fmuladd.f32(float %94, float %142, float %25)
   %144 = fptoui float %143 to i16
   %145 = getelementptr inbounds nuw i16, ptr %77, i64 %indvars.iv
-  store i16 %144, ptr %145, align 2, !tbaa !72
+  store i16 %144, ptr %145, align 2, !tbaa !71
   %146 = tail call nsz float @llvm.fmuladd.f32(float %96, float %142, float %25)
   %147 = fptoui float %146 to i16
   %148 = getelementptr inbounds nuw i16, ptr %76, i64 %indvars.iv
-  store i16 %147, ptr %148, align 2, !tbaa !72
+  store i16 %147, ptr %148, align 2, !tbaa !71
   br label %do_hsvkey_pixel.exit.thread.us
 
 do_hsvkey_pixel.exit.thread.us:                   ; preds = %139, %do_hsvkey_pixel.exit.us, %109
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %80, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge.us, label %80, !llvm.loop !78
 
 ._crit_edge.us:                                   ; preds = %do_hsvkey_pixel.exit.thread.us
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
-  br i1 %exitcond79.not, label %._crit_edge72, label %.preheader.us, !llvm.loop !80
+  br i1 %exitcond79.not, label %._crit_edge72, label %.preheader.us, !llvm.loop !79
 
 ._crit_edge72:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %4
   ret i32 0
@@ -1016,22 +1016,21 @@ attributes #9 = { nounwind }
 !59 = !{!30, !31, i64 20}
 !60 = !{!30, !31, i64 16}
 !61 = !{!35, !11, i64 104}
-!62 = distinct !{!62, !63, !64, !65}
+!62 = distinct !{!62, !63, !64}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = !{!"llvm.loop.estimated_trip_count"}
-!65 = !{!"llvm.loop.unswitch.partial.disable"}
-!66 = !{!23, !23, i64 0}
-!67 = !{!11, !11, i64 0}
-!68 = !{!8, !8, i64 0}
-!69 = !{!30, !31, i64 24}
-!70 = !{!30, !31, i64 28}
-!71 = distinct !{!71, !63, !64}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"short", !8, i64 0}
-!74 = distinct !{!74, !63, !64}
-!75 = distinct !{!75, !63, !64, !76}
-!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!77 = distinct !{!77, !63, !64}
-!78 = distinct !{!78, !63, !64, !76}
-!79 = distinct !{!79, !63, !64}
-!80 = distinct !{!80, !63, !64, !76}
+!64 = !{!"llvm.loop.unswitch.partial.disable"}
+!65 = !{!23, !23, i64 0}
+!66 = !{!11, !11, i64 0}
+!67 = !{!8, !8, i64 0}
+!68 = !{!30, !31, i64 24}
+!69 = !{!30, !31, i64 28}
+!70 = distinct !{!70, !63}
+!71 = !{!72, !72, i64 0}
+!72 = !{!"short", !8, i64 0}
+!73 = distinct !{!73, !63}
+!74 = distinct !{!74, !63, !75}
+!75 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!76 = distinct !{!76, !63}
+!77 = distinct !{!77, !63, !75}
+!78 = distinct !{!78, !63}
+!79 = distinct !{!79, !63, !75}

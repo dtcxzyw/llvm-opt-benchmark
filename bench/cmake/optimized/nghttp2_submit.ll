@@ -702,19 +702,19 @@ define dso_local i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %
   %.168 = phi i64 [ 0, %22 ], [ %34, %25 ]
   %.05867 = phi ptr [ %24, %22 ], [ %33, %25 ]
   %26 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %20, i64 %.168
-  store ptr %.05867, ptr %26, align 8, !tbaa !59
+  store ptr %.05867, ptr %26, align 8, !tbaa !58
   %27 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %2, i64 %.168
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !54
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %29, ptr %30, align 8, !tbaa !54
-  %31 = load ptr, ptr %27, align 8, !tbaa !59
+  %31 = load ptr, ptr %27, align 8, !tbaa !58
   %32 = tail call ptr @nghttp2_cpymem(ptr noundef %.05867, ptr noundef %31, i64 noundef %29) #6
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store i8 0, ptr %32, align 1, !tbaa !9
   %34 = add nuw i64 %.168, 1
   %exitcond69.not = icmp eq i64 %34, %3
-  br i1 %exitcond69.not, label %.loopexit, label %25, !llvm.loop !60
+  br i1 %exitcond69.not, label %.loopexit, label %25, !llvm.loop !59
 
 .loopexit:                                        ; preds = %25, %8
   %.056 = phi ptr [ null, %8 ], [ %20, %25 ]
@@ -931,9 +931,9 @@ define dso_local i32 @nghttp2_submit_data(ptr noundef %0, i8 noundef zeroext %1,
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !14
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 113
-  store i8 0, ptr %13, align 1, !tbaa !61
+  store i8 0, ptr %13, align 1, !tbaa !60
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  store i8 %5, ptr %14, align 8, !tbaa !63
+  store i8 %5, ptr %14, align 8, !tbaa !62
   tail call void @nghttp2_frame_data_init(ptr noundef nonnull %9, i8 noundef zeroext 0, i32 noundef %2) #6
   %15 = tail call i32 @nghttp2_session_add_item(ptr noundef nonnull %0, ptr noundef nonnull %9) #6
   %.not = icmp eq i32 %15, 0
@@ -985,7 +985,7 @@ define dso_local i32 @nghttp2_submit_extension(ptr noundef %0, i8 noundef zeroex
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2488
-  %10 = load ptr, ptr %9, align 8, !tbaa !64
+  %10 = load ptr, ptr %9, align 8, !tbaa !63
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %17, label %11
 
@@ -1092,12 +1092,11 @@ attributes #6 = { nounwind }
 !53 = !{!20, !6, i64 188}
 !54 = !{!55, !19, i64 8}
 !55 = !{!"", !32, i64 0, !19, i64 8}
-!56 = distinct !{!56, !57, !58}
+!56 = distinct !{!56, !57}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = !{!"llvm.loop.estimated_trip_count"}
-!59 = !{!55, !32, i64 0}
-!60 = distinct !{!60, !57, !58}
-!61 = !{!62, !7, i64 17}
-!62 = !{!"", !13, i64 0, !7, i64 16, !7, i64 17, !7, i64 18}
-!63 = !{!62, !7, i64 16}
-!64 = !{!16, !11, i64 2488}
+!58 = !{!55, !32, i64 0}
+!59 = distinct !{!59, !57}
+!60 = !{!61, !7, i64 17}
+!61 = !{!"", !13, i64 0, !7, i64 16, !7, i64 17, !7, i64 18}
+!62 = !{!61, !7, i64 16}
+!63 = !{!16, !11, i64 2488}

@@ -952,7 +952,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.02.04, i64 88
   tail call void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h0101b979e4f2391bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.02.04)
   %16 = icmp eq ptr %15, %13
-  br i1 %16, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %16, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -967,7 +967,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
 .lr.ph7:                                          ; preds = %._crit_edge, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9d292018a8cc8c3dE.exit
   %.sroa.03.05 = phi ptr [ %23, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9d292018a8cc8c3dE.exit ], [ %18, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.03.05, i64 128
-  %24 = tail call { i64, ptr } @"_ZN128_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..PatternKeyword$GT$$GT$4from17h48d0c31cfcbecf1cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.03.05), !noalias !22
+  %24 = tail call { i64, ptr } @"_ZN128_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..PatternKeyword$GT$$GT$4from17h48d0c31cfcbecf1cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.03.05), !noalias !20
   %25 = extractvalue { i64, ptr } %24, 0
   %26 = extractvalue { i64, ptr } %24, 1
   %27 = tail call noundef zeroext i1 @"_ZN116_$LT$ty_ide..inlay_hints..InlayHintVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h606f00365a731879E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %25, ptr noundef %26)
@@ -980,7 +980,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
 
 _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9d292018a8cc8c3dE.exit: ; preds = %.lr.ph7, %29
   %30 = icmp eq ptr %23, %21
-  br i1 %30, label %.loopexit, label %.lr.ph7, !llvm.loop !27
+  br i1 %30, label %.loopexit, label %.lr.ph7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1011,7 +1011,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.02.04, i64 88
   tail call void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17hace47473f690e60fE(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.02.04)
   %16 = icmp eq ptr %15, %13
-  br i1 %16, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %16, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1026,7 +1026,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
 .lr.ph7:                                          ; preds = %._crit_edge, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9fdac557e009b864E.exit
   %.sroa.03.05 = phi ptr [ %23, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9fdac557e009b864E.exit ], [ %18, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.03.05, i64 128
-  %24 = tail call { i64, ptr } @"_ZN128_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..PatternKeyword$GT$$GT$4from17h48d0c31cfcbecf1cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.03.05), !noalias !29
+  %24 = tail call { i64, ptr } @"_ZN128_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..PatternKeyword$GT$$GT$4from17h48d0c31cfcbecf1cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.03.05), !noalias !25
   %25 = extractvalue { i64, ptr } %24, 0
   %26 = extractvalue { i64, ptr } %24, 1
   %27 = tail call noundef zeroext i1 @"_ZN120_$LT$ty_ide..find_node..covering_node..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h4bfa1a13653ed1caE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %25, ptr noundef %26)
@@ -1040,7 +1040,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
 _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9fdac557e009b864E.exit: ; preds = %.lr.ph7, %29
   tail call void @"_ZN120_$LT$ty_ide..find_node..covering_node..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10leave_node17hb3745e90b64f06a9E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %25, ptr noundef %26)
   %30 = icmp eq ptr %23, %21
-  br i1 %30, label %.loopexit, label %.lr.ph7, !llvm.loop !34
+  br i1 %30, label %.loopexit, label %.lr.ph7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1067,7 +1067,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.02.04, i64 88
   tail call void @_ZN15ruff_python_ast7visitor12source_order12walk_pattern17h4fca90aa0902df5bE(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %.sroa.02.04)
   %13 = icmp eq ptr %12, %10
-  br i1 %13, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1082,8 +1082,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
 .lr.ph7:                                          ; preds = %._crit_edge, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h5f8fe445ce53ebc8E.exit
   %.sroa.03.05 = phi ptr [ %20, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h5f8fe445ce53ebc8E.exit ], [ %15, %._crit_edge ]
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.03.05, i64 128
-  %21 = tail call { i64, ptr } @"_ZN128_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..PatternKeyword$GT$$GT$4from17h48d0c31cfcbecf1cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.03.05), !noalias !36
-  %22 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !36
+  %21 = tail call { i64, ptr } @"_ZN128_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..PatternKeyword$GT$$GT$4from17h48d0c31cfcbecf1cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.03.05), !noalias !30
+  %22 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !30
   br i1 %22, label %23, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h5f8fe445ce53ebc8E.exit
 
 23:                                               ; preds = %.lr.ph7
@@ -1092,7 +1092,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order22walk_pattern_arg
 
 _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h5f8fe445ce53ebc8E.exit: ; preds = %.lr.ph7, %23
   %24 = icmp eq ptr %20, %18
-  br i1 %24, label %.loopexit, label %.lr.ph7, !llvm.loop !41
+  br i1 %24, label %.loopexit, label %.lr.ph7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1136,7 +1136,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41c98
 .lr.ph:                                           ; preds = %3, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17hfd5e451031b46b75E.exit
   %.sroa.01.02 = phi ptr [ %6, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17hfd5e451031b46b75E.exit ], [ %1, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 120
-  %7 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.01.02), !noalias !42
+  %7 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.01.02), !noalias !35
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
   %10 = tail call noundef zeroext i1 @"_ZN120_$LT$ty_ide..find_node..covering_node..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10enter_node17h4bfa1a13653ed1caE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %8, ptr noundef %9)
@@ -1150,7 +1150,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17h41c98
 _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17hfd5e451031b46b75E.exit: ; preds = %.lr.ph, %12
   tail call void @"_ZN120_$LT$ty_ide..find_node..covering_node..Visitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10leave_node17hb3745e90b64f06a9E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %8, ptr noundef %9)
   %13 = icmp eq ptr %6, %4
-  br i1 %13, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17hfd5e451031b46b75E.exit, %3
   ret void
@@ -1166,8 +1166,8 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17hb79f6
 .lr.ph:                                           ; preds = %3, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17had4d08b9f7268b7bE.exit
   %.sroa.01.02 = phi ptr [ %6, %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17had4d08b9f7268b7bE.exit ], [ %1, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 120
-  %7 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.01.02), !noalias !48
-  %8 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !48
+  %7 = tail call { i64, ptr } @"_ZN122_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..Stmt$GT$$GT$4from17hca7175279f5b245aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.01.02), !noalias !40
+  %8 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !40
   br i1 %8, label %9, label %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17had4d08b9f7268b7bE.exit
 
 9:                                                ; preds = %.lr.ph
@@ -1176,7 +1176,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17hb79f6
 
 _ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17had4d08b9f7268b7bE.exit: ; preds = %.lr.ph, %9
   %10 = icmp eq ptr %6, %4
-  br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %10, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17had4d08b9f7268b7bE.exit, %3
   ret void
@@ -1194,7 +1194,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_body17hd7c9e
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.01.02, i64 120
   tail call void @"_ZN116_$LT$ty_ide..inlay_hints..InlayHintVisitor$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_stmt17h75486bcc4433de75E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %.sroa.01.02)
   %7 = icmp eq ptr %6, %4
-  br i1 %7, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %7, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1210,7 +1210,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h2273f
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %1, align 8, !range !55, !noundef !4
+  %9 = load i32, ptr %1, align 8, !range !45, !noundef !4
   switch i32 %9, label %default.unreachable1 [
     i32 0, label %11
     i32 1, label %13
@@ -1321,7 +1321,7 @@ default.unreachable1:                             ; preds = %8
 
 38:                                               ; preds = %8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = load ptr, ptr %39, align 8, !align !56, !noundef !4
+  %40 = load ptr, ptr %39, align 8, !align !46, !noundef !4
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %10, label %67
 
@@ -1402,7 +1402,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17h9f9ee
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %1, align 8, !range !55, !noundef !4
+  %9 = load i32, ptr %1, align 8, !range !45, !noundef !4
   switch i32 %9, label %default.unreachable1 [
     i32 0, label %11
     i32 1, label %13
@@ -1512,7 +1512,7 @@ default.unreachable1:                             ; preds = %8
 
 38:                                               ; preds = %8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = load ptr, ptr %39, align 8, !align !56, !noundef !4
+  %40 = load ptr, ptr %39, align 8, !align !46, !noundef !4
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %10, label %67
 
@@ -1591,7 +1591,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_expr17hddcc9
 
 .lr.ph:                                           ; preds = %2, %tailrecurse.backedge
   %.tr125 = phi ptr [ %.tr1.be, %tailrecurse.backedge ], [ %1, %2 ]
-  %5 = load i32, ptr %.tr125, align 8, !range !55, !noundef !4
+  %5 = load i32, ptr %.tr125, align 8, !range !45, !noundef !4
   switch i32 %5, label %default.unreachable55 [
     i32 0, label %6
     i32 1, label %8
@@ -1706,7 +1706,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
 
 34:                                               ; preds = %.lr.ph
   %35 = getelementptr inbounds nuw i8, ptr %.tr125, i64 16
-  %36 = load ptr, ptr %35, align 8, !align !56, !noundef !4
+  %36 = load ptr, ptr %35, align 8, !align !46, !noundef !4
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %.loopexit, label %tailrecurse.backedge
 
@@ -1780,7 +1780,7 @@ define hidden void @_ZN15ruff_python_ast7visitor12source_order9walk_stmt17hd91ad
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN6ty_ide9find_node12CoveringNode4find17h31bfb6e6d39b7308E(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = load i64, ptr %1, align 8, !range !57, !noundef !4
+  %3 = load i64, ptr %1, align 8, !range !47, !noundef !4
   %4 = icmp eq i64 %3, 91
   br i1 %4, label %"_ZN6ty_ide4goto16find_goto_target28_$u7b$$u7b$closure$u7d$$u7d$17hb0e61dfefd879f55E.exit.thread", label %5
 
@@ -1827,18 +1827,18 @@ define hidden void @_ZN6ty_ide9find_node12CoveringNode4find17h31bfb6e6d39b7308E(
 21:                                               ; preds = %18
   %22 = getelementptr inbounds i8, ptr %19, i64 -16
   %23 = add i64 %.sroa.03.0.i, -1
-  %.val.i = load i64, ptr %22, align 8, !range !57, !noalias !58, !noundef !4
+  %.val.i = load i64, ptr %22, align 8, !range !47, !noalias !48, !noundef !4
   %24 = icmp eq i64 %.val.i, 91
   br i1 %24, label %30, label %"_ZN6ty_ide9find_node12CoveringNode4find28_$u7b$$u7b$closure$u7d$$u7d$17h0eeeea141c0a4fafE.exit.i"
 
 "_ZN6ty_ide9find_node12CoveringNode4find28_$u7b$$u7b$closure$u7d$$u7d$17h0eeeea141c0a4fafE.exit.i": ; preds = %21
   %25 = getelementptr i8, ptr %19, i64 -8
-  %.val9.i = load ptr, ptr %25, align 8, !noalias !58, !noundef !4
+  %.val9.i = load ptr, ptr %25, align 8, !noalias !48, !noundef !4
   %26 = invoke noundef zeroext i1 @_ZN15ruff_python_ast9generated10AnyNodeRef13is_expression17h421feff79682f34cE(i64 noundef range(i64 0, 92) %.val.i, ptr noundef %.val9.i)
           to label %.noexc8 unwind label %.loopexit
 
 .noexc8:                                          ; preds = %"_ZN6ty_ide9find_node12CoveringNode4find28_$u7b$$u7b$closure$u7d$$u7d$17h0eeeea141c0a4fafE.exit.i"
-  br i1 %26, label %30, label %18, !llvm.loop !61
+  br i1 %26, label %30, label %18
 
 "_ZN6ty_ide4goto16find_goto_target28_$u7b$$u7b$closure$u7d$$u7d$17hb0e61dfefd879f55E.exit.thread": ; preds = %2, %"_ZN6ty_ide4goto16find_goto_target28_$u7b$$u7b$closure$u7d$$u7d$17hb0e61dfefd879f55E.exit"
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1854,7 +1854,7 @@ define hidden void @_ZN6ty_ide9find_node12CoveringNode4find17h31bfb6e6d39b7308E(
   %31 = icmp ult i64 %23, %16
   tail call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %14, i64 %23
-  %33 = load i64, ptr %32, align 8, !range !57, !noundef !4
+  %33 = load i64, ptr %32, align 8, !range !47, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8, !noundef !4
   store i64 %23, ptr %15, align 8
@@ -2368,45 +2368,34 @@ attributes #6 = { cold noreturn nounwind }
 !17 = distinct !{!17, !18, !"_ZN15ruff_python_ast7visitor12source_order27walk_parameter_with_default17h7240fa9bb39d30abE: argument 0"}
 !18 = distinct !{!18, !"_ZN15ruff_python_ast7visitor12source_order27walk_parameter_with_default17h7240fa9bb39d30abE"}
 !19 = !{i64 0, i64 -9223372036854775806}
-!20 = distinct !{!20, !21}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !25}
-!23 = distinct !{!23, !24, !"_ZN15ruff_python_ast7visitor12source_order20walk_pattern_keyword17h50edb919270841fbE: argument 0"}
-!24 = distinct !{!24, !"_ZN15ruff_python_ast7visitor12source_order20walk_pattern_keyword17h50edb919270841fbE"}
-!25 = distinct !{!25, !26, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9d292018a8cc8c3dE: argument 0"}
-!26 = distinct !{!26, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9d292018a8cc8c3dE"}
-!27 = distinct !{!27, !21}
-!28 = distinct !{!28, !21}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"_ZN15ruff_python_ast7visitor12source_order20walk_pattern_keyword17h52e215805b00cd5eE: argument 0"}
-!31 = distinct !{!31, !"_ZN15ruff_python_ast7visitor12source_order20walk_pattern_keyword17h52e215805b00cd5eE"}
-!32 = distinct !{!32, !33, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9fdac557e009b864E: argument 0"}
-!33 = distinct !{!33, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9fdac557e009b864E"}
-!34 = distinct !{!34, !21}
-!35 = distinct !{!35, !21}
-!36 = !{!37, !39}
-!37 = distinct !{!37, !38, !"_ZN15ruff_python_ast7visitor12source_order20walk_pattern_keyword17h06d01475a700d06dE: argument 0"}
-!38 = distinct !{!38, !"_ZN15ruff_python_ast7visitor12source_order20walk_pattern_keyword17h06d01475a700d06dE"}
-!39 = distinct !{!39, !40, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h5f8fe445ce53ebc8E: argument 0"}
-!40 = distinct !{!40, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h5f8fe445ce53ebc8E"}
-!41 = distinct !{!41, !21}
-!42 = !{!43, !45}
-!43 = distinct !{!43, !44, !"_ZN15ruff_python_ast7visitor12source_order9walk_stmt17h5a0151fc627e9e4fE: argument 0"}
-!44 = distinct !{!44, !"_ZN15ruff_python_ast7visitor12source_order9walk_stmt17h5a0151fc627e9e4fE"}
-!45 = distinct !{!45, !46, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17hfd5e451031b46b75E: argument 0"}
-!46 = distinct !{!46, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17hfd5e451031b46b75E"}
-!47 = distinct !{!47, !21}
-!48 = !{!49, !51}
-!49 = distinct !{!49, !50, !"_ZN15ruff_python_ast7visitor12source_order9walk_stmt17h47af5f94ce1667cfE: argument 0"}
-!50 = distinct !{!50, !"_ZN15ruff_python_ast7visitor12source_order9walk_stmt17h47af5f94ce1667cfE"}
-!51 = distinct !{!51, !52, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17had4d08b9f7268b7bE: argument 0"}
-!52 = distinct !{!52, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17had4d08b9f7268b7bE"}
-!53 = distinct !{!53, !21}
-!54 = distinct !{!54, !21}
-!55 = !{i32 0, i32 32}
-!56 = !{i64 8}
-!57 = !{i64 0, i64 92}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17he9632af09727058bE: argument 0"}
-!60 = distinct !{!60, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17he9632af09727058bE"}
-!61 = distinct !{!61, !21}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"_ZN15ruff_python_ast7visitor12source_order20walk_pattern_keyword17h50edb919270841fbE: argument 0"}
+!22 = distinct !{!22, !"_ZN15ruff_python_ast7visitor12source_order20walk_pattern_keyword17h50edb919270841fbE"}
+!23 = distinct !{!23, !24, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9d292018a8cc8c3dE: argument 0"}
+!24 = distinct !{!24, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9d292018a8cc8c3dE"}
+!25 = !{!26, !28}
+!26 = distinct !{!26, !27, !"_ZN15ruff_python_ast7visitor12source_order20walk_pattern_keyword17h52e215805b00cd5eE: argument 0"}
+!27 = distinct !{!27, !"_ZN15ruff_python_ast7visitor12source_order20walk_pattern_keyword17h52e215805b00cd5eE"}
+!28 = distinct !{!28, !29, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9fdac557e009b864E: argument 0"}
+!29 = distinct !{!29, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h9fdac557e009b864E"}
+!30 = !{!31, !33}
+!31 = distinct !{!31, !32, !"_ZN15ruff_python_ast7visitor12source_order20walk_pattern_keyword17h06d01475a700d06dE: argument 0"}
+!32 = distinct !{!32, !"_ZN15ruff_python_ast7visitor12source_order20walk_pattern_keyword17h06d01475a700d06dE"}
+!33 = distinct !{!33, !34, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h5f8fe445ce53ebc8E: argument 0"}
+!34 = distinct !{!34, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor21visit_pattern_keyword17h5f8fe445ce53ebc8E"}
+!35 = !{!36, !38}
+!36 = distinct !{!36, !37, !"_ZN15ruff_python_ast7visitor12source_order9walk_stmt17h5a0151fc627e9e4fE: argument 0"}
+!37 = distinct !{!37, !"_ZN15ruff_python_ast7visitor12source_order9walk_stmt17h5a0151fc627e9e4fE"}
+!38 = distinct !{!38, !39, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17hfd5e451031b46b75E: argument 0"}
+!39 = distinct !{!39, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17hfd5e451031b46b75E"}
+!40 = !{!41, !43}
+!41 = distinct !{!41, !42, !"_ZN15ruff_python_ast7visitor12source_order9walk_stmt17h47af5f94ce1667cfE: argument 0"}
+!42 = distinct !{!42, !"_ZN15ruff_python_ast7visitor12source_order9walk_stmt17h47af5f94ce1667cfE"}
+!43 = distinct !{!43, !44, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17had4d08b9f7268b7bE: argument 0"}
+!44 = distinct !{!44, !"_ZN15ruff_python_ast7visitor12source_order18SourceOrderVisitor10visit_stmt17had4d08b9f7268b7bE"}
+!45 = !{i32 0, i32 32}
+!46 = !{i64 8}
+!47 = !{i64 0, i64 92}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17he9632af09727058bE: argument 0"}
+!50 = distinct !{!50, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9rposition17he9632af09727058bE"}

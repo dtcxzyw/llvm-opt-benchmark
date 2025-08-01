@@ -132,9 +132,9 @@ compute_sampled_width.exit.us:                    ; preds = %compute_sampled_hei
 
 ._crit_edge:                                      ; preds = %compute_sampled_width.exit, %compute_sampled_width.exit.us, %24
   %.04664 = phi ptr [ %2, %24 ], [ %.04663, %compute_sampled_width.exit.us ], [ %.04663, %compute_sampled_width.exit ]
-  store ptr %.04664, ptr %0, align 8, !tbaa !53
+  store ptr %.04664, ptr %0, align 8, !tbaa !52
   %73 = trunc i32 %11 to i16
-  store i16 %73, ptr %1, align 2, !tbaa !54
+  store i16 %73, ptr %1, align 2, !tbaa !53
   br label %115
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %compute_sampled_width.exit
@@ -209,7 +209,7 @@ compute_sampled_width.exit:                       ; preds = %compute_sampled_hei
   store i16 %110, ptr %114, align 2, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count60
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !54
 
 115:                                              ; preds = %._crit_edge, %20
   %.0 = phi i32 [ 0, %._crit_edge ], [ %23, %20 ]
@@ -311,7 +311,7 @@ compute_sampled_width.exit.us:                    ; preds = %compute_sampled_hei
   store i16 %55, ptr %56, align 2, !tbaa !46
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !56
+  br i1 %exitcond59.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !55
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %26, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -372,11 +372,11 @@ compute_sampled_height.exit.us41:                 ; preds = %72, %64, %.lr.ph.sp
   store i16 %90, ptr %91, align 2, !tbaa !46
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count58
-  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !57
+  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !56
 
 92:                                               ; preds = %5
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %94 = load ptr, ptr %93, align 8, !tbaa !58
+  %94 = load ptr, ptr %93, align 8, !tbaa !57
   %95 = tail call i32 (ptr, i32, ptr, ...) %94(ptr noundef %3, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef %11, i32 noundef %10) #2
   br label %.loopexit
 
@@ -445,7 +445,7 @@ compute_sampled_width.exit:                       ; preds = %compute_sampled_hei
   store i16 %132, ptr %133, align 2, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count58
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !59
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !58
 
 .loopexit:                                        ; preds = %compute_sampled_width.exit, %compute_sampled_height.exit.us41, %compute_sampled_width.exit.us, %.preheader, %92
   %.0 = phi i32 [ %95, %92 ], [ 0, %.preheader ], [ 0, %compute_sampled_width.exit.us ], [ 0, %compute_sampled_height.exit.us41 ], [ 0, %compute_sampled_width.exit ]
@@ -454,18 +454,18 @@ compute_sampled_width.exit:                       ; preds = %compute_sampled_hei
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @internal_encode_free_buffer(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr %2, align 8, !tbaa !53
+  %5 = load ptr, ptr %2, align 8, !tbaa !52
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %30, label %6
 
 6:                                                ; preds = %4
-  %7 = load i64, ptr %3, align 8, !tbaa !60
+  %7 = load i64, ptr %3, align 8, !tbaa !59
   %.not26 = icmp eq i64 %7, 0
   br i1 %.not26, label %29, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %10 = load ptr, ptr %9, align 8, !tbaa !61
+  %10 = load ptr, ptr %9, align 8, !tbaa !60
   %.not27 = icmp eq ptr %10, null
   br i1 %.not27, label %12, label %11
 
@@ -475,40 +475,40 @@ define hidden i32 @internal_encode_free_buffer(ptr noundef readonly captures(non
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !64
+  %14 = load ptr, ptr %13, align 8, !tbaa !63
   %.not28 = icmp eq ptr %14, null
   br i1 %.not28, label %.thread, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %17 = load i32, ptr %16, align 4, !tbaa !65
+  %17 = load i32, ptr %16, align 4, !tbaa !64
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 196
-  %21 = load i32, ptr %20, align 4, !tbaa !66
+  %21 = load i32, ptr %20, align 4, !tbaa !65
   %.not29 = icmp slt i32 %17, %21
   br i1 %.not29, label %26, label %22
 
 22:                                               ; preds = %19, %15
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %24 = load ptr, ptr %23, align 8, !tbaa !58
+  %24 = load ptr, ptr %23, align 8, !tbaa !57
   %25 = tail call i32 (ptr, i32, ptr, ...) %24(ptr noundef nonnull %14, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %17) #2
   br label %.thread
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  %28 = load ptr, ptr %27, align 8, !tbaa !67
+  %28 = load ptr, ptr %27, align 8, !tbaa !66
   tail call void %28(ptr noundef nonnull %5) #2
   br label %29
 
 29:                                               ; preds = %26, %11, %6
-  store ptr null, ptr %2, align 8, !tbaa !53
+  store ptr null, ptr %2, align 8, !tbaa !52
   br label %30
 
 30:                                               ; preds = %29, %4
-  store i64 0, ptr %3, align 8, !tbaa !60
+  store i64 0, ptr %3, align 8, !tbaa !59
   br label %.thread
 
 .thread:                                          ; preds = %12, %22, %30
@@ -518,37 +518,37 @@ define hidden i32 @internal_encode_free_buffer(ptr noundef readonly captures(non
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @internal_encode_alloc_buffer(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
-  %6 = load ptr, ptr %2, align 8, !tbaa !53
+  %6 = load ptr, ptr %2, align 8, !tbaa !52
   %7 = icmp eq i64 %4, 0
   br i1 %7, label %8, label %26
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !64
+  %10 = load ptr, ptr %9, align 8, !tbaa !63
   %.not67 = icmp eq ptr %10, null
   br i1 %.not67, label %.thread69, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %13 = load i32, ptr %12, align 4, !tbaa !65
+  %13 = load i32, ptr %12, align 4, !tbaa !64
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %18, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 196
-  %17 = load i32, ptr %16, align 4, !tbaa !66
+  %17 = load i32, ptr %16, align 4, !tbaa !65
   %.not68 = icmp slt i32 %13, %17
   br i1 %.not68, label %22, label %18
 
 18:                                               ; preds = %15, %11
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %20 = load ptr, ptr %19, align 8, !tbaa !58
+  %20 = load ptr, ptr %19, align 8, !tbaa !57
   %21 = tail call i32 (ptr, i32, ptr, ...) %20(ptr noundef nonnull %10, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %13) #2
   br label %.thread69
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %24 = load ptr, ptr %23, align 8, !tbaa !58
+  %24 = load ptr, ptr %23, align 8, !tbaa !57
   %25 = tail call i32 (ptr, i32, ptr, ...) %24(ptr noundef nonnull %10, i32 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %1) #2
   br label %.thread69
 
@@ -557,7 +557,7 @@ define hidden i32 @internal_encode_alloc_buffer(ptr noundef readonly captures(no
   br i1 %.not, label %.thread, label %27
 
 27:                                               ; preds = %26
-  %28 = load i64, ptr %3, align 8, !tbaa !60
+  %28 = load i64, ptr %3, align 8, !tbaa !59
   %29 = icmp ult i64 %28, %4
   br i1 %29, label %30, label %.thread69
 
@@ -567,7 +567,7 @@ define hidden i32 @internal_encode_alloc_buffer(ptr noundef readonly captures(no
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %33 = load ptr, ptr %32, align 8, !tbaa !61
+  %33 = load ptr, ptr %32, align 8, !tbaa !60
   %.not27.i = icmp eq ptr %33, null
   br i1 %.not27.i, label %35, label %34
 
@@ -577,45 +577,45 @@ define hidden i32 @internal_encode_alloc_buffer(ptr noundef readonly captures(no
 
 35:                                               ; preds = %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !64
+  %37 = load ptr, ptr %36, align 8, !tbaa !63
   %.not28.i = icmp eq ptr %37, null
   br i1 %.not28.i, label %internal_encode_free_buffer.exit, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %40 = load i32, ptr %39, align 4, !tbaa !65
+  %40 = load i32, ptr %39, align 4, !tbaa !64
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 196
-  %44 = load i32, ptr %43, align 4, !tbaa !66
+  %44 = load i32, ptr %43, align 4, !tbaa !65
   %.not29.i = icmp slt i32 %40, %44
   br i1 %.not29.i, label %49, label %45
 
 45:                                               ; preds = %42, %38
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 72
-  %47 = load ptr, ptr %46, align 8, !tbaa !58
+  %47 = load ptr, ptr %46, align 8, !tbaa !57
   %48 = tail call i32 (ptr, i32, ptr, ...) %47(ptr noundef nonnull %37, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %40) #2
   br label %internal_encode_free_buffer.exit
 
 49:                                               ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 96
-  %51 = load ptr, ptr %50, align 8, !tbaa !67
+  %51 = load ptr, ptr %50, align 8, !tbaa !66
   tail call void %51(ptr noundef nonnull %6) #2
   br label %52
 
 52:                                               ; preds = %49, %34, %30
-  store ptr null, ptr %2, align 8, !tbaa !53
+  store ptr null, ptr %2, align 8, !tbaa !52
   br label %.thread
 
 .thread:                                          ; preds = %26, %52
-  store i64 0, ptr %3, align 8, !tbaa !60
+  store i64 0, ptr %3, align 8, !tbaa !59
   br label %internal_encode_free_buffer.exit
 
 internal_encode_free_buffer.exit:                 ; preds = %35, %45, %.thread
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %54 = load ptr, ptr %53, align 8, !tbaa !68
+  %54 = load ptr, ptr %53, align 8, !tbaa !67
   %.not62 = icmp eq ptr %54, null
   br i1 %.not62, label %57, label %55
 
@@ -625,25 +625,25 @@ internal_encode_free_buffer.exit:                 ; preds = %35, %45, %.thread
 
 57:                                               ; preds = %internal_encode_free_buffer.exit
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %59 = load ptr, ptr %58, align 8, !tbaa !64
+  %59 = load ptr, ptr %58, align 8, !tbaa !63
   %.not63 = icmp eq ptr %59, null
   br i1 %.not63, label %.thread69, label %60
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %62 = load i32, ptr %61, align 4, !tbaa !65
+  %62 = load i32, ptr %61, align 4, !tbaa !64
   %63 = icmp slt i32 %62, 0
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 196
-  %66 = load i32, ptr %65, align 4, !tbaa !66
+  %66 = load i32, ptr %65, align 4, !tbaa !65
   %.not64 = icmp slt i32 %62, %66
   br i1 %.not64, label %71, label %67
 
 67:                                               ; preds = %64, %60
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 72
-  %69 = load ptr, ptr %68, align 8, !tbaa !58
+  %69 = load ptr, ptr %68, align 8, !tbaa !57
   %70 = tail call i32 (ptr, i32, ptr, ...) %69(ptr noundef nonnull %59, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %62) #2
   br label %.thread69
 
@@ -660,37 +660,37 @@ internal_encode_free_buffer.exit:                 ; preds = %35, %45, %.thread
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %79 = load ptr, ptr %78, align 8, !tbaa !64
+  %79 = load ptr, ptr %78, align 8, !tbaa !63
   %.not65 = icmp eq ptr %79, null
   br i1 %.not65, label %.thread69, label %80
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %82 = load i32, ptr %81, align 4, !tbaa !65
+  %82 = load i32, ptr %81, align 4, !tbaa !64
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %87, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 196
-  %86 = load i32, ptr %85, align 4, !tbaa !66
+  %86 = load i32, ptr %85, align 4, !tbaa !65
   %.not66 = icmp slt i32 %82, %86
   br i1 %.not66, label %91, label %87
 
 87:                                               ; preds = %84, %80
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 72
-  %89 = load ptr, ptr %88, align 8, !tbaa !58
+  %89 = load ptr, ptr %88, align 8, !tbaa !57
   %90 = tail call i32 (ptr, i32, ptr, ...) %89(ptr noundef nonnull %79, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %82) #2
   br label %.thread69
 
 91:                                               ; preds = %84
   %92 = getelementptr inbounds nuw i8, ptr %79, i64 72
-  %93 = load ptr, ptr %92, align 8, !tbaa !58
+  %93 = load ptr, ptr %92, align 8, !tbaa !57
   %94 = tail call i32 (ptr, i32, ptr, ...) %93(ptr noundef nonnull %79, i32 noundef 1, ptr noundef nonnull @.str.3, i64 noundef %4) #2
   br label %.thread69
 
 95:                                               ; preds = %75
-  store ptr %.051, ptr %2, align 8, !tbaa !53
-  store i64 %4, ptr %3, align 8, !tbaa !60
+  store ptr %.051, ptr %2, align 8, !tbaa !52
+  store i64 %4, ptr %3, align 8, !tbaa !59
   br label %.thread69
 
 .thread69:                                        ; preds = %57, %67, %27, %95, %87, %91, %77, %18, %22, %8
@@ -700,18 +700,18 @@ internal_encode_free_buffer.exit:                 ; preds = %35, %45, %.thread
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @internal_decode_free_buffer(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
-  %5 = load ptr, ptr %2, align 8, !tbaa !53
+  %5 = load ptr, ptr %2, align 8, !tbaa !52
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %30, label %6
 
 6:                                                ; preds = %4
-  %7 = load i64, ptr %3, align 8, !tbaa !60
+  %7 = load i64, ptr %3, align 8, !tbaa !59
   %.not26 = icmp eq i64 %7, 0
   br i1 %.not26, label %29, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %10 = load ptr, ptr %9, align 8, !tbaa !69
+  %10 = load ptr, ptr %9, align 8, !tbaa !68
   %.not27 = icmp eq ptr %10, null
   br i1 %.not27, label %12, label %11
 
@@ -721,40 +721,40 @@ define hidden i32 @internal_decode_free_buffer(ptr noundef readonly captures(non
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !71
+  %14 = load ptr, ptr %13, align 8, !tbaa !70
   %.not28 = icmp eq ptr %14, null
   br i1 %.not28, label %.thread, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %17 = load i32, ptr %16, align 4, !tbaa !72
+  %17 = load i32, ptr %16, align 4, !tbaa !71
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 196
-  %21 = load i32, ptr %20, align 4, !tbaa !66
+  %21 = load i32, ptr %20, align 4, !tbaa !65
   %.not29 = icmp slt i32 %17, %21
   br i1 %.not29, label %26, label %22
 
 22:                                               ; preds = %19, %15
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %24 = load ptr, ptr %23, align 8, !tbaa !58
+  %24 = load ptr, ptr %23, align 8, !tbaa !57
   %25 = tail call i32 (ptr, i32, ptr, ...) %24(ptr noundef nonnull %14, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %17) #2
   br label %.thread
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  %28 = load ptr, ptr %27, align 8, !tbaa !67
+  %28 = load ptr, ptr %27, align 8, !tbaa !66
   tail call void %28(ptr noundef nonnull %5) #2
   br label %29
 
 29:                                               ; preds = %26, %11, %6
-  store ptr null, ptr %2, align 8, !tbaa !53
+  store ptr null, ptr %2, align 8, !tbaa !52
   br label %30
 
 30:                                               ; preds = %29, %4
-  store i64 0, ptr %3, align 8, !tbaa !60
+  store i64 0, ptr %3, align 8, !tbaa !59
   br label %.thread
 
 .thread:                                          ; preds = %12, %22, %30
@@ -764,7 +764,7 @@ define hidden i32 @internal_decode_free_buffer(ptr noundef readonly captures(non
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @internal_decode_alloc_buffer(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
-  %6 = load ptr, ptr %2, align 8, !tbaa !53
+  %6 = load ptr, ptr %2, align 8, !tbaa !52
   %7 = icmp eq i64 %4, 0
   br i1 %7, label %.thread54, label %8
 
@@ -773,7 +773,7 @@ define hidden i32 @internal_decode_alloc_buffer(ptr noundef readonly captures(no
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %8
-  %10 = load i64, ptr %3, align 8, !tbaa !60
+  %10 = load i64, ptr %3, align 8, !tbaa !59
   %11 = icmp ult i64 %10, %4
   br i1 %11, label %12, label %.thread54
 
@@ -783,7 +783,7 @@ define hidden i32 @internal_decode_alloc_buffer(ptr noundef readonly captures(no
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %15 = load ptr, ptr %14, align 8, !tbaa !69
+  %15 = load ptr, ptr %14, align 8, !tbaa !68
   %.not27.i = icmp eq ptr %15, null
   br i1 %.not27.i, label %17, label %16
 
@@ -793,45 +793,45 @@ define hidden i32 @internal_decode_alloc_buffer(ptr noundef readonly captures(no
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !71
+  %19 = load ptr, ptr %18, align 8, !tbaa !70
   %.not28.i = icmp eq ptr %19, null
   br i1 %.not28.i, label %internal_decode_free_buffer.exit, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %22 = load i32, ptr %21, align 4, !tbaa !72
+  %22 = load i32, ptr %21, align 4, !tbaa !71
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 196
-  %26 = load i32, ptr %25, align 4, !tbaa !66
+  %26 = load i32, ptr %25, align 4, !tbaa !65
   %.not29.i = icmp slt i32 %22, %26
   br i1 %.not29.i, label %31, label %27
 
 27:                                               ; preds = %24, %20
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 72
-  %29 = load ptr, ptr %28, align 8, !tbaa !58
+  %29 = load ptr, ptr %28, align 8, !tbaa !57
   %30 = tail call i32 (ptr, i32, ptr, ...) %29(ptr noundef nonnull %19, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %22) #2
   br label %internal_decode_free_buffer.exit
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  %33 = load ptr, ptr %32, align 8, !tbaa !67
+  %33 = load ptr, ptr %32, align 8, !tbaa !66
   tail call void %33(ptr noundef nonnull %6) #2
   br label %34
 
 34:                                               ; preds = %31, %16, %12
-  store ptr null, ptr %2, align 8, !tbaa !53
+  store ptr null, ptr %2, align 8, !tbaa !52
   br label %.thread
 
 .thread:                                          ; preds = %8, %34
-  store i64 0, ptr %3, align 8, !tbaa !60
+  store i64 0, ptr %3, align 8, !tbaa !59
   br label %internal_decode_free_buffer.exit
 
 internal_decode_free_buffer.exit:                 ; preds = %17, %27, %.thread
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %36 = load ptr, ptr %35, align 8, !tbaa !73
+  %36 = load ptr, ptr %35, align 8, !tbaa !72
   %.not49 = icmp eq ptr %36, null
   br i1 %.not49, label %39, label %37
 
@@ -841,25 +841,25 @@ internal_decode_free_buffer.exit:                 ; preds = %17, %27, %.thread
 
 39:                                               ; preds = %internal_decode_free_buffer.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !71
+  %41 = load ptr, ptr %40, align 8, !tbaa !70
   %.not50 = icmp eq ptr %41, null
   br i1 %.not50, label %.thread54, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %44 = load i32, ptr %43, align 4, !tbaa !72
+  %44 = load i32, ptr %43, align 4, !tbaa !71
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 196
-  %48 = load i32, ptr %47, align 4, !tbaa !66
+  %48 = load i32, ptr %47, align 4, !tbaa !65
   %.not51 = icmp slt i32 %44, %48
   br i1 %.not51, label %53, label %49
 
 49:                                               ; preds = %46, %42
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 72
-  %51 = load ptr, ptr %50, align 8, !tbaa !58
+  %51 = load ptr, ptr %50, align 8, !tbaa !57
   %52 = tail call i32 (ptr, i32, ptr, ...) %51(ptr noundef nonnull %41, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %44) #2
   br label %.thread54
 
@@ -876,37 +876,37 @@ internal_decode_free_buffer.exit:                 ; preds = %17, %27, %.thread
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !71
+  %61 = load ptr, ptr %60, align 8, !tbaa !70
   %.not52 = icmp eq ptr %61, null
   br i1 %.not52, label %.thread54, label %62
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %64 = load i32, ptr %63, align 4, !tbaa !72
+  %64 = load i32, ptr %63, align 4, !tbaa !71
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %69, label %66
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 196
-  %68 = load i32, ptr %67, align 4, !tbaa !66
+  %68 = load i32, ptr %67, align 4, !tbaa !65
   %.not53 = icmp slt i32 %64, %68
   br i1 %.not53, label %73, label %69
 
 69:                                               ; preds = %66, %62
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 72
-  %71 = load ptr, ptr %70, align 8, !tbaa !58
+  %71 = load ptr, ptr %70, align 8, !tbaa !57
   %72 = tail call i32 (ptr, i32, ptr, ...) %71(ptr noundef nonnull %61, i32 noundef 4, ptr noundef nonnull @.str.1, i32 noundef %64) #2
   br label %.thread54
 
 73:                                               ; preds = %66
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 72
-  %75 = load ptr, ptr %74, align 8, !tbaa !58
+  %75 = load ptr, ptr %74, align 8, !tbaa !57
   %76 = tail call i32 (ptr, i32, ptr, ...) %75(ptr noundef nonnull %61, i32 noundef 1, ptr noundef nonnull @.str.3, i64 noundef %4) #2
   br label %.thread54
 
 77:                                               ; preds = %57
-  store ptr %.040, ptr %2, align 8, !tbaa !53
-  store i64 %4, ptr %3, align 8, !tbaa !60
+  store ptr %.040, ptr %2, align 8, !tbaa !52
+  store i64 %4, ptr %3, align 8, !tbaa !59
   br label %.thread54
 
 .thread54:                                        ; preds = %39, %49, %9, %77, %69, %73, %59, %5
@@ -969,28 +969,27 @@ attributes #2 = { nounwind }
 !46 = !{!35, !16, i64 26}
 !47 = !{!35, !16, i64 28}
 !48 = !{!35, !16, i64 30}
-!49 = distinct !{!49, !50, !51, !52}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!53 = !{!10, !10, i64 0}
-!54 = !{!16, !16, i64 0}
+!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!52 = !{!10, !10, i64 0}
+!53 = !{!16, !16, i64 0}
+!54 = distinct !{!54, !50}
 !55 = distinct !{!55, !50, !51}
-!56 = distinct !{!56, !50, !51, !52}
-!57 = distinct !{!57, !50, !51, !52}
-!58 = !{!21, !10, i64 72}
-!59 = distinct !{!59, !50, !51}
-!60 = !{!15, !15, i64 0}
-!61 = !{!62, !10, i64 232}
-!62 = !{!"_exr_encode_pipeline", !15, i64 0, !10, i64 8, !16, i64 16, !16, i64 18, !5, i64 20, !63, i64 24, !29, i64 32, !10, i64 96, !10, i64 104, !15, i64 112, !15, i64 120, !14, i64 128, !15, i64 136, !10, i64 144, !15, i64 152, !15, i64 160, !10, i64 168, !15, i64 176, !15, i64 184, !10, i64 192, !15, i64 200, !10, i64 208, !15, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !6, i64 272}
-!63 = !{!"p1 _ZTS19_priv_exr_context_t", !10, i64 0}
-!64 = !{!62, !63, i64 24}
-!65 = !{!62, !5, i64 20}
-!66 = !{!21, !5, i64 196}
-!67 = !{!21, !10, i64 96}
-!68 = !{!62, !10, i64 224}
-!69 = !{!70, !10, i64 224}
-!70 = !{!"_exr_decode_pipeline", !15, i64 0, !10, i64 8, !16, i64 16, !16, i64 18, !5, i64 20, !63, i64 24, !29, i64 32, !5, i64 96, !5, i64 100, !15, i64 104, !10, i64 112, !10, i64 120, !15, i64 128, !10, i64 136, !15, i64 144, !10, i64 152, !15, i64 160, !14, i64 168, !15, i64 176, !10, i64 184, !15, i64 192, !10, i64 200, !15, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !6, i64 264}
-!71 = !{!70, !63, i64 24}
-!72 = !{!70, !5, i64 20}
-!73 = !{!70, !10, i64 216}
+!56 = distinct !{!56, !50, !51}
+!57 = !{!21, !10, i64 72}
+!58 = distinct !{!58, !50}
+!59 = !{!15, !15, i64 0}
+!60 = !{!61, !10, i64 232}
+!61 = !{!"_exr_encode_pipeline", !15, i64 0, !10, i64 8, !16, i64 16, !16, i64 18, !5, i64 20, !62, i64 24, !29, i64 32, !10, i64 96, !10, i64 104, !15, i64 112, !15, i64 120, !14, i64 128, !15, i64 136, !10, i64 144, !15, i64 152, !15, i64 160, !10, i64 168, !15, i64 176, !15, i64 184, !10, i64 192, !15, i64 200, !10, i64 208, !15, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !10, i64 264, !6, i64 272}
+!62 = !{!"p1 _ZTS19_priv_exr_context_t", !10, i64 0}
+!63 = !{!61, !62, i64 24}
+!64 = !{!61, !5, i64 20}
+!65 = !{!21, !5, i64 196}
+!66 = !{!21, !10, i64 96}
+!67 = !{!61, !10, i64 224}
+!68 = !{!69, !10, i64 224}
+!69 = !{!"_exr_decode_pipeline", !15, i64 0, !10, i64 8, !16, i64 16, !16, i64 18, !5, i64 20, !62, i64 24, !29, i64 32, !5, i64 96, !5, i64 100, !15, i64 104, !10, i64 112, !10, i64 120, !15, i64 128, !10, i64 136, !15, i64 144, !10, i64 152, !15, i64 160, !14, i64 168, !15, i64 176, !10, i64 184, !15, i64 192, !10, i64 200, !15, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !6, i64 264}
+!70 = !{!69, !62, i64 24}
+!71 = !{!69, !5, i64 20}
+!72 = !{!69, !10, i64 216}

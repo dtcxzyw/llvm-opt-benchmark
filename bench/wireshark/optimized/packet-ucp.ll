@@ -1042,7 +1042,7 @@ define internal i32 @dissect_ucp_common(ptr noundef %0, ptr noundef %1, ptr noun
   %23 = add i32 %.02832.i, %22
   %24 = add nuw i32 %.02931.i, 1
   %exitcond.not.i = icmp eq i32 %24, %17
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %25 = and i32 %23, 255
@@ -1132,7 +1132,7 @@ check_ucp.exit:                                   ; preds = %._crit_edge.i, %19
   %82 = add i32 %81, %80
   %83 = add nuw nsw i32 %.0284293, 1
   %exitcond.not = icmp eq i32 %83, 5
-  br i1 %exitcond.not, label %84, label %76, !llvm.loop !12
+  br i1 %exitcond.not, label %84, label %76, !llvm.loop !11
 
 84:                                               ; preds = %76
   %85 = load i32, ptr @hf_ucp_hdr_LEN, align 4
@@ -1807,7 +1807,7 @@ ucp_handle_string.exit153.i:                      ; preds = %329, %327
   %336 = add i32 %.0.i154.i, 1
   %337 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %91, i32 noundef %.0.i154.i)
   %.not.i155.i = icmp eq i8 %337, 47
-  br i1 %.not.i155.i, label %338, label %335, !llvm.loop !13
+  br i1 %.not.i155.i, label %338, label %335, !llvm.loop !12
 
 338:                                              ; preds = %335
   %339 = sub i32 %336, %spec.select.i151.i
@@ -2061,7 +2061,7 @@ ucp_handle_string.exit177.i:                      ; preds = %464, %462
   %469 = add i32 %.0.i288, 1
   %470 = call zeroext i8 @tvb_get_uint8(ptr noundef %91, i32 noundef %.0.i288)
   %.not101.i = icmp eq i8 %470, 47
-  br i1 %.not101.i, label %471, label %468, !llvm.loop !14
+  br i1 %.not101.i, label %471, label %468, !llvm.loop !13
 
 471:                                              ; preds = %468
   %472 = sub i32 %469, %spec.select.i175.i
@@ -2127,7 +2127,7 @@ ucp_handle_string.exit177.i:                      ; preds = %464, %462
   %521 = add i32 %519, %518
   %522 = call zeroext i8 @tvb_get_uint8(ptr noundef %478, i32 noundef %521)
   %.not.i178.i = icmp eq i8 %522, 47
-  br i1 %.not.i178.i, label %ucp_handle_XSer.exit.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %.not.i178.i, label %ucp_handle_XSer.exit.i, label %.lr.ph.i.i, !llvm.loop !14
 
 ucp_handle_XSer.exit.i:                           ; preds = %.lr.ph.i.i, %474, %471
   %523 = load i32, ptr @hf_ucp_parm_RES4, align 4
@@ -2138,7 +2138,7 @@ ucp_handle_XSer.exit.i:                           ; preds = %.lr.ph.i.i, %474, %
   %525 = add i32 %.0.i179.i, 1
   %526 = call zeroext i8 @tvb_get_uint8(ptr noundef %91, i32 noundef %.0.i179.i)
   %.not.i180.i = icmp eq i8 %526, 47
-  br i1 %.not.i180.i, label %527, label %524, !llvm.loop !16
+  br i1 %.not.i180.i, label %527, label %524, !llvm.loop !15
 
 527:                                              ; preds = %524
   %528 = sub i32 %.0.i179.i, %.0.i288
@@ -2159,7 +2159,7 @@ ucp_handle_data_string.exit.i:                    ; preds = %530, %527
   %535 = add i32 %.0.i181.i, 1
   %536 = call zeroext i8 @tvb_get_uint8(ptr noundef %91, i32 noundef %.0.i181.i)
   %.not.i182.i = icmp eq i8 %536, 47
-  br i1 %.not.i182.i, label %537, label %534, !llvm.loop !16
+  br i1 %.not.i182.i, label %537, label %534, !llvm.loop !15
 
 537:                                              ; preds = %534
   %538 = sub i32 %.0.i181.i, %.0.i179.i
@@ -2706,7 +2706,7 @@ ucp_handle_string.exit:                           ; preds = %15, %17
   %spec.select.i = add i32 %20, %.0.i
   %21 = add nuw i32 %.030, 1
   %exitcond.not = icmp eq i32 %21, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %ucp_handle_string.exit, %3
   %spec.select.i28.lcssa = phi i32 [ %.promoted, %3 ], [ %spec.select.i, %ucp_handle_string.exit ]
@@ -2900,7 +2900,7 @@ ucp_handle_string.exit56:                         ; preds = %55, %57
   %spec.select.i54 = add i32 %60, %.0.i52
   %61 = add nuw i32 %.095, 1
   %exitcond.not = icmp eq i32 %61, %46
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %ucp_handle_string.exit56, %ucp_handle_string.exit49
   %spec.select.i5493.lcssa = phi i32 [ %.promoted, %ucp_handle_string.exit49 ], [ %spec.select.i54, %ucp_handle_string.exit56 ]
@@ -3266,7 +3266,7 @@ ucp_handle_string.exit:                           ; preds = %22, %24
   %spec.select.i = add i32 %27, %.0.i
   %28 = add nuw i32 %.035, 1
   %exitcond.not = icmp eq i32 %28, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %ucp_handle_string.exit, %11
   %spec.select.i33.lcssa = phi i32 [ %.promoted, %11 ], [ %spec.select.i, %ucp_handle_string.exit ]
@@ -3497,7 +3497,7 @@ ucp_handle_string.exit44:                         ; preds = %69, %71
   %spec.select.i42 = add i32 %74, %.0.i40
   %75 = add nuw i32 %.047, 1
   %exitcond.not = icmp eq i32 %75, %60
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %ucp_handle_string.exit44, %ucp_handle_string.exit37
   %spec.select.i4245.lcssa = phi i32 [ %.promoted, %ucp_handle_string.exit37 ], [ %spec.select.i42, %ucp_handle_string.exit44 ]
@@ -4117,7 +4117,7 @@ ucp_handle_string.exit:                           ; preds = %22, %24
   %spec.select.i = add i32 %27, %.0.i
   %28 = add nuw i32 %.026, 1
   %exitcond.not = icmp eq i32 %28, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %ucp_handle_string.exit, %11
   %spec.select.i24.lcssa = phi i32 [ %.promoted, %11 ], [ %spec.select.i, %ucp_handle_string.exit ]
@@ -4288,7 +4288,7 @@ ucp_handle_string.exit33:                         ; preds = %53, %55
   %61 = add i32 %.0.i34, 1
   %62 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.0.i34)
   %.not.i = icmp eq i8 %62, 47
-  br i1 %.not.i, label %63, label %60, !llvm.loop !13
+  br i1 %.not.i, label %63, label %60, !llvm.loop !12
 
 63:                                               ; preds = %60
   %64 = sub i32 %61, %spec.select.i31
@@ -4365,7 +4365,7 @@ ucp_handle_string.exit:                           ; preds = %22, %24
   %spec.select.i = add i32 %27, %.0.i
   %28 = add nuw i32 %.026, 1
   %exitcond.not = icmp eq i32 %28, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %ucp_handle_string.exit, %11
   %spec.select.i24.lcssa = phi i32 [ %.promoted, %11 ], [ %spec.select.i, %ucp_handle_string.exit ]
@@ -4514,7 +4514,7 @@ ucp_handle_string.exit24:                         ; preds = %41, %43
   %spec.select.i22 = add i32 %46, %.0.i20
   %47 = add nuw i32 %.027, 1
   %exitcond.not = icmp eq i32 %47, %32
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %ucp_handle_string.exit24, %ucp_handle_string.exit17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
@@ -4658,7 +4658,7 @@ ucp_handle_byte.exit:                             ; preds = %4
   %16 = add i32 %.0.i, 1
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.0.i)
   %.not.i17 = icmp eq i8 %17, 47
-  br i1 %.not.i17, label %18, label %15, !llvm.loop !13
+  br i1 %.not.i17, label %18, label %15, !llvm.loop !12
 
 18:                                               ; preds = %15
   %19 = sub i32 %16, %.lcssa1920
@@ -4673,7 +4673,7 @@ ucp_handle_byte.exit:                             ; preds = %4
 ucp_handle_data.exit:                             ; preds = %18, %21
   %24 = add nuw i32 %.021, 1
   %exitcond.not = icmp eq i32 %24, %13
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %ucp_handle_data.exit, %11
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5044,7 +5044,7 @@ ucp_handle_string.exit24:                         ; preds = %39, %41
   %47 = add i32 %.0.i25, 1
   %48 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.0.i25)
   %.not.i = icmp eq i8 %48, 47
-  br i1 %.not.i, label %49, label %46, !llvm.loop !13
+  br i1 %.not.i, label %49, label %46, !llvm.loop !12
 
 49:                                               ; preds = %46
   %50 = sub i32 %47, %spec.select.i22
@@ -5149,7 +5149,7 @@ ucp_handle_byte.exit21:                           ; preds = %11, %14
   %20 = call fastcc i32 @ucp_handle_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %19, ptr noundef nonnull %5)
   %21 = add nuw i32 %.022, 1
   %exitcond.not = icmp eq i32 %21, %18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ucp_handle_byte.exit.thread:                      ; preds = %4, %ucp_handle_byte.exit
   %22 = load i32, ptr @hf_ucp_parm_EC, align 4
@@ -5313,7 +5313,7 @@ ucp_handle_byte.exit:                             ; preds = %4
   %25 = add i32 %.0.i, 1
   %26 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.0.i)
   %.not.i84 = icmp eq i8 %26, 47
-  br i1 %.not.i84, label %27, label %24, !llvm.loop !13
+  br i1 %.not.i84, label %27, label %24, !llvm.loop !12
 
 27:                                               ; preds = %24
   %28 = sub i32 %25, %.lcssa100101102
@@ -5328,7 +5328,7 @@ ucp_handle_byte.exit:                             ; preds = %4
 ucp_handle_data.exit:                             ; preds = %27, %30
   %33 = add nuw i32 %.0103, 1
   %exitcond.not = icmp eq i32 %33, %22
-  br i1 %exitcond.not, label %.loopexit97, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit97, label %.lr.ph, !llvm.loop !25
 
 .loopexit97:                                      ; preds = %ucp_handle_data.exit, %20, %17, %11
   %34 = phi i32 [ 5, %17 ], [ 4, %11 ], [ %.promoted, %20 ], [ %25, %ucp_handle_data.exit ]
@@ -5368,7 +5368,7 @@ ucp_handle_data.exit:                             ; preds = %27, %30
   %50 = add i32 %.0.i85, 1
   %51 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.0.i85)
   %.not.i86 = icmp eq i8 %51, 47
-  br i1 %.not.i86, label %52, label %49, !llvm.loop !13
+  br i1 %.not.i86, label %52, label %49, !llvm.loop !12
 
 52:                                               ; preds = %49
   %53 = sub i32 %50, %.lcssa99105106
@@ -5383,7 +5383,7 @@ ucp_handle_data.exit:                             ; preds = %27, %30
 ucp_handle_data.exit87:                           ; preds = %52, %55
   %58 = add nuw i32 %.1107, 1
   %exitcond129.not = icmp eq i32 %58, %47
-  br i1 %exitcond129.not, label %.loopexit96, label %.lr.ph108, !llvm.loop !27
+  br i1 %exitcond129.not, label %.loopexit96, label %.lr.ph108, !llvm.loop !26
 
 .loopexit96:                                      ; preds = %ucp_handle_data.exit87, %45, %41, %.loopexit97
   %59 = phi i32 [ %44, %41 ], [ %35, %.loopexit97 ], [ %.promoted104, %45 ], [ %50, %ucp_handle_data.exit87 ]
@@ -5423,7 +5423,7 @@ ucp_handle_data.exit87:                           ; preds = %52, %55
   %75 = add i32 %.0.i88, 1
   %76 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.0.i88)
   %.not.i89 = icmp eq i8 %76, 47
-  br i1 %.not.i89, label %77, label %74, !llvm.loop !13
+  br i1 %.not.i89, label %77, label %74, !llvm.loop !12
 
 77:                                               ; preds = %74
   %78 = sub i32 %75, %.lcssa98111112
@@ -5438,7 +5438,7 @@ ucp_handle_data.exit87:                           ; preds = %52, %55
 ucp_handle_data.exit90:                           ; preds = %77, %80
   %83 = add nuw i32 %.2113, 1
   %exitcond130.not = icmp eq i32 %83, %72
-  br i1 %exitcond130.not, label %.loopexit95, label %.lr.ph114, !llvm.loop !28
+  br i1 %exitcond130.not, label %.loopexit95, label %.lr.ph114, !llvm.loop !27
 
 .loopexit95:                                      ; preds = %ucp_handle_data.exit90, %70, %66, %.loopexit96
   %84 = phi i32 [ %69, %66 ], [ %60, %.loopexit96 ], [ %.promoted110, %70 ], [ %75, %ucp_handle_data.exit90 ]
@@ -5479,7 +5479,7 @@ ucp_handle_data.exit90:                           ; preds = %77, %80
   %100 = add i32 %.0.i91, 1
   %101 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.0.i91)
   %.not.i92 = icmp eq i8 %101, 47
-  br i1 %.not.i92, label %102, label %99, !llvm.loop !13
+  br i1 %.not.i92, label %102, label %99, !llvm.loop !12
 
 102:                                              ; preds = %99
   %103 = sub i32 %100, %.lcssa117118
@@ -5494,7 +5494,7 @@ ucp_handle_data.exit90:                           ; preds = %77, %80
 ucp_handle_data.exit93:                           ; preds = %102, %105
   %108 = add nuw i32 %.3119, 1
   %exitcond131.not = icmp eq i32 %108, %97
-  br i1 %exitcond131.not, label %.sink.split, label %.lr.ph120, !llvm.loop !29
+  br i1 %exitcond131.not, label %.sink.split, label %.lr.ph120, !llvm.loop !28
 
 .sink.split:                                      ; preds = %ucp_handle_data.exit93, %95, %91
   %.lcssa117.lcssa.sink = phi i32 [ %94, %91 ], [ %.promoted116, %95 ], [ %100, %ucp_handle_data.exit93 ]
@@ -6020,7 +6020,7 @@ ucp_handle_byte.exit54:                           ; preds = %ucp_handle_byte.exi
   %101 = add i32 %.0.i55, 1
   %102 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.0.i55)
   %.not.i56 = icmp eq i8 %102, 47
-  br i1 %.not.i56, label %103, label %100, !llvm.loop !16
+  br i1 %.not.i56, label %103, label %100, !llvm.loop !15
 
 103:                                              ; preds = %100
   %104 = sub i32 %101, %98
@@ -6045,7 +6045,7 @@ ucp_handle_data_string.exit:                      ; preds = %103, %106
   %113 = add i32 %.0.i57, 1
   %114 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.0.i57)
   %.not.i58 = icmp eq i8 %114, 47
-  br i1 %.not.i58, label %115, label %112, !llvm.loop !16
+  br i1 %.not.i58, label %115, label %112, !llvm.loop !15
 
 115:                                              ; preds = %112
   %116 = sub i32 %.0.i57, %.0.i55
@@ -6212,7 +6212,7 @@ ucp_handle_string.exit:                           ; preds = %26, %28
   %37 = add i32 %.0.i31, 1
   %38 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.0.i31)
   %.not.i32 = icmp eq i8 %38, 47
-  br i1 %.not.i32, label %39, label %36, !llvm.loop !13
+  br i1 %.not.i32, label %39, label %36, !llvm.loop !12
 
 39:                                               ; preds = %36
   %40 = load i32, ptr %3, align 4
@@ -6370,7 +6370,7 @@ ucp_handle_string.exit55:                         ; preds = %103, %105
   %113 = add i32 %.0.i56, 1
   %114 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.0.i56)
   %.not.i57 = icmp eq i8 %114, 47
-  br i1 %.not.i57, label %115, label %112, !llvm.loop !13
+  br i1 %.not.i57, label %115, label %112, !llvm.loop !12
 
 115:                                              ; preds = %112
   %116 = load i32, ptr %3, align 4
@@ -6470,7 +6470,7 @@ define internal fastcc void @ucp_handle_IRAstring(ptr noundef %0, ptr noundef %1
   %47 = load i32, ptr %5, align 4
   %48 = add i32 %47, 1
   %49 = icmp slt i32 %48, %7
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %46, %.lr.ph, %26
   %50 = phi i32 [ %29, %26 ], [ %33, %.lr.ph ], [ %47, %46 ]
@@ -6754,26 +6754,25 @@ attributes #6 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = distinct !{!20, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}
+!23 = distinct !{!23, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = distinct !{!29, !9}

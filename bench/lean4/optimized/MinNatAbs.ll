@@ -174,7 +174,7 @@ lean_nat_eq.exit49:                               ; preds = %lean_dec.exit40
 
 lean_dec.exit.backedge:                           ; preds = %lean_nat_eq.exit49, %72, %74, %75, %29, %33, %35, %36, %lean_alloc_ctor.exit, %37
   %.036.be = phi ptr [ %.0, %37 ], [ %77, %lean_alloc_ctor.exit ], [ %.036, %36 ], [ %.036, %35 ], [ %.036, %33 ], [ %.036, %29 ], [ %.036, %75 ], [ %.036, %74 ], [ %.036, %72 ], [ %.036, %lean_nat_eq.exit49 ]
-  br label %lean_dec.exit, !llvm.loop !13
+  br label %lean_dec.exit
 
 lean_nat_eq.exit49.thread:                        ; preds = %lean_dec.exit40
   %66 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %17, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
@@ -295,7 +295,7 @@ lean_inc.exit:                                    ; preds = %21, %20, %18, %13
   %31 = and i64 %30, 1
   %32 = icmp ne i64 %31, 0
   %or.cond = select i1 %29, i1 %32, i1 false
-  br i1 %or.cond, label %33, label %.critedge.i, !prof !15
+  br i1 %or.cond, label %33, label %.critedge.i, !prof !13
 
 33:                                               ; preds = %22
   %34 = icmp ule ptr %.0, %24
@@ -308,7 +308,7 @@ lean_inc.exit:                                    ; preds = %21, %20, %18, %13
 lean_nat_le.exit:                                 ; preds = %33, %.critedge.i
   %.0.i = phi i1 [ %34, %33 ], [ %35, %.critedge.i ]
   %..0 = select i1 %.0.i, ptr %.0, ptr %24
-  br label %3, !llvm.loop !16
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -401,7 +401,7 @@ lean_obj_tag.exit.i:                              ; preds = %22, %19
   %44 = and i64 %43, 1
   %45 = icmp ne i64 %44, 0
   %or.cond.i = select i1 %42, i1 %45, i1 false
-  br i1 %or.cond.i, label %46, label %.critedge.i.i, !prof !15
+  br i1 %or.cond.i, label %46, label %.critedge.i.i, !prof !13
 
 46:                                               ; preds = %35
   %47 = icmp ule ptr %.0.i10, %37
@@ -414,7 +414,7 @@ lean_obj_tag.exit.i:                              ; preds = %22, %19
 lean_nat_le.exit.i:                               ; preds = %.critedge.i.i, %46
   %.0.i.i = phi i1 [ %47, %46 ], [ %48, %.critedge.i.i ]
   %..0.i = select i1 %.0.i.i, ptr %.0.i10, ptr %37
-  br label %16, !llvm.loop !16
+  br label %16
 
 l_List_foldl___at_List_nonzeroMinimum___spec__3.exit: ; preds = %26, %31, %33, %34
   tail call void @lean_inc_heartbeat() #4
@@ -604,7 +604,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %31 = and i64 %30, 1
   %32 = icmp ne i64 %31, 0
   %or.cond.i = select i1 %29, i1 %32, i1 false
-  br i1 %or.cond.i, label %33, label %.critedge.i.i, !prof !15
+  br i1 %or.cond.i, label %33, label %.critedge.i.i, !prof !13
 
 33:                                               ; preds = %22
   %34 = icmp ule ptr %.0.i, %24
@@ -617,7 +617,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
 lean_nat_le.exit.i:                               ; preds = %.critedge.i.i, %33
   %.0.i.i = phi i1 [ %34, %33 ], [ %35, %.critedge.i.i ]
   %..0.i = select i1 %.0.i.i, ptr %.0.i, ptr %24
-  br label %3, !llvm.loop !16
+  br label %3
 
 l_List_foldl___at_List_nonzeroMinimum___spec__3.exit: ; preds = %13, %18, %20, %21
   %36 = ptrtoint ptr %1 to i64
@@ -1013,7 +1013,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit32
   %.029.be = phi ptr [ %.0, %lean_dec.exit32 ], [ %112, %lean_alloc_ctor.exit ]
-  br label %3, !llvm.loop !17
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1090,7 +1090,7 @@ lean_inc.exit:                                    ; preds = %21, %20, %18, %13
   %31 = and i64 %30, 1
   %32 = icmp ne i64 %31, 0
   %or.cond = select i1 %29, i1 %32, i1 false
-  br i1 %or.cond, label %33, label %.critedge.i, !prof !15
+  br i1 %or.cond, label %33, label %.critedge.i, !prof !13
 
 33:                                               ; preds = %22
   %34 = icmp ule ptr %.0, %24
@@ -1103,7 +1103,7 @@ lean_inc.exit:                                    ; preds = %21, %20, %18, %13
 lean_nat_le.exit:                                 ; preds = %33, %.critedge.i
   %.0.i = phi i1 [ %34, %33 ], [ %35, %.critedge.i ]
   %.0. = select i1 %.0.i, ptr %24, ptr %.0
-  br label %3, !llvm.loop !18
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1196,7 +1196,7 @@ lean_obj_tag.exit.i:                              ; preds = %22, %19
   %44 = and i64 %43, 1
   %45 = icmp ne i64 %44, 0
   %or.cond.i = select i1 %42, i1 %45, i1 false
-  br i1 %or.cond.i, label %46, label %.critedge.i.i, !prof !15
+  br i1 %or.cond.i, label %46, label %.critedge.i.i, !prof !13
 
 46:                                               ; preds = %35
   %47 = icmp ule ptr %.0.i10, %37
@@ -1209,7 +1209,7 @@ lean_obj_tag.exit.i:                              ; preds = %22, %19
 lean_nat_le.exit.i:                               ; preds = %.critedge.i.i, %46
   %.0.i.i = phi i1 [ %47, %46 ], [ %48, %.critedge.i.i ]
   %.0..i = select i1 %.0.i.i, ptr %37, ptr %.0.i10
-  br label %16, !llvm.loop !18
+  br label %16
 
 l_List_foldl___at_List_maxNatAbs___spec__2.exit:  ; preds = %26, %31, %33, %34
   tail call void @lean_inc_heartbeat() #4
@@ -1399,7 +1399,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %31 = and i64 %30, 1
   %32 = icmp ne i64 %31, 0
   %or.cond.i = select i1 %29, i1 %32, i1 false
-  br i1 %or.cond.i, label %33, label %.critedge.i.i, !prof !15
+  br i1 %or.cond.i, label %33, label %.critedge.i.i, !prof !13
 
 33:                                               ; preds = %22
   %34 = icmp ule ptr %.0.i, %24
@@ -1412,7 +1412,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
 lean_nat_le.exit.i:                               ; preds = %.critedge.i.i, %33
   %.0.i.i = phi i1 [ %34, %33 ], [ %35, %.critedge.i.i ]
   %.0..i = select i1 %.0.i.i, ptr %24, ptr %.0.i
-  br label %3, !llvm.loop !18
+  br label %3
 
 l_List_foldl___at_List_maxNatAbs___spec__2.exit:  ; preds = %13, %18, %20, %21
   %36 = ptrtoint ptr %1 to i64
@@ -1738,9 +1738,4 @@ attributes #5 = { noreturn nounwind }
 !10 = !{!"any pointer", !7, i64 0}
 !11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!"branch_weights", i32 4000000, i32 4001}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
+!13 = !{!"branch_weights", i32 4000000, i32 4001}

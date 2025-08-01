@@ -149,7 +149,7 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   %.18094.i = phi i32 [ %24, %.preheader91.i ], [ 1, %10 ]
   %19 = and i32 %.18094.i, 255
   %20 = getelementptr inbounds nuw [10 x i32], ptr @round_constants, i64 0, i64 %indvars.iv98.i
-  store i32 %19, ptr %20, align 4, !tbaa !13
+  store i32 %19, ptr %20, align 4, !tbaa !12
   %21 = shl nuw nsw i32 %19, 1
   %22 = and i32 %.18094.i, 128
   %.not81.i = icmp eq i32 %22, 0
@@ -157,7 +157,7 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   %24 = xor i32 %23, %21
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %exitcond101.not.i = icmp eq i64 %indvars.iv.next99.i, 10
-  br i1 %exitcond101.not.i, label %25, label %.preheader91.i, !llvm.loop !14
+  br i1 %exitcond101.not.i, label %25, label %.preheader91.i, !llvm.loop !13
 
 25:                                               ; preds = %.preheader91.i
   store i8 99, ptr @FSb, align 16, !tbaa !9
@@ -204,7 +204,7 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   store i8 %55, ptr %57, align 1, !tbaa !9
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next103.i, 256
-  br i1 %exitcond105.not.i, label %.preheader.i, label %38, !llvm.loop !15
+  br i1 %exitcond105.not.i, label %.preheader.i, label %38, !llvm.loop !14
 
 58:                                               ; preds = %.thread84.i, %.preheader.i
   %indvars.iv106.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next107.i, %.thread84.i ]
@@ -225,17 +225,17 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
   %72 = shl nuw i32 %71, 24
   %73 = or disjoint i32 %70, %72
   %74 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %indvars.iv106.i
-  store i32 %73, ptr %74, align 4, !tbaa !13
+  store i32 %73, ptr %74, align 4, !tbaa !12
   %75 = shl nuw i32 %70, 8
   %76 = or disjoint i32 %75, %71
   %77 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %indvars.iv106.i
-  store i32 %76, ptr %77, align 4, !tbaa !13
+  store i32 %76, ptr %77, align 4, !tbaa !12
   %78 = tail call i32 @llvm.fshl.i32(i32 %76, i32 %76, i32 8)
   %79 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %indvars.iv106.i
-  store i32 %78, ptr %79, align 4, !tbaa !13
+  store i32 %78, ptr %79, align 4, !tbaa !12
   %80 = tail call i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 8)
   %81 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %indvars.iv106.i
-  store i32 %80, ptr %81, align 4, !tbaa !13
+  store i32 %80, ptr %81, align 4, !tbaa !12
   %82 = getelementptr inbounds nuw [256 x i8], ptr @RSb, i64 0, i64 %indvars.iv106.i
   %83 = load i8, ptr %82, align 1, !tbaa !9
   %.not.i = icmp eq i8 %83, 0
@@ -281,19 +281,19 @@ define hidden i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr noundef %1, i32 no
 .thread84.i:                                      ; preds = %84, %58
   %115 = phi i32 [ %114, %84 ], [ 0, %58 ]
   %116 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %indvars.iv106.i
-  store i32 %115, ptr %116, align 4, !tbaa !13
+  store i32 %115, ptr %116, align 4, !tbaa !12
   %117 = tail call i32 @llvm.fshl.i32(i32 %115, i32 %115, i32 8)
   %118 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %indvars.iv106.i
-  store i32 %117, ptr %118, align 4, !tbaa !13
+  store i32 %117, ptr %118, align 4, !tbaa !12
   %119 = tail call i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 8)
   %120 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %indvars.iv106.i
-  store i32 %119, ptr %120, align 4, !tbaa !13
+  store i32 %119, ptr %120, align 4, !tbaa !12
   %121 = tail call i32 @llvm.fshl.i32(i32 %119, i32 %119, i32 8)
   %122 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %indvars.iv106.i
-  store i32 %121, ptr %122, align 4, !tbaa !13
+  store i32 %121, ptr %122, align 4, !tbaa !12
   %indvars.iv.next107.i = add nuw nsw i64 %indvars.iv106.i, 1
   %exitcond109.not.i = icmp eq i64 %indvars.iv.next107.i, 256
-  br i1 %exitcond109.not.i, label %aes_gen_tables.exit, label %58, !llvm.loop !16
+  br i1 %exitcond109.not.i, label %aes_gen_tables.exit, label %58, !llvm.loop !15
 
 aes_gen_tables.exit:                              ; preds = %.thread84.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #11
@@ -304,7 +304,7 @@ aes_gen_tables.exit:                              ; preds = %.thread84.i
 123:                                              ; preds = %aes_gen_tables.exit, %8
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %125, align 8, !tbaa !17
+  store i64 0, ptr %125, align 8, !tbaa !16
   %126 = tail call i32 @mbedtls_aesni_has_support(i32 noundef 33554432) #11
   %.not = icmp eq i32 %126, 0
   br i1 %.not, label %.preheader106, label %128
@@ -332,15 +332,15 @@ aes_gen_tables.exit:                              ; preds = %.thread84.i
   ]
 
 .preheader104.preheader:                          ; preds = %._crit_edge
-  %.pre = load i32, ptr %124, align 4, !tbaa !13
+  %.pre = load i32, ptr %124, align 4, !tbaa !12
   br label %.preheader104
 
 .preheader102.preheader:                          ; preds = %._crit_edge
-  %.pre130 = load i32, ptr %124, align 4, !tbaa !13
+  %.pre130 = load i32, ptr %124, align 4, !tbaa !12
   br label %.preheader102
 
 .preheader.preheader:                             ; preds = %._crit_edge
-  %.pre131 = load i32, ptr %124, align 4, !tbaa !13
+  %.pre131 = load i32, ptr %124, align 4, !tbaa !12
   br label %.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -349,20 +349,20 @@ aes_gen_tables.exit:                              ; preds = %.thread84.i
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 %132
   %.0.copyload.i = load i32, ptr %133, align 1
   %134 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv
-  store i32 %.0.copyload.i, ptr %134, align 4, !tbaa !13
+  store i32 %.0.copyload.i, ptr %134, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %135 = phi i32 [ %.pre131, %.preheader.preheader ], [ %169, %.preheader ]
   %indvars.iv126 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next127, %.preheader ]
   %.0100112 = phi ptr [ %124, %.preheader.preheader ], [ %170, %.preheader ]
   %136 = getelementptr inbounds nuw [10 x i32], ptr @round_constants, i64 0, i64 %indvars.iv126
-  %137 = load i32, ptr %136, align 4, !tbaa !13
+  %137 = load i32, ptr %136, align 4, !tbaa !12
   %138 = xor i32 %137, %135
   %139 = getelementptr inbounds nuw i8, ptr %.0100112, i64 12
-  %140 = load i32, ptr %139, align 4, !tbaa !13
+  %140 = load i32, ptr %139, align 4, !tbaa !12
   %141 = lshr i32 %140, 8
   %142 = and i32 %141, 255
   %143 = zext nneg i32 %142 to i64
@@ -393,33 +393,33 @@ aes_gen_tables.exit:                              ; preds = %.thread84.i
   %168 = shl nuw i32 %167, 24
   %169 = xor i32 %162, %168
   %170 = getelementptr inbounds nuw i8, ptr %.0100112, i64 16
-  store i32 %169, ptr %170, align 4, !tbaa !13
+  store i32 %169, ptr %170, align 4, !tbaa !12
   %171 = getelementptr inbounds nuw i8, ptr %.0100112, i64 4
-  %172 = load i32, ptr %171, align 4, !tbaa !13
+  %172 = load i32, ptr %171, align 4, !tbaa !12
   %173 = xor i32 %169, %172
   %174 = getelementptr inbounds nuw i8, ptr %.0100112, i64 20
-  store i32 %173, ptr %174, align 4, !tbaa !13
+  store i32 %173, ptr %174, align 4, !tbaa !12
   %175 = getelementptr inbounds nuw i8, ptr %.0100112, i64 8
-  %176 = load i32, ptr %175, align 4, !tbaa !13
+  %176 = load i32, ptr %175, align 4, !tbaa !12
   %177 = xor i32 %176, %173
   %178 = getelementptr inbounds nuw i8, ptr %.0100112, i64 24
-  store i32 %177, ptr %178, align 4, !tbaa !13
+  store i32 %177, ptr %178, align 4, !tbaa !12
   %179 = xor i32 %177, %140
   %180 = getelementptr inbounds nuw i8, ptr %.0100112, i64 28
-  store i32 %179, ptr %180, align 4, !tbaa !13
+  store i32 %179, ptr %180, align 4, !tbaa !12
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next127, 10
-  br i1 %exitcond129.not, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %exitcond129.not, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .preheader102:                                    ; preds = %.preheader102.preheader, %.preheader102
   %181 = phi i32 [ %.pre130, %.preheader102.preheader ], [ %215, %.preheader102 ]
   %indvars.iv122 = phi i64 [ 0, %.preheader102.preheader ], [ %indvars.iv.next123, %.preheader102 ]
   %.1110 = phi ptr [ %124, %.preheader102.preheader ], [ %216, %.preheader102 ]
   %182 = getelementptr inbounds nuw [10 x i32], ptr @round_constants, i64 0, i64 %indvars.iv122
-  %183 = load i32, ptr %182, align 4, !tbaa !13
+  %183 = load i32, ptr %182, align 4, !tbaa !12
   %184 = xor i32 %183, %181
   %185 = getelementptr inbounds nuw i8, ptr %.1110, i64 20
-  %186 = load i32, ptr %185, align 4, !tbaa !13
+  %186 = load i32, ptr %185, align 4, !tbaa !12
   %187 = lshr i32 %186, 8
   %188 = and i32 %187, 255
   %189 = zext nneg i32 %188 to i64
@@ -450,43 +450,43 @@ aes_gen_tables.exit:                              ; preds = %.thread84.i
   %214 = shl nuw i32 %213, 24
   %215 = xor i32 %208, %214
   %216 = getelementptr inbounds nuw i8, ptr %.1110, i64 24
-  store i32 %215, ptr %216, align 4, !tbaa !13
+  store i32 %215, ptr %216, align 4, !tbaa !12
   %217 = getelementptr inbounds nuw i8, ptr %.1110, i64 4
-  %218 = load i32, ptr %217, align 4, !tbaa !13
+  %218 = load i32, ptr %217, align 4, !tbaa !12
   %219 = xor i32 %215, %218
   %220 = getelementptr inbounds nuw i8, ptr %.1110, i64 28
-  store i32 %219, ptr %220, align 4, !tbaa !13
+  store i32 %219, ptr %220, align 4, !tbaa !12
   %221 = getelementptr inbounds nuw i8, ptr %.1110, i64 8
-  %222 = load i32, ptr %221, align 4, !tbaa !13
+  %222 = load i32, ptr %221, align 4, !tbaa !12
   %223 = xor i32 %222, %219
   %224 = getelementptr inbounds nuw i8, ptr %.1110, i64 32
-  store i32 %223, ptr %224, align 4, !tbaa !13
+  store i32 %223, ptr %224, align 4, !tbaa !12
   %225 = getelementptr inbounds nuw i8, ptr %.1110, i64 12
-  %226 = load i32, ptr %225, align 4, !tbaa !13
+  %226 = load i32, ptr %225, align 4, !tbaa !12
   %227 = xor i32 %226, %223
   %228 = getelementptr inbounds nuw i8, ptr %.1110, i64 36
-  store i32 %227, ptr %228, align 4, !tbaa !13
+  store i32 %227, ptr %228, align 4, !tbaa !12
   %229 = getelementptr inbounds nuw i8, ptr %.1110, i64 16
-  %230 = load i32, ptr %229, align 4, !tbaa !13
+  %230 = load i32, ptr %229, align 4, !tbaa !12
   %231 = xor i32 %230, %227
   %232 = getelementptr inbounds nuw i8, ptr %.1110, i64 40
-  store i32 %231, ptr %232, align 4, !tbaa !13
+  store i32 %231, ptr %232, align 4, !tbaa !12
   %233 = xor i32 %231, %186
   %234 = getelementptr inbounds nuw i8, ptr %.1110, i64 44
-  store i32 %233, ptr %234, align 4, !tbaa !13
+  store i32 %233, ptr %234, align 4, !tbaa !12
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 8
-  br i1 %exitcond125.not, label %.loopexit, label %.preheader102, !llvm.loop !20
+  br i1 %exitcond125.not, label %.loopexit, label %.preheader102, !llvm.loop !19
 
 .preheader104:                                    ; preds = %.preheader104.preheader, %.preheader104
   %235 = phi i32 [ %.pre, %.preheader104.preheader ], [ %269, %.preheader104 ]
   %indvars.iv118 = phi i64 [ 0, %.preheader104.preheader ], [ %indvars.iv.next119, %.preheader104 ]
   %.2108 = phi ptr [ %124, %.preheader104.preheader ], [ %270, %.preheader104 ]
   %236 = getelementptr inbounds nuw [10 x i32], ptr @round_constants, i64 0, i64 %indvars.iv118
-  %237 = load i32, ptr %236, align 4, !tbaa !13
+  %237 = load i32, ptr %236, align 4, !tbaa !12
   %238 = xor i32 %237, %235
   %239 = getelementptr inbounds nuw i8, ptr %.2108, i64 28
-  %240 = load i32, ptr %239, align 4, !tbaa !13
+  %240 = load i32, ptr %239, align 4, !tbaa !12
   %241 = lshr i32 %240, 8
   %242 = and i32 %241, 255
   %243 = zext nneg i32 %242 to i64
@@ -517,24 +517,24 @@ aes_gen_tables.exit:                              ; preds = %.thread84.i
   %268 = shl nuw i32 %267, 24
   %269 = xor i32 %262, %268
   %270 = getelementptr inbounds nuw i8, ptr %.2108, i64 32
-  store i32 %269, ptr %270, align 4, !tbaa !13
+  store i32 %269, ptr %270, align 4, !tbaa !12
   %271 = getelementptr inbounds nuw i8, ptr %.2108, i64 4
-  %272 = load i32, ptr %271, align 4, !tbaa !13
+  %272 = load i32, ptr %271, align 4, !tbaa !12
   %273 = xor i32 %269, %272
   %274 = getelementptr inbounds nuw i8, ptr %.2108, i64 36
-  store i32 %273, ptr %274, align 4, !tbaa !13
+  store i32 %273, ptr %274, align 4, !tbaa !12
   %275 = getelementptr inbounds nuw i8, ptr %.2108, i64 8
-  %276 = load i32, ptr %275, align 4, !tbaa !13
+  %276 = load i32, ptr %275, align 4, !tbaa !12
   %277 = xor i32 %276, %273
   %278 = getelementptr inbounds nuw i8, ptr %.2108, i64 40
-  store i32 %277, ptr %278, align 4, !tbaa !13
+  store i32 %277, ptr %278, align 4, !tbaa !12
   %279 = getelementptr inbounds nuw i8, ptr %.2108, i64 12
-  %280 = load i32, ptr %279, align 4, !tbaa !13
+  %280 = load i32, ptr %279, align 4, !tbaa !12
   %281 = xor i32 %280, %277
   %282 = getelementptr inbounds nuw i8, ptr %.2108, i64 44
-  store i32 %281, ptr %282, align 4, !tbaa !13
+  store i32 %281, ptr %282, align 4, !tbaa !12
   %283 = getelementptr inbounds nuw i8, ptr %.2108, i64 16
-  %284 = load i32, ptr %283, align 4, !tbaa !13
+  %284 = load i32, ptr %283, align 4, !tbaa !12
   %285 = and i32 %281, 255
   %286 = zext nneg i32 %285 to i64
   %287 = getelementptr inbounds nuw [256 x i8], ptr @FSb, i64 0, i64 %286
@@ -565,23 +565,23 @@ aes_gen_tables.exit:                              ; preds = %.thread84.i
   %312 = shl nuw i32 %311, 24
   %313 = xor i32 %306, %312
   %314 = getelementptr inbounds nuw i8, ptr %.2108, i64 48
-  store i32 %313, ptr %314, align 4, !tbaa !13
+  store i32 %313, ptr %314, align 4, !tbaa !12
   %315 = getelementptr inbounds nuw i8, ptr %.2108, i64 20
-  %316 = load i32, ptr %315, align 4, !tbaa !13
+  %316 = load i32, ptr %315, align 4, !tbaa !12
   %317 = xor i32 %313, %316
   %318 = getelementptr inbounds nuw i8, ptr %.2108, i64 52
-  store i32 %317, ptr %318, align 4, !tbaa !13
+  store i32 %317, ptr %318, align 4, !tbaa !12
   %319 = getelementptr inbounds nuw i8, ptr %.2108, i64 24
-  %320 = load i32, ptr %319, align 4, !tbaa !13
+  %320 = load i32, ptr %319, align 4, !tbaa !12
   %321 = xor i32 %320, %317
   %322 = getelementptr inbounds nuw i8, ptr %.2108, i64 56
-  store i32 %321, ptr %322, align 4, !tbaa !13
+  store i32 %321, ptr %322, align 4, !tbaa !12
   %323 = xor i32 %321, %240
   %324 = getelementptr inbounds nuw i8, ptr %.2108, i64 60
-  store i32 %323, ptr %324, align 4, !tbaa !13
+  store i32 %323, ptr %324, align 4, !tbaa !12
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next119, 7
-  br i1 %exitcond121.not, label %.loopexit, label %.preheader104, !llvm.loop !21
+  br i1 %exitcond121.not, label %.loopexit, label %.preheader104, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader104, %.preheader102, %.preheader, %._crit_edge, %3, %128
   %.0101 = phi i32 [ %130, %128 ], [ -32, %3 ], [ 0, %._crit_edge ], [ 0, %.preheader ], [ 0, %.preheader102 ], [ 0, %.preheader104 ]
@@ -605,7 +605,7 @@ define hidden i32 @mbedtls_aes_setkey_dec(ptr noundef initializes((8, 16)) %0, p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %4, i8 0, i64 288, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %6, align 8, !tbaa !17
+  store i64 0, ptr %6, align 8, !tbaa !16
   %7 = call i32 @mbedtls_aes_setkey_enc(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %87
@@ -617,7 +617,7 @@ define hidden i32 @mbedtls_aes_setkey_dec(ptr noundef initializes((8, 16)) %0, p
   %.not42 = icmp eq i32 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !17
+  %13 = load i64, ptr %12, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i32, ptr %11, i64 %13
   br i1 %.not42, label %17, label %15
 
@@ -632,20 +632,20 @@ define hidden i32 @mbedtls_aes_setkey_dec(ptr noundef initializes((8, 16)) %0, p
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %14, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i32, ptr %21, align 4, !tbaa !13
+  %23 = load i32, ptr %21, align 4, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %23, ptr %5, align 4, !tbaa !13
+  store i32 %23, ptr %5, align 4, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %26 = load i32, ptr %22, align 4, !tbaa !13
+  %26 = load i32, ptr %22, align 4, !tbaa !12
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %26, ptr %24, align 4, !tbaa !13
+  store i32 %26, ptr %24, align 4, !tbaa !12
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %29 = load i32, ptr %25, align 4, !tbaa !13
+  %29 = load i32, ptr %25, align 4, !tbaa !12
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %29, ptr %27, align 4, !tbaa !13
-  %31 = load i32, ptr %28, align 4, !tbaa !13
+  store i32 %29, ptr %27, align 4, !tbaa !12
+  %31 = load i32, ptr %28, align 4, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %31, ptr %30, align 4, !tbaa !13
+  store i32 %31, ptr %30, align 4, !tbaa !12
   %33 = getelementptr inbounds i8, ptr %21, i64 -16
   %34 = load i32, ptr %0, align 8, !tbaa !3
   %35 = icmp sgt i32 %34, 1
@@ -661,39 +661,39 @@ define hidden i32 @mbedtls_aes_setkey_dec(ptr noundef initializes((8, 16)) %0, p
   %.040.lcssa = phi ptr [ %33, %17 ], [ %47, %46 ]
   %.039.lcssa = phi ptr [ %32, %17 ], [ %84, %46 ]
   %36 = getelementptr inbounds nuw i8, ptr %.040.lcssa, i64 4
-  %37 = load i32, ptr %.040.lcssa, align 4, !tbaa !13
+  %37 = load i32, ptr %.040.lcssa, align 4, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %.039.lcssa, i64 4
-  store i32 %37, ptr %.039.lcssa, align 4, !tbaa !13
+  store i32 %37, ptr %.039.lcssa, align 4, !tbaa !12
   %39 = getelementptr inbounds nuw i8, ptr %.040.lcssa, i64 8
-  %40 = load i32, ptr %36, align 4, !tbaa !13
+  %40 = load i32, ptr %36, align 4, !tbaa !12
   %41 = getelementptr inbounds nuw i8, ptr %.039.lcssa, i64 8
-  store i32 %40, ptr %38, align 4, !tbaa !13
+  store i32 %40, ptr %38, align 4, !tbaa !12
   %42 = getelementptr inbounds nuw i8, ptr %.040.lcssa, i64 12
-  %43 = load i32, ptr %39, align 4, !tbaa !13
+  %43 = load i32, ptr %39, align 4, !tbaa !12
   %44 = getelementptr inbounds nuw i8, ptr %.039.lcssa, i64 12
-  store i32 %43, ptr %41, align 4, !tbaa !13
-  %45 = load i32, ptr %42, align 4, !tbaa !13
-  store i32 %45, ptr %44, align 4, !tbaa !13
+  store i32 %43, ptr %41, align 4, !tbaa !12
+  %45 = load i32, ptr %42, align 4, !tbaa !12
+  store i32 %45, ptr %44, align 4, !tbaa !12
   br label %87
 
 46:                                               ; preds = %49
   %.03849 = add nsw i32 %.03849.in, -1
   %47 = getelementptr inbounds i8, ptr %.14143, i64 -28
   %48 = icmp sgt i32 %.03849.in, 2
-  br i1 %48, label %.preheader, label %._crit_edge, !llvm.loop !22
+  br i1 %48, label %.preheader, label %._crit_edge, !llvm.loop !21
 
 49:                                               ; preds = %.preheader, %49
   %.045 = phi i32 [ 0, %.preheader ], [ %85, %49 ]
   %.144 = phi ptr [ %.03948, %.preheader ], [ %84, %49 ]
   %.14143 = phi ptr [ %.04047, %.preheader ], [ %86, %49 ]
-  %50 = load i32, ptr %.14143, align 4, !tbaa !13
+  %50 = load i32, ptr %.14143, align 4, !tbaa !12
   %51 = and i32 %50, 255
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw [256 x i8], ptr @FSb, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !9
   %55 = zext i8 %54 to i64
   %56 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !13
+  %57 = load i32, ptr %56, align 4, !tbaa !12
   %58 = lshr i32 %50, 8
   %59 = and i32 %58, 255
   %60 = zext nneg i32 %59 to i64
@@ -701,7 +701,7 @@ define hidden i32 @mbedtls_aes_setkey_dec(ptr noundef initializes((8, 16)) %0, p
   %62 = load i8, ptr %61, align 1, !tbaa !9
   %63 = zext i8 %62 to i64
   %64 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %63
-  %65 = load i32, ptr %64, align 4, !tbaa !13
+  %65 = load i32, ptr %64, align 4, !tbaa !12
   %66 = xor i32 %65, %57
   %67 = lshr i32 %50, 16
   %68 = and i32 %67, 255
@@ -710,7 +710,7 @@ define hidden i32 @mbedtls_aes_setkey_dec(ptr noundef initializes((8, 16)) %0, p
   %71 = load i8, ptr %70, align 1, !tbaa !9
   %72 = zext i8 %71 to i64
   %73 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %72
-  %74 = load i32, ptr %73, align 4, !tbaa !13
+  %74 = load i32, ptr %73, align 4, !tbaa !12
   %75 = xor i32 %66, %74
   %76 = lshr i32 %50, 24
   %77 = zext nneg i32 %76 to i64
@@ -718,14 +718,14 @@ define hidden i32 @mbedtls_aes_setkey_dec(ptr noundef initializes((8, 16)) %0, p
   %79 = load i8, ptr %78, align 1, !tbaa !9
   %80 = zext i8 %79 to i64
   %81 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %80
-  %82 = load i32, ptr %81, align 4, !tbaa !13
+  %82 = load i32, ptr %81, align 4, !tbaa !12
   %83 = xor i32 %75, %82
   %84 = getelementptr inbounds nuw i8, ptr %.144, i64 4
-  store i32 %83, ptr %.144, align 4, !tbaa !13
+  store i32 %83, ptr %.144, align 4, !tbaa !12
   %85 = add nuw nsw i32 %.045, 1
   %86 = getelementptr inbounds nuw i8, ptr %.14143, i64 4
   %exitcond.not = icmp eq i32 %85, 4
-  br i1 %exitcond.not, label %46, label %49, !llvm.loop !23
+  br i1 %exitcond.not, label %46, label %49, !llvm.loop !22
 
 87:                                               ; preds = %3, %._crit_edge, %15
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 288) #11
@@ -792,27 +792,27 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %4 = alloca %struct.anon, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !17
+  %7 = load i64, ptr %6, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
   %.0.copyload.i35 = load i32, ptr %1, align 1
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %10 = load i32, ptr %8, align 4, !tbaa !13
+  %10 = load i32, ptr %8, align 4, !tbaa !12
   %11 = xor i32 %10, %.0.copyload.i35
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.0.copyload.i34 = load i32, ptr %12, align 1
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %14 = load i32, ptr %9, align 4, !tbaa !13
+  %14 = load i32, ptr %9, align 4, !tbaa !12
   %15 = xor i32 %14, %.0.copyload.i34
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.0.copyload.i33 = load i32, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %18 = load i32, ptr %13, align 4, !tbaa !13
+  %18 = load i32, ptr %13, align 4, !tbaa !12
   %19 = xor i32 %18, %.0.copyload.i33
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.0.copyload.i = load i32, ptr %20, align 1
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %22 = load i32, ptr %17, align 4, !tbaa !13
+  %22 = load i32, ptr %17, align 4, !tbaa !12
   %23 = xor i32 %22, %.0.copyload.i
   %24 = load i32, ptr %0, align 8, !tbaa !3
   %25 = ashr i32 %24, 1
@@ -828,207 +828,207 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %30 = phi i32 [ %222, %.lr.ph ], [ %23, %3 ]
   %.032 = add nsw i32 %.032.in42, -1
   %31 = getelementptr inbounds nuw i8, ptr %.043, i64 4
-  %32 = load i32, ptr %.043, align 4, !tbaa !13
+  %32 = load i32, ptr %.043, align 4, !tbaa !12
   %33 = and i32 %27, 255
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %34
-  %36 = load i32, ptr %35, align 4, !tbaa !13
+  %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = xor i32 %36, %32
   %38 = lshr i32 %28, 8
   %39 = and i32 %38, 255
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !13
+  %42 = load i32, ptr %41, align 4, !tbaa !12
   %43 = xor i32 %37, %42
   %44 = lshr i32 %29, 16
   %45 = and i32 %44, 255
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !13
+  %48 = load i32, ptr %47, align 4, !tbaa !12
   %49 = xor i32 %43, %48
   %50 = lshr i32 %30, 24
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !13
+  %53 = load i32, ptr %52, align 4, !tbaa !12
   %54 = xor i32 %49, %53
   %55 = getelementptr inbounds nuw i8, ptr %.043, i64 8
-  %56 = load i32, ptr %31, align 4, !tbaa !13
+  %56 = load i32, ptr %31, align 4, !tbaa !12
   %57 = and i32 %28, 255
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !13
+  %60 = load i32, ptr %59, align 4, !tbaa !12
   %61 = xor i32 %60, %56
   %62 = lshr i32 %29, 8
   %63 = and i32 %62, 255
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %64
-  %66 = load i32, ptr %65, align 4, !tbaa !13
+  %66 = load i32, ptr %65, align 4, !tbaa !12
   %67 = xor i32 %61, %66
   %68 = lshr i32 %30, 16
   %69 = and i32 %68, 255
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %70
-  %72 = load i32, ptr %71, align 4, !tbaa !13
+  %72 = load i32, ptr %71, align 4, !tbaa !12
   %73 = xor i32 %67, %72
   %74 = lshr i32 %27, 24
   %75 = zext nneg i32 %74 to i64
   %76 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !13
+  %77 = load i32, ptr %76, align 4, !tbaa !12
   %78 = xor i32 %73, %77
   %79 = getelementptr inbounds nuw i8, ptr %.043, i64 12
-  %80 = load i32, ptr %55, align 4, !tbaa !13
+  %80 = load i32, ptr %55, align 4, !tbaa !12
   %81 = and i32 %29, 255
   %82 = zext nneg i32 %81 to i64
   %83 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !13
+  %84 = load i32, ptr %83, align 4, !tbaa !12
   %85 = xor i32 %84, %80
   %86 = lshr i32 %30, 8
   %87 = and i32 %86, 255
   %88 = zext nneg i32 %87 to i64
   %89 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !13
+  %90 = load i32, ptr %89, align 4, !tbaa !12
   %91 = xor i32 %85, %90
   %92 = lshr i32 %27, 16
   %93 = and i32 %92, 255
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %94
-  %96 = load i32, ptr %95, align 4, !tbaa !13
+  %96 = load i32, ptr %95, align 4, !tbaa !12
   %97 = xor i32 %91, %96
   %98 = lshr i32 %28, 24
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %99
-  %101 = load i32, ptr %100, align 4, !tbaa !13
+  %101 = load i32, ptr %100, align 4, !tbaa !12
   %102 = xor i32 %97, %101
   %103 = getelementptr inbounds nuw i8, ptr %.043, i64 16
-  %104 = load i32, ptr %79, align 4, !tbaa !13
+  %104 = load i32, ptr %79, align 4, !tbaa !12
   %105 = and i32 %30, 255
   %106 = zext nneg i32 %105 to i64
   %107 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %106
-  %108 = load i32, ptr %107, align 4, !tbaa !13
+  %108 = load i32, ptr %107, align 4, !tbaa !12
   %109 = xor i32 %108, %104
   %110 = lshr i32 %27, 8
   %111 = and i32 %110, 255
   %112 = zext nneg i32 %111 to i64
   %113 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %112
-  %114 = load i32, ptr %113, align 4, !tbaa !13
+  %114 = load i32, ptr %113, align 4, !tbaa !12
   %115 = xor i32 %109, %114
   %116 = lshr i32 %28, 16
   %117 = and i32 %116, 255
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %118
-  %120 = load i32, ptr %119, align 4, !tbaa !13
+  %120 = load i32, ptr %119, align 4, !tbaa !12
   %121 = xor i32 %115, %120
   %122 = lshr i32 %29, 24
   %123 = zext nneg i32 %122 to i64
   %124 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %123
-  %125 = load i32, ptr %124, align 4, !tbaa !13
+  %125 = load i32, ptr %124, align 4, !tbaa !12
   %126 = xor i32 %121, %125
   %127 = getelementptr inbounds nuw i8, ptr %.043, i64 20
-  %128 = load i32, ptr %103, align 4, !tbaa !13
+  %128 = load i32, ptr %103, align 4, !tbaa !12
   %129 = and i32 %54, 255
   %130 = zext nneg i32 %129 to i64
   %131 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %130
-  %132 = load i32, ptr %131, align 4, !tbaa !13
+  %132 = load i32, ptr %131, align 4, !tbaa !12
   %133 = xor i32 %132, %128
   %134 = lshr i32 %78, 8
   %135 = and i32 %134, 255
   %136 = zext nneg i32 %135 to i64
   %137 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %136
-  %138 = load i32, ptr %137, align 4, !tbaa !13
+  %138 = load i32, ptr %137, align 4, !tbaa !12
   %139 = xor i32 %133, %138
   %140 = lshr i32 %102, 16
   %141 = and i32 %140, 255
   %142 = zext nneg i32 %141 to i64
   %143 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %142
-  %144 = load i32, ptr %143, align 4, !tbaa !13
+  %144 = load i32, ptr %143, align 4, !tbaa !12
   %145 = xor i32 %139, %144
   %146 = lshr i32 %126, 24
   %147 = zext nneg i32 %146 to i64
   %148 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %147
-  %149 = load i32, ptr %148, align 4, !tbaa !13
+  %149 = load i32, ptr %148, align 4, !tbaa !12
   %150 = xor i32 %145, %149
   %151 = getelementptr inbounds nuw i8, ptr %.043, i64 24
-  %152 = load i32, ptr %127, align 4, !tbaa !13
+  %152 = load i32, ptr %127, align 4, !tbaa !12
   %153 = and i32 %78, 255
   %154 = zext nneg i32 %153 to i64
   %155 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %154
-  %156 = load i32, ptr %155, align 4, !tbaa !13
+  %156 = load i32, ptr %155, align 4, !tbaa !12
   %157 = xor i32 %156, %152
   %158 = lshr i32 %102, 8
   %159 = and i32 %158, 255
   %160 = zext nneg i32 %159 to i64
   %161 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %160
-  %162 = load i32, ptr %161, align 4, !tbaa !13
+  %162 = load i32, ptr %161, align 4, !tbaa !12
   %163 = xor i32 %157, %162
   %164 = lshr i32 %126, 16
   %165 = and i32 %164, 255
   %166 = zext nneg i32 %165 to i64
   %167 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %166
-  %168 = load i32, ptr %167, align 4, !tbaa !13
+  %168 = load i32, ptr %167, align 4, !tbaa !12
   %169 = xor i32 %163, %168
   %170 = lshr i32 %54, 24
   %171 = zext nneg i32 %170 to i64
   %172 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %171
-  %173 = load i32, ptr %172, align 4, !tbaa !13
+  %173 = load i32, ptr %172, align 4, !tbaa !12
   %174 = xor i32 %169, %173
   %175 = getelementptr inbounds nuw i8, ptr %.043, i64 28
-  %176 = load i32, ptr %151, align 4, !tbaa !13
+  %176 = load i32, ptr %151, align 4, !tbaa !12
   %177 = and i32 %102, 255
   %178 = zext nneg i32 %177 to i64
   %179 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %178
-  %180 = load i32, ptr %179, align 4, !tbaa !13
+  %180 = load i32, ptr %179, align 4, !tbaa !12
   %181 = xor i32 %180, %176
   %182 = lshr i32 %126, 8
   %183 = and i32 %182, 255
   %184 = zext nneg i32 %183 to i64
   %185 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %184
-  %186 = load i32, ptr %185, align 4, !tbaa !13
+  %186 = load i32, ptr %185, align 4, !tbaa !12
   %187 = xor i32 %181, %186
   %188 = lshr i32 %54, 16
   %189 = and i32 %188, 255
   %190 = zext nneg i32 %189 to i64
   %191 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %190
-  %192 = load i32, ptr %191, align 4, !tbaa !13
+  %192 = load i32, ptr %191, align 4, !tbaa !12
   %193 = xor i32 %187, %192
   %194 = lshr i32 %78, 24
   %195 = zext nneg i32 %194 to i64
   %196 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %195
-  %197 = load i32, ptr %196, align 4, !tbaa !13
+  %197 = load i32, ptr %196, align 4, !tbaa !12
   %198 = xor i32 %193, %197
   %199 = getelementptr inbounds nuw i8, ptr %.043, i64 32
-  %200 = load i32, ptr %175, align 4, !tbaa !13
+  %200 = load i32, ptr %175, align 4, !tbaa !12
   %201 = and i32 %126, 255
   %202 = zext nneg i32 %201 to i64
   %203 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %202
-  %204 = load i32, ptr %203, align 4, !tbaa !13
+  %204 = load i32, ptr %203, align 4, !tbaa !12
   %205 = xor i32 %204, %200
   %206 = lshr i32 %54, 8
   %207 = and i32 %206, 255
   %208 = zext nneg i32 %207 to i64
   %209 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %208
-  %210 = load i32, ptr %209, align 4, !tbaa !13
+  %210 = load i32, ptr %209, align 4, !tbaa !12
   %211 = xor i32 %205, %210
   %212 = lshr i32 %78, 16
   %213 = and i32 %212, 255
   %214 = zext nneg i32 %213 to i64
   %215 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %214
-  %216 = load i32, ptr %215, align 4, !tbaa !13
+  %216 = load i32, ptr %215, align 4, !tbaa !12
   %217 = xor i32 %211, %216
   %218 = lshr i32 %102, 24
   %219 = zext nneg i32 %218 to i64
   %220 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %219
-  %221 = load i32, ptr %220, align 4, !tbaa !13
+  %221 = load i32, ptr %220, align 4, !tbaa !12
   %222 = xor i32 %217, %221
   %223 = icmp samesign ugt i32 %.032.in42, 2
-  br i1 %223, label %.lr.ph, label %._crit_edge, !llvm.loop !24
+  br i1 %223, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %224 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %225 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %226 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 %78, ptr %224, align 4, !tbaa !13
-  store i32 %102, ptr %225, align 4, !tbaa !13
-  store i32 %126, ptr %226, align 4, !tbaa !13
+  store i32 %78, ptr %224, align 4, !tbaa !12
+  store i32 %102, ptr %225, align 4, !tbaa !12
+  store i32 %126, ptr %226, align 4, !tbaa !12
   br label %227
 
 227:                                              ; preds = %._crit_edge, %3
@@ -1043,111 +1043,111 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   store i32 %.lcssa39, ptr %229, align 4
   store i32 %.lcssa41, ptr %228, align 4
   %231 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
-  %232 = load i32, ptr %.0.lcssa, align 4, !tbaa !13
+  %232 = load i32, ptr %.0.lcssa, align 4, !tbaa !12
   %233 = and i32 %.lcssa, 255
   %234 = zext nneg i32 %233 to i64
   %235 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %234
-  %236 = load i32, ptr %235, align 4, !tbaa !13
+  %236 = load i32, ptr %235, align 4, !tbaa !12
   %237 = xor i32 %236, %232
   %238 = lshr i32 %.lcssa37, 8
   %239 = and i32 %238, 255
   %240 = zext nneg i32 %239 to i64
   %241 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %240
-  %242 = load i32, ptr %241, align 4, !tbaa !13
+  %242 = load i32, ptr %241, align 4, !tbaa !12
   %243 = xor i32 %237, %242
   %244 = lshr i32 %.lcssa39, 16
   %245 = and i32 %244, 255
   %246 = zext nneg i32 %245 to i64
   %247 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %246
-  %248 = load i32, ptr %247, align 4, !tbaa !13
+  %248 = load i32, ptr %247, align 4, !tbaa !12
   %249 = xor i32 %243, %248
   %250 = lshr i32 %.lcssa41, 24
   %251 = zext nneg i32 %250 to i64
   %252 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %251
-  %253 = load i32, ptr %252, align 4, !tbaa !13
+  %253 = load i32, ptr %252, align 4, !tbaa !12
   %254 = xor i32 %249, %253
   %255 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %254, ptr %255, align 4, !tbaa !13
+  store i32 %254, ptr %255, align 4, !tbaa !12
   %256 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
-  %257 = load i32, ptr %231, align 4, !tbaa !13
+  %257 = load i32, ptr %231, align 4, !tbaa !12
   %258 = and i32 %.lcssa37, 255
   %259 = zext nneg i32 %258 to i64
   %260 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %259
-  %261 = load i32, ptr %260, align 4, !tbaa !13
+  %261 = load i32, ptr %260, align 4, !tbaa !12
   %262 = xor i32 %261, %257
   %263 = lshr i32 %.lcssa39, 8
   %264 = and i32 %263, 255
   %265 = zext nneg i32 %264 to i64
   %266 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %265
-  %267 = load i32, ptr %266, align 4, !tbaa !13
+  %267 = load i32, ptr %266, align 4, !tbaa !12
   %268 = xor i32 %262, %267
   %269 = lshr i32 %.lcssa41, 16
   %270 = and i32 %269, 255
   %271 = zext nneg i32 %270 to i64
   %272 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %271
-  %273 = load i32, ptr %272, align 4, !tbaa !13
+  %273 = load i32, ptr %272, align 4, !tbaa !12
   %274 = xor i32 %268, %273
   %275 = lshr i32 %.lcssa, 24
   %276 = zext nneg i32 %275 to i64
   %277 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %276
-  %278 = load i32, ptr %277, align 4, !tbaa !13
+  %278 = load i32, ptr %277, align 4, !tbaa !12
   %279 = xor i32 %274, %278
   %280 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %279, ptr %280, align 4, !tbaa !13
+  store i32 %279, ptr %280, align 4, !tbaa !12
   %281 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 12
-  %282 = load i32, ptr %256, align 4, !tbaa !13
+  %282 = load i32, ptr %256, align 4, !tbaa !12
   %283 = and i32 %.lcssa39, 255
   %284 = zext nneg i32 %283 to i64
   %285 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %284
-  %286 = load i32, ptr %285, align 4, !tbaa !13
+  %286 = load i32, ptr %285, align 4, !tbaa !12
   %287 = xor i32 %286, %282
   %288 = lshr i32 %.lcssa41, 8
   %289 = and i32 %288, 255
   %290 = zext nneg i32 %289 to i64
   %291 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %290
-  %292 = load i32, ptr %291, align 4, !tbaa !13
+  %292 = load i32, ptr %291, align 4, !tbaa !12
   %293 = xor i32 %287, %292
   %294 = lshr i32 %.lcssa, 16
   %295 = and i32 %294, 255
   %296 = zext nneg i32 %295 to i64
   %297 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %296
-  %298 = load i32, ptr %297, align 4, !tbaa !13
+  %298 = load i32, ptr %297, align 4, !tbaa !12
   %299 = xor i32 %293, %298
   %300 = lshr i32 %.lcssa37, 24
   %301 = zext nneg i32 %300 to i64
   %302 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %301
-  %303 = load i32, ptr %302, align 4, !tbaa !13
+  %303 = load i32, ptr %302, align 4, !tbaa !12
   %304 = xor i32 %299, %303
   %305 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %304, ptr %305, align 4, !tbaa !13
+  store i32 %304, ptr %305, align 4, !tbaa !12
   %306 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
-  %307 = load i32, ptr %281, align 4, !tbaa !13
+  %307 = load i32, ptr %281, align 4, !tbaa !12
   %308 = and i32 %.lcssa41, 255
   %309 = zext nneg i32 %308 to i64
   %310 = getelementptr inbounds nuw [256 x i32], ptr @FT0, i64 0, i64 %309
-  %311 = load i32, ptr %310, align 4, !tbaa !13
+  %311 = load i32, ptr %310, align 4, !tbaa !12
   %312 = xor i32 %311, %307
   %313 = lshr i32 %.lcssa, 8
   %314 = and i32 %313, 255
   %315 = zext nneg i32 %314 to i64
   %316 = getelementptr inbounds nuw [256 x i32], ptr @FT1, i64 0, i64 %315
-  %317 = load i32, ptr %316, align 4, !tbaa !13
+  %317 = load i32, ptr %316, align 4, !tbaa !12
   %318 = xor i32 %312, %317
   %319 = lshr i32 %.lcssa37, 16
   %320 = and i32 %319, 255
   %321 = zext nneg i32 %320 to i64
   %322 = getelementptr inbounds nuw [256 x i32], ptr @FT2, i64 0, i64 %321
-  %323 = load i32, ptr %322, align 4, !tbaa !13
+  %323 = load i32, ptr %322, align 4, !tbaa !12
   %324 = xor i32 %318, %323
   %325 = lshr i32 %.lcssa39, 24
   %326 = zext nneg i32 %325 to i64
   %327 = getelementptr inbounds nuw [256 x i32], ptr @FT3, i64 0, i64 %326
-  %328 = load i32, ptr %327, align 4, !tbaa !13
+  %328 = load i32, ptr %327, align 4, !tbaa !12
   %329 = xor i32 %324, %328
   %330 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 %329, ptr %330, align 4, !tbaa !13
+  store i32 %329, ptr %330, align 4, !tbaa !12
   %331 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 20
-  %332 = load i32, ptr %306, align 4, !tbaa !13
+  %332 = load i32, ptr %306, align 4, !tbaa !12
   %333 = and i32 %254, 255
   %334 = zext nneg i32 %333 to i64
   %335 = getelementptr inbounds nuw [256 x i8], ptr @FSb, i64 0, i64 %334
@@ -1177,9 +1177,9 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %359 = zext i8 %358 to i32
   %360 = shl nuw i32 %359, 24
   %361 = xor i32 %354, %360
-  store i32 %361, ptr %4, align 4, !tbaa !13
+  store i32 %361, ptr %4, align 4, !tbaa !12
   %362 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
-  %363 = load i32, ptr %331, align 4, !tbaa !13
+  %363 = load i32, ptr %331, align 4, !tbaa !12
   %364 = and i32 %279, 255
   %365 = zext nneg i32 %364 to i64
   %366 = getelementptr inbounds nuw [256 x i8], ptr @FSb, i64 0, i64 %365
@@ -1209,9 +1209,9 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %390 = zext i8 %389 to i32
   %391 = shl nuw i32 %390, 24
   %392 = xor i32 %385, %391
-  store i32 %392, ptr %230, align 4, !tbaa !13
+  store i32 %392, ptr %230, align 4, !tbaa !12
   %393 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 28
-  %394 = load i32, ptr %362, align 4, !tbaa !13
+  %394 = load i32, ptr %362, align 4, !tbaa !12
   %395 = and i32 %304, 255
   %396 = zext nneg i32 %395 to i64
   %397 = getelementptr inbounds nuw [256 x i8], ptr @FSb, i64 0, i64 %396
@@ -1241,8 +1241,8 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %421 = zext i8 %420 to i32
   %422 = shl nuw i32 %421, 24
   %423 = xor i32 %416, %422
-  store i32 %423, ptr %229, align 4, !tbaa !13
-  %424 = load i32, ptr %393, align 4, !tbaa !13
+  store i32 %423, ptr %229, align 4, !tbaa !12
+  %424 = load i32, ptr %393, align 4, !tbaa !12
   %425 = and i32 %329, 255
   %426 = zext nneg i32 %425 to i64
   %427 = getelementptr inbounds nuw [256 x i8], ptr @FSb, i64 0, i64 %426
@@ -1272,7 +1272,7 @@ define hidden noundef i32 @mbedtls_internal_aes_encrypt(ptr noundef readonly cap
   %451 = zext i8 %450 to i32
   %452 = shl nuw i32 %451, 24
   %453 = xor i32 %446, %452
-  store i32 %453, ptr %228, align 4, !tbaa !13
+  store i32 %453, ptr %228, align 4, !tbaa !12
   store i32 %361, ptr %2, align 1
   %454 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %392, ptr %454, align 1
@@ -1290,27 +1290,27 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %4 = alloca %struct.anon.0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !17
+  %7 = load i64, ptr %6, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
   %.0.copyload.i35 = load i32, ptr %1, align 1
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %10 = load i32, ptr %8, align 4, !tbaa !13
+  %10 = load i32, ptr %8, align 4, !tbaa !12
   %11 = xor i32 %10, %.0.copyload.i35
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.0.copyload.i34 = load i32, ptr %12, align 1
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %14 = load i32, ptr %9, align 4, !tbaa !13
+  %14 = load i32, ptr %9, align 4, !tbaa !12
   %15 = xor i32 %14, %.0.copyload.i34
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.0.copyload.i33 = load i32, ptr %16, align 1
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %18 = load i32, ptr %13, align 4, !tbaa !13
+  %18 = load i32, ptr %13, align 4, !tbaa !12
   %19 = xor i32 %18, %.0.copyload.i33
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.0.copyload.i = load i32, ptr %20, align 1
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %22 = load i32, ptr %17, align 4, !tbaa !13
+  %22 = load i32, ptr %17, align 4, !tbaa !12
   %23 = xor i32 %22, %.0.copyload.i
   %24 = load i32, ptr %0, align 8, !tbaa !3
   %25 = ashr i32 %24, 1
@@ -1326,207 +1326,207 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %30 = phi i32 [ %174, %.lr.ph ], [ %15, %3 ]
   %.032 = add nsw i32 %.032.in42, -1
   %31 = getelementptr inbounds nuw i8, ptr %.043, i64 4
-  %32 = load i32, ptr %.043, align 4, !tbaa !13
+  %32 = load i32, ptr %.043, align 4, !tbaa !12
   %33 = and i32 %27, 255
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %34
-  %36 = load i32, ptr %35, align 4, !tbaa !13
+  %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = xor i32 %36, %32
   %38 = lshr i32 %28, 8
   %39 = and i32 %38, 255
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !13
+  %42 = load i32, ptr %41, align 4, !tbaa !12
   %43 = xor i32 %37, %42
   %44 = lshr i32 %29, 16
   %45 = and i32 %44, 255
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !13
+  %48 = load i32, ptr %47, align 4, !tbaa !12
   %49 = xor i32 %43, %48
   %50 = lshr i32 %30, 24
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !13
+  %53 = load i32, ptr %52, align 4, !tbaa !12
   %54 = xor i32 %49, %53
   %55 = getelementptr inbounds nuw i8, ptr %.043, i64 8
-  %56 = load i32, ptr %31, align 4, !tbaa !13
+  %56 = load i32, ptr %31, align 4, !tbaa !12
   %57 = and i32 %30, 255
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !13
+  %60 = load i32, ptr %59, align 4, !tbaa !12
   %61 = xor i32 %60, %56
   %62 = lshr i32 %27, 8
   %63 = and i32 %62, 255
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %64
-  %66 = load i32, ptr %65, align 4, !tbaa !13
+  %66 = load i32, ptr %65, align 4, !tbaa !12
   %67 = xor i32 %61, %66
   %68 = lshr i32 %28, 16
   %69 = and i32 %68, 255
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %70
-  %72 = load i32, ptr %71, align 4, !tbaa !13
+  %72 = load i32, ptr %71, align 4, !tbaa !12
   %73 = xor i32 %67, %72
   %74 = lshr i32 %29, 24
   %75 = zext nneg i32 %74 to i64
   %76 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !13
+  %77 = load i32, ptr %76, align 4, !tbaa !12
   %78 = xor i32 %73, %77
   %79 = getelementptr inbounds nuw i8, ptr %.043, i64 12
-  %80 = load i32, ptr %55, align 4, !tbaa !13
+  %80 = load i32, ptr %55, align 4, !tbaa !12
   %81 = and i32 %29, 255
   %82 = zext nneg i32 %81 to i64
   %83 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %82
-  %84 = load i32, ptr %83, align 4, !tbaa !13
+  %84 = load i32, ptr %83, align 4, !tbaa !12
   %85 = xor i32 %84, %80
   %86 = lshr i32 %30, 8
   %87 = and i32 %86, 255
   %88 = zext nneg i32 %87 to i64
   %89 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !13
+  %90 = load i32, ptr %89, align 4, !tbaa !12
   %91 = xor i32 %85, %90
   %92 = lshr i32 %27, 16
   %93 = and i32 %92, 255
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %94
-  %96 = load i32, ptr %95, align 4, !tbaa !13
+  %96 = load i32, ptr %95, align 4, !tbaa !12
   %97 = xor i32 %91, %96
   %98 = lshr i32 %28, 24
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %99
-  %101 = load i32, ptr %100, align 4, !tbaa !13
+  %101 = load i32, ptr %100, align 4, !tbaa !12
   %102 = xor i32 %97, %101
   %103 = getelementptr inbounds nuw i8, ptr %.043, i64 16
-  %104 = load i32, ptr %79, align 4, !tbaa !13
+  %104 = load i32, ptr %79, align 4, !tbaa !12
   %105 = and i32 %28, 255
   %106 = zext nneg i32 %105 to i64
   %107 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %106
-  %108 = load i32, ptr %107, align 4, !tbaa !13
+  %108 = load i32, ptr %107, align 4, !tbaa !12
   %109 = xor i32 %108, %104
   %110 = lshr i32 %29, 8
   %111 = and i32 %110, 255
   %112 = zext nneg i32 %111 to i64
   %113 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %112
-  %114 = load i32, ptr %113, align 4, !tbaa !13
+  %114 = load i32, ptr %113, align 4, !tbaa !12
   %115 = xor i32 %109, %114
   %116 = lshr i32 %30, 16
   %117 = and i32 %116, 255
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %118
-  %120 = load i32, ptr %119, align 4, !tbaa !13
+  %120 = load i32, ptr %119, align 4, !tbaa !12
   %121 = xor i32 %115, %120
   %122 = lshr i32 %27, 24
   %123 = zext nneg i32 %122 to i64
   %124 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %123
-  %125 = load i32, ptr %124, align 4, !tbaa !13
+  %125 = load i32, ptr %124, align 4, !tbaa !12
   %126 = xor i32 %121, %125
   %127 = getelementptr inbounds nuw i8, ptr %.043, i64 20
-  %128 = load i32, ptr %103, align 4, !tbaa !13
+  %128 = load i32, ptr %103, align 4, !tbaa !12
   %129 = and i32 %54, 255
   %130 = zext nneg i32 %129 to i64
   %131 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %130
-  %132 = load i32, ptr %131, align 4, !tbaa !13
+  %132 = load i32, ptr %131, align 4, !tbaa !12
   %133 = xor i32 %132, %128
   %134 = lshr i32 %126, 8
   %135 = and i32 %134, 255
   %136 = zext nneg i32 %135 to i64
   %137 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %136
-  %138 = load i32, ptr %137, align 4, !tbaa !13
+  %138 = load i32, ptr %137, align 4, !tbaa !12
   %139 = xor i32 %133, %138
   %140 = lshr i32 %102, 16
   %141 = and i32 %140, 255
   %142 = zext nneg i32 %141 to i64
   %143 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %142
-  %144 = load i32, ptr %143, align 4, !tbaa !13
+  %144 = load i32, ptr %143, align 4, !tbaa !12
   %145 = xor i32 %139, %144
   %146 = lshr i32 %78, 24
   %147 = zext nneg i32 %146 to i64
   %148 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %147
-  %149 = load i32, ptr %148, align 4, !tbaa !13
+  %149 = load i32, ptr %148, align 4, !tbaa !12
   %150 = xor i32 %145, %149
   %151 = getelementptr inbounds nuw i8, ptr %.043, i64 24
-  %152 = load i32, ptr %127, align 4, !tbaa !13
+  %152 = load i32, ptr %127, align 4, !tbaa !12
   %153 = and i32 %78, 255
   %154 = zext nneg i32 %153 to i64
   %155 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %154
-  %156 = load i32, ptr %155, align 4, !tbaa !13
+  %156 = load i32, ptr %155, align 4, !tbaa !12
   %157 = xor i32 %156, %152
   %158 = lshr i32 %54, 8
   %159 = and i32 %158, 255
   %160 = zext nneg i32 %159 to i64
   %161 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %160
-  %162 = load i32, ptr %161, align 4, !tbaa !13
+  %162 = load i32, ptr %161, align 4, !tbaa !12
   %163 = xor i32 %157, %162
   %164 = lshr i32 %126, 16
   %165 = and i32 %164, 255
   %166 = zext nneg i32 %165 to i64
   %167 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %166
-  %168 = load i32, ptr %167, align 4, !tbaa !13
+  %168 = load i32, ptr %167, align 4, !tbaa !12
   %169 = xor i32 %163, %168
   %170 = lshr i32 %102, 24
   %171 = zext nneg i32 %170 to i64
   %172 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %171
-  %173 = load i32, ptr %172, align 4, !tbaa !13
+  %173 = load i32, ptr %172, align 4, !tbaa !12
   %174 = xor i32 %169, %173
   %175 = getelementptr inbounds nuw i8, ptr %.043, i64 28
-  %176 = load i32, ptr %151, align 4, !tbaa !13
+  %176 = load i32, ptr %151, align 4, !tbaa !12
   %177 = and i32 %102, 255
   %178 = zext nneg i32 %177 to i64
   %179 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %178
-  %180 = load i32, ptr %179, align 4, !tbaa !13
+  %180 = load i32, ptr %179, align 4, !tbaa !12
   %181 = xor i32 %180, %176
   %182 = lshr i32 %78, 8
   %183 = and i32 %182, 255
   %184 = zext nneg i32 %183 to i64
   %185 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %184
-  %186 = load i32, ptr %185, align 4, !tbaa !13
+  %186 = load i32, ptr %185, align 4, !tbaa !12
   %187 = xor i32 %181, %186
   %188 = lshr i32 %54, 16
   %189 = and i32 %188, 255
   %190 = zext nneg i32 %189 to i64
   %191 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %190
-  %192 = load i32, ptr %191, align 4, !tbaa !13
+  %192 = load i32, ptr %191, align 4, !tbaa !12
   %193 = xor i32 %187, %192
   %194 = lshr i32 %126, 24
   %195 = zext nneg i32 %194 to i64
   %196 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %195
-  %197 = load i32, ptr %196, align 4, !tbaa !13
+  %197 = load i32, ptr %196, align 4, !tbaa !12
   %198 = xor i32 %193, %197
   %199 = getelementptr inbounds nuw i8, ptr %.043, i64 32
-  %200 = load i32, ptr %175, align 4, !tbaa !13
+  %200 = load i32, ptr %175, align 4, !tbaa !12
   %201 = and i32 %126, 255
   %202 = zext nneg i32 %201 to i64
   %203 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %202
-  %204 = load i32, ptr %203, align 4, !tbaa !13
+  %204 = load i32, ptr %203, align 4, !tbaa !12
   %205 = xor i32 %204, %200
   %206 = lshr i32 %102, 8
   %207 = and i32 %206, 255
   %208 = zext nneg i32 %207 to i64
   %209 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %208
-  %210 = load i32, ptr %209, align 4, !tbaa !13
+  %210 = load i32, ptr %209, align 4, !tbaa !12
   %211 = xor i32 %205, %210
   %212 = lshr i32 %78, 16
   %213 = and i32 %212, 255
   %214 = zext nneg i32 %213 to i64
   %215 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %214
-  %216 = load i32, ptr %215, align 4, !tbaa !13
+  %216 = load i32, ptr %215, align 4, !tbaa !12
   %217 = xor i32 %211, %216
   %218 = lshr i32 %54, 24
   %219 = zext nneg i32 %218 to i64
   %220 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %219
-  %221 = load i32, ptr %220, align 4, !tbaa !13
+  %221 = load i32, ptr %220, align 4, !tbaa !12
   %222 = xor i32 %217, %221
   %223 = icmp samesign ugt i32 %.032.in42, 2
-  br i1 %223, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %223, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %224 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %225 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %226 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 %78, ptr %224, align 4, !tbaa !13
-  store i32 %102, ptr %225, align 4, !tbaa !13
-  store i32 %126, ptr %226, align 4, !tbaa !13
+  store i32 %78, ptr %224, align 4, !tbaa !12
+  store i32 %102, ptr %225, align 4, !tbaa !12
+  store i32 %126, ptr %226, align 4, !tbaa !12
   br label %227
 
 227:                                              ; preds = %._crit_edge, %3
@@ -1541,111 +1541,111 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   store i32 %.lcssa37, ptr %228, align 4
   store i32 %.lcssa39, ptr %229, align 4
   %231 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 4
-  %232 = load i32, ptr %.0.lcssa, align 4, !tbaa !13
+  %232 = load i32, ptr %.0.lcssa, align 4, !tbaa !12
   %233 = and i32 %.lcssa, 255
   %234 = zext nneg i32 %233 to i64
   %235 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %234
-  %236 = load i32, ptr %235, align 4, !tbaa !13
+  %236 = load i32, ptr %235, align 4, !tbaa !12
   %237 = xor i32 %236, %232
   %238 = lshr i32 %.lcssa37, 8
   %239 = and i32 %238, 255
   %240 = zext nneg i32 %239 to i64
   %241 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %240
-  %242 = load i32, ptr %241, align 4, !tbaa !13
+  %242 = load i32, ptr %241, align 4, !tbaa !12
   %243 = xor i32 %237, %242
   %244 = lshr i32 %.lcssa39, 16
   %245 = and i32 %244, 255
   %246 = zext nneg i32 %245 to i64
   %247 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %246
-  %248 = load i32, ptr %247, align 4, !tbaa !13
+  %248 = load i32, ptr %247, align 4, !tbaa !12
   %249 = xor i32 %243, %248
   %250 = lshr i32 %.lcssa41, 24
   %251 = zext nneg i32 %250 to i64
   %252 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %251
-  %253 = load i32, ptr %252, align 4, !tbaa !13
+  %253 = load i32, ptr %252, align 4, !tbaa !12
   %254 = xor i32 %249, %253
   %255 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %254, ptr %255, align 4, !tbaa !13
+  store i32 %254, ptr %255, align 4, !tbaa !12
   %256 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
-  %257 = load i32, ptr %231, align 4, !tbaa !13
+  %257 = load i32, ptr %231, align 4, !tbaa !12
   %258 = and i32 %.lcssa41, 255
   %259 = zext nneg i32 %258 to i64
   %260 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %259
-  %261 = load i32, ptr %260, align 4, !tbaa !13
+  %261 = load i32, ptr %260, align 4, !tbaa !12
   %262 = xor i32 %261, %257
   %263 = lshr i32 %.lcssa, 8
   %264 = and i32 %263, 255
   %265 = zext nneg i32 %264 to i64
   %266 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %265
-  %267 = load i32, ptr %266, align 4, !tbaa !13
+  %267 = load i32, ptr %266, align 4, !tbaa !12
   %268 = xor i32 %262, %267
   %269 = lshr i32 %.lcssa37, 16
   %270 = and i32 %269, 255
   %271 = zext nneg i32 %270 to i64
   %272 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %271
-  %273 = load i32, ptr %272, align 4, !tbaa !13
+  %273 = load i32, ptr %272, align 4, !tbaa !12
   %274 = xor i32 %268, %273
   %275 = lshr i32 %.lcssa39, 24
   %276 = zext nneg i32 %275 to i64
   %277 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %276
-  %278 = load i32, ptr %277, align 4, !tbaa !13
+  %278 = load i32, ptr %277, align 4, !tbaa !12
   %279 = xor i32 %274, %278
   %280 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %279, ptr %280, align 4, !tbaa !13
+  store i32 %279, ptr %280, align 4, !tbaa !12
   %281 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 12
-  %282 = load i32, ptr %256, align 4, !tbaa !13
+  %282 = load i32, ptr %256, align 4, !tbaa !12
   %283 = and i32 %.lcssa39, 255
   %284 = zext nneg i32 %283 to i64
   %285 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %284
-  %286 = load i32, ptr %285, align 4, !tbaa !13
+  %286 = load i32, ptr %285, align 4, !tbaa !12
   %287 = xor i32 %286, %282
   %288 = lshr i32 %.lcssa41, 8
   %289 = and i32 %288, 255
   %290 = zext nneg i32 %289 to i64
   %291 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %290
-  %292 = load i32, ptr %291, align 4, !tbaa !13
+  %292 = load i32, ptr %291, align 4, !tbaa !12
   %293 = xor i32 %287, %292
   %294 = lshr i32 %.lcssa, 16
   %295 = and i32 %294, 255
   %296 = zext nneg i32 %295 to i64
   %297 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %296
-  %298 = load i32, ptr %297, align 4, !tbaa !13
+  %298 = load i32, ptr %297, align 4, !tbaa !12
   %299 = xor i32 %293, %298
   %300 = lshr i32 %.lcssa37, 24
   %301 = zext nneg i32 %300 to i64
   %302 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %301
-  %303 = load i32, ptr %302, align 4, !tbaa !13
+  %303 = load i32, ptr %302, align 4, !tbaa !12
   %304 = xor i32 %299, %303
   %305 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 %304, ptr %305, align 4, !tbaa !13
+  store i32 %304, ptr %305, align 4, !tbaa !12
   %306 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
-  %307 = load i32, ptr %281, align 4, !tbaa !13
+  %307 = load i32, ptr %281, align 4, !tbaa !12
   %308 = and i32 %.lcssa37, 255
   %309 = zext nneg i32 %308 to i64
   %310 = getelementptr inbounds nuw [256 x i32], ptr @RT0, i64 0, i64 %309
-  %311 = load i32, ptr %310, align 4, !tbaa !13
+  %311 = load i32, ptr %310, align 4, !tbaa !12
   %312 = xor i32 %311, %307
   %313 = lshr i32 %.lcssa39, 8
   %314 = and i32 %313, 255
   %315 = zext nneg i32 %314 to i64
   %316 = getelementptr inbounds nuw [256 x i32], ptr @RT1, i64 0, i64 %315
-  %317 = load i32, ptr %316, align 4, !tbaa !13
+  %317 = load i32, ptr %316, align 4, !tbaa !12
   %318 = xor i32 %312, %317
   %319 = lshr i32 %.lcssa41, 16
   %320 = and i32 %319, 255
   %321 = zext nneg i32 %320 to i64
   %322 = getelementptr inbounds nuw [256 x i32], ptr @RT2, i64 0, i64 %321
-  %323 = load i32, ptr %322, align 4, !tbaa !13
+  %323 = load i32, ptr %322, align 4, !tbaa !12
   %324 = xor i32 %318, %323
   %325 = lshr i32 %.lcssa, 24
   %326 = zext nneg i32 %325 to i64
   %327 = getelementptr inbounds nuw [256 x i32], ptr @RT3, i64 0, i64 %326
-  %328 = load i32, ptr %327, align 4, !tbaa !13
+  %328 = load i32, ptr %327, align 4, !tbaa !12
   %329 = xor i32 %324, %328
   %330 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 %329, ptr %330, align 4, !tbaa !13
+  store i32 %329, ptr %330, align 4, !tbaa !12
   %331 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 20
-  %332 = load i32, ptr %306, align 4, !tbaa !13
+  %332 = load i32, ptr %306, align 4, !tbaa !12
   %333 = and i32 %254, 255
   %334 = zext nneg i32 %333 to i64
   %335 = getelementptr inbounds nuw [256 x i8], ptr @RSb, i64 0, i64 %334
@@ -1675,9 +1675,9 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %359 = zext i8 %358 to i32
   %360 = shl nuw i32 %359, 24
   %361 = xor i32 %354, %360
-  store i32 %361, ptr %4, align 4, !tbaa !13
+  store i32 %361, ptr %4, align 4, !tbaa !12
   %362 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 24
-  %363 = load i32, ptr %331, align 4, !tbaa !13
+  %363 = load i32, ptr %331, align 4, !tbaa !12
   %364 = and i32 %279, 255
   %365 = zext nneg i32 %364 to i64
   %366 = getelementptr inbounds nuw [256 x i8], ptr @RSb, i64 0, i64 %365
@@ -1707,9 +1707,9 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %390 = zext i8 %389 to i32
   %391 = shl nuw i32 %390, 24
   %392 = xor i32 %385, %391
-  store i32 %392, ptr %230, align 4, !tbaa !13
+  store i32 %392, ptr %230, align 4, !tbaa !12
   %393 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 28
-  %394 = load i32, ptr %362, align 4, !tbaa !13
+  %394 = load i32, ptr %362, align 4, !tbaa !12
   %395 = and i32 %304, 255
   %396 = zext nneg i32 %395 to i64
   %397 = getelementptr inbounds nuw [256 x i8], ptr @RSb, i64 0, i64 %396
@@ -1739,8 +1739,8 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %421 = zext i8 %420 to i32
   %422 = shl nuw i32 %421, 24
   %423 = xor i32 %416, %422
-  store i32 %423, ptr %229, align 4, !tbaa !13
-  %424 = load i32, ptr %393, align 4, !tbaa !13
+  store i32 %423, ptr %229, align 4, !tbaa !12
+  %424 = load i32, ptr %393, align 4, !tbaa !12
   %425 = and i32 %329, 255
   %426 = zext nneg i32 %425 to i64
   %427 = getelementptr inbounds nuw [256 x i8], ptr @RSb, i64 0, i64 %426
@@ -1770,7 +1770,7 @@ define hidden noundef i32 @mbedtls_internal_aes_decrypt(ptr noundef readonly cap
   %451 = zext i8 %450 to i32
   %452 = shl nuw i32 %451, 24
   %453 = xor i32 %446, %452
-  store i32 %453, ptr %228, align 4, !tbaa !13
+  store i32 %453, ptr %228, align 4, !tbaa !12
   store i32 %361, ptr %2, align 1
   %454 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %392, ptr %454, align 1
@@ -1873,7 +1873,7 @@ mbedtls_aes_crypt_ecb.exit.thread:                ; preds = %mbedtls_aes_crypt_e
   %23 = getelementptr inbounds nuw i8, ptr %.03883, i64 16
   %24 = add i64 %.04281, -16
   %.not49 = icmp eq i64 %24, 0
-  br i1 %.not49, label %.loopexit, label %.preheader66, !llvm.loop !26
+  br i1 %.not49, label %.loopexit, label %.preheader66, !llvm.loop !25
 
 .preheader68:                                     ; preds = %12, %33
   %.077 = phi ptr [ %.176, %33 ], [ %3, %12 ]
@@ -1909,7 +1909,7 @@ mbedtls_aes_crypt_ecb.exit61:                     ; preds = %.preheader68
   %35 = getelementptr inbounds nuw i8, ptr %.176, i64 16
   %36 = add i64 %.14374, -16
   %.not47 = icmp eq i64 %36, 0
-  br i1 %.not47, label %37, label %.preheader68, !llvm.loop !27
+  br i1 %.not47, label %37, label %.preheader68, !llvm.loop !26
 
 37:                                               ; preds = %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %.176, i64 16, i1 false)
@@ -1975,7 +1975,7 @@ mbedtls_aes_crypt_ecb.exit:                       ; preds = %14
   %27 = add nsw i64 %.in, -1
   %28 = icmp eq i64 %27, 0
   %spec.select.reass.reass = and i1 %28, %invariant.op
-  br i1 %spec.select.reass.reass, label %29, label %mbedtls_xor.exit.critedge, !prof !28
+  br i1 %spec.select.reass.reass, label %29, label %mbedtls_xor.exit.critedge, !prof !27
 
 29:                                               ; preds = %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
@@ -2048,7 +2048,7 @@ mbedtls_aes_crypt_ecb.exit97.thread:              ; preds = %mbedtls_aes_crypt_e
   store i64 %60, ptr %21, align 8
   %61 = getelementptr inbounds nuw i8, ptr %.054121, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %.052122, i64 16
-  br i1 %28, label %._crit_edge, label %26, !llvm.loop !29
+  br i1 %28, label %._crit_edge, label %26, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %mbedtls_aes_crypt_ecb.exit97.thread
   %.not61 = icmp eq i64 %11, 0
@@ -2075,7 +2075,7 @@ mbedtls_aes_crypt_ecb.exit97.thread:              ; preds = %mbedtls_aes_crypt_e
   store i8 %67, ptr %68, align 1, !tbaa !9
   %69 = add nuw nsw i64 %.051125, 1
   %exitcond.not = icmp eq i64 %69, %11
-  br i1 %exitcond.not, label %.preheader108, label %.preheader, !llvm.loop !30
+  br i1 %exitcond.not, label %.preheader108, label %.preheader, !llvm.loop !29
 
 .preheader107:                                    ; preds = %.lr.ph128.preheader, %.preheader108
   %.0.i69.lcssa = phi i64 [ 0, %.preheader108 ], [ 8, %.lr.ph128.preheader ]
@@ -2093,7 +2093,7 @@ mbedtls_aes_crypt_ecb.exit97.thread:              ; preds = %mbedtls_aes_crypt_e
   store i8 %75, ptr %76, align 1, !tbaa !9
   %77 = add nuw nsw i64 %.1.i71130, 1
   %exitcond147.not = icmp eq i64 %77, %11
-  br i1 %exitcond147.not, label %mbedtls_xor.exit72, label %.lr.ph131, !llvm.loop !31
+  br i1 %exitcond147.not, label %mbedtls_xor.exit72, label %.lr.ph131, !llvm.loop !30
 
 mbedtls_xor.exit72:                               ; preds = %.lr.ph131, %.preheader107
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 %11
@@ -2120,7 +2120,7 @@ mbedtls_xor.exit72:                               ; preds = %.lr.ph131, %.prehea
   store i64 %86, ptr %87, align 1
   %88 = add nuw nsw i64 %83, 8
   %.not.i74 = icmp ugt i64 %88, %81
-  br i1 %.not.i74, label %.preheader106, label %.lr.ph134, !llvm.loop !32
+  br i1 %.not.i74, label %.preheader106, label %.lr.ph134, !llvm.loop !31
 
 .lr.ph137:                                        ; preds = %.preheader106, %.lr.ph137
   %.1.i75136 = phi i64 [ %95, %.lr.ph137 ], [ %.0.i73.lcssa, %.preheader106 ]
@@ -2133,7 +2133,7 @@ mbedtls_xor.exit72:                               ; preds = %.lr.ph131, %.prehea
   store i8 %93, ptr %94, align 1, !tbaa !9
   %95 = add nuw nsw i64 %.1.i75136, 1
   %96 = icmp ult i64 %95, %81
-  br i1 %96, label %.lr.ph137, label %mbedtls_xor.exit76, !llvm.loop !31
+  br i1 %96, label %.lr.ph137, label %mbedtls_xor.exit76, !llvm.loop !30
 
 mbedtls_xor.exit76:                               ; preds = %.lr.ph137, %.preheader106
   %97 = call i32 @mbedtls_aesni_has_support(i32 noundef 33554432) #11
@@ -2185,7 +2185,7 @@ define hidden i32 @mbedtls_aes_crypt_cfb128(ptr noundef %0, i32 noundef %1, i64 
   br i1 %or.cond, label %.loopexit58, label %8
 
 8:                                                ; preds = %7
-  %9 = load i64, ptr %3, align 8, !tbaa !33
+  %9 = load i64, ptr %3, align 8, !tbaa !32
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %.loopexit58, label %11
 
@@ -2235,7 +2235,7 @@ mbedtls_aes_crypt_ecb.exit:                       ; preds = %15
   %26 = add nuw nsw i64 %.072, 1
   %27 = and i64 %26, 15
   %.not49 = icmp eq i64 %13, 0
-  br i1 %.not49, label %.loopexit, label %.lr.ph73, !llvm.loop !34
+  br i1 %.not49, label %.loopexit, label %.lr.ph73, !llvm.loop !33
 
 .lr.ph:                                           ; preds = %.preheader59, %34
   %.in = phi i64 [ %28, %34 ], [ %2, %.preheader59 ]
@@ -2272,11 +2272,11 @@ mbedtls_aes_crypt_ecb.exit53:                     ; preds = %30
   %41 = add nuw nsw i64 %.268, 1
   %42 = and i64 %41, 15
   %.not = icmp eq i64 %28, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
 .loopexit:                                        ; preds = %34, %19, %.preheader59, %.preheader
   %.1 = phi i64 [ %9, %.preheader ], [ %9, %.preheader59 ], [ %27, %19 ], [ %42, %34 ]
-  store i64 %.1, ptr %3, align 8, !tbaa !33
+  store i64 %.1, ptr %3, align 8, !tbaa !32
   br label %.loopexit58
 
 .loopexit58:                                      ; preds = %mbedtls_aes_crypt_ecb.exit53, %mbedtls_aes_crypt_ecb.exit, %.loopexit, %8, %7
@@ -2333,7 +2333,7 @@ mbedtls_aes_crypt_ecb.exit.thread.us:             ; preds = %.lr.ph.split.us
   store i8 %spec.select.us, ptr %.sroa.4.1..sroa_idx, align 1
   %20 = add i64 %10, -1
   %.not.us = icmp eq i64 %10, 0
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !36
+  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !35
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %25
   %21 = phi i64 [ %31, %25 ], [ %7, %.lr.ph ]
@@ -2364,7 +2364,7 @@ mbedtls_aes_crypt_ecb.exit.thread.us38:           ; preds = %.lr.ph.split.split.
   store i8 %29, ptr %.sroa.4.1..sroa_idx, align 1
   %31 = add i64 %21, -1
   %.not.us39 = icmp eq i64 %21, 0
-  br i1 %.not.us39, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !38
+  br i1 %.not.us39, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !37
 
 .loopexit:                                        ; preds = %25, %mbedtls_aes_crypt_ecb.exit.us36, %14, %mbedtls_aes_crypt_ecb.exit.us, %.preheader, %6
   %.0 = phi i32 [ -33, %6 ], [ 0, %.preheader ], [ 0, %14 ], [ %12, %mbedtls_aes_crypt_ecb.exit.us ], [ 0, %25 ], [ %23, %mbedtls_aes_crypt_ecb.exit.us36 ]
@@ -2374,7 +2374,7 @@ mbedtls_aes_crypt_ecb.exit.thread.us38:           ; preds = %.lr.ph.split.split.
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_aes_crypt_ofb(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #2 {
-  %7 = load i64, ptr %2, align 8, !tbaa !33
+  %7 = load i64, ptr %2, align 8, !tbaa !32
   %8 = icmp ugt i64 %7, 15
   br i1 %8, label %.loopexit, label %.preheader
 
@@ -2416,11 +2416,11 @@ mbedtls_aes_crypt_ecb.exit:                       ; preds = %11
   %22 = add nuw nsw i64 %.031, 1
   %23 = and i64 %22, 15
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %15, %.preheader
   %.0.lcssa = phi i64 [ %7, %.preheader ], [ %23, %15 ]
-  store i64 %.0.lcssa, ptr %2, align 8, !tbaa !33
+  store i64 %.0.lcssa, ptr %2, align 8, !tbaa !32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mbedtls_aes_crypt_ecb.exit, %._crit_edge, %6
@@ -2430,7 +2430,7 @@ mbedtls_aes_crypt_ecb.exit:                       ; preds = %11
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_aes_crypt_ctr(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #2 {
-  %8 = load i64, ptr %2, align 8, !tbaa !33
+  %8 = load i64, ptr %2, align 8, !tbaa !32
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %.loopexit, label %.preheader60
 
@@ -2474,7 +2474,7 @@ mbedtls_aes_crypt_ecb.exit:                       ; preds = %11
   %22 = icmp ne i64 %indvars.iv.i, 0
   %or.cond.not.i = and i1 %22, %21
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  br i1 %or.cond.not.i, label %15, label %mbedtls_ctr_increment_counter.exit, !llvm.loop !40
+  br i1 %or.cond.not.i, label %15, label %mbedtls_ctr_increment_counter.exit
 
 23:                                               ; preds = %.lr.ph67
   %24 = sub nuw nsw i64 16, %.03665
@@ -2507,7 +2507,7 @@ mbedtls_ctr_increment_counter.exit:               ; preds = %15, %23
   store i64 %33, ptr %34, align 1
   %35 = add nuw nsw i64 %30, 8
   %.not.i = icmp samesign ugt i64 %35, %spec.select
-  br i1 %.not.i, label %.preheader, label %.lr.ph, !llvm.loop !32
+  br i1 %.not.i, label %.preheader, label %.lr.ph, !llvm.loop !31
 
 .lr.ph64:                                         ; preds = %.preheader, %.lr.ph64
   %.1.i63 = phi i64 [ %42, %.lr.ph64 ], [ %.0.i.lcssa, %.preheader ]
@@ -2520,22 +2520,22 @@ mbedtls_ctr_increment_counter.exit:               ; preds = %15, %23
   store i8 %40, ptr %41, align 1, !tbaa !9
   %42 = add nuw nsw i64 %.1.i63, 1
   %exitcond.not = icmp eq i64 %42, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph64, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph64, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph64, %.preheader
   %43 = add i64 %spec.select, %.03266
   %44 = icmp ult i64 %43, %1
-  br i1 %44, label %.lr.ph67, label %._crit_edge68.loopexit, !llvm.loop !41
+  br i1 %44, label %.lr.ph67, label %._crit_edge68.loopexit, !llvm.loop !39
 
 ._crit_edge68.loopexit:                           ; preds = %._crit_edge
-  %.pre = load i64, ptr %2, align 8, !tbaa !33
+  %.pre = load i64, ptr %2, align 8, !tbaa !32
   br label %._crit_edge68
 
 ._crit_edge68:                                    ; preds = %._crit_edge68.loopexit, %.preheader60
   %45 = phi i64 [ %.pre, %._crit_edge68.loopexit ], [ %8, %.preheader60 ]
   %46 = add i64 %45, %1
   %47 = and i64 %46, 15
-  store i64 %47, ptr %2, align 8, !tbaa !33
+  store i64 %47, ptr %2, align 8, !tbaa !32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mbedtls_aes_crypt_ecb.exit, %._crit_edge68, %7
@@ -2643,7 +2643,7 @@ mbedtls_aes_crypt_ecb.exit.us:                    ; preds = %.preheader308.split
 mbedtls_aes_crypt_ecb.exit.thread.us:             ; preds = %37, %mbedtls_aes_crypt_ecb.exit.us
   %39 = add nuw nsw i32 %.0155321.us, 1
   %exitcond361.not = icmp eq i32 %39, 10000
-  br i1 %exitcond361.not, label %.split323.us, label %.preheader308.split.us, !llvm.loop !42
+  br i1 %exitcond361.not, label %.split323.us, label %.preheader308.split.us, !llvm.loop !40
 
 .preheader308.split:                              ; preds = %.preheader308, %mbedtls_aes_crypt_ecb.exit.thread
   %.0155321 = phi i32 [ %44, %mbedtls_aes_crypt_ecb.exit.thread ], [ 0, %.preheader308 ]
@@ -2663,7 +2663,7 @@ mbedtls_aes_crypt_ecb.exit:                       ; preds = %.preheader308.split
 mbedtls_aes_crypt_ecb.exit.thread:                ; preds = %41, %mbedtls_aes_crypt_ecb.exit
   %44 = add nuw nsw i32 %.0155321, 1
   %exitcond.not = icmp eq i32 %44, 10000
-  br i1 %exitcond.not, label %.split323.us, label %.preheader308.split, !llvm.loop !43
+  br i1 %exitcond.not, label %.split323.us, label %.preheader308.split, !llvm.loop !41
 
 .split323.us:                                     ; preds = %mbedtls_aes_crypt_ecb.exit.thread, %mbedtls_aes_crypt_ecb.exit.thread.us
   %bcmp234 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) %31, i64 16)
@@ -2681,7 +2681,7 @@ mbedtls_aes_crypt_ecb.exit.thread:                ; preds = %41, %mbedtls_aes_cr
 
 .backedge419.backedge:                            ; preds = %46, %.thread, %.thread372
   %.0157324.be = phi i32 [ %47, %46 ], [ %49, %.thread ], [ %48, %.thread372 ]
-  br label %.backedge419, !llvm.loop !44
+  br label %.backedge419, !llvm.loop !42
 
 .thread372:                                       ; preds = %45
   %puts236 = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
@@ -2782,7 +2782,7 @@ mbedtls_aes_crypt_ecb.exit.thread.i.us:           ; preds = %75, %mbedtls_aes_cr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %79 = add nuw nsw i32 %.1156325.us, 1
   %exitcond364.not = icmp eq i32 %79, 10000
-  br i1 %exitcond364.not, label %.split328.us, label %.split.us, !llvm.loop !45
+  br i1 %exitcond364.not, label %.split328.us, label %.split.us, !llvm.loop !43
 
 .split170:                                        ; preds = %.preheader, %mbedtls_aes_crypt_cbc.exit244.thread
   %.1156325 = phi i32 [ %85, %mbedtls_aes_crypt_cbc.exit244.thread ], [ 0, %.preheader ]
@@ -2816,7 +2816,7 @@ mbedtls_aes_crypt_cbc.exit244.thread:             ; preds = %mbedtls_aes_crypt_e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false)
   %85 = add nuw nsw i32 %.1156325, 1
   %exitcond363.not = icmp eq i32 %85, 10000
-  br i1 %exitcond363.not, label %.split328.us, label %.split170, !llvm.loop !46
+  br i1 %exitcond363.not, label %.split328.us, label %.split170, !llvm.loop !44
 
 mbedtls_aes_crypt_cbc.exit244:                    ; preds = %mbedtls_aes_crypt_ecb.exit.i.us
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
@@ -2838,7 +2838,7 @@ mbedtls_aes_crypt_cbc.exit244:                    ; preds = %mbedtls_aes_crypt_e
 
 .backedge413.backedge:                            ; preds = %87, %.thread375, %.thread378
   %.1158329.be = phi i32 [ %88, %87 ], [ %90, %.thread375 ], [ %89, %.thread378 ]
-  br label %.backedge413, !llvm.loop !47
+  br label %.backedge413, !llvm.loop !45
 
 .thread378:                                       ; preds = %86
   %puts229 = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
@@ -2934,7 +2934,7 @@ mbedtls_aes_crypt_ecb.exit.i247:                  ; preds = %115
   %125 = add nuw nsw i64 %.072.i, 1
   %126 = and i64 %125, 15
   %.not49.i245 = icmp eq i64 %113, 0
-  br i1 %.not49.i245, label %.loopexit.i, label %.lr.ph73.i, !llvm.loop !34
+  br i1 %.not49.i245, label %.loopexit.i, label %.lr.ph73.i, !llvm.loop !33
 
 127:                                              ; preds = %109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) @aes_test_cfb128_pt, i64 64, i1 false)
@@ -2974,7 +2974,7 @@ mbedtls_aes_crypt_ecb.exit53.i:                   ; preds = %131
   %141 = add nuw nsw i64 %.268.i, 1
   %142 = and i64 %141, 15
   %.not.i250 = icmp eq i64 %129, 0
-  br i1 %.not.i250, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %.not.i250, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !34
 
 .loopexit.i:                                      ; preds = %135, %119
   %storemerge = phi i64 [ %126, %119 ], [ %142, %135 ]
@@ -2994,7 +2994,7 @@ mbedtls_aes_crypt_ecb.exit53.i:                   ; preds = %131
 
 .thread377.backedge:                              ; preds = %144, %.thread381, %.thread387
   %.2159333.be = phi i32 [ %145, %144 ], [ %147, %.thread381 ], [ %146, %.thread387 ]
-  br label %.thread377, !llvm.loop !48
+  br label %.thread377, !llvm.loop !46
 
 .thread387:                                       ; preds = %143
   %puts224 = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
@@ -3107,7 +3107,7 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %175
   %185 = add nuw nsw i64 %.031.i, 1
   %186 = and i64 %185, 15
   %.not.i257 = icmp eq i64 %173, 0
-  br i1 %.not.i257, label %187, label %.lr.ph.i255, !llvm.loop !39
+  br i1 %.not.i257, label %187, label %.lr.ph.i255, !llvm.loop !38
 
 187:                                              ; preds = %179
   %bcmp216 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %4, ptr noundef nonnull dereferenceable(64) %.3, i64 64)
@@ -3125,7 +3125,7 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %175
 
 .backedge406.backedge:                            ; preds = %189, %.thread392, %.thread398
   %.3160338.be = phi i32 [ %190, %189 ], [ %192, %.thread392 ], [ %191, %.thread398 ]
-  br label %.backedge406, !llvm.loop !49
+  br label %.backedge406, !llvm.loop !47
 
 .thread398:                                       ; preds = %188
   %puts218 = call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
@@ -3166,14 +3166,14 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 16 dereferenceable(16) %202, i64 16, i1 false)
   %203 = getelementptr inbounds nuw [3 x [16 x i8]], ptr @aes_test_ctr_key, i64 0, i64 %201
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %203, i64 16, i1 false)
-  store i64 0, ptr %7, align 8, !tbaa !33
+  store i64 0, ptr %7, align 8, !tbaa !32
   %204 = call i32 @mbedtls_aes_setkey_enc(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 128)
   %.not209 = icmp eq i32 %204, 0
   br i1 %.not209, label %205, label %mbedtls_aes_crypt_cfb128.exit
 
 205:                                              ; preds = %200
   %206 = getelementptr inbounds nuw [3 x i32], ptr @aes_test_ctr_len, i64 0, i64 %201
-  %207 = load i32, ptr %206, align 4, !tbaa !13
+  %207 = load i32, ptr %206, align 4, !tbaa !12
   %208 = icmp eq i32 %195, 0
   %209 = sext i32 %207 to i64
   %aes_test_ctr_ct.aes_test_ctr_pt = select i1 %208, ptr @aes_test_ctr_ct, ptr @aes_test_ctr_pt
@@ -3201,7 +3201,7 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %175
 
 .thread396.backedge:                              ; preds = %215, %.thread403
   %.4161339.be = phi i32 [ %216, %215 ], [ %217, %.thread403 ]
-  br label %.thread396, !llvm.loop !50
+  br label %.thread396, !llvm.loop !48
 
 .thread403:                                       ; preds = %214
   %217 = add nuw nsw i32 %.4161339, 1
@@ -3279,7 +3279,7 @@ mbedtls_aes_crypt_ecb.exit.i260:                  ; preds = %175
 240:                                              ; preds = %.thread282, %239
   %241 = add nuw nsw i32 %.5162340, 1
   %exitcond369.not = icmp eq i32 %241, 6
-  br i1 %exitcond369.not, label %242, label %219, !llvm.loop !51
+  br i1 %exitcond369.not, label %242, label %219, !llvm.loop !49
 
 242:                                              ; preds = %240
   br i1 %13, label %243, label %.thread287
@@ -3371,45 +3371,43 @@ attributes #11 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"long", !6, i64 0}
 !9 = !{!6, !6, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = !{!4, !8, i64 8}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
-!20 = distinct !{!20, !11, !12}
-!21 = distinct !{!21, !11, !12}
-!22 = distinct !{!22, !11, !12}
-!23 = distinct !{!23, !11, !12}
-!24 = distinct !{!24, !11, !12}
-!25 = distinct !{!25, !11, !12}
-!26 = distinct !{!26, !11, !12}
-!27 = distinct !{!27, !11, !12}
-!28 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!29 = distinct !{!29, !11, !12}
-!30 = distinct !{!30, !11, !12}
-!31 = distinct !{!31, !11, !12}
-!32 = distinct !{!32, !11, !12}
-!33 = !{!8, !8, i64 0}
-!34 = distinct !{!34, !11, !12}
-!35 = distinct !{!35, !11, !12}
-!36 = distinct !{!36, !11, !12, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !11, !12, !37}
-!39 = distinct !{!39, !11, !12}
-!40 = distinct !{!40, !12}
-!41 = distinct !{!41, !11, !12}
-!42 = distinct !{!42, !11, !12, !37}
-!43 = distinct !{!43, !11, !12}
-!44 = distinct !{!44, !11, !12}
-!45 = distinct !{!45, !11, !12, !37}
-!46 = distinct !{!46, !11, !12}
-!47 = distinct !{!47, !11, !12}
-!48 = distinct !{!48, !11, !12}
-!49 = distinct !{!49, !11, !12}
-!50 = distinct !{!50, !11, !12}
-!51 = distinct !{!51, !11, !12}
+!12 = !{!5, !5, i64 0}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = !{!4, !8, i64 8}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11}
+!21 = distinct !{!21, !11}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !11}
+!24 = distinct !{!24, !11}
+!25 = distinct !{!25, !11}
+!26 = distinct !{!26, !11}
+!27 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!28 = distinct !{!28, !11}
+!29 = distinct !{!29, !11}
+!30 = distinct !{!30, !11}
+!31 = distinct !{!31, !11}
+!32 = !{!8, !8, i64 0}
+!33 = distinct !{!33, !11}
+!34 = distinct !{!34, !11}
+!35 = distinct !{!35, !11, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !11, !36}
+!38 = distinct !{!38, !11}
+!39 = distinct !{!39, !11}
+!40 = distinct !{!40, !11, !36}
+!41 = distinct !{!41, !11}
+!42 = distinct !{!42, !11}
+!43 = distinct !{!43, !11, !36}
+!44 = distinct !{!44, !11}
+!45 = distinct !{!45, !11}
+!46 = distinct !{!46, !11}
+!47 = distinct !{!47, !11}
+!48 = distinct !{!48, !11}
+!49 = distinct !{!49, !11}

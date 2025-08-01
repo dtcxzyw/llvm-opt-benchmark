@@ -109,21 +109,21 @@ define internal fastcc void @blk_SHA256_Transform(ptr noundef captures(none) %0,
 .preheader214:                                    ; preds = %.preheader214.preheader, %.preheader214
   %indvars.iv = phi i64 [ 0, %.preheader214.preheader ], [ %indvars.iv.next, %.preheader214 ]
   %.0213216 = phi ptr [ %1, %.preheader214.preheader ], [ %22, %.preheader214 ]
-  %4 = load i8, ptr %.0213216, align 1, !tbaa !15
+  %4 = load i8, ptr %.0213216, align 1, !tbaa !14
   %5 = zext i8 %4 to i32
   %6 = shl nuw i32 %5, 24
   %7 = getelementptr inbounds nuw i8, ptr %.0213216, i64 1
-  %8 = load i8, ptr %7, align 1, !tbaa !15
+  %8 = load i8, ptr %7, align 1, !tbaa !14
   %9 = zext i8 %8 to i32
   %10 = shl nuw nsw i32 %9, 16
   %11 = or disjoint i32 %10, %6
   %12 = getelementptr inbounds nuw i8, ptr %.0213216, i64 2
-  %13 = load i8, ptr %12, align 1, !tbaa !15
+  %13 = load i8, ptr %12, align 1, !tbaa !14
   %14 = zext i8 %13 to i32
   %15 = shl nuw nsw i32 %14, 8
   %16 = or disjoint i32 %11, %15
   %17 = getelementptr inbounds nuw i8, ptr %.0213216, i64 3
-  %18 = load i8, ptr %17, align 1, !tbaa !15
+  %18 = load i8, ptr %17, align 1, !tbaa !14
   %19 = zext i8 %18 to i32
   %20 = or disjoint i32 %16, %19
   %21 = getelementptr inbounds nuw [64 x i32], ptr %3, i64 0, i64 %indvars.iv
@@ -131,7 +131,7 @@ define internal fastcc void @blk_SHA256_Transform(ptr noundef captures(none) %0,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr inbounds nuw i8, ptr %.0213216, i64 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader.preheader, label %.preheader214, !llvm.loop !16
+  br i1 %exitcond.not, label %.preheader.preheader, label %.preheader214, !llvm.loop !15
 
 .preheader.preheader:                             ; preds = %.preheader214
   %.pre = load i32, ptr %3, align 16, !tbaa !11
@@ -166,7 +166,7 @@ define internal fastcc void @blk_SHA256_Transform(ptr noundef captures(none) %0,
   store i32 %45, ptr %46, align 4, !tbaa !11
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next223, 64
-  br i1 %exitcond225.not, label %47, label %.preheader, !llvm.loop !17
+  br i1 %exitcond225.not, label %47, label %.preheader, !llvm.loop !16
 
 47:                                               ; preds = %.preheader
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -1866,7 +1866,7 @@ define internal fastcc void @blk_SHA256_Transform(ptr noundef captures(none) %0,
   store i32 %1730, ptr %1728, align 4, !tbaa !11
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next227, 8
-  br i1 %exitcond229.not, label %1731, label %1725, !llvm.loop !18
+  br i1 %exitcond229.not, label %1731, label %1725, !llvm.loop !17
 
 1731:                                             ; preds = %1725
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #6
@@ -1886,11 +1886,11 @@ git_bswap32.exit:
   %4 = load i64, ptr %3, align 8, !tbaa !10
   %5 = lshr i64 %4, 29
   %6 = trunc i64 %5 to i32
-  %7 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %6) #7, !srcloc !19
+  %7 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %6) #7, !srcloc !18
   store i32 %7, ptr %2, align 4, !tbaa !11
   %.tr = trunc i64 %4 to i32
   %8 = shl i32 %.tr, 3
-  %9 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %8) #7, !srcloc !19
+  %9 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %8) #7, !srcloc !18
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %9, ptr %10, align 4, !tbaa !11
   %11 = sub i64 55, %4
@@ -1994,22 +1994,22 @@ blk_SHA256_Update.exit27:                         ; preds = %blk_SHA256_Update.e
   %50 = load i32, ptr %49, align 4, !tbaa !11
   %51 = lshr i32 %50, 24
   %52 = trunc nuw i32 %51 to i8
-  store i8 %52, ptr %.01134, align 1, !tbaa !15
+  store i8 %52, ptr %.01134, align 1, !tbaa !14
   %53 = lshr i32 %50, 16
   %54 = trunc i32 %53 to i8
   %55 = getelementptr inbounds nuw i8, ptr %.01134, i64 1
-  store i8 %54, ptr %55, align 1, !tbaa !15
+  store i8 %54, ptr %55, align 1, !tbaa !14
   %56 = lshr i32 %50, 8
   %57 = trunc i32 %56 to i8
   %58 = getelementptr inbounds nuw i8, ptr %.01134, i64 2
-  store i8 %57, ptr %58, align 1, !tbaa !15
+  store i8 %57, ptr %58, align 1, !tbaa !14
   %59 = trunc i32 %50 to i8
   %60 = getelementptr inbounds nuw i8, ptr %.01134, i64 3
-  store i8 %59, ptr %60, align 1, !tbaa !15
+  store i8 %59, ptr %60, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = getelementptr inbounds nuw i8, ptr %.01134, i64 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %62, label %blk_SHA256_Update.exit27, !llvm.loop !20
+  br i1 %exitcond.not, label %62, label %blk_SHA256_Update.exit27, !llvm.loop !19
 
 62:                                               ; preds = %blk_SHA256_Update.exit27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
@@ -2048,12 +2048,11 @@ attributes #7 = { nounwind memory(none) }
 !9 = !{!"int", !6, i64 0}
 !10 = !{!5, !8, i64 32}
 !11 = !{!9, !9, i64 0}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !13, !14}
-!17 = distinct !{!17, !13, !14}
-!18 = distinct !{!18, !13, !14}
-!19 = !{i64 3462302}
-!20 = distinct !{!20, !13, !14}
+!14 = !{!6, !6, i64 0}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}
+!17 = distinct !{!17, !13}
+!18 = !{i64 3462302}
+!19 = distinct !{!19, !13}

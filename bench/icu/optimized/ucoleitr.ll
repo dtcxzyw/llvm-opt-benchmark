@@ -869,7 +869,7 @@ _ZN6icu_7713UCollationPCE9processCEEj.exit.thread: ; preds = %14, %_ZN6icu_7713U
   br i1 %.not19, label %57, label %56
 
 56:                                               ; preds = %_ZN6icu_7713UCollationPCE9processCEEj.exit.thread
-  store i32 %16, ptr %1, align 4, !tbaa !53
+  store i32 %16, ptr %1, align 4, !tbaa !52
   br label %57
 
 57:                                               ; preds = %56, %_ZN6icu_7713UCollationPCE9processCEEj.exit.thread
@@ -877,7 +877,7 @@ _ZN6icu_7713UCollationPCE9processCEEj.exit.thread: ; preds = %14, %_ZN6icu_7713U
   br i1 %.not20, label %59, label %58
 
 58:                                               ; preds = %57
-  store i32 %20, ptr %2, align 4, !tbaa !53
+  store i32 %20, ptr %2, align 4, !tbaa !52
   br label %59
 
 59:                                               ; preds = %57, %58, %4
@@ -1037,7 +1037,7 @@ _ZN6icu_779RCEBuffer3putEjiiR10UErrorCode.exit:   ; preds = %._crit_edge.i, %.th
   %68 = and i32 %27, 192
   %69 = icmp eq i32 %68, 192
   %70 = or i1 %67, %69
-  br i1 %70, label %22, label %.lr.ph.preheader, !llvm.loop !54
+  br i1 %70, label %22, label %.lr.ph.preheader, !llvm.loop !53
 
 .critedge:                                        ; preds = %33
   %.pre92 = load i32, ptr %3, align 4, !tbaa !12
@@ -1202,7 +1202,7 @@ _ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit:   ; preds = %98, %132, %_ZN6icu_
   %.pre9396 = phi i32 [ %.pre9395, %98 ], [ %.pre93, %132 ], [ %.pre9395, %_ZN6icu_7713UCollationPCE9processCEEj.exit ]
   %142 = phi i32 [ %72, %98 ], [ %.pre93, %132 ], [ %72, %_ZN6icu_7713UCollationPCE9processCEEj.exit ]
   %143 = icmp sgt i32 %142, 0
-  br i1 %143, label %.thread, label %.lr.ph, !llvm.loop !55
+  br i1 %143, label %.thread, label %.lr.ph, !llvm.loop !54
 
 .thread.sink.split:                               ; preds = %.noexc, %.noexc67
   store i32 7, ptr %3, align 4, !tbaa !12
@@ -1238,7 +1238,7 @@ _ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit:   ; preds = %98, %132, %_ZN6icu_
   br i1 %.not55, label %150, label %149
 
 149:                                              ; preds = %148
-  store i32 -1, ptr %1, align 4, !tbaa !53
+  store i32 -1, ptr %1, align 4, !tbaa !52
   br label %150
 
 150:                                              ; preds = %149, %148
@@ -1246,7 +1246,7 @@ _ZN6icu_779PCEBuffer3putEmiiR10UErrorCode.exit:   ; preds = %98, %132, %_ZN6icu_
   br i1 %.not56, label %167, label %151
 
 151:                                              ; preds = %150
-  store i32 -1, ptr %2, align 4, !tbaa !53
+  store i32 -1, ptr %2, align 4, !tbaa !52
   br label %167
 
 _ZN6icu_779PCEBuffer3getEv.exit:                  ; preds = %.critedge2, %.preheader, %.loopexit
@@ -1263,7 +1263,7 @@ _ZN6icu_779PCEBuffer3getEv.exit:                  ; preds = %.critedge2, %.prehe
 158:                                              ; preds = %_ZN6icu_779PCEBuffer3getEv.exit
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %160 = load i32, ptr %159, align 8, !tbaa !26
-  store i32 %160, ptr %1, align 4, !tbaa !53
+  store i32 %160, ptr %1, align 4, !tbaa !52
   br label %161
 
 161:                                              ; preds = %158, %_ZN6icu_779PCEBuffer3getEv.exit
@@ -1273,7 +1273,7 @@ _ZN6icu_779PCEBuffer3getEv.exit:                  ; preds = %.critedge2, %.prehe
 162:                                              ; preds = %161
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 12
   %164 = load i32, ptr %163, align 4, !tbaa !27
-  store i32 %164, ptr %2, align 4, !tbaa !53
+  store i32 %164, ptr %2, align 4, !tbaa !52
   br label %165
 
 165:                                              ; preds = %162, %161
@@ -1445,9 +1445,8 @@ attributes #15 = { allocsize(0) }
 !47 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !48, i64 0}
 !48 = !{!"p1 char16_t", !8, i64 0}
 !49 = !{i64 2148848249}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!9, !9, i64 0}
-!54 = distinct !{!54, !51, !52}
-!55 = distinct !{!55, !51, !52}
+!52 = !{!9, !9, i64 0}
+!53 = distinct !{!53, !51}
+!54 = distinct !{!54, !51}

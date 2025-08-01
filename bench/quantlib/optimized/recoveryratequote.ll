@@ -482,7 +482,7 @@ invoke.cont:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %6, ptr %add.ptr, align 8, !tbaa !3
   %seniority_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 %seniority, ptr %seniority_, align 8, !tbaa !39
+  store i32 %seniority, ptr %seniority_, align 8, !tbaa !38
   %recoveryRate_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %value, ptr %recoveryRate_, align 8, !tbaa !14
   %cmp = fcmp oeq double %value, 0x47EFFFFFE0000000
@@ -680,7 +680,7 @@ invoke.cont:
   store ptr getelementptr inbounds nuw inrange(-24, 32) (i8, ptr @_ZTVN8QuantLib17RecoveryRateQuoteE, i64 24), ptr %this, align 8, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-24, 16) (i8, ptr @_ZTVN8QuantLib17RecoveryRateQuoteE, i64 80), ptr %0, align 8, !tbaa !3
   %seniority_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 %seniority, ptr %seniority_, align 8, !tbaa !39
+  store i32 %seniority, ptr %seniority_, align 8, !tbaa !38
   %recoveryRate_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %value, ptr %recoveryRate_, align 8, !tbaa !14
   %cmp = fcmp oeq double %value, 0x47EFFFFFE0000000
@@ -911,7 +911,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN8QuantLib17RecoveryRateQuote8setValueEd.exit:  ; preds = %entry, %if.then.i
   %seniority_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 5, ptr %seniority_, align 8, !tbaa !39
+  store i32 5, ptr %seniority_, align 8, !tbaa !38
   ret void
 }
 
@@ -1031,13 +1031,13 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
   %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
-  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !40
+  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !39
   tail call void @_ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
   %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
-  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !41
+  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !40
   tail call void @_ZdlPvm(ptr noundef nonnull %__x.addr.05, i64 noundef 40) #22
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !42
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !41
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -1124,9 +1124,9 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i, ptr %__y.addr.06.i.i.i, ptr %__x.addr.07.i.i.i
   %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i, i64 24, i64 16
   %__x.addr.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
-  %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8, !tbaa !43
+  %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8, !tbaa !42
   %cmp.not.i.i.i = icmp eq ptr %__x.addr.1.i.i.i, null
-  br i1 %cmp.not.i.i.i, label %_ZNSt3mapIN8QuantLib9SeniorityEdSt4lessIS1_ESaISt4pairIKS1_dEEE11lower_boundERS5_.exit, label %while.body.i.i.i, !llvm.loop !44
+  br i1 %cmp.not.i.i.i, label %_ZNSt3mapIN8QuantLib9SeniorityEdSt4lessIS1_ESaISt4pairIKS1_dEEE11lower_boundERS5_.exit, label %while.body.i.i.i, !llvm.loop !43
 
 _ZNSt3mapIN8QuantLib9SeniorityEdSt4lessIS1_ESaISt4pairIKS1_dEEE11lower_boundERS5_.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__y.addr.1.i.i.i, %add.ptr.i.i.i
@@ -1142,9 +1142,9 @@ if.then:                                          ; preds = %entry, %_ZNSt3mapIN
   %__y.addr.0.lcssa.i.i.i13 = phi ptr [ %__y.addr.1.i.i.i, %lor.rhs ], [ %__y.addr.1.i.i.i, %_ZNSt3mapIN8QuantLib9SeniorityEdSt4lessIS1_ESaISt4pairIKS1_dEEE11lower_boundERS5_.exit ], [ %add.ptr.i.i.i, %entry ]
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %_M_storage.i.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 32
-  store i32 %.pre, ptr %_M_storage.i.i.i.i.i4, align 8, !tbaa !45
+  store i32 %.pre, ptr %_M_storage.i.i.i.i.i4, align 8, !tbaa !44
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 40
-  store double 0.000000e+00, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !47
+  store double 0.000000e+00, ptr %second.i.i.i.i.i.i.i.i, align 8, !tbaa !46
   %call8.i = invoke { ptr, ptr } @_ZNSt8_Rb_treeIN8QuantLib9SeniorityESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS4_ERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i13, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i4)
           to label %invoke.cont7.i unwind label %_ZNSt8_Rb_treeIN8QuantLib9SeniorityESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_Auto_nodeD2Ev.exit.i
 
@@ -1226,7 +1226,7 @@ if.then:                                          ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.then
   %_M_right.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %1 = load ptr, ptr %_M_right.i, align 8, !tbaa !43
+  %1 = load ptr, ptr %_M_right.i, align 8, !tbaa !42
   %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i, align 4, !tbaa !34
   %3 = load i32, ptr %__k, align 4, !tbaa !34
@@ -1235,7 +1235,7 @@ land.lhs.true:                                    ; preds = %if.then
 
 if.else:                                          ; preds = %land.lhs.true, %if.then
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %__x.019.i = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !43
+  %__x.019.i = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !42
   %cmp.not20.i = icmp eq ptr %__x.019.i, null
   br i1 %cmp.not20.i, label %if.then.i, label %while.body.lr.ph.i
 
@@ -1250,9 +1250,9 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %cmp.i.i = icmp slt i32 %4, %5
   %cond.in.v.i = select i1 %cmp.i.i, i64 16, i64 24
   %cond.in.i = getelementptr inbounds nuw i8, ptr %__x.021.i, i64 %cond.in.v.i
-  %__x.0.i = load ptr, ptr %cond.in.i, align 8, !tbaa !43
+  %__x.0.i = load ptr, ptr %cond.in.i, align 8, !tbaa !42
   %cmp.not.i = icmp eq ptr %__x.0.i, null
-  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !48
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !47
 
 while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i, label %if.end12.i
@@ -1290,7 +1290,7 @@ if.else12:                                        ; preds = %entry
 
 if.then17:                                        ; preds = %if.else12
   %_M_left.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %11 = load ptr, ptr %_M_left.i, align 8, !tbaa !43
+  %11 = load ptr, ptr %_M_left.i, align 8, !tbaa !42
   %cmp20 = icmp eq ptr %11, %__position.coerce
   br i1 %cmp20, label %cleanup76, label %if.else24
 
@@ -1303,7 +1303,7 @@ if.else24:                                        ; preds = %if.then17
 
 if.then30:                                        ; preds = %if.else24
   %_M_right.i18 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  %13 = load ptr, ptr %_M_right.i18, align 8, !tbaa !40
+  %13 = load ptr, ptr %_M_right.i18, align 8, !tbaa !39
   %cmp33 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp33, ptr null, ptr %__position.coerce
   %spec.select110 = select i1 %cmp33, ptr %call.i, ptr %__position.coerce
@@ -1311,7 +1311,7 @@ if.then30:                                        ; preds = %if.else24
 
 if.else40:                                        ; preds = %if.else24
   %_M_parent.i.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8, !tbaa !43
+  %__x.019.i23 = load ptr, ptr %_M_parent.i.i.i21, align 8, !tbaa !42
   %cmp.not20.i24 = icmp eq ptr %__x.019.i23, null
   br i1 %cmp.not20.i24, label %if.then.i46, label %while.body.i26
 
@@ -1322,9 +1322,9 @@ while.body.i26:                                   ; preds = %if.else40, %while.b
   %cmp.i.i29 = icmp slt i32 %9, %14
   %cond.in.v.i30 = select i1 %cmp.i.i29, i64 16, i64 24
   %cond.in.i31 = getelementptr inbounds nuw i8, ptr %__x.021.i27, i64 %cond.in.v.i30
-  %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8, !tbaa !43
+  %__x.0.i32 = load ptr, ptr %cond.in.i31, align 8, !tbaa !42
   %cmp.not.i33 = icmp eq ptr %__x.0.i32, null
-  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !48
+  br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !47
 
 while.end.i34:                                    ; preds = %while.body.i26
   br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
@@ -1355,7 +1355,7 @@ if.else42:                                        ; preds = %if.else12
 
 if.then47:                                        ; preds = %if.else42
   %_M_right.i55 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %16 = load ptr, ptr %_M_right.i55, align 8, !tbaa !43
+  %16 = load ptr, ptr %_M_right.i55, align 8, !tbaa !42
   %cmp50 = icmp eq ptr %16, %__position.coerce
   br i1 %cmp50, label %cleanup76, label %if.else54
 
@@ -1368,7 +1368,7 @@ if.else54:                                        ; preds = %if.then47
 
 if.then60:                                        ; preds = %if.else54
   %_M_right.i61 = getelementptr inbounds nuw i8, ptr %__position.coerce, i64 24
-  %18 = load ptr, ptr %_M_right.i61, align 8, !tbaa !40
+  %18 = load ptr, ptr %_M_right.i61, align 8, !tbaa !39
   %cmp63 = icmp eq ptr %18, null
   %spec.select111 = select i1 %cmp63, ptr null, ptr %call.i58
   %spec.select112 = select i1 %cmp63, ptr %__position.coerce, ptr %call.i58
@@ -1376,7 +1376,7 @@ if.then60:                                        ; preds = %if.else54
 
 if.else70:                                        ; preds = %if.else54
   %_M_parent.i.i.i64 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %__x.019.i66 = load ptr, ptr %_M_parent.i.i.i64, align 8, !tbaa !43
+  %__x.019.i66 = load ptr, ptr %_M_parent.i.i.i64, align 8, !tbaa !42
   %cmp.not20.i67 = icmp eq ptr %__x.019.i66, null
   br i1 %cmp.not20.i67, label %if.then.i89, label %while.body.i69
 
@@ -1387,9 +1387,9 @@ while.body.i69:                                   ; preds = %if.else70, %while.b
   %cmp.i.i72 = icmp slt i32 %9, %19
   %cond.in.v.i73 = select i1 %cmp.i.i72, i64 16, i64 24
   %cond.in.i74 = getelementptr inbounds nuw i8, ptr %__x.021.i70, i64 %cond.in.v.i73
-  %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8, !tbaa !43
+  %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8, !tbaa !42
   %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
-  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !48
+  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !47
 
 while.end.i77:                                    ; preds = %while.body.i69
   br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
@@ -1445,13 +1445,13 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
   %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
-  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !40
+  %0 = load ptr, ptr %_M_right.i, align 8, !tbaa !39
   tail call void @_ZNSt8_Rb_treeIN8QuantLib9SeniorityESt4pairIKS1_dESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
   %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
-  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !41
+  %1 = load ptr, ptr %_M_left.i, align 8, !tbaa !40
   tail call void @_ZdlPvm(ptr noundef nonnull %__x.addr.05, i64 noundef 48) #22
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !49
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !48
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -1527,17 +1527,16 @@ attributes #24 = { nounwind willreturn memory(read) }
 !33 = !{!27, !11, i64 32}
 !34 = !{!17, !17, i64 0}
 !35 = !{!18, !18, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!15, !17, i64 8}
-!40 = !{!28, !9, i64 24}
-!41 = !{!28, !9, i64 16}
-!42 = distinct !{!42, !37, !38}
-!43 = !{!9, !9, i64 0}
-!44 = distinct !{!44, !37, !38}
-!45 = !{!46, !17, i64 0}
-!46 = !{!"_ZTSSt4pairIKN8QuantLib9SeniorityEdE", !17, i64 0, !18, i64 8}
-!47 = !{!46, !18, i64 8}
-!48 = distinct !{!48, !37, !38}
-!49 = distinct !{!49, !37, !38}
+!38 = !{!15, !17, i64 8}
+!39 = !{!28, !9, i64 24}
+!40 = !{!28, !9, i64 16}
+!41 = distinct !{!41, !37}
+!42 = !{!9, !9, i64 0}
+!43 = distinct !{!43, !37}
+!44 = !{!45, !17, i64 0}
+!45 = !{!"_ZTSSt4pairIKN8QuantLib9SeniorityEdE", !17, i64 0, !18, i64 8}
+!46 = !{!45, !18, i64 8}
+!47 = distinct !{!47, !37}
+!48 = distinct !{!48, !37}

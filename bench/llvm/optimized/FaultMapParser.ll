@@ -413,21 +413,21 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
   %.0.i.i = phi ptr [ %14, %13 ], [ %0, %15 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #6
-  %18 = load ptr, ptr %1, align 8, !tbaa !33
+  %18 = load ptr, ptr %1, align 8, !tbaa !32
   call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i8, ptr %18, align 1
   %19 = zext i8 %.0.copyload.i.i.i.i.i.i to i64
-  store i64 %19, ptr %3, align 8, !tbaa !17, !alias.scope !35
+  store i64 %19, ptr %3, align 8, !tbaa !17, !alias.scope !34
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %20, align 8, !tbaa !24, !alias.scope !35
+  store i64 0, ptr %20, align 8, !tbaa !24, !alias.scope !34
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 2, ptr %21, align 8, !tbaa !25, !alias.scope !35
+  store i32 2, ptr %21, align 8, !tbaa !25, !alias.scope !34
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i8 1, ptr %22, align 4, !tbaa !26, !alias.scope !35
+  store i8 1, ptr %22, align 4, !tbaa !26, !alias.scope !34
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 21
-  store i8 0, ptr %23, align 1, !tbaa !27, !alias.scope !35
+  store i8 0, ptr %23, align 1, !tbaa !27, !alias.scope !34
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 22
-  store i8 1, ptr %24, align 2, !tbaa !28, !alias.scope !35
+  store i8 1, ptr %24, align 2, !tbaa !28, !alias.scope !34
   %25 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(23) %3) #6
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !3
@@ -470,7 +470,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %31, %33
 
 _ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %42, %44
   %.0.i.i20 = phi ptr [ %43, %42 ], [ %0, %44 ]
-  %47 = load ptr, ptr %1, align 8, !tbaa !33
+  %47 = load ptr, ptr %1, align 8, !tbaa !32
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 1) ]
   %.0.copyload.i.i.i.i.i.i22 = load i32, ptr %48, align 1
@@ -495,7 +495,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit21:               ; preds = %42, %44
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit25
 
 _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %56, %58
-  %61 = load ptr, ptr %1, align 8, !tbaa !33
+  %61 = load ptr, ptr %1, align 8, !tbaa !32
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 1) ]
   %.0.copyload.i.i.i.i.i.i26 = load i32, ptr %62, align 1
@@ -522,9 +522,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %56, %58
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %67
-  %72 = load ptr, ptr %1, align 8, !tbaa !33
+  %72 = load ptr, ptr %1, align 8, !tbaa !32
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %74 = load ptr, ptr %65, align 8, !tbaa !38
+  %74 = load ptr, ptr %65, align 8, !tbaa !37
   br label %81
 
 75:                                               ; preds = %67
@@ -540,12 +540,12 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %56, %58
 81:                                               ; preds = %75, %71
   %.pn32 = phi ptr [ %73, %71 ], [ %80, %75 ]
   %.pn30 = phi ptr [ %74, %71 ], [ %68, %75 ]
-  store ptr %.pn32, ptr %4, align 8, !tbaa !39
-  store ptr %.pn30, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !39
+  store ptr %.pn32, ptr %4, align 8, !tbaa !38
+  store ptr %.pn30, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !38
   %82 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS_11raw_ostreamERKNS_14FaultMapParser20FunctionInfoAccessorE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %83 = add nuw i32 %.01433, 1
   %.not = icmp eq i32 %83, %.0.copyload.i.i.i.i.i.i26
-  br i1 %.not, label %66, label %67, !llvm.loop !40
+  br i1 %.not, label %66, label %67, !llvm.loop !39
 
 84:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit25, %66
   ret ptr %0
@@ -604,14 +604,13 @@ attributes #6 = { nounwind }
 !27 = !{!18, !10, i64 21}
 !28 = !{!18, !10, i64 22}
 !29 = !{!16, !8, i64 8}
-!30 = distinct !{!30, !31, !32}
+!30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!34, !8, i64 0}
-!34 = !{!"_ZTSN4llvm14FaultMapParserE", !8, i64 0, !8, i64 8}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZN4llvm10format_hexEmjb: argument 0"}
-!37 = distinct !{!37, !"_ZN4llvm10format_hexEmjb"}
-!38 = !{!34, !8, i64 8}
-!39 = !{!8, !8, i64 0}
-!40 = distinct !{!40, !31, !32}
+!32 = !{!33, !8, i64 0}
+!33 = !{!"_ZTSN4llvm14FaultMapParserE", !8, i64 0, !8, i64 8}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN4llvm10format_hexEmjb: argument 0"}
+!36 = distinct !{!36, !"_ZN4llvm10format_hexEmjb"}
+!37 = !{!33, !8, i64 8}
+!38 = !{!8, !8, i64 0}
+!39 = distinct !{!39, !31}

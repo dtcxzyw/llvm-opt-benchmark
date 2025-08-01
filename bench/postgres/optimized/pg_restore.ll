@@ -595,7 +595,7 @@ sub_1159:                                         ; preds = %.tail.thread, %.thr
 
 153:                                              ; preds = %152, %150
   %154 = call zeroext i1 @filter_read_item(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
-  br i1 %154, label %.lr.ph.i, label %read_restore_filters.exit, !llvm.loop !7
+  br i1 %154, label %.lr.ph.i, label %read_restore_filters.exit, !llvm.loop !6
 
 read_restore_filters.exit:                        ; preds = %153, %133
   call void @filter_free(ptr noundef nonnull %3) #10
@@ -713,7 +713,7 @@ read_restore_filters.exit:                        ; preds = %153, %133
   unreachable
 
 197:                                              ; preds = %194, %192
-  %198 = load i8, ptr %55, align 4, !range !8, !noundef !9
+  %198 = load i8, ptr %55, align 4, !range !7, !noundef !8
   %199 = trunc nuw i8 %198 to i1
   br i1 %199, label %200, label %.thread155
 
@@ -1108,9 +1108,8 @@ attributes #13 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}

@@ -271,7 +271,7 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed
     i32 3, label %.loopexit38.loopexit
     i32 2, label %.loopexit
     i32 1, label %.loopexit
-  ], !llvm.loop !37
+  ]
 
 .loopexit38.loopexit:                             ; preds = %.preheader37
   %.pre43 = load i8, ptr %17, align 1, !tbaa !29
@@ -294,7 +294,7 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed
   switch i32 %.2, label %.loopexit [
     i32 0, label %.preheader
     i32 5, label %.loopexit36.loopexit
-  ], !llvm.loop !39
+  ]
 
 .loopexit36.loopexit:                             ; preds = %.preheader
   %.pre44 = load i8, ptr %17, align 1, !tbaa !29
@@ -393,7 +393,7 @@ ft_gzip_file_reset.exit.thread:                   ; preds = %8
 40:                                               ; preds = %29
   %41 = tail call fastcc i32 @ft_gzip_file_fill_output(ptr noundef nonnull %0)
   %.not21.i = icmp eq i32 %41, 0
-  br i1 %.not21.i, label %29, label %ft_gzip_file_reset.exit, !llvm.loop !40
+  br i1 %.not21.i, label %29, label %ft_gzip_file_reset.exit
 
 ft_gzip_file_skip_output.exit:                    ; preds = %29
   %42 = icmp eq i64 %3, 0
@@ -434,7 +434,7 @@ ft_gzip_file_skip_output.exit:                    ; preds = %29
   %60 = getelementptr inbounds nuw i8, ptr %.038, i64 %spec.select
   %61 = tail call fastcc i32 @ft_gzip_file_fill_output(ptr noundef nonnull %0)
   %.not45 = icmp eq i32 %61, 0
-  br i1 %.not45, label %46, label %ft_gzip_file_reset.exit, !llvm.loop !41
+  br i1 %.not45, label %46, label %ft_gzip_file_reset.exit
 
 ft_gzip_file_reset.exit:                          ; preds = %40, %59, %46, %8, %43, %ft_gzip_file_skip_output.exit
   %.036 = phi i64 [ 0, %ft_gzip_file_skip_output.exit ], [ 0, %43 ], [ 0, %8 ], [ %52, %46 ], [ %52, %59 ], [ 0, %40 ]
@@ -509,7 +509,7 @@ define range(i32 0, 65) i32 @FT_Gzip_Uncompress(ptr noundef %0, ptr noundef %1, 
   store i32 %11, ptr %12, align 8, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %13, align 8, !tbaa !32
-  %14 = load i64, ptr %2, align 8, !tbaa !42
+  %14 = load i64, ptr %2, align 8, !tbaa !37
   %15 = trunc i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %15, ptr %16, align 8, !tbaa !33
@@ -535,8 +535,8 @@ define range(i32 0, 65) i32 @FT_Gzip_Uncompress(ptr noundef %0, ptr noundef %1, 
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %28 = load i64, ptr %27, align 8, !tbaa !43
-  store i64 %28, ptr %2, align 8, !tbaa !42
+  %28 = load i64, ptr %27, align 8, !tbaa !38
+  store i64 %28, ptr %2, align 8, !tbaa !37
   %29 = call i32 @inflateEnd(ptr noundef nonnull %6) #6
   br label %30
 
@@ -757,10 +757,5 @@ attributes #6 = { nounwind }
 !34 = !{!8, !9, i64 0}
 !35 = !{!8, !10, i64 40}
 !36 = !{!8, !10, i64 48}
-!37 = distinct !{!37, !38}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = distinct !{!39, !38}
-!40 = distinct !{!40, !38}
-!41 = distinct !{!41, !38}
-!42 = !{!11, !11, i64 0}
-!43 = !{!16, !11, i64 40}
+!37 = !{!11, !11, i64 0}
+!38 = !{!16, !11, i64 40}

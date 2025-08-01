@@ -248,7 +248,7 @@ define internal range(i32 0, 2) i32 @pmain(ptr noundef %0) #0 {
   %54 = getelementptr inbounds ptr, ptr %4, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !4
   %.not45.i = icmp eq ptr %55, null
-  br i1 %.not45.i, label %collectargs.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not45.i, label %collectargs.exit, label %.lr.ph.i
 
 collectargs.exit.loopexit:                        ; preds = %14
   br label %collectargs.exit
@@ -311,7 +311,7 @@ collectargs.exit:                                 ; preds = %51, %.lr.ph.i, %21,
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef -2, i64 noundef %80) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %createargtable.exit, label %.lr.ph.i40, !llvm.loop !14
+  br i1 %exitcond.not.i, label %createargtable.exit, label %.lr.ph.i40
 
 createargtable.exit:                              ; preds = %.lr.ph.i40, %72
   tail call void @lua_setglobal(ptr noundef %0, ptr noundef nonnull @.str.10) #10
@@ -341,7 +341,7 @@ createargtable.exit:                              ; preds = %.lr.ph.i40, %72
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef -2, i64 noundef %90) #10
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, %wide.trip.count.i43
-  br i1 %exitcond.not.i47, label %createargtable.exit48, label %.lr.ph.i44, !llvm.loop !14
+  br i1 %exitcond.not.i47, label %createargtable.exit48, label %.lr.ph.i44
 
 createargtable.exit48:                            ; preds = %.lr.ph.i44, %.critedge
   tail call void @lua_setglobal(ptr noundef %0, ptr noundef nonnull @.str.10) #10
@@ -481,7 +481,7 @@ dolibrary.exit.i:                                 ; preds = %125
   %.327.i = phi i32 [ %.02431.i, %.lr.ph.i49 ], [ %.02431.i, %145 ], [ %.226.i, %dolibrary.exit.i ], [ %.226.i, %dolibrary.exit.thread.i ]
   %147 = add nsw i32 %.327.i, 1
   %148 = icmp slt i32 %147, %57
-  br i1 %148, label %.lr.ph.i49, label %runargs.exit, !llvm.loop !15
+  br i1 %148, label %.lr.ph.i49, label %runargs.exit
 
 runargs.exit:                                     ; preds = %146, %handle_luainit.exit.thread
   br i1 %56, label %149, label %handle_script.exit.thread
@@ -555,7 +555,7 @@ sub_2.i:                                          ; preds = %sub_119.i
   %179 = tail call i32 @lua_rawgeti(ptr noundef %0, i32 noundef %178, i64 noundef %indvars.iv.i.i) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %180 = xor i32 %174, -1
@@ -720,7 +720,7 @@ define internal fastcc void @doREPL(ptr noundef %0) unnamed_addr #0 {
 
 13:                                               ; preds = %12, %10
   %14 = tail call ptr @dlsym(ptr noundef nonnull %7, ptr noundef nonnull @.str.27) #10
-  store ptr %14, ptr @l_readline, align 8, !tbaa !17
+  store ptr %14, ptr @l_readline, align 8, !tbaa !12
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
@@ -730,7 +730,7 @@ define internal fastcc void @doREPL(ptr noundef %0) unnamed_addr #0 {
 
 17:                                               ; preds = %13
   %18 = tail call ptr @dlsym(ptr noundef nonnull %7, ptr noundef nonnull @.str.29) #10
-  store ptr %18, ptr @l_addhist, align 8, !tbaa !17
+  store ptr %18, ptr @l_addhist, align 8, !tbaa !12
   br label %lua_initreadline.exit.preheader
 
 lua_initreadline.exit.preheader:                  ; preds = %9, %16, %17
@@ -751,7 +751,7 @@ lua_initreadline.exit:                            ; preds = %lua_initreadline.ex
 
 get_prompt.exit.i15:                              ; preds = %lua_initreadline.exit, %21
   %.0.i.i16 = phi ptr [ %22, %21 ], [ @.str.32, %lua_initreadline.exit ]
-  %23 = load ptr, ptr @l_readline, align 8, !tbaa !17
+  %23 = load ptr, ptr @l_readline, align 8, !tbaa !12
   %.not.i18.i17 = icmp eq ptr %23, null
   br i1 %.not.i18.i17, label %26, label %24
 
@@ -795,7 +795,7 @@ lua_readline.exit.i18:                            ; preds = %26, %24
 44:                                               ; preds = %41, %36, %34
   %.015.i21 = phi i64 [ %42, %41 ], [ %35, %36 ], [ 0, %34 ]
   %45 = call ptr @lua_pushlstring(ptr noundef %0, ptr noundef nonnull %.0.i19.i19, i64 noundef %.015.i21) #10
-  %46 = load ptr, ptr @l_readline, align 8, !tbaa !17
+  %46 = load ptr, ptr @l_readline, align 8, !tbaa !12
   %.not.i20.i22 = icmp eq ptr %46, null
   br i1 %.not.i20.i22, label %48, label %47
 
@@ -850,7 +850,7 @@ addreturn.exit.thread.i:                          ; preds = %48
   br label %checklocal.exit.i.i
 
 checklocal.exit.i.i:                              ; preds = %66, %60, %54
-  %71 = load i64, ptr %5, align 8, !tbaa !18
+  %71 = load i64, ptr %5, align 8, !tbaa !13
   %72 = call i32 @luaL_loadbufferx(ptr noundef %0, ptr noundef nonnull %55, i64 noundef %71, ptr noundef nonnull @.str.35, ptr noundef null) #10
   %73 = icmp eq i32 %72, 3
   br i1 %73, label %.lr.ph.i.i, label %multiline.exit.i
@@ -858,7 +858,7 @@ checklocal.exit.i.i:                              ; preds = %66, %60, %54
 .lr.ph.i.i:                                       ; preds = %checklocal.exit.i.i, %110
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   %74 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef nonnull %4) #10
-  %75 = load i64, ptr %4, align 8, !tbaa !18
+  %75 = load i64, ptr %4, align 8, !tbaa !13
   %76 = icmp ugt i64 %75, 4
   br i1 %76, label %incomplete.exit.i.i, label %incomplete.exit.thread21.i.i
 
@@ -888,7 +888,7 @@ incomplete.exit.i.i:                              ; preds = %.lr.ph.i.i
 
 get_prompt.exit.i:                                ; preds = %80, %83
   %.0.i.i = phi ptr [ %84, %83 ], [ @.str.33, %80 ]
-  %85 = load ptr, ptr @l_readline, align 8, !tbaa !17
+  %85 = load ptr, ptr @l_readline, align 8, !tbaa !12
   %.not.i18.i = icmp eq ptr %85, null
   br i1 %.not.i18.i, label %88, label %86
 
@@ -932,7 +932,7 @@ lua_readline.exit.i:                              ; preds = %88, %86
 106:                                              ; preds = %103, %98, %96
   %.015.i = phi i64 [ %104, %103 ], [ %97, %98 ], [ 0, %96 ]
   %107 = call ptr @lua_pushlstring(ptr noundef %0, ptr noundef nonnull %.0.i19.i, i64 noundef %.015.i) #10
-  %108 = load ptr, ptr @l_readline, align 8, !tbaa !17
+  %108 = load ptr, ptr @l_readline, align 8, !tbaa !12
   %.not.i20.i = icmp eq ptr %108, null
   br i1 %.not.i20.i, label %110, label %109
 
@@ -952,10 +952,10 @@ pushline.exit:                                    ; preds = %lua_readline.exit.i
   call void @lua_rotate(ptr noundef %0, i32 noundef -2, i32 noundef 1) #10
   call void @lua_concat(ptr noundef %0, i32 noundef 3) #10
   %112 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %5) #10
-  %113 = load i64, ptr %5, align 8, !tbaa !18
+  %113 = load i64, ptr %5, align 8, !tbaa !13
   %114 = call i32 @luaL_loadbufferx(ptr noundef %0, ptr noundef %112, i64 noundef %113, ptr noundef nonnull @.str.35, ptr noundef null) #10
   %115 = icmp eq i32 %114, 3
-  br i1 %115, label %.lr.ph.i.i, label %multiline.exit.i, !llvm.loop !20
+  br i1 %115, label %.lr.ph.i.i, label %multiline.exit.i
 
 multiline.exit.i:                                 ; preds = %110, %incomplete.exit.i.i, %pushline.exit, %incomplete.exit.thread21.i.i, %checklocal.exit.i.i
   %116 = phi i32 [ 3, %incomplete.exit.thread21.i.i ], [ %72, %checklocal.exit.i.i ], [ 3, %pushline.exit ], [ 3, %incomplete.exit.i.i ], [ %114, %110 ]
@@ -970,7 +970,7 @@ multiline.exit.i:                                 ; preds = %110, %incomplete.ex
   br i1 %.not13.i, label %loadline.exit, label %120
 
 120:                                              ; preds = %117
-  %121 = load ptr, ptr @l_addhist, align 8, !tbaa !17
+  %121 = load ptr, ptr @l_addhist, align 8, !tbaa !12
   %.not.i14.i = icmp eq ptr %121, null
   br i1 %.not.i14.i, label %loadline.exit, label %122
 
@@ -1012,7 +1012,7 @@ loadline.exit:                                    ; preds = %117, %120, %122
   br label %lua_initreadline.exit.backedge
 
 lua_initreadline.exit.backedge:                   ; preds = %132, %129, %126, %report.exit
-  br label %lua_initreadline.exit, !llvm.loop !21
+  br label %lua_initreadline.exit
 
 report.exit:                                      ; preds = %loadline.exit, %123
   %136 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #10
@@ -1090,11 +1090,11 @@ define internal fastcc i32 @docall(ptr noundef %0, i32 noundef %1, i32 noundef r
   %7 = sub nsw i32 %6, %1
   tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef nonnull @msghandler, i32 noundef 0) #10
   tail call void @lua_rotate(ptr noundef %0, i32 noundef %7, i32 noundef 1) #10
-  store ptr %0, ptr @globalL, align 8, !tbaa !22
+  store ptr %0, ptr @globalL, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5) #10
   store ptr @laction, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  store i32 0, ptr %8, align 8, !tbaa !24
+  store i32 0, ptr %8, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = call i32 @sigemptyset(ptr noundef nonnull %9) #10
   %11 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %5, ptr noundef null) #10
@@ -1103,7 +1103,7 @@ define internal fastcc i32 @docall(ptr noundef %0, i32 noundef %1, i32 noundef r
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4) #10
   store ptr null, ptr %4, align 8, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  store i32 0, ptr %13, align 8, !tbaa !24
+  store i32 0, ptr %13, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = call i32 @sigemptyset(ptr noundef nonnull %14) #10
   %16 = call i32 @sigaction(i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #10
@@ -1154,12 +1154,12 @@ define internal void @laction(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2) #10
   store ptr null, ptr %2, align 8, !tbaa !11
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  store i32 0, ptr %3, align 8, !tbaa !24
+  store i32 0, ptr %3, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = call i32 @sigemptyset(ptr noundef nonnull %4) #10
   %6 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %2, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2) #10
-  %7 = load ptr, ptr @globalL, align 8, !tbaa !22
+  %7 = load ptr, ptr @globalL, align 8, !tbaa !15
   call void @lua_sethook(ptr noundef %7, ptr noundef nonnull @lstop, i32 noundef 15, i32 noundef 1) #10
   ret void
 }
@@ -1271,19 +1271,12 @@ attributes #12 = { nounwind willreturn memory(read) }
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = !{!6, !6, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long", !7, i64 0}
-!20 = distinct !{!20, !13}
-!21 = distinct !{!21, !13}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS9lua_State", !6, i64 0}
-!24 = !{!25, !27, i64 136}
-!25 = !{!"sigaction", !7, i64 0, !26, i64 8, !27, i64 136, !6, i64 144}
-!26 = !{!"", !7, i64 0}
-!27 = !{!"int", !7, i64 0}
+!12 = !{!6, !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS9lua_State", !6, i64 0}
+!17 = !{!18, !20, i64 136}
+!18 = !{!"sigaction", !7, i64 0, !19, i64 8, !20, i64 136, !6, i64 144}
+!19 = !{!"", !7, i64 0}
+!20 = !{!"int", !7, i64 0}

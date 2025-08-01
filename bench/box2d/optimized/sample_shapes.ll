@@ -2506,13 +2506,13 @@ define linkonce_odr dso_local void @_ZN12CustomFilterD0Ev(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12CustomFilter4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #7 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load i32, ptr %3, align 8, !tbaa !82
+  %4 = load i32, ptr %3, align 8, !tbaa !81
   tail call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %4, ptr noundef nonnull @.str.53)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %6 = load i32, ptr %5, align 4, !tbaa !83
-  %7 = load i32, ptr %3, align 8, !tbaa !82
+  %6 = load i32, ptr %5, align 4, !tbaa !82
+  %7 = load i32, ptr %3, align 8, !tbaa !81
   %8 = add nsw i32 %7, %6
-  store i32 %8, ptr %3, align 8, !tbaa !82
+  store i32 %8, ptr %3, align 8, !tbaa !81
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %11
@@ -2529,7 +2529,7 @@ define linkonce_odr dso_local void @_ZN12CustomFilter4StepER8Settings(ptr nounde
   tail call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %13, ptr noundef nonnull @.str.54, i32 noundef %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %10, label %11, !llvm.loop !84
+  br i1 %exitcond.not, label %10, label %11, !llvm.loop !83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2572,13 +2572,13 @@ define linkonce_odr dso_local void @_ZN11RestitutionC2ER8Settings(ptr noundef no
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
-  store float -4.000000e+01, ptr %4, align 4, !tbaa !85
+  store float -4.000000e+01, ptr %4, align 4, !tbaa !84
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float 0.000000e+00, ptr %15, align 4, !tbaa !86
+  store float 0.000000e+00, ptr %15, align 4, !tbaa !85
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store float 4.000000e+01, ptr %16, align 4, !tbaa !85
+  store float 4.000000e+01, ptr %16, align 4, !tbaa !84
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store float 0.000000e+00, ptr %17, align 4, !tbaa !86
+  store float 0.000000e+00, ptr %17, align 4, !tbaa !85
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #16
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %5)
           to label %18 unwind label %26
@@ -2645,7 +2645,7 @@ define linkonce_odr dso_local void @_ZN11Restitution12CreateBodiesEv(ptr noundef
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #16
   store i64 0, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float 5.000000e-01, ptr %8, align 8, !tbaa !87
+  store float 5.000000e-01, ptr %8, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #16
   call void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %3, float noundef 5.000000e-01, float noundef 5.000000e-01)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #16
@@ -2666,7 +2666,7 @@ define linkonce_odr dso_local void @_ZN11Restitution12CreateBodiesEv(ptr noundef
 14:                                               ; preds = %1, %18
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %18 ]
   %15 = getelementptr inbounds nuw [40 x %struct.b2BodyId], ptr %6, i64 0, i64 %indvars.iv
-  %16 = load i32, ptr %15, align 8, !tbaa !89
+  %16 = load i32, ptr %15, align 8, !tbaa !88
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %18, label %17
 
@@ -2679,7 +2679,7 @@ define linkonce_odr dso_local void @_ZN11Restitution12CreateBodiesEv(ptr noundef
 18:                                               ; preds = %14, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
-  br i1 %exitcond.not, label %7, label %14, !llvm.loop !90
+  br i1 %exitcond.not, label %7, label %14, !llvm.loop !89
 
 19:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #16
@@ -2697,7 +2697,7 @@ define linkonce_odr dso_local void @_ZN11Restitution12CreateBodiesEv(ptr noundef
   %21 = call i64 @b2CreateBody(i32 %.sroa.04.0.copyload, ptr noundef nonnull %5)
   %22 = getelementptr inbounds nuw [40 x %struct.b2BodyId], ptr %6, i64 0, i64 %indvars.iv26
   store i64 %21, ptr %22, align 8
-  %23 = load i32, ptr %13, align 8, !tbaa !91
+  %23 = load i32, ptr %13, align 8, !tbaa !90
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %27
 
@@ -2716,7 +2716,7 @@ define linkonce_odr dso_local void @_ZN11Restitution12CreateBodiesEv(ptr noundef
   %32 = fadd float %.02024, 2.000000e+00
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next27, 40
-  br i1 %exitcond29.not, label %19, label %20, !llvm.loop !94
+  br i1 %exitcond29.not, label %19, label %20, !llvm.loop !93
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -2760,11 +2760,11 @@ define linkonce_odr dso_local void @_ZN11Restitution8UpdateUIEv(ptr noundef nonn
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @__const._ZN11Restitution8UpdateUIEv.shapeTypes, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %17 = load i32, ptr %16, align 8, !tbaa !91
+  %17 = load i32, ptr %16, align 8, !tbaa !90
   store i32 %17, ptr %6, align 4, !tbaa !69
   %18 = call noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiPKS1_ii(ptr noundef nonnull @.str.33, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 2, i32 noundef -1)
   %19 = load i32, ptr %6, align 4, !tbaa !69
-  store i32 %19, ptr %16, align 8, !tbaa !91
+  store i32 %19, ptr %16, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   br i1 %18, label %.critedge, label %20
 
@@ -2860,7 +2860,7 @@ _Z9b2MakeRotf.exit:                               ; preds = %26
           to label %31 unwind label %61
 
 31:                                               ; preds = %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %6, ptr noundef nonnull align 4 dereferenceable(144) %7, i64 144, i1 false), !tbaa.struct !95
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %6, ptr noundef nonnull align 4 dereferenceable(144) %7, i64 144, i1 false), !tbaa.struct !94
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #16
   %32 = invoke i64 @b2CreatePolygonShape(i64 %21, ptr noundef nonnull %4, ptr noundef nonnull %6)
           to label %33 unwind label %59
@@ -2875,7 +2875,7 @@ _Z9b2MakeRotf.exit68:                             ; preds = %33
           to label %35 unwind label %63
 
 35:                                               ; preds = %_Z9b2MakeRotf.exit68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %6, ptr noundef nonnull align 4 dereferenceable(144) %8, i64 144, i1 false), !tbaa.struct !95
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %6, ptr noundef nonnull align 4 dereferenceable(144) %8, i64 144, i1 false), !tbaa.struct !94
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #16
   %36 = invoke i64 @b2CreatePolygonShape(i64 %21, ptr noundef nonnull %4, ptr noundef nonnull %6)
           to label %37 unwind label %59
@@ -2886,7 +2886,7 @@ _Z9b2MakeRotf.exit68:                             ; preds = %33
           to label %38 unwind label %65
 
 38:                                               ; preds = %37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %6, ptr noundef nonnull align 4 dereferenceable(144) %9, i64 144, i1 false), !tbaa.struct !95
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %6, ptr noundef nonnull align 4 dereferenceable(144) %9, i64 144, i1 false), !tbaa.struct !94
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #16
   %39 = invoke i64 @b2CreatePolygonShape(i64 %21, ptr noundef nonnull %4, ptr noundef nonnull %6)
           to label %40 unwind label %59
@@ -2901,7 +2901,7 @@ _Z9b2MakeRotf.exit69:                             ; preds = %40
           to label %42 unwind label %67
 
 42:                                               ; preds = %_Z9b2MakeRotf.exit69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %6, ptr noundef nonnull align 4 dereferenceable(144) %10, i64 144, i1 false), !tbaa.struct !95
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %6, ptr noundef nonnull align 4 dereferenceable(144) %10, i64 144, i1 false), !tbaa.struct !94
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #16
   %43 = invoke i64 @b2CreatePolygonShape(i64 %21, ptr noundef nonnull %4, ptr noundef nonnull %6)
           to label %44 unwind label %59
@@ -3041,7 +3041,7 @@ _Z9b2MakeRotf.exit69:                             ; preds = %40
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %50, label %77, !llvm.loop !96
+  br i1 %exitcond.not, label %50, label %77, !llvm.loop !95
 
 89:                                               ; preds = %77
   %90 = landingpad { ptr, i32 }
@@ -3119,33 +3119,33 @@ define linkonce_odr dso_local void @_ZN17RollingResistance11CreateSceneEv(ptr no
   %.sroa.09.0.copyload = load i32, ptr %6, align 4
   %18 = call i64 @b2CreateBody(i32 %.sroa.09.0.copyload, ptr noundef nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
-  store float -4.000000e+01, ptr %5, align 4, !tbaa !85
+  store float -4.000000e+01, ptr %5, align 4, !tbaa !84
   %19 = uitofp nneg i32 %.016 to float
   %20 = fmul float %19, 2.000000e+00
-  store float %20, ptr %7, align 4, !tbaa !86
-  store float 4.000000e+01, ptr %8, align 4, !tbaa !85
+  store float %20, ptr %7, align 4, !tbaa !85
+  store float 4.000000e+01, ptr %8, align 4, !tbaa !84
   %21 = load float, ptr %10, align 4, !tbaa !34
   %22 = fadd float %20, %21
-  store float %22, ptr %9, align 4, !tbaa !86
+  store float %22, ptr %9, align 4, !tbaa !85
   %23 = call i64 @b2CreateSegmentShape(i64 %18, ptr noundef nonnull %3, ptr noundef nonnull %5)
   store i32 2, ptr %4, align 8, !tbaa !53
   %24 = fadd float %20, 7.500000e-01
   store float -3.950000e+01, ptr %11, align 4, !tbaa !15
   store float %24, ptr %.sroa.46.0..sroa_idx, align 8, !tbaa !15
-  store float -1.000000e+01, ptr %12, align 4, !tbaa !97
+  store float -1.000000e+01, ptr %12, align 4, !tbaa !96
   store float 5.000000e+00, ptr %13, align 4, !tbaa !15
   store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
   %.sroa.02.0.copyload = load i32, ptr %6, align 4
   %25 = call i64 @b2CreateBody(i32 %.sroa.02.0.copyload, ptr noundef nonnull %4)
   %26 = load float, ptr %14, align 8, !tbaa !36
   %27 = fmul float %26, %19
-  store float %27, ptr %15, align 8, !tbaa !98
+  store float %27, ptr %15, align 8, !tbaa !97
   %28 = call i64 @b2CreateCircleShape(i64 %25, ptr noundef nonnull %3, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #16
   %29 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %29, 20
-  br i1 %exitcond.not, label %16, label %17, !llvm.loop !99
+  br i1 %exitcond.not, label %16, label %17, !llvm.loop !98
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -3176,7 +3176,7 @@ define linkonce_odr dso_local void @_ZN17RollingResistance4StepER8Settings(ptr n
   tail call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.0.4.vec.insert, ptr noundef nonnull @.str.34, double noundef %11)
   %12 = add nuw nsw i32 %.06, 1
   %exitcond.not = icmp eq i32 %12, 20
-  br i1 %exitcond.not, label %4, label %5, !llvm.loop !100
+  br i1 %exitcond.not, label %4, label %5, !llvm.loop !99
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3278,7 +3278,7 @@ define linkonce_odr dso_local void @_ZN12ConveyorBeltC2ER8Settings(ptr noundef n
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store float 0x3FE99999A0000000, ptr %30, align 8, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store float 2.000000e+00, ptr %31, align 4, !tbaa !101
+  store float 2.000000e+00, ptr %31, align 4, !tbaa !100
   %32 = invoke i64 @b2CreatePolygonShape(i64 %26, ptr noundef nonnull %8, ptr noundef nonnull %7)
           to label %33 unwind label %53
 
@@ -3402,7 +3402,7 @@ define linkonce_odr dso_local void @_ZN12ConveyorBeltC2ER8Settings(ptr noundef n
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #16
   %70 = add nuw nsw i32 %.03346, 1
   %exitcond.not = icmp eq i32 %70, 5
-  br i1 %exitcond.not, label %36, label %61, !llvm.loop !102
+  br i1 %exitcond.not, label %36, label %61, !llvm.loop !101
 
 71:                                               ; preds = %61
   %72 = landingpad { ptr, i32 }
@@ -3453,7 +3453,7 @@ define linkonce_odr dso_local void @_ZN12TangentSpeedC2ER8Settings(ptr noundef n
   tail call void @_ZN6SampleC2ER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV12TangentSpeed, i64 16), ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i32 0, ptr %7, align 8, !tbaa !103
+  store i32 0, ptr %7, align 8, !tbaa !102
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 43
   %9 = load i8, ptr %8, align 1, !tbaa !7, !range !13, !noundef !14
   %10 = icmp eq i8 %9, 0
@@ -3489,31 +3489,31 @@ define linkonce_odr dso_local void @_ZN12TangentSpeedC2ER8Settings(ptr noundef n
 
 19:                                               ; preds = %40
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store float -1.000000e+01, ptr %20, align 4, !tbaa !105
+  store float -1.000000e+01, ptr %20, align 4, !tbaa !104
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 139, ptr %21, align 4, !tbaa !40
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store float -2.000000e+01, ptr %22, align 4, !tbaa !105
+  store float -2.000000e+01, ptr %22, align 4, !tbaa !104
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 35723, ptr %23, align 4, !tbaa !40
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 60
-  store float -3.000000e+01, ptr %24, align 4, !tbaa !105
+  store float -3.000000e+01, ptr %24, align 4, !tbaa !104
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i32 12092939, ptr %25, align 4, !tbaa !40
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  store float -4.000000e+01, ptr %26, align 4, !tbaa !105
+  store float -4.000000e+01, ptr %26, align 4, !tbaa !104
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 92
   store i32 11119017, ptr %27, align 4, !tbaa !40
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 108
-  store float -5.000000e+01, ptr %28, align 4, !tbaa !105
+  store float -5.000000e+01, ptr %28, align 4, !tbaa !104
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 116
   store i32 25600, ptr %29, align 4, !tbaa !40
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 132
-  store float -6.000000e+01, ptr %30, align 4, !tbaa !105
+  store float -6.000000e+01, ptr %30, align 4, !tbaa !104
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 140
   store i32 12433259, ptr %31, align 4, !tbaa !40
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 156
-  store float -7.000000e+01, ptr %32, align 4, !tbaa !105
+  store float -7.000000e+01, ptr %32, align 4, !tbaa !104
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 164
   store i32 9109643, ptr %33, align 4, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #16
@@ -3541,7 +3541,7 @@ define linkonce_odr dso_local void @_ZN12TangentSpeedC2ER8Settings(ptr noundef n
   store float 0x3FE3333340000000, ptr %41, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %19, label %40, !llvm.loop !106
+  br i1 %exitcond.not, label %19, label %40, !llvm.loop !105
 
 42:                                               ; preds = %19
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3605,7 +3605,7 @@ define linkonce_odr dso_local void @_ZN12TangentSpeed4StepER8Settings(ptr nounde
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %12 = load i32, ptr %11, align 8, !tbaa !103
+  %12 = load i32, ptr %11, align 8, !tbaa !102
   %13 = icmp slt i32 %12, 200
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %15 = load i8, ptr %14, align 1, !range !13
@@ -3629,14 +3629,14 @@ define linkonce_odr dso_local void @_ZN12TangentSpeed4StepER8Settings(ptr nounde
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #16
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %5)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store float 0x3FD3333340000000, ptr %21, align 8, !tbaa !98
+  store float 0x3FD3333340000000, ptr %21, align 8, !tbaa !97
   %22 = call i64 @b2CreateCircleShape(i64 %20, ptr noundef nonnull %5, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #16
-  %23 = load i32, ptr %11, align 8, !tbaa !103
+  %23 = load i32, ptr %11, align 8, !tbaa !102
   %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %11, align 8, !tbaa !103
+  store i32 %24, ptr %11, align 8, !tbaa !102
   br label %25
 
 25:                                               ; preds = %17, %10, %2
@@ -3729,9 +3729,9 @@ define linkonce_odr dso_local void @_ZN14ModifyGeometryC2ER8Settings(ptr noundef
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i32 0, ptr %32, align 8, !tbaa !107
+  store i32 0, ptr %32, align 8, !tbaa !106
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  store float 1.000000e+00, ptr %33, align 4, !tbaa !110
+  store float 1.000000e+00, ptr %33, align 4, !tbaa !109
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store float 0.000000e+00, ptr %34, align 8, !tbaa !15
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -3907,46 +3907,46 @@ define linkonce_odr dso_local void @_ZN14ModifyGeometry8UpdateUIEv(ptr noundef n
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   %12 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.19, ptr noundef null, i32 noundef 2)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %14 = load i32, ptr %13, align 8, !tbaa !107
+  %14 = load i32, ptr %13, align 8, !tbaa !106
   %15 = icmp eq i32 %14, 0
   %16 = call noundef zeroext i1 @_ZN5ImGui11RadioButtonEPKcb(ptr noundef nonnull @.str.30, i1 noundef zeroext %15)
   br i1 %16, label %17, label %18
 
 17:                                               ; preds = %1
-  store i32 0, ptr %13, align 8, !tbaa !107
+  store i32 0, ptr %13, align 8, !tbaa !106
   call void @_ZN14ModifyGeometry11UpdateShapeEv(ptr noundef nonnull align 8 dereferenceable(408) %0)
   br label %18
 
 18:                                               ; preds = %17, %1
-  %19 = load i32, ptr %13, align 8, !tbaa !107
+  %19 = load i32, ptr %13, align 8, !tbaa !106
   %20 = icmp eq i32 %19, 1
   %21 = call noundef zeroext i1 @_ZN5ImGui11RadioButtonEPKcb(ptr noundef nonnull @.str.31, i1 noundef zeroext %20)
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %18
-  store i32 1, ptr %13, align 8, !tbaa !107
+  store i32 1, ptr %13, align 8, !tbaa !106
   call void @_ZN14ModifyGeometry11UpdateShapeEv(ptr noundef nonnull align 8 dereferenceable(408) %0)
   br label %23
 
 23:                                               ; preds = %22, %18
-  %24 = load i32, ptr %13, align 8, !tbaa !107
+  %24 = load i32, ptr %13, align 8, !tbaa !106
   %25 = icmp eq i32 %24, 2
   %26 = call noundef zeroext i1 @_ZN5ImGui11RadioButtonEPKcb(ptr noundef nonnull @.str.57, i1 noundef zeroext %25)
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23
-  store i32 2, ptr %13, align 8, !tbaa !107
+  store i32 2, ptr %13, align 8, !tbaa !106
   call void @_ZN14ModifyGeometry11UpdateShapeEv(ptr noundef nonnull align 8 dereferenceable(408) %0)
   br label %28
 
 28:                                               ; preds = %27, %23
-  %29 = load i32, ptr %13, align 8, !tbaa !107
+  %29 = load i32, ptr %13, align 8, !tbaa !106
   %30 = icmp eq i32 %29, 3
   %31 = call noundef zeroext i1 @_ZN5ImGui11RadioButtonEPKcb(ptr noundef nonnull @.str.58, i1 noundef zeroext %30)
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %28
-  store i32 3, ptr %13, align 8, !tbaa !107
+  store i32 3, ptr %13, align 8, !tbaa !106
   call void @_ZN14ModifyGeometry11UpdateShapeEv(ptr noundef nonnull align 8 dereferenceable(408) %0)
   br label %33
 
@@ -4001,7 +4001,7 @@ declare noundef zeroext i1 @_ZN5ImGui11RadioButtonEPKcb(ptr noundef, i1 noundef 
 define linkonce_odr dso_local void @_ZN14ModifyGeometry11UpdateShapeEv(ptr noundef nonnull align 8 dereferenceable(408) %0) local_unnamed_addr #1 comdat align 2 {
   %2 = alloca %struct.b2Polygon, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %4 = load i32, ptr %3, align 8, !tbaa !107
+  %4 = load i32, ptr %3, align 8, !tbaa !106
   switch i32 %4, label %32 [
     i32 0, label %5
     i32 1, label %11
@@ -4011,7 +4011,7 @@ define linkonce_odr dso_local void @_ZN14ModifyGeometry11UpdateShapeEv(ptr nound
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %7 = load float, ptr %6, align 4, !tbaa !110
+  %7 = load float, ptr %6, align 4, !tbaa !109
   %8 = fmul float %7, 5.000000e-01
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store float 0.000000e+00, ptr %9, align 8, !tbaa !15
@@ -4026,7 +4026,7 @@ define linkonce_odr dso_local void @_ZN14ModifyGeometry11UpdateShapeEv(ptr nound
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %13 = load float, ptr %12, align 4, !tbaa !110
+  %13 = load float, ptr %12, align 4, !tbaa !109
   %14 = fmul float %13, -5.000000e-01
   %15 = fmul float %13, 5.000000e-01
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -4046,7 +4046,7 @@ define linkonce_odr dso_local void @_ZN14ModifyGeometry11UpdateShapeEv(ptr nound
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %20 = load float, ptr %19, align 4, !tbaa !110
+  %20 = load float, ptr %19, align 4, !tbaa !109
   %21 = fmul float %20, -5.000000e-01
   %22 = fmul float %20, 7.500000e-01
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -4065,12 +4065,12 @@ define linkonce_odr dso_local void @_ZN14ModifyGeometry11UpdateShapeEv(ptr nound
 25:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %27 = load float, ptr %26, align 4, !tbaa !110
+  %27 = load float, ptr %26, align 4, !tbaa !109
   %28 = fmul float %27, 5.000000e-01
   %29 = fmul float %27, 7.500000e-01
   call void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %2, float noundef %28, float noundef %29)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %30, ptr noundef nonnull align 4 dereferenceable(144) %2, i64 144, i1 false), !tbaa.struct !95
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %30, ptr noundef nonnull align 4 dereferenceable(144) %2, i64 144, i1 false), !tbaa.struct !94
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #16
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %.sroa.03.0.copyload = load i64, ptr %31, align 8
@@ -4317,13 +4317,13 @@ define linkonce_odr dso_local void @_ZN9ChainLinkD0Ev(ptr noundef nonnull align 
 define linkonce_odr dso_local void @_ZN9ChainLink4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #1 comdat align 2 {
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load i32, ptr %3, align 8, !tbaa !82
+  %4 = load i32, ptr %3, align 8, !tbaa !81
   tail call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %4, ptr noundef nonnull @.str.63)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %6 = load i32, ptr %5, align 4, !tbaa !83
-  %7 = load i32, ptr %3, align 8, !tbaa !82
+  %6 = load i32, ptr %5, align 4, !tbaa !82
+  %7 = load i32, ptr %3, align 8, !tbaa !81
   %8 = add nsw i32 %7, %6
-  store i32 %8, ptr %3, align 8, !tbaa !82
+  store i32 %8, ptr %3, align 8, !tbaa !81
   ret void
 }
 
@@ -4381,7 +4381,7 @@ define linkonce_odr dso_local void @_ZN13RoundedShapesC2ER8Settings(ptr noundef 
           to label %24 unwind label %42
 
 24:                                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %6, i64 144, i1 false), !tbaa.struct !95
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %6, i64 144, i1 false), !tbaa.struct !94
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #16
   %25 = invoke i64 @b2CreatePolygonShape(i64 %18, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %26 unwind label %40
@@ -4392,7 +4392,7 @@ define linkonce_odr dso_local void @_ZN13RoundedShapesC2ER8Settings(ptr noundef 
           to label %27 unwind label %44
 
 27:                                               ; preds = %26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %7, i64 144, i1 false), !tbaa.struct !95
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %5, ptr noundef nonnull align 4 dereferenceable(144) %7, i64 144, i1 false), !tbaa.struct !94
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #16
   %28 = invoke i64 @b2CreatePolygonShape(i64 %18, ptr noundef nonnull %4, ptr noundef nonnull %5)
           to label %29 unwind label %40
@@ -4488,7 +4488,7 @@ define linkonce_odr dso_local void @_ZN13RoundedShapesC2ER8Settings(ptr noundef 
   %54 = fadd float %.04764, 1.000000e+00
   %55 = add nuw nsw i32 %.05063, 1
   %exitcond65.not = icmp eq i32 %55, 10
-  br i1 %exitcond65.not, label %33, label %.preheader, !llvm.loop !111
+  br i1 %exitcond65.not, label %33, label %.preheader, !llvm.loop !110
 
 56:                                               ; preds = %.preheader, %73
   %.04862 = phi i32 [ 0, %.preheader ], [ %75, %73 ]
@@ -4518,7 +4518,7 @@ define linkonce_odr dso_local void @_ZN13RoundedShapesC2ER8Settings(ptr noundef 
   %69 = fdiv float %68, 3.276700e+04
   %70 = fmul float %69, 0x3FC99999A0000000
   %71 = fadd float %70, 0x3FA99999A0000000
-  store float %71, ptr %32, align 4, !tbaa !112
+  store float %71, ptr %32, align 4, !tbaa !111
   %72 = invoke i64 @b2CreatePolygonShape(i64 %57, ptr noundef nonnull %9, ptr noundef nonnull %10)
           to label %73 unwind label %78
 
@@ -4527,7 +4527,7 @@ define linkonce_odr dso_local void @_ZN13RoundedShapesC2ER8Settings(ptr noundef 
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #16
   %75 = add nuw nsw i32 %.04862, 1
   %exitcond.not = icmp eq i32 %75, 10
-  br i1 %exitcond.not, label %53, label %56, !llvm.loop !114
+  br i1 %exitcond.not, label %53, label %56, !llvm.loop !113
 
 76:                                               ; preds = %56
   %77 = landingpad { ptr, i32 }
@@ -4834,30 +4834,30 @@ define linkonce_odr dso_local void @_ZN9ExplosionC2ER8Settings(ptr noundef nonnu
 16:                                               ; preds = %13
   store i32 2, ptr %3, align 8, !tbaa !53
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store float 0.000000e+00, ptr %17, align 8, !tbaa !115
+  store float 0.000000e+00, ptr %17, align 8, !tbaa !114
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #16
   invoke void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
           to label %18 unwind label %41
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  store float 0.000000e+00, ptr %19, align 4, !tbaa !116
+  store float 0.000000e+00, ptr %19, align 4, !tbaa !115
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #16
   invoke void @b2DefaultWeldJointDef(ptr dead_on_unwind nonnull writable sret(%struct.b2WeldJointDef) align 8 %5)
           to label %20 unwind label %43
 
 20:                                               ; preds = %18
-  %21 = load float, ptr %19, align 4, !tbaa !116
+  %21 = load float, ptr %19, align 4, !tbaa !115
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store float %21, ptr %22, align 8, !tbaa !123
+  store float %21, ptr %22, align 8, !tbaa !122
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store float 5.000000e-01, ptr %23, align 8, !tbaa !125
+  store float 5.000000e-01, ptr %23, align 8, !tbaa !124
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store float 0x3FE6666660000000, ptr %24, align 8, !tbaa !126
+  store float 0x3FE6666660000000, ptr %24, align 8, !tbaa !125
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store float 5.000000e-01, ptr %25, align 4, !tbaa !127
+  store float 5.000000e-01, ptr %25, align 4, !tbaa !126
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  store float 0x3FE6666660000000, ptr %26, align 4, !tbaa !128
+  store float 0x3FE6666660000000, ptr %26, align 4, !tbaa !127
   store i64 %15, ptr %5, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %27, align 8
@@ -4871,11 +4871,11 @@ define linkonce_odr dso_local void @_ZN9ExplosionC2ER8Settings(ptr noundef nonnu
 
 33:                                               ; preds = %_ZNSt6vectorI9b2JointIdSaIS0_EE9push_backERKS0_.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store float 7.000000e+00, ptr %34, align 8, !tbaa !129
+  store float 7.000000e+00, ptr %34, align 8, !tbaa !128
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  store float 3.000000e+00, ptr %35, align 4, !tbaa !130
+  store float 3.000000e+00, ptr %35, align 4, !tbaa !129
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store float 1.000000e+01, ptr %36, align 8, !tbaa !131
+  store float 1.000000e+01, ptr %36, align 8, !tbaa !130
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #16
@@ -4938,20 +4938,20 @@ define linkonce_odr dso_local void @_ZN9ExplosionC2ER8Settings(ptr noundef nonnu
           to label %59 unwind label %.loopexit
 
 59:                                               ; preds = %56
-  %60 = load ptr, ptr %31, align 8, !tbaa !132
-  %61 = load ptr, ptr %32, align 8, !tbaa !133
+  %60 = load ptr, ptr %31, align 8, !tbaa !131
+  %61 = load ptr, ptr %32, align 8, !tbaa !132
   %.not.i = icmp eq ptr %60, %61
   br i1 %.not.i, label %65, label %62
 
 62:                                               ; preds = %59
   store i64 %58, ptr %60, align 4
-  %63 = load ptr, ptr %31, align 8, !tbaa !132
+  %63 = load ptr, ptr %31, align 8, !tbaa !131
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %64, ptr %31, align 8, !tbaa !132
+  store ptr %64, ptr %31, align 8, !tbaa !131
   br label %_ZNSt6vectorI9b2JointIdSaIS0_EE9push_backERKS0_.exit
 
 65:                                               ; preds = %59
-  %66 = load ptr, ptr %7, align 8, !tbaa !134
+  %66 = load ptr, ptr %7, align 8, !tbaa !133
   %67 = ptrtoint ptr %60 to i64
   %68 = ptrtoint ptr %66 to i64
   %69 = sub i64 %67, %68
@@ -4998,17 +4998,17 @@ _ZNSt6vectorI9b2JointIdSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds 
   br label %_ZNSt6vectorI9b2JointIdSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
 _ZNSt6vectorI9b2JointIdSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %83, %_ZNSt6vectorI9b2JointIdSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
-  store ptr %78, ptr %7, align 8, !tbaa !134
-  store ptr %82, ptr %31, align 8, !tbaa !132
+  store ptr %78, ptr %7, align 8, !tbaa !133
+  store ptr %82, ptr %31, align 8, !tbaa !131
   %84 = getelementptr inbounds nuw %struct.b2JointId, ptr %78, i64 %76
-  store ptr %84, ptr %32, align 8, !tbaa !133
+  store ptr %84, ptr %32, align 8, !tbaa !132
   br label %_ZNSt6vectorI9b2JointIdSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorI9b2JointIdSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI9b2JointIdSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %62
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6) #16
   %.int = add nuw nsw i32 %.02637.int, 30
   %85 = icmp samesign ult i32 %.02637.int, 330
-  br i1 %85, label %45, label %33, !llvm.loop !135
+  br i1 %85, label %45, label %33, !llvm.loop !134
 
 86:                                               ; preds = %45
   %87 = landingpad { ptr, i32 }
@@ -5053,13 +5053,13 @@ _ZNSt6vectorI9b2JointIdSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI9b
 95:                                               ; preds = %39, %94, %37
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %38, %37 ], [ %.pn.pn.pn.pn.pn, %94 ], [ %40, %39 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #16
-  %96 = load ptr, ptr %7, align 8, !tbaa !134
+  %96 = load ptr, ptr %7, align 8, !tbaa !133
   %.not.i.i.i35 = icmp eq ptr %96, null
   br i1 %.not.i.i.i35, label %_ZNSt6vectorI9b2JointIdSaIS0_EED2Ev.exit, label %97
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %99 = load ptr, ptr %98, align 8, !tbaa !133
+  %99 = load ptr, ptr %98, align 8, !tbaa !132
   %100 = ptrtoint ptr %99 to i64
   %101 = ptrtoint ptr %96 to i64
   %102 = sub i64 %100, %101
@@ -5079,13 +5079,13 @@ declare i64 @b2CreateWeldJoint(i32, ptr noundef) local_unnamed_addr #0
 define linkonce_odr dso_local void @_ZN9ExplosionD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV9Explosion, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %3 = load ptr, ptr %2, align 8, !tbaa !134
+  %3 = load ptr, ptr %2, align 8, !tbaa !133
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorI9b2JointIdSaIS0_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %6 = load ptr, ptr %5, align 8, !tbaa !133
+  %6 = load ptr, ptr %5, align 8, !tbaa !132
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -5101,13 +5101,13 @@ _ZNSt6vectorI9b2JointIdSaIS0_EED2Ev.exit:         ; preds = %1, %4
 define linkonce_odr dso_local void @_ZN9ExplosionD0Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV9Explosion, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %3 = load ptr, ptr %2, align 8, !tbaa !134
+  %3 = load ptr, ptr %2, align 8, !tbaa !133
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN9ExplosionD2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %6 = load ptr, ptr %5, align 8, !tbaa !133
+  %6 = load ptr, ptr %5, align 8, !tbaa !132
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -5123,7 +5123,7 @@ _ZN9ExplosionD2Ev.exit:                           ; preds = %1, %4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN9Explosion4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #7 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 41
-  %4 = load i8, ptr %3, align 1, !tbaa !136, !range !13, !noundef !14
+  %4 = load i8, ptr %3, align 1, !tbaa !135, !range !13, !noundef !14
   %5 = icmp eq i8 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %7 = load i8, ptr %6, align 2, !range !13
@@ -5133,12 +5133,12 @@ define linkonce_odr dso_local void @_ZN9Explosion4StepER8Settings(ptr noundef no
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %11 = load float, ptr %10, align 4, !tbaa !137
+  %11 = load float, ptr %10, align 4, !tbaa !136
   %12 = fcmp ogt float %11, 0.000000e+00
   %13 = fdiv float 0x3FF0C15240000000, %11
   %14 = select i1 %12, float %13, float 0.000000e+00
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  %16 = load float, ptr %15, align 4, !tbaa !116
+  %16 = load float, ptr %15, align 4, !tbaa !115
   %17 = fadd float %16, %14
   %18 = fcmp olt float %17, 0xC00921FB60000000
   br i1 %18, label %19, label %21
@@ -5157,11 +5157,11 @@ define linkonce_odr dso_local void @_ZN9Explosion4StepER8Settings(ptr noundef no
 
 _Z13b2UnwindAnglef.exit:                          ; preds = %19, %21, %23
   %.0.i = phi float [ %20, %19 ], [ %24, %23 ], [ %17, %21 ]
-  store float %.0.i, ptr %15, align 4, !tbaa !116
+  store float %.0.i, ptr %15, align 4, !tbaa !115
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %27 = load ptr, ptr %26, align 8, !tbaa !132
-  %28 = load ptr, ptr %25, align 8, !tbaa !134
+  %27 = load ptr, ptr %26, align 8, !tbaa !131
+  %28 = load ptr, ptr %25, align 8, !tbaa !133
   %29 = ptrtoint ptr %27 to i64
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
@@ -5176,35 +5176,35 @@ _Z13b2UnwindAnglef.exit:                          ; preds = %19, %21, %23
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %35 = load ptr, ptr %25, align 8, !tbaa !134
+  %35 = load ptr, ptr %25, align 8, !tbaa !133
   %36 = getelementptr inbounds nuw %struct.b2JointId, ptr %35, i64 %indvars.iv
   %.sroa.02.0.copyload = load i64, ptr %36, align 4
-  %37 = load float, ptr %15, align 4, !tbaa !116
+  %37 = load float, ptr %15, align 4, !tbaa !115
   tail call void @b2WeldJoint_SetReferenceAngle(i64 %.sroa.02.0.copyload, float noundef %37)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !138
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !137
 
 .loopexit:                                        ; preds = %.lr.ph, %_Z13b2UnwindAnglef.exit, %2
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %39 = load i32, ptr %38, align 8, !tbaa !82
+  %39 = load i32, ptr %38, align 8, !tbaa !81
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  %41 = load float, ptr %40, align 4, !tbaa !116
+  %41 = load float, ptr %40, align 4, !tbaa !115
   %42 = fpext float %41 to double
   tail call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %39, ptr noundef nonnull @.str.65, double noundef %42)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %44 = load i32, ptr %43, align 4, !tbaa !83
-  %45 = load i32, ptr %38, align 8, !tbaa !82
+  %44 = load i32, ptr %43, align 4, !tbaa !82
+  %45 = load i32, ptr %38, align 8, !tbaa !81
   %46 = add nsw i32 %45, %44
-  store i32 %46, ptr %38, align 8, !tbaa !82
+  store i32 %46, ptr %38, align 8, !tbaa !81
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %48 = load float, ptr %47, align 8, !tbaa !129
+  %48 = load float, ptr %47, align 8, !tbaa !128
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %50 = load float, ptr %49, align 4, !tbaa !130
+  %50 = load float, ptr %49, align 4, !tbaa !129
   %51 = fadd float %48, %50
   tail call void @_ZN4Draw10DrawCircleE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> zeroinitializer, float noundef %51, i32 noundef 3190463)
-  %52 = load float, ptr %47, align 8, !tbaa !129
+  %52 = load float, ptr %47, align 8, !tbaa !128
   tail call void @_ZN4Draw10DrawCircleE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> zeroinitializer, float noundef %52, i32 noundef 16772748)
   ret void
 }
@@ -5252,17 +5252,17 @@ define linkonce_odr dso_local void @_ZN9Explosion8UpdateUIEv(ptr noundef nonnull
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %20 = load float, ptr %19, align 8, !tbaa !129
+  %20 = load float, ptr %19, align 8, !tbaa !128
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store float %20, ptr %21, align 8, !tbaa !139
+  store float %20, ptr %21, align 8, !tbaa !138
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %23 = load float, ptr %22, align 4, !tbaa !130
+  %23 = load float, ptr %22, align 4, !tbaa !129
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store float %23, ptr %24, align 4, !tbaa !141
+  store float %23, ptr %24, align 4, !tbaa !140
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %26 = load float, ptr %25, align 8, !tbaa !131
+  %26 = load float, ptr %25, align 8, !tbaa !130
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store float %26, ptr %27, align 8, !tbaa !142
+  store float %26, ptr %27, align 8, !tbaa !141
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.0.0.copyload = load i32, ptr %28, align 4
   call void @b2World_Explode(i32 %.sroa.0.0.copyload, ptr noundef nonnull %6)
@@ -5399,7 +5399,7 @@ define linkonce_odr dso_local void @_ZN14RecreateStatic4StepER8Settings(ptr noun
   %4 = alloca %struct.b2ShapeDef, align 8
   %5 = alloca %struct.b2Segment, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %7 = load i32, ptr %6, align 8, !tbaa !143
+  %7 = load i32, ptr %6, align 8, !tbaa !142
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 
@@ -5419,7 +5419,7 @@ define linkonce_odr dso_local void @_ZN14RecreateStatic4StepER8Settings(ptr noun
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #16
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i8 1, ptr %12, align 8, !tbaa !145
+  store i8 1, ptr %12, align 8, !tbaa !144
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) @__const._ZN14RecreateStatic4StepER8Settings.segment, i64 16, i1 false)
   %.sroa.01.0.copyload = load i64, ptr %6, align 8
@@ -5561,70 +5561,69 @@ attributes #18 = { noreturn }
 !76 = !{!46, !47, i64 8}
 !77 = !{!12, !12, i64 0}
 !78 = !{!59, !23, i64 0}
-!79 = distinct !{!79, !80, !81}
+!79 = distinct !{!79, !80}
 !80 = !{!"llvm.loop.mustprogress"}
-!81 = !{!"llvm.loop.estimated_trip_count"}
-!82 = !{!21, !9, i64 48}
-!83 = !{!21, !9, i64 68}
-!84 = distinct !{!84, !80, !81}
-!85 = !{!18, !11, i64 0}
-!86 = !{!18, !11, i64 4}
-!87 = !{!88, !11, i64 8}
-!88 = !{!"_ZTS8b2Circle", !18, i64 0, !11, i64 8}
-!89 = !{!26, !9, i64 0}
-!90 = distinct !{!90, !80, !81}
-!91 = !{!92, !93, i64 568}
-!92 = !{!"_ZTS11Restitution", !21, i64 0, !10, i64 248, !93, i64 568}
-!93 = !{!"_ZTSN11Restitution9ShapeTypeE", !10, i64 0}
-!94 = distinct !{!94, !80, !81}
-!95 = !{i64 0, i64 64, !71, i64 64, i64 64, !71, i64 128, i64 4, !15, i64 132, i64 4, !15, i64 136, i64 4, !15, i64 140, i64 4, !69}
-!96 = distinct !{!96, !80, !81}
-!97 = !{!54, !11, i64 28}
-!98 = !{!59, !11, i64 16}
-!99 = distinct !{!99, !80, !81}
-!100 = distinct !{!100, !80, !81}
-!101 = !{!59, !11, i64 20}
-!102 = distinct !{!102, !80, !81}
-!103 = !{!104, !9, i64 248}
-!104 = !{!"_ZTS12TangentSpeed", !21, i64 0, !9, i64 248}
-!105 = !{!39, !11, i64 12}
-!106 = distinct !{!106, !80, !81}
-!107 = !{!108, !109, i64 256}
-!108 = !{!"_ZTS14ModifyGeometry", !21, i64 0, !33, i64 248, !109, i64 256, !11, i64 260, !10, i64 264}
-!109 = !{!"_ZTS11b2ShapeType", !10, i64 0}
-!110 = !{!108, !11, i64 260}
-!111 = distinct !{!111, !80, !81}
-!112 = !{!113, !11, i64 136}
-!113 = !{!"_ZTS9b2Polygon", !10, i64 0, !10, i64 64, !18, i64 128, !11, i64 136, !9, i64 140}
-!114 = distinct !{!114, !80, !81}
-!115 = !{!54, !11, i64 40}
-!116 = !{!117, !11, i64 284}
-!117 = !{!"_ZTS9Explosion", !21, i64 0, !118, i64 248, !11, i64 272, !11, i64 276, !11, i64 280, !11, i64 284}
-!118 = !{!"_ZTSSt6vectorI9b2JointIdSaIS0_EE", !119, i64 0}
-!119 = !{!"_ZTSSt12_Vector_baseI9b2JointIdSaIS0_EE", !120, i64 0}
-!120 = !{!"_ZTSNSt12_Vector_baseI9b2JointIdSaIS0_EE12_Vector_implE", !121, i64 0}
-!121 = !{!"_ZTSNSt12_Vector_baseI9b2JointIdSaIS0_EE17_Vector_impl_dataE", !122, i64 0, !122, i64 8, !122, i64 16}
-!122 = !{!"p1 _ZTS9b2JointId", !23, i64 0}
-!123 = !{!124, !11, i64 32}
-!124 = !{!"_ZTS14b2WeldJointDef", !26, i64 0, !26, i64 8, !18, i64 16, !18, i64 24, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !11, i64 48, !12, i64 52, !23, i64 56, !9, i64 64}
-!125 = !{!124, !11, i64 40}
-!126 = !{!124, !11, i64 48}
-!127 = !{!124, !11, i64 36}
-!128 = !{!124, !11, i64 44}
-!129 = !{!117, !11, i64 272}
-!130 = !{!117, !11, i64 276}
-!131 = !{!117, !11, i64 280}
-!132 = !{!121, !122, i64 8}
-!133 = !{!121, !122, i64 16}
-!134 = !{!121, !122, i64 0}
-!135 = distinct !{!135, !80, !81}
-!136 = !{!8, !12, i64 41}
-!137 = !{!8, !11, i64 12}
-!138 = distinct !{!138, !80, !81}
-!139 = !{!140, !11, i64 16}
-!140 = !{!"_ZTS14b2ExplosionDef", !47, i64 0, !18, i64 8, !11, i64 16, !11, i64 20, !11, i64 24}
-!141 = !{!140, !11, i64 20}
-!142 = !{!140, !11, i64 24}
-!143 = !{!144, !9, i64 248}
-!144 = !{!"_ZTS14RecreateStatic", !21, i64 0, !26, i64 248}
-!145 = !{!59, !12, i64 64}
+!81 = !{!21, !9, i64 48}
+!82 = !{!21, !9, i64 68}
+!83 = distinct !{!83, !80}
+!84 = !{!18, !11, i64 0}
+!85 = !{!18, !11, i64 4}
+!86 = !{!87, !11, i64 8}
+!87 = !{!"_ZTS8b2Circle", !18, i64 0, !11, i64 8}
+!88 = !{!26, !9, i64 0}
+!89 = distinct !{!89, !80}
+!90 = !{!91, !92, i64 568}
+!91 = !{!"_ZTS11Restitution", !21, i64 0, !10, i64 248, !92, i64 568}
+!92 = !{!"_ZTSN11Restitution9ShapeTypeE", !10, i64 0}
+!93 = distinct !{!93, !80}
+!94 = !{i64 0, i64 64, !71, i64 64, i64 64, !71, i64 128, i64 4, !15, i64 132, i64 4, !15, i64 136, i64 4, !15, i64 140, i64 4, !69}
+!95 = distinct !{!95, !80}
+!96 = !{!54, !11, i64 28}
+!97 = !{!59, !11, i64 16}
+!98 = distinct !{!98, !80}
+!99 = distinct !{!99, !80}
+!100 = !{!59, !11, i64 20}
+!101 = distinct !{!101, !80}
+!102 = !{!103, !9, i64 248}
+!103 = !{!"_ZTS12TangentSpeed", !21, i64 0, !9, i64 248}
+!104 = !{!39, !11, i64 12}
+!105 = distinct !{!105, !80}
+!106 = !{!107, !108, i64 256}
+!107 = !{!"_ZTS14ModifyGeometry", !21, i64 0, !33, i64 248, !108, i64 256, !11, i64 260, !10, i64 264}
+!108 = !{!"_ZTS11b2ShapeType", !10, i64 0}
+!109 = !{!107, !11, i64 260}
+!110 = distinct !{!110, !80}
+!111 = !{!112, !11, i64 136}
+!112 = !{!"_ZTS9b2Polygon", !10, i64 0, !10, i64 64, !18, i64 128, !11, i64 136, !9, i64 140}
+!113 = distinct !{!113, !80}
+!114 = !{!54, !11, i64 40}
+!115 = !{!116, !11, i64 284}
+!116 = !{!"_ZTS9Explosion", !21, i64 0, !117, i64 248, !11, i64 272, !11, i64 276, !11, i64 280, !11, i64 284}
+!117 = !{!"_ZTSSt6vectorI9b2JointIdSaIS0_EE", !118, i64 0}
+!118 = !{!"_ZTSSt12_Vector_baseI9b2JointIdSaIS0_EE", !119, i64 0}
+!119 = !{!"_ZTSNSt12_Vector_baseI9b2JointIdSaIS0_EE12_Vector_implE", !120, i64 0}
+!120 = !{!"_ZTSNSt12_Vector_baseI9b2JointIdSaIS0_EE17_Vector_impl_dataE", !121, i64 0, !121, i64 8, !121, i64 16}
+!121 = !{!"p1 _ZTS9b2JointId", !23, i64 0}
+!122 = !{!123, !11, i64 32}
+!123 = !{!"_ZTS14b2WeldJointDef", !26, i64 0, !26, i64 8, !18, i64 16, !18, i64 24, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !11, i64 48, !12, i64 52, !23, i64 56, !9, i64 64}
+!124 = !{!123, !11, i64 40}
+!125 = !{!123, !11, i64 48}
+!126 = !{!123, !11, i64 36}
+!127 = !{!123, !11, i64 44}
+!128 = !{!116, !11, i64 272}
+!129 = !{!116, !11, i64 276}
+!130 = !{!116, !11, i64 280}
+!131 = !{!120, !121, i64 8}
+!132 = !{!120, !121, i64 16}
+!133 = !{!120, !121, i64 0}
+!134 = distinct !{!134, !80}
+!135 = !{!8, !12, i64 41}
+!136 = !{!8, !11, i64 12}
+!137 = distinct !{!137, !80}
+!138 = !{!139, !11, i64 16}
+!139 = !{!"_ZTS14b2ExplosionDef", !47, i64 0, !18, i64 8, !11, i64 16, !11, i64 20, !11, i64 24}
+!140 = !{!139, !11, i64 20}
+!141 = !{!139, !11, i64 24}
+!142 = !{!143, !9, i64 248}
+!143 = !{!"_ZTS14RecreateStatic", !21, i64 0, !26, i64 248}
+!144 = !{!59, !12, i64 64}

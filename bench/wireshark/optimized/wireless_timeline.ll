@@ -921,20 +921,20 @@ define void @_ZN16WirelessTimeline14appInitializedEv(ptr noundef align 8 derefer
   %6 = tail call noundef ptr @_ZN15MainApplication10mainWindowEv(ptr noundef align 8 dereferenceable_or_null(216) %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store i64 ptrtoint (ptr @_ZN10MainWindow14framesSelectedE5QListIiE to i64), ptr %2, align 8, !noalias !9
+  store i64 ptrtoint (ptr @_ZN10MainWindow14framesSelectedE5QListIiE to i64), ptr %2, align 8, !noalias !8
   %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !9
-  store i64 ptrtoint (ptr @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE to i64), ptr %3, align 8, !noalias !9
+  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !8
+  store i64 ptrtoint (ptr @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE to i64), ptr %3, align 8, !noalias !8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !9
-  %7 = tail call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #20, !noalias !9
-  store i32 1, ptr %7, align 4, !noalias !9
+  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !8
+  %7 = tail call noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #20, !noalias !8
+  store i32 1, ptr %7, align 4, !noalias !8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFv5QListIiEENS_4ListIJS3_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %8, align 8, !noalias !9
+  store ptr @_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFv5QListIiEENS_4ListIJS3_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %8, align 8, !noalias !8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 ptrtoint (ptr @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE to i64), ptr %9, align 8, !noalias !9
+  store i64 ptrtoint (ptr @_ZN16WirelessTimeline20selectedFrameChangedE5QListIiE to i64), ptr %9, align 8, !noalias !8
   %.repack7.i.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 0, ptr %.repack7.i.i, align 8, !noalias !9
+  store i64 0, ptr %.repack7.i.i, align 8, !noalias !8
   call void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %4, ptr noundef %6, ptr noundef nonnull %2, ptr noundef %0, ptr noundef nonnull %3, ptr noundef %7, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN10MainWindow16staticMetaObjectE)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -1082,23 +1082,23 @@ _ZN7QWidget16setMouseTrackingEb.exit:             ; preds = %9
   %17 = load ptr, ptr @mainApp, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store i64 ptrtoint (ptr @_ZN15MainApplication14appInitializedEv to i64), ptr %3, align 8, !noalias !12
+  store i64 ptrtoint (ptr @_ZN15MainApplication14appInitializedEv to i64), ptr %3, align 8, !noalias !11
   %.fca.1.gep12.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !12
-  store i64 ptrtoint (ptr @_ZN16WirelessTimeline14appInitializedEv to i64), ptr %4, align 8, !noalias !12
+  store i64 0, ptr %.fca.1.gep12.i, align 8, !noalias !11
+  store i64 ptrtoint (ptr @_ZN16WirelessTimeline14appInitializedEv to i64), ptr %4, align 8, !noalias !11
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !12
+  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !11
   %18 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #20
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %15
-  store i32 1, ptr %18, align 4, !noalias !12
+  store i32 1, ptr %18, align 4, !noalias !11
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %19, align 8, !noalias !12
+  store ptr @_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %19, align 8, !noalias !11
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i64 ptrtoint (ptr @_ZN16WirelessTimeline14appInitializedEv to i64), ptr %20, align 8, !noalias !12
+  store i64 ptrtoint (ptr @_ZN16WirelessTimeline14appInitializedEv to i64), ptr %20, align 8, !noalias !11
   %.repack7.i.i = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store i64 0, ptr %.repack7.i.i, align 8, !noalias !12
+  store i64 0, ptr %.repack7.i.i, align 8, !noalias !11
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef %17, ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %4, ptr noundef %18, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN15MainApplication16staticMetaObjectE)
           to label %21 unwind label %22
 
@@ -2176,7 +2176,7 @@ define void @_ZN16WirelessTimeline10paintEventEP11QPaintEvent(ptr noundef align 
   store float 1.000000e+00, ptr %36, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %_ZL9reset_rgbPA3_f.exit, label %35, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZL9reset_rgbPA3_f.exit, label %35, !llvm.loop !14
 
 _ZL9reset_rgbPA3_f.exit:                          ; preds = %35
   %39 = sitofp i32 %29 to double
@@ -2961,7 +2961,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   store float %483, ptr %480, align 4
   %indvars.iv.next.i225 = add nuw nsw i64 %indvars.iv.i224, 1
   %exitcond.not.i226 = icmp eq i64 %indvars.iv.next.i225, %wide.trip.count.i
-  br i1 %exitcond.not.i226, label %.loopexit, label %.lr.ph.i223, !llvm.loop !16
+  br i1 %exitcond.not.i226, label %.loopexit, label %.lr.ph.i223, !llvm.loop !15
 
 .lr.ph.preheader.i228:                            ; preds = %463
   %484 = add i32 %374, 1
@@ -2997,7 +2997,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   store float %504, ptr %501, align 4
   %indvars.iv.next.i232 = add nuw nsw i64 %indvars.iv.i231, 1
   %exitcond.not.i233 = icmp eq i64 %indvars.iv.next.i232, %wide.trip.count.i229
-  br i1 %exitcond.not.i233, label %_ZL14accumulate_rgbPA3_fiiffff.exit234, label %.lr.ph.i230, !llvm.loop !16
+  br i1 %exitcond.not.i233, label %_ZL14accumulate_rgbPA3_fiiffff.exit234, label %.lr.ph.i230, !llvm.loop !15
 
 _ZL14accumulate_rgbPA3_fiiffff.exit234:           ; preds = %.lr.ph.i230
   invoke fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %374, ptr noundef nonnull %9, float noundef %41)
@@ -3106,7 +3106,7 @@ _ZL14accumulate_rgbPA3_fiiffff.exit234:           ; preds = %.lr.ph.i230
   store float %566, ptr %563, align 4
   %indvars.iv.next.i241 = add nuw nsw i64 %indvars.iv.i240, 1
   %exitcond.not.i242 = icmp eq i64 %indvars.iv.next.i241, %wide.trip.count.i238
-  br i1 %exitcond.not.i242, label %.loopexit.loopexit290, label %.lr.ph.i239, !llvm.loop !16
+  br i1 %exitcond.not.i242, label %.loopexit.loopexit290, label %.lr.ph.i239, !llvm.loop !15
 
 .loopexit.loopexit290:                            ; preds = %.lr.ph.i239
   %567 = fptosi float %.0165 to i32
@@ -3117,7 +3117,7 @@ _ZL14accumulate_rgbPA3_fiiffff.exit234:           ; preds = %.lr.ph.i230
   %568 = add i32 %.0152286, 1
   %569 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %.not182 = icmp ugt i32 %568, %569
-  br i1 %.not182, label %_ZL14accumulate_rgbPA3_fiiffff.exit, label %335, !llvm.loop !17
+  br i1 %.not182, label %_ZL14accumulate_rgbPA3_fiiffff.exit, label %335, !llvm.loop !16
 
 _ZL14accumulate_rgbPA3_fiiffff.exit:              ; preds = %.loopexit, %378, %_ZN16WirelessTimeline15find_packet_tsfEm.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #19
@@ -3327,7 +3327,7 @@ define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef al
   %.1 = phi i32 [ %.03637, %31 ], [ %39, %._crit_edge41 ], [ %39, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65
-  br i1 %exitcond.not, label %.preheader, label %20, !llvm.loop !18
+  br i1 %exitcond.not, label %.preheader, label %20, !llvm.loop !17
 
 .preheader:                                       ; preds = %73, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %73 ]
@@ -3339,7 +3339,7 @@ define internal fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef al
   store float 1.000000e+00, ptr %74, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %_ZL9reset_rgbPA3_f.exit, label %.preheader, !llvm.loop !15
+  br i1 %exitcond.not.i, label %_ZL9reset_rgbPA3_f.exit, label %.preheader, !llvm.loop !14
 
 _ZL9reset_rgbPA3_f.exit:                          ; preds = %.preheader
   ret void
@@ -3440,7 +3440,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFv5QList
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr i8, ptr %15, i64 %.unpack12
   %17 = getelementptr i8, ptr %16, i64 -1
-  %18 = load ptr, ptr %17, align 8, !nosanitize !19
+  %18 = load ptr, ptr %17, align 8, !nosanitize !18
   br label %21
 
 19:                                               ; preds = %10
@@ -3562,7 +3562,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM16WirelessTimelineFvvENS_4
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !19
+  %17 = load ptr, ptr %16, align 8, !nosanitize !18
   br label %_ZN9QtPrivate15FunctionPointerIM16WirelessTimelineFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -3633,17 +3633,16 @@ attributes #22 = { builtin nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN7QObject7connectIM10MainWindowFv5QListIiEEM16WirelessTimelineFvS3_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE: argument 0"}
-!11 = distinct !{!11, !"_ZN7QObject7connectIM10MainWindowFv5QListIiEEM16WirelessTimelineFvS3_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN7QObject7connectIM15MainApplicationFvvEM16WirelessTimelineFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
-!14 = distinct !{!14, !"_ZN7QObject7connectIM15MainApplicationFvvEM16WirelessTimelineFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = !{}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN7QObject7connectIM10MainWindowFv5QListIiEEM16WirelessTimelineFvS3_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE: argument 0"}
+!10 = distinct !{!10, !"_ZN7QObject7connectIM10MainWindowFv5QListIiEEM16WirelessTimelineFvS3_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN7QObject7connectIM15MainApplicationFvvEM16WirelessTimelineFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
+!13 = distinct !{!13, !"_ZN7QObject7connectIM15MainApplicationFvvEM16WirelessTimelineFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}
+!18 = !{}

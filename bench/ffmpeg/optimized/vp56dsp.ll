@@ -182,7 +182,7 @@ define internal void @vp5_edge_filter_ver(ptr noundef captures(none) %0, i64 nou
   %43 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   %44 = add nuw nsw i32 %.02025, 1
   %exitcond.not = icmp eq i32 %44, 12
-  br i1 %exitcond.not, label %45, label %7, !llvm.loop !14
+  br i1 %exitcond.not, label %45, label %7, !llvm.loop !13
 
 45:                                               ; preds = %7
   ret void
@@ -191,7 +191,7 @@ define internal void @vp5_edge_filter_ver(ptr noundef captures(none) %0, i64 nou
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable
 define void @ff_vp6dsp_init(ptr noundef writeonly captures(none) initializes((16, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @ff_vp6_filter_diag4_c, ptr %2, align 8, !tbaa !15
+  store ptr @ff_vp6_filter_diag4_c, ptr %2, align 8, !tbaa !14
   ret void
 }
 
@@ -218,8 +218,7 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!5, !6, i64 8}
 !10 = !{!7, !7, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = distinct !{!14, !12, !13}
-!15 = !{!5, !6, i64 16}
+!13 = distinct !{!13, !12}
+!14 = !{!5, !6, i64 16}

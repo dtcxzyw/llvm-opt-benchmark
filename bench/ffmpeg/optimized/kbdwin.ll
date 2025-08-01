@@ -99,7 +99,7 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
 42:                                               ; preds = %36
   %43 = fptrunc nsz double %41 to float
   %44 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv79
-  store float %43, ptr %44, align 4, !tbaa !11
+  store float %43, ptr %44, align 4, !tbaa !10
   br label %50
 
 45:                                               ; preds = %36
@@ -107,13 +107,13 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
   %47 = tail call i64 @llvm.lrint.i64.f64(double %46)
   %48 = trunc i64 %47 to i32
   %49 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv79
-  store i32 %48, ptr %49, align 4, !tbaa !13
+  store i32 %48, ptr %49, align 4, !tbaa !12
   br label %50
 
 50:                                               ; preds = %42, %45
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
-  br i1 %exitcond83.not, label %.preheader, label %36, !llvm.loop !15
+  br i1 %exitcond83.not, label %.preheader, label %36, !llvm.loop !14
 
 51:                                               ; preds = %.lr.ph74, %66
   %indvars.iv84 = phi i64 [ %34, %.lr.ph74 ], [ %indvars.iv.next85, %66 ]
@@ -129,7 +129,7 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
 58:                                               ; preds = %51
   %59 = fptrunc nsz double %57 to float
   %60 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv84
-  store float %59, ptr %60, align 4, !tbaa !11
+  store float %59, ptr %60, align 4, !tbaa !10
   br label %66
 
 61:                                               ; preds = %51
@@ -137,13 +137,13 @@ define internal fastcc void @kbd_window_init(ptr noundef writeonly captures(addr
   %63 = tail call i64 @llvm.lrint.i64.f64(double %62)
   %64 = trunc i64 %63 to i32
   %65 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv84
-  store i32 %64, ptr %65, align 4, !tbaa !13
+  store i32 %64, ptr %65, align 4, !tbaa !12
   br label %66
 
 66:                                               ; preds = %58, %61
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge75, label %51, !llvm.loop !16
+  br i1 %exitcond88.not, label %._crit_edge75, label %51, !llvm.loop !15
 
 ._crit_edge75:                                    ; preds = %66, %.preheader
   call void @llvm.lifetime.end.p0(i64 4104, ptr nonnull %5) #6
@@ -197,12 +197,11 @@ attributes #7 = { noreturn nounwind }
 !5 = !{!"double", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"float", !6, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"int", !6, i64 0}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"float", !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}

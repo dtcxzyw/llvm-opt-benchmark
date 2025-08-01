@@ -95,14 +95,14 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Sk
   %.0 = load ptr, ptr %36, align 8, !tbaa !10
   %37 = load i64, ptr %.0, align 8, !tbaa !12
   %.not = icmp ult i64 %16, %37
-  br i1 %.not, label %.preheader, label %14, !llvm.loop !22
+  br i1 %.not, label %.preheader, label %14, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph80, %.lr.ph88
   %.243.lcssa = phi i64 [ %.14284, %.lr.ph88 ], [ %48, %.lr.ph80 ]
   %.3.lcssa = phi i64 [ %44, %.lr.ph88 ], [ %49, %.lr.ph80 ]
   %.2.lcssa = phi ptr [ %.275, %.lr.ph88 ], [ %.2, %.lr.ph80 ]
   %38 = icmp samesign ugt i64 %indvars.iv103, 1
-  br i1 %38, label %.lr.ph88, label %._crit_edge89, !llvm.loop !23
+  br i1 %38, label %.lr.ph88, label %._crit_edge89, !llvm.loop !22
 
 .lr.ph88:                                         ; preds = %.lr.ph88.preheader, %.loopexit
   %indvars.iv103 = phi i64 [ %13, %.lr.ph88.preheader ], [ %indvars.iv.next104, %.loopexit ]
@@ -135,7 +135,7 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Sk
   %.2 = load ptr, ptr %.2.in, align 8, !tbaa !10
   %50 = load i64, ptr %.2, align 8, !tbaa !12
   %.not48 = icmp ult i64 %48, %50
-  br i1 %.not48, label %.loopexit, label %.lr.ph80, !llvm.loop !24
+  br i1 %.not48, label %.loopexit, label %.lr.ph80, !llvm.loop !23
 
 ._crit_edge89:                                    ; preds = %.loopexit, %2, %.preheader
   %.142.lcssa = phi i64 [ %16, %.preheader ], [ %1, %2 ], [ %.243.lcssa, %.loopexit ]
@@ -183,16 +183,16 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Re
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %24 = load i8, ptr %23, align 4, !tbaa !25
+  %24 = load i8, ptr %23, align 4, !tbaa !24
   %25 = icmp eq i8 %24, 1
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !26
+  %28 = load i64, ptr %27, align 8, !tbaa !25
   %29 = add i64 %28, %1
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !28
+  %31 = load ptr, ptr %30, align 8, !tbaa !27
   br label %32
 
 32:                                               ; preds = %26, %22
@@ -201,18 +201,18 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Re
   %33 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %33, i8 0, i64 16, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 2, ptr %34, align 4, !tbaa !29
+  store i32 2, ptr %34, align 4, !tbaa !28
   store i64 %2, ptr %33, align 8, !tbaa !12
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  store i8 1, ptr %35, align 4, !tbaa !25
+  store i8 1, ptr %35, align 4, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i64 %.019.i, ptr %36, align 8, !tbaa !26
+  store i64 %.019.i, ptr %36, align 8, !tbaa !25
   %37 = icmp ne ptr %.018.i, null
   tail call void @llvm.assume(i1 %37)
   %38 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
   %39 = atomicrmw add ptr %38, i32 2 monotonic, align 4
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store ptr %.018.i, ptr %40, align 8, !tbaa !28
+  store ptr %.018.i, ptr %40, align 8, !tbaa !27
   br label %_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm.exit
 
 41:                                               ; preds = %3
@@ -231,16 +231,16 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Re
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %51 = load i8, ptr %50, align 4, !tbaa !25
+  %51 = load i8, ptr %50, align 4, !tbaa !24
   %52 = icmp eq i8 %51, 1
   br i1 %52, label %53, label %59
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %55 = load i64, ptr %54, align 8, !tbaa !26
+  %55 = load i64, ptr %54, align 8, !tbaa !25
   %56 = add i64 %55, %1
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %58 = load ptr, ptr %57, align 8, !tbaa !28
+  %58 = load ptr, ptr %57, align 8, !tbaa !27
   br label %59
 
 59:                                               ; preds = %53, %49
@@ -249,27 +249,27 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Re
   %60 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %60, i8 0, i64 16, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i32 2, ptr %61, align 4, !tbaa !29
+  store i32 2, ptr %61, align 4, !tbaa !28
   store i64 %42, ptr %60, align 8, !tbaa !12
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  store i8 1, ptr %62, align 4, !tbaa !25
+  store i8 1, ptr %62, align 4, !tbaa !24
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store i64 %.019.i.i, ptr %63, align 8, !tbaa !26
+  store i64 %.019.i.i, ptr %63, align 8, !tbaa !25
   %64 = icmp ne ptr %.018.i.i, null
   tail call void @llvm.assume(i1 %64)
   %65 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
   %66 = atomicrmw add ptr %65, i32 2 monotonic, align 4
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store ptr %.018.i.i, ptr %67, align 8, !tbaa !28
+  store ptr %.018.i.i, ptr %67, align 8, !tbaa !27
   br label %_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEm.exit
 
 _ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEm.exit: ; preds = %41, %46, %59
   %.0.i.i = phi ptr [ %12, %46 ], [ %60, %59 ], [ null, %41 ]
   %68 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #11
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store i32 2, ptr %69, align 4, !tbaa !29
+  store i32 2, ptr %69, align 4, !tbaa !28
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
-  %71 = load i8, ptr %70, align 4, !tbaa !25
+  %71 = load i8, ptr %70, align 4, !tbaa !24
   %72 = icmp eq i8 %71, 3
   br i1 %72, label %73, label %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit
 
@@ -284,7 +284,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %_ZN4ab
   %78 = load i64, ptr %.0.i.i, align 8, !tbaa !12
   store i64 %78, ptr %68, align 8, !tbaa !12
   %79 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  store i8 3, ptr %79, align 4, !tbaa !25
+  store i8 3, ptr %79, align 4, !tbaa !24
   %80 = getelementptr inbounds nuw i8, ptr %68, i64 13
   store i8 %77, ptr %80, align 1, !tbaa !4
   %81 = getelementptr inbounds nuw i8, ptr %68, i64 14
@@ -328,7 +328,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %_ZN4ab
   %95 = trunc nuw i64 %94 to i8
   %96 = getelementptr inbounds [12 x i8], ptr %5, i64 0, i64 %indvars.iv195
   store i8 %95, ptr %96, align 1, !tbaa !4
-  %97 = load i32, ptr %0, align 8, !tbaa !30
+  %97 = load i32, ptr %0, align 8, !tbaa !29
   %98 = sext i32 %97 to i64
   %.not119.us = icmp slt i64 %indvars.iv195, %98
   br i1 %.not119.us, label %101, label %.split.us.thread
@@ -351,7 +351,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %_ZN4ab
   %109 = load i8, ptr %108, align 1, !tbaa !4
   %110 = zext i8 %109 to i64
   %111 = icmp eq i64 %107, %110
-  br i1 %111, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !32
+  br i1 %111, label %.lr.ph.split.us, label %._crit_edge.loopexit, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121 ], [ %92, %.lr.ph.split.preheader ]
@@ -362,7 +362,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %_ZN4ab
   %114 = getelementptr inbounds [12 x i8], ptr %5, i64 0, i64 %indvars.iv
   store i8 %113, ptr %114, align 1, !tbaa !4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %115 = load i32, ptr %0, align 8, !tbaa !30
+  %115 = load i32, ptr %0, align 8, !tbaa !29
   %116 = sext i32 %115 to i64
   %.not119 = icmp slt i64 %indvars.iv, %116
   %117 = getelementptr inbounds nuw i8, ptr %.184131, i64 15
@@ -373,7 +373,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %_ZN4ab
   %118 = getelementptr inbounds nuw i8, ptr %.184131, i64 8
   %119 = atomicrmw sub ptr %118, i32 2 acq_rel, align 4
   %.not.i = icmp eq i32 %119, 2
-  br i1 %.not.i, label %120, label %_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm.exit, !prof !34
+  br i1 %.not.i, label %120, label %_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm.exit, !prof !33
 
 120:                                              ; preds = %.split.us
   tail call void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef nonnull %.184131)
@@ -382,9 +382,9 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %_ZN4ab
 121:                                              ; preds = %.lr.ph.split
   %122 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #11
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  store i32 2, ptr %123, align 4, !tbaa !29
+  store i32 2, ptr %123, align 4, !tbaa !28
   %124 = getelementptr inbounds nuw i8, ptr %.184131, i64 12
-  %125 = load i8, ptr %124, align 4, !tbaa !25
+  %125 = load i8, ptr %124, align 4, !tbaa !24
   %126 = icmp eq i8 %125, 3
   br i1 %126, label %127, label %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121
 
@@ -399,7 +399,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   %132 = load i64, ptr %.184131, align 8, !tbaa !12
   store i64 %132, ptr %122, align 8, !tbaa !12
   %133 = getelementptr inbounds nuw i8, ptr %122, i64 12
-  store i8 3, ptr %133, align 4, !tbaa !25
+  store i8 3, ptr %133, align 4, !tbaa !24
   %134 = getelementptr inbounds nuw i8, ptr %122, i64 13
   store i8 %131, ptr %134, align 1, !tbaa !4
   %135 = getelementptr inbounds nuw i8, ptr %122, i64 14
@@ -418,7 +418,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   %145 = load i8, ptr %144, align 1, !tbaa !4
   %146 = zext i8 %145 to i64
   %147 = icmp eq i64 %143, %146
-  br i1 %147, label %.lr.ph.split, label %._crit_edge.loopexit171, !llvm.loop !35
+  br i1 %147, label %.lr.ph.split, label %._crit_edge.loopexit171, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %101
   %148 = trunc nsw i64 %indvars.iv.next196 to i32
@@ -458,7 +458,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   %163 = phi i64 [ %.pre202, %154 ], [ %153, %._crit_edge ]
   %.3 = phi i64 [ %160, %154 ], [ %.1.lcssa, %._crit_edge ]
   %.not115 = icmp ult i64 %86, %163
-  br i1 %.not115, label %164, label %84, !llvm.loop !36
+  br i1 %.not115, label %164, label %84, !llvm.loop !35
 
 164:                                              ; preds = %162
   %165 = load i64, ptr %.184.lcssa, align 8, !tbaa !12
@@ -496,9 +496,9 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
 178:                                              ; preds = %.lr.ph162
   %179 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #11
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  store i32 2, ptr %180, align 4, !tbaa !29
+  store i32 2, ptr %180, align 4, !tbaa !28
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 12
-  store i8 3, ptr %181, align 4, !tbaa !25
+  store i8 3, ptr %181, align 4, !tbaa !24
   %182 = trunc i64 %indvars.iv.next200 to i8
   %183 = getelementptr inbounds nuw i8, ptr %179, i64 13
   store i8 %182, ptr %183, align 1, !tbaa !4
@@ -539,7 +539,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   %202 = load ptr, ptr %201, align 8, !tbaa !10
   %203 = load i64, ptr %202, align 8, !tbaa !12
   %.not118 = icmp ult i64 %199, %203
-  br i1 %.not118, label %.loopexit, label %193, !llvm.loop !37
+  br i1 %.not118, label %.loopexit, label %193, !llvm.loop !36
 
 .loopexit:                                        ; preds = %193, %178, %.lr.ph162
   %.2101 = phi i64 [ 0, %.lr.ph162 ], [ %.1100156, %178 ], [ %199, %193 ]
@@ -548,7 +548,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   %.487 = phi ptr [ %.386159, %.lr.ph162 ], [ %179, %178 ], [ %179, %193 ]
   %.5 = phi i64 [ %.4160, %.lr.ph162 ], [ 0, %178 ], [ %197, %193 ]
   %204 = icmp samesign ugt i64 %indvars.iv199, 1
-  br i1 %204, label %.lr.ph162, label %._crit_edge163, !llvm.loop !38
+  br i1 %204, label %.lr.ph162, label %._crit_edge163, !llvm.loop !37
 
 ._crit_edge163:                                   ; preds = %.loopexit, %164
   %.1100.lcssa = phi i64 [ %86, %164 ], [ %.2101, %.loopexit ]
@@ -601,16 +601,16 @@ define internal fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19Substr
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load i8, ptr %12, align 4, !tbaa !25
+  %13 = load i8, ptr %12, align 4, !tbaa !24
   %14 = icmp eq i8 %13, 1
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !26
+  %17 = load i64, ptr %16, align 8, !tbaa !25
   %18 = add i64 %17, %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !28
+  %20 = load ptr, ptr %19, align 8, !tbaa !27
   br label %21
 
 21:                                               ; preds = %11, %15
@@ -619,18 +619,18 @@ define internal fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19Substr
   %22 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %22, i8 0, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 2, ptr %23, align 4, !tbaa !29
+  store i32 2, ptr %23, align 4, !tbaa !28
   store i64 %2, ptr %22, align 8, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  store i8 1, ptr %24, align 4, !tbaa !25
+  store i8 1, ptr %24, align 4, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i64 %.019, ptr %25, align 8, !tbaa !26
+  store i64 %.019, ptr %25, align 8, !tbaa !25
   %26 = icmp ne ptr %.018, null
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %28 = atomicrmw add ptr %27, i32 2 monotonic, align 4
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr %.018, ptr %29, align 8, !tbaa !28
+  store ptr %.018, ptr %29, align 8, !tbaa !27
   br label %30
 
 30:                                               ; preds = %3, %21, %8
@@ -696,23 +696,22 @@ attributes #12 = { nounwind }
 !16 = !{!"_ZTSSt6atomicIiE", !17, i64 0}
 !17 = !{!"_ZTSSt13__atomic_baseIiE", !18, i64 0}
 !18 = !{!"int", !5, i64 0}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = distinct !{!22, !20, !21}
-!23 = distinct !{!23, !20, !21}
-!24 = distinct !{!24, !20, !21}
-!25 = !{!13, !5, i64 12}
-!26 = !{!27, !14, i64 16}
-!27 = !{!"_ZTSN4absl13cord_internal16CordRepSubstringE", !13, i64 0, !14, i64 16, !11, i64 24}
-!28 = !{!27, !11, i64 24}
-!29 = !{!17, !18, i64 0}
-!30 = !{!31, !18, i64 0}
-!31 = !{!"_ZTSN4absl13cord_internal21CordRepBtreeNavigatorE", !18, i64 0, !5, i64 4, !5, i64 16}
-!32 = distinct !{!32, !20, !21, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!35 = distinct !{!35, !20, !21}
-!36 = distinct !{!36, !20, !21}
-!37 = distinct !{!37, !20, !21}
-!38 = distinct !{!38, !20, !21}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}
+!24 = !{!13, !5, i64 12}
+!25 = !{!26, !14, i64 16}
+!26 = !{!"_ZTSN4absl13cord_internal16CordRepSubstringE", !13, i64 0, !14, i64 16, !11, i64 24}
+!27 = !{!26, !11, i64 24}
+!28 = !{!17, !18, i64 0}
+!29 = !{!30, !18, i64 0}
+!30 = !{!"_ZTSN4absl13cord_internal21CordRepBtreeNavigatorE", !18, i64 0, !5, i64 4, !5, i64 16}
+!31 = distinct !{!31, !20, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!34 = distinct !{!34, !20}
+!35 = distinct !{!35, !20}
+!36 = distinct !{!36, !20}
+!37 = distinct !{!37, !20}

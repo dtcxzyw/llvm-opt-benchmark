@@ -115,7 +115,7 @@ define void @OPENSSL_LH_node_stats(ptr noundef readonly captures(none) %0, ptr n
   %16 = load i32, ptr %8, align 8, !tbaa !11
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next.i, %17
-  br i1 %18, label %.lr.ph18.i, label %OPENSSL_LH_node_stats_bio.exit, !llvm.loop !19
+  br i1 %18, label %.lr.ph18.i, label %OPENSSL_LH_node_stats_bio.exit, !llvm.loop !18
 
 OPENSSL_LH_node_stats_bio.exit:                   ; preds = %._crit_edge.i, %6
   %19 = tail call i32 @BIO_free(ptr noundef nonnull %4) #2
@@ -157,7 +157,7 @@ define void @OPENSSL_LH_node_stats_bio(ptr noundef readonly captures(none) %0, p
   %11 = load i32, ptr %3, align 8, !tbaa !11
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ult i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph18, label %._crit_edge19, !llvm.loop !19
+  br i1 %13, label %.lr.ph18, label %._crit_edge19, !llvm.loop !18
 
 ._crit_edge19:                                    ; preds = %._crit_edge, %2
   ret void
@@ -208,7 +208,7 @@ define void @OPENSSL_LH_node_usage_stats_bio(ptr noundef readonly captures(none)
   %9 = getelementptr inbounds nuw i8, ptr %.03239, i64 8
   %.032 = load ptr, ptr %9, align 8, !tbaa !14
   %.not = icmp eq ptr %.032, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.031.lcssa = phi i64 [ 0, %6 ], [ %8, %.lr.ph ]
@@ -218,7 +218,7 @@ define void @OPENSSL_LH_node_usage_stats_bio(ptr noundef readonly captures(none)
   %.1 = add i64 %.042, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge45, label %6, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge45, label %6, !llvm.loop !20
 
 ._crit_edge45:                                    ; preds = %._crit_edge, %2
   %.028.lcssa = phi i64 [ 0, %2 ], [ %10, %._crit_edge ]
@@ -274,9 +274,8 @@ attributes #2 = { nounwind }
 !13 = !{!4, !5, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"p1 _ZTS13lhash_node_st", !6, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = distinct !{!20, !17, !18}
-!21 = distinct !{!21, !17, !18}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !17}

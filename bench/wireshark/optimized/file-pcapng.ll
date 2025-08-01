@@ -1837,7 +1837,7 @@ dissect_custom_options.exit:                      ; preds = %95, %.sink.split.i
   %.5 = phi i32 [ %669, %660 ], [ %.4, %670 ]
   %673 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.5)
   %674 = icmp sgt i32 %673, 0
-  br i1 %674, label %55, label %.loopexit, !llvm.loop !9
+  br i1 %674, label %55, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %672, %35, %85
   %.1 = phi i32 [ %78, %85 ], [ %4, %35 ], [ %.5, %672 ]
@@ -2133,7 +2133,7 @@ process_block_length.exit:                        ; preds = %69, %73, %75
   %98 = load i32, ptr %97, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.38, i32 noundef %98)
   %.0..0..0..0.26 = load volatile ptr, ptr %7, align 8
-  %.0..0..0..0.23 = load volatile i8, ptr %10, align 1, !range !10, !noundef !11
+  %.0..0..0..0.23 = load volatile i8, ptr %10, align 1, !range !9, !noundef !10
   %99 = trunc nuw i8 %.0..0..0..0.23 to i1
   %100 = call fastcc zeroext i1 @dissect_shb_data(ptr noundef %.0130, ptr noundef %1, ptr noundef %.0..0..0..0.26, i1 noundef zeroext %99, ptr noundef nonnull %8)
   br i1 %100, label %114, label %101
@@ -2261,7 +2261,7 @@ process_block_length.exit:                        ; preds = %69, %73, %75
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %.0..0..0..0.24 = load volatile i8, ptr %9, align 1, !range !10, !noundef !11
+  %.0..0..0..0.24 = load volatile i8, ptr %9, align 1, !range !9, !noundef !10
   %137 = trunc nuw i8 %.0..0..0..0.24 to i1
   br i1 %137, label %150, label %138
 
@@ -2510,7 +2510,7 @@ get_interface_description.exit:                   ; preds = %34, %36
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 20
   %65 = load i32, ptr %64, align 4
   %66 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %61, ptr noundef %2, i32 noundef %.0..0..0..0.36, i32 noundef %62, i32 noundef %65)
-  %67 = load i8, ptr @pref_dissect_next_layer, align 1, !range !10, !noundef !11
+  %67 = load i8, ptr @pref_dissect_next_layer, align 1, !range !9, !noundef !10
   %68 = trunc nuw i8 %67 to i1
   %69 = icmp ne ptr %.0.i, null
   %or.cond = select i1 %68, i1 %69, i1 false
@@ -2787,7 +2787,7 @@ proto_item_set_generated.exit:                    ; preds = %40, %43, %46
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 20
   %53 = load i32, ptr %52, align 4
   %54 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %50, ptr noundef %2, i32 noundef %.0..0..0..0.40, i32 noundef %.0..0..0..0.23, i32 noundef %53)
-  %55 = load i8, ptr @pref_dissect_next_layer, align 1, !range !10, !noundef !11
+  %55 = load i8, ptr @pref_dissect_next_layer, align 1, !range !9, !noundef !10
   %56 = trunc nuw i8 %55 to i1
   %or.cond = and i1 %35, %56
   br i1 %or.cond, label %57, label %116
@@ -3121,7 +3121,7 @@ define internal fastcc void @dissect_nrb_data(ptr noundef %0, ptr noundef %1, pt
   %.neg124 = sub i32 0, %85
   %86 = add i32 %84, -4
   %87 = icmp ult i32 %85, %86
-  br i1 %87, label %.lr.ph133, label %._crit_edge134, !llvm.loop !12
+  br i1 %87, label %.lr.ph133, label %._crit_edge134, !llvm.loop !11
 
 ._crit_edge134:                                   ; preds = %83, %53
   %.2.lcssa = phi i32 [ %57, %53 ], [ %.3, %83 ]
@@ -3195,7 +3195,7 @@ define internal fastcc void @dissect_nrb_data(ptr noundef %0, ptr noundef %1, pt
   %.neg = sub i32 0, %129
   %130 = add i32 %128, -16
   %131 = icmp ult i32 %129, %130
-  br i1 %131, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %131, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %127, %97
   %.4.lcssa = phi i32 [ %101, %97 ], [ %.5, %127 ]
@@ -3253,7 +3253,7 @@ define internal fastcc void @dissect_nrb_data(ptr noundef %0, ptr noundef %1, pt
 157:                                              ; preds = %156, %155
   %158 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.7)
   %159 = icmp sgt i32 %158, 0
-  br i1 %159, label %19, label %.loopexit, !llvm.loop !14
+  br i1 %159, label %19, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %157, %4, %44
   %.1113 = phi i32 [ %37, %44 ], [ 0, %4 ], [ %.7, %157 ]
@@ -3398,7 +3398,7 @@ get_interface_description.exit:                   ; preds = %33, %35
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %58 = load i32, ptr %57, align 4
   %59 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %54, ptr noundef %2, i32 noundef %.0..0..0..0.34, i32 noundef %55, i32 noundef %58)
-  %60 = load i8, ptr @pref_dissect_next_layer, align 1, !range !10, !noundef !11
+  %60 = load i8, ptr @pref_dissect_next_layer, align 1, !range !9, !noundef !10
   %61 = trunc nuw i8 %60 to i1
   %62 = icmp ne ptr %.0.i, null
   %or.cond = and i1 %62, %61
@@ -3797,9 +3797,9 @@ define internal noundef i32 @dissect_pcapng(ptr noundef %0, ptr noundef %1, ptr 
   br label %47
 
 47:                                               ; preds = %.sink.split, %45, %26
-  %.0..0..0..0.5 = load volatile i8, ptr %6, align 1, !range !10, !noundef !11
+  %.0..0..0..0.5 = load volatile i8, ptr %6, align 1, !range !9, !noundef !10
   %48 = trunc nuw i8 %.0..0..0..0.5 to i1
-  br i1 %48, label %53, label %49, !prof !15
+  br i1 %48, label %53, label %49, !prof !14
 
 49:                                               ; preds = %47
   %50 = add i32 %.035, 4
@@ -4030,13 +4030,12 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}

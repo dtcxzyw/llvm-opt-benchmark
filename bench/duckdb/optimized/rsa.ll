@@ -1194,7 +1194,7 @@ define internal fastcc noundef i32 @_ZL20rsa_prepare_blindingP19mbedtls_rsa_cont
   switch i32 %36, label %.loopexit [
     i32 -14, label %21
     i32 0, label %37
-  ], !llvm.loop !15
+  ]
 
 37:                                               ; preds = %35
   %38 = call i32 @mbedtls_mpi_mul_mpi(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %4)
@@ -1240,7 +1240,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsaes_pkcs1_v1
   br i1 %or.cond, label %37, label %12
 
 12:                                               ; preds = %6
-  store i8 0, ptr %5, align 1, !tbaa !17
+  store i8 0, ptr %5, align 1, !tbaa !15
   %13 = icmp eq ptr %1, null
   br i1 %13, label %37, label %14
 
@@ -1248,7 +1248,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsaes_pkcs1_v1
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %reass.sub = sub i64 %8, %3
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 2, ptr %15, align 1, !tbaa !17
+  store i8 2, ptr %15, align 1, !tbaa !15
   %.not52 = icmp eq i64 %reass.sub, 3
   br i1 %.not52, label %._crit_edge, label %.preheader.preheader
 
@@ -1264,7 +1264,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsaes_pkcs1_v1
 19:                                               ; preds = %.preheader, %23
   %.0 = phi i32 [ %24, %23 ], [ 100, %.preheader ]
   %20 = tail call noundef i32 %1(ptr noundef %2, ptr noundef nonnull %.03553, i64 noundef 1)
-  %21 = load i8, ptr %.03553, align 1, !tbaa !17
+  %21 = load i8, ptr %.03553, align 1, !tbaa !15
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %.critedge
 
@@ -1273,7 +1273,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsaes_pkcs1_v1
   %25 = icmp ne i32 %24, 0
   %26 = icmp eq i32 %20, 0
   %or.cond3 = and i1 %25, %26
-  br i1 %or.cond3, label %19, label %.critedge, !llvm.loop !18
+  br i1 %or.cond3, label %19, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %23, %19
   %.1 = phi i32 [ %24, %23 ], [ %.0, %19 ]
@@ -1294,7 +1294,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_rsaes_pkcs1_v1
 
 ._crit_edge:                                      ; preds = %30, %14
   %.035.lcssa = phi ptr [ %16, %14 ], [ %31, %30 ]
-  store i8 0, ptr %.035.lcssa, align 1, !tbaa !17
+  store i8 0, ptr %.035.lcssa, align 1, !tbaa !15
   %.not45 = icmp eq i64 %3, 0
   br i1 %.not45, label %35, label %33
 
@@ -1332,7 +1332,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_pkcs1_encrypt(
   br i1 %or.cond.i, label %mbedtls_rsa_rsaes_pkcs1_v15_encrypt.exit, label %15
 
 15:                                               ; preds = %9
-  store i8 0, ptr %5, align 1, !tbaa !17
+  store i8 0, ptr %5, align 1, !tbaa !15
   %16 = icmp eq ptr %1, null
   br i1 %16, label %mbedtls_rsa_rsaes_pkcs1_v15_encrypt.exit, label %17
 
@@ -1340,7 +1340,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_pkcs1_encrypt(
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %reass.sub.i = sub i64 %11, %3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i8 2, ptr %18, align 1, !tbaa !17
+  store i8 2, ptr %18, align 1, !tbaa !15
   %.not52.i = icmp eq i64 %reass.sub.i, 3
   br i1 %.not52.i, label %._crit_edge.i, label %.preheader.preheader.i
 
@@ -1356,7 +1356,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_pkcs1_encrypt(
 22:                                               ; preds = %26, %.preheader.i
   %.0.i = phi i32 [ %27, %26 ], [ 100, %.preheader.i ]
   %23 = tail call noundef i32 %1(ptr noundef %2, ptr noundef nonnull %.03553.i, i64 noundef 1)
-  %24 = load i8, ptr %.03553.i, align 1, !tbaa !17
+  %24 = load i8, ptr %.03553.i, align 1, !tbaa !15
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %26, label %.critedge.i
 
@@ -1365,7 +1365,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_pkcs1_encrypt(
   %28 = icmp ne i32 %27, 0
   %29 = icmp eq i32 %23, 0
   %or.cond3.i = and i1 %28, %29
-  br i1 %or.cond3.i, label %22, label %.critedge.i, !llvm.loop !18
+  br i1 %or.cond3.i, label %22, label %.critedge.i, !llvm.loop !16
 
 .critedge.i:                                      ; preds = %26, %22
   %.1.i = phi i32 [ %27, %26 ], [ %.0.i, %22 ]
@@ -1386,7 +1386,7 @@ define hidden range(i32 -2147483648, 2147466624) i32 @mbedtls_rsa_pkcs1_encrypt(
 
 ._crit_edge.i:                                    ; preds = %33, %17
   %.035.lcssa.i = phi ptr [ %19, %17 ], [ %34, %33 ]
-  store i8 0, ptr %.035.lcssa.i, align 1, !tbaa !17
+  store i8 0, ptr %.035.lcssa.i, align 1, !tbaa !15
   %.not45.i = icmp eq i64 %3, 0
   br i1 %.not45.i, label %38, label %36
 
@@ -1558,9 +1558,9 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL27rsa_rsassa_pkcs1_v
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  store i64 0, ptr %6, align 8, !tbaa !20
+  store i64 0, ptr %6, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  store ptr null, ptr %7, align 8, !tbaa !21
+  store ptr null, ptr %7, align 8, !tbaa !19
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %28, label %8
 
@@ -1583,7 +1583,7 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL27rsa_rsassa_pkcs1_v
 16:                                               ; preds = %13
   %17 = add nuw nsw i32 %1, 8
   %18 = zext nneg i32 %17 to i64
-  %19 = load i64, ptr %6, align 8, !tbaa !20
+  %19 = load i64, ptr %6, align 8, !tbaa !18
   %20 = add i64 %19, %18
   %21 = icmp ugt i64 %20, 127
   br i1 %21, label %.critedge, label %22
@@ -1612,13 +1612,13 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL27rsa_rsassa_pkcs1_v
 34:                                               ; preds = %31
   %35 = add i64 %.161, -3
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 0, ptr %4, align 1, !tbaa !17
+  store i8 0, ptr %4, align 1, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 1, ptr %36, align 1, !tbaa !17
+  store i8 1, ptr %36, align 1, !tbaa !15
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %37, i8 -1, i64 %35, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %35
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  store i8 0, ptr %38, align 1, !tbaa !17
+  store i8 0, ptr %38, align 1, !tbaa !15
   br i1 %.not, label %40, label %42
 
 40:                                               ; preds = %34
@@ -1628,35 +1628,35 @@ define internal fastcc noundef range(i32 -16512, 1) i32 @_ZL27rsa_rsassa_pkcs1_v
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  store i8 48, ptr %39, align 1, !tbaa !17
+  store i8 48, ptr %39, align 1, !tbaa !15
   %44 = zext i32 %1 to i64
   %45 = add nuw nsw i64 %44, 8
   %46 = add i64 %45, %32
   %47 = trunc i64 %46 to i8
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 %.161
-  store i8 %47, ptr %43, align 1, !tbaa !17
+  store i8 %47, ptr %43, align 1, !tbaa !15
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
-  store i8 48, ptr %48, align 1, !tbaa !17
+  store i8 48, ptr %48, align 1, !tbaa !15
   %50 = trunc i64 %32 to i8
   %51 = add i8 %50, 4
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 2
-  store i8 %51, ptr %49, align 1, !tbaa !17
+  store i8 %51, ptr %49, align 1, !tbaa !15
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 3
-  store i8 6, ptr %52, align 1, !tbaa !17
+  store i8 6, ptr %52, align 1, !tbaa !15
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i8 %50, ptr %53, align 1, !tbaa !17
-  %55 = load ptr, ptr %7, align 8, !tbaa !21
+  store i8 %50, ptr %53, align 1, !tbaa !15
+  %55 = load ptr, ptr %7, align 8, !tbaa !19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %54, ptr align 1 %55, i64 %32, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %32
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
-  store i8 5, ptr %56, align 1, !tbaa !17
+  store i8 5, ptr %56, align 1, !tbaa !15
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 2
-  store i8 0, ptr %57, align 1, !tbaa !17
+  store i8 0, ptr %57, align 1, !tbaa !15
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 3
-  store i8 4, ptr %58, align 1, !tbaa !17
+  store i8 4, ptr %58, align 1, !tbaa !15
   %60 = trunc i32 %1 to i8
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  store i8 %60, ptr %59, align 1, !tbaa !17
+  store i8 %60, ptr %59, align 1, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %61, ptr align 1 %2, i64 %44, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %44
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 %3
@@ -1949,11 +1949,9 @@ attributes #10 = { nounwind allocsize(0,1) }
 !12 = !{!4, !5, i64 328}
 !13 = !{!4, !5, i64 332}
 !14 = !{!4, !10, i64 320}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!6, !6, i64 0}
-!18 = distinct !{!18, !19, !16}
-!19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!8, !8, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 omnipotent char", !11, i64 0}
+!15 = !{!6, !6, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!8, !8, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 omnipotent char", !11, i64 0}

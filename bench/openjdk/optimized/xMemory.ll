@@ -385,7 +385,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %22 = load i64, ptr %.sroa.2.0, align 8
   %23 = sub i64 %21, %22
   %.not = icmp ult i64 %23, %1
-  br i1 %.not, label %select.unfold, label %24, !llvm.loop !9
+  br i1 %.not, label %select.unfold, label %24, !llvm.loop !8
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.2.0, i64 8
@@ -473,7 +473,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %20 = select i1 %16, ptr null, ptr %19
   %21 = load i64, ptr %.sroa.2.0, align 8
   %22 = icmp ult i64 %1, %21
-  br i1 %22, label %23, label %select.unfold, !llvm.loop !10
+  br i1 %22, label %23, label %select.unfold, !llvm.loop !9
 
 23:                                               ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.2.0, i64 16
@@ -703,8 +703,7 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

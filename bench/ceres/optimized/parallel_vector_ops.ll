@@ -320,7 +320,7 @@ _ZNSt14_Function_baseD2Ev.exit26.i.i.i:           ; preds = %77, %74, %72
 "_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15ParallelSetZeroEPNS0_11ContextImplEiPdiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i": ; preds = %.lr.ph.i.i.i.preheader.i.i.i.i.i.i, %.lr.ph.i.i.i
   %103 = atomicrmw add ptr %88, i32 1 seq_cst, align 4
   %.not19.i.i.i = icmp slt i32 %103, %43
-  br i1 %.not19.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !58
+  br i1 %.not19.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15ParallelSetZeroEPNS0_11ContextImplEiPdiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i", %82
   %.0.lcssa.i.i.i = phi i32 [ 0, %82 ], [ %91, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15ParallelSetZeroEPNS0_11ContextImplEiPdiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ]
@@ -623,7 +623,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5ceres8i
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !60
+  %7 = load ptr, ptr %6, align 8, !tbaa !58
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -732,7 +732,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_15ParallelSetZeroEPNS0_11ContextImplEiPdiE3$_0EEvS3_iiiOT_iENKUlRS6_E_clIS9_EEDaS8_EUlvE_", ptr %0, align 8, !tbaa !62
+  store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_15ParallelSetZeroEPNS0_11ContextImplEiPdiE3$_0EEvS3_iiiOT_iENKUlRS6_E_clIS9_EEDaS8_EUlvE_", ptr %0, align 8, !tbaa !60
   br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15ParallelSetZeroEPNS2_11ContextImplEiPdiE3$_0EEvS5_iiiOT_iENKUlRS8_E_clISB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -857,7 +857,7 @@ define internal fastcc void @"_ZZN5ceres8internal14ParallelInvokeIZNS0_15Paralle
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = atomicrmw add ptr %6, i32 1 seq_cst, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !64
+  %9 = load i32, ptr %8, align 8, !tbaa !62
   %.not = icmp slt i32 %7, %9
   br i1 %.not, label %10, label %120
 
@@ -1082,7 +1082,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %85, %82, %80
   br i1 %.not6.i.i.i.i.i.i, label %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15ParallelSetZeroEPNS0_11ContextImplEiPdiE3$_0EEviSt5tupleIJiiEEOT_.exit", label %.lr.ph.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %100
-  %112 = load ptr, ptr %99, align 8, !tbaa !65
+  %112 = load ptr, ptr %99, align 8, !tbaa !63
   %.val22 = load ptr, ptr %112, align 8, !tbaa !3
   %113 = getelementptr i8, ptr %.val22, i64 %110
   %114 = sub nsw i64 %111, %110
@@ -1094,7 +1094,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %85, %82, %80
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 20
   %117 = atomicrmw add ptr %116, i32 1 seq_cst, align 4
   %.not19 = icmp slt i32 %117, %13
-  br i1 %.not19, label %100, label %._crit_edge, !llvm.loop !66
+  br i1 %.not19, label %100, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15ParallelSetZeroEPNS0_11ContextImplEiPdiE3$_0EEviSt5tupleIJiiEEOT_.exit", %90
   %.0.lcssa = phi i32 [ 0, %90 ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_15ParallelSetZeroEPNS0_11ContextImplEiPdiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
@@ -1175,7 +1175,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN5ceres8inte
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_15ParallelSetZeroEPNS0_11ContextImplEiPdiE3$_0EEvS3_iiiOT_iENKUlRS6_E_clIKS9_EEDaS8_EUlvE_", ptr %0, align 8, !tbaa !62
+  store ptr @"_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_15ParallelSetZeroEPNS0_11ContextImplEiPdiE3$_0EEvS3_iiiOT_iENKUlRS6_E_clIKS9_EEDaS8_EUlvE_", ptr %0, align 8, !tbaa !60
   br label %"_ZNSt14_Function_base13_Base_managerIZZN5ceres8internal14ParallelInvokeIZNS2_15ParallelSetZeroEPNS2_11ContextImplEiPdiE3$_0EEvS5_iiiOT_iENKUlRS8_E_clIKSB_EEDaSA_EUlvE_E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -1422,12 +1422,9 @@ attributes #23 = { builtin nounwind }
 !55 = !{!36, !24, i64 0}
 !56 = !{!36, !24, i64 12}
 !57 = !{!36, !24, i64 16}
-!58 = distinct !{!58, !59}
-!59 = !{!"llvm.loop.estimated_trip_count"}
-!60 = !{!61, !13, i64 8}
-!61 = !{!"_ZTSSt9type_info", !13, i64 8}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
-!64 = !{!45, !24, i64 24}
-!65 = !{!45, !6, i64 32}
-!66 = distinct !{!66, !59}
+!58 = !{!59, !13, i64 8}
+!59 = !{!"_ZTSSt9type_info", !13, i64 8}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
+!62 = !{!45, !24, i64 24}
+!63 = !{!45, !6, i64 32}

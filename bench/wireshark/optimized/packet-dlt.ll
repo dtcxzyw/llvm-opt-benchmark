@@ -902,7 +902,7 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %25, %26
   %242 = add nuw i32 %.0171.i.i, 1
   %243 = load i32, ptr %16, align 4
   %244 = icmp ult i32 %242, %243
-  br i1 %244, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
+  br i1 %244, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
 
 ._crit_edge.i.i:                                  ; preds = %241, %.lr.ph175.i.i
   %.2.lcssa.i.i = phi i32 [ %217, %.lr.ph175.i.i ], [ %.3.i.i, %241 ]
@@ -926,7 +926,7 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %25, %26
   %257 = add nuw i32 %.0160173.i.i, 1
   %258 = load i32, ptr %15, align 4
   %259 = icmp ult i32 %257, %258
-  br i1 %259, label %.lr.ph175.i.i, label %.thread.i, !llvm.loop !10
+  br i1 %259, label %.lr.ph175.i.i, label %.thread.i, !llvm.loop !9
 
 .thread.i:                                        ; preds = %256, %199
   %260 = load i32, ptr @hf_dlt_service_reserved, align 4
@@ -1617,7 +1617,7 @@ expert_dlt_unsupported_string_coding.exit.i.i.i:  ; preds = %546, %545
 561:                                              ; preds = %560, %.split.us.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %566, label %.split.us.i.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i.i, label %566, label %.split.us.i.i.i.i, !llvm.loop !10
 
 562:                                              ; preds = %549
   br i1 %.not.i57.i.i.i, label %.thread88.i.i.i, label %563
@@ -1745,7 +1745,7 @@ expert_dlt_buffer_too_short.exit58.i.i.i:         ; preds = %609, %608
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %619, i32 noundef 25, ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.241, i32 noundef %622)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %616
-  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %612
   %623 = icmp ne ptr %614, null
@@ -1792,7 +1792,7 @@ dissect_dlt_verbose_parameter.exit.i:             ; preds = %dissect_dlt_verbose
   %637 = icmp ugt i32 %.0.i.i, 4
   %638 = icmp samesign ult i32 %636, %306
   %639 = select i1 %637, i1 %638, i1 false
-  br i1 %639, label %308, label %dissect_dlt_verbose_payload.exit, !llvm.loop !14
+  br i1 %639, label %308, label %dissect_dlt_verbose_payload.exit, !llvm.loop !13
 
 dissect_dlt_verbose_payload.exit:                 ; preds = %dissect_dlt_verbose_parameter.exit.i, %305
   %.013.lcssa.i = phi i32 [ %.3, %305 ], [ %635, %dissect_dlt_verbose_parameter.exit.i ]
@@ -1957,12 +1957,11 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

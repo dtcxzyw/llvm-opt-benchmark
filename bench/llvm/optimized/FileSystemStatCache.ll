@@ -535,9 +535,9 @@ declare void @llvm.trap() #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !32
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !34
+  %5 = load i32, ptr %4, align 8, !tbaa !33
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
@@ -546,7 +546,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.07.i = phi ptr [ %17, %.lr.ph.i ], [ %3, %1 ]
-  %8 = load ptr, ptr %2, align 8, !tbaa !32
+  %8 = load ptr, ptr %2, align 8, !tbaa !31
   %9 = ptrtoint ptr %.07.i to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -556,17 +556,17 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   %14 = tail call i32 @llvm.umin.i32(i32 %13, i32 30)
   %.sroa.speculated.i.i = zext nneg i32 %14 to i64
   %15 = shl nuw nsw i64 4096, %.sroa.speculated.i.i
-  %16 = load ptr, ptr %.07.i, align 8, !tbaa !35
+  %16 = load ptr, ptr %.07.i, align 8, !tbaa !34
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %16, i64 noundef %15, i64 noundef 16) #15
   %17 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %.not.i = icmp eq ptr %17, %7
-  br i1 %.not.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %.not.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i, !llvm.loop !35
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit: ; preds = %.lr.ph.i, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %19 = load ptr, ptr %18, align 8, !tbaa !31
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %21 = load i32, ptr %20, align 8, !tbaa !34
+  %21 = load i32, ptr %20, align 8, !tbaa !33
   %22 = zext i32 %21 to i64
   %.idx.i = shl nuw nsw i64 %22, 4
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
@@ -575,16 +575,16 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
 
 .lr.ph.i1:                                        ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, %.lr.ph.i1
   %.011.i = phi ptr [ %27, %.lr.ph.i1 ], [ %19, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit ]
-  %24 = load ptr, ptr %.011.i, align 8, !tbaa !37
+  %24 = load ptr, ptr %.011.i, align 8, !tbaa !36
   %25 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !39
+  %26 = load i64, ptr %25, align 8, !tbaa !38
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %24, i64 noundef %26, i64 noundef 16) #15
   %27 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %.not.i2 = icmp eq ptr %27, %23
-  br i1 %.not.i2, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.loopexit, label %.lr.ph.i1, !llvm.loop !40
+  br i1 %.not.i2, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.loopexit, label %.lr.ph.i1
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.loopexit: ; preds = %.lr.ph.i1
-  %.pre = load ptr, ptr %18, align 8, !tbaa !32
+  %.pre = load ptr, ptr %18, align 8, !tbaa !31
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit: ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.loopexit, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit
@@ -598,7 +598,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26Deall
   br label %_ZN4llvm11SmallVectorISt4pairIPvmELj0EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt4pairIPvmELj0EED2Ev.exit: ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit, %31
-  %32 = load ptr, ptr %2, align 8, !tbaa !32
+  %32 = load ptr, ptr %2, align 8, !tbaa !31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = icmp eq ptr %32, %33
   br i1 %34, label %_ZN4llvm11SmallVectorIPvLj4EED2Ev.exit, label %35
@@ -644,38 +644,38 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINS_3vfs6StatusENS_20B
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 8
   %.pre = load ptr, ptr %11, align 8, !tbaa !21
-  br label %.preheader.i.i, !llvm.loop !41
+  br label %.preheader.i.i, !llvm.loop !39
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !42
+  %14 = load i32, ptr %13, align 8, !tbaa !40
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8, !tbaa !42
+  store i32 %15, ptr %13, align 8, !tbaa !40
   br label %16
 
 16:                                               ; preds = %4, %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = add i64 %2, 97
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %20 = load i64, ptr %19, align 8, !tbaa !43
+  %20 = load i64, ptr %19, align 8, !tbaa !41
   %21 = add i64 %20, %18
-  store i64 %21, ptr %19, align 8, !tbaa !43
-  %22 = load ptr, ptr %17, align 8, !tbaa !54
+  store i64 %21, ptr %19, align 8, !tbaa !41
+  %22 = load ptr, ptr %17, align 8, !tbaa !52
   %23 = ptrtoint ptr %22 to i64
   %24 = add i64 %23, 7
   %25 = and i64 %24, -8
   %26 = add i64 %25, %18
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !55
+  %28 = load ptr, ptr %27, align 8, !tbaa !53
   %29 = ptrtoint ptr %28 to i64
   %.not.i.i.i.i = icmp ule i64 %26, %29
   %30 = icmp ne ptr %22, null
   %31 = and i1 %30, %.not.i.i.i.i
-  br i1 %31, label %32, label %35, !prof !56
+  br i1 %31, label %32, label %35, !prof !54
 
 32:                                               ; preds = %16
   %33 = inttoptr i64 %26 to ptr
-  store ptr %33, ptr %17, align 8, !tbaa !54
+  store ptr %33, ptr %17, align 8, !tbaa !52
   %34 = inttoptr i64 %25 to ptr
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i
 
@@ -696,11 +696,11 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 _ZN4llvm14StringMapEntryINS_3vfs6StatusEE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJEEEPS3_NS_9StringRefERT_DpOT0_.exit: ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i, %38
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 %2
   store i8 0, ptr %39, align 1, !tbaa !11
-  store i64 %2, ptr %.0.i.i.i.i, align 8, !tbaa !57
+  store i64 %2, ptr %.0.i.i.i.i, align 8, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %41, i8 0, i64 72, i1 false)
-  store ptr %41, ptr %40, align 8, !tbaa !59
+  store ptr %41, ptr %40, align 8, !tbaa !57
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   store i64 0, ptr %42, align 8, !tbaa !18
   store ptr %.0.i.i.i.i, ptr %8, align 8, !tbaa !21
@@ -725,7 +725,7 @@ _ZN4llvm14StringMapEntryINS_3vfs6StatusEE6createINS_20BumpPtrAllocatorImplINS_15
 
 .critedge.i.i.i25:                                ; preds = %.preheader.i.i23, %.preheader.i.i23
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  br label %.preheader.i.i23, !llvm.loop !41
+  br label %.preheader.i.i23, !llvm.loop !39
 
 _ZN4llvm17StringMapIteratorINS_3vfs6StatusEEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i23, %.preheader.i.i
   %.sroa.030.0.pn = phi ptr [ %.sroa.030.0, %.preheader.i.i ], [ %.sroa.0.0, %.preheader.i.i23 ]
@@ -754,31 +754,31 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   %11 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %8, i64 noundef 16) #15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %14 = load i32, ptr %13, align 8, !tbaa !34
+  %14 = load i32, ptr %13, align 8, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %16 = load i32, ptr %15, align 4, !tbaa !60
+  %16 = load i32, ptr %15, align 4, !tbaa !58
   %.not.i.i.not.i = icmp ult i32 %14, %16
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit, label %17, !prof !56
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit, label %17, !prof !54
 
 17:                                               ; preds = %10
   %18 = zext i32 %14 to i64
   %19 = add nuw nsw i64 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, i64 noundef %19, i64 noundef 16) #15
-  %.pre.i = load i32, ptr %13, align 8, !tbaa !34
+  %.pre.i = load i32, ptr %13, align 8, !tbaa !33
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds = %10, %17
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
-  %22 = load ptr, ptr %12, align 8, !tbaa !32
+  %22 = load ptr, ptr %12, align 8, !tbaa !31
   %23 = zext i32 %21 to i64
   %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %25 = load i32, ptr %13, align 8, !tbaa !34
+  %25 = load i32, ptr %13, align 8, !tbaa !33
   %26 = add i32 %25, 1
-  store i32 %26, ptr %13, align 8, !tbaa !34
+  store i32 %26, ptr %13, align 8, !tbaa !33
   %27 = ptrtoint ptr %11 to i64
   %28 = add i64 %7, %27
   %29 = sub i64 0, %6
@@ -789,45 +789,45 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
 32:                                               ; preds = %4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !34
+  %35 = load i32, ptr %34, align 8, !tbaa !33
   %36 = lshr i32 %35, 7
   %37 = tail call i32 @llvm.umin.i32(i32 %36, i32 30)
   %.sroa.speculated.i.i = zext nneg i32 %37 to i64
   %38 = shl nuw nsw i64 4096, %.sroa.speculated.i.i
   %39 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %38, i64 noundef 16) #15
-  %40 = load i32, ptr %34, align 8, !tbaa !34
+  %40 = load i32, ptr %34, align 8, !tbaa !33
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %42 = load i32, ptr %41, align 4, !tbaa !60
+  %42 = load i32, ptr %41, align 4, !tbaa !58
   %.not.i.i.not.i.i = icmp ult i32 %40, %42
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, label %43, !prof !56
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, label %43, !prof !54
 
 43:                                               ; preds = %32
   %44 = zext i32 %40 to i64
   %45 = add nuw nsw i64 %44, 1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %46, i64 noundef %45, i64 noundef 8) #15
-  %.pre.i.i = load i32, ptr %34, align 8, !tbaa !34
+  %.pre.i.i = load i32, ptr %34, align 8, !tbaa !33
   br label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit: ; preds = %32, %43
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
-  %48 = load ptr, ptr %33, align 8, !tbaa !32
+  %48 = load ptr, ptr %33, align 8, !tbaa !31
   %49 = zext i32 %47 to i64
   %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
-  %52 = load i32, ptr %34, align 8, !tbaa !34
+  %52 = load i32, ptr %34, align 8, !tbaa !33
   %53 = add i32 %52, 1
-  store i32 %53, ptr %34, align 8, !tbaa !34
+  store i32 %53, ptr %34, align 8, !tbaa !33
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 %38
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !55
+  store ptr %54, ptr %55, align 8, !tbaa !53
   %56 = add i64 %7, %51
   %57 = sub i64 0, %6
   %58 = and i64 %56, %57
   %59 = inttoptr i64 %58 to ptr
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %2
-  store ptr %60, ptr %0, align 8, !tbaa !54
+  store ptr %60, ptr %0, align 8, !tbaa !52
   br label %61
 
 61:                                               ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
@@ -898,35 +898,33 @@ attributes #17 = { noreturn nounwind }
 !26 = !{!"int", !8, i64 0}
 !27 = !{!24, !26, i64 8}
 !28 = !{!24, !25, i64 0}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!33, !16, i64 0}
-!33 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !16, i64 0, !26, i64 8, !26, i64 12}
-!34 = !{!33, !26, i64 8}
-!35 = !{!16, !16, i64 0}
-!36 = distinct !{!36, !30, !31}
-!37 = !{!38, !16, i64 0}
-!38 = !{!"_ZTSSt4pairIPvmE", !16, i64 0, !17, i64 8}
-!39 = !{!38, !17, i64 8}
-!40 = distinct !{!40, !31}
-!41 = distinct !{!41, !30, !31}
-!42 = !{!24, !26, i64 16}
-!43 = !{!44, !17, i64 80}
-!44 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !15, i64 0, !15, i64 8, !45, i64 16, !50, i64 64, !17, i64 80, !17, i64 88}
-!45 = !{!"_ZTSN4llvm11SmallVectorIPvLj4EEE", !46, i64 0, !49, i64 16}
-!46 = !{!"_ZTSN4llvm15SmallVectorImplIPvEE", !47, i64 0}
-!47 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPvLb1EEE", !48, i64 0}
-!48 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPvvEE", !33, i64 0}
-!49 = !{!"_ZTSN4llvm18SmallVectorStorageIPvLj4EEE", !8, i64 0}
-!50 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPvmELj0EEE", !51, i64 0}
-!51 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPvmEEE", !52, i64 0}
-!52 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EEE", !53, i64 0}
-!53 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPvmEvEE", !33, i64 0}
-!54 = !{!44, !15, i64 0}
-!55 = !{!44, !15, i64 8}
-!56 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!57 = !{!58, !17, i64 0}
-!58 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !17, i64 0}
-!59 = !{!14, !15, i64 0}
-!60 = !{!33, !26, i64 12}
+!31 = !{!32, !16, i64 0}
+!32 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !16, i64 0, !26, i64 8, !26, i64 12}
+!33 = !{!32, !26, i64 8}
+!34 = !{!16, !16, i64 0}
+!35 = distinct !{!35, !30}
+!36 = !{!37, !16, i64 0}
+!37 = !{!"_ZTSSt4pairIPvmE", !16, i64 0, !17, i64 8}
+!38 = !{!37, !17, i64 8}
+!39 = distinct !{!39, !30}
+!40 = !{!24, !26, i64 16}
+!41 = !{!42, !17, i64 80}
+!42 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !15, i64 0, !15, i64 8, !43, i64 16, !48, i64 64, !17, i64 80, !17, i64 88}
+!43 = !{!"_ZTSN4llvm11SmallVectorIPvLj4EEE", !44, i64 0, !47, i64 16}
+!44 = !{!"_ZTSN4llvm15SmallVectorImplIPvEE", !45, i64 0}
+!45 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPvLb1EEE", !46, i64 0}
+!46 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPvvEE", !32, i64 0}
+!47 = !{!"_ZTSN4llvm18SmallVectorStorageIPvLj4EEE", !8, i64 0}
+!48 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPvmELj0EEE", !49, i64 0}
+!49 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPvmEEE", !50, i64 0}
+!50 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EEE", !51, i64 0}
+!51 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPvmEvEE", !32, i64 0}
+!52 = !{!42, !15, i64 0}
+!53 = !{!42, !15, i64 8}
+!54 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!55 = !{!56, !17, i64 0}
+!56 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !17, i64 0}
+!57 = !{!14, !15, i64 0}
+!58 = !{!32, !26, i64 12}

@@ -741,7 +741,7 @@ define internal i32 @dissect_6lowpan(ptr noundef %0, ptr noundef %1, ptr noundef
   %43 = load i8, ptr %42, align 1
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 7
   store i8 %43, ptr %44, align 1
-  %45 = load i8, ptr @iid_has_universal_local_bit, align 1, !range !13, !noundef !14
+  %45 = load i8, ptr @iid_has_universal_local_bit, align 1, !range !12, !noundef !13
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %lowpan_dlsrc_to_ifcid.exit
 
@@ -762,7 +762,7 @@ define internal i32 @dissect_6lowpan(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not.i, label %88, label %54
 
 54:                                               ; preds = %50
-  %55 = load i8, ptr @rfc4944_short_address_format, align 1, !range !13, !noundef !14
+  %55 = load i8, ptr @rfc4944_short_address_format, align 1, !range !12, !noundef !13
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %75
 
@@ -873,7 +873,7 @@ lowpan_dlsrc_to_ifcid.exit:                       ; preds = %17, %26, %47, %49, 
   %117 = load i8, ptr %116, align 1
   %118 = getelementptr inbounds nuw i8, ptr %14, i64 7
   store i8 %117, ptr %118, align 1
-  %119 = load i8, ptr @iid_has_universal_local_bit, align 1, !range !13, !noundef !14
+  %119 = load i8, ptr @iid_has_universal_local_bit, align 1, !range !12, !noundef !13
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %121, label %lowpan_dldst_to_ifcid.exit
 
@@ -894,7 +894,7 @@ lowpan_dlsrc_to_ifcid.exit:                       ; preds = %17, %26, %47, %49, 
   br i1 %.not.i91, label %162, label %128
 
 128:                                              ; preds = %124
-  %129 = load i8, ptr @rfc4944_short_address_format, align 1, !range !13, !noundef !14
+  %129 = load i8, ptr @rfc4944_short_address_format, align 1, !range !12, !noundef !13
   %130 = trunc nuw i8 %129 to i1
   br i1 %130, label %131, label %149
 
@@ -1038,7 +1038,7 @@ lowpan_dldst_to_ifcid.exit:                       ; preds = %91, %100, %121, %12
   %221 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.209)
   %222 = call ptr @p_get_proto_data(ptr noundef %220, ptr noundef %1, i32 noundef %221, i32 noundef 0)
   %223 = icmp ne ptr %222, null
-  %224 = load i8, ptr @rfc4944_short_address_format, align 1, !range !13
+  %224 = load i8, ptr @rfc4944_short_address_format, align 1, !range !12
   %225 = trunc nuw i8 %224 to i1
   %or.cond.i = select i1 %223, i1 %225, i1 false
   br i1 %or.cond.i, label %226, label %232
@@ -1136,7 +1136,7 @@ lowpan_dldst_to_ifcid.exit:                       ; preds = %91, %100, %121, %12
   %275 = call i32 @proto_get_id_by_filter_name(ptr noundef nonnull @.str.209)
   %276 = call ptr @p_get_proto_data(ptr noundef %274, ptr noundef %1, i32 noundef %275, i32 noundef 0)
   %277 = icmp ne ptr %276, null
-  %278 = load i8, ptr @rfc4944_short_address_format, align 1, !range !13
+  %278 = load i8, ptr @rfc4944_short_address_format, align 1, !range !12
   %279 = trunc nuw i8 %278 to i1
   %or.cond3.i = select i1 %277, i1 %279, i1 false
   br i1 %or.cond3.i, label %280, label %286
@@ -1262,7 +1262,7 @@ dissect_6lowpan_mesh.exit:                        ; preds = %251, %286
 
 346:                                              ; preds = %344, %322
   %347 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %348 = load i8, ptr %347, align 8, !range !13, !noundef !14
+  %348 = load i8, ptr %347, align 8, !range !12, !noundef !13
   store i8 1, ptr %347, align 8
   %349 = load i32, ptr %9, align 4
   %350 = and i32 %349, 65535
@@ -1294,7 +1294,7 @@ dissect_6lowpan_mesh.exit:                        ; preds = %251, %286
   %365 = xor i32 %364, %363
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %lowpan_reassembly_id.exit.i, label %.lr.ph.i.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i, label %lowpan_reassembly_id.exit.i, label %.lr.ph.i.i.i, !llvm.loop !14
 
 366:                                              ; preds = %346
   %367 = call ptr @wmem_file_scope()
@@ -1403,7 +1403,7 @@ dissect_6lowpan_rfrag.exit:                       ; preds = %385
   %426 = call i32 @tvb_captured_length(ptr noundef nonnull %423)
   call void @tvb_set_reported_length(ptr noundef nonnull %423, i32 noundef %426)
   %427 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %428 = load i8, ptr %427, align 8, !range !13, !noundef !14
+  %428 = load i8, ptr %427, align 8, !range !12, !noundef !13
   store i8 1, ptr %427, align 8
   %429 = load i32, ptr %89, align 8
   %430 = icmp eq i32 %429, 8
@@ -1433,7 +1433,7 @@ dissect_6lowpan_rfrag.exit:                       ; preds = %385
   %443 = xor i32 %442, %441
   %indvars.iv.next.i.i.i106 = add nuw nsw i64 %indvars.iv.i.i.i104, 1
   %exitcond.not.i.i.i107 = icmp eq i64 %indvars.iv.next.i.i.i106, %wide.trip.count.i.i.i102
-  br i1 %exitcond.not.i.i.i107, label %lowpan_reassembly_id.exit.i97, label %.lr.ph.i.i.i103, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i107, label %lowpan_reassembly_id.exit.i97, label %.lr.ph.i.i.i103, !llvm.loop !14
 
 444:                                              ; preds = %425
   %445 = call ptr @wmem_file_scope()
@@ -1497,7 +1497,7 @@ dissect_6lowpan_frag_first.exit:                  ; preds = %408, %lowpan_reasse
   %482 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %482, ptr noundef %.2, i32 noundef 5)
   %483 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %484 = load i8, ptr %483, align 8, !range !13, !noundef !14
+  %484 = load i8, ptr %483, align 8, !range !12, !noundef !13
   store i8 1, ptr %483, align 8
   %485 = load i32, ptr %89, align 8
   %486 = icmp eq i32 %485, 8
@@ -1527,7 +1527,7 @@ dissect_6lowpan_frag_first.exit:                  ; preds = %408, %lowpan_reasse
   %499 = xor i32 %498, %497
   %indvars.iv.next.i.i.i117 = add nuw nsw i64 %indvars.iv.i.i.i115, 1
   %exitcond.not.i.i.i118 = icmp eq i64 %indvars.iv.next.i.i.i117, %wide.trip.count.i.i.i113
-  br i1 %exitcond.not.i.i.i118, label %lowpan_reassembly_id.exit.i109, label %.lr.ph.i.i.i114, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i118, label %lowpan_reassembly_id.exit.i109, label %.lr.ph.i.i.i114, !llvm.loop !14
 
 500:                                              ; preds = %463
   %501 = call ptr @wmem_file_scope()
@@ -1644,7 +1644,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %566 = add i32 %.2237.i, 4
   %567 = add nuw nsw i32 %.0192238.i, 1
   %exitcond272.not.i = icmp eq i32 %567, %562
-  br i1 %exitcond272.not.i, label %select.unfold.i, label %563, !llvm.loop !16
+  br i1 %exitcond272.not.i, label %select.unfold.i, label %563, !llvm.loop !15
 
 568:                                              ; preds = %553
   %569 = icmp eq i16 %550, 6
@@ -1680,7 +1680,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   store i8 %586, ptr %587, align 1
   %indvars.iv.next269.i = add nuw nsw i64 %indvars.iv268.i, 1
   %exitcond271.not.i = icmp eq i64 %indvars.iv.next269.i, 16
-  br i1 %exitcond271.not.i, label %580, label %583, !llvm.loop !17
+  br i1 %exitcond271.not.i, label %580, label %583, !llvm.loop !16
 
 588:                                              ; preds = %580, %570
   %589 = add i32 %545, %576
@@ -1763,7 +1763,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %631 = add i32 %.4234.i, 1
   %632 = add nuw nsw i32 %.0190235.i, 1
   %exitcond267.not.i = icmp eq i32 %632, %627
-  br i1 %exitcond267.not.i, label %select.unfold.i, label %.critedge.i, !llvm.loop !18
+  br i1 %exitcond267.not.i, label %select.unfold.i, label %.critedge.i, !llvm.loop !17
 
 .preheader.i:                                     ; preds = %621, %633
   %.0188233.i = phi i32 [ %637, %633 ], [ 0, %621 ]
@@ -1776,7 +1776,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %636 = call ptr @proto_tree_add_ipv6(ptr noundef %166, i32 noundef %634, ptr noundef %.2, i32 noundef %635, i32 noundef 2, ptr noundef nonnull %534)
   %637 = add nuw nsw i32 %.0188233.i, 1
   %exitcond266.not.i = icmp eq i32 %637, %627
-  br i1 %exitcond266.not.i, label %select.unfold.i, label %.preheader.i, !llvm.loop !19
+  br i1 %exitcond266.not.i, label %select.unfold.i, label %.preheader.i, !llvm.loop !18
 
 638:                                              ; preds = %638, %.preheader.i
   %639 = phi i1 [ true, %.preheader.i ], [ false, %638 ]
@@ -1786,7 +1786,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %641 = getelementptr [16 x i8], ptr %534, i64 0, i64 %indvars.iv263.i
   store i8 %640, ptr %641, align 1
   %642 = add i32 %.6230.i, 1
-  br i1 %639, label %638, label %633, !llvm.loop !20
+  br i1 %639, label %638, label %633, !llvm.loop !19
 
 .preheader201.i:                                  ; preds = %621, %643
   %.0186229.i = phi i32 [ %647, %643 ], [ 0, %621 ]
@@ -1799,7 +1799,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %646 = call ptr @proto_tree_add_ipv6(ptr noundef %166, i32 noundef %644, ptr noundef %.2, i32 noundef %645, i32 noundef 4, ptr noundef nonnull %534)
   %647 = add nuw nsw i32 %.0186229.i, 1
   %exitcond262.not.i = icmp eq i32 %647, %627
-  br i1 %exitcond262.not.i, label %select.unfold.i, label %.preheader201.i, !llvm.loop !21
+  br i1 %exitcond262.not.i, label %select.unfold.i, label %.preheader201.i, !llvm.loop !20
 
 648:                                              ; preds = %648, %.preheader201.i
   %indvars.iv258.i = phi i64 [ 0, %.preheader201.i ], [ %indvars.iv.next259.i, %648 ]
@@ -1811,7 +1811,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %652 = add i32 %.8226.i, 1
   %indvars.iv.next259.i = add nuw nsw i64 %indvars.iv258.i, 1
   %exitcond261.not.i = icmp eq i64 %indvars.iv.next259.i, 4
-  br i1 %exitcond261.not.i, label %643, label %648, !llvm.loop !22
+  br i1 %exitcond261.not.i, label %643, label %648, !llvm.loop !21
 
 .preheader202.i:                                  ; preds = %621, %653
   %.0184225.i = phi i32 [ %657, %653 ], [ 0, %621 ]
@@ -1824,7 +1824,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %656 = call ptr @proto_tree_add_ipv6(ptr noundef %166, i32 noundef %654, ptr noundef %.2, i32 noundef %655, i32 noundef 8, ptr noundef nonnull %534)
   %657 = add nuw nsw i32 %.0184225.i, 1
   %exitcond257.not.i = icmp eq i32 %657, %627
-  br i1 %exitcond257.not.i, label %select.unfold.i, label %.preheader202.i, !llvm.loop !23
+  br i1 %exitcond257.not.i, label %select.unfold.i, label %.preheader202.i, !llvm.loop !22
 
 658:                                              ; preds = %658, %.preheader202.i
   %indvars.iv253.i = phi i64 [ 0, %.preheader202.i ], [ %indvars.iv.next254.i, %658 ]
@@ -1836,7 +1836,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %662 = add i32 %.10222.i, 1
   %indvars.iv.next254.i = add nuw nsw i64 %indvars.iv253.i, 1
   %exitcond256.not.i = icmp eq i64 %indvars.iv.next254.i, 8
-  br i1 %exitcond256.not.i, label %653, label %658, !llvm.loop !24
+  br i1 %exitcond256.not.i, label %653, label %658, !llvm.loop !23
 
 .preheader203.i:                                  ; preds = %621, %663
   %.0182221.i = phi i32 [ %667, %663 ], [ 0, %621 ]
@@ -1849,7 +1849,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %666 = call ptr @proto_tree_add_ipv6(ptr noundef %166, i32 noundef %664, ptr noundef %.2, i32 noundef %665, i32 noundef 16, ptr noundef nonnull %534)
   %667 = add nuw nsw i32 %.0182221.i, 1
   %exitcond252.not.i = icmp eq i32 %667, %627
-  br i1 %exitcond252.not.i, label %select.unfold.i, label %.preheader203.i, !llvm.loop !25
+  br i1 %exitcond252.not.i, label %select.unfold.i, label %.preheader203.i, !llvm.loop !24
 
 668:                                              ; preds = %668, %.preheader203.i
   %indvars.iv.i = phi i64 [ 0, %.preheader203.i ], [ %indvars.iv.next.i, %668 ]
@@ -1860,7 +1860,7 @@ dissect_6lowpan_frag_middle.exit:                 ; preds = %lowpan_reassembly_i
   %671 = add i32 %.12218.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %663, label %668, !llvm.loop !26
+  br i1 %exitcond.not.i, label %663, label %668, !llvm.loop !25
 
 default.unreachable:                              ; preds = %592
   unreachable
@@ -2017,7 +2017,7 @@ define internal void @prefs_6lowpan_apply() #0 {
 22:                                               ; preds = %16, %14, %11, %7, %4, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %23, label %4, !llvm.loop !27
+  br i1 %exitcond.not, label %23, label %4, !llvm.loop !26
 
 23:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #13
@@ -2096,7 +2096,7 @@ define internal noundef zeroext i1 @dissect_6lowpan_heur(ptr noundef %0, ptr nou
   %.034.be = phi i32 [ %16, %15 ], [ %spec.select, %24 ], [ %47, %46 ]
   %17 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.034.be)
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 18:                                               ; preds = %12
   %19 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %6, i32 noundef 3)
@@ -2435,7 +2435,7 @@ proto_item_set_generated.exit:                    ; preds = %116, %113, %108, %.
   %135 = or i32 %133, %134
   %136 = or i32 %135, %.0358
   %137 = or i32 %136, 1610612736
-  %138 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %137) #16, !srcloc !29
+  %138 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %137) #16, !srcloc !27
   store i32 %138, ptr %9, align 4
   %139 = lshr i32 %.3, 3
   %140 = and i32 %24, 1024
@@ -2543,7 +2543,7 @@ default.unreachable:                              ; preds = %319, %250, %169, %1
   %187 = load i8, ptr %186, align 4
   %188 = zext i8 %187 to i64
   %189 = lshr i64 %188, 3
-  %190 = call ptr @__memcpy_chk(ptr noundef nonnull %167, ptr noundef nonnull readonly %185, i64 noundef range(i64 0, 4294967296) %189, i64 noundef 32) #13, !alias.scope !30
+  %190 = call ptr @__memcpy_chk(ptr noundef nonnull %167, ptr noundef nonnull readonly %185, i64 noundef range(i64 0, 4294967296) %189, i64 noundef 32) #13, !alias.scope !28
   %191 = and i64 %188, 7
   %.not.i408 = icmp eq i64 %191, 0
   br i1 %.not.i408, label %lowpan_pfxcpy.exit, label %192
@@ -2586,7 +2586,7 @@ lowpan_pfxcpy.exit:                               ; preds = %184, %192
   br label %proto_item_set_generated.exit411
 
 proto_item_set_generated.exit411:                 ; preds = %211, %208, %lowpan_pfxcpy.exit
-  %215 = load i8, ptr @ipv6_summary_in_tree, align 1, !range !13, !noundef !14
+  %215 = load i8, ptr @ipv6_summary_in_tree, align 1, !range !12, !noundef !13
   %216 = trunc nuw i8 %215 to i1
   br i1 %216, label %217, label %224
 
@@ -2825,7 +2825,7 @@ proto_item_set_generated.exit417:                 ; preds = %243, %240, %237, %p
   %337 = load i8, ptr %336, align 4
   %338 = zext i8 %337 to i64
   %339 = lshr i64 %338, 3
-  %340 = call ptr @__memcpy_chk(ptr noundef nonnull %248, ptr noundef nonnull readonly %335, i64 noundef range(i64 0, 4294967296) %339, i64 noundef 16) #13, !alias.scope !34
+  %340 = call ptr @__memcpy_chk(ptr noundef nonnull %248, ptr noundef nonnull readonly %335, i64 noundef range(i64 0, 4294967296) %339, i64 noundef 16) #13, !alias.scope !32
   %341 = and i64 %338, 7
   %.not.i418 = icmp eq i64 %341, 0
   br i1 %.not.i418, label %357, label %342
@@ -2879,7 +2879,7 @@ proto_item_set_generated.exit422:                 ; preds = %365, %362, %361, %.
   %.0351439 = phi ptr [ %5, %.thread433 ], [ %358, %357 ], [ %358, %361 ], [ %358, %362 ], [ %358, %365 ]
   %.1356438 = phi i32 [ %.1356.ph, %.thread433 ], [ %.2357, %357 ], [ 0, %361 ], [ 0, %362 ], [ 0, %365 ]
   %.0361437 = phi ptr [ %.0.i403, %.thread433 ], [ %.1362, %357 ], [ %.1362, %361 ], [ %.1362, %362 ], [ %.1362, %365 ]
-  %369 = load i8, ptr @ipv6_summary_in_tree, align 1, !range !13, !noundef !14
+  %369 = load i8, ptr @ipv6_summary_in_tree, align 1, !range !12, !noundef !13
   %370 = trunc nuw i8 %369 to i1
   br i1 %370, label %371, label %378
 
@@ -3095,7 +3095,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = add nuw nsw i32 %.0215266, 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit264, label %.preheader263, !llvm.loop !38
+  br i1 %exitcond.not, label %.loopexit264, label %.preheader263, !llvm.loop !36
 
 45:                                               ; preds = %33
   store i64 33022, ptr %41, align 4
@@ -3120,7 +3120,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noun
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %51 = add nuw nsw i32 %.2268, 8
   %exitcond284.not = icmp eq i64 %indvars.iv.next282, 16
-  br i1 %exitcond284.not, label %.loopexit262, label %48, !llvm.loop !39
+  br i1 %exitcond284.not, label %.loopexit262, label %48, !llvm.loop !37
 
 52:                                               ; preds = %.loopexit264
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -3151,7 +3151,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noun
   %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
   %66 = add nuw nsw i32 %.4270, 8
   %exitcond288.not = icmp eq i64 %indvars.iv.next286, 8
-  br i1 %exitcond288.not, label %.loopexit260, label %.preheader259, !llvm.loop !40
+  br i1 %exitcond288.not, label %.loopexit260, label %.preheader259, !llvm.loop !38
 
 67:                                               ; preds = %.loopexit262
   store i64 33022, ptr %63, align 4
@@ -3176,7 +3176,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noun
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %73 = add nuw nsw i32 %.6272, 8
   %exitcond292.not = icmp eq i64 %indvars.iv.next290, 16
-  br i1 %exitcond292.not, label %.loopexit, label %70, !llvm.loop !41
+  br i1 %exitcond292.not, label %.loopexit, label %70, !llvm.loop !39
 
 74:                                               ; preds = %.loopexit260
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -3225,7 +3225,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noun
 106:                                              ; preds = %.loopexit, %86
   %.8 = phi i32 [ %.7, %.loopexit ], [ %102, %86 ]
   %107 = phi i32 [ 1610612736, %.loopexit ], [ %105, %86 ]
-  %108 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %107) #16, !srcloc !42
+  %108 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %107) #16, !srcloc !40
   store i32 %108, ptr %8, align 4
   switch i8 %17, label %default.unreachable [
     i8 1, label %127
@@ -3406,7 +3406,7 @@ default.unreachable:                              ; preds = %106
   %215 = select i1 %214, i64 0, i64 %213
   %216 = icmp ne i64 %215, -1
   call void @llvm.assume(i1 %216)
-  %217 = call ptr @__memcpy_chk(ptr noundef %212, ptr noundef nonnull %9, i64 noundef 8, i64 noundef %215) #13, !alias.scope !43
+  %217 = call ptr @__memcpy_chk(ptr noundef %212, ptr noundef nonnull %9, i64 noundef 8, i64 noundef %215) #13, !alias.scope !41
   %218 = getelementptr i8, ptr %206, i64 32
   %219 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %218, i32 noundef %200, i64 noundef %204)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
@@ -3857,7 +3857,7 @@ lowpan_parse_nhc_proto.exit307:                   ; preds = %switch.lookup311, %
   %121 = getelementptr i8, ptr %103, i64 24
   %122 = zext nneg i8 %.0291 to i64
   %123 = zext nneg i32 %.0288 to i64
-  %124 = call ptr @__memcpy_chk(ptr noundef %121, ptr noundef nonnull %9, i64 noundef range(i64 0, 4294967296) %122, i64 noundef %123) #13, !alias.scope !47
+  %124 = call ptr @__memcpy_chk(ptr noundef %121, ptr noundef nonnull %9, i64 noundef range(i64 0, 4294967296) %122, i64 noundef %123) #13, !alias.scope !45
   %125 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.1286, i32 noundef %.pre309)
   br i1 %125, label %136, label %126
 
@@ -4136,7 +4136,7 @@ default.unreachable310:                           ; preds = %198
   %286 = select i1 %285, i64 0, i64 %284
   %287 = icmp ne i64 %286, -1
   call void @llvm.assume(i1 %287)
-  %288 = call ptr @__memcpy_chk(ptr noundef %283, ptr noundef nonnull %10, i64 noundef 8, i64 noundef %286) #13, !alias.scope !51
+  %288 = call ptr @__memcpy_chk(ptr noundef %283, ptr noundef nonnull %10, i64 noundef 8, i64 noundef %286) #13, !alias.scope !49
   %289 = getelementptr i8, ptr %276, i64 32
   %290 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2287)
   %291 = sext i32 %290 to i64
@@ -4170,7 +4170,7 @@ define internal fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef r
   %10 = add i32 %9, %.02831
   %11 = load ptr, ptr %.033, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !55
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !53
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = add i32 %7, 40
@@ -4189,7 +4189,7 @@ define internal fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef r
   %17 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef %16) #15
   %18 = icmp ne i32 %.027.lcssa, -1
   tail call void @llvm.assume(i1 %18)
-  %19 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef %2, i64 noundef 40, i64 noundef %16) #13, !alias.scope !56
+  %19 = tail call ptr @__memcpy_chk(ptr noundef %17, ptr noundef %2, i64 noundef 40, i64 noundef %16) #13, !alias.scope !54
   br i1 %.not30, label %._crit_edge40, label %.lr.ph39.preheader
 
 .lr.ph39.preheader:                               ; preds = %._crit_edge
@@ -4207,14 +4207,14 @@ define internal fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef r
   %26 = tail call i64 @llvm.usub.sat.i64(i64 %16, i64 %21)
   %27 = icmp ne i64 %26, -1
   tail call void @llvm.assume(i1 %27)
-  %28 = tail call ptr @__memcpy_chk(ptr noundef %.02636, ptr noundef %22, i64 noundef range(i64 0, 4294967296) %25, i64 noundef %26) #13, !alias.scope !60
+  %28 = tail call ptr @__memcpy_chk(ptr noundef %.02636, ptr noundef %22, i64 noundef range(i64 0, 4294967296) %25, i64 noundef %26) #13, !alias.scope !58
   %29 = load i32, ptr %23, align 4
   %30 = zext i32 %29 to i64
   %31 = add i64 %21, %30
   %32 = getelementptr i8, ptr %.02636, i64 %30
   %33 = load ptr, ptr %.137, align 8
   %.not29 = icmp eq ptr %33, null
-  br i1 %.not29, label %._crit_edge40, label %.lr.ph39, !llvm.loop !64
+  br i1 %.not29, label %._crit_edge40, label %.lr.ph39, !llvm.loop !62
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %._crit_edge
   %34 = add i32 %.028.lcssa, 40
@@ -4315,58 +4315,56 @@ attributes #16 = { nounwind memory(none) }
 !7 = distinct !{!7, !8, !"memcpy.inline: argument 0"}
 !8 = distinct !{!8, !"memcpy.inline"}
 !9 = distinct !{!9, !8, !"memcpy.inline: argument 1"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
-!20 = distinct !{!20, !11, !12}
-!21 = distinct !{!21, !11, !12}
-!22 = distinct !{!22, !11, !12}
-!23 = distinct !{!23, !11, !12}
-!24 = distinct !{!24, !11, !12}
-!25 = distinct !{!25, !11, !12}
-!26 = distinct !{!26, !11, !12}
-!27 = distinct !{!27, !11, !12}
-!28 = distinct !{!28, !12}
-!29 = !{i64 2151402984}
-!30 = !{!31, !33}
-!31 = distinct !{!31, !32, !"memcpy.inline: argument 0"}
-!32 = distinct !{!32, !"memcpy.inline"}
-!33 = distinct !{!33, !32, !"memcpy.inline: argument 1"}
-!34 = !{!35, !37}
-!35 = distinct !{!35, !36, !"memcpy.inline: argument 0"}
-!36 = distinct !{!36, !"memcpy.inline"}
-!37 = distinct !{!37, !36, !"memcpy.inline: argument 1"}
-!38 = distinct !{!38, !11, !12}
-!39 = distinct !{!39, !11, !12}
-!40 = distinct !{!40, !11, !12}
-!41 = distinct !{!41, !11, !12}
-!42 = !{i64 2151399433}
-!43 = !{!44, !46}
-!44 = distinct !{!44, !45, !"memcpy.inline: argument 0"}
-!45 = distinct !{!45, !"memcpy.inline"}
-!46 = distinct !{!46, !45, !"memcpy.inline: argument 1"}
-!47 = !{!48, !50}
-!48 = distinct !{!48, !49, !"memcpy.inline: argument 0"}
-!49 = distinct !{!49, !"memcpy.inline"}
-!50 = distinct !{!50, !49, !"memcpy.inline: argument 1"}
-!51 = !{!52, !54}
-!52 = distinct !{!52, !53, !"memcpy.inline: argument 0"}
-!53 = distinct !{!53, !"memcpy.inline"}
-!54 = distinct !{!54, !53, !"memcpy.inline: argument 1"}
-!55 = distinct !{!55, !11, !12}
-!56 = !{!57, !59}
-!57 = distinct !{!57, !58, !"memcpy.inline: argument 0"}
-!58 = distinct !{!58, !"memcpy.inline"}
-!59 = distinct !{!59, !58, !"memcpy.inline: argument 1"}
-!60 = !{!61, !63}
-!61 = distinct !{!61, !62, !"memcpy.inline: argument 0"}
-!62 = distinct !{!62, !"memcpy.inline"}
-!63 = distinct !{!63, !62, !"memcpy.inline: argument 1"}
-!64 = distinct !{!64, !11, !12}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11}
+!21 = distinct !{!21, !11}
+!22 = distinct !{!22, !11}
+!23 = distinct !{!23, !11}
+!24 = distinct !{!24, !11}
+!25 = distinct !{!25, !11}
+!26 = distinct !{!26, !11}
+!27 = !{i64 2151402984}
+!28 = !{!29, !31}
+!29 = distinct !{!29, !30, !"memcpy.inline: argument 0"}
+!30 = distinct !{!30, !"memcpy.inline"}
+!31 = distinct !{!31, !30, !"memcpy.inline: argument 1"}
+!32 = !{!33, !35}
+!33 = distinct !{!33, !34, !"memcpy.inline: argument 0"}
+!34 = distinct !{!34, !"memcpy.inline"}
+!35 = distinct !{!35, !34, !"memcpy.inline: argument 1"}
+!36 = distinct !{!36, !11}
+!37 = distinct !{!37, !11}
+!38 = distinct !{!38, !11}
+!39 = distinct !{!39, !11}
+!40 = !{i64 2151399433}
+!41 = !{!42, !44}
+!42 = distinct !{!42, !43, !"memcpy.inline: argument 0"}
+!43 = distinct !{!43, !"memcpy.inline"}
+!44 = distinct !{!44, !43, !"memcpy.inline: argument 1"}
+!45 = !{!46, !48}
+!46 = distinct !{!46, !47, !"memcpy.inline: argument 0"}
+!47 = distinct !{!47, !"memcpy.inline"}
+!48 = distinct !{!48, !47, !"memcpy.inline: argument 1"}
+!49 = !{!50, !52}
+!50 = distinct !{!50, !51, !"memcpy.inline: argument 0"}
+!51 = distinct !{!51, !"memcpy.inline"}
+!52 = distinct !{!52, !51, !"memcpy.inline: argument 1"}
+!53 = distinct !{!53, !11}
+!54 = !{!55, !57}
+!55 = distinct !{!55, !56, !"memcpy.inline: argument 0"}
+!56 = distinct !{!56, !"memcpy.inline"}
+!57 = distinct !{!57, !56, !"memcpy.inline: argument 1"}
+!58 = !{!59, !61}
+!59 = distinct !{!59, !60, !"memcpy.inline: argument 0"}
+!60 = distinct !{!60, !"memcpy.inline"}
+!61 = distinct !{!61, !60, !"memcpy.inline: argument 1"}
+!62 = distinct !{!62, !11}

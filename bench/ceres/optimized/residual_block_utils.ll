@@ -122,7 +122,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   %17 = alloca %"class.absl::lts_20240116::AlphaNum", align 8
   %18 = alloca %"class.absl::lts_20240116::AlphaNum", align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %19, label %.critedge, !prof !52
+  br i1 %.not, label %19, label %.critedge, !prof !51
 
 19:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
@@ -132,7 +132,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
 
 .critedge:                                        ; preds = %6
   %.not34 = icmp eq ptr %4, null
-  br i1 %.not34, label %20, label %21, !prof !52
+  br i1 %.not34, label %20, label %21, !prof !51
 
 20:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #10
@@ -154,20 +154,20 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %33 = load i32, ptr %32, align 8, !tbaa !22
   %.fr99 = freeze i32 %33
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #10, !noalias !53
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #10, !noalias !52
   %.sroa.0.0.insert.ext.i.i.i.i = and i64 %30, 4294967295
   %34 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i to ptr
-  store ptr %34, ptr %8, align 8, !tbaa !56, !noalias !53
+  store ptr %34, ptr %8, align 8, !tbaa !55, !noalias !52
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %35, align 8, !tbaa !57, !noalias !53
+  store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %35, align 8, !tbaa !56, !noalias !52
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.0.0.insert.ext.i.i.i6.i = zext i32 %.fr99 to i64
   %37 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i6.i to ptr
-  store ptr %37, ptr %36, align 8, !tbaa !56, !noalias !53
+  store ptr %37, ptr %36, align 8, !tbaa !55, !noalias !52
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %38, align 8, !tbaa !57, !noalias !53
+  store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %38, align 8, !tbaa !56, !noalias !52
   call void @_ZN4absl12lts_2024011619str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str.6, i64 57, ptr nonnull %8, i64 2)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10, !noalias !53
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #10, !noalias !52
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #10
   store i64 480, ptr %11, align 8
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -226,12 +226,12 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   %61 = load i32, ptr %60, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #10
   %62 = inttoptr i64 %indvars.iv119 to ptr
-  store ptr %62, ptr %7, align 8, !tbaa !56
-  store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %49, align 8, !tbaa !57
+  store ptr %62, ptr %7, align 8, !tbaa !55
+  store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %49, align 8, !tbaa !56
   %.sroa.0.0.insert.ext.i.i.i7.i.us = zext i32 %61 to i64
   %63 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i7.i.us to ptr
-  store ptr %63, ptr %50, align 8, !tbaa !56
-  store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %51, align 8, !tbaa !57
+  store ptr %63, ptr %50, align 8, !tbaa !55
+  store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %51, align 8, !tbaa !56
   %64 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2024011619str_format_internal10AppendPackEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef %0, ptr nonnull @.str.10, i64 29, ptr nonnull %7, i64 2)
           to label %65 unwind label %.split86.us
 
@@ -259,7 +259,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #10
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !59
+  br i1 %exitcond123.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !58
 
 .lr.ph68.us:                                      ; preds = %66
   %69 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv119
@@ -288,7 +288,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #10
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %.sroa.0.0.insert.ext.i.i.i7.i.us
-  br i1 %exitcond118.not, label %._crit_edge69.split.us.us, label %71, !llvm.loop !61
+  br i1 %exitcond118.not, label %._crit_edge69.split.us.us, label %71, !llvm.loop !60
 
 .lr.ph.split.us72.us:                             ; preds = %.lr.ph.us.us, %81
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %81 ], [ 0, %.lr.ph.us.us ]
@@ -304,7 +304,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
 81:                                               ; preds = %.lr.ph.split.us72.us
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %.sroa.0.0.insert.ext.i.i.i6.i
-  br i1 %exitcond112.not, label %._crit_edge.us.us, label %.lr.ph.split.us72.us, !llvm.loop !62
+  br i1 %exitcond112.not, label %._crit_edge.us.us, label %.lr.ph.split.us72.us, !llvm.loop !61
 
 ._crit_edge.us.us:                                ; preds = %81, %82
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16) #10
@@ -321,7 +321,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
 82:                                               ; preds = %.lr.ph.split.us.us.us
   %83 = add nuw nsw i32 %.065.us.us.us, 1
   %exitcond113.not = icmp eq i32 %83, %.fr99
-  br i1 %exitcond113.not, label %._crit_edge.us.us, label %.lr.ph.split.us.us.us, !llvm.loop !63
+  br i1 %exitcond113.not, label %._crit_edge.us.us, label %.lr.ph.split.us.us.us, !llvm.loop !62
 
 .split86.us:                                      ; preds = %.lr.ph.split.us
   %84 = landingpad { ptr, i32 }
@@ -395,12 +395,12 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   %104 = load i32, ptr %103, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #10
   %105 = inttoptr i64 %indvars.iv103 to ptr
-  store ptr %105, ptr %7, align 8, !tbaa !56
-  store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %49, align 8, !tbaa !57
+  store ptr %105, ptr %7, align 8, !tbaa !55
+  store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %49, align 8, !tbaa !56
   %.sroa.0.0.insert.ext.i.i.i7.i = zext i32 %104 to i64
   %106 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i7.i to ptr
-  store ptr %106, ptr %50, align 8, !tbaa !56
-  store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %51, align 8, !tbaa !57
+  store ptr %106, ptr %50, align 8, !tbaa !55
+  store ptr @_ZN4absl12lts_2024011619str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %51, align 8, !tbaa !56
   %107 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl12lts_2024011619str_format_internal10AppendPackEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef %0, ptr nonnull @.str.10, i64 29, ptr nonnull %7, i64 2)
           to label %108 unwind label %.split86
 
@@ -477,7 +477,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.0.0.insert.ext.i.i.i7.i
-  br i1 %exitcond.not, label %._crit_edge69.split, label %115, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge69.split, label %115, !llvm.loop !63
 
 .split80:                                         ; preds = %119
   %124 = landingpad { ptr, i32 }
@@ -500,7 +500,7 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17) #10
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count122
-  br i1 %exitcond107.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !65
+  br i1 %exitcond107.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !64
 
 .split92:                                         ; preds = %._crit_edge69.split
   %127 = landingpad { ptr, i32 }
@@ -532,20 +532,20 @@ define hidden void @_ZN5ceres8internal18EvaluationToStringB5cxx11ERKNS0_13Residu
 
 133:                                              ; preds = %.split.split.us.split.us, %.split.us.split.us.split.us, %.split74, %.split74.us.split.us, %.split86, %.split86.us, %114, %128, %125, %122, %131, %98, %96, %94, %92
   %.pn.pn.pn = phi { ptr, i32 } [ %132, %131 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %.us-phi93, %128 ], [ %.us-phi90, %114 ], [ %.us-phi81, %125 ], [ %.us-phi78, %122 ], [ %112, %.split86 ], [ %84, %.split86.us ], [ %120, %.split74 ], [ %87, %.split74.us.split.us ], [ %89, %.split.split.us.split.us ], [ %91, %.split.us.split.us.split.us ]
-  %134 = load ptr, ptr %0, align 8, !tbaa !66
+  %134 = load ptr, ptr %0, align 8, !tbaa !65
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %136 = icmp eq ptr %134, %135
   br i1 %136, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %138 = load i64, ptr %137, align 8, !tbaa !71
+  %138 = load i64, ptr %137, align 8, !tbaa !70
   %139 = icmp ult i64 %138, 16
   call void @llvm.assume(i1 %139)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %133
-  %140 = load i64, ptr %135, align 8, !tbaa !56
+  %140 = load i64, ptr %135, align 8, !tbaa !55
   %141 = add i64 %140, 1
   call void @_ZdlPvm(ptr noundef %134, i64 noundef %141) #13
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -610,7 +610,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal17IsEvaluationValidERKNS0_13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
   %or.cond28.not = select i1 %31, i1 %exitcond.not, i1 false
-  br i1 %or.cond28.not, label %21, label %.critedge, !llvm.loop !72
+  br i1 %or.cond28.not, label %21, label %.critedge, !llvm.loop !71
 
 .critedge:                                        ; preds = %21, %18, %4
   %.0 = phi i1 [ false, %4 ], [ true, %18 ], [ %31, %21 ]
@@ -708,27 +708,26 @@ attributes #13 = { builtin nounwind }
 !46 = !{!"_ZTSSt10_Head_baseILm0EPN4absl12lts_2024011613flat_hash_setIPN5ceres8internal13ResidualBlockENS1_18container_internal6HashEqIS6_vE4HashENS9_2EqESaIS6_EEELb0EE", !47, i64 0}
 !47 = !{!"p1 _ZTSN4absl12lts_2024011613flat_hash_setIPN5ceres8internal13ResidualBlockENS0_18container_internal6HashEqIS5_vE4HashENS8_2EqESaIS5_EEE", !6, i64 0}
 !48 = !{!32, !32, i64 0}
-!49 = distinct !{!49, !50, !51}
+!49 = distinct !{!49, !50}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN4absl12lts_202401169StrFormatIJiiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_: argument 0"}
-!55 = distinct !{!55, !"_ZN4absl12lts_202401169StrFormatIJiiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_"}
-!56 = !{!7, !7, i64 0}
-!57 = !{!58, !6, i64 8}
-!58 = !{!"_ZTSN4absl12lts_2024011619str_format_internal13FormatArgImplE", !7, i64 0, !6, i64 8}
-!59 = distinct !{!59, !50, !51, !60}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!61 = distinct !{!61, !50, !51, !60}
-!62 = distinct !{!62, !50, !51}
-!63 = distinct !{!63, !50, !51, !60}
-!64 = distinct !{!64, !50, !51}
-!65 = distinct !{!65, !50, !51}
-!66 = !{!67, !69, i64 0}
-!67 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !68, i64 0, !70, i64 8, !7, i64 16}
-!68 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !69, i64 0}
-!69 = !{!"p1 omnipotent char", !6, i64 0}
-!70 = !{!"long", !7, i64 0}
-!71 = !{!67, !70, i64 8}
-!72 = distinct !{!72, !50, !51}
+!51 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZN4absl12lts_202401169StrFormatIJiiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_: argument 0"}
+!54 = distinct !{!54, !"_ZN4absl12lts_202401169StrFormatIJiiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_"}
+!55 = !{!7, !7, i64 0}
+!56 = !{!57, !6, i64 8}
+!57 = !{!"_ZTSN4absl12lts_2024011619str_format_internal13FormatArgImplE", !7, i64 0, !6, i64 8}
+!58 = distinct !{!58, !50, !59}
+!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!60 = distinct !{!60, !50, !59}
+!61 = distinct !{!61, !50}
+!62 = distinct !{!62, !50, !59}
+!63 = distinct !{!63, !50}
+!64 = distinct !{!64, !50}
+!65 = !{!66, !68, i64 0}
+!66 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !67, i64 0, !69, i64 8, !7, i64 16}
+!67 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !68, i64 0}
+!68 = !{!"p1 omnipotent char", !6, i64 0}
+!69 = !{!"long", !7, i64 0}
+!70 = !{!66, !69, i64 8}
+!71 = distinct !{!71, !50}

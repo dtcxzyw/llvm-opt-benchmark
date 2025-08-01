@@ -98,7 +98,7 @@ define range(i32 0, 2) i32 @av_reduce(ptr noundef writeonly captures(none) %0, p
   %46 = trunc i64 %18 to i32
   %47 = trunc i64 %22 to i32
   %.not95 = icmp eq i64 %.recomposed, 0
-  br i1 %.not95, label %.loopexit, label %.lr.ph, !llvm.loop !4
+  br i1 %.not95, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %44, %.preheader, %.thread
   %.281111 = phi i32 [ 0, %.thread ], [ 1, %.preheader ], [ 1, %44 ]
@@ -108,8 +108,8 @@ define range(i32 0, 2) i32 @av_reduce(ptr noundef writeonly captures(none) %0, p
   %48 = sub nsw i32 0, %.sroa.022.2
   %.not9899 = icmp slt i64 %.lobit92, 0
   %49 = select i1 %.not9899, i32 %48, i32 %.sroa.022.2
-  store i32 %49, ptr %0, align 4, !tbaa !6
-  store i32 %.sroa.13.2, ptr %1, align 4, !tbaa !6
+  store i32 %49, ptr %0, align 4, !tbaa !4
+  store i32 %.sroa.13.2, ptr %1, align 4, !tbaa !4
   ret i32 %.281111
 }
 
@@ -224,7 +224,7 @@ define i64 @av_d2q(double noundef %0, i32 noundef %1) local_unnamed_addr #3 {
 
 12:                                               ; preds = %6
   %13 = call nsz double @frexp(double noundef %0, ptr noundef nonnull %4) #9
-  %14 = load i32, ptr %4, align 4, !tbaa !6
+  %14 = load i32, ptr %4, align 4, !tbaa !4
   %15 = tail call i32 @llvm.smax.i32(i32 %14, i32 1)
   %16 = sub nsw i32 63, %15
   %17 = zext nneg i32 %16 to i64
@@ -236,8 +236,8 @@ define i64 @av_d2q(double noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %23 = fptosi double %22 to i64
   %24 = sext i32 %1 to i64
   %25 = call i32 @av_reduce(ptr noundef nonnull %3, ptr noundef nonnull %19, i64 noundef %23, i64 noundef %18, i64 noundef %24)
-  %.sroa.0.0.copyload = load i32, ptr %3, align 4, !tbaa !6
-  %.sroa.4.0.copyload = load i32, ptr %19, align 4, !tbaa !6
+  %.sroa.0.0.copyload = load i32, ptr %3, align 4, !tbaa !4
+  %.sroa.4.0.copyload = load i32, ptr %19, align 4, !tbaa !4
   %26 = zext i32 %.sroa.4.0.copyload to i64
   %27 = shl nuw i64 %26, 32
   br label %28
@@ -331,7 +331,7 @@ declare i64 @av_rescale_rnd(i64 noundef, i64 noundef, i64 noundef, i32 noundef) 
 ; Function Attrs: nofree nosync nounwind memory(argmem: read) uwtable
 define i32 @av_find_nearest_q_idx(i64 %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !10
+  %4 = load i32, ptr %3, align 4, !tbaa !8
   %.not9 = icmp eq i32 %4, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -407,9 +407,9 @@ av_nearer_q.exit:                                 ; preds = %19, %26, %29, %32
   %spec.select = select i1 %45, i32 %46, i32 %.011
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = getelementptr inbounds nuw %struct.AVRational, ptr %1, i64 %indvars.iv.next, i32 1
-  %48 = load i32, ptr %47, align 4, !tbaa !10
+  %48 = load i32, ptr %47, align 4, !tbaa !8
   %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %av_nearer_q.exit, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %av_nearer_q.exit ]
@@ -447,7 +447,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #3 {
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %10
   %11 = zext nneg i32 %.110.i to i64
   %12 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %11
-  %13 = load i8, ptr %12, align 1, !tbaa !14
+  %13 = load i8, ptr %12, align 1, !tbaa !12
   %14 = zext i8 %13 to i32
   %.not.i42 = icmp samesign ult i32 %.sroa.0.1, 65536
   %15 = lshr i32 %.sroa.0.1, 16
@@ -460,7 +460,7 @@ define i32 @av_q2intfloat(i64 %0) local_unnamed_addr #3 {
   %.1.i47.neg54 = select i1 %.not11.i45, i32 %spec.select12.i44.neg, i32 %.neg53
   %17 = zext nneg i32 %.110.i46 to i64
   %18 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !14
+  %19 = load i8, ptr %18, align 1, !tbaa !12
   %20 = zext i8 %19 to i32
   %.neg52 = add nsw i32 %.1.i47.neg54, 23
   %21 = add nsw i32 %.neg52, %.1.i
@@ -589,14 +589,12 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 1, !"override-stack-alignment", i32 16}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"int", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!11, !7, i64 4}
-!11 = !{!"AVRational", !7, i64 0, !7, i64 4}
-!12 = distinct !{!12, !13, !5}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!8, !8, i64 0}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !5, i64 4}
+!9 = !{!"AVRational", !5, i64 0, !5, i64 4}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = !{!6, !6, i64 0}

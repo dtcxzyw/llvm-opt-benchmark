@@ -185,7 +185,7 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next119 to i32
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv
-  br i1 %exitcond.not, label %.critedge8, label %.lr.ph114, !llvm.loop !11
+  br i1 %exitcond.not, label %.critedge8, label %.lr.ph114, !llvm.loop !10
 
 .critedge8.loopexit.split.loop.exit124:           ; preds = %.lr.ph114
   %98 = trunc nsw i64 %indvars.iv118 to i32
@@ -231,7 +231,6 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

@@ -33131,7 +33131,7 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   %790 = icmp eq i64 %.sroa.0378.0.add383, 16
   %.sroa.0378.0.ptr = getelementptr inbounds nuw i8, ptr %50, i64 %.sroa.0378.0.add383
   %.sroa.0378.0.add = add nuw nsw i64 %.sroa.0378.0.add383, 1
-  br i1 %790, label %786, label %781, !llvm.loop !458
+  br i1 %790, label %786, label %781
 
 791:                                              ; preds = %181
   %792 = tail call noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i8x16_extract_lane_s17h730c0cc198ea5f97E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i8 noundef %187)
@@ -33443,25 +33443,25 @@ define internal fastcc { i64, ptr } @"_ZN10wasmparser13binary_reader4simd57_$LT$
   %78 = alloca [4 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %78)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %77)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !458)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = load i64, ptr %79, align 8, !alias.scope !460, !noalias !463, !noundef !3
+  %80 = load i64, ptr %79, align 8, !alias.scope !458, !noalias !461, !noundef !3
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %82 = load i64, ptr %81, align 8, !alias.scope !460, !noalias !463, !noundef !3
+  %82 = load i64, ptr %81, align 8, !alias.scope !458, !noalias !461, !noundef !3
   %83 = icmp ult i64 %82, %80
   br i1 %83, label %85, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread, !prof !4
 
 _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread: ; preds = %3
-  %84 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader12BinaryReader7eof_err17ha0ed037fc615d34aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0), !noalias !463
+  %84 = tail call noundef nonnull align 8 ptr @_ZN10wasmparser13binary_reader12BinaryReader7eof_err17ha0ed037fc615d34aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0), !noalias !461
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77)
   br label %895
 
 85:                                               ; preds = %3
-  %86 = load ptr, ptr %0, align 8, !alias.scope !460, !noalias !463, !nonnull !3, !align !5, !noundef !3
+  %86 = load ptr, ptr %0, align 8, !alias.scope !458, !noalias !461, !nonnull !3, !align !5, !noundef !3
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %82
-  %88 = load i8, ptr %87, align 1, !noalias !465, !noundef !3
+  %88 = load i8, ptr %87, align 1, !noalias !463, !noundef !3
   %89 = add nuw i64 %82, 1
-  store i64 %89, ptr %81, align 8, !alias.scope !460, !noalias !463
+  store i64 %89, ptr %81, align 8, !alias.scope !458, !noalias !461
   %90 = icmp sgt i8 %88, -1
   br i1 %90, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit.thread388, label %_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.exit
 
@@ -35215,7 +35215,7 @@ _ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE.e
   %790 = icmp eq i64 %.sroa.0378.0.add383, 16
   %.sroa.0378.0.ptr = getelementptr inbounds nuw i8, ptr %50, i64 %.sroa.0378.0.add383
   %.sroa.0378.0.add = add nuw nsw i64 %.sroa.0378.0.add383, 1
-  br i1 %790, label %786, label %781, !llvm.loop !466
+  br i1 %790, label %786, label %781
 
 791:                                              ; preds = %181
   %792 = tail call noundef align 8 ptr @"_ZN89_$LT$$RF$mut$u20$V$u20$as$u20$wasmparser..readers..core..operators..VisitSimdOperator$GT$26visit_i8x16_extract_lane_s17h7688450a5d9dc5b3E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, i8 noundef %187)
@@ -35464,10 +35464,10 @@ define internal noalias noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h931ef02007ecac91E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca [8 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !8, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !467
-  store ptr %4, ptr %3, align 8, !noalias !467
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !464
+  store ptr %4, ptr %3, align 8, !noalias !464
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field1_finish17hf9d6aaedd2e091dbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 @anon.37aed08b3ecb37a769467dd409787fd8.25, i64 noundef 17, ptr noalias noundef nonnull readonly align 1 @anon.37aed08b3ecb37a769467dd409787fd8.26, i64 noundef 5, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.37aed08b3ecb37a769467dd409787fd8.24)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !467
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !464
   ret i1 %5
 }
 
@@ -42715,16 +42715,13 @@ attributes #10 = { noreturn }
 !455 = distinct !{!455, !453, !"_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE: argument 0"}
 !456 = !{!455, !452}
 !457 = !{!"branch_weights", i32 1, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000}
-!458 = distinct !{!458, !459}
-!459 = !{!"llvm.loop.estimated_trip_count"}
-!460 = !{!461}
-!461 = distinct !{!461, !462, !"_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE: argument 1"}
-!462 = distinct !{!462, !"_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE"}
-!463 = !{!464}
-!464 = distinct !{!464, !462, !"_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE: argument 0"}
-!465 = !{!464, !461}
-!466 = distinct !{!466, !459}
-!467 = !{!468, !470}
-!468 = distinct !{!468, !469, !"_ZN81_$LT$wasmparser..binary_reader..BinaryReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17ha54dd274f25074acE: argument 0"}
-!469 = distinct !{!469, !"_ZN81_$LT$wasmparser..binary_reader..BinaryReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17ha54dd274f25074acE"}
-!470 = distinct !{!470, !469, !"_ZN81_$LT$wasmparser..binary_reader..BinaryReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17ha54dd274f25074acE: argument 1"}
+!458 = !{!459}
+!459 = distinct !{!459, !460, !"_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE: argument 1"}
+!460 = distinct !{!460, !"_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE"}
+!461 = !{!462}
+!462 = distinct !{!462, !460, !"_ZN10wasmparser13binary_reader12BinaryReader12read_var_u3217h37eb133a767fed9aE: argument 0"}
+!463 = !{!462, !459}
+!464 = !{!465, !467}
+!465 = distinct !{!465, !466, !"_ZN81_$LT$wasmparser..binary_reader..BinaryReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17ha54dd274f25074acE: argument 0"}
+!466 = distinct !{!466, !"_ZN81_$LT$wasmparser..binary_reader..BinaryReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17ha54dd274f25074acE"}
+!467 = distinct !{!467, !466, !"_ZN81_$LT$wasmparser..binary_reader..BinaryReaderError$u20$as$u20$core..fmt..Debug$GT$3fmt17ha54dd274f25074acE: argument 1"}

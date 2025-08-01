@@ -98,9 +98,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocator
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !30
+  %14 = load i32, ptr %13, align 8, !tbaa !29
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8, !tbaa !30
+  store i32 %15, ptr %13, align 8, !tbaa !29
   br label %16
 
 16:                                               ; preds = %4, %12
@@ -116,15 +116,15 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocator
 
 _ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit: ; preds = %16, %20
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %2
-  store i8 0, ptr %21, align 1, !tbaa !31
-  store i64 %2, ptr %18, align 8, !tbaa !32
+  store i8 0, ptr %21, align 1, !tbaa !30
+  store i64 %2, ptr %18, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 0, ptr %22, align 8, !tbaa !35
+  store i32 0, ptr %22, align 8, !tbaa !34
   store ptr %18, ptr %8, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !37
+  %24 = load i32, ptr %23, align 4, !tbaa !36
   %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 4, !tbaa !37
+  store i32 %25, ptr %23, align 4, !tbaa !36
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #3
   %27 = load ptr, ptr %0, align 8, !tbaa !24
   %28 = zext i32 %26 to i64
@@ -194,14 +194,13 @@ attributes #3 = { nounwind }
 !24 = !{!25, !26, i64 0}
 !25 = !{!"_ZTSN4llvm13StringMapImplE", !26, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20}
 !26 = !{!"p2 _ZTSN4llvm18StringMapEntryBaseE", !5, i64 0}
-!27 = distinct !{!27, !28, !29}
+!27 = distinct !{!27, !28}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!"llvm.loop.estimated_trip_count"}
-!30 = !{!25, !9, i64 16}
-!31 = !{!6, !6, i64 0}
-!32 = !{!33, !34, i64 0}
-!33 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !34, i64 0}
-!34 = !{!"long", !6, i64 0}
-!35 = !{!36, !9, i64 8}
-!36 = !{!"_ZTSN4llvm21StringMapEntryStorageIjEE", !33, i64 0, !9, i64 8}
-!37 = !{!25, !9, i64 12}
+!29 = !{!25, !9, i64 16}
+!30 = !{!6, !6, i64 0}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !33, i64 0}
+!33 = !{!"long", !6, i64 0}
+!34 = !{!35, !9, i64 8}
+!35 = !{!"_ZTSN4llvm21StringMapEntryStorageIjEE", !32, i64 0, !9, i64 8}
+!36 = !{!25, !9, i64 12}

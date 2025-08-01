@@ -296,7 +296,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %146 = load i32, ptr %145, align 8
   %147 = zext i32 %146 to i64
   %148 = icmp samesign ult i64 %indvars.iv.next53.i, %147
-  br i1 %148, label %.lr.ph44.i, label %._crit_edge45.i, !llvm.loop !12
+  br i1 %148, label %.lr.ph44.i, label %._crit_edge45.i, !llvm.loop !11
 
 switch.lookup:                                    ; preds = %._crit_edge45.i
   %149 = zext nneg i32 %switch.tableidx to i64
@@ -543,7 +543,7 @@ _sort_rpc.exit:                                   ; preds = %._crit_edge45.i, %s
   %322 = load i32, ptr %321, align 8
   %323 = zext i32 %322 to i64
   %324 = icmp samesign ult i64 %indvars.iv.next.i32, %323
-  br i1 %324, label %.lr.ph.i30, label %._crit_edge.i33, !llvm.loop !13
+  br i1 %324, label %.lr.ph.i30, label %._crit_edge.i33, !llvm.loop !12
 
 ._crit_edge.i33:                                  ; preds = %.lr.ph.i30, %304
   %.lcssa75.i = phi ptr [ %309, %304 ], [ %320, %.lr.ph.i30 ]
@@ -701,7 +701,7 @@ _sort_rpc.exit:                                   ; preds = %._crit_edge45.i, %s
   %436 = load i32, ptr %435, align 8
   %437 = zext i32 %436 to i64
   %438 = icmp samesign ult i64 %indvars.iv.next111.i, %437
-  br i1 %438, label %.lr.ph79.i, label %._crit_edge80.i, !llvm.loop !14
+  br i1 %438, label %.lr.ph79.i, label %._crit_edge80.i, !llvm.loop !13
 
 ._crit_edge80.i:                                  ; preds = %.lr.ph79.i, %422
   %.lcssa74.i = phi ptr [ %423, %422 ], [ %434, %.lr.ph79.i ]
@@ -763,7 +763,7 @@ _sort_rpc.exit:                                   ; preds = %._crit_edge45.i, %s
   %480 = load i32, ptr %479, align 4
   %481 = zext i32 %480 to i64
   %482 = icmp samesign ult i64 %indvars.iv.next114.i, %481
-  br i1 %482, label %.lr.ph84.i, label %._crit_edge85.i, !llvm.loop !15
+  br i1 %482, label %.lr.ph84.i, label %._crit_edge85.i, !llvm.loop !14
 
 ._crit_edge85.i:                                  ; preds = %477
   %483 = icmp eq i32 %480, 0
@@ -807,7 +807,7 @@ _sort_rpc.exit:                                   ; preds = %._crit_edge45.i, %s
   %504 = load i32, ptr %503, align 8
   %505 = zext i32 %504 to i64
   %506 = icmp samesign ult i64 %indvars.iv.next117.i, %505
-  br i1 %506, label %.lr.ph89.i, label %._crit_edge90.i, !llvm.loop !16
+  br i1 %506, label %.lr.ph89.i, label %._crit_edge90.i, !llvm.loop !15
 
 ._crit_edge90.i:                                  ; preds = %.lr.ph89.i, %484
   %puts68.i = call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
@@ -854,7 +854,7 @@ _sort_rpc.exit:                                   ; preds = %._crit_edge45.i, %s
   %532 = load i32, ptr %531, align 8
   %533 = zext i32 %532 to i64
   %534 = icmp samesign ult i64 %indvars.iv.next120.i, %533
-  br i1 %534, label %.lr.ph93.i, label %._crit_edge94.i, !llvm.loop !17
+  br i1 %534, label %.lr.ph93.i, label %._crit_edge94.i, !llvm.loop !16
 
 ._crit_edge94.i:                                  ; preds = %.lr.ph93.i, %511
   %.lcssa.i34 = phi ptr [ %.pre129.i, %511 ], [ %530, %.lr.ph93.i ]
@@ -893,7 +893,7 @@ _sort_rpc.exit:                                   ; preds = %._crit_edge45.i, %s
   %555 = load i32, ptr %554, align 8
   %556 = zext i32 %555 to i64
   %557 = icmp samesign ult i64 %indvars.iv.next123.i, %556
-  br i1 %557, label %.lr.ph98.i, label %_print_stats.exit, !llvm.loop !18
+  br i1 %557, label %.lr.ph98.i, label %_print_stats.exit, !llvm.loop !17
 
 _print_stats.exit:                                ; preds = %.lr.ph98.i, %537, %._crit_edge94.i, %185, %181
   %.1 = phi i32 [ %175, %181 ], [ -1, %185 ], [ 0, %537 ], [ 0, %._crit_edge94.i ], [ 0, %.lr.ph98.i ]
@@ -1037,14 +1037,13 @@ attributes #10 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = distinct !{!18, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

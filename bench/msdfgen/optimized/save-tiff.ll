@@ -74,7 +74,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %conv.i = sext i32 %mul.i.i to i64
   %call5.i = tail call i64 @fwrite(ptr noundef %add.ptr.i.i, i64 noundef 4, i64 noundef %conv.i, ptr noundef nonnull %call.i)
   %cmp.i = icmp samesign ugt i32 %y.0.in11.i, 1
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !8
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !7
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
   %call6.i = tail call i32 @fclose(ptr noundef nonnull %call.i)
@@ -116,7 +116,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %conv.i = sext i32 %mul.i to i64
   %call5.i = tail call i64 @fwrite(ptr noundef %add.ptr.i.i, i64 noundef 4, i64 noundef %conv.i, ptr noundef nonnull %call.i)
   %cmp.i = icmp samesign ugt i32 %y.0.in11.i, 1
-  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !9
+  br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i
   %call6.i = tail call i32 @fclose(ptr noundef nonnull %call.i)
@@ -575,7 +575,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i.i)
   %inc.i = add nuw nsw i32 %i.02.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %channels
-  br i1 %exitcond.not.i, label %_ZN7msdfgenL18writeValueRepeatedItEEvP8_IO_FILET_i.exit, label %for.body.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN7msdfgenL18writeValueRepeatedItEEvP8_IO_FILET_i.exit, label %for.body.i, !llvm.loop !9
 
 _ZN7msdfgenL18writeValueRepeatedItEEvP8_IO_FILET_i.exit: ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i336)
@@ -604,7 +604,7 @@ for.body.i349:                                    ; preds = %for.body.i349, %_ZN
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %value.addr.i.i348)
   %inc.i352 = add nuw nsw i32 %i.02.i350, 1
   %exitcond.not.i353 = icmp eq i32 %inc.i352, %channels
-  br i1 %exitcond.not.i353, label %for.body.i356, label %for.body.i349, !llvm.loop !10
+  br i1 %exitcond.not.i353, label %for.body.i356, label %for.body.i349, !llvm.loop !9
 
 for.body.i356:                                    ; preds = %for.body.i349, %for.body.i356
   %i.02.i357 = phi i32 [ %inc.i359, %for.body.i356 ], [ 0, %for.body.i349 ]
@@ -614,7 +614,7 @@ for.body.i356:                                    ; preds = %for.body.i349, %for
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i.i355)
   %inc.i359 = add nuw nsw i32 %i.02.i357, 1
   %exitcond.not.i360 = icmp eq i32 %inc.i359, %channels
-  br i1 %exitcond.not.i360, label %for.body.i362, label %for.body.i356, !llvm.loop !11
+  br i1 %exitcond.not.i360, label %for.body.i362, label %for.body.i356, !llvm.loop !10
 
 for.body.i362:                                    ; preds = %for.body.i356, %for.body.i362
   %i.02.i363 = phi i32 [ %inc.i365, %for.body.i362 ], [ 0, %for.body.i356 ]
@@ -624,7 +624,7 @@ for.body.i362:                                    ; preds = %for.body.i356, %for
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value.addr.i.i361)
   %inc.i365 = add nuw nsw i32 %i.02.i363, 1
   %exitcond.not.i366 = icmp eq i32 %inc.i365, %channels
-  br i1 %exitcond.not.i366, label %if.end126, label %for.body.i362, !llvm.loop !11
+  br i1 %exitcond.not.i366, label %if.end126, label %for.body.i362, !llvm.loop !10
 
 if.else121:                                       ; preds = %if.end102
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.addr.i330)
@@ -680,10 +680,9 @@ attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: re
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

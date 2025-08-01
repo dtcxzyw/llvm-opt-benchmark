@@ -191,7 +191,7 @@ define dso_local ptr @get_options(ptr noundef %0, i32 noundef %1, ptr noundef ca
   %.be = add i32 %.be.in, 1
   %60 = icmp slt i32 %.be, %1
   %61 = or i1 %5, %60
-  br i1 %61, label %8, label %.thread12.loopexit, !llvm.loop !9
+  br i1 %61, label %8, label %.thread12.loopexit
 
 .thread12.loopexit:                               ; preds = %30, %8, %15, %.loopexit, %.backedge
   %.ph = phi i32 [ %9, %30 ], [ %9, %8 ], [ %9, %15 ], [ %59, %.loopexit ], [ %.be, %.backedge ]
@@ -210,7 +210,7 @@ define dso_local ptr @get_options(ptr noundef %0, i32 noundef %1, ptr noundef ca
 define dso_local i64 @memparse(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store ptr null, ptr %3, align 8, !annotation !10
+  store ptr null, ptr %3, align 8, !annotation !8
   %4 = call i64 @simple_strtoull(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #5
   %5 = load ptr, ptr %3, align 8
   %6 = load i8, ptr %5, align 1
@@ -315,7 +315,7 @@ define dso_local noundef zeroext i1 @parse_option_str(ptr noundef readonly captu
 17:                                               ; preds = %14
   %18 = getelementptr i8, ptr %16, i64 1
   %.pre = load i8, ptr %18, align 1
-  br label %14, !llvm.loop !11
+  br label %14, !llvm.loop !9
 
 19:                                               ; preds = %14, %14
   %20 = icmp eq i8 %15, 44
@@ -323,7 +323,7 @@ define dso_local noundef zeroext i1 @parse_option_str(ptr noundef readonly captu
   %22 = getelementptr i8, ptr %16, i64 %21
   %23 = load i8, ptr %22, align 1
   %.not2 = icmp eq i8 %23, 0
-  br i1 %.not2, label %.loopexit, label %6, !llvm.loop !12
+  br i1 %.not2, label %.loopexit, label %6, !llvm.loop !10
 
 .loopexit:                                        ; preds = %19, %11, %11, %2
   %24 = phi i1 [ false, %2 ], [ false, %19 ], [ true, %11 ], [ true, %11 ]
@@ -371,7 +371,7 @@ define dso_local ptr @next_arg(ptr noundef %0, ptr noundef writeonly captures(no
   %28 = icmp eq i8 %27, 0
   %29 = icmp ne i32 %23, 0
   %30 = select i1 %28, i1 true, i1 %29
-  br i1 %30, label %31, label %46, !llvm.loop !13
+  br i1 %30, label %31, label %46, !llvm.loop !11
 
 31:                                               ; preds = %19, %17
   %32 = phi i1 [ %5, %17 ], [ %29, %19 ]
@@ -388,7 +388,7 @@ define dso_local ptr @next_arg(ptr noundef %0, ptr noundef writeonly captures(no
   %43 = getelementptr i8, ptr %7, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 0
-  br i1 %45, label %46, label %19, !llvm.loop !14
+  br i1 %45, label %46, label %19, !llvm.loop !11
 
 .thread:                                          ; preds = %3, %10
   store ptr %7, ptr %1, align 8
@@ -486,13 +486,10 @@ attributes #5 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !8}
-!10 = !{!"auto-init"}
-!11 = distinct !{!11, !6, !7, !8}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8}
-!14 = distinct !{!14, !6, !7}
+!8 = !{!"auto-init"}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}

@@ -818,7 +818,7 @@ define range(i32 -3, 5) i32 @SptfqmrSolve(ptr noundef readonly %0, ptr noundef %
   %350 = add nuw nsw i32 %.0338508, 1
   %351 = load i32, ptr %0, align 8, !tbaa !3
   %352 = icmp slt i32 %350, %351
-  br i1 %352, label %120, label %.thread, !llvm.loop !28
+  br i1 %352, label %120, label %.thread, !llvm.loop !27
 
 .thread:                                          ; preds = %345, %102
   %.1355 = phi double [ -1.000000e+00, %102 ], [ %.4358562, %345 ]
@@ -953,7 +953,6 @@ attributes #6 = { nounwind allocsize(0) }
 !22 = !{!23, !23, i64 0}
 !23 = !{!"double", !6, i64 0}
 !24 = !{!8, !8, i64 0}
-!25 = distinct !{!25, !26, !27}
+!25 = distinct !{!25, !26}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!"llvm.loop.estimated_trip_count"}
-!28 = distinct !{!28, !26, !27}
+!27 = distinct !{!27, !26}

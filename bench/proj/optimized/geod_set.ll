@@ -111,7 +111,7 @@ define hidden void @geod_set(i32 noundef %0, ptr noundef readonly captures(none)
   br i1 %.not69, label %.critedge95, label %.lr.ph82.split
 
 .lr.ph82.split:                                   ; preds = %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !14
+  %28 = load ptr, ptr %27, align 8, !tbaa !13
   %.not7086 = icmp eq ptr %28, null
   br i1 %.not7086, label %.critedge95, label %.lr.ph89
 
@@ -124,7 +124,7 @@ define hidden void @geod_set(i32 noundef %0, ptr noundef readonly captures(none)
   %29 = phi ptr [ %41, %39 ], [ %28, %.lr.ph82.split ]
   %.0618087 = phi i1 [ %.1, %39 ], [ false, %.lr.ph82.split ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %31 = load ptr, ptr %30, align 8, !tbaa !15
+  %31 = load ptr, ptr %30, align 8, !tbaa !14
   %.not75 = icmp eq ptr %31, null
   br i1 %.not75, label %39, label %32
 
@@ -135,17 +135,17 @@ define hidden void @geod_set(i32 noundef %0, ptr noundef readonly captures(none)
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %37 = load double, ptr %36, align 8, !tbaa !19
-  store double %37, ptr @to_meter, align 8, !tbaa !20
+  %37 = load double, ptr %36, align 8, !tbaa !18
+  store double %37, ptr @to_meter, align 8, !tbaa !19
   %38 = fdiv double 1.000000e+00, %37
-  store double %38, ptr @fr_meter, align 8, !tbaa !20
+  store double %38, ptr @fr_meter, align 8, !tbaa !19
   br label %39
 
 39:                                               ; preds = %.lr.ph89, %32, %35
   %.1 = phi i1 [ true, %35 ], [ %.0618087, %32 ], [ %.0618087, %.lr.ph89 ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %40 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.next98
-  %41 = load ptr, ptr %40, align 8, !tbaa !14
+  %41 = load ptr, ptr %40, align 8, !tbaa !13
   %.not70 = icmp eq ptr %41, null
   br i1 %.not70, label %.critedge, label %.lr.ph89
 
@@ -158,17 +158,17 @@ define hidden void @geod_set(i32 noundef %0, ptr noundef readonly captures(none)
   br label %44
 
 43:                                               ; preds = %24
-  store double 1.000000e+00, ptr @fr_meter, align 8, !tbaa !20
-  store double 1.000000e+00, ptr @to_meter, align 8, !tbaa !20
+  store double 1.000000e+00, ptr @fr_meter, align 8, !tbaa !19
+  store double 1.000000e+00, ptr @to_meter, align 8, !tbaa !19
   br label %44
 
 44:                                               ; preds = %.critedge, %42, %43
-  %45 = load double, ptr %3, align 8, !tbaa !20
+  %45 = load double, ptr %3, align 8, !tbaa !19
   %46 = fsub double 1.000000e+00, %45
-  %47 = call double @sqrt(double noundef %46) #7, !tbaa !21
+  %47 = call double @sqrt(double noundef %46) #7, !tbaa !20
   %48 = fadd double %47, 1.000000e+00
   %49 = fdiv double %45, %48
-  store double %49, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 8), align 8, !tbaa !22
+  store double %49, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 8), align 8, !tbaa !21
   call void @geod_ini()
   %50 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.6)
   %51 = and i64 %50, 4294967295
@@ -177,9 +177,9 @@ define hidden void @geod_set(i32 noundef %0, ptr noundef readonly captures(none)
 
 52:                                               ; preds = %44
   %53 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.7)
-  store i64 %53, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 24), align 8, !tbaa !24
+  store i64 %53, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 24), align 8, !tbaa !23
   %54 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.8)
-  store i64 %54, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 16), align 8, !tbaa !25
+  store i64 %54, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 16), align 8, !tbaa !24
   %55 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.9)
   %56 = and i64 %55, 4294967295
   %.not72 = icmp eq i64 %56, 0
@@ -187,23 +187,23 @@ define hidden void @geod_set(i32 noundef %0, ptr noundef readonly captures(none)
 
 57:                                               ; preds = %52
   %58 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.10)
-  store i64 %58, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 48), align 8, !tbaa !26
+  store i64 %58, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 48), align 8, !tbaa !25
   %59 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.11)
-  store i64 %59, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 40), align 8, !tbaa !27
+  store i64 %59, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 40), align 8, !tbaa !26
   call void @geod_inv()
   call void @geod_pre()
   br label %66
 
 60:                                               ; preds = %52
   %61 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.12)
-  store i64 %61, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8, !tbaa !28
+  store i64 %61, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8, !tbaa !27
   %62 = and i64 %61, 9223372036854775807
   %.not73 = icmp eq i64 %62, 0
   br i1 %.not73, label %65, label %63
 
 63:                                               ; preds = %60
   %64 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.13)
-  store i64 %64, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 32), align 8, !tbaa !29
+  store i64 %64, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 32), align 8, !tbaa !28
   call void @geod_pre()
   call void @geod_for()
   br label %66
@@ -215,13 +215,13 @@ define hidden void @geod_set(i32 noundef %0, ptr noundef readonly captures(none)
 66:                                               ; preds = %63, %65, %57
   %67 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.15)
   %.sroa.03.0.extract.trunc = trunc i64 %67 to i32
-  store i32 %.sroa.03.0.extract.trunc, ptr @n_alpha, align 4, !tbaa !21
+  store i32 %.sroa.03.0.extract.trunc, ptr @n_alpha, align 4, !tbaa !20
   %68 = icmp sgt i32 %.sroa.03.0.extract.trunc, 0
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %66
   %70 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.16)
-  store i64 %70, ptr @del_alpha, align 8, !tbaa !20
+  store i64 %70, ptr @del_alpha, align 8, !tbaa !19
   %71 = and i64 %70, 9223372036854775807
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %73, label %88
@@ -238,17 +238,17 @@ define hidden void @geod_set(i32 noundef %0, ptr noundef readonly captures(none)
 
 78:                                               ; preds = %74
   %79 = call double @llvm.fabs.f64(double %76)
-  %80 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8, !tbaa !28
+  %80 = load double, ptr getelementptr inbounds nuw (i8, ptr @GEODESIC, i64 64), align 8, !tbaa !27
   %81 = fdiv double %80, %79
   %82 = fadd double %81, 5.000000e-01
   %83 = fptosi double %82 to i32
-  store i32 %83, ptr @n_S, align 4, !tbaa !21
+  store i32 %83, ptr @n_S, align 4, !tbaa !20
   br label %88
 
 84:                                               ; preds = %74
   %85 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef null, ptr noundef %8, ptr noundef nonnull @.str.19)
   %.sroa.0.0.extract.trunc = trunc i64 %85 to i32
-  store i32 %.sroa.0.0.extract.trunc, ptr @n_S, align 4, !tbaa !21
+  store i32 %.sroa.0.0.extract.trunc, ptr @n_S, align 4, !tbaa !20
   %86 = icmp slt i32 %.sroa.0.0.extract.trunc, 1
   br i1 %86, label %87, label %88
 
@@ -264,7 +264,7 @@ define hidden void @geod_set(i32 noundef %0, ptr noundef readonly captures(none)
   %89 = load ptr, ptr %.091, align 8, !tbaa !9
   call void @free(ptr noundef nonnull %.091) #7
   %.not74 = icmp eq ptr %89, null
-  br i1 %.not74, label %._crit_edge94, label %.lr.ph93, !llvm.loop !30
+  br i1 %.not74, label %._crit_edge94, label %.lr.ph93, !llvm.loop !29
 
 ._crit_edge94:                                    ; preds = %.lr.ph93, %88
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
@@ -334,23 +334,22 @@ attributes #8 = { nounwind willreturn memory(read) }
 !8 = !{!"Simple C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 _ZTS8ARG_list", !6, i64 0}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"llvm.loop.estimated_trip_count"}
-!14 = !{!6, !6, i64 0}
-!15 = !{!16, !5, i64 40}
-!16 = !{!"_ZTS14PROJ_UNIT_INFO", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !17, i64 32, !5, i64 40, !18, i64 48}
-!17 = !{!"double", !7, i64 0}
-!18 = !{!"int", !7, i64 0}
-!19 = !{!16, !17, i64 32}
+!13 = !{!6, !6, i64 0}
+!14 = !{!15, !5, i64 40}
+!15 = !{!"_ZTS14PROJ_UNIT_INFO", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !16, i64 32, !5, i64 40, !17, i64 48}
+!16 = !{!"double", !7, i64 0}
+!17 = !{!"int", !7, i64 0}
+!18 = !{!15, !16, i64 32}
+!19 = !{!16, !16, i64 0}
 !20 = !{!17, !17, i64 0}
-!21 = !{!18, !18, i64 0}
-!22 = !{!23, !17, i64 8}
-!23 = !{!"_ZTS8geodesic", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64}
-!24 = !{!23, !17, i64 24}
-!25 = !{!23, !17, i64 16}
-!26 = !{!23, !17, i64 48}
-!27 = !{!23, !17, i64 40}
-!28 = !{!23, !17, i64 64}
-!29 = !{!23, !17, i64 32}
-!30 = distinct !{!30, !12, !13}
+!21 = !{!22, !16, i64 8}
+!22 = !{!"_ZTS8geodesic", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64}
+!23 = !{!22, !16, i64 24}
+!24 = !{!22, !16, i64 16}
+!25 = !{!22, !16, i64 48}
+!26 = !{!22, !16, i64 40}
+!27 = !{!22, !16, i64 64}
+!28 = !{!22, !16, i64 32}
+!29 = distinct !{!29, !12}

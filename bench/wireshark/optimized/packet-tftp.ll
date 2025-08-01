@@ -1368,7 +1368,7 @@ define internal fastcc noundef zeroext i1 @is_valid_request_body(ptr noundef %0,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   %or.cond58 = select i1 %31, i1 true, i1 %exitcond.not
-  br i1 %or.cond58, label %.critedge, label %27, !llvm.loop !11
+  br i1 %or.cond58, label %.critedge, label %27, !llvm.loop !10
 
 .critedge:                                        ; preds = %9, %27, %2, %._crit_edge
   %.3 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ %31, %27 ], [ false, %9 ]
@@ -1577,7 +1577,7 @@ define internal fastcc void @tftp_dissect_options(ptr noundef %0, ptr noundef %1
 
 81:                                               ; preds = %70, %72, %60, %62, %47, %43, %53, %78, %79, %74, %39, %37, %49, %52
   %82 = tail call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %33)
-  br i1 %82, label %16, label %._crit_edge, !llvm.loop !12
+  br i1 %82, label %16, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %81, %6
   ret void
@@ -1699,8 +1699,7 @@ attributes #11 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

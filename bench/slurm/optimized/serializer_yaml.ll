@@ -1018,7 +1018,7 @@ thread-pre-split:                                 ; preds = %5
 51:                                               ; preds = %52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.i, label %_yaml_tag_to_type.exit.thread, label %52, !llvm.loop !12
+  br i1 %exitcond.i, label %_yaml_tag_to_type.exit.thread, label %52, !llvm.loop !11
 
 52:                                               ; preds = %.preheader, %51
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %.preheader ]
@@ -1109,8 +1109,7 @@ attributes #8 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}

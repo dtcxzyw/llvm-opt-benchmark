@@ -37,7 +37,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %11 = load ptr, ptr %10, align 8, !tbaa !27
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = tail call i64 @fwrite(ptr nonnull @.str, i64 26, i64 1, ptr %11)
   br label %207
 
@@ -45,7 +45,7 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
-  %17 = load i32, ptr %16, align 8, !tbaa !28
+  %17 = load i32, ptr %16, align 8, !tbaa !27
   %18 = icmp eq i32 %17, 2147483647
   br i1 %18, label %207, label %19
 
@@ -56,26 +56,26 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %24 = load ptr, ptr %23, align 8, !tbaa !27
+  %24 = load ptr, ptr %23, align 8, !tbaa !26
   %25 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %24)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %26, align 8, !tbaa !29
+  store i32 1, ptr %26, align 8, !tbaa !28
   br label %207
 
 27:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %29 = load i32, ptr %28, align 8, !tbaa !30
+  %29 = load i32, ptr %28, align 8, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %31 = load i32, ptr %30, align 8, !tbaa !31
+  %31 = load i32, ptr %30, align 8, !tbaa !30
   %32 = tail call ptr @cuddLevelQueueInit(i32 noundef %29, i32 noundef 40, i32 noundef %31) #10
   %33 = icmp eq ptr %32, null
   br i1 %33, label %178, label %34
 
 34:                                               ; preds = %27
-  %35 = load i32, ptr %28, align 8, !tbaa !30
+  %35 = load i32, ptr %28, align 8, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %37 = load i32, ptr %36, align 8, !tbaa !35
+  %37 = load i32, ptr %36, align 8, !tbaa !34
   %38 = tail call ptr @cuddLevelQueueInit(i32 noundef %35, i32 noundef 32, i32 noundef %37) #10
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41
@@ -85,16 +85,16 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br label %178
 
 41:                                               ; preds = %34
-  %42 = load i32, ptr %16, align 8, !tbaa !28
+  %42 = load i32, ptr %16, align 8, !tbaa !27
   %43 = icmp eq i32 %42, 2147483647
   br i1 %43, label %50, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %46 = load ptr, ptr %45, align 8, !tbaa !36
+  %46 = load ptr, ptr %45, align 8, !tbaa !35
   %47 = zext i32 %42 to i64
   %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
-  %49 = load i32, ptr %48, align 4, !tbaa !37
+  %49 = load i32, ptr %48, align 4, !tbaa !36
   br label %50
 
 50:                                               ; preds = %44, %41
@@ -114,10 +114,10 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %.sink113.i = select i1 %.not.i, double 1.000000e+00, double 0.000000e+00
   %.sink.i = select i1 %.not.i, double 0.000000e+00, double 1.000000e+00
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store double %.sink113.i, ptr %57, align 8, !tbaa !38
+  store double %.sink113.i, ptr %57, align 8, !tbaa !37
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  store double %.sink.i, ptr %58, align 8, !tbaa !41
-  %59 = load ptr, ptr %32, align 8, !tbaa !42
+  store double %.sink.i, ptr %58, align 8, !tbaa !40
+  %59 = load ptr, ptr %32, align 8, !tbaa !41
   %.not107111.i = icmp eq ptr %59, null
   br i1 %.not107111.i, label %.loopexit, label %.lr.ph.i
 
@@ -130,37 +130,37 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
 
 63:                                               ; preds = %.backedge.i, %.lr.ph.i
   %64 = phi ptr [ %59, %.lr.ph.i ], [ %88, %.backedge.i ]
-  %65 = load i32, ptr %30, align 8, !tbaa !31
+  %65 = load i32, ptr %30, align 8, !tbaa !30
   %.not108.i = icmp sgt i32 %65, %3
   br i1 %.not108.i, label %66, label %.loopexit
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !46
+  %68 = load ptr, ptr %67, align 8, !tbaa !45
   %69 = ptrtoint ptr %68 to i64
   %70 = and i64 %69, -2
   %71 = inttoptr i64 %70 to ptr
-  %72 = load ptr, ptr %60, align 8, !tbaa !47
+  %72 = load ptr, ptr %60, align 8, !tbaa !46
   %73 = call i32 @st__lookup(ptr noundef %72, ptr noundef %71, ptr noundef nonnull %7) #10
-  %.pre.i = load ptr, ptr %7, align 8, !tbaa !48
+  %.pre.i = load ptr, ptr %7, align 8, !tbaa !47
   br i1 %.not109.i, label %89, label %74
 
 74:                                               ; preds = %66
   %75 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 22
-  %76 = load i16, ptr %75, align 2, !tbaa !49
+  %76 = load i16, ptr %75, align 2, !tbaa !48
   %77 = icmp eq i16 %76, 3
   br i1 %77, label %78, label %89
 
 78:                                               ; preds = %74
-  %79 = load i32, ptr %71, align 8, !tbaa !28
+  %79 = load i32, ptr %71, align 8, !tbaa !27
   %80 = icmp eq i32 %79, 2147483647
   br i1 %80, label %86, label %81
 
 81:                                               ; preds = %78
-  %82 = load ptr, ptr %61, align 8, !tbaa !36
+  %82 = load ptr, ptr %61, align 8, !tbaa !35
   %83 = zext i32 %79 to i64
   %84 = getelementptr inbounds nuw i32, ptr %82, i64 %83
-  %85 = load i32, ptr %84, align 4, !tbaa !37
+  %85 = load i32, ptr %84, align 4, !tbaa !36
   br label %86
 
 86:                                               ; preds = %81, %78
@@ -169,18 +169,18 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %172, %166, %146, %122, %86
-  %88 = load ptr, ptr %32, align 8, !tbaa !42
+  %88 = load ptr, ptr %32, align 8, !tbaa !41
   %.not107.i = icmp eq ptr %88, null
-  br i1 %.not107.i, label %.loopexit, label %63, !llvm.loop !52
+  br i1 %.not107.i, label %.loopexit, label %63, !llvm.loop !51
 
 89:                                               ; preds = %74, %66
   %90 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %91 = load double, ptr %90, align 8, !tbaa !38
+  %91 = load double, ptr %90, align 8, !tbaa !37
   %92 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %93 = load double, ptr %92, align 8, !tbaa !41
-  %94 = load double, ptr %.pre.i, align 8, !tbaa !53
+  %93 = load double, ptr %92, align 8, !tbaa !40
+  %94 = load double, ptr %.pre.i, align 8, !tbaa !52
   %95 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
-  %96 = load double, ptr %95, align 8, !tbaa !54
+  %96 = load double, ptr %95, align 8, !tbaa !53
   %97 = fmul double %93, %96
   %98 = call double @llvm.fmuladd.f64(double %94, double %91, double %97)
   %99 = call fastcc i32 @computeSavings(ptr noundef readonly %0, ptr noundef %71, ptr noundef null, ptr noundef nonnull %20, ptr noundef %38)
@@ -193,25 +193,25 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br label %178
 
 102:                                              ; preds = %89
-  %103 = load i32, ptr %71, align 8, !tbaa !28
+  %103 = load i32, ptr %71, align 8, !tbaa !27
   %104 = icmp eq i32 %103, 2147483647
   br i1 %104, label %110, label %105
 
 105:                                              ; preds = %102
-  %106 = load ptr, ptr %61, align 8, !tbaa !36
+  %106 = load ptr, ptr %61, align 8, !tbaa !35
   %107 = zext i32 %103 to i64
   %108 = getelementptr inbounds nuw i32, ptr %106, i64 %107
-  %109 = load i32, ptr %108, align 4, !tbaa !37
+  %109 = load i32, ptr %108, align 4, !tbaa !36
   br label %110
 
 110:                                              ; preds = %105, %102
   %111 = phi i32 [ %109, %105 ], [ 2147483647, %102 ]
   call void @cuddLevelQueueDequeue(ptr noundef nonnull %32, i32 noundef %111) #10
-  %112 = load double, ptr %62, align 8, !tbaa !55
+  %112 = load double, ptr %62, align 8, !tbaa !54
   %113 = fdiv double %98, %112
   %114 = fsub double 1.000000e+00, %113
   %115 = sitofp i32 %99 to double
-  %116 = load i32, ptr %30, align 8, !tbaa !31
+  %116 = load i32, ptr %30, align 8, !tbaa !30
   %117 = sitofp i32 %116 to double
   %118 = fdiv double %115, %117
   %119 = fsub double 1.000000e+00, %118
@@ -220,108 +220,108 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %121, label %122, label %127
 
 122:                                              ; preds = %110
-  %123 = load ptr, ptr %7, align 8, !tbaa !48
+  %123 = load ptr, ptr %7, align 8, !tbaa !47
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 21
-  store i8 1, ptr %124, align 1, !tbaa !56
+  store i8 1, ptr %124, align 1, !tbaa !55
   %125 = sub nsw i32 %116, %99
-  store i32 %125, ptr %30, align 8, !tbaa !31
+  store i32 %125, ptr %30, align 8, !tbaa !30
   %126 = fsub double %112, %98
-  store double %126, ptr %62, align 8, !tbaa !55
+  store double %126, ptr %62, align 8, !tbaa !54
   call fastcc void @updateRefs(ptr noundef readonly %0, ptr noundef nonnull %71, ptr noundef null, ptr noundef nonnull %20, ptr noundef %38)
   br label %.backedge.i
 
 127:                                              ; preds = %110
   %128 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %129 = load ptr, ptr %128, align 8, !tbaa !57
-  %130 = load i32, ptr %129, align 8, !tbaa !28
+  %129 = load ptr, ptr %128, align 8, !tbaa !56
+  %130 = load i32, ptr %129, align 8, !tbaa !27
   %131 = icmp eq i32 %130, 2147483647
   br i1 %131, label %146, label %132
 
 132:                                              ; preds = %127
-  %133 = load ptr, ptr %61, align 8, !tbaa !36
+  %133 = load ptr, ptr %61, align 8, !tbaa !35
   %134 = zext i32 %130 to i64
   %135 = getelementptr inbounds nuw i32, ptr %133, i64 %134
-  %136 = load i32, ptr %135, align 4, !tbaa !37
+  %136 = load i32, ptr %135, align 4, !tbaa !36
   %137 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %32, ptr noundef nonnull %129, i32 noundef %136) #10
   %138 = fmul double %91, 5.000000e-01
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  %140 = load double, ptr %139, align 8, !tbaa !38
+  %140 = load double, ptr %139, align 8, !tbaa !37
   %141 = fadd double %138, %140
-  store double %141, ptr %139, align 8, !tbaa !38
+  store double %141, ptr %139, align 8, !tbaa !37
   %142 = fmul double %93, 5.000000e-01
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 32
-  %144 = load double, ptr %143, align 8, !tbaa !41
+  %144 = load double, ptr %143, align 8, !tbaa !40
   %145 = fadd double %142, %144
-  store double %145, ptr %143, align 8, !tbaa !41
+  store double %145, ptr %143, align 8, !tbaa !40
   br label %146
 
 146:                                              ; preds = %132, %127
   %147 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %148 = load ptr, ptr %147, align 8, !tbaa !57
+  %148 = load ptr, ptr %147, align 8, !tbaa !56
   %149 = ptrtoint ptr %148 to i64
   %150 = and i64 %149, -2
   %151 = inttoptr i64 %150 to ptr
-  %152 = load i32, ptr %151, align 8, !tbaa !28
+  %152 = load i32, ptr %151, align 8, !tbaa !27
   %153 = icmp eq i32 %152, 2147483647
   br i1 %153, label %.backedge.i, label %154
 
 154:                                              ; preds = %146
-  %155 = load ptr, ptr %61, align 8, !tbaa !36
+  %155 = load ptr, ptr %61, align 8, !tbaa !35
   %156 = zext i32 %152 to i64
   %157 = getelementptr inbounds nuw i32, ptr %155, i64 %156
-  %158 = load i32, ptr %157, align 4, !tbaa !37
+  %158 = load i32, ptr %157, align 4, !tbaa !36
   %159 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %32, ptr noundef nonnull %151, i32 noundef %158) #10
-  %160 = load ptr, ptr %147, align 8, !tbaa !57
+  %160 = load ptr, ptr %147, align 8, !tbaa !56
   %161 = ptrtoint ptr %160 to i64
   %162 = and i64 %161, 1
   %.not110.i = icmp eq i64 %162, 0
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 24
-  %164 = load double, ptr %163, align 8, !tbaa !38
+  %164 = load double, ptr %163, align 8, !tbaa !37
   %165 = getelementptr inbounds nuw i8, ptr %159, i64 32
   br i1 %.not110.i, label %172, label %166
 
 166:                                              ; preds = %154
   %167 = fmul double %93, 5.000000e-01
   %168 = fadd double %167, %164
-  store double %168, ptr %163, align 8, !tbaa !38
+  store double %168, ptr %163, align 8, !tbaa !37
   %169 = fmul double %91, 5.000000e-01
-  %170 = load double, ptr %165, align 8, !tbaa !41
+  %170 = load double, ptr %165, align 8, !tbaa !40
   %171 = fadd double %169, %170
-  store double %171, ptr %165, align 8, !tbaa !41
+  store double %171, ptr %165, align 8, !tbaa !40
   br label %.backedge.i
 
 172:                                              ; preds = %154
   %173 = fmul double %91, 5.000000e-01
   %174 = fadd double %173, %164
-  store double %174, ptr %163, align 8, !tbaa !38
+  store double %174, ptr %163, align 8, !tbaa !37
   %175 = fmul double %93, 5.000000e-01
-  %176 = load double, ptr %165, align 8, !tbaa !41
+  %176 = load double, ptr %165, align 8, !tbaa !40
   %177 = fadd double %175, %176
-  store double %177, ptr %165, align 8, !tbaa !41
+  store double %177, ptr %165, align 8, !tbaa !40
   br label %.backedge.i
 
 178:                                              ; preds = %40, %54, %101, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %180 = load ptr, ptr %179, align 8, !tbaa !27
+  %180 = load ptr, ptr %179, align 8, !tbaa !26
   %181 = call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %180)
   %182 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %183 = load ptr, ptr %182, align 8, !tbaa !58
+  %183 = load ptr, ptr %182, align 8, !tbaa !57
   %.not48 = icmp eq ptr %183, null
   br i1 %.not48, label %185, label %184
 
 184:                                              ; preds = %178
   call void @free(ptr noundef nonnull %183) #10
-  store ptr null, ptr %182, align 8, !tbaa !58
+  store ptr null, ptr %182, align 8, !tbaa !57
   br label %185
 
 185:                                              ; preds = %178, %184
   %186 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %187 = load ptr, ptr %186, align 8, !tbaa !47
+  %187 = load ptr, ptr %186, align 8, !tbaa !46
   call void @st__free_table(ptr noundef %187) #10
   call void @free(ptr noundef nonnull %20) #10
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %188, align 8, !tbaa !29
+  store i32 1, ptr %188, align 8, !tbaa !28
   br label %207
 
 .loopexit:                                        ; preds = %.backedge.i, %63, %55
@@ -333,33 +333,33 @@ define ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   br i1 %.not, label %200, label %190
 
 190:                                              ; preds = %.loopexit
-  %191 = load i32, ptr %30, align 8, !tbaa !31
+  %191 = load i32, ptr %30, align 8, !tbaa !30
   %192 = call i32 @Cudd_DagSize(ptr noundef nonnull %189) #10
   %193 = icmp slt i32 %191, %192
   br i1 %193, label %194, label %200
 
 194:                                              ; preds = %190
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %196 = load ptr, ptr %195, align 8, !tbaa !27
-  %197 = load i32, ptr %30, align 8, !tbaa !31
+  %196 = load ptr, ptr %195, align 8, !tbaa !26
+  %197 = load i32, ptr %30, align 8, !tbaa !30
   %198 = call i32 @Cudd_DagSize(ptr noundef nonnull %189) #10
   %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %196, ptr noundef nonnull @.str.2, i32 noundef %197, i32 noundef %198) #10
   br label %200
 
 200:                                              ; preds = %194, %190, %.loopexit
   %201 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %202 = load ptr, ptr %201, align 8, !tbaa !58
+  %202 = load ptr, ptr %201, align 8, !tbaa !57
   %.not47 = icmp eq ptr %202, null
   br i1 %.not47, label %204, label %203
 
 203:                                              ; preds = %200
   call void @free(ptr noundef nonnull %202) #10
-  store ptr null, ptr %201, align 8, !tbaa !58
+  store ptr null, ptr %201, align 8, !tbaa !57
   br label %204
 
 204:                                              ; preds = %200, %203
   %205 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %206 = load ptr, ptr %205, align 8, !tbaa !47
+  %206 = load ptr, ptr %205, align 8, !tbaa !46
   call void @st__free_table(ptr noundef %206) #10
   call void @free(ptr noundef nonnull %20) #10
   br label %207
@@ -385,7 +385,7 @@ define ptr @Cudd_OverApprox(ptr noundef initializes((448, 452)) %0, ptr noundef 
   %12 = tail call ptr @cuddUnderApprox(ptr noundef %0, ptr noundef %9, i32 noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5)
   %13 = load i32, ptr %10, align 8, !tbaa !3
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %11, label %15, !llvm.loop !59
+  br i1 %14, label %11, label %15, !llvm.loop !58
 
 15:                                               ; preds = %11
   %16 = ptrtoint ptr %12 to i64
@@ -406,7 +406,7 @@ define ptr @Cudd_RemapUnderApprox(ptr noundef initializes((448, 452)) %0, ptr no
   %8 = tail call ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4)
   %9 = load i32, ptr %6, align 8, !tbaa !3
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %7, label %11, !llvm.loop !60
+  br i1 %10, label %7, label %11, !llvm.loop !59
 
 11:                                               ; preds = %7
   ret ptr %8
@@ -423,17 +423,17 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %13 = load ptr, ptr %12, align 8, !tbaa !27
+  %13 = load ptr, ptr %12, align 8, !tbaa !26
   %14 = tail call i64 @fwrite(ptr nonnull @.str, i64 26, i64 1, ptr %13)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 4, ptr %15, align 8, !tbaa !29
+  store i32 4, ptr %15, align 8, !tbaa !28
   br label %422
 
 16:                                               ; preds = %5
   %17 = ptrtoint ptr %1 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = load i32, ptr %19, align 8, !tbaa !28
+  %20 = load i32, ptr %19, align 8, !tbaa !27
   %21 = icmp eq i32 %20, 2147483647
   br i1 %21, label %422, label %22
 
@@ -444,10 +444,10 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %27 = load ptr, ptr %26, align 8, !tbaa !27
+  %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %27)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %29, align 8, !tbaa !29
+  store i32 1, ptr %29, align 8, !tbaa !28
   br label %422
 
 30:                                               ; preds = %22
@@ -455,17 +455,17 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %32 = load i32, ptr %31, align 8, !tbaa !30
+  %32 = load i32, ptr %31, align 8, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %34 = load i32, ptr %33, align 8, !tbaa !31
+  %34 = load i32, ptr %33, align 8, !tbaa !30
   %35 = tail call ptr @cuddLevelQueueInit(i32 noundef %32, i32 noundef 40, i32 noundef %34) #10
   %36 = icmp eq ptr %35, null
   br i1 %36, label %393, label %37
 
 37:                                               ; preds = %30
-  %38 = load i32, ptr %31, align 8, !tbaa !30
+  %38 = load i32, ptr %31, align 8, !tbaa !29
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %40 = load i32, ptr %39, align 8, !tbaa !35
+  %40 = load i32, ptr %39, align 8, !tbaa !34
   %41 = tail call ptr @cuddLevelQueueInit(i32 noundef %38, i32 noundef 32, i32 noundef %40) #10
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %44
@@ -475,16 +475,16 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %393
 
 44:                                               ; preds = %37
-  %45 = load i32, ptr %19, align 8, !tbaa !28
+  %45 = load i32, ptr %19, align 8, !tbaa !27
   %46 = icmp eq i32 %45, 2147483647
   br i1 %46, label %53, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %49 = load ptr, ptr %48, align 8, !tbaa !36
+  %49 = load ptr, ptr %48, align 8, !tbaa !35
   %50 = zext i32 %45 to i64
   %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !37
+  %52 = load i32, ptr %51, align 4, !tbaa !36
   br label %53
 
 53:                                               ; preds = %47, %44
@@ -504,10 +504,10 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %.sink332.i = select i1 %.not.i, double 1.000000e+00, double 0.000000e+00
   %.sink.i = select i1 %.not.i, double 0.000000e+00, double 1.000000e+00
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  store double %.sink332.i, ptr %60, align 8, !tbaa !38
+  store double %.sink332.i, ptr %60, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store double %.sink.i, ptr %61, align 8, !tbaa !41
-  %62 = load ptr, ptr %35, align 8, !tbaa !42
+  store double %.sink.i, ptr %61, align 8, !tbaa !40
+  %62 = load ptr, ptr %35, align 8, !tbaa !41
   %.not294330.i = icmp eq ptr %62, null
   br i1 %.not294330.i, label %.loopexit, label %.lr.ph.i
 
@@ -519,14 +519,14 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 66:                                               ; preds = %.backedge.i, %.lr.ph.i
   %67 = phi ptr [ %62, %.lr.ph.i ], [ %90, %.backedge.i ]
-  %68 = load i32, ptr %33, align 8, !tbaa !31
+  %68 = load i32, ptr %33, align 8, !tbaa !30
   %.not295.i = icmp sgt i32 %68, %3
   br i1 %.not295.i, label %69, label %.loopexit
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !46
-  %72 = load ptr, ptr %63, align 8, !tbaa !47
+  %71 = load ptr, ptr %70, align 8, !tbaa !45
+  %72 = load ptr, ptr %63, align 8, !tbaa !46
   %73 = call i32 @st__lookup(ptr noundef %72, ptr noundef %71, ptr noundef nonnull %6) #10
   %.not296.i = icmp eq i32 %73, 0
   br i1 %.not296.i, label %74, label %75
@@ -537,22 +537,22 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %393
 
 75:                                               ; preds = %69
-  %76 = load ptr, ptr %6, align 8, !tbaa !48
+  %76 = load ptr, ptr %6, align 8, !tbaa !47
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 22
-  %78 = load i16, ptr %77, align 2, !tbaa !49
+  %78 = load i16, ptr %77, align 2, !tbaa !48
   %79 = icmp eq i16 %78, 3
   br i1 %79, label %80, label %91
 
 80:                                               ; preds = %75
-  %81 = load i32, ptr %71, align 8, !tbaa !28
+  %81 = load i32, ptr %71, align 8, !tbaa !27
   %82 = icmp eq i32 %81, 2147483647
   br i1 %82, label %88, label %83
 
 83:                                               ; preds = %80
-  %84 = load ptr, ptr %64, align 8, !tbaa !36
+  %84 = load ptr, ptr %64, align 8, !tbaa !35
   %85 = zext i32 %81 to i64
   %86 = getelementptr inbounds nuw i32, ptr %84, i64 %85
-  %87 = load i32, ptr %86, align 4, !tbaa !37
+  %87 = load i32, ptr %86, align 4, !tbaa !36
   br label %88
 
 88:                                               ; preds = %83, %80
@@ -561,44 +561,44 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %343, %336, %360, %353, %.thread310.i, %.thread310.thread.i.thread, %389, %385, %369, %.thread310.thread334.i, %.thread317.i, %.thread333.i, %88
-  %90 = load ptr, ptr %35, align 8, !tbaa !42
+  %90 = load ptr, ptr %35, align 8, !tbaa !41
   %.not294.i = icmp eq ptr %90, null
-  br i1 %.not294.i, label %.loopexit, label %66, !llvm.loop !61
+  br i1 %.not294.i, label %.loopexit, label %66, !llvm.loop !60
 
 91:                                               ; preds = %75
   %92 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %93 = load ptr, ptr %92, align 8, !tbaa !57
+  %93 = load ptr, ptr %92, align 8, !tbaa !56
   %94 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %95 = load ptr, ptr %94, align 8, !tbaa !57
+  %95 = load ptr, ptr %94, align 8, !tbaa !56
   %96 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %97 = load double, ptr %96, align 8, !tbaa !38
+  %97 = load double, ptr %96, align 8, !tbaa !37
   %98 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %99 = load double, ptr %98, align 8, !tbaa !41
+  %99 = load double, ptr %98, align 8, !tbaa !40
   %100 = call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %93, ptr noundef %95) #10
   %.not297.i = icmp eq i32 %100, 0
   br i1 %.not297.i, label %158, label %101
 
 101:                                              ; preds = %91
-  %102 = load ptr, ptr %63, align 8, !tbaa !47
+  %102 = load ptr, ptr %63, align 8, !tbaa !46
   %103 = call i32 @st__lookup(ptr noundef %102, ptr noundef %93, ptr noundef nonnull %7) #10
-  %104 = load ptr, ptr %63, align 8, !tbaa !47
+  %104 = load ptr, ptr %63, align 8, !tbaa !46
   %105 = call i32 @st__lookup(ptr noundef %104, ptr noundef %95, ptr noundef nonnull %8) #10
-  %106 = load ptr, ptr %6, align 8, !tbaa !48
+  %106 = load ptr, ptr %6, align 8, !tbaa !47
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 22
-  %108 = load i16, ptr %107, align 2, !tbaa !49
+  %108 = load i16, ptr %107, align 2, !tbaa !48
   %109 = icmp eq i16 %108, 1
   br i1 %109, label %110, label %132
 
 110:                                              ; preds = %101
-  %111 = load ptr, ptr %8, align 8, !tbaa !48
-  %112 = load double, ptr %111, align 8, !tbaa !53
+  %111 = load ptr, ptr %8, align 8, !tbaa !47
+  %112 = load double, ptr %111, align 8, !tbaa !52
   %113 = fmul double %112, 5.000000e-01
-  %114 = load ptr, ptr %7, align 8, !tbaa !48
-  %115 = load double, ptr %114, align 8, !tbaa !53
+  %114 = load ptr, ptr %7, align 8, !tbaa !47
+  %115 = load double, ptr %114, align 8, !tbaa !52
   %116 = fmul double %115, 5.000000e-01
   %117 = fsub double %113, %116
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %119 = load i32, ptr %118, align 8, !tbaa !62
+  %119 = load i32, ptr %118, align 8, !tbaa !61
   %120 = icmp eq i32 %119, 1
   br i1 %120, label %121, label %156
 
@@ -606,7 +606,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %122 = ptrtoint ptr %95 to i64
   %123 = and i64 %122, -2
   %124 = inttoptr i64 %123 to ptr
-  %125 = load i32, ptr %124, align 8, !tbaa !28
+  %125 = load i32, ptr %124, align 8, !tbaa !27
   %126 = icmp eq i32 %125, 2147483647
   br i1 %126, label %156, label %127
 
@@ -622,17 +622,17 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br label %393
 
 132:                                              ; preds = %101
-  %133 = load ptr, ptr %7, align 8, !tbaa !48
+  %133 = load ptr, ptr %7, align 8, !tbaa !47
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %135 = load double, ptr %134, align 8, !tbaa !54
+  %135 = load double, ptr %134, align 8, !tbaa !53
   %136 = fmul double %135, 5.000000e-01
-  %137 = load ptr, ptr %8, align 8, !tbaa !48
+  %137 = load ptr, ptr %8, align 8, !tbaa !47
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = load double, ptr %138, align 8, !tbaa !54
+  %139 = load double, ptr %138, align 8, !tbaa !53
   %140 = fmul double %139, 5.000000e-01
   %141 = fsub double %136, %140
   %142 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %143 = load i32, ptr %142, align 8, !tbaa !62
+  %143 = load i32, ptr %142, align 8, !tbaa !61
   %144 = icmp eq i32 %143, 1
   br i1 %144, label %145, label %156
 
@@ -640,7 +640,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %146 = ptrtoint ptr %93 to i64
   %147 = and i64 %146, -2
   %148 = inttoptr i64 %147 to ptr
-  %149 = load i32, ptr %148, align 8, !tbaa !28
+  %149 = load i32, ptr %148, align 8, !tbaa !27
   %150 = icmp eq i32 %149, 2147483647
   br i1 %150, label %156, label %151
 
@@ -672,29 +672,29 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not298.i, label %218, label %163
 
 163:                                              ; preds = %158
-  %164 = load ptr, ptr %63, align 8, !tbaa !47
+  %164 = load ptr, ptr %63, align 8, !tbaa !46
   %165 = call i32 @st__lookup(ptr noundef %164, ptr noundef %93, ptr noundef nonnull %7) #10
-  %166 = load ptr, ptr %63, align 8, !tbaa !47
+  %166 = load ptr, ptr %63, align 8, !tbaa !46
   %167 = call i32 @st__lookup(ptr noundef %166, ptr noundef %162, ptr noundef nonnull %8) #10
-  %168 = load ptr, ptr %6, align 8, !tbaa !48
+  %168 = load ptr, ptr %6, align 8, !tbaa !47
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 22
-  %170 = load i16, ptr %169, align 2, !tbaa !49
+  %170 = load i16, ptr %169, align 2, !tbaa !48
   %171 = icmp eq i16 %170, 1
   br i1 %171, label %172, label %195
 
 172:                                              ; preds = %163
-  %173 = load ptr, ptr %7, align 8, !tbaa !48
-  %174 = load double, ptr %173, align 8, !tbaa !53
+  %173 = load ptr, ptr %7, align 8, !tbaa !47
+  %174 = load double, ptr %173, align 8, !tbaa !52
   %175 = fmul double %174, 5.000000e-01
   %176 = icmp eq ptr %95, %162
   %177 = load ptr, ptr %8, align 8
   %.in301.idx.i = select i1 %176, i64 0, i64 8
   %.in301.i = getelementptr inbounds nuw i8, ptr %177, i64 %.in301.idx.i
-  %178 = load double, ptr %.in301.i, align 8, !tbaa !63
+  %178 = load double, ptr %.in301.i, align 8, !tbaa !62
   %179 = fmul double %178, 5.000000e-01
   %180 = fsub double %175, %179
   %181 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  %182 = load i32, ptr %181, align 8, !tbaa !62
+  %182 = load i32, ptr %181, align 8, !tbaa !61
   %183 = icmp eq i32 %182, 1
   br i1 %183, label %184, label %216
 
@@ -702,7 +702,7 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %185 = ptrtoint ptr %93 to i64
   %186 = and i64 %185, -2
   %187 = inttoptr i64 %186 to ptr
-  %188 = load i32, ptr %187, align 8, !tbaa !28
+  %188 = load i32, ptr %187, align 8, !tbaa !27
   %189 = icmp eq i32 %188, 2147483647
   br i1 %189, label %216, label %190
 
@@ -722,20 +722,20 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %197 = load ptr, ptr %8, align 8
   %.in.idx.i = select i1 %196, i64 8, i64 0
   %.in.i = getelementptr inbounds nuw i8, ptr %197, i64 %.in.idx.i
-  %198 = load double, ptr %.in.i, align 8, !tbaa !63
+  %198 = load double, ptr %.in.i, align 8, !tbaa !62
   %199 = fmul double %198, 5.000000e-01
-  %200 = load ptr, ptr %7, align 8, !tbaa !48
+  %200 = load ptr, ptr %7, align 8, !tbaa !47
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  %202 = load double, ptr %201, align 8, !tbaa !54
+  %202 = load double, ptr %201, align 8, !tbaa !53
   %203 = fmul double %202, 5.000000e-01
   %204 = fsub double %199, %203
   %205 = getelementptr inbounds nuw i8, ptr %197, i64 16
-  %206 = load i32, ptr %205, align 8, !tbaa !62
+  %206 = load i32, ptr %205, align 8, !tbaa !61
   %207 = icmp eq i32 %206, 1
   br i1 %207, label %208, label %216
 
 208:                                              ; preds = %195
-  %209 = load i32, ptr %162, align 8, !tbaa !28
+  %209 = load i32, ptr %162, align 8, !tbaa !27
   %210 = icmp eq i32 %209, 2147483647
   br i1 %210, label %216, label %211
 
@@ -760,16 +760,16 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 218:                                              ; preds = %158
   %219 = and i64 %160, 1
-  %220 = load i32, ptr %93, align 8, !tbaa !28
-  %221 = load i32, ptr %162, align 8, !tbaa !28
+  %220 = load i32, ptr %93, align 8, !tbaa !27
+  %221 = load i32, ptr %162, align 8, !tbaa !27
   %222 = icmp eq i32 %220, %221
   br i1 %222, label %223, label %241
 
 223:                                              ; preds = %218
   %224 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %225 = load ptr, ptr %224, align 8, !tbaa !57
+  %225 = load ptr, ptr %224, align 8, !tbaa !56
   %226 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  %227 = load ptr, ptr %226, align 8, !tbaa !57
+  %227 = load ptr, ptr %226, align 8, !tbaa !56
   %228 = ptrtoint ptr %227 to i64
   %229 = xor i64 %219, %228
   %230 = inttoptr i64 %229 to ptr
@@ -778,9 +778,9 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 232:                                              ; preds = %223
   %233 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  %234 = load ptr, ptr %233, align 8, !tbaa !57
+  %234 = load ptr, ptr %233, align 8, !tbaa !56
   %235 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  %236 = load ptr, ptr %235, align 8, !tbaa !57
+  %236 = load ptr, ptr %235, align 8, !tbaa !56
   %237 = ptrtoint ptr %236 to i64
   %238 = xor i64 %219, %237
   %239 = inttoptr i64 %238 to ptr
@@ -793,10 +793,10 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 242:                                              ; preds = %241, %232, %223
   %.5.i = phi i32 [ 4, %223 ], [ 3, %241 ], [ 5, %232 ]
   %.1249.i = phi ptr [ %225, %223 ], [ null, %241 ], [ %234, %232 ]
-  %243 = load ptr, ptr %6, align 8, !tbaa !48
-  %244 = load double, ptr %243, align 8, !tbaa !53
+  %243 = load ptr, ptr %6, align 8, !tbaa !47
+  %244 = load double, ptr %243, align 8, !tbaa !52
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  %246 = load double, ptr %245, align 8, !tbaa !54
+  %246 = load double, ptr %245, align 8, !tbaa !53
   %247 = fmul double %99, %246
   %248 = call double @llvm.fmuladd.f64(double %244, double %97, double %247)
   %249 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %.1249.i, ptr noundef nonnull %23, ptr noundef %41)
@@ -805,19 +805,19 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 250:                                              ; preds = %242
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
-  %251 = load ptr, ptr %63, align 8, !tbaa !47
+  %251 = load ptr, ptr %63, align 8, !tbaa !46
   %252 = ptrtoint ptr %.1249.i to i64
   %253 = and i64 %252, -2
   %254 = inttoptr i64 %253 to ptr
   %255 = call i32 @st__lookup(ptr noundef %251, ptr noundef %254, ptr noundef nonnull %9) #10
   %256 = and i64 %252, 1
   %.not300.i = icmp eq i64 %256, 0
-  %257 = load ptr, ptr %9, align 8, !tbaa !48
+  %257 = load ptr, ptr %9, align 8, !tbaa !47
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %. = select i1 %.not300.i, ptr %258, ptr %257
   %.54 = select i1 %.not300.i, ptr %257, ptr %258
-  %.sink340.i = load double, ptr %.54, align 8, !tbaa !63
-  %.sink342.i = load double, ptr %., align 8, !tbaa !63
+  %.sink340.i = load double, ptr %.54, align 8, !tbaa !62
+  %.sink342.i = load double, ptr %., align 8, !tbaa !62
   %259 = fmul double %99, %.sink342.i
   %260 = call double @llvm.fmuladd.f64(double %.sink340.i, double %97, double %259)
   %.pn.i = fmul double %260, 5.000000e-01
@@ -831,25 +831,25 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %.2260.i = phi i32 [ %.1259.i, %156 ], [ %.4262.i, %216 ], [ %.5.i, %250 ], [ %.5.i, %242 ]
   %.1252.i = phi double [ %157, %156 ], [ %217, %216 ], [ %.4.i, %250 ], [ %248, %242 ]
   %.0248.i = phi ptr [ null, %156 ], [ null, %216 ], [ %.1249.i, %250 ], [ null, %242 ]
-  %263 = load i32, ptr %71, align 8, !tbaa !28
+  %263 = load i32, ptr %71, align 8, !tbaa !27
   %264 = icmp eq i32 %263, 2147483647
   br i1 %264, label %270, label %265
 
 265:                                              ; preds = %262
-  %266 = load ptr, ptr %64, align 8, !tbaa !36
+  %266 = load ptr, ptr %64, align 8, !tbaa !35
   %267 = zext i32 %263 to i64
   %268 = getelementptr inbounds nuw i32, ptr %266, i64 %267
-  %269 = load i32, ptr %268, align 4, !tbaa !37
+  %269 = load i32, ptr %268, align 4, !tbaa !36
   br label %270
 
 270:                                              ; preds = %265, %262
   %271 = phi i32 [ %269, %265 ], [ 2147483647, %262 ]
   call void @cuddLevelQueueDequeue(ptr noundef nonnull %35, i32 noundef %271) #10
-  %272 = load double, ptr %65, align 8, !tbaa !55
+  %272 = load double, ptr %65, align 8, !tbaa !54
   %273 = fdiv double %.1252.i, %272
   %274 = fsub double 1.000000e+00, %273
   %275 = sitofp i32 %.3266.i to double
-  %276 = load i32, ptr %33, align 8, !tbaa !31
+  %276 = load i32, ptr %33, align 8, !tbaa !30
   %277 = sitofp i32 %276 to double
   %278 = fdiv double %275, %277
   %279 = fsub double 1.000000e+00, %278
@@ -859,13 +859,13 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 282:                                              ; preds = %270
   %283 = trunc nuw nsw i32 %.2260.i to i8
-  %284 = load ptr, ptr %6, align 8, !tbaa !48
+  %284 = load ptr, ptr %6, align 8, !tbaa !47
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 21
-  store i8 %283, ptr %285, align 1, !tbaa !56
+  store i8 %283, ptr %285, align 1, !tbaa !55
   %286 = sub nsw i32 %276, %.3266.i
-  store i32 %286, ptr %33, align 8, !tbaa !31
+  store i32 %286, ptr %33, align 8, !tbaa !30
   %287 = fsub double %272, %.1252.i
-  store double %287, ptr %65, align 8, !tbaa !55
+  store double %287, ptr %65, align 8, !tbaa !54
   switch i32 %.2260.i, label %.thread310.thread334.i [
     i32 3, label %.thread333.i
     i32 1, label %.thread327.i
@@ -887,68 +887,68 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %289, label %369, label %.backedge.i
 
 .thread310.thread.i:                              ; preds = %270
-  %290 = load ptr, ptr %92, align 8, !tbaa !57
-  %291 = load i32, ptr %290, align 8, !tbaa !28
+  %290 = load ptr, ptr %92, align 8, !tbaa !56
+  %291 = load i32, ptr %290, align 8, !tbaa !27
   %292 = icmp eq i32 %291, 2147483647
   br i1 %292, label %.thread310.i, label %.thread313.i
 
 .thread310.thread.i.thread:                       ; preds = %282
   call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %71, ptr noundef %93, ptr noundef nonnull %23, ptr noundef %41)
-  %293 = load ptr, ptr %92, align 8, !tbaa !57
-  %294 = load i32, ptr %293, align 8, !tbaa !28
+  %293 = load ptr, ptr %92, align 8, !tbaa !56
+  %294 = load i32, ptr %293, align 8, !tbaa !27
   %295 = icmp eq i32 %294, 2147483647
   br i1 %295, label %.backedge.i, label %.thread317.i
 
 .thread317.i:                                     ; preds = %.thread310.thread.i.thread
-  %296 = load ptr, ptr %64, align 8, !tbaa !36
+  %296 = load ptr, ptr %64, align 8, !tbaa !35
   %297 = zext i32 %294 to i64
   %298 = getelementptr inbounds nuw i32, ptr %296, i64 %297
-  %299 = load i32, ptr %298, align 4, !tbaa !37
+  %299 = load i32, ptr %298, align 4, !tbaa !36
   %300 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %35, ptr noundef nonnull %293, i32 noundef %299) #10
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 24
-  %302 = load double, ptr %301, align 8, !tbaa !38
+  %302 = load double, ptr %301, align 8, !tbaa !37
   %303 = fadd double %97, %302
-  store double %303, ptr %301, align 8, !tbaa !38
+  store double %303, ptr %301, align 8, !tbaa !37
   %304 = getelementptr inbounds nuw i8, ptr %300, i64 32
-  %305 = load double, ptr %304, align 8, !tbaa !41
+  %305 = load double, ptr %304, align 8, !tbaa !40
   %306 = fadd double %99, %305
-  store double %306, ptr %304, align 8, !tbaa !41
+  store double %306, ptr %304, align 8, !tbaa !40
   br label %.backedge.i
 
 .thread313.i:                                     ; preds = %.thread310.thread.i
-  %307 = load ptr, ptr %64, align 8, !tbaa !36
+  %307 = load ptr, ptr %64, align 8, !tbaa !35
   %308 = zext i32 %291 to i64
   %309 = getelementptr inbounds nuw i32, ptr %307, i64 %308
-  %310 = load i32, ptr %309, align 4, !tbaa !37
+  %310 = load i32, ptr %309, align 4, !tbaa !36
   %311 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %35, ptr noundef nonnull %290, i32 noundef %310) #10
   %312 = fmul double %97, 5.000000e-01
   %313 = getelementptr inbounds nuw i8, ptr %311, i64 24
-  %314 = load double, ptr %313, align 8, !tbaa !38
+  %314 = load double, ptr %313, align 8, !tbaa !37
   %315 = fadd double %312, %314
-  store double %315, ptr %313, align 8, !tbaa !38
+  store double %315, ptr %313, align 8, !tbaa !37
   %316 = fmul double %99, 5.000000e-01
   %317 = getelementptr inbounds nuw i8, ptr %311, i64 32
-  %318 = load double, ptr %317, align 8, !tbaa !41
+  %318 = load double, ptr %317, align 8, !tbaa !40
   %319 = fadd double %316, %318
-  store double %319, ptr %317, align 8, !tbaa !41
+  store double %319, ptr %317, align 8, !tbaa !40
   br label %.thread310.i
 
 .thread310.i:                                     ; preds = %.thread310.thread.i, %.thread313.i, %.thread327.i
-  %320 = load ptr, ptr %94, align 8, !tbaa !57
+  %320 = load ptr, ptr %94, align 8, !tbaa !56
   %321 = ptrtoint ptr %320 to i64
   %322 = and i64 %321, -2
   %323 = inttoptr i64 %322 to ptr
-  %324 = load i32, ptr %323, align 8, !tbaa !28
+  %324 = load i32, ptr %323, align 8, !tbaa !27
   %325 = icmp eq i32 %324, 2147483647
   br i1 %325, label %.backedge.i, label %326
 
 326:                                              ; preds = %.thread310.i
-  %327 = load ptr, ptr %64, align 8, !tbaa !36
+  %327 = load ptr, ptr %64, align 8, !tbaa !35
   %328 = zext i32 %324 to i64
   %329 = getelementptr inbounds nuw i32, ptr %327, i64 %328
-  %330 = load i32, ptr %329, align 4, !tbaa !37
+  %330 = load i32, ptr %329, align 4, !tbaa !36
   %331 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %35, ptr noundef nonnull %323, i32 noundef %330) #10
-  %332 = load ptr, ptr %94, align 8, !tbaa !57
+  %332 = load ptr, ptr %94, align 8, !tbaa !56
   %333 = ptrtoint ptr %332 to i64
   %334 = and i64 %333, 1
   %.not302.i = icmp eq i64 %334, 0
@@ -959,26 +959,26 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 336:                                              ; preds = %335
   %337 = getelementptr inbounds nuw i8, ptr %331, i64 24
-  %338 = load double, ptr %337, align 8, !tbaa !38
+  %338 = load double, ptr %337, align 8, !tbaa !37
   %339 = fadd double %99, %338
-  store double %339, ptr %337, align 8, !tbaa !38
+  store double %339, ptr %337, align 8, !tbaa !37
   %340 = getelementptr inbounds nuw i8, ptr %331, i64 32
-  %341 = load double, ptr %340, align 8, !tbaa !41
+  %341 = load double, ptr %340, align 8, !tbaa !40
   %342 = fadd double %97, %341
-  store double %342, ptr %340, align 8, !tbaa !41
+  store double %342, ptr %340, align 8, !tbaa !40
   br label %.backedge.i
 
 343:                                              ; preds = %335
   %344 = fmul double %99, 5.000000e-01
   %345 = getelementptr inbounds nuw i8, ptr %331, i64 24
-  %346 = load double, ptr %345, align 8, !tbaa !38
+  %346 = load double, ptr %345, align 8, !tbaa !37
   %347 = fadd double %344, %346
-  store double %347, ptr %345, align 8, !tbaa !38
+  store double %347, ptr %345, align 8, !tbaa !37
   %348 = fmul double %97, 5.000000e-01
   %349 = getelementptr inbounds nuw i8, ptr %331, i64 32
-  %350 = load double, ptr %349, align 8, !tbaa !41
+  %350 = load double, ptr %349, align 8, !tbaa !40
   %351 = fadd double %348, %350
-  store double %351, ptr %349, align 8, !tbaa !41
+  store double %351, ptr %349, align 8, !tbaa !40
   br label %.backedge.i
 
 352:                                              ; preds = %326
@@ -986,63 +986,63 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 
 353:                                              ; preds = %352
   %354 = getelementptr inbounds nuw i8, ptr %331, i64 24
-  %355 = load double, ptr %354, align 8, !tbaa !38
+  %355 = load double, ptr %354, align 8, !tbaa !37
   %356 = fadd double %97, %355
-  store double %356, ptr %354, align 8, !tbaa !38
+  store double %356, ptr %354, align 8, !tbaa !37
   %357 = getelementptr inbounds nuw i8, ptr %331, i64 32
-  %358 = load double, ptr %357, align 8, !tbaa !41
+  %358 = load double, ptr %357, align 8, !tbaa !40
   %359 = fadd double %99, %358
-  store double %359, ptr %357, align 8, !tbaa !41
+  store double %359, ptr %357, align 8, !tbaa !40
   br label %.backedge.i
 
 360:                                              ; preds = %352
   %361 = fmul double %97, 5.000000e-01
   %362 = getelementptr inbounds nuw i8, ptr %331, i64 24
-  %363 = load double, ptr %362, align 8, !tbaa !38
+  %363 = load double, ptr %362, align 8, !tbaa !37
   %364 = fadd double %361, %363
-  store double %364, ptr %362, align 8, !tbaa !38
+  store double %364, ptr %362, align 8, !tbaa !37
   %365 = fmul double %99, 5.000000e-01
   %366 = getelementptr inbounds nuw i8, ptr %331, i64 32
-  %367 = load double, ptr %366, align 8, !tbaa !41
+  %367 = load double, ptr %366, align 8, !tbaa !40
   %368 = fadd double %365, %367
-  store double %368, ptr %366, align 8, !tbaa !41
+  store double %368, ptr %366, align 8, !tbaa !40
   br label %.backedge.i
 
 369:                                              ; preds = %.thread310.thread334.i
   %370 = ptrtoint ptr %.0248.i to i64
   %371 = and i64 %370, -2
   %372 = inttoptr i64 %371 to ptr
-  %373 = load i32, ptr %372, align 8, !tbaa !28
+  %373 = load i32, ptr %372, align 8, !tbaa !27
   %374 = icmp eq i32 %373, 2147483647
   br i1 %374, label %.backedge.i, label %375
 
 375:                                              ; preds = %369
-  %376 = load ptr, ptr %64, align 8, !tbaa !36
+  %376 = load ptr, ptr %64, align 8, !tbaa !35
   %377 = zext i32 %373 to i64
   %378 = getelementptr inbounds nuw i32, ptr %376, i64 %377
-  %379 = load i32, ptr %378, align 4, !tbaa !37
+  %379 = load i32, ptr %378, align 4, !tbaa !36
   %380 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %35, ptr noundef nonnull %372, i32 noundef %379) #10
   %381 = and i64 %370, 1
   %.not303.i = icmp eq i64 %381, 0
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 24
-  %383 = load double, ptr %382, align 8, !tbaa !38
+  %383 = load double, ptr %382, align 8, !tbaa !37
   %384 = getelementptr inbounds nuw i8, ptr %380, i64 32
   br i1 %.not303.i, label %389, label %385
 
 385:                                              ; preds = %375
   %386 = fadd double %99, %383
-  store double %386, ptr %382, align 8, !tbaa !38
-  %387 = load double, ptr %384, align 8, !tbaa !41
+  store double %386, ptr %382, align 8, !tbaa !37
+  %387 = load double, ptr %384, align 8, !tbaa !40
   %388 = fadd double %97, %387
-  store double %388, ptr %384, align 8, !tbaa !41
+  store double %388, ptr %384, align 8, !tbaa !40
   br label %.backedge.i
 
 389:                                              ; preds = %375
   %390 = fadd double %97, %383
-  store double %390, ptr %382, align 8, !tbaa !38
-  %391 = load double, ptr %384, align 8, !tbaa !41
+  store double %390, ptr %382, align 8, !tbaa !37
+  %391 = load double, ptr %384, align 8, !tbaa !40
   %392 = fadd double %99, %391
-  store double %392, ptr %384, align 8, !tbaa !41
+  store double %392, ptr %384, align 8, !tbaa !40
   br label %.backedge.i
 
 393:                                              ; preds = %43, %57, %131, %155, %74, %30, %194, %215
@@ -1050,25 +1050,25 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %395 = load ptr, ptr %394, align 8, !tbaa !27
+  %395 = load ptr, ptr %394, align 8, !tbaa !26
   %396 = call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %395)
   %397 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %398 = load ptr, ptr %397, align 8, !tbaa !58
+  %398 = load ptr, ptr %397, align 8, !tbaa !57
   %.not47 = icmp eq ptr %398, null
   br i1 %.not47, label %400, label %399
 
 399:                                              ; preds = %393
   call void @free(ptr noundef nonnull %398) #10
-  store ptr null, ptr %397, align 8, !tbaa !58
+  store ptr null, ptr %397, align 8, !tbaa !57
   br label %400
 
 400:                                              ; preds = %393, %399
   %401 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %402 = load ptr, ptr %401, align 8, !tbaa !47
+  %402 = load ptr, ptr %401, align 8, !tbaa !46
   call void @st__free_table(ptr noundef %402) #10
   call void @free(ptr noundef nonnull %23) #10
   %403 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %403, align 8, !tbaa !29
+  store i32 1, ptr %403, align 8, !tbaa !28
   br label %422
 
 .loopexit:                                        ; preds = %.backedge.i, %66, %58
@@ -1082,33 +1082,33 @@ define ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   br i1 %.not, label %415, label %405
 
 405:                                              ; preds = %.loopexit
-  %406 = load i32, ptr %33, align 8, !tbaa !31
+  %406 = load i32, ptr %33, align 8, !tbaa !30
   %407 = call i32 @Cudd_DagSize(ptr noundef nonnull %404) #10
   %408 = icmp slt i32 %406, %407
   br i1 %408, label %409, label %415
 
 409:                                              ; preds = %405
   %410 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %411 = load ptr, ptr %410, align 8, !tbaa !27
-  %412 = load i32, ptr %33, align 8, !tbaa !31
+  %411 = load ptr, ptr %410, align 8, !tbaa !26
+  %412 = load i32, ptr %33, align 8, !tbaa !30
   %413 = call i32 @Cudd_DagSize(ptr noundef nonnull %404) #10
   %414 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %411, ptr noundef nonnull @.str.2, i32 noundef %412, i32 noundef %413) #10
   br label %415
 
 415:                                              ; preds = %409, %405, %.loopexit
   %416 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %417 = load ptr, ptr %416, align 8, !tbaa !58
+  %417 = load ptr, ptr %416, align 8, !tbaa !57
   %.not46 = icmp eq ptr %417, null
   br i1 %.not46, label %419, label %418
 
 418:                                              ; preds = %415
   call void @free(ptr noundef nonnull %417) #10
-  store ptr null, ptr %416, align 8, !tbaa !58
+  store ptr null, ptr %416, align 8, !tbaa !57
   br label %419
 
 419:                                              ; preds = %415, %418
   %420 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %421 = load ptr, ptr %420, align 8, !tbaa !47
+  %421 = load ptr, ptr %420, align 8, !tbaa !46
   call void @st__free_table(ptr noundef %421) #10
   call void @free(ptr noundef nonnull %23) #10
   br label %422
@@ -1131,7 +1131,7 @@ define ptr @Cudd_RemapOverApprox(ptr noundef initializes((448, 452)) %0, ptr nou
   %11 = tail call ptr @cuddRemapUnderApprox(ptr noundef %0, ptr noundef %8, i32 noundef %2, i32 noundef %3, double noundef %4)
   %12 = load i32, ptr %9, align 8, !tbaa !3
   %13 = icmp eq i32 %12, 1
-  br i1 %13, label %10, label %14, !llvm.loop !64
+  br i1 %13, label %10, label %14, !llvm.loop !63
 
 14:                                               ; preds = %10
   %15 = ptrtoint ptr %11 to i64
@@ -1152,7 +1152,7 @@ define ptr @Cudd_BiasedUnderApprox(ptr noundef initializes((448, 452)) %0, ptr n
   %10 = tail call ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5, double noundef %6)
   %11 = load i32, ptr %8, align 8, !tbaa !3
   %12 = icmp eq i32 %11, 1
-  br i1 %12, label %9, label %13, !llvm.loop !65
+  br i1 %12, label %9, label %13, !llvm.loop !64
 
 13:                                               ; preds = %9
   ret ptr %10
@@ -1169,17 +1169,17 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %15 = load ptr, ptr %14, align 8, !tbaa !27
+  %15 = load ptr, ptr %14, align 8, !tbaa !26
   %16 = tail call i64 @fwrite(ptr nonnull @.str, i64 26, i64 1, ptr %15)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 4, ptr %17, align 8, !tbaa !29
+  store i32 4, ptr %17, align 8, !tbaa !28
   br label %446
 
 18:                                               ; preds = %7
   %19 = ptrtoint ptr %1 to i64
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
-  %22 = load i32, ptr %21, align 8, !tbaa !28
+  %22 = load i32, ptr %21, align 8, !tbaa !27
   %23 = icmp eq i32 %22, 2147483647
   br i1 %23, label %446, label %24
 
@@ -1190,10 +1190,10 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %29 = load ptr, ptr %28, align 8, !tbaa !27
+  %29 = load ptr, ptr %28, align 8, !tbaa !26
   %30 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %29)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %31, align 8, !tbaa !29
+  store i32 1, ptr %31, align 8, !tbaa !28
   br label %446
 
 32:                                               ; preds = %24
@@ -1204,26 +1204,26 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %38 = load ptr, ptr %37, align 8, !tbaa !27
+  %38 = load ptr, ptr %37, align 8, !tbaa !26
   %39 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %38)
   tail call void @cuddHashTableQuit(ptr noundef %33) #10
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !58
+  %41 = load ptr, ptr %40, align 8, !tbaa !57
   %.not67 = icmp eq ptr %41, null
   br i1 %.not67, label %43, label %42
 
 42:                                               ; preds = %36
   tail call void @free(ptr noundef nonnull %41) #10
-  store ptr null, ptr %40, align 8, !tbaa !58
+  store ptr null, ptr %40, align 8, !tbaa !57
   br label %43
 
 43:                                               ; preds = %36, %42
   %44 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !47
+  %45 = load ptr, ptr %44, align 8, !tbaa !46
   tail call void @st__free_table(ptr noundef %45) #10
   tail call void @free(ptr noundef nonnull %25) #10
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %46, align 8, !tbaa !29
+  store i32 1, ptr %46, align 8, !tbaa !28
   br label %446
 
 47:                                               ; preds = %32
@@ -1232,17 +1232,17 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %49 = load i32, ptr %48, align 8, !tbaa !30
+  %49 = load i32, ptr %48, align 8, !tbaa !29
   %50 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %51 = load i32, ptr %50, align 8, !tbaa !31
+  %51 = load i32, ptr %50, align 8, !tbaa !30
   %52 = tail call ptr @cuddLevelQueueInit(i32 noundef %49, i32 noundef 40, i32 noundef %51) #10
   %53 = icmp eq ptr %52, null
   br i1 %53, label %417, label %54
 
 54:                                               ; preds = %47
-  %55 = load i32, ptr %48, align 8, !tbaa !30
+  %55 = load i32, ptr %48, align 8, !tbaa !29
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %57 = load i32, ptr %56, align 8, !tbaa !35
+  %57 = load i32, ptr %56, align 8, !tbaa !34
   %58 = tail call ptr @cuddLevelQueueInit(i32 noundef %55, i32 noundef 32, i32 noundef %57) #10
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %61
@@ -1252,16 +1252,16 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %417
 
 61:                                               ; preds = %54
-  %62 = load i32, ptr %21, align 8, !tbaa !28
+  %62 = load i32, ptr %21, align 8, !tbaa !27
   %63 = icmp eq i32 %62, 2147483647
   br i1 %63, label %70, label %64
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %66 = load ptr, ptr %65, align 8, !tbaa !36
+  %66 = load ptr, ptr %65, align 8, !tbaa !35
   %67 = zext i32 %62 to i64
   %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
-  %69 = load i32, ptr %68, align 4, !tbaa !37
+  %69 = load i32, ptr %68, align 4, !tbaa !36
   br label %70
 
 70:                                               ; preds = %64, %61
@@ -1281,10 +1281,10 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.sink345.i = select i1 %.not.i, double 1.000000e+00, double 0.000000e+00
   %.sink.i = select i1 %.not.i, double 0.000000e+00, double 1.000000e+00
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store double %.sink345.i, ptr %77, align 8, !tbaa !38
+  store double %.sink345.i, ptr %77, align 8, !tbaa !37
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  store double %.sink.i, ptr %78, align 8, !tbaa !41
-  %79 = load ptr, ptr %52, align 8, !tbaa !42
+  store double %.sink.i, ptr %78, align 8, !tbaa !40
+  %79 = load ptr, ptr %52, align 8, !tbaa !41
   %.not306343.i = icmp eq ptr %79, null
   br i1 %.not306343.i, label %.loopexit, label %.lr.ph.i
 
@@ -1296,14 +1296,14 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 83:                                               ; preds = %.backedge.i, %.lr.ph.i
   %84 = phi ptr [ %79, %.lr.ph.i ], [ %110, %.backedge.i ]
-  %85 = load i32, ptr %50, align 8, !tbaa !31
+  %85 = load i32, ptr %50, align 8, !tbaa !30
   %.not307.i = icmp sgt i32 %85, %4
   br i1 %.not307.i, label %86, label %.loopexit
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %88 = load ptr, ptr %87, align 8, !tbaa !46
-  %89 = load ptr, ptr %80, align 8, !tbaa !47
+  %88 = load ptr, ptr %87, align 8, !tbaa !45
+  %89 = load ptr, ptr %80, align 8, !tbaa !46
   %90 = call i32 @st__lookup(ptr noundef %89, ptr noundef %88, ptr noundef nonnull %8) #10
   %.not308.i = icmp eq i32 %90, 0
   br i1 %.not308.i, label %91, label %92
@@ -1314,26 +1314,26 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %417
 
 92:                                               ; preds = %86
-  %93 = load ptr, ptr %8, align 8, !tbaa !48
+  %93 = load ptr, ptr %8, align 8, !tbaa !47
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 20
-  %95 = load i8, ptr %94, align 4, !tbaa !66
+  %95 = load i8, ptr %94, align 4, !tbaa !65
   %.not309.i = icmp eq i8 %95, 0
   %96 = select i1 %.not309.i, double %6, double %5
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 22
-  %98 = load i16, ptr %97, align 2, !tbaa !49
+  %98 = load i16, ptr %97, align 2, !tbaa !48
   %99 = icmp eq i16 %98, 3
   br i1 %99, label %100, label %111
 
 100:                                              ; preds = %92
-  %101 = load i32, ptr %88, align 8, !tbaa !28
+  %101 = load i32, ptr %88, align 8, !tbaa !27
   %102 = icmp eq i32 %101, 2147483647
   br i1 %102, label %108, label %103
 
 103:                                              ; preds = %100
-  %104 = load ptr, ptr %81, align 8, !tbaa !36
+  %104 = load ptr, ptr %81, align 8, !tbaa !35
   %105 = zext i32 %101 to i64
   %106 = getelementptr inbounds nuw i32, ptr %104, i64 %105
-  %107 = load i32, ptr %106, align 4, !tbaa !37
+  %107 = load i32, ptr %106, align 4, !tbaa !36
   br label %108
 
 108:                                              ; preds = %103, %100
@@ -1342,44 +1342,44 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %363, %356, %380, %373, %.thread323.i, %.thread323.thread.i.thread, %411, %405, %389, %.thread323.thread347.i, %.thread330.i, %.thread346.i, %108
-  %110 = load ptr, ptr %52, align 8, !tbaa !42
+  %110 = load ptr, ptr %52, align 8, !tbaa !41
   %.not306.i = icmp eq ptr %110, null
-  br i1 %.not306.i, label %.loopexit, label %83, !llvm.loop !67
+  br i1 %.not306.i, label %.loopexit, label %83, !llvm.loop !66
 
 111:                                              ; preds = %92
   %112 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %113 = load ptr, ptr %112, align 8, !tbaa !57
+  %113 = load ptr, ptr %112, align 8, !tbaa !56
   %114 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %115 = load ptr, ptr %114, align 8, !tbaa !57
+  %115 = load ptr, ptr %114, align 8, !tbaa !56
   %116 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  %117 = load double, ptr %116, align 8, !tbaa !38
+  %117 = load double, ptr %116, align 8, !tbaa !37
   %118 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %119 = load double, ptr %118, align 8, !tbaa !41
+  %119 = load double, ptr %118, align 8, !tbaa !40
   %120 = call i32 @Cudd_bddLeq(ptr noundef %0, ptr noundef %113, ptr noundef %115) #10
   %.not310.i = icmp eq i32 %120, 0
   br i1 %.not310.i, label %178, label %121
 
 121:                                              ; preds = %111
-  %122 = load ptr, ptr %80, align 8, !tbaa !47
+  %122 = load ptr, ptr %80, align 8, !tbaa !46
   %123 = call i32 @st__lookup(ptr noundef %122, ptr noundef %113, ptr noundef nonnull %9) #10
-  %124 = load ptr, ptr %80, align 8, !tbaa !47
+  %124 = load ptr, ptr %80, align 8, !tbaa !46
   %125 = call i32 @st__lookup(ptr noundef %124, ptr noundef %115, ptr noundef nonnull %10) #10
-  %126 = load ptr, ptr %8, align 8, !tbaa !48
+  %126 = load ptr, ptr %8, align 8, !tbaa !47
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 22
-  %128 = load i16, ptr %127, align 2, !tbaa !49
+  %128 = load i16, ptr %127, align 2, !tbaa !48
   %129 = icmp eq i16 %128, 1
   br i1 %129, label %130, label %152
 
 130:                                              ; preds = %121
-  %131 = load ptr, ptr %10, align 8, !tbaa !48
-  %132 = load double, ptr %131, align 8, !tbaa !53
+  %131 = load ptr, ptr %10, align 8, !tbaa !47
+  %132 = load double, ptr %131, align 8, !tbaa !52
   %133 = fmul double %132, 5.000000e-01
-  %134 = load ptr, ptr %9, align 8, !tbaa !48
-  %135 = load double, ptr %134, align 8, !tbaa !53
+  %134 = load ptr, ptr %9, align 8, !tbaa !47
+  %135 = load double, ptr %134, align 8, !tbaa !52
   %136 = fmul double %135, 5.000000e-01
   %137 = fsub double %133, %136
   %138 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %139 = load i32, ptr %138, align 8, !tbaa !62
+  %139 = load i32, ptr %138, align 8, !tbaa !61
   %140 = icmp eq i32 %139, 1
   br i1 %140, label %141, label %176
 
@@ -1387,7 +1387,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %142 = ptrtoint ptr %115 to i64
   %143 = and i64 %142, -2
   %144 = inttoptr i64 %143 to ptr
-  %145 = load i32, ptr %144, align 8, !tbaa !28
+  %145 = load i32, ptr %144, align 8, !tbaa !27
   %146 = icmp eq i32 %145, 2147483647
   br i1 %146, label %176, label %147
 
@@ -1403,17 +1403,17 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %417
 
 152:                                              ; preds = %121
-  %153 = load ptr, ptr %9, align 8, !tbaa !48
+  %153 = load ptr, ptr %9, align 8, !tbaa !47
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %155 = load double, ptr %154, align 8, !tbaa !54
+  %155 = load double, ptr %154, align 8, !tbaa !53
   %156 = fmul double %155, 5.000000e-01
-  %157 = load ptr, ptr %10, align 8, !tbaa !48
+  %157 = load ptr, ptr %10, align 8, !tbaa !47
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %159 = load double, ptr %158, align 8, !tbaa !54
+  %159 = load double, ptr %158, align 8, !tbaa !53
   %160 = fmul double %159, 5.000000e-01
   %161 = fsub double %156, %160
   %162 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %163 = load i32, ptr %162, align 8, !tbaa !62
+  %163 = load i32, ptr %162, align 8, !tbaa !61
   %164 = icmp eq i32 %163, 1
   br i1 %164, label %165, label %176
 
@@ -1421,7 +1421,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %166 = ptrtoint ptr %113 to i64
   %167 = and i64 %166, -2
   %168 = inttoptr i64 %167 to ptr
-  %169 = load i32, ptr %168, align 8, !tbaa !28
+  %169 = load i32, ptr %168, align 8, !tbaa !27
   %170 = icmp eq i32 %169, 2147483647
   br i1 %170, label %176, label %171
 
@@ -1453,29 +1453,29 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not311.i, label %238, label %183
 
 183:                                              ; preds = %178
-  %184 = load ptr, ptr %80, align 8, !tbaa !47
+  %184 = load ptr, ptr %80, align 8, !tbaa !46
   %185 = call i32 @st__lookup(ptr noundef %184, ptr noundef %113, ptr noundef nonnull %9) #10
-  %186 = load ptr, ptr %80, align 8, !tbaa !47
+  %186 = load ptr, ptr %80, align 8, !tbaa !46
   %187 = call i32 @st__lookup(ptr noundef %186, ptr noundef %182, ptr noundef nonnull %10) #10
-  %188 = load ptr, ptr %8, align 8, !tbaa !48
+  %188 = load ptr, ptr %8, align 8, !tbaa !47
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 22
-  %190 = load i16, ptr %189, align 2, !tbaa !49
+  %190 = load i16, ptr %189, align 2, !tbaa !48
   %191 = icmp eq i16 %190, 1
   br i1 %191, label %192, label %215
 
 192:                                              ; preds = %183
-  %193 = load ptr, ptr %9, align 8, !tbaa !48
-  %194 = load double, ptr %193, align 8, !tbaa !53
+  %193 = load ptr, ptr %9, align 8, !tbaa !47
+  %194 = load double, ptr %193, align 8, !tbaa !52
   %195 = fmul double %194, 5.000000e-01
   %196 = icmp eq ptr %115, %182
   %197 = load ptr, ptr %10, align 8
   %.in314.idx.i = select i1 %196, i64 0, i64 8
   %.in314.i = getelementptr inbounds nuw i8, ptr %197, i64 %.in314.idx.i
-  %198 = load double, ptr %.in314.i, align 8, !tbaa !63
+  %198 = load double, ptr %.in314.i, align 8, !tbaa !62
   %199 = fmul double %198, 5.000000e-01
   %200 = fsub double %195, %199
   %201 = getelementptr inbounds nuw i8, ptr %193, i64 16
-  %202 = load i32, ptr %201, align 8, !tbaa !62
+  %202 = load i32, ptr %201, align 8, !tbaa !61
   %203 = icmp eq i32 %202, 1
   br i1 %203, label %204, label %236
 
@@ -1483,7 +1483,7 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %205 = ptrtoint ptr %113 to i64
   %206 = and i64 %205, -2
   %207 = inttoptr i64 %206 to ptr
-  %208 = load i32, ptr %207, align 8, !tbaa !28
+  %208 = load i32, ptr %207, align 8, !tbaa !27
   %209 = icmp eq i32 %208, 2147483647
   br i1 %209, label %236, label %210
 
@@ -1503,20 +1503,20 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %217 = load ptr, ptr %10, align 8
   %.in.idx.i = select i1 %216, i64 8, i64 0
   %.in.i = getelementptr inbounds nuw i8, ptr %217, i64 %.in.idx.i
-  %218 = load double, ptr %.in.i, align 8, !tbaa !63
+  %218 = load double, ptr %.in.i, align 8, !tbaa !62
   %219 = fmul double %218, 5.000000e-01
-  %220 = load ptr, ptr %9, align 8, !tbaa !48
+  %220 = load ptr, ptr %9, align 8, !tbaa !47
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  %222 = load double, ptr %221, align 8, !tbaa !54
+  %222 = load double, ptr %221, align 8, !tbaa !53
   %223 = fmul double %222, 5.000000e-01
   %224 = fsub double %219, %223
   %225 = getelementptr inbounds nuw i8, ptr %217, i64 16
-  %226 = load i32, ptr %225, align 8, !tbaa !62
+  %226 = load i32, ptr %225, align 8, !tbaa !61
   %227 = icmp eq i32 %226, 1
   br i1 %227, label %228, label %236
 
 228:                                              ; preds = %215
-  %229 = load i32, ptr %182, align 8, !tbaa !28
+  %229 = load i32, ptr %182, align 8, !tbaa !27
   %230 = icmp eq i32 %229, 2147483647
   br i1 %230, label %236, label %231
 
@@ -1541,16 +1541,16 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 238:                                              ; preds = %178
   %239 = and i64 %180, 1
-  %240 = load i32, ptr %113, align 8, !tbaa !28
-  %241 = load i32, ptr %182, align 8, !tbaa !28
+  %240 = load i32, ptr %113, align 8, !tbaa !27
+  %241 = load i32, ptr %182, align 8, !tbaa !27
   %242 = icmp eq i32 %240, %241
   br i1 %242, label %243, label %261
 
 243:                                              ; preds = %238
   %244 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  %245 = load ptr, ptr %244, align 8, !tbaa !57
+  %245 = load ptr, ptr %244, align 8, !tbaa !56
   %246 = getelementptr inbounds nuw i8, ptr %182, i64 16
-  %247 = load ptr, ptr %246, align 8, !tbaa !57
+  %247 = load ptr, ptr %246, align 8, !tbaa !56
   %248 = ptrtoint ptr %247 to i64
   %249 = xor i64 %239, %248
   %250 = inttoptr i64 %249 to ptr
@@ -1559,9 +1559,9 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 252:                                              ; preds = %243
   %253 = getelementptr inbounds nuw i8, ptr %113, i64 24
-  %254 = load ptr, ptr %253, align 8, !tbaa !57
+  %254 = load ptr, ptr %253, align 8, !tbaa !56
   %255 = getelementptr inbounds nuw i8, ptr %182, i64 24
-  %256 = load ptr, ptr %255, align 8, !tbaa !57
+  %256 = load ptr, ptr %255, align 8, !tbaa !56
   %257 = ptrtoint ptr %256 to i64
   %258 = xor i64 %239, %257
   %259 = inttoptr i64 %258 to ptr
@@ -1574,10 +1574,10 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 262:                                              ; preds = %261, %252, %243
   %.5.i = phi i32 [ 4, %243 ], [ 3, %261 ], [ 5, %252 ]
   %.1261.i = phi ptr [ %245, %243 ], [ null, %261 ], [ %254, %252 ]
-  %263 = load ptr, ptr %8, align 8, !tbaa !48
-  %264 = load double, ptr %263, align 8, !tbaa !53
+  %263 = load ptr, ptr %8, align 8, !tbaa !47
+  %264 = load double, ptr %263, align 8, !tbaa !52
   %265 = getelementptr inbounds nuw i8, ptr %263, i64 8
-  %266 = load double, ptr %265, align 8, !tbaa !54
+  %266 = load double, ptr %265, align 8, !tbaa !53
   %267 = fmul double %119, %266
   %268 = call double @llvm.fmuladd.f64(double %264, double %117, double %267)
   %269 = call fastcc i32 @computeSavings(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %.1261.i, ptr noundef nonnull %25, ptr noundef %58)
@@ -1586,19 +1586,19 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 270:                                              ; preds = %262
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
-  %271 = load ptr, ptr %80, align 8, !tbaa !47
+  %271 = load ptr, ptr %80, align 8, !tbaa !46
   %272 = ptrtoint ptr %.1261.i to i64
   %273 = and i64 %272, -2
   %274 = inttoptr i64 %273 to ptr
   %275 = call i32 @st__lookup(ptr noundef %271, ptr noundef %274, ptr noundef nonnull %11) #10
   %276 = and i64 %272, 1
   %.not313.i = icmp eq i64 %276, 0
-  %277 = load ptr, ptr %11, align 8, !tbaa !48
+  %277 = load ptr, ptr %11, align 8, !tbaa !47
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %. = select i1 %.not313.i, ptr %278, ptr %277
   %.74 = select i1 %.not313.i, ptr %277, ptr %278
-  %.sink353.i = load double, ptr %.74, align 8, !tbaa !63
-  %.sink355.i = load double, ptr %., align 8, !tbaa !63
+  %.sink353.i = load double, ptr %.74, align 8, !tbaa !62
+  %.sink355.i = load double, ptr %., align 8, !tbaa !62
   %279 = fmul double %119, %.sink355.i
   %280 = call double @llvm.fmuladd.f64(double %.sink353.i, double %117, double %279)
   %.pn.i = fmul double %280, 5.000000e-01
@@ -1612,25 +1612,25 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.2272.i = phi i32 [ %.1271.i, %176 ], [ %.4274.i, %236 ], [ %.5.i, %270 ], [ %.5.i, %262 ]
   %.1264.i = phi double [ %177, %176 ], [ %237, %236 ], [ %.4.i, %270 ], [ %268, %262 ]
   %.0260.i = phi ptr [ null, %176 ], [ null, %236 ], [ %.1261.i, %270 ], [ null, %262 ]
-  %283 = load i32, ptr %88, align 8, !tbaa !28
+  %283 = load i32, ptr %88, align 8, !tbaa !27
   %284 = icmp eq i32 %283, 2147483647
   br i1 %284, label %290, label %285
 
 285:                                              ; preds = %282
-  %286 = load ptr, ptr %81, align 8, !tbaa !36
+  %286 = load ptr, ptr %81, align 8, !tbaa !35
   %287 = zext i32 %283 to i64
   %288 = getelementptr inbounds nuw i32, ptr %286, i64 %287
-  %289 = load i32, ptr %288, align 4, !tbaa !37
+  %289 = load i32, ptr %288, align 4, !tbaa !36
   br label %290
 
 290:                                              ; preds = %285, %282
   %291 = phi i32 [ %289, %285 ], [ 2147483647, %282 ]
   call void @cuddLevelQueueDequeue(ptr noundef nonnull %52, i32 noundef %291) #10
-  %292 = load double, ptr %82, align 8, !tbaa !55
+  %292 = load double, ptr %82, align 8, !tbaa !54
   %293 = fdiv double %.1264.i, %292
   %294 = fsub double 1.000000e+00, %293
   %295 = sitofp i32 %.3278.i to double
-  %296 = load i32, ptr %50, align 8, !tbaa !31
+  %296 = load i32, ptr %50, align 8, !tbaa !30
   %297 = sitofp i32 %296 to double
   %298 = fdiv double %295, %297
   %299 = fsub double 1.000000e+00, %298
@@ -1640,13 +1640,13 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 302:                                              ; preds = %290
   %303 = trunc nuw nsw i32 %.2272.i to i8
-  %304 = load ptr, ptr %8, align 8, !tbaa !48
+  %304 = load ptr, ptr %8, align 8, !tbaa !47
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 21
-  store i8 %303, ptr %305, align 1, !tbaa !56
+  store i8 %303, ptr %305, align 1, !tbaa !55
   %306 = sub nsw i32 %296, %.3278.i
-  store i32 %306, ptr %50, align 8, !tbaa !31
+  store i32 %306, ptr %50, align 8, !tbaa !30
   %307 = fsub double %292, %.1264.i
-  store double %307, ptr %82, align 8, !tbaa !55
+  store double %307, ptr %82, align 8, !tbaa !54
   switch i32 %.2272.i, label %.thread323.thread347.i [
     i32 3, label %.thread346.i
     i32 1, label %.thread340.i
@@ -1668,68 +1668,68 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %309, label %389, label %.backedge.i
 
 .thread323.thread.i:                              ; preds = %290
-  %310 = load ptr, ptr %112, align 8, !tbaa !57
-  %311 = load i32, ptr %310, align 8, !tbaa !28
+  %310 = load ptr, ptr %112, align 8, !tbaa !56
+  %311 = load i32, ptr %310, align 8, !tbaa !27
   %312 = icmp eq i32 %311, 2147483647
   br i1 %312, label %.thread323.i, label %.thread326.i
 
 .thread323.thread.i.thread:                       ; preds = %302
   call fastcc void @updateRefs(ptr noundef %0, ptr noundef nonnull %88, ptr noundef %113, ptr noundef nonnull %25, ptr noundef %58)
-  %313 = load ptr, ptr %112, align 8, !tbaa !57
-  %314 = load i32, ptr %313, align 8, !tbaa !28
+  %313 = load ptr, ptr %112, align 8, !tbaa !56
+  %314 = load i32, ptr %313, align 8, !tbaa !27
   %315 = icmp eq i32 %314, 2147483647
   br i1 %315, label %.backedge.i, label %.thread330.i
 
 .thread330.i:                                     ; preds = %.thread323.thread.i.thread
-  %316 = load ptr, ptr %81, align 8, !tbaa !36
+  %316 = load ptr, ptr %81, align 8, !tbaa !35
   %317 = zext i32 %314 to i64
   %318 = getelementptr inbounds nuw i32, ptr %316, i64 %317
-  %319 = load i32, ptr %318, align 4, !tbaa !37
+  %319 = load i32, ptr %318, align 4, !tbaa !36
   %320 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %52, ptr noundef nonnull %313, i32 noundef %319) #10
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 24
-  %322 = load double, ptr %321, align 8, !tbaa !38
+  %322 = load double, ptr %321, align 8, !tbaa !37
   %323 = fadd double %117, %322
-  store double %323, ptr %321, align 8, !tbaa !38
+  store double %323, ptr %321, align 8, !tbaa !37
   %324 = getelementptr inbounds nuw i8, ptr %320, i64 32
-  %325 = load double, ptr %324, align 8, !tbaa !41
+  %325 = load double, ptr %324, align 8, !tbaa !40
   %326 = fadd double %119, %325
-  store double %326, ptr %324, align 8, !tbaa !41
+  store double %326, ptr %324, align 8, !tbaa !40
   br label %.backedge.i
 
 .thread326.i:                                     ; preds = %.thread323.thread.i
-  %327 = load ptr, ptr %81, align 8, !tbaa !36
+  %327 = load ptr, ptr %81, align 8, !tbaa !35
   %328 = zext i32 %311 to i64
   %329 = getelementptr inbounds nuw i32, ptr %327, i64 %328
-  %330 = load i32, ptr %329, align 4, !tbaa !37
+  %330 = load i32, ptr %329, align 4, !tbaa !36
   %331 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %52, ptr noundef nonnull %310, i32 noundef %330) #10
   %332 = fmul double %117, 5.000000e-01
   %333 = getelementptr inbounds nuw i8, ptr %331, i64 24
-  %334 = load double, ptr %333, align 8, !tbaa !38
+  %334 = load double, ptr %333, align 8, !tbaa !37
   %335 = fadd double %332, %334
-  store double %335, ptr %333, align 8, !tbaa !38
+  store double %335, ptr %333, align 8, !tbaa !37
   %336 = fmul double %119, 5.000000e-01
   %337 = getelementptr inbounds nuw i8, ptr %331, i64 32
-  %338 = load double, ptr %337, align 8, !tbaa !41
+  %338 = load double, ptr %337, align 8, !tbaa !40
   %339 = fadd double %336, %338
-  store double %339, ptr %337, align 8, !tbaa !41
+  store double %339, ptr %337, align 8, !tbaa !40
   br label %.thread323.i
 
 .thread323.i:                                     ; preds = %.thread323.thread.i, %.thread326.i, %.thread340.i
-  %340 = load ptr, ptr %114, align 8, !tbaa !57
+  %340 = load ptr, ptr %114, align 8, !tbaa !56
   %341 = ptrtoint ptr %340 to i64
   %342 = and i64 %341, -2
   %343 = inttoptr i64 %342 to ptr
-  %344 = load i32, ptr %343, align 8, !tbaa !28
+  %344 = load i32, ptr %343, align 8, !tbaa !27
   %345 = icmp eq i32 %344, 2147483647
   br i1 %345, label %.backedge.i, label %346
 
 346:                                              ; preds = %.thread323.i
-  %347 = load ptr, ptr %81, align 8, !tbaa !36
+  %347 = load ptr, ptr %81, align 8, !tbaa !35
   %348 = zext i32 %344 to i64
   %349 = getelementptr inbounds nuw i32, ptr %347, i64 %348
-  %350 = load i32, ptr %349, align 4, !tbaa !37
+  %350 = load i32, ptr %349, align 4, !tbaa !36
   %351 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %52, ptr noundef nonnull %343, i32 noundef %350) #10
-  %352 = load ptr, ptr %114, align 8, !tbaa !57
+  %352 = load ptr, ptr %114, align 8, !tbaa !56
   %353 = ptrtoint ptr %352 to i64
   %354 = and i64 %353, 1
   %.not315.i = icmp eq i64 %354, 0
@@ -1740,26 +1740,26 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 356:                                              ; preds = %355
   %357 = getelementptr inbounds nuw i8, ptr %351, i64 24
-  %358 = load double, ptr %357, align 8, !tbaa !38
+  %358 = load double, ptr %357, align 8, !tbaa !37
   %359 = fadd double %119, %358
-  store double %359, ptr %357, align 8, !tbaa !38
+  store double %359, ptr %357, align 8, !tbaa !37
   %360 = getelementptr inbounds nuw i8, ptr %351, i64 32
-  %361 = load double, ptr %360, align 8, !tbaa !41
+  %361 = load double, ptr %360, align 8, !tbaa !40
   %362 = fadd double %117, %361
-  store double %362, ptr %360, align 8, !tbaa !41
+  store double %362, ptr %360, align 8, !tbaa !40
   br label %.backedge.i
 
 363:                                              ; preds = %355
   %364 = fmul double %119, 5.000000e-01
   %365 = getelementptr inbounds nuw i8, ptr %351, i64 24
-  %366 = load double, ptr %365, align 8, !tbaa !38
+  %366 = load double, ptr %365, align 8, !tbaa !37
   %367 = fadd double %364, %366
-  store double %367, ptr %365, align 8, !tbaa !38
+  store double %367, ptr %365, align 8, !tbaa !37
   %368 = fmul double %117, 5.000000e-01
   %369 = getelementptr inbounds nuw i8, ptr %351, i64 32
-  %370 = load double, ptr %369, align 8, !tbaa !41
+  %370 = load double, ptr %369, align 8, !tbaa !40
   %371 = fadd double %368, %370
-  store double %371, ptr %369, align 8, !tbaa !41
+  store double %371, ptr %369, align 8, !tbaa !40
   br label %.backedge.i
 
 372:                                              ; preds = %346
@@ -1767,67 +1767,67 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 373:                                              ; preds = %372
   %374 = getelementptr inbounds nuw i8, ptr %351, i64 24
-  %375 = load double, ptr %374, align 8, !tbaa !38
+  %375 = load double, ptr %374, align 8, !tbaa !37
   %376 = fadd double %117, %375
-  store double %376, ptr %374, align 8, !tbaa !38
+  store double %376, ptr %374, align 8, !tbaa !37
   %377 = getelementptr inbounds nuw i8, ptr %351, i64 32
-  %378 = load double, ptr %377, align 8, !tbaa !41
+  %378 = load double, ptr %377, align 8, !tbaa !40
   %379 = fadd double %119, %378
-  store double %379, ptr %377, align 8, !tbaa !41
+  store double %379, ptr %377, align 8, !tbaa !40
   br label %.backedge.i
 
 380:                                              ; preds = %372
   %381 = fmul double %117, 5.000000e-01
   %382 = getelementptr inbounds nuw i8, ptr %351, i64 24
-  %383 = load double, ptr %382, align 8, !tbaa !38
+  %383 = load double, ptr %382, align 8, !tbaa !37
   %384 = fadd double %381, %383
-  store double %384, ptr %382, align 8, !tbaa !38
+  store double %384, ptr %382, align 8, !tbaa !37
   %385 = fmul double %119, 5.000000e-01
   %386 = getelementptr inbounds nuw i8, ptr %351, i64 32
-  %387 = load double, ptr %386, align 8, !tbaa !41
+  %387 = load double, ptr %386, align 8, !tbaa !40
   %388 = fadd double %385, %387
-  store double %388, ptr %386, align 8, !tbaa !41
+  store double %388, ptr %386, align 8, !tbaa !40
   br label %.backedge.i
 
 389:                                              ; preds = %.thread323.thread347.i
   %390 = ptrtoint ptr %.0260.i to i64
   %391 = and i64 %390, -2
   %392 = inttoptr i64 %391 to ptr
-  %393 = load i32, ptr %392, align 8, !tbaa !28
+  %393 = load i32, ptr %392, align 8, !tbaa !27
   %394 = icmp eq i32 %393, 2147483647
   br i1 %394, label %.backedge.i, label %395
 
 395:                                              ; preds = %389
-  %396 = load ptr, ptr %81, align 8, !tbaa !36
+  %396 = load ptr, ptr %81, align 8, !tbaa !35
   %397 = zext i32 %393 to i64
   %398 = getelementptr inbounds nuw i32, ptr %396, i64 %397
-  %399 = load i32, ptr %398, align 4, !tbaa !37
+  %399 = load i32, ptr %398, align 4, !tbaa !36
   %400 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %52, ptr noundef nonnull %392, i32 noundef %399) #10
   %401 = and i64 %390, 1
   %.not316.i = icmp eq i64 %401, 0
   %402 = getelementptr inbounds nuw i8, ptr %400, i64 24
-  %403 = load double, ptr %402, align 8, !tbaa !38
+  %403 = load double, ptr %402, align 8, !tbaa !37
   %404 = getelementptr inbounds nuw i8, ptr %400, i64 32
   br i1 %.not316.i, label %411, label %405
 
 405:                                              ; preds = %395
   %406 = fmul double %119, 5.000000e-01
   %407 = fadd double %406, %403
-  store double %407, ptr %402, align 8, !tbaa !38
+  store double %407, ptr %402, align 8, !tbaa !37
   %408 = fmul double %117, 5.000000e-01
-  %409 = load double, ptr %404, align 8, !tbaa !41
+  %409 = load double, ptr %404, align 8, !tbaa !40
   %410 = fadd double %408, %409
-  store double %410, ptr %404, align 8, !tbaa !41
+  store double %410, ptr %404, align 8, !tbaa !40
   br label %.backedge.i
 
 411:                                              ; preds = %395
   %412 = fmul double %117, 5.000000e-01
   %413 = fadd double %412, %403
-  store double %413, ptr %402, align 8, !tbaa !38
+  store double %413, ptr %402, align 8, !tbaa !37
   %414 = fmul double %119, 5.000000e-01
-  %415 = load double, ptr %404, align 8, !tbaa !41
+  %415 = load double, ptr %404, align 8, !tbaa !40
   %416 = fadd double %414, %415
-  store double %416, ptr %404, align 8, !tbaa !41
+  store double %416, ptr %404, align 8, !tbaa !40
   br label %.backedge.i
 
 417:                                              ; preds = %60, %74, %151, %175, %91, %47, %214, %235
@@ -1835,25 +1835,25 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %419 = load ptr, ptr %418, align 8, !tbaa !27
+  %419 = load ptr, ptr %418, align 8, !tbaa !26
   %420 = call i64 @fwrite(ptr nonnull @.str.1, i64 29, i64 1, ptr %419)
   %421 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %422 = load ptr, ptr %421, align 8, !tbaa !58
+  %422 = load ptr, ptr %421, align 8, !tbaa !57
   %.not66 = icmp eq ptr %422, null
   br i1 %.not66, label %424, label %423
 
 423:                                              ; preds = %417
   call void @free(ptr noundef nonnull %422) #10
-  store ptr null, ptr %421, align 8, !tbaa !58
+  store ptr null, ptr %421, align 8, !tbaa !57
   br label %424
 
 424:                                              ; preds = %417, %423
   %425 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %426 = load ptr, ptr %425, align 8, !tbaa !47
+  %426 = load ptr, ptr %425, align 8, !tbaa !46
   call void @st__free_table(ptr noundef %426) #10
   call void @free(ptr noundef nonnull %25) #10
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %427, align 8, !tbaa !29
+  store i32 1, ptr %427, align 8, !tbaa !28
   br label %446
 
 .loopexit:                                        ; preds = %.backedge.i, %83, %75
@@ -1867,33 +1867,33 @@ define ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not, label %439, label %429
 
 429:                                              ; preds = %.loopexit
-  %430 = load i32, ptr %50, align 8, !tbaa !31
+  %430 = load i32, ptr %50, align 8, !tbaa !30
   %431 = call i32 @Cudd_DagSize(ptr noundef nonnull %428) #10
   %432 = icmp slt i32 %430, %431
   br i1 %432, label %433, label %439
 
 433:                                              ; preds = %429
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %435 = load ptr, ptr %434, align 8, !tbaa !27
-  %436 = load i32, ptr %50, align 8, !tbaa !31
+  %435 = load ptr, ptr %434, align 8, !tbaa !26
+  %436 = load i32, ptr %50, align 8, !tbaa !30
   %437 = call i32 @Cudd_DagSize(ptr noundef nonnull %428) #10
   %438 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %435, ptr noundef nonnull @.str.2, i32 noundef %436, i32 noundef %437) #10
   br label %439
 
 439:                                              ; preds = %433, %429, %.loopexit
   %440 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %441 = load ptr, ptr %440, align 8, !tbaa !58
+  %441 = load ptr, ptr %440, align 8, !tbaa !57
   %.not65 = icmp eq ptr %441, null
   br i1 %.not65, label %443, label %442
 
 442:                                              ; preds = %439
   call void @free(ptr noundef nonnull %441) #10
-  store ptr null, ptr %440, align 8, !tbaa !58
+  store ptr null, ptr %440, align 8, !tbaa !57
   br label %443
 
 443:                                              ; preds = %439, %442
   %444 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %445 = load ptr, ptr %444, align 8, !tbaa !47
+  %445 = load ptr, ptr %444, align 8, !tbaa !46
   call void @st__free_table(ptr noundef %445) #10
   call void @free(ptr noundef nonnull %25) #10
   br label %446
@@ -1916,7 +1916,7 @@ define ptr @Cudd_BiasedOverApprox(ptr noundef initializes((448, 452)) %0, ptr no
   %13 = tail call ptr @cuddBiasedUnderApprox(ptr noundef %0, ptr noundef %10, ptr noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5, double noundef %6)
   %14 = load i32, ptr %11, align 8, !tbaa !3
   %15 = icmp eq i32 %14, 1
-  br i1 %15, label %12, label %16, !llvm.loop !68
+  br i1 %15, label %12, label %16, !llvm.loop !67
 
 16:                                               ; preds = %12
   %17 = ptrtoint ptr %13 to i64
@@ -1938,7 +1938,7 @@ define internal fastcc noundef ptr @gatherInfo(ptr noundef captures(none) %0, pt
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %8, align 8, !tbaa !29
+  store i32 1, ptr %8, align 8, !tbaa !28
   br label %50
 
 9:                                                ; preds = %4
@@ -1946,36 +1946,36 @@ define internal fastcc noundef ptr @gatherInfo(ptr noundef captures(none) %0, pt
   %spec.store.select = select i1 %10, i32 1023, i32 %2
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store double %ldexp, ptr %11, align 8, !tbaa !69
+  store double %ldexp, ptr %11, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !70
-  store ptr %13, ptr %5, align 8, !tbaa !71
+  %13 = load ptr, ptr %12, align 8, !tbaa !69
+  store ptr %13, ptr %5, align 8, !tbaa !70
   %14 = ptrtoint ptr %13 to i64
   %15 = xor i64 %14, 1
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %16, ptr %17, align 8, !tbaa !72
+  store ptr %16, ptr %17, align 8, !tbaa !71
   %18 = tail call i32 @Cudd_DagSize(ptr noundef nonnull %1) #10
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %18, ptr %19, align 8, !tbaa !31
+  store i32 %18, ptr %19, align 8, !tbaa !30
   %20 = sext i32 %18 to i64
   %21 = mul nsw i64 %20, 40
   %calloc = tail call ptr @calloc(i64 1, i64 %21)
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %calloc, ptr %22, align 8, !tbaa !58
+  store ptr %calloc, ptr %22, align 8, !tbaa !57
   %23 = icmp eq ptr %calloc, null
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %25, align 8, !tbaa !29
+  store i32 1, ptr %25, align 8, !tbaa !28
   tail call void @free(ptr noundef nonnull %5) #10
   br label %50
 
 26:                                               ; preds = %9
   %27 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #10
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %27, ptr %28, align 8, !tbaa !47
+  store ptr %27, ptr %28, align 8, !tbaa !46
   %29 = icmp eq ptr %27, null
   br i1 %29, label %30, label %31
 
@@ -1992,30 +1992,30 @@ define internal fastcc noundef ptr @gatherInfo(ptr noundef captures(none) %0, pt
 34:                                               ; preds = %31
   tail call void @free(ptr noundef nonnull %calloc) #10
   tail call void @free(ptr noundef nonnull %5) #10
-  %35 = load ptr, ptr inttoptr (i64 24 to ptr), align 8, !tbaa !47
+  %35 = load ptr, ptr inttoptr (i64 24 to ptr), align 8, !tbaa !46
   tail call void @st__free_table(ptr noundef %35) #10
   br label %50
 
 36:                                               ; preds = %31
-  store double %ldexp, ptr %calloc, align 8, !tbaa !53
+  store double %ldexp, ptr %calloc, align 8, !tbaa !52
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 1, ptr %37, align 8, !tbaa !73
+  store i32 1, ptr %37, align 8, !tbaa !72
   %38 = tail call fastcc ptr @gatherInfoAux(ptr noundef nonnull %1, ptr noundef %5, i32 noundef %3)
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %36
-  %41 = load ptr, ptr %22, align 8, !tbaa !58
+  %41 = load ptr, ptr %22, align 8, !tbaa !57
   %.not63 = icmp eq ptr %41, null
   br i1 %.not63, label %43, label %42
 
 42:                                               ; preds = %40
   tail call void @free(ptr noundef nonnull %41) #10
-  store ptr null, ptr %22, align 8, !tbaa !58
+  store ptr null, ptr %22, align 8, !tbaa !57
   br label %43
 
 43:                                               ; preds = %40, %42
-  %44 = load ptr, ptr %28, align 8, !tbaa !47
+  %44 = load ptr, ptr %28, align 8, !tbaa !46
   tail call void @st__free_table(ptr noundef %44) #10
   tail call void @free(ptr noundef nonnull %5) #10
   br label %50
@@ -2025,11 +2025,11 @@ define internal fastcc noundef ptr @gatherInfo(ptr noundef captures(none) %0, pt
   %47 = shl i64 %46, 3
   %spec.select.idx = and i64 %47, 8
   %spec.select = getelementptr inbounds nuw i8, ptr %38, i64 %spec.select.idx
-  %.sink = load double, ptr %spec.select, align 8, !tbaa !63
+  %.sink = load double, ptr %spec.select, align 8, !tbaa !62
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store double %.sink, ptr %48, align 8, !tbaa !55
+  store double %.sink, ptr %48, align 8, !tbaa !54
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i32 1, ptr %49, align 8, !tbaa !62
+  store i32 1, ptr %49, align 8, !tbaa !61
   br label %50
 
 50:                                               ; preds = %45, %43, %34, %30, %24, %7
@@ -2049,27 +2049,27 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %5 = ptrtoint ptr %1 to i64
   %6 = and i64 %5, -2
   %7 = inttoptr i64 %6 to ptr
-  %8 = load i32, ptr %7, align 8, !tbaa !28
+  %8 = load i32, ptr %7, align 8, !tbaa !27
   %9 = icmp eq i32 %8, 2147483647
   br i1 %9, label %98, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !47
+  %12 = load ptr, ptr %11, align 8, !tbaa !46
   %13 = call i32 @st__lookup(ptr noundef %12, ptr noundef nonnull %7, ptr noundef nonnull %4) #10
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %30, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8, !tbaa !48
+  %15 = load ptr, ptr %4, align 8, !tbaa !47
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 21
-  %17 = load i8, ptr %16, align 1, !tbaa !56
+  %17 = load i8, ptr %16, align 1, !tbaa !55
   %18 = icmp eq i8 %17, 1
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !72
+  %21 = load ptr, ptr %20, align 8, !tbaa !71
   br label %98
 
 22:                                               ; preds = %14
@@ -2078,33 +2078,33 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !74
+  %26 = load ptr, ptr %25, align 8, !tbaa !73
   %.not74 = icmp eq ptr %26, null
   br i1 %.not74, label %35, label %98
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !75
+  %29 = load ptr, ptr %28, align 8, !tbaa !74
   %.not73 = icmp eq ptr %29, null
   br i1 %.not73, label %35, label %98
 
 30:                                               ; preds = %10
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %32 = load ptr, ptr %31, align 8, !tbaa !27
+  %32 = load ptr, ptr %31, align 8, !tbaa !26
   %33 = call i64 @fwrite(ptr nonnull @.str.3, i64 46, i64 1, ptr %32)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 5, ptr %34, align 8, !tbaa !29
+  store i32 5, ptr %34, align 8, !tbaa !28
   br label %98
 
 35:                                               ; preds = %24, %27
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !57
+  %37 = load ptr, ptr %36, align 8, !tbaa !56
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %5, 1
   %40 = xor i64 %39, %38
   %41 = inttoptr i64 %40 to ptr
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !57
+  %43 = load ptr, ptr %42, align 8, !tbaa !56
   %44 = call fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %41, ptr noundef %2)
   %45 = icmp eq ptr %44, null
   br i1 %45, label %98, label %46
@@ -2117,9 +2117,9 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %54 = load i32, ptr %53, align 4, !tbaa !76
+  %54 = load i32, ptr %53, align 4, !tbaa !75
   %55 = add i32 %54, 1
-  store i32 %55, ptr %53, align 4, !tbaa !76
+  store i32 %55, ptr %53, align 4, !tbaa !75
   %56 = call fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %49, ptr noundef %2)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %59
@@ -2133,9 +2133,9 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %61 = and i64 %60, -2
   %62 = inttoptr i64 %61 to ptr
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !76
+  %64 = load i32, ptr %63, align 4, !tbaa !75
   %65 = add i32 %64, 1
-  store i32 %65, ptr %63, align 4, !tbaa !76
+  store i32 %65, ptr %63, align 4, !tbaa !75
   %66 = and i64 %50, 1
   %.not75 = icmp eq i64 %66, 0
   br i1 %.not75, label %80, label %67
@@ -2147,7 +2147,7 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %70, label %.thread, label %71
 
 71:                                               ; preds = %67
-  %72 = load i32, ptr %7, align 8, !tbaa !28
+  %72 = load i32, ptr %7, align 8, !tbaa !27
   %73 = call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %72, ptr noundef nonnull %52, ptr noundef %69) #10
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %.thread
@@ -2172,7 +2172,7 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %81, label %.thread76, label %82
 
 82:                                               ; preds = %80
-  %83 = load i32, ptr %7, align 8, !tbaa !28
+  %83 = load i32, ptr %7, align 8, !tbaa !27
   %84 = call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %83, ptr noundef nonnull %44, ptr noundef nonnull %56) #10
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %.thread76
@@ -2187,24 +2187,24 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %.pre-phi80 = phi ptr [ %52, %80 ], [ %52, %82 ], [ %.pre79, %.thread ]
   %.0 = phi ptr [ %44, %80 ], [ %84, %82 ], [ %79, %.thread ]
   %87 = getelementptr inbounds nuw i8, ptr %.pre-phi80, i64 4
-  %88 = load i32, ptr %87, align 4, !tbaa !76
+  %88 = load i32, ptr %87, align 4, !tbaa !75
   %89 = add i32 %88, -1
-  store i32 %89, ptr %87, align 4, !tbaa !76
+  store i32 %89, ptr %87, align 4, !tbaa !75
   %90 = getelementptr inbounds nuw i8, ptr %.pre-phi86, i64 4
-  %91 = load i32, ptr %90, align 4, !tbaa !76
+  %91 = load i32, ptr %90, align 4, !tbaa !75
   %92 = add i32 %91, -1
-  store i32 %92, ptr %90, align 4, !tbaa !76
-  %93 = load ptr, ptr %4, align 8, !tbaa !48
+  store i32 %92, ptr %90, align 4, !tbaa !75
+  %93 = load ptr, ptr %4, align 8, !tbaa !47
   br i1 %23, label %94, label %96
 
 94:                                               ; preds = %.thread76
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  store ptr %.0, ptr %95, align 8, !tbaa !74
+  store ptr %.0, ptr %95, align 8, !tbaa !73
   br label %98
 
 96:                                               ; preds = %.thread76
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  store ptr %.0, ptr %97, align 8, !tbaa !75
+  store ptr %.0, ptr %97, align 8, !tbaa !74
   br label %98
 
 98:                                               ; preds = %94, %96, %35, %27, %24, %3, %86, %75, %58, %30, %19
@@ -2222,48 +2222,48 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %5 = ptrtoint ptr %1 to i64
   %6 = and i64 %5, -2
   %7 = inttoptr i64 %6 to ptr
-  %8 = load i32, ptr %7, align 8, !tbaa !28
+  %8 = load i32, ptr %7, align 8, !tbaa !27
   %9 = icmp eq i32 %8, 2147483647
   br i1 %9, label %179, label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !57
+  %12 = load ptr, ptr %11, align 8, !tbaa !56
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %5, 1
   %15 = xor i64 %14, %13
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !57
+  %18 = load ptr, ptr %17, align 8, !tbaa !56
   %19 = ptrtoint ptr %18 to i64
   %20 = xor i64 %14, %19
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !47
+  %23 = load ptr, ptr %22, align 8, !tbaa !46
   %24 = call i32 @st__lookup(ptr noundef %23, ptr noundef nonnull %7, ptr noundef nonnull %4) #10
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %122, label %25
 
 25:                                               ; preds = %10
   %26 = icmp eq ptr %1, %7
-  %27 = load ptr, ptr %4, align 8, !tbaa !48
+  %27 = load ptr, ptr %4, align 8, !tbaa !47
   br i1 %26, label %28, label %31
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !74
+  %30 = load ptr, ptr %29, align 8, !tbaa !73
   %.not155 = icmp eq ptr %30, null
   br i1 %.not155, label %34, label %179
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !75
+  %33 = load ptr, ptr %32, align 8, !tbaa !74
   %.not154 = icmp eq ptr %33, null
   br i1 %.not154, label %34, label %179
 
 34:                                               ; preds = %31, %28
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 21
-  %36 = load i8, ptr %35, align 1, !tbaa !56
+  %36 = load i8, ptr %35, align 1, !tbaa !55
   switch i8 %36, label %127 [
     i8 1, label %37
     i8 2, label %39
@@ -2282,19 +2282,19 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !72
+  %43 = load ptr, ptr %42, align 8, !tbaa !71
   br label %179
 
 44:                                               ; preds = %34
-  %45 = load ptr, ptr %11, align 8, !tbaa !57
+  %45 = load ptr, ptr %11, align 8, !tbaa !56
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !57
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
   %48 = ptrtoint ptr %47 to i64
   %49 = xor i64 %14, %48
   %50 = inttoptr i64 %49 to ptr
-  %51 = load i32, ptr %45, align 8, !tbaa !28
+  %51 = load i32, ptr %45, align 8, !tbaa !27
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !72
+  %53 = load ptr, ptr %52, align 8, !tbaa !71
   %54 = call fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %50, ptr noundef %2)
   %55 = icmp eq ptr %54, null
   br i1 %55, label %179, label %56
@@ -2304,9 +2304,9 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %58 = and i64 %57, -2
   %59 = inttoptr i64 %58 to ptr
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  %61 = load i32, ptr %60, align 4, !tbaa !76
+  %61 = load i32, ptr %60, align 4, !tbaa !75
   %62 = add i32 %61, 1
-  store i32 %62, ptr %60, align 4, !tbaa !76
+  store i32 %62, ptr %60, align 4, !tbaa !75
   %63 = and i64 %57, 1
   %.not157 = icmp eq i64 %63, 0
   br i1 %.not157, label %77, label %64
@@ -2354,20 +2354,20 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %84 = and i64 %83, -2
   %85 = inttoptr i64 %84 to ptr
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %87 = load i32, ptr %86, align 4, !tbaa !76
+  %87 = load i32, ptr %86, align 4, !tbaa !75
   %88 = add i32 %87, -1
-  store i32 %88, ptr %86, align 4, !tbaa !76
+  store i32 %88, ptr %86, align 4, !tbaa !75
   br label %179
 
 89:                                               ; preds = %34
-  %90 = load ptr, ptr %11, align 8, !tbaa !57
+  %90 = load ptr, ptr %11, align 8, !tbaa !56
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
-  %92 = load ptr, ptr %91, align 8, !tbaa !57
+  %92 = load ptr, ptr %91, align 8, !tbaa !56
   %93 = ptrtoint ptr %92 to i64
   %94 = xor i64 %14, %93
   %95 = inttoptr i64 %94 to ptr
-  %96 = load i32, ptr %90, align 8, !tbaa !28
-  %97 = load ptr, ptr %2, align 8, !tbaa !71
+  %96 = load i32, ptr %90, align 8, !tbaa !27
+  %97 = load ptr, ptr %2, align 8, !tbaa !70
   %98 = call fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %95, ptr noundef %2)
   %99 = icmp eq ptr %98, null
   br i1 %99, label %179, label %100
@@ -2377,9 +2377,9 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %102 = and i64 %101, -2
   %103 = inttoptr i64 %102 to ptr
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
-  %105 = load i32, ptr %104, align 4, !tbaa !76
+  %105 = load i32, ptr %104, align 4, !tbaa !75
   %106 = add i32 %105, 1
-  store i32 %106, ptr %104, align 4, !tbaa !76
+  store i32 %106, ptr %104, align 4, !tbaa !75
   %107 = xor i64 %101, 1
   %108 = inttoptr i64 %107 to ptr
   %109 = icmp eq ptr %97, %108
@@ -2402,17 +2402,17 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %117 = ptrtoint ptr %113 to i64
   %118 = xor i64 %117, 1
   %119 = inttoptr i64 %118 to ptr
-  %120 = load i32, ptr %104, align 4, !tbaa !76
+  %120 = load i32, ptr %104, align 4, !tbaa !75
   %121 = add i32 %120, -1
-  store i32 %121, ptr %104, align 4, !tbaa !76
+  store i32 %121, ptr %104, align 4, !tbaa !75
   br label %179
 
 122:                                              ; preds = %10
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %124 = load ptr, ptr %123, align 8, !tbaa !27
+  %124 = load ptr, ptr %123, align 8, !tbaa !26
   %125 = call i64 @fwrite(ptr nonnull @.str.3, i64 46, i64 1, ptr %124)
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 5, ptr %126, align 8, !tbaa !29
+  store i32 5, ptr %126, align 8, !tbaa !28
   br label %179
 
 127:                                              ; preds = %34
@@ -2425,9 +2425,9 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %132 = and i64 %131, -2
   %133 = inttoptr i64 %132 to ptr
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
-  %135 = load i32, ptr %134, align 4, !tbaa !76
+  %135 = load i32, ptr %134, align 4, !tbaa !75
   %136 = add i32 %135, 1
-  store i32 %136, ptr %134, align 4, !tbaa !76
+  store i32 %136, ptr %134, align 4, !tbaa !75
   %137 = call fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %21, ptr noundef %2)
   %138 = icmp eq ptr %137, null
   br i1 %138, label %139, label %140
@@ -2441,9 +2441,9 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %142 = and i64 %141, -2
   %143 = inttoptr i64 %142 to ptr
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
-  %145 = load i32, ptr %144, align 4, !tbaa !76
+  %145 = load i32, ptr %144, align 4, !tbaa !75
   %146 = add i32 %145, 1
-  store i32 %146, ptr %144, align 4, !tbaa !76
+  store i32 %146, ptr %144, align 4, !tbaa !75
   %147 = and i64 %131, 1
   %.not156 = icmp eq i64 %147, 0
   br i1 %.not156, label %161, label %148
@@ -2455,7 +2455,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %151, label %.thread159, label %152
 
 152:                                              ; preds = %148
-  %153 = load i32, ptr %7, align 8, !tbaa !28
+  %153 = load i32, ptr %7, align 8, !tbaa !27
   %154 = call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %153, ptr noundef nonnull %133, ptr noundef %150) #10
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %.thread159
@@ -2480,7 +2480,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %162, label %.thread160, label %163
 
 163:                                              ; preds = %161
-  %164 = load i32, ptr %7, align 8, !tbaa !28
+  %164 = load i32, ptr %7, align 8, !tbaa !27
   %165 = call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %164, ptr noundef nonnull %128, ptr noundef nonnull %137) #10
   %166 = icmp eq ptr %165, null
   br i1 %166, label %167, label %.thread160
@@ -2495,24 +2495,24 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
   %.pre-phi164 = phi ptr [ %133, %161 ], [ %133, %163 ], [ %.pre163, %.thread159 ]
   %.1131 = phi ptr [ %128, %161 ], [ %165, %163 ], [ %160, %.thread159 ]
   %168 = getelementptr inbounds nuw i8, ptr %.pre-phi164, i64 4
-  %169 = load i32, ptr %168, align 4, !tbaa !76
+  %169 = load i32, ptr %168, align 4, !tbaa !75
   %170 = add i32 %169, -1
-  store i32 %170, ptr %168, align 4, !tbaa !76
+  store i32 %170, ptr %168, align 4, !tbaa !75
   %171 = getelementptr inbounds nuw i8, ptr %.pre-phi170, i64 4
-  %172 = load i32, ptr %171, align 4, !tbaa !76
+  %172 = load i32, ptr %171, align 4, !tbaa !75
   %173 = add i32 %172, -1
-  store i32 %173, ptr %171, align 4, !tbaa !76
-  %174 = load ptr, ptr %4, align 8, !tbaa !48
+  store i32 %173, ptr %171, align 4, !tbaa !75
+  %174 = load ptr, ptr %4, align 8, !tbaa !47
   br i1 %26, label %175, label %177
 
 175:                                              ; preds = %.thread160
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 24
-  store ptr %.1131, ptr %176, align 8, !tbaa !74
+  store ptr %.1131, ptr %176, align 8, !tbaa !73
   br label %179
 
 177:                                              ; preds = %.thread160
   %178 = getelementptr inbounds nuw i8, ptr %174, i64 32
-  store ptr %.1131, ptr %178, align 8, !tbaa !75
+  store ptr %.1131, ptr %178, align 8, !tbaa !74
   br label %179
 
 179:                                              ; preds = %175, %177, %127, %115, %116, %89, %72, %82, %.thread158, %44, %31, %28, %3, %167, %156, %139, %122, %41, %39, %37
@@ -2528,12 +2528,12 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !70
+  %8 = load ptr, ptr %7, align 8, !tbaa !69
   %9 = ptrtoint ptr %8 to i64
   %10 = xor i64 %9, 1
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !47
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = call i32 @st__lookup(ptr noundef %13, ptr noundef %1, ptr noundef nonnull %6) #10
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %116, label %15
@@ -2544,9 +2544,9 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
 
 17:                                               ; preds = %15
   %18 = icmp eq ptr %2, %11
-  %19 = load ptr, ptr %6, align 8, !tbaa !48
+  %19 = load ptr, ptr %6, align 8, !tbaa !47
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  %21 = load i8, ptr %20, align 4, !tbaa !66
+  %21 = load i8, ptr %20, align 4, !tbaa !65
   br i1 %18, label %22, label %24
 
 22:                                               ; preds = %17
@@ -2559,7 +2559,7 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !76
+  %28 = load i32, ptr %27, align 4, !tbaa !75
   %.not74 = icmp eq i32 %28, 1
   br i1 %.not74, label %29, label %35
 
@@ -2568,7 +2568,7 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !76
+  %34 = load i32, ptr %33, align 4, !tbaa !75
   %.not75 = icmp eq i32 %34, 1
   br i1 %.not75, label %55, label %35
 
@@ -2585,27 +2585,27 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
 
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !76
+  %39 = load i32, ptr %38, align 4, !tbaa !75
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !77
+  %43 = load ptr, ptr %42, align 8, !tbaa !76
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 236
-  %45 = load i32, ptr %44, align 4, !tbaa !82
+  %45 = load i32, ptr %44, align 4, !tbaa !81
   %46 = add i32 %45, 1
-  store i32 %46, ptr %44, align 4, !tbaa !82
+  store i32 %46, ptr %44, align 4, !tbaa !81
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 192
-  %48 = load i32, ptr %47, align 8, !tbaa !83
+  %48 = load i32, ptr %47, align 8, !tbaa !82
   %49 = add i32 %48, 1
-  store i32 %49, ptr %47, align 8, !tbaa !83
+  store i32 %49, ptr %47, align 8, !tbaa !82
   br label %50
 
 50:                                               ; preds = %41, %37
-  %51 = load ptr, ptr %6, align 8, !tbaa !48
+  %51 = load ptr, ptr %6, align 8, !tbaa !47
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 20
-  %53 = load i8, ptr %52, align 4, !tbaa !66
+  %53 = load i8, ptr %52, align 4, !tbaa !65
   %54 = sext i8 %53 to i32
   br label %116
 
@@ -2613,19 +2613,19 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   %.pre-phi90 = phi ptr [ %.pre89, %._crit_edge85 ], [ %32, %29 ]
   %.pre-phi = phi i64 [ %.pre86, %._crit_edge85 ], [ %30, %29 ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %57 = load ptr, ptr %56, align 8, !tbaa !36
-  %58 = load i32, ptr %1, align 8, !tbaa !28
+  %57 = load ptr, ptr %56, align 8, !tbaa !35
+  %58 = load i32, ptr %1, align 8, !tbaa !27
   %59 = zext i32 %58 to i64
   %60 = getelementptr inbounds nuw i32, ptr %57, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !37
-  %62 = load i32, ptr %.pre-phi90, align 8, !tbaa !28
+  %61 = load i32, ptr %60, align 4, !tbaa !36
+  %62 = load i32, ptr %.pre-phi90, align 8, !tbaa !27
   %63 = icmp eq i32 %62, 2147483647
   br i1 %63, label %68, label %64
 
 64:                                               ; preds = %55
   %65 = zext i32 %62 to i64
   %66 = getelementptr inbounds nuw i32, ptr %57, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !37
+  %67 = load i32, ptr %66, align 4, !tbaa !36
   br label %68
 
 68:                                               ; preds = %55, %64
@@ -2635,9 +2635,9 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %72 = load ptr, ptr %71, align 8, !tbaa !57
+  %72 = load ptr, ptr %71, align 8, !tbaa !56
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !57
+  %74 = load ptr, ptr %73, align 8, !tbaa !56
   br label %75
 
 75:                                               ; preds = %68, %70
@@ -2648,9 +2648,9 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
 
 76:                                               ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %.pre-phi90, i64 16
-  %78 = load ptr, ptr %77, align 8, !tbaa !57
+  %78 = load ptr, ptr %77, align 8, !tbaa !56
   %79 = getelementptr inbounds nuw i8, ptr %.pre-phi90, i64 24
-  %80 = load ptr, ptr %79, align 8, !tbaa !57
+  %80 = load ptr, ptr %79, align 8, !tbaa !56
   %81 = and i64 %.pre-phi, 1
   %.not79 = icmp eq i64 %81, 0
   br i1 %.not79, label %89, label %82
@@ -2683,14 +2683,14 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   %99 = icmp eq i32 %90, 2
   %100 = icmp eq i32 %96, 2
   %or.cond = and i1 %99, %100
-  %101 = load ptr, ptr %6, align 8, !tbaa !48
+  %101 = load ptr, ptr %6, align 8, !tbaa !47
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 20
   %. = select i1 %or.cond, i8 2, i8 1
-  store i8 %., ptr %102, align 4, !tbaa !66
-  %103 = load i32, ptr %27, align 4, !tbaa !76
+  store i8 %., ptr %102, align 4, !tbaa !65
+  %103 = load i32, ptr %27, align 4, !tbaa !75
   %.not80 = icmp eq i32 %103, 1
   %104 = getelementptr inbounds nuw i8, ptr %.pre-phi90, i64 4
-  %105 = load i32, ptr %104, align 4, !tbaa !76
+  %105 = load i32, ptr %104, align 4, !tbaa !75
   %.not81 = icmp eq i32 %105, 1
   %or.cond91 = select i1 %.not80, i1 %.not81, i1 false
   br i1 %or.cond91, label %111, label %._crit_edge
@@ -2705,13 +2705,13 @@ define internal fastcc range(i32 -128, 128) i32 @BAapplyBias(ptr noundef %0, ptr
   br i1 %.not82.not, label %116, label %._crit_edge83
 
 ._crit_edge83:                                    ; preds = %._crit_edge
-  %.pre84 = load ptr, ptr %6, align 8, !tbaa !48
+  %.pre84 = load ptr, ptr %6, align 8, !tbaa !47
   br label %111
 
 111:                                              ; preds = %98, %._crit_edge83
   %112 = phi ptr [ %.pre84, %._crit_edge83 ], [ %101, %98 ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 20
-  %114 = load i8, ptr %113, align 4, !tbaa !66
+  %114 = load i8, ptr %113, align 4, !tbaa !65
   %115 = sext i8 %114 to i32
   br label %116
 
@@ -2742,7 +2742,7 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
   %6 = and i64 %5, -2
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !47
+  %9 = load ptr, ptr %8, align 8, !tbaa !46
   %10 = call i32 @st__lookup(ptr noundef %9, ptr noundef %7, ptr noundef nonnull %4) #10
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %18, label %11
@@ -2759,19 +2759,19 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
   br label %16
 
 16:                                               ; preds = %12, %11
-  %17 = load ptr, ptr %4, align 8, !tbaa !48
+  %17 = load ptr, ptr %4, align 8, !tbaa !47
   br label %69
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !57
+  %20 = load ptr, ptr %19, align 8, !tbaa !56
   %21 = ptrtoint ptr %20 to i64
   %22 = icmp ne ptr %0, %7
   %23 = zext i1 %22 to i64
   %24 = xor i64 %21, %23
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !57
+  %27 = load ptr, ptr %26, align 8, !tbaa !56
   %28 = ptrtoint ptr %27 to i64
   %29 = xor i64 %28, %23
   %30 = call fastcc ptr @gatherInfoAux(ptr noundef %25, ptr noundef %1, i32 noundef %2)
@@ -2786,52 +2786,52 @@ define internal fastcc ptr @gatherInfoAux(ptr noundef %0, ptr noundef nonnull %1
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %38 = load i32, ptr %37, align 8, !tbaa !62
+  %38 = load i32, ptr %37, align 8, !tbaa !61
   %39 = add nsw i32 %38, 1
-  store i32 %39, ptr %37, align 8, !tbaa !62
+  store i32 %39, ptr %37, align 8, !tbaa !61
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %41 = load i32, ptr %40, align 8, !tbaa !62
+  %41 = load i32, ptr %40, align 8, !tbaa !61
   %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %40, align 8, !tbaa !62
+  store i32 %42, ptr %40, align 8, !tbaa !61
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !58
+  %44 = load ptr, ptr %43, align 8, !tbaa !57
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %46 = load i32, ptr %45, align 8, !tbaa !73
+  %46 = load i32, ptr %45, align 8, !tbaa !72
   %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %45, align 8, !tbaa !73
+  store i32 %47, ptr %45, align 8, !tbaa !72
   %48 = sext i32 %46 to i64
   %49 = getelementptr inbounds %struct.NodeData, ptr %44, i64 %48
-  store ptr %49, ptr %4, align 8, !tbaa !48
+  store ptr %49, ptr %4, align 8, !tbaa !47
   %50 = trunc i64 %5 to i16
   %51 = and i16 %50, 1
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 22
-  %53 = load i16, ptr %52, align 2, !tbaa !49
+  %53 = load i16, ptr %52, align 2, !tbaa !48
   %54 = add nuw nsw i16 %51, 1
   %55 = or i16 %53, %54
-  store i16 %55, ptr %52, align 2, !tbaa !49
-  %56 = load double, ptr %30, align 8, !tbaa !53
+  store i16 %55, ptr %52, align 2, !tbaa !48
+  %56 = load double, ptr %30, align 8, !tbaa !52
   %57 = fmul double %56, 5.000000e-01
-  store double %57, ptr %49, align 8, !tbaa !53
+  store double %57, ptr %49, align 8, !tbaa !52
   %58 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %59 = load double, ptr %58, align 8, !tbaa !54
+  %59 = load double, ptr %58, align 8, !tbaa !53
   %60 = fmul double %59, 5.000000e-01
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store double %60, ptr %61, align 8, !tbaa !54
+  store double %60, ptr %61, align 8, !tbaa !53
   %62 = xor i64 %29, %5
   %63 = and i64 %62, 1
   %.not38 = icmp eq i64 %63, 0
   %64 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %. = select i1 %.not38, ptr %34, ptr %64
   %.41 = select i1 %.not38, ptr %64, ptr %34
-  %.pn40.in = load double, ptr %., align 8, !tbaa !63
+  %.pn40.in = load double, ptr %., align 8, !tbaa !62
   %.pn40 = fmul double %.pn40.in, 5.000000e-01
   %.sink = fadd double %57, %.pn40
-  store double %.sink, ptr %49, align 8, !tbaa !53
-  %.pn.in = load double, ptr %.41, align 8, !tbaa !63
+  store double %.sink, ptr %49, align 8, !tbaa !52
+  %.pn.in = load double, ptr %.41, align 8, !tbaa !62
   %.pn = fmul double %.pn.in, 5.000000e-01
   %storemerge = fadd double %60, %.pn
-  store double %storemerge, ptr %61, align 8, !tbaa !54
-  %65 = load ptr, ptr %8, align 8, !tbaa !47
+  store double %storemerge, ptr %61, align 8, !tbaa !53
+  %65 = load ptr, ptr %8, align 8, !tbaa !46
   %66 = call i32 @st__insert(ptr noundef %65, ptr noundef nonnull %7, ptr noundef nonnull %49) #10
   %67 = icmp eq i32 %66, -10000
   %68 = load ptr, ptr %4, align 8
@@ -2851,15 +2851,15 @@ define internal fastcc void @updateParity(ptr noundef %0, ptr noundef nonnull %1
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !47
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
   %7 = call i32 @st__lookup(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %4) #10
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %34, label %8
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %4, align 8, !tbaa !48
+  %9 = load ptr, ptr %4, align 8, !tbaa !47
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 22
-  %11 = load i16, ptr %10, align 2, !tbaa !49
+  %11 = load i16, ptr %10, align 2, !tbaa !48
   %12 = zext i16 %11 to i32
   %13 = and i32 %2, %12
   %.not15 = icmp eq i32 %13, 0
@@ -2868,20 +2868,20 @@ define internal fastcc void @updateParity(ptr noundef %0, ptr noundef nonnull %1
 14:                                               ; preds = %8
   %15 = trunc nuw nsw i32 %2 to i16
   %16 = or i16 %11, %15
-  store i16 %16, ptr %10, align 2, !tbaa !49
+  store i16 %16, ptr %10, align 2, !tbaa !48
   %17 = ptrtoint ptr %0 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = load i32, ptr %19, align 8, !tbaa !28
+  %20 = load i32, ptr %19, align 8, !tbaa !27
   %21 = icmp eq i32 %20, 2147483647
   br i1 %21, label %34, label %22
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !57
+  %24 = load ptr, ptr %23, align 8, !tbaa !56
   call fastcc void @updateParity(ptr noundef %24, ptr noundef %1, i32 noundef %2)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = load ptr, ptr %25, align 8, !tbaa !57
+  %26 = load ptr, ptr %25, align 8, !tbaa !56
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, 1
   %.not16 = icmp eq i64 %28, 0
@@ -2924,16 +2924,16 @@ define internal fastcc i32 @computeSavings(ptr noundef readonly captures(none) %
   %10 = ptrtoint ptr %2 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = load i32, ptr %9, align 8, !tbaa !28
+  %13 = load i32, ptr %9, align 8, !tbaa !27
   %14 = icmp eq i32 %13, 2147483647
   br i1 %14, label %21, label %15
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %17 = load ptr, ptr %16, align 8, !tbaa !36
+  %17 = load ptr, ptr %16, align 8, !tbaa !35
   %18 = zext i32 %13 to i64
   %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
-  %20 = load i32, ptr %19, align 4, !tbaa !37
+  %20 = load i32, ptr %19, align 4, !tbaa !36
   br label %21
 
 21:                                               ; preds = %5, %15
@@ -2944,14 +2944,14 @@ define internal fastcc i32 @computeSavings(ptr noundef readonly captures(none) %
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !47
+  %27 = load ptr, ptr %26, align 8, !tbaa !46
   %28 = call i32 @st__lookup(ptr noundef %27, ptr noundef nonnull %9, ptr noundef nonnull %6) #10
-  %29 = load ptr, ptr %6, align 8, !tbaa !48
+  %29 = load ptr, ptr %6, align 8, !tbaa !47
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load i32, ptr %30, align 8, !tbaa !62
+  %31 = load i32, ptr %30, align 8, !tbaa !61
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i32 %31, ptr %32, align 8, !tbaa !84
-  %33 = load ptr, ptr %4, align 8, !tbaa !42
+  store i32 %31, ptr %32, align 8, !tbaa !83
+  %33 = load ptr, ptr %4, align 8, !tbaa !41
   %.not5961 = icmp eq ptr %33, null
   br i1 %.not5961, label %.loopexit, label %.lr.ph.lr.ph
 
@@ -2967,16 +2967,16 @@ define internal fastcc i32 @computeSavings(ptr noundef readonly captures(none) %
 36:                                               ; preds = %.lr.ph, %.backedge
   %37 = phi ptr [ %35, %.lr.ph ], [ %50, %.backedge ]
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !87
-  %40 = load i32, ptr %39, align 8, !tbaa !28
+  %39 = load ptr, ptr %38, align 8, !tbaa !86
+  %40 = load i32, ptr %39, align 8, !tbaa !27
   %41 = icmp eq i32 %40, 2147483647
   br i1 %41, label %47, label %42
 
 42:                                               ; preds = %36
-  %43 = load ptr, ptr %34, align 8, !tbaa !36
+  %43 = load ptr, ptr %34, align 8, !tbaa !35
   %44 = zext i32 %40 to i64
   %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
-  %46 = load i32, ptr %45, align 4, !tbaa !37
+  %46 = load i32, ptr %45, align 4, !tbaa !36
   br label %47
 
 47:                                               ; preds = %36, %42
@@ -2986,75 +2986,75 @@ define internal fastcc i32 @computeSavings(ptr noundef readonly captures(none) %
   br i1 %49, label %.backedge, label %51
 
 .backedge:                                        ; preds = %47, %51
-  %50 = load ptr, ptr %4, align 8, !tbaa !42
+  %50 = load ptr, ptr %4, align 8, !tbaa !41
   %.not = icmp eq ptr %50, null
-  br i1 %.not, label %.loopexit, label %36, !llvm.loop !88
+  br i1 %.not, label %.loopexit, label %36, !llvm.loop !87
 
 51:                                               ; preds = %47
-  %52 = load ptr, ptr %26, align 8, !tbaa !47
+  %52 = load ptr, ptr %26, align 8, !tbaa !46
   %53 = call i32 @st__lookup(ptr noundef %52, ptr noundef nonnull %39, ptr noundef nonnull %6) #10
   %54 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %55 = load i32, ptr %54, align 8, !tbaa !84
-  %56 = load ptr, ptr %6, align 8, !tbaa !48
+  %55 = load i32, ptr %54, align 8, !tbaa !83
+  %56 = load ptr, ptr %6, align 8, !tbaa !47
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load i32, ptr %57, align 8, !tbaa !62
+  %58 = load i32, ptr %57, align 8, !tbaa !61
   %.not56 = icmp eq i32 %55, %58
   br i1 %.not56, label %59, label %.backedge
 
 59:                                               ; preds = %51
   %60 = add nuw nsw i32 %.0.ph62, 1
   %61 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !57
-  %63 = load i32, ptr %62, align 8, !tbaa !28
+  %62 = load ptr, ptr %61, align 8, !tbaa !56
+  %63 = load i32, ptr %62, align 8, !tbaa !27
   %64 = icmp eq i32 %63, 2147483647
   br i1 %64, label %76, label %65
 
 65:                                               ; preds = %59
-  %66 = load ptr, ptr %34, align 8, !tbaa !36
+  %66 = load ptr, ptr %34, align 8, !tbaa !35
   %67 = zext i32 %63 to i64
   %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
-  %69 = load i32, ptr %68, align 4, !tbaa !37
+  %69 = load i32, ptr %68, align 4, !tbaa !36
   %70 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %4, ptr noundef nonnull %62, i32 noundef %69) #10
   %71 = icmp eq ptr %70, null
   br i1 %71, label %.loopexit, label %72
 
 72:                                               ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %74 = load i32, ptr %73, align 8, !tbaa !84
+  %74 = load i32, ptr %73, align 8, !tbaa !83
   %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %73, align 8, !tbaa !84
+  store i32 %75, ptr %73, align 8, !tbaa !83
   br label %76
 
 76:                                               ; preds = %72, %59
   %77 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %78 = load ptr, ptr %77, align 8, !tbaa !57
+  %78 = load ptr, ptr %77, align 8, !tbaa !56
   %79 = ptrtoint ptr %78 to i64
   %80 = and i64 %79, -2
   %81 = inttoptr i64 %80 to ptr
-  %82 = load i32, ptr %81, align 8, !tbaa !28
+  %82 = load i32, ptr %81, align 8, !tbaa !27
   %83 = icmp eq i32 %82, 2147483647
   br i1 %83, label %.outer, label %84
 
 84:                                               ; preds = %76
-  %85 = load ptr, ptr %34, align 8, !tbaa !36
+  %85 = load ptr, ptr %34, align 8, !tbaa !35
   %86 = zext i32 %82 to i64
   %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !37
+  %88 = load i32, ptr %87, align 4, !tbaa !36
   %89 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %4, ptr noundef nonnull %81, i32 noundef %88) #10
   %90 = icmp eq ptr %89, null
   br i1 %90, label %.loopexit, label %91
 
 91:                                               ; preds = %84
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  %93 = load i32, ptr %92, align 8, !tbaa !84
+  %93 = load i32, ptr %92, align 8, !tbaa !83
   %94 = add nsw i32 %93, 1
-  store i32 %94, ptr %92, align 8, !tbaa !84
+  store i32 %94, ptr %92, align 8, !tbaa !83
   br label %.outer
 
 .outer:                                           ; preds = %91, %76
-  %95 = load ptr, ptr %4, align 8, !tbaa !42
+  %95 = load ptr, ptr %4, align 8, !tbaa !41
   %.not59 = icmp eq ptr %95, null
-  br i1 %.not59, label %.loopexit, label %.lr.ph, !llvm.loop !88
+  br i1 %.not59, label %.loopexit, label %.lr.ph, !llvm.loop !87
 
 .loopexit:                                        ; preds = %.outer, %84, %65, %.backedge, %25, %21
   %.045 = phi i32 [ 0, %21 ], [ 0, %25 ], [ %.0.ph62, %.backedge ], [ %60, %.outer ], [ 0, %84 ], [ 0, %65 ]
@@ -3069,16 +3069,16 @@ define internal fastcc void @updateRefs(ptr noundef readonly captures(none) %0, 
   %7 = ptrtoint ptr %1 to i64
   %8 = and i64 %7, -2
   %9 = inttoptr i64 %8 to ptr
-  %10 = load i32, ptr %9, align 8, !tbaa !28
+  %10 = load i32, ptr %9, align 8, !tbaa !27
   %11 = icmp eq i32 %10, 2147483647
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %14 = load ptr, ptr %13, align 8, !tbaa !36
+  %14 = load ptr, ptr %13, align 8, !tbaa !35
   %15 = zext i32 %10 to i64
   %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
-  %17 = load i32, ptr %16, align 4, !tbaa !37
+  %17 = load i32, ptr %16, align 4, !tbaa !36
   br label %18
 
 18:                                               ; preds = %5, %12
@@ -3089,11 +3089,11 @@ define internal fastcc void @updateRefs(ptr noundef readonly captures(none) %0, 
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !47
+  %24 = load ptr, ptr %23, align 8, !tbaa !46
   %25 = call i32 @st__lookup(ptr noundef %24, ptr noundef nonnull %9, ptr noundef nonnull %6) #10
-  %26 = load ptr, ptr %6, align 8, !tbaa !48
+  %26 = load ptr, ptr %6, align 8, !tbaa !47
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i32 0, ptr %27, align 8, !tbaa !62
+  store i32 0, ptr %27, align 8, !tbaa !61
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %38, label %28
 
@@ -3101,13 +3101,13 @@ define internal fastcc void @updateRefs(ptr noundef readonly captures(none) %0, 
   %29 = ptrtoint ptr %2 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = load ptr, ptr %23, align 8, !tbaa !47
+  %32 = load ptr, ptr %23, align 8, !tbaa !46
   %33 = call i32 @st__lookup(ptr noundef %32, ptr noundef %31, ptr noundef nonnull %6) #10
-  %34 = load ptr, ptr %6, align 8, !tbaa !48
+  %34 = load ptr, ptr %6, align 8, !tbaa !47
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !62
+  %36 = load i32, ptr %35, align 8, !tbaa !61
   %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %35, align 8, !tbaa !62
+  store i32 %37, ptr %35, align 8, !tbaa !61
   br label %38
 
 38:                                               ; preds = %28, %22
@@ -3115,96 +3115,96 @@ define internal fastcc void @updateRefs(ptr noundef readonly captures(none) %0, 
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %38
-  %40 = load ptr, ptr %4, align 8, !tbaa !42
+  %40 = load ptr, ptr %4, align 8, !tbaa !41
   %.not54 = icmp eq ptr %40, null
   br i1 %.not54, label %.loopexit, label %41
 
 41:                                               ; preds = %.outer
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !87
-  %44 = load i32, ptr %43, align 8, !tbaa !28
+  %43 = load ptr, ptr %42, align 8, !tbaa !86
+  %44 = load i32, ptr %43, align 8, !tbaa !27
   %45 = icmp eq i32 %44, 2147483647
   br i1 %45, label %51, label %46
 
 46:                                               ; preds = %41
-  %47 = load ptr, ptr %39, align 8, !tbaa !36
+  %47 = load ptr, ptr %39, align 8, !tbaa !35
   %48 = zext i32 %44 to i64
   %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !37
+  %50 = load i32, ptr %49, align 4, !tbaa !36
   br label %51
 
 51:                                               ; preds = %41, %46
   %52 = phi i32 [ %50, %46 ], [ 2147483647, %41 ]
   call void @cuddLevelQueueDequeue(ptr noundef nonnull %4, i32 noundef %52) #10
-  %53 = load ptr, ptr %23, align 8, !tbaa !47
+  %53 = load ptr, ptr %23, align 8, !tbaa !46
   %54 = call i32 @st__lookup(ptr noundef %53, ptr noundef nonnull %43, ptr noundef nonnull %6) #10
-  %55 = load ptr, ptr %6, align 8, !tbaa !48
+  %55 = load ptr, ptr %6, align 8, !tbaa !47
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = load i32, ptr %56, align 8, !tbaa !62
+  %57 = load i32, ptr %56, align 8, !tbaa !61
   %.not55 = icmp eq i32 %57, 0
   br i1 %.not55, label %58, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %51, %93, %78
-  br label %.outer, !llvm.loop !89
+  br label %.outer, !llvm.loop !88
 
 58:                                               ; preds = %51
   %59 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !57
-  %61 = load i32, ptr %60, align 8, !tbaa !28
+  %60 = load ptr, ptr %59, align 8, !tbaa !56
+  %61 = load i32, ptr %60, align 8, !tbaa !27
   %62 = icmp eq i32 %61, 2147483647
   br i1 %62, label %78, label %63
 
 63:                                               ; preds = %58
-  %64 = load ptr, ptr %39, align 8, !tbaa !36
+  %64 = load ptr, ptr %39, align 8, !tbaa !35
   %65 = zext i32 %61 to i64
   %66 = getelementptr inbounds nuw i32, ptr %64, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !37
+  %67 = load i32, ptr %66, align 4, !tbaa !36
   %68 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %4, ptr noundef nonnull %60, i32 noundef %67) #10
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.loopexit, label %70
 
 70:                                               ; preds = %63
-  %71 = load ptr, ptr %23, align 8, !tbaa !47
-  %72 = load ptr, ptr %59, align 8, !tbaa !57
+  %71 = load ptr, ptr %23, align 8, !tbaa !46
+  %72 = load ptr, ptr %59, align 8, !tbaa !56
   %73 = call i32 @st__lookup(ptr noundef %71, ptr noundef %72, ptr noundef nonnull %6) #10
-  %74 = load ptr, ptr %6, align 8, !tbaa !48
+  %74 = load ptr, ptr %6, align 8, !tbaa !47
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load i32, ptr %75, align 8, !tbaa !62
+  %76 = load i32, ptr %75, align 8, !tbaa !61
   %77 = add nsw i32 %76, -1
-  store i32 %77, ptr %75, align 8, !tbaa !62
+  store i32 %77, ptr %75, align 8, !tbaa !61
   br label %78
 
 78:                                               ; preds = %70, %58
   %79 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %80 = load ptr, ptr %79, align 8, !tbaa !57
+  %80 = load ptr, ptr %79, align 8, !tbaa !56
   %81 = ptrtoint ptr %80 to i64
   %82 = and i64 %81, -2
   %83 = inttoptr i64 %82 to ptr
-  %84 = load i32, ptr %83, align 8, !tbaa !28
+  %84 = load i32, ptr %83, align 8, !tbaa !27
   %85 = icmp eq i32 %84, 2147483647
   br i1 %85, label %.outer.backedge, label %86
 
 86:                                               ; preds = %78
-  %87 = load ptr, ptr %39, align 8, !tbaa !36
+  %87 = load ptr, ptr %39, align 8, !tbaa !35
   %88 = zext i32 %84 to i64
   %89 = getelementptr inbounds nuw i32, ptr %87, i64 %88
-  %90 = load i32, ptr %89, align 4, !tbaa !37
+  %90 = load i32, ptr %89, align 4, !tbaa !36
   %91 = call ptr @cuddLevelQueueEnqueue(ptr noundef nonnull %4, ptr noundef nonnull %83, i32 noundef %90) #10
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.loopexit, label %93
 
 93:                                               ; preds = %86
-  %94 = load ptr, ptr %23, align 8, !tbaa !47
-  %95 = load ptr, ptr %79, align 8, !tbaa !57
+  %94 = load ptr, ptr %23, align 8, !tbaa !46
+  %95 = load ptr, ptr %79, align 8, !tbaa !56
   %96 = ptrtoint ptr %95 to i64
   %97 = and i64 %96, -2
   %98 = inttoptr i64 %97 to ptr
   %99 = call i32 @st__lookup(ptr noundef %94, ptr noundef %98, ptr noundef nonnull %6) #10
-  %100 = load ptr, ptr %6, align 8, !tbaa !48
+  %100 = load ptr, ptr %6, align 8, !tbaa !47
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %102 = load i32, ptr %101, align 8, !tbaa !62
+  %102 = load i32, ptr %101, align 8, !tbaa !61
   %103 = add nsw i32 %102, -1
-  store i32 %103, ptr %101, align 8, !tbaa !62
+  store i32 %103, ptr %101, align 8, !tbaa !61
   br label %.outer.backedge
 
 .loopexit:                                        ; preds = %86, %63, %.outer, %18
@@ -3270,69 +3270,68 @@ attributes #11 = { nounwind allocsize(0) }
 !21 = !{!"p1 _ZTS12DdLocalCache", !10, i64 0}
 !22 = !{!"p1 _ZTS6DdHook", !10, i64 0}
 !23 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!4, !23, i64 616}
-!28 = !{!5, !6, i64 0}
-!29 = !{!4, !6, i64 624}
-!30 = !{!4, !6, i64 136}
-!31 = !{!32, !6, i64 48}
-!32 = !{!"ApproxInfo", !9, i64 0, !9, i64 8, !33, i64 16, !34, i64 24, !6, i64 32, !13, i64 40, !6, i64 48, !13, i64 56}
-!33 = !{!"p1 _ZTS8NodeData", !10, i64 0}
-!34 = !{!"p1 _ZTS9st__table", !10, i64 0}
-!35 = !{!4, !6, i64 272}
-!36 = !{!4, !17, i64 312}
-!37 = !{!6, !6, i64 0}
-!38 = !{!39, !13, i64 24}
-!39 = !{!"GlobalQueueItem", !40, i64 0, !40, i64 8, !9, i64 16, !13, i64 24, !13, i64 32}
-!40 = !{!"p1 _ZTS15GlobalQueueItem", !10, i64 0}
-!41 = !{!39, !13, i64 32}
-!42 = !{!43, !10, i64 0}
-!43 = !{!"DdLevelQueue", !10, i64 0, !44, i64 8, !45, i64 16, !44, i64 24, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !6, i64 48, !6, i64 52}
-!44 = !{!"p2 _ZTS11DdQueueItem", !10, i64 0}
-!45 = !{!"p1 _ZTS11DdQueueItem", !10, i64 0}
-!46 = !{!39, !9, i64 16}
-!47 = !{!32, !34, i64 24}
-!48 = !{!33, !33, i64 0}
-!49 = !{!50, !51, i64 22}
-!50 = !{!"NodeData", !13, i64 0, !13, i64 8, !6, i64 16, !7, i64 20, !7, i64 21, !51, i64 22, !9, i64 24, !9, i64 32}
-!51 = !{!"short", !7, i64 0}
-!52 = distinct !{!52, !25, !26}
-!53 = !{!50, !13, i64 0}
-!54 = !{!50, !13, i64 8}
-!55 = !{!32, !13, i64 56}
-!56 = !{!50, !7, i64 21}
-!57 = !{!7, !7, i64 0}
-!58 = !{!32, !33, i64 16}
-!59 = distinct !{!59, !25, !26}
-!60 = distinct !{!60, !25, !26}
-!61 = distinct !{!61, !25, !26}
-!62 = !{!50, !6, i64 16}
-!63 = !{!13, !13, i64 0}
-!64 = distinct !{!64, !25, !26}
-!65 = distinct !{!65, !25, !26}
-!66 = !{!50, !7, i64 20}
-!67 = distinct !{!67, !25, !26}
-!68 = distinct !{!68, !25, !26}
-!69 = !{!32, !13, i64 40}
-!70 = !{!4, !9, i64 40}
-!71 = !{!32, !9, i64 0}
-!72 = !{!32, !9, i64 8}
-!73 = !{!32, !6, i64 32}
-!74 = !{!50, !9, i64 24}
-!75 = !{!50, !9, i64 32}
-!76 = !{!5, !6, i64 4}
-!77 = !{!78, !81, i64 48}
-!78 = !{!"DdHashTable", !6, i64 0, !6, i64 4, !79, i64 8, !80, i64 16, !79, i64 24, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !81, i64 48}
-!79 = !{!"p2 _ZTS10DdHashItem", !10, i64 0}
-!80 = !{!"p1 _ZTS10DdHashItem", !10, i64 0}
-!81 = !{!"p1 _ZTS9DdManager", !10, i64 0}
-!82 = !{!4, !6, i64 236}
-!83 = !{!4, !6, i64 192}
-!84 = !{!85, !6, i64 24}
-!85 = !{!"LocalQueueItem", !86, i64 0, !86, i64 8, !9, i64 16, !6, i64 24}
-!86 = !{!"p1 _ZTS14LocalQueueItem", !10, i64 0}
-!87 = !{!85, !9, i64 16}
-!88 = distinct !{!88, !25, !26}
-!89 = distinct !{!89, !25, !26}
+!26 = !{!4, !23, i64 616}
+!27 = !{!5, !6, i64 0}
+!28 = !{!4, !6, i64 624}
+!29 = !{!4, !6, i64 136}
+!30 = !{!31, !6, i64 48}
+!31 = !{!"ApproxInfo", !9, i64 0, !9, i64 8, !32, i64 16, !33, i64 24, !6, i64 32, !13, i64 40, !6, i64 48, !13, i64 56}
+!32 = !{!"p1 _ZTS8NodeData", !10, i64 0}
+!33 = !{!"p1 _ZTS9st__table", !10, i64 0}
+!34 = !{!4, !6, i64 272}
+!35 = !{!4, !17, i64 312}
+!36 = !{!6, !6, i64 0}
+!37 = !{!38, !13, i64 24}
+!38 = !{!"GlobalQueueItem", !39, i64 0, !39, i64 8, !9, i64 16, !13, i64 24, !13, i64 32}
+!39 = !{!"p1 _ZTS15GlobalQueueItem", !10, i64 0}
+!40 = !{!38, !13, i64 32}
+!41 = !{!42, !10, i64 0}
+!42 = !{!"DdLevelQueue", !10, i64 0, !43, i64 8, !44, i64 16, !43, i64 24, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !6, i64 48, !6, i64 52}
+!43 = !{!"p2 _ZTS11DdQueueItem", !10, i64 0}
+!44 = !{!"p1 _ZTS11DdQueueItem", !10, i64 0}
+!45 = !{!38, !9, i64 16}
+!46 = !{!31, !33, i64 24}
+!47 = !{!32, !32, i64 0}
+!48 = !{!49, !50, i64 22}
+!49 = !{!"NodeData", !13, i64 0, !13, i64 8, !6, i64 16, !7, i64 20, !7, i64 21, !50, i64 22, !9, i64 24, !9, i64 32}
+!50 = !{!"short", !7, i64 0}
+!51 = distinct !{!51, !25}
+!52 = !{!49, !13, i64 0}
+!53 = !{!49, !13, i64 8}
+!54 = !{!31, !13, i64 56}
+!55 = !{!49, !7, i64 21}
+!56 = !{!7, !7, i64 0}
+!57 = !{!31, !32, i64 16}
+!58 = distinct !{!58, !25}
+!59 = distinct !{!59, !25}
+!60 = distinct !{!60, !25}
+!61 = !{!49, !6, i64 16}
+!62 = !{!13, !13, i64 0}
+!63 = distinct !{!63, !25}
+!64 = distinct !{!64, !25}
+!65 = !{!49, !7, i64 20}
+!66 = distinct !{!66, !25}
+!67 = distinct !{!67, !25}
+!68 = !{!31, !13, i64 40}
+!69 = !{!4, !9, i64 40}
+!70 = !{!31, !9, i64 0}
+!71 = !{!31, !9, i64 8}
+!72 = !{!31, !6, i64 32}
+!73 = !{!49, !9, i64 24}
+!74 = !{!49, !9, i64 32}
+!75 = !{!5, !6, i64 4}
+!76 = !{!77, !80, i64 48}
+!77 = !{!"DdHashTable", !6, i64 0, !6, i64 4, !78, i64 8, !79, i64 16, !78, i64 24, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44, !80, i64 48}
+!78 = !{!"p2 _ZTS10DdHashItem", !10, i64 0}
+!79 = !{!"p1 _ZTS10DdHashItem", !10, i64 0}
+!80 = !{!"p1 _ZTS9DdManager", !10, i64 0}
+!81 = !{!4, !6, i64 236}
+!82 = !{!4, !6, i64 192}
+!83 = !{!84, !6, i64 24}
+!84 = !{!"LocalQueueItem", !85, i64 0, !85, i64 8, !9, i64 16, !6, i64 24}
+!85 = !{!"p1 _ZTS14LocalQueueItem", !10, i64 0}
+!86 = !{!84, !9, i64 16}
+!87 = distinct !{!87, !25}
+!88 = distinct !{!88, !25}

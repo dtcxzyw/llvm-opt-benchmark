@@ -160,10 +160,10 @@ define internal i32 @uart_open(ptr noundef readonly captures(none) %0) #0 {
 
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #5, !srcloc !8
   %17 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %19 = load i8, ptr %18, align 2
   %20 = trunc i8 %19 to i1
@@ -183,7 +183,7 @@ define internal i32 @uart_open(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not.i, label %up_irq_restore.exit, label %29
 
 29:                                               ; preds = %27
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit
 
 30:                                               ; preds = %21, %16
@@ -213,7 +213,7 @@ define internal i32 @uart_open(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not.i34, label %up_irq_restore.exit, label %46
 
 46:                                               ; preds = %44
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit
 
 47:                                               ; preds = %30
@@ -226,7 +226,7 @@ define internal i32 @uart_open(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not.i36, label %up_irq_restore.exit37, label %52
 
 52:                                               ; preds = %47
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit37
 
 up_irq_restore.exit37:                            ; preds = %52, %47, %14
@@ -282,10 +282,10 @@ define internal noundef i32 @uart_close(ptr noundef readonly captures(none) %0) 
 
 25:                                               ; preds = %23, %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #5, !srcloc !8
   %26 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %27 = load ptr, ptr %16, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
@@ -308,7 +308,7 @@ define internal noundef i32 @uart_close(ptr noundef readonly captures(none) %0) 
   br i1 %.not.i, label %up_irq_restore.exit, label %39
 
 39:                                               ; preds = %37
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %37, %39
@@ -459,7 +459,7 @@ select.unfold:                                    ; preds = %47, %42
   %storemerge = phi i8 [ %84, %83 ], [ 2, %54 ]
   store i8 %storemerge, ptr %22, align 1
   %56 = icmp ult i64 %51, %2
-  br i1 %56, label %.lr.ph, label %.loopexit.loopexit265, !llvm.loop !12
+  br i1 %56, label %.lr.ph, label %.loopexit.loopexit265, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
   %.075.ph203 = phi i64 [ %.075.ph.ph210, %.lr.ph.lr.ph ], [ %51, %.outer.backedge ]
@@ -558,7 +558,7 @@ select.unfold.us:                                 ; preds = %74, %69
   br i1 %.not.i.i, label %.backedge.i, label %98
 
 98:                                               ; preds = %.critedge.i
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %.backedge.i
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %.split
@@ -573,10 +573,10 @@ select.unfold.us:                                 ; preds = %74, %69
 
 .lr.ph.split.i:                                   ; preds = %.split, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #5, !srcloc !8
   %104 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %105 = load volatile i16, ptr %26, align 2
   %106 = sext i16 %105 to i32
   %.not22.i = icmp eq i32 %spec.store.select.i97, %106
@@ -598,7 +598,7 @@ select.unfold.us:                                 ; preds = %74, %69
   br i1 %.not.i23.i, label %up_irq_restore.exit24.i, label %117
 
 117:                                              ; preds = %107
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit24.i
 
 up_irq_restore.exit24.i:                          ; preds = %117, %107
@@ -608,7 +608,7 @@ up_irq_restore.exit24.i:                          ; preds = %117, %107
   %118 = load volatile i16, ptr %26, align 2
   %119 = sext i16 %118 to i32
   %.not21.i = icmp eq i32 %spec.store.select.i97, %119
-  br i1 %.not21.i, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !13
+  br i1 %.not21.i, label %.lr.ph.split.i, label %._crit_edge.i
 
 .split81:                                         ; preds = %89
   br i1 %.not2125.i98, label %.lr.ph.split.i102, label %._crit_edge.i99
@@ -619,7 +619,7 @@ up_irq_restore.exit24.i:                          ; preds = %117, %107
   br i1 %.not.i.i105, label %.backedge.i106, label %121
 
 121:                                              ; preds = %.critedge.i104
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %.backedge.i106
 
 ._crit_edge.i99:                                  ; preds = %.backedge.i106, %.split81
@@ -634,10 +634,10 @@ up_irq_restore.exit24.i:                          ; preds = %117, %107
 
 .lr.ph.split.i102:                                ; preds = %.split81, %.backedge.i106
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #5, !srcloc !8
   %127 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %128 = load volatile i16, ptr %26, align 2
   %129 = sext i16 %128 to i32
   %.not22.i103 = icmp eq i32 %spec.store.select.i97, %129
@@ -659,7 +659,7 @@ up_irq_restore.exit24.i:                          ; preds = %117, %107
   br i1 %.not.i23.i108, label %up_irq_restore.exit24.i109, label %140
 
 140:                                              ; preds = %130
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit24.i109
 
 up_irq_restore.exit24.i109:                       ; preds = %140, %130
@@ -669,7 +669,7 @@ up_irq_restore.exit24.i109:                       ; preds = %140, %130
   %141 = load volatile i16, ptr %26, align 2
   %142 = sext i16 %141 to i32
   %.not21.i107 = icmp eq i32 %spec.store.select.i97, %142
-  br i1 %.not21.i107, label %.lr.ph.split.i102, label %._crit_edge.i99, !llvm.loop !13
+  br i1 %.not21.i107, label %.lr.ph.split.i102, label %._crit_edge.i99
 
 uart_putxmitchar.exit110:                         ; preds = %up_irq_restore.exit24.i109, %._crit_edge.i99
   %143 = load volatile i16, ptr %24, align 8
@@ -690,7 +690,7 @@ uart_putxmitchar.exit110:                         ; preds = %up_irq_restore.exit
   br i1 %.not.i.i120, label %.backedge.i121, label %151
 
 151:                                              ; preds = %.critedge.i119
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %.backedge.i121
 
 ._crit_edge.i114:                                 ; preds = %.backedge.i121, %uart_putxmitchar.exit110
@@ -705,10 +705,10 @@ uart_putxmitchar.exit110:                         ; preds = %up_irq_restore.exit
 
 .lr.ph.split.i117:                                ; preds = %uart_putxmitchar.exit110, %.backedge.i121
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !8
   %157 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %158 = load volatile i16, ptr %26, align 2
   %159 = sext i16 %158 to i32
   %.not22.i118 = icmp eq i32 %spec.store.select.i112, %159
@@ -730,7 +730,7 @@ uart_putxmitchar.exit110:                         ; preds = %up_irq_restore.exit
   br i1 %.not.i23.i123, label %up_irq_restore.exit24.i124, label %170
 
 170:                                              ; preds = %160
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit24.i124
 
 up_irq_restore.exit24.i124:                       ; preds = %170, %160
@@ -740,7 +740,7 @@ up_irq_restore.exit24.i124:                       ; preds = %170, %160
   %171 = load volatile i16, ptr %26, align 2
   %172 = sext i16 %171 to i32
   %.not21.i122 = icmp eq i32 %spec.store.select.i112, %172
-  br i1 %.not21.i122, label %.lr.ph.split.i117, label %._crit_edge.i114, !llvm.loop !13
+  br i1 %.not21.i122, label %.lr.ph.split.i117, label %._crit_edge.i114
 
 173:                                              ; preds = %.lr.ph.split
   %174 = load ptr, ptr %8, align 8
@@ -755,10 +755,10 @@ up_irq_restore.exit24.i124:                       ; preds = %170, %160
 
 179:                                              ; preds = %176
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #5, !srcloc !8
   %180 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %181 = load ptr, ptr %20, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
   %183 = load ptr, ptr %182, align 8
@@ -784,7 +784,7 @@ up_irq_restore.exit24.i124:                       ; preds = %170, %160
   br i1 %.not.i126, label %.lr.ph.split.backedge, label %195
 
 195:                                              ; preds = %193
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %195, %193, %select.unfold
@@ -797,7 +797,7 @@ up_irq_restore.exit24.i124:                       ; preds = %170, %160
   br i1 %.not.i127, label %up_irq_restore.exit128, label %199
 
 199:                                              ; preds = %196
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit128
 
 up_irq_restore.exit128:                           ; preds = %196, %199
@@ -816,7 +816,7 @@ up_irq_restore.exit128:                           ; preds = %196, %199
   br i1 %.not.i129, label %up_irq_restore.exit130, label %206
 
 206:                                              ; preds = %204
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit130
 
 up_irq_restore.exit130:                           ; preds = %204, %206
@@ -831,7 +831,7 @@ uart_putxmitchar.exit:                            ; preds = %.split178, %up_irq_
   %.2 = phi i64 [ %51, %.loopexit135 ], [ %.075.ph203, %up_irq_restore.exit128 ], [ %.075.ph203, %up_irq_restore.exit130 ], [ %51, %._crit_edge.i ], [ %51, %._crit_edge.i114 ], [ %51, %up_irq_restore.exit24.i124 ], [ %51, %up_irq_restore.exit24.i ], [ %51, %.split178 ]
   %.174 = phi i1 [ %.073.ph.ph211, %.loopexit135 ], [ %.073.ph.ph211, %up_irq_restore.exit128 ], [ %.073.ph.ph211, %up_irq_restore.exit130 ], [ true, %._crit_edge.i ], [ true, %._crit_edge.i114 ], [ true, %up_irq_restore.exit24.i124 ], [ true, %up_irq_restore.exit24.i ], [ %.073.ph.ph211, %.split178 ]
   %210 = icmp ult i64 %.2, %2
-  br i1 %210, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %210, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit.loopexit265:                            ; preds = %.outer.backedge
   %211 = add nuw i64 %.075.ph.ph210, 1
@@ -886,10 +886,10 @@ define internal i64 @uart_write(ptr noundef readonly captures(none) %0, ptr noun
 
 14:                                               ; preds = %12, %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #5, !srcloc !8
   %15 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %.not20.i = icmp eq i64 %2, 0
   br i1 %.not20.i, label %uart_irqwrite.exit, label %.lr.ph.i
 
@@ -928,7 +928,7 @@ define internal i64 @uart_write(ptr noundef readonly captures(none) %0, ptr noun
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load ptr, ptr %31, align 8
   %33 = call zeroext i1 %32(ptr noundef nonnull %10) #5
-  br i1 %33, label %uart_putc.exit.i, label %.preheader.i, !llvm.loop !14
+  br i1 %33, label %uart_putc.exit.i, label %.preheader.i, !llvm.loop !12
 
 uart_putc.exit.i:                                 ; preds = %.preheader.i
   %34 = load ptr, ptr %17, align 8
@@ -946,7 +946,7 @@ uart_putc.exit.i:                                 ; preds = %.preheader.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 80
   %41 = load ptr, ptr %40, align 8
   %42 = call zeroext i1 %41(ptr noundef nonnull %10) #5
-  br i1 %42, label %uart_putc.exit19.i, label %38, !llvm.loop !14
+  br i1 %42, label %uart_putc.exit19.i, label %38, !llvm.loop !12
 
 uart_putc.exit19.i:                               ; preds = %38
   %43 = load ptr, ptr %17, align 8
@@ -955,7 +955,7 @@ uart_putc.exit19.i:                               ; preds = %38
   call void %45(ptr noundef nonnull %10, i32 noundef range(i32 -128, 128) %.0.i) #5
   %46 = add i64 %.01321.i, -1
   %.not.i = icmp eq i64 %46, 0
-  br i1 %.not.i, label %uart_irqwrite.exit, label %18, !llvm.loop !15
+  br i1 %.not.i, label %uart_irqwrite.exit, label %18, !llvm.loop !13
 
 uart_irqwrite.exit:                               ; preds = %uart_putc.exit19.i, %14
   %47 = and i64 %15, 512
@@ -963,7 +963,7 @@ uart_irqwrite.exit:                               ; preds = %uart_putc.exit19.i,
   br i1 %.not.i53, label %up_irq_restore.exit, label %48
 
 48:                                               ; preds = %uart_irqwrite.exit
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %uart_irqwrite.exit, %48
@@ -1048,7 +1048,7 @@ up_irq_restore.exit:                              ; preds = %uart_irqwrite.exit,
   br i1 %.not.i.i, label %.backedge.i, label %91
 
 91:                                               ; preds = %.critedge.i
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %.backedge.i
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %82
@@ -1063,10 +1063,10 @@ up_irq_restore.exit:                              ; preds = %uart_irqwrite.exit,
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i55, %.backedge.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !8
   %97 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %98 = load volatile i16, ptr %67, align 2
   %99 = sext i16 %98 to i32
   %.not22.i = icmp eq i32 %spec.store.select.i, %99
@@ -1088,7 +1088,7 @@ up_irq_restore.exit:                              ; preds = %uart_irqwrite.exit,
   br i1 %.not.i23.i, label %up_irq_restore.exit24.i, label %110
 
 110:                                              ; preds = %100
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit24.i
 
 up_irq_restore.exit24.i:                          ; preds = %110, %100
@@ -1098,7 +1098,7 @@ up_irq_restore.exit24.i:                          ; preds = %110, %100
   %111 = load volatile i16, ptr %67, align 2
   %112 = sext i16 %111 to i32
   %.not21.i = icmp eq i32 %spec.store.select.i, %112
-  br i1 %.not21.i, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !13
+  br i1 %.not21.i, label %.lr.ph.split.i, label %._crit_edge.i
 
 113:                                              ; preds = %80, %75, %70, %._crit_edge.i
   %.040.ph = phi i8 [ 10, %._crit_edge.i ], [ %72, %70 ], [ %72, %75 ], [ 10, %80 ]
@@ -1123,15 +1123,15 @@ up_irq_restore.exit24.i:                          ; preds = %110, %100
   br i1 %.not.i.i65, label %.backedge.i66, label %122
 
 122:                                              ; preds = %.critedge.i64
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %.backedge.i66
 
 .lr.ph.split.i62:                                 ; preds = %.lr.ph.i61, %.backedge.i66
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4) #5, !srcloc !8
   %123 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %124 = load volatile i16, ptr %67, align 2
   %125 = sext i16 %124 to i32
   %.not22.i63 = icmp eq i32 %spec.store.select.i57, %125
@@ -1153,7 +1153,7 @@ up_irq_restore.exit24.i:                          ; preds = %110, %100
   br i1 %.not.i23.i68, label %up_irq_restore.exit24.i69, label %136
 
 136:                                              ; preds = %126
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit24.i69
 
 up_irq_restore.exit24.i69:                        ; preds = %136, %126
@@ -1163,7 +1163,7 @@ up_irq_restore.exit24.i69:                        ; preds = %136, %126
   %137 = load volatile i16, ptr %67, align 2
   %138 = sext i16 %137 to i32
   %.not21.i67 = icmp eq i32 %spec.store.select.i57, %138
-  br i1 %.not21.i67, label %.lr.ph.split.i62, label %.loopexit78, !llvm.loop !13
+  br i1 %.not21.i67, label %.lr.ph.split.i62, label %.loopexit78
 
 .loopexit:                                        ; preds = %.lr.ph.i55, %.lr.ph.i61, %up_irq_restore.exit24.i, %up_irq_restore.exit24.i69
   %.142.ph = phi i64 [ -4, %up_irq_restore.exit24.i69 ], [ -4, %up_irq_restore.exit24.i ], [ -11, %.lr.ph.i61 ], [ -11, %.lr.ph.i55 ]
@@ -1182,7 +1182,7 @@ up_irq_restore.exit24.i69:                        ; preds = %136, %126
   store volatile i16 %145, ptr %65, align 8
   %146 = add i64 %.04587, -1
   %.not48 = icmp eq i64 %146, 0
-  br i1 %.not48, label %.loopexit80, label %70, !llvm.loop !16
+  br i1 %.not48, label %.loopexit80, label %70, !llvm.loop !14
 
 .loopexit80:                                      ; preds = %.loopexit78, %56, %.loopexit
   %.044 = phi i64 [ %spec.select, %.loopexit ], [ 0, %56 ], [ %2, %.loopexit78 ]
@@ -1245,10 +1245,10 @@ define internal noundef i32 @uart_ioctl(ptr noundef %0, i32 noundef %1, i64 noun
 
 20:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8) #5, !srcloc !8
   %21 = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 258
   %23 = load volatile i16, ptr %22, align 2
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 256
@@ -1283,7 +1283,7 @@ define internal noundef i32 @uart_ioctl(ptr noundef %0, i32 noundef %1, i64 noun
   br i1 %.not.i, label %up_irq_restore.exit, label %43
 
 43:                                               ; preds = %41
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %41, %43
@@ -1293,10 +1293,10 @@ up_irq_restore.exit:                              ; preds = %41, %43
 
 45:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #5, !srcloc !8
   %46 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 202
   %48 = load volatile i16, ptr %47, align 2
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 200
@@ -1331,7 +1331,7 @@ up_irq_restore.exit:                              ; preds = %41, %43
   br i1 %.not.i94, label %up_irq_restore.exit95, label %68
 
 68:                                               ; preds = %66
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit95
 
 up_irq_restore.exit95:                            ; preds = %66, %68
@@ -1341,10 +1341,10 @@ up_irq_restore.exit95:                            ; preds = %66, %68
 
 70:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6) #5, !srcloc !8
   %71 = load i64, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 200
   %73 = load volatile i16, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 202
@@ -1381,7 +1381,7 @@ up_irq_restore.exit95:                            ; preds = %66, %68
   br i1 %.not.i96, label %up_irq_restore.exit97, label %97
 
 97:                                               ; preds = %95
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit97
 
 up_irq_restore.exit97:                            ; preds = %95, %97
@@ -1391,10 +1391,10 @@ up_irq_restore.exit97:                            ; preds = %95, %97
 
 99:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #5, !srcloc !8
   %100 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %101 = and i64 %2, -3
   %or.cond = icmp eq i64 %101, 0
   br i1 %or.cond, label %102, label %106
@@ -1449,7 +1449,7 @@ uart_datasent.exit:                               ; preds = %.lr.ph.i.i, %108, %
   br i1 %.not.i98, label %up_irq_restore.exit99.thread.thread, label %124
 
 124:                                              ; preds = %122
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit99.thread.thread
 
 125:                                              ; preds = %.thread
@@ -1613,7 +1613,7 @@ define internal i32 @uart_poll(ptr noundef readonly captures(none) %0, ptr nound
 14:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %18, label %15, !llvm.loop !17
+  br i1 %exitcond.not, label %18, label %15, !llvm.loop !15
 
 15:                                               ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
@@ -1697,10 +1697,10 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef range(i64 4
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #5, !srcloc !9
+  call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #5, !srcloc !8
   %8 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 202
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -1714,7 +1714,7 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef range(i64 4
   %16 = load volatile i16, ptr %9, align 8
   %17 = load volatile i16, ptr %10, align 2
   %.not = icmp eq i16 %16, %17
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %7, %15
   %18 = load ptr, ptr %11, align 8
@@ -1727,7 +1727,7 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef range(i64 4
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull %0, i1 noundef zeroext false) #5
   %25 = icmp sgt i32 %21, -1
-  br i1 %25, label %15, label %.critedge25, !llvm.loop !18
+  br i1 %25, label %15, label %.critedge25, !llvm.loop !16
 
 .critedge:                                        ; preds = %15, %7
   %.130.lcssa = phi i32 [ 0, %7 ], [ %21, %15 ]
@@ -1736,7 +1736,7 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef range(i64 4
   br i1 %.not.i, label %up_irq_restore.exit, label %27
 
 27:                                               ; preds = %.critedge
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %.critedge, %27
@@ -1755,7 +1755,7 @@ up_irq_restore.exit:                              ; preds = %.critedge, %27
   %36 = call i64 @clock_systime_ticks() #5
   %37 = sub i64 %36, %28
   %.not24 = icmp ult i64 %37, %1
-  br i1 %.not24, label %29, label %.sink.split, !llvm.loop !19
+  br i1 %.not24, label %29, label %.sink.split, !llvm.loop !17
 
 .critedge25:                                      ; preds = %.lr.ph
   %38 = and i64 %8, 512
@@ -1763,7 +1763,7 @@ up_irq_restore.exit:                              ; preds = %.critedge, %27
   br i1 %.not.i26, label %up_irq_restore.exit27, label %39
 
 39:                                               ; preds = %.critedge25
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !11
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
   br label %up_irq_restore.exit27
 
 up_irq_restore.exit27:                            ; preds = %.critedge25, %39
@@ -1820,17 +1820,15 @@ attributes #6 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 399850, i64 399868}
-!10 = !{i64 400469}
-!11 = !{i64 400590}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
+!8 = !{i64 399850, i64 399868}
+!9 = !{i64 400469}
+!10 = !{i64 400590}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

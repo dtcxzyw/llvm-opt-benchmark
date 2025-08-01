@@ -908,7 +908,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEEC2ERKS2_.exit.thread: ; preds = %3
   store i8 0, ptr %26, align 1, !tbaa !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   store i32 1, ptr %14, align 8, !tbaa !3
-  store ptr %4, ptr %0, align 8, !tbaa !46
+  store ptr %4, ptr %0, align 8, !tbaa !45
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = add i32 %13, -1
   store i32 %28, ptr %27, align 8, !tbaa !3
@@ -1056,9 +1056,8 @@ attributes #14 = { noreturn }
 !40 = !{!"_ZTSN5zxing15BINARIZER_BLOCKE", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
 !41 = !{!40, !5, i64 4}
 !42 = !{!40, !5, i64 8}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = !{!47, !48, i64 0}
-!47 = !{!"_ZTSN5zxing3RefINS_9BinarizerEEE", !48, i64 0}
-!48 = !{!"p1 _ZTSN5zxing9BinarizerE", !13, i64 0}
+!45 = !{!46, !47, i64 0}
+!46 = !{!"_ZTSN5zxing3RefINS_9BinarizerEEE", !47, i64 0}
+!47 = !{!"p1 _ZTSN5zxing9BinarizerE", !13, i64 0}

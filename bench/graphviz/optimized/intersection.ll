@@ -30,7 +30,7 @@ define double @intersection_angle(ptr noundef readonly captures(none) %0, ptr no
   br i1 %6, label %5, label %13, !llvm.loop !7
 
 13:                                               ; preds = %5
-  %14 = tail call double @sqrt(double noundef %12) #4, !tbaa !10
+  %14 = tail call double @sqrt(double noundef %12) #4, !tbaa !9
   br label %15
 
 15:                                               ; preds = %13, %15
@@ -45,10 +45,10 @@ define double @intersection_angle(ptr noundef readonly captures(none) %0, ptr no
   %21 = fsub double %18, %20
   store double %21, ptr %indvars.iv163.sroa.phi, align 8, !tbaa !3
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %21, double %.092131)
-  br i1 %16, label %15, label %23, !llvm.loop !12
+  br i1 %16, label %15, label %23, !llvm.loop !11
 
 23:                                               ; preds = %15
-  %24 = tail call double @sqrt(double noundef %22) #4, !tbaa !10
+  %24 = tail call double @sqrt(double noundef %22) #4, !tbaa !9
   %.sroa.0256.0..sroa.0256.0..val = load double, ptr %.sroa.0256, align 16, !tbaa !3
   %.sroa.5257.0..sroa.5257.8..val94 = load double, ptr %.sroa.5257, align 8, !tbaa !3
   %.sroa.0252.0..sroa.0252.0..val95 = load double, ptr %.sroa.0252, align 16, !tbaa !3
@@ -70,7 +70,7 @@ define double @intersection_angle(ptr noundef readonly captures(none) %0, ptr no
   %34 = fsub double %33, %30
   %35 = tail call double @llvm.fmuladd.f64(double %31, double %34, double %.05466.i.i)
   %36 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %.05267.i.i)
-  br i1 %26, label %25, label %37, !llvm.loop !13
+  br i1 %26, label %25, label %37, !llvm.loop !12
 
 37:                                               ; preds = %25
   %38 = fneg double %.sroa.0252.0..sroa.0252.0..val95
@@ -89,10 +89,10 @@ define double @intersection_angle(ptr noundef readonly captures(none) %0, ptr no
   %46 = load double, ptr %45, align 8, !tbaa !3
   %47 = fsub double %44, %46
   %48 = tail call double @llvm.fmuladd.f64(double %47, double %47, double %.014.i.i.i)
-  br i1 %42, label %.preheader63.i.i, label %dist.exit.i.i, !llvm.loop !14
+  br i1 %42, label %.preheader63.i.i, label %dist.exit.i.i, !llvm.loop !13
 
 dist.exit.i.i:                                    ; preds = %.preheader63.i.i
-  %49 = tail call double @sqrt(double noundef %48) #4, !tbaa !10
+  %49 = tail call double @sqrt(double noundef %48) #4, !tbaa !9
   br label %point_line_distance.exit.i
 
 50:                                               ; preds = %37
@@ -116,10 +116,10 @@ dist.exit.i.i:                                    ; preds = %.preheader63.i.i
   %62 = tail call double @llvm.fmuladd.f64(double %51, double %61, double %58)
   %63 = fsub double %56, %62
   %64 = tail call double @llvm.fmuladd.f64(double %63, double %63, double %.15369.i.i)
-  br i1 %54, label %.preheader.i.i, label %65, !llvm.loop !15
+  br i1 %54, label %.preheader.i.i, label %65, !llvm.loop !14
 
 65:                                               ; preds = %.preheader.i.i
-  %66 = tail call double @sqrt(double noundef %64) #4, !tbaa !10
+  %66 = tail call double @sqrt(double noundef %64) #4, !tbaa !9
   br label %point_line_distance.exit.i
 
 .preheader62.i.i:                                 ; preds = %50, %.preheader62.i.i
@@ -132,10 +132,10 @@ dist.exit.i.i:                                    ; preds = %.preheader63.i.i
   %71 = load double, ptr %70, align 8, !tbaa !3
   %72 = fsub double %69, %71
   %73 = tail call double @llvm.fmuladd.f64(double %72, double %72, double %.014.i57.i.i)
-  br i1 %67, label %.preheader62.i.i, label %dist.exit58.i.i, !llvm.loop !14
+  br i1 %67, label %.preheader62.i.i, label %dist.exit58.i.i, !llvm.loop !13
 
 dist.exit58.i.i:                                  ; preds = %.preheader62.i.i
-  %74 = tail call double @sqrt(double noundef %73) #4, !tbaa !10
+  %74 = tail call double @sqrt(double noundef %73) #4, !tbaa !9
   br label %75
 
 75:                                               ; preds = %75, %dist.exit58.i.i
@@ -148,10 +148,10 @@ dist.exit58.i.i:                                  ; preds = %.preheader62.i.i
   %80 = load double, ptr %79, align 8, !tbaa !3
   %81 = fsub double %78, %80
   %82 = tail call double @llvm.fmuladd.f64(double %81, double %81, double %.014.i60.i.i)
-  br i1 %76, label %75, label %dist.exit61.i.i, !llvm.loop !14
+  br i1 %76, label %75, label %dist.exit61.i.i, !llvm.loop !13
 
 dist.exit61.i.i:                                  ; preds = %75
-  %83 = tail call double @sqrt(double noundef %82) #4, !tbaa !10
+  %83 = tail call double @sqrt(double noundef %82) #4, !tbaa !9
   %84 = fcmp olt double %74, %83
   %85 = select i1 %84, double %74, double %83
   br label %point_line_distance.exit.i
@@ -175,7 +175,7 @@ point_line_distance.exit.i:                       ; preds = %dist.exit61.i.i, %6
   %95 = fsub double %94, %91
   %96 = tail call double @llvm.fmuladd.f64(double %92, double %95, double %.05466.i26.i)
   %97 = tail call double @llvm.fmuladd.f64(double %95, double %95, double %.05267.i25.i)
-  br i1 %87, label %86, label %98, !llvm.loop !13
+  br i1 %87, label %86, label %98, !llvm.loop !12
 
 98:                                               ; preds = %86
   %99 = fcmp ugt double %97, 0x3C9CD2B297D889BC
@@ -191,10 +191,10 @@ point_line_distance.exit.i:                       ; preds = %dist.exit61.i.i, %6
   %104 = load double, ptr %103, align 8, !tbaa !3
   %105 = fsub double %102, %104
   %106 = tail call double @llvm.fmuladd.f64(double %105, double %105, double %.014.i.i29.i)
-  br i1 %100, label %.preheader63.i27.i, label %dist.exit.i30.i, !llvm.loop !14
+  br i1 %100, label %.preheader63.i27.i, label %dist.exit.i30.i, !llvm.loop !13
 
 dist.exit.i30.i:                                  ; preds = %.preheader63.i27.i
-  %107 = tail call double @sqrt(double noundef %106) #4, !tbaa !10
+  %107 = tail call double @sqrt(double noundef %106) #4, !tbaa !9
   br label %point_line_distance.exit43.i
 
 108:                                              ; preds = %98
@@ -218,10 +218,10 @@ dist.exit.i30.i:                                  ; preds = %.preheader63.i27.i
   %120 = tail call double @llvm.fmuladd.f64(double %109, double %119, double %116)
   %121 = fsub double %114, %120
   %122 = tail call double @llvm.fmuladd.f64(double %121, double %121, double %.15369.i42.i)
-  br i1 %112, label %.preheader.i40.i, label %123, !llvm.loop !15
+  br i1 %112, label %.preheader.i40.i, label %123, !llvm.loop !14
 
 123:                                              ; preds = %.preheader.i40.i
-  %124 = tail call double @sqrt(double noundef %122) #4, !tbaa !10
+  %124 = tail call double @sqrt(double noundef %122) #4, !tbaa !9
   br label %point_line_distance.exit43.i
 
 .preheader62.i33.i:                               ; preds = %108, %.preheader62.i33.i
@@ -234,10 +234,10 @@ dist.exit.i30.i:                                  ; preds = %.preheader63.i27.i
   %129 = load double, ptr %128, align 8, !tbaa !3
   %130 = fsub double %127, %129
   %131 = tail call double @llvm.fmuladd.f64(double %130, double %130, double %.014.i57.i35.i)
-  br i1 %125, label %.preheader62.i33.i, label %dist.exit58.i36.i, !llvm.loop !14
+  br i1 %125, label %.preheader62.i33.i, label %dist.exit58.i36.i, !llvm.loop !13
 
 dist.exit58.i36.i:                                ; preds = %.preheader62.i33.i
-  %132 = tail call double @sqrt(double noundef %131) #4, !tbaa !10
+  %132 = tail call double @sqrt(double noundef %131) #4, !tbaa !9
   br label %133
 
 133:                                              ; preds = %133, %dist.exit58.i36.i
@@ -250,10 +250,10 @@ dist.exit58.i36.i:                                ; preds = %.preheader62.i33.i
   %138 = load double, ptr %137, align 8, !tbaa !3
   %139 = fsub double %136, %138
   %140 = tail call double @llvm.fmuladd.f64(double %139, double %139, double %.014.i60.i38.i)
-  br i1 %134, label %133, label %dist.exit61.i39.i, !llvm.loop !14
+  br i1 %134, label %133, label %dist.exit61.i39.i, !llvm.loop !13
 
 dist.exit61.i39.i:                                ; preds = %133
-  %141 = tail call double @sqrt(double noundef %140) #4, !tbaa !10
+  %141 = tail call double @sqrt(double noundef %140) #4, !tbaa !9
   %142 = fcmp olt double %132, %141
   %143 = select i1 %142, double %132, double %141
   br label %point_line_distance.exit43.i
@@ -277,7 +277,7 @@ point_line_distance.exit43.i:                     ; preds = %dist.exit61.i39.i, 
   %153 = fsub double %152, %149
   %154 = tail call double @llvm.fmuladd.f64(double %150, double %153, double %.05466.i46.i)
   %155 = tail call double @llvm.fmuladd.f64(double %153, double %153, double %.05267.i45.i)
-  br i1 %145, label %144, label %156, !llvm.loop !13
+  br i1 %145, label %144, label %156, !llvm.loop !12
 
 156:                                              ; preds = %144
   %157 = fcmp ugt double %155, 0x3C9CD2B297D889BC
@@ -293,10 +293,10 @@ point_line_distance.exit43.i:                     ; preds = %dist.exit61.i39.i, 
   %162 = load double, ptr %161, align 8, !tbaa !3
   %163 = fsub double %160, %162
   %164 = tail call double @llvm.fmuladd.f64(double %163, double %163, double %.014.i.i49.i)
-  br i1 %158, label %.preheader63.i47.i, label %dist.exit.i50.i, !llvm.loop !14
+  br i1 %158, label %.preheader63.i47.i, label %dist.exit.i50.i, !llvm.loop !13
 
 dist.exit.i50.i:                                  ; preds = %.preheader63.i47.i
-  %165 = tail call double @sqrt(double noundef %164) #4, !tbaa !10
+  %165 = tail call double @sqrt(double noundef %164) #4, !tbaa !9
   br label %point_line_distance.exit63.i
 
 166:                                              ; preds = %156
@@ -320,10 +320,10 @@ dist.exit.i50.i:                                  ; preds = %.preheader63.i47.i
   %178 = tail call double @llvm.fmuladd.f64(double %167, double %177, double %174)
   %179 = fsub double %172, %178
   %180 = tail call double @llvm.fmuladd.f64(double %179, double %179, double %.15369.i62.i)
-  br i1 %170, label %.preheader.i60.i, label %181, !llvm.loop !15
+  br i1 %170, label %.preheader.i60.i, label %181, !llvm.loop !14
 
 181:                                              ; preds = %.preheader.i60.i
-  %182 = tail call double @sqrt(double noundef %180) #4, !tbaa !10
+  %182 = tail call double @sqrt(double noundef %180) #4, !tbaa !9
   br label %point_line_distance.exit63.i
 
 .preheader62.i53.i:                               ; preds = %166, %.preheader62.i53.i
@@ -336,10 +336,10 @@ dist.exit.i50.i:                                  ; preds = %.preheader63.i47.i
   %187 = load double, ptr %186, align 8, !tbaa !3
   %188 = fsub double %185, %187
   %189 = tail call double @llvm.fmuladd.f64(double %188, double %188, double %.014.i57.i55.i)
-  br i1 %183, label %.preheader62.i53.i, label %dist.exit58.i56.i, !llvm.loop !14
+  br i1 %183, label %.preheader62.i53.i, label %dist.exit58.i56.i, !llvm.loop !13
 
 dist.exit58.i56.i:                                ; preds = %.preheader62.i53.i
-  %190 = tail call double @sqrt(double noundef %189) #4, !tbaa !10
+  %190 = tail call double @sqrt(double noundef %189) #4, !tbaa !9
   br label %191
 
 191:                                              ; preds = %191, %dist.exit58.i56.i
@@ -352,10 +352,10 @@ dist.exit58.i56.i:                                ; preds = %.preheader62.i53.i
   %196 = load double, ptr %195, align 8, !tbaa !3
   %197 = fsub double %194, %196
   %198 = tail call double @llvm.fmuladd.f64(double %197, double %197, double %.014.i60.i58.i)
-  br i1 %192, label %191, label %dist.exit61.i59.i, !llvm.loop !14
+  br i1 %192, label %191, label %dist.exit61.i59.i, !llvm.loop !13
 
 dist.exit61.i59.i:                                ; preds = %191
-  %199 = tail call double @sqrt(double noundef %198) #4, !tbaa !10
+  %199 = tail call double @sqrt(double noundef %198) #4, !tbaa !9
   %200 = fcmp olt double %190, %199
   %201 = select i1 %200, double %190, double %199
   br label %point_line_distance.exit63.i
@@ -379,7 +379,7 @@ point_line_distance.exit63.i:                     ; preds = %dist.exit61.i59.i, 
   %211 = fsub double %210, %207
   %212 = tail call double @llvm.fmuladd.f64(double %208, double %211, double %.05466.i66.i)
   %213 = tail call double @llvm.fmuladd.f64(double %211, double %211, double %.05267.i65.i)
-  br i1 %203, label %202, label %214, !llvm.loop !13
+  br i1 %203, label %202, label %214, !llvm.loop !12
 
 214:                                              ; preds = %202
   %215 = fcmp ugt double %213, 0x3C9CD2B297D889BC
@@ -395,10 +395,10 @@ point_line_distance.exit63.i:                     ; preds = %dist.exit61.i59.i, 
   %220 = load double, ptr %219, align 8, !tbaa !3
   %221 = fsub double %218, %220
   %222 = tail call double @llvm.fmuladd.f64(double %221, double %221, double %.014.i.i69.i)
-  br i1 %216, label %.preheader63.i67.i, label %dist.exit.i70.i, !llvm.loop !14
+  br i1 %216, label %.preheader63.i67.i, label %dist.exit.i70.i, !llvm.loop !13
 
 dist.exit.i70.i:                                  ; preds = %.preheader63.i67.i
-  %223 = tail call double @sqrt(double noundef %222) #4, !tbaa !10
+  %223 = tail call double @sqrt(double noundef %222) #4, !tbaa !9
   br label %line_segments_distance.exit
 
 224:                                              ; preds = %214
@@ -422,10 +422,10 @@ dist.exit.i70.i:                                  ; preds = %.preheader63.i67.i
   %236 = tail call double @llvm.fmuladd.f64(double %225, double %235, double %232)
   %237 = fsub double %230, %236
   %238 = tail call double @llvm.fmuladd.f64(double %237, double %237, double %.15369.i82.i)
-  br i1 %228, label %.preheader.i80.i, label %239, !llvm.loop !15
+  br i1 %228, label %.preheader.i80.i, label %239, !llvm.loop !14
 
 239:                                              ; preds = %.preheader.i80.i
-  %240 = tail call double @sqrt(double noundef %238) #4, !tbaa !10
+  %240 = tail call double @sqrt(double noundef %238) #4, !tbaa !9
   br label %line_segments_distance.exit
 
 .preheader62.i73.i:                               ; preds = %224, %.preheader62.i73.i
@@ -438,10 +438,10 @@ dist.exit.i70.i:                                  ; preds = %.preheader63.i67.i
   %245 = load double, ptr %244, align 8, !tbaa !3
   %246 = fsub double %243, %245
   %247 = tail call double @llvm.fmuladd.f64(double %246, double %246, double %.014.i57.i75.i)
-  br i1 %241, label %.preheader62.i73.i, label %dist.exit58.i76.i, !llvm.loop !14
+  br i1 %241, label %.preheader62.i73.i, label %dist.exit58.i76.i, !llvm.loop !13
 
 dist.exit58.i76.i:                                ; preds = %.preheader62.i73.i
-  %248 = tail call double @sqrt(double noundef %247) #4, !tbaa !10
+  %248 = tail call double @sqrt(double noundef %247) #4, !tbaa !9
   br label %249
 
 249:                                              ; preds = %249, %dist.exit58.i76.i
@@ -454,10 +454,10 @@ dist.exit58.i76.i:                                ; preds = %.preheader62.i73.i
   %254 = load double, ptr %253, align 8, !tbaa !3
   %255 = fsub double %252, %254
   %256 = tail call double @llvm.fmuladd.f64(double %255, double %255, double %.014.i60.i78.i)
-  br i1 %250, label %249, label %dist.exit61.i79.i, !llvm.loop !14
+  br i1 %250, label %249, label %dist.exit61.i79.i, !llvm.loop !13
 
 dist.exit61.i79.i:                                ; preds = %249
-  %257 = tail call double @sqrt(double noundef %256) #4, !tbaa !10
+  %257 = tail call double @sqrt(double noundef %256) #4, !tbaa !9
   %258 = fcmp olt double %248, %257
   %259 = select i1 %258, double %248, double %257
   br label %line_segments_distance.exit
@@ -523,7 +523,7 @@ line_segments_distance.exit:                      ; preds = %dist.exit.i70.i, %2
   %299 = load double, ptr %indvars.iv169.sroa.phi254, align 8, !tbaa !3
   %300 = load double, ptr %indvars.iv169.sroa.phi, align 8, !tbaa !3
   %301 = tail call double @llvm.fmuladd.f64(double %299, double %300, double %.0135)
-  br i1 %298, label %.preheader, label %302, !llvm.loop !16
+  br i1 %298, label %.preheader, label %302, !llvm.loop !15
 
 302:                                              ; preds = %.preheader
   %303 = fdiv double %301, %296
@@ -629,13 +629,12 @@ attributes #4 = { nounwind }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"int", !5, i64 0}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"int", !5, i64 0}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}

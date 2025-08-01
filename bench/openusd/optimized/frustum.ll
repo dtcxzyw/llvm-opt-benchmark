@@ -2896,42 +2896,42 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv.exit: ; p
 158:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv.exit, %158
   %indvars.iv = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv.exit ], [ %indvars.iv.next, %158 ]
   %159 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %142, i64 %indvars.iv
-  %160 = load double, ptr %159, align 8, !noalias !99
-  %161 = load double, ptr %4, align 8, !noalias !99
+  %160 = load double, ptr %159, align 8, !noalias !98
+  %161 = load double, ptr %4, align 8, !noalias !98
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %163 = load double, ptr %162, align 8, !noalias !99
-  %164 = load double, ptr %143, align 8, !noalias !99
+  %163 = load double, ptr %162, align 8, !noalias !98
+  %164 = load double, ptr %143, align 8, !noalias !98
   %165 = fmul double %163, %164
   %166 = call double @llvm.fmuladd.f64(double %160, double %161, double %165)
   %167 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  %168 = load double, ptr %167, align 8, !noalias !99
-  %169 = load double, ptr %144, align 8, !noalias !99
+  %168 = load double, ptr %167, align 8, !noalias !98
+  %169 = load double, ptr %144, align 8, !noalias !98
   %170 = call double @llvm.fmuladd.f64(double %168, double %169, double %166)
-  %171 = load double, ptr %145, align 8, !noalias !99
+  %171 = load double, ptr %145, align 8, !noalias !98
   %172 = fadd double %170, %171
-  %173 = load double, ptr %146, align 8, !noalias !99
-  %174 = load double, ptr %147, align 8, !noalias !99
+  %173 = load double, ptr %146, align 8, !noalias !98
+  %174 = load double, ptr %147, align 8, !noalias !98
   %175 = fmul double %163, %174
   %176 = call double @llvm.fmuladd.f64(double %160, double %173, double %175)
-  %177 = load double, ptr %148, align 8, !noalias !99
+  %177 = load double, ptr %148, align 8, !noalias !98
   %178 = call double @llvm.fmuladd.f64(double %168, double %177, double %176)
-  %179 = load double, ptr %149, align 8, !noalias !99
+  %179 = load double, ptr %149, align 8, !noalias !98
   %180 = fadd double %179, %178
-  %181 = load double, ptr %150, align 8, !noalias !99
-  %182 = load double, ptr %151, align 8, !noalias !99
+  %181 = load double, ptr %150, align 8, !noalias !98
+  %182 = load double, ptr %151, align 8, !noalias !98
   %183 = fmul double %163, %182
   %184 = call double @llvm.fmuladd.f64(double %160, double %181, double %183)
-  %185 = load double, ptr %152, align 8, !noalias !99
+  %185 = load double, ptr %152, align 8, !noalias !98
   %186 = call double @llvm.fmuladd.f64(double %168, double %185, double %184)
-  %187 = load double, ptr %153, align 8, !noalias !99
+  %187 = load double, ptr %153, align 8, !noalias !98
   %188 = fadd double %187, %186
-  %189 = load double, ptr %154, align 8, !noalias !99
-  %190 = load double, ptr %155, align 8, !noalias !99
+  %189 = load double, ptr %154, align 8, !noalias !98
+  %190 = load double, ptr %155, align 8, !noalias !98
   %191 = fmul double %163, %190
   %192 = call double @llvm.fmuladd.f64(double %160, double %189, double %191)
-  %193 = load double, ptr %156, align 8, !noalias !99
+  %193 = load double, ptr %156, align 8, !noalias !98
   %194 = call double @llvm.fmuladd.f64(double %168, double %193, double %192)
-  %195 = load double, ptr %157, align 8, !noalias !99
+  %195 = load double, ptr %157, align 8, !noalias !98
   %196 = fadd double %195, %194
   %197 = fcmp une double %196, 0.000000e+00
   %198 = fdiv double 1.000000e+00, %196
@@ -2944,7 +2944,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv.exit: ; p
   store double %202, ptr %167, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %203, label %158, !llvm.loop !102
+  br i1 %exitcond.not, label %203, label %158, !llvm.loop !101
 
 203:                                              ; preds = %158
   ret void
@@ -2973,7 +2973,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum22ComputeNarrowedFr
   %18 = fmul double %10, %16
   %19 = fadd double %12, %17
   %20 = fadd double %15, %18
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1, i64 24, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2985,38 +2985,38 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum22ComputeNarrowedFr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %25, i64 16, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %28 = load double, ptr %27, align 8, !noalias !103
-  store double %28, ptr %26, align 8, !alias.scope !103
+  %28 = load double, ptr %27, align 8, !noalias !102
+  store double %28, ptr %26, align 8, !alias.scope !102
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %31 = load i32, ptr %30, align 8, !noalias !103
-  store i32 %31, ptr %29, align 8, !alias.scope !103
+  %31 = load i32, ptr %30, align 8, !noalias !102
+  store i32 %31, ptr %29, align 8, !alias.scope !102
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr null, ptr %32, align 8, !alias.scope !103
+  store ptr null, ptr %32, align 8, !alias.scope !102
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %34 = load atomic i64, ptr %33 seq_cst, align 8, !noalias !103
+  %34 = load atomic i64, ptr %33 seq_cst, align 8, !noalias !102
   %.not.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i, label %38, label %35
 
 35:                                               ; preds = %4
   %.0.i.i.i = inttoptr i64 %34 to ptr
-  %36 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #28, !noalias !103
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %36, ptr noundef nonnull align 8 dereferenceable(192) %.0.i.i.i, i64 192, i1 false), !noalias !103
+  %36 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #28, !noalias !102
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %36, ptr noundef nonnull align 8 dereferenceable(192) %.0.i.i.i, i64 192, i1 false), !noalias !102
   %37 = ptrtoint ptr %36 to i64
-  store atomic i64 %37, ptr %32 seq_cst, align 8, !alias.scope !103
+  store atomic i64 %37, ptr %32 seq_cst, align 8, !alias.scope !102
   br label %38
 
 38:                                               ; preds = %35, %4
-  %.sroa.0.0.copyload2.i.i.i = load double, ptr %11, align 8, !noalias !103
-  %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i, align 8, !noalias !103
-  %39 = load double, ptr %5, align 8, !noalias !103
+  %.sroa.0.0.copyload2.i.i.i = load double, ptr %11, align 8, !noalias !102
+  %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i, align 8, !noalias !102
+  %39 = load double, ptr %5, align 8, !noalias !102
   %40 = fsub double %.sroa.0.0.copyload2.i.i.i, %39
-  %41 = load double, ptr %14, align 8, !noalias !103
+  %41 = load double, ptr %14, align 8, !noalias !102
   %42 = fsub double %.sroa.4.0.copyload.i.i.i, %41
-  %43 = load double, ptr %3, align 8, !noalias !103
+  %43 = load double, ptr %3, align 8, !noalias !102
   %44 = fmul double %40, %43
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %46 = load double, ptr %45, align 8, !noalias !103
+  %46 = load double, ptr %45, align 8, !noalias !102
   %47 = fmul double %42, %46
   %48 = fmul double %44, 5.000000e-01
   %49 = fmul double %47, 5.000000e-01
@@ -3032,20 +3032,20 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum22ComputeNarrowedFr
   %.sroa.0.0.i = select i1 %56, double %.sroa.0.0.copyload2.i.i.i, double %52
   %57 = fcmp ogt double %53, %.sroa.4.0.copyload.i.i.i
   %.sroa.4.0.i = select i1 %57, double %.sroa.4.0.copyload.i.i.i, double %53
-  store double %.sroa.017.0.i, ptr %23, align 8, !alias.scope !103
+  store double %.sroa.017.0.i, ptr %23, align 8, !alias.scope !102
   %.sroa.016.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %.sroa.418.0.i, ptr %.sroa.016.sroa.2.0..sroa_idx.i, align 8, !alias.scope !103
+  store double %.sroa.418.0.i, ptr %.sroa.016.sroa.2.0..sroa_idx.i, align 8, !alias.scope !102
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store double %.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !103
+  store double %.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !102
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store double %.sroa.4.0.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !103
-  %58 = atomicrmw xchg ptr %32, i64 0 monotonic, align 8, !alias.scope !103
+  store double %.sroa.4.0.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !102
+  %58 = atomicrmw xchg ptr %32, i64 0 monotonic, align 8, !alias.scope !102
   %59 = icmp eq i64 %58, 0
   br i1 %59, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum26_ComputeNarrowedFrustumSubENS_7GfVec2dERKS1_.exit, label %60
 
 60:                                               ; preds = %38
   %.0.i.i.i.i = inttoptr i64 %58 to ptr
-  tail call void @_ZdlPvm(ptr noundef nonnull %.0.i.i.i.i, i64 noundef 192) #27, !noalias !103
+  tail call void @_ZdlPvm(ptr noundef nonnull %.0.i.i.i.i, i64 noundef 192) #27, !noalias !102
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum26_ComputeNarrowedFrustumSubENS_7GfVec2dERKS1_.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum26_ComputeNarrowedFrustumSubENS_7GfVec2dERKS1_.exit: ; preds = %38, %60
@@ -3142,34 +3142,34 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum22ComputeNarrowedFr
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  %9 = load double, ptr %2, align 8, !noalias !106
+  %9 = load double, ptr %2, align 8, !noalias !105
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load double, ptr %10, align 8, !noalias !106
+  %11 = load double, ptr %10, align 8, !noalias !105
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = load double, ptr %12, align 8, !noalias !106
+  %13 = load double, ptr %12, align 8, !noalias !105
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %15 = load double, ptr %14, align 8, !noalias !106
+  %15 = load double, ptr %14, align 8, !noalias !105
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %17 = load double, ptr %16, align 8, !noalias !106
+  %17 = load double, ptr %16, align 8, !noalias !105
   %18 = fmul double %11, %17
   %19 = call double @llvm.fmuladd.f64(double %9, double %15, double %18)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %21 = load double, ptr %20, align 8, !noalias !106
+  %21 = load double, ptr %20, align 8, !noalias !105
   %22 = call double @llvm.fmuladd.f64(double %13, double %21, double %19)
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %24 = load double, ptr %23, align 8, !noalias !106
+  %24 = load double, ptr %23, align 8, !noalias !105
   %25 = fadd double %24, %22
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %27 = load double, ptr %26, align 8, !noalias !106
+  %27 = load double, ptr %26, align 8, !noalias !105
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %29 = load double, ptr %28, align 8, !noalias !106
+  %29 = load double, ptr %28, align 8, !noalias !105
   %30 = fmul double %11, %29
   %31 = call double @llvm.fmuladd.f64(double %9, double %27, double %30)
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %33 = load double, ptr %32, align 8, !noalias !106
+  %33 = load double, ptr %32, align 8, !noalias !105
   %34 = call double @llvm.fmuladd.f64(double %13, double %33, double %31)
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %36 = load double, ptr %35, align 8, !noalias !106
+  %36 = load double, ptr %35, align 8, !noalias !105
   %37 = fadd double %36, %34
   %38 = fcmp une double %37, 0.000000e+00
   %39 = fdiv double 1.000000e+00, %37
@@ -3223,28 +3223,28 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum22ComputeNarrowedFr
 
 65:                                               ; preds = %4
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %67 = load double, ptr %66, align 8, !noalias !106
+  %67 = load double, ptr %66, align 8, !noalias !105
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %69 = load double, ptr %68, align 8, !noalias !106
+  %69 = load double, ptr %68, align 8, !noalias !105
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %71 = load double, ptr %70, align 8, !noalias !106
+  %71 = load double, ptr %70, align 8, !noalias !105
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %73 = load double, ptr %72, align 8, !noalias !106
+  %73 = load double, ptr %72, align 8, !noalias !105
   %74 = fmul double %11, %73
   %75 = call double @llvm.fmuladd.f64(double %9, double %71, double %74)
   %76 = call double @llvm.fmuladd.f64(double %13, double %69, double %75)
   %77 = fadd double %67, %76
   %78 = fmul double %40, %77
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %80 = load double, ptr %79, align 8, !noalias !106
-  %81 = load double, ptr %5, align 8, !noalias !106
+  %80 = load double, ptr %79, align 8, !noalias !105
+  %81 = load double, ptr %5, align 8, !noalias !105
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %83 = load double, ptr %82, align 8, !noalias !106
+  %83 = load double, ptr %82, align 8, !noalias !105
   %84 = fmul double %11, %83
   %85 = call double @llvm.fmuladd.f64(double %9, double %81, double %84)
   %86 = call double @llvm.fmuladd.f64(double %13, double %80, double %85)
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %88 = load double, ptr %87, align 8, !noalias !106
+  %88 = load double, ptr %87, align 8, !noalias !105
   %89 = fadd double %88, %86
   %90 = fmul double %40, %89
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -3255,7 +3255,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum22ComputeNarrowedFr
   %96 = fmul double %94, %78
   %.sroa.4.0 = select i1 %93, double %96, double %78
   %.sroa.0.0 = select i1 %93, double %95, double %90
-  call void @llvm.experimental.noalias.scope.decl(metadata !109)
+  call void @llvm.experimental.noalias.scope.decl(metadata !108)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(128) %1, i64 24, i1 false)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull readonly align 8 dereferenceable(32) %7, i64 32, i1 false)
@@ -3267,39 +3267,39 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum22ComputeNarrowedFr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull readonly align 8 dereferenceable(16) %101, i64 16, i1 false)
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %104 = load double, ptr %103, align 8, !noalias !109
-  store double %104, ptr %102, align 8, !alias.scope !109
+  %104 = load double, ptr %103, align 8, !noalias !108
+  store double %104, ptr %102, align 8, !alias.scope !108
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %92, ptr %105, align 8, !alias.scope !109
+  store i32 %92, ptr %105, align 8, !alias.scope !108
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr null, ptr %106, align 8, !alias.scope !109
+  store ptr null, ptr %106, align 8, !alias.scope !108
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %108 = load atomic i64, ptr %107 seq_cst, align 8, !noalias !109
+  %108 = load atomic i64, ptr %107 seq_cst, align 8, !noalias !108
   %.not.i.i = icmp eq i64 %108, 0
   br i1 %.not.i.i, label %112, label %109
 
 109:                                              ; preds = %65
   %.0.i.i.i = inttoptr i64 %108 to ptr
-  %110 = call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #28, !noalias !109
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %110, ptr noundef nonnull align 8 dereferenceable(192) %.0.i.i.i, i64 192, i1 false), !noalias !109
+  %110 = call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #28, !noalias !108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %110, ptr noundef nonnull align 8 dereferenceable(192) %.0.i.i.i, i64 192, i1 false), !noalias !108
   %111 = ptrtoint ptr %110 to i64
-  store atomic i64 %111, ptr %106 seq_cst, align 8, !alias.scope !109
+  store atomic i64 %111, ptr %106 seq_cst, align 8, !alias.scope !108
   br label %112
 
 112:                                              ; preds = %109, %65
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sroa.0.0.copyload2.i.i.i = load double, ptr %113, align 8, !noalias !109
+  %.sroa.0.0.copyload2.i.i.i = load double, ptr %113, align 8, !noalias !108
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !109
-  %114 = load double, ptr %99, align 8, !noalias !109
+  %.sroa.4.0.copyload.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !108
+  %114 = load double, ptr %99, align 8, !noalias !108
   %115 = fsub double %.sroa.0.0.copyload2.i.i.i, %114
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %117 = load double, ptr %116, align 8, !noalias !109
+  %117 = load double, ptr %116, align 8, !noalias !108
   %118 = fsub double %.sroa.4.0.copyload.i.i.i, %117
-  %119 = load double, ptr %3, align 8, !noalias !109
+  %119 = load double, ptr %3, align 8, !noalias !108
   %120 = fmul double %115, %119
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %122 = load double, ptr %121, align 8, !noalias !109
+  %122 = load double, ptr %121, align 8, !noalias !108
   %123 = fmul double %118, %122
   %124 = fmul double %120, 5.000000e-01
   %125 = fmul double %123, 5.000000e-01
@@ -3315,20 +3315,20 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum22ComputeNarrowedFr
   %.sroa.0.0.i = select i1 %132, double %.sroa.0.0.copyload2.i.i.i, double %128
   %133 = fcmp ogt double %129, %.sroa.4.0.copyload.i.i.i
   %.sroa.4.0.i = select i1 %133, double %.sroa.4.0.copyload.i.i.i, double %129
-  store double %.sroa.017.0.i, ptr %98, align 8, !alias.scope !109
+  store double %.sroa.017.0.i, ptr %98, align 8, !alias.scope !108
   %.sroa.016.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %.sroa.418.0.i, ptr %.sroa.016.sroa.2.0..sroa_idx.i, align 8, !alias.scope !109
+  store double %.sroa.418.0.i, ptr %.sroa.016.sroa.2.0..sroa_idx.i, align 8, !alias.scope !108
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store double %.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !109
+  store double %.sroa.0.0.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !108
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store double %.sroa.4.0.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !109
-  %134 = atomicrmw xchg ptr %106, i64 0 monotonic, align 8, !alias.scope !109
+  store double %.sroa.4.0.i, ptr %.sroa.3.0..sroa_idx.i, align 8, !alias.scope !108
+  %134 = atomicrmw xchg ptr %106, i64 0 monotonic, align 8, !alias.scope !108
   %135 = icmp eq i64 %134, 0
   br i1 %135, label %_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustumC2ERKS0_.exit, label %136
 
 136:                                              ; preds = %112
   %.0.i.i.i.i = inttoptr i64 %134 to ptr
-  call void @_ZdlPvm(ptr noundef nonnull %.0.i.i.i.i, i64 noundef 192) #27, !noalias !109
+  call void @_ZdlPvm(ptr noundef nonnull %.0.i.i.i.i, i64 noundef 192) #27, !noalias !108
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustumC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__9GfFrustumC2ERKS0_.exit: ; preds = %136, %112, %62, %43
@@ -3361,13 +3361,13 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10ComputeRayERKNS_7
   %19 = fmul double %17, 5.000000e-01
   %20 = fmul double %18, 5.000000e-01
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sroa.0.0.copyload2.i.i3.i.i = load double, ptr %21, align 8, !noalias !112
+  %.sroa.0.0.copyload2.i.i3.i.i = load double, ptr %21, align 8, !noalias !111
   %.sroa.4.0..sroa_idx.i.i4.i.i = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.4.0.copyload.i.i5.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i.i, align 8, !noalias !112
-  %22 = load double, ptr %13, align 8, !noalias !112
+  %.sroa.4.0.copyload.i.i5.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i.i, align 8, !noalias !111
+  %22 = load double, ptr %13, align 8, !noalias !111
   %23 = fsub double %.sroa.0.0.copyload2.i.i3.i.i, %22
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %25 = load double, ptr %24, align 8, !noalias !112
+  %25 = load double, ptr %24, align 8, !noalias !111
   %26 = fsub double %.sroa.4.0.copyload.i.i5.i.i, %25
   %27 = fmul double %19, %23
   %28 = fmul double %20, %26
@@ -3400,76 +3400,76 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14
   %.sink16.i = phi double [ %39, %32 ], [ -0.000000e+00, %42 ]
   %.sink15.i = phi double [ %40, %32 ], [ -0.000000e+00, %42 ]
   %.sink.i = phi double [ %41, %32 ], [ -1.000000e+00, %42 ]
-  store double %.sink19.i, ptr %5, align 8, !noalias !112
+  store double %.sink19.i, ptr %5, align 8, !noalias !111
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store double %.sink18.i, ptr %44, align 8, !noalias !112
+  store double %.sink18.i, ptr %44, align 8, !noalias !111
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store double %.sink17.i, ptr %45, align 8, !noalias !112
-  store double %.sink16.i, ptr %6, align 8, !noalias !112
+  store double %.sink17.i, ptr %45, align 8, !noalias !111
+  store double %.sink16.i, ptr %6, align 8, !noalias !111
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store double %.sink15.i, ptr %46, align 8, !noalias !112
+  store double %.sink15.i, ptr %46, align 8, !noalias !111
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store double %.sink.i, ptr %47, align 8, !noalias !112
+  store double %.sink.i, ptr %47, align 8, !noalias !111
   call void @_ZN32pxrInternal_v0_24__pxrReserved__5GfRay20SetPointAndDirectionERKNS_7GfVec3dES3_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %49 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %48), !noalias !115
+  %49 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %48), !noalias !114
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef null, double noundef 0.000000e+00)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
-  call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  %50 = load double, ptr %7, align 8, !noalias !118
-  %51 = load double, ptr %8, align 8, !noalias !118
+  call void @llvm.experimental.noalias.scope.decl(metadata !117)
+  %50 = load double, ptr %7, align 8, !noalias !117
+  %51 = load double, ptr %8, align 8, !noalias !117
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %53 = load double, ptr %52, align 8, !noalias !118
+  %53 = load double, ptr %52, align 8, !noalias !117
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %55 = load double, ptr %54, align 8, !noalias !118
+  %55 = load double, ptr %54, align 8, !noalias !117
   %56 = fmul double %53, %55
   %57 = call double @llvm.fmuladd.f64(double %50, double %51, double %56)
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %59 = load double, ptr %58, align 8, !noalias !118
+  %59 = load double, ptr %58, align 8, !noalias !117
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %61 = load double, ptr %60, align 8, !noalias !118
+  %61 = load double, ptr %60, align 8, !noalias !117
   %62 = call double @llvm.fmuladd.f64(double %59, double %61, double %57)
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %64 = load double, ptr %63, align 8, !noalias !118
+  %64 = load double, ptr %63, align 8, !noalias !117
   %65 = fadd double %62, %64
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %67 = load double, ptr %66, align 8, !noalias !118
+  %67 = load double, ptr %66, align 8, !noalias !117
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %69 = load double, ptr %68, align 8, !noalias !118
+  %69 = load double, ptr %68, align 8, !noalias !117
   %70 = fmul double %53, %69
   %71 = call double @llvm.fmuladd.f64(double %50, double %67, double %70)
   %72 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %73 = load double, ptr %72, align 8, !noalias !118
+  %73 = load double, ptr %72, align 8, !noalias !117
   %74 = call double @llvm.fmuladd.f64(double %59, double %73, double %71)
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %76 = load double, ptr %75, align 8, !noalias !118
+  %76 = load double, ptr %75, align 8, !noalias !117
   %77 = fadd double %76, %74
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %79 = load double, ptr %78, align 8, !noalias !118
+  %79 = load double, ptr %78, align 8, !noalias !117
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %81 = load double, ptr %80, align 8, !noalias !118
+  %81 = load double, ptr %80, align 8, !noalias !117
   %82 = fmul double %53, %81
   %83 = call double @llvm.fmuladd.f64(double %50, double %79, double %82)
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %85 = load double, ptr %84, align 8, !noalias !118
+  %85 = load double, ptr %84, align 8, !noalias !117
   %86 = call double @llvm.fmuladd.f64(double %59, double %85, double %83)
   %87 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %88 = load double, ptr %87, align 8, !noalias !118
+  %88 = load double, ptr %87, align 8, !noalias !117
   %89 = fadd double %88, %86
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %91 = load double, ptr %90, align 8, !noalias !118
+  %91 = load double, ptr %90, align 8, !noalias !117
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %93 = load double, ptr %92, align 8, !noalias !118
+  %93 = load double, ptr %92, align 8, !noalias !117
   %94 = fmul double %53, %93
   %95 = call double @llvm.fmuladd.f64(double %50, double %91, double %94)
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %97 = load double, ptr %96, align 8, !noalias !118
+  %97 = load double, ptr %96, align 8, !noalias !117
   %98 = call double @llvm.fmuladd.f64(double %59, double %97, double %95)
   %99 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  %100 = load double, ptr %99, align 8, !noalias !118
+  %100 = load double, ptr %99, align 8, !noalias !117
   %101 = fadd double %100, %98
   %102 = fcmp une double %101, 0.000000e+00
   %103 = fdiv double 1.000000e+00, %101
@@ -3477,20 +3477,20 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14
   %105 = fmul double %65, %104
   %106 = fmul double %77, %104
   %107 = fmul double %89, %104
-  store double %105, ptr %9, align 8, !alias.scope !121
+  store double %105, ptr %9, align 8, !alias.scope !120
   %108 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double %106, ptr %108, align 8, !alias.scope !121
+  store double %106, ptr %108, align 8, !alias.scope !120
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store double %107, ptr %109, align 8, !alias.scope !121
+  store double %107, ptr %109, align 8, !alias.scope !120
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.experimental.noalias.scope.decl(metadata !124)
-  %111 = load double, ptr %110, align 8, !noalias !124
+  call void @llvm.experimental.noalias.scope.decl(metadata !123)
+  %111 = load double, ptr %110, align 8, !noalias !123
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %113 = load double, ptr %112, align 8, !noalias !124
+  %113 = load double, ptr %112, align 8, !noalias !123
   %114 = fmul double %55, %113
   %115 = call double @llvm.fmuladd.f64(double %111, double %51, double %114)
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %117 = load double, ptr %116, align 8, !noalias !124
+  %117 = load double, ptr %116, align 8, !noalias !123
   %118 = call double @llvm.fmuladd.f64(double %117, double %61, double %115)
   %119 = fmul double %69, %113
   %120 = call double @llvm.fmuladd.f64(double %111, double %67, double %119)
@@ -3498,11 +3498,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14
   %122 = fmul double %81, %113
   %123 = call double @llvm.fmuladd.f64(double %111, double %79, double %122)
   %124 = call double @llvm.fmuladd.f64(double %117, double %85, double %123)
-  store double %118, ptr %10, align 8, !alias.scope !124
+  store double %118, ptr %10, align 8, !alias.scope !123
   %125 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store double %121, ptr %125, align 8, !alias.scope !124
+  store double %121, ptr %125, align 8, !alias.scope !123
   %126 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store double %124, ptr %126, align 8, !alias.scope !124
+  store double %124, ptr %126, align 8, !alias.scope !123
   call void @_ZN32pxrInternal_v0_24__pxrReserved__5GfRay20SetPointAndDirectionERKNS_7GfVec3dES3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10)
   ret void
 }
@@ -3527,13 +3527,13 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERK
   %15 = fmul double %13, 5.000000e-01
   %16 = fmul double %14, 5.000000e-01
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sroa.0.0.copyload2.i.i3.i.i = load double, ptr %17, align 8, !noalias !127
+  %.sroa.0.0.copyload2.i.i3.i.i = load double, ptr %17, align 8, !noalias !126
   %.sroa.4.0..sroa_idx.i.i4.i.i = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.sroa.4.0.copyload.i.i5.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i.i, align 8, !noalias !127
-  %18 = load double, ptr %9, align 8, !noalias !127
+  %.sroa.4.0.copyload.i.i5.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i.i, align 8, !noalias !126
+  %18 = load double, ptr %9, align 8, !noalias !126
   %19 = fsub double %.sroa.0.0.copyload2.i.i3.i.i, %18
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %21 = load double, ptr %20, align 8, !noalias !127
+  %21 = load double, ptr %20, align 8, !noalias !126
   %22 = fsub double %.sroa.4.0.copyload.i.i5.i.i, %21
   %23 = fmul double %15, %19
   %24 = fmul double %16, %22
@@ -3566,16 +3566,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14
   %.sink16.i = phi double [ %35, %28 ], [ -0.000000e+00, %38 ]
   %.sink15.i = phi double [ %36, %28 ], [ -0.000000e+00, %38 ]
   %.sink.i = phi double [ %37, %28 ], [ -1.000000e+00, %38 ]
-  store double %.sink19.i, ptr %4, align 8, !noalias !127
+  store double %.sink19.i, ptr %4, align 8, !noalias !126
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store double %.sink18.i, ptr %40, align 8, !noalias !127
+  store double %.sink18.i, ptr %40, align 8, !noalias !126
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store double %.sink17.i, ptr %41, align 8, !noalias !127
-  store double %.sink16.i, ptr %5, align 8, !noalias !127
+  store double %.sink17.i, ptr %41, align 8, !noalias !126
+  store double %.sink16.i, ptr %5, align 8, !noalias !126
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store double %.sink15.i, ptr %42, align 8, !noalias !127
+  store double %.sink15.i, ptr %42, align 8, !noalias !126
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store double %.sink.i, ptr %43, align 8, !noalias !127
+  store double %.sink.i, ptr %43, align 8, !noalias !126
   call void @_ZN32pxrInternal_v0_24__pxrReserved__5GfRay20SetPointAndDirectionERKNS_7GfVec3dES3_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
@@ -3592,19 +3592,19 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum32_ComputePickRayOf
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load double, ptr %9, align 8
-  %.sroa.0.0.copyload.i.i = load double, ptr %3, align 8, !noalias !130
+  %.sroa.0.0.copyload.i.i = load double, ptr %3, align 8, !noalias !129
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !130
+  %.sroa.4.0.copyload.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !129
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.6.0.copyload.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !130
+  %.sroa.6.0.copyload.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !129
   %11 = fmul double %10, %.sroa.0.0.copyload.i.i
   %12 = fmul double %10, %.sroa.4.0.copyload.i.i
   %13 = fmul double %10, %.sroa.6.0.copyload.i.i
-  %.sroa.0.0.copyload.i = load double, ptr %2, align 8, !noalias !135
+  %.sroa.0.0.copyload.i = load double, ptr %2, align 8, !noalias !134
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !135
+  %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !134
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !135
+  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !134
   %14 = fadd double %11, %.sroa.0.0.copyload.i
   %15 = fadd double %12, %.sroa.4.0.copyload.i
   %16 = fadd double %13, %.sroa.6.0.copyload.i
@@ -3612,55 +3612,55 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum32_ComputePickRayOf
   %.sroa.6.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %17), !noalias !138
+  %18 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %17), !noalias !137
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %7, ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef null, double noundef 0.000000e+00)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
-  %19 = load double, ptr %7, align 8, !noalias !141
+  %19 = load double, ptr %7, align 8, !noalias !140
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %21 = load double, ptr %20, align 8, !noalias !141
+  %21 = load double, ptr %20, align 8, !noalias !140
   %22 = fmul double %15, %21
   %23 = call double @llvm.fmuladd.f64(double %14, double %19, double %22)
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %25 = load double, ptr %24, align 8, !noalias !141
+  %25 = load double, ptr %24, align 8, !noalias !140
   %26 = call double @llvm.fmuladd.f64(double %16, double %25, double %23)
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %28 = load double, ptr %27, align 8, !noalias !141
+  %28 = load double, ptr %27, align 8, !noalias !140
   %29 = fadd double %26, %28
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %31 = load double, ptr %30, align 8, !noalias !141
+  %31 = load double, ptr %30, align 8, !noalias !140
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %33 = load double, ptr %32, align 8, !noalias !141
+  %33 = load double, ptr %32, align 8, !noalias !140
   %34 = fmul double %15, %33
   %35 = call double @llvm.fmuladd.f64(double %14, double %31, double %34)
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %37 = load double, ptr %36, align 8, !noalias !141
+  %37 = load double, ptr %36, align 8, !noalias !140
   %38 = call double @llvm.fmuladd.f64(double %16, double %37, double %35)
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %40 = load double, ptr %39, align 8, !noalias !141
+  %40 = load double, ptr %39, align 8, !noalias !140
   %41 = fadd double %40, %38
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %43 = load double, ptr %42, align 8, !noalias !141
+  %43 = load double, ptr %42, align 8, !noalias !140
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %45 = load double, ptr %44, align 8, !noalias !141
+  %45 = load double, ptr %44, align 8, !noalias !140
   %46 = fmul double %15, %45
   %47 = call double @llvm.fmuladd.f64(double %14, double %43, double %46)
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %49 = load double, ptr %48, align 8, !noalias !141
+  %49 = load double, ptr %48, align 8, !noalias !140
   %50 = call double @llvm.fmuladd.f64(double %16, double %49, double %47)
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %52 = load double, ptr %51, align 8, !noalias !141
+  %52 = load double, ptr %51, align 8, !noalias !140
   %53 = fadd double %52, %50
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %55 = load double, ptr %54, align 8, !noalias !141
+  %55 = load double, ptr %54, align 8, !noalias !140
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %57 = load double, ptr %56, align 8, !noalias !141
+  %57 = load double, ptr %56, align 8, !noalias !140
   %58 = fmul double %15, %57
   %59 = call double @llvm.fmuladd.f64(double %14, double %55, double %58)
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %61 = load double, ptr %60, align 8, !noalias !141
+  %61 = load double, ptr %60, align 8, !noalias !140
   %62 = call double @llvm.fmuladd.f64(double %16, double %61, double %59)
   %63 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %64 = load double, ptr %63, align 8, !noalias !141
+  %64 = load double, ptr %63, align 8, !noalias !140
   %65 = fadd double %64, %62
   %66 = fcmp une double %65, 0.000000e+00
   %67 = fdiv double 1.000000e+00, %65
@@ -3671,12 +3671,12 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum32_ComputePickRayOf
   store double %69, ptr %6, align 8
   store double %70, ptr %.sroa.4.0..sroa_idx3.i, align 8
   store double %71, ptr %.sroa.6.0..sroa_idx5.i, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !144)
-  %72 = load double, ptr %3, align 8, !noalias !144
-  %73 = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !144
+  call void @llvm.experimental.noalias.scope.decl(metadata !143)
+  %72 = load double, ptr %3, align 8, !noalias !143
+  %73 = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !143
   %74 = fmul double %21, %73
   %75 = call double @llvm.fmuladd.f64(double %72, double %19, double %74)
-  %76 = load double, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !144
+  %76 = load double, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !143
   %77 = call double @llvm.fmuladd.f64(double %76, double %25, double %75)
   %78 = fmul double %33, %73
   %79 = call double @llvm.fmuladd.f64(double %72, double %31, double %78)
@@ -3684,11 +3684,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum32_ComputePickRayOf
   %81 = fmul double %45, %73
   %82 = call double @llvm.fmuladd.f64(double %72, double %43, double %81)
   %83 = call double @llvm.fmuladd.f64(double %76, double %49, double %82)
-  store double %77, ptr %8, align 8, !alias.scope !144
+  store double %77, ptr %8, align 8, !alias.scope !143
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %80, ptr %84, align 8, !alias.scope !144
+  store double %80, ptr %84, align 8, !alias.scope !143
   %85 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %83, ptr %85, align 8, !alias.scope !144
+  store double %83, ptr %85, align 8, !alias.scope !143
   call void @_ZN32pxrInternal_v0_24__pxrReserved__5GfRay20SetPointAndDirectionERKNS_7GfVec3dES3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret void
 }
@@ -3702,45 +3702,45 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10ComputeRayERKNS_7
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  %11 = load double, ptr %2, align 8, !noalias !147
-  %12 = load double, ptr %5, align 8, !noalias !147
+  %11 = load double, ptr %2, align 8, !noalias !146
+  %12 = load double, ptr %5, align 8, !noalias !146
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load double, ptr %13, align 8, !noalias !147
+  %14 = load double, ptr %13, align 8, !noalias !146
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %16 = load double, ptr %15, align 8, !noalias !147
+  %16 = load double, ptr %15, align 8, !noalias !146
   %17 = fmul double %14, %16
   %18 = call double @llvm.fmuladd.f64(double %11, double %12, double %17)
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %20 = load double, ptr %19, align 8, !noalias !147
+  %20 = load double, ptr %19, align 8, !noalias !146
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %22 = load double, ptr %21, align 8, !noalias !147
+  %22 = load double, ptr %21, align 8, !noalias !146
   %23 = call double @llvm.fmuladd.f64(double %20, double %22, double %18)
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %25 = load double, ptr %24, align 8, !noalias !147
+  %25 = load double, ptr %24, align 8, !noalias !146
   %26 = fadd double %23, %25
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %28 = load double, ptr %27, align 8, !noalias !147
+  %28 = load double, ptr %27, align 8, !noalias !146
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %30 = load double, ptr %29, align 8, !noalias !147
+  %30 = load double, ptr %29, align 8, !noalias !146
   %31 = fmul double %14, %30
   %32 = call double @llvm.fmuladd.f64(double %11, double %28, double %31)
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %34 = load double, ptr %33, align 8, !noalias !147
+  %34 = load double, ptr %33, align 8, !noalias !146
   %35 = call double @llvm.fmuladd.f64(double %20, double %34, double %32)
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %37 = load double, ptr %36, align 8, !noalias !147
+  %37 = load double, ptr %36, align 8, !noalias !146
   %38 = fadd double %37, %35
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %40 = load double, ptr %39, align 8, !noalias !147
+  %40 = load double, ptr %39, align 8, !noalias !146
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %42 = load double, ptr %41, align 8, !noalias !147
+  %42 = load double, ptr %41, align 8, !noalias !146
   %43 = fmul double %14, %42
   %44 = call double @llvm.fmuladd.f64(double %11, double %40, double %43)
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %46 = load double, ptr %45, align 8, !noalias !147
+  %46 = load double, ptr %45, align 8, !noalias !146
   %47 = call double @llvm.fmuladd.f64(double %20, double %46, double %44)
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %49 = load double, ptr %48, align 8, !noalias !147
+  %49 = load double, ptr %48, align 8, !noalias !146
   %50 = fadd double %49, %47
   %51 = fcmp une double %50, 0.000000e+00
   %52 = fdiv double 1.000000e+00, %50
@@ -3754,13 +3754,13 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10ComputeRayERKNS_7
 
 59:                                               ; preds = %3
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %61 = load double, ptr %60, align 8, !noalias !147
+  %61 = load double, ptr %60, align 8, !noalias !146
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %63 = load double, ptr %62, align 8, !noalias !147
+  %63 = load double, ptr %62, align 8, !noalias !146
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %65 = load double, ptr %64, align 8, !noalias !147
+  %65 = load double, ptr %64, align 8, !noalias !146
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %67 = load double, ptr %66, align 8, !noalias !147
+  %67 = load double, ptr %66, align 8, !noalias !146
   %68 = fmul double %14, %67
   %69 = call double @llvm.fmuladd.f64(double %11, double %65, double %68)
   %70 = call double @llvm.fmuladd.f64(double %20, double %63, double %69)
@@ -3785,56 +3785,56 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10ComputeRayERKNS_7
   %.sroa.019.0 = phi double [ 0.000000e+00, %59 ], [ %54, %3 ]
   %.sroa.320.0 = phi double [ 0.000000e+00, %59 ], [ %55, %3 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4)
-  %83 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %9), !noalias !150
+  %83 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %9), !noalias !149
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %6, ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef null, double noundef 0.000000e+00)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4)
-  call void @llvm.experimental.noalias.scope.decl(metadata !153)
-  %84 = load double, ptr %6, align 8, !noalias !153
+  call void @llvm.experimental.noalias.scope.decl(metadata !152)
+  %84 = load double, ptr %6, align 8, !noalias !152
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %86 = load double, ptr %85, align 8, !noalias !153
+  %86 = load double, ptr %85, align 8, !noalias !152
   %87 = fmul double %.sroa.320.0, %86
   %88 = call double @llvm.fmuladd.f64(double %.sroa.019.0, double %84, double %87)
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %90 = load double, ptr %89, align 8, !noalias !153
+  %90 = load double, ptr %89, align 8, !noalias !152
   %91 = call double @llvm.fmuladd.f64(double %90, double 0.000000e+00, double %88)
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %93 = load double, ptr %92, align 8, !noalias !153
+  %93 = load double, ptr %92, align 8, !noalias !152
   %94 = fadd double %93, %91
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %96 = load double, ptr %95, align 8, !noalias !153
+  %96 = load double, ptr %95, align 8, !noalias !152
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %98 = load double, ptr %97, align 8, !noalias !153
+  %98 = load double, ptr %97, align 8, !noalias !152
   %99 = fmul double %.sroa.320.0, %98
   %100 = call double @llvm.fmuladd.f64(double %.sroa.019.0, double %96, double %99)
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %102 = load double, ptr %101, align 8, !noalias !153
+  %102 = load double, ptr %101, align 8, !noalias !152
   %103 = call double @llvm.fmuladd.f64(double %102, double 0.000000e+00, double %100)
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %105 = load double, ptr %104, align 8, !noalias !153
+  %105 = load double, ptr %104, align 8, !noalias !152
   %106 = fadd double %105, %103
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %108 = load double, ptr %107, align 8, !noalias !153
+  %108 = load double, ptr %107, align 8, !noalias !152
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %110 = load double, ptr %109, align 8, !noalias !153
+  %110 = load double, ptr %109, align 8, !noalias !152
   %111 = fmul double %.sroa.320.0, %110
   %112 = call double @llvm.fmuladd.f64(double %.sroa.019.0, double %108, double %111)
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %114 = load double, ptr %113, align 8, !noalias !153
+  %114 = load double, ptr %113, align 8, !noalias !152
   %115 = call double @llvm.fmuladd.f64(double %114, double 0.000000e+00, double %112)
   %116 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %117 = load double, ptr %116, align 8, !noalias !153
+  %117 = load double, ptr %116, align 8, !noalias !152
   %118 = fadd double %117, %115
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %120 = load double, ptr %119, align 8, !noalias !153
+  %120 = load double, ptr %119, align 8, !noalias !152
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %122 = load double, ptr %121, align 8, !noalias !153
+  %122 = load double, ptr %121, align 8, !noalias !152
   %123 = fmul double %.sroa.320.0, %122
   %124 = call double @llvm.fmuladd.f64(double %.sroa.019.0, double %120, double %123)
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %126 = load double, ptr %125, align 8, !noalias !153
+  %126 = load double, ptr %125, align 8, !noalias !152
   %127 = call double @llvm.fmuladd.f64(double %126, double 0.000000e+00, double %124)
   %128 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %129 = load double, ptr %128, align 8, !noalias !153
+  %129 = load double, ptr %128, align 8, !noalias !152
   %130 = fadd double %129, %127
   %131 = fcmp une double %130, 0.000000e+00
   %132 = fdiv double 1.000000e+00, %130
@@ -3842,11 +3842,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10ComputeRayERKNS_7
   %134 = fmul double %94, %133
   %135 = fmul double %106, %133
   %136 = fmul double %118, %133
-  store double %134, ptr %7, align 8, !alias.scope !156
+  store double %134, ptr %7, align 8, !alias.scope !155
   %137 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store double %135, ptr %137, align 8, !alias.scope !156
+  store double %135, ptr %137, align 8, !alias.scope !155
   %138 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store double %136, ptr %138, align 8, !alias.scope !156
+  store double %136, ptr %138, align 8, !alias.scope !155
   %139 = fmul double %.sroa.317.0, %86
   %140 = call double @llvm.fmuladd.f64(double %.sroa.016.0, double %84, double %139)
   %141 = call double @llvm.fmuladd.f64(double %.sroa.618.0, double %90, double %140)
@@ -3856,11 +3856,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10ComputeRayERKNS_7
   %145 = fmul double %.sroa.317.0, %110
   %146 = call double @llvm.fmuladd.f64(double %.sroa.016.0, double %108, double %145)
   %147 = call double @llvm.fmuladd.f64(double %.sroa.618.0, double %114, double %146)
-  store double %141, ptr %8, align 8, !alias.scope !159
+  store double %141, ptr %8, align 8, !alias.scope !158
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %144, ptr %148, align 8, !alias.scope !159
+  store double %144, ptr %148, align 8, !alias.scope !158
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %147, ptr %149, align 8, !alias.scope !159
+  store double %147, ptr %149, align 8, !alias.scope !158
   call void @_ZN32pxrInternal_v0_24__pxrReserved__5GfRay20SetPointAndDirectionERKNS_7GfVec3dES3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret void
 }
@@ -3872,45 +3872,45 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERK
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  %9 = load double, ptr %2, align 8, !noalias !162
-  %10 = load double, ptr %4, align 8, !noalias !162
+  %9 = load double, ptr %2, align 8, !noalias !161
+  %10 = load double, ptr %4, align 8, !noalias !161
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load double, ptr %11, align 8, !noalias !162
+  %12 = load double, ptr %11, align 8, !noalias !161
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %14 = load double, ptr %13, align 8, !noalias !162
+  %14 = load double, ptr %13, align 8, !noalias !161
   %15 = fmul double %12, %14
   %16 = call double @llvm.fmuladd.f64(double %9, double %10, double %15)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %18 = load double, ptr %17, align 8, !noalias !162
+  %18 = load double, ptr %17, align 8, !noalias !161
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %20 = load double, ptr %19, align 8, !noalias !162
+  %20 = load double, ptr %19, align 8, !noalias !161
   %21 = call double @llvm.fmuladd.f64(double %18, double %20, double %16)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %23 = load double, ptr %22, align 8, !noalias !162
+  %23 = load double, ptr %22, align 8, !noalias !161
   %24 = fadd double %21, %23
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %26 = load double, ptr %25, align 8, !noalias !162
+  %26 = load double, ptr %25, align 8, !noalias !161
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %28 = load double, ptr %27, align 8, !noalias !162
+  %28 = load double, ptr %27, align 8, !noalias !161
   %29 = fmul double %12, %28
   %30 = call double @llvm.fmuladd.f64(double %9, double %26, double %29)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %32 = load double, ptr %31, align 8, !noalias !162
+  %32 = load double, ptr %31, align 8, !noalias !161
   %33 = call double @llvm.fmuladd.f64(double %18, double %32, double %30)
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %35 = load double, ptr %34, align 8, !noalias !162
+  %35 = load double, ptr %34, align 8, !noalias !161
   %36 = fadd double %35, %33
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %38 = load double, ptr %37, align 8, !noalias !162
+  %38 = load double, ptr %37, align 8, !noalias !161
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %40 = load double, ptr %39, align 8, !noalias !162
+  %40 = load double, ptr %39, align 8, !noalias !161
   %41 = fmul double %12, %40
   %42 = call double @llvm.fmuladd.f64(double %9, double %38, double %41)
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %44 = load double, ptr %43, align 8, !noalias !162
+  %44 = load double, ptr %43, align 8, !noalias !161
   %45 = call double @llvm.fmuladd.f64(double %18, double %44, double %42)
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %47 = load double, ptr %46, align 8, !noalias !162
+  %47 = load double, ptr %46, align 8, !noalias !161
   %48 = fadd double %47, %45
   %49 = fcmp une double %48, 0.000000e+00
   %50 = fdiv double 1.000000e+00, %48
@@ -3924,13 +3924,13 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERK
 
 57:                                               ; preds = %3
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %59 = load double, ptr %58, align 8, !noalias !162
+  %59 = load double, ptr %58, align 8, !noalias !161
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %61 = load double, ptr %60, align 8, !noalias !162
+  %61 = load double, ptr %60, align 8, !noalias !161
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %63 = load double, ptr %62, align 8, !noalias !162
+  %63 = load double, ptr %62, align 8, !noalias !161
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %65 = load double, ptr %64, align 8, !noalias !162
+  %65 = load double, ptr %64, align 8, !noalias !161
   %66 = fmul double %12, %65
   %67 = call double @llvm.fmuladd.f64(double %9, double %63, double %66)
   %68 = call double @llvm.fmuladd.f64(double %18, double %61, double %67)
@@ -4010,7 +4010,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit: ; preds = %8
   %.013.add = add nuw nsw i64 %.013.idx14, 32
   %.not = icmp ne i64 %.013.add, 192
   %or.cond.not = select i1 %26, i1 %.not, i1 false
-  br i1 %or.cond.not, label %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread, !llvm.loop !165
+  br i1 %or.cond.not, label %24, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread: ; preds = %24, %2, %8, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit
   %.0 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit ], [ false, %8 ], [ false, %2 ], [ %26, %24 ]
@@ -4093,54 +4093,54 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum23_CalculateFrustum
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %63 = load double, ptr %3, align 8, !noalias !166
+  %63 = load double, ptr %3, align 8, !noalias !164
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %66 = load double, ptr %65, align 8, !noalias !166
+  %66 = load double, ptr %65, align 8, !noalias !164
   %67 = fmul double %66, 0.000000e+00
   %68 = call double @llvm.fmuladd.f64(double %63, double 0.000000e+00, double %67)
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %71 = load double, ptr %70, align 8, !noalias !166
+  %71 = load double, ptr %70, align 8, !noalias !164
   %72 = call double @llvm.fmuladd.f64(double %71, double 0.000000e+00, double %68)
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %74 = load double, ptr %73, align 8, !noalias !166
+  %74 = load double, ptr %73, align 8, !noalias !164
   %75 = fadd double %72, %74
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %77 = load double, ptr %76, align 8, !noalias !166
+  %77 = load double, ptr %76, align 8, !noalias !164
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %79 = load double, ptr %78, align 8, !noalias !166
+  %79 = load double, ptr %78, align 8, !noalias !164
   %80 = fmul double %79, 0.000000e+00
   %81 = call double @llvm.fmuladd.f64(double %77, double 0.000000e+00, double %80)
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %83 = load double, ptr %82, align 8, !noalias !166
+  %83 = load double, ptr %82, align 8, !noalias !164
   %84 = call double @llvm.fmuladd.f64(double %83, double 0.000000e+00, double %81)
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %86 = load double, ptr %85, align 8, !noalias !166
+  %86 = load double, ptr %85, align 8, !noalias !164
   %87 = fadd double %86, %84
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %89 = load double, ptr %88, align 8, !noalias !166
+  %89 = load double, ptr %88, align 8, !noalias !164
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %91 = load double, ptr %90, align 8, !noalias !166
+  %91 = load double, ptr %90, align 8, !noalias !164
   %92 = fmul double %91, 0.000000e+00
   %93 = call double @llvm.fmuladd.f64(double %89, double 0.000000e+00, double %92)
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %95 = load double, ptr %94, align 8, !noalias !166
+  %95 = load double, ptr %94, align 8, !noalias !164
   %96 = call double @llvm.fmuladd.f64(double %95, double 0.000000e+00, double %93)
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %98 = load double, ptr %97, align 8, !noalias !166
+  %98 = load double, ptr %97, align 8, !noalias !164
   %99 = fadd double %98, %96
   %100 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %101 = load double, ptr %100, align 8, !noalias !166
+  %101 = load double, ptr %100, align 8, !noalias !164
   %102 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %103 = load double, ptr %102, align 8, !noalias !166
+  %103 = load double, ptr %102, align 8, !noalias !164
   %104 = fmul double %103, 0.000000e+00
   %105 = call double @llvm.fmuladd.f64(double %101, double 0.000000e+00, double %104)
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %107 = load double, ptr %106, align 8, !noalias !166
+  %107 = load double, ptr %106, align 8, !noalias !164
   %108 = call double @llvm.fmuladd.f64(double %107, double 0.000000e+00, double %105)
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %110 = load double, ptr %109, align 8, !noalias !166
+  %110 = load double, ptr %109, align 8, !noalias !164
   %111 = fadd double %110, %108
   %112 = fcmp une double %111, 0.000000e+00
   %113 = fdiv double 1.000000e+00, %111
@@ -4290,52 +4290,52 @@ _ZNSt10unique_ptrISt5arrayIN32pxrInternal_v0_24__pxrReserved__7GfPlaneELm6EESt14
   %214 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %215 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %216 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %217 = load double, ptr %3, align 8, !noalias !169
+  %217 = load double, ptr %3, align 8, !noalias !167
   %218 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %219 = load double, ptr %218, align 8, !noalias !169
+  %219 = load double, ptr %218, align 8, !noalias !167
   %220 = fmul double %204, %219
   %221 = call double @llvm.fmuladd.f64(double %43, double %217, double %220)
   %222 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %223 = load double, ptr %222, align 8, !noalias !169
+  %223 = load double, ptr %222, align 8, !noalias !167
   %224 = call double @llvm.fmuladd.f64(double %205, double %223, double %221)
   %225 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %226 = load double, ptr %225, align 8, !noalias !169
+  %226 = load double, ptr %225, align 8, !noalias !167
   %227 = fadd double %226, %224
   %228 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %229 = load double, ptr %228, align 8, !noalias !169
+  %229 = load double, ptr %228, align 8, !noalias !167
   %230 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %231 = load double, ptr %230, align 8, !noalias !169
+  %231 = load double, ptr %230, align 8, !noalias !167
   %232 = fmul double %204, %231
   %233 = call double @llvm.fmuladd.f64(double %43, double %229, double %232)
   %234 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %235 = load double, ptr %234, align 8, !noalias !169
+  %235 = load double, ptr %234, align 8, !noalias !167
   %236 = call double @llvm.fmuladd.f64(double %205, double %235, double %233)
   %237 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %238 = load double, ptr %237, align 8, !noalias !169
+  %238 = load double, ptr %237, align 8, !noalias !167
   %239 = fadd double %238, %236
   %240 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %241 = load double, ptr %240, align 8, !noalias !169
+  %241 = load double, ptr %240, align 8, !noalias !167
   %242 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %243 = load double, ptr %242, align 8, !noalias !169
+  %243 = load double, ptr %242, align 8, !noalias !167
   %244 = fmul double %204, %243
   %245 = call double @llvm.fmuladd.f64(double %43, double %241, double %244)
   %246 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %247 = load double, ptr %246, align 8, !noalias !169
+  %247 = load double, ptr %246, align 8, !noalias !167
   %248 = call double @llvm.fmuladd.f64(double %205, double %247, double %245)
   %249 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %250 = load double, ptr %249, align 8, !noalias !169
+  %250 = load double, ptr %249, align 8, !noalias !167
   %251 = fadd double %250, %248
   %252 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %253 = load double, ptr %252, align 8, !noalias !169
+  %253 = load double, ptr %252, align 8, !noalias !167
   %254 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %255 = load double, ptr %254, align 8, !noalias !169
+  %255 = load double, ptr %254, align 8, !noalias !167
   %256 = fmul double %204, %255
   %257 = call double @llvm.fmuladd.f64(double %43, double %253, double %256)
   %258 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %259 = load double, ptr %258, align 8, !noalias !169
+  %259 = load double, ptr %258, align 8, !noalias !167
   %260 = call double @llvm.fmuladd.f64(double %205, double %259, double %257)
   %261 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %262 = load double, ptr %261, align 8, !noalias !169
+  %262 = load double, ptr %261, align 8, !noalias !167
   %263 = fadd double %262, %260
   %264 = fcmp une double %263, 0.000000e+00
   %265 = fdiv double 1.000000e+00, %263
@@ -4425,11 +4425,11 @@ _ZNSt10unique_ptrISt5arrayIN32pxrInternal_v0_24__pxrReserved__7GfPlaneELm6EESt14
   %337 = fadd double %330, %307
   %338 = fadd double %333, %308
   %339 = fadd double %336, %309
-  store double %337, ptr %19, align 8, !alias.scope !172
+  store double %337, ptr %19, align 8, !alias.scope !170
   %.sroa.4.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store double %338, ptr %.sroa.4.0..sroa_idx3.i, align 8, !alias.scope !172
+  store double %338, ptr %.sroa.4.0..sroa_idx3.i, align 8, !alias.scope !170
   %.sroa.6.0..sroa_idx5.i = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store double %339, ptr %.sroa.6.0..sroa_idx5.i, align 8, !alias.scope !172
+  store double %339, ptr %.sroa.6.0..sroa_idx5.i, align 8, !alias.scope !170
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfPlane3SetERKNS_7GfVec3dES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %340 unwind label %_ZNSt10unique_ptrISt5arrayIN32pxrInternal_v0_24__pxrReserved__7GfPlaneELm6EESt14default_deleteIS3_EED2Ev.exit
 
@@ -4438,47 +4438,47 @@ _ZNSt10unique_ptrISt5arrayIN32pxrInternal_v0_24__pxrReserved__7GfPlaneELm6EESt14
   %341 = fadd double %330, %285
   %342 = fadd double %333, %286
   %343 = fadd double %336, %287
-  store double %341, ptr %21, align 8, !alias.scope !175
+  store double %341, ptr %21, align 8, !alias.scope !173
   %.sroa.4.0..sroa_idx3.i69 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store double %342, ptr %.sroa.4.0..sroa_idx3.i69, align 8, !alias.scope !175
+  store double %342, ptr %.sroa.4.0..sroa_idx3.i69, align 8, !alias.scope !173
   %.sroa.6.0..sroa_idx5.i70 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store double %343, ptr %.sroa.6.0..sroa_idx5.i70, align 8, !alias.scope !175
+  store double %343, ptr %.sroa.6.0..sroa_idx5.i70, align 8, !alias.scope !173
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfPlane3SetERKNS_7GfVec3dES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %344 unwind label %_ZNSt10unique_ptrISt5arrayIN32pxrInternal_v0_24__pxrReserved__7GfPlaneELm6EESt14default_deleteIS3_EED2Ev.exit
 
 344:                                              ; preds = %340
   %345 = getelementptr inbounds nuw i8, ptr %30, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %345, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !178)
-  %.sroa.0.0.copyload.i73 = load double, ptr %14, align 8, !noalias !178
-  %.sroa.4.0.copyload.i75 = load double, ptr %206, align 8, !noalias !178
-  %.sroa.6.0.copyload.i77 = load double, ptr %207, align 8, !noalias !178
+  call void @llvm.experimental.noalias.scope.decl(metadata !176)
+  %.sroa.0.0.copyload.i73 = load double, ptr %14, align 8, !noalias !176
+  %.sroa.4.0.copyload.i75 = load double, ptr %206, align 8, !noalias !176
+  %.sroa.6.0.copyload.i77 = load double, ptr %207, align 8, !noalias !176
   %346 = fadd double %330, %.sroa.0.0.copyload.i73
   %347 = fadd double %333, %.sroa.4.0.copyload.i75
   %348 = fadd double %336, %.sroa.6.0.copyload.i77
-  store double %346, ptr %23, align 8, !alias.scope !178
+  store double %346, ptr %23, align 8, !alias.scope !176
   %.sroa.4.0..sroa_idx3.i78 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store double %347, ptr %.sroa.4.0..sroa_idx3.i78, align 8, !alias.scope !178
+  store double %347, ptr %.sroa.4.0..sroa_idx3.i78, align 8, !alias.scope !176
   %.sroa.6.0..sroa_idx5.i79 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store double %348, ptr %.sroa.6.0..sroa_idx5.i79, align 8, !alias.scope !178
+  store double %348, ptr %.sroa.6.0..sroa_idx5.i79, align 8, !alias.scope !176
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfPlane3SetERKNS_7GfVec3dES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %349 unwind label %_ZNSt10unique_ptrISt5arrayIN32pxrInternal_v0_24__pxrReserved__7GfPlaneELm6EESt14default_deleteIS3_EED2Ev.exit
 
 349:                                              ; preds = %344
   %350 = getelementptr inbounds nuw i8, ptr %30, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %350, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false)
-  call void @llvm.experimental.noalias.scope.decl(metadata !181)
-  %.sroa.0.0.copyload.i82 = load double, ptr %17, align 8, !noalias !181
-  %.sroa.4.0.copyload.i84 = load double, ptr %215, align 8, !noalias !181
-  %.sroa.6.0.copyload.i86 = load double, ptr %216, align 8, !noalias !181
+  call void @llvm.experimental.noalias.scope.decl(metadata !179)
+  %.sroa.0.0.copyload.i82 = load double, ptr %17, align 8, !noalias !179
+  %.sroa.4.0.copyload.i84 = load double, ptr %215, align 8, !noalias !179
+  %.sroa.6.0.copyload.i86 = load double, ptr %216, align 8, !noalias !179
   %351 = fadd double %330, %.sroa.0.0.copyload.i82
   %352 = fadd double %333, %.sroa.4.0.copyload.i84
   %353 = fadd double %336, %.sroa.6.0.copyload.i86
-  store double %351, ptr %25, align 8, !alias.scope !181
+  store double %351, ptr %25, align 8, !alias.scope !179
   %.sroa.4.0..sroa_idx3.i87 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store double %352, ptr %.sroa.4.0..sroa_idx3.i87, align 8, !alias.scope !181
+  store double %352, ptr %.sroa.4.0..sroa_idx3.i87, align 8, !alias.scope !179
   %.sroa.6.0..sroa_idx5.i88 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store double %353, ptr %.sroa.6.0..sroa_idx5.i88, align 8, !alias.scope !181
+  store double %353, ptr %.sroa.6.0..sroa_idx5.i88, align 8, !alias.scope !179
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7GfPlane3SetERKNS_7GfVec3dES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7GfPlaneC2ERKNS_7GfVec3dES3_S3_.exit90 unwind label %_ZNSt10unique_ptrISt5arrayIN32pxrInternal_v0_24__pxrReserved__7GfPlaneELm6EESt14default_deleteIS3_EED2Ev.exit
 
@@ -4493,13 +4493,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfPlaneC2ERKNS_7GfVec3dES3_S3_.exit61: ; p
   %355 = getelementptr inbounds nuw i8, ptr %30, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %355, ptr noundef nonnull align 8 dereferenceable(32) %.sink149, i64 32, i1 false)
   %356 = getelementptr inbounds nuw i8, ptr %30, i64 128
-  %357 = load double, ptr %356, align 8, !noalias !184
+  %357 = load double, ptr %356, align 8, !noalias !182
   %358 = fneg double %357
   %359 = getelementptr inbounds nuw i8, ptr %30, i64 136
-  %360 = load double, ptr %359, align 8, !noalias !184
+  %360 = load double, ptr %359, align 8, !noalias !182
   %361 = fneg double %360
   %362 = getelementptr inbounds nuw i8, ptr %30, i64 144
-  %363 = load double, ptr %362, align 8, !noalias !184
+  %363 = load double, ptr %362, align 8, !noalias !182
   %364 = fneg double %363
   %365 = getelementptr inbounds nuw i8, ptr %30, i64 152
   %366 = load double, ptr %365, align 8
@@ -4572,7 +4572,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   %.09.add = add nuw nsw i64 %.09.idx10, 32
   %.not = icmp ne i64 %.09.add, 192
   %or.cond.not = select i1 %16, i1 %.not, i1 false
-  br i1 %or.cond.not, label %11, label %17, !llvm.loop !187
+  br i1 %or.cond.not, label %11, label %17
 
 17:                                               ; preds = %11
   ret i1 %16
@@ -4591,18 +4591,18 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_Se
   br i1 %or.cond, label %.loopexit, label %10
 
 10:                                               ; preds = %7
-  %.sroa.0.0.copyload.i = load double, ptr %3, align 8, !noalias !188
+  %.sroa.0.0.copyload.i = load double, ptr %3, align 8, !noalias !185
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !188
+  %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !185
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !188
-  %11 = load double, ptr %1, align 8, !noalias !188
+  %.sroa.6.0.copyload.i = load double, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !185
+  %11 = load double, ptr %1, align 8, !noalias !185
   %12 = fsub double %.sroa.0.0.copyload.i, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %14 = load double, ptr %13, align 8, !noalias !188
+  %14 = load double, ptr %13, align 8, !noalias !185
   %15 = fsub double %.sroa.4.0.copyload.i, %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load double, ptr %16, align 8, !noalias !188
+  %17 = load double, ptr %16, align 8, !noalias !185
   %18 = fsub double %.sroa.6.0.copyload.i, %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %20 = load atomic i64, ptr %19 seq_cst, align 8
@@ -4669,7 +4669,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_Se
   %.1 = phi double [ %.03245, %25 ], [ %.2, %55 ]
   %58 = add nuw nsw i64 %.03643, 1
   %exitcond.not = icmp eq i64 %58, 6
-  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !191
+  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !188
 
 .loopexit:                                        ; preds = %57, %55, %7, %5
   %.0 = phi i1 [ false, %5 ], [ true, %7 ], [ true, %57 ], [ false, %55 ]
@@ -4899,7 +4899,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   %.1.i = phi double [ %.03245.i, %159 ], [ %.2.i, %189 ]
   %192 = add nuw nsw i64 %.03643.i, 1
   %exitcond.not.i = icmp eq i64 %192, 6
-  br i1 %exitcond.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %159, !llvm.loop !191
+  br i1 %exitcond.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %159, !llvm.loop !188
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit: ; preds = %189, %191, %3, %147
   %.0.i = phi i1 [ false, %3 ], [ true, %147 ], [ false, %189 ], [ true, %191 ]
@@ -5187,7 +5187,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   %.1.i = phi double [ %.03245.i, %214 ], [ %.2.i, %244 ]
   %247 = add nuw nsw i64 %.03643.i, 1
   %exitcond.not.i = icmp eq i64 %247, 6
-  br i1 %exitcond.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %214, !llvm.loop !191
+  br i1 %exitcond.not.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %214, !llvm.loop !188
 
 .loopexit107:                                     ; preds = %244, %204
   %248 = or i32 %197, %151
@@ -5195,14 +5195,14 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   br i1 %.not.i65, label %249, label %.loopexit105
 
 249:                                              ; preds = %.loopexit107
-  %.sroa.0.0.copyload.i.i68 = load double, ptr %3, align 8, !noalias !192
-  %.sroa.4.0.copyload.i.i70 = load double, ptr %153, align 8, !noalias !192
-  %.sroa.6.0.copyload.i.i72 = load double, ptr %157, align 8, !noalias !192
-  %250 = load double, ptr %2, align 8, !noalias !192
+  %.sroa.0.0.copyload.i.i68 = load double, ptr %3, align 8, !noalias !189
+  %.sroa.4.0.copyload.i.i70 = load double, ptr %153, align 8, !noalias !189
+  %.sroa.6.0.copyload.i.i72 = load double, ptr %157, align 8, !noalias !189
+  %250 = load double, ptr %2, align 8, !noalias !189
   %251 = fsub double %.sroa.0.0.copyload.i.i68, %250
-  %252 = load double, ptr %107, align 8, !noalias !192
+  %252 = load double, ptr %107, align 8, !noalias !189
   %253 = fsub double %.sroa.4.0.copyload.i.i70, %252
-  %254 = load double, ptr %111, align 8, !noalias !192
+  %254 = load double, ptr %111, align 8, !noalias !189
   %255 = fsub double %.sroa.6.0.copyload.i.i72, %254
   %256 = load atomic i64, ptr %10 seq_cst, align 8
   %257 = inttoptr i64 %256 to ptr
@@ -5268,7 +5268,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   %.1.i80 = phi double [ %.03245.i73, %261 ], [ %.2.i78, %291 ]
   %294 = add nuw nsw i64 %.03643.i75, 1
   %exitcond.not.i81 = icmp eq i64 %294, 6
-  br i1 %exitcond.not.i81, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %261, !llvm.loop !191
+  br i1 %exitcond.not.i81, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %261, !llvm.loop !188
 
 .loopexit105:                                     ; preds = %291, %.loopexit107
   %295 = or i32 %197, %105
@@ -5276,14 +5276,14 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   br i1 %.not.i83, label %296, label %.loopexit
 
 296:                                              ; preds = %.loopexit105
-  %.sroa.0.0.copyload.i.i86 = load double, ptr %1, align 8, !noalias !195
-  %.sroa.4.0.copyload.i.i88 = load double, ptr %15, align 8, !noalias !195
-  %.sroa.6.0.copyload.i.i90 = load double, ptr %21, align 8, !noalias !195
-  %297 = load double, ptr %3, align 8, !noalias !195
+  %.sroa.0.0.copyload.i.i86 = load double, ptr %1, align 8, !noalias !192
+  %.sroa.4.0.copyload.i.i88 = load double, ptr %15, align 8, !noalias !192
+  %.sroa.6.0.copyload.i.i90 = load double, ptr %21, align 8, !noalias !192
+  %297 = load double, ptr %3, align 8, !noalias !192
   %298 = fsub double %.sroa.0.0.copyload.i.i86, %297
-  %299 = load double, ptr %153, align 8, !noalias !195
+  %299 = load double, ptr %153, align 8, !noalias !192
   %300 = fsub double %.sroa.4.0.copyload.i.i88, %299
-  %301 = load double, ptr %157, align 8, !noalias !195
+  %301 = load double, ptr %157, align 8, !noalias !192
   %302 = fsub double %.sroa.6.0.copyload.i.i90, %301
   %303 = load atomic i64, ptr %10 seq_cst, align 8
   %304 = inttoptr i64 %303 to ptr
@@ -5349,7 +5349,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   %.1.i98 = phi double [ %.03245.i91, %308 ], [ %.2.i96, %338 ]
   %341 = add nuw nsw i64 %.03643.i93, 1
   %exitcond.not.i99 = icmp eq i64 %341, 6
-  br i1 %exitcond.not.i99, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %308, !llvm.loop !191
+  br i1 %exitcond.not.i99, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, label %308, !llvm.loop !188
 
 .loopexit:                                        ; preds = %338, %.loopexit105
   %or.cond60 = or i1 %88, %142
@@ -5374,7 +5374,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   %354 = add nuw nsw i64 %.0109, 1
   %355 = icmp samesign ult i64 %.0109, 3
   %356 = select i1 %or.cond64, i1 %355, i1 false
-  br i1 %356, label %357, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, !llvm.loop !198
+  br i1 %356, label %357, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_SegmentIntersectsERKNS_7GfVec3dEjS3_j.exit, !llvm.loop !195
 
 357:                                              ; preds = %.loopexit, %353
   %.0109 = phi i64 [ 0, %.loopexit ], [ %354, %353 ]
@@ -5392,15 +5392,15 @@ switch.lookup:                                    ; preds = %357
   %.sroa.5.0 = phi double [ %switch.load, %switch.lookup ], [ 0.000000e+00, %357 ]
   %.sroa.0.0 = phi double [ %switch.load120, %switch.lookup ], [ 1.000000e+00, %357 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
-  %360 = load i32, ptr %343, align 8, !noalias !199
-  %361 = load double, ptr %345, align 8, !noalias !199
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !199
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !199
-  %.sroa.0.0.copyload2.i.i3.i.i.i = load double, ptr %346, align 8, !noalias !202
-  %.sroa.4.0.copyload.i.i5.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i.i.i, align 8, !noalias !202
-  %362 = load double, ptr %344, align 8, !noalias !202
+  %360 = load i32, ptr %343, align 8, !noalias !196
+  %361 = load double, ptr %345, align 8, !noalias !196
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !196
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !196
+  %.sroa.0.0.copyload2.i.i3.i.i.i = load double, ptr %346, align 8, !noalias !199
+  %.sroa.4.0.copyload.i.i5.i.i.i = load double, ptr %.sroa.4.0..sroa_idx.i.i4.i.i.i, align 8, !noalias !199
+  %362 = load double, ptr %344, align 8, !noalias !199
   %363 = fsub double %.sroa.0.0.copyload2.i.i3.i.i.i, %362
-  %364 = load double, ptr %347, align 8, !noalias !202
+  %364 = load double, ptr %347, align 8, !noalias !199
   %365 = fsub double %.sroa.4.0.copyload.i.i5.i.i.i, %364
   %366 = fmul double %.sroa.0.0, %363
   %367 = fmul double %.sroa.5.0, %365
@@ -5433,15 +5433,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE.
   %.sink16.i.i = phi double [ %378, %371 ], [ -0.000000e+00, %381 ]
   %.sink15.i.i = phi double [ %379, %371 ], [ -0.000000e+00, %381 ]
   %.sink.i.i = phi double [ %380, %371 ], [ -1.000000e+00, %381 ]
-  store double %.sink19.i.i, ptr %5, align 8, !noalias !202
-  store double %.sink18.i.i, ptr %348, align 8, !noalias !202
-  store double %.sink17.i.i, ptr %349, align 8, !noalias !202
-  store double %.sink16.i.i, ptr %6, align 8, !noalias !202
-  store double %.sink15.i.i, ptr %350, align 8, !noalias !202
-  store double %.sink.i.i, ptr %351, align 8, !noalias !202
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__5GfRay20SetPointAndDirectionERKNS_7GfVec3dES3_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6), !noalias !199
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !199
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !199
+  store double %.sink19.i.i, ptr %5, align 8, !noalias !199
+  store double %.sink18.i.i, ptr %348, align 8, !noalias !199
+  store double %.sink17.i.i, ptr %349, align 8, !noalias !199
+  store double %.sink16.i.i, ptr %6, align 8, !noalias !199
+  store double %.sink15.i.i, ptr %350, align 8, !noalias !199
+  store double %.sink.i.i, ptr %351, align 8, !noalias !199
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__5GfRay20SetPointAndDirectionERKNS_7GfVec3dES3_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6), !noalias !196
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !196
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !196
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum32_ComputePickRayOffsetToNearPlaneERKNS_7GfVec3dES3_(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRay") align 8 %8, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %352)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   %383 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__5GfRay9IntersectERKNS_7GfVec3dES3_S3_PdPS1_Pbd(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, double noundef 0x7FF0000000000000)
@@ -5541,53 +5541,53 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum20Inte
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %23, i64 128, i1 false)
   %24 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %1)
-  %25 = load double, ptr %4, align 8, !noalias !205
+  %25 = load double, ptr %4, align 8, !noalias !202
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %27 = load double, ptr %26, align 8, !noalias !205
+  %27 = load double, ptr %26, align 8, !noalias !202
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %29 = load double, ptr %28, align 8, !noalias !205
+  %29 = load double, ptr %28, align 8, !noalias !202
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %31 = load double, ptr %30, align 8, !noalias !205
+  %31 = load double, ptr %30, align 8, !noalias !202
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %33 = load double, ptr %32, align 8, !noalias !205
+  %33 = load double, ptr %32, align 8, !noalias !202
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %35 = load double, ptr %34, align 8, !noalias !205
+  %35 = load double, ptr %34, align 8, !noalias !202
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %37 = load double, ptr %36, align 8, !noalias !205
+  %37 = load double, ptr %36, align 8, !noalias !202
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %39 = load double, ptr %38, align 8, !noalias !205
+  %39 = load double, ptr %38, align 8, !noalias !202
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %41 = load double, ptr %40, align 8, !noalias !205
+  %41 = load double, ptr %40, align 8, !noalias !202
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %43 = load double, ptr %42, align 8, !noalias !205
+  %43 = load double, ptr %42, align 8, !noalias !202
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %45 = load double, ptr %44, align 8, !noalias !205
+  %45 = load double, ptr %44, align 8, !noalias !202
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %47 = load double, ptr %46, align 8, !noalias !205
+  %47 = load double, ptr %46, align 8, !noalias !202
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %49 = load double, ptr %48, align 8, !noalias !205
+  %49 = load double, ptr %48, align 8, !noalias !202
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %51 = load double, ptr %50, align 8, !noalias !205
+  %51 = load double, ptr %50, align 8, !noalias !202
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %53 = load double, ptr %52, align 8, !noalias !205
+  %53 = load double, ptr %52, align 8, !noalias !202
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %55 = load double, ptr %54, align 8, !noalias !205
+  %55 = load double, ptr %54, align 8, !noalias !202
   br label %56
 
 56:                                               ; preds = %2, %56
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %56 ]
   %.079 = phi i32 [ 0, %2 ], [ %101, %56 ]
   %57 = getelementptr inbounds nuw [8 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d"], ptr %3, i64 0, i64 %indvars.iv
-  %58 = load double, ptr %57, align 16, !noalias !205
+  %58 = load double, ptr %57, align 16, !noalias !202
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %60 = load double, ptr %59, align 8, !noalias !205
+  %60 = load double, ptr %59, align 8, !noalias !202
   %61 = fmul double %60, %27
   %62 = call double @llvm.fmuladd.f64(double %58, double %25, double %61)
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %64 = load double, ptr %63, align 16, !noalias !205
+  %64 = load double, ptr %63, align 16, !noalias !202
   %65 = call double @llvm.fmuladd.f64(double %64, double %29, double %62)
   %66 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %67 = load double, ptr %66, align 8, !noalias !205
+  %67 = load double, ptr %66, align 8, !noalias !202
   %68 = call double @llvm.fmuladd.f64(double %67, double %31, double %65)
   %69 = fmul double %60, %35
   %70 = call double @llvm.fmuladd.f64(double %58, double %33, double %69)
@@ -5624,7 +5624,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9GfFrustum20Inte
   %101 = or i32 %100, %.079
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %102, label %56, !llvm.loop !208
+  br i1 %exitcond.not, label %102, label %56, !llvm.loop !205
 
 102:                                              ; preds = %56
   %103 = icmp eq i32 %101, 63
@@ -5938,116 +5938,113 @@ attributes #30 = { noreturn }
 !93 = !{!94}
 !94 = distinct !{!94, !95, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
 !95 = distinct !{!95, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
-!96 = distinct !{!96, !97, !98}
+!96 = distinct !{!96, !97}
 !97 = !{!"llvm.loop.mustprogress"}
-!98 = !{!"llvm.loop.estimated_trip_count"}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
-!101 = distinct !{!101, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
-!102 = distinct !{!102, !97, !98}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum26_ComputeNarrowedFrustumSubENS_7GfVec2dERKS1_: argument 0"}
-!105 = distinct !{!105, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum26_ComputeNarrowedFrustumSubENS_7GfVec2dERKS1_"}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
-!108 = distinct !{!108, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
-!109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum26_ComputeNarrowedFrustumSubENS_7GfVec2dERKS1_: argument 0"}
-!111 = distinct !{!111, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum26_ComputeNarrowedFrustumSubENS_7GfVec2dERKS1_"}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14ProjectionTypeERKNS_9GfRange2dERKNS_7GfVec2dEd: argument 0"}
-!114 = distinct !{!114, !"_ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14ProjectionTypeERKNS_9GfRange2dERKNS_7GfVec2dEd"}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv: argument 0"}
-!117 = distinct !{!117, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv"}
-!118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
-!120 = distinct !{!120, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
-!121 = !{!122, !119}
-!122 = distinct !{!122, !123, !"_ZN32pxrInternal_v0_24__pxrReserved__9GfProjectERKNS_7GfVec4dE: argument 0"}
-!123 = distinct !{!123, !"_ZN32pxrInternal_v0_24__pxrReserved__9GfProjectERKNS_7GfVec4dE"}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12TransformDirERKNS_7GfVec3dE: argument 0"}
-!126 = distinct !{!126, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12TransformDirERKNS_7GfVec3dE"}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14ProjectionTypeERKNS_9GfRange2dERKNS_7GfVec2dEd: argument 0"}
-!129 = distinct !{!129, !"_ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14ProjectionTypeERKNS_9GfRange2dERKNS_7GfVec2dEd"}
-!130 = !{!131, !133}
-!131 = distinct !{!131, !132, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd: argument 0"}
-!132 = distinct !{!132, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd"}
-!133 = distinct !{!133, !134, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_7GfVec3dE: argument 0"}
-!134 = distinct !{!134, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_7GfVec3dE"}
-!135 = !{!136}
-!136 = distinct !{!136, !137, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
-!137 = distinct !{!137, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv: argument 0"}
-!140 = distinct !{!140, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv"}
-!141 = !{!142}
-!142 = distinct !{!142, !143, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
-!143 = distinct !{!143, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
-!144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12TransformDirERKNS_7GfVec3dE: argument 0"}
-!146 = distinct !{!146, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12TransformDirERKNS_7GfVec3dE"}
-!147 = !{!148}
-!148 = distinct !{!148, !149, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
-!149 = distinct !{!149, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv: argument 0"}
-!152 = distinct !{!152, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv"}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
-!155 = distinct !{!155, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
-!156 = !{!157, !154}
-!157 = distinct !{!157, !158, !"_ZN32pxrInternal_v0_24__pxrReserved__9GfProjectERKNS_7GfVec4dE: argument 0"}
-!158 = distinct !{!158, !"_ZN32pxrInternal_v0_24__pxrReserved__9GfProjectERKNS_7GfVec4dE"}
-!159 = !{!160}
-!160 = distinct !{!160, !161, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12TransformDirERKNS_7GfVec3dE: argument 0"}
-!161 = distinct !{!161, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12TransformDirERKNS_7GfVec3dE"}
-!162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
-!164 = distinct !{!164, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
-!165 = distinct !{!165, !98}
-!166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
-!168 = distinct !{!168, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
-!169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
-!171 = distinct !{!171, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
-!172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
-!174 = distinct !{!174, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
-!175 = !{!176}
-!176 = distinct !{!176, !177, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
-!177 = distinct !{!177, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
-!178 = !{!179}
-!179 = distinct !{!179, !180, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
-!180 = distinct !{!180, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
-!181 = !{!182}
-!182 = distinct !{!182, !183, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
-!183 = distinct !{!183, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
-!184 = !{!185}
-!185 = distinct !{!185, !186, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dngEv: argument 0"}
-!186 = distinct !{!186, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dngEv"}
-!187 = distinct !{!187, !98}
-!188 = !{!189}
-!189 = distinct !{!189, !190, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_: argument 0"}
-!190 = distinct !{!190, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_"}
-!191 = distinct !{!191, !97, !98}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
+!100 = distinct !{!100, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
+!101 = distinct !{!101, !97}
+!102 = !{!103}
+!103 = distinct !{!103, !104, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum26_ComputeNarrowedFrustumSubENS_7GfVec2dERKS1_: argument 0"}
+!104 = distinct !{!104, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum26_ComputeNarrowedFrustumSubENS_7GfVec2dERKS1_"}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
+!107 = distinct !{!107, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum26_ComputeNarrowedFrustumSubENS_7GfVec2dERKS1_: argument 0"}
+!110 = distinct !{!110, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum26_ComputeNarrowedFrustumSubENS_7GfVec2dERKS1_"}
+!111 = !{!112}
+!112 = distinct !{!112, !113, !"_ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14ProjectionTypeERKNS_9GfRange2dERKNS_7GfVec2dEd: argument 0"}
+!113 = distinct !{!113, !"_ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14ProjectionTypeERKNS_9GfRange2dERKNS_7GfVec2dEd"}
+!114 = !{!115}
+!115 = distinct !{!115, !116, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv: argument 0"}
+!116 = distinct !{!116, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv"}
+!117 = !{!118}
+!118 = distinct !{!118, !119, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
+!119 = distinct !{!119, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
+!120 = !{!121, !118}
+!121 = distinct !{!121, !122, !"_ZN32pxrInternal_v0_24__pxrReserved__9GfProjectERKNS_7GfVec4dE: argument 0"}
+!122 = distinct !{!122, !"_ZN32pxrInternal_v0_24__pxrReserved__9GfProjectERKNS_7GfVec4dE"}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12TransformDirERKNS_7GfVec3dE: argument 0"}
+!125 = distinct !{!125, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12TransformDirERKNS_7GfVec3dE"}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14ProjectionTypeERKNS_9GfRange2dERKNS_7GfVec2dEd: argument 0"}
+!128 = distinct !{!128, !"_ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14ProjectionTypeERKNS_9GfRange2dERKNS_7GfVec2dEd"}
+!129 = !{!130, !132}
+!130 = distinct !{!130, !131, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd: argument 0"}
+!131 = distinct !{!131, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dmlEd"}
+!132 = distinct !{!132, !133, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_7GfVec3dE: argument 0"}
+!133 = distinct !{!133, !"_ZN32pxrInternal_v0_24__pxrReserved__mlEdRKNS_7GfVec3dE"}
+!134 = !{!135}
+!135 = distinct !{!135, !136, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
+!136 = distinct !{!136, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv: argument 0"}
+!139 = distinct !{!139, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv"}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
+!142 = distinct !{!142, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
+!143 = !{!144}
+!144 = distinct !{!144, !145, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12TransformDirERKNS_7GfVec3dE: argument 0"}
+!145 = distinct !{!145, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12TransformDirERKNS_7GfVec3dE"}
+!146 = !{!147}
+!147 = distinct !{!147, !148, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
+!148 = distinct !{!148, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv: argument 0"}
+!151 = distinct !{!151, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18ComputeViewInverseEv"}
+!152 = !{!153}
+!153 = distinct !{!153, !154, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
+!154 = distinct !{!154, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
+!155 = !{!156, !153}
+!156 = distinct !{!156, !157, !"_ZN32pxrInternal_v0_24__pxrReserved__9GfProjectERKNS_7GfVec4dE: argument 0"}
+!157 = distinct !{!157, !"_ZN32pxrInternal_v0_24__pxrReserved__9GfProjectERKNS_7GfVec4dE"}
+!158 = !{!159}
+!159 = distinct !{!159, !160, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12TransformDirERKNS_7GfVec3dE: argument 0"}
+!160 = distinct !{!160, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12TransformDirERKNS_7GfVec3dE"}
+!161 = !{!162}
+!162 = distinct !{!162, !163, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
+!163 = distinct !{!163, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
+!164 = !{!165}
+!165 = distinct !{!165, !166, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
+!166 = distinct !{!166, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
+!167 = !{!168}
+!168 = distinct !{!168, !169, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE: argument 0"}
+!169 = distinct !{!169, !"_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9TransformERKNS_7GfVec3dE"}
+!170 = !{!171}
+!171 = distinct !{!171, !172, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
+!172 = distinct !{!172, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
+!173 = !{!174}
+!174 = distinct !{!174, !175, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
+!175 = distinct !{!175, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
+!176 = !{!177}
+!177 = distinct !{!177, !178, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
+!178 = distinct !{!178, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
+!179 = !{!180}
+!180 = distinct !{!180, !181, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_: argument 0"}
+!181 = distinct !{!181, !"_ZN32pxrInternal_v0_24__pxrReserved__plERKNS_7GfVec3dES2_"}
+!182 = !{!183}
+!183 = distinct !{!183, !184, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dngEv: argument 0"}
+!184 = distinct !{!184, !"_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dngEv"}
+!185 = !{!186}
+!186 = distinct !{!186, !187, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_: argument 0"}
+!187 = distinct !{!187, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_"}
+!188 = distinct !{!188, !97}
+!189 = !{!190}
+!190 = distinct !{!190, !191, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_: argument 0"}
+!191 = distinct !{!191, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_"}
 !192 = !{!193}
 !193 = distinct !{!193, !194, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_: argument 0"}
 !194 = distinct !{!194, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_"}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_: argument 0"}
-!197 = distinct !{!197, !"_ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfVec3dES2_"}
-!198 = distinct !{!198, !97, !98}
-!199 = !{!200}
-!200 = distinct !{!200, !201, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE: argument 0"}
-!201 = distinct !{!201, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE"}
-!202 = !{!203, !200}
-!203 = distinct !{!203, !204, !"_ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14ProjectionTypeERKNS_9GfRange2dERKNS_7GfVec2dEd: argument 0"}
-!204 = distinct !{!204, !"_ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14ProjectionTypeERKNS_9GfRange2dERKNS_7GfVec2dEd"}
-!205 = !{!206}
-!206 = distinct !{!206, !207, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfVec4dERKNS_10GfMatrix4dE: argument 0"}
-!207 = distinct !{!207, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfVec4dERKNS_10GfMatrix4dE"}
-!208 = distinct !{!208, !97, !98}
+!195 = distinct !{!195, !97}
+!196 = !{!197}
+!197 = distinct !{!197, !198, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE: argument 0"}
+!198 = distinct !{!198, !"_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum14ComputePickRayERKNS_7GfVec2dE"}
+!199 = !{!200, !197}
+!200 = distinct !{!200, !201, !"_ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14ProjectionTypeERKNS_9GfRange2dERKNS_7GfVec2dEd: argument 0"}
+!201 = distinct !{!201, !"_ZN32pxrInternal_v0_24__pxrReserved__L24_ComputeUntransformedRayENS_9GfFrustum14ProjectionTypeERKNS_9GfRange2dERKNS_7GfVec2dEd"}
+!202 = !{!203}
+!203 = distinct !{!203, !204, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfVec4dERKNS_10GfMatrix4dE: argument 0"}
+!204 = distinct !{!204, !"_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfVec4dERKNS_10GfMatrix4dE"}
+!205 = distinct !{!205, !97}

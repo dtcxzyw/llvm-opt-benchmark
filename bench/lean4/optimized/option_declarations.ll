@@ -498,7 +498,7 @@ _ZN4lean10object_refD2Ev.exit52:                  ; preds = %_ZN4lean10object_re
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
   %154 = getelementptr inbounds nuw i8, ptr %.sroa.053.058, i64 8
   %.not = icmp eq ptr %154, %12
-  br i1 %.not, label %._crit_edge.loopexit, label %32, !llvm.loop !29
+  br i1 %.not, label %._crit_edge.loopexit, label %32
 
 155:                                              ; preds = %43
   %156 = landingpad { ptr, i32 }
@@ -576,7 +576,7 @@ define linkonce_odr hidden void @_ZN4lean13get_io_resultINS_9array_refINS_8pair_
   %.mask.i.i = and i32 %.val.i, -16777216
   %6 = icmp eq i32 %.mask.i.i, 16777216
   %7 = getelementptr i8, ptr %1, i64 8
-  %.val.i16 = load ptr, ptr %7, align 8, !tbaa !31
+  %.val.i16 = load ptr, ptr %7, align 8, !tbaa !29
   br i1 %6, label %8, label %26
 
 8:                                                ; preds = %2
@@ -595,7 +595,7 @@ define linkonce_odr hidden void @_ZN4lean13get_io_resultINS_9array_refINS_8pair_
           to label %12 unwind label %14
 
 12:                                               ; preds = %11
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean9exceptionE, i64 16), ptr %10, align 8, !tbaa !32
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean9exceptionE, i64 16), ptr %10, align 8, !tbaa !30
   invoke void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTIN4lean9exceptionE, ptr nonnull @_ZN4lean9throwableD2Ev) #22
           to label %47 unwind label %14
 
@@ -746,10 +746,10 @@ define linkonce_odr hidden void @_ZN4lean18option_declarationC2ERKNS_4nameENS_15
 
 _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %5, %13, %15, %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %2, ptr %17, align 8, !tbaa !34
+  store i32 %2, ptr %17, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %19, ptr %18, align 8, !tbaa !38
+  store ptr %19, ptr %18, align 8, !tbaa !36
   %20 = icmp eq ptr %3, null
   br i1 %20, label %21, label %22
 
@@ -803,7 +803,7 @@ _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %5, %13, %15, %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %37, ptr %36, align 8, !tbaa !38
+  store ptr %37, ptr %36, align 8, !tbaa !36
   %38 = icmp eq ptr %4, null
   br i1 %38, label %39, label %40
 
@@ -891,23 +891,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define linkonce_odr hidden void @_ZN4lean6rb_mapINS_4nameENS_18option_declarationENS_14name_quick_cmpEE6insertERKS1_RKS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair", align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #19
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %5 = load ptr, ptr %1, align 8, !tbaa !9, !noalias !45
-  store ptr %5, ptr %4, align 8, !tbaa !9, !alias.scope !45
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
+  %5 = load ptr, ptr %1, align 8, !tbaa !9, !noalias !43
+  store ptr %5, ptr %4, align 8, !tbaa !9, !alias.scope !43
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i.i.i.i.i, label %8, label %_ZN4lean4nameC2ERKS0_.exit.i.i.i
 
 8:                                                ; preds = %3
-  %.val.i.i.i.i.i.i.i = load i32, ptr %5, align 4, !tbaa !19, !noalias !45
+  %.val.i.i.i.i.i.i.i = load i32, ptr %5, align 4, !tbaa !19, !noalias !43
   %9 = icmp sgt i32 %.val.i.i.i.i.i.i.i, 0
   br i1 %9, label %10, label %12, !prof !22
 
 10:                                               ; preds = %8
   %11 = add nuw nsw i32 %.val.i.i.i.i.i.i.i, 1
-  store i32 %11, ptr %5, align 4, !tbaa !19, !noalias !45
+  store i32 %11, ptr %5, align 4, !tbaa !19, !noalias !43
   br label %_ZN4lean4nameC2ERKS0_.exit.i.i.i
 
 12:                                               ; preds = %8
@@ -915,7 +915,7 @@ define linkonce_odr hidden void @_ZN4lean6rb_mapINS_4nameENS_18option_declaratio
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4lean4nameC2ERKS0_.exit.i.i.i, label %13
 
 13:                                               ; preds = %12
-  tail call void @lean_inc_ref_cold(ptr noundef nonnull %5), !noalias !45
+  tail call void @lean_inc_ref_cold(ptr noundef nonnull %5), !noalias !43
   br label %_ZN4lean4nameC2ERKS0_.exit.i.i.i
 
 _ZN4lean4nameC2ERKS0_.exit.i.i.i:                 ; preds = %13, %12, %10, %3
@@ -1047,7 +1047,7 @@ define hidden void @_ZN4lean13mk_data_valueENS_15data_value_kindEPKc(ptr dead_on
 12:                                               ; preds = %3
   %13 = tail call noundef ptr @lean_mk_string(ptr noundef %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store ptr %13, ptr %9, align 8, !tbaa !31, !noalias !46
+  store ptr %13, ptr %9, align 8, !tbaa !29, !noalias !44
   call void @_ZN4lean8mk_cnstrEjjPP11lean_objectj(ptr dead_on_unwind nonnull writable sret(%"class.lean::object_ref") align 8 %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %9, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %77
@@ -1077,7 +1077,7 @@ define hidden void @_ZN4lean13mk_data_valueENS_15data_value_kindEPKc(ptr dead_on
   store ptr %25, ptr %10, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store ptr %25, ptr %7, align 8, !tbaa !31, !noalias !49
+  store ptr %25, ptr %7, align 8, !tbaa !29, !noalias !47
   invoke void @_ZN4lean8mk_cnstrEjjPP11lean_objectj(ptr dead_on_unwind nonnull writable sret(%"class.lean::object_ref") align 8 %8, i32 noundef 3, i32 noundef 1, ptr noundef nonnull %7, i32 noundef 0)
           to label %_ZN4lean10object_refD2Ev.exit unwind label %.body
 
@@ -1151,7 +1151,7 @@ _ZN4lean4nameC2EPKc.exit:                         ; preds = %29, %36, %38, %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   %45 = load ptr, ptr %11, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %45, ptr %4, align 8, !tbaa !31, !noalias !52
+  store ptr %45, ptr %4, align 8, !tbaa !29, !noalias !50
   invoke void @_ZN4lean8mk_cnstrEjjPP11lean_objectj(ptr dead_on_unwind nonnull writable sret(%"class.lean::object_ref") align 8 %5, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %4, i32 noundef 0)
           to label %.noexc13 unwind label %70
 
@@ -1246,11 +1246,11 @@ _ZN4lean10object_refD2Ev.exit18:                  ; preds = %_ZN4lean10data_valu
   %73 = tail call ptr @__cxa_allocate_exception(i64 40) #19
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store ptr %75, ptr %74, align 8, !tbaa !38
+  store ptr %75, ptr %74, align 8, !tbaa !36
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store i64 0, ptr %76, align 8, !tbaa !27
   store i8 0, ptr %75, align 1, !tbaa !28
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %73, align 8, !tbaa !32
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean19unreachable_reachedE, i64 16), ptr %73, align 8, !tbaa !30
   tail call void @__cxa_throw(ptr nonnull %73, ptr nonnull @_ZTIN4lean19unreachable_reachedE, ptr nonnull @_ZN4lean9throwableD2Ev) #22
   unreachable
 
@@ -1651,7 +1651,7 @@ _ZN4lean11alloc_cnstrEjjj.exit:                   ; preds = %_ZL23lean_alloc_sma
 _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %_ZN4lean11alloc_cnstrEjjj.exit, %38, %40, %41
   %42 = phi ptr [ %33, %_ZN4lean11alloc_cnstrEjjj.exit ], [ %33, %38 ], [ %33, %40 ], [ %.pre.i, %41 ]
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %42, ptr %43, align 8, !tbaa !31
+  store ptr %42, ptr %43, align 8, !tbaa !29
   %44 = load ptr, ptr %3, align 8, !tbaa !9
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, 1
@@ -1680,7 +1680,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit:         ; preds = %_ZN4lean11alloc_cns
 _ZNK4lean10object_ref10to_obj_argEv.exit14:       ; preds = %_ZNK4lean10object_ref10to_obj_argEv.exit, %49, %51, %52
   %53 = phi ptr [ %44, %_ZNK4lean10object_ref10to_obj_argEv.exit ], [ %44, %49 ], [ %44, %51 ], [ %.pre.i13, %52 ]
   %54 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %53, ptr %54, align 8, !tbaa !31
+  store ptr %53, ptr %54, align 8, !tbaa !29
   %55 = load ptr, ptr %4, align 8, !tbaa !9
   %56 = ptrtoint ptr %55 to i64
   %57 = and i64 %56, 1
@@ -1709,7 +1709,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit14:       ; preds = %_ZNK4lean10object_r
 _ZNK4lean10object_ref10to_obj_argEv.exit19:       ; preds = %_ZNK4lean10object_ref10to_obj_argEv.exit14, %60, %62, %63
   %64 = phi ptr [ %55, %_ZNK4lean10object_ref10to_obj_argEv.exit14 ], [ %55, %60 ], [ %55, %62 ], [ %.pre.i18, %63 ]
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr %64, ptr %65, align 8, !tbaa !31
+  store ptr %64, ptr %65, align 8, !tbaa !29
   %66 = load ptr, ptr %5, align 8, !tbaa !9
   %67 = ptrtoint ptr %66 to i64
   %68 = and i64 %67, 1
@@ -1738,7 +1738,7 @@ _ZNK4lean10object_ref10to_obj_argEv.exit19:       ; preds = %_ZNK4lean10object_r
 _ZNK4lean10object_ref10to_obj_argEv.exit24:       ; preds = %_ZNK4lean10object_ref10to_obj_argEv.exit19, %71, %73, %74
   %75 = phi ptr [ %66, %_ZNK4lean10object_ref10to_obj_argEv.exit19 ], [ %66, %71 ], [ %66, %73 ], [ %.pre.i23, %74 ]
   %76 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store ptr %75, ptr %76, align 8, !tbaa !31
+  store ptr %75, ptr %76, align 8, !tbaa !29
   store ptr %15, ptr %0, align 8, !tbaa !9
   ret void
 }
@@ -1755,7 +1755,7 @@ define linkonce_odr hidden void @_ZN4lean17consume_io_resultEP11lean_object(ptr 
 
 6:                                                ; preds = %1
   %7 = getelementptr i8, ptr %0, i64 8
-  %.val.i11 = load ptr, ptr %7, align 8, !tbaa !31
+  %.val.i11 = load ptr, ptr %7, align 8, !tbaa !29
   tail call void @_ZN4lean3incEP11lean_object(ptr noundef %.val.i11)
   tail call void @_ZN4lean3decEP11lean_object(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
@@ -1771,7 +1771,7 @@ define linkonce_odr hidden void @_ZN4lean17consume_io_resultEP11lean_object(ptr 
           to label %11 unwind label %13
 
 11:                                               ; preds = %10
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean9exceptionE, i64 16), ptr %9, align 8, !tbaa !32
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4lean9exceptionE, i64 16), ptr %9, align 8, !tbaa !30
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN4lean9exceptionE, ptr nonnull @_ZN4lean9throwableD2Ev) #22
           to label %35 unwind label %13
 
@@ -2122,7 +2122,7 @@ define linkonce_odr hidden void @_ZNK4lean10string_ref13to_std_stringB5cxx11Ev(p
   %.val.i.i = load i64, ptr %6, align 8, !tbaa !14
   %7 = add i64 %.val.i.i, -1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %0, align 8, !tbaa !38
+  store ptr %8, ptr %0, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   store i64 %7, ptr %3, align 8, !tbaa !14
   %9 = icmp ugt i64 %7, 15
@@ -2173,74 +2173,74 @@ define linkonce_odr hidden void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_d
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %7 = load ptr, ptr %0, align 8, !tbaa !58, !noalias !55
-  store ptr %7, ptr %6, align 8, !tbaa !58, !alias.scope !55
-  store ptr null, ptr %0, align 8, !tbaa !58, !noalias !55
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  %7 = load ptr, ptr %0, align 8, !tbaa !56, !noalias !53
+  store ptr %7, ptr %6, align 8, !tbaa !56, !alias.scope !53
+  store ptr null, ptr %0, align 8, !tbaa !56, !noalias !53
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE6insertEONS9_4nodeERKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.lean::rb_tree<std::pair<lean::name, lean::option_declaration>, lean::rb_map<lean::name, lean::option_declaration, lean::name_quick_cmp>::entry_cmp>::node") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(88) %1)
           to label %8 unwind label %38
 
 8:                                                ; preds = %2
-  call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  %9 = load ptr, ptr %5, align 8, !tbaa !3, !noalias !59
+  call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  %9 = load ptr, ptr %5, align 8, !tbaa !3, !noalias !57
   %.not.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node8is_blackEv.exit.thread.i, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node8is_blackEv.exit.i
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node8is_blackEv.exit.i: ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %11 = load i8, ptr %10, align 8, !tbaa !62, !range !68, !noalias !59, !noundef !69
+  %11 = load i8, ptr %10, align 8, !tbaa !60, !range !66, !noalias !57, !noundef !67
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i.i, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node8is_blackEv.exit.thread.i
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node8is_blackEv.exit.thread.i: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node8is_blackEv.exit.i, %8
-  store ptr %9, ptr %4, align 8, !tbaa !3, !alias.scope !59
-  store ptr null, ptr %5, align 8, !tbaa !3, !noalias !59
+  store ptr %9, ptr %4, align 8, !tbaa !3, !alias.scope !57
+  store ptr null, ptr %5, align 8, !tbaa !3, !noalias !57
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9set_blackEONS9_4nodeE.exit
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i.i: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node8is_blackEv.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19, !noalias !59
-  call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  store ptr %9, ptr %3, align 8, !tbaa !58, !alias.scope !70, !noalias !59
-  store ptr null, ptr %5, align 8, !tbaa !58, !noalias !73
-  call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19, !noalias !57
+  call void @llvm.experimental.noalias.scope.decl(metadata !68)
+  store ptr %9, ptr %3, align 8, !tbaa !56, !alias.scope !68, !noalias !57
+  store ptr null, ptr %5, align 8, !tbaa !56, !noalias !71
+  call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 108
-  %14 = load atomic i32, ptr %13 acquire, align 4, !noalias !77
+  %14 = load atomic i32, ptr %13 acquire, align 4, !noalias !75
   %15 = icmp ugt i32 %14, 1
   br i1 %15, label %16, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i.i
 
 16:                                               ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i.i
   %17 = invoke noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #24
-          to label %.noexc.i unwind label %26, !noalias !59
+          to label %.noexc.i unwind label %26, !noalias !57
 
 .noexc.i:                                         ; preds = %16
-  %18 = load ptr, ptr %3, align 8, !tbaa !3, !noalias !77
+  %18 = load ptr, ptr %3, align 8, !tbaa !3, !noalias !75
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9node_cellC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(112) %17, ptr noundef nonnull align 8 dereferenceable(112) %18)
-          to label %19 unwind label %22, !noalias !77
+          to label %19 unwind label %22, !noalias !75
 
 19:                                               ; preds = %.noexc.i
-  store ptr %17, ptr %4, align 8, !tbaa !3, !alias.scope !77
+  store ptr %17, ptr %4, align 8, !tbaa !3, !alias.scope !75
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 108
-  %21 = atomicrmw add ptr %20, i32 1 monotonic, align 4, !noalias !77
+  %21 = atomicrmw add ptr %20, i32 1 monotonic, align 4, !noalias !75
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit.i
 
 22:                                               ; preds = %.noexc.i
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 112) #21, !noalias !77
+  call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 112) #21, !noalias !75
   br label %.body.i
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i.i: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i.i
-  %.pre.i.i = load ptr, ptr %3, align 8, !tbaa !3, !noalias !77
-  store ptr %.pre.i.i, ptr %4, align 8, !tbaa !3, !alias.scope !77
-  store ptr null, ptr %3, align 8, !tbaa !3, !noalias !77
+  %.pre.i.i = load ptr, ptr %3, align 8, !tbaa !3, !noalias !75
+  store ptr %.pre.i.i, ptr %4, align 8, !tbaa !3, !alias.scope !75
+  store ptr null, ptr %3, align 8, !tbaa !3, !noalias !75
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit.i
 
 _ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit.i: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i.i, %19
   %24 = phi ptr [ %.pre.i.i, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i.i ], [ %17, %19 ]
-  call void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19, !noalias !59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19, !noalias !59
+  call void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19, !noalias !57
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19, !noalias !57
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
-  store i8 0, ptr %25, align 8, !tbaa !62, !noalias !59
+  store i8 0, ptr %25, align 8, !tbaa !60, !noalias !57
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9set_blackEONS9_4nodeE.exit
 
 26:                                               ; preds = %16
@@ -2250,8 +2250,8 @@ _ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_1
 
 .body.i:                                          ; preds = %26, %22
   %eh.lpad-body.i = phi { ptr, i32 } [ %27, %26 ], [ %23, %22 ]
-  call void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19, !noalias !59
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19, !noalias !59
+  call void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19, !noalias !57
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19, !noalias !57
   call void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #19
   br label %40
 
@@ -2370,9 +2370,9 @@ _ZN4lean4nameC2ERKS0_.exit.i.i:                   ; preds = %24, %23, %21, %13
 
 32:                                               ; preds = %_ZN4lean4nameC2ERKS0_.exit.i.i
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  store i8 1, ptr %33, align 8, !tbaa !62
+  store i8 1, ptr %33, align 8, !tbaa !60
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 108
-  store i32 0, ptr %34, align 4, !tbaa !78
+  store i32 0, ptr %34, align 4, !tbaa !76
   store ptr %14, ptr %0, align 8, !tbaa !3
   %35 = atomicrmw add ptr %34, i32 1 monotonic, align 4
   br label %121
@@ -2380,12 +2380,12 @@ _ZN4lean4nameC2ERKS0_.exit.i.i:                   ; preds = %24, %23, %21, %13
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i: ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  store ptr %12, ptr %6, align 8, !tbaa !58, !alias.scope !79
-  store ptr null, ptr %2, align 8, !tbaa !58, !noalias !79
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  store ptr %12, ptr %6, align 8, !tbaa !56, !alias.scope !77
+  store ptr null, ptr %2, align 8, !tbaa !56, !noalias !77
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 108
-  %37 = load atomic i32, ptr %36 acquire, align 4, !noalias !82
+  %37 = load atomic i32, ptr %36 acquire, align 4, !noalias !80
   %38 = icmp ugt i32 %37, 1
   br i1 %38, label %39, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i
 
@@ -2394,26 +2394,26 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
           to label %.noexc unwind label %74
 
 .noexc:                                           ; preds = %39
-  %41 = load ptr, ptr %6, align 8, !tbaa !3, !noalias !82
+  %41 = load ptr, ptr %6, align 8, !tbaa !3, !noalias !80
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9node_cellC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(112) %40, ptr noundef nonnull align 8 dereferenceable(112) %41)
-          to label %42 unwind label %45, !noalias !82
+          to label %42 unwind label %45, !noalias !80
 
 42:                                               ; preds = %.noexc
-  store ptr %40, ptr %5, align 8, !tbaa !3, !alias.scope !82
+  store ptr %40, ptr %5, align 8, !tbaa !3, !alias.scope !80
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 108
-  %44 = atomicrmw add ptr %43, i32 1 monotonic, align 4, !noalias !82
+  %44 = atomicrmw add ptr %43, i32 1 monotonic, align 4, !noalias !80
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit
 
 45:                                               ; preds = %.noexc
   %46 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef 112) #21, !noalias !82
+  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef 112) #21, !noalias !80
   br label %.body30
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i
-  %.pre.i = load ptr, ptr %6, align 8, !tbaa !3, !noalias !82
-  store ptr %.pre.i, ptr %5, align 8, !tbaa !3, !alias.scope !82
-  store ptr null, ptr %6, align 8, !tbaa !3, !noalias !82
+  %.pre.i = load ptr, ptr %6, align 8, !tbaa !3, !noalias !80
+  store ptr %.pre.i, ptr %5, align 8, !tbaa !3, !alias.scope !80
+  store ptr null, ptr %6, align 8, !tbaa !3, !noalias !80
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit
 
 _ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i, %42
@@ -2513,10 +2513,10 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
   %80 = phi ptr [ %47, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE3cmpERKS4_SB_.exit.thread37 ], [ %.pre44, %78 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
-  call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  %81 = load ptr, ptr %80, align 8, !tbaa !58, !noalias !85
-  store ptr %81, ptr %8, align 8, !tbaa !58, !alias.scope !85
-  store ptr null, ptr %80, align 8, !tbaa !58, !noalias !85
+  call void @llvm.experimental.noalias.scope.decl(metadata !83)
+  %81 = load ptr, ptr %80, align 8, !tbaa !56, !noalias !83
+  store ptr %81, ptr %8, align 8, !tbaa !56, !alias.scope !83
+  store ptr null, ptr %80, align 8, !tbaa !56, !noalias !83
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE6insertEONS9_4nodeERKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.lean::rb_tree<std::pair<lean::name, lean::option_declaration>, lean::rb_map<lean::name, lean::option_declaration, lean::name_quick_cmp>::entry_cmp>::node") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(88) %3)
           to label %82 unwind label %94
 
@@ -2564,10 +2564,10 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #19
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  %98 = load ptr, ptr %97, align 8, !tbaa !58, !noalias !88
-  store ptr %98, ptr %10, align 8, !tbaa !58, !alias.scope !88
-  store ptr null, ptr %97, align 8, !tbaa !58, !noalias !88
+  call void @llvm.experimental.noalias.scope.decl(metadata !86)
+  %98 = load ptr, ptr %97, align 8, !tbaa !56, !noalias !86
+  store ptr %98, ptr %10, align 8, !tbaa !56, !alias.scope !86
+  store ptr null, ptr %97, align 8, !tbaa !56, !noalias !86
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE6insertEONS9_4nodeERKS4_(ptr dead_on_unwind nonnull writable sret(%"struct.lean::rb_tree<std::pair<lean::name, lean::option_declaration>, lean::rb_map<lean::name, lean::option_declaration, lean::name_quick_cmp>::entry_cmp>::node") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(88) %3)
           to label %99 unwind label %112
 
@@ -2613,10 +2613,10 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
 
 114:                                              ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE3cmpERKS4_SB_.exit.thread, %110, %92
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #19
-  call void @llvm.experimental.noalias.scope.decl(metadata !91)
-  %115 = load ptr, ptr %5, align 8, !tbaa !58, !noalias !91
-  store ptr %115, ptr %11, align 8, !tbaa !58, !alias.scope !91
-  store ptr null, ptr %5, align 8, !tbaa !58, !noalias !91
+  call void @llvm.experimental.noalias.scope.decl(metadata !89)
+  %115 = load ptr, ptr %5, align 8, !tbaa !56, !noalias !89
+  store ptr %115, ptr %11, align 8, !tbaa !56, !alias.scope !89
+  store ptr null, ptr %5, align 8, !tbaa !56, !noalias !89
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE5fixupEONS9_4nodeE(ptr dead_on_unwind writable sret(%"struct.lean::rb_tree<std::pair<lean::name, lean::option_declaration>, lean::rb_map<lean::name, lean::option_declaration, lean::name_quick_cmp>::entry_cmp>::node") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %116 unwind label %117
 
@@ -2723,10 +2723,10 @@ _ZN4lean4nameC2ERKS0_.exit.i:                     ; preds = %23, %22, %20, %_ZN4
 _ZNSt4pairIN4lean4nameENS0_18option_declarationEEC2ERKS3_.exit: ; preds = %_ZN4lean4nameC2ERKS0_.exit.i
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %30 = load i8, ptr %29, align 8, !tbaa !62, !range !68, !noundef !69
-  store i8 %30, ptr %28, align 8, !tbaa !62
+  %30 = load i8, ptr %29, align 8, !tbaa !60, !range !66, !noundef !67
+  store i8 %30, ptr %28, align 8, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 0, ptr %31, align 4, !tbaa !78
+  store i32 0, ptr %31, align 4, !tbaa !76
   ret void
 
 32:                                               ; preds = %23
@@ -2773,12 +2773,12 @@ define linkonce_odr hidden void @_ZN4lean18option_declarationC2ERKS0_(ptr nounde
 _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %2, %10, %12, %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !34
-  store i32 %16, ptr %14, align 8, !tbaa !34
+  %16 = load i32, ptr %15, align 8, !tbaa !32
+  store i32 %16, ptr %14, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %19, ptr %17, align 8, !tbaa !38
+  store ptr %19, ptr %17, align 8, !tbaa !36
   %20 = load ptr, ptr %18, align 8, !tbaa !23
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8, !tbaa !27
@@ -2824,7 +2824,7 @@ _ZN4lean4nameC2ERKS0_.exit:                       ; preds = %2, %10, %12, %13
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %37, ptr %35, align 8, !tbaa !38
+  store ptr %37, ptr %35, align 8, !tbaa !36
   %38 = load ptr, ptr %36, align 8, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %40 = load i64, ptr %39, align 8, !tbaa !27
@@ -3010,9 +3010,9 @@ _ZN4lean3incEP11lean_object.exit.i.i.i:           ; preds = %33, %32, %30, %_ZN4
 _ZN4lean18option_declarationaSERKS0_.exit:        ; preds = %_ZN4lean3incEP11lean_object.exit.i.i.i, %41, %43, %44
   store ptr %34, ptr %24, align 8, !tbaa !9
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %46 = load i32, ptr %45, align 8, !tbaa !34
+  %46 = load i32, ptr %45, align 8, !tbaa !32
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %46, ptr %47, align 8, !tbaa !34
+  store i32 %46, ptr %47, align 8, !tbaa !32
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %49)
@@ -3038,7 +3038,7 @@ define linkonce_odr hidden void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_d
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  %13 = load i8, ptr %12, align 8, !tbaa !62, !range !68, !noundef !69
+  %13 = load i8, ptr %12, align 8, !tbaa !60, !range !66, !noundef !67
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit.thread
 
@@ -3049,16 +3049,16 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit25: ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  %18 = load i8, ptr %17, align 8, !tbaa !62, !range !68, !noundef !69
+  %18 = load i8, ptr %17, align 8, !tbaa !60, !range !66, !noundef !67
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit.thread, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit25.thread
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit25.thread: ; preds = %15, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  store ptr %9, ptr %4, align 8, !tbaa !58, !alias.scope !94
-  store ptr null, ptr %1, align 8, !tbaa !58, !noalias !94
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
+  store ptr %9, ptr %4, align 8, !tbaa !56, !alias.scope !92
+  store ptr null, ptr %1, align 8, !tbaa !56, !noalias !92
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE11rotate_leftEONS9_4nodeE(ptr dead_on_unwind nonnull writable sret(%"struct.lean::rb_tree<std::pair<lean::name, lean::option_declaration>, lean::rb_map<lean::name, lean::option_declaration, lean::name_quick_cmp>::entry_cmp>::node") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %20 unwind label %31
 
@@ -3109,7 +3109,7 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit28: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit.thread
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
-  %36 = load i8, ptr %35, align 8, !tbaa !62, !range !68, !noundef !69
+  %36 = load i8, ptr %35, align 8, !tbaa !60, !range !66, !noundef !67
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit34
 
@@ -3120,16 +3120,16 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit30: ; preds = %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 104
-  %41 = load i8, ptr %40, align 8, !tbaa !62, !range !68, !noundef !69
+  %41 = load i8, ptr %40, align 8, !tbaa !60, !range !66, !noundef !67
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit34
 
 43:                                               ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  store ptr %33, ptr %6, align 8, !tbaa !58, !alias.scope !97
-  store ptr null, ptr %1, align 8, !tbaa !58, !noalias !97
+  call void @llvm.experimental.noalias.scope.decl(metadata !95)
+  store ptr %33, ptr %6, align 8, !tbaa !56, !alias.scope !95
+  store ptr null, ptr %1, align 8, !tbaa !56, !noalias !95
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE12rotate_rightEONS9_4nodeE(ptr dead_on_unwind nonnull writable sret(%"struct.lean::rb_tree<std::pair<lean::name, lean::option_declaration>, lean::rb_map<lean::name, lean::option_declaration, lean::name_quick_cmp>::entry_cmp>::node") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %44 unwind label %53
 
@@ -3178,7 +3178,7 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
   %56 = phi ptr [ %.pre39, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit28.thread ], [ %33, %38 ], [ %33, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit30 ], [ %33, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit28 ]
   %57 = phi ptr [ %.pre40, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit28.thread ], [ %34, %38 ], [ %34, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit30 ], [ %34, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit28 ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 104
-  %59 = load i8, ptr %58, align 8, !tbaa !62, !range !68, !noundef !69
+  %59 = load i8, ptr %58, align 8, !tbaa !60, !range !66, !noundef !67
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit34.thread
 
@@ -3190,16 +3190,16 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit36: ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 104
-  %65 = load i8, ptr %64, align 8, !tbaa !62, !range !68, !noundef !69
+  %65 = load i8, ptr %64, align 8, !tbaa !60, !range !66, !noundef !67
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit34.thread
 
 67:                                               ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node6is_redEv.exit36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
-  call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  store ptr %56, ptr %8, align 8, !tbaa !58, !alias.scope !100
-  store ptr null, ptr %1, align 8, !tbaa !58, !noalias !100
+  call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  store ptr %56, ptr %8, align 8, !tbaa !56, !alias.scope !98
+  store ptr null, ptr %1, align 8, !tbaa !56, !noalias !98
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE11flip_colorsEONS9_4nodeE(ptr dead_on_unwind nonnull writable sret(%"struct.lean::rb_tree<std::pair<lean::name, lean::option_declaration>, lean::rb_map<lean::name, lean::option_declaration, lean::name_quick_cmp>::entry_cmp>::node") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %68 unwind label %79
 
@@ -3265,22 +3265,22 @@ define linkonce_odr hidden void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_d
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   %4 = load ptr, ptr %1, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
-  %6 = load ptr, ptr %5, align 8, !tbaa !58, !noalias !103
-  store ptr %6, ptr %3, align 8, !tbaa !58, !alias.scope !103
-  store ptr null, ptr %5, align 8, !tbaa !58, !noalias !103
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
+  %6 = load ptr, ptr %5, align 8, !tbaa !56, !noalias !101
+  store ptr %6, ptr %3, align 8, !tbaa !56, !alias.scope !101
+  store ptr null, ptr %5, align 8, !tbaa !56, !noalias !101
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %.not.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 108
-  %8 = load atomic i32, ptr %7 acquire, align 4, !noalias !106
+  %8 = load atomic i32, ptr %7 acquire, align 4, !noalias !104
   %9 = icmp ugt i32 %8, 1
   br i1 %9, label %10, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i
-  %.pre.i = load ptr, ptr %3, align 8, !tbaa !3, !noalias !106
+  %.pre.i = load ptr, ptr %3, align 8, !tbaa !3, !noalias !104
   br label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i
 
 10:                                               ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i
@@ -3288,26 +3288,26 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
           to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %10
-  %12 = load ptr, ptr %3, align 8, !tbaa !3, !noalias !106
+  %12 = load ptr, ptr %3, align 8, !tbaa !3, !noalias !104
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9node_cellC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(112) %11, ptr noundef nonnull align 8 dereferenceable(112) %12)
-          to label %13 unwind label %16, !noalias !106
+          to label %13 unwind label %16, !noalias !104
 
 13:                                               ; preds = %.noexc
-  store ptr %11, ptr %0, align 8, !tbaa !3, !alias.scope !106
+  store ptr %11, ptr %0, align 8, !tbaa !3, !alias.scope !104
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 108
-  %15 = atomicrmw add ptr %14, i32 1 monotonic, align 4, !noalias !106
+  %15 = atomicrmw add ptr %14, i32 1 monotonic, align 4, !noalias !104
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit
 
 16:                                               ; preds = %.noexc
   %17 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 112) #21, !noalias !106
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 112) #21, !noalias !104
   br label %.body
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i, %2
   %18 = phi ptr [ %.pre.i, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i ], [ null, %2 ]
-  store ptr %18, ptr %0, align 8, !tbaa !3, !alias.scope !106
-  store ptr null, ptr %3, align 8, !tbaa !3, !noalias !106
+  store ptr %18, ptr %0, align 8, !tbaa !3, !alias.scope !104
+  store ptr null, ptr %3, align 8, !tbaa !3, !noalias !104
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit
 
 _ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i, %13
@@ -3385,11 +3385,11 @@ _ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_1
   store ptr %43, ptr %37, align 8, !tbaa !3
   %53 = load ptr, ptr %1, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 104
-  %55 = load i8, ptr %54, align 8, !tbaa !62, !range !68, !noundef !69
+  %55 = load i8, ptr %54, align 8, !tbaa !60, !range !66, !noundef !67
   %56 = load ptr, ptr %0, align 8, !tbaa !3
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 104
-  store i8 %55, ptr %57, align 8, !tbaa !62
-  store i8 1, ptr %54, align 8, !tbaa !62
+  store i8 %55, ptr %57, align 8, !tbaa !60
+  store i8 1, ptr %54, align 8, !tbaa !60
   ret void
 
 58:                                               ; preds = %10
@@ -3409,22 +3409,22 @@ define linkonce_odr hidden void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_d
   %3 = alloca %"struct.lean::rb_tree<std::pair<lean::name, lean::option_declaration>, lean::rb_map<lean::name, lean::option_declaration, lean::name_quick_cmp>::entry_cmp>::node", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   %4 = load ptr, ptr %1, align 8, !tbaa !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !109)
-  %5 = load ptr, ptr %4, align 8, !tbaa !58, !noalias !109
-  store ptr %5, ptr %3, align 8, !tbaa !58, !alias.scope !109
-  store ptr null, ptr %4, align 8, !tbaa !58, !noalias !109
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
+  %5 = load ptr, ptr %4, align 8, !tbaa !56, !noalias !107
+  store ptr %5, ptr %3, align 8, !tbaa !56, !alias.scope !107
+  store ptr null, ptr %4, align 8, !tbaa !56, !noalias !107
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i: ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 108
-  %7 = load atomic i32, ptr %6 acquire, align 4, !noalias !112
+  %7 = load atomic i32, ptr %6 acquire, align 4, !noalias !110
   %8 = icmp ugt i32 %7, 1
   br i1 %8, label %9, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i
-  %.pre.i = load ptr, ptr %3, align 8, !tbaa !3, !noalias !112
+  %.pre.i = load ptr, ptr %3, align 8, !tbaa !3, !noalias !110
   br label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i
 
 9:                                                ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i
@@ -3432,26 +3432,26 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
           to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %9
-  %11 = load ptr, ptr %3, align 8, !tbaa !3, !noalias !112
+  %11 = load ptr, ptr %3, align 8, !tbaa !3, !noalias !110
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9node_cellC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(112) %10, ptr noundef nonnull align 8 dereferenceable(112) %11)
-          to label %12 unwind label %15, !noalias !112
+          to label %12 unwind label %15, !noalias !110
 
 12:                                               ; preds = %.noexc
-  store ptr %10, ptr %0, align 8, !tbaa !3, !alias.scope !112
+  store ptr %10, ptr %0, align 8, !tbaa !3, !alias.scope !110
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 108
-  %14 = atomicrmw add ptr %13, i32 1 monotonic, align 4, !noalias !112
+  %14 = atomicrmw add ptr %13, i32 1 monotonic, align 4, !noalias !110
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit
 
 15:                                               ; preds = %.noexc
   %16 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 112) #21, !noalias !112
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef 112) #21, !noalias !110
   br label %.body
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i, %2
   %17 = phi ptr [ %.pre.i, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i ], [ null, %2 ]
-  store ptr %17, ptr %0, align 8, !tbaa !3, !alias.scope !112
-  store ptr null, ptr %3, align 8, !tbaa !3, !noalias !112
+  store ptr %17, ptr %0, align 8, !tbaa !3, !alias.scope !110
+  store ptr null, ptr %3, align 8, !tbaa !3, !noalias !110
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit
 
 _ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i, %12
@@ -3530,11 +3530,11 @@ _ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_1
   store ptr %43, ptr %37, align 8, !tbaa !3
   %53 = load ptr, ptr %1, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 104
-  %55 = load i8, ptr %54, align 8, !tbaa !62, !range !68, !noundef !69
+  %55 = load i8, ptr %54, align 8, !tbaa !60, !range !66, !noundef !67
   %56 = load ptr, ptr %0, align 8, !tbaa !3
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 104
-  store i8 %55, ptr %57, align 8, !tbaa !62
-  store i8 1, ptr %54, align 8, !tbaa !62
+  store i8 %55, ptr %57, align 8, !tbaa !60
+  store i8 1, ptr %54, align 8, !tbaa !60
   ret void
 
 58:                                               ; preds = %9
@@ -3557,27 +3557,27 @@ define linkonce_odr hidden void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_d
   %6 = alloca %"struct.lean::rb_tree<std::pair<lean::name, lean::option_declaration>, lean::rb_map<lean::name, lean::option_declaration, lean::name_quick_cmp>::entry_cmp>::node", align 8
   %7 = load ptr, ptr %1, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %9 = load i8, ptr %8, align 8, !tbaa !62, !range !68, !noundef !69
+  %9 = load i8, ptr %8, align 8, !tbaa !60, !range !66, !noundef !67
   %10 = xor i8 %9, 1
-  store i8 %10, ptr %8, align 8, !tbaa !62
+  store i8 %10, ptr %8, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
-  %11 = load ptr, ptr %7, align 8, !tbaa !58, !noalias !115
-  store ptr %11, ptr %4, align 8, !tbaa !58, !alias.scope !115
-  store ptr null, ptr %7, align 8, !tbaa !58, !noalias !115
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
+  %11 = load ptr, ptr %7, align 8, !tbaa !56, !noalias !113
+  store ptr %11, ptr %4, align 8, !tbaa !56, !alias.scope !113
+  store ptr null, ptr %7, align 8, !tbaa !56, !noalias !113
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i: ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 108
-  %13 = load atomic i32, ptr %12 acquire, align 4, !noalias !118
+  %13 = load atomic i32, ptr %12 acquire, align 4, !noalias !116
   %14 = icmp ugt i32 %13, 1
   br i1 %14, label %15, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i
-  %.pre.i = load ptr, ptr %4, align 8, !tbaa !3, !noalias !118
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !3, !noalias !116
   br label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i
 
 15:                                               ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i
@@ -3585,26 +3585,26 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
           to label %.noexc unwind label %72
 
 .noexc:                                           ; preds = %15
-  %17 = load ptr, ptr %4, align 8, !tbaa !3, !noalias !118
+  %17 = load ptr, ptr %4, align 8, !tbaa !3, !noalias !116
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9node_cellC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(112) %16, ptr noundef nonnull align 8 dereferenceable(112) %17)
-          to label %18 unwind label %21, !noalias !118
+          to label %18 unwind label %21, !noalias !116
 
 18:                                               ; preds = %.noexc
-  store ptr %16, ptr %3, align 8, !tbaa !3, !alias.scope !118
+  store ptr %16, ptr %3, align 8, !tbaa !3, !alias.scope !116
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 108
-  %20 = atomicrmw add ptr %19, i32 1 monotonic, align 4, !noalias !118
+  %20 = atomicrmw add ptr %19, i32 1 monotonic, align 4, !noalias !116
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit
 
 21:                                               ; preds = %.noexc
   %22 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 112) #21, !noalias !118
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 112) #21, !noalias !116
   br label %.body
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i, %2
   %23 = phi ptr [ %.pre.i, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i ], [ null, %2 ]
-  store ptr %23, ptr %3, align 8, !tbaa !3, !alias.scope !118
-  store ptr null, ptr %4, align 8, !tbaa !3, !noalias !118
+  store ptr %23, ptr %3, align 8, !tbaa !3, !alias.scope !116
+  store ptr null, ptr %4, align 8, !tbaa !3, !noalias !116
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit
 
 _ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i, %18
@@ -3640,22 +3640,22 @@ _ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
   %35 = load ptr, ptr %1, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !121)
-  %37 = load ptr, ptr %36, align 8, !tbaa !58, !noalias !121
-  store ptr %37, ptr %6, align 8, !tbaa !58, !alias.scope !121
-  store ptr null, ptr %36, align 8, !tbaa !58, !noalias !121
-  call void @llvm.experimental.noalias.scope.decl(metadata !124)
+  call void @llvm.experimental.noalias.scope.decl(metadata !119)
+  %37 = load ptr, ptr %36, align 8, !tbaa !56, !noalias !119
+  store ptr %37, ptr %6, align 8, !tbaa !56, !alias.scope !119
+  store ptr null, ptr %36, align 8, !tbaa !56, !noalias !119
+  call void @llvm.experimental.noalias.scope.decl(metadata !122)
   %.not.i.i19 = icmp eq ptr %37, null
   br i1 %.not.i.i19, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i23, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i20
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i20: ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 108
-  %39 = load atomic i32, ptr %38 acquire, align 4, !noalias !124
+  %39 = load atomic i32, ptr %38 acquire, align 4, !noalias !122
   %40 = icmp ugt i32 %39, 1
   br i1 %40, label %41, label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i21
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i21: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i20
-  %.pre.i22 = load ptr, ptr %6, align 8, !tbaa !3, !noalias !124
+  %.pre.i22 = load ptr, ptr %6, align 8, !tbaa !3, !noalias !122
   br label %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i23
 
 41:                                               ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.i20
@@ -3663,26 +3663,26 @@ _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_
           to label %.noexc24 unwind label %74
 
 .noexc24:                                         ; preds = %41
-  %43 = load ptr, ptr %6, align 8, !tbaa !3, !noalias !124
+  %43 = load ptr, ptr %6, align 8, !tbaa !3, !noalias !122
   invoke void @_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9node_cellC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(112) %42, ptr noundef nonnull align 8 dereferenceable(112) %43)
-          to label %44 unwind label %47, !noalias !124
+          to label %44 unwind label %47, !noalias !122
 
 44:                                               ; preds = %.noexc24
-  store ptr %42, ptr %5, align 8, !tbaa !3, !alias.scope !124
+  store ptr %42, ptr %5, align 8, !tbaa !3, !alias.scope !122
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 108
-  %46 = atomicrmw add ptr %45, i32 1 monotonic, align 4, !noalias !124
+  %46 = atomicrmw add ptr %45, i32 1 monotonic, align 4, !noalias !122
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit27
 
 47:                                               ; preds = %.noexc24
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef 112) #21, !noalias !124
+  call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef 112) #21, !noalias !122
   br label %.body25
 
 _ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i23: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i21, %33
   %49 = phi ptr [ %.pre.i22, %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit._ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread_crit_edge.i21 ], [ null, %33 ]
-  store ptr %49, ptr %5, align 8, !tbaa !3, !alias.scope !124
-  store ptr null, ptr %6, align 8, !tbaa !3, !noalias !124
+  store ptr %49, ptr %5, align 8, !tbaa !3, !alias.scope !122
+  store ptr null, ptr %6, align 8, !tbaa !3, !noalias !122
   br label %_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit27
 
 _ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE.exit27: ; preds = %_ZNK4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node9is_sharedEv.exit.thread.i23, %44
@@ -3718,15 +3718,15 @@ _ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_1
   %62 = load ptr, ptr %1, align 8, !tbaa !3
   %63 = load ptr, ptr %62, align 8, !tbaa !3
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 104
-  %65 = load i8, ptr %64, align 8, !tbaa !62, !range !68, !noundef !69
+  %65 = load i8, ptr %64, align 8, !tbaa !60, !range !66, !noundef !67
   %66 = xor i8 %65, 1
-  store i8 %66, ptr %64, align 8, !tbaa !62
+  store i8 %66, ptr %64, align 8, !tbaa !60
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !3
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 104
-  %70 = load i8, ptr %69, align 8, !tbaa !62, !range !68, !noundef !69
+  %70 = load i8, ptr %69, align 8, !tbaa !60, !range !66, !noundef !67
   %71 = xor i8 %70, 1
-  store i8 %71, ptr %69, align 8, !tbaa !62
+  store i8 %71, ptr %69, align 8, !tbaa !60
   store ptr %62, ptr %0, align 8, !tbaa !3
   store ptr null, ptr %1, align 8, !tbaa !3
   ret void
@@ -3829,101 +3829,99 @@ attributes #24 = { builtin allocsize(0) }
 !26 = !{!"p1 omnipotent char", !6, i64 0}
 !27 = !{!24, !15, i64 8}
 !28 = !{!7, !7, i64 0}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!6, !6, i64 0}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"vtable pointer", !8, i64 0}
-!34 = !{!35, !37, i64 8}
-!35 = !{!"_ZTSN4lean18option_declarationE", !36, i64 0, !37, i64 8, !24, i64 16, !24, i64 48}
-!36 = !{!"_ZTSN4lean4nameE", !10, i64 0}
-!37 = !{!"_ZTSN4lean15data_value_kindE", !7, i64 0}
-!38 = !{!25, !26, i64 0}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN4lean7mk_pairINS_4nameENS_18option_declarationEEESt4pairIT_T0_ERKS4_RKS5_: argument 0"}
-!41 = distinct !{!41, !"_ZN4lean7mk_pairINS_4nameENS_18option_declarationEEESt4pairIT_T0_ERKS4_RKS5_"}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZSt9make_pairIRKN4lean4nameERKNS0_18option_declarationEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_: argument 0"}
-!44 = distinct !{!44, !"_ZSt9make_pairIRKN4lean4nameERKNS0_18option_declarationEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_"}
-!45 = !{!43, !40}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN4lean8mk_cnstrEjP11lean_objectj: argument 0"}
-!48 = distinct !{!48, !"_ZN4lean8mk_cnstrEjP11lean_objectj"}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN4lean8mk_cnstrEjP11lean_objectj: argument 0"}
-!51 = distinct !{!51, !"_ZN4lean8mk_cnstrEjP11lean_objectj"}
-!52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN4lean8mk_cnstrEjP11lean_objectj: argument 0"}
-!54 = distinct !{!54, !"_ZN4lean8mk_cnstrEjP11lean_objectj"}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!57 = distinct !{!57, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!58 = !{!5, !5, i64 0}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9set_blackEONS9_4nodeE: argument 0"}
-!61 = distinct !{!61, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9set_blackEONS9_4nodeE"}
-!62 = !{!63, !65, i64 104}
-!63 = !{!"_ZTSN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9node_cellE", !4, i64 0, !4, i64 8, !64, i64 16, !65, i64 104, !66, i64 108}
-!64 = !{!"_ZTSSt4pairIN4lean4nameENS0_18option_declarationEE", !36, i64 0, !35, i64 8}
-!65 = !{!"bool", !7, i64 0}
-!66 = !{!"_ZTSSt6atomicIjE", !67, i64 0}
-!67 = !{!"_ZTSSt13__atomic_baseIjE", !21, i64 0}
-!68 = !{i8 0, i8 2}
-!69 = !{}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!72 = distinct !{!72, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!73 = !{!71, !60}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE: argument 0"}
-!76 = distinct !{!76, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE"}
-!77 = !{!75, !60}
-!78 = !{!67, !21, i64 0}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!81 = distinct !{!81, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE: argument 0"}
-!84 = distinct !{!84, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE"}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!87 = distinct !{!87, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!88 = !{!89}
-!89 = distinct !{!89, !90, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!90 = distinct !{!90, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!91 = !{!92}
-!92 = distinct !{!92, !93, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!93 = distinct !{!93, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!96 = distinct !{!96, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!99 = distinct !{!99, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!102 = distinct !{!102, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!105 = distinct !{!105, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE: argument 0"}
-!108 = distinct !{!108, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE"}
-!109 = !{!110}
-!110 = distinct !{!110, !111, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!111 = distinct !{!111, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE: argument 0"}
-!114 = distinct !{!114, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE"}
-!115 = !{!116}
-!116 = distinct !{!116, !117, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!117 = distinct !{!117, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!118 = !{!119}
-!119 = distinct !{!119, !120, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE: argument 0"}
-!120 = distinct !{!120, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE"}
-!121 = !{!122}
-!122 = distinct !{!122, !123, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
-!123 = distinct !{!123, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE: argument 0"}
-!126 = distinct !{!126, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE"}
+!29 = !{!6, !6, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"vtable pointer", !8, i64 0}
+!32 = !{!33, !35, i64 8}
+!33 = !{!"_ZTSN4lean18option_declarationE", !34, i64 0, !35, i64 8, !24, i64 16, !24, i64 48}
+!34 = !{!"_ZTSN4lean4nameE", !10, i64 0}
+!35 = !{!"_ZTSN4lean15data_value_kindE", !7, i64 0}
+!36 = !{!25, !26, i64 0}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN4lean7mk_pairINS_4nameENS_18option_declarationEEESt4pairIT_T0_ERKS4_RKS5_: argument 0"}
+!39 = distinct !{!39, !"_ZN4lean7mk_pairINS_4nameENS_18option_declarationEEESt4pairIT_T0_ERKS4_RKS5_"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZSt9make_pairIRKN4lean4nameERKNS0_18option_declarationEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_: argument 0"}
+!42 = distinct !{!42, !"_ZSt9make_pairIRKN4lean4nameERKNS0_18option_declarationEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS8_INS9_IT0_E4typeEE6__typeEEOSA_OSF_"}
+!43 = !{!41, !38}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZN4lean8mk_cnstrEjP11lean_objectj: argument 0"}
+!46 = distinct !{!46, !"_ZN4lean8mk_cnstrEjP11lean_objectj"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN4lean8mk_cnstrEjP11lean_objectj: argument 0"}
+!49 = distinct !{!49, !"_ZN4lean8mk_cnstrEjP11lean_objectj"}
+!50 = !{!51}
+!51 = distinct !{!51, !52, !"_ZN4lean8mk_cnstrEjP11lean_objectj: argument 0"}
+!52 = distinct !{!52, !"_ZN4lean8mk_cnstrEjP11lean_objectj"}
+!53 = !{!54}
+!54 = distinct !{!54, !55, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!55 = distinct !{!55, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!56 = !{!5, !5, i64 0}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9set_blackEONS9_4nodeE: argument 0"}
+!59 = distinct !{!59, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9set_blackEONS9_4nodeE"}
+!60 = !{!61, !63, i64 104}
+!61 = !{!"_ZTSN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE9node_cellE", !4, i64 0, !4, i64 8, !62, i64 16, !63, i64 104, !64, i64 108}
+!62 = !{!"_ZTSSt4pairIN4lean4nameENS0_18option_declarationEE", !34, i64 0, !33, i64 8}
+!63 = !{!"bool", !7, i64 0}
+!64 = !{!"_ZTSSt6atomicIjE", !65, i64 0}
+!65 = !{!"_ZTSSt13__atomic_baseIjE", !21, i64 0}
+!66 = !{i8 0, i8 2}
+!67 = !{}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!70 = distinct !{!70, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!71 = !{!69, !58}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE: argument 0"}
+!74 = distinct !{!74, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE"}
+!75 = !{!73, !58}
+!76 = !{!65, !21, i64 0}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!79 = distinct !{!79, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE: argument 0"}
+!82 = distinct !{!82, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!85 = distinct !{!85, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!88 = distinct !{!88, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!91 = distinct !{!91, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!94 = distinct !{!94, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!97 = distinct !{!97, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!100 = distinct !{!100, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!103 = distinct !{!103, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!104 = !{!105}
+!105 = distinct !{!105, !106, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE: argument 0"}
+!106 = distinct !{!106, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE"}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!109 = distinct !{!109, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!110 = !{!111}
+!111 = distinct !{!111, !112, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE: argument 0"}
+!112 = distinct !{!112, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE"}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!115 = distinct !{!115, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!116 = !{!117}
+!117 = distinct !{!117, !118, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE: argument 0"}
+!118 = distinct !{!118, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE"}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv: argument 0"}
+!121 = distinct !{!121, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE4node5stealEv"}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE: argument 0"}
+!124 = distinct !{!124, !"_ZN4lean7rb_treeISt4pairINS_4nameENS_18option_declarationEENS_6rb_mapIS2_S3_NS_14name_quick_cmpEE9entry_cmpEE15ensure_unsharedEONS9_4nodeE"}

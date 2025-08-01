@@ -88,14 +88,14 @@ define noundef i32 @write_image(ptr noundef readonly captures(none) %0, ptr noun
   store i16 %rev, ptr %35, align 2, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %29, label %32, !llvm.loop !14
+  br i1 %exitcond.not, label %29, label %32
 
 36:                                               ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %.133, i64 8
   %38 = add nuw nsw i32 %.02634, 1
   %39 = load i32, ptr %16, align 4, !tbaa !6
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.preheader, label %._crit_edge.loopexit, !llvm.loop !16
+  br i1 %40, label %.preheader, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %36, %29
   %.1.lcssa.ph = phi ptr [ %.133, %29 ], [ %37, %36 ]
@@ -107,7 +107,7 @@ define noundef i32 @write_image(ptr noundef readonly captures(none) %0, ptr noun
   %.1.lcssa = phi ptr [ %.02937, %.preheader31 ], [ %.1.lcssa.ph, %._crit_edge.loopexit ]
   %42 = add nuw nsw i32 %.02838, 1
   %43 = icmp slt i32 %42, %41
-  br i1 %43, label %.preheader31thread-pre-split, label %._crit_edge39, !llvm.loop !17
+  br i1 %43, label %.preheader31thread-pre-split, label %._crit_edge39, !llvm.loop !14
 
 44:                                               ; preds = %._crit_edge39, %12
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %13) #11
@@ -159,7 +159,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %6 = load ptr, ptr %5, align 8, !tbaa !19
+  %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = tail call i64 %6(ptr noundef %0) #11
   %.not = icmp ne i64 %7, %4
   %. = zext i1 %.not to i32
@@ -244,15 +244,12 @@ attributes #12 = { nounwind allocsize(0,1) }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !9, i64 0}
 !14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = distinct !{!16, !15}
-!17 = distinct !{!17, !15, !18}
-!18 = !{!"llvm.loop.unswitch.partial.disable"}
-!19 = !{!20, !23, i64 112}
-!20 = !{!"dt_imageio_module_format_t", !21, i64 0, !23, i64 48, !23, i64 56, !23, i64 64, !23, i64 72, !23, i64 80, !23, i64 88, !23, i64 96, !23, i64 104, !23, i64 112, !23, i64 120, !23, i64 128, !23, i64 136, !23, i64 144, !23, i64 152, !23, i64 160, !23, i64 168, !23, i64 176, !23, i64 184, !23, i64 192, !23, i64 200, !9, i64 208, !25, i64 336, !26, i64 344, !23, i64 352, !8, i64 360, !8, i64 364}
-!21 = !{!"dt_action_t", !8, i64 0, !22, i64 8, !22, i64 16, !23, i64 24, !24, i64 32, !24, i64 40}
-!22 = !{!"p1 omnipotent char", !23, i64 0}
-!23 = !{!"any pointer", !9, i64 0}
-!24 = !{!"p1 _ZTS11dt_action_t", !23, i64 0}
-!25 = !{!"p1 _ZTS8_GModule", !23, i64 0}
-!26 = !{!"p1 _ZTS10_GtkWidget", !23, i64 0}
+!15 = !{!"llvm.loop.unswitch.partial.disable"}
+!16 = !{!17, !20, i64 112}
+!17 = !{!"dt_imageio_module_format_t", !18, i64 0, !20, i64 48, !20, i64 56, !20, i64 64, !20, i64 72, !20, i64 80, !20, i64 88, !20, i64 96, !20, i64 104, !20, i64 112, !20, i64 120, !20, i64 128, !20, i64 136, !20, i64 144, !20, i64 152, !20, i64 160, !20, i64 168, !20, i64 176, !20, i64 184, !20, i64 192, !20, i64 200, !9, i64 208, !22, i64 336, !23, i64 344, !20, i64 352, !8, i64 360, !8, i64 364}
+!18 = !{!"dt_action_t", !8, i64 0, !19, i64 8, !19, i64 16, !20, i64 24, !21, i64 32, !21, i64 40}
+!19 = !{!"p1 omnipotent char", !20, i64 0}
+!20 = !{!"any pointer", !9, i64 0}
+!21 = !{!"p1 _ZTS11dt_action_t", !20, i64 0}
+!22 = !{!"p1 _ZTS8_GModule", !20, i64 0}
+!23 = !{!"p1 _ZTS10_GtkWidget", !20, i64 0}

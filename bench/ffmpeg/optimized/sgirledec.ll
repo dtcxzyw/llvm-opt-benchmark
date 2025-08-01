@@ -152,7 +152,7 @@ define internal i32 @sgirle_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
   store i8 %82, ptr %83, align 1, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %rbg323_to_bgr8.exit.i, label %79, !llvm.loop !38
+  br i1 %exitcond.not.i, label %rbg323_to_bgr8.exit.i, label %79, !llvm.loop !37
 
 rbg323_to_bgr8.exit.i:                            ; preds = %79
   %84 = add nuw nsw i32 %.6108.i, %69
@@ -171,7 +171,7 @@ rbg323_to_bgr8.exit.i:                            ; preds = %79
   %89 = trunc i64 %68 to i8
   %90 = sub i8 %.292.i, %89
   %.not127.i = icmp eq i8 %90, 0
-  br i1 %.not127.i, label %.loopexit.i, label %61, !llvm.loop !39
+  br i1 %.not127.i, label %.loopexit.i, label %61, !llvm.loop !38
 
 .loopexit.i:                                      ; preds = %87, %61, %55
   %.4106.i = phi i32 [ %.2104143.i, %55 ], [ %.8110.i, %87 ], [ %.6108.i, %61 ]
@@ -180,7 +180,7 @@ rbg323_to_bgr8.exit.i:                            ; preds = %79
   %91 = ptrtoint ptr %.186.i to i64
   %92 = sub i64 %31, %91
   %93 = icmp sgt i64 %92, 1
-  br i1 %93, label %.lr.ph.i, label %.loopexit, !llvm.loop !40
+  br i1 %93, label %.lr.ph.i, label %.loopexit, !llvm.loop !39
 
 decode_sgirle8.exit:                              ; preds = %57
   %94 = zext i8 %34 to i32
@@ -257,9 +257,8 @@ attributes #5 = { nounwind }
 !32 = !{!28, !14, i64 24}
 !33 = !{!10, !10, i64 0}
 !34 = !{!8, !8, i64 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !36, !37}
-!39 = distinct !{!39, !36, !37}
-!40 = distinct !{!40, !36, !37}
+!37 = distinct !{!37, !36}
+!38 = distinct !{!38, !36}
+!39 = distinct !{!39, !36}

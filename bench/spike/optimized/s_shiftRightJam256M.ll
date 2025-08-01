@@ -80,7 +80,7 @@ softfloat_shortShiftRightJamM.exit.thread:        ; preds = %16
   store i64 %33, ptr %34, align 8, !tbaa !3
   %35 = lshr i64 %31, %17
   %.not25.i = icmp eq i64 %indvars.iv.next.i, %28
-  br i1 %.not25.i, label %softfloat_shortShiftRightJamM.exit, label %29, !llvm.loop !10
+  br i1 %.not25.i, label %softfloat_shortShiftRightJamM.exit, label %29, !llvm.loop !9
 
 softfloat_shortShiftRightJamM.exit:               ; preds = %29
   %36 = getelementptr inbounds nuw i64, ptr %2, i64 %28
@@ -106,7 +106,7 @@ softfloat_shortShiftRightJamM.exit:               ; preds = %29
   %42 = getelementptr inbounds nuw i8, ptr %.363, i64 8
   %43 = add nsw i8 %.164, -1
   %.not48 = icmp eq i8 %43, 0
-  br i1 %.not48, label %.loopexit60, label %.lr.ph, !llvm.loop !11
+  br i1 %.not48, label %.loopexit60, label %.lr.ph, !llvm.loop !10
 
 .loopexit60:                                      ; preds = %.lr.ph, %softfloat_shortShiftRightJamM.exit
   %.0405776 = phi i1 [ %.0405777, %softfloat_shortShiftRightJamM.exit ], [ %.040577883, %.lr.ph ]
@@ -153,8 +153,7 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}

@@ -85,7 +85,7 @@ for.cond:                                         ; preds = %entry, %for.cond
   %cmp3 = icmp eq i32 %3, %and
   %or.cond = or i1 %cmp1.not, %cmp3
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %r.0, i64 24
-  br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !7
+  br i1 %or.cond, label %for.end, label %for.cond, !llvm.loop !6
 
 for.end:                                          ; preds = %for.cond
   %and5 = and i32 %errcode, 256
@@ -149,7 +149,6 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
+!6 = distinct !{!6, !5}

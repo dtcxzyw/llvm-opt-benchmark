@@ -365,7 +365,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %6, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 5112
   %81 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
@@ -373,24 +373,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 .noexc35.i:                                       ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store i32 1, ptr %82, align 8, !noalias !11
+  store i32 1, ptr %82, align 8, !noalias !10
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 12
-  store i32 1, ptr %83, align 4, !noalias !11
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %81, align 8, !noalias !11
+  store i32 1, ptr %83, align 4, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %81, align 8, !noalias !10
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 16
   invoke void @_ZSt10_ConstructIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEEvPT_DpOT0_(ptr noundef nonnull %84, ptr noundef nonnull align 8 dereferenceable(56) %79, ptr noundef nonnull align 8 dereferenceable(16) %80)
-          to label %86 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i.i, !noalias !11
+          to label %86 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i.i, !noalias !10
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i.i: ; preds = %.noexc35.i
   %85 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %81, i64 noundef 56) #20, !noalias !11
+  call void @_ZdlPvm(ptr noundef nonnull %81, i64 noundef 56) #20, !noalias !10
   br label %.body36.i
 
 86:                                               ; preds = %.noexc35.i
-  store ptr %84, ptr %10, align 8, !alias.scope !8
+  store ptr %84, ptr %10, align 8, !alias.scope !7
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %81, ptr %87, align 8, !alias.scope !8
+  store ptr %81, ptr %87, align 8, !alias.scope !7
   %88 = invoke noundef double @_ZN10open_spiel10algorithms14ExploitabilityERKNS_4GameERKNS_6PolicyE(ptr noundef nonnull align 8 dereferenceable(280) %78, ptr noundef nonnull align 8 dereferenceable(8) %84)
           to label %89 unwind label %129
 
@@ -471,7 +471,7 @@ _ZNSt10shared_ptrIN10open_spiel6PolicyEED2Ev.exit.i: ; preds = %_ZNSt16_Sp_count
 _ZN10open_spiel10algorithms26OutcomeSamplingMCCFRSolver12RunIterationEv.exit.i: ; preds = %121
   %122 = add nuw nsw i32 %.02098.i, 1
   %exitcond.not.i = icmp eq i32 %122, 500
-  br i1 %exitcond.not.i, label %131, label %121, !llvm.loop !14
+  br i1 %exitcond.not.i, label %131, label %121, !llvm.loop !13
 
 123:                                              ; preds = %.noexc.i, %65
   %124 = landingpad { ptr, i32 }
@@ -512,30 +512,30 @@ _ZN10open_spiel10algorithms26OutcomeSamplingMCCFRSolver12RunIterationEv.exit.i: 
 
 131:                                              ; preds = %_ZN10open_spiel10algorithms26OutcomeSamplingMCCFRSolver12RunIterationEv.exit.i
   %132 = load ptr, ptr %6, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %133 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
           to label %.noexc40.i unwind label %.loopexit.split-lp94.i
 
 .noexc40.i:                                       ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  store i32 1, ptr %134, align 8, !noalias !18
+  store i32 1, ptr %134, align 8, !noalias !17
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 12
-  store i32 1, ptr %135, align 4, !noalias !18
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %133, align 8, !noalias !18
+  store i32 1, ptr %135, align 4, !noalias !17
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %133, align 8, !noalias !17
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 16
   invoke void @_ZSt10_ConstructIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEEvPT_DpOT0_(ptr noundef nonnull %136, ptr noundef nonnull align 8 dereferenceable(56) %79, ptr noundef nonnull align 8 dereferenceable(16) %80)
-          to label %138 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i39.i, !noalias !18
+          to label %138 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i39.i, !noalias !17
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i39.i: ; preds = %.noexc40.i
   %137 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %133, i64 noundef 56) #20, !noalias !18
+  call void @_ZdlPvm(ptr noundef nonnull %133, i64 noundef 56) #20, !noalias !17
   br label %.body36.i
 
 138:                                              ; preds = %.noexc40.i
-  store ptr %136, ptr %11, align 8, !alias.scope !15
+  store ptr %136, ptr %11, align 8, !alias.scope !14
   %139 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr %133, ptr %139, align 8, !alias.scope !15
+  store ptr %133, ptr %139, align 8, !alias.scope !14
   %140 = invoke noundef double @_ZN10open_spiel10algorithms14ExploitabilityERKNS_4GameERKNS_6PolicyE(ptr noundef nonnull align 8 dereferenceable(280) %132, ptr noundef nonnull align 8 dereferenceable(8) %136)
           to label %141 unwind label %176
 
@@ -800,31 +800,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i: 
 
 221:                                              ; preds = %200
   %222 = load ptr, ptr %6, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %223 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
           to label %.noexc62.i unwind label %.loopexit.split-lp.i
 
 .noexc62.i:                                       ; preds = %221
   %224 = getelementptr inbounds nuw i8, ptr %203, i64 5112
   %225 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  store i32 1, ptr %225, align 8, !noalias !24
+  store i32 1, ptr %225, align 8, !noalias !23
   %226 = getelementptr inbounds nuw i8, ptr %223, i64 12
-  store i32 1, ptr %226, align 4, !noalias !24
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %223, align 8, !noalias !24
+  store i32 1, ptr %226, align 4, !noalias !23
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %223, align 8, !noalias !23
   %227 = getelementptr inbounds nuw i8, ptr %223, i64 16
   invoke void @_ZSt10_ConstructIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEEvPT_DpOT0_(ptr noundef nonnull %227, ptr noundef nonnull align 8 dereferenceable(56) %204, ptr noundef nonnull align 8 dereferenceable(16) %224)
-          to label %229 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i61.i, !noalias !24
+          to label %229 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i61.i, !noalias !23
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i61.i: ; preds = %.noexc62.i
   %228 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %223, i64 noundef 56) #20, !noalias !24
+  call void @_ZdlPvm(ptr noundef nonnull %223, i64 noundef 56) #20, !noalias !23
   br label %.body63.i
 
 229:                                              ; preds = %.noexc62.i
-  store ptr %227, ptr %26, align 8, !alias.scope !21
+  store ptr %227, ptr %26, align 8, !alias.scope !20
   %230 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %223, ptr %230, align 8, !alias.scope !21
+  store ptr %223, ptr %230, align 8, !alias.scope !20
   %231 = invoke noundef double @_ZN10open_spiel10algorithms14ExploitabilityERKNS_4GameERKNS_6PolicyE(ptr noundef nonnull align 8 dereferenceable(280) %222, ptr noundef nonnull align 8 dereferenceable(8) %227)
           to label %232 unwind label %271
 
@@ -938,12 +938,12 @@ _ZNSt10shared_ptrIN10open_spiel6PolicyEED2Ev.exit72.i: ; preds = %_ZNSt16_Sp_cou
 _ZN10open_spiel10algorithms26OutcomeSamplingMCCFRSolver12RunIterationEv.exit74.i: ; preds = %.preheader.i
   %277 = add nuw nsw i32 %.01199.i, 1
   %exitcond100.not.i = icmp eq i32 %277, 500
-  br i1 %exitcond100.not.i, label %278, label %.preheader.i, !llvm.loop !27
+  br i1 %exitcond100.not.i, label %278, label %.preheader.i, !llvm.loop !26
 
 278:                                              ; preds = %_ZN10open_spiel10algorithms26OutcomeSamplingMCCFRSolver12RunIterationEv.exit74.i
   %279 = load ptr, ptr %6, align 8
   %280 = load ptr, ptr %19, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  call void @llvm.experimental.noalias.scope.decl(metadata !27)
   %281 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
           to label %.noexc76.i unwind label %.loopexit.split-lp.i
 
@@ -951,24 +951,24 @@ _ZN10open_spiel10algorithms26OutcomeSamplingMCCFRSolver12RunIterationEv.exit74.i
   %282 = getelementptr inbounds nuw i8, ptr %280, i64 5112
   %283 = getelementptr inbounds nuw i8, ptr %280, i64 24
   %284 = getelementptr inbounds nuw i8, ptr %281, i64 8
-  store i32 1, ptr %284, align 8, !noalias !31
+  store i32 1, ptr %284, align 8, !noalias !30
   %285 = getelementptr inbounds nuw i8, ptr %281, i64 12
-  store i32 1, ptr %285, align 4, !noalias !31
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %281, align 8, !noalias !31
+  store i32 1, ptr %285, align 4, !noalias !30
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %281, align 8, !noalias !30
   %286 = getelementptr inbounds nuw i8, ptr %281, i64 16
   invoke void @_ZSt10_ConstructIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEEvPT_DpOT0_(ptr noundef nonnull %286, ptr noundef nonnull align 8 dereferenceable(56) %283, ptr noundef nonnull align 8 dereferenceable(16) %282)
-          to label %288 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i75.i, !noalias !31
+          to label %288 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i75.i, !noalias !30
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i75.i: ; preds = %.noexc76.i
   %287 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %281, i64 noundef 56) #20, !noalias !31
+  call void @_ZdlPvm(ptr noundef nonnull %281, i64 noundef 56) #20, !noalias !30
   br label %.body63.i
 
 288:                                              ; preds = %.noexc76.i
-  store ptr %286, ptr %32, align 8, !alias.scope !28
+  store ptr %286, ptr %32, align 8, !alias.scope !27
   %289 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %281, ptr %289, align 8, !alias.scope !28
+  store ptr %281, ptr %289, align 8, !alias.scope !27
   %290 = invoke noundef double @_ZN10open_spiel10algorithms14ExploitabilityERKNS_4GameERKNS_6PolicyE(ptr noundef nonnull align 8 dereferenceable(280) %279, ptr noundef nonnull align 8 dereferenceable(8) %286)
           to label %291 unwind label %326
 
@@ -1283,7 +1283,7 @@ define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_116MCCFR_2P
 12:                                               ; preds = %.preheader
   %13 = add nuw nsw i32 %.01126, 1
   %exitcond.not = icmp eq i32 %13, 10000
-  br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !34
+  br i1 %exitcond.not, label %16, label %.preheader, !llvm.loop !33
 
 14:                                               ; preds = %3
   %15 = landingpad { ptr, i32 }
@@ -1301,7 +1301,7 @@ define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_116MCCFR_2P
   br label %.body
 
 16:                                               ; preds = %12
-  call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %17 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #19
           to label %.noexc unwind label %.loopexit.split-lp
 
@@ -1309,24 +1309,24 @@ define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_116MCCFR_2P
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 5112
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i32 1, ptr %20, align 8, !noalias !38
+  store i32 1, ptr %20, align 8, !noalias !37
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  store i32 1, ptr %21, align 4, !noalias !38
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17, align 8, !noalias !38
+  store i32 1, ptr %21, align 4, !noalias !37
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %17, align 8, !noalias !37
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   invoke void @_ZSt10_ConstructIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEEvPT_DpOT0_(ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(16) %18)
-          to label %24 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !38
+          to label %24 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !37
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10open_spiel10algorithms16CFRAveragePolicyESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i: ; preds = %.noexc
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 56) #20, !noalias !38
+  call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 56) #20, !noalias !37
   br label %.body
 
 24:                                               ; preds = %.noexc
-  store ptr %22, ptr %6, align 8, !alias.scope !35
+  store ptr %22, ptr %6, align 8, !alias.scope !34
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %17, ptr %25, align 8, !alias.scope !35
+  store ptr %17, ptr %25, align 8, !alias.scope !34
   %26 = load ptr, ptr %4, align 8
   %27 = invoke noundef double @_ZN10open_spiel10algorithms8NashConvERKNS_4GameERKNS_6PolicyEb(ptr noundef nonnull align 8 dereferenceable(280) %26, ptr noundef nonnull align 8 dereferenceable(8) %22, i1 noundef zeroext true)
           to label %28 unwind label %47
@@ -1810,7 +1810,7 @@ _ZNSt10shared_ptrIN10open_spiel6PolicyEED2Ev.exit: ; preds = %1, %20, %33, %_ZNS
   tail call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms18CFRInfoStateValuesEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %42) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i, i64 noundef 144) #20
   %.not.i.i.i.i1 = icmp eq ptr %41, null
-  br i1 %.not.i.i.i.i1, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel10algorithms18CFRInfoStateValuesEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i.i1, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel10algorithms18CFRInfoStateValuesEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !40
 
 _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel10algorithms18CFRInfoStateValuesEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt10shared_ptrIN10open_spiel6PolicyEED2Ev.exit
   %43 = load ptr, ptr %38, align 8
@@ -2616,40 +2616,39 @@ attributes #21 = { noreturn }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv: argument 0"}
-!10 = distinct !{!10, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv"}
-!11 = !{!12, !9}
-!12 = distinct !{!12, !13, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_: argument 0"}
-!13 = distinct !{!13, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_"}
-!14 = distinct !{!14, !6, !7}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv: argument 0"}
-!17 = distinct !{!17, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv"}
-!18 = !{!19, !16}
-!19 = distinct !{!19, !20, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_: argument 0"}
-!20 = distinct !{!20, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv: argument 0"}
-!23 = distinct !{!23, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv"}
-!24 = !{!25, !22}
-!25 = distinct !{!25, !26, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_: argument 0"}
-!26 = distinct !{!26, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_"}
-!27 = distinct !{!27, !6, !7}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv: argument 0"}
-!30 = distinct !{!30, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv"}
-!31 = !{!32, !29}
-!32 = distinct !{!32, !33, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_: argument 0"}
-!33 = distinct !{!33, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_"}
-!34 = distinct !{!34, !6, !7}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv: argument 0"}
-!37 = distinct !{!37, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv"}
-!38 = !{!39, !36}
-!39 = distinct !{!39, !40, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_: argument 0"}
-!40 = distinct !{!40, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_"}
-!41 = distinct !{!41, !6, !7}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv: argument 0"}
+!9 = distinct !{!9, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv"}
+!10 = !{!11, !8}
+!11 = distinct !{!11, !12, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_: argument 0"}
+!12 = distinct !{!12, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_"}
+!13 = distinct !{!13, !6}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv: argument 0"}
+!16 = distinct !{!16, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv"}
+!17 = !{!18, !15}
+!18 = distinct !{!18, !19, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_: argument 0"}
+!19 = distinct !{!19, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv: argument 0"}
+!22 = distinct !{!22, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv"}
+!23 = !{!24, !21}
+!24 = distinct !{!24, !25, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_: argument 0"}
+!25 = distinct !{!25, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_"}
+!26 = distinct !{!26, !6}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv: argument 0"}
+!29 = distinct !{!29, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv"}
+!30 = !{!31, !28}
+!31 = distinct !{!31, !32, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_: argument 0"}
+!32 = distinct !{!32, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_"}
+!33 = distinct !{!33, !6}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv: argument 0"}
+!36 = distinct !{!36, !"_ZNK10open_spiel10algorithms26OutcomeSamplingMCCFRSolver13AveragePolicyEv"}
+!37 = !{!38, !35}
+!38 = distinct !{!38, !39, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_: argument 0"}
+!39 = distinct !{!39, !"_ZSt11make_sharedIN10open_spiel10algorithms16CFRAveragePolicyEJRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_18CFRInfoStateValuesESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEERKSt10shared_ptrINS0_6PolicyEEEESM_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESS_E4typeEEDpOT0_"}
+!40 = distinct !{!40, !6}

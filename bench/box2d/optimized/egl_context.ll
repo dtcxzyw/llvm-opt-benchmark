@@ -1088,7 +1088,7 @@ sub_2:                                            ; preds = %sub_1
   %214 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv.next
   %215 = load ptr, ptr %214, align 8, !tbaa !186
   %.not132 = icmp eq ptr %215, null
-  br i1 %.not132, label %._crit_edge, label %sub_0, !llvm.loop !188
+  br i1 %.not132, label %._crit_edge, label %sub_0
 
 ._crit_edge:                                      ; preds = %212, %210, %197
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -1102,17 +1102,17 @@ sub_2:                                            ; preds = %sub_1
 
 .critedge:                                        ; preds = %._crit_edge, %188
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store ptr @makeContextCurrentEGL, ptr %219, align 8, !tbaa !190
+  store ptr @makeContextCurrentEGL, ptr %219, align 8, !tbaa !188
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store ptr @swapBuffersEGL, ptr %220, align 8, !tbaa !191
+  store ptr @swapBuffersEGL, ptr %220, align 8, !tbaa !189
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  store ptr @swapIntervalEGL, ptr %221, align 8, !tbaa !192
+  store ptr @swapIntervalEGL, ptr %221, align 8, !tbaa !190
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store ptr @extensionSupportedEGL, ptr %222, align 8, !tbaa !193
+  store ptr @extensionSupportedEGL, ptr %222, align 8, !tbaa !191
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store ptr @getProcAddressEGL, ptr %223, align 8, !tbaa !194
+  store ptr @getProcAddressEGL, ptr %223, align 8, !tbaa !192
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store ptr @destroyContextEGL, ptr %224, align 8, !tbaa !195
+  store ptr @destroyContextEGL, ptr %224, align 8, !tbaa !193
   br label %225
 
 225:                                              ; preds = %218, %14, %.critedge, %getEGLErrorString.exit142, %getEGLErrorString.exit140, %getEGLErrorString.exit138, %getEGLErrorString.exit, %7
@@ -1153,7 +1153,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
 24:                                               ; preds = %3, %20
   %.060 = phi i32 [ %., %20 ], [ 8, %3 ]
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %26 = load i32, ptr %25, align 4, !tbaa !196
+  %26 = load i32, ptr %25, align 4, !tbaa !194
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %28, label %27
 
@@ -1236,7 +1236,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
   %71 = load i32, ptr %12, align 4, !tbaa !173
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
   %72 = sext i32 %71 to i64
-  store i64 %72, ptr %46, align 8, !tbaa !197
+  store i64 %72, ptr %46, align 8, !tbaa !195
   %.not68.not = icmp eq i32 %71, 0
   br i1 %.not68.not, label %.critedge, label %73
 
@@ -1247,18 +1247,18 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
 
 75:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #4
-  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141648), align 8, !tbaa !199
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !200
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141648), align 8, !tbaa !197
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !198
   %78 = call ptr %76(ptr noundef %77, i64 noundef 1, ptr noundef nonnull %16, ptr noundef nonnull %17) #4
   %.not70 = icmp eq ptr %78, null
   br i1 %.not70, label %85, label %79
 
 79:                                               ; preds = %75
-  %80 = load ptr, ptr %78, align 8, !tbaa !201
+  %80 = load ptr, ptr %78, align 8, !tbaa !199
   %81 = call i32 @_glfwIsVisualTransparentX11(ptr noundef %80) #4
   %82 = getelementptr inbounds nuw i8, ptr %53, i64 60
   store i32 %81, ptr %82, align 4, !tbaa !182
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !202
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !200
   %84 = call i32 %83(ptr noundef nonnull %78) #4
   br label %85
 
@@ -1288,7 +1288,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
   %96 = call i32 %94(ptr noundef %95, ptr noundef %51, i32 noundef 12324, ptr noundef nonnull %10) #4
   %97 = load i32, ptr %10, align 4, !tbaa !173
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
-  store i32 %97, ptr %53, align 8, !tbaa !203
+  store i32 %97, ptr %53, align 8, !tbaa !201
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133592), align 8, !tbaa !96
   %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
@@ -1296,7 +1296,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
   %101 = load i32, ptr %9, align 4, !tbaa !173
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
   %102 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i32 %101, ptr %102, align 4, !tbaa !204
+  store i32 %101, ptr %102, align 4, !tbaa !202
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
   %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133592), align 8, !tbaa !96
   %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
@@ -1304,7 +1304,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
   %106 = load i32, ptr %8, align 4, !tbaa !173
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   %107 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 %106, ptr %107, align 8, !tbaa !205
+  store i32 %106, ptr %107, align 8, !tbaa !203
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
   %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133592), align 8, !tbaa !96
   %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
@@ -1312,7 +1312,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
   %111 = load i32, ptr %7, align 4, !tbaa !173
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   %112 = getelementptr inbounds nuw i8, ptr %53, i64 12
-  store i32 %111, ptr %112, align 4, !tbaa !206
+  store i32 %111, ptr %112, align 4, !tbaa !204
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
   %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133592), align 8, !tbaa !96
   %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
@@ -1320,7 +1320,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
   %116 = load i32, ptr %6, align 4, !tbaa !173
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   %117 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store i32 %116, ptr %117, align 8, !tbaa !207
+  store i32 %116, ptr %117, align 8, !tbaa !205
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
   %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133592), align 8, !tbaa !96
   %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
@@ -1328,7 +1328,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
   %121 = load i32, ptr %5, align 4, !tbaa !173
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   %122 = getelementptr inbounds nuw i8, ptr %53, i64 20
-  store i32 %121, ptr %122, align 4, !tbaa !208
+  store i32 %121, ptr %122, align 4, !tbaa !206
   %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 40), align 8, !tbaa !181
   %124 = icmp ne i32 %123, 393219
   %125 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133560), align 8
@@ -1342,7 +1342,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
   br i1 %.not72, label %129, label %132
 
 129:                                              ; preds = %127
-  %130 = load i32, ptr %112, align 4, !tbaa !206
+  %130 = load i32, ptr %112, align 4, !tbaa !204
   %131 = icmp sgt i32 %130, 0
   br i1 %131, label %143, label %132
 
@@ -1354,13 +1354,13 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
   %136 = load i32, ptr %4, align 4, !tbaa !173
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
   %137 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  store i32 %136, ptr %137, align 8, !tbaa !209
+  store i32 %136, ptr %137, align 8, !tbaa !207
   %138 = load i32, ptr %48, align 8, !tbaa !180
   %139 = getelementptr inbounds nuw i8, ptr %53, i64 56
   store i32 %138, ptr %139, align 8, !tbaa !180
   %140 = ptrtoint ptr %51 to i64
   %141 = getelementptr inbounds nuw i8, ptr %53, i64 64
-  store i64 %140, ptr %141, align 8, !tbaa !210
+  store i64 %140, ptr %141, align 8, !tbaa !208
   %142 = add nsw i32 %.05674, 1
   br label %143
 
@@ -1375,7 +1375,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
   %144 = load i32, ptr %15, align 4, !tbaa !173
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next, %145
-  br i1 %146, label %49, label %._crit_edge, !llvm.loop !211
+  br i1 %146, label %49, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %143
   %147 = call ptr @_glfwChooseFBConfig(ptr noundef %1, ptr noundef %43, i32 noundef %.1) #4
@@ -1390,7 +1390,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseEGLConfig(ptr noundef readonly
 149:                                              ; preds = %._crit_edge.thread, %._crit_edge
   %150 = phi ptr [ %148, %._crit_edge.thread ], [ %147, %._crit_edge ]
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 64
-  %152 = load i64, ptr %151, align 8, !tbaa !210
+  %152 = load i64, ptr %151, align 8, !tbaa !208
   %153 = inttoptr i64 %152 to ptr
   store ptr %153, ptr %2, align 8, !tbaa !178
   br label %166
@@ -1520,7 +1520,7 @@ define internal void @swapBuffersEGL(ptr noundef readonly captures(address) %0) 
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %9 = load i32, ptr %8, align 8, !tbaa !212
+  %9 = load i32, ptr %8, align 8, !tbaa !209
   %.not3 = icmp eq i32 %9, 0
   br i1 %.not3, label %16, label %10
 
@@ -1575,7 +1575,7 @@ define internal void @destroyContextEGL(ptr noundef captures(none) %0) #0 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %5 = load i32, ptr %4, align 8, !tbaa !213
+  %5 = load i32, ptr %4, align 8, !tbaa !210
   %.not12 = icmp eq i32 %5, 196609
   br i1 %.not12, label %10, label %6
 
@@ -1641,15 +1641,15 @@ define hidden range(i32 0, 2) i32 @_glfwChooseVisualEGL(ptr noundef readnone cap
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133504), align 8, !tbaa !112
   %14 = load ptr, ptr %7, align 8, !tbaa !178
   %15 = call i32 %12(ptr noundef %13, ptr noundef %14, i32 noundef 12334, ptr noundef nonnull %8) #4
-  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !214
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !211
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %16, ptr %17, align 8, !tbaa !215
+  store i32 %16, ptr %17, align 8, !tbaa !212
   %18 = load i32, ptr %8, align 4, !tbaa !173
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %19, ptr %20, align 8, !tbaa !197
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141648), align 8, !tbaa !199
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !200
+  store i64 %19, ptr %20, align 8, !tbaa !195
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141648), align 8, !tbaa !197
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !198
   %23 = call ptr %21(ptr noundef %22, i64 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %9) #4
   %.not9 = icmp eq ptr %23, null
   br i1 %.not9, label %24, label %25
@@ -1659,12 +1659,12 @@ define hidden range(i32 0, 2) i32 @_glfwChooseVisualEGL(ptr noundef readnone cap
   br label %31
 
 25:                                               ; preds = %11
-  %26 = load ptr, ptr %23, align 8, !tbaa !201
+  %26 = load ptr, ptr %23, align 8, !tbaa !199
   store ptr %26, ptr %3, align 8, !tbaa !178
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  %28 = load i32, ptr %27, align 4, !tbaa !216
+  %28 = load i32, ptr %27, align 4, !tbaa !213
   store i32 %28, ptr %4, align 4, !tbaa !173
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !202
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !200
   %30 = call i32 %29(ptr noundef nonnull %23) #4
   br label %31
 
@@ -1679,7 +1679,7 @@ define hidden range(i32 0, 2) i32 @_glfwChooseVisualEGL(ptr noundef readnone cap
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetEGLDisplay() local_unnamed_addr #0 {
-  %1 = load i32, ptr @_glfw, align 8, !tbaa !217
+  %1 = load i32, ptr @_glfw, align 8, !tbaa !214
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %2, label %3
 
@@ -1698,7 +1698,7 @@ define ptr @glfwGetEGLDisplay() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetEGLContext(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !217
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !214
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1708,7 +1708,7 @@ define ptr @glfwGetEGLContext(ptr noundef readonly captures(none) %0) local_unna
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %6 = load i32, ptr %5, align 4, !tbaa !218
+  %6 = load i32, ptr %5, align 4, !tbaa !215
   %.not4 = icmp eq i32 %6, 221186
   br i1 %.not4, label %8, label %7
 
@@ -1728,7 +1728,7 @@ define ptr @glfwGetEGLContext(ptr noundef readonly captures(none) %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetEGLSurface(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !217
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !214
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1738,7 +1738,7 @@ define ptr @glfwGetEGLSurface(ptr noundef readonly captures(none) %0) local_unna
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %6 = load i32, ptr %5, align 4, !tbaa !218
+  %6 = load i32, ptr %5, align 4, !tbaa !215
   %.not4 = icmp eq i32 %6, 221186
   br i1 %.not4, label %8, label %7
 
@@ -1965,34 +1965,31 @@ attributes #4 = { nounwind }
 !185 = !{!135, !5, i64 648}
 !186 = !{!20, !20, i64 0}
 !187 = !{!135, !5, i64 672}
-!188 = distinct !{!188, !189}
-!189 = !{!"llvm.loop.estimated_trip_count"}
-!190 = !{!135, !5, i64 600}
-!191 = !{!135, !5, i64 608}
-!192 = !{!135, !5, i64 616}
-!193 = !{!135, !5, i64 624}
-!194 = !{!135, !5, i64 632}
-!195 = !{!135, !5, i64 640}
-!196 = !{!17, !10, i64 44}
-!197 = !{!198, !18, i64 8}
-!198 = !{!"", !5, i64 0, !18, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !10, i64 56, !10, i64 60}
-!199 = !{!9, !5, i64 141648}
-!200 = !{!9, !75, i64 137840}
-!201 = !{!198, !5, i64 0}
-!202 = !{!9, !5, i64 141552}
-!203 = !{!17, !10, i64 0}
-!204 = !{!17, !10, i64 4}
-!205 = !{!17, !10, i64 8}
-!206 = !{!17, !10, i64 12}
-!207 = !{!17, !10, i64 16}
-!208 = !{!17, !10, i64 20}
-!209 = !{!17, !10, i64 48}
-!210 = !{!17, !18, i64 64}
-!211 = distinct !{!211, !189}
-!212 = !{!135, !10, i64 872}
-!213 = !{!135, !10, i64 528}
-!214 = !{!9, !10, i64 137848}
-!215 = !{!198, !10, i64 16}
-!216 = !{!198, !10, i64 20}
-!217 = !{!9, !10, i64 0}
-!218 = !{!135, !10, i64 532}
+!188 = !{!135, !5, i64 600}
+!189 = !{!135, !5, i64 608}
+!190 = !{!135, !5, i64 616}
+!191 = !{!135, !5, i64 624}
+!192 = !{!135, !5, i64 632}
+!193 = !{!135, !5, i64 640}
+!194 = !{!17, !10, i64 44}
+!195 = !{!196, !18, i64 8}
+!196 = !{!"", !5, i64 0, !18, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !10, i64 56, !10, i64 60}
+!197 = !{!9, !5, i64 141648}
+!198 = !{!9, !75, i64 137840}
+!199 = !{!196, !5, i64 0}
+!200 = !{!9, !5, i64 141552}
+!201 = !{!17, !10, i64 0}
+!202 = !{!17, !10, i64 4}
+!203 = !{!17, !10, i64 8}
+!204 = !{!17, !10, i64 12}
+!205 = !{!17, !10, i64 16}
+!206 = !{!17, !10, i64 20}
+!207 = !{!17, !10, i64 48}
+!208 = !{!17, !18, i64 64}
+!209 = !{!135, !10, i64 872}
+!210 = !{!135, !10, i64 528}
+!211 = !{!9, !10, i64 137848}
+!212 = !{!196, !10, i64 16}
+!213 = !{!196, !10, i64 20}
+!214 = !{!9, !10, i64 0}
+!215 = !{!135, !10, i64 532}

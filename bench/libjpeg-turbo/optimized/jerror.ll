@@ -302,7 +302,7 @@ define internal void @format_message(ptr noundef readonly captures(none) %0, ptr
   switch i8 %37, label %35 [
     i8 0, label %.critedge
     i8 37, label %38
-  ], !llvm.loop !33
+  ]
 
 38:                                               ; preds = %35
   %39 = load i8, ptr %36, align 1, !tbaa !32
@@ -415,5 +415,3 @@ attributes #13 = { cold nounwind }
 !30 = !{!31, !31, i64 0}
 !31 = !{!"p1 omnipotent char", !5, i64 0}
 !32 = !{!6, !6, i64 0}
-!33 = distinct !{!33, !34}
-!34 = !{!"llvm.loop.estimated_trip_count"}

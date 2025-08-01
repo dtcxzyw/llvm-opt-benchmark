@@ -167,7 +167,7 @@ define hidden void @Wayland_RemoveOutputFromWindow(ptr noundef captures(none) %0
 
 36:                                               ; preds = %._crit_edge
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 397
-  %38 = load i8, ptr %37, align 1, !range !6, !noundef !7
+  %38 = load i8, ptr %37, align 1, !range !5, !noundef !6
   %39 = trunc nuw i8 %38 to i1
   %40 = icmp ne i32 %.lcssa, 1
   %or.cond.not = and i1 %40, %39
@@ -215,7 +215,7 @@ define hidden void @Wayland_RemoveOutputFromWindow(ptr noundef captures(none) %0
   %.0..i = select i1 %61, double %.018.i, double %60
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %56, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit.i, label %56, !llvm.loop !7
 
 62:                                               ; preds = %51
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -276,7 +276,7 @@ define internal fastcc void @Wayland_move_window(ptr noundef %0) unnamed_addr #0
   %17 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next
   %18 = load i32, ptr %17, align 4
   %.not32 = icmp eq i32 %18, 0
-  br i1 %.not32, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not32, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
@@ -525,7 +525,7 @@ define hidden void @Wayland_ShowWindow(ptr noundef readonly captures(none) %0, p
 
 21:                                               ; preds = %14, %11
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 402
-  %23 = load i8, ptr %22, align 2, !range !6, !noundef !7
+  %23 = load i8, ptr %22, align 2, !range !5, !noundef !6
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %30
 
@@ -615,7 +615,7 @@ EnsurePopupPositionIsValid.exit:                  ; preds = %62, %68
   %88 = tail call i32 %87(ptr noundef %82) #15
   %89 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %86(ptr noundef %82, i32 noundef 2, ptr noundef null, i32 noundef %88, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %85, i32 noundef %85) #15
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 270
-  %91 = load i8, ptr %90, align 2, !range !6, !noundef !7
+  %91 = load i8, ptr %90, align 2, !range !5, !noundef !6
   %92 = trunc nuw i8 %91 to i1
   %93 = select i1 %92, i32 3, i32 0
   %94 = load ptr, ptr %77, align 8
@@ -638,7 +638,7 @@ EnsurePopupPositionIsValid.exit:                  ; preds = %62, %68
   %111 = tail call i32 %110(ptr noundef %104) #15
   %112 = tail call ptr (ptr, i32, ptr, i32, i32, ...) %109(ptr noundef %104, i32 noundef 1, ptr noundef null, i32 noundef %111, i32 noundef 0, i32 noundef %106, i32 noundef %108) #15
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 267
-  %114 = load i8, ptr %113, align 1, !range !6, !noundef !7
+  %114 = load i8, ptr %113, align 1, !range !5, !noundef !6
   %115 = trunc nuw i8 %114 to i1
   %.in.v = select i1 %115, i64 136, i64 24
   %.in = getelementptr inbounds nuw i8, ptr %1, i64 %.in.v
@@ -680,7 +680,7 @@ EnsurePopupPositionIsValid.exit:                  ; preds = %62, %68
   %139 = select i1 %137, i32 %138, i32 0
   %.3 = add nsw i32 %139, %.2193
   %140 = getelementptr inbounds nuw i8, ptr %6, i64 403
-  %141 = load i8, ptr %140, align 1, !range !6, !noundef !7
+  %141 = load i8, ptr %140, align 1, !range !5, !noundef !6
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %143, label %PixelToPoint.exit174
 
@@ -700,7 +700,7 @@ EnsurePopupPositionIsValid.exit:                  ; preds = %62, %68
 
 151:                                              ; preds = %144
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 403
-  %153 = load i8, ptr %152, align 1, !range !6, !noundef !7
+  %153 = load i8, ptr %152, align 1, !range !5, !noundef !6
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %._crit_edge.i.i, label %GetWindowScale.exit.i
 
@@ -726,7 +726,7 @@ GetWindowScale.exit.i:                            ; preds = %._crit_edge.i.i, %1
 
 166:                                              ; preds = %162
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 403
-  %168 = load i8, ptr %167, align 1, !range !6, !noundef !7
+  %168 = load i8, ptr %167, align 1, !range !5, !noundef !6
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %._crit_edge.i5.i, label %GetWindowScale.exit6.i
 
@@ -760,7 +760,7 @@ PixelToPoint.exit:                                ; preds = %143, %GetWindowScal
 
 185:                                              ; preds = %177
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 403
-  %187 = load i8, ptr %186, align 1, !range !6, !noundef !7
+  %187 = load i8, ptr %186, align 1, !range !5, !noundef !6
   %188 = trunc nuw i8 %187 to i1
   br i1 %188, label %._crit_edge.i.i169, label %GetWindowScale.exit.i170
 
@@ -786,7 +786,7 @@ GetWindowScale.exit.i170:                         ; preds = %._crit_edge.i.i169,
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 403
-  %202 = load i8, ptr %201, align 1, !range !6, !noundef !7
+  %202 = load i8, ptr %201, align 1, !range !5, !noundef !6
   %203 = trunc nuw i8 %202 to i1
   br i1 %203, label %._crit_edge.i5.i172, label %GetWindowScale.exit6.i173
 
@@ -861,19 +861,19 @@ PixelToPoint.exit174:                             ; preds = %GetWindowScale.exit
   %252 = load i64, ptr %251, align 8
   %253 = and i64 %252, 786432
   %.not.i175 = icmp eq i64 %253, 0
-  br i1 %.not.i175, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i175, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %254 = getelementptr inbounds nuw i8, ptr %250, i64 400
   store ptr %1, ptr %254, align 8
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 265
-  %256 = load i8, ptr %255, align 1, !range !6, !noundef !7
+  %256 = load i8, ptr %255, align 1, !range !5, !noundef !6
   %257 = trunc nuw i8 %256 to i1
   br i1 %257, label %Wayland_SetKeyboardFocus.exit, label %258
 
 258:                                              ; preds = %._crit_edge.i
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 271
-  %260 = load i8, ptr %259, align 1, !range !6, !noundef !7
+  %260 = load i8, ptr %259, align 1, !range !5, !noundef !6
   %261 = trunc nuw i8 %260 to i1
   br i1 %261, label %Wayland_SetKeyboardFocus.exit, label %262
 
@@ -1171,7 +1171,7 @@ Wayland_SetWindowTitle.exit:                      ; preds = %Wayland_SetWindowMo
 
 .preheader:                                       ; preds = %427
   %430 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %431 = load i8, ptr %430, align 8, !range !6, !noundef !7
+  %431 = load i8, ptr %430, align 8, !range !5, !noundef !6
   %432 = trunc nuw i8 %431 to i1
   br i1 %432, label %.loopexit, label %.lr.ph
 
@@ -1186,9 +1186,9 @@ Wayland_SetWindowTitle.exit:                      ; preds = %Wayland_SetWindowMo
   %438 = load ptr, ptr @WAYLAND_wl_display_dispatch, align 8
   %439 = load ptr, ptr %433, align 8
   %440 = tail call i32 %438(ptr noundef %439) #15
-  %441 = load i8, ptr %430, align 8, !range !6, !noundef !7
+  %441 = load i8, ptr %430, align 8, !range !5, !noundef !6
   %442 = trunc nuw i8 %441 to i1
-  br i1 %442, label %.loopexit, label %434, !llvm.loop !11
+  br i1 %442, label %.loopexit, label %434, !llvm.loop !10
 
 .loopexit:                                        ; preds = %434, %Wayland_SetWindowTitle.exit, %.preheader, %427
   %443 = getelementptr inbounds nuw i8, ptr %6, i64 336
@@ -1311,7 +1311,7 @@ define hidden void @Wayland_HideWindow(ptr noundef readonly captures(none) %0, p
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 402
-  %14 = load i8, ptr %13, align 2, !range !6, !noundef !7
+  %14 = load i8, ptr %13, align 2, !range !5, !noundef !6
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %21
 
@@ -1431,7 +1431,7 @@ define hidden void @Wayland_HideWindow(ptr noundef readonly captures(none) %0, p
   %85 = load i64, ptr %84, align 8
   %86 = and i64 %85, 786432
   %.not.i.i = icmp eq i64 %86, 0
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %76
   %.0.lcssa.i.i = phi ptr [ %78, %76 ], [ %83, %.lr.ph.i.i ]
@@ -1441,13 +1441,13 @@ define hidden void @Wayland_HideWindow(ptr noundef readonly captures(none) %0, p
 
 88:                                               ; preds = %._crit_edge.i.i
   %89 = getelementptr inbounds nuw i8, ptr %78, i64 265
-  %90 = load i8, ptr %89, align 1, !range !6, !noundef !7
+  %90 = load i8, ptr %89, align 1, !range !5, !noundef !6
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %Wayland_SetKeyboardFocus.exit.i, label %92
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %78, i64 271
-  %94 = load i8, ptr %93, align 1, !range !6, !noundef !7
+  %94 = load i8, ptr %93, align 1, !range !5, !noundef !6
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %Wayland_SetKeyboardFocus.exit.i, label %96
 
@@ -1663,7 +1663,7 @@ define hidden range(i32 0, 3) i32 @Wayland_SetWindowFullscreen(ptr noundef reado
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 400
-  %16 = load i8, ptr %15, align 8, !range !6, !noundef !7
+  %16 = load i8, ptr %15, align 8, !range !5, !noundef !6
   %17 = trunc nuw i8 %16 to i1
   %18 = icmp eq i32 %3, 0
   %or.cond = and i1 %18, %17
@@ -1671,7 +1671,7 @@ define hidden range(i32 0, 3) i32 @Wayland_SetWindowFullscreen(ptr noundef reado
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 402
-  %21 = load i8, ptr %20, align 2, !range !6, !noundef !7
+  %21 = load i8, ptr %20, align 2, !range !5, !noundef !6
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %30
 
@@ -1686,16 +1686,16 @@ define hidden range(i32 0, 3) i32 @Wayland_SetWindowFullscreen(ptr noundef reado
 
 30:                                               ; preds = %23, %19
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 399
-  %32 = load i8, ptr %31, align 1, !range !6, !noundef !7
+  %32 = load i8, ptr %31, align 1, !range !5, !noundef !6
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %.thread32, label %34
 
 34:                                               ; preds = %30
   store i8 1, ptr %31, align 1
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 267
-  %36 = load i8, ptr %35, align 1, !range !6, !noundef !7
+  %36 = load i8, ptr %35, align 1, !range !5, !noundef !6
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 268
-  %38 = load i8, ptr %37, align 4, !range !6, !noundef !7
+  %38 = load i8, ptr %37, align 4, !range !5, !noundef !6
   br label %39
 
 39:                                               ; preds = %.critedge.i, %34
@@ -1718,14 +1718,14 @@ define hidden range(i32 0, 3) i32 @Wayland_SetWindowFullscreen(ptr noundef reado
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 %46(ptr noundef %50) #15
-  br label %39, !llvm.loop !12
+  br label %39, !llvm.loop !11
 
 FlushPendingEvents.exit:                          ; preds = %43
   store i8 %36, ptr %35, align 1
   store i8 %38, ptr %37, align 4
   store i8 0, ptr %31, align 1
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 397
-  %53 = load i8, ptr %52, align 1, !range !6, !noundef !7
+  %53 = load i8, ptr %52, align 1, !range !5, !noundef !6
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %57, label %55
 
@@ -1794,7 +1794,7 @@ define internal fastcc void @SetFullscreen(ptr noundef readonly captures(none) %
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 398
   store i8 %17, ptr %18, align 2
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 368
@@ -1859,7 +1859,7 @@ define internal fastcc noundef zeroext i1 @ConfigureWindowGeometry(ptr noundef %
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 403
-  %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 1, !range !5, !noundef !6
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %._crit_edge.i, label %GetWindowScale.exit
 
@@ -1876,14 +1876,14 @@ GetWindowScale.exit:                              ; preds = %7, %._crit_edge.i
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 324
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 394
-  %20 = load i8, ptr %19, align 2, !range !6, !noundef !7
+  %20 = load i8, ptr %19, align 2, !range !5, !noundef !6
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %GetWindowScale.exit
   store i8 0, ptr %19, align 2
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 396
-  %24 = load i8, ptr %23, align 4, !range !6, !noundef !7
+  %24 = load i8, ptr %23, align 4, !range !5, !noundef !6
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %.thread204, label %26
 
@@ -1895,13 +1895,13 @@ GetWindowScale.exit:                              ; preds = %7, %._crit_edge.i
 27:                                               ; preds = %26, %GetWindowScale.exit
   %28 = phi ptr [ %.pre, %26 ], [ %3, %GetWindowScale.exit ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 397
-  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %30 = load i8, ptr %29, align 1, !range !5, !noundef !6
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %41
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  %34 = load i8, ptr %33, align 1, !range !6, !noundef !7
+  %34 = load i8, ptr %33, align 1, !range !5, !noundef !6
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %41
 
@@ -1914,7 +1914,7 @@ GetWindowScale.exit:                              ; preds = %7, %._crit_edge.i
 
 41:                                               ; preds = %32, %27
   %42 = getelementptr inbounds nuw i8, ptr %28, i64 403
-  %43 = load i8, ptr %42, align 1, !range !6, !noundef !7
+  %43 = load i8, ptr %42, align 1, !range !5, !noundef !6
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %106, label %45
 
@@ -1953,7 +1953,7 @@ GetWindowScale.exit.i.i:                          ; preds = %._crit_edge.i.i.i, 
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 403
-  %65 = load i8, ptr %64, align 1, !range !6, !noundef !7
+  %65 = load i8, ptr %64, align 1, !range !5, !noundef !6
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %._crit_edge.i5.i.i, label %GetWindowScale.exit6.i.i
 
@@ -1986,7 +1986,7 @@ PointToPixel.exit.i:                              ; preds = %GetWindowScale.exit
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 403
-  %83 = load i8, ptr %82, align 1, !range !6, !noundef !7
+  %83 = load i8, ptr %82, align 1, !range !5, !noundef !6
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %._crit_edge.i.i23.i, label %GetWindowScale.exit.i24.i
 
@@ -2012,7 +2012,7 @@ GetWindowScale.exit.i24.i:                        ; preds = %._crit_edge.i.i23.i
 
 96:                                               ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 403
-  %98 = load i8, ptr %97, align 1, !range !6, !noundef !7
+  %98 = load i8, ptr %97, align 1, !range !5, !noundef !6
   %99 = trunc nuw i8 %98 to i1
   br i1 %99, label %._crit_edge.i5.i26.i, label %GetWindowScale.exit6.i27.i
 
@@ -2056,13 +2056,13 @@ GetBufferSize.exit:                               ; preds = %36, %PointToPixel.e
 
 117:                                              ; preds = %115, %GetBufferSize.exit
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 397
-  %119 = load i8, ptr %118, align 1, !range !6, !noundef !7
+  %119 = load i8, ptr %118, align 1, !range !5, !noundef !6
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %121, label %206
 
 121:                                              ; preds = %117
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 93
-  %123 = load i8, ptr %122, align 1, !range !6, !noundef !7
+  %123 = load i8, ptr %122, align 1, !range !5, !noundef !6
   %124 = trunc nuw i8 %123 to i1
   br i1 %124, label %125, label %206
 
@@ -2271,7 +2271,7 @@ GetModeScaleMethod.exit:                          ; preds = %125, %.sink.split.i
   %241 = getelementptr inbounds nuw i8, ptr %3, i64 316
   store i32 %240, ptr %241, align 4
   %242 = getelementptr inbounds nuw i8, ptr %3, i64 403
-  %243 = load i8, ptr %242, align 1, !range !6, !noundef !7
+  %243 = load i8, ptr %242, align 1, !range !5, !noundef !6
   %244 = trunc nuw i8 %243 to i1
   %245 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %246 = getelementptr inbounds nuw i8, ptr %3, i64 288
@@ -2342,7 +2342,7 @@ GetModeScaleMethod.exit:                          ; preds = %125, %.sink.split.i
   %276 = getelementptr inbounds nuw i8, ptr %.0201, i64 448
   %.0 = load ptr, ptr %276, align 8
   %.not184 = icmp eq ptr %.0, null
-  br i1 %.not184, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %.not184, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %212, %172, %273, %195, %247, %248
   %.0153196 = phi i32 [ %208, %248 ], [ %208, %247 ], [ %127, %195 ], [ %.0153197, %273 ], [ %208, %212 ], [ %127, %172 ], [ %.0153197, %.lr.ph ]
@@ -2350,7 +2350,7 @@ GetModeScaleMethod.exit:                          ; preds = %125, %.sink.split.i
   %.0158.in192 = phi i1 [ false, %248 ], [ false, %247 ], [ false, %195 ], [ true, %273 ], [ false, %212 ], [ false, %172 ], [ true, %.lr.ph ]
   tail call fastcc void @SetMinMaxDimensions(ptr noundef nonnull %0)
   %277 = getelementptr inbounds nuw i8, ptr %3, i64 403
-  %278 = load i8, ptr %277, align 1, !range !6, !noundef !7
+  %278 = load i8, ptr %277, align 1, !range !5, !noundef !6
   %279 = trunc nuw i8 %278 to i1
   br i1 %279, label %282, label %280
 
@@ -2379,7 +2379,7 @@ GetModeScaleMethod.exit:                          ; preds = %125, %.sink.split.i
 
 294:                                              ; preds = %293
   %295 = getelementptr inbounds nuw i8, ptr %3, i64 393
-  %296 = load i8, ptr %295, align 1, !range !6, !noundef !7
+  %296 = load i8, ptr %295, align 1, !range !5, !noundef !6
   %297 = trunc nuw i8 %296 to i1
   br i1 %297, label %.thread203, label %298
 
@@ -2392,7 +2392,7 @@ GetModeScaleMethod.exit:                          ; preds = %125, %.sink.split.i
 301:                                              ; preds = %293, %298
   %302 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef nonnull %0, i32 noundef 516, i32 noundef 0, i32 noundef 0) #15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 393
-  %.pre202 = load i8, ptr %.phi.trans.insert, align 1, !range !6
+  %.pre202 = load i8, ptr %.phi.trans.insert, align 1, !range !5
   %303 = trunc nuw i8 %.pre202 to i1
   br i1 %303, label %.thread203, label %.thread204
 
@@ -2410,7 +2410,7 @@ define hidden void @Wayland_RestoreWindow(ptr noundef readonly captures(none) %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 400
-  %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
+  %6 = load i8, ptr %5, align 8, !range !5, !noundef !6
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %47, label %8
 
@@ -2541,7 +2541,7 @@ define internal fastcc void @SetMinMaxDimensions(ptr noundef readonly captures(n
   %20 = load i32, ptr %19, align 4
   %21 = tail call i32 @llvm.smax.i32(i32 %18, i32 %20)
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 403
-  %23 = load i8, ptr %22, align 1, !range !6, !noundef !7
+  %23 = load i8, ptr %22, align 1, !range !5, !noundef !6
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %PixelToPoint.exit75
 
@@ -2568,7 +2568,7 @@ GetWindowScale.exit.i:                            ; preds = %25
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 403
-  %39 = load i8, ptr %38, align 1, !range !6, !noundef !7
+  %39 = load i8, ptr %38, align 1, !range !5, !noundef !6
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %._crit_edge.i5.i, label %GetWindowScale.exit6.i
 
@@ -2599,7 +2599,7 @@ PixelToPoint.exit:                                ; preds = %25, %GetWindowScale
 
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 403
-  %55 = load i8, ptr %54, align 1, !range !6, !noundef !7
+  %55 = load i8, ptr %54, align 1, !range !5, !noundef !6
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %._crit_edge.i.i70, label %GetWindowScale.exit.i71
 
@@ -2625,7 +2625,7 @@ GetWindowScale.exit.i71:                          ; preds = %._crit_edge.i.i70, 
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 403
-  %70 = load i8, ptr %69, align 1, !range !6, !noundef !7
+  %70 = load i8, ptr %69, align 1, !range !5, !noundef !6
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %._crit_edge.i5.i73, label %GetWindowScale.exit6.i74
 
@@ -2668,7 +2668,7 @@ PixelToPoint.exit75:                              ; preds = %GetWindowScale.exit
 
 88:                                               ; preds = %86, %82
   %89 = phi i32 [ 0, %82 ], [ %.67, %86 ]
-  %90 = load i8, ptr %22, align 1, !range !6, !noundef !7
+  %90 = load i8, ptr %22, align 1, !range !5, !noundef !6
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %92, label %PixelToPoint.exit91
 
@@ -2686,7 +2686,7 @@ PixelToPoint.exit75:                              ; preds = %GetWindowScale.exit
 
 98:                                               ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 403
-  %100 = load i8, ptr %99, align 1, !range !6, !noundef !7
+  %100 = load i8, ptr %99, align 1, !range !5, !noundef !6
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %._crit_edge.i.i78, label %GetWindowScale.exit.i79
 
@@ -2712,7 +2712,7 @@ GetWindowScale.exit.i79:                          ; preds = %._crit_edge.i.i78, 
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 403
-  %115 = load i8, ptr %114, align 1, !range !6, !noundef !7
+  %115 = load i8, ptr %114, align 1, !range !5, !noundef !6
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %._crit_edge.i5.i81, label %GetWindowScale.exit6.i82
 
@@ -2743,7 +2743,7 @@ PixelToPoint.exit83:                              ; preds = %92, %GetWindowScale
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 403
-  %131 = load i8, ptr %130, align 1, !range !6, !noundef !7
+  %131 = load i8, ptr %130, align 1, !range !5, !noundef !6
   %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %._crit_edge.i.i86, label %GetWindowScale.exit.i87
 
@@ -2769,7 +2769,7 @@ GetWindowScale.exit.i87:                          ; preds = %._crit_edge.i.i86, 
 
 144:                                              ; preds = %140
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 403
-  %146 = load i8, ptr %145, align 1, !range !6, !noundef !7
+  %146 = load i8, ptr %145, align 1, !range !5, !noundef !6
   %147 = trunc nuw i8 %146 to i1
   br i1 %147, label %._crit_edge.i5.i89, label %GetWindowScale.exit6.i90
 
@@ -2831,7 +2831,7 @@ define hidden void @Wayland_MaximizeWindow(ptr noundef readonly captures(none) %
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 402
-  %8 = load i8, ptr %7, align 2, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 2, !range !5, !noundef !6
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %15
 
@@ -3104,7 +3104,7 @@ define hidden noundef zeroext i1 @Wayland_CreateWindow(ptr noundef %0, ptr nound
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 392
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 403
-  %50 = load i8, ptr %49, align 1, !range !6, !noundef !7
+  %50 = load i8, ptr %49, align 1, !range !5, !noundef !6
   %51 = getelementptr inbounds nuw i8, ptr %19, i64 403
   store i8 %50, ptr %51, align 1
   %52 = load ptr, ptr %47, align 8
@@ -3189,7 +3189,7 @@ define hidden noundef zeroext i1 @Wayland_CreateWindow(ptr noundef %0, ptr nound
   store double %., ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %EnsurePopupPositionIsValid.exit, label %87, !llvm.loop !14
+  br i1 %exitcond.not, label %EnsurePopupPositionIsValid.exit, label %87, !llvm.loop !13
 
 EnsurePopupPositionIsValid.exit:                  ; preds = %87, %.preheader, %84, %82
   %96 = getelementptr inbounds nuw i8, ptr %19, i64 224
@@ -3197,14 +3197,14 @@ EnsurePopupPositionIsValid.exit:                  ; preds = %87, %.preheader, %8
   %97 = getelementptr inbounds nuw i8, ptr %19, i64 232
   store i32 0, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 305
-  %99 = load i8, ptr %98, align 1, !range !6, !noundef !7
+  %99 = load i8, ptr %98, align 1, !range !5, !noundef !6
   %100 = getelementptr inbounds nuw i8, ptr %19, i64 403
   store i8 %99, ptr %100, align 1
   %101 = tail call ptr @SDL_GetAppID() #15
   %102 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %101) #15
   %103 = getelementptr inbounds nuw i8, ptr %19, i64 240
   store ptr %102, ptr %103, align 8
-  %104 = load i8, ptr %100, align 1, !range !6, !noundef !7
+  %104 = load i8, ptr %100, align 1, !range !5, !noundef !6
   %105 = trunc nuw i8 %104 to i1
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %107 = load i32, ptr %106, align 8
@@ -3230,7 +3230,7 @@ EnsurePopupPositionIsValid.exit:                  ; preds = %87, %.preheader, %8
 
 117:                                              ; preds = %112
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 403
-  %119 = load i8, ptr %118, align 1, !range !6, !noundef !7
+  %119 = load i8, ptr %118, align 1, !range !5, !noundef !6
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %._crit_edge.i.i, label %GetWindowScale.exit.i
 
@@ -3256,7 +3256,7 @@ GetWindowScale.exit.i:                            ; preds = %._crit_edge.i.i, %1
 
 132:                                              ; preds = %128
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 403
-  %134 = load i8, ptr %133, align 1, !range !6, !noundef !7
+  %134 = load i8, ptr %133, align 1, !range !5, !noundef !6
   %135 = trunc nuw i8 %134 to i1
   br i1 %135, label %._crit_edge.i5.i, label %GetWindowScale.exit6.i
 
@@ -3291,7 +3291,7 @@ PixelToPoint.exit:                                ; preds = %111, %GetWindowScal
 
 151:                                              ; preds = %146
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 403
-  %153 = load i8, ptr %152, align 1, !range !6, !noundef !7
+  %153 = load i8, ptr %152, align 1, !range !5, !noundef !6
   %154 = trunc nuw i8 %153 to i1
   br i1 %154, label %._crit_edge.i.i178, label %GetWindowScale.exit.i179
 
@@ -3317,7 +3317,7 @@ GetWindowScale.exit.i179:                         ; preds = %._crit_edge.i.i178,
 
 166:                                              ; preds = %162
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 403
-  %168 = load i8, ptr %167, align 1, !range !6, !noundef !7
+  %168 = load i8, ptr %167, align 1, !range !5, !noundef !6
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %._crit_edge.i5.i181, label %GetWindowScale.exit6.i182
 
@@ -3592,7 +3592,7 @@ PixelToPoint.exit183:                             ; preds = %PixelToPoint.exit, 
 339:                                              ; preds = %332, %329
   %340 = load ptr, ptr %4, align 8
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 786
-  %342 = load i8, ptr %341, align 2, !range !6, !noundef !7
+  %342 = load i8, ptr %341, align 2, !range !5, !noundef !6
   %343 = trunc nuw i8 %342 to i1
   %344 = tail call zeroext i1 @SDL_DBus_ScreensaverInhibit(i1 noundef zeroext %343) #15
   br i1 %344, label %Wayland_SuspendScreenSaver.exit, label %345
@@ -3613,7 +3613,7 @@ PixelToPoint.exit183:                             ; preds = %PixelToPoint.exit, 
   %.01723.i = phi ptr [ %.017.i, %.thread.i ], [ %.01721.i, %348 ]
   %350 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 392
   %351 = load ptr, ptr %350, align 8
-  %352 = load i8, ptr %341, align 2, !range !6, !noundef !7
+  %352 = load i8, ptr %341, align 2, !range !5, !noundef !6
   %353 = trunc nuw i8 %352 to i1
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 128
   %355 = load ptr, ptr %354, align 8
@@ -3652,7 +3652,7 @@ PixelToPoint.exit183:                             ; preds = %PixelToPoint.exit, 
   %371 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 416
   %.017.i = load ptr, ptr %371, align 8
   %.not18.i = icmp eq ptr %.017.i, null
-  br i1 %.not18.i, label %Wayland_SuspendScreenSaver.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not18.i, label %Wayland_SuspendScreenSaver.exit, label %.lr.ph.i, !llvm.loop !14
 
 Wayland_SuspendScreenSaver.exit:                  ; preds = %.thread.i, %339, %345, %348
   br i1 %11, label %381, label %372
@@ -3742,7 +3742,7 @@ define hidden noundef zeroext i1 @Wayland_SuspendScreenSaver(ptr noundef readonl
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 786
-  %5 = load i8, ptr %4, align 2, !range !6, !noundef !7
+  %5 = load i8, ptr %4, align 2, !range !5, !noundef !6
   %6 = trunc nuw i8 %5 to i1
   %7 = tail call zeroext i1 @SDL_DBus_ScreensaverInhibit(i1 noundef zeroext %6) #15
   br i1 %7, label %.loopexit, label %8
@@ -3763,7 +3763,7 @@ define hidden noundef zeroext i1 @Wayland_SuspendScreenSaver(ptr noundef readonl
   %.01723 = phi ptr [ %.017, %.thread ], [ %.01721, %11 ]
   %13 = getelementptr inbounds nuw i8, ptr %.01723, i64 392
   %14 = load ptr, ptr %13, align 8
-  %15 = load i8, ptr %4, align 2, !range !6, !noundef !7
+  %15 = load i8, ptr %4, align 2, !range !5, !noundef !6
   %16 = trunc nuw i8 %15 to i1
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %18 = load ptr, ptr %17, align 8
@@ -3802,7 +3802,7 @@ define hidden noundef zeroext i1 @Wayland_SuspendScreenSaver(ptr noundef readonl
   %34 = getelementptr inbounds nuw i8, ptr %.01723, i64 416
   %.017 = load ptr, ptr %34, align 8
   %.not18 = icmp eq ptr %.017, null
-  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.thread, %11, %8, %1
   ret i1 true
@@ -3856,9 +3856,9 @@ define hidden zeroext i1 @Wayland_SetWindowPosition(ptr noundef readnone capture
 
 17:                                               ; preds = %2, %2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 267
-  %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
+  %19 = load i8, ptr %18, align 1, !range !5, !noundef !6
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 268
-  %21 = load i8, ptr %20, align 4, !range !6, !noundef !7
+  %21 = load i8, ptr %20, align 4, !range !5, !noundef !6
   br label %22
 
 22:                                               ; preds = %.critedge.i, %17
@@ -3882,13 +3882,13 @@ define hidden zeroext i1 @Wayland_SetWindowPosition(ptr noundef readnone capture
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %29(ptr noundef %33) #15
   %.pre = load ptr, ptr %3, align 8
-  br label %22, !llvm.loop !12
+  br label %22, !llvm.loop !11
 
 FlushPendingEvents.exit:                          ; preds = %26
   store i8 %19, ptr %18, align 1
   store i8 %21, ptr %20, align 4
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 397
-  %36 = load i8, ptr %35, align 1, !range !6, !noundef !7
+  %36 = load i8, ptr %35, align 1, !range !5, !noundef !6
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %48
 
@@ -3986,7 +3986,7 @@ EnsurePopupPositionIsValid.exit:                  ; preds = %12
   %41 = select i1 %39, i32 %40, i32 0
   %.3 = add nsw i32 %41, %.242
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 403
-  %43 = load i8, ptr %42, align 1, !range !6, !noundef !7
+  %43 = load i8, ptr %42, align 1, !range !5, !noundef !6
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %45, label %PixelToPoint.exit31
 
@@ -4006,7 +4006,7 @@ EnsurePopupPositionIsValid.exit:                  ; preds = %12
 
 53:                                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 403
-  %55 = load i8, ptr %54, align 1, !range !6, !noundef !7
+  %55 = load i8, ptr %54, align 1, !range !5, !noundef !6
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %._crit_edge.i.i, label %GetWindowScale.exit.i
 
@@ -4032,7 +4032,7 @@ GetWindowScale.exit.i:                            ; preds = %._crit_edge.i.i, %5
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 403
-  %70 = load i8, ptr %69, align 1, !range !6, !noundef !7
+  %70 = load i8, ptr %69, align 1, !range !5, !noundef !6
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %._crit_edge.i5.i, label %GetWindowScale.exit6.i
 
@@ -4066,7 +4066,7 @@ PixelToPoint.exit:                                ; preds = %45, %GetWindowScale
 
 87:                                               ; preds = %79
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 403
-  %89 = load i8, ptr %88, align 1, !range !6, !noundef !7
+  %89 = load i8, ptr %88, align 1, !range !5, !noundef !6
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %._crit_edge.i.i26, label %GetWindowScale.exit.i27
 
@@ -4092,7 +4092,7 @@ GetWindowScale.exit.i27:                          ; preds = %._crit_edge.i.i26, 
 
 102:                                              ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 403
-  %104 = load i8, ptr %103, align 1, !range !6, !noundef !7
+  %104 = load i8, ptr %103, align 1, !range !5, !noundef !6
   %105 = trunc nuw i8 %104 to i1
   br i1 %105, label %._crit_edge.i5.i29, label %GetWindowScale.exit6.i30
 
@@ -4156,9 +4156,9 @@ define hidden void @Wayland_SetWindowSize(ptr noundef readnone captures(none) %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 267
-  %6 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %6 = load i8, ptr %5, align 1, !range !5, !noundef !6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 268
-  %8 = load i8, ptr %7, align 4, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 4, !range !5, !noundef !6
   br label %9
 
 9:                                                ; preds = %.critedge.i, %2
@@ -4182,7 +4182,7 @@ define hidden void @Wayland_SetWindowSize(ptr noundef readnone captures(none) %0
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %16(ptr noundef %20) #15
   %.pre = load ptr, ptr %3, align 8
-  br label %9, !llvm.loop !12
+  br label %9, !llvm.loop !11
 
 FlushPendingEvents.exit:                          ; preds = %13
   store i8 %6, ptr %5, align 1
@@ -4201,7 +4201,7 @@ FlushPendingEvents.exit:                          ; preds = %13
 
 29:                                               ; preds = %25, %FlushPendingEvents.exit
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 403
-  %31 = load i8, ptr %30, align 1, !range !6, !noundef !7
+  %31 = load i8, ptr %30, align 1, !range !5, !noundef !6
   %32 = trunc nuw i8 %31 to i1
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %34 = load i32, ptr %33, align 8
@@ -4225,7 +4225,7 @@ FlushPendingEvents.exit:                          ; preds = %13
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 403
-  %44 = load i8, ptr %43, align 1, !range !6, !noundef !7
+  %44 = load i8, ptr %43, align 1, !range !5, !noundef !6
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %._crit_edge.i.i, label %GetWindowScale.exit.i
 
@@ -4251,7 +4251,7 @@ GetWindowScale.exit.i:                            ; preds = %._crit_edge.i.i, %4
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 403
-  %59 = load i8, ptr %58, align 1, !range !6, !noundef !7
+  %59 = load i8, ptr %58, align 1, !range !5, !noundef !6
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %._crit_edge.i5.i, label %GetWindowScale.exit6.i
 
@@ -4286,7 +4286,7 @@ PixelToPoint.exit:                                ; preds = %38, %GetWindowScale
 
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 403
-  %78 = load i8, ptr %77, align 1, !range !6, !noundef !7
+  %78 = load i8, ptr %77, align 1, !range !5, !noundef !6
   %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %._crit_edge.i.i25, label %GetWindowScale.exit.i26
 
@@ -4312,7 +4312,7 @@ GetWindowScale.exit.i26:                          ; preds = %._crit_edge.i.i25, 
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 403
-  %93 = load i8, ptr %92, align 1, !range !6, !noundef !7
+  %93 = load i8, ptr %92, align 1, !range !5, !noundef !6
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %._crit_edge.i5.i28, label %GetWindowScale.exit6.i29
 
@@ -4379,13 +4379,13 @@ define hidden float @Wayland_GetWindowContentScale(ptr noundef readnone captures
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 403
-  %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %10 = load i8, ptr %9, align 1, !range !5, !noundef !6
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 398
-  %14 = load i8, ptr %13, align 2, !range !6, !noundef !7
+  %14 = load i8, ptr %13, align 2, !range !5, !noundef !6
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %20
 
@@ -4596,7 +4596,7 @@ define hidden zeroext i1 @Wayland_SetWindowIcon(ptr noundef readonly captures(no
   %55 = load i32, ptr %34, align 8
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %52, label %._crit_edge, !llvm.loop !16
+  br i1 %57, label %52, label %._crit_edge, !llvm.loop !15
 
 .lr.ph112:                                        ; preds = %.preheader, %105
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %105 ], [ 0, %.preheader ]
@@ -4663,7 +4663,7 @@ define hidden zeroext i1 @Wayland_SetWindowIcon(ptr noundef readonly captures(no
   %106 = load i32, ptr %4, align 4
   %107 = sext i32 %106 to i64
   %108 = icmp slt i64 %indvars.iv.next120, %107
-  br i1 %108, label %.lr.ph112, label %._crit_edge113, !llvm.loop !17
+  br i1 %108, label %.lr.ph112, label %._crit_edge113, !llvm.loop !16
 
 109:                                              ; preds = %65
   %110 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.23) #15
@@ -4727,7 +4727,7 @@ define hidden zeroext i1 @Wayland_SetWindowIcon(ptr noundef readonly captures(no
   %139 = load i32, ptr %34, align 8
   %140 = sext i32 %139 to i64
   %141 = icmp slt i64 %indvars.iv.next123, %140
-  br i1 %141, label %.lr.ph116, label %._crit_edge117, !llvm.loop !18
+  br i1 %141, label %.lr.ph116, label %._crit_edge117, !llvm.loop !17
 
 .thread107:                                       ; preds = %._crit_edge113, %114, %117, %20, %._crit_edge117
   %.1 = phi i1 [ false, %._crit_edge117 ], [ false, %20 ], [ true, %117 ], [ true, %114 ], [ true, %._crit_edge113 ]
@@ -4829,7 +4829,7 @@ define hidden noundef zeroext i1 @Wayland_SyncWindow(ptr noundef readonly captur
   br i1 %.not4, label %16, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %14, %.critedge
-  br label %.critedge, !llvm.loop !19
+  br label %.critedge, !llvm.loop !18
 
 16:                                               ; preds = %14
   ret i1 true
@@ -4873,7 +4873,7 @@ define hidden zeroext i1 @Wayland_SetWindowFocusable(ptr noundef readnone captur
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 786432
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %12
   %.0.lcssa.i = phi ptr [ %14, %12 ], [ %19, %.lr.ph.i ]
@@ -4883,13 +4883,13 @@ define hidden zeroext i1 @Wayland_SetWindowFocusable(ptr noundef readnone captur
 
 24:                                               ; preds = %._crit_edge.i
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 265
-  %26 = load i8, ptr %25, align 1, !range !6, !noundef !7
+  %26 = load i8, ptr %25, align 1, !range !5, !noundef !6
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %Wayland_SetKeyboardFocus.exit, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 271
-  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %30 = load i8, ptr %29, align 1, !range !5, !noundef !6
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %Wayland_SetKeyboardFocus.exit, label %32
 
@@ -4922,20 +4922,20 @@ Wayland_SetKeyboardFocus.exit:                    ; preds = %._crit_edge.i, %24,
   %43 = load i64, ptr %42, align 8
   %44 = and i64 %43, 786432
   %.not.i14 = icmp eq i64 %44, 0
-  br i1 %.not.i14, label %._crit_edge.i15, label %.lr.ph.i12, !llvm.loop !10
+  br i1 %.not.i14, label %._crit_edge.i15, label %.lr.ph.i12, !llvm.loop !9
 
 ._crit_edge.i15:                                  ; preds = %.lr.ph.i12, %37
   %.0.lcssa.i16 = phi ptr [ %1, %37 ], [ %41, %.lr.ph.i12 ]
   %45 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i16, i64 400
   store ptr %1, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 265
-  %47 = load i8, ptr %46, align 1, !range !6, !noundef !7
+  %47 = load i8, ptr %46, align 1, !range !5, !noundef !6
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %Wayland_SetKeyboardFocus.exit17, label %49
 
 49:                                               ; preds = %._crit_edge.i15
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 271
-  %51 = load i8, ptr %50, align 1, !range !6, !noundef !7
+  %51 = load i8, ptr %50, align 1, !range !5, !noundef !6
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %Wayland_SetKeyboardFocus.exit17, label %53
 
@@ -4969,7 +4969,7 @@ define hidden void @Wayland_ShowWindowSystemMenu(ptr noundef readonly captures(n
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 403
-  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
+  %12 = load i8, ptr %11, align 1, !range !5, !noundef !6
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %PixelToPoint.exit25
 
@@ -4997,7 +4997,7 @@ GetWindowScale.exit.i:                            ; preds = %14
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 403
-  %29 = load i8, ptr %28, align 1, !range !6, !noundef !7
+  %29 = load i8, ptr %28, align 1, !range !5, !noundef !6
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %._crit_edge.i5.i, label %GetWindowScale.exit6.i
 
@@ -5029,7 +5029,7 @@ PixelToPoint.exit:                                ; preds = %14, %GetWindowScale
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 403
-  %46 = load i8, ptr %45, align 1, !range !6, !noundef !7
+  %46 = load i8, ptr %45, align 1, !range !5, !noundef !6
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %._crit_edge.i.i20, label %GetWindowScale.exit.i21
 
@@ -5055,7 +5055,7 @@ GetWindowScale.exit.i21:                          ; preds = %._crit_edge.i.i20, 
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 403
-  %61 = load i8, ptr %60, align 1, !range !6, !noundef !7
+  %61 = load i8, ptr %60, align 1, !range !5, !noundef !6
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %._crit_edge.i5.i23, label %GetWindowScale.exit6.i24
 
@@ -5115,7 +5115,7 @@ define hidden void @Wayland_DestroyWindow(ptr noundef %0, ptr noundef captures(n
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 402
-  %11 = load i8, ptr %10, align 2, !range !6, !noundef !7
+  %11 = load i8, ptr %10, align 2, !range !5, !noundef !6
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %18
 
@@ -5343,7 +5343,7 @@ define hidden void @Wayland_DestroyWindow(ptr noundef %0, ptr noundef captures(n
   %140 = load i32, ptr %127, align 8
   %141 = sext i32 %140 to i64
   %142 = icmp slt i64 %indvars.iv.next, %141
-  br i1 %142, label %137, label %._crit_edge, !llvm.loop !20
+  br i1 %142, label %137, label %._crit_edge, !llvm.loop !19
 
 143:                                              ; preds = %._crit_edge, %2
   store ptr null, ptr %5, align 8
@@ -5383,13 +5383,13 @@ define internal fastcc void @Wayland_HandlePreferredScaleChanged(ptr noundef cap
 11:                                               ; preds = %9
   store double %.0, ptr %3, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 403
-  %13 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %13 = load i8, ptr %12, align 1, !range !5, !noundef !6
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %163
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %17 = load i8, ptr %16, align 8, !range !6, !noundef !7
+  %17 = load i8, ptr %16, align 8, !range !5, !noundef !6
   %18 = trunc nuw i8 %17 to i1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br i1 %18, label %20, label %90
@@ -5413,7 +5413,7 @@ define internal fastcc void @Wayland_HandlePreferredScaleChanged(ptr noundef cap
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 403
-  %33 = load i8, ptr %32, align 1, !range !6, !noundef !7
+  %33 = load i8, ptr %32, align 1, !range !5, !noundef !6
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %._crit_edge.i.i, label %GetWindowScale.exit.i
 
@@ -5439,7 +5439,7 @@ GetWindowScale.exit.i:                            ; preds = %._crit_edge.i.i, %3
 
 46:                                               ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 403
-  %48 = load i8, ptr %47, align 1, !range !6, !noundef !7
+  %48 = load i8, ptr %47, align 1, !range !5, !noundef !6
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %._crit_edge.i5.i, label %GetWindowScale.exit6.i
 
@@ -5476,7 +5476,7 @@ PixelToPoint.exit:                                ; preds = %20, %GetWindowScale
 
 67:                                               ; preds = %59
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 403
-  %69 = load i8, ptr %68, align 1, !range !6, !noundef !7
+  %69 = load i8, ptr %68, align 1, !range !5, !noundef !6
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %._crit_edge.i.i28, label %GetWindowScale.exit.i29
 
@@ -5502,7 +5502,7 @@ GetWindowScale.exit.i29:                          ; preds = %._crit_edge.i.i28, 
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 403
-  %84 = load i8, ptr %83, align 1, !range !6, !noundef !7
+  %84 = load i8, ptr %83, align 1, !range !5, !noundef !6
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %._crit_edge.i5.i31, label %GetWindowScale.exit6.i32
 
@@ -5534,7 +5534,7 @@ GetWindowScale.exit6.i32:                         ; preds = %._crit_edge.i5.i31,
 
 100:                                              ; preds = %92
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 403
-  %102 = load i8, ptr %101, align 1, !range !6, !noundef !7
+  %102 = load i8, ptr %101, align 1, !range !5, !noundef !6
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %._crit_edge.i.i36, label %GetWindowScale.exit.i37
 
@@ -5560,7 +5560,7 @@ GetWindowScale.exit.i37:                          ; preds = %._crit_edge.i.i36, 
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 403
-  %117 = load i8, ptr %116, align 1, !range !6, !noundef !7
+  %117 = load i8, ptr %116, align 1, !range !5, !noundef !6
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %._crit_edge.i5.i39, label %GetWindowScale.exit6.i40
 
@@ -5598,7 +5598,7 @@ PointToPixel.exit:                                ; preds = %90, %GetWindowScale
 
 137:                                              ; preds = %129
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 403
-  %139 = load i8, ptr %138, align 1, !range !6, !noundef !7
+  %139 = load i8, ptr %138, align 1, !range !5, !noundef !6
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %._crit_edge.i.i43, label %GetWindowScale.exit.i44
 
@@ -5624,7 +5624,7 @@ GetWindowScale.exit.i44:                          ; preds = %._crit_edge.i.i43, 
 
 152:                                              ; preds = %148
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 403
-  %154 = load i8, ptr %153, align 1, !range !6, !noundef !7
+  %154 = load i8, ptr %153, align 1, !range !5, !noundef !6
   %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %._crit_edge.i5.i46, label %GetWindowScale.exit6.i47
 
@@ -5661,7 +5661,7 @@ GetWindowScale.exit6.i47:                         ; preds = %._crit_edge.i5.i46,
   br i1 %.not25, label %168, label %171
 
 168:                                              ; preds = %163
-  %169 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %169 = load i8, ptr %12, align 1, !range !5, !noundef !6
   %170 = trunc nuw i8 %169 to i1
   br i1 %170, label %171, label %173
 
@@ -5732,7 +5732,7 @@ define internal void @handle_configure_xdg_popup(ptr noundef captures(none) %0, 
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 %.037, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 403
-  %25 = load i8, ptr %24, align 1, !range !6, !noundef !7
+  %25 = load i8, ptr %24, align 1, !range !5, !noundef !6
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %98
 
@@ -5753,7 +5753,7 @@ define internal void @handle_configure_xdg_popup(ptr noundef captures(none) %0, 
 
 36:                                               ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 403
-  %38 = load i8, ptr %37, align 1, !range !6, !noundef !7
+  %38 = load i8, ptr %37, align 1, !range !5, !noundef !6
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %._crit_edge.i.i, label %GetWindowScale.exit.i
 
@@ -5779,7 +5779,7 @@ GetWindowScale.exit.i:                            ; preds = %._crit_edge.i.i, %3
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 403
-  %53 = load i8, ptr %52, align 1, !range !6, !noundef !7
+  %53 = load i8, ptr %52, align 1, !range !5, !noundef !6
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %._crit_edge.i5.i, label %GetWindowScale.exit6.i
 
@@ -5815,7 +5815,7 @@ PointToPixel.exit:                                ; preds = %27, %GetWindowScale
 
 71:                                               ; preds = %63
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 403
-  %73 = load i8, ptr %72, align 1, !range !6, !noundef !7
+  %73 = load i8, ptr %72, align 1, !range !5, !noundef !6
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %._crit_edge.i.i45, label %GetWindowScale.exit.i46
 
@@ -5841,7 +5841,7 @@ GetWindowScale.exit.i46:                          ; preds = %._crit_edge.i.i45, 
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 403
-  %88 = load i8, ptr %87, align 1, !range !6, !noundef !7
+  %88 = load i8, ptr %87, align 1, !range !5, !noundef !6
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %._crit_edge.i5.i48, label %GetWindowScale.exit6.i49
 
@@ -5865,7 +5865,7 @@ PointToPixel.exit50:                              ; preds = %PointToPixel.exit, 
 
 98:                                               ; preds = %21, %PointToPixel.exit50, %18
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 403
-  %100 = load i8, ptr %99, align 1, !range !6, !noundef !7
+  %100 = load i8, ptr %99, align 1, !range !5, !noundef !6
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %PointToPixel.exit66
 
@@ -5888,7 +5888,7 @@ PointToPixel.exit50:                              ; preds = %PointToPixel.exit, 
 
 113:                                              ; preds = %103
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 403
-  %115 = load i8, ptr %114, align 1, !range !6, !noundef !7
+  %115 = load i8, ptr %114, align 1, !range !5, !noundef !6
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %._crit_edge.i.i53, label %GetWindowScale.exit.i54
 
@@ -5914,7 +5914,7 @@ GetWindowScale.exit.i54:                          ; preds = %._crit_edge.i.i53, 
 
 128:                                              ; preds = %124
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 403
-  %130 = load i8, ptr %129, align 1, !range !6, !noundef !7
+  %130 = load i8, ptr %129, align 1, !range !5, !noundef !6
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %._crit_edge.i5.i56, label %GetWindowScale.exit6.i57
 
@@ -5950,7 +5950,7 @@ PointToPixel.exit58:                              ; preds = %102, %GetWindowScal
 
 149:                                              ; preds = %139
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 403
-  %151 = load i8, ptr %150, align 1, !range !6, !noundef !7
+  %151 = load i8, ptr %150, align 1, !range !5, !noundef !6
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %._crit_edge.i.i61, label %GetWindowScale.exit.i62
 
@@ -5976,7 +5976,7 @@ GetWindowScale.exit.i62:                          ; preds = %._crit_edge.i.i61, 
 
 164:                                              ; preds = %160
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 403
-  %166 = load i8, ptr %165, align 1, !range !6, !noundef !7
+  %166 = load i8, ptr %165, align 1, !range !5, !noundef !6
   %167 = trunc nuw i8 %166 to i1
   br i1 %167, label %._crit_edge.i5.i64, label %GetWindowScale.exit6.i65
 
@@ -6135,7 +6135,7 @@ UpdateWindowFullscreen.exit.thread:               ; preds = %._crit_edge.thread
   %37 = load i64, ptr %4, align 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
   %39 = icmp ult ptr %35, %38
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %33
   %40 = trunc nuw i8 %.1215 to i1
@@ -6160,19 +6160,19 @@ UpdateWindowFullscreen.exit.thread:               ; preds = %._crit_edge.thread
   %52 = tail call zeroext i1 @SDL_SendWindowEvent(ptr noundef nonnull %6, i32 noundef 535, i32 noundef 0, i32 noundef 0) #15
   %53 = tail call zeroext i1 @SDL_UpdateFullscreenMode(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext false) #15
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 93
-  %55 = load i8, ptr %54, align 1, !range !6, !noundef !7
+  %55 = load i8, ptr %54, align 1, !range !5, !noundef !6
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %UpdateWindowFullscreen.exit
 
 57:                                               ; preds = %49
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 398
-  %59 = load i8, ptr %58, align 2, !range !6, !noundef !7
+  %59 = load i8, ptr %58, align 2, !range !5, !noundef !6
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %43, i64 401
-  %63 = load i8, ptr %62, align 1, !range !6, !noundef !7
+  %63 = load i8, ptr %62, align 1, !range !5, !noundef !6
   %64 = trunc nuw i8 %63 to i1
   br i1 %64, label %UpdateWindowFullscreen.exit, label %65
 
@@ -6207,7 +6207,7 @@ UpdateWindowFullscreen.exit.thread:               ; preds = %._crit_edge.thread
   %78 = phi ptr [ %13, %._crit_edge.thread ], [ %45, %74 ]
   %79 = phi i64 [ %14, %._crit_edge.thread ], [ %46, %74 ]
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 265
-  %81 = load i8, ptr %80, align 1, !range !6, !noundef !7
+  %81 = load i8, ptr %80, align 1, !range !5, !noundef !6
   %82 = trunc nuw i8 %81 to i1
   %83 = and i64 %79, 8
   %.not23.i = icmp ne i64 %83, 0
@@ -6340,7 +6340,7 @@ UpdateWindowFullscreen.exit:                      ; preds = %48, %49, %61, %65, 
   %.0200 = phi i32 [ %134, %133 ], [ %123, %130 ], [ %123, %127 ], [ %123, %119 ], [ %139, %135 ]
   %.0 = phi i32 [ %., %133 ], [ %121, %130 ], [ %121, %127 ], [ %121, %119 ], [ %137, %135 ]
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 403
-  %142 = load i8, ptr %141, align 1, !range !6, !noundef !7
+  %142 = load i8, ptr %141, align 1, !range !5, !noundef !6
   %143 = trunc nuw i8 %142 to i1
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 296
   br i1 %143, label %146, label %145
@@ -6367,7 +6367,7 @@ UpdateWindowFullscreen.exit:                      ; preds = %48, %49, %61, %65, 
 
 154:                                              ; preds = %149
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 403
-  %156 = load i8, ptr %155, align 1, !range !6, !noundef !7
+  %156 = load i8, ptr %155, align 1, !range !5, !noundef !6
   %157 = trunc nuw i8 %156 to i1
   br i1 %157, label %._crit_edge.i.i, label %GetWindowScale.exit.i
 
@@ -6393,7 +6393,7 @@ GetWindowScale.exit.i:                            ; preds = %._crit_edge.i.i, %1
 
 169:                                              ; preds = %165
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 403
-  %171 = load i8, ptr %170, align 1, !range !6, !noundef !7
+  %171 = load i8, ptr %170, align 1, !range !5, !noundef !6
   %172 = trunc nuw i8 %171 to i1
   br i1 %172, label %._crit_edge.i5.i, label %GetWindowScale.exit6.i
 
@@ -6425,7 +6425,7 @@ PixelToPoint.exit:                                ; preds = %146, %GetWindowScal
 
 185:                                              ; preds = %180
   %186 = getelementptr inbounds nuw i8, ptr %184, i64 403
-  %187 = load i8, ptr %186, align 1, !range !6, !noundef !7
+  %187 = load i8, ptr %186, align 1, !range !5, !noundef !6
   %188 = trunc nuw i8 %187 to i1
   br i1 %188, label %._crit_edge.i.i267, label %GetWindowScale.exit.i268
 
@@ -6451,7 +6451,7 @@ GetWindowScale.exit.i268:                         ; preds = %._crit_edge.i.i267,
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 403
-  %202 = load i8, ptr %201, align 1, !range !6, !noundef !7
+  %202 = load i8, ptr %201, align 1, !range !5, !noundef !6
   %203 = trunc nuw i8 %202 to i1
   br i1 %203, label %._crit_edge.i5.i270, label %GetWindowScale.exit6.i271
 
@@ -6485,7 +6485,7 @@ GetWindowScale.exit6.i271:                        ; preds = %._crit_edge.i5.i270
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 %3, ptr %218, align 4
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 403
-  %220 = load i8, ptr %219, align 1, !range !6, !noundef !7
+  %220 = load i8, ptr %219, align 1, !range !5, !noundef !6
   %221 = trunc nuw i8 %220 to i1
   br i1 %221, label %222, label %363
 
@@ -6499,7 +6499,7 @@ GetWindowScale.exit6.i271:                        ; preds = %._crit_edge.i5.i270
 
 227:                                              ; preds = %222
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 403
-  %229 = load i8, ptr %228, align 1, !range !6, !noundef !7
+  %229 = load i8, ptr %228, align 1, !range !5, !noundef !6
   %230 = trunc nuw i8 %229 to i1
   br i1 %230, label %._crit_edge.i.i275, label %GetWindowScale.exit.i276
 
@@ -6525,7 +6525,7 @@ GetWindowScale.exit.i276:                         ; preds = %._crit_edge.i.i275,
 
 242:                                              ; preds = %238
   %243 = getelementptr inbounds nuw i8, ptr %241, i64 403
-  %244 = load i8, ptr %243, align 1, !range !6, !noundef !7
+  %244 = load i8, ptr %243, align 1, !range !5, !noundef !6
   %245 = trunc nuw i8 %244 to i1
   br i1 %245, label %._crit_edge.i5.i278, label %GetWindowScale.exit6.i279
 
@@ -6554,7 +6554,7 @@ GetWindowScale.exit6.i279:                        ; preds = %._crit_edge.i5.i278
 
 259:                                              ; preds = %252
   %260 = getelementptr inbounds nuw i8, ptr %258, i64 403
-  %261 = load i8, ptr %260, align 1, !range !6, !noundef !7
+  %261 = load i8, ptr %260, align 1, !range !5, !noundef !6
   %262 = trunc nuw i8 %261 to i1
   br i1 %262, label %._crit_edge.i.i282, label %GetWindowScale.exit.i283
 
@@ -6580,7 +6580,7 @@ GetWindowScale.exit.i283:                         ; preds = %._crit_edge.i.i282,
 
 274:                                              ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 403
-  %276 = load i8, ptr %275, align 1, !range !6, !noundef !7
+  %276 = load i8, ptr %275, align 1, !range !5, !noundef !6
   %277 = trunc nuw i8 %276 to i1
   br i1 %277, label %._crit_edge.i5.i285, label %GetWindowScale.exit6.i286
 
@@ -6598,7 +6598,7 @@ GetWindowScale.exit6.i286:                        ; preds = %._crit_edge.i5.i285
 
 284:                                              ; preds = %109
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 403
-  %286 = load i8, ptr %285, align 1, !range !6, !noundef !7
+  %286 = load i8, ptr %285, align 1, !range !5, !noundef !6
   %287 = trunc nuw i8 %286 to i1
   %288 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %289 = load i32, ptr %288, align 8
@@ -6632,7 +6632,7 @@ GetWindowScale.exit6.i286:                        ; preds = %._crit_edge.i5.i285
 
 305:                                              ; preds = %300
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 403
-  %307 = load i8, ptr %306, align 1, !range !6, !noundef !7
+  %307 = load i8, ptr %306, align 1, !range !5, !noundef !6
   %308 = trunc nuw i8 %307 to i1
   br i1 %308, label %._crit_edge.i.i290, label %GetWindowScale.exit.i291
 
@@ -6658,7 +6658,7 @@ GetWindowScale.exit.i291:                         ; preds = %._crit_edge.i.i290,
 
 320:                                              ; preds = %316
   %321 = getelementptr inbounds nuw i8, ptr %319, i64 403
-  %322 = load i8, ptr %321, align 1, !range !6, !noundef !7
+  %322 = load i8, ptr %321, align 1, !range !5, !noundef !6
   %323 = trunc nuw i8 %322 to i1
   br i1 %323, label %._crit_edge.i5.i293, label %GetWindowScale.exit6.i294
 
@@ -6691,7 +6691,7 @@ PixelToPoint.exit295:                             ; preds = %294, %GetWindowScal
 
 337:                                              ; preds = %332
   %338 = getelementptr inbounds nuw i8, ptr %336, i64 403
-  %339 = load i8, ptr %338, align 1, !range !6, !noundef !7
+  %339 = load i8, ptr %338, align 1, !range !5, !noundef !6
   %340 = trunc nuw i8 %339 to i1
   br i1 %340, label %._crit_edge.i.i298, label %GetWindowScale.exit.i299
 
@@ -6717,7 +6717,7 @@ GetWindowScale.exit.i299:                         ; preds = %._crit_edge.i.i298,
 
 352:                                              ; preds = %348
   %353 = getelementptr inbounds nuw i8, ptr %351, i64 403
-  %354 = load i8, ptr %353, align 1, !range !6, !noundef !7
+  %354 = load i8, ptr %353, align 1, !range !5, !noundef !6
   %355 = trunc nuw i8 %354 to i1
   br i1 %355, label %._crit_edge.i5.i301, label %GetWindowScale.exit6.i302
 
@@ -6749,7 +6749,7 @@ GetWindowScale.exit6.i302:                        ; preds = %._crit_edge.i5.i301
 
 364:                                              ; preds = %363
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 403
-  %366 = load i8, ptr %365, align 1, !range !6, !noundef !7
+  %366 = load i8, ptr %365, align 1, !range !5, !noundef !6
   %367 = trunc nuw i8 %366 to i1
   %368 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %369 = load i32, ptr %368, align 8
@@ -6909,7 +6909,7 @@ thread-pre-split:                                 ; preds = %439, %435, %444
 
 454:                                              ; preds = %449
   %455 = getelementptr inbounds nuw i8, ptr %453, i64 403
-  %456 = load i8, ptr %455, align 1, !range !6, !noundef !7
+  %456 = load i8, ptr %455, align 1, !range !5, !noundef !6
   %457 = trunc nuw i8 %456 to i1
   br i1 %457, label %._crit_edge.i.i306, label %GetWindowScale.exit.i307
 
@@ -6935,7 +6935,7 @@ GetWindowScale.exit.i307:                         ; preds = %._crit_edge.i.i306,
 
 469:                                              ; preds = %465
   %470 = getelementptr inbounds nuw i8, ptr %468, i64 403
-  %471 = load i8, ptr %470, align 1, !range !6, !noundef !7
+  %471 = load i8, ptr %470, align 1, !range !5, !noundef !6
   %472 = trunc nuw i8 %471 to i1
   br i1 %472, label %._crit_edge.i5.i309, label %GetWindowScale.exit6.i310
 
@@ -6968,7 +6968,7 @@ PixelToPoint.exit311:                             ; preds = %thread-pre-split, %
 
 486:                                              ; preds = %481
   %487 = getelementptr inbounds nuw i8, ptr %485, i64 403
-  %488 = load i8, ptr %487, align 1, !range !6, !noundef !7
+  %488 = load i8, ptr %487, align 1, !range !5, !noundef !6
   %489 = trunc nuw i8 %488 to i1
   br i1 %489, label %._crit_edge.i.i314, label %GetWindowScale.exit.i315
 
@@ -6994,7 +6994,7 @@ GetWindowScale.exit.i315:                         ; preds = %._crit_edge.i.i314,
 
 501:                                              ; preds = %497
   %502 = getelementptr inbounds nuw i8, ptr %500, i64 403
-  %503 = load i8, ptr %502, align 1, !range !6, !noundef !7
+  %503 = load i8, ptr %502, align 1, !range !5, !noundef !6
   %504 = trunc nuw i8 %503 to i1
   br i1 %504, label %._crit_edge.i5.i317, label %GetWindowScale.exit6.i318
 
@@ -7045,7 +7045,7 @@ PixelToPoint.exit319:                             ; preds = %PixelToPoint.exit31
   %.3203 = phi i32 [ %522, %520 ], [ %3, %523 ]
   %.3 = phi i32 [ %521, %520 ], [ %2, %523 ]
   %525 = getelementptr inbounds nuw i8, ptr %0, i64 403
-  %526 = load i8, ptr %525, align 1, !range !6, !noundef !7
+  %526 = load i8, ptr %525, align 1, !range !5, !noundef !6
   %527 = trunc nuw i8 %526 to i1
   br i1 %527, label %528, label %593
 
@@ -7063,7 +7063,7 @@ PixelToPoint.exit319:                             ; preds = %PixelToPoint.exit31
 
 534:                                              ; preds = %529
   %535 = getelementptr inbounds nuw i8, ptr %533, i64 403
-  %536 = load i8, ptr %535, align 1, !range !6, !noundef !7
+  %536 = load i8, ptr %535, align 1, !range !5, !noundef !6
   %537 = trunc nuw i8 %536 to i1
   br i1 %537, label %._crit_edge.i.i322, label %GetWindowScale.exit.i323
 
@@ -7089,7 +7089,7 @@ GetWindowScale.exit.i323:                         ; preds = %._crit_edge.i.i322,
 
 549:                                              ; preds = %545
   %550 = getelementptr inbounds nuw i8, ptr %548, i64 403
-  %551 = load i8, ptr %550, align 1, !range !6, !noundef !7
+  %551 = load i8, ptr %550, align 1, !range !5, !noundef !6
   %552 = trunc nuw i8 %551 to i1
   br i1 %552, label %._crit_edge.i5.i325, label %GetWindowScale.exit6.i326
 
@@ -7122,7 +7122,7 @@ PointToPixel.exit327:                             ; preds = %528, %GetWindowScal
 
 566:                                              ; preds = %561
   %567 = getelementptr inbounds nuw i8, ptr %565, i64 403
-  %568 = load i8, ptr %567, align 1, !range !6, !noundef !7
+  %568 = load i8, ptr %567, align 1, !range !5, !noundef !6
   %569 = trunc nuw i8 %568 to i1
   br i1 %569, label %._crit_edge.i.i330, label %GetWindowScale.exit.i331
 
@@ -7148,7 +7148,7 @@ GetWindowScale.exit.i331:                         ; preds = %._crit_edge.i.i330,
 
 581:                                              ; preds = %577
   %582 = getelementptr inbounds nuw i8, ptr %580, i64 403
-  %583 = load i8, ptr %582, align 1, !range !6, !noundef !7
+  %583 = load i8, ptr %582, align 1, !range !5, !noundef !6
   %584 = trunc nuw i8 %583 to i1
   br i1 %584, label %._crit_edge.i5.i333, label %GetWindowScale.exit6.i334
 
@@ -7257,7 +7257,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   %17 = load i64, ptr %2, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
   %19 = icmp ult ptr %15, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %13, %3
   ret void
@@ -7472,7 +7472,7 @@ define internal void @handle_surface_enter(ptr noundef captures(none) %0, ptr no
   %22 = getelementptr inbounds ptr, ptr %17, i64 %21
   store ptr %5, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 397
-  %24 = load i8, ptr %23, align 1, !range !6, !noundef !7
+  %24 = load i8, ptr %23, align 1, !range !5, !noundef !6
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %29
 
@@ -7522,7 +7522,7 @@ define internal void @handle_surface_enter(ptr noundef captures(none) %0, ptr no
   %.0..i = select i1 %48, double %.018.i, double %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %43, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit.i, label %43, !llvm.loop !7
 
 49:                                               ; preds = %39
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -7687,7 +7687,7 @@ define internal void @surface_frame_done(ptr noundef initializes((396, 397)) %0,
 
 ._crit_edge:                                      ; preds = %Wayland_SetWindowModal.exit, %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 393
-  %25 = load i8, ptr %24, align 1, !range !6, !noundef !7
+  %25 = load i8, ptr %24, align 1, !range !5, !noundef !6
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %116, label %119
 
@@ -7707,7 +7707,7 @@ define internal void @surface_frame_done(ptr noundef initializes((396, 397)) %0,
 
 34:                                               ; preds = %.lr.ph
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 404
-  %36 = load i8, ptr %35, align 4, !range !6, !noundef !7
+  %36 = load i8, ptr %35, align 4, !range !5, !noundef !6
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %Wayland_SetWindowModal.exit
 
@@ -7869,7 +7869,7 @@ Wayland_SetWindowModal.exit:                      ; preds = %109, %GetToplevelFo
   %115 = getelementptr inbounds nuw i8, ptr %.030, i64 448
   %.0 = load ptr, ptr %115, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 116:                                              ; preds = %._crit_edge
   %117 = load ptr, ptr %0, align 8
@@ -7922,24 +7922,23 @@ attributes #17 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}

@@ -297,7 +297,7 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
   %35 = sub nsw i32 0, %26
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 10
   %37 = sub nsw i32 0, %28
-  %38 = getelementptr i8, ptr %31, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 64
   br label %40
 
@@ -328,7 +328,7 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
   %.049 = phi i32 [ %28, %40 ], [ %55, %47 ]
   %.048 = phi i32 [ %26, %40 ], [ %51, %47 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 20
-  %57 = getelementptr i8, ptr %38, i64 %.idx
+  %57 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
   %58 = load i32, ptr %57, align 4, !tbaa !56
   %59 = mul nsw i32 %58, %.048
   %60 = icmp sgt i32 %.049, 0
@@ -358,7 +358,7 @@ define internal noundef i32 @yuv4_write_packet(ptr noundef readonly captures(non
   %68 = getelementptr inbounds i8, ptr %.04754, i64 %67
   %69 = add nuw nsw i32 %.055, 1
   %exitcond.not = icmp eq i32 %69, %.049
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %65, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %65, !llvm.loop !60
 
 .loopexit:                                        ; preds = %._crit_edge, %24, %20
   ret i32 0
@@ -422,7 +422,7 @@ define internal range(i32 -1094995529, 1) i32 @yuv4_init(ptr noundef %0) #0 {
 
 14:                                               ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %16 = load i32, ptr %15, align 8, !tbaa !62
+  %16 = load i32, ptr %15, align 8, !tbaa !61
   %17 = icmp sgt i32 %16, -1
   br i1 %17, label %18, label %20
 
@@ -527,8 +527,7 @@ attributes #3 = { nounwind }
 !55 = !{!52, !8, i64 10}
 !56 = !{!57, !13, i64 4}
 !57 = !{!"AVComponentDescriptor", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16}
-!58 = distinct !{!58, !59, !60}
+!58 = distinct !{!58, !59}
 !59 = !{!"llvm.loop.mustprogress"}
-!60 = !{!"llvm.loop.estimated_trip_count"}
-!61 = distinct !{!61, !59, !60}
-!62 = !{!5, !13, i64 272}
+!60 = distinct !{!60, !59}
+!61 = !{!5, !13, i64 272}

@@ -806,7 +806,7 @@ define internal i32 @bio_read(ptr noundef %0, ptr noundef writeonly captures(add
   %.1 = phi ptr [ %50, %45 ], [ %.050, %51 ]
   %54 = sub i64 %.051, %.0
   %.not63 = icmp eq i64 %54, 0
-  br i1 %.not63, label %55, label %34, !llvm.loop !36
+  br i1 %.not63, label %55, label %34, !llvm.loop !35
 
 55:                                               ; preds = %52
   %56 = trunc i64 %spec.select to i32
@@ -884,14 +884,14 @@ define internal i64 @bio_ctrl(ptr noundef captures(none) %0, i32 noundef %1, i64
 
 29:                                               ; preds = %4
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %31 = load i32, ptr %30, align 4, !tbaa !37
+  %31 = load i32, ptr %30, align 4, !tbaa !36
   %32 = sext i32 %31 to i64
   br label %62
 
 33:                                               ; preds = %4
   %34 = trunc i64 %2 to i32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %34, ptr %35, align 4, !tbaa !37
+  store i32 %34, ptr %35, align 4, !tbaa !36
   br label %62
 
 36:                                               ; preds = %4
@@ -1086,8 +1086,7 @@ attributes #14 = { nounwind willreturn memory(read) }
 !30 = !{!11, !7, i64 72}
 !31 = !{!19, !8, i64 48}
 !32 = !{!16, !16, i64 0}
-!33 = distinct !{!33, !34, !35}
+!33 = distinct !{!33, !34}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!"llvm.loop.estimated_trip_count"}
-!36 = distinct !{!36, !34, !35}
-!37 = !{!11, !15, i64 28}
+!35 = distinct !{!35, !34}
+!36 = !{!11, !15, i64 28}

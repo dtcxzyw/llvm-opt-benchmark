@@ -109,7 +109,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_timerfd_creat
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i64, ptr %4, align 8
-  %6 = tail call fastcc i64 @__se_sys_timerfd_create(i64 noundef %3, i64 noundef %5), !range !12
+  %6 = tail call fastcc i64 @__se_sys_timerfd_create(i64 noundef %3, i64 noundef %5), !range !11
   ret i64 %6
 }
 
@@ -194,7 +194,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_timerfd_crea
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
-  %8 = tail call fastcc i64 @__se_sys_timerfd_create(i64 noundef %4, i64 noundef %7), !range !12
+  %8 = tail call fastcc i64 @__se_sys_timerfd_create(i64 noundef %4, i64 noundef %7), !range !11
   ret i64 %8
 }
 
@@ -213,9 +213,9 @@ define dso_local noundef range(i64 -125, 1) i64 @__x64_sys_timerfd_settime(ptr n
   %12 = inttoptr i64 %9 to ptr
   %13 = inttoptr i64 %11 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !12
   %14 = call i32 @get_itimerspec64(ptr noundef nonnull %2, ptr noundef %12) #8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %29
@@ -223,7 +223,7 @@ define dso_local noundef range(i64 -125, 1) i64 @__x64_sys_timerfd_settime(ptr n
 16:                                               ; preds = %1
   %17 = trunc i64 %7 to i32
   %18 = trunc i64 %5 to i32
-  %19 = call fastcc i32 @do_timerfd_settime(i32 noundef %18, i32 noundef %17, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !14
+  %19 = call fastcc i32 @do_timerfd_settime(i32 noundef %18, i32 noundef %17, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !13
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %23, label %21
 
@@ -267,9 +267,9 @@ define dso_local noundef range(i64 -125, 1) i64 @__ia32_sys_timerfd_settime(ptr 
   %14 = inttoptr i64 %10 to ptr
   %15 = inttoptr i64 %13 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !12
   %16 = call i32 @get_itimerspec64(ptr noundef nonnull %2, ptr noundef %14) #8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %31
@@ -277,7 +277,7 @@ define dso_local noundef range(i64 -125, 1) i64 @__ia32_sys_timerfd_settime(ptr 
 18:                                               ; preds = %1
   %19 = trunc i64 %7 to i32
   %20 = trunc i64 %5 to i32
-  %21 = call fastcc i32 @do_timerfd_settime(i32 noundef %20, i32 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !14
+  %21 = call fastcc i32 @do_timerfd_settime(i32 noundef %20, i32 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !13
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %25, label %23
 
@@ -313,8 +313,8 @@ define dso_local range(i64 -22, 1) i64 @__x64_sys_timerfd_gettime(ptr noundef re
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !13
-  %8 = call fastcc i32 @do_timerfd_gettime(i32 noundef %7, ptr noundef nonnull %2), !range !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !12
+  %8 = call fastcc i32 @do_timerfd_gettime(i32 noundef %7, ptr noundef nonnull %2), !range !14
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
@@ -344,8 +344,8 @@ define dso_local range(i64 -22, 1) i64 @__ia32_sys_timerfd_gettime(ptr noundef r
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !13
-  %8 = call fastcc i32 @do_timerfd_gettime(i32 noundef %7, ptr noundef nonnull %2), !range !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !12
+  %8 = call fastcc i32 @do_timerfd_gettime(i32 noundef %7, ptr noundef nonnull %2), !range !14
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
@@ -382,9 +382,9 @@ define dso_local noundef range(i64 -125, 1) i64 @__x64_sys_timerfd_settime32(ptr
   %12 = inttoptr i64 %9 to ptr
   %13 = inttoptr i64 %11 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !12
   %14 = call i32 @get_old_itimerspec32(ptr noundef nonnull %2, ptr noundef %12) #8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %29
@@ -392,7 +392,7 @@ define dso_local noundef range(i64 -125, 1) i64 @__x64_sys_timerfd_settime32(ptr
 16:                                               ; preds = %1
   %17 = trunc i64 %7 to i32
   %18 = trunc i64 %5 to i32
-  %19 = call fastcc i32 @do_timerfd_settime(i32 noundef %18, i32 noundef %17, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !14
+  %19 = call fastcc i32 @do_timerfd_settime(i32 noundef %18, i32 noundef %17, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !13
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %23, label %21
 
@@ -436,9 +436,9 @@ define dso_local noundef range(i64 -125, 1) i64 @__ia32_sys_timerfd_settime32(pt
   %14 = inttoptr i64 %10 to ptr
   %15 = inttoptr i64 %13 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !13
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !12
   %16 = call i32 @get_old_itimerspec32(ptr noundef nonnull %2, ptr noundef %14) #8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %31
@@ -446,7 +446,7 @@ define dso_local noundef range(i64 -125, 1) i64 @__ia32_sys_timerfd_settime32(pt
 18:                                               ; preds = %1
   %19 = trunc i64 %7 to i32
   %20 = trunc i64 %5 to i32
-  %21 = call fastcc i32 @do_timerfd_settime(i32 noundef %20, i32 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !14
+  %21 = call fastcc i32 @do_timerfd_settime(i32 noundef %20, i32 noundef %19, ptr noundef nonnull %2, ptr noundef nonnull %3), !range !13
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %25, label %23
 
@@ -482,8 +482,8 @@ define dso_local range(i64 -22, 1) i64 @__x64_sys_timerfd_gettime32(ptr noundef 
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !13
-  %8 = call fastcc i32 @do_timerfd_gettime(i32 noundef %7, ptr noundef nonnull %2), !range !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !12
+  %8 = call fastcc i32 @do_timerfd_gettime(i32 noundef %7, ptr noundef nonnull %2), !range !14
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
@@ -513,8 +513,8 @@ define dso_local range(i64 -22, 1) i64 @__ia32_sys_timerfd_gettime32(ptr noundef
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %4 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !13
-  %8 = call fastcc i32 @do_timerfd_gettime(i32 noundef %7, ptr noundef nonnull %2), !range !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !12
+  %8 = call fastcc i32 @do_timerfd_gettime(i32 noundef %7, ptr noundef nonnull %2), !range !14
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
@@ -622,7 +622,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @timerfd_read(ptr noundef
 19:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !16
+  %21 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !15
   %22 = inttoptr i64 %21 to ptr
   store i64 0, ptr %5, align 8
   store ptr %22, ptr %20, align 8
@@ -642,7 +642,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @timerfd_read(ptr noundef
 29:                                               ; preds = %26
   %30 = load i64, ptr %16, align 8
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %26, label %32, !llvm.loop !17
+  br i1 %31, label %26, label %32, !llvm.loop !16
 
 32:                                               ; preds = %29, %26
   %33 = load ptr, ptr %25, align 8
@@ -742,7 +742,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @timerfd_read(ptr noundef
 
 90:                                               ; preds = %87
   %91 = call i64 @llvm.read_register.i64(metadata !0)
-  %92 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 %88, i64 8, i64 %91) #8, !srcloc !18
+  %92 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 %88, i64 8, i64 %91) #8, !srcloc !17
   %93 = extractvalue { ptr, i64 } %92, 0
   %94 = extractvalue { ptr, i64 } %92, 1
   %95 = ptrtoint ptr %93 to i64
@@ -1039,7 +1039,7 @@ define internal fastcc noundef range(i32 -125, 1) i32 @do_timerfd_settime(i32 no
   store ptr %57, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %36, i64 200
   store ptr @cancel_list, ptr %58, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !19
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
   store volatile ptr %56, ptr @cancel_list, align 8
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %56, ptr %59, align 8
@@ -1093,7 +1093,7 @@ define internal fastcc noundef range(i32 -125, 1) i32 @do_timerfd_settime(i32 no
 83:                                               ; preds = %80, %77
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %72) #8
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8
-  br label %73, !llvm.loop !20
+  br label %73, !llvm.loop !19
 
 84:                                               ; preds = %80, %77
   %85 = getelementptr inbounds nuw i8, ptr %36, i64 172
@@ -1174,7 +1174,7 @@ define internal fastcc noundef range(i32 -125, 1) i32 @do_timerfd_settime(i32 no
   %140 = icmp sgt i64 %138, 9223372035
   %141 = mul i64 %138, 1000000000
   %142 = add i64 %141, %139
-  %143 = select i1 %140, i64 9223372036854775807, i64 %142, !prof !21
+  %143 = select i1 %140, i64 9223372036854775807, i64 %142, !prof !20
   store i16 0, ptr %85, align 4
   %144 = getelementptr inbounds nuw i8, ptr %36, i64 160
   store i64 0, ptr %144, align 8
@@ -1183,7 +1183,7 @@ define internal fastcc noundef range(i32 -125, 1) i32 @do_timerfd_settime(i32 no
   %147 = icmp sgt i64 %145, 9223372035
   %148 = mul i64 %145, 1000000000
   %149 = add i64 %148, %146
-  %150 = select i1 %147, i64 9223372036854775807, i64 %149, !prof !21
+  %150 = select i1 %147, i64 9223372036854775807, i64 %149, !prof !20
   store i64 %150, ptr %128, align 8
   %151 = and i32 %134, -2
   %152 = icmp eq i32 %151, 8
@@ -1213,14 +1213,14 @@ define internal fastcc noundef range(i32 -125, 1) i32 @do_timerfd_settime(i32 no
   br i1 %136, label %.thread4, label %163
 
 163:                                              ; preds = %162
-  %164 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !16
+  %164 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !15
   %165 = inttoptr i64 %164 to ptr
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 1872
   %167 = load ptr, ptr %166, align 16
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 48
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, @init_time_ns
-  br i1 %170, label %174, label %171, !prof !22
+  br i1 %170, label %174, label %171, !prof !21
 
 171:                                              ; preds = %163
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 40
@@ -1493,18 +1493,17 @@ attributes #10 = { nounwind memory(none) }
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{i64 -2147483648, i64 2147483648}
-!13 = !{!"auto-init"}
-!14 = !{i32 -125, i32 1}
-!15 = !{i32 -22, i32 1}
-!16 = !{i64 2148202784}
-!17 = distinct !{!17, !9, !10, !11}
-!18 = !{i64 2155691515}
-!19 = !{i64 2150439782}
-!20 = distinct !{!20, !10, !11}
-!21 = !{!"branch_weights", i32 1, i32 2000}
-!22 = !{!"branch_weights", i32 2000, i32 1}
+!11 = !{i64 -2147483648, i64 2147483648}
+!12 = !{!"auto-init"}
+!13 = !{i32 -125, i32 1}
+!14 = !{i32 -22, i32 1}
+!15 = !{i64 2148202784}
+!16 = distinct !{!16, !9, !10}
+!17 = !{i64 2155691515}
+!18 = !{i64 2150439782}
+!19 = distinct !{!19, !10}
+!20 = !{!"branch_weights", i32 1, i32 2000}
+!21 = !{!"branch_weights", i32 2000, i32 1}

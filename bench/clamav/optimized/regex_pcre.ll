@@ -109,7 +109,7 @@ define range(i32 0, 28) i32 @cli_pcre_addoptions(ptr noundef captures(address_is
   store i32 %23, ptr %8, align 8, !tbaa !9
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %24, ptr %1, align 8, !tbaa !3
-  br label %9, !llvm.loop !14
+  br label %9
 
 .loopexit:                                        ; preds = %9, %18, %3, %6, %19
   %.0 = phi i32 [ 4, %19 ], [ 2, %6 ], [ 2, %3 ], [ 27, %18 ], [ 0, %9 ]
@@ -130,7 +130,7 @@ define range(i32 0, 21) i32 @cli_pcre_compile(ptr noundef captures(address_is_nu
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !16
+  %11 = load ptr, ptr %10, align 8, !tbaa !14
   %.not33 = icmp eq ptr %11, null
   br i1 %.not33, label %12, label %13
 
@@ -159,7 +159,7 @@ define range(i32 0, 21) i32 @cli_pcre_compile(ptr noundef captures(address_is_nu
 
 19:                                               ; preds = %16
   %.not36 = icmp eq i32 %4, 0
-  %20 = load ptr, ptr %10, align 8, !tbaa !16
+  %20 = load ptr, ptr %10, align 8, !tbaa !14
   br i1 %.not36, label %21, label %24
 
 21:                                               ; preds = %19
@@ -170,15 +170,15 @@ define range(i32 0, 21) i32 @cli_pcre_compile(ptr noundef captures(address_is_nu
 24:                                               ; preds = %19, %21
   %.sink = phi i32 [ %23, %21 ], [ %3, %19 ]
   %25 = call ptr @pcre2_compile_8(ptr noundef %20, i64 noundef -1, i32 noundef %.sink, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %17) #6
-  store ptr %25, ptr %0, align 8, !tbaa !17
+  store ptr %25, ptr %0, align 8, !tbaa !15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #6
-  %28 = load i32, ptr %6, align 4, !tbaa !18
+  %28 = load i32, ptr %6, align 4, !tbaa !16
   %29 = call i32 @pcre2_get_error_message_8(i32 noundef %28, ptr noundef nonnull %8, i64 noundef 256) #6
-  %30 = load i64, ptr %7, align 8, !tbaa !19
+  %30 = load i64, ptr %7, align 8, !tbaa !17
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4, i64 noundef %30, ptr noundef nonnull %8) #6
   call void @pcre2_compile_context_free_8(ptr noundef nonnull %17) #6
   call void @pcre2_general_context_free_8(ptr noundef nonnull %14) #6
@@ -188,7 +188,7 @@ define range(i32 0, 21) i32 @cli_pcre_compile(ptr noundef captures(address_is_nu
 31:                                               ; preds = %24
   %32 = call ptr @pcre2_match_context_create_8(ptr noundef nonnull %14) #6
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %32, ptr %33, align 8, !tbaa !21
+  store ptr %32, ptr %33, align 8, !tbaa !19
   %.not37 = icmp eq ptr %32, null
   br i1 %.not37, label %34, label %35
 
@@ -201,7 +201,7 @@ define range(i32 0, 21) i32 @cli_pcre_compile(ptr noundef captures(address_is_nu
 35:                                               ; preds = %31
   %36 = trunc i64 %1 to i32
   %37 = call i32 @pcre2_set_match_limit_8(ptr noundef nonnull %32, i32 noundef %36) #6
-  %38 = load ptr, ptr %33, align 8, !tbaa !21
+  %38 = load ptr, ptr %33, align 8, !tbaa !19
   %39 = trunc i64 %2 to i32
   %40 = call i32 @pcre2_set_recursion_limit_8(ptr noundef %38, i32 noundef %39) #6
   call void @pcre2_compile_context_free_8(ptr noundef nonnull %17) #6
@@ -241,11 +241,11 @@ declare i32 @pcre2_set_recursion_limit_8(ptr noundef, i32 noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_pcre_match(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
-  %7 = load ptr, ptr %0, align 8, !tbaa !17
+  %7 = load ptr, ptr %0, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !22
+  %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !21
+  %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = tail call i32 @pcre2_match_8(ptr noundef %7, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %9, ptr noundef %11) #6
   %or.cond = icmp slt i32 %12, -1
   br i1 %or.cond, label %13, label %18
@@ -260,7 +260,7 @@ define i32 @cli_pcre_match(ptr noundef readonly captures(none) %0, ptr noundef %
 
 14:                                               ; preds = %13
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.6) #6
-  store i32 20, ptr %5, align 8, !tbaa !25
+  store i32 20, ptr %5, align 8, !tbaa !23
   br label %33
 
 15:                                               ; preds = %13
@@ -273,7 +273,7 @@ define i32 @cli_pcre_match(ptr noundef readonly captures(none) %0, ptr noundef %
 
 17:                                               ; preds = %13
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.9, i32 noundef %12) #6
-  store i32 22, ptr %5, align 8, !tbaa !25
+  store i32 22, ptr %5, align 8, !tbaa !23
   br label %33
 
 18:                                               ; preds = %6
@@ -281,24 +281,24 @@ define i32 @cli_pcre_match(ptr noundef readonly captures(none) %0, ptr noundef %
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %18
-  %21 = load ptr, ptr %8, align 8, !tbaa !22
+  %21 = load ptr, ptr %8, align 8, !tbaa !20
   %22 = tail call ptr @pcre2_get_ovector_pointer_8(ptr noundef %21) #6
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !17
   %24 = trunc i64 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %24, ptr %25, align 4, !tbaa !18
+  store i32 %24, ptr %25, align 4, !tbaa !16
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !19
+  %27 = load i64, ptr %26, align 8, !tbaa !17
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %28, ptr %29, align 4, !tbaa !18
+  store i32 %28, ptr %29, align 4, !tbaa !16
   br label %33
 
 30:                                               ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %32, align 4, !tbaa !18
-  store i32 0, ptr %31, align 4, !tbaa !18
+  store i32 0, ptr %32, align 4, !tbaa !16
+  store i32 0, ptr %31, align 4, !tbaa !16
   br label %33
 
 33:                                               ; preds = %20, %30, %13, %14, %15, %16, %17
@@ -320,12 +320,12 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   %10 = alloca [2057 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 2057, ptr nonnull %10) #6
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = tail call ptr @pcre2_get_ovector_pointer_8(ptr noundef %12) #6
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #6
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !16
+  %15 = load ptr, ptr %14, align 8, !tbaa !14
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, ptr noundef %15, i32 noundef %3) #6
   %16 = icmp sgt i32 %3, 0
   br i1 %16, label %.preheader.preheader, label %86
@@ -338,10 +338,10 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %37 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
-  %18 = load i64, ptr %17, align 8, !tbaa !19
+  %18 = load i64, ptr %17, align 8, !tbaa !17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !19
+  %21 = load i64, ptr %20, align 8, !tbaa !17
   %22 = icmp ugt i64 %21, %2
   br i1 %22, label %23, label %24
 
@@ -367,7 +367,7 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %28, i64 noundef %29, ptr noundef nonnull @.str.14, i32 noundef %32) #6
   %34 = add nuw i64 %.03438, 1
   %exitcond.not = icmp eq i64 %34, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %35 = select i1 %26, ptr @.str.17, ptr @.str.16
@@ -378,16 +378,16 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
 37:                                               ; preds = %._crit_edge, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond41.not, label %38, label %.preheader, !llvm.loop !27
+  br i1 %exitcond41.not, label %38, label %.preheader
 
 38:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
   call void @llvm.lifetime.start.p0(i64 2057, ptr nonnull %9) #6
-  %39 = load ptr, ptr %0, align 8, !tbaa !17
+  %39 = load ptr, ptr %0, align 8, !tbaa !15
   %40 = call i32 @pcre2_pattern_info_8(ptr noundef %39, i32 noundef 17, ptr noundef nonnull %6) #6
-  %41 = load i32, ptr %6, align 4, !tbaa !18
+  %41 = load i32, ptr %6, align 4, !tbaa !16
   %42 = icmp slt i32 %41, 1
   br i1 %42, label %43, label %44
 
@@ -397,11 +397,11 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
 
 44:                                               ; preds = %38
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22) #6
-  %45 = load ptr, ptr %0, align 8, !tbaa !17
+  %45 = load ptr, ptr %0, align 8, !tbaa !15
   %46 = call i32 @pcre2_pattern_info_8(ptr noundef %45, i32 noundef 19, ptr noundef nonnull %8) #6
-  %47 = load ptr, ptr %0, align 8, !tbaa !17
+  %47 = load ptr, ptr %0, align 8, !tbaa !15
   %48 = call i32 @pcre2_pattern_info_8(ptr noundef %47, i32 noundef 18, ptr noundef nonnull %7) #6
-  %49 = load i32, ptr %6, align 4, !tbaa !18
+  %49 = load i32, ptr %6, align 4, !tbaa !16
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.lr.ph34.preheader.i, label %named_substr_print.exit
 
@@ -422,10 +422,10 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   %59 = shl nuw nsw i32 %58, 1
   %60 = zext nneg i32 %59 to i64
   %61 = getelementptr inbounds nuw i64, ptr %13, i64 %60
-  %62 = load i64, ptr %61, align 8, !tbaa !19
+  %62 = load i64, ptr %61, align 8, !tbaa !17
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %65 = load i64, ptr %64, align 8, !tbaa !19
+  %65 = load i64, ptr %64, align 8, !tbaa !17
   %66 = sub i64 %65, %62
   %67 = icmp ult i64 %66, 1029
   %spec.select.i = select i1 %67, i64 %66, i64 1028
@@ -443,21 +443,21 @@ define void @cli_pcre_report(ptr noundef readonly captures(none) %0, ptr noundef
   %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %69, i64 noundef %70, ptr noundef nonnull @.str.14, i32 noundef %73) #6
   %75 = add nuw i64 %.02730.i, 1
   %exitcond.not.i = icmp eq i64 %75, %spec.select.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph34.i
-  %76 = load i32, ptr %7, align 4, !tbaa !18
+  %76 = load i32, ptr %7, align 4, !tbaa !16
   %77 = add nsw i32 %76, -3
   %78 = getelementptr inbounds nuw i8, ptr %.02631.i, i64 2
   %79 = select i1 %67, ptr @.str.17, ptr @.str.16
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23, i32 noundef %58, i32 noundef %77, ptr noundef nonnull %78, ptr noundef nonnull %9, ptr noundef nonnull %79) #6
-  %80 = load i32, ptr %7, align 4, !tbaa !18
+  %80 = load i32, ptr %7, align 4, !tbaa !16
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds i8, ptr %.02631.i, i64 %81
   %83 = add nuw nsw i32 %.032.i, 1
-  %84 = load i32, ptr %6, align 4, !tbaa !18
+  %84 = load i32, ptr %6, align 4, !tbaa !16
   %85 = icmp slt i32 %83, %84
-  br i1 %85, label %.lr.ph34.i, label %named_substr_print.exit, !llvm.loop !29
+  br i1 %85, label %.lr.ph34.i, label %named_substr_print.exit
 
 named_substr_print.exit:                          ; preds = %._crit_edge.i, %43, %44
   call void @llvm.lifetime.end.p0(i64 2057, ptr nonnull %9) #6
@@ -493,13 +493,13 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 21) i32 @cli_pcre_results_reset(ptr noundef captures(none) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  store i32 0, ptr %0, align 8, !tbaa !25
+  store i32 0, ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %4, align 4, !tbaa !18
-  store i32 0, ptr %3, align 4, !tbaa !18
+  store i32 0, ptr %4, align 4, !tbaa !16
+  store i32 0, ptr %3, align 4, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
 
@@ -508,9 +508,9 @@ define range(i32 0, 21) i32 @cli_pcre_results_reset(ptr noundef captures(none) i
   br label %8
 
 8:                                                ; preds = %7, %2
-  %9 = load ptr, ptr %1, align 8, !tbaa !17
+  %9 = load ptr, ptr %1, align 8, !tbaa !15
   %10 = tail call ptr @pcre2_match_data_create_from_pattern_8(ptr noundef %9, ptr noundef null) #6
-  store ptr %10, ptr %5, align 8, !tbaa !22
+  store ptr %10, ptr %5, align 8, !tbaa !20
   %.not9 = icmp eq ptr %10, null
   %. = select i1 %.not9, i32 20, i32 0
   ret i32 %.
@@ -523,7 +523,7 @@ declare ptr @pcre2_match_data_create_from_pattern_8(ptr noundef, ptr noundef) lo
 ; Function Attrs: nounwind uwtable
 define void @cli_pcre_results_free(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !22
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
@@ -537,35 +537,35 @@ define void @cli_pcre_results_free(ptr noundef readonly captures(none) %0) local
 
 ; Function Attrs: nounwind uwtable
 define void @cli_pcre_free_single(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !17
+  %2 = load ptr, ptr %0, align 8, !tbaa !15
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
   tail call void @pcre2_code_free_8(ptr noundef nonnull %2) #6
-  store ptr null, ptr %0, align 8, !tbaa !17
+  store ptr null, ptr %0, align 8, !tbaa !15
   br label %4
 
 4:                                                ; preds = %3, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !21
+  %6 = load ptr, ptr %5, align 8, !tbaa !19
   %.not11 = icmp eq ptr %6, null
   br i1 %.not11, label %8, label %7
 
 7:                                                ; preds = %4
   tail call void @pcre2_match_context_free_8(ptr noundef nonnull %6) #6
-  store ptr null, ptr %5, align 8, !tbaa !21
+  store ptr null, ptr %5, align 8, !tbaa !19
   br label %8
 
 8:                                                ; preds = %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !16
+  %10 = load ptr, ptr %9, align 8, !tbaa !14
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %12, label %11
 
 11:                                               ; preds = %8
   tail call void @free(ptr noundef nonnull %10) #6
-  store ptr null, ptr %9, align 8, !tbaa !16
+  store ptr null, ptr %9, align 8, !tbaa !14
   br label %12
 
 12:                                               ; preds = %11, %8
@@ -602,19 +602,13 @@ attributes #6 = { nounwind }
 !11 = !{!"p1 _ZTS17pcre2_real_code_8", !5, i64 0}
 !12 = !{!"p1 _ZTS26pcre2_real_match_context_8", !5, i64 0}
 !13 = !{!"int", !6, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!10, !4, i64 24}
-!17 = !{!10, !11, i64 0}
-!18 = !{!13, !13, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !6, i64 0}
-!21 = !{!10, !12, i64 8}
-!22 = !{!23, !24, i64 16}
-!23 = !{!"cli_pcre_results", !13, i64 0, !6, i64 4, !24, i64 16}
-!24 = !{!"p1 _ZTS23pcre2_real_match_data_8", !5, i64 0}
-!25 = !{!23, !13, i64 0}
-!26 = distinct !{!26, !15}
-!27 = distinct !{!27, !15}
-!28 = distinct !{!28, !15}
-!29 = distinct !{!29, !15}
+!14 = !{!10, !4, i64 24}
+!15 = !{!10, !11, i64 0}
+!16 = !{!13, !13, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !6, i64 0}
+!19 = !{!10, !12, i64 8}
+!20 = !{!21, !22, i64 16}
+!21 = !{!"cli_pcre_results", !13, i64 0, !6, i64 4, !22, i64 16}
+!22 = !{!"p1 _ZTS23pcre2_real_match_data_8", !5, i64 0}
+!23 = !{!21, !13, i64 0}

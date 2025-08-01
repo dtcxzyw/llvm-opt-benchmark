@@ -714,7 +714,7 @@ _ZL18is_unboxing_methodP8ciMethodP7Compile.exit.thread: ; preds = %111, %_ZL18is
   %132 = getelementptr inbounds nuw i8, ptr %.045, i64 32
   %133 = load ptr, ptr %132, align 8
   %.not47 = icmp eq ptr %133, null
-  br i1 %.not47, label %134, label %.preheader, !llvm.loop !9
+  br i1 %.not47, label %134, label %.preheader, !llvm.loop !8
 
 134:                                              ; preds = %.preheader
   %135 = getelementptr inbounds nuw i8, ptr %.045, i64 16
@@ -1127,7 +1127,7 @@ _ZNK10InlineTree12inline_levelEv.exit67:          ; preds = %_ZNK10InlineTree12i
   %.2.us = phi i32 [ %.183.us, %145 ], [ %spec.select65.us, %147 ]
   %.061.us = load ptr, ptr %.06184.us, align 8
   %.not63.us = icmp eq ptr %.061.us, null
-  br i1 %.not63.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !10
+  br i1 %.not63.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.thread, %166
   %.06184 = phi ptr [ %.061, %166 ], [ %.0618192, %.thread ]
@@ -1143,7 +1143,7 @@ _ZNK10InlineTree12inline_levelEv.exit67:          ; preds = %_ZNK10InlineTree12i
   %spec.select88 = add nuw nsw i32 %.183, %168
   %.061 = load ptr, ptr %.06184, align 8
   %.not63 = icmp eq ptr %.061, null
-  br i1 %.not63, label %.critedge, label %.lr.ph.split, !llvm.loop !12
+  br i1 %.not63, label %.critedge, label %.lr.ph.split, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph.split, %166, %.lr.ph.split.us, %163, %.thread, %126
   %.1.lcssa = phi i32 [ 0, %126 ], [ %spec.select, %.thread ], [ %.2.us, %163 ], [ %.183.us, %.lr.ph.split.us ], [ %spec.select88, %166 ], [ %.183, %.lr.ph.split ]
@@ -1669,7 +1669,7 @@ _ZNK10InlineTree10caller_bciEv.exit.i:            ; preds = %15, %10
 24:                                               ; preds = %20, %_ZNK10InlineTree10caller_bciEv.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %10, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.loopexit, label %10, !llvm.loop !12
 
 .loopexit:                                        ; preds = %24, %4
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -1796,7 +1796,7 @@ _ZNK10InlineTree10caller_bciEv.exit:              ; preds = %9, %14
 23:                                               ; preds = %_ZNK10InlineTree10caller_bciEv.exit, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %19, %23, %3
   %.0 = phi ptr [ null, %3 ], [ null, %23 ], [ %11, %19 ]
@@ -1929,7 +1929,7 @@ _ZNK10InlineTree10caller_bciEv.exit.i:            ; preds = %31, %26
 40:                                               ; preds = %36, %_ZNK10InlineTree10caller_bciEv.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %26, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.loopexit, label %26, !llvm.loop !12
 
 .loopexit:                                        ; preds = %17, %40
   br i1 %11, label %41, label %.thread
@@ -1948,7 +1948,7 @@ _ZNK10InlineTree10caller_bciEv.exit.i:            ; preds = %31, %26
 _ZNK10InlineTree9callee_atEiP8ciMethod.exit:      ; preds = %36
   %44 = add i32 %.03055, 1
   %.not34 = icmp ugt i32 %44, %9
-  br i1 %.not34, label %.loopexit40, label %.lr.ph, !llvm.loop !14
+  br i1 %.not34, label %.loopexit40, label %.lr.ph, !llvm.loop !13
 
 .loopexit40:                                      ; preds = %_ZNK10InlineTree9callee_atEiP8ciMethod.exit, %3, %4, %7, %41
   %.028 = phi ptr [ %42, %41 ], [ %0, %7 ], [ %0, %4 ], [ %0, %3 ], [ %28, %_ZNK10InlineTree9callee_atEiP8ciMethod.exit ]
@@ -1979,7 +1979,7 @@ define hidden noundef i32 @_ZNK10InlineTree5countEv(ptr noundef nonnull readonly
   %11 = add nsw i32 %10, %.056
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %7, %1
   %.05.lcssa = phi i32 [ 1, %1 ], [ %11, %7 ]
@@ -2031,7 +2031,7 @@ _ZNK10InlineTree10caller_bciEv.exit:              ; preds = %3, %6
   %28 = load i32, ptr %20, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %24, label %._crit_edge, !llvm.loop !16
+  br i1 %30, label %24, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %24, %_ZNK10InlineTree10caller_bciEv.exit
   ret void
@@ -2228,7 +2228,7 @@ _ZN13GrowableArrayIP10InlineTreeE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !17
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2244,7 +2244,7 @@ _ZN13GrowableArrayIP10InlineTreeE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !18
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -2304,16 +2304,15 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !7}

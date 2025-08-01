@@ -2368,7 +2368,7 @@ if.then.i.i208.i:                                 ; preds = %arraydestroy.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i208.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZL19accessDeniedStringsB5cxx11
-  br i1 %arraydestroy.done.i, label %common.resume, label %arraydestroy.body.i, !llvm.loop !37
+  br i1 %arraydestroy.done.i, label %common.resume, label %arraydestroy.body.i
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
   %common.resume.op = phi { ptr, i32 } [ %37, %if.then.i.i.i.i.i ], [ %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
@@ -2490,5 +2490,3 @@ attributes #25 = { builtin allocsize(0) }
 !34 = !{!"_ZTSZN15TestModChannels8runTestsEP8IGameDefE3$_1", !6, i64 0, !6, i64 8}
 !35 = !{!36, !6, i64 8}
 !36 = !{!"_ZTSZN15TestModChannels8runTestsEP8IGameDefE3$_2", !6, i64 0, !6, i64 8}
-!37 = distinct !{!37, !38}
-!38 = !{!"llvm.loop.estimated_trip_count"}

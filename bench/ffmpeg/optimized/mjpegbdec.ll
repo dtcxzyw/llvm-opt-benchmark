@@ -482,7 +482,7 @@ read_offs.exit196:                                ; preds = %read_offs.exit193, 
   %287 = shl nuw nsw i32 %286, 3
   %288 = select i1 %or.cond.i, i32 -8, i32 %287
   %or.cond.i.i = icmp ult i32 %288, 2147483135
-  br i1 %or.cond.i.i, label %34, label %.loopexit, !llvm.loop !60
+  br i1 %or.cond.i.i, label %34, label %.loopexit
 
 289:                                              ; preds = %277, %275
   %290 = load i32, ptr %13, align 16, !tbaa !30
@@ -495,7 +495,7 @@ read_offs.exit196:                                ; preds = %read_offs.exit193, 
 
 292:                                              ; preds = %289
   %293 = getelementptr inbounds nuw i8, ptr %10, i64 1224
-  %294 = load ptr, ptr %293, align 8, !tbaa !62
+  %294 = load ptr, ptr %293, align 8, !tbaa !60
   tail call void @av_frame_move_ref(ptr noundef %1, ptr noundef %294) #3
   store i32 0, ptr %13, align 16, !tbaa !30
   %295 = load i32, ptr %30, align 4, !tbaa !56
@@ -503,27 +503,27 @@ read_offs.exit196:                                ; preds = %read_offs.exit193, 
   br i1 %296, label %.loopexit, label %297
 
 297:                                              ; preds = %292
-  store i32 1, ptr %2, align 4, !tbaa !63
+  store i32 1, ptr %2, align 4, !tbaa !61
   %298 = getelementptr inbounds nuw i8, ptr %10, i64 904
-  %299 = load i32, ptr %298, align 8, !tbaa !64
+  %299 = load i32, ptr %298, align 8, !tbaa !62
   %.not164 = icmp eq i32 %299, 0
   br i1 %.not164, label %300, label %.loopexit
 
 300:                                              ; preds = %297
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %302 = load i32, ptr %301, align 4, !tbaa !65
+  %302 = load i32, ptr %301, align 4, !tbaa !63
   %303 = and i32 %302, 16
   %.not165 = icmp eq i32 %303, 0
   br i1 %.not165, label %.loopexit, label %304
 
 304:                                              ; preds = %300
   %305 = getelementptr inbounds nuw i8, ptr %10, i64 872
-  %306 = load i32, ptr %305, align 8, !tbaa !63
+  %306 = load i32, ptr %305, align 8, !tbaa !61
   %307 = getelementptr inbounds nuw i8, ptr %10, i64 876
-  %308 = load i32, ptr %307, align 4, !tbaa !63
+  %308 = load i32, ptr %307, align 4, !tbaa !61
   %. = tail call i32 @llvm.smax.i32(i32 %306, i32 %308)
   %309 = getelementptr inbounds nuw i8, ptr %10, i64 880
-  %310 = load i32, ptr %309, align 8, !tbaa !63
+  %310 = load i32, ptr %309, align 8, !tbaa !61
   %spec.select = tail call i32 @llvm.smax.i32(i32 %., i32 %310)
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.19, i32 noundef %spec.select) #3
   br label %.loopexit
@@ -626,9 +626,7 @@ attributes #3 = { nounwind }
 !57 = !{!31, !12, i64 896}
 !58 = !{!31, !12, i64 900}
 !59 = !{!31, !12, i64 2144}
-!60 = distinct !{!60, !61}
-!61 = !{!"llvm.loop.estimated_trip_count"}
-!62 = !{!31, !34, i64 1224}
-!63 = !{!12, !12, i64 0}
-!64 = !{!31, !12, i64 904}
-!65 = !{!17, !12, i64 524}
+!60 = !{!31, !34, i64 1224}
+!61 = !{!12, !12, i64 0}
+!62 = !{!31, !12, i64 904}
+!63 = !{!17, !12, i64 524}

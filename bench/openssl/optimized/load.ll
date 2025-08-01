@@ -218,7 +218,7 @@ define ptr @load_csr_der(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 8:                                                ; preds = %5
   %9 = tail call ptr @X509_REQ_new_ex(ptr noundef %1, ptr noundef null) #3
-  store ptr %9, ptr %3, align 8, !tbaa !11
+  store ptr %9, ptr %3, align 8, !tbaa !10
   %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 101, ptr noundef nonnull @.str.12, ptr noundef %9) #3
   %.not7 = icmp eq i32 %10, 0
   br i1 %.not7, label %14, label %11
@@ -230,7 +230,7 @@ define ptr @load_csr_der(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 14:                                               ; preds = %11, %8
   %15 = call i32 @BIO_free(ptr noundef %6) #3
-  %16 = load ptr, ptr %3, align 8, !tbaa !11
+  %16 = load ptr, ptr %3, align 8, !tbaa !10
   br label %17
 
 17:                                               ; preds = %2, %5, %14
@@ -258,8 +258,7 @@ attributes #3 = { nounwind }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS11X509_req_st", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS11X509_req_st", !5, i64 0}

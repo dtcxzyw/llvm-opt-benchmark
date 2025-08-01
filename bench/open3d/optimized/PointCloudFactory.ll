@@ -404,14 +404,14 @@ define internal fastcc void @_ZN6open3d12_GLOBAL__N_135CreatePointCloudFromFloat
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
-  %160 = load float, ptr %159, align 4, !tbaa !53
+  %160 = load float, ptr %159, align 4, !tbaa !52
   %161 = fcmp ogt float %160, 0.000000e+00
   %162 = zext i1 %161 to i32
   %.2.i = add nsw i32 %.116.i, %162
   %163 = add nsw i32 %.01315.i, %4
   %164 = load i32, ptr %149, align 8, !tbaa !48
   %165 = icmp slt i32 %163, %164
-  br i1 %165, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !55
+  br i1 %165, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.lr.ph.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -425,7 +425,7 @@ define internal fastcc void @_ZN6open3d12_GLOBAL__N_135CreatePointCloudFromFloat
 
 _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit: ; preds = %._crit_edge.i, %.preheader.lr.ph.i, %147, %141
   %.035 = phi i32 [ %146, %141 ], [ 0, %147 ], [ 0, %.preheader.lr.ph.i ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %166 = load ptr, ptr %0, align 8, !tbaa !56
+  %166 = load ptr, ptr %0, align 8, !tbaa !55
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 48
   %168 = sext i32 %.035 to i64
   invoke void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %167, i64 noundef %168)
@@ -478,7 +478,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit: ; p
   %.1.lcssa = phi i32 [ %.03472, %.preheader ], [ %.2, %._crit_edge.loopexit ]
   %183 = add nsw i32 %.03373, %4
   %184 = icmp slt i32 %183, %181
-  br i1 %184, label %.preheader, label %._crit_edge74, !llvm.loop !58
+  br i1 %184, label %.preheader, label %._crit_edge74, !llvm.loop !57
 
 185:                                              ; preds = %.lr.ph, %229
   %.071 = phi i32 [ 0, %.lr.ph ], [ %230, %229 ]
@@ -487,7 +487,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit: ; p
           to label %187 unwind label %221
 
 187:                                              ; preds = %185
-  %188 = load float, ptr %186, align 4, !tbaa !53
+  %188 = load float, ptr %186, align 4, !tbaa !52
   %189 = fcmp ogt float %188, 0.000000e+00
   br i1 %189, label %190, label %223
 
@@ -520,7 +520,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit: ; p
   %208 = fadd <2 x double> %207, %205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   %209 = sext i32 %.170 to i64
-  %210 = load ptr, ptr %167, align 8, !tbaa !59
+  %210 = load ptr, ptr %167, align 8, !tbaa !58
   %211 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %210, i64 %209
   store <2 x double> %208, ptr %211, align 1, !tbaa !33
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
@@ -548,7 +548,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit: ; p
 224:                                              ; preds = %223
   %225 = add nsw i32 %.170, 1
   %226 = sext i32 %.170 to i64
-  %227 = load ptr, ptr %175, align 8, !tbaa !59
+  %227 = load ptr, ptr %175, align 8, !tbaa !58
   %228 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %227, i64 %226
   store double 0x7FF8000000000000, ptr %228, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 8
@@ -562,7 +562,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit: ; p
   %230 = add nsw i32 %.071, %4
   %231 = load i32, ptr %172, align 8, !tbaa !48
   %232 = icmp slt i32 %230, %231
-  br i1 %232, label %185, label %._crit_edge.loopexit, !llvm.loop !62
+  br i1 %232, label %185, label %._crit_edge.loopexit, !llvm.loop !61
 
 233:                                              ; preds = %.loopexit, %.loopexit.split-lp, %221
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %222, %221 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -645,14 +645,14 @@ define linkonce_odr void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpO
 10:                                               ; preds = %4
   %11 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  store i64 %11, ptr %5, align 8, !tbaa !63
+  store i64 %11, ptr %5, align 8, !tbaa !62
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %10
   %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
-  store ptr %13, ptr %6, align 8, !tbaa !64
-  %14 = load i64, ptr %5, align 8, !tbaa !63
+  store ptr %13, ptr %6, align 8, !tbaa !63
+  %14 = load i64, ptr %5, align 8, !tbaa !62
   store i64 %14, ptr %8, align 8, !tbaa !33
   br label %._crit_edge.i.i
 
@@ -673,10 +673,10 @@ define linkonce_odr void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpO
   br label %19
 
 19:                                               ; preds = %18, %16, %._crit_edge.i.i
-  %20 = load i64, ptr %5, align 8, !tbaa !63
+  %20 = load i64, ptr %5, align 8, !tbaa !62
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %20, ptr %21, align 8, !tbaa !42
-  %22 = load ptr, ptr %6, align 8, !tbaa !64
+  %22 = load ptr, ptr %6, align 8, !tbaa !63
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
@@ -689,7 +689,7 @@ define linkonce_odr void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpO
 25:                                               ; preds = %19
   %26 = landingpad { ptr, i32 }
           cleanup
-  %27 = load ptr, ptr %6, align 8, !tbaa !64
+  %27 = load ptr, ptr %6, align 8, !tbaa !63
   %28 = icmp eq ptr %27, %8
   br i1 %28, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
@@ -713,8 +713,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !65
-  %5 = load ptr, ptr %0, align 8, !tbaa !59
+  %4 = load ptr, ptr %3, align 8, !tbaa !64
+  %5 = load ptr, ptr %0, align 8, !tbaa !58
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -725,7 +725,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaI
 11:                                               ; preds = %2
   %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !66
+  %14 = load ptr, ptr %13, align 8, !tbaa !65
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %6
   %17 = sdiv exact i64 %16, 24
@@ -740,7 +740,7 @@ define linkonce_odr void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaI
 21:                                               ; preds = %11
   %22 = mul i64 %12, 24
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
-  store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !65
+  store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !64
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
 23:                                               ; preds = %11
@@ -764,11 +764,11 @@ _ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i ], [ %29, %_ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %5, %_ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i64 24, i1 false), !tbaa.struct !67, !alias.scope !68
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.012.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i.i, i64 24, i1 false), !tbaa.struct !66, !alias.scope !67
   %31 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 24
   %.not.i.i.i.i = icmp eq ptr %31, %4
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !72
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !71
 
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE12_M_check_lenEmPKc.exit.i
   %.not.i31.i = icmp eq ptr %5, null
@@ -780,11 +780,11 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
   br label %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
-  store ptr %29, ptr %0, align 8, !tbaa !59
+  store ptr %29, ptr %0, align 8, !tbaa !58
   %35 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %30, i64 %12
-  store ptr %35, ptr %3, align 8, !tbaa !65
+  store ptr %35, ptr %3, align 8, !tbaa !64
   %36 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %29, i64 %27
-  store ptr %36, ptr %13, align 8, !tbaa !66
+  store ptr %36, ptr %13, align 8, !tbaa !65
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
 37:                                               ; preds = %2
@@ -797,7 +797,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocat
   br i1 %.not.i4, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %39
-  store ptr %40, ptr %3, align 8, !tbaa !65
+  store ptr %40, ptr %3, align 8, !tbaa !64
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
 _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit: ; preds = %_ZSt8_DestroyIPN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_EvT_S4_RSaIT0_E.exit.i, %39, %_ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i, %21, %37
@@ -902,7 +902,7 @@ define linkonce_odr noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN6open3d8geometr
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !73
+  %7 = load ptr, ptr %6, align 8, !tbaa !72
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
@@ -990,7 +990,7 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromRGBDImageERKNS0_9RGBDIma
   %.sroa.0.i30 = alloca [4 x double], align 16
   %.sroa.0.i = alloca [4 x double], align 16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %7 = load i32, ptr %6, align 8, !tbaa !75
+  %7 = load i32, ptr %6, align 8, !tbaa !74
   %8 = icmp eq i32 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 196
   %10 = load i32, ptr %9, align 4
@@ -1000,7 +1000,7 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromRGBDImageERKNS0_9RGBDIma
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %14 = load i32, ptr %13, align 4, !tbaa !77
+  %14 = load i32, ptr %13, align 4, !tbaa !76
   %15 = icmp eq i32 %14, 1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %17 = load i32, ptr %16, align 8
@@ -1009,46 +1009,46 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromRGBDImageERKNS0_9RGBDIma
   br i1 %or.cond23, label %19, label %279
 
 19:                                               ; preds = %12
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #19, !noalias !84
+  %21 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #19, !noalias !83
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 1, ptr %22, align 8, !tbaa !28, !noalias !84
+  store i32 1, ptr %22, align 8, !tbaa !28, !noalias !83
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  store i32 1, ptr %23, align 4, !tbaa !30, !noalias !84
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6open3d8geometry10PointCloudESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !tbaa !31, !noalias !84
+  store i32 1, ptr %23, align 4, !tbaa !30, !noalias !83
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6open3d8geometry10PointCloudESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %21, align 8, !tbaa !31, !noalias !83
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store i32 1, ptr %25, align 8, !tbaa !39, !noalias !84
+  store i32 1, ptr %25, align 8, !tbaa !39, !noalias !83
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 28
-  store i32 3, ptr %26, align 4, !tbaa !40, !noalias !84
+  store i32 3, ptr %26, align 4, !tbaa !40, !noalias !83
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  store ptr %28, ptr %27, align 8, !tbaa !41, !noalias !84
+  store ptr %28, ptr %27, align 8, !tbaa !41, !noalias !83
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i64 0, ptr %29, align 8, !tbaa !42, !noalias !84
-  store i8 0, ptr %28, align 1, !tbaa !33, !noalias !84
-  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %24, align 8, !tbaa !31, !noalias !84
+  store i64 0, ptr %29, align 8, !tbaa !42, !noalias !83
+  store i8 0, ptr %28, align 1, !tbaa !33, !noalias !83
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %24, align 8, !tbaa !31, !noalias !83
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %30, i8 0, i64 96, i1 false), !noalias !84
-  store ptr %21, ptr %20, align 8, !tbaa !27, !alias.scope !84
-  store ptr %24, ptr %0, align 8, !tbaa !43, !alias.scope !84
-  %.sroa.0264.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %3, align 16, !noalias !78
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %30, i8 0, i64 96, i1 false), !noalias !83
+  store ptr %21, ptr %20, align 8, !tbaa !27, !alias.scope !83
+  store ptr %24, ptr %0, align 8, !tbaa !43, !alias.scope !83
+  %.sroa.0264.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %3, align 16, !noalias !77
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.4.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 16, !noalias !78
+  %.sroa.4.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, align 16, !noalias !77
   %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sroa.5.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i, align 16, !noalias !78
+  %.sroa.5.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i, align 16, !noalias !77
   %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.6.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i, align 16, !noalias !78
+  %.sroa.6.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i, align 16, !noalias !77
   %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.7.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i, align 16, !noalias !78
+  %.sroa.7.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i, align 16, !noalias !77
   %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.8.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i, align 16, !noalias !78
+  %.sroa.8.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i, align 16, !noalias !77
   %.sroa.9.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.9.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.9.0..sroa_idx.i.i.i.i.i.i.i, align 16, !noalias !78
+  %.sroa.9.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.9.0..sroa_idx.i.i.i.i.i.i.i, align 16, !noalias !77
   %.sroa.10.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.10.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.10.0..sroa_idx.i.i.i.i.i.i.i, align 16, !tbaa !33, !noalias !78
+  %.sroa.10.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %.sroa.10.0..sroa_idx.i.i.i.i.i.i.i, align 16, !tbaa !33, !noalias !77
   %31 = shufflevector <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %32 = fmul <2 x double> %.sroa.0264.0.copyload.i.i.i.i.i.i.i, %31
   %33 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> <i32 1, i32 1>
@@ -1164,32 +1164,32 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromRGBDImageERKNS0_9RGBDIma
   %143 = fmul <2 x double> %88, %129
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %145 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %146 = load double, ptr %144, align 8, !tbaa !45, !noalias !78
-  %147 = load double, ptr %145, align 8, !tbaa !45, !noalias !78
+  %146 = load double, ptr %144, align 8, !tbaa !45, !noalias !77
+  %147 = load double, ptr %145, align 8, !tbaa !45, !noalias !77
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %150 = load double, ptr %148, align 8, !tbaa !45, !noalias !78
-  %151 = load double, ptr %149, align 8, !tbaa !45, !noalias !78
+  %150 = load double, ptr %148, align 8, !tbaa !45, !noalias !77
+  %151 = load double, ptr %149, align 8, !tbaa !45, !noalias !77
   br i1 %4, label %158, label %152
 
 152:                                              ; preds = %19
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %154 = load i32, ptr %153, align 4, !tbaa !85, !noalias !78
+  %154 = load i32, ptr %153, align 4, !tbaa !84, !noalias !77
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %156 = load i32, ptr %155, align 8, !tbaa !86, !noalias !78
+  %156 = load i32, ptr %155, align 8, !tbaa !85, !noalias !77
   %157 = mul nsw i32 %156, %154
   br label %_ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i
 
 158:                                              ; preds = %19
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %161 = load i32, ptr %160, align 4, !tbaa !47, !noalias !78
+  %161 = load i32, ptr %160, align 4, !tbaa !47, !noalias !77
   %162 = icmp sgt i32 %161, 0
   br i1 %162, label %.preheader.lr.ph.i.i, label %_ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i
 
 .preheader.lr.ph.i.i:                             ; preds = %158
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %164 = load i32, ptr %163, align 8, !tbaa !48, !noalias !78
+  %164 = load i32, ptr %163, align 8, !tbaa !48, !noalias !77
   %165 = icmp sgt i32 %164, 0
   br i1 %165, label %.preheader.i.i, label %_ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i
 
@@ -1202,7 +1202,7 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromRGBDImageERKNS0_9RGBDIma
   br i1 %168, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.noexc.i
-  %.pre.i.i = load i32, ptr %160, align 4, !tbaa !47, !noalias !78
+  %.pre.i.i = load i32, ptr %160, align 4, !tbaa !47, !noalias !77
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
@@ -1217,17 +1217,17 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromRGBDImageERKNS0_9RGBDIma
   %.116.i.i = phi i32 [ %.2.i.i, %.noexc.i ], [ %.018.i.i, %.preheader.i.i ]
   %.01315.i.i = phi i32 [ %177, %.noexc.i ], [ 0, %.preheader.i.i ]
   %173 = invoke noundef ptr @_ZNK6open3d8geometry5Image9PointerAtIfEEPT_ii(ptr noundef nonnull align 8 dereferenceable(88) %159, i32 noundef %.01315.i.i, i32 noundef %.01417.i.i)
-          to label %.noexc.i unwind label %.loopexit.i, !noalias !78
+          to label %.noexc.i unwind label %.loopexit.i, !noalias !77
 
 .noexc.i:                                         ; preds = %.lr.ph.i.i
-  %174 = load float, ptr %173, align 4, !tbaa !53, !noalias !78
+  %174 = load float, ptr %173, align 4, !tbaa !52, !noalias !77
   %175 = fcmp ogt float %174, 0.000000e+00
   %176 = zext i1 %175 to i32
   %.2.i.i = add nsw i32 %.116.i.i, %176
   %177 = add nuw nsw i32 %.01315.i.i, 1
-  %178 = load i32, ptr %163, align 8, !tbaa !48, !noalias !78
+  %178 = load i32, ptr %163, align 8, !tbaa !48, !noalias !77
   %179 = icmp slt i32 %177, %178
-  br i1 %179, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !55
+  br i1 %179, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !54
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -1248,16 +1248,16 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   %.043.i = phi i32 [ %157, %152 ], [ 0, %158 ], [ 0, %.preheader.lr.ph.i.i ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
   %180 = sext i32 %.043.i to i64
   invoke void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %30, i64 noundef %180)
-          to label %181 unwind label %.loopexit.split-lp.i, !noalias !78
+          to label %181 unwind label %.loopexit.split-lp.i, !noalias !77
 
 181:                                              ; preds = %_ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i
   %182 = getelementptr inbounds nuw i8, ptr %21, i64 112
   invoke void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %182, i64 noundef %180)
-          to label %.preheader.i unwind label %.loopexit.split-lp.i, !noalias !78
+          to label %.preheader.i unwind label %.loopexit.split-lp.i, !noalias !77
 
 .preheader.i:                                     ; preds = %181
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %184 = load i32, ptr %183, align 4, !tbaa !85, !noalias !78
+  %184 = load i32, ptr %183, align 4, !tbaa !84, !noalias !77
   %185 = icmp sgt i32 %184, 0
   br i1 %185, label %.lr.ph101.i, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit
 
@@ -1266,7 +1266,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %189 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %190 = load i32, ptr %187, align 8, !tbaa !86, !noalias !78
+  %190 = load i32, ptr %187, align 8, !tbaa !85, !noalias !77
   %191 = icmp sgt i32 %190, 0
   br i1 %191, label %.lr.ph101.split.i.preheader, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit
 
@@ -1287,20 +1287,20 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   br i1 %194, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph101.split.i
-  %195 = load ptr, ptr %188, align 8, !tbaa !87, !noalias !78
-  %196 = load i32, ptr %189, align 8, !tbaa !48, !noalias !78
+  %195 = load ptr, ptr %188, align 8, !tbaa !86, !noalias !77
+  %196 = load i32, ptr %189, align 8, !tbaa !48, !noalias !77
   %197 = mul i32 %196, %.041100.i
-  %198 = load i32, ptr %16, align 8, !tbaa !4, !noalias !78
+  %198 = load i32, ptr %16, align 8, !tbaa !4, !noalias !77
   %199 = mul i32 %197, %198
-  %200 = load i32, ptr %13, align 4, !tbaa !21, !noalias !78
+  %200 = load i32, ptr %13, align 4, !tbaa !21, !noalias !77
   %201 = mul i32 %199, %200
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds i8, ptr %195, i64 %202
-  %204 = load ptr, ptr %186, align 8, !tbaa !87, !noalias !78
+  %204 = load ptr, ptr %186, align 8, !tbaa !86, !noalias !77
   %205 = mul i32 %.041100.i, %193
-  %206 = load i32, ptr %6, align 8, !tbaa !4, !noalias !78
+  %206 = load i32, ptr %6, align 8, !tbaa !4, !noalias !77
   %207 = mul i32 %205, %206
-  %208 = load i32, ptr %9, align 4, !tbaa !21, !noalias !78
+  %208 = load i32, ptr %9, align 4, !tbaa !21, !noalias !77
   %209 = mul i32 %207, %208
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds i8, ptr %204, i64 %210
@@ -1309,7 +1309,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   br label %218
 
 ._crit_edge.loopexit.i:                           ; preds = %273
-  %.pre.i = load i32, ptr %183, align 4, !tbaa !85, !noalias !78
+  %.pre.i = load i32, ptr %183, align 4, !tbaa !84, !noalias !77
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.lr.ph101.split.i
@@ -1318,14 +1318,14 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   %.1.lcssa.i = phi i32 [ %.04299.i, %.lr.ph101.split.i ], [ %.2.i, %._crit_edge.loopexit.i ]
   %216 = add nuw nsw i32 %.041100.i, 1
   %217 = icmp slt i32 %216, %214
-  br i1 %217, label %.lr.ph101.split.i, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit, !llvm.loop !88
+  br i1 %217, label %.lr.ph101.split.i, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit, !llvm.loop !87
 
 218:                                              ; preds = %273, %.lr.ph.i
   %.098.i = phi i32 [ 0, %.lr.ph.i ], [ %274, %273 ]
   %.03997.i = phi ptr [ %203, %.lr.ph.i ], [ %276, %273 ]
   %.04096.i = phi ptr [ %211, %.lr.ph.i ], [ %275, %273 ]
   %.195.i = phi i32 [ %.04299.i, %.lr.ph.i ], [ %.2.i, %273 ]
-  %219 = load float, ptr %.04096.i, align 4, !tbaa !53, !noalias !78
+  %219 = load float, ptr %.04096.i, align 4, !tbaa !52, !noalias !77
   %220 = fcmp ogt float %219, 0.000000e+00
   br i1 %220, label %221, label %265
 
@@ -1338,18 +1338,18 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   %227 = fmul double %213, %222
   %228 = fdiv double %227, %147
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i)
-  store double %226, ptr %.sroa.0.i, align 16, !tbaa !45, !noalias !78
-  store double %228, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx205, align 8, !tbaa !45, !noalias !78
-  store double %222, ptr %.sroa.0.i.16.i.16.i.16..sroa_idx206, align 16, !tbaa !45, !noalias !78
-  store double 1.000000e+00, ptr %.sroa.0.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !45, !noalias !78
-  %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i = load <2 x double>, ptr %.sroa.0.i, align 16, !noalias !78
+  store double %226, ptr %.sroa.0.i, align 16, !tbaa !45, !noalias !77
+  store double %228, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx205, align 8, !tbaa !45, !noalias !77
+  store double %222, ptr %.sroa.0.i.16.i.16.i.16..sroa_idx206, align 16, !tbaa !45, !noalias !77
+  store double 1.000000e+00, ptr %.sroa.0.i.24.i.24.i.24..sroa_idx, align 8, !tbaa !45, !noalias !77
+  %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i = load <2 x double>, ptr %.sroa.0.i, align 16, !noalias !77
   %229 = shufflevector <2 x double> %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i, <2 x double> poison, <2 x i32> zeroinitializer
   %230 = fmul <2 x double> %131, %229
-  %.sroa.0.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i = load <2 x double>, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx, align 8, !noalias !78
+  %.sroa.0.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i = load <2 x double>, ptr %.sroa.0.i.8.i.8.i.8..sroa_idx, align 8, !noalias !77
   %231 = shufflevector <2 x double> %.sroa.0.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i, <2 x double> poison, <2 x i32> zeroinitializer
   %232 = fmul <2 x double> %133, %231
   %233 = fadd <2 x double> %230, %232
-  %.sroa.0.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i = load <2 x double>, ptr %.sroa.0.i.16.i.16.i.16..sroa_idx, align 16, !noalias !78
+  %.sroa.0.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i = load <2 x double>, ptr %.sroa.0.i.16.i.16.i.16..sroa_idx, align 16, !noalias !77
   %234 = shufflevector <2 x double> %.sroa.0.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i, <2 x double> poison, <2 x i32> zeroinitializer
   %235 = fmul <2 x double> %138, %234
   %236 = fadd <2 x double> %233, %235
@@ -1358,9 +1358,9 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   %239 = fadd <2 x double> %238, %236
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i)
   %240 = sext i32 %.195.i to i64
-  %241 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !78
+  %241 = load ptr, ptr %30, align 8, !tbaa !58, !noalias !77
   %242 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %241, i64 %240
-  store <2 x double> %239, ptr %242, align 1, !tbaa !33, !noalias !78
+  store <2 x double> %239, ptr %242, align 1, !tbaa !33, !noalias !77
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %shift = shufflevector <2 x double> %.sroa.0.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %244 = fmul <2 x double> %143, %shift
@@ -1371,24 +1371,24 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   %249 = fadd <2 x double> %247, %248
   %250 = fadd <2 x double> %244, %249
   %.sroa.5.16.vec.extract.i = extractelement <2 x double> %250, i64 0
-  store double %.sroa.5.16.vec.extract.i, ptr %243, align 8, !tbaa !45, !noalias !78
-  %251 = load i8, ptr %.03997.i, align 1, !tbaa !33, !noalias !78
+  store double %.sroa.5.16.vec.extract.i, ptr %243, align 8, !tbaa !45, !noalias !77
+  %251 = load i8, ptr %.03997.i, align 1, !tbaa !33, !noalias !77
   %252 = uitofp i8 %251 to double
   %253 = getelementptr inbounds nuw i8, ptr %.03997.i, i64 1
-  %254 = load i8, ptr %253, align 1, !tbaa !33, !noalias !78
+  %254 = load i8, ptr %253, align 1, !tbaa !33, !noalias !77
   %255 = uitofp i8 %254 to double
   %256 = getelementptr inbounds nuw i8, ptr %.03997.i, i64 2
-  %257 = load i8, ptr %256, align 1, !tbaa !33, !noalias !78
+  %257 = load i8, ptr %256, align 1, !tbaa !33, !noalias !77
   %258 = uitofp i8 %257 to double
   %.sroa.093.0.vec.insert.i = insertelement <2 x double> poison, double %252, i64 0
   %.sroa.093.8.vec.insert.i = insertelement <2 x double> %.sroa.093.0.vec.insert.i, double %255, i64 1
-  %259 = load ptr, ptr %182, align 8, !tbaa !59, !noalias !78
+  %259 = load ptr, ptr %182, align 8, !tbaa !58, !noalias !77
   %260 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %259, i64 %240
   %261 = fdiv <2 x double> %.sroa.093.8.vec.insert.i, splat (double 2.550000e+02)
-  store <2 x double> %261, ptr %260, align 1, !tbaa !33, !noalias !78
+  store <2 x double> %261, ptr %260, align 1, !tbaa !33, !noalias !77
   %262 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %263 = fdiv double %258, 2.550000e+02
-  store double %263, ptr %262, align 8, !tbaa !45, !noalias !78
+  store double %263, ptr %262, align 8, !tbaa !45, !noalias !77
   %264 = add nsw i32 %.195.i, 1
   br label %273
 
@@ -1397,17 +1397,17 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
 
 266:                                              ; preds = %265
   %267 = sext i32 %.195.i to i64
-  %268 = load ptr, ptr %30, align 8, !tbaa !59, !noalias !78
+  %268 = load ptr, ptr %30, align 8, !tbaa !58, !noalias !77
   %269 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %268, i64 %267
-  store double 0x7FF8000000000000, ptr %269, align 8, !noalias !78
+  store double 0x7FF8000000000000, ptr %269, align 8, !noalias !77
   %.sroa.567.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %269, i64 8
-  store double 0x7FF8000000000000, ptr %.sroa.567.0..sroa_idx.i, align 8, !noalias !78
+  store double 0x7FF8000000000000, ptr %.sroa.567.0..sroa_idx.i, align 8, !noalias !77
   %.sroa.668.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %269, i64 16
-  store double 0x7FF8000000000000, ptr %.sroa.668.0..sroa_idx.i, align 8, !tbaa !33, !noalias !78
+  store double 0x7FF8000000000000, ptr %.sroa.668.0..sroa_idx.i, align 8, !tbaa !33, !noalias !77
   %270 = add nsw i32 %.195.i, 1
-  %271 = load ptr, ptr %182, align 8, !tbaa !59, !noalias !78
+  %271 = load ptr, ptr %182, align 8, !tbaa !58, !noalias !77
   %272 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %271, i64 %267
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %272, i8 0, i64 24, i1 false), !noalias !78
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %272, i8 0, i64 24, i1 false), !noalias !77
   br label %273
 
 273:                                              ; preds = %266, %265, %221
@@ -1415,9 +1415,9 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   %274 = add nuw nsw i32 %.098.i, 1
   %275 = getelementptr inbounds nuw i8, ptr %.04096.i, i64 4
   %276 = getelementptr inbounds nuw i8, ptr %.03997.i, i64 3
-  %277 = load i32, ptr %187, align 8, !tbaa !86, !noalias !78
+  %277 = load i32, ptr %187, align 8, !tbaa !85, !noalias !77
   %278 = icmp slt i32 %274, %277
-  br i1 %278, label %218, label %._crit_edge.loopexit.i, !llvm.loop !89
+  br i1 %278, label %218, label %._crit_edge.loopexit.i, !llvm.loop !88
 
 279:                                              ; preds = %12
   %280 = icmp eq i32 %17, 4
@@ -1425,46 +1425,46 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   br i1 %or.cond26, label %281, label %541
 
 281:                                              ; preds = %279
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %283 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #19, !noalias !96
+  %283 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #19, !noalias !95
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 8
-  store i32 1, ptr %284, align 8, !tbaa !28, !noalias !96
+  store i32 1, ptr %284, align 8, !tbaa !28, !noalias !95
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 12
-  store i32 1, ptr %285, align 4, !tbaa !30, !noalias !96
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6open3d8geometry10PointCloudESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %283, align 8, !tbaa !31, !noalias !96
+  store i32 1, ptr %285, align 4, !tbaa !30, !noalias !95
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6open3d8geometry10PointCloudESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %283, align 8, !tbaa !31, !noalias !95
   %286 = getelementptr inbounds nuw i8, ptr %283, i64 16
   %287 = getelementptr inbounds nuw i8, ptr %283, i64 24
-  store i32 1, ptr %287, align 8, !tbaa !39, !noalias !96
+  store i32 1, ptr %287, align 8, !tbaa !39, !noalias !95
   %288 = getelementptr inbounds nuw i8, ptr %283, i64 28
-  store i32 3, ptr %288, align 4, !tbaa !40, !noalias !96
+  store i32 3, ptr %288, align 4, !tbaa !40, !noalias !95
   %289 = getelementptr inbounds nuw i8, ptr %283, i64 32
   %290 = getelementptr inbounds nuw i8, ptr %283, i64 48
-  store ptr %290, ptr %289, align 8, !tbaa !41, !noalias !96
+  store ptr %290, ptr %289, align 8, !tbaa !41, !noalias !95
   %291 = getelementptr inbounds nuw i8, ptr %283, i64 40
-  store i64 0, ptr %291, align 8, !tbaa !42, !noalias !96
-  store i8 0, ptr %290, align 1, !tbaa !33, !noalias !96
-  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %286, align 8, !tbaa !31, !noalias !96
+  store i64 0, ptr %291, align 8, !tbaa !42, !noalias !95
+  store i8 0, ptr %290, align 1, !tbaa !33, !noalias !95
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %286, align 8, !tbaa !31, !noalias !95
   %292 = getelementptr inbounds nuw i8, ptr %283, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %292, i8 0, i64 96, i1 false), !noalias !96
-  store ptr %283, ptr %282, align 8, !tbaa !27, !alias.scope !96
-  store ptr %286, ptr %0, align 8, !tbaa !43, !alias.scope !96
-  %.sroa.0264.0.copyload.i.i.i.i.i.i.i31 = load <2 x double>, ptr %3, align 16, !noalias !90
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %292, i8 0, i64 96, i1 false), !noalias !95
+  store ptr %283, ptr %282, align 8, !tbaa !27, !alias.scope !95
+  store ptr %286, ptr %0, align 8, !tbaa !43, !alias.scope !95
+  %.sroa.0264.0.copyload.i.i.i.i.i.i.i31 = load <2 x double>, ptr %3, align 16, !noalias !89
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.4.0.copyload.i.i.i.i.i.i.i33 = load <2 x double>, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i32, align 16, !noalias !90
+  %.sroa.4.0.copyload.i.i.i.i.i.i.i33 = load <2 x double>, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i32, align 16, !noalias !89
   %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sroa.5.0.copyload.i.i.i.i.i.i.i35 = load <2 x double>, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i34, align 16, !noalias !90
+  %.sroa.5.0.copyload.i.i.i.i.i.i.i35 = load <2 x double>, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i34, align 16, !noalias !89
   %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.6.0.copyload.i.i.i.i.i.i.i37 = load <2 x double>, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i36, align 16, !noalias !90
+  %.sroa.6.0.copyload.i.i.i.i.i.i.i37 = load <2 x double>, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i36, align 16, !noalias !89
   %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i38 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.7.0.copyload.i.i.i.i.i.i.i39 = load <2 x double>, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i38, align 16, !noalias !90
+  %.sroa.7.0.copyload.i.i.i.i.i.i.i39 = load <2 x double>, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i38, align 16, !noalias !89
   %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.8.0.copyload.i.i.i.i.i.i.i41 = load <2 x double>, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i40, align 16, !noalias !90
+  %.sroa.8.0.copyload.i.i.i.i.i.i.i41 = load <2 x double>, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i40, align 16, !noalias !89
   %.sroa.9.0..sroa_idx.i.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.9.0.copyload.i.i.i.i.i.i.i43 = load <2 x double>, ptr %.sroa.9.0..sroa_idx.i.i.i.i.i.i.i42, align 16, !noalias !90
+  %.sroa.9.0.copyload.i.i.i.i.i.i.i43 = load <2 x double>, ptr %.sroa.9.0..sroa_idx.i.i.i.i.i.i.i42, align 16, !noalias !89
   %.sroa.10.0..sroa_idx.i.i.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.10.0.copyload.i.i.i.i.i.i.i45 = load <2 x double>, ptr %.sroa.10.0..sroa_idx.i.i.i.i.i.i.i44, align 16, !tbaa !33, !noalias !90
+  %.sroa.10.0.copyload.i.i.i.i.i.i.i45 = load <2 x double>, ptr %.sroa.10.0..sroa_idx.i.i.i.i.i.i.i44, align 16, !tbaa !33, !noalias !89
   %293 = shufflevector <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i35, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %294 = fmul <2 x double> %.sroa.0264.0.copyload.i.i.i.i.i.i.i31, %293
   %295 = shufflevector <2 x double> %294, <2 x double> poison, <2 x i32> <i32 1, i32 1>
@@ -1580,32 +1580,32 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   %405 = fmul <2 x double> %350, %391
   %406 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %407 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %408 = load double, ptr %406, align 8, !tbaa !45, !noalias !90
-  %409 = load double, ptr %407, align 8, !tbaa !45, !noalias !90
+  %408 = load double, ptr %406, align 8, !tbaa !45, !noalias !89
+  %409 = load double, ptr %407, align 8, !tbaa !45, !noalias !89
   %410 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %411 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %412 = load double, ptr %410, align 8, !tbaa !45, !noalias !90
-  %413 = load double, ptr %411, align 8, !tbaa !45, !noalias !90
+  %412 = load double, ptr %410, align 8, !tbaa !45, !noalias !89
+  %413 = load double, ptr %411, align 8, !tbaa !45, !noalias !89
   br i1 %4, label %420, label %414
 
 414:                                              ; preds = %281
   %415 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %416 = load i32, ptr %415, align 4, !tbaa !85, !noalias !90
+  %416 = load i32, ptr %415, align 4, !tbaa !84, !noalias !89
   %417 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %418 = load i32, ptr %417, align 8, !tbaa !86, !noalias !90
+  %418 = load i32, ptr %417, align 8, !tbaa !85, !noalias !89
   %419 = mul nsw i32 %418, %416
   br label %_ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46
 
 420:                                              ; preds = %281
   %421 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %422 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %423 = load i32, ptr %422, align 4, !tbaa !47, !noalias !90
+  %423 = load i32, ptr %422, align 4, !tbaa !47, !noalias !89
   %424 = icmp sgt i32 %423, 0
   br i1 %424, label %.preheader.lr.ph.i.i78, label %_ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46
 
 .preheader.lr.ph.i.i78:                           ; preds = %420
   %425 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %426 = load i32, ptr %425, align 8, !tbaa !48, !noalias !90
+  %426 = load i32, ptr %425, align 8, !tbaa !48, !noalias !89
   %427 = icmp sgt i32 %426, 0
   br i1 %427, label %.preheader.i.i79, label %_ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46
 
@@ -1618,7 +1618,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   br i1 %430, label %.lr.ph.i.i84, label %._crit_edge.i.i82
 
 ._crit_edge.loopexit.i.i91:                       ; preds = %.noexc.i89
-  %.pre.i.i92 = load i32, ptr %422, align 4, !tbaa !47, !noalias !90
+  %.pre.i.i92 = load i32, ptr %422, align 4, !tbaa !47, !noalias !89
   br label %._crit_edge.i.i82
 
 ._crit_edge.i.i82:                                ; preds = %._crit_edge.loopexit.i.i91, %.preheader.i.i79
@@ -1633,17 +1633,17 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   %.116.i.i85 = phi i32 [ %.2.i.i90, %.noexc.i89 ], [ %.018.i.i80, %.preheader.i.i79 ]
   %.01315.i.i86 = phi i32 [ %439, %.noexc.i89 ], [ 0, %.preheader.i.i79 ]
   %435 = invoke noundef ptr @_ZNK6open3d8geometry5Image9PointerAtIfEEPT_ii(ptr noundef nonnull align 8 dereferenceable(88) %421, i32 noundef %.01315.i.i86, i32 noundef %.01417.i.i81)
-          to label %.noexc.i89 unwind label %.loopexit.i87, !noalias !90
+          to label %.noexc.i89 unwind label %.loopexit.i87, !noalias !89
 
 .noexc.i89:                                       ; preds = %.lr.ph.i.i84
-  %436 = load float, ptr %435, align 4, !tbaa !53, !noalias !90
+  %436 = load float, ptr %435, align 4, !tbaa !52, !noalias !89
   %437 = fcmp ogt float %436, 0.000000e+00
   %438 = zext i1 %437 to i32
   %.2.i.i90 = add nsw i32 %.116.i.i85, %438
   %439 = add nuw nsw i32 %.01315.i.i86, 1
-  %440 = load i32, ptr %425, align 8, !tbaa !48, !noalias !90
+  %440 = load i32, ptr %425, align 8, !tbaa !48, !noalias !89
   %441 = icmp slt i32 %439, %440
-  br i1 %441, label %.lr.ph.i.i84, label %._crit_edge.loopexit.i.i91, !llvm.loop !55
+  br i1 %441, label %.lr.ph.i.i84, label %._crit_edge.loopexit.i.i91, !llvm.loop !54
 
 .loopexit.i87:                                    ; preds = %.lr.ph.i.i84
   %lpad.loopexit.i88 = landingpad { ptr, i32 }
@@ -1659,16 +1659,16 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   %.043.i47 = phi i32 [ %419, %414 ], [ 0, %420 ], [ 0, %.preheader.lr.ph.i.i78 ], [ %.1.lcssa.i.i83, %._crit_edge.i.i82 ]
   %442 = sext i32 %.043.i47 to i64
   invoke void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %292, i64 noundef %442)
-          to label %443 unwind label %.loopexit.split-lp.i48, !noalias !90
+          to label %443 unwind label %.loopexit.split-lp.i48, !noalias !89
 
 443:                                              ; preds = %_ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46
   %444 = getelementptr inbounds nuw i8, ptr %283, i64 112
   invoke void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %444, i64 noundef %442)
-          to label %.preheader.i51 unwind label %.loopexit.split-lp.i48, !noalias !90
+          to label %.preheader.i51 unwind label %.loopexit.split-lp.i48, !noalias !89
 
 .preheader.i51:                                   ; preds = %443
   %445 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %446 = load i32, ptr %445, align 4, !tbaa !85, !noalias !90
+  %446 = load i32, ptr %445, align 4, !tbaa !84, !noalias !89
   %447 = icmp sgt i32 %446, 0
   br i1 %447, label %.lr.ph101.i52, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit
 
@@ -1677,7 +1677,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   %449 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %450 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %451 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %452 = load i32, ptr %449, align 8, !tbaa !86, !noalias !90
+  %452 = load i32, ptr %449, align 8, !tbaa !85, !noalias !89
   %453 = icmp sgt i32 %452, 0
   br i1 %453, label %.lr.ph101.split.i57.preheader, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit
 
@@ -1698,20 +1698,20 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   br i1 %456, label %.lr.ph.i62, label %._crit_edge.i60
 
 .lr.ph.i62:                                       ; preds = %.lr.ph101.split.i57
-  %457 = load ptr, ptr %450, align 8, !tbaa !87, !noalias !90
-  %458 = load i32, ptr %451, align 8, !tbaa !48, !noalias !90
+  %457 = load ptr, ptr %450, align 8, !tbaa !86, !noalias !89
+  %458 = load i32, ptr %451, align 8, !tbaa !48, !noalias !89
   %459 = mul i32 %458, %.041100.i58
-  %460 = load i32, ptr %16, align 8, !tbaa !4, !noalias !90
+  %460 = load i32, ptr %16, align 8, !tbaa !4, !noalias !89
   %461 = mul i32 %459, %460
-  %462 = load i32, ptr %13, align 4, !tbaa !21, !noalias !90
+  %462 = load i32, ptr %13, align 4, !tbaa !21, !noalias !89
   %463 = mul i32 %461, %462
   %464 = sext i32 %463 to i64
   %465 = getelementptr inbounds i8, ptr %457, i64 %464
-  %466 = load ptr, ptr %448, align 8, !tbaa !87, !noalias !90
+  %466 = load ptr, ptr %448, align 8, !tbaa !86, !noalias !89
   %467 = mul i32 %.041100.i58, %455
-  %468 = load i32, ptr %6, align 8, !tbaa !4, !noalias !90
+  %468 = load i32, ptr %6, align 8, !tbaa !4, !noalias !89
   %469 = mul i32 %467, %468
-  %470 = load i32, ptr %9, align 4, !tbaa !21, !noalias !90
+  %470 = load i32, ptr %9, align 4, !tbaa !21, !noalias !89
   %471 = mul i32 %469, %470
   %472 = sext i32 %471 to i64
   %473 = getelementptr inbounds i8, ptr %466, i64 %472
@@ -1720,7 +1720,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   br label %480
 
 ._crit_edge.loopexit.i70:                         ; preds = %535
-  %.pre.i71 = load i32, ptr %445, align 4, !tbaa !85, !noalias !90
+  %.pre.i71 = load i32, ptr %445, align 4, !tbaa !84, !noalias !89
   br label %._crit_edge.i60
 
 ._crit_edge.i60:                                  ; preds = %._crit_edge.loopexit.i70, %.lr.ph101.split.i57
@@ -1729,14 +1729,14 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   %.1.lcssa.i61 = phi i32 [ %.04299.i59, %.lr.ph101.split.i57 ], [ %.2.i69, %._crit_edge.loopexit.i70 ]
   %478 = add nuw nsw i32 %.041100.i58, 1
   %479 = icmp slt i32 %478, %476
-  br i1 %479, label %.lr.ph101.split.i57, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit, !llvm.loop !97
+  br i1 %479, label %.lr.ph101.split.i57, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit, !llvm.loop !96
 
 480:                                              ; preds = %535, %.lr.ph.i62
   %.098.i63 = phi i32 [ 0, %.lr.ph.i62 ], [ %536, %535 ]
   %.03997.i64 = phi ptr [ %465, %.lr.ph.i62 ], [ %538, %535 ]
   %.04096.i65 = phi ptr [ %473, %.lr.ph.i62 ], [ %537, %535 ]
   %.195.i66 = phi i32 [ %.04299.i59, %.lr.ph.i62 ], [ %.2.i69, %535 ]
-  %481 = load float, ptr %.04096.i65, align 4, !tbaa !53, !noalias !90
+  %481 = load float, ptr %.04096.i65, align 4, !tbaa !52, !noalias !89
   %482 = fcmp ogt float %481, 0.000000e+00
   br i1 %482, label %483, label %527
 
@@ -1749,18 +1749,18 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   %489 = fmul double %475, %484
   %490 = fdiv double %489, %409
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i30)
-  store double %488, ptr %.sroa.0.i30, align 16, !tbaa !45, !noalias !90
-  store double %490, ptr %.sroa.0.i30.8.i30.8.i30.8..sroa_idx207, align 8, !tbaa !45, !noalias !90
-  store double %484, ptr %.sroa.0.i30.16.i30.16.i30.16..sroa_idx208, align 16, !tbaa !45, !noalias !90
-  store double 1.000000e+00, ptr %.sroa.0.i30.24.i30.24.i30.24..sroa_idx, align 8, !tbaa !45, !noalias !90
-  %.sroa.0.i30.0..sroa.0.i30.0..sroa.0.i30.0..sroa.0.0..sroa.0.0..i72 = load <2 x double>, ptr %.sroa.0.i30, align 16, !noalias !90
+  store double %488, ptr %.sroa.0.i30, align 16, !tbaa !45, !noalias !89
+  store double %490, ptr %.sroa.0.i30.8.i30.8.i30.8..sroa_idx207, align 8, !tbaa !45, !noalias !89
+  store double %484, ptr %.sroa.0.i30.16.i30.16.i30.16..sroa_idx208, align 16, !tbaa !45, !noalias !89
+  store double 1.000000e+00, ptr %.sroa.0.i30.24.i30.24.i30.24..sroa_idx, align 8, !tbaa !45, !noalias !89
+  %.sroa.0.i30.0..sroa.0.i30.0..sroa.0.i30.0..sroa.0.0..sroa.0.0..i72 = load <2 x double>, ptr %.sroa.0.i30, align 16, !noalias !89
   %491 = shufflevector <2 x double> %.sroa.0.i30.0..sroa.0.i30.0..sroa.0.i30.0..sroa.0.0..sroa.0.0..i72, <2 x double> poison, <2 x i32> zeroinitializer
   %492 = fmul <2 x double> %393, %491
-  %.sroa.0.i30.8..sroa.0.i30.8..sroa.0.i30.8..sroa.0.8..sroa.0.8..i73 = load <2 x double>, ptr %.sroa.0.i30.8.i30.8.i30.8..sroa_idx, align 8, !noalias !90
+  %.sroa.0.i30.8..sroa.0.i30.8..sroa.0.i30.8..sroa.0.8..sroa.0.8..i73 = load <2 x double>, ptr %.sroa.0.i30.8.i30.8.i30.8..sroa_idx, align 8, !noalias !89
   %493 = shufflevector <2 x double> %.sroa.0.i30.8..sroa.0.i30.8..sroa.0.i30.8..sroa.0.8..sroa.0.8..i73, <2 x double> poison, <2 x i32> zeroinitializer
   %494 = fmul <2 x double> %395, %493
   %495 = fadd <2 x double> %492, %494
-  %.sroa.0.i30.16..sroa.0.i30.16..sroa.0.i30.16..sroa.0.16..sroa.0.16..i74 = load <2 x double>, ptr %.sroa.0.i30.16.i30.16.i30.16..sroa_idx, align 16, !noalias !90
+  %.sroa.0.i30.16..sroa.0.i30.16..sroa.0.i30.16..sroa.0.16..sroa.0.16..i74 = load <2 x double>, ptr %.sroa.0.i30.16.i30.16.i30.16..sroa_idx, align 16, !noalias !89
   %496 = shufflevector <2 x double> %.sroa.0.i30.16..sroa.0.i30.16..sroa.0.i30.16..sroa.0.16..sroa.0.16..i74, <2 x double> poison, <2 x i32> zeroinitializer
   %497 = fmul <2 x double> %400, %496
   %498 = fadd <2 x double> %495, %497
@@ -1769,9 +1769,9 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   %501 = fadd <2 x double> %500, %498
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i30)
   %502 = sext i32 %.195.i66 to i64
-  %503 = load ptr, ptr %292, align 8, !tbaa !59, !noalias !90
+  %503 = load ptr, ptr %292, align 8, !tbaa !58, !noalias !89
   %504 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %503, i64 %502
-  store <2 x double> %501, ptr %504, align 1, !tbaa !33, !noalias !90
+  store <2 x double> %501, ptr %504, align 1, !tbaa !33, !noalias !89
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 16
   %shift196 = shufflevector <2 x double> %.sroa.0.i30.16..sroa.0.i30.16..sroa.0.i30.16..sroa.0.16..sroa.0.16..i74, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %506 = fmul <2 x double> %405, %shift196
@@ -1782,24 +1782,24 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   %511 = fadd <2 x double> %509, %510
   %512 = fadd <2 x double> %506, %511
   %.sroa.5.16.vec.extract.i75 = extractelement <2 x double> %512, i64 0
-  store double %.sroa.5.16.vec.extract.i75, ptr %505, align 8, !tbaa !45, !noalias !90
-  %513 = load i8, ptr %.03997.i64, align 1, !tbaa !33, !noalias !90
+  store double %.sroa.5.16.vec.extract.i75, ptr %505, align 8, !tbaa !45, !noalias !89
+  %513 = load i8, ptr %.03997.i64, align 1, !tbaa !33, !noalias !89
   %514 = uitofp i8 %513 to double
   %515 = getelementptr inbounds nuw i8, ptr %.03997.i64, i64 1
-  %516 = load i8, ptr %515, align 1, !tbaa !33, !noalias !90
+  %516 = load i8, ptr %515, align 1, !tbaa !33, !noalias !89
   %517 = uitofp i8 %516 to double
   %518 = getelementptr inbounds nuw i8, ptr %.03997.i64, i64 3
-  %519 = load i8, ptr %518, align 1, !tbaa !33, !noalias !90
+  %519 = load i8, ptr %518, align 1, !tbaa !33, !noalias !89
   %520 = uitofp i8 %519 to double
   %.sroa.093.0.vec.insert.i76 = insertelement <2 x double> poison, double %514, i64 0
   %.sroa.093.8.vec.insert.i77 = insertelement <2 x double> %.sroa.093.0.vec.insert.i76, double %517, i64 1
-  %521 = load ptr, ptr %444, align 8, !tbaa !59, !noalias !90
+  %521 = load ptr, ptr %444, align 8, !tbaa !58, !noalias !89
   %522 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %521, i64 %502
   %523 = fdiv <2 x double> %.sroa.093.8.vec.insert.i77, splat (double 2.550000e+02)
-  store <2 x double> %523, ptr %522, align 1, !tbaa !33, !noalias !90
+  store <2 x double> %523, ptr %522, align 1, !tbaa !33, !noalias !89
   %524 = getelementptr inbounds nuw i8, ptr %522, i64 16
   %525 = fdiv double %520, 2.550000e+02
-  store double %525, ptr %524, align 8, !tbaa !45, !noalias !90
+  store double %525, ptr %524, align 8, !tbaa !45, !noalias !89
   %526 = add nsw i32 %.195.i66, 1
   br label %535
 
@@ -1808,17 +1808,17 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
 
 528:                                              ; preds = %527
   %529 = sext i32 %.195.i66 to i64
-  %530 = load ptr, ptr %292, align 8, !tbaa !59, !noalias !90
+  %530 = load ptr, ptr %292, align 8, !tbaa !58, !noalias !89
   %531 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %530, i64 %529
-  store double 0x7FF8000000000000, ptr %531, align 8, !noalias !90
+  store double 0x7FF8000000000000, ptr %531, align 8, !noalias !89
   %.sroa.567.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %531, i64 8
-  store double 0x7FF8000000000000, ptr %.sroa.567.0..sroa_idx.i67, align 8, !noalias !90
+  store double 0x7FF8000000000000, ptr %.sroa.567.0..sroa_idx.i67, align 8, !noalias !89
   %.sroa.668.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %531, i64 16
-  store double 0x7FF8000000000000, ptr %.sroa.668.0..sroa_idx.i68, align 8, !tbaa !33, !noalias !90
+  store double 0x7FF8000000000000, ptr %.sroa.668.0..sroa_idx.i68, align 8, !tbaa !33, !noalias !89
   %532 = add nsw i32 %.195.i66, 1
-  %533 = load ptr, ptr %444, align 8, !tbaa !59, !noalias !90
+  %533 = load ptr, ptr %444, align 8, !tbaa !58, !noalias !89
   %534 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %533, i64 %529
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %534, i8 0, i64 24, i1 false), !noalias !90
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %534, i8 0, i64 24, i1 false), !noalias !89
   br label %535
 
 535:                                              ; preds = %528, %527, %483
@@ -1826,9 +1826,9 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   %536 = add nuw nsw i32 %.098.i63, 1
   %537 = getelementptr inbounds nuw i8, ptr %.04096.i65, i64 4
   %538 = getelementptr inbounds nuw i8, ptr %.03997.i64, i64 4
-  %539 = load i32, ptr %449, align 8, !tbaa !86, !noalias !90
+  %539 = load i32, ptr %449, align 8, !tbaa !85, !noalias !89
   %540 = icmp slt i32 %536, %539
-  br i1 %540, label %480, label %._crit_edge.loopexit.i70, !llvm.loop !98
+  br i1 %540, label %480, label %._crit_edge.loopexit.i70, !llvm.loop !97
 
 541:                                              ; preds = %279
   %542 = icmp eq i32 %14, 4
@@ -1837,46 +1837,46 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   br i1 %or.cond29, label %544, label %796
 
 544:                                              ; preds = %541
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %546 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #19, !noalias !105
+  %546 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #19, !noalias !104
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 8
-  store i32 1, ptr %547, align 8, !tbaa !28, !noalias !105
+  store i32 1, ptr %547, align 8, !tbaa !28, !noalias !104
   %548 = getelementptr inbounds nuw i8, ptr %546, i64 12
-  store i32 1, ptr %548, align 4, !tbaa !30, !noalias !105
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6open3d8geometry10PointCloudESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %546, align 8, !tbaa !31, !noalias !105
+  store i32 1, ptr %548, align 4, !tbaa !30, !noalias !104
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6open3d8geometry10PointCloudESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %546, align 8, !tbaa !31, !noalias !104
   %549 = getelementptr inbounds nuw i8, ptr %546, i64 16
   %550 = getelementptr inbounds nuw i8, ptr %546, i64 24
-  store i32 1, ptr %550, align 8, !tbaa !39, !noalias !105
+  store i32 1, ptr %550, align 8, !tbaa !39, !noalias !104
   %551 = getelementptr inbounds nuw i8, ptr %546, i64 28
-  store i32 3, ptr %551, align 4, !tbaa !40, !noalias !105
+  store i32 3, ptr %551, align 4, !tbaa !40, !noalias !104
   %552 = getelementptr inbounds nuw i8, ptr %546, i64 32
   %553 = getelementptr inbounds nuw i8, ptr %546, i64 48
-  store ptr %553, ptr %552, align 8, !tbaa !41, !noalias !105
+  store ptr %553, ptr %552, align 8, !tbaa !41, !noalias !104
   %554 = getelementptr inbounds nuw i8, ptr %546, i64 40
-  store i64 0, ptr %554, align 8, !tbaa !42, !noalias !105
-  store i8 0, ptr %553, align 1, !tbaa !33, !noalias !105
-  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %549, align 8, !tbaa !31, !noalias !105
+  store i64 0, ptr %554, align 8, !tbaa !42, !noalias !104
+  store i8 0, ptr %553, align 1, !tbaa !33, !noalias !104
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %549, align 8, !tbaa !31, !noalias !104
   %555 = getelementptr inbounds nuw i8, ptr %546, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %555, i8 0, i64 96, i1 false), !noalias !105
-  store ptr %546, ptr %545, align 8, !tbaa !27, !alias.scope !105
-  store ptr %549, ptr %0, align 8, !tbaa !43, !alias.scope !105
-  %.sroa.0264.0.copyload.i.i.i.i.i.i.i94 = load <2 x double>, ptr %3, align 16, !noalias !99
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %555, i8 0, i64 96, i1 false), !noalias !104
+  store ptr %546, ptr %545, align 8, !tbaa !27, !alias.scope !104
+  store ptr %549, ptr %0, align 8, !tbaa !43, !alias.scope !104
+  %.sroa.0264.0.copyload.i.i.i.i.i.i.i94 = load <2 x double>, ptr %3, align 16, !noalias !98
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.4.0.copyload.i.i.i.i.i.i.i96 = load <2 x double>, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i95, align 16, !noalias !99
+  %.sroa.4.0.copyload.i.i.i.i.i.i.i96 = load <2 x double>, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i95, align 16, !noalias !98
   %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sroa.5.0.copyload.i.i.i.i.i.i.i98 = load <2 x double>, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i97, align 16, !noalias !99
+  %.sroa.5.0.copyload.i.i.i.i.i.i.i98 = load <2 x double>, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i.i97, align 16, !noalias !98
   %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i99 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %.sroa.6.0.copyload.i.i.i.i.i.i.i100 = load <2 x double>, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i99, align 16, !noalias !99
+  %.sroa.6.0.copyload.i.i.i.i.i.i.i100 = load <2 x double>, ptr %.sroa.6.0..sroa_idx.i.i.i.i.i.i.i99, align 16, !noalias !98
   %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i101 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %.sroa.7.0.copyload.i.i.i.i.i.i.i102 = load <2 x double>, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i101, align 16, !noalias !99
+  %.sroa.7.0.copyload.i.i.i.i.i.i.i102 = load <2 x double>, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i.i.i101, align 16, !noalias !98
   %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %.sroa.8.0.copyload.i.i.i.i.i.i.i104 = load <2 x double>, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i103, align 16, !noalias !99
+  %.sroa.8.0.copyload.i.i.i.i.i.i.i104 = load <2 x double>, ptr %.sroa.8.0..sroa_idx.i.i.i.i.i.i.i103, align 16, !noalias !98
   %.sroa.9.0..sroa_idx.i.i.i.i.i.i.i105 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %.sroa.9.0.copyload.i.i.i.i.i.i.i106 = load <2 x double>, ptr %.sroa.9.0..sroa_idx.i.i.i.i.i.i.i105, align 16, !noalias !99
+  %.sroa.9.0.copyload.i.i.i.i.i.i.i106 = load <2 x double>, ptr %.sroa.9.0..sroa_idx.i.i.i.i.i.i.i105, align 16, !noalias !98
   %.sroa.10.0..sroa_idx.i.i.i.i.i.i.i107 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %.sroa.10.0.copyload.i.i.i.i.i.i.i108 = load <2 x double>, ptr %.sroa.10.0..sroa_idx.i.i.i.i.i.i.i107, align 16, !tbaa !33, !noalias !99
+  %.sroa.10.0.copyload.i.i.i.i.i.i.i108 = load <2 x double>, ptr %.sroa.10.0..sroa_idx.i.i.i.i.i.i.i107, align 16, !tbaa !33, !noalias !98
   %556 = shufflevector <2 x double> %.sroa.5.0.copyload.i.i.i.i.i.i.i98, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %557 = fmul <2 x double> %.sroa.0264.0.copyload.i.i.i.i.i.i.i94, %556
   %558 = shufflevector <2 x double> %557, <2 x double> poison, <2 x i32> <i32 1, i32 1>
@@ -1992,32 +1992,32 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   %668 = fmul <2 x double> %613, %654
   %669 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %670 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %671 = load double, ptr %669, align 8, !tbaa !45, !noalias !99
-  %672 = load double, ptr %670, align 8, !tbaa !45, !noalias !99
+  %671 = load double, ptr %669, align 8, !tbaa !45, !noalias !98
+  %672 = load double, ptr %670, align 8, !tbaa !45, !noalias !98
   %673 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %674 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %675 = load double, ptr %673, align 8, !tbaa !45, !noalias !99
-  %676 = load double, ptr %674, align 8, !tbaa !45, !noalias !99
+  %675 = load double, ptr %673, align 8, !tbaa !45, !noalias !98
+  %676 = load double, ptr %674, align 8, !tbaa !45, !noalias !98
   br i1 %4, label %683, label %677
 
 677:                                              ; preds = %544
   %678 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %679 = load i32, ptr %678, align 4, !tbaa !85, !noalias !99
+  %679 = load i32, ptr %678, align 4, !tbaa !84, !noalias !98
   %680 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %681 = load i32, ptr %680, align 8, !tbaa !86, !noalias !99
+  %681 = load i32, ptr %680, align 8, !tbaa !85, !noalias !98
   %682 = mul nsw i32 %681, %679
   br label %_ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
 
 683:                                              ; preds = %544
   %684 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %685 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %686 = load i32, ptr %685, align 4, !tbaa !47, !noalias !99
+  %686 = load i32, ptr %685, align 4, !tbaa !47, !noalias !98
   %687 = icmp sgt i32 %686, 0
   br i1 %687, label %.preheader.lr.ph.i.i141, label %_ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
 
 .preheader.lr.ph.i.i141:                          ; preds = %683
   %688 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %689 = load i32, ptr %688, align 8, !tbaa !48, !noalias !99
+  %689 = load i32, ptr %688, align 8, !tbaa !48, !noalias !98
   %690 = icmp sgt i32 %689, 0
   br i1 %690, label %.preheader.i.i142, label %_ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
 
@@ -2030,7 +2030,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   br i1 %693, label %.lr.ph.i.i147, label %._crit_edge.i.i145
 
 ._crit_edge.loopexit.i.i154:                      ; preds = %.noexc.i152
-  %.pre.i.i155 = load i32, ptr %685, align 4, !tbaa !47, !noalias !99
+  %.pre.i.i155 = load i32, ptr %685, align 4, !tbaa !47, !noalias !98
   br label %._crit_edge.i.i145
 
 ._crit_edge.i.i145:                               ; preds = %._crit_edge.loopexit.i.i154, %.preheader.i.i142
@@ -2045,17 +2045,17 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   %.116.i.i148 = phi i32 [ %.2.i.i153, %.noexc.i152 ], [ %.018.i.i143, %.preheader.i.i142 ]
   %.01315.i.i149 = phi i32 [ %702, %.noexc.i152 ], [ 0, %.preheader.i.i142 ]
   %698 = invoke noundef ptr @_ZNK6open3d8geometry5Image9PointerAtIfEEPT_ii(ptr noundef nonnull align 8 dereferenceable(88) %684, i32 noundef %.01315.i.i149, i32 noundef %.01417.i.i144)
-          to label %.noexc.i152 unwind label %.loopexit.i150, !noalias !99
+          to label %.noexc.i152 unwind label %.loopexit.i150, !noalias !98
 
 .noexc.i152:                                      ; preds = %.lr.ph.i.i147
-  %699 = load float, ptr %698, align 4, !tbaa !53, !noalias !99
+  %699 = load float, ptr %698, align 4, !tbaa !52, !noalias !98
   %700 = fcmp ogt float %699, 0.000000e+00
   %701 = zext i1 %700 to i32
   %.2.i.i153 = add nsw i32 %.116.i.i148, %701
   %702 = add nuw nsw i32 %.01315.i.i149, 1
-  %703 = load i32, ptr %688, align 8, !tbaa !48, !noalias !99
+  %703 = load i32, ptr %688, align 8, !tbaa !48, !noalias !98
   %704 = icmp slt i32 %702, %703
-  br i1 %704, label %.lr.ph.i.i147, label %._crit_edge.loopexit.i.i154, !llvm.loop !55
+  br i1 %704, label %.lr.ph.i.i147, label %._crit_edge.loopexit.i.i154, !llvm.loop !54
 
 .loopexit.i150:                                   ; preds = %.lr.ph.i.i147
   %lpad.loopexit.i151 = landingpad { ptr, i32 }
@@ -2071,16 +2071,16 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   %.043.i110 = phi i32 [ %682, %677 ], [ 0, %683 ], [ 0, %.preheader.lr.ph.i.i141 ], [ %.1.lcssa.i.i146, %._crit_edge.i.i145 ]
   %705 = sext i32 %.043.i110 to i64
   invoke void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %555, i64 noundef %705)
-          to label %706 unwind label %.loopexit.split-lp.i111, !noalias !99
+          to label %706 unwind label %.loopexit.split-lp.i111, !noalias !98
 
 706:                                              ; preds = %_ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   %707 = getelementptr inbounds nuw i8, ptr %546, i64 112
   invoke void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %707, i64 noundef %705)
-          to label %.preheader.i114 unwind label %.loopexit.split-lp.i111, !noalias !99
+          to label %.preheader.i114 unwind label %.loopexit.split-lp.i111, !noalias !98
 
 .preheader.i114:                                  ; preds = %706
   %708 = getelementptr inbounds nuw i8, ptr %1, i64 188
-  %709 = load i32, ptr %708, align 4, !tbaa !85, !noalias !99
+  %709 = load i32, ptr %708, align 4, !tbaa !84, !noalias !98
   %710 = icmp sgt i32 %709, 0
   br i1 %710, label %.lr.ph101.i115, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit
 
@@ -2089,7 +2089,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   %712 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %713 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %714 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %715 = load i32, ptr %712, align 8, !tbaa !86, !noalias !99
+  %715 = load i32, ptr %712, align 8, !tbaa !85, !noalias !98
   %716 = icmp sgt i32 %715, 0
   br i1 %716, label %.lr.ph101.split.i120.preheader, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit
 
@@ -2110,20 +2110,20 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   br i1 %719, label %.lr.ph.i125, label %._crit_edge.i123
 
 .lr.ph.i125:                                      ; preds = %.lr.ph101.split.i120
-  %720 = load ptr, ptr %713, align 8, !tbaa !87, !noalias !99
-  %721 = load i32, ptr %714, align 8, !tbaa !48, !noalias !99
+  %720 = load ptr, ptr %713, align 8, !tbaa !86, !noalias !98
+  %721 = load i32, ptr %714, align 8, !tbaa !48, !noalias !98
   %722 = mul i32 %721, %.041100.i121
-  %723 = load i32, ptr %16, align 8, !tbaa !4, !noalias !99
+  %723 = load i32, ptr %16, align 8, !tbaa !4, !noalias !98
   %724 = mul i32 %722, %723
-  %725 = load i32, ptr %13, align 4, !tbaa !21, !noalias !99
+  %725 = load i32, ptr %13, align 4, !tbaa !21, !noalias !98
   %726 = mul i32 %724, %725
   %727 = sext i32 %726 to i64
   %728 = getelementptr inbounds i8, ptr %720, i64 %727
-  %729 = load ptr, ptr %711, align 8, !tbaa !87, !noalias !99
+  %729 = load ptr, ptr %711, align 8, !tbaa !86, !noalias !98
   %730 = mul i32 %.041100.i121, %718
-  %731 = load i32, ptr %6, align 8, !tbaa !4, !noalias !99
+  %731 = load i32, ptr %6, align 8, !tbaa !4, !noalias !98
   %732 = mul i32 %730, %731
-  %733 = load i32, ptr %9, align 4, !tbaa !21, !noalias !99
+  %733 = load i32, ptr %9, align 4, !tbaa !21, !noalias !98
   %734 = mul i32 %732, %733
   %735 = sext i32 %734 to i64
   %736 = getelementptr inbounds i8, ptr %729, i64 %735
@@ -2132,7 +2132,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   br label %743
 
 ._crit_edge.loopexit.i133:                        ; preds = %790
-  %.pre.i134 = load i32, ptr %708, align 4, !tbaa !85, !noalias !99
+  %.pre.i134 = load i32, ptr %708, align 4, !tbaa !84, !noalias !98
   br label %._crit_edge.i123
 
 ._crit_edge.i123:                                 ; preds = %._crit_edge.loopexit.i133, %.lr.ph101.split.i120
@@ -2141,14 +2141,14 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   %.1.lcssa.i124 = phi i32 [ %.04299.i122, %.lr.ph101.split.i120 ], [ %.2.i132, %._crit_edge.loopexit.i133 ]
   %741 = add nuw nsw i32 %.041100.i121, 1
   %742 = icmp slt i32 %741, %739
-  br i1 %742, label %.lr.ph101.split.i120, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit, !llvm.loop !106
+  br i1 %742, label %.lr.ph101.split.i120, label %_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb.exit, !llvm.loop !105
 
 743:                                              ; preds = %790, %.lr.ph.i125
   %.098.i126 = phi i32 [ 0, %.lr.ph.i125 ], [ %791, %790 ]
   %.03997.i127 = phi ptr [ %728, %.lr.ph.i125 ], [ %793, %790 ]
   %.04096.i128 = phi ptr [ %736, %.lr.ph.i125 ], [ %792, %790 ]
   %.195.i129 = phi i32 [ %.04299.i122, %.lr.ph.i125 ], [ %.2.i132, %790 ]
-  %744 = load float, ptr %.04096.i128, align 4, !tbaa !53, !noalias !99
+  %744 = load float, ptr %.04096.i128, align 4, !tbaa !52, !noalias !98
   %745 = fcmp ogt float %744, 0.000000e+00
   br i1 %745, label %746, label %782
 
@@ -2161,18 +2161,18 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   %752 = fmul double %738, %747
   %753 = fdiv double %752, %672
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i93)
-  store double %751, ptr %.sroa.0.i93, align 16, !tbaa !45, !noalias !99
-  store double %753, ptr %.sroa.0.i93.8.i93.8.i93.8..sroa_idx209, align 8, !tbaa !45, !noalias !99
-  store double %747, ptr %.sroa.0.i93.16.i93.16.i93.16..sroa_idx210, align 16, !tbaa !45, !noalias !99
-  store double 1.000000e+00, ptr %.sroa.0.i93.24.i93.24.i93.24..sroa_idx, align 8, !tbaa !45, !noalias !99
-  %.sroa.0.i93.0..sroa.0.i93.0..sroa.0.i93.0..sroa.0.0..sroa.0.0..i135 = load <2 x double>, ptr %.sroa.0.i93, align 16, !noalias !99
+  store double %751, ptr %.sroa.0.i93, align 16, !tbaa !45, !noalias !98
+  store double %753, ptr %.sroa.0.i93.8.i93.8.i93.8..sroa_idx209, align 8, !tbaa !45, !noalias !98
+  store double %747, ptr %.sroa.0.i93.16.i93.16.i93.16..sroa_idx210, align 16, !tbaa !45, !noalias !98
+  store double 1.000000e+00, ptr %.sroa.0.i93.24.i93.24.i93.24..sroa_idx, align 8, !tbaa !45, !noalias !98
+  %.sroa.0.i93.0..sroa.0.i93.0..sroa.0.i93.0..sroa.0.0..sroa.0.0..i135 = load <2 x double>, ptr %.sroa.0.i93, align 16, !noalias !98
   %754 = shufflevector <2 x double> %.sroa.0.i93.0..sroa.0.i93.0..sroa.0.i93.0..sroa.0.0..sroa.0.0..i135, <2 x double> poison, <2 x i32> zeroinitializer
   %755 = fmul <2 x double> %656, %754
-  %.sroa.0.i93.8..sroa.0.i93.8..sroa.0.i93.8..sroa.0.8..sroa.0.8..i136 = load <2 x double>, ptr %.sroa.0.i93.8.i93.8.i93.8..sroa_idx, align 8, !noalias !99
+  %.sroa.0.i93.8..sroa.0.i93.8..sroa.0.i93.8..sroa.0.8..sroa.0.8..i136 = load <2 x double>, ptr %.sroa.0.i93.8.i93.8.i93.8..sroa_idx, align 8, !noalias !98
   %756 = shufflevector <2 x double> %.sroa.0.i93.8..sroa.0.i93.8..sroa.0.i93.8..sroa.0.8..sroa.0.8..i136, <2 x double> poison, <2 x i32> zeroinitializer
   %757 = fmul <2 x double> %658, %756
   %758 = fadd <2 x double> %755, %757
-  %.sroa.0.i93.16..sroa.0.i93.16..sroa.0.i93.16..sroa.0.16..sroa.0.16..i137 = load <2 x double>, ptr %.sroa.0.i93.16.i93.16.i93.16..sroa_idx, align 16, !noalias !99
+  %.sroa.0.i93.16..sroa.0.i93.16..sroa.0.i93.16..sroa.0.16..sroa.0.16..i137 = load <2 x double>, ptr %.sroa.0.i93.16.i93.16.i93.16..sroa_idx, align 16, !noalias !98
   %759 = shufflevector <2 x double> %.sroa.0.i93.16..sroa.0.i93.16..sroa.0.i93.16..sroa.0.16..sroa.0.16..i137, <2 x double> poison, <2 x i32> zeroinitializer
   %760 = fmul <2 x double> %663, %759
   %761 = fadd <2 x double> %758, %760
@@ -2181,9 +2181,9 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   %764 = fadd <2 x double> %763, %761
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i93)
   %765 = sext i32 %.195.i129 to i64
-  %766 = load ptr, ptr %555, align 8, !tbaa !59, !noalias !99
+  %766 = load ptr, ptr %555, align 8, !tbaa !58, !noalias !98
   %767 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %766, i64 %765
-  store <2 x double> %764, ptr %767, align 1, !tbaa !33, !noalias !99
+  store <2 x double> %764, ptr %767, align 1, !tbaa !33, !noalias !98
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 16
   %shift197 = shufflevector <2 x double> %.sroa.0.i93.16..sroa.0.i93.16..sroa.0.i93.16..sroa.0.16..sroa.0.16..i137, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %769 = fmul <2 x double> %668, %shift197
@@ -2194,16 +2194,16 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   %774 = fadd <2 x double> %772, %773
   %775 = fadd <2 x double> %769, %774
   %.sroa.5.16.vec.extract.i138 = extractelement <2 x double> %775, i64 0
-  store double %.sroa.5.16.vec.extract.i138, ptr %768, align 8, !tbaa !45, !noalias !99
-  %776 = load float, ptr %.03997.i127, align 4, !tbaa !53, !noalias !99
+  store double %.sroa.5.16.vec.extract.i138, ptr %768, align 8, !tbaa !45, !noalias !98
+  %776 = load float, ptr %.03997.i127, align 4, !tbaa !52, !noalias !98
   %777 = fpext float %776 to double
   %.sroa.093.0.vec.insert.i139 = insertelement <2 x double> poison, double %777, i64 0
   %.sroa.093.8.vec.insert.i140 = shufflevector <2 x double> %.sroa.093.0.vec.insert.i139, <2 x double> poison, <2 x i32> zeroinitializer
-  %778 = load ptr, ptr %707, align 8, !tbaa !59, !noalias !99
+  %778 = load ptr, ptr %707, align 8, !tbaa !58, !noalias !98
   %779 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %778, i64 %765
-  store <2 x double> %.sroa.093.8.vec.insert.i140, ptr %779, align 1, !tbaa !33, !noalias !99
+  store <2 x double> %.sroa.093.8.vec.insert.i140, ptr %779, align 1, !tbaa !33, !noalias !98
   %780 = getelementptr inbounds nuw i8, ptr %779, i64 16
-  store double %777, ptr %780, align 8, !tbaa !45, !noalias !99
+  store double %777, ptr %780, align 8, !tbaa !45, !noalias !98
   %781 = add nsw i32 %.195.i129, 1
   br label %790
 
@@ -2212,21 +2212,21 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
 
 783:                                              ; preds = %782
   %784 = sext i32 %.195.i129 to i64
-  %785 = load ptr, ptr %555, align 8, !tbaa !59, !noalias !99
+  %785 = load ptr, ptr %555, align 8, !tbaa !58, !noalias !98
   %786 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %785, i64 %784
-  store double 0x7FF8000000000000, ptr %786, align 8, !noalias !99
+  store double 0x7FF8000000000000, ptr %786, align 8, !noalias !98
   %.sroa.567.0..sroa_idx.i130 = getelementptr inbounds nuw i8, ptr %786, i64 8
-  store double 0x7FF8000000000000, ptr %.sroa.567.0..sroa_idx.i130, align 8, !noalias !99
+  store double 0x7FF8000000000000, ptr %.sroa.567.0..sroa_idx.i130, align 8, !noalias !98
   %.sroa.668.0..sroa_idx.i131 = getelementptr inbounds nuw i8, ptr %786, i64 16
-  store double 0x7FF8000000000000, ptr %.sroa.668.0..sroa_idx.i131, align 8, !tbaa !33, !noalias !99
+  store double 0x7FF8000000000000, ptr %.sroa.668.0..sroa_idx.i131, align 8, !tbaa !33, !noalias !98
   %787 = add nsw i32 %.195.i129, 1
-  %788 = load ptr, ptr %707, align 8, !tbaa !59, !noalias !99
+  %788 = load ptr, ptr %707, align 8, !tbaa !58, !noalias !98
   %789 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %788, i64 %784
-  store double 0x7FF8000000000000, ptr %789, align 8, !noalias !99
+  store double 0x7FF8000000000000, ptr %789, align 8, !noalias !98
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %789, i64 8
-  store double 0x7FF8000000000000, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !99
+  store double 0x7FF8000000000000, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !98
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %789, i64 16
-  store double 0x7FF8000000000000, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !33, !noalias !99
+  store double 0x7FF8000000000000, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !33, !noalias !98
   br label %790
 
 790:                                              ; preds = %783, %782, %746
@@ -2234,9 +2234,9 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   %791 = add nuw nsw i32 %.098.i126, 1
   %792 = getelementptr inbounds nuw i8, ptr %.04096.i128, i64 4
   %793 = getelementptr inbounds nuw i8, ptr %.03997.i127, i64 4
-  %794 = load i32, ptr %712, align 8, !tbaa !86, !noalias !99
+  %794 = load i32, ptr %712, align 8, !tbaa !85, !noalias !98
   %795 = icmp slt i32 %791, %794
-  br i1 %795, label %743, label %._crit_edge.loopexit.i133, !llvm.loop !107
+  br i1 %795, label %743, label %._crit_edge.loopexit.i133, !llvm.loop !106
 
 796:                                              ; preds = %541, %5
   tail call void @_ZN6open3d7utility6Logger9LogError_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 176, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN6open3d8geometry10PointCloud19CreateFromRGBDImageERKNS0_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb, ptr noundef nonnull @.str.3) #18
@@ -2249,39 +2249,39 @@ _ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrIN
 ; Function Attrs: mustprogress ssp uwtable
 define void @_ZN6open3d8geometry10PointCloud19CreateFromVoxelGridERKNS0_9VoxelGridE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.open3d::geometry::Voxel", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #19, !noalias !108
+  %5 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #19, !noalias !107
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 1, ptr %6, align 8, !tbaa !28, !noalias !108
+  store i32 1, ptr %6, align 8, !tbaa !28, !noalias !107
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 1, ptr %7, align 4, !tbaa !30, !noalias !108
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6open3d8geometry10PointCloudESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !tbaa !31, !noalias !108
+  store i32 1, ptr %7, align 4, !tbaa !30, !noalias !107
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6open3d8geometry10PointCloudESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %5, align 8, !tbaa !31, !noalias !107
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 1, ptr %9, align 8, !tbaa !39, !noalias !108
+  store i32 1, ptr %9, align 8, !tbaa !39, !noalias !107
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 3, ptr %10, align 4, !tbaa !40, !noalias !108
+  store i32 3, ptr %10, align 4, !tbaa !40, !noalias !107
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %12, ptr %11, align 8, !tbaa !41, !noalias !108
+  store ptr %12, ptr %11, align 8, !tbaa !41, !noalias !107
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 0, ptr %13, align 8, !tbaa !42, !noalias !108
-  store i8 0, ptr %12, align 1, !tbaa !33, !noalias !108
-  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %8, align 8, !tbaa !31, !noalias !108
+  store i64 0, ptr %13, align 8, !tbaa !42, !noalias !107
+  store i8 0, ptr %12, align 1, !tbaa !33, !noalias !107
+  store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTVN6open3d8geometry10PointCloudE, i64 16), ptr %8, align 8, !tbaa !31, !noalias !107
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false), !noalias !108
-  store ptr %5, ptr %4, align 8, !tbaa !27, !alias.scope !108
-  store ptr %8, ptr %0, align 8, !tbaa !43, !alias.scope !108
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %14, i8 0, i64 96, i1 false), !noalias !107
+  store ptr %5, ptr %4, align 8, !tbaa !27, !alias.scope !107
+  store ptr %8, ptr %0, align 8, !tbaa !43, !alias.scope !107
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %17 = load i64, ptr %16, align 8, !tbaa !111
+  %17 = load i64, ptr %16, align 8, !tbaa !110
   invoke void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %14, i64 noundef %17)
           to label %18 unwind label %21
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %20 = load i64, ptr %16, align 8, !tbaa !111
+  %20 = load i64, ptr %16, align 8, !tbaa !110
   invoke void @_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef %20)
           to label %25 unwind label %23
 
@@ -2297,7 +2297,7 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromVoxelGridERKNS0_9VoxelGr
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %.sroa.025.028 = load ptr, ptr %26, align 8, !tbaa !118
+  %.sroa.025.028 = load ptr, ptr %26, align 8, !tbaa !117
   %.not29 = icmp eq ptr %.sroa.025.028, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
@@ -2319,9 +2319,9 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromVoxelGridERKNS0_9VoxelGr
   %.01530 = phi i64 [ 0, %.lr.ph ], [ %66, %58 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #17
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.025.031, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %35, i64 12, i1 false), !tbaa.struct !119
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %35, i64 12, i1 false), !tbaa.struct !118
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.025.031, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false), !tbaa.struct !67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false), !tbaa.struct !66
   %37 = invoke ptr @_ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS4_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 4 dereferenceable(12) %3)
           to label %.noexc unwind label %56
 
@@ -2331,26 +2331,26 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromVoxelGridERKNS0_9VoxelGr
 
 38:                                               ; preds = %.noexc
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %.sroa.028.0.copyload.i = load i32, ptr %39, align 8, !noalias !120
+  %.sroa.028.0.copyload.i = load i32, ptr %39, align 8, !noalias !119
   %.sroa.529.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 28
-  %.sroa.529.0.copyload.i = load i32, ptr %.sroa.529.0..sroa_idx.i, align 4, !noalias !120
+  %.sroa.529.0.copyload.i = load i32, ptr %.sroa.529.0..sroa_idx.i, align 4, !noalias !119
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !33, !noalias !120
-  %40 = load double, ptr %28, align 8, !tbaa !45, !noalias !123
+  %.sroa.6.0.copyload.i = load i32, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !33, !noalias !119
+  %40 = load double, ptr %28, align 8, !tbaa !45, !noalias !122
   %41 = sitofp i32 %.sroa.028.0.copyload.i to double
   %42 = fadd double %41, 5.000000e-01
   %43 = fmul double %42, %40
-  %44 = load double, ptr %29, align 8, !tbaa !45, !noalias !120
+  %44 = load double, ptr %29, align 8, !tbaa !45, !noalias !119
   %45 = fadd double %44, %43
   %46 = sitofp i32 %.sroa.529.0.copyload.i to double
   %47 = fadd double %46, 5.000000e-01
   %48 = fmul double %40, %47
-  %49 = load double, ptr %30, align 8, !tbaa !45, !noalias !120
+  %49 = load double, ptr %30, align 8, !tbaa !45, !noalias !119
   %50 = fadd double %48, %49
   %51 = sitofp i32 %.sroa.6.0.copyload.i to double
   %52 = fadd double %51, 5.000000e-01
   %53 = fmul double %40, %52
-  %54 = load double, ptr %31, align 8, !tbaa !45, !noalias !120
+  %54 = load double, ptr %31, align 8, !tbaa !45, !noalias !119
   %55 = fadd double %53, %54
   br label %58
 
@@ -2364,14 +2364,14 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromVoxelGridERKNS0_9VoxelGr
   %.sroa.0.1 = phi double [ %45, %38 ], [ 0.000000e+00, %.noexc ]
   %.sroa.6.1 = phi double [ %50, %38 ], [ 0.000000e+00, %.noexc ]
   %.sroa.7.1 = phi double [ %55, %38 ], [ 0.000000e+00, %.noexc ]
-  %59 = load ptr, ptr %33, align 8, !tbaa !59
+  %59 = load ptr, ptr %33, align 8, !tbaa !58
   %60 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %59, i64 %.01530
   store double %.sroa.0.1, ptr %60, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
   store double %.sroa.6.1, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 16
   store double %.sroa.7.1, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !33
-  %61 = load ptr, ptr %19, align 8, !tbaa !59
+  %61 = load ptr, ptr %19, align 8, !tbaa !58
   %62 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %61, i64 %.01530
   %63 = load <2 x double>, ptr %27, align 8, !tbaa !33
   store <2 x double> %63, ptr %62, align 1, !tbaa !33
@@ -2380,9 +2380,9 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromVoxelGridERKNS0_9VoxelGr
   store double %65, ptr %64, align 8, !tbaa !45
   %66 = add i64 %.01530, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #17
-  %.sroa.025.0 = load ptr, ptr %.sroa.025.031, align 8, !tbaa !118
+  %.sroa.025.0 = load ptr, ptr %.sroa.025.031, align 8, !tbaa !117
   %.not = icmp eq ptr %.sroa.025.0, null
-  br i1 %.not, label %._crit_edge, label %34, !llvm.loop !126
+  br i1 %.not, label %._crit_edge, label %34
 
 67:                                               ; preds = %23, %56, %21
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %57, %56 ], [ %24, %23 ]
@@ -2393,13 +2393,13 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromVoxelGridERKNS0_9VoxelGr
 ; Function Attrs: mustprogress ssp uwtable
 define linkonce_odr ptr @_ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i64, ptr %3, align 8, !tbaa !111
+  %4 = load i64, ptr %3, align 8, !tbaa !110
   %.not.not = icmp eq i64 %4, 0
   br i1 %.not.not, label %5, label %.preheader
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.06.012 = load ptr, ptr %6, align 8, !tbaa !118
+  %.sroa.06.012 = load ptr, ptr %6, align 8, !tbaa !117
   %.not13 = icmp eq ptr %.sroa.06.012, null
   br i1 %.not13, label %_ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit, label %.lr.ph
 
@@ -2431,9 +2431,9 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
   br i1 %21, label %_ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread
 
 _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread: ; preds = %12, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i, %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit
-  %.sroa.06.0 = load ptr, ptr %.sroa.06.014, align 8, !tbaa !118
+  %.sroa.06.0 = load ptr, ptr %.sroa.06.014, align 8, !tbaa !117
   %.not = icmp eq ptr %.sroa.06.0, null
-  br i1 %.not, label %_ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit, label %12, !llvm.loop !127
+  br i1 %.not, label %_ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit, label %12, !llvm.loop !125
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %2 ]
@@ -2449,27 +2449,27 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
   %30 = xor i64 %29, %.011.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit, label %.preheader, !llvm.loop !128
+  br i1 %exitcond.not.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit, label %.preheader, !llvm.loop !126
 
 _ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit: ; preds = %.preheader
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !129
+  %32 = load i64, ptr %31, align 8, !tbaa !127
   %33 = urem i64 %30, %32
-  %34 = load ptr, ptr %0, align 8, !tbaa !130
+  %34 = load ptr, ptr %0, align 8, !tbaa !128
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
-  %36 = load ptr, ptr %35, align 8, !tbaa !131
+  %36 = load ptr, ptr %35, align 8, !tbaa !129
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit, label %37
 
 37:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit
-  %38 = load ptr, ptr %36, align 8, !tbaa !118
+  %38 = load ptr, ptr %36, align 8, !tbaa !117
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load i32, ptr %1, align 4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = load i32, ptr %39, align 4
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %38, i64 64
-  %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !132
+  %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !130
   br label %44
 
 44:                                               ; preds = %59, %37
@@ -2497,16 +2497,16 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
   br i1 %57, label %_ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit, label %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i
 
 _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i, %_ZN5Eigen8internal12all_unrollerINS0_9evaluatorINS_13CwiseBinaryOpINS_6numext8equal_toIiEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEES9_EEEELi2ELi3EE3runERKSB_.exit.i.i.i.i.i.i.i.i, %48, %44
-  %58 = load ptr, ptr %46, align 8, !tbaa !118
+  %58 = load ptr, ptr %46, align 8, !tbaa !117
   %.not18.i.i = icmp eq ptr %58, null
   br i1 %.not18.i.i, label %_ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit, label %59
 
 59:                                               ; preds = %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 64
-  %61 = load i64, ptr %60, align 8, !tbaa !132
+  %61 = load i64, ptr %60, align 8, !tbaa !130
   %62 = urem i64 %61, %32
   %.not19.i.i = icmp eq i64 %62, %33
-  br i1 %.not19.i.i, label %44, label %_ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit, !llvm.loop !134
+  br i1 %.not19.i.i, label %44, label %_ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit, !llvm.loop !132
 
 _ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit: ; preds = %59, %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i, %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i, %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit, %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread, %5, %_ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit
   %.sroa.06.1 = phi ptr [ null, %_ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit ], [ null, %5 ], [ %.sroa.06.014, %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS5_RKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread ], [ %46, %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.i.i ], [ null, %59 ], [ null, %_ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stESt8equal_toIS3_ENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueIS9_Lb1EEE.exit.thread.i.i ]
@@ -2615,89 +2615,87 @@ attributes #20 = { builtin nounwind }
 !46 = !{!"double", !9, i64 0}
 !47 = !{!5, !11, i64 52}
 !48 = !{!5, !11, i64 48}
-!49 = distinct !{!49, !50, !51, !52}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!"llvm.loop.estimated_trip_count"}
-!52 = !{!"llvm.loop.unswitch.partial.disable"}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"float", !9, i64 0}
-!55 = distinct !{!55, !50, !51}
-!56 = !{!57, !44, i64 0}
-!57 = !{!"_ZTSSt12__shared_ptrIN6open3d8geometry10PointCloudELN9__gnu_cxx12_Lock_policyE2EE", !44, i64 0, !25, i64 8}
-!58 = distinct !{!58, !50, !51, !52}
-!59 = !{!60, !61, i64 0}
-!60 = !{!"_ZTSNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_Vector_impl_dataE", !61, i64 0, !61, i64 8, !61, i64 16}
-!61 = !{!"p1 _ZTSN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE", !15, i64 0}
-!62 = distinct !{!62, !50, !51}
-!63 = !{!16, !16, i64 0}
-!64 = !{!12, !14, i64 0}
-!65 = !{!60, !61, i64 8}
-!66 = !{!60, !61, i64 16}
-!67 = !{i64 0, i64 24, !33}
-!68 = !{!69, !71}
-!69 = distinct !{!69, !70, !"_ZSt19__relocate_object_aIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
-!70 = distinct !{!70, !"_ZSt19__relocate_object_aIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_SaIS2_EEvPT_PT0_RT1_"}
-!71 = distinct !{!71, !70, !"_ZSt19__relocate_object_aIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
-!72 = distinct !{!72, !50, !51}
-!73 = !{!74, !14, i64 8}
-!74 = !{!"_ZTSSt9type_info", !14, i64 8}
-!75 = !{!76, !11, i64 192}
-!76 = !{!"_ZTSN6open3d8geometry9RGBDImageE", !6, i64 0, !5, i64 48, !5, i64 136}
-!77 = !{!76, !11, i64 108}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb: argument 0"}
-!80 = distinct !{!80, !"_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb"}
-!81 = !{!82}
-!82 = distinct !{!82, !83, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_: argument 0"}
-!83 = distinct !{!83, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_"}
-!84 = !{!82, !79}
-!85 = !{!76, !11, i64 188}
-!86 = !{!76, !11, i64 184}
-!87 = !{!20, !14, i64 0}
-!88 = distinct !{!88, !50, !51, !52}
-!89 = distinct !{!89, !50, !51}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi4EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb: argument 0"}
-!92 = distinct !{!92, !"_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi4EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb"}
-!93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_: argument 0"}
-!95 = distinct !{!95, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_"}
-!96 = !{!94, !91}
-!97 = distinct !{!97, !50, !51, !52}
-!98 = distinct !{!98, !50, !51}
-!99 = !{!100}
-!100 = distinct !{!100, !101, !"_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIfLi1EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb: argument 0"}
-!101 = distinct !{!101, !"_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIfLi1EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb"}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_: argument 0"}
-!104 = distinct !{!104, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_"}
-!105 = !{!103, !100}
-!106 = distinct !{!106, !50, !51, !52}
-!107 = distinct !{!107, !50, !51}
-!108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_: argument 0"}
-!110 = distinct !{!110, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_"}
-!111 = !{!112, !16, i64 24}
-!112 = !{!"_ZTSSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE", !113, i64 0, !16, i64 8, !115, i64 16, !16, i64 24, !117, i64 32, !116, i64 48}
-!113 = !{!"p2 _ZTSNSt8__detail15_Hash_node_baseE", !114, i64 0}
-!114 = !{!"any p2 pointer", !15, i64 0}
-!115 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !116, i64 0}
-!116 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !15, i64 0}
-!117 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !54, i64 0, !16, i64 8}
-!118 = !{!115, !116, i64 0}
-!119 = !{i64 0, i64 12, !33}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZNK6open3d8geometry9VoxelGrid24GetVoxelCenterCoordinateERKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEE: argument 0"}
-!122 = distinct !{!122, !"_ZNK6open3d8geometry9VoxelGrid24GetVoxelCenterCoordinateERKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEE"}
-!123 = !{!124, !121}
-!124 = distinct !{!124, !125, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_12CwiseUnaryOpINS2_14scalar_cast_opIidEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEEEEmlIdEEKNS1_INS2_17scalar_product_opIdNS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdSK_NSI_IdSK_EEEEEE5valueEE4typeEEEKSF_KNS2_19plain_constant_typeISF_SP_E4typeEEERKSK_: argument 0"}
-!125 = distinct !{!125, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_12CwiseUnaryOpINS2_14scalar_cast_opIidEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEEEEmlIdEEKNS1_INS2_17scalar_product_opIdNS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdSK_NSI_IdSK_EEEEEE5valueEE4typeEEEKSF_KNS2_19plain_constant_typeISF_SP_E4typeEEERKSK_"}
-!126 = distinct !{!126, !51}
-!127 = distinct !{!127, !50, !51}
-!128 = distinct !{!128, !50, !51}
-!129 = !{!112, !16, i64 8}
-!130 = !{!112, !113, i64 0}
-!131 = !{!116, !116, i64 0}
-!132 = !{!133, !16, i64 0}
-!133 = !{!"_ZTSNSt8__detail21_Hash_node_code_cacheILb1EEE", !16, i64 0}
-!134 = distinct !{!134, !50, !51}
+!51 = !{!"llvm.loop.unswitch.partial.disable"}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"float", !9, i64 0}
+!54 = distinct !{!54, !50}
+!55 = !{!56, !44, i64 0}
+!56 = !{!"_ZTSSt12__shared_ptrIN6open3d8geometry10PointCloudELN9__gnu_cxx12_Lock_policyE2EE", !44, i64 0, !25, i64 8}
+!57 = distinct !{!57, !50, !51}
+!58 = !{!59, !60, i64 0}
+!59 = !{!"_ZTSNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_Vector_impl_dataE", !60, i64 0, !60, i64 8, !60, i64 16}
+!60 = !{!"p1 _ZTSN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE", !15, i64 0}
+!61 = distinct !{!61, !50}
+!62 = !{!16, !16, i64 0}
+!63 = !{!12, !14, i64 0}
+!64 = !{!59, !60, i64 8}
+!65 = !{!59, !60, i64 16}
+!66 = !{i64 0, i64 24, !33}
+!67 = !{!68, !70}
+!68 = distinct !{!68, !69, !"_ZSt19__relocate_object_aIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_SaIS2_EEvPT_PT0_RT1_: argument 0"}
+!69 = distinct !{!69, !"_ZSt19__relocate_object_aIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_SaIS2_EEvPT_PT0_RT1_"}
+!70 = distinct !{!70, !69, !"_ZSt19__relocate_object_aIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_SaIS2_EEvPT_PT0_RT1_: argument 1"}
+!71 = distinct !{!71, !50}
+!72 = !{!73, !14, i64 8}
+!73 = !{!"_ZTSSt9type_info", !14, i64 8}
+!74 = !{!75, !11, i64 192}
+!75 = !{!"_ZTSN6open3d8geometry9RGBDImageE", !6, i64 0, !5, i64 48, !5, i64 136}
+!76 = !{!75, !11, i64 108}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb: argument 0"}
+!79 = distinct !{!79, !"_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi3EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_: argument 0"}
+!82 = distinct !{!82, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_"}
+!83 = !{!81, !78}
+!84 = !{!75, !11, i64 188}
+!85 = !{!75, !11, i64 184}
+!86 = !{!20, !14, i64 0}
+!87 = distinct !{!87, !50, !51}
+!88 = distinct !{!88, !50}
+!89 = !{!90}
+!90 = distinct !{!90, !91, !"_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi4EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb: argument 0"}
+!91 = distinct !{!91, !"_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIhLi4EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb"}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_: argument 0"}
+!94 = distinct !{!94, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_"}
+!95 = !{!93, !90}
+!96 = distinct !{!96, !50, !51}
+!97 = distinct !{!97, !50}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIfLi1EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb: argument 0"}
+!100 = distinct !{!100, !"_ZN6open3d12_GLOBAL__N_130CreatePointCloudFromRGBDImageTIfLi1EEESt10shared_ptrINS_8geometry10PointCloudEERKNS3_9RGBDImageERKNS_6camera22PinholeCameraIntrinsicERKN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEb"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_: argument 0"}
+!103 = distinct !{!103, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_"}
+!104 = !{!102, !99}
+!105 = distinct !{!105, !50, !51}
+!106 = distinct !{!106, !50}
+!107 = !{!108}
+!108 = distinct !{!108, !109, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_: argument 0"}
+!109 = distinct !{!109, !"_ZSt11make_sharedIN6open3d8geometry10PointCloudEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_"}
+!110 = !{!111, !16, i64 24}
+!111 = !{!"_ZTSSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE", !112, i64 0, !16, i64 8, !114, i64 16, !16, i64 24, !116, i64 32, !115, i64 48}
+!112 = !{!"p2 _ZTSNSt8__detail15_Hash_node_baseE", !113, i64 0}
+!113 = !{!"any p2 pointer", !15, i64 0}
+!114 = !{!"_ZTSNSt8__detail15_Hash_node_baseE", !115, i64 0}
+!115 = !{!"p1 _ZTSNSt8__detail15_Hash_node_baseE", !15, i64 0}
+!116 = !{!"_ZTSNSt8__detail20_Prime_rehash_policyE", !53, i64 0, !16, i64 8}
+!117 = !{!114, !115, i64 0}
+!118 = !{i64 0, i64 12, !33}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"_ZNK6open3d8geometry9VoxelGrid24GetVoxelCenterCoordinateERKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEE: argument 0"}
+!121 = distinct !{!121, !"_ZNK6open3d8geometry9VoxelGrid24GetVoxelCenterCoordinateERKN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEE"}
+!122 = !{!123, !120}
+!123 = distinct !{!123, !124, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_12CwiseUnaryOpINS2_14scalar_cast_opIidEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEEEEmlIdEEKNS1_INS2_17scalar_product_opIdNS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdSK_NSI_IdSK_EEEEEE5valueEE4typeEEEKSF_KNS2_19plain_constant_typeISF_SP_E4typeEEERKSK_: argument 0"}
+!124 = distinct !{!124, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal13scalar_sum_opIddEEKNS_12CwiseUnaryOpINS2_14scalar_cast_opIidEEKNS_6MatrixIiLi3ELi1ELi0ELi3ELi1EEEEEKNS8_IdLi3ELi1ELi0ELi3ELi1EEEEEEmlIdEEKNS1_INS2_17scalar_product_opIdNS2_18promote_scalar_argIdT_Xsr5Eigen8internal14has_ReturnTypeINS_20ScalarBinaryOpTraitsIdSK_NSI_IdSK_EEEEEE5valueEE4typeEEEKSF_KNS2_19plain_constant_typeISF_SP_E4typeEEERKSK_"}
+!125 = distinct !{!125, !50}
+!126 = distinct !{!126, !50}
+!127 = !{!111, !16, i64 8}
+!128 = !{!111, !112, i64 0}
+!129 = !{!115, !115, i64 0}
+!130 = !{!131, !16, i64 0}
+!131 = !{!"_ZTSNSt8__detail21_Hash_node_code_cacheILb1EEE", !16, i64 0}
+!132 = distinct !{!132, !50}

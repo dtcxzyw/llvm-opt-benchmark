@@ -76,15 +76,15 @@ define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicED2Ev(ptr noundef no
   br i1 %.not.i.i.i, label %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !31
 
 _ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.i: ; preds = %.noexc
-  %12 = load ptr, ptr %2, align 8, !tbaa !34
+  %12 = load ptr, ptr %2, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
   %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.i, label %.lr.ph.i.i, !llvm.loop !36
+  br i1 %.not.i.i, label %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.i, label %.lr.ph.i.i, !llvm.loop !35
 
 _ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.i: ; preds = %_ZN5folly13hazptr_domainISt6atomicE21reclaim_unconditionalEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit.i.i, %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %_ZN5folly13hazptr_domainISt6atomicE19reclaim_all_objectsEv.exit, label %5, !llvm.loop !37
+  br i1 %exitcond.not.i, label %_ZN5folly13hazptr_domainISt6atomicE19reclaim_all_objectsEv.exit, label %5, !llvm.loop !36
 
 _ZN5folly13hazptr_domainISt6atomicE19reclaim_all_objectsEv.exit: ; preds = %_ZN5folly13hazptr_domainISt6atomicE23reclaim_list_transitiveEPNS_10hazptr_objIS1_EE.exit.i
   %13 = icmp eq ptr %0, @_ZN5folly14default_domainE
@@ -102,10 +102,10 @@ _ZN5folly13hazptr_domainISt6atomicE19reclaim_all_objectsEv.exit: ; preds = %_ZN5
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.07.i = phi ptr [ %17, %.lr.ph.i ], [ %.0.i.i.i.i, %.lr.ph.preheader.i ]
   %16 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
-  %17 = load ptr, ptr %16, align 16, !tbaa !38
+  %17 = load ptr, ptr %16, align 16, !tbaa !37
   call void @free(ptr noundef nonnull %.07.i) #12
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %_ZN5folly13hazptr_domainISt6atomicE16free_hazptr_recsEv.exit, label %.lr.ph.i, !llvm.loop !43
+  br i1 %.not.i, label %_ZN5folly13hazptr_domainISt6atomicE16free_hazptr_recsEv.exit, label %.lr.ph.i, !llvm.loop !42
 
 _ZN5folly13hazptr_domainISt6atomicE16free_hazptr_recsEv.exit: ; preds = %.lr.ph.i, %14, %_ZN5folly13hazptr_domainISt6atomicE19reclaim_all_objectsEv.exit
   ret void
@@ -146,7 +146,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5folly19hazptr_use_executorEv() local_unnamed_addr #7 {
-  %1 = load i8, ptr @_ZN3fLB31FLAGS_folly_hazptr_use_executorE, align 1, !tbaa !44, !range !45, !noundef !46
+  %1 = load i8, ptr @_ZN3fLB31FLAGS_folly_hazptr_use_executorE, align 1, !tbaa !43, !range !44, !noundef !45
   %2 = trunc nuw i8 %1 to i1
   ret i1 %2
 }
@@ -168,7 +168,7 @@ define internal void @_GLOBAL__I_000102() #9 section ".text.startup" {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr.i.i, i8 0, i64 20, i1 false)
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 24
   %2 = icmp eq i64 %.add.i.i, 224
-  br i1 %2, label %.preheader.i.i, label %1, !llvm.loop !47
+  br i1 %2, label %.preheader.i.i, label %1
 
 .preheader.i.i:                                   ; preds = %1, %.preheader.i.i
   %.idx3.i.i = phi i64 [ %.add4.i.i, %.preheader.i.i ], [ 224, %1 ]
@@ -176,10 +176,10 @@ define internal void @_GLOBAL__I_000102() #9 section ".text.startup" {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.ptr5.i.i, i8 0, i64 20, i1 false)
   %.add4.i.i = add nuw nsw i64 %.idx3.i.i, 24
   %3 = icmp eq i64 %.add4.i.i, 416
-  br i1 %3, label %__cxx_global_var_init.3.exit, label %.preheader.i.i, !llvm.loop !48
+  br i1 %3, label %__cxx_global_var_init.3.exit, label %.preheader.i.i
 
 __cxx_global_var_init.3.exit:                     ; preds = %.preheader.i.i
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 416), align 8, !tbaa !49
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 416), align 8, !tbaa !46
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 424), i8 0, i64 20, i1 false)
   %4 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5folly13hazptr_domainISt6atomicED2Ev, ptr nonnull @_ZN5folly14default_domainE, ptr nonnull @__dso_handle) #12
   ret void
@@ -242,22 +242,19 @@ attributes #13 = { noreturn nounwind }
 !28 = !{!"_ZTSN5folly10hazptr_objISt6atomicEE", !12, i64 0, !29, i64 8, !17, i64 16}
 !29 = !{!"p1 _ZTSN5folly10hazptr_objISt6atomicEE", !12, i64 0}
 !30 = !{!28, !12, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!35, !29, i64 0}
-!35 = !{!"_ZTSN5folly13hazptr_detail11linked_listINS_10hazptr_objISt6atomicEEEE", !29, i64 0, !29, i64 8}
-!36 = distinct !{!36, !32, !33}
-!37 = distinct !{!37, !32, !33}
-!38 = !{!39, !11, i64 16}
-!39 = !{!"_ZTSN5folly10hazptr_recISt6atomicEE", !40, i64 0, !42, i64 8, !11, i64 16, !11, i64 24}
-!40 = !{!"_ZTSSt6atomicIPKvE", !41, i64 0}
-!41 = !{!"_ZTSSt13__atomic_baseIPKvE", !12, i64 0}
-!42 = !{!"p1 _ZTSN5folly13hazptr_domainISt6atomicEE", !12, i64 0}
-!43 = distinct !{!43, !32, !33}
-!44 = !{!24, !24, i64 0}
-!45 = !{i8 0, i8 2}
-!46 = !{}
-!47 = distinct !{!47, !33}
-!48 = distinct !{!48, !33}
-!49 = !{!19, !20, i64 0}
+!33 = !{!34, !29, i64 0}
+!34 = !{!"_ZTSN5folly13hazptr_detail11linked_listINS_10hazptr_objISt6atomicEEEE", !29, i64 0, !29, i64 8}
+!35 = distinct !{!35, !32}
+!36 = distinct !{!36, !32}
+!37 = !{!38, !11, i64 16}
+!38 = !{!"_ZTSN5folly10hazptr_recISt6atomicEE", !39, i64 0, !41, i64 8, !11, i64 16, !11, i64 24}
+!39 = !{!"_ZTSSt6atomicIPKvE", !40, i64 0}
+!40 = !{!"_ZTSSt13__atomic_baseIPKvE", !12, i64 0}
+!41 = !{!"p1 _ZTSN5folly13hazptr_domainISt6atomicEE", !12, i64 0}
+!42 = distinct !{!42, !32}
+!43 = !{!24, !24, i64 0}
+!44 = !{i8 0, i8 2}
+!45 = !{}
+!46 = !{!19, !20, i64 0}

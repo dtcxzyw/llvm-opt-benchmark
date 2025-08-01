@@ -3074,37 +3074,37 @@ define internal void @_ZN12_GLOBAL__N_112KeywordsSink3putEPKcRN6icu_7713Resource
 36:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #16
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %10)
-  store i32 0, ptr %21, align 8, !tbaa !81
+  store i32 0, ptr %21, align 8, !tbaa !80
   %37 = load ptr, ptr %10, align 8, !tbaa !3
   store i8 0, ptr %37, align 1, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16, !noalias !83
-  store i32 0, ptr %6, align 4, !tbaa !12, !noalias !83
-  %38 = load ptr, ptr %2, align 8, !tbaa !39, !noalias !83
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16, !noalias !82
+  store i32 0, ptr %6, align 4, !tbaa !12, !noalias !82
+  %38 = load ptr, ptr %2, align 8, !tbaa !39, !noalias !82
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %40 = load ptr, ptr %39, align 8, !noalias !83
+  %40 = load ptr, ptr %39, align 8, !noalias !82
   %41 = invoke noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %36
-  store ptr %41, ptr %7, align 8, !tbaa !64, !noalias !83
-  %42 = load i32, ptr %6, align 4, !tbaa !12, !noalias !83
+  store ptr %41, ptr %7, align 8, !tbaa !64, !noalias !82
+  %42 = load i32, ptr %6, align 4, !tbaa !12, !noalias !82
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %11, i8 noundef signext 1, ptr noundef nonnull %7, i32 noundef %42)
           to label %46 unwind label %43
 
 43:                                               ; preds = %.noexc
   %44 = landingpad { ptr, i32 }
           cleanup
-  %45 = load ptr, ptr %7, align 8, !tbaa !64, !noalias !83
+  %45 = load ptr, ptr %7, align 8, !tbaa !64, !noalias !82
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %45) #16, !srcloc !23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16, !noalias !83
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16, !noalias !82
   br label %.body
 
 46:                                               ; preds = %.noexc
-  %47 = load ptr, ptr %7, align 8, !tbaa !64, !noalias !83
+  %47 = load ptr, ptr %7, align 8, !tbaa !64, !noalias !82
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %47) #16, !srcloc !23
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16, !noalias !83
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16, !noalias !82
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %48 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString20appendInvariantCharsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %10, ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %49 unwind label %59
@@ -3255,7 +3255,7 @@ define linkonce_odr void @_ZN6icu_7714LocaleCacheKeyINS_19CollationCacheEntryEED
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZNK6icu_7714LocaleCacheKeyINS_19CollationCacheEntryEE8hashCodeEv(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #1 comdat align 2 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7719CollationCacheEntryE, i64 8), align 8, !tbaa !86
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTIN6icu_7719CollationCacheEntryE, i64 8), align 8, !tbaa !85
   %3 = load i8, ptr %2, align 1, !tbaa !26
   %4 = icmp eq i8 %3, 42
   %.idx.i.i = zext i1 %4 to i64
@@ -3325,9 +3325,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK6icu_7714LocaleCacheKeyINS_19Collati
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !86
+  %12 = load ptr, ptr %11, align 8, !tbaa !85
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !86
+  %14 = load ptr, ptr %13, align 8, !tbaa !85
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNK6icu_778CacheKeyINS_19CollationCacheEntryEE6equalsERKNS_12CacheKeyBaseE.exit.thread, label %16
 
@@ -3478,13 +3478,12 @@ attributes #19 = { nounwind willreturn memory(read) }
 !75 = !{!76, !6, i64 8}
 !76 = !{!"_ZTS12UEnumeration", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
 !77 = !{!5, !5, i64 0}
-!78 = distinct !{!78, !79, !80}
+!78 = distinct !{!78, !79}
 !79 = !{!"llvm.loop.mustprogress"}
-!80 = !{!"llvm.loop.estimated_trip_count"}
-!81 = !{!82, !9, i64 56}
-!82 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode: argument 0"}
-!85 = distinct !{!85, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode"}
-!86 = !{!87, !5, i64 8}
-!87 = !{!"_ZTSSt9type_info", !5, i64 8}
+!80 = !{!81, !9, i64 56}
+!81 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode: argument 0"}
+!84 = distinct !{!84, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode"}
+!85 = !{!86, !5, i64 8}
+!86 = !{!"_ZTSSt9type_info", !5, i64 8}

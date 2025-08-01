@@ -468,7 +468,7 @@ register_class_LibXMLError.exit:                  ; preds = %zend_string_release
   %131 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !8
   %.not4 = icmp eq ptr %132, null
-  br i1 %.not4, label %.loopexit, label %.preheader, !llvm.loop !66
+  br i1 %.not4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %register_class_LibXMLError.exit, %130
   %133 = phi ptr [ %132, %130 ], [ @.str.43, %register_class_LibXMLError.exit ]
@@ -534,18 +534,18 @@ define internal noundef i32 @zm_activate_libxml(i32 %0, i32 %1) #0 {
   br label %6
 
 6:                                                ; preds = %3, %2
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !68
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !66
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @zm_deactivate_libxml(i32 %0, i32 %1) #0 {
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !74
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !72
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %31, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 64), align 8, !tbaa !75
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 64), align 8, !tbaa !73
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %zend_object_release.exit1, label %6
 
@@ -567,7 +567,7 @@ define internal noundef i32 @zm_deactivate_libxml(i32 %0, i32 %1) #0 {
   %14 = load i32, ptr %13, align 4, !tbaa !33
   %15 = and i32 %14, -1008
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %zend_object_release.exit1, !prof !76
+  br i1 %16, label %17, label %zend_object_release.exit1, !prof !74
 
 17:                                               ; preds = %12
   tail call void @gc_possible_root(ptr noundef nonnull %5) #18
@@ -575,7 +575,7 @@ define internal noundef i32 @zm_deactivate_libxml(i32 %0, i32 %1) #0 {
 
 zend_object_release.exit1:                        ; preds = %17, %12, %11, %4
   tail call void @zend_release_fcall_info_cache(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40)) #18
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 72), align 8, !tbaa !77
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 72), align 8, !tbaa !75
   %.not8.i = icmp eq ptr %18, null
   br i1 %.not8.i, label %zend_fcc_dtor.exit, label %19
 
@@ -597,7 +597,7 @@ zend_object_release.exit1:                        ; preds = %17, %12, %11, %4
   %27 = load i32, ptr %26, align 4, !tbaa !33
   %28 = and i32 %27, -1008
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %zend_fcc_dtor.exit, !prof !76
+  br i1 %29, label %30, label %zend_fcc_dtor.exit, !prof !74
 
 30:                                               ; preds = %25
   tail call void @gc_possible_root(ptr noundef nonnull %18) #18
@@ -629,11 +629,11 @@ define internal void @zm_globals_ctor_libxml(ptr noundef writeonly captures(none
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %3, align 8, !tbaa !78
+  store ptr null, ptr %3, align 8, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr null, ptr %4, align 8, !tbaa !79
+  store ptr null, ptr %4, align 8, !tbaa !77
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) @empty_fcall_info_cache, i64 40, i1 false), !tbaa.struct !78
   ret void
 }
 
@@ -651,7 +651,7 @@ define internal noundef i32 @php_libxml_post_deactivate() #0 {
 4:                                                ; preds = %1, %0
   tail call void @xmlSetStructuredErrorFunc(ptr noundef null, ptr noundef null) #18
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 8), align 8, !tbaa !33
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !83
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !81
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %smart_str_free_ex.exit, label %6
 
@@ -676,20 +676,20 @@ define internal noundef i32 @php_libxml_post_deactivate() #0 {
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %6, %10, %15
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !83
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !81
   br label %smart_str_free_ex.exit
 
 smart_str_free_ex.exit:                           ; preds = %4, %zend_string_release_ex.exit
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 24), align 8, !tbaa !84
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 24), align 8, !tbaa !82
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %19, label %17
 
 17:                                               ; preds = %smart_str_free_ex.exit
   tail call void @zend_llist_destroy(ptr noundef nonnull %16) #18
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   tail call void @_efree(ptr noundef %18) #18
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   br label %19
 
 19:                                               ; preds = %17, %smart_str_free_ex.exit
@@ -700,47 +700,47 @@ smart_str_free_ex.exit:                           ; preds = %4, %zend_string_rel
 ; Function Attrs: nounwind uwtable
 define dso_local void @php_libxml_set_old_ns(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %php_libxml_set_old_ns_list.exit, label %4, !prof !76
+  br i1 %3, label %php_libxml_set_old_ns_list.exit, label %4, !prof !74
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !85
+  %5 = load ptr, ptr %1, align 8, !tbaa !83
   %6 = icmp eq ptr %5, null
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = load ptr, ptr %7, align 8, !tbaa !89
+  %8 = load ptr, ptr %7, align 8, !tbaa !87
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %23, !prof !76
+  br i1 %9, label %10, label %23, !prof !74
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr @xmlMalloc, align 8, !tbaa !4
   %12 = tail call ptr %11(i64 noundef 48) #18
-  store ptr %12, ptr %7, align 8, !tbaa !89
+  store ptr %12, ptr %7, align 8, !tbaa !87
   %13 = icmp eq ptr %12, null
   br i1 %13, label %php_libxml_set_old_ns_list.exit, label %14
 
 14:                                               ; preds = %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
-  %15 = load ptr, ptr %7, align 8, !tbaa !89
+  %15 = load ptr, ptr %7, align 8, !tbaa !87
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 18, ptr %16, align 8, !tbaa !94
+  store i32 18, ptr %16, align 8, !tbaa !92
   %17 = tail call ptr @xmlStrdup(ptr noundef nonnull @.str.29) #18
-  %18 = load ptr, ptr %7, align 8, !tbaa !89
+  %18 = load ptr, ptr %7, align 8, !tbaa !87
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %17, ptr %19, align 8, !tbaa !95
+  store ptr %17, ptr %19, align 8, !tbaa !93
   %20 = tail call ptr @xmlStrdup(ptr noundef nonnull @.str.30) #18
-  %21 = load ptr, ptr %7, align 8, !tbaa !89
+  %21 = load ptr, ptr %7, align 8, !tbaa !87
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store ptr %20, ptr %22, align 8, !tbaa !96
+  store ptr %20, ptr %22, align 8, !tbaa !94
   br label %25
 
 23:                                               ; preds = %4
-  %24 = load ptr, ptr %8, align 8, !tbaa !85
-  store ptr %24, ptr %1, align 8, !tbaa !85
+  %24 = load ptr, ptr %8, align 8, !tbaa !83
+  store ptr %24, ptr %1, align 8, !tbaa !83
   br label %25
 
 25:                                               ; preds = %23, %14
   %26 = phi ptr [ %8, %23 ], [ %21, %14 ]
-  store ptr %1, ptr %26, align 8, !tbaa !85
+  store ptr %1, ptr %26, align 8, !tbaa !83
   br label %php_libxml_set_old_ns_list.exit
 
 php_libxml_set_old_ns_list.exit:                  ; preds = %2, %10, %25
@@ -754,29 +754,29 @@ define dso_local void @php_libxml_node_free_list(ptr noundef %0) local_unnamed_a
 
 .preheader:                                       ; preds = %1, %.backedge
   %.039 = phi ptr [ %.0.be, %.backedge ], [ %0, %1 ]
-  %2 = load ptr, ptr %.039, align 8, !tbaa !97
+  %2 = load ptr, ptr %.039, align 8, !tbaa !95
   %.not34 = icmp eq ptr %2, null
   br i1 %.not34, label %25, label %3
 
 3:                                                ; preds = %.preheader
   %4 = getelementptr inbounds nuw i8, ptr %.039, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !101
+  %5 = load ptr, ptr %4, align 8, !tbaa !99
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.039) #18
   %6 = getelementptr inbounds nuw i8, ptr %.039, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !102
+  %7 = load i32, ptr %6, align 8, !tbaa !100
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %.backedge
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %.039, align 8, !tbaa !97
+  %10 = load ptr, ptr %.039, align 8, !tbaa !95
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !103
+  %12 = load ptr, ptr %11, align 8, !tbaa !101
   %.not36 = icmp eq ptr %12, null
   br i1 %.not36, label %.backedge, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !105
+  %15 = load ptr, ptr %14, align 8, !tbaa !103
   %.not37 = icmp eq ptr %15, null
   br i1 %.not37, label %21, label %16
 
@@ -789,18 +789,18 @@ define dso_local void @php_libxml_node_free_list(ptr noundef %0) local_unnamed_a
 
 21:                                               ; preds = %16, %13
   %22 = getelementptr inbounds nuw i8, ptr %.039, i64 64
-  %23 = load ptr, ptr %22, align 8, !tbaa !110
+  %23 = load ptr, ptr %22, align 8, !tbaa !108
   %24 = tail call i32 @xmlReconciliateNs(ptr noundef %23, ptr noundef nonnull %.039) #18
   br label %.backedge
 
 .backedge:                                        ; preds = %3, %16, %21, %9, %php_libxml_unregister_node.exit
   %.0.be = phi ptr [ %70, %php_libxml_unregister_node.exit ], [ %5, %9 ], [ %5, %21 ], [ %5, %16 ], [ %5, %3 ]
   %.not33 = icmp eq ptr %.0.be, null
-  br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !111
+  br i1 %.not33, label %.loopexit, label %.preheader
 
 25:                                               ; preds = %.preheader
   %26 = getelementptr inbounds nuw i8, ptr %.039, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !102
+  %27 = load i32, ptr %26, align 8, !tbaa !100
   switch i32 %27, label %64 [
     i32 5, label %php_libxml_unlink_entity_decl.exit
     i32 12, label %php_libxml_unlink_entity_decl.exit
@@ -815,48 +815,48 @@ define dso_local void @php_libxml_node_free_list(ptr noundef %0) local_unnamed_a
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %.039, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !112
+  %30 = load ptr, ptr %29, align 8, !tbaa !109
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %php_libxml_unlink_entity_decl.exit, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 96
-  %33 = load ptr, ptr %32, align 8, !tbaa !115
+  %33 = load ptr, ptr %32, align 8, !tbaa !112
   %34 = getelementptr inbounds nuw i8, ptr %.039, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !117
+  %35 = load ptr, ptr %34, align 8, !tbaa !114
   %36 = tail call ptr @xmlHashLookup(ptr noundef %33, ptr noundef %35) #18
   %37 = icmp eq ptr %36, %.039
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %31
-  %39 = load ptr, ptr %32, align 8, !tbaa !115
-  %40 = load ptr, ptr %34, align 8, !tbaa !117
+  %39 = load ptr, ptr %32, align 8, !tbaa !112
+  %40 = load ptr, ptr %34, align 8, !tbaa !114
   %41 = tail call i32 @xmlHashRemoveEntry(ptr noundef %39, ptr noundef %40, ptr noundef null) #18
   br label %42
 
 42:                                               ; preds = %38, %31
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 120
-  %44 = load ptr, ptr %43, align 8, !tbaa !118
-  %45 = load ptr, ptr %34, align 8, !tbaa !117
+  %44 = load ptr, ptr %43, align 8, !tbaa !115
+  %45 = load ptr, ptr %34, align 8, !tbaa !114
   %46 = tail call ptr @xmlHashLookup(ptr noundef %44, ptr noundef %45) #18
   %47 = icmp eq ptr %46, %.039
   br i1 %47, label %48, label %php_libxml_unlink_entity_decl.exit
 
 48:                                               ; preds = %42
-  %49 = load ptr, ptr %43, align 8, !tbaa !118
-  %50 = load ptr, ptr %34, align 8, !tbaa !117
+  %49 = load ptr, ptr %43, align 8, !tbaa !115
+  %50 = load ptr, ptr %34, align 8, !tbaa !114
   %51 = tail call i32 @xmlHashRemoveEntry(ptr noundef %49, ptr noundef %50, ptr noundef null) #18
   br label %php_libxml_unlink_entity_decl.exit
 
 52:                                               ; preds = %25
   %53 = getelementptr inbounds nuw i8, ptr %.039, i64 64
-  %54 = load ptr, ptr %53, align 8, !tbaa !110
+  %54 = load ptr, ptr %53, align 8, !tbaa !108
   %.not35 = icmp eq ptr %54, null
   br i1 %.not35, label %61, label %55
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %.039, i64 80
-  %57 = load i32, ptr %56, align 8, !tbaa !119
+  %57 = load i32, ptr %56, align 8, !tbaa !116
   %58 = icmp eq i32 %57, 2
   br i1 %58, label %59, label %61
 
@@ -866,63 +866,63 @@ define dso_local void @php_libxml_node_free_list(ptr noundef %0) local_unnamed_a
 
 61:                                               ; preds = %52, %55, %59, %25, %25, %25, %25, %25
   %62 = getelementptr inbounds nuw i8, ptr %.039, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !121
+  %63 = load ptr, ptr %62, align 8, !tbaa !118
   tail call void @php_libxml_node_free_list(ptr noundef %63)
   br label %php_libxml_unlink_entity_decl.exit
 
 64:                                               ; preds = %25
   %65 = getelementptr inbounds nuw i8, ptr %.039, i64 24
-  %66 = load ptr, ptr %65, align 8, !tbaa !121
+  %66 = load ptr, ptr %65, align 8, !tbaa !118
   tail call void @php_libxml_node_free_list(ptr noundef %66)
   %67 = getelementptr inbounds nuw i8, ptr %.039, i64 88
-  %68 = load ptr, ptr %67, align 8, !tbaa !122
+  %68 = load ptr, ptr %67, align 8, !tbaa !119
   tail call void @php_libxml_node_free_list(ptr noundef %68)
   br label %php_libxml_unlink_entity_decl.exit
 
 php_libxml_unlink_entity_decl.exit:               ; preds = %48, %42, %28, %25, %25, %64, %61
   %69 = getelementptr inbounds nuw i8, ptr %.039, i64 48
-  %70 = load ptr, ptr %69, align 8, !tbaa !101
+  %70 = load ptr, ptr %69, align 8, !tbaa !99
   tail call void @xmlUnlinkNode(ptr noundef nonnull %.039) #18
-  %71 = load ptr, ptr %.039, align 8, !tbaa !97
+  %71 = load ptr, ptr %.039, align 8, !tbaa !95
   %.not.i38 = icmp eq ptr %71, null
   br i1 %.not.i38, label %php_libxml_unregister_node.exit, label %72
 
 72:                                               ; preds = %php_libxml_unlink_entity_decl.exit
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !103
+  %74 = load ptr, ptr %73, align 8, !tbaa !101
   %.not10.i = icmp eq ptr %74, null
   br i1 %.not10.i, label %94, label %75
 
 75:                                               ; preds = %72
-  %76 = load ptr, ptr %74, align 8, !tbaa !123
+  %76 = load ptr, ptr %74, align 8, !tbaa !120
   %.not5.i.i = icmp eq ptr %76, null
   br i1 %.not5.i.i, label %php_libxml_decrement_node_ptr.exit.i, label %77
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %79 = load i32, ptr %78, align 8, !tbaa !124
+  %79 = load i32, ptr %78, align 8, !tbaa !121
   %80 = add i32 %79, -1
-  store i32 %80, ptr %78, align 8, !tbaa !124
+  store i32 %80, ptr %78, align 8, !tbaa !121
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %82, label %php_libxml_decrement_node_ptr.exit.i
 
 82:                                               ; preds = %77
-  %83 = load ptr, ptr %76, align 8, !tbaa !125
+  %83 = load ptr, ptr %76, align 8, !tbaa !122
   %.not.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i, label %85, label %84
 
 84:                                               ; preds = %82
-  store ptr null, ptr %83, align 8, !tbaa !97
+  store ptr null, ptr %83, align 8, !tbaa !95
   br label %85
 
 85:                                               ; preds = %84, %82
   %86 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !103
+  %87 = load ptr, ptr %86, align 8, !tbaa !101
   %.not10.i.i.i = icmp eq ptr %87, null
   br i1 %.not10.i.i.i, label %89, label %88
 
 88:                                               ; preds = %85
-  store ptr null, ptr %87, align 8, !tbaa !123
+  store ptr null, ptr %87, align 8, !tbaa !120
   br label %89
 
 89:                                               ; preds = %88, %85
@@ -931,26 +931,26 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %48, %42, %28, %25, 
 
 php_libxml_decrement_node_ptr.exit.i:             ; preds = %89, %77, %75
   %90 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %91 = load ptr, ptr %90, align 8, !tbaa !105
+  %91 = load ptr, ptr %90, align 8, !tbaa !103
   %.not6.i.i = icmp eq ptr %91, null
   br i1 %.not6.i.i, label %php_libxml_unregister_node.exit, label %92
 
 92:                                               ; preds = %php_libxml_decrement_node_ptr.exit.i
   %93 = tail call i32 @php_libxml_decrement_doc_ref_directly(ptr noundef nonnull %91)
-  store ptr null, ptr %90, align 8, !tbaa !105
+  store ptr null, ptr %90, align 8, !tbaa !103
   br label %php_libxml_unregister_node.exit
 
 94:                                               ; preds = %72
-  %95 = load i32, ptr %26, align 8, !tbaa !102
+  %95 = load i32, ptr %26, align 8, !tbaa !100
   %.not11.i = icmp eq i32 %95, 9
   br i1 %.not11.i, label %97, label %96
 
 96:                                               ; preds = %94
-  store ptr null, ptr %.039, align 8, !tbaa !97
+  store ptr null, ptr %.039, align 8, !tbaa !95
   br label %97
 
 97:                                               ; preds = %96, %94
-  store ptr null, ptr %71, align 8, !tbaa !125
+  store ptr null, ptr %71, align 8, !tbaa !122
   br label %php_libxml_unregister_node.exit
 
 php_libxml_unregister_node.exit:                  ; preds = %php_libxml_unlink_entity_decl.exit, %php_libxml_decrement_node_ptr.exit.i, %92, %97
@@ -975,17 +975,17 @@ declare i32 @xmlRemoveID(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @php_libxml_node_free(ptr noundef nonnull %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !97
+  %2 = load ptr, ptr %0, align 8, !tbaa !95
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  store ptr null, ptr %2, align 8, !tbaa !125
+  store ptr null, ptr %2, align 8, !tbaa !122
   br label %4
 
 4:                                                ; preds = %3, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !102
+  %6 = load i32, ptr %5, align 8, !tbaa !100
   switch i32 %6, label %178 [
     i32 2, label %7
     i32 17, label %8
@@ -1003,60 +1003,60 @@ define internal fastcc void @php_libxml_node_free(ptr noundef nonnull %0) unname
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %10 = load i32, ptr %9, align 4, !tbaa !126
+  %10 = load i32, ptr %9, align 4, !tbaa !123
   %.not97 = icmp eq i32 %10, 6
   br i1 %.not97, label %179, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !112
+  %13 = load ptr, ptr %12, align 8, !tbaa !109
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %php_libxml_unlink_entity_decl.exit, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  %16 = load ptr, ptr %15, align 8, !tbaa !115
+  %16 = load ptr, ptr %15, align 8, !tbaa !112
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !117
+  %18 = load ptr, ptr %17, align 8, !tbaa !114
   %19 = tail call ptr @xmlHashLookup(ptr noundef %16, ptr noundef %18) #18
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %14
-  %22 = load ptr, ptr %15, align 8, !tbaa !115
-  %23 = load ptr, ptr %17, align 8, !tbaa !117
+  %22 = load ptr, ptr %15, align 8, !tbaa !112
+  %23 = load ptr, ptr %17, align 8, !tbaa !114
   %24 = tail call i32 @xmlHashRemoveEntry(ptr noundef %22, ptr noundef %23, ptr noundef null) #18
   br label %25
 
 25:                                               ; preds = %21, %14
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %27 = load ptr, ptr %26, align 8, !tbaa !118
-  %28 = load ptr, ptr %17, align 8, !tbaa !117
+  %27 = load ptr, ptr %26, align 8, !tbaa !115
+  %28 = load ptr, ptr %17, align 8, !tbaa !114
   %29 = tail call ptr @xmlHashLookup(ptr noundef %27, ptr noundef %28) #18
   %30 = icmp eq ptr %29, %0
   br i1 %30, label %31, label %php_libxml_unlink_entity_decl.exit
 
 31:                                               ; preds = %25
-  %32 = load ptr, ptr %26, align 8, !tbaa !118
-  %33 = load ptr, ptr %17, align 8, !tbaa !117
+  %32 = load ptr, ptr %26, align 8, !tbaa !115
+  %33 = load ptr, ptr %17, align 8, !tbaa !114
   %34 = tail call i32 @xmlHashRemoveEntry(ptr noundef %32, ptr noundef %33, ptr noundef null) #18
   br label %php_libxml_unlink_entity_decl.exit
 
 php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !127
+  %36 = load ptr, ptr %35, align 8, !tbaa !124
   %.not98 = icmp eq ptr %36, null
   br i1 %.not98, label %45, label %37
 
 37:                                               ; preds = %php_libxml_unlink_entity_decl.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %39 = load i32, ptr %38, align 8, !tbaa !128
+  %39 = load i32, ptr %38, align 8, !tbaa !125
   %.not99 = icmp eq i32 %39, 0
   br i1 %.not99, label %45, label %40
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %42 = load ptr, ptr %41, align 8, !tbaa !129
+  %42 = load ptr, ptr %41, align 8, !tbaa !126
   %43 = icmp eq ptr %0, %42
   br i1 %43, label %44, label %45
 
@@ -1066,19 +1066,19 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
 
 45:                                               ; preds = %44, %40, %37, %php_libxml_unlink_entity_decl.exit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %47 = load ptr, ptr %46, align 8, !tbaa !130
+  %47 = load ptr, ptr %46, align 8, !tbaa !127
   %.not100 = icmp eq ptr %47, null
   br i1 %.not100, label %.thread117, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 152
-  %50 = load ptr, ptr %49, align 8, !tbaa !131
+  %50 = load ptr, ptr %49, align 8, !tbaa !128
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.thread117, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = load ptr, ptr %53, align 8, !tbaa !117
+  %54 = load ptr, ptr %53, align 8, !tbaa !114
   %55 = tail call i32 @xmlDictOwns(ptr noundef nonnull %50, ptr noundef %54) #18
   %.not101 = icmp eq i32 %55, 0
   br i1 %.not101, label %71, label %.thread107
@@ -1086,87 +1086,87 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
 .thread117:                                       ; preds = %48, %45
   %56 = load ptr, ptr @xmlFree, align 8, !tbaa !4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !117
+  %58 = load ptr, ptr %57, align 8, !tbaa !114
   tail call void %56(ptr noundef %58) #18
   %59 = load ptr, ptr @xmlFree, align 8, !tbaa !4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %61 = load ptr, ptr %60, align 8, !tbaa !132
+  %61 = load ptr, ptr %60, align 8, !tbaa !129
   tail call void %59(ptr noundef %61) #18
   %62 = load ptr, ptr @xmlFree, align 8, !tbaa !4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %64 = load ptr, ptr %63, align 8, !tbaa !133
+  %64 = load ptr, ptr %63, align 8, !tbaa !130
   tail call void %62(ptr noundef %64) #18
   %65 = load ptr, ptr @xmlFree, align 8, !tbaa !4
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %67 = load ptr, ptr %66, align 8, !tbaa !134
+  %67 = load ptr, ptr %66, align 8, !tbaa !131
   tail call void %65(ptr noundef %67) #18
   %68 = load ptr, ptr @xmlFree, align 8, !tbaa !4
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %70 = load ptr, ptr %69, align 8, !tbaa !135
+  %70 = load ptr, ptr %69, align 8, !tbaa !132
   tail call void %68(ptr noundef %70) #18
   br label %101
 
 71:                                               ; preds = %52
   %72 = load ptr, ptr @xmlFree, align 8, !tbaa !4
-  %73 = load ptr, ptr %53, align 8, !tbaa !117
+  %73 = load ptr, ptr %53, align 8, !tbaa !114
   tail call void %72(ptr noundef %73) #18
   br label %.thread107
 
 .thread107:                                       ; preds = %52, %71
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %75 = load ptr, ptr %74, align 8, !tbaa !132
+  %75 = load ptr, ptr %74, align 8, !tbaa !129
   %76 = tail call i32 @xmlDictOwns(ptr noundef nonnull %50, ptr noundef %75) #18
   %.not102 = icmp eq i32 %76, 0
   br i1 %.not102, label %77, label %.thread110
 
 77:                                               ; preds = %.thread107
   %78 = load ptr, ptr @xmlFree, align 8, !tbaa !4
-  %79 = load ptr, ptr %74, align 8, !tbaa !132
+  %79 = load ptr, ptr %74, align 8, !tbaa !129
   tail call void %78(ptr noundef %79) #18
   br label %.thread110
 
 .thread110:                                       ; preds = %.thread107, %77
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %81 = load ptr, ptr %80, align 8, !tbaa !133
+  %81 = load ptr, ptr %80, align 8, !tbaa !130
   %82 = tail call i32 @xmlDictOwns(ptr noundef nonnull %50, ptr noundef %81) #18
   %.not103 = icmp eq i32 %82, 0
   br i1 %.not103, label %83, label %.thread112
 
 83:                                               ; preds = %.thread110
   %84 = load ptr, ptr @xmlFree, align 8, !tbaa !4
-  %85 = load ptr, ptr %80, align 8, !tbaa !133
+  %85 = load ptr, ptr %80, align 8, !tbaa !130
   tail call void %84(ptr noundef %85) #18
   br label %.thread112
 
 .thread112:                                       ; preds = %.thread110, %83
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %87 = load ptr, ptr %86, align 8, !tbaa !134
+  %87 = load ptr, ptr %86, align 8, !tbaa !131
   %88 = tail call i32 @xmlDictOwns(ptr noundef nonnull %50, ptr noundef %87) #18
   %.not104 = icmp eq i32 %88, 0
   br i1 %.not104, label %89, label %.thread114
 
 89:                                               ; preds = %.thread112
   %90 = load ptr, ptr @xmlFree, align 8, !tbaa !4
-  %91 = load ptr, ptr %86, align 8, !tbaa !134
+  %91 = load ptr, ptr %86, align 8, !tbaa !131
   tail call void %90(ptr noundef %91) #18
   br label %.thread114
 
 .thread114:                                       ; preds = %.thread112, %89
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %93 = load ptr, ptr %92, align 8, !tbaa !135
+  %93 = load ptr, ptr %92, align 8, !tbaa !132
   %94 = tail call i32 @xmlDictOwns(ptr noundef nonnull %50, ptr noundef %93) #18
   %.not105 = icmp eq i32 %94, 0
   br i1 %.not105, label %95, label %.thread116
 
 95:                                               ; preds = %.thread114
   %96 = load ptr, ptr @xmlFree, align 8, !tbaa !4
-  %97 = load ptr, ptr %92, align 8, !tbaa !135
+  %97 = load ptr, ptr %92, align 8, !tbaa !132
   tail call void %96(ptr noundef %97) #18
   br label %.thread116
 
 .thread116:                                       ; preds = %.thread114, %95
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %99 = load ptr, ptr %98, align 8, !tbaa !136
+  %99 = load ptr, ptr %98, align 8, !tbaa !133
   %100 = tail call i32 @xmlDictOwns(ptr noundef nonnull %50, ptr noundef %99) #18
   %.not106 = icmp eq i32 %100, 0
   br i1 %.not106, label %101, label %105
@@ -1174,7 +1174,7 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
 101:                                              ; preds = %.thread117, %.thread116
   %102 = load ptr, ptr @xmlFree, align 8, !tbaa !4
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %104 = load ptr, ptr %103, align 8, !tbaa !136
+  %104 = load ptr, ptr %103, align 8, !tbaa !133
   tail call void %102(ptr noundef %104) #18
   br label %105
 
@@ -1185,7 +1185,7 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
 
 107:                                              ; preds = %4
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %109 = load ptr, ptr %108, align 8, !tbaa !137
+  %109 = load ptr, ptr %108, align 8, !tbaa !134
   %.not94 = icmp eq ptr %109, null
   br i1 %.not94, label %112, label %110
 
@@ -1196,7 +1196,7 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
 
 112:                                              ; preds = %110, %107
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %114 = load ptr, ptr %113, align 8, !tbaa !132
+  %114 = load ptr, ptr %113, align 8, !tbaa !129
   %.not95 = icmp eq ptr %114, null
   br i1 %.not95, label %117, label %115
 
@@ -1207,7 +1207,7 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
 
 117:                                              ; preds = %115, %112
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %119 = load ptr, ptr %118, align 8, !tbaa !133
+  %119 = load ptr, ptr %118, align 8, !tbaa !130
   %.not96 = icmp eq ptr %119, null
   br i1 %.not96, label %122, label %120
 
@@ -1223,17 +1223,17 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
 
 124:                                              ; preds = %4
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %126 = load ptr, ptr %125, align 8, !tbaa !138
+  %126 = load ptr, ptr %125, align 8, !tbaa !135
   %.not93 = icmp eq ptr %126, null
   br i1 %.not93, label %128, label %127
 
 127:                                              ; preds = %124
   tail call void @xmlFreeNs(ptr noundef nonnull %126) #18
-  store ptr null, ptr %125, align 8, !tbaa !138
+  store ptr null, ptr %125, align 8, !tbaa !135
   br label %128
 
 128:                                              ; preds = %127, %124
-  store i32 1, ptr %5, align 8, !tbaa !102
+  store i32 1, ptr %5, align 8, !tbaa !100
   tail call void @xmlFreeNode(ptr noundef nonnull %0) #18
   br label %179
 
@@ -1242,10 +1242,10 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
 
 130:                                              ; preds = %129
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %132 = load ptr, ptr %131, align 8, !tbaa !115
+  %132 = load ptr, ptr %131, align 8, !tbaa !112
   tail call void @xmlHashScan(ptr noundef %132, ptr noundef nonnull @php_libxml_unlink_entity, ptr noundef %132) #18
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %134 = load ptr, ptr %133, align 8, !tbaa !118
+  %134 = load ptr, ptr %133, align 8, !tbaa !115
   tail call void @xmlHashScan(ptr noundef %134, ptr noundef nonnull @php_libxml_unlink_entity, ptr noundef %134) #18
   br label %135
 
@@ -1255,13 +1255,13 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
 
 136:                                              ; preds = %4
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %138 = load ptr, ptr %137, align 8, !tbaa !138
+  %138 = load ptr, ptr %137, align 8, !tbaa !135
   %.not88 = icmp eq ptr %138, null
   br i1 %.not88, label %149, label %139
 
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 32
-  %141 = load ptr, ptr %140, align 8, !tbaa !139
+  %141 = load ptr, ptr %140, align 8, !tbaa !136
   %142 = ptrtoint ptr %141 to i64
   %143 = and i64 %142, 1
   %.not89 = icmp eq i64 %143, 0
@@ -1271,68 +1271,68 @@ php_libxml_unlink_entity_decl.exit:               ; preds = %11, %25, %31
   %145 = and i64 %142, -2
   %146 = inttoptr i64 %145 to ptr
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %148 = load ptr, ptr %147, align 8, !tbaa !140
+  %148 = load ptr, ptr %147, align 8, !tbaa !137
   tail call void %148(ptr noundef %146, ptr noundef nonnull %0) #18
   br label %149
 
 149:                                              ; preds = %144, %139, %136
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %151 = load ptr, ptr %150, align 8, !tbaa !142
+  %151 = load ptr, ptr %150, align 8, !tbaa !139
   %.not90 = icmp eq ptr %151, null
   br i1 %.not90, label %177, label %152
 
 152:                                              ; preds = %149
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %154 = load ptr, ptr %153, align 8, !tbaa !110
+  %154 = load ptr, ptr %153, align 8, !tbaa !108
   %.not91 = icmp eq ptr %154, null
   br i1 %.not91, label %177, label %.preheader
 
 .preheader:                                       ; preds = %152, %.preheader
   %.0 = phi ptr [ %155, %.preheader ], [ %151, %152 ]
-  %155 = load ptr, ptr %.0, align 8, !tbaa !85
+  %155 = load ptr, ptr %.0, align 8, !tbaa !83
   %.not92 = icmp eq ptr %155, null
-  br i1 %.not92, label %156, label %.preheader, !llvm.loop !143
+  br i1 %.not92, label %156, label %.preheader
 
 156:                                              ; preds = %.preheader
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 96
-  %158 = load ptr, ptr %157, align 8, !tbaa !89
+  %158 = load ptr, ptr %157, align 8, !tbaa !87
   %159 = icmp eq ptr %158, null
-  br i1 %159, label %160, label %173, !prof !76
+  br i1 %159, label %160, label %173, !prof !74
 
 160:                                              ; preds = %156
   %161 = load ptr, ptr @xmlMalloc, align 8, !tbaa !4
   %162 = tail call ptr %161(i64 noundef 48) #18
-  store ptr %162, ptr %157, align 8, !tbaa !89
+  store ptr %162, ptr %157, align 8, !tbaa !87
   %163 = icmp eq ptr %162, null
   br i1 %163, label %php_libxml_set_old_ns_list.exit, label %164
 
 164:                                              ; preds = %160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %162, i8 0, i64 48, i1 false)
-  %165 = load ptr, ptr %157, align 8, !tbaa !89
+  %165 = load ptr, ptr %157, align 8, !tbaa !87
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store i32 18, ptr %166, align 8, !tbaa !94
+  store i32 18, ptr %166, align 8, !tbaa !92
   %167 = tail call ptr @xmlStrdup(ptr noundef nonnull @.str.29) #18
-  %168 = load ptr, ptr %157, align 8, !tbaa !89
+  %168 = load ptr, ptr %157, align 8, !tbaa !87
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  store ptr %167, ptr %169, align 8, !tbaa !95
+  store ptr %167, ptr %169, align 8, !tbaa !93
   %170 = tail call ptr @xmlStrdup(ptr noundef nonnull @.str.30) #18
-  %171 = load ptr, ptr %157, align 8, !tbaa !89
+  %171 = load ptr, ptr %157, align 8, !tbaa !87
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 24
-  store ptr %170, ptr %172, align 8, !tbaa !96
+  store ptr %170, ptr %172, align 8, !tbaa !94
   br label %175
 
 173:                                              ; preds = %156
-  %174 = load ptr, ptr %158, align 8, !tbaa !85
-  store ptr %174, ptr %.0, align 8, !tbaa !85
+  %174 = load ptr, ptr %158, align 8, !tbaa !83
+  store ptr %174, ptr %.0, align 8, !tbaa !83
   br label %175
 
 175:                                              ; preds = %173, %164
   %176 = phi ptr [ %158, %173 ], [ %171, %164 ]
-  store ptr %151, ptr %176, align 8, !tbaa !85
+  store ptr %151, ptr %176, align 8, !tbaa !83
   br label %php_libxml_set_old_ns_list.exit
 
 php_libxml_set_old_ns_list.exit:                  ; preds = %160, %175
-  store ptr null, ptr %150, align 8, !tbaa !142
+  store ptr null, ptr %150, align 8, !tbaa !139
   br label %177
 
 177:                                              ; preds = %php_libxml_set_old_ns_list.exit, %152, %149
@@ -1359,13 +1359,13 @@ define dso_local ptr @php_libxml_get_stream_context() local_unnamed_addr #0 {
   br label %10
 
 6:                                                ; preds = %0
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8, !tbaa !144
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8, !tbaa !140
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %6
   %9 = tail call ptr @php_stream_context_alloc() #18
-  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8, !tbaa !144
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8, !tbaa !140
   br label %10
 
 10:                                               ; preds = %6, %8, %3
@@ -1382,7 +1382,7 @@ declare ptr @php_stream_context_alloc() local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local void @php_libxml_issue_error(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._xmlError, align 8
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
 
@@ -1390,15 +1390,15 @@ define dso_local void @php_libxml_issue_error(i32 noundef %0, ptr noundef %1) lo
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %6, align 4, !tbaa !149
+  store i32 1, ptr %6, align 4, !tbaa !145
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 2, ptr %7, align 8, !tbaa !151
+  store i32 2, ptr %7, align 8, !tbaa !147
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 68
-  store i32 0, ptr %8, align 4, !tbaa !152
+  store i32 0, ptr %8, align 4, !tbaa !148
   %9 = tail call ptr @xmlStrdup(ptr noundef %1) #18
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %9, ptr %10, align 8, !tbaa !153
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  store ptr %9, ptr %10, align 8, !tbaa !149
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   call void @zend_llist_add_element(ptr noundef %11, ptr noundef nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #18
   br label %13
@@ -1422,15 +1422,15 @@ define dso_local void @php_libxml_error_handler_va(i32 noundef %0, ptr noundef r
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %9 = load ptr, ptr %8, align 8, !tbaa !154
+  %9 = load ptr, ptr %8, align 8, !tbaa !150
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  %12 = load i32, ptr %11, align 4, !tbaa !169
+  %12 = load i32, ptr %11, align 4, !tbaa !165
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %14 = load i32, ptr %13, align 8, !tbaa !172
+  %14 = load i32, ptr %13, align 8, !tbaa !168
   br label %15
 
 15:                                               ; preds = %10, %7, %4
@@ -1463,37 +1463,34 @@ define internal fastcc void @php_libxml_internal_error_handler_ex(i32 noundef %0
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !33
   %19 = icmp eq i8 %18, 10
-  br i1 %19, label %.lr.ph30, label %.critedge, !llvm.loop !173
+  br i1 %19, label %.lr.ph30, label %.critedge
 
 .lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %20 = phi ptr [ %17, %.lr.ph ], [ %12, %.lr.ph.preheader ]
   %21 = phi i64 [ %16, %.lr.ph ], [ %11, %.lr.ph.preheader ]
   store i8 0, ptr %20, align 1, !tbaa !33
   %.not = icmp eq i64 %21, 0
-  br i1 %.not, label %..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !173
+  br i1 %.not, label %.critedge, label %.lr.ph
 
-..critedge.loopexit_crit_edge:                    ; preds = %.lr.ph30
-  br label %.critedge, !llvm.loop !173
-
-.critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %..critedge.loopexit_crit_edge, %6
-  %.014.lcssa = phi i1 [ false, %6 ], [ true, %..critedge.loopexit_crit_edge ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph30, %.lr.ph, %.lr.ph.preheader, %6
+  %.014.lcssa = phi i1 [ false, %6 ], [ false, %.lr.ph.preheader ], [ true, %.lr.ph ], [ true, %.lr.ph30 ]
   %22 = load ptr, ptr %8, align 8, !tbaa !8
-  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !83
+  %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !81
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %29, label %24, !prof !76
+  br i1 %.not.i, label %29, label %24, !prof !74
 
 24:                                               ; preds = %.critedge
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !41
   %27 = add i64 %26, %9
-  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 24), align 8, !tbaa !84
+  %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 24), align 8, !tbaa !82
   %.not12.i = icmp ult i64 %27, %28
-  br i1 %.not12.i, label %smart_str_alloc.exit, label %29, !prof !174
+  br i1 %.not12.i, label %smart_str_alloc.exit, label %29, !prof !169
 
 29:                                               ; preds = %24, %.critedge
   %.0.i = phi i64 [ %9, %.critedge ], [ %27, %24 ]
   call void @smart_str_erealloc(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), i64 noundef %.0.i) #18
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !83
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !81
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre29 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !41
   br label %smart_str_alloc.exit
@@ -1505,7 +1502,7 @@ smart_str_alloc.exit:                             ; preds = %24, %29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %33, ptr align 1 %22, i64 %9, i1 false)
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !83
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !81
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 %.1.i, ptr %35, align 8, !tbaa !41
   %36 = load ptr, ptr %8, align 8, !tbaa !8
@@ -1513,38 +1510,38 @@ smart_str_alloc.exit:                             ; preds = %24, %29
   br i1 %.014.lcssa, label %37, label %86
 
 37:                                               ; preds = %smart_str_alloc.exit
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   %.not15 = icmp eq ptr %38, null
   br i1 %.not15, label %49, label %39
 
 39:                                               ; preds = %37
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !78
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !76
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %7) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 1, ptr %42, align 4, !tbaa !149
+  store i32 1, ptr %42, align 4, !tbaa !145
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 2, ptr %43, align 8, !tbaa !151
+  store i32 2, ptr %43, align 8, !tbaa !147
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 %4, ptr %44, align 8, !tbaa !175
+  store i32 %4, ptr %44, align 8, !tbaa !170
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 68
-  store i32 %5, ptr %45, align 4, !tbaa !152
+  store i32 %5, ptr %45, align 4, !tbaa !148
   %46 = call ptr @xmlStrdup(ptr noundef nonnull %41) #18
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %46, ptr %47, align 8, !tbaa !153
-  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  store ptr %46, ptr %47, align 8, !tbaa !149
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   call void @zend_llist_add_element(ptr noundef %48, ptr noundef nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #18
   br label %php_libxml_ctx_error_level.exit
 
 49:                                               ; preds = %37
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !176
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !171
   %.not16 = icmp eq ptr %50, null
   br i1 %.not16, label %51, label %php_libxml_ctx_error_level.exit
 
 51:                                               ; preds = %49
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !78
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !76
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   switch i32 %0, label %74 [
     i32 1, label %54
@@ -1557,13 +1554,13 @@ smart_str_alloc.exit:                             ; preds = %24, %29
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %57 = load ptr, ptr %56, align 8, !tbaa !154
+  %57 = load ptr, ptr %56, align 8, !tbaa !150
   %.not13.i = icmp eq ptr %57, null
   br i1 %.not13.i, label %63, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !198
+  %60 = load ptr, ptr %59, align 8, !tbaa !193
   %.not14.i = icmp eq ptr %60, null
   br i1 %.not14.i, label %62, label %61
 
@@ -1585,13 +1582,13 @@ smart_str_alloc.exit:                             ; preds = %24, %29
 
 65:                                               ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %67 = load ptr, ptr %66, align 8, !tbaa !154
+  %67 = load ptr, ptr %66, align 8, !tbaa !150
   %.not13.i21 = icmp eq ptr %67, null
   br i1 %.not13.i21, label %73, label %68
 
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !198
+  %70 = load ptr, ptr %69, align 8, !tbaa !193
   %.not14.i22 = icmp eq ptr %70, null
   br i1 %.not14.i22, label %72, label %71
 
@@ -1612,7 +1609,7 @@ smart_str_alloc.exit:                             ; preds = %24, %29
   br label %php_libxml_ctx_error_level.exit
 
 php_libxml_ctx_error_level.exit:                  ; preds = %73, %72, %71, %63, %62, %61, %49, %74, %39
-  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !83
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !81
   %.not.i17 = icmp eq ptr %75, null
   br i1 %.not.i17, label %smart_str_free_ex.exit, label %76
 
@@ -1637,11 +1634,11 @@ php_libxml_ctx_error_level.exit:                  ; preds = %73, %72, %71, %63, 
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %76, %80, %85
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !83
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 16), align 8, !tbaa !81
   br label %smart_str_free_ex.exit
 
 smart_str_free_ex.exit:                           ; preds = %php_libxml_ctx_error_level.exit, %zend_string_release_ex.exit
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 24), align 8, !tbaa !84
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 24), align 8, !tbaa !82
   br label %86
 
 86:                                               ; preds = %smart_str_free_ex.exit, %smart_str_alloc.exit
@@ -1656,7 +1653,7 @@ define dso_local void @php_libxml_pretend_ctx_error_ex(ptr noundef readonly capt
   call void @llvm.va_start.p0(ptr nonnull %5)
   call fastcc void @php_libxml_internal_error_handler_ex(i32 noundef 1, ptr noundef null, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %5)
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %14, label %7
 
@@ -1667,13 +1664,13 @@ define dso_local void @php_libxml_pretend_ctx_error_ex(ptr noundef readonly capt
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !199
+  %11 = load ptr, ptr %10, align 8, !tbaa !194
   %.not8 = icmp eq ptr %11, null
   br i1 %.not8, label %12, label %14
 
 12:                                               ; preds = %9
   %13 = call noalias ptr @strdup(ptr noundef %0) #18
-  store ptr %13, ptr %10, align 8, !tbaa !199
+  store ptr %13, ptr %10, align 8, !tbaa !194
   br label %14
 
 14:                                               ; preds = %7, %9, %12, %4
@@ -1700,15 +1697,15 @@ define dso_local void @php_libxml_ctx_error(ptr noundef readonly captures(addres
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !154
+  %6 = load ptr, ptr %5, align 8, !tbaa !150
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %php_libxml_error_handler_va.exit, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %9 = load i32, ptr %8, align 4, !tbaa !169
+  %9 = load i32, ptr %8, align 4, !tbaa !165
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %11 = load i32, ptr %10, align 8, !tbaa !172
+  %11 = load i32, ptr %10, align 8, !tbaa !168
   br label %php_libxml_error_handler_va.exit
 
 php_libxml_error_handler_va.exit:                 ; preds = %2, %4, %7
@@ -1730,15 +1727,15 @@ define dso_local void @php_libxml_ctx_warning(ptr noundef readonly captures(addr
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !154
+  %6 = load ptr, ptr %5, align 8, !tbaa !150
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %php_libxml_error_handler_va.exit, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %9 = load i32, ptr %8, align 4, !tbaa !169
+  %9 = load i32, ptr %8, align 4, !tbaa !165
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %11 = load i32, ptr %10, align 8, !tbaa !172
+  %11 = load i32, ptr %10, align 8, !tbaa !168
   br label %php_libxml_error_handler_va.exit
 
 php_libxml_error_handler_va.exit:                 ; preds = %2, %4, %7
@@ -1792,7 +1789,7 @@ define internal ptr @php_libxml_pre_ext_ent_loader(ptr noundef %0, ptr noundef %
   %6 = tail call ptr @__xmlGenericError() #18
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = icmp eq ptr %7, @php_libxml_error_handler
-  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 480), align 8, !range !200
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 480), align 8, !range !195
   %10 = trunc nuw i8 %9 to i1
   %or.cond = select i1 %8, i1 %10, i1 false
   br i1 %or.cond, label %11, label %125
@@ -1800,7 +1797,7 @@ define internal ptr @php_libxml_pre_ext_ent_loader(ptr noundef %0, ptr noundef %
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #18
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !74
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !72
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %13, label %16
 
@@ -1869,7 +1866,7 @@ zend_string_alloc.exit.i:                         ; preds = %26
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 775, ptr %42, align 8, !tbaa !33
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 280
-  %44 = load ptr, ptr %43, align 8, !tbaa !201
+  %44 = load ptr, ptr %43, align 8, !tbaa !196
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %47
 
@@ -1883,7 +1880,7 @@ zend_string_alloc.exit.i:                         ; preds = %26
 
 48:                                               ; preds = %47, %46
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 344
-  %50 = load ptr, ptr %49, align 8, !tbaa !202
+  %50 = load ptr, ptr %49, align 8, !tbaa !197
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %53
 
@@ -1897,7 +1894,7 @@ zend_string_alloc.exit.i:                         ; preds = %26
 
 54:                                               ; preds = %53, %52
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 352
-  %56 = load ptr, ptr %55, align 8, !tbaa !203
+  %56 = load ptr, ptr %55, align 8, !tbaa !198
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %59
 
@@ -1911,7 +1908,7 @@ zend_string_alloc.exit.i:                         ; preds = %26
 
 60:                                               ; preds = %59, %58
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 360
-  %62 = load ptr, ptr %61, align 8, !tbaa !204
+  %62 = load ptr, ptr %61, align 8, !tbaa !199
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %65
 
@@ -1924,16 +1921,16 @@ zend_string_alloc.exit.i:                         ; preds = %26
   br label %66
 
 66:                                               ; preds = %65, %64
-  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !205
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !200
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !33
   %70 = and i32 %69, 262144
   %.not.i.i = icmp eq i32 %70, 0
-  br i1 %.not.i.i, label %zend_call_known_fcc.exit.i, label %71, !prof !174
+  br i1 %.not.i.i, label %zend_call_known_fcc.exit.i, label %71, !prof !169
 
 71:                                               ; preds = %66
   %72 = call noalias ptr @_emalloc_256() #18
-  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !205
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %72, ptr noundef nonnull align 8 dereferenceable(256) %73, i64 256, i1 false)
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !33
@@ -1951,8 +1948,8 @@ zend_string_alloc.exit.i:                         ; preds = %26
 
 zend_call_known_fcc.exit.i:                       ; preds = %79, %71, %66
   %.0.i.i = phi ptr [ %67, %66 ], [ %72, %71 ], [ %72, %79 ]
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 64), align 8, !tbaa !75
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 56), align 8, !tbaa !206
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 64), align 8, !tbaa !73
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 56), align 8, !tbaa !201
   call void @zend_call_known_function(ptr noundef nonnull %.0.i.i, ptr noundef %82, ptr noundef %83, ptr noundef nonnull %4, i32 noundef 3, ptr noundef nonnull %5, ptr noundef null) #18
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %85 = load i8, ptr %84, align 8, !tbaa !33
@@ -1964,7 +1961,7 @@ zend_call_known_fcc.exit.i:                       ; preds = %79, %71, %66
   ]
 
 86:                                               ; preds = %zend_call_known_fcc.exit.i
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !74
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !72
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !33
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
@@ -1979,7 +1976,7 @@ zend_call_known_fcc.exit.i:                       ; preds = %79, %71, %66
   br i1 %95, label %96, label %101
 
 96:                                               ; preds = %91
-  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !74
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !72
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !33
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
@@ -1997,15 +1994,15 @@ zend_call_known_fcc.exit.i:                       ; preds = %79, %71, %66
 
 105:                                              ; preds = %101
   %106 = getelementptr inbounds nuw i8, ptr %94, i64 120
-  %107 = load ptr, ptr %106, align 8, !tbaa !207
+  %107 = load ptr, ptr %106, align 8, !tbaa !202
   %108 = load i32, ptr %107, align 4, !tbaa !38
   %109 = add i32 %108, 1
   store i32 %109, ptr %107, align 4, !tbaa !38
-  store ptr %94, ptr %102, align 8, !tbaa !216
+  store ptr %94, ptr %102, align 8, !tbaa !211
   %110 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store ptr @php_libxml_streams_IO_read, ptr %110, align 8, !tbaa !220
+  store ptr @php_libxml_streams_IO_read, ptr %110, align 8, !tbaa !215
   %111 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  store ptr @php_libxml_streams_IO_close, ptr %111, align 8, !tbaa !221
+  store ptr @php_libxml_streams_IO_close, ptr %111, align 8, !tbaa !216
   %112 = call ptr @xmlNewIOInputStream(ptr noundef nonnull %2, ptr noundef nonnull %102, i32 noundef 0) #18
   %113 = icmp eq ptr %112, null
   br i1 %113, label %114, label %123
@@ -2124,7 +2121,7 @@ define hidden void @zif_libxml_set_streams_context(ptr noundef %0, ptr readnone 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !33
   %cond = icmp eq i32 %4, 1
-  br i1 %cond, label %5, label %.thread, !prof !222
+  br i1 %cond, label %5, label %.thread, !prof !217
 
 .thread:                                          ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #18
@@ -2135,7 +2132,7 @@ define hidden void @zif_libxml_set_streams_context(ptr noundef %0, ptr readnone 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i8, ptr %7, align 8, !tbaa !33
   %9 = icmp eq i8 %8, 9
-  br i1 %9, label %.critedge, label %10, !prof !223
+  br i1 %9, label %.critedge, label %10, !prof !218
 
 10:                                               ; preds = %.thread, %5
   %.063 = phi i32 [ 0, %.thread ], [ 1, %5 ]
@@ -2213,20 +2210,20 @@ define internal void @php_libxml_structured_error_handler(ptr readnone captures(
 
 .critedge.i:                                      ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %7, align 4, !tbaa !149
+  store i32 1, ptr %7, align 4, !tbaa !145
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 2, ptr %8, align 8, !tbaa !151
+  store i32 2, ptr %8, align 8, !tbaa !147
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %9, align 8, !tbaa !175
+  store i32 0, ptr %9, align 8, !tbaa !170
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 68
-  store i32 0, ptr %10, align 4, !tbaa !152
+  store i32 0, ptr %10, align 4, !tbaa !148
   %11 = tail call ptr @xmlStrdup(ptr noundef null) #18
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %11, ptr %12, align 8, !tbaa !153
+  store ptr %11, ptr %12, align 8, !tbaa !149
   br label %13
 
 13:                                               ; preds = %.critedge.i, %4
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   call void @zend_llist_add_element(ptr noundef %14, ptr noundef nonnull %3) #18
   br label %php_list_set_error_structure.exit
 
@@ -2242,7 +2239,7 @@ define hidden void @zif_libxml_use_internal_errors(ptr noundef %0, ptr noundef w
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !33
   %6 = icmp ugt i32 %5, 1
-  br i1 %6, label %.thread62, label %7, !prof !76
+  br i1 %6, label %.thread62, label %7, !prof !74
 
 .thread62:                                        ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #18
@@ -2250,7 +2247,7 @@ define hidden void @zif_libxml_use_internal_errors(ptr noundef %0, ptr noundef w
 
 7:                                                ; preds = %2
   %8 = icmp eq i32 %5, 0
-  br i1 %8, label %.critedge.thread, label %9, !prof !76
+  br i1 %8, label %.critedge.thread, label %9, !prof !74
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2259,7 +2256,7 @@ define hidden void @zif_libxml_use_internal_errors(ptr noundef %0, ptr noundef w
     i8 3, label %.critedge.thread78
     i8 2, label %12
     i8 1, label %.critedge.thread
-  ], !prof !224
+  ], !prof !219
 
 12:                                               ; preds = %9
   br label %.critedge.thread78
@@ -2268,7 +2265,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %13, ptr noundef nonnull %3, i32 noundef 1) #18
   %cond.fr46 = freeze i1 %14
-  br i1 %cond.fr46, label %.critedge, label %15, !prof !225
+  br i1 %cond.fr46, label %.critedge, label %15, !prof !220
 
 15:                                               ; preds = %zend_parse_arg_bool_ex.exit, %.thread62
   %.072 = phi i32 [ 0, %.thread62 ], [ 1, %zend_parse_arg_bool_ex.exit ]
@@ -2280,13 +2277,13 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %9
 
 .critedge.thread78:                               ; preds = %9, %12
   %storemerge = phi i8 [ 0, %12 ], [ 1, %9 ]
-  store i8 %storemerge, ptr %3, align 1, !tbaa !226
+  store i8 %storemerge, ptr %3, align 1, !tbaa !221
   %16 = tail call ptr @__xmlStructuredError() #18
   br label %22
 
 .critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit
   %17 = call ptr @__xmlStructuredError() #18
-  %.pre = load i8, ptr %3, align 1, !tbaa !226, !range !200
+  %.pre = load i8, ptr %3, align 1, !tbaa !221, !range !195
   br label %22
 
 .critedge.thread:                                 ; preds = %9, %7
@@ -2308,26 +2305,26 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %9
 
 26:                                               ; preds = %22
   call void @xmlSetStructuredErrorFunc(ptr noundef null, ptr noundef null) #18
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   %.not41 = icmp eq ptr %27, null
   br i1 %.not41, label %35, label %28
 
 28:                                               ; preds = %26
   call void @zend_llist_destroy(ptr noundef nonnull %27) #18
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   call void @_efree(ptr noundef %29) #18
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   br label %35
 
 30:                                               ; preds = %22
   call void @xmlSetStructuredErrorFunc(ptr noundef null, ptr noundef nonnull @php_libxml_structured_error_handler) #18
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
   %34 = call noalias ptr @_emalloc_56() #18
-  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   call void @zend_llist_init(ptr noundef %34, i64 noundef 88, ptr noundef nonnull @php_libxml_free_error, i8 noundef zeroext 0) #18
   br label %35
 
@@ -2363,14 +2360,14 @@ define hidden void @zif_libxml_get_last_error(ptr noundef readonly captures(none
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !33
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5, !prof !174
+  br i1 %.not, label %6, label %5, !prof !169
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
   br label %16
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %10, label %8
 
@@ -2409,19 +2406,19 @@ define internal fastcc void @php_libxml_create_error_object(ptr noundef %0, ptr 
   %3 = load ptr, ptr @libxmlerror_class_entry, align 8, !tbaa !62
   %4 = tail call i32 @object_init_ex(ptr noundef %0, ptr noundef %3) #18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !151
+  %6 = load i32, ptr %5, align 8, !tbaa !147
   %7 = zext i32 %6 to i64
   tail call void @add_property_long_ex(ptr noundef %0, ptr noundef nonnull @.str.76, i64 noundef 5, i64 noundef range(i64 -2147483648, 4294967296) %7) #18
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !149
+  %9 = load i32, ptr %8, align 4, !tbaa !145
   %10 = sext i32 %9 to i64
   tail call void @add_property_long_ex(ptr noundef %0, ptr noundef nonnull @.str.89, i64 noundef 4, i64 noundef range(i64 -2147483648, 4294967296) %10) #18
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %12 = load i32, ptr %11, align 4, !tbaa !152
+  %12 = load i32, ptr %11, align 4, !tbaa !148
   %13 = sext i32 %12 to i64
   tail call void @add_property_long_ex(ptr noundef %0, ptr noundef nonnull @.str.77, i64 noundef 6, i64 noundef range(i64 -2147483648, 4294967296) %13) #18
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !153
+  %15 = load ptr, ptr %14, align 8, !tbaa !149
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %17, label %16
 
@@ -2436,7 +2433,7 @@ define internal fastcc void @php_libxml_create_error_object(ptr noundef %0, ptr 
 
 19:                                               ; preds = %17, %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !199
+  %21 = load ptr, ptr %20, align 8, !tbaa !194
   %.not18 = icmp eq ptr %21, null
   br i1 %.not18, label %23, label %22
 
@@ -2451,7 +2448,7 @@ define internal fastcc void @php_libxml_create_error_object(ptr noundef %0, ptr 
 
 25:                                               ; preds = %23, %22
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %27 = load i32, ptr %26, align 8, !tbaa !175
+  %27 = load i32, ptr %26, align 8, !tbaa !170
   %28 = sext i32 %27 to i64
   tail call void @add_property_long_ex(ptr noundef %0, ptr noundef nonnull @.str.91, i64 noundef 4, i64 noundef range(i64 -2147483648, 4294967296) %28) #18
   ret void
@@ -2463,14 +2460,14 @@ define hidden void @zif_libxml_get_errors(ptr noundef readonly captures(none) %0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !33
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %7, label %6, !prof !174
+  br i1 %.not, label %7, label %6, !prof !169
 
 6:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
   br label %.loopexit
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   %.not11 = icmp eq ptr %8, null
   br i1 %.not11, label %18, label %9
 
@@ -2479,7 +2476,7 @@ define hidden void @zif_libxml_get_errors(ptr noundef readonly captures(none) %0
   store ptr %10, ptr %1, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %11, align 8, !tbaa !33
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   %13 = tail call ptr @zend_llist_get_first_ex(ptr noundef %12, ptr noundef null) #18
   %.not1213 = icmp eq ptr %13, null
   br i1 %.not1213, label %.loopexit, label %.lr.ph
@@ -2490,11 +2487,11 @@ define hidden void @zif_libxml_get_errors(ptr noundef readonly captures(none) %0
   call fastcc void @php_libxml_create_error_object(ptr noundef nonnull %3, ptr noundef %.014)
   %14 = load ptr, ptr %1, align 8, !tbaa !33
   %15 = call ptr @zend_hash_next_index_insert(ptr noundef %14, ptr noundef nonnull %3) #18
-  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   %17 = call ptr @zend_llist_get_next_ex(ptr noundef %16, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
   %.not12 = icmp eq ptr %17, null
-  br i1 %.not12, label %.loopexit, label %.lr.ph, !llvm.loop !227
+  br i1 %.not12, label %.loopexit, label %.lr.ph
 
 18:                                               ; preds = %7
   store ptr @zend_empty_array, ptr %1, align 8, !tbaa !33
@@ -2513,7 +2510,7 @@ define hidden void @zif_libxml_clear_errors(ptr noundef readonly captures(none) 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !33
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5, !prof !174
+  br i1 %.not, label %6, label %5, !prof !169
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
@@ -2521,7 +2518,7 @@ define hidden void @zif_libxml_clear_errors(ptr noundef readonly captures(none) 
 
 6:                                                ; preds = %2
   tail call void @xmlResetLastError() #18
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !79
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 32), align 8, !tbaa !77
   %.not1 = icmp eq ptr %7, null
   br i1 %.not1, label %9, label %8
 
@@ -2540,9 +2537,9 @@ declare void @zend_llist_clean(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local zeroext i1 @php_libxml_disable_entity_loader(i1 noundef zeroext %0) local_unnamed_addr #9 {
   %2 = zext i1 %0 to i8
-  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !68, !range !200, !noundef !34
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !66, !range !195, !noundef !34
   %4 = trunc nuw i8 %3 to i1
-  store i8 %2, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !68
+  store i8 %2, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !66
   ret i1 %4
 }
 
@@ -2550,11 +2547,11 @@ define dso_local zeroext i1 @php_libxml_disable_entity_loader(i1 noundef zeroext
 define hidden void @zif_libxml_disable_entity_loader(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #18
-  store i8 1, ptr %3, align 1, !tbaa !226
+  store i8 1, ptr %3, align 1, !tbaa !221
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !33
   %6 = icmp ugt i32 %5, 1
-  br i1 %6, label %.thread50, label %7, !prof !76
+  br i1 %6, label %.thread50, label %7, !prof !74
 
 .thread50:                                        ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 0, i32 noundef 1) #18
@@ -2562,7 +2559,7 @@ define hidden void @zif_libxml_disable_entity_loader(ptr noundef %0, ptr noundef
 
 7:                                                ; preds = %2
   %8 = icmp eq i32 %5, 0
-  br i1 %8, label %.critedge, label %9, !prof !76
+  br i1 %8, label %.critedge, label %9, !prof !74
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2570,7 +2567,7 @@ define hidden void @zif_libxml_disable_entity_loader(ptr noundef %0, ptr noundef
   switch i8 %11, label %zend_parse_arg_bool_ex.exit [
     i8 3, label %.critedge
     i8 2, label %12
-  ], !prof !228
+  ], !prof !222
 
 12:                                               ; preds = %9
   br label %.critedge
@@ -2579,10 +2576,10 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %13, ptr noundef nonnull %3, i32 noundef 1) #18
   %cond.fr40 = freeze i1 %14
-  br i1 %cond.fr40, label %zend_parse_arg_bool_ex.exit..critedge_crit_edge, label %15, !prof !225
+  br i1 %cond.fr40, label %zend_parse_arg_bool_ex.exit..critedge_crit_edge, label %15, !prof !220
 
 zend_parse_arg_bool_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_bool_ex.exit
-  %.pre = load i8, ptr %3, align 1, !tbaa !226, !range !200
+  %.pre = load i8, ptr %3, align 1, !tbaa !221, !range !195
   br label %.critedge
 
 15:                                               ; preds = %zend_parse_arg_bool_ex.exit, %.thread50
@@ -2595,9 +2592,9 @@ zend_parse_arg_bool_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_bool
 
 .critedge:                                        ; preds = %9, %zend_parse_arg_bool_ex.exit..critedge_crit_edge, %12, %7
   %16 = phi i8 [ %.pre, %zend_parse_arg_bool_ex.exit..critedge_crit_edge ], [ 0, %12 ], [ 1, %7 ], [ 1, %9 ]
-  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !68, !range !200, !noundef !34
+  %17 = load i8, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !66, !range !195, !noundef !34
   %18 = trunc nuw i8 %17 to i1
-  store i8 %16, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !68
+  store i8 %16, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !66
   %19 = select i1 %18, i32 3, i32 2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %19, ptr %20, align 8, !tbaa !33
@@ -2620,7 +2617,7 @@ define hidden void @zif_libxml_set_external_entity_loader(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
   store ptr null, ptr %5, align 8, !tbaa !8
   %cond = icmp eq i32 %7, 1
-  br i1 %cond, label %9, label %8, !prof !222
+  br i1 %cond, label %9, label %8, !prof !217
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #18
@@ -2631,17 +2628,17 @@ define hidden void @zif_libxml_set_external_entity_loader(ptr noundef %0, ptr no
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8, !tbaa !33
   %13 = icmp eq i8 %12, 1
-  br i1 %13, label %14, label %15, !prof !76
+  br i1 %13, label %14, label %15, !prof !74
 
 14:                                               ; preds = %9
-  store i64 0, ptr %3, align 8, !tbaa !229
-  store ptr null, ptr %4, align 8, !tbaa !205
+  store i64 0, ptr %3, align 8, !tbaa !223
+  store ptr null, ptr %4, align 8, !tbaa !200
   br label %.critedge
 
 15:                                               ; preds = %9
   %16 = call i32 @zend_fcall_info_init(ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %5) #18
   %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %.critedge, label %zend_parse_arg_func.exit, !prof !174
+  br i1 %.not.i, label %.critedge, label %zend_parse_arg_func.exit, !prof !169
 
 zend_parse_arg_func.exit:                         ; preds = %15
   %17 = load ptr, ptr %5, align 8, !tbaa !8
@@ -2662,12 +2659,12 @@ zend_parse_arg_func.exit:                         ; preds = %15
 
 .critedge:                                        ; preds = %14, %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
-  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !74
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !72
   %.not37 = icmp eq ptr %20, null
   br i1 %.not37, label %48, label %21
 
 21:                                               ; preds = %.critedge
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 64), align 8, !tbaa !75
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 64), align 8, !tbaa !73
   %.not.i41 = icmp eq ptr %22, null
   br i1 %.not.i41, label %zend_object_release.exit42, label %23
 
@@ -2689,7 +2686,7 @@ zend_parse_arg_func.exit:                         ; preds = %15
   %31 = load i32, ptr %30, align 4, !tbaa !33
   %32 = and i32 %31, -1008
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %zend_object_release.exit42, !prof !76
+  br i1 %33, label %34, label %zend_object_release.exit42, !prof !74
 
 34:                                               ; preds = %29
   call void @gc_possible_root(ptr noundef nonnull %22) #18
@@ -2697,7 +2694,7 @@ zend_parse_arg_func.exit:                         ; preds = %15
 
 zend_object_release.exit42:                       ; preds = %34, %29, %28, %21
   call void @zend_release_fcall_info_cache(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40)) #18
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 72), align 8, !tbaa !77
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 72), align 8, !tbaa !75
   %.not8.i = icmp eq ptr %35, null
   br i1 %.not8.i, label %zend_fcc_dtor.exit, label %36
 
@@ -2719,7 +2716,7 @@ zend_object_release.exit42:                       ; preds = %34, %29, %28, %21
   %44 = load i32, ptr %43, align 4, !tbaa !33
   %45 = and i32 %44, -1008
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %zend_fcc_dtor.exit, !prof !76
+  br i1 %46, label %47, label %zend_fcc_dtor.exit, !prof !74
 
 47:                                               ; preds = %42
   call void @gc_possible_root(ptr noundef nonnull %35) #18
@@ -2730,27 +2727,27 @@ zend_fcc_dtor.exit:                               ; preds = %47, %42, %41, %zend
   br label %48
 
 48:                                               ; preds = %zend_fcc_dtor.exit, %.critedge
-  %49 = load i64, ptr %3, align 8, !tbaa !229
+  %49 = load i64, ptr %3, align 8, !tbaa !223
   %.not38 = icmp eq i64 %49, 0
   br i1 %.not38, label %zend_fcc_addref.exit, label %50
 
 50:                                               ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
-  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !205, !nonnull !34, !noundef !34
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !200, !nonnull !34, !noundef !34
   %52 = icmp eq ptr %51, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1384)
-  br i1 %52, label %53, label %57, !prof !76
+  br i1 %52, label %53, label %57, !prof !74
 
 53:                                               ; preds = %50
   %54 = call noalias ptr @_emalloc_256() #18
-  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !205
+  %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %54, ptr noundef nonnull align 8 dereferenceable(256) %55, i64 256, i1 false)
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr null, ptr %56, align 8, !tbaa !33
-  store ptr %54, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !205
+  store ptr %54, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !200
   br label %57
 
 57:                                               ; preds = %53, %50
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 64), align 8, !tbaa !75
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 64), align 8, !tbaa !73
   %.not.i43 = icmp eq ptr %58, null
   br i1 %.not.i43, label %62, label %59
 
@@ -2761,7 +2758,7 @@ zend_fcc_dtor.exit:                               ; preds = %47, %42, %41, %zend
   br label %62
 
 62:                                               ; preds = %59, %57
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 72), align 8, !tbaa !77
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 72), align 8, !tbaa !75
   %.not12.i = icmp eq ptr %63, null
   br i1 %.not12.i, label %zend_fcc_addref.exit, label %64
 
@@ -2787,14 +2784,14 @@ define hidden void @zif_libxml_get_external_entity_loader(ptr noundef readonly c
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !33
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5, !prof !174
+  br i1 %.not, label %6, label %5, !prof !169
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #18
   br label %11
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !74
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 40), align 8, !tbaa !72
   %.not3 = icmp eq ptr %7, null
   br i1 %.not3, label %9, label %8
 
@@ -2888,7 +2885,7 @@ define dso_local range(i32 0, 2) i32 @php_libxml_xmlCheckUTF8(ptr noundef readon
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 %.1
   %41 = load i8, ptr %40, align 1, !tbaa !33
   %.not = icmp eq i8 %41, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !231
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %11, %21, %18, %34, %31, %28, %25, %38, %1
   %.0 = phi i32 [ 1, %1 ], [ 1, %38 ], [ 0, %25 ], [ 0, %28 ], [ 0, %31 ], [ 0, %34 ], [ 0, %18 ], [ 0, %21 ], [ 0, %11 ]
@@ -2958,7 +2955,7 @@ define dso_local ptr @php_libxml_import_node(ptr noundef %0) local_unnamed_addr 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !232
+  %8 = load ptr, ptr %7, align 8, !tbaa !225
   br label %9
 
 9:                                                ; preds = %9, %5
@@ -2966,7 +2963,7 @@ define dso_local ptr @php_libxml_import_node(ptr noundef %0) local_unnamed_addr 
   %10 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !33
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %9, !llvm.loop !233
+  br i1 %.not, label %12, label %9
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -2977,7 +2974,7 @@ define dso_local ptr @php_libxml_import_node(ptr noundef %0) local_unnamed_addr 
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %15, align 8, !tbaa !33, !nonnull !34, !noundef !34
-  %18 = load ptr, ptr %17, align 8, !tbaa !234
+  %18 = load ptr, ptr %17, align 8, !tbaa !226
   %19 = tail call ptr %18(ptr noundef nonnull %0) #18
   br label %zend_hash_find_ptr.exit.thread
 
@@ -2994,20 +2991,20 @@ define dso_local i32 @php_libxml_increment_node_ptr(ptr noundef captures(address
   br i1 %or.cond, label %6, label %36
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !123
+  %7 = load ptr, ptr %0, align 8, !tbaa !120
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %php_libxml_decrement_node_ptr.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = load ptr, ptr %7, align 8, !tbaa !125
+  %9 = load ptr, ptr %7, align 8, !tbaa !122
   %10 = icmp eq ptr %9, %1
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !124
+  %12 = load i32, ptr %11, align 8, !tbaa !121
   br i1 %10, label %36, label %13
 
 13:                                               ; preds = %8
   %14 = add i32 %12, -1
-  store i32 %14, ptr %11, align 8, !tbaa !124
+  store i32 %14, ptr %11, align 8, !tbaa !121
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %php_libxml_decrement_node_ptr.exit
 
@@ -3016,17 +3013,17 @@ define dso_local i32 @php_libxml_increment_node_ptr(ptr noundef captures(address
   br i1 %.not.i.i, label %18, label %17
 
 17:                                               ; preds = %16
-  store ptr null, ptr %9, align 8, !tbaa !97
+  store ptr null, ptr %9, align 8, !tbaa !95
   br label %18
 
 18:                                               ; preds = %17, %16
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !103
+  %20 = load ptr, ptr %19, align 8, !tbaa !101
   %.not10.i.i = icmp eq ptr %20, null
   br i1 %.not10.i.i, label %22, label %21
 
 21:                                               ; preds = %18
-  store ptr null, ptr %20, align 8, !tbaa !123
+  store ptr null, ptr %20, align 8, !tbaa !120
   br label %22
 
 22:                                               ; preds = %21, %18
@@ -3034,34 +3031,34 @@ define dso_local i32 @php_libxml_increment_node_ptr(ptr noundef captures(address
   br label %php_libxml_decrement_node_ptr.exit
 
 php_libxml_decrement_node_ptr.exit:               ; preds = %22, %13, %6
-  %23 = load ptr, ptr %1, align 8, !tbaa !97
+  %23 = load ptr, ptr %1, align 8, !tbaa !95
   %.not29 = icmp eq ptr %23, null
   br i1 %.not29, label %32, label %24
 
 24:                                               ; preds = %php_libxml_decrement_node_ptr.exit
-  store ptr %23, ptr %0, align 8, !tbaa !123
+  store ptr %23, ptr %0, align 8, !tbaa !120
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !124
+  %26 = load i32, ptr %25, align 8, !tbaa !121
   %27 = add i32 %26, 1
-  store i32 %27, ptr %25, align 8, !tbaa !124
+  store i32 %27, ptr %25, align 8, !tbaa !121
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !103
+  %29 = load ptr, ptr %28, align 8, !tbaa !101
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %24
-  store ptr %2, ptr %28, align 8, !tbaa !103
+  store ptr %2, ptr %28, align 8, !tbaa !101
   br label %36
 
 32:                                               ; preds = %php_libxml_decrement_node_ptr.exit
   %33 = tail call noalias ptr @_emalloc_24() #18
-  store ptr %33, ptr %0, align 8, !tbaa !123
-  store ptr %1, ptr %33, align 8, !tbaa !125
+  store ptr %33, ptr %0, align 8, !tbaa !120
+  store ptr %1, ptr %33, align 8, !tbaa !122
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 1, ptr %34, align 8, !tbaa !124
+  store i32 1, ptr %34, align 8, !tbaa !121
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %2, ptr %35, align 8, !tbaa !103
-  store ptr %33, ptr %1, align 8, !tbaa !97
+  store ptr %2, ptr %35, align 8, !tbaa !101
+  store ptr %33, ptr %1, align 8, !tbaa !95
   br label %36
 
 36:                                               ; preds = %8, %3, %24, %31, %32
@@ -3075,35 +3072,35 @@ define dso_local i32 @php_libxml_decrement_node_ptr(ptr noundef readonly capture
   br i1 %.not, label %php_libxml_decrement_node_ptr_ref.exit, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !123
+  %3 = load ptr, ptr %0, align 8, !tbaa !120
   %.not5 = icmp eq ptr %3, null
   br i1 %.not5, label %php_libxml_decrement_node_ptr_ref.exit, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !124
+  %6 = load i32, ptr %5, align 8, !tbaa !121
   %7 = add i32 %6, -1
-  store i32 %7, ptr %5, align 8, !tbaa !124
+  store i32 %7, ptr %5, align 8, !tbaa !121
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %php_libxml_decrement_node_ptr_ref.exit
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %3, align 8, !tbaa !125
+  %10 = load ptr, ptr %3, align 8, !tbaa !122
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %12, label %11
 
 11:                                               ; preds = %9
-  store ptr null, ptr %10, align 8, !tbaa !97
+  store ptr null, ptr %10, align 8, !tbaa !95
   br label %12
 
 12:                                               ; preds = %11, %9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !103
+  %14 = load ptr, ptr %13, align 8, !tbaa !101
   %.not10.i = icmp eq ptr %14, null
   br i1 %.not10.i, label %16, label %15
 
 15:                                               ; preds = %12
-  store ptr null, ptr %14, align 8, !tbaa !123
+  store ptr null, ptr %14, align 8, !tbaa !120
   br label %16
 
 16:                                               ; preds = %15, %12
@@ -3122,29 +3119,29 @@ define dso_local i32 @php_libxml_decrement_node_ptr_ref(ptr noundef %0) local_un
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !124
+  %4 = load i32, ptr %3, align 8, !tbaa !121
   %5 = add i32 %4, -1
-  store i32 %5, ptr %3, align 8, !tbaa !124
+  store i32 %5, ptr %3, align 8, !tbaa !121
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %15
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %0, align 8, !tbaa !125
+  %8 = load ptr, ptr %0, align 8, !tbaa !122
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
 9:                                                ; preds = %7
-  store ptr null, ptr %8, align 8, !tbaa !97
+  store ptr null, ptr %8, align 8, !tbaa !95
   br label %10
 
 10:                                               ; preds = %9, %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !103
+  %12 = load ptr, ptr %11, align 8, !tbaa !101
   %.not10 = icmp eq ptr %12, null
   br i1 %.not10, label %14, label %13
 
 13:                                               ; preds = %10
-  store ptr null, ptr %12, align 8, !tbaa !123
+  store ptr null, ptr %12, align 8, !tbaa !120
   br label %14
 
 14:                                               ; preds = %13, %10
@@ -3158,15 +3155,15 @@ define dso_local i32 @php_libxml_decrement_node_ptr_ref(ptr noundef %0) local_un
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @php_libxml_increment_doc_ref(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !105
+  %4 = load ptr, ptr %3, align 8, !tbaa !103
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %7 = load i32, ptr %6, align 8, !tbaa !236
+  %7 = load i32, ptr %6, align 8, !tbaa !228
   %8 = add i32 %7, 1
-  store i32 %8, ptr %6, align 8, !tbaa !236
+  store i32 %8, ptr %6, align 8, !tbaa !228
   br label %18
 
 9:                                                ; preds = %2
@@ -3175,19 +3172,19 @@ define dso_local i32 @php_libxml_increment_doc_ref(ptr noundef captures(none) %0
 
 10:                                               ; preds = %9
   %11 = tail call noalias ptr @_emalloc_48() #18
-  store ptr %11, ptr %3, align 8, !tbaa !105
-  store ptr %1, ptr %11, align 8, !tbaa !242
+  store ptr %11, ptr %3, align 8, !tbaa !103
+  store ptr %1, ptr %11, align 8, !tbaa !234
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i32 1, ptr %12, align 8, !tbaa !236
+  store i32 1, ptr %12, align 8, !tbaa !228
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr null, ptr %13, align 8, !tbaa !243
+  store ptr null, ptr %13, align 8, !tbaa !235
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 1, ptr %14, align 8, !tbaa !244
+  store i64 1, ptr %14, align 8, !tbaa !236
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr null, ptr %15, align 8, !tbaa !245
+  store ptr null, ptr %15, align 8, !tbaa !237
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store ptr @php_libxml_default_document_handlers, ptr %17, align 8, !tbaa !246
+  store ptr @php_libxml_default_document_handlers, ptr %17, align 8, !tbaa !238
   store i16 0, ptr %16, align 4
   br label %18
 
@@ -3201,25 +3198,25 @@ declare noalias ptr @_emalloc_48() local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @php_libxml_decrement_doc_ref_directly(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i32, ptr %2, align 8, !tbaa !236
+  %3 = load i32, ptr %2, align 8, !tbaa !228
   %4 = add i32 %3, -1
-  store i32 %4, ptr %2, align 8, !tbaa !236
+  store i32 %4, ptr %2, align 8, !tbaa !228
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %25
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !245
+  %8 = load ptr, ptr %7, align 8, !tbaa !237
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %8, align 8, !tbaa !247
+  %10 = load ptr, ptr %8, align 8, !tbaa !239
   tail call void %10(ptr noundef nonnull %8) #18
   br label %11
 
 11:                                               ; preds = %9, %6
-  %12 = load ptr, ptr %0, align 8, !tbaa !242
+  %12 = load ptr, ptr %0, align 8, !tbaa !234
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %14, label %13
 
@@ -3229,21 +3226,21 @@ define dso_local i32 @php_libxml_decrement_doc_ref_directly(ptr noundef %0) loca
 
 14:                                               ; preds = %13, %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !243
+  %16 = load ptr, ptr %15, align 8, !tbaa !235
   %.not17 = icmp eq ptr %16, null
   br i1 %.not17, label %24, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %16, align 8, !tbaa !248
+  %18 = load ptr, ptr %16, align 8, !tbaa !240
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %22, label %19
 
 19:                                               ; preds = %17
   tail call void @zend_hash_destroy(ptr noundef nonnull %18) #18
-  %20 = load ptr, ptr %15, align 8, !tbaa !243
-  %21 = load ptr, ptr %20, align 8, !tbaa !248
+  %20 = load ptr, ptr %15, align 8, !tbaa !235
+  %21 = load ptr, ptr %20, align 8, !tbaa !240
   tail call void @_efree_56(ptr noundef %21) #18
-  %.pre = load ptr, ptr %15, align 8, !tbaa !243
+  %.pre = load ptr, ptr %15, align 8, !tbaa !235
   br label %22
 
 22:                                               ; preds = %19, %17
@@ -3270,13 +3267,13 @@ define dso_local i32 @php_libxml_decrement_doc_ref(ptr noundef captures(address_
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !105
+  %4 = load ptr, ptr %3, align 8, !tbaa !103
   %.not6 = icmp eq ptr %4, null
   br i1 %.not6, label %7, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @php_libxml_decrement_doc_ref_directly(ptr noundef nonnull %4)
-  store ptr null, ptr %3, align 8, !tbaa !105
+  store ptr null, ptr %3, align 8, !tbaa !103
   br label %7
 
 7:                                                ; preds = %5, %2, %1
@@ -3291,7 +3288,7 @@ define dso_local void @php_libxml_node_free_resource(ptr noundef %0) local_unnam
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !102
+  %4 = load i32, ptr %3, align 8, !tbaa !100
   switch i32 %4, label %34 [
     i32 9, label %php_libxml_unregister_node.exit30
     i32 13, label %php_libxml_unregister_node.exit30
@@ -3299,46 +3296,46 @@ define dso_local void @php_libxml_node_free_resource(ptr noundef %0) local_unnam
   ]
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !97
+  %6 = load ptr, ptr %0, align 8, !tbaa !95
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %php_libxml_unregister_node.exit, label %7
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !103
+  %9 = load ptr, ptr %8, align 8, !tbaa !101
   %.not10.i = icmp eq ptr %9, null
   br i1 %.not10.i, label %29, label %10
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %9, align 8, !tbaa !123
+  %11 = load ptr, ptr %9, align 8, !tbaa !120
   %.not5.i.i = icmp eq ptr %11, null
   br i1 %.not5.i.i, label %php_libxml_decrement_node_ptr.exit.i, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %14 = load i32, ptr %13, align 8, !tbaa !124
+  %14 = load i32, ptr %13, align 8, !tbaa !121
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8, !tbaa !124
+  store i32 %15, ptr %13, align 8, !tbaa !121
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %php_libxml_decrement_node_ptr.exit.i
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %11, align 8, !tbaa !125
+  %18 = load ptr, ptr %11, align 8, !tbaa !122
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %20, label %19
 
 19:                                               ; preds = %17
-  store ptr null, ptr %18, align 8, !tbaa !97
+  store ptr null, ptr %18, align 8, !tbaa !95
   br label %20
 
 20:                                               ; preds = %19, %17
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !103
+  %22 = load ptr, ptr %21, align 8, !tbaa !101
   %.not10.i.i.i = icmp eq ptr %22, null
   br i1 %.not10.i.i.i, label %24, label %23
 
 23:                                               ; preds = %20
-  store ptr null, ptr %22, align 8, !tbaa !123
+  store ptr null, ptr %22, align 8, !tbaa !120
   br label %24
 
 24:                                               ; preds = %23, %20
@@ -3347,23 +3344,23 @@ define dso_local void @php_libxml_node_free_resource(ptr noundef %0) local_unnam
 
 php_libxml_decrement_node_ptr.exit.i:             ; preds = %24, %12, %10
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !105
+  %26 = load ptr, ptr %25, align 8, !tbaa !103
   %.not6.i.i = icmp eq ptr %26, null
   br i1 %.not6.i.i, label %php_libxml_unregister_node.exit, label %27
 
 27:                                               ; preds = %php_libxml_decrement_node_ptr.exit.i
   %28 = tail call i32 @php_libxml_decrement_doc_ref_directly(ptr noundef nonnull %26)
-  store ptr null, ptr %25, align 8, !tbaa !105
+  store ptr null, ptr %25, align 8, !tbaa !103
   br label %php_libxml_unregister_node.exit
 
 29:                                               ; preds = %7
-  store ptr null, ptr %0, align 8, !tbaa !97
-  store ptr null, ptr %6, align 8, !tbaa !125
+  store ptr null, ptr %0, align 8, !tbaa !95
+  store ptr null, ptr %6, align 8, !tbaa !122
   br label %php_libxml_unregister_node.exit
 
 php_libxml_unregister_node.exit:                  ; preds = %5, %php_libxml_decrement_node_ptr.exit.i, %27, %29
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load ptr, ptr %30, align 8, !tbaa !129
+  %31 = load ptr, ptr %30, align 8, !tbaa !126
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %php_libxml_unregister_node.exit30
 
@@ -3373,7 +3370,7 @@ php_libxml_unregister_node.exit:                  ; preds = %5, %php_libxml_decr
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %36 = load ptr, ptr %35, align 8, !tbaa !129
+  %36 = load ptr, ptr %35, align 8, !tbaa !126
   %37 = icmp eq ptr %36, null
   %38 = icmp eq i32 %4, 18
   %or.cond = or i1 %38, %37
@@ -3381,59 +3378,59 @@ php_libxml_unregister_node.exit:                  ; preds = %5, %php_libxml_decr
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !121
+  %41 = load ptr, ptr %40, align 8, !tbaa !118
   tail call void @php_libxml_node_free_list(ptr noundef %41)
-  %42 = load i32, ptr %3, align 8, !tbaa !102
+  %42 = load i32, ptr %3, align 8, !tbaa !100
   %43 = icmp eq i32 %42, 1
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %46 = load ptr, ptr %45, align 8, !tbaa !122
+  %46 = load ptr, ptr %45, align 8, !tbaa !119
   tail call void @php_libxml_node_free_list(ptr noundef %46)
   br label %47
 
 47:                                               ; preds = %44, %39
-  %48 = load ptr, ptr %0, align 8, !tbaa !97
+  %48 = load ptr, ptr %0, align 8, !tbaa !95
   %.not.i13 = icmp eq ptr %48, null
   br i1 %.not.i13, label %php_libxml_unregister_node.exit21, label %49
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !103
+  %51 = load ptr, ptr %50, align 8, !tbaa !101
   %.not10.i14 = icmp eq ptr %51, null
   br i1 %.not10.i14, label %71, label %52
 
 52:                                               ; preds = %49
-  %53 = load ptr, ptr %51, align 8, !tbaa !123
+  %53 = load ptr, ptr %51, align 8, !tbaa !120
   %.not5.i.i15 = icmp eq ptr %53, null
   br i1 %.not5.i.i15, label %php_libxml_decrement_node_ptr.exit.i16, label %54
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %56 = load i32, ptr %55, align 8, !tbaa !124
+  %56 = load i32, ptr %55, align 8, !tbaa !121
   %57 = add i32 %56, -1
-  store i32 %57, ptr %55, align 8, !tbaa !124
+  store i32 %57, ptr %55, align 8, !tbaa !121
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %php_libxml_decrement_node_ptr.exit.i16
 
 59:                                               ; preds = %54
-  %60 = load ptr, ptr %53, align 8, !tbaa !125
+  %60 = load ptr, ptr %53, align 8, !tbaa !122
   %.not.i.i.i18 = icmp eq ptr %60, null
   br i1 %.not.i.i.i18, label %62, label %61
 
 61:                                               ; preds = %59
-  store ptr null, ptr %60, align 8, !tbaa !97
+  store ptr null, ptr %60, align 8, !tbaa !95
   br label %62
 
 62:                                               ; preds = %61, %59
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !103
+  %64 = load ptr, ptr %63, align 8, !tbaa !101
   %.not10.i.i.i19 = icmp eq ptr %64, null
   br i1 %.not10.i.i.i19, label %66, label %65
 
 65:                                               ; preds = %62
-  store ptr null, ptr %64, align 8, !tbaa !123
+  store ptr null, ptr %64, align 8, !tbaa !120
   br label %66
 
 66:                                               ; preds = %65, %62
@@ -3442,26 +3439,26 @@ php_libxml_unregister_node.exit:                  ; preds = %5, %php_libxml_decr
 
 php_libxml_decrement_node_ptr.exit.i16:           ; preds = %66, %54, %52
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !105
+  %68 = load ptr, ptr %67, align 8, !tbaa !103
   %.not6.i.i17 = icmp eq ptr %68, null
   br i1 %.not6.i.i17, label %php_libxml_unregister_node.exit21, label %69
 
 69:                                               ; preds = %php_libxml_decrement_node_ptr.exit.i16
   %70 = tail call i32 @php_libxml_decrement_doc_ref_directly(ptr noundef nonnull %68)
-  store ptr null, ptr %67, align 8, !tbaa !105
+  store ptr null, ptr %67, align 8, !tbaa !103
   br label %php_libxml_unregister_node.exit21
 
 71:                                               ; preds = %49
-  %72 = load i32, ptr %3, align 8, !tbaa !102
+  %72 = load i32, ptr %3, align 8, !tbaa !100
   %.not11.i20 = icmp eq i32 %72, 9
   br i1 %.not11.i20, label %74, label %73
 
 73:                                               ; preds = %71
-  store ptr null, ptr %0, align 8, !tbaa !97
+  store ptr null, ptr %0, align 8, !tbaa !95
   br label %74
 
 74:                                               ; preds = %73, %71
-  store ptr null, ptr %48, align 8, !tbaa !125
+  store ptr null, ptr %48, align 8, !tbaa !122
   br label %php_libxml_unregister_node.exit21
 
 php_libxml_unregister_node.exit21:                ; preds = %47, %php_libxml_decrement_node_ptr.exit.i16, %69, %74
@@ -3469,46 +3466,46 @@ php_libxml_unregister_node.exit21:                ; preds = %47, %php_libxml_dec
   br label %php_libxml_unregister_node.exit30
 
 75:                                               ; preds = %34
-  %76 = load ptr, ptr %0, align 8, !tbaa !97
+  %76 = load ptr, ptr %0, align 8, !tbaa !95
   %.not.i22 = icmp eq ptr %76, null
   br i1 %.not.i22, label %php_libxml_unregister_node.exit30, label %77
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %79 = load ptr, ptr %78, align 8, !tbaa !103
+  %79 = load ptr, ptr %78, align 8, !tbaa !101
   %.not10.i23 = icmp eq ptr %79, null
   br i1 %.not10.i23, label %99, label %80
 
 80:                                               ; preds = %77
-  %81 = load ptr, ptr %79, align 8, !tbaa !123
+  %81 = load ptr, ptr %79, align 8, !tbaa !120
   %.not5.i.i24 = icmp eq ptr %81, null
   br i1 %.not5.i.i24, label %php_libxml_decrement_node_ptr.exit.i25, label %82
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %84 = load i32, ptr %83, align 8, !tbaa !124
+  %84 = load i32, ptr %83, align 8, !tbaa !121
   %85 = add i32 %84, -1
-  store i32 %85, ptr %83, align 8, !tbaa !124
+  store i32 %85, ptr %83, align 8, !tbaa !121
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %php_libxml_decrement_node_ptr.exit.i25
 
 87:                                               ; preds = %82
-  %88 = load ptr, ptr %81, align 8, !tbaa !125
+  %88 = load ptr, ptr %81, align 8, !tbaa !122
   %.not.i.i.i27 = icmp eq ptr %88, null
   br i1 %.not.i.i.i27, label %90, label %89
 
 89:                                               ; preds = %87
-  store ptr null, ptr %88, align 8, !tbaa !97
+  store ptr null, ptr %88, align 8, !tbaa !95
   br label %90
 
 90:                                               ; preds = %89, %87
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %92 = load ptr, ptr %91, align 8, !tbaa !103
+  %92 = load ptr, ptr %91, align 8, !tbaa !101
   %.not10.i.i.i28 = icmp eq ptr %92, null
   br i1 %.not10.i.i.i28, label %94, label %93
 
 93:                                               ; preds = %90
-  store ptr null, ptr %92, align 8, !tbaa !123
+  store ptr null, ptr %92, align 8, !tbaa !120
   br label %94
 
 94:                                               ; preds = %93, %90
@@ -3517,13 +3514,13 @@ php_libxml_unregister_node.exit21:                ; preds = %47, %php_libxml_dec
 
 php_libxml_decrement_node_ptr.exit.i25:           ; preds = %94, %82, %80
   %95 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !105
+  %96 = load ptr, ptr %95, align 8, !tbaa !103
   %.not6.i.i26 = icmp eq ptr %96, null
   br i1 %.not6.i.i26, label %php_libxml_unregister_node.exit30, label %97
 
 97:                                               ; preds = %php_libxml_decrement_node_ptr.exit.i25
   %98 = tail call i32 @php_libxml_decrement_doc_ref_directly(ptr noundef nonnull %96)
-  store ptr null, ptr %95, align 8, !tbaa !105
+  store ptr null, ptr %95, align 8, !tbaa !103
   br label %php_libxml_unregister_node.exit30
 
 99:                                               ; preds = %77
@@ -3531,11 +3528,11 @@ php_libxml_decrement_node_ptr.exit.i25:           ; preds = %94, %82, %80
   br i1 %.not11.i29, label %101, label %100
 
 100:                                              ; preds = %99
-  store ptr null, ptr %0, align 8, !tbaa !97
+  store ptr null, ptr %0, align 8, !tbaa !95
   br label %101
 
 101:                                              ; preds = %100, %99
-  store ptr null, ptr %76, align 8, !tbaa !125
+  store ptr null, ptr %76, align 8, !tbaa !122
   br label %php_libxml_unregister_node.exit30
 
 php_libxml_unregister_node.exit30:                ; preds = %101, %97, %php_libxml_decrement_node_ptr.exit.i25, %75, %php_libxml_unregister_node.exit21, %php_libxml_unregister_node.exit, %33, %2, %2, %1
@@ -3548,16 +3545,16 @@ define dso_local void @php_libxml_node_decrement_resource(ptr noundef captures(a
   br i1 %.not, label %.critedge, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !123
+  %3 = load ptr, ptr %0, align 8, !tbaa !120
   %.not13 = icmp eq ptr %3, null
   br i1 %.not13, label %21, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %3, align 8, !tbaa !125
+  %5 = load ptr, ptr %3, align 8, !tbaa !122
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !124
+  %7 = load i32, ptr %6, align 8, !tbaa !121
   %8 = add i32 %7, -1
-  store i32 %8, ptr %6, align 8, !tbaa !124
+  store i32 %8, ptr %6, align 8, !tbaa !121
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %php_libxml_decrement_node_ptr.exit
 
@@ -3566,17 +3563,17 @@ define dso_local void @php_libxml_node_decrement_resource(ptr noundef captures(a
   br i1 %.not.i.i, label %12, label %11
 
 11:                                               ; preds = %10
-  store ptr null, ptr %5, align 8, !tbaa !97
+  store ptr null, ptr %5, align 8, !tbaa !95
   br label %12
 
 12:                                               ; preds = %11, %10
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !103
+  %14 = load ptr, ptr %13, align 8, !tbaa !101
   %.not10.i.i = icmp eq ptr %14, null
   br i1 %.not10.i.i, label %16, label %15
 
 15:                                               ; preds = %12
-  store ptr null, ptr %14, align 8, !tbaa !123
+  store ptr null, ptr %14, align 8, !tbaa !120
   br label %16
 
 16:                                               ; preds = %12, %15
@@ -3586,23 +3583,23 @@ define dso_local void @php_libxml_node_decrement_resource(ptr noundef captures(a
 
 php_libxml_decrement_node_ptr.exit:               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !103
+  %18 = load ptr, ptr %17, align 8, !tbaa !101
   %19 = icmp eq ptr %0, %18
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %php_libxml_decrement_node_ptr.exit
-  store ptr null, ptr %17, align 8, !tbaa !103
+  store ptr null, ptr %17, align 8, !tbaa !101
   br label %21
 
 21:                                               ; preds = %2, %php_libxml_decrement_node_ptr.exit, %20, %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !105
+  %23 = load ptr, ptr %22, align 8, !tbaa !103
   %.not14 = icmp eq ptr %23, null
   br i1 %.not14, label %.critedge, label %php_libxml_decrement_doc_ref.exit
 
 php_libxml_decrement_doc_ref.exit:                ; preds = %21
   %24 = tail call i32 @php_libxml_decrement_doc_ref_directly(ptr noundef nonnull %23)
-  store ptr null, ptr %22, align 8, !tbaa !105
+  store ptr null, ptr %22, align 8, !tbaa !103
   br label %.critedge
 
 .critedge:                                        ; preds = %1, %php_libxml_decrement_doc_ref.exit, %21
@@ -3611,27 +3608,27 @@ php_libxml_decrement_doc_ref.exit:                ; preds = %21
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @php_libxml_attr_value(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
-  store i8 0, ptr %1, align 1, !tbaa !226
+  store i8 0, ptr %1, align 1, !tbaa !221
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !250
+  %4 = load ptr, ptr %3, align 8, !tbaa !242
   %5 = icmp eq ptr %4, null
   br i1 %5, label %22, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !102
+  %8 = load i32, ptr %7, align 8, !tbaa !100
   %9 = icmp eq i32 %8, 3
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !101
+  %12 = load ptr, ptr %11, align 8, !tbaa !99
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %16 = load ptr, ptr %15, align 8, !tbaa !251
+  %16 = load ptr, ptr %15, align 8, !tbaa !243
   %17 = icmp eq ptr %16, null
   %.str.5. = select i1 %17, ptr @.str.5, ptr %16
   br label %22
@@ -3639,10 +3636,10 @@ define dso_local ptr @php_libxml_attr_value(ptr noundef %0, ptr noundef writeonl
 18:                                               ; preds = %10, %6
   %19 = tail call ptr @xmlNodeGetContent(ptr noundef nonnull %0) #18
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %22, label %21, !prof !76
+  br i1 %20, label %22, label %21, !prof !74
 
 21:                                               ; preds = %18
-  store i8 1, ptr %1, align 1, !tbaa !226
+  store i8 1, ptr %1, align 1, !tbaa !221
   br label %22
 
 22:                                               ; preds = %21, %18, %14, %2
@@ -3675,7 +3672,7 @@ declare void @xmlHashScan(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal void @php_libxml_unlink_entity(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !252
+  %4 = load ptr, ptr %0, align 8, !tbaa !244
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
 
@@ -3769,7 +3766,7 @@ declare ptr @xmlParserInputBufferCreateFilenameDefault(ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @php_libxml_input_buffer_create_filename(ptr noundef %0, i32 noundef %1) #0 {
-  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !68, !range !200, !noundef !34
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @libxml_globals, i64 80), align 8, !tbaa !66, !range !195, !noundef !34
   %4 = trunc nuw i8 %3 to i1
   %5 = icmp eq ptr %0, null
   %or.cond = or i1 %5, %4
@@ -3819,11 +3816,11 @@ zend_string_release_ex.exit:                      ; preds = %24, %19, %13, %11, 
   br i1 %.not25, label %29, label %26
 
 26:                                               ; preds = %zend_string_release_ex.exit
-  store ptr %7, ptr %25, align 8, !tbaa !216
+  store ptr %7, ptr %25, align 8, !tbaa !211
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr @php_libxml_streams_IO_read, ptr %27, align 8, !tbaa !220
+  store ptr @php_libxml_streams_IO_read, ptr %27, align 8, !tbaa !215
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store ptr @php_libxml_streams_IO_close, ptr %28, align 8, !tbaa !221
+  store ptr @php_libxml_streams_IO_close, ptr %28, align 8, !tbaa !216
   br label %31
 
 29:                                               ; preds = %zend_string_release_ex.exit
@@ -3857,7 +3854,7 @@ define internal ptr @php_libxml_output_buffer_create_filename(ptr noundef %0, pt
   br i1 %.not28, label %.thread37, label %10
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr %9, align 8, !tbaa !253
+  %11 = load ptr, ptr %9, align 8, !tbaa !245
   %.not29 = icmp eq ptr %11, null
   br i1 %.not29, label %.thread34, label %12
 
@@ -3890,11 +3887,11 @@ define internal ptr @php_libxml_output_buffer_create_filename(ptr noundef %0, pt
   br i1 %.not31, label %26, label %21
 
 21:                                               ; preds = %.thread39
-  store ptr %.12341, ptr %20, align 8, !tbaa !255
+  store ptr %.12341, ptr %20, align 8, !tbaa !247
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr @php_libxml_streams_IO_write, ptr %22, align 8, !tbaa !257
+  store ptr @php_libxml_streams_IO_write, ptr %22, align 8, !tbaa !249
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr @php_libxml_streams_IO_close, ptr %23, align 8, !tbaa !258
+  store ptr @php_libxml_streams_IO_close, ptr %23, align 8, !tbaa !250
   br label %26
 
 24:                                               ; preds = %.thread37, %3, %7
@@ -3945,7 +3942,7 @@ define internal fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef nonnu
   br i1 %.not34, label %.thread43, label %10
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr %9, align 8, !tbaa !253
+  %11 = load ptr, ptr %9, align 8, !tbaa !245
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
 
@@ -3974,9 +3971,9 @@ define internal fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef nonnu
   br i1 %or.cond, label %22, label %33
 
 22:                                               ; preds = %.thread43
-  %23 = load ptr, ptr %19, align 8, !tbaa !259
+  %23 = load ptr, ptr %19, align 8, !tbaa !251
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !262
+  %25 = load ptr, ptr %24, align 8, !tbaa !254
   %.not35 = icmp eq ptr %25, null
   br i1 %.not35, label %33, label %26
 
@@ -4005,13 +4002,13 @@ define internal fastcc ptr @php_libxml_streams_IO_open_wrapper(ptr noundef nonnu
   br label %php_libxml_get_stream_context.exit
 
 39:                                               ; preds = %33
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8, !tbaa !144
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8, !tbaa !140
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %41, label %php_libxml_get_stream_context.exit
 
 41:                                               ; preds = %39
   %42 = call ptr @php_stream_context_alloc() #18
-  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8, !tbaa !144
+  store ptr %42, ptr getelementptr inbounds nuw (i8, ptr @file_globals, i64 56), align 8, !tbaa !140
   br label %php_libxml_get_stream_context.exit
 
 php_libxml_get_stream_context.exit:               ; preds = %36, %39, %41
@@ -4023,9 +4020,9 @@ php_libxml_get_stream_context.exit:               ; preds = %36, %39, %41
 
 46:                                               ; preds = %php_libxml_get_stream_context.exit
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 116
-  %48 = load i32, ptr %47, align 4, !tbaa !264
+  %48 = load i32, ptr %47, align 4, !tbaa !256
   %49 = or i32 %48, 128
-  store i32 %49, ptr %47, align 4, !tbaa !264
+  store i32 %49, ptr %47, align 4, !tbaa !256
   br label %50
 
 50:                                               ; preds = %46, %php_libxml_get_stream_context.exit
@@ -4125,7 +4122,7 @@ define internal ptr @php_libxml_default_dump_node_to_str(ptr noundef %0, ptr nou
   br i1 %10, label %11, label %25
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %5, align 8, !tbaa !83
+  %12 = load ptr, ptr %5, align 8, !tbaa !81
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %smart_str_free_ex.exit, label %13
 
@@ -4150,18 +4147,18 @@ define internal ptr @php_libxml_default_dump_node_to_str(ptr noundef %0, ptr nou
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %13, %17, %22
-  store ptr null, ptr %5, align 8, !tbaa !83
+  store ptr null, ptr %5, align 8, !tbaa !81
   br label %smart_str_free_ex.exit
 
 smart_str_free_ex.exit:                           ; preds = %11, %zend_string_release_ex.exit
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %23, align 8, !tbaa !84
+  store i64 0, ptr %23, align 8, !tbaa !82
   %24 = call i32 @xmlOutputBufferClose(ptr noundef nonnull %6) #18
   br label %smart_str_extract_ex.exit
 
 25:                                               ; preds = %7
   %26 = call i32 @xmlOutputBufferClose(ptr noundef nonnull %6) #18
-  %27 = load ptr, ptr %5, align 8, !tbaa !83
+  %27 = load ptr, ptr %5, align 8, !tbaa !81
   %.not.i11 = icmp eq ptr %27, null
   br i1 %.not.i11, label %71, label %smart_str_0.exit
 
@@ -4171,13 +4168,13 @@ smart_str_0.exit:                                 ; preds = %25
   %30 = load i64, ptr %29, align 8, !tbaa !41
   %31 = getelementptr inbounds nuw [1 x i8], ptr %28, i64 0, i64 %30
   store i8 0, ptr %31, align 1, !tbaa !33
-  %32 = load ptr, ptr %5, align 8, !tbaa !83
+  %32 = load ptr, ptr %5, align 8, !tbaa !81
   %.not.i13 = icmp eq ptr %32, null
   br i1 %.not.i13, label %smart_str_extract_ex.exit, label %33
 
 33:                                               ; preds = %smart_str_0.exit
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !84
+  %35 = load i64, ptr %34, align 8, !tbaa !82
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %37 = load i64, ptr %36, align 8, !tbaa !41
   %38 = icmp ugt i64 %35, %37
@@ -4193,7 +4190,7 @@ smart_str_0.exit:                                 ; preds = %25
 43:                                               ; preds = %39
   %44 = load i32, ptr %32, align 4, !tbaa !38
   %45 = icmp eq i32 %44, 1
-  br i1 %45, label %46, label %zend_string_alloc.exit.i, !prof !174
+  br i1 %45, label %46, label %zend_string_alloc.exit.i, !prof !169
 
 46:                                               ; preds = %43
   %47 = and i64 %37, -8
@@ -4262,7 +4259,7 @@ define internal ptr @php_libxml_default_dump_doc_to_str(ptr noundef %0, i32 noun
   %7 = call i64 @xmlSaveDoc(ptr noundef nonnull %5, ptr noundef %0) #18
   %8 = call i32 @xmlSaveClose(ptr noundef nonnull %5) #18
   %9 = icmp slt i64 %7, 0
-  %10 = load ptr, ptr %4, align 8, !tbaa !83
+  %10 = load ptr, ptr %4, align 8, !tbaa !81
   %.not.i = icmp eq ptr %10, null
   br i1 %9, label %11, label %22
 
@@ -4298,13 +4295,13 @@ smart_str_0.exit:                                 ; preds = %22
   %25 = load i64, ptr %24, align 8, !tbaa !41
   %26 = getelementptr inbounds nuw [1 x i8], ptr %23, i64 0, i64 %25
   store i8 0, ptr %26, align 1, !tbaa !33
-  %27 = load ptr, ptr %4, align 8, !tbaa !83
+  %27 = load ptr, ptr %4, align 8, !tbaa !81
   %.not.i11 = icmp eq ptr %27, null
   br i1 %.not.i11, label %smart_str_extract_ex.exit, label %28
 
 28:                                               ; preds = %smart_str_0.exit
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !84
+  %30 = load i64, ptr %29, align 8, !tbaa !82
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %32 = load i64, ptr %31, align 8, !tbaa !41
   %33 = icmp ugt i64 %30, %32
@@ -4320,7 +4317,7 @@ smart_str_0.exit:                                 ; preds = %22
 38:                                               ; preds = %34
   %39 = load i32, ptr %27, align 4, !tbaa !38
   %40 = icmp eq i32 %39, 1
-  br i1 %40, label %41, label %zend_string_alloc.exit.i, !prof !174
+  br i1 %40, label %41, label %zend_string_alloc.exit.i, !prof !169
 
 41:                                               ; preds = %38
   %42 = and i64 %32, -8
@@ -4407,23 +4404,23 @@ declare ptr @xmlOutputBufferCreateIO(ptr noundef, ptr noundef, ptr noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_libxml_write_smart_str(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef returned %2) #0 {
   %4 = sext i32 %2 to i64
-  %5 = load ptr, ptr %0, align 8, !tbaa !83
+  %5 = load ptr, ptr %0, align 8, !tbaa !81
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %12, label %6, !prof !76
+  br i1 %.not.i, label %12, label %6, !prof !74
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !41
   %9 = add i64 %8, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !84
+  %11 = load i64, ptr %10, align 8, !tbaa !82
   %.not12.i = icmp ult i64 %9, %11
-  br i1 %.not12.i, label %smart_str_alloc.exit, label %12, !prof !174
+  br i1 %.not12.i, label %smart_str_alloc.exit, label %12, !prof !169
 
 12:                                               ; preds = %6, %3
   %.0.i = phi i64 [ %4, %3 ], [ %9, %6 ]
   tail call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i) #18
-  %.pre = load ptr, ptr %0, align 8, !tbaa !83
+  %.pre = load ptr, ptr %0, align 8, !tbaa !81
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre4 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !41
   br label %smart_str_alloc.exit
@@ -4435,7 +4432,7 @@ smart_str_alloc.exit:                             ; preds = %6, %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %1, i64 %4, i1 false)
-  %17 = load ptr, ptr %0, align 8, !tbaa !83
+  %17 = load ptr, ptr %0, align 8, !tbaa !81
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %.1.i, ptr %18, align 8, !tbaa !41
   ret i32 %2
@@ -4557,202 +4554,194 @@ attributes #21 = { nounwind allocsize(1) }
 !63 = !{!64, !9, i64 0}
 !64 = !{!"_sapi_module_struct", !9, i64 0, !9, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !9, i64 160, !5, i64 168, !5, i64 176, !9, i64 184, !13, i64 192, !13, i64 196, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !13, i64 248, !9, i64 256, !65, i64 264, !5, i64 272}
 !65 = !{!"p1 _ZTS20_zend_function_entry", !5, i64 0}
-!66 = distinct !{!66, !67}
-!67 = !{!"llvm.loop.estimated_trip_count"}
-!68 = !{!69, !18, i64 80}
-!69 = !{!"_zend_libxml_globals", !44, i64 0, !70, i64 16, !71, i64 32, !72, i64 40, !18, i64 80}
-!70 = !{!"", !15, i64 0, !21, i64 8}
-!71 = !{!"p1 _ZTS11_zend_llist", !5, i64 0}
-!72 = !{!"_zend_fcall_info_cache", !51, i64 0, !14, i64 8, !14, i64 16, !73, i64 24, !73, i64 32}
-!73 = !{!"p1 _ZTS12_zend_object", !5, i64 0}
-!74 = !{!69, !51, i64 40}
-!75 = !{!72, !73, i64 24}
-!76 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!77 = !{!72, !73, i64 32}
-!78 = !{!69, !15, i64 16}
-!79 = !{!69, !71, i64 32}
-!80 = !{i64 0, i64 8, !81, i64 8, i64 8, !62, i64 16, i64 8, !62, i64 24, i64 8, !82, i64 32, i64 8, !82}
-!81 = !{!51, !51, i64 0}
-!82 = !{!73, !73, i64 0}
-!83 = !{!70, !15, i64 0}
-!84 = !{!70, !21, i64 8}
-!85 = !{!86, !87, i64 0}
-!86 = !{!"_xmlNs", !87, i64 0, !13, i64 8, !9, i64 16, !9, i64 24, !5, i64 32, !88, i64 40}
-!87 = !{!"p1 _ZTS6_xmlNs", !5, i64 0}
-!88 = !{!"p1 _ZTS7_xmlDoc", !5, i64 0}
-!89 = !{!90, !87, i64 96}
-!90 = !{!"_xmlDoc", !5, i64 0, !13, i64 8, !9, i64 16, !91, i64 24, !91, i64 32, !91, i64 40, !91, i64 48, !91, i64 56, !88, i64 64, !13, i64 72, !13, i64 76, !92, i64 80, !92, i64 88, !87, i64 96, !9, i64 104, !9, i64 112, !5, i64 120, !5, i64 128, !9, i64 136, !13, i64 144, !93, i64 152, !5, i64 160, !13, i64 168, !13, i64 172}
-!91 = !{!"p1 _ZTS8_xmlNode", !5, i64 0}
-!92 = !{!"p1 _ZTS7_xmlDtd", !5, i64 0}
-!93 = !{!"p1 _ZTS8_xmlDict", !5, i64 0}
-!94 = !{!86, !13, i64 8}
-!95 = !{!86, !9, i64 16}
-!96 = !{!86, !9, i64 24}
-!97 = !{!98, !5, i64 0}
-!98 = !{!"_xmlNode", !5, i64 0, !13, i64 8, !9, i64 16, !91, i64 24, !91, i64 32, !91, i64 40, !91, i64 48, !91, i64 56, !88, i64 64, !87, i64 72, !9, i64 80, !99, i64 88, !87, i64 96, !5, i64 104, !100, i64 112, !100, i64 114}
-!99 = !{!"p1 _ZTS8_xmlAttr", !5, i64 0}
-!100 = !{!"short", !6, i64 0}
-!101 = !{!98, !91, i64 48}
-!102 = !{!98, !13, i64 8}
-!103 = !{!104, !5, i64 16}
-!104 = !{!"_php_libxml_node_ptr", !91, i64 0, !13, i64 8, !5, i64 16}
-!105 = !{!106, !108, i64 8}
-!106 = !{!"_php_libxml_node_object", !107, i64 0, !108, i64 8, !109, i64 16}
-!107 = !{!"p1 _ZTS20_php_libxml_node_ptr", !5, i64 0}
-!108 = !{!"p1 _ZTS19_php_libxml_ref_obj", !5, i64 0}
-!109 = !{!"_zend_object", !29, i64 0, !13, i64 8, !13, i64 12, !14, i64 16, !52, i64 24, !17, i64 32, !6, i64 40}
-!110 = !{!98, !88, i64 64}
-!111 = distinct !{!111, !67}
-!112 = !{!113, !92, i64 40}
-!113 = !{!"_xmlEntity", !5, i64 0, !13, i64 8, !9, i64 16, !91, i64 24, !91, i64 32, !92, i64 40, !91, i64 48, !91, i64 56, !88, i64 64, !9, i64 72, !9, i64 80, !13, i64 88, !13, i64 92, !9, i64 96, !9, i64 104, !114, i64 112, !9, i64 120, !13, i64 128, !13, i64 132}
-!114 = !{!"p1 _ZTS10_xmlEntity", !5, i64 0}
-!115 = !{!116, !5, i64 96}
-!116 = !{!"_xmlDtd", !5, i64 0, !13, i64 8, !9, i64 16, !91, i64 24, !91, i64 32, !88, i64 40, !91, i64 48, !91, i64 56, !88, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !9, i64 104, !9, i64 112, !5, i64 120}
-!117 = !{!113, !9, i64 16}
-!118 = !{!116, !5, i64 120}
-!119 = !{!120, !13, i64 80}
-!120 = !{!"_xmlAttr", !5, i64 0, !13, i64 8, !9, i64 16, !91, i64 24, !91, i64 32, !91, i64 40, !99, i64 48, !99, i64 56, !88, i64 64, !87, i64 72, !13, i64 80, !5, i64 88}
-!121 = !{!98, !91, i64 24}
-!122 = !{!98, !99, i64 88}
-!123 = !{!106, !107, i64 0}
-!124 = !{!104, !13, i64 8}
-!125 = !{!104, !91, i64 0}
-!126 = !{!113, !13, i64 92}
-!127 = !{!113, !91, i64 24}
-!128 = !{!113, !13, i64 128}
-!129 = !{!98, !91, i64 40}
-!130 = !{!113, !88, i64 64}
-!131 = !{!90, !93, i64 152}
-!132 = !{!113, !9, i64 96}
-!133 = !{!113, !9, i64 104}
-!134 = !{!113, !9, i64 120}
-!135 = !{!113, !9, i64 80}
-!136 = !{!113, !9, i64 72}
-!137 = !{!98, !9, i64 16}
-!138 = !{!98, !87, i64 72}
-!139 = !{!86, !5, i64 32}
-!140 = !{!141, !5, i64 8}
-!141 = !{!"php_libxml_private_data_header", !5, i64 0, !5, i64 8}
-!142 = !{!98, !87, i64 96}
-!143 = distinct !{!143, !67}
-!144 = !{!145, !146, i64 56}
-!145 = !{!"", !13, i64 0, !21, i64 8, !18, i64 16, !21, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !146, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !13, i64 88, !147, i64 96, !9, i64 128, !21, i64 136}
-!146 = !{!"p1 _ZTS19_php_stream_context", !5, i64 0}
-!147 = !{!"hostent", !9, i64 0, !148, i64 8, !13, i64 16, !13, i64 20, !148, i64 24}
-!148 = !{!"p2 omnipotent char", !5, i64 0}
-!149 = !{!150, !13, i64 4}
-!150 = !{!"_xmlError", !13, i64 0, !13, i64 4, !9, i64 8, !13, i64 16, !9, i64 24, !13, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !13, i64 64, !13, i64 68, !5, i64 72, !5, i64 80}
-!151 = !{!150, !13, i64 16}
-!152 = !{!150, !13, i64 68}
-!153 = !{!150, !9, i64 8}
-!154 = !{!155, !157, i64 56}
-!155 = !{!"_xmlParserCtxt", !156, i64 0, !5, i64 8, !88, i64 16, !13, i64 24, !13, i64 28, !9, i64 32, !9, i64 40, !13, i64 48, !13, i64 52, !157, i64 56, !13, i64 64, !13, i64 68, !158, i64 72, !91, i64 80, !13, i64 88, !13, i64 92, !159, i64 96, !13, i64 104, !160, i64 112, !13, i64 136, !13, i64 140, !13, i64 144, !13, i64 148, !13, i64 152, !13, i64 156, !162, i64 160, !13, i64 272, !13, i64 276, !9, i64 280, !9, i64 288, !13, i64 296, !13, i64 300, !148, i64 304, !21, i64 312, !21, i64 320, !13, i64 328, !13, i64 332, !13, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !166, i64 368, !13, i64 376, !13, i64 380, !166, i64 384, !13, i64 392, !157, i64 400, !13, i64 408, !13, i64 412, !13, i64 416, !13, i64 420, !5, i64 424, !13, i64 432, !13, i64 436, !5, i64 440, !13, i64 448, !13, i64 452, !93, i64 456, !148, i64 464, !13, i64 472, !13, i64 476, !9, i64 480, !9, i64 488, !9, i64 496, !13, i64 504, !13, i64 508, !13, i64 512, !148, i64 520, !166, i64 528, !167, i64 536, !168, i64 544, !168, i64 552, !13, i64 560, !13, i64 564, !13, i64 568, !13, i64 572, !91, i64 576, !13, i64 584, !99, i64 592, !150, i64 600, !13, i64 688, !21, i64 696, !21, i64 704, !161, i64 712, !13, i64 720, !13, i64 724, !161, i64 728, !13, i64 736, !21, i64 744}
-!156 = !{!"p1 _ZTS14_xmlSAXHandler", !5, i64 0}
-!157 = !{!"p1 _ZTS15_xmlParserInput", !5, i64 0}
-!158 = !{!"p2 _ZTS15_xmlParserInput", !5, i64 0}
-!159 = !{!"p2 _ZTS8_xmlNode", !5, i64 0}
-!160 = !{!"_xmlParserNodeInfoSeq", !21, i64 0, !21, i64 8, !161, i64 16}
-!161 = !{!"p1 _ZTS18_xmlParserNodeInfo", !5, i64 0}
-!162 = !{!"_xmlValidCtxt", !5, i64 0, !5, i64 8, !5, i64 16, !91, i64 24, !13, i64 32, !13, i64 36, !159, i64 40, !13, i64 48, !88, i64 56, !13, i64 64, !163, i64 72, !13, i64 80, !13, i64 84, !163, i64 88, !164, i64 96, !165, i64 104}
-!163 = !{!"p1 _ZTS14_xmlValidState", !5, i64 0}
-!164 = !{!"p1 _ZTS12_xmlAutomata", !5, i64 0}
-!165 = !{!"p1 _ZTS17_xmlAutomataState", !5, i64 0}
-!166 = !{!"p1 int", !5, i64 0}
-!167 = !{!"p1 _ZTS12_xmlStartTag", !5, i64 0}
-!168 = !{!"p1 _ZTS13_xmlHashTable", !5, i64 0}
-!169 = !{!170, !13, i64 52}
-!170 = !{!"_xmlParserInput", !171, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !13, i64 48, !13, i64 52, !13, i64 56, !21, i64 64, !5, i64 72, !9, i64 80, !9, i64 88, !13, i64 96, !13, i64 100}
-!171 = !{!"p1 _ZTS21_xmlParserInputBuffer", !5, i64 0}
-!172 = !{!170, !13, i64 56}
-!173 = distinct !{!173, !67}
-!174 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!175 = !{!150, !13, i64 32}
-!176 = !{!177, !73, i64 960}
-!177 = !{!"_zend_executor_globals", !44, i64 0, !44, i64 16, !6, i64 32, !178, i64 288, !178, i64 296, !28, i64 304, !28, i64 360, !179, i64 416, !13, i64 424, !18, i64 428, !44, i64 432, !13, i64 448, !17, i64 456, !17, i64 464, !17, i64 472, !47, i64 480, !47, i64 488, !180, i64 496, !21, i64 504, !181, i64 512, !14, i64 520, !13, i64 528, !181, i64 536, !13, i64 544, !21, i64 552, !13, i64 560, !13, i64 564, !13, i64 568, !18, i64 572, !18, i64 573, !182, i64 574, !182, i64 575, !17, i64 576, !21, i64 584, !5, i64 592, !5, i64 600, !28, i64 608, !28, i64 664, !13, i64 720, !18, i64 724, !44, i64 728, !44, i64 744, !12, i64 760, !12, i64 784, !12, i64 808, !14, i64 832, !13, i64 840, !13, i64 844, !21, i64 848, !17, i64 856, !17, i64 864, !183, i64 872, !184, i64 880, !186, i64 904, !73, i64 960, !73, i64 968, !187, i64 976, !6, i64 984, !188, i64 1080, !18, i64 1088, !6, i64 1089, !21, i64 1096, !13, i64 1104, !13, i64 1108, !189, i64 1112, !6, i64 1120, !5, i64 1376, !6, i64 1384, !190, i64 1640, !28, i64 1672, !21, i64 1728, !191, i64 1736, !192, i64 1760, !192, i64 1768, !193, i64 1776, !21, i64 1784, !18, i64 1792, !13, i64 1796, !194, i64 1800, !15, i64 1808, !21, i64 1816, !195, i64 1824, !21, i64 1840, !21, i64 1848, !196, i64 1856, !6, i64 1936}
-!178 = !{!"p2 _ZTS11_zend_array", !5, i64 0}
-!179 = !{!"p1 _ZTS13__jmp_buf_tag", !5, i64 0}
-!180 = !{!"p1 _ZTS14_zend_vm_stack", !5, i64 0}
-!181 = !{!"p1 _ZTS18_zend_execute_data", !5, i64 0}
-!182 = !{!"zend_atomic_bool_s", !6, i64 0}
-!183 = !{!"p1 _ZTS15_zend_ini_entry", !5, i64 0}
-!184 = !{!"_zend_objects_store", !185, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
-!185 = !{!"p2 _ZTS12_zend_object", !5, i64 0}
-!186 = !{!"_zend_lazy_objects_store", !28, i64 0}
-!187 = !{!"p1 _ZTS8_zend_op", !5, i64 0}
-!188 = !{!"p1 _ZTS18_zend_module_entry", !5, i64 0}
-!189 = !{!"p1 _ZTS18_HashTableIterator", !5, i64 0}
-!190 = !{!"_zend_op", !5, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !13, i64 20, !13, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
-!191 = !{!"", !47, i64 0, !47, i64 8, !47, i64 16}
-!192 = !{!"p1 _ZTS19_zend_fiber_context", !5, i64 0}
-!193 = !{!"p1 _ZTS11_zend_fiber", !5, i64 0}
-!194 = !{!"p2 _ZTS16_zend_error_info", !5, i64 0}
-!195 = !{!"_zend_call_stack", !5, i64 0, !21, i64 8}
-!196 = !{!"_zend_strtod_state", !6, i64 0, !197, i64 64, !9, i64 72}
-!197 = !{!"p1 _ZTS19_zend_strtod_bigint", !5, i64 0}
-!198 = !{!170, !9, i64 8}
-!199 = !{!150, !9, i64 24}
-!200 = !{i8 0, i8 2}
-!201 = !{!155, !9, i64 280}
-!202 = !{!155, !9, i64 344}
-!203 = !{!155, !9, i64 352}
-!204 = !{!155, !9, i64 360}
-!205 = !{!72, !51, i64 0}
-!206 = !{!72, !14, i64 16}
-!207 = !{!208, !214, i64 120}
-!208 = !{!"_php_stream", !209, i64 0, !5, i64 8, !210, i64 16, !210, i64 40, !213, i64 64, !5, i64 72, !44, i64 80, !100, i64 96, !100, i64 96, !100, i64 96, !100, i64 96, !100, i64 96, !100, i64 96, !100, i64 97, !6, i64 98, !13, i64 116, !214, i64 120, !215, i64 128, !9, i64 136, !214, i64 144, !21, i64 152, !9, i64 160, !21, i64 168, !21, i64 176, !21, i64 184, !21, i64 192, !212, i64 200}
-!209 = !{!"p1 _ZTS15_php_stream_ops", !5, i64 0}
-!210 = !{!"_php_stream_filter_chain", !211, i64 0, !211, i64 8, !212, i64 16}
-!211 = !{!"p1 _ZTS18_php_stream_filter", !5, i64 0}
-!212 = !{!"p1 _ZTS11_php_stream", !5, i64 0}
-!213 = !{!"p1 _ZTS19_php_stream_wrapper", !5, i64 0}
-!214 = !{!"p1 _ZTS14_zend_resource", !5, i64 0}
-!215 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!216 = !{!217, !5, i64 0}
-!217 = !{!"_xmlParserInputBuffer", !5, i64 0, !5, i64 8, !5, i64 16, !218, i64 24, !219, i64 32, !219, i64 40, !13, i64 48, !13, i64 52, !21, i64 56}
-!218 = !{!"p1 _ZTS23_xmlCharEncodingHandler", !5, i64 0}
-!219 = !{!"p1 _ZTS7_xmlBuf", !5, i64 0}
-!220 = !{!217, !5, i64 8}
-!221 = !{!217, !5, i64 16}
-!222 = !{!"branch_weights", i32 4000000, i32 4001}
-!223 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!224 = !{!"branch_weights", i32 1, i32 8004000, i32 4000, i32 1}
-!225 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!226 = !{!18, !18, i64 0}
-!227 = distinct !{!227, !67}
-!228 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
-!229 = !{!230, !21, i64 0}
-!230 = !{!"_zend_fcall_info", !21, i64 0, !44, i64 8, !47, i64 24, !47, i64 32, !73, i64 40, !13, i64 48, !17, i64 56}
-!231 = distinct !{!231, !67}
-!232 = !{!109, !14, i64 16}
-!233 = distinct !{!233, !67}
-!234 = !{!235, !5, i64 0}
-!235 = !{!"php_libxml_func_handler", !5, i64 0}
-!236 = !{!237, !13, i64 40}
-!237 = !{!"_php_libxml_ref_obj", !5, i64 0, !238, i64 8, !239, i64 16, !240, i64 24, !241, i64 32, !13, i64 40, !13, i64 44, !13, i64 45}
-!238 = !{!"p1 _ZTS17_libxml_doc_props", !5, i64 0}
-!239 = !{!"", !21, i64 0}
-!240 = !{!"p1 _ZTS30php_libxml_private_data_header", !5, i64 0}
-!241 = !{!"p1 _ZTS28php_libxml_document_handlers", !5, i64 0}
-!242 = !{!237, !5, i64 0}
-!243 = !{!237, !238, i64 8}
-!244 = !{!237, !21, i64 16}
-!245 = !{!237, !240, i64 24}
-!246 = !{!237, !241, i64 32}
-!247 = !{!141, !5, i64 0}
-!248 = !{!249, !17, i64 0}
-!249 = !{!"_libxml_doc_props", !17, i64 0, !18, i64 8, !18, i64 9, !18, i64 10, !18, i64 11, !18, i64 12, !18, i64 13, !18, i64 14}
-!250 = !{!120, !91, i64 24}
-!251 = !{!98, !9, i64 80}
-!252 = !{!113, !5, i64 0}
-!253 = !{!254, !9, i64 0}
-!254 = !{!"_xmlURI", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !13, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !13, i64 72, !9, i64 80}
-!255 = !{!256, !5, i64 0}
-!256 = !{!"_xmlOutputBuffer", !5, i64 0, !5, i64 8, !5, i64 16, !218, i64 24, !219, i64 32, !219, i64 40, !13, i64 48, !13, i64 52}
-!257 = !{!256, !5, i64 8}
-!258 = !{!256, !5, i64 16}
-!259 = !{!260, !261, i64 0}
-!260 = !{!"_php_stream_wrapper", !261, i64 0, !5, i64 8, !13, i64 16}
-!261 = !{!"p1 _ZTS23_php_stream_wrapper_ops", !5, i64 0}
-!262 = !{!263, !5, i64 24}
-!263 = !{!"_php_stream_wrapper_ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !9, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80}
-!264 = !{!208, !13, i64 116}
+!66 = !{!67, !18, i64 80}
+!67 = !{!"_zend_libxml_globals", !44, i64 0, !68, i64 16, !69, i64 32, !70, i64 40, !18, i64 80}
+!68 = !{!"", !15, i64 0, !21, i64 8}
+!69 = !{!"p1 _ZTS11_zend_llist", !5, i64 0}
+!70 = !{!"_zend_fcall_info_cache", !51, i64 0, !14, i64 8, !14, i64 16, !71, i64 24, !71, i64 32}
+!71 = !{!"p1 _ZTS12_zend_object", !5, i64 0}
+!72 = !{!67, !51, i64 40}
+!73 = !{!70, !71, i64 24}
+!74 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!75 = !{!70, !71, i64 32}
+!76 = !{!67, !15, i64 16}
+!77 = !{!67, !69, i64 32}
+!78 = !{i64 0, i64 8, !79, i64 8, i64 8, !62, i64 16, i64 8, !62, i64 24, i64 8, !80, i64 32, i64 8, !80}
+!79 = !{!51, !51, i64 0}
+!80 = !{!71, !71, i64 0}
+!81 = !{!68, !15, i64 0}
+!82 = !{!68, !21, i64 8}
+!83 = !{!84, !85, i64 0}
+!84 = !{!"_xmlNs", !85, i64 0, !13, i64 8, !9, i64 16, !9, i64 24, !5, i64 32, !86, i64 40}
+!85 = !{!"p1 _ZTS6_xmlNs", !5, i64 0}
+!86 = !{!"p1 _ZTS7_xmlDoc", !5, i64 0}
+!87 = !{!88, !85, i64 96}
+!88 = !{!"_xmlDoc", !5, i64 0, !13, i64 8, !9, i64 16, !89, i64 24, !89, i64 32, !89, i64 40, !89, i64 48, !89, i64 56, !86, i64 64, !13, i64 72, !13, i64 76, !90, i64 80, !90, i64 88, !85, i64 96, !9, i64 104, !9, i64 112, !5, i64 120, !5, i64 128, !9, i64 136, !13, i64 144, !91, i64 152, !5, i64 160, !13, i64 168, !13, i64 172}
+!89 = !{!"p1 _ZTS8_xmlNode", !5, i64 0}
+!90 = !{!"p1 _ZTS7_xmlDtd", !5, i64 0}
+!91 = !{!"p1 _ZTS8_xmlDict", !5, i64 0}
+!92 = !{!84, !13, i64 8}
+!93 = !{!84, !9, i64 16}
+!94 = !{!84, !9, i64 24}
+!95 = !{!96, !5, i64 0}
+!96 = !{!"_xmlNode", !5, i64 0, !13, i64 8, !9, i64 16, !89, i64 24, !89, i64 32, !89, i64 40, !89, i64 48, !89, i64 56, !86, i64 64, !85, i64 72, !9, i64 80, !97, i64 88, !85, i64 96, !5, i64 104, !98, i64 112, !98, i64 114}
+!97 = !{!"p1 _ZTS8_xmlAttr", !5, i64 0}
+!98 = !{!"short", !6, i64 0}
+!99 = !{!96, !89, i64 48}
+!100 = !{!96, !13, i64 8}
+!101 = !{!102, !5, i64 16}
+!102 = !{!"_php_libxml_node_ptr", !89, i64 0, !13, i64 8, !5, i64 16}
+!103 = !{!104, !106, i64 8}
+!104 = !{!"_php_libxml_node_object", !105, i64 0, !106, i64 8, !107, i64 16}
+!105 = !{!"p1 _ZTS20_php_libxml_node_ptr", !5, i64 0}
+!106 = !{!"p1 _ZTS19_php_libxml_ref_obj", !5, i64 0}
+!107 = !{!"_zend_object", !29, i64 0, !13, i64 8, !13, i64 12, !14, i64 16, !52, i64 24, !17, i64 32, !6, i64 40}
+!108 = !{!96, !86, i64 64}
+!109 = !{!110, !90, i64 40}
+!110 = !{!"_xmlEntity", !5, i64 0, !13, i64 8, !9, i64 16, !89, i64 24, !89, i64 32, !90, i64 40, !89, i64 48, !89, i64 56, !86, i64 64, !9, i64 72, !9, i64 80, !13, i64 88, !13, i64 92, !9, i64 96, !9, i64 104, !111, i64 112, !9, i64 120, !13, i64 128, !13, i64 132}
+!111 = !{!"p1 _ZTS10_xmlEntity", !5, i64 0}
+!112 = !{!113, !5, i64 96}
+!113 = !{!"_xmlDtd", !5, i64 0, !13, i64 8, !9, i64 16, !89, i64 24, !89, i64 32, !86, i64 40, !89, i64 48, !89, i64 56, !86, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !9, i64 104, !9, i64 112, !5, i64 120}
+!114 = !{!110, !9, i64 16}
+!115 = !{!113, !5, i64 120}
+!116 = !{!117, !13, i64 80}
+!117 = !{!"_xmlAttr", !5, i64 0, !13, i64 8, !9, i64 16, !89, i64 24, !89, i64 32, !89, i64 40, !97, i64 48, !97, i64 56, !86, i64 64, !85, i64 72, !13, i64 80, !5, i64 88}
+!118 = !{!96, !89, i64 24}
+!119 = !{!96, !97, i64 88}
+!120 = !{!104, !105, i64 0}
+!121 = !{!102, !13, i64 8}
+!122 = !{!102, !89, i64 0}
+!123 = !{!110, !13, i64 92}
+!124 = !{!110, !89, i64 24}
+!125 = !{!110, !13, i64 128}
+!126 = !{!96, !89, i64 40}
+!127 = !{!110, !86, i64 64}
+!128 = !{!88, !91, i64 152}
+!129 = !{!110, !9, i64 96}
+!130 = !{!110, !9, i64 104}
+!131 = !{!110, !9, i64 120}
+!132 = !{!110, !9, i64 80}
+!133 = !{!110, !9, i64 72}
+!134 = !{!96, !9, i64 16}
+!135 = !{!96, !85, i64 72}
+!136 = !{!84, !5, i64 32}
+!137 = !{!138, !5, i64 8}
+!138 = !{!"php_libxml_private_data_header", !5, i64 0, !5, i64 8}
+!139 = !{!96, !85, i64 96}
+!140 = !{!141, !142, i64 56}
+!141 = !{!"", !13, i64 0, !21, i64 8, !18, i64 16, !21, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !142, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !13, i64 88, !143, i64 96, !9, i64 128, !21, i64 136}
+!142 = !{!"p1 _ZTS19_php_stream_context", !5, i64 0}
+!143 = !{!"hostent", !9, i64 0, !144, i64 8, !13, i64 16, !13, i64 20, !144, i64 24}
+!144 = !{!"p2 omnipotent char", !5, i64 0}
+!145 = !{!146, !13, i64 4}
+!146 = !{!"_xmlError", !13, i64 0, !13, i64 4, !9, i64 8, !13, i64 16, !9, i64 24, !13, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !13, i64 64, !13, i64 68, !5, i64 72, !5, i64 80}
+!147 = !{!146, !13, i64 16}
+!148 = !{!146, !13, i64 68}
+!149 = !{!146, !9, i64 8}
+!150 = !{!151, !153, i64 56}
+!151 = !{!"_xmlParserCtxt", !152, i64 0, !5, i64 8, !86, i64 16, !13, i64 24, !13, i64 28, !9, i64 32, !9, i64 40, !13, i64 48, !13, i64 52, !153, i64 56, !13, i64 64, !13, i64 68, !154, i64 72, !89, i64 80, !13, i64 88, !13, i64 92, !155, i64 96, !13, i64 104, !156, i64 112, !13, i64 136, !13, i64 140, !13, i64 144, !13, i64 148, !13, i64 152, !13, i64 156, !158, i64 160, !13, i64 272, !13, i64 276, !9, i64 280, !9, i64 288, !13, i64 296, !13, i64 300, !144, i64 304, !21, i64 312, !21, i64 320, !13, i64 328, !13, i64 332, !13, i64 336, !9, i64 344, !9, i64 352, !9, i64 360, !162, i64 368, !13, i64 376, !13, i64 380, !162, i64 384, !13, i64 392, !153, i64 400, !13, i64 408, !13, i64 412, !13, i64 416, !13, i64 420, !5, i64 424, !13, i64 432, !13, i64 436, !5, i64 440, !13, i64 448, !13, i64 452, !91, i64 456, !144, i64 464, !13, i64 472, !13, i64 476, !9, i64 480, !9, i64 488, !9, i64 496, !13, i64 504, !13, i64 508, !13, i64 512, !144, i64 520, !162, i64 528, !163, i64 536, !164, i64 544, !164, i64 552, !13, i64 560, !13, i64 564, !13, i64 568, !13, i64 572, !89, i64 576, !13, i64 584, !97, i64 592, !146, i64 600, !13, i64 688, !21, i64 696, !21, i64 704, !157, i64 712, !13, i64 720, !13, i64 724, !157, i64 728, !13, i64 736, !21, i64 744}
+!152 = !{!"p1 _ZTS14_xmlSAXHandler", !5, i64 0}
+!153 = !{!"p1 _ZTS15_xmlParserInput", !5, i64 0}
+!154 = !{!"p2 _ZTS15_xmlParserInput", !5, i64 0}
+!155 = !{!"p2 _ZTS8_xmlNode", !5, i64 0}
+!156 = !{!"_xmlParserNodeInfoSeq", !21, i64 0, !21, i64 8, !157, i64 16}
+!157 = !{!"p1 _ZTS18_xmlParserNodeInfo", !5, i64 0}
+!158 = !{!"_xmlValidCtxt", !5, i64 0, !5, i64 8, !5, i64 16, !89, i64 24, !13, i64 32, !13, i64 36, !155, i64 40, !13, i64 48, !86, i64 56, !13, i64 64, !159, i64 72, !13, i64 80, !13, i64 84, !159, i64 88, !160, i64 96, !161, i64 104}
+!159 = !{!"p1 _ZTS14_xmlValidState", !5, i64 0}
+!160 = !{!"p1 _ZTS12_xmlAutomata", !5, i64 0}
+!161 = !{!"p1 _ZTS17_xmlAutomataState", !5, i64 0}
+!162 = !{!"p1 int", !5, i64 0}
+!163 = !{!"p1 _ZTS12_xmlStartTag", !5, i64 0}
+!164 = !{!"p1 _ZTS13_xmlHashTable", !5, i64 0}
+!165 = !{!166, !13, i64 52}
+!166 = !{!"_xmlParserInput", !167, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !13, i64 48, !13, i64 52, !13, i64 56, !21, i64 64, !5, i64 72, !9, i64 80, !9, i64 88, !13, i64 96, !13, i64 100}
+!167 = !{!"p1 _ZTS21_xmlParserInputBuffer", !5, i64 0}
+!168 = !{!166, !13, i64 56}
+!169 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!170 = !{!146, !13, i64 32}
+!171 = !{!172, !71, i64 960}
+!172 = !{!"_zend_executor_globals", !44, i64 0, !44, i64 16, !6, i64 32, !173, i64 288, !173, i64 296, !28, i64 304, !28, i64 360, !174, i64 416, !13, i64 424, !18, i64 428, !44, i64 432, !13, i64 448, !17, i64 456, !17, i64 464, !17, i64 472, !47, i64 480, !47, i64 488, !175, i64 496, !21, i64 504, !176, i64 512, !14, i64 520, !13, i64 528, !176, i64 536, !13, i64 544, !21, i64 552, !13, i64 560, !13, i64 564, !13, i64 568, !18, i64 572, !18, i64 573, !177, i64 574, !177, i64 575, !17, i64 576, !21, i64 584, !5, i64 592, !5, i64 600, !28, i64 608, !28, i64 664, !13, i64 720, !18, i64 724, !44, i64 728, !44, i64 744, !12, i64 760, !12, i64 784, !12, i64 808, !14, i64 832, !13, i64 840, !13, i64 844, !21, i64 848, !17, i64 856, !17, i64 864, !178, i64 872, !179, i64 880, !181, i64 904, !71, i64 960, !71, i64 968, !182, i64 976, !6, i64 984, !183, i64 1080, !18, i64 1088, !6, i64 1089, !21, i64 1096, !13, i64 1104, !13, i64 1108, !184, i64 1112, !6, i64 1120, !5, i64 1376, !6, i64 1384, !185, i64 1640, !28, i64 1672, !21, i64 1728, !186, i64 1736, !187, i64 1760, !187, i64 1768, !188, i64 1776, !21, i64 1784, !18, i64 1792, !13, i64 1796, !189, i64 1800, !15, i64 1808, !21, i64 1816, !190, i64 1824, !21, i64 1840, !21, i64 1848, !191, i64 1856, !6, i64 1936}
+!173 = !{!"p2 _ZTS11_zend_array", !5, i64 0}
+!174 = !{!"p1 _ZTS13__jmp_buf_tag", !5, i64 0}
+!175 = !{!"p1 _ZTS14_zend_vm_stack", !5, i64 0}
+!176 = !{!"p1 _ZTS18_zend_execute_data", !5, i64 0}
+!177 = !{!"zend_atomic_bool_s", !6, i64 0}
+!178 = !{!"p1 _ZTS15_zend_ini_entry", !5, i64 0}
+!179 = !{!"_zend_objects_store", !180, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
+!180 = !{!"p2 _ZTS12_zend_object", !5, i64 0}
+!181 = !{!"_zend_lazy_objects_store", !28, i64 0}
+!182 = !{!"p1 _ZTS8_zend_op", !5, i64 0}
+!183 = !{!"p1 _ZTS18_zend_module_entry", !5, i64 0}
+!184 = !{!"p1 _ZTS18_HashTableIterator", !5, i64 0}
+!185 = !{!"_zend_op", !5, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !13, i64 20, !13, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
+!186 = !{!"", !47, i64 0, !47, i64 8, !47, i64 16}
+!187 = !{!"p1 _ZTS19_zend_fiber_context", !5, i64 0}
+!188 = !{!"p1 _ZTS11_zend_fiber", !5, i64 0}
+!189 = !{!"p2 _ZTS16_zend_error_info", !5, i64 0}
+!190 = !{!"_zend_call_stack", !5, i64 0, !21, i64 8}
+!191 = !{!"_zend_strtod_state", !6, i64 0, !192, i64 64, !9, i64 72}
+!192 = !{!"p1 _ZTS19_zend_strtod_bigint", !5, i64 0}
+!193 = !{!166, !9, i64 8}
+!194 = !{!146, !9, i64 24}
+!195 = !{i8 0, i8 2}
+!196 = !{!151, !9, i64 280}
+!197 = !{!151, !9, i64 344}
+!198 = !{!151, !9, i64 352}
+!199 = !{!151, !9, i64 360}
+!200 = !{!70, !51, i64 0}
+!201 = !{!70, !14, i64 16}
+!202 = !{!203, !209, i64 120}
+!203 = !{!"_php_stream", !204, i64 0, !5, i64 8, !205, i64 16, !205, i64 40, !208, i64 64, !5, i64 72, !44, i64 80, !98, i64 96, !98, i64 96, !98, i64 96, !98, i64 96, !98, i64 96, !98, i64 96, !98, i64 97, !6, i64 98, !13, i64 116, !209, i64 120, !210, i64 128, !9, i64 136, !209, i64 144, !21, i64 152, !9, i64 160, !21, i64 168, !21, i64 176, !21, i64 184, !21, i64 192, !207, i64 200}
+!204 = !{!"p1 _ZTS15_php_stream_ops", !5, i64 0}
+!205 = !{!"_php_stream_filter_chain", !206, i64 0, !206, i64 8, !207, i64 16}
+!206 = !{!"p1 _ZTS18_php_stream_filter", !5, i64 0}
+!207 = !{!"p1 _ZTS11_php_stream", !5, i64 0}
+!208 = !{!"p1 _ZTS19_php_stream_wrapper", !5, i64 0}
+!209 = !{!"p1 _ZTS14_zend_resource", !5, i64 0}
+!210 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!211 = !{!212, !5, i64 0}
+!212 = !{!"_xmlParserInputBuffer", !5, i64 0, !5, i64 8, !5, i64 16, !213, i64 24, !214, i64 32, !214, i64 40, !13, i64 48, !13, i64 52, !21, i64 56}
+!213 = !{!"p1 _ZTS23_xmlCharEncodingHandler", !5, i64 0}
+!214 = !{!"p1 _ZTS7_xmlBuf", !5, i64 0}
+!215 = !{!212, !5, i64 8}
+!216 = !{!212, !5, i64 16}
+!217 = !{!"branch_weights", i32 4000000, i32 4001}
+!218 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!219 = !{!"branch_weights", i32 1, i32 8004000, i32 4000, i32 1}
+!220 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!221 = !{!18, !18, i64 0}
+!222 = !{!"branch_weights", i32 1, i32 4002000, i32 2000}
+!223 = !{!224, !21, i64 0}
+!224 = !{!"_zend_fcall_info", !21, i64 0, !44, i64 8, !47, i64 24, !47, i64 32, !71, i64 40, !13, i64 48, !17, i64 56}
+!225 = !{!107, !14, i64 16}
+!226 = !{!227, !5, i64 0}
+!227 = !{!"php_libxml_func_handler", !5, i64 0}
+!228 = !{!229, !13, i64 40}
+!229 = !{!"_php_libxml_ref_obj", !5, i64 0, !230, i64 8, !231, i64 16, !232, i64 24, !233, i64 32, !13, i64 40, !13, i64 44, !13, i64 45}
+!230 = !{!"p1 _ZTS17_libxml_doc_props", !5, i64 0}
+!231 = !{!"", !21, i64 0}
+!232 = !{!"p1 _ZTS30php_libxml_private_data_header", !5, i64 0}
+!233 = !{!"p1 _ZTS28php_libxml_document_handlers", !5, i64 0}
+!234 = !{!229, !5, i64 0}
+!235 = !{!229, !230, i64 8}
+!236 = !{!229, !21, i64 16}
+!237 = !{!229, !232, i64 24}
+!238 = !{!229, !233, i64 32}
+!239 = !{!138, !5, i64 0}
+!240 = !{!241, !17, i64 0}
+!241 = !{!"_libxml_doc_props", !17, i64 0, !18, i64 8, !18, i64 9, !18, i64 10, !18, i64 11, !18, i64 12, !18, i64 13, !18, i64 14}
+!242 = !{!117, !89, i64 24}
+!243 = !{!96, !9, i64 80}
+!244 = !{!110, !5, i64 0}
+!245 = !{!246, !9, i64 0}
+!246 = !{!"_xmlURI", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !13, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !13, i64 72, !9, i64 80}
+!247 = !{!248, !5, i64 0}
+!248 = !{!"_xmlOutputBuffer", !5, i64 0, !5, i64 8, !5, i64 16, !213, i64 24, !214, i64 32, !214, i64 40, !13, i64 48, !13, i64 52}
+!249 = !{!248, !5, i64 8}
+!250 = !{!248, !5, i64 16}
+!251 = !{!252, !253, i64 0}
+!252 = !{!"_php_stream_wrapper", !253, i64 0, !5, i64 8, !13, i64 16}
+!253 = !{!"p1 _ZTS23_php_stream_wrapper_ops", !5, i64 0}
+!254 = !{!255, !5, i64 24}
+!255 = !{!"_php_stream_wrapper_ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !9, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80}
+!256 = !{!203, !13, i64 116}

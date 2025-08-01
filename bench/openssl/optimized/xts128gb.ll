@@ -122,7 +122,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %10
   store i8 %60, ptr %61, align 1, !tbaa !9
   %indvars.iv.next126 = add nuw i64 %indvars.iv125, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next126, %.1.lcssa
-  br i1 %exitcond128.not, label %._crit_edge116.loopexit, label %.lr.ph115, !llvm.loop !21
+  br i1 %exitcond128.not, label %._crit_edge116.loopexit, label %.lr.ph115, !llvm.loop !20
 
 ._crit_edge116.loopexit:                          ; preds = %.lr.ph115
   %.pre133 = load i64, ptr %8, align 8, !tbaa !9
@@ -159,18 +159,18 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %10
 
 82:                                               ; preds = %select.unfold._crit_edge
   %83 = load i64, ptr %7, align 8, !tbaa !9
-  %84 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %83) #5, !srcloc !22
+  %84 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %83) #5, !srcloc !21
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !9
-  %87 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %86) #5, !srcloc !23
+  %87 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %86) #5, !srcloc !22
   %88 = call i64 @llvm.fshl.i64(i64 %84, i64 %87, i64 63)
   %89 = lshr i64 %84, 1
   %90 = and i64 %87, 1
   %.not102 = icmp eq i64 %90, 0
   %.sroa.7.15.insert.insert = xor i64 %89, -2233785415175766016
   %.sroa.7.0 = select i1 %.not102, i64 %89, i64 %.sroa.7.15.insert.insert
-  %91 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %88) #5, !srcloc !24
-  %92 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.7.0) #5, !srcloc !25
+  %91 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %88) #5, !srcloc !23
+  %92 = call i64 asm "bswapq $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.7.0) #5, !srcloc !24
   %93 = load i64, ptr %.092.lcssa, align 1, !tbaa !10
   %94 = xor i64 %93, %92
   store i64 %94, ptr %8, align 8, !tbaa !9
@@ -205,7 +205,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %10
   store i8 %109, ptr %110, align 1, !tbaa !9
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.1.lcssa
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph113, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph113, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph113
   %.pre131 = load i64, ptr %8, align 8, !tbaa !9
@@ -281,12 +281,11 @@ attributes #5 = { nounwind memory(none) }
 !15 = !{i64 2148274127}
 !16 = !{i64 2148274292}
 !17 = !{i64 2148274457}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = !{i64 2148274646}
-!23 = !{i64 2148274811}
-!24 = !{i64 2148274976}
-!25 = !{i64 2148275142}
-!26 = distinct !{!26, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = !{i64 2148274646}
+!22 = !{i64 2148274811}
+!23 = !{i64 2148274976}
+!24 = !{i64 2148275142}
+!25 = distinct !{!25, !19}

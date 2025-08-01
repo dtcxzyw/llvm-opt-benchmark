@@ -94,7 +94,7 @@ qtx_cleanup_txl.exit:                             ; preds = %.lr.ph.i, %3
 
 qtx_cleanup_txl.exit15:                           ; preds = %.lr.ph.i11, %qtx_cleanup_txl.exit
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 155) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %9
@@ -104,7 +104,7 @@ qtx_cleanup_txl.exit15:                           ; preds = %.lr.ph.i11, %qtx_cl
   tail call void @ossl_qrl_enc_level_set_discard(ptr noundef nonnull %8, i32 noundef %.016) #11
   %10 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %10, 4
-  br i1 %exitcond.not, label %11, label %9, !llvm.loop !36
+  br i1 %exitcond.not, label %11, label %9, !llvm.loop !35
 
 11:                                               ; preds = %9
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 161) #11
@@ -121,11 +121,11 @@ declare void @ossl_qrl_enc_level_set_discard(ptr noundef, i32 noundef) local_unn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_qtx_set_mutator(ptr noundef writeonly captures(none) initializes((976, 1000)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  store ptr %1, ptr %5, align 8, !tbaa !37
+  store ptr %1, ptr %5, align 8, !tbaa !36
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  store ptr %2, ptr %6, align 8, !tbaa !38
+  store ptr %2, ptr %6, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 992
-  store ptr %3, ptr %7, align 8, !tbaa !39
+  store ptr %3, ptr %7, align 8, !tbaa !38
   ret void
 }
 
@@ -193,7 +193,7 @@ define range(i32 0, 2) i32 @ossl_qtx_calculate_ciphertext_payload_len(ptr nounde
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %10 = load i32, ptr %9, align 8, !tbaa !40
+  %10 = load i32, ptr %9, align 8, !tbaa !39
   %11 = tail call i32 @ossl_qrl_get_suite_cipher_tag_len(i32 noundef %10) #11
   %12 = zext i32 %11 to i64
   %13 = add i64 %2, %12
@@ -202,7 +202,7 @@ define range(i32 0, 2) i32 @ossl_qtx_calculate_ciphertext_payload_len(ptr nounde
 14:                                               ; preds = %4, %8
   %storemerge = phi i64 [ %13, %8 ], [ 0, %4 ]
   %.0 = phi i32 [ 1, %8 ], [ 0, %4 ]
-  store i64 %storemerge, ptr %3, align 8, !tbaa !47
+  store i64 %storemerge, ptr %3, align 8, !tbaa !46
   ret i32 %.0
 }
 
@@ -217,7 +217,7 @@ define range(i32 0, 2) i32 @ossl_qtx_calculate_plaintext_payload_len(ptr noundef
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %10 = load i32, ptr %9, align 8, !tbaa !40
+  %10 = load i32, ptr %9, align 8, !tbaa !39
   %11 = tail call i32 @ossl_qrl_get_suite_cipher_tag_len(i32 noundef %10) #11
   %12 = zext i32 %11 to i64
   %.not = icmp ugt i64 %2, %12
@@ -228,7 +228,7 @@ define range(i32 0, 2) i32 @ossl_qtx_calculate_plaintext_payload_len(ptr noundef
 13:                                               ; preds = %8, %4
   %.sink = phi i64 [ 0, %4 ], [ %spec.select, %8 ]
   %.0 = phi i32 [ 0, %4 ], [ %spec.select14, %8 ]
-  store i64 %.sink, ptr %3, align 8, !tbaa !47
+  store i64 %.sink, ptr %3, align 8, !tbaa !46
   ret i32 %.0
 }
 
@@ -244,9 +244,9 @@ define range(i32 0, 2) i32 @ossl_qtx_write_pkt(ptr noundef %0, ptr noundef reado
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %13 = load i32, ptr %12, align 8, !tbaa !48
+  %13 = load i32, ptr %12, align 8, !tbaa !47
   %14 = and i32 %13, 1
-  %15 = load ptr, ptr %1, align 8, !tbaa !53
+  %15 = load ptr, ptr %1, align 8, !tbaa !52
   %16 = icmp eq ptr %15, null
   br i1 %16, label %ossl_qtx_finish_dgram.exit90, label %17
 
@@ -276,20 +276,20 @@ ossl_quic_pkt_type_to_enc_level.exit.thread:      ; preds = %17
 23:                                               ; preds = %ossl_quic_pkt_type_to_enc_level.exit.thread, %switch.lookup
   %.0.i96 = phi i32 [ 4, %ossl_quic_pkt_type_to_enc_level.exit.thread ], [ %switch.load, %switch.lookup ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %25 = load ptr, ptr %24, align 8, !tbaa !35
+  %25 = load ptr, ptr %24, align 8, !tbaa !34
   %26 = icmp eq ptr %25, null
   br i1 %26, label %ossl_qtx_finish_dgram.exit.thread, label %27
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %29 = load i64, ptr %28, align 8, !tbaa !54
+  %29 = load i64, ptr %28, align 8, !tbaa !53
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %31, label %41
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %34 = load ptr, ptr %33, align 8, !tbaa !55
+  %34 = load ptr, ptr %33, align 8, !tbaa !54
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %36, label %35
 
@@ -299,9 +299,9 @@ ossl_quic_pkt_type_to_enc_level.exit.thread:      ; preds = %17
 
 36:                                               ; preds = %35, %31
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %34, ptr %37, align 8, !tbaa !56
+  store ptr %34, ptr %37, align 8, !tbaa !55
   store ptr null, ptr %25, align 8, !tbaa !29
-  store ptr %25, ptr %33, align 8, !tbaa !55
+  store ptr %25, ptr %33, align 8, !tbaa !54
   %38 = load ptr, ptr %32, align 8, !tbaa !28
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %ossl_list_txe_insert_tail.exit.i
@@ -313,7 +313,7 @@ ossl_quic_pkt_type_to_enc_level.exit.thread:      ; preds = %17
 41:                                               ; preds = %27
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %44 = load ptr, ptr %43, align 8, !tbaa !55
+  %44 = load ptr, ptr %43, align 8, !tbaa !54
   %.not.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i, label %46, label %45
 
@@ -323,9 +323,9 @@ ossl_quic_pkt_type_to_enc_level.exit.thread:      ; preds = %17
 
 46:                                               ; preds = %45, %41
   %47 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %44, ptr %47, align 8, !tbaa !56
+  store ptr %44, ptr %47, align 8, !tbaa !55
   store ptr null, ptr %25, align 8, !tbaa !29
-  store ptr %25, ptr %43, align 8, !tbaa !55
+  store ptr %25, ptr %43, align 8, !tbaa !54
   %48 = load ptr, ptr %42, align 8, !tbaa !28
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %qtx_add_to_pending.exit.i
@@ -336,27 +336,27 @@ ossl_quic_pkt_type_to_enc_level.exit.thread:      ; preds = %17
 
 qtx_add_to_pending.exit.i:                        ; preds = %50, %46
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %52 = load i64, ptr %51, align 8, !tbaa !57
+  %52 = load i64, ptr %51, align 8, !tbaa !56
   %53 = add i64 %52, 1
-  store i64 %53, ptr %51, align 8, !tbaa !57
+  store i64 %53, ptr %51, align 8, !tbaa !56
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %55 = load i64, ptr %54, align 8, !tbaa !58
+  %55 = load i64, ptr %54, align 8, !tbaa !57
   %56 = add i64 %55, 1
-  store i64 %56, ptr %54, align 8, !tbaa !58
+  store i64 %56, ptr %54, align 8, !tbaa !57
   br label %ossl_list_txe_insert_tail.exit.i
 
 ossl_list_txe_insert_tail.exit.i:                 ; preds = %qtx_add_to_pending.exit.i, %40, %36
   %.sink13.i = phi i64 [ 936, %qtx_add_to_pending.exit.i ], [ 896, %36 ], [ 896, %40 ]
   %.sink12.i = phi i64 [ %29, %qtx_add_to_pending.exit.i ], [ 1, %36 ], [ 1, %40 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13.i
-  %58 = load i64, ptr %57, align 8, !tbaa !47
+  %58 = load i64, ptr %57, align 8, !tbaa !46
   %59 = add i64 %58, %.sink12.i
-  store i64 %59, ptr %57, align 8, !tbaa !47
+  store i64 %59, ptr %57, align 8, !tbaa !46
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 968
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  %61 = load i64, ptr %60, align 8, !tbaa !59
+  %61 = load i64, ptr %60, align 8, !tbaa !58
   %62 = add i64 %61, 1
-  store i64 %62, ptr %60, align 8, !tbaa !59
+  store i64 %62, ptr %60, align 8, !tbaa !58
   br label %ossl_qtx_finish_dgram.exit.thread
 
 63:                                               ; preds = %switch.lookup
@@ -371,21 +371,21 @@ ossl_qtx_finish_dgram.exit.thread:                ; preds = %ossl_list_txe_inser
 
 ossl_qtx_finish_dgram.exit:                       ; preds = %63
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !34
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %.not52 = icmp eq ptr %.pre, null
   br i1 %.not52, label %ossl_qtx_finish_dgram.exit69, label %68
 
 68:                                               ; preds = %ossl_qtx_finish_dgram.exit
   %69 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %70 = load i64, ptr %69, align 8, !tbaa !54
+  %70 = load i64, ptr %69, align 8, !tbaa !53
   %.not = icmp eq i64 %70, 0
   br i1 %.not, label %ossl_qtx_finish_dgram.exit69, label %71
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !60
+  %74 = load ptr, ptr %73, align 8, !tbaa !59
   %75 = tail call i32 @BIO_ADDR_family(ptr noundef nonnull %72) #11
   %76 = icmp eq i32 %75, 0
   %77 = icmp eq ptr %74, null
@@ -408,10 +408,10 @@ addr_eq.exit:                                     ; preds = %79, %82
   br i1 %.not110, label %addr_eq.exit.thread, label %addr_eq.exit.thread101
 
 addr_eq.exit.thread:                              ; preds = %78, %79, %addr_eq.exit
-  %83 = load ptr, ptr %67, align 8, !tbaa !35
+  %83 = load ptr, ptr %67, align 8, !tbaa !34
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 144
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %86 = load ptr, ptr %85, align 8, !tbaa !61
+  %86 = load ptr, ptr %85, align 8, !tbaa !60
   %87 = tail call i32 @BIO_ADDR_family(ptr noundef nonnull %84) #11
   %88 = icmp eq i32 %87, 0
   %89 = icmp eq ptr %86, null
@@ -434,20 +434,20 @@ addr_eq.exit62:                                   ; preds = %91, %94
   br i1 %.not112, label %ossl_qtx_finish_dgram.exit69, label %addr_eq.exit.thread101
 
 addr_eq.exit.thread101:                           ; preds = %94, %82, %addr_eq.exit62, %addr_eq.exit
-  %95 = load ptr, ptr %67, align 8, !tbaa !35
+  %95 = load ptr, ptr %67, align 8, !tbaa !34
   %96 = icmp eq ptr %95, null
   br i1 %96, label %ossl_qtx_finish_dgram.exit69, label %97
 
 97:                                               ; preds = %addr_eq.exit.thread101
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %99 = load i64, ptr %98, align 8, !tbaa !54
+  %99 = load i64, ptr %98, align 8, !tbaa !53
   %100 = icmp eq i64 %99, 0
   br i1 %100, label %101, label %111
 
 101:                                              ; preds = %97
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %104 = load ptr, ptr %103, align 8, !tbaa !55
+  %104 = load ptr, ptr %103, align 8, !tbaa !54
   %.not.i.i68 = icmp eq ptr %104, null
   br i1 %.not.i.i68, label %106, label %105
 
@@ -457,9 +457,9 @@ addr_eq.exit.thread101:                           ; preds = %94, %82, %addr_eq.e
 
 106:                                              ; preds = %105, %101
   %107 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store ptr %104, ptr %107, align 8, !tbaa !56
+  store ptr %104, ptr %107, align 8, !tbaa !55
   store ptr null, ptr %95, align 8, !tbaa !29
-  store ptr %95, ptr %103, align 8, !tbaa !55
+  store ptr %95, ptr %103, align 8, !tbaa !54
   %108 = load ptr, ptr %102, align 8, !tbaa !28
   %109 = icmp eq ptr %108, null
   br i1 %109, label %110, label %ossl_list_txe_insert_tail.exit.i65
@@ -471,7 +471,7 @@ addr_eq.exit.thread101:                           ; preds = %94, %82, %addr_eq.e
 111:                                              ; preds = %97
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %114 = load ptr, ptr %113, align 8, !tbaa !55
+  %114 = load ptr, ptr %113, align 8, !tbaa !54
   %.not.i.i.i63 = icmp eq ptr %114, null
   br i1 %.not.i.i.i63, label %116, label %115
 
@@ -481,9 +481,9 @@ addr_eq.exit.thread101:                           ; preds = %94, %82, %addr_eq.e
 
 116:                                              ; preds = %115, %111
   %117 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store ptr %114, ptr %117, align 8, !tbaa !56
+  store ptr %114, ptr %117, align 8, !tbaa !55
   store ptr null, ptr %95, align 8, !tbaa !29
-  store ptr %95, ptr %113, align 8, !tbaa !55
+  store ptr %95, ptr %113, align 8, !tbaa !54
   %118 = load ptr, ptr %112, align 8, !tbaa !28
   %119 = icmp eq ptr %118, null
   br i1 %119, label %120, label %qtx_add_to_pending.exit.i64
@@ -494,27 +494,27 @@ addr_eq.exit.thread101:                           ; preds = %94, %82, %addr_eq.e
 
 qtx_add_to_pending.exit.i64:                      ; preds = %120, %116
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %122 = load i64, ptr %121, align 8, !tbaa !57
+  %122 = load i64, ptr %121, align 8, !tbaa !56
   %123 = add i64 %122, 1
-  store i64 %123, ptr %121, align 8, !tbaa !57
+  store i64 %123, ptr %121, align 8, !tbaa !56
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %125 = load i64, ptr %124, align 8, !tbaa !58
+  %125 = load i64, ptr %124, align 8, !tbaa !57
   %126 = add i64 %125, 1
-  store i64 %126, ptr %124, align 8, !tbaa !58
+  store i64 %126, ptr %124, align 8, !tbaa !57
   br label %ossl_list_txe_insert_tail.exit.i65
 
 ossl_list_txe_insert_tail.exit.i65:               ; preds = %qtx_add_to_pending.exit.i64, %110, %106
   %.sink13.i66 = phi i64 [ 936, %qtx_add_to_pending.exit.i64 ], [ 896, %106 ], [ 896, %110 ]
   %.sink12.i67 = phi i64 [ %99, %qtx_add_to_pending.exit.i64 ], [ 1, %106 ], [ 1, %110 ]
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13.i66
-  %128 = load i64, ptr %127, align 8, !tbaa !47
+  %128 = load i64, ptr %127, align 8, !tbaa !46
   %129 = add i64 %128, %.sink12.i67
-  store i64 %129, ptr %127, align 8, !tbaa !47
+  store i64 %129, ptr %127, align 8, !tbaa !46
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 968
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
-  %131 = load i64, ptr %130, align 8, !tbaa !59
+  %131 = load i64, ptr %130, align 8, !tbaa !58
   %132 = add i64 %131, 1
-  store i64 %132, ptr %130, align 8, !tbaa !59
+  store i64 %132, ptr %130, align 8, !tbaa !58
   br label %ossl_qtx_finish_dgram.exit69
 
 ossl_qtx_finish_dgram.exit69:                     ; preds = %ossl_qtx_finish_dgram.exit.thread, %90, %91, %ossl_qtx_finish_dgram.exit, %ossl_list_txe_insert_tail.exit.i65, %addr_eq.exit.thread101, %addr_eq.exit62, %68
@@ -545,7 +545,7 @@ ossl_qtx_finish_dgram.exit69:                     ; preds = %ossl_qtx_finish_dgr
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %.pre141 = load ptr, ptr %133, align 8, !tbaa !35
+  %.pre141 = load ptr, ptr %133, align 8, !tbaa !34
   br label %ossl_qtx_finish_dgram.exit83
 
 ossl_qtx_finish_dgram.exit83:                     ; preds = %ossl_qtx_finish_dgram.exit83.backedge, %ossl_qtx_finish_dgram.exit69
@@ -572,10 +572,10 @@ ossl_qtx_finish_dgram.exit83:                     ; preds = %ossl_qtx_finish_dgr
 
 167:                                              ; preds = %163
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 24
-  store i64 %.pre148, ptr %168, align 8, !tbaa !62
+  store i64 %.pre148, ptr %168, align 8, !tbaa !61
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  store i64 0, ptr %169, align 8, !tbaa !54
-  %170 = load ptr, ptr %137, align 8, !tbaa !55
+  store i64 0, ptr %169, align 8, !tbaa !53
+  %170 = load ptr, ptr %137, align 8, !tbaa !54
   %.not.i.i.i72 = icmp eq ptr %170, null
   br i1 %.not.i.i.i72, label %172, label %171
 
@@ -585,13 +585,13 @@ ossl_qtx_finish_dgram.exit83:                     ; preds = %ossl_qtx_finish_dgr
 
 172:                                              ; preds = %171, %167
   %173 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store ptr %170, ptr %173, align 8, !tbaa !56
+  store ptr %170, ptr %173, align 8, !tbaa !55
   store ptr null, ptr %165, align 8, !tbaa !29
   %174 = load ptr, ptr %136, align 8, !tbaa !28
   %175 = icmp eq ptr %174, null
-  %176 = load i64, ptr %138, align 8, !tbaa !57
+  %176 = load i64, ptr %138, align 8, !tbaa !56
   %177 = add i64 %176, 1
-  store i64 %177, ptr %138, align 8, !tbaa !57
+  store i64 %177, ptr %138, align 8, !tbaa !56
   %178 = icmp eq ptr %174, %165
   %or.cond.i = or i1 %175, %178
   br i1 %or.cond.i, label %.thread160, label %.thread
@@ -602,9 +602,9 @@ ossl_qtx_finish_dgram.exit83:                     ; preds = %ossl_qtx_finish_dgr
 
 179:                                              ; preds = %160
   %.pre142 = load ptr, ptr %.val.i.i, align 8, !tbaa !29
-  %.pre143.pre = load ptr, ptr %137, align 8, !tbaa !55
+  %.pre143.pre = load ptr, ptr %137, align 8, !tbaa !54
   %.phi.trans.insert144.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
-  %.pre145.pre = load ptr, ptr %.phi.trans.insert144.phi.trans.insert, align 8, !tbaa !56
+  %.pre145.pre = load ptr, ptr %.phi.trans.insert144.phi.trans.insert, align 8, !tbaa !55
   %180 = icmp eq ptr %.pre143.pre, %.val.i.i
   store ptr %.pre142, ptr %136, align 8, !tbaa !28
   br i1 %180, label %.thread, label %._crit_edge.i.i
@@ -613,7 +613,7 @@ ossl_qtx_finish_dgram.exit83:                     ; preds = %ossl_qtx_finish_dgr
   %.0.i20.i159 = phi ptr [ %.val.i.i, %179 ], [ %165, %.thread160 ], [ %165, %172 ]
   %181 = phi ptr [ %.pre145.pre, %179 ], [ %170, %.thread160 ], [ %170, %172 ]
   %.pre19.i.i157 = phi ptr [ %.pre142, %179 ], [ null, %.thread160 ], [ null, %172 ]
-  store ptr %181, ptr %137, align 8, !tbaa !55
+  store ptr %181, ptr %137, align 8, !tbaa !54
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.thread, %179
@@ -633,18 +633,18 @@ ossl_qtx_finish_dgram.exit83:                     ; preds = %ossl_qtx_finish_dgr
 
 185:                                              ; preds = %184
   %186 = getelementptr inbounds nuw i8, ptr %.pre19.i.i156, i64 8
-  store ptr %182, ptr %186, align 8, !tbaa !56
+  store ptr %182, ptr %186, align 8, !tbaa !55
   br label %ossl_list_txe_remove.exit.i
 
 ossl_list_txe_remove.exit.i:                      ; preds = %185, %184
-  %187 = load i64, ptr %138, align 8, !tbaa !57
+  %187 = load i64, ptr %138, align 8, !tbaa !56
   %188 = add i64 %187, -1
-  store i64 %188, ptr %138, align 8, !tbaa !57
+  store i64 %188, ptr %138, align 8, !tbaa !56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i20.i158, i8 0, i64 16, i1 false)
-  store ptr %.0.i20.i158, ptr %133, align 8, !tbaa !35
-  store i64 0, ptr %139, align 8, !tbaa !63
+  store ptr %.0.i20.i158, ptr %133, align 8, !tbaa !34
+  store i64 0, ptr %139, align 8, !tbaa !62
   %189 = getelementptr inbounds nuw i8, ptr %.0.i20.i158, i64 16
-  store i64 0, ptr %189, align 8, !tbaa !54
+  store i64 0, ptr %189, align 8, !tbaa !53
   %.pre147 = load i64, ptr %135, align 8, !tbaa !23
   br label %qtx_ensure_cons.exit
 
@@ -652,7 +652,7 @@ qtx_ensure_cons.exit:                             ; preds = %ossl_list_txe_remov
   %190 = phi i64 [ %.pre147, %ossl_list_txe_remove.exit.i ], [ %.pre148, %ossl_qtx_finish_dgram.exit83 ]
   %.0.i70 = phi ptr [ %.0.i20.i158, %ossl_list_txe_remove.exit.i ], [ %159, %ossl_qtx_finish_dgram.exit83 ]
   %191 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 24
-  %192 = load i64, ptr %191, align 8, !tbaa !62
+  %192 = load i64, ptr %191, align 8, !tbaa !61
   %.not.i73 = icmp ult i64 %192, %190
   br i1 %.not.i73, label %ossl_qtx_finish_dgram.exit90, label %193
 
@@ -660,13 +660,13 @@ qtx_ensure_cons.exit:                             ; preds = %ossl_list_txe_remov
   br i1 %.1, label %194, label %204
 
 194:                                              ; preds = %193
-  %195 = load ptr, ptr %140, align 8, !tbaa !60
+  %195 = load ptr, ptr %140, align 8, !tbaa !59
   %.not57 = icmp eq ptr %195, null
   %196 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 32
   br i1 %.not57, label %198, label %197
 
 197:                                              ; preds = %194
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %196, ptr noundef nonnull align 4 dereferenceable(112) %195, i64 112, i1 false), !tbaa.struct !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %196, ptr noundef nonnull align 4 dereferenceable(112) %195, i64 112, i1 false), !tbaa.struct !63
   br label %199
 
 198:                                              ; preds = %194
@@ -674,13 +674,13 @@ qtx_ensure_cons.exit:                             ; preds = %ossl_list_txe_remov
   br label %199
 
 199:                                              ; preds = %198, %197
-  %200 = load ptr, ptr %141, align 8, !tbaa !61
+  %200 = load ptr, ptr %141, align 8, !tbaa !60
   %.not58 = icmp eq ptr %200, null
   %201 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 144
   br i1 %.not58, label %203, label %202
 
 202:                                              ; preds = %199
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %201, ptr noundef nonnull align 4 dereferenceable(112) %200, i64 112, i1 false), !tbaa.struct !64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %201, ptr noundef nonnull align 4 dereferenceable(112) %200, i64 112, i1 false), !tbaa.struct !63
   br label %204
 
 203:                                              ; preds = %199
@@ -691,15 +691,15 @@ qtx_ensure_cons.exit:                             ; preds = %ossl_list_txe_remov
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #11
-  %205 = load ptr, ptr %142, align 8, !tbaa !37
+  %205 = load ptr, ptr %142, align 8, !tbaa !36
   %.not.i74 = icmp eq ptr %205, null
-  %206 = load ptr, ptr %1, align 8, !tbaa !53
+  %206 = load ptr, ptr %1, align 8, !tbaa !52
   br i1 %.not.i74, label %212, label %207
 
 207:                                              ; preds = %204
-  %208 = load ptr, ptr %143, align 8, !tbaa !66
-  %209 = load i64, ptr %144, align 8, !tbaa !67
-  %210 = load ptr, ptr %145, align 8, !tbaa !39
+  %208 = load ptr, ptr %143, align 8, !tbaa !65
+  %209 = load i64, ptr %144, align 8, !tbaa !66
+  %210 = load ptr, ptr %145, align 8, !tbaa !38
   %211 = call i32 %205(ptr noundef %206, ptr noundef %208, i64 noundef %209, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %210) #11
   %.not23.i = icmp eq i32 %211, 0
   br i1 %.not23.i, label %qtx_mutate_write.exit.thread, label %thread-pre-split.i
@@ -711,17 +711,17 @@ qtx_mutate_write.exit.thread:                     ; preds = %207
   br label %ossl_qtx_finish_dgram.exit90
 
 212:                                              ; preds = %204
-  store ptr %206, ptr %9, align 8, !tbaa !68
-  %213 = load ptr, ptr %143, align 8, !tbaa !66
-  store ptr %213, ptr %10, align 8, !tbaa !69
-  %214 = load i64, ptr %144, align 8, !tbaa !67
-  store i64 %214, ptr %11, align 8, !tbaa !47
+  store ptr %206, ptr %9, align 8, !tbaa !67
+  %213 = load ptr, ptr %143, align 8, !tbaa !65
+  store ptr %213, ptr %10, align 8, !tbaa !68
+  %214 = load i64, ptr %144, align 8, !tbaa !66
+  store i64 %214, ptr %11, align 8, !tbaa !46
   br label %215
 
 thread-pre-split.i:                               ; preds = %207
-  %.pr.i = load i64, ptr %11, align 8, !tbaa !47
-  %.pre.i = load ptr, ptr %9, align 8, !tbaa !68
-  %.pre53.i = load ptr, ptr %10, align 8, !tbaa !69
+  %.pr.i = load i64, ptr %11, align 8, !tbaa !46
+  %.pre.i = load ptr, ptr %9, align 8, !tbaa !67
+  %.pre53.i = load ptr, ptr %10, align 8, !tbaa !68
   br label %215
 
 215:                                              ; preds = %thread-pre-split.i, %212
@@ -737,14 +737,14 @@ thread-pre-split.i:                               ; preds = %207
 221:                                              ; preds = %215
   %222 = call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %146, i32 noundef range(i32 0, 5) %.0.i95153, i32 noundef 1) #11
   %.not62.i.i = icmp eq ptr %222, null
-  br i1 %.not62.i.i, label %qtx_write.exit.i, label %223, !prof !70
+  br i1 %.not62.i.i, label %qtx_write.exit.i, label %223, !prof !69
 
 223:                                              ; preds = %221, %215
   %.056.i.i = phi i64 [ 21, %221 ], [ 7, %215 ]
   %.053.i.i = phi ptr [ %222, %221 ], [ null, %215 ]
   %224 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 16
-  %225 = load i64, ptr %224, align 8, !tbaa !54
-  %226 = load i64, ptr %191, align 8, !tbaa !62
+  %225 = load i64, ptr %224, align 8, !tbaa !53
+  %226 = load i64, ptr %191, align 8, !tbaa !61
   %227 = sub i64 %226, %225
   %228 = icmp ult i64 %227, %.056.i.i
   br i1 %228, label %iovec_cur_init.exit.thread.i.i, label %229
@@ -757,7 +757,7 @@ thread-pre-split.i:                               ; preds = %207
 
 233:                                              ; preds = %229
   %234 = getelementptr inbounds nuw i8, ptr %.053.i.i, i64 80
-  %235 = load i64, ptr %234, align 8, !tbaa !71
+  %235 = load i64, ptr %234, align 8, !tbaa !70
   %236 = trunc i64 %235 to i32
   %237 = shl i32 %236, 9
   %238 = and i32 %237, 512
@@ -774,11 +774,11 @@ thread-pre-split.i:                               ; preds = %207
   %.08.i.i.i.i = phi i64 [ %244, %.lr.ph.i.i.i.i ], [ 0, %241 ]
   %.067.i.i.i.i = phi i64 [ %245, %.lr.ph.i.i.i.i ], [ 0, %241 ]
   %242 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %216, i64 %.067.i.i.i.i, i32 1
-  %243 = load i64, ptr %242, align 8, !tbaa !72
+  %243 = load i64, ptr %242, align 8, !tbaa !71
   %244 = add i64 %243, %.08.i.i.i.i
   %245 = add nuw i64 %.067.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %245, %218
-  br i1 %exitcond.not.i.i.i.i, label %iovec_cur_init.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !74
+  br i1 %exitcond.not.i.i.i.i, label %iovec_cur_init.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !73
 
 iovec_cur_init.exit.i.i:                          ; preds = %.lr.ph.i.i.i.i
   %246 = icmp eq i64 %244, 0
@@ -794,7 +794,7 @@ iovec_cur_init.exit.i.i:                          ; preds = %.lr.ph.i.i.i.i
 
 251:                                              ; preds = %248
   %252 = getelementptr inbounds nuw i8, ptr %249, i64 96
-  %253 = load i32, ptr %252, align 8, !tbaa !40
+  %253 = load i32, ptr %252, align 8, !tbaa !39
   %254 = call i32 @ossl_qrl_get_suite_cipher_tag_len(i32 noundef %253) #11
   %255 = zext i32 %254 to i64
   %256 = add i64 %244, %255
@@ -803,11 +803,11 @@ iovec_cur_init.exit.i.i:                          ; preds = %.lr.ph.i.i.i.i
 ossl_qtx_calculate_ciphertext_payload_len.exit.i.i: ; preds = %251, %248, %247
   %.084.i.i = phi i64 [ %256, %251 ], [ 0, %248 ], [ %244, %247 ]
   %257 = getelementptr inbounds nuw i8, ptr %217, i64 80
-  store ptr null, ptr %257, align 8, !tbaa !75
+  store ptr null, ptr %257, align 8, !tbaa !74
   %258 = getelementptr inbounds nuw i8, ptr %217, i64 72
-  store i64 %.084.i.i, ptr %258, align 8, !tbaa !78
+  store i64 %.084.i.i, ptr %258, align 8, !tbaa !77
   %259 = getelementptr inbounds nuw i8, ptr %217, i64 8
-  %260 = load i8, ptr %259, align 8, !tbaa !79
+  %260 = load i8, ptr %259, align 8, !tbaa !78
   %261 = zext i8 %260 to i64
   %262 = call i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %261, ptr noundef nonnull %217) #11
   %263 = icmp eq i32 %262, 0
@@ -826,7 +826,7 @@ ossl_qtx_calculate_ciphertext_payload_len.exit.i.i: ; preds = %251, %248, %247
   br i1 %switch.selectcmp.i.i.not.i.i, label %278, label %271
 
 271:                                              ; preds = %268
-  %272 = load i64, ptr %147, align 8, !tbaa !80
+  %272 = load i64, ptr %147, align 8, !tbaa !79
   %273 = getelementptr inbounds nuw i8, ptr %217, i64 50
   %274 = lshr i32 %269, 10
   %275 = and i32 %274, 15
@@ -837,19 +837,19 @@ ossl_qtx_calculate_ciphertext_payload_len.exit.i.i: ; preds = %251, %248, %247
 
 278:                                              ; preds = %271, %268
   %279 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 256
-  %280 = load i64, ptr %224, align 8, !tbaa !54
+  %280 = load i64, ptr %224, align 8, !tbaa !53
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 %280
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
-  store i64 0, ptr %7, align 8, !tbaa !47
-  %282 = load i64, ptr %191, align 8, !tbaa !62
+  store i64 0, ptr %7, align 8, !tbaa !46
+  %282 = load i64, ptr %191, align 8, !tbaa !61
   %283 = sub i64 %282, %280
   %284 = call i32 @WPACKET_init_static_len(ptr noundef nonnull %6, ptr noundef nonnull %281, i64 noundef %283, i64 noundef 0) #11
   %.not.i.i.i75 = icmp eq i32 %284, 0
   br i1 %.not.i.i.i75, label %qtx_write_hdr.exit.thread.i.i, label %285
 
 285:                                              ; preds = %278
-  %286 = load i8, ptr %259, align 8, !tbaa !79
+  %286 = load i8, ptr %259, align 8, !tbaa !78
   %287 = zext i8 %286 to i64
   %288 = call i32 @ossl_quic_wire_encode_pkt_hdr(ptr noundef nonnull %6, i64 noundef %287, ptr noundef nonnull %217, ptr noundef nonnull %8) #11
   %.not15.i.i.i = icmp eq i32 %288, 0
@@ -866,14 +866,14 @@ ossl_qtx_calculate_ciphertext_payload_len.exit.i.i: ; preds = %251, %248, %247
 
 293:                                              ; preds = %289
   %294 = call i32 @WPACKET_finish(ptr noundef nonnull %6) #11
-  %295 = load ptr, ptr %148, align 8, !tbaa !81
+  %295 = load ptr, ptr %148, align 8, !tbaa !80
   %.not17.i.i.i = icmp eq ptr %295, null
   br i1 %.not17.i.i.i, label %300, label %296
 
 296:                                              ; preds = %293
-  %297 = load i64, ptr %7, align 8, !tbaa !47
-  %298 = load ptr, ptr %149, align 8, !tbaa !82
-  %299 = load ptr, ptr %150, align 8, !tbaa !83
+  %297 = load i64, ptr %7, align 8, !tbaa !46
+  %298 = load ptr, ptr %149, align 8, !tbaa !81
+  %299 = load ptr, ptr %150, align 8, !tbaa !82
   call void %295(i32 noundef 1, i32 noundef 1, i32 noundef 513, ptr noundef nonnull %281, i64 noundef %297, ptr noundef %298, ptr noundef %299) #11
   br label %300
 
@@ -883,10 +883,10 @@ qtx_write_hdr.exit.thread.i.i:                    ; preds = %291, %278
   br label %iovec_cur_init.exit.thread.i.i
 
 300:                                              ; preds = %296, %293
-  %301 = load i64, ptr %7, align 8, !tbaa !47
-  %302 = load i64, ptr %224, align 8, !tbaa !54
+  %301 = load i64, ptr %7, align 8, !tbaa !46
+  %302 = load i64, ptr %224, align 8, !tbaa !53
   %303 = add i64 %302, %301
-  store i64 %303, ptr %224, align 8, !tbaa !54
+  store i64 %303, ptr %224, align 8, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #11
   br i1 %switch.selectcmp.i.not.i.i, label %.lr.ph.i.preheader.i.i, label %317
@@ -901,58 +901,58 @@ qtx_write_hdr.exit.thread.i.i:                    ; preds = %291, %278
   %.sroa.9.1.i.i = phi i64 [ %309, %308 ], [ %.sroa.9.0109.i.i, %.lr.ph.i.preheader.i.i ]
   %305 = phi i64 [ 0, %308 ], [ %.sroa.15.0108.i.i, %.lr.ph.i.preheader.i.i ]
   %306 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %216, i64 %.sroa.9.1.i.i, i32 1
-  %307 = load i64, ptr %306, align 8, !tbaa !72
+  %307 = load i64, ptr %306, align 8, !tbaa !71
   %.not26.i.i.i = icmp eq i64 %307, %305
   br i1 %.not26.i.i.i, label %308, label %310
 
 308:                                              ; preds = %.lr.ph.i.i.i
   %309 = add i64 %.sroa.9.1.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %309, %218
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i, !llvm.loop !84
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i
 
 310:                                              ; preds = %.lr.ph.i.i.i
   %311 = sub i64 %307, %305
   %312 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %216, i64 %.sroa.9.1.i.i
-  %313 = load ptr, ptr %312, align 8, !tbaa !85
+  %313 = load ptr, ptr %312, align 8, !tbaa !83
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 %305
   %315 = getelementptr inbounds nuw i8, ptr %279, i64 %304
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %315, ptr align 1 %314, i64 %311, i1 false)
   %316 = add i64 %311, %304
-  store i64 %316, ptr %224, align 8, !tbaa !54
+  store i64 %316, ptr %224, align 8, !tbaa !53
   %.not33.i.i.i = icmp ult i64 %.sroa.9.1.i.i, %218
-  br i1 %.not33.i.i.i, label %.lr.ph.i.preheader.i.i, label %.loopexit.i, !llvm.loop !86
+  br i1 %.not33.i.i.i, label %.lr.ph.i.preheader.i.i, label %.loopexit.i
 
 317:                                              ; preds = %300
   %gepdiff.i.i = sub nsw i64 %303, %280
-  %318 = load i64, ptr %147, align 8, !tbaa !80
+  %318 = load i64, ptr %147, align 8, !tbaa !79
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
-  store i32 0, ptr %3, align 4, !tbaa !87
+  store i32 0, ptr %3, align 4, !tbaa !84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
-  store i32 0, ptr %4, align 4, !tbaa !87
+  store i32 0, ptr %4, align 4, !tbaa !84
   %319 = call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %146, i32 noundef range(i32 0, 5) %.0.i95153, i32 noundef 1) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   %.not.i69.i.i = icmp eq ptr %319, null
-  br i1 %.not.i69.i.i, label %qtx_encrypt_into_txe.exit.thread.sink.split.i.i, label %320, !prof !70
+  br i1 %.not.i69.i.i, label %qtx_encrypt_into_txe.exit.thread.sink.split.i.i, label %320, !prof !69
 
 320:                                              ; preds = %317
   %321 = getelementptr inbounds nuw i8, ptr %319, i64 88
-  %322 = load i64, ptr %321, align 8, !tbaa !88
+  %322 = load i64, ptr %321, align 8, !tbaa !85
   %323 = getelementptr inbounds nuw i8, ptr %319, i64 96
-  %324 = load i32, ptr %323, align 8, !tbaa !40
+  %324 = load i32, ptr %323, align 8, !tbaa !39
   %325 = call i64 @ossl_qrl_get_suite_max_pkt(i32 noundef %324) #11
   %.not46.i.i.i = icmp ult i64 %322, %325
   br i1 %.not46.i.i.i, label %326, label %qtx_encrypt_into_txe.exit.thread.sink.split.i.i
 
 326:                                              ; preds = %320
   %327 = getelementptr inbounds nuw i8, ptr %319, i64 48
-  %328 = load ptr, ptr %327, align 8, !tbaa !89
+  %328 = load ptr, ptr %327, align 8, !tbaa !86
   %.not47.i.i.i = icmp eq ptr %328, null
-  br i1 %.not47.i.i.i, label %qtx_encrypt_into_txe.exit.thread.sink.split.i.i, label %329, !prof !70
+  br i1 %.not47.i.i.i, label %qtx_encrypt_into_txe.exit.thread.sink.split.i.i, label %329, !prof !69
 
 329:                                              ; preds = %326
   %330 = call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef nonnull %328) #11
   %331 = icmp sgt i32 %330, 7
-  br i1 %331, label %332, label %qtx_encrypt_into_txe.exit.thread.sink.split.i.i, !prof !90
+  br i1 %331, label %332, label %qtx_encrypt_into_txe.exit.thread.sink.split.i.i, !prof !87
 
 332:                                              ; preds = %329
   %333 = getelementptr inbounds nuw i8, ptr %319, i64 106
@@ -968,12 +968,12 @@ qtx_write_hdr.exit.thread.i.i:                    ; preds = %291, %278
   %339 = xor i64 %.04171.i.i.i, -1
   %340 = add nsw i64 %339, %334
   %341 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %340
-  %342 = load i8, ptr %341, align 1, !tbaa !65
+  %342 = load i8, ptr %341, align 1, !tbaa !64
   %343 = xor i8 %342, %338
-  store i8 %343, ptr %341, align 1, !tbaa !65
+  store i8 %343, ptr %341, align 1, !tbaa !64
   %344 = add nuw nsw i64 %.04171.i.i.i, 1
   %exitcond.not.i71.i.i = icmp eq i64 %344, 8
-  br i1 %exitcond.not.i71.i.i, label %345, label %335, !llvm.loop !91
+  br i1 %exitcond.not.i71.i.i, label %345, label %335, !llvm.loop !88
 
 345:                                              ; preds = %335
   %346 = call i32 @EVP_CipherInit_ex(ptr noundef nonnull %328, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %5, i32 noundef 1) #11
@@ -995,20 +995,20 @@ qtx_write_hdr.exit.thread.i.i:                    ; preds = %291, %278
 
 .lr.ph.i.i72.i.i:                                 ; preds = %.lr.ph.i.i72.i.i.outer, %364
   %352 = phi i64 [ %353, %364 ], [ 0, %.lr.ph.i.i72.i.i.outer ]
-  %353 = load i64, ptr %350, align 8, !tbaa !72
+  %353 = load i64, ptr %350, align 8, !tbaa !71
   %.not26.i.i.i.i = icmp eq i64 %353, %352
   br i1 %.not26.i.i.i.i, label %354, label %356
 
 354:                                              ; preds = %.lr.ph.i.i72.i.i
   %355 = add i64 %.sroa.9.4.i.i.ph, 1
   %exitcond.not.i.i73.i.i = icmp eq i64 %355, %218
-  br i1 %exitcond.not.i.i73.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i72.i.i.outer, !llvm.loop !84
+  br i1 %exitcond.not.i.i73.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i72.i.i.outer
 
 356:                                              ; preds = %.lr.ph.i.i72.i.i
   %357 = sub i64 %353, %352
-  %358 = load ptr, ptr %351, align 8, !tbaa !85
+  %358 = load ptr, ptr %351, align 8, !tbaa !83
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 %352
-  %360 = load i64, ptr %224, align 8, !tbaa !54
+  %360 = load i64, ptr %224, align 8, !tbaa !53
   %361 = getelementptr inbounds nuw i8, ptr %279, i64 %360
   %362 = trunc i64 %357 to i32
   %363 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %328, ptr noundef nonnull %361, ptr noundef nonnull %3, ptr noundef %359, i32 noundef %362) #11
@@ -1016,9 +1016,9 @@ qtx_write_hdr.exit.thread.i.i:                    ; preds = %291, %278
   br i1 %.not50.i.i.i, label %364, label %qtx_encrypt_into_txe.exit.thread.sink.split.i.i
 
 364:                                              ; preds = %356
-  %365 = load i64, ptr %224, align 8, !tbaa !54
+  %365 = load i64, ptr %224, align 8, !tbaa !53
   %366 = add i64 %365, %357
-  store i64 %366, ptr %224, align 8, !tbaa !54
+  store i64 %366, ptr %224, align 8, !tbaa !53
   br i1 %.not33.i.i.i.i, label %.lr.ph.i.i72.i.i, label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %354, %364
@@ -1028,19 +1028,19 @@ qtx_write_hdr.exit.thread.i.i:                    ; preds = %291, %278
 
 368:                                              ; preds = %.loopexit.i.i.i
   %369 = getelementptr inbounds nuw i8, ptr %319, i64 100
-  %370 = load i32, ptr %369, align 4, !tbaa !92
-  %371 = load i64, ptr %224, align 8, !tbaa !54
+  %370 = load i32, ptr %369, align 4, !tbaa !89
+  %371 = load i64, ptr %224, align 8, !tbaa !53
   %372 = getelementptr inbounds nuw i8, ptr %279, i64 %371
   %373 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %328, i32 noundef 16, i32 noundef %370, ptr noundef nonnull %372) #11
   %.not52.i.i.i = icmp eq i32 %373, 1
   br i1 %.not52.i.i.i, label %374, label %qtx_encrypt_into_txe.exit.thread.sink.split.i.i
 
 374:                                              ; preds = %368
-  %375 = load i32, ptr %369, align 4, !tbaa !92
+  %375 = load i32, ptr %369, align 4, !tbaa !89
   %376 = zext i32 %375 to i64
-  %377 = load i64, ptr %224, align 8, !tbaa !54
+  %377 = load i64, ptr %224, align 8, !tbaa !53
   %378 = add i64 %377, %376
-  store i64 %378, ptr %224, align 8, !tbaa !54
+  store i64 %378, ptr %224, align 8, !tbaa !53
   %379 = call i32 @ossl_quic_hdr_protector_encrypt(ptr noundef nonnull %319, ptr noundef nonnull %8) #11
   %.not53.i.i.i = icmp eq i32 %379, 0
   br i1 %.not53.i.i.i, label %qtx_encrypt_into_txe.exit.thread.i.i, label %qtx_encrypt_into_txe.exit.i.i
@@ -1060,9 +1060,9 @@ qtx_encrypt_into_txe.exit.thread.i.i:             ; preds = %qtx_encrypt_into_tx
   br label %iovec_cur_init.exit.thread.i.i
 
 qtx_encrypt_into_txe.exit.i.i:                    ; preds = %374
-  %380 = load i64, ptr %321, align 8, !tbaa !88
+  %380 = load i64, ptr %321, align 8, !tbaa !85
   %381 = add i64 %380, 1
-  store i64 %381, ptr %321, align 8, !tbaa !88
+  store i64 %381, ptr %321, align 8, !tbaa !85
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
@@ -1070,7 +1070,7 @@ qtx_encrypt_into_txe.exit.i.i:                    ; preds = %374
 
 iovec_cur_init.exit.thread.i.i:                   ; preds = %qtx_encrypt_into_txe.exit.thread.i.i, %qtx_write_hdr.exit.thread.i.i, %271, %264, %ossl_qtx_calculate_ciphertext_payload_len.exit.i.i, %iovec_cur_init.exit.i.i, %241, %223
   %.054.i.i = phi i32 [ -2, %223 ], [ -1, %iovec_cur_init.exit.i.i ], [ -1, %ossl_qtx_calculate_ciphertext_payload_len.exit.i.i ], [ -2, %264 ], [ -1, %271 ], [ -1, %qtx_write_hdr.exit.thread.i.i ], [ -1, %qtx_encrypt_into_txe.exit.thread.i.i ], [ -1, %241 ]
-  store i64 %225, ptr %224, align 8, !tbaa !54
+  store i64 %225, ptr %224, align 8, !tbaa !53
   br label %qtx_write.exit.i
 
 qtx_write.exit.i:                                 ; preds = %iovec_cur_init.exit.thread.i.i, %221
@@ -1091,22 +1091,22 @@ qtx_write.exit.i:                                 ; preds = %iovec_cur_init.exit
 
 qtx_get_qlog.exit.i:                              ; preds = %384, %.loopexit.i
   %.0.i25.i = phi ptr [ %386, %384 ], [ null, %.loopexit.i ]
-  %387 = load ptr, ptr %9, align 8, !tbaa !68
-  %388 = load i64, ptr %147, align 8, !tbaa !80
-  %389 = load ptr, ptr %10, align 8, !tbaa !69
-  %390 = load i64, ptr %11, align 8, !tbaa !47
-  %391 = load i64, ptr %153, align 8, !tbaa !59
+  %387 = load ptr, ptr %9, align 8, !tbaa !67
+  %388 = load i64, ptr %147, align 8, !tbaa !79
+  %389 = load ptr, ptr %10, align 8, !tbaa !68
+  %390 = load i64, ptr %11, align 8, !tbaa !46
+  %391 = load i64, ptr %153, align 8, !tbaa !58
   call void @ossl_qlog_event_transport_packet_sent(ptr noundef %.0.i25.i, ptr noundef %387, i64 noundef %388, ptr noundef %389, i64 noundef %390, i64 noundef %391) #11
   br label %392
 
 392:                                              ; preds = %qtx_get_qlog.exit.i, %qtx_write.exit.i
   %.0.i27.i = phi i32 [ 1, %qtx_get_qlog.exit.i ], [ %.0.i.i, %qtx_write.exit.i ]
-  %393 = load ptr, ptr %154, align 8, !tbaa !38
+  %393 = load ptr, ptr %154, align 8, !tbaa !37
   %.not24.i = icmp eq ptr %393, null
   br i1 %.not24.i, label %qtx_mutate_write.exit, label %394
 
 394:                                              ; preds = %392
-  %395 = load ptr, ptr %145, align 8, !tbaa !39
+  %395 = load ptr, ptr %145, align 8, !tbaa !38
   call void %393(ptr noundef %395) #11
   br label %qtx_mutate_write.exit
 
@@ -1123,21 +1123,21 @@ qtx_mutate_write.exit:                            ; preds = %392, %394
   br i1 %.1, label %ossl_qtx_finish_dgram.exit90, label %397
 
 397:                                              ; preds = %396
-  %398 = load ptr, ptr %133, align 8, !tbaa !35
+  %398 = load ptr, ptr %133, align 8, !tbaa !34
   %399 = icmp eq ptr %398, null
   br i1 %399, label %ossl_qtx_finish_dgram.exit83.backedge, label %400
 
 ossl_qtx_finish_dgram.exit83.backedge:            ; preds = %397, %ossl_list_txe_insert_tail.exit.i79
-  br label %ossl_qtx_finish_dgram.exit83, !llvm.loop !93
+  br label %ossl_qtx_finish_dgram.exit83
 
 400:                                              ; preds = %397
   %401 = getelementptr inbounds nuw i8, ptr %398, i64 16
-  %402 = load i64, ptr %401, align 8, !tbaa !54
+  %402 = load i64, ptr %401, align 8, !tbaa !53
   %403 = icmp eq i64 %402, 0
   br i1 %403, label %404, label %412
 
 404:                                              ; preds = %400
-  %405 = load ptr, ptr %137, align 8, !tbaa !55
+  %405 = load ptr, ptr %137, align 8, !tbaa !54
   %.not.i.i82 = icmp eq ptr %405, null
   br i1 %.not.i.i82, label %407, label %406
 
@@ -1147,9 +1147,9 @@ ossl_qtx_finish_dgram.exit83.backedge:            ; preds = %397, %ossl_list_txe
 
 407:                                              ; preds = %406, %404
   %408 = getelementptr inbounds nuw i8, ptr %398, i64 8
-  store ptr %405, ptr %408, align 8, !tbaa !56
+  store ptr %405, ptr %408, align 8, !tbaa !55
   store ptr null, ptr %398, align 8, !tbaa !29
-  store ptr %398, ptr %137, align 8, !tbaa !55
+  store ptr %398, ptr %137, align 8, !tbaa !54
   %409 = load ptr, ptr %136, align 8, !tbaa !28
   %410 = icmp eq ptr %409, null
   br i1 %410, label %411, label %ossl_list_txe_insert_tail.exit.i79
@@ -1159,7 +1159,7 @@ ossl_qtx_finish_dgram.exit83.backedge:            ; preds = %397, %ossl_list_txe
   br label %ossl_list_txe_insert_tail.exit.i79
 
 412:                                              ; preds = %400
-  %413 = load ptr, ptr %156, align 8, !tbaa !55
+  %413 = load ptr, ptr %156, align 8, !tbaa !54
   %.not.i.i.i77 = icmp eq ptr %413, null
   br i1 %.not.i.i.i77, label %415, label %414
 
@@ -1169,9 +1169,9 @@ ossl_qtx_finish_dgram.exit83.backedge:            ; preds = %397, %ossl_list_txe
 
 415:                                              ; preds = %414, %412
   %416 = getelementptr inbounds nuw i8, ptr %398, i64 8
-  store ptr %413, ptr %416, align 8, !tbaa !56
+  store ptr %413, ptr %416, align 8, !tbaa !55
   store ptr null, ptr %398, align 8, !tbaa !29
-  store ptr %398, ptr %156, align 8, !tbaa !55
+  store ptr %398, ptr %156, align 8, !tbaa !54
   %417 = load ptr, ptr %155, align 8, !tbaa !28
   %418 = icmp eq ptr %417, null
   br i1 %418, label %419, label %qtx_add_to_pending.exit.i78
@@ -1181,32 +1181,32 @@ ossl_qtx_finish_dgram.exit83.backedge:            ; preds = %397, %ossl_list_txe
   br label %qtx_add_to_pending.exit.i78
 
 qtx_add_to_pending.exit.i78:                      ; preds = %419, %415
-  %420 = load i64, ptr %157, align 8, !tbaa !57
+  %420 = load i64, ptr %157, align 8, !tbaa !56
   %421 = add i64 %420, 1
-  store i64 %421, ptr %157, align 8, !tbaa !57
-  %422 = load i64, ptr %158, align 8, !tbaa !58
+  store i64 %421, ptr %157, align 8, !tbaa !56
+  %422 = load i64, ptr %158, align 8, !tbaa !57
   %423 = add i64 %422, 1
-  store i64 %423, ptr %158, align 8, !tbaa !58
+  store i64 %423, ptr %158, align 8, !tbaa !57
   br label %ossl_list_txe_insert_tail.exit.i79
 
 ossl_list_txe_insert_tail.exit.i79:               ; preds = %qtx_add_to_pending.exit.i78, %411, %407
   %.sink13.i80 = phi i64 [ 936, %qtx_add_to_pending.exit.i78 ], [ 896, %407 ], [ 896, %411 ]
   %.sink12.i81 = phi i64 [ %402, %qtx_add_to_pending.exit.i78 ], [ 1, %407 ], [ 1, %411 ]
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13.i80
-  %425 = load i64, ptr %424, align 8, !tbaa !47
+  %425 = load i64, ptr %424, align 8, !tbaa !46
   %426 = add i64 %425, %.sink12.i81
-  store i64 %426, ptr %424, align 8, !tbaa !47
+  store i64 %426, ptr %424, align 8, !tbaa !46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, i8 0, i64 16, i1 false)
-  %427 = load i64, ptr %153, align 8, !tbaa !59
+  %427 = load i64, ptr %153, align 8, !tbaa !58
   %428 = add i64 %427, 1
-  store i64 %428, ptr %153, align 8, !tbaa !59
+  store i64 %428, ptr %153, align 8, !tbaa !58
   br label %ossl_qtx_finish_dgram.exit83.backedge
 
 429:                                              ; preds = %qtx_mutate_write.exit
-  %430 = load i64, ptr %139, align 8, !tbaa !63
+  %430 = load i64, ptr %139, align 8, !tbaa !62
   %431 = add i64 %430, 1
-  store i64 %431, ptr %139, align 8, !tbaa !63
-  %432 = load ptr, ptr %1, align 8, !tbaa !53
+  store i64 %431, ptr %139, align 8, !tbaa !62
+  %432 = load ptr, ptr %1, align 8, !tbaa !52
   %433 = load i32, ptr %432, align 8
   %434 = and i32 %433, 255
   %435 = and i32 %433, 253
@@ -1218,18 +1218,18 @@ ossl_list_txe_insert_tail.exit.i79:               ; preds = %qtx_add_to_pending.
   br i1 %.not60, label %437, label %ossl_qtx_finish_dgram.exit90
 
 437:                                              ; preds = %429
-  %438 = load ptr, ptr %133, align 8, !tbaa !35
+  %438 = load ptr, ptr %133, align 8, !tbaa !34
   %439 = icmp eq ptr %438, null
   br i1 %439, label %ossl_qtx_finish_dgram.exit90, label %440
 
 440:                                              ; preds = %437
   %441 = getelementptr inbounds nuw i8, ptr %438, i64 16
-  %442 = load i64, ptr %441, align 8, !tbaa !54
+  %442 = load i64, ptr %441, align 8, !tbaa !53
   %443 = icmp eq i64 %442, 0
   br i1 %443, label %444, label %452
 
 444:                                              ; preds = %440
-  %445 = load ptr, ptr %137, align 8, !tbaa !55
+  %445 = load ptr, ptr %137, align 8, !tbaa !54
   %.not.i.i89 = icmp eq ptr %445, null
   br i1 %.not.i.i89, label %447, label %446
 
@@ -1239,9 +1239,9 @@ ossl_list_txe_insert_tail.exit.i79:               ; preds = %qtx_add_to_pending.
 
 447:                                              ; preds = %446, %444
   %448 = getelementptr inbounds nuw i8, ptr %438, i64 8
-  store ptr %445, ptr %448, align 8, !tbaa !56
+  store ptr %445, ptr %448, align 8, !tbaa !55
   store ptr null, ptr %438, align 8, !tbaa !29
-  store ptr %438, ptr %137, align 8, !tbaa !55
+  store ptr %438, ptr %137, align 8, !tbaa !54
   %449 = load ptr, ptr %136, align 8, !tbaa !28
   %450 = icmp eq ptr %449, null
   br i1 %450, label %451, label %ossl_list_txe_insert_tail.exit.i86
@@ -1251,7 +1251,7 @@ ossl_list_txe_insert_tail.exit.i79:               ; preds = %qtx_add_to_pending.
   br label %ossl_list_txe_insert_tail.exit.i86
 
 452:                                              ; preds = %440
-  %453 = load ptr, ptr %156, align 8, !tbaa !55
+  %453 = load ptr, ptr %156, align 8, !tbaa !54
   %.not.i.i.i84 = icmp eq ptr %453, null
   br i1 %.not.i.i.i84, label %455, label %454
 
@@ -1261,9 +1261,9 @@ ossl_list_txe_insert_tail.exit.i79:               ; preds = %qtx_add_to_pending.
 
 455:                                              ; preds = %454, %452
   %456 = getelementptr inbounds nuw i8, ptr %438, i64 8
-  store ptr %453, ptr %456, align 8, !tbaa !56
+  store ptr %453, ptr %456, align 8, !tbaa !55
   store ptr null, ptr %438, align 8, !tbaa !29
-  store ptr %438, ptr %156, align 8, !tbaa !55
+  store ptr %438, ptr %156, align 8, !tbaa !54
   %457 = load ptr, ptr %155, align 8, !tbaa !28
   %458 = icmp eq ptr %457, null
   br i1 %458, label %459, label %qtx_add_to_pending.exit.i85
@@ -1273,25 +1273,25 @@ ossl_list_txe_insert_tail.exit.i79:               ; preds = %qtx_add_to_pending.
   br label %qtx_add_to_pending.exit.i85
 
 qtx_add_to_pending.exit.i85:                      ; preds = %459, %455
-  %460 = load i64, ptr %157, align 8, !tbaa !57
+  %460 = load i64, ptr %157, align 8, !tbaa !56
   %461 = add i64 %460, 1
-  store i64 %461, ptr %157, align 8, !tbaa !57
-  %462 = load i64, ptr %158, align 8, !tbaa !58
+  store i64 %461, ptr %157, align 8, !tbaa !56
+  %462 = load i64, ptr %158, align 8, !tbaa !57
   %463 = add i64 %462, 1
-  store i64 %463, ptr %158, align 8, !tbaa !58
+  store i64 %463, ptr %158, align 8, !tbaa !57
   br label %ossl_list_txe_insert_tail.exit.i86
 
 ossl_list_txe_insert_tail.exit.i86:               ; preds = %qtx_add_to_pending.exit.i85, %451, %447
   %.sink13.i87 = phi i64 [ 936, %qtx_add_to_pending.exit.i85 ], [ 896, %447 ], [ 896, %451 ]
   %.sink12.i88 = phi i64 [ %442, %qtx_add_to_pending.exit.i85 ], [ 1, %447 ], [ 1, %451 ]
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13.i87
-  %465 = load i64, ptr %464, align 8, !tbaa !47
+  %465 = load i64, ptr %464, align 8, !tbaa !46
   %466 = add i64 %465, %.sink12.i88
-  store i64 %466, ptr %464, align 8, !tbaa !47
+  store i64 %466, ptr %464, align 8, !tbaa !46
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, i8 0, i64 16, i1 false)
-  %467 = load i64, ptr %153, align 8, !tbaa !59
+  %467 = load i64, ptr %153, align 8, !tbaa !58
   %468 = add i64 %467, 1
-  store i64 %468, ptr %153, align 8, !tbaa !59
+  store i64 %468, ptr %153, align 8, !tbaa !58
   br label %ossl_qtx_finish_dgram.exit90
 
 ossl_qtx_finish_dgram.exit90:                     ; preds = %163, %161, %qtx_mutate_write.exit, %396, %qtx_ensure_cons.exit, %ossl_quic_pkt_type_to_enc_level.exit.thread, %ossl_list_txe_insert_tail.exit.i86, %437, %qtx_mutate_write.exit.thread, %429, %63, %2
@@ -1302,20 +1302,20 @@ ossl_qtx_finish_dgram.exit90:                     ; preds = %163, %161, %qtx_mut
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @ossl_qtx_finish_dgram(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %4 = icmp eq ptr %3, null
   br i1 %4, label %41, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !54
+  %7 = load i64, ptr %6, align 8, !tbaa !53
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %12 = load ptr, ptr %11, align 8, !tbaa !55
+  %12 = load ptr, ptr %11, align 8, !tbaa !54
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %14, label %13
 
@@ -1325,9 +1325,9 @@ define void @ossl_qtx_finish_dgram(ptr noundef captures(none) %0) local_unnamed_
 
 14:                                               ; preds = %13, %9
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %12, ptr %15, align 8, !tbaa !56
+  store ptr %12, ptr %15, align 8, !tbaa !55
   store ptr null, ptr %3, align 8, !tbaa !29
-  store ptr %3, ptr %11, align 8, !tbaa !55
+  store ptr %3, ptr %11, align 8, !tbaa !54
   %16 = load ptr, ptr %10, align 8, !tbaa !28
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %ossl_list_txe_insert_tail.exit
@@ -1339,7 +1339,7 @@ define void @ossl_qtx_finish_dgram(ptr noundef captures(none) %0) local_unnamed_
 19:                                               ; preds = %5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %22 = load ptr, ptr %21, align 8, !tbaa !55
+  %22 = load ptr, ptr %21, align 8, !tbaa !54
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %24, label %23
 
@@ -1349,9 +1349,9 @@ define void @ossl_qtx_finish_dgram(ptr noundef captures(none) %0) local_unnamed_
 
 24:                                               ; preds = %23, %19
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %22, ptr %25, align 8, !tbaa !56
+  store ptr %22, ptr %25, align 8, !tbaa !55
   store ptr null, ptr %3, align 8, !tbaa !29
-  store ptr %3, ptr %21, align 8, !tbaa !55
+  store ptr %3, ptr %21, align 8, !tbaa !54
   %26 = load ptr, ptr %20, align 8, !tbaa !28
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %qtx_add_to_pending.exit
@@ -1362,27 +1362,27 @@ define void @ossl_qtx_finish_dgram(ptr noundef captures(none) %0) local_unnamed_
 
 qtx_add_to_pending.exit:                          ; preds = %24, %28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %30 = load i64, ptr %29, align 8, !tbaa !57
+  %30 = load i64, ptr %29, align 8, !tbaa !56
   %31 = add i64 %30, 1
-  store i64 %31, ptr %29, align 8, !tbaa !57
+  store i64 %31, ptr %29, align 8, !tbaa !56
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %33 = load i64, ptr %32, align 8, !tbaa !58
+  %33 = load i64, ptr %32, align 8, !tbaa !57
   %34 = add i64 %33, 1
-  store i64 %34, ptr %32, align 8, !tbaa !58
+  store i64 %34, ptr %32, align 8, !tbaa !57
   br label %ossl_list_txe_insert_tail.exit
 
 ossl_list_txe_insert_tail.exit:                   ; preds = %18, %14, %qtx_add_to_pending.exit
   %.sink13 = phi i64 [ 936, %qtx_add_to_pending.exit ], [ 896, %14 ], [ 896, %18 ]
   %.sink12 = phi i64 [ %7, %qtx_add_to_pending.exit ], [ 1, %14 ], [ 1, %18 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink13
-  %36 = load i64, ptr %35, align 8, !tbaa !47
+  %36 = load i64, ptr %35, align 8, !tbaa !46
   %37 = add i64 %36, %.sink12
-  store i64 %37, ptr %35, align 8, !tbaa !47
+  store i64 %37, ptr %35, align 8, !tbaa !46
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 968
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %39 = load i64, ptr %38, align 8, !tbaa !59
+  %39 = load i64, ptr %38, align 8, !tbaa !58
   %40 = add i64 %39, 1
-  store i64 %40, ptr %38, align 8, !tbaa !59
+  store i64 %40, ptr %38, align 8, !tbaa !58
   br label %41
 
 41:                                               ; preds = %1, %ossl_list_txe_insert_tail.exit
@@ -1436,31 +1436,31 @@ define range(i32 -2, 2) i32 @ossl_qtx_flush_net(ptr noundef captures(none) %0) l
   %.02839 = phi i64 [ %34, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %20 = getelementptr inbounds nuw [32 x %struct.bio_msg_st], ptr %2, i64 0, i64 %.02839
   %21 = getelementptr inbounds nuw i8, ptr %.02640, i64 256
-  store ptr %21, ptr %20, align 8, !tbaa !94
+  store ptr %21, ptr %20, align 8, !tbaa !90
   %22 = getelementptr inbounds nuw i8, ptr %.02640, i64 16
-  %23 = load i64, ptr %22, align 8, !tbaa !54
+  %23 = load i64, ptr %22, align 8, !tbaa !53
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 %23, ptr %24, align 8, !tbaa !96
+  store i64 %23, ptr %24, align 8, !tbaa !92
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store i64 0, ptr %25, align 8, !tbaa !97
+  store i64 0, ptr %25, align 8, !tbaa !93
   %26 = getelementptr inbounds nuw i8, ptr %.02640, i64 32
   %27 = call i32 @BIO_ADDR_family(ptr noundef nonnull %26) #11
   %.not.i = icmp eq i32 %27, 0
   %28 = select i1 %.not.i, ptr null, ptr %26
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %28, ptr %29, align 8, !tbaa !98
+  store ptr %28, ptr %29, align 8, !tbaa !94
   %30 = getelementptr inbounds nuw i8, ptr %.02640, i64 144
   %31 = call i32 @BIO_ADDR_family(ptr noundef nonnull %30) #11
   %.not11.i = icmp eq i32 %31, 0
   %32 = select i1 %.not11.i, ptr null, ptr %30
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store ptr %32, ptr %33, align 8, !tbaa !99
+  store ptr %32, ptr %33, align 8, !tbaa !95
   %34 = add nuw nsw i64 %.02839, 1
-  %.026 = load ptr, ptr %.02640, align 8, !tbaa !100
+  %.026 = load ptr, ptr %.02640, align 8, !tbaa !96
   %35 = icmp ne ptr %.026, null
   %36 = icmp samesign ult i64 %.02839, 31
   %37 = select i1 %35, i1 %36, i1 false
-  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !101
+  br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %38 = call i32 @ERR_set_mark() #11
@@ -1496,23 +1496,23 @@ define range(i32 -2, 2) i32 @ossl_qtx_flush_net(ptr noundef captures(none) %0) l
 
 55:                                               ; preds = %46
   %56 = call i32 @ERR_clear_last_mark() #11
-  %57 = load i64, ptr %3, align 8, !tbaa !47
+  %57 = load i64, ptr %3, align 8, !tbaa !46
   %.not47 = icmp eq i64 %57, 0
   br i1 %.not47, label %._crit_edge44, label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %55, %qtx_pending_to_free.exit
   %.141 = phi i64 [ %93, %qtx_pending_to_free.exit ], [ 0, %55 ]
-  %58 = load ptr, ptr %10, align 8, !tbaa !81
+  %58 = load ptr, ptr %10, align 8, !tbaa !80
   %.not32 = icmp eq ptr %58, null
   br i1 %.not32, label %66, label %59
 
 59:                                               ; preds = %.lr.ph43
   %60 = getelementptr inbounds nuw [32 x %struct.bio_msg_st], ptr %2, i64 0, i64 %.141
-  %61 = load ptr, ptr %60, align 8, !tbaa !94
+  %61 = load ptr, ptr %60, align 8, !tbaa !90
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %63 = load i64, ptr %62, align 8, !tbaa !96
-  %64 = load ptr, ptr %11, align 8, !tbaa !82
-  %65 = load ptr, ptr %12, align 8, !tbaa !83
+  %63 = load i64, ptr %62, align 8, !tbaa !92
+  %64 = load ptr, ptr %11, align 8, !tbaa !81
+  %65 = load ptr, ptr %12, align 8, !tbaa !82
   call void %58(i32 noundef 1, i32 noundef 1, i32 noundef 512, ptr noundef %61, i64 noundef %63, ptr noundef %64, ptr noundef %65) #11
   br label %66
 
@@ -1520,14 +1520,14 @@ define range(i32 -2, 2) i32 @ossl_qtx_flush_net(ptr noundef captures(none) %0) l
   %.val.i = load ptr, ptr %4, align 8, !tbaa !28
   %67 = load ptr, ptr %.val.i, align 8, !tbaa !29
   store ptr %67, ptr %4, align 8, !tbaa !28
-  %68 = load ptr, ptr %13, align 8, !tbaa !55
+  %68 = load ptr, ptr %13, align 8, !tbaa !54
   %69 = icmp eq ptr %68, %.val.i
   %70 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !56
+  %71 = load ptr, ptr %70, align 8, !tbaa !55
   br i1 %69, label %72, label %._crit_edge.i.i
 
 72:                                               ; preds = %66
-  store ptr %71, ptr %13, align 8, !tbaa !55
+  store ptr %71, ptr %13, align 8, !tbaa !54
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %72, %66
@@ -1544,23 +1544,23 @@ define range(i32 -2, 2) i32 @ossl_qtx_flush_net(ptr noundef captures(none) %0) l
 
 75:                                               ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store ptr %71, ptr %76, align 8, !tbaa !56
+  store ptr %71, ptr %76, align 8, !tbaa !55
   br label %ossl_list_txe_remove.exit.i
 
 ossl_list_txe_remove.exit.i:                      ; preds = %75, %74
-  %77 = load i64, ptr %14, align 8, !tbaa !57
+  %77 = load i64, ptr %14, align 8, !tbaa !56
   %78 = add i64 %77, -1
-  store i64 %78, ptr %14, align 8, !tbaa !57
+  store i64 %78, ptr %14, align 8, !tbaa !56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val.i, i8 0, i64 16, i1 false)
-  %79 = load i64, ptr %15, align 8, !tbaa !58
+  %79 = load i64, ptr %15, align 8, !tbaa !57
   %80 = add i64 %79, -1
-  store i64 %80, ptr %15, align 8, !tbaa !58
+  store i64 %80, ptr %15, align 8, !tbaa !57
   %81 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  %82 = load i64, ptr %81, align 8, !tbaa !54
-  %83 = load i64, ptr %16, align 8, !tbaa !102
+  %82 = load i64, ptr %81, align 8, !tbaa !53
+  %83 = load i64, ptr %16, align 8, !tbaa !98
   %84 = sub i64 %83, %82
-  store i64 %84, ptr %16, align 8, !tbaa !102
-  %85 = load ptr, ptr %18, align 8, !tbaa !55
+  store i64 %84, ptr %16, align 8, !tbaa !98
+  %85 = load ptr, ptr %18, align 8, !tbaa !54
   %.not.i8.i = icmp eq ptr %85, null
   br i1 %.not.i8.i, label %87, label %86
 
@@ -1569,9 +1569,9 @@ ossl_list_txe_remove.exit.i:                      ; preds = %75, %74
   br label %87
 
 87:                                               ; preds = %86, %ossl_list_txe_remove.exit.i
-  store ptr %85, ptr %70, align 8, !tbaa !56
+  store ptr %85, ptr %70, align 8, !tbaa !55
   store ptr null, ptr %.val.i, align 8, !tbaa !29
-  store ptr %.val.i, ptr %18, align 8, !tbaa !55
+  store ptr %.val.i, ptr %18, align 8, !tbaa !54
   %88 = load ptr, ptr %17, align 8, !tbaa !28
   %89 = icmp eq ptr %88, null
   br i1 %89, label %90, label %qtx_pending_to_free.exit
@@ -1581,20 +1581,20 @@ ossl_list_txe_remove.exit.i:                      ; preds = %75, %74
   br label %qtx_pending_to_free.exit
 
 qtx_pending_to_free.exit:                         ; preds = %87, %90
-  %91 = load i64, ptr %19, align 8, !tbaa !57
+  %91 = load i64, ptr %19, align 8, !tbaa !56
   %92 = add i64 %91, 1
-  store i64 %92, ptr %19, align 8, !tbaa !57
+  store i64 %92, ptr %19, align 8, !tbaa !56
   %93 = add nuw i64 %.141, 1
-  %94 = load i64, ptr %3, align 8, !tbaa !47
+  %94 = load i64, ptr %3, align 8, !tbaa !46
   %95 = icmp ult i64 %93, %94
-  br i1 %95, label %.lr.ph43, label %._crit_edge44, !llvm.loop !103
+  br i1 %95, label %.lr.ph43, label %._crit_edge44, !llvm.loop !99
 
 ._crit_edge44:                                    ; preds = %qtx_pending_to_free.exit, %55
   %.lcssa = phi i64 [ 0, %55 ], [ %94, %qtx_pending_to_free.exit ]
   %96 = add i64 %.lcssa, %.02767
-  %.02638.pre = load ptr, ptr %4, align 8, !tbaa !100
+  %.02638.pre = load ptr, ptr %4, align 8, !tbaa !96
   %.not46 = icmp eq ptr %.02638.pre, null
-  br i1 %.not46, label %.loopexit, label %.lr.ph.preheader, !llvm.loop !104
+  br i1 %.not46, label %.loopexit, label %.lr.ph.preheader
 
 .loopexit:                                        ; preds = %._crit_edge44, %51, %44
   %.02765 = phi i64 [ %.02767, %51 ], [ %.02767, %44 ], [ %96, %._crit_edge44 ]
@@ -1630,37 +1630,37 @@ define range(i32 0, 2) i32 @ossl_qtx_pop_net(ptr noundef captures(none) %0, ptr 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 256
-  store ptr %6, ptr %1, align 8, !tbaa !94
+  store ptr %6, ptr %1, align 8, !tbaa !90
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !54
+  %8 = load i64, ptr %7, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %8, ptr %9, align 8, !tbaa !96
+  store i64 %8, ptr %9, align 8, !tbaa !92
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 0, ptr %10, align 8, !tbaa !97
+  store i64 0, ptr %10, align 8, !tbaa !93
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %12 = tail call i32 @BIO_ADDR_family(ptr noundef nonnull %11) #11
   %.not.i = icmp eq i32 %12, 0
   %13 = select i1 %.not.i, ptr null, ptr %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %13, ptr %14, align 8, !tbaa !98
+  store ptr %13, ptr %14, align 8, !tbaa !94
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 144
   %16 = tail call i32 @BIO_ADDR_family(ptr noundef nonnull %15) #11
   %.not11.i = icmp eq i32 %16, 0
   %17 = select i1 %.not11.i, ptr null, ptr %15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %17, ptr %18, align 8, !tbaa !99
+  store ptr %17, ptr %18, align 8, !tbaa !95
   %.val.i = load ptr, ptr %3, align 8, !tbaa !28
   %19 = load ptr, ptr %.val.i, align 8, !tbaa !29
   store ptr %19, ptr %3, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %21 = load ptr, ptr %20, align 8, !tbaa !55
+  %21 = load ptr, ptr %20, align 8, !tbaa !54
   %22 = icmp eq ptr %21, %.val.i
   %23 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !56
+  %24 = load ptr, ptr %23, align 8, !tbaa !55
   br i1 %22, label %25, label %._crit_edge.i.i
 
 25:                                               ; preds = %5
-  store ptr %24, ptr %20, align 8, !tbaa !55
+  store ptr %24, ptr %20, align 8, !tbaa !54
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %25, %5
@@ -1677,28 +1677,28 @@ define range(i32 0, 2) i32 @ossl_qtx_pop_net(ptr noundef captures(none) %0, ptr 
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %24, ptr %29, align 8, !tbaa !56
+  store ptr %24, ptr %29, align 8, !tbaa !55
   br label %ossl_list_txe_remove.exit.i
 
 ossl_list_txe_remove.exit.i:                      ; preds = %28, %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %31 = load i64, ptr %30, align 8, !tbaa !57
+  %31 = load i64, ptr %30, align 8, !tbaa !56
   %32 = add i64 %31, -1
-  store i64 %32, ptr %30, align 8, !tbaa !57
+  store i64 %32, ptr %30, align 8, !tbaa !56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val.i, i8 0, i64 16, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %34 = load i64, ptr %33, align 8, !tbaa !58
+  %34 = load i64, ptr %33, align 8, !tbaa !57
   %35 = add i64 %34, -1
-  store i64 %35, ptr %33, align 8, !tbaa !58
+  store i64 %35, ptr %33, align 8, !tbaa !57
   %36 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !54
+  %37 = load i64, ptr %36, align 8, !tbaa !53
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %39 = load i64, ptr %38, align 8, !tbaa !102
+  %39 = load i64, ptr %38, align 8, !tbaa !98
   %40 = sub i64 %39, %37
-  store i64 %40, ptr %38, align 8, !tbaa !102
+  store i64 %40, ptr %38, align 8, !tbaa !98
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %43 = load ptr, ptr %42, align 8, !tbaa !55
+  %43 = load ptr, ptr %42, align 8, !tbaa !54
   %.not.i8.i = icmp eq ptr %43, null
   br i1 %.not.i8.i, label %45, label %44
 
@@ -1707,9 +1707,9 @@ ossl_list_txe_remove.exit.i:                      ; preds = %28, %27
   br label %45
 
 45:                                               ; preds = %44, %ossl_list_txe_remove.exit.i
-  store ptr %43, ptr %23, align 8, !tbaa !56
+  store ptr %43, ptr %23, align 8, !tbaa !55
   store ptr null, ptr %.val.i, align 8, !tbaa !29
-  store ptr %.val.i, ptr %42, align 8, !tbaa !55
+  store ptr %.val.i, ptr %42, align 8, !tbaa !54
   %46 = load ptr, ptr %41, align 8, !tbaa !28
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %qtx_pending_to_free.exit
@@ -1720,9 +1720,9 @@ ossl_list_txe_remove.exit.i:                      ; preds = %28, %27
 
 qtx_pending_to_free.exit:                         ; preds = %45, %48
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %50 = load i64, ptr %49, align 8, !tbaa !57
+  %50 = load i64, ptr %49, align 8, !tbaa !56
   %51 = add i64 %50, 1
-  store i64 %51, ptr %49, align 8, !tbaa !57
+  store i64 %51, ptr %49, align 8, !tbaa !56
   br label %52
 
 52:                                               ; preds = %2, %qtx_pending_to_free.exit
@@ -1762,27 +1762,27 @@ define i64 @ossl_qtx_get_mdpl(ptr noundef readonly captures(none) %0) local_unna
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_qtx_get_queue_len_datagrams(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %3 = load i64, ptr %2, align 8, !tbaa !58
+  %3 = load i64, ptr %2, align 8, !tbaa !57
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_qtx_get_queue_len_bytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %3 = load i64, ptr %2, align 8, !tbaa !102
+  %3 = load i64, ptr %2, align 8, !tbaa !98
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i64 @ossl_qtx_get_cur_dgram_len_bytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !54
+  %6 = load i64, ptr %5, align 8, !tbaa !53
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -1793,7 +1793,7 @@ define i64 @ossl_qtx_get_cur_dgram_len_bytes(ptr noundef readonly captures(none)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @ossl_qtx_get_unflushed_pkt_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %3 = load i64, ptr %2, align 8, !tbaa !63
+  %3 = load i64, ptr %2, align 8, !tbaa !62
   ret i64 %3
 }
 
@@ -1815,7 +1815,7 @@ define i64 @ossl_qtx_get_cur_epoch_pkt_count(ptr noundef %0, i32 noundef %1) loc
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %8 = load i64, ptr %7, align 8, !tbaa !88
+  %8 = load i64, ptr %7, align 8, !tbaa !85
   br label %9
 
 9:                                                ; preds = %2, %6
@@ -1832,7 +1832,7 @@ define i64 @ossl_qtx_get_max_epoch_pkt_count(ptr noundef %0, i32 noundef %1) loc
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %8 = load i32, ptr %7, align 8, !tbaa !40
+  %8 = load i32, ptr %7, align 8, !tbaa !39
   %9 = tail call i64 @ossl_qrl_get_suite_max_pkt(i32 noundef %8) #11
   br label %10
 
@@ -1846,16 +1846,16 @@ declare i64 @ossl_qrl_get_suite_max_pkt(i32 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_qtx_set_msg_callback(ptr noundef writeonly captures(none) initializes((1000, 1008), (1016, 1024)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1000
-  store ptr %1, ptr %4, align 8, !tbaa !81
+  store ptr %1, ptr %4, align 8, !tbaa !80
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  store ptr %2, ptr %5, align 8, !tbaa !82
+  store ptr %2, ptr %5, align 8, !tbaa !81
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_qtx_set_msg_callback_arg(ptr noundef writeonly captures(none) initializes((1008, 1016)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  store ptr %1, ptr %3, align 8, !tbaa !83
+  store ptr %1, ptr %3, align 8, !tbaa !82
   ret void
 }
 
@@ -1868,7 +1868,7 @@ define i64 @ossl_qtx_get_key_epoch(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %7 = load i64, ptr %6, align 8, !tbaa !71
+  %7 = load i64, ptr %6, align 8, !tbaa !70
   br label %8
 
 8:                                                ; preds = %1, %5
@@ -1968,76 +1968,71 @@ attributes #11 = { nounwind }
 !29 = !{!30, !17, i64 0}
 !30 = !{!"txe_st", !31, i64 0, !11, i64 16, !11, i64 24, !7, i64 32, !7, i64 144}
 !31 = !{!"", !17, i64 0, !17, i64 8}
-!32 = distinct !{!32, !33, !34}
+!32 = distinct !{!32, !33}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!"llvm.loop.estimated_trip_count"}
-!35 = !{!14, !17, i64 944}
-!36 = distinct !{!36, !33, !34}
-!37 = !{!14, !6, i64 976}
-!38 = !{!14, !6, i64 984}
-!39 = !{!14, !6, i64 992}
-!40 = !{!41, !45, i64 96}
-!41 = !{!"ossl_qrl_enc_level_st", !42, i64 0, !46, i64 40, !7, i64 48, !5, i64 64, !9, i64 72, !11, i64 80, !11, i64 88, !45, i64 96, !45, i64 100, !7, i64 104, !7, i64 105, !7, i64 106, !7, i64 138}
-!42 = !{!"quic_hdr_protector_st", !5, i64 0, !9, i64 8, !43, i64 16, !44, i64 24, !45, i64 32}
-!43 = !{!"p1 _ZTS17evp_cipher_ctx_st", !6, i64 0}
-!44 = !{!"p1 _ZTS13evp_cipher_st", !6, i64 0}
-!45 = !{!"int", !7, i64 0}
-!46 = !{!"p1 _ZTS9evp_md_st", !6, i64 0}
-!47 = !{!11, !11, i64 0}
-!48 = !{!49, !45, i64 48}
-!49 = !{!"ossl_qtx_pkt_st", !50, i64 0, !51, i64 8, !11, i64 16, !52, i64 24, !52, i64 32, !11, i64 40, !45, i64 48}
-!50 = !{!"p1 _ZTS15quic_pkt_hdr_st", !6, i64 0}
-!51 = !{!"p1 _ZTS17ossl_qtx_iovec_st", !6, i64 0}
-!52 = !{!"p1 _ZTS11bio_addr_st", !6, i64 0}
-!53 = !{!49, !50, i64 0}
-!54 = !{!30, !11, i64 16}
-!55 = !{!16, !17, i64 8}
-!56 = !{!30, !17, i64 8}
-!57 = !{!16, !11, i64 16}
-!58 = !{!14, !11, i64 928}
-!59 = !{!14, !11, i64 968}
-!60 = !{!49, !52, i64 24}
-!61 = !{!49, !52, i64 32}
-!62 = !{!30, !11, i64 24}
-!63 = !{!14, !11, i64 952}
-!64 = !{i64 0, i64 112, !65}
-!65 = !{!7, !7, i64 0}
-!66 = !{!49, !51, i64 8}
-!67 = !{!49, !11, i64 16}
+!34 = !{!14, !17, i64 944}
+!35 = distinct !{!35, !33}
+!36 = !{!14, !6, i64 976}
+!37 = !{!14, !6, i64 984}
+!38 = !{!14, !6, i64 992}
+!39 = !{!40, !44, i64 96}
+!40 = !{!"ossl_qrl_enc_level_st", !41, i64 0, !45, i64 40, !7, i64 48, !5, i64 64, !9, i64 72, !11, i64 80, !11, i64 88, !44, i64 96, !44, i64 100, !7, i64 104, !7, i64 105, !7, i64 106, !7, i64 138}
+!41 = !{!"quic_hdr_protector_st", !5, i64 0, !9, i64 8, !42, i64 16, !43, i64 24, !44, i64 32}
+!42 = !{!"p1 _ZTS17evp_cipher_ctx_st", !6, i64 0}
+!43 = !{!"p1 _ZTS13evp_cipher_st", !6, i64 0}
+!44 = !{!"int", !7, i64 0}
+!45 = !{!"p1 _ZTS9evp_md_st", !6, i64 0}
+!46 = !{!11, !11, i64 0}
+!47 = !{!48, !44, i64 48}
+!48 = !{!"ossl_qtx_pkt_st", !49, i64 0, !50, i64 8, !11, i64 16, !51, i64 24, !51, i64 32, !11, i64 40, !44, i64 48}
+!49 = !{!"p1 _ZTS15quic_pkt_hdr_st", !6, i64 0}
+!50 = !{!"p1 _ZTS17ossl_qtx_iovec_st", !6, i64 0}
+!51 = !{!"p1 _ZTS11bio_addr_st", !6, i64 0}
+!52 = !{!48, !49, i64 0}
+!53 = !{!30, !11, i64 16}
+!54 = !{!16, !17, i64 8}
+!55 = !{!30, !17, i64 8}
+!56 = !{!16, !11, i64 16}
+!57 = !{!14, !11, i64 928}
+!58 = !{!14, !11, i64 968}
+!59 = !{!48, !51, i64 24}
+!60 = !{!48, !51, i64 32}
+!61 = !{!30, !11, i64 24}
+!62 = !{!14, !11, i64 952}
+!63 = !{i64 0, i64 112, !64}
+!64 = !{!7, !7, i64 0}
+!65 = !{!48, !50, i64 8}
+!66 = !{!48, !11, i64 16}
+!67 = !{!49, !49, i64 0}
 !68 = !{!50, !50, i64 0}
-!69 = !{!51, !51, i64 0}
-!70 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!71 = !{!41, !11, i64 80}
-!72 = !{!73, !11, i64 8}
-!73 = !{!"ossl_qtx_iovec_st", !9, i64 0, !11, i64 8}
-!74 = distinct !{!74, !33, !34}
-!75 = !{!76, !9, i64 80}
-!76 = !{!"quic_pkt_hdr_st", !45, i64 0, !45, i64 1, !45, i64 1, !45, i64 1, !45, i64 1, !45, i64 1, !45, i64 2, !45, i64 2, !45, i64 4, !77, i64 8, !77, i64 29, !7, i64 50, !9, i64 56, !11, i64 64, !11, i64 72, !9, i64 80}
-!77 = !{!"quic_conn_id_st", !7, i64 0, !7, i64 1}
-!78 = !{!76, !11, i64 72}
-!79 = !{!76, !7, i64 8}
-!80 = !{!49, !11, i64 40}
-!81 = !{!14, !6, i64 1000}
-!82 = !{!14, !18, i64 1016}
-!83 = !{!14, !6, i64 1008}
-!84 = distinct !{!84, !34}
-!85 = !{!73, !9, i64 0}
-!86 = distinct !{!86, !34}
-!87 = !{!45, !45, i64 0}
-!88 = !{!41, !11, i64 88}
-!89 = !{!43, !43, i64 0}
-!90 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!91 = distinct !{!91, !33, !34}
-!92 = !{!41, !45, i64 100}
-!93 = distinct !{!93, !34}
-!94 = !{!95, !6, i64 0}
-!95 = !{!"bio_msg_st", !6, i64 0, !11, i64 8, !52, i64 16, !52, i64 24, !11, i64 32}
-!96 = !{!95, !11, i64 8}
-!97 = !{!95, !11, i64 32}
-!98 = !{!95, !52, i64 16}
-!99 = !{!95, !52, i64 24}
-!100 = !{!17, !17, i64 0}
-!101 = distinct !{!101, !33, !34}
-!102 = !{!14, !11, i64 936}
-!103 = distinct !{!103, !33, !34}
-!104 = distinct !{!104, !34}
+!69 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!70 = !{!40, !11, i64 80}
+!71 = !{!72, !11, i64 8}
+!72 = !{!"ossl_qtx_iovec_st", !9, i64 0, !11, i64 8}
+!73 = distinct !{!73, !33}
+!74 = !{!75, !9, i64 80}
+!75 = !{!"quic_pkt_hdr_st", !44, i64 0, !44, i64 1, !44, i64 1, !44, i64 1, !44, i64 1, !44, i64 1, !44, i64 2, !44, i64 2, !44, i64 4, !76, i64 8, !76, i64 29, !7, i64 50, !9, i64 56, !11, i64 64, !11, i64 72, !9, i64 80}
+!76 = !{!"quic_conn_id_st", !7, i64 0, !7, i64 1}
+!77 = !{!75, !11, i64 72}
+!78 = !{!75, !7, i64 8}
+!79 = !{!48, !11, i64 40}
+!80 = !{!14, !6, i64 1000}
+!81 = !{!14, !18, i64 1016}
+!82 = !{!14, !6, i64 1008}
+!83 = !{!72, !9, i64 0}
+!84 = !{!44, !44, i64 0}
+!85 = !{!40, !11, i64 88}
+!86 = !{!42, !42, i64 0}
+!87 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!88 = distinct !{!88, !33}
+!89 = !{!40, !44, i64 100}
+!90 = !{!91, !6, i64 0}
+!91 = !{!"bio_msg_st", !6, i64 0, !11, i64 8, !51, i64 16, !51, i64 24, !11, i64 32}
+!92 = !{!91, !11, i64 8}
+!93 = !{!91, !11, i64 32}
+!94 = !{!91, !51, i64 16}
+!95 = !{!91, !51, i64 24}
+!96 = !{!17, !17, i64 0}
+!97 = distinct !{!97, !33}
+!98 = !{!14, !11, i64 936}
+!99 = distinct !{!99, !33}

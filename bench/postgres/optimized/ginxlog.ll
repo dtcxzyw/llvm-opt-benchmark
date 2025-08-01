@@ -1061,7 +1061,7 @@ BufferGetPage.exit.i32:                           ; preds = %536, %530
   %576 = add nuw nsw i32 %.03738.i, 1
   %577 = load i32, ptr %562, align 4
   %578 = icmp slt i32 %576, %577
-  br i1 %578, label %.lr.ph.i36, label %ginRedoInsertListPage.exit, !llvm.loop !9
+  br i1 %578, label %.lr.ph.i36, label %ginRedoInsertListPage.exit, !llvm.loop !8
 
 ginRedoInsertListPage.exit:                       ; preds = %573, %557
   %579 = lshr i64 %525, 32
@@ -1151,7 +1151,7 @@ BufferGetPage.exit22.i41:                         ; preds = %620, %614
   tail call void @UnlockReleaseBuffer(i32 noundef %612) #6
   %627 = load i32, ptr %607, align 8
   %628 = icmp slt i32 %610, %627
-  br i1 %628, label %.lr.ph.i40, label %ginRedoDeleteListPages.exit, !llvm.loop !10
+  br i1 %628, label %.lr.ph.i40, label %ginRedoDeleteListPages.exit, !llvm.loop !9
 
 ginRedoDeleteListPages.exit:                      ; preds = %BufferGetPage.exit22.i41, %BufferGetPage.exit.i37
   tail call void @UnlockReleaseBuffer(i32 noundef %588) #6
@@ -1409,7 +1409,7 @@ define internal fastcc void @ginRedoRecompress(ptr noundef %0, ptr noundef %1) u
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = add nsw i32 %.1166.us, 1
   %exitcond195.not = icmp eq i32 %84, %73
-  br i1 %exitcond195.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
+  br i1 %exitcond195.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.1166 = phi i32 [ %98, %.lr.ph.split ], [ %.0117176, %.lr.ph ]
@@ -1431,7 +1431,7 @@ define internal fastcc void @ginRedoRecompress(ptr noundef %0, ptr noundef %1) u
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = add nsw i32 %.1166, 1
   %exitcond.not = icmp eq i32 %98, %73
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %71
   %.1137.lcssa = phi ptr [ %.0136171, %71 ], [ %81, %.lr.ph.split.us ], [ %91, %.lr.ph.split ]
@@ -1531,7 +1531,7 @@ define internal fastcc void @ginRedoRecompress(ptr noundef %0, ptr noundef %1) u
   %143 = load i16, ptr %1, align 2
   %144 = zext i16 %143 to i32
   %145 = icmp samesign ult i32 %142, %144
-  br i1 %145, label %.lr.ph179, label %._crit_edge180, !llvm.loop !14
+  br i1 %145, label %.lr.ph179, label %._crit_edge180, !llvm.loop !13
 
 ._crit_edge180:                                   ; preds = %141
   %146 = icmp ne ptr %.1135, null
@@ -1600,12 +1600,11 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

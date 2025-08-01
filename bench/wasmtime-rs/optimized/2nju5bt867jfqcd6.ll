@@ -58,7 +58,7 @@ define range(i8 0, 5) i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h144b
   %11 = call i8 @"_ZN4core4iter8adapters6cloned14clone_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h62ea7ab3c8aa0f1dE"(ptr nonnull align 8 %3, ptr nonnull align 1 %7), !range !4
   %12 = call i8 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hcb1442bad5407e86E"(i8 %11), !range !4
   %13 = icmp eq i8 %12, 4
-  br i1 %13, label %5, label %14, !llvm.loop !5
+  br i1 %13, label %5, label %14
 
 14:                                               ; preds = %9
   %15 = call i8 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h60c487ef9d494209E"(i8 %12), !range !4
@@ -97,7 +97,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1f396e862
   %16 = call { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h7a593dd8456c62baE"(i64 %14, i64 %15)
   %17 = extractvalue { i64, i64 } %16, 0
   %18 = icmp eq i64 %17, 0
-  br i1 %18, label %7, label %19, !llvm.loop !7
+  br i1 %18, label %7, label %19
 
 19:                                               ; preds = %11
   %20 = extractvalue { i64, i64 } %16, 1
@@ -132,7 +132,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h55e46e1d6a
   %11 = call align 8 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hd35ae8dc4e519d69E"(ptr nonnull align 8 %3, ptr nonnull align 8 %7)
   %12 = call align 8 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h4286c77a94615f9dE"(ptr align 8 %11)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %5, label %14, !llvm.loop !8
+  br i1 %13, label %5, label %14
 
 14:                                               ; preds = %9
   %15 = call align 8 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h1a03236a1bb3dde6E"(ptr nonnull align 8 %12)
@@ -175,7 +175,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6e4a8a11d
   %19 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %20 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %21 = icmp eq ptr %20, %19
-  br i1 %21, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %21, label %._crit_edge, label %.lr.ph
 
 22:                                               ; preds = %.lr.ph
   %23 = call { i64, i64 } @"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h01d21a80608d4cf3E"()
@@ -219,7 +219,7 @@ define { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hedf86d1e4
   %19 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
   %20 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %21 = icmp eq ptr %20, %19
-  br i1 %21, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %21, label %._crit_edge, label %.lr.ph
 
 22:                                               ; preds = %.lr.ph
   %23 = call { i64, i64 } @"_ZN84_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h01d21a80608d4cf3E"()
@@ -251,7 +251,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store ptr %8, ptr %0, align 8
   %9 = call zeroext i1 @"_ZN22cranelift_codegen_meta4cdsl12instructions18verify_polymorphic28_$u7b$$u7b$closure$u7d$$u7d$17h2816f0f0cbd030bfE"(ptr nonnull align 1 %2, ptr nonnull align 8 %6)
-  br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit", label %4, !llvm.loop !11
+  br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit", label %4
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit": ; preds = %4, %7
   ret i1 %.not.not.not.not.not
@@ -273,7 +273,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store ptr %8, ptr %0, align 8
   %9 = call zeroext i1 @"_ZN22cranelift_codegen_meta8gen_inst22gen_format_constructor28_$u7b$$u7b$closure$u7d$$u7d$17h2c40a62d81fb413aE"(ptr nonnull align 1 %2, ptr nonnull align 8 %6)
-  br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f271ffe147bc82cE.exit", label %4, !llvm.loop !12
+  br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f271ffe147bc82cE.exit", label %4
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f271ffe147bc82cE.exit": ; preds = %4, %7
   ret i1 %.not.not.not.not.not
@@ -296,7 +296,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %9, ptr %0, align 8
   %10 = call zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains28_$u7b$$u7b$closure$u7d$$u7d$17hd52ce2bcbb86b876E"(ptr nonnull align 8 %3, ptr nonnull align 8 %7)
-  br i1 %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb86b5e6c85b5a28bE.exit", label %5, !llvm.loop !13
+  br i1 %10, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb86b5e6c85b5a28bE.exit", label %5
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb86b5e6c85b5a28bE.exit": ; preds = %5, %8
   ret i1 %.not.not.not.not.not
@@ -318,7 +318,7 @@ define noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store ptr %8, ptr %0, align 8
   %9 = call zeroext i1 @"_ZN22cranelift_codegen_meta4cdsl12instructions18verify_polymorphic28_$u7b$$u7b$closure$u7d$$u7d$17he57dab30168d9427E"(ptr nonnull align 1 %2, ptr nonnull align 8 %6)
-  br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit", label %4, !llvm.loop !14
+  br i1 %9, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit", label %4
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit": ; preds = %4, %7
   ret i1 %.not.not.not.not.not
@@ -361,10 +361,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %11, ptr %0, align 8
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h1eed523c31825297E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !15
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread": ; preds = %6, %13
@@ -390,10 +390,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %10, ptr %0, align 8
   store ptr %7, ptr %3, align 8
   %11 = call zeroext i1 @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0cf4a0968405beebE"(ptr nonnull align 1 %2, ptr nonnull align 8 %3)
-  br i1 %11, label %12, label %5, !llvm.loop !17
+  br i1 %11, label %12, label %5
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %13 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread": ; preds = %5, %12
@@ -420,10 +420,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %11, ptr %0, align 8
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h69d4ff3a165e712fE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !18
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread": ; preds = %6, %13
@@ -450,10 +450,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %11, ptr %0, align 8
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4ff13bba4a4b40daE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !19
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread": ; preds = %6, %13
@@ -480,10 +480,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %11, ptr %0, align 8
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6309c945f659b81aE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !20
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread": ; preds = %6, %13
@@ -512,10 +512,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %13, ptr %0, align 8
   store ptr %10, ptr %4, align 8
   %14 = call zeroext i1 @"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next5check28_$u7b$$u7b$closure$u7d$$u7d$17hb1fe3289a2e3bc5aE"(ptr nonnull align 8 %5, ptr nonnull align 8 %4)
-  br i1 %14, label %15, label %8, !llvm.loop !21
+  br i1 %14, label %15, label %8
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr %4, align 8, !nonnull !3, !align !16, !noundef !3
+  %16 = load ptr, ptr %4, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ca0d1eb54f29574E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ca0d1eb54f29574E.exit.thread": ; preds = %8, %15
@@ -542,10 +542,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %11, ptr %0, align 8
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h9a33c2e445e63470E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !22
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8eb709f3ff4c226eE.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8eb709f3ff4c226eE.exit.thread": ; preds = %6, %13
@@ -571,10 +571,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %10, ptr %0, align 8
   store ptr %7, ptr %3, align 8
   %11 = call zeroext i1 @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha983ca27bfddbac9E"(ptr nonnull align 1 %2, ptr nonnull align 8 %3)
-  br i1 %11, label %12, label %5, !llvm.loop !23
+  br i1 %11, label %12, label %5
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %13 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread": ; preds = %5, %12
@@ -601,10 +601,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %11, ptr %0, align 8
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h56ad073cd8fd116aE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !24
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8eb709f3ff4c226eE.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8eb709f3ff4c226eE.exit.thread": ; preds = %6, %13
@@ -630,10 +630,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %10, ptr %0, align 8
   store ptr %7, ptr %3, align 8
   %11 = call zeroext i1 @"_ZN22cranelift_codegen_meta8gen_inst15gen_common_isle28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1ac9669ea2829b99E"(ptr nonnull align 1 %2, ptr nonnull align 8 %3)
-  br i1 %11, label %12, label %5, !llvm.loop !25
+  br i1 %11, label %12, label %5
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %13 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread": ; preds = %5, %12
@@ -660,10 +660,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %11, ptr %0, align 8
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4c8771ee0e92303eE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !26
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread": ; preds = %6, %13
@@ -690,10 +690,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %11, ptr %0, align 8
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hf00e1e53a79e5b2dE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !27
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread": ; preds = %6, %13
@@ -720,10 +720,10 @@ define align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   store ptr %11, ptr %0, align 8
   store ptr %8, ptr %3, align 8
   %12 = call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hd23f82795a245132E"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
-  br i1 %12, label %13, label %6, !llvm.loop !28
+  br i1 %12, label %13, label %6
 
 13:                                               ; preds = %10
-  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !16, !noundef !3
+  %14 = load ptr, ptr %3, align 8, !nonnull !3, !align !5, !noundef !3
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73d7874d5b6393d8E.exit.thread": ; preds = %6, %13
@@ -762,7 +762,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !29
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr696drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$RF$cranelift_codegen_meta..cdsl..operands..Operand$C$$RF$str$C$$LP$$RP$$C$cranelift_codegen_meta..gen_inst..gen_common_isle..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$str$C$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$$RF$cranelift_codegen_meta..cdsl..operands..Operand$GT$$C$cranelift_codegen_meta..gen_inst..gen_common_isle..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdfce3aa748f6963bE"(ptr align 8 %2)
@@ -809,7 +809,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !30
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr726drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_codegen_meta..cdsl..formats..FormatField$C$$LP$$RF$str$C$$RF$str$RP$$C$$LP$$RP$$C$cranelift_codegen_meta..cdsl..formats..InstructionFormat..structure..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$$RF$str$C$$RF$str$RP$$C$alloc..vec..Vec$LT$$LP$$RF$str$C$$RF$str$RP$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_codegen_meta..cdsl..formats..FormatField$GT$$C$cranelift_codegen_meta..cdsl..formats..InstructionFormat..structure..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9558f47d412a6b90E"(ptr align 8 %2)
@@ -849,7 +849,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h11e5f7b6f0a7f897E"(ptr nonnull align 8 %4, ptr nonnull align 8 %14)
   %15 = add nuw i64 %.0, 1
   %16 = icmp eq i64 %15, %12
-  br i1 %16, label %.loopexit, label %13, !llvm.loop !31
+  br i1 %16, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %13, %3
   ret void
@@ -886,7 +886,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !32
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr732drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_codegen_meta..cdsl..settings..Preset$C$cranelift_codegen_meta..gen_settings..SettingOrPreset$C$$LP$$RP$$C$cranelift_codegen_meta..gen_settings..SettingOrPreset..Preset$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_codegen_meta..gen_settings..SettingOrPreset$C$alloc..vec..Vec$LT$cranelift_codegen_meta..gen_settings..SettingOrPreset$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_codegen_meta..cdsl..settings..Preset$GT$$C$cranelift_codegen_meta..gen_settings..SettingOrPreset..Preset$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h75cb722dd8a4f58fE"(ptr align 8 %2)
@@ -933,7 +933,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !33
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr688drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_codegen_meta..cdsl..operands..Operand$C$$RF$str$C$$LP$$RP$$C$cranelift_codegen_meta..gen_inst..gen_common_isle..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$str$C$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_codegen_meta..cdsl..operands..Operand$GT$$C$cranelift_codegen_meta..gen_inst..gen_common_isle..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8baa799d66c145b2E"(ptr align 8 %2)
@@ -980,7 +980,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !34
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr778drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_codegen_meta..cdsl..formats..FormatField$C$alloc..string..String$C$$LP$$RP$$C$$LT$cranelift_codegen_meta..cdsl..formats..InstructionFormat$u20$as$u20$core..fmt..Display$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_codegen_meta..cdsl..formats..FormatField$GT$$C$$LT$cranelift_codegen_meta..cdsl..formats..InstructionFormat$u20$as$u20$core..fmt..Display$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5845ace2cbb5388aE"(ptr align 8 %2)
@@ -1027,7 +1027,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !35
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr898drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_codegen_meta..cdsl..formats..FormatField$C$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$C$$LP$$RP$$C$cranelift_codegen_meta..gen_inst..gen_common_isle..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$C$alloc..vec..Vec$LT$$LP$$RF$str$C$cranelift_codegen_meta..cdsl..operands..OperandKindFields$RP$$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_codegen_meta..cdsl..formats..FormatField$GT$$C$cranelift_codegen_meta..gen_inst..gen_common_isle..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h55293631915c0bdcE"(ptr align 8 %2)
@@ -1074,7 +1074,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !36
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr786drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$RF$str$C$alloc..string..String$C$$LP$$RP$$C$cranelift_codegen_meta..gen_inst..gen_instruction_data_impl..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$$RF$str$GT$$C$cranelift_codegen_meta..gen_inst..gen_instruction_data_impl..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h66d5d535a9d8aaacE"(ptr align 8 %2)
@@ -1121,7 +1121,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !37
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr742drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_codegen_meta..cdsl..operands..Operand$C$$RF$str$C$$LP$$RP$$C$$LT$cranelift_codegen_meta..cdsl..instructions..InstructionContent$u20$as$u20$core..fmt..Display$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$str$C$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_codegen_meta..cdsl..operands..Operand$GT$$C$$LT$cranelift_codegen_meta..cdsl..instructions..InstructionContent$u20$as$u20$core..fmt..Display$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hce5bbf231bcc9478E"(ptr align 8 %2)
@@ -1168,7 +1168,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !38
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr786drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$RF$str$C$alloc..string..String$C$$LP$$RP$$C$cranelift_codegen_meta..gen_inst..gen_instruction_data_impl..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$$RF$str$GT$$C$cranelift_codegen_meta..gen_inst..gen_instruction_data_impl..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hee8d3e50086db210E"(ptr align 8 %2)
@@ -1215,7 +1215,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !39
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr672drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$C$$RF$str$C$$LP$$RP$$C$cranelift_codegen_meta..cdsl..settings..Preset..setting_names..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$str$C$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$GT$$C$cranelift_codegen_meta..cdsl..settings..Preset..setting_names..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4b38ba85d2cbb5f7E"(ptr align 8 %2)
@@ -1262,7 +1262,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !40
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr533drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$alloc..string..String$C$alloc..string..String$C$$LP$$RP$$C$$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$..clone$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$alloc..string..String$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6081e2da20c7d5b1E"(ptr align 8 %2)
@@ -1309,7 +1309,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !41
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr900drop_in_place$LT$$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$..fold..enumerate$LT$$RF$usize$C$$LP$$RP$$C$core..iter..adapters..map..map_fold$LT$$LP$usize$C$$RF$usize$RP$$C$alloc..string..String$C$$LP$$RP$$C$cranelift_codegen_meta..gen_inst..gen_inst_builder..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..enumerate..Enumerate$LT$core..slice..iter..Iter$LT$usize$GT$$GT$$C$cranelift_codegen_meta..gen_inst..gen_inst_builder..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h79d5296740480d4eE"(ptr align 8 %2)
@@ -1356,7 +1356,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !42
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr449drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$RF$str$C$$RF$str$C$$LP$$RP$$C$$LT$$RF$str$u20$as$u20$core..clone..Clone$GT$..clone$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$str$C$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..cloned..Cloned$LT$core..slice..iter..Iter$LT$$RF$str$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h64706a15b7cbf6cfE"(ptr align 8 %2)
@@ -1396,7 +1396,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7603951503370c17E"(ptr nonnull align 8 %4, ptr nonnull align 8 %14)
   %15 = add nuw i64 %.0, 1
   %16 = icmp eq i64 %15, %12
-  br i1 %16, label %.loopexit, label %13, !llvm.loop !43
+  br i1 %16, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %13, %3
   ret void
@@ -1426,7 +1426,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
   call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h762f6805a724cfbcE"(ptr nonnull align 8 %4, ptr nonnull align 8 %14)
   %15 = add nuw i64 %.0, 1
   %16 = icmp eq i64 %15, %12
-  br i1 %16, label %.loopexit, label %13, !llvm.loop !44
+  br i1 %16, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %13, %3
   ret void
@@ -1462,7 +1462,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 15:                                               ; preds = %13
   %16 = add nuw i64 %.0, 1
   %17 = icmp eq i64 %16, %10
-  br i1 %17, label %.loopexit, label %13, !llvm.loop !45
+  br i1 %17, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %15, %3
   tail call void @"_ZN4core3ptr683drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_codegen_meta..isa..Isa$C$cranelift_codegen_meta..cdsl..isa..TargetIsa$C$$LP$$RP$$C$cranelift_codegen_meta..isa..define..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_codegen_meta..cdsl..isa..TargetIsa$C$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..isa..TargetIsa$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_codegen_meta..isa..Isa$GT$$C$cranelift_codegen_meta..isa..define..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h82db051728f337efE"(ptr align 8 %2)
@@ -1502,7 +1502,7 @@ define i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
   %15 = call i64 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0aab45999556c251E"(ptr nonnull align 1 %4, i64 %.016, ptr nonnull align 8 %14)
   %16 = add nuw i64 %.015, 1
   %17 = icmp eq i64 %16, %12
-  br i1 %17, label %.loopexit, label %13, !llvm.loop !46
+  br i1 %17, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %13, %3
   %.0 = phi i64 [ %2, %3 ], [ %15, %13 ]
@@ -1539,7 +1539,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 15:                                               ; preds = %13
   %16 = add nuw i64 %.0, 1
   %17 = icmp eq i64 %16, %10
-  br i1 %17, label %.loopexit, label %13, !llvm.loop !47
+  br i1 %17, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %15, %3
   tail call void @"_ZN4core3ptr584drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$u8$C$alloc..string..String$C$$LP$$RP$$C$cranelift_codegen_meta..gen_settings..gen_template..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$u8$GT$$C$cranelift_codegen_meta..gen_settings..gen_template..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha6c2daef4d061e0aE"(ptr align 8 %2)
@@ -1579,7 +1579,7 @@ define i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
   %15 = call i64 @"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb3121c8ccf6d773cE"(ptr nonnull align 1 %4, i64 %.016, ptr nonnull align 8 %14)
   %16 = add nuw i64 %.015, 1
   %17 = icmp eq i64 %16, %12
-  br i1 %17, label %.loopexit, label %13, !llvm.loop !48
+  br i1 %17, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %13, %3
   %.0 = phi i64 [ %2, %3 ], [ %15, %13 ]
@@ -1617,7 +1617,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !49
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr630drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_codegen_meta..cdsl..operands..Operand$C$$RF$str$C$$LP$$RP$$C$cranelift_codegen_meta..gen_inst..gen_common_isle..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$str$C$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_codegen_meta..cdsl..operands..Operand$GT$$C$cranelift_codegen_meta..gen_inst..gen_common_isle..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h24b6b632cc1842bdE"(ptr align 8 %2)
@@ -1664,7 +1664,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !50
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr742drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_codegen_meta..cdsl..operands..Operand$C$$RF$str$C$$LP$$RP$$C$$LT$cranelift_codegen_meta..cdsl..instructions..InstructionContent$u20$as$u20$core..fmt..Display$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$str$C$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_codegen_meta..cdsl..operands..Operand$GT$$C$$LT$cranelift_codegen_meta..cdsl..instructions..InstructionContent$u20$as$u20$core..fmt..Display$GT$..fmt..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8aaffb3e7bf92ae6E"(ptr align 8 %2)
@@ -1711,7 +1711,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !51
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr688drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$alloc..string..String$C$alloc..string..String$C$$LP$$RP$$C$cranelift_codegen_meta..gen_inst..gen_type_constraints..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$alloc..string..String$GT$$C$cranelift_codegen_meta..gen_inst..gen_type_constraints..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h28866aa087d1ba38E"(ptr align 8 %2)
@@ -1758,7 +1758,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !52
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr736drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_codegen_meta..cdsl..settings..Setting$C$cranelift_codegen_meta..gen_settings..SettingOrPreset$C$$LP$$RP$$C$cranelift_codegen_meta..gen_settings..SettingOrPreset..Setting$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_codegen_meta..gen_settings..SettingOrPreset$C$alloc..vec..Vec$LT$cranelift_codegen_meta..gen_settings..SettingOrPreset$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_codegen_meta..cdsl..settings..Setting$GT$$C$cranelift_codegen_meta..gen_settings..SettingOrPreset..Setting$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h95a363b5641ac3b2E"(ptr align 8 %2)
@@ -1805,7 +1805,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 16:                                               ; preds = %14
   %17 = add nuw i64 %.0, 1
   %18 = icmp eq i64 %17, %11
-  br i1 %18, label %.loopexit, label %14, !llvm.loop !53
+  br i1 %18, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %16, %3
   tail call void @"_ZN4core3ptr630drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$cranelift_codegen_meta..cdsl..operands..Operand$C$$RF$str$C$$LP$$RP$$C$cranelift_codegen_meta..gen_inst..gen_common_isle..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$$RF$str$C$alloc..vec..Vec$LT$$RF$str$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$cranelift_codegen_meta..cdsl..operands..Operand$GT$$C$cranelift_codegen_meta..gen_inst..gen_common_isle..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h12a316d770402310E"(ptr align 8 %2)
@@ -2682,52 +2682,4 @@ attributes #7 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i8 0, i8 5}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = !{i64 8}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6}
-!44 = distinct !{!44, !6}
-!45 = distinct !{!45, !6}
-!46 = distinct !{!46, !6}
-!47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6}
-!49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6}
-!51 = distinct !{!51, !6}
-!52 = distinct !{!52, !6}
-!53 = distinct !{!53, !6}
+!5 = !{i64 8}

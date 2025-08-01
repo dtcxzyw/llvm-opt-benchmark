@@ -575,7 +575,7 @@ list_length.exit:                                 ; preds = %13, %14
 206:                                              ; preds = %194, %194, %203, %201, %198
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %exitcond392.not = icmp eq i64 %indvars.iv.next388, %wide.trip.count391
-  br i1 %exitcond392.not, label %.critedge240, label %190, !llvm.loop !10
+  br i1 %exitcond392.not, label %.critedge240, label %190, !llvm.loop !9
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %225
   %indvars.iv393 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %indvars.iv.next394, %225 ]
@@ -615,7 +615,7 @@ list_length.exit:                                 ; preds = %13, %14
 225:                                              ; preds = %215, %213, %210
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
   %exitcond397.not = icmp eq i64 %indvars.iv.next394, %wide.trip.count396
-  br i1 %exitcond397.not, label %.critedge240, label %.lr.ph.split.split, !llvm.loop !11
+  br i1 %exitcond397.not, label %.critedge240, label %.lr.ph.split.split, !llvm.loop !10
 
 .critedge240:                                     ; preds = %189, %172, %206, %190, %225, %.lr.ph.split.split, %.preheader242
   %226 = tail call ptr @cstring_to_text(ptr noundef nonnull %166) #8
@@ -783,7 +783,7 @@ switch.early.test:                                ; preds = %266
 299:                                              ; preds = %.lr.ph347, %296
   %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
   %exitcond404.not = icmp eq i64 %indvars.iv.next401, %wide.trip.count403
-  br i1 %exitcond404.not, label %._crit_edge, label %.lr.ph347, !llvm.loop !12
+  br i1 %exitcond404.not, label %._crit_edge, label %.lr.ph347, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %299, %.preheader
   %300 = tail call ptr @construct_array_builtin(ptr noundef %24, i32 noundef %17, i32 noundef 25) #8
@@ -1425,7 +1425,7 @@ compute_function_attributes.exit:                 ; preds = %194, %196
   %256 = load i32, ptr %244, align 4
   %257 = sext i32 %256 to i64
   %.not89 = icmp slt i64 %indvars.iv.next, %257
-  br i1 %.not89, label %247, label %.critedge, !llvm.loop !13
+  br i1 %.not89, label %247, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %247, %.preheader, %243
   %.0 = phi ptr [ null, %243 ], [ null, %.preheader ], [ %255, %247 ]
@@ -1635,7 +1635,7 @@ list_length.exit:                                 ; preds = %347
   %361 = load i32, ptr %348, align 4
   %362 = sext i32 %361 to i64
   %.not97 = icmp slt i64 %indvars.iv.next237, %362
-  br i1 %.not97, label %355, label %list_length.exit106, !llvm.loop !14
+  br i1 %.not97, label %355, label %list_length.exit106, !llvm.loop !13
 
 list_length.exit106:                              ; preds = %355, %list_length.exit
   %.lcssa169 = phi i32 [ %353, %list_length.exit ], [ %361, %355 ]
@@ -4323,7 +4323,6 @@ define dso_local ptr @CallStmtResultDesc(ptr noundef readonly captures(none) %0)
   br i1 %.not20, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %12
-  %invariant.gep = getelementptr i8, ptr %13, i64 28
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %.loopexit
@@ -4334,25 +4333,26 @@ define dso_local ptr @CallStmtResultDesc(ptr noundef readonly captures(none) %0)
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = phi i32 [ %14, %.lr.ph ], [ %28, %17 ]
+  %18 = phi i32 [ %14, %.lr.ph ], [ %30, %17 ]
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 4
-  %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr i8, ptr %21, i64 16
-  %.val = load ptr, ptr %22, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %indvars.iv
-  %24 = load ptr, ptr %23, align 8
+  %21 = getelementptr i8, ptr %13, i64 %20
+  %22 = load ptr, ptr %16, align 8
+  %23 = getelementptr i8, ptr %22, i64 16
+  %.val = load ptr, ptr %23, align 8
+  %24 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %indvars.iv
+  %25 = load ptr, ptr %24, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = trunc i64 %indvars.iv.next to i16
+  %26 = trunc i64 %indvars.iv.next to i16
   %.idx = mul nuw nsw i64 %indvars.iv, 100
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %20
-  %26 = getelementptr i8, ptr %gep, i64 %.idx
-  %27 = tail call i32 @exprType(ptr noundef %24) #8
-  tail call void @TupleDescInitEntry(ptr noundef nonnull %13, i16 noundef signext %25, ptr noundef nonnull %26, i32 noundef %27, i32 noundef -1, i32 noundef 0) #8
-  %28 = load i32, ptr %13, align 8
-  %29 = sext i32 %28 to i64
-  %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %17, label %.loopexit, !llvm.loop !15
+  %27 = getelementptr i8, ptr %21, i64 28
+  %28 = getelementptr i8, ptr %27, i64 %.idx
+  %29 = tail call i32 @exprType(ptr noundef %25) #8
+  tail call void @TupleDescInitEntry(ptr noundef nonnull %13, i16 noundef signext %26, ptr noundef nonnull %28, i32 noundef %29, i32 noundef -1, i32 noundef 0) #8
+  %30 = load i32, ptr %13, align 8
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next, %31
+  br i1 %32, label %17, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %17, %.preheader, %12
   ret ptr %13
@@ -4420,13 +4420,12 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}

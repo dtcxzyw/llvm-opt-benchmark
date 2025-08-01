@@ -92,7 +92,7 @@ define internal i64 @codec_l16_decode(ptr noundef readonly captures(none) %0, pt
   %28 = add i32 %.03341, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre
-  br i1 %exitcond.not, label %18, label %24, !llvm.loop !9
+  br i1 %exitcond.not, label %18, label %24, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %18, %.preheader40
   %29 = udiv i64 %2, %.pre
@@ -139,7 +139,6 @@ attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
+!8 = distinct !{!8, !7}

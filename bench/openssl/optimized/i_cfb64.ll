@@ -206,7 +206,7 @@ define void @IDEA_cfb64_encrypt(ptr noundef readonly captures(none) %0, ptr noun
   %142 = add nuw nsw i32 %.2104121, 1
   %143 = and i32 %142, 7
   %.not110 = icmp eq i64 %87, 0
-  br i1 %.not110, label %.loopexit, label %86, !llvm.loop !13
+  br i1 %.not110, label %.loopexit, label %86, !llvm.loop !12
 
 .loopexit:                                        ; preds = %76, %134, %.preheader, %.preheader112, %7
   %storemerge = phi i32 [ -1, %7 ], [ %9, %.preheader ], [ %9, %.preheader112 ], [ %143, %134 ], [ %85, %76 ]
@@ -240,7 +240,6 @@ attributes #3 = { nounwind }
 !7 = !{!5, !5, i64 0}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"long", !5, i64 0}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !11, !12}
+!12 = distinct !{!12, !11}

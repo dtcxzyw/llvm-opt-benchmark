@@ -218,7 +218,7 @@ define range(i32 0, 2) i32 @ossl_rsa_multiprime_derive(ptr noundef readonly capt
   %73 = add nuw nsw i32 %.1180, 1
   %74 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #4
   %75 = icmp slt i32 %73, %74
-  br i1 %75, label %.lr.ph181, label %._crit_edge182, !llvm.loop !32
+  br i1 %75, label %.lr.ph181, label %._crit_edge182, !llvm.loop !31
 
 .lr.ph181:                                        ; preds = %.preheader174, %72
   %.1180 = phi i32 [ %73, %72 ], [ 2, %.preheader174 ]
@@ -257,7 +257,7 @@ define range(i32 0, 2) i32 @ossl_rsa_multiprime_derive(ptr noundef readonly capt
 
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %94 = load ptr, ptr %93, align 8, !tbaa !33
+  %94 = load ptr, ptr %93, align 8, !tbaa !32
   %95 = tail call i32 @BN_div(ptr noundef null, ptr noundef nonnull %87, ptr noundef %94, ptr noundef %20, ptr noundef nonnull %10) #4
   %.not156 = icmp eq i32 %95, 0
   br i1 %.not156, label %.loopexit, label %96
@@ -269,7 +269,7 @@ define range(i32 0, 2) i32 @ossl_rsa_multiprime_derive(ptr noundef readonly capt
   br i1 %.not157, label %.loopexit, label %99
 
 99:                                               ; preds = %96
-  %100 = load ptr, ptr %93, align 8, !tbaa !33
+  %100 = load ptr, ptr %93, align 8, !tbaa !32
   %101 = tail call i32 @BN_div(ptr noundef null, ptr noundef nonnull %90, ptr noundef %100, ptr noundef nonnull %21, ptr noundef nonnull %10) #4
   %.not158 = icmp eq i32 %101, 0
   br i1 %.not158, label %.loopexit, label %102
@@ -289,7 +289,7 @@ define range(i32 0, 2) i32 @ossl_rsa_multiprime_derive(ptr noundef readonly capt
   %108 = add nuw nsw i32 %.2183, 1
   %109 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #4
   %110 = icmp slt i32 %108, %109
-  br i1 %110, label %.lr.ph184, label %._crit_edge185, !llvm.loop !34
+  br i1 %110, label %.lr.ph184, label %._crit_edge185, !llvm.loop !33
 
 .lr.ph184:                                        ; preds = %.preheader172, %107
   %.2183 = phi i32 [ %108, %107 ], [ 2, %.preheader172 ]
@@ -300,7 +300,7 @@ define range(i32 0, 2) i32 @ossl_rsa_multiprime_derive(ptr noundef readonly capt
   br i1 %114, label %.loopexit, label %115
 
 115:                                              ; preds = %.lr.ph184
-  %116 = load ptr, ptr %93, align 8, !tbaa !33
+  %116 = load ptr, ptr %93, align 8, !tbaa !32
   %117 = tail call i32 @BN_div(ptr noundef null, ptr noundef nonnull %113, ptr noundef %116, ptr noundef %112, ptr noundef nonnull %10) #4
   %.not162 = icmp eq i32 %117, 0
   br i1 %.not162, label %.loopexit.sink.split, label %118
@@ -338,7 +338,7 @@ define range(i32 0, 2) i32 @ossl_rsa_multiprime_derive(ptr noundef readonly capt
   %134 = add nuw nsw i32 %.3186, 1
   %135 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #4
   %136 = icmp slt i32 %134, %135
-  br i1 %136, label %.lr.ph187, label %.loopexit, !llvm.loop !35
+  br i1 %136, label %.lr.ph187, label %.loopexit, !llvm.loop !34
 
 .lr.ph187:                                        ; preds = %.preheader, %133
   %.3186 = phi i32 [ %134, %133 ], [ 2, %.preheader ]
@@ -528,16 +528,16 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %44 = zext i1 %43 to i32
   %45 = add nuw nsw i32 %40, %44
   %46 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %indvars.iv
-  store i32 %45, ptr %46, align 4, !tbaa !36
+  store i32 %45, ptr %46, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %48 = load i32, ptr %47, align 8, !tbaa !38
+  %48 = load i32, ptr %47, align 8, !tbaa !37
   %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %47, align 8, !tbaa !38
+  store i32 %49, ptr %47, align 8, !tbaa !37
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = load ptr, ptr %50, align 8, !tbaa !27
   %.not270 = icmp eq ptr %51, null
@@ -551,13 +551,13 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 
 55:                                               ; preds = %52, %._crit_edge
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %57 = load ptr, ptr %56, align 8, !tbaa !33
+  %57 = load ptr, ptr %56, align 8, !tbaa !32
   %.not271 = icmp eq ptr %57, null
   br i1 %.not271, label %58, label %61
 
 58:                                               ; preds = %55
   %59 = tail call ptr @BN_secure_new() #4
-  store ptr %59, ptr %56, align 8, !tbaa !33
+  store ptr %59, ptr %56, align 8, !tbaa !32
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.loopexit, label %61
 
@@ -577,13 +577,13 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 
 68:                                               ; preds = %65, %61
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %70 = load ptr, ptr %69, align 8, !tbaa !39
+  %70 = load ptr, ptr %69, align 8, !tbaa !38
   %.not273 = icmp eq ptr %70, null
   br i1 %.not273, label %71, label %74
 
 71:                                               ; preds = %68
   %72 = tail call ptr @BN_secure_new() #4
-  store ptr %72, ptr %69, align 8, !tbaa !39
+  store ptr %72, ptr %69, align 8, !tbaa !38
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.loopexit, label %74
 
@@ -591,13 +591,13 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %75 = phi ptr [ %72, %71 ], [ %70, %68 ]
   tail call void @BN_set_flags(ptr noundef nonnull %75, i32 noundef 4) #4
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %77 = load ptr, ptr %76, align 8, !tbaa !40
+  %77 = load ptr, ptr %76, align 8, !tbaa !39
   %.not274 = icmp eq ptr %77, null
   br i1 %.not274, label %78, label %81
 
 78:                                               ; preds = %74
   %79 = tail call ptr @BN_secure_new() #4
-  store ptr %79, ptr %76, align 8, !tbaa !40
+  store ptr %79, ptr %76, align 8, !tbaa !39
   %80 = icmp eq ptr %79, null
   br i1 %80, label %.loopexit, label %81
 
@@ -609,7 +609,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %84, align 8, !tbaa !41
+  store i32 1, ptr %84, align 8, !tbaa !40
   %85 = add nsw i32 %2, -2
   %86 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef range(i32 1, 2147483646) %85) #4
   %87 = icmp eq ptr %86, null
@@ -617,7 +617,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %90 = load ptr, ptr %89, align 8, !tbaa !42
+  %90 = load ptr, ptr %89, align 8, !tbaa !41
   %.not276 = icmp eq ptr %90, null
   br i1 %.not276, label %.lr.ph341.preheader, label %91
 
@@ -626,7 +626,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   br label %.lr.ph341.preheader
 
 .lr.ph341.preheader:                              ; preds = %88, %91
-  store ptr %86, ptr %89, align 8, !tbaa !42
+  store ptr %86, ptr %89, align 8, !tbaa !41
   br label %.lr.ph341
 
 .lr.ph341:                                        ; preds = %.lr.ph341.preheader, %94
@@ -639,7 +639,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %95 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %86, ptr noundef nonnull %92) #4
   %96 = add nuw nsw i32 %.1240339, 1
   %exitcond407.not = icmp eq i32 %96, %2
-  br i1 %exitcond407.not, label %.loopexit311, label %.lr.ph341, !llvm.loop !43
+  br i1 %exitcond407.not, label %.loopexit311, label %.lr.ph341, !llvm.loop !42
 
 .loopexit311:                                     ; preds = %94, %81
   %.0231 = phi ptr [ null, %81 ], [ %92, %94 ]
@@ -675,11 +675,11 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 106:                                              ; preds = %101, %102, %103
   %.0251.in = phi ptr [ %76, %102 ], [ %105, %103 ], [ %69, %101 ]
   %.3 = phi ptr [ %.2233358, %102 ], [ %105, %103 ], [ %.2233358, %101 ]
-  %.0251 = load ptr, ptr %.0251.in, align 8, !tbaa !44
+  %.0251 = load ptr, ptr %.0251.in, align 8, !tbaa !43
   tail call void @BN_set_flags(ptr noundef %.0251, i32 noundef 4) #4
   %107 = sext i32 %.2241357 to i64
   %108 = getelementptr inbounds [5 x i32], ptr %6, i64 0, i64 %107
-  %109 = load i32, ptr %108, align 4, !tbaa !36
+  %109 = load i32, ptr %108, align 4, !tbaa !35
   %110 = icmp sgt i32 %.2241357, 0
   %111 = add nsw i32 %109, %.0243356
   %112 = add nsw i32 %111, -4
@@ -713,7 +713,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 
 .preheader304.backedge:                           ; preds = %118, %.loopexit305
   %.0222342.be = phi i32 [ %119, %118 ], [ 0, %.loopexit305 ]
-  br label %.preheader304, !llvm.loop !45
+  br label %.preheader304, !llvm.loop !44
 
 .preheader304:                                    ; preds = %.preheader304.lr.ph, %.preheader304.backedge
   %.0222342 = phi i32 [ %.0222342.be, %.preheader304.backedge ], [ 0, %.preheader304.lr.ph ]
@@ -732,10 +732,10 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 
 124:                                              ; preds = %.preheader304, %120, %121
   %.0.in = phi ptr [ %76, %120 ], [ %123, %121 ], [ %69, %.preheader304 ]
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !44
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !43
   %125 = tail call i32 @BN_cmp(ptr noundef %.0251, ptr noundef %.0) #4
   %.not285.not = icmp eq i32 %125, 0
-  br i1 %.not285.not, label %.loopexit305, label %118, !llvm.loop !46
+  br i1 %.not285.not, label %.loopexit305, label %118
 
 .thread:                                          ; preds = %118, %.preheader304.lr.ph
   %126 = tail call ptr @BN_value_one() #4
@@ -762,7 +762,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %137 = add nsw i32 %.2249.ph350, 1
   %138 = tail call i32 @BN_GENCB_call(ptr noundef %4, i32 noundef 2, i32 noundef %.2249.ph350) #4
   %.not288 = icmp eq i32 %138, 0
-  br i1 %.not288, label %.loopexit, label %113, !llvm.loop !47
+  br i1 %.not288, label %.loopexit, label %113
 
 139:                                              ; preds = %128
   switch i32 %.2241357, label %144 [
@@ -771,8 +771,8 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   ]
 
 140:                                              ; preds = %139
-  %141 = load ptr, ptr %69, align 8, !tbaa !39
-  %142 = load ptr, ptr %76, align 8, !tbaa !40
+  %141 = load ptr, ptr %69, align 8, !tbaa !38
+  %142 = load ptr, ptr %76, align 8, !tbaa !39
   %143 = tail call i32 @BN_mul(ptr noundef %37, ptr noundef %141, ptr noundef %142, ptr noundef nonnull %33) #4
   %.not293 = icmp eq i32 %143, 0
   br i1 %.not293, label %.loopexit, label %155
@@ -847,7 +847,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %176 = add nsw i32 %109, %.2238
   %177 = tail call i32 @BN_generate_prime_ex2(ptr noundef %.0251, i32 noundef %176, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %4, ptr noundef nonnull %33) #4
   %.not284346 = icmp eq i32 %177, 0
-  br i1 %.not284346, label %.loopexit, label %.preheader304.lr.ph, !llvm.loop !46
+  br i1 %.not284346, label %.loopexit, label %.preheader304.lr.ph
 
 178:                                              ; preds = %157
   %179 = icmp sgt i32 %.2241357, 1
@@ -855,7 +855,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 
 180:                                              ; preds = %178
   %181 = getelementptr inbounds nuw i8, ptr %.3, i64 24
-  %182 = load ptr, ptr %181, align 8, !tbaa !48
+  %182 = load ptr, ptr %181, align 8, !tbaa !45
   %183 = load ptr, ptr %50, align 8, !tbaa !27
   %184 = tail call ptr @BN_copy(ptr noundef %182, ptr noundef %183) #4
   %185 = icmp eq ptr %184, null
@@ -890,34 +890,34 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   %.2 = phi ptr [ %173, %172 ], [ %.1229359, %195 ], [ %.1229359, %152 ]
   %199 = add nsw i32 %.3242, 1
   %200 = icmp slt i32 %199, %2
-  br i1 %200, label %101, label %._crit_edge361, !llvm.loop !50
+  br i1 %200, label %101, label %._crit_edge361, !llvm.loop !47
 
 ._crit_edge361:                                   ; preds = %198
-  %201 = load ptr, ptr %69, align 8, !tbaa !39
-  %202 = load ptr, ptr %76, align 8, !tbaa !40
+  %201 = load ptr, ptr %69, align 8, !tbaa !38
+  %202 = load ptr, ptr %76, align 8, !tbaa !39
   %203 = tail call i32 @BN_cmp(ptr noundef %201, ptr noundef %202) #4
   %204 = icmp slt i32 %203, 0
   br i1 %204, label %205, label %210
 
 205:                                              ; preds = %._crit_edge361
-  %206 = load ptr, ptr %69, align 8, !tbaa !39
-  %207 = load ptr, ptr %76, align 8, !tbaa !40
-  store ptr %207, ptr %69, align 8, !tbaa !39
-  store ptr %206, ptr %76, align 8, !tbaa !40
+  %206 = load ptr, ptr %69, align 8, !tbaa !38
+  %207 = load ptr, ptr %76, align 8, !tbaa !39
+  store ptr %207, ptr %69, align 8, !tbaa !38
+  store ptr %206, ptr %76, align 8, !tbaa !39
   %208 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %.2, i32 noundef 0) #4
   %209 = tail call i32 @OPENSSL_sk_insert(ptr noundef nonnull %.2, ptr noundef %208, i32 noundef 1) #4
   %.not277 = icmp eq i32 %209, 0
   br i1 %.not277, label %.loopexit, label %210
 
 210:                                              ; preds = %205, %._crit_edge361
-  %211 = load ptr, ptr %69, align 8, !tbaa !39
+  %211 = load ptr, ptr %69, align 8, !tbaa !38
   %212 = tail call ptr @BN_value_one() #4
   %213 = tail call i32 @BN_sub(ptr noundef %37, ptr noundef %211, ptr noundef %212) #4
   %.not278 = icmp eq i32 %213, 0
   br i1 %.not278, label %.loopexit, label %214
 
 214:                                              ; preds = %210
-  %215 = load ptr, ptr %76, align 8, !tbaa !40
+  %215 = load ptr, ptr %76, align 8, !tbaa !39
   %216 = tail call ptr @BN_value_one() #4
   %217 = tail call i32 @BN_sub(ptr noundef nonnull %38, ptr noundef %215, ptr noundef %216) #4
   %.not279 = icmp eq i32 %217, 0
@@ -938,29 +938,29 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 220:                                              ; preds = %229
   %221 = add nuw nsw i32 %.4363, 1
   %exitcond410.not = icmp eq i32 %221, %smax409
-  br i1 %exitcond410.not, label %._crit_edge365, label %.lr.ph364, !llvm.loop !51
+  br i1 %exitcond410.not, label %._crit_edge365, label %.lr.ph364, !llvm.loop !48
 
 .lr.ph364:                                        ; preds = %.lr.ph364.preheader, %220
   %.4363 = phi i32 [ %221, %220 ], [ 2, %.lr.ph364.preheader ]
   %222 = add nsw i32 %.4363, -2
   %223 = tail call ptr @OPENSSL_sk_value(ptr noundef %.0230, i32 noundef range(i32 -2147483648, 2147483645) %222) #4
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  %225 = load ptr, ptr %224, align 8, !tbaa !52
-  %226 = load ptr, ptr %223, align 8, !tbaa !53
+  %225 = load ptr, ptr %224, align 8, !tbaa !49
+  %226 = load ptr, ptr %223, align 8, !tbaa !50
   %227 = tail call ptr @BN_value_one() #4
   %228 = tail call i32 @BN_sub(ptr noundef %225, ptr noundef %226, ptr noundef %227) #4
   %.not282 = icmp eq i32 %228, 0
   br i1 %.not282, label %.loopexit, label %229
 
 229:                                              ; preds = %.lr.ph364
-  %230 = load ptr, ptr %224, align 8, !tbaa !52
+  %230 = load ptr, ptr %224, align 8, !tbaa !49
   %231 = tail call i32 @BN_mul(ptr noundef %36, ptr noundef %36, ptr noundef %230, ptr noundef nonnull %33) #4
   %.not283 = icmp eq i32 %231, 0
   br i1 %.not283, label %.loopexit, label %220
 
 ._crit_edge365:                                   ; preds = %220, %.preheader
   tail call void @BN_set_flags(ptr noundef %36, i32 noundef 4) #4
-  %232 = load ptr, ptr %56, align 8, !tbaa !33
+  %232 = load ptr, ptr %56, align 8, !tbaa !32
   %233 = load ptr, ptr %63, align 8, !tbaa !28
   %234 = tail call ptr @BN_mod_inverse(ptr noundef %232, ptr noundef %233, ptr noundef %36, ptr noundef nonnull %33) #4
   %235 = icmp eq ptr %234, null
@@ -978,13 +978,13 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
   tail call void @BN_clear_free(ptr noundef %240) #4
   %241 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %25, i32 noundef 0) #4
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %241, ptr %242, align 8, !tbaa !54
+  store ptr %241, ptr %242, align 8, !tbaa !51
   %243 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %25, i32 noundef 0) #4
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %243, ptr %244, align 8, !tbaa !55
+  store ptr %243, ptr %244, align 8, !tbaa !52
   %245 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %28, i32 noundef 0) #4
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %245, ptr %246, align 8, !tbaa !56
+  store ptr %245, ptr %246, align 8, !tbaa !53
   br i1 %.not275, label %.loopexit, label %.lr.ph368.preheader
 
 .lr.ph368.preheader:                              ; preds = %238
@@ -994,19 +994,19 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 247:                                              ; preds = %259
   %248 = add nuw nsw i32 %.5366, 1
   %exitcond412.not = icmp eq i32 %248, %smax411
-  br i1 %exitcond412.not, label %.loopexit, label %.lr.ph368, !llvm.loop !57
+  br i1 %exitcond412.not, label %.loopexit, label %.lr.ph368, !llvm.loop !54
 
 .lr.ph368:                                        ; preds = %.lr.ph368.preheader, %247
   %.5366 = phi i32 [ %248, %247 ], [ 2, %.lr.ph368.preheader ]
   %249 = add nsw i32 %.5366, -2
   %250 = tail call ptr @OPENSSL_sk_value(ptr noundef %.0230, i32 noundef range(i32 -2147483648, 2147483645) %249) #4
   %251 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %.2, i32 noundef 0) #4
-  %252 = load ptr, ptr %250, align 8, !tbaa !53
+  %252 = load ptr, ptr %250, align 8, !tbaa !50
   %253 = tail call ptr @BN_copy(ptr noundef %252, ptr noundef %251) #4
   tail call void @BN_clear_free(ptr noundef %251) #4
   %254 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %25, i32 noundef 0) #4
   %255 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  %256 = load ptr, ptr %255, align 8, !tbaa !52
+  %256 = load ptr, ptr %255, align 8, !tbaa !49
   %257 = tail call ptr @BN_copy(ptr noundef %256, ptr noundef %254) #4
   tail call void @BN_clear_free(ptr noundef %254) #4
   %258 = icmp eq ptr %257, null
@@ -1015,7 +1015,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 259:                                              ; preds = %.lr.ph368
   %260 = tail call ptr @OPENSSL_sk_delete(ptr noundef nonnull %28, i32 noundef 0) #4
   %261 = getelementptr inbounds nuw i8, ptr %250, i64 16
-  %262 = load ptr, ptr %261, align 8, !tbaa !58
+  %262 = load ptr, ptr %261, align 8, !tbaa !55
   %263 = tail call ptr @BN_copy(ptr noundef %262, ptr noundef %260) #4
   tail call void @BN_clear_free(ptr noundef %260) #4
   %264 = icmp eq ptr %263, null
@@ -1128,33 +1128,30 @@ attributes #4 = { nounwind }
 !26 = !{!4, !8, i64 8}
 !27 = !{!4, !12, i64 40}
 !28 = !{!4, !12, i64 48}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = distinct !{!32, !30, !31}
-!33 = !{!4, !12, i64 56}
-!34 = distinct !{!34, !30, !31}
-!35 = distinct !{!35, !30, !31}
-!36 = !{!5, !5, i64 0}
-!37 = distinct !{!37, !30, !31}
-!38 = !{!4, !5, i64 216}
-!39 = !{!4, !12, i64 64}
-!40 = !{!4, !12, i64 72}
-!41 = !{!4, !5, i64 16}
-!42 = !{!4, !16, i64 136}
-!43 = distinct !{!43, !30, !31}
-!44 = !{!12, !12, i64 0}
-!45 = distinct !{!45, !30, !31}
-!46 = distinct !{!46, !31}
-!47 = distinct !{!47, !31}
-!48 = !{!49, !12, i64 24}
-!49 = !{!"rsa_prime_info_st", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !20, i64 32}
-!50 = distinct !{!50, !30, !31}
-!51 = distinct !{!51, !30, !31}
-!52 = !{!49, !12, i64 8}
-!53 = !{!49, !12, i64 0}
-!54 = !{!4, !12, i64 80}
-!55 = !{!4, !12, i64 88}
-!56 = !{!4, !12, i64 96}
-!57 = distinct !{!57, !30, !31}
-!58 = !{!49, !12, i64 16}
+!31 = distinct !{!31, !30}
+!32 = !{!4, !12, i64 56}
+!33 = distinct !{!33, !30}
+!34 = distinct !{!34, !30}
+!35 = !{!5, !5, i64 0}
+!36 = distinct !{!36, !30}
+!37 = !{!4, !5, i64 216}
+!38 = !{!4, !12, i64 64}
+!39 = !{!4, !12, i64 72}
+!40 = !{!4, !5, i64 16}
+!41 = !{!4, !16, i64 136}
+!42 = distinct !{!42, !30}
+!43 = !{!12, !12, i64 0}
+!44 = distinct !{!44, !30}
+!45 = !{!46, !12, i64 24}
+!46 = !{!"rsa_prime_info_st", !12, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !20, i64 32}
+!47 = distinct !{!47, !30}
+!48 = distinct !{!48, !30}
+!49 = !{!46, !12, i64 8}
+!50 = !{!46, !12, i64 0}
+!51 = !{!4, !12, i64 80}
+!52 = !{!4, !12, i64 88}
+!53 = !{!4, !12, i64 96}
+!54 = distinct !{!54, !30}
+!55 = !{!46, !12, i64 16}

@@ -295,7 +295,7 @@ _set_pmi_time.exit:                               ; preds = %7, %16, %.sink.spli
 47:                                               ; preds = %45, %41
   %48 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #10
   %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !12
+  br i1 %.not, label %.lr.ph, label %.outer._crit_edge
 
 49:                                               ; preds = %.lr.ph
   %50 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #10
@@ -320,7 +320,7 @@ _set_pmi_time.exit:                               ; preds = %7, %16, %.sink.spli
   %64 = add nuw nsw i32 %.0.ph, 1
   %65 = icmp samesign ult i32 %.0.ph, 2
   %or.cond = select i1 %63, i1 %65, i1 false
-  br i1 %or.cond, label %.outer, label %.loopexit, !llvm.loop !12
+  br i1 %or.cond, label %.outer, label %.loopexit
 
 .loopexit:                                        ; preds = %51, %49, %2, %.outer._crit_edge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
@@ -550,7 +550,7 @@ _set_pmi_time.exit:                               ; preds = %25, %34, %.sink.spl
   call fastcc void @_delay_rpc(i32 noundef %1, i32 noundef %2)
   %101 = call i32 @slurm_send_recv_rc_msg_only_one(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %.024) #10
   %102 = icmp slt i32 %101, 0
-  br i1 %102, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %102, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %100, %90
   %103 = load i32, ptr %5, align 4
@@ -584,7 +584,7 @@ _set_pmi_time.exit:                               ; preds = %25, %34, %.sink.spl
   %117 = tail call ptr @__errno_location() #11
   %118 = load i32, ptr %117, align 4
   %119 = icmp eq i32 %118, 4
-  br i1 %119, label %.preheader, label %120, !llvm.loop !14
+  br i1 %119, label %.preheader, label %120, !llvm.loop !12
 
 120:                                              ; preds = %116
   %121 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10) #10
@@ -741,7 +741,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @_forward_comm_set(ptr noun
   %.1 = phi i32 [ %.01920, %8 ], [ %29, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %32, %1
   %.019.lcssa = phi i32 [ 0, %1 ], [ %.1, %32 ]
@@ -822,11 +822,9 @@ attributes #11 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

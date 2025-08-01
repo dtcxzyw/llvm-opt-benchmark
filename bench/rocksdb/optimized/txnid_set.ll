@@ -236,7 +236,7 @@ define void @_ZN4toku9txnid_set3addEm(ptr noundef nonnull align 8 dereferenceabl
 _ZNK4toku3omtImmLb0EE24find_internal_zero_arrayImTnPFiRKmRKT_EXadL_ZNS_13find_by_txnidES4_S4_EEEEiS7_PmPj.exit.i.i: ; preds = %.thread.i.i.i, %29, %27
   %storemerge35.i.i.i = phi i32 [ %28, %27 ], [ %11, %.thread.i.i.i ], [ %30, %29 ]
   %.0.i.i.i = phi i32 [ 0, %27 ], [ -30989, %.thread.i.i.i ], [ -30989, %29 ]
-  store i32 %storemerge35.i.i.i, ptr %3, align 4, !tbaa !21
+  store i32 %storemerge35.i.i.i, ptr %3, align 4, !tbaa !20
   br label %_ZNK4toku3omtImmLb0EE9find_zeroImTnPFiRKmRKT_EXadL_ZNS_13find_by_txnidES4_S4_EEEEiS7_PmPj.exit.i
 
 31:                                               ; preds = %2
@@ -249,7 +249,7 @@ _ZNK4toku3omtImmLb0EE9find_zeroImTnPFiRKmRKT_EXadL_ZNS_13find_by_txnidES4_S4_EEE
   br i1 %cond, label %33, label %_ZN4toku3omtImmLb0EE6insertImTnPFiRKmRKT_EXadL_ZNS_13find_by_txnidES4_S4_EEEEiS4_S7_Pj.exit
 
 33:                                               ; preds = %_ZNK4toku3omtImmLb0EE9find_zeroImTnPFiRKmRKT_EXadL_ZNS_13find_by_txnidES4_S4_EEEEiS7_PmPj.exit.i
-  %34 = load i32, ptr %3, align 4, !tbaa !21
+  %34 = load i32, ptr %3, align 4, !tbaa !20
   %35 = call noundef i32 @_ZN4toku3omtImmLb0EE9insert_atERKmj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %34)
   br label %_ZN4toku3omtImmLb0EE6insertImTnPFiRKmRKT_EXadL_ZNS_13find_by_txnidES4_S4_EEEEiS4_S7_Pj.exit
 
@@ -333,7 +333,7 @@ define void @_ZN4toku9txnid_set6removeEm(ptr noundef nonnull align 8 dereference
 _ZNK4toku3omtImmLb0EE24find_internal_zero_arrayImTnPFiRKmRKT_EXadL_ZNS_13find_by_txnidES4_S4_EEEEiS7_PmPj.exit.i: ; preds = %.thread.i.i, %29, %27
   %storemerge35.i.i = phi i32 [ %28, %27 ], [ %11, %.thread.i.i ], [ %30, %29 ]
   %.0.i.i = phi i32 [ 0, %27 ], [ -30989, %.thread.i.i ], [ -30989, %29 ]
-  store i32 %storemerge35.i.i, ptr %4, align 4, !tbaa !21
+  store i32 %storemerge35.i.i, ptr %4, align 4, !tbaa !20
   br label %_ZNK4toku3omtImmLb0EE9find_zeroImTnPFiRKmRKT_EXadL_ZNS_13find_by_txnidES4_S4_EEEEiS7_PmPj.exit
 
 31:                                               ; preds = %2
@@ -346,7 +346,7 @@ _ZNK4toku3omtImmLb0EE9find_zeroImTnPFiRKmRKT_EXadL_ZNS_13find_by_txnidES4_S4_EEE
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %_ZNK4toku3omtImmLb0EE9find_zeroImTnPFiRKmRKT_EXadL_ZNS_13find_by_txnidES4_S4_EEEEiS7_PmPj.exit
-  %35 = load i32, ptr %4, align 4, !tbaa !21
+  %35 = load i32, ptr %4, align 4, !tbaa !20
   %36 = call noundef i32 @_ZN4toku3omtImmLb0EE9delete_atEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %35)
   br label %37
 
@@ -379,7 +379,7 @@ _ZNK4toku3omtImmLb0EE4sizeEv.exit.thread16:       ; preds = %6
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = zext i32 %8 to i64
   %15 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %13, i64 %14, i32 1
-  %16 = load i32, ptr %15, align 8, !tbaa !22
+  %16 = load i32, ptr %15, align 8, !tbaa !21
   %.not18 = icmp ult i32 %1, %16
   br i1 %.not18, label %_ZNK4toku3omtImmLb0EE4sizeEv.exit13, label %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread
 
@@ -448,10 +448,10 @@ _ZN4toku3omtImmLb0EE15convert_to_treeEv.exit:     ; preds = %21
 
 48:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  store ptr null, ptr %3, align 8, !tbaa !24
+  store ptr null, ptr %3, align 8, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN4toku3omtImmLb0EE15delete_internalEPNS_12omt_internal17subtree_templatedILb0EEEjPNS2_18omt_node_templatedImLb0EEEPS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %49, i32 noundef %1, ptr noundef null, ptr noundef nonnull %3)
-  %50 = load ptr, ptr %3, align 8, !tbaa !24
+  %50 = load ptr, ptr %3, align 8, !tbaa !23
   %.not10 = icmp eq ptr %50, null
   br i1 %.not10, label %52, label %51
 
@@ -490,7 +490,7 @@ define noundef i32 @_ZNK4toku9txnid_set4sizeEv(ptr noundef nonnull readonly alig
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = zext i32 %9 to i64
   %15 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %13, i64 %14, i32 1
-  %16 = load i32, ptr %15, align 8, !tbaa !22
+  %16 = load i32, ptr %15, align 8, !tbaa !21
   br label %_ZNK4toku3omtImmLb0EE4sizeEv.exit
 
 _ZNK4toku3omtImmLb0EE4sizeEv.exit:                ; preds = %4, %7, %11
@@ -521,7 +521,7 @@ _ZNK4toku3omtImmLb0EE4sizeEv.exit.thread10.i:     ; preds = %5
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = zext i32 %7 to i64
   %14 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %12, i64 %13, i32 1
-  %15 = load i32, ptr %14, align 8, !tbaa !22
+  %15 = load i32, ptr %14, align 8, !tbaa !21
   %.not12.i = icmp ult i32 %1, %15
   br i1 %.not12.i, label %tailrecurse.outer.i.i, label %39
 
@@ -552,7 +552,7 @@ tailrecurse.i.i:                                  ; preds = %_ZNK4toku3omtImmLb0
 _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i.i: ; preds = %tailrecurse.i.i
   %30 = zext i32 %28 to i64
   %31 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %12, i64 %30, i32 1
-  %32 = load i32, ptr %31, align 8, !tbaa !22
+  %32 = load i32, ptr %31, align 8, !tbaa !21
   %33 = icmp ult i32 %.tr21.ph.i.i, %32
   br i1 %33, label %tailrecurse.i.i, label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.thread.i.i
 
@@ -593,7 +593,7 @@ define linkonce_odr noundef i32 @_ZNK4toku3omtImmLb0EE18find_internal_zeroImTnPF
   br label %11
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
-  store i32 0, ptr %4, align 4, !tbaa !21
+  store i32 0, ptr %4, align 4, !tbaa !20
   br label %48
 
 11:                                               ; preds = %.lr.ph, %tailrecurse
@@ -616,15 +616,15 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
   %24 = load ptr, ptr %8, align 8, !tbaa !14
   %25 = zext i32 %21 to i64
   %26 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %24, i64 %25, i32 1
-  %27 = load i32, ptr %26, align 8, !tbaa !22
+  %27 = load i32, ptr %26, align 8, !tbaa !21
   %28 = add i32 %27, 1
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 
 _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit: ; preds = %17, %23
   %.0.i35 = phi i32 [ %28, %23 ], [ 1, %17 ]
-  %29 = load i32, ptr %4, align 4, !tbaa !21
+  %29 = load i32, ptr %4, align 4, !tbaa !20
   %30 = add i32 %29, %.0.i35
-  store i32 %30, ptr %4, align 4, !tbaa !21
+  store i32 %30, ptr %4, align 4, !tbaa !20
   br label %48
 
 31:                                               ; preds = %11
@@ -651,17 +651,17 @@ tailrecurse:                                      ; preds = %31
   %42 = load ptr, ptr %8, align 8, !tbaa !14
   %43 = zext i32 %39 to i64
   %44 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %42, i64 %43, i32 1
-  %45 = load i32, ptr %44, align 8, !tbaa !22
+  %45 = load i32, ptr %44, align 8, !tbaa !21
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37
 
 _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37: ; preds = %38, %41
   %.0.i36 = phi i32 [ %45, %41 ], [ 0, %38 ]
-  store i32 %.0.i36, ptr %4, align 4, !tbaa !21
+  store i32 %.0.i36, ptr %4, align 4, !tbaa !20
   %.not34 = icmp eq ptr %3, null
   br i1 %.not34, label %48, label %46
 
 46:                                               ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit37
-  %47 = load i64, ptr %14, align 8, !tbaa !27
+  %47 = load i64, ptr %14, align 8, !tbaa !26
   store i64 %47, ptr %3, align 8, !tbaa !4
   br label %48
 
@@ -692,7 +692,7 @@ _ZNK4toku3omtImmLb0EE4sizeEv.exit.thread18:       ; preds = %7
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = zext i32 %9 to i64
   %14 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %12, i64 %13, i32 1
-  %15 = load i32, ptr %14, align 8, !tbaa !22
+  %15 = load i32, ptr %14, align 8, !tbaa !21
   %16 = icmp ugt i32 %2, %15
   br i1 %16, label %70, label %20
 
@@ -707,7 +707,7 @@ _ZNK4toku3omtImmLb0EE4sizeEv.exit.thread:         ; preds = %3
   %22 = load ptr, ptr %21, align 8, !tbaa !14
   %23 = zext i32 %9 to i64
   %24 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %22, i64 %23, i32 1
-  %25 = load i32, ptr %24, align 8, !tbaa !22
+  %25 = load i32, ptr %24, align 8, !tbaa !21
   br label %_ZNK4toku3omtImmLb0EE4sizeEv.exit16
 
 _ZNK4toku3omtImmLb0EE4sizeEv.exit16:              ; preds = %_ZNK4toku3omtImmLb0EE4sizeEv.exit, %_ZNK4toku3omtImmLb0EE4sizeEv.exit.thread, %20
@@ -787,10 +787,10 @@ _ZNK4toku3omtImmLb0EE4sizeEv.exit16:              ; preds = %_ZNK4toku3omtImmLb0
 
 .thread22:                                        ; preds = %_ZNK4toku3omtImmLb0EE4sizeEv.exit16, %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store ptr null, ptr %4, align 8, !tbaa !24
+  store ptr null, ptr %4, align 8, !tbaa !23
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN4toku3omtImmLb0EE15insert_internalEPNS_12omt_internal17subtree_templatedILb0EEERKmjPS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %66, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, ptr noundef %4)
-  %67 = load ptr, ptr %4, align 8, !tbaa !24
+  %67 = load ptr, ptr %4, align 8, !tbaa !23
   %.not13 = icmp eq ptr %67, null
   br i1 %.not13, label %69, label %68
 
@@ -867,7 +867,7 @@ define linkonce_odr void @_ZN4toku3omtImmLb0EE23maybe_resize_or_convertEj(ptr no
   %38 = load ptr, ptr %37, align 8, !tbaa !14
   %39 = zext i32 %34 to i64
   %40 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %38, i64 %39, i32 1
-  %41 = load i32, ptr %40, align 8, !tbaa !22
+  %41 = load i32, ptr %40, align 8, !tbaa !21
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 
 _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit: ; preds = %32, %36
@@ -896,7 +896,7 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
   %53 = load ptr, ptr %52, align 8, !tbaa !14
   %54 = zext i32 %34 to i64
   %55 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %53, i64 %54, i32 1
-  %56 = load i32, ptr %55, align 8, !tbaa !22
+  %56 = load i32, ptr %55, align 8, !tbaa !21
   br label %_ZN4toku3omtImmLb0EE16convert_to_arrayEv.exit
 
 _ZN4toku3omtImmLb0EE16convert_to_arrayEv.exit:    ; preds = %50, %51
@@ -949,13 +949,13 @@ tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtImmLb0
   %15 = zext i32 %11 to i64
   %16 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 1, ptr %17, align 8, !tbaa !22
+  store i32 1, ptr %17, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 -1, ptr %18, align 4, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 -1, ptr %19, align 4, !tbaa !16
   %20 = load i64, ptr %2, align 8, !tbaa !4
-  store i64 %20, ptr %16, align 8, !tbaa !27
+  store i64 %20, ptr %16, align 8, !tbaa !26
   store i32 %11, ptr %.tr40.lcssa, align 4, !tbaa !16
   ret void
 
@@ -966,9 +966,9 @@ tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtImmLb0
   %24 = zext i32 %22 to i64
   %25 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !22
+  %27 = load i32, ptr %26, align 8, !tbaa !21
   %28 = add i32 %27, 1
-  store i32 %28, ptr %26, align 8, !tbaa !22
+  store i32 %28, ptr %26, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !16
   %31 = icmp eq i32 %30, -1
@@ -978,13 +978,13 @@ tailrecurse.outer._crit_edge:                     ; preds = %_ZNK4toku3omtImmLb0
   %33 = load ptr, ptr %8, align 8, !tbaa !14
   %34 = zext i32 %30 to i64
   %35 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %33, i64 %34, i32 1
-  %36 = load i32, ptr %35, align 8, !tbaa !22
+  %36 = load i32, ptr %35, align 8, !tbaa !21
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 
 _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit: ; preds = %21, %32
   %.0.i = phi i32 [ %36, %32 ], [ 0, %21 ]
   %.not = icmp ugt i32 %.tr42.ph52, %.0.i
-  %37 = load ptr, ptr %4, align 8, !tbaa !24
+  %37 = load ptr, ptr %4, align 8, !tbaa !23
   %38 = icmp eq ptr %37, null
   br i1 %.not, label %68, label %39
 
@@ -1002,7 +1002,7 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 46:                                               ; preds = %40
   %47 = zext i32 %44 to i64
   %48 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %41, i64 %47, i32 1
-  %49 = load i32, ptr %48, align 8, !tbaa !22
+  %49 = load i32, ptr %48, align 8, !tbaa !21
   %50 = add i32 %49, 1
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i
 
@@ -1016,7 +1016,7 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 54:                                               ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i
   %55 = zext i32 %52 to i64
   %56 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %41, i64 %55, i32 1
-  %57 = load i32, ptr %56, align 8, !tbaa !22
+  %57 = load i32, ptr %56, align 8, !tbaa !21
   br label %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit
 
 _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit: ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i, %54
@@ -1033,7 +1033,7 @@ _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_template
   br i1 %66, label %67, label %tailrecurse
 
 67:                                               ; preds = %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit
-  store ptr %.tr4049, ptr %4, align 8, !tbaa !24
+  store ptr %.tr4049, ptr %4, align 8, !tbaa !23
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %67, %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit, %39
@@ -1053,7 +1053,7 @@ tailrecurse:                                      ; preds = %67, %_ZNK4toku3omtI
 75:                                               ; preds = %69
   %76 = zext i32 %73 to i64
   %77 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %70, i64 %76, i32 1
-  %78 = load i32, ptr %77, align 8, !tbaa !22
+  %78 = load i32, ptr %77, align 8, !tbaa !21
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i32
 
 _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i32: ; preds = %75, %69
@@ -1066,7 +1066,7 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 82:                                               ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i32
   %83 = zext i32 %80 to i64
   %84 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %70, i64 %83, i32 1
-  %85 = load i32, ptr %84, align 8, !tbaa !22
+  %85 = load i32, ptr %84, align 8, !tbaa !21
   %86 = add i32 %85, 1
   br label %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit37
 
@@ -1084,7 +1084,7 @@ _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_template
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit37
-  store ptr %.tr4049, ptr %4, align 8, !tbaa !24
+  store ptr %.tr4049, ptr %4, align 8, !tbaa !23
   br label %97
 
 97:                                               ; preds = %96, %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit37, %68
@@ -1094,7 +1094,7 @@ _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_template
   %99 = load ptr, ptr %8, align 8, !tbaa !14
   %100 = zext i32 %30 to i64
   %101 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %99, i64 %100, i32 1
-  %102 = load i32, ptr %101, align 8, !tbaa !22
+  %102 = load i32, ptr %101, align 8, !tbaa !21
   %103 = xor i32 %102, -1
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit39
 
@@ -1129,7 +1129,7 @@ define linkonce_odr void @_ZN4toku3omtImmLb0EE9rebalanceEPNS_12omt_internal17sub
   %14 = load ptr, ptr %13, align 8, !tbaa !14
   %15 = zext i32 %3 to i64
   %16 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %14, i64 %15, i32 1
-  %17 = load i32, ptr %16, align 8, !tbaa !22
+  %17 = load i32, ptr %16, align 8, !tbaa !21
   br label %_ZNK4toku3omtImmLb0EE4sizeEv.exit.i
 
 _ZNK4toku3omtImmLb0EE4sizeEv.exit.i:              ; preds = %12, %10
@@ -1157,7 +1157,7 @@ _ZNK4toku3omtImmLb0EE4sizeEv.exit.i:              ; preds = %12, %10
   %29 = load ptr, ptr %28, align 8, !tbaa !14
   %30 = zext i32 %3 to i64
   %31 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %29, i64 %30, i32 1
-  %32 = load i32, ptr %31, align 8, !tbaa !22
+  %32 = load i32, ptr %31, align 8, !tbaa !21
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1182,7 +1182,7 @@ _ZNK4toku3omtImmLb0EE4sizeEv.exit.i:              ; preds = %12, %10
 47:                                               ; preds = %45, %42
   %.014 = phi ptr [ %44, %42 ], [ %46, %45 ]
   tail call void @_ZNK4toku3omtImmLb0EE28fill_array_with_subtree_idxsEPjRKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %.014, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  %48 = load i32, ptr %31, align 8, !tbaa !22
+  %48 = load i32, ptr %31, align 8, !tbaa !21
   tail call void @_ZN4toku3omtImmLb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %.014, i32 noundef %48)
   br i1 %.not, label %49, label %_ZN4toku3omtImmLb0EE16convert_to_arrayEv.exit
 
@@ -1217,7 +1217,7 @@ define linkonce_odr void @_ZNK4toku3omtImmLb0EE30fill_array_with_subtree_valuesE
   %11 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   tail call void @_ZNK4toku3omtImmLb0EE30fill_array_with_subtree_valuesEPmRKNS_12omt_internal17subtree_templatedILb0EEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %.tr1416, ptr noundef nonnull align 4 dereferenceable(4) %12)
-  %13 = load i64, ptr %11, align 8, !tbaa !27
+  %13 = load i64, ptr %11, align 8, !tbaa !26
   %14 = load i32, ptr %12, align 4, !tbaa !16
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.thread, label %16
@@ -1230,13 +1230,13 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
   %17 = load ptr, ptr %6, align 8, !tbaa !14
   %18 = zext i32 %14 to i64
   %19 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %17, i64 %18, i32 1
-  %20 = load i32, ptr %19, align 8, !tbaa !22
+  %20 = load i32, ptr %19, align 8, !tbaa !21
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw i64, ptr %.tr1416, i64 %21
   store i64 %13, ptr %22, align 8, !tbaa !4
   %23 = load ptr, ptr %6, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %23, i64 %18, i32 1
-  %25 = load i32, ptr %24, align 8, !tbaa !22
+  %25 = load i32, ptr %24, align 8, !tbaa !21
   %26 = add i32 %25, 1
   %27 = zext i32 %26 to i64
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit12
@@ -1280,11 +1280,11 @@ tailrecurse:                                      ; preds = %.lr.ph, %tailrecurs
   %12 = zext i32 %9 to i64
   %13 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 %.tr2124, ptr %14, align 8, !tbaa !22
+  store i32 %.tr2124, ptr %14, align 8, !tbaa !21
   %15 = zext nneg i32 %8 to i64
   %16 = getelementptr inbounds nuw i64, ptr %.tr2023, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !4
-  store i64 %17, ptr %13, align 8, !tbaa !27
+  store i64 %17, ptr %13, align 8, !tbaa !26
   store i32 %9, ptr %.tr1922, align 4, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 12
   tail call void @_ZN4toku3omtImmLb0EE25rebuild_from_sorted_arrayEPNS_12omt_internal17subtree_templatedILb0EEEPKmj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %18, ptr noundef %.tr2023, i32 noundef %8)
@@ -1325,14 +1325,14 @@ define linkonce_odr void @_ZNK4toku3omtImmLb0EE28fill_array_with_subtree_idxsEPj
   %17 = load ptr, ptr %6, align 8, !tbaa !14
   %18 = zext i32 %14 to i64
   %19 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %17, i64 %18, i32 1
-  %20 = load i32, ptr %19, align 8, !tbaa !22
+  %20 = load i32, ptr %19, align 8, !tbaa !21
   %21 = zext i32 %20 to i64
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 
 _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit: ; preds = %7, %16
   %.0.i = phi i64 [ %21, %16 ], [ 0, %7 ]
   %22 = getelementptr inbounds nuw i32, ptr %.tr1315, i64 %.0.i
-  store i32 %13, ptr %22, align 4, !tbaa !21
+  store i32 %13, ptr %22, align 4, !tbaa !20
   %23 = load i32, ptr %12, align 4, !tbaa !16
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit12, label %25
@@ -1341,7 +1341,7 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
   %26 = load ptr, ptr %6, align 8, !tbaa !14
   %27 = zext i32 %23 to i64
   %28 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %26, i64 %27, i32 1
-  %29 = load i32, ptr %28, align 8, !tbaa !22
+  %29 = load i32, ptr %28, align 8, !tbaa !21
   %30 = add i32 %29, 1
   %31 = zext i32 %30 to i64
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit12
@@ -1379,13 +1379,13 @@ tailrecurse:                                      ; preds = %.lr.ph, %tailrecurs
   %7 = lshr i32 %.tr1922, 1
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds nuw i32, ptr %.tr1821, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !21
+  %10 = load i32, ptr %9, align 4, !tbaa !20
   store i32 %10, ptr %.tr1720, align 4, !tbaa !16
   %11 = load ptr, ptr %6, align 8, !tbaa !14
   %12 = zext i32 %10 to i64
   %13 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 %.tr1922, ptr %14, align 8, !tbaa !22
+  store i32 %.tr1922, ptr %14, align 8, !tbaa !21
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   tail call void @_ZN4toku3omtImmLb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %15, ptr noundef %.tr1821, i32 noundef %7)
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -1430,16 +1430,16 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
   %.tr7695 = phi ptr [ %15, %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit.thread ], [ %.tr76.ph, %tailrecurse.outer ]
   %20 = zext i32 %14 to i64
   %21 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %19, i64 %20, i32 1
-  %22 = load i32, ptr %21, align 8, !tbaa !22
+  %22 = load i32, ptr %21, align 8, !tbaa !21
   %23 = icmp ult i32 %.tr77.ph, %22
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !22
+  %26 = load i32, ptr %25, align 8, !tbaa !21
   %27 = add i32 %26, -1
-  store i32 %27, ptr %25, align 8, !tbaa !22
-  %28 = load ptr, ptr %4, align 8, !tbaa !24
+  store i32 %27, ptr %25, align 8, !tbaa !21
+  %28 = load ptr, ptr %4, align 8, !tbaa !23
   %29 = icmp ne ptr %28, null
   %30 = icmp eq i32 %18, -1
   %or.cond = or i1 %30, %29
@@ -1456,7 +1456,7 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 36:                                               ; preds = %31
   %37 = zext i32 %34 to i64
   %38 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %.pre118, i64 %37, i32 1
-  %39 = load i32, ptr %38, align 8, !tbaa !22
+  %39 = load i32, ptr %38, align 8, !tbaa !21
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i
 
 _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i: ; preds = %36, %31
@@ -1469,7 +1469,7 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 43:                                               ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i
   %44 = zext i32 %41 to i64
   %45 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %.pre118, i64 %44, i32 1
-  %46 = load i32, ptr %45, align 8, !tbaa !22
+  %46 = load i32, ptr %45, align 8, !tbaa !21
   br label %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit
 
 _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit: ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i, %43
@@ -1485,7 +1485,7 @@ _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_template
   br i1 %54, label %55, label %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit.thread
 
 55:                                               ; preds = %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit
-  store ptr %.tr7695, ptr %4, align 8, !tbaa !24
+  store ptr %.tr7695, ptr %4, align 8, !tbaa !23
   %.pre = load ptr, ptr %6, align 8, !tbaa !14
   br label %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit.thread
 
@@ -1511,8 +1511,8 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 
 63:                                               ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.thread
   %64 = getelementptr inbounds nuw i8, ptr %.lcssa81, i64 16
-  %65 = load i32, ptr %64, align 8, !tbaa !21
-  store i32 %65, ptr %.tr76.lcssa, align 4, !tbaa !21
+  %65 = load i32, ptr %64, align 8, !tbaa !20
+  store i32 %65, ptr %.tr76.lcssa, align 4, !tbaa !20
   %.not52 = icmp eq ptr %.tr78.ph.ph, null
   br i1 %.not52, label %129, label %.sink.split
 
@@ -1523,12 +1523,12 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %.thread71
-  store i32 %14, ptr %.tr7695, align 4, !tbaa !21
+  store i32 %14, ptr %.tr7695, align 4, !tbaa !20
   %.not = icmp eq ptr %.tr78.ph.ph, null
   br i1 %.not, label %129, label %.sink.split
 
 70:                                               ; preds = %.thread71
-  %71 = load ptr, ptr %4, align 8, !tbaa !24
+  %71 = load ptr, ptr %4, align 8, !tbaa !23
   %72 = icmp ne ptr %71, null
   %73 = icmp eq i32 %18, -1
   %or.cond74 = or i1 %73, %72
@@ -1537,7 +1537,7 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit59: ; preds = %70
   %74 = zext i32 %67 to i64
   %75 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %19, i64 %74, i32 1
-  %76 = load i32, ptr %75, align 8, !tbaa !22
+  %76 = load i32, ptr %75, align 8, !tbaa !21
   %77 = add i32 %.tr77.ph, 1
   %78 = add i32 %76, 1
   %79 = lshr i32 %78, 1
@@ -1549,14 +1549,14 @@ _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_template
   br i1 %84, label %85, label %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit59.thread
 
 85:                                               ; preds = %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit59
-  store ptr %.tr7695, ptr %4, align 8, !tbaa !24
+  store ptr %.tr7695, ptr %4, align 8, !tbaa !23
   br label %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit59.thread
 
 _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit59.thread: ; preds = %85, %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit59, %70
   %86 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %87 = load i32, ptr %86, align 8, !tbaa !22
+  %87 = load i32, ptr %86, align 8, !tbaa !21
   %88 = add i32 %87, -1
-  store i32 %88, ptr %86, align 8, !tbaa !22
+  store i32 %88, ptr %86, align 8, !tbaa !21
   br label %tailrecurse.outer.outer
 
 89:                                               ; preds = %.thread, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.thread
@@ -1566,10 +1566,10 @@ _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_template
   %92 = phi ptr [ %16, %.thread ], [ %.lcssa81, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.thread ]
   %.0.i6770 = phi i32 [ %22, %.thread ], [ 0, %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.thread ]
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load i32, ptr %93, align 8, !tbaa !22
+  %94 = load i32, ptr %93, align 8, !tbaa !21
   %95 = add i32 %94, -1
-  store i32 %95, ptr %93, align 8, !tbaa !22
-  %96 = load ptr, ptr %4, align 8, !tbaa !24
+  store i32 %95, ptr %93, align 8, !tbaa !21
+  %96 = load ptr, ptr %4, align 8, !tbaa !23
   %97 = icmp ne ptr %96, null
   %98 = icmp eq i32 %90, -1
   %or.cond75 = or i1 %98, %97
@@ -1586,7 +1586,7 @@ _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_template
 105:                                              ; preds = %99
   %106 = zext i32 %103 to i64
   %107 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %100, i64 %106, i32 1
-  %108 = load i32, ptr %107, align 8, !tbaa !22
+  %108 = load i32, ptr %107, align 8, !tbaa !21
   br label %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i60
 
 _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i60: ; preds = %105, %99
@@ -1599,7 +1599,7 @@ _ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit
 112:                                              ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i60
   %113 = zext i32 %110 to i64
   %114 = getelementptr inbounds nuw %"class.toku::omt_internal::omt_node_templated", ptr %100, i64 %113, i32 1
-  %115 = load i32, ptr %114, align 8, !tbaa !22
+  %115 = load i32, ptr %114, align 8, !tbaa !21
   br label %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65
 
 _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65: ; preds = %_ZNK4toku3omtImmLb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i60, %112
@@ -1615,7 +1615,7 @@ _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_template
   br i1 %123, label %124, label %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65.thread
 
 124:                                              ; preds = %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65
-  store ptr %.tr7692, ptr %4, align 8, !tbaa !24
+  store ptr %.tr7692, ptr %4, align 8, !tbaa !23
   br label %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65.thread
 
 _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65.thread: ; preds = %124, %_ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_templatedILb0EEEii.exit65, %89
@@ -1626,8 +1626,8 @@ _ZNK4toku3omtImmLb0EE19will_need_rebalanceERKNS_12omt_internal17subtree_template
 
 .sink.split:                                      ; preds = %69, %63
   %.lcssa129.lcssa.lcssa.sink = phi ptr [ %.lcssa81, %63 ], [ %16, %69 ]
-  %128 = load i64, ptr %.lcssa129.lcssa.lcssa.sink, align 8, !tbaa !27
-  store i64 %128, ptr %.tr78.ph.ph, align 8, !tbaa !27
+  %128 = load i64, ptr %.lcssa129.lcssa.lcssa.sink, align 8, !tbaa !26
+  store i64 %128, ptr %.tr78.ph.ph, align 8, !tbaa !26
   br label %129
 
 129:                                              ; preds = %.sink.split, %69, %63
@@ -1674,13 +1674,12 @@ attributes #9 = { nounwind }
 !15 = !{!9, !11, i64 4}
 !16 = !{!17, !11, i64 0}
 !17 = !{!"_ZTSN4toku12omt_internal17subtree_templatedILb0EEE", !11, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!11, !11, i64 0}
-!22 = !{!23, !11, i64 8}
-!23 = !{!"_ZTSN4toku12omt_internal18omt_node_templatedImLb0EEE", !5, i64 0, !11, i64 8, !17, i64 12, !17, i64 16}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 _ZTSN4toku12omt_internal17subtree_templatedILb0EEE", !26, i64 0}
-!26 = !{!"any pointer", !6, i64 0}
-!27 = !{!23, !5, i64 0}
+!20 = !{!11, !11, i64 0}
+!21 = !{!22, !11, i64 8}
+!22 = !{!"_ZTSN4toku12omt_internal18omt_node_templatedImLb0EEE", !5, i64 0, !11, i64 8, !17, i64 12, !17, i64 16}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTSN4toku12omt_internal17subtree_templatedILb0EEE", !25, i64 0}
+!25 = !{!"any pointer", !6, i64 0}
+!26 = !{!22, !5, i64 0}

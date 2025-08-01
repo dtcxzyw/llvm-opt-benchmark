@@ -997,7 +997,7 @@ define internal fastcc i32 @dissect_mic_e(ptr noundef %0, ptr noundef readonly c
 22:                                               ; preds = %23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 34
-  br i1 %exitcond.not.i, label %dst_code_lookup.exit, label %23, !llvm.loop !9
+  br i1 %exitcond.not.i, label %dst_code_lookup.exit, label %23, !llvm.loop !8
 
 23:                                               ; preds = %22, %18
   %indvars.iv.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i, %22 ]
@@ -1024,7 +1024,7 @@ dst_code_lookup.exit:                             ; preds = %22, %23
 34:                                               ; preds = %35
   %indvars.iv.next.i142 = add nuw nsw i64 %indvars.iv.i138, 1
   %exitcond.not.i143 = icmp eq i64 %indvars.iv.next.i142, 34
-  br i1 %exitcond.not.i143, label %dst_code_lookup.exit145, label %35, !llvm.loop !9
+  br i1 %exitcond.not.i143, label %dst_code_lookup.exit145, label %35, !llvm.loop !8
 
 35:                                               ; preds = %34, %dst_code_lookup.exit
   %indvars.iv.i138 = phi i64 [ 0, %dst_code_lookup.exit ], [ %indvars.iv.next.i142, %34 ]
@@ -1052,7 +1052,7 @@ dst_code_lookup.exit145:                          ; preds = %34, %35
 47:                                               ; preds = %48
   %indvars.iv.next.i150 = add nuw nsw i64 %indvars.iv.i146, 1
   %exitcond.not.i151 = icmp eq i64 %indvars.iv.next.i150, 34
-  br i1 %exitcond.not.i151, label %dst_code_lookup.exit153, label %48, !llvm.loop !9
+  br i1 %exitcond.not.i151, label %dst_code_lookup.exit153, label %48, !llvm.loop !8
 
 48:                                               ; preds = %47, %dst_code_lookup.exit145
   %indvars.iv.i146 = phi i64 [ 0, %dst_code_lookup.exit145 ], [ %indvars.iv.next.i150, %47 ]
@@ -1080,7 +1080,7 @@ dst_code_lookup.exit153:                          ; preds = %47, %48
 60:                                               ; preds = %61
   %indvars.iv.next.i158 = add nuw nsw i64 %indvars.iv.i154, 1
   %exitcond.not.i159 = icmp eq i64 %indvars.iv.next.i158, 34
-  br i1 %exitcond.not.i159, label %dst_code_lookup.exit161, label %61, !llvm.loop !9
+  br i1 %exitcond.not.i159, label %dst_code_lookup.exit161, label %61, !llvm.loop !8
 
 61:                                               ; preds = %60, %dst_code_lookup.exit153
   %indvars.iv.i154 = phi i64 [ 0, %dst_code_lookup.exit153 ], [ %indvars.iv.next.i158, %60 ]
@@ -1107,7 +1107,7 @@ dst_code_lookup.exit161:                          ; preds = %60, %61
 72:                                               ; preds = %73
   %indvars.iv.next.i166 = add nuw nsw i64 %indvars.iv.i162, 1
   %exitcond.not.i167 = icmp eq i64 %indvars.iv.next.i166, 34
-  br i1 %exitcond.not.i167, label %dst_code_lookup.exit169, label %73, !llvm.loop !9
+  br i1 %exitcond.not.i167, label %dst_code_lookup.exit169, label %73, !llvm.loop !8
 
 73:                                               ; preds = %72, %dst_code_lookup.exit161
   %indvars.iv.i162 = phi i64 [ 0, %dst_code_lookup.exit161 ], [ %indvars.iv.next.i166, %72 ]
@@ -1134,7 +1134,7 @@ dst_code_lookup.exit169:                          ; preds = %72, %73
 84:                                               ; preds = %85
   %indvars.iv.next.i174 = add nuw nsw i64 %indvars.iv.i170, 1
   %exitcond.not.i175 = icmp eq i64 %indvars.iv.next.i174, 34
-  br i1 %exitcond.not.i175, label %dst_code_lookup.exit177, label %85, !llvm.loop !9
+  br i1 %exitcond.not.i175, label %dst_code_lookup.exit177, label %85, !llvm.loop !8
 
 85:                                               ; preds = %84, %dst_code_lookup.exit169
   %indvars.iv.i170 = phi i64 [ 0, %dst_code_lookup.exit169 ], [ %indvars.iv.next.i174, %84 ]
@@ -1301,7 +1301,7 @@ define internal fastcc i32 @aprs_position(ptr noundef readonly captures(none) %0
   %24 = load i32, ptr @hf_aprs_sym_code, align 4
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %24, ptr noundef %2, i32 noundef %22, i32 noundef 1, i32 noundef 0)
   %26 = add i32 %3, 19
-  %27 = load i8, ptr @gPREF_APRS_LAX, align 1, !range !10, !noundef !11
+  %27 = load i8, ptr @gPREF_APRS_LAX, align 1, !range !9, !noundef !10
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %.thread
 
@@ -1691,9 +1691,8 @@ attributes #10 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}

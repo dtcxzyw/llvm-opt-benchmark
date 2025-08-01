@@ -463,13 +463,13 @@ define internal range(i32 0, 2) i32 @test_cipher_name() #0 {
 40:                                               ; preds = %38, %36
   %.06.i = phi i64 [ 0, %36 ], [ %39, %38 ]
   %41 = getelementptr inbounds nuw [336 x %struct.cipher_id_name], ptr @cipher_names, i64 0, i64 %.06.i
-  %42 = load i32, ptr %41, align 16, !tbaa !7
+  %42 = load i32, ptr %41, align 16, !tbaa !6
   %43 = icmp eq i32 %42, %32
   br i1 %43, label %44, label %38
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !14
+  %46 = load ptr, ptr %45, align 8, !tbaa !13
   br label %get_std_name_by_id.exit
 
 get_std_name_by_id.exit:                          ; preds = %38, %44
@@ -506,7 +506,7 @@ get_std_name_by_id.exit:                          ; preds = %38, %44
   %58 = add nuw nsw i32 %.04166, 1
   %59 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %25) #2
   %60 = icmp slt i32 %58, %59
-  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %57, %.preheader, %56, %51, %48, %29, %23, %19, %16, %11, %7, %3
   %.043 = phi ptr [ null, %16 ], [ null, %23 ], [ %21, %29 ], [ %21, %56 ], [ %21, %51 ], [ %21, %48 ], [ null, %19 ], [ null, %11 ], [ null, %7 ], [ null, %3 ], [ %21, %.preheader ], [ %21, %57 ]
@@ -559,15 +559,14 @@ attributes #2 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !9, i64 0}
-!8 = !{!"cipher_id_name", !9, i64 0, !12, i64 8}
-!9 = !{!"int", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"p1 omnipotent char", !13, i64 0}
-!13 = !{!"any pointer", !10, i64 0}
-!14 = !{!8, !12, i64 8}
-!15 = distinct !{!15, !5, !6}
+!6 = !{!7, !8, i64 0}
+!7 = !{!"cipher_id_name", !8, i64 0, !11, i64 8}
+!8 = !{!"int", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !9, i64 0}
+!13 = !{!7, !11, i64 8}
+!14 = distinct !{!14, !5}

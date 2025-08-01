@@ -420,7 +420,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %199 = select i1 %198, double %192, double %197
   %indvars.iv.next1602 = add nuw nsw i64 %indvars.iv1601, 1
   %exitcond1604.not = icmp eq i64 %indvars.iv.next1602, %wide.trip.count
-  br i1 %exitcond1604.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond1604.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store double %194, ptr %22, align 8, !tbaa !7
@@ -657,14 +657,14 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %308 = icmp sgt i32 %306, 0
   %309 = icmp slt i32 %306, 2
   %.in1145 = select i1 %307, i1 %308, i1 %309
-  br i1 %.in1145, label %.lr.ph1389, label %._crit_edge1390, !llvm.loop !13
+  br i1 %.in1145, label %.lr.ph1389, label %._crit_edge1390, !llvm.loop !12
 
 ._crit_edge1390:                                  ; preds = %304
   %indvars.iv.next1656 = add nuw nsw i64 %indvars.iv1655, 1
   %310 = load i32, ptr %18, align 4, !tbaa !3
   %311 = sext i32 %310 to i64
   %.not1143.not = icmp slt i64 %indvars.iv1655, %311
-  br i1 %.not1143.not, label %250, label %._crit_edge1398.loopexit, !llvm.loop !14
+  br i1 %.not1143.not, label %250, label %._crit_edge1398.loopexit, !llvm.loop !13
 
 ._crit_edge1398.loopexit:                         ; preds = %._crit_edge1390
   %.pre1774 = load i32, ptr %17, align 4, !tbaa !3
@@ -677,7 +677,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1660 = add nuw nsw i64 %indvars.iv1659, 1
   %313 = sext i32 %312 to i64
   %.not1135.not = icmp slt i64 %indvars.iv1659, %313
-  br i1 %.not1135.not, label %241, label %._crit_edge1407.loopexit, !llvm.loop !15
+  br i1 %.not1135.not, label %241, label %._crit_edge1407.loopexit, !llvm.loop !14
 
 ._crit_edge1407.loopexit:                         ; preds = %._crit_edge1398
   %.pre1775 = load i32, ptr %41, align 4, !tbaa !3
@@ -849,7 +849,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %398 = icmp sgt i32 %396, 0
   %399 = icmp slt i32 %396, 2
   %.in1140 = select i1 %397, i1 %398, i1 %399
-  br i1 %.in1140, label %.lr.ph1416, label %._crit_edge1417, !llvm.loop !16
+  br i1 %.in1140, label %.lr.ph1416, label %._crit_edge1417, !llvm.loop !15
 
 ._crit_edge1417:                                  ; preds = %394, %347
   %.71014.lcssa = phi i32 [ %.610131421, %347 ], [ %360, %394 ]
@@ -857,7 +857,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %400 = add nuw nsw i32 %.09611422, 1
   %401 = load i32, ptr %18, align 4, !tbaa !3
   %.not1138.not = icmp slt i32 %.09611422, %401
-  br i1 %.not1138.not, label %327, label %._crit_edge1425.loopexit, !llvm.loop !17
+  br i1 %.not1138.not, label %327, label %._crit_edge1425.loopexit, !llvm.loop !16
 
 ._crit_edge1425.loopexit:                         ; preds = %._crit_edge1417
   %.pre1776 = load i32, ptr %17, align 4, !tbaa !3
@@ -869,7 +869,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.51002.lcssa = phi i32 [ %.410011430, %318 ], [ %.61003.lcssa, %._crit_edge1425.loopexit ]
   %403 = add nuw nsw i32 %.09351431, 1
   %.not1136.not = icmp slt i32 %.09351431, %402
-  br i1 %.not1136.not, label %318, label %.loopexit1282, !llvm.loop !18
+  br i1 %.not1136.not, label %318, label %.loopexit1282, !llvm.loop !17
 
 404:                                              ; preds = %230
   br i1 %.not11171452, label %._crit_edge1458, label %.lr.ph1457
@@ -898,7 +898,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.101017.lcssa = phi i32 [ %.910161444, %431 ], [ %444, %460 ]
   %412 = load i32, ptr %19, align 4, !tbaa !3
   %.not1129.not = icmp sgt i32 %.19621446, %412
-  br i1 %.not1129.not, label %.lr.ph1448, label %._crit_edge1449.loopexit, !llvm.loop !19
+  br i1 %.not1129.not, label %.lr.ph1448, label %._crit_edge1449.loopexit, !llvm.loop !18
 
 .lr.ph1448:                                       ; preds = %405, %.loopexit1283
   %.1962.in1445 = phi i32 [ %.19621446, %.loopexit1283 ], [ %.1178, %405 ]
@@ -1013,7 +1013,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %465 = icmp sge i32 %462, %464
   %466 = icmp sle i32 %462, %464
   %.in1131 = select i1 %463, i1 %465, i1 %466
-  br i1 %.in1131, label %.lr.ph1440, label %.loopexit1283, !llvm.loop !20
+  br i1 %.in1131, label %.lr.ph1440, label %.loopexit1283, !llvm.loop !19
 
 ._crit_edge1449.loopexit:                         ; preds = %.loopexit1283
   %.pre1777 = load i32, ptr %17, align 4, !tbaa !3
@@ -1025,7 +1025,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.91006.lcssa = phi i32 [ %.810051454, %405 ], [ %419, %._crit_edge1449.loopexit ]
   %468 = add nuw nsw i32 %.11455, 1
   %.not1117.not = icmp slt i32 %.11455, %467
-  br i1 %.not1117.not, label %405, label %._crit_edge1458.loopexit, !llvm.loop !21
+  br i1 %.not1117.not, label %405, label %._crit_edge1458.loopexit, !llvm.loop !20
 
 ._crit_edge1458.loopexit:                         ; preds = %._crit_edge1449
   %.pre1778 = load i32, ptr %41, align 4, !tbaa !3
@@ -1071,7 +1071,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.12.lcssa = phi i32 [ %.111469, %504 ], [ %519, %541 ]
   %482 = load i32, ptr %20, align 4, !tbaa !3
   %.not1121.not = icmp sgt i32 %.19501471, %482
-  br i1 %.not1121.not, label %483, label %._crit_edge1474.loopexit, !llvm.loop !22
+  br i1 %.not1121.not, label %483, label %._crit_edge1474.loopexit, !llvm.loop !21
 
 483:                                              ; preds = %.lr.ph1473, %.loopexit1281
   %.1950.in1470 = phi i32 [ %.1179, %.lr.ph1473 ], [ %.19501471, %.loopexit1281 ]
@@ -1194,7 +1194,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %546 = icmp sge i32 %543, %545
   %547 = icmp sle i32 %543, %545
   %.in1123 = select i1 %544, i1 %546, i1 %547
-  br i1 %.in1123, label %.lr.ph1465, label %.loopexit1281, !llvm.loop !23
+  br i1 %.in1123, label %.lr.ph1465, label %.loopexit1281, !llvm.loop !22
 
 ._crit_edge1474.loopexit:                         ; preds = %.loopexit1281
   %.pre1779 = load i32, ptr %17, align 4, !tbaa !3
@@ -1206,7 +1206,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.11.lcssa = phi i32 [ %.101479, %472 ], [ %.12.lcssa, %._crit_edge1474.loopexit ]
   %549 = add nuw nsw i32 %.19361480, 1
   %.not1118.not = icmp slt i32 %.19361480, %548
-  br i1 %.not1118.not, label %472, label %.loopexit1282, !llvm.loop !24
+  br i1 %.not1118.not, label %472, label %.loopexit1282, !llvm.loop !23
 
 550:                                              ; preds = %229
   %551 = load i32, ptr %24, align 4, !tbaa !3
@@ -1258,7 +1258,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %570 = load i32, ptr %20, align 4, !tbaa !3
   %571 = sext i32 %570 to i64
   %.not1111.not = icmp slt i64 %indvars.iv1605, %571
-  br i1 %.not1111.not, label %572, label %._crit_edge1307.loopexit, !llvm.loop !25
+  br i1 %.not1111.not, label %572, label %._crit_edge1307.loopexit, !llvm.loop !24
 
 572:                                              ; preds = %.lr.ph1306, %.loopexit1289
   %indvars.iv1605 = phi i64 [ 1, %.lr.ph1306 ], [ %indvars.iv.next1606, %.loopexit1289 ]
@@ -1371,7 +1371,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %644 = icmp sgt i32 %642, 0
   %645 = icmp slt i32 %642, 2
   %.in1114 = select i1 %643, i1 %644, i1 %645
-  br i1 %.in1114, label %.lr.ph1299, label %.loopexit1289, !llvm.loop !26
+  br i1 %.in1114, label %.lr.ph1299, label %.loopexit1289, !llvm.loop !25
 
 ._crit_edge1307.loopexit:                         ; preds = %.loopexit1289
   %.pre = load i32, ptr %17, align 4, !tbaa !3
@@ -1384,7 +1384,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1609 = add nuw nsw i64 %indvars.iv1608, 1
   %647 = sext i32 %646 to i64
   %.not1105.not = icmp slt i64 %indvars.iv1608, %647
-  br i1 %.not1105.not, label %561, label %._crit_edge1316, !llvm.loop !27
+  br i1 %.not1105.not, label %561, label %._crit_edge1316, !llvm.loop !26
 
 ._crit_edge1316:                                  ; preds = %._crit_edge1307, %555
   %.131020.lcssa = phi i32 [ undef, %555 ], [ %.141021.lcssa, %._crit_edge1307 ]
@@ -1436,12 +1436,12 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %667, ptr %670, align 8, !tbaa !7
   %indvars.iv.next1614 = add nuw nsw i64 %indvars.iv1613, 1
   %.not1110.not = icmp slt i64 %indvars.iv1613, %661
-  br i1 %.not1110.not, label %662, label %._crit_edge1323, !llvm.loop !28
+  br i1 %.not1110.not, label %662, label %._crit_edge1323, !llvm.loop !27
 
 ._crit_edge1323:                                  ; preds = %662, %653
   %indvars.iv.next1612 = add nuw nsw i64 %indvars.iv1611, 1
   %exitcond1618.not = icmp eq i64 %indvars.iv.next1612, %wide.trip.count1617
-  br i1 %exitcond1618.not, label %._crit_edge1328, label %653, !llvm.loop !29
+  br i1 %exitcond1618.not, label %._crit_edge1328, label %653, !llvm.loop !28
 
 ._crit_edge1328:                                  ; preds = %._crit_edge1323, %649
   %.16.lcssa = phi i32 [ %.13.lcssa, %649 ], [ %655, %._crit_edge1323 ]
@@ -1469,7 +1469,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .loopexit1287:                                    ; preds = %.lr.ph1335, %683
   %.not1107.not = icmp slt i32 %.49651338, %650
   %indvar.next1621 = add nuw nsw i64 %indvar1620, 1
-  br i1 %.not1107.not, label %683, label %.loopexit1288, !llvm.loop !30
+  br i1 %.not1107.not, label %683, label %.loopexit1288, !llvm.loop !29
 
 683:                                              ; preds = %.lr.ph1340, %.loopexit1287
   %indvar1620 = phi i64 [ 0, %.lr.ph1340 ], [ %indvar.next1621, %.loopexit1287 ]
@@ -1535,7 +1535,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .loopexit1286:                                    ; preds = %.lr.ph1345, %710
   %.181025.lcssa = phi i32 [ %indvars, %710 ], [ %.51343, %.lr.ph1345 ]
   %709 = icmp samesign ugt i64 %indvars.iv1628, 2
-  br i1 %709, label %710, label %._crit_edge1352.loopexit, !llvm.loop !31
+  br i1 %709, label %710, label %._crit_edge1352.loopexit, !llvm.loop !30
 
 710:                                              ; preds = %.lr.ph1351, %.loopexit1286
   %indvars.iv1628 = phi i64 [ %705, %.lr.ph1351 ], [ %indvars.iv.next1629, %.loopexit1286 ]
@@ -1646,7 +1646,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %776 = icmp sge i32 %773, %775
   %777 = icmp sle i32 %773, %775
   %.in = select i1 %774, i1 %776, i1 %777
-  br i1 %.in, label %.lr.ph1345, label %.loopexit1286, !llvm.loop !32
+  br i1 %.in, label %.lr.ph1345, label %.loopexit1286, !llvm.loop !31
 
 ._crit_edge1352.loopexit:                         ; preds = %.loopexit1286
   %.pre1773 = load i32, ptr %17, align 4, !tbaa !3
@@ -1658,7 +1658,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next1632 = add nuw nsw i64 %indvars.iv1631, 1
   %779 = sext i32 %778 to i64
   %.not1099.not = icmp slt i64 %indvars.iv1631, %779
-  br i1 %.not1099.not, label %701, label %._crit_edge1359, !llvm.loop !33
+  br i1 %.not1099.not, label %701, label %._crit_edge1359, !llvm.loop !32
 
 ._crit_edge1359:                                  ; preds = %._crit_edge1352, %691
   %.161023.lcssa = phi i32 [ undef, %691 ], [ %.171024.lcssa, %._crit_edge1352 ]
@@ -1708,12 +1708,12 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %800, ptr %803, align 8, !tbaa !7
   %indvars.iv.next1638 = add nsw i64 %indvars.iv1637, -1
   %.not1102.not = icmp sgt i64 %indvars.iv1637, %794
-  br i1 %.not1102.not, label %795, label %._crit_edge1365, !llvm.loop !34
+  br i1 %.not1102.not, label %795, label %._crit_edge1365, !llvm.loop !33
 
 ._crit_edge1365:                                  ; preds = %795, %786
   %indvars.iv.next1636 = add nsw i64 %indvars.iv1635, -1
   %804 = icmp sgt i32 %indvars1642, 1
-  br i1 %804, label %786, label %._crit_edge1369, !llvm.loop !35
+  br i1 %804, label %786, label %._crit_edge1369, !llvm.loop !34
 
 ._crit_edge1369:                                  ; preds = %._crit_edge1365, %781
   %.17.lcssa = phi i32 [ undef, %781 ], [ %788, %._crit_edge1365 ]
@@ -1755,7 +1755,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %819 = add nuw nsw i32 %.79681379, 1
   %indvars.iv.next1650 = add nuw nsw i64 %indvars.iv1649, 1
   %exitcond1654.not = icmp eq i64 %indvars.iv.next1650, %wide.trip.count1653
-  br i1 %exitcond1654.not, label %.loopexit1285, label %809, !llvm.loop !36
+  br i1 %exitcond1654.not, label %.loopexit1285, label %809, !llvm.loop !35
 
 .loopexit1285:                                    ; preds = %._crit_edge1377, %805, %._crit_edge1369
   %.0979.1182 = select i1 %89, i32 %.0979, i32 0
@@ -1808,7 +1808,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .loopexit:                                        ; preds = %.lr.ph1536, %833
   %indvars.iv.next1737 = add nuw nsw i64 %indvars.iv1736, 1
   %exitcond1741.not = icmp eq i64 %indvars.iv.next1737, %wide.trip.count1740
-  br i1 %exitcond1741.not, label %.loopexit1276, label %833, !llvm.loop !37
+  br i1 %exitcond1741.not, label %.loopexit1276, label %833, !llvm.loop !36
 
 833:                                              ; preds = %.lr.ph1540, %.loopexit
   %indvars.iv1736 = phi i64 [ 0, %.lr.ph1540 ], [ %indvars.iv.next1737, %.loopexit ]
@@ -1862,7 +1862,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep1717, i8 0, i64 %858, i1 false), !tbaa !7
   %indvar.next1719 = add nuw nsw i64 %indvar1718, 1
   %exitcond1727.not = icmp eq i64 %indvar.next1719, %wide.trip.count1726
-  br i1 %exitcond1727.not, label %.loopexit1276, label %.lr.ph1531, !llvm.loop !38
+  br i1 %exitcond1727.not, label %.loopexit1276, label %.lr.ph1531, !llvm.loop !37
 
 859:                                              ; preds = %845
   br i1 %96, label %860, label %876
@@ -1906,13 +1906,13 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %870, ptr %874, align 8, !tbaa !7
   %indvars.iv.next1699 = add nuw nsw i64 %indvars.iv1698, 1
   %exitcond1705.not = icmp eq i64 %indvars.iv.next1699, %indvars.iv1706
-  br i1 %exitcond1705.not, label %875, label %867, !llvm.loop !39
+  br i1 %exitcond1705.not, label %875, label %867, !llvm.loop !38
 
 875:                                              ; preds = %867
   %indvars.iv.next1709 = add nuw nsw i64 %indvars.iv1708, 1
   %indvars.iv.next1707 = add nuw nsw i64 %indvars.iv1706, 1
   %exitcond1715.not = icmp eq i64 %indvars.iv.next1709, %wide.trip.count1714
-  br i1 %exitcond1715.not, label %.loopexit1276, label %865, !llvm.loop !40
+  br i1 %exitcond1715.not, label %.loopexit1276, label %865, !llvm.loop !39
 
 876:                                              ; preds = %859
   br i1 %97, label %877, label %893
@@ -1955,12 +1955,12 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %887, ptr %891, align 8, !tbaa !7
   %indvars.iv.next1689 = add nuw nsw i64 %indvars.iv1688, 1
   %exitcond1693.not = icmp eq i64 %indvars.iv.next1689, %wide.trip.count1696
-  br i1 %exitcond1693.not, label %892, label %884, !llvm.loop !41
+  br i1 %exitcond1693.not, label %892, label %884, !llvm.loop !40
 
 892:                                              ; preds = %884
   %indvars.iv.next1687 = add nuw nsw i64 %indvars.iv1686, 1
   %exitcond1697.not = icmp eq i64 %indvars.iv.next1687, %wide.trip.count1696
-  br i1 %exitcond1697.not, label %.loopexit1276, label %882, !llvm.loop !42
+  br i1 %exitcond1697.not, label %.loopexit1276, label %882, !llvm.loop !41
 
 893:                                              ; preds = %876
   br i1 %89, label %894, label %.thread1197
@@ -2025,12 +2025,12 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %916, ptr %920, align 8, !tbaa !7
   %indvars.iv.next1667 = add nsw i64 %indvars.iv1666, -1
   %921 = icmp sgt i64 %indvars.iv1666, 1
-  br i1 %921, label %915, label %._crit_edge1488, !llvm.loop !43
+  br i1 %921, label %915, label %._crit_edge1488, !llvm.loop !42
 
 ._crit_edge1488:                                  ; preds = %915, %906
   %indvars.iv.next1669 = add nuw nsw i64 %indvars.iv1668, 1
   %exitcond1673.not = icmp eq i64 %indvars.iv.next1669, %wide.trip.count1672
-  br i1 %exitcond1673.not, label %._crit_edge1493, label %906, !llvm.loop !44
+  br i1 %exitcond1673.not, label %._crit_edge1493, label %906, !llvm.loop !43
 
 ._crit_edge1493:                                  ; preds = %._crit_edge1488, %898
   %922 = load i32, ptr %1, align 4, !tbaa !3
@@ -2080,14 +2080,14 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %943, ptr %947, align 8, !tbaa !7
   %indvars.iv.next1677 = add nsw i64 %indvars.iv1676, 1
   %.not1151.not = icmp slt i64 %indvars.iv1676, %935
-  br i1 %.not1151.not, label %942, label %._crit_edge1499, !llvm.loop !45
+  br i1 %.not1151.not, label %942, label %._crit_edge1499, !llvm.loop !44
 
 ._crit_edge1499:                                  ; preds = %942, %931
   %indvars.iv.next1681 = add nsw i64 %indvars.iv1680, 1
   %indvars.iv.next1675 = add i32 %indvars.iv1674, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1681 to i32
   %exitcond1685.not = icmp eq i32 %930, %lftr.wideiv
-  br i1 %exitcond1685.not, label %.loopexit1276, label %931, !llvm.loop !46
+  br i1 %exitcond1685.not, label %.loopexit1276, label %931, !llvm.loop !45
 
 .loopexit1276:                                    ; preds = %._crit_edge1499, %892, %875, %.lr.ph1531, %.loopexit, %._crit_edge1493, %846, %827
   %.191026 = phi i32 [ %.01007, %827 ], [ %.01007, %846 ], [ %.01007, %._crit_edge1493 ], [ %.01007, %.loopexit ], [ %.01007, %.lr.ph1531 ], [ %spec.select1183, %875 ], [ %spec.select1185, %892 ], [ %.01007, %._crit_edge1499 ]
@@ -2134,7 +2134,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 ._crit_edge1562:                                  ; preds = %.lr.ph1561, %954
   %indvar.next = add i32 %indvar, 1
   %exitcond1772.not = icmp eq i32 %indvar.next, %953
-  br i1 %exitcond1772.not, label %.thread1197, label %954, !llvm.loop !47
+  br i1 %exitcond1772.not, label %.thread1197, label %954, !llvm.loop !46
 
 964:                                              ; preds = %.loopexit1276
   br i1 %89, label %965, label %.thread1197
@@ -2211,7 +2211,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.9.neg = xor i32 %.91552, -1
   %indvars.iv.next1761 = add nuw nsw i64 %indvars.iv1760, 1
   %exitcond1765.not = icmp eq i64 %indvars.iv.next1761, %wide.trip.count1764
-  br i1 %exitcond1765.not, label %.thread1197, label %979, !llvm.loop !48
+  br i1 %exitcond1765.not, label %.thread1197, label %979, !llvm.loop !47
 
 .thread1197:                                      ; preds = %._crit_edge1550, %._crit_edge1562, %965, %.loopexit1276.thread, %893, %.loopexit1282, %964, %16, %49, %825, %206, %176, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #6
@@ -2316,43 +2316,42 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11}
-!20 = distinct !{!20, !10, !11}
-!21 = distinct !{!21, !10, !11}
-!22 = distinct !{!22, !10, !11}
-!23 = distinct !{!23, !10, !11}
-!24 = distinct !{!24, !10, !11}
-!25 = distinct !{!25, !10, !11}
-!26 = distinct !{!26, !10, !11}
-!27 = distinct !{!27, !10, !11}
-!28 = distinct !{!28, !10, !11}
-!29 = distinct !{!29, !10, !11}
-!30 = distinct !{!30, !10, !11}
-!31 = distinct !{!31, !10, !11}
-!32 = distinct !{!32, !10, !11}
-!33 = distinct !{!33, !10, !11}
-!34 = distinct !{!34, !10, !11}
-!35 = distinct !{!35, !10, !11}
-!36 = distinct !{!36, !10, !11}
-!37 = distinct !{!37, !10, !11}
-!38 = distinct !{!38, !10, !11}
-!39 = distinct !{!39, !10, !11}
-!40 = distinct !{!40, !10, !11}
-!41 = distinct !{!41, !10, !11}
-!42 = distinct !{!42, !10, !11}
-!43 = distinct !{!43, !10, !11}
-!44 = distinct !{!44, !10, !11}
-!45 = distinct !{!45, !10, !11}
-!46 = distinct !{!46, !10, !11}
-!47 = distinct !{!47, !10, !11}
-!48 = distinct !{!48, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}
+!17 = distinct !{!17, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10}
+!24 = distinct !{!24, !10}
+!25 = distinct !{!25, !10}
+!26 = distinct !{!26, !10}
+!27 = distinct !{!27, !10}
+!28 = distinct !{!28, !10}
+!29 = distinct !{!29, !10}
+!30 = distinct !{!30, !10}
+!31 = distinct !{!31, !10}
+!32 = distinct !{!32, !10}
+!33 = distinct !{!33, !10}
+!34 = distinct !{!34, !10}
+!35 = distinct !{!35, !10}
+!36 = distinct !{!36, !10}
+!37 = distinct !{!37, !10}
+!38 = distinct !{!38, !10}
+!39 = distinct !{!39, !10}
+!40 = distinct !{!40, !10}
+!41 = distinct !{!41, !10}
+!42 = distinct !{!42, !10}
+!43 = distinct !{!43, !10}
+!44 = distinct !{!44, !10}
+!45 = distinct !{!45, !10}
+!46 = distinct !{!46, !10}
+!47 = distinct !{!47, !10}

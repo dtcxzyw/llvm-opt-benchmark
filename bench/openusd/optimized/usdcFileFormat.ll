@@ -620,7 +620,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdUsdcFileFo
 
 10:                                               ; preds = %4
   fence syncscope("singlethread") seq_cst
-  %11 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !7
+  %11 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !6
   %12 = extractvalue { i32, i32 } %11, 0
   %13 = extractvalue { i32, i32 } %11, 1
   %14 = zext i32 %13 to i64
@@ -641,7 +641,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 19:                                               ; preds = %18
   fence syncscope("singlethread") seq_cst
-  %20 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8
+  %20 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !7
   store ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__17UsdUsdcFileFormat4ReadEPNS_8SdfLayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE15TraceKeyData_91, ptr %6, align 8
   %.sroa.7.12.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.7.0
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %.sroa.7.12.insert.insert, i64 noundef %20) #18
@@ -659,7 +659,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %18, %
 
 23:                                               ; preds = %21
   fence syncscope("singlethread") seq_cst
-  %24 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8
+  %24 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !7
   store ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__17UsdUsdcFileFormat4ReadEPNS_8SdfLayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE15TraceKeyData_91, ptr %5, align 8
   %.sroa.7.12.insert.insert11 = or disjoint i64 %.sroa.11.0, %.sroa.7.0
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.7.12.insert.insert11, i64 noundef %24) #18
@@ -679,20 +679,20 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef nonnull align 8 dereferenceable(48) %8)
-  call void @llvm.experimental.noalias.scope.decl(metadata !9)
+  call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %12 = load ptr, ptr %6, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEED2Ev.exit, label %14
 
 14:                                               ; preds = %5
-  %15 = call ptr @__dynamic_cast(ptr nonnull %12, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__15SdfAbstractDataE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__13Usd_CrateDataE, i64 0) #18, !noalias !9
-  store ptr %15, ptr %7, align 8, !alias.scope !9
+  %15 = call ptr @__dynamic_cast(ptr nonnull %12, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__15SdfAbstractDataE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__13Usd_CrateDataE, i64 0) #18, !noalias !8
+  store ptr %15, ptr %7, align 8, !alias.scope !8
   %.not.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13Usd_CrateDataEED2Ev.exit, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = load atomic i32, ptr %17 monotonic, align 4, !noalias !9
+  %18 = load atomic i32, ptr %17 monotonic, align 4, !noalias !8
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %27
 
@@ -702,7 +702,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17
 
 21:                                               ; preds = %20
   %22 = add nsw i32 %18, -1
-  %23 = cmpxchg weak ptr %17, i32 %18, i32 %22 monotonic monotonic, align 4, !noalias !9
+  %23 = cmpxchg weak ptr %17, i32 %18, i32 %22 monotonic monotonic, align 4, !noalias !8
   %24 = extractvalue { i32, i1 } %23, 1
   %25 = extractvalue { i32, i1 } %23, 0
   br i1 %24, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit, label %26
@@ -713,7 +713,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit unwind label %33
 
 27:                                               ; preds = %16
-  %28 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !9
+  %28 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit: ; preds = %26, %21, %27
@@ -862,7 +862,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdUsdcFileFo
 
 10:                                               ; preds = %4
   fence syncscope("singlethread") seq_cst
-  %11 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !7
+  %11 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !6
   %12 = extractvalue { i32, i32 } %11, 0
   %13 = extractvalue { i32, i32 } %11, 1
   %14 = zext i32 %13 to i64
@@ -883,7 +883,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 19:                                               ; preds = %18
   fence syncscope("singlethread") seq_cst
-  %20 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8
+  %20 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !7
   store ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__17UsdUsdcFileFormat13_ReadDetachedEPNS_8SdfLayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE16TraceKeyData_102, ptr %6, align 8
   %.sroa.7.12.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.7.0
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %.sroa.7.12.insert.insert, i64 noundef %20) #18
@@ -901,7 +901,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %18, %
 
 23:                                               ; preds = %21
   fence syncscope("singlethread") seq_cst
-  %24 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8
+  %24 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !7
   store ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__17UsdUsdcFileFormat13_ReadDetachedEPNS_8SdfLayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE16TraceKeyData_102, ptr %5, align 8
   %.sroa.7.12.insert.insert11 = or disjoint i64 %.sroa.11.0, %.sroa.7.0
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.7.12.insert.insert11, i64 noundef %24) #18
@@ -925,7 +925,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdUsdcFileFo
 
 13:                                               ; preds = %6
   fence syncscope("singlethread") seq_cst
-  %14 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !7
+  %14 = tail call { i32, i32 } asm sideeffect "lfence\0A\09rdtsc\0A\09lfence", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !6
   %15 = extractvalue { i32, i32 } %14, 0
   %16 = extractvalue { i32, i32 } %14, 1
   %17 = zext i32 %16 to i64
@@ -945,7 +945,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 22:                                               ; preds = %21
   fence syncscope("singlethread") seq_cst
-  %23 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8
+  %23 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !7
   store ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__17UsdUsdcFileFormat14_ReadFromAssetEPNS_8SdfLayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_7ArAssetEEbbE16TraceKeyData_114, ptr %8, align 8
   %.sroa.7.12.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.7.0
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %.sroa.7.12.insert.insert, i64 noundef %23) #18
@@ -963,7 +963,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %21, %
 
 26:                                               ; preds = %24
   fence syncscope("singlethread") seq_cst
-  %27 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8
+  %27 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !7
   store ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__17UsdUsdcFileFormat14_ReadFromAssetEPNS_8SdfLayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_7ArAssetEEbbE16TraceKeyData_114, ptr %7, align 8
   %.sroa.7.12.insert.insert12 = or disjoint i64 %.sroa.11.0, %.sroa.7.0
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %.sroa.7.12.insert.insert12, i64 noundef %27) #18
@@ -983,20 +983,20 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   call void %12(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef nonnull align 8 dereferenceable(48) %9)
-  call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %13 = load ptr, ptr %7, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEED2Ev.exit, label %15
 
 15:                                               ; preds = %6
-  %16 = call ptr @__dynamic_cast(ptr nonnull %13, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__15SdfAbstractDataE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__13Usd_CrateDataE, i64 0) #18, !noalias !12
-  store ptr %16, ptr %8, align 8, !alias.scope !12
+  %16 = call ptr @__dynamic_cast(ptr nonnull %13, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__15SdfAbstractDataE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__13Usd_CrateDataE, i64 0) #18, !noalias !11
+  store ptr %16, ptr %8, align 8, !alias.scope !11
   %.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13Usd_CrateDataEED2Ev.exit, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %19 = load atomic i32, ptr %18 monotonic, align 4, !noalias !12
+  %19 = load atomic i32, ptr %18 monotonic, align 4, !noalias !11
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %21, label %28
 
@@ -1006,7 +1006,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17
 
 22:                                               ; preds = %21
   %23 = add nsw i32 %19, -1
-  %24 = cmpxchg weak ptr %18, i32 %19, i32 %23 monotonic monotonic, align 4, !noalias !12
+  %24 = cmpxchg weak ptr %18, i32 %19, i32 %23 monotonic monotonic, align 4, !noalias !11
   %25 = extractvalue { i32, i1 } %24, 1
   %26 = extractvalue { i32, i1 } %24, 0
   br i1 %25, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit, label %27
@@ -1017,7 +1017,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit unwind label %34
 
 28:                                               ; preds = %17
-  %29 = atomicrmw add ptr %18, i32 1 monotonic, align 4, !noalias !12
+  %29 = atomicrmw add ptr %18, i32 1 monotonic, align 4, !noalias !11
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit: ; preds = %27, %22, %28
@@ -1207,24 +1207,24 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
           to label %31 unwind label %82
 
 31:                                               ; preds = %.thread
-  call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %32 = load ptr, ptr %8, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit.thread, label %34
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit.thread: ; preds = %31
-  store ptr null, ptr %7, align 8, !alias.scope !15
+  store ptr null, ptr %7, align 8, !alias.scope !14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEED2Ev.exit
 
 34:                                               ; preds = %31
-  %35 = call ptr @__dynamic_cast(ptr nonnull %32, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__15SdfAbstractDataE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__13Usd_CrateDataE, i64 0) #18, !noalias !15
-  store ptr %35, ptr %7, align 8, !alias.scope !15
+  %35 = call ptr @__dynamic_cast(ptr nonnull %32, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__15SdfAbstractDataE, ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__13Usd_CrateDataE, i64 0) #18, !noalias !14
+  store ptr %35, ptr %7, align 8, !alias.scope !14
   %.not.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit.thread46, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %38 = load atomic i32, ptr %37 monotonic, align 4, !noalias !15
+  %38 = load atomic i32, ptr %37 monotonic, align 4, !noalias !14
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %40, label %47
 
@@ -1234,7 +1234,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_Crat
 
 41:                                               ; preds = %40
   %42 = add nsw i32 %38, -1
-  %43 = cmpxchg weak ptr %37, i32 %38, i32 %42 monotonic monotonic, align 4, !noalias !15
+  %43 = cmpxchg weak ptr %37, i32 %38, i32 %42 monotonic monotonic, align 4, !noalias !14
   %44 = extractvalue { i32, i1 } %43, 1
   %45 = extractvalue { i32, i1 } %43, 0
   br i1 %44, label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit.thread46, label %46
@@ -1245,7 +1245,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_Crat
           to label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit unwind label %84
 
 47:                                               ; preds = %36
-  %48 = atomicrmw add ptr %37, i32 1 monotonic, align 4, !noalias !15
+  %48 = atomicrmw add ptr %37, i32 1 monotonic, align 4, !noalias !14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit.thread46
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE.exit: ; preds = %46
@@ -2121,7 +2121,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 96) #16
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -2201,18 +2201,17 @@ attributes #20 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{i64 63802917, i64 63802926, i64 63802950}
-!8 = !{i64 63801863, i64 63801872, i64 63801901, i64 63801928}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE: argument 0"}
-!11 = distinct !{!11, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE: argument 0"}
-!14 = distinct !{!14, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE"}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE: argument 0"}
-!17 = distinct !{!17, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE"}
-!18 = distinct !{!18, !5, !6}
+!6 = !{i64 63802917, i64 63802926, i64 63802950}
+!7 = !{i64 63801863, i64 63801872, i64 63801901, i64 63801928}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE: argument 0"}
+!10 = distinct !{!10, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE: argument 0"}
+!13 = distinct !{!13, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE: argument 0"}
+!16 = distinct !{!16, !"_ZN32pxrInternal_v0_24__pxrReserved__14TfDynamic_castINS_8TfRefPtrINS_13Usd_CrateDataEEENS_15SdfAbstractDataEEENS1_INT_8DataTypeEEERKNS1_IT0_EE"}
+!17 = distinct !{!17, !5}

@@ -274,7 +274,7 @@ _ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE5clearEv.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
   %52 = add nuw i64 %.sroa.5.018, 1
   %.not16 = icmp eq i64 %52, %14
-  br i1 %.not16, label %._crit_edge.loopexit, label %26, !llvm.loop !64
+  br i1 %.not16, label %._crit_edge.loopexit, label %26
 }
 
 declare void @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -429,5 +429,3 @@ attributes #16 = { builtin nounwind }
 !61 = !{!56, !57, i64 4}
 !62 = !{!56, !57, i64 0}
 !63 = !{!52, !13, i64 8}
-!64 = distinct !{!64, !65}
-!65 = !{!"llvm.loop.estimated_trip_count"}

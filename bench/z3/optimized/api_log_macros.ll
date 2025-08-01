@@ -457,11 +457,11 @@ define hidden void @_Z20log_Z3_mk_tuple_sortP11_Z3_contextP10_Z3_symboljPKS2_PKP
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %7 ]
   %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !11
+  %10 = load ptr, ptr %9, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %.lr.ph24.preheader, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph24.preheader, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge25:                                    ; preds = %.lr.ph24, %._crit_edge.thread
   tail call void @_Z2Apj(i32 noundef %2)
@@ -475,7 +475,7 @@ define hidden void @_Z20log_Z3_mk_tuple_sortP11_Z3_contextP10_Z3_symboljPKS2_PKP
   tail call void @_Z1PPv(ptr noundef %12)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %8
-  br i1 %exitcond37.not, label %._crit_edge25, label %.lr.ph24, !llvm.loop !14
+  br i1 %exitcond37.not, label %._crit_edge25, label %.lr.ph24, !llvm.loop !13
 
 ._crit_edge29:                                    ; preds = %.lr.ph28, %._crit_edge25
   tail call void @_Z2Apj(i32 noundef %2)
@@ -487,7 +487,7 @@ define hidden void @_Z20log_Z3_mk_tuple_sortP11_Z3_contextP10_Z3_symboljPKS2_PKP
   tail call void @_Z1PPv(ptr noundef null)
   %13 = add nuw i32 %.026, 1
   %exitcond38.not = icmp eq i32 %13, %2
-  br i1 %exitcond38.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !15
+  br i1 %exitcond38.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !14
 }
 
 declare void @_Z3Asyj(i32 noundef) local_unnamed_addr #0
@@ -514,11 +514,11 @@ define hidden void @_Z26log_Z3_mk_enumeration_sortP11_Z3_contextP10_Z3_symboljPK
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %6 ]
   %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !11
+  %9 = load ptr, ptr %8, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %.lr.ph22.preheader, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.lr.ph22.preheader, label %.lr.ph, !llvm.loop !15
 
 .lr.ph26.preheader:                               ; preds = %.lr.ph22
   tail call void @_Z2Apj(i32 noundef %2)
@@ -529,7 +529,7 @@ define hidden void @_Z26log_Z3_mk_enumeration_sortP11_Z3_contextP10_Z3_symboljPK
   tail call void @_Z1PPv(ptr noundef null)
   %10 = add nuw i32 %.01620, 1
   %exitcond31.not = icmp eq i32 %10, %2
-  br i1 %exitcond31.not, label %.lr.ph26.preheader, label %.lr.ph22, !llvm.loop !17
+  br i1 %exitcond31.not, label %.lr.ph26.preheader, label %.lr.ph22, !llvm.loop !16
 
 ._crit_edge27:                                    ; preds = %.lr.ph26, %._crit_edge23.thread
   tail call void @_Z2Apj(i32 noundef %2)
@@ -541,7 +541,7 @@ define hidden void @_Z26log_Z3_mk_enumeration_sortP11_Z3_contextP10_Z3_symboljPK
   tail call void @_Z1PPv(ptr noundef null)
   %11 = add nuw i32 %.024, 1
   %exitcond32.not = icmp eq i32 %11, %2
-  br i1 %exitcond32.not, label %._crit_edge27, label %.lr.ph26, !llvm.loop !18
+  br i1 %exitcond32.not, label %._crit_edge27, label %.lr.ph26, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -583,11 +583,11 @@ define hidden void @_Z21log_Z3_mk_constructorP11_Z3_contextP10_Z3_symbolS2_jPKS2
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %7 ]
   %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !11
+  %10 = load ptr, ptr %9, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %.lr.ph27.preheader, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph27.preheader, label %.lr.ph, !llvm.loop !18
 
 .lr.ph31.preheader:                               ; preds = %.lr.ph27
   tail call void @_Z2Apj(i32 noundef %3)
@@ -600,7 +600,7 @@ define hidden void @_Z21log_Z3_mk_constructorP11_Z3_contextP10_Z3_symbolS2_jPKS2
   tail call void @_Z1PPv(ptr noundef %12)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %8
-  br i1 %exitcond40.not, label %.lr.ph31.preheader, label %.lr.ph27, !llvm.loop !20
+  br i1 %exitcond40.not, label %.lr.ph31.preheader, label %.lr.ph27, !llvm.loop !19
 
 ._crit_edge32:                                    ; preds = %.lr.ph31, %._crit_edge28.thread
   tail call void @_Z2Auj(i32 noundef %3)
@@ -610,12 +610,12 @@ define hidden void @_Z21log_Z3_mk_constructorP11_Z3_contextP10_Z3_symbolS2_jPKS2
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
   %indvars.iv41 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next42, %.lr.ph31 ]
   %13 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv41
-  %14 = load i32, ptr %13, align 4, !tbaa !21
+  %14 = load i32, ptr %13, align 4, !tbaa !20
   %15 = zext i32 %14 to i64
   tail call void @_Z1Um(i64 noundef %15)
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %8
-  br i1 %exitcond45.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !23
+  br i1 %exitcond45.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !22
 }
 
 declare void @_Z2Auj(i32 noundef) local_unnamed_addr #0
@@ -656,11 +656,11 @@ define hidden void @_Z18log_Z3_mk_datatypeP11_Z3_contextP10_Z3_symboljPP15_Z3_co
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -689,11 +689,11 @@ define hidden void @_Z26log_Z3_mk_constructor_listP11_Z3_contextjPKP15_Z3_constr
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -726,11 +726,11 @@ define hidden void @_Z19log_Z3_mk_datatypesP11_Z3_contextjPKP10_Z3_symbolPP8_Z3_
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !11
+  %8 = load ptr, ptr %7, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %.lr.ph23.preheader, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.lr.ph23.preheader, label %.lr.ph, !llvm.loop !27
 
 .lr.ph27.preheader:                               ; preds = %.lr.ph23
   tail call void @_Z2Apj(i32 noundef %1)
@@ -741,7 +741,7 @@ define hidden void @_Z19log_Z3_mk_datatypesP11_Z3_contextjPKP10_Z3_symbolPP8_Z3_
   tail call void @_Z1PPv(ptr noundef null)
   %9 = add nuw i32 %.01721, 1
   %exitcond32.not = icmp eq i32 %9, %1
-  br i1 %exitcond32.not, label %.lr.ph27.preheader, label %.lr.ph23, !llvm.loop !29
+  br i1 %exitcond32.not, label %.lr.ph27.preheader, label %.lr.ph23, !llvm.loop !28
 
 ._crit_edge28:                                    ; preds = %.lr.ph27, %._crit_edge24.thread
   tail call void @_Z2Apj(i32 noundef %1)
@@ -751,11 +751,11 @@ define hidden void @_Z19log_Z3_mk_datatypesP11_Z3_contextjPKP10_Z3_symbolPP8_Z3_
 .lr.ph27:                                         ; preds = %.lr.ph27.preheader, %.lr.ph27
   %indvars.iv33 = phi i64 [ 0, %.lr.ph27.preheader ], [ %indvars.iv.next34, %.lr.ph27 ]
   %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv33
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !29
   tail call void @_Z1PPv(ptr noundef %11)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %6
-  br i1 %exitcond37.not, label %._crit_edge28, label %.lr.ph27, !llvm.loop !32
+  br i1 %exitcond37.not, label %._crit_edge28, label %.lr.ph27, !llvm.loop !31
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -780,7 +780,7 @@ define hidden void @_Z24log_Z3_query_constructorP11_Z3_contextP15_Z3_constructor
   tail call void @_Z1PPv(ptr noundef null)
   %8 = add nuw i32 %.07, 1
   %exitcond.not = icmp eq i32 %8, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -806,7 +806,7 @@ define hidden void @_Z19log_Z3_mk_func_declP11_Z3_contextP10_Z3_symboljPKP8_Z3_s
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -827,11 +827,11 @@ define hidden void @_Z13log_Z3_mk_appP11_Z3_contextP13_Z3_func_decljPKP7_Z3_ast(
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -867,7 +867,7 @@ define hidden void @_Z25log_Z3_mk_fresh_func_declP11_Z3_contextPKcjPKP8_Z3_sortS
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -903,7 +903,7 @@ define hidden void @_Z23log_Z3_mk_rec_func_declP11_Z3_contextP10_Z3_symboljPKP8_
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -925,11 +925,11 @@ define hidden void @_Z18log_Z3_add_rec_defP11_Z3_contextP13_Z3_func_decljPKP7_Z3
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -975,11 +975,11 @@ define hidden void @_Z18log_Z3_mk_distinctP11_Z3_contextjPKP7_Z3_ast(ptr noundef
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1049,11 +1049,11 @@ define hidden void @_Z13log_Z3_mk_andP11_Z3_contextjPKP7_Z3_ast(ptr noundef %0, 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1073,11 +1073,11 @@ define hidden void @_Z12log_Z3_mk_orP11_Z3_contextjPKP7_Z3_ast(ptr noundef %0, i
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1097,11 +1097,11 @@ define hidden void @_Z13log_Z3_mk_addP11_Z3_contextjPKP7_Z3_ast(ptr noundef %0, 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1121,11 +1121,11 @@ define hidden void @_Z13log_Z3_mk_mulP11_Z3_contextjPKP7_Z3_ast(ptr noundef %0, 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1145,11 +1145,11 @@ define hidden void @_Z13log_Z3_mk_subP11_Z3_contextjPKP7_Z3_ast(ptr noundef %0, 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1817,11 +1817,11 @@ define hidden void @_Z18log_Z3_mk_select_nP11_Z3_contextP7_Z3_astjPKS2_(ptr noun
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1854,11 +1854,11 @@ define hidden void @_Z17log_Z3_mk_store_nP11_Z3_contextP7_Z3_astjPKS2_S2_(ptr no
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1889,11 +1889,11 @@ define hidden void @_Z13log_Z3_mk_mapP11_Z3_contextP13_Z3_func_decljPKP7_Z3_ast(
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1988,11 +1988,11 @@ define hidden void @_Z19log_Z3_mk_set_unionP11_Z3_contextjPKP7_Z3_ast(ptr nounde
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2012,11 +2012,11 @@ define hidden void @_Z23log_Z3_mk_set_intersectP11_Z3_contextjPKP7_Z3_ast(ptr no
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2159,12 +2159,12 @@ define hidden void @_Z20log_Z3_mk_bv_numeralP11_Z3_contextjPKb(ptr noundef %0, i
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %6 = load i8, ptr %5, align 1, !tbaa !52, !range !54, !noundef !55
+  %6 = load i8, ptr %5, align 1, !tbaa !51, !range !53, !noundef !54
   %7 = zext nneg i8 %6 to i64
   tail call void @_Z1Um(i64 noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2292,12 +2292,12 @@ define hidden void @_Z19log_Z3_mk_u32stringP11_Z3_contextjPKj(ptr noundef %0, i3
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %6 = load i32, ptr %5, align 4, !tbaa !21
+  %6 = load i32, ptr %5, align 4, !tbaa !20
   %7 = zext i32 %6 to i64
   tail call void @_Z1Um(i64 noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2357,7 +2357,7 @@ define hidden void @_Z26log_Z3_get_string_contentsP11_Z3_contextP7_Z3_astjPj(ptr
   tail call void @_Z1Um(i64 noundef 0)
   %6 = add nuw i32 %.07, 1
   %exitcond.not = icmp eq i32 %6, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2395,11 +2395,11 @@ define hidden void @_Z20log_Z3_mk_seq_concatP11_Z3_contextjPKP7_Z3_ast(ptr nound
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2685,11 +2685,11 @@ define hidden void @_Z18log_Z3_mk_re_unionP11_Z3_contextjPKP7_Z3_ast(ptr noundef
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2709,11 +2709,11 @@ define hidden void @_Z19log_Z3_mk_re_concatP11_Z3_contextjPKP7_Z3_ast(ptr nounde
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2776,11 +2776,11 @@ define hidden void @_Z22log_Z3_mk_re_intersectP11_Z3_contextjPKP7_Z3_ast(ptr nou
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2946,11 +2946,11 @@ define hidden void @_Z17log_Z3_mk_patternP11_Z3_contextjPKP7_Z3_ast(ptr noundef 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !35
+  %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2989,11 +2989,11 @@ define hidden void @_Z16log_Z3_mk_forallP11_Z3_contextjjPKP11_Z3_patternjPKP8_Z3
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8, !tbaa !64
+  %13 = load ptr, ptr %12, align 8, !tbaa !63
   tail call void @_Z1PPv(ptr noundef %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 .lr.ph33.preheader:                               ; preds = %.lr.ph29
   tail call void @_Z2Apj(i32 noundef %4)
@@ -3006,7 +3006,7 @@ define hidden void @_Z16log_Z3_mk_forallP11_Z3_contextjjPKP11_Z3_patternjPKP8_Z3
   tail call void @_Z1PPv(ptr noundef %15)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %11
-  br i1 %exitcond42.not, label %.lr.ph33.preheader, label %.lr.ph29, !llvm.loop !67
+  br i1 %exitcond42.not, label %.lr.ph33.preheader, label %.lr.ph29, !llvm.loop !66
 
 ._crit_edge34:                                    ; preds = %.lr.ph33, %._crit_edge30.thread
   tail call void @_Z3Asyj(i32 noundef %4)
@@ -3017,11 +3017,11 @@ define hidden void @_Z16log_Z3_mk_forallP11_Z3_contextjjPKP11_Z3_patternjPKP8_Z3
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.lr.ph33
   %indvars.iv43 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next44, %.lr.ph33 ]
   %16 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv43
-  %17 = load ptr, ptr %16, align 8, !tbaa !11
+  %17 = load ptr, ptr %16, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %17)
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %11
-  br i1 %exitcond47.not, label %._crit_edge34, label %.lr.ph33, !llvm.loop !68
+  br i1 %exitcond47.not, label %._crit_edge34, label %.lr.ph33, !llvm.loop !67
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3049,11 +3049,11 @@ define hidden void @_Z16log_Z3_mk_existsP11_Z3_contextjjPKP11_Z3_patternjPKP8_Z3
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %13 = load ptr, ptr %12, align 8, !tbaa !64
+  %13 = load ptr, ptr %12, align 8, !tbaa !63
   tail call void @_Z1PPv(ptr noundef %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
 .lr.ph33.preheader:                               ; preds = %.lr.ph29
   tail call void @_Z2Apj(i32 noundef %4)
@@ -3066,7 +3066,7 @@ define hidden void @_Z16log_Z3_mk_existsP11_Z3_contextjjPKP11_Z3_patternjPKP8_Z3
   tail call void @_Z1PPv(ptr noundef %15)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %11
-  br i1 %exitcond42.not, label %.lr.ph33.preheader, label %.lr.ph29, !llvm.loop !70
+  br i1 %exitcond42.not, label %.lr.ph33.preheader, label %.lr.ph29, !llvm.loop !69
 
 ._crit_edge34:                                    ; preds = %.lr.ph33, %._crit_edge30.thread
   tail call void @_Z3Asyj(i32 noundef %4)
@@ -3077,11 +3077,11 @@ define hidden void @_Z16log_Z3_mk_existsP11_Z3_contextjjPKP11_Z3_patternjPKP8_Z3
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.lr.ph33
   %indvars.iv43 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next44, %.lr.ph33 ]
   %16 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv43
-  %17 = load ptr, ptr %16, align 8, !tbaa !11
+  %17 = load ptr, ptr %16, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %17)
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %11
-  br i1 %exitcond47.not, label %._crit_edge34, label %.lr.ph33, !llvm.loop !71
+  br i1 %exitcond47.not, label %._crit_edge34, label %.lr.ph33, !llvm.loop !70
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3111,11 +3111,11 @@ define hidden void @_Z20log_Z3_mk_quantifierP11_Z3_contextbjjPKP11_Z3_patternjPK
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %9 ]
   %14 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !64
+  %15 = load ptr, ptr %14, align 8, !tbaa !63
   tail call void @_Z1PPv(ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 .lr.ph34.preheader:                               ; preds = %.lr.ph30
   tail call void @_Z2Apj(i32 noundef %5)
@@ -3128,7 +3128,7 @@ define hidden void @_Z20log_Z3_mk_quantifierP11_Z3_contextbjjPKP11_Z3_patternjPK
   tail call void @_Z1PPv(ptr noundef %17)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %13
-  br i1 %exitcond43.not, label %.lr.ph34.preheader, label %.lr.ph30, !llvm.loop !73
+  br i1 %exitcond43.not, label %.lr.ph34.preheader, label %.lr.ph30, !llvm.loop !72
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %._crit_edge31.thread
   tail call void @_Z3Asyj(i32 noundef %5)
@@ -3139,11 +3139,11 @@ define hidden void @_Z20log_Z3_mk_quantifierP11_Z3_contextbjjPKP11_Z3_patternjPK
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %.lr.ph34
   %indvars.iv44 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next45, %.lr.ph34 ]
   %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv44
-  %19 = load ptr, ptr %18, align 8, !tbaa !11
+  %19 = load ptr, ptr %18, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %19)
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %13
-  br i1 %exitcond48.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !74
+  br i1 %exitcond48.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !73
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3171,11 +3171,11 @@ define hidden void @_Z23log_Z3_mk_quantifier_exP11_Z3_contextbjP10_Z3_symbolS2_j
 .lr.ph:                                           ; preds = %13, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %13 ]
   %18 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8, !tbaa !64
+  %19 = load ptr, ptr %18, align 8, !tbaa !63
   tail call void @_Z1PPv(ptr noundef %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 ._crit_edge42:                                    ; preds = %.lr.ph41, %._crit_edge
   tail call void @_Z2Apj(i32 noundef %7)
@@ -3191,11 +3191,11 @@ define hidden void @_Z23log_Z3_mk_quantifier_exP11_Z3_contextbjP10_Z3_symbolS2_j
 .lr.ph41:                                         ; preds = %._crit_edge, %.lr.ph41
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.lr.ph41 ], [ 0, %._crit_edge ]
   %21 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv55
-  %22 = load ptr, ptr %21, align 8, !tbaa !35
+  %22 = load ptr, ptr %21, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %22)
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %17
-  br i1 %exitcond59.not, label %._crit_edge42, label %.lr.ph41, !llvm.loop !76
+  br i1 %exitcond59.not, label %._crit_edge42, label %.lr.ph41, !llvm.loop !75
 
 .lr.ph49.preheader:                               ; preds = %.lr.ph45
   tail call void @_Z2Apj(i32 noundef %9)
@@ -3208,7 +3208,7 @@ define hidden void @_Z23log_Z3_mk_quantifier_exP11_Z3_contextbjP10_Z3_symbolS2_j
   tail call void @_Z1PPv(ptr noundef %24)
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %20
-  br i1 %exitcond64.not, label %.lr.ph49.preheader, label %.lr.ph45, !llvm.loop !77
+  br i1 %exitcond64.not, label %.lr.ph49.preheader, label %.lr.ph45, !llvm.loop !76
 
 ._crit_edge50:                                    ; preds = %.lr.ph49, %._crit_edge46.thread
   tail call void @_Z3Asyj(i32 noundef %9)
@@ -3219,11 +3219,11 @@ define hidden void @_Z23log_Z3_mk_quantifier_exP11_Z3_contextbjP10_Z3_symbolS2_j
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
   %indvars.iv65 = phi i64 [ 0, %.lr.ph49.preheader ], [ %indvars.iv.next66, %.lr.ph49 ]
   %25 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv65
-  %26 = load ptr, ptr %25, align 8, !tbaa !11
+  %26 = load ptr, ptr %25, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %26)
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %20
-  br i1 %exitcond69.not, label %._crit_edge50, label %.lr.ph49, !llvm.loop !78
+  br i1 %exitcond69.not, label %._crit_edge50, label %.lr.ph49, !llvm.loop !77
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3247,11 +3247,11 @@ define hidden void @_Z22log_Z3_mk_forall_constP11_Z3_contextjjPKP7_Z3_appjPKP11_
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %7 ]
   %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !79
+  %12 = load ptr, ptr %11, align 8, !tbaa !78
   tail call void @_Z1PPv(ptr noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !80
 
 ._crit_edge23:                                    ; preds = %.lr.ph22, %._crit_edge
   tail call void @_Z2Apj(i32 noundef %4)
@@ -3262,11 +3262,11 @@ define hidden void @_Z22log_Z3_mk_forall_constP11_Z3_contextjjPKP7_Z3_appjPKP11_
 .lr.ph22:                                         ; preds = %._crit_edge, %.lr.ph22
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %.lr.ph22 ], [ 0, %._crit_edge ]
   %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv26
-  %14 = load ptr, ptr %13, align 8, !tbaa !64
+  %14 = load ptr, ptr %13, align 8, !tbaa !63
   tail call void @_Z1PPv(ptr noundef %14)
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %10
-  br i1 %exitcond30.not, label %._crit_edge23, label %.lr.ph22, !llvm.loop !82
+  br i1 %exitcond30.not, label %._crit_edge23, label %.lr.ph22, !llvm.loop !81
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3290,11 +3290,11 @@ define hidden void @_Z22log_Z3_mk_exists_constP11_Z3_contextjjPKP7_Z3_appjPKP11_
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %7 ]
   %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !79
+  %12 = load ptr, ptr %11, align 8, !tbaa !78
   tail call void @_Z1PPv(ptr noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge23:                                    ; preds = %.lr.ph22, %._crit_edge
   tail call void @_Z2Apj(i32 noundef %4)
@@ -3305,11 +3305,11 @@ define hidden void @_Z22log_Z3_mk_exists_constP11_Z3_contextjjPKP7_Z3_appjPKP11_
 .lr.ph22:                                         ; preds = %._crit_edge, %.lr.ph22
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %.lr.ph22 ], [ 0, %._crit_edge ]
   %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv26
-  %14 = load ptr, ptr %13, align 8, !tbaa !64
+  %14 = load ptr, ptr %13, align 8, !tbaa !63
   tail call void @_Z1PPv(ptr noundef %14)
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %10
-  br i1 %exitcond30.not, label %._crit_edge23, label %.lr.ph22, !llvm.loop !84
+  br i1 %exitcond30.not, label %._crit_edge23, label %.lr.ph22, !llvm.loop !83
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3335,11 +3335,11 @@ define hidden void @_Z26log_Z3_mk_quantifier_constP11_Z3_contextbjjPKP7_Z3_appjP
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %13 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8, !tbaa !79
+  %14 = load ptr, ptr %13, align 8, !tbaa !78
   tail call void @_Z1PPv(ptr noundef %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge24:                                    ; preds = %.lr.ph23, %._crit_edge
   tail call void @_Z2Apj(i32 noundef %5)
@@ -3350,11 +3350,11 @@ define hidden void @_Z26log_Z3_mk_quantifier_constP11_Z3_contextbjjPKP7_Z3_appjP
 .lr.ph23:                                         ; preds = %._crit_edge, %.lr.ph23
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %.lr.ph23 ], [ 0, %._crit_edge ]
   %15 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv27
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %15, align 8, !tbaa !63
   tail call void @_Z1PPv(ptr noundef %16)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %12
-  br i1 %exitcond31.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !86
+  br i1 %exitcond31.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !85
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3382,11 +3382,11 @@ define hidden void @_Z29log_Z3_mk_quantifier_const_exP11_Z3_contextbjP10_Z3_symb
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %17 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !79
+  %18 = load ptr, ptr %17, align 8, !tbaa !78
   tail call void @_Z1PPv(ptr noundef %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %._crit_edge
   tail call void @_Z2Apj(i32 noundef %7)
@@ -3398,11 +3398,11 @@ define hidden void @_Z29log_Z3_mk_quantifier_const_exP11_Z3_contextbjP10_Z3_symb
 .lr.ph34:                                         ; preds = %._crit_edge, %.lr.ph34
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.lr.ph34 ], [ 0, %._crit_edge ]
   %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv43
-  %21 = load ptr, ptr %20, align 8, !tbaa !64
+  %21 = load ptr, ptr %20, align 8, !tbaa !63
   tail call void @_Z1PPv(ptr noundef %21)
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %16
-  br i1 %exitcond47.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !88
+  br i1 %exitcond47.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !87
 
 ._crit_edge39:                                    ; preds = %.lr.ph38, %._crit_edge35
   tail call void @_Z2Apj(i32 noundef %9)
@@ -3413,11 +3413,11 @@ define hidden void @_Z29log_Z3_mk_quantifier_const_exP11_Z3_contextbjP10_Z3_symb
 .lr.ph38:                                         ; preds = %._crit_edge35, %.lr.ph38
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.lr.ph38 ], [ 0, %._crit_edge35 ]
   %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv48
-  %23 = load ptr, ptr %22, align 8, !tbaa !35
+  %23 = load ptr, ptr %22, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %23)
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %19
-  br i1 %exitcond52.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !89
+  br i1 %exitcond52.not, label %._crit_edge39, label %.lr.ph38, !llvm.loop !88
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3444,7 +3444,7 @@ define hidden void @_Z16log_Z3_mk_lambdaP11_Z3_contextjPKP8_Z3_sortPKP10_Z3_symb
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %.lr.ph19.preheader, label %.lr.ph, !llvm.loop !90
+  br i1 %exitcond.not, label %.lr.ph19.preheader, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %._crit_edge.thread
   tail call void @_Z3Asyj(i32 noundef %1)
@@ -3455,11 +3455,11 @@ define hidden void @_Z16log_Z3_mk_lambdaP11_Z3_contextjPKP8_Z3_sortPKP10_Z3_symb
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv23 = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next24, %.lr.ph19 ]
   %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv23
-  %10 = load ptr, ptr %9, align 8, !tbaa !11
+  %10 = load ptr, ptr %9, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %10)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %6
-  br i1 %exitcond27.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !91
+  br i1 %exitcond27.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !90
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3480,11 +3480,11 @@ define hidden void @_Z22log_Z3_mk_lambda_constP11_Z3_contextjPKP7_Z3_appP7_Z3_as
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !79
+  %7 = load ptr, ptr %6, align 8, !tbaa !78
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3731,11 +3731,11 @@ define hidden void @_Z16log_Z3_mk_atmostP11_Z3_contextjPKP7_Z3_astj(ptr noundef 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3757,11 +3757,11 @@ define hidden void @_Z17log_Z3_mk_atleastP11_Z3_contextjPKP7_Z3_astj(ptr noundef
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3784,11 +3784,11 @@ define hidden void @_Z14log_Z3_mk_pbleP11_Z3_contextjPKP7_Z3_astPKii(ptr noundef
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %.lr.ph19.preheader, label %.lr.ph, !llvm.loop !95
+  br i1 %exitcond.not, label %.lr.ph19.preheader, label %.lr.ph, !llvm.loop !94
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %._crit_edge.thread
   tail call void @_Z2Aij(i32 noundef %1)
@@ -3800,12 +3800,12 @@ define hidden void @_Z14log_Z3_mk_pbleP11_Z3_contextjPKP7_Z3_astPKii(ptr noundef
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv23 = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next24, %.lr.ph19 ]
   %10 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv23
-  %11 = load i32, ptr %10, align 4, !tbaa !21
+  %11 = load i32, ptr %10, align 4, !tbaa !20
   %12 = sext i32 %11 to i64
   tail call void @_Z1Il(i64 noundef %12)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %6
-  br i1 %exitcond27.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !96
+  br i1 %exitcond27.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !95
 }
 
 declare void @_Z2Aij(i32 noundef) local_unnamed_addr #0
@@ -3830,11 +3830,11 @@ define hidden void @_Z14log_Z3_mk_pbgeP11_Z3_contextjPKP7_Z3_astPKii(ptr noundef
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %.lr.ph19.preheader, label %.lr.ph, !llvm.loop !97
+  br i1 %exitcond.not, label %.lr.ph19.preheader, label %.lr.ph, !llvm.loop !96
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %._crit_edge.thread
   tail call void @_Z2Aij(i32 noundef %1)
@@ -3846,12 +3846,12 @@ define hidden void @_Z14log_Z3_mk_pbgeP11_Z3_contextjPKP7_Z3_astPKii(ptr noundef
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv23 = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next24, %.lr.ph19 ]
   %10 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv23
-  %11 = load i32, ptr %10, align 4, !tbaa !21
+  %11 = load i32, ptr %10, align 4, !tbaa !20
   %12 = sext i32 %11 to i64
   tail call void @_Z1Il(i64 noundef %12)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %6
-  br i1 %exitcond27.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !98
+  br i1 %exitcond27.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !97
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3874,11 +3874,11 @@ define hidden void @_Z14log_Z3_mk_pbeqP11_Z3_contextjPKP7_Z3_astPKii(ptr noundef
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %.lr.ph19.preheader, label %.lr.ph, !llvm.loop !99
+  br i1 %exitcond.not, label %.lr.ph19.preheader, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %._crit_edge.thread
   tail call void @_Z2Aij(i32 noundef %1)
@@ -3890,12 +3890,12 @@ define hidden void @_Z14log_Z3_mk_pbeqP11_Z3_contextjPKP7_Z3_astPKii(ptr noundef
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv23 = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next24, %.lr.ph19 ]
   %10 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv23
-  %11 = load i32, ptr %10, align 4, !tbaa !21
+  %11 = load i32, ptr %10, align 4, !tbaa !20
   %12 = sext i32 %11 to i64
   tail call void @_Z1Il(i64 noundef %12)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %6
-  br i1 %exitcond27.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !100
+  br i1 %exitcond27.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !99
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4609,11 +4609,11 @@ define hidden void @_Z18log_Z3_update_termP11_Z3_contextP7_Z3_astjPKS2_(ptr noun
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4637,11 +4637,11 @@ define hidden void @_Z17log_Z3_substituteP11_Z3_contextP7_Z3_astjPKS2_S4_(ptr no
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %.lr.ph19.preheader, label %.lr.ph, !llvm.loop !102
+  br i1 %exitcond.not, label %.lr.ph19.preheader, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %._crit_edge.thread
   tail call void @_Z2Apj(i32 noundef %2)
@@ -4651,11 +4651,11 @@ define hidden void @_Z17log_Z3_substituteP11_Z3_contextP7_Z3_astjPKS2_S4_(ptr no
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv23 = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next24, %.lr.ph19 ]
   %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv23
-  %10 = load ptr, ptr %9, align 8, !tbaa !35
+  %10 = load ptr, ptr %9, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %10)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %6
-  br i1 %exitcond27.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !103
+  br i1 %exitcond27.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !102
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4676,11 +4676,11 @@ define hidden void @_Z22log_Z3_substitute_varsP11_Z3_contextP7_Z3_astjPKS2_(ptr 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4704,11 +4704,11 @@ define hidden void @_Z22log_Z3_substitute_funsP11_Z3_contextP7_Z3_astjPKP13_Z3_f
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !105
+  %8 = load ptr, ptr %7, align 8, !tbaa !104
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %.lr.ph19.preheader, label %.lr.ph, !llvm.loop !107
+  br i1 %exitcond.not, label %.lr.ph19.preheader, label %.lr.ph, !llvm.loop !106
 
 ._crit_edge20:                                    ; preds = %.lr.ph19, %._crit_edge.thread
   tail call void @_Z2Apj(i32 noundef %2)
@@ -4718,11 +4718,11 @@ define hidden void @_Z22log_Z3_substitute_funsP11_Z3_contextP7_Z3_astjPKP13_Z3_f
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv23 = phi i64 [ 0, %.lr.ph19.preheader ], [ %indvars.iv.next24, %.lr.ph19 ]
   %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv23
-  %10 = load ptr, ptr %9, align 8, !tbaa !35
+  %10 = load ptr, ptr %9, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %10)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %6
-  br i1 %exitcond27.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !108
+  br i1 %exitcond27.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !107
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5134,11 +5134,11 @@ define hidden void @_Z33log_Z3_benchmark_to_smtlib_stringP11_Z3_contextPKcS2_S2_
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !35
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !109
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !108
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5162,11 +5162,11 @@ define hidden void @_Z27log_Z3_parse_smtlib2_stringP11_Z3_contextPKcjPKP10_Z3_sy
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !11
+  %11 = load ptr, ptr %10, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %.lr.ph35.preheader, label %.lr.ph, !llvm.loop !110
+  br i1 %exitcond.not, label %.lr.ph35.preheader, label %.lr.ph, !llvm.loop !109
 
 ._crit_edge36:                                    ; preds = %.lr.ph35, %._crit_edge.thread
   tail call void @_Z2Apj(i32 noundef %2)
@@ -5186,7 +5186,7 @@ define hidden void @_Z27log_Z3_parse_smtlib2_stringP11_Z3_contextPKcjPKP10_Z3_sy
   tail call void @_Z1PPv(ptr noundef %14)
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %9
-  br i1 %exitcond53.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !111
+  br i1 %exitcond53.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !110
 
 .lr.ph43.preheader:                               ; preds = %.lr.ph39
   tail call void @_Z3Asyj(i32 noundef %5)
@@ -5195,11 +5195,11 @@ define hidden void @_Z27log_Z3_parse_smtlib2_stringP11_Z3_contextPKcjPKP10_Z3_sy
 .lr.ph39:                                         ; preds = %._crit_edge36, %.lr.ph39
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.lr.ph39 ], [ 0, %._crit_edge36 ]
   %15 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv54
-  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %16 = load ptr, ptr %15, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %16)
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %12
-  br i1 %exitcond58.not, label %.lr.ph43.preheader, label %.lr.ph39, !llvm.loop !112
+  br i1 %exitcond58.not, label %.lr.ph43.preheader, label %.lr.ph39, !llvm.loop !111
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %._crit_edge40.thread
   tail call void @_Z2Apj(i32 noundef %5)
@@ -5209,11 +5209,11 @@ define hidden void @_Z27log_Z3_parse_smtlib2_stringP11_Z3_contextPKcjPKP10_Z3_sy
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
   %indvars.iv59 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next60, %.lr.ph43 ]
   %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv59
-  %18 = load ptr, ptr %17, align 8, !tbaa !105
+  %18 = load ptr, ptr %17, align 8, !tbaa !104
   tail call void @_Z1PPv(ptr noundef %18)
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %12
-  br i1 %exitcond63.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !113
+  br i1 %exitcond63.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !112
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5237,11 +5237,11 @@ define hidden void @_Z25log_Z3_parse_smtlib2_fileP11_Z3_contextPKcjPKP10_Z3_symb
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !11
+  %11 = load ptr, ptr %10, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %.lr.ph35.preheader, label %.lr.ph, !llvm.loop !114
+  br i1 %exitcond.not, label %.lr.ph35.preheader, label %.lr.ph, !llvm.loop !113
 
 ._crit_edge36:                                    ; preds = %.lr.ph35, %._crit_edge.thread
   tail call void @_Z2Apj(i32 noundef %2)
@@ -5261,7 +5261,7 @@ define hidden void @_Z25log_Z3_parse_smtlib2_fileP11_Z3_contextPKcjPKP10_Z3_symb
   tail call void @_Z1PPv(ptr noundef %14)
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %9
-  br i1 %exitcond53.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !115
+  br i1 %exitcond53.not, label %._crit_edge36, label %.lr.ph35, !llvm.loop !114
 
 .lr.ph43.preheader:                               ; preds = %.lr.ph39
   tail call void @_Z3Asyj(i32 noundef %5)
@@ -5270,11 +5270,11 @@ define hidden void @_Z25log_Z3_parse_smtlib2_fileP11_Z3_contextPKcjPKP10_Z3_symb
 .lr.ph39:                                         ; preds = %._crit_edge36, %.lr.ph39
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.lr.ph39 ], [ 0, %._crit_edge36 ]
   %15 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv54
-  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %16 = load ptr, ptr %15, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %16)
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %12
-  br i1 %exitcond58.not, label %.lr.ph43.preheader, label %.lr.ph39, !llvm.loop !116
+  br i1 %exitcond58.not, label %.lr.ph43.preheader, label %.lr.ph39, !llvm.loop !115
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %._crit_edge40.thread
   tail call void @_Z2Apj(i32 noundef %5)
@@ -5284,11 +5284,11 @@ define hidden void @_Z25log_Z3_parse_smtlib2_fileP11_Z3_contextPKcjPKP10_Z3_symb
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
   %indvars.iv59 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next60, %.lr.ph43 ]
   %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv59
-  %18 = load ptr, ptr %17, align 8, !tbaa !105
+  %18 = load ptr, ptr %17, align 8, !tbaa !104
   tail call void @_Z1PPv(ptr noundef %18)
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %12
-  br i1 %exitcond63.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !117
+  br i1 %exitcond63.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !116
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5688,11 +5688,11 @@ define hidden void @_Z20log_Z3_tactic_par_orP11_Z3_contextjPKP10_Z3_tactic(ptr n
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !118
+  %6 = load ptr, ptr %5, align 8, !tbaa !117
   tail call void @_Z1PPv(ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !119
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6374,12 +6374,12 @@ define hidden void @_Z24log_Z3_solver_get_levelsP11_Z3_contextP10_Z3_solverP14_Z
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %8 = load i32, ptr %7, align 4, !tbaa !21
+  %8 = load i32, ptr %7, align 4, !tbaa !20
   %9 = zext i32 %8 to i64
   tail call void @_Z1Um(i64 noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !121
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6536,7 +6536,7 @@ define hidden void @_Z31log_Z3_solver_propagate_declareP11_Z3_contextP10_Z3_symb
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !121
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6583,11 +6583,11 @@ define hidden void @_Z35log_Z3_solver_propagate_consequenceP11_Z3_contextP19_Z3_
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %11 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !35
+  %12 = load ptr, ptr %11, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !123
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
 
 .lr.ph33.preheader:                               ; preds = %.lr.ph29
   tail call void @_Z2Apj(i32 noundef %4)
@@ -6596,11 +6596,11 @@ define hidden void @_Z35log_Z3_solver_propagate_consequenceP11_Z3_contextP19_Z3_
 .lr.ph29:                                         ; preds = %._crit_edge, %.lr.ph29
   %indvars.iv38 = phi i64 [ %indvars.iv.next39, %.lr.ph29 ], [ 0, %._crit_edge ]
   %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv38
-  %14 = load ptr, ptr %13, align 8, !tbaa !35
+  %14 = load ptr, ptr %13, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %14)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %10
-  br i1 %exitcond42.not, label %.lr.ph33.preheader, label %.lr.ph29, !llvm.loop !124
+  br i1 %exitcond42.not, label %.lr.ph33.preheader, label %.lr.ph29, !llvm.loop !123
 
 ._crit_edge34:                                    ; preds = %.lr.ph33, %._crit_edge30.thread
   tail call void @_Z2Apj(i32 noundef %4)
@@ -6611,11 +6611,11 @@ define hidden void @_Z35log_Z3_solver_propagate_consequenceP11_Z3_contextP19_Z3_
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.lr.ph33
   %indvars.iv43 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next44, %.lr.ph33 ]
   %15 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv43
-  %16 = load ptr, ptr %15, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %16)
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %10
-  br i1 %exitcond47.not, label %._crit_edge34, label %.lr.ph33, !llvm.loop !125
+  br i1 %exitcond47.not, label %._crit_edge34, label %.lr.ph33, !llvm.loop !124
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6656,11 +6656,11 @@ define hidden void @_Z31log_Z3_solver_check_assumptionsP11_Z3_contextP10_Z3_solv
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !126
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !125
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6684,11 +6684,11 @@ define hidden void @_Z29log_Z3_get_implied_equalitiesP11_Z3_contextP10_Z3_solver
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %.lr.ph17.preheader, label %.lr.ph, !llvm.loop !127
+  br i1 %exitcond.not, label %.lr.ph17.preheader, label %.lr.ph, !llvm.loop !126
 
 ._crit_edge18:                                    ; preds = %.lr.ph17, %._crit_edge.thread
   tail call void @_Z2Auj(i32 noundef %2)
@@ -6700,7 +6700,7 @@ define hidden void @_Z29log_Z3_get_implied_equalitiesP11_Z3_contextP10_Z3_solver
   tail call void @_Z1Um(i64 noundef 0)
   %9 = add nuw i32 %.015, 1
   %exitcond21.not = icmp eq i32 %9, %2
-  br i1 %exitcond21.not, label %._crit_edge18, label %.lr.ph17, !llvm.loop !128
+  br i1 %exitcond21.not, label %._crit_edge18, label %.lr.ph17, !llvm.loop !127
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7276,11 +7276,11 @@ define hidden void @_Z22log_Z3_algebraic_rootsP11_Z3_contextP7_Z3_astjPKS2_(ptr 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !128
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7301,11 +7301,11 @@ define hidden void @_Z21log_Z3_algebraic_evalP11_Z3_contextP7_Z3_astjPKS2_(ptr n
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !130
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7409,11 +7409,11 @@ define hidden void @_Z19log_Z3_rcf_mk_rootsP11_Z3_contextjPKP11_Z3_rcf_numPS2_(p
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !131
+  %7 = load ptr, ptr %6, align 8, !tbaa !130
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %.lr.ph16.preheader, label %.lr.ph, !llvm.loop !133
+  br i1 %exitcond.not, label %.lr.ph16.preheader, label %.lr.ph, !llvm.loop !132
 
 ._crit_edge17:                                    ; preds = %.lr.ph16, %._crit_edge.thread
   tail call void @_Z2Apj(i32 noundef %1)
@@ -7425,7 +7425,7 @@ define hidden void @_Z19log_Z3_rcf_mk_rootsP11_Z3_contextjPKP11_Z3_rcf_numPS2_(p
   tail call void @_Z1PPv(ptr noundef null)
   %8 = add nuw i32 %.014, 1
   %exitcond20.not = icmp eq i32 %8, %1
-  br i1 %exitcond20.not, label %._crit_edge17, label %.lr.ph16, !llvm.loop !134
+  br i1 %exitcond20.not, label %._crit_edge17, label %.lr.ph16, !llvm.loop !133
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7790,12 +7790,12 @@ define hidden void @_Z26log_Z3_fixedpoint_add_factP11_Z3_contextP14_Z3_fixedpoin
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %8 = load i32, ptr %7, align 4, !tbaa !21
+  %8 = load i32, ptr %7, align 4, !tbaa !20
   %9 = zext i32 %8 to i64
   tail call void @_Z1Um(i64 noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !134
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7836,11 +7836,11 @@ define hidden void @_Z33log_Z3_fixedpoint_query_relationsP11_Z3_contextP14_Z3_fi
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !105
+  %7 = load ptr, ptr %6, align 8, !tbaa !104
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !136
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !135
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7945,11 +7945,11 @@ define hidden void @_Z46log_Z3_fixedpoint_set_predicate_representationP11_Z3_con
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !11
+  %8 = load ptr, ptr %7, align 8, !tbaa !10
   tail call void @_Z2SyP10_Z3_symbol(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !136
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8016,11 +8016,11 @@ define hidden void @_Z27log_Z3_fixedpoint_to_stringP11_Z3_contextP14_Z3_fixedpoi
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !138
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !137
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8169,11 +8169,11 @@ define hidden void @_Z21log_Z3_optimize_checkP11_Z3_contextP12_Z3_optimizejPKP7_
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !35
+  %7 = load ptr, ptr %6, align 8, !tbaa !34
   tail call void @_Z1PPv(ptr noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !139
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !138
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9183,11 +9183,11 @@ define hidden void @_Z23log_Z3_qe_model_projectP11_Z3_contextP9_Z3_modeljPKP7_Z3
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !79
+  %8 = load ptr, ptr %7, align 8, !tbaa !78
   tail call void @_Z1PPv(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !140
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !139
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9210,11 +9210,11 @@ define hidden void @_Z30log_Z3_qe_model_project_skolemP11_Z3_contextP9_Z3_modelj
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %6 ]
   %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !79
+  %9 = load ptr, ptr %8, align 8, !tbaa !78
   tail call void @_Z1PPv(ptr noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !141
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !140
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9237,11 +9237,11 @@ define hidden void @_Z36log_Z3_qe_model_project_with_witnessP11_Z3_contextP9_Z3_
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %6 ]
   %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8, !tbaa !79
+  %9 = load ptr, ptr %8, align 8, !tbaa !78
   tail call void @_Z1PPv(ptr noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !142
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !141
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9289,138 +9289,137 @@ attributes #5 = { nounwind }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS10_Z3_symbol", !5, i64 0}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"int", !6, i64 0}
-!23 = distinct !{!23, !9, !10}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 _ZTS15_Z3_constructor", !5, i64 0}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 _ZTS20_Z3_constructor_list", !5, i64 0}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = distinct !{!34, !9, !10}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTS7_Z3_ast", !5, i64 0}
-!37 = distinct !{!37, !9, !10}
-!38 = distinct !{!38, !9, !10}
-!39 = distinct !{!39, !9, !10}
-!40 = distinct !{!40, !9, !10}
-!41 = distinct !{!41, !9, !10}
-!42 = distinct !{!42, !9, !10}
-!43 = distinct !{!43, !9, !10}
-!44 = distinct !{!44, !9, !10}
-!45 = distinct !{!45, !9, !10}
-!46 = distinct !{!46, !9, !10}
-!47 = distinct !{!47, !9, !10}
-!48 = distinct !{!48, !9, !10}
-!49 = distinct !{!49, !9, !10}
-!50 = distinct !{!50, !9, !10}
-!51 = distinct !{!51, !9, !10}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"bool", !6, i64 0}
-!54 = !{i8 0, i8 2}
-!55 = !{}
-!56 = distinct !{!56, !9, !10}
-!57 = distinct !{!57, !9, !10}
-!58 = distinct !{!58, !9, !10}
-!59 = distinct !{!59, !9, !10}
-!60 = distinct !{!60, !9, !10}
-!61 = distinct !{!61, !9, !10}
-!62 = distinct !{!62, !9, !10}
-!63 = distinct !{!63, !9, !10}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"p1 _ZTS11_Z3_pattern", !5, i64 0}
-!66 = distinct !{!66, !9, !10}
-!67 = distinct !{!67, !9, !10}
-!68 = distinct !{!68, !9, !10}
-!69 = distinct !{!69, !9, !10}
-!70 = distinct !{!70, !9, !10}
-!71 = distinct !{!71, !9, !10}
-!72 = distinct !{!72, !9, !10}
-!73 = distinct !{!73, !9, !10}
-!74 = distinct !{!74, !9, !10}
-!75 = distinct !{!75, !9, !10}
-!76 = distinct !{!76, !9, !10}
-!77 = distinct !{!77, !9, !10}
-!78 = distinct !{!78, !9, !10}
-!79 = !{!80, !80, i64 0}
-!80 = !{!"p1 _ZTS7_Z3_app", !5, i64 0}
-!81 = distinct !{!81, !9, !10}
-!82 = distinct !{!82, !9, !10}
-!83 = distinct !{!83, !9, !10}
-!84 = distinct !{!84, !9, !10}
-!85 = distinct !{!85, !9, !10}
-!86 = distinct !{!86, !9, !10}
-!87 = distinct !{!87, !9, !10}
-!88 = distinct !{!88, !9, !10}
-!89 = distinct !{!89, !9, !10}
-!90 = distinct !{!90, !9, !10}
-!91 = distinct !{!91, !9, !10}
-!92 = distinct !{!92, !9, !10}
-!93 = distinct !{!93, !9, !10}
-!94 = distinct !{!94, !9, !10}
-!95 = distinct !{!95, !9, !10}
-!96 = distinct !{!96, !9, !10}
-!97 = distinct !{!97, !9, !10}
-!98 = distinct !{!98, !9, !10}
-!99 = distinct !{!99, !9, !10}
-!100 = distinct !{!100, !9, !10}
-!101 = distinct !{!101, !9, !10}
-!102 = distinct !{!102, !9, !10}
-!103 = distinct !{!103, !9, !10}
-!104 = distinct !{!104, !9, !10}
-!105 = !{!106, !106, i64 0}
-!106 = !{!"p1 _ZTS13_Z3_func_decl", !5, i64 0}
-!107 = distinct !{!107, !9, !10}
-!108 = distinct !{!108, !9, !10}
-!109 = distinct !{!109, !9, !10}
-!110 = distinct !{!110, !9, !10}
-!111 = distinct !{!111, !9, !10}
-!112 = distinct !{!112, !9, !10}
-!113 = distinct !{!113, !9, !10}
-!114 = distinct !{!114, !9, !10}
-!115 = distinct !{!115, !9, !10}
-!116 = distinct !{!116, !9, !10}
-!117 = distinct !{!117, !9, !10}
-!118 = !{!119, !119, i64 0}
-!119 = !{!"p1 _ZTS10_Z3_tactic", !5, i64 0}
-!120 = distinct !{!120, !9, !10}
-!121 = distinct !{!121, !9, !10}
-!122 = distinct !{!122, !9, !10}
-!123 = distinct !{!123, !9, !10}
-!124 = distinct !{!124, !9, !10}
-!125 = distinct !{!125, !9, !10}
-!126 = distinct !{!126, !9, !10}
-!127 = distinct !{!127, !9, !10}
-!128 = distinct !{!128, !9, !10}
-!129 = distinct !{!129, !9, !10}
-!130 = distinct !{!130, !9, !10}
-!131 = !{!132, !132, i64 0}
-!132 = !{!"p1 _ZTS11_Z3_rcf_num", !5, i64 0}
-!133 = distinct !{!133, !9, !10}
-!134 = distinct !{!134, !9, !10}
-!135 = distinct !{!135, !9, !10}
-!136 = distinct !{!136, !9, !10}
-!137 = distinct !{!137, !9, !10}
-!138 = distinct !{!138, !9, !10}
-!139 = distinct !{!139, !9, !10}
-!140 = distinct !{!140, !9, !10}
-!141 = distinct !{!141, !9, !10}
-!142 = distinct !{!142, !9, !10}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTS10_Z3_symbol", !5, i64 0}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}
+!17 = distinct !{!17, !9}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"int", !6, i64 0}
+!22 = distinct !{!22, !9}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS15_Z3_constructor", !5, i64 0}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS20_Z3_constructor_list", !5, i64 0}
+!31 = distinct !{!31, !9}
+!32 = distinct !{!32, !9}
+!33 = distinct !{!33, !9}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTS7_Z3_ast", !5, i64 0}
+!36 = distinct !{!36, !9}
+!37 = distinct !{!37, !9}
+!38 = distinct !{!38, !9}
+!39 = distinct !{!39, !9}
+!40 = distinct !{!40, !9}
+!41 = distinct !{!41, !9}
+!42 = distinct !{!42, !9}
+!43 = distinct !{!43, !9}
+!44 = distinct !{!44, !9}
+!45 = distinct !{!45, !9}
+!46 = distinct !{!46, !9}
+!47 = distinct !{!47, !9}
+!48 = distinct !{!48, !9}
+!49 = distinct !{!49, !9}
+!50 = distinct !{!50, !9}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"bool", !6, i64 0}
+!53 = !{i8 0, i8 2}
+!54 = !{}
+!55 = distinct !{!55, !9}
+!56 = distinct !{!56, !9}
+!57 = distinct !{!57, !9}
+!58 = distinct !{!58, !9}
+!59 = distinct !{!59, !9}
+!60 = distinct !{!60, !9}
+!61 = distinct !{!61, !9}
+!62 = distinct !{!62, !9}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTS11_Z3_pattern", !5, i64 0}
+!65 = distinct !{!65, !9}
+!66 = distinct !{!66, !9}
+!67 = distinct !{!67, !9}
+!68 = distinct !{!68, !9}
+!69 = distinct !{!69, !9}
+!70 = distinct !{!70, !9}
+!71 = distinct !{!71, !9}
+!72 = distinct !{!72, !9}
+!73 = distinct !{!73, !9}
+!74 = distinct !{!74, !9}
+!75 = distinct !{!75, !9}
+!76 = distinct !{!76, !9}
+!77 = distinct !{!77, !9}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"p1 _ZTS7_Z3_app", !5, i64 0}
+!80 = distinct !{!80, !9}
+!81 = distinct !{!81, !9}
+!82 = distinct !{!82, !9}
+!83 = distinct !{!83, !9}
+!84 = distinct !{!84, !9}
+!85 = distinct !{!85, !9}
+!86 = distinct !{!86, !9}
+!87 = distinct !{!87, !9}
+!88 = distinct !{!88, !9}
+!89 = distinct !{!89, !9}
+!90 = distinct !{!90, !9}
+!91 = distinct !{!91, !9}
+!92 = distinct !{!92, !9}
+!93 = distinct !{!93, !9}
+!94 = distinct !{!94, !9}
+!95 = distinct !{!95, !9}
+!96 = distinct !{!96, !9}
+!97 = distinct !{!97, !9}
+!98 = distinct !{!98, !9}
+!99 = distinct !{!99, !9}
+!100 = distinct !{!100, !9}
+!101 = distinct !{!101, !9}
+!102 = distinct !{!102, !9}
+!103 = distinct !{!103, !9}
+!104 = !{!105, !105, i64 0}
+!105 = !{!"p1 _ZTS13_Z3_func_decl", !5, i64 0}
+!106 = distinct !{!106, !9}
+!107 = distinct !{!107, !9}
+!108 = distinct !{!108, !9}
+!109 = distinct !{!109, !9}
+!110 = distinct !{!110, !9}
+!111 = distinct !{!111, !9}
+!112 = distinct !{!112, !9}
+!113 = distinct !{!113, !9}
+!114 = distinct !{!114, !9}
+!115 = distinct !{!115, !9}
+!116 = distinct !{!116, !9}
+!117 = !{!118, !118, i64 0}
+!118 = !{!"p1 _ZTS10_Z3_tactic", !5, i64 0}
+!119 = distinct !{!119, !9}
+!120 = distinct !{!120, !9}
+!121 = distinct !{!121, !9}
+!122 = distinct !{!122, !9}
+!123 = distinct !{!123, !9}
+!124 = distinct !{!124, !9}
+!125 = distinct !{!125, !9}
+!126 = distinct !{!126, !9}
+!127 = distinct !{!127, !9}
+!128 = distinct !{!128, !9}
+!129 = distinct !{!129, !9}
+!130 = !{!131, !131, i64 0}
+!131 = !{!"p1 _ZTS11_Z3_rcf_num", !5, i64 0}
+!132 = distinct !{!132, !9}
+!133 = distinct !{!133, !9}
+!134 = distinct !{!134, !9}
+!135 = distinct !{!135, !9}
+!136 = distinct !{!136, !9}
+!137 = distinct !{!137, !9}
+!138 = distinct !{!138, !9}
+!139 = distinct !{!139, !9}
+!140 = distinct !{!140, !9}
+!141 = distinct !{!141, !9}

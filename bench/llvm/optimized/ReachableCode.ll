@@ -137,7 +137,7 @@ define internal fastcc noundef i32 @_ZL13scanFromBlockPKN5clang8CFGBlockERN4llvm
   %.03579 = phi ptr [ %32, %.lr.ph ], [ %82, %.thread ]
   %.sroa.5.178 = phi i1 [ %not., %.lr.ph ], [ %.sroa.5.272, %.thread ]
   %.sroa.057.277 = phi i1 [ %spec.select, %.lr.ph ], [ %.sroa.057.371, %.thread ]
-  %37 = load ptr, ptr %.03579, align 8, !tbaa !32
+  %37 = load ptr, ptr %.03579, align 8, !tbaa !31
   %.not41 = icmp eq ptr %37, null
   br i1 %.not41, label %38, label %select.unfold
 
@@ -211,7 +211,7 @@ select.unfold:                                    ; preds = %.thread.sink.split.
   %69 = load i32, ptr %7, align 8, !tbaa !26
   %70 = load i32, ptr %8, align 4, !tbaa !9
   %.not.i.i.not.i49 = icmp ult i32 %69, %70
-  br i1 %.not.i.i.not.i49, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit51, label %71, !prof !36
+  br i1 %.not.i.i.not.i49, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit51, label %71, !prof !35
 
 71:                                               ; preds = %67
   %72 = zext i32 %69 to i64
@@ -239,7 +239,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit51:
   %.3 = phi i32 [ %81, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit51 ], [ %.280, %select.unfold ], [ %.280, %_ZL32shouldTreatSuccessorsAsReachablePKN5clang8CFGBlockERNS_12PreprocessorE.exit ], [ %.280, %38 ], [ %.280, %.thread.sink.split.i ]
   %82 = getelementptr inbounds nuw i8, ptr %.03579, i64 16
   %.not = icmp eq ptr %82, %34
-  br i1 %.not, label %._crit_edge.loopexit, label %36, !llvm.loop !37
+  br i1 %.not, label %._crit_edge.loopexit, label %36, !llvm.loop !36
 
 ._crit_edge86:                                    ; preds = %._crit_edge
   %.pre = load ptr, ptr %5, align 8, !tbaa !3
@@ -268,7 +268,7 @@ define dso_local void @_ZN5clang14reachable_code19FindUnreachableCodeERNS_19Anal
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #16
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !38
+  %11 = load i32, ptr %10, align 8, !tbaa !37
   %12 = add i32 %11, 63
   %13 = lshr i32 %12, 6
   %14 = zext nneg i32 %13 to i64
@@ -299,29 +299,29 @@ _ZN4llvm9BitVectorC2Ejb.exit.sink.split:          ; preds = %_ZSt6fill_nIPmmmET_
 _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC2Ejb.exit.sink.split, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i
   store i32 %13, ptr %16, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i32 %11, ptr %21, align 8, !tbaa !51
-  %22 = load ptr, ptr %8, align 8, !tbaa !58
+  store i32 %11, ptr %21, align 8, !tbaa !50
+  %22 = load ptr, ptr %8, align 8, !tbaa !57
   %23 = call fastcc noundef i32 @_ZL13scanFromBlockPKN5clang8CFGBlockERN4llvm9BitVectorEPNS_12PreprocessorEb(ptr noundef nonnull %22, ptr noundef nonnull readonly align 8 dereferenceable(68) %6, ptr noundef nonnull readonly align 8 dereferenceable(3288) %1, i1 noundef zeroext true)
-  %24 = load i32, ptr %10, align 8, !tbaa !38
+  %24 = load i32, ptr %10, align 8, !tbaa !37
   %25 = icmp eq i32 %23, %24
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %_ZN4llvm9BitVectorC2Ejb.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 97
-  %28 = load i8, ptr %27, align 1, !tbaa !59, !range !66, !noundef !67
+  %28 = load i8, ptr %27, align 1, !tbaa !58, !range !65, !noundef !66
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %._crit_edge.thread, label %30
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %32 = load ptr, ptr %31, align 8, !tbaa !68
+  %32 = load ptr, ptr %31, align 8, !tbaa !67
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %34 = load ptr, ptr %33, align 8, !tbaa !68
+  %34 = load ptr, ptr %33, align 8, !tbaa !67
   %.not6676 = icmp eq ptr %32, %34
   br i1 %.not6676, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.pre = load i32, ptr %10, align 8, !tbaa !38
+  %.pre = load i32, ptr %10, align 8, !tbaa !37
   %35 = icmp eq i32 %38, %.pre
   br i1 %35, label %.loopexit, label %._crit_edge.thread
 
@@ -333,14 +333,14 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC
   %38 = add i32 %37, %.13678
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.055.077, i64 8
   %.not66 = icmp eq ptr %39, %34
-  br i1 %.not66, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %.not66, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %30, %._crit_edge, %26
   %.035 = phi i32 [ %23, %26 ], [ %38, %._crit_edge ], [ %23, %30 ]
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %41 = load ptr, ptr %40, align 8, !tbaa !70
+  %41 = load ptr, ptr %40, align 8, !tbaa !68
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %43 = load ptr, ptr %42, align 8, !tbaa !71
+  %43 = load ptr, ptr %42, align 8, !tbaa !69
   %.not4179 = icmp eq ptr %41, %43
   br i1 %.not4179, label %.loopexit, label %.lr.ph83
 
@@ -395,9 +395,9 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC
 
 85:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7) #16
-  %86 = load ptr, ptr %44, align 8, !tbaa !72
+  %86 = load ptr, ptr %44, align 8, !tbaa !70
   %87 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %86) #17
-  %88 = load i32, ptr %21, align 8, !tbaa !51
+  %88 = load i32, ptr %21, align 8, !tbaa !50
   %89 = add i32 %88, 63
   %90 = lshr i32 %89, 6
   %91 = zext nneg i32 %90 to i64
@@ -438,13 +438,13 @@ _ZN12_GLOBAL__N_112DeadCodeScanC2ERN4llvm9BitVectorERN5clang12PreprocessorERNS4_
   %95 = phi ptr [ %45, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i ], [ %.sink.i, %_ZN4llvm9BitVectorC2Ejb.exit.sink.split.i ]
   %96 = phi ptr [ %78, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i.i.i ], [ %.pre93, %_ZN4llvm9BitVectorC2Ejb.exit.sink.split.i ]
   store i32 %90, ptr %46, align 8, !tbaa !26
-  store i32 %88, ptr %48, align 8, !tbaa !51
-  store ptr %6, ptr %49, align 8, !tbaa !116
+  store i32 %88, ptr %48, align 8, !tbaa !50
+  store ptr %6, ptr %49, align 8, !tbaa !114
   store ptr %51, ptr %50, align 8, !tbaa !3
   store i32 0, ptr %52, align 8, !tbaa !26
   store i32 10, ptr %53, align 4, !tbaa !9
-  store ptr %1, ptr %54, align 8, !tbaa !118
-  store ptr %87, ptr %55, align 8, !tbaa !120
+  store ptr %1, ptr %54, align 8, !tbaa !116
+  store ptr %87, ptr %55, align 8, !tbaa !118
   store ptr %57, ptr %56, align 8, !tbaa !3
   store i32 0, ptr %58, align 8, !tbaa !26
   store i32 12, ptr %59, align 4, !tbaa !9
@@ -478,7 +478,7 @@ _ZN12_GLOBAL__N_112DeadCodeScanC2ERN4llvm9BitVectorERN5clang12PreprocessorERNS4_
   %111 = load ptr, ptr %110, align 8, !tbaa !24
   %112 = add i32 %106, -1
   store i32 %112, ptr %52, align 8, !tbaa !26
-  %113 = load ptr, ptr %49, align 8, !tbaa !122
+  %113 = load ptr, ptr %49, align 8, !tbaa !120
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 48
   %115 = load i32, ptr %114, align 8, !tbaa !10
   %116 = lshr i32 %115, 6
@@ -491,12 +491,12 @@ _ZN12_GLOBAL__N_112DeadCodeScanC2ERN4llvm9BitVectorERN5clang12PreprocessorERNS4_
   %123 = shl nuw i64 1, %122
   %124 = and i64 %123, %121
   %.not86.i = icmp eq i64 %124, 0
-  br i1 %.not86.i, label %125, label %.loopexit89.i, !llvm.loop !134
+  br i1 %.not86.i, label %125, label %.loopexit89.i, !llvm.loop !132
 
 125:                                              ; preds = %.lr.ph98.i
   %126 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %127 = load ptr, ptr %126, align 8, !tbaa !135, !noalias !136
-  %128 = load ptr, ptr %111, align 8, !tbaa !143, !noalias !144
+  %127 = load ptr, ptr %126, align 8, !tbaa !133, !noalias !134
+  %128 = load ptr, ptr %111, align 8, !tbaa !141, !noalias !142
   %.not2627.i.i = icmp eq ptr %127, %128
   br i1 %.not2627.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -504,11 +504,11 @@ _ZN12_GLOBAL__N_112DeadCodeScanC2ERN4llvm9BitVectorERN5clang12PreprocessorERNS4_
   %.sroa.05.028.i.i = phi ptr [ %129, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.thread12.i.i ], [ %127, %125 ]
   %129 = getelementptr inbounds i8, ptr %.sroa.05.028.i.i, i64 -16
   %130 = getelementptr inbounds i8, ptr %.sroa.05.028.i.i, i64 -8
-  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %130, align 8, !noalias !151
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %130, align 8, !noalias !149
   %131 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i to i32
   %132 = shl i32 %131, 2
   %133 = and i32 %132, 12
-  %.0.copyload.i.i.i3.i.i.i.i.i = load i64, ptr %129, align 8, !noalias !151
+  %.0.copyload.i.i.i3.i.i.i.i.i = load i64, ptr %129, align 8, !noalias !149
   %134 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i.i to i32
   %135 = and i32 %134, 3
   %136 = add nuw nsw i32 %135, -6
@@ -536,8 +536,8 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i: ; preds = 
   br i1 %.not87.i, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.thread12.i.i, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i
 
 148:                                              ; preds = %142
-  %.val.i.i = load ptr, ptr %111, align 8, !tbaa !143, !noalias !154
-  %.val9.i.i = load ptr, ptr %126, align 8, !tbaa !135, !noalias !161
+  %.val.i.i = load ptr, ptr %111, align 8, !tbaa !141, !noalias !152
+  %.val9.i.i = load ptr, ptr %126, align 8, !tbaa !133, !noalias !159
   %.not31.i.i.i = icmp eq ptr %.val9.i.i, %.val.i.i
   br i1 %.not31.i.i.i, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i, label %.lr.ph.i.i.i
 
@@ -546,11 +546,11 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i: ; preds = 
   %.sroa.05.032.i.i.i = phi ptr [ %149, %168 ], [ %.val9.i.i, %148 ]
   %149 = getelementptr inbounds i8, ptr %.sroa.05.032.i.i.i, i64 -16
   %150 = getelementptr inbounds i8, ptr %.sroa.05.032.i.i.i, i64 -8
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %150, align 8, !noalias !168
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %150, align 8, !noalias !166
   %151 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i.i to i32
   %152 = shl i32 %151, 2
   %153 = and i32 %152, 12
-  %.0.copyload.i.i.i3.i.i.i.i.i.i = load i64, ptr %149, align 8, !noalias !168
+  %.0.copyload.i.i.i3.i.i.i.i.i.i = load i64, ptr %149, align 8, !noalias !166
   %154 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i.i.i to i32
   %155 = and i32 %154, 3
   %156 = add nuw nsw i32 %155, -6
@@ -577,30 +577,30 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i: ; preds = 
 168:                                              ; preds = %162, %158, %.lr.ph.i.i.i
   %.3.ph.i.i.i = phi i1 [ %.01033.i.i.i, %.lr.ph.i.i.i ], [ false, %158 ], [ true, %162 ]
   %.not.i.i.i46 = icmp eq ptr %149, %.val.i.i
-  br i1 %.not.i.i.i46, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i, label %.lr.ph.i.i.i, !llvm.loop !171
+  br i1 %.not.i.i.i46, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i, label %.lr.ph.i.i.i, !llvm.loop !169
 
 _ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.i: ; preds = %162
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
-  store i8 0, ptr %60, align 8, !tbaa !172
-  store i8 1, ptr %61, align 1, !tbaa !174
-  store i8 1, ptr %63, align 1, !tbaa !175
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVZL17isInCoroutineStmtPKN5clang4StmtEPKNS_8CFGBlockEE7Checker, i64 16), ptr %5, align 8, !tbaa !176
-  store ptr %139, ptr %64, align 8, !tbaa !178
-  store i8 0, ptr %65, align 8, !tbaa !180
-  store i8 1, ptr %62, align 2, !tbaa !181
+  store i8 0, ptr %60, align 8, !tbaa !170
+  store i8 1, ptr %61, align 1, !tbaa !172
+  store i8 1, ptr %63, align 1, !tbaa !173
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVZL17isInCoroutineStmtPKN5clang4StmtEPKNS_8CFGBlockEE7Checker, i64 16), ptr %5, align 8, !tbaa !174
+  store ptr %139, ptr %64, align 8, !tbaa !176
+  store i8 0, ptr %65, align 8, !tbaa !178
+  store i8 1, ptr %62, align 2, !tbaa !179
   %169 = call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull %163) #16
-  %170 = load i8, ptr %65, align 8, !tbaa !180, !range !66, !noundef !67
+  %170 = load i8, ptr %65, align 8, !tbaa !178, !range !65, !noundef !66
   %171 = trunc nuw i8 %170 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
   br i1 %171, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.thread12.i.i, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i
 
 _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.thread12.i.i: ; preds = %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.i, %145, %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i, %.lr.ph.i.i
   %.not26.i.i = icmp eq ptr %129, %128
-  br i1 %.not26.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !182
+  br i1 %.not26.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !180
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.thread12.i.i, %125
   %172 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %172, align 8, !tbaa !183
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %172, align 8, !tbaa !181
   %173 = and i64 %.sroa.0.0.copyload.i.i.i, 6
   %174 = icmp eq i64 %173, 0
   br i1 %174, label %175, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread.i
@@ -629,8 +629,8 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.thread12.i.i: ;
   br i1 %.not68, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread.i, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i
 
 187:                                              ; preds = %181
-  %.val.i47 = load ptr, ptr %111, align 8, !tbaa !143, !noalias !184
-  %.val9.i = load ptr, ptr %126, align 8, !tbaa !135, !noalias !191
+  %.val.i47 = load ptr, ptr %111, align 8, !tbaa !141, !noalias !182
+  %.val9.i = load ptr, ptr %126, align 8, !tbaa !133, !noalias !189
   %.not31.i.i = icmp eq ptr %.val9.i, %.val.i47
   br i1 %.not31.i.i, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i, label %.lr.ph.i.i48
 
@@ -639,11 +639,11 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.thread12.i.i: ;
   %.sroa.05.032.i.i = phi ptr [ %188, %207 ], [ %.val9.i, %187 ]
   %188 = getelementptr inbounds i8, ptr %.sroa.05.032.i.i, i64 -16
   %189 = getelementptr inbounds i8, ptr %.sroa.05.032.i.i, i64 -8
-  %.0.copyload.i.i.i.i.i.i.i.i49 = load i64, ptr %189, align 8, !noalias !198
+  %.0.copyload.i.i.i.i.i.i.i.i49 = load i64, ptr %189, align 8, !noalias !196
   %190 = trunc i64 %.0.copyload.i.i.i.i.i.i.i.i49 to i32
   %191 = shl i32 %190, 2
   %192 = and i32 %191, 12
-  %.0.copyload.i.i.i3.i.i.i.i.i50 = load i64, ptr %188, align 8, !noalias !198
+  %.0.copyload.i.i.i3.i.i.i.i.i50 = load i64, ptr %188, align 8, !noalias !196
   %193 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i.i50 to i32
   %194 = and i32 %193, 3
   %195 = add nuw nsw i32 %194, -6
@@ -670,19 +670,19 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.thread12.i.i: ;
 207:                                              ; preds = %201, %197, %.lr.ph.i.i48
   %.3.ph.i.i = phi i1 [ %.01033.i.i, %.lr.ph.i.i48 ], [ false, %197 ], [ true, %201 ]
   %.not.i.i52 = icmp eq ptr %188, %.val.i47
-  br i1 %.not.i.i52, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i, label %.lr.ph.i.i48, !llvm.loop !171
+  br i1 %.not.i.i52, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i, label %.lr.ph.i.i48, !llvm.loop !169
 
 _ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit: ; preds = %201
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
-  store i8 0, ptr %66, align 8, !tbaa !172
-  store i8 1, ptr %67, align 1, !tbaa !174
-  store i8 1, ptr %69, align 1, !tbaa !175
-  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVZL17isInCoroutineStmtPKN5clang4StmtEPKNS_8CFGBlockEE7Checker, i64 16), ptr %4, align 8, !tbaa !176
-  store ptr %178, ptr %70, align 8, !tbaa !178
-  store i8 0, ptr %71, align 8, !tbaa !180
-  store i8 1, ptr %68, align 2, !tbaa !181
+  store i8 0, ptr %66, align 8, !tbaa !170
+  store i8 1, ptr %67, align 1, !tbaa !172
+  store i8 1, ptr %69, align 1, !tbaa !173
+  store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVZL17isInCoroutineStmtPKN5clang4StmtEPKNS_8CFGBlockEE7Checker, i64 16), ptr %4, align 8, !tbaa !174
+  store ptr %178, ptr %70, align 8, !tbaa !176
+  store i8 0, ptr %71, align 8, !tbaa !178
+  store i8 1, ptr %68, align 2, !tbaa !179
   %208 = call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull %202) #16
-  %209 = load i8, ptr %71, align 8, !tbaa !180, !range !66, !noundef !67
+  %209 = load i8, ptr %71, align 8, !tbaa !178, !range !65, !noundef !66
   %210 = trunc nuw i8 %209 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
   br i1 %210, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread.i, label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i
@@ -693,21 +693,21 @@ _ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread.i:
   %213 = getelementptr inbounds nuw i8, ptr %111, i64 64
   %214 = load ptr, ptr %213, align 8, !tbaa !28
   %.not3693.i = icmp eq ptr %212, %214
-  br i1 %.not3693.i, label %.loopexit89.i, label %.lr.ph.i, !llvm.loop !134
+  br i1 %.not3693.i, label %.loopexit89.i, label %.lr.ph.i, !llvm.loop !132
 
 .lr.ph.i:                                         ; preds = %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread.i
-  br label %215, !llvm.loop !134
+  br label %215, !llvm.loop !132
 
 215:                                              ; preds = %_ZN12_GLOBAL__N_112DeadCodeScan7enqueueEPKN5clang8CFGBlockE.exit46.i, %.lr.ph.i
   %.03294.i = phi ptr [ %212, %.lr.ph.i ], [ %249, %_ZN12_GLOBAL__N_112DeadCodeScan7enqueueEPKN5clang8CFGBlockE.exit46.i ]
-  %216 = load ptr, ptr %.03294.i, align 8, !tbaa !32
+  %216 = load ptr, ptr %.03294.i, align 8, !tbaa !31
   %.not37.i = icmp eq ptr %216, null
   br i1 %.not37.i, label %_ZN12_GLOBAL__N_112DeadCodeScan7enqueueEPKN5clang8CFGBlockE.exit46.i, label %217
 
 217:                                              ; preds = %215
   %218 = getelementptr inbounds nuw i8, ptr %216, i64 48
   %219 = load i32, ptr %218, align 8, !tbaa !10
-  %220 = load ptr, ptr %49, align 8, !tbaa !122
+  %220 = load ptr, ptr %49, align 8, !tbaa !120
   %221 = lshr i32 %219, 6
   %222 = zext nneg i32 %221 to i64
   %223 = load ptr, ptr %220, align 8, !tbaa !3
@@ -734,7 +734,7 @@ _ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread.i:
   %237 = load i32, ptr %52, align 8, !tbaa !26
   %238 = load i32, ptr %53, align 4, !tbaa !9
   %.not.i.i.not.i.i43.i = icmp ult i32 %237, %238
-  br i1 %.not.i.i.not.i.i43.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit.i45.i, label %239, !prof !36
+  br i1 %.not.i.i.not.i.i43.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit.i45.i, label %239, !prof !35
 
 239:                                              ; preds = %235
   %240 = zext i32 %237 to i64
@@ -758,7 +758,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit.i4
 _ZN12_GLOBAL__N_112DeadCodeScan7enqueueEPKN5clang8CFGBlockE.exit46.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit.i45.i, %230, %217, %215
   %249 = getelementptr inbounds nuw i8, ptr %.03294.i, i64 16
   %.not36.i = icmp eq ptr %249, %214
-  br i1 %.not36.i, label %..loopexit89_crit_edge.i, label %215, !llvm.loop !201
+  br i1 %.not36.i, label %..loopexit89_crit_edge.i, label %215, !llvm.loop !199
 
 _ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i: ; preds = %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.i, %148, %145, %207, %168, %187, %184, %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit
   %.5.i81.i = phi ptr [ %178, %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit ], [ %178, %184 ], [ %178, %187 ], [ %139, %168 ], [ %178, %207 ], [ %139, %145 ], [ %139, %148 ], [ %139, %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.i ]
@@ -767,11 +767,11 @@ _ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.
   br i1 %251, label %252, label %257
 
 252:                                              ; preds = %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i
-  %253 = load ptr, ptr %54, align 8, !tbaa !202
-  %254 = load ptr, ptr %49, align 8, !tbaa !122
+  %253 = load ptr, ptr %54, align 8, !tbaa !200
+  %254 = load ptr, ptr %49, align 8, !tbaa !120
   %255 = call fastcc noundef i32 @_ZL13scanFromBlockPKN5clang8CFGBlockERN4llvm9BitVectorEPNS_12PreprocessorEb(ptr noundef nonnull %111, ptr noundef nonnull readonly align 8 dereferenceable(68) %254, ptr noundef nonnull readonly align 8 dereferenceable(3288) %253, i1 noundef zeroext true)
   %256 = add i32 %255, %.096.i
-  br label %.loopexit89.i, !llvm.loop !134
+  br label %.loopexit89.i, !llvm.loop !132
 
 257:                                              ; preds = %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.i
   %258 = getelementptr i8, ptr %111, i64 56
@@ -784,7 +784,7 @@ _ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.
 .lr.ph.i47.i:                                     ; preds = %257, %293
   %.011.i.i = phi i1 [ %.3.i.i, %293 ], [ true, %257 ]
   %.02210.i.i = phi ptr [ %294, %293 ], [ %.val.i, %257 ]
-  %260 = load ptr, ptr %.02210.i.i, align 8, !tbaa !32
+  %260 = load ptr, ptr %.02210.i.i, align 8, !tbaa !31
   %.not25.i.i = icmp eq ptr %260, null
   br i1 %.not25.i.i, label %293, label %261
 
@@ -804,7 +804,7 @@ _ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.
   br i1 %.not7.i.i, label %273, label %293
 
 273:                                              ; preds = %261
-  %274 = load ptr, ptr %49, align 8, !tbaa !122
+  %274 = load ptr, ptr %49, align 8, !tbaa !120
   %275 = load ptr, ptr %274, align 8, !tbaa !3
   %276 = getelementptr inbounds nuw i64, ptr %275, i64 %265
   %277 = load i64, ptr %276, align 8, !tbaa !22
@@ -818,7 +818,7 @@ _ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread78.
   %281 = load i32, ptr %52, align 8, !tbaa !26
   %282 = load i32, ptr %53, align 4, !tbaa !9
   %.not.i.i.not.i.i50.i = icmp ult i32 %281, %282
-  br i1 %.not.i.i.not.i.i50.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit.i52.i, label %283, !prof !36
+  br i1 %.not.i.i.not.i.i50.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit.i52.i, label %283, !prof !35
 
 283:                                              ; preds = %279
   %284 = zext i32 %281 to i64
@@ -843,15 +843,15 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit.i5
   %.3.i.i = phi i1 [ %.011.i.i, %.lr.ph.i47.i ], [ false, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EE9push_backES4_.exit.i52.i ], [ false, %261 ], [ %.011.i.i, %273 ]
   %294 = getelementptr inbounds nuw i8, ptr %.02210.i.i, i64 16
   %.not.i48.i = icmp eq ptr %294, %.val38.i
-  br i1 %.not.i48.i, label %_ZN12_GLOBAL__N_112DeadCodeScan14isDeadCodeRootEPKN5clang8CFGBlockE.exit.i, label %.lr.ph.i47.i, !llvm.loop !203
+  br i1 %.not.i48.i, label %_ZN12_GLOBAL__N_112DeadCodeScan14isDeadCodeRootEPKN5clang8CFGBlockE.exit.i, label %.lr.ph.i47.i, !llvm.loop !201
 
 _ZN12_GLOBAL__N_112DeadCodeScan14isDeadCodeRootEPKN5clang8CFGBlockE.exit.i: ; preds = %293
   br i1 %.3.i.i, label %_ZN12_GLOBAL__N_112DeadCodeScan14isDeadCodeRootEPKN5clang8CFGBlockE.exit.thread.i, label %299
 
 _ZN12_GLOBAL__N_112DeadCodeScan14isDeadCodeRootEPKN5clang8CFGBlockE.exit.thread.i: ; preds = %_ZN12_GLOBAL__N_112DeadCodeScan14isDeadCodeRootEPKN5clang8CFGBlockE.exit.i, %257
   call fastcc void @_ZN12_GLOBAL__N_112DeadCodeScan14reportDeadCodeEPKN5clang8CFGBlockEPKNS1_4StmtERNS1_14reachable_code8CallbackE(ptr noundef nonnull align 8 dereferenceable(400) %7, ptr noundef nonnull %111, ptr noundef nonnull %.5.i81.i, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %295 = load ptr, ptr %54, align 8, !tbaa !202
-  %296 = load ptr, ptr %49, align 8, !tbaa !122
+  %295 = load ptr, ptr %54, align 8, !tbaa !200
+  %296 = load ptr, ptr %49, align 8, !tbaa !120
   %297 = call fastcc noundef i32 @_ZL13scanFromBlockPKN5clang8CFGBlockERN4llvm9BitVectorEPNS_12PreprocessorEb(ptr noundef nonnull %111, ptr noundef nonnull readonly align 8 dereferenceable(68) %296, ptr noundef nonnull readonly align 8 dereferenceable(3288) %295, i1 noundef zeroext true)
   %298 = add i32 %297, %.096.i
   br label %.loopexit89.i
@@ -860,7 +860,7 @@ _ZN12_GLOBAL__N_112DeadCodeScan14isDeadCodeRootEPKN5clang8CFGBlockE.exit.thread.
   %300 = load i32, ptr %58, align 8, !tbaa !26
   %301 = load i32, ptr %59, align 4, !tbaa !9
   %.not.i.i.not.i.i = icmp ult i32 %300, %301
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEELb1EE9push_backES9_.exit.i, label %302, !prof !36
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEELb1EE9push_backES9_.exit.i, label %302, !prof !35
 
 302:                                              ; preds = %299
   %303 = zext i32 %300 to i64
@@ -883,13 +883,13 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEELb1EE9
   br label %.loopexit89.i
 
 ..loopexit89_crit_edge.i:                         ; preds = %_ZN12_GLOBAL__N_112DeadCodeScan7enqueueEPKN5clang8CFGBlockE.exit46.i
-  br label %.loopexit89.i, !llvm.loop !134
+  br label %.loopexit89.i, !llvm.loop !132
 
 .loopexit89.i:                                    ; preds = %..loopexit89_crit_edge.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEELb1EE9push_backES9_.exit.i, %_ZN12_GLOBAL__N_112DeadCodeScan14isDeadCodeRootEPKN5clang8CFGBlockE.exit.thread.i, %252, %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread.i, %.lr.ph98.i
   %.1.i = phi i32 [ %.096.i, %.lr.ph98.i ], [ %256, %252 ], [ %298, %_ZN12_GLOBAL__N_112DeadCodeScan14isDeadCodeRootEPKN5clang8CFGBlockE.exit.thread.i ], [ %.096.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEELb1EE9push_backES9_.exit.i ], [ %.096.i, %..loopexit89_crit_edge.i ], [ %.096.i, %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread.i ]
   %311 = load i32, ptr %52, align 8, !tbaa !26
   %.not.i39.i = icmp eq i32 %311, 0
-  br i1 %.not.i39.i, label %._crit_edge.i, label %.lr.ph98.i, !llvm.loop !204
+  br i1 %.not.i39.i, label %._crit_edge.i, label %.lr.ph98.i
 
 ._crit_edge.i:                                    ; preds = %.loopexit89.i
   %.pre94 = load i32, ptr %58, align 8, !tbaa !26
@@ -923,8 +923,8 @@ _ZN4llvm14array_pod_sortIPSt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEEEEvT_SB_PFiPKN
 321:                                              ; preds = %342, %.lr.ph102.i
   %.5101.i = phi i32 [ %.1.i, %.lr.ph102.i ], [ %.6.i, %342 ]
   %.033100.i = phi ptr [ %320, %.lr.ph102.i ], [ %343, %342 ]
-  %322 = load ptr, ptr %.033100.i, align 8, !tbaa !205
-  %323 = load ptr, ptr %49, align 8, !tbaa !122
+  %322 = load ptr, ptr %.033100.i, align 8, !tbaa !202
+  %323 = load ptr, ptr %49, align 8, !tbaa !120
   %324 = getelementptr inbounds nuw i8, ptr %322, i64 48
   %325 = load i32, ptr %324, align 8, !tbaa !10
   %326 = lshr i32 %325, 6
@@ -941,10 +941,10 @@ _ZN4llvm14array_pod_sortIPSt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEEEEvT_SB_PFiPKN
 
 335:                                              ; preds = %321
   %336 = getelementptr inbounds nuw i8, ptr %.033100.i, i64 8
-  %337 = load ptr, ptr %336, align 8, !tbaa !207
+  %337 = load ptr, ptr %336, align 8, !tbaa !204
   call fastcc void @_ZN12_GLOBAL__N_112DeadCodeScan14reportDeadCodeEPKN5clang8CFGBlockEPKNS1_4StmtERNS1_14reachable_code8CallbackE(ptr noundef nonnull align 8 dereferenceable(400) %7, ptr noundef nonnull %322, ptr noundef %337, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %338 = load ptr, ptr %54, align 8, !tbaa !202
-  %339 = load ptr, ptr %49, align 8, !tbaa !122
+  %338 = load ptr, ptr %54, align 8, !tbaa !200
+  %339 = load ptr, ptr %49, align 8, !tbaa !120
   %340 = call fastcc noundef i32 @_ZL13scanFromBlockPKN5clang8CFGBlockERN4llvm9BitVectorEPNS_12PreprocessorEb(ptr noundef nonnull %322, ptr noundef nonnull readonly align 8 dereferenceable(68) %339, ptr noundef nonnull readonly align 8 dereferenceable(3288) %338, i1 noundef zeroext true)
   %341 = add i32 %340, %.5101.i
   br label %342
@@ -953,12 +953,12 @@ _ZN4llvm14array_pod_sortIPSt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEEEEvT_SB_PFiPKN
   %.6.i = phi i32 [ %341, %335 ], [ %.5101.i, %321 ]
   %343 = getelementptr inbounds nuw i8, ptr %.033100.i, i64 16
   %.not.i = icmp eq ptr %343, %319
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_112DeadCodeScan13scanBackwardsEPKN5clang8CFGBlockERNS1_14reachable_code8CallbackE.exit, label %321, !llvm.loop !208
+  br i1 %.not.i, label %_ZN12_GLOBAL__N_112DeadCodeScan13scanBackwardsEPKN5clang8CFGBlockERNS1_14reachable_code8CallbackE.exit, label %321
 
 _ZN12_GLOBAL__N_112DeadCodeScan13scanBackwardsEPKN5clang8CFGBlockERNS1_14reachable_code8CallbackE.exit: ; preds = %342, %_ZN12_GLOBAL__N_112DeadCodeScanC2ERN4llvm9BitVectorERN5clang12PreprocessorERNS4_10ASTContextE.exit, %100, %._crit_edge.i, %_ZN4llvm14array_pod_sortIPSt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEEEEvT_SB_PFiPKNSt15iterator_traitsISB_E10value_typeESG_E.exit.i
   %.4.i = phi i32 [ %.1.i, %._crit_edge.i ], [ %.1.i, %_ZN4llvm14array_pod_sortIPSt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEEEEvT_SB_PFiPKNSt15iterator_traitsISB_E10value_typeESG_E.exit.i ], [ 0, %100 ], [ 0, %_ZN12_GLOBAL__N_112DeadCodeScanC2ERN4llvm9BitVectorERN5clang12PreprocessorERNS4_10ASTContextE.exit ], [ %.6.i, %342 ]
   %344 = add i32 %.4.i, %.23781
-  %345 = load i32, ptr %10, align 8, !tbaa !38
+  %345 = load i32, ptr %10, align 8, !tbaa !37
   %.not69 = icmp eq i32 %344, %345
   %346 = load ptr, ptr %56, align 8, !tbaa !3
   %347 = icmp eq ptr %346, %57
@@ -994,7 +994,7 @@ _ZN4llvm11SmallVectorIPKN5clang8CFGBlockELj10EED2Ev.exit.i: ; preds = %351, %_ZN
   %.365 = phi i32 [ %344, %355 ], [ %.23781, %72 ]
   %356 = getelementptr inbounds nuw i8, ptr %.03880, i64 8
   %.not41 = icmp eq ptr %356, %43
-  br i1 %.not41, label %.loopexit, label %72, !llvm.loop !209
+  br i1 %.not41, label %.loopexit, label %72
 
 .loopexit:                                        ; preds = %.thread, %355, %._crit_edge.thread, %._crit_edge, %_ZN4llvm9BitVectorC2Ejb.exit
   %357 = load ptr, ptr %6, align 8, !tbaa !3
@@ -1085,13 +1085,13 @@ define internal fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang4St
 
 17:                                               ; preds = %.thread
   %18 = getelementptr inbounds nuw i8, ptr %.169, i64 16
-  %.sroa.0.0.copyload.i = load i32, ptr %18, align 8, !tbaa !210
+  %.sroa.0.0.copyload.i = load i32, ptr %18, align 8, !tbaa !205
   %19 = icmp slt i32 %.sroa.0.0.copyload.i, 0
   br i1 %19, label %.thread231, label %tailrecurse
 
 tailrecurse:                                      ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %.169, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !211
+  %21 = load ptr, ptr %20, align 8, !tbaa !206
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit, label %6
 
@@ -1126,7 +1126,7 @@ tailrecurse:                                      ; preds = %17
   %30 = lshr i32 %29, 24
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %.270, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !220
+  %33 = load ptr, ptr %32, align 8, !tbaa !215
   %34 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %33) #16
   %.not.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i, label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit, label %35
@@ -1148,7 +1148,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit: ; pre
 
 45:                                               ; preds = %25
   %46 = getelementptr inbounds nuw i8, ptr %.270, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !221
+  %47 = load ptr, ptr %46, align 8, !tbaa !216
   %48 = tail call fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang9ValueDeclERNS_12PreprocessorE(ptr noundef %47, ptr noundef nonnull align 8 dereferenceable(3288) %1)
   br label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit
 
@@ -1164,7 +1164,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit: ; pre
   br i1 %.not90, label %.critedge, label %50
 
 50:                                               ; preds = %49
-  %.sroa.0.0.copyload.i97 = load i32, ptr %.tr120.ph177, align 4, !tbaa !210
+  %.sroa.0.0.copyload.i97 = load i32, ptr %.tr120.ph177, align 4, !tbaa !205
   %.not118 = icmp eq i32 %.sroa.0.0.copyload.i97, 0
   br i1 %.not118, label %51, label %.critedge
 
@@ -1183,7 +1183,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit: ; pre
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %58 = load ptr, ptr %57, align 8, !tbaa !225
+  %58 = load ptr, ptr %57, align 8, !tbaa !220
   br i1 %.072, label %.preheader.i, label %73
 
 .preheader.i:                                     ; preds = %56, %_ZNK5clang13SourceManager26getImmediateMacroCallerLocENS_14SourceLocationE.exit.i.i
@@ -1204,12 +1204,12 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit: ; pre
 _ZNK5clang13SourceManager26getImmediateMacroCallerLocENS_14SourceLocationE.exit.i.i: ; preds = %62, %60
   %.sroa.04.0.i.i.i = phi i32 [ %61, %60 ], [ %.sroa.0.0.extract.trunc.i.i.i, %62 ]
   %64 = icmp slt i32 %.sroa.04.0.i.i.i, 0
-  br i1 %64, label %.preheader.i, label %_ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit.i, !llvm.loop !446
+  br i1 %64, label %.preheader.i, label %_ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit.i, !llvm.loop !441
 
 _ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit.i: ; preds = %_ZNK5clang13SourceManager26getImmediateMacroCallerLocENS_14SourceLocationE.exit.i.i
-  %65 = load ptr, ptr %57, align 8, !tbaa !225
+  %65 = load ptr, ptr %57, align 8, !tbaa !220
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %67 = load ptr, ptr %66, align 8, !tbaa !447
+  %67 = load ptr, ptr %66, align 8, !tbaa !442
   %68 = tail call { ptr, i64 } @_ZN5clang5Lexer21getImmediateMacroNameENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE(i32 %.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(696) %65, ptr noundef nonnull align 8 dereferenceable(849) %67) #16
   %69 = extractvalue { ptr, i64 } %68, 0
   %70 = extractvalue { ptr, i64 } %68, 1
@@ -1231,7 +1231,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit36.i:            ; preds = %_ZL15getTopMostMacr
 
 73:                                               ; preds = %56
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %75 = load ptr, ptr %74, align 8, !tbaa !447
+  %75 = load ptr, ptr %74, align 8, !tbaa !442
   %76 = load i64, ptr %75, align 8
   %77 = and i64 %76, 2048
   %.not.i = icmp eq i64 %77, 0
@@ -1255,11 +1255,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit36.i:            ; preds = %_ZL15getTopMostMacr
 _ZNK5clang13SourceManager26getImmediateMacroCallerLocENS_14SourceLocationE.exit.i40.i: ; preds = %81, %79
   %.sroa.04.0.i.i41.i = phi i32 [ %80, %79 ], [ %.sroa.0.0.extract.trunc.i.i39.i, %81 ]
   %83 = icmp slt i32 %.sroa.04.0.i.i41.i, 0
-  br i1 %83, label %.preheader78.i, label %_ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit42.i, !llvm.loop !446
+  br i1 %83, label %.preheader78.i, label %_ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit42.i, !llvm.loop !441
 
 _ZL15getTopMostMacroN5clang14SourceLocationERNS_13SourceManagerE.exit42.i: ; preds = %_ZNK5clang13SourceManager26getImmediateMacroCallerLocENS_14SourceLocationE.exit.i40.i
-  %84 = load ptr, ptr %57, align 8, !tbaa !225
-  %85 = load ptr, ptr %74, align 8, !tbaa !447
+  %84 = load ptr, ptr %57, align 8, !tbaa !220
+  %85 = load ptr, ptr %74, align 8, !tbaa !442
   %86 = tail call { ptr, i64 } @_ZN5clang5Lexer21getImmediateMacroNameENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE(i32 %.sroa.0.0.i37.i, ptr noundef nonnull align 8 dereferenceable(696) %84, ptr noundef nonnull align 8 dereferenceable(849) %85) #16
   %87 = extractvalue { ptr, i64 } %86, 0
   %88 = extractvalue { ptr, i64 } %86, 1
@@ -1281,7 +1281,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit50.i:            ; preds = %_ZL15getTopMostMacr
 
 91:                                               ; preds = %25
   %92 = getelementptr inbounds nuw i8, ptr %.270, i64 24
-  %93 = load ptr, ptr %92, align 8, !tbaa !448
+  %93 = load ptr, ptr %92, align 8, !tbaa !443
   %94 = tail call fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang9ValueDeclERNS_12PreprocessorE(ptr noundef %93, ptr noundef nonnull align 8 dereferenceable(3288) %1)
   br label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit
 
@@ -1296,13 +1296,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit50.i:            ; preds = %_ZL15getTopMostMacr
   %103 = select i1 %100, i1 true, i1 %102
   %104 = and i1 %.tr121.ph125173, %103
   %105 = getelementptr inbounds nuw i8, ptr %.270, i64 16
-  %106 = load ptr, ptr %105, align 8, !tbaa !220
+  %106 = load ptr, ptr %105, align 8, !tbaa !215
   %107 = tail call fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang4StmtERNS_12PreprocessorEPNS_11SourceRangeEbb(ptr noundef %106, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef %.tr120.ph177, i1 noundef zeroext %104, i1 noundef zeroext false)
   br i1 %107, label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit, label %tailrecurse.outer123
 
 tailrecurse.outer123:                             ; preds = %95
   %108 = getelementptr inbounds nuw i8, ptr %.270, i64 24
-  %109 = load ptr, ptr %108, align 8, !tbaa !220
+  %109 = load ptr, ptr %108, align 8, !tbaa !215
   %.not168 = icmp eq ptr %109, null
   br i1 %.not168, label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit, label %.lr.ph
 
@@ -1321,25 +1321,25 @@ tailrecurse.outer123:                             ; preds = %95
 
 .thread109:                                       ; preds = %114
   %115 = getelementptr inbounds nuw i8, ptr %.270, i64 16
-  %116 = load ptr, ptr %115, align 8, !tbaa !450
+  %116 = load ptr, ptr %115, align 8, !tbaa !445
   %.not168171 = icmp eq ptr %116, null
   br i1 %.not168171, label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit, label %.lr.ph.lr.ph
 
 117:                                              ; preds = %114
-  %.sroa.0.0.copyload.i98 = load i32, ptr %.tr120.ph177, align 4, !tbaa !210
+  %.sroa.0.0.copyload.i98 = load i32, ptr %.tr120.ph177, align 4, !tbaa !205
   %118 = icmp eq i32 %.sroa.0.0.copyload.i98, 0
   %119 = getelementptr inbounds nuw i8, ptr %.270, i64 16
-  %120 = load ptr, ptr %119, align 8, !tbaa !450
+  %120 = load ptr, ptr %119, align 8, !tbaa !445
   %121 = tail call fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang4StmtERNS_12PreprocessorEPNS_11SourceRangeEbb(ptr noundef %120, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull %.tr120.ph177, i1 noundef zeroext %.tr121.ph125173, i1 noundef zeroext %.tr122170)
   br i1 %118, label %122, label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit
 
 122:                                              ; preds = %117
-  %.sroa.0.0.copyload.i99 = load i32, ptr %.tr120.ph177, align 4, !tbaa !210
+  %.sroa.0.0.copyload.i99 = load i32, ptr %.tr120.ph177, align 4, !tbaa !205
   %.not117 = icmp eq i32 %.sroa.0.0.copyload.i99, 0
   br i1 %.not117, label %_ZL32isExpandedFromConfigurationMacroPKN5clang4StmtERNS_12PreprocessorEb.exit, label %123
 
 123:                                              ; preds = %122
-  %124 = load ptr, ptr %119, align 8, !tbaa !450
+  %124 = load ptr, ptr %119, align 8, !tbaa !445
   %125 = tail call noundef ptr @_ZN5clang4Expr11IgnoreCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %124) #17
   %126 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %125) #17
   %.sroa.0.0.extract.trunc = trunc i64 %126 to i32
@@ -1377,7 +1377,7 @@ define internal fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang9Va
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load ptr, ptr %8, align 8, !tbaa !452
+  %9 = load ptr, ptr %8, align 8, !tbaa !447
   %10 = tail call fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang4StmtERNS_12PreprocessorEPNS_11SourceRangeEbb(ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %20
 
@@ -1392,7 +1392,7 @@ define internal fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang9Va
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.sroa.0.0.copyload.i = load i64, ptr %17, align 8, !tbaa !183
+  %.sroa.0.0.copyload.i = load i64, ptr %17, align 8, !tbaa !181
   %18 = and i64 %.sroa.0.0.copyload.i, 1
   %19 = icmp ne i64 %18, 0
   br label %20
@@ -1425,7 +1425,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStora
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.sroa.0.0.copyload.i = load i64, ptr %6, align 8, !tbaa !183
+  %.sroa.0.0.copyload.i = load i64, ptr %6, align 8, !tbaa !181
   %7 = and i64 %.sroa.0.0.copyload.i, -16
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1461,7 +1461,7 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit.thread: ; preds = %5, %_ZNK5clang8Qu
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !468
+  %27 = load ptr, ptr %26, align 8, !tbaa !463
   br label %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i
 
 _ZNK5clang4Decl21getLexicalDeclContextEv.exit.i:  ; preds = %25, %19
@@ -1490,7 +1490,7 @@ _ZNK5clang4Decl21getLexicalDeclContextEv.exit.i:  ; preds = %25, %19
   br i1 %37, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit, label %40
 
 40:                                               ; preds = %35
-  %41 = load ptr, ptr %39, align 8, !tbaa !471
+  %41 = load ptr, ptr %39, align 8, !tbaa !466
   br label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit
 
 _ZNK5clang7VarDecl13isFileVarDeclEv.exit:         ; preds = %35, %40
@@ -1527,7 +1527,7 @@ _ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread:  ; preds = %32, %_ZNK5clang8Qua
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !468
+  %60 = load ptr, ptr %59, align 8, !tbaa !463
   br label %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i
 
 _ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i: ; preds = %58, %52
@@ -1619,7 +1619,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112DeadCodeScan14reportDeadCodeEPKN
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !220
+  %19 = load ptr, ptr %18, align 8, !tbaa !215
   %20 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #17
   %21 = icmp eq ptr %20, %2
   br i1 %21, label %22, label %_ZL16isTrivialDoWhilePKN5clang8CFGBlockEPKNS_4StmtE.exit.thread
@@ -1639,7 +1639,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_112DeadCodeScan14reportDeadCodeEPKN
 
 _ZL16isTrivialDoWhilePKN5clang8CFGBlockEPKNS_4StmtE.exit: ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !221
+  %27 = load ptr, ptr %26, align 8, !tbaa !216
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 127
@@ -1652,7 +1652,7 @@ _ZL16isTrivialDoWhilePKN5clang8CFGBlockEPKNS_4StmtE.exit.thread: ; preds = %22, 
 
 32:                                               ; preds = %_ZL16isTrivialDoWhilePKN5clang8CFGBlockEPKNS_4StmtE.exit.thread
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !221
+  %34 = load ptr, ptr %33, align 8, !tbaa !216
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 126
@@ -1664,7 +1664,7 @@ _ZL16isTrivialDoWhilePKN5clang8CFGBlockEPKNS_4StmtE.exit.thread: ; preds = %22, 
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %42 = load i64, ptr %41, align 8, !tbaa !472
+  %42 = load i64, ptr %41, align 8, !tbaa !467
   %43 = and i64 %42, 7
   %44 = icmp ne i64 %43, 0
   %.not1324.i = icmp ult i64 %42, 8
@@ -1678,17 +1678,17 @@ _ZL20isBuiltinUnreachablePKN5clang4StmtE.exit:    ; preds = %40
 
 _ZL20isBuiltinUnreachablePKN5clang4StmtE.exit.thread: ; preds = %40, %32, %_ZL16isTrivialDoWhilePKN5clang8CFGBlockEPKNS_4StmtE.exit.thread, %_ZL20isBuiltinUnreachablePKN5clang4StmtE.exit
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %48 = load ptr, ptr %47, align 8, !tbaa !473
-  %.val55 = load ptr, ptr %1, align 8, !tbaa !143
+  %48 = load ptr, ptr %47, align 8, !tbaa !468
+  %.val55 = load ptr, ptr %1, align 8, !tbaa !141
   %49 = getelementptr i8, ptr %1, i64 8
-  %.val56 = load ptr, ptr %49, align 8, !tbaa !135
+  %.val56 = load ptr, ptr %49, align 8, !tbaa !133
   %50 = icmp eq ptr %.val55, %.val56
   br i1 %50, label %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread.preheader, label %51
 
 51:                                               ; preds = %_ZL20isBuiltinUnreachablePKN5clang4StmtE.exit.thread
-  %.sroa.0.0.copyload.i.i = load i64, ptr %.val55, align 8, !tbaa !183
+  %.sroa.0.0.copyload.i.i = load i64, ptr %.val55, align 8, !tbaa !181
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.val55, i64 8
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !183
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !181
   %52 = trunc i64 %.sroa.2.0.copyload.i.i to i32
   %53 = shl i32 %52, 2
   %54 = and i32 %53, 12
@@ -1713,7 +1713,7 @@ _ZL20isBuiltinUnreachablePKN5clang4StmtE.exit.thread: ; preds = %40, %32, %_ZL16
   %67 = lshr i32 %66, 24
   %68 = zext nneg i32 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 %68
-  %70 = load ptr, ptr %69, align 8, !tbaa !220
+  %70 = load ptr, ptr %69, align 8, !tbaa !215
   %71 = tail call noundef ptr @_ZN5clang4Expr11IgnoreCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %70) #17
   %72 = icmp eq ptr %71, %2
   br i1 %72, label %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit, label %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread.preheader
@@ -1727,25 +1727,25 @@ _ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.th
 
 _ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread: ; preds = %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread.backedge, %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread.preheader
   %.035.i = phi ptr [ %1, %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread.preheader ], [ %.035.i.be, %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread.backedge ]
-  %74 = load ptr, ptr %.035.i, align 8, !tbaa !143
+  %74 = load ptr, ptr %.035.i, align 8, !tbaa !141
   %75 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !135
+  %76 = load ptr, ptr %75, align 8, !tbaa !133
   %.not80.i = icmp eq ptr %74, %76
   br i1 %.not80.i, label %.thread.i, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i
 
 77:                                               ; preds = %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i
   %78 = getelementptr inbounds nuw i8, ptr %.04181.i, i64 16
   %.not.i59 = icmp eq ptr %78, %76
-  br i1 %.not.i59, label %.thread.i, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i, !llvm.loop !474
+  br i1 %.not.i59, label %.thread.i, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i
 
 _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i: ; preds = %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread, %77
   %.04181.i = phi ptr [ %78, %77 ], [ %74, %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread ]
   %79 = getelementptr inbounds nuw i8, ptr %.04181.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %79, align 8, !noalias !475
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %79, align 8, !noalias !469
   %80 = trunc i64 %.0.copyload.i.i.i.i.i.i.i to i32
   %81 = shl i32 %80, 2
   %82 = and i32 %81, 12
-  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %.04181.i, align 8, !noalias !475
+  %.0.copyload.i.i.i3.i.i.i.i = load i64, ptr %.04181.i, align 8, !noalias !469
   %83 = trunc i64 %.0.copyload.i.i.i3.i.i.i.i to i32
   %84 = and i32 %83, 3
   %85 = add nuw nsw i32 %84, -6
@@ -1767,7 +1767,7 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i: ; preds = %_
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !478
+  %96 = load ptr, ptr %95, align 8, !tbaa !472
   %.not47.i = icmp eq ptr %96, null
   br i1 %.not47.i, label %.thread.i, label %97
 
@@ -1778,7 +1778,7 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i: ; preds = %_
 
 .thread.i:                                        ; preds = %77, %94, %87, %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread
   %100 = getelementptr inbounds nuw i8, ptr %.035.i, i64 32
-  %.sroa.0.0.copyload.i.i60 = load i64, ptr %100, align 8, !tbaa !183
+  %.sroa.0.0.copyload.i.i60 = load i64, ptr %100, align 8, !tbaa !181
   %101 = and i64 %.sroa.0.0.copyload.i.i60, 6
   %102 = icmp eq i64 %101, 2
   br i1 %102, label %103, label %108
@@ -1787,7 +1787,7 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i: ; preds = %_
   %104 = getelementptr inbounds nuw i8, ptr %.035.i, i64 80
   %105 = load ptr, ptr %104, align 8, !tbaa !27
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  %107 = load ptr, ptr %106, align 8, !tbaa !32
+  %107 = load ptr, ptr %106, align 8, !tbaa !31
   br label %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread.backedge
 
 108:                                              ; preds = %.thread.i
@@ -1807,7 +1807,7 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i: ; preds = %_
   br i1 %118, label %119, label %_ZL12isDeadReturnPKN5clang8CFGBlockEPKNS_4StmtE.exit.thread
 
 119:                                              ; preds = %109
-  %120 = load ptr, ptr %113, align 8, !tbaa !32
+  %120 = load ptr, ptr %113, align 8, !tbaa !31
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 56
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 64
   %123 = load ptr, ptr %122, align 8, !tbaa !28
@@ -1821,7 +1821,7 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i: ; preds = %_
 
 _ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread.backedge: ; preds = %119, %103
   %.035.i.be = phi ptr [ %107, %103 ], [ %120, %119 ]
-  br label %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread, !llvm.loop !480
+  br label %_ZL20isBuiltinAssumeFalsePKN5clang8CFGBlockEPKNS_4StmtERNS_10ASTContextE.exit.thread, !llvm.loop !474
 
 _ZL12isDeadReturnPKN5clang8CFGBlockEPKNS_4StmtE.exit: ; preds = %97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
@@ -1854,7 +1854,7 @@ _ZL12isDeadReturnPKN5clang8CFGBlockEPKNS_4StmtE.exit.thread: ; preds = %92, %119
 
 .lr.ph.i.i.i.i:                                   ; preds = %133, %144
   %.sroa.07.1.i.i.i = phi ptr [ %145, %144 ], [ %134, %133 ]
-  %140 = load ptr, ptr %.sroa.07.1.i.i.i, align 8, !tbaa !481
+  %140 = load ptr, ptr %.sroa.07.1.i.i.i, align 8, !tbaa !475
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 32
   %142 = load i16, ptr %141, align 8
   %143 = icmp eq i16 %142, 42
@@ -1863,7 +1863,7 @@ _ZL12isDeadReturnPKN5clang8CFGBlockEPKNS_4StmtE.exit.thread: ; preds = %92, %119
 144:                                              ; preds = %.lr.ph.i.i.i.i
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %145, %138
-  br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEES8_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !483
+  br i1 %.not.i.i.i.i, label %_ZN5clangneENS_22specific_attr_iteratorINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEES8_.exit.loopexit.i, label %.lr.ph.i.i.i.i, !llvm.loop !477
 
 _ZN5clangneENS_22specific_attr_iteratorINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEES8_.exit.loopexit.i: ; preds = %144, %.lr.ph.i.i.i.i
   %.sroa.07.0.i.i.ph.i = phi ptr [ %.sroa.07.1.i.i.i, %.lr.ph.i.i.i.i ], [ %138, %144 ]
@@ -1874,14 +1874,14 @@ _ZN5clang15hasSpecificAttrINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEEb
   %147 = phi i16 [ %131, %_ZL12isDeadReturnPKN5clang8CFGBlockEPKNS_4StmtE.exit.thread ], [ %139, %133 ], [ %139, %_ZN5clangneENS_22specific_attr_iteratorINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEES8_.exit.loopexit.i ]
   %148 = phi i1 [ false, %_ZL12isDeadReturnPKN5clang8CFGBlockEPKNS_4StmtE.exit.thread ], [ false, %133 ], [ %146, %_ZN5clangneENS_22specific_attr_iteratorINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEES8_.exit.loopexit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
-  store i32 0, ptr %6, align 8, !tbaa !484
+  store i32 0, ptr %6, align 8, !tbaa !478
   %149 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %149, align 4, !tbaa !484
+  store i32 0, ptr %149, align 4, !tbaa !478
   br i1 %130, label %150, label %179
 
 150:                                              ; preds = %_ZN5clang15hasSpecificAttrINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEEbRKT0_.exit
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %152 = load ptr, ptr %151, align 8, !tbaa !485
+  %152 = load ptr, ptr %151, align 8, !tbaa !479
   %.not50 = icmp eq ptr %152, null
   br i1 %.not50, label %.critedge, label %153
 
@@ -1894,7 +1894,7 @@ _ZN5clang15hasSpecificAttrINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEEb
 
 157:                                              ; preds = %153
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 32
-  %159 = load ptr, ptr %158, align 8, !tbaa !220
+  %159 = load ptr, ptr %158, align 8, !tbaa !215
   %160 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %159) #17
   %161 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %159) #17
   br label %162
@@ -1904,7 +1904,7 @@ _ZN5clang15hasSpecificAttrINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEEb
   %.sroa.092.0.insert.insert = phi i64 [ 0, %153 ], [ %161, %157 ]
   %.sroa.2.0.insert.ext = zext i32 %.sroa.021.0 to i64
   %.sroa.090.0.insert.insert = mul nuw i64 %.sroa.2.0.insert.ext, 4294967297
-  %163 = load ptr, ptr %3, align 8, !tbaa !176
+  %163 = load ptr, ptr %3, align 8, !tbaa !174
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %165 = load ptr, ptr %164, align 8
   call void %165(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 2, i32 %.sroa.021.0, i64 0, i64 %.sroa.090.0.insert.insert, i64 %.sroa.092.0.insert.insert, i1 noundef zeroext %148) #16
@@ -1929,7 +1929,7 @@ _ZN5clang15hasSpecificAttrINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEEb
   %174 = inttoptr i64 %172 to ptr
   %175 = call noundef ptr @_ZN5clang8CFGBlock22getTerminatorConditionEb(ptr noundef nonnull align 8 dereferenceable(120) %174, i1 noundef zeroext false) #16
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %177 = load ptr, ptr %176, align 8, !tbaa !202
+  %177 = load ptr, ptr %176, align 8, !tbaa !200
   %178 = call fastcc noundef zeroext i1 @_ZL20isConfigurationValuePKN5clang4StmtERNS_12PreprocessorEPNS_11SourceRangeEbb(ptr noundef %175, ptr noundef nonnull align 8 dereferenceable(3288) %177, ptr noundef nonnull %6, i1 noundef zeroext true, i1 noundef zeroext false)
   %.pre = load i16, ptr %2, align 8
   br label %179
@@ -1966,68 +1966,68 @@ _ZN5clang15hasSpecificAttrINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEEb
 
 188:                                              ; preds = %185
   %189 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %.sroa.0.0.copyload.i.i64 = load i32, ptr %189, align 4, !tbaa !210
+  %.sroa.0.0.copyload.i.i64 = load i32, ptr %189, align 4, !tbaa !205
   br label %_ZL17GetUnreachableLocPKN5clang4StmtERNS_11SourceRangeES4_.exit
 
 190:                                              ; preds = %185
   %191 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %192 = load ptr, ptr %191, align 8, !tbaa !450
+  %192 = load ptr, ptr %191, align 8, !tbaa !445
   %193 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %192) #17
   %.sroa.13.0.extract.shift86 = and i64 %193, -4294967296
   %194 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %.sroa.0.0.copyload.i57.i = load i32, ptr %194, align 4, !tbaa !210
+  %.sroa.0.0.copyload.i57.i = load i32, ptr %194, align 4, !tbaa !205
   br label %_ZL17GetUnreachableLocPKN5clang4StmtERNS_11SourceRangeES4_.exit
 
 195:                                              ; preds = %185
   %196 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %197 = load ptr, ptr %196, align 8, !tbaa !220
+  %197 = load ptr, ptr %196, align 8, !tbaa !215
   %198 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %197) #17
   %.sroa.13.0.extract.shift84 = and i64 %198, -4294967296
   %199 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %200 = load ptr, ptr %199, align 8, !tbaa !220
+  %200 = load ptr, ptr %199, align 8, !tbaa !215
   %201 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %200) #17
   %.sroa.7.0.extract.shift66 = and i64 %201, -4294967296
   %202 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %.sroa.0.0.copyload.i58.i = load i32, ptr %202, align 4, !tbaa !210
+  %.sroa.0.0.copyload.i58.i = load i32, ptr %202, align 4, !tbaa !205
   br label %_ZL17GetUnreachableLocPKN5clang4StmtERNS_11SourceRangeES4_.exit
 
 203:                                              ; preds = %185, %185
   %204 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %.sroa.0.0.copyload.i59.i = load i32, ptr %204, align 8, !tbaa !210
+  %.sroa.0.0.copyload.i59.i = load i32, ptr %204, align 8, !tbaa !205
   br label %_ZL17GetUnreachableLocPKN5clang4StmtERNS_11SourceRangeES4_.exit
 
 205:                                              ; preds = %185
   %206 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i) #17
   %.sroa.13.0.extract.shift82 = and i64 %206, -4294967296
   %207 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  %.sroa.0.0.copyload.i60.i = load i32, ptr %207, align 8, !tbaa !210
+  %.sroa.0.0.copyload.i60.i = load i32, ptr %207, align 8, !tbaa !205
   br label %_ZL17GetUnreachableLocPKN5clang4StmtERNS_11SourceRangeES4_.exit
 
 208:                                              ; preds = %185
   %209 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %210 = load ptr, ptr %209, align 8, !tbaa !220
+  %210 = load ptr, ptr %209, align 8, !tbaa !215
   %211 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %210) #17
   %.sroa.13.0.extract.shift80 = and i64 %211, -4294967296
   %212 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %213 = load ptr, ptr %212, align 8, !tbaa !220
+  %213 = load ptr, ptr %212, align 8, !tbaa !215
   %214 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %213) #17
   %.sroa.7.0.extract.shift = and i64 %214, -4294967296
   %215 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %.sroa.0.0.copyload.i61.i = load i32, ptr %215, align 4, !tbaa !210
+  %.sroa.0.0.copyload.i61.i = load i32, ptr %215, align 4, !tbaa !205
   br label %_ZL17GetUnreachableLocPKN5clang4StmtERNS_11SourceRangeES4_.exit
 
 216:                                              ; preds = %185
   %217 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %218 = load ptr, ptr %217, align 8, !tbaa !486
+  %218 = load ptr, ptr %217, align 8, !tbaa !480
   %219 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %218) #17
   %.sroa.13.0.extract.shift78 = and i64 %219, -4294967296
   %220 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  %.sroa.0.0.copyload.i62.i = load i32, ptr %220, align 8, !tbaa !210
+  %.sroa.0.0.copyload.i62.i = load i32, ptr %220, align 8, !tbaa !205
   br label %_ZL17GetUnreachableLocPKN5clang4StmtERNS_11SourceRangeES4_.exit
 
 221:                                              ; preds = %185
   %222 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %223 = load ptr, ptr %222, align 8, !tbaa !486
+  %223 = load ptr, ptr %222, align 8, !tbaa !480
   %224 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %223) #17
   %.sroa.13.0.extract.shift76 = and i64 %224, -4294967296
   %225 = call i32 @_ZNK5clang21CXXFunctionalCastExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(40) %.0.i) #17
@@ -2035,18 +2035,18 @@ _ZN5clang15hasSpecificAttrINS_15FallThroughAttrEN4llvm8ArrayRefIPKNS_4AttrEEEEEb
 
 226:                                              ; preds = %185
   %227 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %228 = load ptr, ptr %227, align 8, !tbaa !220
+  %228 = load ptr, ptr %227, align 8, !tbaa !215
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
-  %.sroa.0.0.copyload.i63.i = load i32, ptr %229, align 8, !tbaa !210
+  %.sroa.0.0.copyload.i63.i = load i32, ptr %229, align 8, !tbaa !205
   br label %_ZL17GetUnreachableLocPKN5clang4StmtERNS_11SourceRangeES4_.exit
 
 230:                                              ; preds = %185
   %231 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %232 = load ptr, ptr %231, align 8, !tbaa !486
+  %232 = load ptr, ptr %231, align 8, !tbaa !480
   %233 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %232) #17
   %.sroa.13.0.extract.shift = and i64 %233, -4294967296
   %234 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  %.sroa.0.0.copyload.i64.i = load i32, ptr %234, align 8, !tbaa !210
+  %.sroa.0.0.copyload.i64.i = load i32, ptr %234, align 8, !tbaa !205
   br label %_ZL17GetUnreachableLocPKN5clang4StmtERNS_11SourceRangeES4_.exit
 
 235:                                              ; preds = %185
@@ -2066,7 +2066,7 @@ _ZL17GetUnreachableLocPKN5clang4StmtERNS_11SourceRangeES4_.exit: ; preds = %188,
   %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.068.0.insert.ext, %.sroa.13.0
   %.sroa.0.0.insert.ext = and i64 %.sroa.0.0, 4294967295
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, %.sroa.7.0
-  %238 = load ptr, ptr %3, align 8, !tbaa !176
+  %238 = load ptr, ptr %3, align 8, !tbaa !174
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 24
   %240 = load ptr, ptr %239, align 8
   call void %240(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %.0, i32 %.sroa.055.0.i, i64 %.sroa.02.0.copyload, i64 %.sroa.068.0.insert.insert, i64 %.sroa.0.0.insert.insert, i1 noundef zeroext %148) #16
@@ -2083,10 +2083,10 @@ _ZL16isTrivialDoWhilePKN5clang8CFGBlockEPKNS_4StmtE.exit.thread103: ; preds = %2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define internal noundef range(i32 -1, 2) i32 @_ZL6SrcCmpPKSt4pairIPKN5clang8CFGBlockEPKNS0_4StmtEES9_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !207
+  %4 = load ptr, ptr %3, align 8, !tbaa !204
   %5 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !207
+  %7 = load ptr, ptr %6, align 8, !tbaa !204
   %8 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %5, i32 %8)
   ret i32 %.0
@@ -2161,13 +2161,13 @@ declare noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE9Visi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef zeroext i1 @_ZZL17isInCoroutineStmtPKN5clang4StmtEPKNS_8CFGBlockEEN7Checker9VisitStmtEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %0, ptr noundef readnone captures(address) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !178
+  %4 = load ptr, ptr %3, align 8, !tbaa !176
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %7, align 8, !tbaa !180
+  store i8 1, ptr %7, align 8, !tbaa !178
   br label %8
 
 8:                                                ; preds = %6, %2
@@ -4710,462 +4710,456 @@ attributes #19 = { builtin nounwind }
 !26 = !{!4, !8, i64 8}
 !27 = !{!19, !20, i64 0}
 !28 = !{!19, !20, i64 8}
-!29 = distinct !{!29, !30, !31}
+!29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!"llvm.loop.estimated_trip_count"}
-!32 = !{!33, !25, i64 0}
-!33 = !{!"_ZTSN5clang8CFGBlock13AdjacentBlockE", !25, i64 0, !34, i64 8}
-!34 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang8CFGBlockELj2EjNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES5_EEEE", !35, i64 0}
-!35 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang8CFGBlockEEE", !6, i64 0}
-!36 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!37 = distinct !{!37, !30, !31}
-!38 = !{!39, !8, i64 24}
-!39 = !{!"_ZTSN5clang3CFGE", !25, i64 0, !25, i64 8, !25, i64 16, !8, i64 24, !40, i64 32, !43, i64 40, !45, i64 64, !49, i64 88}
-!40 = !{!"_ZTSN5clang17BumpVectorContextE", !41, i64 0}
-!41 = !{!"_ZTSN4llvm14PointerIntPairIPNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEE", !42, i64 0}
-!42 = !{!"_ZTSN4llvm6detail13PunnedPointerIPNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEE", !6, i64 0}
-!43 = !{!"_ZTSN5clang10BumpVectorIPNS_8CFGBlockEEE", !44, i64 0, !44, i64 8, !44, i64 16}
-!44 = !{!"p2 _ZTSN5clang8CFGBlockE", !5, i64 0}
-!45 = !{!"_ZTSSt6vectorIPKN5clang8CFGBlockESaIS3_EE", !46, i64 0}
-!46 = !{!"_ZTSSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE", !47, i64 0}
-!47 = !{!"_ZTSNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE12_Vector_implE", !48, i64 0}
-!48 = !{!"_ZTSNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE17_Vector_impl_dataE", !44, i64 0, !44, i64 8, !44, i64 16}
-!49 = !{!"_ZTSN4llvm8DenseMapIPKN5clang8DeclStmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEE", !50, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!50 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang8DeclStmtES5_EE", !5, i64 0}
-!51 = !{!52, !8, i64 64}
-!52 = !{!"_ZTSN4llvm9BitVectorE", !53, i64 0, !8, i64 64}
-!53 = !{!"_ZTSN4llvm11SmallVectorImLj6EEE", !54, i64 0, !57, i64 16}
-!54 = !{!"_ZTSN4llvm15SmallVectorImplImEE", !55, i64 0}
-!55 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseImLb1EEE", !56, i64 0}
-!56 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonImvEE", !4, i64 0}
-!57 = !{!"_ZTSN4llvm18SmallVectorStorageImLj6EEE", !6, i64 0}
-!58 = !{!39, !25, i64 0}
-!59 = !{!60, !65, i64 57}
-!60 = !{!"_ZTSN5clang3CFG12BuildOptionsE", !61, i64 0, !63, i64 40, !64, i64 48, !65, i64 56, !65, i64 57, !65, i64 58, !65, i64 59, !65, i64 60, !65, i64 61, !65, i64 62, !65, i64 63, !65, i64 64, !65, i64 65, !65, i64 66, !65, i64 67, !65, i64 68, !65, i64 69, !65, i64 70, !65, i64 71}
-!61 = !{!"_ZTSSt6bitsetILm257EE", !62, i64 0}
-!62 = !{!"_ZTSSt12_Base_bitsetILm5EE", !6, i64 0}
-!63 = !{!"p2 _ZTSN4llvm8DenseMapIPKN5clang4StmtEPKNS1_8CFGBlockENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEE", !5, i64 0}
-!64 = !{!"p1 _ZTSN5clang11CFGCallbackE", !5, i64 0}
-!65 = !{!"bool", !6, i64 0}
-!66 = !{i8 0, i8 2}
-!67 = !{}
-!68 = !{!44, !44, i64 0}
-!69 = distinct !{!69, !31}
-!70 = !{!43, !44, i64 0}
-!71 = !{!43, !44, i64 8}
-!72 = !{!73, !75, i64 8}
-!73 = !{!"_ZTSN5clang19AnalysisDeclContextE", !74, i64 0, !75, i64 8, !76, i64 16, !76, i64 24, !82, i64 32, !60, i64 40, !89, i64 112, !65, i64 120, !65, i64 121, !90, i64 128, !97, i64 136, !104, i64 144, !115, i64 240, !5, i64 248}
-!74 = !{!"p1 _ZTSN5clang26AnalysisDeclContextManagerE", !5, i64 0}
-!75 = !{!"p1 _ZTSN5clang4DeclE", !5, i64 0}
-!76 = !{!"_ZTSSt10unique_ptrIN5clang3CFGESt14default_deleteIS1_EE", !77, i64 0}
-!77 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang3CFGESt14default_deleteIS1_ELb1ELb1EE", !78, i64 0}
-!78 = !{!"_ZTSSt15__uniq_ptr_implIN5clang3CFGESt14default_deleteIS1_EE", !79, i64 0}
-!79 = !{!"_ZTSSt5tupleIJPN5clang3CFGESt14default_deleteIS1_EEE", !80, i64 0}
-!80 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang3CFGESt14default_deleteIS1_EEE", !81, i64 0}
-!81 = !{!"_ZTSSt10_Head_baseILm0EPN5clang3CFGELb0EE", !21, i64 0}
-!82 = !{!"_ZTSSt10unique_ptrIN5clang10CFGStmtMapESt14default_deleteIS1_EE", !83, i64 0}
-!83 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang10CFGStmtMapESt14default_deleteIS1_ELb1ELb1EE", !84, i64 0}
-!84 = !{!"_ZTSSt15__uniq_ptr_implIN5clang10CFGStmtMapESt14default_deleteIS1_EE", !85, i64 0}
-!85 = !{!"_ZTSSt5tupleIJPN5clang10CFGStmtMapESt14default_deleteIS1_EEE", !86, i64 0}
-!86 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang10CFGStmtMapESt14default_deleteIS1_EEE", !87, i64 0}
-!87 = !{!"_ZTSSt10_Head_baseILm0EPN5clang10CFGStmtMapELb0EE", !88, i64 0}
-!88 = !{!"p1 _ZTSN5clang10CFGStmtMapE", !5, i64 0}
-!89 = !{!"p1 _ZTSN4llvm8DenseMapIPKN5clang4StmtEPKNS1_8CFGBlockENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEE", !5, i64 0}
-!90 = !{!"_ZTSSt10unique_ptrIN5clang9ParentMapESt14default_deleteIS1_EE", !91, i64 0}
-!91 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang9ParentMapESt14default_deleteIS1_ELb1ELb1EE", !92, i64 0}
-!92 = !{!"_ZTSSt15__uniq_ptr_implIN5clang9ParentMapESt14default_deleteIS1_EE", !93, i64 0}
-!93 = !{!"_ZTSSt5tupleIJPN5clang9ParentMapESt14default_deleteIS1_EEE", !94, i64 0}
-!94 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang9ParentMapESt14default_deleteIS1_EEE", !95, i64 0}
-!95 = !{!"_ZTSSt10_Head_baseILm0EPN5clang9ParentMapELb0EE", !96, i64 0}
-!96 = !{!"p1 _ZTSN5clang9ParentMapE", !5, i64 0}
-!97 = !{!"_ZTSSt10unique_ptrIN5clang35CFGReverseBlockReachabilityAnalysisESt14default_deleteIS1_EE", !98, i64 0}
-!98 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang35CFGReverseBlockReachabilityAnalysisESt14default_deleteIS1_ELb1ELb1EE", !99, i64 0}
-!99 = !{!"_ZTSSt15__uniq_ptr_implIN5clang35CFGReverseBlockReachabilityAnalysisESt14default_deleteIS1_EE", !100, i64 0}
-!100 = !{!"_ZTSSt5tupleIJPN5clang35CFGReverseBlockReachabilityAnalysisESt14default_deleteIS1_EEE", !101, i64 0}
-!101 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang35CFGReverseBlockReachabilityAnalysisESt14default_deleteIS1_EEE", !102, i64 0}
-!102 = !{!"_ZTSSt10_Head_baseILm0EPN5clang35CFGReverseBlockReachabilityAnalysisELb0EE", !103, i64 0}
-!103 = !{!"p1 _ZTSN5clang35CFGReverseBlockReachabilityAnalysisE", !5, i64 0}
-!104 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !105, i64 0, !105, i64 8, !106, i64 16, !111, i64 64, !23, i64 80, !23, i64 88}
-!105 = !{!"p1 omnipotent char", !5, i64 0}
-!106 = !{!"_ZTSN4llvm11SmallVectorIPvLj4EEE", !107, i64 0, !110, i64 16}
-!107 = !{!"_ZTSN4llvm15SmallVectorImplIPvEE", !108, i64 0}
-!108 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPvLb1EEE", !109, i64 0}
-!109 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPvvEE", !4, i64 0}
-!110 = !{!"_ZTSN4llvm18SmallVectorStorageIPvLj4EEE", !6, i64 0}
-!111 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPvmELj0EEE", !112, i64 0}
-!112 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPvmEEE", !113, i64 0}
-!113 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EEE", !114, i64 0}
-!114 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPvmEvEE", !4, i64 0}
-!115 = !{!"p1 _ZTSN4llvm8DenseMapIPKN5clang9BlockDeclEPvNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEE", !5, i64 0}
+!31 = !{!32, !25, i64 0}
+!32 = !{!"_ZTSN5clang8CFGBlock13AdjacentBlockE", !25, i64 0, !33, i64 8}
+!33 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang8CFGBlockELj2EjNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj2ES5_EEEE", !34, i64 0}
+!34 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang8CFGBlockEEE", !6, i64 0}
+!35 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!36 = distinct !{!36, !30}
+!37 = !{!38, !8, i64 24}
+!38 = !{!"_ZTSN5clang3CFGE", !25, i64 0, !25, i64 8, !25, i64 16, !8, i64 24, !39, i64 32, !42, i64 40, !44, i64 64, !48, i64 88}
+!39 = !{!"_ZTSN5clang17BumpVectorContextE", !40, i64 0}
+!40 = !{!"_ZTSN4llvm14PointerIntPairIPNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEELj1EjNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEE", !41, i64 0}
+!41 = !{!"_ZTSN4llvm6detail13PunnedPointerIPNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEE", !6, i64 0}
+!42 = !{!"_ZTSN5clang10BumpVectorIPNS_8CFGBlockEEE", !43, i64 0, !43, i64 8, !43, i64 16}
+!43 = !{!"p2 _ZTSN5clang8CFGBlockE", !5, i64 0}
+!44 = !{!"_ZTSSt6vectorIPKN5clang8CFGBlockESaIS3_EE", !45, i64 0}
+!45 = !{!"_ZTSSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE", !46, i64 0}
+!46 = !{!"_ZTSNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE12_Vector_implE", !47, i64 0}
+!47 = !{!"_ZTSNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE17_Vector_impl_dataE", !43, i64 0, !43, i64 8, !43, i64 16}
+!48 = !{!"_ZTSN4llvm8DenseMapIPKN5clang8DeclStmtES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEE", !49, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!49 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang8DeclStmtES5_EE", !5, i64 0}
+!50 = !{!51, !8, i64 64}
+!51 = !{!"_ZTSN4llvm9BitVectorE", !52, i64 0, !8, i64 64}
+!52 = !{!"_ZTSN4llvm11SmallVectorImLj6EEE", !53, i64 0, !56, i64 16}
+!53 = !{!"_ZTSN4llvm15SmallVectorImplImEE", !54, i64 0}
+!54 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseImLb1EEE", !55, i64 0}
+!55 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonImvEE", !4, i64 0}
+!56 = !{!"_ZTSN4llvm18SmallVectorStorageImLj6EEE", !6, i64 0}
+!57 = !{!38, !25, i64 0}
+!58 = !{!59, !64, i64 57}
+!59 = !{!"_ZTSN5clang3CFG12BuildOptionsE", !60, i64 0, !62, i64 40, !63, i64 48, !64, i64 56, !64, i64 57, !64, i64 58, !64, i64 59, !64, i64 60, !64, i64 61, !64, i64 62, !64, i64 63, !64, i64 64, !64, i64 65, !64, i64 66, !64, i64 67, !64, i64 68, !64, i64 69, !64, i64 70, !64, i64 71}
+!60 = !{!"_ZTSSt6bitsetILm257EE", !61, i64 0}
+!61 = !{!"_ZTSSt12_Base_bitsetILm5EE", !6, i64 0}
+!62 = !{!"p2 _ZTSN4llvm8DenseMapIPKN5clang4StmtEPKNS1_8CFGBlockENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEE", !5, i64 0}
+!63 = !{!"p1 _ZTSN5clang11CFGCallbackE", !5, i64 0}
+!64 = !{!"bool", !6, i64 0}
+!65 = !{i8 0, i8 2}
+!66 = !{}
+!67 = !{!43, !43, i64 0}
+!68 = !{!42, !43, i64 0}
+!69 = !{!42, !43, i64 8}
+!70 = !{!71, !73, i64 8}
+!71 = !{!"_ZTSN5clang19AnalysisDeclContextE", !72, i64 0, !73, i64 8, !74, i64 16, !74, i64 24, !80, i64 32, !59, i64 40, !87, i64 112, !64, i64 120, !64, i64 121, !88, i64 128, !95, i64 136, !102, i64 144, !113, i64 240, !5, i64 248}
+!72 = !{!"p1 _ZTSN5clang26AnalysisDeclContextManagerE", !5, i64 0}
+!73 = !{!"p1 _ZTSN5clang4DeclE", !5, i64 0}
+!74 = !{!"_ZTSSt10unique_ptrIN5clang3CFGESt14default_deleteIS1_EE", !75, i64 0}
+!75 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang3CFGESt14default_deleteIS1_ELb1ELb1EE", !76, i64 0}
+!76 = !{!"_ZTSSt15__uniq_ptr_implIN5clang3CFGESt14default_deleteIS1_EE", !77, i64 0}
+!77 = !{!"_ZTSSt5tupleIJPN5clang3CFGESt14default_deleteIS1_EEE", !78, i64 0}
+!78 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang3CFGESt14default_deleteIS1_EEE", !79, i64 0}
+!79 = !{!"_ZTSSt10_Head_baseILm0EPN5clang3CFGELb0EE", !21, i64 0}
+!80 = !{!"_ZTSSt10unique_ptrIN5clang10CFGStmtMapESt14default_deleteIS1_EE", !81, i64 0}
+!81 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang10CFGStmtMapESt14default_deleteIS1_ELb1ELb1EE", !82, i64 0}
+!82 = !{!"_ZTSSt15__uniq_ptr_implIN5clang10CFGStmtMapESt14default_deleteIS1_EE", !83, i64 0}
+!83 = !{!"_ZTSSt5tupleIJPN5clang10CFGStmtMapESt14default_deleteIS1_EEE", !84, i64 0}
+!84 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang10CFGStmtMapESt14default_deleteIS1_EEE", !85, i64 0}
+!85 = !{!"_ZTSSt10_Head_baseILm0EPN5clang10CFGStmtMapELb0EE", !86, i64 0}
+!86 = !{!"p1 _ZTSN5clang10CFGStmtMapE", !5, i64 0}
+!87 = !{!"p1 _ZTSN4llvm8DenseMapIPKN5clang4StmtEPKNS1_8CFGBlockENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEE", !5, i64 0}
+!88 = !{!"_ZTSSt10unique_ptrIN5clang9ParentMapESt14default_deleteIS1_EE", !89, i64 0}
+!89 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang9ParentMapESt14default_deleteIS1_ELb1ELb1EE", !90, i64 0}
+!90 = !{!"_ZTSSt15__uniq_ptr_implIN5clang9ParentMapESt14default_deleteIS1_EE", !91, i64 0}
+!91 = !{!"_ZTSSt5tupleIJPN5clang9ParentMapESt14default_deleteIS1_EEE", !92, i64 0}
+!92 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang9ParentMapESt14default_deleteIS1_EEE", !93, i64 0}
+!93 = !{!"_ZTSSt10_Head_baseILm0EPN5clang9ParentMapELb0EE", !94, i64 0}
+!94 = !{!"p1 _ZTSN5clang9ParentMapE", !5, i64 0}
+!95 = !{!"_ZTSSt10unique_ptrIN5clang35CFGReverseBlockReachabilityAnalysisESt14default_deleteIS1_EE", !96, i64 0}
+!96 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang35CFGReverseBlockReachabilityAnalysisESt14default_deleteIS1_ELb1ELb1EE", !97, i64 0}
+!97 = !{!"_ZTSSt15__uniq_ptr_implIN5clang35CFGReverseBlockReachabilityAnalysisESt14default_deleteIS1_EE", !98, i64 0}
+!98 = !{!"_ZTSSt5tupleIJPN5clang35CFGReverseBlockReachabilityAnalysisESt14default_deleteIS1_EEE", !99, i64 0}
+!99 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang35CFGReverseBlockReachabilityAnalysisESt14default_deleteIS1_EEE", !100, i64 0}
+!100 = !{!"_ZTSSt10_Head_baseILm0EPN5clang35CFGReverseBlockReachabilityAnalysisELb0EE", !101, i64 0}
+!101 = !{!"p1 _ZTSN5clang35CFGReverseBlockReachabilityAnalysisE", !5, i64 0}
+!102 = !{!"_ZTSN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE", !103, i64 0, !103, i64 8, !104, i64 16, !109, i64 64, !23, i64 80, !23, i64 88}
+!103 = !{!"p1 omnipotent char", !5, i64 0}
+!104 = !{!"_ZTSN4llvm11SmallVectorIPvLj4EEE", !105, i64 0, !108, i64 16}
+!105 = !{!"_ZTSN4llvm15SmallVectorImplIPvEE", !106, i64 0}
+!106 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPvLb1EEE", !107, i64 0}
+!107 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPvvEE", !4, i64 0}
+!108 = !{!"_ZTSN4llvm18SmallVectorStorageIPvLj4EEE", !6, i64 0}
+!109 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPvmELj0EEE", !110, i64 0}
+!110 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPvmEEE", !111, i64 0}
+!111 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EEE", !112, i64 0}
+!112 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPvmEvEE", !4, i64 0}
+!113 = !{!"p1 _ZTSN4llvm8DenseMapIPKN5clang9BlockDeclEPvNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEE", !5, i64 0}
+!114 = !{!115, !115, i64 0}
+!115 = !{!"p1 _ZTSN4llvm9BitVectorE", !5, i64 0}
 !116 = !{!117, !117, i64 0}
-!117 = !{!"p1 _ZTSN4llvm9BitVectorE", !5, i64 0}
+!117 = !{!"p1 _ZTSN5clang12PreprocessorE", !5, i64 0}
 !118 = !{!119, !119, i64 0}
-!119 = !{!"p1 _ZTSN5clang12PreprocessorE", !5, i64 0}
-!120 = !{!121, !121, i64 0}
-!121 = !{!"p1 _ZTSN5clang10ASTContextE", !5, i64 0}
-!122 = !{!123, !117, i64 72}
-!123 = !{!"_ZTSN12_GLOBAL__N_112DeadCodeScanE", !52, i64 0, !117, i64 72, !124, i64 80, !119, i64 176, !121, i64 184, !129, i64 192}
-!124 = !{!"_ZTSN4llvm11SmallVectorIPKN5clang8CFGBlockELj10EEE", !125, i64 0, !128, i64 16}
-!125 = !{!"_ZTSN4llvm15SmallVectorImplIPKN5clang8CFGBlockEEE", !126, i64 0}
-!126 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EEE", !127, i64 0}
-!127 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKN5clang8CFGBlockEvEE", !4, i64 0}
-!128 = !{!"_ZTSN4llvm18SmallVectorStorageIPKN5clang8CFGBlockELj10EEE", !6, i64 0}
-!129 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEELj12EEE", !130, i64 0, !133, i64 16}
-!130 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEEEE", !131, i64 0}
-!131 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEELb1EEE", !132, i64 0}
-!132 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEEvEE", !4, i64 0}
-!133 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEELj12EEE", !6, i64 0}
-!134 = distinct !{!134, !30}
-!135 = !{!13, !14, i64 8}
-!136 = !{!137, !139, !141}
-!137 = distinct !{!137, !138, !"_ZNK5clang10BumpVectorINS_10CFGElementEE6rbeginEv: argument 0"}
-!138 = distinct !{!138, !"_ZNK5clang10BumpVectorINS_10CFGElementEE6rbeginEv"}
-!139 = distinct !{!139, !140, !"_ZNK5clang8CFGBlock11ElementList5beginEv: argument 0"}
-!140 = distinct !{!140, !"_ZNK5clang8CFGBlock11ElementList5beginEv"}
-!141 = distinct !{!141, !142, !"_ZNK5clang8CFGBlock5beginEv: argument 0"}
-!142 = distinct !{!142, !"_ZNK5clang8CFGBlock5beginEv"}
-!143 = !{!13, !14, i64 0}
-!144 = !{!145, !147, !149}
-!145 = distinct !{!145, !146, !"_ZNK5clang10BumpVectorINS_10CFGElementEE4rendEv: argument 0"}
-!146 = distinct !{!146, !"_ZNK5clang10BumpVectorINS_10CFGElementEE4rendEv"}
-!147 = distinct !{!147, !148, !"_ZNK5clang8CFGBlock11ElementList3endEv: argument 0"}
-!148 = distinct !{!148, !"_ZNK5clang8CFGBlock11ElementList3endEv"}
-!149 = distinct !{!149, !150, !"_ZNK5clang8CFGBlock3endEv: argument 0"}
-!150 = distinct !{!150, !"_ZNK5clang8CFGBlock3endEv"}
-!151 = !{!152}
-!152 = distinct !{!152, !153, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev: argument 0"}
-!153 = distinct !{!153, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev"}
-!154 = !{!155, !157, !159}
-!155 = distinct !{!155, !156, !"_ZNK5clang10BumpVectorINS_10CFGElementEE4rendEv: argument 0"}
-!156 = distinct !{!156, !"_ZNK5clang10BumpVectorINS_10CFGElementEE4rendEv"}
-!157 = distinct !{!157, !158, !"_ZNK5clang8CFGBlock11ElementList3endEv: argument 0"}
-!158 = distinct !{!158, !"_ZNK5clang8CFGBlock11ElementList3endEv"}
-!159 = distinct !{!159, !160, !"_ZNK5clang8CFGBlock3endEv: argument 0"}
-!160 = distinct !{!160, !"_ZNK5clang8CFGBlock3endEv"}
-!161 = !{!162, !164, !166}
-!162 = distinct !{!162, !163, !"_ZNK5clang10BumpVectorINS_10CFGElementEE6rbeginEv: argument 0"}
-!163 = distinct !{!163, !"_ZNK5clang10BumpVectorINS_10CFGElementEE6rbeginEv"}
-!164 = distinct !{!164, !165, !"_ZNK5clang8CFGBlock11ElementList5beginEv: argument 0"}
-!165 = distinct !{!165, !"_ZNK5clang8CFGBlock11ElementList5beginEv"}
-!166 = distinct !{!166, !167, !"_ZNK5clang8CFGBlock5beginEv: argument 0"}
-!167 = distinct !{!167, !"_ZNK5clang8CFGBlock5beginEv"}
-!168 = !{!169}
-!169 = distinct !{!169, !170, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev: argument 0"}
-!170 = distinct !{!170, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev"}
-!171 = distinct !{!171, !30, !31}
-!172 = !{!173, !65, i64 8}
-!173 = !{!"_ZTSN5clang30DynamicRecursiveASTVisitorBaseILb0EEE", !65, i64 8, !65, i64 9, !65, i64 10, !65, i64 11}
-!174 = !{!173, !65, i64 9}
-!175 = !{!173, !65, i64 11}
-!176 = !{!177, !177, i64 0}
-!177 = !{!"vtable pointer", !7, i64 0}
-!178 = !{!179, !15, i64 16}
-!179 = !{!"_ZTSZL17isInCoroutineStmtPKN5clang4StmtEPKNS_8CFGBlockEE7Checker", !173, i64 0, !15, i64 16, !65, i64 24}
-!180 = !{!179, !65, i64 24}
-!181 = !{!173, !65, i64 10}
-!182 = distinct !{!182, !30, !31}
-!183 = !{!6, !6, i64 0}
-!184 = !{!185, !187, !189}
-!185 = distinct !{!185, !186, !"_ZNK5clang10BumpVectorINS_10CFGElementEE4rendEv: argument 0"}
-!186 = distinct !{!186, !"_ZNK5clang10BumpVectorINS_10CFGElementEE4rendEv"}
-!187 = distinct !{!187, !188, !"_ZNK5clang8CFGBlock11ElementList3endEv: argument 0"}
-!188 = distinct !{!188, !"_ZNK5clang8CFGBlock11ElementList3endEv"}
-!189 = distinct !{!189, !190, !"_ZNK5clang8CFGBlock3endEv: argument 0"}
-!190 = distinct !{!190, !"_ZNK5clang8CFGBlock3endEv"}
-!191 = !{!192, !194, !196}
-!192 = distinct !{!192, !193, !"_ZNK5clang10BumpVectorINS_10CFGElementEE6rbeginEv: argument 0"}
-!193 = distinct !{!193, !"_ZNK5clang10BumpVectorINS_10CFGElementEE6rbeginEv"}
-!194 = distinct !{!194, !195, !"_ZNK5clang8CFGBlock11ElementList5beginEv: argument 0"}
-!195 = distinct !{!195, !"_ZNK5clang8CFGBlock11ElementList5beginEv"}
-!196 = distinct !{!196, !197, !"_ZNK5clang8CFGBlock5beginEv: argument 0"}
-!197 = distinct !{!197, !"_ZNK5clang8CFGBlock5beginEv"}
-!198 = !{!199}
-!199 = distinct !{!199, !200, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev: argument 0"}
-!200 = distinct !{!200, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev"}
-!201 = distinct !{!201, !30, !31}
-!202 = !{!123, !119, i64 176}
-!203 = distinct !{!203, !30, !31}
-!204 = distinct !{!204, !31}
-!205 = !{!206, !25, i64 0}
-!206 = !{!"_ZTSSt4pairIPKN5clang8CFGBlockEPKNS0_4StmtEE", !25, i64 0, !15, i64 8}
-!207 = !{!206, !15, i64 8}
-!208 = distinct !{!208, !31}
-!209 = distinct !{!209, !31}
-!210 = !{!8, !8, i64 0}
-!211 = !{!212, !15, i64 24}
-!212 = !{!"_ZTSN5clang9ParenExprE", !213, i64 0, !219, i64 16, !219, i64 20, !15, i64 24}
-!213 = !{!"_ZTSN5clang4ExprE", !214, i64 0, !216, i64 8}
-!214 = !{!"_ZTSN5clang9ValueStmtE", !215, i64 0}
-!215 = !{!"_ZTSN5clang4StmtE", !6, i64 0}
-!216 = !{!"_ZTSN5clang8QualTypeE", !217, i64 0}
-!217 = !{!"_ZTSN4llvm14PointerIntPairINS_12PointerUnionIJPKN5clang4TypeEPKNS2_8ExtQualsEEEELj3EjNS_21PointerLikeTypeTraitsIS9_EENS_18PointerIntPairInfoIS9_Lj3ESB_EEEE", !218, i64 0}
-!218 = !{!"_ZTSN4llvm6detail13PunnedPointerINS_12PointerUnionIJPKN5clang4TypeEPKNS3_8ExtQualsEEEEEE", !6, i64 0}
-!219 = !{!"_ZTSN5clang14SourceLocationE", !8, i64 0}
-!220 = !{!15, !15, i64 0}
-!221 = !{!222, !223, i64 16}
-!222 = !{!"_ZTSN5clang11DeclRefExprE", !213, i64 0, !223, i64 16, !224, i64 24}
-!223 = !{!"p1 _ZTSN5clang9ValueDeclE", !5, i64 0}
-!224 = !{!"_ZTSN5clang18DeclarationNameLocE", !6, i64 0}
-!225 = !{!226, !240, i64 88}
-!226 = !{!"_ZTSN5clang12PreprocessorE", !227, i64 0, !231, i64 32, !236, i64 48, !237, i64 56, !238, i64 64, !238, i64 72, !239, i64 80, !240, i64 88, !241, i64 96, !248, i64 104, !249, i64 112, !250, i64 120, !104, i64 128, !251, i64 224, !251, i64 232, !251, i64 240, !251, i64 248, !251, i64 256, !251, i64 264, !251, i64 272, !251, i64 280, !251, i64 288, !251, i64 296, !251, i64 304, !251, i64 312, !251, i64 320, !251, i64 328, !251, i64 336, !251, i64 344, !251, i64 352, !251, i64 360, !251, i64 368, !251, i64 376, !251, i64 384, !251, i64 392, !251, i64 400, !251, i64 408, !251, i64 416, !251, i64 424, !251, i64 432, !251, i64 440, !251, i64 448, !251, i64 456, !251, i64 464, !251, i64 472, !251, i64 480, !251, i64 488, !251, i64 496, !251, i64 504, !252, i64 512, !219, i64 520, !219, i64 524, !253, i64 528, !219, i64 532, !253, i64 536, !8, i64 540, !65, i64 544, !65, i64 544, !65, i64 544, !65, i64 544, !65, i64 544, !65, i64 544, !65, i64 544, !65, i64 544, !65, i64 545, !65, i64 545, !65, i64 546, !65, i64 547, !254, i64 552, !260, i64 680, !261, i64 688, !268, i64 696, !268, i64 704, !275, i64 712, !280, i64 736, !65, i64 744, !281, i64 748, !282, i64 752, !283, i64 760, !8, i64 768, !219, i64 772, !219, i64 776, !219, i64 780, !284, i64 784, !289, i64 832, !8, i64 856, !65, i64 860, !65, i64 861, !291, i64 864, !293, i64 872, !295, i64 880, !65, i64 920, !299, i64 928, !219, i64 944, !219, i64 948, !65, i64 952, !251, i64 960, !300, i64 968, !301, i64 976, !306, i64 984, !65, i64 992, !8, i64 996, !8, i64 1000, !65, i64 1004, !8, i64 1008, !219, i64 1012, !307, i64 1016, !318, i64 1096, !325, i64 1104, !326, i64 1112, !327, i64 1128, !5, i64 1136, !334, i64 1144, !335, i64 1152, !340, i64 1176, !347, i64 1184, !352, i64 1312, !357, i64 1584, !366, i64 1632, !375, i64 1688, !376, i64 1696, !380, i64 1720, !391, i64 1776, !394, i64 1792, !399, i64 2064, !401, i64 2088, !405, i64 2224, !407, i64 2248, !408, i64 2256, !8, i64 2280, !8, i64 2284, !8, i64 2288, !8, i64 2292, !8, i64 2296, !8, i64 2300, !8, i64 2304, !8, i64 2308, !8, i64 2312, !8, i64 2316, !8, i64 2320, !8, i64 2324, !8, i64 2328, !8, i64 2332, !8, i64 2336, !8, i64 2340, !297, i64 2344, !410, i64 2376, !410, i64 2380, !65, i64 2384, !65, i64 2385, !8, i64 2388, !6, i64 2392, !411, i64 2456, !416, i64 2856, !421, i64 2880, !422, i64 2888, !23, i64 2928, !424, i64 2936, !429, i64 2960, !65, i64 2984, !434, i64 2992, !436, i64 3016, !251, i64 3040, !251, i64 3048, !251, i64 3056, !251, i64 3064, !251, i64 3072, !251, i64 3080, !251, i64 3088, !251, i64 3096, !251, i64 3104, !65, i64 3112, !219, i64 3116, !438, i64 3120, !443, i64 3264}
-!227 = !{!"_ZTSN4llvm15unique_functionIFvRKN5clang5TokenEEEE", !228, i64 0}
-!228 = !{!"_ZTSN4llvm6detail18UniqueFunctionBaseIvJRKN5clang5TokenEEEE", !6, i64 0, !229, i64 24}
-!229 = !{!"_ZTSN4llvm14PointerIntPairINS_12PointerUnionIJPNS_6detail18UniqueFunctionBaseIvJRKN5clang5TokenEEE15TrivialCallbackEPNS8_19NonTrivialCallbacksEEEELj1EbNS_21PointerLikeTypeTraitsISD_EENS_18PointerIntPairInfoISD_Lj1ESF_EEEE", !230, i64 0}
-!230 = !{!"_ZTSN4llvm6detail13PunnedPointerINS_12PointerUnionIJPNS0_18UniqueFunctionBaseIvJRKN5clang5TokenEEE15TrivialCallbackEPNS8_19NonTrivialCallbacksEEEEEE", !6, i64 0}
-!231 = !{!"_ZTSSt10shared_ptrIN5clang19PreprocessorOptionsEE", !232, i64 0}
-!232 = !{!"_ZTSSt12__shared_ptrIN5clang19PreprocessorOptionsELN9__gnu_cxx12_Lock_policyE2EE", !233, i64 0, !234, i64 8}
-!233 = !{!"p1 _ZTSN5clang19PreprocessorOptionsE", !5, i64 0}
-!234 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !235, i64 0}
-!235 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
-!236 = !{!"p1 _ZTSN5clang17DiagnosticsEngineE", !5, i64 0}
-!237 = !{!"p1 _ZTSN5clang11LangOptionsE", !5, i64 0}
-!238 = !{!"p1 _ZTSN5clang10TargetInfoE", !5, i64 0}
-!239 = !{!"p1 _ZTSN5clang11FileManagerE", !5, i64 0}
-!240 = !{!"p1 _ZTSN5clang13SourceManagerE", !5, i64 0}
-!241 = !{!"_ZTSSt10unique_ptrIN5clang13ScratchBufferESt14default_deleteIS1_EE", !242, i64 0}
-!242 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang13ScratchBufferESt14default_deleteIS1_ELb1ELb1EE", !243, i64 0}
-!243 = !{!"_ZTSSt15__uniq_ptr_implIN5clang13ScratchBufferESt14default_deleteIS1_EE", !244, i64 0}
-!244 = !{!"_ZTSSt5tupleIJPN5clang13ScratchBufferESt14default_deleteIS1_EEE", !245, i64 0}
-!245 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang13ScratchBufferESt14default_deleteIS1_EEE", !246, i64 0}
-!246 = !{!"_ZTSSt10_Head_baseILm0EPN5clang13ScratchBufferELb0EE", !247, i64 0}
-!247 = !{!"p1 _ZTSN5clang13ScratchBufferE", !5, i64 0}
-!248 = !{!"p1 _ZTSN5clang12HeaderSearchE", !5, i64 0}
-!249 = !{!"p1 _ZTSN5clang12ModuleLoaderE", !5, i64 0}
-!250 = !{!"p1 _ZTSN5clang26ExternalPreprocessorSourceE", !5, i64 0}
-!251 = !{!"p1 _ZTSN5clang14IdentifierInfoE", !5, i64 0}
-!252 = !{!"p1 _ZTSN5clang5TokenE", !5, i64 0}
-!253 = !{!"_ZTSN5clang15LangOptionsBase16FPEvalMethodKindE", !6, i64 0}
-!254 = !{!"_ZTSN5clang15IdentifierTableE", !255, i64 0, !259, i64 120}
-!255 = !{!"_ZTSN4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEE", !256, i64 0, !258, i64 24}
-!256 = !{!"_ZTSN4llvm13StringMapImplE", !257, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20}
-!257 = !{!"p2 _ZTSN4llvm18StringMapEntryBaseE", !5, i64 0}
-!258 = !{!"_ZTSN4llvm6detail15AllocatorHolderINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEE", !104, i64 0}
-!259 = !{!"p1 _ZTSN5clang20IdentifierInfoLookupE", !5, i64 0}
-!260 = !{!"_ZTSN5clang13SelectorTableE", !5, i64 0}
-!261 = !{!"_ZTSSt10unique_ptrIN5clang7Builtin7ContextESt14default_deleteIS2_EE", !262, i64 0}
-!262 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang7Builtin7ContextESt14default_deleteIS2_ELb1ELb1EE", !263, i64 0}
-!263 = !{!"_ZTSSt15__uniq_ptr_implIN5clang7Builtin7ContextESt14default_deleteIS2_EE", !264, i64 0}
-!264 = !{!"_ZTSSt5tupleIJPN5clang7Builtin7ContextESt14default_deleteIS2_EEE", !265, i64 0}
-!265 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang7Builtin7ContextESt14default_deleteIS2_EEE", !266, i64 0}
-!266 = !{!"_ZTSSt10_Head_baseILm0EPN5clang7Builtin7ContextELb0EE", !267, i64 0}
-!267 = !{!"p1 _ZTSN5clang7Builtin7ContextE", !5, i64 0}
-!268 = !{!"_ZTSSt10unique_ptrIN5clang15PragmaNamespaceESt14default_deleteIS1_EE", !269, i64 0}
-!269 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang15PragmaNamespaceESt14default_deleteIS1_ELb1ELb1EE", !270, i64 0}
-!270 = !{!"_ZTSSt15__uniq_ptr_implIN5clang15PragmaNamespaceESt14default_deleteIS1_EE", !271, i64 0}
-!271 = !{!"_ZTSSt5tupleIJPN5clang15PragmaNamespaceESt14default_deleteIS1_EEE", !272, i64 0}
-!272 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang15PragmaNamespaceESt14default_deleteIS1_EEE", !273, i64 0}
-!273 = !{!"_ZTSSt10_Head_baseILm0EPN5clang15PragmaNamespaceELb0EE", !274, i64 0}
-!274 = !{!"p1 _ZTSN5clang15PragmaNamespaceE", !5, i64 0}
-!275 = !{!"_ZTSSt6vectorIPN5clang14CommentHandlerESaIS2_EE", !276, i64 0}
-!276 = !{!"_ZTSSt12_Vector_baseIPN5clang14CommentHandlerESaIS2_EE", !277, i64 0}
-!277 = !{!"_ZTSNSt12_Vector_baseIPN5clang14CommentHandlerESaIS2_EE12_Vector_implE", !278, i64 0}
-!278 = !{!"_ZTSNSt12_Vector_baseIPN5clang14CommentHandlerESaIS2_EE17_Vector_impl_dataE", !279, i64 0, !279, i64 8, !279, i64 16}
-!279 = !{!"p2 _ZTSN5clang14CommentHandlerE", !5, i64 0}
-!280 = !{!"p1 _ZTSN5clang16EmptylineHandlerE", !5, i64 0}
-!281 = !{!"_ZTSN5clang19TranslationUnitKindE", !6, i64 0}
-!282 = !{!"p1 _ZTSN5clang21CodeCompletionHandlerE", !5, i64 0}
-!283 = !{!"p1 _ZTSN5clang9FileEntryE", !5, i64 0}
-!284 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj2EEE", !285, i64 0, !288, i64 16}
-!285 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEEEE", !286, i64 0}
-!286 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELb1EEE", !287, i64 0}
-!287 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEEvEE", !4, i64 0}
-!288 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj2EEE", !6, i64 0}
-!289 = !{!"_ZTSN4llvm8DenseMapIN5clang6FileIDENS_11SmallVectorIPKcLj6EEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEE", !290, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!290 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIN5clang6FileIDENS_11SmallVectorIPKcLj6EEEEE", !5, i64 0}
-!291 = !{!"_ZTSN5clang12Preprocessor15StdCXXImportSeqE", !292, i64 0, !65, i64 4}
-!292 = !{!"_ZTSN5clang12Preprocessor15StdCXXImportSeq5StateE", !6, i64 0}
-!293 = !{!"_ZTSN5clang12Preprocessor8TrackGMFE", !294, i64 0}
-!294 = !{!"_ZTSN5clang12Preprocessor8TrackGMF8GMFStateE", !6, i64 0}
-!295 = !{!"_ZTSN5clang12Preprocessor13ModuleDeclSeqE", !296, i64 0, !297, i64 8}
-!296 = !{!"_ZTSN5clang12Preprocessor13ModuleDeclSeq15ModuleDeclStateE", !6, i64 0}
-!297 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !298, i64 0, !23, i64 8, !6, i64 16}
-!298 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !105, i64 0}
-!299 = !{!"_ZTSSt4pairIPN5clang14IdentifierInfoENS0_14SourceLocationEE", !251, i64 0, !219, i64 8}
-!300 = !{!"_ZTSN5clang11SourceRangeE", !219, i64 0, !219, i64 4}
-!301 = !{!"_ZTSN5clang20CustomizableOptionalINS_17DirectoryEntryRefEEE", !302, i64 0}
-!302 = !{!"_ZTSN5clang15optional_detail15OptionalStorageINS_17DirectoryEntryRefEEE", !303, i64 0}
-!303 = !{!"_ZTSN5clang7FileMgr23MapEntryOptionalStorageINS_17DirectoryEntryRefEEE", !304, i64 0}
-!304 = !{!"_ZTSN5clang17DirectoryEntryRefE", !305, i64 0}
-!305 = !{!"p1 _ZTSN4llvm14StringMapEntryINS_7ErrorOrIRN5clang14DirectoryEntryEEEEE", !5, i64 0}
-!306 = !{!"_ZTSSt4pairIibE", !8, i64 0, !65, i64 4}
-!307 = !{!"_ZTSN5clang12Preprocessor29PreambleConditionalStackStoreE", !308, i64 0, !312, i64 24, !317, i64 72}
-!308 = !{!"_ZTSSt8optionalIN5clang12Preprocessor16PreambleSkipInfoEE", !309, i64 0}
-!309 = !{!"_ZTSSt14_Optional_baseIN5clang12Preprocessor16PreambleSkipInfoELb1ELb1EE", !310, i64 0}
-!310 = !{!"_ZTSSt17_Optional_payloadIN5clang12Preprocessor16PreambleSkipInfoELb1ELb1ELb1EE", !311, i64 0}
-!311 = !{!"_ZTSSt22_Optional_payload_baseIN5clang12Preprocessor16PreambleSkipInfoEE", !6, i64 0, !65, i64 16}
-!312 = !{!"_ZTSN4llvm11SmallVectorIN5clang17PPConditionalInfoELj4EEE", !313, i64 0, !316, i64 16}
-!313 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang17PPConditionalInfoEEE", !314, i64 0}
-!314 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang17PPConditionalInfoELb1EEE", !315, i64 0}
-!315 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang17PPConditionalInfoEvEE", !4, i64 0}
-!316 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang17PPConditionalInfoELj4EEE", !6, i64 0}
-!317 = !{!"_ZTSN5clang12Preprocessor29PreambleConditionalStackStore5StateE", !6, i64 0}
-!318 = !{!"_ZTSSt10unique_ptrIN5clang5LexerESt14default_deleteIS1_EE", !319, i64 0}
-!319 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang5LexerESt14default_deleteIS1_ELb1ELb1EE", !320, i64 0}
-!320 = !{!"_ZTSSt15__uniq_ptr_implIN5clang5LexerESt14default_deleteIS1_EE", !321, i64 0}
-!321 = !{!"_ZTSSt5tupleIJPN5clang5LexerESt14default_deleteIS1_EEE", !322, i64 0}
-!322 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang5LexerESt14default_deleteIS1_EEE", !323, i64 0}
-!323 = !{!"_ZTSSt10_Head_baseILm0EPN5clang5LexerELb0EE", !324, i64 0}
-!324 = !{!"p1 _ZTSN5clang5LexerE", !5, i64 0}
-!325 = !{!"p1 _ZTSN5clang17PreprocessorLexerE", !5, i64 0}
-!326 = !{!"_ZTSN5clang6detail21SearchDirIteratorImplILb1EEE", !248, i64 0, !23, i64 8}
-!327 = !{!"_ZTSSt10unique_ptrIN5clang10TokenLexerESt14default_deleteIS1_EE", !328, i64 0}
-!328 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang10TokenLexerESt14default_deleteIS1_ELb1ELb1EE", !329, i64 0}
-!329 = !{!"_ZTSSt15__uniq_ptr_implIN5clang10TokenLexerESt14default_deleteIS1_EE", !330, i64 0}
-!330 = !{!"_ZTSSt5tupleIJPN5clang10TokenLexerESt14default_deleteIS1_EEE", !331, i64 0}
-!331 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang10TokenLexerESt14default_deleteIS1_EEE", !332, i64 0}
-!332 = !{!"_ZTSSt10_Head_baseILm0EPN5clang10TokenLexerELb0EE", !333, i64 0}
-!333 = !{!"p1 _ZTSN5clang10TokenLexerE", !5, i64 0}
-!334 = !{!"p1 _ZTSN5clang6ModuleE", !5, i64 0}
-!335 = !{!"_ZTSSt6vectorIN5clang12Preprocessor16IncludeStackInfoESaIS2_EE", !336, i64 0}
-!336 = !{!"_ZTSSt12_Vector_baseIN5clang12Preprocessor16IncludeStackInfoESaIS2_EE", !337, i64 0}
-!337 = !{!"_ZTSNSt12_Vector_baseIN5clang12Preprocessor16IncludeStackInfoESaIS2_EE12_Vector_implE", !338, i64 0}
-!338 = !{!"_ZTSNSt12_Vector_baseIN5clang12Preprocessor16IncludeStackInfoESaIS2_EE17_Vector_impl_dataE", !339, i64 0, !339, i64 8, !339, i64 16}
-!339 = !{!"p1 _ZTSN5clang12Preprocessor16IncludeStackInfoE", !5, i64 0}
-!340 = !{!"_ZTSSt10unique_ptrIN5clang11PPCallbacksESt14default_deleteIS1_EE", !341, i64 0}
-!341 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang11PPCallbacksESt14default_deleteIS1_ELb1ELb1EE", !342, i64 0}
-!342 = !{!"_ZTSSt15__uniq_ptr_implIN5clang11PPCallbacksESt14default_deleteIS1_EE", !343, i64 0}
-!343 = !{!"_ZTSSt5tupleIJPN5clang11PPCallbacksESt14default_deleteIS1_EEE", !344, i64 0}
-!344 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang11PPCallbacksESt14default_deleteIS1_EEE", !345, i64 0}
-!345 = !{!"_ZTSSt10_Head_baseILm0EPN5clang11PPCallbacksELb0EE", !346, i64 0}
-!346 = !{!"p1 _ZTSN5clang11PPCallbacksE", !5, i64 0}
-!347 = !{!"_ZTSN4llvm11SmallVectorIN5clang12Preprocessor16MacroExpandsInfoELj2EEE", !348, i64 0, !351, i64 16}
-!348 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang12Preprocessor16MacroExpandsInfoEEE", !349, i64 0}
-!349 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang12Preprocessor16MacroExpandsInfoELb1EEE", !350, i64 0}
-!350 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang12Preprocessor16MacroExpandsInfoEvEE", !4, i64 0}
-!351 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang12Preprocessor16MacroExpandsInfoELj2EEE", !6, i64 0}
-!352 = !{!"_ZTSN4llvm11SmallVectorIN5clang12Preprocessor21BuildingSubmoduleInfoELj8EEE", !353, i64 0, !356, i64 16}
-!353 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang12Preprocessor21BuildingSubmoduleInfoEEE", !354, i64 0}
-!354 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang12Preprocessor21BuildingSubmoduleInfoELb1EEE", !355, i64 0}
-!355 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang12Preprocessor21BuildingSubmoduleInfoEvEE", !4, i64 0}
-!356 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang12Preprocessor21BuildingSubmoduleInfoELj8EEE", !6, i64 0}
-!357 = !{!"_ZTSSt3mapIPN5clang6ModuleENS0_12Preprocessor14SubmoduleStateESt4lessIS2_ESaISt4pairIKS2_S4_EEE", !358, i64 0}
-!358 = !{!"_ZTSSt8_Rb_treeIPN5clang6ModuleESt4pairIKS2_NS0_12Preprocessor14SubmoduleStateEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE", !359, i64 0}
-!359 = !{!"_ZTSNSt8_Rb_treeIPN5clang6ModuleESt4pairIKS2_NS0_12Preprocessor14SubmoduleStateEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE13_Rb_tree_implISB_Lb1EEE", !360, i64 0, !362, i64 8}
-!360 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIPN5clang6ModuleEEE", !361, i64 0}
-!361 = !{!"_ZTSSt4lessIPN5clang6ModuleEE"}
-!362 = !{!"_ZTSSt15_Rb_tree_header", !363, i64 0, !23, i64 32}
-!363 = !{!"_ZTSSt18_Rb_tree_node_base", !364, i64 0, !365, i64 8, !365, i64 16, !365, i64 24}
-!364 = !{!"_ZTSSt14_Rb_tree_color", !6, i64 0}
-!365 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !5, i64 0}
-!366 = !{!"_ZTSN5clang12Preprocessor14SubmoduleStateE", !367, i64 0, !369, i64 24}
-!367 = !{!"_ZTSN4llvm8DenseMapIPKN5clang14IdentifierInfoENS1_12Preprocessor10MacroStateENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !368, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!368 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang14IdentifierInfoENS2_12Preprocessor10MacroStateEEE", !5, i64 0}
-!369 = !{!"_ZTSN5clang16VisibleModuleSetE", !370, i64 0, !8, i64 24}
-!370 = !{!"_ZTSSt6vectorIN5clang14SourceLocationESaIS1_EE", !371, i64 0}
-!371 = !{!"_ZTSSt12_Vector_baseIN5clang14SourceLocationESaIS1_EE", !372, i64 0}
-!372 = !{!"_ZTSNSt12_Vector_baseIN5clang14SourceLocationESaIS1_EE12_Vector_implE", !373, i64 0}
-!373 = !{!"_ZTSNSt12_Vector_baseIN5clang14SourceLocationESaIS1_EE17_Vector_impl_dataE", !374, i64 0, !374, i64 8, !374, i64 16}
-!374 = !{!"p1 _ZTSN5clang14SourceLocationE", !5, i64 0}
-!375 = !{!"p1 _ZTSN5clang12Preprocessor14SubmoduleStateE", !5, i64 0}
-!376 = !{!"_ZTSN4llvm8DenseSetIPKN5clang9FileEntryENS_12DenseMapInfoIS4_vEEEE", !377, i64 0}
-!377 = !{!"_ZTSN4llvm6detail12DenseSetImplIPKN5clang9FileEntryENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_EE", !378, i64 0}
-!378 = !{!"_ZTSN4llvm8DenseMapIPKN5clang9FileEntryENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEE", !379, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!379 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairIPKN5clang9FileEntryEEE", !5, i64 0}
-!380 = !{!"_ZTSN4llvm14SmallSetVectorIPN5clang6ModuleELj2EEE", !381, i64 0}
-!381 = !{!"_ZTSN4llvm9SetVectorIPN5clang6ModuleENS_11SmallVectorIS3_Lj2EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj2EEE", !382, i64 0, !386, i64 24}
-!382 = !{!"_ZTSN4llvm8DenseSetIPN5clang6ModuleENS_12DenseMapInfoIS3_vEEEE", !383, i64 0}
-!383 = !{!"_ZTSN4llvm6detail12DenseSetImplIPN5clang6ModuleENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_EE", !384, i64 0}
-!384 = !{!"_ZTSN4llvm8DenseMapIPN5clang6ModuleENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEE", !385, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!385 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairIPN5clang6ModuleEEE", !5, i64 0}
-!386 = !{!"_ZTSN4llvm11SmallVectorIPN5clang6ModuleELj2EEE", !387, i64 0, !390, i64 16}
-!387 = !{!"_ZTSN4llvm15SmallVectorImplIPN5clang6ModuleEEE", !388, i64 0}
-!388 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EEE", !389, i64 0}
-!389 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPN5clang6ModuleEvEE", !4, i64 0}
-!390 = !{!"_ZTSN4llvm18SmallVectorStorageIPN5clang6ModuleELj2EEE", !6, i64 0}
-!391 = !{!"_ZTSN4llvm10FoldingSetIN5clang11ModuleMacroEEE", !392, i64 0}
-!392 = !{!"_ZTSN4llvm14FoldingSetImplINS_10FoldingSetIN5clang11ModuleMacroEEES3_EE", !393, i64 0}
-!393 = !{!"_ZTSN4llvm14FoldingSetBaseE", !5, i64 0, !8, i64 8, !8, i64 12}
-!394 = !{!"_ZTSN4llvm11SmallVectorIPN5clang14IdentifierInfoELj32EEE", !395, i64 0, !398, i64 16}
-!395 = !{!"_ZTSN4llvm15SmallVectorImplIPN5clang14IdentifierInfoEEE", !396, i64 0}
-!396 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EEE", !397, i64 0}
-!397 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPN5clang14IdentifierInfoEvEE", !4, i64 0}
-!398 = !{!"_ZTSN4llvm18SmallVectorStorageIPN5clang14IdentifierInfoELj32EEE", !6, i64 0}
-!399 = !{!"_ZTSN4llvm8DenseMapIPKN5clang14IdentifierInfoENS_13TinyPtrVectorIPNS1_11ModuleMacroEEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEE", !400, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!400 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang14IdentifierInfoENS_13TinyPtrVectorIPNS2_11ModuleMacroEEEEE", !5, i64 0}
-!401 = !{!"_ZTSN4llvm13SmallDenseSetIN5clang14SourceLocationELj32ENS_12DenseMapInfoIS2_vEEEE", !402, i64 0}
-!402 = !{!"_ZTSN4llvm6detail12DenseSetImplIN5clang14SourceLocationENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj32ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_EE", !403, i64 0}
-!403 = !{!"_ZTSN4llvm13SmallDenseMapIN5clang14SourceLocationENS_6detail13DenseSetEmptyELj32ENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEE", !8, i64 0, !8, i64 0, !8, i64 4, !404, i64 8}
-!404 = !{!"_ZTSN4llvm21AlignedCharArrayUnionIA32_NS_6detail12DenseSetPairIN5clang14SourceLocationEEEJNS_13SmallDenseMapIS4_NS1_13DenseSetEmptyELj32ENS_12DenseMapInfoIS4_vEES5_E8LargeRepEEEE", !6, i64 0}
-!405 = !{!"_ZTSN4llvm8DenseMapIPKN5clang14IdentifierInfoENS1_12Preprocessor16MacroAnnotationsENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !406, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!406 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang14IdentifierInfoENS2_12Preprocessor16MacroAnnotationsEEE", !5, i64 0}
-!407 = !{!"p1 _ZTSN5clang9MacroArgsE", !5, i64 0}
-!408 = !{!"_ZTSN4llvm8DenseMapIPN5clang14IdentifierInfoESt6vectorIPNS1_9MacroInfoESaIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEE", !409, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!409 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPN5clang14IdentifierInfoESt6vectorIPNS2_9MacroInfoESaIS7_EEEE", !5, i64 0}
-!410 = !{!"_ZTSN5clang6FileIDE", !8, i64 0}
-!411 = !{!"_ZTSN4llvm11SmallVectorIN5clang5TokenELj16EEE", !412, i64 0, !415, i64 16}
-!412 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang5TokenEEE", !413, i64 0}
-!413 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EEE", !414, i64 0}
-!414 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang5TokenEvEE", !4, i64 0}
-!415 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang5TokenELj16EEE", !6, i64 0}
-!416 = !{!"_ZTSSt6vectorISt4pairIPN5clang10TokenLexerEmESaIS4_EE", !417, i64 0}
-!417 = !{!"_ZTSSt12_Vector_baseISt4pairIPN5clang10TokenLexerEmESaIS4_EE", !418, i64 0}
-!418 = !{!"_ZTSNSt12_Vector_baseISt4pairIPN5clang10TokenLexerEmESaIS4_EE12_Vector_implE", !419, i64 0}
-!419 = !{!"_ZTSNSt12_Vector_baseISt4pairIPN5clang10TokenLexerEmESaIS4_EE17_Vector_impl_dataE", !420, i64 0, !420, i64 8, !420, i64 16}
-!420 = !{!"p1 _ZTSSt4pairIPN5clang10TokenLexerEmE", !5, i64 0}
-!421 = !{!"p1 _ZTSN5clang19PreprocessingRecordE", !5, i64 0}
-!422 = !{!"_ZTSN4llvm11SmallVectorIN5clang5TokenELj1EEE", !412, i64 0, !423, i64 16}
-!423 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang5TokenELj1EEE", !6, i64 0}
-!424 = !{!"_ZTSSt6vectorImSaImEE", !425, i64 0}
-!425 = !{!"_ZTSSt12_Vector_baseImSaImEE", !426, i64 0}
-!426 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !427, i64 0}
-!427 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !428, i64 0, !428, i64 8, !428, i64 16}
-!428 = !{!"p1 long", !5, i64 0}
-!429 = !{!"_ZTSSt6vectorISt4pairIN4llvm11SmallVectorIN5clang5TokenELj1EEEmESaIS6_EE", !430, i64 0}
-!430 = !{!"_ZTSSt12_Vector_baseISt4pairIN4llvm11SmallVectorIN5clang5TokenELj1EEEmESaIS6_EE", !431, i64 0}
-!431 = !{!"_ZTSNSt12_Vector_baseISt4pairIN4llvm11SmallVectorIN5clang5TokenELj1EEEmESaIS6_EE12_Vector_implE", !432, i64 0}
-!432 = !{!"_ZTSNSt12_Vector_baseISt4pairIN4llvm11SmallVectorIN5clang5TokenELj1EEEmESaIS6_EE17_Vector_impl_dataE", !433, i64 0, !433, i64 8, !433, i64 16}
-!433 = !{!"p1 _ZTSSt4pairIN4llvm11SmallVectorIN5clang5TokenELj1EEEmE", !5, i64 0}
-!434 = !{!"_ZTSN4llvm8DenseMapIPKcjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEE", !435, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!435 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKcjEE", !5, i64 0}
-!436 = !{!"_ZTSN4llvm8DenseMapIPN5clang14IdentifierInfoEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEE", !437, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!437 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPN5clang14IdentifierInfoEjEE", !5, i64 0}
-!438 = !{!"_ZTSN4llvm11SmallVectorISt4pairIN5clang14SourceLocationES3_ELj16EEE", !439, i64 0, !442, i64 16}
-!439 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationES3_EEE", !440, i64 0}
-!440 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationES3_ELb1EEE", !441, i64 0}
-!441 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIN5clang14SourceLocationES3_EvEE", !4, i64 0}
-!442 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIN5clang14SourceLocationES3_ELj16EEE", !6, i64 0}
-!443 = !{!"_ZTSN5clang12PreprocessorUt1_E", !444, i64 0}
-!444 = !{!"_ZTSN4llvm8DenseMapIN5clang6FileIDENS_11SmallVectorISt4pairINS1_14SourceLocationES5_ELj16EEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S7_EEEE", !445, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
-!445 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIN5clang6FileIDENS_11SmallVectorISt4pairINS2_14SourceLocationES6_ELj16EEEEE", !5, i64 0}
-!446 = distinct !{!446, !30, !31}
-!447 = !{!226, !237, i64 56}
-!448 = !{!449, !223, i64 24}
-!449 = !{!"_ZTSN5clang10MemberExprE", !213, i64 0, !15, i64 16, !223, i64 24, !224, i64 32, !219, i64 40}
-!450 = !{!451, !15, i64 16}
-!451 = !{!"_ZTSN5clang13UnaryOperatorE", !213, i64 0, !15, i64 16}
-!452 = !{!453, !15, i64 72}
-!453 = !{!"_ZTSN5clang16EnumConstantDeclE", !454, i64 0, !466, i64 56, !15, i64 72, !65, i64 80}
-!454 = !{!"_ZTSN5clang9ValueDeclE", !455, i64 0, !216, i64 48}
-!455 = !{!"_ZTSN5clang9NamedDeclE", !456, i64 0, !465, i64 40}
-!456 = !{!"_ZTSN5clang4DeclE", !457, i64 8, !459, i64 16, !219, i64 24, !8, i64 28, !8, i64 28, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 30, !8, i64 32}
-!457 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang4DeclELj3ENS2_19ModuleOwnershipKindENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj3ES6_EEEE", !458, i64 0}
-!458 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang4DeclEEE", !6, i64 0}
-!459 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang11DeclContextEPNS1_4Decl10MultipleDCEEEE", !460, i64 0}
-!460 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !461, i64 0}
-!461 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !462, i64 0}
-!462 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !463, i64 0}
-!463 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang11DeclContextEPNS4_4Decl10MultipleDCEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !464, i64 0}
-!464 = !{!"_ZTSN4llvm6detail13PunnedPointerIPvEE", !6, i64 0}
-!465 = !{!"_ZTSN5clang15DeclarationNameE", !23, i64 0}
-!466 = !{!"_ZTSN5clang12APIntStorageE", !467, i64 0}
-!467 = !{!"_ZTSN5clang16APNumericStorageE", !6, i64 0, !8, i64 8}
-!468 = !{!469, !470, i64 8}
-!469 = !{!"_ZTSN5clang4Decl10MultipleDCE", !470, i64 0, !470, i64 8}
-!470 = !{!"p1 _ZTSN5clang11DeclContextE", !5, i64 0}
-!471 = !{!469, !470, i64 0}
-!472 = !{!465, !23, i64 0}
-!473 = !{!123, !121, i64 184}
-!474 = distinct !{!474, !31}
-!475 = !{!476}
-!476 = distinct !{!476, !477, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev: argument 0"}
-!477 = distinct !{!477, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev"}
-!478 = !{!479, !15, i64 8}
-!479 = !{!"_ZTSN5clang10ReturnStmtE", !215, i64 0, !15, i64 8}
-!480 = distinct !{!480, !30, !31}
-!481 = !{!482, !482, i64 0}
-!482 = !{!"p1 _ZTSN5clang4AttrE", !5, i64 0}
-!483 = distinct !{!483, !30, !31}
-!484 = !{!219, !8, i64 0}
-!485 = !{!11, !15, i64 40}
-!486 = !{!487, !15, i64 16}
-!487 = !{!"_ZTSN5clang8CastExprE", !213, i64 0, !15, i64 16}
+!119 = !{!"p1 _ZTSN5clang10ASTContextE", !5, i64 0}
+!120 = !{!121, !115, i64 72}
+!121 = !{!"_ZTSN12_GLOBAL__N_112DeadCodeScanE", !51, i64 0, !115, i64 72, !122, i64 80, !117, i64 176, !119, i64 184, !127, i64 192}
+!122 = !{!"_ZTSN4llvm11SmallVectorIPKN5clang8CFGBlockELj10EEE", !123, i64 0, !126, i64 16}
+!123 = !{!"_ZTSN4llvm15SmallVectorImplIPKN5clang8CFGBlockEEE", !124, i64 0}
+!124 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKN5clang8CFGBlockELb1EEE", !125, i64 0}
+!125 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKN5clang8CFGBlockEvEE", !4, i64 0}
+!126 = !{!"_ZTSN4llvm18SmallVectorStorageIPKN5clang8CFGBlockELj10EEE", !6, i64 0}
+!127 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEELj12EEE", !128, i64 0, !131, i64 16}
+!128 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEEEE", !129, i64 0}
+!129 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEELb1EEE", !130, i64 0}
+!130 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEEvEE", !4, i64 0}
+!131 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIPKN5clang8CFGBlockEPKNS2_4StmtEELj12EEE", !6, i64 0}
+!132 = distinct !{!132, !30}
+!133 = !{!13, !14, i64 8}
+!134 = !{!135, !137, !139}
+!135 = distinct !{!135, !136, !"_ZNK5clang10BumpVectorINS_10CFGElementEE6rbeginEv: argument 0"}
+!136 = distinct !{!136, !"_ZNK5clang10BumpVectorINS_10CFGElementEE6rbeginEv"}
+!137 = distinct !{!137, !138, !"_ZNK5clang8CFGBlock11ElementList5beginEv: argument 0"}
+!138 = distinct !{!138, !"_ZNK5clang8CFGBlock11ElementList5beginEv"}
+!139 = distinct !{!139, !140, !"_ZNK5clang8CFGBlock5beginEv: argument 0"}
+!140 = distinct !{!140, !"_ZNK5clang8CFGBlock5beginEv"}
+!141 = !{!13, !14, i64 0}
+!142 = !{!143, !145, !147}
+!143 = distinct !{!143, !144, !"_ZNK5clang10BumpVectorINS_10CFGElementEE4rendEv: argument 0"}
+!144 = distinct !{!144, !"_ZNK5clang10BumpVectorINS_10CFGElementEE4rendEv"}
+!145 = distinct !{!145, !146, !"_ZNK5clang8CFGBlock11ElementList3endEv: argument 0"}
+!146 = distinct !{!146, !"_ZNK5clang8CFGBlock11ElementList3endEv"}
+!147 = distinct !{!147, !148, !"_ZNK5clang8CFGBlock3endEv: argument 0"}
+!148 = distinct !{!148, !"_ZNK5clang8CFGBlock3endEv"}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev: argument 0"}
+!151 = distinct !{!151, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev"}
+!152 = !{!153, !155, !157}
+!153 = distinct !{!153, !154, !"_ZNK5clang10BumpVectorINS_10CFGElementEE4rendEv: argument 0"}
+!154 = distinct !{!154, !"_ZNK5clang10BumpVectorINS_10CFGElementEE4rendEv"}
+!155 = distinct !{!155, !156, !"_ZNK5clang8CFGBlock11ElementList3endEv: argument 0"}
+!156 = distinct !{!156, !"_ZNK5clang8CFGBlock11ElementList3endEv"}
+!157 = distinct !{!157, !158, !"_ZNK5clang8CFGBlock3endEv: argument 0"}
+!158 = distinct !{!158, !"_ZNK5clang8CFGBlock3endEv"}
+!159 = !{!160, !162, !164}
+!160 = distinct !{!160, !161, !"_ZNK5clang10BumpVectorINS_10CFGElementEE6rbeginEv: argument 0"}
+!161 = distinct !{!161, !"_ZNK5clang10BumpVectorINS_10CFGElementEE6rbeginEv"}
+!162 = distinct !{!162, !163, !"_ZNK5clang8CFGBlock11ElementList5beginEv: argument 0"}
+!163 = distinct !{!163, !"_ZNK5clang8CFGBlock11ElementList5beginEv"}
+!164 = distinct !{!164, !165, !"_ZNK5clang8CFGBlock5beginEv: argument 0"}
+!165 = distinct !{!165, !"_ZNK5clang8CFGBlock5beginEv"}
+!166 = !{!167}
+!167 = distinct !{!167, !168, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev: argument 0"}
+!168 = distinct !{!168, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev"}
+!169 = distinct !{!169, !30}
+!170 = !{!171, !64, i64 8}
+!171 = !{!"_ZTSN5clang30DynamicRecursiveASTVisitorBaseILb0EEE", !64, i64 8, !64, i64 9, !64, i64 10, !64, i64 11}
+!172 = !{!171, !64, i64 9}
+!173 = !{!171, !64, i64 11}
+!174 = !{!175, !175, i64 0}
+!175 = !{!"vtable pointer", !7, i64 0}
+!176 = !{!177, !15, i64 16}
+!177 = !{!"_ZTSZL17isInCoroutineStmtPKN5clang4StmtEPKNS_8CFGBlockEE7Checker", !171, i64 0, !15, i64 16, !64, i64 24}
+!178 = !{!177, !64, i64 24}
+!179 = !{!171, !64, i64 10}
+!180 = distinct !{!180, !30}
+!181 = !{!6, !6, i64 0}
+!182 = !{!183, !185, !187}
+!183 = distinct !{!183, !184, !"_ZNK5clang10BumpVectorINS_10CFGElementEE4rendEv: argument 0"}
+!184 = distinct !{!184, !"_ZNK5clang10BumpVectorINS_10CFGElementEE4rendEv"}
+!185 = distinct !{!185, !186, !"_ZNK5clang8CFGBlock11ElementList3endEv: argument 0"}
+!186 = distinct !{!186, !"_ZNK5clang8CFGBlock11ElementList3endEv"}
+!187 = distinct !{!187, !188, !"_ZNK5clang8CFGBlock3endEv: argument 0"}
+!188 = distinct !{!188, !"_ZNK5clang8CFGBlock3endEv"}
+!189 = !{!190, !192, !194}
+!190 = distinct !{!190, !191, !"_ZNK5clang10BumpVectorINS_10CFGElementEE6rbeginEv: argument 0"}
+!191 = distinct !{!191, !"_ZNK5clang10BumpVectorINS_10CFGElementEE6rbeginEv"}
+!192 = distinct !{!192, !193, !"_ZNK5clang8CFGBlock11ElementList5beginEv: argument 0"}
+!193 = distinct !{!193, !"_ZNK5clang8CFGBlock11ElementList5beginEv"}
+!194 = distinct !{!194, !195, !"_ZNK5clang8CFGBlock5beginEv: argument 0"}
+!195 = distinct !{!195, !"_ZNK5clang8CFGBlock5beginEv"}
+!196 = !{!197}
+!197 = distinct !{!197, !198, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev: argument 0"}
+!198 = distinct !{!198, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev"}
+!199 = distinct !{!199, !30}
+!200 = !{!121, !117, i64 176}
+!201 = distinct !{!201, !30}
+!202 = !{!203, !25, i64 0}
+!203 = !{!"_ZTSSt4pairIPKN5clang8CFGBlockEPKNS0_4StmtEE", !25, i64 0, !15, i64 8}
+!204 = !{!203, !15, i64 8}
+!205 = !{!8, !8, i64 0}
+!206 = !{!207, !15, i64 24}
+!207 = !{!"_ZTSN5clang9ParenExprE", !208, i64 0, !214, i64 16, !214, i64 20, !15, i64 24}
+!208 = !{!"_ZTSN5clang4ExprE", !209, i64 0, !211, i64 8}
+!209 = !{!"_ZTSN5clang9ValueStmtE", !210, i64 0}
+!210 = !{!"_ZTSN5clang4StmtE", !6, i64 0}
+!211 = !{!"_ZTSN5clang8QualTypeE", !212, i64 0}
+!212 = !{!"_ZTSN4llvm14PointerIntPairINS_12PointerUnionIJPKN5clang4TypeEPKNS2_8ExtQualsEEEELj3EjNS_21PointerLikeTypeTraitsIS9_EENS_18PointerIntPairInfoIS9_Lj3ESB_EEEE", !213, i64 0}
+!213 = !{!"_ZTSN4llvm6detail13PunnedPointerINS_12PointerUnionIJPKN5clang4TypeEPKNS3_8ExtQualsEEEEEE", !6, i64 0}
+!214 = !{!"_ZTSN5clang14SourceLocationE", !8, i64 0}
+!215 = !{!15, !15, i64 0}
+!216 = !{!217, !218, i64 16}
+!217 = !{!"_ZTSN5clang11DeclRefExprE", !208, i64 0, !218, i64 16, !219, i64 24}
+!218 = !{!"p1 _ZTSN5clang9ValueDeclE", !5, i64 0}
+!219 = !{!"_ZTSN5clang18DeclarationNameLocE", !6, i64 0}
+!220 = !{!221, !235, i64 88}
+!221 = !{!"_ZTSN5clang12PreprocessorE", !222, i64 0, !226, i64 32, !231, i64 48, !232, i64 56, !233, i64 64, !233, i64 72, !234, i64 80, !235, i64 88, !236, i64 96, !243, i64 104, !244, i64 112, !245, i64 120, !102, i64 128, !246, i64 224, !246, i64 232, !246, i64 240, !246, i64 248, !246, i64 256, !246, i64 264, !246, i64 272, !246, i64 280, !246, i64 288, !246, i64 296, !246, i64 304, !246, i64 312, !246, i64 320, !246, i64 328, !246, i64 336, !246, i64 344, !246, i64 352, !246, i64 360, !246, i64 368, !246, i64 376, !246, i64 384, !246, i64 392, !246, i64 400, !246, i64 408, !246, i64 416, !246, i64 424, !246, i64 432, !246, i64 440, !246, i64 448, !246, i64 456, !246, i64 464, !246, i64 472, !246, i64 480, !246, i64 488, !246, i64 496, !246, i64 504, !247, i64 512, !214, i64 520, !214, i64 524, !248, i64 528, !214, i64 532, !248, i64 536, !8, i64 540, !64, i64 544, !64, i64 544, !64, i64 544, !64, i64 544, !64, i64 544, !64, i64 544, !64, i64 544, !64, i64 544, !64, i64 545, !64, i64 545, !64, i64 546, !64, i64 547, !249, i64 552, !255, i64 680, !256, i64 688, !263, i64 696, !263, i64 704, !270, i64 712, !275, i64 736, !64, i64 744, !276, i64 748, !277, i64 752, !278, i64 760, !8, i64 768, !214, i64 772, !214, i64 776, !214, i64 780, !279, i64 784, !284, i64 832, !8, i64 856, !64, i64 860, !64, i64 861, !286, i64 864, !288, i64 872, !290, i64 880, !64, i64 920, !294, i64 928, !214, i64 944, !214, i64 948, !64, i64 952, !246, i64 960, !295, i64 968, !296, i64 976, !301, i64 984, !64, i64 992, !8, i64 996, !8, i64 1000, !64, i64 1004, !8, i64 1008, !214, i64 1012, !302, i64 1016, !313, i64 1096, !320, i64 1104, !321, i64 1112, !322, i64 1128, !5, i64 1136, !329, i64 1144, !330, i64 1152, !335, i64 1176, !342, i64 1184, !347, i64 1312, !352, i64 1584, !361, i64 1632, !370, i64 1688, !371, i64 1696, !375, i64 1720, !386, i64 1776, !389, i64 1792, !394, i64 2064, !396, i64 2088, !400, i64 2224, !402, i64 2248, !403, i64 2256, !8, i64 2280, !8, i64 2284, !8, i64 2288, !8, i64 2292, !8, i64 2296, !8, i64 2300, !8, i64 2304, !8, i64 2308, !8, i64 2312, !8, i64 2316, !8, i64 2320, !8, i64 2324, !8, i64 2328, !8, i64 2332, !8, i64 2336, !8, i64 2340, !292, i64 2344, !405, i64 2376, !405, i64 2380, !64, i64 2384, !64, i64 2385, !8, i64 2388, !6, i64 2392, !406, i64 2456, !411, i64 2856, !416, i64 2880, !417, i64 2888, !23, i64 2928, !419, i64 2936, !424, i64 2960, !64, i64 2984, !429, i64 2992, !431, i64 3016, !246, i64 3040, !246, i64 3048, !246, i64 3056, !246, i64 3064, !246, i64 3072, !246, i64 3080, !246, i64 3088, !246, i64 3096, !246, i64 3104, !64, i64 3112, !214, i64 3116, !433, i64 3120, !438, i64 3264}
+!222 = !{!"_ZTSN4llvm15unique_functionIFvRKN5clang5TokenEEEE", !223, i64 0}
+!223 = !{!"_ZTSN4llvm6detail18UniqueFunctionBaseIvJRKN5clang5TokenEEEE", !6, i64 0, !224, i64 24}
+!224 = !{!"_ZTSN4llvm14PointerIntPairINS_12PointerUnionIJPNS_6detail18UniqueFunctionBaseIvJRKN5clang5TokenEEE15TrivialCallbackEPNS8_19NonTrivialCallbacksEEEELj1EbNS_21PointerLikeTypeTraitsISD_EENS_18PointerIntPairInfoISD_Lj1ESF_EEEE", !225, i64 0}
+!225 = !{!"_ZTSN4llvm6detail13PunnedPointerINS_12PointerUnionIJPNS0_18UniqueFunctionBaseIvJRKN5clang5TokenEEE15TrivialCallbackEPNS8_19NonTrivialCallbacksEEEEEE", !6, i64 0}
+!226 = !{!"_ZTSSt10shared_ptrIN5clang19PreprocessorOptionsEE", !227, i64 0}
+!227 = !{!"_ZTSSt12__shared_ptrIN5clang19PreprocessorOptionsELN9__gnu_cxx12_Lock_policyE2EE", !228, i64 0, !229, i64 8}
+!228 = !{!"p1 _ZTSN5clang19PreprocessorOptionsE", !5, i64 0}
+!229 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !230, i64 0}
+!230 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !5, i64 0}
+!231 = !{!"p1 _ZTSN5clang17DiagnosticsEngineE", !5, i64 0}
+!232 = !{!"p1 _ZTSN5clang11LangOptionsE", !5, i64 0}
+!233 = !{!"p1 _ZTSN5clang10TargetInfoE", !5, i64 0}
+!234 = !{!"p1 _ZTSN5clang11FileManagerE", !5, i64 0}
+!235 = !{!"p1 _ZTSN5clang13SourceManagerE", !5, i64 0}
+!236 = !{!"_ZTSSt10unique_ptrIN5clang13ScratchBufferESt14default_deleteIS1_EE", !237, i64 0}
+!237 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang13ScratchBufferESt14default_deleteIS1_ELb1ELb1EE", !238, i64 0}
+!238 = !{!"_ZTSSt15__uniq_ptr_implIN5clang13ScratchBufferESt14default_deleteIS1_EE", !239, i64 0}
+!239 = !{!"_ZTSSt5tupleIJPN5clang13ScratchBufferESt14default_deleteIS1_EEE", !240, i64 0}
+!240 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang13ScratchBufferESt14default_deleteIS1_EEE", !241, i64 0}
+!241 = !{!"_ZTSSt10_Head_baseILm0EPN5clang13ScratchBufferELb0EE", !242, i64 0}
+!242 = !{!"p1 _ZTSN5clang13ScratchBufferE", !5, i64 0}
+!243 = !{!"p1 _ZTSN5clang12HeaderSearchE", !5, i64 0}
+!244 = !{!"p1 _ZTSN5clang12ModuleLoaderE", !5, i64 0}
+!245 = !{!"p1 _ZTSN5clang26ExternalPreprocessorSourceE", !5, i64 0}
+!246 = !{!"p1 _ZTSN5clang14IdentifierInfoE", !5, i64 0}
+!247 = !{!"p1 _ZTSN5clang5TokenE", !5, i64 0}
+!248 = !{!"_ZTSN5clang15LangOptionsBase16FPEvalMethodKindE", !6, i64 0}
+!249 = !{!"_ZTSN5clang15IdentifierTableE", !250, i64 0, !254, i64 120}
+!250 = !{!"_ZTSN4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEE", !251, i64 0, !253, i64 24}
+!251 = !{!"_ZTSN4llvm13StringMapImplE", !252, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20}
+!252 = !{!"p2 _ZTSN4llvm18StringMapEntryBaseE", !5, i64 0}
+!253 = !{!"_ZTSN4llvm6detail15AllocatorHolderINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEEE", !102, i64 0}
+!254 = !{!"p1 _ZTSN5clang20IdentifierInfoLookupE", !5, i64 0}
+!255 = !{!"_ZTSN5clang13SelectorTableE", !5, i64 0}
+!256 = !{!"_ZTSSt10unique_ptrIN5clang7Builtin7ContextESt14default_deleteIS2_EE", !257, i64 0}
+!257 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang7Builtin7ContextESt14default_deleteIS2_ELb1ELb1EE", !258, i64 0}
+!258 = !{!"_ZTSSt15__uniq_ptr_implIN5clang7Builtin7ContextESt14default_deleteIS2_EE", !259, i64 0}
+!259 = !{!"_ZTSSt5tupleIJPN5clang7Builtin7ContextESt14default_deleteIS2_EEE", !260, i64 0}
+!260 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang7Builtin7ContextESt14default_deleteIS2_EEE", !261, i64 0}
+!261 = !{!"_ZTSSt10_Head_baseILm0EPN5clang7Builtin7ContextELb0EE", !262, i64 0}
+!262 = !{!"p1 _ZTSN5clang7Builtin7ContextE", !5, i64 0}
+!263 = !{!"_ZTSSt10unique_ptrIN5clang15PragmaNamespaceESt14default_deleteIS1_EE", !264, i64 0}
+!264 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang15PragmaNamespaceESt14default_deleteIS1_ELb1ELb1EE", !265, i64 0}
+!265 = !{!"_ZTSSt15__uniq_ptr_implIN5clang15PragmaNamespaceESt14default_deleteIS1_EE", !266, i64 0}
+!266 = !{!"_ZTSSt5tupleIJPN5clang15PragmaNamespaceESt14default_deleteIS1_EEE", !267, i64 0}
+!267 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang15PragmaNamespaceESt14default_deleteIS1_EEE", !268, i64 0}
+!268 = !{!"_ZTSSt10_Head_baseILm0EPN5clang15PragmaNamespaceELb0EE", !269, i64 0}
+!269 = !{!"p1 _ZTSN5clang15PragmaNamespaceE", !5, i64 0}
+!270 = !{!"_ZTSSt6vectorIPN5clang14CommentHandlerESaIS2_EE", !271, i64 0}
+!271 = !{!"_ZTSSt12_Vector_baseIPN5clang14CommentHandlerESaIS2_EE", !272, i64 0}
+!272 = !{!"_ZTSNSt12_Vector_baseIPN5clang14CommentHandlerESaIS2_EE12_Vector_implE", !273, i64 0}
+!273 = !{!"_ZTSNSt12_Vector_baseIPN5clang14CommentHandlerESaIS2_EE17_Vector_impl_dataE", !274, i64 0, !274, i64 8, !274, i64 16}
+!274 = !{!"p2 _ZTSN5clang14CommentHandlerE", !5, i64 0}
+!275 = !{!"p1 _ZTSN5clang16EmptylineHandlerE", !5, i64 0}
+!276 = !{!"_ZTSN5clang19TranslationUnitKindE", !6, i64 0}
+!277 = !{!"p1 _ZTSN5clang21CodeCompletionHandlerE", !5, i64 0}
+!278 = !{!"p1 _ZTSN5clang9FileEntryE", !5, i64 0}
+!279 = !{!"_ZTSN4llvm11SmallVectorISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj2EEE", !280, i64 0, !283, i64 16}
+!280 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEEEE", !281, i64 0}
+!281 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELb1EEE", !282, i64 0}
+!282 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEEvEE", !4, i64 0}
+!283 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj2EEE", !6, i64 0}
+!284 = !{!"_ZTSN4llvm8DenseMapIN5clang6FileIDENS_11SmallVectorIPKcLj6EEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEE", !285, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!285 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIN5clang6FileIDENS_11SmallVectorIPKcLj6EEEEE", !5, i64 0}
+!286 = !{!"_ZTSN5clang12Preprocessor15StdCXXImportSeqE", !287, i64 0, !64, i64 4}
+!287 = !{!"_ZTSN5clang12Preprocessor15StdCXXImportSeq5StateE", !6, i64 0}
+!288 = !{!"_ZTSN5clang12Preprocessor8TrackGMFE", !289, i64 0}
+!289 = !{!"_ZTSN5clang12Preprocessor8TrackGMF8GMFStateE", !6, i64 0}
+!290 = !{!"_ZTSN5clang12Preprocessor13ModuleDeclSeqE", !291, i64 0, !292, i64 8}
+!291 = !{!"_ZTSN5clang12Preprocessor13ModuleDeclSeq15ModuleDeclStateE", !6, i64 0}
+!292 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !293, i64 0, !23, i64 8, !6, i64 16}
+!293 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !103, i64 0}
+!294 = !{!"_ZTSSt4pairIPN5clang14IdentifierInfoENS0_14SourceLocationEE", !246, i64 0, !214, i64 8}
+!295 = !{!"_ZTSN5clang11SourceRangeE", !214, i64 0, !214, i64 4}
+!296 = !{!"_ZTSN5clang20CustomizableOptionalINS_17DirectoryEntryRefEEE", !297, i64 0}
+!297 = !{!"_ZTSN5clang15optional_detail15OptionalStorageINS_17DirectoryEntryRefEEE", !298, i64 0}
+!298 = !{!"_ZTSN5clang7FileMgr23MapEntryOptionalStorageINS_17DirectoryEntryRefEEE", !299, i64 0}
+!299 = !{!"_ZTSN5clang17DirectoryEntryRefE", !300, i64 0}
+!300 = !{!"p1 _ZTSN4llvm14StringMapEntryINS_7ErrorOrIRN5clang14DirectoryEntryEEEEE", !5, i64 0}
+!301 = !{!"_ZTSSt4pairIibE", !8, i64 0, !64, i64 4}
+!302 = !{!"_ZTSN5clang12Preprocessor29PreambleConditionalStackStoreE", !303, i64 0, !307, i64 24, !312, i64 72}
+!303 = !{!"_ZTSSt8optionalIN5clang12Preprocessor16PreambleSkipInfoEE", !304, i64 0}
+!304 = !{!"_ZTSSt14_Optional_baseIN5clang12Preprocessor16PreambleSkipInfoELb1ELb1EE", !305, i64 0}
+!305 = !{!"_ZTSSt17_Optional_payloadIN5clang12Preprocessor16PreambleSkipInfoELb1ELb1ELb1EE", !306, i64 0}
+!306 = !{!"_ZTSSt22_Optional_payload_baseIN5clang12Preprocessor16PreambleSkipInfoEE", !6, i64 0, !64, i64 16}
+!307 = !{!"_ZTSN4llvm11SmallVectorIN5clang17PPConditionalInfoELj4EEE", !308, i64 0, !311, i64 16}
+!308 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang17PPConditionalInfoEEE", !309, i64 0}
+!309 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang17PPConditionalInfoELb1EEE", !310, i64 0}
+!310 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang17PPConditionalInfoEvEE", !4, i64 0}
+!311 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang17PPConditionalInfoELj4EEE", !6, i64 0}
+!312 = !{!"_ZTSN5clang12Preprocessor29PreambleConditionalStackStore5StateE", !6, i64 0}
+!313 = !{!"_ZTSSt10unique_ptrIN5clang5LexerESt14default_deleteIS1_EE", !314, i64 0}
+!314 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang5LexerESt14default_deleteIS1_ELb1ELb1EE", !315, i64 0}
+!315 = !{!"_ZTSSt15__uniq_ptr_implIN5clang5LexerESt14default_deleteIS1_EE", !316, i64 0}
+!316 = !{!"_ZTSSt5tupleIJPN5clang5LexerESt14default_deleteIS1_EEE", !317, i64 0}
+!317 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang5LexerESt14default_deleteIS1_EEE", !318, i64 0}
+!318 = !{!"_ZTSSt10_Head_baseILm0EPN5clang5LexerELb0EE", !319, i64 0}
+!319 = !{!"p1 _ZTSN5clang5LexerE", !5, i64 0}
+!320 = !{!"p1 _ZTSN5clang17PreprocessorLexerE", !5, i64 0}
+!321 = !{!"_ZTSN5clang6detail21SearchDirIteratorImplILb1EEE", !243, i64 0, !23, i64 8}
+!322 = !{!"_ZTSSt10unique_ptrIN5clang10TokenLexerESt14default_deleteIS1_EE", !323, i64 0}
+!323 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang10TokenLexerESt14default_deleteIS1_ELb1ELb1EE", !324, i64 0}
+!324 = !{!"_ZTSSt15__uniq_ptr_implIN5clang10TokenLexerESt14default_deleteIS1_EE", !325, i64 0}
+!325 = !{!"_ZTSSt5tupleIJPN5clang10TokenLexerESt14default_deleteIS1_EEE", !326, i64 0}
+!326 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang10TokenLexerESt14default_deleteIS1_EEE", !327, i64 0}
+!327 = !{!"_ZTSSt10_Head_baseILm0EPN5clang10TokenLexerELb0EE", !328, i64 0}
+!328 = !{!"p1 _ZTSN5clang10TokenLexerE", !5, i64 0}
+!329 = !{!"p1 _ZTSN5clang6ModuleE", !5, i64 0}
+!330 = !{!"_ZTSSt6vectorIN5clang12Preprocessor16IncludeStackInfoESaIS2_EE", !331, i64 0}
+!331 = !{!"_ZTSSt12_Vector_baseIN5clang12Preprocessor16IncludeStackInfoESaIS2_EE", !332, i64 0}
+!332 = !{!"_ZTSNSt12_Vector_baseIN5clang12Preprocessor16IncludeStackInfoESaIS2_EE12_Vector_implE", !333, i64 0}
+!333 = !{!"_ZTSNSt12_Vector_baseIN5clang12Preprocessor16IncludeStackInfoESaIS2_EE17_Vector_impl_dataE", !334, i64 0, !334, i64 8, !334, i64 16}
+!334 = !{!"p1 _ZTSN5clang12Preprocessor16IncludeStackInfoE", !5, i64 0}
+!335 = !{!"_ZTSSt10unique_ptrIN5clang11PPCallbacksESt14default_deleteIS1_EE", !336, i64 0}
+!336 = !{!"_ZTSSt15__uniq_ptr_dataIN5clang11PPCallbacksESt14default_deleteIS1_ELb1ELb1EE", !337, i64 0}
+!337 = !{!"_ZTSSt15__uniq_ptr_implIN5clang11PPCallbacksESt14default_deleteIS1_EE", !338, i64 0}
+!338 = !{!"_ZTSSt5tupleIJPN5clang11PPCallbacksESt14default_deleteIS1_EEE", !339, i64 0}
+!339 = !{!"_ZTSSt11_Tuple_implILm0EJPN5clang11PPCallbacksESt14default_deleteIS1_EEE", !340, i64 0}
+!340 = !{!"_ZTSSt10_Head_baseILm0EPN5clang11PPCallbacksELb0EE", !341, i64 0}
+!341 = !{!"p1 _ZTSN5clang11PPCallbacksE", !5, i64 0}
+!342 = !{!"_ZTSN4llvm11SmallVectorIN5clang12Preprocessor16MacroExpandsInfoELj2EEE", !343, i64 0, !346, i64 16}
+!343 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang12Preprocessor16MacroExpandsInfoEEE", !344, i64 0}
+!344 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang12Preprocessor16MacroExpandsInfoELb1EEE", !345, i64 0}
+!345 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang12Preprocessor16MacroExpandsInfoEvEE", !4, i64 0}
+!346 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang12Preprocessor16MacroExpandsInfoELj2EEE", !6, i64 0}
+!347 = !{!"_ZTSN4llvm11SmallVectorIN5clang12Preprocessor21BuildingSubmoduleInfoELj8EEE", !348, i64 0, !351, i64 16}
+!348 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang12Preprocessor21BuildingSubmoduleInfoEEE", !349, i64 0}
+!349 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang12Preprocessor21BuildingSubmoduleInfoELb1EEE", !350, i64 0}
+!350 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang12Preprocessor21BuildingSubmoduleInfoEvEE", !4, i64 0}
+!351 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang12Preprocessor21BuildingSubmoduleInfoELj8EEE", !6, i64 0}
+!352 = !{!"_ZTSSt3mapIPN5clang6ModuleENS0_12Preprocessor14SubmoduleStateESt4lessIS2_ESaISt4pairIKS2_S4_EEE", !353, i64 0}
+!353 = !{!"_ZTSSt8_Rb_treeIPN5clang6ModuleESt4pairIKS2_NS0_12Preprocessor14SubmoduleStateEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE", !354, i64 0}
+!354 = !{!"_ZTSNSt8_Rb_treeIPN5clang6ModuleESt4pairIKS2_NS0_12Preprocessor14SubmoduleStateEESt10_Select1stIS7_ESt4lessIS2_ESaIS7_EE13_Rb_tree_implISB_Lb1EEE", !355, i64 0, !357, i64 8}
+!355 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIPN5clang6ModuleEEE", !356, i64 0}
+!356 = !{!"_ZTSSt4lessIPN5clang6ModuleEE"}
+!357 = !{!"_ZTSSt15_Rb_tree_header", !358, i64 0, !23, i64 32}
+!358 = !{!"_ZTSSt18_Rb_tree_node_base", !359, i64 0, !360, i64 8, !360, i64 16, !360, i64 24}
+!359 = !{!"_ZTSSt14_Rb_tree_color", !6, i64 0}
+!360 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !5, i64 0}
+!361 = !{!"_ZTSN5clang12Preprocessor14SubmoduleStateE", !362, i64 0, !364, i64 24}
+!362 = !{!"_ZTSN4llvm8DenseMapIPKN5clang14IdentifierInfoENS1_12Preprocessor10MacroStateENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !363, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!363 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang14IdentifierInfoENS2_12Preprocessor10MacroStateEEE", !5, i64 0}
+!364 = !{!"_ZTSN5clang16VisibleModuleSetE", !365, i64 0, !8, i64 24}
+!365 = !{!"_ZTSSt6vectorIN5clang14SourceLocationESaIS1_EE", !366, i64 0}
+!366 = !{!"_ZTSSt12_Vector_baseIN5clang14SourceLocationESaIS1_EE", !367, i64 0}
+!367 = !{!"_ZTSNSt12_Vector_baseIN5clang14SourceLocationESaIS1_EE12_Vector_implE", !368, i64 0}
+!368 = !{!"_ZTSNSt12_Vector_baseIN5clang14SourceLocationESaIS1_EE17_Vector_impl_dataE", !369, i64 0, !369, i64 8, !369, i64 16}
+!369 = !{!"p1 _ZTSN5clang14SourceLocationE", !5, i64 0}
+!370 = !{!"p1 _ZTSN5clang12Preprocessor14SubmoduleStateE", !5, i64 0}
+!371 = !{!"_ZTSN4llvm8DenseSetIPKN5clang9FileEntryENS_12DenseMapInfoIS4_vEEEE", !372, i64 0}
+!372 = !{!"_ZTSN4llvm6detail12DenseSetImplIPKN5clang9FileEntryENS_8DenseMapIS5_NS0_13DenseSetEmptyENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_EE", !373, i64 0}
+!373 = !{!"_ZTSN4llvm8DenseMapIPKN5clang9FileEntryENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEE", !374, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!374 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairIPKN5clang9FileEntryEEE", !5, i64 0}
+!375 = !{!"_ZTSN4llvm14SmallSetVectorIPN5clang6ModuleELj2EEE", !376, i64 0}
+!376 = !{!"_ZTSN4llvm9SetVectorIPN5clang6ModuleENS_11SmallVectorIS3_Lj2EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj2EEE", !377, i64 0, !381, i64 24}
+!377 = !{!"_ZTSN4llvm8DenseSetIPN5clang6ModuleENS_12DenseMapInfoIS3_vEEEE", !378, i64 0}
+!378 = !{!"_ZTSN4llvm6detail12DenseSetImplIPN5clang6ModuleENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_EE", !379, i64 0}
+!379 = !{!"_ZTSN4llvm8DenseMapIPN5clang6ModuleENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEE", !380, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!380 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairIPN5clang6ModuleEEE", !5, i64 0}
+!381 = !{!"_ZTSN4llvm11SmallVectorIPN5clang6ModuleELj2EEE", !382, i64 0, !385, i64 16}
+!382 = !{!"_ZTSN4llvm15SmallVectorImplIPN5clang6ModuleEEE", !383, i64 0}
+!383 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPN5clang6ModuleELb1EEE", !384, i64 0}
+!384 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPN5clang6ModuleEvEE", !4, i64 0}
+!385 = !{!"_ZTSN4llvm18SmallVectorStorageIPN5clang6ModuleELj2EEE", !6, i64 0}
+!386 = !{!"_ZTSN4llvm10FoldingSetIN5clang11ModuleMacroEEE", !387, i64 0}
+!387 = !{!"_ZTSN4llvm14FoldingSetImplINS_10FoldingSetIN5clang11ModuleMacroEEES3_EE", !388, i64 0}
+!388 = !{!"_ZTSN4llvm14FoldingSetBaseE", !5, i64 0, !8, i64 8, !8, i64 12}
+!389 = !{!"_ZTSN4llvm11SmallVectorIPN5clang14IdentifierInfoELj32EEE", !390, i64 0, !393, i64 16}
+!390 = !{!"_ZTSN4llvm15SmallVectorImplIPN5clang14IdentifierInfoEEE", !391, i64 0}
+!391 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EEE", !392, i64 0}
+!392 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPN5clang14IdentifierInfoEvEE", !4, i64 0}
+!393 = !{!"_ZTSN4llvm18SmallVectorStorageIPN5clang14IdentifierInfoELj32EEE", !6, i64 0}
+!394 = !{!"_ZTSN4llvm8DenseMapIPKN5clang14IdentifierInfoENS_13TinyPtrVectorIPNS1_11ModuleMacroEEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEE", !395, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!395 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang14IdentifierInfoENS_13TinyPtrVectorIPNS2_11ModuleMacroEEEEE", !5, i64 0}
+!396 = !{!"_ZTSN4llvm13SmallDenseSetIN5clang14SourceLocationELj32ENS_12DenseMapInfoIS2_vEEEE", !397, i64 0}
+!397 = !{!"_ZTSN4llvm6detail12DenseSetImplIN5clang14SourceLocationENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj32ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_EE", !398, i64 0}
+!398 = !{!"_ZTSN4llvm13SmallDenseMapIN5clang14SourceLocationENS_6detail13DenseSetEmptyELj32ENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEE", !8, i64 0, !8, i64 0, !8, i64 4, !399, i64 8}
+!399 = !{!"_ZTSN4llvm21AlignedCharArrayUnionIA32_NS_6detail12DenseSetPairIN5clang14SourceLocationEEEJNS_13SmallDenseMapIS4_NS1_13DenseSetEmptyELj32ENS_12DenseMapInfoIS4_vEES5_E8LargeRepEEEE", !6, i64 0}
+!400 = !{!"_ZTSN4llvm8DenseMapIPKN5clang14IdentifierInfoENS1_12Preprocessor16MacroAnnotationsENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE", !401, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!401 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKN5clang14IdentifierInfoENS2_12Preprocessor16MacroAnnotationsEEE", !5, i64 0}
+!402 = !{!"p1 _ZTSN5clang9MacroArgsE", !5, i64 0}
+!403 = !{!"_ZTSN4llvm8DenseMapIPN5clang14IdentifierInfoESt6vectorIPNS1_9MacroInfoESaIS6_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEE", !404, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!404 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPN5clang14IdentifierInfoESt6vectorIPNS2_9MacroInfoESaIS7_EEEE", !5, i64 0}
+!405 = !{!"_ZTSN5clang6FileIDE", !8, i64 0}
+!406 = !{!"_ZTSN4llvm11SmallVectorIN5clang5TokenELj16EEE", !407, i64 0, !410, i64 16}
+!407 = !{!"_ZTSN4llvm15SmallVectorImplIN5clang5TokenEEE", !408, i64 0}
+!408 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EEE", !409, i64 0}
+!409 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIN5clang5TokenEvEE", !4, i64 0}
+!410 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang5TokenELj16EEE", !6, i64 0}
+!411 = !{!"_ZTSSt6vectorISt4pairIPN5clang10TokenLexerEmESaIS4_EE", !412, i64 0}
+!412 = !{!"_ZTSSt12_Vector_baseISt4pairIPN5clang10TokenLexerEmESaIS4_EE", !413, i64 0}
+!413 = !{!"_ZTSNSt12_Vector_baseISt4pairIPN5clang10TokenLexerEmESaIS4_EE12_Vector_implE", !414, i64 0}
+!414 = !{!"_ZTSNSt12_Vector_baseISt4pairIPN5clang10TokenLexerEmESaIS4_EE17_Vector_impl_dataE", !415, i64 0, !415, i64 8, !415, i64 16}
+!415 = !{!"p1 _ZTSSt4pairIPN5clang10TokenLexerEmE", !5, i64 0}
+!416 = !{!"p1 _ZTSN5clang19PreprocessingRecordE", !5, i64 0}
+!417 = !{!"_ZTSN4llvm11SmallVectorIN5clang5TokenELj1EEE", !407, i64 0, !418, i64 16}
+!418 = !{!"_ZTSN4llvm18SmallVectorStorageIN5clang5TokenELj1EEE", !6, i64 0}
+!419 = !{!"_ZTSSt6vectorImSaImEE", !420, i64 0}
+!420 = !{!"_ZTSSt12_Vector_baseImSaImEE", !421, i64 0}
+!421 = !{!"_ZTSNSt12_Vector_baseImSaImEE12_Vector_implE", !422, i64 0}
+!422 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !423, i64 0, !423, i64 8, !423, i64 16}
+!423 = !{!"p1 long", !5, i64 0}
+!424 = !{!"_ZTSSt6vectorISt4pairIN4llvm11SmallVectorIN5clang5TokenELj1EEEmESaIS6_EE", !425, i64 0}
+!425 = !{!"_ZTSSt12_Vector_baseISt4pairIN4llvm11SmallVectorIN5clang5TokenELj1EEEmESaIS6_EE", !426, i64 0}
+!426 = !{!"_ZTSNSt12_Vector_baseISt4pairIN4llvm11SmallVectorIN5clang5TokenELj1EEEmESaIS6_EE12_Vector_implE", !427, i64 0}
+!427 = !{!"_ZTSNSt12_Vector_baseISt4pairIN4llvm11SmallVectorIN5clang5TokenELj1EEEmESaIS6_EE17_Vector_impl_dataE", !428, i64 0, !428, i64 8, !428, i64 16}
+!428 = !{!"p1 _ZTSSt4pairIN4llvm11SmallVectorIN5clang5TokenELj1EEEmE", !5, i64 0}
+!429 = !{!"_ZTSN4llvm8DenseMapIPKcjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEE", !430, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!430 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKcjEE", !5, i64 0}
+!431 = !{!"_ZTSN4llvm8DenseMapIPN5clang14IdentifierInfoEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEE", !432, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!432 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPN5clang14IdentifierInfoEjEE", !5, i64 0}
+!433 = !{!"_ZTSN4llvm11SmallVectorISt4pairIN5clang14SourceLocationES3_ELj16EEE", !434, i64 0, !437, i64 16}
+!434 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairIN5clang14SourceLocationES3_EEE", !435, i64 0}
+!435 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14SourceLocationES3_ELb1EEE", !436, i64 0}
+!436 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairIN5clang14SourceLocationES3_EvEE", !4, i64 0}
+!437 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairIN5clang14SourceLocationES3_ELj16EEE", !6, i64 0}
+!438 = !{!"_ZTSN5clang12PreprocessorUt1_E", !439, i64 0}
+!439 = !{!"_ZTSN4llvm8DenseMapIN5clang6FileIDENS_11SmallVectorISt4pairINS1_14SourceLocationES5_ELj16EEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S7_EEEE", !440, i64 0, !8, i64 8, !8, i64 12, !8, i64 16}
+!440 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIN5clang6FileIDENS_11SmallVectorISt4pairINS2_14SourceLocationES6_ELj16EEEEE", !5, i64 0}
+!441 = distinct !{!441, !30}
+!442 = !{!221, !232, i64 56}
+!443 = !{!444, !218, i64 24}
+!444 = !{!"_ZTSN5clang10MemberExprE", !208, i64 0, !15, i64 16, !218, i64 24, !219, i64 32, !214, i64 40}
+!445 = !{!446, !15, i64 16}
+!446 = !{!"_ZTSN5clang13UnaryOperatorE", !208, i64 0, !15, i64 16}
+!447 = !{!448, !15, i64 72}
+!448 = !{!"_ZTSN5clang16EnumConstantDeclE", !449, i64 0, !461, i64 56, !15, i64 72, !64, i64 80}
+!449 = !{!"_ZTSN5clang9ValueDeclE", !450, i64 0, !211, i64 48}
+!450 = !{!"_ZTSN5clang9NamedDeclE", !451, i64 0, !460, i64 40}
+!451 = !{!"_ZTSN5clang4DeclE", !452, i64 8, !454, i64 16, !214, i64 24, !8, i64 28, !8, i64 28, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 29, !8, i64 30, !8, i64 32}
+!452 = !{!"_ZTSN4llvm14PointerIntPairIPN5clang4DeclELj3ENS2_19ModuleOwnershipKindENS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj3ES6_EEEE", !453, i64 0}
+!453 = !{!"_ZTSN4llvm6detail13PunnedPointerIPN5clang4DeclEEE", !6, i64 0}
+!454 = !{!"_ZTSN4llvm12PointerUnionIJPN5clang11DeclContextEPNS1_4Decl10MultipleDCEEEE", !455, i64 0}
+!455 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi0EJS5_S8_EEE", !456, i64 0}
+!456 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi1EJS8_EEE", !457, i64 0}
+!457 = !{!"_ZTSN4llvm20pointer_union_detail19PointerUnionMembersINS_12PointerUnionIJPN5clang11DeclContextEPNS3_4Decl10MultipleDCEEEENS_14PointerIntPairIPvLj1EiNS0_22PointerUnionUIntTraitsIJS5_S8_EEENS_18PointerIntPairInfoISB_Lj1ESD_EEEELi2EJEEE", !458, i64 0}
+!458 = !{!"_ZTSN4llvm14PointerIntPairIPvLj1EiNS_20pointer_union_detail22PointerUnionUIntTraitsIJPN5clang11DeclContextEPNS4_4Decl10MultipleDCEEEENS_18PointerIntPairInfoIS1_Lj1ESA_EEEE", !459, i64 0}
+!459 = !{!"_ZTSN4llvm6detail13PunnedPointerIPvEE", !6, i64 0}
+!460 = !{!"_ZTSN5clang15DeclarationNameE", !23, i64 0}
+!461 = !{!"_ZTSN5clang12APIntStorageE", !462, i64 0}
+!462 = !{!"_ZTSN5clang16APNumericStorageE", !6, i64 0, !8, i64 8}
+!463 = !{!464, !465, i64 8}
+!464 = !{!"_ZTSN5clang4Decl10MultipleDCE", !465, i64 0, !465, i64 8}
+!465 = !{!"p1 _ZTSN5clang11DeclContextE", !5, i64 0}
+!466 = !{!464, !465, i64 0}
+!467 = !{!460, !23, i64 0}
+!468 = !{!121, !119, i64 184}
+!469 = !{!470}
+!470 = distinct !{!470, !471, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev: argument 0"}
+!471 = distinct !{!471, !"_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev"}
+!472 = !{!473, !15, i64 8}
+!473 = !{!"_ZTSN5clang10ReturnStmtE", !210, i64 0, !15, i64 8}
+!474 = distinct !{!474, !30}
+!475 = !{!476, !476, i64 0}
+!476 = !{!"p1 _ZTSN5clang4AttrE", !5, i64 0}
+!477 = distinct !{!477, !30}
+!478 = !{!214, !8, i64 0}
+!479 = !{!11, !15, i64 40}
+!480 = !{!481, !15, i64 16}
+!481 = !{!"_ZTSN5clang8CastExprE", !208, i64 0, !15, i64 16}

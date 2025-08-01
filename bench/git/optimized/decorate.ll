@@ -94,7 +94,7 @@ insert_decoration.exit.i:                         ; preds = %._crit_edge.i.i, %.
   %42 = phi i32 [ %41, %._crit_edge.i.i ], [ %21, %.lr.ph.i._crit_edge.i ], [ %21, %.lr.ph23.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %grow_decoration.exit, label %.lr.ph23.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %grow_decoration.exit, label %.lr.ph23.i, !llvm.loop !20
 
 grow_decoration.exit:                             ; preds = %insert_decoration.exit.i, %12
   tail call void @free(ptr noundef %14) #5
@@ -194,7 +194,7 @@ define dso_local ptr @lookup_decoration(ptr noundef readonly captures(none) %0, 
   %22 = getelementptr inbounds nuw %struct.decoration_entry, ptr %9, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   %24 = icmp eq ptr %23, %1
-  br i1 %24, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %24, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge, %2
   %.0 = phi ptr [ null, %2 ], [ %16, %._crit_edge ], [ null, %.lr.ph ]
@@ -235,7 +235,7 @@ define dso_local void @clear_decoration(ptr noundef captures(none) %0, ptr nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %indvars.iv.next, %14
-  br i1 %15, label %6, label %.loopexit, !llvm.loop !23
+  br i1 %15, label %6, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %12, %.preheader, %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -281,9 +281,7 @@ attributes #5 = { nounwind }
 !15 = !{!"decoration_entry", !16, i64 0, !7, i64 8}
 !16 = !{!"p1 _ZTS6object", !7, i64 0}
 !17 = !{!15, !16, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = distinct !{!22, !20}
-!23 = distinct !{!23, !19, !20}
+!20 = distinct !{!20, !19}
+!21 = distinct !{!21, !19}

@@ -27786,7 +27786,7 @@ lean_dec.exit:                                    ; preds = %61, %60, %58, %lean
 
 lean_inc.exit:                                    ; preds = %67, %66, %64, %lean_dec.exit
   %68 = tail call ptr @lean_apply_3(ptr noundef %0, ptr noundef %.0, ptr noundef %26, ptr noundef %36) #3
-  br label %6, !llvm.loop !19
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -29939,7 +29939,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_SMap_fold___spec__1___rarg(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10)
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -31948,7 +31948,7 @@ lean_dec.exit:                                    ; preds = %61, %60, %58, %lean
 
 lean_inc.exit:                                    ; preds = %67, %66, %64, %lean_dec.exit
   %68 = tail call ptr @lean_apply_3(ptr noundef %0, ptr noundef %.0, ptr noundef %26, ptr noundef %36) #3
-  br label %6, !llvm.loop !23
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -34101,7 +34101,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_SMap_toList___spec__2___rarg(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10)
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !24
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -36213,7 +36213,7 @@ lean_inc.exit27:                                  ; preds = %94, %93, %91, %lean
 
 lean_inc.exit:                                    ; preds = %100, %99, %97, %lean_inc.exit27
   %101 = tail call ptr @l_Lean_SMap_insert___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %63, ptr noundef %73)
-  br label %9, !llvm.loop !25
+  br label %9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -37034,7 +37034,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit, %lea
   store ptr %.sink114, ptr %130, align 8, !tbaa !4
   %131 = getelementptr inbounds nuw i8, ptr %.sink119, i64 16
   store ptr %.sink, ptr %131, align 8, !tbaa !4
-  br label %12, !llvm.loop !26
+  br label %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -38416,10 +38416,5 @@ attributes #5 = { "function-inline-cost-multiplier"="2" }
 !17 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !20}
-!24 = distinct !{!24, !22}
-!25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !20}

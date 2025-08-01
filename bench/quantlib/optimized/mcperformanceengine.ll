@@ -582,6 +582,5 @@ attributes #20 = { builtin nounwind }
 !35 = !{!"_ZTSN8QuantLib17StrikedTypePayoffE", !32, i64 0, !21, i64 16}
 !36 = !{!21, !21, i64 0}
 !37 = !{!5, !5, i64 0}
-!38 = distinct !{!38, !39, !40}
+!38 = distinct !{!38, !39}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.estimated_trip_count"}

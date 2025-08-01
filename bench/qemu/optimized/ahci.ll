@@ -423,7 +423,7 @@ ahci_reg_init.exit:                               ; preds = %.lr.ph.i, %8
   %36 = add nuw i32 %.041, 1
   %37 = load i32, ptr %5, align 8
   %38 = icmp ult i32 %36, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %ahci_reg_init.exit
   tail call void @g_free(ptr noundef %25) #14
@@ -449,7 +449,7 @@ define internal void @ahci_irq_set(ptr readnone captures(none) %0, i32 noundef %
   %4 = load i32, ptr @qemu_loglevel, align 4
   %5 = and i32 %4, 1024
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %7, label %6, !prof !8
+  br i1 %.not, label %7, label %6, !prof !7
 
 6:                                                ; preds = %3
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.171, i32 noundef %1, i32 noundef %2) #14
@@ -488,7 +488,7 @@ define dso_local void @ahci_uninit(ptr noundef readonly captures(none) %0) local
   %10 = add nuw i32 %.012, 1
   %11 = load i32, ptr %2, align 8
   %12 = icmp ult i32 %10, %11
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %13 = load ptr, ptr %0, align 16
@@ -505,7 +505,7 @@ define dso_local void @ahci_reset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timeval, align 8
   %3 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %3, 0
-  br i1 %.not.i.i, label %trace_ahci_reset.exit, label %4, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_reset.exit, label %4, !prof !7
 
 4:                                                ; preds = %1
   %5 = load i16, ptr @_TRACE_AHCI_RESET_DSTATE, align 2
@@ -519,13 +519,13 @@ define dso_local void @ahci_reset(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not3.i.i, label %trace_ahci_reset.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %10 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %13 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %14 = tail call i32 @qemu_get_thread_id() #14
   %15 = load i64, ptr %2, align 8
@@ -566,7 +566,7 @@ trace_ahci_reset.exit:                            ; preds = %1, %4, %6, %12, %18
   %30 = add nuw i32 %.013, 1
   %31 = load i32, ptr %21, align 8
   %32 = icmp ult i32 %30, %31
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %trace_ahci_reset.exit
   ret void
@@ -581,7 +581,7 @@ define internal fastcc void @ahci_reset_port(ptr noundef %0, i32 noundef %1) unn
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %8, 0
-  br i1 %.not.i.i, label %trace_ahci_reset_port.exit, label %9, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_reset_port.exit, label %9, !prof !7
 
 9:                                                ; preds = %2
   %10 = load i16, ptr @_TRACE_AHCI_RESET_PORT_DSTATE, align 2
@@ -595,13 +595,13 @@ define internal fastcc void @ahci_reset_port(ptr noundef %0, i32 noundef %1) unn
   br i1 %.not4.i.i, label %trace_ahci_reset_port.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %15 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %18 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %19 = tail call i32 @qemu_get_thread_id() #14
   %20 = load i64, ptr %3, align 8
@@ -650,7 +650,7 @@ trace_ahci_reset_port.exit:                       ; preds = %2, %9, %11, %17, %2
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 108
   store i8 0, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 107
-  %42 = load i8, ptr %41, align 1, !range !10, !noundef !11
+  %42 = load i8, ptr %41, align 1, !range !9, !noundef !10
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %50
 
@@ -663,7 +663,7 @@ trace_ahci_reset_port.exit:                       ; preds = %2, %9, %11, %17, %2
 47:                                               ; preds = %44
   tail call void @blk_aio_cancel(ptr noundef nonnull %46) #14
   store ptr null, ptr %45, align 8
-  %.pre = load i8, ptr %41, align 1, !range !10
+  %.pre = load i8, ptr %41, align 1, !range !9
   %48 = trunc nuw i8 %.pre to i1
   br i1 %48, label %.thread, label %50
 
@@ -676,7 +676,7 @@ trace_ahci_reset_port.exit:                       ; preds = %2, %9, %11, %17, %2
 50:                                               ; preds = %47, %.preheader, %.thread
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %51, label %.preheader, !llvm.loop !14
+  br i1 %exitcond.not, label %51, label %.preheader, !llvm.loop !13
 
 51:                                               ; preds = %50
   %52 = load ptr, ptr %0, align 16
@@ -748,9 +748,9 @@ define internal range(i32 -1, 1) i32 @ahci_state_post_load(ptr noundef %0, i32 %
   %22 = getelementptr inbounds nuw [32 x %struct.NCQTransferState], ptr %18, i64 0, i64 %indvars.iv
   store ptr %7, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 107
-  %24 = load i8, ptr %23, align 1, !range !10, !noundef !11
+  %24 = load i8, ptr %23, align 1, !range !9, !noundef !10
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 108
-  %26 = load i8, ptr %25, align 4, !range !10, !noundef !11
+  %26 = load i8, ptr %25, align 4, !range !9, !noundef !10
   %.not53 = icmp eq i8 %24, %26
   br i1 %.not53, label %27, label %is_ncq.exit.thread
 
@@ -818,7 +818,7 @@ get_cmd_header.exit:                              ; preds = %40
 59:                                               ; preds = %get_cmd_header.exit, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %60, label %21, !llvm.loop !15
+  br i1 %exitcond.not, label %60, label %21, !llvm.loop !14
 
 60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 2476
@@ -859,7 +859,7 @@ get_cmd_header.exit64:                            ; preds = %66, %68
   %77 = add nuw i32 %.04672, 1
   %78 = load i32, ptr %3, align 8
   %79 = icmp ult i32 %77, %78
-  br i1 %79, label %.lr.ph, label %is_ncq.exit.thread, !llvm.loop !16
+  br i1 %79, label %.lr.ph, label %is_ncq.exit.thread, !llvm.loop !15
 
 is_ncq.exit.thread:                               ; preds = %15, %65, %76, %29, %get_cmd_header.exit, %is_ncq.exit, %21, %2, %get_cmd_header.exit.thread, %14, %11
   %.0 = phi i32 [ -1, %14 ], [ -1, %11 ], [ -1, %get_cmd_header.exit.thread ], [ 0, %2 ], [ -1, %21 ], [ -1, %is_ncq.exit ], [ -1, %get_cmd_header.exit ], [ -1, %29 ], [ -1, %15 ], [ -1, %65 ], [ 0, %76 ]
@@ -893,7 +893,7 @@ define dso_local void @ahci_ide_create_devs(ptr noundef readonly captures(none) 
   %15 = phi i32 [ %5, %.lr.ph ], [ %.pre, %10 ]
   %16 = add nuw i32 %.09, 1
   %17 = icmp ult i32 %16, %15
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %14, %2
   ret void
@@ -914,7 +914,7 @@ define internal i64 @ahci_mem_read(ptr noundef %0, i64 noundef %1, i32 noundef %
 
 11:                                               ; preds = %3
   %12 = icmp ult i32 %2, 2
-  br i1 %12, label %13, label %14, !prof !18
+  br i1 %12, label %13, label %14, !prof !17
 
 13:                                               ; preds = %11
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 423, ptr noundef nonnull @__func__.ahci_mem_read, ptr noundef nonnull @.str.13) #15
@@ -934,7 +934,7 @@ define internal i64 @ahci_mem_read(ptr noundef %0, i64 noundef %1, i32 noundef %
   %22 = lshr i64 %.sink, %21
   %23 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %23, 0
-  br i1 %.not.i.i, label %trace_ahci_mem_read.exit, label %24, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_mem_read.exit, label %24, !prof !7
 
 24:                                               ; preds = %19
   %25 = load i16, ptr @_TRACE_AHCI_MEM_READ_DSTATE, align 2
@@ -948,13 +948,13 @@ define internal i64 @ahci_mem_read(ptr noundef %0, i64 noundef %1, i32 noundef %
   br i1 %.not8.i.i, label %trace_ahci_mem_read.exit, label %29
 
 29:                                               ; preds = %26
-  %30 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %30 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %33 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %34 = tail call i32 @qemu_get_thread_id() #14
   %35 = load i64, ptr %4, align 8
@@ -982,7 +982,7 @@ define internal void @ahci_mem_write(ptr noundef %0, i64 noundef %1, i64 noundef
   %10 = alloca %struct.timeval, align 8
   %11 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i, label %trace_ahci_mem_write.exit, label %12, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_mem_write.exit, label %12, !prof !7
 
 12:                                               ; preds = %4
   %13 = load i16, ptr @_TRACE_AHCI_MEM_WRITE_DSTATE, align 2
@@ -996,13 +996,13 @@ define internal void @ahci_mem_write(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %.not8.i.i, label %trace_ahci_mem_write.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %18 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !11
   %21 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #14
   %22 = tail call i32 @qemu_get_thread_id() #14
   %23 = load i64, ptr %10, align 8
@@ -1025,7 +1025,7 @@ trace_ahci_mem_write.exit:                        ; preds = %4, %12, %14, %20, %
   %29 = load i32, ptr @qemu_loglevel, align 4
   %30 = and i32 %29, 2048
   %.not55 = icmp eq i32 %30, 0
-  br i1 %.not55, label %trace_ahci_mem_write_host.exit, label %31, !prof !8
+  br i1 %.not55, label %trace_ahci_mem_write_host.exit, label %31, !prof !7
 
 31:                                               ; preds = %28
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.60, i64 noundef %1) #14
@@ -1080,7 +1080,7 @@ trace_ahci_mem_write.exit:                        ; preds = %4, %12, %14, %20, %
   %.not57 = icmp eq i32 %53, 0
   %.phi.trans.insert = getelementptr inbounds nuw [11 x ptr], ptr @AHCIHostReg_lookup, i64 0, i64 %35
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not57, label %._crit_edge, label %54, !prof !8
+  br i1 %.not57, label %._crit_edge, label %54, !prof !7
 
 54:                                               ; preds = %51
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.61, ptr noundef %.pre, i64 noundef %1, i64 noundef %2) #14
@@ -1089,7 +1089,7 @@ trace_ahci_mem_write.exit:                        ; preds = %4, %12, %14, %20, %
 ._crit_edge:                                      ; preds = %51, %54
   %55 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i45 = icmp eq i32 %55, 0
-  br i1 %.not.i.i45, label %trace_ahci_mem_write_host.exit, label %56, !prof !8
+  br i1 %.not.i.i45, label %trace_ahci_mem_write_host.exit, label %56, !prof !7
 
 56:                                               ; preds = %._crit_edge
   %57 = load i16, ptr @_TRACE_AHCI_MEM_WRITE_HOST_UNIMPL_DSTATE, align 2
@@ -1103,13 +1103,13 @@ trace_ahci_mem_write.exit:                        ; preds = %4, %12, %14, %20, %
   br i1 %.not8.i.i47, label %trace_ahci_mem_write_host_unimpl.exit, label %61
 
 61:                                               ; preds = %58
-  %62 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %62 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %70
 
 64:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !11
   %65 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #14
   %66 = tail call i32 @qemu_get_thread_id() #14
   %67 = load i64, ptr %9, align 8
@@ -1126,7 +1126,7 @@ trace_ahci_mem_write.exit:                        ; preds = %4, %12, %14, %20, %
 trace_ahci_mem_write_host_unimpl.exit:            ; preds = %70, %64, %58, %39, %40, %45, %34, %34, %34
   %.pr = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i48 = icmp eq i32 %.pr, 0
-  br i1 %.not.i.i48, label %trace_ahci_mem_write_host.exit, label %trace_ahci_mem_write_host_unimpl.exit.trace_ahci_mem_write_host_unimpl.exit.thread53_crit_edge, !prof !19
+  br i1 %.not.i.i48, label %trace_ahci_mem_write_host.exit, label %trace_ahci_mem_write_host_unimpl.exit.trace_ahci_mem_write_host_unimpl.exit.thread53_crit_edge, !prof !18
 
 trace_ahci_mem_write_host_unimpl.exit.trace_ahci_mem_write_host_unimpl.exit.thread53_crit_edge: ; preds = %trace_ahci_mem_write_host_unimpl.exit
   %.in.phi.trans.insert = getelementptr inbounds nuw [11 x ptr], ptr @AHCIHostReg_lookup, i64 0, i64 %35
@@ -1146,13 +1146,13 @@ trace_ahci_mem_write_host_unimpl.exit.thread53:   ; preds = %trace_ahci_mem_writ
   br i1 %.not10.i.i, label %trace_ahci_mem_write_host.exit, label %76
 
 76:                                               ; preds = %73
-  %77 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %77 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %78 = trunc nuw i8 %77 to i1
   br i1 %78, label %79, label %85
 
 79:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !11
   %80 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #14
   %81 = tail call i32 @qemu_get_thread_id() #14
   %82 = load i64, ptr %8, align 8
@@ -1195,7 +1195,7 @@ trace_ahci_mem_write_host_unimpl.exit.thread53:   ; preds = %trace_ahci_mem_writ
   %108 = load ptr, ptr %107, align 8
   %109 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i.i = icmp eq i32 %109, 0
-  br i1 %.not.i.i.i, label %trace_ahci_port_write.exit.i, label %110, !prof !8
+  br i1 %.not.i.i.i, label %trace_ahci_port_write.exit.i, label %110, !prof !7
 
 110:                                              ; preds = %95
   %111 = load i16, ptr @_TRACE_AHCI_PORT_WRITE_DSTATE, align 2
@@ -1209,13 +1209,13 @@ trace_ahci_mem_write_host_unimpl.exit.thread53:   ; preds = %trace_ahci_mem_writ
   br i1 %.not10.i.i.i, label %trace_ahci_port_write.exit.i, label %115
 
 115:                                              ; preds = %112
-  %116 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %116 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %118, label %124
 
 118:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !11
   %119 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
   %120 = tail call i32 @qemu_get_thread_id() #14
   %121 = load i64, ptr %7, align 8
@@ -1316,7 +1316,7 @@ trace_ahci_port_write.exit.i:                     ; preds = %124, %118, %112, %1
   %158 = load ptr, ptr %0, align 16
   %159 = getelementptr inbounds nuw %struct.AHCIDevice, ptr %158, i64 %103
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 2480
-  %161 = load i8, ptr %160, align 8, !range !10, !noundef !11
+  %161 = load i8, ptr %160, align 8, !range !9, !noundef !10
   %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %164, label %163
 
@@ -1372,7 +1372,7 @@ trace_ahci_port_write.exit.i:                     ; preds = %124, %118, %112, %1
 187:                                              ; preds = %trace_ahci_port_write.exit.i
   %188 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i66.i = icmp eq i32 %188, 0
-  br i1 %.not.i.i66.i, label %trace_ahci_port_write_unimpl.exit.i, label %189, !prof !8
+  br i1 %.not.i.i66.i, label %trace_ahci_port_write_unimpl.exit.i, label %189, !prof !7
 
 189:                                              ; preds = %187
   %190 = load i16, ptr @_TRACE_AHCI_PORT_WRITE_UNIMPL_DSTATE, align 2
@@ -1386,13 +1386,13 @@ trace_ahci_port_write.exit.i:                     ; preds = %124, %118, %112, %1
   br i1 %.not10.i.i68.i, label %trace_ahci_port_write_unimpl.exit.i, label %194
 
 194:                                              ; preds = %191
-  %195 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %195 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %197, label %203
 
 197:                                              ; preds = %194
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !11
   %198 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #14
   %199 = tail call i32 @qemu_get_thread_id() #14
   %200 = load i64, ptr %6, align 8
@@ -1410,7 +1410,7 @@ trace_ahci_port_write_unimpl.exit.i:              ; preds = %203, %197, %191, %1
   %204 = load i32, ptr @qemu_loglevel, align 4
   %205 = and i32 %204, 1024
   %.not69.i = icmp eq i32 %205, 0
-  br i1 %.not69.i, label %trace_ahci_mem_write_host.exit, label %206, !prof !8
+  br i1 %.not69.i, label %trace_ahci_mem_write_host.exit, label %206, !prof !7
 
 206:                                              ; preds = %trace_ahci_port_write_unimpl.exit.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef range(i32 0, 33554430) %98, ptr noundef %108, i32 noundef range(i32 0, 128) %100, i32 noundef %101) #14
@@ -1420,7 +1420,7 @@ trace_ahci_port_write_unimpl.exit.i:              ; preds = %203, %197, %191, %1
   %208 = load i32, ptr @qemu_loglevel, align 4
   %209 = and i32 %208, 1024
   %.not56 = icmp eq i32 %209, 0
-  br i1 %.not56, label %211, label %210, !prof !8
+  br i1 %.not56, label %211, label %210, !prof !7
 
 210:                                              ; preds = %207
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.62, i64 noundef %1, i64 noundef %2) #14
@@ -1429,7 +1429,7 @@ trace_ahci_port_write_unimpl.exit.i:              ; preds = %203, %197, %191, %1
 211:                                              ; preds = %210, %207
   %212 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i49 = icmp eq i32 %212, 0
-  br i1 %.not.i.i49, label %trace_ahci_mem_write_host.exit, label %213, !prof !8
+  br i1 %.not.i.i49, label %trace_ahci_mem_write_host.exit, label %213, !prof !7
 
 213:                                              ; preds = %211
   %214 = load i16, ptr @_TRACE_AHCI_MEM_WRITE_UNIMPL_DSTATE, align 2
@@ -1443,13 +1443,13 @@ trace_ahci_port_write_unimpl.exit.i:              ; preds = %203, %197, %191, %1
   br i1 %.not8.i.i51, label %trace_ahci_mem_write_host.exit, label %218
 
 218:                                              ; preds = %215
-  %219 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %219 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %220 = trunc nuw i8 %219 to i1
   br i1 %220, label %221, label %227
 
 221:                                              ; preds = %218
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !11
   %222 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #14
   %223 = tail call i32 @qemu_get_thread_id() #14
   %224 = load i64, ptr %5, align 8
@@ -1519,7 +1519,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @ahci_mem_read_32(ptr nounde
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %31, 0
-  br i1 %.not.i.i, label %trace_ahci_mem_read_32.exit, label %32, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_mem_read_32.exit, label %32, !prof !7
 
 32:                                               ; preds = %28
   %33 = load i16, ptr @_TRACE_AHCI_MEM_READ_32_HOST_DEFAULT_DSTATE, align 2
@@ -1533,13 +1533,13 @@ define internal fastcc range(i64 0, 4294967296) i64 @ahci_mem_read_32(ptr nounde
   br i1 %.not6.i.i, label %trace_ahci_mem_read_32_host_default.exit, label %37
 
 37:                                               ; preds = %34
-  %38 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %38 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !11
   %41 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #14
   %42 = tail call i32 @qemu_get_thread_id() #14
   %43 = load i64, ptr %8, align 8
@@ -1557,7 +1557,7 @@ trace_ahci_mem_read_32_host_default.exit:         ; preds = %46, %40, %34, %25, 
   %.0.ph = phi i32 [ 0, %46 ], [ 0, %40 ], [ 0, %34 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %16 ], [ %15, %13 ]
   %.pr = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i32 = icmp eq i32 %.pr, 0
-  br i1 %.not.i.i32, label %trace_ahci_mem_read_32.exit, label %trace_ahci_mem_read_32_host_default.exit.trace_ahci_mem_read_32_host_default.exit.thread42_crit_edge, !prof !20
+  br i1 %.not.i.i32, label %trace_ahci_mem_read_32.exit, label %trace_ahci_mem_read_32_host_default.exit.trace_ahci_mem_read_32_host_default.exit.thread42_crit_edge, !prof !19
 
 trace_ahci_mem_read_32_host_default.exit.trace_ahci_mem_read_32_host_default.exit.thread42_crit_edge: ; preds = %trace_ahci_mem_read_32_host_default.exit
   %.in.phi.trans.insert = getelementptr inbounds nuw [11 x ptr], ptr @AHCIHostReg_lookup, i64 0, i64 %11
@@ -1578,13 +1578,13 @@ trace_ahci_mem_read_32_host_default.exit.thread42: ; preds = %trace_ahci_mem_rea
   br i1 %.not8.i.i, label %trace_ahci_mem_read_32_host.exit, label %52
 
 52:                                               ; preds = %49
-  %53 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %53 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !11
   %56 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
   %57 = tail call i32 @qemu_get_thread_id() #14
   %58 = load i64, ptr %7, align 8
@@ -1716,7 +1716,7 @@ trace_ahci_mem_read_32_host_default.exit.thread42: ; preds = %trace_ahci_mem_rea
   %126 = load ptr, ptr %125, align 8
   %127 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i.i = icmp eq i32 %127, 0
-  br i1 %.not.i.i.i, label %trace_ahci_mem_read_32.exit, label %128, !prof !8
+  br i1 %.not.i.i.i, label %trace_ahci_mem_read_32.exit, label %128, !prof !7
 
 128:                                              ; preds = %124
   %129 = load i16, ptr @_TRACE_AHCI_PORT_READ_DEFAULT_DSTATE, align 2
@@ -1730,13 +1730,13 @@ trace_ahci_mem_read_32_host_default.exit.thread42: ; preds = %trace_ahci_mem_rea
   br i1 %.not8.i.i.i, label %trace_ahci_port_read_default.exit.i, label %133
 
 133:                                              ; preds = %130
-  %134 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %134 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %135 = trunc nuw i8 %134 to i1
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !11
   %137 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #14
   %138 = tail call i32 @qemu_get_thread_id() #14
   %139 = load i64, ptr %6, align 8
@@ -1754,7 +1754,7 @@ trace_ahci_port_read_default.exit.i:              ; preds = %142, %136, %130, %1
   %.0.ph.i = phi i32 [ 0, %142 ], [ 0, %136 ], [ 0, %130 ], [ %..i, %109 ], [ %123, %121 ], [ %120, %118 ], [ %117, %115 ], [ %114, %112 ], [ %108, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %97 ], [ %96, %94 ], [ %93, %91 ], [ %90, %88 ], [ %87, %85 ], [ %84, %82 ]
   %.pr.i = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i30.i = icmp eq i32 %.pr.i, 0
-  br i1 %.not.i.i30.i, label %trace_ahci_mem_read_32.exit, label %trace_ahci_port_read_default.exit.trace_ahci_port_read_default.exit.thread34_crit_edge.i, !prof !21
+  br i1 %.not.i.i30.i, label %trace_ahci_mem_read_32.exit, label %trace_ahci_port_read_default.exit.trace_ahci_port_read_default.exit.thread34_crit_edge.i, !prof !20
 
 trace_ahci_port_read_default.exit.trace_ahci_port_read_default.exit.thread34_crit_edge.i: ; preds = %trace_ahci_port_read_default.exit.i
   %.in.phi.trans.insert.i = getelementptr inbounds nuw [32 x ptr], ptr @AHCIPortReg_lookup, i64 0, i64 %81
@@ -1775,13 +1775,13 @@ trace_ahci_port_read_default.exit.thread34.i:     ; preds = %trace_ahci_port_rea
   br i1 %.not10.i.i.i, label %trace_ahci_mem_read_32_host.exit, label %148
 
 148:                                              ; preds = %145
-  %149 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %149 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %150 = trunc nuw i8 %149 to i1
   br i1 %150, label %151, label %157
 
 151:                                              ; preds = %148
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !11
   %152 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #14
   %153 = tail call i32 @qemu_get_thread_id() #14
   %154 = load i64, ptr %5, align 8
@@ -1798,7 +1798,7 @@ trace_ahci_port_read_default.exit.thread34.i:     ; preds = %trace_ahci_port_rea
 158:                                              ; preds = %64, %62
   %159 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i33 = icmp eq i32 %159, 0
-  br i1 %.not.i.i33, label %trace_ahci_mem_read_32.exit, label %160, !prof !8
+  br i1 %.not.i.i33, label %trace_ahci_mem_read_32.exit, label %160, !prof !7
 
 160:                                              ; preds = %158
   %161 = load i16, ptr @_TRACE_AHCI_MEM_READ_32_DEFAULT_DSTATE, align 2
@@ -1812,13 +1812,13 @@ trace_ahci_port_read_default.exit.thread34.i:     ; preds = %trace_ahci_port_rea
   br i1 %.not6.i.i35, label %trace_ahci_mem_read_32_host.exit, label %165
 
 165:                                              ; preds = %162
-  %166 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %166 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %167 = trunc nuw i8 %166 to i1
   br i1 %167, label %168, label %174
 
 168:                                              ; preds = %165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %169 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %170 = tail call i32 @qemu_get_thread_id() #14
   %171 = load i64, ptr %4, align 8
@@ -1836,7 +1836,7 @@ trace_ahci_mem_read_32_host.exit:                 ; preds = %174, %168, %162, %1
   %.1.ph = phi i32 [ 0, %174 ], [ 0, %168 ], [ 0, %162 ], [ %.037.i, %157 ], [ %.037.i, %151 ], [ %.037.i, %145 ], [ %.037.i, %trace_ahci_port_read_default.exit.thread34.i ], [ %.045, %61 ], [ %.045, %55 ], [ %.045, %49 ], [ %.045, %trace_ahci_mem_read_32_host_default.exit.thread42 ]
   %.pr46 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i36 = icmp eq i32 %.pr46, 0
-  br i1 %.not.i.i36, label %trace_ahci_mem_read_32.exit, label %trace_ahci_mem_read_32_host.exit.thread51, !prof !22
+  br i1 %.not.i.i36, label %trace_ahci_mem_read_32.exit, label %trace_ahci_mem_read_32_host.exit.thread51, !prof !21
 
 trace_ahci_mem_read_32_host.exit.thread51:        ; preds = %160, %trace_ahci_mem_read_32_host.exit
   %.154 = phi i32 [ %.1.ph, %trace_ahci_mem_read_32_host.exit ], [ 0, %160 ]
@@ -1851,13 +1851,13 @@ trace_ahci_mem_read_32_host.exit.thread51:        ; preds = %160, %trace_ahci_me
   br i1 %.not6.i.i38, label %trace_ahci_mem_read_32.exit, label %179
 
 179:                                              ; preds = %176
-  %180 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %180 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %181 = trunc nuw i8 %180 to i1
   br i1 %181, label %182, label %188
 
 182:                                              ; preds = %179
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %183 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %184 = tail call i32 @qemu_get_thread_id() #14
   %185 = load i64, ptr %3, align 8
@@ -1930,13 +1930,13 @@ define internal fastcc void @ahci_check_irq(ptr noundef %0) unnamed_addr #0 {
   %23 = phi i32 [ %21, %19 ], [ %11, %10 ]
   %24 = add nuw i32 %.025, 1
   %exitcond.not = icmp eq i32 %24, %8
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %22, %1
   %25 = phi i32 [ 0, %1 ], [ %23, %22 ]
   %26 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %26, 0
-  br i1 %.not.i.i, label %trace_ahci_check_irq.exit, label %27, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_check_irq.exit, label %27, !prof !7
 
 27:                                               ; preds = %._crit_edge
   %28 = load i16, ptr @_TRACE_AHCI_CHECK_IRQ_DSTATE, align 2
@@ -1950,13 +1950,13 @@ define internal fastcc void @ahci_check_irq(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not6.i.i, label %trace_ahci_check_irq.exitthread-pre-split, label %32
 
 32:                                               ; preds = %29
-  %33 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %33 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %36 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %37 = tail call i32 @qemu_get_thread_id() #14
   %38 = load i64, ptr %4, align 8
@@ -1993,7 +1993,7 @@ trace_ahci_check_irq.exit._crit_edge:             ; preds = %trace_ahci_check_ir
 
 47:                                               ; preds = %43
   %.not.i.i21 = icmp eq i32 %.pre27, 0
-  br i1 %.not.i.i21, label %trace_ahci_irq_raise.exit, label %48, !prof !8
+  br i1 %.not.i.i21, label %trace_ahci_irq_raise.exit, label %48, !prof !7
 
 48:                                               ; preds = %47
   %49 = load i16, ptr @_TRACE_AHCI_IRQ_RAISE_DSTATE, align 2
@@ -2007,13 +2007,13 @@ trace_ahci_check_irq.exit._crit_edge:             ; preds = %trace_ahci_check_ir
   br i1 %.not3.i.i, label %trace_ahci_irq_raise.exit, label %53
 
 53:                                               ; preds = %50
-  %54 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %54 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %62
 
 56:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %57 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %58 = tail call i32 @qemu_get_thread_id() #14
   %59 = load i64, ptr %3, align 8
@@ -2030,7 +2030,7 @@ trace_ahci_check_irq.exit._crit_edge:             ; preds = %trace_ahci_check_ir
 63:                                               ; preds = %trace_ahci_check_irq.exit._crit_edge, %43
   %64 = phi i32 [ %.pre, %trace_ahci_check_irq.exit._crit_edge ], [ %.pre27, %43 ]
   %.not.i.i22 = icmp eq i32 %64, 0
-  br i1 %.not.i.i22, label %trace_ahci_irq_raise.exit, label %65, !prof !8
+  br i1 %.not.i.i22, label %trace_ahci_irq_raise.exit, label %65, !prof !7
 
 65:                                               ; preds = %63
   %66 = load i16, ptr @_TRACE_AHCI_IRQ_LOWER_DSTATE, align 2
@@ -2044,13 +2044,13 @@ trace_ahci_check_irq.exit._crit_edge:             ; preds = %trace_ahci_check_ir
   br i1 %.not3.i.i24, label %trace_ahci_irq_raise.exit, label %70
 
 70:                                               ; preds = %67
-  %71 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %71 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %73, label %79
 
 73:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %74 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %75 = tail call i32 @qemu_get_thread_id() #14
   %76 = load i64, ptr %2, align 8
@@ -2153,7 +2153,7 @@ ahci_map_clb_address.exit.thread:                 ; preds = %map_page.exit.i
   %37 = load i32, ptr %36, align 8
   %38 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i.i = icmp eq i32 %38, 0
-  br i1 %.not.i.i.i, label %ahci_unmap_clb_address.exit, label %39, !prof !8
+  br i1 %.not.i.i.i, label %ahci_unmap_clb_address.exit, label %39, !prof !7
 
 39:                                               ; preds = %33
   %40 = load i16, ptr @_TRACE_AHCI_UNMAP_CLB_ADDRESS_NULL_DSTATE, align 2
@@ -2167,13 +2167,13 @@ ahci_map_clb_address.exit.thread:                 ; preds = %map_page.exit.i
   br i1 %.not4.i.i.i, label %ahci_unmap_clb_address.exit, label %44
 
 44:                                               ; preds = %41
-  %45 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %45 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %53
 
 47:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %48 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %49 = tail call i32 @qemu_get_thread_id() #14
   %50 = load i64, ptr %4, align 8
@@ -2267,7 +2267,7 @@ ahci_map_fis_address.exit.thread:                 ; preds = %map_page.exit.i35
   %88 = load i32, ptr %87, align 8
   %89 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i.i36 = icmp eq i32 %89, 0
-  br i1 %.not.i.i.i36, label %ahci_unmap_fis_address.exit, label %90, !prof !8
+  br i1 %.not.i.i.i36, label %ahci_unmap_fis_address.exit, label %90, !prof !7
 
 90:                                               ; preds = %84
   %91 = load i16, ptr @_TRACE_AHCI_UNMAP_FIS_ADDRESS_NULL_DSTATE, align 2
@@ -2281,13 +2281,13 @@ ahci_map_fis_address.exit.thread:                 ; preds = %map_page.exit.i35
   br i1 %.not4.i.i.i38, label %ahci_unmap_fis_address.exit, label %95
 
 95:                                               ; preds = %92
-  %96 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %96 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %97 = trunc nuw i8 %96 to i1
   br i1 %97, label %98, label %104
 
 98:                                               ; preds = %95
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %99 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %100 = call i32 @qemu_get_thread_id() #14
   %101 = load i64, ptr %2, align 8
@@ -2321,7 +2321,7 @@ ahci_unmap_fis_address.exit:                      ; preds = %ahci_unmap_clb_addr
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @ahci_init_d2h(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %3 = load i8, ptr %2, align 8, !range !10, !noundef !11
+  %3 = load i8, ptr %2, align 8, !range !9, !noundef !10
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %ahci_write_fis_d2h.exit.thread, label %5
 
@@ -2507,7 +2507,7 @@ define internal fastcc void @check_cmd(ptr noundef %0, i32 noundef %1) unnamed_a
 59:                                               ; preds = %53
   %60 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i.i = icmp eq i32 %60, 0
-  br i1 %.not.i.i.i, label %handle_cmd.exit, label %61, !prof !8
+  br i1 %.not.i.i.i, label %handle_cmd.exit, label %61, !prof !7
 
 61:                                               ; preds = %59
   %62 = load i16, ptr @_TRACE_HANDLE_CMD_BUSY_DSTATE, align 2
@@ -2521,13 +2521,13 @@ define internal fastcc void @check_cmd(ptr noundef %0, i32 noundef %1) unnamed_a
   br i1 %.not4.i.i.i, label %handle_cmd.exit, label %66
 
 66:                                               ; preds = %63
-  %67 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %67 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %68 = trunc nuw i8 %67 to i1
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false), !annotation !11
   %70 = call i32 @gettimeofday(ptr noundef nonnull %18, ptr noundef null) #14
   %71 = call i32 @qemu_get_thread_id() #14
   %72 = load i64, ptr %18, align 8
@@ -2549,7 +2549,7 @@ define internal fastcc void @check_cmd(ptr noundef %0, i32 noundef %1) unnamed_a
 78:                                               ; preds = %75
   %79 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i58.i = icmp eq i32 %79, 0
-  br i1 %.not.i.i58.i, label %handle_cmd.exit, label %80, !prof !8
+  br i1 %.not.i.i58.i, label %handle_cmd.exit, label %80, !prof !7
 
 80:                                               ; preds = %78
   %81 = load i16, ptr @_TRACE_HANDLE_CMD_NOLIST_DSTATE, align 2
@@ -2563,13 +2563,13 @@ define internal fastcc void @check_cmd(ptr noundef %0, i32 noundef %1) unnamed_a
   br i1 %.not4.i.i60.i, label %handle_cmd.exit, label %85
 
 85:                                               ; preds = %82
-  %86 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %86 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %93
 
 88:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !annotation !11
   %89 = call i32 @gettimeofday(ptr noundef nonnull %17, ptr noundef null) #14
   %90 = call i32 @qemu_get_thread_id() #14
   %91 = load i64, ptr %17, align 8
@@ -2608,7 +2608,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
 105:                                              ; preds = %get_cmd_header.exit.i
   %106 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i61.i = icmp eq i32 %106, 0
-  br i1 %.not.i.i61.i, label %handle_cmd.exit, label %107, !prof !8
+  br i1 %.not.i.i61.i, label %handle_cmd.exit, label %107, !prof !7
 
 107:                                              ; preds = %105
   %108 = load i16, ptr @_TRACE_HANDLE_CMD_BADPORT_DSTATE, align 2
@@ -2622,13 +2622,13 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   br i1 %.not4.i.i63.i, label %handle_cmd.exit, label %112
 
 112:                                              ; preds = %109
-  %113 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %113 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false), !annotation !11
   %116 = call i32 @gettimeofday(ptr noundef nonnull %16, ptr noundef null) #14
   %117 = call i32 @qemu_get_thread_id() #14
   %118 = load i64, ptr %16, align 8
@@ -2656,7 +2656,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
 127:                                              ; preds = %121
   %128 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i64.i = icmp eq i32 %128, 0
-  br i1 %.not.i.i64.i, label %handle_cmd.exit, label %129, !prof !8
+  br i1 %.not.i.i64.i, label %handle_cmd.exit, label %129, !prof !7
 
 129:                                              ; preds = %127
   %130 = load i16, ptr @_TRACE_HANDLE_CMD_BADFIS_DSTATE, align 2
@@ -2670,13 +2670,13 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   br i1 %.not4.i.i66.i, label %handle_cmd.exit, label %134
 
 134:                                              ; preds = %131
-  %135 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %135 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %136 = trunc nuw i8 %135 to i1
   br i1 %136, label %137, label %142
 
 137:                                              ; preds = %134
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false), !annotation !11
   %138 = call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #14
   %139 = call i32 @qemu_get_thread_id() #14
   %140 = load i64, ptr %14, align 8
@@ -2699,7 +2699,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   call fastcc void @ahci_trigger_irq(ptr noundef nonnull %0, ptr noundef %146, i32 noundef 29)
   %147 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i67.i = icmp eq i32 %147, 0
-  br i1 %.not.i.i67.i, label %trace_handle_cmd_badmap.exit.i, label %148, !prof !8
+  br i1 %.not.i.i67.i, label %trace_handle_cmd_badmap.exit.i, label %148, !prof !7
 
 148:                                              ; preds = %144
   %149 = load i16, ptr @_TRACE_HANDLE_CMD_BADMAP_DSTATE, align 2
@@ -2713,13 +2713,13 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   br i1 %.not6.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %153
 
 153:                                              ; preds = %150
-  %154 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %154 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %156, label %161
 
 156:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false), !annotation !11
   %157 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #14
   %158 = call i32 @qemu_get_thread_id() #14
   %159 = load i64, ptr %13, align 8
@@ -2735,7 +2735,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
 162:                                              ; preds = %143
   %163 = load i32, ptr @trace_events_enabled_count, align 4
   %.not56.i = icmp eq i32 %163, 0
-  br i1 %.not56.i, label %168, label %164, !prof !8
+  br i1 %.not56.i, label %168, label %164, !prof !7
 
 164:                                              ; preds = %162
   %165 = load i16, ptr @_TRACE_HANDLE_CMD_FIS_DUMP_DSTATE, align 2
@@ -2778,7 +2778,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   %188 = load i8, ptr %187, align 1
   %189 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i.i.i = icmp eq i32 %189, 0
-  br i1 %.not.i.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %190, !prof !8
+  br i1 %.not.i.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %190, !prof !7
 
 190:                                              ; preds = %184
   %191 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_PMP_DSTATE, align 2
@@ -2792,13 +2792,13 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   br i1 %.not10.i.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %195
 
 195:                                              ; preds = %192
-  %196 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %196 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %197 = trunc nuw i8 %196 to i1
   br i1 %197, label %198, label %206
 
 198:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !annotation !11
   %199 = call i32 @gettimeofday(ptr noundef nonnull %12, ptr noundef null) #14
   %200 = call i32 @qemu_get_thread_id() #14
   %201 = load i64, ptr %12, align 8
@@ -2829,7 +2829,7 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   %216 = load i8, ptr %215, align 1
   %217 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i83.i.i = icmp eq i32 %217, 0
-  br i1 %.not.i.i83.i.i, label %trace_handle_cmd_badmap.exit.i, label %218, !prof !8
+  br i1 %.not.i.i83.i.i, label %trace_handle_cmd_badmap.exit.i, label %218, !prof !7
 
 218:                                              ; preds = %212
   %219 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_RES_DSTATE, align 2
@@ -2843,13 +2843,13 @@ get_cmd_header.exit.i:                            ; preds = %96, %94
   br i1 %.not10.i.i85.i.i, label %trace_handle_cmd_badmap.exit.i, label %223
 
 223:                                              ; preds = %220
-  %224 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %224 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %225 = trunc nuw i8 %224 to i1
   br i1 %225, label %226, label %234
 
 226:                                              ; preds = %223
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !annotation !11
   %227 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #14
   %228 = call i32 @qemu_get_thread_id() #14
   %229 = load i64, ptr %11, align 8
@@ -2951,7 +2951,7 @@ is_ncq.exit.i.i:                                  ; preds = %262, %262, %262, %2
 
 is_ncq.exit.i.i.i:                                ; preds = %is_ncq.exit.i.i, %is_ncq.exit.i.i, %is_ncq.exit.i.i, %is_ncq.exit.i.i, %is_ncq.exit.i.i
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 107
-  %273 = load i8, ptr %272, align 1, !range !10, !noundef !11
+  %273 = load i8, ptr %272, align 1, !range !9, !noundef !10
   %274 = trunc nuw i8 %273 to i1
   br i1 %274, label %275, label %280
 
@@ -2959,7 +2959,7 @@ is_ncq.exit.i.i.i:                                ; preds = %is_ncq.exit.i.i, %i
   %276 = load i32, ptr @qemu_loglevel, align 4
   %277 = and i32 %276, 2048
   %.not.i90.i.i = icmp eq i32 %277, 0
-  br i1 %.not.i90.i.i, label %trace_handle_cmd_badmap.exit.i, label %278, !prof !8
+  br i1 %.not.i90.i.i, label %trace_handle_cmd_badmap.exit.i, label %278, !prof !7
 
 278:                                              ; preds = %275
   %279 = zext nneg i8 %267 to i32
@@ -3112,7 +3112,7 @@ ahci_write_fis_d2h.exit.i.i.i:                    ; preds = %.sink.split.i.i.i.i
   %377 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i.i.i.i = icmp eq i32 %377, 0
   %or.cond.i89.i.i = select i1 %.not94.i.i.i, i1 true, i1 %.not.i.i.i.i.i
-  br i1 %or.cond.i89.i.i, label %trace_process_ncq_command_mismatch.exit.i.i.i, label %378, !prof !24
+  br i1 %or.cond.i89.i.i, label %trace_process_ncq_command_mismatch.exit.i.i.i, label %378, !prof !23
 
 378:                                              ; preds = %ahci_write_fis_d2h.exit.i.i.i
   %379 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_MISMATCH_DSTATE, align 2
@@ -3126,13 +3126,13 @@ ahci_write_fis_d2h.exit.i.i.i:                    ; preds = %.sink.split.i.i.i.i
   br i1 %.not8.i.i.i.i.i, label %trace_process_ncq_command_mismatch.exit.i.i.i, label %383
 
 383:                                              ; preds = %380
-  %384 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %384 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %385 = trunc nuw i8 %384 to i1
   br i1 %385, label %386, label %392
 
 386:                                              ; preds = %383
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !11
   %387 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #14
   %388 = call i32 @qemu_get_thread_id() #14
   %389 = load i64, ptr %10, align 8
@@ -3172,12 +3172,12 @@ trace_process_ncq_command_mismatch.exit.i.i.i:    ; preds = %392, %386, %380, %3
   %405 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i106.i.i.i = icmp eq i32 %405, 0
   %or.cond123.i.i.i = select i1 %.not98.i.i.i, i1 true, i1 %.not.i.i106.i.i.i
-  br i1 %or.cond123.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %407, !prof !24
+  br i1 %or.cond123.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %407, !prof !23
 
 406:                                              ; preds = %399, %396, %trace_process_ncq_command_mismatch.exit.i.i.i
   %.old.i.i.i = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i106.old.i.i.i = icmp eq i32 %.old.i.i.i, 0
-  br i1 %.not.i.i106.old.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %407, !prof !8
+  br i1 %.not.i.i106.old.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %407, !prof !7
 
 407:                                              ; preds = %406, %402
   %408 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_AUX_DSTATE, align 2
@@ -3191,13 +3191,13 @@ trace_process_ncq_command_mismatch.exit.i.i.i:    ; preds = %392, %386, %380, %3
   br i1 %.not6.i.i.i.i.i, label %trace_process_ncq_command_aux.exit.i.i.i, label %412
 
 412:                                              ; preds = %409
-  %413 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %413 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %414 = trunc nuw i8 %413 to i1
   br i1 %414, label %415, label %421
 
 415:                                              ; preds = %412
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !11
   %416 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #14
   %417 = call i32 @qemu_get_thread_id() #14
   %418 = load i64, ptr %9, align 8
@@ -3225,12 +3225,12 @@ trace_process_ncq_command_aux.exit.i.i.i:         ; preds = %421, %415, %409, %4
   %428 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i107.i.i.i = icmp eq i32 %428, 0
   %or.cond125.i.i.i = select i1 %.not100.i.i.i, i1 true, i1 %.not.i.i107.i.i.i
-  br i1 %or.cond125.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %430, !prof !24
+  br i1 %or.cond125.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %430, !prof !23
 
 429:                                              ; preds = %trace_process_ncq_command_aux.exit.i.i.i
   %.old124.i.i.i = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i107.old.i.i.i = icmp eq i32 %.old124.i.i.i, 0
-  br i1 %.not.i.i107.old.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %430, !prof !8
+  br i1 %.not.i.i107.old.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %430, !prof !7
 
 430:                                              ; preds = %429, %425
   %431 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_PRIOICC_DSTATE, align 2
@@ -3244,13 +3244,13 @@ trace_process_ncq_command_aux.exit.i.i.i:         ; preds = %421, %415, %409, %4
   br i1 %.not6.i.i109.i.i.i, label %trace_process_ncq_command_prioicc.exit.i.i.i, label %435
 
 435:                                              ; preds = %432
-  %436 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %436 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %437 = trunc nuw i8 %436 to i1
   br i1 %437, label %438, label %444
 
 438:                                              ; preds = %435
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !11
   %439 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #14
   %440 = call i32 @qemu_get_thread_id() #14
   %441 = load i64, ptr %8, align 8
@@ -3272,7 +3272,7 @@ trace_process_ncq_command_prioicc.exit.i.i.i:     ; preds = %444, %438, %432, %4
   %448 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i110.i.i.i = icmp eq i32 %448, 0
   %or.cond127.i.i.i = select i1 %.not101.i.i.i, i1 true, i1 %.not.i.i110.i.i.i
-  br i1 %or.cond127.i.i.i, label %trace_process_ncq_command_fua.exit.i.i.i, label %449, !prof !24
+  br i1 %or.cond127.i.i.i, label %trace_process_ncq_command_fua.exit.i.i.i, label %449, !prof !23
 
 449:                                              ; preds = %trace_process_ncq_command_prioicc.exit.i.i.i
   %450 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_FUA_DSTATE, align 2
@@ -3286,13 +3286,13 @@ trace_process_ncq_command_prioicc.exit.i.i.i:     ; preds = %444, %438, %432, %4
   br i1 %.not6.i.i112.i.i.i, label %trace_process_ncq_command_fua.exit.i.i.i, label %454
 
 454:                                              ; preds = %451
-  %455 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %455 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %456 = trunc nuw i8 %455 to i1
   br i1 %456, label %457, label %463
 
 457:                                              ; preds = %454
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !11
   %458 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
   %459 = call i32 @qemu_get_thread_id() #14
   %460 = load i64, ptr %7, align 8
@@ -3314,7 +3314,7 @@ trace_process_ncq_command_fua.exit.i.i.i:         ; preds = %463, %457, %451, %4
   %467 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i113.i.i.i = icmp eq i32 %467, 0
   %or.cond129.i.i.i = select i1 %.not102.i.i.i, i1 true, i1 %.not.i.i113.i.i.i
-  br i1 %or.cond129.i.i.i, label %trace_process_ncq_command_rarc.exit.i.i.i, label %468, !prof !24
+  br i1 %or.cond129.i.i.i, label %trace_process_ncq_command_rarc.exit.i.i.i, label %468, !prof !23
 
 468:                                              ; preds = %trace_process_ncq_command_fua.exit.i.i.i
   %469 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_RARC_DSTATE, align 2
@@ -3328,13 +3328,13 @@ trace_process_ncq_command_fua.exit.i.i.i:         ; preds = %463, %457, %451, %4
   br i1 %.not6.i.i115.i.i.i, label %trace_process_ncq_command_rarc.exit.i.i.i, label %473
 
 473:                                              ; preds = %470
-  %474 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %474 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %475 = trunc nuw i8 %474 to i1
   br i1 %475, label %476, label %482
 
 476:                                              ; preds = %473
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !11
   %477 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #14
   %478 = call i32 @qemu_get_thread_id() #14
   %479 = load i64, ptr %6, align 8
@@ -3393,7 +3393,7 @@ trace_process_ncq_command_rarc.exit.i.i.i:        ; preds = %482, %476, %470, %4
 508:                                              ; preds = %507
   %509 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i116.i.i.i = icmp eq i32 %509, 0
-  br i1 %.not.i.i116.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %510, !prof !8
+  br i1 %.not.i.i116.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %510, !prof !7
 
 510:                                              ; preds = %508
   %511 = load i16, ptr @_TRACE_PROCESS_NCQ_COMMAND_LARGE_DSTATE, align 2
@@ -3414,13 +3414,13 @@ trace_process_ncq_command_large.exit.thread121.i.i.i: ; preds = %510
   br i1 %.not10.i.i.i.i.i, label %trace_process_ncq_command_large.exit.i.i.i, label %519
 
 519:                                              ; preds = %516
-  %520 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %520 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %521 = trunc nuw i8 %520 to i1
   br i1 %521, label %522, label %528
 
 522:                                              ; preds = %519
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !11
   %523 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #14
   %524 = call i32 @qemu_get_thread_id() #14
   %525 = load i64, ptr %5, align 8
@@ -3442,7 +3442,7 @@ trace_process_ncq_command_large.exit.i.i.i:       ; preds = %528, %522, %516, %5
   %532 = zext i32 %531 to i64
   %533 = add i64 %530, %532
   %.not.i.i117.i.i.i = icmp eq i32 %.pr.i.i.i, 0
-  br i1 %.not.i.i117.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %534, !prof !25
+  br i1 %.not.i.i117.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %534, !prof !24
 
 534:                                              ; preds = %trace_process_ncq_command_large.exit.i.i.i, %trace_process_ncq_command_large.exit.thread121.i.i.i
   %.in.i.i.i = phi i64 [ %515, %trace_process_ncq_command_large.exit.thread121.i.i.i ], [ %533, %trace_process_ncq_command_large.exit.i.i.i ]
@@ -3460,13 +3460,13 @@ trace_process_ncq_command_large.exit.i.i.i:       ; preds = %528, %522, %516, %5
   br i1 %.not12.i.i.i.i.i, label %trace_process_ncq_command.exit.i.i.i, label %542
 
 542:                                              ; preds = %539
-  %543 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %543 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %544 = trunc nuw i8 %543 to i1
   br i1 %544, label %545, label %552
 
 545:                                              ; preds = %542
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %546 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %547 = call i32 @qemu_get_thread_id() #14
   %548 = load i64, ptr %4, align 8
@@ -3540,7 +3540,7 @@ trace_process_ncq_command.exit.i.i.i:             ; preds = %552, %545, %539, %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %590, ptr noundef nonnull readonly align 1 dereferenceable(16) %591, i64 noundef 16, i1 noundef false) #14
   %592 = load i32, ptr @trace_events_enabled_count, align 4
   %.not81.i.i = icmp eq i32 %592, 0
-  br i1 %.not81.i.i, label %598, label %593, !prof !8
+  br i1 %.not81.i.i, label %598, label %593, !prof !7
 
 593:                                              ; preds = %588
   %594 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_DUMP_DSTATE, align 2
@@ -3578,7 +3578,7 @@ trace_process_ncq_command.exit.i.i.i:             ; preds = %552, %545, %539, %5
   %612 = load i8, ptr %611, align 1
   %613 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i69.i = icmp eq i32 %613, 0
-  br i1 %.not.i.i69.i, label %trace_handle_cmd_badmap.exit.i, label %614, !prof !8
+  br i1 %.not.i.i69.i, label %trace_handle_cmd_badmap.exit.i, label %614, !prof !7
 
 614:                                              ; preds = %608
   %615 = load i16, ptr @_TRACE_HANDLE_CMD_UNHANDLED_FIS_DSTATE, align 2
@@ -3592,13 +3592,13 @@ trace_process_ncq_command.exit.i.i.i:             ; preds = %552, %545, %539, %5
   br i1 %.not10.i.i.i, label %trace_handle_cmd_badmap.exit.i, label %619
 
 619:                                              ; preds = %616
-  %620 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %620 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %621 = trunc nuw i8 %620 to i1
   br i1 %621, label %622, label %630
 
 622:                                              ; preds = %619
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %623 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %624 = call i32 @qemu_get_thread_id() #14
   %625 = load i64, ptr %3, align 8
@@ -3626,7 +3626,7 @@ handle_cmd.exit:                                  ; preds = %trace_handle_cmd_ba
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %635 = trunc nuw nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.critedge, label %47, !llvm.loop !26
+  br i1 %exitcond.not, label %.critedge, label %47, !llvm.loop !25
 
 .critedge:                                        ; preds = %47, %handle_cmd.exit, %25, %2
   ret void
@@ -3655,7 +3655,7 @@ define internal fastcc void @ahci_trigger_irq(ptr noundef %0, ptr noundef captur
   %16 = and i32 %15, %8
   %17 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %17, 0
-  br i1 %.not.i.i, label %trace_ahci_trigger_irq.exit, label %18, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_trigger_irq.exit, label %18, !prof !7
 
 18:                                               ; preds = %3
   %19 = load i16, ptr @_TRACE_AHCI_TRIGGER_IRQ_DSTATE, align 2
@@ -3669,13 +3669,13 @@ define internal fastcc void @ahci_trigger_irq(ptr noundef %0, ptr noundef captur
   br i1 %.not14.i.i, label %trace_ahci_trigger_irq.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %24 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %27 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %28 = tail call i32 @qemu_get_thread_id() #14
   %29 = load i64, ptr %4, align 8
@@ -3719,7 +3719,7 @@ define internal fastcc ptr @ahci_pretty_buffer_fis(ptr noundef readonly captures
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %3, ptr noundef nonnull @.str.117, i32 noundef %12) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %13, label %4, !llvm.loop !27
+  br i1 %exitcond.not, label %13, label %4, !llvm.loop !26
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3755,7 +3755,7 @@ define internal fastcc void @trace_handle_cmd_fis_dump(ptr noundef %0, i32 nound
   %4 = alloca %struct.timeval, align 8
   %5 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %_nocheck__trace_handle_cmd_fis_dump.exit, label %6, !prof !8
+  br i1 %.not.i, label %_nocheck__trace_handle_cmd_fis_dump.exit, label %6, !prof !7
 
 6:                                                ; preds = %3
   %7 = load i16, ptr @_TRACE_HANDLE_CMD_FIS_DUMP_DSTATE, align 2
@@ -3769,13 +3769,13 @@ define internal fastcc void @trace_handle_cmd_fis_dump(ptr noundef %0, i32 nound
   br i1 %.not6.i, label %_nocheck__trace_handle_cmd_fis_dump.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %12 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %15 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %16 = tail call i32 @qemu_get_thread_id() #14
   %17 = load i64, ptr %4, align 8
@@ -3806,7 +3806,7 @@ define internal fastcc void @trace_handle_reg_h2d_fis_dump(ptr noundef %0, i32 n
   %4 = alloca %struct.timeval, align 8
   %5 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %_nocheck__trace_handle_reg_h2d_fis_dump.exit, label %6, !prof !8
+  br i1 %.not.i, label %_nocheck__trace_handle_reg_h2d_fis_dump.exit, label %6, !prof !7
 
 6:                                                ; preds = %3
   %7 = load i16, ptr @_TRACE_HANDLE_REG_H2D_FIS_DUMP_DSTATE, align 2
@@ -3820,13 +3820,13 @@ define internal fastcc void @trace_handle_reg_h2d_fis_dump(ptr noundef %0, i32 n
   br i1 %.not6.i, label %_nocheck__trace_handle_reg_h2d_fis_dump.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %12 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %15 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %16 = tail call i32 @qemu_get_thread_id() #14
   %17 = load i64, ptr %4, align 8
@@ -3869,7 +3869,7 @@ define internal fastcc range(i32 -1, 1) i32 @ahci_populate_sglist(ptr noundef %0
   %24 = load i32, ptr %23, align 8
   %25 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %25, 0
-  br i1 %.not.i.i, label %trace_ahci_populate_sglist.exit, label %26, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_populate_sglist.exit, label %26, !prof !7
 
 26:                                               ; preds = %5
   %27 = load i16, ptr @_TRACE_AHCI_POPULATE_SGLIST_DSTATE, align 2
@@ -3883,13 +3883,13 @@ define internal fastcc range(i32 -1, 1) i32 @ahci_populate_sglist(ptr noundef %0
   br i1 %.not4.i.i, label %trace_ahci_populate_sglist.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %32 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !annotation !11
   %35 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #14
   %36 = tail call i32 @qemu_get_thread_id() #14
   %37 = load i64, ptr %11, align 8
@@ -3912,7 +3912,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %43 = load i32, ptr %23, align 8
   %44 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i109 = icmp eq i32 %44, 0
-  br i1 %.not.i.i109, label %trace_ahci_populate_sglist_no_prdtl.exit, label %45, !prof !8
+  br i1 %.not.i.i109, label %trace_ahci_populate_sglist_no_prdtl.exit, label %45, !prof !7
 
 45:                                               ; preds = %41
   %46 = load i16, ptr @_TRACE_AHCI_POPULATE_SGLIST_NO_PRDTL_DSTATE, align 2
@@ -3926,13 +3926,13 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   br i1 %.not6.i.i, label %trace_ahci_populate_sglist_no_prdtl.exit, label %50
 
 50:                                               ; preds = %47
-  %51 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %51 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %53, label %60
 
 53:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false), !annotation !11
   %54 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #14
   %55 = tail call i32 @qemu_get_thread_id() #14
   %56 = load i64, ptr %10, align 8
@@ -3966,7 +3966,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %71 = load i32, ptr %23, align 8
   %72 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i110 = icmp eq i32 %72, 0
-  br i1 %.not.i.i110, label %trace_ahci_populate_sglist_no_prdtl.exit, label %73, !prof !8
+  br i1 %.not.i.i110, label %trace_ahci_populate_sglist_no_prdtl.exit, label %73, !prof !7
 
 73:                                               ; preds = %69
   %74 = load i16, ptr @_TRACE_AHCI_POPULATE_SGLIST_NO_MAP_DSTATE, align 2
@@ -3980,13 +3980,13 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   br i1 %.not4.i.i112, label %trace_ahci_populate_sglist_no_prdtl.exit, label %78
 
 78:                                               ; preds = %75
-  %79 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %79 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %87
 
 81:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !11
   %82 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #14
   %83 = call i32 @qemu_get_thread_id() #14
   %84 = load i64, ptr %8, align 8
@@ -4009,7 +4009,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %92 = load i32, ptr %23, align 8
   %93 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i113 = icmp eq i32 %93, 0
-  br i1 %.not.i.i113, label %.critedge, label %94, !prof !8
+  br i1 %.not.i.i113, label %.critedge, label %94, !prof !7
 
 94:                                               ; preds = %90
   %95 = load i16, ptr @_TRACE_AHCI_POPULATE_SGLIST_SHORT_MAP_DSTATE, align 2
@@ -4023,13 +4023,13 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   br i1 %.not4.i.i115, label %.critedge, label %99
 
 99:                                               ; preds = %96
-  %100 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %100 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %108
 
 102:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !11
   %103 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
   %104 = call i32 @qemu_get_thread_id() #14
   %105 = load i64, ptr %7, align 8
@@ -4065,7 +4065,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  br i1 %exitcond.not, label %.thread, label %111, !llvm.loop !28
+  br i1 %exitcond.not, label %.thread, label %111, !llvm.loop !27
 
 119:                                              ; preds = %111
   %120 = trunc nuw nsw i64 %indvars.iv to i32
@@ -4080,7 +4080,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   %123 = load i32, ptr %23, align 8
   %124 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i116 = icmp eq i32 %124, 0
-  br i1 %.not.i.i116, label %.critedge, label %125, !prof !8
+  br i1 %.not.i.i116, label %.critedge, label %125, !prof !7
 
 125:                                              ; preds = %.thread
   %126 = load i16, ptr @_TRACE_AHCI_POPULATE_SGLIST_BAD_OFFSET_DSTATE, align 2
@@ -4094,13 +4094,13 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   br i1 %.not8.i.i, label %.critedge, label %130
 
 130:                                              ; preds = %127
-  %131 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %131 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %132 = trunc nuw i8 %131 to i1
   br i1 %132, label %133, label %139
 
 133:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !11
   %134 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #14
   %135 = call i32 @qemu_get_thread_id() #14
   %136 = load i64, ptr %6, align 8
@@ -4158,7 +4158,7 @@ trace_ahci_populate_sglist.exit:                  ; preds = %5, %26, %28, %34, %
   call void @qemu_sglist_add(ptr noundef nonnull %1, i64 noundef %163, i64 noundef %169) #14
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count
-  br i1 %exitcond144.not, label %.critedge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond144.not, label %.critedge, label %.lr.ph, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph, %161, %140, %139, %133, %127, %125, %.thread, %108, %102, %96, %94, %90
   %.091 = phi i32 [ -1, %90 ], [ -1, %94 ], [ -1, %96 ], [ -1, %102 ], [ -1, %108 ], [ -1, %.thread ], [ -1, %125 ], [ -1, %127 ], [ -1, %133 ], [ -1, %139 ], [ 0, %140 ], [ 0, %161 ], [ 0, %.lr.ph ]
@@ -4214,7 +4214,7 @@ is_ncq.exit:                                      ; preds = %1, %1, %1, %1, %1
   %20 = load i64, ptr %19, align 8
   %21 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i.i, label %trace_execute_ncq_command_read.exit, label %22, !prof !8
+  br i1 %.not.i.i, label %trace_execute_ncq_command_read.exit, label %22, !prof !7
 
 22:                                               ; preds = %16
   %23 = load i16, ptr @_TRACE_EXECUTE_NCQ_COMMAND_READ_DSTATE, align 2
@@ -4228,13 +4228,13 @@ is_ncq.exit:                                      ; preds = %1, %1, %1, %1, %1
   br i1 %.not10.i.i, label %trace_execute_ncq_command_read.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %28 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %31 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %32 = tail call i32 @qemu_get_thread_id() #14
   %33 = load i64, ptr %4, align 8
@@ -4271,7 +4271,7 @@ trace_execute_ncq_command_read.exit:              ; preds = %16, %22, %24, %30, 
   %52 = load i64, ptr %51, align 8
   %53 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i39 = icmp eq i32 %53, 0
-  br i1 %.not.i.i39, label %trace_execute_ncq_command_write.exit, label %54, !prof !8
+  br i1 %.not.i.i39, label %trace_execute_ncq_command_write.exit, label %54, !prof !7
 
 54:                                               ; preds = %48
   %55 = load i16, ptr @_TRACE_EXECUTE_NCQ_COMMAND_WRITE_DSTATE, align 2
@@ -4285,13 +4285,13 @@ trace_execute_ncq_command_read.exit:              ; preds = %16, %22, %24, %30, 
   br i1 %.not10.i.i41, label %trace_execute_ncq_command_write.exit, label %59
 
 59:                                               ; preds = %56
-  %60 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %60 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %62, label %69
 
 62:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %63 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %64 = tail call i32 @qemu_get_thread_id() #14
   %65 = load i64, ptr %3, align 8
@@ -4324,7 +4324,7 @@ trace_execute_ncq_command_write.exit:             ; preds = %48, %54, %56, %62, 
 80:                                               ; preds = %is_ncq.exit
   %81 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i42 = icmp eq i32 %81, 0
-  br i1 %.not.i.i42, label %trace_execute_ncq_command_unsup.exit, label %82, !prof !8
+  br i1 %.not.i.i42, label %trace_execute_ncq_command_unsup.exit, label %82, !prof !7
 
 82:                                               ; preds = %80
   %83 = load i16, ptr @_TRACE_EXECUTE_NCQ_COMMAND_UNSUP_DSTATE, align 2
@@ -4338,13 +4338,13 @@ trace_execute_ncq_command_write.exit:             ; preds = %48, %54, %56, %62, 
   br i1 %.not8.i.i, label %trace_execute_ncq_command_unsup.exit, label %87
 
 87:                                               ; preds = %84
-  %88 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %88 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %90, label %98
 
 90:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %91 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %92 = tail call i32 @qemu_get_thread_id() #14
   %93 = load i64, ptr %2, align 8
@@ -4445,13 +4445,13 @@ define internal void @ncq_cb(ptr noundef initializes((8, 16)) %0, i32 noundef %1
 
 30:                                               ; preds = %28, %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %32 = load i8, ptr %31, align 4, !range !10, !noundef !11
+  %32 = load i8, ptr %31, align 4, !range !9, !noundef !10
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %122, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 107
-  %36 = load i8, ptr %35, align 1, !range !10, !noundef !11
+  %36 = load i8, ptr %35, align 1, !range !9, !noundef !10
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %47
 
@@ -4546,7 +4546,7 @@ ahci_write_fis_sdb.exit.i:                        ; preds = %.sink.split.i.i, %8
   %97 = load i8, ptr %96, align 8
   %98 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i.i = icmp eq i32 %98, 0
-  br i1 %.not.i.i.i, label %ncq_finish.exit, label %99, !prof !8
+  br i1 %.not.i.i.i, label %ncq_finish.exit, label %99, !prof !7
 
 99:                                               ; preds = %ahci_write_fis_sdb.exit.i
   %100 = load i16, ptr @_TRACE_NCQ_FINISH_DSTATE, align 2
@@ -4560,13 +4560,13 @@ ahci_write_fis_sdb.exit.i:                        ; preds = %.sink.split.i.i, %8
   br i1 %.not6.i.i.i, label %ncq_finish.exit, label %104
 
 104:                                              ; preds = %101
-  %105 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %105 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %107, label %114
 
 107:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %108 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %109 = tail call i32 @qemu_get_thread_id() #14
   %110 = load i64, ptr %3, align 8
@@ -4681,7 +4681,7 @@ define internal void @ahci_start_dma(ptr noundef readonly captures(none) %0, ptr
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i, label %trace_ahci_start_dma.exit, label %10, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_start_dma.exit, label %10, !prof !7
 
 10:                                               ; preds = %3
   %11 = load i16, ptr @_TRACE_AHCI_START_DMA_DSTATE, align 2
@@ -4695,13 +4695,13 @@ define internal void @ahci_start_dma(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not4.i.i, label %trace_ahci_start_dma.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %16 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %19 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %20 = tail call i32 @qemu_get_thread_id() #14
   %21 = load i64, ptr %4, align 8
@@ -4741,7 +4741,7 @@ define internal void @ahci_pio_transfer(ptr noundef %0) #0 {
   %16 = and i32 %15, 64
   %17 = and i32 %15, 32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2472
-  %19 = load i8, ptr %18, align 8, !range !10, !noundef !11
+  %19 = load i8, ptr %18, align 8, !range !9, !noundef !10
   %20 = trunc nuw i8 %19 to i1
   %21 = and i32 %15, 96
   %22 = icmp eq i32 %21, 0
@@ -4848,7 +4848,7 @@ ahci_write_fis_pio.exit:                          ; preds = %1, %27, %31, %86
   br i1 %.not, label %92, label %89
 
 89:                                               ; preds = %ahci_write_fis_pio.exit
-  %90 = load i8, ptr %18, align 8, !range !10, !noundef !11
+  %90 = load i8, ptr %18, align 8, !range !9, !noundef !10
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %92, label %126
 
@@ -4865,7 +4865,7 @@ ahci_write_fis_pio.exit:                          ; preds = %1, %27, %31, %86
   %99 = select i1 %.not47, ptr @.str.175, ptr @.str.174
   %100 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %100, 0
-  br i1 %.not.i.i, label %trace_ahci_pio_transfer.exit, label %101, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_pio_transfer.exit, label %101, !prof !7
 
 101:                                              ; preds = %92
   %102 = load i16, ptr @_TRACE_AHCI_PIO_TRANSFER_DSTATE, align 2
@@ -4879,13 +4879,13 @@ ahci_write_fis_pio.exit:                          ; preds = %1, %27, %31, %86
   br i1 %.not12.i.i, label %trace_ahci_pio_transfer.exit, label %106
 
 106:                                              ; preds = %103
-  %107 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %107 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %109, label %115
 
 109:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %110 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %111 = tail call i32 @qemu_get_thread_id() #14
   %112 = load i64, ptr %2, align 8
@@ -4959,7 +4959,7 @@ define internal i32 @ahci_dma_prepare_buf(ptr noundef %0, i32 noundef %1) #0 {
   %17 = load i32, ptr %16, align 8
   %18 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %18, 0
-  br i1 %.not.i.i, label %trace_ahci_dma_prepare_buf_fail.exit, label %19, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_dma_prepare_buf_fail.exit, label %19, !prof !7
 
 19:                                               ; preds = %13
   %20 = load i16, ptr @_TRACE_AHCI_DMA_PREPARE_BUF_FAIL_DSTATE, align 2
@@ -4973,13 +4973,13 @@ define internal i32 @ahci_dma_prepare_buf(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %.not4.i.i, label %trace_ahci_dma_prepare_buf_fail.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %25 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !11
   %28 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
   %29 = tail call i32 @qemu_get_thread_id() #14
   %30 = load i64, ptr %4, align 8
@@ -5005,7 +5005,7 @@ define internal i32 @ahci_dma_prepare_buf(ptr noundef %0, i32 noundef %1) #0 {
   %42 = load i32, ptr %41, align 8
   %43 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i19 = icmp eq i32 %43, 0
-  br i1 %.not.i.i19, label %trace_ahci_dma_prepare_buf.exit, label %44, !prof !8
+  br i1 %.not.i.i19, label %trace_ahci_dma_prepare_buf.exit, label %44, !prof !7
 
 44:                                               ; preds = %34
   %45 = load i16, ptr @_TRACE_AHCI_DMA_PREPARE_BUF_DSTATE, align 2
@@ -5019,13 +5019,13 @@ define internal i32 @ahci_dma_prepare_buf(ptr noundef %0, i32 noundef %1) #0 {
   br i1 %.not8.i.i, label %trace_ahci_dma_prepare_buf.exit, label %49
 
 49:                                               ; preds = %46
-  %50 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %50 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %53 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %54 = tail call i32 @qemu_get_thread_id() #14
   %55 = load i64, ptr %3, align 8
@@ -5104,7 +5104,7 @@ define internal range(i32 0, 2) i32 @ahci_dma_rw_buf(ptr noundef %0, i1 noundef 
   %32 = load i32, ptr %31, align 8
   %33 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %33, 0
-  br i1 %.not.i.i, label %trace_ahci_dma_rw_buf.exit, label %34, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_dma_rw_buf.exit, label %34, !prof !7
 
 34:                                               ; preds = %26
   %35 = load i16, ptr @_TRACE_AHCI_DMA_RW_BUF_DSTATE, align 2
@@ -5118,13 +5118,13 @@ define internal range(i32 0, 2) i32 @ahci_dma_rw_buf(ptr noundef %0, i1 noundef 
   br i1 %.not6.i.i, label %trace_ahci_dma_rw_buf.exit, label %39
 
 39:                                               ; preds = %36
-  %40 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %40 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %48
 
 42:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %43 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %44 = tail call i32 @qemu_get_thread_id() #14
   %45 = load i64, ptr %3, align 8
@@ -5152,7 +5152,7 @@ define internal void @ahci_restart(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
   %4 = getelementptr inbounds nuw [32 x %struct.NCQTransferState], ptr %2, i64 0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 108
-  %6 = load i8, ptr %5, align 4, !range !10, !noundef !11
+  %6 = load i8, ptr %5, align 4, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %9
 
@@ -5163,7 +5163,7 @@ define internal void @ahci_restart(ptr noundef %0) #0 {
 9:                                                ; preds = %8, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %10, label %3, !llvm.loop !30
+  br i1 %exitcond.not, label %10, label %3, !llvm.loop !29
 
 10:                                               ; preds = %9
   ret void
@@ -5183,7 +5183,7 @@ define internal void @ahci_cmd_done(ptr noundef %0) #0 {
   %6 = load i32, ptr %5, align 8
   %7 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %7, 0
-  br i1 %.not.i.i, label %trace_ahci_cmd_done.exit, label %8, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_cmd_done.exit, label %8, !prof !7
 
 8:                                                ; preds = %1
   %9 = load i16, ptr @_TRACE_AHCI_CMD_DONE_DSTATE, align 2
@@ -5197,13 +5197,13 @@ define internal void @ahci_cmd_done(ptr noundef %0) #0 {
   br i1 %.not4.i.i, label %trace_ahci_cmd_done.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %14 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %17 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %18 = tail call i32 @qemu_get_thread_id() #14
   %19 = load i64, ptr %2, align 8
@@ -5412,7 +5412,7 @@ define internal fastcc void @ahci_set_signature(ptr noundef captures(none) initi
   %18 = load i32, ptr %17, align 8
   %19 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %19, 0
-  br i1 %.not.i.i, label %trace_ahci_set_signature.exit, label %20, !prof !8
+  br i1 %.not.i.i, label %trace_ahci_set_signature.exit, label %20, !prof !7
 
 20:                                               ; preds = %2
   %21 = load i16, ptr @_TRACE_AHCI_SET_SIGNATURE_DSTATE, align 2
@@ -5426,13 +5426,13 @@ define internal fastcc void @ahci_set_signature(ptr noundef captures(none) initi
   br i1 %.not14.i.i, label %trace_ahci_set_signature.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = load i8, ptr @message_with_timestamp, align 1, !range !10, !noundef !11
+  %26 = load i8, ptr @message_with_timestamp, align 1, !range !9, !noundef !10
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %29 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %30 = tail call i32 @qemu_get_thread_id() #14
   %31 = load i64, ptr %3, align 8
@@ -5490,30 +5490,29 @@ attributes #16 = { nounwind allocsize(0,1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!9 = distinct !{!9, !5, !6}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = !{!"auto-init"}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!19 = !{!"branch_weights", !"expected", i32 2146276368, i32 1207280}
-!20 = !{!"branch_weights", !"expected", i32 2146276369, i32 1207279}
-!21 = !{!"branch_weights", !"expected", i32 2146362558, i32 1121090}
-!22 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!23 = distinct !{!23, !5, !6}
-!24 = !{!"branch_weights", i32 4001, i32 1}
-!25 = !{!"branch_weights", !"expected", i32 2145740235, i32 1743413}
-!26 = distinct !{!26, !5, !6}
-!27 = distinct !{!27, !5, !6}
-!28 = distinct !{!28, !5, !6}
-!29 = distinct !{!29, !5, !6}
-!30 = distinct !{!30, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!8 = distinct !{!8, !5}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = !{!"auto-init"}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = !{!"branch_weights", !"expected", i32 2146276368, i32 1207280}
+!19 = !{!"branch_weights", !"expected", i32 2146276369, i32 1207279}
+!20 = !{!"branch_weights", !"expected", i32 2146362558, i32 1121090}
+!21 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!22 = distinct !{!22, !5}
+!23 = !{!"branch_weights", i32 4001, i32 1}
+!24 = !{!"branch_weights", !"expected", i32 2145740235, i32 1743413}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}

@@ -263,7 +263,7 @@ define internal fastcc ptr @insertThread(ptr noundef %0, ptr noundef %1, ptr nou
   %33 = load i32, ptr @debugThreadCount, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next.i, %34
-  br i1 %35, label %.lr.ph.i, label %.loopexit, !llvm.loop !9
+  br i1 %35, label %.lr.ph.i, label %.loopexit, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %27, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %27 ]
@@ -621,7 +621,7 @@ removeThread.exit.i:                              ; preds = %28, %26
 
 31:                                               ; preds = %removeThread.exit.i, %.lr.ph.i
   %.not.i4 = icmp eq ptr %10, null
-  br i1 %.not.i4, label %removeResumed.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i4, label %removeResumed.exit, label %.lr.ph.i, !llvm.loop !9
 
 removeResumed.exit:                               ; preds = %31, %commonResume.exit
   %32 = load ptr, ptr @threadLock, align 8
@@ -789,7 +789,7 @@ getThreadLocalStorage.exit:                       ; preds = %9, %16
   %29 = getelementptr inbounds nuw i8, ptr %.010.i, i64 232
   %.0.i41 = load ptr, ptr %29, align 8
   %.not.i42 = icmp eq ptr %.0.i41, null
-  br i1 %.not.i42, label %nonTlsSearch.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i42, label %nonTlsSearch.exit, label %.lr.ph.i, !llvm.loop !10
 
 nonTlsSearch.exit:                                ; preds = %28, %.lr.ph.i, %24, %21
   %.1 = phi ptr [ null, %21 ], [ null, %24 ], [ null, %28 ], [ %.010.i, %.lr.ph.i ]
@@ -822,7 +822,7 @@ nonTlsSearch.exit:                                ; preds = %28, %.lr.ph.i, %24,
   %41 = getelementptr inbounds nuw i8, ptr %.010.i46, i64 232
   %.0.i49 = load ptr, ptr %41, align 8
   %.not.i50 = icmp eq ptr %.0.i49, null
-  br i1 %.not.i50, label %nonTlsSearch.exit51.thread, label %.lr.ph.i45, !llvm.loop !11
+  br i1 %.not.i50, label %nonTlsSearch.exit51.thread, label %.lr.ph.i45, !llvm.loop !10
 
 nonTlsSearch.exit51:                              ; preds = %.lr.ph.i45
   call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 257, ptr noundef nonnull @.str.47) #6
@@ -856,7 +856,7 @@ nonTlsSearch.exit51.thread:                       ; preds = %40, %36, %nonTlsSea
   %51 = getelementptr inbounds nuw i8, ptr %.010.i55, i64 232
   %.0.i58 = load ptr, ptr %51, align 8
   %.not.i59 = icmp eq ptr %.0.i58, null
-  br i1 %.not.i59, label %nonTlsSearch.exit69, label %.lr.ph.i54, !llvm.loop !11
+  br i1 %.not.i59, label %nonTlsSearch.exit69, label %.lr.ph.i54, !llvm.loop !10
 
 nonTlsSearch.exit60:                              ; preds = %.lr.ph.i54
   call void @jdiAssertionFailed(ptr noundef nonnull @.str.5, i32 noundef 258, ptr noundef nonnull @.str.48) #6
@@ -888,7 +888,7 @@ nonTlsSearch.exit60:                              ; preds = %.lr.ph.i54
   %61 = getelementptr inbounds nuw i8, ptr %.010.i64, i64 232
   %.0.i67 = load ptr, ptr %61, align 8
   %.not.i68 = icmp eq ptr %.0.i67, null
-  br i1 %.not.i68, label %.loopexit, label %.lr.ph.i63, !llvm.loop !11
+  br i1 %.not.i68, label %.loopexit, label %.lr.ph.i63, !llvm.loop !10
 
 .loopexit:                                        ; preds = %60, %54, %56
   %62 = icmp eq ptr %0, @runningVThreads
@@ -998,7 +998,7 @@ define hidden i32 @threadControl_suspendAll() local_unnamed_addr #0 {
   %34 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 232
   %.08.i = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %enumerateOverThreadList.exit, label %.preheader, !llvm.loop !12
+  br i1 %.not.i, label %enumerateOverThreadList.exit, label %.preheader, !llvm.loop !11
 
 enumerateOverThreadList.exit:                     ; preds = %.preheader, %27, %0
   %35 = call ptr @allThreads(ptr noundef nonnull %1) #6
@@ -1085,7 +1085,7 @@ newArray.exit.i:                                  ; preds = %37
   %.153.i = phi i32 [ %.05262.i, %55 ], [ %.05262.i, %._crit_edge74.i ], [ %69, %67 ], [ %.05262.i, %65 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i28, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i28, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %72
   %73 = icmp sgt i32 %.153.i, 0
@@ -1206,7 +1206,7 @@ newArray.exit61.i:                                ; preds = %74
 125:                                              ; preds = %.thread.i, %119
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count72.i
-  br i1 %exitcond73.not.i, label %._crit_edge67.i, label %.lr.ph66.i, !llvm.loop !14
+  br i1 %exitcond73.not.i, label %._crit_edge67.i, label %.lr.ph66.i, !llvm.loop !13
 
 ._crit_edge67.i:                                  ; preds = %125
   call void @jvmtiDeallocate(ptr noundef nonnull %76) #6
@@ -1247,7 +1247,7 @@ commonSuspendList.exit:                           ; preds = %46, %._crit_edge.i,
 134:                                              ; preds = %.lr.ph.i.i.us
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i.us, label %.loopexit.loopexit.i.us, label %.lr.ph.i.i.us, !llvm.loop !15
+  br i1 %exitcond.not.i.i.us, label %.loopexit.loopexit.i.us, label %.lr.ph.i.i.us, !llvm.loop !14
 
 .loopexit.loopexit.i.us:                          ; preds = %134
   %.pre.i.us = load ptr, ptr %.0814.i33.us, align 8
@@ -1259,13 +1259,13 @@ suspendAllHelper.exit.thread.us:                  ; preds = %.lr.ph.i.i.us, %.lo
   %136 = getelementptr inbounds nuw i8, ptr %.0814.i33.us, i64 232
   %.08.i37.us = load ptr, ptr %136, align 8
   %.not.i38.us = icmp eq ptr %.08.i37.us, null
-  br i1 %.not.i38.us, label %.loopexit, label %.lr.ph.i32.us, !llvm.loop !16
+  br i1 %.not.i38.us, label %.loopexit, label %.lr.ph.i32.us, !llvm.loop !15
 
 suspendAllHelper.exit.thread:                     ; preds = %.lr.ph.i32
   %137 = getelementptr inbounds nuw i8, ptr %.0814.i33, i64 232
   %.08.i37 = load ptr, ptr %137, align 8
   %.not.i38 = icmp eq ptr %.08.i37, null
-  br i1 %.not.i38, label %.loopexit, label %.lr.ph.i32, !llvm.loop !12
+  br i1 %.not.i38, label %.loopexit, label %.lr.ph.i32, !llvm.loop !11
 
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32.preheader, %suspendAllHelper.exit.thread
   %.0814.i33 = phi ptr [ %.08.i37, %suspendAllHelper.exit.thread ], [ %.0812.i30, %.lr.ph.i32.preheader ]
@@ -1373,7 +1373,7 @@ excludeCountHelper.exit:                          ; preds = %18, %14, %11, %.lr.
   %24 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 232
   %.08.i = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %enumerateOverThreadList.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %enumerateOverThreadList.exit, label %.lr.ph.i, !llvm.loop !11
 
 enumerateOverThreadList.exit:                     ; preds = %excludeCountHelper.exit
   %.not56 = icmp eq i32 %.2, 0
@@ -1408,7 +1408,7 @@ excludeCopyHelper.exit:                           ; preds = %48, %44
   %34 = getelementptr inbounds nuw i8, ptr %.0814.i24, i64 232
   %.08.i27 = load ptr, ptr %34, align 8
   %.not.i28 = icmp eq ptr %.08.i27, null
-  br i1 %.not.i28, label %enumerateOverThreadList.exit29, label %.lr.ph.i23, !llvm.loop !12
+  br i1 %.not.i28, label %enumerateOverThreadList.exit29, label %.lr.ph.i23, !llvm.loop !11
 
 .lr.ph.i23:                                       ; preds = %33, %excludeCopyHelper.exit
   %.051 = phi ptr [ %.1, %excludeCopyHelper.exit ], [ %27, %33 ]
@@ -1494,7 +1494,7 @@ resumeCountHelper.exit.i:                         ; preds = %85, %73, %.lr.ph.i.
   %69 = getelementptr inbounds nuw i8, ptr %.0814.i.i, i64 232
   %.08.i.i = load ptr, ptr %69, align 8
   %.not.i.i = icmp eq ptr %.08.i.i, null
-  br i1 %.not.i.i, label %enumerateOverThreadList.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %enumerateOverThreadList.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 .lr.ph.i.i:                                       ; preds = %68, %resumeCountHelper.exit.i
   %.010.i = phi i32 [ %.111.i, %resumeCountHelper.exit.i ], [ 0, %68 ]
@@ -1547,7 +1547,7 @@ resumeCountHelper.exit83.i:                       ; preds = %103, %91, %.lr.ph.i
   %87 = getelementptr inbounds nuw i8, ptr %.0814.i29.i, i64 232
   %.08.i32.i = load ptr, ptr %87, align 8
   %.not.i33.i = icmp eq ptr %.08.i32.i, null
-  br i1 %.not.i33.i, label %enumerateOverThreadList.exit34.i, label %.lr.ph.i28.i, !llvm.loop !12
+  br i1 %.not.i33.i, label %enumerateOverThreadList.exit34.i, label %.lr.ph.i28.i, !llvm.loop !11
 
 .lr.ph.i28.i:                                     ; preds = %enumerateOverThreadList.exit.i, %resumeCountHelper.exit83.i
   %.313.i = phi i32 [ %.414.i, %resumeCountHelper.exit83.i ], [ %.212.i, %enumerateOverThreadList.exit.i ]
@@ -1608,7 +1608,7 @@ resumeCopyHelper.exit.i:                          ; preds = %117, %.lr.ph.i37.i,
   %107 = getelementptr inbounds nuw i8, ptr %.0814.i38.i, i64 232
   %.08.i41.i = load ptr, ptr %107, align 8
   %.not.i42.i = icmp eq ptr %.08.i41.i, null
-  br i1 %.not.i42.i, label %enumerateOverThreadList.exit43.i, label %.lr.ph.i37.i, !llvm.loop !12
+  br i1 %.not.i42.i, label %enumerateOverThreadList.exit43.i, label %.lr.ph.i37.i, !llvm.loop !11
 
 .lr.ph.i37.i:                                     ; preds = %106, %resumeCopyHelper.exit.i
   %.0814.i38.i = phi ptr [ %.08.i41.i, %resumeCopyHelper.exit.i ], [ %.0812.i35.i, %106 ]
@@ -1669,7 +1669,7 @@ resumeCopyHelper.exit95.i:                        ; preds = %138, %.lr.ph.i46.i,
   %128 = getelementptr inbounds nuw i8, ptr %.0814.i47.i, i64 232
   %.08.i50.i = load ptr, ptr %128, align 8
   %.not.i51.i = icmp eq ptr %.08.i50.i, null
-  br i1 %.not.i51.i, label %commonResumeList.exit, label %.lr.ph.i46.i, !llvm.loop !12
+  br i1 %.not.i51.i, label %commonResumeList.exit, label %.lr.ph.i46.i, !llvm.loop !11
 
 .lr.ph.i46.i:                                     ; preds = %enumerateOverThreadList.exit43.i, %resumeCopyHelper.exit95.i
   %.0814.i47.i = phi ptr [ %.08.i50.i, %resumeCopyHelper.exit95.i ], [ %.0812.i44.i, %enumerateOverThreadList.exit43.i ]
@@ -1764,7 +1764,7 @@ resumeCopyHelper.exit105.i:                       ; preds = %197, %189, %187, %1
   %166 = getelementptr inbounds nuw i8, ptr %.0814.i59.i, i64 232
   %.08.i62.i = load ptr, ptr %166, align 8
   %.not.i63.i = icmp eq ptr %.08.i62.i, null
-  br i1 %.not.i63.i, label %enumerateOverThreadList.exit64.i, label %.lr.ph.i58.i, !llvm.loop !12
+  br i1 %.not.i63.i, label %enumerateOverThreadList.exit64.i, label %.lr.ph.i58.i, !llvm.loop !11
 
 .lr.ph.i58.i:                                     ; preds = %165, %resumeCopyHelper.exit105.i
   %.09.i = phi ptr [ %.1.i30, %resumeCopyHelper.exit105.i ], [ %151, %165 ]
@@ -1857,7 +1857,7 @@ resumeCopyHelper.exit119.i:                       ; preds = %231, %223, %221, %2
   %200 = getelementptr inbounds nuw i8, ptr %.0814.i68.i, i64 232
   %.08.i71.i = load ptr, ptr %200, align 8
   %.not.i72.i = icmp eq ptr %.08.i71.i, null
-  br i1 %.not.i72.i, label %enumerateOverThreadList.exit73.i, label %.lr.ph.i67.i, !llvm.loop !12
+  br i1 %.not.i72.i, label %enumerateOverThreadList.exit73.i, label %.lr.ph.i67.i, !llvm.loop !11
 
 .lr.ph.i67.i:                                     ; preds = %enumerateOverThreadList.exit64.i, %resumeCopyHelper.exit119.i
   %.3.i = phi ptr [ %.4.i, %resumeCopyHelper.exit119.i ], [ %.2.i, %enumerateOverThreadList.exit64.i ]
@@ -2014,7 +2014,7 @@ enumerateOverThreadList.exit73.i:                 ; preds = %resumeCopyHelper.ex
   store i64 %271, ptr %269, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i32, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i32, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %262, %239
   tail call void @jvmtiDeallocate(ptr noundef %159) #6
@@ -2035,7 +2035,7 @@ commonResumeList.exit:                            ; preds = %resumeCopyHelper.ex
   %277 = getelementptr inbounds nuw i8, ptr %.0814.i36, i64 232
   %.08.i40 = load ptr, ptr %277, align 8
   %.not.i41 = icmp eq ptr %.08.i40, null
-  br i1 %.not.i41, label %enumerateOverThreadList.exit42, label %.lr.ph.i35, !llvm.loop !12
+  br i1 %.not.i41, label %enumerateOverThreadList.exit42, label %.lr.ph.i35, !llvm.loop !11
 
 .lr.ph.i35:                                       ; preds = %commonResumeList.exit, %276
   %.0814.i36 = phi ptr [ %.08.i40, %276 ], [ %274, %commonResumeList.exit ]
@@ -2104,7 +2104,7 @@ removeThread.exit.i:                              ; preds = %299, %297
 
 302:                                              ; preds = %removeThread.exit.i, %.lr.ph.i43
   %.not.i44 = icmp eq ptr %281, null
-  br i1 %.not.i44, label %removeResumed.exit, label %.lr.ph.i43, !llvm.loop !10
+  br i1 %.not.i44, label %removeResumed.exit, label %.lr.ph.i43, !llvm.loop !9
 
 removeResumed.exit:                               ; preds = %302, %enumerateOverThreadList.exit42, %commonResumeList.exit
   %.016 = phi i32 [ %.0.i, %commonResumeList.exit ], [ %278, %enumerateOverThreadList.exit42 ], [ %278, %302 ]
@@ -2211,7 +2211,7 @@ define hidden zeroext range(i8 0, 2) i8 @threadControl_isDebugThread(ptr noundef
   %7 = load i32, ptr @debugThreadCount, align 4
   %8 = sext i32 %7 to i64
   %9 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %1, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %1 ]
@@ -2380,7 +2380,7 @@ getPopFrameEvent.exit.i:                          ; preds = %56
 68:                                               ; preds = %getPopFrameEvent.exit.i, %getPopFrameEvent.exit.thread.i
   %69 = load ptr, ptr @popFrameEventLock, align 8
   tail call void @debugMonitorWait(ptr noundef %69) #6
-  br label %56, !llvm.loop !19
+  br label %56, !llvm.loop !18
 
 70:                                               ; preds = %getPopFrameEvent.exit.i
   %71 = load ptr, ptr @popFrameProceedLock, align 8
@@ -2426,7 +2426,7 @@ popOneFrame.exit:                                 ; preds = %77, %81
   %89 = load ptr, ptr @popFrameProceedLock, align 8
   tail call void @debugMonitorExit(ptr noundef %89) #6
   %.not29 = icmp eq i32 %87, 0
-  br i1 %.not29, label %22, label %popOneFrame.exit.thread, !llvm.loop !20
+  br i1 %.not29, label %22, label %popOneFrame.exit.thread, !llvm.loop !19
 
 popOneFrame.exit.thread:                          ; preds = %48, %30, %popOneFrame.exit, %22
   %.1 = phi i32 [ %87, %popOneFrame.exit ], [ 0, %22 ], [ %54, %48 ], [ %36, %30 ]
@@ -3002,7 +3002,7 @@ removeEventMode.exit.i:                           ; preds = %152, %150
 153:                                              ; preds = %removeEventMode.exit.i, %115
   %.1.i = phi ptr [ %.01924.i, %removeEventMode.exit.i ], [ %.025.i, %115 ]
   %.not.i63 = icmp eq ptr %117, null
-  br i1 %.not.i63, label %processDeferredEventModes.exit, label %115, !llvm.loop !21
+  br i1 %.not.i63, label %processDeferredEventModes.exit, label %115, !llvm.loop !20
 
 154:                                              ; preds = %.thread
   %155 = getelementptr inbounds nuw i8, ptr %.045, i64 8
@@ -3152,7 +3152,7 @@ define hidden void @threadControl_onEventHandlerExit(i32 noundef %0, ptr noundef
   %31 = tail call ptr @jvmtiErrorText(i32 noundef 201) #6
   tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %30, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef %31, i32 noundef 201, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.5, i32 noundef 2156) #6
   tail call void @debugInit_exit(i32 noundef 201, ptr noundef nonnull @.str.28) #6
-  %32 = load ptr, ptr @gdata, align 8, !nonnull !22, !noundef !22
+  %32 = load ptr, ptr @gdata, align 8, !nonnull !21, !noundef !21
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 17
   %34 = load i8, ptr %33, align 1
   %35 = icmp ne i8 %34, 0
@@ -3554,7 +3554,7 @@ define hidden void @threadControl_detachInvokes() local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 232
   %.08.i = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %enumerateOverThreadList.exit, label %.preheader, !llvm.loop !12
+  br i1 %.not.i, label %enumerateOverThreadList.exit, label %.preheader, !llvm.loop !11
 
 enumerateOverThreadList.exit:                     ; preds = %.preheader, %0
   %5 = load ptr, ptr @threadLock, align 8
@@ -3621,7 +3621,7 @@ define hidden void @threadControl_reset() local_unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %.0814.i, i64 232
   %.08.i = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %.08.i, null
-  br i1 %.not.i, label %enumerateOverThreadList.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %enumerateOverThreadList.exit, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %24, %25
   %.0814.i = phi ptr [ %.08.i, %25 ], [ %.0812.i, %24 ]
@@ -3638,7 +3638,7 @@ enumerateOverThreadList.exit:                     ; preds = %25, %.lr.ph.i, %24
   %29 = getelementptr inbounds nuw i8, ptr %.0814.i19, i64 232
   %.08.i22 = load ptr, ptr %29, align 8
   %.not.i23 = icmp eq ptr %.08.i22, null
-  br i1 %.not.i23, label %enumerateOverThreadList.exit24, label %.lr.ph.i18, !llvm.loop !12
+  br i1 %.not.i23, label %enumerateOverThreadList.exit24, label %.lr.ph.i18, !llvm.loop !11
 
 .lr.ph.i18:                                       ; preds = %enumerateOverThreadList.exit, %28
   %.0814.i19 = phi ptr [ %.08.i22, %28 ], [ %.0812.i16, %enumerateOverThreadList.exit ]
@@ -3655,7 +3655,7 @@ enumerateOverThreadList.exit24:                   ; preds = %28, %.lr.ph.i18, %e
   %32 = getelementptr inbounds nuw i8, ptr %.0814.i28, i64 232
   %.08.i31 = load ptr, ptr %32, align 8
   %.not.i32 = icmp eq ptr %.08.i31, null
-  br i1 %.not.i32, label %enumerateOverThreadList.exit33, label %.lr.ph.i27, !llvm.loop !12
+  br i1 %.not.i32, label %enumerateOverThreadList.exit33, label %.lr.ph.i27, !llvm.loop !11
 
 .lr.ph.i27:                                       ; preds = %enumerateOverThreadList.exit24, %31
   %.0814.i28 = phi ptr [ %.08.i31, %31 ], [ %.0812.i25, %enumerateOverThreadList.exit24 ]
@@ -3724,7 +3724,7 @@ removeThread.exit.i:                              ; preds = %54, %52
 
 57:                                               ; preds = %removeThread.exit.i, %.lr.ph.i34
   %.not.i35 = icmp eq ptr %36, null
-  br i1 %.not.i35, label %removeResumed.exit, label %.lr.ph.i34, !llvm.loop !10
+  br i1 %.not.i35, label %removeResumed.exit, label %.lr.ph.i34, !llvm.loop !9
 
 removeResumed.exit:                               ; preds = %57, %enumerateOverThreadList.exit33
   %58 = load ptr, ptr @deferredEventModes, align 8
@@ -3739,7 +3739,7 @@ removeResumed.exit:                               ; preds = %57, %enumerateOverT
   tail call void @tossGlobalRef(ptr noundef %1, ptr noundef nonnull %61) #6
   tail call void @jvmtiDeallocate(ptr noundef nonnull %.07.i) #6
   %.not.i37 = icmp eq ptr %60, null
-  br i1 %.not.i37, label %freeDeferredEventModes.exit, label %.lr.ph.i36, !llvm.loop !23
+  br i1 %.not.i37, label %freeDeferredEventModes.exit, label %.lr.ph.i36, !llvm.loop !22
 
 freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %removeResumed.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @deferredEventModes, i8 0, i64 16, i1 false)
@@ -3827,7 +3827,7 @@ freeDeferredEventModes.exit:                      ; preds = %.lr.ph.i36, %remove
 
 removeNode.exit.i:                                ; preds = %94, %92
   tail call fastcc void @clearThread(ptr noundef %1, ptr noundef nonnull %.08.i39)
-  br i1 %.not17.i.i, label %removeVThreads.exit, label %.lr.ph.i38, !llvm.loop !24
+  br i1 %.not17.i.i, label %removeVThreads.exit, label %.lr.ph.i38, !llvm.loop !23
 
 removeVThreads.exit:                              ; preds = %removeNode.exit.i, %76
   %97 = load ptr, ptr @threadLock, align 8
@@ -3979,7 +3979,7 @@ define hidden ptr @threadControl_allVThreads(ptr noundef writeonly captures(none
   %9 = getelementptr inbounds nuw i8, ptr %.01225, i64 232
   %.012 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %.012, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader21
   %.011.lcssa = phi i32 [ 0, %.preheader21 ], [ %8, %.lr.ph ]
@@ -4011,7 +4011,7 @@ define hidden ptr @threadControl_allVThreads(ptr noundef writeonly captures(none
   %18 = getelementptr inbounds nuw i8, ptr %.129, i64 232
   %.1 = load ptr, ptr %18, align 8
   %.not19 = icmp eq ptr %.1, null
-  br i1 %.not19, label %.loopexit, label %.lr.ph30, !llvm.loop !26
+  br i1 %.not19, label %.loopexit, label %.lr.ph30, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph30, %12
   %19 = load ptr, ptr @threadLock, align 8
@@ -4140,7 +4140,7 @@ define internal fastcc i32 @resumeThreadByNode(ptr noundef captures(none) %0) un
   br i1 %.not17, label %51, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr @gdata, align 8, !nonnull !22, !noundef !22
+  %18 = load ptr, ptr @gdata, align 8, !nonnull !21, !noundef !21
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
   %20 = load i8, ptr %19, align 1
   %.not19 = icmp eq i8 %20, 0
@@ -4230,7 +4230,7 @@ define internal fastcc noundef ptr @nonTlsSearch(ptr noundef %0, ptr noundef rea
   %7 = getelementptr inbounds nuw i8, ptr %.010, i64 232
   %.0 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %6, %.lr.ph, %3
   %.0.lcssa = phi ptr [ null, %3 ], [ %.010, %.lr.ph ], [ null, %6 ]
@@ -4349,7 +4349,7 @@ getPopFrameProceed.exit:                          ; preds = %6
 18:                                               ; preds = %getPopFrameProceed.exit.thread, %getPopFrameProceed.exit
   %19 = load ptr, ptr @popFrameProceedLock, align 8
   tail call void @debugMonitorWait(ptr noundef %19) #6
-  br label %6, !llvm.loop !27
+  br label %6, !llvm.loop !26
 
 20:                                               ; preds = %getPopFrameProceed.exit
   %21 = load ptr, ptr @popFrameProceedLock, align 8
@@ -4420,7 +4420,7 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next35.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph22.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph22.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %.lr.ph22.i, %21
   store i32 %26, ptr @debugThreadCount, align 4
@@ -4432,7 +4432,7 @@ define internal fastcc void @clearThread(ptr noundef %0, ptr noundef %1) unnamed
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i, %32
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
-  br i1 %33, label %.lr.ph.i, label %threadControl_removeDebugThread.exit, !llvm.loop !29
+  br i1 %33, label %.lr.ph.i, label %threadControl_removeDebugThread.exit, !llvm.loop !28
 
 threadControl_removeDebugThread.exit:             ; preds = %30, %12, %._crit_edge.i
   %34 = load ptr, ptr @threadLock, align 8
@@ -4479,27 +4479,26 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
-!16 = distinct !{!16, !7, !8, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = !{}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = distinct !{!25, !7, !8}
-!26 = distinct !{!26, !7, !8}
-!27 = distinct !{!27, !7, !8}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !7}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !7}
+!21 = !{}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}

@@ -230,7 +230,7 @@ define dso_local void @recordMultipleDependencies(ptr noundef readonly captures(
   tail call void @ExecDropSingleTupleTableSlot(ptr noundef %108) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond89.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %105
   tail call void @pfree(ptr noundef %13) #7
@@ -272,7 +272,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @recordDependencyOnCurrentExtension(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ObjectAddress, align 4
-  %4 = load i8, ptr @creating_extension, align 1, !range !8, !noundef !9
+  %4 = load i8, ptr @creating_extension, align 1, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %34
 
@@ -375,7 +375,7 @@ define dso_local i32 @getExtensionOfObject(i32 noundef %0, i32 noundef %1) local
 25:                                               ; preds = %.lr.ph, %19
   %26 = call ptr @systable_getnext(ptr noundef %8) #7
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %25, %2, %.thread
   %.1 = phi i32 [ %24, %.thread ], [ 0, %2 ], [ 0, %25 ]
@@ -402,7 +402,7 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @checkMembershipInCurrentExtension(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = load i8, ptr @creating_extension, align 1, !range !8, !noundef !9
+  %2 = load i8, ptr @creating_extension, align 1, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %19
 
@@ -463,13 +463,13 @@ define dso_local i64 @deleteDependencyRecordsFor(i32 noundef %0, i32 noundef %1,
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 101
-  br i1 %20, label %10, label %.split14.us.us, !llvm.loop !11
+  br i1 %20, label %10, label %.split14.us.us, !llvm.loop !9
 
 .split14.us.us:                                   ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
   call void @CatalogTupleDelete(ptr noundef %5, ptr noundef nonnull %21) #7
   %22 = add i64 %.0.ph.us, 1
-  br label %.outer.us, !llvm.loop !13
+  br label %.outer.us, !llvm.loop !11
 
 .split16:                                         ; preds = %3
   %23 = call ptr @systable_getnext(ptr noundef %9) #7
@@ -484,7 +484,7 @@ define dso_local i64 @deleteDependencyRecordsFor(i32 noundef %0, i32 noundef %1,
   %26 = add i64 %.0.ph19, 1
   %27 = call ptr @systable_getnext(ptr noundef %9) #7
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %.split.us, label %.split14, !llvm.loop !14
+  br i1 %.not, label %.split.us, label %.split14, !llvm.loop !12
 
 .split.us:                                        ; preds = %.split14, %10, %.split16
   %.us-phi = phi i64 [ 0, %.split16 ], [ %.0.ph.us, %10 ], [ %26, %.split14 ]
@@ -549,7 +549,7 @@ define dso_local i64 @deleteDependencyRecordsForClass(i32 noundef %0, i32 nounde
   %.1 = phi i64 [ %27, %25 ], [ %.016, %21 ], [ %.016, %.lr.ph ]
   %29 = call ptr @systable_getnext(ptr noundef %10) #7
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %28, %4
   %.0.lcssa = phi i64 [ 0, %4 ], [ %.1, %28 ]
@@ -610,7 +610,7 @@ define dso_local i64 @deleteDependencyRecordsForSpecific(i32 noundef %0, i32 nou
   %.1 = phi i64 [ %32, %30 ], [ %.018, %26 ], [ %.018, %22 ], [ %.018, %.lr.ph ]
   %34 = call ptr @systable_getnext(ptr noundef %11) #7
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %33, %5
   %.0.lcssa = phi i64 [ 0, %5 ], [ %.1, %33 ]
@@ -695,7 +695,7 @@ define dso_local i64 @changeDependencyFor(i32 noundef %0, i32 noundef %1, i32 no
   %.1.us = phi i64 [ %39, %37 ], [ %.03139.us, %33 ], [ %.03139.us, %.lr.ph.split.us ]
   %41 = call ptr @systable_getnext(ptr noundef %22) #7
   %.not.us = icmp eq ptr %41, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %65
   %42 = phi ptr [ %66, %65 ], [ %23, %.lr.ph ]
@@ -737,7 +737,7 @@ define dso_local i64 @changeDependencyFor(i32 noundef %0, i32 noundef %1, i32 no
   %.1 = phi i64 [ %64, %55 ], [ %.03139, %51 ], [ %.03139, %.lr.ph.split ]
   %66 = call ptr @systable_getnext(ptr noundef %22) #7
   %.not = icmp eq ptr %66, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %65, %40, %17
   %.031.lcssa = phi i64 [ 0, %17 ], [ %.1.us, %40 ], [ %.1, %65 ]
@@ -792,7 +792,7 @@ define dso_local i64 @changeDependenciesOf(i32 noundef %0, i32 noundef %1, i32 n
   %20 = add i64 %.017, 1
   %21 = call ptr @systable_getnext(ptr noundef %9) #7
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %20, %.lr.ph ]
@@ -849,7 +849,7 @@ define dso_local i64 @changeDependenciesOn(i32 noundef %0, i32 noundef %1, i32 n
   %24 = add i64 %.027.us, 1
   %25 = call ptr @systable_getnext(ptr noundef %20) #7
   %.not.us = icmp eq ptr %25, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %26 = phi ptr [ %36, %.lr.ph.split ], [ %21, %.lr.ph ]
@@ -869,7 +869,7 @@ define dso_local i64 @changeDependenciesOn(i32 noundef %0, i32 noundef %1, i32 n
   %35 = add i64 %.027, 1
   %36 = call ptr @systable_getnext(ptr noundef %20) #7
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %15
   %.0.lcssa = phi i64 [ 0, %15 ], [ %24, %.lr.ph.split.us ], [ %35, %.lr.ph.split ]
@@ -925,7 +925,7 @@ define dso_local ptr @getAutoExtensionsOfObject(i32 noundef %0, i32 noundef %1) 
   %.1 = phi ptr [ %26, %23 ], [ %.013, %19 ], [ %.013, %.lr.ph ]
   %28 = call ptr @systable_getnext(ptr noundef %8) #7
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %27, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ %.1, %27 ]
@@ -982,7 +982,7 @@ define dso_local noundef zeroext i1 @sequenceIsOwned(i32 noundef %0, i8 noundef 
 28:                                               ; preds = %.lr.ph, %20
   %29 = call ptr @systable_getnext(ptr noundef %9) #7
   %.not.not = icmp eq ptr %29, null
-  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %28, %4, %.thread
   %.not20 = phi i1 [ true, %.thread ], [ false, %4 ], [ false, %28 ]
@@ -1076,7 +1076,7 @@ define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 nound
   %.1.us = phi ptr [ %40, %38 ], [ %.029.us, %33 ], [ %.029.us, %27 ], [ %.029.us, %23 ], [ %.029.us, %.lr.ph.split.us ], [ %.029.us, %30 ]
   %42 = call ptr @systable_getnext(ptr noundef %13) #7
   %.not25.us = icmp eq ptr %42, null
-  br i1 %.not25.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
+  br i1 %.not25.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %72
   %43 = phi ptr [ %73, %72 ], [ %14, %.lr.ph ]
@@ -1132,7 +1132,7 @@ define internal fastcc ptr @getOwnedSequences_internal(i32 noundef %0, i16 nound
   %.1 = phi ptr [ %71, %69 ], [ %.029, %66 ], [ %.029, %61 ], [ %.029, %55 ], [ %.029, %51 ], [ %.029, %.lr.ph.split ], [ %.029, %58 ]
   %73 = call ptr @systable_getnext(ptr noundef %13) #7
   %.not25 = icmp eq ptr %73, null
-  br i1 %.not25, label %._crit_edge, label %.lr.ph.split, !llvm.loop !25
+  br i1 %.not25, label %._crit_edge, label %.lr.ph.split, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %72, %41, %11
   %.0.lcssa = phi ptr [ null, %11 ], [ %.1.us, %41 ], [ %.1, %72 ]
@@ -1149,7 +1149,7 @@ define dso_local i32 @getIdentitySequence(ptr noundef readonly captures(none) %0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 127
-  %9 = load i8, ptr %8, align 1, !range !8, !noundef !9
+  %9 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %26
 
@@ -1279,7 +1279,7 @@ define dso_local i32 @get_index_constraint(i32 noundef %0) local_unnamed_addr #0
 28:                                               ; preds = %.lr.ph, %18, %22
   %29 = call ptr @systable_getnext(ptr noundef %7) #7
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %28, %1, %.thread
   %.1 = phi i32 [ %27, %.thread ], [ 0, %1 ], [ 0, %28 ]
@@ -1340,7 +1340,7 @@ define dso_local ptr @get_index_ref_constraints(i32 noundef %0) local_unnamed_ad
   %.1 = phi ptr [ %28, %25 ], [ %.013, %21 ], [ %.013, %17 ], [ %.013, %.lr.ph ]
   %30 = call ptr @systable_getnext(ptr noundef %7) #7
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %29, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.1, %29 ]
@@ -1376,27 +1376,23 @@ attributes #8 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !5, !6, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !5, !6, !12}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6, !12}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
-!20 = distinct !{!20, !5, !6, !12}
-!21 = distinct !{!21, !5, !6}
-!22 = distinct !{!22, !5, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !5, !6, !12}
-!25 = distinct !{!25, !5, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !5, !10}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5, !10}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5, !10}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5, !10}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}

@@ -85,7 +85,7 @@ Gia_ObjIsXor.exit:                                ; preds = %14
   br i1 %43, label %Vec_IntPushUnique.exit, label %39
 
 ._crit_edge.i:                                    ; preds = %39, %28
-  %44 = load i32, ptr %2, align 8, !tbaa !37
+  %44 = load i32, ptr %2, align 8, !tbaa !36
   %45 = icmp eq i32 %35, %44
   br i1 %45, label %46, label %.Vec_IntGrow.exit10_crit_edge.i.i
 
@@ -115,7 +115,7 @@ Gia_ObjIsXor.exit:                                ; preds = %14
 Vec_IntGrow.exit.i.i:                             ; preds = %53, %51
   %55 = phi ptr [ %52, %51 ], [ %54, %53 ]
   store ptr %55, ptr %49, align 8, !tbaa !33
-  store i32 16, ptr %2, align 8, !tbaa !37
+  store i32 16, ptr %2, align 8, !tbaa !36
   br label %Vec_IntPush.exit.i
 
 56:                                               ; preds = %46
@@ -138,7 +138,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %53, %51
 66:                                               ; preds = %64, %62
   %67 = phi ptr [ %63, %62 ], [ %65, %64 ]
   store ptr %67, ptr %58, align 8, !tbaa !33
-  store i32 %57, ptr %2, align 8, !tbaa !37
+  store i32 %57, ptr %2, align 8, !tbaa !36
   br label %Vec_IntPush.exit.i
 
 Vec_IntPush.exit.i:                               ; preds = %66, %Vec_IntGrow.exit.i.i, %.Vec_IntGrow.exit10_crit_edge.i.i
@@ -160,12 +160,12 @@ define noundef ptr @Gia_PolynCollectLastXor(ptr noundef %0, i32 noundef %1) loca
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4, !tbaa !32
-  store i32 100, ptr %3, align 8, !tbaa !37
+  store i32 100, ptr %3, align 8, !tbaa !36
   %5 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !33
   %7 = getelementptr i8, ptr %0, i64 72
-  %.val = load ptr, ptr %7, align 8, !tbaa !38
+  %.val = load ptr, ptr %7, align 8, !tbaa !37
   %8 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %8, align 4, !tbaa !32
   %9 = getelementptr i8, ptr %0, i64 32
@@ -232,7 +232,7 @@ define noundef ptr @Gia_PolynCollectLastXor(ptr noundef %0, i32 noundef %1) loca
   %47 = sdiv i32 %46, 2
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next.i, %48
-  br i1 %49, label %32, label %Vec_IntReverseOrder.exit, !llvm.loop !39
+  br i1 %49, label %32, label %Vec_IntReverseOrder.exit, !llvm.loop !38
 
 Vec_IntReverseOrder.exit:                         ; preds = %32, %20
   %50 = load ptr, ptr %17, align 8, !tbaa !31
@@ -260,18 +260,18 @@ define void @Gia_PolynAnalyzeXors(ptr noundef %0, i32 noundef %1) local_unnamed_
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4, !tbaa !32
-  store i32 100, ptr %3, align 8, !tbaa !37
+  store i32 100, ptr %3, align 8, !tbaa !36
   %5 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %5, ptr %6, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %.preheader
 
 .preheader:                                       ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = getelementptr i8, ptr %11, i64 4
   %.val23 = load i32, ptr %12, align 4, !tbaa !32
   %13 = icmp sgt i32 %.val23, 0
@@ -309,12 +309,12 @@ define void @Gia_PolynAnalyzeXors(ptr noundef %0, i32 noundef %1) local_unnamed_
   %.val19 = load i32, ptr %4, align 4, !tbaa !32
   %28 = add nsw i32 %.val19, %.01724
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = load ptr, ptr %10, align 8, !tbaa !38
+  %29 = load ptr, ptr %10, align 8, !tbaa !37
   %30 = getelementptr i8, ptr %29, i64 4
   %.val = load i32, ptr %30, align 4, !tbaa !32
   %31 = sext i32 %.val to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %16, label %.critedge, !llvm.loop !41
+  br i1 %32, label %16, label %.critedge, !llvm.loop !40
 
 .critedge:                                        ; preds = %16, %.preheader
   %.017.lcssa = phi i32 [ 0, %.preheader ], [ %28, %16 ]
@@ -343,7 +343,7 @@ define ptr @Gia_ManDupTopMostRange(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4, !tbaa !32
-  store i32 16, ptr %2, align 8, !tbaa !37
+  store i32 16, ptr %2, align 8, !tbaa !36
   %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %5, align 8, !tbaa !33
@@ -355,7 +355,7 @@ define ptr @Gia_ManDupTopMostRange(ptr noundef %0) local_unnamed_addr #0 {
   %9 = phi ptr [ %4, %1 ], [ %.val13, %Vec_IntPush.exit ]
   %indvars.iv = phi i64 [ 45, %1 ], [ %indvars.iv.next, %Vec_IntPush.exit ]
   %.val11 = load ptr, ptr %6, align 8, !tbaa !3
-  %.val12 = load ptr, ptr %7, align 8, !tbaa !38
+  %.val12 = load ptr, ptr %7, align 8, !tbaa !37
   %10 = getelementptr i8, ptr %.val12, i64 8
   %.val12.val = load ptr, ptr %10, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i32, ptr %.val12.val, i64 %indvars.iv
@@ -367,7 +367,7 @@ define ptr @Gia_ManDupTopMostRange(ptr noundef %0) local_unnamed_addr #0 {
   %17 = and i32 %16, 536870911
   %18 = sub i32 %12, %17
   %19 = load i32, ptr %3, align 4, !tbaa !32
-  %20 = load i32, ptr %2, align 8, !tbaa !37
+  %20 = load i32, ptr %2, align 8, !tbaa !36
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %Vec_IntPush.exit
 
@@ -406,7 +406,7 @@ Vec_IntPush.exit.sink.split:                      ; preds = %33, %35, %25, %27
   %.sink19 = phi ptr [ %26, %25 ], [ %28, %27 ], [ %34, %33 ], [ %36, %35 ]
   %.sink = phi i32 [ 16, %25 ], [ 16, %27 ], [ %30, %33 ], [ %30, %35 ]
   store ptr %.sink19, ptr %5, align 8, !tbaa !33
-  store i32 %.sink, ptr %2, align 8, !tbaa !37
+  store i32 %.sink, ptr %2, align 8, !tbaa !36
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %8
@@ -418,7 +418,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   store i32 %18, ptr %39, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 52
-  br i1 %exitcond.not, label %Vec_IntFree.exit, label %8, !llvm.loop !42
+  br i1 %exitcond.not, label %Vec_IntFree.exit, label %8, !llvm.loop !41
 
 Vec_IntFree.exit:                                 ; preds = %Vec_IntPush.exit
   %.val10 = load i32, ptr %3, align 4, !tbaa !32
@@ -486,12 +486,11 @@ attributes #9 = { nounwind }
 !31 = !{!4, !11, i64 144}
 !32 = !{!13, !9, i64 4}
 !33 = !{!13, !11, i64 8}
-!34 = distinct !{!34, !35, !36}
+!34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!"llvm.loop.estimated_trip_count"}
-!37 = !{!13, !9, i64 0}
-!38 = !{!4, !12, i64 72}
-!39 = distinct !{!39, !35, !36}
-!40 = !{!4, !11, i64 40}
-!41 = distinct !{!41, !35, !36}
-!42 = distinct !{!42, !35, !36}
+!36 = !{!13, !9, i64 0}
+!37 = !{!4, !12, i64 72}
+!38 = distinct !{!38, !35}
+!39 = !{!4, !11, i64 40}
+!40 = distinct !{!40, !35}
+!41 = distinct !{!41, !35}

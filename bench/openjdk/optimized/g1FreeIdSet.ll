@@ -105,9 +105,9 @@ define hidden noundef i32 @_ZN11G1FreeIdSet12claim_par_idEv(ptr noundef nonnull 
   %16 = add i64 %7, 1
   %17 = add i64 %16, %15
   %18 = or i64 %17, %13
-  %19 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %18, i64 %.0, ptr nonnull %2) #5, !srcloc !9
+  %19 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %18, i64 %.0, ptr nonnull %2) #5, !srcloc !8
   %20 = icmp eq i64 %19, %.0
-  br i1 %20, label %21, label %6, !llvm.loop !10
+  br i1 %20, label %21, label %6, !llvm.loop !9
 
 21:                                               ; preds = %6
   %22 = trunc i64 %8 to i32
@@ -143,9 +143,9 @@ define hidden void @_ZN11G1FreeIdSet14release_par_idEj(ptr noundef nonnull align
   %20 = add i64 %17, 1
   %21 = add i64 %20, %19
   %22 = or i64 %21, %10
-  %23 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %22, i64 %.0, ptr nonnull %6) #5, !srcloc !9
+  %23 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %22, i64 %.0, ptr nonnull %6) #5, !srcloc !8
   %24 = icmp eq i64 %23, %.0
-  br i1 %24, label %25, label %11, !llvm.loop !11
+  br i1 %24, label %25, label %11, !llvm.loop !10
 
 25:                                               ; preds = %11
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1) #5
@@ -179,9 +179,8 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i64 2145412694}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
+!8 = !{i64 2145412694}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

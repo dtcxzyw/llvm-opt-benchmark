@@ -55,7 +55,7 @@ jent_gen_entropy.exit:                            ; preds = %9
   %17 = zext nneg i32 %.0 to i64
   %18 = getelementptr i8, ptr %.01826, i64 %17
   %.not22 = icmp eq i32 %16, 0
-  br i1 %.not22, label %.loopexit, label %5, !llvm.loop !8
+  br i1 %.not22, label %.loopexit, label %5, !llvm.loop !7
 
 .loopexit:                                        ; preds = %jent_gen_entropy.exit, %15, %.preheader, %3
   %.020 = phi i32 [ -1, %3 ], [ 0, %.preheader ], [ -1, %jent_gen_entropy.exit ], [ 0, %15 ]
@@ -121,7 +121,7 @@ define dso_local range(i32 0, 13) i32 @jent_entropy_init(i32 noundef %0, i32 nou
   %.1 = add i32 %.03349, %30
   %31 = add nuw nsw i32 %.03448, 1
   %exitcond.not = icmp eq i32 %31, 1124
-  br i1 %exitcond.not, label %32, label %21, !llvm.loop !9
+  br i1 %exitcond.not, label %32, label %21, !llvm.loop !8
 
 32:                                               ; preds = %28
   %33 = icmp sgt i32 %.1, 3
@@ -272,7 +272,7 @@ define internal fastcc range(i32 0, 2) i32 @jent_measure_jitter(ptr noundef capt
   %10 = lshr i64 %7, 7
   %11 = add nuw nsw i32 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %11, 37
-  br i1 %exitcond.not.i.i, label %jent_loop_shuffle.exit.i, label %6, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %jent_loop_shuffle.exit.i, label %6, !llvm.loop !9
 
 jent_loop_shuffle.exit.i:                         ; preds = %6
   %12 = add nuw nsw i64 %9, 1
@@ -317,7 +317,7 @@ jent_loop_shuffle.exit.i:                         ; preds = %6
   %40 = zext i32 %39 to i64
   %41 = add nuw nsw i64 %12, %40
   %42 = icmp samesign ult i64 %38, %41
-  br i1 %42, label %26, label %jent_memaccess.exit, !llvm.loop !11
+  br i1 %42, label %26, label %jent_memaccess.exit, !llvm.loop !10
 
 jent_memaccess.exit:                              ; preds = %26, %jent_loop_shuffle.exit.i, %14
   call void @jent_get_nstime(ptr noundef nonnull %5) #4
@@ -498,10 +498,9 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

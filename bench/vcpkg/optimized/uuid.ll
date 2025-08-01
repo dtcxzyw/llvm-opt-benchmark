@@ -171,7 +171,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
 ._crit_edge.i:                                    ; preds = %_ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit.i, %53
   %.049.add.i = add nuw nsw i64 %.049.idx77.i, 8
   %.not.i = icmp eq i64 %.049.add.i, 24
-  br i1 %.not.i, label %.preheader.i, label %.preheader72.i, !llvm.loop !22
+  br i1 %.not.i, label %.preheader.i, label %.preheader72.i
 
 .lr.ph.i:                                         ; preds = %53, %_ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit.i
   %.04576.i = phi i64 [ %56, %_ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit.i ], [ %.04778.i, %53 ]
@@ -305,7 +305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit63.i: ; pr
 ._crit_edge82.i:                                  ; preds = %_ZNK12_GLOBAL__N_113append_hexitsclERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEh.exit71.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit63.i
   %.039.add.i = add nuw nsw i64 %.039.idx84.i, 8
   %.not52.i = icmp eq i64 %.039.add.i, 16
-  br i1 %.not52.i, label %_ZN12_GLOBAL__N_116uuid_of_integersB5cxx11Emm.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %.not52.i, label %_ZN12_GLOBAL__N_116uuid_of_integersB5cxx11Emm.exit, label %.preheader.i
 
 114:                                              ; preds = %107
   %115 = landingpad { ptr, i32 }
@@ -523,7 +523,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt24uniform_int_distributionImEclI
   %24 = mul nuw i64 %23, %15
   %25 = trunc i64 %24 to i32
   %26 = icmp ugt i32 %20, %25
-  br i1 %26, label %.lr.ph.i, label %_ZNSt24uniform_int_distributionImE5_S_ndImSt13random_devicejEET1_RT0_S3_.exit, !llvm.loop !25
+  br i1 %26, label %.lr.ph.i, label %_ZNSt24uniform_int_distributionImE5_S_ndImSt13random_devicejEET1_RT0_S3_.exit, !llvm.loop !22
 
 _ZNSt24uniform_int_distributionImE5_S_ndImSt13random_devicejEET1_RT0_S3_.exit: ; preds = %.lr.ph.i, %10, %18
   %.0.i = phi i64 [ %16, %10 ], [ %16, %18 ], [ %24, %.lr.ph.i ]
@@ -550,7 +550,7 @@ _ZNSt24uniform_int_distributionImE5_S_ndImSt13random_devicejEET1_RT0_S3_.exit: ;
   %35 = zext i32 %34 to i64
   %36 = or disjoint i64 %33, %35
   %37 = icmp ugt i64 %36, %8
-  br i1 %37, label %31, label %.loopexit, !llvm.loop !27
+  br i1 %37, label %31, label %.loopexit, !llvm.loop !24
 
 38:                                               ; preds = %28
   %39 = tail call noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %1)
@@ -610,8 +610,5 @@ attributes #11 = { noreturn nounwind }
 !20 = distinct !{!20, !"_ZN12_GLOBAL__N_116uuid_of_integersB5cxx11Emm"}
 !21 = !{!12, !12, i64 0}
 !22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!"llvm.loop.mustprogress"}
 !24 = distinct !{!24, !23}
-!25 = distinct !{!25, !26, !23}
-!26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26, !23}

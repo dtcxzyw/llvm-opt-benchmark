@@ -1218,7 +1218,7 @@ lean_dec.exit71:                                  ; preds = %lean_dec.exit70, %3
   %51 = ptrtoint ptr %50 to i64
   %52 = and i64 %51, 1
   %.not = icmp eq i64 %52, 0
-  br i1 %.not, label %._crit_edge, label %lean_string_utf8_at_end.exit, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %lean_string_utf8_at_end.exit
 
 lean_dec.exit71.thread:                           ; preds = %lean_string_utf8_get_fast.exit, %lean_string_utf8_at_end.exit, %lean_dec.exit71, %11, %43, %45, %46
   %.699 = phi ptr [ %.054.lcssa, %46 ], [ %.054.lcssa, %45 ], [ %.054.lcssa, %43 ], [ %.054.lcssa, %11 ], [ %.054116, %lean_string_utf8_get_fast.exit ], [ %.054116, %lean_string_utf8_at_end.exit ], [ %29, %lean_dec.exit71 ]
@@ -1421,7 +1421,7 @@ lean_dec.exit96:                                  ; preds = %lean_dec.exit95, %3
   %67 = ptrtoint ptr %66 to i64
   %68 = and i64 %67, 1
   %.not = icmp eq i64 %68, 0
-  br i1 %.not, label %._crit_edge, label %lean_string_utf8_at_end.exit, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %lean_string_utf8_at_end.exit
 
 lean_dec.exit96.thread:                           ; preds = %lean_string_utf8_get_fast.exit, %lean_string_utf8_at_end.exit, %lean_dec.exit96, %lean_inc.exit, %11, %58, %60, %61
   %.8130 = phi ptr [ %.071.lcssa, %61 ], [ %.071.lcssa, %60 ], [ %.071.lcssa, %58 ], [ %.071.lcssa, %11 ], [ %42, %lean_inc.exit ], [ %.071148, %lean_string_utf8_get_fast.exit ], [ %.071148, %lean_string_utf8_at_end.exit ], [ %30, %lean_dec.exit96 ]
@@ -1537,7 +1537,7 @@ lean_dec.exit28:                                  ; preds = %lean_inc.exit, %3
   %4 = ptrtoint ptr %.022 to i64
   %5 = and i64 %4, 1
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !19
+  br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !16
 
 lean_nat_eq.exit:                                 ; preds = %lean_dec.exit28
   %.not47 = icmp eq ptr %.022, inttoptr (i64 1 to ptr)
@@ -3455,7 +3455,7 @@ lean_string_utf8_get_fast.exit:                   ; preds = %26, %28
   %31 = ptrtoint ptr %.092240 to i64
   %32 = and i64 %31, 1
   %.not208 = icmp eq i64 %32, 0
-  br i1 %.not208, label %33, label %lean_nat_le.exit, !prof !19
+  br i1 %.not208, label %33, label %lean_nat_le.exit, !prof !16
 
 lean_nat_le.exit:                                 ; preds = %30
   %.not286 = icmp ult ptr %.092240, inttoptr (i64 7 to ptr)
@@ -3618,7 +3618,7 @@ lean_dec.exit126:                                 ; preds = %lean_nat_le.exit, %
   %91 = ptrtoint ptr %.092240 to i64
   %92 = and i64 %91, 1
   %.not204 = icmp eq i64 %92, 0
-  br i1 %.not204, label %lean_nat_le.exit169, label %93, !prof !19
+  br i1 %.not204, label %lean_nat_le.exit169, label %93, !prof !16
 
 93:                                               ; preds = %89
   %.not287 = icmp ult ptr %.092240, inttoptr (i64 11 to ptr)
@@ -3734,7 +3734,7 @@ lean_dec.exit120:                                 ; preds = %lean_string_utf8_at
   %138 = ptrtoint ptr %.092227 to i64
   %139 = and i64 %138, 1
   %.not200 = icmp eq i64 %139, 0
-  br i1 %.not200, label %140, label %lean_nat_le.exit172, !prof !19
+  br i1 %.not200, label %140, label %lean_nat_le.exit172, !prof !16
 
 lean_nat_le.exit172:                              ; preds = %lean_dec.exit120
   %.not288 = icmp ult ptr %.092227, inttoptr (i64 7 to ptr)
@@ -4132,7 +4132,7 @@ lean_string_utf8_get_fast.exit:                   ; preds = %52, %54
   %57 = ptrtoint ptr %.0129 to i64
   %58 = and i64 %57, 1
   %.not322 = icmp eq i64 %58, 0
-  br i1 %.not322, label %59, label %lean_nat_le.exit, !prof !19
+  br i1 %.not322, label %59, label %lean_nat_le.exit, !prof !16
 
 lean_nat_le.exit:                                 ; preds = %56
   %.not466 = icmp ult ptr %.0129, inttoptr (i64 7 to ptr)
@@ -4599,7 +4599,7 @@ lean_dec.exit170:                                 ; preds = %lean_dec.exit171, %
   %223 = ptrtoint ptr %.0129 to i64
   %224 = and i64 %223, 1
   %.not317 = icmp eq i64 %224, 0
-  br i1 %.not317, label %lean_nat_le.exit267, label %225, !prof !19
+  br i1 %.not317, label %lean_nat_le.exit267, label %225, !prof !16
 
 225:                                              ; preds = %lean_dec.exit170
   %.not467 = icmp ult ptr %.0129, inttoptr (i64 11 to ptr)
@@ -4784,7 +4784,7 @@ lean_dec.exit163:                                 ; preds = %lean_dec.exit164, %
   %292 = ptrtoint ptr %.0129 to i64
   %293 = and i64 %292, 1
   %.not313 = icmp eq i64 %293, 0
-  br i1 %.not313, label %294, label %lean_nat_le.exit270, !prof !19
+  br i1 %.not313, label %294, label %lean_nat_le.exit270, !prof !16
 
 lean_nat_le.exit270:                              ; preds = %lean_dec.exit163
   %.not468 = icmp ult ptr %.0129, inttoptr (i64 7 to ptr)
@@ -5927,7 +5927,7 @@ lean_dec.exit160:                                 ; preds = %226, %225, %223, %2
 238:                                              ; preds = %14, %17
   %239 = phi i32 [ %15, %14 ], [ %.pr232, %17 ]
   %240 = icmp sgt i32 %239, 1
-  br i1 %240, label %241, label %243, !prof !20
+  br i1 %240, label %241, label %243, !prof !17
 
 241:                                              ; preds = %238
   %242 = add nsw i32 %239, -1
@@ -6498,7 +6498,7 @@ lean_inc.exit82:                                  ; preds = %56, %55, %53, %lean
   br label %lean_nat_eq.exit
 
 lean_inc.exit:                                    ; preds = %59
-  br i1 %.not134, label %lean_nat_eq.exit.thread123, label %lean_dec.exit80.thread, !prof !19
+  br i1 %.not134, label %lean_nat_eq.exit.thread123, label %lean_dec.exit80.thread, !prof !16
 
 lean_nat_eq.exit.thread123:                       ; preds = %lean_inc.exit
   %70 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %61, ptr noundef %.0.i111) #4
@@ -6566,7 +6566,7 @@ lean_dec.exit79:                                  ; preds = %90, %89, %87, %lean
   %95 = ptrtoint ptr %94 to i64
   %96 = and i64 %95, 1
   %.not137 = icmp eq i64 %96, 0
-  br i1 %.not137, label %102, label %97, !prof !19
+  br i1 %.not137, label %102, label %97, !prof !16
 
 97:                                               ; preds = %93
   %98 = icmp ult ptr %94, inttoptr (i64 2 to ptr)
@@ -6656,7 +6656,7 @@ lean_dec.exit72:                                  ; preds = %lean_string_utf8_ge
 132:                                              ; preds = %9, %12
   %133 = phi i32 [ %10, %9 ], [ %.pr, %12 ]
   %134 = icmp sgt i32 %133, 1
-  br i1 %134, label %135, label %137, !prof !20
+  br i1 %134, label %135, label %137, !prof !17
 
 135:                                              ; preds = %132
   %136 = add nsw i32 %133, -1
@@ -6859,7 +6859,7 @@ lean_dec.exit29:                                  ; preds = %lean_inc.exit, %3
   %4 = ptrtoint ptr %.023 to i64
   %5 = and i64 %4, 1
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !19
+  br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !16
 
 lean_nat_eq.exit:                                 ; preds = %lean_dec.exit29
   %.not48 = icmp eq ptr %.023, inttoptr (i64 1 to ptr)
@@ -7235,9 +7235,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit75
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr @l_Lake_Toml_decExpFn___lambda__1___boxed, ptr %44, align 8, !tbaa !10
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i16 3, ptr %45, align 8, !tbaa !21
+  store i16 3, ptr %45, align 8, !tbaa !18
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 18
-  store i16 2, ptr %46, align 2, !tbaa !21
+  store i16 2, ptr %46, align 2, !tbaa !18
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr %38, ptr %47, align 8, !tbaa !10
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -11972,9 +11972,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_alloc_ctor.exi
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @l_Lake_Toml_numeralOfKind___lambda__1___boxed, ptr %13, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i16 2, ptr %14, align 8, !tbaa !21
+  store i16 2, ptr %14, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 18
-  store i16 1, ptr %15, align 2, !tbaa !21
+  store i16 1, ptr %15, align 2, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %1, ptr %16, align 8, !tbaa !10
   %17 = load ptr, ptr @l_Lake_Toml_numeralOfKind___closed__1, align 8, !tbaa !10
@@ -12118,9 +12118,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @l_Lean_Parser_mkAntiquot_formatter___boxed, ptr %27, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i16 9, ptr %28, align 8, !tbaa !21
+  store i16 9, ptr %28, align 8, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 18
-  store i16 4, ptr %29, align 2, !tbaa !21
+  store i16 4, ptr %29, align 2, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %0, ptr %30, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -12145,9 +12145,9 @@ lean_alloc_closure.exit24:                        ; preds = %lean_alloc_closure.
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr @l_Lake_Toml_lit_formatter___boxed, ptr %38, align 8, !tbaa !10
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i16 8, ptr %39, align 8, !tbaa !21
+  store i16 8, ptr %39, align 8, !tbaa !18
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 18
-  store i16 3, ptr %40, align 2, !tbaa !21
+  store i16 3, ptr %40, align 2, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %1, ptr %41, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 32
@@ -12226,9 +12226,9 @@ lean_alloc_closure.exit:                          ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l_Lean_Parser_withAntiquotSpliceAndSuffix_formatter, ptr %14, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 8, ptr %15, align 8, !tbaa !21
+  store i16 8, ptr %15, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 3, ptr %16, align 2, !tbaa !21
+  store i16 3, ptr %16, align 2, !tbaa !18
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %8, ptr %17, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -12288,9 +12288,9 @@ l_Lake_Toml_sepByLinebreak_formatter.exit:        ; preds = %lean_dec.exit
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @l_Lean_Parser_withAntiquotSpliceAndSuffix_formatter, ptr %23, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i16 8, ptr %24, align 8, !tbaa !21
+  store i16 8, ptr %24, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 18
-  store i16 3, ptr %25, align 2, !tbaa !21
+  store i16 3, ptr %25, align 2, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %17, ptr %26, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -12391,9 +12391,9 @@ lean_alloc_closure.exit:                          ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @l_Lake_Toml_trailing_formatter___rarg, ptr %10, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i16 1, ptr %11, align 8, !tbaa !21
+  store i16 1, ptr %11, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  store i16 0, ptr %12, align 2, !tbaa !21
+  store i16 0, ptr %12, align 2, !tbaa !18
   ret ptr %6
 }
 
@@ -12415,9 +12415,9 @@ l_Lake_Toml_trailing_formatter.exit:              ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @l_Lake_Toml_trailing_formatter___rarg, ptr %10, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i16 1, ptr %11, align 8, !tbaa !21
+  store i16 1, ptr %11, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  store i16 0, ptr %12, align 2, !tbaa !21
+  store i16 0, ptr %12, align 2, !tbaa !18
   %13 = ptrtoint ptr %4 to i64
   %14 = and i64 %13, 1
   %.not = icmp eq i64 %14, 0
@@ -12581,9 +12581,9 @@ lean_alloc_closure.exit:                          ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lake_Toml_trailingWs_formatter___rarg, ptr %9, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 1, ptr %10, align 8, !tbaa !21
+  store i16 1, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 0, ptr %11, align 2, !tbaa !21
+  store i16 0, ptr %11, align 2, !tbaa !18
   ret ptr %5
 }
 
@@ -12605,9 +12605,9 @@ l_Lake_Toml_trailingWs_formatter.exit:            ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lake_Toml_trailingWs_formatter___rarg, ptr %9, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 1, ptr %10, align 8, !tbaa !21
+  store i16 1, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 0, ptr %11, align 2, !tbaa !21
+  store i16 0, ptr %11, align 2, !tbaa !18
   %12 = ptrtoint ptr %3 to i64
   %13 = and i64 %12, 1
   %.not = icmp eq i64 %13, 0
@@ -12735,9 +12735,9 @@ lean_alloc_closure.exit:                          ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %12, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i16 7, ptr %13, align 8, !tbaa !21
+  store i16 7, ptr %13, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 18
-  store i16 2, ptr %14, align 2, !tbaa !21
+  store i16 2, ptr %14, align 2, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %7, ptr %15, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -12759,9 +12759,9 @@ lean_alloc_closure.exit25:                        ; preds = %lean_alloc_closure.
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %22, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i16 7, ptr %23, align 8, !tbaa !21
+  store i16 7, ptr %23, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  store i16 2, ptr %24, align 2, !tbaa !21
+  store i16 2, ptr %24, align 2, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %17, ptr %25, align 8, !tbaa !10
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -12782,9 +12782,9 @@ lean_alloc_closure.exit26:                        ; preds = %lean_alloc_closure.
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %31, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i16 7, ptr %32, align 8, !tbaa !21
+  store i16 7, ptr %32, align 8, !tbaa !18
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 18
-  store i16 2, ptr %33, align 2, !tbaa !21
+  store i16 2, ptr %33, align 2, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %7, ptr %34, align 8, !tbaa !10
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
@@ -12806,9 +12806,9 @@ lean_alloc_closure.exit27:                        ; preds = %lean_alloc_closure.
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %41, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i16 7, ptr %42, align 8, !tbaa !21
+  store i16 7, ptr %42, align 8, !tbaa !18
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 18
-  store i16 2, ptr %43, align 2, !tbaa !21
+  store i16 2, ptr %43, align 2, !tbaa !18
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %36, ptr %44, align 8, !tbaa !10
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 32
@@ -12865,9 +12865,9 @@ lean_alloc_closure.exit:                          ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @l_Lake_Toml_keyvalCore_formatter, ptr %11, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 6, ptr %12, align 8, !tbaa !21
+  store i16 6, ptr %12, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 18
-  store i16 1, ptr %13, align 2, !tbaa !21
+  store i16 1, ptr %13, align 2, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %0, ptr %14, align 8, !tbaa !10
   %15 = load ptr, ptr @l_Lake_Toml_expressionCore_formatter___closed__2, align 8, !tbaa !10
@@ -12887,9 +12887,9 @@ lean_alloc_closure.exit14:                        ; preds = %lean_alloc_closure.
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_orelse_formatter, ptr %20, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i16 7, ptr %21, align 8, !tbaa !21
+  store i16 7, ptr %21, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 18
-  store i16 2, ptr %22, align 2, !tbaa !21
+  store i16 2, ptr %22, align 2, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %7, ptr %23, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -12939,9 +12939,9 @@ lean_alloc_closure.exit:                          ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lake_Toml_trailingSep_formatter___rarg, ptr %9, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 1, ptr %10, align 8, !tbaa !21
+  store i16 1, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 0, ptr %11, align 2, !tbaa !21
+  store i16 0, ptr %11, align 2, !tbaa !18
   ret ptr %5
 }
 
@@ -12963,9 +12963,9 @@ l_Lake_Toml_trailingSep_formatter.exit:           ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lake_Toml_trailingSep_formatter___rarg, ptr %9, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 1, ptr %10, align 8, !tbaa !21
+  store i16 1, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 0, ptr %11, align 2, !tbaa !21
+  store i16 0, ptr %11, align 2, !tbaa !18
   %12 = ptrtoint ptr %3 to i64
   %13 = and i64 %12, 1
   %.not = icmp eq i64 %13, 0
@@ -13083,9 +13083,9 @@ lean_alloc_closure.exit:                          ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @l_Lake_Toml_expressionCore_formatter, ptr %11, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 6, ptr %12, align 8, !tbaa !21
+  store i16 6, ptr %12, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 18
-  store i16 1, ptr %13, align 2, !tbaa !21
+  store i16 1, ptr %13, align 2, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %0, ptr %14, align 8, !tbaa !10
   %15 = load ptr, ptr @l_Lake_Toml_tomlCore_formatter___closed__1, align 8, !tbaa !10
@@ -13105,9 +13105,9 @@ lean_alloc_closure.exit24:                        ; preds = %lean_alloc_closure.
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %20, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i16 7, ptr %21, align 8, !tbaa !21
+  store i16 7, ptr %21, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 18
-  store i16 2, ptr %22, align 2, !tbaa !21
+  store i16 2, ptr %22, align 2, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %7, ptr %23, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -13128,9 +13128,9 @@ lean_alloc_closure.exit25:                        ; preds = %lean_alloc_closure.
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @l_Lake_Toml_sepByLinebreak_formatter___boxed, ptr %29, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i16 7, ptr %30, align 8, !tbaa !21
+  store i16 7, ptr %30, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 18
-  store i16 2, ptr %31, align 2, !tbaa !21
+  store i16 2, ptr %31, align 2, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %16, ptr %32, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -13152,9 +13152,9 @@ lean_alloc_closure.exit26:                        ; preds = %lean_alloc_closure.
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %39, align 8, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i16 7, ptr %40, align 8, !tbaa !21
+  store i16 7, ptr %40, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 18
-  store i16 2, ptr %41, align 2, !tbaa !21
+  store i16 2, ptr %41, align 2, !tbaa !18
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %34, ptr %42, align 8, !tbaa !10
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 32
@@ -13191,9 +13191,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lake_Toml_recNode_formatter___rarg, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 5, ptr %7, align 8, !tbaa !21
+  store i16 5, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !21
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -13215,9 +13215,9 @@ l_Lake_Toml_recNode_formatter.exit:               ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lake_Toml_recNode_formatter___rarg, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 5, ptr %7, align 8, !tbaa !21
+  store i16 5, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !21
+  store i16 0, ptr %8, align 2, !tbaa !18
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
@@ -13267,9 +13267,9 @@ lean_alloc_closure.exit:                          ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l_Lean_Parser_mkAntiquot_formatter___boxed, ptr %18, align 8, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 9, ptr %19, align 8, !tbaa !21
+  store i16 9, ptr %19, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 4, ptr %20, align 2, !tbaa !21
+  store i16 4, ptr %20, align 2, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %21, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -13328,9 +13328,9 @@ l_Lake_Toml_recNodeWithAntiquot_formatter.exit:   ; preds = %lean_dec.exit12
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @l_Lean_Parser_mkAntiquot_formatter___boxed, ptr %26, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i16 9, ptr %27, align 8, !tbaa !21
+  store i16 9, ptr %27, align 8, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 18
-  store i16 4, ptr %28, align 2, !tbaa !21
+  store i16 4, ptr %28, align 2, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %0, ptr %29, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -13388,9 +13388,9 @@ l_Lake_Toml_recNodeWithAntiquot_formatter.exit:   ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @l_Lean_Parser_mkAntiquot_formatter___boxed, ptr %12, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i16 9, ptr %13, align 8, !tbaa !21
+  store i16 9, ptr %13, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 18
-  store i16 4, ptr %14, align 2, !tbaa !21
+  store i16 4, ptr %14, align 2, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %6, ptr %15, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -13457,9 +13457,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_inc.exit
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @l_Lean_Parser_mkAntiquot_parenthesizer___boxed, ptr %27, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i16 9, ptr %28, align 8, !tbaa !21
+  store i16 9, ptr %28, align 8, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 18
-  store i16 4, ptr %29, align 2, !tbaa !21
+  store i16 4, ptr %29, align 2, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %0, ptr %30, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -13484,9 +13484,9 @@ lean_alloc_closure.exit24:                        ; preds = %lean_alloc_closure.
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr @l_Lake_Toml_lit_parenthesizer___boxed, ptr %38, align 8, !tbaa !10
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i16 4, ptr %39, align 8, !tbaa !21
+  store i16 4, ptr %39, align 8, !tbaa !18
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 18
-  store i16 3, ptr %40, align 2, !tbaa !21
+  store i16 3, ptr %40, align 2, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %1, ptr %41, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 32
@@ -13565,9 +13565,9 @@ lean_alloc_closure.exit:                          ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l_Lean_Parser_withAntiquotSpliceAndSuffix_parenthesizer, ptr %14, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 8, ptr %15, align 8, !tbaa !21
+  store i16 8, ptr %15, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 3, ptr %16, align 2, !tbaa !21
+  store i16 3, ptr %16, align 2, !tbaa !18
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %8, ptr %17, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -13627,9 +13627,9 @@ l_Lake_Toml_sepByLinebreak_parenthesizer.exit:    ; preds = %lean_dec.exit
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @l_Lean_Parser_withAntiquotSpliceAndSuffix_parenthesizer, ptr %23, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i16 8, ptr %24, align 8, !tbaa !21
+  store i16 8, ptr %24, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 18
-  store i16 3, ptr %25, align 2, !tbaa !21
+  store i16 3, ptr %25, align 2, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %17, ptr %26, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -13732,9 +13732,9 @@ lean_alloc_closure.exit:                          ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @l_Lake_Toml_trailing_parenthesizer___rarg, ptr %10, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i16 1, ptr %11, align 8, !tbaa !21
+  store i16 1, ptr %11, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  store i16 0, ptr %12, align 2, !tbaa !21
+  store i16 0, ptr %12, align 2, !tbaa !18
   ret ptr %6
 }
 
@@ -13756,9 +13756,9 @@ l_Lake_Toml_trailing_parenthesizer.exit:          ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @l_Lake_Toml_trailing_parenthesizer___rarg, ptr %10, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i16 1, ptr %11, align 8, !tbaa !21
+  store i16 1, ptr %11, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  store i16 0, ptr %12, align 2, !tbaa !21
+  store i16 0, ptr %12, align 2, !tbaa !18
   %13 = ptrtoint ptr %4 to i64
   %14 = and i64 %13, 1
   %.not = icmp eq i64 %14, 0
@@ -13922,9 +13922,9 @@ lean_alloc_closure.exit:                          ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lake_Toml_trailingWs_parenthesizer___rarg, ptr %9, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 1, ptr %10, align 8, !tbaa !21
+  store i16 1, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 0, ptr %11, align 2, !tbaa !21
+  store i16 0, ptr %11, align 2, !tbaa !18
   ret ptr %5
 }
 
@@ -13946,9 +13946,9 @@ l_Lake_Toml_trailingWs_parenthesizer.exit:        ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lake_Toml_trailingWs_parenthesizer___rarg, ptr %9, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 1, ptr %10, align 8, !tbaa !21
+  store i16 1, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 0, ptr %11, align 2, !tbaa !21
+  store i16 0, ptr %11, align 2, !tbaa !18
   %12 = ptrtoint ptr %3 to i64
   %13 = and i64 %12, 1
   %.not = icmp eq i64 %13, 0
@@ -14076,9 +14076,9 @@ lean_alloc_closure.exit:                          ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %12, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i16 7, ptr %13, align 8, !tbaa !21
+  store i16 7, ptr %13, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 18
-  store i16 2, ptr %14, align 2, !tbaa !21
+  store i16 2, ptr %14, align 2, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %7, ptr %15, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -14100,9 +14100,9 @@ lean_alloc_closure.exit25:                        ; preds = %lean_alloc_closure.
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %22, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i16 7, ptr %23, align 8, !tbaa !21
+  store i16 7, ptr %23, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  store i16 2, ptr %24, align 2, !tbaa !21
+  store i16 2, ptr %24, align 2, !tbaa !18
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %17, ptr %25, align 8, !tbaa !10
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -14123,9 +14123,9 @@ lean_alloc_closure.exit26:                        ; preds = %lean_alloc_closure.
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %31, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i16 7, ptr %32, align 8, !tbaa !21
+  store i16 7, ptr %32, align 8, !tbaa !18
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 18
-  store i16 2, ptr %33, align 2, !tbaa !21
+  store i16 2, ptr %33, align 2, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %7, ptr %34, align 8, !tbaa !10
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
@@ -14147,9 +14147,9 @@ lean_alloc_closure.exit27:                        ; preds = %lean_alloc_closure.
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %41, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i16 7, ptr %42, align 8, !tbaa !21
+  store i16 7, ptr %42, align 8, !tbaa !18
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 18
-  store i16 2, ptr %43, align 2, !tbaa !21
+  store i16 2, ptr %43, align 2, !tbaa !18
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr %36, ptr %44, align 8, !tbaa !10
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 32
@@ -14206,9 +14206,9 @@ lean_alloc_closure.exit:                          ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @l_Lake_Toml_keyvalCore_parenthesizer, ptr %11, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 6, ptr %12, align 8, !tbaa !21
+  store i16 6, ptr %12, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 18
-  store i16 1, ptr %13, align 2, !tbaa !21
+  store i16 1, ptr %13, align 2, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %0, ptr %14, align 8, !tbaa !10
   %15 = load ptr, ptr @l_Lake_Toml_expressionCore_parenthesizer___closed__2, align 8, !tbaa !10
@@ -14228,9 +14228,9 @@ lean_alloc_closure.exit14:                        ; preds = %lean_alloc_closure.
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_orelse_parenthesizer, ptr %20, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i16 7, ptr %21, align 8, !tbaa !21
+  store i16 7, ptr %21, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 18
-  store i16 2, ptr %22, align 2, !tbaa !21
+  store i16 2, ptr %22, align 2, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %7, ptr %23, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -14280,9 +14280,9 @@ lean_alloc_closure.exit:                          ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lake_Toml_trailingSep_parenthesizer___rarg, ptr %9, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 1, ptr %10, align 8, !tbaa !21
+  store i16 1, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 0, ptr %11, align 2, !tbaa !21
+  store i16 0, ptr %11, align 2, !tbaa !18
   ret ptr %5
 }
 
@@ -14304,9 +14304,9 @@ l_Lake_Toml_trailingSep_parenthesizer.exit:       ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @l_Lake_Toml_trailingSep_parenthesizer___rarg, ptr %9, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i16 1, ptr %10, align 8, !tbaa !21
+  store i16 1, ptr %10, align 8, !tbaa !18
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 18
-  store i16 0, ptr %11, align 2, !tbaa !21
+  store i16 0, ptr %11, align 2, !tbaa !18
   %12 = ptrtoint ptr %3 to i64
   %13 = and i64 %12, 1
   %.not = icmp eq i64 %13, 0
@@ -14424,9 +14424,9 @@ lean_alloc_closure.exit:                          ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @l_Lake_Toml_expressionCore_parenthesizer, ptr %11, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i16 6, ptr %12, align 8, !tbaa !21
+  store i16 6, ptr %12, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 18
-  store i16 1, ptr %13, align 2, !tbaa !21
+  store i16 1, ptr %13, align 2, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %0, ptr %14, align 8, !tbaa !10
   %15 = load ptr, ptr @l_Lake_Toml_tomlCore_parenthesizer___closed__1, align 8, !tbaa !10
@@ -14446,9 +14446,9 @@ lean_alloc_closure.exit24:                        ; preds = %lean_alloc_closure.
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %20, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i16 7, ptr %21, align 8, !tbaa !21
+  store i16 7, ptr %21, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 18
-  store i16 2, ptr %22, align 2, !tbaa !21
+  store i16 2, ptr %22, align 2, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %7, ptr %23, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -14469,9 +14469,9 @@ lean_alloc_closure.exit25:                        ; preds = %lean_alloc_closure.
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @l_Lake_Toml_sepByLinebreak_parenthesizer___boxed, ptr %29, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i16 7, ptr %30, align 8, !tbaa !21
+  store i16 7, ptr %30, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 18
-  store i16 2, ptr %31, align 2, !tbaa !21
+  store i16 2, ptr %31, align 2, !tbaa !18
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %16, ptr %32, align 8, !tbaa !10
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -14493,9 +14493,9 @@ lean_alloc_closure.exit26:                        ; preds = %lean_alloc_closure.
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %39, align 8, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i16 7, ptr %40, align 8, !tbaa !21
+  store i16 7, ptr %40, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 18
-  store i16 2, ptr %41, align 2, !tbaa !21
+  store i16 2, ptr %41, align 2, !tbaa !18
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store ptr %34, ptr %42, align 8, !tbaa !10
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 32
@@ -14532,9 +14532,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lake_Toml_recNode_parenthesizer___rarg, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 5, ptr %7, align 8, !tbaa !21
+  store i16 5, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !21
+  store i16 0, ptr %8, align 2, !tbaa !18
   ret ptr %2
 }
 
@@ -14556,9 +14556,9 @@ l_Lake_Toml_recNode_parenthesizer.exit:           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Lake_Toml_recNode_parenthesizer___rarg, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 5, ptr %7, align 8, !tbaa !21
+  store i16 5, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !21
+  store i16 0, ptr %8, align 2, !tbaa !18
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
@@ -14608,9 +14608,9 @@ lean_alloc_closure.exit:                          ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @l_Lean_Parser_mkAntiquot_parenthesizer___boxed, ptr %18, align 8, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i16 9, ptr %19, align 8, !tbaa !21
+  store i16 9, ptr %19, align 8, !tbaa !18
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 18
-  store i16 4, ptr %20, align 2, !tbaa !21
+  store i16 4, ptr %20, align 2, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %0, ptr %21, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -14669,9 +14669,9 @@ l_Lake_Toml_recNodeWithAntiquot_parenthesizer.exit: ; preds = %lean_dec.exit12
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr @l_Lean_Parser_mkAntiquot_parenthesizer___boxed, ptr %26, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i16 9, ptr %27, align 8, !tbaa !21
+  store i16 9, ptr %27, align 8, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 18
-  store i16 4, ptr %28, align 2, !tbaa !21
+  store i16 4, ptr %28, align 2, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %0, ptr %29, align 8, !tbaa !10
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -14729,9 +14729,9 @@ l_Lake_Toml_recNodeWithAntiquot_parenthesizer.exit: ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @l_Lean_Parser_mkAntiquot_parenthesizer___boxed, ptr %12, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i16 9, ptr %13, align 8, !tbaa !21
+  store i16 9, ptr %13, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 18
-  store i16 4, ptr %14, align 2, !tbaa !21
+  store i16 4, ptr %14, align 2, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %6, ptr %15, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -14811,9 +14811,9 @@ _init_l_Lake_Toml_wsFn___closed__1.exit:          ; preds = %lean_dec_ref.exit
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @l_Lake_Toml_wsFn___lambda__1___boxed, ptr %22, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i16 1, ptr %23, align 8, !tbaa !21
+  store i16 1, ptr %23, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  store i16 0, ptr %24, align 2, !tbaa !21
+  store i16 0, ptr %24, align 2, !tbaa !18
   store ptr %18, ptr @l_Lake_Toml_wsFn___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %18) #4
   %25 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 31, i64 noundef 31) #4
@@ -14861,9 +14861,9 @@ _init_l_Lake_Toml_commentBodyFn___closed__1.exit: ; preds = %_init_l_Lake_Toml_n
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @l_Lake_Toml_isControlChar___boxed, ptr %39, align 8, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i16 1, ptr %40, align 8, !tbaa !21
+  store i16 1, ptr %40, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 18
-  store i16 0, ptr %41, align 2, !tbaa !21
+  store i16 0, ptr %41, align 2, !tbaa !18
   store ptr %35, ptr @l_Lake_Toml_commentBodyFn___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %35) #4
   %42 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.3, i64 noundef 7, i64 noundef 7) #4
@@ -14934,9 +14934,9 @@ _init_l_Lake_Toml_escapeSeqFn___closed__5.exit:   ; preds = %_init_l_Lake_Toml_e
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr @l_Lake_Toml_escapeSeqFn___lambda__1___boxed, ptr %64, align 8, !tbaa !10
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store i16 2, ptr %65, align 8, !tbaa !21
+  store i16 2, ptr %65, align 8, !tbaa !18
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 18
-  store i16 0, ptr %66, align 2, !tbaa !21
+  store i16 0, ptr %66, align 2, !tbaa !18
   store ptr %60, ptr @l_Lake_Toml_escapeSeqFn___closed__5, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %60) #4
   tail call void @lean_inc_heartbeat() #4
@@ -14955,9 +14955,9 @@ _init_l_Lake_Toml_escapeSeqFn___closed__6.exit:   ; preds = %_init_l_Lake_Toml_e
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store ptr @l_Lake_Toml_wsNewlineFn___boxed, ptr %71, align 8, !tbaa !10
   %72 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store i16 2, ptr %72, align 8, !tbaa !21
+  store i16 2, ptr %72, align 8, !tbaa !18
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 18
-  store i16 0, ptr %73, align 2, !tbaa !21
+  store i16 0, ptr %73, align 2, !tbaa !18
   store ptr %67, ptr @l_Lake_Toml_escapeSeqFn___closed__6, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %67) #4
   tail call void @lean_inc_heartbeat() #4
@@ -14976,9 +14976,9 @@ _init_l_Lake_Toml_escapeSeqFn___closed__7.exit:   ; preds = %_init_l_Lake_Toml_e
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr @l_Lake_Toml_escapeSeqFn___lambda__2___boxed, ptr %78, align 8, !tbaa !10
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store i16 2, ptr %79, align 8, !tbaa !21
+  store i16 2, ptr %79, align 8, !tbaa !18
   %80 = getelementptr inbounds nuw i8, ptr %74, i64 18
-  store i16 0, ptr %80, align 2, !tbaa !21
+  store i16 0, ptr %80, align 2, !tbaa !18
   store ptr %74, ptr @l_Lake_Toml_escapeSeqFn___closed__7, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %74) #4
   %81 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.7, i64 noundef 25, i64 noundef 25) #4
@@ -15082,9 +15082,9 @@ _init_l_Lake_Toml_mlLiteralStringFn___closed__3.exit: ; preds = %_init_l_Lake_To
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store ptr @l_Lake_Toml_chFn___boxed, ptr %115, align 8, !tbaa !10
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  store i16 4, ptr %116, align 8, !tbaa !21
+  store i16 4, ptr %116, align 8, !tbaa !18
   %117 = getelementptr inbounds nuw i8, ptr %111, i64 18
-  store i16 2, ptr %117, align 2, !tbaa !21
+  store i16 2, ptr %117, align 2, !tbaa !18
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 24
   store ptr %110, ptr %118, align 8, !tbaa !10
   %119 = getelementptr inbounds nuw i8, ptr %111, i64 32
@@ -15108,9 +15108,9 @@ _init_l_Lake_Toml_mlLiteralStringFn___closed__4.exit: ; preds = %_init_l_Lake_To
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr @l_Lake_Toml_repeatFn, ptr %125, align 8, !tbaa !10
   %126 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  store i16 4, ptr %126, align 8, !tbaa !21
+  store i16 4, ptr %126, align 8, !tbaa !18
   %127 = getelementptr inbounds nuw i8, ptr %121, i64 18
-  store i16 2, ptr %127, align 2, !tbaa !21
+  store i16 2, ptr %127, align 2, !tbaa !18
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store ptr inttoptr (i64 7 to ptr), ptr %128, align 8, !tbaa !10
   %129 = getelementptr inbounds nuw i8, ptr %121, i64 32
@@ -15163,9 +15163,9 @@ _init_l_Lake_Toml_mlBasicStringFn___closed__3.exit: ; preds = %_init_l_Lake_Toml
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store ptr @l_Lake_Toml_chFn___boxed, ptr %145, align 8, !tbaa !10
   %146 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  store i16 4, ptr %146, align 8, !tbaa !21
+  store i16 4, ptr %146, align 8, !tbaa !18
   %147 = getelementptr inbounds nuw i8, ptr %141, i64 18
-  store i16 2, ptr %147, align 2, !tbaa !21
+  store i16 2, ptr %147, align 2, !tbaa !18
   %148 = getelementptr inbounds nuw i8, ptr %141, i64 24
   store ptr %140, ptr %148, align 8, !tbaa !10
   %149 = getelementptr inbounds nuw i8, ptr %141, i64 32
@@ -15189,9 +15189,9 @@ _init_l_Lake_Toml_mlBasicStringFn___closed__4.exit: ; preds = %_init_l_Lake_Toml
   %155 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store ptr @l_Lake_Toml_repeatFn, ptr %155, align 8, !tbaa !10
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  store i16 4, ptr %156, align 8, !tbaa !21
+  store i16 4, ptr %156, align 8, !tbaa !18
   %157 = getelementptr inbounds nuw i8, ptr %151, i64 18
-  store i16 2, ptr %157, align 2, !tbaa !21
+  store i16 2, ptr %157, align 2, !tbaa !18
   %158 = getelementptr inbounds nuw i8, ptr %151, i64 24
   store ptr inttoptr (i64 7 to ptr), ptr %158, align 8, !tbaa !10
   %159 = getelementptr inbounds nuw i8, ptr %151, i64 32
@@ -15326,9 +15326,9 @@ _init_l_Lake_Toml_timeTailFn___closed__3.exit:    ; preds = %_init_l_Lake_Toml_t
   %206 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store ptr @l_Lake_Toml_timeTailFn___lambda__1___boxed, ptr %206, align 8, !tbaa !10
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  store i16 1, ptr %207, align 8, !tbaa !21
+  store i16 1, ptr %207, align 8, !tbaa !18
   %208 = getelementptr inbounds nuw i8, ptr %202, i64 18
-  store i16 0, ptr %208, align 2, !tbaa !21
+  store i16 0, ptr %208, align 2, !tbaa !18
   store ptr %202, ptr @l_Lake_Toml_timeTailFn___closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %202) #4
   %209 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.22, i64 noundef 12, i64 noundef 12) #4
@@ -15511,9 +15511,9 @@ _init_l_Lake_Toml_dateTimeLitFn___closed__5.exit: ; preds = %_init_l_Lake_Toml_r
   %275 = getelementptr inbounds nuw i8, ptr %271, i64 8
   store ptr @l_Lake_Toml_dateTimeFn___boxed, ptr %275, align 8, !tbaa !10
   %276 = getelementptr inbounds nuw i8, ptr %271, i64 16
-  store i16 2, ptr %276, align 8, !tbaa !21
+  store i16 2, ptr %276, align 8, !tbaa !18
   %277 = getelementptr inbounds nuw i8, ptr %271, i64 18
-  store i16 0, ptr %277, align 2, !tbaa !21
+  store i16 0, ptr %277, align 2, !tbaa !18
   store ptr %271, ptr @l_Lake_Toml_dateTimeLitFn___closed__5, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %271) #4
   tail call void @lean_inc_heartbeat() #4
@@ -15532,9 +15532,9 @@ _init_l_Lake_Toml_dateTimeLitFn___closed__6.exit: ; preds = %_init_l_Lake_Toml_d
   %282 = getelementptr inbounds nuw i8, ptr %278, i64 8
   store ptr @l_Lake_Toml_skipFn___boxed, ptr %282, align 8, !tbaa !10
   %283 = getelementptr inbounds nuw i8, ptr %278, i64 16
-  store i16 1, ptr %283, align 8, !tbaa !21
+  store i16 1, ptr %283, align 8, !tbaa !18
   %284 = getelementptr inbounds nuw i8, ptr %278, i64 18
-  store i16 0, ptr %284, align 2, !tbaa !21
+  store i16 0, ptr %284, align 2, !tbaa !18
   store ptr %278, ptr @l_Lake_Toml_dateTimeLitFn___closed__6, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %278) #4
   %285 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.30, i64 noundef 16, i64 noundef 16) #4
@@ -15832,9 +15832,9 @@ _init_l_Lake_Toml_numeralFn___lambda__1___closed__6.exit: ; preds = %_init_l_Lak
   %391 = getelementptr inbounds nuw i8, ptr %387, i64 8
   store ptr @l_Lake_Toml_isHexDigit___boxed, ptr %391, align 8, !tbaa !10
   %392 = getelementptr inbounds nuw i8, ptr %387, i64 16
-  store i16 1, ptr %392, align 8, !tbaa !21
+  store i16 1, ptr %392, align 8, !tbaa !18
   %393 = getelementptr inbounds nuw i8, ptr %387, i64 18
-  store i16 0, ptr %393, align 2, !tbaa !21
+  store i16 0, ptr %393, align 2, !tbaa !18
   store ptr %387, ptr @l_Lake_Toml_numeralFn___lambda__1___closed__6, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %387) #4
   %394 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.43, i64 noundef 6, i64 noundef 6) #4
@@ -15885,9 +15885,9 @@ _init_l_Lake_Toml_numeralFn___lambda__1___closed__11.exit: ; preds = %_init_l_La
   %411 = getelementptr inbounds nuw i8, ptr %407, i64 8
   store ptr @l_Lake_Toml_isOctDigit___boxed, ptr %411, align 8, !tbaa !10
   %412 = getelementptr inbounds nuw i8, ptr %407, i64 16
-  store i16 1, ptr %412, align 8, !tbaa !21
+  store i16 1, ptr %412, align 8, !tbaa !18
   %413 = getelementptr inbounds nuw i8, ptr %407, i64 18
-  store i16 0, ptr %413, align 2, !tbaa !21
+  store i16 0, ptr %413, align 2, !tbaa !18
   store ptr %407, ptr @l_Lake_Toml_numeralFn___lambda__1___closed__11, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %407) #4
   %414 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.45, i64 noundef 6, i64 noundef 6) #4
@@ -15938,9 +15938,9 @@ _init_l_Lake_Toml_numeralFn___lambda__1___closed__16.exit: ; preds = %_init_l_La
   %431 = getelementptr inbounds nuw i8, ptr %427, i64 8
   store ptr @l_Lake_Toml_isBinDigit___boxed, ptr %431, align 8, !tbaa !10
   %432 = getelementptr inbounds nuw i8, ptr %427, i64 16
-  store i16 1, ptr %432, align 8, !tbaa !21
+  store i16 1, ptr %432, align 8, !tbaa !18
   %433 = getelementptr inbounds nuw i8, ptr %427, i64 18
-  store i16 0, ptr %433, align 2, !tbaa !21
+  store i16 0, ptr %433, align 2, !tbaa !18
   store ptr %427, ptr @l_Lake_Toml_numeralFn___lambda__1___closed__16, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %427) #4
   %434 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.47, i64 noundef 6, i64 noundef 6) #4
@@ -15968,9 +15968,9 @@ _init_l_Lake_Toml_numeralFn___closed__1.exit:     ; preds = %_init_l_Lake_Toml_n
   %443 = getelementptr inbounds nuw i8, ptr %439, i64 8
   store ptr @l_Lake_Toml_numeralFn___lambda__1, ptr %443, align 8, !tbaa !10
   %444 = getelementptr inbounds nuw i8, ptr %439, i64 16
-  store i16 2, ptr %444, align 8, !tbaa !21
+  store i16 2, ptr %444, align 8, !tbaa !18
   %445 = getelementptr inbounds nuw i8, ptr %439, i64 18
-  store i16 0, ptr %445, align 2, !tbaa !21
+  store i16 0, ptr %445, align 2, !tbaa !18
   store ptr %439, ptr @l_Lake_Toml_numeralFn___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %439) #4
   tail call void @lean_inc_heartbeat() #4
@@ -15989,9 +15989,9 @@ _init_l_Lake_Toml_trailingWs___closed__1.exit:    ; preds = %_init_l_Lake_Toml_n
   %450 = getelementptr inbounds nuw i8, ptr %446, i64 8
   store ptr @l_Lake_Toml_wsFn___boxed, ptr %450, align 8, !tbaa !10
   %451 = getelementptr inbounds nuw i8, ptr %446, i64 16
-  store i16 2, ptr %451, align 8, !tbaa !21
+  store i16 2, ptr %451, align 8, !tbaa !18
   %452 = getelementptr inbounds nuw i8, ptr %446, i64 18
-  store i16 0, ptr %452, align 2, !tbaa !21
+  store i16 0, ptr %452, align 2, !tbaa !18
   store ptr %446, ptr @l_Lake_Toml_trailingWs___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %446) #4
   %453 = load ptr, ptr @l_Lake_Toml_trailingWs___closed__1, align 8, !tbaa !10
@@ -16017,9 +16017,9 @@ _init_l_Lake_Toml_trailingSep___closed__1.exit:   ; preds = %_init_l_Lake_Toml_t
   %460 = getelementptr inbounds nuw i8, ptr %456, i64 8
   store ptr @l_Lake_Toml_trailingFn___boxed, ptr %460, align 8, !tbaa !10
   %461 = getelementptr inbounds nuw i8, ptr %456, i64 16
-  store i16 2, ptr %461, align 8, !tbaa !21
+  store i16 2, ptr %461, align 8, !tbaa !18
   %462 = getelementptr inbounds nuw i8, ptr %456, i64 18
-  store i16 0, ptr %462, align 2, !tbaa !21
+  store i16 0, ptr %462, align 2, !tbaa !18
   store ptr %456, ptr @l_Lake_Toml_trailingSep___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %456) #4
   %463 = load ptr, ptr @l_Lake_Toml_trailingSep___closed__1, align 8, !tbaa !10
@@ -16068,9 +16068,9 @@ _init_l_Lake_Toml_unquotedKeyFn___closed__3.exit: ; preds = %_init_l_Lake_Toml_u
   %478 = getelementptr inbounds nuw i8, ptr %474, i64 8
   store ptr @l_Lake_Toml_unquotedKeyFn___lambda__1___boxed, ptr %478, align 8, !tbaa !10
   %479 = getelementptr inbounds nuw i8, ptr %474, i64 16
-  store i16 1, ptr %479, align 8, !tbaa !21
+  store i16 1, ptr %479, align 8, !tbaa !18
   %480 = getelementptr inbounds nuw i8, ptr %474, i64 18
-  store i16 0, ptr %480, align 2, !tbaa !21
+  store i16 0, ptr %480, align 2, !tbaa !18
   store ptr %474, ptr @l_Lake_Toml_unquotedKeyFn___closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %474) #4
   %481 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.49, i64 noundef 11, i64 noundef 11) #4
@@ -16098,9 +16098,9 @@ _init_l_Lake_Toml_unquotedKey___closed__3.exit:   ; preds = %_init_l_Lake_Toml_u
   %490 = getelementptr inbounds nuw i8, ptr %486, i64 8
   store ptr @l_Lake_Toml_unquotedKeyFn___boxed, ptr %490, align 8, !tbaa !10
   %491 = getelementptr inbounds nuw i8, ptr %486, i64 16
-  store i16 2, ptr %491, align 8, !tbaa !21
+  store i16 2, ptr %491, align 8, !tbaa !18
   %492 = getelementptr inbounds nuw i8, ptr %486, i64 18
-  store i16 0, ptr %492, align 2, !tbaa !21
+  store i16 0, ptr %492, align 2, !tbaa !18
   store ptr %486, ptr @l_Lake_Toml_unquotedKey___closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %486) #4
   %493 = load ptr, ptr @l_Lake_Toml_unquotedKey___closed__1, align 8, !tbaa !10
@@ -16138,9 +16138,9 @@ _init_l_Lake_Toml_basicString___closed__3.exit:   ; preds = %_init_l_Lake_Toml_u
   %508 = getelementptr inbounds nuw i8, ptr %504, i64 8
   store ptr @l_Lake_Toml_basicStringFn, ptr %508, align 8, !tbaa !10
   %509 = getelementptr inbounds nuw i8, ptr %504, i64 16
-  store i16 2, ptr %509, align 8, !tbaa !21
+  store i16 2, ptr %509, align 8, !tbaa !18
   %510 = getelementptr inbounds nuw i8, ptr %504, i64 18
-  store i16 0, ptr %510, align 2, !tbaa !21
+  store i16 0, ptr %510, align 2, !tbaa !18
   store ptr %504, ptr @l_Lake_Toml_basicString___closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %504) #4
   %511 = load ptr, ptr @l_Lake_Toml_basicString___closed__1, align 8, !tbaa !10
@@ -16178,9 +16178,9 @@ _init_l_Lake_Toml_literalString___closed__3.exit: ; preds = %_init_l_Lake_Toml_b
   %526 = getelementptr inbounds nuw i8, ptr %522, i64 8
   store ptr @l_Lake_Toml_literalStringFn___boxed, ptr %526, align 8, !tbaa !10
   %527 = getelementptr inbounds nuw i8, ptr %522, i64 16
-  store i16 2, ptr %527, align 8, !tbaa !21
+  store i16 2, ptr %527, align 8, !tbaa !18
   %528 = getelementptr inbounds nuw i8, ptr %522, i64 18
-  store i16 0, ptr %528, align 2, !tbaa !21
+  store i16 0, ptr %528, align 2, !tbaa !18
   store ptr %522, ptr @l_Lake_Toml_literalString___closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %522) #4
   %529 = load ptr, ptr @l_Lake_Toml_literalString___closed__1, align 8, !tbaa !10
@@ -16218,9 +16218,9 @@ _init_l_Lake_Toml_mlBasicString___closed__3.exit: ; preds = %_init_l_Lake_Toml_l
   %544 = getelementptr inbounds nuw i8, ptr %540, i64 8
   store ptr @l_Lake_Toml_mlBasicStringFn, ptr %544, align 8, !tbaa !10
   %545 = getelementptr inbounds nuw i8, ptr %540, i64 16
-  store i16 2, ptr %545, align 8, !tbaa !21
+  store i16 2, ptr %545, align 8, !tbaa !18
   %546 = getelementptr inbounds nuw i8, ptr %540, i64 18
-  store i16 0, ptr %546, align 2, !tbaa !21
+  store i16 0, ptr %546, align 2, !tbaa !18
   store ptr %540, ptr @l_Lake_Toml_mlBasicString___closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %540) #4
   %547 = load ptr, ptr @l_Lake_Toml_mlBasicString___closed__1, align 8, !tbaa !10
@@ -16258,9 +16258,9 @@ _init_l_Lake_Toml_mlLiteralString___closed__3.exit: ; preds = %_init_l_Lake_Toml
   %562 = getelementptr inbounds nuw i8, ptr %558, i64 8
   store ptr @l_Lake_Toml_mlLiteralStringFn, ptr %562, align 8, !tbaa !10
   %563 = getelementptr inbounds nuw i8, ptr %558, i64 16
-  store i16 2, ptr %563, align 8, !tbaa !21
+  store i16 2, ptr %563, align 8, !tbaa !18
   %564 = getelementptr inbounds nuw i8, ptr %558, i64 18
-  store i16 0, ptr %564, align 2, !tbaa !21
+  store i16 0, ptr %564, align 2, !tbaa !18
   store ptr %558, ptr @l_Lake_Toml_mlLiteralString___closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %558) #4
   %565 = load ptr, ptr @l_Lake_Toml_mlLiteralString___closed__1, align 8, !tbaa !10
@@ -17013,9 +17013,9 @@ _init_l_Lake_Toml_true___closed__6.exit:          ; preds = %_init_l_Lake_Toml_t
   %931 = getelementptr inbounds nuw i8, ptr %927, i64 8
   store ptr @l_Lake_Toml_strFn, ptr %931, align 8, !tbaa !10
   %932 = getelementptr inbounds nuw i8, ptr %927, i64 16
-  store i16 4, ptr %932, align 8, !tbaa !21
+  store i16 4, ptr %932, align 8, !tbaa !18
   %933 = getelementptr inbounds nuw i8, ptr %927, i64 18
-  store i16 2, ptr %933, align 2, !tbaa !21
+  store i16 2, ptr %933, align 2, !tbaa !18
   %934 = getelementptr inbounds nuw i8, ptr %927, i64 24
   store ptr %925, ptr %934, align 8, !tbaa !10
   %935 = getelementptr inbounds nuw i8, ptr %927, i64 32
@@ -17088,9 +17088,9 @@ _init_l_Lake_Toml_false___closed__6.exit:         ; preds = %_init_l_Lake_Toml_f
   %965 = getelementptr inbounds nuw i8, ptr %961, i64 8
   store ptr @l_Lake_Toml_strFn, ptr %965, align 8, !tbaa !10
   %966 = getelementptr inbounds nuw i8, ptr %961, i64 16
-  store i16 4, ptr %966, align 8, !tbaa !21
+  store i16 4, ptr %966, align 8, !tbaa !18
   %967 = getelementptr inbounds nuw i8, ptr %961, i64 18
-  store i16 2, ptr %967, align 2, !tbaa !21
+  store i16 2, ptr %967, align 2, !tbaa !18
   %968 = getelementptr inbounds nuw i8, ptr %961, i64 24
   store ptr %959, ptr %968, align 8, !tbaa !10
   %969 = getelementptr inbounds nuw i8, ptr %961, i64 32
@@ -17222,9 +17222,9 @@ _init_l_Lake_Toml_numeral___closed__1.exit:       ; preds = %_init_l_Lake_Toml_f
   %1037 = getelementptr inbounds nuw i8, ptr %1033, i64 8
   store ptr @l_Lake_Toml_numeralFn, ptr %1037, align 8, !tbaa !10
   %1038 = getelementptr inbounds nuw i8, ptr %1033, i64 16
-  store i16 2, ptr %1038, align 8, !tbaa !21
+  store i16 2, ptr %1038, align 8, !tbaa !18
   %1039 = getelementptr inbounds nuw i8, ptr %1033, i64 18
-  store i16 0, ptr %1039, align 2, !tbaa !21
+  store i16 0, ptr %1039, align 2, !tbaa !18
   store ptr %1033, ptr @l_Lake_Toml_numeral___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1033) #4
   %1040 = load ptr, ptr @l_Lake_Toml_numeral___closed__1, align 8, !tbaa !10
@@ -17324,9 +17324,9 @@ _init_l_Lake_Toml_val___closed__3.exit:           ; preds = %_init_l_Lake_Toml_n
   %1083 = getelementptr inbounds nuw i8, ptr %1079, i64 8
   store ptr @l_Lake_Toml_valCore, ptr %1083, align 8, !tbaa !10
   %1084 = getelementptr inbounds nuw i8, ptr %1079, i64 16
-  store i16 1, ptr %1084, align 8, !tbaa !21
+  store i16 1, ptr %1084, align 8, !tbaa !18
   %1085 = getelementptr inbounds nuw i8, ptr %1079, i64 18
-  store i16 0, ptr %1085, align 2, !tbaa !21
+  store i16 0, ptr %1085, align 2, !tbaa !18
   store ptr %1079, ptr @l_Lake_Toml_val___closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1079) #4
   %1086 = load ptr, ptr @l_Lake_Toml_val___closed__1, align 8, !tbaa !10
@@ -17416,9 +17416,9 @@ _init_l_Lake_Toml_sepByLinebreak_formatter___closed__1.exit: ; preds = %_init_l_
   %1141 = getelementptr inbounds nuw i8, ptr %1137, i64 8
   store ptr @l_Lean_Parser_symbol_formatter, ptr %1141, align 8, !tbaa !10
   %1142 = getelementptr inbounds nuw i8, ptr %1137, i64 16
-  store i16 6, ptr %1142, align 8, !tbaa !21
+  store i16 6, ptr %1142, align 8, !tbaa !18
   %1143 = getelementptr inbounds nuw i8, ptr %1137, i64 18
-  store i16 1, ptr %1143, align 2, !tbaa !21
+  store i16 1, ptr %1143, align 2, !tbaa !18
   %1144 = getelementptr inbounds nuw i8, ptr %1137, i64 24
   store ptr %1136, ptr %1144, align 8, !tbaa !10
   store ptr %1137, ptr @l_Lake_Toml_sepByLinebreak_formatter___closed__1, align 8, !tbaa !10
@@ -17439,9 +17439,9 @@ _init_l_Lake_Toml_sepByLinebreak_formatter___closed__2.exit: ; preds = %_init_l_
   %1149 = getelementptr inbounds nuw i8, ptr %1145, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_checkLinebreakBefore_formatter___boxed, ptr %1149, align 8, !tbaa !10
   %1150 = getelementptr inbounds nuw i8, ptr %1145, i64 16
-  store i16 4, ptr %1150, align 8, !tbaa !21
+  store i16 4, ptr %1150, align 8, !tbaa !18
   %1151 = getelementptr inbounds nuw i8, ptr %1145, i64 18
-  store i16 0, ptr %1151, align 2, !tbaa !21
+  store i16 0, ptr %1151, align 2, !tbaa !18
   store ptr %1145, ptr @l_Lake_Toml_sepByLinebreak_formatter___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1145) #4
   tail call void @lean_inc_heartbeat() #4
@@ -17460,9 +17460,9 @@ _init_l_Lake_Toml_sepByLinebreak_formatter___closed__3.exit: ; preds = %_init_l_
   %1156 = getelementptr inbounds nuw i8, ptr %1152, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_pushNone_formatter___boxed, ptr %1156, align 8, !tbaa !10
   %1157 = getelementptr inbounds nuw i8, ptr %1152, i64 16
-  store i16 1, ptr %1157, align 8, !tbaa !21
+  store i16 1, ptr %1157, align 8, !tbaa !18
   %1158 = getelementptr inbounds nuw i8, ptr %1152, i64 18
-  store i16 0, ptr %1158, align 2, !tbaa !21
+  store i16 0, ptr %1158, align 2, !tbaa !18
   store ptr %1152, ptr @l_Lake_Toml_sepByLinebreak_formatter___closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1152) #4
   %1159 = load ptr, ptr @l_Lake_Toml_sepByLinebreak_formatter___closed__2, align 8, !tbaa !10
@@ -17483,9 +17483,9 @@ _init_l_Lake_Toml_sepByLinebreak_formatter___closed__4.exit: ; preds = %_init_l_
   %1165 = getelementptr inbounds nuw i8, ptr %1161, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1165, align 8, !tbaa !10
   %1166 = getelementptr inbounds nuw i8, ptr %1161, i64 16
-  store i16 7, ptr %1166, align 8, !tbaa !21
+  store i16 7, ptr %1166, align 8, !tbaa !18
   %1167 = getelementptr inbounds nuw i8, ptr %1161, i64 18
-  store i16 2, ptr %1167, align 2, !tbaa !21
+  store i16 2, ptr %1167, align 2, !tbaa !18
   %1168 = getelementptr inbounds nuw i8, ptr %1161, i64 24
   store ptr %1159, ptr %1168, align 8, !tbaa !10
   %1169 = getelementptr inbounds nuw i8, ptr %1161, i64 32
@@ -17508,9 +17508,9 @@ _init_l_Lake_Toml_quotedKey_formatter___closed__1.exit: ; preds = %_init_l_Lake_
   %1174 = getelementptr inbounds nuw i8, ptr %1170, i64 8
   store ptr @l_Lake_Toml_basicString_formatter, ptr %1174, align 8, !tbaa !10
   %1175 = getelementptr inbounds nuw i8, ptr %1170, i64 16
-  store i16 5, ptr %1175, align 8, !tbaa !21
+  store i16 5, ptr %1175, align 8, !tbaa !18
   %1176 = getelementptr inbounds nuw i8, ptr %1170, i64 18
-  store i16 0, ptr %1176, align 2, !tbaa !21
+  store i16 0, ptr %1176, align 2, !tbaa !18
   store ptr %1170, ptr @l_Lake_Toml_quotedKey_formatter___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1170) #4
   tail call void @lean_inc_heartbeat() #4
@@ -17529,9 +17529,9 @@ _init_l_Lake_Toml_quotedKey_formatter___closed__2.exit: ; preds = %_init_l_Lake_
   %1181 = getelementptr inbounds nuw i8, ptr %1177, i64 8
   store ptr @l_Lake_Toml_literalString_formatter, ptr %1181, align 8, !tbaa !10
   %1182 = getelementptr inbounds nuw i8, ptr %1177, i64 16
-  store i16 5, ptr %1182, align 8, !tbaa !21
+  store i16 5, ptr %1182, align 8, !tbaa !18
   %1183 = getelementptr inbounds nuw i8, ptr %1177, i64 18
-  store i16 0, ptr %1183, align 2, !tbaa !21
+  store i16 0, ptr %1183, align 2, !tbaa !18
   store ptr %1177, ptr @l_Lake_Toml_quotedKey_formatter___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1177) #4
   tail call void @lean_inc_heartbeat() #4
@@ -17550,9 +17550,9 @@ _init_l_Lake_Toml_simpleKey_formatter___closed__1.exit: ; preds = %_init_l_Lake_
   %1188 = getelementptr inbounds nuw i8, ptr %1184, i64 8
   store ptr @l_Lake_Toml_unquotedKey_formatter, ptr %1188, align 8, !tbaa !10
   %1189 = getelementptr inbounds nuw i8, ptr %1184, i64 16
-  store i16 5, ptr %1189, align 8, !tbaa !21
+  store i16 5, ptr %1189, align 8, !tbaa !18
   %1190 = getelementptr inbounds nuw i8, ptr %1184, i64 18
-  store i16 0, ptr %1190, align 2, !tbaa !21
+  store i16 0, ptr %1190, align 2, !tbaa !18
   store ptr %1184, ptr @l_Lake_Toml_simpleKey_formatter___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1184) #4
   tail call void @lean_inc_heartbeat() #4
@@ -17571,9 +17571,9 @@ _init_l_Lake_Toml_simpleKey_formatter___closed__2.exit: ; preds = %_init_l_Lake_
   %1195 = getelementptr inbounds nuw i8, ptr %1191, i64 8
   store ptr @l_Lake_Toml_quotedKey_formatter, ptr %1195, align 8, !tbaa !10
   %1196 = getelementptr inbounds nuw i8, ptr %1191, i64 16
-  store i16 5, ptr %1196, align 8, !tbaa !21
+  store i16 5, ptr %1196, align 8, !tbaa !18
   %1197 = getelementptr inbounds nuw i8, ptr %1191, i64 18
-  store i16 0, ptr %1197, align 2, !tbaa !21
+  store i16 0, ptr %1197, align 2, !tbaa !18
   store ptr %1191, ptr @l_Lake_Toml_simpleKey_formatter___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1191) #4
   %1198 = load ptr, ptr @l_Lake_Toml_simpleKey_formatter___closed__1, align 8, !tbaa !10
@@ -17594,9 +17594,9 @@ _init_l_Lake_Toml_simpleKey_formatter___closed__3.exit: ; preds = %_init_l_Lake_
   %1204 = getelementptr inbounds nuw i8, ptr %1200, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_orelse_formatter, ptr %1204, align 8, !tbaa !10
   %1205 = getelementptr inbounds nuw i8, ptr %1200, i64 16
-  store i16 7, ptr %1205, align 8, !tbaa !21
+  store i16 7, ptr %1205, align 8, !tbaa !18
   %1206 = getelementptr inbounds nuw i8, ptr %1200, i64 18
-  store i16 2, ptr %1206, align 2, !tbaa !21
+  store i16 2, ptr %1206, align 2, !tbaa !18
   %1207 = getelementptr inbounds nuw i8, ptr %1200, i64 24
   store ptr %1198, ptr %1207, align 8, !tbaa !10
   %1208 = getelementptr inbounds nuw i8, ptr %1200, i64 32
@@ -17624,9 +17624,9 @@ _init_l_Lake_Toml_key_formatter___closed__1.exit: ; preds = %_init_l_Lake_Toml_s
   %1216 = getelementptr inbounds nuw i8, ptr %1212, i64 8
   store ptr @l_Lake_Toml_chAtom_formatter___boxed, ptr %1216, align 8, !tbaa !10
   %1217 = getelementptr inbounds nuw i8, ptr %1212, i64 16
-  store i16 8, ptr %1217, align 8, !tbaa !21
+  store i16 8, ptr %1217, align 8, !tbaa !18
   %1218 = getelementptr inbounds nuw i8, ptr %1212, i64 18
-  store i16 3, ptr %1218, align 2, !tbaa !21
+  store i16 3, ptr %1218, align 2, !tbaa !18
   %1219 = getelementptr inbounds nuw i8, ptr %1212, i64 24
   store ptr %1211, ptr %1219, align 8, !tbaa !10
   %1220 = getelementptr inbounds nuw i8, ptr %1212, i64 32
@@ -17651,9 +17651,9 @@ _init_l_Lake_Toml_key_formatter___closed__2.exit: ; preds = %_init_l_Lake_Toml_k
   %1226 = getelementptr inbounds nuw i8, ptr %1222, i64 8
   store ptr @l_Lake_Toml_trailingWs_formatter___boxed, ptr %1226, align 8, !tbaa !10
   %1227 = getelementptr inbounds nuw i8, ptr %1222, i64 16
-  store i16 4, ptr %1227, align 8, !tbaa !21
+  store i16 4, ptr %1227, align 8, !tbaa !18
   %1228 = getelementptr inbounds nuw i8, ptr %1222, i64 18
-  store i16 0, ptr %1228, align 2, !tbaa !21
+  store i16 0, ptr %1228, align 2, !tbaa !18
   store ptr %1222, ptr @l_Lake_Toml_key_formatter___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1222) #4
   %1229 = load ptr, ptr @l_Lake_Toml_key_formatter___closed__1, align 8, !tbaa !10
@@ -17674,9 +17674,9 @@ _init_l_Lake_Toml_key_formatter___closed__3.exit: ; preds = %_init_l_Lake_Toml_k
   %1235 = getelementptr inbounds nuw i8, ptr %1231, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1235, align 8, !tbaa !10
   %1236 = getelementptr inbounds nuw i8, ptr %1231, i64 16
-  store i16 7, ptr %1236, align 8, !tbaa !21
+  store i16 7, ptr %1236, align 8, !tbaa !18
   %1237 = getelementptr inbounds nuw i8, ptr %1231, i64 18
-  store i16 2, ptr %1237, align 2, !tbaa !21
+  store i16 2, ptr %1237, align 2, !tbaa !18
   %1238 = getelementptr inbounds nuw i8, ptr %1231, i64 24
   store ptr %1229, ptr %1238, align 8, !tbaa !10
   %1239 = getelementptr inbounds nuw i8, ptr %1231, i64 32
@@ -17701,9 +17701,9 @@ _init_l_Lake_Toml_key_formatter___closed__4.exit: ; preds = %_init_l_Lake_Toml_k
   %1246 = getelementptr inbounds nuw i8, ptr %1242, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1246, align 8, !tbaa !10
   %1247 = getelementptr inbounds nuw i8, ptr %1242, i64 16
-  store i16 7, ptr %1247, align 8, !tbaa !21
+  store i16 7, ptr %1247, align 8, !tbaa !18
   %1248 = getelementptr inbounds nuw i8, ptr %1242, i64 18
-  store i16 2, ptr %1248, align 2, !tbaa !21
+  store i16 2, ptr %1248, align 2, !tbaa !18
   %1249 = getelementptr inbounds nuw i8, ptr %1242, i64 24
   store ptr %1240, ptr %1249, align 8, !tbaa !10
   %1250 = getelementptr inbounds nuw i8, ptr %1242, i64 32
@@ -17726,9 +17726,9 @@ _init_l_Lake_Toml_key_formatter___closed__5.exit: ; preds = %_init_l_Lake_Toml_k
   %1255 = getelementptr inbounds nuw i8, ptr %1251, i64 8
   store ptr @l_Lake_Toml_simpleKey_formatter, ptr %1255, align 8, !tbaa !10
   %1256 = getelementptr inbounds nuw i8, ptr %1251, i64 16
-  store i16 5, ptr %1256, align 8, !tbaa !21
+  store i16 5, ptr %1256, align 8, !tbaa !18
   %1257 = getelementptr inbounds nuw i8, ptr %1251, i64 18
-  store i16 0, ptr %1257, align 2, !tbaa !21
+  store i16 0, ptr %1257, align 2, !tbaa !18
   store ptr %1251, ptr @l_Lake_Toml_key_formatter___closed__5, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1251) #4
   %1258 = load ptr, ptr @l_Lake_Toml_key_formatter___closed__5, align 8, !tbaa !10
@@ -17750,9 +17750,9 @@ _init_l_Lake_Toml_key_formatter___closed__6.exit: ; preds = %_init_l_Lake_Toml_k
   %1265 = getelementptr inbounds nuw i8, ptr %1261, i64 8
   store ptr @l_Lean_Parser_sepBy1_formatter___boxed, ptr %1265, align 8, !tbaa !10
   %1266 = getelementptr inbounds nuw i8, ptr %1261, i64 16
-  store i16 9, ptr %1266, align 8, !tbaa !21
+  store i16 9, ptr %1266, align 8, !tbaa !18
   %1267 = getelementptr inbounds nuw i8, ptr %1261, i64 18
-  store i16 4, ptr %1267, align 2, !tbaa !21
+  store i16 4, ptr %1267, align 2, !tbaa !18
   %1268 = getelementptr inbounds nuw i8, ptr %1261, i64 24
   store ptr %1258, ptr %1268, align 8, !tbaa !10
   %1269 = getelementptr inbounds nuw i8, ptr %1261, i64 32
@@ -17780,9 +17780,9 @@ _init_l_Lake_Toml_key_formatter___closed__7.exit: ; preds = %_init_l_Lake_Toml_k
   %1277 = getelementptr inbounds nuw i8, ptr %1273, i64 8
   store ptr @l_Lean_Parser_setExpected_formatter___rarg, ptr %1277, align 8, !tbaa !10
   %1278 = getelementptr inbounds nuw i8, ptr %1273, i64 16
-  store i16 6, ptr %1278, align 8, !tbaa !21
+  store i16 6, ptr %1278, align 8, !tbaa !18
   %1279 = getelementptr inbounds nuw i8, ptr %1273, i64 18
-  store i16 1, ptr %1279, align 2, !tbaa !21
+  store i16 1, ptr %1279, align 2, !tbaa !18
   %1280 = getelementptr inbounds nuw i8, ptr %1273, i64 24
   store ptr %1272, ptr %1280, align 8, !tbaa !10
   store ptr %1273, ptr @l_Lake_Toml_key_formatter___closed__7, align 8, !tbaa !10
@@ -17808,9 +17808,9 @@ _init_l_Lake_Toml_keyvalCore_formatter___closed__1.exit: ; preds = %_init_l_Lake
   %1288 = getelementptr inbounds nuw i8, ptr %1284, i64 8
   store ptr @l_Lake_Toml_chAtom_formatter___boxed, ptr %1288, align 8, !tbaa !10
   %1289 = getelementptr inbounds nuw i8, ptr %1284, i64 16
-  store i16 8, ptr %1289, align 8, !tbaa !21
+  store i16 8, ptr %1289, align 8, !tbaa !18
   %1290 = getelementptr inbounds nuw i8, ptr %1284, i64 18
-  store i16 3, ptr %1290, align 2, !tbaa !21
+  store i16 3, ptr %1290, align 2, !tbaa !18
   %1291 = getelementptr inbounds nuw i8, ptr %1284, i64 24
   store ptr %1283, ptr %1291, align 8, !tbaa !10
   %1292 = getelementptr inbounds nuw i8, ptr %1284, i64 32
@@ -17835,9 +17835,9 @@ _init_l_Lake_Toml_keyvalCore_formatter___closed__2.exit: ; preds = %_init_l_Lake
   %1298 = getelementptr inbounds nuw i8, ptr %1294, i64 8
   store ptr @l_Lake_Toml_key_formatter, ptr %1298, align 8, !tbaa !10
   %1299 = getelementptr inbounds nuw i8, ptr %1294, i64 16
-  store i16 5, ptr %1299, align 8, !tbaa !21
+  store i16 5, ptr %1299, align 8, !tbaa !18
   %1300 = getelementptr inbounds nuw i8, ptr %1294, i64 18
-  store i16 0, ptr %1300, align 2, !tbaa !21
+  store i16 0, ptr %1300, align 2, !tbaa !18
   store ptr %1294, ptr @l_Lake_Toml_keyvalCore_formatter___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1294) #4
   store ptr inttoptr (i64 183 to ptr), ptr @l_Lake_Toml_stdTable_formatter___closed__1___boxed__const__1, align 8, !tbaa !10
@@ -17861,9 +17861,9 @@ _init_l_Lake_Toml_stdTable_formatter___closed__1.exit: ; preds = %_init_l_Lake_T
   %1308 = getelementptr inbounds nuw i8, ptr %1304, i64 8
   store ptr @l_Lake_Toml_chAtom_formatter___boxed, ptr %1308, align 8, !tbaa !10
   %1309 = getelementptr inbounds nuw i8, ptr %1304, i64 16
-  store i16 8, ptr %1309, align 8, !tbaa !21
+  store i16 8, ptr %1309, align 8, !tbaa !18
   %1310 = getelementptr inbounds nuw i8, ptr %1304, i64 18
-  store i16 3, ptr %1310, align 2, !tbaa !21
+  store i16 3, ptr %1310, align 2, !tbaa !18
   %1311 = getelementptr inbounds nuw i8, ptr %1304, i64 24
   store ptr %1303, ptr %1311, align 8, !tbaa !10
   %1312 = getelementptr inbounds nuw i8, ptr %1304, i64 32
@@ -17893,9 +17893,9 @@ _init_l_Lake_Toml_stdTable_formatter___closed__2.exit: ; preds = %_init_l_Lake_T
   %1321 = getelementptr inbounds nuw i8, ptr %1317, i64 8
   store ptr @l_Lake_Toml_chAtom_formatter___boxed, ptr %1321, align 8, !tbaa !10
   %1322 = getelementptr inbounds nuw i8, ptr %1317, i64 16
-  store i16 8, ptr %1322, align 8, !tbaa !21
+  store i16 8, ptr %1322, align 8, !tbaa !18
   %1323 = getelementptr inbounds nuw i8, ptr %1317, i64 18
-  store i16 3, ptr %1323, align 2, !tbaa !21
+  store i16 3, ptr %1323, align 2, !tbaa !18
   %1324 = getelementptr inbounds nuw i8, ptr %1317, i64 24
   store ptr %1316, ptr %1324, align 8, !tbaa !10
   %1325 = getelementptr inbounds nuw i8, ptr %1317, i64 32
@@ -17921,9 +17921,9 @@ _init_l_Lake_Toml_stdTable_formatter___closed__3.exit: ; preds = %_init_l_Lake_T
   %1332 = getelementptr inbounds nuw i8, ptr %1328, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_notFollowedBy_formatter___boxed, ptr %1332, align 8, !tbaa !10
   %1333 = getelementptr inbounds nuw i8, ptr %1328, i64 16
-  store i16 5, ptr %1333, align 8, !tbaa !21
+  store i16 5, ptr %1333, align 8, !tbaa !18
   %1334 = getelementptr inbounds nuw i8, ptr %1328, i64 18
-  store i16 1, ptr %1334, align 2, !tbaa !21
+  store i16 1, ptr %1334, align 2, !tbaa !18
   %1335 = getelementptr inbounds nuw i8, ptr %1328, i64 24
   store ptr %1327, ptr %1335, align 8, !tbaa !10
   store ptr %1328, ptr @l_Lake_Toml_stdTable_formatter___closed__3, align 8, !tbaa !10
@@ -17946,9 +17946,9 @@ _init_l_Lake_Toml_stdTable_formatter___closed__4.exit: ; preds = %_init_l_Lake_T
   %1342 = getelementptr inbounds nuw i8, ptr %1338, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1342, align 8, !tbaa !10
   %1343 = getelementptr inbounds nuw i8, ptr %1338, i64 16
-  store i16 7, ptr %1343, align 8, !tbaa !21
+  store i16 7, ptr %1343, align 8, !tbaa !18
   %1344 = getelementptr inbounds nuw i8, ptr %1338, i64 18
-  store i16 2, ptr %1344, align 2, !tbaa !21
+  store i16 2, ptr %1344, align 2, !tbaa !18
   %1345 = getelementptr inbounds nuw i8, ptr %1338, i64 24
   store ptr %1336, ptr %1345, align 8, !tbaa !10
   %1346 = getelementptr inbounds nuw i8, ptr %1338, i64 32
@@ -17972,9 +17972,9 @@ _init_l_Lake_Toml_stdTable_formatter___closed__5.exit: ; preds = %_init_l_Lake_T
   %1352 = getelementptr inbounds nuw i8, ptr %1348, i64 8
   store ptr @l_Lean_Parser_atomic_formatter, ptr %1352, align 8, !tbaa !10
   %1353 = getelementptr inbounds nuw i8, ptr %1348, i64 16
-  store i16 6, ptr %1353, align 8, !tbaa !21
+  store i16 6, ptr %1353, align 8, !tbaa !18
   %1354 = getelementptr inbounds nuw i8, ptr %1348, i64 18
-  store i16 1, ptr %1354, align 2, !tbaa !21
+  store i16 1, ptr %1354, align 2, !tbaa !18
   %1355 = getelementptr inbounds nuw i8, ptr %1348, i64 24
   store ptr %1347, ptr %1355, align 8, !tbaa !10
   store ptr %1348, ptr @l_Lake_Toml_stdTable_formatter___closed__5, align 8, !tbaa !10
@@ -18000,9 +18000,9 @@ _init_l_Lake_Toml_stdTable_formatter___closed__6.exit: ; preds = %_init_l_Lake_T
   %1363 = getelementptr inbounds nuw i8, ptr %1359, i64 8
   store ptr @l_Lake_Toml_chAtom_formatter___boxed, ptr %1363, align 8, !tbaa !10
   %1364 = getelementptr inbounds nuw i8, ptr %1359, i64 16
-  store i16 8, ptr %1364, align 8, !tbaa !21
+  store i16 8, ptr %1364, align 8, !tbaa !18
   %1365 = getelementptr inbounds nuw i8, ptr %1359, i64 18
-  store i16 3, ptr %1365, align 2, !tbaa !21
+  store i16 3, ptr %1365, align 2, !tbaa !18
   %1366 = getelementptr inbounds nuw i8, ptr %1359, i64 24
   store ptr %1358, ptr %1366, align 8, !tbaa !10
   %1367 = getelementptr inbounds nuw i8, ptr %1359, i64 32
@@ -18029,9 +18029,9 @@ _init_l_Lake_Toml_stdTable_formatter___closed__7.exit: ; preds = %_init_l_Lake_T
   %1375 = getelementptr inbounds nuw i8, ptr %1371, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1375, align 8, !tbaa !10
   %1376 = getelementptr inbounds nuw i8, ptr %1371, i64 16
-  store i16 7, ptr %1376, align 8, !tbaa !21
+  store i16 7, ptr %1376, align 8, !tbaa !18
   %1377 = getelementptr inbounds nuw i8, ptr %1371, i64 18
-  store i16 2, ptr %1377, align 2, !tbaa !21
+  store i16 2, ptr %1377, align 2, !tbaa !18
   %1378 = getelementptr inbounds nuw i8, ptr %1371, i64 24
   store ptr %1369, ptr %1378, align 8, !tbaa !10
   %1379 = getelementptr inbounds nuw i8, ptr %1371, i64 32
@@ -18056,9 +18056,9 @@ _init_l_Lake_Toml_stdTable_formatter___closed__8.exit: ; preds = %_init_l_Lake_T
   %1386 = getelementptr inbounds nuw i8, ptr %1382, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1386, align 8, !tbaa !10
   %1387 = getelementptr inbounds nuw i8, ptr %1382, i64 16
-  store i16 7, ptr %1387, align 8, !tbaa !21
+  store i16 7, ptr %1387, align 8, !tbaa !18
   %1388 = getelementptr inbounds nuw i8, ptr %1382, i64 18
-  store i16 2, ptr %1388, align 2, !tbaa !21
+  store i16 2, ptr %1388, align 2, !tbaa !18
   %1389 = getelementptr inbounds nuw i8, ptr %1382, i64 24
   store ptr %1380, ptr %1389, align 8, !tbaa !10
   %1390 = getelementptr inbounds nuw i8, ptr %1382, i64 32
@@ -18083,9 +18083,9 @@ _init_l_Lake_Toml_stdTable_formatter___closed__9.exit: ; preds = %_init_l_Lake_T
   %1397 = getelementptr inbounds nuw i8, ptr %1393, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1397, align 8, !tbaa !10
   %1398 = getelementptr inbounds nuw i8, ptr %1393, i64 16
-  store i16 7, ptr %1398, align 8, !tbaa !21
+  store i16 7, ptr %1398, align 8, !tbaa !18
   %1399 = getelementptr inbounds nuw i8, ptr %1393, i64 18
-  store i16 2, ptr %1399, align 2, !tbaa !21
+  store i16 2, ptr %1399, align 2, !tbaa !18
   %1400 = getelementptr inbounds nuw i8, ptr %1393, i64 24
   store ptr %1391, ptr %1400, align 8, !tbaa !10
   %1401 = getelementptr inbounds nuw i8, ptr %1393, i64 32
@@ -18110,9 +18110,9 @@ _init_l_Lake_Toml_stdTable_formatter___closed__10.exit: ; preds = %_init_l_Lake_
   %1408 = getelementptr inbounds nuw i8, ptr %1404, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1408, align 8, !tbaa !10
   %1409 = getelementptr inbounds nuw i8, ptr %1404, i64 16
-  store i16 7, ptr %1409, align 8, !tbaa !21
+  store i16 7, ptr %1409, align 8, !tbaa !18
   %1410 = getelementptr inbounds nuw i8, ptr %1404, i64 18
-  store i16 2, ptr %1410, align 2, !tbaa !21
+  store i16 2, ptr %1410, align 2, !tbaa !18
   %1411 = getelementptr inbounds nuw i8, ptr %1404, i64 24
   store ptr %1402, ptr %1411, align 8, !tbaa !10
   %1412 = getelementptr inbounds nuw i8, ptr %1404, i64 32
@@ -18137,9 +18137,9 @@ _init_l_Lake_Toml_arrayTable_formatter___closed__1.exit: ; preds = %_init_l_Lake
   %1419 = getelementptr inbounds nuw i8, ptr %1415, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1419, align 8, !tbaa !10
   %1420 = getelementptr inbounds nuw i8, ptr %1415, i64 16
-  store i16 7, ptr %1420, align 8, !tbaa !21
+  store i16 7, ptr %1420, align 8, !tbaa !18
   %1421 = getelementptr inbounds nuw i8, ptr %1415, i64 18
-  store i16 2, ptr %1421, align 2, !tbaa !21
+  store i16 2, ptr %1421, align 2, !tbaa !18
   %1422 = getelementptr inbounds nuw i8, ptr %1415, i64 24
   store ptr %1413, ptr %1422, align 8, !tbaa !10
   %1423 = getelementptr inbounds nuw i8, ptr %1415, i64 32
@@ -18163,9 +18163,9 @@ _init_l_Lake_Toml_arrayTable_formatter___closed__2.exit: ; preds = %_init_l_Lake
   %1429 = getelementptr inbounds nuw i8, ptr %1425, i64 8
   store ptr @l_Lean_Parser_atomic_formatter, ptr %1429, align 8, !tbaa !10
   %1430 = getelementptr inbounds nuw i8, ptr %1425, i64 16
-  store i16 6, ptr %1430, align 8, !tbaa !21
+  store i16 6, ptr %1430, align 8, !tbaa !18
   %1431 = getelementptr inbounds nuw i8, ptr %1425, i64 18
-  store i16 1, ptr %1431, align 2, !tbaa !21
+  store i16 1, ptr %1431, align 2, !tbaa !18
   %1432 = getelementptr inbounds nuw i8, ptr %1425, i64 24
   store ptr %1424, ptr %1432, align 8, !tbaa !10
   store ptr %1425, ptr @l_Lake_Toml_arrayTable_formatter___closed__2, align 8, !tbaa !10
@@ -18187,9 +18187,9 @@ _init_l_Lake_Toml_arrayTable_formatter___closed__3.exit: ; preds = %_init_l_Lake
   %1438 = getelementptr inbounds nuw i8, ptr %1434, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1438, align 8, !tbaa !10
   %1439 = getelementptr inbounds nuw i8, ptr %1434, i64 16
-  store i16 7, ptr %1439, align 8, !tbaa !21
+  store i16 7, ptr %1439, align 8, !tbaa !18
   %1440 = getelementptr inbounds nuw i8, ptr %1434, i64 18
-  store i16 2, ptr %1440, align 2, !tbaa !21
+  store i16 2, ptr %1440, align 2, !tbaa !18
   %1441 = getelementptr inbounds nuw i8, ptr %1434, i64 24
   store ptr %1433, ptr %1441, align 8, !tbaa !10
   %1442 = getelementptr inbounds nuw i8, ptr %1434, i64 32
@@ -18214,9 +18214,9 @@ _init_l_Lake_Toml_arrayTable_formatter___closed__4.exit: ; preds = %_init_l_Lake
   %1449 = getelementptr inbounds nuw i8, ptr %1445, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1449, align 8, !tbaa !10
   %1450 = getelementptr inbounds nuw i8, ptr %1445, i64 16
-  store i16 7, ptr %1450, align 8, !tbaa !21
+  store i16 7, ptr %1450, align 8, !tbaa !18
   %1451 = getelementptr inbounds nuw i8, ptr %1445, i64 18
-  store i16 2, ptr %1451, align 2, !tbaa !21
+  store i16 2, ptr %1451, align 2, !tbaa !18
   %1452 = getelementptr inbounds nuw i8, ptr %1445, i64 24
   store ptr %1443, ptr %1452, align 8, !tbaa !10
   %1453 = getelementptr inbounds nuw i8, ptr %1445, i64 32
@@ -18241,9 +18241,9 @@ _init_l_Lake_Toml_arrayTable_formatter___closed__5.exit: ; preds = %_init_l_Lake
   %1460 = getelementptr inbounds nuw i8, ptr %1456, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1460, align 8, !tbaa !10
   %1461 = getelementptr inbounds nuw i8, ptr %1456, i64 16
-  store i16 7, ptr %1461, align 8, !tbaa !21
+  store i16 7, ptr %1461, align 8, !tbaa !18
   %1462 = getelementptr inbounds nuw i8, ptr %1456, i64 18
-  store i16 2, ptr %1462, align 2, !tbaa !21
+  store i16 2, ptr %1462, align 2, !tbaa !18
   %1463 = getelementptr inbounds nuw i8, ptr %1456, i64 24
   store ptr %1454, ptr %1463, align 8, !tbaa !10
   %1464 = getelementptr inbounds nuw i8, ptr %1456, i64 32
@@ -18268,9 +18268,9 @@ _init_l_Lake_Toml_arrayTable_formatter___closed__6.exit: ; preds = %_init_l_Lake
   %1471 = getelementptr inbounds nuw i8, ptr %1467, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1471, align 8, !tbaa !10
   %1472 = getelementptr inbounds nuw i8, ptr %1467, i64 16
-  store i16 7, ptr %1472, align 8, !tbaa !21
+  store i16 7, ptr %1472, align 8, !tbaa !18
   %1473 = getelementptr inbounds nuw i8, ptr %1467, i64 18
-  store i16 2, ptr %1473, align 2, !tbaa !21
+  store i16 2, ptr %1473, align 2, !tbaa !18
   %1474 = getelementptr inbounds nuw i8, ptr %1467, i64 24
   store ptr %1465, ptr %1474, align 8, !tbaa !10
   %1475 = getelementptr inbounds nuw i8, ptr %1467, i64 32
@@ -18295,9 +18295,9 @@ _init_l_Lake_Toml_arrayTable_formatter___closed__7.exit: ; preds = %_init_l_Lake
   %1482 = getelementptr inbounds nuw i8, ptr %1478, i64 8
   store ptr @l_Lean_PrettyPrinter_Formatter_andthen_formatter, ptr %1482, align 8, !tbaa !10
   %1483 = getelementptr inbounds nuw i8, ptr %1478, i64 16
-  store i16 7, ptr %1483, align 8, !tbaa !21
+  store i16 7, ptr %1483, align 8, !tbaa !18
   %1484 = getelementptr inbounds nuw i8, ptr %1478, i64 18
-  store i16 2, ptr %1484, align 2, !tbaa !21
+  store i16 2, ptr %1484, align 2, !tbaa !18
   %1485 = getelementptr inbounds nuw i8, ptr %1478, i64 24
   store ptr %1476, ptr %1485, align 8, !tbaa !10
   %1486 = getelementptr inbounds nuw i8, ptr %1478, i64 32
@@ -18320,9 +18320,9 @@ _init_l_Lake_Toml_table_formatter___closed__1.exit: ; preds = %_init_l_Lake_Toml
   %1491 = getelementptr inbounds nuw i8, ptr %1487, i64 8
   store ptr @l_Lake_Toml_stdTable_formatter, ptr %1491, align 8, !tbaa !10
   %1492 = getelementptr inbounds nuw i8, ptr %1487, i64 16
-  store i16 5, ptr %1492, align 8, !tbaa !21
+  store i16 5, ptr %1492, align 8, !tbaa !18
   %1493 = getelementptr inbounds nuw i8, ptr %1487, i64 18
-  store i16 0, ptr %1493, align 2, !tbaa !21
+  store i16 0, ptr %1493, align 2, !tbaa !18
   store ptr %1487, ptr @l_Lake_Toml_table_formatter___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1487) #4
   tail call void @lean_inc_heartbeat() #4
@@ -18341,9 +18341,9 @@ _init_l_Lake_Toml_table_formatter___closed__2.exit: ; preds = %_init_l_Lake_Toml
   %1498 = getelementptr inbounds nuw i8, ptr %1494, i64 8
   store ptr @l_Lake_Toml_arrayTable_formatter, ptr %1498, align 8, !tbaa !10
   %1499 = getelementptr inbounds nuw i8, ptr %1494, i64 16
-  store i16 5, ptr %1499, align 8, !tbaa !21
+  store i16 5, ptr %1499, align 8, !tbaa !18
   %1500 = getelementptr inbounds nuw i8, ptr %1494, i64 18
-  store i16 0, ptr %1500, align 2, !tbaa !21
+  store i16 0, ptr %1500, align 2, !tbaa !18
   store ptr %1494, ptr @l_Lake_Toml_table_formatter___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1494) #4
   %1501 = load ptr, ptr @l_Lake_Toml_expressionCore___closed__1, align 8, !tbaa !10
@@ -18364,9 +18364,9 @@ _init_l_Lake_Toml_expressionCore_formatter___closed__1.exit: ; preds = %_init_l_
   %1507 = getelementptr inbounds nuw i8, ptr %1503, i64 8
   store ptr @l_Lean_Parser_mkAntiquot_formatter___boxed, ptr %1507, align 8, !tbaa !10
   %1508 = getelementptr inbounds nuw i8, ptr %1503, i64 16
-  store i16 9, ptr %1508, align 8, !tbaa !21
+  store i16 9, ptr %1508, align 8, !tbaa !18
   %1509 = getelementptr inbounds nuw i8, ptr %1503, i64 18
-  store i16 4, ptr %1509, align 2, !tbaa !21
+  store i16 4, ptr %1509, align 2, !tbaa !18
   %1510 = getelementptr inbounds nuw i8, ptr %1503, i64 24
   store ptr %1501, ptr %1510, align 8, !tbaa !10
   %1511 = getelementptr inbounds nuw i8, ptr %1503, i64 32
@@ -18393,9 +18393,9 @@ _init_l_Lake_Toml_expressionCore_formatter___closed__2.exit: ; preds = %_init_l_
   %1518 = getelementptr inbounds nuw i8, ptr %1514, i64 8
   store ptr @l_Lake_Toml_table_formatter, ptr %1518, align 8, !tbaa !10
   %1519 = getelementptr inbounds nuw i8, ptr %1514, i64 16
-  store i16 5, ptr %1519, align 8, !tbaa !21
+  store i16 5, ptr %1519, align 8, !tbaa !18
   %1520 = getelementptr inbounds nuw i8, ptr %1514, i64 18
-  store i16 0, ptr %1520, align 2, !tbaa !21
+  store i16 0, ptr %1520, align 2, !tbaa !18
   store ptr %1514, ptr @l_Lake_Toml_expressionCore_formatter___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1514) #4
   tail call void @lean_inc_heartbeat() #4
@@ -18414,9 +18414,9 @@ _init_l_Lake_Toml_tomlCore_formatter___closed__1.exit: ; preds = %_init_l_Lake_T
   %1525 = getelementptr inbounds nuw i8, ptr %1521, i64 8
   store ptr @l_Lake_Toml_trailingSep_formatter___boxed, ptr %1525, align 8, !tbaa !10
   %1526 = getelementptr inbounds nuw i8, ptr %1521, i64 16
-  store i16 4, ptr %1526, align 8, !tbaa !21
+  store i16 4, ptr %1526, align 8, !tbaa !18
   %1527 = getelementptr inbounds nuw i8, ptr %1521, i64 18
-  store i16 0, ptr %1527, align 2, !tbaa !21
+  store i16 0, ptr %1527, align 2, !tbaa !18
   store ptr %1521, ptr @l_Lake_Toml_tomlCore_formatter___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1521) #4
   tail call void @lean_inc_heartbeat() #4
@@ -18435,9 +18435,9 @@ _init_l_Lake_Toml_tomlCore_formatter___closed__2.exit: ; preds = %_init_l_Lake_T
   %1532 = getelementptr inbounds nuw i8, ptr %1528, i64 8
   store ptr @l_Lake_Toml_header_formatter, ptr %1532, align 8, !tbaa !10
   %1533 = getelementptr inbounds nuw i8, ptr %1528, i64 16
-  store i16 5, ptr %1533, align 8, !tbaa !21
+  store i16 5, ptr %1533, align 8, !tbaa !18
   %1534 = getelementptr inbounds nuw i8, ptr %1528, i64 18
-  store i16 0, ptr %1534, align 2, !tbaa !21
+  store i16 0, ptr %1534, align 2, !tbaa !18
   store ptr %1528, ptr @l_Lake_Toml_tomlCore_formatter___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1528) #4
   tail call void @lean_inc_heartbeat() #4
@@ -18456,9 +18456,9 @@ _init_l_Lake_Toml_recNodeWithAntiquot_formatter___closed__1.exit: ; preds = %_in
   %1539 = getelementptr inbounds nuw i8, ptr %1535, i64 8
   store ptr @l_Lake_Toml_recNode_formatter___rarg, ptr %1539, align 8, !tbaa !10
   %1540 = getelementptr inbounds nuw i8, ptr %1535, i64 16
-  store i16 5, ptr %1540, align 8, !tbaa !21
+  store i16 5, ptr %1540, align 8, !tbaa !18
   %1541 = getelementptr inbounds nuw i8, ptr %1535, i64 18
-  store i16 0, ptr %1541, align 2, !tbaa !21
+  store i16 0, ptr %1541, align 2, !tbaa !18
   store ptr %1535, ptr @l_Lake_Toml_recNodeWithAntiquot_formatter___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1535) #4
   tail call void @lean_inc_heartbeat() #4
@@ -18477,9 +18477,9 @@ _init_l_Lake_Toml_toml_formatter___closed__1.exit: ; preds = %_init_l_Lake_Toml_
   %1546 = getelementptr inbounds nuw i8, ptr %1542, i64 8
   store ptr @l_Lake_Toml_val_formatter, ptr %1546, align 8, !tbaa !10
   %1547 = getelementptr inbounds nuw i8, ptr %1542, i64 16
-  store i16 5, ptr %1547, align 8, !tbaa !21
+  store i16 5, ptr %1547, align 8, !tbaa !18
   %1548 = getelementptr inbounds nuw i8, ptr %1542, i64 18
-  store i16 0, ptr %1548, align 2, !tbaa !21
+  store i16 0, ptr %1548, align 2, !tbaa !18
   store ptr %1542, ptr @l_Lake_Toml_toml_formatter___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1542) #4
   %1549 = load ptr, ptr @l_Lake_Toml_tomlCore___closed__5, align 8, !tbaa !10
@@ -18499,9 +18499,9 @@ _init_l_Lake_Toml_sepByLinebreak_parenthesizer___closed__1.exit: ; preds = %_ini
   %1554 = getelementptr inbounds nuw i8, ptr %1550, i64 8
   store ptr @l_Lean_Parser_symbol_parenthesizer, ptr %1554, align 8, !tbaa !10
   %1555 = getelementptr inbounds nuw i8, ptr %1550, i64 16
-  store i16 6, ptr %1555, align 8, !tbaa !21
+  store i16 6, ptr %1555, align 8, !tbaa !18
   %1556 = getelementptr inbounds nuw i8, ptr %1550, i64 18
-  store i16 1, ptr %1556, align 2, !tbaa !21
+  store i16 1, ptr %1556, align 2, !tbaa !18
   %1557 = getelementptr inbounds nuw i8, ptr %1550, i64 24
   store ptr %1549, ptr %1557, align 8, !tbaa !10
   store ptr %1550, ptr @l_Lake_Toml_sepByLinebreak_parenthesizer___closed__1, align 8, !tbaa !10
@@ -18522,9 +18522,9 @@ _init_l_Lake_Toml_sepByLinebreak_parenthesizer___closed__2.exit: ; preds = %_ini
   %1562 = getelementptr inbounds nuw i8, ptr %1558, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_checkLinebreakBefore_parenthesizer___boxed, ptr %1562, align 8, !tbaa !10
   %1563 = getelementptr inbounds nuw i8, ptr %1558, i64 16
-  store i16 4, ptr %1563, align 8, !tbaa !21
+  store i16 4, ptr %1563, align 8, !tbaa !18
   %1564 = getelementptr inbounds nuw i8, ptr %1558, i64 18
-  store i16 0, ptr %1564, align 2, !tbaa !21
+  store i16 0, ptr %1564, align 2, !tbaa !18
   store ptr %1558, ptr @l_Lake_Toml_sepByLinebreak_parenthesizer___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1558) #4
   tail call void @lean_inc_heartbeat() #4
@@ -18543,9 +18543,9 @@ _init_l_Lake_Toml_sepByLinebreak_parenthesizer___closed__3.exit: ; preds = %_ini
   %1569 = getelementptr inbounds nuw i8, ptr %1565, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_pushNone_parenthesizer___boxed, ptr %1569, align 8, !tbaa !10
   %1570 = getelementptr inbounds nuw i8, ptr %1565, i64 16
-  store i16 1, ptr %1570, align 8, !tbaa !21
+  store i16 1, ptr %1570, align 8, !tbaa !18
   %1571 = getelementptr inbounds nuw i8, ptr %1565, i64 18
-  store i16 0, ptr %1571, align 2, !tbaa !21
+  store i16 0, ptr %1571, align 2, !tbaa !18
   store ptr %1565, ptr @l_Lake_Toml_sepByLinebreak_parenthesizer___closed__3, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1565) #4
   %1572 = load ptr, ptr @l_Lake_Toml_sepByLinebreak_parenthesizer___closed__2, align 8, !tbaa !10
@@ -18566,9 +18566,9 @@ _init_l_Lake_Toml_sepByLinebreak_parenthesizer___closed__4.exit: ; preds = %_ini
   %1578 = getelementptr inbounds nuw i8, ptr %1574, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1578, align 8, !tbaa !10
   %1579 = getelementptr inbounds nuw i8, ptr %1574, i64 16
-  store i16 7, ptr %1579, align 8, !tbaa !21
+  store i16 7, ptr %1579, align 8, !tbaa !18
   %1580 = getelementptr inbounds nuw i8, ptr %1574, i64 18
-  store i16 2, ptr %1580, align 2, !tbaa !21
+  store i16 2, ptr %1580, align 2, !tbaa !18
   %1581 = getelementptr inbounds nuw i8, ptr %1574, i64 24
   store ptr %1572, ptr %1581, align 8, !tbaa !10
   %1582 = getelementptr inbounds nuw i8, ptr %1574, i64 32
@@ -18591,9 +18591,9 @@ _init_l_Lake_Toml_quotedKey_parenthesizer___closed__1.exit: ; preds = %_init_l_L
   %1587 = getelementptr inbounds nuw i8, ptr %1583, i64 8
   store ptr @l_Lake_Toml_basicString_parenthesizer, ptr %1587, align 8, !tbaa !10
   %1588 = getelementptr inbounds nuw i8, ptr %1583, i64 16
-  store i16 5, ptr %1588, align 8, !tbaa !21
+  store i16 5, ptr %1588, align 8, !tbaa !18
   %1589 = getelementptr inbounds nuw i8, ptr %1583, i64 18
-  store i16 0, ptr %1589, align 2, !tbaa !21
+  store i16 0, ptr %1589, align 2, !tbaa !18
   store ptr %1583, ptr @l_Lake_Toml_quotedKey_parenthesizer___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1583) #4
   tail call void @lean_inc_heartbeat() #4
@@ -18612,9 +18612,9 @@ _init_l_Lake_Toml_quotedKey_parenthesizer___closed__2.exit: ; preds = %_init_l_L
   %1594 = getelementptr inbounds nuw i8, ptr %1590, i64 8
   store ptr @l_Lake_Toml_literalString_parenthesizer, ptr %1594, align 8, !tbaa !10
   %1595 = getelementptr inbounds nuw i8, ptr %1590, i64 16
-  store i16 5, ptr %1595, align 8, !tbaa !21
+  store i16 5, ptr %1595, align 8, !tbaa !18
   %1596 = getelementptr inbounds nuw i8, ptr %1590, i64 18
-  store i16 0, ptr %1596, align 2, !tbaa !21
+  store i16 0, ptr %1596, align 2, !tbaa !18
   store ptr %1590, ptr @l_Lake_Toml_quotedKey_parenthesizer___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1590) #4
   tail call void @lean_inc_heartbeat() #4
@@ -18633,9 +18633,9 @@ _init_l_Lake_Toml_simpleKey_parenthesizer___closed__1.exit: ; preds = %_init_l_L
   %1601 = getelementptr inbounds nuw i8, ptr %1597, i64 8
   store ptr @l_Lake_Toml_unquotedKey_parenthesizer, ptr %1601, align 8, !tbaa !10
   %1602 = getelementptr inbounds nuw i8, ptr %1597, i64 16
-  store i16 5, ptr %1602, align 8, !tbaa !21
+  store i16 5, ptr %1602, align 8, !tbaa !18
   %1603 = getelementptr inbounds nuw i8, ptr %1597, i64 18
-  store i16 0, ptr %1603, align 2, !tbaa !21
+  store i16 0, ptr %1603, align 2, !tbaa !18
   store ptr %1597, ptr @l_Lake_Toml_simpleKey_parenthesizer___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1597) #4
   tail call void @lean_inc_heartbeat() #4
@@ -18654,9 +18654,9 @@ _init_l_Lake_Toml_simpleKey_parenthesizer___closed__2.exit: ; preds = %_init_l_L
   %1608 = getelementptr inbounds nuw i8, ptr %1604, i64 8
   store ptr @l_Lake_Toml_quotedKey_parenthesizer, ptr %1608, align 8, !tbaa !10
   %1609 = getelementptr inbounds nuw i8, ptr %1604, i64 16
-  store i16 5, ptr %1609, align 8, !tbaa !21
+  store i16 5, ptr %1609, align 8, !tbaa !18
   %1610 = getelementptr inbounds nuw i8, ptr %1604, i64 18
-  store i16 0, ptr %1610, align 2, !tbaa !21
+  store i16 0, ptr %1610, align 2, !tbaa !18
   store ptr %1604, ptr @l_Lake_Toml_simpleKey_parenthesizer___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1604) #4
   %1611 = load ptr, ptr @l_Lake_Toml_simpleKey_parenthesizer___closed__1, align 8, !tbaa !10
@@ -18677,9 +18677,9 @@ _init_l_Lake_Toml_simpleKey_parenthesizer___closed__3.exit: ; preds = %_init_l_L
   %1617 = getelementptr inbounds nuw i8, ptr %1613, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_orelse_parenthesizer, ptr %1617, align 8, !tbaa !10
   %1618 = getelementptr inbounds nuw i8, ptr %1613, i64 16
-  store i16 7, ptr %1618, align 8, !tbaa !21
+  store i16 7, ptr %1618, align 8, !tbaa !18
   %1619 = getelementptr inbounds nuw i8, ptr %1613, i64 18
-  store i16 2, ptr %1619, align 2, !tbaa !21
+  store i16 2, ptr %1619, align 2, !tbaa !18
   %1620 = getelementptr inbounds nuw i8, ptr %1613, i64 24
   store ptr %1611, ptr %1620, align 8, !tbaa !10
   %1621 = getelementptr inbounds nuw i8, ptr %1613, i64 32
@@ -18707,9 +18707,9 @@ _init_l_Lake_Toml_key_parenthesizer___closed__1.exit: ; preds = %_init_l_Lake_To
   %1629 = getelementptr inbounds nuw i8, ptr %1625, i64 8
   store ptr @l_Lake_Toml_chAtom_parenthesizer___boxed, ptr %1629, align 8, !tbaa !10
   %1630 = getelementptr inbounds nuw i8, ptr %1625, i64 16
-  store i16 4, ptr %1630, align 8, !tbaa !21
+  store i16 4, ptr %1630, align 8, !tbaa !18
   %1631 = getelementptr inbounds nuw i8, ptr %1625, i64 18
-  store i16 3, ptr %1631, align 2, !tbaa !21
+  store i16 3, ptr %1631, align 2, !tbaa !18
   %1632 = getelementptr inbounds nuw i8, ptr %1625, i64 24
   store ptr %1624, ptr %1632, align 8, !tbaa !10
   %1633 = getelementptr inbounds nuw i8, ptr %1625, i64 32
@@ -18734,9 +18734,9 @@ _init_l_Lake_Toml_key_parenthesizer___closed__2.exit: ; preds = %_init_l_Lake_To
   %1639 = getelementptr inbounds nuw i8, ptr %1635, i64 8
   store ptr @l_Lake_Toml_trailingWs_parenthesizer___boxed, ptr %1639, align 8, !tbaa !10
   %1640 = getelementptr inbounds nuw i8, ptr %1635, i64 16
-  store i16 4, ptr %1640, align 8, !tbaa !21
+  store i16 4, ptr %1640, align 8, !tbaa !18
   %1641 = getelementptr inbounds nuw i8, ptr %1635, i64 18
-  store i16 0, ptr %1641, align 2, !tbaa !21
+  store i16 0, ptr %1641, align 2, !tbaa !18
   store ptr %1635, ptr @l_Lake_Toml_key_parenthesizer___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1635) #4
   %1642 = load ptr, ptr @l_Lake_Toml_key_parenthesizer___closed__1, align 8, !tbaa !10
@@ -18757,9 +18757,9 @@ _init_l_Lake_Toml_key_parenthesizer___closed__3.exit: ; preds = %_init_l_Lake_To
   %1648 = getelementptr inbounds nuw i8, ptr %1644, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1648, align 8, !tbaa !10
   %1649 = getelementptr inbounds nuw i8, ptr %1644, i64 16
-  store i16 7, ptr %1649, align 8, !tbaa !21
+  store i16 7, ptr %1649, align 8, !tbaa !18
   %1650 = getelementptr inbounds nuw i8, ptr %1644, i64 18
-  store i16 2, ptr %1650, align 2, !tbaa !21
+  store i16 2, ptr %1650, align 2, !tbaa !18
   %1651 = getelementptr inbounds nuw i8, ptr %1644, i64 24
   store ptr %1642, ptr %1651, align 8, !tbaa !10
   %1652 = getelementptr inbounds nuw i8, ptr %1644, i64 32
@@ -18784,9 +18784,9 @@ _init_l_Lake_Toml_key_parenthesizer___closed__4.exit: ; preds = %_init_l_Lake_To
   %1659 = getelementptr inbounds nuw i8, ptr %1655, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1659, align 8, !tbaa !10
   %1660 = getelementptr inbounds nuw i8, ptr %1655, i64 16
-  store i16 7, ptr %1660, align 8, !tbaa !21
+  store i16 7, ptr %1660, align 8, !tbaa !18
   %1661 = getelementptr inbounds nuw i8, ptr %1655, i64 18
-  store i16 2, ptr %1661, align 2, !tbaa !21
+  store i16 2, ptr %1661, align 2, !tbaa !18
   %1662 = getelementptr inbounds nuw i8, ptr %1655, i64 24
   store ptr %1653, ptr %1662, align 8, !tbaa !10
   %1663 = getelementptr inbounds nuw i8, ptr %1655, i64 32
@@ -18809,9 +18809,9 @@ _init_l_Lake_Toml_key_parenthesizer___closed__5.exit: ; preds = %_init_l_Lake_To
   %1668 = getelementptr inbounds nuw i8, ptr %1664, i64 8
   store ptr @l_Lake_Toml_simpleKey_parenthesizer, ptr %1668, align 8, !tbaa !10
   %1669 = getelementptr inbounds nuw i8, ptr %1664, i64 16
-  store i16 5, ptr %1669, align 8, !tbaa !21
+  store i16 5, ptr %1669, align 8, !tbaa !18
   %1670 = getelementptr inbounds nuw i8, ptr %1664, i64 18
-  store i16 0, ptr %1670, align 2, !tbaa !21
+  store i16 0, ptr %1670, align 2, !tbaa !18
   store ptr %1664, ptr @l_Lake_Toml_key_parenthesizer___closed__5, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1664) #4
   %1671 = load ptr, ptr @l_Lake_Toml_key_parenthesizer___closed__5, align 8, !tbaa !10
@@ -18833,9 +18833,9 @@ _init_l_Lake_Toml_key_parenthesizer___closed__6.exit: ; preds = %_init_l_Lake_To
   %1678 = getelementptr inbounds nuw i8, ptr %1674, i64 8
   store ptr @l_Lean_Parser_sepBy1_parenthesizer___boxed, ptr %1678, align 8, !tbaa !10
   %1679 = getelementptr inbounds nuw i8, ptr %1674, i64 16
-  store i16 9, ptr %1679, align 8, !tbaa !21
+  store i16 9, ptr %1679, align 8, !tbaa !18
   %1680 = getelementptr inbounds nuw i8, ptr %1674, i64 18
-  store i16 4, ptr %1680, align 2, !tbaa !21
+  store i16 4, ptr %1680, align 2, !tbaa !18
   %1681 = getelementptr inbounds nuw i8, ptr %1674, i64 24
   store ptr %1671, ptr %1681, align 8, !tbaa !10
   %1682 = getelementptr inbounds nuw i8, ptr %1674, i64 32
@@ -18863,9 +18863,9 @@ _init_l_Lake_Toml_key_parenthesizer___closed__7.exit: ; preds = %_init_l_Lake_To
   %1690 = getelementptr inbounds nuw i8, ptr %1686, i64 8
   store ptr @l_Lean_Parser_setExpected_parenthesizer___rarg, ptr %1690, align 8, !tbaa !10
   %1691 = getelementptr inbounds nuw i8, ptr %1686, i64 16
-  store i16 6, ptr %1691, align 8, !tbaa !21
+  store i16 6, ptr %1691, align 8, !tbaa !18
   %1692 = getelementptr inbounds nuw i8, ptr %1686, i64 18
-  store i16 1, ptr %1692, align 2, !tbaa !21
+  store i16 1, ptr %1692, align 2, !tbaa !18
   %1693 = getelementptr inbounds nuw i8, ptr %1686, i64 24
   store ptr %1685, ptr %1693, align 8, !tbaa !10
   store ptr %1686, ptr @l_Lake_Toml_key_parenthesizer___closed__7, align 8, !tbaa !10
@@ -18891,9 +18891,9 @@ _init_l_Lake_Toml_keyvalCore_parenthesizer___closed__1.exit: ; preds = %_init_l_
   %1701 = getelementptr inbounds nuw i8, ptr %1697, i64 8
   store ptr @l_Lake_Toml_chAtom_parenthesizer___boxed, ptr %1701, align 8, !tbaa !10
   %1702 = getelementptr inbounds nuw i8, ptr %1697, i64 16
-  store i16 4, ptr %1702, align 8, !tbaa !21
+  store i16 4, ptr %1702, align 8, !tbaa !18
   %1703 = getelementptr inbounds nuw i8, ptr %1697, i64 18
-  store i16 3, ptr %1703, align 2, !tbaa !21
+  store i16 3, ptr %1703, align 2, !tbaa !18
   %1704 = getelementptr inbounds nuw i8, ptr %1697, i64 24
   store ptr %1696, ptr %1704, align 8, !tbaa !10
   %1705 = getelementptr inbounds nuw i8, ptr %1697, i64 32
@@ -18918,9 +18918,9 @@ _init_l_Lake_Toml_keyvalCore_parenthesizer___closed__2.exit: ; preds = %_init_l_
   %1711 = getelementptr inbounds nuw i8, ptr %1707, i64 8
   store ptr @l_Lake_Toml_key_parenthesizer, ptr %1711, align 8, !tbaa !10
   %1712 = getelementptr inbounds nuw i8, ptr %1707, i64 16
-  store i16 5, ptr %1712, align 8, !tbaa !21
+  store i16 5, ptr %1712, align 8, !tbaa !18
   %1713 = getelementptr inbounds nuw i8, ptr %1707, i64 18
-  store i16 0, ptr %1713, align 2, !tbaa !21
+  store i16 0, ptr %1713, align 2, !tbaa !18
   store ptr %1707, ptr @l_Lake_Toml_keyvalCore_parenthesizer___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1707) #4
   store ptr inttoptr (i64 183 to ptr), ptr @l_Lake_Toml_stdTable_parenthesizer___closed__1___boxed__const__1, align 8, !tbaa !10
@@ -18944,9 +18944,9 @@ _init_l_Lake_Toml_stdTable_parenthesizer___closed__1.exit: ; preds = %_init_l_La
   %1721 = getelementptr inbounds nuw i8, ptr %1717, i64 8
   store ptr @l_Lake_Toml_chAtom_parenthesizer___boxed, ptr %1721, align 8, !tbaa !10
   %1722 = getelementptr inbounds nuw i8, ptr %1717, i64 16
-  store i16 4, ptr %1722, align 8, !tbaa !21
+  store i16 4, ptr %1722, align 8, !tbaa !18
   %1723 = getelementptr inbounds nuw i8, ptr %1717, i64 18
-  store i16 3, ptr %1723, align 2, !tbaa !21
+  store i16 3, ptr %1723, align 2, !tbaa !18
   %1724 = getelementptr inbounds nuw i8, ptr %1717, i64 24
   store ptr %1716, ptr %1724, align 8, !tbaa !10
   %1725 = getelementptr inbounds nuw i8, ptr %1717, i64 32
@@ -18976,9 +18976,9 @@ _init_l_Lake_Toml_stdTable_parenthesizer___closed__2.exit: ; preds = %_init_l_La
   %1734 = getelementptr inbounds nuw i8, ptr %1730, i64 8
   store ptr @l_Lake_Toml_chAtom_parenthesizer___boxed, ptr %1734, align 8, !tbaa !10
   %1735 = getelementptr inbounds nuw i8, ptr %1730, i64 16
-  store i16 4, ptr %1735, align 8, !tbaa !21
+  store i16 4, ptr %1735, align 8, !tbaa !18
   %1736 = getelementptr inbounds nuw i8, ptr %1730, i64 18
-  store i16 3, ptr %1736, align 2, !tbaa !21
+  store i16 3, ptr %1736, align 2, !tbaa !18
   %1737 = getelementptr inbounds nuw i8, ptr %1730, i64 24
   store ptr %1729, ptr %1737, align 8, !tbaa !10
   %1738 = getelementptr inbounds nuw i8, ptr %1730, i64 32
@@ -19004,9 +19004,9 @@ _init_l_Lake_Toml_stdTable_parenthesizer___closed__3.exit: ; preds = %_init_l_La
   %1745 = getelementptr inbounds nuw i8, ptr %1741, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_notFollowedBy_parenthesizer___boxed, ptr %1745, align 8, !tbaa !10
   %1746 = getelementptr inbounds nuw i8, ptr %1741, i64 16
-  store i16 5, ptr %1746, align 8, !tbaa !21
+  store i16 5, ptr %1746, align 8, !tbaa !18
   %1747 = getelementptr inbounds nuw i8, ptr %1741, i64 18
-  store i16 1, ptr %1747, align 2, !tbaa !21
+  store i16 1, ptr %1747, align 2, !tbaa !18
   %1748 = getelementptr inbounds nuw i8, ptr %1741, i64 24
   store ptr %1740, ptr %1748, align 8, !tbaa !10
   store ptr %1741, ptr @l_Lake_Toml_stdTable_parenthesizer___closed__3, align 8, !tbaa !10
@@ -19029,9 +19029,9 @@ _init_l_Lake_Toml_stdTable_parenthesizer___closed__4.exit: ; preds = %_init_l_La
   %1755 = getelementptr inbounds nuw i8, ptr %1751, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1755, align 8, !tbaa !10
   %1756 = getelementptr inbounds nuw i8, ptr %1751, i64 16
-  store i16 7, ptr %1756, align 8, !tbaa !21
+  store i16 7, ptr %1756, align 8, !tbaa !18
   %1757 = getelementptr inbounds nuw i8, ptr %1751, i64 18
-  store i16 2, ptr %1757, align 2, !tbaa !21
+  store i16 2, ptr %1757, align 2, !tbaa !18
   %1758 = getelementptr inbounds nuw i8, ptr %1751, i64 24
   store ptr %1749, ptr %1758, align 8, !tbaa !10
   %1759 = getelementptr inbounds nuw i8, ptr %1751, i64 32
@@ -19055,9 +19055,9 @@ _init_l_Lake_Toml_stdTable_parenthesizer___closed__5.exit: ; preds = %_init_l_La
   %1765 = getelementptr inbounds nuw i8, ptr %1761, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_atomic_parenthesizer, ptr %1765, align 8, !tbaa !10
   %1766 = getelementptr inbounds nuw i8, ptr %1761, i64 16
-  store i16 6, ptr %1766, align 8, !tbaa !21
+  store i16 6, ptr %1766, align 8, !tbaa !18
   %1767 = getelementptr inbounds nuw i8, ptr %1761, i64 18
-  store i16 1, ptr %1767, align 2, !tbaa !21
+  store i16 1, ptr %1767, align 2, !tbaa !18
   %1768 = getelementptr inbounds nuw i8, ptr %1761, i64 24
   store ptr %1760, ptr %1768, align 8, !tbaa !10
   store ptr %1761, ptr @l_Lake_Toml_stdTable_parenthesizer___closed__5, align 8, !tbaa !10
@@ -19083,9 +19083,9 @@ _init_l_Lake_Toml_stdTable_parenthesizer___closed__6.exit: ; preds = %_init_l_La
   %1776 = getelementptr inbounds nuw i8, ptr %1772, i64 8
   store ptr @l_Lake_Toml_chAtom_parenthesizer___boxed, ptr %1776, align 8, !tbaa !10
   %1777 = getelementptr inbounds nuw i8, ptr %1772, i64 16
-  store i16 4, ptr %1777, align 8, !tbaa !21
+  store i16 4, ptr %1777, align 8, !tbaa !18
   %1778 = getelementptr inbounds nuw i8, ptr %1772, i64 18
-  store i16 3, ptr %1778, align 2, !tbaa !21
+  store i16 3, ptr %1778, align 2, !tbaa !18
   %1779 = getelementptr inbounds nuw i8, ptr %1772, i64 24
   store ptr %1771, ptr %1779, align 8, !tbaa !10
   %1780 = getelementptr inbounds nuw i8, ptr %1772, i64 32
@@ -19112,9 +19112,9 @@ _init_l_Lake_Toml_stdTable_parenthesizer___closed__7.exit: ; preds = %_init_l_La
   %1788 = getelementptr inbounds nuw i8, ptr %1784, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1788, align 8, !tbaa !10
   %1789 = getelementptr inbounds nuw i8, ptr %1784, i64 16
-  store i16 7, ptr %1789, align 8, !tbaa !21
+  store i16 7, ptr %1789, align 8, !tbaa !18
   %1790 = getelementptr inbounds nuw i8, ptr %1784, i64 18
-  store i16 2, ptr %1790, align 2, !tbaa !21
+  store i16 2, ptr %1790, align 2, !tbaa !18
   %1791 = getelementptr inbounds nuw i8, ptr %1784, i64 24
   store ptr %1782, ptr %1791, align 8, !tbaa !10
   %1792 = getelementptr inbounds nuw i8, ptr %1784, i64 32
@@ -19139,9 +19139,9 @@ _init_l_Lake_Toml_stdTable_parenthesizer___closed__8.exit: ; preds = %_init_l_La
   %1799 = getelementptr inbounds nuw i8, ptr %1795, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1799, align 8, !tbaa !10
   %1800 = getelementptr inbounds nuw i8, ptr %1795, i64 16
-  store i16 7, ptr %1800, align 8, !tbaa !21
+  store i16 7, ptr %1800, align 8, !tbaa !18
   %1801 = getelementptr inbounds nuw i8, ptr %1795, i64 18
-  store i16 2, ptr %1801, align 2, !tbaa !21
+  store i16 2, ptr %1801, align 2, !tbaa !18
   %1802 = getelementptr inbounds nuw i8, ptr %1795, i64 24
   store ptr %1793, ptr %1802, align 8, !tbaa !10
   %1803 = getelementptr inbounds nuw i8, ptr %1795, i64 32
@@ -19166,9 +19166,9 @@ _init_l_Lake_Toml_stdTable_parenthesizer___closed__9.exit: ; preds = %_init_l_La
   %1810 = getelementptr inbounds nuw i8, ptr %1806, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1810, align 8, !tbaa !10
   %1811 = getelementptr inbounds nuw i8, ptr %1806, i64 16
-  store i16 7, ptr %1811, align 8, !tbaa !21
+  store i16 7, ptr %1811, align 8, !tbaa !18
   %1812 = getelementptr inbounds nuw i8, ptr %1806, i64 18
-  store i16 2, ptr %1812, align 2, !tbaa !21
+  store i16 2, ptr %1812, align 2, !tbaa !18
   %1813 = getelementptr inbounds nuw i8, ptr %1806, i64 24
   store ptr %1804, ptr %1813, align 8, !tbaa !10
   %1814 = getelementptr inbounds nuw i8, ptr %1806, i64 32
@@ -19193,9 +19193,9 @@ _init_l_Lake_Toml_stdTable_parenthesizer___closed__10.exit: ; preds = %_init_l_L
   %1821 = getelementptr inbounds nuw i8, ptr %1817, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1821, align 8, !tbaa !10
   %1822 = getelementptr inbounds nuw i8, ptr %1817, i64 16
-  store i16 7, ptr %1822, align 8, !tbaa !21
+  store i16 7, ptr %1822, align 8, !tbaa !18
   %1823 = getelementptr inbounds nuw i8, ptr %1817, i64 18
-  store i16 2, ptr %1823, align 2, !tbaa !21
+  store i16 2, ptr %1823, align 2, !tbaa !18
   %1824 = getelementptr inbounds nuw i8, ptr %1817, i64 24
   store ptr %1815, ptr %1824, align 8, !tbaa !10
   %1825 = getelementptr inbounds nuw i8, ptr %1817, i64 32
@@ -19220,9 +19220,9 @@ _init_l_Lake_Toml_arrayTable_parenthesizer___closed__1.exit: ; preds = %_init_l_
   %1832 = getelementptr inbounds nuw i8, ptr %1828, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1832, align 8, !tbaa !10
   %1833 = getelementptr inbounds nuw i8, ptr %1828, i64 16
-  store i16 7, ptr %1833, align 8, !tbaa !21
+  store i16 7, ptr %1833, align 8, !tbaa !18
   %1834 = getelementptr inbounds nuw i8, ptr %1828, i64 18
-  store i16 2, ptr %1834, align 2, !tbaa !21
+  store i16 2, ptr %1834, align 2, !tbaa !18
   %1835 = getelementptr inbounds nuw i8, ptr %1828, i64 24
   store ptr %1826, ptr %1835, align 8, !tbaa !10
   %1836 = getelementptr inbounds nuw i8, ptr %1828, i64 32
@@ -19246,9 +19246,9 @@ _init_l_Lake_Toml_arrayTable_parenthesizer___closed__2.exit: ; preds = %_init_l_
   %1842 = getelementptr inbounds nuw i8, ptr %1838, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_atomic_parenthesizer, ptr %1842, align 8, !tbaa !10
   %1843 = getelementptr inbounds nuw i8, ptr %1838, i64 16
-  store i16 6, ptr %1843, align 8, !tbaa !21
+  store i16 6, ptr %1843, align 8, !tbaa !18
   %1844 = getelementptr inbounds nuw i8, ptr %1838, i64 18
-  store i16 1, ptr %1844, align 2, !tbaa !21
+  store i16 1, ptr %1844, align 2, !tbaa !18
   %1845 = getelementptr inbounds nuw i8, ptr %1838, i64 24
   store ptr %1837, ptr %1845, align 8, !tbaa !10
   store ptr %1838, ptr @l_Lake_Toml_arrayTable_parenthesizer___closed__2, align 8, !tbaa !10
@@ -19270,9 +19270,9 @@ _init_l_Lake_Toml_arrayTable_parenthesizer___closed__3.exit: ; preds = %_init_l_
   %1851 = getelementptr inbounds nuw i8, ptr %1847, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1851, align 8, !tbaa !10
   %1852 = getelementptr inbounds nuw i8, ptr %1847, i64 16
-  store i16 7, ptr %1852, align 8, !tbaa !21
+  store i16 7, ptr %1852, align 8, !tbaa !18
   %1853 = getelementptr inbounds nuw i8, ptr %1847, i64 18
-  store i16 2, ptr %1853, align 2, !tbaa !21
+  store i16 2, ptr %1853, align 2, !tbaa !18
   %1854 = getelementptr inbounds nuw i8, ptr %1847, i64 24
   store ptr %1846, ptr %1854, align 8, !tbaa !10
   %1855 = getelementptr inbounds nuw i8, ptr %1847, i64 32
@@ -19297,9 +19297,9 @@ _init_l_Lake_Toml_arrayTable_parenthesizer___closed__4.exit: ; preds = %_init_l_
   %1862 = getelementptr inbounds nuw i8, ptr %1858, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1862, align 8, !tbaa !10
   %1863 = getelementptr inbounds nuw i8, ptr %1858, i64 16
-  store i16 7, ptr %1863, align 8, !tbaa !21
+  store i16 7, ptr %1863, align 8, !tbaa !18
   %1864 = getelementptr inbounds nuw i8, ptr %1858, i64 18
-  store i16 2, ptr %1864, align 2, !tbaa !21
+  store i16 2, ptr %1864, align 2, !tbaa !18
   %1865 = getelementptr inbounds nuw i8, ptr %1858, i64 24
   store ptr %1856, ptr %1865, align 8, !tbaa !10
   %1866 = getelementptr inbounds nuw i8, ptr %1858, i64 32
@@ -19324,9 +19324,9 @@ _init_l_Lake_Toml_arrayTable_parenthesizer___closed__5.exit: ; preds = %_init_l_
   %1873 = getelementptr inbounds nuw i8, ptr %1869, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1873, align 8, !tbaa !10
   %1874 = getelementptr inbounds nuw i8, ptr %1869, i64 16
-  store i16 7, ptr %1874, align 8, !tbaa !21
+  store i16 7, ptr %1874, align 8, !tbaa !18
   %1875 = getelementptr inbounds nuw i8, ptr %1869, i64 18
-  store i16 2, ptr %1875, align 2, !tbaa !21
+  store i16 2, ptr %1875, align 2, !tbaa !18
   %1876 = getelementptr inbounds nuw i8, ptr %1869, i64 24
   store ptr %1867, ptr %1876, align 8, !tbaa !10
   %1877 = getelementptr inbounds nuw i8, ptr %1869, i64 32
@@ -19351,9 +19351,9 @@ _init_l_Lake_Toml_arrayTable_parenthesizer___closed__6.exit: ; preds = %_init_l_
   %1884 = getelementptr inbounds nuw i8, ptr %1880, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1884, align 8, !tbaa !10
   %1885 = getelementptr inbounds nuw i8, ptr %1880, i64 16
-  store i16 7, ptr %1885, align 8, !tbaa !21
+  store i16 7, ptr %1885, align 8, !tbaa !18
   %1886 = getelementptr inbounds nuw i8, ptr %1880, i64 18
-  store i16 2, ptr %1886, align 2, !tbaa !21
+  store i16 2, ptr %1886, align 2, !tbaa !18
   %1887 = getelementptr inbounds nuw i8, ptr %1880, i64 24
   store ptr %1878, ptr %1887, align 8, !tbaa !10
   %1888 = getelementptr inbounds nuw i8, ptr %1880, i64 32
@@ -19378,9 +19378,9 @@ _init_l_Lake_Toml_arrayTable_parenthesizer___closed__7.exit: ; preds = %_init_l_
   %1895 = getelementptr inbounds nuw i8, ptr %1891, i64 8
   store ptr @l_Lean_PrettyPrinter_Parenthesizer_andthen_parenthesizer, ptr %1895, align 8, !tbaa !10
   %1896 = getelementptr inbounds nuw i8, ptr %1891, i64 16
-  store i16 7, ptr %1896, align 8, !tbaa !21
+  store i16 7, ptr %1896, align 8, !tbaa !18
   %1897 = getelementptr inbounds nuw i8, ptr %1891, i64 18
-  store i16 2, ptr %1897, align 2, !tbaa !21
+  store i16 2, ptr %1897, align 2, !tbaa !18
   %1898 = getelementptr inbounds nuw i8, ptr %1891, i64 24
   store ptr %1889, ptr %1898, align 8, !tbaa !10
   %1899 = getelementptr inbounds nuw i8, ptr %1891, i64 32
@@ -19403,9 +19403,9 @@ _init_l_Lake_Toml_table_parenthesizer___closed__1.exit: ; preds = %_init_l_Lake_
   %1904 = getelementptr inbounds nuw i8, ptr %1900, i64 8
   store ptr @l_Lake_Toml_stdTable_parenthesizer, ptr %1904, align 8, !tbaa !10
   %1905 = getelementptr inbounds nuw i8, ptr %1900, i64 16
-  store i16 5, ptr %1905, align 8, !tbaa !21
+  store i16 5, ptr %1905, align 8, !tbaa !18
   %1906 = getelementptr inbounds nuw i8, ptr %1900, i64 18
-  store i16 0, ptr %1906, align 2, !tbaa !21
+  store i16 0, ptr %1906, align 2, !tbaa !18
   store ptr %1900, ptr @l_Lake_Toml_table_parenthesizer___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1900) #4
   tail call void @lean_inc_heartbeat() #4
@@ -19424,9 +19424,9 @@ _init_l_Lake_Toml_table_parenthesizer___closed__2.exit: ; preds = %_init_l_Lake_
   %1911 = getelementptr inbounds nuw i8, ptr %1907, i64 8
   store ptr @l_Lake_Toml_arrayTable_parenthesizer, ptr %1911, align 8, !tbaa !10
   %1912 = getelementptr inbounds nuw i8, ptr %1907, i64 16
-  store i16 5, ptr %1912, align 8, !tbaa !21
+  store i16 5, ptr %1912, align 8, !tbaa !18
   %1913 = getelementptr inbounds nuw i8, ptr %1907, i64 18
-  store i16 0, ptr %1913, align 2, !tbaa !21
+  store i16 0, ptr %1913, align 2, !tbaa !18
   store ptr %1907, ptr @l_Lake_Toml_table_parenthesizer___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1907) #4
   %1914 = load ptr, ptr @l_Lake_Toml_expressionCore___closed__1, align 8, !tbaa !10
@@ -19447,9 +19447,9 @@ _init_l_Lake_Toml_expressionCore_parenthesizer___closed__1.exit: ; preds = %_ini
   %1920 = getelementptr inbounds nuw i8, ptr %1916, i64 8
   store ptr @l_Lean_Parser_mkAntiquot_parenthesizer___boxed, ptr %1920, align 8, !tbaa !10
   %1921 = getelementptr inbounds nuw i8, ptr %1916, i64 16
-  store i16 9, ptr %1921, align 8, !tbaa !21
+  store i16 9, ptr %1921, align 8, !tbaa !18
   %1922 = getelementptr inbounds nuw i8, ptr %1916, i64 18
-  store i16 4, ptr %1922, align 2, !tbaa !21
+  store i16 4, ptr %1922, align 2, !tbaa !18
   %1923 = getelementptr inbounds nuw i8, ptr %1916, i64 24
   store ptr %1914, ptr %1923, align 8, !tbaa !10
   %1924 = getelementptr inbounds nuw i8, ptr %1916, i64 32
@@ -19476,9 +19476,9 @@ _init_l_Lake_Toml_expressionCore_parenthesizer___closed__2.exit: ; preds = %_ini
   %1931 = getelementptr inbounds nuw i8, ptr %1927, i64 8
   store ptr @l_Lake_Toml_table_parenthesizer, ptr %1931, align 8, !tbaa !10
   %1932 = getelementptr inbounds nuw i8, ptr %1927, i64 16
-  store i16 5, ptr %1932, align 8, !tbaa !21
+  store i16 5, ptr %1932, align 8, !tbaa !18
   %1933 = getelementptr inbounds nuw i8, ptr %1927, i64 18
-  store i16 0, ptr %1933, align 2, !tbaa !21
+  store i16 0, ptr %1933, align 2, !tbaa !18
   store ptr %1927, ptr @l_Lake_Toml_expressionCore_parenthesizer___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1927) #4
   tail call void @lean_inc_heartbeat() #4
@@ -19497,9 +19497,9 @@ _init_l_Lake_Toml_tomlCore_parenthesizer___closed__1.exit: ; preds = %_init_l_La
   %1938 = getelementptr inbounds nuw i8, ptr %1934, i64 8
   store ptr @l_Lake_Toml_trailingSep_parenthesizer___boxed, ptr %1938, align 8, !tbaa !10
   %1939 = getelementptr inbounds nuw i8, ptr %1934, i64 16
-  store i16 4, ptr %1939, align 8, !tbaa !21
+  store i16 4, ptr %1939, align 8, !tbaa !18
   %1940 = getelementptr inbounds nuw i8, ptr %1934, i64 18
-  store i16 0, ptr %1940, align 2, !tbaa !21
+  store i16 0, ptr %1940, align 2, !tbaa !18
   store ptr %1934, ptr @l_Lake_Toml_tomlCore_parenthesizer___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1934) #4
   tail call void @lean_inc_heartbeat() #4
@@ -19518,9 +19518,9 @@ _init_l_Lake_Toml_tomlCore_parenthesizer___closed__2.exit: ; preds = %_init_l_La
   %1945 = getelementptr inbounds nuw i8, ptr %1941, i64 8
   store ptr @l_Lake_Toml_header_parenthesizer, ptr %1945, align 8, !tbaa !10
   %1946 = getelementptr inbounds nuw i8, ptr %1941, i64 16
-  store i16 5, ptr %1946, align 8, !tbaa !21
+  store i16 5, ptr %1946, align 8, !tbaa !18
   %1947 = getelementptr inbounds nuw i8, ptr %1941, i64 18
-  store i16 0, ptr %1947, align 2, !tbaa !21
+  store i16 0, ptr %1947, align 2, !tbaa !18
   store ptr %1941, ptr @l_Lake_Toml_tomlCore_parenthesizer___closed__2, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1941) #4
   tail call void @lean_inc_heartbeat() #4
@@ -19539,9 +19539,9 @@ _init_l_Lake_Toml_recNodeWithAntiquot_parenthesizer___closed__1.exit: ; preds = 
   %1952 = getelementptr inbounds nuw i8, ptr %1948, i64 8
   store ptr @l_Lake_Toml_recNode_parenthesizer___rarg, ptr %1952, align 8, !tbaa !10
   %1953 = getelementptr inbounds nuw i8, ptr %1948, i64 16
-  store i16 5, ptr %1953, align 8, !tbaa !21
+  store i16 5, ptr %1953, align 8, !tbaa !18
   %1954 = getelementptr inbounds nuw i8, ptr %1948, i64 18
-  store i16 0, ptr %1954, align 2, !tbaa !21
+  store i16 0, ptr %1954, align 2, !tbaa !18
   store ptr %1948, ptr @l_Lake_Toml_recNodeWithAntiquot_parenthesizer___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1948) #4
   tail call void @lean_inc_heartbeat() #4
@@ -19560,9 +19560,9 @@ _init_l_Lake_Toml_toml_parenthesizer___closed__1.exit: ; preds = %_init_l_Lake_T
   %1959 = getelementptr inbounds nuw i8, ptr %1955, i64 8
   store ptr @l_Lake_Toml_val_parenthesizer, ptr %1959, align 8, !tbaa !10
   %1960 = getelementptr inbounds nuw i8, ptr %1955, i64 16
-  store i16 5, ptr %1960, align 8, !tbaa !21
+  store i16 5, ptr %1960, align 8, !tbaa !18
   %1961 = getelementptr inbounds nuw i8, ptr %1955, i64 18
-  store i16 0, ptr %1961, align 2, !tbaa !21
+  store i16 0, ptr %1961, align 2, !tbaa !18
   store ptr %1955, ptr @l_Lake_Toml_toml_parenthesizer___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %1955) #4
   %1962 = load ptr, ptr @l_Lake_Toml_val, align 8, !tbaa !10
@@ -19732,10 +19732,7 @@ attributes #5 = { noreturn nounwind }
 !13 = !{!"long", !7, i64 0}
 !14 = !{!7, !7, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.estimated_trip_count"}
-!18 = distinct !{!18, !17}
-!19 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!20 = !{!"branch_weights", !"expected", i32 2146905636, i32 578012}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"short", !7, i64 0}
+!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = !{!"branch_weights", !"expected", i32 2146905636, i32 578012}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !7, i64 0}

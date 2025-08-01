@@ -733,7 +733,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit40
   %.034.be = phi ptr [ %.0, %lean_dec.exit40 ], [ %86, %lean_alloc_ctor.exit ]
-  br label %6, !llvm.loop !13
+  br label %6
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -996,7 +996,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit40
   %.034.be = phi ptr [ %.0, %lean_dec.exit40 ], [ %86, %lean_alloc_ctor.exit ]
-  br label %6, !llvm.loop !15
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1107,10 +1107,10 @@ lean_dec.exit20:                                  ; preds = %41, %40, %38, %lean
   %.pre40 = ptrtoint ptr %32 to i64
   %.pre = and i64 %.pre40, 1
   %44 = icmp eq i64 %.pre, 0
-  br i1 %.not.i32, label %lean_int_sub.exit, label %45, !prof !16
+  br i1 %.not.i32, label %lean_int_sub.exit, label %45, !prof !13
 
 45:                                               ; preds = %lean_dec.exit20
-  br i1 %44, label %lean_int_sub.exit.thread44, label %47, !prof !16
+  br i1 %44, label %lean_int_sub.exit.thread44, label %47, !prof !13
 
 lean_int_sub.exit.thread44:                       ; preds = %45
   %46 = tail call ptr @lean_int_big_sub(ptr noundef %21, ptr noundef %32) #3
@@ -1246,9 +1246,9 @@ _init_l_Lean_Omega_Coeffs_add___closed__1.exit:   ; preds = %lean_dec_ref.exit
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @l_Lean_Omega_IntList_add___lambda__1___boxed, ptr %22, align 8, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i16 2, ptr %23, align 8, !tbaa !17
+  store i16 2, ptr %23, align 8, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  store i16 0, ptr %24, align 2, !tbaa !17
+  store i16 0, ptr %24, align 2, !tbaa !14
   store ptr %18, ptr @l_Lean_Omega_Coeffs_add___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %18) #3
   tail call void @lean_inc_heartbeat() #3
@@ -1267,9 +1267,9 @@ _init_l_Lean_Omega_Coeffs_sub___closed__1.exit:   ; preds = %_init_l_Lean_Omega_
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @l_Lean_Omega_IntList_sub___lambda__1___boxed, ptr %29, align 8, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i16 2, ptr %30, align 8, !tbaa !17
+  store i16 2, ptr %30, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 18
-  store i16 0, ptr %31, align 2, !tbaa !17
+  store i16 0, ptr %31, align 2, !tbaa !14
   store ptr %25, ptr @l_Lean_Omega_Coeffs_sub___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull %25) #3
   tail call void @lean_inc_heartbeat() #3
@@ -1341,9 +1341,6 @@ attributes #4 = { noreturn nounwind }
 !10 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"any pointer", !7, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}
-!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !7, i64 0}
+!13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"short", !7, i64 0}

@@ -446,7 +446,7 @@ Nwk_ManDeleteNode.exit:                           ; preds = %12, %1
 
 39:                                               ; preds = %.lr.ph
   %40 = getelementptr i8, ptr %36, i64 64
-  %.val13 = load i32, ptr %40, align 8, !tbaa !38
+  %.val13 = load i32, ptr %40, align 8, !tbaa !37
   %41 = icmp eq i32 %.val13, 0
   br i1 %41, label %42, label %43
 
@@ -460,7 +460,7 @@ Nwk_ManDeleteNode.exit:                           ; preds = %12, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = sext i32 %.val to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph, label %.critedge, !llvm.loop !39
+  br i1 %45, label %.lr.ph, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %43, %Nwk_ManDeleteNode.exit
   %46 = load ptr, ptr %5, align 8, !tbaa !27
@@ -532,8 +532,7 @@ attributes #8 = { nounwind allocsize(0) }
 !32 = !{!10, !10, i64 0}
 !33 = !{!4, !9, i64 24}
 !34 = !{!4, !9, i64 96}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = !{!17, !10, i64 64}
-!39 = distinct !{!39, !36, !37}
+!37 = !{!17, !10, i64 64}
+!38 = distinct !{!38, !36}

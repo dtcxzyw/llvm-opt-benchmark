@@ -137,7 +137,7 @@ define noalias noundef ptr @dt_control_signal_init() local_unnamed_addr #0 {
 30:                                               ; preds = %14, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 47
-  br i1 %exitcond.not, label %13, label %14, !llvm.loop !31
+  br i1 %exitcond.not, label %13, label %14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -169,27 +169,27 @@ define noundef i32 @_async_com_callback(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @g_mutex_lock(ptr noundef nonnull %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !33
-  %5 = load ptr, ptr %4, align 8, !tbaa !36
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !39
+  %7 = load i32, ptr %6, align 8, !tbaa !37
   tail call void @g_signal_emitv(ptr noundef %5, i32 noundef %7, i32 noundef 0, ptr noundef null) #11
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br label %9
 
 9:                                                ; preds = %9, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %9 ]
-  %10 = load ptr, ptr %4, align 8, !tbaa !36
+  %10 = load ptr, ptr %4, align 8, !tbaa !34
   %11 = getelementptr inbounds nuw %struct._GValue, ptr %10, i64 %indvars.iv.i
   tail call void @g_value_unset(ptr noundef %11) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = load i32, ptr %8, align 4, !tbaa !40
+  %12 = load i32, ptr %8, align 4, !tbaa !38
   %13 = zext i32 %12 to i64
   %.not.not.i = icmp samesign ult i64 %indvars.iv.i, %13
-  br i1 %.not.not.i, label %9, label %_signal_raise.exit, !llvm.loop !41
+  br i1 %.not.not.i, label %9, label %_signal_raise.exit
 
 _signal_raise.exit:                               ; preds = %9
-  %14 = load ptr, ptr %4, align 8, !tbaa !36
+  %14 = load ptr, ptr %4, align 8, !tbaa !34
   tail call void @free(ptr noundef %14) #11
   tail call void @free(ptr noundef nonnull %4) #11
   tail call void @g_cond_signal(ptr noundef nonnull %0) #11
@@ -201,29 +201,29 @@ declare void @g_mutex_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_signal_raise(ptr noundef captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !36
+  %2 = load ptr, ptr %0, align 8, !tbaa !34
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !39
+  %4 = load i32, ptr %3, align 8, !tbaa !37
   tail call void @g_signal_emitv(ptr noundef %2, i32 noundef %4, i32 noundef 0, ptr noundef null) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %8
 
 6:                                                ; preds = %8
-  %7 = load ptr, ptr %0, align 8, !tbaa !36
+  %7 = load ptr, ptr %0, align 8, !tbaa !34
   tail call void @free(ptr noundef %7) #11
   tail call void @free(ptr noundef nonnull %0) #11
   ret i32 0
 
 8:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %9 = load ptr, ptr %0, align 8, !tbaa !36
+  %9 = load ptr, ptr %0, align 8, !tbaa !34
   %10 = getelementptr inbounds nuw %struct._GValue, ptr %9, i64 %indvars.iv
   tail call void @g_value_unset(ptr noundef %10) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i32, ptr %5, align 4, !tbaa !40
+  %11 = load i32, ptr %5, align 4, !tbaa !38
   %12 = zext i32 %11 to i64
   %.not.not = icmp samesign ult i64 %indvars.iv, %12
-  br i1 %.not.not, label %8, label %6, !llvm.loop !41
+  br i1 %.not.not, label %8, label %6
 }
 
 declare void @g_cond_signal(ptr noundef) local_unnamed_addr #4
@@ -236,14 +236,14 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
   %4 = alloca %struct.async_com_data, align 8
   %5 = tail call i32 (...) @dt_control_running() #11
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %101, label %6
+  br i1 %.not, label %103, label %6
 
 6:                                                ; preds = %2
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw [47 x %struct.dt_signal_description], ptr @_signal_description, i64 0, i64 %7
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %.not52 = icmp eq ptr %9, null
-  br i1 %.not52, label %101, label %10
+  br i1 %.not52, label %103, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -256,7 +256,7 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 
 16:                                               ; preds = %10
   tail call void @free(ptr noundef nonnull %9) #11
-  br label %101
+  br label %103
 
 17:                                               ; preds = %10
   %18 = load i64, ptr @_signal_type, align 8, !tbaa !20
@@ -271,194 +271,194 @@ define void @dt_control_signal_raise(ptr noundef readonly captures(none) %0, i32
 .lr.ph:                                           ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %22 = load ptr, ptr %21, align 8, !tbaa !29
-  %invariant.gep = getelementptr i8, ptr %22, i64 -8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %25
 
-25:                                               ; preds = %.lr.ph, %76
-  %indvars.iv71 = phi i32 [ 2, %.lr.ph ], [ %indvars.iv.next72, %76 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
-  %26 = load i64, ptr %gep, align 8, !tbaa !20
-  %27 = getelementptr inbounds nuw %struct._GValue, ptr %15, i64 %indvars.iv
-  %28 = call ptr @g_value_init(ptr noundef nonnull %27, i64 noundef %26) #11
-  switch i64 %26, label %71 [
-    i64 28, label %29
-    i64 64, label %43
-    i64 68, label %57
+25:                                               ; preds = %.lr.ph, %78
+  %indvars.iv71 = phi i32 [ 2, %.lr.ph ], [ %indvars.iv.next72, %78 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %78 ]
+  %26 = getelementptr i64, ptr %22, i64 %indvars.iv
+  %27 = getelementptr i8, ptr %26, i64 -8
+  %28 = load i64, ptr %27, align 8, !tbaa !20
+  %29 = getelementptr inbounds nuw %struct._GValue, ptr %15, i64 %indvars.iv
+  %30 = call ptr @g_value_init(ptr noundef nonnull %29, i64 noundef %28) #11
+  switch i64 %28, label %73 [
+    i64 28, label %31
+    i64 64, label %45
+    i64 68, label %59
   ]
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %3, align 16
-  %31 = icmp ult i32 %30, 41
-  br i1 %31, label %32, label %37
+31:                                               ; preds = %25
+  %32 = load i32, ptr %3, align 16
+  %33 = icmp ult i32 %32, 41
+  br i1 %33, label %34, label %39
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %24, align 16
-  %34 = zext nneg i32 %30 to i64
-  %35 = getelementptr i8, ptr %33, i64 %34
-  %36 = add nuw nsw i32 %30, 8
-  store i32 %36, ptr %3, align 16
-  br label %40
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %24, align 16
+  %36 = zext nneg i32 %32 to i64
+  %37 = getelementptr i8, ptr %35, i64 %36
+  %38 = add nuw nsw i32 %32, 8
+  store i32 %38, ptr %3, align 16
+  br label %42
 
-37:                                               ; preds = %29
-  %38 = load ptr, ptr %23, align 8
-  %39 = getelementptr i8, ptr %38, i64 8
-  store ptr %39, ptr %23, align 8
-  br label %40
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %23, align 8
+  %41 = getelementptr i8, ptr %40, i64 8
+  store ptr %41, ptr %23, align 8
+  br label %42
 
-40:                                               ; preds = %37, %32
-  %41 = phi ptr [ %35, %32 ], [ %38, %37 ]
-  %42 = load i32, ptr %41, align 4, !tbaa !42
-  call void @g_value_set_uint(ptr noundef nonnull %27, i32 noundef %42) #11
-  br label %76
+42:                                               ; preds = %39, %34
+  %43 = phi ptr [ %37, %34 ], [ %40, %39 ]
+  %44 = load i32, ptr %43, align 4, !tbaa !39
+  call void @g_value_set_uint(ptr noundef nonnull %29, i32 noundef %44) #11
+  br label %78
 
-43:                                               ; preds = %25
-  %44 = load i32, ptr %3, align 16
-  %45 = icmp ult i32 %44, 41
-  br i1 %45, label %46, label %51
+45:                                               ; preds = %25
+  %46 = load i32, ptr %3, align 16
+  %47 = icmp ult i32 %46, 41
+  br i1 %47, label %48, label %53
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %24, align 16
-  %48 = zext nneg i32 %44 to i64
-  %49 = getelementptr i8, ptr %47, i64 %48
-  %50 = add nuw nsw i32 %44, 8
-  store i32 %50, ptr %3, align 16
-  br label %54
+48:                                               ; preds = %45
+  %49 = load ptr, ptr %24, align 16
+  %50 = zext nneg i32 %46 to i64
+  %51 = getelementptr i8, ptr %49, i64 %50
+  %52 = add nuw nsw i32 %46, 8
+  store i32 %52, ptr %3, align 16
+  br label %56
 
-51:                                               ; preds = %43
-  %52 = load ptr, ptr %23, align 8
-  %53 = getelementptr i8, ptr %52, i64 8
-  store ptr %53, ptr %23, align 8
-  br label %54
+53:                                               ; preds = %45
+  %54 = load ptr, ptr %23, align 8
+  %55 = getelementptr i8, ptr %54, i64 8
+  store ptr %55, ptr %23, align 8
+  br label %56
 
-54:                                               ; preds = %51, %46
-  %55 = phi ptr [ %49, %46 ], [ %52, %51 ]
-  %56 = load ptr, ptr %55, align 8, !tbaa !43
-  call void @g_value_set_string(ptr noundef nonnull %27, ptr noundef %56) #11
-  br label %76
+56:                                               ; preds = %53, %48
+  %57 = phi ptr [ %51, %48 ], [ %54, %53 ]
+  %58 = load ptr, ptr %57, align 8, !tbaa !40
+  call void @g_value_set_string(ptr noundef nonnull %29, ptr noundef %58) #11
+  br label %78
 
-57:                                               ; preds = %25
-  %58 = load i32, ptr %3, align 16
-  %59 = icmp ult i32 %58, 41
-  br i1 %59, label %60, label %65
+59:                                               ; preds = %25
+  %60 = load i32, ptr %3, align 16
+  %61 = icmp ult i32 %60, 41
+  br i1 %61, label %62, label %67
 
-60:                                               ; preds = %57
-  %61 = load ptr, ptr %24, align 16
-  %62 = zext nneg i32 %58 to i64
-  %63 = getelementptr i8, ptr %61, i64 %62
-  %64 = add nuw nsw i32 %58, 8
-  store i32 %64, ptr %3, align 16
-  br label %68
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %24, align 16
+  %64 = zext nneg i32 %60 to i64
+  %65 = getelementptr i8, ptr %63, i64 %64
+  %66 = add nuw nsw i32 %60, 8
+  store i32 %66, ptr %3, align 16
+  br label %70
 
-65:                                               ; preds = %57
-  %66 = load ptr, ptr %23, align 8
-  %67 = getelementptr i8, ptr %66, i64 8
-  store ptr %67, ptr %23, align 8
-  br label %68
+67:                                               ; preds = %59
+  %68 = load ptr, ptr %23, align 8
+  %69 = getelementptr i8, ptr %68, i64 8
+  store ptr %69, ptr %23, align 8
+  br label %70
 
-68:                                               ; preds = %65, %60
-  %69 = phi ptr [ %63, %60 ], [ %66, %65 ]
-  %70 = load ptr, ptr %69, align 8, !tbaa !44
-  call void @g_value_set_pointer(ptr noundef nonnull %27, ptr noundef %70) #11
-  br label %76
+70:                                               ; preds = %67, %62
+  %71 = phi ptr [ %65, %62 ], [ %68, %67 ]
+  %72 = load ptr, ptr %71, align 8, !tbaa !41
+  call void @g_value_set_pointer(ptr noundef nonnull %29, ptr noundef %72) #11
+  br label %78
 
-71:                                               ; preds = %25
-  %72 = call ptr @g_type_name(i64 noundef %26) #11
-  %73 = load ptr, ptr %8, align 8, !tbaa !24
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.2, ptr noundef %72, ptr noundef %73) #11
+73:                                               ; preds = %25
+  %74 = call ptr @g_type_name(i64 noundef %28) #11
+  %75 = load ptr, ptr %8, align 8, !tbaa !24
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.2, ptr noundef %74, ptr noundef %75) #11
   call void @llvm.va_end.p0(ptr nonnull %3)
   %wide.trip.count74 = zext i32 %indvars.iv71 to i64
-  br label %74
+  br label %76
 
-.critedge:                                        ; preds = %74
+.critedge:                                        ; preds = %76
   call void @free(ptr noundef nonnull %15) #11
   call void @free(ptr noundef %9) #11
-  br label %100
+  br label %102
 
-74:                                               ; preds = %71, %74
-  %indvars.iv68 = phi i64 [ 0, %71 ], [ %indvars.iv.next69, %74 ]
-  %75 = getelementptr inbounds nuw %struct._GValue, ptr %15, i64 %indvars.iv68
-  call void @g_value_unset(ptr noundef nonnull %75) #11
+76:                                               ; preds = %73, %76
+  %indvars.iv68 = phi i64 [ 0, %73 ], [ %indvars.iv.next69, %76 ]
+  %77 = getelementptr inbounds nuw %struct._GValue, ptr %15, i64 %indvars.iv68
+  call void @g_value_unset(ptr noundef nonnull %77) #11
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count74
-  br i1 %exitcond75.not, label %.critedge, label %74, !llvm.loop !45
+  br i1 %exitcond75.not, label %.critedge, label %76
 
-76:                                               ; preds = %68, %54, %40
+78:                                               ; preds = %70, %56, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %14
   %indvars.iv.next72 = add nuw i32 %indvars.iv71, 1
-  br i1 %exitcond.not, label %.critedge59, label %25, !llvm.loop !46
+  br i1 %exitcond.not, label %.critedge59, label %25
 
-.critedge59:                                      ; preds = %76, %17
+.critedge59:                                      ; preds = %78, %17
   call void @llvm.va_end.p0(ptr nonnull %3)
-  store ptr %15, ptr %9, align 8, !tbaa !36
-  %77 = load ptr, ptr %8, align 8, !tbaa !24
-  %78 = load i64, ptr @_signal_type, align 8, !tbaa !20
-  %79 = call i32 @g_signal_lookup(ptr noundef %77, i64 noundef %78) #11
-  %80 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %79, ptr %80, align 8, !tbaa !39
-  %81 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 %12, ptr %81, align 4, !tbaa !40
-  %82 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %83 = load i32, ptr %82, align 8, !tbaa !47
-  %.not56 = icmp eq i32 %83, 0
-  br i1 %.not56, label %84, label %85
+  store ptr %15, ptr %9, align 8, !tbaa !34
+  %79 = load ptr, ptr %8, align 8, !tbaa !24
+  %80 = load i64, ptr @_signal_type, align 8, !tbaa !20
+  %81 = call i32 @g_signal_lookup(ptr noundef %79, i64 noundef %80) #11
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %81, ptr %82, align 8, !tbaa !37
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 %12, ptr %83, align 4, !tbaa !38
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %85 = load i32, ptr %84, align 8, !tbaa !42
+  %.not56 = icmp eq i32 %85, 0
+  br i1 %.not56, label %86, label %87
 
-84:                                               ; preds = %.critedge59
+86:                                               ; preds = %.critedge59
   call void @g_main_context_invoke_full(ptr noundef null, i32 noundef 100, ptr noundef nonnull @_signal_raise, ptr noundef nonnull %9, ptr noundef null) #11
-  br label %100
+  br label %102
 
-85:                                               ; preds = %.critedge59
-  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !48
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 888
-  %88 = load i64, ptr %87, align 8, !tbaa !84
-  %89 = tail call i64 @pthread_self() #13
-  %.not60 = icmp eq i64 %88, %89
-  br i1 %.not60, label %90, label %97
+87:                                               ; preds = %.critedge59
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !43
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 888
+  %90 = load i64, ptr %89, align 8, !tbaa !79
+  %91 = tail call i64 @pthread_self() #13
+  %.not60 = icmp eq i64 %90, %91
+  br i1 %.not60, label %92, label %99
 
-90:                                               ; preds = %85
-  call void @g_signal_emitv(ptr noundef nonnull %15, i32 noundef %79, i32 noundef 0, ptr noundef null) #11
-  br label %91
+92:                                               ; preds = %87
+  call void @g_signal_emitv(ptr noundef nonnull %15, i32 noundef %81, i32 noundef 0, ptr noundef null) #11
+  br label %93
 
-91:                                               ; preds = %91, %90
-  %indvars.iv.i = phi i64 [ 0, %90 ], [ %indvars.iv.next.i, %91 ]
-  %92 = load ptr, ptr %9, align 8, !tbaa !36
-  %93 = getelementptr inbounds nuw %struct._GValue, ptr %92, i64 %indvars.iv.i
-  call void @g_value_unset(ptr noundef %93) #11
+93:                                               ; preds = %93, %92
+  %indvars.iv.i = phi i64 [ 0, %92 ], [ %indvars.iv.next.i, %93 ]
+  %94 = load ptr, ptr %9, align 8, !tbaa !34
+  %95 = getelementptr inbounds nuw %struct._GValue, ptr %94, i64 %indvars.iv.i
+  call void @g_value_unset(ptr noundef %95) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %94 = load i32, ptr %81, align 4, !tbaa !40
-  %95 = zext i32 %94 to i64
-  %.not.not.i = icmp samesign ult i64 %indvars.iv.i, %95
-  br i1 %.not.not.i, label %91, label %_signal_raise.exit, !llvm.loop !41
+  %96 = load i32, ptr %83, align 4, !tbaa !38
+  %97 = zext i32 %96 to i64
+  %.not.not.i = icmp samesign ult i64 %indvars.iv.i, %97
+  br i1 %.not.not.i, label %93, label %_signal_raise.exit
 
-_signal_raise.exit:                               ; preds = %91
-  %96 = load ptr, ptr %9, align 8, !tbaa !36
-  call void @free(ptr noundef %96) #11
+_signal_raise.exit:                               ; preds = %93
+  %98 = load ptr, ptr %9, align 8, !tbaa !34
+  call void @free(ptr noundef %98) #11
   call void @free(ptr noundef nonnull %9) #11
-  br label %100
+  br label %102
 
-97:                                               ; preds = %85
+99:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #11
-  %98 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @g_mutex_init(ptr noundef nonnull %98) #11
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  call void @g_mutex_init(ptr noundef nonnull %100) #11
   call void @g_cond_init(ptr noundef nonnull %4) #11
-  call void @g_mutex_lock(ptr noundef nonnull %98) #11
-  %99 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %9, ptr %99, align 8, !tbaa !33
+  call void @g_mutex_lock(ptr noundef nonnull %100) #11
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %9, ptr %101, align 8, !tbaa !31
   call void @g_main_context_invoke_full(ptr noundef null, i32 noundef 100, ptr noundef nonnull @_async_com_callback, ptr noundef nonnull %4, ptr noundef null) #11
-  call void @g_cond_wait(ptr noundef nonnull %4, ptr noundef nonnull %98) #11
-  call void @g_mutex_unlock(ptr noundef nonnull %98) #11
-  call void @g_mutex_clear(ptr noundef nonnull %98) #11
+  call void @g_cond_wait(ptr noundef nonnull %4, ptr noundef nonnull %100) #11
+  call void @g_mutex_unlock(ptr noundef nonnull %100) #11
+  call void @g_mutex_clear(ptr noundef nonnull %100) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #11
-  br label %100
+  br label %102
 
-100:                                              ; preds = %.critedge, %84, %97, %_signal_raise.exit
+102:                                              ; preds = %.critedge, %86, %99, %_signal_raise.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
-  br label %101
+  br label %103
 
-101:                                              ; preds = %6, %100, %16, %2
+103:                                              ; preds = %6, %102, %16, %2
   ret void
 }
 
@@ -664,71 +664,66 @@ attributes #13 = { nounwind willreturn memory(none) }
 !28 = !{!25, !13, i64 40}
 !29 = !{!25, !26, i64 48}
 !30 = !{!25, !12, i64 56}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.estimated_trip_count"}
-!33 = !{!34, !12, i64 24}
-!34 = !{!"async_com_data", !35, i64 0, !9, i64 16, !12, i64 24}
-!35 = !{!"_GCond", !12, i64 0, !9, i64 8}
-!36 = !{!37, !38, i64 0}
-!37 = !{!"_signal_param_t", !38, i64 0, !13, i64 8, !13, i64 12}
-!38 = !{!"p1 _ZTS7_GValue", !12, i64 0}
-!39 = !{!37, !13, i64 8}
-!40 = !{!37, !13, i64 12}
-!41 = distinct !{!41, !32}
-!42 = !{!13, !13, i64 0}
-!43 = !{!11, !11, i64 0}
-!44 = !{!12, !12, i64 0}
-!45 = distinct !{!45, !32}
-!46 = distinct !{!46, !32}
-!47 = !{!25, !13, i64 64}
-!48 = !{!49, !57, i64 88}
-!49 = !{!"darktable_t", !50, i64 0, !13, i64 4, !13, i64 8, !51, i64 16, !51, i64 24, !51, i64 32, !51, i64 40, !52, i64 48, !53, i64 56, !54, i64 64, !55, i64 72, !56, i64 80, !57, i64 88, !58, i64 96, !59, i64 104, !60, i64 112, !61, i64 120, !62, i64 128, !63, i64 136, !64, i64 144, !65, i64 152, !66, i64 160, !67, i64 168, !68, i64 176, !69, i64 184, !70, i64 192, !71, i64 200, !72, i64 208, !73, i64 216, !74, i64 224, !9, i64 232, !75, i64 2792, !75, i64 2832, !75, i64 2872, !75, i64 2912, !75, i64 2952, !11, i64 2992, !11, i64 3000, !11, i64 3008, !11, i64 3016, !11, i64 3024, !11, i64 3032, !11, i64 3040, !11, i64 3048, !11, i64 3056, !11, i64 3064, !11, i64 3072, !11, i64 3080, !11, i64 3088, !76, i64 3096, !51, i64 3104, !77, i64 3112, !51, i64 3120, !13, i64 3128, !9, i64 3132, !13, i64 3320, !13, i64 3324, !78, i64 3328, !79, i64 3336, !80, i64 3344, !82, i64 3384, !83, i64 3416}
-!50 = !{!"dt_codepath_t", !13, i64 0}
-!51 = !{!"p1 _ZTS6_GList", !12, i64 0}
-!52 = !{!"p1 _ZTS11_JsonParser", !12, i64 0}
-!53 = !{!"p1 _ZTS9dt_conf_t", !12, i64 0}
-!54 = !{!"p1 _ZTS12dt_develop_t", !12, i64 0}
-!55 = !{!"p1 _ZTS8dt_lib_t", !12, i64 0}
-!56 = !{!"p1 _ZTS17dt_view_manager_t", !12, i64 0}
-!57 = !{!"p1 _ZTS12dt_control_t", !12, i64 0}
-!58 = !{!"p1 _ZTS19dt_control_signal_t", !12, i64 0}
-!59 = !{!"p1 _ZTS12dt_gui_gtk_t", !12, i64 0}
-!60 = !{!"p1 _ZTS17dt_mipmap_cache_t", !12, i64 0}
-!61 = !{!"p1 _ZTS16dt_image_cache_t", !12, i64 0}
-!62 = !{!"p1 _ZTS12dt_bauhaus_t", !12, i64 0}
-!63 = !{!"p1 _ZTS13dt_database_t", !12, i64 0}
-!64 = !{!"p1 _ZTS14dt_pwstorage_t", !12, i64 0}
-!65 = !{!"p1 _ZTS11dt_camctl_t", !12, i64 0}
-!66 = !{!"p1 _ZTS15dt_collection_t", !12, i64 0}
-!67 = !{!"p1 _ZTS14dt_selection_t", !12, i64 0}
-!68 = !{!"p1 _ZTS11dt_points_t", !12, i64 0}
-!69 = !{!"p1 _ZTS12dt_imageio_t", !12, i64 0}
-!70 = !{!"p1 _ZTS11dt_opencl_t", !12, i64 0}
-!71 = !{!"p1 _ZTS9dt_dbus_t", !12, i64 0}
-!72 = !{!"p1 _ZTS9dt_undo_t", !12, i64 0}
-!73 = !{!"p1 _ZTS16dt_colorspaces_t", !12, i64 0}
-!74 = !{!"p1 _ZTS9dt_l10n_t", !12, i64 0}
-!75 = !{!"dt_pthread_mutex_t", !9, i64 0}
-!76 = !{!"", !13, i64 0}
-!77 = !{!"double", !9, i64 0}
-!78 = !{!"p1 _ZTS10_GTimeZone", !12, i64 0}
-!79 = !{!"p1 _ZTS10_GDateTime", !12, i64 0}
-!80 = !{!"dt_sys_resources_t", !8, i64 0, !8, i64 8, !81, i64 16, !81, i64 24, !13, i64 32}
-!81 = !{!"p1 int", !12, i64 0}
-!82 = !{!"dt_backthumb_t", !77, i64 0, !77, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28}
-!83 = !{!"dt_gimp_t", !13, i64 0, !11, i64 8, !11, i64 16, !13, i64 24, !13, i64 28}
-!84 = !{!85, !8, i64 888}
-!85 = !{!"dt_control_t", !13, i64 0, !86, i64 8, !87, i64 16, !87, i64 64, !87, i64 112, !87, i64 160, !87, i64 208, !87, i64 256, !87, i64 304, !87, i64 352, !87, i64 400, !87, i64 448, !87, i64 496, !86, i64 544, !88, i64 552, !89, i64 560, !13, i64 568, !90, i64 576, !13, i64 584, !13, i64 588, !91, i64 592, !92, i64 600, !9, i64 608, !13, i64 864, !77, i64 872, !13, i64 880, !13, i64 884, !8, i64 888, !13, i64 896, !13, i64 900, !13, i64 904, !77, i64 912, !77, i64 920, !13, i64 928, !13, i64 932, !13, i64 936, !13, i64 940, !13, i64 944, !13, i64 948, !9, i64 952, !13, i64 8952, !13, i64 8956, !75, i64 8960, !13, i64 9000, !13, i64 9004, !9, i64 9008, !13, i64 9608, !13, i64 9612, !75, i64 9616, !75, i64 9656, !75, i64 9696, !77, i64 9736, !9, i64 9744, !13, i64 9748, !13, i64 9752, !75, i64 9760, !75, i64 9800, !9, i64 9840, !13, i64 9888, !26, i64 9896, !8, i64 9904, !8, i64 9912, !93, i64 9920, !9, i64 9928, !9, i64 9968, !75, i64 10008, !9, i64 10048, !9, i64 10072, !9, i64 10080, !94, i64 10104, !97, i64 10224}
-!86 = !{!"p1 _ZTS11dt_action_t", !12, i64 0}
-!87 = !{!"dt_action_t", !13, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !86, i64 32, !86, i64 40}
-!88 = !{!"p1 _ZTS11_GHashTable", !12, i64 0}
-!89 = !{!"p1 _ZTS10_GSequence", !12, i64 0}
-!90 = !{!"p1 _ZTS10_GtkWidget", !12, i64 0}
-!91 = !{!"p1 _ZTS10_GPtrArray", !12, i64 0}
-!92 = !{!"p1 _ZTS7_GSList", !12, i64 0}
-!93 = !{!"p2 _ZTS9_dt_job_t", !12, i64 0}
-!94 = !{!"", !51, i64 0, !8, i64 8, !8, i64 16, !77, i64 24, !75, i64 32, !95, i64 72}
-!95 = !{!"", !96, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40}
-!96 = !{!"p1 _ZTS15dt_lib_module_t", !12, i64 0}
-!97 = !{!"", !98, i64 0}
-!98 = !{!"", !96, i64 0, !12, i64 8}
+!31 = !{!32, !12, i64 24}
+!32 = !{!"async_com_data", !33, i64 0, !9, i64 16, !12, i64 24}
+!33 = !{!"_GCond", !12, i64 0, !9, i64 8}
+!34 = !{!35, !36, i64 0}
+!35 = !{!"_signal_param_t", !36, i64 0, !13, i64 8, !13, i64 12}
+!36 = !{!"p1 _ZTS7_GValue", !12, i64 0}
+!37 = !{!35, !13, i64 8}
+!38 = !{!35, !13, i64 12}
+!39 = !{!13, !13, i64 0}
+!40 = !{!11, !11, i64 0}
+!41 = !{!12, !12, i64 0}
+!42 = !{!25, !13, i64 64}
+!43 = !{!44, !52, i64 88}
+!44 = !{!"darktable_t", !45, i64 0, !13, i64 4, !13, i64 8, !46, i64 16, !46, i64 24, !46, i64 32, !46, i64 40, !47, i64 48, !48, i64 56, !49, i64 64, !50, i64 72, !51, i64 80, !52, i64 88, !53, i64 96, !54, i64 104, !55, i64 112, !56, i64 120, !57, i64 128, !58, i64 136, !59, i64 144, !60, i64 152, !61, i64 160, !62, i64 168, !63, i64 176, !64, i64 184, !65, i64 192, !66, i64 200, !67, i64 208, !68, i64 216, !69, i64 224, !9, i64 232, !70, i64 2792, !70, i64 2832, !70, i64 2872, !70, i64 2912, !70, i64 2952, !11, i64 2992, !11, i64 3000, !11, i64 3008, !11, i64 3016, !11, i64 3024, !11, i64 3032, !11, i64 3040, !11, i64 3048, !11, i64 3056, !11, i64 3064, !11, i64 3072, !11, i64 3080, !11, i64 3088, !71, i64 3096, !46, i64 3104, !72, i64 3112, !46, i64 3120, !13, i64 3128, !9, i64 3132, !13, i64 3320, !13, i64 3324, !73, i64 3328, !74, i64 3336, !75, i64 3344, !77, i64 3384, !78, i64 3416}
+!45 = !{!"dt_codepath_t", !13, i64 0}
+!46 = !{!"p1 _ZTS6_GList", !12, i64 0}
+!47 = !{!"p1 _ZTS11_JsonParser", !12, i64 0}
+!48 = !{!"p1 _ZTS9dt_conf_t", !12, i64 0}
+!49 = !{!"p1 _ZTS12dt_develop_t", !12, i64 0}
+!50 = !{!"p1 _ZTS8dt_lib_t", !12, i64 0}
+!51 = !{!"p1 _ZTS17dt_view_manager_t", !12, i64 0}
+!52 = !{!"p1 _ZTS12dt_control_t", !12, i64 0}
+!53 = !{!"p1 _ZTS19dt_control_signal_t", !12, i64 0}
+!54 = !{!"p1 _ZTS12dt_gui_gtk_t", !12, i64 0}
+!55 = !{!"p1 _ZTS17dt_mipmap_cache_t", !12, i64 0}
+!56 = !{!"p1 _ZTS16dt_image_cache_t", !12, i64 0}
+!57 = !{!"p1 _ZTS12dt_bauhaus_t", !12, i64 0}
+!58 = !{!"p1 _ZTS13dt_database_t", !12, i64 0}
+!59 = !{!"p1 _ZTS14dt_pwstorage_t", !12, i64 0}
+!60 = !{!"p1 _ZTS11dt_camctl_t", !12, i64 0}
+!61 = !{!"p1 _ZTS15dt_collection_t", !12, i64 0}
+!62 = !{!"p1 _ZTS14dt_selection_t", !12, i64 0}
+!63 = !{!"p1 _ZTS11dt_points_t", !12, i64 0}
+!64 = !{!"p1 _ZTS12dt_imageio_t", !12, i64 0}
+!65 = !{!"p1 _ZTS11dt_opencl_t", !12, i64 0}
+!66 = !{!"p1 _ZTS9dt_dbus_t", !12, i64 0}
+!67 = !{!"p1 _ZTS9dt_undo_t", !12, i64 0}
+!68 = !{!"p1 _ZTS16dt_colorspaces_t", !12, i64 0}
+!69 = !{!"p1 _ZTS9dt_l10n_t", !12, i64 0}
+!70 = !{!"dt_pthread_mutex_t", !9, i64 0}
+!71 = !{!"", !13, i64 0}
+!72 = !{!"double", !9, i64 0}
+!73 = !{!"p1 _ZTS10_GTimeZone", !12, i64 0}
+!74 = !{!"p1 _ZTS10_GDateTime", !12, i64 0}
+!75 = !{!"dt_sys_resources_t", !8, i64 0, !8, i64 8, !76, i64 16, !76, i64 24, !13, i64 32}
+!76 = !{!"p1 int", !12, i64 0}
+!77 = !{!"dt_backthumb_t", !72, i64 0, !72, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28}
+!78 = !{!"dt_gimp_t", !13, i64 0, !11, i64 8, !11, i64 16, !13, i64 24, !13, i64 28}
+!79 = !{!80, !8, i64 888}
+!80 = !{!"dt_control_t", !13, i64 0, !81, i64 8, !82, i64 16, !82, i64 64, !82, i64 112, !82, i64 160, !82, i64 208, !82, i64 256, !82, i64 304, !82, i64 352, !82, i64 400, !82, i64 448, !82, i64 496, !81, i64 544, !83, i64 552, !84, i64 560, !13, i64 568, !85, i64 576, !13, i64 584, !13, i64 588, !86, i64 592, !87, i64 600, !9, i64 608, !13, i64 864, !72, i64 872, !13, i64 880, !13, i64 884, !8, i64 888, !13, i64 896, !13, i64 900, !13, i64 904, !72, i64 912, !72, i64 920, !13, i64 928, !13, i64 932, !13, i64 936, !13, i64 940, !13, i64 944, !13, i64 948, !9, i64 952, !13, i64 8952, !13, i64 8956, !70, i64 8960, !13, i64 9000, !13, i64 9004, !9, i64 9008, !13, i64 9608, !13, i64 9612, !70, i64 9616, !70, i64 9656, !70, i64 9696, !72, i64 9736, !9, i64 9744, !13, i64 9748, !13, i64 9752, !70, i64 9760, !70, i64 9800, !9, i64 9840, !13, i64 9888, !26, i64 9896, !8, i64 9904, !8, i64 9912, !88, i64 9920, !9, i64 9928, !9, i64 9968, !70, i64 10008, !9, i64 10048, !9, i64 10072, !9, i64 10080, !89, i64 10104, !92, i64 10224}
+!81 = !{!"p1 _ZTS11dt_action_t", !12, i64 0}
+!82 = !{!"dt_action_t", !13, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !81, i64 32, !81, i64 40}
+!83 = !{!"p1 _ZTS11_GHashTable", !12, i64 0}
+!84 = !{!"p1 _ZTS10_GSequence", !12, i64 0}
+!85 = !{!"p1 _ZTS10_GtkWidget", !12, i64 0}
+!86 = !{!"p1 _ZTS10_GPtrArray", !12, i64 0}
+!87 = !{!"p1 _ZTS7_GSList", !12, i64 0}
+!88 = !{!"p2 _ZTS9_dt_job_t", !12, i64 0}
+!89 = !{!"", !46, i64 0, !8, i64 8, !8, i64 16, !72, i64 24, !70, i64 32, !90, i64 72}
+!90 = !{!"", !91, i64 0, !12, i64 8, !12, i64 16, !12, i64 24, !12, i64 32, !12, i64 40}
+!91 = !{!"p1 _ZTS15dt_lib_module_t", !12, i64 0}
+!92 = !{!"", !93, i64 0}
+!93 = !{!"", !91, i64 0, !12, i64 8}

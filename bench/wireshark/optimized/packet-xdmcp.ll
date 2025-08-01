@@ -442,7 +442,7 @@ xdmcp_add_authentication_names.exit:              ; preds = %.lr.ph.i, %55
   %168 = add nuw nsw i32 %.0248261, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #3
   %exitcond.not = icmp eq i32 %.0248261, %125
-  br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %166, %131
   %.0247.lcssa = phi i32 [ %134, %131 ], [ %167, %166 ]
@@ -699,7 +699,7 @@ define internal fastcc noundef i32 @xdmcp_add_authorization_names(ptr noundef %0
   %20 = add i32 %18, %.021
   %21 = add nsw i32 %.01920, -1
   %22 = icmp samesign ugt i32 %.01920, 1
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ %10, %3 ], [ %20, %.lr.ph ]
@@ -735,8 +735,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}

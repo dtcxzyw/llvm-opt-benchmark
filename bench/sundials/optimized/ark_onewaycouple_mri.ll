@@ -223,7 +223,7 @@ check_retval.exit89:                              ; preds = %83
   %114 = select i1 %113, double 1.000000e+00, double %112
   %115 = add nuw nsw i32 %.0132, 1
   %exitcond.not = icmp eq i32 %115, 10
-  br i1 %exitcond.not, label %.loopexit, label %83, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %83
 
 .loopexit:                                        ; preds = %88, %check_retval.exit89
   %puts72 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -269,11 +269,11 @@ check_retval.exit99:                              ; preds = %check_retval.exit97
 
 check_retval.exit101:                             ; preds = %check_retval.exit99, %134
   %puts73 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %137 = load i64, ptr %6, align 8, !tbaa !26
-  %138 = load i64, ptr %7, align 8, !tbaa !26
+  %137 = load i64, ptr %6, align 8, !tbaa !24
+  %138 = load i64, ptr %7, align 8, !tbaa !24
   %139 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i64 noundef %137, i64 noundef %138)
-  %140 = load i64, ptr %8, align 8, !tbaa !26
-  %141 = load i64, ptr %9, align 8, !tbaa !26
+  %140 = load i64, ptr %8, align 8, !tbaa !24
+  %141 = load i64, ptr %9, align 8, !tbaa !24
   %142 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i64 noundef %140, i64 noundef %141)
   call void @N_VDestroy(ptr noundef nonnull %19) #10
   call void @N_VDestroy(ptr noundef %29) #10
@@ -370,17 +370,17 @@ declare i32 @ARKodeEvolve(ptr noundef, double noundef, ptr noundef, ptr noundef,
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: write, errnomem: write) uwtable
 define internal fastcc void @ans(double noundef %0, ptr writeonly captures(none) initializes((0, 24)) %.0.val.16.val) unnamed_addr #5 {
   %2 = fmul double %0, 5.000000e+01
-  %3 = tail call double @cos(double noundef %2) #10, !tbaa !27
+  %3 = tail call double @cos(double noundef %2) #10, !tbaa !25
   store double %3, ptr %.0.val.16.val, align 8, !tbaa !9
-  %4 = tail call double @sin(double noundef %2) #10, !tbaa !27
+  %4 = tail call double @sin(double noundef %2) #10, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %.0.val.16.val, i64 8
   store double %4, ptr %5, align 8, !tbaa !9
   %6 = fneg double %0
-  %7 = tail call double @exp(double noundef %6) #10, !tbaa !27
-  %8 = tail call double @cos(double noundef %2) #10, !tbaa !27
+  %7 = tail call double @exp(double noundef %6) #10, !tbaa !25
+  %8 = tail call double @cos(double noundef %2) #10, !tbaa !25
   %9 = fmul double %8, 0xBF940FF7CFAFC021
   %10 = tail call double @llvm.fmuladd.f64(double %7, double 0x4000281FEF9F5F80, double %9)
-  %11 = tail call double @sin(double noundef %2) #10, !tbaa !27
+  %11 = tail call double @sin(double noundef %2) #10, !tbaa !25
   %12 = tail call double @llvm.fmuladd.f64(double %11, double 0x3F94E1996FAC799A, double %10)
   %13 = getelementptr inbounds nuw i8, ptr %.0.val.16.val, i64 16
   store double %12, ptr %13, align 8, !tbaa !9
@@ -477,7 +477,5 @@ attributes #11 = { cold nounwind }
 !21 = !{!"int", !7, i64 0}
 !22 = !{!"p1 double", !6, i64 0}
 !23 = !{!6, !6, i64 0}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.estimated_trip_count"}
-!26 = !{!20, !20, i64 0}
-!27 = !{!21, !21, i64 0}
+!24 = !{!20, !20, i64 0}
+!25 = !{!21, !21, i64 0}

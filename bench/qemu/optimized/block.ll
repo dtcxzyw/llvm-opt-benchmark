@@ -94,7 +94,7 @@ define dso_local noundef zeroext i1 @blk_check_size_and_read_all(ptr noundef %0,
   %38 = call i64 @llvm.umin.i64(i64 %37, i64 2147483136)
   store i64 %38, ptr %6, align 8
   %39 = icmp eq i64 %3, %36
-  br i1 %39, label %blk_pread_nonzeroes.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %39, label %blk_pread_nonzeroes.exit, label %.lr.ph.i
 
 blk_pread_nonzeroes.exit:                         ; preds = %34, %21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
@@ -143,7 +143,7 @@ define dso_local noundef zeroext i1 @blkconf_blocksizes(ptr noundef captures(non
   %3 = alloca %struct.BlockSizes, align 8
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 0, ptr %3, align 8, !annotation !6
+  store i64 0, ptr %3, align 8, !annotation !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %13 [
@@ -361,7 +361,7 @@ define dso_local noundef zeroext i1 @blkconf_apply_backend_options(ptr noundef r
   %spec.select = select i1 %1, i64 1, i64 3
   %.028 = select i1 %2, i64 13, i64 5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load i8, ptr %6, align 8, !range !7, !noundef !8
+  %7 = load i8, ptr %6, align 8, !range !5, !noundef !6
   %8 = shl nuw nsw i8 %7, 1
   %9 = zext nneg i8 %8 to i64
   %.1 = or disjoint i64 %.028, %9
@@ -563,8 +563,6 @@ attributes #7 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = !{!"auto-init"}
-!7 = !{i8 0, i8 2}
-!8 = !{}
+!4 = !{!"auto-init"}
+!5 = !{i8 0, i8 2}
+!6 = !{}

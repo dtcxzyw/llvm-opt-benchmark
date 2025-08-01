@@ -106,19 +106,19 @@ define void @_ZN13duckdb_brotli36BrotliCleanupSharedEncoderDictionaryEPNS_13Memo
 
 15:                                               ; preds = %._crit_edge
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 1248
-  %17 = load ptr, ptr %16, align 8, !tbaa !51
+  %17 = load ptr, ptr %16, align 8, !tbaa !50
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %17)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1256
-  %19 = load ptr, ptr %18, align 8, !tbaa !52
+  %19 = load ptr, ptr %18, align 8, !tbaa !51
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %19)
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 1272
-  %21 = load ptr, ptr %20, align 8, !tbaa !53
+  %21 = load ptr, ptr %20, align 8, !tbaa !52
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %21)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 1288
-  %23 = load ptr, ptr %22, align 8, !tbaa !54
+  %23 = load ptr, ptr %22, align 8, !tbaa !53
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %23)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1296
-  %25 = load ptr, ptr %24, align 8, !tbaa !55
+  %25 = load ptr, ptr %24, align 8, !tbaa !54
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %25)
   br label %.sink.split
 
@@ -127,32 +127,32 @@ define void @_ZN13duckdb_brotli36BrotliCleanupSharedEncoderDictionaryEPNS_13Memo
   %27 = load ptr, ptr %14, align 8, !tbaa !26
   %28 = getelementptr inbounds nuw %"struct.duckdb_brotli::BrotliEncoderDictionary", ptr %27, i64 %.120
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 112
-  %30 = load ptr, ptr %29, align 8, !tbaa !51
+  %30 = load ptr, ptr %29, align 8, !tbaa !50
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %30)
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 120
-  %32 = load ptr, ptr %31, align 8, !tbaa !52
+  %32 = load ptr, ptr %31, align 8, !tbaa !51
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %32)
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 136
-  %34 = load ptr, ptr %33, align 8, !tbaa !53
+  %34 = load ptr, ptr %33, align 8, !tbaa !52
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %34)
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 152
-  %36 = load ptr, ptr %35, align 8, !tbaa !54
+  %36 = load ptr, ptr %35, align 8, !tbaa !53
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %36)
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 160
-  %38 = load ptr, ptr %37, align 8, !tbaa !55
+  %38 = load ptr, ptr %37, align 8, !tbaa !54
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %38)
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  %.val.i18 = load ptr, ptr %39, align 8, !tbaa !56
+  %.val.i18 = load ptr, ptr %39, align 8, !tbaa !55
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %.val.i18)
   %40 = add nuw i64 %.120, 1
   %41 = load i64, ptr %12, align 8, !tbaa !27
   %42 = icmp ult i64 %40, %41
-  br i1 %42, label %26, label %.sink.split, !llvm.loop !57
+  br i1 %42, label %26, label %.sink.split, !llvm.loop !56
 
 .sink.split:                                      ; preds = %26, %15
   %.sink = phi i64 [ 1192, %15 ], [ 1304, %26 ]
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
-  %44 = load ptr, ptr %43, align 8, !tbaa !58
+  %44 = load ptr, ptr %43, align 8, !tbaa !57
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %44)
   br label %45
 
@@ -171,11 +171,11 @@ define noundef ptr @_ZN13duckdb_brotli29BrotliCreateManagedDictionaryEPFPvS0_mEP
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  store i32 -558043678, ptr %4, align 8, !tbaa !59
+  store i32 -558043678, ptr %4, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @_ZN13duckdb_brotli23BrotliInitMemoryManagerEPNS_13MemoryManagerEPFPvS2_mEPFvS2_S2_ES2_(ptr noundef nonnull %7, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %8, align 8, !tbaa !63
+  store ptr null, ptr %8, align 8, !tbaa !62
   br label %9
 
 9:                                                ; preds = %3, %6
@@ -263,19 +263,18 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !45 = !{!4, !5, i64 1312}
 !46 = !{!47, !47, i64 0}
 !47 = !{!"p1 _ZTSN13duckdb_brotli18PreparedDictionaryE", !13, i64 0}
-!48 = distinct !{!48, !49, !50}
+!48 = distinct !{!48, !49}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!"llvm.loop.estimated_trip_count"}
-!51 = !{!11, !14, i64 112}
-!52 = !{!11, !15, i64 120}
-!53 = !{!11, !14, i64 136}
-!54 = !{!11, !16, i64 152}
-!55 = !{!11, !12, i64 160}
-!56 = !{!17, !18, i64 0}
-!57 = distinct !{!57, !49, !50}
-!58 = !{!13, !13, i64 0}
-!59 = !{!60, !5, i64 0}
-!60 = !{!"_ZTSN13duckdb_brotli17ManagedDictionaryE", !5, i64 0, !61, i64 8, !62, i64 32}
-!61 = !{!"_ZTSN13duckdb_brotli13MemoryManagerE", !13, i64 0, !13, i64 8, !13, i64 16}
-!62 = !{!"p1 int", !13, i64 0}
-!63 = !{!60, !62, i64 32}
+!50 = !{!11, !14, i64 112}
+!51 = !{!11, !15, i64 120}
+!52 = !{!11, !14, i64 136}
+!53 = !{!11, !16, i64 152}
+!54 = !{!11, !12, i64 160}
+!55 = !{!17, !18, i64 0}
+!56 = distinct !{!56, !49}
+!57 = !{!13, !13, i64 0}
+!58 = !{!59, !5, i64 0}
+!59 = !{!"_ZTSN13duckdb_brotli17ManagedDictionaryE", !5, i64 0, !60, i64 8, !61, i64 32}
+!60 = !{!"_ZTSN13duckdb_brotli13MemoryManagerE", !13, i64 0, !13, i64 8, !13, i64 16}
+!61 = !{!"p1 int", !13, i64 0}
+!62 = !{!59, !61, i64 32}

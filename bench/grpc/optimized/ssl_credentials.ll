@@ -2047,14 +2047,14 @@ define noundef ptr @_Z35grpc_convert_grpc_to_tsi_cert_pairsPK26grpc_ssl_pem_key_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN27grpc_ssl_server_credentials19set_min_tls_versionE16grpc_tls_version(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((68, 72)) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %1, ptr %3, align 4, !tbaa !142
+  store i32 %1, ptr %3, align 4, !tbaa !141
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN27grpc_ssl_server_credentials19set_max_tls_versionE16grpc_tls_version(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(96) initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %1, ptr %3, align 8, !tbaa !143
+  store i32 %1, ptr %3, align 8, !tbaa !142
   ret void
 }
 
@@ -2135,7 +2135,7 @@ define ptr @grpc_ssl_server_certificate_config_create(ptr noundef %0, ptr nounde
   store ptr %35, ptr %37, align 8, !tbaa !41
   %38 = add nuw i64 %.051, 1
   %exitcond.not = icmp eq i64 %38, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !144
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !143
 
 39:                                               ; preds = %22
   %40 = tail call noundef nonnull ptr @_ZN4absl12lts_2024072212log_internal17MakeCheckOpStringIPKcPKvEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_S4_(ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.20)
@@ -2181,7 +2181,7 @@ define void @grpc_ssl_server_certificate_config_destroy(ptr noundef %0) local_un
   %14 = add nuw i64 %.011, 1
   %15 = load i64, ptr %3, align 8, !tbaa !127
   %16 = icmp ult i64 %14, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !145
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !144
 
 17:                                               ; preds = %1, %._crit_edge
   ret void
@@ -2251,7 +2251,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi47EEERS2_RAT__Kc.exit: ; pr
   %10 = tail call ptr @gpr_zalloc(i64 noundef 16)
   store ptr %1, ptr %10, align 8, !tbaa !110
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %2, ptr %11, align 8, !tbaa !146
+  store ptr %2, ptr %11, align 8, !tbaa !145
   %12 = tail call ptr @gpr_zalloc(i64 noundef 24)
   store i32 %0, ptr %12, align 8, !tbaa !116
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -2283,7 +2283,7 @@ define noundef ptr @grpc_ssl_server_credentials_create_ex(ptr noundef %0, ptr no
   %13 = alloca %"class.absl::lts_20240722::log_internal::LogMessageFatal", align 8
   store ptr %0, ptr %9, align 8, !tbaa !30
   store ptr %1, ptr %10, align 8, !tbaa !105
-  store i32 %3, ptr %11, align 4, !tbaa !147
+  store i32 %3, ptr %11, align 4, !tbaa !146
   %14 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core9api_traceE, i64 16) monotonic, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %.critedge13, !prof !31
@@ -2379,7 +2379,7 @@ common.resume:                                    ; preds = %41, %34
   br label %common.resume
 
 36:                                               ; preds = %28
-  %37 = load i32, ptr %11, align 4, !tbaa !147
+  %37 = load i32, ptr %11, align 4, !tbaa !146
   %38 = call ptr @gpr_zalloc(i64 noundef 24)
   store i32 %37, ptr %38, align 8, !tbaa !116
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -2420,7 +2420,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12l
           to label %7 unwind label %11
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr %1, align 4, !tbaa !147
+  %8 = load i32, ptr %1, align 4, !tbaa !146
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %8)
           to label %10 unwind label %11
 
@@ -2582,7 +2582,7 @@ define void @grpc_ssl_server_credentials_options_destroy(ptr noundef %0) local_u
   %20 = add nuw i64 %.011.i, 1
   %21 = load i64, ptr %9, align 8, !tbaa !127
   %22 = icmp ult i64 %20, %21
-  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !145
+  br i1 %22, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !144
 
 grpc_ssl_server_certificate_config_destroy.exit:  ; preds = %3, %._crit_edge.i
   tail call void @gpr_free(ptr noundef nonnull %0)
@@ -2594,10 +2594,10 @@ grpc_ssl_server_certificate_config_destroy.exit:  ; preds = %3, %._crit_edge.i
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN24grpc_channel_credentials34duplicate_without_call_credentialsEv(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::RefCountedPtr.10") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 comdat align 2 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !148)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = atomicrmw add ptr %3, i64 1 monotonic, align 8, !noalias !148
-  store ptr %1, ptr %0, align 8, !tbaa !81, !alias.scope !148
+  %4 = atomicrmw add ptr %3, i64 1 monotonic, align 8, !noalias !147
+  store ptr %1, ptr %0, align 8, !tbaa !81, !alias.scope !147
   ret void
 }
 
@@ -2726,7 +2726,7 @@ define internal void @__cxx_global_var_init.31() #19 section ".text.startup" com
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 8
   %4 = tail call noundef zeroext i16 @_ZN9grpc_core12arena_detail22BaseArenaContextTraits6MakeIdEPFvPvE(ptr noundef nonnull @_ZN9grpc_core12arena_detail19DestroyArenaContextIN17grpc_event_engine12experimental11EventEngineEEEvPv)
-  store i16 %4, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !151
+  store i16 %4, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !150
   %5 = tail call ptr @llvm.invariant.start.p0(i64 2, ptr nonnull @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E)
   br label %6
 
@@ -2751,21 +2751,21 @@ define linkonce_odr noundef zeroext i16 @_ZN9grpc_core12arena_detail22BaseArenaC
   br label %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit
 
 _ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit: ; preds = %1, %4, %6
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !153
-  %8 = load ptr, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !155
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !152
+  %8 = load ptr, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !154
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !156
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !155
   %.not.i2 = icmp eq ptr %7, %13
   br i1 %.not.i2, label %17, label %14
 
 14:                                               ; preds = %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit
   store ptr %0, ptr %7, align 8, !tbaa !105
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !153
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !152
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !153
+  store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !152
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
 17:                                               ; preds = %_ZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEv.exit
@@ -2805,10 +2805,10 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
   br label %_ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !155
-  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !153
+  store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !154
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !152
   %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
-  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !156
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !155
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit: ; preds = %14, %_ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -3259,21 +3259,20 @@ attributes #34 = { noreturn }
 !136 = !{!137, !138, i64 0}
 !137 = !{!"_ZTSN9grpc_core13RefCountedPtrI23grpc_server_credentialsEE", !138, i64 0}
 !138 = !{!"p1 _ZTS23grpc_server_credentials", !13, i64 0}
-!139 = distinct !{!139, !140, !141}
+!139 = distinct !{!139, !140}
 !140 = !{!"llvm.loop.mustprogress"}
-!141 = !{!"llvm.loop.estimated_trip_count"}
-!142 = !{!118, !16, i64 68}
-!143 = !{!118, !16, i64 72}
-!144 = distinct !{!144, !140, !141}
-!145 = distinct !{!145, !140, !141}
-!146 = !{!111, !13, i64 8}
-!147 = !{!109, !109, i64 0}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: argument 0"}
-!150 = distinct !{!150, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
-!151 = !{!152, !152, i64 0}
-!152 = !{!"short", !6, i64 0}
-!153 = !{!154, !48, i64 8}
-!154 = !{!"_ZTSNSt12_Vector_baseIPFvPvESaIS2_EE17_Vector_impl_dataE", !48, i64 0, !48, i64 8, !48, i64 16}
-!155 = !{!154, !48, i64 0}
-!156 = !{!154, !48, i64 16}
+!141 = !{!118, !16, i64 68}
+!142 = !{!118, !16, i64 72}
+!143 = distinct !{!143, !140}
+!144 = distinct !{!144, !140}
+!145 = !{!111, !13, i64 8}
+!146 = !{!109, !109, i64 0}
+!147 = !{!148}
+!148 = distinct !{!148, !149, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv: argument 0"}
+!149 = distinct !{!149, !"_ZN9grpc_core10RefCountedI24grpc_channel_credentialsNS_19PolymorphicRefCountENS_11UnrefDeleteEE3RefEv"}
+!150 = !{!151, !151, i64 0}
+!151 = !{!"short", !6, i64 0}
+!152 = !{!153, !48, i64 8}
+!153 = !{!"_ZTSNSt12_Vector_baseIPFvPvESaIS2_EE17_Vector_impl_dataE", !48, i64 0, !48, i64 8, !48, i64 16}
+!154 = !{!153, !48, i64 0}
+!155 = !{!153, !48, i64 16}

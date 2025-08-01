@@ -173,7 +173,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
   tail call void @qemu_plugin_register_vcpu_mem_cb(ptr noundef %4, ptr noundef nonnull @vcpu_haddr, i32 noundef 0, i32 noundef 3, ptr noundef null) #6
   %5 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %5, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -222,7 +222,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   %25 = add nuw nsw i32 %.021, 1
   %26 = load ptr, ptr %12, align 8
   %exitcond.not = icmp eq i32 %25, 50
-  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !7
+  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !6
 
 .critedge:                                        ; preds = %14, %11
   %.015.lcssa = phi ptr [ %26, %14 ], [ %.01520, %11 ]
@@ -255,7 +255,7 @@ define internal void @vcpu_haddr(i32 noundef %0, i32 noundef %1, i64 noundef %2,
   %5 = alloca i64, align 8
   %6 = tail call ptr @qemu_plugin_get_hwaddr(i32 noundef %1, i64 noundef %2) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  %7 = load i8, ptr @track_io, align 1, !range !8, !noundef !9
+  %7 = load i8, ptr @track_io, align 1, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   %.not34 = icmp eq ptr %6, null
   br i1 %8, label %9, label %12
@@ -438,10 +438,9 @@ attributes #8 = { nounwind allocsize(0) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = !{i8 0, i8 2}
+!8 = !{}

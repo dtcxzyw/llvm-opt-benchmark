@@ -326,7 +326,7 @@ _script_list_create.exit:                         ; preds = %.lr.ph.i, %94
   %.251.ph = phi ptr [ %95, %110 ], [ %.049117, %111 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %114, label %89, !llvm.loop !12
+  br i1 %exitcond.not, label %114, label %89, !llvm.loop !11
 
 114:                                              ; preds = %113
   %115 = call i32 @list_for_each(ptr noundef nonnull %.251.ph, ptr noundef nonnull @_run_subpath_command, ptr noundef nonnull %11) #6
@@ -908,8 +908,7 @@ attributes #7 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}

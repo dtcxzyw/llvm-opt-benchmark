@@ -164,7 +164,7 @@ define i32 @dt_grouping_remove_from_group(i32 noundef %0) local_unnamed_addr #0 
   %57 = load ptr, ptr %2, align 8, !tbaa !65
   %58 = call i32 @sqlite3_step(ptr noundef %57) #4
   %59 = icmp eq i32 %58, 100
-  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !67
+  br i1 %59, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %60 = load ptr, ptr %2, align 8, !tbaa !65
@@ -399,7 +399,7 @@ define noundef i32 @dt_grouping_change_representative(i32 noundef returned %0) l
   %43 = load ptr, ptr %2, align 8, !tbaa !65
   %44 = call i32 @sqlite3_step(ptr noundef %43) #4
   %45 = icmp eq i32 %44, 100
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !69
+  br i1 %45, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %30
   %.0.lcssa = phi ptr [ null, %30 ], [ %42, %.lr.ph ]
@@ -443,19 +443,19 @@ define ptr @dt_grouping_get_group_images(i32 noundef %0) local_unnamed_addr #0 {
   %7 = load i32, ptr %6, align 4, !tbaa !48
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !6
   tail call void @dt_image_cache_read_release(ptr noundef %8, ptr noundef nonnull %4) #4
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !70
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !67
   %.not15 = icmp eq ptr %9, null
   br i1 %.not15, label %53, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 1356
-  %12 = load i32, ptr %11, align 4, !tbaa !71
+  %12 = load i32, ptr %11, align 4, !tbaa !68
   %.not16 = icmp eq i32 %12, 0
   br i1 %.not16, label %53, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 1360
-  %15 = load i32, ptr %14, align 8, !tbaa !77
+  %15 = load i32, ptr %14, align 8, !tbaa !74
   %.not17 = icmp eq i32 %15, %7
   br i1 %.not17, label %53, label %16
 
@@ -515,7 +515,7 @@ define ptr @dt_grouping_get_group_images(i32 noundef %0) local_unnamed_addr #0 {
   %48 = load ptr, ptr %2, align 8, !tbaa !65
   %49 = call i32 @sqlite3_step(ptr noundef %48) #4
   %50 = icmp eq i32 %49, 100
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !78
+  br i1 %50, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %39
   %.1.lcssa = phi ptr [ null, %39 ], [ %47, %.lr.ph ]
@@ -541,7 +541,7 @@ declare ptr @g_list_reverse(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @dt_grouping_add_grouped_images(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  %3 = load ptr, ptr %0, align 8, !tbaa !79
+  %3 = load ptr, ptr %0, align 8, !tbaa !75
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %68, label %.preheader
 
@@ -553,7 +553,7 @@ define void @dt_grouping_add_grouped_images(ptr noundef captures(none) %0) local
   %.041 = phi ptr [ %.1, %61 ], [ null, %1 ]
   %.02340 = phi ptr [ %63, %61 ], [ %3, %1 ]
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !6
-  %6 = load ptr, ptr %.02340, align 8, !tbaa !80
+  %6 = load ptr, ptr %.02340, align 8, !tbaa !76
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i32
   %9 = call ptr @dt_image_cache_get(ptr noundef %5, i32 noundef %8, i8 noundef signext 114) #4
@@ -565,31 +565,31 @@ define void @dt_grouping_add_grouped_images(ptr noundef captures(none) %0) local
   %12 = load i32, ptr %11, align 4, !tbaa !48
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !6
   call void @dt_image_cache_read_release(ptr noundef %13, ptr noundef nonnull %9) #4
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !70
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !67
   %.not32 = icmp eq ptr %14, null
   br i1 %.not32, label %61, label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 1356
-  %17 = load i32, ptr %16, align 4, !tbaa !71
+  %17 = load i32, ptr %16, align 4, !tbaa !68
   %.not33 = icmp eq i32 %17, 0
   br i1 %.not33, label %61, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 1360
-  %20 = load i32, ptr %19, align 8, !tbaa !77
+  %20 = load i32, ptr %19, align 8, !tbaa !74
   %.not34 = icmp eq i32 %20, %12
   br i1 %.not34, label %61, label %21
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !82
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !78
   %23 = call ptr @dt_selection_get_collection(ptr noundef %22) #4
   %.not35 = icmp eq ptr %23, null
   br i1 %.not35, label %61, label %24
 
 24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #4
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !82
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 168), align 8, !tbaa !78
   %26 = call ptr @dt_selection_get_collection(ptr noundef %25) #4
   %27 = call ptr @dt_collection_get_query_no_group(ptr noundef %26) #4
   %28 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, i32 noundef %12, ptr noundef %27) #4
@@ -627,7 +627,7 @@ define void @dt_grouping_add_grouped_images(ptr noundef captures(none) %0) local
   %.339 = phi ptr [ %.4, %55 ], [ %.041, %42 ]
   %46 = load ptr, ptr %2, align 8, !tbaa !65
   %47 = call i32 @sqlite3_column_int(ptr noundef %46, i32 noundef 0) #4
-  %48 = load ptr, ptr %.02340, align 8, !tbaa !80
+  %48 = load ptr, ptr %.02340, align 8, !tbaa !76
   %49 = ptrtoint ptr %48 to i64
   %50 = trunc i64 %49 to i32
   %.not38 = icmp eq i32 %47, %50
@@ -644,7 +644,7 @@ define void @dt_grouping_add_grouped_images(ptr noundef captures(none) %0) local
   %56 = load ptr, ptr %2, align 8, !tbaa !65
   %57 = call i32 @sqlite3_step(ptr noundef %56) #4
   %58 = icmp eq i32 %57, 100
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !83
+  br i1 %58, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55, %42
   %.3.lcssa = phi ptr [ %.041, %42 ], [ %.4, %55 ]
@@ -657,15 +657,15 @@ define void @dt_grouping_add_grouped_images(ptr noundef captures(none) %0) local
 61:                                               ; preds = %10, %15, %18, %21, %._crit_edge, %.preheader
   %.1 = phi ptr [ %.041, %.preheader ], [ %.3.lcssa, %._crit_edge ], [ %.041, %21 ], [ %.041, %18 ], [ %.041, %15 ], [ %.041, %10 ]
   %62 = getelementptr inbounds nuw i8, ptr %.02340, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !84
+  %63 = load ptr, ptr %62, align 8, !tbaa !79
   %.not29 = icmp eq ptr %63, null
-  br i1 %.not29, label %4, label %.preheader, !llvm.loop !85
+  br i1 %.not29, label %4, label %.preheader
 
 64:                                               ; preds = %4
-  %65 = load ptr, ptr %0, align 8, !tbaa !79
+  %65 = load ptr, ptr %0, align 8, !tbaa !75
   %66 = call ptr @g_list_reverse(ptr noundef nonnull %.1) #4
   %67 = call ptr @g_list_concat(ptr noundef %65, ptr noundef %66) #4
-  store ptr %67, ptr %0, align 8, !tbaa !79
+  store ptr %67, ptr %0, align 8, !tbaa !75
   br label %68
 
 68:                                               ; preds = %4, %64, %1
@@ -758,22 +758,16 @@ attributes #5 = { cold nounwind }
 !64 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
 !65 = !{!66, !66, i64 0}
 !66 = !{!"p1 _ZTS12sqlite3_stmt", !13, i64 0}
-!67 = distinct !{!67, !68}
-!68 = !{!"llvm.loop.estimated_trip_count"}
-!69 = distinct !{!69, !68}
-!70 = !{!7, !21, i64 104}
-!71 = !{!72, !9, i64 1356}
-!72 = !{!"dt_gui_gtk_t", !73, i64 0, !74, i64 8, !76, i64 56, !9, i64 80, !38, i64 88, !9, i64 96, !10, i64 104, !9, i64 1352, !9, i64 1356, !9, i64 1360, !9, i64 1364, !9, i64 1368, !40, i64 1376, !40, i64 1384, !40, i64 1392, !40, i64 1400, !75, i64 1408, !40, i64 1416, !40, i64 1424, !40, i64 1432, !40, i64 1440, !9, i64 1448, !9, i64 1452, !10, i64 1456, !9, i64 5552, !9, i64 5556, !9, i64 5560, !37, i64 5568}
-!73 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
-!74 = !{!"dt_gui_widgets_t", !75, i64 0, !75, i64 8, !75, i64 16, !75, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
-!75 = !{!"p1 _ZTS10_GtkWidget", !13, i64 0}
-!76 = !{!"dt_gui_scrollbars_t", !75, i64 0, !75, i64 8, !9, i64 16}
-!77 = !{!72, !9, i64 1360}
-!78 = distinct !{!78, !68}
-!79 = !{!12, !12, i64 0}
-!80 = !{!81, !13, i64 0}
-!81 = !{!"_GList", !13, i64 0, !12, i64 8, !12, i64 16}
-!82 = !{!7, !29, i64 168}
-!83 = distinct !{!83, !68}
-!84 = !{!81, !12, i64 8}
-!85 = distinct !{!85, !68}
+!67 = !{!7, !21, i64 104}
+!68 = !{!69, !9, i64 1356}
+!69 = !{!"dt_gui_gtk_t", !70, i64 0, !71, i64 8, !73, i64 56, !9, i64 80, !38, i64 88, !9, i64 96, !10, i64 104, !9, i64 1352, !9, i64 1356, !9, i64 1360, !9, i64 1364, !9, i64 1368, !40, i64 1376, !40, i64 1384, !40, i64 1392, !40, i64 1400, !72, i64 1408, !40, i64 1416, !40, i64 1424, !40, i64 1432, !40, i64 1440, !9, i64 1448, !9, i64 1452, !10, i64 1456, !9, i64 5552, !9, i64 5556, !9, i64 5560, !37, i64 5568}
+!70 = !{!"p1 _ZTS7dt_ui_t", !13, i64 0}
+!71 = !{!"dt_gui_widgets_t", !72, i64 0, !72, i64 8, !72, i64 16, !72, i64 24, !9, i64 32, !9, i64 36, !9, i64 40}
+!72 = !{!"p1 _ZTS10_GtkWidget", !13, i64 0}
+!73 = !{!"dt_gui_scrollbars_t", !72, i64 0, !72, i64 8, !9, i64 16}
+!74 = !{!69, !9, i64 1360}
+!75 = !{!12, !12, i64 0}
+!76 = !{!77, !13, i64 0}
+!77 = !{!"_GList", !13, i64 0, !12, i64 8, !12, i64 16}
+!78 = !{!7, !29, i64 168}
+!79 = !{!77, !12, i64 8}

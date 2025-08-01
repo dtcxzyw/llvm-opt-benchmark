@@ -261,7 +261,6 @@ define internal noundef i32 @on_match_select(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @gtk_tree_model_get_value(ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %6) #12
   %10 = call ptr @g_value_get_string(ptr noundef nonnull %6) #12
-  %invariant.gep = getelementptr i8, ptr %8, i64 -2
   store i32 %9, ptr %5, align 4, !tbaa !13
   %11 = icmp sgt i32 %9, 2
   br i1 %11, label %sub_0.preheader, label %.tail._crit_edge
@@ -275,34 +274,35 @@ sub_0.preheader:                                  ; preds = %4
   %13 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %13, ptr %5, align 4, !tbaa !13
   %14 = icmp sgt i64 %indvars.iv, 3
-  br i1 %14, label %sub_0, label %.tail._crit_edge, !llvm.loop !15
+  br i1 %14, label %sub_0, label %.tail._crit_edge
 
 sub_0:                                            ; preds = %sub_0.preheader, %.tail.thread
   %15 = phi i32 [ %9, %sub_0.preheader ], [ %13, %.tail.thread ]
   %indvars.iv = phi i64 [ %12, %sub_0.preheader ], [ %indvars.iv.next, %.tail.thread ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %16 = load i8, ptr %gep, align 1
-  %.not = icmp eq i8 %16, 36
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
+  %17 = getelementptr inbounds i8, ptr %16, i64 -2
+  %18 = load i8, ptr %17, align 1
+  %.not = icmp eq i8 %18, 36
   br i1 %.not, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %17 = getelementptr inbounds nuw i8, ptr %gep, i64 1
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, 40
-  br i1 %19, label %.tail._crit_edge, label %.tail.thread
+  %19 = getelementptr inbounds i8, ptr %16, i64 -1
+  %20 = load i8, ptr %19, align 1
+  %21 = icmp eq i8 %20, 40
+  br i1 %21, label %.tail._crit_edge, label %.tail.thread
 
 .tail._crit_edge:                                 ; preds = %.tail.thread, %.tail, %4
-  %20 = phi i32 [ %9, %4 ], [ %13, %.tail.thread ], [ %15, %.tail ]
-  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #14
-  %22 = add i64 %21, 2
-  %23 = call noalias ptr @g_malloc(i64 noundef %22) #15
-  %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %23, i64 noundef %22, ptr noundef nonnull @.str.183, ptr noundef nonnull %10) #12
-  call void @gtk_editable_delete_text(ptr noundef %7, i32 noundef %20, i32 noundef %9) #12
-  call void @gtk_editable_insert_text(ptr noundef %7, ptr noundef %23, i32 noundef -1, ptr noundef nonnull %5) #12
-  %25 = load i32, ptr %5, align 4, !tbaa !13
-  call void @gtk_editable_set_position(ptr noundef %7, i32 noundef %25) #12
+  %22 = phi i32 [ %9, %4 ], [ %13, %.tail.thread ], [ %15, %.tail ]
+  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #14
+  %24 = add i64 %23, 2
+  %25 = call noalias ptr @g_malloc(i64 noundef %24) #15
+  %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %25, i64 noundef %24, ptr noundef nonnull @.str.183, ptr noundef nonnull %10) #12
+  call void @gtk_editable_delete_text(ptr noundef %7, i32 noundef %22, i32 noundef %9) #12
+  call void @gtk_editable_insert_text(ptr noundef %7, ptr noundef %25, i32 noundef -1, ptr noundef nonnull %5) #12
+  %27 = load i32, ptr %5, align 4, !tbaa !13
+  call void @gtk_editable_set_position(ptr noundef %7, i32 noundef %27) #12
   call void @g_value_unset(ptr noundef nonnull %6) #12
-  call void @g_free(ptr noundef %23) #12
+  call void @g_free(ptr noundef %25) #12
   call void @g_free(ptr noundef %8) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
@@ -351,7 +351,7 @@ sub_0:                                            ; preds = %4, %.tail.thread
   tail call void @g_free(ptr noundef nonnull %9) #12
   %14 = add nsw i32 %.03449, -1
   %15 = icmp sgt i32 %.03449, 0
-  br i1 %15, label %sub_0, label %.thread44, !llvm.loop !17
+  br i1 %15, label %sub_0, label %.thread44
 
 16:                                               ; preds = %.tail
   %17 = add nuw nsw i32 %.03449, 2
@@ -359,9 +359,9 @@ sub_0:                                            ; preds = %4, %.tail.thread
   %18 = tail call ptr @gtk_editable_get_chars(ptr noundef %6, i32 noundef %17, i32 noundef %7) #12
   %19 = tail call ptr @gtk_entry_completion_get_model(ptr noundef %0) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store ptr null, ptr %5, align 8, !tbaa !18
+  store ptr null, ptr %5, align 8, !tbaa !15
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %19, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5, i32 noundef -1) #12
-  %20 = load ptr, ptr %5, align 8, !tbaa !18
+  %20 = load ptr, ptr %5, align 8, !tbaa !15
   %.not39 = icmp eq ptr %20, null
   br i1 %.not39, label %28, label %21
 
@@ -387,7 +387,7 @@ sub_0:                                            ; preds = %4, %.tail.thread
 28:                                               ; preds = %27, %16
   %.1 = phi i32 [ %.2, %27 ], [ 0, %16 ]
   call void @g_free(ptr noundef %18) #12
-  %29 = load ptr, ptr %5, align 8, !tbaa !18
+  %29 = load ptr, ptr %5, align 8, !tbaa !15
   call void @g_free(ptr noundef %29) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   br label %.thread44
@@ -413,7 +413,7 @@ define noalias ptr @dt_gtkentry_build_completion_tooltip_text(ptr noundef %0, pt
 
 ._crit_edge.thread:                               ; preds = %2
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
-  store ptr %0, ptr %5, align 8, !tbaa !18
+  store ptr %0, ptr %5, align 8, !tbaa !15
   %.0182535 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %._crit_edge31
 
@@ -421,7 +421,7 @@ define noalias ptr @dt_gtkentry_build_completion_tooltip_text(ptr noundef %0, pt
   %6 = shl i64 %9, 3
   %7 = add i64 %6, 16
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #15
-  store ptr %0, ptr %8, align 8, !tbaa !18
+  store ptr %0, ptr %8, align 8, !tbaa !15
   %.01825 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %.lr.ph30
 
@@ -433,12 +433,12 @@ define noalias ptr @dt_gtkentry_build_completion_tooltip_text(ptr noundef %0, pt
   %11 = getelementptr inbounds nuw i8, ptr %.01923, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !12
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.lr.ph30.preheader, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %.lr.ph30.preheader, label %.lr.ph
 
 ._crit_edge31:                                    ; preds = %.lr.ph30, %._crit_edge.thread
   %13 = phi ptr [ %5, %._crit_edge.thread ], [ %8, %.lr.ph30 ]
   %.018.lcssa = phi ptr [ %.0182535, %._crit_edge.thread ], [ %.018, %.lr.ph30 ]
-  store ptr null, ptr %.018.lcssa, align 8, !tbaa !18
+  store ptr null, ptr %.018.lcssa, align 8, !tbaa !15
   %14 = tail call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.181, ptr noundef nonnull %13) #12
   tail call void @free(ptr noundef nonnull %13) #12
   ret ptr %14
@@ -448,13 +448,13 @@ define noalias ptr @dt_gtkentry_build_completion_tooltip_text(ptr noundef %0, pt
   %.01828 = phi ptr [ %.018, %.lr.ph30 ], [ %.01825, %.lr.ph30.preheader ]
   %.01727 = phi ptr [ %17, %.lr.ph30 ], [ %1, %.lr.ph30.preheader ]
   %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %15, i32 noundef 5) #12
-  store ptr %16, ptr %.01828, align 8, !tbaa !18
+  store ptr %16, ptr %.01828, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %.01727, i64 16
   %.018 = getelementptr inbounds nuw i8, ptr %.01828, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %.01727, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !12
   %.not21 = icmp eq ptr %19, null
-  br i1 %.not21, label %._crit_edge31, label %.lr.ph30, !llvm.loop !20
+  br i1 %.not21, label %._crit_edge31, label %.lr.ph30
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -541,9 +541,4 @@ attributes #15 = { nounwind allocsize(0) }
 !12 = !{!7, !8, i64 8}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"int", !10, i64 0}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !16}
-!18 = !{!8, !8, i64 0}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
+!15 = !{!8, !8, i64 0}

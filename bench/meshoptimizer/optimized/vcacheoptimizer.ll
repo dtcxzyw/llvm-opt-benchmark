@@ -143,9 +143,9 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8) #10
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !21
+  %68 = load ptr, ptr %67, align 8, !tbaa !20
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !22
+  %70 = load ptr, ptr %69, align 8, !tbaa !21
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 68
   br label %93
 
@@ -178,7 +178,7 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   store float %90, ptr %91, align 4, !tbaa !16
   %92 = add nuw nsw i64 %.0170206, 1
   %exitcond247.not = icmp eq i64 %92, %24
-  br i1 %exitcond247.not, label %._crit_edge208, label %.lr.ph207, !llvm.loop !23
+  br i1 %exitcond247.not, label %._crit_edge208, label %.lr.ph207, !llvm.loop !22
 
 93:                                               ; preds = %._crit_edge208, %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit
   %.0171237 = phi ptr [ %8, %._crit_edge208 ], [ %.0172236, %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit ]
@@ -214,7 +214,7 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   %115 = add i32 %.0184233, 1
   %116 = zext i32 %.0182234 to i64
   %117 = getelementptr inbounds nuw i8, ptr %28, i64 %116
-  store i8 1, ptr %117, align 1, !tbaa !24
+  store i8 1, ptr %117, align 1, !tbaa !23
   %118 = getelementptr inbounds nuw float, ptr %46, i64 %116
   store float 0.000000e+00, ptr %118, align 4, !tbaa !16
   store i32 %97, ptr %.0172236, align 4, !tbaa !14
@@ -245,7 +245,7 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   %130 = add i64 %.0185210, %129
   %131 = add nuw nsw i64 %.0187209, 1
   %exitcond248.not = icmp eq i64 %131, %.0180235
-  br i1 %exitcond248.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !25
+  br i1 %exitcond248.not, label %._crit_edge213, label %.lr.ph212, !llvm.loop !24
 
 .preheader:                                       ; preds = %.loopexit204
   %132 = tail call i64 @llvm.umin.i64(i64 %.0185.lcssa, i64 16)
@@ -293,12 +293,12 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
 .critedge:                                        ; preds = %.lr.ph216
   %154 = add nuw nsw i64 %.0181214, 1
   %exitcond249.not = icmp eq i64 %154, %144
-  br i1 %exitcond249.not, label %.loopexit204, label %.lr.ph216, !llvm.loop !26
+  br i1 %exitcond249.not, label %.loopexit204, label %.lr.ph216, !llvm.loop !25
 
 .loopexit204:                                     ; preds = %.critedge, %135, %147
   %155 = add nuw nsw i64 %.0186217, 1
   %exitcond250.not = icmp eq i64 %155, 3
-  br i1 %exitcond250.not, label %.preheader, label %135, !llvm.loop !27
+  br i1 %exitcond250.not, label %.preheader, label %135, !llvm.loop !26
 
 ._crit_edge230:                                   ; preds = %.loopexit
   %156 = icmp eq i32 %.1178, -1
@@ -357,14 +357,14 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   store float %188, ptr %186, align 4, !tbaa !16
   %192 = getelementptr inbounds nuw i8, ptr %.0163221, i64 4
   %.not198 = icmp eq ptr %192, %183
-  br i1 %.not198, label %.loopexit, label %.lr.ph223, !llvm.loop !28
+  br i1 %.not198, label %.loopexit, label %.lr.ph223, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.lr.ph223, %157
   %.1178 = phi i32 [ %.0177226, %157 ], [ %190, %.lr.ph223 ]
   %.1175 = phi float [ %.0174227, %157 ], [ %191, %.lr.ph223 ]
   %193 = add nuw i64 %.0173228, 1
   %exitcond251.not = icmp eq i64 %193, %.0185.lcssa
-  br i1 %exitcond251.not, label %._crit_edge230, label %157, !llvm.loop !29
+  br i1 %exitcond251.not, label %._crit_edge230, label %157, !llvm.loop !28
 
 ._crit_edge230.thread:                            ; preds = %.preheader, %._crit_edge230
   %194 = zext i32 %.0203232 to i64
@@ -375,7 +375,7 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   %.2 = phi i32 [ %200, %199 ], [ %.0203232, %._crit_edge230.thread ]
   %196 = phi i64 [ %201, %199 ], [ %194, %._crit_edge230.thread ]
   %197 = getelementptr inbounds nuw i8, ptr %28, i64 %196
-  %198 = load i8, ptr %197, align 1, !tbaa !24
+  %198 = load i8, ptr %197, align 1, !tbaa !23
   %.not.i = icmp eq i8 %198, 0
   br i1 %.not.i, label %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit, label %199
 
@@ -383,13 +383,13 @@ _ZN17meshopt_Allocator8allocateIfEEPT_m.exit200:  ; preds = %._crit_edge
   %200 = add i32 %.2, 1
   %201 = zext i32 %200 to i64
   %202 = icmp samesign ugt i64 %24, %201
-  br i1 %202, label %.lr.ph.i, label %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread, !llvm.loop !30
+  br i1 %202, label %.lr.ph.i, label %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread, !llvm.loop !29
 
 _ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit: ; preds = %.lr.ph.i, %._crit_edge230
   %.1 = phi i32 [ %.0203232, %._crit_edge230 ], [ %.2, %.lr.ph.i ]
   %.1183 = phi i32 [ %.1178, %._crit_edge230 ], [ %.2, %.lr.ph.i ]
   %.not = icmp eq i32 %.1183, -1
-  br i1 %.not, label %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread, label %93, !llvm.loop !31
+  br i1 %.not, label %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread, label %93, !llvm.loop !30
 
 _ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread: ; preds = %._crit_edge230.thread, %_ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit, %199
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8) #10
@@ -411,7 +411,7 @@ _ZN7meshoptL22getNextTriangleDeadEndERjPKhm.exit.thread: ; preds = %._crit_edge2
   %207 = getelementptr inbounds nuw [24 x ptr], ptr %6, i64 0, i64 %206
   %208 = load ptr, ptr %207, align 8, !tbaa !4
   invoke void %205(ptr noundef %208)
-          to label %203 unwind label %209, !llvm.loop !32
+          to label %203 unwind label %209, !llvm.loop !31
 
 209:                                              ; preds = %204
   %210 = landingpad { ptr, i32 }
@@ -472,7 +472,7 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
   %19 = getelementptr inbounds nuw [24 x ptr], ptr %4, i64 0, i64 %17
   store ptr %16, ptr %19, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %16, ptr %20, align 8, !tbaa !22
+  store ptr %16, ptr %20, align 8, !tbaa !21
   %21 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
   %22 = icmp ugt i64 %2, 4611686018427387903
   %23 = shl nuw i64 %2, 2
@@ -484,14 +484,14 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
   %28 = getelementptr inbounds nuw [24 x ptr], ptr %4, i64 0, i64 %26
   store ptr %25, ptr %28, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %25, ptr %29, align 8, !tbaa !21
+  store ptr %25, ptr %29, align 8, !tbaa !20
   %30 = load ptr, ptr %0, align 8, !tbaa !11
   tail call void @llvm.memset.p0.i64(ptr align 4 %30, i8 0, i64 %8, i1 false)
   %31 = load ptr, ptr %0, align 8, !tbaa !11
   br label %33
 
 .preheader60:                                     ; preds = %33
-  %32 = load ptr, ptr %20, align 8, !tbaa !22
+  %32 = load ptr, ptr %20, align 8, !tbaa !21
   br label %43
 
 33:                                               ; preds = %5, %33
@@ -505,7 +505,7 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
   store i32 %39, ptr %37, align 4, !tbaa !14
   %40 = add nuw i64 %.05461, 1
   %exitcond.not = icmp eq i64 %40, %2
-  br i1 %exitcond.not, label %.preheader60, label %33, !llvm.loop !33
+  br i1 %exitcond.not, label %.preheader60, label %33, !llvm.loop !32
 
 .preheader59:                                     ; preds = %43
   %41 = udiv i64 %2, 3
@@ -516,7 +516,7 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
   br label %.preheader
 
 .lr.ph:                                           ; preds = %.preheader59
-  %42 = load ptr, ptr %29, align 8, !tbaa !21
+  %42 = load ptr, ptr %29, align 8, !tbaa !20
   br label %49
 
 43:                                               ; preds = %.preheader60, %43
@@ -529,7 +529,7 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
   %47 = add i32 %46, %.05563
   %48 = add nuw i64 %.05662, 1
   %exitcond66.not = icmp eq i64 %48, %3
-  br i1 %exitcond66.not, label %.preheader59, label %43, !llvm.loop !34
+  br i1 %exitcond66.not, label %.preheader59, label %43, !llvm.loop !33
 
 49:                                               ; preds = %.lr.ph, %49
   %.05764 = phi i64 [ 0, %.lr.ph ], [ %75, %49 ]
@@ -567,7 +567,7 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
   store i32 %56, ptr %74, align 4, !tbaa !14
   %75 = add nuw nsw i64 %.05764, 1
   %exitcond67.not = icmp eq i64 %75, %41
-  br i1 %exitcond67.not, label %.preheader.preheader, label %49, !llvm.loop !35
+  br i1 %exitcond67.not, label %.preheader.preheader, label %49, !llvm.loop !34
 
 76:                                               ; preds = %.preheader
   ret void
@@ -582,7 +582,7 @@ define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17Triangle
   store i32 %81, ptr %79, align 4, !tbaa !14
   %82 = add nuw i64 %.065, 1
   %exitcond68.not = icmp eq i64 %82, %3
-  br i1 %exitcond68.not, label %76, label %.preheader, !llvm.loop !36
+  br i1 %exitcond68.not, label %76, label %.preheader, !llvm.loop !35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -605,7 +605,7 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
   %9 = getelementptr inbounds nuw [24 x ptr], ptr %0, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   invoke void %7(ptr noundef %10)
-          to label %4 unwind label %11, !llvm.loop !32
+          to label %4 unwind label %11, !llvm.loop !31
 
 11:                                               ; preds = %6
   %12 = landingpad { ptr, i32 }
@@ -720,9 +720,9 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
   tail call void @llvm.memset.p0.i64(ptr align 1 %50, i8 0, i64 %23, i1 false)
   %54 = add i32 %4, 1
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %56 = load ptr, ptr %55, align 8, !tbaa !21
+  %56 = load ptr, ptr %55, align 8, !tbaa !20
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !22
+  %58 = load ptr, ptr %57, align 8, !tbaa !21
   br label %59
 
 59:                                               ; preds = %51, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit
@@ -789,7 +789,7 @@ define dso_local void @meshopt_optimizeVertexCacheFifo(ptr noundef writeonly cap
   %.1.i = phi i32 [ %.2.i, %76 ], [ %.02031.i, %.lr.ph.i ]
   %85 = getelementptr inbounds nuw i8, ptr %.02130.i, i64 4
   %.not.i = icmp eq ptr %85, %71
-  br i1 %.not.i, label %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit, label %.lr.ph.i, !llvm.loop !36
 
 _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit: ; preds = %84
   %86 = icmp eq i32 %.1.i, -1
@@ -828,7 +828,7 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit: ; preds = %84
   %97 = load i32, ptr %.0108156, align 4, !tbaa !14
   %98 = zext i32 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %50, i64 %98
-  %100 = load i8, ptr %99, align 1, !tbaa !24
+  %100 = load i8, ptr %99, align 1, !tbaa !23
   %.not128 = icmp eq i8 %100, 0
   br i1 %.not128, label %101, label %166
 
@@ -924,7 +924,7 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit: ; preds = %84
 
 165:                                              ; preds = %163, %158
   %.5 = phi i32 [ %164, %163 ], [ %.4113, %158 ]
-  store i8 1, ptr %99, align 1, !tbaa !24
+  store i8 1, ptr %99, align 1, !tbaa !23
   br label %166
 
 166:                                              ; preds = %165, %.lr.ph
@@ -933,7 +933,7 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit: ; preds = %84
   %.2111 = phi i32 [ %.5, %165 ], [ %.1110155, %.lr.ph ]
   %167 = getelementptr inbounds nuw i8, ptr %.0108156, i64 4
   %.not127 = icmp eq ptr %167, %70
-  br i1 %.not127, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not127, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37
 
 _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread: ; preds = %._crit_edge, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit
   %.not.i132159 = icmp eq i32 %.1145.lcssa, 0
@@ -941,7 +941,7 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread: ; preds = %._cri
 
 168:                                              ; preds = %.lr.ph161
   %.not.i132 = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %.not.i132, label %.preheader.i, label %.lr.ph161, !llvm.loop !39
+  br i1 %.not.i132, label %.preheader.i, label %.lr.ph161
 
 .preheader.i:                                     ; preds = %168, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread
   %169 = zext i32 %.0143164 to i64
@@ -958,7 +958,7 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread: ; preds = %._cri
   %175 = getelementptr inbounds nuw i32, ptr %29, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !14
   %.not17.not.i = icmp eq i32 %176, 0
-  br i1 %.not17.not.i, label %168, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.loopexit168, !llvm.loop !39
+  br i1 %.not17.not.i, label %168, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.loopexit168
 
 .lr.ph.i134:                                      ; preds = %.preheader.i, %180
   %.2 = phi i32 [ %181, %180 ], [ %.0143164, %.preheader.i ]
@@ -972,7 +972,7 @@ _ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit.thread: ; preds = %._cri
   %181 = add i32 %.2, 1
   %182 = zext i32 %181 to i64
   %183 = icmp ugt i64 %3, %182
-  br i1 %183, label %.lr.ph.i134, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread, !llvm.loop !40
+  br i1 %183, label %.lr.ph.i134, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread, !llvm.loop !38
 
 _ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.loopexit168: ; preds = %.lr.ph161
   %indvars.i = trunc i64 %indvars.iv.next.i to i32
@@ -983,7 +983,7 @@ _ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit: ; preds = %.lr.ph.i134, %_
   %.1 = phi i32 [ %.0143164, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit ], [ %.0143164, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.loopexit168 ], [ %.2, %.lr.ph.i134 ]
   %.1107 = phi i32 [ %.1.i, %_ZN7meshoptL21getNextVertexNeighborEPKjS1_S1_S1_jj.exit ], [ %173, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.loopexit168 ], [ %.2, %.lr.ph.i134 ]
   %.not = icmp eq i32 %.1107, -1
-  br i1 %.not, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread, label %59, !llvm.loop !41
+  br i1 %.not, label %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread, label %59, !llvm.loop !39
 
 _ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread: ; preds = %.preheader.i, %_ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit, %180
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #10
@@ -1004,7 +1004,7 @@ _ZN7meshoptL20getNextVertexDeadEndEPKjRjS2_S1_m.exit.thread: ; preds = %.prehead
   %188 = getelementptr inbounds nuw [24 x ptr], ptr %6, i64 0, i64 %187
   %189 = load ptr, ptr %188, align 8, !tbaa !4
   invoke void %186(ptr noundef %189)
-          to label %184 unwind label %190, !llvm.loop !32
+          to label %184 unwind label %190, !llvm.loop !31
 
 190:                                              ; preds = %185
   %191 = landingpad { ptr, i32 }
@@ -1089,27 +1089,25 @@ attributes #11 = { noreturn nounwind }
 !15 = !{!"int", !6, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"float", !6, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!12, !13, i64 16}
-!22 = !{!12, !13, i64 8}
-!23 = distinct !{!23, !19, !20}
-!24 = !{!6, !6, i64 0}
-!25 = distinct !{!25, !19, !20}
-!26 = distinct !{!26, !19, !20}
-!27 = distinct !{!27, !19, !20}
-!28 = distinct !{!28, !19, !20}
-!29 = distinct !{!29, !19, !20}
-!30 = distinct !{!30, !19, !20}
-!31 = distinct !{!31, !19, !20}
-!32 = distinct !{!32, !19, !20}
-!33 = distinct !{!33, !19, !20}
-!34 = distinct !{!34, !19, !20}
-!35 = distinct !{!35, !19, !20}
-!36 = distinct !{!36, !19, !20}
-!37 = distinct !{!37, !19, !20}
-!38 = distinct !{!38, !19, !20}
-!39 = distinct !{!39, !20}
-!40 = distinct !{!40, !19, !20}
-!41 = distinct !{!41, !19, !20}
+!20 = !{!12, !13, i64 16}
+!21 = !{!12, !13, i64 8}
+!22 = distinct !{!22, !19}
+!23 = !{!6, !6, i64 0}
+!24 = distinct !{!24, !19}
+!25 = distinct !{!25, !19}
+!26 = distinct !{!26, !19}
+!27 = distinct !{!27, !19}
+!28 = distinct !{!28, !19}
+!29 = distinct !{!29, !19}
+!30 = distinct !{!30, !19}
+!31 = distinct !{!31, !19}
+!32 = distinct !{!32, !19}
+!33 = distinct !{!33, !19}
+!34 = distinct !{!34, !19}
+!35 = distinct !{!35, !19}
+!36 = distinct !{!36, !19}
+!37 = distinct !{!37, !19}
+!38 = distinct !{!38, !19}
+!39 = distinct !{!39, !19}

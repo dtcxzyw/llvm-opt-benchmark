@@ -948,7 +948,7 @@ define noundef range(i32 0, 2) i32 @_Z13triBoxOverlapPdS_PS_(ptr noundef readonl
   %5 = alloca [3 x double], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
-  %6 = load ptr, ptr %2, align 8, !tbaa !11
+  %6 = load ptr, ptr %2, align 8, !tbaa !10
   %7 = load double, ptr %6, align 8, !tbaa !4
   %8 = load double, ptr %0, align 8, !tbaa !4
   %9 = fsub double %7, %8
@@ -968,7 +968,7 @@ define noundef range(i32 0, 2) i32 @_Z13triBoxOverlapPdS_PS_(ptr noundef readonl
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %20, ptr %21, align 16, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !11
+  %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = load double, ptr %23, align 8, !tbaa !4
   %25 = fsub double %24, %8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -978,7 +978,7 @@ define noundef range(i32 0, 2) i32 @_Z13triBoxOverlapPdS_PS_(ptr noundef readonl
   %30 = load double, ptr %29, align 8, !tbaa !4
   %31 = fsub double %30, %19
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !11
+  %33 = load ptr, ptr %32, align 8, !tbaa !10
   %34 = load double, ptr %33, align 8, !tbaa !4
   %35 = fsub double %34, %8
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -1294,16 +1294,16 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest18TriangleTriang
   %10 = alloca %"class.Eigen::Matrix", align 16
   %11 = alloca %"class.Eigen::Matrix", align 16
   %12 = alloca %"class.Eigen::Matrix", align 16
-  %13 = load <2 x double>, ptr %0, align 8, !tbaa !14
-  %14 = load <2 x double>, ptr %1, align 8, !tbaa !14
+  %13 = load <2 x double>, ptr %0, align 8, !tbaa !13
+  %14 = load <2 x double>, ptr %1, align 8, !tbaa !13
   %15 = fadd <2 x double> %13, %14
-  %16 = load <2 x double>, ptr %2, align 8, !tbaa !14
+  %16 = load <2 x double>, ptr %2, align 8, !tbaa !13
   %17 = fadd <2 x double> %15, %16
-  %18 = load <2 x double>, ptr %3, align 8, !tbaa !14
+  %18 = load <2 x double>, ptr %3, align 8, !tbaa !13
   %19 = fadd <2 x double> %17, %18
-  %20 = load <2 x double>, ptr %4, align 8, !tbaa !14
+  %20 = load <2 x double>, ptr %4, align 8, !tbaa !13
   %21 = fadd <2 x double> %19, %20
-  %22 = load <2 x double>, ptr %5, align 8, !tbaa !14
+  %22 = load <2 x double>, ptr %5, align 8, !tbaa !13
   %23 = fadd <2 x double> %21, %22
   %24 = fdiv <2 x double> %23, splat (double 6.000000e+00)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1366,37 +1366,37 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest18TriangleTriang
   %81 = fadd double %.scalar.i.i.i.i.i.i.i.i.i.i.i.i.i, 0x3D719799812DEA11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #6
   %82 = fdiv <2 x double> %43, %62
-  store <2 x double> %82, ptr %7, align 16, !tbaa !14
+  store <2 x double> %82, ptr %7, align 16, !tbaa !13
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %84 = fdiv double %63, %81
   store double %84, ptr %83, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #6
   %85 = fdiv <2 x double> %45, %62
-  store <2 x double> %85, ptr %8, align 16, !tbaa !14
+  store <2 x double> %85, ptr %8, align 16, !tbaa !13
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %87 = fdiv double %65, %81
   store double %87, ptr %86, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #6
   %88 = fdiv <2 x double> %48, %62
-  store <2 x double> %88, ptr %9, align 16, !tbaa !14
+  store <2 x double> %88, ptr %9, align 16, !tbaa !13
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %90 = fdiv double %68, %81
   store double %90, ptr %89, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #6
   %91 = fdiv <2 x double> %51, %62
-  store <2 x double> %91, ptr %10, align 16, !tbaa !14
+  store <2 x double> %91, ptr %10, align 16, !tbaa !13
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %93 = fdiv double %71, %81
   store double %93, ptr %92, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #6
   %94 = fdiv <2 x double> %54, %62
-  store <2 x double> %94, ptr %11, align 16, !tbaa !14
+  store <2 x double> %94, ptr %11, align 16, !tbaa !13
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %96 = fdiv double %74, %81
   store double %96, ptr %95, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #6
   %97 = fdiv <2 x double> %57, %62
-  store <2 x double> %97, ptr %12, align 16, !tbaa !14
+  store <2 x double> %97, ptr %12, align 16, !tbaa !13
   %98 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %99 = fdiv double %77, %81
   store double %99, ptr %98, align 16, !tbaa !4
@@ -1418,11 +1418,11 @@ declare <2 x double> @llvm.sqrt.v2f64(<2 x double>) #2
 define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest12TriangleAABBERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #6
-  store ptr %2, ptr %6, align 16, !tbaa !11
+  store ptr %2, ptr %6, align 16, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %3, ptr %7, align 8, !tbaa !11
+  store ptr %3, ptr %7, align 8, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %4, ptr %8, align 16, !tbaa !11
+  store ptr %4, ptr %8, align 16, !tbaa !10
   %9 = call noundef i32 @_Z13triBoxOverlapPdS_PS_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %6)
   %10 = icmp ne i32 %9, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #6
@@ -1433,27 +1433,27 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest12TriangleAABBER
 define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest14PointsCoplanarERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load double, ptr %5, align 8, !tbaa !4, !noalias !15
-  %8 = load double, ptr %6, align 8, !tbaa !4, !noalias !15
+  %7 = load double, ptr %5, align 8, !tbaa !4, !noalias !14
+  %8 = load double, ptr %6, align 8, !tbaa !4, !noalias !14
   %9 = fsub double %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load double, ptr %10, align 8, !tbaa !4, !noalias !15
-  %13 = load double, ptr %11, align 8, !tbaa !4, !noalias !15
+  %12 = load double, ptr %10, align 8, !tbaa !4, !noalias !14
+  %13 = load double, ptr %11, align 8, !tbaa !4, !noalias !14
   %14 = fsub double %12, %13
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = load double, ptr %15, align 8, !tbaa !4, !noalias !15
+  %16 = load double, ptr %15, align 8, !tbaa !4, !noalias !14
   %17 = fsub double %16, %13
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %19 = load double, ptr %18, align 8, !tbaa !4, !noalias !15
+  %19 = load double, ptr %18, align 8, !tbaa !4, !noalias !14
   %20 = fsub double %19, %8
   %21 = fneg double %20
   %22 = fmul double %17, %21
   %23 = tail call double @llvm.fmuladd.f64(double %9, double %14, double %22)
-  %24 = load double, ptr %3, align 8, !tbaa !4, !noalias !15
-  %25 = load double, ptr %0, align 8, !tbaa !4, !noalias !15
+  %24 = load double, ptr %3, align 8, !tbaa !4, !noalias !14
+  %25 = load double, ptr %0, align 8, !tbaa !4, !noalias !14
   %26 = fsub double %24, %25
-  %27 = load double, ptr %2, align 8, !tbaa !4, !noalias !15
+  %27 = load double, ptr %2, align 8, !tbaa !4, !noalias !14
   %28 = fsub double %27, %25
   %29 = fneg double %14
   %30 = fmul double %28, %29
@@ -1463,8 +1463,8 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest14PointsCoplanar
   %34 = tail call double @llvm.fmuladd.f64(double %28, double %20, double %33)
   %.sroa.09.0.vec.insert = insertelement <2 x double> poison, double %23, i64 0
   %.sroa.09.8.vec.insert = insertelement <2 x double> %.sroa.09.0.vec.insert, double %31, i64 1
-  %35 = load <2 x double>, ptr %1, align 8, !tbaa !14
-  %36 = load <2 x double>, ptr %0, align 8, !tbaa !14
+  %35 = load <2 x double>, ptr %1, align 8, !tbaa !13
+  %36 = load <2 x double>, ptr %0, align 8, !tbaa !13
   %37 = fsub <2 x double> %35, %36
   %38 = fmul <2 x double> %37, %.sroa.09.8.vec.insert
   %shift = shufflevector <2 x double> %38, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -1481,15 +1481,15 @@ define noundef zeroext i1 @_ZN6open3d8geometry16IntersectionTest14PointsCoplanar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
 define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistanceERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = load <2 x double>, ptr %0, align 8, !tbaa !14
-  %6 = load <2 x double>, ptr %2, align 8, !tbaa !14
+  %5 = load <2 x double>, ptr %0, align 8, !tbaa !13
+  %6 = load <2 x double>, ptr %2, align 8, !tbaa !13
   %7 = fsub <2 x double> %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load double, ptr %8, align 8, !tbaa !4
   %11 = load double, ptr %9, align 8, !tbaa !4
   %12 = fsub double %10, %11
-  %13 = load <2 x double>, ptr %1, align 8, !tbaa !14
+  %13 = load <2 x double>, ptr %1, align 8, !tbaa !13
   %14 = fsub <2 x double> %13, %5
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load double, ptr %15, align 8, !tbaa !4
@@ -1507,7 +1507,7 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistan
   br i1 %or.cond81, label %91, label %24
 
 24:                                               ; preds = %4
-  %25 = load <2 x double>, ptr %3, align 8, !tbaa !14
+  %25 = load <2 x double>, ptr %3, align 8, !tbaa !13
   %26 = fsub <2 x double> %25, %6
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load double, ptr %27, align 8, !tbaa !4
@@ -1599,16 +1599,16 @@ define noundef double @_ZN6open3d8geometry16IntersectionTest20LinesMinimumDistan
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: read) uwtable
 define noundef double @_ZN6open3d8geometry16IntersectionTest27LineSegmentsMinimumDistanceERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %5 = load <2 x double>, ptr %1, align 8, !tbaa !14
-  %6 = load <2 x double>, ptr %0, align 8, !tbaa !14
+  %5 = load <2 x double>, ptr %1, align 8, !tbaa !13
+  %6 = load <2 x double>, ptr %0, align 8, !tbaa !13
   %7 = fsub <2 x double> %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %8, align 8, !tbaa !4
   %11 = load double, ptr %9, align 8, !tbaa !4
   %12 = fsub double %10, %11
-  %13 = load <2 x double>, ptr %3, align 8, !tbaa !14
-  %14 = load <2 x double>, ptr %2, align 8, !tbaa !14
+  %13 = load <2 x double>, ptr %3, align 8, !tbaa !13
+  %14 = load <2 x double>, ptr %2, align 8, !tbaa !13
   %15 = fsub <2 x double> %13, %14
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1871,13 +1871,12 @@ attributes #6 = { nounwind }
 !5 = !{!"double", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 double", !13, i64 0}
-!13 = !{!"any pointer", !6, i64 0}
-!14 = !{!6, !6, i64 0}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
-!17 = distinct !{!17, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 double", !12, i64 0}
+!12 = !{!"any pointer", !6, i64 0}
+!13 = !{!6, !6, i64 0}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE: argument 0"}
+!16 = distinct !{!16, !"_ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEES7_EEE5crossIS8_EENS9_25cross_product_return_typeIT_E4typeERKNS0_ISC_EE"}

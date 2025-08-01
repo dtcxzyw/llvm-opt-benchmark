@@ -185,7 +185,7 @@ define void @_Z17gather_f_bsplinesPK9gmx_pme_tN3gmx8ArrayRefIKfEEbPK11PmeAtomCom
   %130 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %129, <8 x float> %125, <8 x float> %.sroa.049.180.i)
   %131 = fmul <8 x float> %97, %114
   %132 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %131, <8 x float> %126, <8 x float> %.sroa.047.179.i)
-  br i1 %107, label %106, label %105, !llvm.loop !128
+  br i1 %107, label %106, label %105, !llvm.loop !127
 
 _ZNK10do_fsplineclESt17integral_constantIiLi4EE.exit: ; preds = %105
   %133 = shufflevector <8 x float> %128, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -221,7 +221,7 @@ _ZNK10do_fsplineclESt17integral_constantIiLi4EE.exit: ; preds = %105
   %157 = getelementptr inbounds nuw float, ptr %78, i64 %153
   %158 = getelementptr inbounds nuw float, ptr %79, i64 %153
   %159 = getelementptr inbounds nuw float, ptr %80, i64 %153
-  %160 = load ptr, ptr %44, align 8, !tbaa !129
+  %160 = load ptr, ptr %44, align 8, !tbaa !128
   %161 = and i32 %74, 3
   %162 = zext nneg i32 %161 to i64
   %163 = sub nsw i64 0, %162
@@ -269,7 +269,7 @@ _ZNK10do_fsplineclESt17integral_constantIiLi4EE.exit: ; preds = %105
 188:                                              ; preds = %189
   %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
   %exitcond143.not.i = icmp eq i64 %indvars.iv.next141.i, 5
-  br i1 %exitcond143.not.i, label %_ZNK10do_fsplineclILi5EEENSt9enable_ifIXooeqT_Li4EeqT_Li5EEN3gmx11BasicVectorIfEEE4typeESt17integral_constantIiXT_EE.exit, label %180, !llvm.loop !130
+  br i1 %exitcond143.not.i, label %_ZNK10do_fsplineclILi5EEENSt9enable_ifIXooeqT_Li4EeqT_Li5EEN3gmx11BasicVectorIfEEE4typeESt17integral_constantIiXT_EE.exit, label %180, !llvm.loop !129
 
 189:                                              ; preds = %189, %180
   %indvars.iv.i70 = phi i64 [ 0, %180 ], [ %indvars.iv.next.i, %189 ]
@@ -308,7 +308,7 @@ _ZNK10do_fsplineclESt17integral_constantIiLi4EE.exit: ; preds = %105
   %212 = tail call noundef <4 x float> @llvm.fma.v4f32(<4 x float> %211, <4 x float> %203, <4 x float> %.sroa.069.1130.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.not.i73, label %188, label %189, !llvm.loop !131
+  br i1 %exitcond.not.i73, label %188, label %189, !llvm.loop !130
 
 _ZNK10do_fsplineclILi5EEENSt9enable_ifIXooeqT_Li4EeqT_Li5EEN3gmx11BasicVectorIfEEE4typeESt17integral_constantIiXT_EE.exit: ; preds = %188
   %213 = shufflevector <4 x float> %206, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
@@ -382,7 +382,7 @@ _ZNK10do_fsplineclILi5EEENSt9enable_ifIXooeqT_Li4EeqT_Li5EEN3gmx11BasicVectorIfE
   %254 = tail call float @llvm.fmuladd.f32(float %253, float %248, float %.04859.us.us.i)
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, %wide.trip.count90.i
-  br i1 %exitcond.not.i80, label %._crit_edge.us.us.i, label %244, !llvm.loop !132
+  br i1 %exitcond.not.i80, label %._crit_edge.us.us.i, label %244, !llvm.loop !131
 
 ._crit_edge.us.us.i:                              ; preds = %244
   %255 = fmul float %234, %241
@@ -397,12 +397,12 @@ _ZNK10do_fsplineclILi5EEENSt9enable_ifIXooeqT_Li4EeqT_Li5EEN3gmx11BasicVectorIfE
   %260 = tail call float @llvm.fmuladd.f32(float %259, float %254, float %.sroa.7.162.us.us.i)
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count90.i
-  br i1 %exitcond86.not.i, label %._crit_edge67.split.us.us.i, label %.lr.ph.us.us.i, !llvm.loop !133
+  br i1 %exitcond86.not.i, label %._crit_edge67.split.us.us.i, label %.lr.ph.us.us.i, !llvm.loop !132
 
 ._crit_edge67.split.us.us.i:                      ; preds = %._crit_edge.us.us.i
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond91.not.i = icmp eq i64 %indvars.iv.next88.i, %wide.trip.count90.i
-  br i1 %exitcond91.not.i, label %_ZNK10do_fsplineclIiEEN3gmx11BasicVectorIfEET_.exit, label %.lr.ph66.us.i, !llvm.loop !135
+  br i1 %exitcond91.not.i, label %_ZNK10do_fsplineclIiEEN3gmx11BasicVectorIfEET_.exit, label %.lr.ph66.us.i, !llvm.loop !134
 
 _ZNK10do_fsplineclIiEEN3gmx11BasicVectorIfEET_.exit: ; preds = %._crit_edge67.split.us.us.i, %223, %_ZNK10do_fsplineclILi5EEENSt9enable_ifIXooeqT_Li4EeqT_Li5EEN3gmx11BasicVectorIfEEE4typeESt17integral_constantIiXT_EE.exit, %_ZNK10do_fsplineclESt17integral_constantIiLi4EE.exit
   %.sroa.098.0 = phi <2 x float> [ %.sroa.076.4.vec.insert.i, %_ZNK10do_fsplineclESt17integral_constantIiLi4EE.exit ], [ %.sroa.0119.4.vec.insert.i, %_ZNK10do_fsplineclILi5EEENSt9enable_ifIXooeqT_Li4EeqT_Li5EEN3gmx11BasicVectorIfEEE4typeESt17integral_constantIiXT_EE.exit ], [ zeroinitializer, %223 ], [ %.sroa.0.4.vec.insert56.us.us.i, %._crit_edge67.split.us.us.i ]
@@ -436,7 +436,7 @@ _ZNK10do_fsplineclIiEEN3gmx11BasicVectorIfEET_.exit: ; preds = %._crit_edge67.sp
 280:                                              ; preds = %_ZNK10do_fsplineclIiEEN3gmx11BasicVectorIfEET_.exit, %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !136
+  br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !135
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -454,13 +454,13 @@ define noundef float @_Z22gather_energy_bsplinesP9gmx_pme_tN3gmx8ArrayRefIKfEEP1
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %.fr78 = freeze i32 %6
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %8 = load i32, ptr %7, align 8, !tbaa !137
+  %8 = load i32, ptr %7, align 8, !tbaa !136
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph76, label %._crit_edge
 
 .lr.ph76:                                         ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 368
-  %11 = load ptr, ptr %10, align 8, !tbaa !171
+  %11 = load ptr, ptr %10, align 8, !tbaa !170
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
@@ -513,7 +513,7 @@ define noundef float @_Z22gather_energy_bsplinesP9gmx_pme_tN3gmx8ArrayRefIKfEEP1
   %.1.us = phi float [ %66, %._crit_edge.split.us.us ], [ %.05874.us, %.lr.ph76.split.us ]
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph76.split.us, !llvm.loop !172
+  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph76.split.us, !llvm.loop !171
 
 .lr.ph68.us.us:                                   ; preds = %._crit_edge69.split.us.us.us, %.lr.ph.us
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %._crit_edge69.split.us.us.us ], [ 0, %.lr.ph.us ]
@@ -552,17 +552,17 @@ define noundef float @_Z22gather_energy_bsplinesP9gmx_pme_tN3gmx8ArrayRefIKfEEP1
   %65 = tail call float @llvm.fmuladd.f32(float %64, float %61, float %.263.us.us.us)
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %22
-  br i1 %exitcond85.not, label %._crit_edge.us.us.us, label %56, !llvm.loop !173
+  br i1 %exitcond85.not, label %._crit_edge.us.us.us, label %56, !llvm.loop !172
 
 ._crit_edge.us.us.us:                             ; preds = %56
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %22
-  br i1 %exitcond90.not, label %._crit_edge69.split.us.us.us, label %.lr.ph.us.us.us, !llvm.loop !174
+  br i1 %exitcond90.not, label %._crit_edge69.split.us.us.us, label %.lr.ph.us.us.us, !llvm.loop !173
 
 ._crit_edge69.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %22
-  br i1 %exitcond95.not, label %._crit_edge.split.us.us, label %.lr.ph68.us.us, !llvm.loop !175
+  br i1 %exitcond95.not, label %._crit_edge.split.us.us, label %.lr.ph68.us.us, !llvm.loop !174
 
 ._crit_edge.split.us.us:                          ; preds = %._crit_edge69.split.us.us.us
   %66 = tail call float @llvm.fmuladd.f32(float %65, float %24, float %.05874.us)
@@ -582,7 +582,7 @@ define noundef float @_Z22gather_energy_bsplinesP9gmx_pme_tN3gmx8ArrayRefIKfEEP1
   %.1 = select i1 %69, float %70, float %.05874
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph76.split, !llvm.loop !176
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph76.split, !llvm.loop !175
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
@@ -720,55 +720,54 @@ attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !122 = !{!116, !117}
 !123 = !{!61, !61, i64 0}
 !124 = !{!7, !7, i64 0}
-!125 = distinct !{!125, !126, !127}
+!125 = distinct !{!125, !126}
 !126 = !{!"llvm.loop.mustprogress"}
-!127 = !{!"llvm.loop.estimated_trip_count"}
-!128 = distinct !{!128, !126, !127}
-!129 = !{!30, !30, i64 0}
-!130 = distinct !{!130, !126, !127}
-!131 = distinct !{!131, !126, !127}
-!132 = distinct !{!132, !126, !127}
-!133 = distinct !{!133, !126, !127, !134}
-!134 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!135 = distinct !{!135, !126, !127, !134}
-!136 = distinct !{!136, !126, !127}
-!137 = !{!138, !6, i64 128}
-!138 = !{!"_ZTS11PmeAtomComm", !6, i64 0, !6, i64 4, !6, i64 8, !9, i64 16, !139, i64 24, !6, i64 48, !52, i64 56, !96, i64 80, !144, i64 104, !6, i64 128, !149, i64 136, !151, i64 152, !153, i64 168, !154, i64 184, !68, i64 208, !154, i64 232, !12, i64 256, !6, i64 260, !158, i64 264, !154, i64 288, !6, i64 312, !96, i64 320, !161, i64 344, !166, i64 368}
-!139 = !{!"_ZTSSt6vectorI13SlabCommSetupSaIS0_EE", !140, i64 0}
-!140 = !{!"_ZTSSt12_Vector_baseI13SlabCommSetupSaIS0_EE", !141, i64 0}
-!141 = !{!"_ZTSNSt12_Vector_baseI13SlabCommSetupSaIS0_EE12_Vector_implE", !142, i64 0}
-!142 = !{!"_ZTSNSt12_Vector_baseI13SlabCommSetupSaIS0_EE17_Vector_impl_dataE", !143, i64 0, !143, i64 8, !143, i64 16}
-!143 = !{!"p1 _ZTS13SlabCommSetup", !10, i64 0}
-!144 = !{!"_ZTSSt6vectorIS_IiSaIiEESaIS1_EE", !145, i64 0}
-!145 = !{!"_ZTSSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE", !146, i64 0}
-!146 = !{!"_ZTSNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE12_Vector_implE", !147, i64 0}
-!147 = !{!"_ZTSNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE17_Vector_impl_dataE", !148, i64 0, !148, i64 8, !148, i64 16}
-!148 = !{!"p1 _ZTSSt6vectorIiSaIiEE", !10, i64 0}
-!149 = !{!"_ZTSN3gmx8ArrayRefIKNS_11BasicVectorIfEEEE", !150, i64 0, !150, i64 8}
-!150 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_11BasicVectorIfEEEE", !83, i64 0}
-!151 = !{!"_ZTSN3gmx8ArrayRefIKfEE", !152, i64 0, !152, i64 8}
-!152 = !{!"_ZTSN3gmx12ArrayRefIterIKfEE", !61, i64 0}
-!153 = !{!"_ZTSN3gmx8ArrayRefINS_11BasicVectorIfEEEE", !93, i64 0, !93, i64 8}
-!154 = !{!"_ZTSSt6vectorIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE", !155, i64 0}
-!155 = !{!"_ZTSSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE", !156, i64 0}
-!156 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE12_Vector_implE", !157, i64 0}
-!157 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE17_Vector_impl_dataE", !83, i64 0, !83, i64 8, !83, i64 16}
-!158 = !{!"_ZTSSt6vectorIN3gmx11BasicVectorIiEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE", !159, i64 0}
-!159 = !{!"_ZTSSt12_Vector_baseIN3gmx11BasicVectorIiEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE", !160, i64 0}
-!160 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIiEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE12_Vector_implE", !120, i64 0}
-!161 = !{!"_ZTSSt6vectorI15AtomToThreadMapSaIS0_EE", !162, i64 0}
-!162 = !{!"_ZTSSt12_Vector_baseI15AtomToThreadMapSaIS0_EE", !163, i64 0}
-!163 = !{!"_ZTSNSt12_Vector_baseI15AtomToThreadMapSaIS0_EE12_Vector_implE", !164, i64 0}
-!164 = !{!"_ZTSNSt12_Vector_baseI15AtomToThreadMapSaIS0_EE17_Vector_impl_dataE", !165, i64 0, !165, i64 8, !165, i64 16}
-!165 = !{!"p1 _ZTS15AtomToThreadMap", !10, i64 0}
-!166 = !{!"_ZTSSt6vectorI12splinedata_tSaIS0_EE", !167, i64 0}
-!167 = !{!"_ZTSSt12_Vector_baseI12splinedata_tSaIS0_EE", !168, i64 0}
-!168 = !{!"_ZTSNSt12_Vector_baseI12splinedata_tSaIS0_EE12_Vector_implE", !169, i64 0}
-!169 = !{!"_ZTSNSt12_Vector_baseI12splinedata_tSaIS0_EE17_Vector_impl_dataE", !170, i64 0, !170, i64 8, !170, i64 16}
-!170 = !{!"p1 _ZTS12splinedata_t", !10, i64 0}
-!171 = !{!169, !170, i64 0}
-!172 = distinct !{!172, !126, !127, !134}
-!173 = distinct !{!173, !126, !127}
-!174 = distinct !{!174, !126, !127, !134}
-!175 = distinct !{!175, !126, !127, !134}
-!176 = distinct !{!176, !126, !127}
+!127 = distinct !{!127, !126}
+!128 = !{!30, !30, i64 0}
+!129 = distinct !{!129, !126}
+!130 = distinct !{!130, !126}
+!131 = distinct !{!131, !126}
+!132 = distinct !{!132, !126, !133}
+!133 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!134 = distinct !{!134, !126, !133}
+!135 = distinct !{!135, !126}
+!136 = !{!137, !6, i64 128}
+!137 = !{!"_ZTS11PmeAtomComm", !6, i64 0, !6, i64 4, !6, i64 8, !9, i64 16, !138, i64 24, !6, i64 48, !52, i64 56, !96, i64 80, !143, i64 104, !6, i64 128, !148, i64 136, !150, i64 152, !152, i64 168, !153, i64 184, !68, i64 208, !153, i64 232, !12, i64 256, !6, i64 260, !157, i64 264, !153, i64 288, !6, i64 312, !96, i64 320, !160, i64 344, !165, i64 368}
+!138 = !{!"_ZTSSt6vectorI13SlabCommSetupSaIS0_EE", !139, i64 0}
+!139 = !{!"_ZTSSt12_Vector_baseI13SlabCommSetupSaIS0_EE", !140, i64 0}
+!140 = !{!"_ZTSNSt12_Vector_baseI13SlabCommSetupSaIS0_EE12_Vector_implE", !141, i64 0}
+!141 = !{!"_ZTSNSt12_Vector_baseI13SlabCommSetupSaIS0_EE17_Vector_impl_dataE", !142, i64 0, !142, i64 8, !142, i64 16}
+!142 = !{!"p1 _ZTS13SlabCommSetup", !10, i64 0}
+!143 = !{!"_ZTSSt6vectorIS_IiSaIiEESaIS1_EE", !144, i64 0}
+!144 = !{!"_ZTSSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE", !145, i64 0}
+!145 = !{!"_ZTSNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE12_Vector_implE", !146, i64 0}
+!146 = !{!"_ZTSNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE17_Vector_impl_dataE", !147, i64 0, !147, i64 8, !147, i64 16}
+!147 = !{!"p1 _ZTSSt6vectorIiSaIiEE", !10, i64 0}
+!148 = !{!"_ZTSN3gmx8ArrayRefIKNS_11BasicVectorIfEEEE", !149, i64 0, !149, i64 8}
+!149 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_11BasicVectorIfEEEE", !83, i64 0}
+!150 = !{!"_ZTSN3gmx8ArrayRefIKfEE", !151, i64 0, !151, i64 8}
+!151 = !{!"_ZTSN3gmx12ArrayRefIterIKfEE", !61, i64 0}
+!152 = !{!"_ZTSN3gmx8ArrayRefINS_11BasicVectorIfEEEE", !93, i64 0, !93, i64 8}
+!153 = !{!"_ZTSSt6vectorIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE", !154, i64 0}
+!154 = !{!"_ZTSSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE", !155, i64 0}
+!155 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE12_Vector_implE", !156, i64 0}
+!156 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIfEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE17_Vector_impl_dataE", !83, i64 0, !83, i64 8, !83, i64 16}
+!157 = !{!"_ZTSSt6vectorIN3gmx11BasicVectorIiEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE", !158, i64 0}
+!158 = !{!"_ZTSSt12_Vector_baseIN3gmx11BasicVectorIiEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE", !159, i64 0}
+!159 = !{!"_ZTSNSt12_Vector_baseIN3gmx11BasicVectorIiEENS0_30DefaultInitializationAllocatorIS2_SaIS2_EEEE12_Vector_implE", !120, i64 0}
+!160 = !{!"_ZTSSt6vectorI15AtomToThreadMapSaIS0_EE", !161, i64 0}
+!161 = !{!"_ZTSSt12_Vector_baseI15AtomToThreadMapSaIS0_EE", !162, i64 0}
+!162 = !{!"_ZTSNSt12_Vector_baseI15AtomToThreadMapSaIS0_EE12_Vector_implE", !163, i64 0}
+!163 = !{!"_ZTSNSt12_Vector_baseI15AtomToThreadMapSaIS0_EE17_Vector_impl_dataE", !164, i64 0, !164, i64 8, !164, i64 16}
+!164 = !{!"p1 _ZTS15AtomToThreadMap", !10, i64 0}
+!165 = !{!"_ZTSSt6vectorI12splinedata_tSaIS0_EE", !166, i64 0}
+!166 = !{!"_ZTSSt12_Vector_baseI12splinedata_tSaIS0_EE", !167, i64 0}
+!167 = !{!"_ZTSNSt12_Vector_baseI12splinedata_tSaIS0_EE12_Vector_implE", !168, i64 0}
+!168 = !{!"_ZTSNSt12_Vector_baseI12splinedata_tSaIS0_EE17_Vector_impl_dataE", !169, i64 0, !169, i64 8, !169, i64 16}
+!169 = !{!"p1 _ZTS12splinedata_t", !10, i64 0}
+!170 = !{!168, !169, i64 0}
+!171 = distinct !{!171, !126, !133}
+!172 = distinct !{!172, !126}
+!173 = distinct !{!173, !126, !133}
+!174 = distinct !{!174, !126, !133}
+!175 = distinct !{!175, !126}

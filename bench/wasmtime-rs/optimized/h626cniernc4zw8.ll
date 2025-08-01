@@ -45,7 +45,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core3ptr12align_offset7mod_inv17
   %14 = extractvalue { i64, i1 } %12, 0
   %.not = icmp uge i64 %14, %1
   %or.cond.not = or i1 %.not, %13
-  br i1 %or.cond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %or.cond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.1 = phi i64 [ %8, %2 ], [ %11, %.lr.ph ]
@@ -80,5 +80,3 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}

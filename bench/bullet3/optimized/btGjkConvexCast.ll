@@ -266,7 +266,7 @@ define dso_local noundef zeroext i1 @_ZN15btGjkConvexCast16calcTimeOfImpactERK11
   %124 = call float @llvm.fmuladd.f32(float %.sroa.082.0.lcssa, float %42, float %123)
   %125 = call noundef float @llvm.fmuladd.f32(float %.sroa.14.0.lcssa, float %44, float %124)
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %127 = load float, ptr %126, align 8, !tbaa !39
+  %127 = load float, ptr %126, align 8, !tbaa !38
   %128 = fneg float %127
   %129 = fcmp ult float %125, %128
   br i1 %129, label %130, label %.thread
@@ -429,7 +429,6 @@ attributes #11 = { builtin nounwind }
 !33 = !{!"_ZTSN12btConvexCast10CastResultE", !26, i64 8, !26, i64 72, !21, i64 136, !21, i64 152, !17, i64 168, !34, i64 176, !17, i64 184, !35, i64 188, !17, i64 192}
 !34 = !{!"p1 _ZTS12btIDebugDraw", !11, i64 0}
 !35 = !{!"int", !12, i64 0}
-!36 = distinct !{!36, !37, !38}
+!36 = distinct !{!36, !37}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!"llvm.loop.estimated_trip_count"}
-!39 = !{!33, !17, i64 184}
+!38 = !{!33, !17, i64 184}

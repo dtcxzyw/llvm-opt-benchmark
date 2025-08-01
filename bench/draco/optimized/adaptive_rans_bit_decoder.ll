@@ -279,7 +279,7 @@ _ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit: ; preds = %8, %14
 
 ._crit_edge:                                      ; preds = %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit, %3
   %.0.lcssa = phi i32 [ 0, %3 ], [ %43, %_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv.exit ]
-  store i32 %.0.lcssa, ptr %2, align 4, !tbaa !27
+  store i32 %.0.lcssa, ptr %2, align 4, !tbaa !26
   ret void
 }
 
@@ -337,7 +337,6 @@ attributes #10 = { nounwind }
 !21 = !{!8, !8, i64 0}
 !22 = !{!5, !10, i64 8}
 !23 = !{!5, !10, i64 12}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = !{!10, !10, i64 0}
+!26 = !{!10, !10, i64 0}

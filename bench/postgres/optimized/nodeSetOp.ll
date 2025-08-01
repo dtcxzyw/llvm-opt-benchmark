@@ -199,7 +199,7 @@ define internal ptr @ExecSetOp(ptr noundef %0) #0 {
   %6 = load ptr, ptr %5, align 8
   %7 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %9, label %8, !prof !9
+  br i1 %.not, label %9, label %8, !prof !8
 
 8:                                                ; preds = %1
   tail call void @ProcessInterrupts() #6
@@ -300,7 +300,7 @@ ExecProcNode.exit.i:                              ; preds = %40, %38
   %63 = load ptr, ptr %37, align 8
   call void @MemoryContextReset(ptr noundef %63) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
-  br label %38, !llvm.loop !10
+  br label %38
 
 64:                                               ; preds = %44, %ExecProcNode.exit.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
@@ -351,7 +351,7 @@ ExecProcNode.exit35.i:                            ; preds = %69, %67
 86:                                               ; preds = %80, %77
   %87 = load ptr, ptr %37, align 8
   call void @MemoryContextReset(ptr noundef %87) #6
-  br label %67, !llvm.loop !11
+  br label %67
 
 setop_fill_hash_table.exit:                       ; preds = %ExecProcNode.exit35.i, %73, %64
   store i8 1, ptr %24, align 8
@@ -375,7 +375,7 @@ setop_fill_hash_table.exit:                       ; preds = %ExecProcNode.exit35
 98:                                               ; preds = %95
   %99 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i14 = icmp eq i32 %99, 0
-  br i1 %.not.i14, label %101, label %100, !prof !9
+  br i1 %.not.i14, label %101, label %100, !prof !8
 
 100:                                              ; preds = %98
   call void @ProcessInterrupts() #6
@@ -456,7 +456,7 @@ set_output_count.exit:                            ; preds = %131, %124, %127, %1
   %.sink.i = phi i64 [ %..i, %120 ], [ 0, %116 ], [ 0, %113 ], [ 0, %127 ], [ 0, %124 ], [ %spec.select, %131 ]
   store i64 %.sink.i, ptr %10, align 8
   %142 = icmp sgt i64 %.sink.i, 0
-  br i1 %142, label %.loopexit.loopexit, label %95, !llvm.loop !12
+  br i1 %142, label %.loopexit.loopexit, label %95, !llvm.loop !9
 
 .loopexit.loopexit:                               ; preds = %set_output_count.exit
   %143 = add nsw i64 %.sink.i, -1
@@ -609,7 +609,7 @@ ExecProcNode.exit.i17:                            ; preds = %163, %160
 
 217:                                              ; preds = %212
   store i8 1, ptr %190, align 8
-  br label %239, !llvm.loop !13
+  br label %239, !llvm.loop !10
 
 218:                                              ; preds = %214, %.thread.i
   %.sroa.8.0.i = phi i64 [ 0, %.thread.i ], [ %216, %214 ]
@@ -930,7 +930,7 @@ ExecProcNode.exit:                                ; preds = %30, %32
 43:                                               ; preds = %40
   %44 = load i64, ptr %27, align 8
   %45 = add i64 %44, 1
-  br label %30, !llvm.loop !14
+  br label %30
 
 .thread:                                          ; preds = %40, %ExecProcNode.exit, %36, %12
   ret void
@@ -1052,7 +1052,7 @@ ApplySortComparator.exit.thread33:                ; preds = %ApplySortComparator
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = sext i32 %69 to i64
   %.not38 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %.not38, label %27, label %ApplySortComparator.exit.thread, !llvm.loop !15
+  br i1 %.not38, label %27, label %ApplySortComparator.exit.thread, !llvm.loop !11
 
 ApplySortComparator.exit.thread:                  ; preds = %ApplySortComparator.exit, %ApplySortComparator.exit.thread33, %66, %slot_getallattrs.exit29, %55, %50
   %spec.select = phi i32 [ %..i, %50 ], [ %.12.i, %55 ], [ 0, %slot_getallattrs.exit29 ], [ %.0.i, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread33 ], [ 1, %66 ]
@@ -1090,13 +1090,9 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !7, !8}
+!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

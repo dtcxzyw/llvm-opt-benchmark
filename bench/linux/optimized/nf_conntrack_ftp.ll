@@ -144,10 +144,10 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %6 = alloca i32, align 4
   %7 = alloca %struct.nf_conntrack_man, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !8
   %8 = icmp ugt i32 %3, 2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
-  store i32 0, ptr %6, align 4, !annotation !9
+  store i32 0, ptr %6, align 4, !annotation !8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -162,7 +162,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %21, label %19, !prof !10
+  br i1 %18, label %21, label %19, !prof !9
 
 19:                                               ; preds = %15
   %20 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %10, i8 noundef zeroext 0) #11
@@ -192,7 +192,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 31:                                               ; preds = %27
   %32 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %29) #11
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %.thread, label %..critedge_crit_edge, !prof !11
+  br i1 %.not, label %.thread, label %..critedge_crit_edge, !prof !10
 
 ..critedge_crit_edge:                             ; preds = %31
   %.pre = load i32, ptr %28, align 4
@@ -205,7 +205,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %36 = add i32 %1, %33
   %37 = sub i32 %35, %36
   %38 = icmp sgt i32 %37, 19
-  br i1 %38, label %44, label %39, !prof !10
+  br i1 %38, label %44, label %39, !prof !9
 
 39:                                               ; preds = %.critedge
   %40 = icmp eq ptr %0, null
@@ -214,7 +214,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 41:                                               ; preds = %39
   %42 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %5, i32 noundef 20) #11
   %43 = icmp slt i32 %42, 0
-  br i1 %43, label %.thread, label %..thread26_crit_edge, !prof !11
+  br i1 %43, label %.thread, label %..thread26_crit_edge, !prof !10
 
 ..thread26_crit_edge:                             ; preds = %41
   %.pre82 = load i32, ptr %34, align 8
@@ -271,7 +271,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 81:                                               ; preds = %84
   %82 = add nuw nsw i64 %85, 1
   %83 = icmp eq i64 %82, %80
-  br i1 %83, label %.loopexit45, label %84, !llvm.loop !12
+  br i1 %83, label %.loopexit45, label %84, !llvm.loop !11
 
 84:                                               ; preds = %81, %79
   %85 = phi i64 [ 0, %79 ], [ %82, %81 ]
@@ -286,7 +286,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 1
   %93 = icmp eq i16 %92, 0
-  br i1 %93, label %.thread32, label %94, !prof !10
+  br i1 %93, label %.thread32, label %94, !prof !9
 
 94:                                               ; preds = %.loopexit45
   %95 = and i16 %91, -2
@@ -318,10 +318,10 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %109, label %.split69.us, label %.thread30.us
 
 .thread30.us:                                     ; preds = %.split67.us
-  br i1 %104, label %.split67.us, label %.thread32, !llvm.loop !13
+  br i1 %104, label %.split67.us, label %.thread32, !llvm.loop !12
 
 .thread30:                                        ; preds = %.split67
-  br i1 %110, label %.split67, label %.thread32, !llvm.loop !15
+  br i1 %110, label %.split67, label %.thread32, !llvm.loop !14
 
 .split67:                                         ; preds = %.loopexit44, %.thread30
   %110 = phi i1 [ false, %.thread30 ], [ true, %.loopexit44 ]
@@ -358,7 +358,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   %130 = getelementptr i8, ptr %64, i64 %129
   %131 = load i8, ptr %130, align 1
   %132 = icmp eq i8 %131, %116
-  br i1 %132, label %.loopexit42.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %132, label %.loopexit42.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit42.loopexit:                             ; preds = %128
   %133 = add i64 %126, 2
@@ -403,7 +403,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
   br i1 %153, label %157, label %154
 
 154:                                              ; preds = %151
-  %155 = load i8, ptr @loose, align 1, !range !17, !noundef !18
+  %155 = load i8, ptr @loose, align 1, !range !16, !noundef !17
   %156 = icmp eq i8 %155, 0
   br i1 %156, label %177, label %157
 
@@ -461,7 +461,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 185:                                              ; preds = %188
   %186 = add nuw nsw i64 %189, 1
   %187 = icmp eq i64 %186, %184
-  br i1 %187, label %193, label %188, !llvm.loop !19
+  br i1 %187, label %193, label %188, !llvm.loop !18
 
 188:                                              ; preds = %185, %183
   %189 = phi i64 [ 0, %183 ], [ %186, %185 ]
@@ -529,7 +529,7 @@ define internal noundef i32 @nf_ct_ftp_from_nlattr(ptr readnone captures(none) %
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %15, label %13, !prof !10
+  br i1 %12, label %15, label %13, !prof !9
 
 13:                                               ; preds = %9
   %14 = tail call ptr @__nf_ct_ext_find(ptr noundef nonnull %4, i8 noundef zeroext 0) #11
@@ -652,7 +652,7 @@ define internal i32 @try_rfc959(ptr noundef readonly captures(none) %0, i64 noun
   %36 = icmp ugt i64 %1, %35
   %37 = icmp ult i32 %32, 6
   %38 = select i1 %36, i1 %37, i1 false
-  br i1 %38, label %.preheader, label %.thread, !llvm.loop !20
+  br i1 %38, label %.preheader, label %.thread, !llvm.loop !19
 
 39:                                               ; preds = %26
   %40 = load i32, ptr %6, align 16
@@ -795,7 +795,7 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
   %65 = icmp ugt i64 %34, %64
   %66 = icmp ult i32 %61, 4
   %67 = select i1 %65, i1 %66, i1 false
-  br i1 %67, label %36, label %.thread, !llvm.loop !21
+  br i1 %67, label %36, label %.thread, !llvm.loop !19
 
 68:                                               ; preds = %55
   %69 = load i32, ptr %7, align 16
@@ -824,7 +824,7 @@ define internal i32 @try_eprt(ptr noundef %0, i64 noundef %1, ptr noundef %2, i8
   %85 = phi i64 [ %29, %.thread37 ], [ %32, %30 ]
   %86 = getelementptr i8, ptr %0, i64 3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
-  store ptr null, ptr %6, align 8, !annotation !9
+  store ptr null, ptr %6, align 8, !annotation !8
   %87 = tail call i64 @llvm.umin.i64(i64 %85, i64 65535)
   %88 = trunc nuw nsw i64 %87 to i32
   %89 = call i32 @in6_pton(ptr noundef %86, i32 noundef %88, ptr noundef %2, i32 noundef %11, ptr noundef nonnull %6) #11
@@ -881,7 +881,7 @@ select.unfold11:                                  ; preds = %84, %.thread
   %122 = add i32 %105, 1
   %123 = sext i32 %122 to i64
   %124 = icmp ugt i64 %1, %123
-  br i1 %124, label %.preheader, label %.thread12, !llvm.loop !22
+  br i1 %124, label %.preheader, label %.thread12, !llvm.loop !20
 
 .thread12:                                        ; preds = %118, %115, %84, %112, %110, %98, %select.unfold11, %27, %24, %17, %9, %5
   %125 = phi i32 [ 0, %5 ], [ 0, %17 ], [ 0, %9 ], [ 0, %27 ], [ 0, %24 ], [ 0, %select.unfold11 ], [ %114, %112 ], [ 0, %110 ], [ 0, %98 ], [ 0, %84 ], [ 0, %115 ], [ 0, %118 ]
@@ -908,7 +908,7 @@ define internal i32 @try_rfc1123(ptr noundef readonly captures(none) %0, i64 nou
   %16 = add i32 %9, 1
   %17 = sext i32 %16 to i64
   %18 = icmp ugt i64 %1, %17
-  br i1 %18, label %.preheader, label %.loopexit, !llvm.loop !23
+  br i1 %18, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %15, %.preheader, %5
   %19 = phi i32 [ 0, %5 ], [ %9, %.preheader ], [ %16, %15 ]
@@ -968,7 +968,7 @@ define internal i32 @try_rfc1123(ptr noundef readonly captures(none) %0, i64 nou
   %54 = icmp ugt i64 %26, %53
   %55 = icmp ult i32 %50, 6
   %56 = select i1 %54, i1 %55, i1 false
-  br i1 %56, label %27, label %.thread, !llvm.loop !24
+  br i1 %56, label %27, label %.thread, !llvm.loop !19
 
 57:                                               ; preds = %46
   %58 = load i32, ptr %6, align 16
@@ -1070,7 +1070,7 @@ define internal i32 @try_epsv_response(ptr noundef readonly captures(none) %0, i
   %44 = add i32 %27, 1
   %45 = sext i32 %44 to i64
   %46 = icmp ugt i64 %1, %45
-  br i1 %46, label %24, label %.loopexit, !llvm.loop !25
+  br i1 %46, label %24, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %40, %37, %34, %32, %18, %14, %7, %5
   %47 = phi i32 [ 0, %5 ], [ 0, %18 ], [ 0, %14 ], [ 0, %7 ], [ %36, %34 ], [ 0, %32 ], [ 0, %37 ], [ 0, %40 ]
@@ -1116,24 +1116,20 @@ attributes #12 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{!"auto-init"}
-!10 = !{!"branch_weights", i32 2000, i32 1}
-!11 = !{!"branch_weights", i32 1, i32 2000}
-!12 = distinct !{!12, !6, !7, !8}
-!13 = distinct !{!13, !6, !7, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !6, !7, !8}
-!16 = distinct !{!16, !6, !7, !8}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = distinct !{!19, !6, !7, !8}
-!20 = distinct !{!20, !6, !7, !8}
-!21 = distinct !{!21, !6, !7, !8}
-!22 = distinct !{!22, !6, !7, !8}
-!23 = distinct !{!23, !6, !7, !8}
-!24 = distinct !{!24, !6, !7, !8}
-!25 = distinct !{!25, !6, !7, !8}
+!8 = !{!"auto-init"}
+!9 = !{!"branch_weights", i32 2000, i32 1}
+!10 = !{!"branch_weights", i32 1, i32 2000}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}

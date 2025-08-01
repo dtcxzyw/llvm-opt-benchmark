@@ -189,7 +189,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.next
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %.not121 = icmp eq ptr %33, null
-  br i1 %.not121, label %.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %.not121, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %23
   %34 = phi ptr [ %24, %.preheader ], [ %24, %23 ], [ %29, %.lr.ph ]
@@ -210,7 +210,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %43 = load ptr, ptr @opts, align 8, !tbaa !21
   %44 = tail call ptr @optget(ptr noundef %43, ptr noundef nonnull @.str.15) #14
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !31
+  %46 = load ptr, ptr %45, align 8, !tbaa !29
   %47 = tail call noalias ptr @strdup(ptr noundef %46) #14
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %50
@@ -242,7 +242,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !31
+  %63 = load ptr, ptr %62, align 8, !tbaa !29
   br label %64
 
 64:                                               ; preds = %61, %57
@@ -256,10 +256,10 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 69:                                               ; preds = %64
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !31
+  %71 = load ptr, ptr %70, align 8, !tbaa !29
   %72 = tail call i32 @chdir(ptr noundef %71) #14
   %.not125 = icmp eq i32 %72, 0
-  %73 = load ptr, ptr %70, align 8, !tbaa !31
+  %73 = load ptr, ptr %70, align 8, !tbaa !29
   br i1 %.not125, label %76, label %74
 
 74:                                               ; preds = %69
@@ -272,7 +272,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not126, label %81, label %78
 
 78:                                               ; preds = %76
-  %79 = load ptr, ptr %70, align 8, !tbaa !31
+  %79 = load ptr, ptr %70, align 8, !tbaa !29
   %80 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.21, ptr noundef %79) #14
   br label %.thread191
 
@@ -280,7 +280,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %82 = load ptr, ptr @opts, align 8, !tbaa !21
   %83 = tail call ptr @optget(ptr noundef %82, ptr noundef nonnull @.str.22) #14
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %85 = load ptr, ptr %84, align 8, !tbaa !31
+  %85 = load ptr, ptr %84, align 8, !tbaa !29
   %86 = tail call i32 @strcasecmp(ptr noundef %85, ptr noundef nonnull @.str.23) #15
   %.not127 = icmp eq i32 %86, 0
   br i1 %.not127, label %112, label %87
@@ -296,7 +296,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 92:                                               ; preds = %87
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !31
+  %94 = load ptr, ptr %93, align 8, !tbaa !29
   %95 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %94, i64 noundef 254) #14
   br label %98
 
@@ -307,7 +307,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 98:                                               ; preds = %92, %96
   %99 = getelementptr inbounds nuw i8, ptr %6, i64 254
-  store i8 0, ptr %99, align 2, !tbaa !32
+  store i8 0, ptr %99, align 2, !tbaa !30
   %100 = call ptr @get_version() #14
   %101 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @xvirushdr, i64 noundef 300, ptr noundef nonnull @.str.25, ptr noundef %100, ptr noundef nonnull %6) #14
   br label %105
@@ -318,7 +318,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %105
 
 105:                                              ; preds = %102, %98
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @xvirushdr, i64 299), align 1, !tbaa !32
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @xvirushdr, i64 299), align 1, !tbaa !30
   %106 = load i64, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 16), align 8, !tbaa !13
   %107 = or i64 %106, 1
   store i64 %107, ptr getelementptr inbounds nuw (i8, ptr @descr, i64 16), align 8, !tbaa !13
@@ -333,7 +333,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 111:                                              ; preds = %105, %109
   %storemerge = phi i32 [ 1, %109 ], [ 2, %105 ]
-  store i32 %storemerge, ptr @addxvirus, align 4, !tbaa !33
+  store i32 %storemerge, ptr @addxvirus, align 4, !tbaa !31
   call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %6) #14
   br label %112
 
@@ -341,7 +341,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %113 = load ptr, ptr @opts, align 8, !tbaa !21
   %114 = call ptr @optget(ptr noundef %113, ptr noundef nonnull @.str.28) #14
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %116 = load ptr, ptr %115, align 8, !tbaa !31
+  %116 = load ptr, ptr %115, align 8, !tbaa !29
   %.not131 = icmp eq ptr %116, null
   br i1 %.not131, label %117, label %120
 
@@ -413,7 +413,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %.not135 = icmp eq i32 %150, 0
   %.1106.idx = select i1 %.not135, i64 6, i64 0
   %.1106 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %.1106.idx
-  %151 = load i8, ptr %116, align 1, !tbaa !32
+  %151 = load i8, ptr %116, align 1, !tbaa !30
   %152 = icmp eq i8 %151, 58
   %.2107.idx = zext i1 %152 to i64
   %.2107 = getelementptr inbounds nuw i8, ptr %.1106, i64 %.2107.idx
@@ -428,12 +428,12 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %158 = load ptr, ptr @opts, align 8, !tbaa !21
   %159 = call ptr @optget(ptr noundef %158, ptr noundef nonnull @.str.38) #14
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  %161 = load ptr, ptr %160, align 8, !tbaa !31
+  %161 = load ptr, ptr %160, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
   %162 = call i64 @strtol(ptr noundef %161, ptr noundef nonnull %7, i32 noundef 10) #14
   %163 = trunc i64 %162 to i32
   %164 = load ptr, ptr %7, align 8, !tbaa !27
-  %165 = load i8, ptr %164, align 1, !tbaa !32
+  %165 = load i8, ptr %164, align 1, !tbaa !30
   %.not137 = icmp eq i8 %165, 0
   br i1 %.not137, label %171, label %166
 
@@ -444,7 +444,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 168:                                              ; preds = %166
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  %170 = load i32, ptr %169, align 8, !tbaa !34
+  %170 = load i32, ptr %169, align 8, !tbaa !32
   br label %171
 
 171:                                              ; preds = %168, %157
@@ -484,13 +484,13 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 183:                                              ; preds = %177
   %184 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %185 = load i32, ptr %184, align 8, !tbaa !36
+  %185 = load i32, ptr %184, align 8, !tbaa !34
   %186 = call i32 @chown(ptr noundef nonnull %.2107, i32 noundef %185, i32 noundef -1) #14
   %.not141 = icmp eq i32 %186, 0
   br i1 %.not141, label %191, label %187
 
 187:                                              ; preds = %183
-  %188 = load ptr, ptr %178, align 8, !tbaa !38
+  %188 = load ptr, ptr %178, align 8, !tbaa !36
   %189 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.42, ptr noundef %188) #14
   %190 = load ptr, ptr @opts, align 8, !tbaa !21
   call void @optfree(ptr noundef %190) #14
@@ -510,10 +510,10 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %197 = load ptr, ptr @opts, align 8, !tbaa !21
   %198 = call ptr @optget(ptr noundef %197, ptr noundef nonnull @.str.43) #14
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
-  %200 = load ptr, ptr %199, align 8, !tbaa !31
+  %200 = load ptr, ptr %199, align 8, !tbaa !29
   %201 = call i64 @strtol(ptr noundef %200, ptr noundef nonnull %8, i32 noundef 8) #14
   %202 = load ptr, ptr %8, align 8, !tbaa !27
-  %203 = load i8, ptr %202, align 1, !tbaa !32
+  %203 = load i8, ptr %202, align 1, !tbaa !30
   %.not143 = icmp eq i8 %203, 0
   br i1 %.not143, label %.thread188, label %205
 
@@ -526,7 +526,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %206 = load ptr, ptr @opts, align 8, !tbaa !21
   %207 = call ptr @optget(ptr noundef %206, ptr noundef nonnull @.str.43) #14
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  %209 = load ptr, ptr %208, align 8, !tbaa !31
+  %209 = load ptr, ptr %208, align 8, !tbaa !29
   %210 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.44, ptr noundef %209) #14
   call void @logg_close() #14
   %211 = load ptr, ptr @opts, align 8, !tbaa !21
@@ -549,7 +549,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %218 = load ptr, ptr @opts, align 8, !tbaa !21
   %219 = call ptr @optget(ptr noundef %218, ptr noundef nonnull @.str.43) #14
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 16
-  %221 = load ptr, ptr %220, align 8, !tbaa !31
+  %221 = load ptr, ptr %220, align 8, !tbaa !29
   %222 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.45, ptr noundef %221) #14
   call void @logg_close() #14
   %223 = load ptr, ptr @opts, align 8, !tbaa !21
@@ -563,26 +563,26 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %228 = load i32, ptr %227, align 8, !tbaa !23
   %.not145 = icmp eq i32 %228, 0
   %229 = zext i1 %.not145 to i16
-  store i16 %229, ptr @logg_lock, align 2, !tbaa !39
+  store i16 %229, ptr @logg_lock, align 2, !tbaa !37
   %230 = load ptr, ptr @opts, align 8, !tbaa !21
   %231 = call ptr @optget(ptr noundef %230, ptr noundef nonnull @.str.47) #14
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 32
   %233 = load i32, ptr %232, align 8, !tbaa !23
   %234 = trunc i32 %233 to i16
-  store i16 %234, ptr @logg_time, align 2, !tbaa !39
+  store i16 %234, ptr @logg_time, align 2, !tbaa !37
   %235 = load ptr, ptr @opts, align 8, !tbaa !21
   %236 = call ptr @optget(ptr noundef %235, ptr noundef nonnull @.str.48) #14
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 24
-  %238 = load i64, ptr %237, align 8, !tbaa !41
-  store i64 %238, ptr @logg_size, align 8, !tbaa !42
+  %238 = load i64, ptr %237, align 8, !tbaa !39
+  store i64 %238, ptr @logg_size, align 8, !tbaa !40
   %239 = load ptr, ptr @opts, align 8, !tbaa !21
   %240 = call ptr @optget(ptr noundef %239, ptr noundef nonnull @.str.49) #14
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 32
   %242 = load i32, ptr %241, align 8, !tbaa !23
   %243 = trunc i32 %242 to i16
-  store i16 %243, ptr @mprintf_verbose, align 2, !tbaa !39
-  store i16 %243, ptr @logg_verbose, align 2, !tbaa !39
-  %244 = load i64, ptr @logg_size, align 8, !tbaa !42
+  store i16 %243, ptr @mprintf_verbose, align 2, !tbaa !37
+  store i16 %243, ptr @logg_verbose, align 2, !tbaa !37
+  %244 = load i64, ptr @logg_size, align 8, !tbaa !40
   %.not146 = icmp eq i64 %244, 0
   br i1 %.not146, label %251, label %245
 
@@ -592,7 +592,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 32
   %249 = load i32, ptr %248, align 8, !tbaa !23
   %250 = trunc i32 %249 to i16
-  store i16 %250, ptr @logg_rotate, align 2, !tbaa !39
+  store i16 %250, ptr @logg_rotate, align 2, !tbaa !37
   br label %251
 
 251:                                              ; preds = %245, %224
@@ -605,14 +605,14 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 256:                                              ; preds = %251
   %257 = getelementptr inbounds nuw i8, ptr %253, i64 16
-  %258 = load ptr, ptr %257, align 8, !tbaa !31
+  %258 = load ptr, ptr %257, align 8, !tbaa !29
   store ptr %258, ptr @logg_file, align 8, !tbaa !27
   %259 = call i32 @cli_is_abspath(ptr noundef %258) #14
   %.not148 = icmp eq i32 %259, 0
   br i1 %.not148, label %260, label %265
 
 260:                                              ; preds = %256
-  %261 = load ptr, ptr @stderr, align 8, !tbaa !43
+  %261 = load ptr, ptr @stderr, align 8, !tbaa !41
   %262 = call i64 @fwrite(ptr nonnull @.str.52, i64 35, i64 1, ptr %261) #16
   call void @logg_close() #14
   %263 = load ptr, ptr @opts, align 8, !tbaa !21
@@ -635,13 +635,13 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %271 = load ptr, ptr @opts, align 8, !tbaa !21
   %272 = call ptr @optget(ptr noundef %271, ptr noundef nonnull @.str.54) #14
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 16
-  %274 = load ptr, ptr %273, align 8, !tbaa !31
+  %274 = load ptr, ptr %273, align 8, !tbaa !29
   %275 = call i32 @logg_facility(ptr noundef %274) #14
   %.not150 = icmp eq i32 %275, -1
   br i1 %.not150, label %.thread194, label %279
 
 .thread194:                                       ; preds = %270
-  %276 = load ptr, ptr %273, align 8, !tbaa !31
+  %276 = load ptr, ptr %273, align 8, !tbaa !29
   %277 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.55, ptr noundef %276) #14
   call void @logg_close() #14
   %278 = load ptr, ptr @opts, align 8, !tbaa !21
@@ -650,7 +650,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 279:                                              ; preds = %270
   call void @openlog(ptr noundef nonnull @.str.56, i32 noundef 1, i32 noundef %275) #14
-  store i16 1, ptr @logg_syslog, align 2, !tbaa !39
+  store i16 1, ptr @logg_syslog, align 2, !tbaa !37
   br label %280
 
 280:                                              ; preds = %279, %265
@@ -661,7 +661,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not151, label %288, label %284
 
 284:                                              ; preds = %280
-  %285 = load ptr, ptr @stderr, align 8, !tbaa !43
+  %285 = load ptr, ptr @stderr, align 8, !tbaa !41
   %286 = call i64 @fwrite(ptr nonnull @.str.58, i64 44, i64 1, ptr %285) #16
   call void @logg_close() #14
   %287 = load ptr, ptr @opts, align 8, !tbaa !21
@@ -678,7 +678,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 293:                                              ; preds = %288
   %294 = getelementptr inbounds nuw i8, ptr %290, i64 16
-  %295 = load ptr, ptr %294, align 8, !tbaa !31
+  %295 = load ptr, ptr %294, align 8, !tbaa !29
   store ptr %295, ptr @tempdir, align 8, !tbaa !27
   br label %296
 
@@ -719,7 +719,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 314:                                              ; preds = %309, %304
   %.093 = phi ptr [ %306, %304 ], [ %311, %309 ]
   %315 = getelementptr inbounds nuw i8, ptr %.093, i64 16
-  %316 = load ptr, ptr %315, align 8, !tbaa !31
+  %316 = load ptr, ptr %315, align 8, !tbaa !29
   %317 = call i32 @allow_list_init(ptr noundef %316) #14
   %.not157 = icmp eq i32 %317, 0
   br i1 %.not157, label %320, label %318
@@ -741,7 +741,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 325:                                              ; preds = %320
   %326 = getelementptr inbounds nuw i8, ptr %322, i64 16
-  %327 = load ptr, ptr %326, align 8, !tbaa !31
+  %327 = load ptr, ptr %326, align 8, !tbaa !29
   %328 = call i32 @smtpauth_init(ptr noundef %327) #14
   %.not159 = icmp eq i32 %328, 0
   br i1 %.not159, label %331, label %329
@@ -759,7 +759,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %333 = call ptr @optget(ptr noundef %332, ptr noundef nonnull @.str.63) #14
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 32
   %335 = load i32, ptr %334, align 8, !tbaa !23
-  store i32 %335, ptr @multircpt, align 4, !tbaa !33
+  store i32 %335, ptr @multircpt, align 4, !tbaa !31
   %336 = load ptr, ptr @opts, align 8, !tbaa !21
   %337 = call ptr @optget(ptr noundef %336, ptr noundef nonnull @.str.64) #14
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 32
@@ -802,7 +802,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %359 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %4, ptr noundef null) #14
   %360 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %360, i8 0, i64 144, i1 false)
-  store ptr @milter_exit, ptr %5, align 8, !tbaa !32
+  store ptr @milter_exit, ptr %5, align 8, !tbaa !30
   %361 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %362 = call i32 @sigfillset(ptr noundef nonnull %361) #14
   %363 = call i32 @sigaction(i32 noundef 10, ptr noundef nonnull %5, ptr noundef null) #14
@@ -810,25 +810,25 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %365 = load ptr, ptr @opts, align 8, !tbaa !21
   %366 = call ptr @optget(ptr noundef %365, ptr noundef nonnull @.str.68) #14
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 24
-  %368 = load i64, ptr %367, align 8, !tbaa !41
-  store i64 %368, ptr @maxfilesize, align 8, !tbaa !42
+  %368 = load i64, ptr %367, align 8, !tbaa !39
+  store i64 %368, ptr @maxfilesize, align 8, !tbaa !40
   %.not161 = icmp eq i64 %368, 0
   br i1 %.not161, label %369, label %371
 
 369:                                              ; preds = %352
   %370 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.69, i32 noundef 104857600) #14
-  store i64 104857600, ptr @maxfilesize, align 8, !tbaa !42
+  store i64 104857600, ptr @maxfilesize, align 8, !tbaa !40
   br label %371
 
 371:                                              ; preds = %369, %352
   %372 = load ptr, ptr @opts, align 8, !tbaa !21
   %373 = call ptr @optget(ptr noundef %372, ptr noundef nonnull @.str.70) #14
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 24
-  %375 = load i64, ptr %374, align 8, !tbaa !41
-  store i64 %375, ptr @readtimeout, align 8, !tbaa !42
+  %375 = load i64, ptr %374, align 8, !tbaa !39
+  store i64 %375, ptr @readtimeout, align 8, !tbaa !40
   %376 = load ptr, ptr @opts, align 8, !tbaa !21
   call void @cpool_init(ptr noundef %376) #14
-  %377 = load ptr, ptr @cp, align 8, !tbaa !45
+  %377 = load ptr, ptr @cp, align 8, !tbaa !43
   %.not162 = icmp eq ptr %377, null
   br i1 %.not162, label %378, label %381
 
@@ -852,13 +852,13 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 386:                                              ; preds = %381
   %387 = call i32 @umask(i32 noundef 18) #14
   %388 = getelementptr inbounds nuw i8, ptr %383, i64 16
-  %389 = load ptr, ptr %388, align 8, !tbaa !31
+  %389 = load ptr, ptr %388, align 8, !tbaa !29
   %390 = call noalias ptr @fopen(ptr noundef %389, ptr noundef nonnull @.str.73)
   %391 = icmp eq ptr %390, null
   br i1 %391, label %.critedge, label %395
 
 .critedge:                                        ; preds = %386
-  %392 = load ptr, ptr %388, align 8, !tbaa !31
+  %392 = load ptr, ptr %388, align 8, !tbaa !29
   %393 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.74, ptr noundef %392) #14
   %394 = call i32 @umask(i32 noundef %387) #14
   br label %422
@@ -870,7 +870,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %398, label %.critedge178, label %399
 
 399:                                              ; preds = %395
-  %400 = load ptr, ptr %388, align 8, !tbaa !31
+  %400 = load ptr, ptr %388, align 8, !tbaa !29
   %401 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.74, ptr noundef %400) #14
   %402 = call i32 @fclose(ptr noundef nonnull %390)
   %403 = call i32 @umask(i32 noundef %387) #14
@@ -885,19 +885,19 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 408:                                              ; preds = %.critedge178
   %409 = call ptr @getpwuid(i32 noundef 0) #14
-  %410 = load ptr, ptr %388, align 8, !tbaa !31
+  %410 = load ptr, ptr %388, align 8, !tbaa !29
   %411 = getelementptr inbounds nuw i8, ptr %409, i64 16
-  %412 = load i32, ptr %411, align 8, !tbaa !36
+  %412 = load i32, ptr %411, align 8, !tbaa !34
   %413 = getelementptr inbounds nuw i8, ptr %409, i64 20
-  %414 = load i32, ptr %413, align 4, !tbaa !47
+  %414 = load i32, ptr %413, align 4, !tbaa !45
   %415 = call i32 @lchown(ptr noundef %410, i32 noundef %412, i32 noundef %414) #14
   %.not164 = icmp eq i32 %415, 0
   br i1 %.not164, label %.thread202, label %416
 
 416:                                              ; preds = %408
-  %417 = load ptr, ptr %388, align 8, !tbaa !31
+  %417 = load ptr, ptr %388, align 8, !tbaa !29
   %418 = tail call ptr @__errno_location() #17
-  %419 = load i32, ptr %418, align 4, !tbaa !33
+  %419 = load i32, ptr %418, align 4, !tbaa !31
   %420 = call ptr @strerror(i32 noundef %419) #14
   %421 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.76, ptr noundef %417, ptr noundef %420) #14
   br label %422
@@ -1087,13 +1087,13 @@ define internal void @milter_exit(i32 noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !31
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
   %8 = tail call i32 @unlink(ptr noundef %7) #14
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %5
-  %11 = load ptr, ptr %6, align 8, !tbaa !31
+  %11 = load ptr, ptr %6, align 8, !tbaa !29
   %12 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.78, ptr noundef %11) #14
   br label %15
 
@@ -1205,22 +1205,20 @@ attributes #17 = { nounwind willreturn memory(none) }
 !26 = !{!"p2 omnipotent char", !7, i64 0}
 !27 = !{!6, !6, i64 0}
 !28 = !{!24, !26, i64 64}
-!29 = distinct !{!29, !30}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!24, !6, i64 16}
-!32 = !{!8, !8, i64 0}
-!33 = !{!10, !10, i64 0}
+!29 = !{!24, !6, i64 16}
+!30 = !{!8, !8, i64 0}
+!31 = !{!10, !10, i64 0}
+!32 = !{!33, !10, i64 16}
+!33 = !{!"group", !6, i64 0, !6, i64 8, !10, i64 16, !26, i64 24}
 !34 = !{!35, !10, i64 16}
-!35 = !{!"group", !6, i64 0, !6, i64 8, !10, i64 16, !26, i64 24}
-!36 = !{!37, !10, i64 16}
-!37 = !{!"passwd", !6, i64 0, !6, i64 8, !10, i64 16, !10, i64 20, !6, i64 24, !6, i64 32, !6, i64 40}
-!38 = !{!37, !6, i64 0}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"short", !8, i64 0}
-!41 = !{!24, !25, i64 24}
-!42 = !{!11, !11, i64 0}
+!35 = !{!"passwd", !6, i64 0, !6, i64 8, !10, i64 16, !10, i64 20, !6, i64 24, !6, i64 32, !6, i64 40}
+!36 = !{!35, !6, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"short", !8, i64 0}
+!39 = !{!24, !25, i64 24}
+!40 = !{!11, !11, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
 !43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 _ZTS5CPOOL", !7, i64 0}
-!47 = !{!37, !10, i64 20}
+!44 = !{!"p1 _ZTS5CPOOL", !7, i64 0}
+!45 = !{!35, !10, i64 20}

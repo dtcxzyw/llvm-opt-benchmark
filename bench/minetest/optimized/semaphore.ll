@@ -110,19 +110,19 @@ if.end:                                           ; preds = %if.then
   %mul6 = mul nuw nsw i32 %rem, 1000000
   %conv = zext nneg i32 %mul6 to i64
   %tv_usec = getelementptr inbounds nuw i8, ptr %now, i64 8
-  %0 = load i64, ptr %tv_usec, align 8, !tbaa !7
+  %0 = load i64, ptr %tv_usec, align 8, !tbaa !6
   %mul7 = mul nsw i64 %0, 1000
   %add = add nsw i64 %mul7, %conv
   %tv_nsec = getelementptr inbounds nuw i8, ptr %wait_time, i64 8
   %div = udiv i32 %time_ms, 1000
   %conv8 = zext nneg i32 %div to i64
   %div10 = sdiv i64 %add, 1000000000
-  %1 = load i64, ptr %now, align 8, !tbaa !12
+  %1 = load i64, ptr %now, align 8, !tbaa !11
   %add11 = add i64 %1, %conv8
   %add12 = add i64 %add11, %div10
-  store i64 %add12, ptr %wait_time, align 8, !tbaa !13
+  store i64 %add12, ptr %wait_time, align 8, !tbaa !12
   %rem15 = srem i64 %add, 1000000000
-  store i64 %rem15, ptr %tv_nsec, align 8, !tbaa !15
+  store i64 %rem15, ptr %tv_nsec, align 8, !tbaa !14
   %call16 = call i32 @sem_timedwait(ptr noundef nonnull %this, ptr noundef nonnull %wait_time)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %now) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %wait_time) #10
@@ -182,15 +182,14 @@ attributes #11 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !9, i64 8}
-!8 = !{!"_ZTS7timeval", !9, i64 0, !9, i64 8}
-!9 = !{!"long", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C++ TBAA"}
-!12 = !{!8, !9, i64 0}
-!13 = !{!14, !9, i64 0}
-!14 = !{!"_ZTS8timespec", !9, i64 0, !9, i64 8}
-!15 = !{!14, !9, i64 8}
+!6 = !{!7, !8, i64 8}
+!7 = !{!"_ZTS7timeval", !8, i64 0, !8, i64 8}
+!8 = !{!"long", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C++ TBAA"}
+!11 = !{!7, !8, i64 0}
+!12 = !{!13, !8, i64 0}
+!13 = !{!"_ZTS8timespec", !8, i64 0, !8, i64 8}
+!14 = !{!13, !8, i64 8}

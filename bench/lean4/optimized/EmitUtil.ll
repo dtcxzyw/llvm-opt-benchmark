@@ -1036,7 +1036,7 @@ lean_inc.exit218:                                 ; preds = %163, %162, %160, %l
 .outer.backedge:                                  ; preds = %lean_inc.exit218, %169, %171, %172, %lean_dec.exit209, %lean_dec.exit207, %124, %123, %121, %lean_inc.exit215
   %.0168.ph.be = phi ptr [ %63, %lean_dec.exit209 ], [ %99, %lean_dec.exit207 ], [ %.0168.ph, %124 ], [ %.0168.ph, %123 ], [ %.0168.ph, %121 ], [ %.0168.ph, %lean_inc.exit215 ], [ %155, %172 ], [ %155, %171 ], [ %155, %169 ], [ %155, %lean_inc.exit218 ]
   %.0162.ph.be = phi ptr [ %30, %lean_dec.exit209 ], [ %66, %lean_dec.exit207 ], [ %109, %124 ], [ %109, %123 ], [ %109, %121 ], [ %109, %lean_inc.exit215 ], [ %137, %172 ], [ %137, %171 ], [ %137, %169 ], [ %137, %lean_inc.exit218 ]
-  br label %.outer, !llvm.loop !15
+  br label %.outer
 
 166:                                              ; preds = %lean_inc.exit218
   %167 = load i32, ptr %153, align 4, !tbaa !9
@@ -1371,7 +1371,7 @@ lean_inc.exit219:                                 ; preds = %289, %288, %286, %2
 
 lean_nat_lt.exit:                                 ; preds = %lean_inc.exit219, %293, %295, %296
   %297 = getelementptr i8, ptr %281, i64 8
-  %.val = load i64, ptr %297, align 8, !tbaa !17
+  %.val = load i64, ptr %297, align 8, !tbaa !15
   %.mask = and i64 %.val, 9223372036854775807
   %.not347 = icmp eq i64 %.mask, 0
   br i1 %.not347, label %lean_dec.exit193, label %lean_dec.exit189
@@ -1656,7 +1656,7 @@ declare ptr @l_Lean_IR_FnBody_body(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_CollectUsedDecls_collectFnBody___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %1, i64 8
-  %.val = load i64, ptr %7, align 8, !tbaa !17
+  %.val = load i64, ptr %7, align 8, !tbaa !15
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
@@ -1682,7 +1682,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_CollectUsedDecls_collectFnBod
 
 lean_dec.exit14:                                  ; preds = %16, %15, %13, %6
   %17 = getelementptr i8, ptr %2, i64 8
-  %.val21 = load i64, ptr %17, align 8, !tbaa !17
+  %.val21 = load i64, ptr %17, align 8, !tbaa !15
   %18 = ptrtoint ptr %2 to i64
   %19 = and i64 %18, 1
   %.not22 = icmp eq i64 %19, 0
@@ -2533,7 +2533,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   %19 = ptrtoint ptr %16 to i64
   %20 = and i64 %4, %19
   %or.cond.not = icmp eq i64 %20, 0
-  br i1 %or.cond.not, label %lean_nat_eq.exit, label %21, !prof !19
+  br i1 %or.cond.not, label %lean_nat_eq.exit, label %21, !prof !17
 
 21:                                               ; preds = %14
   %22 = icmp eq ptr %16, %0
@@ -2544,7 +2544,7 @@ lean_nat_eq.exit:                                 ; preds = %14
   br i1 %23, label %24, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %lean_nat_eq.exit, %21
-  br label %.backedge, !llvm.loop !20
+  br label %.backedge
 
 24:                                               ; preds = %21, %lean_nat_eq.exit, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %lean_nat_eq.exit ], [ 0, %lean_obj_tag.exit ], [ 1, %21 ]
@@ -2617,7 +2617,7 @@ lean_dec.exit85:                                  ; preds = %23, %22, %20, %16
   %29 = getelementptr inbounds nuw i8, ptr %.079, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !4
   %31 = getelementptr i8, ptr %.0, i64 8
-  %.0.val102 = load i64, ptr %31, align 8, !tbaa !17
+  %.0.val102 = load i64, ptr %31, align 8, !tbaa !15
   %32 = and i64 %.0.val102, 9223372036854775807
   br i1 %.not144, label %33, label %lean_inc.exit91
 
@@ -2666,7 +2666,7 @@ lean_inc.exit91:                                  ; preds = %38, %37, %35, %28
 lean_inc.exit90:                                  ; preds = %46, %45, %43, %lean_inc.exit91
   %47 = tail call ptr @lean_apply_1(ptr noundef %0, ptr noundef %27) #4
   %48 = getelementptr i8, ptr %47, i64 8
-  %.val = load i64, ptr %48, align 8, !tbaa !17
+  %.val = load i64, ptr %48, align 8, !tbaa !15
   %49 = ptrtoint ptr %47 to i64
   %50 = and i64 %49, 1
   %.not148 = icmp eq i64 %50, 0
@@ -2864,7 +2864,7 @@ lean_inc.exit87:                                  ; preds = %118, %117, %115, %l
 
 lean_dec.exit82:                                  ; preds = %125, %124, %122, %lean_inc.exit87
   %126 = getelementptr i8, ptr %.0, i64 8
-  %.0.val = load i64, ptr %126, align 8, !tbaa !17
+  %.0.val = load i64, ptr %126, align 8, !tbaa !15
   %127 = and i64 %.0.val, 9223372036854775807
   br i1 %.not144, label %128, label %lean_inc.exit86
 
@@ -2910,7 +2910,7 @@ lean_inc.exit86:                                  ; preds = %133, %132, %130, %l
 lean_inc.exit:                                    ; preds = %139, %138, %136, %lean_inc.exit86
   %140 = tail call ptr @lean_apply_1(ptr noundef %0, ptr noundef %27) #4
   %141 = getelementptr i8, ptr %140, i64 8
-  %.val103 = load i64, ptr %141, align 8, !tbaa !17
+  %.val103 = load i64, ptr %141, align 8, !tbaa !15
   %142 = ptrtoint ptr %140 to i64
   %143 = and i64 %142, 1
   %.not145 = icmp eq i64 %143, 0
@@ -3030,7 +3030,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6, !llvm.loop !21
+  br label %6
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -3077,7 +3077,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %19 = getelementptr inbounds nuw i8, ptr %.068, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = getelementptr i8, ptr %.0, i64 8
-  %.0.val78 = load i64, ptr %21, align 8, !tbaa !17
+  %.0.val78 = load i64, ptr %21, align 8, !tbaa !15
   %22 = and i64 %.0.val78, 9223372036854775807
   %23 = ptrtoint ptr %17 to i64
   %24 = and i64 %23, 1
@@ -3267,7 +3267,7 @@ lean_inc.exit:                                    ; preds = %90, %89, %87, %lean
 
 lean_dec.exit70:                                  ; preds = %97, %96, %94, %lean_inc.exit
   %98 = getelementptr i8, ptr %.0, i64 8
-  %.0.val = load i64, ptr %98, align 8, !tbaa !17
+  %.0.val = load i64, ptr %98, align 8, !tbaa !15
   %99 = and i64 %.0.val, 9223372036854775807
   br i1 %.not108, label %102, label %100
 
@@ -3376,7 +3376,7 @@ lean_array_uset.exit106:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit106, %lean_array_uset.exit
   %.068.be = phi ptr [ %20, %lean_array_uset.exit ], [ %66, %lean_array_uset.exit106 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i103, %lean_array_uset.exit106 ]
-  br label %3, !llvm.loop !22
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3388,14 +3388,14 @@ lean_dec.exit29:                                  ; preds = %lean_dec.exit29.bac
   %.024 = phi ptr [ %1, %3 ], [ %.0.i.i.i, %lean_dec.exit29.backedge ]
   %.022 = phi ptr [ %0, %3 ], [ %.022.be, %lean_dec.exit29.backedge ]
   %4 = getelementptr i8, ptr %.024, i64 8
-  %.024.val = load i64, ptr %4, align 8, !tbaa !17
+  %.024.val = load i64, ptr %4, align 8, !tbaa !15
   %5 = shl i64 %.024.val, 1
   %6 = or disjoint i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
   %8 = ptrtoint ptr %.022 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %lean_dec.exit31, label %10, !prof !23
+  br i1 %.not, label %lean_dec.exit31, label %10, !prof !18
 
 10:                                               ; preds = %lean_dec.exit29
   %11 = icmp ult ptr %.022, %7
@@ -3518,7 +3518,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %44, %lean_array_fge
 lean_array_fset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i.i, %54, %56, %57
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !4
   %58 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_IR_CollectMaps_collectVar___spec__4___at_Lean_IR_CollectMaps_collectVar___spec__5(ptr noundef %.026, ptr noundef %34)
-  br i1 %.not, label %68, label %59, !prof !23
+  br i1 %.not, label %68, label %59, !prof !18
 
 59:                                               ; preds = %lean_array_fset.exit
   %60 = add nuw i64 %31, 1
@@ -3565,7 +3565,7 @@ lean_dec.exit29.backedge:                         ; preds = %62, %66, %72, %74, 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_IR_CollectMaps_collectVar___spec__2(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %2, align 8, !tbaa !17
+  %.val = load i64, ptr %2, align 8, !tbaa !15
   %3 = shl i64 %.val, 1
   %4 = or disjoint i64 %3, 1
   %5 = inttoptr i64 %4 to ptr
@@ -3686,7 +3686,7 @@ lean_dec.exit59:                                  ; preds = %22, %21, %19, %13
   %43 = ptrtoint ptr %0 to i64
   %44 = and i64 %42, %43
   %or.cond.not = icmp eq i64 %44, 0
-  br i1 %or.cond.not, label %lean_nat_eq.exit, label %45, !prof !19
+  br i1 %or.cond.not, label %lean_nat_eq.exit, label %45, !prof !17
 
 45:                                               ; preds = %40
   %46 = icmp eq ptr %35, %0
@@ -3853,7 +3853,7 @@ lean_dec.exit55:                                  ; preds = %98, %97, %95, %lean
   %100 = and i64 %99, 1
   %101 = and i64 %100, %84
   %or.cond92.not = icmp eq i64 %101, 0
-  br i1 %or.cond92.not, label %lean_nat_eq.exit76, label %102, !prof !19
+  br i1 %or.cond92.not, label %lean_nat_eq.exit76, label %102, !prof !17
 
 102:                                              ; preds = %lean_dec.exit55
   %103 = icmp eq ptr %35, %0
@@ -3970,7 +3970,7 @@ define ptr @l_Lean_IR_CollectMaps_collectVar(ptr noundef %0, ptr noundef %1, ptr
 
 13:                                               ; preds = %7
   %14 = getelementptr i8, ptr %12, i64 8
-  %.val351 = load i64, ptr %14, align 8, !tbaa !17
+  %.val351 = load i64, ptr %14, align 8, !tbaa !15
   %15 = and i64 %.val351, 9223372036854775807
   %16 = ptrtoint ptr %0 to i64
   %17 = and i64 %16, 1
@@ -4053,7 +4053,7 @@ lean_obj_tag.exit.i:                              ; preds = %45, %42
   %54 = ptrtoint ptr %51 to i64
   %55 = and i64 %17, %54
   %or.cond.not.i = icmp eq i64 %55, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %56, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %56, !prof !17
 
 56:                                               ; preds = %49
   %57 = icmp eq ptr %51, %0
@@ -4064,13 +4064,13 @@ lean_nat_eq.exit.i:                               ; preds = %49
   br i1 %58, label %161, label %lean_array_uget.exit.backedge
 
 lean_array_uget.exit.backedge:                    ; preds = %lean_nat_eq.exit.i, %56
-  br label %lean_array_uget.exit, !llvm.loop !20
+  br label %lean_array_uget.exit
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit: ; preds = %lean_obj_tag.exit.i
   %59 = ptrtoint ptr %10 to i64
   %60 = and i64 %59, 1
   %.not532 = icmp eq i64 %60, 0
-  br i1 %.not532, label %71, label %61, !prof !23
+  br i1 %.not532, label %71, label %61, !prof !18
 
 61:                                               ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit
   %62 = lshr i64 %59, 1
@@ -4169,7 +4169,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %101 = ptrtoint ptr %.0.i279501 to i64
   %102 = and i64 %101, 1
   %.not533 = icmp eq i64 %102, 0
-  br i1 %.not533, label %.critedge.i268, label %103, !prof !23
+  br i1 %.not533, label %.critedge.i268, label %103, !prof !18
 
 103:                                              ; preds = %lean_array_uset.exit
   %104 = lshr i64 %101, 1
@@ -4202,7 +4202,7 @@ lean_nat_mul.exit273:                             ; preds = %103, %109, %113, %.
   %116 = ptrtoint ptr %.2.i269 to i64
   %117 = and i64 %116, 1
   %.not.i361 = icmp eq i64 %117, 0
-  br i1 %.not.i361, label %122, label %lean_nat_div.exit.thread, !prof !23
+  br i1 %.not.i361, label %122, label %lean_nat_div.exit.thread, !prof !18
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit273
   %118 = udiv i64 %116, 6
@@ -4233,14 +4233,14 @@ lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit27
 lean_dec.exit294:                                 ; preds = %129, %128, %126, %lean_nat_div.exit.thread
   %.1.i362503 = phi ptr [ %121, %lean_nat_div.exit.thread ], [ %123, %126 ], [ %123, %128 ], [ %123, %129 ]
   %130 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.val350 = load i64, ptr %130, align 8, !tbaa !17
+  %.val350 = load i64, ptr %130, align 8, !tbaa !15
   %131 = shl i64 %.val350, 1
   %132 = or disjoint i64 %131, 1
   %133 = inttoptr i64 %132 to ptr
   %134 = ptrtoint ptr %.1.i362503 to i64
   %135 = and i64 %134, 1
   %.not534 = icmp eq i64 %135, 0
-  br i1 %.not534, label %136, label %lean_dec.exit293.thread, !prof !23
+  br i1 %.not534, label %136, label %lean_dec.exit293.thread, !prof !18
 
 lean_dec.exit293.thread:                          ; preds = %lean_dec.exit294
   %.not540 = icmp ugt ptr %.1.i362503, %133
@@ -4269,7 +4269,7 @@ lean_dec.exit292:                                 ; preds = %142
   br i1 %137, label %160, label %144
 
 144:                                              ; preds = %143, %140, %lean_dec.exit293.thread, %lean_dec.exit292
-  %.val.i = load i64, ptr %130, align 8, !tbaa !17
+  %.val.i = load i64, ptr %130, align 8, !tbaa !15
   %145 = shl i64 %.val.i, 1
   %146 = or disjoint i64 %145, 1
   %147 = inttoptr i64 %146 to ptr
@@ -4460,7 +4460,7 @@ lean_inc.exit300:                                 ; preds = %209, %208, %206, %l
 
 lean_dec.exit291:                                 ; preds = %218, %217, %215, %lean_inc.exit300
   %219 = getelementptr i8, ptr %12, i64 8
-  %.val349 = load i64, ptr %219, align 8, !tbaa !17
+  %.val349 = load i64, ptr %219, align 8, !tbaa !15
   %220 = and i64 %.val349, 9223372036854775807
   %221 = ptrtoint ptr %0 to i64
   %222 = and i64 %221, 1
@@ -4543,7 +4543,7 @@ lean_obj_tag.exit.i390:                           ; preds = %250, %247
   %259 = ptrtoint ptr %256 to i64
   %260 = and i64 %222, %259
   %or.cond.not.i392 = icmp eq i64 %260, 0
-  br i1 %or.cond.not.i392, label %lean_nat_eq.exit.i395, label %261, !prof !19
+  br i1 %or.cond.not.i392, label %lean_nat_eq.exit.i395, label %261, !prof !17
 
 261:                                              ; preds = %254
   %262 = icmp eq ptr %256, %0
@@ -4554,10 +4554,10 @@ lean_nat_eq.exit.i395:                            ; preds = %254
   br i1 %263, label %376, label %lean_array_uget.exit387.backedge
 
 lean_array_uget.exit387.backedge:                 ; preds = %lean_nat_eq.exit.i395, %261
-  br label %lean_array_uget.exit387, !llvm.loop !20
+  br label %lean_array_uget.exit387
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit397: ; preds = %lean_obj_tag.exit.i390
-  br i1 %.not527, label %274, label %264, !prof !23
+  br i1 %.not527, label %274, label %264, !prof !18
 
 264:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit397
   %265 = lshr i64 %202, 1
@@ -4656,7 +4656,7 @@ lean_array_uset.exit406:                          ; preds = %lean_ensure_exclusi
   %304 = ptrtoint ptr %.0.i276507 to i64
   %305 = and i64 %304, 1
   %.not529 = icmp eq i64 %305, 0
-  br i1 %.not529, label %.critedge.i262, label %306, !prof !23
+  br i1 %.not529, label %.critedge.i262, label %306, !prof !18
 
 306:                                              ; preds = %lean_array_uset.exit406
   %307 = lshr i64 %304, 1
@@ -4689,7 +4689,7 @@ lean_nat_mul.exit267:                             ; preds = %306, %312, %316, %.
   %319 = ptrtoint ptr %.2.i263 to i64
   %320 = and i64 %319, 1
   %.not.i407 = icmp eq i64 %320, 0
-  br i1 %.not.i407, label %325, label %lean_nat_div.exit410.thread, !prof !23
+  br i1 %.not.i407, label %325, label %lean_nat_div.exit410.thread, !prof !18
 
 lean_nat_div.exit410.thread:                      ; preds = %lean_nat_mul.exit267
   %321 = udiv i64 %319, 6
@@ -4720,14 +4720,14 @@ lean_nat_div.exit410.thread:                      ; preds = %lean_nat_mul.exit26
 lean_dec.exit288:                                 ; preds = %332, %331, %329, %lean_nat_div.exit410.thread
   %.1.i408509 = phi ptr [ %324, %lean_nat_div.exit410.thread ], [ %326, %329 ], [ %326, %331 ], [ %326, %332 ]
   %333 = getelementptr i8, ptr %.0.i.i403, i64 8
-  %.val348 = load i64, ptr %333, align 8, !tbaa !17
+  %.val348 = load i64, ptr %333, align 8, !tbaa !15
   %334 = shl i64 %.val348, 1
   %335 = or disjoint i64 %334, 1
   %336 = inttoptr i64 %335 to ptr
   %337 = ptrtoint ptr %.1.i408509 to i64
   %338 = and i64 %337, 1
   %.not530 = icmp eq i64 %338, 0
-  br i1 %.not530, label %339, label %lean_dec.exit287.thread, !prof !23
+  br i1 %.not530, label %339, label %lean_dec.exit287.thread, !prof !18
 
 lean_dec.exit287.thread:                          ; preds = %lean_dec.exit288
   %.not539 = icmp ugt ptr %.1.i408509, %336
@@ -4756,7 +4756,7 @@ lean_dec.exit286:                                 ; preds = %345
   br i1 %340, label %369, label %347
 
 347:                                              ; preds = %346, %343, %lean_dec.exit287.thread, %lean_dec.exit286
-  %.val.i411 = load i64, ptr %333, align 8, !tbaa !17
+  %.val.i411 = load i64, ptr %333, align 8, !tbaa !15
   %348 = shl i64 %.val.i411, 1
   %349 = or disjoint i64 %348, 1
   %350 = inttoptr i64 %349 to ptr
@@ -5128,7 +5128,7 @@ lean_ctor_release.exit446:                        ; preds = %lean_ctor_release.e
 lean_dec_ref.exit335:                             ; preds = %489, %488, %486, %lean_ctor_release.exit446
   %.0259 = phi ptr [ %6, %lean_ctor_release.exit446 ], [ inttoptr (i64 1 to ptr), %486 ], [ inttoptr (i64 1 to ptr), %488 ], [ inttoptr (i64 1 to ptr), %489 ]
   %490 = getelementptr i8, ptr %453, i64 8
-  %.val347 = load i64, ptr %490, align 8, !tbaa !17
+  %.val347 = load i64, ptr %490, align 8, !tbaa !15
   %491 = and i64 %.val347, 9223372036854775807
   %492 = ptrtoint ptr %0 to i64
   %493 = and i64 %492, 1
@@ -5211,7 +5211,7 @@ lean_obj_tag.exit.i456:                           ; preds = %521, %518
   %530 = ptrtoint ptr %527 to i64
   %531 = and i64 %493, %530
   %or.cond.not.i458 = icmp eq i64 %531, 0
-  br i1 %or.cond.not.i458, label %lean_nat_eq.exit.i461, label %532, !prof !19
+  br i1 %or.cond.not.i458, label %lean_nat_eq.exit.i461, label %532, !prof !17
 
 532:                                              ; preds = %525
   %533 = icmp eq ptr %527, %0
@@ -5222,10 +5222,10 @@ lean_nat_eq.exit.i461:                            ; preds = %525
   br i1 %534, label %667, label %lean_array_uget.exit453.backedge
 
 lean_array_uget.exit453.backedge:                 ; preds = %lean_nat_eq.exit.i461, %532
-  br label %lean_array_uget.exit453, !llvm.loop !20
+  br label %lean_array_uget.exit453
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit463: ; preds = %lean_obj_tag.exit.i456
-  br i1 %.not519, label %545, label %535, !prof !23
+  br i1 %.not519, label %545, label %535, !prof !18
 
 535:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit463
   %536 = lshr i64 %444, 1
@@ -5324,7 +5324,7 @@ lean_array_uset.exit472:                          ; preds = %lean_ensure_exclusi
   %575 = ptrtoint ptr %.0.i513 to i64
   %576 = and i64 %575, 1
   %.not522 = icmp eq i64 %576, 0
-  br i1 %.not522, label %.critedge.i, label %577, !prof !23
+  br i1 %.not522, label %.critedge.i, label %577, !prof !18
 
 577:                                              ; preds = %lean_array_uset.exit472
   %578 = lshr i64 %575, 1
@@ -5357,7 +5357,7 @@ lean_nat_mul.exit:                                ; preds = %577, %583, %587, %.
   %590 = ptrtoint ptr %.2.i to i64
   %591 = and i64 %590, 1
   %.not.i473 = icmp eq i64 %591, 0
-  br i1 %.not.i473, label %596, label %lean_nat_div.exit476.thread, !prof !23
+  br i1 %.not.i473, label %596, label %lean_nat_div.exit476.thread, !prof !18
 
 lean_nat_div.exit476.thread:                      ; preds = %lean_nat_mul.exit
   %592 = udiv i64 %590, 6
@@ -5388,14 +5388,14 @@ lean_nat_div.exit476.thread:                      ; preds = %lean_nat_mul.exit
 lean_dec.exit282:                                 ; preds = %603, %602, %600, %lean_nat_div.exit476.thread
   %.1.i474515 = phi ptr [ %595, %lean_nat_div.exit476.thread ], [ %597, %600 ], [ %597, %602 ], [ %597, %603 ]
   %604 = getelementptr i8, ptr %.0.i.i469, i64 8
-  %.val346 = load i64, ptr %604, align 8, !tbaa !17
+  %.val346 = load i64, ptr %604, align 8, !tbaa !15
   %605 = shl i64 %.val346, 1
   %606 = or disjoint i64 %605, 1
   %607 = inttoptr i64 %606 to ptr
   %608 = ptrtoint ptr %.1.i474515 to i64
   %609 = and i64 %608, 1
   %.not523 = icmp eq i64 %609, 0
-  br i1 %.not523, label %610, label %lean_dec.exit281.thread, !prof !23
+  br i1 %.not523, label %610, label %lean_dec.exit281.thread, !prof !18
 
 lean_dec.exit281.thread:                          ; preds = %lean_dec.exit282
   %.not538 = icmp ugt ptr %.1.i474515, %607
@@ -5424,7 +5424,7 @@ lean_dec.exit:                                    ; preds = %616
   br i1 %611, label %650, label %618
 
 618:                                              ; preds = %617, %614, %lean_dec.exit281.thread, %lean_dec.exit
-  %.val.i477 = load i64, ptr %604, align 8, !tbaa !17
+  %.val.i477 = load i64, ptr %604, align 8, !tbaa !15
   %619 = shl i64 %.val.i477, 1
   %620 = or disjoint i64 %619, 1
   %621 = inttoptr i64 %620 to ptr
@@ -5710,7 +5710,7 @@ lean_obj_tag.exit.i:                              ; preds = %10, %7
   %19 = ptrtoint ptr %16 to i64
   %20 = and i64 %4, %19
   %or.cond.not.i = icmp eq i64 %20, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %21, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %21, !prof !17
 
 21:                                               ; preds = %14
   %22 = icmp eq ptr %16, %0
@@ -5721,7 +5721,7 @@ lean_nat_eq.exit.i:                               ; preds = %14
   br i1 %23, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %21
-  br label %.backedge.i, !llvm.loop !20
+  br label %.backedge.i
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %21, %lean_nat_eq.exit.i
   %.1.i = phi i64 [ 3, %lean_nat_eq.exit.i ], [ 1, %lean_obj_tag.exit.i ], [ 3, %21 ]
@@ -5904,7 +5904,7 @@ lean_dec.exit330:                                 ; preds = %43, %42, %40, %lean
 
 54:                                               ; preds = %48
   %55 = getelementptr i8, ptr %53, i64 8
-  %.val388 = load i64, ptr %55, align 8, !tbaa !17
+  %.val388 = load i64, ptr %55, align 8, !tbaa !15
   %56 = and i64 %.val388, 9223372036854775807
   br i1 %.not571, label %59, label %57
 
@@ -5984,7 +5984,7 @@ lean_obj_tag.exit.i:                              ; preds = %84, %81
   %93 = ptrtoint ptr %90 to i64
   %94 = and i64 %20, %93
   %or.cond.not.i = icmp eq i64 %94, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %95, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %95, !prof !17
 
 95:                                               ; preds = %88
   %96 = icmp eq ptr %90, %18
@@ -5995,13 +5995,13 @@ lean_nat_eq.exit.i:                               ; preds = %88
   br i1 %97, label %200, label %lean_array_uget.exit399.backedge
 
 lean_array_uget.exit399.backedge:                 ; preds = %lean_nat_eq.exit.i, %95
-  br label %lean_array_uget.exit399, !llvm.loop !20
+  br label %lean_array_uget.exit399
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit: ; preds = %lean_obj_tag.exit.i
   %98 = ptrtoint ptr %51 to i64
   %99 = and i64 %98, 1
   %.not590 = icmp eq i64 %99, 0
-  br i1 %.not590, label %110, label %100, !prof !23
+  br i1 %.not590, label %110, label %100, !prof !18
 
 100:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit
   %101 = lshr i64 %98, 1
@@ -6100,7 +6100,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %140 = ptrtoint ptr %.0.i312548 to i64
   %141 = and i64 %140, 1
   %.not591 = icmp eq i64 %141, 0
-  br i1 %.not591, label %.critedge.i301, label %142, !prof !23
+  br i1 %.not591, label %.critedge.i301, label %142, !prof !18
 
 142:                                              ; preds = %lean_array_uset.exit
   %143 = lshr i64 %140, 1
@@ -6133,7 +6133,7 @@ lean_nat_mul.exit306:                             ; preds = %142, %148, %152, %.
   %155 = ptrtoint ptr %.2.i302 to i64
   %156 = and i64 %155, 1
   %.not.i406 = icmp eq i64 %156, 0
-  br i1 %.not.i406, label %161, label %lean_nat_div.exit.thread, !prof !23
+  br i1 %.not.i406, label %161, label %lean_nat_div.exit.thread, !prof !18
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit306
   %157 = udiv i64 %155, 6
@@ -6164,14 +6164,14 @@ lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit30
 lean_dec.exit327:                                 ; preds = %168, %167, %165, %lean_nat_div.exit.thread
   %.1.i407550 = phi ptr [ %160, %lean_nat_div.exit.thread ], [ %162, %165 ], [ %162, %167 ], [ %162, %168 ]
   %169 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.val387 = load i64, ptr %169, align 8, !tbaa !17
+  %.val387 = load i64, ptr %169, align 8, !tbaa !15
   %170 = shl i64 %.val387, 1
   %171 = or disjoint i64 %170, 1
   %172 = inttoptr i64 %171 to ptr
   %173 = ptrtoint ptr %.1.i407550 to i64
   %174 = and i64 %173, 1
   %.not592 = icmp eq i64 %174, 0
-  br i1 %.not592, label %175, label %lean_dec.exit326.thread, !prof !23
+  br i1 %.not592, label %175, label %lean_dec.exit326.thread, !prof !18
 
 lean_dec.exit326.thread:                          ; preds = %lean_dec.exit327
   %.not613 = icmp ugt ptr %.1.i407550, %172
@@ -6200,7 +6200,7 @@ lean_dec.exit325:                                 ; preds = %181
   br i1 %176, label %199, label %183
 
 183:                                              ; preds = %182, %179, %lean_dec.exit326.thread, %lean_dec.exit325
-  %.val.i409 = load i64, ptr %169, align 8, !tbaa !17
+  %.val.i409 = load i64, ptr %169, align 8, !tbaa !15
   %184 = shl i64 %.val.i409, 1
   %185 = or disjoint i64 %184, 1
   %186 = inttoptr i64 %185 to ptr
@@ -6391,7 +6391,7 @@ lean_inc.exit334:                                 ; preds = %248, %247, %245, %l
 
 lean_dec.exit324:                                 ; preds = %257, %256, %254, %lean_inc.exit334
   %258 = getelementptr i8, ptr %53, i64 8
-  %.val386 = load i64, ptr %258, align 8, !tbaa !17
+  %.val386 = load i64, ptr %258, align 8, !tbaa !15
   %259 = and i64 %.val386, 9223372036854775807
   br i1 %.not571, label %262, label %260
 
@@ -6471,7 +6471,7 @@ lean_obj_tag.exit.i437:                           ; preds = %287, %284
   %296 = ptrtoint ptr %293 to i64
   %297 = and i64 %20, %296
   %or.cond.not.i439 = icmp eq i64 %297, 0
-  br i1 %or.cond.not.i439, label %lean_nat_eq.exit.i442, label %298, !prof !19
+  br i1 %or.cond.not.i439, label %lean_nat_eq.exit.i442, label %298, !prof !17
 
 298:                                              ; preds = %291
   %299 = icmp eq ptr %293, %18
@@ -6482,10 +6482,10 @@ lean_nat_eq.exit.i442:                            ; preds = %291
   br i1 %300, label %413, label %lean_array_uget.exit434.backedge
 
 lean_array_uget.exit434.backedge:                 ; preds = %lean_nat_eq.exit.i442, %298
-  br label %lean_array_uget.exit434, !llvm.loop !20
+  br label %lean_array_uget.exit434
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit444: ; preds = %lean_obj_tag.exit.i437
-  br i1 %.not585, label %311, label %301, !prof !23
+  br i1 %.not585, label %311, label %301, !prof !18
 
 301:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit444
   %302 = lshr i64 %241, 1
@@ -6584,7 +6584,7 @@ lean_array_uset.exit453:                          ; preds = %lean_ensure_exclusi
   %341 = ptrtoint ptr %.0.i309554 to i64
   %342 = and i64 %341, 1
   %.not587 = icmp eq i64 %342, 0
-  br i1 %.not587, label %.critedge.i295, label %343, !prof !23
+  br i1 %.not587, label %.critedge.i295, label %343, !prof !18
 
 343:                                              ; preds = %lean_array_uset.exit453
   %344 = lshr i64 %341, 1
@@ -6617,7 +6617,7 @@ lean_nat_mul.exit300:                             ; preds = %343, %349, %353, %.
   %356 = ptrtoint ptr %.2.i296 to i64
   %357 = and i64 %356, 1
   %.not.i454 = icmp eq i64 %357, 0
-  br i1 %.not.i454, label %362, label %lean_nat_div.exit457.thread, !prof !23
+  br i1 %.not.i454, label %362, label %lean_nat_div.exit457.thread, !prof !18
 
 lean_nat_div.exit457.thread:                      ; preds = %lean_nat_mul.exit300
   %358 = udiv i64 %356, 6
@@ -6648,14 +6648,14 @@ lean_nat_div.exit457.thread:                      ; preds = %lean_nat_mul.exit30
 lean_dec.exit321:                                 ; preds = %369, %368, %366, %lean_nat_div.exit457.thread
   %.1.i455556 = phi ptr [ %361, %lean_nat_div.exit457.thread ], [ %363, %366 ], [ %363, %368 ], [ %363, %369 ]
   %370 = getelementptr i8, ptr %.0.i.i450, i64 8
-  %.val385 = load i64, ptr %370, align 8, !tbaa !17
+  %.val385 = load i64, ptr %370, align 8, !tbaa !15
   %371 = shl i64 %.val385, 1
   %372 = or disjoint i64 %371, 1
   %373 = inttoptr i64 %372 to ptr
   %374 = ptrtoint ptr %.1.i455556 to i64
   %375 = and i64 %374, 1
   %.not588 = icmp eq i64 %375, 0
-  br i1 %.not588, label %376, label %lean_dec.exit320.thread, !prof !23
+  br i1 %.not588, label %376, label %lean_dec.exit320.thread, !prof !18
 
 lean_dec.exit320.thread:                          ; preds = %lean_dec.exit321
   %.not612 = icmp ugt ptr %.1.i455556, %373
@@ -6684,7 +6684,7 @@ lean_dec.exit319:                                 ; preds = %382
   br i1 %377, label %406, label %384
 
 384:                                              ; preds = %383, %380, %lean_dec.exit320.thread, %lean_dec.exit319
-  %.val.i458 = load i64, ptr %370, align 8, !tbaa !17
+  %.val.i458 = load i64, ptr %370, align 8, !tbaa !15
   %385 = shl i64 %.val.i458, 1
   %386 = or disjoint i64 %385, 1
   %387 = inttoptr i64 %386 to ptr
@@ -7056,7 +7056,7 @@ lean_ctor_release.exit493:                        ; preds = %lean_ctor_release.e
 lean_dec_ref.exit373:                             ; preds = %526, %525, %523, %lean_ctor_release.exit493
   %.0292 = phi ptr [ %47, %lean_ctor_release.exit493 ], [ inttoptr (i64 1 to ptr), %523 ], [ inttoptr (i64 1 to ptr), %525 ], [ inttoptr (i64 1 to ptr), %526 ]
   %527 = getelementptr i8, ptr %490, i64 8
-  %.val384 = load i64, ptr %527, align 8, !tbaa !17
+  %.val384 = load i64, ptr %527, align 8, !tbaa !15
   %528 = and i64 %.val384, 9223372036854775807
   br i1 %.not571, label %531, label %529
 
@@ -7136,7 +7136,7 @@ lean_obj_tag.exit.i503:                           ; preds = %556, %553
   %565 = ptrtoint ptr %562 to i64
   %566 = and i64 %20, %565
   %or.cond.not.i505 = icmp eq i64 %566, 0
-  br i1 %or.cond.not.i505, label %lean_nat_eq.exit.i508, label %567, !prof !19
+  br i1 %or.cond.not.i505, label %lean_nat_eq.exit.i508, label %567, !prof !17
 
 567:                                              ; preds = %560
   %568 = icmp eq ptr %562, %18
@@ -7147,10 +7147,10 @@ lean_nat_eq.exit.i508:                            ; preds = %560
   br i1 %569, label %702, label %lean_array_uget.exit500.backedge
 
 lean_array_uget.exit500.backedge:                 ; preds = %lean_nat_eq.exit.i508, %567
-  br label %lean_array_uget.exit500, !llvm.loop !20
+  br label %lean_array_uget.exit500
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit510: ; preds = %lean_obj_tag.exit.i503
-  br i1 %.not577, label %580, label %570, !prof !23
+  br i1 %.not577, label %580, label %570, !prof !18
 
 570:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit510
   %571 = lshr i64 %481, 1
@@ -7249,7 +7249,7 @@ lean_array_uset.exit519:                          ; preds = %lean_ensure_exclusi
   %610 = ptrtoint ptr %.0.i560 to i64
   %611 = and i64 %610, 1
   %.not580 = icmp eq i64 %611, 0
-  br i1 %.not580, label %.critedge.i, label %612, !prof !23
+  br i1 %.not580, label %.critedge.i, label %612, !prof !18
 
 612:                                              ; preds = %lean_array_uset.exit519
   %613 = lshr i64 %610, 1
@@ -7282,7 +7282,7 @@ lean_nat_mul.exit:                                ; preds = %612, %618, %622, %.
   %625 = ptrtoint ptr %.2.i to i64
   %626 = and i64 %625, 1
   %.not.i520 = icmp eq i64 %626, 0
-  br i1 %.not.i520, label %631, label %lean_nat_div.exit523.thread, !prof !23
+  br i1 %.not.i520, label %631, label %lean_nat_div.exit523.thread, !prof !18
 
 lean_nat_div.exit523.thread:                      ; preds = %lean_nat_mul.exit
   %627 = udiv i64 %625, 6
@@ -7313,14 +7313,14 @@ lean_nat_div.exit523.thread:                      ; preds = %lean_nat_mul.exit
 lean_dec.exit315:                                 ; preds = %638, %637, %635, %lean_nat_div.exit523.thread
   %.1.i521562 = phi ptr [ %630, %lean_nat_div.exit523.thread ], [ %632, %635 ], [ %632, %637 ], [ %632, %638 ]
   %639 = getelementptr i8, ptr %.0.i.i516, i64 8
-  %.val383 = load i64, ptr %639, align 8, !tbaa !17
+  %.val383 = load i64, ptr %639, align 8, !tbaa !15
   %640 = shl i64 %.val383, 1
   %641 = or disjoint i64 %640, 1
   %642 = inttoptr i64 %641 to ptr
   %643 = ptrtoint ptr %.1.i521562 to i64
   %644 = and i64 %643, 1
   %.not581 = icmp eq i64 %644, 0
-  br i1 %.not581, label %645, label %lean_dec.exit314.thread, !prof !23
+  br i1 %.not581, label %645, label %lean_dec.exit314.thread, !prof !18
 
 lean_dec.exit314.thread:                          ; preds = %lean_dec.exit315
   %.not611 = icmp ugt ptr %.1.i521562, %642
@@ -7349,7 +7349,7 @@ lean_dec.exit:                                    ; preds = %651
   br i1 %646, label %685, label %653
 
 653:                                              ; preds = %652, %649, %lean_dec.exit314.thread, %lean_dec.exit
-  %.val.i524 = load i64, ptr %639, align 8, !tbaa !17
+  %.val.i524 = load i64, ptr %639, align 8, !tbaa !15
   %654 = shl i64 %.val.i524, 1
   %655 = or disjoint i64 %654, 1
   %656 = inttoptr i64 %655 to ptr
@@ -7607,7 +7607,7 @@ lean_alloc_ctor.exit545:                          ; preds = %741
 define ptr @l_Lean_IR_CollectMaps_collectParams(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
 lean_nat_lt.exit:
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %2, align 8, !tbaa !17
+  %.val = load i64, ptr %2, align 8, !tbaa !15
   %.mask = and i64 %.val, 9223372036854775807
   %.not = icmp eq i64 %.mask, 0
   br i1 %.not, label %lean_dec.exit19, label %lean_dec.exit
@@ -7624,7 +7624,7 @@ lean_dec.exit19:                                  ; preds = %lean_nat_lt.exit, %
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_CollectMaps_collectParams___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val15 = load i64, ptr %5, align 8, !tbaa !17
+  %.val15 = load i64, ptr %5, align 8, !tbaa !15
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -7650,7 +7650,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_CollectMaps_collectParams___s
 
 lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   %15 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %15, align 8, !tbaa !17
+  %.val = load i64, ptr %15, align 8, !tbaa !15
   %16 = ptrtoint ptr %2 to i64
   %17 = and i64 %16, 1
   %.not16 = icmp eq i64 %17, 0
@@ -7706,7 +7706,7 @@ lean_dec.exit:                                    ; preds = %34, %33, %31, %lean
 ; Function Attrs: nounwind uwtable
 define ptr @l_Lean_IR_CollectMaps_collectParams___boxed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
-  %.val.i = load i64, ptr %3, align 8, !tbaa !17
+  %.val.i = load i64, ptr %3, align 8, !tbaa !15
   %.mask.i = and i64 %.val.i, 9223372036854775807
   %.not.i4 = icmp eq i64 %.mask.i, 0
   br i1 %.not.i4, label %l_Lean_IR_CollectMaps_collectParams.exit, label %lean_dec.exit.i
@@ -7781,7 +7781,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   %19 = ptrtoint ptr %16 to i64
   %20 = and i64 %4, %19
   %or.cond.not = icmp eq i64 %20, 0
-  br i1 %or.cond.not, label %lean_nat_eq.exit, label %21, !prof !19
+  br i1 %or.cond.not, label %lean_nat_eq.exit, label %21, !prof !17
 
 21:                                               ; preds = %14
   %22 = icmp eq ptr %16, %0
@@ -7792,7 +7792,7 @@ lean_nat_eq.exit:                                 ; preds = %14
   br i1 %23, label %24, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %lean_nat_eq.exit, %21
-  br label %.backedge, !llvm.loop !24
+  br label %.backedge
 
 24:                                               ; preds = %21, %lean_nat_eq.exit, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %lean_nat_eq.exit ], [ 0, %lean_obj_tag.exit ], [ 1, %21 ]
@@ -7865,7 +7865,7 @@ lean_dec.exit85:                                  ; preds = %23, %22, %20, %16
   %29 = getelementptr inbounds nuw i8, ptr %.079, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !4
   %31 = getelementptr i8, ptr %.0, i64 8
-  %.0.val102 = load i64, ptr %31, align 8, !tbaa !17
+  %.0.val102 = load i64, ptr %31, align 8, !tbaa !15
   %32 = and i64 %.0.val102, 9223372036854775807
   br i1 %.not144, label %33, label %lean_inc.exit91
 
@@ -7914,7 +7914,7 @@ lean_inc.exit91:                                  ; preds = %38, %37, %35, %28
 lean_inc.exit90:                                  ; preds = %46, %45, %43, %lean_inc.exit91
   %47 = tail call ptr @lean_apply_1(ptr noundef %0, ptr noundef %27) #4
   %48 = getelementptr i8, ptr %47, i64 8
-  %.val103 = load i64, ptr %48, align 8, !tbaa !17
+  %.val103 = load i64, ptr %48, align 8, !tbaa !15
   %49 = ptrtoint ptr %47 to i64
   %50 = and i64 %49, 1
   %.not148 = icmp eq i64 %50, 0
@@ -8112,7 +8112,7 @@ lean_inc.exit87:                                  ; preds = %118, %117, %115, %l
 
 lean_dec.exit82:                                  ; preds = %125, %124, %122, %lean_inc.exit87
   %126 = getelementptr i8, ptr %.0, i64 8
-  %.0.val = load i64, ptr %126, align 8, !tbaa !17
+  %.0.val = load i64, ptr %126, align 8, !tbaa !15
   %127 = and i64 %.0.val, 9223372036854775807
   br i1 %.not144, label %128, label %lean_inc.exit86
 
@@ -8158,7 +8158,7 @@ lean_inc.exit86:                                  ; preds = %133, %132, %130, %l
 lean_inc.exit:                                    ; preds = %139, %138, %136, %lean_inc.exit86
   %140 = tail call ptr @lean_apply_1(ptr noundef %0, ptr noundef %27) #4
   %141 = getelementptr i8, ptr %140, i64 8
-  %.val = load i64, ptr %141, align 8, !tbaa !17
+  %.val = load i64, ptr %141, align 8, !tbaa !15
   %142 = ptrtoint ptr %140 to i64
   %143 = and i64 %142, 1
   %.not145 = icmp eq i64 %143, 0
@@ -8278,7 +8278,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6, !llvm.loop !25
+  br label %6
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8323,7 +8323,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %19 = getelementptr inbounds nuw i8, ptr %.068, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = getelementptr i8, ptr %.0, i64 8
-  %.0.val78 = load i64, ptr %21, align 8, !tbaa !17
+  %.0.val78 = load i64, ptr %21, align 8, !tbaa !15
   %22 = and i64 %.0.val78, 9223372036854775807
   %23 = ptrtoint ptr %17 to i64
   %24 = and i64 %23, 1
@@ -8513,7 +8513,7 @@ lean_inc.exit:                                    ; preds = %90, %89, %87, %lean
 
 lean_dec.exit70:                                  ; preds = %97, %96, %94, %lean_inc.exit
   %98 = getelementptr i8, ptr %.0, i64 8
-  %.0.val = load i64, ptr %98, align 8, !tbaa !17
+  %.0.val = load i64, ptr %98, align 8, !tbaa !15
   %99 = and i64 %.0.val, 9223372036854775807
   br i1 %.not108, label %102, label %100
 
@@ -8622,7 +8622,7 @@ lean_array_uset.exit106:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit106, %lean_array_uset.exit
   %.068.be = phi ptr [ %20, %lean_array_uset.exit ], [ %66, %lean_array_uset.exit106 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i103, %lean_array_uset.exit106 ]
-  br label %3, !llvm.loop !26
+  br label %3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8634,14 +8634,14 @@ lean_dec.exit29:                                  ; preds = %lean_dec.exit29.bac
   %.024 = phi ptr [ %1, %3 ], [ %.0.i.i.i, %lean_dec.exit29.backedge ]
   %.022 = phi ptr [ %0, %3 ], [ %.022.be, %lean_dec.exit29.backedge ]
   %4 = getelementptr i8, ptr %.024, i64 8
-  %.024.val = load i64, ptr %4, align 8, !tbaa !17
+  %.024.val = load i64, ptr %4, align 8, !tbaa !15
   %5 = shl i64 %.024.val, 1
   %6 = or disjoint i64 %5, 1
   %7 = inttoptr i64 %6 to ptr
   %8 = ptrtoint ptr %.022 to i64
   %9 = and i64 %8, 1
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %lean_dec.exit31, label %10, !prof !23
+  br i1 %.not, label %lean_dec.exit31, label %10, !prof !18
 
 10:                                               ; preds = %lean_dec.exit29
   %11 = icmp ult ptr %.022, %7
@@ -8764,7 +8764,7 @@ lean_ensure_exclusive_array.exit.i.i:             ; preds = %44, %lean_array_fge
 lean_array_fset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i.i, %54, %56, %57
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !4
   %58 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_IR_CollectMaps_collectJP___spec__4___at_Lean_IR_CollectMaps_collectJP___spec__5(ptr noundef %.026, ptr noundef %34)
-  br i1 %.not, label %68, label %59, !prof !23
+  br i1 %.not, label %68, label %59, !prof !18
 
 59:                                               ; preds = %lean_array_fset.exit
   %60 = add nuw i64 %31, 1
@@ -8811,7 +8811,7 @@ lean_dec.exit29.backedge:                         ; preds = %62, %66, %72, %74, 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at_Lean_IR_CollectMaps_collectJP___spec__2(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val = load i64, ptr %2, align 8, !tbaa !17
+  %.val = load i64, ptr %2, align 8, !tbaa !15
   %3 = shl i64 %.val, 1
   %4 = or disjoint i64 %3, 1
   %5 = inttoptr i64 %4 to ptr
@@ -8930,7 +8930,7 @@ lean_dec.exit59:                                  ; preds = %22, %21, %19, %13
   %43 = ptrtoint ptr %0 to i64
   %44 = and i64 %42, %43
   %or.cond.not = icmp eq i64 %44, 0
-  br i1 %or.cond.not, label %lean_nat_eq.exit, label %45, !prof !19
+  br i1 %or.cond.not, label %lean_nat_eq.exit, label %45, !prof !17
 
 45:                                               ; preds = %40
   %46 = icmp eq ptr %35, %0
@@ -9097,7 +9097,7 @@ lean_dec.exit55:                                  ; preds = %98, %97, %95, %lean
   %100 = and i64 %99, 1
   %101 = and i64 %100, %84
   %or.cond92.not = icmp eq i64 %101, 0
-  br i1 %or.cond92.not, label %lean_nat_eq.exit76, label %102, !prof !19
+  br i1 %or.cond92.not, label %lean_nat_eq.exit76, label %102, !prof !17
 
 102:                                              ; preds = %lean_dec.exit55
   %103 = icmp eq ptr %35, %0
@@ -9214,7 +9214,7 @@ define ptr @l_Lean_IR_CollectMaps_collectJP(ptr noundef %0, ptr noundef %1, ptr 
 
 13:                                               ; preds = %5
   %14 = getelementptr i8, ptr %12, i64 8
-  %.val351 = load i64, ptr %14, align 8, !tbaa !17
+  %.val351 = load i64, ptr %14, align 8, !tbaa !15
   %15 = and i64 %.val351, 9223372036854775807
   %16 = ptrtoint ptr %0 to i64
   %17 = and i64 %16, 1
@@ -9297,7 +9297,7 @@ lean_obj_tag.exit.i:                              ; preds = %45, %42
   %54 = ptrtoint ptr %51 to i64
   %55 = and i64 %17, %54
   %or.cond.not.i = icmp eq i64 %55, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %56, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %56, !prof !17
 
 56:                                               ; preds = %49
   %57 = icmp eq ptr %51, %0
@@ -9308,13 +9308,13 @@ lean_nat_eq.exit.i:                               ; preds = %49
   br i1 %58, label %161, label %lean_array_uget.exit.backedge
 
 lean_array_uget.exit.backedge:                    ; preds = %lean_nat_eq.exit.i, %56
-  br label %lean_array_uget.exit, !llvm.loop !24
+  br label %lean_array_uget.exit
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit: ; preds = %lean_obj_tag.exit.i
   %59 = ptrtoint ptr %10 to i64
   %60 = and i64 %59, 1
   %.not532 = icmp eq i64 %60, 0
-  br i1 %.not532, label %71, label %61, !prof !23
+  br i1 %.not532, label %71, label %61, !prof !18
 
 61:                                               ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit
   %62 = lshr i64 %59, 1
@@ -9413,7 +9413,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %101 = ptrtoint ptr %.0.i279501 to i64
   %102 = and i64 %101, 1
   %.not533 = icmp eq i64 %102, 0
-  br i1 %.not533, label %.critedge.i268, label %103, !prof !23
+  br i1 %.not533, label %.critedge.i268, label %103, !prof !18
 
 103:                                              ; preds = %lean_array_uset.exit
   %104 = lshr i64 %101, 1
@@ -9446,7 +9446,7 @@ lean_nat_mul.exit273:                             ; preds = %103, %109, %113, %.
   %116 = ptrtoint ptr %.2.i269 to i64
   %117 = and i64 %116, 1
   %.not.i361 = icmp eq i64 %117, 0
-  br i1 %.not.i361, label %122, label %lean_nat_div.exit.thread, !prof !23
+  br i1 %.not.i361, label %122, label %lean_nat_div.exit.thread, !prof !18
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit273
   %118 = udiv i64 %116, 6
@@ -9477,14 +9477,14 @@ lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit27
 lean_dec.exit294:                                 ; preds = %129, %128, %126, %lean_nat_div.exit.thread
   %.1.i362503 = phi ptr [ %121, %lean_nat_div.exit.thread ], [ %123, %126 ], [ %123, %128 ], [ %123, %129 ]
   %130 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.val350 = load i64, ptr %130, align 8, !tbaa !17
+  %.val350 = load i64, ptr %130, align 8, !tbaa !15
   %131 = shl i64 %.val350, 1
   %132 = or disjoint i64 %131, 1
   %133 = inttoptr i64 %132 to ptr
   %134 = ptrtoint ptr %.1.i362503 to i64
   %135 = and i64 %134, 1
   %.not534 = icmp eq i64 %135, 0
-  br i1 %.not534, label %136, label %lean_dec.exit293.thread, !prof !23
+  br i1 %.not534, label %136, label %lean_dec.exit293.thread, !prof !18
 
 lean_dec.exit293.thread:                          ; preds = %lean_dec.exit294
   %.not540 = icmp ugt ptr %.1.i362503, %133
@@ -9513,7 +9513,7 @@ lean_dec.exit292:                                 ; preds = %142
   br i1 %137, label %160, label %144
 
 144:                                              ; preds = %143, %140, %lean_dec.exit293.thread, %lean_dec.exit292
-  %.val.i = load i64, ptr %130, align 8, !tbaa !17
+  %.val.i = load i64, ptr %130, align 8, !tbaa !15
   %145 = shl i64 %.val.i, 1
   %146 = or disjoint i64 %145, 1
   %147 = inttoptr i64 %146 to ptr
@@ -9704,7 +9704,7 @@ lean_inc.exit300:                                 ; preds = %209, %208, %206, %l
 
 lean_dec.exit291:                                 ; preds = %218, %217, %215, %lean_inc.exit300
   %219 = getelementptr i8, ptr %12, i64 8
-  %.val349 = load i64, ptr %219, align 8, !tbaa !17
+  %.val349 = load i64, ptr %219, align 8, !tbaa !15
   %220 = and i64 %.val349, 9223372036854775807
   %221 = ptrtoint ptr %0 to i64
   %222 = and i64 %221, 1
@@ -9787,7 +9787,7 @@ lean_obj_tag.exit.i390:                           ; preds = %250, %247
   %259 = ptrtoint ptr %256 to i64
   %260 = and i64 %222, %259
   %or.cond.not.i392 = icmp eq i64 %260, 0
-  br i1 %or.cond.not.i392, label %lean_nat_eq.exit.i395, label %261, !prof !19
+  br i1 %or.cond.not.i392, label %lean_nat_eq.exit.i395, label %261, !prof !17
 
 261:                                              ; preds = %254
   %262 = icmp eq ptr %256, %0
@@ -9798,10 +9798,10 @@ lean_nat_eq.exit.i395:                            ; preds = %254
   br i1 %263, label %376, label %lean_array_uget.exit387.backedge
 
 lean_array_uget.exit387.backedge:                 ; preds = %lean_nat_eq.exit.i395, %261
-  br label %lean_array_uget.exit387, !llvm.loop !24
+  br label %lean_array_uget.exit387
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit397: ; preds = %lean_obj_tag.exit.i390
-  br i1 %.not527, label %274, label %264, !prof !23
+  br i1 %.not527, label %274, label %264, !prof !18
 
 264:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit397
   %265 = lshr i64 %202, 1
@@ -9900,7 +9900,7 @@ lean_array_uset.exit406:                          ; preds = %lean_ensure_exclusi
   %304 = ptrtoint ptr %.0.i276507 to i64
   %305 = and i64 %304, 1
   %.not529 = icmp eq i64 %305, 0
-  br i1 %.not529, label %.critedge.i262, label %306, !prof !23
+  br i1 %.not529, label %.critedge.i262, label %306, !prof !18
 
 306:                                              ; preds = %lean_array_uset.exit406
   %307 = lshr i64 %304, 1
@@ -9933,7 +9933,7 @@ lean_nat_mul.exit267:                             ; preds = %306, %312, %316, %.
   %319 = ptrtoint ptr %.2.i263 to i64
   %320 = and i64 %319, 1
   %.not.i407 = icmp eq i64 %320, 0
-  br i1 %.not.i407, label %325, label %lean_nat_div.exit410.thread, !prof !23
+  br i1 %.not.i407, label %325, label %lean_nat_div.exit410.thread, !prof !18
 
 lean_nat_div.exit410.thread:                      ; preds = %lean_nat_mul.exit267
   %321 = udiv i64 %319, 6
@@ -9964,14 +9964,14 @@ lean_nat_div.exit410.thread:                      ; preds = %lean_nat_mul.exit26
 lean_dec.exit288:                                 ; preds = %332, %331, %329, %lean_nat_div.exit410.thread
   %.1.i408509 = phi ptr [ %324, %lean_nat_div.exit410.thread ], [ %326, %329 ], [ %326, %331 ], [ %326, %332 ]
   %333 = getelementptr i8, ptr %.0.i.i403, i64 8
-  %.val348 = load i64, ptr %333, align 8, !tbaa !17
+  %.val348 = load i64, ptr %333, align 8, !tbaa !15
   %334 = shl i64 %.val348, 1
   %335 = or disjoint i64 %334, 1
   %336 = inttoptr i64 %335 to ptr
   %337 = ptrtoint ptr %.1.i408509 to i64
   %338 = and i64 %337, 1
   %.not530 = icmp eq i64 %338, 0
-  br i1 %.not530, label %339, label %lean_dec.exit287.thread, !prof !23
+  br i1 %.not530, label %339, label %lean_dec.exit287.thread, !prof !18
 
 lean_dec.exit287.thread:                          ; preds = %lean_dec.exit288
   %.not539 = icmp ugt ptr %.1.i408509, %336
@@ -10000,7 +10000,7 @@ lean_dec.exit286:                                 ; preds = %345
   br i1 %340, label %369, label %347
 
 347:                                              ; preds = %346, %343, %lean_dec.exit287.thread, %lean_dec.exit286
-  %.val.i411 = load i64, ptr %333, align 8, !tbaa !17
+  %.val.i411 = load i64, ptr %333, align 8, !tbaa !15
   %348 = shl i64 %.val.i411, 1
   %349 = or disjoint i64 %348, 1
   %350 = inttoptr i64 %349 to ptr
@@ -10374,7 +10374,7 @@ lean_ctor_release.exit446:                        ; preds = %lean_ctor_release.e
 lean_dec_ref.exit335:                             ; preds = %491, %490, %488, %lean_ctor_release.exit446
   %.0259 = phi ptr [ %417, %lean_ctor_release.exit446 ], [ inttoptr (i64 1 to ptr), %488 ], [ inttoptr (i64 1 to ptr), %490 ], [ inttoptr (i64 1 to ptr), %491 ]
   %492 = getelementptr i8, ptr %455, i64 8
-  %.val347 = load i64, ptr %492, align 8, !tbaa !17
+  %.val347 = load i64, ptr %492, align 8, !tbaa !15
   %493 = and i64 %.val347, 9223372036854775807
   %494 = ptrtoint ptr %0 to i64
   %495 = and i64 %494, 1
@@ -10457,7 +10457,7 @@ lean_obj_tag.exit.i456:                           ; preds = %523, %520
   %532 = ptrtoint ptr %529 to i64
   %533 = and i64 %495, %532
   %or.cond.not.i458 = icmp eq i64 %533, 0
-  br i1 %or.cond.not.i458, label %lean_nat_eq.exit.i461, label %534, !prof !19
+  br i1 %or.cond.not.i458, label %lean_nat_eq.exit.i461, label %534, !prof !17
 
 534:                                              ; preds = %527
   %535 = icmp eq ptr %529, %0
@@ -10468,10 +10468,10 @@ lean_nat_eq.exit.i461:                            ; preds = %527
   br i1 %536, label %669, label %lean_array_uget.exit453.backedge
 
 lean_array_uget.exit453.backedge:                 ; preds = %lean_nat_eq.exit.i461, %534
-  br label %lean_array_uget.exit453, !llvm.loop !24
+  br label %lean_array_uget.exit453
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit463: ; preds = %lean_obj_tag.exit.i456
-  br i1 %.not519, label %547, label %537, !prof !23
+  br i1 %.not519, label %547, label %537, !prof !18
 
 537:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit463
   %538 = lshr i64 %446, 1
@@ -10570,7 +10570,7 @@ lean_array_uset.exit472:                          ; preds = %lean_ensure_exclusi
   %577 = ptrtoint ptr %.0.i513 to i64
   %578 = and i64 %577, 1
   %.not522 = icmp eq i64 %578, 0
-  br i1 %.not522, label %.critedge.i, label %579, !prof !23
+  br i1 %.not522, label %.critedge.i, label %579, !prof !18
 
 579:                                              ; preds = %lean_array_uset.exit472
   %580 = lshr i64 %577, 1
@@ -10603,7 +10603,7 @@ lean_nat_mul.exit:                                ; preds = %579, %585, %589, %.
   %592 = ptrtoint ptr %.2.i to i64
   %593 = and i64 %592, 1
   %.not.i473 = icmp eq i64 %593, 0
-  br i1 %.not.i473, label %598, label %lean_nat_div.exit476.thread, !prof !23
+  br i1 %.not.i473, label %598, label %lean_nat_div.exit476.thread, !prof !18
 
 lean_nat_div.exit476.thread:                      ; preds = %lean_nat_mul.exit
   %594 = udiv i64 %592, 6
@@ -10634,14 +10634,14 @@ lean_nat_div.exit476.thread:                      ; preds = %lean_nat_mul.exit
 lean_dec.exit282:                                 ; preds = %605, %604, %602, %lean_nat_div.exit476.thread
   %.1.i474515 = phi ptr [ %597, %lean_nat_div.exit476.thread ], [ %599, %602 ], [ %599, %604 ], [ %599, %605 ]
   %606 = getelementptr i8, ptr %.0.i.i469, i64 8
-  %.val346 = load i64, ptr %606, align 8, !tbaa !17
+  %.val346 = load i64, ptr %606, align 8, !tbaa !15
   %607 = shl i64 %.val346, 1
   %608 = or disjoint i64 %607, 1
   %609 = inttoptr i64 %608 to ptr
   %610 = ptrtoint ptr %.1.i474515 to i64
   %611 = and i64 %610, 1
   %.not523 = icmp eq i64 %611, 0
-  br i1 %.not523, label %612, label %lean_dec.exit281.thread, !prof !23
+  br i1 %.not523, label %612, label %lean_dec.exit281.thread, !prof !18
 
 lean_dec.exit281.thread:                          ; preds = %lean_dec.exit282
   %.not538 = icmp ugt ptr %.1.i474515, %609
@@ -10670,7 +10670,7 @@ lean_dec.exit:                                    ; preds = %618
   br i1 %613, label %652, label %620
 
 620:                                              ; preds = %619, %616, %lean_dec.exit281.thread, %lean_dec.exit
-  %.val.i477 = load i64, ptr %606, align 8, !tbaa !17
+  %.val.i477 = load i64, ptr %606, align 8, !tbaa !15
   %621 = shl i64 %.val.i477, 1
   %622 = or disjoint i64 %621, 1
   %623 = inttoptr i64 %622 to ptr
@@ -10956,7 +10956,7 @@ lean_obj_tag.exit.i:                              ; preds = %10, %7
   %19 = ptrtoint ptr %16 to i64
   %20 = and i64 %4, %19
   %or.cond.not.i = icmp eq i64 %20, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %21, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %21, !prof !17
 
 21:                                               ; preds = %14
   %22 = icmp eq ptr %16, %0
@@ -10967,7 +10967,7 @@ lean_nat_eq.exit.i:                               ; preds = %14
   br i1 %23, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %21
-  br label %.backedge.i, !llvm.loop !24
+  br label %.backedge.i
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %21, %lean_nat_eq.exit.i
   %.1.i = phi i64 [ 3, %lean_nat_eq.exit.i ], [ 1, %lean_obj_tag.exit.i ], [ 3, %21 ]
@@ -11241,7 +11241,7 @@ lean_dec.exit673:                                 ; preds = %48, %47, %45, %lean
 
 59:                                               ; preds = %53
   %60 = getelementptr i8, ptr %58, i64 8
-  %.val824 = load i64, ptr %60, align 8, !tbaa !17
+  %.val824 = load i64, ptr %60, align 8, !tbaa !15
   %61 = and i64 %.val824, 9223372036854775807
   br i1 %.not1233, label %64, label %62
 
@@ -11321,7 +11321,7 @@ lean_obj_tag.exit.i:                              ; preds = %89, %86
   %98 = ptrtoint ptr %95 to i64
   %99 = and i64 %15, %98
   %or.cond.not.i = icmp eq i64 %99, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %100, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %100, !prof !17
 
 100:                                              ; preds = %93
   %101 = icmp eq ptr %95, %13
@@ -11332,13 +11332,13 @@ lean_nat_eq.exit.i:                               ; preds = %93
   br i1 %102, label %191, label %lean_array_uget.exit.backedge
 
 lean_array_uget.exit.backedge:                    ; preds = %lean_nat_eq.exit.i, %100
-  br label %lean_array_uget.exit, !llvm.loop !20
+  br label %lean_array_uget.exit
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit: ; preds = %lean_obj_tag.exit.i
   %103 = ptrtoint ptr %56 to i64
   %104 = and i64 %103, 1
   %.not1254 = icmp eq i64 %104, 0
-  br i1 %.not1254, label %115, label %105, !prof !23
+  br i1 %.not1254, label %115, label %105, !prof !18
 
 105:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit
   %106 = lshr i64 %103, 1
@@ -11437,7 +11437,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   %145 = ptrtoint ptr %.0.i6281159 to i64
   %146 = and i64 %145, 1
   %.not1255 = icmp eq i64 %146, 0
-  br i1 %.not1255, label %.critedge.i608, label %147, !prof !23
+  br i1 %.not1255, label %.critedge.i608, label %147, !prof !18
 
 147:                                              ; preds = %lean_array_uset.exit
   %148 = lshr i64 %145, 1
@@ -11470,7 +11470,7 @@ lean_nat_mul.exit613:                             ; preds = %147, %153, %157, %.
   %160 = ptrtoint ptr %.2.i609 to i64
   %161 = and i64 %160, 1
   %.not.i844 = icmp eq i64 %161, 0
-  br i1 %.not.i844, label %166, label %lean_nat_div.exit.thread, !prof !23
+  br i1 %.not.i844, label %166, label %lean_nat_div.exit.thread, !prof !18
 
 lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit613
   %162 = udiv i64 %160, 6
@@ -11501,14 +11501,14 @@ lean_nat_div.exit.thread:                         ; preds = %lean_nat_mul.exit61
 lean_dec.exit670:                                 ; preds = %173, %172, %170, %lean_nat_div.exit.thread
   %.1.i8451161 = phi ptr [ %165, %lean_nat_div.exit.thread ], [ %167, %170 ], [ %167, %172 ], [ %167, %173 ]
   %174 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.val823 = load i64, ptr %174, align 8, !tbaa !17
+  %.val823 = load i64, ptr %174, align 8, !tbaa !15
   %175 = shl i64 %.val823, 1
   %176 = or disjoint i64 %175, 1
   %177 = inttoptr i64 %176 to ptr
   %178 = ptrtoint ptr %.1.i8451161 to i64
   %179 = and i64 %178, 1
   %.not1256 = icmp eq i64 %179, 0
-  br i1 %.not1256, label %180, label %lean_dec.exit669.thread, !prof !23
+  br i1 %.not1256, label %180, label %lean_dec.exit669.thread, !prof !18
 
 lean_dec.exit669.thread:                          ; preds = %lean_dec.exit670
   %.not1292 = icmp ugt ptr %.1.i8451161, %177
@@ -11702,7 +11702,7 @@ lean_inc.exit688:                                 ; preds = %239, %238, %236, %l
 
 lean_dec.exit667:                                 ; preds = %248, %247, %245, %lean_inc.exit688
   %249 = getelementptr i8, ptr %58, i64 8
-  %.val822 = load i64, ptr %249, align 8, !tbaa !17
+  %.val822 = load i64, ptr %249, align 8, !tbaa !15
   %250 = and i64 %.val822, 9223372036854775807
   br i1 %.not1233, label %253, label %251
 
@@ -11782,7 +11782,7 @@ lean_obj_tag.exit.i874:                           ; preds = %278, %275
   %287 = ptrtoint ptr %284 to i64
   %288 = and i64 %15, %287
   %or.cond.not.i876 = icmp eq i64 %288, 0
-  br i1 %or.cond.not.i876, label %lean_nat_eq.exit.i879, label %289, !prof !19
+  br i1 %or.cond.not.i876, label %lean_nat_eq.exit.i879, label %289, !prof !17
 
 289:                                              ; preds = %282
   %290 = icmp eq ptr %284, %13
@@ -11793,10 +11793,10 @@ lean_nat_eq.exit.i879:                            ; preds = %282
   br i1 %291, label %384, label %lean_array_uget.exit871.backedge
 
 lean_array_uget.exit871.backedge:                 ; preds = %lean_nat_eq.exit.i879, %289
-  br label %lean_array_uget.exit871, !llvm.loop !20
+  br label %lean_array_uget.exit871
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit881: ; preds = %lean_obj_tag.exit.i874
-  br i1 %.not1249, label %302, label %292, !prof !23
+  br i1 %.not1249, label %302, label %292, !prof !18
 
 292:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit881
   %293 = lshr i64 %232, 1
@@ -11895,7 +11895,7 @@ lean_array_uset.exit890:                          ; preds = %lean_ensure_exclusi
   %332 = ptrtoint ptr %.0.i6251165 to i64
   %333 = and i64 %332, 1
   %.not1251 = icmp eq i64 %333, 0
-  br i1 %.not1251, label %.critedge.i602, label %334, !prof !23
+  br i1 %.not1251, label %.critedge.i602, label %334, !prof !18
 
 334:                                              ; preds = %lean_array_uset.exit890
   %335 = lshr i64 %332, 1
@@ -11928,7 +11928,7 @@ lean_nat_mul.exit607:                             ; preds = %334, %340, %344, %.
   %347 = ptrtoint ptr %.2.i603 to i64
   %348 = and i64 %347, 1
   %.not.i891 = icmp eq i64 %348, 0
-  br i1 %.not.i891, label %353, label %lean_nat_div.exit894.thread, !prof !23
+  br i1 %.not.i891, label %353, label %lean_nat_div.exit894.thread, !prof !18
 
 lean_nat_div.exit894.thread:                      ; preds = %lean_nat_mul.exit607
   %349 = udiv i64 %347, 6
@@ -11959,14 +11959,14 @@ lean_nat_div.exit894.thread:                      ; preds = %lean_nat_mul.exit60
 lean_dec.exit664:                                 ; preds = %360, %359, %357, %lean_nat_div.exit894.thread
   %.1.i8921167 = phi ptr [ %352, %lean_nat_div.exit894.thread ], [ %354, %357 ], [ %354, %359 ], [ %354, %360 ]
   %361 = getelementptr i8, ptr %.0.i.i887, i64 8
-  %.val821 = load i64, ptr %361, align 8, !tbaa !17
+  %.val821 = load i64, ptr %361, align 8, !tbaa !15
   %362 = shl i64 %.val821, 1
   %363 = or disjoint i64 %362, 1
   %364 = inttoptr i64 %363 to ptr
   %365 = ptrtoint ptr %.1.i8921167 to i64
   %366 = and i64 %365, 1
   %.not1252 = icmp eq i64 %366, 0
-  br i1 %.not1252, label %367, label %lean_dec.exit663.thread, !prof !23
+  br i1 %.not1252, label %367, label %lean_dec.exit663.thread, !prof !18
 
 lean_dec.exit663.thread:                          ; preds = %lean_dec.exit664
   %.not1291 = icmp ugt ptr %.1.i8921167, %364
@@ -12317,7 +12317,7 @@ lean_ctor_release.exit924:                        ; preds = %lean_ctor_release.e
 lean_dec_ref.exit784:                             ; preds = %497, %496, %494, %lean_ctor_release.exit924
   %.0576 = phi ptr [ %52, %lean_ctor_release.exit924 ], [ inttoptr (i64 1 to ptr), %494 ], [ inttoptr (i64 1 to ptr), %496 ], [ inttoptr (i64 1 to ptr), %497 ]
   %498 = getelementptr i8, ptr %461, i64 8
-  %.val820 = load i64, ptr %498, align 8, !tbaa !17
+  %.val820 = load i64, ptr %498, align 8, !tbaa !15
   %499 = and i64 %.val820, 9223372036854775807
   br i1 %.not1233, label %502, label %500
 
@@ -12397,7 +12397,7 @@ lean_obj_tag.exit.i934:                           ; preds = %527, %524
   %536 = ptrtoint ptr %533 to i64
   %537 = and i64 %15, %536
   %or.cond.not.i936 = icmp eq i64 %537, 0
-  br i1 %or.cond.not.i936, label %lean_nat_eq.exit.i939, label %538, !prof !19
+  br i1 %or.cond.not.i936, label %lean_nat_eq.exit.i939, label %538, !prof !17
 
 538:                                              ; preds = %531
   %539 = icmp eq ptr %533, %13
@@ -12408,10 +12408,10 @@ lean_nat_eq.exit.i939:                            ; preds = %531
   br i1 %540, label %667, label %lean_array_uget.exit931.backedge
 
 lean_array_uget.exit931.backedge:                 ; preds = %lean_nat_eq.exit.i939, %538
-  br label %lean_array_uget.exit931, !llvm.loop !20
+  br label %lean_array_uget.exit931
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit941: ; preds = %lean_obj_tag.exit.i934
-  br i1 %.not1240, label %551, label %541, !prof !23
+  br i1 %.not1240, label %551, label %541, !prof !18
 
 541:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectVar___spec__1.exit941
   %542 = lshr i64 %452, 1
@@ -12510,7 +12510,7 @@ lean_array_uset.exit950:                          ; preds = %lean_ensure_exclusi
   %581 = ptrtoint ptr %.0.i6221171 to i64
   %582 = and i64 %581, 1
   %.not1243 = icmp eq i64 %582, 0
-  br i1 %.not1243, label %.critedge.i596, label %583, !prof !23
+  br i1 %.not1243, label %.critedge.i596, label %583, !prof !18
 
 583:                                              ; preds = %lean_array_uset.exit950
   %584 = lshr i64 %581, 1
@@ -12543,7 +12543,7 @@ lean_nat_mul.exit601:                             ; preds = %583, %589, %593, %.
   %596 = ptrtoint ptr %.2.i597 to i64
   %597 = and i64 %596, 1
   %.not.i951 = icmp eq i64 %597, 0
-  br i1 %.not.i951, label %602, label %lean_nat_div.exit954.thread, !prof !23
+  br i1 %.not.i951, label %602, label %lean_nat_div.exit954.thread, !prof !18
 
 lean_nat_div.exit954.thread:                      ; preds = %lean_nat_mul.exit601
   %598 = udiv i64 %596, 6
@@ -12574,14 +12574,14 @@ lean_nat_div.exit954.thread:                      ; preds = %lean_nat_mul.exit60
 lean_dec.exit658:                                 ; preds = %609, %608, %606, %lean_nat_div.exit954.thread
   %.1.i9521173 = phi ptr [ %601, %lean_nat_div.exit954.thread ], [ %603, %606 ], [ %603, %608 ], [ %603, %609 ]
   %610 = getelementptr i8, ptr %.0.i.i947, i64 8
-  %.val819 = load i64, ptr %610, align 8, !tbaa !17
+  %.val819 = load i64, ptr %610, align 8, !tbaa !15
   %611 = shl i64 %.val819, 1
   %612 = or disjoint i64 %611, 1
   %613 = inttoptr i64 %612 to ptr
   %614 = ptrtoint ptr %.1.i9521173 to i64
   %615 = and i64 %614, 1
   %.not1244 = icmp eq i64 %615, 0
-  br i1 %.not1244, label %616, label %lean_dec.exit657.thread, !prof !23
+  br i1 %.not1244, label %616, label %lean_dec.exit657.thread, !prof !18
 
 lean_dec.exit657.thread:                          ; preds = %lean_dec.exit658
   %.not1290 = icmp ugt ptr %.1.i9521173, %613
@@ -12610,7 +12610,7 @@ lean_dec.exit656:                                 ; preds = %622
   br i1 %617, label %653, label %624
 
 624:                                              ; preds = %623, %620, %lean_dec.exit657.thread, %lean_dec.exit656
-  %.val.i1293 = load i64, ptr %610, align 8, !tbaa !17
+  %.val.i1293 = load i64, ptr %610, align 8, !tbaa !15
   %625 = shl i64 %.val.i1293, 1
   %626 = or disjoint i64 %625, 1
   %627 = inttoptr i64 %626 to ptr
@@ -12959,7 +12959,7 @@ lean_dec.exit655:                                 ; preds = %762, %761, %759, %l
   %763 = tail call ptr @l_Lean_IR_CollectMaps_collectFnBody(ptr noundef %747, ptr noundef %1)
   %764 = tail call ptr @l_Lean_IR_CollectMaps_collectFnBody(ptr noundef %737, ptr noundef %763)
   %765 = getelementptr i8, ptr %727, i64 8
-  %.val.i982 = load i64, ptr %765, align 8, !tbaa !17
+  %.val.i982 = load i64, ptr %765, align 8, !tbaa !15
   %.mask.i = and i64 %.val.i982, 9223372036854775807
   %.not.i983 = icmp eq i64 %.mask.i, 0
   br i1 %.not.i983, label %l_Lean_IR_CollectMaps_collectParams.exit, label %lean_dec.exit.i
@@ -12987,7 +12987,7 @@ l_Lean_IR_CollectMaps_collectParams.exit:         ; preds = %lean_dec.exit655, %
 
 776:                                              ; preds = %768
   %777 = getelementptr i8, ptr %775, i64 8
-  %.val818 = load i64, ptr %777, align 8, !tbaa !17
+  %.val818 = load i64, ptr %777, align 8, !tbaa !15
   %778 = and i64 %.val818, 9223372036854775807
   br i1 %.not1208, label %781, label %779
 
@@ -13067,7 +13067,7 @@ lean_obj_tag.exit.i994:                           ; preds = %806, %803
   %815 = ptrtoint ptr %812 to i64
   %816 = and i64 %719, %815
   %or.cond.not.i996 = icmp eq i64 %816, 0
-  br i1 %or.cond.not.i996, label %lean_nat_eq.exit.i999, label %817, !prof !19
+  br i1 %or.cond.not.i996, label %lean_nat_eq.exit.i999, label %817, !prof !17
 
 817:                                              ; preds = %810
   %818 = icmp eq ptr %812, %717
@@ -13078,13 +13078,13 @@ lean_nat_eq.exit.i999:                            ; preds = %810
   br i1 %819, label %908, label %lean_array_uget.exit991.backedge
 
 lean_array_uget.exit991.backedge:                 ; preds = %lean_nat_eq.exit.i999, %817
-  br label %lean_array_uget.exit991, !llvm.loop !24
+  br label %lean_array_uget.exit991
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit: ; preds = %lean_obj_tag.exit.i994
   %820 = ptrtoint ptr %773 to i64
   %821 = and i64 %820, 1
   %.not1229 = icmp eq i64 %821, 0
-  br i1 %.not1229, label %832, label %822, !prof !23
+  br i1 %.not1229, label %832, label %822, !prof !18
 
 822:                                              ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit
   %823 = lshr i64 %820, 1
@@ -13183,7 +13183,7 @@ lean_array_uset.exit1010:                         ; preds = %lean_ensure_exclusi
   %862 = ptrtoint ptr %.0.i6191177 to i64
   %863 = and i64 %862, 1
   %.not1230 = icmp eq i64 %863, 0
-  br i1 %.not1230, label %.critedge.i590, label %864, !prof !23
+  br i1 %.not1230, label %.critedge.i590, label %864, !prof !18
 
 864:                                              ; preds = %lean_array_uset.exit1010
   %865 = lshr i64 %862, 1
@@ -13216,7 +13216,7 @@ lean_nat_mul.exit595:                             ; preds = %864, %870, %874, %.
   %877 = ptrtoint ptr %.2.i591 to i64
   %878 = and i64 %877, 1
   %.not.i1011 = icmp eq i64 %878, 0
-  br i1 %.not.i1011, label %883, label %lean_nat_div.exit1014.thread, !prof !23
+  br i1 %.not.i1011, label %883, label %lean_nat_div.exit1014.thread, !prof !18
 
 lean_nat_div.exit1014.thread:                     ; preds = %lean_nat_mul.exit595
   %879 = udiv i64 %877, 6
@@ -13247,14 +13247,14 @@ lean_nat_div.exit1014.thread:                     ; preds = %lean_nat_mul.exit59
 lean_dec.exit652:                                 ; preds = %890, %889, %887, %lean_nat_div.exit1014.thread
   %.1.i10121179 = phi ptr [ %882, %lean_nat_div.exit1014.thread ], [ %884, %887 ], [ %884, %889 ], [ %884, %890 ]
   %891 = getelementptr i8, ptr %.0.i.i1006, i64 8
-  %.val817 = load i64, ptr %891, align 8, !tbaa !17
+  %.val817 = load i64, ptr %891, align 8, !tbaa !15
   %892 = shl i64 %.val817, 1
   %893 = or disjoint i64 %892, 1
   %894 = inttoptr i64 %893 to ptr
   %895 = ptrtoint ptr %.1.i10121179 to i64
   %896 = and i64 %895, 1
   %.not1231 = icmp eq i64 %896, 0
-  br i1 %.not1231, label %897, label %lean_dec.exit651.thread, !prof !23
+  br i1 %.not1231, label %897, label %lean_dec.exit651.thread, !prof !18
 
 lean_dec.exit651.thread:                          ; preds = %lean_dec.exit652
   %.not1289 = icmp ugt ptr %.1.i10121179, %894
@@ -13448,7 +13448,7 @@ lean_inc.exit678:                                 ; preds = %956, %955, %953, %l
 
 lean_dec.exit649:                                 ; preds = %965, %964, %962, %lean_inc.exit678
   %966 = getelementptr i8, ptr %775, i64 8
-  %.val816 = load i64, ptr %966, align 8, !tbaa !17
+  %.val816 = load i64, ptr %966, align 8, !tbaa !15
   %967 = and i64 %.val816, 9223372036854775807
   br i1 %.not1208, label %970, label %968
 
@@ -13528,7 +13528,7 @@ lean_obj_tag.exit.i1044:                          ; preds = %995, %992
   %1004 = ptrtoint ptr %1001 to i64
   %1005 = and i64 %719, %1004
   %or.cond.not.i1046 = icmp eq i64 %1005, 0
-  br i1 %or.cond.not.i1046, label %lean_nat_eq.exit.i1049, label %1006, !prof !19
+  br i1 %or.cond.not.i1046, label %lean_nat_eq.exit.i1049, label %1006, !prof !17
 
 1006:                                             ; preds = %999
   %1007 = icmp eq ptr %1001, %717
@@ -13539,10 +13539,10 @@ lean_nat_eq.exit.i1049:                           ; preds = %999
   br i1 %1008, label %1101, label %lean_array_uget.exit1041.backedge
 
 lean_array_uget.exit1041.backedge:                ; preds = %lean_nat_eq.exit.i1049, %1006
-  br label %lean_array_uget.exit1041, !llvm.loop !24
+  br label %lean_array_uget.exit1041
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit1051: ; preds = %lean_obj_tag.exit.i1044
-  br i1 %.not1224, label %1019, label %1009, !prof !23
+  br i1 %.not1224, label %1019, label %1009, !prof !18
 
 1009:                                             ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit1051
   %1010 = lshr i64 %949, 1
@@ -13641,7 +13641,7 @@ lean_array_uset.exit1061:                         ; preds = %lean_ensure_exclusi
   %1049 = ptrtoint ptr %.0.i6161183 to i64
   %1050 = and i64 %1049, 1
   %.not1226 = icmp eq i64 %1050, 0
-  br i1 %.not1226, label %.critedge.i584, label %1051, !prof !23
+  br i1 %.not1226, label %.critedge.i584, label %1051, !prof !18
 
 1051:                                             ; preds = %lean_array_uset.exit1061
   %1052 = lshr i64 %1049, 1
@@ -13674,7 +13674,7 @@ lean_nat_mul.exit589:                             ; preds = %1051, %1057, %1061,
   %1064 = ptrtoint ptr %.2.i585 to i64
   %1065 = and i64 %1064, 1
   %.not.i1062 = icmp eq i64 %1065, 0
-  br i1 %.not.i1062, label %1070, label %lean_nat_div.exit1065.thread, !prof !23
+  br i1 %.not.i1062, label %1070, label %lean_nat_div.exit1065.thread, !prof !18
 
 lean_nat_div.exit1065.thread:                     ; preds = %lean_nat_mul.exit589
   %1066 = udiv i64 %1064, 6
@@ -13705,14 +13705,14 @@ lean_nat_div.exit1065.thread:                     ; preds = %lean_nat_mul.exit58
 lean_dec.exit646:                                 ; preds = %1077, %1076, %1074, %lean_nat_div.exit1065.thread
   %.1.i10631185 = phi ptr [ %1069, %lean_nat_div.exit1065.thread ], [ %1071, %1074 ], [ %1071, %1076 ], [ %1071, %1077 ]
   %1078 = getelementptr i8, ptr %.0.i.i1057, i64 8
-  %.val815 = load i64, ptr %1078, align 8, !tbaa !17
+  %.val815 = load i64, ptr %1078, align 8, !tbaa !15
   %1079 = shl i64 %.val815, 1
   %1080 = or disjoint i64 %1079, 1
   %1081 = inttoptr i64 %1080 to ptr
   %1082 = ptrtoint ptr %.1.i10631185 to i64
   %1083 = and i64 %1082, 1
   %.not1227 = icmp eq i64 %1083, 0
-  br i1 %.not1227, label %1084, label %lean_dec.exit645.thread, !prof !23
+  br i1 %.not1227, label %1084, label %lean_dec.exit645.thread, !prof !18
 
 lean_dec.exit645.thread:                          ; preds = %lean_dec.exit646
   %.not1288 = icmp ugt ptr %.1.i10631185, %1081
@@ -14065,7 +14065,7 @@ lean_ctor_release.exit1100:                       ; preds = %lean_ctor_release.e
 lean_dec_ref.exit782:                             ; preds = %1216, %1215, %1213, %lean_ctor_release.exit1100
   %.0580 = phi ptr [ %1142, %lean_ctor_release.exit1100 ], [ inttoptr (i64 1 to ptr), %1213 ], [ inttoptr (i64 1 to ptr), %1215 ], [ inttoptr (i64 1 to ptr), %1216 ]
   %1217 = getelementptr i8, ptr %1180, i64 8
-  %.val814 = load i64, ptr %1217, align 8, !tbaa !17
+  %.val814 = load i64, ptr %1217, align 8, !tbaa !15
   %1218 = and i64 %.val814, 9223372036854775807
   br i1 %.not1208, label %1221, label %1219
 
@@ -14145,7 +14145,7 @@ lean_obj_tag.exit.i1110:                          ; preds = %1246, %1243
   %1255 = ptrtoint ptr %1252 to i64
   %1256 = and i64 %719, %1255
   %or.cond.not.i1112 = icmp eq i64 %1256, 0
-  br i1 %or.cond.not.i1112, label %lean_nat_eq.exit.i1115, label %1257, !prof !19
+  br i1 %or.cond.not.i1112, label %lean_nat_eq.exit.i1115, label %1257, !prof !17
 
 1257:                                             ; preds = %1250
   %1258 = icmp eq ptr %1252, %717
@@ -14156,10 +14156,10 @@ lean_nat_eq.exit.i1115:                           ; preds = %1250
   br i1 %1259, label %1386, label %lean_array_uget.exit1107.backedge
 
 lean_array_uget.exit1107.backedge:                ; preds = %lean_nat_eq.exit.i1115, %1257
-  br label %lean_array_uget.exit1107, !llvm.loop !24
+  br label %lean_array_uget.exit1107
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit1117: ; preds = %lean_obj_tag.exit.i1110
-  br i1 %.not1216, label %1270, label %1260, !prof !23
+  br i1 %.not1216, label %1270, label %1260, !prof !18
 
 1260:                                             ; preds = %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_IR_CollectMaps_collectJP___spec__1.exit1117
   %1261 = lshr i64 %1171, 1
@@ -14258,7 +14258,7 @@ lean_array_uset.exit1127:                         ; preds = %lean_ensure_exclusi
   %1300 = ptrtoint ptr %.0.i1189 to i64
   %1301 = and i64 %1300, 1
   %.not1219 = icmp eq i64 %1301, 0
-  br i1 %.not1219, label %.critedge.i, label %1302, !prof !23
+  br i1 %.not1219, label %.critedge.i, label %1302, !prof !18
 
 1302:                                             ; preds = %lean_array_uset.exit1127
   %1303 = lshr i64 %1300, 1
@@ -14291,7 +14291,7 @@ lean_nat_mul.exit:                                ; preds = %1302, %1308, %1312,
   %1315 = ptrtoint ptr %.2.i to i64
   %1316 = and i64 %1315, 1
   %.not.i1128 = icmp eq i64 %1316, 0
-  br i1 %.not.i1128, label %1321, label %lean_nat_div.exit1131.thread, !prof !23
+  br i1 %.not.i1128, label %1321, label %lean_nat_div.exit1131.thread, !prof !18
 
 lean_nat_div.exit1131.thread:                     ; preds = %lean_nat_mul.exit
   %1317 = udiv i64 %1315, 6
@@ -14322,14 +14322,14 @@ lean_nat_div.exit1131.thread:                     ; preds = %lean_nat_mul.exit
 lean_dec.exit640:                                 ; preds = %1328, %1327, %1325, %lean_nat_div.exit1131.thread
   %.1.i11291191 = phi ptr [ %1320, %lean_nat_div.exit1131.thread ], [ %1322, %1325 ], [ %1322, %1327 ], [ %1322, %1328 ]
   %1329 = getelementptr i8, ptr %.0.i.i1123, i64 8
-  %.val813 = load i64, ptr %1329, align 8, !tbaa !17
+  %.val813 = load i64, ptr %1329, align 8, !tbaa !15
   %1330 = shl i64 %.val813, 1
   %1331 = or disjoint i64 %1330, 1
   %1332 = inttoptr i64 %1331 to ptr
   %1333 = ptrtoint ptr %.1.i11291191 to i64
   %1334 = and i64 %1333, 1
   %.not1220 = icmp eq i64 %1334, 0
-  br i1 %.not1220, label %1335, label %lean_dec.exit639.thread, !prof !23
+  br i1 %.not1220, label %1335, label %lean_dec.exit639.thread, !prof !18
 
 lean_dec.exit639.thread:                          ; preds = %lean_dec.exit640
   %.not1287 = icmp ugt ptr %.1.i11291191, %1332
@@ -14358,7 +14358,7 @@ lean_dec.exit638:                                 ; preds = %1341
   br i1 %1336, label %1372, label %1343
 
 1343:                                             ; preds = %1342, %1339, %lean_dec.exit639.thread, %lean_dec.exit638
-  %.val.i1296 = load i64, ptr %1329, align 8, !tbaa !17
+  %.val.i1296 = load i64, ptr %1329, align 8, !tbaa !15
   %1344 = shl i64 %.val.i1296, 1
   %1345 = or disjoint i64 %1344, 1
   %1346 = inttoptr i64 %1345 to ptr
@@ -14627,7 +14627,7 @@ lean_inc.exit:                                    ; preds = %1444, %1443, %1441,
 
 lean_nat_lt.exit:                                 ; preds = %lean_inc.exit, %1448, %1450, %1451
   %1452 = getelementptr i8, ptr %1436, i64 8
-  %.val812 = load i64, ptr %1452, align 8, !tbaa !17
+  %.val812 = load i64, ptr %1452, align 8, !tbaa !15
   %.mask = and i64 %.val812, 9223372036854775807
   %.not1206 = icmp eq i64 %.mask, 0
   br i1 %.not1206, label %lean_dec.exit636, label %.lr.ph
@@ -14795,7 +14795,7 @@ lean_dec.exit635:                                 ; preds = %1504, %1508, %1510,
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_CollectMaps_collectFnBody___spec__1___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 8
-  %.val15 = load i64, ptr %5, align 8, !tbaa !17
+  %.val15 = load i64, ptr %5, align 8, !tbaa !15
   %6 = ptrtoint ptr %1 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
@@ -14821,7 +14821,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_IR_CollectMaps_collectFnBody___s
 
 lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   %15 = getelementptr i8, ptr %2, i64 8
-  %.val = load i64, ptr %15, align 8, !tbaa !17
+  %.val = load i64, ptr %15, align 8, !tbaa !15
   %16 = ptrtoint ptr %2 to i64
   %17 = and i64 %16, 1
   %.not17 = icmp eq i64 %17, 0
@@ -15034,7 +15034,7 @@ lean_inc.exit:                                    ; preds = %29, %28, %26, %lean
 lean_dec.exit16:                                  ; preds = %36, %35, %33, %lean_inc.exit
   %37 = tail call ptr @l_Lean_IR_CollectMaps_collectFnBody(ptr noundef %21, ptr noundef %1)
   %38 = getelementptr i8, ptr %11, i64 8
-  %.val.i28 = load i64, ptr %38, align 8, !tbaa !17
+  %.val.i28 = load i64, ptr %38, align 8, !tbaa !15
   %.mask.i = and i64 %.val.i28, 9223372036854775807
   %.not.i29 = icmp eq i64 %.mask.i, 0
   br i1 %.not.i29, label %l_Lean_IR_CollectMaps_collectParams.exit, label %lean_dec.exit.i
@@ -15299,15 +15299,7 @@ attributes #5 = { noreturn nounwind }
 !12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"short", !6, i64 0}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !6, i64 0}
-!19 = !{!"branch_weights", i32 4001, i32 4000000}
-!20 = distinct !{!20, !16}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
-!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!24 = distinct !{!24, !16}
-!25 = distinct !{!25, !16}
-!26 = distinct !{!26, !16}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !6, i64 0}
+!17 = !{!"branch_weights", i32 4001, i32 4000000}
+!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}

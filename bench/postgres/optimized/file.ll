@@ -68,7 +68,7 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
 16:                                               ; preds = %7
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next37.i, 64
-  br i1 %exitcond39.not.i, label %.preheader26.i, label %.preheader28.i, !llvm.loop !7
+  br i1 %exitcond39.not.i, label %.preheader26.i, label %.preheader28.i, !llvm.loop !6
 
 .preheader26.i:                                   ; preds = %16, %24
   %17 = phi i1 [ false, %24 ], [ true, %16 ]
@@ -84,10 +84,10 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
   store i32 %23, ptr %19, align 4
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next41.i, 32
-  br i1 %exitcond43.not.i, label %24, label %18, !llvm.loop !8
+  br i1 %exitcond43.not.i, label %24, label %18, !llvm.loop !7
 
 24:                                               ; preds = %18
-  br i1 %17, label %.preheader26.i, label %.preheader.i, !llvm.loop !9
+  br i1 %17, label %.preheader26.i, label %.preheader.i, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %24, %.preheader.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.preheader.i ], [ 0, %24 ]
@@ -97,7 +97,7 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
   %27 = xor i32 %26, %.034.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 32
-  br i1 %exitcond47.not.i, label %pg_checksum_block.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond47.not.i, label %pg_checksum_block.exit, label %.preheader.i, !llvm.loop !9
 
 pg_checksum_block.exit:                           ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3) #10
@@ -215,7 +215,7 @@ define dso_local void @copyFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   store i32 0, ptr %22, align 4
   %23 = tail call i64 @write(i32 noundef %10, ptr noundef %14, i64 noundef %16) #10
   %.not = icmp eq i64 %23, %16
-  br i1 %.not, label %15, label %24, !llvm.loop !11
+  br i1 %.not, label %15, label %24
 
 24:                                               ; preds = %21
   %25 = load i32, ptr %22, align 4
@@ -278,7 +278,7 @@ define dso_local void @copyFileByRange(ptr noundef %0, ptr noundef %1, ptr nound
 
 16:                                               ; preds = %.preheader
   %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %17, label %.preheader, !llvm.loop !12
+  br i1 %.not, label %17, label %.preheader, !llvm.loop !10
 
 17:                                               ; preds = %16
   %18 = tail call i32 @close(i32 noundef %5) #10
@@ -412,14 +412,14 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   %.1 = or i16 %48, %.06295
   %49 = add nuw nsw i32 %.06196, 1
   %exitcond.not = icmp eq i32 %49, 8
-  br i1 %exitcond.not, label %50, label %42, !llvm.loop !13
+  br i1 %exitcond.not, label %50, label %42, !llvm.loop !11
 
 50:                                               ; preds = %42
   store i16 %.1, ptr %.06998, align 1
   %51 = getelementptr inbounds nuw i8, ptr %.17197, i64 1
   %52 = getelementptr inbounds nuw i8, ptr %.06998, i64 2
   %53 = icmp ult ptr %51, %.072.ptr105
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %50, %36
   %.171.lcssa = phi ptr [ %.070103, %36 ], [ %51, %50 ]
@@ -461,7 +461,7 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
 67:                                               ; preds = %58
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
   %exitcond39.not.i.i = icmp eq i64 %indvars.iv.next37.i.i, 64
-  br i1 %exitcond39.not.i.i, label %.preheader26.i.i, label %.preheader28.i.i, !llvm.loop !7
+  br i1 %exitcond39.not.i.i, label %.preheader26.i.i, label %.preheader28.i.i, !llvm.loop !6
 
 .preheader26.i.i:                                 ; preds = %67, %75
   %68 = phi i1 [ false, %75 ], [ true, %67 ]
@@ -477,10 +477,10 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   store i32 %74, ptr %70, align 4
   %indvars.iv.next41.i.i = add nuw nsw i64 %indvars.iv40.i.i, 1
   %exitcond43.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, 32
-  br i1 %exitcond43.not.i.i, label %75, label %69, !llvm.loop !8
+  br i1 %exitcond43.not.i.i, label %75, label %69, !llvm.loop !7
 
 75:                                               ; preds = %69
-  br i1 %68, label %.preheader26.i.i, label %.preheader.i.i, !llvm.loop !9
+  br i1 %68, label %.preheader26.i.i, label %.preheader.i.i, !llvm.loop !8
 
 .preheader.i.i:                                   ; preds = %75, %.preheader.i.i
   %indvars.iv44.i.i = phi i64 [ %indvars.iv.next45.i.i, %.preheader.i.i ], [ 0, %75 ]
@@ -490,7 +490,7 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   %78 = xor i32 %77, %.034.i.i
   %indvars.iv.next45.i.i = add nuw nsw i64 %indvars.iv44.i.i, 1
   %exitcond47.not.i.i = icmp eq i64 %indvars.iv.next45.i.i, 32
-  br i1 %exitcond47.not.i.i, label %pg_checksum_page.exit, label %.preheader.i.i, !llvm.loop !10
+  br i1 %exitcond47.not.i.i, label %pg_checksum_page.exit, label %.preheader.i.i, !llvm.loop !9
 
 pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #10
@@ -526,12 +526,12 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   %92 = add i32 %.165104, 1
   %.072.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.072.add
   %.not81 = icmp samesign ugt i64 %.072.idx102, 4108
-  br i1 %.not81, label %.thread, label %36, !llvm.loop !15
+  br i1 %.not81, label %.thread, label %36
 
 .thread:                                          ; preds = %._crit_edge, %91
   %.165.lcssa = phi i32 [ %.165104, %._crit_edge ], [ %92, %91 ]
   %93 = icmp slt i64 %34, %22
-  br i1 %93, label %27, label %._crit_edge110, !llvm.loop !16
+  br i1 %93, label %27, label %._crit_edge110, !llvm.loop !13
 
 ._crit_edge110:                                   ; preds = %.thread, %20
   %94 = call i32 @close(i32 noundef %17) #10
@@ -690,16 +690,13 @@ attributes #12 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

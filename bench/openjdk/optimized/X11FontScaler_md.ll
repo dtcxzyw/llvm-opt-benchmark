@@ -978,7 +978,7 @@ define noundef i64 @AWTFontGenerateImage(ptr noundef readonly captures(none) %0,
 .loopexit.us:                                     ; preds = %262, %._crit_edge.us
   %264 = add nuw nsw i32 %.0162211.us, 1
   %exitcond224.not = icmp eq i32 %264, %48
-  br i1 %exitcond224.not, label %._crit_edge214, label %.lr.ph.us, !llvm.loop !9
+  br i1 %exitcond224.not, label %._crit_edge214, label %.lr.ph.us, !llvm.loop !8
 
 265:                                              ; preds = %.lr.ph.us, %268
   %.0157204.us = phi ptr [ %.0167209.us, %.lr.ph.us ], [ %.2159.us, %268 ]
@@ -992,7 +992,7 @@ define noundef i64 @AWTFontGenerateImage(ptr noundef readonly captures(none) %0,
   %269 = getelementptr inbounds nuw i8, ptr %.0161203.us, i64 1
   %270 = add nuw nsw i32 %.0163202.us, 1
   %exitcond222.not = icmp eq i32 %270, %238
-  br i1 %exitcond222.not, label %._crit_edge.us, label %265, !llvm.loop !11
+  br i1 %exitcond222.not, label %._crit_edge.us, label %265, !llvm.loop !10
 
 271:                                              ; preds = %283, %265
   %.0156201.us = phi i32 [ %267, %265 ], [ %.1.us, %283 ]
@@ -1023,7 +1023,7 @@ define noundef i64 @AWTFontGenerateImage(ptr noundef readonly captures(none) %0,
   %.2159.us = getelementptr inbounds nuw i8, ptr %.1158200.us, i64 1
   %284 = add nuw nsw i32 %.0164199.us, 1
   %exitcond221.not = icmp eq i32 %284, 8
-  br i1 %exitcond221.not, label %268, label %271, !llvm.loop !12
+  br i1 %exitcond221.not, label %268, label %271, !llvm.loop !11
 
 ._crit_edge.us:                                   ; preds = %268
   %285 = getelementptr inbounds i8, ptr %.0166210.us, i64 %243
@@ -1077,7 +1077,7 @@ define noundef i64 @AWTFontGenerateImage(ptr noundef readonly captures(none) %0,
   %304 = getelementptr inbounds i8, ptr %.0167209, i64 %244
   %305 = add nuw nsw i32 %.0162211, 1
   %exitcond220.not = icmp eq i32 %305, %48
-  br i1 %exitcond220.not, label %._crit_edge214, label %.lr.ph213.split.split, !llvm.loop !13
+  br i1 %exitcond220.not, label %._crit_edge214, label %.lr.ph213.split.split, !llvm.loop !12
 
 ._crit_edge214:                                   ; preds = %.loopexit, %.loopexit.us, %.lr.ph213.split, %234
   %306 = getelementptr inbounds nuw i8, ptr %201, i64 96
@@ -1200,11 +1200,10 @@ attributes #9 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}

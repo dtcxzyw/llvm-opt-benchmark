@@ -150,13 +150,13 @@ define internal fastcc i32 @encode_frame(ptr noundef %0, ptr noundef %1, i32 nou
 
 ._crit_edge:                                      ; preds = %33, %5
   %41 = getelementptr i8, ptr %8, i64 24
-  %42 = load i32, ptr %41, align 8, !tbaa !53
+  %42 = load i32, ptr %41, align 8, !tbaa !52
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %.thread, label %43
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr i8, ptr %8, i64 28
-  %.val29 = load i32, ptr %44, align 4, !tbaa !54
+  %.val29 = load i32, ptr %44, align 4, !tbaa !53
   %.not32 = icmp ult i32 %42, %.val29
   br i1 %.not32, label %.thread, label %.thread.sink.split
 
@@ -188,10 +188,10 @@ define internal fastcc void @srt_style_apply(ptr noundef %0, ptr noundef %1) unn
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !55
+  %8 = load i32, ptr %7, align 4, !tbaa !54
   %9 = and i32 %8, 16777215
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !57
+  %11 = load ptr, ptr %10, align 8, !tbaa !56
   %.not41 = icmp eq ptr %11, null
   br i1 %.not41, label %14, label %12
 
@@ -202,7 +202,7 @@ define internal fastcc void @srt_style_apply(ptr noundef %0, ptr noundef %1) unn
 
 14:                                               ; preds = %12, %6
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %16 = load i32, ptr %15, align 8, !tbaa !58
+  %16 = load i32, ptr %15, align 8, !tbaa !57
   %17 = icmp ne i32 %16, 16
   %18 = icmp ne i32 %9, 16777215
   %or.cond = select i1 %17, i1 true, i1 %18
@@ -210,7 +210,7 @@ define internal fastcc void @srt_style_apply(ptr noundef %0, ptr noundef %1) unn
 
 19:                                               ; preds = %14, %12
   tail call void (ptr, ptr, ...) @srt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.8)
-  %20 = load ptr, ptr %10, align 8, !tbaa !57
+  %20 = load ptr, ptr %10, align 8, !tbaa !56
   %.not43 = icmp eq ptr %20, null
   br i1 %.not43, label %24, label %21
 
@@ -225,7 +225,7 @@ define internal fastcc void @srt_style_apply(ptr noundef %0, ptr noundef %1) unn
 
 24:                                               ; preds = %23, %21, %19
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !58
+  %26 = load i32, ptr %25, align 8, !tbaa !57
   %.not45 = icmp eq i32 %26, 16
   br i1 %.not45, label %28, label %27
 
@@ -251,88 +251,88 @@ define internal fastcc void @srt_style_apply(ptr noundef %0, ptr noundef %1) unn
 37:                                               ; preds = %29, %28
   tail call void (ptr, ptr, ...) @srt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.12)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %39 = load i32, ptr %38, align 8, !tbaa !59
+  %39 = load i32, ptr %38, align 8, !tbaa !58
   %40 = icmp sgt i32 %39, 63
   br i1 %40, label %srt_stack_push.exit, label %41
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %43 = add nsw i32 %39, 1
-  store i32 %43, ptr %38, align 8, !tbaa !59
+  store i32 %43, ptr %38, align 8, !tbaa !58
   %44 = sext i32 %39 to i64
   %45 = getelementptr inbounds [64 x i8], ptr %42, i64 0, i64 %44
-  store i8 102, ptr %45, align 1, !tbaa !60
+  store i8 102, ptr %45, align 1, !tbaa !59
   br label %srt_stack_push.exit
 
 srt_stack_push.exit:                              ; preds = %41, %37, %14
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %47 = load i32, ptr %46, align 4, !tbaa !61
+  %47 = load i32, ptr %46, align 4, !tbaa !60
   %.not47 = icmp eq i32 %47, 0
   br i1 %.not47, label %srt_stack_push.exit52, label %48
 
 48:                                               ; preds = %srt_stack_push.exit
   tail call void (ptr, ptr, ...) @srt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.13)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %50 = load i32, ptr %49, align 8, !tbaa !59
+  %50 = load i32, ptr %49, align 8, !tbaa !58
   %51 = icmp sgt i32 %50, 63
   br i1 %51, label %srt_stack_push.exit52, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %54 = add nsw i32 %50, 1
-  store i32 %54, ptr %49, align 8, !tbaa !59
+  store i32 %54, ptr %49, align 8, !tbaa !58
   %55 = sext i32 %50 to i64
   %56 = getelementptr inbounds [64 x i8], ptr %53, i64 0, i64 %55
-  store i8 98, ptr %56, align 1, !tbaa !60
+  store i8 98, ptr %56, align 1, !tbaa !59
   br label %srt_stack_push.exit52
 
 srt_stack_push.exit52:                            ; preds = %52, %48, %srt_stack_push.exit
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %58 = load i32, ptr %57, align 8, !tbaa !62
+  %58 = load i32, ptr %57, align 8, !tbaa !61
   %.not48 = icmp eq i32 %58, 0
   br i1 %.not48, label %srt_stack_push.exit54, label %59
 
 59:                                               ; preds = %srt_stack_push.exit52
   tail call void (ptr, ptr, ...) @srt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.14)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %61 = load i32, ptr %60, align 8, !tbaa !59
+  %61 = load i32, ptr %60, align 8, !tbaa !58
   %62 = icmp sgt i32 %61, 63
   br i1 %62, label %srt_stack_push.exit54, label %63
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %65 = add nsw i32 %61, 1
-  store i32 %65, ptr %60, align 8, !tbaa !59
+  store i32 %65, ptr %60, align 8, !tbaa !58
   %66 = sext i32 %61 to i64
   %67 = getelementptr inbounds [64 x i8], ptr %64, i64 0, i64 %66
-  store i8 105, ptr %67, align 1, !tbaa !60
+  store i8 105, ptr %67, align 1, !tbaa !59
   br label %srt_stack_push.exit54
 
 srt_stack_push.exit54:                            ; preds = %63, %59, %srt_stack_push.exit52
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %69 = load i32, ptr %68, align 4, !tbaa !63
+  %69 = load i32, ptr %68, align 4, !tbaa !62
   %.not49 = icmp eq i32 %69, 0
   br i1 %.not49, label %srt_stack_push.exit56, label %70
 
 70:                                               ; preds = %srt_stack_push.exit54
   tail call void (ptr, ptr, ...) @srt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.15)
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %72 = load i32, ptr %71, align 8, !tbaa !59
+  %72 = load i32, ptr %71, align 8, !tbaa !58
   %73 = icmp sgt i32 %72, 63
   br i1 %73, label %srt_stack_push.exit56, label %74
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %76 = add nsw i32 %72, 1
-  store i32 %76, ptr %71, align 8, !tbaa !59
+  store i32 %76, ptr %71, align 8, !tbaa !58
   %77 = sext i32 %72 to i64
   %78 = getelementptr inbounds [64 x i8], ptr %75, i64 0, i64 %77
-  store i8 117, ptr %78, align 1, !tbaa !60
+  store i8 117, ptr %78, align 1, !tbaa !59
   br label %srt_stack_push.exit56
 
 srt_stack_push.exit56:                            ; preds = %74, %70, %srt_stack_push.exit54
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %80 = load i32, ptr %79, align 8, !tbaa !64
+  %80 = load i32, ptr %79, align 8, !tbaa !63
   %.not50 = icmp eq i32 %80, 2
   br i1 %.not50, label %83, label %81
 
@@ -396,7 +396,7 @@ define internal void @srt_style_cb(ptr noundef %0, i8 noundef signext %1, i32 no
 4:                                                ; preds = %3
   %.not11.i = icmp eq i8 %1, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !59
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !58
   br i1 %.not11.i, label %.preheader.i, label %5
 
 5:                                                ; preds = %4
@@ -416,9 +416,9 @@ define internal void @srt_style_cb(ptr noundef %0, i8 noundef signext %1, i32 no
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %13 = and i64 %indvars.iv.next.i.i, 4294967295
   %14 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !60
+  %15 = load i8, ptr %14, align 1, !tbaa !59
   %16 = icmp eq i8 %15, %1
-  br i1 %16, label %.split.loop.exit.i.i, label %9, !llvm.loop !65
+  br i1 %16, label %.split.loop.exit.i.i, label %9, !llvm.loop !64
 
 .split.loop.exit.i.i:                             ; preds = %12
   %indvars.le.i.i = trunc i64 %indvars.iv.next.i.i to i32
@@ -446,10 +446,10 @@ srt_stack_find.exit.i:                            ; preds = %9, %.split.loop.exi
 
 srt_stack_pop.exit.i:                             ; preds = %22
   %25 = add nsw i32 %23, -1
-  store i32 %25, ptr %20, align 8, !tbaa !59
+  store i32 %25, ptr %20, align 8, !tbaa !58
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 0, i64 %26
-  %28 = load i8, ptr %27, align 1, !tbaa !60
+  %28 = load i8, ptr %27, align 1, !tbaa !59
   %.fr.i = freeze i8 %28
   %29 = sext i8 %.fr.i to i32
   %30 = icmp eq i8 %.fr.i, 102
@@ -460,23 +460,23 @@ srt_stack_pop.exit.thread.i:                      ; preds = %srt_stack_pop.exit.
   %31 = phi i32 [ 0, %22 ], [ %29, %srt_stack_pop.exit.i ]
   %32 = phi ptr [ @.str.22, %22 ], [ %spec.select.i, %srt_stack_pop.exit.i ]
   tail call void (ptr, ptr, ...) @srt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %31, ptr noundef nonnull %32)
-  %33 = load i32, ptr %20, align 8, !tbaa !59
+  %33 = load i32, ptr %20, align 8, !tbaa !58
   %.not12.i = icmp eq i32 %33, %19
-  br i1 %.not12.i, label %srt_stack_push_pop.exit, label %22, !llvm.loop !66
+  br i1 %.not12.i, label %srt_stack_push_pop.exit, label %22, !llvm.loop !65
 
 34:                                               ; preds = %3
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %36 = load i32, ptr %35, align 8, !tbaa !59
+  %36 = load i32, ptr %35, align 8, !tbaa !58
   %37 = icmp sgt i32 %36, 63
   br i1 %37, label %42, label %srt_stack_push.exit.i
 
 srt_stack_push.exit.i:                            ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %39 = add nsw i32 %36, 1
-  store i32 %39, ptr %35, align 8, !tbaa !59
+  store i32 %39, ptr %35, align 8, !tbaa !58
   %40 = sext i32 %36 to i64
   %41 = getelementptr inbounds [64 x i8], ptr %38, i64 0, i64 %40
-  store i8 %1, ptr %41, align 1, !tbaa !60
+  store i8 %1, ptr %41, align 1, !tbaa !59
   br label %srt_stack_push_pop.exit.thread
 
 42:                                               ; preds = %34
@@ -501,7 +501,7 @@ define internal void @srt_color_cb(ptr noundef %0, i32 noundef %1, i32 noundef %
 5:                                                ; preds = %3
   %.not = icmp eq i32 %1, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %7 = load i32, ptr %6, align 8, !tbaa !59
+  %7 = load i32, ptr %6, align 8, !tbaa !58
   br i1 %.not, label %8, label %33
 
 8:                                                ; preds = %5
@@ -521,9 +521,9 @@ define internal void @srt_color_cb(ptr noundef %0, i32 noundef %1, i32 noundef %
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %16 = and i64 %indvars.iv.next.i.i, 4294967295
   %17 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !60
+  %18 = load i8, ptr %17, align 1, !tbaa !59
   %19 = icmp eq i8 %18, 102
-  br i1 %19, label %.split.loop.exit.i.i, label %12, !llvm.loop !65
+  br i1 %19, label %.split.loop.exit.i.i, label %12, !llvm.loop !64
 
 .split.loop.exit.i.i:                             ; preds = %15
   %indvars.le.i.i = trunc i64 %indvars.iv.next.i.i to i32
@@ -543,10 +543,10 @@ srt_stack_find.exit.i:                            ; preds = %12, %.split.loop.ex
 
 srt_stack_pop.exit.i:                             ; preds = %.lr.ph.i
   %24 = add nsw i32 %22, -1
-  store i32 %24, ptr %6, align 8, !tbaa !59
+  store i32 %24, ptr %6, align 8, !tbaa !58
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 0, i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !60
+  %27 = load i8, ptr %26, align 1, !tbaa !59
   %.fr.i = freeze i8 %27
   %28 = sext i8 %.fr.i to i32
   %29 = icmp eq i8 %.fr.i, 102
@@ -557,9 +557,9 @@ srt_stack_pop.exit.thread.i:                      ; preds = %srt_stack_pop.exit.
   %30 = phi i32 [ 0, %.lr.ph.i ], [ %28, %srt_stack_pop.exit.i ]
   %31 = phi ptr [ @.str.22, %.lr.ph.i ], [ %spec.select.i, %srt_stack_pop.exit.i ]
   tail call void (ptr, ptr, ...) @srt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %30, ptr noundef nonnull %31)
-  %32 = load i32, ptr %6, align 8, !tbaa !59
+  %32 = load i32, ptr %6, align 8, !tbaa !58
   %.not12.i = icmp eq i32 %32, %20
-  br i1 %.not12.i, label %srt_stack_push_pop.exit, label %.lr.ph.i, !llvm.loop !66
+  br i1 %.not12.i, label %srt_stack_push_pop.exit, label %.lr.ph.i, !llvm.loop !65
 
 33:                                               ; preds = %5
   %34 = icmp sgt i32 %7, 63
@@ -568,10 +568,10 @@ srt_stack_pop.exit.thread.i:                      ; preds = %srt_stack_pop.exit.
 srt_stack_push.exit.i:                            ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %36 = add nsw i32 %7, 1
-  store i32 %36, ptr %6, align 8, !tbaa !59
+  store i32 %36, ptr %6, align 8, !tbaa !58
   %37 = sext i32 %7 to i64
   %38 = getelementptr inbounds [64 x i8], ptr %35, i64 0, i64 %37
-  store i8 102, ptr %38, align 1, !tbaa !60
+  store i8 102, ptr %38, align 1, !tbaa !59
   br label %srt_stack_push_pop.exit.thread
 
 39:                                               ; preds = %33
@@ -598,7 +598,7 @@ srt_stack_push_pop.exit:                          ; preds = %srt_stack_pop.exit.
 define internal void @srt_font_name_cb(ptr noundef %0, ptr noundef %1) #1 {
   %.not.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %4 = load i32, ptr %3, align 8, !tbaa !59
+  %4 = load i32, ptr %3, align 8, !tbaa !58
   br i1 %.not.not, label %5, label %30
 
 5:                                                ; preds = %2
@@ -618,9 +618,9 @@ define internal void @srt_font_name_cb(ptr noundef %0, ptr noundef %1) #1 {
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %13 = and i64 %indvars.iv.next.i.i, 4294967295
   %14 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !60
+  %15 = load i8, ptr %14, align 1, !tbaa !59
   %16 = icmp eq i8 %15, 102
-  br i1 %16, label %.split.loop.exit.i.i, label %9, !llvm.loop !65
+  br i1 %16, label %.split.loop.exit.i.i, label %9, !llvm.loop !64
 
 .split.loop.exit.i.i:                             ; preds = %12
   %indvars.le.i.i = trunc i64 %indvars.iv.next.i.i to i32
@@ -640,10 +640,10 @@ srt_stack_find.exit.i:                            ; preds = %9, %.split.loop.exi
 
 srt_stack_pop.exit.i:                             ; preds = %.lr.ph.i
   %21 = add nsw i32 %19, -1
-  store i32 %21, ptr %3, align 8, !tbaa !59
+  store i32 %21, ptr %3, align 8, !tbaa !58
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !60
+  %24 = load i8, ptr %23, align 1, !tbaa !59
   %.fr.i = freeze i8 %24
   %25 = sext i8 %.fr.i to i32
   %26 = icmp eq i8 %.fr.i, 102
@@ -654,9 +654,9 @@ srt_stack_pop.exit.thread.i:                      ; preds = %srt_stack_pop.exit.
   %27 = phi i32 [ 0, %.lr.ph.i ], [ %25, %srt_stack_pop.exit.i ]
   %28 = phi ptr [ @.str.22, %.lr.ph.i ], [ %spec.select.i, %srt_stack_pop.exit.i ]
   tail call void (ptr, ptr, ...) @srt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %27, ptr noundef nonnull %28)
-  %29 = load i32, ptr %3, align 8, !tbaa !59
+  %29 = load i32, ptr %3, align 8, !tbaa !58
   %.not12.i = icmp eq i32 %29, %17
-  br i1 %.not12.i, label %srt_stack_push_pop.exit, label %.lr.ph.i, !llvm.loop !66
+  br i1 %.not12.i, label %srt_stack_push_pop.exit, label %.lr.ph.i, !llvm.loop !65
 
 30:                                               ; preds = %2
   %31 = icmp sgt i32 %4, 63
@@ -665,10 +665,10 @@ srt_stack_pop.exit.thread.i:                      ; preds = %srt_stack_pop.exit.
 srt_stack_push.exit.i:                            ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %33 = add nsw i32 %4, 1
-  store i32 %33, ptr %3, align 8, !tbaa !59
+  store i32 %33, ptr %3, align 8, !tbaa !58
   %34 = sext i32 %4 to i64
   %35 = getelementptr inbounds [64 x i8], ptr %32, i64 0, i64 %34
-  store i8 102, ptr %35, align 1, !tbaa !60
+  store i8 102, ptr %35, align 1, !tbaa !59
   br label %srt_stack_push_pop.exit.thread
 
 36:                                               ; preds = %30
@@ -688,7 +688,7 @@ srt_stack_push_pop.exit:                          ; preds = %srt_stack_pop.exit.
 define internal void @srt_font_size_cb(ptr noundef %0, i32 noundef %1) #1 {
   %.not.i = icmp sgt i32 %1, -1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %4 = load i32, ptr %3, align 8, !tbaa !59
+  %4 = load i32, ptr %3, align 8, !tbaa !58
   br i1 %.not.i, label %30, label %5
 
 5:                                                ; preds = %2
@@ -708,9 +708,9 @@ define internal void @srt_font_size_cb(ptr noundef %0, i32 noundef %1) #1 {
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %13 = and i64 %indvars.iv.next.i.i, 4294967295
   %14 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !60
+  %15 = load i8, ptr %14, align 1, !tbaa !59
   %16 = icmp eq i8 %15, 102
-  br i1 %16, label %.split.loop.exit.i.i, label %9, !llvm.loop !65
+  br i1 %16, label %.split.loop.exit.i.i, label %9, !llvm.loop !64
 
 .split.loop.exit.i.i:                             ; preds = %12
   %indvars.le.i.i = trunc i64 %indvars.iv.next.i.i to i32
@@ -730,10 +730,10 @@ srt_stack_find.exit.i:                            ; preds = %9, %.split.loop.exi
 
 srt_stack_pop.exit.i:                             ; preds = %.lr.ph.i
   %21 = add nsw i32 %19, -1
-  store i32 %21, ptr %3, align 8, !tbaa !59
+  store i32 %21, ptr %3, align 8, !tbaa !58
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !60
+  %24 = load i8, ptr %23, align 1, !tbaa !59
   %.fr.i = freeze i8 %24
   %25 = sext i8 %.fr.i to i32
   %26 = icmp eq i8 %.fr.i, 102
@@ -744,9 +744,9 @@ srt_stack_pop.exit.thread.i:                      ; preds = %srt_stack_pop.exit.
   %27 = phi i32 [ 0, %.lr.ph.i ], [ %25, %srt_stack_pop.exit.i ]
   %28 = phi ptr [ @.str.22, %.lr.ph.i ], [ %spec.select.i, %srt_stack_pop.exit.i ]
   tail call void (ptr, ptr, ...) @srt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %27, ptr noundef nonnull %28)
-  %29 = load i32, ptr %3, align 8, !tbaa !59
+  %29 = load i32, ptr %3, align 8, !tbaa !58
   %.not12.i = icmp eq i32 %29, %17
-  br i1 %.not12.i, label %srt_stack_push_pop.exit, label %.lr.ph.i, !llvm.loop !66
+  br i1 %.not12.i, label %srt_stack_push_pop.exit, label %.lr.ph.i, !llvm.loop !65
 
 30:                                               ; preds = %2
   %31 = icmp sgt i32 %4, 63
@@ -755,10 +755,10 @@ srt_stack_pop.exit.thread.i:                      ; preds = %srt_stack_pop.exit.
 srt_stack_push.exit.i:                            ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %33 = add nsw i32 %4, 1
-  store i32 %33, ptr %3, align 8, !tbaa !59
+  store i32 %33, ptr %3, align 8, !tbaa !58
   %34 = sext i32 %4 to i64
   %35 = getelementptr inbounds [64 x i8], ptr %32, i64 0, i64 %34
-  store i8 102, ptr %35, align 1, !tbaa !60
+  store i8 102, ptr %35, align 1, !tbaa !59
   br label %srt_stack_push_pop.exit.thread
 
 36:                                               ; preds = %30
@@ -795,7 +795,7 @@ define internal void @srt_alignment_cb(ptr noundef %0, i32 noundef %1) #1 {
 ; Function Attrs: nounwind uwtable
 define internal void @srt_cancel_overrides_cb(ptr noundef %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %4 = load i32, ptr %3, align 8, !tbaa !59
+  %4 = load i32, ptr %3, align 8, !tbaa !58
   %.not1217.i = icmp eq i32 %4, 0
   br i1 %.not1217.i, label %srt_stack_push_pop.exit, label %.lr.ph.i
 
@@ -810,10 +810,10 @@ define internal void @srt_cancel_overrides_cb(ptr noundef %0, ptr noundef %1) #1
 
 srt_stack_pop.exit.i:                             ; preds = %6
   %9 = add nsw i32 %7, -1
-  store i32 %9, ptr %3, align 8, !tbaa !59
+  store i32 %9, ptr %3, align 8, !tbaa !58
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 0, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !60
+  %12 = load i8, ptr %11, align 1, !tbaa !59
   %.fr.i = freeze i8 %12
   %13 = sext i8 %.fr.i to i32
   %14 = icmp eq i8 %.fr.i, 102
@@ -824,9 +824,9 @@ srt_stack_pop.exit.thread.i:                      ; preds = %srt_stack_pop.exit.
   %15 = phi i32 [ 0, %6 ], [ %13, %srt_stack_pop.exit.i ]
   %16 = phi ptr [ @.str.22, %6 ], [ %spec.select.i, %srt_stack_pop.exit.i ]
   tail call void (ptr, ptr, ...) @srt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %15, ptr noundef nonnull %16)
-  %17 = load i32, ptr %3, align 8, !tbaa !59
+  %17 = load i32, ptr %3, align 8, !tbaa !58
   %.not12.i = icmp eq i32 %17, 0
-  br i1 %.not12.i, label %srt_stack_push_pop.exit, label %6, !llvm.loop !66
+  br i1 %.not12.i, label %srt_stack_push_pop.exit, label %6, !llvm.loop !65
 
 srt_stack_push_pop.exit:                          ; preds = %srt_stack_pop.exit.thread.i, %2
   tail call fastcc void @srt_style_apply(ptr noundef nonnull %0, ptr noundef %1)
@@ -841,7 +841,7 @@ define internal void @srt_move_cb(ptr readnone captures(none) %0, i32 %1, i32 %2
 ; Function Attrs: nounwind uwtable
 define internal void @srt_end_cb(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %3 = load i32, ptr %2, align 8, !tbaa !59
+  %3 = load i32, ptr %2, align 8, !tbaa !58
   %.not1217.i = icmp eq i32 %3, 0
   br i1 %.not1217.i, label %srt_stack_push_pop.exit, label %.lr.ph.i
 
@@ -856,10 +856,10 @@ define internal void @srt_end_cb(ptr noundef %0) #1 {
 
 srt_stack_pop.exit.i:                             ; preds = %5
   %8 = add nsw i32 %6, -1
-  store i32 %8, ptr %2, align 8, !tbaa !59
+  store i32 %8, ptr %2, align 8, !tbaa !58
   %9 = zext nneg i32 %8 to i64
   %10 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1, !tbaa !60
+  %11 = load i8, ptr %10, align 1, !tbaa !59
   %.fr.i = freeze i8 %11
   %12 = sext i8 %.fr.i to i32
   %13 = icmp eq i8 %.fr.i, 102
@@ -870,9 +870,9 @@ srt_stack_pop.exit.thread.i:                      ; preds = %srt_stack_pop.exit.
   %14 = phi i32 [ 0, %5 ], [ %12, %srt_stack_pop.exit.i ]
   %15 = phi ptr [ @.str.22, %5 ], [ %spec.select.i, %srt_stack_pop.exit.i ]
   tail call void (ptr, ptr, ...) @srt_print(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %14, ptr noundef nonnull %15)
-  %16 = load i32, ptr %2, align 8, !tbaa !59
+  %16 = load i32, ptr %2, align 8, !tbaa !58
   %.not12.i = icmp eq i32 %16, 0
-  br i1 %.not12.i, label %srt_stack_push_pop.exit, label %5, !llvm.loop !66
+  br i1 %.not12.i, label %srt_stack_push_pop.exit, label %5, !llvm.loop !65
 
 srt_stack_push_pop.exit:                          ; preds = %srt_stack_pop.exit.thread.i, %1
   ret void
@@ -948,20 +948,19 @@ attributes #9 = { nounwind willreturn memory(read) }
 !47 = !{!48, !14, i64 16}
 !48 = !{!"", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !14, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !14, i64 48, !14, i64 56}
 !49 = !{!48, !14, i64 56}
-!50 = distinct !{!50, !51, !52}
+!50 = distinct !{!50, !51}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!28, !10, i64 24}
-!54 = !{!31, !10, i64 12}
-!55 = !{!56, !10, i64 20}
-!56 = !{!"", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !16, i64 64, !10, i64 68, !16, i64 72, !16, i64 76, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !10, i64 100}
-!57 = !{!56, !14, i64 8}
-!58 = !{!56, !10, i64 16}
-!59 = !{!28, !10, i64 1104}
-!60 = !{!8, !8, i64 0}
-!61 = !{!56, !10, i64 36}
-!62 = !{!56, !10, i64 40}
-!63 = !{!56, !10, i64 44}
-!64 = !{!56, !10, i64 80}
-!65 = distinct !{!65, !51, !52}
-!66 = distinct !{!66, !51, !52}
+!52 = !{!28, !10, i64 24}
+!53 = !{!31, !10, i64 12}
+!54 = !{!55, !10, i64 20}
+!55 = !{!"", !14, i64 0, !14, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !10, i64 48, !16, i64 52, !16, i64 56, !16, i64 60, !16, i64 64, !10, i64 68, !16, i64 72, !16, i64 76, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !10, i64 96, !10, i64 100}
+!56 = !{!55, !14, i64 8}
+!57 = !{!55, !10, i64 16}
+!58 = !{!28, !10, i64 1104}
+!59 = !{!8, !8, i64 0}
+!60 = !{!55, !10, i64 36}
+!61 = !{!55, !10, i64 40}
+!62 = !{!55, !10, i64 44}
+!63 = !{!55, !10, i64 80}
+!64 = distinct !{!64, !51}
+!65 = distinct !{!65, !51}

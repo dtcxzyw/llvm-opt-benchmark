@@ -116,13 +116,13 @@ define internal fastcc void @Bar_ProgressShow(ptr noundef readonly captures(addr
   %fputc25 = tail call i32 @fputc(i32 32, ptr %33)
   %34 = load i32, ptr %29, align 8, !tbaa !11
   %.not23.not = icmp slt i32 %.1, %34
-  br i1 %.not23.not, label %32, label %._crit_edge33, !llvm.loop !17
+  br i1 %.not23.not, label %32, label %._crit_edge33, !llvm.loop !16
 
 ._crit_edge33:                                    ; preds = %32, %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !3
   %fputc24 = tail call i32 @fputc(i32 13, ptr %36)
-  %37 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !17
   %38 = tail call i32 @fflush(ptr noundef %37)
   br label %39
 
@@ -203,13 +203,13 @@ define void @Bar_ProgressStop(ptr noundef captures(address_is_null) %0) local_un
   %10 = add nuw nsw i32 %.09.i, 1
   %11 = load i32, ptr %5, align 8, !tbaa !11
   %.not6.not.i = icmp slt i32 %.09.i, %11
-  br i1 %.not6.not.i, label %8, label %._crit_edge.i, !llvm.loop !19
+  br i1 %.not6.not.i, label %8, label %._crit_edge.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %8, %.preheader.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %fputc.i = tail call i32 @fputc(i32 13, ptr %13)
-  %14 = load ptr, ptr @stdout, align 8, !tbaa !18
+  %14 = load ptr, ptr @stdout, align 8, !tbaa !17
   %15 = tail call i32 @fflush(ptr noundef %14)
   br label %Bar_ProgressClean.exit
 
@@ -267,9 +267,8 @@ attributes #8 = { nounwind willreturn memory(read) }
 !11 = !{!4, !5, i64 8}
 !12 = !{!4, !5, i64 12}
 !13 = !{!4, !5, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = !{!8, !8, i64 0}
-!19 = distinct !{!19, !15, !16}
+!16 = distinct !{!16, !15}
+!17 = !{!8, !8, i64 0}
+!18 = distinct !{!18, !15}

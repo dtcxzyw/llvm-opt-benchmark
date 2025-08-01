@@ -40,7 +40,7 @@ define noundef i32 @_ZN5folly6detail20avx512_crc32c_v8s3x4EPKhmj(ptr noundef %0,
 
 21:                                               ; preds = %._crit_edge
   %22 = zext i32 %.0235.lcssa to i64
-  %23 = load i64, ptr %.0.lcssa, align 8, !tbaa !13
+  %23 = load i64, ptr %.0.lcssa, align 8, !tbaa !12
   %24 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %22, i64 %23)
   %25 = trunc nuw i64 %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
@@ -136,47 +136,47 @@ define noundef i32 @_ZN5folly6detail20avx512_crc32c_v8s3x4EPKhmj(ptr noundef %0,
   %89 = load <2 x i64>, ptr %88, align 1, !tbaa !7
   %90 = tail call <2 x i64> @llvm.x86.avx512.pternlog.q.128(<2 x i64> %67, <2 x i64> %66, <2 x i64> %89, i32 150)
   %91 = zext i32 %.3238318 to i64
-  %92 = load i64, ptr %.3323, align 8, !tbaa !13
+  %92 = load i64, ptr %.3323, align 8, !tbaa !12
   %93 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %91, i64 %92)
   %94 = getelementptr inbounds nuw i8, ptr %.3323, i64 %32
-  %95 = load i64, ptr %94, align 8, !tbaa !13
+  %95 = load i64, ptr %94, align 8, !tbaa !12
   %96 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %.0246312, i64 %95)
   %97 = getelementptr inbounds nuw i8, ptr %.3323, i64 %51
-  %98 = load i64, ptr %97, align 8, !tbaa !13
+  %98 = load i64, ptr %97, align 8, !tbaa !12
   %99 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %.0247311, i64 %98)
   %100 = getelementptr inbounds nuw i8, ptr %.3323, i64 8
-  %101 = load i64, ptr %100, align 8, !tbaa !13
+  %101 = load i64, ptr %100, align 8, !tbaa !12
   %102 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %93, i64 %101)
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %104 = load i64, ptr %103, align 8, !tbaa !13
+  %104 = load i64, ptr %103, align 8, !tbaa !12
   %105 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %96, i64 %104)
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %107 = load i64, ptr %106, align 8, !tbaa !13
+  %107 = load i64, ptr %106, align 8, !tbaa !12
   %108 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %99, i64 %107)
   %109 = getelementptr inbounds nuw i8, ptr %.3323, i64 16
-  %110 = load i64, ptr %109, align 8, !tbaa !13
+  %110 = load i64, ptr %109, align 8, !tbaa !12
   %111 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %102, i64 %110)
   %112 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %113 = load i64, ptr %112, align 8, !tbaa !13
+  %113 = load i64, ptr %112, align 8, !tbaa !12
   %114 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %105, i64 %113)
   %115 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %116 = load i64, ptr %115, align 8, !tbaa !13
+  %116 = load i64, ptr %115, align 8, !tbaa !12
   %117 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %108, i64 %116)
   %118 = getelementptr inbounds nuw i8, ptr %.3323, i64 24
-  %119 = load i64, ptr %118, align 8, !tbaa !13
+  %119 = load i64, ptr %118, align 8, !tbaa !12
   %120 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %111, i64 %119)
   %121 = trunc nuw i64 %120 to i32
   %122 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  %123 = load i64, ptr %122, align 8, !tbaa !13
+  %123 = load i64, ptr %122, align 8, !tbaa !12
   %124 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %114, i64 %123)
   %125 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %126 = load i64, ptr %125, align 8, !tbaa !13
+  %126 = load i64, ptr %125, align 8, !tbaa !12
   %127 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %117, i64 %126)
   %128 = getelementptr inbounds nuw i8, ptr %.3323, i64 32
   %.3230 = add i64 %.3230324, -224
   %.0243 = getelementptr inbounds nuw i8, ptr %.0243325, i64 128
   %129 = icmp ugt i64 %.3230, 223
-  br i1 %129, label %.lr.ph327, label %._crit_edge328, !llvm.loop !15
+  br i1 %129, label %.lr.ph327, label %._crit_edge328, !llvm.loop !14
 
 ._crit_edge328:                                   ; preds = %.lr.ph327, %30
   %.0247.lcssa = phi i64 [ 0, %30 ], [ %127, %.lr.ph327 ]
@@ -193,29 +193,29 @@ define noundef i32 @_ZN5folly6detail20avx512_crc32c_v8s3x4EPKhmj(ptr noundef %0,
   %.3.lcssa = phi ptr [ %.1, %30 ], [ %128, %.lr.ph327 ]
   %.3230.lcssa = phi i64 [ %.3230309, %30 ], [ %.3230, %.lr.ph327 ]
   %.0243.lcssa = phi ptr [ %.0243310, %30 ], [ %.0243, %.lr.ph327 ]
-  %130 = load i64, ptr %.3.lcssa, align 8, !tbaa !13
+  %130 = load i64, ptr %.3.lcssa, align 8, !tbaa !12
   %131 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 %32
-  %132 = load i64, ptr %131, align 8, !tbaa !13
+  %132 = load i64, ptr %131, align 8, !tbaa !12
   %133 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 %51
-  %134 = load i64, ptr %133, align 8, !tbaa !13
+  %134 = load i64, ptr %133, align 8, !tbaa !12
   %135 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 8
-  %136 = load i64, ptr %135, align 8, !tbaa !13
+  %136 = load i64, ptr %135, align 8, !tbaa !12
   %137 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %138 = load i64, ptr %137, align 8, !tbaa !13
+  %138 = load i64, ptr %137, align 8, !tbaa !12
   %139 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %140 = load i64, ptr %139, align 8, !tbaa !13
+  %140 = load i64, ptr %139, align 8, !tbaa !12
   %141 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 16
-  %142 = load i64, ptr %141, align 8, !tbaa !13
+  %142 = load i64, ptr %141, align 8, !tbaa !12
   %143 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %144 = load i64, ptr %143, align 8, !tbaa !13
+  %144 = load i64, ptr %143, align 8, !tbaa !12
   %145 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %146 = load i64, ptr %145, align 8, !tbaa !13
+  %146 = load i64, ptr %145, align 8, !tbaa !12
   %147 = getelementptr inbounds nuw i8, ptr %.3.lcssa, i64 24
-  %148 = load i64, ptr %147, align 8, !tbaa !13
+  %148 = load i64, ptr %147, align 8, !tbaa !12
   %149 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  %150 = load i64, ptr %149, align 8, !tbaa !13
+  %150 = load i64, ptr %149, align 8, !tbaa !12
   %151 = getelementptr inbounds nuw i8, ptr %133, i64 24
-  %152 = load i64, ptr %151, align 8, !tbaa !13
+  %152 = load i64, ptr %151, align 8, !tbaa !12
   %153 = mul i64 %31, 1536
   %154 = add i64 %153, -33
   br label %.lr.ph.i
@@ -229,7 +229,7 @@ define noundef i32 @_ZN5folly6detail20avx512_crc32c_v8s3x4EPKhmj(ptr noundef %0,
   %158 = lshr i64 %.025.i, 1
   %159 = add nsw i64 %158, -16
   %160 = icmp samesign ugt i64 %159, 191
-  br i1 %160, label %.lr.ph.i, label %._crit_edge.thread.i, !llvm.loop !16
+  br i1 %160, label %.lr.ph.i, label %._crit_edge.thread.i, !llvm.loop !15
 
 ._crit_edge.thread.i:                             ; preds = %.lr.ph.i
   %161 = trunc nuw nsw i64 %159 to i32
@@ -290,7 +290,7 @@ define noundef i32 @_ZN5folly6detail20avx512_crc32c_v8s3x4EPKhmj(ptr noundef %0,
   %205 = tail call noundef i32 @llvm.x86.sse42.crc32.32.32(i32 %.02028.i, i32 0)
   %206 = add nsw i64 %.129.i, -1
   %.not.i = icmp eq i64 %206, 0
-  br i1 %.not.i, label %.preheader.i, label %.lr.ph31.i, !llvm.loop !17
+  br i1 %.not.i, label %.preheader.i, label %.lr.ph31.i, !llvm.loop !16
 
 .lr.ph36.i:                                       ; preds = %.lr.ph36.i.preheader, %.lr.ph36.i
   %.11935.i = phi i64 [ %207, %.lr.ph36.i ], [ %204, %.lr.ph36.i.preheader ]
@@ -305,7 +305,7 @@ define noundef i32 @_ZN5folly6detail20avx512_crc32c_v8s3x4EPKhmj(ptr noundef %0,
   %214 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %213)
   %215 = trunc nuw i64 %214 to i32
   %.not23.i = icmp ult i64 %.11935.i, 4
-  br i1 %.not23.i, label %_ZN5folly6detailL6xnmodpEm.exit, label %.lr.ph36.i, !llvm.loop !18
+  br i1 %.not23.i, label %_ZN5folly6detailL6xnmodpEm.exit, label %.lr.ph36.i, !llvm.loop !17
 
 _ZN5folly6detailL6xnmodpEm.exit:                  ; preds = %.lr.ph36.i, %.preheader.i
   %.121.lcssa.i = phi i32 [ %205, %.preheader.i ], [ %215, %.lr.ph36.i ]
@@ -322,7 +322,7 @@ _ZN5folly6detailL6xnmodpEm.exit:                  ; preds = %.lr.ph36.i, %.prehe
   %221 = lshr i64 %.025.i264, 1
   %222 = add nsw i64 %221, -16
   %223 = icmp samesign ugt i64 %222, 191
-  br i1 %223, label %.lr.ph.i263, label %._crit_edge.thread.i266, !llvm.loop !16
+  br i1 %223, label %.lr.ph.i263, label %._crit_edge.thread.i266, !llvm.loop !15
 
 ._crit_edge.thread.i266:                          ; preds = %.lr.ph.i263
   %224 = trunc nuw nsw i64 %222 to i32
@@ -350,7 +350,7 @@ _ZN5folly6detailL6xnmodpEm.exit:                  ; preds = %.lr.ph36.i, %.prehe
   %235 = tail call noundef i32 @llvm.x86.sse42.crc32.32.32(i32 %.02028.i255, i32 0)
   %236 = add nsw i64 %.129.i254, -1
   %.not.i256 = icmp eq i64 %236, 0
-  br i1 %.not.i256, label %.preheader.i257, label %.lr.ph31.i253, !llvm.loop !17
+  br i1 %.not.i256, label %.preheader.i257, label %.lr.ph31.i253, !llvm.loop !16
 
 .lr.ph36.i258:                                    ; preds = %.lr.ph36.i258.preheader, %.lr.ph36.i258
   %.11935.i259 = phi i64 [ %237, %.lr.ph36.i258 ], [ %234, %.lr.ph36.i258.preheader ]
@@ -365,7 +365,7 @@ _ZN5folly6detailL6xnmodpEm.exit:                  ; preds = %.lr.ph36.i, %.prehe
   %244 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %243)
   %245 = trunc nuw i64 %244 to i32
   %.not23.i261 = icmp ult i64 %.11935.i259, 4
-  br i1 %.not23.i261, label %_ZN5folly6detailL6xnmodpEm.exit267, label %.lr.ph36.i258, !llvm.loop !18
+  br i1 %.not23.i261, label %_ZN5folly6detailL6xnmodpEm.exit267, label %.lr.ph36.i258, !llvm.loop !17
 
 _ZN5folly6detailL6xnmodpEm.exit267:               ; preds = %.lr.ph36.i258, %.preheader.i257
   %.121.lcssa.i262 = phi i32 [ %235, %.preheader.i257 ], [ %245, %.lr.ph36.i258 ]
@@ -381,7 +381,7 @@ _ZN5folly6detailL6xnmodpEm.exit267:               ; preds = %.lr.ph36.i258, %.pr
   %250 = lshr i64 %.025.i284, 1
   %251 = add nsw i64 %250, -16
   %252 = icmp samesign ugt i64 %251, 191
-  br i1 %252, label %.lr.ph.i283, label %._crit_edge.thread.i286, !llvm.loop !16
+  br i1 %252, label %.lr.ph.i283, label %._crit_edge.thread.i286, !llvm.loop !15
 
 ._crit_edge.thread.i286:                          ; preds = %.lr.ph.i283
   %253 = trunc nuw nsw i64 %251 to i32
@@ -409,7 +409,7 @@ _ZN5folly6detailL6xnmodpEm.exit267:               ; preds = %.lr.ph36.i258, %.pr
   %264 = tail call noundef i32 @llvm.x86.sse42.crc32.32.32(i32 %.02028.i275, i32 0)
   %265 = add nsw i64 %.129.i274, -1
   %.not.i276 = icmp eq i64 %265, 0
-  br i1 %.not.i276, label %.preheader.i277, label %.lr.ph31.i273, !llvm.loop !17
+  br i1 %.not.i276, label %.preheader.i277, label %.lr.ph31.i273, !llvm.loop !16
 
 .lr.ph36.i278:                                    ; preds = %.lr.ph36.i278.preheader, %.lr.ph36.i278
   %.11935.i279 = phi i64 [ %266, %.lr.ph36.i278 ], [ %263, %.lr.ph36.i278.preheader ]
@@ -424,7 +424,7 @@ _ZN5folly6detailL6xnmodpEm.exit267:               ; preds = %.lr.ph36.i258, %.pr
   %273 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 0, i64 %272)
   %274 = trunc nuw i64 %273 to i32
   %.not23.i281 = icmp ult i64 %.11935.i279, 4
-  br i1 %.not23.i281, label %_ZN5folly6detailL6xnmodpEm.exit287, label %.lr.ph36.i278, !llvm.loop !18
+  br i1 %.not23.i281, label %_ZN5folly6detailL6xnmodpEm.exit287, label %.lr.ph36.i278, !llvm.loop !17
 
 _ZN5folly6detailL6xnmodpEm.exit287:               ; preds = %.lr.ph36.i278, %.preheader.i277
   %.121.lcssa.i282 = phi i32 [ %264, %.preheader.i277 ], [ %274, %.lr.ph36.i278 ]
@@ -462,13 +462,13 @@ _ZN5folly6detailL6xnmodpEm.exit287:               ; preds = %.lr.ph36.i278, %.pr
   %.4231344 = phi i64 [ %294, %.lr.ph347 ], [ %.2229, %287 ]
   %.4239343 = phi i32 [ %292, %.lr.ph347 ], [ %.2237, %287 ]
   %289 = zext i32 %.4239343 to i64
-  %290 = load i64, ptr %.4345, align 8, !tbaa !13
+  %290 = load i64, ptr %.4345, align 8, !tbaa !12
   %291 = tail call noundef i64 @llvm.x86.sse42.crc32.64.64(i64 range(i64 0, 4294967296) %289, i64 %290)
   %292 = trunc nuw i64 %291 to i32
   %293 = getelementptr inbounds nuw i8, ptr %.4345, i64 8
   %294 = add nsw i64 %.4231344, -8
   %295 = icmp ugt i64 %294, 7
-  br i1 %295, label %.lr.ph347, label %.preheader, !llvm.loop !19
+  br i1 %295, label %.lr.ph347, label %.preheader, !llvm.loop !18
 
 .lr.ph355:                                        ; preds = %.preheader, %.lr.ph355
   %.5354 = phi ptr [ %296, %.lr.ph355 ], [ %.4.lcssa, %.preheader ]
@@ -479,7 +479,7 @@ _ZN5folly6detailL6xnmodpEm.exit287:               ; preds = %.lr.ph36.i278, %.pr
   %298 = tail call noundef i32 @llvm.x86.sse42.crc32.32.8(i32 %.5240352, i8 %297)
   %299 = add nsw i64 %.5232353, -1
   %.not = icmp eq i64 %299, 0
-  br i1 %.not, label %._crit_edge356, label %.lr.ph355, !llvm.loop !20
+  br i1 %.not, label %._crit_edge356, label %.lr.ph355, !llvm.loop !19
 
 ._crit_edge356:                                   ; preds = %.lr.ph355, %.preheader
   %.5240.lcssa = phi i32 [ %.4239.lcssa, %.preheader ], [ %298, %.lr.ph355 ]
@@ -516,14 +516,13 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !7 = !{!8, !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"long", !8, i64 0}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
-!20 = distinct !{!20, !11, !12}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !8, i64 0}
+!14 = distinct !{!14, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}

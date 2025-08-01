@@ -399,12 +399,12 @@ define internal i32 @show_vfsmnt(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %72 = getelementptr i8, ptr %64, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %75, label %62, !llvm.loop !15
+  br i1 %74, label %75, label %62, !llvm.loop !14
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %77 = load volatile ptr, ptr %76, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !15
   %78 = icmp eq ptr %77, @nop_mnt_idmap
   br i1 %78, label %80, label %79
 
@@ -555,12 +555,12 @@ define internal i32 @show_mountinfo(ptr noundef %0, ptr noundef %1) #1 align 16 
   %44 = getelementptr i8, ptr %36, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %34, !llvm.loop !17
+  br i1 %46, label %47, label %34, !llvm.loop !14
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %49 = load volatile ptr, ptr %48, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !16
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !15
   %50 = icmp eq ptr %49, @nop_mnt_idmap
   br i1 %50, label %52, label %51
 
@@ -681,7 +681,7 @@ define internal i32 @show_mountinfo(ptr noundef %0, ptr noundef %1) #1 align 16 
   %120 = getelementptr i8, ptr %111, i64 16
   %121 = load i32, ptr %120, align 8
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %109, !llvm.loop !18
+  br i1 %122, label %123, label %109, !llvm.loop !11
 
 123:                                              ; preds = %119
   %124 = call i32 @security_sb_show_options(ptr noundef %0, ptr noundef %8) #6
@@ -840,11 +840,8 @@ attributes #6 = { nounwind }
 !8 = !{i64 2147793508, i64 2147793547, i64 2147793568, i64 2147793605, i64 2147793628, i64 2147793637}
 !9 = !{!"branch_weights", i32 1, i32 2000}
 !10 = !{!"auto-init"}
-!11 = distinct !{!11, !12, !13, !14}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !12, !13, !14}
-!16 = !{i64 2153149201}
-!17 = distinct !{!17, !12, !13, !14}
-!18 = distinct !{!18, !12, !13, !14}
+!14 = distinct !{!14, !12, !13}
+!15 = !{i64 2153149201}

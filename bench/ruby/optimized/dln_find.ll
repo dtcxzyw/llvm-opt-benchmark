@@ -233,7 +233,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
   %97 = load i8, ptr %.0100, align 1, !tbaa !7
   %.not138 = icmp eq i8 %97, 0
   %98 = getelementptr i8, ptr %.0100, i64 1
-  br i1 %.not138, label %.thread135, label %37, !llvm.loop !15
+  br i1 %.not138, label %.thread135, label %37
 
 .thread135:                                       ; preds = %86, %85, %96, %26, %22, %5, %9
   %.0 = phi ptr [ null, %9 ], [ null, %5 ], [ %0, %22 ], [ %0, %26 ], [ %2, %86 ], [ %2, %85 ], [ null, %96 ]
@@ -309,5 +309,3 @@ attributes #12 = { nounwind willreturn memory(read) }
 !12 = !{!"long", !8, i64 0}
 !13 = !{!"int", !8, i64 0}
 !14 = !{!"timespec", !12, i64 0, !12, i64 8}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}

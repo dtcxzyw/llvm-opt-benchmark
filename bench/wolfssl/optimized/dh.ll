@@ -285,7 +285,7 @@ define range(i32 -98, 1) i32 @wc_DhCheckPubValue(ptr noundef readonly captures(n
 27:                                               ; preds = %.lr.ph52
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count63
-  br i1 %exitcond64.not, label %.critedge2.thread, label %.lr.ph52, !llvm.loop !17
+  br i1 %exitcond64.not, label %.critedge2.thread, label %.lr.ph52, !llvm.loop !16
 
 .critedge2.loopexit:                              ; preds = %.lr.ph52
   %28 = trunc nuw i64 %indvars.iv60 to i32
@@ -379,7 +379,7 @@ define range(i32 -263, 1) i32 @wc_DhCheckPrivKey_ex(ptr noundef %0, ptr noundef 
   br i1 %23, label %.thread42, label %24
 
 24:                                               ; preds = %.thread
-  %25 = load i16, ptr %7, align 16, !tbaa !18
+  %25 = load i16, ptr %7, align 16, !tbaa !17
   %.not26 = icmp eq i16 %25, 0
   br i1 %.not26, label %.thread42, label %26
 
@@ -447,13 +447,13 @@ define range(i32 -173, 1) i32 @wc_DhCheckKeyPair(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond3.i, label %_ffc_pairwise_consistency_test.exit, label %12
 
 12:                                               ; preds = %5
-  %13 = load i16, ptr %0, align 8, !tbaa !19
+  %13 = load i16, ptr %0, align 8, !tbaa !18
   %.not.i = icmp eq i16 %13, 0
   br i1 %.not.i, label %.critedge.i, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !20
+  %16 = load i64, ptr %15, align 8, !tbaa !19
   %17 = and i64 %16, 1
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %_ffc_pairwise_consistency_test.exit, label %.critedge.i
@@ -521,13 +521,13 @@ define i32 @wc_DhGenerateKeyPair(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond9, label %wc_DhGenerateKeyPair_Sync.exit, label %18
 
 18:                                               ; preds = %6
-  %19 = load i16, ptr %0, align 8, !tbaa !19
+  %19 = load i16, ptr %0, align 8, !tbaa !18
   %.not.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i, label %.critedge.i.i, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !20
+  %22 = load i64, ptr %21, align 8, !tbaa !19
   %23 = and i64 %22, 1
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %wc_DhGenerateKeyPair_Sync.exit, label %.critedge.i.i
@@ -568,7 +568,7 @@ CheckDhLN.exit.i.i.i:                             ; preds = %32
   br i1 %switch.selectcmp.i.not.i.i.i, label %37, label %GeneratePrivateDh.exit.thread36.i
 
 37:                                               ; preds = %CheckDhLN.exit.i.i.i, %35, %27
-  %38 = load i32, ptr %3, align 4, !tbaa !22
+  %38 = load i32, ptr %3, align 4, !tbaa !21
   %39 = add i32 %38, 8
   %40 = call i32 @sp_init_multi(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #14
   %.not35.i.i.i = icmp eq i32 %40, 0
@@ -596,7 +596,7 @@ GeneratePrivateDh.exit.thread38.i:                ; preds = %43, %.preheader.i.i
 45:                                               ; preds = %43
   %46 = call i32 @sp_cmp_d(ptr noundef nonnull %10, i64 noundef 1) #14
   %.not37.i.i.i = icmp eq i32 %46, 1
-  br i1 %.not37.i.i.i, label %.preheader23.i.i.i.i, label %.preheader.i.i.i, !llvm.loop !23
+  br i1 %.not37.i.i.i, label %.preheader23.i.i.i.i, label %.preheader.i.i.i, !llvm.loop !22
 
 .preheader23.i.i.i.i:                             ; preds = %45
   %47 = icmp ult i32 %38, -8
@@ -612,10 +612,10 @@ GeneratePrivateDh.exit.thread38.i:                ; preds = %43, %.preheader.i.i
   %.01528.i.i.i.i = phi ptr [ %48, %.lr.ph29.i.i.i.i ], [ %11, %.preheader23.i.i.i.i ]
   %.01827.i.i.i.i = phi i32 [ %49, %.lr.ph29.i.i.i.i ], [ %39, %.preheader23.i.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.01528.i.i.i.i, i64 8
-  store volatile i64 0, ptr %.01528.i.i.i.i, align 8, !tbaa !20
+  store volatile i64 0, ptr %.01528.i.i.i.i, align 8, !tbaa !19
   %49 = add i32 %.01827.i.i.i.i, -8
   %50 = icmp ugt i32 %49, 7
-  br i1 %50, label %.lr.ph29.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !24
+  br i1 %50, label %.lr.ph29.i.i.i.i, label %.preheader.i.i.i.i, !llvm.loop !23
 
 .lr.ph35.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i, %.lr.ph35.i.i.i.i
   %.11734.i.i.i.i = phi ptr [ %52, %.lr.ph35.i.i.i.i ], [ %.015.lcssa.i.i.i.i, %.preheader.i.i.i.i ]
@@ -624,10 +624,10 @@ GeneratePrivateDh.exit.thread38.i:                ; preds = %43, %.preheader.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.11734.i.i.i.i, i64 1
   store volatile i8 0, ptr %.11734.i.i.i.i, align 1, !tbaa !13
   %.not22.i.i.i.i = icmp eq i32 %51, 0
-  br i1 %.not22.i.i.i.i, label %ForceZero.exit.i.i.i, label %.lr.ph35.i.i.i.i, !llvm.loop !25
+  br i1 %.not22.i.i.i.i, label %ForceZero.exit.i.i.i, label %.lr.ph35.i.i.i.i, !llvm.loop !24
 
 ForceZero.exit.i.i.i:                             ; preds = %.lr.ph35.i.i.i.i, %.preheader.i.i.i.i
-  %53 = load i32, ptr %3, align 4, !tbaa !22
+  %53 = load i32, ptr %3, align 4, !tbaa !21
   %54 = shl nsw i32 %53, 3
   %55 = call i32 @sp_2expt(ptr noundef nonnull %9, i32 noundef %54) #14
   %56 = icmp eq i32 %55, 0
@@ -660,12 +660,12 @@ ForceZero.exit.i.i.i:                             ; preds = %.lr.ph35.i.i.i.i, %
 
 71:                                               ; preds = %68
   %72 = call i32 @sp_unsigned_bin_size(ptr noundef nonnull %10) #14
-  %73 = load i32, ptr %3, align 4, !tbaa !22
+  %73 = load i32, ptr %3, align 4, !tbaa !21
   %74 = icmp ugt i32 %72, %73
   br i1 %74, label %GeneratePrivateDh.exit.i, label %75
 
 75:                                               ; preds = %71
-  store i32 %72, ptr %3, align 4, !tbaa !22
+  store i32 %72, ptr %3, align 4, !tbaa !21
   %76 = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %10, ptr noundef nonnull %2) #14
   br label %GeneratePrivateDh.exit.i
 
@@ -683,10 +683,10 @@ ForceZero.exit.i.i.i:                             ; preds = %.lr.ph35.i.i.i.i, %
 
 85:                                               ; preds = %82
   %86 = uitofp i32 %83 to double
-  %87 = tail call double @pow(double noundef %86, double noundef 0x3FD5555555555555) #14, !tbaa !22
+  %87 = tail call double @pow(double noundef %86, double noundef 0x3FD5555555555555) #14, !tbaa !21
   %88 = fmul double %87, 2.400000e+00
-  %89 = tail call double @log(double noundef %86) #14, !tbaa !22
-  %90 = tail call double @pow(double noundef %89, double noundef 0x3FE5555555555555) #14, !tbaa !22
+  %89 = tail call double @log(double noundef %86) #14, !tbaa !21
+  %90 = tail call double @pow(double noundef %89, double noundef 0x3FE5555555555555) #14, !tbaa !21
   %91 = tail call double @llvm.fmuladd.f64(double %88, double %90, double -5.000000e+00)
   %92 = fptoui double %91 to i32
   %93 = lshr i32 %92, 2
@@ -707,7 +707,7 @@ switch.lookup:                                    ; preds = %77
 
 98:                                               ; preds = %switch.lookup, %DiscreteLogWorkFactor.exit.i.i
   %.0.i.i = phi i32 [ %96, %DiscreteLogWorkFactor.exit.i.i ], [ %switch.load, %switch.lookup ]
-  %99 = load i32, ptr %3, align 4, !tbaa !22
+  %99 = load i32, ptr %3, align 4, !tbaa !21
   %.not23.i.i = icmp ugt i32 %.0.i.i, %99
   br i1 %.not23.i.i, label %wc_DhGenerateKeyPair_Sync.exit, label %100
 
@@ -720,7 +720,7 @@ GeneratePrivateDh.exit.thread33.i:                ; preds = %100
   %103 = load i8, ptr %2, align 1, !tbaa !13
   %104 = or i8 %103, 12
   store i8 %104, ptr %2, align 1, !tbaa !13
-  store i32 %.0.i.i, ptr %3, align 4, !tbaa !22
+  store i32 %.0.i.i, ptr %3, align 4, !tbaa !21
   br label %106
 
 GeneratePrivateDh.exit.thread36.i:                ; preds = %37, %CheckDhLN.exit.i.i.i, %35, %32
@@ -741,14 +741,14 @@ GeneratePrivateDh.exit.i:                         ; preds = %75, %71, %68, %65, 
   br i1 %105, label %GeneratePrivateDh.exit._crit_edge.i, label %wc_DhGenerateKeyPair_Sync.exit
 
 GeneratePrivateDh.exit._crit_edge.i:              ; preds = %GeneratePrivateDh.exit.i
-  %.pre.i = load i32, ptr %3, align 4, !tbaa !22
+  %.pre.i = load i32, ptr %3, align 4, !tbaa !21
   br label %106
 
 106:                                              ; preds = %GeneratePrivateDh.exit._crit_edge.i, %GeneratePrivateDh.exit.thread33.i
   %107 = phi i32 [ %.pre.i, %GeneratePrivateDh.exit._crit_edge.i ], [ %.0.i.i, %GeneratePrivateDh.exit.thread33.i ]
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %7) #14
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %8) #14
-  %108 = load i32, ptr %5, align 4, !tbaa !22
+  %108 = load i32, ptr %5, align 4, !tbaa !21
   %109 = call i32 @sp_unsigned_bin_size(ptr noundef nonnull %0) #14
   %110 = icmp ult i32 %108, %109
   br i1 %110, label %GeneratePublicDh.exit.i, label %111
@@ -776,7 +776,7 @@ GeneratePrivateDh.exit._crit_edge.i:              ; preds = %GeneratePrivateDh.e
 
 119:                                              ; preds = %.thread.i.i
   %120 = call i32 @sp_unsigned_bin_size(ptr noundef nonnull %8) #14
-  store i32 %120, ptr %5, align 4, !tbaa !22
+  store i32 %120, ptr %5, align 4, !tbaa !21
   br label %.thread22.i.i
 
 .thread22.i.i:                                    ; preds = %119, %.thread.i.i, %115, %113
@@ -826,13 +826,13 @@ define internal fastcc i32 @wc_DhAgree_Sync(ptr noundef nonnull %0, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %9) #14
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %10) #14
   call void @llvm.lifetime.start.p0(i64 1040, ptr nonnull %11) #14
-  %12 = load i16, ptr %0, align 8, !tbaa !19
+  %12 = load i16, ptr %0, align 8, !tbaa !18
   %.not = icmp eq i16 %12, 0
   br i1 %.not, label %.critedge, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !20
+  %15 = load i64, ptr %14, align 8, !tbaa !19
   %16 = and i64 %15, 1
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %45, label %.critedge
@@ -864,7 +864,7 @@ define internal fastcc i32 @wc_DhAgree_Sync(ptr noundef nonnull %0, ptr noundef 
   br i1 %.not26, label %30, label %25
 
 25:                                               ; preds = %.thread
-  %26 = load i32, ptr %2, align 4, !tbaa !22
+  %26 = load i32, ptr %2, align 4, !tbaa !21
   %27 = add nsw i32 %26, 63
   %28 = sdiv i32 %27, 64
   %29 = call i32 @sp_exptmod_ex(ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %28, ptr noundef nonnull %0, ptr noundef nonnull %11) #14
@@ -888,7 +888,7 @@ define internal fastcc i32 @wc_DhAgree_Sync(ptr noundef nonnull %0, ptr noundef 
   br i1 %.not26, label %40, label %37
 
 37:                                               ; preds = %36
-  %38 = load i32, ptr %2, align 4, !tbaa !22
+  %38 = load i32, ptr %2, align 4, !tbaa !21
   %39 = call i32 @sp_to_unsigned_bin_len_ct(ptr noundef nonnull %11, ptr noundef nonnull %1, i32 noundef %38) #14
   br label %.thread43
 
@@ -899,7 +899,7 @@ define internal fastcc i32 @wc_DhAgree_Sync(ptr noundef nonnull %0, ptr noundef 
 
 43:                                               ; preds = %40
   %44 = call i32 @sp_unsigned_bin_size(ptr noundef nonnull %11) #14
-  store i32 %44, ptr %2, align 4, !tbaa !22
+  store i32 %44, ptr %2, align 4, !tbaa !21
   br label %.thread43
 
 .thread43:                                        ; preds = %21, %33, %23, %32, %37, %43, %40
@@ -931,7 +931,7 @@ define i32 @wc_DhAgree_ct(ptr noundef %0, ptr noundef writeonly captures(address
   br i1 %or.cond7, label %30, label %13
 
 13:                                               ; preds = %7
-  %14 = load i32, ptr %2, align 4, !tbaa !22
+  %14 = load i32, ptr %2, align 4, !tbaa !21
   %15 = zext i32 %14 to i64
   %16 = tail call ptr @wolfSSL_Malloc(i64 noundef %15) #14
   %17 = icmp eq ptr %16, null
@@ -950,7 +950,7 @@ define i32 @wc_DhAgree_ct(ptr noundef %0, ptr noundef writeonly captures(address
 .lr.ph.preheader:                                 ; preds = %21
   %22 = getelementptr i8, ptr %1, i64 %15
   %.04453 = getelementptr i8, ptr %22, i64 -1
-  %23 = load i32, ptr %2, align 4, !tbaa !22
+  %23 = load i32, ptr %2, align 4, !tbaa !21
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 %24
   br label %.lr.ph
@@ -966,10 +966,10 @@ define i32 @wc_DhAgree_ct(ptr noundef %0, ptr noundef writeonly captures(address
   store i8 %28, ptr %.04456, align 1, !tbaa !13
   %.044 = getelementptr inbounds i8, ptr %.04456, i64 -1
   %.not = icmp ult ptr %.044, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %21
-  store i32 %14, ptr %2, align 4, !tbaa !22
+  store i32 %14, ptr %2, align 4, !tbaa !21
   br label %29
 
 29:                                               ; preds = %._crit_edge, %18
@@ -1063,7 +1063,7 @@ define internal fastcc i32 @_DhSetKey(ptr noundef %0, ptr noundef %1, i32 nounde
 
 36:                                               ; preds = %.thread129
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
-  store i32 0, ptr %10, align 4, !tbaa !22
+  store i32 0, ptr %10, align 4, !tbaa !21
   %37 = icmp eq i32 %.075126, 256
   br i1 %37, label %38, label %41
 
@@ -1073,7 +1073,7 @@ define internal fastcc i32 @_DhSetKey(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %38
-  store i32 1, ptr %10, align 4, !tbaa !22
+  store i32 1, ptr %10, align 4, !tbaa !21
   br label %46
 
 41:                                               ; preds = %38, %36
@@ -1242,7 +1242,7 @@ define noundef i32 @wc_DhGetNamedKeyParamSize(i32 noundef %0, ptr noundef writeo
 
 5:                                                ; preds = %4
   %spec.select15 = select i1 %cond, i32 256, i32 0
-  store i32 %spec.select15, ptr %1, align 4, !tbaa !22
+  store i32 %spec.select15, ptr %1, align 4, !tbaa !21
   br label %6
 
 6:                                                ; preds = %5, %4
@@ -1250,7 +1250,7 @@ define noundef i32 @wc_DhGetNamedKeyParamSize(i32 noundef %0, ptr noundef writeo
   br i1 %.not13, label %8, label %7
 
 7:                                                ; preds = %6
-  store i32 %spec.select, ptr %2, align 4, !tbaa !22
+  store i32 %spec.select, ptr %2, align 4, !tbaa !21
   br label %8
 
 8:                                                ; preds = %7, %6
@@ -1258,7 +1258,7 @@ define noundef i32 @wc_DhGetNamedKeyParamSize(i32 noundef %0, ptr noundef writeo
   br i1 %.not14, label %10, label %9
 
 9:                                                ; preds = %8
-  store i32 0, ptr %3, align 4, !tbaa !22
+  store i32 0, ptr %3, align 4, !tbaa !21
   br label %10
 
 10:                                               ; preds = %9, %8
@@ -1286,7 +1286,7 @@ define noundef i32 @wc_DhCopyNamedKey(i32 noundef %0, ptr noundef writeonly capt
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %.thread
-  store i32 %.03045, ptr %2, align 4, !tbaa !22
+  store i32 %.03045, ptr %2, align 4, !tbaa !21
   br label %11
 
 11:                                               ; preds = %10, %.thread
@@ -1304,7 +1304,7 @@ define noundef i32 @wc_DhCopyNamedKey(i32 noundef %0, ptr noundef writeonly capt
   br i1 %.not37, label %17, label %16
 
 16:                                               ; preds = %15
-  store i32 %.02946, ptr %4, align 4, !tbaa !22
+  store i32 %.02946, ptr %4, align 4, !tbaa !21
   br label %17
 
 17:                                               ; preds = %15, %16
@@ -1312,7 +1312,7 @@ define noundef i32 @wc_DhCopyNamedKey(i32 noundef %0, ptr noundef writeonly capt
   br i1 %.not38, label %19, label %18
 
 18:                                               ; preds = %17
-  store i32 0, ptr %6, align 4, !tbaa !22
+  store i32 0, ptr %6, align 4, !tbaa !21
   br label %19
 
 19:                                               ; preds = %18, %17
@@ -1396,16 +1396,15 @@ attributes #14 = { nounwind }
 !11 = !{!4, !10, i64 3128}
 !12 = !{!4, !6, i64 2080}
 !13 = !{!7, !7, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = distinct !{!17, !15, !16}
-!18 = !{!5, !6, i64 0}
-!19 = !{!4, !6, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"long", !7, i64 0}
-!22 = !{!10, !10, i64 0}
-!23 = distinct !{!23, !15, !16}
-!24 = distinct !{!24, !15, !16}
-!25 = distinct !{!25, !15, !16}
-!26 = distinct !{!26, !15, !16}
+!16 = distinct !{!16, !15}
+!17 = !{!5, !6, i64 0}
+!18 = !{!4, !6, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long", !7, i64 0}
+!21 = !{!10, !10, i64 0}
+!22 = distinct !{!22, !15}
+!23 = distinct !{!23, !15}
+!24 = distinct !{!24, !15}
+!25 = distinct !{!25, !15}

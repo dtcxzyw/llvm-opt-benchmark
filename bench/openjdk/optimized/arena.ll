@@ -226,7 +226,7 @@ define hidden void @_ZN5Chunk4chopEPS_(ptr noundef %0) local_unnamed_addr #0 ali
 _ZN9ChunkPool16deallocate_chunkEP5Chunk.exit:     ; preds = %12, %15
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit, %1
   ret void
@@ -280,7 +280,7 @@ define hidden void @_ZN5Chunk9next_chopEPS_(ptr noundef captures(none) %0) local
 _ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i:   ; preds = %16, %13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %_ZN5Chunk4chopEPS_.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %_ZN5Chunk4chopEPS_.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN5Chunk4chopEPS_.exit:                          ; preds = %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i, %1
   store ptr null, ptr %0, align 8
@@ -316,7 +316,7 @@ define hidden void @_ZN5ArenaC2E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 d
 20:                                               ; preds = %4
   %21 = zext i8 %1 to i64
   %22 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %21, i32 1
-  %23 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(32) %22) #11, !srcloc !10
+  %23 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(32) %22) #11, !srcloc !9
   br label %_ZN10MemTracker16record_new_arenaE8MEMFLAGS.exit
 
 _ZN10MemTracker16record_new_arenaE8MEMFLAGS.exit: ; preds = %4, %20
@@ -337,7 +337,7 @@ _ZN10MemTracker16record_new_arenaE8MEMFLAGS.exit: ; preds = %4, %20
   %32 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %26, ptr nonnull %34) #11, !srcloc !10
+  %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %26, ptr nonnull %34) #11, !srcloc !9
   %36 = add i64 %35, %26
   %37 = load volatile i64, ptr %33, align 8
   tail call void @_ZN13MemoryCounter11update_peakEmm(ptr noundef nonnull align 8 dereferenceable(32) %33, i64 noundef %36, i64 noundef %37) #11
@@ -392,7 +392,7 @@ define hidden void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 d
   %12 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr nonnull %14) #11, !srcloc !10
+  %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr nonnull %14) #11, !srcloc !9
   %16 = add i64 %15, %6
   %17 = load volatile i64, ptr %13, align 8
   tail call void @_ZN13MemoryCounter11update_peakEmm(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %16, i64 noundef %17) #11
@@ -438,7 +438,7 @@ define hidden void @_ZN5ArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(48
   %5 = load i8, ptr %0, align 8
   %6 = zext i8 %5 to i64
   %7 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %6, i32 1
-  %8 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(32) %7) #11, !srcloc !10
+  %8 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(32) %7) #11, !srcloc !9
   br label %_ZN10MemTracker17record_arena_freeE8MEMFLAGS.exit
 
 _ZN10MemTracker17record_arena_freeE8MEMFLAGS.exit: ; preds = %1, %4
@@ -467,7 +467,7 @@ define hidden void @_ZN5Arena17destruct_contentsEv(ptr noundef nonnull align 8 d
   %13 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %16 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, ptr nonnull %15) #11, !srcloc !10
+  %16 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, ptr nonnull %15) #11, !srcloc !9
   %17 = sub i64 %16, %5
   %18 = load volatile i64, ptr %14, align 8
   tail call void @_ZN13MemoryCounter11update_peakEmm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %17, i64 noundef %18) #11
@@ -544,7 +544,7 @@ _ZN5Arena17set_size_in_bytesEm.exit:              ; preds = %1, %_ZN10MemTracker
 _ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i:   ; preds = %45, %42
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %.not.i1 = icmp eq ptr %34, null
-  br i1 %.not.i1, label %_ZN5Chunk4chopEPS_.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i1, label %_ZN5Chunk4chopEPS_.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZN5Chunk4chopEPS_.exit:                          ; preds = %_ZN9ChunkPool16deallocate_chunkEP5Chunk.exit.i, %_ZN5Arena17set_size_in_bytesEm.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
@@ -565,7 +565,7 @@ _ZN5Chunk4chopEPS_.exit:                          ; preds = %_ZN9ChunkPool16deal
   %53 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 40
-  %56 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %48, ptr nonnull %55) #11, !srcloc !10
+  %56 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %48, ptr nonnull %55) #11, !srcloc !9
   %57 = sub i64 %56, %46
   %58 = load volatile i64, ptr %54, align 8
   call void @_ZN13MemoryCounter11update_peakEmm(ptr noundef nonnull align 8 dereferenceable(32) %54, i64 noundef %57, i64 noundef %58) #11
@@ -630,7 +630,7 @@ define hidden noundef i64 @_ZNK5Arena4usedEv(ptr noundef nonnull readonly align 
   %16 = add i64 %15, %.059
   %.0 = load ptr, ptr %.010, align 8
   %.not = icmp eq ptr %.0, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.05.lcssa = phi i64 [ %12, %1 ], [ %16, %.lr.ph ]
@@ -743,7 +743,7 @@ _ZN10MemTracker19check_exceeds_limitEm8MEMFLAGS.exit.thread: ; preds = %26, %30,
   %65 = getelementptr inbounds nuw [28 x %class.MallocMemory], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 0, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 40
-  %68 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr nonnull %67) #11, !srcloc !10
+  %68 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr nonnull %67) #11, !srcloc !9
   %69 = add i64 %68, %6
   %70 = load volatile i64, ptr %66, align 8
   tail call void @_ZN13MemoryCounter11update_peakEmm(ptr noundef nonnull align 8 dereferenceable(32) %66, i64 noundef %69, i64 noundef %70) #11
@@ -953,7 +953,7 @@ define hidden noundef zeroext i1 @_ZNK5Arena8containsEPKv(ptr noundef nonnull re
 21:                                               ; preds = %14, %16, %.lr.ph
   %.0 = load ptr, ptr %.020, align 8
   %.not14 = icmp eq ptr %.0, null
-  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %16, %21, %11, %6, %2
   %.011 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %11 ], [ true, %16 ], [ false, %21 ]
@@ -1003,7 +1003,7 @@ _ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i: ; preds = %_ZN17NativeHeapTrim
   %7 = load ptr, ptr %.06.i.i, align 8
   call void @_ZN2os4freeEPv(ptr noundef nonnull %.06.i.i) #11
   %.not.i3.i = icmp eq ptr %7, null
-  br i1 %.not.i3.i, label %_ZN9ChunkPool5pruneEv.exit.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i3.i, label %_ZN9ChunkPool5pruneEv.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 _ZN9ChunkPool5pruneEv.exit.i:                     ; preds = %.lr.ph.i.i, %_ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i
   store ptr null, ptr %5, align 16
@@ -1011,7 +1011,7 @@ _ZN9ChunkPool5pruneEv.exit.i:                     ; preds = %.lr.ph.i.i, %_ZN17N
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %8, label %_ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %8, label %_ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i, !llvm.loop !13
 
 8:                                                ; preds = %_ZN9ChunkPool5pruneEv.exit.i
   %9 = load i32, ptr @TrimNativeHeapInterval, align 4
@@ -1082,12 +1082,11 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i64 2145411697}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7, !8}
-!14 = distinct !{!14, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = !{i64 2145411697}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7}

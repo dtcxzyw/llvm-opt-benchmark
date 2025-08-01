@@ -1296,7 +1296,7 @@ _ZN4node14StreamResource8EmitReadElRK8uv_buf_t.exit: ; preds = %while.body, %if.
   %26 = load ptr, ptr %vfn.i20, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(24) %25, i64 noundef %spec.select, ptr noundef nonnull align 8 dereferenceable(16) %buf) #14
   %cmp21.not = icmp eq i32 %sub, 0
-  br i1 %cmp21.not, label %while.end, label %while.body, !llvm.loop !8
+  br i1 %cmp21.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %_ZN4node14StreamResource8EmitReadElRK8uv_buf_t.exit, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
   ret void
@@ -2109,7 +2109,6 @@ attributes #18 = { nounwind allocsize(1) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
+!7 = distinct !{!7, !6}

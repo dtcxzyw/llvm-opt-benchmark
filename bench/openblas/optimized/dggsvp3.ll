@@ -296,7 +296,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep667, i8 0, i64 %149, i1 false), !tbaa !7
   %indvars.iv.next674 = add nuw nsw i64 %indvars.iv673, 1
   %exitcond677.not = icmp eq i64 %indvars.iv.next674, %wide.trip.count676
-  br i1 %exitcond677.not, label %._crit_edge618, label %.loopexit602, !llvm.loop !12
+  br i1 %exitcond677.not, label %._crit_edge618, label %.loopexit602, !llvm.loop !11
 
 ._crit_edge618:                                   ; preds = %.loopexit602, %138
   %155 = load i32, ptr %4, align 4, !tbaa !3
@@ -369,7 +369,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 .loopexit600:                                     ; preds = %.lr.ph622, %186
   %.not550.not = icmp slt i32 %.1488625, %175
   %indvar.next = add i32 %indvar, 1
-  br i1 %.not550.not, label %186, label %.loopexit601, !llvm.loop !13
+  br i1 %.not550.not, label %186, label %.loopexit601, !llvm.loop !12
 
 186:                                              ; preds = %.lr.ph627, %.loopexit600
   %indvar = phi i32 [ 0, %.lr.ph627 ], [ %indvar.next, %.loopexit600 ]
@@ -449,7 +449,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %221 = phi i32 [ %210, %209 ], [ %219, %218 ]
   %indvars.iv.next689 = add nuw nsw i64 %indvars.iv688, 1
   %exitcond692.not = icmp eq i64 %indvars.iv.next689, %wide.trip.count691
-  br i1 %exitcond692.not, label %._crit_edge637.loopexit, label %209, !llvm.loop !14
+  br i1 %exitcond692.not, label %._crit_edge637.loopexit, label %209, !llvm.loop !13
 
 ._crit_edge637.loopexit:                          ; preds = %220
   %.pre731 = load i32, ptr %3, align 4, !tbaa !3
@@ -550,7 +550,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep696, i8 0, i64 %264, i1 false), !tbaa !7
   %indvars.iv.next703 = add nuw nsw i64 %indvars.iv702, 1
   %exitcond706.not = icmp eq i64 %indvars.iv.next703, %wide.trip.count705
-  br i1 %exitcond706.not, label %._crit_edge646, label %.loopexit599, !llvm.loop !15
+  br i1 %exitcond706.not, label %._crit_edge646, label %.loopexit599, !llvm.loop !14
 
 ._crit_edge646:                                   ; preds = %.loopexit599, %253
   %270 = load i32, ptr %3, align 4, !tbaa !3
@@ -627,7 +627,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 .loopexit597:                                     ; preds = %.lr.ph650, %312
   %indvar.next709 = add i32 %indvar708, 1
   %exitcond716.not = icmp eq i32 %indvar.next709, %301
-  br i1 %exitcond716.not, label %.loopexit598, label %312, !llvm.loop !16
+  br i1 %exitcond716.not, label %.loopexit598, label %312, !llvm.loop !15
 
 312:                                              ; preds = %.lr.ph655, %.loopexit597
   %indvar708 = phi i32 [ 0, %.lr.ph655 ], [ %indvar.next709, %.loopexit597 ]
@@ -720,7 +720,7 @@ define void @dggsvp3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 .loopexit:                                        ; preds = %.lr.ph659, %366
   %.not560.not = icmp slt i32 %.4662, %352
   %indvar.next719 = add i32 %indvar718, 1
-  br i1 %.not560.not, label %366, label %.loopexit596, !llvm.loop !17
+  br i1 %.not560.not, label %366, label %.loopexit596, !llvm.loop !16
 
 366:                                              ; preds = %.lr.ph664, %.loopexit
   %indvar718 = phi i32 [ 0, %.lr.ph664 ], [ %indvar.next719, %.loopexit ]
@@ -816,12 +816,11 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !10, !11}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = distinct !{!16, !10}

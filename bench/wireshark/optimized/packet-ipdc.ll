@@ -720,7 +720,7 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %99 = mul i32 %98, %94
   %100 = add i32 %99, %.021711.i
   %exitcond23.not.i = icmp eq i32 %95, %69
-  br i1 %exitcond23.not.i, label %._crit_edge.i, label %91, !llvm.loop !11
+  br i1 %exitcond23.not.i, label %._crit_edge.i, label %91, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %91
   %101 = icmp eq i8 %68, 1
@@ -803,7 +803,7 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %149 = tail call ptr @val_to_str_const(i32 noundef %147, ptr noundef nonnull %139, ptr noundef nonnull @.str.118)
   %150 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %137, i32 noundef %142, ptr noundef %0, i32 noundef %145, i32 noundef 1, i32 noundef %147, ptr noundef nonnull @.str.125, ptr noundef %70, i32 noundef %66, i32 noundef %148, i32 noundef %147, ptr noundef %149)
   %exitcond.not.i = icmp eq i32 %148, %69
-  br i1 %exitcond.not.i, label %.loopexit.i, label %144, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.loopexit.i, label %144, !llvm.loop !11
 
 151:                                              ; preds = %.critedge.i
   %152 = add nuw nsw i32 %65, 2
@@ -847,7 +847,7 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %181 = and i32 %180, 65535
   %182 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %181)
   %183 = icmp eq i8 %182, 0
-  br i1 %183, label %._crit_edge17.i, label %64, !llvm.loop !13
+  br i1 %183, label %._crit_edge17.i, label %64
 
 dissect_ipdc_common.exit:                         ; preds = %16, %._crit_edge17.i
   %.0212.i = phi i32 [ 4, %16 ], [ %63, %._crit_edge17.i ]
@@ -943,9 +943,7 @@ attributes #3 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

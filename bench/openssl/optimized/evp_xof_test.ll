@@ -357,7 +357,7 @@ define internal range(i32 0, 2) i32 @shake_absorb_test() #0 {
 6:                                                ; preds = %9
   %7 = add i64 %spec.select, %.02231
   %8 = icmp ult i64 %7, 684
-  br i1 %8, label %9, label %19, !llvm.loop !19
+  br i1 %8, label %9, label %19, !llvm.loop !18
 
 9:                                                ; preds = %.preheader, %6
   %.032 = phi i64 [ 0, %.preheader ], [ %spec.select, %6 ]
@@ -553,7 +553,7 @@ define internal range(i32 0, 2) i32 @shake_squeeze_dup_test(i32 noundef %0) #0 {
   %.138.i = phi ptr [ %.0372.i, %44 ], [ %.0372.i, %41 ], [ %46, %45 ]
   %.2.i = phi ptr [ null, %44 ], [ %.1363.i, %41 ], [ %46, %45 ]
   %49 = icmp samesign ult i64 %42, 1000
-  br i1 %49, label %.preheader.i, label %50, !llvm.loop !20
+  br i1 %49, label %.preheader.i, label %50, !llvm.loop !19
 
 50:                                               ; preds = %48
   %51 = call i32 @test_mem_eq(ptr noundef nonnull @.str.9, i32 noundef 471, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.39, ptr noundef %26, i64 noundef 1000, ptr noundef nonnull %3, i64 noundef 1000) #5
@@ -761,7 +761,7 @@ declare i32 @test_uchar_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i
 define internal fastcc range(i32 0, 2) i32 @do_shake_squeeze_test(i32 noundef %0, ptr noundef %1, i64 noundef range(i64 16, 33) %2, ptr noundef %3, i64 noundef range(i64 250, 2001) %4) unnamed_addr #0 {
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds [32 x %struct.anon], ptr @stride_tests, i64 0, i64 %6
-  %8 = load i64, ptr %7, align 16, !tbaa !21
+  %8 = load i64, ptr %7, align 16, !tbaa !20
   %9 = tail call fastcc ptr @shake_setup(ptr noundef nonnull @.str.11)
   %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 379, ptr noundef nonnull @.str.10, ptr noundef %9) #5
   %.not = icmp eq i32 %10, 0
@@ -802,9 +802,9 @@ define internal fastcc range(i32 0, 2) i32 @do_shake_squeeze_test(i32 noundef %0
 
 29:                                               ; preds = %20
   %30 = add i64 %spec.select, %.02635
-  %31 = load i64, ptr %19, align 8, !tbaa !23
+  %31 = load i64, ptr %19, align 8, !tbaa !22
   %32 = icmp ult i64 %30, %4
-  br i1 %32, label %20, label %33, !llvm.loop !24
+  br i1 %32, label %20, label %33, !llvm.loop !23
 
 33:                                               ; preds = %29
   %34 = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.9, i32 noundef 394, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.39, ptr noundef %12, i64 noundef %4, ptr noundef %3, i64 noundef %4) #5
@@ -858,12 +858,11 @@ attributes #5 = { nounwind }
 !13 = !{!"any pointer", !6, i64 0}
 !14 = !{!13, !13, i64 0}
 !15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !17, !18}
+!16 = distinct !{!16, !17}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!"llvm.loop.estimated_trip_count"}
-!19 = distinct !{!19, !17, !18}
-!20 = distinct !{!20, !17, !18}
-!21 = !{!22, !9, i64 0}
-!22 = !{!"", !9, i64 0, !9, i64 8}
-!23 = !{!22, !9, i64 8}
-!24 = distinct !{!24, !17, !18}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = !{!21, !9, i64 0}
+!21 = !{!"", !9, i64 0, !9, i64 8}
+!22 = !{!21, !9, i64 8}
+!23 = distinct !{!23, !17}

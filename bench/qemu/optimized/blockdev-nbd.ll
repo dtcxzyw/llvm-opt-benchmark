@@ -231,7 +231,7 @@ define internal fastcc void @nbd_server_free(ptr noundef %0) unnamed_addr #3 {
   %20 = tail call zeroext i1 @aio_poll(ptr noundef %19, i1 noundef zeroext true) #9
   %21 = load i32, ptr %16, align 4
   %.not26 = icmp eq i32 %21, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph31, !llvm.loop !7
+  br i1 %.not26, label %._crit_edge, label %.lr.ph31, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph31, %.preheader
   %22 = atomicrmw sub ptr @global_aio_wait, i32 1 seq_cst, align 4
@@ -258,7 +258,7 @@ define internal fastcc void @nbd_server_free(ptr noundef %0) unnamed_addr #3 {
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @nbd_server_start_options(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i8, ptr %3, align 8, !range !8, !noundef !9
+  %4 = load i8, ptr %3, align 8, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %8, label %6
 
@@ -269,7 +269,7 @@ define dso_local void @nbd_server_start_options(ptr noundef captures(none) %0, p
 
 8:                                                ; preds = %6, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i8, ptr %9, align 8, !range !8, !noundef !9
+  %10 = load i8, ptr %9, align 8, !range !7, !noundef !8
   %11 = trunc nuw i8 %10 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 12
   br i1 %11, label %._crit_edge, label %12
@@ -335,9 +335,9 @@ define dso_local void @qmp_nbd_server_add(ptr noundef captures(none) %0, ptr nou
   %15 = tail call ptr @bdrv_get_node_name(ptr noundef nonnull %5) #9
   %16 = tail call noalias ptr @g_strdup(ptr noundef %15) #9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i8, ptr %17, align 8, !range !8, !noundef !9
+  %18 = load i8, ptr %17, align 8, !range !7, !noundef !8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %20 = load i8, ptr %19, align 1, !range !8, !noundef !9
+  %20 = load i8, ptr %19, align 1, !range !7, !noundef !8
   store i32 0, ptr %12, align 8
   %.sroa.319.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %.sroa.319.0..sroa_idx, align 4
@@ -695,9 +695,8 @@ attributes #11 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!6 = distinct !{!6, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}

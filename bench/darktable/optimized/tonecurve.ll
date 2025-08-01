@@ -63,7 +63,7 @@ define dso_local double @tonecurve_apply(ptr noundef readonly captures(none) %0,
   %14 = add i32 %.046..042.i, %.042..044.i
   %.042.i = lshr i32 %14, 1
   %.not.i = icmp eq i32 %.042.i, %.046..042.i
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %15 = icmp ult i32 %.042..044.i, %7
@@ -147,7 +147,7 @@ define dso_local double @tonecurve_unapply(ptr noundef readonly captures(none) %
   %14 = add i32 %.046..042.i, %.042..044.i
   %.042.i = lshr i32 %14, 1
   %.not.i = icmp eq i32 %.042.i, %.046..042.i
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %15 = icmp ult i32 %.042..044.i, %7
@@ -227,5 +227,3 @@ attributes #4 = { nounwind }
 !15 = !{!8, !9, i64 8}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"double", !11, i64 0}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.estimated_trip_count"}

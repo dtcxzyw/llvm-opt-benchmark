@@ -345,7 +345,7 @@ define dso_local void @__rb_erase_color(ptr noundef %0, ptr noundef %1, ptr noun
 define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = icmp eq i64 %3, 0
-  br i1 %4, label %.loopexit13, label %.preheader, !prof !8
+  br i1 %4, label %.loopexit13, label %.preheader, !prof !7
 
 .loopexit13:                                      ; preds = %23, %2
   %5 = phi ptr [ %0, %2 ], [ %13, %23 ]
@@ -387,7 +387,7 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
   %26 = and i64 %25, -4
   store i64 %26, ptr %13, align 8
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %.loopexit13, label %.preheader, !prof !9, !llvm.loop !10
+  br i1 %27, label %.loopexit13, label %.preheader, !prof !8, !llvm.loop !9
 
 28:                                               ; preds = %19, %17
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -633,7 +633,7 @@ define dso_local void @rb_erase(ptr noundef readonly captures(address) %0, ptr n
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %.preheader20, !llvm.loop !12
+  br i1 %52, label %53, label %.preheader20, !llvm.loop !10
 
 53:                                               ; preds = %.preheader20
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -794,7 +794,7 @@ define dso_local void @rb_erase(ptr noundef readonly captures(address) %0, ptr n
 150:                                              ; preds = %234, %147
   %151 = phi i64 [ %148, %147 ], [ %235, %234 ]
   %152 = inttoptr i64 %151 to ptr
-  br label %.preheader, !llvm.loop !14
+  br label %.preheader, !llvm.loop !5
 
 153:                                              ; preds = %136
   %154 = getelementptr inbounds nuw i8, ptr %124, i64 16
@@ -1015,7 +1015,7 @@ define dso_local void @rb_erase(ptr noundef readonly captures(address) %0, ptr n
 define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = load i64, ptr %0, align 8
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %.loopexit15, label %.preheader, !prof !8
+  br i1 %5, label %.loopexit15, label %.preheader, !prof !7
 
 .loopexit15:                                      ; preds = %24, %3
   %6 = phi ptr [ %0, %3 ], [ %14, %24 ]
@@ -1057,7 +1057,7 @@ define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr
   %27 = and i64 %26, -4
   store i64 %27, ptr %14, align 8
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.loopexit15, label %.preheader, !prof !9, !llvm.loop !15
+  br i1 %28, label %.loopexit15, label %.preheader, !prof !8, !llvm.loop !9
 
 29:                                               ; preds = %20, %18
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1218,7 +1218,7 @@ define dso_local ptr @rb_first(ptr noundef readonly captures(none) %0) #2 align 
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %1
   %8 = phi ptr [ null, %1 ], [ %4, %.preheader ]
@@ -1236,7 +1236,7 @@ define dso_local ptr @rb_last(ptr noundef readonly captures(none) %0) #2 align 1
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %7, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.preheader, %1
   %8 = phi ptr [ null, %1 ], [ %4, %.preheader ]
@@ -1261,7 +1261,7 @@ define dso_local ptr @rb_next(ptr noundef %0) #2 align 16 {
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader1, !llvm.loop !18
+  br i1 %12, label %.loopexit, label %.preheader1, !llvm.loop !14
 
 .preheader:                                       ; preds = %5, %18
   %13 = phi ptr [ %16, %18 ], [ %0, %5 ]
@@ -1275,7 +1275,7 @@ define dso_local ptr @rb_next(ptr noundef %0) #2 align 16 {
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %13, %20
-  br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader1, %18, %.preheader, %1
   %22 = phi ptr [ null, %1 ], [ %16, %.preheader ], [ %16, %18 ], [ %9, %.preheader1 ]
@@ -1300,7 +1300,7 @@ define dso_local ptr @rb_prev(ptr noundef %0) #2 align 16 {
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.loopexit, label %.preheader1, !llvm.loop !20
+  br i1 %12, label %.loopexit, label %.preheader1, !llvm.loop !16
 
 .preheader:                                       ; preds = %5, %18
   %13 = phi ptr [ %16, %18 ], [ %0, %5 ]
@@ -1314,7 +1314,7 @@ define dso_local ptr @rb_prev(ptr noundef %0) #2 align 16 {
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %13, %20
-  br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !21
+  br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader1, %18, %.preheader, %1
   %22 = phi ptr [ null, %1 ], [ %16, %.preheader ], [ %16, %18 ], [ %9, %.preheader1 ]
@@ -1422,7 +1422,7 @@ define dso_local void @rb_replace_node_rcu(ptr noundef readonly captures(address
   br label %33
 
 32:                                               ; preds = %22
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !18
   br label %33
 
 33:                                               ; preds = %32, %25
@@ -1470,7 +1470,7 @@ define dso_local ptr @rb_next_postorder(ptr noundef readonly captures(address) %
 
 .preheader.backedge:                              ; preds = %20, %.preheader
   %.be = phi ptr [ %18, %.preheader ], [ %22, %20 ]
-  br label %.preheader, !llvm.loop !23
+  br label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %20, %12, %8, %3, %1
   %24 = phi ptr [ null, %1 ], [ %6, %12 ], [ %6, %8 ], [ %6, %3 ], [ %16, %20 ]
@@ -1498,7 +1498,7 @@ define dso_local ptr @rb_first_postorder(ptr noundef readonly captures(none) %0)
 
 .preheader.backedge:                              ; preds = %8, %.preheader
   %.be = phi ptr [ %6, %.preheader ], [ %10, %8 ]
-  br label %.preheader, !llvm.loop !24
+  br label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %8, %1
   %12 = phi ptr [ null, %1 ], [ %4, %8 ]
@@ -1518,23 +1518,18 @@ attributes #4 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.unroll.disable"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{!"branch_weights", i32 1, i32 127}
-!9 = !{!"branch_weights", i32 127, i32 255873}
-!10 = distinct !{!10, !6, !11}
-!11 = !{!"llvm.loop.estimated_trip_count", i32 2016}
-!12 = distinct !{!12, !13, !6, !7}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !11}
-!16 = distinct !{!16, !13, !6, !7}
-!17 = distinct !{!17, !13, !6, !7}
-!18 = distinct !{!18, !13, !6, !7}
-!19 = distinct !{!19, !13, !6, !7}
-!20 = distinct !{!20, !13, !6, !7}
-!21 = distinct !{!21, !13, !6, !7}
-!22 = !{i64 2149680891}
-!23 = distinct !{!23, !6, !7}
-!24 = distinct !{!24, !6, !7}
+!7 = !{!"branch_weights", i32 1, i32 127}
+!8 = !{!"branch_weights", i32 127, i32 255873}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !11, !6}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11, !6}
+!13 = distinct !{!13, !11, !6}
+!14 = distinct !{!14, !11, !6}
+!15 = distinct !{!15, !11, !6}
+!16 = distinct !{!16, !11, !6}
+!17 = distinct !{!17, !11, !6}
+!18 = !{i64 2149680891}
+!19 = distinct !{!19, !6}

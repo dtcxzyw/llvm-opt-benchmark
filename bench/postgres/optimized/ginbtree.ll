@@ -307,7 +307,7 @@ BufferGetPage.exit83:                             ; preds = %109, %115
 130:                                              ; preds = %BufferGetPage.exit83, %121, %129
   %131 = load i8, ptr %17, align 8, !range !4, !noundef !5
   %132 = icmp eq i8 %131, 0
-  br i1 %132, label %.lr.ph, label %.critedge, !llvm.loop !6
+  br i1 %132, label %.lr.ph, label %.critedge
 
 .critedge:                                        ; preds = %51, %130, %.lr.ph, %54, %46
   %.075.lcssa = phi ptr [ %.0.i.i, %46 ], [ %.07593, %54 ], [ %.07593, %.lr.ph ], [ %.0.i.i82, %130 ], [ %.07593, %51 ]
@@ -334,7 +334,7 @@ BufferGetPage.exit83:                             ; preds = %109, %115
   %146 = load ptr, ptr %7, align 8
   %147 = tail call i32 @ReleaseAndReadBuffer(i32 noundef %145, ptr noundef %146, i32 noundef %142) #6
   store i32 %147, ptr %20, align 4
-  br label %21, !llvm.loop !8
+  br label %21
 
 148:                                              ; preds = %140
   %149 = tail call ptr @palloc(i64 noundef 32) #6
@@ -347,7 +347,7 @@ BufferGetPage.exit83:                             ; preds = %109, %115
   store i32 %152, ptr %153, align 4
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 16
   store i32 1, ptr %154, align 8
-  br label %.outer, !llvm.loop !8
+  br label %.outer
 
 155:                                              ; preds = %.critedge
   ret ptr %.073.ph
@@ -535,7 +535,7 @@ define dso_local void @freeGinBtreeStack(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %6, %.lr.ph
   tail call void @pfree(ptr noundef nonnull %.09) #6
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %7, %1
   ret void
@@ -624,7 +624,7 @@ ginFinishOldSplit.exit:                           ; preds = %27, %29
 46:                                               ; preds = %45, %.lr.ph.i
   tail call void @pfree(ptr noundef nonnull %.09.i) #6
   %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %freeGinBtreeStack.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %freeGinBtreeStack.exit, label %.lr.ph.i, !llvm.loop !6
 
 47:                                               ; preds = %37
   tail call fastcc void @ginFinishSplit(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef %3)
@@ -1538,7 +1538,7 @@ BufferGetPage.exit66:                             ; preds = %46, %52
   %77 = getelementptr inbounds nuw i8, ptr %.067.i, i64 24
   %78 = load ptr, ptr %77, align 8
   %.not.i = icmp eq ptr %78, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph125, !llvm.loop !11
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph125, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph125, %71
   %.067.i.lcssa = phi ptr [ %.067.i122, %71 ], [ %.067.i, %.lr.ph125 ]
@@ -1763,7 +1763,7 @@ ginFinishOldSplit.exit79:                         ; preds = %193, %195
   %204 = load i32, ptr %.0, align 8
   %205 = tail call zeroext i16 %203(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i80, i32 noundef %204, i16 noundef zeroext 0) #6
   %206 = icmp eq i16 %205, 0
-  br i1 %206, label %.lr.ph129, label %ginFindParents.exit, !llvm.loop !12
+  br i1 %206, label %.lr.ph129, label %ginFindParents.exit, !llvm.loop !9
 
 ._crit_edge130:                                   ; preds = %122
   %.not77.i = icmp eq i32 %.069.i, -1
@@ -1772,7 +1772,7 @@ ginFinishOldSplit.exit79:                         ; preds = %193, %195
 .thread:                                          ; preds = %135, %137, %._crit_edge130
   %207 = load ptr, ptr %5, align 8
   %208 = tail call i32 @ReadBuffer(ptr noundef %207, i32 noundef %124) #6
-  br label %87, !llvm.loop !13
+  br label %87
 
 ginFindParents.exit:                              ; preds = %._crit_edge130, %202
   %.lcssa150 = phi i16 [ %205, %202 ], [ %127, %._crit_edge130 ]
@@ -1918,7 +1918,7 @@ ginFinishOldSplit.exit73:                         ; preds = %278, %280
   %291 = tail call zeroext i16 %288(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i69105, i32 noundef %289, i16 noundef zeroext %290) #6
   store i16 %291, ptr %58, align 8
   %292 = icmp eq i16 %291, 0
-  br i1 %292, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %292, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %287, %BufferGetPage.exit66, %ginFindParents.exit
   %.059 = phi ptr [ %83, %ginFindParents.exit ], [ %10, %BufferGetPage.exit66 ], [ %10, %287 ]
@@ -1973,7 +1973,7 @@ BufferGetPage.exit77:                             ; preds = %299, %305
   br i1 %316, label %324, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %320, %.thread110
-  br label %.backedge, !llvm.loop !15
+  br label %.backedge, !llvm.loop !11
 
 .thread110:                                       ; preds = %319
   br i1 %316, label %.thread111, label %.backedge.backedge
@@ -2006,7 +2006,7 @@ BufferGetPage.exit77:                             ; preds = %299, %305
 332:                                              ; preds = %331, %.lr.ph.i
   tail call void @pfree(ptr noundef nonnull %.09.i) #6
   %.not.i78 = icmp eq ptr %328, null
-  br i1 %.not.i78, label %freeGinBtreeStack.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i78, label %freeGinBtreeStack.exit, label %.lr.ph.i, !llvm.loop !6
 
 freeGinBtreeStack.exit:                           ; preds = %332, %.thread111
   ret void
@@ -2060,12 +2060,8 @@ attributes #7 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
-!9 = distinct !{!9, !10, !7}
-!10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10, !7}
-!12 = distinct !{!12, !10, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !10, !7}
-!15 = distinct !{!15, !10, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

@@ -64,7 +64,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EES6_EvT
 
 12:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !17
+  %14 = load ptr, ptr %13, align 8, !tbaa !16
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
@@ -105,8 +105,8 @@ define hidden void @_ZN4LIEF5MachO9FatBinaryC2ESt6vectorISt10unique_ptrINS0_6Bin
   store ptr %7, ptr %5, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !17
-  store ptr %10, ptr %8, align 8, !tbaa !17
+  %10 = load ptr, ptr %9, align 8, !tbaa !16
+  store ptr %10, ptr %8, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   ret void
 }
@@ -114,9 +114,9 @@ define hidden void @_ZN4LIEF5MachO9FatBinaryC2ESt6vectorISt10unique_ptrINS0_6Bin
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4LIEF5MachO9FatBinary8pop_backEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !18
+  %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !18
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %10, label %_ZNSt6vectorISt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS3_EESaIS6_EE8pop_backEv.exit
 
@@ -182,9 +182,9 @@ define noundef ptr @_ZNK4LIEF5MachO9FatBinary2atEm(ptr noundef nonnull readonly 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN4LIEF5MachO9FatBinary4backEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %_ZNK4LIEF5MachO9FatBinary4backEv.exit, label %7
 
@@ -201,9 +201,9 @@ _ZNK4LIEF5MachO9FatBinary4backEv.exit:            ; preds = %1, %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK4LIEF5MachO9FatBinary4backEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %10, label %7
 
@@ -220,9 +220,9 @@ define noundef ptr @_ZNK4LIEF5MachO9FatBinary4backEv(ptr noundef nonnull readonl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN4LIEF5MachO9FatBinary5frontEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %_ZNK4LIEF5MachO9FatBinary5frontEv.exit, label %7
 
@@ -238,9 +238,9 @@ _ZNK4LIEF5MachO9FatBinary5frontEv.exit:           ; preds = %1, %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK4LIEF5MachO9FatBinary5frontEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = icmp eq ptr %3, %5
   br i1 %6, label %9, label %7
 
@@ -256,9 +256,9 @@ define noundef ptr @_ZNK4LIEF5MachO9FatBinary5frontEv(ptr noundef nonnull readon
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !18
+  %7 = load ptr, ptr %6, align 8, !tbaa !17
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %5 to i64
   %10 = sub i64 %8, %9
@@ -276,7 +276,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   %.sroa.050.069.i.i.i = phi ptr [ %29, %28 ], [ %5, %.lr.ph.preheader.i.i.i ]
   %.val1.i.i.i.i = load ptr, ptr %.sroa.050.069.i.i.i, align 8, !tbaa !12
   %14 = getelementptr i8, ptr %.val1.i.i.i.i, i64 108
-  %.val1.val.i.i.i.i = load i32, ptr %14, align 4, !tbaa !19
+  %.val1.val.i.i.i.i = load i32, ptr %14, align 4, !tbaa !18
   %15 = icmp eq i32 %.val1.val.i.i.i.i, %2
   br i1 %15, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit", label %16
 
@@ -284,7 +284,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.050.069.i.i.i, i64 8
   %.val1.i22.i.i.i = load ptr, ptr %17, align 8, !tbaa !12
   %18 = getelementptr i8, ptr %.val1.i22.i.i.i, i64 108
-  %.val1.val.i23.i.i.i = load i32, ptr %18, align 4, !tbaa !19
+  %.val1.val.i23.i.i.i = load i32, ptr %18, align 4, !tbaa !18
   %19 = icmp eq i32 %.val1.val.i23.i.i.i, %2
   br i1 %19, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit", label %20
 
@@ -292,7 +292,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.050.069.i.i.i, i64 16
   %.val1.i24.i.i.i = load ptr, ptr %21, align 8, !tbaa !12
   %22 = getelementptr i8, ptr %.val1.i24.i.i.i, i64 108
-  %.val1.val.i25.i.i.i = load i32, ptr %22, align 4, !tbaa !19
+  %.val1.val.i25.i.i.i = load i32, ptr %22, align 4, !tbaa !18
   %23 = icmp eq i32 %.val1.val.i25.i.i.i, %2
   br i1 %23, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit22", label %24
 
@@ -300,7 +300,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.050.069.i.i.i, i64 24
   %.val1.i26.i.i.i = load ptr, ptr %25, align 8, !tbaa !12
   %26 = getelementptr i8, ptr %.val1.i26.i.i.i, i64 108
-  %.val1.val.i27.i.i.i = load i32, ptr %26, align 4, !tbaa !19
+  %.val1.val.i27.i.i.i = load i32, ptr %26, align 4, !tbaa !18
   %27 = icmp eq i32 %.val1.val.i27.i.i.i, %2
   br i1 %27, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.loopexit.split.loop.exit24", label %28
 
@@ -308,7 +308,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.050.069.i.i.i, i64 32
   %30 = add nsw i64 %.070.i.i.i, -1
   %31 = icmp sgt i64 %.070.i.i.i, 1
-  br i1 %31, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !26
+  br i1 %31, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !25
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %28
   %.pre.i.i.i = ptrtoint ptr %scevgep.i.i.i to i64
@@ -328,7 +328,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
 33:                                               ; preds = %._crit_edge.i.i.i
   %.val1.i28.i.i.i = load ptr, ptr %.sroa.050.0.lcssa.i.i.i, align 8, !tbaa !12
   %34 = getelementptr i8, ptr %.val1.i28.i.i.i, i64 108
-  %.val1.val.i29.i.i.i = load i32, ptr %34, align 4, !tbaa !19
+  %.val1.val.i29.i.i.i = load i32, ptr %34, align 4, !tbaa !18
   %35 = icmp eq i32 %.val1.val.i29.i.i.i, %2
   br i1 %35, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit", label %36
 
@@ -340,7 +340,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   %.sroa.050.1.i.i.i = phi ptr [ %37, %36 ], [ %.sroa.050.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i30.i.i.i = load ptr, ptr %.sroa.050.1.i.i.i, align 8, !tbaa !12
   %39 = getelementptr i8, ptr %.val1.i30.i.i.i, i64 108
-  %.val1.val.i31.i.i.i = load i32, ptr %39, align 4, !tbaa !19
+  %.val1.val.i31.i.i.i = load i32, ptr %39, align 4, !tbaa !18
   %40 = icmp eq i32 %.val1.val.i31.i.i.i, %2
   br i1 %40, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit", label %41
 
@@ -352,7 +352,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   %.sroa.050.2.i.i.i = phi ptr [ %42, %41 ], [ %.sroa.050.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.val1.i32.i.i.i = load ptr, ptr %.sroa.050.2.i.i.i, align 8, !tbaa !12
   %44 = getelementptr i8, ptr %.val1.i32.i.i.i, i64 108
-  %.val1.val.i33.i.i.i = load i32, ptr %44, align 4, !tbaa !19
+  %.val1.val.i33.i.i.i = load i32, ptr %44, align 4, !tbaa !18
   %45 = icmp eq i32 %.val1.val.i33.i.i.i, %2
   %spec.select.i.i.i = select i1 %45, ptr %.sroa.050.2.i.i.i, ptr %7
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit"
@@ -375,7 +375,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeENS0_6Header8CPU_TYPEE(ptr dead_on_unw
   br i1 %49, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.thread", label %50
 
 "_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit.thread": ; preds = %._crit_edge.i.i.i, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit"
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store ptr null, ptr %0, align 8, !tbaa !26
   br label %76
 
 50:                                               ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNS4_9FatBinary4takeENS4_6Header8CPU_TYPEEE3$_0ET_SI_SI_T0_.exit"
@@ -419,7 +419,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i
   %67 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
   %68 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
   %69 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %69, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, !llvm.loop !29
+  br i1 %69, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, !llvm.loop !28
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i: ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %6, align 8, !tbaa !11
@@ -462,7 +462,7 @@ define void @_ZN4LIEF5MachO9FatBinary4takeEm(ptr dead_on_unwind noalias writable
   br i1 %.not, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit, label %12
 
 12:                                               ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store ptr null, ptr %0, align 8, !tbaa !26
   br label %37
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEmEvRT_T0_.exit: ; preds = %3
@@ -506,7 +506,7 @@ _ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i.i, i64 8
   %29 = add nsw i64 %.012.i.i.i.i.i.i.i, -1
   %30 = icmp sgt i64 %.012.i.i.i.i.i.i.i, 1
-  br i1 %30, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, !llvm.loop !29
+  br i1 %30, label %.lr.ph.i.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i, !llvm.loop !28
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEESD_ET0_T_SF_SE_.exit.loopexit.i.i: ; preds = %_ZNSt10unique_ptrIN4LIEF5MachO6BinaryESt14default_deleteIS2_EEaSEOS5_.exit.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %5, align 8, !tbaa !11
@@ -555,9 +555,9 @@ declare i64 @_ZN4LIEF5MachO7Builder5writeERNS0_9FatBinaryERSt6vectorIhSaIhEE(ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN4LIEF5MachO9FatBinary20release_all_binariesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
   %.not7 = icmp eq ptr %3, %5
   br i1 %.not7, label %._crit_edge, label %.lr.ph.preheader
 
@@ -578,9 +578,9 @@ define void @_ZN4LIEF5MachO9FatBinary20release_all_binariesEv(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF5MachOlsERSoRKNS0_9FatBinaryE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !18, !noalias !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !17, !noalias !29
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !18, !noalias !33
+  %6 = load ptr, ptr %5, align 8, !tbaa !17, !noalias !32
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %4 to i64
   %9 = sub i64 %7, %8
@@ -603,7 +603,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF5MachOlsERSoRKNS0
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.47.010, i64 8
   %18 = add nuw nsw i64 %.sroa.8.011, 1
   %.not = icmp eq i64 %18, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -639,28 +639,26 @@ attributes #10 = { builtin nounwind }
 !11 = !{!7, !8, i64 8}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTSN4LIEF5MachO6BinaryE", !9, i64 0}
-!14 = distinct !{!14, !15, !16}
+!14 = distinct !{!14, !15}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!7, !8, i64 16}
-!18 = !{!8, !8, i64 0}
-!19 = !{!20, !23, i64 12}
-!20 = !{!"_ZTSN4LIEF5MachO6HeaderE", !21, i64 0, !22, i64 8, !23, i64 12, !24, i64 16, !25, i64 20, !24, i64 24, !24, i64 28, !24, i64 32, !24, i64 36}
-!21 = !{!"_ZTSN4LIEF6ObjectE"}
-!22 = !{!"_ZTSN4LIEF5MachO11MACHO_TYPESE", !10, i64 0}
-!23 = !{!"_ZTSN4LIEF5MachO6Header8CPU_TYPEE", !10, i64 0}
-!24 = !{!"int", !10, i64 0}
-!25 = !{!"_ZTSN4LIEF5MachO6Header9FILE_TYPEE", !10, i64 0}
-!26 = distinct !{!26, !15, !16}
-!27 = !{!28, !13, i64 0}
-!28 = !{!"_ZTSSt10_Head_baseILm0EPN4LIEF5MachO6BinaryELb0EE", !13, i64 0}
-!29 = distinct !{!29, !15, !16}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"_ZNK4LIEF5MachO9FatBinary5beginEv: argument 0"}
-!32 = distinct !{!32, !"_ZNK4LIEF5MachO9FatBinary5beginEv"}
-!33 = !{!34, !36}
-!34 = distinct !{!34, !35, !"_ZNK4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6BinaryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE3endEv: argument 0"}
-!35 = distinct !{!35, !"_ZNK4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6BinaryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE3endEv"}
-!36 = distinct !{!36, !37, !"_ZNK4LIEF5MachO9FatBinary3endEv: argument 0"}
-!37 = distinct !{!37, !"_ZNK4LIEF5MachO9FatBinary3endEv"}
-!38 = distinct !{!38, !16}
+!16 = !{!7, !8, i64 16}
+!17 = !{!8, !8, i64 0}
+!18 = !{!19, !22, i64 12}
+!19 = !{!"_ZTSN4LIEF5MachO6HeaderE", !20, i64 0, !21, i64 8, !22, i64 12, !23, i64 16, !24, i64 20, !23, i64 24, !23, i64 28, !23, i64 32, !23, i64 36}
+!20 = !{!"_ZTSN4LIEF6ObjectE"}
+!21 = !{!"_ZTSN4LIEF5MachO11MACHO_TYPESE", !10, i64 0}
+!22 = !{!"_ZTSN4LIEF5MachO6Header8CPU_TYPEE", !10, i64 0}
+!23 = !{!"int", !10, i64 0}
+!24 = !{!"_ZTSN4LIEF5MachO6Header9FILE_TYPEE", !10, i64 0}
+!25 = distinct !{!25, !15}
+!26 = !{!27, !13, i64 0}
+!27 = !{!"_ZTSSt10_Head_baseILm0EPN4LIEF5MachO6BinaryELb0EE", !13, i64 0}
+!28 = distinct !{!28, !15}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZNK4LIEF5MachO9FatBinary5beginEv: argument 0"}
+!31 = distinct !{!31, !"_ZNK4LIEF5MachO9FatBinary5beginEv"}
+!32 = !{!33, !35}
+!33 = distinct !{!33, !34, !"_ZNK4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6BinaryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE3endEv: argument 0"}
+!34 = distinct !{!34, !"_ZNK4LIEF12ref_iteratorIRKSt6vectorISt10unique_ptrINS_5MachO6BinaryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPKS7_S9_EEE3endEv"}
+!35 = distinct !{!35, !36, !"_ZNK4LIEF5MachO9FatBinary3endEv: argument 0"}
+!36 = distinct !{!36, !"_ZNK4LIEF5MachO9FatBinary3endEv"}

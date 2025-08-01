@@ -46,7 +46,7 @@ define void @ff_mlp_rematrix_channel(ptr noundef captures(none) %0, ptr noundef 
 29:                                               ; preds = %20
   %30 = lshr i64 %28, 14
   %31 = and i64 %30, %17
-  %32 = load i8, ptr %.03038.us, align 1, !tbaa !11
+  %32 = load i8, ptr %.03038.us, align 1, !tbaa !10
   %33 = zext i8 %32 to i64
   %34 = add nuw nsw i64 %31, %33
   %35 = trunc i64 %34 to i32
@@ -56,7 +56,7 @@ define void @ff_mlp_rematrix_channel(ptr noundef captures(none) %0, ptr noundef 
   %38 = getelementptr inbounds nuw i8, ptr %.02740.us, i64 32
   %39 = add nuw nsw i32 %.02839.us, 1
   %exitcond52.not = icmp eq i32 %39, %14
-  br i1 %exitcond52.not, label %._crit_edge, label %.preheader.us, !llvm.loop !12
+  br i1 %exitcond52.not, label %._crit_edge, label %.preheader.us, !llvm.loop !11
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %49
   %.02740 = phi ptr [ %67, %49 ], [ %0, %.preheader.lr.ph ]
@@ -84,7 +84,7 @@ define void @ff_mlp_rematrix_channel(ptr noundef captures(none) %0, ptr noundef 
   %50 = and i32 %.03137, %15
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %3, i64 %51
-  %53 = load i8, ptr %52, align 1, !tbaa !11
+  %53 = load i8, ptr %52, align 1, !tbaa !10
   %54 = sext i8 %53 to i32
   %55 = shl i32 %54, %16
   %56 = sext i32 %55 to i64
@@ -92,7 +92,7 @@ define void @ff_mlp_rematrix_channel(ptr noundef captures(none) %0, ptr noundef 
   %58 = add nsw i32 %13, %50
   %59 = lshr i64 %57, 14
   %60 = and i64 %59, %17
-  %61 = load i8, ptr %.03038, align 1, !tbaa !11
+  %61 = load i8, ptr %.03038, align 1, !tbaa !10
   %62 = zext i8 %61 to i64
   %63 = add nuw nsw i64 %60, %62
   %64 = trunc i64 %63 to i32
@@ -102,7 +102,7 @@ define void @ff_mlp_rematrix_channel(ptr noundef captures(none) %0, ptr noundef 
   %67 = getelementptr inbounds nuw i8, ptr %.02740, i64 32
   %68 = add nuw nsw i32 %.02839, 1
   %exitcond45.not = icmp eq i32 %68, %14
-  br i1 %exitcond45.not, label %._crit_edge, label %.preheader, !llvm.loop !14
+  br i1 %exitcond45.not, label %._crit_edge, label %.preheader, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %49, %29, %11
   ret void
@@ -131,13 +131,13 @@ define i32 @ff_mlp_pack_output(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   %.134.us.us = phi i32 [ %24, %11 ], [ %.040.us, %.preheader.us ]
   %.12533.us.us = phi ptr [ %27, %11 ], [ %.02438.us, %.preheader.us ]
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv53
-  %13 = load i8, ptr %12, align 1, !tbaa !11
+  %13 = load i8, ptr %12, align 1, !tbaa !10
   %14 = zext nneg i8 %13 to i32
   %15 = zext i8 %13 to i64
   %16 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 %15
-  %19 = load i8, ptr %18, align 1, !tbaa !11
+  %19 = load i8, ptr %18, align 1, !tbaa !10
   %20 = zext nneg i8 %19 to i32
   %21 = shl i32 %17, %20
   %22 = and i32 %21, 16777215
@@ -146,15 +146,15 @@ define i32 @ff_mlp_pack_output(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   %25 = lshr i32 %21, 8
   %26 = trunc i32 %25 to i16
   %27 = getelementptr inbounds nuw i8, ptr %.12533.us.us, i64 2
-  store i16 %26, ptr %.12533.us.us, align 2, !tbaa !15
+  store i16 %26, ptr %.12533.us.us, align 2, !tbaa !14
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond57.not = icmp eq i64 %indvars.iv53, %9
-  br i1 %exitcond57.not, label %.split.us.us, label %11, !llvm.loop !17
+  br i1 %exitcond57.not, label %.split.us.us, label %11, !llvm.loop !16
 
 .split.us.us:                                     ; preds = %11
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge, label %.preheader.us, !llvm.loop !18
+  br i1 %exitcond62.not, label %._crit_edge, label %.preheader.us, !llvm.loop !17
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.split
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.split ], [ 0, %.preheader.lr.ph ]
@@ -168,13 +168,13 @@ define i32 @ff_mlp_pack_output(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   %.134 = phi i32 [ %.040, %.preheader ], [ %42, %29 ]
   %.12732 = phi ptr [ %.02637, %.preheader ], [ %44, %29 ]
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
-  %31 = load i8, ptr %30, align 1, !tbaa !11
+  %31 = load i8, ptr %30, align 1, !tbaa !10
   %32 = zext nneg i8 %31 to i32
   %33 = zext i8 %31 to i64
   %34 = getelementptr inbounds nuw [8 x i32], ptr %28, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !4
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 %33
-  %37 = load i8, ptr %36, align 1, !tbaa !11
+  %37 = load i8, ptr %36, align 1, !tbaa !10
   %38 = zext nneg i8 %37 to i32
   %39 = shl i32 %35, %38
   %40 = and i32 %39, 16777215
@@ -185,12 +185,12 @@ define i32 @ff_mlp_pack_output(i32 noundef %0, i16 noundef zeroext %1, ptr nound
   store i32 %43, ptr %.12732, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %9
-  br i1 %exitcond.not, label %.split, label %29, !llvm.loop !19
+  br i1 %exitcond.not, label %.split, label %29, !llvm.loop !18
 
 .split:                                           ; preds = %29
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count61
-  br i1 %exitcond52.not, label %._crit_edge, label %.preheader, !llvm.loop !20
+  br i1 %exitcond52.not, label %._crit_edge, label %.preheader, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.split, %.split.us.us, %8
   %.0.lcssa = phi i32 [ %0, %8 ], [ %24, %.split.us.us ], [ %42, %.split ]
@@ -199,11 +199,11 @@ define i32 @ff_mlp_pack_output(i32 noundef %0, i16 noundef zeroext %1, ptr nound
 
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: write) uwtable
 define void @ff_mlpdsp_init(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #1 {
-  store ptr @mlp_filter_channel, ptr %0, align 8, !tbaa !21
+  store ptr @mlp_filter_channel, ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @ff_mlp_rematrix_channel, ptr %2, align 8, !tbaa !24
+  store ptr @ff_mlp_rematrix_channel, ptr %2, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @mlp_select_pack_output, ptr %3, align 8, !tbaa !25
+  store ptr @mlp_select_pack_output, ptr %3, align 8, !tbaa !24
   ret void
 }
 
@@ -248,7 +248,7 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
   %21 = getelementptr inbounds nuw i8, ptr %.051.us, i64 32
   %22 = add nuw nsw i32 %.04049.us, 1
   %exitcond77.not = icmp eq i32 %22, %6
-  br i1 %exitcond77.not, label %._crit_edge54, label %.lr.ph.us, !llvm.loop !26
+  br i1 %exitcond77.not, label %._crit_edge54, label %.lr.ph.us, !llvm.loop !25
 
 .lr.ph46.us:                                      ; preds = %..preheader_crit_edge.us, %.lr.ph46.us
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.lr.ph46.us ], [ 0, %..preheader_crit_edge.us ]
@@ -263,7 +263,7 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
   %30 = add nsw i64 %29, %.145.us
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
-  br i1 %exitcond76.not, label %._crit_edge.us, label %.lr.ph46.us, !llvm.loop !27
+  br i1 %exitcond76.not, label %._crit_edge.us, label %.lr.ph46.us, !llvm.loop !26
 
 31:                                               ; preds = %.lr.ph.us, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %31 ]
@@ -278,7 +278,7 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
   %39 = add nsw i64 %38, %.03643.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..preheader_crit_edge.us, label %31, !llvm.loop !28
+  br i1 %exitcond.not, label %..preheader_crit_edge.us, label %31, !llvm.loop !27
 
 ..preheader_crit_edge.us:                         ; preds = %31
   br i1 %.not66, label %._crit_edge.us, label %.lr.ph46.us
@@ -311,7 +311,7 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
   %49 = add nsw i64 %48, %.145.us61
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %._crit_edge.us64, label %41, !llvm.loop !27
+  br i1 %exitcond82.not, label %._crit_edge.us64, label %41, !llvm.loop !26
 
 ._crit_edge.us64:                                 ; preds = %41
   %50 = ashr i64 %49, %12
@@ -327,7 +327,7 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
   %57 = getelementptr inbounds nuw i8, ptr %.051.us56, i64 32
   %58 = add nuw nsw i32 %.04049.us58, 1
   %exitcond83.not = icmp eq i32 %58, %6
-  br i1 %exitcond83.not, label %._crit_edge54, label %.preheader.us55, !llvm.loop !29
+  br i1 %exitcond83.not, label %._crit_edge54, label %.preheader.us55, !llvm.loop !28
 
 .preheader:                                       ; preds = %.lr.ph53.split, %.preheader
   %.051 = phi ptr [ %63, %.preheader ], [ %7, %.lr.ph53.split ]
@@ -344,7 +344,7 @@ define internal void @mlp_filter_channel(ptr noundef captures(none) %0, ptr noun
   %63 = getelementptr inbounds nuw i8, ptr %.051, i64 32
   %64 = add nuw nsw i32 %.04049, 1
   %exitcond84.not = icmp eq i32 %64, %6
-  br i1 %exitcond84.not, label %._crit_edge54, label %.preheader, !llvm.loop !30
+  br i1 %exitcond84.not, label %._crit_edge54, label %.preheader, !llvm.loop !29
 
 ._crit_edge54:                                    ; preds = %._crit_edge.us, %._crit_edge.us64, %.preheader, %8
   ret void
@@ -373,26 +373,25 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = !{!6, !6, i64 0}
-!12 = distinct !{!12, !9, !10, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !9, !10}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"short", !6, i64 0}
-!17 = distinct !{!17, !9, !10, !13}
-!18 = distinct !{!18, !9, !10, !13}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"MLPDSPContext", !23, i64 0, !23, i64 8, !23, i64 16}
-!23 = !{!"any pointer", !6, i64 0}
-!24 = !{!22, !23, i64 8}
-!25 = !{!22, !23, i64 16}
-!26 = distinct !{!26, !9, !10, !13}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10, !13}
-!30 = distinct !{!30, !9, !10}
+!10 = !{!6, !6, i64 0}
+!11 = distinct !{!11, !9, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !9}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"short", !6, i64 0}
+!16 = distinct !{!16, !9, !12}
+!17 = distinct !{!17, !9, !12}
+!18 = distinct !{!18, !9}
+!19 = distinct !{!19, !9}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"MLPDSPContext", !22, i64 0, !22, i64 8, !22, i64 16}
+!22 = !{!"any pointer", !6, i64 0}
+!23 = !{!21, !22, i64 8}
+!24 = !{!21, !22, i64 16}
+!25 = distinct !{!25, !9, !12}
+!26 = distinct !{!26, !9}
+!27 = distinct !{!27, !9}
+!28 = distinct !{!28, !9, !12}
+!29 = distinct !{!29, !9}

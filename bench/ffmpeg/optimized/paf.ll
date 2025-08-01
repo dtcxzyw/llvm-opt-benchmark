@@ -481,7 +481,7 @@ define internal i32 @read_packet(ptr noundef readonly captures(none) %0, ptr nou
 
 .loopexit.sink.split:                             ; preds = %21, %135
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %139 = load i32, ptr %138, align 8, !tbaa !76
+  %139 = load i32, ptr %138, align 8, !tbaa !75
   br label %.loopexit
 
 .loopexit:                                        ; preds = %88, %69, %59, %.loopexit.sink.split, %109, %._crit_edge, %16, %11, %2
@@ -551,7 +551,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_table(ptr noundef rea
   store i32 %10, ptr %11, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %8, %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -660,8 +660,7 @@ attributes #5 = { nounwind }
 !70 = !{!32, !22, i64 64}
 !71 = !{!32, !10, i64 40}
 !72 = !{!32, !10, i64 36}
-!73 = distinct !{!73, !74, !75}
+!73 = distinct !{!73, !74}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = !{!"llvm.loop.estimated_trip_count"}
-!76 = !{!32, !10, i64 32}
-!77 = distinct !{!77, !74, !75}
+!75 = !{!32, !10, i64 32}
+!76 = distinct !{!76, !74}

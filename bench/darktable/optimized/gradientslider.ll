@@ -193,7 +193,7 @@ define ptr @dtgtk_gradient_slider_multivalue_new(i32 noundef %0) local_unnamed_a
   store i32 11, ptr %38, align 4, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_gradient_slider_set_defaults.exit, label %35, !llvm.loop !45
+  br i1 %exitcond.not.i, label %_gradient_slider_set_defaults.exit, label %35
 
 _gradient_slider_set_defaults.exit:               ; preds = %35, %7
   %39 = tail call i64 @gtk_widget_get_type() #15
@@ -308,7 +308,7 @@ define ptr @dtgtk_gradient_slider_multivalue_new_with_color(ptr noundef readonly
   store i32 11, ptr %40, align 4, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_gradient_slider_set_defaults.exit, label %37, !llvm.loop !45
+  br i1 %exitcond.not.i, label %_gradient_slider_set_defaults.exit, label %37
 
 _gradient_slider_set_defaults.exit:               ; preds = %37, %9
   %41 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #16
@@ -359,7 +359,7 @@ define ptr @dtgtk_gradient_slider_multivalue_new_with_color_and_name(ptr noundef
 define void @dtgtk_gradient_slider_multivalue_set_stop(ptr noundef %0, float noundef %1, ptr noundef readonly byval(%struct._GdkRGBA) align 8 captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca float, align 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %5, label %6, !prof !47
+  br i1 %.not, label %5, label %6, !prof !45
 
 5:                                                ; preds = %3
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_set_stop, ptr noundef nonnull @.str.1) #14
@@ -378,7 +378,7 @@ define void @dtgtk_gradient_slider_multivalue_set_stop(ptr noundef %0, float nou
   br i1 %.not15, label %16, label %13
 
 13:                                               ; preds = %6
-  %14 = load ptr, ptr %12, align 8, !tbaa !48
+  %14 = load ptr, ptr %12, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   br label %23
@@ -410,7 +410,7 @@ declare ptr @g_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_multivalue_clear_stops(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %2, label %3, !prof !47
+  br i1 %.not, label %2, label %3, !prof !45
 
 2:                                                ; preds = %1
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_clear_stops, ptr noundef nonnull @.str.1) #14
@@ -469,7 +469,7 @@ define double @dtgtk_gradient_slider_multivalue_get_value(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_multivalue_get_values(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %8, label %.preheader, !prof !47
+  br i1 %.not, label %8, label %.preheader, !prof !45
 
 .preheader:                                       ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -500,7 +500,7 @@ define void @dtgtk_gradient_slider_multivalue_get_values(ptr noundef %0, ptr nou
   %17 = load i32, ptr %3, align 8, !tbaa !16
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %9, label %.loopexit, !llvm.loop !50
+  br i1 %19, label %9, label %.loopexit
 
 .loopexit:                                        ; preds = %9, %.preheader, %8
   ret void
@@ -509,7 +509,7 @@ define void @dtgtk_gradient_slider_multivalue_get_values(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_multivalue_set_value(ptr noundef %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %4, label %5, !prof !47
+  br i1 %.not, label %4, label %5, !prof !45
 
 4:                                                ; preds = %3
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_set_value, ptr noundef nonnull @.str.1) #14
@@ -547,9 +547,9 @@ define void @dtgtk_gradient_slider_multivalue_set_value(ptr noundef %0, double n
   %27 = sext i1 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %27, ptr %28, align 8, !tbaa !32
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !51
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !48
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
-  %31 = load i32, ptr %30, align 8, !tbaa !86
+  %31 = load i32, ptr %30, align 8, !tbaa !83
   %.not18 = icmp eq i32 %31, 0
   br i1 %.not18, label %32, label %34
 
@@ -575,7 +575,7 @@ declare void @gtk_widget_queue_draw(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_multivalue_set_values(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %3, label %4, !prof !47
+  br i1 %.not, label %3, label %4, !prof !45
 
 3:                                                ; preds = %2
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_set_values, ptr noundef nonnull @.str.1) #14
@@ -583,7 +583,7 @@ define void @dtgtk_gradient_slider_multivalue_set_values(ptr noundef %0, ptr nou
 
 4:                                                ; preds = %2
   %.not30 = icmp eq ptr %1, null
-  br i1 %.not30, label %10, label %.preheader, !prof !47
+  br i1 %.not30, label %10, label %.preheader, !prof !45
 
 .preheader:                                       ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -609,9 +609,9 @@ define void @dtgtk_gradient_slider_multivalue_set_values(ptr noundef %0, ptr nou
   %.lcssa = phi i32 [ -1, %.preheader ], [ %12, %._crit_edge.loopexit ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %.lcssa, ptr %13, align 8, !tbaa !32
-  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !51
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !48
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
-  %16 = load i32, ptr %15, align 8, !tbaa !86
+  %16 = load i32, ptr %15, align 8, !tbaa !83
   %.not32 = icmp eq i32 %16, 0
   br i1 %.not32, label %42, label %44
 
@@ -649,7 +649,7 @@ define void @dtgtk_gradient_slider_multivalue_set_values(ptr noundef %0, ptr nou
   %39 = load i32, ptr %5, align 8, !tbaa !16
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %17, label %._crit_edge.loopexit, !llvm.loop !92
+  br i1 %41, label %17, label %._crit_edge.loopexit
 
 42:                                               ; preds = %._crit_edge
   %43 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef 80) #14
@@ -669,7 +669,7 @@ define void @dtgtk_gradient_slider_multivalue_set_values(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_multivalue_set_marker(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %4, label %5, !prof !47
+  br i1 %.not, label %4, label %5, !prof !45
 
 4:                                                ; preds = %3
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_set_marker, ptr noundef nonnull @.str.1) #14
@@ -692,7 +692,7 @@ define void @dtgtk_gradient_slider_multivalue_set_marker(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_multivalue_set_markers(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %7, label %.preheader, !prof !47
+  br i1 %.not, label %7, label %.preheader, !prof !45
 
 .preheader:                                       ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -723,7 +723,7 @@ define void @dtgtk_gradient_slider_multivalue_set_markers(ptr noundef %0, ptr no
   store i32 %12, ptr %13, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !93
+  br i1 %exitcond.not, label %._crit_edge, label %10
 
 14:                                               ; preds = %._crit_edge, %7
   ret void
@@ -732,7 +732,7 @@ define void @dtgtk_gradient_slider_multivalue_set_markers(ptr noundef %0, ptr no
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_multivalue_set_resetvalue(ptr noundef %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %4, label %5, !prof !47
+  br i1 %.not, label %4, label %5, !prof !45
 
 4:                                                ; preds = %3
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_set_resetvalue, ptr noundef nonnull @.str.1) #14
@@ -773,7 +773,7 @@ define double @dtgtk_gradient_slider_multivalue_get_resetvalue(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_multivalue_set_resetvalues(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %8, label %.preheader, !prof !47
+  br i1 %.not, label %8, label %.preheader, !prof !45
 
 .preheader:                                       ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -809,7 +809,7 @@ define void @dtgtk_gradient_slider_multivalue_set_resetvalues(ptr noundef %0, pt
   %18 = load i32, ptr %3, align 8, !tbaa !16
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %10, label %._crit_edge, !llvm.loop !94
+  br i1 %20, label %10, label %._crit_edge
 
 21:                                               ; preds = %._crit_edge, %8
   ret void
@@ -818,7 +818,7 @@ define void @dtgtk_gradient_slider_multivalue_set_resetvalues(ptr noundef %0, pt
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_multivalue_set_picker(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %3, label %4, !prof !47
+  br i1 %.not, label %3, label %4, !prof !45
 
 3:                                                ; preds = %2
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_set_picker, ptr noundef nonnull @.str.1) #14
@@ -848,7 +848,7 @@ define void @dtgtk_gradient_slider_multivalue_set_picker(ptr noundef %0, double 
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_multivalue_set_picker_meanminmax(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %5, label %6, !prof !47
+  br i1 %.not, label %5, label %6, !prof !45
 
 5:                                                ; preds = %4
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_set_picker_meanminmax, ptr noundef nonnull @.str.1) #14
@@ -886,7 +886,7 @@ define void @dtgtk_gradient_slider_multivalue_set_picker_meanminmax(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define i32 @dtgtk_gradient_slider_multivalue_is_dragging(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %2, label %3, !prof !47
+  br i1 %.not, label %2, label %3, !prof !45
 
 2:                                                ; preds = %1
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_is_dragging, ptr noundef nonnull @.str.1) #14
@@ -905,7 +905,7 @@ define i32 @dtgtk_gradient_slider_multivalue_is_dragging(ptr noundef readonly ca
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_multivalue_set_increment(ptr noundef writeonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %3, label %4, !prof !47
+  br i1 %.not, label %3, label %4, !prof !45
 
 3:                                                ; preds = %2
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_set_increment, ptr noundef nonnull @.str.1) #14
@@ -964,11 +964,11 @@ define void @dtgtk_gradient_slider_multivalue_set_scale_callback(ptr noundef %0,
   %27 = load i32, ptr %8, align 8, !tbaa !16
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %14, label %.preheader, !llvm.loop !95
+  br i1 %29, label %14, label %.preheader
 
 30:                                               ; preds = %32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.055 = load ptr, ptr %31, align 8, !tbaa !96
+  %.055 = load ptr, ptr %31, align 8, !tbaa !89
   %.not56 = icmp eq ptr %.055, null
   br i1 %.not56, label %._crit_edge, label %.lr.ph58
 
@@ -983,7 +983,7 @@ define void @dtgtk_gradient_slider_multivalue_set_scale_callback(ptr noundef %0,
   store double %38, ptr %33, align 8, !tbaa !37
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next61, 3
-  br i1 %exitcond.not, label %30, label %32, !llvm.loop !97
+  br i1 %exitcond.not, label %30, label %32
 
 ._crit_edge:                                      ; preds = %.lr.ph58, %30
   store ptr %6, ptr %3, align 8, !tbaa !34
@@ -994,7 +994,7 @@ define void @dtgtk_gradient_slider_multivalue_set_scale_callback(ptr noundef %0,
 
 .lr.ph58:                                         ; preds = %30, %.lr.ph58
   %.057 = phi ptr [ %.0, %.lr.ph58 ], [ %.055, %30 ]
-  %41 = load ptr, ptr %.057, align 8, !tbaa !48
+  %41 = load ptr, ptr %.057, align 8, !tbaa !46
   %42 = load double, ptr %41, align 8, !tbaa !12
   %43 = fptrunc reassoc nsz arcp contract afn double %42 to float
   %44 = tail call reassoc nsz arcp contract afn float %4(ptr noundef nonnull %0, float noundef %43, i32 noundef 2) #14
@@ -1002,9 +1002,9 @@ define void @dtgtk_gradient_slider_multivalue_set_scale_callback(ptr noundef %0,
   %46 = fpext reassoc nsz arcp contract afn float %45 to double
   store double %46, ptr %41, align 8, !tbaa !12
   %47 = getelementptr inbounds nuw i8, ptr %.057, i64 8
-  %.0 = load ptr, ptr %47, align 8, !tbaa !96
+  %.0 = load ptr, ptr %47, align 8, !tbaa !89
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph58, !llvm.loop !98
+  br i1 %.not, label %._crit_edge, label %.lr.ph58
 
 48:                                               ; preds = %2, %._crit_edge
   ret void
@@ -1067,7 +1067,7 @@ define ptr @dtgtk_gradient_slider_new_with_color_and_name(ptr noundef readonly b
 define void @dtgtk_gradient_slider_set_stop(ptr noundef %0, float noundef %1, ptr noundef readonly byval(%struct._GdkRGBA) align 8 captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca float, align 4
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %5, label %6, !prof !47
+  br i1 %.not.i, label %5, label %6, !prof !45
 
 5:                                                ; preds = %3
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_set_stop, ptr noundef nonnull @.str.1) #14
@@ -1086,7 +1086,7 @@ define void @dtgtk_gradient_slider_set_stop(ptr noundef %0, float noundef %1, pt
   br i1 %.not15.i, label %16, label %13
 
 13:                                               ; preds = %6
-  %14 = load ptr, ptr %12, align 8, !tbaa !48
+  %14 = load ptr, ptr %12, align 8, !tbaa !46
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   br label %23
@@ -1153,7 +1153,7 @@ define void @dtgtk_gradient_slider_set_value(ptr noundef %0, double noundef %1) 
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_set_marker(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %3, label %4, !prof !47
+  br i1 %.not.i, label %3, label %4, !prof !45
 
 3:                                                ; preds = %2
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_set_marker, ptr noundef nonnull @.str.1) #14
@@ -1174,7 +1174,7 @@ dtgtk_gradient_slider_multivalue_set_marker.exit: ; preds = %3, %4
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_set_resetvalue(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %3, label %4, !prof !47
+  br i1 %.not.i, label %3, label %4, !prof !45
 
 3:                                                ; preds = %2
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_multivalue_set_resetvalue, ptr noundef nonnull @.str.1) #14
@@ -1211,7 +1211,7 @@ define double @dtgtk_gradient_slider_get_resetvalue(ptr noundef %0) local_unname
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_set_picker(ptr noundef %0, double noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %3, label %4, !prof !47
+  br i1 %.not, label %3, label %4, !prof !45
 
 3:                                                ; preds = %2
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_set_picker, ptr noundef nonnull @.str.1) #14
@@ -1241,7 +1241,7 @@ define void @dtgtk_gradient_slider_set_picker(ptr noundef %0, double noundef %1)
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_set_picker_meanminmax(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %5, label %6, !prof !47
+  br i1 %.not, label %5, label %6, !prof !45
 
 5:                                                ; preds = %4
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_set_picker_meanminmax, ptr noundef nonnull @.str.1) #14
@@ -1279,7 +1279,7 @@ define void @dtgtk_gradient_slider_set_picker_meanminmax(ptr noundef %0, double 
 ; Function Attrs: nounwind uwtable
 define i32 @dtgtk_gradient_slider_is_dragging(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %2, label %3, !prof !47
+  br i1 %.not, label %2, label %3, !prof !45
 
 2:                                                ; preds = %1
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_is_dragging, ptr noundef nonnull @.str.1) #14
@@ -1298,7 +1298,7 @@ define i32 @dtgtk_gradient_slider_is_dragging(ptr noundef readonly captures(addr
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_gradient_slider_set_increment(ptr noundef writeonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %3, label %4, !prof !47
+  br i1 %.not, label %3, label %4, !prof !45
 
 3:                                                ; preds = %2
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.dtgtk_gradient_slider_set_increment, ptr noundef nonnull @.str.1) #14
@@ -1323,7 +1323,7 @@ declare ptr @g_intern_static_string(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @_gradient_slider_class_intern_init(ptr noundef %0) #0 {
   %2 = tail call ptr @g_type_class_peek_parent(ptr noundef %0) #14
-  store ptr %2, ptr @_gradient_slider_parent_class, align 8, !tbaa !99
+  store ptr %2, ptr @_gradient_slider_parent_class, align 8, !tbaa !90
   %3 = load i32, ptr @GtkDarktableGradientSlider_private_offset, align 4, !tbaa !44
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -1334,30 +1334,30 @@ define internal void @_gradient_slider_class_intern_init(ptr noundef %0) #0 {
 
 5:                                                ; preds = %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store ptr @_gradient_slider_get_preferred_height, ptr %6, align 8, !tbaa !100
+  store ptr @_gradient_slider_get_preferred_height, ptr %6, align 8, !tbaa !91
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store ptr @_gradient_slider_get_preferred_width, ptr %7, align 8, !tbaa !106
+  store ptr @_gradient_slider_get_preferred_width, ptr %7, align 8, !tbaa !97
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store ptr @_gradient_slider_draw, ptr %8, align 8, !tbaa !107
+  store ptr @_gradient_slider_draw, ptr %8, align 8, !tbaa !98
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store ptr @_gradient_slider_destroy, ptr %9, align 8, !tbaa !108
+  store ptr @_gradient_slider_destroy, ptr %9, align 8, !tbaa !99
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store ptr @_gradient_slider_enter_notify_event, ptr %10, align 8, !tbaa !109
+  store ptr @_gradient_slider_enter_notify_event, ptr %10, align 8, !tbaa !100
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store ptr @_gradient_slider_leave_notify_event, ptr %11, align 8, !tbaa !110
+  store ptr @_gradient_slider_leave_notify_event, ptr %11, align 8, !tbaa !101
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store ptr @_gradient_slider_button_press, ptr %12, align 8, !tbaa !111
+  store ptr @_gradient_slider_button_press, ptr %12, align 8, !tbaa !102
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store ptr @_gradient_slider_button_release, ptr %13, align 8, !tbaa !112
+  store ptr @_gradient_slider_button_release, ptr %13, align 8, !tbaa !103
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr @_gradient_slider_motion_notify, ptr %14, align 8, !tbaa !113
+  store ptr @_gradient_slider_motion_notify, ptr %14, align 8, !tbaa !104
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store ptr @_gradient_slider_scroll_event, ptr %15, align 8, !tbaa !114
+  store ptr @_gradient_slider_scroll_event, ptr %15, align 8, !tbaa !105
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store ptr @_gradient_slider_key_press_event, ptr %16, align 8, !tbaa !115
-  %17 = load i64, ptr %0, align 8, !tbaa !116
+  store ptr @_gradient_slider_key_press_event, ptr %16, align 8, !tbaa !106
+  %17 = load i64, ptr %0, align 8, !tbaa !107
   %18 = tail call i32 (ptr, i64, i32, i32, ptr, ptr, ptr, i64, i32, ...) @g_signal_new(ptr noundef nonnull @.str.2, i64 noundef %17, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull @g_cclosure_marshal_VOID__VOID, i64 noundef 4, i32 noundef 0) #14
-  %19 = load i64, ptr %0, align 8, !tbaa !116
+  %19 = load i64, ptr %0, align 8, !tbaa !107
   %20 = tail call i32 (ptr, i64, i32, i32, ptr, ptr, ptr, i64, i32, ...) @g_signal_new(ptr noundef nonnull @.str.6, i64 noundef %19, i32 noundef 2, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef nonnull @g_cclosure_marshal_VOID__VOID, i64 noundef 4, i32 noundef 0) #14
   ret void
 }
@@ -1365,7 +1365,7 @@ define internal void @_gradient_slider_class_intern_init(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal void @_gradient_slider_init(ptr noundef %0) #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %2, label %3, !prof !47
+  br i1 %.not, label %2, label %3, !prof !45
 
 2:                                                ; preds = %1
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_init, ptr noundef nonnull @.str.1) #14
@@ -1374,9 +1374,9 @@ define internal void @_gradient_slider_init(ptr noundef %0) #0 {
 3:                                                ; preds = %1
   %4 = tail call i64 @gtk_widget_get_type() #15
   %5 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %4) #14
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !51
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !48
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 5552
-  %8 = load i32, ptr %7, align 8, !tbaa !117
+  %8 = load i32, ptr %7, align 8, !tbaa !108
   %9 = or i32 %8, 16134
   tail call void @gtk_widget_add_events(ptr noundef %5, i32 noundef %9) #14
   tail call void @gtk_widget_set_has_window(ptr noundef %5, i32 noundef 1) #14
@@ -1398,7 +1398,7 @@ define internal void @_gradient_slider_get_preferred_height(ptr noundef %0, ptr 
   %6 = alloca %struct._GtkBorder, align 2
   %7 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %8, label %9, !prof !47
+  br i1 %.not, label %8, label %9, !prof !45
 
 8:                                                ; preds = %3
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_get_preferred_height, ptr noundef nonnull @.str.7) #14
@@ -1417,27 +1417,27 @@ define internal void @_gradient_slider_get_preferred_height(ptr noundef %0, ptr 
   call void @gtk_style_context_get_padding(ptr noundef %10, i32 noundef %11, ptr noundef nonnull %6) #14
   %12 = load i32, ptr %7, align 4, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %14 = load i16, ptr %13, align 2, !tbaa !118
+  %14 = load i16, ptr %13, align 2, !tbaa !109
   %15 = sext i16 %14 to i32
   %16 = add nsw i32 %12, %15
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  %18 = load i16, ptr %17, align 2, !tbaa !121
+  %18 = load i16, ptr %17, align 2, !tbaa !112
   %19 = sext i16 %18 to i32
   %20 = add nsw i32 %16, %19
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %22 = load i16, ptr %21, align 2, !tbaa !118
+  %22 = load i16, ptr %21, align 2, !tbaa !109
   %23 = sext i16 %22 to i32
   %24 = add nsw i32 %20, %23
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %26 = load i16, ptr %25, align 2, !tbaa !121
+  %26 = load i16, ptr %25, align 2, !tbaa !112
   %27 = sext i16 %26 to i32
   %28 = add nsw i32 %24, %27
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %30 = load i16, ptr %29, align 2, !tbaa !118
+  %30 = load i16, ptr %29, align 2, !tbaa !109
   %31 = sext i16 %30 to i32
   %32 = add nsw i32 %28, %31
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %34 = load i16, ptr %33, align 2, !tbaa !121
+  %34 = load i16, ptr %33, align 2, !tbaa !112
   %35 = sext i16 %34 to i32
   %36 = add nsw i32 %32, %35
   store i32 %36, ptr %2, align 4, !tbaa !44
@@ -1478,19 +1478,19 @@ dtgtk_gradient_slider_get_type.exit.i:            ; preds = %11, %9, %3
   br i1 %.not.i, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %14
 
 14:                                               ; preds = %dtgtk_gradient_slider_get_type.exit.i
-  %15 = load ptr, ptr %0, align 8, !tbaa !122
+  %15 = load ptr, ptr %0, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %15, null
   br i1 %.not10.i, label %DTGTK_IS_GRADIENT_SLIDER.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = load i64, ptr %15, align 8, !tbaa !116
+  %17 = load i64, ptr %15, align 8, !tbaa !107
   %18 = icmp eq i64 %17, %13
   br i1 %18, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread26, label %DTGTK_IS_GRADIENT_SLIDER.exit
 
 DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %14, %16
   %19 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %13) #17
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread26, !prof !123
+  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread26, !prof !114
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_get_preferred_width, ptr noundef nonnull @.str.9) #14
@@ -1508,20 +1508,20 @@ DTGTK_IS_GRADIENT_SLIDER.exit.thread26:           ; preds = %16, %DTGTK_IS_GRADI
   call void @gtk_style_context_get_border(ptr noundef %20, i32 noundef %21, ptr noundef nonnull %5) #14
   call void @gtk_style_context_get_padding(ptr noundef %20, i32 noundef %21, ptr noundef nonnull %6) #14
   %22 = load i32, ptr %7, align 4, !tbaa !44
-  %23 = load i16, ptr %6, align 2, !tbaa !124
+  %23 = load i16, ptr %6, align 2, !tbaa !115
   %24 = sext i16 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %26 = load i16, ptr %25, align 2, !tbaa !125
+  %26 = load i16, ptr %25, align 2, !tbaa !116
   %27 = sext i16 %26 to i32
-  %28 = load i16, ptr %5, align 2, !tbaa !124
+  %28 = load i16, ptr %5, align 2, !tbaa !115
   %29 = sext i16 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %31 = load i16, ptr %30, align 2, !tbaa !125
+  %31 = load i16, ptr %30, align 2, !tbaa !116
   %32 = sext i16 %31 to i32
-  %33 = load i16, ptr %4, align 2, !tbaa !124
+  %33 = load i16, ptr %4, align 2, !tbaa !115
   %34 = sext i16 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %36 = load i16, ptr %35, align 2, !tbaa !125
+  %36 = load i16, ptr %35, align 2, !tbaa !116
   %37 = sext i16 %36 to i32
   %38 = add nsw i32 %29, %24
   %39 = add i32 %38, %22
@@ -1551,12 +1551,12 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   %51 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %50) #14
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 304
   store i32 %44, ptr %52, align 8, !tbaa !40
-  %53 = load i16, ptr %25, align 2, !tbaa !125
+  %53 = load i16, ptr %25, align 2, !tbaa !116
   %54 = sext i16 %53 to i32
-  %55 = load i16, ptr %30, align 2, !tbaa !125
+  %55 = load i16, ptr %30, align 2, !tbaa !116
   %56 = sext i16 %55 to i32
   %57 = add nsw i32 %56, %54
-  %58 = load i16, ptr %35, align 2, !tbaa !125
+  %58 = load i16, ptr %35, align 2, !tbaa !116
   %59 = sext i16 %58 to i32
   %60 = add nsw i32 %57, %59
   %61 = load atomic i64, ptr @_gradient_slider_get_type.static_g_define_type_id seq_cst, align 8
@@ -1619,19 +1619,19 @@ dtgtk_gradient_slider_get_type.exit.i:            ; preds = %15, %13, %2
   br i1 %.not.i, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %18
 
 18:                                               ; preds = %dtgtk_gradient_slider_get_type.exit.i
-  %19 = load ptr, ptr %0, align 8, !tbaa !122
+  %19 = load ptr, ptr %0, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %19, null
   br i1 %.not10.i, label %DTGTK_IS_GRADIENT_SLIDER.exit, label %20
 
 20:                                               ; preds = %18
-  %21 = load i64, ptr %19, align 8, !tbaa !116
+  %21 = load i64, ptr %19, align 8, !tbaa !107
   %22 = icmp eq i64 %21, %17
   br i1 %22, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread175, label %DTGTK_IS_GRADIENT_SLIDER.exit
 
 DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %18, %20
   %23 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %17) #17
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread175, !prof !123
+  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread175, !prof !114
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_draw, ptr noundef nonnull @.str.9) #14
@@ -1667,22 +1667,22 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   call void @gtk_style_context_get_margin(ptr noundef %31, i32 noundef %32, ptr noundef nonnull %9) #14
   call void @gtk_style_context_get_border(ptr noundef %31, i32 noundef %32, ptr noundef nonnull %10) #14
   call void @gtk_style_context_get_padding(ptr noundef %31, i32 noundef %32, ptr noundef nonnull %11) #14
-  %33 = load i16, ptr %9, align 2, !tbaa !124
+  %33 = load i16, ptr %9, align 2, !tbaa !115
   %34 = sext i16 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %36 = load i16, ptr %35, align 2, !tbaa !118
+  %36 = load i16, ptr %35, align 2, !tbaa !109
   %37 = sext i16 %36 to i32
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %39 = load i32, ptr %38, align 4, !tbaa !126
+  %39 = load i32, ptr %38, align 4, !tbaa !117
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %41 = load i16, ptr %40, align 2, !tbaa !125
+  %41 = load i16, ptr %40, align 2, !tbaa !116
   %42 = sext i16 %41 to i32
   %43 = add nsw i32 %34, %42
   %44 = sub i32 %39, %43
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %46 = load i32, ptr %45, align 4, !tbaa !128
+  %46 = load i32, ptr %45, align 4, !tbaa !119
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 6
-  %48 = load i16, ptr %47, align 2, !tbaa !121
+  %48 = load i16, ptr %47, align 2, !tbaa !112
   %49 = sext i16 %48 to i32
   %50 = add nsw i32 %37, %49
   %51 = sub i32 %46, %50
@@ -1692,25 +1692,25 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   %55 = sitofp i32 %51 to double
   call void @gtk_render_background(ptr noundef %31, ptr noundef %1, double noundef %52, double noundef %53, double noundef %54, double noundef %55) #14
   call void @gtk_render_frame(ptr noundef %31, ptr noundef %1, double noundef %52, double noundef %53, double noundef %54, double noundef %55) #14
-  %56 = load i16, ptr %11, align 2, !tbaa !124
+  %56 = load i16, ptr %11, align 2, !tbaa !115
   %57 = sext i16 %56 to i32
-  %58 = load i16, ptr %10, align 2, !tbaa !124
+  %58 = load i16, ptr %10, align 2, !tbaa !115
   %59 = sext i16 %58 to i32
   %60 = add nsw i32 %59, %57
   %61 = add nsw i32 %60, %34
   %62 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %63 = load i16, ptr %62, align 2, !tbaa !118
+  %63 = load i16, ptr %62, align 2, !tbaa !109
   %64 = sext i16 %63 to i32
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %66 = load i16, ptr %65, align 2, !tbaa !118
+  %66 = load i16, ptr %65, align 2, !tbaa !109
   %67 = sext i16 %66 to i32
   %68 = add nsw i32 %67, %64
   %69 = add nsw i32 %68, %37
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 6
-  %71 = load i16, ptr %70, align 2, !tbaa !121
+  %71 = load i16, ptr %70, align 2, !tbaa !112
   %72 = sext i16 %71 to i32
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 6
-  %74 = load i16, ptr %73, align 2, !tbaa !121
+  %74 = load i16, ptr %73, align 2, !tbaa !112
   %75 = sext i16 %74 to i32
   %76 = add nsw i32 %68, %72
   %77 = add nsw i32 %76, %75
@@ -1728,17 +1728,17 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
 
 87:                                               ; preds = %DTGTK_GRADIENT_SLIDER.exit
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %89 = load i16, ptr %88, align 2, !tbaa !125
+  %89 = load i16, ptr %88, align 2, !tbaa !116
   %90 = sext i16 %89 to i32
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  %92 = load i16, ptr %91, align 2, !tbaa !125
+  %92 = load i16, ptr %91, align 2, !tbaa !116
   %93 = sext i16 %92 to i32
   %94 = add nsw i32 %60, %90
   %95 = add nsw i32 %94, %93
   %96 = sub i32 %44, %95
   %97 = sitofp i32 %96 to double
   %98 = call ptr @cairo_pattern_create_linear(double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %97, double noundef 0.000000e+00) #14
-  %.0146214 = load ptr, ptr %85, align 8, !tbaa !96
+  %.0146214 = load ptr, ptr %85, align 8, !tbaa !89
   %.not152215 = icmp eq ptr %.0146214, null
   br i1 %.not152215, label %._crit_edge, label %.lr.ph
 
@@ -1748,21 +1748,21 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
 
 .lr.ph:                                           ; preds = %87, %.lr.ph
   %.0146216 = phi ptr [ %.0146, %.lr.ph ], [ %.0146214, %87 ]
-  %99 = load ptr, ptr %.0146216, align 8, !tbaa !48
+  %99 = load ptr, ptr %.0146216, align 8, !tbaa !46
   %100 = load double, ptr %99, align 8, !tbaa !12
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %102 = load double, ptr %101, align 8, !tbaa !129
+  %102 = load double, ptr %101, align 8, !tbaa !120
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %104 = load double, ptr %103, align 8, !tbaa !130
+  %104 = load double, ptr %103, align 8, !tbaa !121
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  %106 = load double, ptr %105, align 8, !tbaa !131
+  %106 = load double, ptr %105, align 8, !tbaa !122
   %107 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %108 = load double, ptr %107, align 8, !tbaa !132
+  %108 = load double, ptr %107, align 8, !tbaa !123
   call void @cairo_pattern_add_color_stop_rgba(ptr noundef %98, double noundef %100, double noundef %102, double noundef %104, double noundef %106, double noundef %108) #14
   %109 = getelementptr inbounds nuw i8, ptr %.0146216, i64 8
-  %.0146 = load ptr, ptr %109, align 8, !tbaa !96
+  %.0146 = load ptr, ptr %109, align 8, !tbaa !89
   %.not152 = icmp eq ptr %.0146, null
-  br i1 %.not152, label %._crit_edge, label %.lr.ph, !llvm.loop !133
+  br i1 %.not152, label %._crit_edge, label %.lr.ph
 
 110:                                              ; preds = %._crit_edge
   call void @cairo_set_line_width(ptr noundef %1, double noundef 1.000000e-01) #14
@@ -1780,11 +1780,11 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   br label %115
 
 115:                                              ; preds = %._crit_edge, %110, %DTGTK_GRADIENT_SLIDER.exit
-  %116 = load double, ptr %7, align 8, !tbaa !134
+  %116 = load double, ptr %7, align 8, !tbaa !124
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %118 = load double, ptr %117, align 8, !tbaa !135
+  %118 = load double, ptr %117, align 8, !tbaa !125
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %120 = load double, ptr %119, align 8, !tbaa !136
+  %120 = load double, ptr %119, align 8, !tbaa !126
   call void @cairo_set_source_rgba(ptr noundef %1, double noundef %116, double noundef %118, double noundef %120, double noundef 1.000000e+00) #14
   %121 = getelementptr inbounds nuw i8, ptr %30, i64 280
   %122 = load double, ptr %121, align 8, !tbaa !37
@@ -1827,7 +1827,7 @@ _scale_to_screen.exit:                            ; preds = %132, %135, %137
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
   call void @gtk_widget_get_allocation(ptr noundef nonnull %0, ptr noundef nonnull %6) #14
   %141 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %142 = load i32, ptr %141, align 4, !tbaa !126
+  %142 = load i32, ptr %141, align 4, !tbaa !117
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 304
   %144 = load i32, ptr %143, align 8, !tbaa !40
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 308
@@ -1874,7 +1874,7 @@ _scale_to_screen.exit166:                         ; preds = %160, %163, %165
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   call void @gtk_widget_get_allocation(ptr noundef nonnull %0, ptr noundef nonnull %5) #14
   %169 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %170 = load i32, ptr %169, align 4, !tbaa !126
+  %170 = load i32, ptr %169, align 4, !tbaa !117
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 304
   %172 = load i32, ptr %171, align 8, !tbaa !40
   %173 = getelementptr inbounds nuw i8, ptr %168, i64 308
@@ -1920,7 +1920,7 @@ _scale_to_screen.exit169:                         ; preds = %187, %190, %192
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   call void @gtk_widget_get_allocation(ptr noundef nonnull %0, ptr noundef nonnull %4) #14
   %196 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %197 = load i32, ptr %196, align 4, !tbaa !126
+  %197 = load i32, ptr %196, align 4, !tbaa !117
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 304
   %199 = load i32, ptr %198, align 8, !tbaa !40
   %200 = getelementptr inbounds nuw i8, ptr %195, i64 308
@@ -1933,9 +1933,9 @@ _scale_to_screen.exit169:                         ; preds = %187, %190, %192
   %207 = fadd reassoc nsz arcp contract afn double %205, %206
   %208 = fptosi double %207 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
-  %209 = load double, ptr %7, align 8, !tbaa !134
-  %210 = load double, ptr %117, align 8, !tbaa !135
-  %211 = load double, ptr %119, align 8, !tbaa !136
+  %209 = load double, ptr %7, align 8, !tbaa !124
+  %210 = load double, ptr %117, align 8, !tbaa !125
+  %211 = load double, ptr %119, align 8, !tbaa !126
   call void @cairo_set_source_rgba(ptr noundef %1, double noundef %209, double noundef %210, double noundef %211, double noundef 3.300000e-01) #14
   %212 = sitofp i32 %153 to double
   %213 = sitofp i32 %82 to double
@@ -1947,9 +1947,9 @@ _scale_to_screen.exit169:                         ; preds = %187, %190, %192
   %219 = sitofp i32 %84 to double
   call void @cairo_rectangle(ptr noundef %1, double noundef %212, double noundef %213, double noundef %218, double noundef %219) #14
   call void @cairo_fill(ptr noundef %1) #14
-  %220 = load double, ptr %7, align 8, !tbaa !134
-  %221 = load double, ptr %117, align 8, !tbaa !135
-  %222 = load double, ptr %119, align 8, !tbaa !136
+  %220 = load double, ptr %7, align 8, !tbaa !124
+  %221 = load double, ptr %117, align 8, !tbaa !125
+  %222 = load double, ptr %119, align 8, !tbaa !126
   call void @cairo_set_source_rgba(ptr noundef %1, double noundef %220, double noundef %221, double noundef %222, double noundef 1.000000e+00) #14
   %223 = sitofp i32 %208 to double
   call void @cairo_move_to(ptr noundef %1, double noundef %223, double noundef %213) #14
@@ -2006,7 +2006,7 @@ _scale_to_screen.exit172:                         ; preds = %234, %238, %240
   %243 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %242) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   call void @gtk_widget_get_allocation(ptr noundef nonnull %0, ptr noundef nonnull %3) #14
-  %244 = load i32, ptr %229, align 4, !tbaa !126
+  %244 = load i32, ptr %229, align 4, !tbaa !117
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 304
   %246 = load i32, ptr %245, align 8, !tbaa !40
   %247 = getelementptr inbounds nuw i8, ptr %243, i64 308
@@ -2038,18 +2038,18 @@ _scale_to_screen.exit172:                         ; preds = %234, %238, %240
   br i1 %.not156, label %271, label %267
 
 267:                                              ; preds = %265
-  %268 = load double, ptr %7, align 8, !tbaa !134
-  %269 = load double, ptr %117, align 8, !tbaa !135
-  %270 = load double, ptr %119, align 8, !tbaa !136
+  %268 = load double, ptr %7, align 8, !tbaa !124
+  %269 = load double, ptr %117, align 8, !tbaa !125
+  %270 = load double, ptr %119, align 8, !tbaa !126
   call void @cairo_set_source_rgba(ptr noundef %1, double noundef %268, double noundef %269, double noundef %270, double noundef 1.000000e+00) #14
   br label %278
 
 271:                                              ; preds = %265, %_scale_to_screen.exit172
-  %272 = load double, ptr %7, align 8, !tbaa !134
+  %272 = load double, ptr %7, align 8, !tbaa !124
   %273 = fmul reassoc nsz arcp contract afn double %272, 8.000000e-01
-  %274 = load double, ptr %117, align 8, !tbaa !135
+  %274 = load double, ptr %117, align 8, !tbaa !125
   %275 = fmul reassoc nsz arcp contract afn double %274, 8.000000e-01
-  %276 = load double, ptr %119, align 8, !tbaa !136
+  %276 = load double, ptr %119, align 8, !tbaa !126
   %277 = fmul reassoc nsz arcp contract afn double %276, 8.000000e-01
   call void @cairo_set_source_rgba(ptr noundef %1, double noundef %273, double noundef %275, double noundef %277, double noundef 1.000000e+00) #14
   br label %278
@@ -2116,7 +2116,7 @@ _scale_to_screen.exit172:                         ; preds = %234, %238, %240
   %310 = load i32, ptr %225, align 8, !tbaa !16
   %311 = sext i32 %310 to i64
   %312 = icmp slt i64 %indvars.iv.next, %311
-  br i1 %312, label %234, label %._crit_edge220, !llvm.loop !137
+  br i1 %312, label %234, label %._crit_edge220
 
 313:                                              ; preds = %._crit_edge220, %DTGTK_IS_GRADIENT_SLIDER.exit.thread
   ret i32 0
@@ -2144,19 +2144,19 @@ dtgtk_gradient_slider_get_type.exit.i:            ; preds = %5, %3, %1
   br i1 %.not.i, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %8
 
 8:                                                ; preds = %dtgtk_gradient_slider_get_type.exit.i
-  %9 = load ptr, ptr %0, align 8, !tbaa !122
+  %9 = load ptr, ptr %0, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %9, null
   br i1 %.not10.i, label %DTGTK_IS_GRADIENT_SLIDER.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = load i64, ptr %9, align 8, !tbaa !116
+  %11 = load i64, ptr %9, align 8, !tbaa !107
   %12 = icmp eq i64 %11, %7
   br i1 %12, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread20, label %DTGTK_IS_GRADIENT_SLIDER.exit
 
 DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %8, %10
   %13 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %7) #17
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread20, !prof !123
+  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread20, !prof !114
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_destroy, ptr noundef nonnull @.str.9) #14
@@ -2202,11 +2202,11 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
 
 29:                                               ; preds = %28, %25
   store ptr null, ptr %26, align 8, !tbaa !42
-  %30 = load ptr, ptr @_gradient_slider_parent_class, align 8, !tbaa !99
+  %30 = load ptr, ptr @_gradient_slider_parent_class, align 8, !tbaa !90
   %31 = tail call i64 @gtk_widget_get_type() #15
   %32 = tail call ptr @g_type_check_class_cast(ptr noundef %30, i64 noundef %31) #14
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 152
-  %34 = load ptr, ptr %33, align 8, !tbaa !108
+  %34 = load ptr, ptr %33, align 8, !tbaa !99
   tail call void %34(ptr noundef nonnull %0) #14
   br label %35
 
@@ -2236,19 +2236,19 @@ dtgtk_gradient_slider_get_type.exit.i:            ; preds = %6, %4, %2
   br i1 %.not.i, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %9
 
 9:                                                ; preds = %dtgtk_gradient_slider_get_type.exit.i
-  %10 = load ptr, ptr %0, align 8, !tbaa !122
+  %10 = load ptr, ptr %0, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %10, null
   br i1 %.not10.i, label %DTGTK_IS_GRADIENT_SLIDER.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = load i64, ptr %10, align 8, !tbaa !116
+  %12 = load i64, ptr %10, align 8, !tbaa !107
   %13 = icmp eq i64 %12, %8
   br i1 %13, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread14, label %DTGTK_IS_GRADIENT_SLIDER.exit
 
 DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %9, %11
   %14 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %8) #17
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread14, !prof !123
+  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread14, !prof !114
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_enter_notify_event, ptr noundef nonnull @.str.9) #14
@@ -2304,19 +2304,19 @@ dtgtk_gradient_slider_get_type.exit.i:            ; preds = %6, %4, %2
   br i1 %.not.i, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %9
 
 9:                                                ; preds = %dtgtk_gradient_slider_get_type.exit.i
-  %10 = load ptr, ptr %0, align 8, !tbaa !122
+  %10 = load ptr, ptr %0, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %10, null
   br i1 %.not10.i, label %DTGTK_IS_GRADIENT_SLIDER.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = load i64, ptr %10, align 8, !tbaa !116
+  %12 = load i64, ptr %10, align 8, !tbaa !107
   %13 = icmp eq i64 %12, %8
   br i1 %13, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread17, label %DTGTK_IS_GRADIENT_SLIDER.exit
 
 DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %9, %11
   %14 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %8) #17
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread17, !prof !123
+  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread17, !prof !114
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_leave_notify_event, ptr noundef nonnull @.str.9) #14
@@ -2381,19 +2381,19 @@ dtgtk_gradient_slider_get_type.exit.i:            ; preds = %7, %5, %2
   br i1 %.not.i, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %10
 
 10:                                               ; preds = %dtgtk_gradient_slider_get_type.exit.i
-  %11 = load ptr, ptr %0, align 8, !tbaa !122
+  %11 = load ptr, ptr %0, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %11, null
   br i1 %.not10.i, label %DTGTK_IS_GRADIENT_SLIDER.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = load i64, ptr %11, align 8, !tbaa !116
+  %13 = load i64, ptr %11, align 8, !tbaa !107
   %14 = icmp eq i64 %13, %9
   br i1 %14, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread69, label %DTGTK_IS_GRADIENT_SLIDER.exit
 
 DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %10, %12
   %15 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %9) #17
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread69, !prof !123
+  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread69, !prof !114
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_button_press, ptr noundef nonnull @.str.9) #14
@@ -2418,18 +2418,18 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   %21 = load i64, ptr @_gradient_slider_get_type.static_g_define_type_id, align 8, !tbaa !6
   %22 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %21) #14
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %24 = load i32, ptr %23, align 4, !tbaa !138
+  %24 = load i32, ptr %23, align 4, !tbaa !127
   switch i32 %24, label %.thread.thread [
     i32 1, label %25
     i32 3, label %DTGTK_GRADIENT_SLIDER.exit..threadthread-pre-split_crit_edge
   ]
 
 DTGTK_GRADIENT_SLIDER.exit..threadthread-pre-split_crit_edge: ; preds = %DTGTK_GRADIENT_SLIDER.exit
-  %.pr.pre = load i32, ptr %1, align 8, !tbaa !143
+  %.pr.pre = load i32, ptr %1, align 8, !tbaa !132
   br label %.thread
 
 25:                                               ; preds = %DTGTK_GRADIENT_SLIDER.exit
-  %26 = load i32, ptr %1, align 8, !tbaa !143
+  %26 = load i32, ptr %1, align 8, !tbaa !132
   %27 = icmp eq i32 %26, 5
   br i1 %27, label %28, label %.thread
 
@@ -2474,13 +2474,13 @@ DTGTK_GRADIENT_SLIDER.exit..threadthread-pre-split_crit_edge: ; preds = %DTGTK_G
 
 46:                                               ; preds = %.thread
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %48 = load double, ptr %47, align 8, !tbaa !144
+  %48 = load double, ptr %47, align 8, !tbaa !133
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %50 = load double, ptr %49, align 8, !tbaa !145
+  %50 = load double, ptr %49, align 8, !tbaa !134
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   call void @gtk_widget_get_allocation(ptr noundef nonnull %0, ptr noundef nonnull %3) #14
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %52 = load i32, ptr %51, align 4, !tbaa !128
+  %52 = load i32, ptr %51, align 4, !tbaa !119
   %53 = sitofp i32 %52 to float
   %54 = fmul reassoc nsz arcp contract afn float %53, 5.000000e-01
   %55 = fpext reassoc nsz arcp contract afn float %54 to double
@@ -2499,7 +2499,7 @@ DTGTK_GRADIENT_SLIDER.exit..threadthread-pre-split_crit_edge: ; preds = %DTGTK_G
 _get_active_marker_from_screen.exit:              ; preds = %46, %60
   %.0.i66 = phi i32 [ %63, %60 ], [ %58, %46 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
-  %64 = load i32, ptr %23, align 4, !tbaa !138
+  %64 = load i32, ptr %23, align 4, !tbaa !127
   %65 = icmp eq i32 %64, 1
   br i1 %65, label %66, label %94
 
@@ -2508,7 +2508,7 @@ _get_active_marker_from_screen.exit:              ; preds = %46, %60
   store i32 %.0.i66, ptr %67, align 8, !tbaa !32
   %68 = getelementptr inbounds nuw i8, ptr %22, i64 324
   store i32 0, ptr %68, align 4, !tbaa !28
-  %69 = load double, ptr %47, align 8, !tbaa !144
+  %69 = load double, ptr %47, align 8, !tbaa !133
   %70 = call reassoc nsz arcp contract afn fastcc double @_get_position_from_screen(ptr noundef nonnull %0, double noundef %69)
   %71 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %72 = load i32, ptr %67, align 8, !tbaa !32
@@ -2528,11 +2528,11 @@ _get_active_marker_from_screen.exit:              ; preds = %46, %60
   br i1 %.not62, label %83, label %.thread.thread
 
 83:                                               ; preds = %66
-  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !146
+  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !135
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 2704
-  %86 = load ptr, ptr %85, align 16, !tbaa !147
+  %86 = load ptr, ptr %85, align 16, !tbaa !136
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 616
-  %88 = load i32, ptr %87, align 8, !tbaa !174
+  %88 = load i32, ptr %87, align 8, !tbaa !163
   %89 = mul i32 %88, 3
   %90 = icmp ugt i32 %89, 101
   %91 = call i32 @llvm.umax.i32(i32 %89, i32 20)
@@ -2588,19 +2588,19 @@ dtgtk_gradient_slider_get_type.exit.i:            ; preds = %6, %4, %2
   br i1 %.not.i, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %9
 
 9:                                                ; preds = %dtgtk_gradient_slider_get_type.exit.i
-  %10 = load ptr, ptr %0, align 8, !tbaa !122
+  %10 = load ptr, ptr %0, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %10, null
   br i1 %.not10.i, label %DTGTK_IS_GRADIENT_SLIDER.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = load i64, ptr %10, align 8, !tbaa !116
+  %12 = load i64, ptr %10, align 8, !tbaa !107
   %13 = icmp eq i64 %12, %8
   br i1 %13, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread35, label %DTGTK_IS_GRADIENT_SLIDER.exit
 
 DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %9, %11
   %14 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %8) #17
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread35, !prof !123
+  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread35, !prof !114
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_button_release, ptr noundef nonnull @.str.9) #14
@@ -2637,7 +2637,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
 _get_active_marker.exit:                          ; preds = %DTGTK_GRADIENT_SLIDER.exit, %25
   %28 = phi i32 [ %27, %25 ], [ %23, %DTGTK_GRADIENT_SLIDER.exit ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %30 = load i32, ptr %29, align 4, !tbaa !138
+  %30 = load i32, ptr %29, align 4, !tbaa !127
   %31 = icmp eq i32 %30, 1
   %32 = icmp ne i32 %28, -1
   %or.cond = select i1 %31, i1 %32, i1 false
@@ -2653,7 +2653,7 @@ _get_active_marker.exit:                          ; preds = %DTGTK_GRADIENT_SLID
   %38 = getelementptr inbounds nuw i8, ptr %21, i64 316
   store i32 1, ptr %38, align 4, !tbaa !29
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %40 = load double, ptr %39, align 8, !tbaa !144
+  %40 = load double, ptr %39, align 8, !tbaa !133
   %41 = tail call reassoc nsz arcp contract afn fastcc double @_get_position_from_screen(ptr noundef nonnull %0, double noundef %40)
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %43 = sext i32 %28 to i64
@@ -2708,19 +2708,19 @@ dtgtk_gradient_slider_get_type.exit.i:            ; preds = %7, %5, %2
   br i1 %.not.i, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %10
 
 10:                                               ; preds = %dtgtk_gradient_slider_get_type.exit.i
-  %11 = load ptr, ptr %0, align 8, !tbaa !122
+  %11 = load ptr, ptr %0, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %11, null
   br i1 %.not10.i, label %DTGTK_IS_GRADIENT_SLIDER.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = load i64, ptr %11, align 8, !tbaa !116
+  %13 = load i64, ptr %11, align 8, !tbaa !107
   %14 = icmp eq i64 %13, %9
   br i1 %14, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread34, label %DTGTK_IS_GRADIENT_SLIDER.exit
 
 DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %10, %12
   %15 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %9) #17
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread34, !prof !123
+  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread34, !prof !114
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_motion_notify, ptr noundef nonnull @.str.9) #14
@@ -2763,7 +2763,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %35 = load double, ptr %34, align 8, !tbaa !183
+  %35 = load double, ptr %34, align 8, !tbaa !172
   %36 = tail call reassoc nsz arcp contract afn fastcc double @_get_position_from_screen(ptr noundef nonnull %0, double noundef %35)
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %38 = load i32, ptr %27, align 8, !tbaa !32
@@ -2780,13 +2780,13 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
 
 46:                                               ; preds = %29, %26, %DTGTK_GRADIENT_SLIDER.exit
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %48 = load double, ptr %47, align 8, !tbaa !183
+  %48 = load double, ptr %47, align 8, !tbaa !172
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %50 = load double, ptr %49, align 8, !tbaa !185
+  %50 = load double, ptr %49, align 8, !tbaa !174
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
   call void @gtk_widget_get_allocation(ptr noundef nonnull %0, ptr noundef nonnull %3) #14
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %52 = load i32, ptr %51, align 4, !tbaa !128
+  %52 = load i32, ptr %51, align 4, !tbaa !119
   %53 = sitofp i32 %52 to float
   %54 = fmul reassoc nsz arcp contract afn float %53, 5.000000e-01
   %55 = fpext reassoc nsz arcp contract afn float %54 to double
@@ -2847,19 +2847,19 @@ dtgtk_gradient_slider_get_type.exit.i:            ; preds = %7, %5, %2
   br i1 %.not.i, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %10
 
 10:                                               ; preds = %dtgtk_gradient_slider_get_type.exit.i
-  %11 = load ptr, ptr %0, align 8, !tbaa !122
+  %11 = load ptr, ptr %0, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %11, null
   br i1 %.not10.i, label %DTGTK_IS_GRADIENT_SLIDER.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = load i64, ptr %11, align 8, !tbaa !116
+  %13 = load i64, ptr %11, align 8, !tbaa !107
   %14 = icmp eq i64 %13, %9
   br i1 %14, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread24, label %DTGTK_IS_GRADIENT_SLIDER.exit
 
 DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %10, %12
   %15 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %9) #17
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread24, !prof !123
+  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread24, !prof !114
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_scroll_event, ptr noundef nonnull @.str.9) #14
@@ -2915,7 +2915,7 @@ _get_active_marker.exit.thread:                   ; preds = %DTGTK_GRADIENT_SLID
   %38 = fneg reassoc nsz arcp contract afn double %37
   %39 = fmul reassoc nsz arcp contract afn double %38, %35
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %41 = load i32, ptr %40, align 8, !tbaa !186
+  %41 = load i32, ptr %40, align 8, !tbaa !175
   call fastcc void @_gradient_slider_add_delta_internal(ptr noundef nonnull %0, double noundef %39, i32 noundef %41, i32 noundef %31)
   br label %42
 
@@ -2950,19 +2950,19 @@ dtgtk_gradient_slider_get_type.exit.i:            ; preds = %6, %4, %2
   br i1 %.not.i, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %9
 
 9:                                                ; preds = %dtgtk_gradient_slider_get_type.exit.i
-  %10 = load ptr, ptr %0, align 8, !tbaa !122
+  %10 = load ptr, ptr %0, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %10, null
   br i1 %.not10.i, label %DTGTK_IS_GRADIENT_SLIDER.exit, label %11
 
 11:                                               ; preds = %9
-  %12 = load i64, ptr %10, align 8, !tbaa !116
+  %12 = load i64, ptr %10, align 8, !tbaa !107
   %13 = icmp eq i64 %12, %8
   br i1 %13, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread26, label %DTGTK_IS_GRADIENT_SLIDER.exit
 
 DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %9, %11
   %14 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %8) #17
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread26, !prof !123
+  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread26, !prof !114
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_key_press_event, ptr noundef nonnull @.str.9) #14
@@ -2991,7 +2991,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   %24 = fptrunc reassoc nsz arcp contract afn double %23 to float
   %25 = fneg reassoc nsz arcp contract afn float %24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %27 = load i32, ptr %26, align 4, !tbaa !188
+  %27 = load i32, ptr %26, align 4, !tbaa !177
   switch i32 %27, label %.critedge [
     i32 65362, label %28
     i32 65431, label %28
@@ -3023,7 +3023,7 @@ _get_active_marker.exit.thread:                   ; preds = %29, %_get_active_ma
   %36 = phi i32 [ %34, %_get_active_marker.exit ], [ %31, %29 ]
   %37 = fpext reassoc nsz arcp contract afn float %.014 to double
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %39 = load i32, ptr %38, align 8, !tbaa !190
+  %39 = load i32, ptr %38, align 8, !tbaa !179
   tail call fastcc void @_gradient_slider_add_delta_internal(ptr noundef nonnull %0, double noundef %37, i32 noundef %39, i32 noundef %36)
   br label %.critedge
 
@@ -3146,7 +3146,7 @@ _screen_to_scale.exit:                            ; preds = %DTGTK_GRADIENT_SLID
   %22 = sitofp i32 %21 to double
   %23 = fsub reassoc nsz arcp contract afn double %19, %22
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %25 = load i32, ptr %24, align 4, !tbaa !126
+  %25 = load i32, ptr %24, align 4, !tbaa !117
   %26 = sitofp i32 %25 to double
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 308
   %28 = load i32, ptr %27, align 4, !tbaa !39
@@ -3191,19 +3191,19 @@ dtgtk_gradient_slider_get_type.exit.i:            ; preds = %8, %6, %4
   br i1 %.not.i, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %11
 
 11:                                               ; preds = %dtgtk_gradient_slider_get_type.exit.i
-  %12 = load ptr, ptr %0, align 8, !tbaa !122
+  %12 = load ptr, ptr %0, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %12, null
   br i1 %.not10.i, label %DTGTK_IS_GRADIENT_SLIDER.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = load i64, ptr %12, align 8, !tbaa !116
+  %14 = load i64, ptr %12, align 8, !tbaa !107
   %15 = icmp eq i64 %14, %10
   br i1 %15, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread124, label %DTGTK_IS_GRADIENT_SLIDER.exit
 
 DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %11, %13
   %16 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %10) #17
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread124, !prof !123
+  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread124, !prof !114
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._slider_move, ptr noundef nonnull @.str.9) #14
@@ -3395,7 +3395,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   store double %129, ptr %124, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %123, !llvm.loop !191
+  br i1 %exitcond.not, label %.preheader, label %123
 
 130:                                              ; preds = %.lr.ph130, %130
   %indvars.iv134 = phi i64 [ %121, %.lr.ph130 ], [ %indvars.iv.next135, %130 ]
@@ -3410,7 +3410,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %DTGTK_IS_GRADIENT_S
   %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next135 to i32
   %exitcond137.not = icmp eq i32 %83, %lftr.wideiv
-  br i1 %exitcond137.not, label %.loopexit, label %130, !llvm.loop !192
+  br i1 %exitcond137.not, label %.loopexit, label %130
 
 .loopexit:                                        ; preds = %130, %.preheader, %65, %67, %54, %56, %50, %61, %DTGTK_GRADIENT_SLIDER.exit
   %.0105 = phi nsz double [ %2, %DTGTK_GRADIENT_SLIDER.exit ], [ %2, %50 ], [ %2, %61 ], [ %55, %54 ], [ %60, %56 ], [ %66, %65 ], [ %71, %67 ], [ %105, %.preheader ], [ %105, %130 ]
@@ -3434,12 +3434,12 @@ define internal noundef i32 @_gradient_slider_postponed_value_change(ptr noundef
   br i1 %.not, label %.critedge, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr %0, align 8, !tbaa !122
+  %4 = load ptr, ptr %0, align 8, !tbaa !113
   %.not20 = icmp eq ptr %4, null
   br i1 %.not20, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = load i64, ptr %4, align 8, !tbaa !116
+  %6 = load i64, ptr %4, align 8, !tbaa !107
   %7 = icmp eq i64 %6, %2
   br i1 %7, label %.critedge24, label %8
 
@@ -3529,11 +3529,11 @@ DTGTK_GRADIENT_SLIDER.exit30:                     ; preds = %31, %33, %35
   br i1 %.not4.i.i.i32, label %.critedge.sink.split, label %.critedge.sink.split.sink.split
 
 45:                                               ; preds = %DTGTK_GRADIENT_SLIDER.exit30
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !146
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !135
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2704
-  %48 = load ptr, ptr %47, align 16, !tbaa !147
+  %48 = load ptr, ptr %47, align 16, !tbaa !136
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 616
-  %50 = load i32, ptr %49, align 8, !tbaa !174
+  %50 = load i32, ptr %49, align 8, !tbaa !163
   %51 = mul i32 %50, 3
   %52 = icmp ugt i32 %51, 101
   %53 = tail call i32 @llvm.umax.i32(i32 %51, i32 20)
@@ -3637,7 +3637,7 @@ DTGTK_GRADIENT_SLIDER.exit:                       ; preds = %3, %5, %7
   %.2 = phi i32 [ %22, %33 ], [ %spec.select, %20 ], [ %.01819, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !193
+  br i1 %exitcond.not, label %._crit_edge, label %17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -3677,19 +3677,19 @@ dtgtk_gradient_slider_get_type.exit.i:            ; preds = %8, %6, %4
   br i1 %.not.i, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %11
 
 11:                                               ; preds = %dtgtk_gradient_slider_get_type.exit.i
-  %12 = load ptr, ptr %0, align 8, !tbaa !122
+  %12 = load ptr, ptr %0, align 8, !tbaa !113
   %.not10.i = icmp eq ptr %12, null
   br i1 %.not10.i, label %DTGTK_IS_GRADIENT_SLIDER.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = load i64, ptr %12, align 8, !tbaa !116
+  %14 = load i64, ptr %12, align 8, !tbaa !107
   %15 = icmp eq i64 %14, %10
   br i1 %15, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread25, label %DTGTK_IS_GRADIENT_SLIDER.exit
 
 DTGTK_IS_GRADIENT_SLIDER.exit:                    ; preds = %11, %13
   %16 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull readonly %0, i64 noundef %10) #17
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread25, !prof !123
+  br i1 %.not, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread, label %DTGTK_IS_GRADIENT_SLIDER.exit.thread25, !prof !114
 
 DTGTK_IS_GRADIENT_SLIDER.exit.thread:             ; preds = %dtgtk_gradient_slider_get_type.exit.i, %DTGTK_IS_GRADIENT_SLIDER.exit
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__._gradient_slider_add_delta_internal, ptr noundef nonnull @.str.9) #14
@@ -3842,152 +3842,138 @@ attributes #17 = { nounwind willreturn memory(read) }
 !42 = !{!17, !27, i64 40}
 !43 = !{!17, !14, i64 272}
 !44 = !{!24, !24, i64 0}
-!45 = distinct !{!45, !46}
-!46 = !{!"llvm.loop.estimated_trip_count"}
-!47 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!48 = !{!49, !23, i64 0}
-!49 = !{!"_GList", !23, i64 0, !27, i64 8, !27, i64 16}
-!50 = distinct !{!50, !46}
-!51 = !{!52, !61, i64 104}
-!52 = !{!"darktable_t", !53, i64 0, !24, i64 4, !24, i64 8, !27, i64 16, !27, i64 24, !27, i64 32, !27, i64 40, !54, i64 48, !55, i64 56, !56, i64 64, !57, i64 72, !58, i64 80, !59, i64 88, !60, i64 96, !61, i64 104, !62, i64 112, !63, i64 120, !64, i64 128, !65, i64 136, !66, i64 144, !67, i64 152, !68, i64 160, !69, i64 168, !70, i64 176, !71, i64 184, !72, i64 192, !73, i64 200, !74, i64 208, !75, i64 216, !76, i64 224, !8, i64 232, !77, i64 2792, !77, i64 2832, !77, i64 2872, !77, i64 2912, !77, i64 2952, !78, i64 2992, !78, i64 3000, !78, i64 3008, !78, i64 3016, !78, i64 3024, !78, i64 3032, !78, i64 3040, !78, i64 3048, !78, i64 3056, !78, i64 3064, !78, i64 3072, !78, i64 3080, !78, i64 3088, !79, i64 3096, !27, i64 3104, !14, i64 3112, !27, i64 3120, !24, i64 3128, !8, i64 3132, !24, i64 3320, !24, i64 3324, !80, i64 3328, !81, i64 3336, !82, i64 3344, !84, i64 3384, !85, i64 3416}
-!53 = !{!"dt_codepath_t", !24, i64 0}
-!54 = !{!"p1 _ZTS11_JsonParser", !23, i64 0}
-!55 = !{!"p1 _ZTS9dt_conf_t", !23, i64 0}
-!56 = !{!"p1 _ZTS12dt_develop_t", !23, i64 0}
-!57 = !{!"p1 _ZTS8dt_lib_t", !23, i64 0}
-!58 = !{!"p1 _ZTS17dt_view_manager_t", !23, i64 0}
-!59 = !{!"p1 _ZTS12dt_control_t", !23, i64 0}
-!60 = !{!"p1 _ZTS19dt_control_signal_t", !23, i64 0}
-!61 = !{!"p1 _ZTS12dt_gui_gtk_t", !23, i64 0}
-!62 = !{!"p1 _ZTS17dt_mipmap_cache_t", !23, i64 0}
-!63 = !{!"p1 _ZTS16dt_image_cache_t", !23, i64 0}
-!64 = !{!"p1 _ZTS12dt_bauhaus_t", !23, i64 0}
-!65 = !{!"p1 _ZTS13dt_database_t", !23, i64 0}
-!66 = !{!"p1 _ZTS14dt_pwstorage_t", !23, i64 0}
-!67 = !{!"p1 _ZTS11dt_camctl_t", !23, i64 0}
-!68 = !{!"p1 _ZTS15dt_collection_t", !23, i64 0}
-!69 = !{!"p1 _ZTS14dt_selection_t", !23, i64 0}
-!70 = !{!"p1 _ZTS11dt_points_t", !23, i64 0}
-!71 = !{!"p1 _ZTS12dt_imageio_t", !23, i64 0}
-!72 = !{!"p1 _ZTS11dt_opencl_t", !23, i64 0}
-!73 = !{!"p1 _ZTS9dt_dbus_t", !23, i64 0}
-!74 = !{!"p1 _ZTS9dt_undo_t", !23, i64 0}
-!75 = !{!"p1 _ZTS16dt_colorspaces_t", !23, i64 0}
-!76 = !{!"p1 _ZTS9dt_l10n_t", !23, i64 0}
-!77 = !{!"dt_pthread_mutex_t", !8, i64 0}
-!78 = !{!"p1 omnipotent char", !23, i64 0}
-!79 = !{!"", !24, i64 0}
-!80 = !{!"p1 _ZTS10_GTimeZone", !23, i64 0}
-!81 = !{!"p1 _ZTS10_GDateTime", !23, i64 0}
-!82 = !{!"dt_sys_resources_t", !7, i64 0, !7, i64 8, !83, i64 16, !83, i64 24, !24, i64 32}
-!83 = !{!"p1 int", !23, i64 0}
-!84 = !{!"dt_backthumb_t", !14, i64 0, !14, i64 8, !24, i64 16, !24, i64 20, !24, i64 24, !24, i64 28}
-!85 = !{!"dt_gimp_t", !24, i64 0, !78, i64 8, !78, i64 16, !24, i64 24, !24, i64 28}
-!86 = !{!87, !24, i64 96}
-!87 = !{!"dt_gui_gtk_t", !88, i64 0, !89, i64 8, !91, i64 56, !24, i64 80, !78, i64 88, !24, i64 96, !8, i64 104, !24, i64 1352, !24, i64 1356, !24, i64 1360, !24, i64 1364, !24, i64 1368, !14, i64 1376, !14, i64 1384, !14, i64 1392, !14, i64 1400, !90, i64 1408, !14, i64 1416, !14, i64 1424, !14, i64 1432, !14, i64 1440, !24, i64 1448, !24, i64 1452, !8, i64 1456, !24, i64 5552, !24, i64 5556, !24, i64 5560, !77, i64 5568}
-!88 = !{!"p1 _ZTS7dt_ui_t", !23, i64 0}
-!89 = !{!"dt_gui_widgets_t", !90, i64 0, !90, i64 8, !90, i64 16, !90, i64 24, !24, i64 32, !24, i64 36, !24, i64 40}
-!90 = !{!"p1 _ZTS10_GtkWidget", !23, i64 0}
-!91 = !{!"dt_gui_scrollbars_t", !90, i64 0, !90, i64 8, !24, i64 16}
-!92 = distinct !{!92, !46}
-!93 = distinct !{!93, !46}
-!94 = distinct !{!94, !46}
-!95 = distinct !{!95, !46}
-!96 = !{!27, !27, i64 0}
-!97 = distinct !{!97, !46}
-!98 = distinct !{!98, !46}
-!99 = !{!23, !23, i64 0}
-!100 = !{!101, !23, i64 304}
-!101 = !{!"_GtkWidgetClass", !102, i64 0, !24, i64 136, !23, i64 144, !23, i64 152, !23, i64 160, !23, i64 168, !23, i64 176, !23, i64 184, !23, i64 192, !23, i64 200, !23, i64 208, !23, i64 216, !23, i64 224, !23, i64 232, !23, i64 240, !23, i64 248, !23, i64 256, !23, i64 264, !23, i64 272, !23, i64 280, !23, i64 288, !23, i64 296, !23, i64 304, !23, i64 312, !23, i64 320, !23, i64 328, !23, i64 336, !23, i64 344, !23, i64 352, !23, i64 360, !23, i64 368, !23, i64 376, !23, i64 384, !23, i64 392, !23, i64 400, !23, i64 408, !23, i64 416, !23, i64 424, !23, i64 432, !23, i64 440, !23, i64 448, !23, i64 456, !23, i64 464, !23, i64 472, !23, i64 480, !23, i64 488, !23, i64 496, !23, i64 504, !23, i64 512, !23, i64 520, !23, i64 528, !23, i64 536, !23, i64 544, !23, i64 552, !23, i64 560, !23, i64 568, !23, i64 576, !23, i64 584, !23, i64 592, !23, i64 600, !23, i64 608, !23, i64 616, !23, i64 624, !23, i64 632, !23, i64 640, !23, i64 648, !23, i64 656, !23, i64 664, !23, i64 672, !23, i64 680, !23, i64 688, !23, i64 696, !23, i64 704, !23, i64 712, !23, i64 720, !23, i64 728, !23, i64 736, !23, i64 744, !23, i64 752, !23, i64 760, !23, i64 768, !23, i64 776, !23, i64 784, !23, i64 792, !105, i64 800, !23, i64 808, !23, i64 816}
-!102 = !{!"_GObjectClass", !103, i64 0, !104, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !23, i64 64, !23, i64 72, !7, i64 80, !8, i64 88}
-!103 = !{!"_GTypeClass", !7, i64 0}
-!104 = !{!"p1 _ZTS7_GSList", !23, i64 0}
-!105 = !{!"p1 _ZTS22_GtkWidgetClassPrivate", !23, i64 0}
-!106 = !{!101, !23, i64 320}
-!107 = !{!101, !23, i64 288}
-!108 = !{!101, !23, i64 152}
-!109 = !{!101, !23, i64 448}
-!110 = !{!101, !23, i64 456}
-!111 = !{!101, !23, i64 384}
-!112 = !{!101, !23, i64 392}
-!113 = !{!101, !23, i64 408}
-!114 = !{!101, !23, i64 400}
-!115 = !{!101, !23, i64 432}
-!116 = !{!103, !7, i64 0}
-!117 = !{!87, !24, i64 5552}
-!118 = !{!119, !120, i64 4}
-!119 = !{!"_GtkBorder", !120, i64 0, !120, i64 2, !120, i64 4, !120, i64 6}
-!120 = !{!"short", !8, i64 0}
-!121 = !{!119, !120, i64 6}
-!122 = !{!21, !22, i64 0}
-!123 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!124 = !{!119, !120, i64 0}
-!125 = !{!119, !120, i64 2}
-!126 = !{!127, !24, i64 8}
-!127 = !{!"_cairo_rectangle_int", !24, i64 0, !24, i64 4, !24, i64 8, !24, i64 12}
-!128 = !{!127, !24, i64 12}
-!129 = !{!13, !14, i64 8}
-!130 = !{!13, !14, i64 16}
-!131 = !{!13, !14, i64 24}
-!132 = !{!13, !14, i64 32}
-!133 = distinct !{!133, !46}
-!134 = !{!15, !14, i64 0}
-!135 = !{!15, !14, i64 8}
-!136 = !{!15, !14, i64 16}
-!137 = distinct !{!137, !46}
-!138 = !{!139, !24, i64 52}
-!139 = !{!"_GdkEventButton", !24, i64 0, !140, i64 8, !8, i64 16, !24, i64 20, !14, i64 24, !14, i64 32, !141, i64 40, !24, i64 48, !24, i64 52, !142, i64 56, !14, i64 64, !14, i64 72}
-!140 = !{!"p1 _ZTS10_GdkWindow", !23, i64 0}
-!141 = !{!"p1 double", !23, i64 0}
-!142 = !{!"p1 _ZTS10_GdkDevice", !23, i64 0}
-!143 = !{!139, !24, i64 0}
-!144 = !{!139, !14, i64 24}
-!145 = !{!139, !14, i64 32}
-!146 = !{!52, !56, i64 64}
-!147 = !{!148, !150, i64 2704}
-!148 = !{!"dt_develop_t", !24, i64 0, !24, i64 4, !24, i64 8, !23, i64 16, !14, i64 24, !14, i64 32, !24, i64 40, !24, i64 44, !24, i64 48, !24, i64 52, !24, i64 56, !14, i64 64, !24, i64 72, !24, i64 76, !24, i64 80, !149, i64 88, !150, i64 96, !151, i64 112, !24, i64 1968, !24, i64 1972, !77, i64 1976, !24, i64 2016, !27, i64 2024, !24, i64 2032, !149, i64 2040, !24, i64 2048, !27, i64 2056, !27, i64 2064, !24, i64 2072, !27, i64 2080, !27, i64 2088, !83, i64 2096, !83, i64 2104, !24, i64 2112, !24, i64 2116, !27, i64 2120, !159, i64 2128, !160, i64 2136, !27, i64 2144, !24, i64 2152, !24, i64 2156, !24, i64 2160, !11, i64 2164, !11, i64 2168, !149, i64 2176, !24, i64 2184, !161, i64 2192, !166, i64 2344, !167, i64 2464, !168, i64 2488, !169, i64 2528, !170, i64 2560, !171, i64 2568, !172, i64 2584, !90, i64 2608, !90, i64 2616, !173, i64 2624, !173, i64 2712, !24, i64 2800, !24, i64 2804, !24, i64 2808, !27, i64 2816}
-!149 = !{!"p1 _ZTS15dt_iop_module_t", !23, i64 0}
-!150 = !{!"p1 _ZTS18dt_dev_pixelpipe_t", !23, i64 0}
-!151 = !{!"dt_image_t", !24, i64 0, !24, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !8, i64 36, !8, i64 100, !8, i64 164, !8, i64 292, !8, i64 356, !8, i64 420, !8, i64 484, !7, i64 552, !24, i64 560, !8, i64 564, !8, i64 792, !8, i64 856, !8, i64 920, !8, i64 984, !24, i64 1112, !8, i64 1116, !24, i64 1372, !24, i64 1376, !24, i64 1380, !24, i64 1384, !24, i64 1388, !24, i64 1392, !24, i64 1396, !24, i64 1400, !24, i64 1404, !24, i64 1408, !11, i64 1412, !24, i64 1416, !24, i64 1420, !24, i64 1424, !24, i64 1428, !24, i64 1432, !24, i64 1436, !7, i64 1440, !7, i64 1448, !7, i64 1456, !7, i64 1464, !24, i64 1472, !152, i64 1488, !8, i64 1616, !78, i64 1656, !24, i64 1664, !24, i64 1668, !155, i64 1672, !156, i64 1680, !157, i64 1704, !120, i64 1716, !8, i64 1718, !24, i64 1728, !24, i64 1732, !11, i64 1736, !11, i64 1740, !8, i64 1744, !8, i64 1760, !8, i64 1808, !27, i64 1824, !158, i64 1832, !24, i64 1840, !24, i64 1844}
-!152 = !{!"dt_iop_buffer_dsc_t", !24, i64 0, !24, i64 4, !24, i64 8, !8, i64 12, !153, i64 48, !154, i64 64, !8, i64 96, !24, i64 112}
-!153 = !{!"", !120, i64 0, !120, i64 2}
-!154 = !{!"", !24, i64 0, !8, i64 16}
-!155 = !{!"dt_image_raw_parameters_t", !24, i64 0, !24, i64 3}
-!156 = !{!"dt_image_geoloc_t", !14, i64 0, !14, i64 8, !14, i64 16}
-!157 = !{!"_color_harmony_t", !24, i64 0, !24, i64 4, !24, i64 8}
-!158 = !{!"p1 _ZTS16dt_cache_entry_t", !23, i64 0}
-!159 = !{!"p1 _ZTS15dt_masks_form_t", !23, i64 0}
-!160 = !{!"p1 _ZTS19dt_masks_form_gui_t", !23, i64 0}
-!161 = !{!"", !162, i64 0, !149, i64 32, !163, i64 40, !165, i64 112}
-!162 = !{!"dt_dev_proxy_exposure_t", !149, i64 0, !23, i64 8, !23, i64 16, !23, i64 24}
-!163 = !{!"", !164, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !23, i64 64}
-!164 = !{!"p1 _ZTS15dt_lib_module_t", !23, i64 0}
-!165 = !{!"", !164, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32}
-!166 = !{!"dt_dev_chroma_t", !149, i64 0, !149, i64 8, !8, i64 16, !8, i64 48, !8, i64 80, !24, i64 112}
-!167 = !{!"", !149, i64 0, !149, i64 8, !23, i64 16}
-!168 = !{!"", !90, i64 0, !90, i64 8, !24, i64 16, !24, i64 20, !11, i64 24, !11, i64 28, !24, i64 32}
-!169 = !{!"", !90, i64 0, !90, i64 8, !24, i64 16, !24, i64 20, !24, i64 24, !11, i64 28}
-!170 = !{!"", !90, i64 0}
-!171 = !{!"", !90, i64 0, !24, i64 8}
-!172 = !{!"", !90, i64 0, !90, i64 8, !90, i64 16}
-!173 = !{!"dt_dev_viewport_t", !90, i64 0, !24, i64 8, !24, i64 12, !24, i64 16, !24, i64 20, !24, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !24, i64 56, !24, i64 60, !24, i64 64, !11, i64 68, !11, i64 72, !11, i64 76, !150, i64 80}
-!174 = !{!175, !24, i64 616}
-!175 = !{!"dt_dev_pixelpipe_t", !176, i64 0, !24, i64 120, !7, i64 128, !179, i64 136, !24, i64 144, !24, i64 148, !11, i64 152, !24, i64 156, !24, i64 160, !152, i64 176, !180, i64 304, !180, i64 312, !180, i64 320, !27, i64 328, !24, i64 336, !24, i64 340, !24, i64 344, !24, i64 348, !78, i64 352, !7, i64 360, !24, i64 368, !24, i64 372, !11, i64 376, !11, i64 380, !11, i64 384, !7, i64 392, !77, i64 400, !77, i64 440, !77, i64 480, !24, i64 520, !24, i64 524, !24, i64 528, !181, i64 536, !24, i64 576, !24, i64 580, !24, i64 584, !8, i64 588, !24, i64 592, !24, i64 596, !24, i64 600, !24, i64 604, !24, i64 608, !24, i64 612, !24, i64 616, !24, i64 620, !24, i64 624, !24, i64 628, !151, i64 640, !24, i64 2496, !78, i64 2504, !24, i64 2512, !27, i64 2520, !27, i64 2528, !27, i64 2536, !24, i64 2544, !179, i64 2552, !7, i64 2560}
-!176 = !{!"dt_dev_pixelpipe_cache_t", !24, i64 0, !7, i64 8, !7, i64 16, !23, i64 24, !177, i64 32, !178, i64 40, !177, i64 48, !83, i64 56, !83, i64 64, !7, i64 72, !24, i64 80, !7, i64 88, !7, i64 96, !24, i64 104, !24, i64 108, !24, i64 112}
-!177 = !{!"p1 long", !23, i64 0}
-!178 = !{!"p1 _ZTS19dt_iop_buffer_dsc_t", !23, i64 0}
-!179 = !{!"p1 float", !23, i64 0}
-!180 = !{!"p1 _ZTS30dt_iop_order_iccprofile_info_t", !23, i64 0}
-!181 = !{!"dt_dev_detail_mask_t", !182, i64 0, !7, i64 24, !179, i64 32}
-!182 = !{!"dt_iop_roi_t", !24, i64 0, !24, i64 4, !24, i64 8, !24, i64 12, !11, i64 16}
-!183 = !{!184, !14, i64 24}
-!184 = !{!"_GdkEventMotion", !24, i64 0, !140, i64 8, !8, i64 16, !24, i64 20, !14, i64 24, !14, i64 32, !141, i64 40, !24, i64 48, !120, i64 52, !142, i64 56, !14, i64 64, !14, i64 72}
-!185 = !{!184, !14, i64 32}
-!186 = !{!187, !24, i64 40}
-!187 = !{!"_GdkEventScroll", !24, i64 0, !140, i64 8, !8, i64 16, !24, i64 20, !14, i64 24, !14, i64 32, !24, i64 40, !24, i64 44, !142, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !24, i64 88}
-!188 = !{!189, !24, i64 28}
-!189 = !{!"_GdkEventKey", !24, i64 0, !140, i64 8, !8, i64 16, !24, i64 20, !24, i64 24, !24, i64 28, !24, i64 32, !78, i64 40, !120, i64 48, !8, i64 50, !24, i64 51}
-!190 = !{!189, !24, i64 24}
-!191 = distinct !{!191, !46}
-!192 = distinct !{!192, !46}
-!193 = distinct !{!193, !46}
+!45 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!46 = !{!47, !23, i64 0}
+!47 = !{!"_GList", !23, i64 0, !27, i64 8, !27, i64 16}
+!48 = !{!49, !58, i64 104}
+!49 = !{!"darktable_t", !50, i64 0, !24, i64 4, !24, i64 8, !27, i64 16, !27, i64 24, !27, i64 32, !27, i64 40, !51, i64 48, !52, i64 56, !53, i64 64, !54, i64 72, !55, i64 80, !56, i64 88, !57, i64 96, !58, i64 104, !59, i64 112, !60, i64 120, !61, i64 128, !62, i64 136, !63, i64 144, !64, i64 152, !65, i64 160, !66, i64 168, !67, i64 176, !68, i64 184, !69, i64 192, !70, i64 200, !71, i64 208, !72, i64 216, !73, i64 224, !8, i64 232, !74, i64 2792, !74, i64 2832, !74, i64 2872, !74, i64 2912, !74, i64 2952, !75, i64 2992, !75, i64 3000, !75, i64 3008, !75, i64 3016, !75, i64 3024, !75, i64 3032, !75, i64 3040, !75, i64 3048, !75, i64 3056, !75, i64 3064, !75, i64 3072, !75, i64 3080, !75, i64 3088, !76, i64 3096, !27, i64 3104, !14, i64 3112, !27, i64 3120, !24, i64 3128, !8, i64 3132, !24, i64 3320, !24, i64 3324, !77, i64 3328, !78, i64 3336, !79, i64 3344, !81, i64 3384, !82, i64 3416}
+!50 = !{!"dt_codepath_t", !24, i64 0}
+!51 = !{!"p1 _ZTS11_JsonParser", !23, i64 0}
+!52 = !{!"p1 _ZTS9dt_conf_t", !23, i64 0}
+!53 = !{!"p1 _ZTS12dt_develop_t", !23, i64 0}
+!54 = !{!"p1 _ZTS8dt_lib_t", !23, i64 0}
+!55 = !{!"p1 _ZTS17dt_view_manager_t", !23, i64 0}
+!56 = !{!"p1 _ZTS12dt_control_t", !23, i64 0}
+!57 = !{!"p1 _ZTS19dt_control_signal_t", !23, i64 0}
+!58 = !{!"p1 _ZTS12dt_gui_gtk_t", !23, i64 0}
+!59 = !{!"p1 _ZTS17dt_mipmap_cache_t", !23, i64 0}
+!60 = !{!"p1 _ZTS16dt_image_cache_t", !23, i64 0}
+!61 = !{!"p1 _ZTS12dt_bauhaus_t", !23, i64 0}
+!62 = !{!"p1 _ZTS13dt_database_t", !23, i64 0}
+!63 = !{!"p1 _ZTS14dt_pwstorage_t", !23, i64 0}
+!64 = !{!"p1 _ZTS11dt_camctl_t", !23, i64 0}
+!65 = !{!"p1 _ZTS15dt_collection_t", !23, i64 0}
+!66 = !{!"p1 _ZTS14dt_selection_t", !23, i64 0}
+!67 = !{!"p1 _ZTS11dt_points_t", !23, i64 0}
+!68 = !{!"p1 _ZTS12dt_imageio_t", !23, i64 0}
+!69 = !{!"p1 _ZTS11dt_opencl_t", !23, i64 0}
+!70 = !{!"p1 _ZTS9dt_dbus_t", !23, i64 0}
+!71 = !{!"p1 _ZTS9dt_undo_t", !23, i64 0}
+!72 = !{!"p1 _ZTS16dt_colorspaces_t", !23, i64 0}
+!73 = !{!"p1 _ZTS9dt_l10n_t", !23, i64 0}
+!74 = !{!"dt_pthread_mutex_t", !8, i64 0}
+!75 = !{!"p1 omnipotent char", !23, i64 0}
+!76 = !{!"", !24, i64 0}
+!77 = !{!"p1 _ZTS10_GTimeZone", !23, i64 0}
+!78 = !{!"p1 _ZTS10_GDateTime", !23, i64 0}
+!79 = !{!"dt_sys_resources_t", !7, i64 0, !7, i64 8, !80, i64 16, !80, i64 24, !24, i64 32}
+!80 = !{!"p1 int", !23, i64 0}
+!81 = !{!"dt_backthumb_t", !14, i64 0, !14, i64 8, !24, i64 16, !24, i64 20, !24, i64 24, !24, i64 28}
+!82 = !{!"dt_gimp_t", !24, i64 0, !75, i64 8, !75, i64 16, !24, i64 24, !24, i64 28}
+!83 = !{!84, !24, i64 96}
+!84 = !{!"dt_gui_gtk_t", !85, i64 0, !86, i64 8, !88, i64 56, !24, i64 80, !75, i64 88, !24, i64 96, !8, i64 104, !24, i64 1352, !24, i64 1356, !24, i64 1360, !24, i64 1364, !24, i64 1368, !14, i64 1376, !14, i64 1384, !14, i64 1392, !14, i64 1400, !87, i64 1408, !14, i64 1416, !14, i64 1424, !14, i64 1432, !14, i64 1440, !24, i64 1448, !24, i64 1452, !8, i64 1456, !24, i64 5552, !24, i64 5556, !24, i64 5560, !74, i64 5568}
+!85 = !{!"p1 _ZTS7dt_ui_t", !23, i64 0}
+!86 = !{!"dt_gui_widgets_t", !87, i64 0, !87, i64 8, !87, i64 16, !87, i64 24, !24, i64 32, !24, i64 36, !24, i64 40}
+!87 = !{!"p1 _ZTS10_GtkWidget", !23, i64 0}
+!88 = !{!"dt_gui_scrollbars_t", !87, i64 0, !87, i64 8, !24, i64 16}
+!89 = !{!27, !27, i64 0}
+!90 = !{!23, !23, i64 0}
+!91 = !{!92, !23, i64 304}
+!92 = !{!"_GtkWidgetClass", !93, i64 0, !24, i64 136, !23, i64 144, !23, i64 152, !23, i64 160, !23, i64 168, !23, i64 176, !23, i64 184, !23, i64 192, !23, i64 200, !23, i64 208, !23, i64 216, !23, i64 224, !23, i64 232, !23, i64 240, !23, i64 248, !23, i64 256, !23, i64 264, !23, i64 272, !23, i64 280, !23, i64 288, !23, i64 296, !23, i64 304, !23, i64 312, !23, i64 320, !23, i64 328, !23, i64 336, !23, i64 344, !23, i64 352, !23, i64 360, !23, i64 368, !23, i64 376, !23, i64 384, !23, i64 392, !23, i64 400, !23, i64 408, !23, i64 416, !23, i64 424, !23, i64 432, !23, i64 440, !23, i64 448, !23, i64 456, !23, i64 464, !23, i64 472, !23, i64 480, !23, i64 488, !23, i64 496, !23, i64 504, !23, i64 512, !23, i64 520, !23, i64 528, !23, i64 536, !23, i64 544, !23, i64 552, !23, i64 560, !23, i64 568, !23, i64 576, !23, i64 584, !23, i64 592, !23, i64 600, !23, i64 608, !23, i64 616, !23, i64 624, !23, i64 632, !23, i64 640, !23, i64 648, !23, i64 656, !23, i64 664, !23, i64 672, !23, i64 680, !23, i64 688, !23, i64 696, !23, i64 704, !23, i64 712, !23, i64 720, !23, i64 728, !23, i64 736, !23, i64 744, !23, i64 752, !23, i64 760, !23, i64 768, !23, i64 776, !23, i64 784, !23, i64 792, !96, i64 800, !23, i64 808, !23, i64 816}
+!93 = !{!"_GObjectClass", !94, i64 0, !95, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !23, i64 64, !23, i64 72, !7, i64 80, !8, i64 88}
+!94 = !{!"_GTypeClass", !7, i64 0}
+!95 = !{!"p1 _ZTS7_GSList", !23, i64 0}
+!96 = !{!"p1 _ZTS22_GtkWidgetClassPrivate", !23, i64 0}
+!97 = !{!92, !23, i64 320}
+!98 = !{!92, !23, i64 288}
+!99 = !{!92, !23, i64 152}
+!100 = !{!92, !23, i64 448}
+!101 = !{!92, !23, i64 456}
+!102 = !{!92, !23, i64 384}
+!103 = !{!92, !23, i64 392}
+!104 = !{!92, !23, i64 408}
+!105 = !{!92, !23, i64 400}
+!106 = !{!92, !23, i64 432}
+!107 = !{!94, !7, i64 0}
+!108 = !{!84, !24, i64 5552}
+!109 = !{!110, !111, i64 4}
+!110 = !{!"_GtkBorder", !111, i64 0, !111, i64 2, !111, i64 4, !111, i64 6}
+!111 = !{!"short", !8, i64 0}
+!112 = !{!110, !111, i64 6}
+!113 = !{!21, !22, i64 0}
+!114 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!115 = !{!110, !111, i64 0}
+!116 = !{!110, !111, i64 2}
+!117 = !{!118, !24, i64 8}
+!118 = !{!"_cairo_rectangle_int", !24, i64 0, !24, i64 4, !24, i64 8, !24, i64 12}
+!119 = !{!118, !24, i64 12}
+!120 = !{!13, !14, i64 8}
+!121 = !{!13, !14, i64 16}
+!122 = !{!13, !14, i64 24}
+!123 = !{!13, !14, i64 32}
+!124 = !{!15, !14, i64 0}
+!125 = !{!15, !14, i64 8}
+!126 = !{!15, !14, i64 16}
+!127 = !{!128, !24, i64 52}
+!128 = !{!"_GdkEventButton", !24, i64 0, !129, i64 8, !8, i64 16, !24, i64 20, !14, i64 24, !14, i64 32, !130, i64 40, !24, i64 48, !24, i64 52, !131, i64 56, !14, i64 64, !14, i64 72}
+!129 = !{!"p1 _ZTS10_GdkWindow", !23, i64 0}
+!130 = !{!"p1 double", !23, i64 0}
+!131 = !{!"p1 _ZTS10_GdkDevice", !23, i64 0}
+!132 = !{!128, !24, i64 0}
+!133 = !{!128, !14, i64 24}
+!134 = !{!128, !14, i64 32}
+!135 = !{!49, !53, i64 64}
+!136 = !{!137, !139, i64 2704}
+!137 = !{!"dt_develop_t", !24, i64 0, !24, i64 4, !24, i64 8, !23, i64 16, !14, i64 24, !14, i64 32, !24, i64 40, !24, i64 44, !24, i64 48, !24, i64 52, !24, i64 56, !14, i64 64, !24, i64 72, !24, i64 76, !24, i64 80, !138, i64 88, !139, i64 96, !140, i64 112, !24, i64 1968, !24, i64 1972, !74, i64 1976, !24, i64 2016, !27, i64 2024, !24, i64 2032, !138, i64 2040, !24, i64 2048, !27, i64 2056, !27, i64 2064, !24, i64 2072, !27, i64 2080, !27, i64 2088, !80, i64 2096, !80, i64 2104, !24, i64 2112, !24, i64 2116, !27, i64 2120, !148, i64 2128, !149, i64 2136, !27, i64 2144, !24, i64 2152, !24, i64 2156, !24, i64 2160, !11, i64 2164, !11, i64 2168, !138, i64 2176, !24, i64 2184, !150, i64 2192, !155, i64 2344, !156, i64 2464, !157, i64 2488, !158, i64 2528, !159, i64 2560, !160, i64 2568, !161, i64 2584, !87, i64 2608, !87, i64 2616, !162, i64 2624, !162, i64 2712, !24, i64 2800, !24, i64 2804, !24, i64 2808, !27, i64 2816}
+!138 = !{!"p1 _ZTS15dt_iop_module_t", !23, i64 0}
+!139 = !{!"p1 _ZTS18dt_dev_pixelpipe_t", !23, i64 0}
+!140 = !{!"dt_image_t", !24, i64 0, !24, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !8, i64 36, !8, i64 100, !8, i64 164, !8, i64 292, !8, i64 356, !8, i64 420, !8, i64 484, !7, i64 552, !24, i64 560, !8, i64 564, !8, i64 792, !8, i64 856, !8, i64 920, !8, i64 984, !24, i64 1112, !8, i64 1116, !24, i64 1372, !24, i64 1376, !24, i64 1380, !24, i64 1384, !24, i64 1388, !24, i64 1392, !24, i64 1396, !24, i64 1400, !24, i64 1404, !24, i64 1408, !11, i64 1412, !24, i64 1416, !24, i64 1420, !24, i64 1424, !24, i64 1428, !24, i64 1432, !24, i64 1436, !7, i64 1440, !7, i64 1448, !7, i64 1456, !7, i64 1464, !24, i64 1472, !141, i64 1488, !8, i64 1616, !75, i64 1656, !24, i64 1664, !24, i64 1668, !144, i64 1672, !145, i64 1680, !146, i64 1704, !111, i64 1716, !8, i64 1718, !24, i64 1728, !24, i64 1732, !11, i64 1736, !11, i64 1740, !8, i64 1744, !8, i64 1760, !8, i64 1808, !27, i64 1824, !147, i64 1832, !24, i64 1840, !24, i64 1844}
+!141 = !{!"dt_iop_buffer_dsc_t", !24, i64 0, !24, i64 4, !24, i64 8, !8, i64 12, !142, i64 48, !143, i64 64, !8, i64 96, !24, i64 112}
+!142 = !{!"", !111, i64 0, !111, i64 2}
+!143 = !{!"", !24, i64 0, !8, i64 16}
+!144 = !{!"dt_image_raw_parameters_t", !24, i64 0, !24, i64 3}
+!145 = !{!"dt_image_geoloc_t", !14, i64 0, !14, i64 8, !14, i64 16}
+!146 = !{!"_color_harmony_t", !24, i64 0, !24, i64 4, !24, i64 8}
+!147 = !{!"p1 _ZTS16dt_cache_entry_t", !23, i64 0}
+!148 = !{!"p1 _ZTS15dt_masks_form_t", !23, i64 0}
+!149 = !{!"p1 _ZTS19dt_masks_form_gui_t", !23, i64 0}
+!150 = !{!"", !151, i64 0, !138, i64 32, !152, i64 40, !154, i64 112}
+!151 = !{!"dt_dev_proxy_exposure_t", !138, i64 0, !23, i64 8, !23, i64 16, !23, i64 24}
+!152 = !{!"", !153, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32, !23, i64 40, !23, i64 48, !23, i64 56, !23, i64 64}
+!153 = !{!"p1 _ZTS15dt_lib_module_t", !23, i64 0}
+!154 = !{!"", !153, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !23, i64 32}
+!155 = !{!"dt_dev_chroma_t", !138, i64 0, !138, i64 8, !8, i64 16, !8, i64 48, !8, i64 80, !24, i64 112}
+!156 = !{!"", !138, i64 0, !138, i64 8, !23, i64 16}
+!157 = !{!"", !87, i64 0, !87, i64 8, !24, i64 16, !24, i64 20, !11, i64 24, !11, i64 28, !24, i64 32}
+!158 = !{!"", !87, i64 0, !87, i64 8, !24, i64 16, !24, i64 20, !24, i64 24, !11, i64 28}
+!159 = !{!"", !87, i64 0}
+!160 = !{!"", !87, i64 0, !24, i64 8}
+!161 = !{!"", !87, i64 0, !87, i64 8, !87, i64 16}
+!162 = !{!"dt_dev_viewport_t", !87, i64 0, !24, i64 8, !24, i64 12, !24, i64 16, !24, i64 20, !24, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !24, i64 56, !24, i64 60, !24, i64 64, !11, i64 68, !11, i64 72, !11, i64 76, !139, i64 80}
+!163 = !{!164, !24, i64 616}
+!164 = !{!"dt_dev_pixelpipe_t", !165, i64 0, !24, i64 120, !7, i64 128, !168, i64 136, !24, i64 144, !24, i64 148, !11, i64 152, !24, i64 156, !24, i64 160, !141, i64 176, !169, i64 304, !169, i64 312, !169, i64 320, !27, i64 328, !24, i64 336, !24, i64 340, !24, i64 344, !24, i64 348, !75, i64 352, !7, i64 360, !24, i64 368, !24, i64 372, !11, i64 376, !11, i64 380, !11, i64 384, !7, i64 392, !74, i64 400, !74, i64 440, !74, i64 480, !24, i64 520, !24, i64 524, !24, i64 528, !170, i64 536, !24, i64 576, !24, i64 580, !24, i64 584, !8, i64 588, !24, i64 592, !24, i64 596, !24, i64 600, !24, i64 604, !24, i64 608, !24, i64 612, !24, i64 616, !24, i64 620, !24, i64 624, !24, i64 628, !140, i64 640, !24, i64 2496, !75, i64 2504, !24, i64 2512, !27, i64 2520, !27, i64 2528, !27, i64 2536, !24, i64 2544, !168, i64 2552, !7, i64 2560}
+!165 = !{!"dt_dev_pixelpipe_cache_t", !24, i64 0, !7, i64 8, !7, i64 16, !23, i64 24, !166, i64 32, !167, i64 40, !166, i64 48, !80, i64 56, !80, i64 64, !7, i64 72, !24, i64 80, !7, i64 88, !7, i64 96, !24, i64 104, !24, i64 108, !24, i64 112}
+!166 = !{!"p1 long", !23, i64 0}
+!167 = !{!"p1 _ZTS19dt_iop_buffer_dsc_t", !23, i64 0}
+!168 = !{!"p1 float", !23, i64 0}
+!169 = !{!"p1 _ZTS30dt_iop_order_iccprofile_info_t", !23, i64 0}
+!170 = !{!"dt_dev_detail_mask_t", !171, i64 0, !7, i64 24, !168, i64 32}
+!171 = !{!"dt_iop_roi_t", !24, i64 0, !24, i64 4, !24, i64 8, !24, i64 12, !11, i64 16}
+!172 = !{!173, !14, i64 24}
+!173 = !{!"_GdkEventMotion", !24, i64 0, !129, i64 8, !8, i64 16, !24, i64 20, !14, i64 24, !14, i64 32, !130, i64 40, !24, i64 48, !111, i64 52, !131, i64 56, !14, i64 64, !14, i64 72}
+!174 = !{!173, !14, i64 32}
+!175 = !{!176, !24, i64 40}
+!176 = !{!"_GdkEventScroll", !24, i64 0, !129, i64 8, !8, i64 16, !24, i64 20, !14, i64 24, !14, i64 32, !24, i64 40, !24, i64 44, !131, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !24, i64 88}
+!177 = !{!178, !24, i64 28}
+!178 = !{!"_GdkEventKey", !24, i64 0, !129, i64 8, !8, i64 16, !24, i64 20, !24, i64 24, !24, i64 28, !24, i64 32, !75, i64 40, !111, i64 48, !8, i64 50, !24, i64 51}
+!179 = !{!178, !24, i64 24}

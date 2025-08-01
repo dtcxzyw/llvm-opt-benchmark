@@ -1525,7 +1525,7 @@ define i32 @grpc_slice_slice(ptr noundef byval(%struct.grpc_slice) align 8 %0, p
 83:                                               ; preds = %.lr.ph
   %84 = getelementptr inbounds nuw i8, ptr %.033, i64 1
   %.not27 = icmp ugt ptr %84, %76
-  br i1 %.not27, label %grpc_slice_eq.exit, label %.lr.ph, !llvm.loop !88
+  br i1 %.not27, label %grpc_slice_eq.exit, label %.lr.ph, !llvm.loop !87
 
 grpc_slice_eq.exit:                               ; preds = %83, %74, %78, %42, %40, %29, %2, %55
   %.022 = phi i32 [ %73, %55 ], [ -1, %2 ], [ %52, %42 ], [ -1, %29 ], [ 0, %40 ], [ %82, %78 ], [ -1, %74 ], [ -1, %83 ]
@@ -1540,36 +1540,36 @@ define void @grpc_slice_dup(ptr dead_on_unwind noalias writable sret(%struct.grp
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 255
   %7 = select i1 %.not, i64 %6, i64 %5
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %8 = icmp ult i64 %7, 24
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %2
   %10 = trunc nuw nsw i64 %7 to i8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %10, ptr %11, align 8, !tbaa !9, !alias.scope !89
+  store i8 %10, ptr %11, align 8, !tbaa !9, !alias.scope !88
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %grpc_slice_malloc.exit
 
 12:                                               ; preds = %2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %13 = add i64 %7, 16
-  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #28, !noalias !95
-  store i64 1, ptr %14, align 8, !tbaa !20, !noalias !95
+  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #28, !noalias !94
+  store i64 1, ptr %14, align 8, !tbaa !20, !noalias !94
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %15, align 8, !tbaa !23, !noalias !95
+  store ptr @"_ZZ23grpc_slice_malloc_largeEN3$_08__invokeEP19grpc_slice_refcount", ptr %15, align 8, !tbaa !23, !noalias !94
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %16, ptr %18, align 8, !tbaa !9, !alias.scope !95
-  store i64 %7, ptr %17, align 8, !tbaa !9, !alias.scope !95
+  store ptr %16, ptr %18, align 8, !tbaa !9, !alias.scope !94
+  store i64 %7, ptr %17, align 8, !tbaa !9, !alias.scope !94
   br label %grpc_slice_malloc.exit
 
 grpc_slice_malloc.exit:                           ; preds = %9, %12
   %19 = phi ptr [ %.pre, %9 ], [ %16, %12 ]
   %.sink.i = phi ptr [ null, %9 ], [ %14, %12 ]
-  store ptr %.sink.i, ptr %0, align 8, !tbaa !3, !alias.scope !89
+  store ptr %.sink.i, ptr %0, align 8, !tbaa !3, !alias.scope !88
   %.not1 = icmp eq ptr %.sink.i, null
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %21 = select i1 %.not1, ptr %20, ptr %19
@@ -1918,14 +1918,13 @@ attributes #33 = { builtin nounwind }
 !82 = distinct !{!82, !"_ZL10sub_no_refRK10grpc_slicemm"}
 !83 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !84 = !{i64 0, i64 8, !29, i64 8, i64 24, !9}
-!85 = distinct !{!85, !86, !87}
+!85 = distinct !{!85, !86}
 !86 = !{!"llvm.loop.mustprogress"}
-!87 = !{!"llvm.loop.estimated_trip_count"}
-!88 = distinct !{!88, !86, !87}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"grpc_slice_malloc: argument 0"}
-!91 = distinct !{!91, !"grpc_slice_malloc"}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"grpc_slice_malloc_large: argument 0"}
-!94 = distinct !{!94, !"grpc_slice_malloc_large"}
-!95 = !{!93, !90}
+!87 = distinct !{!87, !86}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"grpc_slice_malloc: argument 0"}
+!90 = distinct !{!90, !"grpc_slice_malloc"}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"grpc_slice_malloc_large: argument 0"}
+!93 = distinct !{!93, !"grpc_slice_malloc_large"}
+!94 = !{!92, !89}

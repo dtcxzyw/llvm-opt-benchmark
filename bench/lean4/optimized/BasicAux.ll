@@ -2099,7 +2099,7 @@ lean_inc.exit39:                                  ; preds = %87, %86, %84, %81
 
 lean_dec.exit36:                                  ; preds = %94, %93, %91, %lean_inc.exit39
   %95 = tail call ptr @lean_array_push(ptr noundef %.032, ptr noundef %78) #4
-  br label %7, !llvm.loop !15
+  br label %7
 
 96:                                               ; preds = %lean_obj_tag.exit61
   br i1 %.not73, label %97, label %lean_inc.exit
@@ -2145,7 +2145,7 @@ lean_inc.exit:                                    ; preds = %102, %101, %99, %96
 
 lean_dec.exit:                                    ; preds = %109, %108, %106, %lean_inc.exit
   %110 = tail call ptr @lean_array_push(ptr noundef %.034.ph, ptr noundef %78) #4
-  br label %.outer, !llvm.loop !15
+  br label %.outer
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6347,7 +6347,7 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
 _init_l_List_tacticSizeOf__list__dec___closed__5.exit: ; preds = %lean_dec_ref.exit
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i64 0, ptr %53, align 8, !tbaa !17
+  store i64 0, ptr %53, align 8, !tbaa !15
   store i32 1, ptr %49, align 4, !tbaa !4
   store i32 100728856, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -6841,7 +6841,5 @@ attributes #5 = { noreturn nounwind }
 !12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"short", !7, i64 0}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.estimated_trip_count"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !7, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"long", !7, i64 0}

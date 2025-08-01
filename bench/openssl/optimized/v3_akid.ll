@@ -249,7 +249,7 @@ define internal ptr @v2i_AUTHORITY_KEYID(ptr readnone captures(none) %0, ptr nou
   br i1 %cond, label %53, label %50
 
 50:                                               ; preds = %._crit_edge
-  %51 = load i32, ptr %1, align 8, !tbaa !21
+  %51 = load i32, ptr %1, align 8, !tbaa !20
   %52 = and i32 %51, 1
   %.not131 = icmp eq i32 %52, 0
   br i1 %.not131, label %54, label %127
@@ -262,7 +262,7 @@ define internal ptr @v2i_AUTHORITY_KEYID(ptr readnone captures(none) %0, ptr nou
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !29
+  %56 = load ptr, ptr %55, align 8, !tbaa !28
   %57 = icmp eq ptr %56, null
   br i1 %57, label %58, label %59
 
@@ -274,16 +274,16 @@ define internal ptr @v2i_AUTHORITY_KEYID(ptr readnone captures(none) %0, ptr nou
 
 59:                                               ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !30
+  %61 = load ptr, ptr %60, align 8, !tbaa !29
   %62 = icmp eq ptr %61, %56
   %63 = tail call i32 @ERR_set_mark() #4
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %65 = load ptr, ptr %64, align 8, !tbaa !31
+  %65 = load ptr, ptr %64, align 8, !tbaa !30
   %.not132 = icmp eq ptr %65, null
   br i1 %.not132, label %70, label %66
 
 66:                                               ; preds = %59
-  %67 = load ptr, ptr %60, align 8, !tbaa !30
+  %67 = load ptr, ptr %60, align 8, !tbaa !29
   %68 = tail call i32 @X509_check_private_key(ptr noundef %67, ptr noundef nonnull %65) #4
   %69 = icmp ne i32 %68, 0
   br label %70
@@ -328,25 +328,25 @@ define internal ptr @v2i_AUTHORITY_KEYID(ptr readnone captures(none) %0, ptr nou
   br i1 %or.cond12, label %87, label %96
 
 87:                                               ; preds = %85
-  %88 = load ptr, ptr %64, align 8, !tbaa !31
+  %88 = load ptr, ptr %64, align 8, !tbaa !30
   %.not134 = icmp eq ptr %88, null
   br i1 %.not134, label %96, label %89
 
 89:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  store ptr null, ptr %4, align 8, !tbaa !32
+  store ptr null, ptr %4, align 8, !tbaa !31
   %90 = call i32 @X509_PUBKEY_set(ptr noundef nonnull %4, ptr noundef nonnull %88) #4
   %.not135 = icmp eq i32 %90, 0
   br i1 %.not135, label %94, label %91
 
 91:                                               ; preds = %89
-  %92 = load ptr, ptr %4, align 8, !tbaa !32
+  %92 = load ptr, ptr %4, align 8, !tbaa !31
   %93 = call ptr @ossl_x509_pubkey_hash(ptr noundef %92) #4
   br label %94
 
 94:                                               ; preds = %91, %89
   %.4 = phi ptr [ %93, %91 ], [ null, %89 ]
-  %95 = load ptr, ptr %4, align 8, !tbaa !32
+  %95 = load ptr, ptr %4, align 8, !tbaa !31
   call void @X509_PUBKEY_free(ptr noundef %95) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   br label %96
@@ -419,9 +419,9 @@ define internal ptr @v2i_AUTHORITY_KEYID(ptr readnone captures(none) %0, ptr nou
   br label %126
 
 122:                                              ; preds = %119
-  store i32 4, ptr %116, align 8, !tbaa !34
+  store i32 4, ptr %116, align 8, !tbaa !33
   %123 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store ptr %106, ptr %123, align 8, !tbaa !36
+  store ptr %106, ptr %123, align 8, !tbaa !35
   br label %.thread
 
 .thread:                                          ; preds = %101, %122
@@ -559,22 +559,21 @@ attributes #5 = { nounwind willreturn memory(read) }
 !15 = !{!"", !16, i64 0, !16, i64 8, !16, i64 16}
 !16 = !{!"p1 omnipotent char", !5, i64 0}
 !17 = !{!15, !16, i64 16}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"v3_ext_ctx", !23, i64 0, !24, i64 8, !24, i64 16, !25, i64 24, !26, i64 32, !27, i64 40, !5, i64 48, !28, i64 56}
-!23 = !{!"int", !6, i64 0}
-!24 = !{!"p1 _ZTS7x509_st", !5, i64 0}
-!25 = !{!"p1 _ZTS11X509_req_st", !5, i64 0}
-!26 = !{!"p1 _ZTS11X509_crl_st", !5, i64 0}
-!27 = !{!"p1 _ZTS21X509V3_CONF_METHOD_st", !5, i64 0}
-!28 = !{!"p1 _ZTS11evp_pkey_st", !5, i64 0}
-!29 = !{!22, !24, i64 8}
-!30 = !{!22, !24, i64 16}
-!31 = !{!22, !28, i64 56}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS14X509_pubkey_st", !5, i64 0}
-!34 = !{!35, !23, i64 0}
-!35 = !{!"GENERAL_NAME_st", !23, i64 0, !6, i64 8}
-!36 = !{!6, !6, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"v3_ext_ctx", !22, i64 0, !23, i64 8, !23, i64 16, !24, i64 24, !25, i64 32, !26, i64 40, !5, i64 48, !27, i64 56}
+!22 = !{!"int", !6, i64 0}
+!23 = !{!"p1 _ZTS7x509_st", !5, i64 0}
+!24 = !{!"p1 _ZTS11X509_req_st", !5, i64 0}
+!25 = !{!"p1 _ZTS11X509_crl_st", !5, i64 0}
+!26 = !{!"p1 _ZTS21X509V3_CONF_METHOD_st", !5, i64 0}
+!27 = !{!"p1 _ZTS11evp_pkey_st", !5, i64 0}
+!28 = !{!21, !23, i64 8}
+!29 = !{!21, !23, i64 16}
+!30 = !{!21, !27, i64 56}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS14X509_pubkey_st", !5, i64 0}
+!33 = !{!34, !22, i64 0}
+!34 = !{!"GENERAL_NAME_st", !22, i64 0, !6, i64 8}
+!35 = !{!6, !6, i64 0}

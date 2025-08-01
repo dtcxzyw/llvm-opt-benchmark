@@ -181,11 +181,11 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 160
-  %43 = load ptr, ptr %42, align 8, !tbaa !31
+  %43 = load ptr, ptr %42, align 8, !tbaa !30
   call void @free(ptr noundef %43) #8
   %44 = getelementptr inbounds nuw i8, ptr %.383, i64 %.057
   %45 = call noalias ptr @strdup(ptr noundef nonnull %44) #8
-  store ptr %45, ptr %42, align 8, !tbaa !31
+  store ptr %45, ptr %42, align 8, !tbaa !30
   br label %46
 
 46:                                               ; preds = %41, %40, %29
@@ -216,7 +216,7 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
   %54 = getelementptr inbounds i8, ptr %.686, i64 %.461
   %55 = load i8, ptr %54, align 1, !tbaa !25
   %.not79 = icmp eq i8 %55, 0
-  br i1 %.not79, label %.loopexit, label %.preheader, !llvm.loop !32
+  br i1 %.not79, label %.loopexit, label %.preheader, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.thread84, %46
   %.360 = phi i64 [ %.158, %46 ], [ %47, %.thread84 ]
@@ -236,7 +236,7 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
   br i1 %.not81, label %.critedge, label %62
 
 62:                                               ; preds = %61
-  store i32 27, ptr %1, align 4, !tbaa !33
+  store i32 27, ptr %1, align 4, !tbaa !32
   br label %.critedge
 
 .critedge:                                        ; preds = %33, %35, %51, %49, %61, %62, %57, %21, %10, %9, %3
@@ -272,12 +272,12 @@ define internal i64 @gzip_filter_read(ptr noundef readonly captures(none) %0, pt
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %9, ptr %10, align 8, !tbaa !34
+  store ptr %9, ptr %10, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %12 = load i64, ptr %11, align 8, !tbaa !19
   %13 = trunc i64 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 %13, ptr %14, align 8, !tbaa !35
+  store i32 %13, ptr %14, align 8, !tbaa !34
   %.not62 = icmp eq i32 %13, 0
   br i1 %.not62, label %.critedge, label %.lr.ph
 
@@ -289,36 +289,36 @@ define internal i64 @gzip_filter_read(ptr noundef readonly captures(none) %0, pt
   br label %19
 
 19:                                               ; preds = %.lr.ph, %101
-  %20 = load i8, ptr %15, align 8, !tbaa !36
+  %20 = load i8, ptr %15, align 8, !tbaa !35
   %.not41 = icmp eq i8 %20, 0
   br i1 %.not41, label %21, label %.critedge
 
 21:                                               ; preds = %19
-  %22 = load i8, ptr %16, align 8, !tbaa !37
+  %22 = load i8, ptr %16, align 8, !tbaa !36
   %.not42 = icmp eq i8 %22, 0
   br i1 %.not42, label %23, label %55
 
 23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %24 = load ptr, ptr %6, align 8, !tbaa !18
-  %25 = load ptr, ptr %17, align 8, !tbaa !38
+  %25 = load ptr, ptr %17, align 8, !tbaa !37
   %26 = call fastcc i64 @peek_at_header(ptr noundef %25, ptr noundef null, ptr noundef %24)
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %51, label %28
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %17, align 8, !tbaa !38
+  %29 = load ptr, ptr %17, align 8, !tbaa !37
   %30 = call i64 @__archive_read_filter_consume(ptr noundef %29, i64 noundef %26) #8
   %31 = call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #8
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 144
-  store i64 %31, ptr %32, align 8, !tbaa !39
-  %33 = load ptr, ptr %17, align 8, !tbaa !38
+  store i64 %31, ptr %32, align 8, !tbaa !38
+  %33 = load ptr, ptr %17, align 8, !tbaa !37
   %34 = call ptr @__archive_read_filter_ahead(ptr noundef %33, i64 noundef 1, ptr noundef nonnull %4) #8
-  store ptr %34, ptr %24, align 8, !tbaa !40
+  store ptr %34, ptr %24, align 8, !tbaa !39
   %35 = load i64, ptr %4, align 8, !tbaa !27
   %36 = trunc i64 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i32 %36, ptr %37, align 8, !tbaa !41
+  store i32 %36, ptr %37, align 8, !tbaa !40
   %38 = call i32 @cm_zlib_inflateInit2_(ptr noundef nonnull %24, i32 noundef -15, ptr noundef nonnull @.str.5, i32 noundef 112) #8
   switch i32 %38, label %48 [
     i32 0, label %52
@@ -353,12 +353,12 @@ define internal i64 @gzip_filter_read(ptr noundef readonly captures(none) %0, pt
 
 51:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
-  store i8 1, ptr %15, align 8, !tbaa !36
+  store i8 1, ptr %15, align 8, !tbaa !35
   br label %.critedge
 
 52:                                               ; preds = %28
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 112
-  store i8 1, ptr %53, align 8, !tbaa !37
+  store i8 1, ptr %53, align 8, !tbaa !36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   br label %55
 
@@ -367,9 +367,9 @@ define internal i64 @gzip_filter_read(ptr noundef readonly captures(none) %0, pt
   br label %111
 
 55:                                               ; preds = %52, %21
-  %56 = load ptr, ptr %17, align 8, !tbaa !38
+  %56 = load ptr, ptr %17, align 8, !tbaa !37
   %57 = call ptr @__archive_read_filter_ahead(ptr noundef %56, i64 noundef 1, ptr noundef nonnull %5) #8
-  store ptr %57, ptr %7, align 8, !tbaa !40
+  store ptr %57, ptr %7, align 8, !tbaa !39
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %62
 
@@ -391,7 +391,7 @@ define internal i64 @gzip_filter_read(ptr noundef readonly captures(none) %0, pt
 66:                                               ; preds = %65, %62
   %67 = phi i64 [ 4294967295, %65 ], [ %63, %62 ]
   %68 = trunc i64 %67 to i32
-  store i32 %68, ptr %18, align 8, !tbaa !41
+  store i32 %68, ptr %18, align 8, !tbaa !40
   %69 = call i32 @cm_zlib_inflate(ptr noundef nonnull %7, i32 noundef 0) #8
   switch i32 %69, label %98 [
     i32 0, label %70
@@ -399,25 +399,25 @@ define internal i64 @gzip_filter_read(ptr noundef readonly captures(none) %0, pt
   ]
 
 70:                                               ; preds = %66
-  %71 = load ptr, ptr %17, align 8, !tbaa !38
+  %71 = load ptr, ptr %17, align 8, !tbaa !37
   %72 = load i64, ptr %5, align 8, !tbaa !27
-  %73 = load i32, ptr %18, align 8, !tbaa !41
+  %73 = load i32, ptr %18, align 8, !tbaa !40
   %74 = zext i32 %73 to i64
   %75 = sub nsw i64 %72, %74
   %76 = call i64 @__archive_read_filter_consume(ptr noundef %71, i64 noundef %75) #8
   br label %101
 
 77:                                               ; preds = %66
-  %78 = load ptr, ptr %17, align 8, !tbaa !38
+  %78 = load ptr, ptr %17, align 8, !tbaa !37
   %79 = load i64, ptr %5, align 8, !tbaa !27
-  %80 = load i32, ptr %18, align 8, !tbaa !41
+  %80 = load i32, ptr %18, align 8, !tbaa !40
   %81 = zext i32 %80 to i64
   %82 = sub nsw i64 %79, %81
   %83 = call i64 @__archive_read_filter_consume(ptr noundef %78, i64 noundef %82) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %84 = load ptr, ptr %6, align 8, !tbaa !18
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 112
-  store i8 0, ptr %85, align 8, !tbaa !37
+  store i8 0, ptr %85, align 8, !tbaa !36
   %86 = call i32 @cm_zlib_inflateEnd(ptr noundef %84) #8
   %cond.i = icmp eq i32 %86, 0
   br i1 %cond.i, label %90, label %87
@@ -429,7 +429,7 @@ define internal i64 @gzip_filter_read(ptr noundef readonly captures(none) %0, pt
   br label %.loopexit
 
 90:                                               ; preds = %77
-  %91 = load ptr, ptr %17, align 8, !tbaa !38
+  %91 = load ptr, ptr %17, align 8, !tbaa !37
   %92 = call ptr @__archive_read_filter_ahead(ptr noundef %91, i64 noundef 8, ptr noundef nonnull %3) #8
   %93 = icmp eq ptr %92, null
   %94 = load i64, ptr %3, align 8
@@ -438,7 +438,7 @@ define internal i64 @gzip_filter_read(ptr noundef readonly captures(none) %0, pt
   br i1 %or.cond.i, label %.loopexit, label %consume_trailer.exit
 
 consume_trailer.exit:                             ; preds = %90
-  %96 = load ptr, ptr %17, align 8, !tbaa !38
+  %96 = load ptr, ptr %17, align 8, !tbaa !37
   %97 = call i64 @__archive_read_filter_consume(ptr noundef %96, i64 noundef 8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   br label %101
@@ -454,23 +454,23 @@ consume_trailer.exit:                             ; preds = %90
   br label %111
 
 101:                                              ; preds = %consume_trailer.exit, %70
-  %.pr = load i32, ptr %14, align 8, !tbaa !35
+  %.pr = load i32, ptr %14, align 8, !tbaa !34
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %.critedge, label %19, !llvm.loop !42
+  br i1 %.not, label %.critedge, label %19, !llvm.loop !41
 
 .critedge:                                        ; preds = %19, %101, %2, %51
-  %102 = load ptr, ptr %10, align 8, !tbaa !34
+  %102 = load ptr, ptr %10, align 8, !tbaa !33
   %103 = load ptr, ptr %8, align 8, !tbaa !23
   %104 = ptrtoint ptr %102 to i64
   %105 = ptrtoint ptr %103 to i64
   %106 = sub i64 %104, %105
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 136
-  %108 = load i64, ptr %107, align 8, !tbaa !43
+  %108 = load i64, ptr %107, align 8, !tbaa !42
   %109 = add i64 %106, %108
-  store i64 %109, ptr %107, align 8, !tbaa !43
+  store i64 %109, ptr %107, align 8, !tbaa !42
   %110 = icmp eq i64 %106, 0
   %spec.select = select i1 %110, ptr null, ptr %103
-  store ptr %spec.select, ptr %1, align 8, !tbaa !44
+  store ptr %spec.select, ptr %1, align 8, !tbaa !43
   br label %111
 
 111:                                              ; preds = %.critedge, %98, %.loopexit, %59, %54
@@ -484,7 +484,7 @@ define internal range(i32 -30, 1) i32 @gzip_filter_close(ptr noundef readonly ca
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %5 = load i8, ptr %4, align 8, !tbaa !37
+  %5 = load i8, ptr %4, align 8, !tbaa !36
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %11, label %6
 
@@ -502,7 +502,7 @@ define internal range(i32 -30, 1) i32 @gzip_filter_close(ptr noundef readonly ca
 11:                                               ; preds = %8, %6, %1
   %.0 = phi i32 [ 0, %6 ], [ -30, %8 ], [ 0, %1 ]
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 160
-  %13 = load ptr, ptr %12, align 8, !tbaa !31
+  %13 = load ptr, ptr %12, align 8, !tbaa !30
   tail call void @free(ptr noundef %13) #8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %15 = load ptr, ptr %14, align 8, !tbaa !23
@@ -527,7 +527,7 @@ define internal noundef i32 @gzip_read_header(ptr noundef readonly captures(none
 
 9:                                                ; preds = %7, %2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  %11 = load ptr, ptr %10, align 8, !tbaa !31
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
   %.not8 = icmp eq ptr %11, null
   br i1 %.not8, label %13, label %12
 
@@ -598,20 +598,19 @@ attributes #10 = { nounwind allocsize(0) }
 !25 = !{!7, !7, i64 0}
 !26 = !{!20, !15, i64 152}
 !27 = !{!6, !6, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!20, !14, i64 160}
-!32 = distinct !{!32, !29, !30}
-!33 = !{!15, !15, i64 0}
-!34 = !{!20, !14, i64 24}
-!35 = !{!20, !15, i64 32}
-!36 = !{!20, !7, i64 168}
-!37 = !{!20, !7, i64 112}
-!38 = !{!5, !11, i64 16}
-!39 = !{!20, !6, i64 144}
-!40 = !{!20, !14, i64 0}
-!41 = !{!20, !15, i64 8}
-!42 = distinct !{!42, !29, !30}
-!43 = !{!20, !6, i64 136}
-!44 = !{!10, !10, i64 0}
+!30 = !{!20, !14, i64 160}
+!31 = distinct !{!31, !29}
+!32 = !{!15, !15, i64 0}
+!33 = !{!20, !14, i64 24}
+!34 = !{!20, !15, i64 32}
+!35 = !{!20, !7, i64 168}
+!36 = !{!20, !7, i64 112}
+!37 = !{!5, !11, i64 16}
+!38 = !{!20, !6, i64 144}
+!39 = !{!20, !14, i64 0}
+!40 = !{!20, !15, i64 8}
+!41 = distinct !{!41, !29}
+!42 = !{!20, !6, i64 136}
+!43 = !{!10, !10, i64 0}

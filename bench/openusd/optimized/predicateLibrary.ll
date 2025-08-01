@@ -61,7 +61,7 @@ define noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNam
   %spec.select = add i64 %.010, %8
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 48
   %.not = icmp eq ptr %9, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i64 [ 0, %1 ], [ %spec.select, %.lr.ph ]
@@ -150,7 +150,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__33SdfPredicateP
   %.1 = phi ptr [ %.019, %24 ], [ %.019, %25 ], [ %spec.select, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 48
   %.not16 = icmp eq ptr %30, %7
-  br i1 %.not16, label %._crit_edge, label %16, !llvm.loop !6
+  br i1 %.not16, label %._crit_edge, label %16
 
 ._crit_edge:                                      ; preds = %29, %1
   %31 = invoke noundef nonnull align 8 dereferenceable(481) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_15TfDiagnosticMgrEE11GetInstanceEv()
@@ -262,6 +262,3 @@ attributes #11 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}

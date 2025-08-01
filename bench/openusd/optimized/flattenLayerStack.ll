@@ -741,7 +741,7 @@ declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_Uni
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS6_8SdfLayerEEERKS5_EPSE_E9_M_invokeERKSt9_Any_dataSB_SD_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #0 comdat align 2 {
-  %5 = load ptr, ptr %1, align 8, !noalias !7
+  %5 = load ptr, ptr %1, align 8, !noalias !6
   tail call void %5(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
   ret void
 }
@@ -799,11 +799,10 @@ attributes #12 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = !{!8, !10}
-!8 = distinct !{!8, !9, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFS5_RKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS6_8SdfLayerEEERKS5_EJSB_SD_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!9 = distinct !{!9, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFS5_RKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS6_8SdfLayerEEERKS5_EJSB_SD_EET_St14__invoke_otherOT0_DpOT1_"}
-!10 = distinct !{!10, !11, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFS5_RKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS6_8SdfLayerEEERKS5_EJSB_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_: argument 0"}
-!11 = distinct !{!11, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFS5_RKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS6_8SdfLayerEEERKS5_EJSB_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_"}
+!6 = !{!7, !9}
+!7 = distinct !{!7, !8, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFS5_RKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS6_8SdfLayerEEERKS5_EJSB_SD_EET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!8 = distinct !{!8, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFS5_RKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS6_8SdfLayerEEERKS5_EJSB_SD_EET_St14__invoke_otherOT0_DpOT1_"}
+!9 = distinct !{!9, !10, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFS5_RKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS6_8SdfLayerEEERKS5_EJSB_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_: argument 0"}
+!10 = distinct !{!10, !"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFS5_RKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS6_8SdfLayerEEERKS5_EJSB_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_"}

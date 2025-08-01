@@ -625,7 +625,7 @@ _ZN8proxygen17HPACKEncodeBuffer6appendEh.exit88:  ; preds = %_ZN5folly10IOBufQue
   %shr = lshr i64 %value.addr.0125, 7
   %inc40 = add nuw nsw i32 %count.0126, 1
   %cmp35 = icmp ugt i64 %value.addr.0125, 16383
-  br i1 %cmp35, label %while.body36, label %while.end41.loopexit, !llvm.loop !7
+  br i1 %cmp35, label %while.body36, label %while.end41.loopexit, !llvm.loop !6
 
 while.end41.loopexit:                             ; preds = %_ZN8proxygen17HPACKEncodeBuffer6appendEh.exit88
   %45 = add nuw i32 %count.0126, 2
@@ -732,7 +732,7 @@ define noundef i32 @_ZN8proxygen17HPACKEncodeBuffer13encodeHuffmanEhhN5folly5Ran
 entry:
   %0 = load atomic i8, ptr @_ZGVZN8proxygen17HPACKEncodeBuffer13encodeHuffmanEhhN5folly5RangeIPKcEEE11huffmanTree acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !8
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !7
 
 init.check:                                       ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8proxygen17HPACKEncodeBuffer13encodeHuffmanEhhN5folly5RangeIPKcEEE11huffmanTree) #12
@@ -1001,8 +1001,7 @@ attributes #12 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = !{!"branch_weights", i32 1, i32 1048575}
+!6 = distinct !{!6, !5}
+!7 = !{!"branch_weights", i32 1, i32 1048575}

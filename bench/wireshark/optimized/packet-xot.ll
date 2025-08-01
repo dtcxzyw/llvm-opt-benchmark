@@ -492,7 +492,7 @@ get_xot_pdu_len.exit:                             ; preds = %.lr.ph, %23
   %29 = tail call i32 @dissect_xot_pdu(ptr noundef %28, ptr noundef %1, ptr noundef %2, ptr poison)
   %30 = add i32 %.0.i, %.040
   %.not38 = icmp sgt i32 %30, %20
-  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %get_xot_pdu_len.exit, %19
   %31 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -557,7 +557,6 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

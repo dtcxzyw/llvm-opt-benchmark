@@ -117,7 +117,7 @@ define internal noundef i32 @_ZL4b_orP9lua_State(ptr noundef %0) #0 {
   %4 = or i32 %3, %.011
   %5 = add nuw i32 %.0810, 1
   %exitcond.not = icmp eq i32 %.0810, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %4, %.lr.ph ]
@@ -138,7 +138,7 @@ define internal noundef i32 @_ZL5b_xorP9lua_State(ptr noundef %0) #0 {
   %4 = xor i32 %3, %.011
   %5 = add nuw i32 %.0810, 1
   %exitcond.not = icmp eq i32 %.0810, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %4, %.lr.ph ]
@@ -349,7 +349,7 @@ define internal noundef i32 @_ZL9b_countlzP9lua_State(ptr noundef %0) #0 {
 6:                                                ; preds = %3
   %7 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp eq i32 %7, 32
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !9
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !8
 
 8:                                                ; preds = %3, %6
   %.07 = phi i32 [ 32, %6 ], [ %.08, %3 ]
@@ -372,7 +372,7 @@ define internal noundef i32 @_ZL9b_countrzP9lua_State(ptr noundef %0) #0 {
 6:                                                ; preds = %3
   %7 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp eq i32 %7, 32
-  br i1 %exitcond.not, label %8, label %3, !llvm.loop !10
+  br i1 %exitcond.not, label %8, label %3, !llvm.loop !9
 
 8:                                                ; preds = %3, %6
   %.07 = phi i32 [ 32, %6 ], [ %.08, %3 ]
@@ -427,10 +427,9 @@ attributes #4 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}

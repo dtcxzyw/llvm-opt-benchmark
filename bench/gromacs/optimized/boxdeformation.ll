@@ -461,7 +461,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !158
+  %12 = load ptr, ptr %11, align 8, !tbaa !157
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -573,9 +573,9 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !159
+  store i32 0, ptr %5, align 8, !tbaa !158
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !161
+  store i32 0, ptr %10, align 4, !tbaa !160
   %11 = load ptr, ptr %3, align 8, !tbaa !105
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -603,7 +603,7 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   %.0.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !162
+  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !161
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
@@ -692,9 +692,9 @@ declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx14BoxDeformationC2EdlRKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEES9_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 52)) %0, double noundef %1, i64 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %4) unnamed_addr #15 align 2 {
-  store double %1, ptr %0, align 8, !tbaa !163
+  store double %1, ptr %0, align 8, !tbaa !162
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %2, ptr %6, align 8, !tbaa !167
+  store i64 %2, ptr %6, align 8, !tbaa !166
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 36, i1 false), !tbaa.struct !119
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -711,10 +711,10 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
   %4 = alloca %"class.gmx::MultiDimArray", align 8
   %5 = add nsw i64 %2, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !167
+  %7 = load i64, ptr %6, align 8, !tbaa !166
   %8 = sub i64 %5, %7
   %9 = sitofp i64 %8 to double
-  %10 = load double, ptr %0, align 8, !tbaa !163
+  %10 = load double, ptr %0, align 8, !tbaa !162
   %11 = fmul double %10, %9
   %12 = fptrunc double %11 to float
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #21
@@ -741,7 +741,7 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
 23:                                               ; preds = %33
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, 3
-  br i1 %exitcond103.not, label %.preheader74, label %.preheader75, !llvm.loop !168
+  br i1 %exitcond103.not, label %.preheader74, label %.preheader75, !llvm.loop !167
 
 24:                                               ; preds = %.preheader75, %33
   %indvars.iv = phi i64 [ 0, %.preheader75 ], [ %indvars.iv.next, %33 ]
@@ -761,7 +761,7 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
 33:                                               ; preds = %24, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %23, label %24, !llvm.loop !169
+  br i1 %exitcond.not, label %23, label %24, !llvm.loop !168
 
 .preheader73:                                     ; preds = %.preheader74, %54
   %indvars.iv104 = phi i64 [ 1, %.preheader74 ], [ %indvars.iv.next105, %54 ]
@@ -780,7 +780,7 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
 
 .loopexit:                                        ; preds = %76, %.preheader
   %40 = icmp samesign ugt i64 %indvars.iv106, 1
-  br i1 %40, label %.preheader72, label %54, !llvm.loop !170
+  br i1 %40, label %.preheader72, label %54, !llvm.loop !169
 
 .preheader72:                                     ; preds = %.preheader73, %.loopexit
   %indvars.iv106 = phi i64 [ %indvars.iv104, %.preheader73 ], [ %indvars.iv.next107, %.loopexit ]
@@ -810,7 +810,7 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
 54:                                               ; preds = %.loopexit
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next105, 3
-  br i1 %exitcond111.not, label %39, label %.preheader73, !llvm.loop !171
+  br i1 %exitcond111.not, label %39, label %.preheader73, !llvm.loop !170
 
 .preheader:                                       ; preds = %61, %.preheader72
   %.pre-phi = phi float [ %47, %.preheader72 ], [ %72, %61 ]
@@ -846,7 +846,7 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
   %73 = load float, ptr %44, align 4, !tbaa !125
   %74 = fmul float %73, 5.000000e-01
   %75 = fcmp ogt float %72, %74
-  br i1 %75, label %61, label %.preheader, !llvm.loop !172
+  br i1 %75, label %61, label %.preheader, !llvm.loop !171
 
 76:                                               ; preds = %.lr.ph94, %76
   %77 = phi float [ %.pre116, %.lr.ph94 ], [ %85, %76 ]
@@ -866,7 +866,7 @@ define void @_ZN3gmx14BoxDeformation5applyEPNS_13MultiDimArrayISt5arrayIfLm9EENS
   %88 = load float, ptr %44, align 4, !tbaa !125
   %89 = fmul float %88, -5.000000e-01
   %90 = fcmp olt float %87, %89
-  br i1 %90, label %76, label %.loopexit, !llvm.loop !173
+  br i1 %90, label %76, label %.loopexit, !llvm.loop !172
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -888,7 +888,7 @@ define void @_ZN3gmx27setBoxDeformationFlowMatrixEPA3_KfS2_PA3_f(ptr noundef rea
 6:                                                ; preds = %7
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 3
-  br i1 %exitcond19.not, label %5, label %.preheader, !llvm.loop !174
+  br i1 %exitcond19.not, label %5, label %.preheader, !llvm.loop !173
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
@@ -902,7 +902,7 @@ define void @_ZN3gmx27setBoxDeformationFlowMatrixEPA3_KfS2_PA3_f(ptr noundef rea
   store float %12, ptr %13, align 4, !tbaa !125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %6, label %7, !llvm.loop !175
+  br i1 %exitcond.not, label %6, label %7, !llvm.loop !174
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -1094,24 +1094,23 @@ attributes #24 = { builtin nounwind }
 !152 = !{!150, !151, i64 8}
 !153 = !{!154, !7, i64 0}
 !154 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !7, i64 0}
-!155 = distinct !{!155, !156, !157}
+!155 = distinct !{!155, !156}
 !156 = !{!"llvm.loop.mustprogress"}
-!157 = !{!"llvm.loop.estimated_trip_count"}
-!158 = !{!150, !151, i64 16}
-!159 = !{!160, !12, i64 8}
-!160 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !12, i64 8, !12, i64 12}
-!161 = !{!160, !12, i64 12}
-!162 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!163 = !{!164, !17, i64 0}
-!164 = !{!"_ZTSN3gmx14BoxDeformationE", !17, i64 0, !14, i64 8, !165, i64 16, !165, i64 72}
-!165 = !{!"_ZTSN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE", !166, i64 0, !112, i64 40}
-!166 = !{!"_ZTSSt5arrayIfLm9EE", !8, i64 0}
-!167 = !{!164, !14, i64 8}
-!168 = distinct !{!168, !156, !157}
-!169 = distinct !{!169, !156, !157}
-!170 = distinct !{!170, !156, !157}
-!171 = distinct !{!171, !156, !157}
-!172 = distinct !{!172, !156, !157}
-!173 = distinct !{!173, !156, !157}
-!174 = distinct !{!174, !156, !157}
-!175 = distinct !{!175, !156, !157}
+!157 = !{!150, !151, i64 16}
+!158 = !{!159, !12, i64 8}
+!159 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !12, i64 8, !12, i64 12}
+!160 = !{!159, !12, i64 12}
+!161 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!162 = !{!163, !17, i64 0}
+!163 = !{!"_ZTSN3gmx14BoxDeformationE", !17, i64 0, !14, i64 8, !164, i64 16, !164, i64 72}
+!164 = !{!"_ZTSN3gmx13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE", !165, i64 0, !112, i64 40}
+!165 = !{!"_ZTSSt5arrayIfLm9EE", !8, i64 0}
+!166 = !{!163, !14, i64 8}
+!167 = distinct !{!167, !156}
+!168 = distinct !{!168, !156}
+!169 = distinct !{!169, !156}
+!170 = distinct !{!170, !156}
+!171 = distinct !{!171, !156}
+!172 = distinct !{!172, !156}
+!173 = distinct !{!173, !156}
+!174 = distinct !{!174, !156}

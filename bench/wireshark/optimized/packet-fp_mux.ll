@@ -429,7 +429,7 @@ define internal noundef zeroext i1 @heur_dissect_fp_mux(ptr noundef %0, ptr noun
   %42 = add i32 %41, %40
   %43 = add i32 %.04455, 1
   %44 = icmp ult i32 %42, %5
-  br i1 %44, label %.preheader, label %45, !llvm.loop !11
+  br i1 %44, label %.preheader, label %45, !llvm.loop !10
 
 45:                                               ; preds = %39
   %46 = icmp ugt i32 %42, %5
@@ -553,7 +553,6 @@ attributes #5 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

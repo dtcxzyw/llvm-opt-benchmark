@@ -881,7 +881,7 @@ define dso_local void @_Z42Vmycpu_top___024root___act_sequent__TOP__0P20Vmycpu_t
 78:                                               ; preds = %73
   %79 = add nsw i32 %storemerge562725, -1
   %80 = icmp eq i32 %storemerge562725, 0
-  br i1 %80, label %.loopexit719, label %73, !llvm.loop !8
+  br i1 %80, label %.loopexit719, label %73, !llvm.loop !7
 
 81:                                               ; preds = %66
   br i1 %.not558, label %322, label %82
@@ -909,7 +909,7 @@ define dso_local void @_Z42Vmycpu_top___024root___act_sequent__TOP__0P20Vmycpu_t
 91:                                               ; preds = %86
   %92 = add nsw i32 %storemerge727, -1
   %93 = icmp eq i32 %storemerge727, 0
-  br i1 %93, label %.loopexit718, label %86, !llvm.loop !9
+  br i1 %93, label %.loopexit718, label %86, !llvm.loop !8
 
 94:                                               ; preds = %31
   %95 = and i32 %20, 2097152
@@ -1501,7 +1501,7 @@ define dso_local void @_Z42Vmycpu_top___024root___act_sequent__TOP__0P20Vmycpu_t
 382:                                              ; preds = %377
   %383 = add nsw i32 %storemerge649729, -1
   %384 = icmp eq i32 %storemerge649729, 0
-  br i1 %384, label %.loopexit717, label %377, !llvm.loop !10
+  br i1 %384, label %.loopexit717, label %377, !llvm.loop !9
 
 385:                                              ; preds = %370
   br i1 %.not644, label %626, label %386
@@ -1527,7 +1527,7 @@ define dso_local void @_Z42Vmycpu_top___024root___act_sequent__TOP__0P20Vmycpu_t
 395:                                              ; preds = %390
   %396 = add nsw i32 %storemerge645731, -1
   %397 = icmp eq i32 %storemerge645731, 0
-  br i1 %397, label %.loopexit, label %390, !llvm.loop !11
+  br i1 %397, label %.loopexit, label %390, !llvm.loop !10
 
 398:                                              ; preds = %337
   br i1 %.not583, label %436, label %399
@@ -12411,10 +12411,9 @@ attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn mem
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}

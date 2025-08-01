@@ -159,14 +159,14 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess7ExecuteEP7aiScene(ptr noun
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %52 = zext i32 %51 to i64
   %53 = icmp samesign ult i64 %indvars.iv.next.i, %52
-  br i1 %53, label %.lr.ph.i, label %_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial.exit, !llvm.loop !6
+  br i1 %53, label %.lr.ph.i, label %_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial.exit, !llvm.loop !5
 
 _ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial.exit: ; preds = %50, %.preheader.i, %36
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %54 = load i32, ptr %16, align 8
   %55 = zext i32 %54 to i64
   %56 = icmp samesign ult i64 %indvars.iv.next54, %55
-  br i1 %56, label %29, label %.preheader36, !llvm.loop !7
+  br i1 %56, label %29, label %.preheader36, !llvm.loop !6
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader36
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -202,7 +202,7 @@ _ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial.exit: ; preds =
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %69 = zext i32 %68 to i64
   %70 = icmp samesign ult i64 %indvars.iv.next60, %69
-  br i1 %70, label %60, label %.preheader, !llvm.loop !8
+  br i1 %70, label %60, label %.preheader, !llvm.loop !7
 
 71:                                               ; preds = %.lr.ph42, %_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim.exit
   %indvars.iv56 = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next57, %_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim.exit ]
@@ -239,7 +239,7 @@ _ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial.exit: ; preds =
   %86 = load i32, ptr %75, align 4
   %87 = zext i32 %86 to i64
   %88 = icmp samesign ult i64 %indvars.iv.next.i34, %87
-  br i1 %88, label %81, label %.preheader.i35, !llvm.loop !9
+  br i1 %88, label %81, label %.preheader.i35, !llvm.loop !8
 
 89:                                               ; preds = %89, %.lr.ph14.i
   %indvars.iv17.i = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next18.i, %89 ]
@@ -257,14 +257,14 @@ _ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial.exit: ; preds =
   %98 = load i32, ptr %78, align 8
   %99 = zext i32 %98 to i64
   %100 = icmp samesign ult i64 %indvars.iv.next18.i, %99
-  br i1 %100, label %89, label %_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim.exit, !llvm.loop !10
+  br i1 %100, label %89, label %_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim.exit, !llvm.loop !9
 
 _ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim.exit: ; preds = %89, %.preheader.i35
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %101 = load i32, ptr %65, align 8
   %102 = zext i32 %101 to i64
   %103 = icmp samesign ult i64 %indvars.iv.next57, %102
-  br i1 %103, label %71, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %103, label %71, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge47:                                    ; preds = %105, %.preheader
   %104 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -302,7 +302,7 @@ _ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim.exit: ; preds 
   %127 = load i32, ptr %57, align 8
   %128 = zext i32 %127 to i64
   %129 = icmp samesign ult i64 %indvars.iv.next63, %128
-  br i1 %129, label %105, label %._crit_edge47, !llvm.loop !12
+  br i1 %129, label %105, label %._crit_edge47, !llvm.loop !11
 }
 
 declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() local_unnamed_addr #2
@@ -500,7 +500,7 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12a
   %153 = load i32, ptr %26, align 8
   %154 = zext i32 %153 to i64
   %155 = icmp samesign ult i64 %152, %154
-  br i1 %155, label %52, label %._crit_edge, !llvm.loop !13
+  br i1 %155, label %52, label %._crit_edge, !llvm.loop !12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -596,7 +596,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread: ; preds = %28, %_ZNK6aiMesh
   %40 = add nuw nsw i64 %.05976, 1
   %41 = zext i32 %39 to i64
   %42 = icmp samesign ult i64 %40, %41
-  br i1 %42, label %15, label %.preheader74, !llvm.loop !14
+  br i1 %42, label %15, label %.preheader74, !llvm.loop !13
 
 .preheader73:                                     ; preds = %.preheader73.lr.ph, %._crit_edge
   %43 = phi i32 [ %13, %.preheader73.lr.ph ], [ %52, %._crit_edge ]
@@ -629,7 +629,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread: ; preds = %28, %_ZNK6aiMesh
   %54 = add nuw nsw i64 %.06279, 1
   %55 = zext i32 %52 to i64
   %56 = icmp samesign ult i64 %54, %55
-  br i1 %56, label %.preheader73, label %.preheader72, !llvm.loop !15
+  br i1 %56, label %.preheader73, label %.preheader72, !llvm.loop !14
 
 .lr.ph78:                                         ; preds = %.preheader73, %89
   %57 = phi ptr [ %90, %89 ], [ %46, %.preheader73 ]
@@ -693,7 +693,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread: ; preds = %28, %_ZNK6aiMesh
   %94 = load i32, ptr %93, align 8
   %95 = zext i32 %94 to i64
   %96 = icmp samesign ult i64 %92, %95
-  br i1 %96, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !16
+  br i1 %96, label %.lr.ph78, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge82:                                    ; preds = %102, %.preheader72
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -743,7 +743,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit68:   ; preds = %._crit_edge82
   %125 = load i32, ptr %49, align 8
   %126 = zext i32 %125 to i64
   %127 = icmp samesign ult i64 %124, %126
-  br i1 %127, label %102, label %._crit_edge82, !llvm.loop !17
+  br i1 %127, label %102, label %._crit_edge82, !llvm.loop !16
 
 .lr.ph84:                                         ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit68, %.lr.ph84
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph84 ], [ 0, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit68 ]
@@ -764,7 +764,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit68:   ; preds = %._crit_edge82
   %138 = load i32, ptr %4, align 4
   %139 = zext i32 %138 to i64
   %140 = icmp samesign ult i64 %indvars.iv.next, %139
-  br i1 %140, label %.lr.ph84, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit68.thread, !llvm.loop !18
+  br i1 %140, label %.lr.ph84, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit68.thread, !llvm.loop !17
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit68.thread: ; preds = %.lr.ph84, %._crit_edge82, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit68, %10
   ret void
@@ -812,7 +812,7 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMate
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %20, %.preheader, %6
   ret void
@@ -850,7 +850,7 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNod
   %14 = load i32, ptr %3, align 4
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %16, label %9, label %.preheader, !llvm.loop !9
+  br i1 %16, label %9, label %.preheader, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %17, %.preheader
   ret void
@@ -871,7 +871,7 @@ define hidden void @_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNod
   %26 = load i32, ptr %6, align 8
   %27 = zext i32 %26 to i64
   %28 = icmp samesign ult i64 %indvars.iv.next18, %27
-  br i1 %28, label %17, label %._crit_edge, !llvm.loop !10
+  br i1 %28, label %17, label %._crit_edge, !llvm.loop !9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -990,7 +990,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i.i:         ; preds = %._crit_edge.i.i, %.
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %indvars.iv.next20.i.i = add nuw nsw i64 %indvars.iv19.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next20.i.i, 8
-  br i1 %exitcond.not.i.i, label %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit.i, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i.i, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit.i, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i.i, !llvm.loop !18
 
 .lr.ph.i.i:                                       ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i.i ]
@@ -1003,7 +1003,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i.i:         ; preds = %._crit_edge.i.i, %.
   %26 = load i32, ptr %16, align 4
   %27 = zext i32 %26 to i64
   %28 = icmp samesign ult i64 %indvars.iv.next.i.i, %27
-  br i1 %28, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !20
+  br i1 %28, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !19
 
 _ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit.i:   ; preds = %._crit_edge.i.i, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i.i, %10
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 1264
@@ -1044,7 +1044,7 @@ _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i.i:    ; preds = %._crit_edge.i9.i, %
 ._crit_edge.i9.i:                                 ; preds = %.lr.ph.i6.i, %.preheader.i.i
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next21.i.i, 8
-  br i1 %exitcond.not.i10.i, label %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.loopexit.i, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i.i, !llvm.loop !21
+  br i1 %exitcond.not.i10.i, label %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.loopexit.i, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i.i, !llvm.loop !20
 
 .lr.ph.i6.i:                                      ; preds = %.preheader.i.i, %.lr.ph.i6.i
   %indvars.iv.i7.i = phi i64 [ %indvars.iv.next.i8.i, %.lr.ph.i6.i ], [ 0, %.preheader.i.i ]
@@ -1057,7 +1057,7 @@ _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i.i:    ; preds = %._crit_edge.i9.i, %
   %47 = load i32, ptr %39, align 8
   %48 = zext i32 %47 to i64
   %49 = icmp samesign ult i64 %indvars.iv.next.i8.i, %48
-  br i1 %49, label %.lr.ph.i6.i, label %._crit_edge.i9.i, !llvm.loop !22
+  br i1 %49, label %.lr.ph.i6.i, label %._crit_edge.i9.i, !llvm.loop !21
 
 _ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.loopexit.i: ; preds = %._crit_edge.i9.i, %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i.i
   %.pre.i = load i32, ptr %29, align 8
@@ -1068,14 +1068,14 @@ _ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.i: ; preds = %_ZN12_GLOBAL__N_
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %51 = zext i32 %50 to i64
   %52 = icmp samesign ult i64 %indvars.iv.next.i, %51
-  br i1 %52, label %32, label %_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh.exit, !llvm.loop !23
+  br i1 %52, label %32, label %_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh.exit, !llvm.loop !22
 
 _ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh.exit: ; preds = %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.i, %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load i32, ptr %4, align 8
   %54 = zext i32 %53 to i64
   %55 = icmp samesign ult i64 %indvars.iv.next, %54
-  br i1 %55, label %10, label %.preheader, !llvm.loop !24
+  br i1 %55, label %10, label %.preheader, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial.exit, %.preheader
   %56 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -1130,7 +1130,7 @@ _ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh.exit: ; preds = %_ZN12_GLOBAL__
   %82 = load i32, ptr %62, align 8
   %83 = zext i32 %82 to i64
   %84 = icmp samesign ult i64 %indvars.iv.next.i14, %83
-  br i1 %84, label %.lr.ph.i11, label %_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial.exit.loopexit, !llvm.loop !25
+  br i1 %84, label %.lr.ph.i11, label %_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial.exit.loopexit, !llvm.loop !24
 
 _ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial.exit.loopexit: ; preds = %81
   %.pre = load i32, ptr %7, align 8
@@ -1141,7 +1141,7 @@ _ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial.exit: ; preds = %_ZN6A
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %86 = zext i32 %85 to i64
   %87 = icmp samesign ult i64 %indvars.iv.next21, %86
-  br i1 %87, label %57, label %._crit_edge, !llvm.loop !26
+  br i1 %87, label %57, label %._crit_edge, !llvm.loop !25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1168,7 +1168,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i:           ; preds = %._crit_edge.i, %.pr
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next20.i, 8
-  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit, label %_ZNK6aiMesh16HasTextureCoordsEj.exit.i, !llvm.loop !18
 
 .lr.ph.i:                                         ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZNK6aiMesh16HasTextureCoordsEj.exit.i ]
@@ -1181,7 +1181,7 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit.i:           ; preds = %._crit_edge.i, %.pr
   %15 = load i32, ptr %5, align 4
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next.i, %16
-  br i1 %17, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
+  br i1 %17, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !19
 
 _ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit:     ; preds = %_ZNK6aiMesh16HasTextureCoordsEj.exit.i, %._crit_edge.i, %2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1264
@@ -1225,7 +1225,7 @@ _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i:      ; preds = %._crit_edge.i9, %.p
 ._crit_edge.i9:                                   ; preds = %.lr.ph.i6, %.preheader.i
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next21.i, 8
-  br i1 %exitcond.not.i10, label %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.loopexit, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i, !llvm.loop !21
+  br i1 %exitcond.not.i10, label %_ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.loopexit, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i, !llvm.loop !20
 
 .lr.ph.i6:                                        ; preds = %.preheader.i, %.lr.ph.i6
   %indvars.iv.i7 = phi i64 [ %indvars.iv.next.i8, %.lr.ph.i6 ], [ 0, %.preheader.i ]
@@ -1238,7 +1238,7 @@ _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i:      ; preds = %._crit_edge.i9, %.p
   %36 = load i32, ptr %28, align 8
   %37 = zext i32 %36 to i64
   %38 = icmp samesign ult i64 %indvars.iv.next.i8, %37
-  br i1 %38, label %.lr.ph.i6, label %._crit_edge.i9, !llvm.loop !22
+  br i1 %38, label %.lr.ph.i6, label %._crit_edge.i9, !llvm.loop !21
 
 _ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit.loopexit: ; preds = %._crit_edge.i9, %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.i
   %.pre = load i32, ptr %18, align 8
@@ -1249,7 +1249,7 @@ _ZN12_GLOBAL__N_17flipUVsI10aiAnimMeshEEvPT_.exit: ; preds = %_ZN12_GLOBAL__N_17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next, %40
-  br i1 %41, label %21, label %._crit_edge, !llvm.loop !23
+  br i1 %41, label %21, label %._crit_edge, !llvm.loop !22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1299,7 +1299,7 @@ define hidden void @_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial(pt
   %23 = load i32, ptr %3, align 8
   %24 = zext i32 %23 to i64
   %25 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 }
 
 declare void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #2
@@ -1339,7 +1339,7 @@ define hidden void @_ZN6Assimp23FlipWindingOrderProcess7ExecuteEP7aiScene(ptr no
   %12 = load i32, ptr %4, align 8
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %8, label %._crit_edge, !llvm.loop !27
+  br i1 %14, label %8, label %._crit_edge, !llvm.loop !26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1391,7 +1391,7 @@ define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(pt
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next140, %21
-  br i1 %22, label %14, label %.preheader100, !llvm.loop !28
+  br i1 %22, label %14, label %.preheader100, !llvm.loop !27
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
@@ -1412,7 +1412,7 @@ define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(pt
   %35 = lshr i32 %34, 1
   %36 = zext nneg i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next, %36
-  br i1 %37, label %23, label %._crit_edge.loopexit, !llvm.loop !29
+  br i1 %37, label %23, label %._crit_edge.loopexit, !llvm.loop !28
 
 ._crit_edge127:                                   ; preds = %.split123.us, %.preheader100
   ret void
@@ -1452,7 +1452,7 @@ define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(pt
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit99, label %.lr.ph106, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit99, label %.lr.ph106, !llvm.loop !29
 
 .loopexit99:                                      ; preds = %.lr.ph106, %38
   %54 = getelementptr inbounds nuw i8, ptr %41, i64 1040
@@ -1481,7 +1481,7 @@ define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(pt
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us.preheader, label %.lr.ph108, !llvm.loop !31
+  br i1 %exitcond149.not, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us.preheader, label %.lr.ph108, !llvm.loop !30
 
 .loopexit97:                                      ; preds = %.loopexit99
   %.not134 = icmp eq i32 %.fr133, 0
@@ -1515,12 +1515,12 @@ _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us:     ; preds = %_ZNK10aiAnimMesh16H
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %..loopexit93_crit_edge.us, label %.preheader92.us, !llvm.loop !32
+  br i1 %exitcond154.not, label %..loopexit93_crit_edge.us, label %.preheader92.us, !llvm.loop !31
 
 ..loopexit93_crit_edge.us:                        ; preds = %.preheader92.us, %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next156, 8
-  br i1 %exitcond158.not, label %.split114.us, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us, !llvm.loop !33
+  br i1 %exitcond158.not, label %.split114.us, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us, !llvm.loop !32
 
 .split114.us:                                     ; preds = %..loopexit93_crit_edge.us
   %73 = getelementptr inbounds nuw i8, ptr %41, i64 1048
@@ -1558,7 +1558,7 @@ _ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us:     ; preds = %_ZNK10aiAnimMesh16H
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count162
-  br i1 %exitcond163.not, label %.loopexit95, label %76, !llvm.loop !35
+  br i1 %exitcond163.not, label %.loopexit95, label %76, !llvm.loop !34
 
 .loopexit95:                                      ; preds = %76, %.split114.us
   %87 = getelementptr inbounds nuw i8, ptr %41, i64 1064
@@ -1588,19 +1588,19 @@ _ZNK10aiAnimMesh15HasVertexColorsEj.exit.us:      ; preds = %.loopexit95, %..loo
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
-  br i1 %exitcond168.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !36
+  br i1 %exitcond168.not, label %..loopexit_crit_edge.us, label %.preheader.us, !llvm.loop !35
 
 ..loopexit_crit_edge.us:                          ; preds = %.preheader.us, %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next170, 8
-  br i1 %exitcond172.not, label %.split123.us, label %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us, !llvm.loop !37
+  br i1 %exitcond172.not, label %.split123.us, label %_ZNK10aiAnimMesh15HasVertexColorsEj.exit.us, !llvm.loop !36
 
 .split123.us:                                     ; preds = %..loopexit_crit_edge.us, %.loopexit97
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %97 = load i32, ptr %11, align 8
   %98 = zext i32 %97 to i64
   %99 = icmp samesign ult i64 %indvars.iv.next174, %98
-  br i1 %99, label %38, label %._crit_edge127, !llvm.loop !38
+  br i1 %99, label %38, label %._crit_edge127, !llvm.loop !37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1654,39 +1654,38 @@ attributes #17 = { builtin nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
-!22 = distinct !{!22, !4, !5}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
-!27 = distinct !{!27, !4, !5}
-!28 = distinct !{!28, !4, !5}
-!29 = distinct !{!29, !4, !5}
-!30 = distinct !{!30, !4, !5}
-!31 = distinct !{!31, !4, !5}
-!32 = distinct !{!32, !4, !5}
-!33 = distinct !{!33, !4, !5, !34}
-!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!35 = distinct !{!35, !4, !5}
-!36 = distinct !{!36, !4, !5}
-!37 = distinct !{!37, !4, !5, !34}
-!38 = distinct !{!38, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = distinct !{!29, !4}
+!30 = distinct !{!30, !4}
+!31 = distinct !{!31, !4}
+!32 = distinct !{!32, !4, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!34 = distinct !{!34, !4}
+!35 = distinct !{!35, !4}
+!36 = distinct !{!36, !4, !33}
+!37 = distinct !{!37, !4}

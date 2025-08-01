@@ -23,7 +23,7 @@ while.cond4:                                      ; preds = %entry, %while.cond4
   %pNodeTemp.0 = load ptr, ptr %pNodeTemp.0.in, align 8
   %2 = load ptr, ptr %pNodeTemp.0, align 8
   %cmp = icmp eq ptr %pNode.addr.2, %2
-  br i1 %cmp, label %while.cond4, label %while.end8, !llvm.loop !8
+  br i1 %cmp, label %while.cond4, label %while.end8, !llvm.loop !7
 
 while.end8:                                       ; preds = %while.cond4
   %3 = load ptr, ptr %pNode.addr.2, align 8
@@ -66,7 +66,7 @@ while.cond:                                       ; preds = %if.else, %while.con
   %pNodeTemp.0 = phi ptr [ %5, %while.cond ], [ %4, %if.else ]
   %5 = load ptr, ptr %pNodeTemp.0, align 8
   %tobool6.not = icmp eq ptr %5, null
-  br i1 %tobool6.not, label %return, label %while.cond, !llvm.loop !9
+  br i1 %tobool6.not, label %return, label %while.cond, !llvm.loop !8
 
 while.cond11:                                     ; preds = %if.else, %while.cond11
   %pNode.addr.0 = phi ptr [ %pNodeTemp9.0, %while.cond11 ], [ %pNode, %if.else ]
@@ -76,7 +76,7 @@ while.cond11:                                     ; preds = %if.else, %while.con
   %6 = load ptr, ptr %mpNodeLeft12, align 8
   %cmp13 = icmp eq ptr %pNode.addr.0, %6
   %mpNodeParent15 = getelementptr inbounds nuw i8, ptr %pNodeTemp9.0, i64 16
-  br i1 %cmp13, label %while.cond11, label %return, !llvm.loop !10
+  br i1 %cmp13, label %while.cond11, label %return, !llvm.loop !9
 
 return:                                           ; preds = %while.cond, %while.cond11, %if.then
   %retval.0 = phi ptr [ %3, %if.then ], [ %pNodeTemp9.0, %while.cond11 ], [ %pNodeTemp.0, %while.cond ]
@@ -104,7 +104,7 @@ for.inc:                                          ; preds = %for.body
   %mpNodeParent = getelementptr inbounds nuw i8, ptr %pNodeBottom.addr.06, i64 16
   %1 = load ptr, ptr %mpNodeParent, align 8
   %tobool.not = icmp eq ptr %1, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %for.body, %entry
   %nCount.1 = phi i64 [ 0, %entry ], [ %spec.select, %for.body ], [ %spec.select, %for.inc ]
@@ -495,7 +495,7 @@ if.end80:                                         ; preds = %if.then62, %_ZN5eas
   %pNode.addr.2 = phi ptr [ %6, %if.then34 ], [ %pNode.addr.1, %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit ], [ %6, %if.then62 ], [ %pNode.addr.3, %_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit106 ]
   %31 = load ptr, ptr %mpNodeParent, align 8
   %cmp20.not = icmp eq ptr %pNode.addr.2, %31
-  br i1 %cmp20.not, label %while.end, label %land.rhs, !llvm.loop !12
+  br i1 %cmp20.not, label %while.end, label %land.rhs, !llvm.loop !11
 
 while.end:                                        ; preds = %land.rhs, %if.end80, %if.end19
   %.lcssa = phi ptr [ %2, %if.end19 ], [ %31, %if.end80 ], [ %3, %land.rhs ]
@@ -529,7 +529,7 @@ while.cond:                                       ; preds = %if.else, %while.con
   %mpNodeLeft9 = getelementptr inbounds nuw i8, ptr %pNodeSuccessor.1, i64 8
   %3 = load ptr, ptr %mpNodeLeft9, align 8
   %tobool.not = icmp eq ptr %3, null
-  br i1 %tobool.not, label %if.end12, label %while.cond, !llvm.loop !13
+  br i1 %tobool.not, label %if.end12, label %while.cond, !llvm.loop !12
 
 if.end12:                                         ; preds = %while.cond
   %4 = load ptr, ptr %pNodeSuccessor.1, align 8
@@ -595,7 +595,7 @@ while.cond.i:                                     ; preds = %if.then36, %while.c
   %mpNodeLeft.i = getelementptr inbounds nuw i8, ptr %pNodeBase.addr.0.i, i64 8
   %13 = load ptr, ptr %mpNodeLeft.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i, label %if.end44.sink.split, label %while.cond.i, !llvm.loop !14
+  br i1 %tobool.not.i, label %if.end44.sink.split, label %while.cond.i, !llvm.loop !13
 
 if.else41:                                        ; preds = %if.then36
   %mpNodeParent42 = getelementptr inbounds nuw i8, ptr %pNode, i64 16
@@ -622,7 +622,7 @@ while.cond.i149:                                  ; preds = %if.then46, %while.c
   %pNodeBase.addr.0.i150 = phi ptr [ %17, %while.cond.i149 ], [ %pNodeChild.0231238, %if.then46 ]
   %17 = load ptr, ptr %pNodeBase.addr.0.i150, align 8
   %tobool.not.i151 = icmp eq ptr %17, null
-  br i1 %tobool.not.i151, label %_ZN5eastl17RBTreeGetMaxChildEPKNS_16rbtree_node_baseE.exit, label %while.cond.i149, !llvm.loop !15
+  br i1 %tobool.not.i151, label %_ZN5eastl17RBTreeGetMaxChildEPKNS_16rbtree_node_baseE.exit, label %while.cond.i149, !llvm.loop !14
 
 _ZN5eastl17RBTreeGetMaxChildEPKNS_16rbtree_node_baseE.exit: ; preds = %while.cond.i149
   store ptr %pNodeBase.addr.0.i150, ptr %pNodeAnchor, align 8
@@ -1139,7 +1139,7 @@ if.end217:                                        ; preds = %land.lhs.true180, %
   %pNodeChildParent.3 = load ptr, ptr %pNodeChildParent.3.in, align 8
   %86 = load ptr, ptr %mpNodeParent, align 8
   %cmp99.not = icmp eq ptr %pNodeChildParent.2255, %86
-  br i1 %cmp99.not, label %if.then220, label %land.rhs, !llvm.loop !16
+  br i1 %cmp99.not, label %if.then220, label %land.rhs, !llvm.loop !15
 
 while.end218.sink.split:                          ; preds = %_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit181, %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit226
   %pNodeRoot.addr.0.i224.sink = phi ptr [ %pNodeRoot.addr.0.i224, %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit226 ], [ %pNodeRoot.addr.0.i179, %_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit181 ]
@@ -1176,15 +1176,14 @@ attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}

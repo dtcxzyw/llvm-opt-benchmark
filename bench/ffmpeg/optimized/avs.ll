@@ -249,7 +249,7 @@ align_get_bits.exit.us:                           ; preds = %.loopexit.split.us.
   %.sroa.7.5.us = phi i32 [ %.sroa.7.3.us.us, %.split176.us.us ], [ %.sroa.7.6.us, %align_get_bits.exit.us ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, %111
   %123 = icmp samesign ult i64 %indvars.iv.next226, 198
-  br i1 %123, label %.preheader.us, label %.split183.us, !llvm.loop !46
+  br i1 %123, label %.preheader.us, label %.split183.us, !llvm.loop !45
 
 124:                                              ; preds = %.outer, %.loopexit.split.us.us.us.thread
   %indvars.iv222 = phi i64 [ %indvars.iv.next223243, %.loopexit.split.us.us.us.thread ], [ %indvars.iv222.ph, %.outer ]
@@ -295,7 +295,7 @@ align_get_bits.exit.us:                           ; preds = %.loopexit.split.us.
   %145 = getelementptr inbounds nuw i8, ptr %.3125174.us.us.ph, i64 1
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, %109
   %146 = icmp samesign ult i64 %indvars.iv.next223, 318
-  br i1 %146, label %.outer, label %.split176.us.us, !llvm.loop !48
+  br i1 %146, label %.outer, label %.split176.us.us, !llvm.loop !47
 
 .outer:                                           ; preds = %.preheader.us, %.loopexit.split.us.us.us
   %indvars.iv222.ph = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next223, %.loopexit.split.us.us.us ]
@@ -306,7 +306,7 @@ align_get_bits.exit.us:                           ; preds = %.loopexit.split.us.
 .loopexit.split.us.us.us.thread:                  ; preds = %125
   %indvars.iv.next223243 = add nuw nsw i64 %indvars.iv222, %109
   %147 = icmp samesign ult i64 %indvars.iv.next223243, 318
-  br i1 %147, label %124, label %align_get_bits.exit.us, !llvm.loop !48
+  br i1 %147, label %124, label %align_get_bits.exit.us, !llvm.loop !47
 
 148:                                              ; preds = %148, %.split.us.us.us
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %148 ], [ 0, %.split.us.us.us ]
@@ -324,7 +324,7 @@ align_get_bits.exit.us:                           ; preds = %.loopexit.split.us.
   store i8 %154, ptr %155, align 1, !tbaa !42
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %exitcond221.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count220
-  br i1 %exitcond221.not, label %.loopexit.split.us.us.us, label %148, !llvm.loop !49
+  br i1 %exitcond221.not, label %.loopexit.split.us.us.us, label %148, !llvm.loop !48
 
 .split176.us.us:                                  ; preds = %.loopexit.split.us.us.us
   br i1 %.not145164235, label %122, label %align_get_bits.exit.us
@@ -394,7 +394,7 @@ align_get_bits.exit.us:                           ; preds = %.loopexit.split.us.
   store i8 %186, ptr %187, align 1, !tbaa !42
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.split.loopexit, label %182, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit.split.loopexit, label %182, !llvm.loop !49
 
 .loopexit.split.loopexit:                         ; preds = %182
   %188 = getelementptr inbounds nuw i8, ptr %.3125174, i64 1
@@ -404,7 +404,7 @@ align_get_bits.exit.us:                           ; preds = %.loopexit.split.us.
   %.4 = phi ptr [ %.3125174, %162 ], [ %188, %.loopexit.split.loopexit ]
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, %156
   %189 = icmp samesign ult i64 %indvars.iv.next201, 318
-  br i1 %189, label %162, label %.split176, !llvm.loop !51
+  br i1 %189, label %162, label %.split176, !llvm.loop !50
 
 .split176:                                        ; preds = %.loopexit.split
   %190 = sub nsw i32 0, %spec.select.i
@@ -415,7 +415,7 @@ align_get_bits.exit.us:                           ; preds = %.loopexit.split.us.
   %.sroa.7.6 = select i1 %.not.i, i32 %spec.select.i, i32 %193
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, %157
   %194 = icmp samesign ult i64 %indvars.iv.next204, 198
-  br i1 %194, label %.preheader, label %.split183.us, !llvm.loop !52
+  br i1 %194, label %.preheader, label %.split183.us, !llvm.loop !51
 
 .split183.us:                                     ; preds = %.split176, %122
   %195 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef nonnull %11) #4
@@ -503,13 +503,12 @@ attributes #4 = { nounwind }
 !40 = !{!14, !14, i64 0}
 !41 = !{!10, !10, i64 0}
 !42 = !{!8, !8, i64 0}
-!43 = distinct !{!43, !44, !45}
+!43 = distinct !{!43, !44}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!"llvm.loop.estimated_trip_count"}
-!46 = distinct !{!46, !44, !45, !47}
-!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!48 = distinct !{!48, !44, !45, !47}
-!49 = distinct !{!49, !44, !45, !47}
-!50 = distinct !{!50, !44, !45}
-!51 = distinct !{!51, !44, !45}
-!52 = distinct !{!52, !44, !45}
+!45 = distinct !{!45, !44, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !44, !46}
+!48 = distinct !{!48, !44, !46}
+!49 = distinct !{!49, !44}
+!50 = distinct !{!50, !44}
+!51 = distinct !{!51, !44}

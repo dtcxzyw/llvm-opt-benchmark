@@ -102,7 +102,7 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   %53 = icmp ne i64 %.1, 0
   %54 = and i1 %53, %52
   %55 = add i64 %.1, -1
-  br i1 %54, label %.preheader, label %56, !llvm.loop !21
+  br i1 %54, label %.preheader, label %56, !llvm.loop !20
 
 56:                                               ; preds = %.preheader
   %57 = getelementptr inbounds nuw i8, ptr %.058, i64 %.1
@@ -110,7 +110,7 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %58
 
 58:                                               ; preds = %56, %38, %37
-  %59 = load i8, ptr @prte_info_pretty, align 1, !tbaa !22, !range !24, !noundef !25
+  %59 = load i8, ptr @prte_info_pretty, align 1, !tbaa !21, !range !23, !noundef !24
   %60 = trunc nuw i8 %59 to i1
   %61 = icmp ne ptr %0, null
   %or.cond = and i1 %61, %60
@@ -192,7 +192,7 @@ define dso_local void @prte_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr null, ptr %4, align 8, !tbaa !4
   %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #10
   %102 = icmp ult i64 %101, %78
-  br i1 %102, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %102, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %92, %95, %83
   %.16183.lcssa.sink = phi ptr [ %.058, %83 ], [ %.2, %95 ], [ %.16183, %92 ]
@@ -317,12 +317,10 @@ attributes #11 = { nounwind willreturn memory(none) }
 !15 = !{!"p1 short", !6, i64 0}
 !16 = !{!7, !7, i64 0}
 !17 = !{!11, !11, i64 0}
-!18 = distinct !{!18, !19, !20}
+!18 = distinct !{!18, !19}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!"llvm.loop.estimated_trip_count"}
-!21 = distinct !{!21, !19, !20}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"_Bool", !7, i64 0}
-!24 = !{i8 0, i8 2}
-!25 = !{}
-!26 = distinct !{!26, !20}
+!20 = distinct !{!20, !19}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"_Bool", !7, i64 0}
+!23 = !{i8 0, i8 2}
+!24 = !{}

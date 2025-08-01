@@ -174,7 +174,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr noundef readon
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 65535
   %66 = icmp eq i32 %65, 65535
-  br i1 %66, label %67, label %.preheader.i, !llvm.loop !6
+  br i1 %66, label %67, label %.preheader.i
 
 67:                                               ; preds = %.lr.ph
   %68 = getelementptr inbounds nuw i8, ptr %.06992.i, i64 1
@@ -184,7 +184,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr noundef readon
 
 .preheader.i:                                     ; preds = %.lr.ph
   %69 = icmp eq i32 %65, %47
-  br i1 %69, label %.preheader.i._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %69, label %.preheader.i._crit_edge, label %.lr.ph
 
 .preheader.i._crit_edge:                          ; preds = %.preheader.i, %.preheader.i.preheader
   %.lcssa = phi ptr [ @ibmkanji, %.preheader.i.preheader ], [ %62, %.preheader.i ]
@@ -316,7 +316,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr noundef readon
   %.0114.be.i = phi ptr [ %.1115.i, %.loopexit.i ], [ %27, %26 ]
   %.0.be.i = phi ptr [ %162, %.loopexit.i ], [ %28, %26 ]
   %30 = icmp sgt i32 %.0118.be.i, 0
-  br i1 %30, label %.lr.ph.i, label %sjis2euc_jp.exit, !llvm.loop !7
+  br i1 %30, label %.lr.ph.i, label %sjis2euc_jp.exit, !llvm.loop !5
 
 31:                                               ; preds = %.lr.ph.i
   %32 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 35, ptr noundef nonnull %.0146.i, i32 noundef %.0118144.i) #4
@@ -380,7 +380,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr noundef readon
   %61 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %60
   %62 = load i16, ptr %61, align 8
   %63 = icmp eq i16 %62, -1
-  br i1 %63, label %.loopexit127.i, label %.preheader126.i, !llvm.loop !8
+  br i1 %63, label %.loopexit127.i, label %.preheader126.i
 
 .loopexit127.i:                                   ; preds = %58, %41
   %.0111.i = phi i32 [ %21, %41 ], [ %.2113.i, %58 ]
@@ -534,7 +534,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr noundef readon
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 2
   %159 = load i16, ptr %158, align 2
   %160 = icmp eq i16 %159, -1
-  br i1 %160, label %.loopexit.i, label %.preheader.i, !llvm.loop !9
+  br i1 %160, label %.loopexit.i, label %.preheader.i
 
 .loopexit.i:                                      ; preds = %154, %127, %109, %90, %85, %65, %38
   %.1115.i = phi ptr [ %40, %38 ], [ %80, %65 ], [ %87, %85 ], [ %106, %90 ], [ %126, %109 ], [ %.0114145.i, %127 ], [ %.3117.i, %154 ]
@@ -609,7 +609,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_mic(ptr noundef readonl
   %.039.be.i = phi ptr [ %.1.i, %53 ], [ %26, %25 ]
   %.0.be.i = phi ptr [ %55, %53 ], [ %27, %25 ]
   %29 = icmp sgt i32 %.040.be.i, 0
-  br i1 %29, label %.lr.ph.i, label %euc_jp2mic.exit, !llvm.loop !10
+  br i1 %29, label %.lr.ph.i, label %euc_jp2mic.exit, !llvm.loop !6
 
 30:                                               ; preds = %.lr.ph.i
   %31 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 1, ptr noundef nonnull %.053.i, i32 noundef %.04051.i) #4
@@ -733,7 +733,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_jp(ptr noundef readonl
   %.042.be.i = phi ptr [ %.1.i, %58 ], [ %26, %25 ]
   %.0.be.i = phi ptr [ %60, %58 ], [ %27, %25 ]
   %29 = icmp sgt i32 %.043.be.i, 0
-  br i1 %29, label %.lr.ph.i, label %mic2euc_jp.exit, !llvm.loop !11
+  br i1 %29, label %.lr.ph.i, label %mic2euc_jp.exit, !llvm.loop !7
 
 30:                                               ; preds = %.lr.ph.i
   %31 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 7, ptr noundef nonnull %.059.i, i32 noundef %.04357.i) #4
@@ -922,7 +922,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr noundef readonly 
   %57 = getelementptr inbounds [389 x %struct.anon], ptr @ibmkanji, i64 0, i64 %56
   %58 = load i16, ptr %57, align 8
   %59 = icmp eq i16 %58, -1
-  br i1 %59, label %.loopexit149.i, label %.preheader148.i, !llvm.loop !12
+  br i1 %59, label %.loopexit149.i, label %.preheader148.i
 
 .loopexit149.i:                                   ; preds = %54, %39
   %.0124.i = phi i32 [ %21, %39 ], [ %.2126.i, %54 ]
@@ -1068,7 +1068,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr noundef readonly 
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 2
   %148 = load i16, ptr %147, align 2
   %149 = icmp eq i16 %148, -1
-  br i1 %149, label %.loopexit.i, label %.preheader.i, !llvm.loop !13
+  br i1 %149, label %.loopexit.i, label %.preheader.i
 
 150:                                              ; preds = %26
   %151 = icmp eq i8 %20, 0
@@ -1093,7 +1093,7 @@ define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr noundef readonly 
   %156 = getelementptr inbounds nuw i8, ptr %.0127168.i, i64 %.sink183.i
   %157 = add nsw i32 %.sink182.i, %.0134166.i
   %158 = icmp sgt i32 %157, 0
-  br i1 %158, label %.lr.ph.i, label %sjis2mic.exit, !llvm.loop !14
+  br i1 %158, label %.lr.ph.i, label %sjis2mic.exit, !llvm.loop !8
 
 sjis2mic.exit:                                    ; preds = %.loopexit.i, %1, %37, %152
   %.0129156.i = phi ptr [ %.0129167.i, %152 ], [ %.0129167.i, %37 ], [ %8, %1 ], [ %.1130.i, %.loopexit.i ]
@@ -1161,7 +1161,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr noundef readonly 
   %.074.be.i = phi ptr [ %.1.i, %105 ], [ %26, %25 ]
   %.0.be.i = phi ptr [ %107, %105 ], [ %27, %25 ]
   %29 = icmp sgt i32 %.076.be.i, 0
-  br i1 %29, label %.lr.ph.i, label %mic2sjis.exit, !llvm.loop !15
+  br i1 %29, label %.lr.ph.i, label %mic2sjis.exit, !llvm.loop !9
 
 30:                                               ; preds = %.lr.ph.i
   %31 = tail call i32 @pg_encoding_verifymbchar(i32 noundef 7, ptr noundef nonnull %.0101.i, i32 noundef %.07699.i) #4
@@ -1273,7 +1273,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr noundef readonly 
   %90 = load i32, ptr %89, align 4
   %91 = and i32 %90, 65535
   %92 = icmp eq i32 %91, 65535
-  br i1 %92, label %93, label %.preheader.i, !llvm.loop !16
+  br i1 %92, label %93, label %.preheader.i
 
 93:                                               ; preds = %.lr.ph
   %94 = getelementptr inbounds nuw i8, ptr %.074100.i, i64 1
@@ -1283,7 +1283,7 @@ define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr noundef readonly 
 
 .preheader.i:                                     ; preds = %.lr.ph
   %95 = icmp eq i32 %91, %74
-  br i1 %95, label %.preheader.i._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %95, label %.preheader.i._crit_edge, label %.lr.ph
 
 .preheader.i._crit_edge:                          ; preds = %.preheader.i, %.preheader.i.preheader
   %.lcssa = phi ptr [ @ibmkanji, %.preheader.i.preheader ], [ %88, %.preheader.i ]
@@ -1346,17 +1346,10 @@ attributes #5 = { noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}

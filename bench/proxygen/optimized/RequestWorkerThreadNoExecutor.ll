@@ -333,9 +333,9 @@ for.body.preheader:                               ; preds = %cleanup.done
   %5 = inttoptr i64 %and.i.i.i.i to ptr
   br label %for.body
 
-for.body:                                         ; preds = %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit, %for.body.preheader
-  %__begin1.sroa.6.010 = phi i64 [ %__begin1.sroa.6.3, %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit ], [ %and.i2.i.i.i, %for.body.preheader ]
-  %__begin1.sroa.0.09 = phi ptr [ %__begin1.sroa.0.1, %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit ], [ %5, %for.body.preheader ]
+for.body:                                         ; preds = %for.body.backedge, %for.body.preheader
+  %__begin1.sroa.6.010 = phi i64 [ %and.i2.i.i.i, %for.body.preheader ], [ %__begin1.sroa.6.010.be, %for.body.backedge ]
+  %__begin1.sroa.0.09 = phi ptr [ %5, %for.body.preheader ], [ %__begin1.sroa.0.09.be, %for.body.backedge ]
   %second = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.09, i64 8
   %6 = load ptr, ptr %second, align 8
   %vtable = load ptr, ptr %6, align 8
@@ -363,7 +363,7 @@ while.body.i.i:                                   ; preds = %for.body, %while.co
   %arrayidx.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i, i64 0, i64 %dec.i.i
   %9 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %cmp.i.not14.i = icmp eq i8 %9, 0
-  br i1 %cmp.i.not14.i, label %while.cond.i.i, label %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit, !llvm.loop !4
+  br i1 %cmp.i.not14.i, label %while.cond.i.i, label %for.body.backedge, !llvm.loop !4
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i.preheader, %if.end15.i.i
   %c.i.0.i = phi ptr [ %incdec.ptr16.i.i, %if.end15.i.i ], [ %add.ptr1.i.i.i, %for.cond.i.i.preheader ]
@@ -382,7 +382,7 @@ if.end15.i.i:                                     ; preds = %for.cond.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -512
   tail call void @llvm.prefetch.p0(ptr nonnull %add.ptr.i.i, i32 0, i32 3, i32 1)
   %cmp.i11.not.i = icmp eq i16 %15, 0
-  br i1 %cmp.i11.not.i, label %for.cond.i.i, label %if.then23.i.i, !llvm.loop !7
+  br i1 %cmp.i11.not.i, label %for.cond.i.i, label %if.then23.i.i, !llvm.loop !6
 
 if.then23.i.i:                                    ; preds = %if.end15.i.i
   %and.i.i.i = zext nneg i16 %15 to i32
@@ -391,12 +391,12 @@ if.then23.i.i:                                    ; preds = %if.end15.i.i
   %conv.i.i = zext nneg i32 %sub.i.i to i64
   %rawItems_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -240
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %conv.i.i
-  br label %_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit
+  br label %for.body.backedge
 
-_ZN5folly3f146detail22ValueContainerIteratorIPSt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorkerEEEppEv.exit: ; preds = %while.body.i.i, %if.then23.i.i
-  %__begin1.sroa.0.1 = phi ptr [ %arrayidx.i.i.i.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
-  %__begin1.sroa.6.3 = phi i64 [ %conv.i.i, %if.then23.i.i ], [ %dec.i.i, %while.body.i.i ]
-  br label %for.body, !llvm.loop !8
+for.body.backedge:                                ; preds = %while.body.i.i, %if.then23.i.i
+  %__begin1.sroa.6.010.be = phi i64 [ %conv.i.i, %if.then23.i.i ], [ %dec.i.i, %while.body.i.i ]
+  %__begin1.sroa.0.09.be = phi ptr [ %arrayidx.i.i.i.i.i, %if.then23.i.i ], [ %incdec.ptr.i.i, %while.body.i.i ]
+  br label %for.body
 
 for.end:                                          ; preds = %for.cond.i.i, %cleanup.done
   ret void
@@ -690,8 +690,6 @@ attributes #25 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !6}
+!6 = distinct !{!6, !5}

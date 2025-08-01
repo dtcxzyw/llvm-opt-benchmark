@@ -170,7 +170,7 @@ _set_cond.exit:                                   ; preds = %69, %28
   %.040.lcssa.i = phi i32 [ %.057, %28 ], [ %0, %69 ]
   %70 = add nsw i32 %.040.lcssa.i, 1
   %71 = icmp slt i32 %70, %0
-  br i1 %71, label %12, label %._crit_edge, !llvm.loop !12
+  br i1 %71, label %12, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_set_cond.exit, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
@@ -484,14 +484,14 @@ _get_runaway_jobs.exit:                           ; preds = %89, %94, %97, %99, 
   %226 = add nuw nsw i32 %.061.i, 1
   %227 = call ptr @list_next(ptr noundef %157) #8
   %.not59.i = icmp eq ptr %227, null
-  br i1 %.not59.i, label %._crit_edge.i, label %170, !llvm.loop !13
+  br i1 %.not59.i, label %._crit_edge.i, label %170, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %225, %.preheader.i
   call void @list_iterator_reset(ptr noundef %157) #8
   %putchar.i = call i32 @putchar(i32 10)
   %228 = call ptr @list_next(ptr noundef %156) #8
   %.not.i53 = icmp eq ptr %228, null
-  br i1 %.not.i53, label %_print_runaway_jobs.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %.not.i53, label %_print_runaway_jobs.exit, label %.preheader.i, !llvm.loop !13
 
 _print_runaway_jobs.exit:                         ; preds = %._crit_edge.i, %153
   call void @list_iterator_destroy(ptr noundef %157) #8
@@ -509,7 +509,7 @@ _print_runaway_jobs.exit:                         ; preds = %._crit_edge.i, %153
   %233 = call i32 @slurmdb_jobs_fix_runaway(ptr noundef %232, ptr noundef %7) #8
   %234 = call i32 @list_flush(ptr noundef %7) #8
   %cond = icmp eq i32 %233, 0
-  br i1 %cond, label %229, label %242, !llvm.loop !15
+  br i1 %cond, label %229, label %242, !llvm.loop !14
 
 .critedge:                                        ; preds = %229
   %235 = call i32 @commit_check(ptr noundef nonnull @.str.1) #8
@@ -679,7 +679,7 @@ define internal range(i32 0, 2) i32 @_purge_known_jobs(ptr noundef readonly capt
   %31 = add nuw i32 %.02128, 1
   %32 = getelementptr inbounds nuw i8, ptr %.02227, i64 968
   %exitcond.not = icmp eq i32 %31, %4
-  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !16
+  br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !15
 
 .critedge:                                        ; preds = %30, %2
   %33 = tail call i32 @get_log_level() #8
@@ -756,12 +756,11 @@ attributes #11 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10, !11}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !9, !10, !11}
-!13 = distinct !{!13, !9, !10, !11}
-!14 = distinct !{!14, !9, !10, !11}
-!15 = distinct !{!15, !9, !10, !11}
-!16 = distinct !{!16, !9, !10, !11}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

@@ -1306,7 +1306,7 @@ define linkonce_odr void @_ZN9grpc_core20arena_promise_detail4NullIN4absl12lts_2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core20arena_promise_detail14SharedCallableIN4absl12lts_202407226StatusENS_17ImmediateOkStatusEE8PollOnceEPNS0_7ArgTypeE(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::Poll") align 8 %0, ptr noundef %1) #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 _ZN4absl12lts_202407226StatusD2Ev.exit:
-  store i8 1, ptr %0, align 8, !tbaa !85
+  store i8 1, ptr %0, align 8, !tbaa !84
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %2, align 8, !tbaa !21
   ret void
@@ -1447,9 +1447,8 @@ attributes #30 = { noreturn }
 !79 = !{!70, !70, i64 0}
 !80 = !{!57, !62, i64 16}
 !81 = !{!57, !23, i64 24}
-!82 = distinct !{!82, !83, !84}
+!82 = distinct !{!82, !83}
 !83 = !{!"llvm.loop.mustprogress"}
-!84 = !{!"llvm.loop.estimated_trip_count"}
-!85 = !{!86, !87, i64 0}
-!86 = !{!"_ZTSN9grpc_core4PollIN4absl12lts_202407226StatusEEE", !87, i64 0, !10, i64 8}
-!87 = !{!"bool", !10, i64 0}
+!84 = !{!85, !86, i64 0}
+!85 = !{!"_ZTSN9grpc_core4PollIN4absl12lts_202407226StatusEEE", !86, i64 0, !10, i64 8}
+!86 = !{!"bool", !10, i64 0}

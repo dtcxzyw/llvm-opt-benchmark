@@ -130,9 +130,9 @@ define internal void @lv_line_event(ptr readnone captures(none) %0, ptr noundef 
 .critedge:                                        ; preds = %50, %24
   %.085.lcssa = phi i32 [ 0, %24 ], [ %.186, %50 ]
   %.082.lcssa = phi i32 [ 0, %24 ], [ %.183, %50 ]
-  store i32 %.082.lcssa, ptr %25, align 4, !tbaa !25
+  store i32 %.082.lcssa, ptr %25, align 4, !tbaa !24
   %51 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  store i32 %.085.lcssa, ptr %51, align 4, !tbaa !27
+  store i32 %.085.lcssa, ptr %51, align 4, !tbaa !26
   br label %153
 
 52:                                               ; preds = %6
@@ -151,15 +151,15 @@ define internal void @lv_line_event(ptr readnone captures(none) %0, ptr noundef 
 61:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
   call void @lv_obj_get_coords(ptr noundef nonnull %8, ptr noundef nonnull %3) #5
-  %62 = load i32, ptr %3, align 4, !tbaa !28
+  %62 = load i32, ptr %3, align 4, !tbaa !27
   %63 = call i32 @lv_obj_get_scroll_x(ptr noundef nonnull %8) #5
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %65 = load i32, ptr %64, align 4, !tbaa !29
+  %65 = load i32, ptr %64, align 4, !tbaa !28
   %66 = call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %8) #5
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #5
   call void @lv_draw_line_dsc_init(ptr noundef nonnull %4) #5
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %53, ptr %67, align 8, !tbaa !30
+  store ptr %53, ptr %67, align 8, !tbaa !29
   call void @lv_obj_init_draw_line_dsc(ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %4) #5
   %68 = load i32, ptr %54, align 8, !tbaa !3
   %.not121 = icmp eq i32 %68, 1
@@ -209,7 +209,7 @@ define internal void @lv_line_event(ptr readnone captures(none) %0, ptr noundef 
 resolve_point_coord.exit:                         ; preds = %79, %88, %.thread25.i
   %.0.i = phi float [ %96, %.thread25.i ], [ %84, %88 ], [ %84, %79 ]
   %97 = fadd float %.0.i, %71
-  store float %97, ptr %72, align 8, !tbaa !36
+  store float %97, ptr %72, align 8, !tbaa !35
   %98 = getelementptr inbounds nuw %struct.lv_point_precise_t, ptr %82, i64 %indvars.iv, i32 1
   %99 = load float, ptr %98, align 4, !tbaa !21
   %100 = fptosi float %99 to i32
@@ -235,7 +235,7 @@ resolve_point_coord.exit:                         ; preds = %79, %88, %.thread25
 
 resolve_point_coord.exit104:                      ; preds = %resolve_point_coord.exit, %103, %.thread25.i102
   %.0.i100 = phi float [ %111, %.thread25.i102 ], [ %99, %103 ], [ %99, %resolve_point_coord.exit ]
-  store float %.0.i100, ptr %73, align 4, !tbaa !37
+  store float %.0.i100, ptr %73, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = getelementptr inbounds nuw %struct.lv_point_precise_t, ptr %82, i64 %indvars.iv.next
   %113 = load float, ptr %112, align 4, !tbaa !18
@@ -263,7 +263,7 @@ resolve_point_coord.exit104:                      ; preds = %resolve_point_coord
 resolve_point_coord.exit109:                      ; preds = %resolve_point_coord.exit104, %117, %.thread25.i107
   %.0.i105 = phi float [ %125, %.thread25.i107 ], [ %113, %117 ], [ %113, %resolve_point_coord.exit104 ]
   %126 = fadd float %.0.i105, %71
-  store float %126, ptr %74, align 8, !tbaa !38
+  store float %126, ptr %74, align 8, !tbaa !37
   %127 = getelementptr inbounds nuw %struct.lv_point_precise_t, ptr %82, i64 %indvars.iv.next, i32 1
   %128 = load float, ptr %127, align 4, !tbaa !21
   %129 = fptosi float %128 to i32
@@ -299,8 +299,8 @@ resolve_point_coord.exit114:                      ; preds = %resolve_point_coord
   %.pn = select i1 %143, float %.0.i110, float %146
   %storemerge = fadd float %.pn, %77
   %.sink = fadd float %.0.i100.pn, %77
-  store float %.sink, ptr %73, align 4, !tbaa !37
-  store float %storemerge, ptr %75, align 4, !tbaa !39
+  store float %.sink, ptr %73, align 4, !tbaa !36
+  store float %storemerge, ptr %75, align 4, !tbaa !38
   call void @lv_draw_line(ptr noundef %53, ptr noundef nonnull %4) #5
   %147 = load i8, ptr %78, align 1
   %148 = and i8 %147, -9
@@ -309,7 +309,7 @@ resolve_point_coord.exit114:                      ; preds = %resolve_point_coord
   %150 = add i32 %149, -1
   %151 = zext i32 %150 to i64
   %152 = icmp samesign ult i64 %indvars.iv.next, %151
-  br i1 %152, label %79, label %.critedge99, !llvm.loop !40
+  br i1 %152, label %79, label %.critedge99, !llvm.loop !39
 
 .critedge99:                                      ; preds = %resolve_point_coord.exit114, %61
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #5
@@ -343,7 +343,7 @@ define void @lv_line_set_points(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   br i1 %.not.i, label %.preheader.i, label %line_set_points.exit
 
 .preheader.i:                                     ; preds = %3, %.preheader.i
-  br label %.preheader.i, !llvm.loop !41
+  br label %.preheader.i
 
 line_set_points.exit:                             ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -365,7 +365,7 @@ define void @lv_line_set_points_mutable(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not.i, label %.preheader.i, label %line_set_points.exit
 
 .preheader.i:                                     ; preds = %3, %.preheader.i
-  br label %.preheader.i, !llvm.loop !41
+  br label %.preheader.i
 
 line_set_points.exit:                             ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -387,7 +387,7 @@ define void @lv_line_set_y_invert(ptr noundef %0, i1 noundef zeroext %1) local_u
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader, !llvm.loop !42
+  br label %.preheader
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -416,7 +416,7 @@ define ptr @lv_line_get_points(ptr noundef readonly captures(address_is_null) %0
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !43
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -430,7 +430,7 @@ define i32 @lv_line_get_point_count(ptr noundef readonly captures(address_is_nul
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !44
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -444,7 +444,7 @@ define zeroext i1 @lv_line_is_point_array_mutable(ptr noundef readonly captures(
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !45
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -460,7 +460,7 @@ define ptr @lv_line_get_points_mutable(ptr noundef readonly captures(address_is_
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !46
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -485,7 +485,7 @@ define zeroext i1 @lv_line_get_y_invert(ptr noundef readonly captures(address_is
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader, !llvm.loop !47
+  br label %.preheader
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -564,29 +564,21 @@ attributes #5 = { nounwind }
 !19 = !{!"", !20, i64 0, !20, i64 4}
 !20 = !{!"float", !8, i64 0}
 !21 = !{!19, !20, i64 4}
-!22 = distinct !{!22, !23, !24}
+!22 = distinct !{!22, !23}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!"llvm.loop.estimated_trip_count"}
-!25 = !{!26, !14, i64 0}
-!26 = !{!"", !14, i64 0, !14, i64 4}
-!27 = !{!26, !14, i64 4}
-!28 = !{!13, !14, i64 0}
-!29 = !{!13, !14, i64 4}
-!30 = !{!31, !33, i64 24}
-!31 = !{!"", !32, i64 0, !19, i64 48, !19, i64 56, !35, i64 64, !14, i64 68, !14, i64 72, !14, i64 76, !8, i64 80, !14, i64 81, !8, i64 81, !8, i64 81, !8, i64 81}
-!32 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !33, i64 24, !34, i64 32, !7, i64 40}
-!33 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
-!34 = !{!"long", !8, i64 0}
-!35 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
-!36 = !{!31, !20, i64 48}
-!37 = !{!31, !20, i64 52}
-!38 = !{!31, !20, i64 56}
-!39 = !{!31, !20, i64 60}
-!40 = distinct !{!40, !23, !24}
-!41 = distinct !{!41, !24}
-!42 = distinct !{!42, !24}
-!43 = distinct !{!43, !24}
-!44 = distinct !{!44, !24}
-!45 = distinct !{!45, !24}
-!46 = distinct !{!46, !24}
-!47 = distinct !{!47, !24}
+!24 = !{!25, !14, i64 0}
+!25 = !{!"", !14, i64 0, !14, i64 4}
+!26 = !{!25, !14, i64 4}
+!27 = !{!13, !14, i64 0}
+!28 = !{!13, !14, i64 4}
+!29 = !{!30, !32, i64 24}
+!30 = !{!"", !31, i64 0, !19, i64 48, !19, i64 56, !34, i64 64, !14, i64 68, !14, i64 72, !14, i64 76, !8, i64 80, !14, i64 81, !8, i64 81, !8, i64 81, !8, i64 81}
+!31 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !32, i64 24, !33, i64 32, !7, i64 40}
+!32 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
+!33 = !{!"long", !8, i64 0}
+!34 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
+!35 = !{!30, !20, i64 48}
+!36 = !{!30, !20, i64 52}
+!37 = !{!30, !20, i64 56}
+!38 = !{!30, !20, i64 60}
+!39 = distinct !{!39, !23}

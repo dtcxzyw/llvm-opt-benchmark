@@ -775,7 +775,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !34
+  store ptr %0, ptr %this, align 8, !tbaa !33
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -834,7 +834,7 @@ define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 der
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !9
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %pn.i, align 8, !tbaa !35
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !34
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i
 
@@ -889,20 +889,20 @@ define linkonce_odr void @_ZN8QuantLib17LmVolatilityModelD2Ev(ptr noundef nonnul
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib17LmVolatilityModelE, i64 16), ptr %this, align 8, !tbaa !9
   %arguments_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %arguments_, align 8, !tbaa !37
+  %0 = load ptr, ptr %arguments_, align 8, !tbaa !36
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !39
+  %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !38
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8QuantLib9ParameterEEEvT_S5_(ptr noundef %0, ptr noundef %1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %2 = load ptr, ptr %arguments_, align 8, !tbaa !37
+  %2 = load ptr, ptr %arguments_, align 8, !tbaa !36
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8QuantLib9ParameterESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !40
+  %3 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !39
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1120,7 +1120,7 @@ while.body.i.i:                                   ; preds = %do.end, %while.body
   %__first.sroa.0.1.i.i = select i1 %cmp.i.i.i24, ptr %__first.sroa.0.07.i.i, ptr %incdec.ptr.i.i.i
   %__len.1.i.i = select i1 %cmp.i.i.i24, i64 %shr.i.i, i64 %sub9.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
-  br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit, !llvm.loop !41
+  br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit, !llvm.loop !40
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit: ; preds = %while.body.i.i
   %.pre = ptrtoint ptr %__first.sroa.0.1.i.i to i64
@@ -1132,7 +1132,7 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %sub = add nsw i64 %sub.ptr.div.i, -1
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %28 = load i64, ptr %size_, align 8, !tbaa !42
+  %28 = load i64, ptr %size_, align 8, !tbaa !41
   %cmp.not.i = icmp eq i64 %28, 0
   br i1 %cmp.not.i, label %cond.end.thread.i, label %for.body.i.i.i.preheader.i
 
@@ -1170,7 +1170,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store double %34, ptr %arrayidx.i26, align 8, !tbaa !29
   %inc = add nuw i64 %i.047, 1
   %exitcond.not = icmp eq i64 %inc, %28
-  br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !47
+  br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !46
 
 nrvo.skipdtor:                                    ; preds = %for.body, %_ZN8QuantLib5ArrayC2Emd.exit
   ret void
@@ -1379,7 +1379,7 @@ while.body.i.i:                                   ; preds = %do.end, %while.body
   %__first.sroa.0.1.i.i = select i1 %cmp.i.i.i20, ptr %__first.sroa.0.07.i.i, ptr %incdec.ptr.i.i.i
   %__len.1.i.i = select i1 %cmp.i.i.i20, i64 %shr.i.i, i64 %sub9.i.i
   %cmp.i.i = icmp sgt i64 %__len.1.i.i, 0
-  br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit, !llvm.loop !41
+  br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit, !llvm.loop !40
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit: ; preds = %while.body.i.i
   %.pre = ptrtoint ptr %__first.sroa.0.1.i.i to i64
@@ -1439,20 +1439,20 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %_ZNSt6vectorIdSaIdE
   store ptr null, ptr %volatilities_, align 8, !tbaa !11
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib17LmVolatilityModelE, i64 16), ptr %this, align 8, !tbaa !9
   %arguments_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %3 = load ptr, ptr %arguments_.i, align 8, !tbaa !37
+  %3 = load ptr, ptr %arguments_.i, align 8, !tbaa !36
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %4 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !38
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8QuantLib9ParameterEEEvT_S5_(ptr noundef %3, ptr noundef %4)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZN8QuantLib5ArrayD2Ev.exit
-  %5 = load ptr, ptr %arguments_.i, align 8, !tbaa !37
+  %5 = load ptr, ptr %arguments_.i, align 8, !tbaa !36
   %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8QuantLib17LmVolatilityModelD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %6 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !40
+  %6 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !39
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -1502,20 +1502,20 @@ _ZN8QuantLib5ArrayD2Ev.exit.i:                    ; preds = %_ZNKSt14default_del
   store ptr null, ptr %volatilities_.i, align 8, !tbaa !11
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib17LmVolatilityModelE, i64 16), ptr %this, align 8, !tbaa !9
   %arguments_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %3 = load ptr, ptr %arguments_.i.i, align 8, !tbaa !37
+  %3 = load ptr, ptr %arguments_.i.i, align 8, !tbaa !36
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %4 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !39
+  %4 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !38
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN8QuantLib9ParameterEEEvT_S5_(ptr noundef %3, ptr noundef %4)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %_ZN8QuantLib5ArrayD2Ev.exit.i
-  %5 = load ptr, ptr %arguments_.i.i, align 8, !tbaa !37
+  %5 = load ptr, ptr %arguments_.i.i, align 8, !tbaa !36
   %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN8QuantLib22LmFixedVolatilityModelD2Ev.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %invoke.cont.i.i.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %6 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !40
+  %6 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !39
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
@@ -1557,7 +1557,7 @@ entry:
 for.body:                                         ; preds = %entry, %_ZSt8_DestroyIN8QuantLib9ParameterEEvPT_.exit
   %__first.addr.04 = phi ptr [ %incdec.ptr, %_ZSt8_DestroyIN8QuantLib9ParameterEEvPT_.exit ], [ %__first, %entry ]
   %pn.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04, i64 40
-  %0 = load ptr, ptr %pn.i.i.i.i, align 8, !tbaa !35
+  %0 = load ptr, ptr %pn.i.i.i.i, align 8, !tbaa !34
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN8QuantLib10ConstraintD2Ev.exit.i.i, label %if.then.i.i.i.i.i
 
@@ -1607,7 +1607,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 _ZN8QuantLib5ArrayD2Ev.exit.i.i:                  ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i.i, %_ZN8QuantLib10ConstraintD2Ev.exit.i.i
   store ptr null, ptr %params_.i.i, align 8, !tbaa !11
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04, i64 8
-  %8 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !35
+  %8 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !34
   %cmp.not.i.i1.i.i = icmp eq ptr %8, null
   br i1 %cmp.not.i.i1.i.i, label %_ZSt8_DestroyIN8QuantLib9ParameterEEvPT_.exit, label %if.then.i.i.i.i
 
@@ -1647,7 +1647,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i4.i.
 _ZSt8_DestroyIN8QuantLib9ParameterEEvPT_.exit:    ; preds = %_ZN8QuantLib5ArrayD2Ev.exit.i.i, %if.then.i.i.i.i, %.noexc.i.i.i.i, %if.then.i.i.i.i4.i.i
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__first.addr.04, i64 48
   %cmp.not = icmp eq ptr %incdec.ptr, %__last
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !48
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !47
 
 for.end:                                          ; preds = %_ZSt8_DestroyIN8QuantLib9ParameterEEvPT_.exit, %entry
   ret void
@@ -1739,21 +1739,20 @@ attributes #21 = { builtin nounwind }
 !28 = !{!"_ZTSSt10_Head_baseILm0EPdLb0EE", !5, i64 0}
 !29 = !{!30, !30, i64 0}
 !30 = !{!"double", !6, i64 0}
-!31 = distinct !{!31, !32, !33}
+!31 = distinct !{!31, !32}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!"llvm.loop.estimated_trip_count"}
-!34 = !{!18, !5, i64 0}
-!35 = !{!36, !5, i64 0}
-!36 = !{!"_ZTSN5boost6detail12shared_countE", !5, i64 0}
-!37 = !{!38, !5, i64 0}
-!38 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib9ParameterESaIS1_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!39 = !{!38, !5, i64 8}
-!40 = !{!38, !5, i64 16}
-!41 = distinct !{!41, !32, !33}
-!42 = !{!43, !13, i64 8}
-!43 = !{!"_ZTSN8QuantLib17LmVolatilityModelE", !13, i64 8, !44, i64 16}
-!44 = !{!"_ZTSSt6vectorIN8QuantLib9ParameterESaIS1_EE", !45, i64 0}
-!45 = !{!"_ZTSSt12_Vector_baseIN8QuantLib9ParameterESaIS1_EE", !46, i64 0}
-!46 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib9ParameterESaIS1_EE12_Vector_implE", !38, i64 0}
-!47 = distinct !{!47, !32, !33}
-!48 = distinct !{!48, !32, !33}
+!33 = !{!18, !5, i64 0}
+!34 = !{!35, !5, i64 0}
+!35 = !{!"_ZTSN5boost6detail12shared_countE", !5, i64 0}
+!36 = !{!37, !5, i64 0}
+!37 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib9ParameterESaIS1_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!38 = !{!37, !5, i64 8}
+!39 = !{!37, !5, i64 16}
+!40 = distinct !{!40, !32}
+!41 = !{!42, !13, i64 8}
+!42 = !{!"_ZTSN8QuantLib17LmVolatilityModelE", !13, i64 8, !43, i64 16}
+!43 = !{!"_ZTSSt6vectorIN8QuantLib9ParameterESaIS1_EE", !44, i64 0}
+!44 = !{!"_ZTSSt12_Vector_baseIN8QuantLib9ParameterESaIS1_EE", !45, i64 0}
+!45 = !{!"_ZTSNSt12_Vector_baseIN8QuantLib9ParameterESaIS1_EE12_Vector_implE", !37, i64 0}
+!46 = distinct !{!46, !32}
+!47 = distinct !{!47, !32}

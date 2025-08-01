@@ -342,7 +342,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %94 = add nuw nsw i32 %.0233.i, 1
   %indvars.iv.next250.i = add nuw nsw i32 %indvars.iv249.i, 1
   %exitcond252.not.i = icmp eq i32 %indvars.iv.next250.i, 6
-  br i1 %exitcond252.not.i, label %95, label %78, !llvm.loop !9
+  br i1 %exitcond252.not.i, label %95, label %78, !llvm.loop !8
 
 95:                                               ; preds = %93
   %96 = load i32, ptr @ett_schedule_new_msg, align 4
@@ -470,7 +470,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.2.i = phi i32 [ %117, %106 ], [ %127, %125 ], [ %134, %135 ], [ %134, %145 ], [ %150, %149 ], [ %157, %156 ], [ %.1235.i, %163 ]
   %indvars.iv.next254.i = add nuw nsw i64 %indvars.iv253.i, 1
   %exitcond257.not.i = icmp eq i64 %indvars.iv.next254.i, %wide.trip.count.i
-  br i1 %exitcond257.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond257.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %169, %95
   %.1.lcssa.i = phi i32 [ 8, %95 ], [ %.2.i, %169 ]
@@ -506,7 +506,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
 180:                                              ; preds = %.lr.ph237.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %181 = icmp samesign ult i64 %indvars.iv.next, %175
-  br i1 %181, label %.lr.ph237.i, label %.critedge.i, !llvm.loop !11
+  br i1 %181, label %.lr.ph237.i, label %.critedge.i, !llvm.loop !10
 
 182:                                              ; preds = %.lr.ph237.i
   %183 = getelementptr [48 x i16], ptr %6, i64 0, i64 %indvars.iv
@@ -600,7 +600,7 @@ define internal i32 @dissect_cbch(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.5.i = phi i8 [ %197, %190 ], [ %203, %202 ], [ %213, %208 ], [ %220, %219 ], [ %226, %228 ], [ %226, %232 ], [ %226, %236 ]
   %.4.i = phi i32 [ %201, %190 ], [ %.3241.i, %202 ], [ %215, %208 ], [ %222, %219 ], [ %229, %228 ], [ %233, %232 ], [ %.3241.i, %236 ]
   %240 = icmp ult i32 %.4.i, %55
-  br i1 %240, label %.preheader.i, label %.critedge.i, !llvm.loop !12
+  br i1 %240, label %.preheader.i, label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %239, %.preheader.i, %180, %._crit_edge.i
   %.3227.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %.3241.i, %180 ], [ %.4.i, %239 ], [ %.3241.i, %.preheader.i ]
@@ -731,10 +731,9 @@ attributes #7 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
-!11 = distinct !{!11, !7, !8}
-!12 = distinct !{!12, !7, !8}
+!8 = distinct !{!8, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}

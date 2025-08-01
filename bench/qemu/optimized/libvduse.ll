@@ -591,7 +591,7 @@ vduse_queue_read_next_desc.exit:                  ; preds = %81, %.thread69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 16 dereferenceable(16) %115, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %98
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph
 
 .lr.ph81:                                         ; preds = %.preheader, %.lr.ph81
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %.lr.ph81 ], [ 0, %.preheader ]
@@ -604,7 +604,7 @@ vduse_queue_read_next_desc.exit:                  ; preds = %81, %.thread69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 16 dereferenceable(16) %121, i64 16, i1 false)
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %93
-  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph81, !llvm.loop !15
+  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph81
 
 .loopexit:                                        ; preds = %60, %46, %.lr.ph81, %.preheader, %103, %85, %72, %57, %.thread, %22
   %.037 = phi ptr [ null, %22 ], [ null, %72 ], [ null, %85 ], [ null, %103 ], [ null, %57 ], [ null, %.thread ], [ %102, %.preheader ], [ %102, %.lr.ph81 ], [ null, %46 ], [ null, %60 ]
@@ -655,7 +655,7 @@ vduse_queue_fill.exit:                            ; preds = %3, %6
   br i1 %.not.i7, label %vduse_queue_flush.exit, label %21, !prof !4
 
 21:                                               ; preds = %vduse_queue_fill.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !16
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !13
   fence release
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %23 = load i16, ptr %22, align 4
@@ -686,7 +686,7 @@ vduse_queue_flush.exit:                           ; preds = %vduse_queue_fill.ex
   %39 = sext i32 %36 to i64
   %40 = getelementptr inbounds [0 x %struct.VduseDescStateSplit], ptr %38, i64 0, i64 %39
   store i8 0, ptr %40, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !14
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %42 = load i16, ptr %41, align 4
   %43 = load ptr, ptr %17, align 8
@@ -790,7 +790,7 @@ define dso_local i32 @vduse_dev_handler(ptr noundef %0) local_unnamed_addr #2 {
   %49 = load i16, ptr %44, align 8
   %50 = zext i16 %49 to i64
   %51 = icmp samesign ult i64 %indvars.iv.next.i, %50
-  br i1 %51, label %.lr.ph.i, label %vduse_dev_start_dataplane.exit, !llvm.loop !18
+  br i1 %51, label %.lr.ph.i, label %vduse_dev_start_dataplane.exit
 
 52:                                               ; preds = %28
   %53 = icmp eq i8 %30, 0
@@ -861,7 +861,7 @@ vduse_queue_disable.exit.i:                       ; preds = %86, %60
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1
   %89 = zext i16 %88 to i64
   %90 = icmp samesign ult i64 %indvars.iv.next.i29, %89
-  br i1 %90, label %60, label %._crit_edge.i, !llvm.loop !19
+  br i1 %90, label %60, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %vduse_queue_disable.exit.i, %54
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8264
@@ -905,7 +905,7 @@ vduse_queue_disable.exit.i:                       ; preds = %86, %60
 112:                                              ; preds = %102, %98
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
-  br i1 %exitcond.not.i.i, label %vduse_dev_start_dataplane.exit, label %98, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %vduse_dev_start_dataplane.exit, label %98
 
 113:                                              ; preds = %16
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -956,7 +956,7 @@ vduse_queue_disable.exit.i:                       ; preds = %86, %60
 140:                                              ; preds = %132, %127, %125, %121
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i34, 256
-  br i1 %exitcond.not.i, label %vduse_iova_remove_region.exit, label %121, !llvm.loop !20
+  br i1 %exitcond.not.i, label %vduse_iova_remove_region.exit, label %121
 
 vduse_iova_remove_region.exit:                    ; preds = %140, %113
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 8224
@@ -996,7 +996,7 @@ vduse_iova_remove_region.exit:                    ; preds = %140, %113
   %162 = load i16, ptr %141, align 8
   %163 = zext i16 %162 to i64
   %164 = icmp samesign ult i64 %indvars.iv.next, %163
-  br i1 %164, label %.lr.ph, label %vduse_dev_start_dataplane.exit, !llvm.loop !21
+  br i1 %164, label %.lr.ph, label %vduse_dev_start_dataplane.exit
 
 vduse_dev_start_dataplane.exit:                   ; preds = %161, %.lr.ph.i, %112, %16, %vduse_iova_remove_region.exit, %52, %36, %.preheader.i, %20
   %.sink = phi i32 [ 0, %20 ], [ 0, %.preheader.i ], [ 0, %36 ], [ 0, %52 ], [ 0, %vduse_iova_remove_region.exit ], [ 1, %16 ], [ 0, %112 ], [ 0, %.lr.ph.i ], [ 0, %161 ]
@@ -1309,7 +1309,7 @@ define internal fastcc void @vduse_queue_enable(ptr noundef %0) unnamed_addr #2 
   %79 = zext nneg i16 %75 to i64
   %80 = getelementptr inbounds nuw [0 x %struct.VduseDescStateSplit], ptr %78, i64 0, i64 %79
   store i8 0, ptr %80, align 8
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !22
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !15
   %81 = load i16, ptr %65, align 4
   %82 = load ptr, ptr %69, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 14
@@ -1350,7 +1350,7 @@ define internal fastcc void @vduse_queue_enable(ptr noundef %0) unnamed_addr #2 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %101 = zext i16 %100 to i64
   %102 = icmp samesign ult i64 %indvars.iv.next.i, %101
-  br i1 %102, label %91, label %._crit_edge.i, !llvm.loop !23
+  br i1 %102, label %91, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %99, %84
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1394,8 +1394,8 @@ define internal fastcc void @vduse_queue_enable(ptr noundef %0) unnamed_addr #2 
   store i16 %118, ptr %122, align 8
   %123 = load ptr, ptr %69, align 8
   %.idx.i = shl nuw nsw i64 %indvars.iv59.i, 4
-  %124 = getelementptr i8, ptr %123, i64 24
-  %125 = getelementptr i8, ptr %124, i64 %.idx.i
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 %.idx.i
   %126 = load i64, ptr %125, align 8
   %127 = load ptr, ptr %67, align 8
   %128 = load i16, ptr %66, align 8
@@ -1415,7 +1415,7 @@ define internal fastcc void @vduse_queue_enable(ptr noundef %0) unnamed_addr #2 
   %136 = load i16, ptr %135, align 2
   %137 = zext i16 %136 to i64
   %138 = icmp samesign ult i64 %indvars.iv.next60.i, %137
-  br i1 %138, label %.lr.ph54.i, label %._crit_edge55.loopexit.i, !llvm.loop !24
+  br i1 %138, label %.lr.ph54.i, label %._crit_edge55.loopexit.i
 
 ._crit_edge55.loopexit.i:                         ; preds = %133
   %.pre65.pre.i = load ptr, ptr %67, align 8
@@ -1526,7 +1526,7 @@ vduse_log_get.exit:                               ; preds = %9
   %29 = load i16, ptr %3, align 8
   %30 = zext i16 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %31, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %19
   %.015 = phi i32 [ -22, %19 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
@@ -1601,7 +1601,7 @@ define dso_local noundef ptr @vduse_dev_create_by_fd(i32 noundef %0, i16 noundef
   store i32 -1, ptr %34, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %28
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
 vduse_dev_init_vqs.exit:                          ; preds = %27
   %35 = load ptr, ptr @stderr, align 8
@@ -1763,7 +1763,7 @@ define internal fastcc i32 @vduse_dev_init(ptr noundef nonnull %0, ptr noundef n
   store i32 -1, ptr %44, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %38
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
 vduse_dev_init_vqs.exit:                          ; preds = %37
   tail call void @free(ptr noundef nonnull %34) #20
@@ -2001,7 +2001,7 @@ define dso_local i32 @vduse_dev_destroy(ptr noundef captures(none) %0) local_unn
   %15 = load i16, ptr %2, align 8
   %16 = zext i16 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !27
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %18 = load ptr, ptr %0, align 8
@@ -2109,7 +2109,7 @@ define internal fastcc ptr @iova_to_va(ptr noundef captures(none) %0, ptr nounde
 33:                                               ; preds = %6, %12, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %34, label %6, !llvm.loop !28
+  br i1 %exitcond.not, label %34, label %6
 
 34:                                               ; preds = %33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !11
@@ -2145,7 +2145,7 @@ perm_to_prot.exit:                                ; preds = %34
 53:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %.critedge.i, label %.preheader.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %.critedge.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %perm_to_prot.exit, %53
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %perm_to_prot.exit ]
@@ -2210,7 +2210,7 @@ define internal fastcc range(i32 -1, 1) i32 @vduse_queue_read_indirect_desc(ptr 
   %11 = add i64 %9, %.01220
   %12 = getelementptr inbounds nuw %struct.vring_desc, ptr %.01319, i64 %9
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %4
   %.014 = phi i32 [ -1, %4 ], [ -1, %.lr.ph ], [ 0, %8 ]
@@ -2274,7 +2274,7 @@ define internal fastcc noundef zeroext i1 @vduse_queue_map_single_desc(ptr captu
   %30 = add i64 %26, %.0273
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   %.not33 = icmp eq i64 %29, 0
-  br i1 %.not33, label %31, label %.preheader, !llvm.loop !31
+  br i1 %.not33, label %31, label %.preheader
 
 31:                                               ; preds = %25
   store i32 %27, ptr %0, align 4
@@ -2374,22 +2374,6 @@ attributes #27 = { nounwind willreturn memory(read) }
 !10 = !{i64 2148261038}
 !11 = !{!"auto-init"}
 !12 = !{i64 2148262398}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.estimated_trip_count"}
-!15 = distinct !{!15, !14}
-!16 = !{i64 2148264855}
-!17 = !{i64 2148261084}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
-!20 = distinct !{!20, !14}
-!21 = distinct !{!21, !14}
-!22 = !{i64 2148260992}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = distinct !{!25, !14}
-!26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14}
-!28 = distinct !{!28, !14}
-!29 = distinct !{!29, !14}
-!30 = distinct !{!30, !14}
-!31 = distinct !{!31, !14}
+!13 = !{i64 2148264855}
+!14 = !{i64 2148261084}
+!15 = !{i64 2148260992}

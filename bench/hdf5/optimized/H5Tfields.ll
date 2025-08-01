@@ -584,7 +584,7 @@ define i32 @H5Tget_member_index(i64 noundef %0, ptr noundef readonly captures(no
 66:                                               ; preds = %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread42, label %62, !llvm.loop !38
+  br i1 %exitcond.not, label %.thread42, label %62, !llvm.loop !37
 
 67:                                               ; preds = %44
   %68 = load i64, ptr @H5E_ARGS_g, align 8, !tbaa !11
@@ -676,45 +676,45 @@ define noundef i32 @H5T__sort_value(ptr noundef readonly captures(none) %0, ptr 
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load ptr, ptr %26, align 8, !tbaa !28
   %28 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %27, i64 %indvars.iv130, i32 1
-  %29 = load i64, ptr %28, align 8, !tbaa !39
+  %29 = load i64, ptr %28, align 8, !tbaa !38
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %30 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %27, i64 %indvars.iv.next131, i32 1
-  %31 = load i64, ptr %30, align 8, !tbaa !39
+  %31 = load i64, ptr %30, align 8, !tbaa !38
   %32 = icmp ugt i64 %29, %31
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %34 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %27, i64 %indvars.iv130
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false), !tbaa.struct !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false), !tbaa.struct !39
   %35 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %27, i64 %indvars.iv.next131
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !39
   %36 = load ptr, ptr %12, align 8, !tbaa !14
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = load ptr, ptr %37, align 8, !tbaa !28
   %39 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %38, i64 %indvars.iv.next131
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %40
 
 40:                                               ; preds = %33, %24
   %.2.us.us = phi i1 [ true, %33 ], [ %.1105.us.us, %24 ]
   %exitcond132.not = icmp eq i64 %indvars.iv.next131, %indvars.iv133
-  br i1 %exitcond132.not, label %.loopexit.split.us.us, label %24, !llvm.loop !42
+  br i1 %exitcond132.not, label %.loopexit.split.us.us, label %24, !llvm.loop !41
 
 .loopexit.split.us.us:                            ; preds = %40
   %indvars.iv.next134 = add nsw i64 %indvars.iv133, -1
   %41 = and i64 %indvars.iv.next134, 4294967295
   %42 = icmp ne i64 %41, 0
   %43 = select i1 %42, i1 %.2.us.us, i1 false
-  br i1 %43, label %.preheader.us, label %.loopexit96, !llvm.loop !44
+  br i1 %43, label %.preheader.us, label %.loopexit96, !llvm.loop !43
 
 .loopexit.split:                                  ; preds = %67
   %indvars.iv.next127 = add nsw i64 %indvars.iv126, -1
   %44 = and i64 %indvars.iv.next127, 4294967295
   %45 = icmp ne i64 %44, 0
   %46 = select i1 %45, i1 %.2, i1 false
-  br i1 %46, label %.preheader, label %.loopexit96, !llvm.loop !45
+  br i1 %46, label %.preheader, label %.loopexit96, !llvm.loop !44
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit.split
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.loopexit.split ], [ %23, %.preheader.lr.ph ]
@@ -727,37 +727,37 @@ define noundef i32 @H5T__sort_value(ptr noundef readonly captures(none) %0, ptr 
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %50 = load ptr, ptr %49, align 8, !tbaa !28
   %51 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %50, i64 %indvars.iv123, i32 1
-  %52 = load i64, ptr %51, align 8, !tbaa !39
+  %52 = load i64, ptr %51, align 8, !tbaa !38
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %53 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %50, i64 %indvars.iv.next124, i32 1
-  %54 = load i64, ptr %53, align 8, !tbaa !39
+  %54 = load i64, ptr %53, align 8, !tbaa !38
   %55 = icmp ugt i64 %52, %54
   br i1 %55, label %56, label %67
 
 56:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %57 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %50, i64 %indvars.iv123
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 32, i1 false), !tbaa.struct !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 32, i1 false), !tbaa.struct !39
   %58 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %50, i64 %indvars.iv.next124
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %58, i64 32, i1 false), !tbaa.struct !40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %58, i64 32, i1 false), !tbaa.struct !39
   %59 = load ptr, ptr %12, align 8, !tbaa !14
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %61 = load ptr, ptr %60, align 8, !tbaa !28
   %62 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %61, i64 %indvars.iv.next124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !39
   %63 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv123
-  %64 = load i32, ptr %63, align 4, !tbaa !46
+  %64 = load i32, ptr %63, align 4, !tbaa !45
   %65 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next124
-  %66 = load i32, ptr %65, align 4, !tbaa !46
-  store i32 %66, ptr %63, align 4, !tbaa !46
-  store i32 %64, ptr %65, align 4, !tbaa !46
+  %66 = load i32, ptr %65, align 4, !tbaa !45
+  store i32 %66, ptr %63, align 4, !tbaa !45
+  store i32 %64, ptr %65, align 4, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %67
 
 67:                                               ; preds = %47, %56
   %.2 = phi i1 [ true, %56 ], [ %.1105, %47 ]
   %exitcond125.not = icmp eq i64 %indvars.iv.next124, %indvars.iv126
-  br i1 %exitcond125.not, label %.loopexit.split, label %47, !llvm.loop !47
+  br i1 %exitcond125.not, label %.loopexit.split, label %47, !llvm.loop !46
 
 68:                                               ; preds = %11
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 56
@@ -771,7 +771,7 @@ define noundef i32 @H5T__sort_value(ptr noundef readonly captures(none) %0, ptr 
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 52
   %74 = load i32, ptr %73, align 4, !tbaa !28
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %76 = load i64, ptr %75, align 8, !tbaa !48
+  %76 = load i64, ptr %75, align 8, !tbaa !47
   %.187102 = add i32 %74, -1
   %.not108 = icmp eq i32 %.187102, 0
   br i1 %.not108, label %.loopexit96, label %.preheader97.lr.ph
@@ -826,21 +826,21 @@ define noundef i32 @H5T__sort_value(ptr noundef readonly captures(none) %0, ptr 
 104:                                              ; preds = %88, %78
   %.5.us.us = phi i1 [ %.4101.us.us, %78 ], [ true, %88 ]
   %exitcond118.not = icmp eq i64 %indvars.iv.next117, %indvars.iv119
-  br i1 %exitcond118.not, label %.loopexit98.split.us.us, label %78, !llvm.loop !49
+  br i1 %exitcond118.not, label %.loopexit98.split.us.us, label %78, !llvm.loop !48
 
 .loopexit98.split.us.us:                          ; preds = %104
   %indvars.iv.next120 = add nsw i64 %indvars.iv119, -1
   %105 = and i64 %indvars.iv.next120, 4294967295
   %106 = icmp ne i64 %105, 0
   %107 = select i1 %106, i1 %.5.us.us, i1 false
-  br i1 %107, label %.preheader97.us, label %.loopexit96, !llvm.loop !50
+  br i1 %107, label %.preheader97.us, label %.loopexit96, !llvm.loop !49
 
 .loopexit98.split:                                ; preds = %141
   %indvars.iv.next114 = add nsw i64 %indvars.iv113, -1
   %108 = and i64 %indvars.iv.next114, 4294967295
   %109 = icmp ne i64 %108, 0
   %110 = select i1 %109, i1 %.5, i1 false
-  br i1 %110, label %.preheader97, label %.loopexit96, !llvm.loop !51
+  br i1 %110, label %.preheader97, label %.loopexit96, !llvm.loop !50
 
 .preheader97:                                     ; preds = %.preheader97.lr.ph, %.loopexit98.split
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.loopexit98.split ], [ %77, %.preheader97.lr.ph ]
@@ -883,17 +883,17 @@ define noundef i32 @H5T__sort_value(ptr noundef readonly captures(none) %0, ptr 
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 %117
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %136, ptr nonnull align 16 %3, i64 %76, i1 false)
   %137 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %138 = load i32, ptr %137, align 4, !tbaa !46
+  %138 = load i32, ptr %137, align 4, !tbaa !45
   %139 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
-  %140 = load i32, ptr %139, align 4, !tbaa !46
-  store i32 %140, ptr %137, align 4, !tbaa !46
-  store i32 %138, ptr %139, align 4, !tbaa !46
+  %140 = load i32, ptr %139, align 4, !tbaa !45
+  store i32 %140, ptr %137, align 4, !tbaa !45
+  store i32 %138, ptr %139, align 4, !tbaa !45
   br label %141
 
 141:                                              ; preds = %121, %111
   %.5 = phi i1 [ %.4101, %111 ], [ true, %121 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv113
-  br i1 %exitcond.not, label %.loopexit98.split, label %111, !llvm.loop !52
+  br i1 %exitcond.not, label %.loopexit98.split, label %111, !llvm.loop !51
 
 .loopexit96:                                      ; preds = %.loopexit98.split, %.loopexit98.split.us.us, %.loopexit.split, %.loopexit.split.us.us, %71, %19, %11, %16, %68, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -970,34 +970,34 @@ define noundef i32 @H5T__sort_name(ptr noundef readonly captures(none) %0, ptr n
 
 34:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false), !tbaa.struct !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false), !tbaa.struct !39
   %35 = load ptr, ptr %12, align 8, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8, !tbaa !28
   %38 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %37, i64 %indvars.iv.next127
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %39
 
 39:                                               ; preds = %34, %24
   %.2.us.us = phi i1 [ true, %34 ], [ %.185100.us.us, %24 ]
   %exitcond128.not = icmp eq i64 %indvars.iv.next127, %indvars.iv129
-  br i1 %exitcond128.not, label %.loopexit.split.us.us, label %24, !llvm.loop !53
+  br i1 %exitcond128.not, label %.loopexit.split.us.us, label %24, !llvm.loop !52
 
 .loopexit.split.us.us:                            ; preds = %39
   %indvars.iv.next130 = add nsw i64 %indvars.iv129, -1
   %40 = and i64 %indvars.iv.next130, 4294967295
   %41 = icmp ne i64 %40, 0
   %42 = select i1 %41, i1 %.2.us.us, i1 false
-  br i1 %42, label %.preheader.us, label %.loopexit92, !llvm.loop !54
+  br i1 %42, label %.preheader.us, label %.loopexit92, !llvm.loop !53
 
 .loopexit.split:                                  ; preds = %65
   %indvars.iv.next123 = add nsw i64 %indvars.iv122, -1
   %43 = and i64 %indvars.iv.next123, 4294967295
   %44 = icmp ne i64 %43, 0
   %45 = select i1 %44, i1 %.2, i1 false
-  br i1 %45, label %.preheader, label %.loopexit92, !llvm.loop !55
+  br i1 %45, label %.preheader, label %.loopexit92, !llvm.loop !54
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit.split
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.loopexit.split ], [ %23, %.preheader.lr.ph ]
@@ -1020,26 +1020,26 @@ define noundef i32 @H5T__sort_name(ptr noundef readonly captures(none) %0, ptr n
 
 56:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %50, i64 32, i1 false), !tbaa.struct !40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 32, i1 false), !tbaa.struct !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %50, i64 32, i1 false), !tbaa.struct !39
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 32, i1 false), !tbaa.struct !39
   %57 = load ptr, ptr %12, align 8, !tbaa !14
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %59 = load ptr, ptr %58, align 8, !tbaa !28
   %60 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %59, i64 %indvars.iv.next120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !39
   %61 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv119
-  %62 = load i32, ptr %61, align 4, !tbaa !46
+  %62 = load i32, ptr %61, align 4, !tbaa !45
   %63 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next120
-  %64 = load i32, ptr %63, align 4, !tbaa !46
-  store i32 %64, ptr %61, align 4, !tbaa !46
-  store i32 %62, ptr %63, align 4, !tbaa !46
+  %64 = load i32, ptr %63, align 4, !tbaa !45
+  store i32 %64, ptr %61, align 4, !tbaa !45
+  store i32 %62, ptr %63, align 4, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %65
 
 65:                                               ; preds = %46, %56
   %.2 = phi i1 [ true, %56 ], [ %.185100, %46 ]
   %exitcond121.not = icmp eq i64 %indvars.iv.next120, %indvars.iv122
-  br i1 %exitcond121.not, label %.loopexit.split, label %46, !llvm.loop !56
+  br i1 %exitcond121.not, label %.loopexit.split, label %46, !llvm.loop !55
 
 66:                                               ; preds = %11
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 56
@@ -1053,7 +1053,7 @@ define noundef i32 @H5T__sort_name(ptr noundef readonly captures(none) %0, ptr n
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 52
   %72 = load i32, ptr %71, align 4, !tbaa !28
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %74 = load i64, ptr %73, align 8, !tbaa !48
+  %74 = load i64, ptr %73, align 8, !tbaa !47
   %.198 = add i32 %72, -1
   %.not104 = icmp eq i32 %.198, 0
   br i1 %.not104, label %.loopexit92, label %.preheader93.lr.ph
@@ -1105,21 +1105,21 @@ define noundef i32 @H5T__sort_name(ptr noundef readonly captures(none) %0, ptr n
 99:                                               ; preds = %86, %76
   %.5.us.us = phi i1 [ %.496.us.us, %76 ], [ true, %86 ]
   %exitcond114.not = icmp eq i64 %indvars.iv.next113, %indvars.iv115
-  br i1 %exitcond114.not, label %.loopexit94.split.us.us, label %76, !llvm.loop !57
+  br i1 %exitcond114.not, label %.loopexit94.split.us.us, label %76, !llvm.loop !56
 
 .loopexit94.split.us.us:                          ; preds = %99
   %indvars.iv.next116 = add nsw i64 %indvars.iv115, -1
   %100 = and i64 %indvars.iv.next116, 4294967295
   %101 = icmp ne i64 %100, 0
   %102 = select i1 %101, i1 %.5.us.us, i1 false
-  br i1 %102, label %.preheader93.us, label %.loopexit92, !llvm.loop !58
+  br i1 %102, label %.preheader93.us, label %.loopexit92, !llvm.loop !57
 
 .loopexit94.split:                                ; preds = %133
   %indvars.iv.next110 = add nsw i64 %indvars.iv109, -1
   %103 = and i64 %indvars.iv.next110, 4294967295
   %104 = icmp ne i64 %103, 0
   %105 = select i1 %104, i1 %.5, i1 false
-  br i1 %105, label %.preheader93, label %.loopexit92, !llvm.loop !59
+  br i1 %105, label %.preheader93, label %.loopexit92, !llvm.loop !58
 
 .preheader93:                                     ; preds = %.preheader93.lr.ph, %.loopexit94.split
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.loopexit94.split ], [ %75, %.preheader93.lr.ph ]
@@ -1159,17 +1159,17 @@ define noundef i32 @H5T__sort_name(ptr noundef readonly captures(none) %0, ptr n
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 %123
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %128, ptr nonnull align 16 %3, i64 %74, i1 false)
   %129 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %130 = load i32, ptr %129, align 4, !tbaa !46
+  %130 = load i32, ptr %129, align 4, !tbaa !45
   %131 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
-  %132 = load i32, ptr %131, align 4, !tbaa !46
-  store i32 %132, ptr %129, align 4, !tbaa !46
-  store i32 %130, ptr %131, align 4, !tbaa !46
+  %132 = load i32, ptr %131, align 4, !tbaa !45
+  store i32 %132, ptr %129, align 4, !tbaa !45
+  store i32 %130, ptr %131, align 4, !tbaa !45
   br label %133
 
 133:                                              ; preds = %116, %106
   %.5 = phi i1 [ %.496, %106 ], [ true, %116 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv109
-  br i1 %exitcond.not, label %.loopexit94.split, label %106, !llvm.loop !60
+  br i1 %exitcond.not, label %.loopexit94.split, label %106, !llvm.loop !59
 
 .loopexit92:                                      ; preds = %.loopexit94.split, %.loopexit94.split.us.us, %.loopexit.split, %.loopexit.split.us.us, %69, %19, %11, %16, %66, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
@@ -1223,29 +1223,28 @@ attributes #8 = { nounwind willreturn memory(read) }
 !32 = !{!"p1 omnipotent char", !19, i64 0}
 !33 = !{!32, !32, i64 0}
 !34 = !{!"branch_weights", i32 -2147483648, i32 0}
-!35 = distinct !{!35, !36, !37}
+!35 = distinct !{!35, !36}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!"llvm.loop.estimated_trip_count"}
-!38 = distinct !{!38, !36, !37}
-!39 = !{!31, !12, i64 8}
-!40 = !{i64 0, i64 8, !33, i64 8, i64 8, !11, i64 16, i64 8, !11, i64 24, i64 8, !41}
-!41 = !{!27, !27, i64 0}
-!42 = distinct !{!42, !36, !37, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!44 = distinct !{!44, !36, !37, !43}
-!45 = distinct !{!45, !36, !37}
-!46 = !{!17, !17, i64 0}
-!47 = distinct !{!47, !36, !37}
-!48 = !{!26, !12, i64 16}
-!49 = distinct !{!49, !36, !37, !43}
-!50 = distinct !{!50, !36, !37, !43}
-!51 = distinct !{!51, !36, !37}
-!52 = distinct !{!52, !36, !37}
-!53 = distinct !{!53, !36, !37, !43}
-!54 = distinct !{!54, !36, !37, !43}
-!55 = distinct !{!55, !36, !37}
-!56 = distinct !{!56, !36, !37}
-!57 = distinct !{!57, !36, !37, !43}
-!58 = distinct !{!58, !36, !37, !43}
-!59 = distinct !{!59, !36, !37}
-!60 = distinct !{!60, !36, !37}
+!37 = distinct !{!37, !36}
+!38 = !{!31, !12, i64 8}
+!39 = !{i64 0, i64 8, !33, i64 8, i64 8, !11, i64 16, i64 8, !11, i64 24, i64 8, !40}
+!40 = !{!27, !27, i64 0}
+!41 = distinct !{!41, !36, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = distinct !{!43, !36, !42}
+!44 = distinct !{!44, !36}
+!45 = !{!17, !17, i64 0}
+!46 = distinct !{!46, !36}
+!47 = !{!26, !12, i64 16}
+!48 = distinct !{!48, !36, !42}
+!49 = distinct !{!49, !36, !42}
+!50 = distinct !{!50, !36}
+!51 = distinct !{!51, !36}
+!52 = distinct !{!52, !36, !42}
+!53 = distinct !{!53, !36, !42}
+!54 = distinct !{!54, !36}
+!55 = distinct !{!55, !36}
+!56 = distinct !{!56, !36, !42}
+!57 = distinct !{!57, !36, !42}
+!58 = distinct !{!58, !36}
+!59 = distinct !{!59, !36}

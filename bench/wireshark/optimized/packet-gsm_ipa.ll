@@ -429,7 +429,7 @@ define internal fastcc noundef zeroext i1 @dissect_ipa(ptr noundef %0, ptr nound
 115:                                              ; preds = %._crit_edge
   %116 = load i32, ptr @hf_ipa_hsl_debug, align 4
   %117 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %116, ptr noundef %41, i32 noundef 0, i32 noundef %27, i32 noundef 0)
-  %118 = load i8, ptr @global_ipa_in_root, align 1, !range !9, !noundef !10
+  %118 = load i8, ptr @global_ipa_in_root, align 1, !range !8, !noundef !9
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %120, label %123
 
@@ -439,7 +439,7 @@ define internal fastcc noundef zeroext i1 @dissect_ipa(ptr noundef %0, ptr nound
   br label %123
 
 123:                                              ; preds = %120, %115
-  %124 = load i8, ptr @global_ipa_in_info, align 1, !range !9, !noundef !10
+  %124 = load i8, ptr @global_ipa_in_info, align 1, !range !8, !noundef !9
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %126, label %dissect_ipaccess.exit
 
@@ -463,7 +463,7 @@ dissect_ipaccess.exit:                            ; preds = %83, %112, %109, %10
   %135 = add i32 %31, %.07275
   %136 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %135)
   %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %._crit_edge, label %.loopexit, !llvm.loop !11
+  br i1 %137, label %._crit_edge, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %dissect_ipaccess.exit, %13, %7, %4
   %.0 = phi i1 [ false, %4 ], [ false, %7 ], [ true, %13 ], [ true, %dissect_ipaccess.exit ]
@@ -541,9 +541,8 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7, !8}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !7}

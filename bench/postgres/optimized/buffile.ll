@@ -163,7 +163,7 @@ define dso_local noundef ptr @BufFileOpenFileSet(ptr noundef %0, ptr noundef %1,
   br label %.backedge
 
 .backedge:                                        ; preds = %23, %21
-  br label %7, !llvm.loop !5
+  br label %7
 
 24:                                               ; preds = %15
   %25 = icmp eq i32 %.0, 0
@@ -253,7 +253,7 @@ define dso_local void @BufFileDeleteFileSet(ptr noundef %0, ptr noundef %1, i1 n
 10:                                               ; preds = %9, %.lr.ph
   %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.8, ptr noundef %1, i32 noundef %7) #10
   %12 = call zeroext i1 @FileSetDelete(ptr noundef %0, ptr noundef nonnull %4, i1 noundef zeroext true) #10
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %10, %3
   %or.cond = or i1 %2, %6
@@ -278,7 +278,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @BufFileExportFileSet(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %3 = load i8, ptr %2, align 1, !range !8, !noundef !9
+  %3 = load i8, ptr %2, align 1, !range !5, !noundef !6
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %BufFileFlush.exit
 
@@ -295,7 +295,7 @@ BufFileFlush.exit:                                ; preds = %1, %5
 ; Function Attrs: nounwind uwtable
 define dso_local void @BufFileClose(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %3 = load i8, ptr %2, align 1, !range !8, !noundef !9
+  %3 = load i8, ptr %2, align 1, !range !5, !noundef !6
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %BufFileFlush.exit
 
@@ -322,7 +322,7 @@ BufFileFlush.exit:                                ; preds = %1, %5
   %13 = load i32, ptr %0, align 8
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %9, label %._crit_edge, !llvm.loop !10
+  br i1 %15, label %9, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %9, %BufFileFlush.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -346,7 +346,7 @@ define internal fastcc i64 @BufFileReadCommon(ptr noundef %0, ptr noundef writeo
   %7 = alloca %struct.iovec, align 8
   %8 = alloca %struct.timespec, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %10 = load i8, ptr %9, align 1, !range !8, !noundef !9
+  %10 = load i8, ptr %9, align 1, !range !5, !noundef !6
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %BufFileFlush.exit
 
@@ -409,7 +409,7 @@ BufFileFlush.exit:                                ; preds = %5, %12
   %39 = sext i32 %37 to i64
   %40 = getelementptr inbounds i32, ptr %38, i64 %39
   %41 = load i32, ptr %40, align 4
-  %42 = load i8, ptr @track_io_timing, align 1, !range !8, !noundef !9
+  %42 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %48
 
@@ -448,7 +448,7 @@ BufFileFlush.exit:                                ; preds = %5, %12
   unreachable
 
 58:                                               ; preds = %48
-  %59 = load i8, ptr @track_io_timing, align 1, !range !8, !noundef !9
+  %59 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %70
 
@@ -501,7 +501,7 @@ BufFileLoadBuffer.exit._crit_edge61:              ; preds = %BufFileLoadBuffer.e
   %87 = sub i64 %.04256, %spec.select
   %88 = add i64 %spec.select, %.04058
   %.not = icmp eq i64 %87, 0
-  br i1 %.not, label %BufFileLoadBuffer.exit._crit_edge, label %22, !llvm.loop !12
+  br i1 %.not, label %BufFileLoadBuffer.exit._crit_edge, label %22, !llvm.loop !9
 
 BufFileLoadBuffer.exit._crit_edge:                ; preds = %70, %76, %BufFileLoadBuffer.exit, %BufFileFlush.exit
   %.040.lcssa = phi i64 [ 0, %BufFileFlush.exit ], [ %.04058, %70 ], [ %.04058, %BufFileLoadBuffer.exit ], [ %88, %76 ]
@@ -572,7 +572,7 @@ define dso_local void @BufFileWrite(ptr noundef %0, ptr noundef readonly capture
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %9
-  %13 = load i8, ptr %5, align 1, !range !8, !noundef !9
+  %13 = load i8, ptr %5, align 1, !range !5, !noundef !6
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %16
 
@@ -615,7 +615,7 @@ define dso_local void @BufFileWrite(ptr noundef %0, ptr noundef readonly capture
   %33 = getelementptr inbounds nuw i8, ptr %.02732, i64 %spec.select
   %34 = sub i64 %.02633, %spec.select
   %.not = icmp eq i64 %34, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %32, %3
   ret void
@@ -669,7 +669,7 @@ define internal fastcc void @BufFileDumpBuffer(ptr noundef %0) unnamed_addr #0 {
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %.lr.ph
-  %31 = load i8, ptr %14, align 8, !range !8, !noundef !9
+  %31 = load i8, ptr %14, align 8, !range !5, !noundef !6
   %32 = trunc nuw i8 %31 to i1
   %33 = call i32 @OpenTemporaryFile(i1 noundef zeroext %32) #10
   br label %extendBufFile.exit
@@ -709,7 +709,7 @@ extendBufFile.exit:                               ; preds = %30, %34
   %56 = load i32, ptr %10, align 8
   %57 = add i32 %56, 1
   %.not = icmp slt i32 %57, %55
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %extendBufFile.exit
   %.pre.pre = load i32, ptr %6, align 4
@@ -734,7 +734,7 @@ extendBufFile.exit:                               ; preds = %30, %34
   %66 = sext i32 %59 to i64
   %67 = getelementptr inbounds i32, ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4
-  %69 = load i8, ptr @track_io_timing, align 1, !range !8, !noundef !9
+  %69 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %71, label %75
 
@@ -775,7 +775,7 @@ extendBufFile.exit:                               ; preds = %30, %34
   unreachable
 
 88:                                               ; preds = %75
-  %89 = load i8, ptr @track_io_timing, align 1, !range !8, !noundef !9
+  %89 = load i8, ptr @track_io_timing, align 1, !range !5, !noundef !6
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %91, label %100
 
@@ -804,7 +804,7 @@ extendBufFile.exit:                               ; preds = %30, %34
   store i64 %106, ptr getelementptr inbounds nuw (i8, ptr @pgBufferUsage, i64 72), align 8
   %107 = load i32, ptr %6, align 4
   %108 = icmp slt i32 %104, %107
-  br i1 %108, label %20, label %._crit_edge53, !llvm.loop !15
+  br i1 %108, label %20, label %._crit_edge53, !llvm.loop !12
 
 ._crit_edge53:                                    ; preds = %100, %1
   %.lcssa44 = phi i32 [ %7, %1 ], [ %107, %100 ]
@@ -956,7 +956,7 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %
 
 72:                                               ; preds = %63, %60, %._crit_edge
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %74 = load i8, ptr %73, align 1, !range !8, !noundef !9
+  %74 = load i8, ptr %73, align 1, !range !5, !noundef !6
   %75 = trunc nuw i8 %74 to i1
   br i1 %75, label %76, label %BufFileFlush.exit
 
@@ -1135,7 +1135,7 @@ define dso_local range(i64 -281474976710656, 281474976579585) i64 @BufFileAppend
   store i32 %30, ptr %32, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %23, %13
   %33 = sext i32 %3 to i64
@@ -1226,7 +1226,7 @@ define dso_local void @BufFileTruncateFileSet(ptr noundef captures(none) %0, i32
   %.1 = phi i64 [ 1073741824, %28 ], [ %2, %32 ]
   %.0 = add i32 %.083, -1
   %.not = icmp slt i32 %.0, %1
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %47, %3
   %.065.lcssa = phi i32 [ %5, %3 ], [ %.166, %47 ]
@@ -1352,16 +1352,13 @@ attributes #11 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !6}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !11, !6}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11, !6}
-!13 = distinct !{!13, !11, !6}
-!14 = distinct !{!14, !11, !6}
-!15 = distinct !{!15, !11, !6}
-!16 = distinct !{!16, !11, !6}
-!17 = distinct !{!17, !11, !6}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !8}

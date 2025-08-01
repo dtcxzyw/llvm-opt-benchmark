@@ -289,7 +289,7 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
   %spec.select = add nuw nsw i32 %.085125, %.sink
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next138, 6
-  br i1 %exitcond140.not, label %84, label %72, !llvm.loop !6
+  br i1 %exitcond140.not, label %84, label %72, !llvm.loop !5
 
 84:                                               ; preds = %83
   %85 = icmp slt i32 %spec.select, %.077128
@@ -299,7 +299,7 @@ define hidden noundef zeroext i1 @X11_InitKeyboard(ptr noundef %0) local_unnamed
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, 4
-  br i1 %exitcond144.not, label %87, label %.preheader123, !llvm.loop !7
+  br i1 %exitcond144.not, label %87, label %.preheader123, !llvm.loop !6
 
 87:                                               ; preds = %84
   %88 = icmp slt i32 %spec.select111, 0
@@ -439,7 +439,7 @@ X11_ScancodeIsRemappable.exit:                    ; preds = %143, %143, %143, %1
   %145 = load i32, ptr %7, align 4
   %146 = sext i32 %145 to i64
   %.not106.not = icmp slt i64 %indvars.iv148, %146
-  br i1 %.not106.not, label %.lr.ph135, label %._crit_edge, !llvm.loop !8
+  br i1 %.not106.not, label %.lr.ph135, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %X11_ScancodeIsRemappable.exit, %114
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
@@ -508,7 +508,7 @@ X11_KeyCodeToSDLScancode.exit120:                 ; preds = %X11_KeyCodeToSym.ex
   %172 = load i32, ptr %7, align 4
   %173 = sext i32 %172 to i64
   %.not105.not = icmp slt i64 %indvars.iv145, %173
-  br i1 %.not105.not, label %152, label %.loopexit, !llvm.loop !9
+  br i1 %.not105.not, label %152, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %X11_KeyCodeToSDLScancode.exit120, %147, %._crit_edge
   call void @X11_UpdateKeymap(ptr noundef %0, i1 noundef zeroext false)
@@ -606,7 +606,7 @@ define hidden void @X11_UpdateKeymap(ptr noundef readonly captures(none) %0, i1 
 38:                                               ; preds = %39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %..split.loop.exit1_crit_edge.us.i, label %39, !llvm.loop !10
+  br i1 %exitcond.not.i, label %..split.loop.exit1_crit_edge.us.i, label %39, !llvm.loop !9
 
 39:                                               ; preds = %38, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %38 ]
@@ -625,7 +625,7 @@ define hidden void @X11_UpdateKeymap(ptr noundef readonly captures(none) %0, i1 
   %.3.us.i = phi i32 [ %50, %.split.loop.exit.us.i ], [ %.0186.us.i, %38 ]
   %49 = add nuw nsw i32 %.0194.us.i, 1
   %exitcond11.not.i = icmp eq i32 %49, 8
-  br i1 %exitcond11.not.i, label %X11_GetNumLockModifierMask.exit, label %.preheader.us.i, !llvm.loop !11
+  br i1 %exitcond11.not.i, label %X11_GetNumLockModifierMask.exit, label %.preheader.us.i, !llvm.loop !10
 
 .split.loop.exit.us.i:                            ; preds = %39
   %50 = shl nuw nsw i32 1, %.0194.us.i
@@ -661,7 +661,7 @@ X11_GetNumLockModifierMask.exit:                  ; preds = %..split.loop.exit1_
 62:                                               ; preds = %63
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i45
-  br i1 %exitcond.not.i51, label %..split.loop.exit1_crit_edge.us.i52, label %63, !llvm.loop !13
+  br i1 %exitcond.not.i51, label %..split.loop.exit1_crit_edge.us.i52, label %63, !llvm.loop !12
 
 63:                                               ; preds = %62, %.preheader.us.i46
   %indvars.iv.i49 = phi i64 [ 0, %.preheader.us.i46 ], [ %indvars.iv.next.i50, %62 ]
@@ -680,7 +680,7 @@ X11_GetNumLockModifierMask.exit:                  ; preds = %..split.loop.exit1_
   %.3.us.i53 = phi i32 [ %74, %.split.loop.exit.us.i56 ], [ %.0186.us.i47, %62 ]
   %73 = add nuw nsw i32 %.0194.us.i48, 1
   %exitcond11.not.i54 = icmp eq i32 %73, 8
-  br i1 %exitcond11.not.i54, label %X11_GetScrollLockModifierMask.exit, label %.preheader.us.i46, !llvm.loop !14
+  br i1 %exitcond11.not.i54, label %X11_GetScrollLockModifierMask.exit, label %.preheader.us.i46, !llvm.loop !13
 
 .split.loop.exit.us.i56:                          ; preds = %63
   %74 = shl nuw nsw i32 1, %.0194.us.i48
@@ -698,7 +698,7 @@ X11_GetScrollLockModifierMask.exit:               ; preds = %..split.loop.exit1_
 78:                                               ; preds = %133
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 16
-  br i1 %exitcond65.not, label %29, label %.preheader, !llvm.loop !15
+  br i1 %exitcond65.not, label %29, label %.preheader, !llvm.loop !14
 
 79:                                               ; preds = %.preheader, %133
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %133 ]
@@ -820,7 +820,7 @@ X11_KeyCodeToSym.exit:                            ; preds = %107, %117
 133:                                              ; preds = %X11_KeyCodeToSym.exit.thread, %X11_KeyCodeToSym.exit, %132, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %78, label %79, !llvm.loop !16
+  br i1 %exitcond.not, label %78, label %79, !llvm.loop !15
 }
 
 declare zeroext i1 @SDL_SetScancodeName_REAL(i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -870,7 +870,7 @@ define hidden void @X11_ClearComposition(ptr noundef captures(none) %0) local_un
 
 8:                                                ; preds = %5, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %10 = load i8, ptr %9, align 8, !range !17, !noundef !18
+  %10 = load i8, ptr %9, align 8, !range !16, !noundef !17
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %13
 
@@ -1052,7 +1052,7 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
   %31 = add nuw nsw i32 %.0148, 1
   %.pr = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.pr, null
-  br i1 %.not, label %.critedge2.thread, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %.critedge2.thread, label %.lr.ph, !llvm.loop !18
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %36
   %.0101152 = phi i32 [ %38, %36 ], [ 0, %.lr.ph153.preheader ]
@@ -1073,7 +1073,7 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
   %38 = add nuw nsw i32 %.0101152, 1
   %.pr139 = load ptr, ptr %5, align 8
   %.not126 = icmp eq ptr %.pr139, null
-  br i1 %.not126, label %.critedge2.thread162, label %.lr.ph153, !llvm.loop !20
+  br i1 %.not126, label %.critedge2.thread162, label %.lr.ph153, !llvm.loop !19
 
 39:                                               ; preds = %.critedge2
   %40 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %32) #9
@@ -1276,7 +1276,7 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
 
 147:                                              ; preds = %138
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 576
-  %149 = load i8, ptr %148, align 8, !range !17, !noundef !18
+  %149 = load i8, ptr %148, align 8, !range !16, !noundef !17
   %150 = trunc nuw i8 %149 to i1
   br i1 %150, label %151, label %X11_SendEditingEvent.exit
 
@@ -1311,7 +1311,7 @@ define internal void @preedit_draw_callback(ptr readnone captures(none) %0, ptr 
   %.1.i = phi i32 [ %.02234.i, %159 ], [ %spec.select27.i, %156 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %152, !llvm.loop !21
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %152, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %161
   %162 = trunc nuw i8 %.124.i to i1
@@ -1392,7 +1392,7 @@ define internal void @preedit_caret_callback(ptr readnone captures(none) %0, ptr
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 576
-  %19 = load i8, ptr %18, align 8, !range !17, !noundef !18
+  %19 = load i8, ptr %18, align 8, !range !16, !noundef !17
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %X11_SendEditingEvent.exit
 
@@ -1427,7 +1427,7 @@ define internal void @preedit_caret_callback(ptr readnone captures(none) %0, ptr
   %.1.i = phi i32 [ %.02234.i, %29 ], [ %spec.select27.i, %26 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %22, !llvm.loop !21
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %22, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %31
   %32 = trunc nuw i8 %.124.i to i1
@@ -1664,7 +1664,7 @@ define hidden zeroext i1 @X11_HasScreenKeyboardSupport(ptr noundef readonly capt
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1760
-  %5 = load i8, ptr %4, align 8, !range !17, !noundef !18
+  %5 = load i8, ptr %4, align 8, !range !16, !noundef !17
   %6 = trunc nuw i8 %5 to i1
   ret i1 %6
 }
@@ -1675,7 +1675,7 @@ define hidden void @X11_ShowScreenKeyboard(ptr noundef readonly captures(none) %
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1760
-  %8 = load i8, ptr %7, align 8, !range !17, !noundef !18
+  %8 = load i8, ptr %7, align 8, !range !16, !noundef !17
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %20
 
@@ -1727,7 +1727,7 @@ define hidden void @X11_HideScreenKeyboard(ptr noundef readonly captures(none) %
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1760
-  %6 = load i8, ptr %5, align 8, !range !17, !noundef !18
+  %6 = load i8, ptr %5, align 8, !range !16, !noundef !17
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %11
 
@@ -1746,7 +1746,7 @@ define hidden zeroext i1 @X11_IsScreenKeyboardShown(ptr noundef readonly capture
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1761
-  %6 = load i8, ptr %5, align 1, !range !17, !noundef !18
+  %6 = load i8, ptr %5, align 1, !range !16, !noundef !17
   %7 = trunc nuw i8 %6 to i1
   ret i1 %7
 }
@@ -1783,22 +1783,21 @@ attributes #9 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5, !12}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4, !11}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = !{i8 0, i8 2}
+!17 = !{}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}

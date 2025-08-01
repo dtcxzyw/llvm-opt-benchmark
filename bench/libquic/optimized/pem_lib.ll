@@ -183,11 +183,11 @@ define hidden range(i32 0, 2) i32 @PEM_bytes_read_bio(ptr noundef writeonly capt
   %12 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
-  store ptr null, ptr %9, align 8, !tbaa !12
+  store ptr null, ptr %9, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
-  store ptr null, ptr %10, align 8, !tbaa !12
+  store ptr null, ptr %10, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #12
-  store ptr null, ptr %11, align 8, !tbaa !12
+  store ptr null, ptr %11, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #12
   %13 = call i32 @PEM_read_bio(ptr noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %.not31 = icmp eq i32 %13, 0
@@ -204,7 +204,7 @@ define hidden range(i32 0, 2) i32 @PEM_bytes_read_bio(ptr noundef writeonly capt
   br label %66
 
 .lr.ph:                                           ; preds = %7, %check_pem.exit.thread22
-  %18 = load ptr, ptr %9, align 8, !tbaa !12
+  %18 = load ptr, ptr %9, align 8, !tbaa !11
   %19 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %18, ptr noundef nonnull readonly dereferenceable(1) %3) #13
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %check_pem.exit.thread, label %20
@@ -297,35 +297,35 @@ check_pem.exit:                                   ; preds = %28
 
 check_pem.exit.thread22:                          ; preds = %50, %48, %check_pem.exit
   tail call void @free(ptr noundef nonnull %18) #12
-  %53 = load ptr, ptr %10, align 8, !tbaa !12
+  %53 = load ptr, ptr %10, align 8, !tbaa !11
   tail call void @free(ptr noundef %53) #12
-  %54 = load ptr, ptr %11, align 8, !tbaa !12
+  %54 = load ptr, ptr %11, align 8, !tbaa !11
   tail call void @free(ptr noundef %54) #12
   %55 = call i32 @PEM_read_bio(ptr noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
   %.not = icmp eq i32 %55, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 check_pem.exit.thread:                            ; preds = %50, %46, %43, %40, %36, %32, %22, %24, %26, %28, %.lr.ph, %check_pem.exit
-  %56 = load ptr, ptr %10, align 8, !tbaa !12
+  %56 = load ptr, ptr %10, align 8, !tbaa !11
   %57 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %56, ptr noundef nonnull %8)
   %.not17 = icmp eq i32 %57, 0
   br i1 %.not17, label %.thread, label %58
 
 58:                                               ; preds = %check_pem.exit.thread
-  %59 = load ptr, ptr %11, align 8, !tbaa !12
+  %59 = load ptr, ptr %11, align 8, !tbaa !11
   %60 = call i32 @PEM_do_header(ptr noundef nonnull %8, ptr noundef %59, ptr noundef nonnull %12, ptr noundef %5, ptr noundef %6)
   %.not18 = icmp eq i32 %60, 0
   br i1 %.not18, label %.thread, label %61
 
 61:                                               ; preds = %58
-  store ptr %59, ptr %0, align 8, !tbaa !12
-  %62 = load i64, ptr %12, align 8, !tbaa !16
-  store i64 %62, ptr %1, align 8, !tbaa !16
+  store ptr %59, ptr %0, align 8, !tbaa !11
+  %62 = load i64, ptr %12, align 8, !tbaa !14
+  store i64 %62, ptr %1, align 8, !tbaa !14
   %.not19 = icmp eq ptr %2, null
   br i1 %.not19, label %.thread, label %.thread29
 
 .thread29:                                        ; preds = %61
-  store ptr %18, ptr %2, align 8, !tbaa !12
+  store ptr %18, ptr %2, align 8, !tbaa !11
   call void @free(ptr noundef %56) #12
   br label %66
 
@@ -337,7 +337,7 @@ check_pem.exit.thread:                            ; preds = %50, %46, %43, %40, 
   br i1 %63, label %66, label %64
 
 64:                                               ; preds = %.thread
-  %65 = load ptr, ptr %11, align 8, !tbaa !12
+  %65 = load ptr, ptr %11, align 8, !tbaa !11
   call void @free(ptr noundef %65) #12
   br label %66
 
@@ -360,7 +360,7 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  store i32 0, ptr %8, align 4, !tbaa !18
+  store i32 0, ptr %8, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #12
   %10 = tail call ptr @BUF_MEM_new() #12
   %11 = tail call ptr @BUF_MEM_new() #12
@@ -409,7 +409,7 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
 
 .preheader142.backedge:                           ; preds = %26, %.backedge
   %.0111145.be = phi i32 [ %27, %26 ], [ %42, %.backedge ]
-  br label %.preheader142, !llvm.loop !20
+  br label %.preheader142, !llvm.loop !18
 
 .critedge:                                        ; preds = %26, %.preheader142
   %.0111.lcssa = phi i32 [ -1, %26 ], [ %.0111145, %.preheader142 ]
@@ -453,11 +453,11 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !21
+  %50 = load ptr, ptr %49, align 8, !tbaa !19
   %sext123 = add i64 %38, -25769803776
   %51 = ashr exact i64 %sext123, 32
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %21, i64 %51, i1 false)
-  %52 = load ptr, ptr %49, align 8, !tbaa !21
+  %52 = load ptr, ptr %49, align 8, !tbaa !19
   %53 = getelementptr inbounds i8, ptr %52, i64 %51
   store i8 0, ptr %53, align 1, !tbaa !6
   %54 = call i64 @BUF_MEM_grow(ptr noundef %11, i64 noundef 256) #12
@@ -470,7 +470,7 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
 
 56:                                               ; preds = %48
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !21
+  %58 = load ptr, ptr %57, align 8, !tbaa !19
   store i8 0, ptr %58, align 1, !tbaa !6
   %59 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 254) #12
   %60 = icmp slt i32 %59, 1
@@ -492,7 +492,7 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
 67:                                               ; preds = %62
   %68 = add nsw i32 %.1112146, -1
   %69 = icmp sgt i32 %.1112146, 0
-  br i1 %69, label %62, label %.critedge5, !llvm.loop !23
+  br i1 %69, label %62, label %.critedge5, !llvm.loop !21
 
 .critedge5:                                       ; preds = %67, %62
   %.1112.lcssa = phi i32 [ -1, %67 ], [ %.1112146, %62 ]
@@ -526,22 +526,22 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
   br i1 %85, label %._crit_edge148, label %86
 
 86:                                               ; preds = %84
-  %87 = load ptr, ptr %57, align 8, !tbaa !21
+  %87 = load ptr, ptr %57, align 8, !tbaa !19
   %88 = zext nneg i32 %.0110147 to i64
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 %88
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr nonnull align 16 %9, i64 %74, i1 false)
-  %90 = load ptr, ptr %57, align 8, !tbaa !21
+  %90 = load ptr, ptr %57, align 8, !tbaa !19
   %91 = zext nneg i32 %79 to i64
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 %91
   store i8 0, ptr %92, align 1, !tbaa !6
   %93 = call i32 @BIO_gets(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 254) #12
   %94 = icmp slt i32 %93, 1
-  br i1 %94, label %._crit_edge148, label %.preheader141, !llvm.loop !24
+  br i1 %94, label %._crit_edge148, label %.preheader141
 
 ._crit_edge148:                                   ; preds = %86, %.critedge5, %84, %56
   %.0110.lcssa = phi i32 [ 0, %56 ], [ %.0110147, %84 ], [ %.0110147, %.critedge5 ], [ %79, %86 ]
   %.not128 = phi i1 [ true, %56 ], [ false, %84 ], [ true, %.critedge5 ], [ true, %86 ]
-  store i32 0, ptr %8, align 4, !tbaa !18
+  store i32 0, ptr %8, align 4, !tbaa !16
   %95 = call i64 @BUF_MEM_grow(ptr noundef %12, i64 noundef 1024) #12
   %.not127 = icmp eq i64 %95, 0
   br i1 %.not127, label %96, label %97
@@ -552,7 +552,7 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
 
 97:                                               ; preds = %._crit_edge148
   %98 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !21
+  %99 = load ptr, ptr %98, align 8, !tbaa !19
   store i8 0, ptr %99, align 1, !tbaa !6
   br i1 %.not128, label %.preheader140, label %148
 
@@ -573,7 +573,7 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
 107:                                              ; preds = %.preheader139
   %108 = add nsw i32 %.2155, -1
   %109 = icmp sgt i32 %.2155, 0
-  br i1 %109, label %.preheader139, label %.critedge7, !llvm.loop !25
+  br i1 %109, label %.preheader139, label %.critedge7, !llvm.loop !22
 
 .critedge7:                                       ; preds = %107, %.preheader139
   %.2.lcssa = phi i32 [ -1, %107 ], [ %.2155, %.preheader139 ]
@@ -605,17 +605,17 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
   br label %187
 
 124:                                              ; preds = %118
-  %125 = load ptr, ptr %98, align 8, !tbaa !21
+  %125 = load ptr, ptr %98, align 8, !tbaa !19
   %126 = sext i32 %100 to i64
   %127 = getelementptr inbounds i8, ptr %125, i64 %126
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %127, ptr nonnull align 16 %9, i64 %114, i1 false)
-  %128 = load ptr, ptr %98, align 8, !tbaa !21
+  %128 = load ptr, ptr %98, align 8, !tbaa !19
   %129 = add nsw i32 %100, %113
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds i8, ptr %128, i64 %130
   store i8 0, ptr %131, align 1, !tbaa !6
-  store i32 %129, ptr %8, align 4, !tbaa !18
-  br i1 %.not129, label %.preheader140, label %132, !llvm.loop !26
+  store i32 %129, ptr %8, align 4, !tbaa !16
+  br i1 %.not129, label %.preheader140, label %132
 
 132:                                              ; preds = %124
   store i8 0, ptr %9, align 16, !tbaa !6
@@ -634,7 +634,7 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
 139:                                              ; preds = %.preheader
   %140 = add nsw i32 %.3156, -1
   %141 = icmp sgt i32 %.3156, 0
-  br i1 %141, label %.preheader, label %.critedge9, !llvm.loop !27
+  br i1 %141, label %.preheader, label %.critedge9, !llvm.loop !23
 
 .critedge9:                                       ; preds = %139, %.preheader
   %.3.lcssa = phi i32 [ -1, %139 ], [ %.3156, %.preheader ]
@@ -649,7 +649,7 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
   br label %.loopexit
 
 148:                                              ; preds = %97
-  store i32 %.0110.lcssa, ptr %8, align 4, !tbaa !18
+  store i32 %.0110.lcssa, ptr %8, align 4, !tbaa !16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader140, %.critedge7, %.critedge9, %132, %148
@@ -661,7 +661,7 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
   br i1 %.not134, label %150, label %160
 
 150:                                              ; preds = %.loopexit
-  %151 = load ptr, ptr %49, align 8, !tbaa !21
+  %151 = load ptr, ptr %49, align 8, !tbaa !19
   %152 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %151) #13
   %153 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %sext135 = shl i64 %152, 32
@@ -685,7 +685,7 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
 161:                                              ; preds = %156
   call void @EVP_DecodeInit(ptr noundef nonnull %6) #12
   %162 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %163 = load ptr, ptr %162, align 8, !tbaa !21
+  %163 = load ptr, ptr %162, align 8, !tbaa !19
   %164 = sext i32 %149 to i64
   %165 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %6, ptr noundef %163, ptr noundef nonnull %8, ptr noundef %163, i64 noundef %164) #12
   %166 = icmp slt i32 %165, 0
@@ -696,8 +696,8 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
   br label %187
 
 168:                                              ; preds = %161
-  %169 = load ptr, ptr %162, align 8, !tbaa !21
-  %170 = load i32, ptr %8, align 4, !tbaa !18
+  %169 = load ptr, ptr %162, align 8, !tbaa !19
+  %170 = load i32, ptr %8, align 4, !tbaa !16
   %171 = sext i32 %170 to i64
   %172 = getelementptr inbounds i8, ptr %169, i64 %171
   %173 = call i32 @EVP_DecodeFinal(ptr noundef nonnull %6, ptr noundef %172, ptr noundef nonnull %7) #12
@@ -709,23 +709,23 @@ define hidden range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %0, ptr noundef writ
   br label %187
 
 176:                                              ; preds = %168
-  %177 = load i32, ptr %7, align 4, !tbaa !18
-  %178 = load i32, ptr %8, align 4, !tbaa !18
+  %177 = load i32, ptr %7, align 4, !tbaa !16
+  %178 = load i32, ptr %8, align 4, !tbaa !16
   %179 = add nsw i32 %178, %177
-  store i32 %179, ptr %8, align 4, !tbaa !18
+  store i32 %179, ptr %8, align 4, !tbaa !16
   %180 = icmp eq i32 %179, 0
   br i1 %180, label %187, label %181
 
 181:                                              ; preds = %176
-  %182 = load ptr, ptr %49, align 8, !tbaa !21
-  store ptr %182, ptr %1, align 8, !tbaa !12
+  %182 = load ptr, ptr %49, align 8, !tbaa !19
+  store ptr %182, ptr %1, align 8, !tbaa !11
   %183 = getelementptr inbounds nuw i8, ptr %.1106, i64 8
-  %184 = load ptr, ptr %183, align 8, !tbaa !21
-  store ptr %184, ptr %2, align 8, !tbaa !12
-  %185 = load ptr, ptr %162, align 8, !tbaa !21
-  store ptr %185, ptr %3, align 8, !tbaa !12
+  %184 = load ptr, ptr %183, align 8, !tbaa !19
+  store ptr %184, ptr %2, align 8, !tbaa !11
+  %185 = load ptr, ptr %162, align 8, !tbaa !19
+  store ptr %185, ptr %3, align 8, !tbaa !11
   %186 = sext i32 %179 to i64
-  store i64 %186, ptr %4, align 8, !tbaa !16
+  store i64 %186, ptr %4, align 8, !tbaa !14
   call void @free(ptr noundef nonnull %10) #12
   call void @free(ptr noundef %.1106) #12
   call void @free(ptr noundef nonnull %.1) #12
@@ -758,7 +758,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  store ptr null, ptr %1, align 8, !tbaa !28
+  store ptr null, ptr %1, align 8, !tbaa !24
   %4 = icmp eq ptr %0, null
   br i1 %4, label %45, label %5
 
@@ -810,7 +810,7 @@ define hidden range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %0, ptr n
 
 22:                                               ; preds = %.preheader
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  br label %.preheader, !llvm.loop !31
+  br label %.preheader, !llvm.loop !27
 
 24:                                               ; preds = %.preheader
   tail call void @ERR_put_error(i32 noundef 9, i32 noundef 0, i32 noundef 112, ptr noundef nonnull @.str.8, i32 noundef 442) #12
@@ -832,7 +832,7 @@ define hidden range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %0, ptr n
 
 31:                                               ; preds = %31, %29
   %storemerge = phi ptr [ %30, %29 ], [ %36, %31 ]
-  store ptr %storemerge, ptr %3, align 8, !tbaa !12
+  store ptr %storemerge, ptr %3, align 8, !tbaa !11
   %32 = load i8, ptr %storemerge, align 1, !tbaa !6
   %33 = add i8 %32, -65
   %or.cond = icmp ult i8 %33, 26
@@ -842,14 +842,14 @@ define hidden range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %0, ptr n
   %or.cond8 = icmp ult i8 %35, 10
   %or.cond33 = or i1 %or.cond8, %or.cond5
   %36 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
-  br i1 %or.cond33, label %31, label %37, !llvm.loop !32
+  br i1 %or.cond33, label %31, label %37
 
 37:                                               ; preds = %31
   store i8 0, ptr %storemerge, align 1, !tbaa !6
   %38 = tail call fastcc ptr @cipher_by_name(ptr noundef nonnull %30)
-  store ptr %38, ptr %1, align 8, !tbaa !28
+  store ptr %38, ptr %1, align 8, !tbaa !24
   store i8 %32, ptr %storemerge, align 1, !tbaa !6
-  store ptr %36, ptr %3, align 8, !tbaa !12
+  store ptr %36, ptr %3, align 8, !tbaa !11
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41
 
@@ -876,13 +876,13 @@ define hidden range(i32 0, 2) i32 @PEM_do_header(ptr noundef %0, ptr noundef %1,
   %9 = alloca [64 x i8], align 16
   %10 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
-  store i32 0, ptr %6, align 4, !tbaa !18
+  store i32 0, ptr %6, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %8) #12
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #12
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #12
-  %11 = load i64, ptr %2, align 8, !tbaa !16
-  %12 = load ptr, ptr %0, align 8, !tbaa !28
+  %11 = load i64, ptr %2, align 8, !tbaa !14
+  %12 = load ptr, ptr %0, align 8, !tbaa !24
   %13 = icmp eq ptr %12, null
   br i1 %13, label %44, label %14
 
@@ -898,7 +898,7 @@ define hidden range(i32 0, 2) i32 @PEM_do_header(ptr noundef %0, ptr noundef %1,
   br label %44
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr %0, align 8, !tbaa !28
+  %19 = load ptr, ptr %0, align 8, !tbaa !24
   %20 = call ptr @EVP_md5() #12
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = zext nneg i32 %15 to i64
@@ -908,9 +908,9 @@ define hidden range(i32 0, 2) i32 @PEM_do_header(ptr noundef %0, ptr noundef %1,
 
 24:                                               ; preds = %18
   %25 = trunc i64 %11 to i32
-  store i32 %25, ptr %7, align 4, !tbaa !18
+  store i32 %25, ptr %7, align 4, !tbaa !16
   call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %8) #12
-  %26 = load ptr, ptr %0, align 8, !tbaa !28
+  %26 = load ptr, ptr %0, align 8, !tbaa !24
   %27 = call i32 @EVP_DecryptInit_ex(ptr noundef nonnull %8, ptr noundef %26, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %21) #12
   %.not23 = icmp eq i32 %27, 0
   br i1 %.not23, label %.critedge26, label %28
@@ -921,7 +921,7 @@ define hidden range(i32 0, 2) i32 @PEM_do_header(ptr noundef %0, ptr noundef %1,
   br i1 %30, label %.critedge26, label %.critedge
 
 .critedge:                                        ; preds = %28
-  %31 = load i32, ptr %6, align 4, !tbaa !18
+  %31 = load i32, ptr %6, align 4, !tbaa !16
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %1, i64 %32
   %34 = call i32 @EVP_DecryptFinal_ex(ptr noundef nonnull %8, ptr noundef %33, ptr noundef nonnull %7) #12
@@ -942,11 +942,11 @@ define hidden range(i32 0, 2) i32 @PEM_do_header(ptr noundef %0, ptr noundef %1,
   br label %44
 
 39:                                               ; preds = %.critedge
-  %40 = load i32, ptr %6, align 4, !tbaa !18
-  %41 = load i32, ptr %7, align 4, !tbaa !18
+  %40 = load i32, ptr %6, align 4, !tbaa !16
+  %41 = load i32, ptr %7, align 4, !tbaa !16
   %42 = add nsw i32 %41, %40
   %43 = sext i32 %42 to i64
-  store i64 %43, ptr %2, align 8, !tbaa !16
+  store i64 %43, ptr %2, align 8, !tbaa !14
   br label %44
 
 44:                                               ; preds = %18, %5, %39, %38, %17
@@ -1032,9 +1032,9 @@ define hidden range(i32 0, 2) i32 @PEM_ASN1_write_bio(ptr noundef readonly captu
   br label %.thread65
 
 32:                                               ; preds = %26
-  store ptr %29, ptr %13, align 8, !tbaa !12
+  store ptr %29, ptr %13, align 8, !tbaa !11
   %33 = call i32 %0(ptr noundef %3, ptr noundef nonnull %13) #12
-  store i32 %33, ptr %11, align 4, !tbaa !18
+  store i32 %33, ptr %11, align 4, !tbaa !16
   br i1 %.not, label %70, label %34
 
 34:                                               ; preds = %32
@@ -1093,7 +1093,7 @@ define hidden range(i32 0, 2) i32 @PEM_ASN1_write_bio(ptr noundef readonly captu
   br i1 %.not58, label %63, label %58
 
 58:                                               ; preds = %56
-  %59 = load i32, ptr %12, align 4, !tbaa !18
+  %59 = load i32, ptr %12, align 4, !tbaa !16
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %29, i64 %60
   %62 = call i32 @EVP_EncryptFinal_ex(ptr noundef nonnull %10, ptr noundef nonnull %61, ptr noundef nonnull %11) #12
@@ -1105,12 +1105,12 @@ define hidden range(i32 0, 2) i32 @PEM_ASN1_write_bio(ptr noundef readonly captu
   br label %.thread65
 
 65:                                               ; preds = %58
-  %66 = load i32, ptr %12, align 4, !tbaa !18
-  %67 = load i32, ptr %11, align 4, !tbaa !18
+  %66 = load i32, ptr %12, align 4, !tbaa !16
+  %67 = load i32, ptr %11, align 4, !tbaa !16
   %68 = add nsw i32 %67, %66
-  store i32 %68, ptr %11, align 4, !tbaa !18
+  store i32 %68, ptr %11, align 4, !tbaa !16
   %69 = call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %10) #12
-  %.pre = load i32, ptr %11, align 4, !tbaa !18
+  %.pre = load i32, ptr %11, align 4, !tbaa !16
   br label %71
 
 70:                                               ; preds = %32
@@ -1121,7 +1121,7 @@ define hidden range(i32 0, 2) i32 @PEM_ASN1_write_bio(ptr noundef readonly captu
   %72 = phi i32 [ %.pre, %65 ], [ %33, %70 ]
   %73 = sext i32 %72 to i64
   %74 = call i32 @PEM_write_bio(ptr noundef %2, ptr noundef %1, ptr noundef nonnull %14, ptr noundef nonnull %29, i64 noundef %73)
-  store i32 %74, ptr %11, align 4, !tbaa !18
+  store i32 %74, ptr %11, align 4, !tbaa !16
   %75 = icmp sgt i32 %74, 0
   %spec.select = zext i1 %75 to i32
   br label %.thread65
@@ -1261,13 +1261,13 @@ define hidden i32 @PEM_write_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %29 = zext nneg i32 %.04673 to i64
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 %29
   call void @EVP_EncodeUpdate(ptr noundef nonnull %7, ptr noundef nonnull %24, ptr noundef nonnull %6, ptr noundef %30, i64 noundef %27) #12
-  %31 = load i32, ptr %6, align 4, !tbaa !18
+  %31 = load i32, ptr %6, align 4, !tbaa !16
   %.not63 = icmp eq i32 %31, 0
   br i1 %.not63, label %35, label %32
 
 32:                                               ; preds = %.lr.ph
   %33 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %24, i32 noundef %31) #12
-  %34 = load i32, ptr %6, align 4, !tbaa !18
+  %34 = load i32, ptr %6, align 4, !tbaa !16
   %.not64 = icmp eq i32 %33, %34
   br i1 %.not64, label %35, label %.loopexit
 
@@ -1277,18 +1277,18 @@ define hidden i32 @PEM_write_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %38 = sub nsw i64 %.04971, %27
   %39 = add nuw nsw i32 %.04673, %28
   %40 = icmp sgt i64 %38, 0
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %35, %.preheader
   %.047.lcssa = phi i32 [ 0, %.preheader ], [ %37, %35 ]
   call void @EVP_EncodeFinal(ptr noundef nonnull %7, ptr noundef nonnull %24, ptr noundef nonnull %6) #12
-  %41 = load i32, ptr %6, align 4, !tbaa !18
+  %41 = load i32, ptr %6, align 4, !tbaa !16
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %._crit_edge
   %44 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %24, i32 noundef %41) #12
-  %45 = load i32, ptr %6, align 4, !tbaa !18
+  %45 = load i32, ptr %6, align 4, !tbaa !16
   %.not59 = icmp eq i32 %44, %45
   br i1 %.not59, label %46, label %.loopexit
 
@@ -1310,7 +1310,7 @@ define hidden i32 @PEM_write_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not62, label %52, label %.thread
 
 52:                                               ; preds = %50
-  %53 = load i32, ptr %6, align 4, !tbaa !18
+  %53 = load i32, ptr %6, align 4, !tbaa !16
   %54 = add nsw i32 %53, %.047.lcssa
   br label %55
 
@@ -1402,7 +1402,7 @@ define internal fastcc ptr @cipher_by_name(ptr noundef readonly captures(none) %
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @load_iv(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !12
+  %4 = load ptr, ptr %0, align 8, !tbaa !11
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph40.preheader, label %._crit_edge41
 
@@ -1465,11 +1465,11 @@ define internal fastcc range(i32 0, 2) i32 @load_iv(ptr noundef nonnull captures
   store i8 %34, ptr %31, align 1, !tbaa !6
   %35 = add nuw nsw i32 %.137, 1
   %exitcond.not = icmp eq i32 %35, %smax
-  br i1 %exitcond.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge41, label %.lr.ph40, !llvm.loop !29
 
 ._crit_edge41:                                    ; preds = %23, %3
   %.0.lcssa = phi ptr [ %4, %3 ], [ %24, %23 ]
-  store ptr %.0.lcssa, ptr %0, align 8, !tbaa !12
+  store ptr %.0.lcssa, ptr %0, align 8, !tbaa !11
   br label %36
 
 36:                                               ; preds = %._crit_edge41, %22
@@ -1605,29 +1605,24 @@ attributes #14 = { nounwind allocsize(0) }
 !6 = !{!7, !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 omnipotent char", !14, i64 0}
-!14 = !{!"any pointer", !7, i64 0}
-!15 = distinct !{!15, !11}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !7, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"long", !7, i64 0}
 !16 = !{!17, !17, i64 0}
-!17 = !{!"long", !7, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !7, i64 0}
-!20 = distinct !{!20, !11}
-!21 = !{!22, !13, i64 8}
-!22 = !{!"buf_mem_st", !17, i64 0, !13, i64 8, !17, i64 16}
-!23 = distinct !{!23, !10, !11}
-!24 = distinct !{!24, !11}
-!25 = distinct !{!25, !10, !11}
-!26 = distinct !{!26, !11}
-!27 = distinct !{!27, !10, !11}
-!28 = !{!29, !30, i64 0}
-!29 = !{!"evp_cipher_info_st", !30, i64 0, !7, i64 8}
-!30 = !{!"p1 _ZTS13evp_cipher_st", !14, i64 0}
-!31 = distinct !{!31, !10, !11}
-!32 = distinct !{!32, !11}
-!33 = distinct !{!33, !10, !11}
-!34 = distinct !{!34, !10, !11}
+!17 = !{!"int", !7, i64 0}
+!18 = distinct !{!18, !10}
+!19 = !{!20, !12, i64 8}
+!20 = !{!"buf_mem_st", !15, i64 0, !12, i64 8, !15, i64 16}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10}
+!24 = !{!25, !26, i64 0}
+!25 = !{!"evp_cipher_info_st", !26, i64 0, !7, i64 8}
+!26 = !{!"p1 _ZTS13evp_cipher_st", !13, i64 0}
+!27 = distinct !{!27, !10}
+!28 = distinct !{!28, !10}
+!29 = distinct !{!29, !10}

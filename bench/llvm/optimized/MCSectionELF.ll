@@ -1569,6 +1569,5 @@ attributes #7 = { nounwind }
 !82 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !19, i64 0}
 !83 = !{!27, !28, i64 0}
 !84 = !{!27, !19, i64 8}
-!85 = distinct !{!85, !86, !87}
+!85 = distinct !{!85, !86}
 !86 = !{!"llvm.loop.mustprogress"}
-!87 = !{!"llvm.loop.estimated_trip_count"}

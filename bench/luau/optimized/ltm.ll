@@ -80,7 +80,7 @@ define hidden void @_Z9luaT_initP9lua_State(ptr noundef %0) local_unnamed_addr #
   store i8 %23, ptr %21, align 1, !tbaa !22
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 21
-  br i1 %exitcond23.not, label %24, label %.preheader, !llvm.loop !27
+  br i1 %exitcond23.not, label %24, label %.preheader, !llvm.loop !26
 
 24:                                               ; preds = %.preheader
   ret void
@@ -95,17 +95,17 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 define hidden noundef ptr @_Z10luaT_gettmP8LuaTable3TMSP7TString(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @_Z11luaH_getstrP8LuaTableP7TString(ptr noundef %0, ptr noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !28
+  %6 = load i32, ptr %5, align 4, !tbaa !27
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %3
   %9 = shl nuw i32 1, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %11 = load i8, ptr %10, align 1, !tbaa !30
+  %11 = load i8, ptr %10, align 1, !tbaa !29
   %12 = trunc i32 %9 to i8
   %13 = or i8 %11, %12
-  store i8 %13, ptr %10, align 1, !tbaa !30
+  store i8 %13, ptr %10, align 1, !tbaa !29
   br label %14
 
 14:                                               ; preds = %3, %8
@@ -118,19 +118,19 @@ declare hidden noundef ptr @_Z11luaH_getstrP8LuaTableP7TString(ptr noundef, ptr 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %5 = load i32, ptr %4, align 4, !tbaa !28
+  %5 = load i32, ptr %4, align 4, !tbaa !27
   switch i32 %5, label %12 [
     i32 6, label %6
     i32 8, label %9
   ]
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %1, align 8, !tbaa !33
+  %7 = load ptr, ptr %1, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %18
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %1, align 8, !tbaa !33
+  %10 = load ptr, ptr %1, align 8, !tbaa !32
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %18
 
@@ -144,7 +144,7 @@ define hidden noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr 
 
 18:                                               ; preds = %12, %9, %6
   %.0.in = phi ptr [ %17, %12 ], [ %8, %6 ], [ %11, %9 ]
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !34
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !33
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %27, label %19
 
@@ -166,22 +166,22 @@ define hidden noundef ptr @_Z15luaT_gettmbyobjP9lua_StatePK10lua_TValue3TMS(ptr 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !28
+  %4 = load i32, ptr %3, align 4, !tbaa !27
   switch i32 %4, label %.thread [
     i32 8, label %5
     i32 2, label %28
   ]
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !33
+  %6 = load ptr, ptr %1, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %8 = load i8, ptr %7, align 1, !tbaa !35
+  %8 = load i8, ptr %7, align 1, !tbaa !34
   %.not = icmp eq i8 %8, -127
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !36
   %.not37 = icmp eq ptr %11, null
   br i1 %.not37, label %.thread, label %12
 
@@ -192,26 +192,26 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   %17 = tail call noundef ptr @_Z11luaH_getstrP8LuaTableP7TString(ptr noundef nonnull %11, ptr noundef %16)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !28
+  %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = icmp eq i32 %19, 5
   br i1 %20, label %27, label %21
 
 21:                                               ; preds = %12
   %22 = load ptr, ptr %13, align 8, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2944
-  %24 = load i32, ptr %3, align 4, !tbaa !28
+  %24 = load i32, ptr %3, align 4, !tbaa !27
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds [11 x ptr], ptr %23, i64 0, i64 %25
   br label %27
 
 27:                                               ; preds = %12, %21
   %.0.in = phi ptr [ %26, %21 ], [ %17, %12 ]
-  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !33
+  %.0 = load ptr, ptr %.0.in, align 8, !tbaa !32
   br label %58
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !38
+  %30 = load i32, ptr %29, align 8, !tbaa !37
   %31 = icmp ult i32 %30, 128
   br i1 %31, label %32, label %.thread
 
@@ -231,7 +231,7 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2856
   %42 = sext i32 %4 to i64
   %43 = getelementptr inbounds [11 x ptr], ptr %41, i64 0, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !34
+  %44 = load ptr, ptr %43, align 8, !tbaa !33
   %.not39 = icmp eq ptr %44, null
   br i1 %.not39, label %53, label %45
 
@@ -240,18 +240,18 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
   %47 = load ptr, ptr %46, align 8, !tbaa !21
   %48 = tail call noundef ptr @_Z11luaH_getstrP8LuaTableP7TString(ptr noundef nonnull %44, ptr noundef %47)
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  %50 = load i32, ptr %49, align 4, !tbaa !28
+  %50 = load i32, ptr %49, align 4, !tbaa !27
   %.not40 = icmp eq i32 %50, 5
   br i1 %.not40, label %51, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %45
   %.pre = load ptr, ptr %39, align 8, !tbaa !9
-  %.pre54 = load i32, ptr %3, align 4, !tbaa !28
+  %.pre54 = load i32, ptr %3, align 4, !tbaa !27
   %.pre55 = sext i32 %.pre54 to i64
   br label %53
 
 51:                                               ; preds = %45
-  %52 = load ptr, ptr %48, align 8, !tbaa !33
+  %52 = load ptr, ptr %48, align 8, !tbaa !32
   br label %58
 
 53:                                               ; preds = %._crit_edge, %.thread
@@ -270,22 +270,22 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !28
+  %4 = load i32, ptr %3, align 4, !tbaa !27
   switch i32 %4, label %.thread.i [
     i32 8, label %5
     i32 2, label %28
   ]
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !33
+  %6 = load ptr, ptr %1, align 8, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %8 = load i8, ptr %7, align 1, !tbaa !35
+  %8 = load i8, ptr %7, align 1, !tbaa !34
   %.not.i = icmp eq i8 %8, -127
   br i1 %.not.i, label %.thread.i, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !37
+  %11 = load ptr, ptr %10, align 8, !tbaa !36
   %.not37.i = icmp eq ptr %11, null
   br i1 %.not37.i, label %.thread.i, label %12
 
@@ -296,26 +296,26 @@ define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   %17 = tail call noundef ptr @_Z11luaH_getstrP8LuaTableP7TString(ptr noundef nonnull %11, ptr noundef %16)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !28
+  %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = icmp eq i32 %19, 5
   br i1 %20, label %27, label %21
 
 21:                                               ; preds = %12
   %22 = load ptr, ptr %13, align 8, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2944
-  %24 = load i32, ptr %3, align 4, !tbaa !28
+  %24 = load i32, ptr %3, align 4, !tbaa !27
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds [11 x ptr], ptr %23, i64 0, i64 %25
   br label %27
 
 27:                                               ; preds = %21, %12
   %.0.in.i = phi ptr [ %26, %21 ], [ %17, %12 ]
-  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !33
+  %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !32
   br label %_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !38
+  %30 = load i32, ptr %29, align 8, !tbaa !37
   %31 = icmp ult i32 %30, 128
   br i1 %31, label %32, label %.thread.i
 
@@ -335,7 +335,7 @@ define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2856
   %42 = sext i32 %4 to i64
   %43 = getelementptr inbounds [11 x ptr], ptr %41, i64 0, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !34
+  %44 = load ptr, ptr %43, align 8, !tbaa !33
   %.not39.i = icmp eq ptr %44, null
   br i1 %.not39.i, label %53, label %45
 
@@ -344,18 +344,18 @@ define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue
   %47 = load ptr, ptr %46, align 8, !tbaa !21
   %48 = tail call noundef ptr @_Z11luaH_getstrP8LuaTableP7TString(ptr noundef nonnull %44, ptr noundef %47)
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  %50 = load i32, ptr %49, align 4, !tbaa !28
+  %50 = load i32, ptr %49, align 4, !tbaa !27
   %.not40.i = icmp eq i32 %50, 5
   br i1 %.not40.i, label %51, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %45
   %.pre.i = load ptr, ptr %39, align 8, !tbaa !9
-  %.pre54.i = load i32, ptr %3, align 4, !tbaa !28
+  %.pre54.i = load i32, ptr %3, align 4, !tbaa !27
   %.pre55.i = sext i32 %.pre54.i to i64
   br label %53
 
 51:                                               ; preds = %45
-  %52 = load ptr, ptr %48, align 8, !tbaa !33
+  %52 = load ptr, ptr %48, align 8, !tbaa !32
   br label %_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit
 
 53:                                               ; preds = %._crit_edge.i, %.thread.i
@@ -403,18 +403,17 @@ attributes #3 = { nounwind willreturn memory(read) }
 !21 = !{!20, !20, i64 0}
 !22 = !{!23, !7, i64 1}
 !23 = !{!"_ZTS7TString", !7, i64 0, !7, i64 1, !7, i64 2, !16, i64 4, !20, i64 8, !15, i64 16, !15, i64 20, !7, i64 24}
-!24 = distinct !{!24, !25, !26}
+!24 = distinct !{!24, !25}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"llvm.loop.estimated_trip_count"}
-!27 = distinct !{!27, !25, !26}
-!28 = !{!29, !15, i64 12}
-!29 = !{!"_ZTS10lua_TValue", !7, i64 0, !7, i64 8, !15, i64 12}
-!30 = !{!31, !7, i64 3}
-!31 = !{!"_ZTS8LuaTable", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7, !15, i64 8, !7, i64 12, !17, i64 16, !12, i64 24, !32, i64 32, !19, i64 40}
-!32 = !{!"p1 _ZTS7LuaNode", !6, i64 0}
-!33 = !{!7, !7, i64 0}
-!34 = !{!17, !17, i64 0}
-!35 = !{!36, !7, i64 3}
-!36 = !{!"_ZTS5Udata", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !15, i64 4, !17, i64 8, !7, i64 16}
-!37 = !{!36, !17, i64 8}
-!38 = !{!15, !15, i64 0}
+!26 = distinct !{!26, !25}
+!27 = !{!28, !15, i64 12}
+!28 = !{!"_ZTS10lua_TValue", !7, i64 0, !7, i64 8, !15, i64 12}
+!29 = !{!30, !7, i64 3}
+!30 = !{!"_ZTS8LuaTable", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7, !15, i64 8, !7, i64 12, !17, i64 16, !12, i64 24, !31, i64 32, !19, i64 40}
+!31 = !{!"p1 _ZTS7LuaNode", !6, i64 0}
+!32 = !{!7, !7, i64 0}
+!33 = !{!17, !17, i64 0}
+!34 = !{!35, !7, i64 3}
+!35 = !{!"_ZTS5Udata", !7, i64 0, !7, i64 1, !7, i64 2, !7, i64 3, !15, i64 4, !17, i64 8, !7, i64 16}
+!36 = !{!35, !17, i64 8}
+!37 = !{!15, !15, i64 0}

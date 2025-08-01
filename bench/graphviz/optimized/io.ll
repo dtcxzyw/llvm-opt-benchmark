@@ -211,6 +211,5 @@ attributes #8 = { nounwind }
 !18 = !{!"p1 _ZTS10Agiodisc_s", !5, i64 0}
 !19 = !{!16, !18, i64 8}
 !20 = !{!6, !6, i64 0}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!"llvm.loop.estimated_trip_count"}

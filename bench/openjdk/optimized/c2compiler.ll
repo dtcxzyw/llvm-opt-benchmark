@@ -309,7 +309,7 @@ _ZNK7Compile17failure_reason_isEPKc.exit:         ; preds = %48
 
 _ZNK7Compile17failure_reason_isEPKc.exit.thread:  ; preds = %46, %_ZNK7Compile17failure_reason_isEPKc.exit
   call void @_ZN5ciEnv14report_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %45) #10
-  br label %76, !llvm.loop !9
+  br label %76, !llvm.loop !8
 
 51:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit
   %52 = icmp eq ptr %44, @.str.4
@@ -322,7 +322,7 @@ _ZNK7Compile17failure_reason_isEPKc.exit37:       ; preds = %51
 
 _ZNK7Compile17failure_reason_isEPKc.exit37.thread: ; preds = %51, %_ZNK7Compile17failure_reason_isEPKc.exit37
   call void @_ZN5ciEnv14report_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %45) #10
-  br label %76, !llvm.loop !9
+  br label %76, !llvm.loop !8
 
 55:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit37
   %56 = icmp eq ptr %44, @.str.6
@@ -335,7 +335,7 @@ _ZNK7Compile17failure_reason_isEPKc.exit40:       ; preds = %55
 
 _ZNK7Compile17failure_reason_isEPKc.exit40.thread: ; preds = %55, %_ZNK7Compile17failure_reason_isEPKc.exit40
   call void @_ZN5ciEnv14report_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %45) #10
-  br label %76, !llvm.loop !9
+  br label %76, !llvm.loop !8
 
 59:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit40
   %60 = icmp eq ptr %44, @.str.7
@@ -348,7 +348,7 @@ _ZNK7Compile17failure_reason_isEPKc.exit43:       ; preds = %59
 
 _ZNK7Compile17failure_reason_isEPKc.exit43.thread: ; preds = %59, %_ZNK7Compile17failure_reason_isEPKc.exit43
   call void @_ZN5ciEnv14report_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %45) #10
-  br label %76, !llvm.loop !9
+  br label %76, !llvm.loop !8
 
 63:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit43
   %64 = icmp eq ptr %44, @.str.5
@@ -361,7 +361,7 @@ _ZNK7Compile17failure_reason_isEPKc.exit46:       ; preds = %63
 
 _ZNK7Compile17failure_reason_isEPKc.exit46.thread: ; preds = %63, %_ZNK7Compile17failure_reason_isEPKc.exit46
   call void @_ZN5ciEnv14report_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %45) #10
-  br label %76, !llvm.loop !9
+  br label %76, !llvm.loop !8
 
 67:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit46
   %68 = icmp eq ptr %44, @.str.8
@@ -374,7 +374,7 @@ _ZNK7Compile17failure_reason_isEPKc.exit49:       ; preds = %67
 
 _ZNK7Compile17failure_reason_isEPKc.exit49.thread: ; preds = %67, %_ZNK7Compile17failure_reason_isEPKc.exit49
   call void @_ZN5ciEnv14report_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %45) #10
-  br label %76, !llvm.loop !9
+  br label %76, !llvm.loop !8
 
 _ZNK7Compile17failure_reason_isEPKc.exit49.thread80: ; preds = %48, %_ZNK7Compile17failure_reason_isEPKc.exit49
   %71 = load i8, ptr %26, align 1
@@ -383,7 +383,7 @@ _ZNK7Compile17failure_reason_isEPKc.exit49.thread80: ; preds = %48, %_ZNK7Compil
 
 73:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit49.thread80
   call void @_ZN5ciEnv14report_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %45) #10
-  br label %76, !llvm.loop !9
+  br label %76, !llvm.loop !8
 
 74:                                               ; preds = %_ZNK7Compile17failure_reason_isEPKc.exit49.thread80
   call void @_ZN5ciEnv14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(1265) %1, ptr noundef nonnull %45) #10
@@ -424,7 +424,7 @@ _ZNK7Compile17failure_reason_isEPKc.exit49.thread80: ; preds = %48, %_ZNK7Compil
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %79, %81
-  br i1 %switch, label %27, label %82, !llvm.loop !10
+  br i1 %switch, label %27, label %82
 
 82:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %27
   call void @_ZN30CompilationMemoryStatisticMarkD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #10
@@ -1396,8 +1396,6 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !8}
+!8 = distinct !{!8, !7}

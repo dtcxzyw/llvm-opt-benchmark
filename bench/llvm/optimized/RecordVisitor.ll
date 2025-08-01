@@ -210,7 +210,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 42:                                               ; preds = %22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %43 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %.not = icmp eq ptr %43, %9
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -237,7 +237,7 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter18visitObjCInterfaceERKNS0
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %20 = load i8, ptr %19, align 8, !tbaa !58
+  %20 = load i8, ptr %19, align 8, !tbaa !56
   %21 = icmp ugt i8 %20, 2
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 65
   %23 = load i8, ptr %22, align 1
@@ -256,7 +256,7 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter18visitObjCInterfaceERKNS0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = tail call noundef ptr @_ZN4llvm5MachO9SymbolSet9addGlobalENS0_10EncodeKindENS_9StringRefENS0_11SymbolFlagsERKNS0_6TargetE(ptr noundef nonnull align 8 dereferenceable(120) %28, i8 noundef zeroext 1, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, i8 noundef zeroext %30, ptr noundef nonnull align 4 dereferenceable(24) %31) #10
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 66
-  %34 = load i8, ptr %33, align 2, !tbaa !75
+  %34 = load i8, ptr %33, align 2, !tbaa !73
   %.not = icmp eq i8 %34, 0
   br i1 %.not, label %105, label %35
 
@@ -281,17 +281,17 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %39
   %.sroa.0.0.copyload.i35 = load ptr, ptr %1, align 8, !tbaa !3
   %.sroa.2.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i37 = load i64, ptr %.sroa.2.0..sroa_idx.i36, align 8, !tbaa !8
-  store ptr @.str.1, ptr %4, align 8, !alias.scope !76
+  store ptr @.str.1, ptr %4, align 8, !alias.scope !74
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 15, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !tbaa !46, !alias.scope !76
+  store i64 15, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !tbaa !46, !alias.scope !74
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.sroa.0.0.copyload.i35, ptr %44, align 8, !alias.scope !76
+  store ptr %.sroa.0.0.copyload.i35, ptr %44, align 8, !alias.scope !74
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.2.0.copyload.i37, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !46, !alias.scope !76
+  store i64 %.sroa.2.0.copyload.i37, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !46, !alias.scope !74
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 6, ptr %45, align 8, !tbaa !39, !alias.scope !76
+  store i8 6, ptr %45, align 8, !tbaa !39, !alias.scope !74
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 5, ptr %46, align 1, !tbaa !45, !alias.scope !76
+  store i8 5, ptr %46, align 1, !tbaa !45, !alias.scope !74
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(34) %4) #10
   %47 = load ptr, ptr %3, align 8, !tbaa !52
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -335,17 +335,17 @@ _ZN4llvmplERKNS_5TwineES2_.exit59:                ; preds = %61
   %.sroa.0.0.copyload.i40 = load ptr, ptr %1, align 8, !tbaa !3
   %.sroa.2.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i42 = load i64, ptr %.sroa.2.0..sroa_idx.i41, align 8, !tbaa !8
-  store ptr @.str.3, ptr %6, align 8, !alias.scope !81
+  store ptr @.str.3, ptr %6, align 8, !alias.scope !79
   %.sroa.23.0..sroa_idx.i.i.i57 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 14, ptr %.sroa.23.0..sroa_idx.i.i.i57, align 8, !tbaa !46, !alias.scope !81
+  store i64 14, ptr %.sroa.23.0..sroa_idx.i.i.i57, align 8, !tbaa !46, !alias.scope !79
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %.sroa.0.0.copyload.i40, ptr %66, align 8, !alias.scope !81
+  store ptr %.sroa.0.0.copyload.i40, ptr %66, align 8, !alias.scope !79
   %.sroa.2.0..sroa_idx.i.i.i58 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %.sroa.2.0.copyload.i42, ptr %.sroa.2.0..sroa_idx.i.i.i58, align 8, !tbaa !46, !alias.scope !81
+  store i64 %.sroa.2.0.copyload.i42, ptr %.sroa.2.0..sroa_idx.i.i.i58, align 8, !tbaa !46, !alias.scope !79
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 6, ptr %67, align 8, !tbaa !39, !alias.scope !81
+  store i8 6, ptr %67, align 8, !tbaa !39, !alias.scope !79
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 5, ptr %68, align 1, !tbaa !45, !alias.scope !81
+  store i8 5, ptr %68, align 1, !tbaa !45, !alias.scope !79
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(34) %6) #10
   %69 = load ptr, ptr %5, align 8, !tbaa !52
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -389,17 +389,17 @@ _ZN4llvmplERKNS_5TwineES2_.exit82:                ; preds = %83
   %.sroa.0.0.copyload.i63 = load ptr, ptr %1, align 8, !tbaa !3
   %.sroa.2.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i65 = load i64, ptr %.sroa.2.0..sroa_idx.i64, align 8, !tbaa !8
-  store ptr @.str.5, ptr %8, align 8, !alias.scope !86
+  store ptr @.str.5, ptr %8, align 8, !alias.scope !84
   %.sroa.23.0..sroa_idx.i.i.i80 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 18, ptr %.sroa.23.0..sroa_idx.i.i.i80, align 8, !tbaa !46, !alias.scope !86
+  store i64 18, ptr %.sroa.23.0..sroa_idx.i.i.i80, align 8, !tbaa !46, !alias.scope !84
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %.sroa.0.0.copyload.i63, ptr %88, align 8, !alias.scope !86
+  store ptr %.sroa.0.0.copyload.i63, ptr %88, align 8, !alias.scope !84
   %.sroa.2.0..sroa_idx.i.i.i81 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 %.sroa.2.0.copyload.i65, ptr %.sroa.2.0..sroa_idx.i.i.i81, align 8, !tbaa !46, !alias.scope !86
+  store i64 %.sroa.2.0.copyload.i65, ptr %.sroa.2.0..sroa_idx.i.i.i81, align 8, !tbaa !46, !alias.scope !84
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 6, ptr %89, align 8, !tbaa !39, !alias.scope !86
+  store i8 6, ptr %89, align 8, !tbaa !39, !alias.scope !84
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 5, ptr %90, align 1, !tbaa !45, !alias.scope !86
+  store i8 5, ptr %90, align 1, !tbaa !45, !alias.scope !84
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(34) %8) #10
   %91 = load ptr, ptr %7, align 8, !tbaa !52
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -433,9 +433,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
 105:                                              ; preds = %35, %26, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85, %83, %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #10
   call void @_ZNK4llvm5MachO19ObjCContainerRecord12getObjCIVarsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %9, ptr noundef nonnull align 8 dereferenceable(64) %1) #10
-  %106 = load ptr, ptr %9, align 8, !tbaa !91
+  %106 = load ptr, ptr %9, align 8, !tbaa !89
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !94
+  %108 = load ptr, ptr %107, align 8, !tbaa !92
   %109 = ptrtoint ptr %108 to i64
   %110 = ptrtoint ptr %106 to i64
   %111 = sub i64 %109, %110
@@ -444,13 +444,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %_ZN
   %.sroa.2.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i88 = load i64, ptr %.sroa.2.0..sroa_idx.i87, align 8, !tbaa !8
   call void @_ZN4llvm5MachO15SymbolConverter8addIVarsENS_8ArrayRefIPNS0_14ObjCIVarRecordEEENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr %106, i64 %112, ptr %.sroa.0.0.copyload.i86, i64 %.sroa.2.0.copyload.i88)
-  %113 = load ptr, ptr %9, align 8, !tbaa !91
+  %113 = load ptr, ptr %9, align 8, !tbaa !89
   %.not.i.i.i = icmp eq ptr %113, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit, label %114
 
 114:                                              ; preds = %105
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %116 = load ptr, ptr %115, align 8, !tbaa !95
+  %116 = load ptr, ptr %115, align 8, !tbaa !93
   %117 = ptrtoint ptr %116 to i64
   %118 = ptrtoint ptr %113 to i64
   %119 = sub i64 %117, %118
@@ -461,9 +461,9 @@ _ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit: ; preds = %105, %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #10
   call void @_ZNK4llvm5MachO19ObjCInterfaceRecord17getObjCCategoriesEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.23") align 8 %10, ptr noundef nonnull align 8 dereferenceable(112) %1) #10
-  %120 = load ptr, ptr %10, align 8, !tbaa !96
+  %120 = load ptr, ptr %10, align 8, !tbaa !94
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !96
+  %122 = load ptr, ptr %121, align 8, !tbaa !94
   %.not116117 = icmp eq ptr %120, %122
   br i1 %.not116117, label %._crit_edge, label %.lr.ph
 
@@ -473,7 +473,7 @@ _ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit: ; preds = %105, %1
   br label %132
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit98
-  %.pre = load ptr, ptr %10, align 8, !tbaa !98
+  %.pre = load ptr, ptr %10, align 8, !tbaa !96
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit
@@ -483,7 +483,7 @@ _ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit: ; preds = %105, %1
 
 126:                                              ; preds = %._crit_edge
   %127 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %128 = load ptr, ptr %127, align 8, !tbaa !100
+  %128 = load ptr, ptr %127, align 8, !tbaa !98
   %129 = ptrtoint ptr %128 to i64
   %130 = ptrtoint ptr %125 to i64
   %131 = sub i64 %129, %130
@@ -496,11 +496,11 @@ _ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EED2Ev.exit: ; preds = %._c
 
 132:                                              ; preds = %.lr.ph, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit98
   %.sroa.0100.0118 = phi ptr [ %120, %.lr.ph ], [ %146, %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit98 ]
-  %133 = load ptr, ptr %.sroa.0100.0118, align 8, !tbaa !101
+  %133 = load ptr, ptr %.sroa.0100.0118, align 8, !tbaa !99
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #10
   call void @_ZNK4llvm5MachO19ObjCContainerRecord12getObjCIVarsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %11, ptr noundef nonnull align 8 dereferenceable(64) %133) #10
-  %134 = load ptr, ptr %11, align 8, !tbaa !91
-  %135 = load ptr, ptr %123, align 8, !tbaa !94
+  %134 = load ptr, ptr %11, align 8, !tbaa !89
+  %135 = load ptr, ptr %123, align 8, !tbaa !92
   %136 = ptrtoint ptr %135 to i64
   %137 = ptrtoint ptr %134 to i64
   %138 = sub i64 %136, %137
@@ -508,12 +508,12 @@ _ZNSt6vectorIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EED2Ev.exit: ; preds = %._c
   %.sroa.0.0.copyload.i92 = load ptr, ptr %1, align 8, !tbaa !3
   %.sroa.2.0.copyload.i94 = load i64, ptr %.sroa.2.0..sroa_idx.i87, align 8, !tbaa !8
   call void @_ZN4llvm5MachO15SymbolConverter8addIVarsENS_8ArrayRefIPNS0_14ObjCIVarRecordEEENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr %134, i64 %139, ptr %.sroa.0.0.copyload.i92, i64 %.sroa.2.0.copyload.i94)
-  %140 = load ptr, ptr %11, align 8, !tbaa !91
+  %140 = load ptr, ptr %11, align 8, !tbaa !89
   %.not.i.i.i97 = icmp eq ptr %140, null
   br i1 %.not.i.i.i97, label %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit98, label %141
 
 141:                                              ; preds = %132
-  %142 = load ptr, ptr %124, align 8, !tbaa !95
+  %142 = load ptr, ptr %124, align 8, !tbaa !93
   %143 = ptrtoint ptr %142 to i64
   %144 = ptrtoint ptr %140 to i64
   %145 = sub i64 %143, %144
@@ -524,7 +524,7 @@ _ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit98: ; preds = %132, 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #10
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.0100.0118, i64 8
   %.not116 = icmp eq ptr %146, %122
-  br i1 %.not116, label %._crit_edge.loopexit, label %132, !llvm.loop !103
+  br i1 %.not116, label %._crit_edge.loopexit, label %132
 }
 
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #5
@@ -538,9 +538,9 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter17visitObjCCategoryERKNS0_
   %3 = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
   call void @_ZNK4llvm5MachO19ObjCContainerRecord12getObjCIVarsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(64) %1) #10
-  %4 = load ptr, ptr %3, align 8, !tbaa !91
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !94
+  %6 = load ptr, ptr %5, align 8, !tbaa !92
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %4 to i64
   %9 = sub i64 %7, %8
@@ -550,13 +550,13 @@ define dso_local void @_ZN4llvm5MachO15SymbolConverter17visitObjCCategoryERKNS0_
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !8
   call void @_ZN4llvm5MachO15SymbolConverter8addIVarsENS_8ArrayRefIPNS0_14ObjCIVarRecordEEENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr %4, i64 %10, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
-  %12 = load ptr, ptr %3, align 8, !tbaa !91
+  %12 = load ptr, ptr %3, align 8, !tbaa !89
   %.not.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN4llvm5MachO14ObjCIVarRecordESaIS3_EED2Ev.exit, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !95
+  %15 = load ptr, ptr %14, align 8, !tbaa !93
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %12 to i64
   %18 = sub i64 %16, %17
@@ -660,51 +660,48 @@ attributes #11 = { builtin nounwind }
 !53 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !54, i64 0, !9, i64 8, !6, i64 16}
 !54 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !4, i64 0}
 !55 = !{!53, !9, i64 8}
-!56 = distinct !{!56, !57}
-!57 = !{!"llvm.loop.estimated_trip_count"}
-!58 = !{!59, !25, i64 64}
-!59 = !{!"_ZTSN4llvm5MachO19ObjCInterfaceRecordE", !60, i64 0, !69, i64 64, !70, i64 72}
-!60 = !{!"_ZTSN4llvm5MachO19ObjCContainerRecordE", !23, i64 0, !61, i64 24}
-!61 = !{!"_ZTSN4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS4_EENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S7_ELj0EEEEE", !62, i64 0, !64, i64 24}
-!62 = !{!"_ZTSN4llvm8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEE", !63, i64 0, !18, i64 8, !18, i64 12, !18, i64 16}
-!63 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairINS_9StringRefEjEE", !5, i64 0}
-!64 = !{!"_ZTSN4llvm11SmallVectorISt4pairINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS5_EEELj0EEE", !65, i64 0}
-!65 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS5_EEEEE", !66, i64 0}
-!66 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS5_EEELb0EEE", !67, i64 0}
-!67 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS5_EEEvEE", !68, i64 0}
-!68 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !5, i64 0, !18, i64 8, !18, i64 12}
-!69 = !{!"_ZTSN4llvm5MachO19ObjCInterfaceRecord8LinkagesE", !25, i64 0, !25, i64 1, !25, i64 2}
-!70 = !{!"_ZTSN4llvm9MapVectorINS_9StringRefEPNS_5MachO18ObjCCategoryRecordENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S4_ELj0EEEEE", !62, i64 0, !71, i64 24}
-!71 = !{!"_ZTSN4llvm11SmallVectorISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEELj0EEE", !72, i64 0}
-!72 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEEEE", !73, i64 0}
-!73 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEELb1EEE", !74, i64 0}
-!74 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEEvEE", !68, i64 0}
-!75 = !{!59, !25, i64 66}
-!76 = !{!77, !79}
-!77 = distinct !{!77, !78, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
-!78 = distinct !{!78, !"_ZNK4llvm5Twine6concatERKS0_"}
-!79 = distinct !{!79, !80, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
-!80 = distinct !{!80, !"_ZN4llvmplERKNS_5TwineES2_"}
-!81 = !{!82, !84}
-!82 = distinct !{!82, !83, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
-!83 = distinct !{!83, !"_ZNK4llvm5Twine6concatERKS0_"}
-!84 = distinct !{!84, !85, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
-!85 = distinct !{!85, !"_ZN4llvmplERKNS_5TwineES2_"}
-!86 = !{!87, !89}
-!87 = distinct !{!87, !88, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
-!88 = distinct !{!88, !"_ZNK4llvm5Twine6concatERKS0_"}
-!89 = distinct !{!89, !90, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
-!90 = distinct !{!90, !"_ZN4llvmplERKNS_5TwineES2_"}
-!91 = !{!92, !93, i64 0}
-!92 = !{!"_ZTSNSt12_Vector_baseIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE17_Vector_impl_dataE", !93, i64 0, !93, i64 8, !93, i64 16}
-!93 = !{!"p2 _ZTSN4llvm5MachO14ObjCIVarRecordE", !5, i64 0}
-!94 = !{!92, !93, i64 8}
-!95 = !{!92, !93, i64 16}
-!96 = !{!97, !97, i64 0}
-!97 = !{!"p2 _ZTSN4llvm5MachO18ObjCCategoryRecordE", !5, i64 0}
-!98 = !{!99, !97, i64 0}
-!99 = !{!"_ZTSNSt12_Vector_baseIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE17_Vector_impl_dataE", !97, i64 0, !97, i64 8, !97, i64 16}
-!100 = !{!99, !97, i64 16}
-!101 = !{!102, !102, i64 0}
-!102 = !{!"p1 _ZTSN4llvm5MachO18ObjCCategoryRecordE", !5, i64 0}
-!103 = distinct !{!103, !57}
+!56 = !{!57, !25, i64 64}
+!57 = !{!"_ZTSN4llvm5MachO19ObjCInterfaceRecordE", !58, i64 0, !67, i64 64, !68, i64 72}
+!58 = !{!"_ZTSN4llvm5MachO19ObjCContainerRecordE", !23, i64 0, !59, i64 24}
+!59 = !{!"_ZTSN4llvm9MapVectorINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS4_EENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S7_ELj0EEEEE", !60, i64 0, !62, i64 24}
+!60 = !{!"_ZTSN4llvm8DenseMapINS_9StringRefEjNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEE", !61, i64 0, !18, i64 8, !18, i64 12, !18, i64 16}
+!61 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairINS_9StringRefEjEE", !5, i64 0}
+!62 = !{!"_ZTSN4llvm11SmallVectorISt4pairINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS5_EEELj0EEE", !63, i64 0}
+!63 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS5_EEEEE", !64, i64 0}
+!64 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS5_EEELb0EEE", !65, i64 0}
+!65 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINS_9StringRefESt10unique_ptrINS_5MachO14ObjCIVarRecordESt14default_deleteIS5_EEEvEE", !66, i64 0}
+!66 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !5, i64 0, !18, i64 8, !18, i64 12}
+!67 = !{!"_ZTSN4llvm5MachO19ObjCInterfaceRecord8LinkagesE", !25, i64 0, !25, i64 1, !25, i64 2}
+!68 = !{!"_ZTSN4llvm9MapVectorINS_9StringRefEPNS_5MachO18ObjCCategoryRecordENS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S4_ELj0EEEEE", !60, i64 0, !69, i64 24}
+!69 = !{!"_ZTSN4llvm11SmallVectorISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEELj0EEE", !70, i64 0}
+!70 = !{!"_ZTSN4llvm15SmallVectorImplISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEEEE", !71, i64 0}
+!71 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEELb1EEE", !72, i64 0}
+!72 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINS_9StringRefEPNS_5MachO18ObjCCategoryRecordEEvEE", !66, i64 0}
+!73 = !{!57, !25, i64 66}
+!74 = !{!75, !77}
+!75 = distinct !{!75, !76, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
+!76 = distinct !{!76, !"_ZNK4llvm5Twine6concatERKS0_"}
+!77 = distinct !{!77, !78, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
+!78 = distinct !{!78, !"_ZN4llvmplERKNS_5TwineES2_"}
+!79 = !{!80, !82}
+!80 = distinct !{!80, !81, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
+!81 = distinct !{!81, !"_ZNK4llvm5Twine6concatERKS0_"}
+!82 = distinct !{!82, !83, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
+!83 = distinct !{!83, !"_ZN4llvmplERKNS_5TwineES2_"}
+!84 = !{!85, !87}
+!85 = distinct !{!85, !86, !"_ZNK4llvm5Twine6concatERKS0_: argument 0"}
+!86 = distinct !{!86, !"_ZNK4llvm5Twine6concatERKS0_"}
+!87 = distinct !{!87, !88, !"_ZN4llvmplERKNS_5TwineES2_: argument 0"}
+!88 = distinct !{!88, !"_ZN4llvmplERKNS_5TwineES2_"}
+!89 = !{!90, !91, i64 0}
+!90 = !{!"_ZTSNSt12_Vector_baseIPN4llvm5MachO14ObjCIVarRecordESaIS3_EE17_Vector_impl_dataE", !91, i64 0, !91, i64 8, !91, i64 16}
+!91 = !{!"p2 _ZTSN4llvm5MachO14ObjCIVarRecordE", !5, i64 0}
+!92 = !{!90, !91, i64 8}
+!93 = !{!90, !91, i64 16}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"p2 _ZTSN4llvm5MachO18ObjCCategoryRecordE", !5, i64 0}
+!96 = !{!97, !95, i64 0}
+!97 = !{!"_ZTSNSt12_Vector_baseIPN4llvm5MachO18ObjCCategoryRecordESaIS3_EE17_Vector_impl_dataE", !95, i64 0, !95, i64 8, !95, i64 16}
+!98 = !{!97, !95, i64 16}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p1 _ZTSN4llvm5MachO18ObjCCategoryRecordE", !5, i64 0}

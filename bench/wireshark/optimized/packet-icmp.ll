@@ -2288,7 +2288,7 @@ dissect_mpls_stack_entry_object.exit.thread:      ; preds = %74
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %115, ptr noundef nonnull @.str.344, i32 noundef %116)
   %117 = add i32 %83, 4
   %.not.i = icmp sgt i32 %117, %75
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %86, %.lr.ph.i, %80
   %.0.lcssa.i = phi i32 [ %81, %80 ], [ %83, %86 ], [ %.066.i, %.lr.ph.i ]
@@ -2565,7 +2565,7 @@ thread-pre-split.i:                               ; preds = %243
   %262 = add i32 %261, -4
   store i32 %262, ptr %6, align 4
   %263 = icmp ugt i32 %262, 3
-  br i1 %263, label %.lr.ph61.i, label %dissect_interface_identification_object.exit, !llvm.loop !12
+  br i1 %263, label %.lr.ph61.i, label %dissect_interface_identification_object.exit, !llvm.loop !11
 
 thread-pre-split55.i:                             ; preds = %243
   %.pr56.i = load i32, ptr %6, align 4
@@ -2586,7 +2586,7 @@ thread-pre-split55.i:                             ; preds = %243
   %272 = add i32 %271, -16
   store i32 %272, ptr %6, align 4
   %273 = icmp ugt i32 %272, 15
-  br i1 %273, label %.lr.ph.i110, label %dissect_interface_identification_object.exit, !llvm.loop !13
+  br i1 %273, label %.lr.ph.i110, label %dissect_interface_identification_object.exit, !llvm.loop !12
 
 274:                                              ; preds = %243
   %275 = load i32, ptr @hf_icmp_int_ident_address, align 4
@@ -2633,7 +2633,7 @@ dissect_mpls_extended_payload_object.exit.thread116: ; preds = %dissect_interfac
 290:                                              ; preds = %288, %dissect_mpls_extended_payload_object.exit.thread116
   %291 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %47)
   %292 = icmp sgt i32 %291, 3
-  br i1 %292, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %292, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %290, %.preheader, %62, %4, %37
   %.0100 = phi i32 [ 0, %37 ], [ 0, %4 ], [ %.0101122, %62 ], [ 4, %.preheader ], [ %47, %290 ]
@@ -2865,7 +2865,7 @@ define internal fastcc void @dissect_mip_extensions(ptr noundef %0, i32 noundef 
   %36 = add i32 %.374, 4
   %37 = add nuw nsw i32 %.075, 1
   %exitcond83.not = icmp eq i32 %37, %smax
-  br i1 %exitcond83.not, label %.thread, label %.lr.ph76, !llvm.loop !15
+  br i1 %exitcond83.not, label %.thread, label %.lr.ph76, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.173 = phi i32 [ %41, %.lr.ph ], [ 0, %.preheader ]
@@ -2875,7 +2875,7 @@ define internal fastcc void @dissect_mip_extensions(ptr noundef %0, i32 noundef 
   %40 = add i32 %.472, 1
   %41 = add nuw nsw i32 %.173, 1
   %exitcond.not = icmp eq i32 %41, %9
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !15
 
 42:                                               ; preds = %.lr.ph79._crit_edge
   %43 = load i32, ptr @hf_icmp_mip_challenge, align 4
@@ -2907,7 +2907,7 @@ define internal fastcc void @dissect_mip_extensions(ptr noundef %0, i32 noundef 
   %.2 = phi i32 [ %51, %47 ], [ %20, %46 ], [ %45, %42 ], [ %31, %21 ], [ %20, %.preheader ], [ %.pre, %.thread.critedge ], [ %36, %.lr.ph76 ], [ %40, %.lr.ph ]
   %58 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2)
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph79, label %.loopexit, !llvm.loop !17
+  br i1 %59, label %.lr.ph79, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.thread, %.preheader71, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
@@ -3020,13 +3020,12 @@ attributes #7 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !9}
+!15 = distinct !{!15, !9}
+!16 = distinct !{!16, !9}

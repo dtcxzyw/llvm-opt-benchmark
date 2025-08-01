@@ -338,7 +338,7 @@ define internal void @_ZNK4ncnn10ROIPooling7forwardERKSt6vectorINS_3MatESaIS2_EE
   %103 = getelementptr inbounds nuw float, ptr %.046123.us.us, i64 %indvars.iv147
   store float %.0106.lcssa.us.us, ptr %103, align 4, !tbaa !41
   %exitcond150.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count
-  br i1 %exitcond150.not, label %._crit_edge.us129.us, label %57, !llvm.loop !54
+  br i1 %exitcond150.not, label %._crit_edge.us129.us, label %57, !llvm.loop !53
 
 .preheader.us.us.us.preheader:                    ; preds = %99
   %104 = zext nneg i32 %82 to i64
@@ -370,18 +370,18 @@ define internal void @_ZNK4ncnn10ROIPooling7forwardERKSt6vectorINS_3MatESaIS2_EE
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %107, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %113, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge.us.us.us, label %113, !llvm.loop !55
 
 ._crit_edge.us.us.us:                             ; preds = %113
   %indvars.iv.next144 = add nsw i64 %indvars.iv143, 1
   %lftr.wideiv145 = trunc i64 %indvars.iv.next144 to i32
   %exitcond146.not = icmp eq i32 %111, %lftr.wideiv145
-  br i1 %exitcond146.not, label %._crit_edge119.us.us, label %.preheader.us.us.us, !llvm.loop !57
+  br i1 %exitcond146.not, label %._crit_edge119.us.us, label %.preheader.us.us.us, !llvm.loop !56
 
 ._crit_edge.us129.us:                             ; preds = %._crit_edge119.us.us
   %116 = getelementptr inbounds nuw float, ptr %.046123.us.us, i64 %41
   %exitcond151.not = icmp eq i32 %55, %36
-  br i1 %exitcond151.not, label %._crit_edge124.us, label %.preheader114.us.us, !llvm.loop !58
+  br i1 %exitcond151.not, label %._crit_edge124.us, label %.preheader114.us.us, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %._crit_edge124.us, %.noexc.lr.ph, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %21)
@@ -416,7 +416,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #6
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
-declare !callback !59 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #6
+declare !callback !58 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.round.f32(float) #7
@@ -498,13 +498,12 @@ attributes #10 = { builtin nounwind }
 !48 = !{!49}
 !49 = distinct !{!49, !50, !"_ZN4ncnn3Mat7channelEi: argument 0"}
 !50 = distinct !{!50, !"_ZN4ncnn3Mat7channelEi"}
-!51 = distinct !{!51, !52, !53}
-!52 = !{!"llvm.loop.estimated_trip_count"}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = distinct !{!54, !55, !52}
-!55 = !{!"llvm.loop.mustprogress"}
-!56 = distinct !{!56, !55, !52}
-!57 = distinct !{!57, !55, !52, !53}
-!58 = distinct !{!58, !55, !52, !53}
-!59 = !{!60}
-!60 = !{i64 2, i64 -1, i64 -1, i1 true}
+!51 = distinct !{!51, !52}
+!52 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!53 = distinct !{!53, !54}
+!54 = !{!"llvm.loop.mustprogress"}
+!55 = distinct !{!55, !54}
+!56 = distinct !{!56, !54, !52}
+!57 = distinct !{!57, !54, !52}
+!58 = !{!59}
+!59 = !{i64 2, i64 -1, i64 -1, i1 true}

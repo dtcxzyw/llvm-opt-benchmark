@@ -172,7 +172,7 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
   %96 = or disjoint i32 %91, %95
   %97 = add nuw nsw i64 %89, 1
   %98 = icmp eq i64 %97, 4
-  br i1 %98, label %99, label %88, !llvm.loop !10
+  br i1 %98, label %99, label %88, !llvm.loop !9
 
 99:                                               ; preds = %88
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -191,7 +191,7 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
   %110 = or disjoint i64 %105, %109
   %111 = add nuw nsw i64 %103, 1
   %112 = icmp eq i64 %111, 8
-  br i1 %112, label %113, label %102, !llvm.loop !11
+  br i1 %112, label %113, label %102, !llvm.loop !9
 
 113:                                              ; preds = %102
   %114 = shl nsw i32 -1, %85
@@ -248,7 +248,7 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
   store i16 1024, ptr %144, align 2
   %145 = add nuw nsw i64 %143, 1
   %146 = icmp eq i64 %145, %141
-  br i1 %146, label %.preheader, label %142, !llvm.loop !12
+  br i1 %146, label %.preheader, label %142, !llvm.loop !10
 
 .preheader:                                       ; preds = %142, %159
   %147 = phi i32 [ %167, %159 ], [ 0, %142 ]
@@ -283,7 +283,7 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
   %167 = or disjoint i32 %163, %166
   %168 = add nuw nsw i32 %151, 1
   %169 = icmp eq i32 %168, 5
-  br i1 %169, label %170, label %.preheader, !llvm.loop !13
+  br i1 %169, label %170, label %.preheader, !llvm.loop !11
 
 170:                                              ; preds = %159
   store ptr %164, ptr %35, align 8
@@ -309,7 +309,7 @@ define dso_local range(i32 -1, 1) i32 @unlzma(ptr noundef %0, i64 noundef %1, pt
   %183 = getelementptr i16, ptr %138, i64 %182
   %184 = zext nneg i32 %179 to i64
   %185 = getelementptr i16, ptr %183, i64 %184
-  %186 = call fastcc i32 @rc_is_bit_0(ptr noundef nonnull %9, ptr noundef %185) #12, !range !14
+  %186 = call fastcc i32 @rc_is_bit_0(ptr noundef nonnull %9, ptr noundef %185) #12, !range !12
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %192, label %188
 
@@ -492,7 +492,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr noundef ca
   %50 = getelementptr i16, ptr %43, i64 %49
   %51 = sext i32 %45 to i64
   %52 = getelementptr i16, ptr %50, i64 %51
-  %53 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %52, ptr noundef nonnull %8) #12, !range !14
+  %53 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %52, ptr noundef nonnull %8) #12, !range !12
   %54 = icmp eq i32 %53, 0
   %55 = icmp eq i32 %48, 0
   %56 = xor i1 %54, %55
@@ -501,7 +501,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr noundef ca
   br i1 %56, label %.loopexit3, label %58
 
 58:                                               ; preds = %44
-  br i1 %57, label %44, label %.loopexit, !llvm.loop !15
+  br i1 %57, label %44, label %.loopexit, !llvm.loop !13
 
 .loopexit3:                                       ; preds = %44
   br i1 %57, label %.preheader.preheader, label %.loopexit
@@ -514,10 +514,10 @@ define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr noundef ca
   %59 = phi i32 [ %63, %.preheader ], [ %.ph, %.preheader.preheader ]
   %60 = sext i32 %59 to i64
   %61 = getelementptr i16, ptr %35, i64 %60
-  %62 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %61, ptr noundef nonnull %8) #12, !range !14
+  %62 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %61, ptr noundef nonnull %8) #12, !range !12
   %63 = load i32, ptr %8, align 4
   %64 = icmp slt i32 %63, 256
-  br i1 %64, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %64, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %58, %.preheader, %.loopexit3
   %65 = phi i32 [ %.pr.pre, %.loopexit3 ], [ %63, %.preheader ], [ %.pr.pre, %58 ]
@@ -541,7 +541,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @process_bit0(ptr noundef ca
   %75 = phi i32 [ %71, %70 ], [ %73, %72 ], [ 0, %.loopexit ]
   store i32 %75, ptr %2, align 4
   %76 = trunc i32 %65 to i8
-  %77 = tail call fastcc i32 @write_byte(ptr noundef %0, i8 noundef zeroext %76) #12, !range !17
+  %77 = tail call fastcc i32 @write_byte(ptr noundef %0, i8 noundef zeroext %76) #12, !range !15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10
   ret i32 %77
 }
@@ -570,7 +570,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %22 = load i32, ptr %2, align 4
   %23 = sext i32 %22 to i64
   %24 = getelementptr i16, ptr %21, i64 %23
-  %25 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %24) #12, !range !14
+  %25 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %24) #12, !range !12
   %26 = icmp eq i32 %25, 0
   %27 = load i32, ptr %10, align 8
   br i1 %26, label %45, label %28
@@ -614,7 +614,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %54 = load i32, ptr %2, align 4
   %55 = sext i32 %54 to i64
   %56 = getelementptr i16, ptr %53, i64 %55
-  %57 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %56) #12, !range !14
+  %57 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %56) #12, !range !12
   %58 = icmp eq i32 %57, 0
   %59 = load i32, ptr %10, align 8
   br i1 %58, label %99, label %60
@@ -635,7 +635,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %71 = getelementptr i16, ptr %67, i64 %70
   %72 = zext nneg i32 %4 to i64
   %73 = getelementptr i16, ptr %71, i64 %72
-  %74 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %73) #12, !range !14
+  %74 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %73) #12, !range !12
   %75 = icmp eq i32 %74, 0
   %76 = load i32, ptr %10, align 8
   br i1 %75, label %91, label %77
@@ -656,7 +656,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = tail call fastcc zeroext i8 @peek_old_byte(ptr noundef %0, i32 noundef %88) #12
-  %90 = tail call fastcc noundef i32 @write_byte(ptr noundef %0, i8 noundef zeroext %89) #12, !range !17
+  %90 = tail call fastcc noundef i32 @write_byte(ptr noundef %0, i8 noundef zeroext %89) #12, !range !15
   br label %331
 
 91:                                               ; preds = %60
@@ -687,7 +687,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %108 = load i32, ptr %2, align 4
   %109 = sext i32 %108 to i64
   %110 = getelementptr i16, ptr %107, i64 %109
-  %111 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %110) #12, !range !14
+  %111 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %110) #12, !range !12
   %112 = icmp eq i32 %111, 0
   %113 = load i32, ptr %10, align 8
   br i1 %112, label %123, label %114
@@ -720,7 +720,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %132 = load i32, ptr %2, align 4
   %133 = sext i32 %132 to i64
   %134 = getelementptr i16, ptr %131, i64 %133
-  %135 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %134) #12, !range !14
+  %135 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %134) #12, !range !12
   %136 = icmp eq i32 %135, 0
   %137 = load i32, ptr %10, align 8
   br i1 %136, label %147, label %138
@@ -784,7 +784,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %175 = phi i64 [ 2664, %169 ], [ 1636, %28 ]
   store i32 %174, ptr %2, align 4
   %176 = getelementptr i8, ptr %3, i64 %175
-  %177 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %176) #12, !range !14
+  %177 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %176) #12, !range !12
   %178 = icmp eq i32 %177, 0
   %179 = load i32, ptr %10, align 8
   br i1 %178, label %191, label %180
@@ -816,7 +816,7 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %198 = sub i16 %196, %197
   store i16 %198, ptr %176, align 2
   %199 = getelementptr i8, ptr %176, i64 2
-  %200 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %199) #12, !range !14
+  %200 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %1, ptr noundef %199) #12, !range !12
   %201 = icmp eq i32 %200, 0
   %202 = load i32, ptr %10, align 8
   br i1 %201, label %214, label %203
@@ -863,9 +863,9 @@ define internal fastcc i32 @process_bit1(ptr noundef captures(none) %0, ptr noun
   %230 = load i32, ptr %7, align 4
   %231 = sext i32 %230 to i64
   %232 = getelementptr i16, ptr %225, i64 %231
-  %233 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %232, ptr noundef nonnull %7) #12, !range !14
+  %233 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %232, ptr noundef nonnull %7) #12, !range !12
   %234 = icmp eq i32 %229, 0
-  br i1 %234, label %rc_bit_tree_decode.exit, label %227, !llvm.loop !18
+  br i1 %234, label %rc_bit_tree_decode.exit, label %227, !llvm.loop !16
 
 rc_bit_tree_decode.exit:                          ; preds = %227
   %235 = shl nsw i32 -1, %226
@@ -900,9 +900,9 @@ rc_bit_tree_decode.exit._crit_edge:               ; preds = %rc_bit_tree_decode.
   %251 = load i32, ptr %8, align 4
   %252 = sext i32 %251 to i64
   %253 = getelementptr i16, ptr %247, i64 %252
-  %254 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %253, ptr noundef nonnull %8) #12, !range !14
+  %254 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %253, ptr noundef nonnull %8) #12, !range !12
   %255 = icmp eq i32 %250, 0
-  br i1 %255, label %256, label %248, !llvm.loop !19
+  br i1 %255, label %256, label %248, !llvm.loop !16
 
 256:                                              ; preds = %248
   %257 = load i32, ptr %8, align 4
@@ -944,11 +944,11 @@ rc_bit_tree_decode.exit._crit_edge:               ; preds = %rc_bit_tree_decode.
   %280 = phi i32 [ %281, %.preheader ], [ %277, %276 ]
   %281 = add nsw i32 %280, -1
   %282 = shl i32 %279, 1
-  %283 = tail call fastcc i32 @rc_direct_bit(ptr noundef %1) #12, !range !14
+  %283 = tail call fastcc i32 @rc_direct_bit(ptr noundef %1) #12, !range !12
   %284 = or disjoint i32 %282, %283
   store i32 %284, ptr %264, align 4
   %285 = icmp eq i32 %281, 0
-  br i1 %285, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %285, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %276
   %286 = phi i32 [ %263, %276 ], [ %284, %.preheader ]
@@ -970,7 +970,7 @@ rc_bit_tree_decode.exit._crit_edge:               ; preds = %rc_bit_tree_decode.
   %296 = load i32, ptr %9, align 4
   %297 = sext i32 %296 to i64
   %298 = getelementptr i16, ptr %290, i64 %297
-  %299 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %298, ptr noundef nonnull %9) #12, !range !14
+  %299 = call fastcc i32 @rc_get_bit(ptr noundef %1, ptr noundef %298, ptr noundef nonnull %9) #12, !range !12
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %304, label %301
 
@@ -983,7 +983,7 @@ rc_bit_tree_decode.exit._crit_edge:               ; preds = %rc_bit_tree_decode.
 304:                                              ; preds = %301, %292
   %305 = shl i32 %294, 1
   %306 = icmp eq i32 %295, 0
-  br i1 %306, label %307, label %292, !llvm.loop !21
+  br i1 %306, label %307, label %292, !llvm.loop !18
 
 307:                                              ; preds = %304
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
@@ -1125,7 +1125,7 @@ define internal fastcc zeroext i8 @peek_old_byte(ptr noundef readonly captures(n
   %12 = phi i32 [ %14, %11 ], [ %1, %6 ]
   %13 = icmp ugt i32 %12, %10
   %14 = sub i32 %12, %10
-  br i1 %13, label %11, label %15, !llvm.loop !22
+  br i1 %13, label %11, label %15, !llvm.loop !19
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1152,7 +1152,7 @@ define internal fastcc zeroext i8 @peek_old_byte(ptr noundef readonly captures(n
   %33 = phi i32 [ %27, %23 ], [ %35, %32 ]
   %34 = icmp ult i32 %33, %31
   %35 = add i32 %33, %31
-  br i1 %34, label %36, label %32, !llvm.loop !23
+  br i1 %34, label %36, label %32, !llvm.loop !20
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %0, align 8
@@ -1168,7 +1168,7 @@ define internal fastcc zeroext i8 @peek_old_byte(ptr noundef readonly captures(n
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc noundef range(i32 0, 2) i32 @rc_get_bit(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #6 section ".init.text" align 16 {
-  %4 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %0, ptr noundef %1) #12, !range !14
+  %4 = tail call fastcc i32 @rc_is_bit_0(ptr noundef %0, ptr noundef %1) #12, !range !12
   %5 = icmp eq i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
@@ -1305,7 +1305,7 @@ define internal fastcc i32 @copy_bytes(ptr noundef captures(none) %0, i32 nounde
 6:                                                ; preds = %14, %3
   %7 = phi i32 [ %2, %3 ], [ %12, %14 ]
   %8 = tail call fastcc zeroext i8 @peek_old_byte(ptr noundef %0, i32 noundef %1) #12
-  %9 = tail call fastcc noundef i32 @write_byte(ptr noundef %0, i8 noundef zeroext %8) #12, !range !17
+  %9 = tail call fastcc noundef i32 @write_byte(ptr noundef %0, i8 noundef zeroext %8) #12, !range !15
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %20
 
@@ -1320,7 +1320,7 @@ define internal fastcc i32 @copy_bytes(ptr noundef captures(none) %0, i32 nounde
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 5
   %18 = load i64, ptr %17, align 1
   %19 = icmp ult i64 %15, %18
-  br i1 %19, label %6, label %20, !llvm.loop !24
+  br i1 %19, label %6, label %20, !llvm.loop !21
 
 20:                                               ; preds = %14, %11, %6
   %21 = phi i32 [ -1, %6 ], [ 0, %11 ], [ %12, %14 ]
@@ -1361,22 +1361,19 @@ attributes #12 = { cold }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8, !9}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !7, !8, !9}
-!11 = distinct !{!11, !7, !8, !9}
-!12 = distinct !{!12, !7, !8, !9}
-!13 = distinct !{!13, !7, !8, !9}
-!14 = !{i32 0, i32 2}
-!15 = distinct !{!15, !7, !8, !9}
-!16 = distinct !{!16, !7, !8, !9}
-!17 = !{i32 -1, i32 1}
-!18 = distinct !{!18, !7, !8, !9}
-!19 = distinct !{!19, !7, !8, !9}
-!20 = distinct !{!20, !7, !8, !9}
-!21 = distinct !{!21, !7, !8, !9}
-!22 = distinct !{!22, !7, !8, !9}
-!23 = distinct !{!23, !7, !8, !9}
-!24 = distinct !{!24, !7, !8, !9}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i32 0, i32 2}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = !{i32 -1, i32 1}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

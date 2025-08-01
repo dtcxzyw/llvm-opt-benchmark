@@ -1824,12 +1824,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   store i8 0, ptr %470, align 1
   %471 = add nuw nsw i32 %.047360, 1
   %exitcond362.not = icmp eq i32 %471, 5
-  br i1 %exitcond362.not, label %472, label %.preheader, !llvm.loop !7
+  br i1 %exitcond362.not, label %472, label %.preheader, !llvm.loop !6
 
 472:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendEPKc.exit132
   %473 = add nuw nsw i32 %.0361, 1
   %exitcond363.not = icmp eq i32 %473, 5
-  br i1 %exitcond363.not, label %474, label %.preheader358, !llvm.loop !8
+  br i1 %exitcond363.not, label %474, label %.preheader358, !llvm.loop !7
 
 474:                                              ; preds = %472
   ret void
@@ -3951,7 +3951,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE11
 
 110:                                              ; preds = %108
   %111 = getelementptr inbounds nuw i8, ptr %.0.i.i.i139, i64 1
-  br label %108, !llvm.loop !9
+  br label %108, !llvm.loop !8
 
 _ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i.i:     ; preds = %108, %108
   %112 = icmp ne i8 %109, 0
@@ -3961,7 +3961,7 @@ _ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i.i:     ; preds = %108, %108
   %115 = add nuw nsw i32 %.010.i.i, 1
   %116 = icmp samesign ult i32 %115, %.0.i138
   %117 = and i1 %116, %112
-  br i1 %117, label %.preheader.i.i, label %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i, !llvm.loop !10
+  br i1 %117, label %.preheader.i.i, label %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i, !llvm.loop !9
 
 _ZN12_GLOBAL__N_16NthArgEPKci.exit.i:             ; preds = %_ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i.i
   br i1 %112, label %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i.thread, label %.split2.us.i
@@ -3986,7 +3986,7 @@ _ZN12_GLOBAL__N_16NthArgEPKci.exit.i.thread:      ; preds = %.split.i, %_ZN12_GL
   %.2411 = phi i32 [ %.0409, %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i.thread ], [ 4, %119 ], [ %.0409, %.sink.split.i ]
   %.1408 = phi i32 [ %.0407, %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i.thread ], [ 4, %119 ], [ 4, %.sink.split.i ]
   %121 = add nuw nsw i32 %.0.i138, 1
-  br label %.split.i, !llvm.loop !11
+  br label %.split.i, !llvm.loop !10
 
 .split2.us.i:                                     ; preds = %_ZN12_GLOBAL__N_16NthArgEPKci.exit.i
   %.not447 = icmp eq i32 %.04.i, 0
@@ -4228,7 +4228,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   %spec.select.i.i.i = add i32 %.08.i.i.i, %192
   %193 = getelementptr inbounds nuw i8, ptr %.057.i.i.i, i64 1
   %.not.i.i82.i = icmp eq ptr %193, %189
-  br i1 %.not.i.i82.i, label %_ZSt5countIPKccENSt15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i82.i, label %_ZSt5countIPKccENSt15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZSt5countIPKccENSt15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i: ; preds = %.lr.ph.i.i.i, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit81.thread.i
   %.0.lcssa.i.i.i = phi i32 [ 0, %_ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS7_.exit81.thread.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
@@ -4896,7 +4896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
 
 384:                                              ; preds = %382
   %385 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
-  br label %382, !llvm.loop !9
+  br label %382, !llvm.loop !8
 
 _ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i:       ; preds = %382, %382
   %386 = icmp ne i8 %383, 0
@@ -4906,7 +4906,7 @@ _ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i:       ; preds = %382, %382
   %389 = add nuw nsw i32 %.010.i, 1
   %390 = icmp samesign ult i32 %389, %.0103
   %391 = and i1 %390, %386
-  br i1 %391, label %.preheader.i, label %.preheader.i179, !llvm.loop !10
+  br i1 %391, label %.preheader.i, label %.preheader.i179, !llvm.loop !9
 
 .preheader.i179:                                  ; preds = %_ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i, %_ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i183
   %.010.i180 = phi i32 [ %399, %_ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i183 ], [ 0, %_ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i ]
@@ -4923,7 +4923,7 @@ _ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i:       ; preds = %382, %382
 
 394:                                              ; preds = %392
   %395 = getelementptr inbounds nuw i8, ptr %.0.i.i182, i64 1
-  br label %392, !llvm.loop !9
+  br label %392, !llvm.loop !8
 
 _ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i183:    ; preds = %392, %392
   %396 = icmp ne i8 %393, 0
@@ -4933,7 +4933,7 @@ _ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i183:    ; preds = %392, %392
   %399 = add nuw nsw i32 %.010.i180, 1
   %400 = icmp samesign ult i32 %399, %.0103
   %401 = and i1 %400, %396
-  br i1 %401, label %.preheader.i179, label %_ZN12_GLOBAL__N_16NthArgEPKci.exit185, !llvm.loop !10
+  br i1 %401, label %.preheader.i179, label %_ZN12_GLOBAL__N_16NthArgEPKci.exit185, !llvm.loop !9
 
 _ZN12_GLOBAL__N_16NthArgEPKci.exit185:            ; preds = %_ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i183, %381
   %.06.lcssa.i427 = phi ptr [ %.0106471, %381 ], [ %spec.select.i177, %_ZN12_GLOBAL__N_112FindEndOfArgEPKc.exit.i183 ]
@@ -5572,7 +5572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   %.0401 = phi ptr [ %.0.i199, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit215.thread ], [ %spec.select446, %600 ]
   %604 = call fastcc noundef nonnull align 8 dereferenceable(40) ptr @_ZN12_GLOBAL__N_114AppendTypeNameERNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEPKcSA_ii(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull %.0401, ptr noundef %.1404, i32 noundef %.1, i32 noundef %.0108455)
   %605 = add nuw nsw i32 %.0103, 1
-  br label %381, !llvm.loop !13
+  br label %381, !llvm.loop !12
 
 606:                                              ; preds = %_ZN12_GLOBAL__N_16NthArgEPKci.exit185
   %607 = load i64, ptr %48, align 8
@@ -5672,7 +5672,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.backedge: ; preds = %637, %._crit_edge
   %.0108455.be = phi i32 [ %638, %637 ], [ 1, %._crit_edge ]
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i, !llvm.loop !14
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %637
   %.0..0..0.392 = load i32, ptr %10, align 4
@@ -5683,7 +5683,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i.bac
 
 ._crit_edge458.split:                             ; preds = %._crit_edge
   %640 = getelementptr inbounds nuw i8, ptr %.0109460, i64 1
-  br label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141, !llvm.loop !15
+  br label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141, !llvm.loop !14
 
 _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread.sink.split: ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.us, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.us
   store i32 %spec.select444469, ptr %10, align 4
@@ -5711,7 +5711,7 @@ _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit141.thread: ; preds = %_ZN12_GLOBAL__N_110
   %isdigit = icmp ult i32 %isdigittmp, 10
   %spec.select119 = select i1 %isdigit, ptr %647, ptr %.1107
   %650 = getelementptr inbounds nuw i8, ptr %spec.select119, i64 1
-  br label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit, !llvm.loop !16
+  br label %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit, !llvm.loop !15
 
 _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread:    ; preds = %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit, %42
   %.0..promoted503 = phi i32 [ %.0..promoted499, %42 ], [ %.0..promoted468, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit ], [ %.0..promoted468, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit ]
@@ -5726,7 +5726,7 @@ _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread:    ; preds = %_ZN12_GLOBAL__N_110
 .backedge:                                        ; preds = %652, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread
   %.0..promoted502 = phi i32 [ %.0..promoted499, %652 ], [ %.0..promoted503, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread ]
   %.0105477.be = add nuw nsw i32 %.0105477, 1
-  br label %38, !llvm.loop !17
+  br label %38, !llvm.loop !16
 
 653:                                              ; preds = %652, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread
   %.0..promoted501 = phi i32 [ %.0..promoted499, %652 ], [ %.0..promoted503, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread ]
@@ -5734,7 +5734,7 @@ _ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread:    ; preds = %_ZN12_GLOBAL__N_110
   %654 = getelementptr inbounds nuw [302 x %struct.anon], ptr @_ZZN7glslang22TBuiltInParseablesHlsl10initializeEi8EProfileRKNS_10SpvVersionEE14hlslIntrinsics, i64 0, i64 %indvars.iv.next
   %655 = load ptr, ptr %654, align 16
   %.not = icmp eq ptr %655, null
-  br i1 %.not, label %656, label %.preheader451, !llvm.loop !18
+  br i1 %.not, label %656, label %.preheader451, !llvm.loop !17
 
 656:                                              ; preds = %653
   call void @_ZN7glslang22TBuiltInParseablesHlsl17createMatTimesMatEv(ptr noundef nonnull align 8 dereferenceable(608) %0)
@@ -5773,7 +5773,7 @@ define void @_ZN7glslang22TBuiltInParseablesHlsl16identifyBuiltInsEi8EProfileRKN
   %20 = sub i64 %18, %19
   %21 = ashr exact i64 %20, 3
   %22 = icmp ugt i64 %21, %15
-  br i1 %22, label %.lr.ph.i, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit, !llvm.loop !19
+  br i1 %22, label %.lr.ph.i, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit: ; preds = %.lr.ph.i
   %23 = icmp eq ptr %16, %17
@@ -5795,7 +5795,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit: ; preds = %.
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 3
   %36 = icmp ugt i64 %35, %29
-  br i1 %36, label %.lr.ph.i188, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit190, !llvm.loop !19
+  br i1 %36, label %.lr.ph.i188, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit190, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit190: ; preds = %.lr.ph.i188
   %37 = icmp eq ptr %30, %31
@@ -5817,7 +5817,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit190: ; preds =
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 3
   %50 = icmp ugt i64 %49, %43
-  br i1 %50, label %.lr.ph.i192, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit194, !llvm.loop !19
+  br i1 %50, label %.lr.ph.i192, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit194, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit194: ; preds = %.lr.ph.i192
   %51 = icmp eq ptr %44, %45
@@ -5839,7 +5839,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit194: ; preds =
   %62 = sub i64 %60, %61
   %63 = ashr exact i64 %62, 3
   %64 = icmp ugt i64 %63, %57
-  br i1 %64, label %.lr.ph.i196, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit198, !llvm.loop !19
+  br i1 %64, label %.lr.ph.i196, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit198, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit198: ; preds = %.lr.ph.i196
   %65 = icmp eq ptr %58, %59
@@ -5861,7 +5861,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit198: ; preds =
   %76 = sub i64 %74, %75
   %77 = ashr exact i64 %76, 3
   %78 = icmp ugt i64 %77, %71
-  br i1 %78, label %.lr.ph.i200, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit202, !llvm.loop !19
+  br i1 %78, label %.lr.ph.i200, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit202, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit202: ; preds = %.lr.ph.i200
   %79 = icmp eq ptr %72, %73
@@ -5883,7 +5883,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit202: ; preds =
   %90 = sub i64 %88, %89
   %91 = ashr exact i64 %90, 3
   %92 = icmp ugt i64 %91, %85
-  br i1 %92, label %.lr.ph.i204, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit206, !llvm.loop !19
+  br i1 %92, label %.lr.ph.i204, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit206, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit206: ; preds = %.lr.ph.i204
   %93 = icmp eq ptr %86, %87
@@ -5905,7 +5905,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit206: ; preds =
   %104 = sub i64 %102, %103
   %105 = ashr exact i64 %104, 3
   %106 = icmp ugt i64 %105, %99
-  br i1 %106, label %.lr.ph.i208, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit210, !llvm.loop !19
+  br i1 %106, label %.lr.ph.i208, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit210, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit210: ; preds = %.lr.ph.i208
   %107 = icmp eq ptr %100, %101
@@ -5927,7 +5927,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit210: ; preds =
   %118 = sub i64 %116, %117
   %119 = ashr exact i64 %118, 3
   %120 = icmp ugt i64 %119, %113
-  br i1 %120, label %.lr.ph.i212, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit214, !llvm.loop !19
+  br i1 %120, label %.lr.ph.i212, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit214, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit214: ; preds = %.lr.ph.i212
   %121 = icmp eq ptr %114, %115
@@ -5949,7 +5949,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit214: ; preds =
   %132 = sub i64 %130, %131
   %133 = ashr exact i64 %132, 3
   %134 = icmp ugt i64 %133, %127
-  br i1 %134, label %.lr.ph.i216, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit218, !llvm.loop !19
+  br i1 %134, label %.lr.ph.i216, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit218, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit218: ; preds = %.lr.ph.i216
   %135 = icmp eq ptr %128, %129
@@ -5971,7 +5971,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit218: ; preds =
   %146 = sub i64 %144, %145
   %147 = ashr exact i64 %146, 3
   %148 = icmp ugt i64 %147, %141
-  br i1 %148, label %.lr.ph.i220, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit222, !llvm.loop !19
+  br i1 %148, label %.lr.ph.i220, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit222, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit222: ; preds = %.lr.ph.i220
   %149 = icmp eq ptr %142, %143
@@ -5993,7 +5993,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit222: ; preds =
   %160 = sub i64 %158, %159
   %161 = ashr exact i64 %160, 3
   %162 = icmp ugt i64 %161, %155
-  br i1 %162, label %.lr.ph.i224, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit226, !llvm.loop !19
+  br i1 %162, label %.lr.ph.i224, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit226, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit226: ; preds = %.lr.ph.i224
   %163 = icmp eq ptr %156, %157
@@ -6015,7 +6015,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit226: ; preds =
   %174 = sub i64 %172, %173
   %175 = ashr exact i64 %174, 3
   %176 = icmp ugt i64 %175, %169
-  br i1 %176, label %.lr.ph.i228, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit230, !llvm.loop !19
+  br i1 %176, label %.lr.ph.i228, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit230, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit230: ; preds = %.lr.ph.i228
   %177 = icmp eq ptr %170, %171
@@ -6037,7 +6037,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit230: ; preds =
   %188 = sub i64 %186, %187
   %189 = ashr exact i64 %188, 3
   %190 = icmp ugt i64 %189, %183
-  br i1 %190, label %.lr.ph.i232, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit234, !llvm.loop !19
+  br i1 %190, label %.lr.ph.i232, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit234, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit234: ; preds = %.lr.ph.i232
   %191 = icmp eq ptr %184, %185
@@ -6059,7 +6059,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit234: ; preds =
   %202 = sub i64 %200, %201
   %203 = ashr exact i64 %202, 3
   %204 = icmp ugt i64 %203, %197
-  br i1 %204, label %.lr.ph.i236, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit238, !llvm.loop !19
+  br i1 %204, label %.lr.ph.i236, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit238, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit238: ; preds = %.lr.ph.i236
   %205 = icmp eq ptr %198, %199
@@ -6081,7 +6081,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit238: ; preds =
   %216 = sub i64 %214, %215
   %217 = ashr exact i64 %216, 3
   %218 = icmp ugt i64 %217, %211
-  br i1 %218, label %.lr.ph.i240, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit242, !llvm.loop !19
+  br i1 %218, label %.lr.ph.i240, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit242, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit242: ; preds = %.lr.ph.i240
   %219 = icmp eq ptr %212, %213
@@ -6103,7 +6103,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit242: ; preds =
   %230 = sub i64 %228, %229
   %231 = ashr exact i64 %230, 3
   %232 = icmp ugt i64 %231, %225
-  br i1 %232, label %.lr.ph.i244, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit246, !llvm.loop !19
+  br i1 %232, label %.lr.ph.i244, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit246, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit246: ; preds = %.lr.ph.i244
   %233 = icmp eq ptr %226, %227
@@ -6125,7 +6125,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit246: ; preds =
   %244 = sub i64 %242, %243
   %245 = ashr exact i64 %244, 3
   %246 = icmp ugt i64 %245, %239
-  br i1 %246, label %.lr.ph.i248, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit250, !llvm.loop !19
+  br i1 %246, label %.lr.ph.i248, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit250, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit250: ; preds = %.lr.ph.i248
   %247 = icmp eq ptr %240, %241
@@ -6147,7 +6147,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit250: ; preds =
   %258 = sub i64 %256, %257
   %259 = ashr exact i64 %258, 3
   %260 = icmp ugt i64 %259, %253
-  br i1 %260, label %.lr.ph.i252, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit254, !llvm.loop !19
+  br i1 %260, label %.lr.ph.i252, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit254, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit254: ; preds = %.lr.ph.i252
   %261 = icmp eq ptr %254, %255
@@ -6169,7 +6169,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit254: ; preds =
   %272 = sub i64 %270, %271
   %273 = ashr exact i64 %272, 3
   %274 = icmp ugt i64 %273, %267
-  br i1 %274, label %.lr.ph.i256, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit258, !llvm.loop !19
+  br i1 %274, label %.lr.ph.i256, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit258, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit258: ; preds = %.lr.ph.i256
   %275 = icmp eq ptr %268, %269
@@ -6191,7 +6191,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit258: ; preds =
   %286 = sub i64 %284, %285
   %287 = ashr exact i64 %286, 3
   %288 = icmp ugt i64 %287, %281
-  br i1 %288, label %.lr.ph.i260, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit262, !llvm.loop !19
+  br i1 %288, label %.lr.ph.i260, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit262, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit262: ; preds = %.lr.ph.i260
   %289 = icmp eq ptr %282, %283
@@ -6213,7 +6213,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit262: ; preds =
   %300 = sub i64 %298, %299
   %301 = ashr exact i64 %300, 3
   %302 = icmp ugt i64 %301, %295
-  br i1 %302, label %.lr.ph.i264, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit266, !llvm.loop !19
+  br i1 %302, label %.lr.ph.i264, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit266, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit266: ; preds = %.lr.ph.i264
   %303 = icmp eq ptr %296, %297
@@ -6235,7 +6235,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit266: ; preds =
   %314 = sub i64 %312, %313
   %315 = ashr exact i64 %314, 3
   %316 = icmp ugt i64 %315, %309
-  br i1 %316, label %.lr.ph.i268, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit270, !llvm.loop !19
+  br i1 %316, label %.lr.ph.i268, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit270, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit270: ; preds = %.lr.ph.i268
   %317 = icmp eq ptr %310, %311
@@ -6257,7 +6257,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit270: ; preds =
   %328 = sub i64 %326, %327
   %329 = ashr exact i64 %328, 3
   %330 = icmp ugt i64 %329, %323
-  br i1 %330, label %.lr.ph.i272, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit274, !llvm.loop !19
+  br i1 %330, label %.lr.ph.i272, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit274, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit274: ; preds = %.lr.ph.i272
   %331 = icmp eq ptr %324, %325
@@ -6279,7 +6279,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit274: ; preds =
   %342 = sub i64 %340, %341
   %343 = ashr exact i64 %342, 3
   %344 = icmp ugt i64 %343, %337
-  br i1 %344, label %.lr.ph.i276, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit278, !llvm.loop !19
+  br i1 %344, label %.lr.ph.i276, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit278, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit278: ; preds = %.lr.ph.i276
   %345 = icmp eq ptr %338, %339
@@ -6301,7 +6301,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit278: ; preds =
   %356 = sub i64 %354, %355
   %357 = ashr exact i64 %356, 3
   %358 = icmp ugt i64 %357, %351
-  br i1 %358, label %.lr.ph.i280, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit282, !llvm.loop !19
+  br i1 %358, label %.lr.ph.i280, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit282, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit282: ; preds = %.lr.ph.i280
   %359 = icmp eq ptr %352, %353
@@ -6323,7 +6323,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit282: ; preds =
   %370 = sub i64 %368, %369
   %371 = ashr exact i64 %370, 3
   %372 = icmp ugt i64 %371, %365
-  br i1 %372, label %.lr.ph.i284, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit286, !llvm.loop !19
+  br i1 %372, label %.lr.ph.i284, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit286, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit286: ; preds = %.lr.ph.i284
   %373 = icmp eq ptr %366, %367
@@ -6345,7 +6345,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit286: ; preds =
   %384 = sub i64 %382, %383
   %385 = ashr exact i64 %384, 3
   %386 = icmp ugt i64 %385, %379
-  br i1 %386, label %.lr.ph.i288, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit290, !llvm.loop !19
+  br i1 %386, label %.lr.ph.i288, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit290, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit290: ; preds = %.lr.ph.i288
   %387 = icmp eq ptr %380, %381
@@ -6367,7 +6367,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit290: ; preds =
   %398 = sub i64 %396, %397
   %399 = ashr exact i64 %398, 3
   %400 = icmp ugt i64 %399, %393
-  br i1 %400, label %.lr.ph.i292, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit294, !llvm.loop !19
+  br i1 %400, label %.lr.ph.i292, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit294, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit294: ; preds = %.lr.ph.i292
   %401 = icmp eq ptr %394, %395
@@ -6389,7 +6389,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit294: ; preds =
   %412 = sub i64 %410, %411
   %413 = ashr exact i64 %412, 3
   %414 = icmp ugt i64 %413, %407
-  br i1 %414, label %.lr.ph.i296, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit298, !llvm.loop !19
+  br i1 %414, label %.lr.ph.i296, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit298, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit298: ; preds = %.lr.ph.i296
   %415 = icmp eq ptr %408, %409
@@ -6411,7 +6411,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit298: ; preds =
   %426 = sub i64 %424, %425
   %427 = ashr exact i64 %426, 3
   %428 = icmp ugt i64 %427, %421
-  br i1 %428, label %.lr.ph.i300, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit302, !llvm.loop !19
+  br i1 %428, label %.lr.ph.i300, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit302, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit302: ; preds = %.lr.ph.i300
   %429 = icmp eq ptr %422, %423
@@ -6433,7 +6433,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit302: ; preds =
   %440 = sub i64 %438, %439
   %441 = ashr exact i64 %440, 3
   %442 = icmp ugt i64 %441, %435
-  br i1 %442, label %.lr.ph.i304, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit306, !llvm.loop !19
+  br i1 %442, label %.lr.ph.i304, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit306, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit306: ; preds = %.lr.ph.i304
   %443 = icmp eq ptr %436, %437
@@ -6455,7 +6455,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit306: ; preds =
   %454 = sub i64 %452, %453
   %455 = ashr exact i64 %454, 3
   %456 = icmp ugt i64 %455, %449
-  br i1 %456, label %.lr.ph.i308, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit310, !llvm.loop !19
+  br i1 %456, label %.lr.ph.i308, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit310, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit310: ; preds = %.lr.ph.i308
   %457 = icmp eq ptr %450, %451
@@ -6477,7 +6477,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit310: ; preds =
   %468 = sub i64 %466, %467
   %469 = ashr exact i64 %468, 3
   %470 = icmp ugt i64 %469, %463
-  br i1 %470, label %.lr.ph.i312, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit314, !llvm.loop !19
+  br i1 %470, label %.lr.ph.i312, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit314, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit314: ; preds = %.lr.ph.i312
   %471 = icmp eq ptr %464, %465
@@ -6499,7 +6499,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit314: ; preds =
   %482 = sub i64 %480, %481
   %483 = ashr exact i64 %482, 3
   %484 = icmp ugt i64 %483, %477
-  br i1 %484, label %.lr.ph.i316, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit318, !llvm.loop !19
+  br i1 %484, label %.lr.ph.i316, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit318, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit318: ; preds = %.lr.ph.i316
   %485 = icmp eq ptr %478, %479
@@ -6521,7 +6521,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit318: ; preds =
   %496 = sub i64 %494, %495
   %497 = ashr exact i64 %496, 3
   %498 = icmp ugt i64 %497, %491
-  br i1 %498, label %.lr.ph.i320, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit322, !llvm.loop !19
+  br i1 %498, label %.lr.ph.i320, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit322, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit322: ; preds = %.lr.ph.i320
   %499 = icmp eq ptr %492, %493
@@ -6543,7 +6543,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit322: ; preds =
   %510 = sub i64 %508, %509
   %511 = ashr exact i64 %510, 3
   %512 = icmp ugt i64 %511, %505
-  br i1 %512, label %.lr.ph.i324, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit326, !llvm.loop !19
+  br i1 %512, label %.lr.ph.i324, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit326, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit326: ; preds = %.lr.ph.i324
   %513 = icmp eq ptr %506, %507
@@ -6565,7 +6565,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit326: ; preds =
   %524 = sub i64 %522, %523
   %525 = ashr exact i64 %524, 3
   %526 = icmp ugt i64 %525, %519
-  br i1 %526, label %.lr.ph.i328, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit330, !llvm.loop !19
+  br i1 %526, label %.lr.ph.i328, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit330, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit330: ; preds = %.lr.ph.i328
   %527 = icmp eq ptr %520, %521
@@ -6587,7 +6587,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit330: ; preds =
   %538 = sub i64 %536, %537
   %539 = ashr exact i64 %538, 3
   %540 = icmp ugt i64 %539, %533
-  br i1 %540, label %.lr.ph.i332, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit334, !llvm.loop !19
+  br i1 %540, label %.lr.ph.i332, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit334, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit334: ; preds = %.lr.ph.i332
   %541 = icmp eq ptr %534, %535
@@ -6609,7 +6609,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit334: ; preds =
   %552 = sub i64 %550, %551
   %553 = ashr exact i64 %552, 3
   %554 = icmp ugt i64 %553, %547
-  br i1 %554, label %.lr.ph.i336, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit338, !llvm.loop !19
+  br i1 %554, label %.lr.ph.i336, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit338, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit338: ; preds = %.lr.ph.i336
   %555 = icmp eq ptr %548, %549
@@ -6631,7 +6631,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit338: ; preds =
   %566 = sub i64 %564, %565
   %567 = ashr exact i64 %566, 3
   %568 = icmp ugt i64 %567, %561
-  br i1 %568, label %.lr.ph.i340, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit342, !llvm.loop !19
+  br i1 %568, label %.lr.ph.i340, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit342, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit342: ; preds = %.lr.ph.i340
   %569 = icmp eq ptr %562, %563
@@ -6653,7 +6653,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit342: ; preds =
   %580 = sub i64 %578, %579
   %581 = ashr exact i64 %580, 3
   %582 = icmp ugt i64 %581, %575
-  br i1 %582, label %.lr.ph.i344, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit346, !llvm.loop !19
+  br i1 %582, label %.lr.ph.i344, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit346, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit346: ; preds = %.lr.ph.i344
   %583 = icmp eq ptr %576, %577
@@ -6675,7 +6675,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit346: ; preds =
   %594 = sub i64 %592, %593
   %595 = ashr exact i64 %594, 3
   %596 = icmp ugt i64 %595, %589
-  br i1 %596, label %.lr.ph.i348, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit350, !llvm.loop !19
+  br i1 %596, label %.lr.ph.i348, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit350, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit350: ; preds = %.lr.ph.i348
   %597 = icmp eq ptr %590, %591
@@ -6697,7 +6697,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit350: ; preds =
   %608 = sub i64 %606, %607
   %609 = ashr exact i64 %608, 3
   %610 = icmp ugt i64 %609, %603
-  br i1 %610, label %.lr.ph.i352, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit354, !llvm.loop !19
+  br i1 %610, label %.lr.ph.i352, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit354, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit354: ; preds = %.lr.ph.i352
   %611 = icmp eq ptr %604, %605
@@ -6719,7 +6719,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit354: ; preds =
   %622 = sub i64 %620, %621
   %623 = ashr exact i64 %622, 3
   %624 = icmp ugt i64 %623, %617
-  br i1 %624, label %.lr.ph.i356, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit358, !llvm.loop !19
+  br i1 %624, label %.lr.ph.i356, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit358, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit358: ; preds = %.lr.ph.i356
   %625 = icmp eq ptr %618, %619
@@ -6741,7 +6741,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit358: ; preds =
   %636 = sub i64 %634, %635
   %637 = ashr exact i64 %636, 3
   %638 = icmp ugt i64 %637, %631
-  br i1 %638, label %.lr.ph.i360, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit362, !llvm.loop !19
+  br i1 %638, label %.lr.ph.i360, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit362, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit362: ; preds = %.lr.ph.i360
   %639 = icmp eq ptr %632, %633
@@ -6763,7 +6763,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit362: ; preds =
   %650 = sub i64 %648, %649
   %651 = ashr exact i64 %650, 3
   %652 = icmp ugt i64 %651, %645
-  br i1 %652, label %.lr.ph.i364, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit366, !llvm.loop !19
+  br i1 %652, label %.lr.ph.i364, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit366, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit366: ; preds = %.lr.ph.i364
   %653 = icmp eq ptr %646, %647
@@ -6785,7 +6785,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit366: ; preds =
   %664 = sub i64 %662, %663
   %665 = ashr exact i64 %664, 3
   %666 = icmp ugt i64 %665, %659
-  br i1 %666, label %.lr.ph.i368, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit370, !llvm.loop !19
+  br i1 %666, label %.lr.ph.i368, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit370, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit370: ; preds = %.lr.ph.i368
   %667 = icmp eq ptr %660, %661
@@ -6807,7 +6807,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit370: ; preds =
   %678 = sub i64 %676, %677
   %679 = ashr exact i64 %678, 3
   %680 = icmp ugt i64 %679, %673
-  br i1 %680, label %.lr.ph.i372, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit374, !llvm.loop !19
+  br i1 %680, label %.lr.ph.i372, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit374, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit374: ; preds = %.lr.ph.i372
   %681 = icmp eq ptr %674, %675
@@ -6829,7 +6829,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit374: ; preds =
   %692 = sub i64 %690, %691
   %693 = ashr exact i64 %692, 3
   %694 = icmp ugt i64 %693, %687
-  br i1 %694, label %.lr.ph.i376, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit378, !llvm.loop !19
+  br i1 %694, label %.lr.ph.i376, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit378, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit378: ; preds = %.lr.ph.i376
   %695 = icmp eq ptr %688, %689
@@ -6851,7 +6851,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit378: ; preds =
   %706 = sub i64 %704, %705
   %707 = ashr exact i64 %706, 3
   %708 = icmp ugt i64 %707, %701
-  br i1 %708, label %.lr.ph.i380, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit382, !llvm.loop !19
+  br i1 %708, label %.lr.ph.i380, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit382, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit382: ; preds = %.lr.ph.i380
   %709 = icmp eq ptr %702, %703
@@ -6873,7 +6873,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit382: ; preds =
   %720 = sub i64 %718, %719
   %721 = ashr exact i64 %720, 3
   %722 = icmp ugt i64 %721, %715
-  br i1 %722, label %.lr.ph.i384, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit386, !llvm.loop !19
+  br i1 %722, label %.lr.ph.i384, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit386, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit386: ; preds = %.lr.ph.i384
   %723 = icmp eq ptr %716, %717
@@ -6895,7 +6895,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit386: ; preds =
   %734 = sub i64 %732, %733
   %735 = ashr exact i64 %734, 3
   %736 = icmp ugt i64 %735, %729
-  br i1 %736, label %.lr.ph.i388, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit390, !llvm.loop !19
+  br i1 %736, label %.lr.ph.i388, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit390, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit390: ; preds = %.lr.ph.i388
   %737 = icmp eq ptr %730, %731
@@ -6917,7 +6917,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit390: ; preds =
   %748 = sub i64 %746, %747
   %749 = ashr exact i64 %748, 3
   %750 = icmp ugt i64 %749, %743
-  br i1 %750, label %.lr.ph.i392, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit394, !llvm.loop !19
+  br i1 %750, label %.lr.ph.i392, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit394, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit394: ; preds = %.lr.ph.i392
   %751 = icmp eq ptr %744, %745
@@ -6939,7 +6939,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit394: ; preds =
   %762 = sub i64 %760, %761
   %763 = ashr exact i64 %762, 3
   %764 = icmp ugt i64 %763, %757
-  br i1 %764, label %.lr.ph.i396, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit398, !llvm.loop !19
+  br i1 %764, label %.lr.ph.i396, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit398, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit398: ; preds = %.lr.ph.i396
   %765 = icmp eq ptr %758, %759
@@ -6961,7 +6961,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit398: ; preds =
   %776 = sub i64 %774, %775
   %777 = ashr exact i64 %776, 3
   %778 = icmp ugt i64 %777, %771
-  br i1 %778, label %.lr.ph.i400, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit402, !llvm.loop !19
+  br i1 %778, label %.lr.ph.i400, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit402, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit402: ; preds = %.lr.ph.i400
   %779 = icmp eq ptr %772, %773
@@ -6983,7 +6983,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit402: ; preds =
   %790 = sub i64 %788, %789
   %791 = ashr exact i64 %790, 3
   %792 = icmp ugt i64 %791, %785
-  br i1 %792, label %.lr.ph.i404, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit406, !llvm.loop !19
+  br i1 %792, label %.lr.ph.i404, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit406, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit406: ; preds = %.lr.ph.i404
   %793 = icmp eq ptr %786, %787
@@ -7005,7 +7005,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit406: ; preds =
   %804 = sub i64 %802, %803
   %805 = ashr exact i64 %804, 3
   %806 = icmp ugt i64 %805, %799
-  br i1 %806, label %.lr.ph.i408, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit410, !llvm.loop !19
+  br i1 %806, label %.lr.ph.i408, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit410, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit410: ; preds = %.lr.ph.i408
   %807 = icmp eq ptr %800, %801
@@ -7027,7 +7027,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit410: ; preds =
   %818 = sub i64 %816, %817
   %819 = ashr exact i64 %818, 3
   %820 = icmp ugt i64 %819, %813
-  br i1 %820, label %.lr.ph.i412, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit414, !llvm.loop !19
+  br i1 %820, label %.lr.ph.i412, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit414, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit414: ; preds = %.lr.ph.i412
   %821 = icmp eq ptr %814, %815
@@ -7049,7 +7049,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit414: ; preds =
   %832 = sub i64 %830, %831
   %833 = ashr exact i64 %832, 3
   %834 = icmp ugt i64 %833, %827
-  br i1 %834, label %.lr.ph.i416, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit418, !llvm.loop !19
+  br i1 %834, label %.lr.ph.i416, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit418, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit418: ; preds = %.lr.ph.i416
   %835 = icmp eq ptr %828, %829
@@ -7071,7 +7071,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit418: ; preds =
   %846 = sub i64 %844, %845
   %847 = ashr exact i64 %846, 3
   %848 = icmp ugt i64 %847, %841
-  br i1 %848, label %.lr.ph.i420, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit422, !llvm.loop !19
+  br i1 %848, label %.lr.ph.i420, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit422, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit422: ; preds = %.lr.ph.i420
   %849 = icmp eq ptr %842, %843
@@ -7093,7 +7093,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit422: ; preds =
   %860 = sub i64 %858, %859
   %861 = ashr exact i64 %860, 3
   %862 = icmp ugt i64 %861, %855
-  br i1 %862, label %.lr.ph.i424, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit426, !llvm.loop !19
+  br i1 %862, label %.lr.ph.i424, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit426, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit426: ; preds = %.lr.ph.i424
   %863 = icmp eq ptr %856, %857
@@ -7115,7 +7115,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit426: ; preds =
   %874 = sub i64 %872, %873
   %875 = ashr exact i64 %874, 3
   %876 = icmp ugt i64 %875, %869
-  br i1 %876, label %.lr.ph.i428, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit430, !llvm.loop !19
+  br i1 %876, label %.lr.ph.i428, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit430, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit430: ; preds = %.lr.ph.i428
   %877 = icmp eq ptr %870, %871
@@ -7137,7 +7137,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit430: ; preds =
   %888 = sub i64 %886, %887
   %889 = ashr exact i64 %888, 3
   %890 = icmp ugt i64 %889, %883
-  br i1 %890, label %.lr.ph.i432, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit434, !llvm.loop !19
+  br i1 %890, label %.lr.ph.i432, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit434, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit434: ; preds = %.lr.ph.i432
   %891 = icmp eq ptr %884, %885
@@ -7159,7 +7159,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit434: ; preds =
   %902 = sub i64 %900, %901
   %903 = ashr exact i64 %902, 3
   %904 = icmp ugt i64 %903, %897
-  br i1 %904, label %.lr.ph.i436, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit438, !llvm.loop !19
+  br i1 %904, label %.lr.ph.i436, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit438, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit438: ; preds = %.lr.ph.i436
   %905 = icmp eq ptr %898, %899
@@ -7181,7 +7181,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit438: ; preds =
   %916 = sub i64 %914, %915
   %917 = ashr exact i64 %916, 3
   %918 = icmp ugt i64 %917, %911
-  br i1 %918, label %.lr.ph.i440, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit442, !llvm.loop !19
+  br i1 %918, label %.lr.ph.i440, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit442, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit442: ; preds = %.lr.ph.i440
   %919 = icmp eq ptr %912, %913
@@ -7203,7 +7203,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit442: ; preds =
   %930 = sub i64 %928, %929
   %931 = ashr exact i64 %930, 3
   %932 = icmp ugt i64 %931, %925
-  br i1 %932, label %.lr.ph.i444, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit446, !llvm.loop !19
+  br i1 %932, label %.lr.ph.i444, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit446, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit446: ; preds = %.lr.ph.i444
   %933 = icmp eq ptr %926, %927
@@ -7225,7 +7225,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit446: ; preds =
   %944 = sub i64 %942, %943
   %945 = ashr exact i64 %944, 3
   %946 = icmp ugt i64 %945, %939
-  br i1 %946, label %.lr.ph.i448, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit450, !llvm.loop !19
+  br i1 %946, label %.lr.ph.i448, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit450, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit450: ; preds = %.lr.ph.i448
   %947 = icmp eq ptr %940, %941
@@ -7247,7 +7247,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit450: ; preds =
   %958 = sub i64 %956, %957
   %959 = ashr exact i64 %958, 3
   %960 = icmp ugt i64 %959, %953
-  br i1 %960, label %.lr.ph.i452, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit454, !llvm.loop !19
+  br i1 %960, label %.lr.ph.i452, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit454, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit454: ; preds = %.lr.ph.i452, %6, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit190, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit194, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit198, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit202, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit206, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit210, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit214, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit218, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit222, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit226, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit230, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit234, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit238, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit242, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit246, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit250, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit254, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit258, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit262, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit266, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit270, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit274, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit278, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit282, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit286, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit290, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit294, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit298, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit302, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit306, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit310, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit314, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit318, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit322, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit326, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit330, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit334, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit338, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit342, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit346, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit350, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit354, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit358, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit362, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit366, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit370, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit374, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit378, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit382, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit386, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit390, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit394, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit398, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit402, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit406, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit410, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit414, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit418, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit422, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit426, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit430, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit434, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit438, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit442, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit446, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit450
   %961 = load ptr, ptr %7, align 8
@@ -7271,7 +7271,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit454: ; preds =
   %973 = sub i64 %971, %972
   %974 = ashr exact i64 %973, 3
   %975 = icmp ugt i64 %974, %968
-  br i1 %975, label %.lr.ph.i456, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit458, !llvm.loop !19
+  br i1 %975, label %.lr.ph.i456, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit458, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit458: ; preds = %.lr.ph.i456
   %976 = icmp eq ptr %969, %970
@@ -7293,7 +7293,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit458: ; preds =
   %987 = sub i64 %985, %986
   %988 = ashr exact i64 %987, 3
   %989 = icmp ugt i64 %988, %982
-  br i1 %989, label %.lr.ph.i460, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit462, !llvm.loop !19
+  br i1 %989, label %.lr.ph.i460, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit462, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit462: ; preds = %.lr.ph.i460
   %990 = icmp eq ptr %983, %984
@@ -7315,7 +7315,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit462: ; preds =
   %1001 = sub i64 %999, %1000
   %1002 = ashr exact i64 %1001, 3
   %1003 = icmp ugt i64 %1002, %996
-  br i1 %1003, label %.lr.ph.i464, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit466, !llvm.loop !19
+  br i1 %1003, label %.lr.ph.i464, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit466, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit466: ; preds = %.lr.ph.i464
   %1004 = icmp eq ptr %997, %998
@@ -7337,7 +7337,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit466: ; preds =
   %1015 = sub i64 %1013, %1014
   %1016 = ashr exact i64 %1015, 3
   %1017 = icmp ugt i64 %1016, %1010
-  br i1 %1017, label %.lr.ph.i468, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit470, !llvm.loop !19
+  br i1 %1017, label %.lr.ph.i468, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit470, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit470: ; preds = %.lr.ph.i468
   %1018 = icmp eq ptr %1011, %1012
@@ -7359,7 +7359,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit470: ; preds =
   %1029 = sub i64 %1027, %1028
   %1030 = ashr exact i64 %1029, 3
   %1031 = icmp ugt i64 %1030, %1024
-  br i1 %1031, label %.lr.ph.i472, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit474, !llvm.loop !19
+  br i1 %1031, label %.lr.ph.i472, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit474, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit474: ; preds = %.lr.ph.i472
   %1032 = icmp eq ptr %1025, %1026
@@ -7381,7 +7381,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit474: ; preds =
   %1043 = sub i64 %1041, %1042
   %1044 = ashr exact i64 %1043, 3
   %1045 = icmp ugt i64 %1044, %1038
-  br i1 %1045, label %.lr.ph.i476, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit478, !llvm.loop !19
+  br i1 %1045, label %.lr.ph.i476, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit478, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit478: ; preds = %.lr.ph.i476
   %1046 = icmp eq ptr %1039, %1040
@@ -7403,7 +7403,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit478: ; preds =
   %1057 = sub i64 %1055, %1056
   %1058 = ashr exact i64 %1057, 3
   %1059 = icmp ugt i64 %1058, %1052
-  br i1 %1059, label %.lr.ph.i480, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit482, !llvm.loop !19
+  br i1 %1059, label %.lr.ph.i480, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit482, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit482: ; preds = %.lr.ph.i480
   %1060 = icmp eq ptr %1053, %1054
@@ -7425,7 +7425,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit482: ; preds =
   %1071 = sub i64 %1069, %1070
   %1072 = ashr exact i64 %1071, 3
   %1073 = icmp ugt i64 %1072, %1066
-  br i1 %1073, label %.lr.ph.i484, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit486, !llvm.loop !19
+  br i1 %1073, label %.lr.ph.i484, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit486, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit486: ; preds = %.lr.ph.i484
   %1074 = icmp eq ptr %1067, %1068
@@ -7447,7 +7447,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit486: ; preds =
   %1085 = sub i64 %1083, %1084
   %1086 = ashr exact i64 %1085, 3
   %1087 = icmp ugt i64 %1086, %1080
-  br i1 %1087, label %.lr.ph.i488, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit490, !llvm.loop !19
+  br i1 %1087, label %.lr.ph.i488, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit490, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit490: ; preds = %.lr.ph.i488
   %1088 = icmp eq ptr %1081, %1082
@@ -7469,7 +7469,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit490: ; preds =
   %1099 = sub i64 %1097, %1098
   %1100 = ashr exact i64 %1099, 3
   %1101 = icmp ugt i64 %1100, %1094
-  br i1 %1101, label %.lr.ph.i492, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit494, !llvm.loop !19
+  br i1 %1101, label %.lr.ph.i492, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit494, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit494: ; preds = %.lr.ph.i492
   %1102 = icmp eq ptr %1095, %1096
@@ -7491,7 +7491,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit494: ; preds =
   %1113 = sub i64 %1111, %1112
   %1114 = ashr exact i64 %1113, 3
   %1115 = icmp ugt i64 %1114, %1108
-  br i1 %1115, label %.lr.ph.i496, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit498, !llvm.loop !19
+  br i1 %1115, label %.lr.ph.i496, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit498, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit498: ; preds = %.lr.ph.i496
   %1116 = icmp eq ptr %1109, %1110
@@ -7513,7 +7513,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit498: ; preds =
   %1127 = sub i64 %1125, %1126
   %1128 = ashr exact i64 %1127, 3
   %1129 = icmp ugt i64 %1128, %1122
-  br i1 %1129, label %.lr.ph.i500, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit502, !llvm.loop !19
+  br i1 %1129, label %.lr.ph.i500, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit502, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit502: ; preds = %.lr.ph.i500
   %1130 = icmp eq ptr %1123, %1124
@@ -7535,7 +7535,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit502: ; preds =
   %1141 = sub i64 %1139, %1140
   %1142 = ashr exact i64 %1141, 3
   %1143 = icmp ugt i64 %1142, %1136
-  br i1 %1143, label %.lr.ph.i504, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit506, !llvm.loop !19
+  br i1 %1143, label %.lr.ph.i504, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit506, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit506: ; preds = %.lr.ph.i504
   %1144 = icmp eq ptr %1137, %1138
@@ -7557,7 +7557,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit506: ; preds =
   %1155 = sub i64 %1153, %1154
   %1156 = ashr exact i64 %1155, 3
   %1157 = icmp ugt i64 %1156, %1150
-  br i1 %1157, label %.lr.ph.i508, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit510, !llvm.loop !19
+  br i1 %1157, label %.lr.ph.i508, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit510, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit510: ; preds = %.lr.ph.i508
   %1158 = icmp eq ptr %1151, %1152
@@ -7579,7 +7579,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit510: ; preds =
   %1169 = sub i64 %1167, %1168
   %1170 = ashr exact i64 %1169, 3
   %1171 = icmp ugt i64 %1170, %1164
-  br i1 %1171, label %.lr.ph.i512, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit514, !llvm.loop !19
+  br i1 %1171, label %.lr.ph.i512, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit514, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit514: ; preds = %.lr.ph.i512
   %1172 = icmp eq ptr %1165, %1166
@@ -7601,7 +7601,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit514: ; preds =
   %1183 = sub i64 %1181, %1182
   %1184 = ashr exact i64 %1183, 3
   %1185 = icmp ugt i64 %1184, %1178
-  br i1 %1185, label %.lr.ph.i516, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit518, !llvm.loop !19
+  br i1 %1185, label %.lr.ph.i516, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit518, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit518: ; preds = %.lr.ph.i516
   %1186 = icmp eq ptr %1179, %1180
@@ -7623,7 +7623,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit518: ; preds =
   %1197 = sub i64 %1195, %1196
   %1198 = ashr exact i64 %1197, 3
   %1199 = icmp ugt i64 %1198, %1192
-  br i1 %1199, label %.lr.ph.i520, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit522, !llvm.loop !19
+  br i1 %1199, label %.lr.ph.i520, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit522, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit522: ; preds = %.lr.ph.i520
   %1200 = icmp eq ptr %1193, %1194
@@ -7645,7 +7645,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit522: ; preds =
   %1211 = sub i64 %1209, %1210
   %1212 = ashr exact i64 %1211, 3
   %1213 = icmp ugt i64 %1212, %1206
-  br i1 %1213, label %.lr.ph.i524, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit526, !llvm.loop !19
+  br i1 %1213, label %.lr.ph.i524, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit526, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit526: ; preds = %.lr.ph.i524
   %1214 = icmp eq ptr %1207, %1208
@@ -7667,7 +7667,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit526: ; preds =
   %1225 = sub i64 %1223, %1224
   %1226 = ashr exact i64 %1225, 3
   %1227 = icmp ugt i64 %1226, %1220
-  br i1 %1227, label %.lr.ph.i528, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit530, !llvm.loop !19
+  br i1 %1227, label %.lr.ph.i528, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit530, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit530: ; preds = %.lr.ph.i528
   %1228 = icmp eq ptr %1221, %1222
@@ -7689,7 +7689,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit530: ; preds =
   %1239 = sub i64 %1237, %1238
   %1240 = ashr exact i64 %1239, 3
   %1241 = icmp ugt i64 %1240, %1234
-  br i1 %1241, label %.lr.ph.i532, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit534, !llvm.loop !19
+  br i1 %1241, label %.lr.ph.i532, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit534, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit534: ; preds = %.lr.ph.i532
   %1242 = icmp eq ptr %1235, %1236
@@ -7711,7 +7711,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit534: ; preds =
   %1253 = sub i64 %1251, %1252
   %1254 = ashr exact i64 %1253, 3
   %1255 = icmp ugt i64 %1254, %1248
-  br i1 %1255, label %.lr.ph.i536, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit538, !llvm.loop !19
+  br i1 %1255, label %.lr.ph.i536, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit538, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit538: ; preds = %.lr.ph.i536
   %1256 = icmp eq ptr %1249, %1250
@@ -7733,7 +7733,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit538: ; preds =
   %1267 = sub i64 %1265, %1266
   %1268 = ashr exact i64 %1267, 3
   %1269 = icmp ugt i64 %1268, %1262
-  br i1 %1269, label %.lr.ph.i540, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit542, !llvm.loop !19
+  br i1 %1269, label %.lr.ph.i540, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit542, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit542: ; preds = %.lr.ph.i540
   %1270 = icmp eq ptr %1263, %1264
@@ -7755,7 +7755,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit542: ; preds =
   %1281 = sub i64 %1279, %1280
   %1282 = ashr exact i64 %1281, 3
   %1283 = icmp ugt i64 %1282, %1276
-  br i1 %1283, label %.lr.ph.i544, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit546, !llvm.loop !19
+  br i1 %1283, label %.lr.ph.i544, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit546, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit546: ; preds = %.lr.ph.i544
   %1284 = icmp eq ptr %1277, %1278
@@ -7777,7 +7777,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit546: ; preds =
   %1295 = sub i64 %1293, %1294
   %1296 = ashr exact i64 %1295, 3
   %1297 = icmp ugt i64 %1296, %1290
-  br i1 %1297, label %.lr.ph.i548, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit550, !llvm.loop !19
+  br i1 %1297, label %.lr.ph.i548, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit550, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit550: ; preds = %.lr.ph.i548
   %1298 = icmp eq ptr %1291, %1292
@@ -7799,7 +7799,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit550: ; preds =
   %1309 = sub i64 %1307, %1308
   %1310 = ashr exact i64 %1309, 3
   %1311 = icmp ugt i64 %1310, %1304
-  br i1 %1311, label %.lr.ph.i552, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit554, !llvm.loop !19
+  br i1 %1311, label %.lr.ph.i552, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit554, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit554: ; preds = %.lr.ph.i552
   %1312 = icmp eq ptr %1305, %1306
@@ -7821,7 +7821,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit554: ; preds =
   %1323 = sub i64 %1321, %1322
   %1324 = ashr exact i64 %1323, 3
   %1325 = icmp ugt i64 %1324, %1318
-  br i1 %1325, label %.lr.ph.i556, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit558, !llvm.loop !19
+  br i1 %1325, label %.lr.ph.i556, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit558, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit558: ; preds = %.lr.ph.i556
   %1326 = icmp eq ptr %1319, %1320
@@ -7843,7 +7843,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit558: ; preds =
   %1337 = sub i64 %1335, %1336
   %1338 = ashr exact i64 %1337, 3
   %1339 = icmp ugt i64 %1338, %1332
-  br i1 %1339, label %.lr.ph.i560, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit562, !llvm.loop !19
+  br i1 %1339, label %.lr.ph.i560, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit562, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit562: ; preds = %.lr.ph.i560
   %1340 = icmp eq ptr %1333, %1334
@@ -7865,7 +7865,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit562: ; preds =
   %1351 = sub i64 %1349, %1350
   %1352 = ashr exact i64 %1351, 3
   %1353 = icmp ugt i64 %1352, %1346
-  br i1 %1353, label %.lr.ph.i564, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit566, !llvm.loop !19
+  br i1 %1353, label %.lr.ph.i564, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit566, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit566: ; preds = %.lr.ph.i564
   %1354 = icmp eq ptr %1347, %1348
@@ -7887,7 +7887,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit566: ; preds =
   %1365 = sub i64 %1363, %1364
   %1366 = ashr exact i64 %1365, 3
   %1367 = icmp ugt i64 %1366, %1360
-  br i1 %1367, label %.lr.ph.i568, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit570, !llvm.loop !19
+  br i1 %1367, label %.lr.ph.i568, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit570, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit570: ; preds = %.lr.ph.i568
   %1368 = icmp eq ptr %1361, %1362
@@ -7909,7 +7909,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit570: ; preds =
   %1379 = sub i64 %1377, %1378
   %1380 = ashr exact i64 %1379, 3
   %1381 = icmp ugt i64 %1380, %1374
-  br i1 %1381, label %.lr.ph.i572, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit574, !llvm.loop !19
+  br i1 %1381, label %.lr.ph.i572, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit574, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit574: ; preds = %.lr.ph.i572
   %1382 = icmp eq ptr %1375, %1376
@@ -7931,7 +7931,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit574: ; preds =
   %1393 = sub i64 %1391, %1392
   %1394 = ashr exact i64 %1393, 3
   %1395 = icmp ugt i64 %1394, %1388
-  br i1 %1395, label %.lr.ph.i576, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit578, !llvm.loop !19
+  br i1 %1395, label %.lr.ph.i576, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit578, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit578: ; preds = %.lr.ph.i576
   %1396 = icmp eq ptr %1389, %1390
@@ -7953,7 +7953,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit578: ; preds =
   %1407 = sub i64 %1405, %1406
   %1408 = ashr exact i64 %1407, 3
   %1409 = icmp ugt i64 %1408, %1402
-  br i1 %1409, label %.lr.ph.i580, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit582, !llvm.loop !19
+  br i1 %1409, label %.lr.ph.i580, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit582, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit582: ; preds = %.lr.ph.i580
   %1410 = icmp eq ptr %1403, %1404
@@ -7975,7 +7975,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit582: ; preds =
   %1421 = sub i64 %1419, %1420
   %1422 = ashr exact i64 %1421, 3
   %1423 = icmp ugt i64 %1422, %1416
-  br i1 %1423, label %.lr.ph.i584, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit586, !llvm.loop !19
+  br i1 %1423, label %.lr.ph.i584, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit586, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit586: ; preds = %.lr.ph.i584
   %1424 = icmp eq ptr %1417, %1418
@@ -7997,7 +7997,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit586: ; preds =
   %1435 = sub i64 %1433, %1434
   %1436 = ashr exact i64 %1435, 3
   %1437 = icmp ugt i64 %1436, %1430
-  br i1 %1437, label %.lr.ph.i588, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit590, !llvm.loop !19
+  br i1 %1437, label %.lr.ph.i588, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit590, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit590: ; preds = %.lr.ph.i588
   %1438 = icmp eq ptr %1431, %1432
@@ -8019,7 +8019,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit590: ; preds =
   %1449 = sub i64 %1447, %1448
   %1450 = ashr exact i64 %1449, 3
   %1451 = icmp ugt i64 %1450, %1444
-  br i1 %1451, label %.lr.ph.i592, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit594, !llvm.loop !19
+  br i1 %1451, label %.lr.ph.i592, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit594, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit594: ; preds = %.lr.ph.i592
   %1452 = icmp eq ptr %1445, %1446
@@ -8041,7 +8041,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit594: ; preds =
   %1463 = sub i64 %1461, %1462
   %1464 = ashr exact i64 %1463, 3
   %1465 = icmp ugt i64 %1464, %1458
-  br i1 %1465, label %.lr.ph.i596, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit598, !llvm.loop !19
+  br i1 %1465, label %.lr.ph.i596, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit598, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit598: ; preds = %.lr.ph.i596
   %1466 = icmp eq ptr %1459, %1460
@@ -8063,7 +8063,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit598: ; preds =
   %1477 = sub i64 %1475, %1476
   %1478 = ashr exact i64 %1477, 3
   %1479 = icmp ugt i64 %1478, %1472
-  br i1 %1479, label %.lr.ph.i600, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit602, !llvm.loop !19
+  br i1 %1479, label %.lr.ph.i600, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit602, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit602: ; preds = %.lr.ph.i600
   %1480 = icmp eq ptr %1473, %1474
@@ -8085,7 +8085,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit602: ; preds =
   %1491 = sub i64 %1489, %1490
   %1492 = ashr exact i64 %1491, 3
   %1493 = icmp ugt i64 %1492, %1486
-  br i1 %1493, label %.lr.ph.i604, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit606, !llvm.loop !19
+  br i1 %1493, label %.lr.ph.i604, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit606, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit606: ; preds = %.lr.ph.i604
   %1494 = icmp eq ptr %1487, %1488
@@ -8107,7 +8107,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit606: ; preds =
   %1505 = sub i64 %1503, %1504
   %1506 = ashr exact i64 %1505, 3
   %1507 = icmp ugt i64 %1506, %1500
-  br i1 %1507, label %.lr.ph.i608, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit610, !llvm.loop !19
+  br i1 %1507, label %.lr.ph.i608, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit610, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit610: ; preds = %.lr.ph.i608
   %1508 = icmp eq ptr %1501, %1502
@@ -8129,7 +8129,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit610: ; preds =
   %1519 = sub i64 %1517, %1518
   %1520 = ashr exact i64 %1519, 3
   %1521 = icmp ugt i64 %1520, %1514
-  br i1 %1521, label %.lr.ph.i612, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit614, !llvm.loop !19
+  br i1 %1521, label %.lr.ph.i612, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit614, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit614: ; preds = %.lr.ph.i612
   %1522 = icmp eq ptr %1515, %1516
@@ -8151,7 +8151,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit614: ; preds =
   %1533 = sub i64 %1531, %1532
   %1534 = ashr exact i64 %1533, 3
   %1535 = icmp ugt i64 %1534, %1528
-  br i1 %1535, label %.lr.ph.i616, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit618, !llvm.loop !19
+  br i1 %1535, label %.lr.ph.i616, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit618, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit618: ; preds = %.lr.ph.i616
   %1536 = icmp eq ptr %1529, %1530
@@ -8173,7 +8173,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit618: ; preds =
   %1547 = sub i64 %1545, %1546
   %1548 = ashr exact i64 %1547, 3
   %1549 = icmp ugt i64 %1548, %1542
-  br i1 %1549, label %.lr.ph.i620, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit622, !llvm.loop !19
+  br i1 %1549, label %.lr.ph.i620, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit622, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit622: ; preds = %.lr.ph.i620
   %1550 = icmp eq ptr %1543, %1544
@@ -8195,7 +8195,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit622: ; preds =
   %1561 = sub i64 %1559, %1560
   %1562 = ashr exact i64 %1561, 3
   %1563 = icmp ugt i64 %1562, %1556
-  br i1 %1563, label %.lr.ph.i624, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit626, !llvm.loop !19
+  br i1 %1563, label %.lr.ph.i624, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit626, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit626: ; preds = %.lr.ph.i624
   %1564 = icmp eq ptr %1557, %1558
@@ -8217,7 +8217,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit626: ; preds =
   %1575 = sub i64 %1573, %1574
   %1576 = ashr exact i64 %1575, 3
   %1577 = icmp ugt i64 %1576, %1570
-  br i1 %1577, label %.lr.ph.i628, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit630, !llvm.loop !19
+  br i1 %1577, label %.lr.ph.i628, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit630, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit630: ; preds = %.lr.ph.i628
   %1578 = icmp eq ptr %1571, %1572
@@ -8239,7 +8239,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit630: ; preds =
   %1589 = sub i64 %1587, %1588
   %1590 = ashr exact i64 %1589, 3
   %1591 = icmp ugt i64 %1590, %1584
-  br i1 %1591, label %.lr.ph.i632, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit634, !llvm.loop !19
+  br i1 %1591, label %.lr.ph.i632, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit634, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit634: ; preds = %.lr.ph.i632
   %1592 = icmp eq ptr %1585, %1586
@@ -8261,7 +8261,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit634: ; preds =
   %1603 = sub i64 %1601, %1602
   %1604 = ashr exact i64 %1603, 3
   %1605 = icmp ugt i64 %1604, %1598
-  br i1 %1605, label %.lr.ph.i636, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit638, !llvm.loop !19
+  br i1 %1605, label %.lr.ph.i636, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit638, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit638: ; preds = %.lr.ph.i636
   %1606 = icmp eq ptr %1599, %1600
@@ -8283,7 +8283,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit638: ; preds =
   %1617 = sub i64 %1615, %1616
   %1618 = ashr exact i64 %1617, 3
   %1619 = icmp ugt i64 %1618, %1612
-  br i1 %1619, label %.lr.ph.i640, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit642, !llvm.loop !19
+  br i1 %1619, label %.lr.ph.i640, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit642, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit642: ; preds = %.lr.ph.i640
   %1620 = icmp eq ptr %1613, %1614
@@ -8305,7 +8305,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit642: ; preds =
   %1631 = sub i64 %1629, %1630
   %1632 = ashr exact i64 %1631, 3
   %1633 = icmp ugt i64 %1632, %1626
-  br i1 %1633, label %.lr.ph.i644, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit646, !llvm.loop !19
+  br i1 %1633, label %.lr.ph.i644, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit646, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit646: ; preds = %.lr.ph.i644
   %1634 = icmp eq ptr %1627, %1628
@@ -8327,7 +8327,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit646: ; preds =
   %1645 = sub i64 %1643, %1644
   %1646 = ashr exact i64 %1645, 3
   %1647 = icmp ugt i64 %1646, %1640
-  br i1 %1647, label %.lr.ph.i648, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit650, !llvm.loop !19
+  br i1 %1647, label %.lr.ph.i648, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit650, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit650: ; preds = %.lr.ph.i648
   %1648 = icmp eq ptr %1641, %1642
@@ -8349,7 +8349,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit650: ; preds =
   %1659 = sub i64 %1657, %1658
   %1660 = ashr exact i64 %1659, 3
   %1661 = icmp ugt i64 %1660, %1654
-  br i1 %1661, label %.lr.ph.i652, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit654, !llvm.loop !19
+  br i1 %1661, label %.lr.ph.i652, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit654, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit654: ; preds = %.lr.ph.i652
   %1662 = icmp eq ptr %1655, %1656
@@ -8371,7 +8371,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit654: ; preds =
   %1673 = sub i64 %1671, %1672
   %1674 = ashr exact i64 %1673, 3
   %1675 = icmp ugt i64 %1674, %1668
-  br i1 %1675, label %.lr.ph.i656, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit658, !llvm.loop !19
+  br i1 %1675, label %.lr.ph.i656, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit658, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit658: ; preds = %.lr.ph.i656
   %1676 = icmp eq ptr %1669, %1670
@@ -8393,7 +8393,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit658: ; preds =
   %1687 = sub i64 %1685, %1686
   %1688 = ashr exact i64 %1687, 3
   %1689 = icmp ugt i64 %1688, %1682
-  br i1 %1689, label %.lr.ph.i660, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit662, !llvm.loop !19
+  br i1 %1689, label %.lr.ph.i660, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit662, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit662: ; preds = %.lr.ph.i660
   %1690 = icmp eq ptr %1683, %1684
@@ -8415,7 +8415,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit662: ; preds =
   %1701 = sub i64 %1699, %1700
   %1702 = ashr exact i64 %1701, 3
   %1703 = icmp ugt i64 %1702, %1696
-  br i1 %1703, label %.lr.ph.i664, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit666, !llvm.loop !19
+  br i1 %1703, label %.lr.ph.i664, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit666, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit666: ; preds = %.lr.ph.i664
   %1704 = icmp eq ptr %1697, %1698
@@ -8437,7 +8437,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit666: ; preds =
   %1715 = sub i64 %1713, %1714
   %1716 = ashr exact i64 %1715, 3
   %1717 = icmp ugt i64 %1716, %1710
-  br i1 %1717, label %.lr.ph.i668, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit670, !llvm.loop !19
+  br i1 %1717, label %.lr.ph.i668, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit670, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit670: ; preds = %.lr.ph.i668
   %1718 = icmp eq ptr %1711, %1712
@@ -8459,7 +8459,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit670: ; preds =
   %1729 = sub i64 %1727, %1728
   %1730 = ashr exact i64 %1729, 3
   %1731 = icmp ugt i64 %1730, %1724
-  br i1 %1731, label %.lr.ph.i672, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit674, !llvm.loop !19
+  br i1 %1731, label %.lr.ph.i672, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit674, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit674: ; preds = %.lr.ph.i672
   %1732 = icmp eq ptr %1725, %1726
@@ -8481,7 +8481,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit674: ; preds =
   %1743 = sub i64 %1741, %1742
   %1744 = ashr exact i64 %1743, 3
   %1745 = icmp ugt i64 %1744, %1738
-  br i1 %1745, label %.lr.ph.i676, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit678, !llvm.loop !19
+  br i1 %1745, label %.lr.ph.i676, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit678, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit678: ; preds = %.lr.ph.i676
   %1746 = icmp eq ptr %1739, %1740
@@ -8503,7 +8503,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit678: ; preds =
   %1757 = sub i64 %1755, %1756
   %1758 = ashr exact i64 %1757, 3
   %1759 = icmp ugt i64 %1758, %1752
-  br i1 %1759, label %.lr.ph.i680, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit682, !llvm.loop !19
+  br i1 %1759, label %.lr.ph.i680, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit682, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit682: ; preds = %.lr.ph.i680
   %1760 = icmp eq ptr %1753, %1754
@@ -8525,7 +8525,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit682: ; preds =
   %1771 = sub i64 %1769, %1770
   %1772 = ashr exact i64 %1771, 3
   %1773 = icmp ugt i64 %1772, %1766
-  br i1 %1773, label %.lr.ph.i684, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit686, !llvm.loop !19
+  br i1 %1773, label %.lr.ph.i684, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit686, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit686: ; preds = %.lr.ph.i684
   %1774 = icmp eq ptr %1767, %1768
@@ -8547,7 +8547,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit686: ; preds =
   %1785 = sub i64 %1783, %1784
   %1786 = ashr exact i64 %1785, 3
   %1787 = icmp ugt i64 %1786, %1780
-  br i1 %1787, label %.lr.ph.i688, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit690, !llvm.loop !19
+  br i1 %1787, label %.lr.ph.i688, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit690, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit690: ; preds = %.lr.ph.i688
   %1788 = icmp eq ptr %1781, %1782
@@ -8569,7 +8569,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit690: ; preds =
   %1799 = sub i64 %1797, %1798
   %1800 = ashr exact i64 %1799, 3
   %1801 = icmp ugt i64 %1800, %1794
-  br i1 %1801, label %.lr.ph.i692, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit694, !llvm.loop !19
+  br i1 %1801, label %.lr.ph.i692, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit694, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit694: ; preds = %.lr.ph.i692
   %1802 = icmp eq ptr %1795, %1796
@@ -8591,7 +8591,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit694: ; preds =
   %1813 = sub i64 %1811, %1812
   %1814 = ashr exact i64 %1813, 3
   %1815 = icmp ugt i64 %1814, %1808
-  br i1 %1815, label %.lr.ph.i696, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit698, !llvm.loop !19
+  br i1 %1815, label %.lr.ph.i696, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit698, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit698: ; preds = %.lr.ph.i696
   %1816 = icmp eq ptr %1809, %1810
@@ -8613,7 +8613,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit698: ; preds =
   %1827 = sub i64 %1825, %1826
   %1828 = ashr exact i64 %1827, 3
   %1829 = icmp ugt i64 %1828, %1822
-  br i1 %1829, label %.lr.ph.i700, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit702, !llvm.loop !19
+  br i1 %1829, label %.lr.ph.i700, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit702, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit702: ; preds = %.lr.ph.i700
   %1830 = icmp eq ptr %1823, %1824
@@ -8635,7 +8635,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit702: ; preds =
   %1841 = sub i64 %1839, %1840
   %1842 = ashr exact i64 %1841, 3
   %1843 = icmp ugt i64 %1842, %1836
-  br i1 %1843, label %.lr.ph.i704, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit706, !llvm.loop !19
+  br i1 %1843, label %.lr.ph.i704, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit706, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit706: ; preds = %.lr.ph.i704
   %1844 = icmp eq ptr %1837, %1838
@@ -8657,7 +8657,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit706: ; preds =
   %1855 = sub i64 %1853, %1854
   %1856 = ashr exact i64 %1855, 3
   %1857 = icmp ugt i64 %1856, %1850
-  br i1 %1857, label %.lr.ph.i708, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit710, !llvm.loop !19
+  br i1 %1857, label %.lr.ph.i708, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit710, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit710: ; preds = %.lr.ph.i708
   %1858 = icmp eq ptr %1851, %1852
@@ -8679,7 +8679,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit710: ; preds =
   %1869 = sub i64 %1867, %1868
   %1870 = ashr exact i64 %1869, 3
   %1871 = icmp ugt i64 %1870, %1864
-  br i1 %1871, label %.lr.ph.i712, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit714, !llvm.loop !19
+  br i1 %1871, label %.lr.ph.i712, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit714, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit714: ; preds = %.lr.ph.i712
   %1872 = icmp eq ptr %1865, %1866
@@ -8701,7 +8701,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit714: ; preds =
   %1883 = sub i64 %1881, %1882
   %1884 = ashr exact i64 %1883, 3
   %1885 = icmp ugt i64 %1884, %1878
-  br i1 %1885, label %.lr.ph.i716, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit718, !llvm.loop !19
+  br i1 %1885, label %.lr.ph.i716, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit718, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit718: ; preds = %.lr.ph.i716
   %1886 = icmp eq ptr %1879, %1880
@@ -8723,7 +8723,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit718: ; preds =
   %1897 = sub i64 %1895, %1896
   %1898 = ashr exact i64 %1897, 3
   %1899 = icmp ugt i64 %1898, %1892
-  br i1 %1899, label %.lr.ph.i720, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit722, !llvm.loop !19
+  br i1 %1899, label %.lr.ph.i720, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit722, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit722: ; preds = %.lr.ph.i720
   %1900 = icmp eq ptr %1893, %1894
@@ -8745,7 +8745,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit722: ; preds =
   %1911 = sub i64 %1909, %1910
   %1912 = ashr exact i64 %1911, 3
   %1913 = icmp ugt i64 %1912, %1906
-  br i1 %1913, label %.lr.ph.i724, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit726, !llvm.loop !19
+  br i1 %1913, label %.lr.ph.i724, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit726, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit726: ; preds = %.lr.ph.i724, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit454, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit458, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit462, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit466, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit470, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit474, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit478, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit482, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit486, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit490, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit494, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit498, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit502, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit506, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit510, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit514, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit518, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit522, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit526, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit530, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit534, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit538, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit542, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit546, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit550, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit554, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit558, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit562, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit566, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit570, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit574, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit578, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit582, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit586, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit590, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit594, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit598, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit602, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit606, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit610, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit614, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit618, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit622, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit626, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit630, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit634, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit638, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit642, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit646, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit650, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit654, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit658, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit662, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit666, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit670, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit674, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit678, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit682, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit686, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit690, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit694, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit698, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit702, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit706, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit710, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit714, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit718, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit722
   %1914 = load ptr, ptr %7, align 8
@@ -8769,7 +8769,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit726: ; preds =
   %1926 = sub i64 %1924, %1925
   %1927 = ashr exact i64 %1926, 3
   %1928 = icmp ugt i64 %1927, %1921
-  br i1 %1928, label %.lr.ph.i728, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit730, !llvm.loop !19
+  br i1 %1928, label %.lr.ph.i728, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit730, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit730: ; preds = %.lr.ph.i728
   %1929 = icmp eq ptr %1922, %1923
@@ -8791,7 +8791,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit730: ; preds =
   %1940 = sub i64 %1938, %1939
   %1941 = ashr exact i64 %1940, 3
   %1942 = icmp ugt i64 %1941, %1935
-  br i1 %1942, label %.lr.ph.i732, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit734, !llvm.loop !19
+  br i1 %1942, label %.lr.ph.i732, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit734, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit734: ; preds = %.lr.ph.i732
   %1943 = icmp eq ptr %1936, %1937
@@ -8813,7 +8813,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit734: ; preds =
   %1954 = sub i64 %1952, %1953
   %1955 = ashr exact i64 %1954, 3
   %1956 = icmp ugt i64 %1955, %1949
-  br i1 %1956, label %.lr.ph.i736, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit738, !llvm.loop !19
+  br i1 %1956, label %.lr.ph.i736, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit738, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit738: ; preds = %.lr.ph.i736
   %1957 = icmp eq ptr %1950, %1951
@@ -8835,7 +8835,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit738: ; preds =
   %1968 = sub i64 %1966, %1967
   %1969 = ashr exact i64 %1968, 3
   %1970 = icmp ugt i64 %1969, %1963
-  br i1 %1970, label %.lr.ph.i740, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit742, !llvm.loop !19
+  br i1 %1970, label %.lr.ph.i740, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit742, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit742: ; preds = %.lr.ph.i740
   %1971 = icmp eq ptr %1964, %1965
@@ -8857,7 +8857,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit742: ; preds =
   %1982 = sub i64 %1980, %1981
   %1983 = ashr exact i64 %1982, 3
   %1984 = icmp ugt i64 %1983, %1977
-  br i1 %1984, label %.lr.ph.i744, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit746, !llvm.loop !19
+  br i1 %1984, label %.lr.ph.i744, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit746, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit746: ; preds = %.lr.ph.i744
   %1985 = icmp eq ptr %1978, %1979
@@ -8879,7 +8879,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit746: ; preds =
   %1996 = sub i64 %1994, %1995
   %1997 = ashr exact i64 %1996, 3
   %1998 = icmp ugt i64 %1997, %1991
-  br i1 %1998, label %.lr.ph.i748, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit750, !llvm.loop !19
+  br i1 %1998, label %.lr.ph.i748, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit750, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit750: ; preds = %.lr.ph.i748
   %1999 = icmp eq ptr %1992, %1993
@@ -8901,7 +8901,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit750: ; preds =
   %2010 = sub i64 %2008, %2009
   %2011 = ashr exact i64 %2010, 3
   %2012 = icmp ugt i64 %2011, %2005
-  br i1 %2012, label %.lr.ph.i752, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit754, !llvm.loop !19
+  br i1 %2012, label %.lr.ph.i752, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit754, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit754: ; preds = %.lr.ph.i752
   %2013 = icmp eq ptr %2006, %2007
@@ -8923,7 +8923,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit754: ; preds =
   %2024 = sub i64 %2022, %2023
   %2025 = ashr exact i64 %2024, 3
   %2026 = icmp ugt i64 %2025, %2019
-  br i1 %2026, label %.lr.ph.i756, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit758, !llvm.loop !19
+  br i1 %2026, label %.lr.ph.i756, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit758, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit758: ; preds = %.lr.ph.i756
   %2027 = icmp eq ptr %2020, %2021
@@ -8945,7 +8945,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit758: ; preds =
   %2038 = sub i64 %2036, %2037
   %2039 = ashr exact i64 %2038, 3
   %2040 = icmp ugt i64 %2039, %2033
-  br i1 %2040, label %.lr.ph.i760, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit762, !llvm.loop !19
+  br i1 %2040, label %.lr.ph.i760, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit762, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit762: ; preds = %.lr.ph.i760
   %2041 = icmp eq ptr %2034, %2035
@@ -8967,7 +8967,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit762: ; preds =
   %2052 = sub i64 %2050, %2051
   %2053 = ashr exact i64 %2052, 3
   %2054 = icmp ugt i64 %2053, %2047
-  br i1 %2054, label %.lr.ph.i764, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit766, !llvm.loop !19
+  br i1 %2054, label %.lr.ph.i764, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit766, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit766: ; preds = %.lr.ph.i764
   %2055 = icmp eq ptr %2048, %2049
@@ -8989,7 +8989,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit766: ; preds =
   %2066 = sub i64 %2064, %2065
   %2067 = ashr exact i64 %2066, 3
   %2068 = icmp ugt i64 %2067, %2061
-  br i1 %2068, label %.lr.ph.i768, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit770, !llvm.loop !19
+  br i1 %2068, label %.lr.ph.i768, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit770, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit770: ; preds = %.lr.ph.i768
   %2069 = icmp eq ptr %2062, %2063
@@ -9011,7 +9011,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit770: ; preds =
   %2080 = sub i64 %2078, %2079
   %2081 = ashr exact i64 %2080, 3
   %2082 = icmp ugt i64 %2081, %2075
-  br i1 %2082, label %.lr.ph.i772, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit774, !llvm.loop !19
+  br i1 %2082, label %.lr.ph.i772, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit774, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit774: ; preds = %.lr.ph.i772
   %2083 = icmp eq ptr %2076, %2077
@@ -9033,7 +9033,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit774: ; preds =
   %2094 = sub i64 %2092, %2093
   %2095 = ashr exact i64 %2094, 3
   %2096 = icmp ugt i64 %2095, %2089
-  br i1 %2096, label %.lr.ph.i776, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit778, !llvm.loop !19
+  br i1 %2096, label %.lr.ph.i776, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit778, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit778: ; preds = %.lr.ph.i776
   %2097 = icmp eq ptr %2090, %2091
@@ -9055,7 +9055,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit778: ; preds =
   %2108 = sub i64 %2106, %2107
   %2109 = ashr exact i64 %2108, 3
   %2110 = icmp ugt i64 %2109, %2103
-  br i1 %2110, label %.lr.ph.i780, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit782, !llvm.loop !19
+  br i1 %2110, label %.lr.ph.i780, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit782, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit782: ; preds = %.lr.ph.i780
   %2111 = icmp eq ptr %2104, %2105
@@ -9077,7 +9077,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit782: ; preds =
   %2122 = sub i64 %2120, %2121
   %2123 = ashr exact i64 %2122, 3
   %2124 = icmp ugt i64 %2123, %2117
-  br i1 %2124, label %.lr.ph.i784, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit786, !llvm.loop !19
+  br i1 %2124, label %.lr.ph.i784, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit786, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit786: ; preds = %.lr.ph.i784
   %2125 = icmp eq ptr %2118, %2119
@@ -9099,7 +9099,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit786: ; preds =
   %2136 = sub i64 %2134, %2135
   %2137 = ashr exact i64 %2136, 3
   %2138 = icmp ugt i64 %2137, %2131
-  br i1 %2138, label %.lr.ph.i788, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit790, !llvm.loop !19
+  br i1 %2138, label %.lr.ph.i788, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit790, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit790: ; preds = %.lr.ph.i788
   %2139 = icmp eq ptr %2132, %2133
@@ -9121,7 +9121,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit790: ; preds =
   %2150 = sub i64 %2148, %2149
   %2151 = ashr exact i64 %2150, 3
   %2152 = icmp ugt i64 %2151, %2145
-  br i1 %2152, label %.lr.ph.i792, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit794, !llvm.loop !19
+  br i1 %2152, label %.lr.ph.i792, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit794, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit794: ; preds = %.lr.ph.i792
   %2153 = icmp eq ptr %2146, %2147
@@ -9143,7 +9143,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit794: ; preds =
   %2164 = sub i64 %2162, %2163
   %2165 = ashr exact i64 %2164, 3
   %2166 = icmp ugt i64 %2165, %2159
-  br i1 %2166, label %.lr.ph.i796, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit798, !llvm.loop !19
+  br i1 %2166, label %.lr.ph.i796, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit798, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit798: ; preds = %.lr.ph.i796
   %2167 = icmp eq ptr %2160, %2161
@@ -9165,7 +9165,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit798: ; preds =
   %2178 = sub i64 %2176, %2177
   %2179 = ashr exact i64 %2178, 3
   %2180 = icmp ugt i64 %2179, %2173
-  br i1 %2180, label %.lr.ph.i800, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit802, !llvm.loop !19
+  br i1 %2180, label %.lr.ph.i800, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit802, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit802: ; preds = %.lr.ph.i800
   %2181 = icmp eq ptr %2174, %2175
@@ -9187,7 +9187,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit802: ; preds =
   %2192 = sub i64 %2190, %2191
   %2193 = ashr exact i64 %2192, 3
   %2194 = icmp ugt i64 %2193, %2187
-  br i1 %2194, label %.lr.ph.i804, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit806, !llvm.loop !19
+  br i1 %2194, label %.lr.ph.i804, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit806, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit806: ; preds = %.lr.ph.i804
   %2195 = icmp eq ptr %2188, %2189
@@ -9209,7 +9209,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit806: ; preds =
   %2206 = sub i64 %2204, %2205
   %2207 = ashr exact i64 %2206, 3
   %2208 = icmp ugt i64 %2207, %2201
-  br i1 %2208, label %.lr.ph.i808, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit810, !llvm.loop !19
+  br i1 %2208, label %.lr.ph.i808, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit810, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit810: ; preds = %.lr.ph.i808
   %2209 = icmp eq ptr %2202, %2203
@@ -9231,7 +9231,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit810: ; preds =
   %2220 = sub i64 %2218, %2219
   %2221 = ashr exact i64 %2220, 3
   %2222 = icmp ugt i64 %2221, %2215
-  br i1 %2222, label %.lr.ph.i812, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit814, !llvm.loop !19
+  br i1 %2222, label %.lr.ph.i812, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit814, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit814: ; preds = %.lr.ph.i812
   %2223 = icmp eq ptr %2216, %2217
@@ -9253,7 +9253,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit814: ; preds =
   %2234 = sub i64 %2232, %2233
   %2235 = ashr exact i64 %2234, 3
   %2236 = icmp ugt i64 %2235, %2229
-  br i1 %2236, label %.lr.ph.i816, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit818, !llvm.loop !19
+  br i1 %2236, label %.lr.ph.i816, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit818, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit818: ; preds = %.lr.ph.i816
   %2237 = icmp eq ptr %2230, %2231
@@ -9275,7 +9275,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit818: ; preds =
   %2248 = sub i64 %2246, %2247
   %2249 = ashr exact i64 %2248, 3
   %2250 = icmp ugt i64 %2249, %2243
-  br i1 %2250, label %.lr.ph.i820, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit822, !llvm.loop !19
+  br i1 %2250, label %.lr.ph.i820, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit822, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit822: ; preds = %.lr.ph.i820
   %2251 = icmp eq ptr %2244, %2245
@@ -9297,7 +9297,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit822: ; preds =
   %2262 = sub i64 %2260, %2261
   %2263 = ashr exact i64 %2262, 3
   %2264 = icmp ugt i64 %2263, %2257
-  br i1 %2264, label %.lr.ph.i824, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit826, !llvm.loop !19
+  br i1 %2264, label %.lr.ph.i824, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit826, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit826: ; preds = %.lr.ph.i824
   %2265 = icmp eq ptr %2258, %2259
@@ -9319,7 +9319,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit826: ; preds =
   %2276 = sub i64 %2274, %2275
   %2277 = ashr exact i64 %2276, 3
   %2278 = icmp ugt i64 %2277, %2271
-  br i1 %2278, label %.lr.ph.i828, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit830, !llvm.loop !19
+  br i1 %2278, label %.lr.ph.i828, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit830, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit830: ; preds = %.lr.ph.i828
   %2279 = icmp eq ptr %2272, %2273
@@ -9341,7 +9341,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit830: ; preds =
   %2290 = sub i64 %2288, %2289
   %2291 = ashr exact i64 %2290, 3
   %2292 = icmp ugt i64 %2291, %2285
-  br i1 %2292, label %.lr.ph.i832, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit834, !llvm.loop !19
+  br i1 %2292, label %.lr.ph.i832, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit834, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit834: ; preds = %.lr.ph.i832
   %2293 = icmp eq ptr %2286, %2287
@@ -9363,7 +9363,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit834: ; preds =
   %2304 = sub i64 %2302, %2303
   %2305 = ashr exact i64 %2304, 3
   %2306 = icmp ugt i64 %2305, %2299
-  br i1 %2306, label %.lr.ph.i836, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit838, !llvm.loop !19
+  br i1 %2306, label %.lr.ph.i836, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit838, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit838: ; preds = %.lr.ph.i836
   %2307 = icmp eq ptr %2300, %2301
@@ -9385,7 +9385,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit838: ; preds =
   %2318 = sub i64 %2316, %2317
   %2319 = ashr exact i64 %2318, 3
   %2320 = icmp ugt i64 %2319, %2313
-  br i1 %2320, label %.lr.ph.i840, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit842, !llvm.loop !19
+  br i1 %2320, label %.lr.ph.i840, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit842, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit842: ; preds = %.lr.ph.i840
   %2321 = icmp eq ptr %2314, %2315
@@ -9407,7 +9407,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit842: ; preds =
   %2332 = sub i64 %2330, %2331
   %2333 = ashr exact i64 %2332, 3
   %2334 = icmp ugt i64 %2333, %2327
-  br i1 %2334, label %.lr.ph.i844, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit846, !llvm.loop !19
+  br i1 %2334, label %.lr.ph.i844, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit846, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit846: ; preds = %.lr.ph.i844
   %2335 = icmp eq ptr %2328, %2329
@@ -9429,7 +9429,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit846: ; preds =
   %2346 = sub i64 %2344, %2345
   %2347 = ashr exact i64 %2346, 3
   %2348 = icmp ugt i64 %2347, %2341
-  br i1 %2348, label %.lr.ph.i848, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit850, !llvm.loop !19
+  br i1 %2348, label %.lr.ph.i848, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit850, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit850: ; preds = %.lr.ph.i848
   %2349 = icmp eq ptr %2342, %2343
@@ -9451,7 +9451,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit850: ; preds =
   %2360 = sub i64 %2358, %2359
   %2361 = ashr exact i64 %2360, 3
   %2362 = icmp ugt i64 %2361, %2355
-  br i1 %2362, label %.lr.ph.i852, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit854, !llvm.loop !19
+  br i1 %2362, label %.lr.ph.i852, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit854, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit854: ; preds = %.lr.ph.i852
   %2363 = icmp eq ptr %2356, %2357
@@ -9473,7 +9473,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit854: ; preds =
   %2374 = sub i64 %2372, %2373
   %2375 = ashr exact i64 %2374, 3
   %2376 = icmp ugt i64 %2375, %2369
-  br i1 %2376, label %.lr.ph.i856, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit858, !llvm.loop !19
+  br i1 %2376, label %.lr.ph.i856, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit858, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit858: ; preds = %.lr.ph.i856
   %2377 = icmp eq ptr %2370, %2371
@@ -9495,7 +9495,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit858: ; preds =
   %2388 = sub i64 %2386, %2387
   %2389 = ashr exact i64 %2388, 3
   %2390 = icmp ugt i64 %2389, %2383
-  br i1 %2390, label %.lr.ph.i860, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit862, !llvm.loop !19
+  br i1 %2390, label %.lr.ph.i860, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit862, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit862: ; preds = %.lr.ph.i860
   %2391 = icmp eq ptr %2384, %2385
@@ -9517,7 +9517,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit862: ; preds =
   %2402 = sub i64 %2400, %2401
   %2403 = ashr exact i64 %2402, 3
   %2404 = icmp ugt i64 %2403, %2397
-  br i1 %2404, label %.lr.ph.i864, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit866, !llvm.loop !19
+  br i1 %2404, label %.lr.ph.i864, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit866, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit866: ; preds = %.lr.ph.i864
   %2405 = icmp eq ptr %2398, %2399
@@ -9539,7 +9539,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit866: ; preds =
   %2416 = sub i64 %2414, %2415
   %2417 = ashr exact i64 %2416, 3
   %2418 = icmp ugt i64 %2417, %2411
-  br i1 %2418, label %.lr.ph.i868, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit870, !llvm.loop !19
+  br i1 %2418, label %.lr.ph.i868, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit870, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit870: ; preds = %.lr.ph.i868
   %2419 = icmp eq ptr %2412, %2413
@@ -9561,7 +9561,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit870: ; preds =
   %2430 = sub i64 %2428, %2429
   %2431 = ashr exact i64 %2430, 3
   %2432 = icmp ugt i64 %2431, %2425
-  br i1 %2432, label %.lr.ph.i872, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit874, !llvm.loop !19
+  br i1 %2432, label %.lr.ph.i872, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit874, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit874: ; preds = %.lr.ph.i872
   %2433 = icmp eq ptr %2426, %2427
@@ -9583,7 +9583,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit874: ; preds =
   %2444 = sub i64 %2442, %2443
   %2445 = ashr exact i64 %2444, 3
   %2446 = icmp ugt i64 %2445, %2439
-  br i1 %2446, label %.lr.ph.i876, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit878, !llvm.loop !19
+  br i1 %2446, label %.lr.ph.i876, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit878, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit878: ; preds = %.lr.ph.i876
   %2447 = icmp eq ptr %2440, %2441
@@ -9605,7 +9605,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit878: ; preds =
   %2458 = sub i64 %2456, %2457
   %2459 = ashr exact i64 %2458, 3
   %2460 = icmp ugt i64 %2459, %2453
-  br i1 %2460, label %.lr.ph.i880, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit882, !llvm.loop !19
+  br i1 %2460, label %.lr.ph.i880, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit882, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit882: ; preds = %.lr.ph.i880
   %2461 = icmp eq ptr %2454, %2455
@@ -9627,7 +9627,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit882: ; preds =
   %2472 = sub i64 %2470, %2471
   %2473 = ashr exact i64 %2472, 3
   %2474 = icmp ugt i64 %2473, %2467
-  br i1 %2474, label %.lr.ph.i884, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit886, !llvm.loop !19
+  br i1 %2474, label %.lr.ph.i884, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit886, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit886: ; preds = %.lr.ph.i884
   %2475 = icmp eq ptr %2468, %2469
@@ -9649,7 +9649,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit886: ; preds =
   %2486 = sub i64 %2484, %2485
   %2487 = ashr exact i64 %2486, 3
   %2488 = icmp ugt i64 %2487, %2481
-  br i1 %2488, label %.lr.ph.i888, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit890, !llvm.loop !19
+  br i1 %2488, label %.lr.ph.i888, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit890, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit890: ; preds = %.lr.ph.i888
   %2489 = icmp eq ptr %2482, %2483
@@ -9671,7 +9671,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit890: ; preds =
   %2500 = sub i64 %2498, %2499
   %2501 = ashr exact i64 %2500, 3
   %2502 = icmp ugt i64 %2501, %2495
-  br i1 %2502, label %.lr.ph.i892, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit894, !llvm.loop !19
+  br i1 %2502, label %.lr.ph.i892, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit894, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit894: ; preds = %.lr.ph.i892
   %2503 = icmp eq ptr %2496, %2497
@@ -9693,7 +9693,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit894: ; preds =
   %2514 = sub i64 %2512, %2513
   %2515 = ashr exact i64 %2514, 3
   %2516 = icmp ugt i64 %2515, %2509
-  br i1 %2516, label %.lr.ph.i896, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit898, !llvm.loop !19
+  br i1 %2516, label %.lr.ph.i896, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit898, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit898: ; preds = %.lr.ph.i896
   %2517 = icmp eq ptr %2510, %2511
@@ -9715,7 +9715,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit898: ; preds =
   %2528 = sub i64 %2526, %2527
   %2529 = ashr exact i64 %2528, 3
   %2530 = icmp ugt i64 %2529, %2523
-  br i1 %2530, label %.lr.ph.i900, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit902, !llvm.loop !19
+  br i1 %2530, label %.lr.ph.i900, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit902, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit902: ; preds = %.lr.ph.i900
   %2531 = icmp eq ptr %2524, %2525
@@ -9737,7 +9737,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit902: ; preds =
   %2542 = sub i64 %2540, %2541
   %2543 = ashr exact i64 %2542, 3
   %2544 = icmp ugt i64 %2543, %2537
-  br i1 %2544, label %.lr.ph.i904, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit906, !llvm.loop !19
+  br i1 %2544, label %.lr.ph.i904, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit906, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit906: ; preds = %.lr.ph.i904
   %2545 = icmp eq ptr %2538, %2539
@@ -9759,7 +9759,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit906: ; preds =
   %2556 = sub i64 %2554, %2555
   %2557 = ashr exact i64 %2556, 3
   %2558 = icmp ugt i64 %2557, %2551
-  br i1 %2558, label %.lr.ph.i908, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit910, !llvm.loop !19
+  br i1 %2558, label %.lr.ph.i908, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit910, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit910: ; preds = %.lr.ph.i908
   %2559 = icmp eq ptr %2552, %2553
@@ -9781,7 +9781,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit910: ; preds =
   %2570 = sub i64 %2568, %2569
   %2571 = ashr exact i64 %2570, 3
   %2572 = icmp ugt i64 %2571, %2565
-  br i1 %2572, label %.lr.ph.i912, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit914, !llvm.loop !19
+  br i1 %2572, label %.lr.ph.i912, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit914, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit914: ; preds = %.lr.ph.i912
   %2573 = icmp eq ptr %2566, %2567
@@ -9803,7 +9803,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit914: ; preds =
   %2584 = sub i64 %2582, %2583
   %2585 = ashr exact i64 %2584, 3
   %2586 = icmp ugt i64 %2585, %2579
-  br i1 %2586, label %.lr.ph.i916, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit918, !llvm.loop !19
+  br i1 %2586, label %.lr.ph.i916, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit918, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit918: ; preds = %.lr.ph.i916
   %2587 = icmp eq ptr %2580, %2581
@@ -9825,7 +9825,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit918: ; preds =
   %2598 = sub i64 %2596, %2597
   %2599 = ashr exact i64 %2598, 3
   %2600 = icmp ugt i64 %2599, %2593
-  br i1 %2600, label %.lr.ph.i920, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit922, !llvm.loop !19
+  br i1 %2600, label %.lr.ph.i920, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit922, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit922: ; preds = %.lr.ph.i920
   %2601 = icmp eq ptr %2594, %2595
@@ -9847,7 +9847,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit922: ; preds =
   %2612 = sub i64 %2610, %2611
   %2613 = ashr exact i64 %2612, 3
   %2614 = icmp ugt i64 %2613, %2607
-  br i1 %2614, label %.lr.ph.i924, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit926, !llvm.loop !19
+  br i1 %2614, label %.lr.ph.i924, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit926, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit926: ; preds = %.lr.ph.i924
   %2615 = icmp eq ptr %2608, %2609
@@ -9869,7 +9869,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit926: ; preds =
   %2626 = sub i64 %2624, %2625
   %2627 = ashr exact i64 %2626, 3
   %2628 = icmp ugt i64 %2627, %2621
-  br i1 %2628, label %.lr.ph.i928, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit930, !llvm.loop !19
+  br i1 %2628, label %.lr.ph.i928, label %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit930, !llvm.loop !18
 
 _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit930: ; preds = %.lr.ph.i928, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit726, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit730, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit734, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit738, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit742, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit746, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit750, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit754, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit758, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit762, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit766, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit770, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit774, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit778, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit782, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit786, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit790, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit794, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit798, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit802, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit806, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit810, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit814, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit818, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit822, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit826, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit830, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit834, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit838, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit842, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit846, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit850, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit854, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit858, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit862, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit866, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit870, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit874, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit878, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit882, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit886, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit890, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit894, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit898, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit902, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit906, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit910, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit914, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit918, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit922, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit926
   ret void
@@ -10197,19 +10197,18 @@ attributes #14 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5, !6}
+!4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!"llvm.loop.estimated_trip_count"}
-!7 = distinct !{!7, !5, !6}
-!8 = distinct !{!8, !5, !6}
-!9 = distinct !{!9, !5, !6}
-!10 = distinct !{!10, !5, !6}
-!11 = distinct !{!11, !5, !6}
-!12 = distinct !{!12, !5, !6}
-!13 = distinct !{!13, !5, !6}
-!14 = distinct !{!14, !5, !6}
-!15 = distinct !{!15, !5, !6}
-!16 = distinct !{!16, !5, !6}
-!17 = distinct !{!17, !5, !6}
-!18 = distinct !{!18, !5, !6}
-!19 = distinct !{!19, !5, !6}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}

@@ -208,14 +208,14 @@ for.inc:                                          ; preds = %for.body12, %_ZN6he
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.036, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i16.not = icmp eq ptr %__begin2.sroa.0.0, %InstList.i
-  br i1 %cmp.i16.not, label %for.inc34, label %for.body12, !llvm.loop !10
+  br i1 %cmp.i16.not, label %for.inc34, label %for.body12
 
 for.inc34:                                        ; preds = %for.inc, %for.body
   %changed.1.lcssa = phi i1 [ %changed.039, %for.body ], [ %changed.2, %for.inc ]
   %Next.i.i.i21 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.040, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %Next.i.i.i21, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %BasicBlockList.i
-  br i1 %cmp.i.not, label %for.end36, label %for.body, !llvm.loop !11
+  br i1 %cmp.i.not, label %for.end36, label %for.body
 
 for.end36:                                        ; preds = %for.inc34
   %.pre = load ptr, ptr %destroyer, align 8
@@ -232,7 +232,7 @@ for.body.i22:                                     ; preds = %for.end36, %for.bod
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %14) #10
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.05.i, i64 8
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i
-  br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i22, !llvm.loop !12
+  br i1 %cmp.not.i, label %for.end.loopexit.i, label %for.body.i22
 
 for.end.loopexit.i:                               ; preds = %for.body.i22
   %.pre.i = load ptr, ptr %destroyer, align 8
@@ -330,9 +330,5 @@ attributes #13 = { builtin nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN12_GLOBAL__N_123getArgumentsWithoutThisEPN6hermes8CallInstE: %agg.result"}
 !6 = distinct !{!6, !"_ZN12_GLOBAL__N_123getArgumentsWithoutThisEPN6hermes8CallInstE"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.estimated_trip_count"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}

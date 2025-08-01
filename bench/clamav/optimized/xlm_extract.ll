@@ -2315,7 +2315,7 @@ switch.lookup340:                                 ; preds = %170
   %spec.select191 = select i1 %.not177, i32 %.0135284, i32 %235
   %236 = call i64 @cli_readn(i32 noundef %14, ptr noundef nonnull %8, i64 noundef 4) #11
   %237 = icmp eq i64 %236, 4
-  br i1 %237, label %48, label %._crit_edge, !llvm.loop !63
+  br i1 %237, label %48, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %233, %32
   %.0137.lcssa = phi i64 [ 0, %32 ], [ %.1138, %233 ]
@@ -2931,7 +2931,7 @@ get_function_name.exit353:                        ; preds = %192, %196, %198, %2
   %253 = add nuw i32 %.0271457, 1
   %254 = zext i32 %253 to i64
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 %254
-  %256 = load double, ptr %255, align 8, !tbaa !65
+  %256 = load double, ptr %255, align 8, !tbaa !63
   %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1249, double noundef %256) #11
   %258 = icmp sgt i32 %257, -1
   br i1 %258, label %.thread373, label %260
@@ -3280,7 +3280,7 @@ get_function_name.exit353:                        ; preds = %192, %196, %198, %2
 480:                                              ; preds = %19, %119, %139, %268, %106, %56, %.thread358, %102, %.thread367, %.thread369, %.thread371, %.thread373, %.thread375, %.thread377, %.thread379, %.thread381, %.thread383
   %.1 = phi i32 [ %20, %19 ], [ %58, %56 ], [ %105, %102 ], [ %107, %106 ], [ %120, %119 ], [ %140, %139 ], [ %269, %268 ], [ %73, %.thread358 ], [ %174, %.thread367 ], [ %spec.select351, %.thread369 ], [ %247, %.thread371 ], [ %259, %.thread373 ], [ %301, %.thread375 ], [ %340, %.thread377 ], [ %411, %.thread379 ], [ %450, %.thread381 ], [ %470, %.thread383 ]
   %481 = icmp ult i32 %.1, %2
-  br i1 %481, label %.lr.ph, label %.thread386, !llvm.loop !67
+  br i1 %481, label %.lr.ph, label %.thread386
 
 .thread386:                                       ; preds = %480, %3, %101, %85, %.thread, %474, %478, %471, %454, %451, %415, %412, %344, %341, %305, %302, %272, %267, %263, %260, %251, %248, %218, %215, %178, %175, %143, %138, %123, %118, %110, %77, %.thread357, %74, %23, %17
   %.0 = phi i32 [ 26, %17 ], [ 26, %23 ], [ 26, %74 ], [ 26, %.thread357 ], [ 26, %77 ], [ 26, %110 ], [ 26, %118 ], [ 26, %123 ], [ 26, %138 ], [ 26, %143 ], [ 26, %175 ], [ 26, %178 ], [ 26, %215 ], [ 26, %218 ], [ 26, %248 ], [ 26, %251 ], [ 26, %260 ], [ 26, %263 ], [ 26, %267 ], [ 26, %272 ], [ 26, %302 ], [ 26, %305 ], [ 26, %341 ], [ 26, %344 ], [ 26, %412 ], [ 26, %415 ], [ 26, %451 ], [ 26, %454 ], [ 26, %471 ], [ 26, %478 ], [ 26, %474 ], [ 26, %.thread ], [ 26, %85 ], [ 26, %101 ], [ 0, %3 ], [ 0, %480 ]
@@ -3399,8 +3399,5 @@ attributes #12 = { nounwind allocsize(0) }
 !60 = !{!"", !12, i64 0, !12, i64 2}
 !61 = !{!60, !12, i64 2}
 !62 = !{!21, !21, i64 0}
-!63 = distinct !{!63, !64}
-!64 = !{!"llvm.loop.estimated_trip_count"}
-!65 = !{!66, !66, i64 0}
-!66 = !{!"double", !6, i64 0}
-!67 = distinct !{!67, !64}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"double", !6, i64 0}

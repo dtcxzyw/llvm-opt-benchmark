@@ -662,7 +662,7 @@ define hidden ptr @tcapsrt_call_matching(ptr noundef %0, ptr noundef %1, ptr nou
   %54 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %55 = load ptr, ptr %54, align 8
   %.not82.i = icmp eq ptr %55, null
-  br i1 %.not82.i, label %56, label %47, !llvm.loop !6
+  br i1 %.not82.i, label %56, label %47
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
@@ -760,7 +760,7 @@ append_tcaphash_begincall.exit.i:                 ; preds = %110, %85
 
 .thread.i:                                        ; preds = %75, %73, %63
   %116 = getelementptr inbounds nuw i8, ptr %49, i64 57
-  %117 = load i8, ptr %116, align 1, !range !8, !noundef !9
+  %117 = load i8, ptr %116, align 1, !range !6, !noundef !7
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %119, label %150
 
@@ -819,7 +819,7 @@ append_tcaphash_begincall.exit89.i:               ; preds = %144, %119
   br label %.loopexit.sink.split.i
 
 150:                                              ; preds = %.thread.i
-  %151 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !8, !noundef !9
+  %151 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %152 = trunc nuw i8 %151 to i1
   %153 = icmp ne ptr %2, null
   %or.cond.i = and i1 %153, %152
@@ -923,7 +923,7 @@ proto_item_set_generated.exit.i:                  ; preds = %161, %158, %154
 
 .loopexit.i:                                      ; preds = %47, %.loopexit.sink.split.i
   %.073.i = phi ptr [ %.073.ph.i, %.loopexit.sink.split.i ], [ %49, %47 ]
-  %207 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !8, !noundef !9
+  %207 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %208 = trunc nuw i8 %207 to i1
   %209 = icmp ne ptr %2, null
   %or.cond3.i = and i1 %209, %208
@@ -1097,7 +1097,7 @@ tcaphash_begin_matching.exit:                     ; preds = %150, %proto_item_se
   %294 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %295 = load ptr, ptr %294, align 8
   %296 = icmp eq ptr %295, null
-  br i1 %296, label %.loopexit.i33, label %.preheader.i.i, !llvm.loop !10
+  br i1 %296, label %.loopexit.i33, label %.preheader.i.i
 
 .loopexit.i33:                                    ; preds = %293, %279
   %297 = load i32, ptr %250, align 4
@@ -1165,7 +1165,7 @@ tcaphash_begin_matching.exit:                     ; preds = %150, %proto_item_se
   %331 = getelementptr inbounds nuw i8, ptr %.0.i83.i, i64 24
   %332 = load ptr, ptr %331, align 8
   %333 = icmp eq ptr %332, null
-  br i1 %333, label %find_tcaphash_begin.exit.i, label %.preheader.i82.i, !llvm.loop !11
+  br i1 %333, label %find_tcaphash_begin.exit.i, label %.preheader.i82.i
 
 find_tcaphash_begin.exit.i:                       ; preds = %330, %316, %475
   %334 = load i32, ptr %247, align 4
@@ -1230,7 +1230,7 @@ find_tcaphash_begin.exit.i:                       ; preds = %330, %316, %475
   %365 = getelementptr inbounds nuw i8, ptr %.0.i88.i, i64 24
   %366 = load ptr, ptr %365, align 8
   %367 = icmp eq ptr %366, null
-  br i1 %367, label %tcaphash_cont_matching.exit, label %.preheader.i87.i, !llvm.loop !11
+  br i1 %367, label %tcaphash_cont_matching.exit, label %.preheader.i87.i
 
 find_tcaphash_begin.exit95.i:                     ; preds = %327, %361
   %368 = phi ptr [ %356, %361 ], [ %322, %327 ]
@@ -1256,7 +1256,7 @@ find_tcaphash_begin.exit95.i:                     ; preds = %327, %361
   %377 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 24
   %378 = load ptr, ptr %377, align 8
   %.not13.i.i = icmp eq ptr %378, null
-  br i1 %.not13.i.i, label %379, label %.preheader.i97.i, !llvm.loop !12
+  br i1 %.not13.i.i, label %379, label %.preheader.i97.i
 
 379:                                              ; preds = %.preheader.i97.i
   %380 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 24
@@ -1370,7 +1370,7 @@ create_tcaphash_cont.exit.i:                      ; preds = %389, %379
   %444 = getelementptr inbounds nuw i8, ptr %.010.i101.i, i64 24
   %445 = load ptr, ptr %444, align 8
   %.not13.i102.i = icmp eq ptr %445, null
-  br i1 %.not13.i102.i, label %446, label %.preheader.i100.i, !llvm.loop !13
+  br i1 %.not13.i102.i, label %446, label %.preheader.i100.i
 
 446:                                              ; preds = %.preheader.i100.i
   %447 = getelementptr inbounds nuw i8, ptr %.010.i101.i, i64 24
@@ -1426,7 +1426,7 @@ create_tcaphash_cont.exit.i:                      ; preds = %389, %379
 
 create_tcaphash_end.exit.i:                       ; preds = %290, %456, %446
   %.066.i = phi ptr [ %368, %446 ], [ %368, %456 ], [ %285, %290 ]
-  %476 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !8, !noundef !9
+  %476 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %477 = trunc nuw i8 %476 to i1
   %478 = icmp ne ptr %2, null
   %or.cond.i30 = and i1 %478, %477
@@ -1585,7 +1585,7 @@ tcaphash_cont_matching.exit:                      ; preds = %364, %351, %475, %c
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 57
   store i8 1, ptr %559, align 1
   %560 = load ptr, ptr %554, align 8
-  %561 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !8, !noundef !9
+  %561 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %562 = trunc nuw i8 %561 to i1
   %563 = icmp ne ptr %2, null
   %or.cond.i45 = and i1 %563, %562
@@ -1679,7 +1679,7 @@ proto_item_set_generated.exit154.i:               ; preds = %593, %590, %proto_i
   %609 = getelementptr inbounds nuw i8, ptr %.0129.i, i64 24
   %610 = load ptr, ptr %609, align 8
   %.not142.i = icmp eq ptr %610, null
-  br i1 %.not142.i, label %611, label %541, !llvm.loop !14
+  br i1 %.not142.i, label %611, label %541
 
 611:                                              ; preds = %608
   %612 = getelementptr inbounds nuw i8, ptr %.0129.i, i64 8
@@ -1783,7 +1783,7 @@ append_tcaphash_ansicall.exit.i:                  ; preds = %662, %637
 
 .thread.i40:                                      ; preds = %627, %626, %616, %615
   %675 = getelementptr inbounds nuw i8, ptr %543, i64 57
-  %676 = load i8, ptr %675, align 1, !range !8, !noundef !9
+  %676 = load i8, ptr %675, align 1, !range !6, !noundef !7
   %677 = trunc nuw i8 %676 to i1
   br i1 %677, label %678, label %716
 
@@ -1852,7 +1852,7 @@ append_tcaphash_ansicall.exit158.i:               ; preds = %703, %678
   br label %proto_item_set_generated.exit157.i
 
 716:                                              ; preds = %.thread.i40
-  %717 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !8, !noundef !9
+  %717 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %718 = trunc nuw i8 %717 to i1
   %719 = icmp ne ptr %2, null
   %or.cond3.i41 = and i1 %719, %718
@@ -2011,7 +2011,7 @@ proto_item_set_generated.exit157.i:               ; preds = %546, %541, %764, %p
   %.1130.i = phi ptr [ %.0129.i, %553 ], [ %650, %append_tcaphash_ansicall.exit.i ], [ %691, %append_tcaphash_ansicall.exit158.i ], [ %.0129.i, %proto_item_set_generated.exit170.i ], [ %787, %764 ], [ %.0129.i, %proto_item_set_generated.exit154.i ], [ %.0129.i, %601 ], [ %.0129.i, %604 ], [ %.0129.i, %541 ], [ %.0129.i, %546 ]
   %.0128.i = phi i1 [ true, %553 ], [ false, %append_tcaphash_ansicall.exit.i ], [ false, %append_tcaphash_ansicall.exit158.i ], [ false, %proto_item_set_generated.exit170.i ], [ false, %764 ], [ true, %proto_item_set_generated.exit154.i ], [ true, %601 ], [ true, %604 ], [ %.not66.i.not.not, %541 ], [ %.not66.i.not.not, %546 ]
   %.1.i = phi ptr [ null, %553 ], [ null, %append_tcaphash_ansicall.exit.i ], [ null, %append_tcaphash_ansicall.exit158.i ], [ %.0.i42, %proto_item_set_generated.exit170.i ], [ null, %764 ], [ %566, %proto_item_set_generated.exit154.i ], [ %566, %601 ], [ %566, %604 ], [ null, %541 ], [ null, %546 ]
-  %804 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !8, !noundef !9
+  %804 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %805 = trunc nuw i8 %804 to i1
   %806 = icmp ne ptr %2, null
   %or.cond5.i43 = and i1 %806, %805
@@ -2067,7 +2067,7 @@ proto_item_set_generated.exit173.i:               ; preds = %818, %815, %811
 
 proto_item_set_generated.exit176.i:               ; preds = %828, %825, %proto_item_set_generated.exit173.i, %808, %proto_item_set_generated.exit157.i
   %.2.i = phi ptr [ %.1.i, %808 ], [ %.1.i, %proto_item_set_generated.exit157.i ], [ %813, %proto_item_set_generated.exit173.i ], [ %813, %825 ], [ %813, %828 ]
-  %832 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !8, !noundef !9
+  %832 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %833 = trunc nuw i8 %832 to i1
   %834 = icmp ne ptr %.2.i, null
   %or.cond9.i = select i1 %833, i1 %834, i1 false
@@ -2241,7 +2241,7 @@ define internal fastcc ptr @tcaphash_end_matching(ptr noundef %0, ptr noundef no
   %53 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit, label %43, !llvm.loop !15
+  br i1 %55, label %.loopexit, label %43
 
 .loopexit:                                        ; preds = %52, %38
   %56 = load i32, ptr %9, align 4
@@ -2312,11 +2312,11 @@ define internal fastcc ptr @tcaphash_end_matching(ptr noundef %0, ptr noundef no
   %91 = getelementptr inbounds nuw i8, ptr %.0.i58, i64 24
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
-  br i1 %93, label %.thread, label %80, !llvm.loop !11
+  br i1 %93, label %.thread, label %80
 
 .critedge:                                        ; preds = %49, %46, %87
   %.049 = phi ptr [ %82, %87 ], [ %45, %46 ], [ %45, %49 ]
-  %94 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !8, !noundef !9
+  %94 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %95 = trunc nuw i8 %94 to i1
   %96 = icmp ne ptr %2, null
   %or.cond = and i1 %96, %95
@@ -2364,7 +2364,7 @@ proto_item_set_generated.exit:                    ; preds = %97, %101, %104
   br label %proto_item_set_generated.exit64
 
 proto_item_set_generated.exit64:                  ; preds = %115, %112, %proto_item_set_generated.exit
-  %119 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !8, !noundef !9
+  %119 = load i8, ptr @gtcap_DisplaySRT, align 1, !range !6, !noundef !7
   %120 = trunc nuw i8 %119 to i1
   %121 = icmp ne ptr %99, null
   %or.cond3 = select i1 %120, i1 %121, i1 false
@@ -2464,7 +2464,7 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  %14 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !8
+  %14 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 true, i1 %15
   br i1 %or.cond, label %33, label %16
@@ -2505,7 +2505,7 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  %37 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !8
+  %37 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6
   %38 = trunc nuw i8 %37 to i1
   %or.cond3 = select i1 %36, i1 true, i1 %38
   br i1 %or.cond3, label %56, label %39
@@ -2546,7 +2546,7 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
-  %60 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !8
+  %60 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6
   %61 = trunc nuw i8 %60 to i1
   %or.cond5 = select i1 %59, i1 true, i1 %61
   br i1 %or.cond5, label %79, label %62
@@ -2587,7 +2587,7 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
-  %83 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !8
+  %83 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6
   %84 = trunc nuw i8 %83 to i1
   %or.cond7 = select i1 %82, i1 true, i1 %84
   br i1 %or.cond7, label %102, label %85
@@ -2625,7 +2625,7 @@ define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr 
   br label %102
 
 102:                                              ; preds = %.sink.split81, %88, %79
-  %103 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !8, !noundef !9
+  %103 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6, !noundef !7
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %109, label %105
 
@@ -2877,7 +2877,7 @@ define internal i32 @dissect_tcap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 48:                                               ; preds = %27
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 59
-  %50 = load i8, ptr %49, align 1, !range !8, !noundef !9
+  %50 = load i8, ptr %49, align 1, !range !6, !noundef !7
   %51 = trunc nuw i8 %50 to i1
   br i1 %51, label %.thread, label %52
 
@@ -3200,9 +3200,9 @@ define internal void @init_tcap() #0 {
   store ptr %3, ptr @ssn_range, align 8
   tail call void @range_foreach(ptr noundef %3, ptr noundef nonnull @range_add_callback, ptr noundef null)
   store i32 1, ptr @tcapsrt_global_SessionId, align 4
-  %4 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !8, !noundef !9
+  %4 = load i8, ptr @gtcap_PersistentSRT, align 1, !range !6, !noundef !7
   %5 = trunc nuw i8 %4 to i1
-  %6 = load i8, ptr @gtcap_StatSRT, align 1, !range !8
+  %6 = load i8, ptr @gtcap_StatSRT, align 1, !range !6
   %7 = select i1 %5, i8 1, i8 %6
   store i8 %7, ptr @gtcap_DisplaySRT, align 1
   ret void
@@ -3778,7 +3778,7 @@ define internal i32 @dissect_tcap_Component(i1 zeroext %0, ptr noundef %1, i32 n
   %36 = load ptr, ptr @cur_oid, align 8
   %.not67.i = icmp eq ptr %36, null
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 59
-  %38 = load i8, ptr %37, align 1, !range !8, !noundef !9
+  %38 = load i8, ptr %37, align 1, !range !6, !noundef !7
   %39 = trunc nuw i8 %38 to i1
   br i1 %.not67.i, label %69, label %40
 
@@ -3850,7 +3850,7 @@ define internal i32 @dissect_tcap_Component(i1 zeroext %0, ptr noundef %1, i32 n
 
 73:                                               ; preds = %70, %69, %66, %60, %57, %49, %44, %42
   %74 = getelementptr inbounds nuw i8, ptr %33, i64 84
-  %75 = load i8, ptr %74, align 4, !range !8, !noundef !9
+  %75 = load i8, ptr %74, align 4, !range !6, !noundef !7
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %.thread.i, label %79
 
@@ -4147,7 +4147,7 @@ define internal fastcc noundef i32 @dissect_tcap_param(ptr noundef %0, ptr nound
   %15 = call i32 @get_ber_length(ptr noundef %2, i32 noundef %14, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %16 = sub i32 %14, %.065
   %17 = sub i32 %15, %14
-  %18 = load i8, ptr %6, align 1, !range !8, !noundef !9
+  %18 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   %20 = load i32, ptr %8, align 4
   %21 = sub i32 %15, %.065
@@ -4168,7 +4168,7 @@ define internal fastcc noundef i32 @dissect_tcap_param(ptr noundef %0, ptr nound
   %34 = load i32, ptr %8, align 4
   %35 = call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %33, ptr noundef %2, i32 noundef %14, i32 noundef %17, i32 noundef %34)
   %36 = load i32, ptr %8, align 4
-  %37 = load i8, ptr %9, align 1, !range !8, !noundef !9
+  %37 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %38 = shl nuw nsw i8 %37, 1
   %39 = zext nneg i8 %38 to i32
   %.not63 = icmp eq i32 %36, %39
@@ -4182,7 +4182,7 @@ define internal fastcc noundef i32 @dissect_tcap_param(ptr noundef %0, ptr nound
   %44 = call fastcc i32 @dissect_tcap_param(ptr noundef %0, ptr noundef %25, ptr noundef %42, i32 noundef 0)
   %45 = load ptr, ptr %12, align 8
   call void @decrement_dissection_depth(ptr noundef %45)
-  %.pre = load i8, ptr %9, align 1, !range !8
+  %.pre = load i8, ptr %9, align 1, !range !6
   br label %46
 
 46:                                               ; preds = %40, %24
@@ -4222,7 +4222,7 @@ define internal fastcc noundef i32 @dissect_tcap_param(ptr noundef %0, ptr nound
   %.1 = add i32 %.pn, %15
   %70 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.1)
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %13, label %._crit_edge, !llvm.loop !16
+  br i1 %71, label %13, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %69, %4
   %.0.lcssa = phi i32 [ %3, %4 ], [ %.1, %69 ]
@@ -4423,7 +4423,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %14, %17
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.288, i32 noundef %60)
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %28
-  br i1 %exitcond.not, label %61, label %54, !llvm.loop !18
+  br i1 %exitcond.not, label %61, label %54, !llvm.loop !10
 
 61:                                               ; preds = %54
   %62 = load ptr, ptr %50, align 8
@@ -4565,7 +4565,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %14, %17
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.288, i32 noundef %60)
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %28
-  br i1 %exitcond.not, label %61, label %54, !llvm.loop !19
+  br i1 %exitcond.not, label %61, label %54, !llvm.loop !11
 
 61:                                               ; preds = %54
   %62 = load ptr, ptr %50, align 8
@@ -4694,17 +4694,9 @@ attributes #19 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.estimated_trip_count"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !17, !7}
-!17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17, !7}
-!19 = distinct !{!19, !17, !7}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

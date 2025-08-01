@@ -394,7 +394,7 @@ define hidden void @zim_Random_Randomizer_nextFloat(ptr noundef readonly capture
   %19 = extractvalue { i64, i64 } %12, 1
   %20 = add i64 %19, %.014
   %21 = icmp ult i64 %20, 8
-  br i1 %21, label %10, label %22, !llvm.loop !79
+  br i1 %21, label %10, label %22
 
 22:                                               ; preds = %14
   %23 = lshr i64 %18, 11
@@ -427,7 +427,7 @@ define hidden void @zim_Random_Randomizer_getFloat(ptr noundef %0, ptr noundef w
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %10 = and i32 %9, -2
   %or.cond.not = icmp eq i32 %10, 2
-  br i1 %or.cond.not, label %12, label %11, !prof !81
+  br i1 %or.cond.not, label %12, label %11, !prof !79
 
 11:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 3) #9
@@ -442,12 +442,12 @@ define hidden void @zim_Random_Randomizer_getFloat(ptr noundef %0, ptr noundef w
 
 zend_parse_arg_double.exit.thread:                ; preds = %12
   %17 = load double, ptr %13, align 8, !tbaa !4
-  store double %17, ptr %3, align 8, !tbaa !82
+  store double %17, ptr %3, align 8, !tbaa !80
   br label %19
 
 zend_parse_arg_double.exit:                       ; preds = %12
   %18 = call zeroext i1 @zend_parse_arg_double_slow(ptr noundef nonnull %13, ptr noundef nonnull %3, i32 noundef 1) #9
-  br i1 %18, label %19, label %46, !prof !84
+  br i1 %18, label %19, label %46, !prof !82
 
 19:                                               ; preds = %zend_parse_arg_double.exit.thread, %zend_parse_arg_double.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -458,12 +458,12 @@ zend_parse_arg_double.exit:                       ; preds = %12
 
 zend_parse_arg_double.exit101.thread:             ; preds = %19
   %24 = load double, ptr %20, align 8, !tbaa !4
-  store double %24, ptr %4, align 8, !tbaa !82
+  store double %24, ptr %4, align 8, !tbaa !80
   br label %26
 
 zend_parse_arg_double.exit101:                    ; preds = %19
   %25 = call zeroext i1 @zend_parse_arg_double_slow(ptr noundef nonnull %20, ptr noundef nonnull %4, i32 noundef 2) #9
-  br i1 %25, label %26, label %46, !prof !84
+  br i1 %25, label %26, label %46, !prof !82
 
 26:                                               ; preds = %zend_parse_arg_double.exit101.thread, %zend_parse_arg_double.exit101
   %27 = icmp eq i32 %9, 2
@@ -522,7 +522,7 @@ thread-pre-split:                                 ; preds = %instanceof_function
 
 .critedge:                                        ; preds = %34, %35, %instanceof_function.exit.zend_parse_arg_obj.exit_crit_edge, %26
   %.0103 = phi ptr [ null, %26 ], [ %.pre, %instanceof_function.exit.zend_parse_arg_obj.exit_crit_edge ], [ %.pre109, %35 ], [ %.pre109, %34 ]
-  %47 = load double, ptr %3, align 8, !tbaa !82
+  %47 = load double, ptr %3, align 8, !tbaa !80
   %48 = call double @llvm.fabs.f64(double %47)
   %49 = fcmp ueq double %48, 0x7FF0000000000000
   br i1 %49, label %50, label %53
@@ -535,7 +535,7 @@ thread-pre-split:                                 ; preds = %instanceof_function
   br label %127
 
 53:                                               ; preds = %.critedge
-  %54 = load double, ptr %4, align 8, !tbaa !82
+  %54 = load double, ptr %4, align 8, !tbaa !80
   %55 = call double @llvm.fabs.f64(double %54)
   %56 = fcmp ueq double %55, 0x7FF0000000000000
   br i1 %56, label %57, label %60
@@ -555,7 +555,7 @@ thread-pre-split:                                 ; preds = %instanceof_function
   %62 = getelementptr inbounds nuw i8, ptr %.0103, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !12
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 28
-  %65 = load i32, ptr %64, align 4, !tbaa !85
+  %65 = load i32, ptr %64, align 4, !tbaa !83
   %66 = and i32 %65, 268435456
   %67 = icmp ne i32 %66, 0
   call void @llvm.assume(i1 %67)
@@ -757,7 +757,7 @@ define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr noundef wri
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %.not = icmp eq i32 %9, 2
-  br i1 %.not, label %11, label %10, !prof !81
+  br i1 %.not, label %11, label %10, !prof !79
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #9
@@ -772,12 +772,12 @@ define hidden void @zim_Random_Randomizer_getInt(ptr noundef %0, ptr noundef wri
 
 zend_parse_arg_long_ex.exit69.thread:             ; preds = %11
   %16 = load i64, ptr %12, align 8, !tbaa !4
-  store i64 %16, ptr %3, align 8, !tbaa !86
+  store i64 %16, ptr %3, align 8, !tbaa !84
   br label %18
 
 zend_parse_arg_long_ex.exit69:                    ; preds = %11
   %17 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %12, ptr noundef nonnull %3, i32 noundef 1) #9
-  br i1 %17, label %18, label %.thread, !prof !84
+  br i1 %17, label %18, label %.thread, !prof !82
 
 18:                                               ; preds = %zend_parse_arg_long_ex.exit69.thread, %zend_parse_arg_long_ex.exit69
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -788,15 +788,15 @@ zend_parse_arg_long_ex.exit69:                    ; preds = %11
 
 .thread82:                                        ; preds = %18
   %23 = load i64, ptr %19, align 8, !tbaa !4
-  store i64 %23, ptr %4, align 8, !tbaa !86
+  store i64 %23, ptr %4, align 8, !tbaa !84
   br label %.critedge
 
 zend_parse_arg_long_ex.exit:                      ; preds = %18
   %24 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %19, ptr noundef nonnull %4, i32 noundef 2) #9
-  br i1 %24, label %zend_parse_arg_long_ex.exit..critedge_crit_edge, label %.thread, !prof !87
+  br i1 %24, label %zend_parse_arg_long_ex.exit..critedge_crit_edge, label %.thread, !prof !85
 
 zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long_ex.exit
-  %.pre = load i64, ptr %4, align 8, !tbaa !86
+  %.pre = load i64, ptr %4, align 8, !tbaa !84
   br label %.critedge
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_long_ex.exit69, %10
@@ -808,7 +808,7 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
 
 .critedge:                                        ; preds = %zend_parse_arg_long_ex.exit..critedge_crit_edge, %.thread82
   %25 = phi i64 [ %.pre, %zend_parse_arg_long_ex.exit..critedge_crit_edge ], [ %23, %.thread82 ]
-  %26 = load i64, ptr %3, align 8, !tbaa !86
+  %26 = load i64, ptr %3, align 8, !tbaa !84
   %27 = icmp slt i64 %25, %26
   br i1 %27, label %28, label %31, !prof !7
 
@@ -821,14 +821,14 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
 
 31:                                               ; preds = %.critedge
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.048.0.copyload, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !88
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 16), align 8, !tbaa !88
+  %33 = load ptr, ptr %32, align 8, !tbaa !86
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @php_random_algo_mt19937, i64 16), align 8, !tbaa !86
   %35 = icmp eq ptr %33, %34
   br i1 %35, label %36, label %.critedge67
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.copyload, i64 4
-  %38 = load i32, ptr %37, align 4, !tbaa !89
+  %38 = load i32, ptr %37, align 4, !tbaa !87
   %.not87 = icmp eq i32 %38, 0
   br i1 %.not87, label %.critedge67, label %39, !prof !11
 
@@ -837,9 +837,9 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   %41 = call { i64, i64 } %40(ptr noundef nonnull %.sroa.5.0.copyload) #9
   %42 = extractvalue { i64, i64 } %41, 0
   %43 = lshr i64 %42, 1
-  %44 = load i64, ptr %4, align 8, !tbaa !86
+  %44 = load i64, ptr %4, align 8, !tbaa !84
   %45 = sitofp i64 %44 to double
-  %46 = load i64, ptr %3, align 8, !tbaa !86
+  %46 = load i64, ptr %3, align 8, !tbaa !84
   %47 = sitofp i64 %46 to double
   %48 = fsub double %45, %47
   %49 = fadd double %48, 1.000000e+00
@@ -885,7 +885,7 @@ define hidden void @zim_Random_Randomizer_getBytes(ptr noundef %0, ptr noundef w
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %cond = icmp eq i32 %8, 1
-  br i1 %cond, label %9, label %.thread96, !prof !81
+  br i1 %cond, label %9, label %.thread96, !prof !79
 
 .thread96:                                        ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #9
@@ -900,12 +900,12 @@ define hidden void @zim_Random_Randomizer_getBytes(ptr noundef %0, ptr noundef w
 
 .thread:                                          ; preds = %9
   %14 = load i64, ptr %10, align 8, !tbaa !4
-  store i64 %14, ptr %3, align 8, !tbaa !86
+  store i64 %14, ptr %3, align 8, !tbaa !84
   br label %.critedge
 
 zend_parse_arg_long_ex.exit:                      ; preds = %9
   %15 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1) #9
-  br i1 %15, label %.critedgethread-pre-split, label %16, !prof !87
+  br i1 %15, label %.critedgethread-pre-split, label %16, !prof !85
 
 16:                                               ; preds = %zend_parse_arg_long_ex.exit, %.thread96
   %.065103 = phi i32 [ 0, %.thread96 ], [ 1, %zend_parse_arg_long_ex.exit ]
@@ -915,7 +915,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %9
   br label %82
 
 .critedgethread-pre-split:                        ; preds = %zend_parse_arg_long_ex.exit
-  %.pr = load i64, ptr %3, align 8, !tbaa !86
+  %.pr = load i64, ptr %3, align 8, !tbaa !84
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedgethread-pre-split, %.thread
@@ -995,7 +995,7 @@ zend_string_free.exit:                            ; preds = %36, %41, %42
   store i64 %34, ptr %48, align 1
   %49 = add i64 %31, 8
   %.not78 = icmp ugt i64 %49, %17
-  br i1 %.not78, label %.loopexit, label %30, !llvm.loop !91
+  br i1 %.not78, label %.loopexit, label %30
 
 .loopexit.loopexit:                               ; preds = %72, %68
   br label %.loopexit
@@ -1067,7 +1067,7 @@ zend_string_free.exit87:                          ; preds = %58, %63, %64
   %73 = lshr i64 %.sroa.07.1111, 8
   %74 = add nuw i64 %.066112, 1
   %exitcond.not = icmp eq i64 %74, %.sroa.8.0
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %68, !llvm.loop !92
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %68
 
 75:                                               ; preds = %.loopexit
   %76 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -1095,7 +1095,7 @@ define hidden void @zim_Random_Randomizer_shuffleArray(ptr noundef %0, ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %cond = icmp eq i32 %7, 1
-  br i1 %cond, label %8, label %.thread, !prof !81
+  br i1 %cond, label %8, label %.thread, !prof !79
 
 .thread:                                          ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #9
@@ -1106,7 +1106,7 @@ define hidden void @zim_Random_Randomizer_shuffleArray(ptr noundef %0, ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i8, ptr %10, align 8, !tbaa !4
   %12 = icmp eq i8 %11, 7
-  br i1 %12, label %.critedge, label %13, !prof !87
+  br i1 %12, label %.critedge, label %13, !prof !85
 
 13:                                               ; preds = %.thread, %8
   %.055 = phi i32 [ 0, %.thread ], [ 1, %8 ]
@@ -1152,7 +1152,7 @@ define hidden void @zim_Random_Randomizer_shuffleBytes(ptr noundef %0, ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %cond = icmp eq i32 %8, 1
-  br i1 %cond, label %9, label %.thread66, !prof !81
+  br i1 %cond, label %9, label %.thread66, !prof !79
 
 .thread66:                                        ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #9
@@ -1167,16 +1167,16 @@ define hidden void @zim_Random_Randomizer_shuffleBytes(ptr noundef %0, ptr nound
 
 .thread76:                                        ; preds = %9
   %14 = load ptr, ptr %10, align 8, !tbaa !4
-  store ptr %14, ptr %3, align 8, !tbaa !93
+  store ptr %14, ptr %3, align 8, !tbaa !89
   br label %.critedge
 
 zend_parse_arg_str_ex.exit:                       ; preds = %9
   %15 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1) #9
   %cond.fr56 = freeze i1 %15
-  br i1 %cond.fr56, label %zend_parse_arg_str_ex.exit..critedge_crit_edge, label %16, !prof !84
+  br i1 %cond.fr56, label %zend_parse_arg_str_ex.exit..critedge_crit_edge, label %16, !prof !82
 
 zend_parse_arg_str_ex.exit..critedge_crit_edge:   ; preds = %zend_parse_arg_str_ex.exit
-  %.pre = load ptr, ptr %3, align 8, !tbaa !93
+  %.pre = load ptr, ptr %3, align 8, !tbaa !89
   br label %.critedge
 
 16:                                               ; preds = %zend_parse_arg_str_ex.exit, %.thread66
@@ -1265,7 +1265,7 @@ define hidden void @zim_Random_Randomizer_pickArrayKeys(ptr noundef %0, ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %.not = icmp eq i32 %9, 2
-  br i1 %.not, label %zend_parse_arg_array.exit, label %10, !prof !81
+  br i1 %.not, label %zend_parse_arg_array.exit, label %10, !prof !79
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #9
@@ -1287,15 +1287,15 @@ zend_parse_arg_array.exit:                        ; preds = %2
 
 .thread83:                                        ; preds = %15
   %20 = load i64, ptr %16, align 8, !tbaa !4
-  store i64 %20, ptr %4, align 8, !tbaa !86
+  store i64 %20, ptr %4, align 8, !tbaa !84
   br label %.critedge
 
 zend_parse_arg_long_ex.exit:                      ; preds = %15
   %21 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 noundef 2) #9
-  br i1 %21, label %zend_parse_arg_long_ex.exit..critedge_crit_edge, label %.thread, !prof !87
+  br i1 %21, label %zend_parse_arg_long_ex.exit..critedge_crit_edge, label %.thread, !prof !85
 
 zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long_ex.exit
-  %.pre = load i64, ptr %4, align 8, !tbaa !86
+  %.pre = load i64, ptr %4, align 8, !tbaa !84
   br label %.critedge
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_array.exit, %10
@@ -1365,7 +1365,7 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %.not = icmp eq i32 %9, 2
-  br i1 %.not, label %11, label %10, !prof !81
+  br i1 %.not, label %11, label %10, !prof !79
 
 10:                                               ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 2, i32 noundef 2) #9
@@ -1380,12 +1380,12 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
 
 zend_parse_arg_str_ex.exit.thread:                ; preds = %11
   %16 = load ptr, ptr %12, align 8, !tbaa !4
-  store ptr %16, ptr %4, align 8, !tbaa !93
+  store ptr %16, ptr %4, align 8, !tbaa !89
   br label %18
 
 zend_parse_arg_str_ex.exit:                       ; preds = %11
   %17 = call zeroext i1 @zend_parse_arg_str_slow(ptr noundef nonnull %12, ptr noundef nonnull %4, i32 noundef 1) #9
-  br i1 %17, label %18, label %.thread, !prof !84
+  br i1 %17, label %18, label %.thread, !prof !82
 
 18:                                               ; preds = %zend_parse_arg_str_ex.exit.thread, %zend_parse_arg_str_ex.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1396,12 +1396,12 @@ zend_parse_arg_str_ex.exit:                       ; preds = %11
 
 .thread161:                                       ; preds = %18
   %23 = load i64, ptr %19, align 8, !tbaa !4
-  store i64 %23, ptr %3, align 8, !tbaa !86
+  store i64 %23, ptr %3, align 8, !tbaa !84
   br label %.critedge
 
 zend_parse_arg_long_ex.exit:                      ; preds = %18
   %24 = call zeroext i1 @zend_parse_arg_long_slow(ptr noundef nonnull %19, ptr noundef nonnull %3, i32 noundef 2) #9
-  br i1 %24, label %.critedge, label %.thread, !prof !87
+  br i1 %24, label %.critedge, label %.thread, !prof !85
 
 .thread:                                          ; preds = %zend_parse_arg_long_ex.exit, %zend_parse_arg_str_ex.exit, %10
   %.0103160 = phi i32 [ 1, %zend_parse_arg_str_ex.exit ], [ 0, %10 ], [ 2, %zend_parse_arg_long_ex.exit ]
@@ -1412,7 +1412,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %18
   br label %125
 
 .critedge:                                        ; preds = %zend_parse_arg_long_ex.exit, %.thread161
-  %25 = load ptr, ptr %4, align 8, !tbaa !93
+  %25 = load ptr, ptr %4, align 8, !tbaa !89
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8, !tbaa !69
   %28 = add i64 %27, -1
@@ -1427,7 +1427,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %18
   br label %125
 
 33:                                               ; preds = %.critedge
-  %34 = load i64, ptr %3, align 8, !tbaa !86
+  %34 = load i64, ptr %3, align 8, !tbaa !84
   %35 = icmp slt i64 %34, 1
   br i1 %35, label %36, label %zend_string_alloc.exit
 
@@ -1459,7 +1459,7 @@ zend_string_alloc.exit:                           ; preds = %33
 
 48:                                               ; preds = %.preheader, %61
   %.0188 = phi i64 [ 0, %.preheader ], [ %66, %61 ]
-  %49 = load ptr, ptr %46, align 8, !tbaa !88
+  %49 = load ptr, ptr %46, align 8, !tbaa !86
   %50 = call i64 %49(ptr noundef %.sroa.5.0.copyload, i64 noundef 0, i64 noundef %28) #9
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !35
   %.not133 = icmp eq ptr %51, null
@@ -1492,7 +1492,7 @@ zend_string_alloc.exit:                           ; preds = %33
   br label %125
 
 61:                                               ; preds = %48
-  %62 = load ptr, ptr %4, align 8, !tbaa !93
+  %62 = load ptr, ptr %4, align 8, !tbaa !89
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = getelementptr inbounds nuw [1 x i8], ptr %63, i64 0, i64 %50
   %65 = load i8, ptr %64, align 1, !tbaa !4
@@ -1500,7 +1500,7 @@ zend_string_alloc.exit:                           ; preds = %33
   %67 = getelementptr inbounds nuw [1 x i8], ptr %47, i64 0, i64 %.0188
   store i8 %65, ptr %67, align 1, !tbaa !4
   %exitcond191.not = icmp eq i64 %66, %34
-  br i1 %exitcond191.not, label %.critedge139, label %48, !llvm.loop !94
+  br i1 %exitcond191.not, label %.critedge139, label %48
 
 68:                                               ; preds = %zend_string_alloc.exit
   %69 = lshr i64 %28, 1
@@ -1617,7 +1617,7 @@ select.unfold:                                    ; preds = %113, %100
   %.6 = phi i64 [ %.4181, %100 ], [ %116, %113 ]
   %118 = add nuw i64 %.0104180, 1
   %exitcond.not = icmp eq i64 %118, %81
-  br i1 %exitcond.not, label %.thread170, label %96, !llvm.loop !95
+  br i1 %exitcond.not, label %.thread170, label %96
 
 .thread170:                                       ; preds = %select.unfold, %113, %91
   %.3111 = phi i32 [ %.0108186, %91 ], [ 0, %113 ], [ %.4112, %select.unfold ]
@@ -1694,7 +1694,7 @@ define hidden void @zim_Random_Randomizer___unserialize(ptr noundef %0, ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %cond = icmp eq i32 %7, 1
-  br i1 %cond, label %8, label %.thread, !prof !81
+  br i1 %cond, label %8, label %.thread, !prof !79
 
 .thread:                                          ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #9
@@ -1718,7 +1718,7 @@ define hidden void @zim_Random_Randomizer___unserialize(ptr noundef %0, ptr noun
 .critedge:                                        ; preds = %8
   %14 = load ptr, ptr %9, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !96
+  %16 = load i32, ptr %15, align 4, !tbaa !90
   %.not48 = icmp eq i32 %16, 1
   br i1 %.not48, label %21, label %17
 
@@ -1763,7 +1763,7 @@ define hidden void @zim_Random_Randomizer___unserialize(ptr noundef %0, ptr noun
 
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !97
+  %39 = load ptr, ptr %38, align 8, !tbaa !91
   %40 = tail call ptr @zend_read_property(ptr noundef %39, ptr noundef nonnull %4, ptr noundef nonnull @.str, i64 noundef 6, i1 noundef zeroext true, ptr noundef null) #9
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i8, ptr %41, align 8, !tbaa !4
@@ -1933,22 +1933,16 @@ attributes #10 = { nounwind allocsize(0) }
 !76 = !{!"_php_random_algo_with_state", !65, i64 0, !10, i64 8}
 !77 = !{!78, !10, i64 8}
 !78 = !{!"_php_random_algo", !24, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32}
-!79 = distinct !{!79, !80}
-!80 = !{!"llvm.loop.estimated_trip_count"}
-!81 = !{!"branch_weights", i32 4000000, i32 4001}
-!82 = !{!83, !83, i64 0}
-!83 = !{!"double", !5, i64 0}
-!84 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
-!85 = !{!20, !15, i64 28}
-!86 = !{!24, !24, i64 0}
-!87 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!88 = !{!78, !10, i64 16}
-!89 = !{!90, !15, i64 4}
-!90 = !{!"_php_random_status_state_mt19937", !15, i64 0, !15, i64 4, !5, i64 8}
-!91 = distinct !{!91, !80}
-!92 = distinct !{!92, !80}
-!93 = !{!21, !21, i64 0}
-!94 = distinct !{!94, !80}
-!95 = distinct !{!95, !80}
-!96 = !{!23, !15, i64 28}
-!97 = !{!75, !9, i64 40}
+!79 = !{!"branch_weights", i32 4000000, i32 4001}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"double", !5, i64 0}
+!82 = !{!"branch_weights", !"expected", i32 0, i32 -2147483648}
+!83 = !{!20, !15, i64 28}
+!84 = !{!24, !24, i64 0}
+!85 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!86 = !{!78, !10, i64 16}
+!87 = !{!88, !15, i64 4}
+!88 = !{!"_php_random_status_state_mt19937", !15, i64 0, !15, i64 4, !5, i64 8}
+!89 = !{!21, !21, i64 0}
+!90 = !{!23, !15, i64 28}
+!91 = !{!75, !9, i64 40}

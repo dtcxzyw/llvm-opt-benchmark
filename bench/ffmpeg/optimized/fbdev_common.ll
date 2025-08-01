@@ -94,7 +94,7 @@ define range(i32 -2147483648, 1) i32 @ff_fbdev_get_device_list(ptr noundef %0) l
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #11
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
-  store ptr null, ptr %5, align 8, !tbaa !22
+  store ptr null, ptr %5, align 8, !tbaa !21
   %7 = tail call ptr @getenv(ptr noundef nonnull @.str) #11
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -117,7 +117,7 @@ define range(i32 -2147483648, 1) i32 @ff_fbdev_get_device_list(ptr noundef %0) l
 
 14:                                               ; preds = %10
   %15 = tail call ptr @__errno_location() #12
-  %16 = load i32, ptr %15, align 4, !tbaa !25
+  %16 = load i32, ptr %15, align 4, !tbaa !24
   %.not36 = icmp eq i32 %16, 2
   br i1 %.not36, label %57, label %17
 
@@ -140,7 +140,7 @@ define range(i32 -2147483648, 1) i32 @ff_fbdev_get_device_list(ptr noundef %0) l
 
 26:                                               ; preds = %23
   %27 = call noalias ptr @av_mallocz(i64 noundef 32) #11
-  store ptr %27, ptr %5, align 8, !tbaa !22
+  store ptr %27, ptr %5, align 8, !tbaa !21
   %.not30 = icmp eq ptr %27, null
   br i1 %.not30, label %.thread40, label %29
 
@@ -150,13 +150,13 @@ define range(i32 -2147483648, 1) i32 @ff_fbdev_get_device_list(ptr noundef %0) l
 
 29:                                               ; preds = %26
   %30 = call noalias ptr @av_strdup(ptr noundef nonnull %4) #11
-  %31 = load ptr, ptr %5, align 8, !tbaa !22
-  store ptr %30, ptr %31, align 8, !tbaa !26
+  %31 = load ptr, ptr %5, align 8, !tbaa !21
+  store ptr %30, ptr %31, align 8, !tbaa !25
   %32 = call noalias ptr @av_strdup(ptr noundef nonnull %3) #11
-  %33 = load ptr, ptr %5, align 8, !tbaa !22
+  %33 = load ptr, ptr %5, align 8, !tbaa !21
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %32, ptr %34, align 8, !tbaa !29
-  %35 = load ptr, ptr %33, align 8, !tbaa !26
+  store ptr %32, ptr %34, align 8, !tbaa !28
+  %35 = load ptr, ptr %33, align 8, !tbaa !25
   %.not31 = icmp eq ptr %35, null
   br i1 %.not31, label %.thread, label %36
 
@@ -174,16 +174,16 @@ define range(i32 -2147483648, 1) i32 @ff_fbdev_get_device_list(ptr noundef %0) l
   br i1 %.not33, label %48, label %41
 
 41:                                               ; preds = %40
-  %42 = load ptr, ptr %5, align 8, !tbaa !22
-  %43 = load ptr, ptr %42, align 8, !tbaa !26
+  %42 = load ptr, ptr %5, align 8, !tbaa !21
+  %43 = load ptr, ptr %42, align 8, !tbaa !25
   %44 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %.01944) #13
   %.not34 = icmp eq i32 %44, 0
   br i1 %.not34, label %45, label %48
 
 45:                                               ; preds = %41
-  %46 = load i32, ptr %8, align 8, !tbaa !30
+  %46 = load i32, ptr %8, align 8, !tbaa !29
   %47 = add nsw i32 %46, -1
-  store i32 %47, ptr %9, align 4, !tbaa !34
+  store i32 %47, ptr %9, align 4, !tbaa !33
   br label %48
 
 48:                                               ; preds = %45, %41, %40
@@ -193,7 +193,7 @@ define range(i32 -2147483648, 1) i32 @ff_fbdev_get_device_list(ptr noundef %0) l
 
 50:                                               ; preds = %36, %37, %23, %20
   %.222.ph = phi i32 [ -12, %36 ], [ %38, %37 ], [ %.02043, %23 ], [ %.02043, %20 ]
-  %.pr = load ptr, ptr %5, align 8, !tbaa !22
+  %.pr = load ptr, ptr %5, align 8, !tbaa !21
   %.not35 = icmp eq ptr %.pr, null
   br i1 %.not35, label %54, label %.thread
 
@@ -201,7 +201,7 @@ define range(i32 -2147483648, 1) i32 @ff_fbdev_get_device_list(ptr noundef %0) l
   %.22248 = phi i32 [ %.222.ph, %50 ], [ -12, %29 ]
   %51 = phi ptr [ %.pr, %50 ], [ %33, %29 ]
   call void @av_freep(ptr noundef nonnull %51) #11
-  %52 = load ptr, ptr %5, align 8, !tbaa !22
+  %52 = load ptr, ptr %5, align 8, !tbaa !21
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   call void @av_freep(ptr noundef nonnull %53) #11
   call void @av_freep(ptr noundef nonnull %5) #11
@@ -218,7 +218,7 @@ define range(i32 -2147483648, 1) i32 @ff_fbdev_get_device_list(ptr noundef %0) l
   %.1 = phi ptr [ %.01944, %54 ], [ %.2, %48 ], [ %.01944, %17 ], [ %.01944, %14 ]
   %58 = add nuw nsw i32 %.02342, 1
   %exitcond.not = icmp eq i32 %58, 32
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !34
 
 .loopexit:                                        ; preds = %57, %54, %.thread40, %1
   %.0 = phi i32 [ -22, %1 ], [ -12, %.thread40 ], [ 0, %57 ], [ %.22249, %54 ]
@@ -296,20 +296,19 @@ attributes #13 = { nounwind willreturn memory(read) }
 !16 = !{!11, !6, i64 12}
 !17 = !{!5, !6, i64 56}
 !18 = !{!11, !6, i64 20}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!"llvm.loop.estimated_trip_count"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTS12AVDeviceInfo", !24, i64 0}
-!24 = !{!"any pointer", !7, i64 0}
-!25 = !{!6, !6, i64 0}
-!26 = !{!27, !28, i64 0}
-!27 = !{!"AVDeviceInfo", !28, i64 0, !28, i64 8, !24, i64 16, !6, i64 24}
-!28 = !{!"p1 omnipotent char", !24, i64 0}
-!29 = !{!27, !28, i64 8}
-!30 = !{!31, !6, i64 8}
-!31 = !{!"AVDeviceInfoList", !32, i64 0, !6, i64 8, !6, i64 12}
-!32 = !{!"p2 _ZTS12AVDeviceInfo", !33, i64 0}
-!33 = !{!"any p2 pointer", !24, i64 0}
-!34 = !{!31, !6, i64 12}
-!35 = distinct !{!35, !20, !21}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS12AVDeviceInfo", !23, i64 0}
+!23 = !{!"any pointer", !7, i64 0}
+!24 = !{!6, !6, i64 0}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"AVDeviceInfo", !27, i64 0, !27, i64 8, !23, i64 16, !6, i64 24}
+!27 = !{!"p1 omnipotent char", !23, i64 0}
+!28 = !{!26, !27, i64 8}
+!29 = !{!30, !6, i64 8}
+!30 = !{!"AVDeviceInfoList", !31, i64 0, !6, i64 8, !6, i64 12}
+!31 = !{!"p2 _ZTS12AVDeviceInfo", !32, i64 0}
+!32 = !{!"any p2 pointer", !23, i64 0}
+!33 = !{!30, !6, i64 12}
+!34 = distinct !{!34, !20}

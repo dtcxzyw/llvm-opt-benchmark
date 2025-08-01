@@ -214,7 +214,7 @@ define internal fastcc range(i32 -2, 3) i32 @detect_version(ptr noundef %0, ptr 
 get_priority.exit.thread.us:                      ; preds = %41, %38, %35
   %51 = add nuw nsw i32 %.05578.us, 1
   %exitcond94.not = icmp eq i32 %51, 3
-  br i1 %exitcond94.not, label %.split85.us, label %.split.us, !llvm.loop !9
+  br i1 %exitcond94.not, label %.split85.us, label %.split.us, !llvm.loop !8
 
 .split:                                           ; preds = %20
   %52 = zext nneg i16 %25 to i32
@@ -277,7 +277,7 @@ get_priority.exit.thread:                         ; preds = %56, %65, %71, %68
   %.1 = phi i16 [ %25, %68 ], [ %25, %71 ], [ %25, %65 ], [ %.05279, %56 ]
   %78 = add nuw nsw i32 %.05578, 1
   %exitcond.not = icmp eq i32 %78, 3
-  br i1 %exitcond.not, label %.split85.us, label %56, !llvm.loop !11
+  br i1 %exitcond.not, label %.split85.us, label %56, !llvm.loop !10
 
 .split85.us:                                      ; preds = %get_priority.exit.thread, %get_priority.exit.thread.us
   call void @g_free(ptr noundef %22)
@@ -570,9 +570,8 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.estimated_trip_count"}
-!9 = distinct !{!9, !7, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7, !8}
+!8 = distinct !{!8, !7, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7}

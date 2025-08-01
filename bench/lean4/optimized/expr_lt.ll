@@ -514,13 +514,13 @@ define linkonce_odr hidden void @_ZN4lean8optionalINS_10local_declEED2Ev(ptr nou
   br i1 %.not.i.i, label %9, label %_ZN4lean10object_refD2Ev.exit
 
 9:                                                ; preds = %4
-  %10 = load i32, ptr %6, align 4, !tbaa !31
+  %10 = load i32, ptr %6, align 4, !tbaa !30
   %11 = icmp sgt i32 %10, 1
-  br i1 %11, label %12, label %14, !prof !34
+  br i1 %11, label %12, label %14, !prof !33
 
 12:                                               ; preds = %9
   %13 = add nsw i32 %10, -1
-  store i32 %13, ptr %6, align 4, !tbaa !31
+  store i32 %13, ptr %6, align 4, !tbaa !30
   br label %_ZN4lean10object_refD2Ev.exit
 
 14:                                               ; preds = %9
@@ -1093,13 +1093,13 @@ define zeroext range(i8 0, 2) i8 @lean_expr_quick_lt(ptr noundef %0, ptr noundef
   br i1 %.not.i.i.i, label %7, label %_ZN4lean4exprC2EP11lean_objectb.exit
 
 7:                                                ; preds = %2
-  %.val.i.i.i.i = load i32, ptr %0, align 4, !tbaa !31
+  %.val.i.i.i.i = load i32, ptr %0, align 4, !tbaa !30
   %8 = icmp sgt i32 %.val.i.i.i.i, 0
-  br i1 %8, label %9, label %11, !prof !34
+  br i1 %8, label %9, label %11, !prof !33
 
 9:                                                ; preds = %7
   %10 = add nuw nsw i32 %.val.i.i.i.i, 1
-  store i32 %10, ptr %0, align 4, !tbaa !31
+  store i32 %10, ptr %0, align 4, !tbaa !30
   br label %_ZN4lean4exprC2EP11lean_objectb.exit
 
 11:                                               ; preds = %7
@@ -1119,13 +1119,13 @@ _ZN4lean4exprC2EP11lean_objectb.exit:             ; preds = %2, %9, %11, %12
   br i1 %.not.i.i.i5, label %15, label %_ZN4lean4exprC2EP11lean_objectb.exit8
 
 15:                                               ; preds = %_ZN4lean4exprC2EP11lean_objectb.exit
-  %.val.i.i.i.i6 = load i32, ptr %1, align 4, !tbaa !31
+  %.val.i.i.i.i6 = load i32, ptr %1, align 4, !tbaa !30
   %16 = icmp sgt i32 %.val.i.i.i.i6, 0
-  br i1 %16, label %17, label %19, !prof !34
+  br i1 %16, label %17, label %19, !prof !33
 
 17:                                               ; preds = %15
   %18 = add nuw nsw i32 %.val.i.i.i.i6, 1
-  store i32 %18, ptr %1, align 4, !tbaa !31
+  store i32 %18, ptr %1, align 4, !tbaa !30
   br label %_ZN4lean4exprC2EP11lean_objectb.exit8
 
 19:                                               ; preds = %15
@@ -1148,13 +1148,13 @@ _ZN4lean4exprC2EP11lean_objectb.exit8:            ; preds = %19, %17, %_ZN4lean4
   br i1 %.not.i.i, label %26, label %_ZN4lean10object_refD2Ev.exit
 
 26:                                               ; preds = %22
-  %27 = load i32, ptr %23, align 4, !tbaa !31
+  %27 = load i32, ptr %23, align 4, !tbaa !30
   %28 = icmp sgt i32 %27, 1
-  br i1 %28, label %29, label %31, !prof !34
+  br i1 %28, label %29, label %31, !prof !33
 
 29:                                               ; preds = %26
   %30 = add nsw i32 %27, -1
-  store i32 %30, ptr %23, align 4, !tbaa !31
+  store i32 %30, ptr %23, align 4, !tbaa !30
   br label %_ZN4lean10object_refD2Ev.exit
 
 31:                                               ; preds = %26
@@ -1181,13 +1181,13 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %22, %29, %31, %32
   br i1 %.not.i.i10, label %39, label %_ZN4lean10object_refD2Ev.exit12
 
 39:                                               ; preds = %_ZN4lean10object_refD2Ev.exit
-  %40 = load i32, ptr %36, align 4, !tbaa !31
+  %40 = load i32, ptr %36, align 4, !tbaa !30
   %41 = icmp sgt i32 %40, 1
-  br i1 %41, label %42, label %44, !prof !34
+  br i1 %41, label %42, label %44, !prof !33
 
 42:                                               ; preds = %39
   %43 = add nsw i32 %40, -1
-  store i32 %43, ptr %36, align 4, !tbaa !31
+  store i32 %43, ptr %36, align 4, !tbaa !30
   br label %_ZN4lean10object_refD2Ev.exit12
 
 44:                                               ; preds = %39
@@ -1241,13 +1241,13 @@ define zeroext range(i8 0, 2) i8 @lean_expr_lt(ptr noundef %0, ptr noundef %1) l
   br i1 %.not.i.i.i, label %7, label %_ZN4lean4exprC2EP11lean_objectb.exit
 
 7:                                                ; preds = %2
-  %.val.i.i.i.i = load i32, ptr %0, align 4, !tbaa !31
+  %.val.i.i.i.i = load i32, ptr %0, align 4, !tbaa !30
   %8 = icmp sgt i32 %.val.i.i.i.i, 0
-  br i1 %8, label %9, label %11, !prof !34
+  br i1 %8, label %9, label %11, !prof !33
 
 9:                                                ; preds = %7
   %10 = add nuw nsw i32 %.val.i.i.i.i, 1
-  store i32 %10, ptr %0, align 4, !tbaa !31
+  store i32 %10, ptr %0, align 4, !tbaa !30
   br label %_ZN4lean4exprC2EP11lean_objectb.exit
 
 11:                                               ; preds = %7
@@ -1267,13 +1267,13 @@ _ZN4lean4exprC2EP11lean_objectb.exit:             ; preds = %2, %9, %11, %12
   br i1 %.not.i.i.i5, label %15, label %_ZN4lean4exprC2EP11lean_objectb.exit8
 
 15:                                               ; preds = %_ZN4lean4exprC2EP11lean_objectb.exit
-  %.val.i.i.i.i6 = load i32, ptr %1, align 4, !tbaa !31
+  %.val.i.i.i.i6 = load i32, ptr %1, align 4, !tbaa !30
   %16 = icmp sgt i32 %.val.i.i.i.i6, 0
-  br i1 %16, label %17, label %19, !prof !34
+  br i1 %16, label %17, label %19, !prof !33
 
 17:                                               ; preds = %15
   %18 = add nuw nsw i32 %.val.i.i.i.i6, 1
-  store i32 %18, ptr %1, align 4, !tbaa !31
+  store i32 %18, ptr %1, align 4, !tbaa !30
   br label %_ZN4lean4exprC2EP11lean_objectb.exit8
 
 19:                                               ; preds = %15
@@ -1296,13 +1296,13 @@ _ZN4lean4exprC2EP11lean_objectb.exit8:            ; preds = %19, %17, %_ZN4lean4
   br i1 %.not.i.i, label %26, label %_ZN4lean10object_refD2Ev.exit
 
 26:                                               ; preds = %22
-  %27 = load i32, ptr %23, align 4, !tbaa !31
+  %27 = load i32, ptr %23, align 4, !tbaa !30
   %28 = icmp sgt i32 %27, 1
-  br i1 %28, label %29, label %31, !prof !34
+  br i1 %28, label %29, label %31, !prof !33
 
 29:                                               ; preds = %26
   %30 = add nsw i32 %27, -1
-  store i32 %30, ptr %23, align 4, !tbaa !31
+  store i32 %30, ptr %23, align 4, !tbaa !30
   br label %_ZN4lean10object_refD2Ev.exit
 
 31:                                               ; preds = %26
@@ -1329,13 +1329,13 @@ _ZN4lean10object_refD2Ev.exit:                    ; preds = %22, %29, %31, %32
   br i1 %.not.i.i10, label %39, label %_ZN4lean10object_refD2Ev.exit12
 
 39:                                               ; preds = %_ZN4lean10object_refD2Ev.exit
-  %40 = load i32, ptr %36, align 4, !tbaa !31
+  %40 = load i32, ptr %36, align 4, !tbaa !30
   %41 = icmp sgt i32 %40, 1
-  br i1 %41, label %42, label %44, !prof !34
+  br i1 %41, label %42, label %44, !prof !33
 
 42:                                               ; preds = %39
   %43 = add nsw i32 %40, -1
-  store i32 %43, ptr %36, align 4, !tbaa !31
+  store i32 %43, ptr %36, align 4, !tbaa !30
   br label %_ZN4lean10object_refD2Ev.exit12
 
 44:                                               ; preds = %39
@@ -1427,13 +1427,13 @@ define linkonce_odr hidden void @_ZN4lean10object_refD2Ev(ptr noundef nonnull al
   br i1 %.not.i, label %5, label %_ZN4lean3decEP11lean_object.exit
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %2, align 4, !tbaa !31
+  %6 = load i32, ptr %2, align 4, !tbaa !30
   %7 = icmp sgt i32 %6, 1
-  br i1 %7, label %8, label %10, !prof !34
+  br i1 %7, label %8, label %10, !prof !33
 
 8:                                                ; preds = %5
   %9 = add nsw i32 %6, -1
-  store i32 %9, ptr %2, align 4, !tbaa !31
+  store i32 %9, ptr %2, align 4, !tbaa !30
   br label %_ZN4lean3decEP11lean_object.exit
 
 10:                                               ; preds = %5
@@ -1501,10 +1501,9 @@ attributes #12 = { builtin nounwind }
 !25 = !{!26, !26, i64 0}
 !26 = !{!"vtable pointer", !7, i64 0}
 !27 = !{!5, !5, i64 0}
-!28 = distinct !{!28, !29, !30}
+!28 = distinct !{!28, !29}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!"llvm.loop.estimated_trip_count"}
-!31 = !{!32, !33, i64 0}
-!32 = !{!"_ZTS11lean_object", !33, i64 0, !33, i64 4, !33, i64 6, !33, i64 7}
-!33 = !{!"int", !6, i64 0}
-!34 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!30 = !{!31, !32, i64 0}
+!31 = !{!"_ZTS11lean_object", !32, i64 0, !32, i64 4, !32, i64 6, !32, i64 7}
+!32 = !{!"int", !6, i64 0}
+!33 = !{!"branch_weights", !"expected", i32 2000, i32 1}

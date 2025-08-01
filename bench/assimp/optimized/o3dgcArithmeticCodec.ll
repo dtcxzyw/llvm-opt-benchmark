@@ -99,7 +99,7 @@ thread-pre-split:                                 ; preds = %6, %_ZN5o3dgc16Arit
   %33 = shl i32 %32, 8
   store i32 %33, ptr %3, align 8
   %34 = icmp ult i32 %33, 16777216
-  br i1 %34, label %24, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !6
+  br i1 %34, label %24, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !5
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %24, %thread-pre-split
   ret void
@@ -145,7 +145,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5o3dgc16Arithmetic_Codec7get_bitEv
   %23 = shl nuw i32 %15, 8
   store i32 %23, ptr %2, align 8
   %24 = icmp ult i32 %15, 65536
-  br i1 %24, label %14, label %_ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit, !llvm.loop !7
+  br i1 %24, label %14, label %_ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit, !llvm.loop !6
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit: ; preds = %14, %10
   %25 = zext i1 %7 to i32
@@ -215,7 +215,7 @@ _ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit: ; preds = %.lr.ph.i, %12
   %34 = shl i32 %33, 8
   store i32 %34, ptr %6, align 8
   %35 = icmp ult i32 %34, 16777216
-  br i1 %35, label %25, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !6
+  br i1 %35, label %25, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !5
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %25, %20
   ret void
@@ -255,7 +255,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec8get_bitsEj(ptr noundef no
   %22 = shl nuw i32 %14, 8
   store i32 %22, ptr %5, align 8
   %23 = icmp ult i32 %14, 65536
-  br i1 %23, label %13, label %_ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit, !llvm.loop !7
+  br i1 %23, label %13, label %_ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit, !llvm.loop !6
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit: ; preds = %13, %2
   ret i32 %8
@@ -335,7 +335,7 @@ _ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit: ; preds = %.lr.ph.i, %17
   %40 = shl i32 %39, 8
   store i32 %40, ptr %5, align 8
   %41 = icmp ult i32 %40, 16777216
-  br i1 %41, label %31, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !6
+  br i1 %41, label %31, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !5
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %31, %25
   ret void
@@ -385,7 +385,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERN
   %27 = shl nuw i32 %19, 8
   store i32 %27, ptr %4, align 8
   %28 = icmp ult i32 %19, 65536
-  br i1 %28, label %18, label %_ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit, !llvm.loop !7
+  br i1 %28, label %18, label %_ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit, !llvm.loop !6
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit: ; preds = %18, %14
   %29 = zext i1 %10 to i32
@@ -474,7 +474,7 @@ thread-pre-split:                                 ; preds = %11, %_ZN5o3dgc16Ari
   %44 = shl i32 %43, 8
   store i32 %44, ptr %6, align 8
   %45 = icmp ult i32 %44, 16777216
-  br i1 %45, label %35, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !6
+  br i1 %45, label %35, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !5
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %35, %29
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -636,7 +636,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERN
   %33 = shl nuw i32 %25, 8
   store i32 %33, ptr %5, align 8
   %34 = icmp ult i32 %25, 65536
-  br i1 %34, label %24, label %_ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit, !llvm.loop !7
+  br i1 %34, label %24, label %_ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit, !llvm.loop !6
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit: ; preds = %24, %19
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -791,7 +791,7 @@ _ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit: ; preds = %.lr.ph.i, %33
   %56 = shl i32 %55, 8
   store i32 %56, ptr %43, align 8
   %57 = icmp ult i32 %56, 16777216
-  br i1 %57, label %47, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !6
+  br i1 %57, label %47, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !5
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %47, %41
   ret void
@@ -842,7 +842,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_17Static_Data_
   %..0 = select i1 %31, i32 %27, i32 %.056
   %32 = add i32 %.038., 1
   %33 = icmp ugt i32 %..0, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.038.lcssa = phi i32 [ %18, %7 ], [ %.038., %.lr.ph ]
@@ -892,7 +892,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_17Static_Data_
   %59 = add i32 %.341..037, %.037..2
   %60 = lshr i32 %59, 1
   %.not53 = icmp eq i32 %60, %.341..037
-  br i1 %.not53, label %.loopexit, label %53, !llvm.loop !9
+  br i1 %.not53, label %.loopexit, label %53, !llvm.loop !8
 
 .loopexit:                                        ; preds = %53, %._crit_edge, %40
   %61 = phi i32 [ %9, %40 ], [ %9, %._crit_edge ], [ %52, %53 ]
@@ -926,7 +926,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_17Static_Data_
   %77 = shl nuw i32 %69, 8
   store i32 %77, ptr %3, align 8
   %78 = icmp ult i32 %69, 65536
-  br i1 %78, label %68, label %_ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit, !llvm.loop !7
+  br i1 %78, label %68, label %_ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit, !llvm.loop !6
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit: ; preds = %68, %.loopexit
   ret i32 %.240
@@ -1027,7 +1027,7 @@ _ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit: ; preds = %.lr.ph.i, %33
   %56 = shl i32 %55, 8
   store i32 %56, ptr %43, align 8
   %57 = icmp ult i32 %56, 16777216
-  br i1 %57, label %47, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !6
+  br i1 %57, label %47, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !5
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %47, %41
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1082,7 +1082,7 @@ _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %47, %41
   %85 = load i32, ptr %75, align 4
   %86 = zext i32 %85 to i64
   %87 = icmp samesign ult i64 %indvars.iv.next.i, %86
-  br i1 %87, label %77, label %.loopexit35.i, !llvm.loop !10
+  br i1 %87, label %77, label %.loopexit35.i, !llvm.loop !9
 
 .loopexit35.i:                                    ; preds = %77, %..loopexit35.i_crit_edge
   %88 = phi i32 [ %.pre21, %..loopexit35.i_crit_edge ], [ %85, %77 ]
@@ -1108,7 +1108,7 @@ _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %47, %41
   %100 = load i32, ptr %91, align 4
   %101 = zext i32 %100 to i64
   %102 = icmp samesign ult i64 %indvars.iv.next65.i, %101
-  br i1 %102, label %.lr.ph52.i, label %_ZN5o3dgc19Adaptive_Data_Model6updateEb.exit.loopexit, !llvm.loop !11
+  br i1 %102, label %.lr.ph52.i, label %_ZN5o3dgc19Adaptive_Data_Model6updateEb.exit.loopexit, !llvm.loop !10
 
 _ZN5o3dgc19Adaptive_Data_Model6updateEb.exit.loopexit: ; preds = %.lr.ph52.i
   %103 = shl i32 %100, 3
@@ -1164,7 +1164,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
   %20 = load i32, ptr %9, align 4
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %12, label %.loopexit35, !llvm.loop !10
+  br i1 %22, label %12, label %.loopexit35, !llvm.loop !9
 
 .loopexit35:                                      ; preds = %12, %2
   %23 = phi i32 [ %7, %2 ], [ %19, %12 ]
@@ -1221,7 +1221,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
   %49 = load i32, ptr %37, align 4
   %50 = zext i32 %49 to i64
   %51 = icmp samesign ult i64 %indvars.iv.next65, %50
-  br i1 %51, label %40, label %.loopexit, !llvm.loop !11
+  br i1 %51, label %40, label %.loopexit, !llvm.loop !10
 
 52:                                               ; preds = %.lr.ph42, %._crit_edge
   %indvars.iv61 = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next62, %._crit_edge ]
@@ -1258,7 +1258,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
   %72 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.next59
   store i32 %68, ptr %72, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %70, %52
   %.132.lcssa = phi i32 [ %.03139, %52 ], [ %65, %70 ]
@@ -1266,7 +1266,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
   %73 = load i32, ptr %29, align 4
   %74 = zext i32 %73 to i64
   %75 = icmp samesign ult i64 %indvars.iv.next62, %74
-  br i1 %75, label %52, label %._crit_edge43, !llvm.loop !13
+  br i1 %75, label %52, label %._crit_edge43, !llvm.loop !12
 
 ._crit_edge43:                                    ; preds = %._crit_edge
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1292,7 +1292,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
   store i32 %81, ptr %85, align 4
   %86 = load i32, ptr %26, align 4
   %.not = icmp ugt i32 %83, %86
-  br i1 %.not, label %.loopexit, label %.lr.ph48, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %.lr.ph48, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph48, %40, %._crit_edge43, %36
   %87 = load i32, ptr %3, align 4
@@ -1354,7 +1354,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Dat
   %..0 = select i1 %31, i32 %27, i32 %.060
   %32 = add i32 %.042., 1
   %33 = icmp ugt i32 %..0, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.042.lcssa = phi i32 [ %18, %7 ], [ %.042., %.lr.ph ]
@@ -1404,7 +1404,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Dat
   %59 = add i32 %.345..041, %.041..2
   %60 = lshr i32 %59, 1
   %.not57 = icmp eq i32 %60, %.345..041
-  br i1 %.not57, label %.loopexit, label %53, !llvm.loop !16
+  br i1 %.not57, label %.loopexit, label %53, !llvm.loop !15
 
 .loopexit:                                        ; preds = %53, %._crit_edge, %40
   %61 = phi i32 [ %9, %40 ], [ %9, %._crit_edge ], [ %52, %53 ]
@@ -1438,7 +1438,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Dat
   %77 = shl nuw i32 %69, 8
   store i32 %77, ptr %3, align 8
   %78 = icmp ult i32 %69, 65536
-  br i1 %78, label %68, label %_ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit, !llvm.loop !7
+  br i1 %78, label %68, label %_ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit, !llvm.loop !6
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit: ; preds = %68, %.loopexit
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1693,7 +1693,7 @@ define hidden void @_ZN5o3dgc16Arithmetic_Codec14read_from_fileEP8_IO_FILE(ptr n
   %11 = add i32 %.0, 7
   %12 = and i32 %4, 128
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %3, !llvm.loop !17
+  br i1 %.not, label %13, label %3, !llvm.loop !16
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1840,7 +1840,7 @@ _ZN5o3dgc16Arithmetic_Codec15propagate_carryEv.exit: ; preds = %.lr.ph.i, %12
   %31 = shl i32 %30, 8
   store i32 %31, ptr %8, align 8
   %32 = icmp ult i32 %31, 16777216
-  br i1 %32, label %22, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !6
+  br i1 %32, label %22, label %_ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit, !llvm.loop !5
 
 _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %22
   %33 = load ptr, ptr %21, align 8
@@ -1885,7 +1885,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec13write_to_fileEP8_IO_FILE
 10:                                               ; preds = %4
   %11 = lshr i32 %.013, 7
   %12 = add nuw nsw i32 %.014, 1
-  br i1 %.not, label %13, label %4, !llvm.loop !18
+  br i1 %.not, label %13, label %4, !llvm.loop !17
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %0, align 8
@@ -2040,7 +2040,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %19 = shl nuw i32 1, %18
   %20 = icmp ugt i32 %16, %19
   %21 = add i32 %.0, 1
-  br i1 %20, label %.preheader, label %22, !llvm.loop !19
+  br i1 %20, label %.preheader, label %22, !llvm.loop !18
 
 22:                                               ; preds = %.preheader
   %23 = shl nuw i32 1, %.0
@@ -2121,7 +2121,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.next71
   store i32 %69, ptr %64, align 4
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %.loopexit44.us, label %62, !llvm.loop !20
+  br i1 %exitcond74.not, label %.loopexit44.us, label %62, !llvm.loop !19
 
 .loopexit44.us:                                   ; preds = %62, %55, %.lr.ph53.split.us.split
   %.137.us = phi i32 [ %.03648.us, %.lr.ph53.split.us.split ], [ %.03648.us, %55 ], [ %60, %62 ]
@@ -2129,7 +2129,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %65 = load i32, ptr %7, align 8
   %66 = zext i32 %65 to i64
   %67 = icmp samesign ult i64 %indvars.iv.next76, %66
-  br i1 %67, label %.lr.ph53.split.us.split, label %._crit_edge, !llvm.loop !21
+  br i1 %67, label %.lr.ph53.split.us.split, label %._crit_edge, !llvm.loop !20
 
 .lr.ph.us:                                        ; preds = %55
   %68 = trunc nuw i64 %indvars.iv75 to i32
@@ -2195,7 +2195,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %97 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv.next
   store i32 %93, ptr %97, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit44, label %95, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit44, label %95, !llvm.loop !19
 
 .loopexit44:                                      ; preds = %95, %85, %77
   %.137 = phi i32 [ %.03648, %77 ], [ %.03648, %85 ], [ %90, %95 ]
@@ -2203,7 +2203,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %98 = load i32, ptr %7, align 8
   %99 = zext i32 %98 to i64
   %100 = icmp samesign ult i64 %indvars.iv.next68, %99
-  br i1 %100, label %.lr.ph53.split, label %._crit_edge, !llvm.loop !23
+  br i1 %100, label %.lr.ph53.split, label %._crit_edge, !llvm.loop !22
 
 101:                                              ; preds = %._crit_edge
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2224,7 +2224,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   store i32 %106, ptr %110, align 4
   %111 = load i32, ptr %71, align 8
   %.not42 = icmp ugt i32 %108, %111
-  br i1 %.not42, label %.loopexit, label %.lr.ph60, !llvm.loop !24
+  br i1 %.not42, label %.loopexit, label %.lr.ph60, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph60, %101, %._crit_edge
   %112 = fcmp olt double %.035.lcssa, 9.999000e-01
@@ -2298,7 +2298,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model12set_alphabetEj(ptr noundef n
   %17 = shl nuw i32 1, %16
   %18 = icmp ugt i32 %.pr, %17
   %19 = add i32 %.0, 1
-  br i1 %18, label %.preheader, label %.thread, !llvm.loop !25
+  br i1 %18, label %.preheader, label %.thread, !llvm.loop !24
 
 .thread:                                          ; preds = %.preheader
   %20 = shl nuw i32 1, %.0
@@ -2370,7 +2370,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model12set_alphabetEj(ptr noundef n
   %58 = load i32, ptr %6, align 4
   %59 = zext i32 %58 to i64
   %60 = icmp samesign ult i64 %indvars.iv.next.i, %59
-  br i1 %60, label %55, label %._crit_edge.i, !llvm.loop !26
+  br i1 %60, label %55, label %._crit_edge.i, !llvm.loop !25
 
 _ZN5o3dgc19Adaptive_Data_Model5resetEv.exit:      ; preds = %36, %._crit_edge.i
   ret void
@@ -2424,7 +2424,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model5resetEv(ptr noundef nonnull a
   %15 = load i32, ptr %2, align 4
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %17, label %12, label %._crit_edge, !llvm.loop !26
+  br i1 %17, label %12, label %._crit_edge, !llvm.loop !25
 
 18:                                               ; preds = %1, %._crit_edge
   ret void
@@ -2475,27 +2475,26 @@ attributes #20 = { cold noreturn nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4, !5}
+!3 = distinct !{!3, !4}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!"llvm.loop.estimated_trip_count"}
-!6 = distinct !{!6, !4, !5}
-!7 = distinct !{!7, !4, !5}
-!8 = distinct !{!8, !4, !5}
-!9 = distinct !{!9, !4, !5}
-!10 = distinct !{!10, !4, !5}
-!11 = distinct !{!11, !4, !5}
-!12 = distinct !{!12, !4, !5}
-!13 = distinct !{!13, !4, !5}
-!14 = distinct !{!14, !4, !5}
-!15 = distinct !{!15, !4, !5}
-!16 = distinct !{!16, !4, !5}
-!17 = distinct !{!17, !4, !5}
-!18 = distinct !{!18, !4, !5}
-!19 = distinct !{!19, !4, !5}
-!20 = distinct !{!20, !4, !5}
-!21 = distinct !{!21, !4, !5, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !4, !5}
-!24 = distinct !{!24, !4, !5}
-!25 = distinct !{!25, !4, !5}
-!26 = distinct !{!26, !4, !5}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}

@@ -130,7 +130,7 @@ define dso_local i32 @i915_ttm_buddy_man_fini(ptr noundef %0, i32 noundef %1) lo
 14:                                               ; preds = %13, %8
   %15 = add nuw nsw i64 %9, 1
   %16 = icmp eq i64 %15, 4
-  br i1 %16, label %17, label %8, !llvm.loop !13
+  br i1 %16, label %17, label %8, !llvm.loop !9
 
 17:                                               ; preds = %14
   store i8 0, ptr %6, align 8
@@ -158,9 +158,9 @@ define dso_local i32 @i915_ttm_buddy_man_fini(ptr noundef %0, i32 noundef %1) lo
   br i1 %31, label %33, label %32, !prof !5
 
 32:                                               ; preds = %20
-  tail call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #7, !srcloc !14
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 351, i32 2307, i64 12) #7, !srcloc !15
-  tail call void asm sideeffect "379: nop\0A\09.pushsection .discard.instr_end\0A\09.long 379b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 379) #7, !srcloc !16
+  tail call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #7, !srcloc !12
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 351, i32 2307, i64 12) #7, !srcloc !13
+  tail call void asm sideeffect "379: nop\0A\09.pushsection .discard.instr_end\0A\09.long 379b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 379) #7, !srcloc !14
   br label %33
 
 33:                                               ; preds = %32, %20
@@ -172,7 +172,7 @@ define dso_local i32 @i915_ttm_buddy_man_fini(ptr noundef %0, i32 noundef %1) lo
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 56
-  %39 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %38, i32 -1, ptr nonnull elementtype(i32) %38) #7, !srcloc !17
+  %39 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %38, i32 -1, ptr nonnull elementtype(i32) %38) #7, !srcloc !15
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %44, label %41
 
@@ -185,7 +185,7 @@ define dso_local i32 @i915_ttm_buddy_man_fini(ptr noundef %0, i32 noundef %1) lo
   br label %.thread
 
 44:                                               ; preds = %37
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
   tail call void @dma_fence_release(ptr noundef nonnull %38) #7
   br label %.thread
 
@@ -367,7 +367,7 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
 61:                                               ; preds = %48
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %63 = load i64, ptr %62, align 8
-  %64 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %63, i32 -1) #8, !srcloc !19
+  %64 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %63, i32 -1) #8, !srcloc !17
   %65 = zext nneg i32 %64 to i64
   %66 = lshr i64 %50, %65
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -439,7 +439,7 @@ define internal i32 @i915_ttm_buddy_man_alloc(ptr noundef %0, ptr noundef %1, pt
   %111 = phi i64 [ %109, %101 ], [ %95, %.preheader ]
   %112 = load ptr, ptr %96, align 8
   %113 = icmp eq ptr %112, %19
-  br i1 %113, label %.loopexit, label %.preheader, !llvm.loop !20
+  br i1 %113, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %110, %87, %90
   %114 = phi i64 [ %93, %90 ], [ %.pre, %87 ], [ %111, %110 ]
@@ -556,7 +556,7 @@ define internal zeroext i1 @i915_ttm_buddy_man_intersects(ptr noundef readonly c
 43:                                               ; preds = %39, %29
   %44 = load ptr, ptr %30, align 8
   %45 = icmp eq ptr %44, %21
-  br i1 %45, label %.loopexit, label %29, !llvm.loop !21
+  br i1 %45, label %.loopexit, label %29, !llvm.loop !19
 
 .loopexit:                                        ; preds = %43, %39, %20, %16, %7
   %46 = phi i1 [ %19, %16 ], [ true, %7 ], [ false, %20 ], [ true, %39 ], [ false, %43 ]
@@ -621,7 +621,7 @@ define internal zeroext i1 @i915_ttm_buddy_man_compatible(ptr noundef readonly c
   %44 = load i32, ptr %28, align 4
   %45 = zext i32 %44 to i64
   %46 = icmp samesign ugt i64 %43, %45
-  br i1 %46, label %.loopexit, label %29, !llvm.loop !22
+  br i1 %46, label %.loopexit, label %29, !llvm.loop !20
 
 .loopexit:                                        ; preds = %38, %33, %29, %16, %7
   %47 = phi i1 [ %23, %16 ], [ true, %7 ], [ %32, %29 ], [ %32, %33 ], [ %32, %38 ]
@@ -665,7 +665,7 @@ define internal void @i915_ttm_buddy_man_debug(ptr noundef %0, ptr noundef %1) #
   tail call void @drm_buddy_block_print(ptr noundef nonnull %19, ptr noundef %24, ptr noundef %1) #7
   %25 = load ptr, ptr %23, align 8
   %26 = icmp eq ptr %25, %20
-  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !23
+  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %2
   tail call void @mutex_unlock(ptr noundef nonnull %3) #7
@@ -717,18 +717,16 @@ attributes #8 = { nounwind memory(read) }
 !6 = !{i64 2155028274, i64 2155028083, i64 2155028135, i64 2155028181, i64 2155028209}
 !7 = !{i64 2155028348, i64 2155028377, i64 2155028423, i64 2155028481, i64 2155028535, i64 2155028589, i64 2155028644, i64 2155028675, i64 2155028983, i64 2155028989, i64 2155029036, i64 2155029059, i64 2155029085}
 !8 = !{i64 2155029548, i64 2155029359, i64 2155029409, i64 2155029455, i64 2155029483}
-!9 = distinct !{!9, !10, !11, !12}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{!"llvm.loop.estimated_trip_count"}
-!13 = distinct !{!13, !10, !11, !12}
-!14 = !{i64 2155453128, i64 2155452937, i64 2155452989, i64 2155453035, i64 2155453063}
-!15 = !{i64 2155453202, i64 2155453231, i64 2155453277, i64 2155453335, i64 2155453389, i64 2155453443, i64 2155453498, i64 2155453529, i64 2155453837, i64 2155453843, i64 2155453890, i64 2155453913, i64 2155453939}
-!16 = !{i64 2155454417, i64 2155454228, i64 2155454278, i64 2155454324, i64 2155454352}
-!17 = !{i64 2148890975, i64 2148891014, i64 2148891035, i64 2148891072, i64 2148891095, i64 2148891104}
-!18 = !{i64 2150258035}
-!19 = !{i64 910162}
-!20 = distinct !{!20, !10, !11, !12}
-!21 = distinct !{!21, !10, !11, !12}
-!22 = distinct !{!22, !10, !11, !12}
-!23 = distinct !{!23, !10, !11, !12}
+!12 = !{i64 2155453128, i64 2155452937, i64 2155452989, i64 2155453035, i64 2155453063}
+!13 = !{i64 2155453202, i64 2155453231, i64 2155453277, i64 2155453335, i64 2155453389, i64 2155453443, i64 2155453498, i64 2155453529, i64 2155453837, i64 2155453843, i64 2155453890, i64 2155453913, i64 2155453939}
+!14 = !{i64 2155454417, i64 2155454228, i64 2155454278, i64 2155454324, i64 2155454352}
+!15 = !{i64 2148890975, i64 2148891014, i64 2148891035, i64 2148891072, i64 2148891095, i64 2148891104}
+!16 = !{i64 2150258035}
+!17 = !{i64 910162}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}

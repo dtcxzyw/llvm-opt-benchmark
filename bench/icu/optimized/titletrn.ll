@@ -220,17 +220,17 @@ define void @_ZNK6icu_7723TitlecaseTransliterator19handleTransliterateERNS_11Rep
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #7
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
-  store ptr %1, ptr %5, align 8, !tbaa !20
+  store ptr %1, ptr %5, align 8, !tbaa !19
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %30, ptr %32, align 8, !tbaa !22
+  store i32 %30, ptr %32, align 8, !tbaa !21
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !23
+  %34 = load i32, ptr %33, align 4, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %34, ptr %35, align 8, !tbaa !24
+  store i32 %34, ptr %35, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i16 2, ptr %36, align 8, !tbaa !25
+  store i16 2, ptr %36, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   br i1 %28, label %.lr.ph80, label %.loopexit
 
@@ -245,7 +245,7 @@ define void @_ZNK6icu_7723TitlecaseTransliterator19handleTransliterateERNS_11Rep
 42:                                               ; preds = %.lr.ph80, %105
   %.05478 = phi i32 [ %29, %.lr.ph80 ], [ %.1, %105 ]
   %.15777 = phi i8 [ %.056, %.lr.ph80 ], [ %.2, %105 ]
-  store i32 %.05478, ptr %37, align 4, !tbaa !26
+  store i32 %.05478, ptr %37, align 4, !tbaa !25
   %43 = load ptr, ptr %1, align 8, !tbaa !10
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 80
   %45 = load ptr, ptr %44, align 8
@@ -256,7 +256,7 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit:         ; preds = %42
   %47 = icmp ult i32 %46, 65536
   %48 = select i1 %47, i32 1, i32 2
   %49 = add nsw i32 %48, %.05478
-  store i32 %49, ptr %38, align 8, !tbaa !27
+  store i32 %49, ptr %38, align 8, !tbaa !26
   %50 = invoke i32 @ucase_getTypeOrIgnorable_77(i32 noundef %46)
           to label %51 unwind label %56
 
@@ -285,13 +285,13 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit:         ; preds = %42
   %.052 = phi i32 [ %55, %54 ], [ %59, %58 ]
   %61 = icmp eq i32 %50, 0
   %62 = zext i1 %61 to i8
-  %63 = load i8, ptr %39, align 1, !tbaa !28
+  %63 = load i8, ptr %39, align 1, !tbaa !27
   %64 = icmp ne i8 %63, 0
   %or.cond = and i1 %40, %64
   br i1 %or.cond, label %65, label %67
 
 65:                                               ; preds = %60
-  %66 = load i32, ptr %37, align 4, !tbaa !26
+  %66 = load i32, ptr %37, align 4, !tbaa !25
   br label %.loopexit
 
 67:                                               ; preds = %60
@@ -303,7 +303,7 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit:         ; preds = %42
   br i1 %70, label %71, label %79
 
 71:                                               ; preds = %69
-  %72 = load ptr, ptr %7, align 8, !tbaa !29
+  %72 = load ptr, ptr %7, align 8, !tbaa !28
   store ptr %72, ptr %8, align 8, !tbaa !3
   %73 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 noundef signext 0, ptr noundef nonnull %8, i32 noundef %.052)
           to label %74 unwind label %76
@@ -325,7 +325,7 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit:         ; preds = %42
           to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %79
-  %80 = load i16, ptr %36, align 8, !tbaa !25
+  %80 = load i16, ptr %36, align 8, !tbaa !24
   %81 = icmp slt i16 %80, 0
   %82 = ashr i16 %80, 5
   %83 = sext i16 %82 to i32
@@ -335,7 +335,7 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit:         ; preds = %42
           to label %_ZN6icu_7713UnicodeString5setToEi.exit unwind label %56
 
 _ZN6icu_7713UnicodeString5setToEi.exit:           ; preds = %.noexc
-  %87 = load i16, ptr %36, align 8, !tbaa !25
+  %87 = load i16, ptr %36, align 8, !tbaa !24
   %88 = icmp slt i16 %87, 0
   %89 = ashr i16 %87, 5
   %90 = sext i16 %89 to i32
@@ -346,7 +346,7 @@ _ZN6icu_7713UnicodeString5setToEi.exit:           ; preds = %.noexc
 93:                                               ; preds = %_ZN6icu_7713UnicodeString5setToEi.exit, %74
   %.052.pn = phi i32 [ %.052, %74 ], [ %92, %_ZN6icu_7713UnicodeString5setToEi.exit ]
   %.053 = sub nsw i32 %.052.pn, %48
-  %94 = load i32, ptr %37, align 4, !tbaa !26
+  %94 = load i32, ptr %37, align 4, !tbaa !25
   %95 = load ptr, ptr %1, align 8, !tbaa !10
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %97 = load ptr, ptr %96, align 8
@@ -359,10 +359,10 @@ _ZN6icu_7713UnicodeString5setToEi.exit:           ; preds = %.noexc
 
 99:                                               ; preds = %98
   %100 = add i32 %.052.pn, %.05478
-  %101 = load i32, ptr %33, align 4, !tbaa !23
+  %101 = load i32, ptr %33, align 4, !tbaa !22
   %102 = add nsw i32 %101, %.053
-  store i32 %102, ptr %33, align 4, !tbaa !23
-  store i32 %102, ptr %35, align 8, !tbaa !24
+  store i32 %102, ptr %33, align 4, !tbaa !22
+  store i32 %102, ptr %35, align 8, !tbaa !23
   %103 = load i32, ptr %11, align 4, !tbaa !15
   %104 = add nsw i32 %103, %.053
   store i32 %104, ptr %11, align 4, !tbaa !15
@@ -373,7 +373,7 @@ _ZN6icu_7713UnicodeString5setToEi.exit:           ; preds = %.noexc
   %.1 = phi i32 [ %100, %99 ], [ %49, %98 ], [ %49, %67 ], [ %49, %51 ]
   %106 = load i32, ptr %11, align 4, !tbaa !15
   %107 = icmp slt i32 %.1, %106
-  br i1 %107, label %42, label %.loopexit, !llvm.loop !30
+  br i1 %107, label %42, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %105, %._crit_edge, %65
   %storemerge = phi i32 [ %66, %65 ], [ %29, %._crit_edge ], [ %.1, %105 ]
@@ -465,17 +465,16 @@ attributes #7 = { nounwind }
 !14 = !{!"int", !7, i64 0}
 !15 = !{!13, !14, i64 12}
 !16 = !{!13, !14, i64 0}
-!17 = distinct !{!17, !18, !19}
+!17 = distinct !{!17, !18}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!"llvm.loop.estimated_trip_count"}
-!20 = !{!21, !6, i64 0}
-!21 = !{!"_ZTS12UCaseContext", !6, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
-!22 = !{!21, !14, i64 8}
-!23 = !{!13, !14, i64 4}
-!24 = !{!21, !14, i64 16}
-!25 = !{!7, !7, i64 0}
-!26 = !{!21, !14, i64 20}
-!27 = !{!21, !14, i64 24}
-!28 = !{!21, !7, i64 29}
-!29 = !{!5, !5, i64 0}
-!30 = distinct !{!30, !18, !19}
+!19 = !{!20, !6, i64 0}
+!20 = !{!"_ZTS12UCaseContext", !6, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 29, !7, i64 30, !7, i64 31}
+!21 = !{!20, !14, i64 8}
+!22 = !{!13, !14, i64 4}
+!23 = !{!20, !14, i64 16}
+!24 = !{!7, !7, i64 0}
+!25 = !{!20, !14, i64 20}
+!26 = !{!20, !14, i64 24}
+!27 = !{!20, !7, i64 29}
+!28 = !{!5, !5, i64 0}
+!29 = distinct !{!29, !18}

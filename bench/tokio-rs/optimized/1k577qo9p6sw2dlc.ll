@@ -9694,22 +9694,22 @@ define hidden noundef ptr @"_ZN109_$LT$tokio..util..linked_list..DrainFilter$LT$
   %.3.i.i.i = or disjoint i64 %.2.i.i.i, %18
   %19 = and i64 %.3.i.i.i, %10
   %.not3 = icmp eq i64 %19, 0
-  br i1 %.not3, label %5, label %20, !llvm.loop !1861
+  br i1 %.not3, label %5, label %20
 
 20:                                               ; preds = %7
   %21 = load ptr, ptr %0, align 8, !nonnull !12, !align !161, !noundef !12
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1863)
-  %22 = load ptr, ptr %6, align 8, !noalias !1863, !noundef !12
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1861)
+  %22 = load ptr, ptr %6, align 8, !noalias !1861, !noundef !12
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %25, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %9, ptr %24, align 8, !noalias !1863
+  store ptr %9, ptr %24, align 8, !noalias !1861
   br label %28
 
 25:                                               ; preds = %20
-  %26 = load ptr, ptr %21, align 8, !alias.scope !1866, !noalias !1869, !noundef !12
+  %26 = load ptr, ptr %21, align 8, !alias.scope !1864, !noalias !1867, !noundef !12
   %27 = icmp eq ptr %26, %6
   br i1 %27, label %29, label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit"
 
@@ -9718,27 +9718,27 @@ define hidden noundef ptr @"_ZN109_$LT$tokio..util..linked_list..DrainFilter$LT$
   br i1 %.not17.i, label %32, label %30
 
 29:                                               ; preds = %25
-  store ptr %9, ptr %21, align 8, !alias.scope !1863
+  store ptr %9, ptr %21, align 8, !alias.scope !1861
   br label %28
 
 30:                                               ; preds = %28
-  %31 = load ptr, ptr %6, align 8, !noalias !1863, !noundef !12
-  store ptr %31, ptr %9, align 8, !noalias !1863
+  %31 = load ptr, ptr %6, align 8, !noalias !1861, !noundef !12
+  store ptr %31, ptr %9, align 8, !noalias !1861
   br label %36
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %34 = load ptr, ptr %33, align 8, !alias.scope !1871, !noalias !1874, !noundef !12
+  %34 = load ptr, ptr %33, align 8, !alias.scope !1869, !noalias !1872, !noundef !12
   %35 = icmp eq ptr %34, %6
   br i1 %35, label %37, label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit"
 
 36:                                               ; preds = %37, %30
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !noalias !1863
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !noalias !1861
   br label %"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit"
 
 37:                                               ; preds = %32
-  %38 = load ptr, ptr %6, align 8, !noalias !1863, !noundef !12
-  store ptr %38, ptr %33, align 8, !alias.scope !1863
+  %38 = load ptr, ptr %6, align 8, !noalias !1861, !noundef !12
+  store ptr %38, ptr %33, align 8, !alias.scope !1861
   br label %36
 
 "_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E.exit": ; preds = %5, %36, %32, %25
@@ -12252,18 +12252,16 @@ attributes #24 = { nounwind }
 !1858 = !{!1859}
 !1859 = distinct !{!1859, !1860, !"_ZN5tokio7runtime2io12scheduled_io11ScheduledIo4wake28_$u7b$$u7b$closure$u7d$$u7d$17ha685abe7c455f8d4E.llvm.7584301903634598921: argument 0"}
 !1860 = distinct !{!1860, !"_ZN5tokio7runtime2io12scheduled_io11ScheduledIo4wake28_$u7b$$u7b$closure$u7d$$u7d$17ha685abe7c455f8d4E.llvm.7584301903634598921"}
-!1861 = distinct !{!1861, !1862}
-!1862 = !{!"llvm.loop.estimated_trip_count"}
-!1863 = !{!1864}
-!1864 = distinct !{!1864, !1865, !"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E: argument 0"}
-!1865 = distinct !{!1865, !"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E"}
-!1866 = !{!1867, !1864}
-!1867 = distinct !{!1867, !1868, !"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$GT$$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha72e61a7c90e61a2E.llvm.7584301903634598921: argument 0"}
-!1868 = distinct !{!1868, !"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$GT$$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha72e61a7c90e61a2E.llvm.7584301903634598921"}
-!1869 = !{!1870}
-!1870 = distinct !{!1870, !1868, !"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$GT$$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha72e61a7c90e61a2E.llvm.7584301903634598921: argument 1"}
-!1871 = !{!1872, !1864}
-!1872 = distinct !{!1872, !1873, !"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$GT$$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha72e61a7c90e61a2E.llvm.7584301903634598921: argument 0"}
-!1873 = distinct !{!1873, !"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$GT$$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha72e61a7c90e61a2E.llvm.7584301903634598921"}
-!1874 = !{!1875}
-!1875 = distinct !{!1875, !1873, !"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$GT$$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha72e61a7c90e61a2E.llvm.7584301903634598921: argument 1"}
+!1861 = !{!1862}
+!1862 = distinct !{!1862, !1863, !"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E: argument 0"}
+!1863 = distinct !{!1863, !"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h7a8b6a963c7edb81E"}
+!1864 = !{!1865, !1862}
+!1865 = distinct !{!1865, !1866, !"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$GT$$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha72e61a7c90e61a2E.llvm.7584301903634598921: argument 0"}
+!1866 = distinct !{!1866, !"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$GT$$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha72e61a7c90e61a2E.llvm.7584301903634598921"}
+!1867 = !{!1868}
+!1868 = distinct !{!1868, !1866, !"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$GT$$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha72e61a7c90e61a2E.llvm.7584301903634598921: argument 1"}
+!1869 = !{!1870, !1862}
+!1870 = distinct !{!1870, !1871, !"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$GT$$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha72e61a7c90e61a2E.llvm.7584301903634598921: argument 0"}
+!1871 = distinct !{!1871, !"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$GT$$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha72e61a7c90e61a2E.llvm.7584301903634598921"}
+!1872 = !{!1873}
+!1873 = distinct !{!1873, !1871, !"_ZN91_$LT$core..ptr..non_null..NonNull$LT$T$GT$$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17ha72e61a7c90e61a2E.llvm.7584301903634598921: argument 1"}

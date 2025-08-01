@@ -800,7 +800,7 @@ define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextC2Ev(ptr noundef n
   store i8 0, ptr %4, align 1, !tbaa !69
   %5 = tail call noalias ptr @fopen(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %34, label %6
+  br i1 %.not, label %39, label %6
 
 6:                                                ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1) #25
@@ -829,70 +829,72 @@ define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextC2Ev(ptr noundef n
 
 .preheader:                                       ; preds = %.preheader29
   %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.015) #25
-  %gep32 = getelementptr i8, ptr %.pn25, i64 %14
-  %15 = load i8, ptr %gep32, align 1, !tbaa !69
-  %16 = sext i8 %15 to i32
-  %17 = call i32 @isspace(i32 noundef %16) #30
-  %.not2333 = icmp eq i32 %17, 0
-  br i1 %.not2333, label %._crit_edge, label %.lr.ph35
+  %15 = getelementptr i8, ptr %.015, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 -1
+  %17 = load i8, ptr %16, align 1, !tbaa !69
+  %18 = sext i8 %17 to i32
+  %19 = call i32 @isspace(i32 noundef %18) #30
+  %.not2332 = icmp eq i32 %19, 0
+  br i1 %.not2332, label %._crit_edge, label %.lr.ph33
 
-.lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
-  %gep34 = phi ptr [ %gep, %.lr.ph35 ], [ %gep32, %.preheader ]
-  store i8 0, ptr %gep34, align 1, !tbaa !69
-  %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.015) #25
-  %gep = getelementptr i8, ptr %.pn25, i64 %18
-  %19 = load i8, ptr %gep, align 1, !tbaa !69
-  %20 = sext i8 %19 to i32
-  %21 = call i32 @isspace(i32 noundef %20) #30
-  %.not23 = icmp eq i32 %21, 0
-  br i1 %.not23, label %._crit_edge, label %.lr.ph35, !llvm.loop !73
+.lr.ph33:                                         ; preds = %.preheader, %.lr.ph33
+  %20 = phi ptr [ %23, %.lr.ph33 ], [ %16, %.preheader ]
+  store i8 0, ptr %20, align 1, !tbaa !69
+  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.015) #25
+  %22 = getelementptr i8, ptr %.015, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 -1
+  %24 = load i8, ptr %23, align 1, !tbaa !69
+  %25 = sext i8 %24 to i32
+  %26 = call i32 @isspace(i32 noundef %25) #30
+  %.not23 = icmp eq i32 %26, 0
+  br i1 %.not23, label %._crit_edge, label %.lr.ph33, !llvm.loop !72
 
-._crit_edge:                                      ; preds = %.lr.ph35, %.preheader
-  %.lcssa = phi i64 [ %14, %.preheader ], [ %18, %.lr.ph35 ]
-  %22 = load i64, ptr %3, align 8, !tbaa !67
-  %23 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %22, ptr noundef nonnull %.015, i64 noundef %.lcssa)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %24
+._crit_edge:                                      ; preds = %.lr.ph33, %.preheader
+  %.lcssa = phi i64 [ %14, %.preheader ], [ %21, %.lr.ph33 ]
+  %27 = load i64, ptr %3, align 8, !tbaa !67
+  %28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %27, ptr noundef nonnull %.015, i64 noundef %.lcssa)
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %29
 
-24:                                               ; preds = %._crit_edge
-  %25 = landingpad { ptr, i32 }
+29:                                               ; preds = %._crit_edge
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #25
-  %26 = load ptr, ptr %0, align 8, !tbaa !74
-  %27 = icmp eq ptr %26, %2
-  br i1 %27, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %31 = load ptr, ptr %0, align 8, !tbaa !73
+  %32 = icmp eq ptr %31, %2
+  br i1 %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %24
-  %28 = load i64, ptr %3, align 8, !tbaa !67
-  %29 = icmp ult i64 %28, 16
-  call void @llvm.assume(i1 %29)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %29
+  %33 = load i64, ptr %3, align 8, !tbaa !67
+  %34 = icmp ult i64 %33, 16
+  call void @llvm.assume(i1 %34)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %24
-  %30 = load i64, ptr %2, align 8, !tbaa !69
-  %31 = add i64 %30, 1
-  call void @_ZdlPvm(ptr noundef %26, i64 noundef %31) #28
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %29
+  %35 = load i64, ptr %2, align 8, !tbaa !69
+  %36 = add i64 %35, 1
+  call void @_ZdlPvm(ptr noundef %31, i64 noundef %36) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.thread: ; preds = %9, %.lr.ph
-  %32 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 1024, ptr noundef nonnull %5)
-  %.not20 = icmp eq ptr %32, null
-  br i1 %.not20, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, label %.lr.ph, !llvm.loop !75
+  %37 = call ptr @fgets(ptr noundef nonnull %1, i32 noundef 1024, ptr noundef nonnull %5)
+  %.not20 = icmp eq ptr %37, null
+  br i1 %.not20, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, label %.lr.ph, !llvm.loop !74
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.thread, %6, %._crit_edge
-  %33 = call i32 @fclose(ptr noundef nonnull %5)
+  %38 = call i32 @fclose(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #25
-  br label %34
+  br label %39
 
-34:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %._crit_edge.i.i
+39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit, %._crit_edge.i.i
   ret void
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  resume { ptr, i32 } %25
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN31ggml_backend_cpu_device_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !74
+  %2 = load ptr, ptr %0, align 8, !tbaa !73
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %2, %3
   br i1 %4, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -923,7 +925,7 @@ define internal noundef nonnull ptr @_ZL32ggml_backend_cpu_device_get_nameP19ggm
 define internal noundef ptr @_ZL39ggml_backend_cpu_device_get_descriptionP19ggml_backend_device(ptr noundef readonly captures(none) %0) #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8, !tbaa !64
-  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %4 = load ptr, ptr %3, align 8, !tbaa !73
   ret ptr %4
 }
 
@@ -941,18 +943,18 @@ define internal noundef i32 @_ZL32ggml_backend_cpu_device_get_typeP19ggml_backen
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZL33ggml_backend_cpu_device_get_propsP19ggml_backend_deviceP22ggml_backend_dev_props(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 40)) %1) #17 {
-  store ptr @.str.1, ptr %1, align 8, !tbaa !76
+  store ptr @.str.1, ptr %1, align 8, !tbaa !75
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8, !tbaa !64
-  %5 = load ptr, ptr %4, align 8, !tbaa !74
+  %5 = load ptr, ptr %4, align 8, !tbaa !73
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %5, ptr %6, align 8, !tbaa !81
+  store ptr %5, ptr %6, align 8, !tbaa !80
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(22) %7, i8 0, i64 22, i1 false)
-  store i8 1, ptr %.sroa.5.0..sroa_idx, align 2, !tbaa !82
+  store i8 1, ptr %.sroa.5.0..sroa_idx, align 2, !tbaa !81
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 39
-  store i8 0, ptr %.sroa.6.0..sroa_idx, align 1, !tbaa !82
+  store i8 0, ptr %.sroa.6.0..sroa_idx, align 1, !tbaa !81
   ret void
 }
 
@@ -1003,11 +1005,11 @@ define internal noundef ptr @_ZL44ggml_backend_cpu_device_buffer_from_host_ptrP1
 ; Function Attrs: mustprogress uwtable
 define internal noundef zeroext i1 @_ZL35ggml_backend_cpu_device_supports_opP19ggml_backend_devicePK11ggml_tensor(ptr noundef %0, ptr noundef %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %4 = load ptr, ptr %3, align 8, !tbaa !83
+  %4 = load ptr, ptr %3, align 8, !tbaa !82
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %6 = load ptr, ptr %5, align 8, !tbaa !83
+  %6 = load ptr, ptr %5, align 8, !tbaa !82
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %8 = load i32, ptr %7, align 8, !tbaa !85
+  %8 = load i32, ptr %7, align 8, !tbaa !84
   %9 = icmp ult i32 %8, 37
   %switch.maskindex = zext nneg i32 %8 to i64
   %switch.shifted = lshr i64 128849018881, %switch.maskindex
@@ -1041,8 +1043,8 @@ define internal noundef zeroext i1 @_ZL35ggml_backend_cpu_device_supports_opP19g
   resume { ptr, i32 } %19
 
 _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %10, %13, %16
-  %20 = load ptr, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, align 8, !tbaa !90
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, i64 8), align 8, !tbaa !90
+  %20 = load ptr, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, align 8, !tbaa !89
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, i64 8), align 8, !tbaa !89
   %.not8789 = icmp eq ptr %20, %21
   br i1 %.not8789, label %.critedge81.preheader.preheader, label %.lr.ph
 
@@ -1054,12 +1056,12 @@ _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %10, %13, %16
 
 23:                                               ; preds = %.lr.ph
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %25 = load ptr, ptr %24, align 8, !tbaa !91
+  %25 = load ptr, ptr %24, align 8, !tbaa !90
   %.not68 = icmp eq ptr %25, null
   br i1 %.not68, label %.critedge, label %26
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %25, align 8, !tbaa !94
+  %27 = load ptr, ptr %25, align 8, !tbaa !93
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %0, ptr noundef %1)
@@ -1068,7 +1070,7 @@ _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %10, %13, %16
 .critedge:                                        ; preds = %23, %26, %.lr.ph
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.084.090, i64 8
   %.not87 = icmp eq ptr %31, %21
-  br i1 %.not87, label %.critedge81.preheader.preheader, label %.lr.ph, !llvm.loop !96
+  br i1 %.not87, label %.critedge81.preheader.preheader, label %.lr.ph
 
 .critedge81.preheader.preheader:                  ; preds = %.critedge, %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit
   br label %.critedge81.preheader
@@ -1076,29 +1078,29 @@ _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %10, %13, %16
 .critedge81.preheader:                            ; preds = %.critedge81.preheader.preheader, %.critedge81
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge81 ], [ 0, %.critedge81.preheader.preheader ]
   %32 = getelementptr inbounds nuw [10 x ptr], ptr %3, i64 0, i64 %indvars.iv
-  %33 = load ptr, ptr %32, align 8, !tbaa !83
+  %33 = load ptr, ptr %32, align 8, !tbaa !82
   %.not69 = icmp eq ptr %33, null
   br i1 %.not69, label %.critedge81, label %34
 
 34:                                               ; preds = %.critedge81.preheader
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !97
+  %36 = load ptr, ptr %35, align 8, !tbaa !95
   %.not70 = icmp eq ptr %36, null
   br i1 %.not70, label %.critedge81, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 72
-  %39 = load ptr, ptr %38, align 8, !tbaa !98
+  %39 = load ptr, ptr %38, align 8, !tbaa !96
   %40 = tail call zeroext i1 @ggml_backend_buft_is_host(ptr noundef %39)
   br i1 %40, label %.critedge81, label %switch.edge
 
 .critedge81:                                      ; preds = %.critedge81.preheader, %34, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond, label %.critedge83, label %.critedge81.preheader, !llvm.loop !102
+  br i1 %exitcond, label %.critedge83, label %.critedge81.preheader, !llvm.loop !100
 
 .critedge83:                                      ; preds = %.critedge81
-  %41 = load i32, ptr %7, align 8, !tbaa !85
+  %41 = load i32, ptr %7, align 8, !tbaa !84
   switch i32 %41, label %switch.edge [
     i32 31, label %42
     i32 26, label %45
@@ -1108,32 +1110,32 @@ _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %10, %13, %16
   ]
 
 42:                                               ; preds = %.critedge83
-  %43 = load i32, ptr %1, align 8, !tbaa !103
+  %43 = load i32, ptr %1, align 8, !tbaa !101
   %44 = icmp ult i32 %43, 30
   br i1 %44, label %switch.lookup96, label %switch.edge
 
 45:                                               ; preds = %.critedge83
-  %46 = load i32, ptr %6, align 8, !tbaa !103
+  %46 = load i32, ptr %6, align 8, !tbaa !101
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %switch.edge, label %48
 
 48:                                               ; preds = %45
-  %49 = load i32, ptr %4, align 8, !tbaa !103
+  %49 = load i32, ptr %4, align 8, !tbaa !101
   %50 = tail call ptr @ggml_get_type_traits_cpu(i32 noundef %49)
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load i32, ptr %51, align 8, !tbaa !104
+  %52 = load i32, ptr %51, align 8, !tbaa !102
   %53 = icmp eq i32 %46, %52
   br label %switch.edge
 
 54:                                               ; preds = %.critedge83
-  %55 = load ptr, ptr %3, align 8, !tbaa !83
-  %56 = load i32, ptr %55, align 8, !tbaa !103
+  %55 = load ptr, ptr %3, align 8, !tbaa !82
+  %56 = load i32, ptr %55, align 8, !tbaa !101
   %.not71 = icmp eq i32 %56, 0
   br i1 %.not71, label %57, label %switch.edge
 
 57:                                               ; preds = %54
-  %58 = load ptr, ptr %5, align 8, !tbaa !83
-  %59 = load i32, ptr %58, align 8, !tbaa !103
+  %58 = load ptr, ptr %5, align 8, !tbaa !82
+  %59 = load i32, ptr %58, align 8, !tbaa !101
   %.not72 = icmp eq i32 %59, 0
   br i1 %.not72, label %60, label %switch.edge
 
@@ -1144,17 +1146,17 @@ _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %10, %13, %16
   br label %switch.edge
 
 63:                                               ; preds = %.critedge83
-  %64 = load i32, ptr %4, align 8, !tbaa !103
+  %64 = load i32, ptr %4, align 8, !tbaa !101
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %switch.edge
 
 66:                                               ; preds = %63
-  %67 = load i32, ptr %6, align 8, !tbaa !103
+  %67 = load i32, ptr %6, align 8, !tbaa !101
   %68 = icmp eq i32 %67, 0
   br label %switch.edge
 
 69:                                               ; preds = %.critedge83
-  %70 = load i32, ptr %4, align 8, !tbaa !103
+  %70 = load i32, ptr %4, align 8, !tbaa !101
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %86, label %72
 
@@ -1179,12 +1181,12 @@ _Z39ggml_backend_cpu_get_extra_buffers_typev.exit: ; preds = %10, %13, %16
   br i1 %85, label %86, label %switch.edge
 
 86:                                               ; preds = %80, %69
-  %87 = load i32, ptr %6, align 8, !tbaa !103
+  %87 = load i32, ptr %6, align 8, !tbaa !101
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %switch.edge
 
 89:                                               ; preds = %86
-  %90 = load i32, ptr %1, align 8, !tbaa !103
+  %90 = load i32, ptr %1, align 8, !tbaa !101
   %91 = icmp eq i32 %90, 0
   br label %switch.edge
 
@@ -1230,8 +1232,8 @@ define internal noundef zeroext i1 @_ZL37ggml_backend_cpu_device_supports_buftP1
   resume { ptr, i32 } %13
 
 _Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i: ; preds = %10, %7, %4
-  %14 = load ptr, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, align 8, !tbaa !90
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, i64 8), align 8, !tbaa !90
+  %14 = load ptr, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, align 8, !tbaa !89
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZ39ggml_backend_cpu_get_extra_buffers_typevE5bufts, i64 8), align 8, !tbaa !89
   %.not1314.not.i = icmp eq ptr %14, %15
   br i1 %.not1314.not.i, label %_ZL37ggml_backend_cpu_is_extra_buffer_typeP24ggml_backend_buffer_type.exit, label %.critedge.i
 
@@ -1244,7 +1246,7 @@ _Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i: ; preds = %10, %7, %4
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 8
   %.not13.not.i = icmp eq ptr %18, %15
   %or.cond = select i1 %or.cond.i, i1 true, i1 %.not13.not.i
-  br i1 %or.cond, label %_ZL37ggml_backend_cpu_is_extra_buffer_typeP24ggml_backend_buffer_type.exit, label %.critedge.i, !llvm.loop !106
+  br i1 %or.cond, label %_ZL37ggml_backend_cpu_is_extra_buffer_typeP24ggml_backend_buffer_type.exit, label %.critedge.i
 
 _ZL37ggml_backend_cpu_is_extra_buffer_typeP24ggml_backend_buffer_type.exit: ; preds = %.critedge.i, %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i, %2
   %19 = phi i1 [ true, %2 ], [ false, %_Z39ggml_backend_cpu_get_extra_buffers_typev.exit.i ], [ %or.cond.i, %.critedge.i ]
@@ -1339,7 +1341,7 @@ define internal noundef ptr @_ZL29ggml_backend_cpu_get_featuresP16ggml_backend_r
   br label %9
 
 9:                                                ; preds = %7, %4, %1
-  %10 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %10 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   ret ptr %10
 
 11:                                               ; preds = %6
@@ -1369,8 +1371,8 @@ define internal fastcc void @"_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend
   br i1 %.not, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i = icmp eq ptr %4, %5
   br i1 %.not.i.i, label %8, label %6
 
@@ -1379,11 +1381,11 @@ define internal fastcc void @"_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend
   %.sroa.6136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @.str.20, ptr %.sroa.6136.0..sroa_idx, align 8, !tbaa !34
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %9 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %10 = ptrtoint ptr %4 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -1432,10 +1434,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %26, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  store ptr %21, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %21, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %27 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %21, i64 %19
-  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit
 
 28:                                               ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit258, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit248, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit238, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit228, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit218, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit208, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit198, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit188, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit178, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit168, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit158, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit148, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit138, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit128, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit118, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit108, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit98, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit88, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit78, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit68, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit58, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit48, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit38, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit, %0
@@ -1457,8 +1459,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit: ; preds = %6, %
   br i1 %.not3, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit38, label %34
 
 34:                                               ; preds = %33
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i29 = icmp eq ptr %35, %36
   br i1 %.not.i.i29, label %39, label %37
 
@@ -1467,11 +1469,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit: ; preds = %6, %
   %.sroa.6131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr @.str.20, ptr %.sroa.6131.0..sroa_idx, align 8, !tbaa !34
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit38
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %40 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %41 = ptrtoint ptr %35 to i64
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
@@ -1520,10 +1522,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i35
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i35: ; preds = %57, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i33
-  store ptr %52, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %56, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %52, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %56, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %58 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %52, i64 %50
-  store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %58, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit38
 
 59:                                               ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i30, %45
@@ -1540,8 +1542,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit38: ; preds = %37
   br i1 %.not4, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit48, label %63
 
 63:                                               ; preds = %62
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i39 = icmp eq ptr %64, %65
   br i1 %.not.i.i39, label %68, label %66
 
@@ -1550,11 +1552,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit38: ; preds = %37
   %.sroa.6126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
   store ptr @.str.20, ptr %.sroa.6126.0..sroa_idx, align 8, !tbaa !34
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit48
 
 68:                                               ; preds = %63
-  %69 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %69 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %70 = ptrtoint ptr %64 to i64
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
@@ -1603,10 +1605,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i45
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i45: ; preds = %86, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i43
-  store ptr %81, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %85, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %81, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %85, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %87 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %81, i64 %79
-  store ptr %87, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %87, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit48
 
 88:                                               ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i40, %74
@@ -1623,8 +1625,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit48: ; preds = %66
   br i1 %.not5, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit58, label %92
 
 92:                                               ; preds = %91
-  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i49 = icmp eq ptr %93, %94
   br i1 %.not.i.i49, label %97, label %95
 
@@ -1633,11 +1635,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit48: ; preds = %66
   %.sroa.6121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 8
   store ptr @.str.20, ptr %.sroa.6121.0..sroa_idx, align 8, !tbaa !34
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store ptr %96, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %96, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit58
 
 97:                                               ; preds = %92
-  %98 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %98 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %99 = ptrtoint ptr %93 to i64
   %100 = ptrtoint ptr %98 to i64
   %101 = sub i64 %99, %100
@@ -1686,10 +1688,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i55
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i55: ; preds = %115, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i53
-  store ptr %110, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %114, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %110, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %114, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %116 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %110, i64 %108
-  store ptr %116, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %116, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit58
 
 117:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i50, %103
@@ -1706,8 +1708,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit58: ; preds = %95
   br i1 %.not6, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit68, label %121
 
 121:                                              ; preds = %120
-  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %123 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i59 = icmp eq ptr %122, %123
   br i1 %.not.i.i59, label %126, label %124
 
@@ -1716,11 +1718,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit58: ; preds = %95
   %.sroa.6116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 8
   store ptr @.str.20, ptr %.sroa.6116.0..sroa_idx, align 8, !tbaa !34
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 16
-  store ptr %125, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %125, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit68
 
 126:                                              ; preds = %121
-  %127 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %127 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %128 = ptrtoint ptr %122 to i64
   %129 = ptrtoint ptr %127 to i64
   %130 = sub i64 %128, %129
@@ -1769,10 +1771,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i65: ; preds = %144, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i63
-  store ptr %139, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %143, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %139, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %143, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %145 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %139, i64 %137
-  store ptr %145, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %145, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit68
 
 146:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i60, %132
@@ -1789,8 +1791,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit68: ; preds = %12
   br i1 %.not7, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit78, label %150
 
 150:                                              ; preds = %149
-  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i69 = icmp eq ptr %151, %152
   br i1 %.not.i.i69, label %155, label %153
 
@@ -1799,11 +1801,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit68: ; preds = %12
   %.sroa.6111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 8
   store ptr @.str.20, ptr %.sroa.6111.0..sroa_idx, align 8, !tbaa !34
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  store ptr %154, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %154, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit78
 
 155:                                              ; preds = %150
-  %156 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %156 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %157 = ptrtoint ptr %151 to i64
   %158 = ptrtoint ptr %156 to i64
   %159 = sub i64 %157, %158
@@ -1852,10 +1854,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i75
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i75: ; preds = %173, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i73
-  store ptr %168, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %172, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %168, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %172, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %174 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %168, i64 %166
-  store ptr %174, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %174, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit78
 
 175:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i70, %161
@@ -1872,8 +1874,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit78: ; preds = %15
   br i1 %.not8, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit88, label %179
 
 179:                                              ; preds = %178
-  %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %180 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i79 = icmp eq ptr %180, %181
   br i1 %.not.i.i79, label %184, label %182
 
@@ -1882,11 +1884,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit78: ; preds = %15
   %.sroa.6106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 8
   store ptr @.str.20, ptr %.sroa.6106.0..sroa_idx, align 8, !tbaa !34
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  store ptr %183, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %183, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit88
 
 184:                                              ; preds = %179
-  %185 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %185 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %186 = ptrtoint ptr %180 to i64
   %187 = ptrtoint ptr %185 to i64
   %188 = sub i64 %186, %187
@@ -1935,10 +1937,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i85
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i85: ; preds = %202, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i83
-  store ptr %197, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %201, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %197, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %201, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %203 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %197, i64 %195
-  store ptr %203, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %203, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit88
 
 204:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i80, %190
@@ -1955,8 +1957,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit88: ; preds = %18
   br i1 %.not9, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit98, label %208
 
 208:                                              ; preds = %207
-  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i89 = icmp eq ptr %209, %210
   br i1 %.not.i.i89, label %213, label %211
 
@@ -1965,11 +1967,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit88: ; preds = %18
   %.sroa.6101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %209, i64 8
   store ptr @.str.20, ptr %.sroa.6101.0..sroa_idx, align 8, !tbaa !34
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 16
-  store ptr %212, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %212, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit98
 
 213:                                              ; preds = %208
-  %214 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %214 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %215 = ptrtoint ptr %209 to i64
   %216 = ptrtoint ptr %214 to i64
   %217 = sub i64 %215, %216
@@ -2018,10 +2020,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i95
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i95: ; preds = %231, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i93
-  store ptr %226, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %230, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %226, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %230, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %232 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %226, i64 %224
-  store ptr %232, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %232, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit98
 
 233:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i90, %219
@@ -2038,8 +2040,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit98: ; preds = %21
   br i1 %.not10, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit108, label %237
 
 237:                                              ; preds = %236
-  %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %239 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %238 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %239 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i99 = icmp eq ptr %238, %239
   br i1 %.not.i.i99, label %242, label %240
 
@@ -2048,11 +2050,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit98: ; preds = %21
   %.sroa.696.0..sroa_idx = getelementptr inbounds nuw i8, ptr %238, i64 8
   store ptr @.str.20, ptr %.sroa.696.0..sroa_idx, align 8, !tbaa !34
   %241 = getelementptr inbounds nuw i8, ptr %238, i64 16
-  store ptr %241, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %241, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit108
 
 242:                                              ; preds = %237
-  %243 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %243 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %244 = ptrtoint ptr %238 to i64
   %245 = ptrtoint ptr %243 to i64
   %246 = sub i64 %244, %245
@@ -2101,10 +2103,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i105
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i105: ; preds = %260, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i103
-  store ptr %255, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %259, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %255, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %259, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %261 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %255, i64 %253
-  store ptr %261, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %261, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit108
 
 262:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i100, %248
@@ -2121,8 +2123,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit108: ; preds = %2
   br i1 %.not11, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit118, label %266
 
 266:                                              ; preds = %265
-  %267 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %268 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %267 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %268 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i109 = icmp eq ptr %267, %268
   br i1 %.not.i.i109, label %271, label %269
 
@@ -2131,11 +2133,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit108: ; preds = %2
   %.sroa.691.0..sroa_idx = getelementptr inbounds nuw i8, ptr %267, i64 8
   store ptr @.str.20, ptr %.sroa.691.0..sroa_idx, align 8, !tbaa !34
   %270 = getelementptr inbounds nuw i8, ptr %267, i64 16
-  store ptr %270, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %270, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit118
 
 271:                                              ; preds = %266
-  %272 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %272 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %273 = ptrtoint ptr %267 to i64
   %274 = ptrtoint ptr %272 to i64
   %275 = sub i64 %273, %274
@@ -2184,10 +2186,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i115
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i115: ; preds = %289, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i113
-  store ptr %284, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %288, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %284, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %288, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %290 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %284, i64 %282
-  store ptr %290, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %290, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit118
 
 291:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i110, %277
@@ -2204,8 +2206,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit118: ; preds = %2
   br i1 %.not12, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit128, label %295
 
 295:                                              ; preds = %294
-  %296 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %297 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %296 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %297 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i119 = icmp eq ptr %296, %297
   br i1 %.not.i.i119, label %300, label %298
 
@@ -2214,11 +2216,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit118: ; preds = %2
   %.sroa.686.0..sroa_idx = getelementptr inbounds nuw i8, ptr %296, i64 8
   store ptr @.str.20, ptr %.sroa.686.0..sroa_idx, align 8, !tbaa !34
   %299 = getelementptr inbounds nuw i8, ptr %296, i64 16
-  store ptr %299, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %299, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit128
 
 300:                                              ; preds = %295
-  %301 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %301 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %302 = ptrtoint ptr %296 to i64
   %303 = ptrtoint ptr %301 to i64
   %304 = sub i64 %302, %303
@@ -2267,10 +2269,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i125
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i125: ; preds = %318, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i123
-  store ptr %313, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %317, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %313, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %317, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %319 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %313, i64 %311
-  store ptr %319, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %319, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit128
 
 320:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i120, %306
@@ -2287,8 +2289,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit128: ; preds = %2
   br i1 %.not13, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit138, label %324
 
 324:                                              ; preds = %323
-  %325 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %326 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %325 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %326 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i129 = icmp eq ptr %325, %326
   br i1 %.not.i.i129, label %329, label %327
 
@@ -2297,11 +2299,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit128: ; preds = %2
   %.sroa.681.0..sroa_idx = getelementptr inbounds nuw i8, ptr %325, i64 8
   store ptr @.str.20, ptr %.sroa.681.0..sroa_idx, align 8, !tbaa !34
   %328 = getelementptr inbounds nuw i8, ptr %325, i64 16
-  store ptr %328, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %328, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit138
 
 329:                                              ; preds = %324
-  %330 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %330 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %331 = ptrtoint ptr %325 to i64
   %332 = ptrtoint ptr %330 to i64
   %333 = sub i64 %331, %332
@@ -2350,10 +2352,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i135
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i135: ; preds = %347, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i133
-  store ptr %342, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %346, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %342, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %346, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %348 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %342, i64 %340
-  store ptr %348, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %348, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit138
 
 349:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i130, %335
@@ -2370,8 +2372,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit138: ; preds = %3
   br i1 %.not14, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit148, label %353
 
 353:                                              ; preds = %352
-  %354 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %355 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %354 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %355 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i139 = icmp eq ptr %354, %355
   br i1 %.not.i.i139, label %358, label %356
 
@@ -2380,11 +2382,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit138: ; preds = %3
   %.sroa.676.0..sroa_idx = getelementptr inbounds nuw i8, ptr %354, i64 8
   store ptr @.str.20, ptr %.sroa.676.0..sroa_idx, align 8, !tbaa !34
   %357 = getelementptr inbounds nuw i8, ptr %354, i64 16
-  store ptr %357, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %357, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit148
 
 358:                                              ; preds = %353
-  %359 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %359 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %360 = ptrtoint ptr %354 to i64
   %361 = ptrtoint ptr %359 to i64
   %362 = sub i64 %360, %361
@@ -2433,10 +2435,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i145
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i145: ; preds = %376, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i143
-  store ptr %371, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %375, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %371, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %375, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %377 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %371, i64 %369
-  store ptr %377, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %377, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit148
 
 378:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i140, %364
@@ -2453,8 +2455,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit148: ; preds = %3
   br i1 %.not15, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit158, label %382
 
 382:                                              ; preds = %381
-  %383 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %384 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %383 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %384 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i149 = icmp eq ptr %383, %384
   br i1 %.not.i.i149, label %387, label %385
 
@@ -2463,11 +2465,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit148: ; preds = %3
   %.sroa.671.0..sroa_idx = getelementptr inbounds nuw i8, ptr %383, i64 8
   store ptr @.str.20, ptr %.sroa.671.0..sroa_idx, align 8, !tbaa !34
   %386 = getelementptr inbounds nuw i8, ptr %383, i64 16
-  store ptr %386, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %386, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit158
 
 387:                                              ; preds = %382
-  %388 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %388 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %389 = ptrtoint ptr %383 to i64
   %390 = ptrtoint ptr %388 to i64
   %391 = sub i64 %389, %390
@@ -2516,10 +2518,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i155
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i155: ; preds = %405, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i153
-  store ptr %400, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %404, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %400, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %404, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %406 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %400, i64 %398
-  store ptr %406, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %406, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit158
 
 407:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i150, %393
@@ -2536,8 +2538,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit158: ; preds = %3
   br i1 %.not16, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit168, label %411
 
 411:                                              ; preds = %410
-  %412 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %413 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %412 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %413 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i159 = icmp eq ptr %412, %413
   br i1 %.not.i.i159, label %416, label %414
 
@@ -2546,11 +2548,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit158: ; preds = %3
   %.sroa.666.0..sroa_idx = getelementptr inbounds nuw i8, ptr %412, i64 8
   store ptr @.str.20, ptr %.sroa.666.0..sroa_idx, align 8, !tbaa !34
   %415 = getelementptr inbounds nuw i8, ptr %412, i64 16
-  store ptr %415, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %415, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit168
 
 416:                                              ; preds = %411
-  %417 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %417 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %418 = ptrtoint ptr %412 to i64
   %419 = ptrtoint ptr %417 to i64
   %420 = sub i64 %418, %419
@@ -2599,10 +2601,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i165
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i165: ; preds = %434, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i163
-  store ptr %429, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %433, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %429, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %433, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %435 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %429, i64 %427
-  store ptr %435, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %435, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit168
 
 436:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i160, %422
@@ -2619,8 +2621,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit168: ; preds = %4
   br i1 %.not17, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit178, label %440
 
 440:                                              ; preds = %439
-  %441 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %442 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %441 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %442 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i169 = icmp eq ptr %441, %442
   br i1 %.not.i.i169, label %445, label %443
 
@@ -2629,11 +2631,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit168: ; preds = %4
   %.sroa.661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %441, i64 8
   store ptr @.str.20, ptr %.sroa.661.0..sroa_idx, align 8, !tbaa !34
   %444 = getelementptr inbounds nuw i8, ptr %441, i64 16
-  store ptr %444, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %444, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit178
 
 445:                                              ; preds = %440
-  %446 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %446 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %447 = ptrtoint ptr %441 to i64
   %448 = ptrtoint ptr %446 to i64
   %449 = sub i64 %447, %448
@@ -2682,10 +2684,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i175
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i175: ; preds = %463, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i173
-  store ptr %458, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %462, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %458, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %462, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %464 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %458, i64 %456
-  store ptr %464, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %464, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit178
 
 465:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i170, %451
@@ -2702,8 +2704,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit178: ; preds = %4
   br i1 %.not18, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit188, label %469
 
 469:                                              ; preds = %468
-  %470 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %471 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %470 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %471 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i179 = icmp eq ptr %470, %471
   br i1 %.not.i.i179, label %474, label %472
 
@@ -2712,11 +2714,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit178: ; preds = %4
   %.sroa.656.0..sroa_idx = getelementptr inbounds nuw i8, ptr %470, i64 8
   store ptr @.str.20, ptr %.sroa.656.0..sroa_idx, align 8, !tbaa !34
   %473 = getelementptr inbounds nuw i8, ptr %470, i64 16
-  store ptr %473, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %473, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit188
 
 474:                                              ; preds = %469
-  %475 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %475 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %476 = ptrtoint ptr %470 to i64
   %477 = ptrtoint ptr %475 to i64
   %478 = sub i64 %476, %477
@@ -2765,10 +2767,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i185
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i185: ; preds = %492, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i183
-  store ptr %487, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %491, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %487, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %491, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %493 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %487, i64 %485
-  store ptr %493, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %493, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit188
 
 494:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i180, %480
@@ -2785,8 +2787,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit188: ; preds = %4
   br i1 %.not19, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit198, label %498
 
 498:                                              ; preds = %497
-  %499 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %500 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %499 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %500 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i189 = icmp eq ptr %499, %500
   br i1 %.not.i.i189, label %503, label %501
 
@@ -2795,11 +2797,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit188: ; preds = %4
   %.sroa.651.0..sroa_idx = getelementptr inbounds nuw i8, ptr %499, i64 8
   store ptr @.str.20, ptr %.sroa.651.0..sroa_idx, align 8, !tbaa !34
   %502 = getelementptr inbounds nuw i8, ptr %499, i64 16
-  store ptr %502, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %502, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit198
 
 503:                                              ; preds = %498
-  %504 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %504 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %505 = ptrtoint ptr %499 to i64
   %506 = ptrtoint ptr %504 to i64
   %507 = sub i64 %505, %506
@@ -2848,10 +2850,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195: ; preds = %521, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i193
-  store ptr %516, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %520, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %516, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %520, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %522 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %516, i64 %514
-  store ptr %522, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %522, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit198
 
 523:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i190, %509
@@ -2888,9 +2890,9 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit198: ; preds = %5
   br label %537
 
 537:                                              ; preds = %535, %531, %528
-  %538 = load ptr, ptr @"_ZZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regENK3$_0clEvE7sve_cntB5cxx11", align 8, !tbaa !74
-  %539 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %540 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %538 = load ptr, ptr @"_ZZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regENK3$_0clEvE7sve_cntB5cxx11", align 8, !tbaa !73
+  %539 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %540 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i199 = icmp eq ptr %539, %540
   br i1 %.not.i.i199, label %543, label %541
 
@@ -2899,11 +2901,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit198: ; preds = %5
   %.sroa.646.0..sroa_idx = getelementptr inbounds nuw i8, ptr %539, i64 8
   store ptr %538, ptr %.sroa.646.0..sroa_idx, align 8, !tbaa !34
   %542 = getelementptr inbounds nuw i8, ptr %539, i64 16
-  store ptr %542, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %542, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit208
 
 543:                                              ; preds = %537
-  %544 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %544 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %545 = ptrtoint ptr %539 to i64
   %546 = ptrtoint ptr %544 to i64
   %547 = sub i64 %545, %546
@@ -2952,10 +2954,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i205
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i205: ; preds = %561, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i203
-  store ptr %556, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %560, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %556, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %560, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %562 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %556, i64 %554
-  store ptr %562, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %562, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit208
 
 563:                                              ; preds = %533
@@ -2978,8 +2980,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit208: ; preds = %5
   br i1 %.not21, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit218, label %569
 
 569:                                              ; preds = %568
-  %570 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %571 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %570 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %571 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i209 = icmp eq ptr %570, %571
   br i1 %.not.i.i209, label %574, label %572
 
@@ -2988,11 +2990,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit208: ; preds = %5
   %.sroa.641.0..sroa_idx = getelementptr inbounds nuw i8, ptr %570, i64 8
   store ptr @.str.20, ptr %.sroa.641.0..sroa_idx, align 8, !tbaa !34
   %573 = getelementptr inbounds nuw i8, ptr %570, i64 16
-  store ptr %573, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %573, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit218
 
 574:                                              ; preds = %569
-  %575 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %575 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %576 = ptrtoint ptr %570 to i64
   %577 = ptrtoint ptr %575 to i64
   %578 = sub i64 %576, %577
@@ -3041,10 +3043,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i215
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i215: ; preds = %592, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i213
-  store ptr %587, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %591, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %587, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %591, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %593 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %587, i64 %585
-  store ptr %593, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %593, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit218
 
 594:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i210, %580
@@ -3061,8 +3063,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit218: ; preds = %5
   br i1 %.not22, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit228, label %598
 
 598:                                              ; preds = %597
-  %599 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %600 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %599 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %600 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i219 = icmp eq ptr %599, %600
   br i1 %.not.i.i219, label %603, label %601
 
@@ -3071,11 +3073,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit218: ; preds = %5
   %.sroa.636.0..sroa_idx = getelementptr inbounds nuw i8, ptr %599, i64 8
   store ptr @.str.20, ptr %.sroa.636.0..sroa_idx, align 8, !tbaa !34
   %602 = getelementptr inbounds nuw i8, ptr %599, i64 16
-  store ptr %602, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %602, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit228
 
 603:                                              ; preds = %598
-  %604 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %604 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %605 = ptrtoint ptr %599 to i64
   %606 = ptrtoint ptr %604 to i64
   %607 = sub i64 %605, %606
@@ -3124,10 +3126,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i225
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i225: ; preds = %621, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i223
-  store ptr %616, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %620, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %616, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %620, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %622 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %616, i64 %614
-  store ptr %622, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %622, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit228
 
 623:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i220, %609
@@ -3144,8 +3146,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit228: ; preds = %6
   br i1 %.not23, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit238, label %627
 
 627:                                              ; preds = %626
-  %628 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %629 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %628 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %629 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i229 = icmp eq ptr %628, %629
   br i1 %.not.i.i229, label %632, label %630
 
@@ -3154,11 +3156,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit228: ; preds = %6
   %.sroa.631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %628, i64 8
   store ptr @.str.20, ptr %.sroa.631.0..sroa_idx, align 8, !tbaa !34
   %631 = getelementptr inbounds nuw i8, ptr %628, i64 16
-  store ptr %631, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %631, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit238
 
 632:                                              ; preds = %627
-  %633 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %633 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %634 = ptrtoint ptr %628 to i64
   %635 = ptrtoint ptr %633 to i64
   %636 = sub i64 %634, %635
@@ -3207,10 +3209,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i235
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i235: ; preds = %650, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i233
-  store ptr %645, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %649, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %645, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %649, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %651 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %645, i64 %643
-  store ptr %651, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %651, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit238
 
 652:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i230, %638
@@ -3227,8 +3229,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit238: ; preds = %6
   br i1 %.not24, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit248, label %656
 
 656:                                              ; preds = %655
-  %657 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %658 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %657 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %658 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i239 = icmp eq ptr %657, %658
   br i1 %.not.i.i239, label %661, label %659
 
@@ -3237,11 +3239,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit238: ; preds = %6
   %.sroa.626.0..sroa_idx = getelementptr inbounds nuw i8, ptr %657, i64 8
   store ptr @.str.20, ptr %.sroa.626.0..sroa_idx, align 8, !tbaa !34
   %660 = getelementptr inbounds nuw i8, ptr %657, i64 16
-  store ptr %660, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %660, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit248
 
 661:                                              ; preds = %656
-  %662 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %662 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %663 = ptrtoint ptr %657 to i64
   %664 = ptrtoint ptr %662 to i64
   %665 = sub i64 %663, %664
@@ -3290,10 +3292,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i245
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i245: ; preds = %679, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i243
-  store ptr %674, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %678, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %674, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %678, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %680 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %674, i64 %672
-  store ptr %680, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %680, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit248
 
 681:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i240, %667
@@ -3310,8 +3312,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit248: ; preds = %6
   br i1 %.not25, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit258, label %685
 
 685:                                              ; preds = %684
-  %686 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %687 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %686 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %687 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %.not.i.i249 = icmp eq ptr %686, %687
   br i1 %.not.i.i249, label %690, label %688
 
@@ -3320,11 +3322,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit248: ; preds = %6
   %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %686, i64 8
   store ptr @.str.20, ptr %.sroa.621.0..sroa_idx, align 8, !tbaa !34
   %689 = getelementptr inbounds nuw i8, ptr %686, i64 16
-  store ptr %689, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %689, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit258
 
 690:                                              ; preds = %685
-  %691 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %691 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %692 = ptrtoint ptr %686 to i64
   %693 = ptrtoint ptr %691 to i64
   %694 = sub i64 %692, %693
@@ -3373,10 +3375,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i255
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i255: ; preds = %708, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i253
-  store ptr %703, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %707, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %703, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %707, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %709 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %703, i64 %701
-  store ptr %709, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %709, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit258
 
 710:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i250, %696
@@ -3390,8 +3392,8 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit258: ; preds = %6
 
 713:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit258
   %.not26 = icmp eq i32 %712, 0
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
-  %.pre139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
+  %.pre139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br i1 %.not26, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit268, label %714
 
 714:                                              ; preds = %713
@@ -3403,11 +3405,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit258: ; preds = %6
   %.sroa.616.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   store ptr @.str.20, ptr %.sroa.616.0..sroa_idx, align 8, !tbaa !34
   %716 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  store ptr %716, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %716, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit268
 
 717:                                              ; preds = %714
-  %718 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %718 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %719 = ptrtoint ptr %.pre to i64
   %720 = ptrtoint ptr %718 to i64
   %721 = sub i64 %719, %720
@@ -3456,10 +3458,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i265
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i265: ; preds = %735, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i263
-  store ptr %730, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %734, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %730, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %734, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %736 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %730, i64 %728
-  store ptr %736, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %736, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit268
 
 737:                                              ; preds = %_ZNKSt6vectorI20ggml_backend_featureSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i260, %723
@@ -3478,11 +3480,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit268: ; preds = %7
   %.sroa.611.0..sroa_idx = getelementptr inbounds nuw i8, ptr %740, i64 8
   store ptr @.str.20, ptr %.sroa.611.0..sroa_idx, align 8, !tbaa !34
   %742 = getelementptr inbounds nuw i8, ptr %740, i64 16
-  store ptr %742, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %742, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit278
 
 743:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit268
-  %744 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %744 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %745 = ptrtoint ptr %739 to i64
   %746 = ptrtoint ptr %744 to i64
   %747 = sub i64 %745, %746
@@ -3531,10 +3533,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i275
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i275: ; preds = %761, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i273
-  store ptr %756, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %760, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %756, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %760, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %762 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %756, i64 %754
-  store ptr %762, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %762, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit278
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit278: ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i275, %741
@@ -3548,11 +3550,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit278: ; preds = %_
   %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %764, i64 8
   store ptr @.str.20, ptr %.sroa.66.0..sroa_idx, align 8, !tbaa !34
   %766 = getelementptr inbounds nuw i8, ptr %764, i64 16
-  store ptr %766, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %766, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit288
 
 767:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit278
-  %768 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %768 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %769 = ptrtoint ptr %763 to i64
   %770 = ptrtoint ptr %768 to i64
   %771 = sub i64 %769, %770
@@ -3601,10 +3603,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i285
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i285: ; preds = %785, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i283
-  store ptr %780, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %784, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %780, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %784, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %786 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %780, i64 %778
-  store ptr %786, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %786, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit288
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit288: ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i285, %765
@@ -3616,11 +3618,11 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit288: ; preds = %_
 789:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit288
   %790 = getelementptr inbounds nuw i8, ptr %788, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %788, i8 0, i64 16, i1 false)
-  store ptr %790, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %790, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit298
 
 791:                                              ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit288
-  %792 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %792 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %793 = ptrtoint ptr %787 to i64
   %794 = ptrtoint ptr %792 to i64
   %795 = sub i64 %793, %794
@@ -3667,10 +3669,10 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i295
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i295: ; preds = %809, %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i293
-  store ptr %804, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
-  store ptr %808, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !110
+  store ptr %804, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
+  store ptr %808, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 8), align 8, !tbaa !107
   %810 = getelementptr inbounds nuw %struct.ggml_backend_feature, ptr %804, i64 %802
-  store ptr %810, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  store ptr %810, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   br label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit298
 
 _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit298: ; preds = %_ZNSt6vectorI20ggml_backend_featureSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i295, %789
@@ -3693,12 +3695,12 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EE9push_backEOS0_.exit298: ; preds = %_
 
 817:                                              ; preds = %815, %813, %811, %737, %710, %681, %652, %623, %594, %565, %563, %523, %494, %465, %436, %407, %378, %349, %320, %291, %262, %233, %204, %175, %146, %117, %88, %59, %30, %28
   %.pn = phi { ptr, i32 } [ %816, %815 ], [ %814, %813 ], [ %812, %811 ], [ %738, %737 ], [ %29, %28 ], [ %711, %710 ], [ %682, %681 ], [ %653, %652 ], [ %624, %623 ], [ %595, %594 ], [ %566, %565 ], [ %564, %563 ], [ %524, %523 ], [ %495, %494 ], [ %466, %465 ], [ %437, %436 ], [ %408, %407 ], [ %379, %378 ], [ %350, %349 ], [ %321, %320 ], [ %292, %291 ], [ %263, %262 ], [ %234, %233 ], [ %205, %204 ], [ %176, %175 ], [ %147, %146 ], [ %118, %117 ], [ %89, %88 ], [ %60, %59 ], [ %31, %30 ]
-  %818 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !107
+  %818 = load ptr, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, align 8, !tbaa !104
   %.not.i.i.i = icmp eq ptr %818, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorI20ggml_backend_featureSaIS0_EED2Ev.exit, label %819
 
 819:                                              ; preds = %817
-  %820 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !111
+  %820 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZL29ggml_backend_cpu_get_featuresP16ggml_backend_regE8features, i64 16), align 8, !tbaa !108
   %821 = ptrtoint ptr %820 to i64
   %822 = ptrtoint ptr %818 to i64
   %823 = sub i64 %821, %822
@@ -3711,13 +3713,13 @@ _ZNSt6vectorI20ggml_backend_featureSaIS0_EED2Ev.exit: ; preds = %817, %819
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorI20ggml_backend_featureSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !107
+  %2 = load ptr, ptr %0, align 8, !tbaa !104
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseI20ggml_backend_featureSaIS0_EED2Ev.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !111
+  %5 = load ptr, ptr %4, align 8, !tbaa !108
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
@@ -3802,7 +3804,7 @@ define linkonce_odr void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind noalias w
   %17 = udiv i32 %.02230.i, 10000
   %18 = add i32 %.02329.i, 4
   %19 = icmp ult i32 %.02230.i, 100000
-  br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !112
+  br i1 %19, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit, label %.lr.ph.i, !llvm.loop !109
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %14
   %.0.i = phi i32 [ %7, %6 ], [ %11, %10 ], [ %15, %14 ], [ 1, %2 ], [ %18, %16 ]
@@ -3816,7 +3818,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %23 = zext nneg i32 %.lobit to i64
-  %24 = load ptr, ptr %0, align 8, !tbaa !74
+  %24 = load ptr, ptr %0, align 8, !tbaa !73
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %23
   %26 = icmp ugt i32 %3, 99
   br i1 %26, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -3847,7 +3849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   store i8 %39, ptr %42, align 1, !tbaa !69
   %43 = add i32 %.01819.i, -2
   %44 = icmp ugt i32 %.020.i, 9999
-  br i1 %44, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !113
+  br i1 %44, label %.lr.ph.i11, label %._crit_edge.i, !llvm.loop !110
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
   %.0.lcssa.i = phi i32 [ %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ %30, %.lr.ph.i11 ]
@@ -4021,47 +4023,44 @@ attributes #30 = { nounwind willreturn memory(read) }
 !67 = !{!68, !21, i64 8}
 !68 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !66, i64 0, !21, i64 8, !10, i64 16}
 !69 = !{!10, !10, i64 0}
-!70 = distinct !{!70, !71, !72}
+!70 = distinct !{!70, !71}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!"llvm.loop.estimated_trip_count"}
-!73 = distinct !{!73, !71, !72}
-!74 = !{!68, !20, i64 0}
-!75 = distinct !{!75, !71, !72}
-!76 = !{!77, !20, i64 0}
-!77 = !{!"_ZTS22ggml_backend_dev_props", !20, i64 0, !20, i64 8, !21, i64 16, !21, i64 24, !78, i64 32, !79, i64 36}
-!78 = !{!"_ZTS21ggml_backend_dev_type", !10, i64 0}
-!79 = !{!"_ZTS21ggml_backend_dev_caps", !80, i64 0, !80, i64 1, !80, i64 2, !80, i64 3}
-!80 = !{!"bool", !10, i64 0}
-!81 = !{!77, !20, i64 8}
-!82 = !{!80, !80, i64 0}
-!83 = !{!84, !84, i64 0}
-!84 = !{!"p1 _ZTS11ggml_tensor", !9, i64 0}
-!85 = !{!86, !89, i64 80}
-!86 = !{!"_ZTS11ggml_tensor", !87, i64 0, !88, i64 8, !10, i64 16, !10, i64 48, !89, i64 80, !10, i64 84, !18, i64 148, !10, i64 152, !84, i64 232, !21, i64 240, !9, i64 248, !10, i64 256, !9, i64 320, !10, i64 328}
-!87 = !{!"_ZTS9ggml_type", !10, i64 0}
-!88 = !{!"p1 _ZTS19ggml_backend_buffer", !9, i64 0}
-!89 = !{!"_ZTS7ggml_op", !10, i64 0}
-!90 = !{!7, !7, i64 0}
-!91 = !{!92, !9, i64 56}
-!92 = !{!"_ZTS24ggml_backend_buffer_type", !93, i64 0, !25, i64 48, !9, i64 56}
-!93 = !{!"_ZTS26ggml_backend_buffer_type_i", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40}
-!94 = !{!95, !95, i64 0}
-!95 = !{!"vtable pointer", !11, i64 0}
-!96 = distinct !{!96, !72}
-!97 = !{!86, !88, i64 8}
-!98 = !{!99, !14, i64 72}
-!99 = !{!"_ZTS19ggml_backend_buffer", !100, i64 0, !14, i64 72, !9, i64 80, !21, i64 88, !101, i64 96}
-!100 = !{!"_ZTS21ggml_backend_buffer_i", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64}
-!101 = !{!"_ZTS25ggml_backend_buffer_usage", !10, i64 0}
-!102 = distinct !{!102, !71, !72}
-!103 = !{!86, !87, i64 0}
-!104 = !{!105, !87, i64 16}
-!105 = !{!"_ZTS20ggml_type_traits_cpu", !9, i64 0, !9, i64 8, !87, i64 16, !21, i64 24}
-!106 = distinct !{!106, !72}
-!107 = !{!108, !109, i64 0}
-!108 = !{!"_ZTSNSt12_Vector_baseI20ggml_backend_featureSaIS0_EE17_Vector_impl_dataE", !109, i64 0, !109, i64 8, !109, i64 16}
-!109 = !{!"p1 _ZTS20ggml_backend_feature", !9, i64 0}
-!110 = !{!108, !109, i64 8}
-!111 = !{!108, !109, i64 16}
-!112 = distinct !{!112, !71, !72}
-!113 = distinct !{!113, !71, !72}
+!72 = distinct !{!72, !71}
+!73 = !{!68, !20, i64 0}
+!74 = distinct !{!74, !71}
+!75 = !{!76, !20, i64 0}
+!76 = !{!"_ZTS22ggml_backend_dev_props", !20, i64 0, !20, i64 8, !21, i64 16, !21, i64 24, !77, i64 32, !78, i64 36}
+!77 = !{!"_ZTS21ggml_backend_dev_type", !10, i64 0}
+!78 = !{!"_ZTS21ggml_backend_dev_caps", !79, i64 0, !79, i64 1, !79, i64 2, !79, i64 3}
+!79 = !{!"bool", !10, i64 0}
+!80 = !{!76, !20, i64 8}
+!81 = !{!79, !79, i64 0}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"p1 _ZTS11ggml_tensor", !9, i64 0}
+!84 = !{!85, !88, i64 80}
+!85 = !{!"_ZTS11ggml_tensor", !86, i64 0, !87, i64 8, !10, i64 16, !10, i64 48, !88, i64 80, !10, i64 84, !18, i64 148, !10, i64 152, !83, i64 232, !21, i64 240, !9, i64 248, !10, i64 256, !9, i64 320, !10, i64 328}
+!86 = !{!"_ZTS9ggml_type", !10, i64 0}
+!87 = !{!"p1 _ZTS19ggml_backend_buffer", !9, i64 0}
+!88 = !{!"_ZTS7ggml_op", !10, i64 0}
+!89 = !{!7, !7, i64 0}
+!90 = !{!91, !9, i64 56}
+!91 = !{!"_ZTS24ggml_backend_buffer_type", !92, i64 0, !25, i64 48, !9, i64 56}
+!92 = !{!"_ZTS26ggml_backend_buffer_type_i", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"vtable pointer", !11, i64 0}
+!95 = !{!85, !87, i64 8}
+!96 = !{!97, !14, i64 72}
+!97 = !{!"_ZTS19ggml_backend_buffer", !98, i64 0, !14, i64 72, !9, i64 80, !21, i64 88, !99, i64 96}
+!98 = !{!"_ZTS21ggml_backend_buffer_i", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64}
+!99 = !{!"_ZTS25ggml_backend_buffer_usage", !10, i64 0}
+!100 = distinct !{!100, !71}
+!101 = !{!85, !86, i64 0}
+!102 = !{!103, !86, i64 16}
+!103 = !{!"_ZTS20ggml_type_traits_cpu", !9, i64 0, !9, i64 8, !86, i64 16, !21, i64 24}
+!104 = !{!105, !106, i64 0}
+!105 = !{!"_ZTSNSt12_Vector_baseI20ggml_backend_featureSaIS0_EE17_Vector_impl_dataE", !106, i64 0, !106, i64 8, !106, i64 16}
+!106 = !{!"p1 _ZTS20ggml_backend_feature", !9, i64 0}
+!107 = !{!105, !106, i64 8}
+!108 = !{!105, !106, i64 16}
+!109 = distinct !{!109, !71}
+!110 = distinct !{!110, !71}

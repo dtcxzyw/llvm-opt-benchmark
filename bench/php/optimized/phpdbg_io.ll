@@ -111,11 +111,11 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @phpdbg_consume_stdin_li
   %34 = add nsw i32 %.1, 1
   %35 = add nsw i32 %.3, %.044
   %36 = icmp slt i32 %34, %35
-  br i1 %36, label %9, label %.loopexit, !llvm.loop !40
+  br i1 %36, label %9, label %.loopexit
 
 .loopexit:                                        ; preds = %33, %6
   %.143 = phi i32 [ %.042, %6 ], [ %35, %33 ]
-  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1504), align 8, !tbaa !42
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1504), align 8, !tbaa !40
   %38 = sext i32 %.143 to i64
   %39 = getelementptr inbounds i8, ptr %0, i64 %38
   %40 = sub nsw i32 500, %.143
@@ -130,18 +130,18 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @phpdbg_consume_stdin_li
 
 46:                                               ; preds = %42
   %47 = tail call ptr @__errno_location() #9
-  %48 = load i32, ptr %47, align 4, !tbaa !44
+  %48 = load i32, ptr %47, align 4, !tbaa !42
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %42, label %phpdbg_mixed_read.exit.thread, !llvm.loop !45
+  br i1 %49, label %42, label %phpdbg_mixed_read.exit.thread
 
 phpdbg_mixed_read.exit:                           ; preds = %42
   %50 = icmp sgt i32 %44, 0
-  br i1 %50, label %6, label %phpdbg_mixed_read.exit.thread, !llvm.loop !46
+  br i1 %50, label %6, label %phpdbg_mixed_read.exit.thread
 
 phpdbg_mixed_read.exit.thread:                    ; preds = %phpdbg_mixed_read.exit, %46
-  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !47
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !43
   %52 = or i64 %51, 65536
-  store i64 %52, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !47
+  store i64 %52, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !43
   tail call void @_zend_bailout(ptr noundef nonnull @.str, i32 noundef 67) #10
   unreachable
 
@@ -174,9 +174,9 @@ define dso_local noundef i32 @phpdbg_mixed_read(i32 noundef %0, ptr noundef capt
 
 10:                                               ; preds = %6
   %11 = tail call ptr @__errno_location() #9
-  %12 = load i32, ptr %11, align 4, !tbaa !44
+  %12 = load i32, ptr %11, align 4, !tbaa !42
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %6, label %.critedge, !llvm.loop !45
+  br i1 %13, label %6, label %.critedge
 
 .critedge:                                        ; preds = %6, %10
   ret i32 %8
@@ -194,13 +194,13 @@ declare ptr @__errno_location() local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [500 x i8], align 16
-  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !47
+  %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2184), align 8, !tbaa !43
   %6 = and i64 %5, 8589934592
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %59, label %7
 
 7:                                                ; preds = %3
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !42
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !40
   %9 = icmp eq i32 %8, %0
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2200), align 8
   %11 = icmp ne i64 %10, 0
@@ -260,7 +260,7 @@ define dso_local i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 nou
 .thread.i:                                        ; preds = %35
   %40 = tail call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.2, i64 noundef 1) #8
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %4) #8
-  %.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2200), align 8, !tbaa !48
+  %.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2200), align 8, !tbaa !44
   br label %42
 
 41:                                               ; preds = %35
@@ -273,7 +273,7 @@ define dso_local i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 nou
   %.2.i = phi i32 [ %.03649.i, %._crit_edge.i ], [ %32, %.thread.i ]
   %44 = tail call ptr @memchr(ptr noundef nonnull %21, i32 noundef 10, i64 noundef %.pre-phi61.i) #11
   %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %.loopexit.i, label %18, !llvm.loop !49
+  br i1 %.not.i, label %.loopexit.i, label %18
 
 .loopexit.i:                                      ; preds = %42, %24, %41
   %.137.i = phi i32 [ %32, %41 ], [ %32, %24 ], [ %.2.i, %42 ]
@@ -283,7 +283,7 @@ define dso_local i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 nou
 45:                                               ; preds = %.loopexit.i
   %sext.i = shl i64 %indvars.iv.next.i, 32
   %46 = ashr exact i64 %sext.i, 32
-  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2200), align 8, !tbaa !48
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 2200), align 8, !tbaa !44
   %48 = urem i64 %46, %47
   %.not42.i = icmp eq i64 %48, 0
   br i1 %.not42.i, label %phpdbg_output_pager.exit, label %49
@@ -375,13 +375,8 @@ attributes #11 = { nounwind willreturn memory(read) }
 !37 = !{!"p1 _ZTS13__jmp_buf_tag", !12, i64 0}
 !38 = !{!5, !23, i64 1616}
 !39 = !{!6, !6, i64 0}
-!40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.estimated_trip_count"}
-!42 = !{!43, !10, i64 0}
-!43 = !{!"", !10, i64 0}
-!44 = !{!10, !10, i64 0}
-!45 = distinct !{!45, !41}
-!46 = distinct !{!46, !41}
-!47 = !{!5, !11, i64 2184}
-!48 = !{!5, !11, i64 2200}
-!49 = distinct !{!49, !41}
+!40 = !{!41, !10, i64 0}
+!41 = !{!"", !10, i64 0}
+!42 = !{!10, !10, i64 0}
+!43 = !{!5, !11, i64 2184}
+!44 = !{!5, !11, i64 2200}

@@ -1397,7 +1397,7 @@ dissect_rdt_bw_probing_packet.exit:               ; preds = %608, %611
   %.0.neg = sub i32 0, %.1
   %629 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1)
   %.not88 = icmp eq i32 %629, 0
-  br i1 %.not88, label %.critedge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not88, label %.critedge, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %627, %626, %show_setup_info.exit
   %630 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -1513,7 +1513,6 @@ attributes #6 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !9, !10}
+!10 = distinct !{!10, !9}

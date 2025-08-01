@@ -345,8 +345,8 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit: ; pr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 
 _ZSt11make_uniqueIN5ceres8internal31BlockRandomAccessDiagonalMatrixEJRSt6vectorINS1_5BlockESaIS4_EERPNS1_11ContextImplERiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.noexc65
-  %110 = load ptr, ptr %22, align 8, !tbaa !64
-  store ptr %95, ptr %22, align 8, !tbaa !64
+  %110 = load ptr, ptr %22, align 8, !tbaa !63
+  store ptr %95, ptr %22, align 8, !tbaa !63
   %.not.i.i.i.i66 = icmp eq ptr %110, null
   br i1 %.not.i.i.i.i66, label %_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres8internal31BlockRandomAccessDiagonalMatrixEEclEPS2_.exit.i.i.i.i
 
@@ -409,7 +409,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev.exit68: ; preds = %126, %.body,
 
 131:                                              ; preds = %85, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev.exit68, %79, %71, %60, %66, %38, %44
   %.pn52.pn = phi { ptr, i32 } [ %45, %44 ], [ %39, %38 ], [ %67, %66 ], [ %61, %60 ], [ %.pn.pn, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EED2Ev.exit68 ], [ %86, %85 ], [ %80, %79 ], [ %72, %71 ]
-  %132 = load ptr, ptr %22, align 8, !tbaa !64
+  %132 = load ptr, ptr %22, align 8, !tbaa !63
   %.not.i69 = icmp eq ptr %132, null
   br i1 %.not.i69, label %_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit71, label %_ZNKSt14default_deleteIN5ceres8internal31BlockRandomAccessDiagonalMatrixEEclEPS2_.exit.i70
 
@@ -421,8 +421,8 @@ _ZNKSt14default_deleteIN5ceres8internal31BlockRandomAccessDiagonalMatrixEEclEPS2
   br label %_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit71
 
 _ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit71: ; preds = %131, %_ZNKSt14default_deleteIN5ceres8internal31BlockRandomAccessDiagonalMatrixEEclEPS2_.exit.i70
-  store ptr null, ptr %22, align 8, !tbaa !64
-  %136 = load ptr, ptr %21, align 8, !tbaa !65
+  store ptr null, ptr %22, align 8, !tbaa !63
+  %136 = load ptr, ptr %21, align 8, !tbaa !64
   %.not.i72 = icmp eq ptr %136, null
   br i1 %.not.i72, label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i
 
@@ -434,7 +434,7 @@ _ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i: ; 
   br label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit71, %_ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i
-  store ptr null, ptr %21, align 8, !tbaa !65
+  store ptr null, ptr %21, align 8, !tbaa !64
   %140 = load ptr, ptr %10, align 8, !tbaa !6
   %.not.i.i.i.i73 = icmp eq ptr %140, null
   br i1 %.not.i.i.i.i73, label %_ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit, label %141
@@ -481,41 +481,41 @@ define hidden void @_ZN5ceres8internal25SchurJacobiPreconditioner14InitEliminato
   %3 = alloca %"struct.ceres::internal::LinearSolver::Options", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #18
-  store i32 2, ptr %3, align 8, !tbaa !66
+  store i32 2, ptr %3, align 8, !tbaa !65
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 1, ptr %5, align 4, !tbaa !72
+  store i32 1, ptr %5, align 4, !tbaa !71
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %6, i8 0, i64 18, i1 false)
-  store i32 1, ptr %7, align 4, !tbaa !73
+  store i32 1, ptr %7, align 4, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 1, ptr %8, align 8, !tbaa !74
+  store i32 1, ptr %8, align 8, !tbaa !73
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  store i32 5, ptr %9, align 4, !tbaa !75
+  store i32 5, ptr %9, align 4, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i8 0, ptr %10, align 8, !tbaa !76
+  store i8 0, ptr %10, align 8, !tbaa !75
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double 1.000000e-01, ptr %11, align 8, !tbaa !77
+  store double 1.000000e-01, ptr %11, align 8, !tbaa !76
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i32 1, ptr %12, align 8, !tbaa !78
+  store i32 1, ptr %12, align 8, !tbaa !77
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store i32 10, ptr %14, align 8, !tbaa !79
+  store i32 10, ptr %14, align 8, !tbaa !78
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 92
-  store i32 -1, ptr %15, align 4, !tbaa !80
+  store i32 -1, ptr %15, align 4, !tbaa !79
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store i32 -1, ptr %16, align 8, !tbaa !81
+  store i32 -1, ptr %16, align 8, !tbaa !80
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 100
-  store i32 -1, ptr %17, align 4, !tbaa !82
+  store i32 -1, ptr %17, align 4, !tbaa !81
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store i8 0, ptr %18, align 8, !tbaa !83
+  store i8 0, ptr %18, align 8, !tbaa !82
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 108
-  store i32 0, ptr %19, align 4, !tbaa !84
+  store i32 0, ptr %19, align 4, !tbaa !83
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store i32 -1, ptr %20, align 8, !tbaa !85
+  store i32 -1, ptr %20, align 8, !tbaa !84
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  store ptr null, ptr %21, align 8, !tbaa !86
+  store ptr null, ptr %21, align 8, !tbaa !85
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.not.i = icmp eq ptr %22, %13
   br i1 %.not.i, label %_ZNSt6vectorIiSaIiEEaSERKS1_.exit, label %23
@@ -562,30 +562,30 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
 
 _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i, %2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %40 = load i32, ptr %39, align 4, !tbaa !87
-  store i32 %40, ptr %12, align 8, !tbaa !78
+  %40 = load i32, ptr %39, align 4, !tbaa !86
+  store i32 %40, ptr %12, align 8, !tbaa !77
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %42 = load i32, ptr %41, align 4, !tbaa !88
-  store i32 %42, ptr %16, align 8, !tbaa !81
+  %42 = load i32, ptr %41, align 4, !tbaa !87
+  store i32 %42, ptr %16, align 8, !tbaa !80
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %44 = load i32, ptr %43, align 8, !tbaa !89
-  store i32 %44, ptr %17, align 4, !tbaa !82
+  %44 = load i32, ptr %43, align 8, !tbaa !88
+  store i32 %44, ptr %17, align 4, !tbaa !81
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %46 = load i32, ptr %45, align 8, !tbaa !90
-  store i32 %46, ptr %15, align 4, !tbaa !80
+  %46 = load i32, ptr %45, align 8, !tbaa !89
+  store i32 %46, ptr %15, align 4, !tbaa !79
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %48 = load ptr, ptr %47, align 8, !tbaa !26
-  store ptr %48, ptr %21, align 8, !tbaa !86
+  store ptr %48, ptr %21, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   invoke void @_ZN5ceres8internal19SchurEliminatorBase6CreateERKNS0_12LinearSolver7OptionsE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %4, ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %49 unwind label %75
 
 49:                                               ; preds = %_ZNSt6vectorIiSaIiEEaSERKS1_.exit
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %51 = load ptr, ptr %4, align 8, !tbaa !65
-  store ptr null, ptr %4, align 8, !tbaa !65
-  %52 = load ptr, ptr %50, align 8, !tbaa !65
-  store ptr %51, ptr %50, align 8, !tbaa !65
+  %51 = load ptr, ptr %4, align 8, !tbaa !64
+  store ptr null, ptr %4, align 8, !tbaa !64
+  %52 = load ptr, ptr %50, align 8, !tbaa !64
+  store ptr %51, ptr %50, align 8, !tbaa !64
   %.not.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit, label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EEaSEOS5_.exit
 
@@ -594,7 +594,7 @@ _ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EE
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(8) %52) #18
-  %.pr = load ptr, ptr %4, align 8, !tbaa !65
+  %.pr = load ptr, ptr %4, align 8, !tbaa !64
   %.not.i6 = icmp eq ptr %.pr, null
   br i1 %.not.i6, label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i
 
@@ -607,7 +607,7 @@ _ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i: ; 
 
 _ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit: ; preds = %49, %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EEaSEOS5_.exit, %_ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
-  %59 = load ptr, ptr %50, align 8, !tbaa !65
+  %59 = load ptr, ptr %50, align 8, !tbaa !64
   %60 = load ptr, ptr %13, align 8, !tbaa !6
   %61 = load i32, ptr %60, align 4, !tbaa !14
   %62 = load ptr, ptr %59, align 8, !tbaa !3
@@ -674,7 +674,7 @@ _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit9: ; preds = %79, %81
 define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8, !tbaa !63
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres8internal31BlockRandomAccessDiagonalMatrixEEclEPS2_.exit.i
 
@@ -686,9 +686,9 @@ _ZNKSt14default_deleteIN5ceres8internal31BlockRandomAccessDiagonalMatrixEEclEPS2
   br label %_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5ceres8internal31BlockRandomAccessDiagonalMatrixEEclEPS2_.exit.i
-  store ptr null, ptr %2, align 8, !tbaa !64
+  store ptr null, ptr %2, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !64
   %.not.i1 = icmp eq ptr %8, null
   br i1 %.not.i1, label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i
 
@@ -700,7 +700,7 @@ _ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i: ; 
   br label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i
-  store ptr null, ptr %7, align 8, !tbaa !65
+  store ptr null, ptr %7, align 8, !tbaa !64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !6
   %.not.i.i.i.i = icmp eq ptr %13, null
@@ -724,7 +724,7 @@ _ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit: ; preds = %_ZNSt10unique_pt
 define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8, !tbaa !63
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5ceres8internal31BlockRandomAccessDiagonalMatrixEEclEPS2_.exit.i.i
 
@@ -736,9 +736,9 @@ _ZNKSt14default_deleteIN5ceres8internal31BlockRandomAccessDiagonalMatrixEEclEPS2
   br label %_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5ceres8internal31BlockRandomAccessDiagonalMatrixEEclEPS2_.exit.i.i, %1
-  store ptr null, ptr %2, align 8, !tbaa !64
+  store ptr null, ptr %2, align 8, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !64
   %.not.i1.i = icmp eq ptr %8, null
   br i1 %.not.i1.i, label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i.i
 
@@ -750,7 +750,7 @@ _ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i.i: 
   br label %_ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN5ceres8internal19SchurEliminatorBaseESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN5ceres8internal19SchurEliminatorBaseEEclEPS2_.exit.i.i, %_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev.exit.i
-  store ptr null, ptr %7, align 8, !tbaa !65
+  store ptr null, ptr %7, align 8, !tbaa !64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !6
   %.not.i.i.i.i.i = icmp eq ptr %13, null
@@ -781,31 +781,31 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal25SchurJacobiPreconditioner1
   %4 = alloca %"class.absl::lts_20240116::log_internal::LogMessageFatal", align 8
   %5 = alloca %"class.ceres::internal::BlockSparseMatrixData", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = load ptr, ptr %6, align 8, !tbaa !64
+  %7 = load ptr, ptr %6, align 8, !tbaa !63
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %9 = load ptr, ptr %8, align 8, !tbaa !90
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !93
+  %11 = load i32, ptr %10, align 8, !tbaa !92
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %25, !prof !13
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %15 = load ptr, ptr %14, align 8, !tbaa !65
+  %15 = load ptr, ptr %14, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
   %16 = tail call noundef ptr @_ZNK5ceres8internal17BlockSparseMatrix15block_structureEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
-  store ptr %16, ptr %5, align 8, !tbaa !105
+  store ptr %16, ptr %5, align 8, !tbaa !104
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !108
-  store ptr %19, ptr %17, align 8, !tbaa !116
-  %20 = load ptr, ptr %6, align 8, !tbaa !64
+  %19 = load ptr, ptr %18, align 8, !tbaa !107
+  store ptr %19, ptr %17, align 8, !tbaa !115
+  %20 = load ptr, ptr %6, align 8, !tbaa !63
   %21 = load ptr, ptr %15, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null, ptr noundef %2, ptr noundef %20, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
-  %24 = load ptr, ptr %6, align 8, !tbaa !64
+  %24 = load ptr, ptr %6, align 8, !tbaa !63
   call void @_ZN5ceres8internal31BlockRandomAccessDiagonalMatrix6InvertEv(ptr noundef nonnull align 8 dereferenceable(40) %24)
   ret i1 true
 
@@ -826,7 +826,7 @@ declare hidden void @_ZN5ceres8internal31BlockRandomAccessDiagonalMatrix6InvertE
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK5ceres8internal25SchurJacobiPreconditioner26RightMultiplyAndAccumulateEPKdPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load ptr, ptr %4, align 8, !tbaa !64
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
   tail call void @_ZNK5ceres8internal31BlockRandomAccessDiagonalMatrix26RightMultiplyAndAccumulateEPKdPd(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %1, ptr noundef %2)
   ret void
 }
@@ -836,11 +836,11 @@ declare hidden void @_ZNK5ceres8internal31BlockRandomAccessDiagonalMatrix26Right
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK5ceres8internal25SchurJacobiPreconditioner8num_rowsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !64
+  %3 = load ptr, ptr %2, align 8, !tbaa !63
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !91
+  %5 = load ptr, ptr %4, align 8, !tbaa !90
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !93
+  %7 = load i32, ptr %6, align 8, !tbaa !92
   ret i32 %7
 }
 
@@ -859,8 +859,8 @@ declare hidden void @_ZNK5ceres8internal14LinearOperator25LeftMultiplyAndAccumul
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK5ceres8internal14LinearOperator26RightMultiplyAndAccumulateERKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #4 comdat align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !117
-  %5 = load ptr, ptr %2, align 8, !tbaa !117
+  %4 = load ptr, ptr %1, align 8, !tbaa !116
+  %5 = load ptr, ptr %2, align 8, !tbaa !116
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -870,8 +870,8 @@ define linkonce_odr hidden void @_ZNK5ceres8internal14LinearOperator26RightMulti
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK5ceres8internal14LinearOperator25LeftMultiplyAndAccumulateERKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEERS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #4 comdat align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !117
-  %5 = load ptr, ptr %2, align 8, !tbaa !117
+  %4 = load ptr, ptr %1, align 8, !tbaa !116
+  %5 = load ptr, ptr %2, align 8, !tbaa !116
   %6 = load ptr, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -881,8 +881,8 @@ define linkonce_odr hidden void @_ZNK5ceres8internal14LinearOperator25LeftMultip
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK5ceres8internal14LinearOperator26RightMultiplyAndAccumulateERKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEERS4_PNS0_11ContextImplEi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 comdat align 2 {
-  %6 = load ptr, ptr %1, align 8, !tbaa !117
-  %7 = load ptr, ptr %2, align 8, !tbaa !117
+  %6 = load ptr, ptr %1, align 8, !tbaa !116
+  %7 = load ptr, ptr %2, align 8, !tbaa !116
   %8 = load ptr, ptr %0, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
@@ -892,8 +892,8 @@ define linkonce_odr hidden void @_ZNK5ceres8internal14LinearOperator26RightMulti
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK5ceres8internal14LinearOperator25LeftMultiplyAndAccumulateERKN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEERS4_PNS0_11ContextImplEi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 comdat align 2 {
-  %6 = load ptr, ptr %1, align 8, !tbaa !117
-  %7 = load ptr, ptr %2, align 8, !tbaa !117
+  %6 = load ptr, ptr %1, align 8, !tbaa !116
+  %7 = load ptr, ptr %2, align 8, !tbaa !116
   %8 = load ptr, ptr %0, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
@@ -969,7 +969,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZN4absl12lts_2024011612log_internal21CheckOpMessageBuilderD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %10
-  %24 = load i64, ptr %19, align 8, !tbaa !119
+  %24 = load i64, ptr %19, align 8, !tbaa !118
   %25 = add i64 %24, 1
   call void @_ZdlPvm(ptr noundef %18, i64 noundef %25) #22
   br label %_ZN4absl12lts_2024011612log_internal21CheckOpMessageBuilderD2Ev.exit
@@ -1022,7 +1022,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %1
-  %15 = load i64, ptr %10, align 8, !tbaa !119
+  %15 = load i64, ptr %10, align 8, !tbaa !118
   %16 = add i64 %15, 1
   tail call void @_ZdlPvm(ptr noundef %9, i64 noundef %16) #22
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
@@ -1164,62 +1164,61 @@ attributes #23 = { noreturn }
 !58 = distinct !{!58, !"_ZSt11make_uniqueIN5ceres8internal31BlockRandomAccessDiagonalMatrixEJRSt6vectorINS1_5BlockESaIS4_EERPNS1_11ContextImplERiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !59 = !{!60, !15, i64 0}
 !60 = !{!"_ZTSN5ceres8internal5BlockE", !15, i64 0, !15, i64 4}
-!61 = distinct !{!61, !62, !63}
+!61 = distinct !{!61, !62}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!"llvm.loop.estimated_trip_count"}
-!64 = !{!53, !53, i64 0}
-!65 = !{!46, !46, i64 0}
-!66 = !{!67, !68, i64 0}
-!67 = !{!"_ZTSN5ceres8internal12LinearSolver7OptionsE", !68, i64 0, !32, i64 4, !33, i64 8, !69, i64 12, !34, i64 16, !35, i64 20, !70, i64 24, !70, i64 25, !15, i64 28, !15, i64 32, !15, i64 36, !70, i64 40, !71, i64 48, !15, i64 56, !36, i64 64, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !70, i64 104, !15, i64 108, !15, i64 112, !39, i64 120}
-!68 = !{!"_ZTSN5ceres16LinearSolverTypeE", !10, i64 0}
-!69 = !{!"_ZTSN5ceres29DenseLinearAlgebraLibraryTypeE", !10, i64 0}
-!70 = !{!"bool", !10, i64 0}
-!71 = !{!"double", !10, i64 0}
-!72 = !{!67, !32, i64 4}
-!73 = !{!67, !15, i64 28}
-!74 = !{!67, !15, i64 32}
-!75 = !{!67, !15, i64 36}
-!76 = !{!67, !70, i64 40}
-!77 = !{!67, !71, i64 48}
-!78 = !{!67, !15, i64 56}
-!79 = !{!67, !15, i64 88}
-!80 = !{!67, !15, i64 92}
-!81 = !{!67, !15, i64 96}
-!82 = !{!67, !15, i64 100}
-!83 = !{!67, !70, i64 104}
-!84 = !{!67, !15, i64 108}
-!85 = !{!67, !15, i64 112}
-!86 = !{!67, !39, i64 120}
-!87 = !{!27, !15, i64 28}
-!88 = !{!27, !15, i64 60}
-!89 = !{!27, !15, i64 64}
-!90 = !{!27, !15, i64 56}
-!91 = !{!92, !92, i64 0}
-!92 = !{!"p1 _ZTSN5ceres8internal25CompressedRowSparseMatrixE", !9, i64 0}
-!93 = !{!94, !15, i64 8}
-!94 = !{!"_ZTSN5ceres8internal25CompressedRowSparseMatrixE", !95, i64 0, !15, i64 8, !15, i64 12, !36, i64 16, !36, i64 40, !96, i64 64, !101, i64 88, !102, i64 96, !102, i64 120}
-!95 = !{!"_ZTSN5ceres8internal12SparseMatrixE", !30, i64 0}
-!96 = !{!"_ZTSSt6vectorIdSaIdEE", !97, i64 0}
-!97 = !{!"_ZTSSt12_Vector_baseIdSaIdEE", !98, i64 0}
-!98 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE12_Vector_implE", !99, i64 0}
-!99 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !100, i64 0, !100, i64 8, !100, i64 16}
-!100 = !{!"p1 double", !9, i64 0}
-!101 = !{!"_ZTSN5ceres8internal25CompressedRowSparseMatrix11StorageTypeE", !10, i64 0}
-!102 = !{!"_ZTSSt6vectorIN5ceres8internal5BlockESaIS2_EE", !103, i64 0}
-!103 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE", !104, i64 0}
-!104 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE12_Vector_implE", !23, i64 0}
-!105 = !{!106, !107, i64 0}
-!106 = !{!"_ZTSN5ceres8internal21BlockSparseMatrixDataE", !107, i64 0, !100, i64 8}
-!107 = !{!"p1 _ZTSN5ceres8internal27CompressedRowBlockStructureE", !9, i64 0}
-!108 = !{!109, !100, i64 32}
-!109 = !{!"_ZTSN5ceres8internal17BlockSparseMatrixE", !95, i64 0, !70, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !100, i64 32, !110, i64 40, !110, i64 48}
-!110 = !{!"_ZTSSt10unique_ptrIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EE", !111, i64 0}
-!111 = !{!"_ZTSSt15__uniq_ptr_dataIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_ELb1ELb1EE", !112, i64 0}
-!112 = !{!"_ZTSSt15__uniq_ptr_implIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EE", !113, i64 0}
-!113 = !{!"_ZTSSt5tupleIJPN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EEE", !114, i64 0}
-!114 = !{!"_ZTSSt11_Tuple_implILm0EJPN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EEE", !115, i64 0}
-!115 = !{!"_ZTSSt10_Head_baseILm0EPN5ceres8internal27CompressedRowBlockStructureELb0EE", !107, i64 0}
-!116 = !{!106, !100, i64 8}
-!117 = !{!118, !100, i64 0}
-!118 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EEE", !100, i64 0, !20, i64 8}
-!119 = !{!10, !10, i64 0}
+!63 = !{!53, !53, i64 0}
+!64 = !{!46, !46, i64 0}
+!65 = !{!66, !67, i64 0}
+!66 = !{!"_ZTSN5ceres8internal12LinearSolver7OptionsE", !67, i64 0, !32, i64 4, !33, i64 8, !68, i64 12, !34, i64 16, !35, i64 20, !69, i64 24, !69, i64 25, !15, i64 28, !15, i64 32, !15, i64 36, !69, i64 40, !70, i64 48, !15, i64 56, !36, i64 64, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !69, i64 104, !15, i64 108, !15, i64 112, !39, i64 120}
+!67 = !{!"_ZTSN5ceres16LinearSolverTypeE", !10, i64 0}
+!68 = !{!"_ZTSN5ceres29DenseLinearAlgebraLibraryTypeE", !10, i64 0}
+!69 = !{!"bool", !10, i64 0}
+!70 = !{!"double", !10, i64 0}
+!71 = !{!66, !32, i64 4}
+!72 = !{!66, !15, i64 28}
+!73 = !{!66, !15, i64 32}
+!74 = !{!66, !15, i64 36}
+!75 = !{!66, !69, i64 40}
+!76 = !{!66, !70, i64 48}
+!77 = !{!66, !15, i64 56}
+!78 = !{!66, !15, i64 88}
+!79 = !{!66, !15, i64 92}
+!80 = !{!66, !15, i64 96}
+!81 = !{!66, !15, i64 100}
+!82 = !{!66, !69, i64 104}
+!83 = !{!66, !15, i64 108}
+!84 = !{!66, !15, i64 112}
+!85 = !{!66, !39, i64 120}
+!86 = !{!27, !15, i64 28}
+!87 = !{!27, !15, i64 60}
+!88 = !{!27, !15, i64 64}
+!89 = !{!27, !15, i64 56}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 _ZTSN5ceres8internal25CompressedRowSparseMatrixE", !9, i64 0}
+!92 = !{!93, !15, i64 8}
+!93 = !{!"_ZTSN5ceres8internal25CompressedRowSparseMatrixE", !94, i64 0, !15, i64 8, !15, i64 12, !36, i64 16, !36, i64 40, !95, i64 64, !100, i64 88, !101, i64 96, !101, i64 120}
+!94 = !{!"_ZTSN5ceres8internal12SparseMatrixE", !30, i64 0}
+!95 = !{!"_ZTSSt6vectorIdSaIdEE", !96, i64 0}
+!96 = !{!"_ZTSSt12_Vector_baseIdSaIdEE", !97, i64 0}
+!97 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE12_Vector_implE", !98, i64 0}
+!98 = !{!"_ZTSNSt12_Vector_baseIdSaIdEE17_Vector_impl_dataE", !99, i64 0, !99, i64 8, !99, i64 16}
+!99 = !{!"p1 double", !9, i64 0}
+!100 = !{!"_ZTSN5ceres8internal25CompressedRowSparseMatrix11StorageTypeE", !10, i64 0}
+!101 = !{!"_ZTSSt6vectorIN5ceres8internal5BlockESaIS2_EE", !102, i64 0}
+!102 = !{!"_ZTSSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE", !103, i64 0}
+!103 = !{!"_ZTSNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE12_Vector_implE", !23, i64 0}
+!104 = !{!105, !106, i64 0}
+!105 = !{!"_ZTSN5ceres8internal21BlockSparseMatrixDataE", !106, i64 0, !99, i64 8}
+!106 = !{!"p1 _ZTSN5ceres8internal27CompressedRowBlockStructureE", !9, i64 0}
+!107 = !{!108, !99, i64 32}
+!108 = !{!"_ZTSN5ceres8internal17BlockSparseMatrixE", !94, i64 0, !69, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !99, i64 32, !109, i64 40, !109, i64 48}
+!109 = !{!"_ZTSSt10unique_ptrIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EE", !110, i64 0}
+!110 = !{!"_ZTSSt15__uniq_ptr_dataIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_ELb1ELb1EE", !111, i64 0}
+!111 = !{!"_ZTSSt15__uniq_ptr_implIN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EE", !112, i64 0}
+!112 = !{!"_ZTSSt5tupleIJPN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EEE", !113, i64 0}
+!113 = !{!"_ZTSSt11_Tuple_implILm0EJPN5ceres8internal27CompressedRowBlockStructureESt14default_deleteIS2_EEE", !114, i64 0}
+!114 = !{!"_ZTSSt10_Head_baseILm0EPN5ceres8internal27CompressedRowBlockStructureELb0EE", !106, i64 0}
+!115 = !{!105, !99, i64 8}
+!116 = !{!117, !99, i64 0}
+!117 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EEE", !99, i64 0, !20, i64 8}
+!118 = !{!10, !10, i64 0}

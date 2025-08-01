@@ -5101,7 +5101,7 @@ define void @_ZN11polars_json6ndjson5write9serialize17hc32d91eebc178284E(ptr nou
   %33 = add i64 %26, 1
   store i64 %33, ptr %17, align 8, !alias.scope !518, !noalias !511
   %exitcond.not.i = icmp eq i64 %20, %9
-  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h215cd3d5322c34c3E.exit, label %19, !llvm.loop !521
+  br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h215cd3d5322c34c3E.exit, label %19
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h215cd3d5322c34c3E.exit: ; preds = %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h98d70801c236f19aE.exit.i", %12
   %34 = load ptr, ptr %6, align 8, !invariant.load !3
@@ -5963,5 +5963,3 @@ attributes #24 = { noreturn }
 !518 = !{!519}
 !519 = distinct !{!519, !520, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4c4d199de3e9c8f0E: argument 0"}
 !520 = distinct !{!520, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4c4d199de3e9c8f0E"}
-!521 = distinct !{!521, !522}
-!522 = !{!"llvm.loop.estimated_trip_count"}

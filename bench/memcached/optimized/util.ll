@@ -83,7 +83,7 @@ define dso_local noundef zeroext i1 @uriencode(ptr noundef readonly captures(non
 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %10 = load i8, ptr %9, align 1, !tbaa !16
+  %10 = load i8, ptr %9, align 1, !tbaa !15
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds nuw [256 x ptr], ptr @uriencode_map, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !11
@@ -96,7 +96,7 @@ define dso_local noundef zeroext i1 @uriencode(ptr noundef readonly captures(non
   br label %17
 
 16:                                               ; preds = %8
-  store i8 %10, ptr %14, align 1, !tbaa !16
+  store i8 %10, ptr %14, align 1, !tbaa !15
   br label %17
 
 17:                                               ; preds = %15, %16
@@ -104,12 +104,12 @@ define dso_local noundef zeroext i1 @uriencode(ptr noundef readonly captures(non
   %18 = add i64 %.026, %.sink
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %17, %4
   %.0.lcssa = phi i64 [ 0, %4 ], [ %18, %17 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.lcssa
-  store i8 0, ptr %19, align 1, !tbaa !16
+  store i8 0, ptr %19, align 1, !tbaa !15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
@@ -124,11 +124,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local noundef zeroext i1 @safe_strtoull(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #14
-  store i32 0, ptr %4, align 4, !tbaa !18
-  store i64 0, ptr %1, align 8, !tbaa !20
+  store i32 0, ptr %4, align 4, !tbaa !17
+  store i64 0, ptr %1, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   %5 = call i64 @strtoull(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #15
-  %6 = load i32, ptr %4, align 4, !tbaa !18
+  %6 = load i32, ptr %4, align 4, !tbaa !17
   %7 = icmp eq i32 %6, 34
   br i1 %7, label %28, label %8
 
@@ -140,7 +140,7 @@ define dso_local noundef zeroext i1 @safe_strtoull(ptr noundef %0, ptr noundef w
 11:                                               ; preds = %8
   %12 = tail call ptr @__ctype_b_loc() #14
   %13 = load ptr, ptr %12, align 8, !tbaa !4
-  %14 = load i8, ptr %9, align 1, !tbaa !16
+  %14 = load i8, ptr %9, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !9
@@ -163,7 +163,7 @@ define dso_local noundef zeroext i1 @safe_strtoull(ptr noundef %0, ptr noundef w
   br i1 %.not11, label %27, label %28
 
 27:                                               ; preds = %22, %20
-  store i64 %5, ptr %1, align 8, !tbaa !20
+  store i64 %5, ptr %1, align 8, !tbaa !19
   br label %28
 
 28:                                               ; preds = %11, %22, %2, %8, %27
@@ -185,11 +185,11 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 define dso_local noundef zeroext i1 @safe_strtoull_hex(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #14
-  store i32 0, ptr %4, align 4, !tbaa !18
-  store i64 0, ptr %1, align 8, !tbaa !20
+  store i32 0, ptr %4, align 4, !tbaa !17
+  store i64 0, ptr %1, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   %5 = call i64 @strtoull(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 16) #15
-  %6 = load i32, ptr %4, align 4, !tbaa !18
+  %6 = load i32, ptr %4, align 4, !tbaa !17
   %7 = icmp eq i32 %6, 34
   br i1 %7, label %28, label %8
 
@@ -201,7 +201,7 @@ define dso_local noundef zeroext i1 @safe_strtoull_hex(ptr noundef %0, ptr nound
 11:                                               ; preds = %8
   %12 = tail call ptr @__ctype_b_loc() #14
   %13 = load ptr, ptr %12, align 8, !tbaa !4
-  %14 = load i8, ptr %9, align 1, !tbaa !16
+  %14 = load i8, ptr %9, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !9
@@ -224,7 +224,7 @@ define dso_local noundef zeroext i1 @safe_strtoull_hex(ptr noundef %0, ptr nound
   br i1 %.not11, label %27, label %28
 
 27:                                               ; preds = %22, %20
-  store i64 %5, ptr %1, align 8, !tbaa !20
+  store i64 %5, ptr %1, align 8, !tbaa !19
   br label %28
 
 28:                                               ; preds = %11, %22, %2, %8, %27
@@ -237,11 +237,11 @@ define dso_local noundef zeroext i1 @safe_strtoull_hex(ptr noundef %0, ptr nound
 define dso_local noundef zeroext i1 @safe_strtoll(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #14
-  store i32 0, ptr %4, align 4, !tbaa !18
-  store i64 0, ptr %1, align 8, !tbaa !20
+  store i32 0, ptr %4, align 4, !tbaa !17
+  store i64 0, ptr %1, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   %5 = call i64 @strtoll(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #15
-  %6 = load i32, ptr %4, align 4, !tbaa !18
+  %6 = load i32, ptr %4, align 4, !tbaa !17
   %7 = icmp eq i32 %6, 34
   br i1 %7, label %21, label %8
 
@@ -253,7 +253,7 @@ define dso_local noundef zeroext i1 @safe_strtoll(ptr noundef %0, ptr noundef wr
 11:                                               ; preds = %8
   %12 = tail call ptr @__ctype_b_loc() #14
   %13 = load ptr, ptr %12, align 8, !tbaa !4
-  %14 = load i8, ptr %9, align 1, !tbaa !16
+  %14 = load i8, ptr %9, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !9
@@ -264,7 +264,7 @@ define dso_local noundef zeroext i1 @safe_strtoll(ptr noundef %0, ptr noundef wr
   br i1 %or.cond, label %20, label %21
 
 20:                                               ; preds = %11
-  store i64 %5, ptr %1, align 8, !tbaa !20
+  store i64 %5, ptr %1, align 8, !tbaa !19
   br label %21
 
 21:                                               ; preds = %11, %2, %8, %20
@@ -281,11 +281,11 @@ define dso_local noundef zeroext i1 @safe_strtoul(ptr noundef %0, ptr noundef wr
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   store ptr null, ptr %3, align 8, !tbaa !11
-  store i32 0, ptr %1, align 4, !tbaa !18
+  store i32 0, ptr %1, align 4, !tbaa !17
   %4 = tail call ptr @__errno_location() #14
-  store i32 0, ptr %4, align 4, !tbaa !18
+  store i32 0, ptr %4, align 4, !tbaa !17
   %5 = call i64 @strtoul(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #15
-  %6 = load i32, ptr %4, align 4, !tbaa !18
+  %6 = load i32, ptr %4, align 4, !tbaa !17
   %7 = icmp eq i32 %6, 34
   br i1 %7, label %29, label %8
 
@@ -297,7 +297,7 @@ define dso_local noundef zeroext i1 @safe_strtoul(ptr noundef %0, ptr noundef wr
 11:                                               ; preds = %8
   %12 = tail call ptr @__ctype_b_loc() #14
   %13 = load ptr, ptr %12, align 8, !tbaa !4
-  %14 = load i8, ptr %9, align 1, !tbaa !16
+  %14 = load i8, ptr %9, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !9
@@ -321,7 +321,7 @@ define dso_local noundef zeroext i1 @safe_strtoul(ptr noundef %0, ptr noundef wr
 
 27:                                               ; preds = %22, %20
   %28 = trunc i64 %5 to i32
-  store i32 %28, ptr %1, align 4, !tbaa !18
+  store i32 %28, ptr %1, align 4, !tbaa !17
   br label %29
 
 29:                                               ; preds = %11, %22, %2, %8, %27
@@ -337,11 +337,11 @@ declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 nound
 define dso_local noundef zeroext i1 @safe_strtol(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #14
-  store i32 0, ptr %4, align 4, !tbaa !18
-  store i32 0, ptr %1, align 4, !tbaa !18
+  store i32 0, ptr %4, align 4, !tbaa !17
+  store i32 0, ptr %1, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   %5 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #15
-  %6 = load i32, ptr %4, align 4, !tbaa !18
+  %6 = load i32, ptr %4, align 4, !tbaa !17
   %7 = icmp eq i32 %6, 34
   br i1 %7, label %22, label %8
 
@@ -353,7 +353,7 @@ define dso_local noundef zeroext i1 @safe_strtol(ptr noundef %0, ptr noundef wri
 11:                                               ; preds = %8
   %12 = tail call ptr @__ctype_b_loc() #14
   %13 = load ptr, ptr %12, align 8, !tbaa !4
-  %14 = load i8, ptr %9, align 1, !tbaa !16
+  %14 = load i8, ptr %9, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !9
@@ -365,7 +365,7 @@ define dso_local noundef zeroext i1 @safe_strtol(ptr noundef %0, ptr noundef wri
 
 20:                                               ; preds = %11
   %21 = trunc i64 %5 to i32
-  store i32 %21, ptr %1, align 4, !tbaa !18
+  store i32 %21, ptr %1, align 4, !tbaa !17
   br label %22
 
 22:                                               ; preds = %11, %2, %8, %20
@@ -381,11 +381,11 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 define dso_local noundef zeroext i1 @safe_strtod(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #14
-  store i32 0, ptr %4, align 4, !tbaa !18
-  store double 0.000000e+00, ptr %1, align 8, !tbaa !22
+  store i32 0, ptr %4, align 4, !tbaa !17
+  store double 0.000000e+00, ptr %1, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   %5 = call double @strtod(ptr noundef %0, ptr noundef nonnull %3) #15
-  %6 = load i32, ptr %4, align 4, !tbaa !18
+  %6 = load i32, ptr %4, align 4, !tbaa !17
   %7 = icmp eq i32 %6, 34
   br i1 %7, label %21, label %8
 
@@ -397,7 +397,7 @@ define dso_local noundef zeroext i1 @safe_strtod(ptr noundef %0, ptr noundef wri
 11:                                               ; preds = %8
   %12 = tail call ptr @__ctype_b_loc() #14
   %13 = load ptr, ptr %12, align 8, !tbaa !4
-  %14 = load i8, ptr %9, align 1, !tbaa !16
+  %14 = load i8, ptr %9, align 1, !tbaa !15
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw i16, ptr %13, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !9
@@ -408,7 +408,7 @@ define dso_local noundef zeroext i1 @safe_strtod(ptr noundef %0, ptr noundef wri
   br i1 %or.cond, label %20, label %21
 
 20:                                               ; preds = %11
-  store double %5, ptr %1, align 8, !tbaa !22
+  store double %5, ptr %1, align 8, !tbaa !21
   br label %21
 
 21:                                               ; preds = %11, %2, %8, %20
@@ -429,23 +429,23 @@ define dso_local zeroext i1 @safe_strcpy(ptr noundef writeonly captures(none) %0
 .lr.ph:                                           ; preds = %3, %7
   %.014 = phi i64 [ %9, %7 ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.014
-  %6 = load i8, ptr %5, align 1, !tbaa !16
+  %6 = load i8, ptr %5, align 1, !tbaa !15
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %.critedge, label %7
 
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.014
-  store i8 %6, ptr %8, align 1, !tbaa !16
+  store i8 %6, ptr %8, align 1, !tbaa !15
   %9 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %9, %4
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !23
 
 .critedge:                                        ; preds = %.lr.ph, %7, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %4, %7 ], [ %.014, %.lr.ph ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.lcssa
-  store i8 0, ptr %10, align 1, !tbaa !16
+  store i8 0, ptr %10, align 1, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.lcssa
-  %12 = load i8, ptr %11, align 1, !tbaa !16
+  %12 = load i8, ptr %11, align 1, !tbaa !15
   %13 = icmp eq i8 %12, 0
   ret i1 %13
 }
@@ -459,15 +459,15 @@ define dso_local zeroext i1 @safe_memcmp(ptr noundef %0, ptr noundef %1, i64 nou
   %.014 = phi i64 [ %11, %.lr.ph ], [ 0, %3 ]
   %.01113 = phi i32 [ %10, %.lr.ph ], [ 0, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.014
-  %5 = load volatile i8, ptr %4, align 1, !tbaa !16
+  %5 = load volatile i8, ptr %4, align 1, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.014
-  %7 = load volatile i8, ptr %6, align 1, !tbaa !16
+  %7 = load volatile i8, ptr %6, align 1, !tbaa !15
   %8 = xor i8 %7, %5
   %9 = zext i8 %8 to i32
   %10 = or i32 %.01113, %9
   %11 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %11, %2
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = icmp eq i32 %10, 0
@@ -483,7 +483,7 @@ define dso_local void @vperror(ptr noundef readonly captures(none) %0, ...) loca
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = tail call ptr @__errno_location() #14
-  %5 = load i32, ptr %4, align 4, !tbaa !18
+  %5 = load i32, ptr %4, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2) #15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -493,12 +493,12 @@ define dso_local void @vperror(ptr noundef readonly captures(none) %0, ...) loca
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1023
-  store i8 0, ptr %9, align 1, !tbaa !16
+  store i8 0, ptr %9, align 1, !tbaa !15
   br label %10
 
 10:                                               ; preds = %8, %1
   call void @llvm.va_end.p0(ptr nonnull %3)
-  store i32 %5, ptr %4, align 4, !tbaa !18
+  store i32 %5, ptr %4, align 4, !tbaa !17
   call void @perror(ptr noundef nonnull %2) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #15
@@ -531,7 +531,7 @@ define dso_local i64 @ntohll(i64 noundef %0) local_unnamed_addr #13 {
   %6 = lshr i64 %.078.i, 8
   %7 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %7, 8
-  br i1 %exitcond.not.i, label %mc_swap64.exit, label %2, !llvm.loop !26
+  br i1 %exitcond.not.i, label %mc_swap64.exit, label %2, !llvm.loop !25
 
 mc_swap64.exit:                                   ; preds = %2
   ret i64 %5
@@ -551,7 +551,7 @@ define dso_local i64 @htonll(i64 noundef %0) local_unnamed_addr #13 {
   %6 = lshr i64 %.078.i, 8
   %7 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %7, 8
-  br i1 %exitcond.not.i, label %mc_swap64.exit, label %2, !llvm.loop !26
+  br i1 %exitcond.not.i, label %mc_swap64.exit, label %2, !llvm.loop !25
 
 mc_swap64.exit:                                   ; preds = %2
   ret i64 %5
@@ -591,17 +591,16 @@ attributes #17 = { cold }
 !10 = !{!"short", !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 omnipotent char", !6, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.estimated_trip_count"}
-!16 = !{!7, !7, i64 0}
-!17 = distinct !{!17, !14, !15}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !7, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"long", !7, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"double", !7, i64 0}
-!24 = distinct !{!24, !14, !15}
-!25 = distinct !{!25, !14, !15}
-!26 = distinct !{!26, !14, !15}
+!15 = !{!7, !7, i64 0}
+!16 = distinct !{!16, !14}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"int", !7, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long", !7, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"double", !7, i64 0}
+!23 = distinct !{!23, !14}
+!24 = distinct !{!24, !14}
+!25 = distinct !{!25, !14}

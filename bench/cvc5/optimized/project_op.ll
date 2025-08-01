@@ -54,7 +54,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internall
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %16)
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 4
   %.not = icmp eq ptr %18, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 19:                                               ; preds = %._crit_edge, %7
   ret ptr %0
@@ -86,21 +86,21 @@ define hidden noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9Pr
   %9 = add i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 4
   %.not = icmp eq ptr %10, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4cvc58internal9ProjectOpC2ESt6vectorIjSaIjEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef captures(none) %1) unnamed_addr #6 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !13
-  store ptr %3, ptr %0, align 8, !tbaa !13
+  %3 = load ptr, ptr %1, align 8, !tbaa !10
+  store ptr %3, ptr %0, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !15
-  store ptr %6, ptr %4, align 8, !tbaa !15
+  %6 = load ptr, ptr %5, align 8, !tbaa !12
+  store ptr %6, ptr %4, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !16
-  store ptr %9, ptr %7, align 8, !tbaa !16
+  %9 = load ptr, ptr %8, align 8, !tbaa !13
+  store ptr %9, ptr %7, align 8, !tbaa !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   ret void
 }
@@ -108,14 +108,14 @@ define hidden void @_ZN4cvc58internal9ProjectOpC2ESt6vectorIjSaIjEE(ptr noundef 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal9ProjectOpeqERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !15
-  %5 = load ptr, ptr %0, align 8, !tbaa !13
+  %4 = load ptr, ptr %3, align 8, !tbaa !12
+  %5 = load ptr, ptr %0, align 8, !tbaa !10
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !15
-  %11 = load ptr, ptr %1, align 8, !tbaa !13
+  %10 = load ptr, ptr %9, align 8, !tbaa !12
+  %11 = load ptr, ptr %1, align 8, !tbaa !10
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
@@ -178,10 +178,7 @@ attributes #11 = { nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !6, i64 0}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.estimated_trip_count"}
-!12 = distinct !{!12, !11}
-!13 = !{!14, !4, i64 0}
-!14 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
-!15 = !{!14, !4, i64 8}
-!16 = !{!14, !4, i64 16}
+!10 = !{!11, !4, i64 0}
+!11 = !{!"_ZTSNSt12_Vector_baseIjSaIjEE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
+!12 = !{!11, !4, i64 8}
+!13 = !{!11, !4, i64 16}

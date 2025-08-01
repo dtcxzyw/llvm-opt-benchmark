@@ -248,7 +248,7 @@ define void @dlaed6_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %170 = fmul double %spec.select24.i, %168
   %spec.select.i = select i1 %.not17.i, double %spec.select24.i, double %170
   %.not18.i = icmp samesign ult i64 %.023.i, 4
-  br i1 %.not18.i, label %dpow_ui.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not18.i, label %dpow_ui.exit, label %.lr.ph.i
 
 dpow_ui.exit:                                     ; preds = %.lr.ph.i, %153, %162
   %.011.i = phi double [ 1.000000e+00, %153 ], [ %spec.select20.i, %162 ], [ %spec.select.i, %.lr.ph.i ]
@@ -300,7 +300,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %153, %16
   store double %197, ptr %198, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %199, label %189, !llvm.loop !11
+  br i1 %exitcond.not, label %199, label %189, !llvm.loop !9
 
 199:                                              ; preds = %189
   %.435 = select i1 %188, double %.011.i, double %172
@@ -338,7 +338,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %153, %16
   %218 = fadd double %.0381448, %214
   %indvars.iv.next472 = add nuw nsw i64 %indvars.iv471, 1
   %exitcond474.not = icmp eq i64 %indvars.iv.next472, 4
-  br i1 %exitcond474.not, label %219, label %204, !llvm.loop !13
+  br i1 %exitcond474.not, label %219, label %204, !llvm.loop !11
 
 219:                                              ; preds = %204
   %220 = load double, ptr %5, align 8, !tbaa !7
@@ -483,7 +483,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %153, %16
   %318 = fadd double %.2383453, %310
   %indvars.iv.next476 = add nuw nsw i64 %indvars.iv475, 1
   %exitcond478.not = icmp eq i64 %indvars.iv.next476, 4
-  br i1 %exitcond478.not, label %319, label %298, !llvm.loop !14
+  br i1 %exitcond478.not, label %319, label %298, !llvm.loop !12
 
 319:                                              ; preds = %304
   %320 = load double, ptr %5, align 8, !tbaa !7
@@ -514,7 +514,7 @@ dpow_ui.exit:                                     ; preds = %.lr.ph.i, %153, %16
   %..6 = select i1 %339, double %storemerge, double %.6459
   %340 = add nuw nsw i32 %.0393455, 1
   %exitcond479.not = icmp eq i32 %340, 41
-  br i1 %exitcond479.not, label %341, label %231, !llvm.loop !15
+  br i1 %exitcond479.not, label %341, label %231, !llvm.loop !13
 
 341:                                              ; preds = %338
   store i32 1, ptr %7, align 4, !tbaa !3
@@ -582,9 +582,7 @@ attributes #7 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
 !9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.estimated_trip_count"}
-!11 = distinct !{!11, !12, !10}
-!12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12, !10}
-!14 = distinct !{!14, !12, !10}
-!15 = distinct !{!15, !12, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10}
+!12 = distinct !{!12, !10}
+!13 = distinct !{!13, !10}
